@@ -259,6 +259,10 @@ if (getState("hm-rpc.0.MEQ01234567.2.STATE").val == true) {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.3.0 (2023-11-08)
 * (mcm1957) Adapter requires nodejs 16 now.
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organisation.

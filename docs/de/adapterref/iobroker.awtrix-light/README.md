@@ -20,8 +20,8 @@ chapters: {"pages":{"de/adapterref/iobroker.awtrix-light/README.md":{"title":{"d
 
 ## Anforderungen
 
-- nodejs 14.5 (oder neuer)
-- js-controller 4.0.15 (oder neuer)
+- nodejs 18 (oder neuer)
+- js-controller 5.0.0 (oder neuer)
 - Admin Adapter 6.6.0 (oder neuer)
 - _Awtrix 3_ Gerät mit Firmware-Version _0.96_ (oder neuer) - z.B. Ulanzi TC001
 
@@ -199,8 +199,9 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2024-04-04)
 
+NodeJS >= 18.x and js-controller >= 5 is required
 Updated recommended firmware version to 0.96
 
 ### 0.16.0 (2024-03-12)
@@ -222,10 +223,6 @@ Updated recommended firmware version to 0.95
 ### 0.14.1 (2024-03-06)
 
 * (klein0r) Fixed roles of calendar header, body and text (rgb)
-
-### 0.14.0 (2024-02-20)
-
-* (klein0r) Allow to round numbers dynamically (depends on length)
 
 ## License
 MIT License

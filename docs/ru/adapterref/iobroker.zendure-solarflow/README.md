@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-солнечный поток
-hash: LksJ3XoR/hq1ue0Dqkmx1LAmrMtF0rtklzo3Ch1lFLo=
+hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -21,15 +21,21 @@ hash: LksJ3XoR/hq1ue0Dqkmx1LAmrMtF0rtklzo3Ch1lFLo=
 Этот проект представляет собой адаптер ioBroker для чтения данных из Zendure Solarflow Cloud API. Он использует официальный API, предоставленный Zendure.
 Подробнее об API можно прочитать здесь: https://github.com/Zendure/developer-device-data-report.
 
-Примечания:
+## Функции
+- Получите все данные телеметрии с ваших устройств Solarflow, в том числе те, которые не отображаются в официальном приложении, например напряжение батареи.
+- Управляйте своим Solarflow HUB, как в официальном приложении. Доступна большая часть настроек.
+- Контролируйте предел выходной мощности — вы не ограничены в использовании Shelly Pro EM для реализации нулевой подачи. Вы также можете разрабатывать более сложные сценарии с помощью скрипта или блочно в ioBroker.
+- Прекратите подачу питания, если напряжение одной батареи упадет до низкого напряжения (защита батареи). Работает только при установке лимита вывода через адаптер
+- Управляйте более чем одним Solarflow одновременно!
+- Получите более точные расчеты!
+- Работает со всеми устройствами Zendure SolarFlow: HUB1200 (проверено), HUB2000 и AIO (оба не тестировались)!
 
-1. В настоящее время работает только с устройствами SolarFlow (на данный момент проверено только с HUB1200). AIO не поддерживается (поскольку у меня нет такого устройства..)
-
-2. Ограничением вывода можно управлять с помощью состояния, созданного в подпапке productId/deviceKey/control. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, иначе установить ограничение вывода невозможно!
+## Примечания
+1. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, иначе невозможно будет установить предел вывода!
 
    ![Окно настроек Solarflow](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
-3. После входа в систему с помощью адаптера ioBroker вы выйдете из официального приложения iOS или Android. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить этой учетной записи доступ к вашему Solarflow HUB. Затем используйте вторую учетную запись для ioBroker/адаптера Zendure Solarflow.
+2. После входа в систему с помощью адаптера ioBroker вы выйдете из официального приложения iOS или Android. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить этой учетной записи доступ к вашему Solarflow HUB. Затем используйте вторую учетную запись для ioBroker/адаптера Zendure Solarflow.
 
 ## Кредиты
 Благодарность передается по адресу https://github.com/reinhard-brandstaedter/solarflow, который очень помог мне получить знания о сервере MQTT от Zendure! Спасибо!
@@ -38,6 +44,32 @@ hash: LksJ3XoR/hq1ue0Dqkmx1LAmrMtF0rtklzo3Ch1lFLo=
 Если вы считаете адаптер полезным для себя и хотите поддержать мою работу, сделайте пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая отношения к проекту ioBroker!)<br />
 
 ## Changelog
+### 1.4.0 (2024-04-03)
+
+- Add calculation states for solar input 1 & 2
+- Add states for wifiState, hubState, pvBrand and inverseMaxPower
+- Rename missleading title for input field 'Username' in settings to 'E-Mail'
+- Fix energyWh, energyWhMax and SOC in calculations if "Low Voltage Check" is not used, it will set the calculation soc to 0 if minSoc (discharge limit) is reached
+- Fix password input in settings
+
+### 1.3.0 (2024-03-26)
+
+- Fix calculation for outputPackEnergy and packInputEnergy
+- Trigger full telemetry update on adapter start
+- Add state and control for buzzer switch
+- Add state and control for bypass mode and automatic reset of bypass mode next day
+- Add states for pass (Bypass on/off), autoRecover (auto-mode for Bypass next day) and passMode (current bypass mode)
+- Add efficiency factor for calculations (96% charging, 92%-98%\* for discharging - based on measuring from VoltAmpereLux Youtube channel - THANKS!)
+- Changed calculations timeframe from 10secs to 30secs (performance related)
+
+### 1.2.5 (2024-03-19)
+
+- Fix error "Read-only" state written without ack-flag
+
+### 1.2.4 (2024-03-18)
+
+- Use setInterval instead of cronjob for refreshing access token
+
 ### 1.2.3 (2024-03-15)
 
 - Fix ACK on onStateChange

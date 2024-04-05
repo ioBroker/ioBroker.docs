@@ -2,28 +2,26 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi-protect/README.md
-title: ioBroker.unifi-защита
-hash: QANKqdkfOjhoVCrxVCEXj04jEbvXlS9y2vBQjNABsrA=
+title: ioBroker.unifi-protect
+hash: ezNKLsW90QDTZEKqD4GqCIgZ9s9wK0rue0cj0MorYTk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.unifi-protect.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.unifi-protect.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.unifi-protect.svg)
-![Количество установок (последние)](http://iobroker.live/badges/unifi-protect-installed.svg)
+![Количество установок (последних)](http://iobroker.live/badges/unifi-protect-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/unifi-protect-stable.svg)
-![Статус зависимости](https://img.shields.io/david/peterbaumert/iobroker.unifi-protect.svg)
+![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.unifi-protect.svg)
 ![Известные уязвимости](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)
 
-# IoBroker.unifi-защита
-**Этот адаптер использует службу [Sentry.io](https://sentry.io), чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода, а также о новых схемах устройств.** Подробнее см. ниже!
-
+# IoBroker.unifi-protect
 ## Адаптер unifi-protect для ioBroker
 Подключается к контроллеру Unifi Protect и извлекает все данные с добавленных камер.
 
-Стандартные порты, если не изменены самостоятельно:
+Стандартные порты, если они не были изменены вами:
 
- - Облачный ключ Plus Gen2: 7443
+ - Cloud Key Plus Gen2: 7443
  - УДМ Про: 443
 
 ## Примеры для getThumbnail и getSnapshot
@@ -63,21 +61,24 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 });
 ```
 
-## Что такое Sentry.io и что передается на серверы этой компании?
-Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок их приложений. И именно это реализовано в данном адаптере.
-
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, также включается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, электронной почте, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
+## Кредиты
+Этот адаптер был бы невозможен без огромной работы Питера Баумерта <ioBroker.unifi-protect@outlook.com>, который реализовал первую версию этого адаптера.
 
 ## Использование кода
-Код в [Protect_api](./protect_api) в основном скопирован из [hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
+Код в [Protect_api](./protect_api) в основном копируется из файла [hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
 Большое спасибо за предоставление этого кода. Его коды лицензии вы можете найти [здесь](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
 
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## **WORK IN PROGRESS**
+    ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2024-03-28)
+* (mcm1957) BREAKING: Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
+* (mcm1957) Dependencies have been updated
+
 ### 0.0.13 (2023-01-23)
 * dependencies updates
 * first implementation of realtime updates api
@@ -136,6 +137,7 @@ Sentry.io — это сервис для разработчиков, позво�
 ## License
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

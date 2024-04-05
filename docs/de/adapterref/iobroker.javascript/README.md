@@ -57,33 +57,48 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 7.9.1 (2024-03-15)
+### **WORK IN PROGRESS**
 
-* (klein0r) Configurable trigger warning limit (default: 100 per script)
-* (klein0r) Allow to use objects in create state blocks for common
-* (klein0r) Added warning if latitude or longitude is not configured correctly
+NodeJS >= 18.x and js-controller >= 5 is required
 
-### 7.9.0 (2024-03-13)
+* (klein0r) Breaking change: Removed support for binary states (deprecated since v6.2.0)
+* (klein0r) Breaking change: Protected filesystem (iobroker-data/files) to prevent direct file writes
+* (klein0r) Added missing functions to protectFS
+* (klein0r) Fixed httpPost (missing data)
+* (klein0r) Fixed hasAttribute blockly block
+* (klein0r) Fixed parenthesis insertion in blockly for multi and/or
+* (PeterVoronov) Added setStateChanged / setStateChangedAsync
 
-* (klein0r) Added block to create new objects
-* (klein0r) Added HTTP get and post function
-* (klein0r) Droped support of coffeescript (deprecated since version 6.0.0)
-* (klein0r) Raise warning if more than 100 triggers have been registered (per script)
-* (klein0r) Fixed astro state calculation (and display server time in dialog)
+### 7.11.1 (2024-03-28)
 
-### 7.8.0 (2024-01-29)
+* (klein0r) Added exec result blockly block
+* (klein0r) Protect iobroker-data/files to avoid direct writes with node:fs
+* (klein0r) Escape single quotes in blockly obj attributes
 
-* (klein0r) Added block for multiple or conditions
-* (klein0r) Raised supported ecmaVersion from es2018 to es2021
-* (klein0r) Fixed getIdByName (returned the same id as array)
+### 7.11.0 (2024-03-26)
 
-### 7.7.0 (2024-01-14)
+* (klein0r) Added blockly block for read and write file
+* (klein0r) Allow to select other object types than state in some blocks
+* (klein0r) Improved translations
+* (klein0r) Removed 'type' from dropdown (is always 'state')
+* (klein0r) Use highlight in search (instead of select)
+* (klein0r) Added option for httpGet to receive arraybuffer (download files)
 
-* (klein0r) Added block for multiple and conditions
+### 7.10.2 (2024-03-25)
 
-### 7.6.3 (2024-01-11)
+* (klein0r) Fixed httpGet/httpPost issue when using without options
+* (klein0r) Updated integration testing
+* (klein0r) Protect jsonl file access
 
-* (klein0r) Fixed bug in formatTimeDiff Blockly
+### 7.10.1 (2024-03-22)
+
+* (klein0r) Fixed cron trigger
+
+### 7.10.0 (2024-03-21)
+
+* (klein0r) Added warning icon if state value is connected to trigger block (instead of object id)
+* (klein0r) Copy date object in getAstroDate
+* (klein0r) Added object id as tooltip
 
 ## License
 The MIT License (MIT)

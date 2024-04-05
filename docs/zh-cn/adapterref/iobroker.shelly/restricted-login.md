@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/restricted-login.md
 title: ioBroker.shelly
-hash: Jz01hRDR/meJiTU4NFp+7LH30ano1xPtvf9w2dei7to=
+hash: z4prGm23mwxbuAqkkSpvIWqMry4F0JXvb33oN/DV+6g=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -20,10 +20,10 @@ hash: Jz01hRDR/meJiTU4NFp+7LH30ano1xPtvf9w2dei7to=
 
 **重要的：**
 
-- 第 2 代设备不提供用户名选项 - 用户名可以自由选择，但仅与第 1 代设备相关
+- 第 2 代以上设备不提供用户名选项 - 用户名可以自由选择，但仅与第 1 代设备相关
 - 在Shelly实例中设置的所有设备上配置相同的密码
     - 第一代：从实例配置用户名和密码
-    - 第 2 代：仅从实例设置中配置密码
+    - 第 2+ 代：仅从实例设置中配置密码
 
 ### 警告
 如果在 ioBroker 中配置了设备密码，如果某些 Shelly 设备未受保护，适配器将向日志写入警告！
@@ -33,7 +33,7 @@ hash: Jz01hRDR/meJiTU4NFp+7LH30ano1xPtvf9w2dei7to=
 - 可以在适配器的配置中删除密码（= 无需密码）或
 - 可以在所有 Shelly 设备上激活受保护的访问
 
-### 第 2 代设备（Plus 和 Pro）
+### 第 2 代以上设备（Plus 和 Pro）
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）
 2. 转到“设置 -> 身份验证”
 3.激活密码功能，输入刚才配置的密码

@@ -382,6 +382,9 @@ Der Kanal stellt Batteriesepzifische Daten bereit, wie die Anzahl an Ladezyklen.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.18.0 (2024-03-18)
+* (foxriver76) added new inverter and powermeter states
+
 ### 1.17.0 (2023-12-20)
 * (foxriver76) sync brightness status of eclipse led
 * (foxriver76) fixed issue with eclipse led status (closes #293)

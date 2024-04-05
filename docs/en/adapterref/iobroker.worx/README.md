@@ -123,10 +123,17 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
     -   `US.ACS`: Enable or disable ACS - 1-on/0-off
 
 -   EA Module (Vision only)
-    -   `EA.h`: Height adjustment of mower deck from 30-60 in 5 mm increments
+
+    -   `EA.height`: Height adjustment of mower deck from 30-60 in 5 mm increments
+
+-   HL Module (Vision only)
+    -   `HL.status`: Status head light
+    -   `HL.enabled`: Head light installed yes = 1/no = 0
+    -   `HL.on`: Daylight = 0/Darkness = 1
 
 ![Module img/module.png](img/module.png)
 ![Module img/module_ea.png](img/module_ea.png)
+![Module img/module_hl.png](img/module_hl.png)
 
 ### mower (Wire and Vision)
 
@@ -137,6 +144,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `batteryState`: Battery state in % (wire & Vision/readonly)
 -   `batteryTemperature`: Battery temperature in celsius (wire & Vision/readonly)
 -   `batteryVoltage`: Battery voltage in Volt (wire & Vision/readonly)
+-   `cutOverSlabs`: Cut over slabs on = true / off = false (Vision/changeable)
 -   `direction`: Direction in grad (wire & Vision/readonly)
 -   `edgecut`: Start EdgeCut (wire & Vision/changeable)
 -   `error`: Error message from mower (wire & Vision/readonly)
@@ -190,6 +198,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```
 
 -   `firmware_available_date`: Date available firmware - Dummy 1970-01-01 when the adapter is reinstalled and no update is available (wire & Vision/readonly)
+-   `firmware_body` Value from dat.fw (Vision/readonly)
+-   `firmware_head` Value from dat.head.fw (Vision/readonly)
 -   `firmware_update_start`: Start firmware update in 2 steps (wire & Vision/changeable)
 -   `firmware_update_start_approved`: Start firmware update - `firmware_update_start` must be set to true (wire & Vision/changeable)
 -   `gradient`: Gradient in grad (wire & Vision/readonly)
@@ -211,9 +221,10 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 }
 ```
 
--   `oneTimeStart`: One-time mowing start "first fill oneTimeWithBorder and oneTimeWorkTime" - with a 1,1 second delay (wire & Vision/changeable)
+-   `oneTimeStart`: One-time mowing start “First set oneTimeWithBorder, oneTimeWorkTime and oneTimeZones for Vision” - with a 1,1 second delay (wire & Vision/changeable)
 -   `oneTimeWithBorder`: With bordercut - Change value without delay (wire & Vision/changeable)
 -   `oneTimeWorkTime`: Worktime max. 8h in 30 minute steps - Change value without delay (wire & Vision/changeable)
+-   `oneTimeZones`: Set zones [1,2,4] (Vision/changeable)
 -   `online`: Mower online (wire & Vision/readonly)
 -   `partyModus`: Partymodus turn on/off (wire & Vision/changeable)
 -   `pause`: Mower break turn on/off (wire & Vision/changeable)
@@ -713,6 +724,10 @@ Default without zone:
 -   (Lucky-ESA) Catch publish crash
 -   (Lucky-ESA) Added for Vision electric height adjustment
 -   (Lucky-ESA) Added for Vision new calendar
+-   (Lucky-ESA) Added head light
+-   (Lucky-ESA) Added cut over slabs
+-   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
 
 ### 2.3.4 (2023-10-19)
 

@@ -17,12 +17,12 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
+hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-Это немецкая документация - [🇺🇸Немецкая версия](../en/README.md).
+Это немецкая документация - [🇺🇸 Английская версия](../en/README.md).
 
 ## Оглавление
 - [Протокол MQTT](protocol-mqtt.md)
@@ -33,15 +33,15 @@ hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
 - [FAQ](faq.md)
 
 ## Требования
-1. Node.js 16.0 (или новее)
-2. js-контроллер 3.3.22 (или новее)
+1. Node.js 18 (или новее)
+2. js-контроллер 5.0.0 (или новее)
 4. Адаптер администратора 6.0.0 (или новее)
 
 ## Поколения устройств
 Дополнительную информацию см. в разделе *поддерживаемые устройства*.
 
-- **Gen1**: устройства ESP8266, [CoAP/CoIoT](protocol-coap.md) или [MQTT](protocol-mqtt.md).
-- **Gen2**: устройства ESP32, [MQTT](protocol-mqtt.md).
+- **Поколение 1**: устройства ESP8266, [CoAP/CoIoT](protocol-coap.md) или [MQTT](protocol-mqtt.md).
+- **Поколение 2+**: устройства ESP32, [MQTT](protocol-mqtt.md)
 
 ## В целом
 Адаптер может обмениваться данными с устройствами через MQTT (рекомендуется) или CoAP/CoIoT.
@@ -60,6 +60,17 @@ hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (svenbluege) Added Shelly 1 PM Mini (Gen3)
+
+### 6.9.0 (2024-03-12)
+
+* (klein0r) Added Shelly Plus 0-10V
+* (klein0r) Admin notification for available firmware updates
+
 ### 6.8.0 (2024-02-17)
 
 * (klein0r) Updated BLE script to 0.2 (new shelly motion firmware)
@@ -80,12 +91,6 @@ hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
 ### 6.6.0 (2023-10-17)
 
 * (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
-
-### 6.5.0 (2023-10-17)
-
-* (klein0r) Added Shelly Plus Smoke
-* (klein0r) Added Shelly Bluetooth Low Energy Gateway
-* (theimo1221) More Shelly TRV Datapoints
 
 ## License
 

@@ -2,37 +2,56 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.scheduler/README.md
-title: ioBroker 调度程序适配器
-hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
+title: ioBroker 调度适配器
+hash: 32jCsXKqdnXNCB4EKsz3xjm452DBZjh48kYgvIr3Mgc=
 ---
 ![标识](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
 ![安装数量](http://iobroker.live/badges/scheduler-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.scheduler.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.scheduler.svg)
-![NPM](https://nodei.co/npm/iobroker.scheduler.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.scheduler.png?downloads=true)
 
-# IoBroker 调度程序适配器
-此适配器旨在按计划控制设备。例如，加热或浇水控制。
+# IoBroker 调度适配器
+该适配器旨在按计划控制设备。例如，加热或浇水控制。
 
-您可以创建具有不同优先级的配置文件：正常（例如工作日）、高（例如周末）和最高（例如假期）。
-具有更高优先级的配置文件会使其他配置文件过载。
+您可以创建具有不同优先级的配置文件：普通（例如工作日）、高（例如周末）和最高（例如节假日）。
+优先级较高的配置文件会超过其他配置文件。
 
-对于每个配置文件，将创建活动变量。
-但是用户可以选择自己的激活变量，例如，控制假期。
+对于每个配置文件，都会创建活动变量。
+但用户可以选择自己的激活变量，例如，控制假期。
 
-用户应将设备添加到配置文件，配置文件中的所有设备都将设置为相同的值。
+用户应该将设备添加到配置文件中，并且配置文件中的所有设备都将设置为相同的值。
 
-这个适配器有 vis2 小部件。
+该适配器有 vis2 小部件。
 
 ![截屏](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.3.2 (2024-04-05)
+* (bluefox) Corrected widget errors
+* (bluefox) Implemented custom types
+* (bluefox) Added possibility to control devices on holidays
+
+### 1.2.1 (2024-04-03)
+* (bluefox) Added two options: "Ignore values if same as previous" and "Do not control if device already in desired state"
+* (bluefox) Corrected 15-minute intervals
+* (bluefox) GUI improvements for mobile view
+
+### 1.1.14 (2024-04-02)
+* (bluefox) Corrected widget and profile
+
+### 1.1.12 (2024-03-13)
+* (bluefox) Packages updated
+
+### 1.1.10 (2023-10-19)
+* (bluefox) Packages updated
+
+### 1.1.9 (2023-06-28)
 * (bluefox) Packages updated
 
 ### 1.1.7 (2023-03-24)
@@ -57,7 +76,7 @@ hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.1 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 1.0.0 (2022-03-22)
 * (bluefox) GUI migrated to material@5
@@ -77,7 +96,7 @@ hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

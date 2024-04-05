@@ -30,15 +30,15 @@ This is the English documentation - [🇩🇪 German version](../de/README.md)
 - [FAQ](faq.md)
 
 ## Requirements
-1. Node.js 16 (or later)
-2. js-controller 3.3.22 (or later)
+1. Node.js 18 (or later)
+2. js-controller 5.0.0 (or later)
 4. Admin Adapter 6.0.0 (or later)
 
 ## Device generations
 Check the list of *supported devices* for more details.
 
-- **Gen1**: ESP8266 devices, [CoAP/CoIoT](protocol-coap.md) or [MQTT](protocol-mqtt.md)
-- **Gen2**: ESP32 devices, [MQTT](protocol-mqtt.md)
+- **Gen 1**: ESP8266 devices, [CoAP/CoIoT](protocol-coap.md) or [MQTT](protocol-mqtt.md)
+- **Gen 2+**: ESP32 devices, [MQTT](protocol-mqtt.md)
 
 ## General
 The adapter can be used in MQTT (recommended) or CoAP/CoIoT mode.
@@ -57,6 +57,12 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (svenbluege) Added Shelly 1 PM Mini (Gen3)
+
 ### 6.9.0 (2024-03-12)
 
 * (klein0r) Added Shelly Plus 0-10V

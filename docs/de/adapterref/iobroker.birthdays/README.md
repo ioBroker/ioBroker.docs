@@ -31,6 +31,10 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
 ### 2.4.1 (2023-10-30)
 
 * (klein0r) Added warnings if birthday event is not recurring

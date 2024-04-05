@@ -100,6 +100,11 @@ Click for widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2024-04-02)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (N1tR0) A problem has been fixed that did not correctly update the progress of playing media [#339]
+* (mcm1957) Dependencies have been updated0
+
 ### 1.3.1 (2023-10-31)
 -   (aruttkamp) A problem has been fixed which cause 'Error 400' with playUri errors [#259]
 
@@ -243,6 +248,7 @@ Click for widget source.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2023 twonky4 <twonky4@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

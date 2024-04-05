@@ -2,29 +2,27 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi-protect/README.md
-title: ioBroker.unifi-protect
-hash: QANKqdkfOjhoVCrxVCEXj04jEbvXlS9y2vBQjNABsrA=
+title: ioBroker.unifi-schützen
+hash: ezNKLsW90QDTZEKqD4GqCIgZ9s9wK0rue0cj0MorYTk=
 ---
 ![Logo](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.unifi-protect.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.unifi-protect.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/unifi-protect-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/unifi-protect-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/peterbaumert/iobroker.unifi-protect.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/unifi-protect-installed.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/unifi-protect-stable.svg)
+![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.unifi-protect.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)
 
 # IoBroker.unifi-protect
-**Dieser Adapter verwendet den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemas zu melden.** Weitere Details siehe unten!
-
 ## Unifi-Protect-Adapter für ioBroker
-Stellt eine Verbindung zum Unifi Protect Controller her und zieht alle Daten von hinzugefügten Kameras.
+Verbindet sich mit dem Unifi Protect Controller und ruft alle Daten von den hinzugefügten Kameras ab.
 
-Standard Ports falls nicht selbst geändert:
+Standard-Ports, sofern nicht von Ihnen selbst geändert:
 
- - Cloud Key Plus Gen2: 7443
- -UDM Pro: 443
+Cloud Key Plus Gen2: 7443
+UDM Pro: 443
 
 ## Beispiele für getThumbnail und getSnapshot
 ```
@@ -63,21 +61,24 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 });
 ```
 
-## Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von Peter Baumert <ioBroker.unifi-protect@outlook.com>, der die Erstversion dieses Adapters implementiert hat, nicht möglich gewesen.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
-
-## Code-Nutzung
-Der Code in [protect_api](./protect_api) wird meistens von [hjdhjds homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
-Vielen Dank für die Bereitstellung dieses Codes. Seine Codes-Lizenz finden Sie in [Hier](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
+## Code-Verwendung
+Der Code ist [protect_api](./protect_api) wird größtenteils von [hjdhjd's homebridge-unifi-protect kopiert](https://github.com/hjdhjd/homebridge-unifi-protect).
+Vielen Dank für die Bereitstellung dieses Codes. Seine Code-Lizenz finden Sie unter [Hier](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
 
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## **WORK IN PROGRESS**
+    ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2024-03-28)
+* (mcm1957) BREAKING: Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
+* (mcm1957) Dependencies have been updated
+
 ### 0.0.13 (2023-01-23)
 * dependencies updates
 * first implementation of realtime updates api
@@ -136,6 +137,7 @@ Vielen Dank für die Bereitstellung dieses Codes. Seine Codes-Lizenz finden Sie 
 ## License
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -115,6 +115,10 @@ The adapter understands also 'sendTo' commands.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.1.5
 
 * beta to try to make 0x5f36 working
@@ -176,6 +180,7 @@ with ioBroker admin, npm install iobroker.broadlink2 or from <https://github.com
 
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2014-2020, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

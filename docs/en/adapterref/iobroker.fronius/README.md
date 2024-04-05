@@ -104,6 +104,10 @@ The following request are sent to the API. But the availlable datapoints strongl
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.2 (2023-06-28)
 -   (nkleber78) Instability issues fixed. (#306, #313)
 -   (nkleber78) Set values for parameters delivered as 'null' from API to 0. (#315)

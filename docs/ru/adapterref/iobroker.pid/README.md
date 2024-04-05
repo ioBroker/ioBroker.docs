@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
+hash: UUOO/z2PWdjdq1AJ3fHiXijuBrVnh1IQrmfaGhIpQbo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
@@ -11,7 +11,7 @@ hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pid.svg)
 ![Размер репозитория GitHub](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
 ![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
-![GitHub фиксирует с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
+![GitHub фиксирует данные с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
 ![Последний коммит GitHub](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.pid.svg)
@@ -19,19 +19,18 @@ hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
 ![Количество установок](https://iobroker.live/badges/pid-installed.svg)
 
 # IoBroker.pid
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
 
-<!--
+## Часовой
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
-## Sentry **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
--->
 ## PID-адаптер для ioBroker
 Этот адаптер оснащен настраиваемым ПИД-регулятором.
 
 ## Общая информация
 Этот адаптер обеспечивает функциональность ПИД-регулятора.
 
-На практике ПИД-регулятор автоматически рассчитывает значение коррекции для системы на основе фактического значения и заданного значения. Поведение контролируется параметрами. Повседневным примером является круиз-контроль в автомобиле, где при подъеме на холм скорость снижается, если использовать постоянную мощность двигателя. ПИД-алгоритм контроллера восстанавливает измеренную скорость до желаемой скорости с минимальной задержкой и превышением за счет контролируемого увеличения выходной мощности двигателя. [(с) Википедия]
+На практике ПИД-регулятор автоматически рассчитывает значение коррекции для системы на основе фактического значения и заданного значения. Поведение контролируется параметрами. Повседневным примером является круиз-контроль в автомобиле, где при подъеме на холм скорость снижается, если использовать постоянную мощность двигателя. ПИД-алгоритм контроллера восстанавливает измеренную скорость до желаемой с минимальной задержкой и превышением за счет контролируемого увеличения выходной мощности двигателя. [(с) Википедия]
 
 В одном экземпляре адаптера может быть настроено более одного контроллера. Адаптер поддерживает настройку параметров (компоненты P, I, D) и времени цикла, используемого для расчета. Кроме того, расчет можно приостановить и возобновить, а контроллер можно вообще сбросить. В качестве удобного сервера можно включить ручной режим, чтобы напрямую настроить выход. Вывод может быть ограничен минимальным/максимальным значением и содержать исправленное смещение.
 
@@ -55,6 +54,19 @@ hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2024-03-22)
+
+-   (mcm1957) Adapter uses sentry to report errors now.
+
+### 1.0.0 (2024-03-11)
+
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
+-   (mcm1957) BREAKING: Adapter requires js-controller 5.x.x and admin 6.x.x or newer now
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
+-   (mcm1957) Incorrect error message whenever no controllers have been defied has been removed. [#68]
+-   (mcm1957) State roles have been reviewed and adapted. [#88]
+-   (mcm1957) Dependencies have been updated.
+
 ### 0.0.8 (2023-07-13)
 
 -   (mcm1957) changed: Overall stability during state updates has been increased
@@ -122,7 +134,7 @@ hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
 
 MIT License
 
-Copyright (c) 2023 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2023-2024 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

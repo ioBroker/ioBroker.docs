@@ -27,21 +27,25 @@ Use id.remote.\* to control the mower
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2024-04-03)
+- (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.1.2 (2024-03-14)
 
-- Fix Map location
+- (TA2k) Map location has been fixed
 
 ### 1.1.1 (2024-03-03)
 
-- fix Login
+- (TA2k) Login has been fixed
 
 ### 1.1.0 (2023-12-01)
 
-- fix login flow
+- (TA2k) fixed login flow
 
 ### 1.0.2 (2023-11-23)
 
-- added client timeout
+- (TA2k) added client timeout
 
 ### 1.0.1 (2023-11-19)
 

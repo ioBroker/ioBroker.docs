@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
+hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
 ---
 ![标识](../../../en/admin/lametric.png)
 
@@ -25,33 +25,33 @@ hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
 ＃＃ 目录
 - [应用程序](apps.md)
 - [Blockly](blockly.md)
-- [我的数据DIY](my-data-diy.md)
+- [我的数据 DIY](my-data-diy.md)
 - [通知](notifications.md)
 
 ＃＃ 要求
--nodejs 14.5（或更高版本）
-- js-controller 4.0.15（或更高版本）
+- nodejs 18（或更高版本）
+- js-controller 5.0.0 (或更高版本)
 - 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 固件为 _2.3.8_（2022 型号为 _3.0.21_）（或更高版本）
+- _LaMetric Time_ 固件版本为 _2.3.8_（2022 型号为 _3.0.21_）（或更高版本）
 
-[固件更改日志](https://firmware.lametric.com) [固件更改日志时间2](https://firmware.lametric.com/?product=time2)
+[固件更新日志](https://firmware.lametric.com) [固件更新日志时间2](https://firmware.lametric.com/?product=time2)
 
 ＃＃ 配置
-您可以获得设备 API 密钥[这里](https://developer.lametric.com/user/devices)。
+您可以获取您的设备 API 密钥[这里](https://developer.lametric.com/user/devices)。
 
 ![API 密钥](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ＃＃ 特征
-- 设置显示亮度（百分比、自动模式/手动模式）
+- 设置显示亮度（百分比，自动模式/手动模式）
 - 设置音量（百分比）
-- 配置屏幕保护程序（启用/禁用、基于时间、天黑时）
+- 配置屏幕保护程序（启用/禁用、基于时间、黑暗时）
 - 激活/停用蓝牙并更改蓝牙名称
 - 在应用程序之间切换（下一个、上一个、转到特定应用程序）
-- 使用 blockly 发送通知（可配置优先级、声音、图标、文本……）
+- 使用 blockly 发送通知（具有可配置的优先级、声音、图标、文本等）
 - 控制特殊应用程序，如“时钟”、“收音机”、“秒表”或“天气”
-- 使用_我的数据（DIY）_ LaMetric App显示持久信息
+- 使用“我的数据（DIY）”LaMetric 应用程序显示持久信息
 
-功能受 [官方API功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) 限制。
+功能受到[官方 API 功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html)的限制。
 
 ## Changelog
 
@@ -59,6 +59,14 @@ hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+### 3.1.3 (2024-01-31)
+
+* (klein0r) Fixed web extension
+
 ### 3.1.2 (2023-12-27)
 
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
@@ -81,10 +89,6 @@ NodeJS 16.x is required
 * (klein0r) Added push option for My Data DIY
 * (klein0r) Added option to force app reload
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
-
-### 2.4.2 (2023-09-08)
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
 
 ## License
 

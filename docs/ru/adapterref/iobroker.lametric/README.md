@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
+hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -29,8 +29,8 @@ hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
 - [Уведомления](notifications.md)
 
 ## Требования
-- nodejs 14.5 (или новее)
-- js-контроллер 4.0.15 (или новее)
+- nodejs 18 (или новее)
+- js-контроллер 5.0.0 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
 - _LaMetric Time_ с прошивкой _2.3.8_ (_3.0.21_ на модели 2022 года) (или новее)
 
@@ -59,6 +59,14 @@ hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+### 3.1.3 (2024-01-31)
+
+* (klein0r) Fixed web extension
+
 ### 3.1.2 (2023-12-27)
 
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
@@ -81,10 +89,6 @@ NodeJS 16.x is required
 * (klein0r) Added push option for My Data DIY
 * (klein0r) Added option to force app reload
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
-
-### 2.4.2 (2023-09-08)
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
 
 ## License
 

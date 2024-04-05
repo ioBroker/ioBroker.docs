@@ -17,14 +17,14 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: 1tLigQCuJjyIBYpbV4G2dctn1/paWoc04h7qHfJK/80=
+hash: HT+wYxU2YwD7CgkCyvogd0N925lVY0TwsBkn2AyBNOo=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
 # IoBroker.awtrix-light
 ＃＃ 要求
--nodejs 14.5（或更高版本）
-- js-controller 4.0.15（或更高版本）
+-nodejs 18（或更高版本）
+- js-controller 5.0.0（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
 - 固件版本为 _0.96_（或更高版本）的 _Awtrix 3_ 设备 - 例如 Ulanzi TC001
 
@@ -46,11 +46,11 @@ hash: 1tLigQCuJjyIBYpbV4G2dctn1/paWoc04h7qHfJK/80=
 
 **如何切换到最新固件版本？**
 
-只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 即可导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络刷新器（除非固件更新明确要求这样做）。
+只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络刷新器（除非固件更新明确要求这样做）。
 
 **充电时设备会变热。**
 
-不幸的是，硬件设计并不是最佳的。建议使用尽可能弱的电源，最大可提供 1A 的电流。
+不幸的是，硬件设计并不是最佳的。建议使用可提供最大 1A 电流的最弱电源。
 
 **您可以从设备中取出电池吗？**
 
@@ -191,8 +191,9 @@ sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2024-04-04)
 
+NodeJS >= 18.x and js-controller >= 5 is required
 Updated recommended firmware version to 0.96
 
 ### 0.16.0 (2024-03-12)
@@ -214,10 +215,6 @@ Updated recommended firmware version to 0.95
 ### 0.14.1 (2024-03-06)
 
 * (klein0r) Fixed roles of calendar header, body and text (rgb)
-
-### 0.14.0 (2024-02-20)
-
-* (klein0r) Allow to round numbers dynamically (depends on length)
 
 ## License
 MIT License

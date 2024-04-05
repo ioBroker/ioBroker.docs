@@ -32,7 +32,6 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [compareTime](#comparetime)
     - [setState](#setstate)
     - [setStateAsync](#setstateasync)
-    - [setBinaryState](#setbinarystate)
     - [setStateDelayed](#setstatedelayed)
     - [clearStateDelayed](#clearstatedelayed)
     - [getStateDelayed](#getstatedelayed)
@@ -102,7 +101,7 @@ If in the script, some modules or functions are used with callbacks or cyclic ca
 so they will be called again and again even if the new version of a script exists or a script is deleted. For example, the following script:
 
 ```js
-const http = require('http');
+const http = require('node:http');
 // Read www.google.com page
 http.request('www.google.com', function (res) {
     res.setEncoding('utf8');
@@ -163,8 +162,6 @@ const mod = require('module_name');
 The following modules are preloaded: `fs`, `crypto`, `wake_on_lan`, `request`, `suncalc2`, `util`, `path`, `os`, `net`, `events`, `dns`.
 
 To use other modules, enter the name of the module in the instance configuration. ioBroker will install the module. You can require and use it in your scripts afterwards.
-
-**Notice** - module *request* is available via variable *request*. There is no need to write `const request = require('request');`.
 
 ### Buffer
 Buffer - Node.js Buffer, read here [http://nodejs.org/api/buffer.html](http://nodejs.org/api/buffer.html)
@@ -781,17 +778,6 @@ await setStateAsync(id, state, ack);
 ```
 Same as setState, but with `promise`.
 
-### setBinaryState
-
-**Attention: This method is deprecated!**
-
-```js
-setBinaryState(id, state, callback);
-```
-Same as setState, but for the binary states, like files, images, buffers.
-The difference is that such a state has no ack, ts, lc, quality and so on flags und should be used only for binary things.
-The object's `common.type` must be equal to `file`.
-
 ### setStateDelayed
 ```js
 setStateDelayed(id, state, isAck, delay, clearRunning, callback);
@@ -809,6 +795,18 @@ setStateDelayed('Kitchen.Light.Lamp', false, 5000, false, () => {
 });
 ```
 This function returns the handler of the timer, and this timer can be individually stopped by clearStateDelayed
+
+### setStateChanged
+```js
+await setStateChanged(id, state, ack);
+```
+Same as setState, but set value only if the value is really changed.
+
+### setStateChangedAsync
+```js
+await setStateChangedAsync(id, state, ack);
+```
+Same as setStateChanged, but with `promise`.
 
 ### clearStateDelayed
 ```js
@@ -898,17 +896,6 @@ const stateObject = await getStateAsync(id);
 ```
 Same as getState, but with `promise`.
 
-### getBinaryState
-**Attention: This method is deprecated!**
-```js
-getBinaryState(id, (err, data) => {});
-```
-
-Same as getState, but for the binary states, like files, images, buffers.
-The difference is that such a state has no ack, ts, lc, quality and so on flags und should be used only for binary "things".
-The object's `common.type` must be equal to `file`.
-This function must always be used with callback. "data" is a buffer.
-
 ### existsState
 ```js
 existsState(id, (err, isExists) => {});
@@ -985,9 +972,9 @@ extendObject('system.adapter.sayit.0', {common: {enabled: false}});
 deleteObject(id, isRecursive, callback);
 ```
 
-Delete an object from DB by ID. If the object has type `state`, the state value will be deleted too. 
+Delete an object from DB by ID. If the object has type `state`, the state value will be deleted too.
 
-Additional parameter `isRecursive` could be provided, so all children of given ID will be deleted. Very dangerous! 
+Additional parameter `isRecursive` could be provided, so all children of given ID will be deleted. Very dangerous!
 
 Use it like this:
 ```js
@@ -995,7 +982,7 @@ Use it like this:
 deleteObject('javascript.0.createdState');
 ```
 
-*Notice: `isRecursive` option is available only with js-controller >= 2.2.x* 
+*Notice: `isRecursive` option is available only with js-controller >= 2.2.x*
 
 ### getIdByName
 ```js
@@ -1047,10 +1034,10 @@ Create state and object in javascript space if it does not exist, e.g. `javascri
 - `native`: native description of an object. Any specific information.
 - `callback`: called after state is created and initialized.
 
-If you set in `common` the flag `alias` to `true`, then alias will be created with the same name (but in `alias.0` namespace) as the state. 
-Alias is created only if it does not exist yet. 
+If you set in `common` the flag `alias` to `true`, then alias will be created with the same name (but in `alias.0` namespace) as the state.
+Alias is created only if it does not exist yet.
 
-The following settings for aliases are valid too: 
+The following settings for aliases are valid too:
 ```js
 common => {
     alias: {
@@ -1470,7 +1457,7 @@ The file that looks like `'/subfolder/file.txt'` will be stored under `"/javascr
 
 ```js
 // store screenshot in DB
-const fs = require('fs');
+const fs = require('node:fs');
 let data = fs.readFileSync('/tmp/screenshot.png');
 writeFile(null, '/screenshots/1.png', data, (error) => {
     log('file written');
@@ -1484,7 +1471,7 @@ writeFile(null, '/screenshots/1.png', data, (error) => {
 
 ```js
 // store file in '/vis.0' in DB
-const fs = require('fs');
+const fs = require('node:fs');
 let data = fs.readFileSync('/tmp/screenshot.png');
 writeFile('vis.0', '/screenshots/1.png', data, (error) => {
     log('file written');
@@ -1512,16 +1499,16 @@ The alternative name of this method is `rename`
 ### onFile
 ```js
 onFile(id, fileName, withFile, (id, fileName, size, fileData, mimeType) => {});
-// or 
+// or
 onFile(id, fileName, (id, fileName, size) => {});
 ```
 
 Subscribe to file changes:
-- `id` is ID of an object of type `meta`, like `vis.0` 
+- `id` is ID of an object of type `meta`, like `vis.0`
 - `fileName` is file name or pattern, like `main/*` or `main/vis-view.json`
 - `withFile` if the content of file should be delivered in callback or not. the delivery of file content costs memory and time, so if you want to be just informed about changes, set `withFile`to false.
 
-Arguments in callback: 
+Arguments in callback:
 - `id` - ID of `meta` object;
 - `fileName` - file name (not pattern);
 - `size` - new file size;
@@ -1533,7 +1520,7 @@ Arguments in callback:
 ### offFile
 ```js
 offFile(id, fileName);
-// or 
+// or
 onFile(id, fileName);
 ```
 Unsubscribe from file changes:
@@ -1791,8 +1778,8 @@ To send a message from any other adapter use
 
 ```js
 adapter.sendTo('javascript.0', 'toScript', {
-    script: 'script.js.messagetest', 
-    message: 'messageName', 
+    script: 'script.js.messagetest',
+    message: 'messageName',
     data: {
         flag: true
     }
@@ -1869,10 +1856,26 @@ Unsubscribes from these logs.
 ```js
 httpGet('http://jsonplaceholder.typicode.com/posts', { timeout: 1000 }, (error, response) => {
     if (!error) {
-        console.log(response.responseCode);
+        console.log(response.statusCode);
         console.log(response.data);
     } else {
         console.error(error);
+    }
+});
+```
+
+Download file to ioBroker file system:
+
+```js
+httpGet('http://1.2.3.4/image.jpg', { responseType: 'arraybuffer' }, async (err, response) => {
+    if (err) {
+        console.error(err);
+    } else {
+        writeFile('0_userdata.0', 'test.jpg', response.data, (err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
     }
 });
 ```
@@ -1882,7 +1885,7 @@ httpGet('http://jsonplaceholder.typicode.com/posts', { timeout: 1000 }, (error, 
 ```js
 httpPost('http://jsonplaceholder.typicode.com/posts', { title: 'foo', body: 'bar', userId: 1 }, { timeout: 1000 }, (error, response) => {
     if (!error) {
-        console.log(response.responseCode);
+        console.log(response.statusCode);
         console.log(response.data);
         console.log(response.headers);
     } else {
@@ -1913,7 +1916,7 @@ httpPost(
     },
     (error, response) => {
         if (!error) {
-            console.log(response.responseCode);
+            console.log(response.statusCode);
             console.log(response.data);
             console.log(response.headers);
         } else {
@@ -1928,17 +1931,33 @@ httpPost(
 `scriptName` - The name of the script.
 
 ```js
-log('Script ' + scriptName + ' started!');
+log(`Script ${scriptName} started!`);
 ```
 
-It is not a function. 
-It is a variable with script name, that is visible in script's scope.
-
 ### instance
-The javascript instance where script is executed.
+`instance` - The javascript instance where script is executed (e.g. `0`).
 
 ```js
-log('Script ' + name + ' started by ' + instance + '!');
+log(`Script ${scriptName} started started by ${instance}`);
+```
+
+### defaultDataDir
+`defaultDataDir` - Absolute path to iobroker-data.
+
+```js
+log(`Data dir: ${defaultDataDir}`);
+```
+
+### verbose
+`verbose` - Verbose mode enabled?
+
+```js
+log(`Verbose mode: ${verbose ? 'enabled' : 'disabled'}`);
+
+// Example
+if (verbose) {
+    log('...');
+}
 ```
 
 ## Option - "Do not subscribe all states on start"
@@ -1969,33 +1988,48 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 7.9.1 (2024-03-15)
+### **WORK IN PROGRESS**
 
-* (klein0r) Configurable trigger warning limit (default: 100 per script)
-* (klein0r) Allow to use objects in create state blocks for common
-* (klein0r) Added warning if latitude or longitude is not configured correctly
+NodeJS >= 18.x and js-controller >= 5 is required
 
-### 7.9.0 (2024-03-13)
+* (klein0r) Breaking change: Removed support for binary states (deprecated since v6.2.0)
+* (klein0r) Breaking change: Protected filesystem (iobroker-data/files) to prevent direct file writes
+* (klein0r) Added missing functions to protectFS
+* (klein0r) Fixed httpPost (missing data)
+* (klein0r) Fixed hasAttribute blockly block
+* (klein0r) Fixed parenthesis insertion in blockly for multi and/or
+* (PeterVoronov) Added setStateChanged / setStateChangedAsync
 
-* (klein0r) Added block to create new objects
-* (klein0r) Added HTTP get and post function
-* (klein0r) Droped support of coffeescript (deprecated since version 6.0.0)
-* (klein0r) Raise warning if more than 100 triggers have been registered (per script)
-* (klein0r) Fixed astro state calculation (and display server time in dialog)
+### 7.11.1 (2024-03-28)
 
-### 7.8.0 (2024-01-29)
+* (klein0r) Added exec result blockly block
+* (klein0r) Protect iobroker-data/files to avoid direct writes with node:fs
+* (klein0r) Escape single quotes in blockly obj attributes
 
-* (klein0r) Added block for multiple or conditions
-* (klein0r) Raised supported ecmaVersion from es2018 to es2021
-* (klein0r) Fixed getIdByName (returned the same id as array)
+### 7.11.0 (2024-03-26)
 
-### 7.7.0 (2024-01-14)
+* (klein0r) Added blockly block for read and write file
+* (klein0r) Allow to select other object types than state in some blocks
+* (klein0r) Improved translations
+* (klein0r) Removed 'type' from dropdown (is always 'state')
+* (klein0r) Use highlight in search (instead of select)
+* (klein0r) Added option for httpGet to receive arraybuffer (download files)
 
-* (klein0r) Added block for multiple and conditions
+### 7.10.2 (2024-03-25)
 
-### 7.6.3 (2024-01-11)
+* (klein0r) Fixed httpGet/httpPost issue when using without options
+* (klein0r) Updated integration testing
+* (klein0r) Protect jsonl file access
 
-* (klein0r) Fixed bug in formatTimeDiff Blockly
+### 7.10.1 (2024-03-22)
+
+* (klein0r) Fixed cron trigger
+
+### 7.10.0 (2024-03-21)
+
+* (klein0r) Added warning icon if state value is connected to trigger block (instead of object id)
+* (klein0r) Copy date object in getAstroDate
+* (klein0r) Added object id as tooltip
 
 ## License
 The MIT License (MIT)

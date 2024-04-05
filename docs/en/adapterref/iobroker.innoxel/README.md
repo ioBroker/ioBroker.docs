@@ -38,7 +38,7 @@ After installation, create a new instance and configure the settings:
     -   state changes (i.e. switches, dimmer)
     -   room climate / thermostats
     -   weather
-    -   innoxel master device details
+    -   innoxel master device details (requires admin privileges for the user connecting to innoxel master)
 
 ## Supported Modules and Firmware
 
@@ -125,10 +125,16 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.1 (2024-03-23)
 
-### **WORK IN PROGRESS**
+-   (matthsc) log soap messages in log level silly
+-   (matthsc) fix another potential error when updating modules
+-   (matthsc & dependabot) dependency updates
 
--(matthsc) drop support for Node 16
+### 0.4.0 (2024-03-20)
+
+-   (matthsc) fix potential error when processing identities
+-   (matthsc) drop support for Node 16
 
 ### 0.3.1 (2023-05-23)
 
@@ -178,7 +184,7 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 
 MIT License
 
-Copyright (c) 2023 matthsc <matthsc@gmx.net>
+Copyright (c) 2024 matthsc <matthsc@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

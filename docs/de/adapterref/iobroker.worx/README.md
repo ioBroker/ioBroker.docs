@@ -113,20 +113,27 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### modules (Draht und Vision)
 
--   Off Limit Module (Draht und Vision)
+-   Off Limit Modul (Draht und Vision)
 
     -   `DF.OLMSwitch_Cutting`: Verhindert das überfahren vom Magnetband - true-an/false-aus
     -   `DF.OLMSwitch_FastHoming`: Verwendet erstellte Abkürzungen mit Magnetband - true-an/false-aus
 
--   ACS Module (nur Draht)
+-   ACS Modul (nur Draht)
 
     -   `US.ACS`: ACS aktivieren oder deaktivieren - 1-on/0-off
 
--   EA Module (nur Vision)
-    -   `EA.h`: Höheneinstellung Mähwerk von 30-60 in 5 Schritte
+-   EA Modul (nur Vision)
+
+    -   `EA.height`: Höheneinstellung Mähwerk von 30-60 in 5 Schritte
+
+-   HL Modul (nur Vision)
+    -   `HL.status`: Status Scheinwerfer
+    -   `HL.enabled`: Scheinwerfer installiert ja = 1/nein = 0
+    -   `HL.on`: Tageslicht = 0/Dunkelheit = 1
 
 ![Module img/module.png](../en/img/module.png)
 ![Module img/module_ea.png](../en/img/module_ea.png)
+![Module img/module_hl.png](../en/img/module_hl.png)
 
 ### mower (Draht und Vision)
 
@@ -137,6 +144,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `batteryState`: Batteriestatus in % (Draht & Vision/nur lesen)
 -   `batteryTemperature`: Batterietemperatur in Celsius (Draht & Vision/nur lesen)
 -   `batteryVoltage`: Batteriespannung in Volt (Draht & Vision/nur lesen)
+-   `cutOverSlabs`: Über Platten mähen an = true / aus = false (Vision/änderbar)
 -   `direction`: Richtung in Grad (Draht & Vision/nur lesen)
 -   `edgecut`: Start EdgeCut (Draht & Vision/änderbar)
 -   `error`: Errormeldung vom Mäher (Draht & Vision/nur lesen)
@@ -190,6 +198,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```
 
 -   `firmware_available_date`: Datum verfügbaren Firmware - Dummy 1970-01-01 wenn der Adapter neu installiert wird und es kein Update zur Verfügung steht (Draht & Vision/nur lesen)
+-   `firmware_body` Inhalt von dat.fw (Vision/nur lesen)
+-   `firmware_head` Inhalt dat.head.fw (Vision/nur lesen)
 -   `firmware_update_start`: Start Update in 2 Schritten (Draht & Vision/änderbar)
 -   `firmware_update_start_approved`: Aktualisierung der Firmware starten - `firmware_update_start` muss auf true gesetzt sein (Draht & Vision/änderbar)
 -   `gradient`: Gefälle oder Anstieg in Grad (Draht & Vision/nur lesen)
@@ -211,9 +221,10 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 }
 ```
 
--   `oneTimeStart`: einmaliges Mähen start "Erst oneTimeWithBorder und oneTimeWorkTime setzen" - mit einer Verzögerung von 1,1 Sekunde (Draht & Vision/änderbar)
+-   `oneTimeStart`: einmaliges Mähen start "Erst oneTimeWithBorder, oneTimeWorkTime und beim Vision noch oneTimeZones setzen" - mit einer Verzögerung von 1,1 Sekunde (Draht & Vision/änderbar)
 -   `oneTimeWithBorder`: Mit Kantenschnitt - Wert ohne Verzögerung setzen (Draht & Vision/änderbar)
 -   `oneTimeWorkTime`: Mähzeit max. 8h in 30 Minuten Schritte - Wert ohne Verzögerung setzen (Draht & Vision/änderbar)
+-   `oneTimeZones`: Zonen setzen [1,2,4] (Vision/änderbar)
 -   `online`: Mäher Online (Draht & Vision/nur lesen)
 -   `partyModus`: Party-Modus schalten an/aus (Draht & Vision/änderbar)
 -   `pause`: Mähpause schalten an/aus (Draht & Vision/änderbar)
@@ -713,6 +724,10 @@ Standard ohne Zonen:
 -   (Lucky-ESA) Catch publish crash
 -   (Lucky-ESA) Added for Vision electric height adjustment
 -   (Lucky-ESA) Added for Vision new calendar
+-   (Lucky-ESA) Added head light
+-   (Lucky-ESA) Added cut over slabs
+-   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
 
 ### 2.3.4 (2023-10-19)
 

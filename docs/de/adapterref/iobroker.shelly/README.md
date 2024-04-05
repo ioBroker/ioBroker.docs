@@ -30,16 +30,16 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 - [FAQ](faq.md)
 
 ## Anforderungen
-1. Node.js 16.0 (oder neuer)
-2. js-controller 3.3.22 (oder neuer)
+1. Node.js 18 (oder neuer)
+2. js-controller 5.0.0 (oder neuer)
 4. Admin Adapter 6.0.0 (oder neuer)
 
 ## Geräte-Generationen
 
 Für mehr Informationen, siehe *supported devices*.
 
-- **Gen1**: ESP8266 Geräte, [CoAP/CoIoT](protocol-coap.md) oder [MQTT](protocol-mqtt.md)
-- **Gen2**: ESP32 Geräte, [MQTT](protocol-mqtt.md)
+- **Gen 1**: ESP8266 Geräte, [CoAP/CoIoT](protocol-coap.md) oder [MQTT](protocol-mqtt.md)
+- **Gen 2+**: ESP32 Geräte, [MQTT](protocol-mqtt.md)
 
 ## Allgemein
 
@@ -59,6 +59,12 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (svenbluege) Added Shelly 1 PM Mini (Gen3)
+
 ### 6.9.0 (2024-03-12)
 
 * (klein0r) Added Shelly Plus 0-10V

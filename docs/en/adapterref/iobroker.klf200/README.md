@@ -246,6 +246,10 @@ The values of the state provide multiple manipulation modes:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
+### __WORK IN PROGRESS__
+
+-   (Michael Schroeder) Upgrade dependencies, min. Node version 18.x, min. js-controller 5.x
+
 ### 1.2.0 (2024-02-09)
 
 -   (Michael Schroeder) [#126](https://github.com/MiSchroe/ioBroker.klf200/issues/126) Fixed Adapter-Checker warning.

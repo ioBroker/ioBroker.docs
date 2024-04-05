@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-погода
-hash: KPPHBrgWqU1ppeG7NK4N9E/OeGtJajsQRpjL/Nii774=
+hash: 3zzpR4fJsEXG5VXKbOJWUmUSdij8fjkArHeHpMItnZc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
@@ -32,6 +32,10 @@ hash: KPPHBrgWqU1ppeG7NK4N9E/OeGtJajsQRpjL/Nii774=
 В WeatherUnderground вам нужен включенный прогноз на следующие 36 часов.
 В DasWetter.com вам необходимо включить одну из четырех структур прогнозных данных. Вы можете выбрать тот, который хотите отобразить.
 
+## Совместимость с вис-2
+Этот виджет НЕ совместим с vis-2.
+Новая версия под названием [vis-2-виджеты-погода](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) находится в стадии подготовки.
+
 ## Заметки/вики
 ### Определить часы прогноза
 По умолчанию диаграмма прогноза показывает 40 часов (DasWetter) или 36 часов (wunderground). Если вы предпочитаете показывать только, например. Прогноз на 10 часов, просто удалите ненужные OID в разделе oid_groups в vis-edit.
@@ -41,7 +45,7 @@ hash: KPPHBrgWqU1ppeG7NK4N9E/OeGtJajsQRpjL/Nii774=
 Возможно, вам придется включить «NextDaysDetailed».
 
 ## Известные вопросы
-* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues), если вы обнаружите ошибки или вам нужны новые функции.
+* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues), если вы обнаружите ошибки или захотите новых функций.
 
 ## Changelog
 
@@ -51,9 +55,9 @@ hash: KPPHBrgWqU1ppeG7NK4N9E/OeGtJajsQRpjL/Nii774=
 -->
 
 ### **WORK IN PROGRESS**
-* (René) make it ready to run with vis-2
+* (René) 
 
-### 2.5.7 (in progress)
+### 2.5.9 (2024-01-13)
 * (René) dependencies update
 
 ### 2.5.6 (2022-08-18)
@@ -163,7 +167,7 @@ hash: KPPHBrgWqU1ppeG7NK4N9E/OeGtJajsQRpjL/Nii774=
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

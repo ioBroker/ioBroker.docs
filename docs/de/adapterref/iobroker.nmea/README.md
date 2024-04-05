@@ -3,29 +3,40 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: U06Gr9hESafFHlewxSL4RCzHxbWVW/nJ+R6atcrITFs=
+hash: NyzVyk4vYcX20icjCAJmiV9u29yAY1Vfyeym5KHkObw=
 ---
 ![Logo](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
-# IoBroker.nmea Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus.
-Um diesen Adapter verwenden zu können, benötigen Sie eine Hardware, die den NMEA-2000-Bus lesen und in den seriellen Port umwandeln kann:
+# IoBroker.nmea. Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-- Actisense NGT-1 (USB)
-- oder Raspberry PI mit Pican-M
+Um diesen Adapter zu verwenden, benötigen Sie eine Hardware, die den NMEA-2000-Bus lesen und für den seriellen Port konvertieren kann:
+
+Actisense NGT 1 (USB)
+- oder Raspberry PI mit PiCAN-M
 
 ![Widgets](../../../en/adapterref/iobroker.nmea/img/widgetExamples.png)
 
-## So verwenden Sie es auf Raspberry PI mit Pican-M
-Das PiCAN M ist ein kompaktes Zusatzboard, das für den Raspberry Pi 3/4 entwickelt wurde.
-Es ermöglicht den Anschluss von NMEA2000- und NMEA0183-Netzwerken an einen Raspberry Pi.
-Die Platine kann über eine externe 12-V-Quelle mit Strom versorgt werden.
-Darüber hinaus bietet es die Möglichkeit, den Raspberry Pi bei Verwendung mit der PiCAN-M-Karte direkt über den NMEA2000-Bus mit Strom zu versorgen.
+[YouTube-Erklärung](https://youtu.be/flp_-mypbRU?si=k0lp95OukQ88LBxj)
 
-Aufgrund der hohen Anforderungen des Raspberry Pi an die Stromversorgung empfehlen wir, den Raspberry PI über eine externe Stromquelle mit Strom zu versorgen.
-Die Stromversorgung über NMEA2000 und über USB könnte problemlos parallel funktionieren.
+## So verwenden Sie es auf Raspberry PI mit PiCAN-M
+Das PiCAN M ist eine kompakte Zusatzplatine für den Raspberry Pi 3/4.
+
+Sie ermöglicht den Anschluss von NMEA2000- und NMEA0183-Netzwerken an einen Raspberry Pi.
+
+Die Platine kann über eine externe 12-V-Quelle mit Strom versorgt werden.
+
+Zusätzlich bietet sie die Möglichkeit, den Raspberry Pi bei Verwendung mit der PiCAN-M-Platine direkt über den NMEA2000-Bus mit Strom zu versorgen.
+
+**Für die 12V Versorgungsspannung verfügt das PiCAN-M nicht über einen entsprechenden Verpolungsschutz. Bei externem Betrieb an 12V ist es notwendig, eine 1A Sicherung in die Stromversorgungsleitung einzubauen.**
+
+Aufgrund der hohen Anforderungen des Raspberry Pi an die Stromversorgung empfehlen wir, den Raspberry Pi über eine externe Stromquelle (mindestens 3 A) mit Strom zu versorgen.
+Die Stromversorgung über NMEA2000 und über USB kann problemlos parallel erfolgen.
 
 ### Installation
-Bearbeiten Sie die Datei `/boot/config.txt` (mit `sudo nano /boot/config.txt`) und fügen Sie am Ende der Datei folgende Zeilen hinzu:
+Weitere Einzelheiten finden Sie in Kapitel 3 in [PiCAN-M-Benutzerhandbuch](img/pican-m_UGB_10.pdf). Hier ist jedoch eine kurze Zusammenfassung:
+
+Editieren Sie die Datei `/boot/config.txt` (mit `sudo nano /boot/config.txt`) und fügen Sie am Ende der Datei folgende Zeilen hinzu:
 
 ```
 enable_uart=1
@@ -34,33 +45,50 @@ dtparam=spi=on
 dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 ```
 
-Deaktivieren Sie die Ausgaben auf der UART-Konsole:
+Ausgänge auf der UART-Konsole deaktivieren:
 
-- Starten Sie in der CLI „sudo raspi-config“.
-- Gehen Sie zu „3 Schnittstellenoptionen“.
-- Gehen Sie zu „I5 Serial Port“.
-- Deaktivieren Sie „Shell zugänglich über Seriell“ und „Hardware für seriellen Port aktiviert“.
-- Beenden Sie die Raspi-Konfiguration und starten Sie neu
+- Starten Sie in der CLI `sudo raspi-config`
+- gehen Sie zu „3 Schnittstellenoptionen“
+- gehen Sie zu „I5 Serial Port“
+- Deaktivieren Sie „Shell über Seriell zugänglich“ und „Serieller Port-Hardware aktiviert“.
+- Beenden Sie `raspi-config` und starten Sie neu
 
-Can-Utils installieren
+Installieren Sie can-utils
 
 ```
 sudo apt-get install can-utils
 ```
 
 ## Actisense NGT-1
-Actisense NGT-1 ist ohne zusätzliche Treiber unter Windows oder Linux sichtbar. Es ist als serieller Port „COMn“ (Windows) oder ttyN (unter Linux) sichtbar.
+Actisense NGT-1 ist unter Windows oder Linux ohne zusätzliche Treiber sichtbar. Es ist als serieller Port „COMn“ (Windows) oder ttyN (unter Linux) sichtbar.
 
 ## Machen
-- Code verschlüsseln
+- Code kodieren
 - AIS
 - Finden Sie heraus, warum Daten von Adresse 100 gesendet wurden
+- Integration von [iKonvert NMEA 2000](https://digitalyachtamerica.com/product/ikonvert-usb/)
+- Integration von [Shipmodul MiniPlex-3-N2K](https://www.shipmodul.com/products.html)
+
+## Datensimulation
+Sie können die Daten externer Sensoren in den NMEA2000-Bus einspeisen.
+Eigentlich können Sie nur Umgebungsdaten wie Temperatur, Luftfeuchtigkeit und Druck simulieren.
+
+Mit dem Flag `Combined environment` können Sie die PGN-Nummer festlegen, die für Temperatur, Luftfeuchtigkeit und Druck verwendet wird:
+
+- Wenn Sie die Flagge „Kombinierte Umgebung“ deaktivieren, wird für die Temperatur PGN 130314, für die Luftfeuchtigkeit PGN 130313 und für den Druck PGN 130314 verwendet.
+- Wenn Sie die Flagge „Kombinierte Umgebung“ auswählen, werden alle drei Werte zusammen mit anderen möglichen Umgebungswerten in PGN 130311 gesendet.
 
 <!--
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 0.1.8 (2024-03-20)
+* (bluefox) Corrected vis-2 widgets
+
+### 0.1.1 (2024-03-19)
+* (bluefox) Corrected vis-2 widgets
+
 ### 0.0.4 (2024-03-12)
 * (bluefox) Fixed CI tests
 

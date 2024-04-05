@@ -50,6 +50,9 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### **WORK IN PROGRESS**
+NodeJS >= 18.x and js-controller >= 5 is required
+
 ### 2.4.0 (2023-11-03)
 NodeJS 16.x is required
 

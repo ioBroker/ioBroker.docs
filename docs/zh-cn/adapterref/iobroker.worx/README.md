@@ -8,86 +8,86 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
+hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 ---
 ![标识](../../../en/admin/worx.png)
 
 # IoBroker.worx 适配器
 ＃＃ 描述
 ### 实例设置
-- `App Email`：您的应用程序用户名（电子邮件）
-- `应用程序密码`：您的应用程序密码
+- `App Email`：您的 APP 用户名（电子邮件）
+- `应用密码`：您的应用密码
 - `应用程序名称`：选择您的设备
-- `Delay for EdgeCut`：EdgeCut 何时开始（例如 5 秒到草坪）
+- `EdgeCut 延迟`：EdgeCut 何时启动（例如 5 秒后开始修剪草坪）
 
 ![实例设置 img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
 
-- `以分钟和米为单位的距离和时间`：默认 h 和 km
-- `每 10 分钟 Ping 一次 MQTT 连接。`：只是为了测试。请不要超过1小时！
-- `更新令牌后更新 MQTT 数据。`：刷新令牌后加载 Worx 数据。每天/设备 24 个额外查询。
+- `距离和时间（以分钟和米为单位）`：默认小时和公里
+- `每 10 分钟 Ping MQTT 连接一次。`：仅用于测试。请不要超过 1 小时！
+- `令牌更新后更新 MQTT 数据。`：刷新令牌后加载 Worx 数据。每个设备每天额外 24 个查询。
 
 ![实例设置 img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
 
 ＃＃＃ 文件夹
-- `activityLog`：您的活动日志（可以控制）
-- `area`：区域（可以控制）
-- `日历`：时间表（可以控制）
-- `Modules`：您的模块（可以控制）
-- `割草机`：你的割草机（可以控制）
-- `产品`：您设备的所有属性（只读）
-- `rawMqtt`：来自云端的所有数据（只读）
+- `activityLog`：您的活动日志（可控制）
+- `areas`: 区域（可控制）
+- `calendar`: 时间表（可控制）
+- `模块`：您的模块（可控制）
+- `mower`：你的割草机（可控制）
+- `product`：您设备的所有属性（只读）
+- `rawMqtt`: 来自云端的所有数据（只读）
 
 ![文件夹 img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
-### 活动日志（Wire 和 Vision）
-- `last_update`：上次更新时间戳
-- `manuell_update`：加载当前活动日志（状态更改后自动）
-- `payload`：作为 JSON 表的活动日志（对于 VIS 或 Blockly）
+### ActivityLog（Wire 和 Vision）
+- `last_update`: 最后更新时间戳
+- `manuell_update`：加载当前活动日志（状态改变后自动）
+- `payload`：活动日志作为 JSON 表（用于 VIS 或 Blockly）
 
 ![活动 img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
 
-### 区域（无愿景）
-- `实际区域`：当前
-- `actualAreaIndicator`：下一个数组区域开始
-- `area_0`：区域 1 的起点（以米为单位）（数组 = 0）（可更改）
-- `area_1`：区域 2 的起点（以米为单位）（数组 = 1）（可更改）
-- `area_2`：区域 3 的起点（以米为单位）（数组 = 2）（可更改）
-- `area_3`：区域 4 的起点（以米为单位）（数组 = 3）（可更改）
-- `startSequence`：数组区域开始（0-9 事件），例如仅从区域 3 开始 [2,2,2,2,2,2,2,2,2,2]（可更改）
-- `zoneKeeper`：在狭窄区域交叉口安全驾驶（必须创建区域）（自固件 3.30 起）（可更改）
+### 区域（无视觉）
+- `actualArea`：当前
+- `actualAreaIndicator`: 下一个数组区域开始
+- `area_0`: 区域 1 的起始位置（以米为单位）（数组=0）（可更改）
+- `area_1`: 区域 2 的起点，单位为米（数组=1）（可更改）
+- `area_2`：区域 3 的起点，以米为单位（数组=2）（可更改）
+- `area_3`: 区域 4 的起点，单位为米（数组=3）（可更改）
+- `startSequence`：数组区域开始（0-9 个事件）例如仅在区域 3 中开始 [2,2,2,2,2,2,2,2,2,2]（可更改）
+- `zoneKeeper`：在狭窄区域交叉口安全驾驶（必须创建区域）（从固件 3.30 开始）（可更改）
 
 ![区域 img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
-### 日历（线）
-- 例如星期三的时间设置
+### 日历（电报）
+- 例如，周三的时间设置
 
-    - `wednesday.borderCut`：有或没有边界剪切（立即更改值）（可更改）
-    - `wednesday.startTime`: 开始时间 hh:mm (0-23/0-59) 例如09:00（立即更改值）（可更改）
-    - `wednesday.workTime`：工作时间以分钟为单位（180 分钟 = 3 小时），例如30 = Endzeit 09:30（立即更改值）（可更改）
-    - `calJson_sendto`：如果所有数据点均已设置，则按按钮发送（有 1.1 秒延迟）。割草机现在将割草 30 分钟（可更改）
-    - `calJson_tosend`：此数据发送到 Mqtt（割草时间表/自动设置）。您也可以自己创建此 JSON。 （多变）
-    - `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。 （割草时间表 1/自动设置 - 仅适用于钢丝）（可更改）
-    - `calendar.calJson2`：每周割草计划的数组。您也可以自己创建此数组。 （割草时间表 2/自动设置 - 仅适用于钢丝）（可更改）
+- `wednesday.borderCut`：有或无bordercut（立即更改值）（可更改）
+- `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（无延迟更改值）（可更改）
+- `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = Endzeit 09:30（立即更改值）（可更改）
+- `calJson_sendto`：如果所有数据点都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）
+- `calJson_tosend`：此数据将发送到 Mqtt（割草计划/自动设置）。您也可以自己创建此 JSON。（可更改）
+- `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 1/自动设置 - 仅适用于电线）（可更改）
+- `calendar.calJson2`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 2/自动设置 - 仅适用于电线）（可更改）
 
 ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
 
-###日历（愿景）
-- 例如周五的时间设置
-- 按照标准，创建 2 个时隙。如果APP中创建了3个槽位，那么ioBroker中也会创建3个槽位。如果再次减少到2个，这些槽位将在ioBroker中删除。时段最多的那一天将作为所有日期的参考。
+### 日历（愿景）
+- 例如，时间设置为星期五
+- 标准情况下，会创建 2 个时间段。如果在 APP 中创建了 3 个时间段，ioBroker 中也会创建 3 个时间段。如果再次减少到 2 个时间段，ioBroker 中会删除这些时间段。时间段最多的一天将作为所有日期的参考。
 
-    - `friday.time_0.borderCut`：有或没有边界剪切（立即更改值）（可更改）
-    - `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如09:00（立即更改值）（可更改）
-    - `friday.time_0.workTime`：工作时间以分钟为单位（180 分钟 = 3 小时），例如30 = Endzeit 09:30（立即更改值）（可更改）
-    - `friday.time_0.enabled_time`：激活或停用时间。停用时，时隙被删除（无延迟设置）（可以更改）
-    - `friday.time_0.zones`：应该接近哪些区域，例如示例[1,2,3]（无延迟设置）（可以更改）
-    - `calJson_sendto`：如果所有数据点均已设置，则将此按钮设置为 true（延迟 1.1）。割草机现在将割草 30 分钟！ （多变）
-    - `calJson_tosend`：此 JSON 会自动填充，然后发送到 Mqtt。当然你也可以自己创建。 （多变）
-    - `add_timeslot`：添加额外的时隙。重新启动后，未使用的时隙将被删除。 （多变）
+- `friday.time_0.borderCut`：有无bordercut（立即更改值）（可更改）
+- `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（立即更改值）（可更改）
+- `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = Endzeit 09:30（立即更改值）（可更改）
+- `friday.time_0.enabled_time`：激活或停用时间。停用时，时间段将被删除（无延迟设置）（可更改）
+- `friday.time_0.zones`：应接近哪些区域，例如示例 [1,2,3]（无延迟设置）（可以更改）
+- `calJson_sendto`：如果所有数据点都已设置，则将此按钮设置为 true（延迟 1.1）。割草机现在将割草 30 分钟！（可更改）
+- `calJson_tosend`: 这个 JSON 是自动填充然后发送给 Mqtt 的。当然你也可以自己创建。(可更改)
+- `add_timeslot`：添加额外的时间段。重启后，未使用的时间段将被删除。（可更改）
 
-![文件夹 img/calendar.png](img/calendar_vision.png)![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
+![文件夹 img/calendar.png](img/calendar_vision.png) ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
 
-### 时间段示例（愿景）
-- `calJson_tosend` 此 JSON 将在星期日输入 1 次并删除所有其他日期。必须始终提交整周的数据。
+### 示例时间段（愿景）
+- `calJson_tosend` 此 JSON 将在周日输入 1 次，并删除所有其他日期。整个星期必须始终提交。
 
 ```json
 [
@@ -106,32 +106,39 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 ]
 ```
 
-### 模块（有线和视觉）
-- 限制模块（有线和视觉）
+### 模块（Wire 和 Vision）
+- 禁区模块（电线和视觉）
 
-    - `DF.OLMSwitch_Cutting`：防止磁带被碾过 - 真开/假关
-    - `DF.OLMSwitch_FastHoming`：快速返回充电站 - true-on/false-off
+- `DF.OLMSwitch_Cutting`：防止磁带被碾过 - true-on/false-off
+- `DF.OLMSwitch_FastHoming`：快速返回充电站 - true-on/false-off
 
 - ACS 模块（仅限有线）
 
-    - `US.ACS`：启用或禁用 ACS - 1-开/0-关
+- `US.ACS`: 启用或禁用 ACS - 1-开/0-关
 
 - EA 模块（仅限视觉）
-    - `EA.h`：割草机甲板的高度调整范围为 30-60，增量为 5 毫米
 
-![模块 img/module.png](img/module.png)![模块 img/module_ea.png](../../../en/adapterref/iobroker.worx/img/module_ea.png)
+- `EA.height`：割草机甲板高度调节范围为 30-60，增量为 5 毫米
 
-### 割草机（电线和视觉）
-- `AutoLock`：自动锁定真开/假关（电线和视觉/可更改）
-- `AutoLockTimer`：定时器自动锁定最大值。 10 分钟，30 秒步长（线材和视觉/可更换）
+- HL 模块（仅限视觉）
+- `HL.status`：状态头灯
+- `HL.enabled`: 前照灯安装是 = 1/否 = 0
+- `HL.on`: 日光 = 0/黑暗 = 1
+
+![模块 img/module.png](img/module.png) ![模块 img/module_ea.png](img/module_ea.png) ![模块 img/module_hl.png](../../../en/adapterref/iobroker.worx/img/module_hl.png)
+
+### 割草机（Wire and Vision）
+- `AutoLock`：自动锁定真开/假关（有线和视觉/可更改）
+- `AutoLockTimer`：定时器自动锁定，最长 10 分钟，每步 30 秒（有线和视觉/可更改）
 - `batteryChargeCycle`：电池充电周期（电线和视觉/只读）
-- `batteryCharging`: 电池充电 false->no/true->yes (wire & Vision/readonly)
-- `batteryState`：电池状态百分比（电线和视觉/只读）
+- `batteryCharging`：电池充电 false->no/true->yes （电线和视觉/只读）
+- `batteryState`：电池状态（％）（电线和视觉/只读）
 - `batteryTemperature`：电池温度（摄氏度）（电线和视觉/只读）
 - `batteryVoltage`：电池电压（伏特）（电线和视觉/只读）
-- `direction`：梯度方向（电线和视觉/只读）
-- `edgecut`：启动 EdgeCut（电线和视觉/可更改）
-- `error`：来自割草机的错误消息（电线和视觉/只读）
+- `cutOverSlabs`: 切换板开启 = true / 关闭 = false （视觉/可更改）
+- `direction`：梯度方向（wire & Vision/readonly）
+- `edgecut`: 启动 EdgeCut (线和视觉/可更改)
+- `error`：来自割草机的错误消息（wire & Vision/readonly）
 
 ```json
 {
@@ -165,9 +172,9 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 
 ![割草机 img/mower_1.png](../../../en/adapterref/iobroker.worx/img/mower_1.png)
 
-- `固件`：当前安装的固件（Wire & Vision/只读）
-- `firmware_available`：可用固件（Wire & Vision/只读）
-- `firmware_available_all`：最后可用的 JSON 固件 - 当有新的更新可用时，此 JSON 将更新（wire & Vision/只读）
+- `firmware`: 当前安装的固件 (wire & Vision/readonly)
+- `firmware_available`: 可用固件 (wire & Vision/readonly)
+- `firmware_available_all`：最后可用的固件为 JSON - 当有新更新可用时，此 JSON 将被更新（wire & Vision/readonly）
 
 ```json
 {
@@ -181,20 +188,22 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 }
 ```
 
-- `firmware_available_date`：可用固件日期 - 重新安装适配器且没有可用更新时的虚拟 1970-01-01（wire & Vision/只读）
-- `firmware_update_start`：分两步开始固件更新（wire & Vision/changeable）
-- `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true（wire & Vision/changeable）
-- `gradient`：grad 中的梯度（wire & Vision/只读）
-- `inclination`：梯度倾斜（电线和视觉/只读）
-- `last_command`：来自 iobroker 或 APP 的最后一个请求，作为 JSON 表（wire & Vision/只读）
-- `mowTimeExtend`：割草时间延长百分比范围：-100%->100%（有线/可更改）
+- `firmware_available_date`：固件可用日期 - 当适配器重新安装且无可用更新时，为虚拟 1970-01-01（wire & Vision/readonly）
+- 来自 dat.fw 的 `firmware_body` 值 (Vision/readonly)
+- 来自 dat.head.fw 的 `firmware_head` 值 (Vision/readonly)
+- `firmware_update_start`：分 2 步启动固件更新（有线 & 视觉/可更改）
+- `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true (wire & Vision/changeable)
+- `gradient`：渐变（wire & Vision/readonly）
+- `inclination`：梯度倾斜度（wire & Vision/readonly）
+- `last_command`: 来自 iobroker 或 APP 的最后一个请求，以 JSON 表形式 (wire & Vision/readonly)
+- `mowTimeExtend`：割草时间延长百分比范围：-100%->100%（有线/可变）
 - `mowerActive`：暂停割草计划（有线/可更改）
-- `mqtt_update`：更新 Mqtt 数据最大值。 150/天（有线和视觉/可变）
-- `mqtt_update_count`：计数器更新 Mqtt 数据（wire & Vision/只读）
+- `mqtt_update`: 每天最多更新 150 条 Mqtt 数据（有线和视觉/可更改）
+- `mqtt_update_count`：计数器更新 Mqtt 数据（有线和视觉/只读）
 
 ![割草机 img/mower_2.png](../../../en/adapterref/iobroker.worx/img/mower_2.png)
 
-- `oneTimeJson`：一次性割草为 JSON（wire & Vision/可更改）
+- `oneTimeJson`: 一次性割草为 JSON (wire & Vision/可更改)
 
 ```json
 {
@@ -203,20 +212,21 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 }
 ```
 
-- `oneTimeStart`：一次性割草开始“首先填充 oneTimeWithBorder 和 oneTimeWorkTime” - 延迟 1.1 秒（电线和视觉/可更改）
-- `oneTimeWithBorder`：带边框 - 立即更改值（电线和视觉/可更改）
-- `oneTimeWorkTime`：最长工作时间。 8 小时，30 分钟步长 - 立即更改值（电线和视觉/可更改）
-- `在线`：在线割草机（电线和视觉/只读）
-- `partyModus`：Partymodus 打开/关闭（电线和视觉/可更改）
-- `暂停`：割草机中断打开/关闭（电线和视觉/可更改）
-- `reset_battery_time`：分两步重置电池电量（电线和视觉/可更改）
-- `reset_battery_time_approved`：确认重置电池电量 - `reset_battery_time` 必须设置为 true（电线和视觉/可修改）
-- `reset_blade_time`：分两步重置刀片工作时间（线材和视觉/可更改）
-- `reset_blade_time_approved`：确认重置刀片工作时间 - `reset_battery_time` 必须设置为 true（线材和视觉/可更改）
+- `oneTimeStart`：一次性割草开始“首先为 Vision 设置 oneTimeWithBorder、oneTimeWorkTime 和 oneTimeZones” - 延迟 1.1 秒（线路和 Vision/可更改）
+- `oneTimeWithBorder`: 带 bordercut - 无延迟更改值（线和视觉/可更改）
+- `oneTimeWorkTime`：工作时间最长为 8 小时，每 30 分钟为一个步骤 - 无延迟更改值（线路和视觉/可更改）
+- `oneTimeZones`: 设置区域 [1,2,4] (视觉/可更改)
+- `online`：割草机在线（有线和视觉/只读）
+- `partyModus`：Partymodus 开启/关闭（线路和视觉/可更改）
+- `暂停`：割草机断电开启/关闭（电线和视觉/可更改）
+- `reset_battery_time`：分两步重置电池电量（线路和视觉/可更改）
+- `reset_battery_time_approved`：确认重置电池电量 - `reset_battery_time` 必须设置为 true （线路和视觉/可修改）
+- `reset_blade_time`：分两步重置刀片工作时间（电线和视觉/可更改）
+- `reset_blade_time_approved`：确认重置刀片工作时间 - `reset_battery_time` 必须设置为 true （电线和视觉/可更改）
 
 ![割草机 img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
 
-- `sendCommand`：发送 cmd 命令（wire & Vision/可更改）
+- `sendCommand`: 发送 cmd 命令 (有线 & 视觉/可更改)
 
 ```json
 {
@@ -234,8 +244,8 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 }
 ```
 
-- `state`：对于启动割草机为 True，对于停止割草机为 False（电线和视觉/可更改）
-- `status`：割草机状态（电线和视觉/只读）
+- `state`：True 表示启动割草机，False 表示停止割草机（电线和视觉/可更改）
+- `status`：状态割草机（电线和视觉/只读）
 
 ```json
 {
@@ -263,19 +273,19 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 }
 ```
 
-- `torque`：车轮扭矩范围 -50->50（线材和视觉/可更改）
-- `totalBladeTime`：刀片总时间（线材和视觉/只读）
+- `torque`：车轮扭矩范围 -50->50（线和视觉/可变）
+- `totalBladeTime`: 刀片总时间（电线和视觉/只读）
 - `totalDistance`：总距离（电线和视觉/只读）
-- `totalTime`：总工作时间（线路和视觉/只读）
-- `waitRain`：最大下雨延迟。 12 小时，30 分钟步长（线材和视觉/可更换）
-- `wifiQuality`：Wifi 质量（有线和视觉/只读）
+- `totalTime`: 总工作时间 (wire & Vision/readonly)
+- `waitRain`：降雨延迟最大为 12 小时，以 30 分钟为单位（电线和视觉/可更改）
+- `wifiQuality`：WiFi 质量（有线和视觉/只读）
 
 ![割草机 img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
 
-### 另外对于视力
+### 另外对于视觉
 -   区域
-    - `rfid`：总区域（只读）
-    - `startSequence`：多区域 JSON（视觉/可变）[示例](#example-blockly-startsequence-vison)
+- `rfid`: 总面积（只读）
+- `startSequence`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-startsequence-vison)
 
 例子：
 
@@ -318,7 +328,7 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 }
 ```
 
-默认无区域：
+无区域的默认设置：
 
 ```json
 {
@@ -340,31 +350,31 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 }
 ```
 
-![愿景 img/areas_vision.png](../../../en/adapterref/iobroker.worx/img/areas_vision.png)
+![视觉 img/areas_vision.png](../../../en/adapterref/iobroker.worx/img/areas_vision.png)
 
 - 割草机
-    - `log_improvement`：发送改进日志到 worx 禁用/启用（可更改）
-    - `log_troubleshooting`：发送故障排除日志到 worx 禁用/启用（可更改）
+- `log_improvement`：发送改进日志至 worx 禁用/启用（可更改）
+- `log_troubleshooting`：将故障排除日志发送到 worx 禁用/启用（可更改）
 
-![视觉 img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
+![愿景 img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
 
 - 割草机
-    - `paused`：暂停的时间表（以分钟为单位）（可更改）
+- `paused`：暂停计划（分钟）（可更改）
 
 ![视觉 img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
 ### Info_mqtt（有线和视觉）
-- `incompleteOperationCount`：提交给连接但尚未完成的操作总数。未确认的操作是其中的一个子集。
-- `incompleteOperationSize`：提交给连接但尚未完成的操作的总数据包大小。未确认的操作是其中的一个子集。
-- `unackedOperationCount`：已发送到服务器并正在等待相应 ACK 才能完成的操作总数。
-- `unackedOperationSize`：已发送到服务器并在完成之前等待相应 ACK 的操作的总数据包大小。
-- `last_update`：令牌的最后更新
-- `next_update`：令牌的下一次更新
+- `incompleteOperationCount`：提交给连接但尚未完成的操作总数。未确认的操作是其中的一部分。
+- `incompleteOperationSize`：提交给连接但尚未完成的操作的总数据包大小。未确认的操作是其中的一部分。
+- `unackedOperationCount`：已发送到服务器并在完成之前等待相应 ACK 的操作总数。
+- `unackedOperationSize`：已发送到服务器并在等待相应 ACK 才能完成的操作的总数据包大小。
+- `last_update`: 来自 token 的最后更新
+- `next_update`: 来自 token 的下一次更新
 - `online`：MQTT 连接状态（false=离线/true=在线）
 
-![视觉 img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
+![愿景 img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
-### 示例 Blocklystartsequence 视觉
+### 示例 Blockly startsequence Vision
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -684,10 +694,10 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 {"p": [],"s": [{"id": 1, "c": 1, "cfg": {"cut": {"bd": 100, "ob": 1}}}]}
 ```
 
-![img/ok_direct.png](../../../en/adapterref/iobroker.worx/img/ok_direct.png)
+![ok_direct.png](../../../en/adapterref/iobroker.worx/img/ok_direct.png)
 
 ＃＃＃ 不允许
-![img/ok_direct.png](img/not_ok_direct.png) ![img/json_nok.png](img/json_nok.png) ![img/array_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
+![ok_direct.png](img/not_ok_direct.png) ![json_nok.png](img/json_nok.png) ![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
 
@@ -697,6 +707,10 @@ hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 -   (Lucky-ESA) Catch publish crash
 -   (Lucky-ESA) Added for Vision electric height adjustment
 -   (Lucky-ESA) Added for Vision new calendar
+-   (Lucky-ESA) Added head light
+-   (Lucky-ESA) Added cut over slabs
+-   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
 
 ### 2.3.4 (2023-10-19)
 

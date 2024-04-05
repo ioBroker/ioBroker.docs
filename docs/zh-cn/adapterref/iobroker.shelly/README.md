@@ -17,12 +17,12 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
+hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-这是德语文档 - [🇺🇸 德语版](../en/README.md)
+这是德语文档 - [🇺🇸英文版](../en/README.md)
 
 ＃＃ 目录
 - [MQTT协议](protocol-mqtt.md)
@@ -33,15 +33,15 @@ hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
 - [常见问题解答](faq.md)
 
 ＃＃ 要求
-1.Node.js 16.0（或更高版本）
-2.js-controller 3.3.22（或更高版本）
+1.Node.js 18（或更高版本）
+2.js-controller 5.0.0（或更高版本）
 4. 管理适配器 6.0.0（或更高版本）
 
 ## 设备代数
 有关更多信息，请参阅*支持的设备*。
 
-- **Gen1**：ESP8266 设备，[CoAP/CoIoT](protocol-coap.md) 或 [MQTT](protocol-mqtt.md)
-- **Gen2**：ESP32 设备，[MQTT](协议-mqtt.md)
+- **第 1 代**：ESP8266 设备、[CoAP/CoIoT](protocol-coap.md) 或 [MQTT](protocol-mqtt.md)
+- **Gen 2+**：ESP32 设备，[MQTT](protocol-mqtt.md)
 
 ＃＃ 一般来说
 适配器可以通过 MQTT（推荐）或 CoAP/CoIoT 与设备通信。
@@ -60,6 +60,17 @@ hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (svenbluege) Added Shelly 1 PM Mini (Gen3)
+
+### 6.9.0 (2024-03-12)
+
+* (klein0r) Added Shelly Plus 0-10V
+* (klein0r) Admin notification for available firmware updates
+
 ### 6.8.0 (2024-02-17)
 
 * (klein0r) Updated BLE script to 0.2 (new shelly motion firmware)
@@ -80,12 +91,6 @@ hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
 ### 6.6.0 (2023-10-17)
 
 * (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
-
-### 6.5.0 (2023-10-17)
-
-* (klein0r) Added Shelly Plus Smoke
-* (klein0r) Added Shelly Bluetooth Low Energy Gateway
-* (theimo1221) More Shelly TRV Datapoints
 
 ## License
 

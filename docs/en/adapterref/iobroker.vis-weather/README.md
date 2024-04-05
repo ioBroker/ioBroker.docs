@@ -30,6 +30,13 @@ You need DasWetter-Adpater or weatherunderground-Adapter running as well...
 In weatherunderground you need forecast of next 36 hours enabled.
 In DasWetter.com you need one of four forecast data structures enabled. You can select the one you want to display. 
 
+
+## compatibility with vis-2
+
+This widget is NOT compatible with vis-2.
+A new version under the name [vis-2-widgets-weather](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) is under preparation.
+
+
 ## Notes / wiki
 ### Define Forecast hours
 By default the forecast diagram shows 40 hours (DasWetter) or 36 hours (wunderground). If you prefer to only show e.g. 10 hours forecast, simply delete the unnecessary OIDs under oid_groups in vis-edit. 
@@ -47,6 +54,10 @@ You might need to enable "NextDaysDetailed".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) 
+
 ### 2.5.9 (2024-01-13)
 * (René) dependencies update
 

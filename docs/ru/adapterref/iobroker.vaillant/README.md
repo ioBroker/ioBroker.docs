@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: Q9knqwUkXz52JAd6LLPc3lUKOZIzIs0eFoa1OKhRA2w=
+hash: 0S0upJibblOA6l9ZNY0BN0ASNBRryqHH3O/DxLiNUT4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -39,6 +39,20 @@ vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost или tr
 Вы можете использовать собственный командный пульт для непредопределенных пультов `vaillant.0.id.remotes.customCommand`
 
 ### Примеры:
+## Зона смерти может быть от 0 до X gehen. Зона прикуса/0/ зона одера/2/ тестен
+зона/0/хххх
+
+зона/1/хххх
+
+зона/2/хххх
+
+```json
+{
+  "url": "zone/0/heating/comfort-room-temperature",
+  "data": { "comfortRoomTemperature": 10.5 }
+}
+```
+
 ```json
 {
   "url": "zone/1/heating/comfort-room-temperature",
@@ -71,6 +85,48 @@ vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost или tr
 {
   "url": "zone/1/heating/set-back-temperature",
   "data": { "setBackTemperature": 20 }
+}
+```
+
+```json
+{
+  "url": "zone/1/cooling/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "zone/1/cooling/setpoint",
+  "data": { "setpoint": 20 }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/operation-mode",
+  "data": { "operationMode": "SET_BACK" }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/day-fan-stage",
+  "data": { "maximumDayFanStage": 3 }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/night-fan-stage",
+  "data": { "maximumNightFanStage": 2 }
 }
 ```
 

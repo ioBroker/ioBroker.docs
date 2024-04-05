@@ -4,12 +4,12 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-mqtt.md
 title: ioBroker.shelly
-hash: ZhvLVsWkR9bafnB6DTOJYh4lE5y8G9i6o5TC9zp0Tss=
+hash: EJVMK4X87HaUFIMR6su6MHjplm/TSvh97ugZgVQ40EE=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-这是德语文档 - [🇺🇸 德语版](../en/protocol-mqtt.md)
+这是德语文档 - [🇺🇸英文版](../en/protocol-mqtt.md)
 
 ## MQTT
 ![iobroker_general_mqtt](../../../de/adapterref/iobroker.shelly/img/iobroker_general_mqtt.png)
@@ -35,14 +35,14 @@ hash: ZhvLVsWkR9bafnB6DTOJYh4lE5y8G9i6o5TC9zp0Tss=
 
 在您的 Shelly 设备上启用 MQTT。
 
-### 第 2 代设备（Plus 和 Pro）
+### 第 2 代以上设备（Plus 和 Pro）
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）
 2. 打开“设置”选项卡并转至“网络”->“Mqtt”
 3. 激活 MQTT 并输入刚刚配置的用户数据和安装 ioBroker 的系统的 IP 地址 - 后跟配置的端口（例如“192.168.1.2:1882”）
 4.保存配置-Shelly会自动重启
 
 - **不要更改此配置中的“客户端 ID”**
-- **对于第 2 代设备 (Gen2)，必须激活所有 RPC 选项（参见屏幕截图）！**
+- **对于第 2+ 代设备 (Gen2+)，必须激活所有 RPC 选项（参见屏幕截图）！**
 - 不得激活 SSL/TLS
 
 ![雪莉第二代](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2.png)

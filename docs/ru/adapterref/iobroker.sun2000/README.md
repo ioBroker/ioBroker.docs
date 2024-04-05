@@ -1,48 +1,35 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.sun2000.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sun2000.svg
+BADGE-Number of Installations: https://iobroker.live/badges/sun2000-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/sun2000-stable.svg
+BADGE-Documentation: https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white
+BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
+BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
+BADGE-NPM: https://nodei.co/npm/iobroker.sun2000.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sun2000/README.md
-title: ioBroker.sun2000
-hash: ck6/uyq141if3CicgGBfW2NdEulsmg4uvfIMeUkOofg=
+title: Адаптер ioBroker SUN2000 Документация
+hash: Dz2NL0KVKXgnqXxR2r7idyDM8Pqi/YfDGUml99Kod7c=
 ---
-![Логотип](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
+# Адаптер ioBroker SUN2000 Документация
+* [Настройка инверторов](./inverter.md)
+* [Конфигурация адаптера](./configuration.md)
+* [Расчет](./calculation.md)
+* [Пример VIS](./vis.md)
+* [Определения интерфейса](./definitions.md)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.sun2000.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.sun2000.svg)
-![Количество установок](https://iobroker.live/badges/sun2000-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/sun2000-stable.svg)
-![Документация](https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white)
-![НПМ](https://nodei.co/npm/iobroker.sun2000.png?downloads=true)
+## Вики
+Некоторые интересные вещи объяснены в [вики](https://github.com/bolliy/ioBroker.sun2000/wiki).
 
-# IoBroker.sun2000
-**Тесты:** ![Тестирование и выпуск](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
+## Форум
+Не стесняйтесь следить за обсуждениями в разделе [немецкий форум iobroker](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter).
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.**\ Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Отчеты Sentry используются, начиная с js-контроллера. 3.0.
+## Вдохновение
+Разработка этого адаптера была вдохновлена обсуждениями в ветке форума https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert и javascript iobroker https://github. com/ChrisBCH/SunLuna2000_iobroker.
 
-## Адаптер sun2000 для ioBroker
-Считайте данные регистра инвертора Huawei SUN2000 и аккумулятора LUNA2000 с помощью Modbus TCP.
-
-[Информация о продукте Huawei](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
-
-Не стесняйтесь следить за обсуждениями на немецком языке [форум iobroker](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter).
-
-## Документация
-См. [страница документации](./docs/README.md) или просмотрите [вики](https://github.com/bolliy/ioBroker.sun2000/wiki).
-
-## Поддерживаемое оборудование
-* Инвертор HUAWEI серии SUN2000 (M0, M1, M2 и выше)
-* HUAWEI Smart Dongle-WLAN-FE / мин. Версия программного обеспечения: V100R001C00SPC133 (SDongleA-05)
-* Аккумулятор HUAWEI Luna2000
-* Интеллектуальный датчик мощности HUAWEI DTSU666-H или DDSU666-H
-* HUAWEI Smart Logger / мин. Версия программного обеспечения: V300R023C10SPC311
-
-## Список функций
-* Можно обработать максимум 5 инверторов (главный/подчиненный), каждый с аккумуляторным модулем (макс. 15 кВтч).
-* Значения в реальном времени, такие как входная мощность, выходная мощность, мощность зарядки/разрядки и потребление сети, считываются через фиксированный интервал.
-* Состояния записываются только для измененных данных преобразователя. Это снижает нагрузку на экземпляр iobroker.
-* Состояния «inputPower» или «activePower» в «собранном» пути можно отслеживать с помощью триггерного элемента «было обновлено». Потому что эти состояния всегда записываются в заданном интервале.
-* modbus-proxy: Сторонние устройства, такие как настенная коробка, энергоменеджер и т. д., могут получать данные, даже если интерфейс Modbus инвертора уже используется. Кроме того, вы можете зеркально отразить данные sun2000 на другом экземпляре ioBroker.
-* Интеграция Huawei SmartLogger: контролирует и управляет фотоэлектрической системой. Адаптер сохраняет собранные данные так же, как и при считывании напрямую с инвертора.
+Работа в процессе
 
 ## Changelog
 
@@ -50,8 +37,25 @@ hash: ck6/uyq141if3CicgGBfW2NdEulsmg4uvfIMeUkOofg=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2024-04-03)
+* breaking changes
+	- Node.js 18.x or higher required
+	- ioBroker host (js-controller) 5.x or higher
+
+### 0.6.2 (2024-03-31)
+* standby detection adjusted
+* improvement of logs
+
+### 0.6.1 (2024-03-23)
+* Battery control: After the second failed attempt, the control event is discarded
+* Battery control: Adjust the battery maxCharge and Discharge to the actual values
+
+### 0.6.0 (2024-03-21)
+* realization the "battery charge control" #61
+* fix the standby detection #60
+
 ### 0.5.1 (2024-03-11)
-* Config page restructured
+* config page restructured
 * read only the required string data
 * fix interval medium
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.myuplink/README.md
 title: ioBroker.myuplink
-hash: FUesn9bNELv4MJOxaed5prn9MNSB85YuwkWRxt57Lec=
+hash: +c8Neb3KKonGY9VtQq66QhvwidPModoE5QWdcaxh5Og=
 ---
 # IoBroker.myuplink
 
@@ -19,14 +19,16 @@ hash: FUesn9bNELv4MJOxaed5prn9MNSB85YuwkWRxt57Lec=
 Этот адаптер ioBroker получает данные от myUplink.com.
 
 ## Использование этого адаптера
-1. Вам нужен совместимый тепловой насос от NIBE, AIT, Cetetherm, ClimateMaster, Contura, CTA, CTC, Enertech Global или Høiax — купите его, если у вас его нет ;-)
+Немецкая версия ниже — Eine deutsche Version dieser Anleitung gibt's weiter unten.
+
+1. Вам нужен тепловой насос, совместимый с myUplink, от NIBE, AIT, Cetetherm, ClimateMaster, Contura, CTA, CTC, Enertech Global или Høiax — купите его, если у вас его нет ;-)
 2. Вам нужна учетная запись на myUplink: https://myuplink.com.
-3. Перейдите на myUplink Api: https://dev.myuplink.com/ и войдите в систему.
+3. Перейдите на myUplink Api: https://dev.myuplink.com и войдите в систему.
 4. Нажмите «Приложения», а затем «Создать новое приложение».
 5. Заполните: Имя и Описание могут быть любыми, например. ioBroker
 6. URL-адрес обратного вызова важен для потока предоставления кода авторизации. Вы можете использовать https://sebilm.github.io/ioBroker.myuplink/myuplink.html.
 7. Примите соглашение об услугах API myUplink и нажмите «Создать».
-8. Затем получаете Идентификатор и Секрет – они нам нужны.
+8. Далее получаете Идентификатор и Секрет – они нам нужны.
 9. Установите этот адаптер в ioBroker.
 10. На странице настроек адаптера заполните Идентификатор и Секрет.
 11. Выберите язык и все остальные настройки.
@@ -44,7 +46,70 @@ hash: FUesn9bNELv4MJOxaed5prn9MNSB85YuwkWRxt57Lec=
 в этом объекте. Это позволяет одновременно отправлять и изменять несколько точек данных в API.
 Его также можно использовать для изменения точек данных, которые не отправляются API.
 
+## Как работает адаптер
+Адаптер получает список систем и устройств из API myUplink каждые x минут (в зависимости от настроек). Затем он извлекает доступные параметры для каждого устройства и сохраняет их в дереве объектов. Если myUplink отправляет в процессе новые параметры, они автоматически добавляются в дерево объектов.
+
+Адаптер обычно не удаляет какие-либо объекты, чтобы данные не были потеряны, если myUplink не отправит параметр.
+
+Адаптер также не влияет на то, какие параметры отправляет myUplink.
+
+## Адаптеры Verwendung dieses
+1. Это может быть совместимое с myUplink тепловое оборудование от NIBE, AIT, Cetetherm, ClimateMaster, Contura, CTA, CTC, Enertech Global или Høiax.
+2. Вы можете использовать учетную запись myUplink: https://myuplink.com
+3. На сайте myUplink-API-Webseite: https://dev.myuplink.com.
+4. Нажмите «Приложения» и «Создать новое приложение».
+5. Название и описание können beliebig ausgefüllt werden, z.B. «ИоБрокер»
+6. URL-адрес обратного вызова предназначен для потока предоставления кода авторизации. Это возможно https://sebilm.github.io/ioBroker.myuplink/myuplink.html eingetragen werden.
+7. Соглашения об услугах API myUplink должны быть указаны и должны быть указаны при нажатии кнопки «Создать».
+8. Es wird ein Identifier und ein Secret angezeigt - diese werden benötigt.
+9. Установите адаптер в ioBroker.
+10. Auf der Einstellungsseite des Adapters den Identifier und das Secret eingeben.
+11. Die Sprache und alle anderen Einstellungen auswählen und einstellen.
+12. Шпайхерн и Шлиссен кликен.
+
+Необходимо указать, что объект в объектной базе называется «setData». Можно ли использовать JSON-объект формы
+
+```json
+{
+    "12345": "42",
+    "23456": "1"
+}
+```
+
+в das Objekt eingetragen werden. Это действительно так, лучше использовать Datenpunkte gleichzeitig и API для отправки и обработки.
+Это может быть связано с датами, которые не используются API.
+
+## Работа с адаптерами
+Адаптер должен удерживать myuplink-API в течение нескольких минут (je nach Einstellung) в списке и создании системы. Для этого необходимо указать заданный параметр и указать его в объекте. Если myUplink не будет отправлять новые параметры, это автоматически приведет к указанию объекта.
+
+В качестве общего объекта адаптера, если он не используется для передачи данных, параметр myUplink не может быть установлен с отправкой.
+
+Адаптер также может быть использован в некоторых случаях, когда параметр myUplink используется.
+
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   Do not send empty objects (setData)
+-   The initial refresh interval was set to 5 minutes
+-   The code has been restructured internally
+-   At least Node.js 18 is required!
+-   Dependencies have been updated
+
+### 0.7.1 (2024-02-10)
+
+-   Crash after 'unhandled promise rejection' fixed #15
+
+### 0.7.0 (2024-02-04)
+
+-   Forbidden characters are removed from the category
+-   An error when setting data has been fixed
+-   Performance has been improved
+
+### 0.6.1 (2024-02-03)
+
+-   Performance has been improved
+-   Dependencies have been updated
 
 ### 0.6.0 (2024-01-28)
 

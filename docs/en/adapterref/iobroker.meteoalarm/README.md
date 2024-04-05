@@ -25,10 +25,14 @@ Choose your country, and afterwards the region you want the warnings for. If you
 
 ## Changelog
 
+### 3.0.2 (2024-02-24)
+* (jack-blackson) Bugfix for notification text - missing space
+* (jack-blackson) Bugfix for notification text - fix to just show "warning level in words" in the notification if it is ticked in the setup
+
+
 ### 3.0.1 (2024-02-29)
 * (jack-blackson) Bugfix for location names
 * (jack-blackson) Removed necessity to choose country, this is now automatically detected
-
 
 ### 3.0.0 (2024-02-26)
 * (jack-blackson) Breaking change: switch to locations instead of choosing geocodes to be able to also handle warnings coming with polygons (e.g. Switzerland)
@@ -132,16 +136,21 @@ Choose your country, and afterwards the region you want the warnings for. If you
 * (jack-blackson) Changed Alarm Folder Name to Alarm_X
 * (jack-blackson) Define in setup which Alarms you want to see
 * (jack-blackson) Sort Alarms by effective date
+
 ### 2.0.0 (2021-07-06)
 * (jack-blackson) Switch to Meteoalarm.org, complete rebuild
+
 ### 1.2.1 (2021-06-05)
 * (jack-blackson) Bugfix to handle incorrect XML (if country instead of region is used)
 * (jack-blackson) Added Luxembourg
+
 ### 1.2.0 (2021-05-16)
 * (jack-blackson) New Setup: "No Background Color in HTML Widget", "Define Warning colors" and "Use white icons"
 * (jack-blackson) New Icons
+
 ### 1.1.11 (2021-05-09)
 * (jack-blackson) Package Updates
+
 ### 1.1.9 (2021-05-07)
 * (jack-blackson) Package Updates
 ### 1.1.5 (2021-05-02)

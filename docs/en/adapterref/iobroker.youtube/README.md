@@ -19,8 +19,8 @@ BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
 
 ## Requirements
 
-- nodejs 16.0 (or later)
-- js-controller 4.0.15 (or later)
+- nodejs 18.0 (or later)
+- js-controller 5.0.0 (or later)
 - Admin Adapter 6.0.0 (or later)
 
 ## Configuration
@@ -77,6 +77,12 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2024-04-03)
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (klein0r) Better way to get channel id by alias
+
 ### 4.4.0 (2023-10-25)
 
 NodeJS 16.x is required
@@ -95,14 +101,6 @@ NodeJS 16.x is required
 
 * (klein0r) Allow alias or custom url in configuration
 * (klein0r) Added request success indicators
-* (klein0r) Added Ukrainian language
-
-### 4.1.0 (2022-11-10)
-
-NodeJS >= 14.5 is required
-
-* (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
-* (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
 
 ## License

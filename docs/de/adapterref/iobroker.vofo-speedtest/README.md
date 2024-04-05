@@ -2,42 +2,47 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vofo-speedtest/README.md
-title: ioBroker.vofo-speedtest
-hash: 8JqucXM8UL0/udKEd7RzkNHA1lejXAePJIqkdoifCEE=
+title: ioBroker.vofo-Geschwindigkeitstest
+hash: 4PcZ3CeCQZ9Qx74X33H7TCPTDyHpFmQfaMyR6GSextM=
 ---
 ![Logo](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/vofo-speedtest-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/vofo-speedtest-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)
-![NPM](https://nodei.co/npm/iobroker.vofo-speedtest.png?downloads=true)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vofo-speedtestd)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vofo-speedtest/latest)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vofo-speedtest-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/vofo-speedtest-installed.svg)
 
 # IoBroker.vofo-speedtest
-![Test und Freigabe](https://github.com/peterbaumert/iobroker.vofo-speedtest/workflows/Test%20and%20Release/badge.svg)
-
-**Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler und neue Geräteschemata zu melden.** Weitere Details siehe unten!
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/vofo-speedtest/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql)
 
 ## Vofo-Speedtest-Adapter für ioBroker
 Speedtest von Vodafone.de
 
-Implementiert die gleiche Technik wie https://speedtest.vodafone.de
+Implementiert dieselbe Technik wie https://speedtest.vodafone.de
 
-## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter umgesetzt.
-
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt.
-Wenn Sie der ioBroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten.
-Dadurch kann Sentry Fehler gruppieren und zeigt, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die grundsätzlich nie abstürzen.
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von Peter Baumert <ioBroker.unifi-protect@outlook.com>, der die Erstversion dieses Adapters implementiert hat, nicht möglich gewesen.
 
 ## Haftungsausschluss
-Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vodafone GmbH oder den damit verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder bin mit ihnen verbunden
+Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vodafone GmbH oder ihren Tochtergesellschaften, Logos oder Marken unterstützt oder bin mit ihnen verbunden.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-03-29)
+* (mcm1957) BREAKING: Adapter requires node.js 18, js-controller >= 5 and admin >= 6 now
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
+* (mcm1957) Metrialize admin UI has been removed as jsonConfig is available
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2023-09-13)
 * (bluefox) Updated packages and refactored code
 
@@ -94,6 +99,7 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vod
 ## License
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

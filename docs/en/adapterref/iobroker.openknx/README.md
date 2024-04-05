@@ -96,11 +96,11 @@ A GA without DPT basetype cannot be imported with this adapter. ETS4 projects mu
 
 The style only defines the appearance of the Group Address in the ETS user interface. The following styles are available:
 
-    Presentation Style	Name	                Example
-
-1 3-Level Main/Middle/Subgroup 1/3/5
-2 2-Level Main Group/Subgroup 1/25
-3 Free-Level Subgroup 300
+|     | Presentation Style | Name                 | Example |
+| --- | ------------------ | -------------------- | ------- |
+| 1   | 3-Level            | Main/Middle/Subgroup | 1/3/5   |
+| 2   | 2-Level            | Main Group/Subgroup  | 1/25    |
+| 3   | Free-Level         | Subgroup             | 300     |
 
 The adapter supports all 3 style configurations in the project import xml file. For storing in the IOB object, the format is always converted into the 3-level form.
 Please note that the combined ga and group name must be unique for the IOB object tree. Having for example an ETS configuration with two middle groups of the same name will result in a joint hierarchy element and having two identically named gas in there will result into an error.
@@ -177,17 +177,19 @@ The whole name including path is used to check for similarity.
     where entry_new points to the old adapter object path and entry_new the openknx adapter instance
 -   set influx enabled for new object entry_new
 
-# howto use the adapter & basic concept
+# howto use the adapter & basic concepts
+
+# howto use the adapter & basic concepts
 
 ### ACK flags with tunneling connections
 
 Applications shall not set the ack flag, application is notified from this adapter by the ack flag if data is updated.
-KNX Stack sets the ack flag of the corresponding IoBroker object on receiption of a group address if another knx host writes to the bus.
+OpenKNX sets the ack flag of the corresponding IoBroker object on receiption of a group address if another knx host writes to the bus.
 
-| GA is                               | connected to device with a R flag | connected to devices with no R flag | unconnected |
-| ----------------------------------- | --------------------------------- | ----------------------------------- | ----------- |
-| Application issues GroupValue_Write | ack                               | ack                                 | no ack      |
-| Application issues GroupValue_Read  | ack                               | no ack                              | no ack      |
+| GA is                               | connected to device with an R flag | connected to devices with no R flag | unconnected              |
+| ----------------------------------- | ---------------------------------- | ----------------------------------- | ------------------------ |
+| Application issues GroupValue_Write | OpenKNX generates ack              | OpenKNX generates ack               | OpenKNX generates no ack |
+| Application issues GroupValue_Read  | OpenKNX generates ack              | OpenKNX generates no ack            | OpenKNX generates no ack |
 
 ### Node Red complex datatype example
 
@@ -406,7 +408,14 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
   * npm run release
   * npm run release major/minor/patch major.minor.patch
   * update gui: iob upload openknx
+  * update stable: https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-stable-repository
 -->
+### 0.8.0 (2024-03-30)
+
+-   feature: put KNX interface name into log
+-   bugfix: #419 wait for connection complete before data processing in case of receiving data before
+-   bugfix: #457 Ack missing after changing IOB object value
+
 ### 0.7.3 (2024-03-05)
 
 -   feature: one of the warnings is configurable in the dialog
@@ -419,7 +428,8 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ### 0.7.1 (2024-01-07)
 
--   feature: when requesting fast message sendout create iob acks per bus message status, before it triggered all acks on first message send confirmance
+-   feature: when requesting fast message sendout create iob acks per bus message status, situation before: it triggered all acks on first message send confirmance
+-   feature: when requesting fast message sendout create iob acks per bus message status, situation before: it triggered all acks on first message send confirmance
 -   feature: add message count object
 -   feature: use common.desc from ets xml Description field and move datatype info to native
 -   cleanup: stop timers on shutdown

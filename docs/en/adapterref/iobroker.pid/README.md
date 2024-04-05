@@ -18,13 +18,11 @@
 </br>
 **Tests:** </br>
 [![Test and Release](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml)
-[![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml)
+[![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
 
-<!--
 ## Sentry
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
--->
 
 ## PID Adapter for ioBroker
 
@@ -62,11 +60,15 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2024-03-22)
+
+-   (mcm1957) Adapter uses sentry to report errors now.
+
 ### 1.0.0 (2024-03-11)
 
 -   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
 -   (mcm1957) BREAKING: Adapter requires js-controller 5.x.x and admin 6.x.x or newer now
--   (mcm1957) Parameter offset was non functional. This has been fixed. [#105]
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
 -   (mcm1957) Incorrect error message whenever no controllers have been defied has been removed. [#68]
 -   (mcm1957) State roles have been reviewed and adapted. [#88]
 -   (mcm1957) Dependencies have been updated.

@@ -72,6 +72,9 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
 * (klein0r) Load system configuration via parameter
 * (coltc50) Added damping factor for forecast solar
 

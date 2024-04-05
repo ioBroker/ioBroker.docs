@@ -44,6 +44,18 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.2 (2024-03-28)
+-   (mcm1957) Adapter supports multiple pages returned from Envertech now. This will allow more than 20 inverters per station.
+-   (mcm1957) Adapter requires js-controller >= 5 now.
+-   (mcm1957) Dependencies have been updated.
+
+### 1.2.0 (2024-03-21)
+-   (mcm1957) New states GridPower and LoadPower have been added [#147].
+-   (mcm1957) Processing of strIncome has been fixed [#46].
+-   (mcm1957) Incorrect description has been corrected [#50].
+-   (mcm1957) State roles have been checked and adapter [#75].
+-   (mcm1957) Dependencies have been updated.
+
 ### 1.1.0 (2023-11-12)
 -   (mcm1957) Adapter requires nodejs 18 now.
 -   (mcm1957) Incorrect energy units have been corrected. [#113]
@@ -100,7 +112,7 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 
 MIT License
 
-Copyright (c) 2023 mcm1957 <mcm57@gmx.at>, adcrafter27 <adcrafter27@gmail.com>
+Copyright (c) 2023-2024 mcm1957 <mcm57@gmx.at>, adcrafter27 <adcrafter27@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

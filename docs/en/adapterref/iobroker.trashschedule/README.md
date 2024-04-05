@@ -65,6 +65,8 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 -->
 ### **WORK IN PROGRESS**
 
+NodeJS >= 18.x and js-controller >= 5 is required
+
 * (klein0r) Improved error reporting / log messages
 
 ### 3.2.0 (2024-01-22)

@@ -26,10 +26,10 @@ Huawei products page: [solar.huawei.com](https://solar.huawei.com/at/professiona
 see the [documentation page](./docs/README.md)
 
 ## Changelog
+### 0.1.3 (2024-03-21)
 
-### **WORK IN PROGRESS**
-
-* ...
+* Small bug fix...
+* Changed log message level (too verbose when inverter is in standby mode)
 
 ### 0.1.2 (2024-03-11)
 

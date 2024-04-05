@@ -27,8 +27,8 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 
 ## Anforderungen
 
-- nodejs 14.5 (oder neuer)
-- js-controller 4.0.15 (oder neuer)
+- nodejs 18 (oder neuer)
+- js-controller 5.0.0 (oder neuer)
 - Admin Adapter 6.0.0 (oder neuer)
 - _LaMetric Time_ mit Firmware _2.3.8_ (_3.0.21_ auf dem 2022er Modell) (oder neuer)
 
@@ -59,6 +59,10 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
 ### 3.1.3 (2024-01-31)
 
 * (klein0r) Fixed web extension

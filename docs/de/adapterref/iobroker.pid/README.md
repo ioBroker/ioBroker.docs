@@ -3,51 +3,50 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
+hash: UUOO/z2PWdjdq1AJ3fHiXijuBrVnh1IQrmfaGhIpQbo=
 ---
 ![Logo](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
 ![GitHub-Probleme](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.pid.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pid-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/pid-installed.svg)
 
 # IoBroker.pid
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
 
-<!--
+## Wachposten
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
-->
 ## PID-Adapter für ioBroker
 Dieser Adapter bietet einen konfigurierbaren PID-Regler.
 
 ## Allgemeine Informationen
 Dieser Adapter bietet die Funktionalität eines PID-Reglers.
 
-In der Praxis berechnet ein PID-Regler automatisch einen Korrekturwert für ein System basierend auf einem Istwert und einem Sollwert. Das Verhalten wird durch Parameter gesteuert. Ein alltägliches Beispiel ist der Tempomat eines Autos, bei dem beim Bergauffahren die Geschwindigkeit verringert würde, wenn eine konstante Motorleistung angewendet würde. Der PID-Algorithmus des Reglers stellt die gemessene Geschwindigkeit mit minimaler Verzögerung und minimalem Überschwingen auf die gewünschte Geschwindigkeit wieder her, indem er die Leistungsabgabe des Motors auf kontrollierte Weise erhöht. [(c) Wikipedia]
+In der Praxis berechnet ein PID-Regler automatisch einen Korrekturwert für ein System basierend auf einem Istwert und einem Sollwert. Das Verhalten wird durch Parameter gesteuert. Ein alltägliches Beispiel ist der Tempomat eines Autos, bei dem beim Bergauffahren die Geschwindigkeit sinkt, wenn konstante Motorleistung eingesetzt wird. Der PID-Algorithmus des Reglers stellt die gemessene Geschwindigkeit mit minimaler Verzögerung und Überschwingen auf die gewünschte Geschwindigkeit wieder her, indem er die Leistungsabgabe des Motors kontrolliert erhöht. [(c) Wikipedia]
 
-Innerhalb einer Adapterinstanz kann mehr als ein Controller konfiguriert sein. Der Adapter unterstützt die Konfiguration der Parameter (P-, I-, D-Komponenten) und der für die Berechnung verwendeten Zykluszeit. Darüber hinaus kann die Berechnung unterbrochen und wieder aufgenommen sowie die Steuerung überhaupt zurückgesetzt werden. Als praktischer Server kann ein manueller Modus eingeschaltet werden, um den Ausgang direkt einzustellen. Die Ausgabe kann auf einen minimalen/maximalen Wert begrenzt werden und einen festen Offset enthalten.
+Innerhalb einer Adapterinstanz können mehrere Regler konfiguriert werden. Der Adapter unterstützt die Konfiguration der Parameter (P-, I-, D-Komponenten) und der für die Berechnung verwendeten Zykluszeit. Darüber hinaus kann die Berechnung angehalten und fortgesetzt und der Regler zurückgesetzt werden. Als praktische Funktion kann ein manueller Modus eingeschaltet werden, um den Ausgang direkt einzustellen. Der Ausgang kann auf einen minimalen/maximalen Wert begrenzt werden und einen festen Offset enthalten.
 
-Für Diagnosezwecke stehen alle relevanten Werte inklusive interner Daten als Zustände zur Verfügung.
+Alle relevanten Werte inklusive interner Daten stehen als Zustände für Diagnosezwecke zur Verfügung.
 
 ## Dokumentation
-[Englische Dokumentation](docs/en/pid_en.md)<br> [deutsche Dokumentation](docs/de/pid_de.md)
+[englische Dokumentation](docs/en/pid_en.md)<br> [deutsche Dokumentation](docs/de/pid_de.md)
 
 ## Credits
-Die Bereitstellung dieses Adapters wäre ohne die großartige Arbeit von @Philmod (https://github.com/Philmod), der den Node-Pid-Controller (https://github.com/Philmod/node-pid-controller) entwickelt hat, nicht möglich gewesen. .
+Die Bereitstellung dieses Adapters wäre ohne die großartige Arbeit von @Philmod (https://github.com/Philmod), dem Entwickler von node-pid-controller (https://github.com/Philmod/node-pid-controller), nicht möglich gewesen.
 
-## So melden Sie Probleme und Funktionswünsche
-Bitte nutzen Sie hierfür GitHub Issues.
+## So melden Sie Probleme und Funktionsanfragen
+Bitte verwenden Sie hierfür GitHub-Probleme.
 
-Am besten stellen Sie den Adapter auf den Debug-Protokollmodus ein (Instanzen -> Expertenmodus -> Spaltenprotokollebene). Dann holen Sie sich bitte die Protokolldatei von der Festplatte (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis und nicht vom Administrator, da der Administrator die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (mcm57@gmx.at) senden. Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
-„title“: „lblCtrlInvert“,
+Am besten stellen Sie den Adapter auf den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalte Log-Level). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis und nicht von Admin, da Admin die Zeilen abschneidet). Wenn Sie es nicht in einem GitHub-Problem bereitstellen möchten, können Sie es mir auch per E-Mail senden (mcm57@gmx.at). Fügen Sie bitte einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+"title": "lblCtrlInvert",
 
 ## Changelog
 
@@ -55,6 +54,19 @@ Am besten stellen Sie den Adapter auf den Debug-Protokollmodus ein (Instanzen ->
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2024-03-22)
+
+-   (mcm1957) Adapter uses sentry to report errors now.
+
+### 1.0.0 (2024-03-11)
+
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
+-   (mcm1957) BREAKING: Adapter requires js-controller 5.x.x and admin 6.x.x or newer now
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
+-   (mcm1957) Incorrect error message whenever no controllers have been defied has been removed. [#68]
+-   (mcm1957) State roles have been reviewed and adapted. [#88]
+-   (mcm1957) Dependencies have been updated.
+
 ### 0.0.8 (2023-07-13)
 
 -   (mcm1957) changed: Overall stability during state updates has been increased
@@ -122,7 +134,7 @@ Am besten stellen Sie den Adapter auf den Debug-Protokollmodus ein (Instanzen ->
 
 MIT License
 
-Copyright (c) 2023 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2023-2024 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

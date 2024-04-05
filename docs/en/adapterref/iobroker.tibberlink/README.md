@@ -96,6 +96,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.3.3 (2024-04-xx)
+
+-   (HombachC) update typescript to 5.3.3
+-   (HombachC) update adapter-core to 3.0.6
+
 ### 2.3.2 (2024-03-17)
 
 -   (HombachC) code optimizations

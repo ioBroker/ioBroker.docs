@@ -49,6 +49,9 @@ Use objects under remote to control the vehicle
 
 
 ## Changelog
+### 0.1.1
+
+* added location api information
 
 ### 0.1.0
 

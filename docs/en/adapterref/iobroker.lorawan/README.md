@@ -4,6 +4,7 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.lorawan.svg)](https://www.npmjs.com/package/iobroker.lorawan)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lorawan.svg)](https://www.npmjs.com/package/iobroker.lorawan)
 ![Number of Installations](https://iobroker.live/badges/lorawan-installed.svg)
+![Number of Installations](https://iobroker.live/badges/lorawan-stable.svg)
 ![Test and Release](https://github.com/BenAhrdt/ioBroker.lorawan/workflows/Test%20and%20Release/badge.svg)
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/besc83)
 
@@ -22,6 +23,15 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2024-03-27)
+* (BenAhrdt) change some comments and logging
+
+### 1.0.1 (2024-03-25)
+* (BenAhrdt) support 2's complement
+
+### 1.0.0 (2024-03-21)
+* (BenAhrdt) implement wifi icons
+
 ### 0.6.6 (2024-03-11)
 * (BenAhrdt) update Vicki device-config
 

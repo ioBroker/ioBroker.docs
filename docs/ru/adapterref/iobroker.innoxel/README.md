@@ -3,67 +3,67 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: VKgsaXa83kaMqCtr9cKRlAFeLWMLDCmTLldAQujBdpI=
+hash: DYyTobJiWFCFHEUKBVPRm8iV5QBcZWMfhs3JkLncA9I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
 ![узел](https://img.shields.io/node/v-lts/iobroker.innoxel)
-![версия NPM](https://img.shields.io/npm/v/iobroker.innoxel.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.innoxel.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.innoxel.svg)
 ![лицензия](https://img.shields.io/npm/l/iobroker.innoxel)
 ![Количество установок](https://iobroker.live/badges/innoxel-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/innoxel-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/innoxel-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/matthsc/iobroker.innoxel.svg)
 ![НПМ](https://nodei.co/npm/iobroker.innoxel.png?downloads=true)
 
 # IoBroker.innoxel
 Адаптер для Innoxel Master 3 (https://innoxel.ch)
 
-![Тестируйте и выпускайте](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 
 ## Требования
 - NodeJS >= 18.x
 - ioBroker >= 4.x, с администратором >= 5.x
-- Система «Умный дом» Innoxel Master 3
+- Система «Умный дом Innoxel Master 3»
 
 ## Монтаж
-Пока адаптер не является частью стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm. Не устанавливайте его напрямую с Github, это приведет к ошибке при запуске адаптера ("не удается найти стартовый файл").
+Пока адаптер не является частью стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm. Не устанавливайте его напрямую с Github, это приведет к ошибке при запуске адаптера («невозможно найти стартовый файл»).
 
 После установки создайте новый экземпляр и настройте параметры:
 
-- Настройки подключения для доступа к innoxel master
+- Настройки подключения для доступа к мастеру innoxel
     -   айпи адрес
     - порт
     -   имя пользователя
     -   пароль
 - Интервалы опроса для разных областей
-    - изменения состояния (например, переключатели, диммер)
+    - изменения состояния (т.е. переключатели, диммер)
     - комнатный климат/термостаты
     -   погода
-    - сведения об основном устройстве innoxel
+    - сведения о главном устройстве innoxel (требуются права администратора для пользователя, подключающегося к мастеру innoxel)
 
 ## Поддерживаемые модули и прошивки
-Предрелизная версия этого адаптера работает более 2-х лет с прошивкой 1.4.1.0, а затем 1.5.1.0.
+Предварительная версия этого адаптера работает уже более 2 лет с прошивкой 1.4.1.0, а затем 1.5.1.0.
 
 Эта первоначально выпущенная версия была протестирована с прошивкой 1.6.0.0.
 
-Были протестированы/поддерживаются следующие модули:
+Следующие модули были протестированы/поддерживаются:
 
-- Иноксель Мастер 3
+- Инноксель Мастер 3
 - Переключатель 8 G1
 - Двигатель 4 x 230 В переменного тока G1
-- Дим. 4 x 600 ВА
+- Размер 4 x 600 ВА
 - Дегустатор RGB
 - Термо
-- Веттерстанция P03/3-RS485-CET
+- Станция влажной уборки P03/3-RS485-CET
 
-Если это работает для вас с другими модулями или у вас есть другие модули, которые не работают, пожалуйста, не стесняйтесь открывать проблему.
+Если у вас работает с другими модулями или у вас есть другие модули, которые не работают, пожалуйста, смело открывайте проблему.
 
 ## Сообщения
 Адаптер поддерживает сообщения, описанные в следующих разделах.
 
 ### ТриггерВМодуле
-Имитация нажатия кнопки на "Дегустаторе".
+Имитируйте нажатие кнопки на «Дегустаторе».
 
 ```ts
 sendTo("innoxel.0", "triggerInModule", "<moduleId>:<channelId>", callback);
@@ -75,12 +75,12 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 });
 ```
 
-- <code>moduleId</code> - это id/адрес &quot;дегустатора&quot;
-- <code>channelId</code> - это индекс кнопки на &quot;Дегустаторе&quot;
-- функция <code>callback</code> (необязательно) функция обратного вызова для вызова, когда действие было выполнено
+- <code>moduleId</code> — идентификатор/адрес «Дегустатора»
+<code>channelId</code> - индекс кнопки на &quot;Дегустаторе&quot;
+- <code>callback</code> (необязательно) функция обратного вызова для вызова при выполнении действия
 
 ### SetDimValue
-Имитация нажатия кнопки на "Дегустаторе".
+Имитируйте нажатие кнопки на «Дегустаторе».
 
 ```ts
 sendTo("innoxel.0", "setDimValue", "<moduleId>:<channelId>:<dimValue>:<dimSpeed>", callback);
@@ -92,13 +92,13 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 });
 ```
 
-- <code>moduleId</code> - это идентификатор/адрес модуля диммера.
-- <code>channelId</code> - канал диммера на модуле
-- <code>dimValue</code> - значение в процентах для установки (0-100)
-- <code>dimSpeed</code> (опционально) - используемая скорость затемнения (0-15)
-- функция <code>callback</code> (необязательная) функция обратного вызова для вызова, когда действие было выполнено
+- <code>moduleId</code> — идентификатор/адрес модуля диммера.
+<code>channelId</code> - канал диммера на модуле
+- <code>dimValue</code> — устанавливаемое значение в процентах (0–100).
+- <code>dimSpeed</code> (необязательно) — используемая скорость затемнения (0–15).
+- <code>callback</code> (необязательно) функция обратного вызова для вызова при выполнении действия
 
-### УстановитьТемпература
+### Установка температуры
 Установите температуру нагрева или охлаждения.
 
 ```ts
@@ -111,10 +111,10 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 });
 ```
 
-- <code>moduleId</code> - идентификатор/адрес модуля климат-контроля помещения.
-- <code>temperatureType</code> — устанавливаемый тип температуры (absenceSetbackTemperatureCooling, AbsenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
-- заданная <code>temperature</code> с шагом 0,5°. Также есть минимальное/максимальное значение в зависимости от типа
-- функция <code>callback</code> (необязательная) функция обратного вызова для вызова, когда действие было выполнено
+- <code>moduleId</code> — это идентификатор/адрес модуля климата в помещении.
+<code>temperatureType</code> — тип температуры, который необходимо установить (absenceSetbackTemperatureCooling, отсутсвиеSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
+- устанавливаемая <code>temperature</code> с шагом 0,5°. Также есть минимальное/максимальное значение в зависимости от типа.
+- <code>callback</code> (необязательно) функция обратного вызова для вызова при выполнении действия
 
 ## Changelog
 
@@ -122,10 +122,16 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.1 (2024-03-23)
 
-### **WORK IN PROGRESS**
+-   (matthsc) log soap messages in log level silly
+-   (matthsc) fix another potential error when updating modules
+-   (matthsc & dependabot) dependency updates
 
--(matthsc) drop support for Node 16
+### 0.4.0 (2024-03-20)
+
+-   (matthsc) fix potential error when processing identities
+-   (matthsc) drop support for Node 16
 
 ### 0.3.1 (2023-05-23)
 
@@ -175,7 +181,7 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 
 MIT License
 
-Copyright (c) 2023 matthsc <matthsc@gmx.net>
+Copyright (c) 2024 matthsc <matthsc@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

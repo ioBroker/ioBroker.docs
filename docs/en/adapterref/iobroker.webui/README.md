@@ -129,6 +129,48 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.3.2 (2024-04-02)
+- designer upd
+
+### 1.3.1 (2024-04-01)
+- designer updates for toolbars
+
+### 1.3.0 (2024-04-01)
+- designer update
+
+### 1.2.13 (2024-03-28)
+- disabled control fix
+
+### 1.2.12 (2024-03-28)
+- add dayjs for date formating
+
+### 1.2.11 (2024-03-28)
+- add a indirection level in complex signal binding
+
+### 1.2.10 (2024-03-28)
+- package upgrades
+
+### 1.2.9 (2024-03-26)
+- try fix runtime once more
+
+### 1.2.8 (2024-03-26)
+- runtime should not load designer
+
+### 1.2.7 (2024-03-26)
+- fix used wrong script system
+
+### 1.2.6 (2024-03-25)
+- one more small runtime fix
+
+### 1.2.5 (2024-03-25)
+- fix runtime once more
+
+### 1.2.4 (2024-03-25)
+- fix runtime
+
+### 1.2.3 (2024-03-24)
+- designer upgrade for new features
+
 ### 1.2.2 (2024-03-11)
 - fix broken signals selector in scripts
 

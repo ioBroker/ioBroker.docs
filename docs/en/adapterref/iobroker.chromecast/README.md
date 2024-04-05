@@ -62,6 +62,10 @@ Build on top of the following projects:
 <!--
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.2.0 (2024-01-22)
 - (mcm1957) changed: Testing has been updated to use node.js 16/18/20
 - (mcm1957) changed: Dependencies have been updated

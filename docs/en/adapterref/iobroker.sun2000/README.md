@@ -1,49 +1,32 @@
-![Logo](admin/sun2000.png)
-# ioBroker.sun2000
+---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.sun2000.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sun2000.svg
+BADGE-Number of Installations: https://iobroker.live/badges/sun2000-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/sun2000-stable.svg
+BADGE-Documentation: https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white
+BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
+BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
+BADGE-NPM: https://nodei.co/npm/iobroker.sun2000.png?downloads=true
+---
+# ioBroker adapter SUN2000 Documentation
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.sun2000.svg)](https://www.npmjs.com/package/iobroker.sun2000)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.sun2000.svg)](https://www.npmjs.com/package/iobroker.sun2000)
-![Number of Installations](https://iobroker.live/badges/sun2000-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/sun2000-stable.svg)
-[![Documentation](https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white)](./docs/README.md)
+* [Setup Inverters](./inverter.md)
+* [Adapter configuration](./configuration.md)
+* [Calculation](./calculation.md)
+* [VIS Exsample](./vis.md)
+* [Interface definitions](./definitions.md)
 
-[![NPM](https://nodei.co/npm/iobroker.sun2000.png?downloads=true)](https://nodei.co/npm/iobroker.sun2000/)
+## Wiki
+Some interesting things are explained in the [wiki](https://github.com/bolliy/ioBroker.sun2000/wiki)
 
-**Tests:** ![Test and Release](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
+## Forum
+Feel free to follow the discussions in the [german iobroker forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**\
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\
-Sentry reporting is used starting with js-controller 3.0.
+## Inspiration
 
-## sun2000 adapter for ioBroker
+The development of this adapter was inspired by discussions from the forum thread https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert and the iobroker javascript https://github.com/ChrisBCH/SunLuna2000_iobroker.
 
-Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbus TCP. 
-
-[Huawei product information](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
-
-Feel free to follow the discussions in the german [iobroker forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
-
-## Documentation
-
-See the [documentation page](./docs/README.md) or 
-browse in the [wiki](https://github.com/bolliy/ioBroker.sun2000/wiki) 
-
-## Supported hardware
-
-* HUAWEI Inverter SUN2000 Serie (M0,M1,M2 and higher) 
-* HUAWEI Smart Dongle-WLAN-FE / min. Softwareversion: V100R001C00SPC133 (SDongleA-05)
-* HUAWEI Luna2000 Battery
-* HUAWEI Smart Power Sensor DTSU666-H or DDSU666-H
-* HUAWEI Smart Logger / min. Softwareversion: V300R023C10SPC311
-
-## Feature list
-
-* Maximum 5 inverters (master/slave) can be processed, each with a battery module (max. 15kWh).
-* Real-time values such as input power, output power, charging/discharging power and the grid consumption are read out at a fixed interval. 
-* States are only written for changed data from the inverter. This relieves the burden on the iobroker instance.
-* The states “inputPower” or “activePower” in the “collected” path can be monitored with a “was updated” trigger element. Because these states are always written within the set interval.
-* modbus-proxy: Third party device such as wallbox, energy manager etc. can receive data even if the modbus interface of inverter is already in use. In addition you can mirror the sun2000 data to another IoBroker instance.
-* Huawei SmartLogger integration: Monitors and manages the PV power system. The adapter saves the collected data in the same way as it does when read out the inverter directly.
+Work in progress
 
 ## Changelog
 
@@ -51,8 +34,25 @@ browse in the [wiki](https://github.com/bolliy/ioBroker.sun2000/wiki)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2024-04-03)
+* breaking changes
+	- Node.js 18.x or higher required
+	- ioBroker host (js-controller) 5.x or higher
+
+### 0.6.2 (2024-03-31)
+* standby detection adjusted
+* improvement of logs
+
+### 0.6.1 (2024-03-23)
+* Battery control: After the second failed attempt, the control event is discarded
+* Battery control: Adjust the battery maxCharge and Discharge to the actual values
+
+### 0.6.0 (2024-03-21)
+* realization the "battery charge control" #61
+* fix the standby detection #60
+
 ### 0.5.1 (2024-03-11)
-* Config page restructured
+* config page restructured
 * read only the required string data
 * fix interval medium
 

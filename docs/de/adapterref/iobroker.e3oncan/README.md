@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: 3zdAYVO9z2O5PfXBD40rhpwxUdw5kaRqio9wN1QM51A=
+hash: 0PTmaOXVHpkPDqmlQ/go/URzNHOh+cJh2KDmgM0x3sA=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -14,113 +14,143 @@ hash: 3zdAYVO9z2O5PfXBD40rhpwxUdw5kaRqio9wN1QM51A=
 ![NPM](https://nodei.co/npm/iobroker.e3oncan.png?downloads=true)
 
 # IoBroker.e3oncan
-**Tests:** ![Test und Freigabe](https://github.com/MyHomeMyData/ioBroker.e3oncan/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/MyHomeMyData/ioBroker.e3oncan/workflows/Test%20and%20Release/badge.svg)
 
 ## E3oncan-Adapter für ioBroker
 # Basiskonzept
-Viessmann Geräte der E3-Serie (One Base) tauschen viel Daten über den CAN-Bus aus.
+Geräte der Viessmann E3-Serie (One Base) tauschen viele Daten über den CAN-Bus aus.
 
-Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Auch der häufig eingesetzte Energiezähler E380 CA wird unterstützt.
+Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Der häufig verwendete Energiezähler E380 CA wird ebenfalls unterstützt.
 
-Parallel dazu wird das **Lesen von Datenpunkten** (ReadByDid) unterstützt. Informationen, die über das Zuhören nicht verfügbar sind, können aktiv nachgefragt werden. Das UDSonCAN-Protokoll wird auch von anderen Geräten verwendet, z. B. über das bekannte WAGO-Gateway.
+Parallel dazu wird das **Lesen von Datenpunkten** (ReadByDid) unterstützt. Informationen, die beim Mithören nicht verfügbar sind, können aktiv abgefragt werden. Das UDSonCAN-Protokoll wird auch von anderen Geräten verwendet, z.B. von bekannten WAGO-Gateways.
 
-**Das Schreiben von Datenpunkten** über UDSonCAN (WriteByDid) wird ebenfalls unterstützt. Durch das Schreiben in Datenpunkte ist es möglich, Sollwerte, Zeitpläne usw. zu ändern. Es ist sogar möglich, neue Zeitpläne hinzuzufügen, z. für Warmwasser-Zirkulationspumpe.
+Das **Schreiben von Datenpunkten** über UDSonCAN (WriteByDid) wird ebenfalls unterstützt. Durch das Schreiben auf Datenpunkte ist es möglich, Sollwerte, Zeitpläne usw. zu ändern. Es ist sogar möglich, neue Zeitpläne hinzuzufügen, z. B. für die Brauchwasserzirkulationspumpe.
 
-Das Schreiben von Daten wird durch das Speichern des entsprechenden Status mit nicht aktiviertem `Acknowledged` (ack=false) ausgelöst – ja, so einfach ist das! Der Datenpunkt wird erneut vom Gerät gelesen und 2,5 Sekunden nach dem Schreiben im Zustand gespeichert. Wenn der Status nicht bestätigt wird, sehen Sie sich bitte die Protokolle an.
+Das Schreiben der Daten wird durch das Speichern des entsprechenden Status mit `Acknowledged` nicht aktiviert (ack=false) ausgelöst - ja, so einfach ist das! Der Datenpunkt wird 2,5 Sekunden nach dem Schreiben erneut vom Gerät gelesen und im Status gespeichert. Wenn der Status nicht bestätigt wird, sehen Sie bitte in den Protokollen nach.
 
-Das Schreiben ist mithilfe einer **Whitelist** auf eine Reihe von Datenpunkten beschränkt. Die Liste wird im Infobereich jedes Geräts gespeichert, z.B. unter `e3oncan.0.vitocal.info.udsDidsWritable`. Sie können weitere Datenpunkte hinzufügen, indem Sie diesen Status bearbeiten. Stellen Sie sicher, dass Sie `Acknowledged` beim Speichern des Status **nicht** aktivieren.
+Das Schreiben ist mithilfe einer **Whitelist** auf eine Reihe von Datenpunkten beschränkt. Die Liste wird im Infobereich jedes Geräts gespeichert, z. B. unter `e3oncan.0.vitocal.info.udsDidsWritable`. Sie können weitere Datenpunkte hinzufügen, indem Sie diesen Status bearbeiten. Achten Sie darauf, beim Speichern des Status `Acknowledged` **nicht** zu aktivieren.
 
 Beim ersten Start der Adapterinstanz wird ein Gerätescan durchgeführt, der eine Liste aller verfügbaren Geräte für den Konfigurationsdialog bereitstellt.
-Bei der ersten Einrichtung sollte eine Suche nach Datenpunkten jedes Geräts durchgeführt werden.
 
-Wichtige Teile dieses Adpaters basieren auf dem Projekt [open3e](https://github.com/open3e).
+Bei der ersten Einrichtung sollte ein Scan nach Datenpunkten jedes Geräts durchgeführt werden.
+
+Wichtige Teile dieses Adapters basieren auf dem Projekt [offen3e](https://github.com/open3e).
 
 Eine Python-basierte Implementierung eines reinen Listening-Ansatzes mit MQTT-Messaging ist ebenfalls verfügbar, siehe [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
 # Erste Schritte
 **Voraussetzungen:**
 
-* Sie haben einen (USB-zu-)CAN-Bus-Adapter, der an den externen CAN-Bus des Viessmann E3-Geräts angeschlossen ist
+* Sie haben einen (USB-zu-) CAN-Bus-Adapter, der an den externen CAN-Bus eines Viessmann E3-Geräts angeschlossen ist
 * Derzeit werden nur Linux-basierte Systeme unterstützt.
-* CAN-Adapter ist aktiv und im System sichtbar, z.B. als „can0“ (zur Überprüfung ifconfig verwenden).
+* Der CAN-Adapter ist aktiv und im System sichtbar, z. B. als „can0“ (zur Überprüfung mit ifconfig verwenden).
 * Weitere Einzelheiten finden Sie im open3e-Projekt
-* **Stellen Sie sicher, dass während der Ersteinrichtung kein anderer UDSonCAN-Client (z. B. Open3Eclient.py) läuft!** Dies könnte zu Kommunikationsfehlern in beiden Anwendungen führen.
+* **Stellen Sie sicher, dass während der Ersteinrichtung kein anderer UDSonCAN-Client (z. B. Open3Eclient.py) ausgeführt wird!** Dies könnte zu Kommunikationsfehlern in beiden Anwendungen führen.
 
-Alle von diesem Adapter bereitgestellten Dienste basieren auf der Geräteliste Ihres spezifischen Viessmann E3-Setups. Daher müssen Sie bei der Ersteinrichtung folgende Schritte befolgen:
+Alle von diesem Adapter bereitgestellten Dienste basieren auf der Geräteliste Ihres spezifischen Viessmann E3-Setups. Daher müssen Sie bei der ersten Einrichtung die folgenden Schritte ausführen:
 
 **Aufbau**
 
-* Wenn die Installation des Adapters abgeschlossen ist, wird ein Konfigurationsdialog angezeigt, in dem Sie bis zu zwei CAN-Bus-Adapter konfigurieren können (Registerkarte „CAN-ADAPTER“).
-* Bearbeiten Sie den Namen des Adapters und aktivieren Sie das Kontrollkästchen „Mit Adapter verbinden“ zumindest für den externen Adapter
-* Wenn Sie fertig sind, klicken Sie auf die Schaltfläche „SPEICHERN“, um die Änderungen zu übernehmen. Dieser Schritt ist **obligatorisch**. Die Instanz wird neu gestartet und mit dem CAN-Adapter verbunden.
-* Gehen Sie zur Registerkarte „LISTE DER UDS-GERÄTE“ und führen Sie eine Suche nach am Bus verfügbaren Geräten durch, indem Sie auf die Schaltfläche „Scannen“ klicken. **Dies dauert einige Sekunden.** Sie können die Aktivitäten in einem zweiten Browser-Tab verfolgen, indem Sie sich die Protokollierungsinformationen des Adapters ansehen.
-* Sie können die Benennung der Geräte in der 2. Spalte ändern. Diese Namen werden verwendet, um alle gesammelten Daten im Objektbaum von ioBoker zu speichern. Klicken Sie erneut auf die Schaltfläche „SPEICHERN“, wenn Sie Ihre Änderungen vorgenommen haben.
-* Die Instanz wird erneut neu gestartet und nach einigen Sekunden sind Sie bereit, einen Scan nach verfügbaren Datenpunkten durchzuführen. Gehen Sie zum Reiter „LISTE DER DATENPUNKTE“, drücken Sie die Schaltfläche „Scan starten ...“ und bestätigen Sie mit „OK“. **Bitte haben Sie etwas Geduld** – dies kann **bis zu 5 Minuten** dauern. Sie können den Fortschritt in einem zweiten Browser-Tab verfolgen, indem Sie sich die Protokollierungsinformationen des Adapters ansehen.
+* Nach Abschluss der Installation des Adapters wird ein Konfigurationsdialogfeld angezeigt, in dem Sie bis zu zwei CAN-Bus-Adapter konfigurieren können (Registerkarte „CAN-ADAPTER“).
+* Bearbeiten Sie den Namen des Adapters und aktivieren Sie das Kontrollkästchen "Mit Adapter verbinden" zumindest für den externen Adapter
+* Wenn Sie fertig sind, drücken Sie die Schaltfläche „SPEICHERN“, um die Änderungen anzuwenden. Dieser Schritt ist **obligatorisch**. Die Instanz wird neu gestartet und stellt eine Verbindung zum CAN-Adapter her.
+* Gehen Sie zur Registerkarte „LISTE DER UDS-GERÄTE“ und führen Sie einen Scan nach auf dem Bus verfügbaren Geräten durch, indem Sie die Scan-Schaltfläche drücken. **Dies dauert einige Sekunden.** Sie können die Aktivitäten in einer zweiten Browser-Registerkarte verfolgen, indem Sie sich die Protokollinformationen des Adapters ansehen.
+* Sie können die Benennung der Geräte in der 2. Spalte ändern. Diese Namen werden verwendet, um alle erfassten Daten im Objektbaum von ioBoker zu speichern. Drücken Sie erneut die Schaltfläche „SPEICHERN“, wenn Sie Ihre Änderungen vorgenommen haben.
+* Die Instanz wird neu gestartet und nach einigen Sekunden können Sie einen Scan nach verfügbaren Datenpunkten durchführen. Gehen Sie zur Registerkarte „LISTE DER DATENPUNKTE“, klicken Sie auf „Scan starten ...“ und bestätigen Sie mit „OK“. **Bitte haben Sie Geduld** – dies kann **bis zu 5 Minuten** dauern. Sie können den Fortschritt in einem zweiten Browser-Tab verfolgen, indem Sie sich die Protokollinformationen des Adapters ansehen.
 
-Dieser Schritt ist nicht obligatorisch, wird aber dringend empfohlen. Wenn Sie auf Datenpunkte schreiben möchten, müssen Sie zunächst einen Datenpunktscan durchführen.
+Dieser Schritt ist nicht zwingend erforderlich, wird aber dringend empfohlen. Wenn Sie Datenpunkte beschreiben möchten, müssen Sie zuerst einen Datenpunktscan durchführen.
 
-* Wenn der Datenpunktscan erfolgreich abgeschlossen wurde, sind die Datenpunkte im Objektbaum für jedes Gerät verfügbar. Sie können die Datenpunkte in der Konfiguration anzeigen, indem Sie ein Gerät auswählen und auf die Schaltfläche „Liste der Datenpunkte aktualisieren“ klicken. Drücken Sie das Filtersymbol und geben Sie ein Suchmuster ein, um nach Name und/oder Codec zu filtern. Dies dient nur Ihrer Information. Bitte deaktivieren Sie die Filterung, bevor Sie ein anderes Gerät auswählen, um Fehlermeldungen zu vermeiden.
-* Der letzte Schritt besteht darin, Zeitpläne für die Datenerfassung auf der Registerkarte „ZUWEISUNGEN ZUM EXTERNEN CAN-ADAPTER“ zu konfigurieren.
-* Für **Energiezähler E380** (falls in Ihrem Setup verfügbar) können Sie einfach aktivieren oder nicht. Bitte beachten Sie den Wert „Min. Aktualisierungszeit (s)“. Aktualisierungen einzelner Datenpunkte erfolgen nicht schneller als der angegebene Wert (Standard ist 5 Sekunden). Bei Auswahl von Null werden alle empfangenen Daten gespeichert. Da E380 Daten sehr schnell sendet (mehr als 20 Werte pro Sekunde), wird empfohlen, hier keine Null zu verwenden. Dies würde eine hohe Belastung für das ioBroker-System bedeuten.
-* Wenn Sie E3-Geräte über CAN-Bus angeschlossen haben, z.B. Mit Vitocal und VX3 können Sie durch Abhören die zwischen diesen Geräten ausgetauschten Daten in Echtzeit erfassen. Drücken Sie „+“, um eine Zeile hinzuzufügen, aktivieren Sie das Kontrollkästchen „aktiv“, wählen Sie ein Gerät aus und bearbeiten Sie „Min. Aktualisierungszeit (s)“. Es ist durchaus möglich, hier 0-Werte zu verwenden, ich empfehle jedoch, bei den 5-Werten zu bleiben.
-* Schließlich können Sie Zeitpläne für die Datenanforderung über das UDSonCAN-Protokoll hinzufügen. Drücken Sie erneut die Taste „+“ und bearbeiten Sie die Einstellungen. Möglicherweise haben Sie auf jedem Gerät mehrere Zeitpläne. Dadurch können Sie einige Datenpunkte häufiger anfordern als andere. Der Standardwert 0 für „Schedule(s)“ bedeutet, dass diese Datenpunkte beim Start der Instanz nur einmal angefordert werden.
+* Nach erfolgreichem Datenpunktscan stehen die Datenpunkte im Objektbaum des jeweiligen Gerätes zur Verfügung. Sie können die Datenpunkte in der Konfiguration einsehen, indem Sie ein Gerät auswählen und auf „Liste der Datenpunkte aktualisieren“ klicken. Klicken Sie auf das Filtersymbol und geben Sie ein Suchmuster ein, um nach Name und/oder Codec zu filtern. Dies dient nur zu Ihrer Information. Bitte deaktivieren Sie die Filterung, bevor Sie ein anderes Gerät auswählen, um Fehlermeldungen zu vermeiden.
+* Der letzte Schritt besteht darin, Zeitpläne für die Datenerfassung auf der Registerkarte „ZUWEISUNGEN ZU EXTERNEN CAN-ADAPTERN“ zu konfigurieren.
+* Beim **Energiezähler E380** (sofern in Ihrem Setup vorhanden) können Sie die Option nur aktivieren oder deaktivieren. Beachten Sie dabei den Wert „Min. Aktualisierungszeit (s)“. Aktualisierungen einzelner Datenpunkte erfolgen nicht schneller als der angegebene Wert (Standard ist 5 Sekunden). Bei Auswahl von Null werden alle empfangenen Daten gespeichert. Da der E380 sehr schnell Daten sendet (mehr als 20 Werte pro Sekunde), wird empfohlen, hier nicht Null zu verwenden. Dies würde das ioBroker-System stark belasten.
+* Wenn Sie E3-Geräte über den CAN-Bus angeschlossen haben, z. B. Vitocal und VX3, können Sie die zwischen diesen Geräten ausgetauschten Daten in Echtzeit mithören. Drücken Sie „+“, um eine Zeile hinzuzufügen, aktivieren Sie das Kontrollkästchen „aktiv“, wählen Sie ein Gerät aus und bearbeiten Sie „Min. Aktualisierungszeit (s)“. Es ist möglich, hier 0 Sekunden zu verwenden, ich empfehle jedoch, bei 5 Sekunden zu bleiben.
+* Schließlich können Sie Zeitpläne für die Datenanforderung über das UDSonCAN-Protokoll hinzufügen. Drücken Sie erneut die Schaltfläche „+“ und bearbeiten Sie die Einstellungen. Sie können auf jedem Gerät mehrere Zeitpläne haben. Auf diese Weise können Sie einige Datenpunkte häufiger anfordern als andere. Der Standardwert 0 für „Zeitplan(e)“ bedeutet, dass diese Datenpunkte beim Start der Instanz nur einmal angefordert werden.
 
 Sie können die Datenpunktinformationen auf der Registerkarte „LISTE DER DATENPUNKTE“ als Referenz verwenden (das Öffnen der zweiten Registerkarte könnte hilfreich sein).
 
-* Wenn Sie einen CAN-Adapter konfiguriert haben, der an den **internen CAN-Bus** angeschlossen ist, ist ein Reiter „ZUWEISUNGEN ZUM INTERNEN CAN-ADAPTER“ sichtbar. Bitte konfigurieren Sie dort die Geräte zur Abholung. UDSonCAN wird auf dem internen CAN-Bus von E3-Geräten nicht unterstützt.
-* Das ist es. Klicken Sie auf die Schaltfläche „SPEICHERN & SCHLIESSEN“ und überprüfen Sie die im Objektbaum gesammelten Daten.
+* Wenn Sie einen CAN-Adapter konfiguriert haben, der an den **internen CAN-Bus** angeschlossen ist, wird eine Registerkarte „ZUWEISUNGEN ZUM INTERNEN CAN-ADAPTER“ angezeigt. Bitte konfigurieren Sie dort die zu erfassenden Geräte. UDSonCAN wird von E3-Geräten auf dem internen CAN-Bus nicht unterstützt.
+* Das ist alles. Klicken Sie auf die Schaltfläche „SPEICHERN & SCHLIESSEN“ und überprüfen Sie die im Objektbaum gesammelten Daten.
 
-# E380-Daten und -Einheiten
+# E380 Daten und Einheiten
+Es werden bis zu zwei E380-Energiezähler unterstützt. Die IDs der Datenpunkte hängen von der CAN-Adresse des Geräts ab:
+
+CAN-Adresse=97: Datenpunkte mit geraden IDs
+
+CAN-Adresse=98: Datenpunkte mit ungeraden IDs
+
 | ID | Daten| Einheit |
 | ------|:--- |------|
-| 0x250 | Wirkleistung L1, L2, L3, Gesamt | W |
-| 0x252 | Blindleistung L1, L2, L3, Gesamt | VA |
-| 0x254 | Strom, L1, L2, L3, cosPhi | A, - |
-| 0x256 | Spannung, L1, L2, L3, Frequenz | V, Hz |
-| 0x258 | Kumulierter Import, Export | kWh |
-| 0x25A | Gesamtwirkleistung, Gesamtblindleistung | W, VA |
-| 0x25C | Kumulierter Import | kWh |
+| 592,593 | Wirkleistung L1, L2, L3, Gesamt | W |
+| 594,595 | Blindleistung L1, L2, L3, Gesamt | VA |
+| 596,597 | Strom, L1, L2, L3, cosPhi | A, - |
+| 598,599 | Spannung, L1, L2, L3, Frequenz | V, Hz |
+| 600.601 | Kumulierter Import, Export | kWh |
+| 602,603 | Gesamtwirkleistung, Gesamtblindleistung | W, VA |
+| 604.605 | Kumulierter Import | kWh |
 
 # Hinweise und Einschränkungen
 ## Dieser ioBroker-Adapter befindet sich in der Entwicklung und im *Beta-Stadium*
 * Datenstruktur und Funktionalität können sich in zukünftigen Versionen ändern.
 * Gerne können Sie den Adapter in Ihrer Umgebung testen. Bitte geben Sie mir Feedback zu Ihren Erfahrungen und Erkenntnissen.
 
-## Warum Datenerfassung (nur Zuhören) und UDSonCAN (ReadByDid) parallel verwenden?
-* Wenn Sie E3-Geräte angeschlossen haben, können Sie von den ausgetauschten Daten profitieren. Durch einfaches Zuhören erhalten Sie direkt bei der Änderung verfügbare Daten in Echtzeit. So können Sie sich schnell ändernde Daten (z. B. Energieflusswerte) und sich langsam ändernde Daten (z. B. Temperaturen) direkt bei jeder Änderung erhalten. Sie sind jederzeit über diese Werte auf dem Laufenden.
-* Weitere Daten, die nicht oder nur selten über die Sammlung verfügbar sind, können Sie über UDSonCAN ReadByDid hinzufügen. Normalerweise ist dies für Sollwertdaten der beste Ansatz.
+## Warum Datenerfassung (nur Abhören) und UDSonCAN (ReadByDid) parallel verwenden?
+* Wenn Sie E3-Geräte angeschlossen haben, können Sie von den ausgetauschten Daten profitieren. Durch bloßes Zuhören erhalten Sie verfügbare Daten in Echtzeit direkt bei der Änderung. So können Sie schnell wechselnde Daten (z. B. Energieflusswerte) und langsam wechselnde Daten (z. B. Temperaturen) direkt bei jeder Änderung erhalten. Sie sind über diese Werte immer auf dem Laufenden.
+* Andere Daten, die nicht oder nur selten über die Sammlung verfügbar sind, können Sie über UDSonCAN ReadByDid hinzufügen. Normalerweise ist dies für Sollwertdaten der beste Ansatz.
 * Daher ist aus meiner Sicht die Kombination beider Methoden der beste Ansatz.
 
 ## Einschränkung der Datenerfassung
-* Derzeit ist das Kommunikationsprotokoll nur für Vitocal (Lister auf CAN-ID 0x693), Vitocharge VX3 und Vitoair (beide Listener auf CAN-ID 0x451) bekannt.
+* Derzeit ist das Kommunikationsprotokoll nur für Vitocal (Listener auf CAN-ID 0x693), Vitocharge VX3 und Vitoair (beide Listener auf CAN-ID 0x451) bekannt.
 
-## Was ist der Unterschied zum open3e-Projekt?
-* Der Hauptunterschied ist natürlich die direkte Integration in ioBroker. Die Konfiguration kann über Dialoge erfolgen, die Daten werden direkt in Objektbäumen aufgelistet.
-* Zusätzlich zu open3e wird die Echtzeiterfassung von Daten durch Abhören unterstützt.
-* Das Schreiben von Daten ist viel einfacher. Ändern Sie einfach die Daten im entsprechenden Status und klicken Sie auf die Schaltfläche „Speichern“.
+## Was ist anders am open3e-Projekt?
+* Der Hauptunterschied liegt natürlich in der direkten Integration in ioBroker. Die Konfiguration kann über Dialoge erfolgen, Daten werden direkt in Objektbäumen aufgelistet.
+* Zusätzlich zu open3e wird das Sammeln von Daten in Echtzeit durch Abhören unterstützt.
+* Das Schreiben von Daten ist viel einfacher. Ändern Sie einfach die Daten im entsprechenden Status und drücken Sie die Schaltfläche Speichern.
 
-## Darf open3e parallel genutzt werden?
+## Darf open3e parallel verwendet werden?
 Ja, das ist unter bestimmten Voraussetzungen möglich:
 
 * Wenn Sie hier nur die Datenerfassung nutzen, können Sie open3e ohne Einschränkungen nutzen.
-* Wenn Sie hier UDSonCAN verwenden, ist es wichtig, dies nicht für dieselben Geräte zu tun wie open3e. Wenn Sie dies tun würden, würden sporadische Kommunikationsfehler auftreten.
+* Wenn Sie hier UDSonCAN verwenden, ist es wichtig, dies nicht für dieselben Geräte zu tun wie open3e. Andernfalls treten sporadisch Kommunikationsfehler auf.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2024-03-22)
+* (MyHomeMyData) Added support for energy meter E380 with CAN-address=98
+* (MyHomeMyData) Update of list of data points for E380 to version 20240320
+
+### 0.7.2 (2024-03-20)
+* (MyHomeMyData) Update of data type and role added for device specific data points
+* (MyHomeMyData) Update list of writable data points when updating data points to newer version
+* (MyHomeMyData) Improved handling of failed CAN communication during scan for data points
+* (MyHomeMyData) Update of list of data points to version 20240319
+
+### 0.7.1 (2024-03-15)
+* (MyHomeMyData) Bugfix for data point 1190: Scaling changed back to 10.0
+* (MyHomeMyData) Update of list of data points to version 20240314
+
+### 0.7.0 (2024-03-13)
+* (MyHomeMyData) Store numbers in states of channel "tree" with type "Number" instead of "String"
+* (MyHomeMyData) IMPORTANT: This may affect handling of tree states, e.g. in scripts, vis and history
+* (MyHomeMyData) Bugfix for Energy Meter E380 data point id 0x25C
+* (MyHomeMyData) Update of list of data points to version 20240309
+* (MyHomeMyData) Bugfix for update of changed data point structure during start of adapter
+* (MyHomeMyData) Changed default values for CAN adapters to can0 and can1
+* (MyHomeMyData) Increased value for collect timeout to 2000 ms
+
 ### 0.6.19 (2024-02-19)
-* (MyHomeMyData) Check for changed structure of datapoints during startup
-* (MyHomeMyData) Update of list of datapoints to version 20240218
+* (MyHomeMyData) Check for changed structure of data points during startup
+* (MyHomeMyData) Update of list of data points to version 20240218
 * (MyHomeMyData) Bugfix to avoid warnings on very first start of adapter
 
 ### 0.6.18 (2024-02-08)
-* (MyHomeMyData) Added versioning to list of datapoints and check for updates on start of adapter
+* (MyHomeMyData) Added versioning to list of data points and check for updates on start of adapter
 * (MyHomeMyData) Added optional description in configuration of UDS schedules
 
 ### 0.6.17 (2024-01-29)
-* (MyHomeMyData) Added/removed datapoints to/from list of writable dids
+* (MyHomeMyData) Added/removed data points to/from list of writable dids
 * (MyHomeMyData) Preparations for device specific list of writable dids
 
 ### 0.6.16 (2024-01-27)
@@ -131,7 +161,7 @@ Ja, das ist unter bestimmten Voraussetzungen möglich:
 * (MyHomeMyData) Fix for Utf8 codec for handling of special characters, e.g. umlauts
 
 ### 0.6.14 (2024-01-22)
-* (MyHomeMyData) Replace '.' by '_' in datapoint ids to avoid unwanted sub structure in data states
+* (MyHomeMyData) Replace '.' by '_' in data point ids to avoid unwanted sub structure in data states
 * (MyHomeMyData) Added more informations about white list for writables in Readme.
 * (MyHomeMyData) Recognize loss of CAN connection.
 * (MyHomeMyData) Improved handling of info.connection.
@@ -141,7 +171,7 @@ Ja, das ist unter bestimmten Voraussetzungen möglich:
 * (MyHomeMyData) Added unit test cases for codecs
 
 ### 0.6.12 (2024-01-19)
-* (MyHomeMyData) Added datapoints to list writable dids
+* (MyHomeMyData) Added data points to list writable dids
 * (MyHomeMyData) Added unit test cases for codecs
 * (MyHomeMyData) Improved speed of codes for numerical values
 * (MyHomeMyData) Improved error messages on UDS negative response

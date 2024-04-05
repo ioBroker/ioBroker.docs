@@ -3,29 +3,37 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: U06Gr9hESafFHlewxSL4RCzHxbWVW/nJ+R6atcrITFs=
+hash: NyzVyk4vYcX20icjCAJmiV9u29yAY1Vfyeym5KHkObw=
 ---
 ![标识](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
-# IoBroker.nmea 该适配器允许将 ioBroker 连接到 NMEA-2000 游艇总线。
+# IoBroker.nmea 此适配器允许将 ioBroker 连接到 NMEA-2000 游艇总线。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+
 要使用此适配器，您需要一个可以读取 NMEA-2000 总线并将其转换为串行端口的硬件：
 
-- Actisense NGT-1 (USB)
-- 或带有 Pican-M 的 Raspberry PI
+-Actisense NGT-1（USB）
+- 或带有 PiCAN-M 的 Raspberry PI
 
 ![小部件](../../../en/adapterref/iobroker.nmea/img/widgetExamples.png)
 
-## 如何在 Raspberry PI 上使用 Pican-M
+[YouTube 解释](https://youtu.be/flp_-mypbRU?si=k0lp95OukQ88LBxj)
+
+## 如何在带有 PiCAN-M 的 Raspberry PI 上使用它
 PiCAN M 是一款专为 Raspberry Pi 3/4 设计的紧凑型附加板。
 它可以将 NMEA2000 和 NMEA0183 网络连接到 Raspberry Pi。
-该板可通过外部 12V 电源供电。
-此外，当与 PiCAN-M 板一起使用时，它还提供直接通过 NMEA2000 总线为 Raspberry Pi 供电的选项。
+该板可以通过外部 12V 电源供电。
+此外，当与 PiCAN-M 板一起使用时，它还可以选择通过 NMEA2000 总线直接为 Raspberry Pi 供电。
 
-由于树莓派对供电的要求较高，我们建议使用外部电源为树莓派供电。
-NMEA2000 和 USB 供电可以并行运行，不会出现任何问题。
+**PiCAN-M 缺乏针对 12V 电源电压的反极性保护。当以 12V 外部供电时，必须在电源线中加入 1A 保险丝。**
+
+由于 Raspberry Pi 对电源的要求很高，我们建议使用外部电源（至少 3A）为 Raspberry PI 供电。
+NMEA2000 和 USB 供电可以并行运行而不会出现问题。
 
 ＃＃＃ 安装
-编辑文件`/boot/config.txt`（使用`sudo nano /boot/config.txt`）并将以下行添加到文件末尾：
+更多详细信息请参阅[PiCAN-M 用户指南](img/pican-m_UGB_10.pdf) 中的第 3 章，以下是简短摘要：
+
+编辑文件`/boot/config.txt`（带有`sudo nano /boot/config.txt`），并在文件末尾添加以下几行：
 
 ```
 enable_uart=1
@@ -36,31 +44,48 @@ dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 
 禁用 UART 控制台上的输出：
 
-- 在 CLI 中启动 `sudo raspi-config`
-- 转到“3 个界面选项”
-- 转到“I5串口”
-- 禁用“通过串行访问外壳”和“启用串行端口硬件”
-- 退出 raspi-config 并重新启动
+- 在 CLI 中启动`sudo raspi-config`
+- 转到 `3 界面选项`
+- 转到`I5 串行端口`
+- 禁用“通过串行访问 shell”和“启用串行端口硬件”
+- 退出“raspi-config”并重新启动
 
-安装can-utils
+安装 can-utils
 
 ```
 sudo apt-get install can-utils
 ```
 
 ## Actisense NGT-1
-Actisense NGT-1 在 Windows 或 Linux 上可见，无需任何额外的驱动程序。它显示为串行端口“COMn”（Windows）或ttyN（在Linux上）。
+Actisense NGT-1 可在 Windows 或 Linux 上显示，无需任何附加驱动程序。它可显示为串行端口“COMn”（Windows）或 ttyN（在 Linux 上）。
 
 ＃＃ 去做
 - 编码代码
 - 自动识别系统
 - 找出为什么从地址 100 发送数据
+- 集成 [iKonvert NMEA 2000](https://digitalyachtamerica.com/product/ikonvert-usb/)
+- 集成 [Shipmodul MiniPlex-3-N2K](https://www.shipmodul.com/products.html)
+
+## 数据模拟
+您可以将外部传感器的数据传送到 NMEA2000 总线。
+实际上，您只能模拟环境数据，例如温度、湿度、压力。
+
+使用标志`Combined environment`您可以定义用于温度、湿度和压力的 PGN 编号：
+
+- 如果取消选择标志“组合环境”，那么温度将使用 PGN 130314，湿度将使用 PGN 130313，压力将使用 PGN 130314。
+- 如果选择标志“组合环境”，那么所有三个值将与其他可能的环境值一起在 PGN 130311 中发送。
 
 <!--
 
 ### **正在进行中** -->
 
 ## Changelog
+### 0.1.8 (2024-03-20)
+* (bluefox) Corrected vis-2 widgets
+
+### 0.1.1 (2024-03-19)
+* (bluefox) Corrected vis-2 widgets
+
 ### 0.0.4 (2024-03-12)
 * (bluefox) Fixed CI tests
 

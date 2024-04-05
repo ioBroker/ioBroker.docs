@@ -1,48 +1,35 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.sun2000.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sun2000.svg
+BADGE-Number of Installations: https://iobroker.live/badges/sun2000-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/sun2000-stable.svg
+BADGE-Documentation: https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white
+BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
+BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
+BADGE-NPM: https://nodei.co/npm/iobroker.sun2000.png?downloads=true
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000/README.md
-title: ioBroker.sun2000
-hash: ck6/uyq141if3CicgGBfW2NdEulsmg4uvfIMeUkOofg=
+title: ioBroker-Adapter SUN2000 Dokumentation
+hash: Dz2NL0KVKXgnqXxR2r7idyDM8Pqi/YfDGUml99Kod7c=
 ---
-![Logo](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
+# IoBroker-Adapter SUN2000 Dokumentation
+* [Wechselrichter einrichten](./inverter.md)
+* [Adapterkonfiguration](./configuration.md)
+* [Berechnung](./calculation.md)
+* [VIS-Beispiel](./vis.md)
+* [Schnittstellendefinitionen](./definitions.md)
 
-![NPM-Version](https://img.shields.io/npm/v/iobroker.sun2000.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.sun2000.svg)
-![Anzahl der Installationen](https://iobroker.live/badges/sun2000-installed.svg)
-![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sun2000-stable.svg)
-![Dokumentation](https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white)
-![NPM](https://nodei.co/npm/iobroker.sun2000.png?downloads=true)
+## Wiki
+Einige interessante Dinge werden im [Wiki](https://github.com/bolliy/ioBroker.sun2000/wiki) erklärt
 
-# IoBroker.sun2000
-**Tests:** ![Test und Freigabe](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
+## Forum
+Verfolgen Sie die Diskussionen im [deutsches iobroker-Forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**\ Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Sentry-Berichterstattung wird ab js-controller verwendet 3,0.
+## Inspiration
+Die Entwicklung dieses Adapters wurde durch Diskussionen aus dem Forenthread https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert und dem Iobroker-Javascript https://github.com/ChrisBCH/SunLuna2000_iobroker inspiriert.
 
-## Sun2000-Adapter für ioBroker
-Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
-
-[Huawei-Produktinformationen](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
-
-Verfolgen Sie gerne die Diskussionen im deutschen [iobroker-Forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
-
-## Dokumentation
-Sehen Sie sich die [Dokumentationsseite](./docs/README.md) an oder stöbern Sie in den [Wiki](https://github.com/bolliy/ioBroker.sun2000/wiki)
-
-## Unterstützte Hardware
-* HUAWEI Wechselrichter SUN2000 Serie (M0, M1, M2 und höher)
-* HUAWEI Smart Dongle-WLAN-FE / min. Softwareversion: V100R001C00SPC133 (SDongleA-05)
-* HUAWEI Luna2000-Akku
-* HUAWEI Smart Power Sensor DTSU666-H oder DDSU666-H
-* HUAWEI Smart Logger / min. Softwareversion: V300R023C10SPC311
-
-## Funktionsliste
-* Es können maximal 5 Wechselrichter (Master/Slave) mit jeweils einem Batteriemodul (max. 15kWh) verarbeitet werden.
-* Echtzeitwerte wie Eingangsleistung, Ausgangsleistung, Lade-/Entladeleistung und der Netzverbrauch werden in einem festen Intervall ausgelesen.
-* Zustände werden nur für geänderte Daten vom Wechselrichter geschrieben. Dies entlastet die iobroker-Instanz.
-* Die Zustände „inputPower“ oder „activePower“ im „collected“-Pfad können mit einem „wurde aktualisiert“-Triggerelement überwacht werden. Denn diese Zustände werden immer innerhalb des eingestellten Intervalls geschrieben.
-* Modbus-Proxy: Drittgeräte wie Wallbox, Energiemanager etc. können Daten empfangen, auch wenn die Modbus-Schnittstelle des Wechselrichters bereits verwendet wird. Darüber hinaus können Sie die sun2000-Daten auf eine andere ioBroker-Instanz spiegeln.
-* Huawei SmartLogger-Integration: Überwacht und verwaltet das PV-Stromversorgungssystem. Der Adapter speichert die gesammelten Daten auf die gleiche Weise wie beim direkten Auslesen des Wechselrichters.
+In Arbeit
 
 ## Changelog
 
@@ -50,8 +37,25 @@ Sehen Sie sich die [Dokumentationsseite](./docs/README.md) an oder stöbern Sie 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2024-04-03)
+* breaking changes
+	- Node.js 18.x or higher required
+	- ioBroker host (js-controller) 5.x or higher
+
+### 0.6.2 (2024-03-31)
+* standby detection adjusted
+* improvement of logs
+
+### 0.6.1 (2024-03-23)
+* Battery control: After the second failed attempt, the control event is discarded
+* Battery control: Adjust the battery maxCharge and Discharge to the actual values
+
+### 0.6.0 (2024-03-21)
+* realization the "battery charge control" #61
+* fix the standby detection #60
+
 ### 0.5.1 (2024-03-11)
-* Config page restructured
+* config page restructured
 * read only the required string data
 * fix interval medium
 

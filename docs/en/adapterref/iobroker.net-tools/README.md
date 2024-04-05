@@ -76,6 +76,12 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 	### **WORK IN PROGRESS**
 -->
 
+### 1.0.11 27.03.2024
+* (Jey Cee) Fix high CPU load while running discovering devices
+* 
+### 1.0.9 19.03.2024
+* (Jey Cee) Fix unexpected stop of discovery
+
 ### 1.0.6 04.03.2024
 * (Jey Cee) Reduce system load during discovery process to prevent adapter crash
 

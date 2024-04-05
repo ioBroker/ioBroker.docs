@@ -725,6 +725,15 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.2.1 (2024-04-03)
+* (PeterVoronov) An error at providing error information has been fixed.
+
+### 3.2.0 (2024-04-02)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (PeterVoronov) The current error is added as a separate property error to the response object (messageId) now.
+* (theknut) Added units to responses
+* (mcm1957) Dependencies have been updated0
+
 ### 3.1.0 (2024-02-17)
 * (theknut) Option to send state updates without notification sound has been added. [#793]
 * (mcm1957) Dependencies have been updated.
@@ -735,13 +744,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 ### 3.0.0 (2023-11-06)
 * (boergegrunicke) BREAKING CHANGE: Socks5 support has been removed.
 * (PeterVoronov ) Extended and improved the returned list of processed messages.
-
-### 2.0.2 (2023-11-06)
-* (mcm1957) Dependencies have been updated.
-
-### 2.0.1 (2023-10-10)
-* (boergegrunicke) Incorrect trailing zero in callback of sendTo() has been fixed. [#680]
-* (mcm1957) Dependencies have been updated.
 
 ## License
 

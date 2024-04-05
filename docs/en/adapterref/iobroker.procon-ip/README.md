@@ -86,11 +86,9 @@ If you want to support this adapter or say thank you, you can:
 * Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the 
   latest version.
 
-## Changelog
 ### 1.5.3 (2024-02-27)
 * Update dependencies.
 
-## Changelog
 ### 1.5.2 (2024-02-13)
 * Add newline before descriptive text in adapter config.
 * Update dependencies.

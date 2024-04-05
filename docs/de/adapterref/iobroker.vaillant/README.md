@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: Q9knqwUkXz52JAd6LLPc3lUKOZIzIs0eFoa1OKhRA2w=
+hash: 0S0upJibblOA6l9ZNY0BN0ASNBRryqHH3O/DxLiNUT4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -22,23 +22,37 @@ Vaillant multiMatic und myVaillant Adapter
 ### Erste Schritte
 Geben Sie in den Instanzoptionen Mail und Passwort der multimatic /senso oder myVaillant App ein.
 
-Die Konfiguration kann in dem sie unter dem Unterpunkt Konfiguration angepasst werden geändert werden. Manche Konfigurationen werden erst angewendet, wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
+Die Konfiguration kann geändert werden, indem sie unter dem Unterpunkt „Konfiguration“ angepasst wird. Manche Konfigurationen werden erst angewendet, wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
 
-## **Beispiel Mutlimatic:**
-**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Erst auf MANUAL vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint und am Ende operation_mode auf TIME_CONTROLLED
+## **Multimatic-Beispiel:**
+**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Zuerst auf MANUAL vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL. Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint und am Ende operation_mode auf ZEITGESTEUERT
 
-Parameter können über den Punkt parameterValue angepasst werden und dabei beachten, welche Werte im Objekt definition erlaubt sind.
+Parameter können über den Punkt parameterValue angepasst werden. Dabei beachten, welche Werte in der Objektdefinition erlaubt sind.
 
 ## **Beispiel myVaillant:**
-vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState .controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUELL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
 
-## Fernbefehle
-Für Refresh und vordefinierte `vaillant.0.id.remote`
+## Remote-Befehle
+Für Aktualisieren und vordefinierte `vaillant.0.id.remote`
 
 ## Benutzerdefinierter Befehl
-Sie können die benutzerdefinierte Befehlsfernbedienung für nicht vordefinierte Fernbedienungen verwenden `vaillant.0.id.remotes.customCommand`
+Sie können eine benutzerdefinierte Command-Fernbedienung für nicht vordefinierte Fernbedienungen verwenden `vaillant.0.id.remotes.customCommand`
 
 ### Beispiele:
+## Die Zone kann von 0 bis X gehen. Bitte zone/0/ oder zone/2/ testen
+zone/0/xxxx
+
+zone/1/xxxx
+
+zone/2/xxxx
+
+```json
+{
+  "url": "zone/0/heating/comfort-room-temperature",
+  "data": { "comfortRoomTemperature": 10.5 }
+}
+```
+
 ```json
 {
   "url": "zone/1/heating/comfort-room-temperature",
@@ -71,6 +85,48 @@ Sie können die benutzerdefinierte Befehlsfernbedienung für nicht vordefinierte
 {
   "url": "zone/1/heating/set-back-temperature",
   "data": { "setBackTemperature": 20 }
+}
+```
+
+```json
+{
+  "url": "zone/1/cooling/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "zone/1/cooling/setpoint",
+  "data": { "setpoint": 20 }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/operation-mode",
+  "data": { "operationMode": "SET_BACK" }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/day-fan-stage",
+  "data": { "maximumDayFanStage": 3 }
+}
+```
+
+```json
+{
+  "url": "ventilation/0/night-fan-stage",
+  "data": { "maximumNightFanStage": 2 }
 }
 ```
 
