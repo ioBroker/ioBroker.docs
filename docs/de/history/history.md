@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 3AgwSsEUQCN7bG9gvTq1HVyE3E9b+0FlQzhILNtQqcY=
+hash: nElnTlYt9Umz8aomDUktnb1QGzKhePpZgUvOU/9i4fk=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
 - Bitte definieren Sie den Header als
 
 ## AdapterName (JJJJ-MM-TT) - [Kurzbeschreibung]
-- Die Aufnahmebeschreibung könnte lauten:
+- Die Beschreibung der Aufnahme könnte lauten:
 - neuer Adapter
   - stabile Version
   - neue Funktion
@@ -171,9 +171,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
-
-Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
-
+Sie können zwischen Kühl- und Heizbetrieb wählen und für einen Raum Boost oder Pause aktivieren.
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
 ## Admin und mqtt (11.10.2023) - neue Funktion
@@ -408,3 +406,19 @@ Die Widgets sind für VIS 1.x konzipiert.
 
 ## Scheduler (05.4.2024) – neue Funktion
 Der Scheduler unterstützt jetzt Feiertage und benutzerdefinierte Typen.
+
+## Admin (6.4.2024) – neue Funktion
+Der Administrator unterstützt jetzt die Includes in JSONConfig-Dateien:
+
+```json5
+{
+    "tabs": {
+        "tab1": {
+            "type": "panel", // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
+            "#include": "tab1.json"
+        }
+    }
+}
+```
+
+https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/SCHEMA.md#includes

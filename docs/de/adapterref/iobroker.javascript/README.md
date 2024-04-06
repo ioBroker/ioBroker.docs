@@ -59,10 +59,16 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Fixed some missing translations (uk)
+
+### 8.0.0 (2024-04-05)
+
 NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Breaking change: Removed support for binary states (deprecated since v6.2.0)
 * (klein0r) Breaking change: Protected filesystem (iobroker-data/files) to prevent direct file writes
+* (klein0r) Breaking change: request property has been removed of the sandbox (require the module if still needed)
+* (klein0r) Added blockly block for global variables (e.g. script name)
 * (klein0r) Added missing functions to protectFS
 * (klein0r) Fixed httpPost (missing data)
 * (klein0r) Fixed hasAttribute blockly block
@@ -93,12 +99,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 ### 7.10.1 (2024-03-22)
 
 * (klein0r) Fixed cron trigger
-
-### 7.10.0 (2024-03-21)
-
-* (klein0r) Added warning icon if state value is connected to trigger block (instead of object id)
-* (klein0r) Copy date object in getAstroDate
-* (klein0r) Added object id as tooltip
 
 ## License
 The MIT License (MIT)

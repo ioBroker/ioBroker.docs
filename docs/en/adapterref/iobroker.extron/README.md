@@ -48,6 +48,9 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) updated to adapter-dev and release script
 * (Bannsaenger) updated dependencies
 
+### 0.2.7
+* (mschlgl) SMD202 preset list handling updated
+
 ### 0.2.6
 * (mschlgl) added SMD202 preset list handling on startup
 ### 0.2.5

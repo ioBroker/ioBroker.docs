@@ -182,10 +182,6 @@ This command is needed for the Grafana JSON / SimpleJSON Plugin.
 Gives [this](#usage) output back
 
 
-## Install
-
-```node iobroker.js add simple-api```
-
 ## Usage
 Assume, we have no security and the server runs on default port 8087.
 

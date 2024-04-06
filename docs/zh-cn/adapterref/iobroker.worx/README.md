@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
+hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -29,7 +29,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 ![实例设置 img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
 
 ＃＃＃ 文件夹
-- `activityLog`：您的活动日志（可控制）
+- `activityLog`：你的活动日志（可控制）
 - `areas`: 区域（可控制）
 - `calendar`: 时间表（可控制）
 - `模块`：您的模块（可控制）
@@ -51,7 +51,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `actualAreaIndicator`: 下一个数组区域开始
 - `area_0`: 区域 1 的起始位置（以米为单位）（数组=0）（可更改）
 - `area_1`: 区域 2 的起点，单位为米（数组=1）（可更改）
-- `area_2`：区域 3 的起点，以米为单位（数组=2）（可更改）
+- `area_2`: 区域 3 的起点，单位为米（数组=2）（可更改）
 - `area_3`: 区域 4 的起点，单位为米（数组=3）（可更改）
 - `startSequence`：数组区域开始（0-9 个事件）例如仅在区域 3 中开始 [2,2,2,2,2,2,2,2,2,2]（可更改）
 - `zoneKeeper`：在狭窄区域交叉口安全驾驶（必须创建区域）（从固件 3.30 开始）（可更改）
@@ -64,7 +64,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `wednesday.borderCut`：有或无bordercut（立即更改值）（可更改）
 - `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（无延迟更改值）（可更改）
 - `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = Endzeit 09:30（立即更改值）（可更改）
-- `calJson_sendto`：如果所有数据点都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）
+- `calJson_sendto`：如果所有状态都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）
 - `calJson_tosend`：此数据将发送到 Mqtt（割草计划/自动设置）。您也可以自己创建此 JSON。（可更改）
 - `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 1/自动设置 - 仅适用于电线）（可更改）
 - `calendar.calJson2`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 2/自动设置 - 仅适用于电线）（可更改）
@@ -80,7 +80,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = Endzeit 09:30（立即更改值）（可更改）
 - `friday.time_0.enabled_time`：激活或停用时间。停用时，时间段将被删除（无延迟设置）（可更改）
 - `friday.time_0.zones`：应接近哪些区域，例如示例 [1,2,3]（无延迟设置）（可以更改）
-- `calJson_sendto`：如果所有数据点都已设置，则将此按钮设置为 true（延迟 1.1）。割草机现在将割草 30 分钟！（可更改）
+- `calJson_sendto`：如果所有状态都已设置，则将此按钮设置为 true（延迟 1.1）。割草机现在将割草 30 分钟！（可更改）
 - `calJson_tosend`: 这个 JSON 是自动填充然后发送给 Mqtt 的。当然你也可以自己创建。(可更改)
 - `add_timeslot`：添加额外的时间段。重启后，未使用的时间段将被删除。（可更改）
 
@@ -92,7 +92,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 ```json
 [
     {
-        "e": 1, // 0=deactivated/1=activated - With 0 the slot is deleted
+        "e": 1, // 0=deactivated/1=activated - Set 0 for deactivated this slot
         "d": 0, // Days 0=sunday, 1=monday, 2=tuesday, 3=wednesday, 4=thursday, 5=friday, 6=saturday
         "s": 360, // Start time in minutes 06:00 (360/60) - (320/60 = 5 hours and 20 minutes)
         "t": 180, // Mowing time in minutes = End time 09:00 (180/60) - (200/60 = 3 hours and 20 minutes)
@@ -115,6 +115,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - ACS 模块（仅限有线）
 
 - `US.ACS`: 启用或禁用 ACS - 1-开/0-关
+- `US.ACS_Status`: 来自 ACS 模块的状态
 
 - EA 模块（仅限视觉）
 
@@ -137,7 +138,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `batteryVoltage`：电池电压（伏特）（电线和视觉/只读）
 - `cutOverSlabs`: 切换板开启 = true / 关闭 = false （视觉/可更改）
 - `direction`：梯度方向（wire & Vision/readonly）
-- `edgecut`: 启动 EdgeCut (线和视觉/可更改)
+- `edgecut`: 启动 EdgeCut (线材 & 视觉/可更改)
 - `error`：来自割草机的错误消息（wire & Vision/readonly）
 
 ```json
@@ -191,7 +192,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `firmware_available_date`：固件可用日期 - 当适配器重新安装且无可用更新时，为虚拟 1970-01-01（wire & Vision/readonly）
 - 来自 dat.fw 的 `firmware_body` 值 (Vision/readonly)
 - 来自 dat.head.fw 的 `firmware_head` 值 (Vision/readonly)
-- `firmware_update_start`：分 2 步启动固件更新（有线 & 视觉/可更改）
+- `firmware_update_start`：分 2 步启动固件更新 - 请参阅下文 `firmware_update_start_approved`（有线和视觉/可更改）
 - `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true (wire & Vision/changeable)
 - `gradient`：渐变（wire & Vision/readonly）
 - `inclination`：梯度倾斜度（wire & Vision/readonly）
@@ -208,11 +209,11 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 ```json
 {
     "wtm": 60, //Minutes
-    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next datapoints
+    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next State
 }
 ```
 
-- `oneTimeStart`：一次性割草开始“首先为 Vision 设置 oneTimeWithBorder、oneTimeWorkTime 和 oneTimeZones” - 延迟 1.1 秒（线路和 Vision/可更改）
+- `oneTimeStart`：一次性割草开始“首先为 Vision 设置 oneTimeWithBorder、oneTimeWorkTime 和 oneTimeZones” - 延迟 1.1 秒（电线和 Vision/可更改）
 - `oneTimeWithBorder`: 带 bordercut - 无延迟更改值（线和视觉/可更改）
 - `oneTimeWorkTime`：工作时间最长为 8 小时，每 30 分钟为一个步骤 - 无延迟更改值（线路和视觉/可更改）
 - `oneTimeZones`: 设置区域 [1,2,4] (视觉/可更改)
@@ -278,7 +279,18 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `totalDistance`：总距离（电线和视觉/只读）
 - `totalTime`: 总工作时间 (wire & Vision/readonly)
 - `waitRain`：降雨延迟最大为 12 小时，以 30 分钟为单位（电线和视觉/可更改）
+- `waitRainCountdown` 当传感器从湿变干时开始倒计时（电线和视觉/只读）
+- `waitRainSensor` 状态 0 表示干燥，1 表示潮湿（电线和视觉/只读）
 - `wifiQuality`：WiFi 质量（有线和视觉/只读）
+
+```json
+{
+    "rain": {
+        "s": 0, // 0 for dry and 1 for wet (Wire & Vision)
+        "cnt": 59 // Start countdown when changing from s=1 wet to s=0 dry - rain was detected (Wire & Vision)
+    }
+}
+```
 
 ![割草机 img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
 
@@ -711,6 +723,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 -   (Lucky-ESA) Added cut over slabs
 -   (Lucky-ESA) Node 18 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
+-   (Lucky-ESA) Added rain wait countdown
 
 ### 2.3.4 (2023-10-19)
 

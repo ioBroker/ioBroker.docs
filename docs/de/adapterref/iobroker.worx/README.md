@@ -97,14 +97,14 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```json
 [
     {
-        "e": 1, // 0=deaktiviert/1=aktiviert - Bei 0 wird der Slot gelöscht
+        "e": 1, // 0=deaktiviert/1=aktiviert - Bei 0 wird der Slot deaktiviert
         "d": 0, // Tage 0=Sonntag, 1=Montag, 2=Dienstag, 3=Mittwoch, 4=Donnerstag, 5=Freitag, 6=Samstag
         "s": 360, // Startzeit in Minuten 06:00 (360/60) - (320/60 = 5 Stunden und 20 Minuten)
         "t": 180, // Laufzeit in Minuten = Endzeit 09:00 (180/60) - (200/60 = 3 Stunden und 20 Minuten)
         "cfg": {
             "cut": {
                 "b": 1, // 0=ohne Kantenschnitt/1=Mit Kantenschnitt
-                "z": [1] // In welchen Zonen [1,2,6]
+                "z": [1] // In welchen Zonen - Beispiel 3 Zonen [1,2,6]
             }
         }
     }
@@ -121,6 +121,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   ACS Modul (nur Draht)
 
     -   `US.ACS`: ACS aktivieren oder deaktivieren - 1-on/0-off
+    -   `US.ACS_Status`: Status vom ACS Modul
 
 -   EA Modul (nur Vision)
 
@@ -200,7 +201,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `firmware_available_date`: Datum verfügbaren Firmware - Dummy 1970-01-01 wenn der Adapter neu installiert wird und es kein Update zur Verfügung steht (Draht & Vision/nur lesen)
 -   `firmware_body` Inhalt von dat.fw (Vision/nur lesen)
 -   `firmware_head` Inhalt dat.head.fw (Vision/nur lesen)
--   `firmware_update_start`: Start Update in 2 Schritten (Draht & Vision/änderbar)
+-   `firmware_update_start`: Start Update in 2 Schritten - siehe `firmware_update_start_approved` (Draht & Vision/änderbar)
 -   `firmware_update_start_approved`: Aktualisierung der Firmware starten - `firmware_update_start` muss auf true gesetzt sein (Draht & Vision/änderbar)
 -   `gradient`: Gefälle oder Anstieg in Grad (Draht & Vision/nur lesen)
 -   `inclination`: Neigung in Grad (Draht & Vision/nur lesen)
@@ -287,7 +288,18 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `totalDistance`: Gesamte Entfernung (Draht & Vision/nur lesen)
 -   `totalTime`: Gesamte Rasenmäher-Arbeitszeit (Draht & Vision/nur lesen)
 -   `waitRain`: Regenverzögerung max. 12h in 30 Minuten Schritte (Draht & Vision/änderbar)
+-   `waitRainCountdown` Countdown wenn der Sensor wechselt von nass zu trocken (Draht & Vision/nur lesen)
+-   `waitRainSensor` Status 0 für trochen und 1 für feucht (Draht & Vision/nur lesen)
 -   `wifiQuality`: Wifi Qualität (Draht & Vision/nur lesen)
+
+```json
+{
+    "rain": {
+        "s": 0, // 0 für trochen und 1 für nass (Draht & Vision)
+        "cnt": 59 // Countdown wenn Wechsel von s=1 nass zu s=0 trocken - Regen wurde erkannt (Draht & Vision)
+    }
+}
+```
 
 ![Mower img/mower_4.png](../en/img/mower_4.png)
 
@@ -728,6 +740,7 @@ Standard ohne Zonen:
 -   (Lucky-ESA) Added cut over slabs
 -   (Lucky-ESA) Node 18 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
+-   (Lucky-ESA) Added rain wait countdown
 
 ### 2.3.4 (2023-10-19)
 

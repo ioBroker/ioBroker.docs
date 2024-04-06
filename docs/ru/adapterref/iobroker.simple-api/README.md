@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.simple-api/README.md
 title: Simple-API
-hash: RUFO6KW5sFINliHNwf6Q1qvsFmY0ih6Vrsvdmy1IjgY=
+hash: 4RFMQDhl6Ykf1fKcCSeay0BhY4g6WW5/qXLN8c7sGhs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -14,9 +14,9 @@ hash: RUFO6KW5sFINliHNwf6Q1qvsFmY0ih6Vrsvdmy1IjgY=
 # Simple-API
 ![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Это интерфейс RESTFul для чтения объектов и состояний из ioBroker, а также для записи/управления состояниями через HTTP-запросы Get/Post.
+Это интерфейс RESTFul для чтения объектов и состояний из ioBroker и для записи/управления состояниями через HTTP-запросы Get/Post.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Использование
 Вызовите в браузере `http://ipaddress:8087/help`, чтобы получить справку по API. Результат:
@@ -192,9 +192,6 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ### Помощь
 Возвращает вывод [этот](#usage)
 
-## Установить
-```node iobroker.js add simple-api```
-
 ## Использование
 Предположим, у нас нет безопасности и сервер работает на порту по умолчанию 8087.
 
@@ -309,7 +306,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ```
 
 ### GetBulk
-Прочитайте состояния большего количества идентификаторов с отметкой времени. Вы можете указать больше идентификаторов, разделенных точкой с запятой.
+Прочитайте состояния других идентификаторов с отметкой времени. Вы можете указать больше идентификаторов, разделенных точкой с запятой.
 Массив JSON будет возвращаться всегда.
 
 ```http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```

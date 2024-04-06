@@ -66,7 +66,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
     -   `wednesday.borderCut`: With or without bordercut (Change value without delay) (changeable)
     -   `wednesday.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay) (changeable)
     -   `wednesday.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endzeit 09:30 (Change value without delay) (changeable)
-    -   `calJson_sendto`: If all datapoints are set, then press button to send (with a 1,1 second delay). The mower will now mow for 30 minutes (changeable)
+    -   `calJson_sendto`: If all States are set, then press button to send (with a 1,1 second delay). The mower will now mow for 30 minutes (changeable)
     -   `calJson_tosend`: This data is sent to Mqtt (Both mowing schedule/is set automatically). You can also create this JSON yourself. (changeable)
     -   `calendar.calJson`: Array for the weekly mowing plan. You can also create this ARRAY yourself. (mowing schedule 1/is set automatically - for wire only) (changeable)
     -   `calendar.calJson2`: Array for the weekly mowing plan. You can also create this ARRAY yourself. (mowing schedule 2/is set automatically - for wire only) (changeable)
@@ -83,7 +83,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
     -   `friday.time_0.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endzeit 09:30 (Change value without delay) (changeable)
     -   `friday.time_0.enabled_time`: Activate or deactivate time. When deactivated, the timeslot is deleted (set without delay) (can be changed)
     -   `friday.time_0.zones`: Which zones should be approached, e.g. Example [1,2,3] (set without delay) (can be changed)
-    -   `calJson_sendto`: If all data points are set then set this button to true (with a delay of 1.1). The mower will now mow for 30 minutes! (changeable)
+    -   `calJson_sendto`: If all States are set then set this button to true (with a delay of 1.1). The mower will now mow for 30 minutes! (changeable)
     -   `calJson_tosend`: This JSON is automatically filled and then sent to Mqtt. Of course you can also create it yourself. (changeable)
     -   `add_timeslot`: An additional timeslot is added. Unused timeslots are removed after a restart. (changeable)
 
@@ -97,7 +97,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```json
 [
     {
-        "e": 1, // 0=deactivated/1=activated - With 0 the slot is deleted
+        "e": 1, // 0=deactivated/1=activated - Set 0 for deactivated this slot
         "d": 0, // Days 0=sunday, 1=monday, 2=tuesday, 3=wednesday, 4=thursday, 5=friday, 6=saturday
         "s": 360, // Start time in minutes 06:00 (360/60) - (320/60 = 5 hours and 20 minutes)
         "t": 180, // Mowing time in minutes = End time 09:00 (180/60) - (200/60 = 3 hours and 20 minutes)
@@ -121,6 +121,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   ACS Module (Wire only)
 
     -   `US.ACS`: Enable or disable ACS - 1-on/0-off
+    -   `US.ACS_Status`: Status from ACS Module
 
 -   EA Module (Vision only)
 
@@ -200,7 +201,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `firmware_available_date`: Date available firmware - Dummy 1970-01-01 when the adapter is reinstalled and no update is available (wire & Vision/readonly)
 -   `firmware_body` Value from dat.fw (Vision/readonly)
 -   `firmware_head` Value from dat.head.fw (Vision/readonly)
--   `firmware_update_start`: Start firmware update in 2 steps (wire & Vision/changeable)
+-   `firmware_update_start`: Start firmware update in 2 steps - see below `firmware_update_start_approved` (wire & Vision/changeable)
 -   `firmware_update_start_approved`: Start firmware update - `firmware_update_start` must be set to true (wire & Vision/changeable)
 -   `gradient`: Gradient in grad (wire & Vision/readonly)
 -   `inclination`: Inclination in grad (wire & Vision/readonly)
@@ -217,7 +218,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```json
 {
     "wtm": 60, //Minutes
-    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next datapoints
+    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next State
 }
 ```
 
@@ -287,7 +288,18 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `totalDistance`: Total distance (wire & Vision/readonly)
 -   `totalTime`: Total working time (wire & Vision/readonly)
 -   `waitRain`: Rain delay max. 12h in 30 minute steps (wire & Vision/changeable)
+-   `waitRainCountdown` Start countdown when the sensor changes from wet to dry (wire & Vision/readonly)
+-   `waitRainSensor` Status 0 for dry and 1 for wet (wire & Vision/readonly)
 -   `wifiQuality`: Wifi quality (wire & Vision/readonly)
+
+```json
+{
+    "rain": {
+        "s": 0, // 0 for dry and 1 for wet (Wire & Vision)
+        "cnt": 59 // Start countdown when changing from s=1 wet to s=0 dry - rain was detected (Wire & Vision)
+    }
+}
+```
 
 ![Mower img/mower_4.png](img/mower_4.png)
 
@@ -728,6 +740,7 @@ Default without zone:
 -   (Lucky-ESA) Added cut over slabs
 -   (Lucky-ESA) Node 18 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
+-   (Lucky-ESA) Added rain wait countdown
 
 ### 2.3.4 (2023-10-19)
 

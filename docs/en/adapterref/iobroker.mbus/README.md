@@ -40,9 +40,9 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 2.7.0 (2024-04-05)
 * (Apollon77) Add IPv6 support for TCP connections
+* (Apollon77) Fixed baudrate 1200 for Windows (2400 was used before)
 
 ### 2.6.1 (2023-11-25)
 * IMPORTANT: Node.js 16.x is now required at least

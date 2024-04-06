@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: Адаптер ioBroker.worx
-hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
+hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 ---
 ![Логотип](../../../en/admin/worx.png)
 
@@ -53,7 +53,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `area_1`: начало зоны 2 в метрах (массив=1) (изменяемо)
 - `area_2`: начало зоны 3 в метрах (массив=2) (изменяемо)
 - `area_3`: Начало зоны 4 в метрах (массив=3) (изменяемо)
-- `startSequence`: начало зоны массива (события 0–9), например. Запуск только в зоне 3 [2,2,2,2,2,2,2,2,2,2] (изменяемо)
+- `startSequence`: начало зоны массива (события 0-9), например. Запуск только в зоне 3 [2,2,2,2,2,2,2,2,2,2] (изменяемо)
 - `zoneKeeper`: Безопасное вождение в узких зонах пересечения (Области должны быть созданы) (начиная с прошивки 3.30) (изменяемо)
 
 ![Площадь img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
@@ -64,9 +64,9 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
     - `wednesday.borderCut`: с обрезанием рамки или без него (изменить значение без задержки) (изменяемо)
     - `wednesday.startTime`: время начала чч:мм (0-23/0-59), например 09:00 (Изменить значение без задержки) (изменяемо)
     - `wednesday.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = Конец 09:30 (Изменить значение без задержки) (изменяемо)
-    - `calJson_sendto`: если все точки данных установлены, нажмите кнопку для отправки (с задержкой 1,1 секунды). Теперь газонокосилка будет косить в течение 30 минут (можно изменить).
+    - `calJson_sendto`: если все состояния установлены, нажмите кнопку для отправки (с задержкой 1,1 секунды). Теперь газонокосилка будет косить в течение 30 минут (можно изменить).
     - `calJson_tosend`: эти данные отправляются в Mqtt (оба графика кошения устанавливаются автоматически). Вы также можете создать этот JSON самостоятельно. (Сменный)
-    - `calendar.calJson`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 1/устанавливается автоматически – только для проволоки) (изменяемый)
+    - `calendar.calJson`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 1/устанавливается автоматически - только для проволоки) (изменяемый)
     - `calendar.calJson2`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 2/устанавливается автоматически – только для проволоки) (изменяемый)
 
 ![Папка img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
@@ -80,7 +80,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
     - `friday.time_0.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = Конец 09:30 (Изменить значение без задержки) (изменяемо)
     - `friday.time_0.enabled_time`: активировать или деактивировать время. При деактивации временной интервал удаляется (устанавливается без задержки) (можно изменить)
     - `friday.time_0.zones`: к каким зонам следует приближаться, например Пример [1,2,3] (устанавливается без задержки) (можно изменить)
-    - `calJson_sendto`: если все точки данных установлены, установите для этой кнопки значение true (с задержкой 1,1). Теперь газонокосилка будет косить 30 минут! (Сменный)
+    - `calJson_sendto`: если все состояния установлены, установите для этой кнопки значение true (с задержкой 1,1). Теперь газонокосилка будет косить 30 минут! (Сменный)
     - `calJson_tosend`: этот JSON автоматически заполняется, а затем отправляется в Mqtt. Конечно, вы также можете создать его самостоятельно. (Сменный)
     - `add_timeslot`: добавляется дополнительный временной интервал. Неиспользуемые временные интервалы удаляются после перезагрузки. (Сменный)
 
@@ -92,7 +92,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 ```json
 [
     {
-        "e": 1, // 0=deactivated/1=activated - With 0 the slot is deleted
+        "e": 1, // 0=deactivated/1=activated - Set 0 for deactivated this slot
         "d": 0, // Days 0=sunday, 1=monday, 2=tuesday, 3=wednesday, 4=thursday, 5=friday, 6=saturday
         "s": 360, // Start time in minutes 06:00 (360/60) - (320/60 = 5 hours and 20 minutes)
         "t": 180, // Mowing time in minutes = End time 09:00 (180/60) - (200/60 = 3 hours and 20 minutes)
@@ -107,7 +107,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 ```
 
 ### Модулей (Wire и Vision)
-- Модуль ограничения (провод и зрение)
+- Модуль Off Limit (провод и зрение)
 
     - `DF.OLMSwitch_Cutting`: предотвращает перетирание магнитной ленты - истинное включение/ложное выключение.
     - `DF.OLMSwitch_FastHoming`: быстрый возврат на зарядную станцию - истинное включение/ложное выключение.
@@ -115,6 +115,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - Модуль ACS (только проводной)
 
     - `US.ACS`: включить или отключить ACS - 1-вкл./0-выкл.
+    - `US.ACS_Status`: статус модуля ACS.
 
 - Модуль EA (только Vision)
 
@@ -137,7 +138,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `batteryVoltage`: напряжение батареи в Вольтах (проводное и Vision/только чтение)
 - `cutOverSlabs`: разрезание плит включено = true / выключено = false (видение/изменяемое)
 - `direction`: направление в градусах (провод и видение/только чтение)
-- `edgecut`: запустить EdgeCut (проволока и Vision/сменный)
+- `edgecut`: запуск EdgeCut (проволока и Vision/сменный)
 - `error`: сообщение об ошибке от газонокосилки (провод и Vision/только чтение)
 
 ```json
@@ -174,7 +175,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 
 - `firmware`: текущая установленная прошивка (проводное и Vision/только чтение).
 - `firmware_available`: доступная прошивка (проводное и Vision/только чтение)
-- `firmware_available_all`: последняя доступная прошивка в формате JSON. Этот JSON будет обновляться при появлении нового обновления (проводное и Vision/только чтение).
+- «firmware_available_all»: последняя доступная прошивка в формате JSON. Этот JSON будет обновляться при появлении нового обновления (проводное и Vision/только чтение).
 
 ```json
 {
@@ -191,8 +192,8 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `firmware_available_date`: дата доступной прошивки - Dummy 1970-01-01, когда адаптер переустановлен и обновление недоступно (проводное и Vision/только чтение)
 - Значение `firmware_body` из dat.fw (Vision/только для чтения)
 - Значение `firmware_head` из dat.head.fw (Vision/только для чтения)
-- `firmware_update_start`: запустить обновление прошивки в 2 этапа (проводное и Vision/сменное)
-- «firmware_update_start_approved»: начать обновление прошивки. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
+- «firmware_update_start»: запустить обновление прошивки в 2 этапа — см. ниже «firmware_update_start_approved» (проводное и Vision/изменяемое)
+- «firmware_update_start_approved»: запустить обновление прошивки. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
 - `gradient`: градиент в градусах (проводное и Vision/только чтение)
 - `inclination`: наклон в градусах (проводное и Vision/только чтение)
 - `last_command`: последний запрос от iobroker или приложения в виде таблицы JSON (проводное и Vision/только чтение)
@@ -208,7 +209,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 ```json
 {
     "wtm": 60, //Minutes
-    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next datapoints
+    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next State
 }
 ```
 
@@ -278,7 +279,18 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 - `totalDistance`: общее расстояние (провод и зрение/только чтение)
 - `totalTime`: общее время работы (проводное и Vision/только чтение)
 - `waitRain`: Макс. задержка дождя. 12 часов с шагом 30 минут (проводное и Vision/сменное)
+- `waitRainCountdown` Начать обратный отсчет, когда датчик переключится с влажного на сухой (проводное и Vision/только чтение)
+- Состояние `waitRainSensor` 0 для сухого и 1 для влажного (проводное и Vision/только чтение)
 - `wifiQuality`: качество Wi-Fi (проводное и Vision/только чтение)
+
+```json
+{
+    "rain": {
+        "s": 0, // 0 for dry and 1 for wet (Wire & Vision)
+        "cnt": 59 // Start countdown when changing from s=1 wet to s=0 dry - rain was detected (Wire & Vision)
+    }
+}
+```
 
 ![Косилка img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
 
@@ -365,7 +377,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 
 ### Info_mqtt (Wire и Vision)
 - `incompleteOperationCount`: общее количество операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
-- `incompleteOperationSize`: общий размер пакетов операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
+- `incompleteOperationSize`: общий размер пакета операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
 - `unackedOperationCount`: общее количество операций, которые были отправлены на сервер и ожидают соответствующего подтверждения, прежде чем они могут быть завершены.
 - `unackedOperationSize`: общий размер пакетов операций, которые были отправлены на сервер и ожидают соответствующего подтверждения, прежде чем они могут быть завершены.
 - `last_update`: последнее обновление токена.
@@ -711,6 +723,7 @@ hash: mIDLRgyH5VOzI52Yb5h9avCo8Gz2c1kBtfJNNMSYs7Y=
 -   (Lucky-ESA) Added cut over slabs
 -   (Lucky-ESA) Node 18 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
+-   (Lucky-ESA) Added rain wait countdown
 
 ### 2.3.4 (2023-10-19)
 
