@@ -393,3 +393,19 @@ The widgets are designed for VIS 1.x.
 
 ## scheduler (05.4.2024) – new feature
 Scheduler supports now holidays and custom types.
+
+## admin (6.4.2024) – new feature
+Admin now supports the includes in JSONConfig files:
+
+```json5
+{
+    "tabs": {
+        "tab1": {
+            "type": "panel", // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
+            "#include": "tab1.json"
+        }
+    }
+}
+```
+
+https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/SCHEMA.md#includes
