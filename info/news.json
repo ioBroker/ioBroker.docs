@@ -861,7 +861,7 @@
       "info": "installed"
     }
   },
-    {
+  {
     "title": {
       "en": "Adapter ioBroker.gigaset-elements will stop to work as gigaset shuts down cloud service",
       "de": "Adapter ioBroker.gigaset-elements wird seine Funktion einstellen, da Gigaset das Cloud-Service abschaltet",
@@ -892,6 +892,41 @@
     "class": "warning",
     "fa-icon": "exclamation-circle",
     "created": "2024-03-26T00:00:00.000Z",
+    "conditions": {
+      "info": "installed"
+    }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.hyperion will be deprecated",
+      "de": "Adapter ioBroker.hyperion wird abgekündigt",
+      "ru": "Адаптер ioBroker.hyperion будет обесценен",
+      "pt": "Adaptador ioBroker.hyperion será deprecated",
+      "nl": "Adapter ioBroker.hyperion zal worden verouderd",
+      "fr": "Adaptateur ioBroker.hyperion sera déprécié",
+      "it": "Adattatore ioBroker.hyperion sarà deprecato",
+      "es": "Adaptador ioBroker.hiperión será deprecatado",
+      "pl": "Adapter jOBroker.hyperion zostanie zdepregowany",
+      "uk": "Адаптер ioBroker.hyperion буде депресовано",
+      "zh-cn": "适配器ioBroker.hyperion将贬值"
+    },
+    "content": {
+      "en": "The adapter ioBroker.hyperion will be deprecated and be removed from repositories. Please note that this does not refer to ioBroker.hyperion-ng but to ioBroker.hyperion. According to forum postings the adapter ioBroker.hyperion is no longer working and there was no reaction from maintainer. With ioBroker.hyperion-ng an replacemengt seems to exist (altogh this adapter is not activly developed either).",
+      "de": "Der Adapter ioBroker.hyperion wird abgekündigt und aus den Repositories entfernt. Bitte beachten Sie, dass sich dies nicht auf ioBroker bezieht. Hyperion-ng, aber ioBroker. Hyperion. Nach Forenbuchungen der Adapter ioBroker. Hyperion funktioniert nicht mehr und es gab keine Reaktion vom Betreuer. Mit ioBroker. Hyperion-ng erscheint ein Ersatz-Mengt (auch dieser Adapter ist nicht aktiv entwickelt).",
+      "ru": "Адаптер ioBroker.hyperion будет обесценен и удален из хранилищ. Обратите внимание, что это не относится к ioBroker. гиперион-нг, но для ioBroker. гиперион. Согласно сообщению форума, адаптер ioBroker. гиперион больше не работает, и не было никакой реакции со стороны носителя. С ioBroker. Hyperion-ng a replacemengt, кажется, существует (к тому же этот адаптер также не активно разработан).",
+      "pt": "O adaptador ioBroker.hyperion será desprezado e será removido de repositórios. Por favor, note que isso não se refere ao ioBroker. hiperion-ng mas para ioBroker. hiperion. De acordo com o fórum postagens o adaptador ioBroker. hiperion não está mais funcionando e não houve reação do mantenedor. Com ioBroker. hiperion-ng um substitutomengt parece existir (altogh este adaptador também não é ativamente desenvolvido).",
+      "nl": "De adapter ioBroker.hyperion zal worden verouderd en worden verwijderd uit repositories. Let op: dit verwijst niet naar ioBroker. hyperion-ng maar naar ioBroker. hyperion. Volgens forum posten de adapter ioBroker. hyperion werkt niet meer en er was geen reactie van onderhouder. Met ioBroker. hyperion-ng een vervanger lijkt te bestaan (altogh deze adapter is ook niet actief ontwikkeld).",
+      "fr": "L'adaptateur ioBroker.hyperion sera déprécié et retiré des dépôts. Veuillez noter que cela ne fait pas référence à ioBroker. Hyperion-ng mais à ioBroker. Hyperion. Selon le forum affiche l'adaptateur ioBroker. L'hyperion ne fonctionne plus et il n'y a pas eu de réaction du responsable. Avec ioBroker. hyperion-ng un mengt de remplacement semble exister (altogh cet adaptateur n'est pas non plus développé activement).",
+      "it": "L'adattatore ioBroker.hyperion sarà deprecato e sarà rimosso dai repository. Si prega di notare che questo non si riferisce a ioBroker. iperion-ng ma a ioBroker. Iperione. Secondo forum posta l'adattatore ioBroker. l'iperione non funziona più e non c'era reazione dal manutentore. Con ioBroker. iperion-ng un sostitutomengt sembra esistere (appunto questo adattatore non è sviluppato attivamente anche).",
+      "es": "El adaptador ioBroker.hiperión será deprecatado y será eliminado de los depósitos. Tenga en cuenta que esto no se refiere a ioBroker. hiperion-ng pero a ioBroker. hiperión. Según el foro publica el adaptador ioBroker. El hiperión ya no funciona y no hubo reacción del encargado. Con ioBroker. hiperion-ng an replacemengt parece existir (altogh este adaptador no se desarrolla de forma activa tampoco).",
+      "pl": "Adapter jOBroker.hyperion zostanie usunięty z repozytoriów. Należy pamiętać, że nie dotyczy to joBrokera. ale do ioBrokera. Hiperion. Według postów forum adapter joBroker. Hiperion nie działa i nie wystąpiła reakcja opiekuna. Z JoBrokerem. hyperion- ng replacemengt wydaje się istnieć (altogh ten adapter nie jest aktywnie rozwinięty również).",
+      "uk": "Адаптер ioBroker.hyperion буде відхилений і буде видалено з репозиторіїв. Будь ласка, зауважте, що це не відноситься до ioBroker. гіперіон-нг, але до ioBroker. гіперіон. За повідомленнями форуму адаптер ioBroker. гіперіон більше не працює, і не було реакції від підтримки. З ioBroker. гіперіон-англ. замінникам, здається, існують (щодо цього адаптера не активовано або не активовано).",
+      "zh-cn": "适配器 ioBroker.hyperion 将贬值,从寄存器中移除. 请注意,这与ioBroker无关。 {\\fn华文仿宋\\fs16\\1cHD1D1D1}是超离子纳克,但是对ioBroker来说 超强 根据论坛贴出适配器ioBroker. 超离子已经失效 维护者没有反应 与ioBroker(英语:ioBroker). hyperion-ng 似乎存在一个替代的mengt(altogh 这个适配器也没有积极开发)."    
+    },
+    "id": "hyperion-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-0407T00:00:00.000Z",
     "conditions": {
       "info": "installed"
     }
