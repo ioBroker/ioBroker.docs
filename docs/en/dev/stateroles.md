@@ -191,6 +191,7 @@ With **levels**, you can control or set some number value.
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
 * `level.curtain`        - set the curtain position
 * `level.tilt`           - set the tilt position of blinds (max = fully open, min = fully closed)
+* `level.speed`          - speed eg. fan, ventilator, ..
 
 ## Switches (booleans, read-write)
 Switch controls boolean device (`true = ON, false = OFF`)
