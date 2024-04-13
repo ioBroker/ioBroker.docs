@@ -203,11 +203,10 @@ Switch controls boolean device (`true = ON, false = OFF`)
 * `switch.lock.window`    - window lock
 * `switch.mode.boost`     - start/stop boost mode of thermostat
 * `switch.mode.party`     - start/stop party mode of thermostat
-* `switch.power`          - on/off thermostat or air conditioner
+* `switch.power`          - on/off power, thermostat or air conditioner
 * `switch.light`
 * `switch.comfort`        - comfort mode
 * `switch.enable`
-* `switch.power`          - power on/off
 * `switch.mode.`*
 * `switch.mode.auto`      - auto mode on/off
 * `switch.mode.manual`    - manual mode on/off
