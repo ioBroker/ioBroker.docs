@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.habpanel/README.md
 title: ioBroker.habpanel
-hash: LQ+bSxPyPWV8TE+RtEIB/MJ9/cWlzUQ1dv6yj5LrkU8=
+hash: G/cOschXC8jAPiCjmmT9GPZV7hQcje1laNp5SGBBBNs=
 ---
 ![Logo](../../../en/adapterref/iobroker.habpanel/admin/habpanel.png)
 
@@ -13,25 +13,25 @@ hash: LQ+bSxPyPWV8TE+RtEIB/MJ9/cWlzUQ1dv6yj5LrkU8=
 ![NPM](https://nodei.co/npm/iobroker.habpanel.png?downloads=true)
 
 # IoBroker.habpanel
-HABPanel ist eine leichtgewichtige Dashboard-Schnittstelle für ioBroker, die auf OpenHAB HABpanel basiert.
+HABPanel ist eine leichte Dashboard-Schnittstelle für ioBroker, basierend auf OpenHAB HABpanel.
 
-Es verfügt insbesondere über einen eingebetteten Dashboard-Designer, mit dem Schnittstellen einfach direkt auf dem Zielgerät erstellt werden können.
+Es verfügt insbesondere über einen eingebetteten Dashboard-Designer, mit dem sich Schnittstellen ganz einfach direkt auf dem Zielgerät erstellen lassen.
 
 ## Installation
 **Wichtig!** Dieser Adapter kann nicht direkt von GitHub installiert werden. Nur von npm.
 
-## Einstieg
-- Wenn Sie zum ersten Mal mit einem neuen Browser oder Gerät auf HABPanel zugreifen, sollte Ihnen ein eher leerer Bildschirm angezeigt werden - folgen Sie dem Tutorial und beginnen Sie, indem Sie auf das Symbol in der oberen rechten Ecke klicken (oder tippen) .
-- Sie befinden sich jetzt im Bearbeitungsmodus, ein Link (_"Neues Dashboard hinzufügen"_) wurde angezeigt, ebenso wie ein Link _"Erweiterte Einstellungen"_.
-- Wenn Sie zuvor HABPanel verwendet und einige Panel-Konfigurationen auf dem Server gespeichert haben, gehen Sie zu _"Erweiterte Einstellungen"_ und klicken Sie auf Ihre vorherige Konfiguration - sie wird sofort wiederhergestellt. Oder erstellen Sie Ihr erstes Dashboard: Klicken/tippen Sie auf den Link _"Neues Dashboard hinzufügen"_ und geben Sie ihm einen Namen.
+## Erste Schritte
+- Wenn Sie HABPanel zum ersten Mal in einem neuen Browser oder auf einem neuen Gerät aufrufen, sollte Ihnen ein ziemlich leerer Bildschirm angezeigt werden – folgen Sie dem Tutorial und beginnen Sie, indem Sie auf das Symbol in der oberen rechten Ecke klicken (oder tippen).
+- Sie befinden sich jetzt im Bearbeitungsmodus, ein Link („Neues Dashboard hinzufügen“) sowie ein Link „Erweiterte Einstellungen“ wurden angezeigt.
+- Wenn Sie zuvor HABPanel verwendet und einige Panel-Konfigurationen auf dem Server gespeichert haben, gehen Sie zu „Erweiterte Einstellungen“ und klicken Sie auf Ihre vorherige Konfiguration – sie wird sofort wiederhergestellt. Oder erstellen Sie Ihr erstes Dashboard: Klicken/tippen Sie auf den Link „Neues Dashboard hinzufügen“ und geben Sie ihm einen Namen.
 - Klicken/tippen Sie auf die Dashboard-Kachel, um den Dashboard-Editor aufzurufen
-- Fügen Sie Ihr erstes Widget hinzu: Wählen Sie das Menü _„Widget hinzufügen“_ und wählen Sie einen Widget-Typ aus (sagen wir Dummy – ein einfaches Widget, das den Status eines Elements anzeigt)
-- Verschieben Sie das Widget per Drag-and-Drop und ändern Sie die Größe mit dem weißen Chevron - es erscheint, wenn Sie auf das Widget klicken
-- Klicken Sie auf die drei Punkte in der oberen rechten Ecke des Widgets, um das Kontextmenü aufzurufen, und wählen Sie _"Bearbeiten..."_
+- Fügen Sie Ihr erstes Widget hinzu: Wählen Sie das Menü „Widget hinzufügen“ und wählen Sie einen Widget-Typ (sagen wir „Dummy“ – ein einfaches Widget, das den Status eines Elements anzeigt).
+- Verschieben Sie das Widget per Drag-and-Drop und ändern Sie die Größe mit dem weißen Chevron - dieser erscheint, wenn Sie auf das Widget klicken
+- Klicken Sie auf die drei Punkte in der oberen rechten Ecke des Widgets, um dessen Kontextmenü aufzurufen, und wählen Sie _„Bearbeiten…“_
 - Passen Sie einige Einstellungen an (Name, openHAB-Element usw.) und bestätigen Sie Ihre Änderungen
 - Speichern Sie Ihre Konfiguration, indem Sie auf die Schaltfläche _Speichern_ klicken/tippen
-- Klicken/tippen Sie auf _Ausführen_, um Ihr Dashboard in Aktion zu sehen. Verwenden Sie die Zurück-Schaltfläche Ihres Browsers oder den Pfeil, um zum Zeichenbrett zurückzukehren
-- Wenn Sie mit Ihren Dashboards zufrieden sind, gehen Sie zurück zu _"Erweiterte Einstellungen"_ und klicken/tippen Sie dann auf _"Aktuelle Konfiguration in einer neuen Panel-Konfiguration speichern"_; Dadurch wird es wie oben beschrieben auf dem openHAB 2-Server gespeichert und zur Wiederverwendung verfügbar gemacht.
+- Klicken/tippen Sie auf _Ausführen_, um Ihr Dashboard in Aktion zu sehen - verwenden Sie die Zurück-Schaltfläche Ihres Browsers oder den Pfeil, um zum Zeichenbrett zurückzukehren
+- Wenn Sie mit Ihrem Dashboard-Satz zufrieden sind, gehen Sie zurück zu „Erweiterte Einstellungen“ und klicken/tippen Sie dann auf „Aktuelle Konfiguration in einer neuen Panel-Konfiguration speichern“. Dadurch wird sie wie oben beschrieben auf dem openHAB 2-Server gespeichert und für die Wiederverwendung verfügbar gemacht.
 
 ## Screenshots
 ![](../../../en/adapterref/iobroker.habpanel/doc/images/habpanel_screenshot0.png)
@@ -48,11 +48,15 @@ Es verfügt insbesondere über einen eingebetteten Dashboard-Designer, mit dem S
 
 ![](../../../en/adapterref/iobroker.habpanel/doc/images/habpanel_screenshot6.png)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
-
-### __LAUFENDE ARBEIT__ -->
-
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### __WORK IN PROGRESS__
+-   (mcm1957) Adapter requires nodeJS >=18 and js-controller >= 5 now.
+-   (mcm1957) Dependencies have been updated.
+
 ### 0.5.0 (2022-02-16)
 * (jogibear9988) added on support for new websockets
 
@@ -97,6 +101,7 @@ Es verfügt insbesondere über einen eingebetteten Dashboard-Designer, mit dem S
 * (bluefox) initial commit
 
 ## License
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright 2017-2022 bluefox <dogafox@gmail.com>
 
 Eclipse Public License

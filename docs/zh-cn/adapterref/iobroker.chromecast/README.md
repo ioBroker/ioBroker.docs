@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
+hash: Gy4OlsyXmVeAn2b1RDd6DJ7zM/aavhqL990dY2gwuoU=
 ---
 ![标识](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -12,54 +12,53 @@ hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 ![下载](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
 
 # IoBroker.chromecast
-![测试和发布](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
-## IoBroker 的 Google Home 适配器
-此插件允许检测视频和/或音频 Google Home 设备。对于每个检测到的 Home 设备，都会创建一个 ioBroker 设备。此设备显示设备的状态并允许向其发送新的 URL 以进行投射。
+## 适用于 ioBroker 的 Google Home 适配器
+此插件允许检测视频和/或音频 Google Home 设备。对于每个检测到的 Home 设备，都会创建一个 ioBroker 设备。此设备显示设备的状态并允许向其发送新的 URL 进行投射。
 
-建立在以下项目之上：
+在以下项目的基础上构建：
 
-  * [iobroker](http://www.iobroker.net)
-  * [node-castv2-client](https://github.com/thibauts/node-castv2-client) 作为 Home 客户端库。
+* [ioBroker](http://www.iobroker.net)
+* [node-castv2-client](https://github.com/thibauts/node-castv2-client) 作为 Home 客户端库。
 
-## 加入 Discord 服务器，讨论有关 ioBroker 集成的一切！
+## 加入 Discord 服务器讨论有关 ioBroker 集成的一切！
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ＃＃ 指示
-1.将此适配器安装到ioBroker
-
-2（可选）如果你打算流本地文件，你需要配置适配器
-
-   * 您需要有一个 ioBroker Web 服务器实例
-3. 检查您的日志：您应该会看到有关检测到的设备的日志
-4.写一个URL如[http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0。`<您的 chromecast 名称>`.player.url2play
-5. URL 应该开始在您的设备上播放
+1. 将此适配器安装到 ioBroker
+2. （可选）如果您计划流式传输本地文件，或者您的 chromecast 设备位于不同的子网中，则需要配置适配器
+* 您需要有一个 ioBroker 网络服务器实例来传输本地文件
+* 您需要手动添加与 ioBroker 服务器位于不同子网中的每个设备的信息（名称、IP、端口、广告类型）。如果您希望名称与自动找到的设备的名称相对应，请使用 MAC 地址作为名称。您可以定义任何您想要的名称。确保每个名称都是唯一的！为避免出现问题，名称应仅包含大写字母 A-Z、小写字母 a-z、数字 0-9、-（减号）和 _（下划线）。
+3. 检查日志：您应该会看到有关检测到的设备的日志
+4. 将 URL（例如 [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3)）写入 chromecast.0.`<您的 chromecast 名称>`.player.url2play
+5. URL 应该开始在你的设备上播放
 
 ＃＃ 特征
-* 使用多播-dns 检测设备
-  * 可选择在管理面板中添加额外的手动配置设备
+* 使用多播 DNS 检测设备
+* 可选择在管理面板的“设备”选项卡中添加其他手动配置的设备
 * 为每个找到的设备创建 ioBroker 对象
 * 状态、播放器、媒体和元数据通道
 * 通过适配器控制 Google Home 设备
-  * 设置音量
-  *静音/取消静音
-  * 停止广播
+* 设置音量
+* 静音/取消静音
+* 停止广播
   * 暂停
-  * 播放网址（chromecast.0.`<您的 Google Home 名称>`.player.url2play）
-    * 用 MP3 测试
-      * 格式的完整列表 [此处](https://developers.google.com/cast/docs/media)。
-    * 当 url 不以 http 开头时，假设这是一个本地文件
-      * 通过 ioBroker Web 服务器导出文件
-    * 它只播放来自播放列表文件的第一个文件，例如 .m3u
-* 可见小部件
-  * 注意：需要 [修补 vis 适配器](https://github.com/angelnu/ioBroker.vis)。
+* 播放网址 (chromecast.0.`<你的 Google Home 名称>`.player.url2play)
+* 使用 MP3 测试
+* 完整格式列表请参见[此处](https://developers.google.com/cast/docs/media)。
+* 当 URL 不是以 http 开头时，则假定这是一个本地文件
+* 通过 ioBroker 网络服务器导出文件
+* 它仅播放播放列表中的第一个文件，例如 .m3u
+* 可视化小部件
+* 注意：需要[修补的 vis 适配器](https://github.com/angelnu/ioBroker.vis)。
 * 初步支持 Chromecast 音频组
-  * 注意：这不适用于 SSDP -> 在适配器设置中默认禁用
+* 注意：这不适用于 SSDP -> 在适配器设置中默认禁用
 * 再次播放上次播放的流：只需将 _chromecast.0.`<your device>`.status.playing_ 设置为 _true_
 
-＃＃ 什么不见了？
+＃＃ 缺什么？
 * 添加状态机来跟踪状态：检测到 -> 连接 -> 播放器加载器 -> 播放
 * 添加重试：有时 Google Home 无法响应请求
 * 更多测试
@@ -67,7 +66,23 @@ hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 ## Changelog
 <!--
     ### **WORK IN PROGRESS**
+    - (neopholus) Breaking change: Bugfix for ([#154](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/154)) and ([#160](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/160)): manually configured devices in admin pannel (devices tab) are created correctly again (broke with 3.0.3) using the name defined in the admin panel, tab "devices".
 -->
+### 3.4.0 (2024-04-13)
+* (neopholus) Support for devices located in different subnets has been added. [#154, #160]
+* (mcm1957) Dependencies have been updated
+
+### 3.3.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 3.2.0 (2024-01-22)
+- (mcm1957) changed: Testing has been updated to use node.js 16/18/20
+- (mcm1957) changed: Dependencies have been updated
+* (raintonr) YouTube videos are allowed now ([#75](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/75))
+* (raintonr) AppId has been added to status ([#151](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/151))
+* (raintonr) Storing of webserver settings has been corrected if web instance listens on only one address ([#145](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/145))
+
 ### 3.1.0 (2022-11-12)
 * (bluefox) Refactoring done
 * (bluefox) Removed dependency with nettools
@@ -75,7 +90,7 @@ hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 
 ### 3.0.3 (2022-08-26)
 * (jey cee) Breaking change: Object IDs are now mac addresses instead names
-* (Bjoern3003) set album name as song if provided in icy-name
+* (Bjoern3003) set album name as song if provided in icy-nlicame
 * (Apollon77/aortmannm) Make compatible with Node.js 16+
 * (Apollon77) Add Sentry for crash reporting
 
@@ -229,7 +244,8 @@ hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

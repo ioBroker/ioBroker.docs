@@ -87,6 +87,10 @@ default: state-ID converted to a mqtt topic.
 -->
 
 ## Changelog
+### 1.8.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.7.0 (2023-10-30)
 
 * (mcm1957) Dependencies have been updated
@@ -184,6 +188,7 @@ default: state-ID converted to a mqtt topic.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1402,6 +1402,11 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.1 (2024-04-13)
+
+* (crycode-de) Fixed blockly target detection if user is provided by a variable (You may need to move a block to update the generated code)
+* (crycode-de) Updated dependencies
+
 ### 2.2.0 (2023-11-07)
 
 * (crycode-de) Optimized error handling - Network related errors should now be handled completely without adapter restarts and better logging
@@ -1484,7 +1489,7 @@ sendTo('discord.0', 'getMessageInfo', {
 
 MIT License
 
-Copyright (c) 2022-2023 Peter Müller <peter@crycode.de>
+Copyright (c) 2022-2024 Peter Müller <peter@crycode.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

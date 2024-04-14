@@ -1,4 +1,4 @@
-![Logo](admin/vis-2.png)
+![Logo](packages/vis-2/admin/vis-2.png)
 # Next generation visualization for ioBroker: vis-2 
 
 ![Number of Installations](http://iobroker.live/badges/vis-2-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-2-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-2.svg)](https://www.npmjs.com/package/iobroker.vis-2)
@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-2.png?downloads=true)](https://nodei.co/npm/iobroker.vis-2/)
 
-WEB visualisation for ioBroker platform.
+WEB visualization for ioBroker platform.
 
 ## Overview
 - [License requirements](#license-requirements)
@@ -30,8 +30,8 @@ Additionally, you need a license to use the adapter. The following license editi
 
 ## Installation & Documentation
 
-![Demo interface](img/user0.png)
-![Demo interface](img/user7.png)
+![Demo interface](packages/vis-2/img/user0.png)
+![Demo interface](packages/vis-2/img/user7.png)
 
 [Online Demos](https://iobroker.click/)
 
@@ -56,7 +56,7 @@ value = await (async function () {
 
 or 
 
-`{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;h*w}` will just multiply height with width.
+`{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;h*w}` will simply multiply height with width.
 
 
 You can use *any* javascript (browser) functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
@@ -213,8 +213,8 @@ There is a helper widget "basic - Screen Resolution" that shows actual screen re
 ### Project
 In the project management dialog, you can configure `read` and `write` permissions for each ioBroker user.
 
-The `read` flag means, that the project is accessible for this user in the Runtime. 
-The `write` flag means, that the project is accessible for this user in the Edit Mode.
+The `read` flag means that the project is accessible for this user in the Runtime. 
+The `write` flag means that the project is accessible for this user in the Edit Mode.
 
 When a new user is created via ioBroker Admin adapter, it will have both permissions by default.
 
@@ -222,7 +222,7 @@ When a new user is created via ioBroker Admin adapter, it will have both permiss
 You can also specify which views the user is allowed to access for runtime and edit mode. 
 When one of the access rights is not granted on project level, it does not have any effect to specify them on view level, as the project as a whole will not be accessible.
 
-Note, that whenever you try to access a view, where the current user has no permission for, the user will see the project selection panel instead.
+Note that whenever you try to access a view, where the current user has no permission for, the user will see the project selection panel instead.
 
 ### Widget
 If the user has no `read` permissions, the widget will not be rendered in the runtime. If user has no `write` permissions, the widget
@@ -241,7 +241,7 @@ Sometimes (in the night) it is required to have the dark loading screen. With th
 
 Notice that these settings are valid only for reconnection and not for the first connecting.
 
-![Dark](img/dark_screen.png)
+![Dark](packages/vis-2/img/dark_screen.png)
 
 ## SVG and currentColor
 The currentColor keyword in CSS allows elements to inherit the current text color from their parent element.
@@ -264,8 +264,9 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.9.49 (2024-04-11)
 * (bluefox) Corrected the scroll buttons in Tabs widget
+* (bluefox) Corrected resizers if the border width is set
 
 ### 2.9.48 (2024-03-30)
 * (bluefox) Showed selected view in the view dialog

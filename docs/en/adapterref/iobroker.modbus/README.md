@@ -163,32 +163,35 @@ If a value is marked with this flag, then the value will be stored into a variab
 This variable can be then later used in any formula for other parameters. E.g., the following formula can set: `(x * sf['40065']) + 50;`
 
 ## Data types
-- `uint16be` - `Unsigned 16 bit (Big Endian): AABB => AABB`
-- `uint16le` - `Unsigned 16 bit (Little Endian): AABB => BBAA`
-- `int16be`  - `Signed 16 bit (Big Endian): AABB => AABB`
-- `int16le`  - `Signed 16 bit (Little Endian): AABB => BBAA`
-- `uint32be` - `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
-- `uint32le` - `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
-- `uint32sw` - `Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `uint32sb` - `Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `int32be`  - `Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD`
-- `int32le`  - `Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA`
-- `int32sw`  - `Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `int32sb`  - `Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `uint64be` - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
-- `uint64le` - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
-- `uint8be`  - `Unsigned 8 bit (Big Endian): AA => AA`
-- `uint8le`  - `Unsigned 8 bit (Little Endian): AA => AA`
-- `int8be`   - `Signed 8 bit (Big Endian): AA => AA`
-- `int8le`   - `Signed 8 bit (Little Endian): AA => AA`
-- `floatbe`  - `Float (Big Endian): AABBCCDD => AABBCCDD`
-- `floatle`  - `Float (Little Endian): AABBCCDD => DDCCBBAA`
-- `floatsw`  - `Float (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `floatsb`  - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `doublebe` - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
-- `doublele` - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
-- `string`   - `String (Zero-end): ABCDEF\0 => ABCDEF\0`
-- `stringle` - `String (Little Endian, Zero-end): BADCFE\0 => ABCDEF\0`
+- `uint16be`  - `Unsigned 16 bit (Big Endian): AABB => AABB`
+- `uint16le`  - `Unsigned 16 bit (Little Endian): AABB => BBAA`
+- `int16be`   - `Signed 16 bit (Big Endian): AABB => AABB`
+- `int16le`   - `Signed 16 bit (Little Endian): AABB => BBAA`
+- `uint32be`  - `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `uint32le`  - `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
+- `uint32sw`  - `Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `uint32sb`  - `Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `int32be`   - `Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `int32le`   - `Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA`
+- `int32sw`   - `Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `int32sb`   - `Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `uint64be`  - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `uint64le`  - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `uint8be`   - `Unsigned 8 bit (Big Endian): AABB => BB`
+- `uint8le`   - `Unsigned 8 bit (Little Endian): AABB => AA`
+- `int8be`    - `Signed 8 bit (Big Endian): AABB => BB`
+- `int8le`    - `Signed 8 bit (Little Endian): AABB => AA`
+- `floatbe`   - `Float (Big Endian): AABBCCDD => AABBCCDD`
+- `floatle`   - `Float (Little Endian): AABBCCDD => DDCCBBAA`
+- `floatsw`   - `Float (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `floatsb`   - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `doublebe`  - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `doublele`  - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `string`    - `String 8 bit (Zero-end): ABCDEF\0 => ABCDEF\0`
+- `stringle`  - `String 8 bit (Little Endian, Zero-end): ABCDEF\0 => BADCFE\0`
+- `string16`  - `String 16 bit (Zero-end): \0A\0B\0C\0D\0E\0F\0\0 => ABCDEF\0`
+- `string16le`- `String 16 bit (Little Endian, Zero-end): A\0B\0C\0D\0E\0F\0\0\0 => ABCDEF\0`
+- `rawhex`    - `String with value in hex representation AABBCCDD.... => AABBCCDD....`
 
 The following description was copied from [here](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
@@ -300,6 +303,12 @@ There are some programs in folder `test` to test the TCP communication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 6.2.0 (2024-04-12)
+* (PLCHome) String based on 16 bit values big endian as well as little endian
+* (PLCHome) Raw data as a hex string
+* (PLCHome) Fix issue stringle was always converted to number for slave
+* (PLCHome) Enable formula for strings and hex strings
+
 ### 6.1.0 (2023-12-14)
 * (nkleber78) Implement the connection keepAlive
 
@@ -585,7 +594,7 @@ There are some programs in folder `test` to test the TCP communication:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2024 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

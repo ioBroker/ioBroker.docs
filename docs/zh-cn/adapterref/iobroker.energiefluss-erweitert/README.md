@@ -2,39 +2,57 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.energiefluss-erweitert/README.md
-title: ioBroker.energiefluss-erweitert
-hash: OdNPlL+AFJ3i5UhutUzGumvgn0WHXSbW6QbVdkL8mTI=
+title: ioBroker.energiefluss 扩展
+hash: 7qnqGyExdgk8yrFmU23TvTqclxiZQj0+Z/9fLEi8P64=
 ---
 ![标识](../../../en/adapterref/iobroker.energiefluss-erweitert/admin/energiefluss-erweitert.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.energiefluss-erweitert?style=flat-square)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.energiefluss-erweitert?style=flat-square)
 ![下载](https://img.shields.io/npm/dm/iobroker.energiefluss-erweitert.svg)
 ![安装数量](https://iobroker.live/badges/energiefluss-erweitert-installed.svg)
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss-erweitert?style=flat-square)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
 ![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
 ![GitHub 问题](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![国家公共管理](https://nodei.co/npm/iobroker.energiefluss-erweitert.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.energiefluss-erweitert.png?downloads=true)
 
-# IoBroker.energiefluss-erweitert
+# IoBroker.energiefluss 扩展
 ![测试与发布](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 energiefluss-erweitert 适配器
-它为您添加的所有元素提供动画能量流。这可以是：光伏、电池、家庭消费、电网馈入（电网消费）、汽车充电等。
+## 为 ioBroker 提供能量扩展适配器
+它为您添加的所有元素提供动画能量流。这些元素可能是：光伏、电池、房屋消耗、电网馈入（电网消耗）、汽车充电等。
 
-## 文档
-* [论坛帖子](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
+文档
+* [论坛主题]（https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest）
 * [英文说明](./docs/en/README.md)
 * [德语说明](./docs/de/README.md)
-
-**请注意，这目前只是 alpha 状态**
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: The adapter can provide 3 new states. charging_grid (battery charged via grid), charging_solar (battery charged via solar) and production (overall production) (#173, #152, #148()
+- Added: Datasources for the battery calculation now need to be provided via the datasources tab and selected in the calculation tab (!!! Important: !!! This is a major change)
+- Added: A HH:MM Timestamp for Values can be selected
+- FIX: Wrong allingment of rectangle with border-fill, if height and width are different
+- FIX: After adding a new source, it is not sorted alphabetically into the list
+- FIX: The adapter could crash if the data source was missing under certain circumstances
+
+### 0.3.0 (2024-03-12)
+- Added: Up to 50% faster performance on saving data to the "data" datapoint due to removing unnecessary stuff
+- Added: Support for light and dark theme manual selection with URL parameter "theme=dark" or "theme=light" for overwriting the system darkmode (if applicable)
+- Added: Code optimization during start-up and releasing memory cause of not using start-up stuff during runtime anymore
+- Added: When duplicating an element, the override properties are also duplicated
+- Added: Elements can now be selected while holding ctrl key 
+- Added: New override features for all elements added. The override features are explained inside the Wiki of the adapter (#153)
+- FIX: Datasource could not be deleted (#145)
+- FIX: If there is more power on a line than configured, the maximum amount of dots was ignored (#160)
+- FIX: If image URL from datapoint is empty or NULL - remove the displayed image (useful for weather datapoints)
+- FIX: If icon or svg was duplicated, the defined color was not adopted
+
 ### 0.2.2 (2024-02-15)
 - Added: if using datasource as an image URL, in some cases the picture url is empty (for forecasts e.g.) - Chrome displayed a broken image
 - Added: current active element receives a dashed border. This helps, to identify a picture element with empty url (if served via datasource)
@@ -52,7 +70,7 @@ hash: OdNPlL+AFJ3i5UhutUzGumvgn0WHXSbW6QbVdkL8mTI=
 - Added: Control for not deleting sources, if they are in use as source, addition or subtraction (elements which use this one, will be displayed with additional information)
 - Added: IDs for datasources will be displayed inside configuration bar, to better find the ID the element for reason mentioned before
 - Added: Control for not adding duplicate datasources from ioBroker as this will lead into crashes cause of duplicate keys
-- Added: Form on  datasources configuration page will be deactivated during the time a datasource is edited
+- Added: Form on datasources configuration page will be deactivated during the time a datasource is edited
 - Added: A unit for the datasource is selectable - this makes it easier to use those values for addition&subtraction without using Auxiliary data points
 - Added: New translations, design modifcations and various code optimizations
 - FIX: Crash Handler for missing datasources extended (if datasource from ioBroker was deleted and used as source, addition or subtraction in any element)

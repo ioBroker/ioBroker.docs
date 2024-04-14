@@ -62,6 +62,17 @@ sudo npm install soef
 ```
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.2.1 (2024-04-13)
+* (mcm1957) Dependencies have been updated
+
+### 1.2.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.1.4 (2022-06-17)
 * (Apollon77) Prevent crash case reported by sentry
 
@@ -84,6 +95,7 @@ sudo npm install soef
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

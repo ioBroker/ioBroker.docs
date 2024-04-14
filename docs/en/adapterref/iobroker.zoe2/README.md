@@ -121,6 +121,9 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.7 (2024-04-08)
+- BugFix gps Location (thanks to @MCP-KC)
+
 ### 0.2.6 (2022-07-22)
 - API Timeout configurable via config-screen
 - Improved stability

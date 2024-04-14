@@ -106,6 +106,9 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+ * (Sneak-L8) fix url for download page at Keba website
+
 ### 2.1.1 (2024-03-16)
  * (fischmi) fix error when chanigig dynamic SoC parameter
 

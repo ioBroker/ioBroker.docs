@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: hZ/B/w6tNxTxwWk0cCc8PaeF2/Hj5s+b1xUaoDAijtg=
+hash: pMYvwFYuQSjYEXlyYxgluH12XgfHS6DsI+XMISe+dVI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
@@ -19,123 +19,253 @@ hash: hZ/B/w6tNxTxwWk0cCc8PaeF2/Hj5s+b1xUaoDAijtg=
 ## Адаптер Hoover для ioBroker
 Адаптер для пылесосов
 
-## Логинаблауф
+## Логинабауф
 Используйте электронную почту и пароль.
 
 ## Стойерн
 hoover.0.id.remote в режиме true/false setzen steuert den jeweiligen Befehl
 
-hoover.0.id.remote.send для определенных действий.
-Действия для стиральной машины в адаптере по умолчанию:
+hoover.0.id.remote.send для определенных действий
+
+Folgende Beispiele können angepasst und in hoover.0.id.remote.send gesendet werden.
+Для ввода параметров необходимо изменить настройки.
 
 Действия для переменного тока:
 
-```
+Ac Start Кюлен
+
+```json
 {
-    "macAddress": "set by adapter",
-    "timestamp": "2023-10-29T19:01:37.014Z",
-    "ancillaryParameters": {
-        "ecoMode": {
-            "category": "general",
-            "typology": "range",
-            "mandatory": 1,
-            "defaultValue": "0",
-            "minimumValue": "0",
-            "maximumValue": "1",
-            "incrementValue": "1"
-        },
-        "programFamily": {
-            "category": "cluster",
-            "typology": "enum",
-            "mandatory": 1,
-            "enumValues": [
-                "standard"
-            ],
-            "defaultValue": "[standard]"
-        },
-        "programRules": {
-            "category": "rule",
-            "typology": "fixed",
-            "mandatory": 0,
-            "fixedValue": {
-                "tempSel": {
-                    "ecoMode": {
-                        "1": {
-                            "machMode": {
-                                "1": {
-                                    "typology": "fixed",
-                                    "fixedValue": "26"
-                                },
-                                "4": {
-                                    "typology": "fixed",
-                                    "fixedValue": "20"
-                                }
-                            }
-                        }
-                    }
+  "macAddress": "set by adapter",
+  "timestamp": "2024-04-12T10:16:04.886Z",
+  "ancillaryParameters": {},
+  "applianceOptions": {},
+  "applianceType": "AC",
+  "attributes": {
+    "prStr": "PROGRAMS.AC.IOT_COOL",
+    "channel": "mobileApp",
+    "origin": "standardProgram"
+  },
+  "commandName": "startProgram",
+  "device": {
+    "mobileId": "78A04D05-8F3C-43BE-90A6-5BC3B1A2CA52",
+    "mobileOs": "ios",
+    "osVersion": "17.4.1",
+    "appVersion": "2.7.9",
+    "deviceModel": "iPhone10,5"
+  },
+  "parameters": {
+    "onOffStatus": "1",
+    "windSpeed": "5",
+    "tempSel": "22"
+  },
+  "transactionId": "78-e3-6d-27-fb-f4_2024-04-12T10:16:04.886Z",
+  "programName": "PROGRAMS.AC.IOT_COOL"
+}
+```
+
+СТОП ПЕРЕМЕННОГО ТОКА
+
+```json
+{
+  "ancillaryParameters": {},
+  "applianceOptions": {},
+  "applianceType": "AC",
+  "attributes": {
+    "channel": "mobileApp",
+    "origin": "standardProgram"
+  },
+  "commandName": "stopProgram",
+  "device": {
+    "appVersion": "2.7.9",
+    "deviceModel": "iPhone10,5",
+    "mobileId": "78A04D05-8F3C-43BE-90A6-5BC3B1A2CA52",
+    "mobileOs": "ios",
+    "osVersion": "16.7.7"
+  },
+  "macAddress": "setbyadapter",
+  "parameters": {
+    "onOffStatus": "0"
+  },
+  "programName": "PROGRAMS.AC.IOT_COOL",
+  "timestamp": "2024-04-12T10:21:44.919Z",
+  "transactionId": "2024-04-12T10:21:44.919Z"
+}
+```
+
+AC Einstellungen ändern
+
+```json
+{
+  "macAddress": "set by adapter",
+  "timestamp": "2024-04-12T10:52:40.997Z",
+  "ancillaryParameters": {},
+  "applianceOptions": {},
+  "applianceType": "AC",
+  "attributes": {
+    "prStr": "Kühl",
+    "channel": "mobileApp",
+    "origin": "standardProgram"
+  },
+  "commandName": "startProgram",
+  "device": {
+    "mobileId": "78A04D05-8F3C-43BE-90A6-5BC3B1A2CA52",
+    "mobileOs": "ios",
+    "osVersion": "16.7.7",
+    "appVersion": "2.7.9",
+    "deviceModel": "iPhone10,5"
+  },
+  "parameters": {
+    "10degreeHeatingStatus": "0",
+    "ch2oCleaningStatus": "0",
+    "cleaningTimeStatus": "0",
+    "echoStatus": "0",
+    "electricHeatingStatus": "0",
+    "energySavePeriod": "15",
+    "energySavingStatus": "0",
+    "filterChangeStatusCloud": "0",
+    "freshAirStatus": "0",
+    "halfDegreeSettingStatus": "0",
+    "healthMode": "0",
+    "heatAccumulationStatus": "0",
+    "humanSensingStatus": "0",
+    "humidificationStatus": "0",
+    "humiditySel": "30",
+    "intelligenceStatus": "0",
+    "lightStatus": "0",
+    "lockStatus": "0",
+    "machMode": "1",
+    "muteStatus": "0",
+    "onOffStatus": "1",
+    "operationName": "grSetDAC",
+    "pm2p5CleaningStatus": "0",
+    "pmvStatus": "0",
+    "rapidMode": "0",
+    "screenDisplayStatus": "1",
+    "selfCleaning56Status": "0",
+    "selfCleaningStatus": "0",
+    "silentSleepStatus": "0",
+    "specialMode": "0",
+    "tempSel": "22",
+    "tempUnit": "0",
+    "voiceSignStatus": "0",
+    "voiceStatus": "0",
+    "windDirectionHorizontal": "0",
+    "windDirectionVertical": "2",
+    "windSensingStatus": "0",
+    "windSpeed": "3"
+  },
+  "transactionId": "2024-04-12T10:52:40.997Z",
+  "programName": "PROGRAMS.AC.IOT_COOL"
+}
+```
+
+АС Хайзен
+
+```json
+{
+  "macAddress": "set by adapter",
+  "timestamp": "2023-10-29T19:01:37.014Z",
+  "ancillaryParameters": {
+    "ecoMode": {
+      "category": "general",
+      "typology": "range",
+      "mandatory": 1,
+      "defaultValue": "0",
+      "minimumValue": "0",
+      "maximumValue": "1",
+      "incrementValue": "1"
+    },
+    "programFamily": {
+      "category": "cluster",
+      "typology": "enum",
+      "mandatory": 1,
+      "enumValues": ["standard"],
+      "defaultValue": "[standard]"
+    },
+    "programRules": {
+      "category": "rule",
+      "typology": "fixed",
+      "mandatory": 0,
+      "fixedValue": {
+        "tempSel": {
+          "ecoMode": {
+            "1": {
+              "machMode": {
+                "1": {
+                  "typology": "fixed",
+                  "fixedValue": "26"
                 },
-                "windSpeed": {
-                    "ecoMode": {
-                        "1": {
-                            "machMode": {
-                                "1|4": {
-                                    "typology": "enum",
-                                    "defaultValue": "1",
-                                    "enumValues": "1|2|3|5"
-                                }
-                            }
-                        }
-                    }
-                },
-                "windDirectionVertical": {
-                    "ecoMode": {
-                        "1": {
-                            "machMode": {
-                                "1|4": {
-                                    "typology": "fixed",
-                                    "fixedValue": "3"
-                                }
-                            }
-                        }
-                    }
+                "4": {
+                  "typology": "fixed",
+                  "fixedValue": "20"
                 }
+              }
             }
+          }
         },
-        "remoteActionable": {
-            "category": "general",
-            "typology": "fixed",
-            "mandatory": 0,
-            "fixedValue": "1"
+        "windSpeed": {
+          "ecoMode": {
+            "1": {
+              "machMode": {
+                "1|4": {
+                  "typology": "enum",
+                  "defaultValue": "1",
+                  "enumValues": "1|2|3|5"
+                }
+              }
+            }
+          }
         },
-        "remoteVisible": {
-            "category": "general",
-            "typology": "fixed",
-            "mandatory": 0,
-            "fixedValue": "1"
+        "windDirectionVertical": {
+          "ecoMode": {
+            "1": {
+              "machMode": {
+                "1|4": {
+                  "typology": "fixed",
+                  "fixedValue": "3"
+                }
+              }
+            }
+          }
         }
+      }
     },
-    "applianceOptions": {},
-    "applianceType": "AC",
-    "attributes": {
-        "prStr": "Heizen",
-        "channel": "mobileApp",
-        "origin": "standardProgram"
+    "remoteActionable": {
+      "category": "general",
+      "typology": "fixed",
+      "mandatory": 0,
+      "fixedValue": "1"
     },
-    "commandName": "startProgram",
-    "device": {
-        "mobileId": "36bcee2ebe0dbdas",
-        "mobileOs": "android",
-        "osVersion": "28",
-        "appVersion": "2.3.12",
-        "deviceModel": "S23"
-    },
-    "parameters": {
-        "onOffStatus": "1",
-        "windSpeed": "5",
-        "tempSel": "22"
-    },
-    "transactionId": "2023-10-29T19:01:37.014Z",
-    "programName": "PROGRAMS.AC.IOT_HEAT"
+    "remoteVisible": {
+      "category": "general",
+      "typology": "fixed",
+      "mandatory": 0,
+      "fixedValue": "1"
+    }
+  },
+  "applianceOptions": {},
+  "applianceType": "AC",
+  "attributes": {
+    "prStr": "Heizen",
+    "channel": "mobileApp",
+    "origin": "standardProgram"
+  },
+  "commandName": "startProgram",
+  "device": {
+    "mobileId": "36bcee2ebe0dbdas",
+    "mobileOs": "android",
+    "osVersion": "28",
+    "appVersion": "2.3.12",
+    "deviceModel": "S23"
+  },
+  "parameters": {
+    "onOffStatus": "1",
+    "windSpeed": "5",
+    "tempSel": "22"
+  },
+  "transactionId": "2023-10-29T19:01:37.014Z",
+  "programName": "PROGRAMS.AC.IOT_HEAT"
 }
 ```
 
@@ -179,3 +309,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+```
+
+```

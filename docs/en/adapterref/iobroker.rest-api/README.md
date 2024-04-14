@@ -13,7 +13,7 @@ This is a RESTFul interface to read the objects and states from ioBroker and to 
 
 The purpose of this adapter is similar to simple-api. But this adapter supports long-polling and URL hooks for subscribes.
 
-It has a very useful web interface to play with the requests:
+It has a beneficial web interface to play with the requests:
 
 ![Screenshot](img/screen.png)
 
@@ -57,7 +57,7 @@ E.g.
 - `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - to read the file `admin.admin/admin.png` as file
 - `http://ipaddress:8093/v1/command/extendObject?id=system.adapter.admin.0?obj={"common":{"enabled":true}}` - to restart admin
 
-You can request all commands with POST method too. As body must be an object with parameters. E.g:
+You can request all commands with POST method too. As body must be an object with parameters. E.g.:
 ```
 curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 --header 'Content-Type: application/json' \
@@ -81,7 +81,7 @@ You cannot send POST request to commands via GUI.
 
 ### Objects
 - `getObject(id)` - get object by ID
-- `getObjects()` - get all states and rooms. GUI can have problems by visualization of answer.
+- `getObjects(list)` - get all states and rooms. GUI can have problems by visualization of answer.
 - `getObjectView(design, search, params)` - get specific objects, e.g. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
 - `setObject(id, obj)` - set object with JSON object (e.g. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
 - `delObject(id, options)` - delete object by ID
@@ -107,7 +107,6 @@ You cannot send POST request to commands via GUI.
 - `delState(id)` - delete state and object. Same as delObject
 - `getRatings(update)` - read adapter ratings (as in admin)
 - `getCurrentInstance()` - read adapter namespace (always rest-api.0)
-- `checkFeatureSupported(feature)` - check if feature is supported by js-controller.
 - `decrypt(encryptedText)` - decrypt string with system secret
 - `encrypt(plainText)` - encrypt string with system secret
 - `getAdapters(adapterName)` - get objects of type "adapter". You can define optionally adapterName
@@ -131,6 +130,7 @@ You cannot send POST request to commands via GUI.
 
 ### Others
 - `log(text, level[info])` - no answer - add log entry to ioBroker log
+- `checkFeatureSupported(feature)` - check if feature is supported by js-controller.
 - `getHistory(id, options)` - read history. See for options: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
 - `httpGet(url)` - read URL from server. You can set binary=true to get answer as file
 - `sendTo(adapterInstance, command, message)` - send command to instance. E.g. adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
@@ -138,6 +138,7 @@ You cannot send POST request to commands via GUI.
 - `getUserPermissions()` - read object with user permissions
 - `getVersion()` - read adapter name and version
 - `getAdapterName()` - read adapter name (always rest-api)
+- `clientSubscribe(targetInstance, messageType, data)`
 - `getAdapterInstances(adapterName)` - get objects of type "instance". You can define optionally adapterName
 
 <!-- END -->
@@ -148,6 +149,10 @@ You cannot send POST request to commands via GUI.
 -->
 
 ## Changelog
+### 2.0.0 (2024-04-09)
+* (theshengfui) Fixed history requests
+* (bluefox) Minimum required node.js version is 16
+
 ### 1.1.0 (2023-05-03)
 * (bluefox) Converting of the setState values to the according type
 * (bluefox) Implemented file operations
@@ -194,4 +199,4 @@ You cannot send POST request to commands via GUI.
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024 bluefox <dogafox@gmail.com>

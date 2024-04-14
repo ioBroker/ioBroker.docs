@@ -307,6 +307,15 @@ setState('iot.0.app.message', JSON.stringify({
 -->
 
 ## Changelog
+### 3.2.2 (2024-04-11)
+* (foxriver76) remove some warnings which should only be debug log
+
+### 3.2.1 (2024-04-11)
+* (foxriver76) fixed issue that only valid JSON could be sent to app via message state
+
+### 3.2.0 (2024-04-10)
+* (foxriver76) implemented geofence with ioBroker Visu app
+
 ### 3.1.0 (2024-02-05)
 * (bluefox) Updated packages
 * (bluefox) Disabled the state change report for alexa v3

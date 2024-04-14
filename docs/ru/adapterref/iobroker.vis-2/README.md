@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: lJNCeCb7Pcf1qz97+qEGzCr77SJsomNirWm2LDA8Th8=
+hash: /BV5lid8JySojmWSYk+wFC92fGyNFSIH5Ps2KRuBIZY=
 ---
-![Логотип](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
+![Логотип](../../../en/adapterref/iobroker.vis-2/packages/vis-2/admin/vis-2.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-2-stable.svg)
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-2.svg)
@@ -17,7 +17,7 @@ WEB-визуализация для платформы ioBroker.
 
 ## Обзор
 - [Лицензионные требования](#license-requirements)
-- [Установка и документация](#installation--документация)
+- [Установка и документация](#installation--documentation)
 - [Привязки объектов](#привязки-объектов)
 - [Фильтры](#фильтры)
 - [Интерфейс управления](#control-interface)
@@ -27,7 +27,7 @@ WEB-визуализация для платформы ioBroker.
 - [SVG и currentColor](#svg-and-currentcolor)
 
 ## Установка и документация
-![Демо-интерфейс](img/user0.png) ![Демо-интерфейс](../../../en/adapterref/iobroker.vis-2/img/user7.png)
+![Демо-интерфейс](packages/vis-2/img/user0.png) ![Демо-интерфейс](../../../en/adapterref/iobroker.vis-2/packages/vis-2/img/user7.png)
 
 [Онлайн-демо](https://iobroker.click/)
 
@@ -83,7 +83,7 @@ value = await (async function () {
 - `hex` - преобразовать значение в шестнадцатеричное значение. Все буквы в нижнем регистре.
 - `hex2` - преобразовать значение в шестнадцатеричное значение. Все буквы в нижнем регистре. Если значение меньше 16, будет добавлен ведущий ноль.
 - `HEX` - то же, что и шестнадцатеричное, но в верхнем регистре.
-- `HEX2` — то же, что hex2, но в верхнем регистре.
+- `HEX2` - то же, что hex2, но в верхнем регистре.
 - `date` - форматировать дату в соответствии с заданным форматом. Формат такой же, как в [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate).
 - `min(N)` - если значение меньше N, взять N, иначе значение
 - `max(M)` - если значение больше M, взять M, иначе значение
@@ -96,7 +96,7 @@ value = await (async function () {
 - `random(R)` - Math.random() * R или просто Math.random(), если нет аргумента
 - `formatValue(decimals)` - форматировать значение в соответствии с настройками системы и использовать десятичные дроби.
 - `date(format)` - форматировать значение как дату. Формат такой: «ГГГГ-ММ-ДД чч:мм:сс.сс».
-— `momentDate(format, useTodayOrYesterday)` — форматирует значение как дату с помощью Moment.js. [Утвержденные форматы необходимо вводить в соответствии с библиотекой moment.js](https://momentjs.com/docs/#/displaying/format/). При использовании `useTodayOrYesterday=true` формат `moment.js` `ddd`/`dddd` заменяется на сегодня/вчера.
+- `momentDate(format, useTodayOrYesterday)` — форматирует значение как дату с помощью Moment.js. [Утвержденные форматы необходимо вводить в соответствии с библиотекой moment.js](https://momentjs.com/docs/#/displaying/format/). При использовании `useTodayOrYesterday=true` формат `moment.js` `ddd`/`dddd` заменяется на сегодня/вчера.
 - `array(element1,element2[,element3,element4])` - возвращает элемент индекса. например: `{id.ack;array(ack ложно,ack истинно)}`
 
 Вы можете использовать этот шаблон в любом тексте, например
@@ -125,10 +125,10 @@ Last change: {objectRed.lc;date(hh:mm)}
 * `wname` — имя виджета
 * `widget` - объект со всеми данными виджета. Может использоваться только в части JS, например `{a:a;widget.data.name}`
 * `widgetOid` — используйте oid виджета для присвоения значения виджетам в разделе назначения, например `{t:widgetOid.val;t}`
-* `wid` - имя актуального виджета
+* `wid` — имя актуального виджета
 * `язык` - может быть `de`, `en` или `ru`.
 * `instance` — экземпляр браузера
-* `login` - требуется ли вход в систему (например, чтобы показать/скрыть кнопку выхода)
+* `login` - требуется ли вход в систему (например, чтобы показать/скрыть кнопку выхода из системы)
 * `local_*` - если имя состояния начинается с `local_`, об этом не будет сообщено ioBroker, но будут обновлены все виджеты, которые зависят от этого состояния. (Локальная переменная для текущего сеанса браузера)
 
 Примечание. Чтобы использовать «:» в вычислениях (например, в строковых формулах), используйте вместо этого «::».
@@ -204,7 +204,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 Таким образом, каждый раз, когда вызывается `index.html` (без `#viewName`), будет открываться наиболее подходящий для данного разрешения вид.
 Если только один вид имеет флаг *"По умолчанию"*, то этот вид будет открыт независимо от разрешения или ориентации экрана.
 
-Например, вы можете создать два вида «Альбомный-мобильный» и «Портрет-мобильный», и эти два вида будут автоматически переключаться при изменении ориентации или размера экрана.
+Например, вы можете создать два представления «Альбомная мобильная версия» и «Портретная мобильная версия», и эти два вида будут переключаться автоматически при изменении ориентации или размера экрана.
 
 Существует вспомогательный виджет «Основное - Разрешение экрана», который показывает фактическое разрешение экрана и наиболее подходящий вид по умолчанию для этого разрешения.
 
@@ -239,7 +239,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 
 Обратите внимание, что эти настройки действительны только для повторного подключения, а не для первого подключения.
 
-![Темный](../../../en/adapterref/iobroker.vis-2/img/dark_screen.png)
+![Темный](../../../en/adapterref/iobroker.vis-2/packages/vis-2/img/dark_screen.png)
 
 ## SVG и currentColor
 Ключевое слово currentColor в CSS позволяет элементам наследовать текущий цвет текста от родительского элемента.
@@ -263,7 +263,11 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
-### 2.9.43 (2024-03-17)
+### 2.9.49 (2024-04-11)
+* (bluefox) Corrected the scroll buttons in Tabs widget
+* (bluefox) Corrected resizers if the border width is set
+
+### 2.9.48 (2024-03-30)
 * (bluefox) Showed selected view in the view dialog
 * (bluefox) Added customization of loading screen
 * (bluefox) Respected the sentry disable flag in GUI

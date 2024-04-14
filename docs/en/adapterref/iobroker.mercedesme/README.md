@@ -18,6 +18,15 @@ Unter commands das commando auf klappen und den button neben start drücken wenn
 Remote sind vorgefertige Remote Befehle
 
 ## Changelog
+### 0.2.1 (2024-04-08)
+
+- reduce cpu usage
+- add error logs
+
+### 0.2.0 (2024-04-08)
+
+- reduce cpu usage
+
 ### 0.1.8 (2024-02-15)
 
 - improve code sending

@@ -259,8 +259,9 @@ Trigger device functions. Here, the Denon AV receiver is turned on or off when t
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.4.0 (2024-04-11)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Translations have been updated
 * (mcm1957) Dependencies have been updated
 
 ### 1.3.0 (2023-11-08)
@@ -394,7 +395,7 @@ please delete all harmony.x objects once
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

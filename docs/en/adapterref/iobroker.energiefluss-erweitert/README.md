@@ -25,13 +25,19 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 * [English description](./docs/en/README.md)
 * [Deutsche Beschreibung](./docs/de/README.md)
 
-**Please note, this currently only alpha state**
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: The adapter can provide 3 new states. charging_grid (battery charged via grid), charging_solar (battery charged via solar) and production (overall production) (#173, #152, #148()
+- Added: Datasources for the battery calculation now need to be provided via the datasources tab and selected in the calculation tab (!!! Important: !!! This is a major change)
+- Added: A HH:MM Timestamp for Values can be selected
+- FIX: Wrong allingment of rectangle with border-fill, if height and width are different
+- FIX: After adding a new source, it is not sorted alphabetically into the list
+- FIX: The adapter could crash if the data source was missing under certain circumstances
+
 ### 0.3.0 (2024-03-12)
 - Added: Up to 50% faster performance on saving data to the "data" datapoint due to removing unnecessary stuff
 - Added: Support for light and dark theme manual selection with URL parameter "theme=dark" or "theme=light" for overwriting the system darkmode (if applicable)

@@ -25,15 +25,16 @@ Build on top of the following projects:
 
 ## Instructions
 1. Install this adapter into ioBroker
-2(optional) If you plan to stream local files you need to configure the adapter
-   * you need to have an ioBroker web server instance
+2. (optional) If you plan to stream local files or if your chromecast devices are located in a different subnet, you need to configure the adapter
+   * you need to have an ioBroker web server instance to stream local files
+   * you need to manually add information (name, IP, port, ad type) for each device located in a different subnet than your ioBroker server. If you want names to correspond  to the names of the automatically found devices, use the MAC address as name. You can define any name you want. Make sure, each name is unique! To avoid problems, names should only contain upper case characters A-Z, lower case characters a-z, digits 0-9, - (minus), and _ (underscore).
 3. Check your log: you should see logs about the detected devices
 4. Write a URL such as [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) to the chromecast.0.`<your chromecast name>`.player.url2play
 5. The URL should start playing on your device
 
 ## Features
 * detect devices with multicast-dns
-  * optionally add additional manually configured devices in admin pannel
+  * optionally add additional manually configured devices in admin pannel, tab "devices"
 * create ioBroker objects for each found device
 * status, player, media and metadata channels
 * control Google Home device from adapter
@@ -61,8 +62,13 @@ Build on top of the following projects:
 ## Changelog
 <!--
     ### **WORK IN PROGRESS**
+    - (neopholus) Breaking change: Bugfix for ([#154](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/154)) and ([#160](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/160)): manually configured devices in admin pannel (devices tab) are created correctly again (broke with 3.0.3) using the name defined in the admin panel, tab "devices".
 -->
-### **WORK IN PROGRESS**
+### 3.4.0 (2024-04-13)
+* (neopholus) Support for devices located in different subnets has been added. [#154, #160]
+* (mcm1957) Dependencies have been updated
+
+### 3.3.0 (2024-04-07)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
 
@@ -234,7 +240,7 @@ Build on top of the following projects:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2024 iobroker community developers <mcm57@gmx.at>
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

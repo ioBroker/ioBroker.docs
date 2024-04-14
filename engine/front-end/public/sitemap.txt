@@ -889,7 +889,6 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hydrawise/README.md
-https://www.iobroker.net/#de/adapters/adapterref/iobroker.hyperion/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ical/README.md
@@ -1281,6 +1280,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vw-connect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherunderground/README.md
@@ -1549,7 +1549,6 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hydrawise/README.md
-https://www.iobroker.net/#en/adapters/adapterref/iobroker.hyperion/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ical/README.md
@@ -1941,6 +1940,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vw-connect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherunderground/README.md
@@ -2209,7 +2209,6 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hydrawise/README.md
-https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hyperion/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ical/README.md
@@ -2601,6 +2600,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vw-connect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherunderground/README.md
@@ -2869,7 +2869,6 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hue/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hue-sync-box/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.huum-sauna/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hydrawise/README.md
-https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hyperion/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hyperion_ng/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.i2c/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ical/README.md
@@ -3261,6 +3260,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vw-connect/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherunderground/README.md

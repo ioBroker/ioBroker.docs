@@ -96,8 +96,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 2.3.3 (2024-04-xx)
+### 3.0.0 (2024-04-xx)
 
+-   (HombachC) BREAKING: dropped support for node.js 16 (#368)
+-   (HombachC) BREAKING: js-controller >= 5 is required
+-   (HombachC) changed to tier 2 as data provider
+-   (HombachC) corrected io-package.json according to new schema (#368)
 -   (HombachC) update typescript to 5.3.3
 -   (HombachC) update adapter-core to 3.0.6
 
@@ -217,72 +221,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 -   (HombachC) remove not used calculator channel state objects (#188)
 -   (HombachC) code optimizations
 -   (HombachC) optimize translation handling
-
-### 1.4.3 (2023-11-08)
-
--   (HombachC) fix possible type error in first calculator calls notified by Sentry
--   (HombachC) change state object description of production values (#167)
--   (HombachC) optimize pulse feed error message in case of error as object (#176)
--   (HombachC) preparations for calculator object names (#186)
--   (HombachC) bump dependencies
-
-### 1.4.2 (2023-11-03)
-
--   (HombachC) complete rework of task scheduling for more precise pull timing (#149)
--   (HombachC) critical vulnerability fix for axios
--   (HombachC) fix debug message typos, code optimisations in calculator
--   (HombachC) fix type error in price average calculation notified by Sentry
--   (HombachC) fix error in update prices tomorrow - possible false positive
-
-### 1.4.1 (2023-10-25)
-
--   (HombachC) implement forced update of all data after adapter restart (#155)
--   (HombachC) Bump actions/setup-node from 3.8.1 to 4.0.0 (#157)
--   (HombachC) remove node.js 16 actions - dependency updates
-
-### 1.4.0 (2023-10-24)
-
--   (HombachC) implement min/max states (#131)
--   (HombachC) fix error with ignored calculator channel deaktivations (#143)
--   (HombachC) optimize translation handling, code cleanup
-
-### 1.3.1 (2023-10-21)
-
--   (HombachC) fix initialisiation of channel states (#141)
--   (HombachC) change message "reconnect successful" to level info (#80)
--   (HombachC) documentation tweaks - dependency updates
-
-### 1.3.0 (2023-10-20)
-
--   (HombachC) implement tibber calculator mode "best hours block" (#16)
--   (HombachC) handle empty calculator destination states - detected by sentry
-
-### 1.2.0 (2023-10-18)
-
--   (HombachC) implement tibber calculator mode "best single hours" (#16)
--   (HombachC) changed i18n files to inline translations, single files aren't update compatible (#128)
--   (HombachC) fixed error in initial read of calculator states (#129)
-
-### 1.1.2 (2023-10-15)
-
--   (HombachC) fix timing error in calculator
-
-### 1.1.1 (2023-10-14)
-
--   (HombachC) fix error in startup of additional channels
-
-### 1.1.0 (2023-10-14)
-
--   (HombachC) implement tibber calculator mode "best price" (#16)
--   (HombachC) precised pull times of current cost
--   (HombachC) reduced error messages (#80)
--   (HombachC) extend documentation
--   (HombachC) update adapter-core
-
-### 1.0.0 (2023-10-05)
-
--   (HombachC) Increase to the first major release, as now a stable level is reached
--   (HombachC) Code cleanup
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

@@ -2685,9 +2685,18 @@ return 'your result';
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 8.0.3 (2024-04-11)
+
+* (klein0r) Updates dependencies (latest adapter-react-v5 framework)
+
+### 8.0.2 (2024-04-08)
+
+* (klein0r) Forced downgrade of socket-client (object change issues)
+
+### 8.0.1 (2024-04-08)
 
 * (klein0r) Fixed some missing translations (uk)
+* (klein0r) Raised supported ecmaVersion from es2021 to es2022 (node18)
 
 ### 8.0.0 (2024-04-05)
 
@@ -2708,25 +2717,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 * (klein0r) Added exec result blockly block
 * (klein0r) Protect iobroker-data/files to avoid direct writes with node:fs
 * (klein0r) Escape single quotes in blockly obj attributes
-
-### 7.11.0 (2024-03-26)
-
-* (klein0r) Added blockly block for read and write file
-* (klein0r) Allow to select other object types than state in some blocks
-* (klein0r) Improved translations
-* (klein0r) Removed 'type' from dropdown (is always 'state')
-* (klein0r) Use highlight in search (instead of select)
-* (klein0r) Added option for httpGet to receive arraybuffer (download files)
-
-### 7.10.2 (2024-03-25)
-
-* (klein0r) Fixed httpGet/httpPost issue when using without options
-* (klein0r) Updated integration testing
-* (klein0r) Protect jsonl file access
-
-### 7.10.1 (2024-03-22)
-
-* (klein0r) Fixed cron trigger
 
 ## License
 The MIT License (MIT)

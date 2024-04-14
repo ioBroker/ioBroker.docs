@@ -129,6 +129,27 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.4.6 (2024-04-10)
+- fix encoding for all files
+
+### 1.4.5 (2024-04-10)
+- fix gulp5 copy breaks fonts
+
+### 1.4.4 (2024-04-10)
+- fix compile error
+
+### 1.4.3 (2024-04-10)
+- fix copy of font
+
+### 1.4.2 (2024-04-09)
+- stretch support in screens
+
+### 1.4.1 (2024-04-09)
+- support relative signal paths in scripts
+
+### 1.4.0 (2024-04-08)
+- parameter support for scripts
+
 ### 1.3.2 (2024-04-02)
 - designer upd
 

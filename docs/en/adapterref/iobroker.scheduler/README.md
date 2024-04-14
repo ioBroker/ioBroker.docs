@@ -25,7 +25,13 @@ This adapter has vis2 widget.
 -->
 
 ## Changelog
-### 1.3.6 (2024-04-05)
+### 1.3.10 (2024-04-12)
+* (bluefox) Corrected widget
+
+### 1.3.8 (2024-04-11)
+* (bluefox) Small GUI changes done
+
+### 1.3.7 (2024-04-06)
 * (bluefox) Corrected widget errors
 * (bluefox) Implemented custom types
 * (bluefox) Added possibility to control devices on holidays

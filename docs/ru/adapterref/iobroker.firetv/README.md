@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.firetv/README.md
 title: без заголовка
-hash: fjWzek3jOInDjaIinISqARTUz5CM+4h3/ctYyQQkH2k=
+hash: nJW8Ivl7+3wVKYmhPNOD5TqxvroOmDX/LCe164N51sI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.firetv/admin/firetv.png)
 
@@ -39,11 +39,14 @@ hash: fjWzek3jOInDjaIinISqARTUz5CM+4h3/ctYyQQkH2k=
 
 Альтернативно вы можете использовать *adbLink*
 
-<!--
-
-### **РАБОТА В ПРОГРЕССЕ** -->
-
 ## Changelog
+<!-- 
+    ### **WORK IN PROGRESS** 
+-->
+### 2.1.0 (2024-04-07) 
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.2 (2023-09-09) 
 * (jonaskn) A crash has been fixed (#56)
 
@@ -57,6 +60,7 @@ hash: fjWzek3jOInDjaIinISqARTUz5CM+4h3/ctYyQQkH2k=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

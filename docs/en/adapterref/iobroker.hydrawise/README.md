@@ -39,6 +39,22 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.8 (2024-04-08)
+
+-   (SentiQ) fixed tier and license
+
+### 0.2.7 (2024-04-08)
+
+-   (SentiQ) fixed type of runDefault object
+
+### 0.2.6 (2024-04-08)
+
+-   (SentiQ) fixed type of `runDefault`
+
+### 0.2.5 (2024-04-07)
+
+-   (SentiQ) NodeJS >= 18.x and js-controller >= 5 is required
+
 ### 0.2.4 (2024-02-01)
 
 -   (SentiQ) updated dependencies

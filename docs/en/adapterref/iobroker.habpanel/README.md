@@ -44,12 +44,15 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 
 ![](doc/images/habpanel_screenshot6.png)
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+-   (mcm1957) Adapter requires nodeJS >=18 and js-controller >= 5 now.
+-   (mcm1957) Dependencies have been updated.
 
-## Changelog
 ### 0.5.0 (2022-02-16)
 * (jogibear9988) added on support for new websockets
 
@@ -94,6 +97,7 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 * (bluefox) initial commit
 
 ## License
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright 2017-2022 bluefox <dogafox@gmail.com>
 
 Eclipse Public License

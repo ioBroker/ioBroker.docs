@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.firetv/README.md
 title: kein Titel
-hash: fjWzek3jOInDjaIinISqARTUz5CM+4h3/ctYyQQkH2k=
+hash: nJW8Ivl7+3wVKYmhPNOD5TqxvroOmDX/LCe164N51sI=
 ---
 ![Logo](../../../en/adapterref/iobroker.firetv/admin/firetv.png)
 
@@ -20,30 +20,33 @@ hash: fjWzek3jOInDjaIinISqARTUz5CM+4h3/ctYyQQkH2k=
 -->
 
 Mit diesem Adapter können Sie einige Funktionen Ihres Fire TV oder Fire TV Sticks steuern.
-Z.B.:
+Zum Beispiel:
 
 - An aus
-- Senden Sie wichtige Ereignisse
+- Wichtige Ereignisse senden
 - Senden Sie Textzeichenfolgen an Eingabefelder
-- Apps starten/stoppen
+- Apps starten / stoppen
 - Neustart
 - Shell-Befehle ausführen
 
 #### Einige Infos
-Dieser Adapter nutzt Funktionen der „Android Debug Bridge“, bekannt als „adb“. Adb ist Teil des Android Developer SDK. Da Fire TV über ein Android-Betriebssystem verfügt, kann es über ADB gesteuert werden.
+Dieser Adapter verwendet Funktionen der „Android Debug Bridge“, kurz „adb“. Adb ist Teil des Android Developer SDK. Da Fire TV über ein Android-Betriebssystem verfügt, kann es über adb gesteuert werden.
 
 #### Anforderungen
-Um diesen Adapter nutzen zu können, müssen Sie mindestens das ADB-Paket des Android SDK installieren. Um nicht das komplette Android SDK zu installieren, sollten Sie *Minimal ADB und Fastboot* installieren.
+Um diesen Adapter verwenden zu können, müssen Sie mindestens das ADB-Paket des Android SDK installieren. Um nicht das komplette Android SDK installieren zu müssen, sollten Sie *Minimal ADB und Fastboot* installieren.
 
-Suchen Sie auf Google (Minimal ADB und Fastboot) nach dem neuesten Download-Link.
+Suchen Sie bei Google (Minimal ADB und Fastboot) nach dem neuesten Download-Link.
 
-Alternativ können Sie *adbLink* verwenden.
-
-<!--
-
-### **ARBEIT IN ARBEIT** -->
+Alternativ können Sie *adbLink* verwenden
 
 ## Changelog
+<!-- 
+    ### **WORK IN PROGRESS** 
+-->
+### 2.1.0 (2024-04-07) 
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.2 (2023-09-09) 
 * (jonaskn) A crash has been fixed (#56)
 
@@ -57,6 +60,7 @@ Alternativ können Sie *adbLink* verwenden.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
