@@ -305,9 +305,18 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### Additionally for vision
 
--   Area
-    -   `rfid`: Total Areas (readonly)
-    -   `startSequence`: Multizone JSON (Vision/changeable) [Example](#example-blockly-startsequence-vison)
+-   MultiZone
+    -   `multiZone.passages.passage_01.tagIdFrom`: RFID id of z1 - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
+    -   `multiZone.passages.passage_01.tagIdTo`: RFID id of z2 - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
+    -   `multiZone.passages.passage_01.zoneIdFrom`: Zone from (must z1 < z2) - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
+    -   `multiZone.passages.passage_01.zoneIdTo`: Zone closed (must z2 > z1) - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
+    -   `multiZone.zones.zone_1.borderDistance`: Edge cut in mm - allowed 50mm, 100mm, 150mm and 20mm - Set with Blockly without delay - Change is written in `multiZone.multiZone` (vision/changeable)
+    -   `multiZone.zones.zone_1.chargingStation`: 1 If the charging station is found in this zone. 0 for no charging station - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
+    -   `multiZone.zones.zone_1.cutOverBorder`: 1 to drive over plates if they are detected, otherwise 0. Different values ​​per zone are not permitted - Set with Blockly without delay - Change is written to `multiZone.multiZone` (Vision /changeable)
+    -   `multiZone.zones.zone_1.zone_id`: Numbering - Start with 1 - (vision/readonly)
+    -   `multiZone.rfid`: Total RF (readonly)
+    -   `multiZone.multiZone`: Multizone JSON (Vision/changeable) [Example](#example-blockly-startsequence-vision)
+    -   `multiZone.sendMultiZoneJson`: Send changes to Worx with a delay of 1.1 seconds (vision/changeable)
 
 Example:
 
@@ -736,11 +745,11 @@ Default without zone:
 -   (Lucky-ESA) Catch publish crash
 -   (Lucky-ESA) Added for Vision electric height adjustment
 -   (Lucky-ESA) Added for Vision new calendar
--   (Lucky-ESA) Added head light
--   (Lucky-ESA) Added cut over slabs
+-   (Lucky-ESA) Added Vision head light
+-   (Lucky-ESA) Added Vision cut over slabs
 -   (Lucky-ESA) Node 18 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Added rain wait countdown
+-   (Lucky-ESA) Added Vision Multi Zone
 
 ### 2.3.4 (2023-10-19)
 

@@ -382,6 +382,9 @@ Der Kanal stellt Batteriesepzifische Daten bereit, wie die Anzahl an Ladezyklen.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.18.1 (2024-04-14)
+* (foxriver76) fixed detection of legacy API
+
 ### 1.18.0 (2024-03-18)
 * (foxriver76) added new inverter and powermeter states
 
@@ -575,7 +578,7 @@ Der Kanal stellt Batteriesepzifische Daten bereit, wie die Anzahl an Ladezyklen.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2024 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

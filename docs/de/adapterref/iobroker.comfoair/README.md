@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.comfoair/README.md
 title: ioBroker.comfoair
-hash: LTfi9mFuDSsjCUQ4ChFSb+pQMDe+6XevF7mLBrqeslo=
+hash: 6p3kCLVVzilY/rhsudJNUVqqhuVsPsXcjbbzJWX0n+Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.comfoair/admin/comfoair.png)
 
@@ -13,46 +13,80 @@ hash: LTfi9mFuDSsjCUQ4ChFSb+pQMDe+6XevF7mLBrqeslo=
 ![NPM](https://nodei.co/npm/iobroker.comfoair.png?downloads=true)
 
 # IoBroker.comfoair
-Ein ioBroker-Adapter für Zehnder Comfoair 'CA'-Belüftungen (d. H. ComfoAir CA350, NICHT ComfoAir Q350 ...).
+## Wachposten
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+## IoBroker-Adapter für Zehnder Comfoair
+Dies ist ein ioBroker-Adapter für Zehnder Comfoair „CA“-Lüftungsanlagen (z. B. ComfoAir CA350, NICHT ComfoAir Q350 …).
 
 ## Verbindung
-### Nach IP / LAN
-Verwenden Sie einen RS232-LAN- oder WiFi-Konverter, um ioBroker mit Ihrem Zehnder Comfoair zu verbinden.
-Installieren Sie die Hardware für die TCP-Verbindung zu comfoair: d. H. RS232-LAN-Adapter zur seriellen Schnittstelle von comfoair. Verbinden Sie nur die Pins 2, 3 und 5 (sollte auch mit TX, RX und GND funktionieren - Kontakte der cc-Ease-Verbindung auch).
+### Per IP / LAN
+Verwenden Sie einen RS232-zu-LAN- oder WiFi-Konverter, um ioBroker mit Ihrem Zehnder Comfoair zu verbinden.
+Installieren Sie Hardware für TCP-Verbindung zu Comfoair: z. B. RS232-zu-LAN-Adapter an die serielle Schnittstelle des Comfoair. Verbinden Sie nur die Pins 2, 3 und 5 (sollte auch mit TX-, RX- und GND-Kontakten der cc-Ease-Verbindung funktionieren).
 
 ### Serielle VERBINDUNG
-Verbinden Sie die serielle Schnittstelle Ihres comfoair mit einer seriellen Schnittstelle des Geräts, auf dem ioBroker ausgeführt wird. Verwenden Sie zum Anschließen der Raspberry Pis UART-Pins ein RS232toUSB-Kabel oder einen RS232toTTL-Adapter.
+Verbinden Sie die serielle Schnittstelle Ihres Comfoair mit einer seriellen Schnittstelle des Geräts, auf dem ioBroker läuft. Verwenden Sie beispielsweise ein RS232-zu-USB-Kabel oder einen RS232-zu-TTL-Adapter, um die Verbindung zu den UART-Pins des Raspberry Pi herzustellen.
 
-## Konfig
-Wählen Sie Ihren bevorzugten Verbindungsmodus (IP oder seriell), stellen Sie comfoair - IP-Adresse und Port ein oder geben Sie Ihr serielles Gerät an, definieren Sie einen (RS232) comfoair-Verbindungsmodus (siehe 'Adapter & CC Ease') und definieren Sie ein Polling-Intervall.
+## Konfiguration
+Wählen Sie Ihren bevorzugten Verbindungsmodus (IP oder seriell), stellen Sie die Comfoair-IP-Adresse und den Port ein oder geben Sie Ihr serielles Gerät an, definieren Sie einen (RS232) Comfoair-Verbindungsmodus (siehe „Adapter & CC Ease“) und definieren Sie ein Polling-Intervall.
 
-## Adapter & CC Ease
-Im Allgemeinen wird nicht empfohlen, Daten von 2 Sendern an einen Empfänger in der seriellen RS232-Kommunikation zu senden. Die parallele Verwendung von CCEase und Adapter kann zu Fehlern oder im schlimmsten Fall zu Schäden an Ihrer Komfortsteuerung führen! Wenn Sie den ComfoAir-Adapter starten, sollte Ihr CC Ease daher nicht angeschlossen sein oder heruntergefahren werden.
-Das comfoair selbst kennt 4 verschiedene rs232-Modi: CCEaseonly, PConly, PCMaster, PCLogmode. In PConly und PCMaster ist CC-Ease deaktiviert.
-In der Instanzkonfiguration können Sie einen der folgenden Verbindungsmodi auswählen. Bitte kreuzen Sie nur eine davon an! Sobald der Adapter nur im Adapter oder im Parallelmodus ausgeführt wird, können Sie den rs232-Modus des comfoair umschalten (was nicht empfohlen wird, da ein bestimmter Verbindungsmodus einen bestimmten rs232-Modus benötigt!).
+## Adapter und CC-Einfachheit
+Generell ist es nicht empfehlenswert, bei der seriellen RS232-Kommunikation Daten von 2 Sendern an einen Empfänger zu senden. Die parallele Verwendung von CCEase und Adapter kann zu Fehlern oder im schlimmsten Fall zu Schäden an Ihrer ComfoAir-Steuerung führen! Daher sollte beim Starten des ComfoAir-Adapters Ihre CC-Ease getrennt sein bzw. wird heruntergefahren.
+Die ComfoAir selbst kennt 4 verschiedene RS232-Modi: CCEaseonly, PConly, PCMaster, PCLogmode. In PConly und PCMaster ist CC-Ease ausgeschaltet.
+In der Instanzkonfiguration können Sie einen der folgenden Verbindungsmodi auswählen. Bitte nur einen davon ankreuzen! Sobald der Adapter im Adapter-Only- oder Parallelmodus läuft, können Sie den RS232-Modus der ComfoAir umschalten (was nicht empfohlen wird, da ein bestimmter Verbindungsmodus einen bestimmten RS232-Modus erfordert!).
 
 ### Nur Adapter
-CC Ease ist nicht angeschlossen (empfohlen) oder wird beim Starten des Adapters heruntergefahren. Sie können Ihren Comfoair nur mit ioBroker steuern (rs232mode ist PCMaster). Dieser Modus ist Standard und wird empfohlen.
+CC Ease ist getrennt (empfohlen) oder wird heruntergefahren, wenn der Adapter startet. Sie können Ihren Comfoair nur mit ioBroker steuern (rs232mode ist PCMaster). Dieser Modus ist Standard und wird empfohlen.
 
 ### Nur zuhören
-Der Adapter erfasst die vom comfoair oder vom CC Ease gesendeten Daten. CC Ease wird ausgeführt, es können keine Befehle vom Adapter gesendet werden. In diesem Modus erhalten Sie nur einen Grundsatz von Werten (Temperaturen, Lüftungszustände). In diesem Modus besteht auch kein Risiko für Kommunikationsfehler / -schäden, da keine Kommunikation vom Adapter zum Comfoair besteht.
+Der Adapter fängt die Daten ab, die vom comfoair oder CC Ease gesendet werden. CC Ease läuft, es können keine Befehle vom Adapter gesendet werden. In diesem Modus erhalten Sie nur einen Basissatz an Werten (Temperaturen, Lüftungszustände). In diesem Modus besteht auch keine Gefahr von Kommunikationsfehlern/-schäden, da keine Kommunikation vom Adapter zum comfoair stattfindet.
 
-### Paralleler Modus
-CC Ease und Adapter laufen. comfoiar rs232mode ist auf 'PCLogmode' gesetzt. Der Adapter wartet auf Grundwerte (Temperaturen, Lüftungsstufen) und fragt nach anderen Werten (Fehler, Filter-Timer). Legen Sie ein verlängertes Abfrageintervall fest, um das Risiko von Kommunikationsfehlern zu verringern. Sie können Ihren ComfoAir mit ioBroker und mit der CC Ease-Einheit steuern. Bevor ein Befehl gesendet wird (einschließlich Abfrage), wird der rs232-Modus auf PC Master umgeschaltet. Mit jedem gesendeten Befehl wird auch eine Abfrage durchgeführt. Tests haben gezeigt, dass sie fehlerfrei sind und über einen längeren Zeitraum parallel laufen. Aber: Sie führen diesen Modus auf eigenes Risiko aus.
+### Parallelmodus
+CC Ease und Adapter laufen. Der ComfoAir RS232-Modus ist auf „PCLogmode“ eingestellt. Der Adapter „hört“ auf grundlegende Werte (Temperaturen, Lüftungsstufen) und fragt andere ab (Fehler, Filtertimer). Stellen Sie ein verlängertes Abfrageintervall ein, um das Risiko von Kommunikationsfehlern zu verringern. Sie können Ihr ComfoAir mit ioBroker und mit der CC Ease-Einheit steuern. Bevor ein Befehl gesendet wird (Polling inbegriffen), wird der RS232-Modus auf PC Master umgeschaltet. Mit jedem gesendeten Befehl wird auch ein Polling durchgeführt. Tests haben einen fehlerfreien Parallelbetrieb über einen längeren Zeitraum gezeigt. Aber: Sie führen diesen Modus auf eigene Gefahr aus.
 
-### Paralleler Modus im konstanten PC-Log-Modus
-Einige Benutzer haben positive Erfahrungen mit der ständigen Ausführung von comfoair im PC-Logmode gemacht. Dieser Modus hat die gleichen Funktionen wie der Nur-Adapter-Modus, jedoch mit einer laufenden CC-Leichtigkeit. Aber: Sie führen diesen Modus auf eigenes Risiko aus.
+### Parallelmodus im konstanten PC-Logmodus
+Einige Benutzer haben positive Erfahrungen damit gemacht, den comfoair dauerhaft im PC-Logmodus laufen zu lassen. Dieser Modus bietet dieselben Funktionen wie der Adapter-Only-Modus, allerdings mit laufendem CC Ease. Aber: Sie führen diesen Modus auf eigene Gefahr aus.
 
 ## Verwenden des Adapters
-Die Werte Ihres Komfoair sollten im Kanal "Status" und "Temperaturen" sichtbar sein. Bitte aktualisieren Sie die Objektansicht, nachdem Sie den Verbindungsmodus geändert haben.
+Die Werte Ihres Comfoair sollten im Kanal „Status“ und „Temperaturen“ sichtbar sein. Bitte aktualisieren Sie die Objektansicht nach dem Ändern des Verbindungsmodus.
 
-Durch Einstellen / Ändern von Werten im 'Steuerungskanal' steuern Sie Ihre Komfortlüftung. Alle Werte im 'control' - Kanal müssen mit ACK = false gesetzt werden, um als Befehle für den Adapter erkannt zu werden.
+Durch das Setzen/Ändern von Werten im 'control' - Kanal steuern Sie Ihre Comfoair Lüftung. Alle Werte im 'control' - Kanal müssen mit ACK=false gesetzt werden, um als Befehle für den Adapter erkannt zu werden.
 
-Boost-Modus: Boost-Zeit einstellen und starten. Die Belüftung kehrt nach der Boost-Zeit auf das vorherige Niveau zurück. Die Rückkehr wird abgebrochen, wenn der Lüftungspegel während der Boost-Zeit geändert wird.
+Boostmodus: Boostzeit einstellen und starten. Nach der Boostzeit wird die Belüftung wieder auf die vorherige Stufe zurückgesetzt. Wird während der Boostzeit die Belüftungsstufe geändert, wird die Rückkehr abgebrochen.
 
 Getestet auf comfoair CA350.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.2.0 (2024-04-14)
+
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.1.9 (2024-03-08)
+
+-   (mcm1957) German title of adapter has been corrected
+-   (mcm1957) Dependencies have been updated
+
+### 1.1.8
+
+-   boost-error fixed (sentry)
+
+### 1.1.7
+
+-   dependencies updated, serialport 10.x - update
+
+### 1.1.6
+
+-   boostmode enhanced, dependencies updated
+
+### 1.1.5
+
+-   Bugfix (js-controller update)
 
 ### 1.1.3
 
@@ -146,7 +180,7 @@ Getestet auf comfoair CA350.
 
 The MIT License (MIT)
 
-Copyright (c) 2021 forelleblau marceladam@gmx.ch
+Copyright (c) 2023-2024 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

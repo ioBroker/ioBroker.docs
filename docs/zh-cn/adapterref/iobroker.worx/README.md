@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
+hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -295,9 +295,18 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 ![割草机 img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
 
 ### 另外对于视觉
--   区域
-- `rfid`: 总面积（只读）
-- `startSequence`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-startsequence-vison)
+- 多区域
+- `multiZone.passages.passage_01.tagIdFrom`: z1 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
+- `multiZone.passages.passage_01.tagIdTo`: z2 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
+- `multiZone.passages.passage_01.zoneIdFrom`：区域来自（必须 z1 < z2） - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（视觉/可更改）
+- `multiZone.passages.passage_01.zoneIdTo`: 区域关闭（必须 z2 > z1） - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（vision/changeable）
+- `multiZone.zones.zone_1.borderDistance`：边缘切割（单位：毫米）- 允许 50 毫米、100 毫米、150 毫米和 20 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（视觉/可更改）
+- `multiZone.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
+- `multiZone.zones.zone_1.cutOverBorder`: 如果检测到车牌，则为 1，否则为 0。每个区域不允许使用不同的值 - 立即使用 Blockly 设置 - 更改写入 `multiZone.multiZone` (Vision /changeable)
+- `multiZone.zones.zone_1.zone_id`: 编号 - 从 1 开始 - （vision/readonly）
+- `multiZone.rfid`: 总 RF（只读）
+- `multiZone.multiZone`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-startsequence-vision)
+- `multiZone.sendMultiZoneJson`：延迟 1.1 秒将更改发送到 Worx（视觉/可更改）
 
 例子：
 
@@ -719,11 +728,11 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 -   (Lucky-ESA) Catch publish crash
 -   (Lucky-ESA) Added for Vision electric height adjustment
 -   (Lucky-ESA) Added for Vision new calendar
--   (Lucky-ESA) Added head light
--   (Lucky-ESA) Added cut over slabs
+-   (Lucky-ESA) Added Vision head light
+-   (Lucky-ESA) Added Vision cut over slabs
 -   (Lucky-ESA) Node 18 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Added rain wait countdown
+-   (Lucky-ESA) Added Vision Multi Zone
 
 ### 2.3.4 (2023-10-19)
 

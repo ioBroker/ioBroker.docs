@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: Адаптер ioBroker.worx
-hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
+hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ---
 ![Логотип](../../../en/admin/worx.png)
 
@@ -52,7 +52,7 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 - `area_0`: начало зоны 1 в метрах (массив=0) (изменяемо)
 - `area_1`: начало зоны 2 в метрах (массив=1) (изменяемо)
 - `area_2`: начало зоны 3 в метрах (массив=2) (изменяемо)
-- `area_3`: Начало зоны 4 в метрах (массив=3) (изменяемо)
+- `area_3`: начало зоны 4 в метрах (массив=3) (изменяемо)
 - `startSequence`: начало зоны массива (события 0-9), например. Запуск только в зоне 3 [2,2,2,2,2,2,2,2,2,2] (изменяемо)
 - `zoneKeeper`: Безопасное вождение в узких зонах пересечения (Области должны быть созданы) (начиная с прошивки 3.30) (изменяемо)
 
@@ -130,7 +130,7 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 
 ### Косилка (Wire и Vision)
 - «AutoLock»: автоматическая блокировка истинного включения/ложного выключения (проводное и визуальное/изменяемое)
-- `AutoLockTimer`: максимальная автоматическая блокировка таймера. 10 минут с шагом 30 секунд (проводное и Vision/сменное)
+- `AutoLockTimer`: макс. автоматическая блокировка таймера. 10 минут с шагом 30 секунд (проводное и Vision/сменное)
 - `batteryChargeCycle`: цикл зарядки аккумулятора (проводное и Vision/только чтение)
 - `batteryCharging`: зарядка аккумулятора ложная->нет/истина->да (проводное и Vision/только чтение)
 - `batteryState`: состояние батареи в % (проводное и Vision/только чтение)
@@ -138,7 +138,7 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 - `batteryVoltage`: напряжение батареи в Вольтах (проводное и Vision/только чтение)
 - `cutOverSlabs`: разрезание плит включено = true / выключено = false (видение/изменяемое)
 - `direction`: направление в градусах (провод и видение/только чтение)
-- `edgecut`: запуск EdgeCut (проволока и Vision/сменный)
+- `edgecut`: запустить EdgeCut (проволока и Vision/сменный)
 - `error`: сообщение об ошибке от газонокосилки (провод и Vision/только чтение)
 
 ```json
@@ -192,8 +192,8 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 - `firmware_available_date`: дата доступной прошивки - Dummy 1970-01-01, когда адаптер переустановлен и обновление недоступно (проводное и Vision/только чтение)
 - Значение `firmware_body` из dat.fw (Vision/только для чтения)
 - Значение `firmware_head` из dat.head.fw (Vision/только для чтения)
-- «firmware_update_start»: запустить обновление прошивки в 2 этапа — см. ниже «firmware_update_start_approved» (проводное и Vision/изменяемое)
-- «firmware_update_start_approved»: запустить обновление прошивки. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
+- «firmware_update_start»: запустить обновление прошивки в 2 этапа — см. ниже «firmware_update_start_approved» (проводное и Vision/сменное)
+- «firmware_update_start_approved»: начать обновление встроенного ПО. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
 - `gradient`: градиент в градусах (проводное и Vision/только чтение)
 - `inclination`: наклон в градусах (проводное и Vision/только чтение)
 - `last_command`: последний запрос от iobroker или приложения в виде таблицы JSON (проводное и Vision/только чтение)
@@ -214,7 +214,7 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 ```
 
 - `oneTimeStart`: однократный запуск кошения «Сначала установите oneTimeWithBorder, oneTimeWorkTime и oneTimeZones для Vision» — с задержкой 1,1 секунды (проводное и Vision/изменяемое)
-- `oneTimeWithBorder`: с обрамлением - изменение значения без задержки (проводное и Vision/изменяемое)
+- `oneTimeWithBorder`: с рамкой - изменение значения без задержки (проводное и Vision/изменяемое)
 - `oneTimeWorkTime`: Макс. рабочее время. 8 часов с шагом 30 минут — изменение значения без задержки (проводное и Vision/изменяемое)
 - `oneTimeZones`: установить зоны [1,2,4] (видение/изменяемые)
 - «онлайн»: газонокосилка онлайн (проводное и Vision/только чтение)
@@ -277,7 +277,7 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 - «крутящий момент»: диапазон крутящего момента колеса -50->50 (проводной и Vision/сменный)
 - `totalBladeTime`: общее время работы блейда (проводное и Vision/только чтение)
 - `totalDistance`: общее расстояние (провод и зрение/только чтение)
-- `totalTime`: общее время работы (проводное и Vision/только чтение)
+- `totalTime`: общее рабочее время (проводное и Vision/только чтение)
 - `waitRain`: Макс. задержка дождя. 12 часов с шагом 30 минут (проводное и Vision/сменное)
 - `waitRainCountdown` Начать обратный отсчет, когда датчик переключится с влажного на сухой (проводное и Vision/только чтение)
 - Состояние `waitRainSensor` 0 для сухого и 1 для влажного (проводное и Vision/только чтение)
@@ -295,9 +295,18 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 ![Косилка img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
 
 ### Дополнительно для зрения
--   Область
-    - `rfid`: общая площадь (только чтение)
-    - `startSequence`: многозонный JSON (видение/изменяемый) [Пример](#example-blockly-startsequence-vison)
+- Мультизона
+    - `multiZone.passages.passage_01.tagIdFrom`: RFID-идентификатор z1 - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
+    - `multiZone.passages.passage_01.tagIdTo`: RFID-идентификатор z2 - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
+    - `multiZone.passages.passage_01.zoneIdFrom`: зона из (должно быть z1 < z2) - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видение/изменяемое)
+    - `multiZone.passages.passage_01.zoneIdTo`: зона закрыта (должна быть z2 > z1). - Устанавливается с помощью Blockly без задержки. - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое).
+    - `multiZone.zones.zone_1.borderDistance`: обрезка кромки в мм - разрешено 50 мм, 100 мм, 150 мм и 20 мм - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
+    - `multiZone.zones.zone_1.chargingStation`: 1 Если зарядная станция найдена в этой зоне. 0 для отсутствия зарядной станции - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
+    - `multiZone.zones.zone_1.cutOverBorder`: 1 для проезда пластин, если они обнаружены, иначе 0. Разные значения для каждой зоны не допускаются - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` ( Видение/изменяемое)
+    - `multiZone.zones.zone_1.zone_id`: нумерация – начинается с 1 – (видение/только чтение)
+    - `multiZone.rfid`: общий RF (только чтение)
+    - `multiZone.multiZone`: многозонный JSON (видение/изменяемый) [Пример](#example-blockly-startsequence-vision)
+    - `multiZone.sendMultiZoneJson`: отправлять изменения в Worx с задержкой 1,1 секунды (видение/изменяемость)
 
 Пример:
 
@@ -719,11 +728,11 @@ hash: +qK+ou3Opi9wH/9akbBFubJ5n24qtt/HUVdlLT8X/tg=
 -   (Lucky-ESA) Catch publish crash
 -   (Lucky-ESA) Added for Vision electric height adjustment
 -   (Lucky-ESA) Added for Vision new calendar
--   (Lucky-ESA) Added head light
--   (Lucky-ESA) Added cut over slabs
+-   (Lucky-ESA) Added Vision head light
+-   (Lucky-ESA) Added Vision cut over slabs
 -   (Lucky-ESA) Node 18 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Added rain wait countdown
+-   (Lucky-ESA) Added Vision Multi Zone
 
 ### 2.3.4 (2023-10-19)
 

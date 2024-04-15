@@ -61,9 +61,9 @@ Example set of widgets for VIS
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+### 0.3.0 (2024-04-15)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
 ### 0.2.1 (2018-08-08)
 * (pix) 0.2.1 Typo fixed
@@ -94,6 +94,7 @@ Example set of widgets for VIS
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

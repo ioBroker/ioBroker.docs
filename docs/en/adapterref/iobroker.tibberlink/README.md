@@ -102,7 +102,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 -   (HombachC) BREAKING: js-controller >= 5 is required
 -   (HombachC) changed to tier 2 as data provider
 -   (HombachC) corrected io-package.json according to new schema (#368)
--   (HombachC) update typescript to 5.3.3
+-   (HombachC) update typescript to 5.4.5
 -   (HombachC) update adapter-core to 3.0.6
 
 ### 2.3.2 (2024-03-17)
