@@ -417,6 +417,13 @@ https://github.com/BenAhrdt/ioBroker.smoothed
 
 This Adapter make it easy to select some icons to smooth it according to a selected allgorithem and the smoothtime (filtertime). You can select one id more times to smooth it in defferent allgorithems and or times. The destination is an id in the directory of the flger, wicht delivers you the smoothed values. You can limit the min- or max- values. Limit the decimal places. Or ignore values with a high standard deviation.
 
+## hydrawise (17.4.2024) – new adapter
+https://github.com/SentiQ/ioBroker.hydrawise
+
+<img src="https://github.com/SentiQ/ioBroker.hydrawise/blob/main/admin/hydrawise.jpg" width="100" height="100" />
+
+Integrate your Hydrawise controller into iobroker. You can see all controller information, schedules and sensors. It is also possible to suspend planned watering by x seconds.
+
 ## tedee (17.4.2024) – new adapter
 https://github.com/TA2k/ioBroker.tedee
 
