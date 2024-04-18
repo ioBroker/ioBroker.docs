@@ -423,3 +423,11 @@ https://github.com/SentiQ/ioBroker.hydrawise
 <img src="https://github.com/SentiQ/ioBroker.hydrawise/blob/main/admin/hydrawise.jpg" width="100" height="100" />
 
 Integrate your Hydrawise controller into iobroker. You can see all controller information, schedules and sensors. It is also possible to suspend planned watering by x seconds.
+
+## tedee (17.4.2024) – new adapter
+https://github.com/TA2k/ioBroker.tedee
+
+<img src="https://github.com/TA2k/ioBroker.tedee/blob/main/admin/tedee.png" width="100" height="100" />
+
+Adapter for Tedee Locks. This Adapter uses the local bridge API to control a tedee lock.
+All Lock devices by Tedee are supported.
