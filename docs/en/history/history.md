@@ -416,3 +416,11 @@ https://github.com/BenAhrdt/ioBroker.smoothed
 <img src="https://github.com/BenAhrdt/ioBroker.smoothed/blob/main/admin/smoothed.png" width="100" height="100" />
 
 This Adapter make it easy to select some icons to smooth it according to a selected allgorithem and the smoothtime (filtertime). You can select one id more times to smooth it in defferent allgorithems and or times. The destination is an id in the directory of the flger, wicht delivers you the smoothed values. You can limit the min- or max- values. Limit the decimal places. Or ignore values with a high standard deviation.
+
+## tedee (17.4.2024) – new adapter
+https://github.com/TA2k/ioBroker.tedee
+
+<img src="https://github.com/TA2k/ioBroker.tedee/blob/main/admin/tedee.png" width="100" height="100" />
+
+Adapter for Tedee Locks. This Adapter uses the local bridge API to control a tedee lock.
+All Lock devices by Tedee are supported.
