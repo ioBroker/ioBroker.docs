@@ -417,6 +417,13 @@ https://github.com/BenAhrdt/ioBroker.smoothed
 
 This Adapter make it easy to select some icons to smooth it according to a selected allgorithem and the smoothtime (filtertime). You can select one id more times to smooth it in defferent allgorithems and or times. The destination is an id in the directory of the flger, wicht delivers you the smoothed values. You can limit the min- or max- values. Limit the decimal places. Or ignore values with a high standard deviation.
 
+## heizoel24-mex (14.4.2024) – new adapter
+https://github.com/ltspicer/ioBroker.heizoel24-mex
+
+<img src="https://github.com/ltspicer/ioBroker.heizoel24-mex/blob/main/admin/heizoel24-mex.png" width="100" height="100" />
+
+The MEX is a heating oil level measuring device. This adapter reads the MEX data from the Heizoel24 server.
+
 ## hydrawise (17.4.2024) – new adapter
 https://github.com/SentiQ/ioBroker.hydrawise
 
