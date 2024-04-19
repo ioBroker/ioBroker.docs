@@ -84,6 +84,10 @@ The data points are divided into:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-04-14)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2024-01-18)
 * (mcm1957) Writing states now requires ack flag to be false.
 * (mcm1957) Small adaptions to solve review issues have been applied.
@@ -102,9 +106,6 @@ The data points are divided into:
 * (xXBJXx) Adding a delete function for devices
 * (xXBJXx) Dependency updates
 * (xXBJXx) feature request [#2](https://github.com/xXBJXx/ioBroker.elgato-key-light/issues/2) added
-
-### 0.0.3 (2023-01-22)
-* (xXBJXx) changed all images to png
 
 ## License
 MIT License

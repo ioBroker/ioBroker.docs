@@ -26,8 +26,13 @@ This adapter retrieves data from CLEVERON - API (<https://www.cleveron.ch>)
 -   Restart adapter if you added new devices, room or homes, or if you changed any settings.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.1.0 (2024-04-14)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
 ### 0.0.6
 
@@ -57,6 +62,7 @@ This adapter retrieves data from CLEVERON - API (<https://www.cleveron.ch>)
 
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 forelleblau <mailto:marceladam@gmx.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
