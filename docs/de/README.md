@@ -2,83 +2,68 @@
 title:       "ioBroker Dokumentation"
 lastChanged: "29.02.2024"
 ---
+## Mach dein Leben einfacher: Smart Home
+
+Wäre es nicht praktisch, Temperaturen, Verbrauchswerte oder Schaltzustände von Geräten verschiedenster Hersteller zentral an einem Ort abzulesen?
+Müsste man nicht daran denken, Geräte bei Erreichen bestimmter Bedingungen oder Zustände ein- oder auszuschalten?
+
+Diese Bequemlichkeit kann ein Smart Home bieten - ein intelligentes Haus.
+Und es bietet auf Wunsch noch mehr: Automatisierung und die Möglichkeit, auf all diese Dinge auch aus der Ferne zuzugreifen.
 
 
-***Hinweis zur aktuellen Dokumentation***
+### Die Lösung: ioBroker - Automate your life
 
-?> Die Dokumentation befindet sich im Aufbau und wird stetig erweitert.
-   Daher kann es vorkommen, dass Links noch nicht funktionieren oder
-   Inhalte fehlen. Wir sind für jede Hilfe bei der Erstellung neuer
-   Artikel oder für Verbesserungen dankbar. Informationen dazu gibt
-   es hier im [Forum](https://forum.iobroker.net/category/186/dokumentations-support).
-   
-   **Bis alle Inhalte übernommen wurden, ist die alte Dokumentation noch [hier zu finden](https://www.iobroker.net/docu/).
-   Sie wird sukzessive durch diese neue Dokumentation ersetzt.**
+**ioBroker** ist eine Softwarelösung zur Automatisierung deines Zuhauses.
+Sie ermöglicht die Integration verschiedenster Smarthome-Systeme, die ohne ioBroker isoliert bleiben würden, und ermöglicht so eine übergreifende Steuerung.
 
+**ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten aus fast allen Lebensbereichen sowie die Integration von selbst erstellten Lösungen.
 
+Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adaptern genannt, gemäß den individuellen Wünschen erweitert werden.
 
-
-## Mach Dein Leben leichter: Smart Home
-
-Wäre es nicht bequem, wenn man Temperaturen, Verbrauchswerte oder Schaltzustände von Geräten verschiedenster Hersteller zentral an einer Stelle ablesen könnte? 
-Wenn man nicht daran denken müsste, Geräte bei Erreichen bestimmter Bedingungen oder Zuständen ein- oder auszuschalten? 
-
-Diese Bequemlichkeit kann ein Smart Home - ein schlaues, intelligentes Haus - bieten. Und es bietet auf Wunsch noch mehr: Automatisierung und die Möglichkeit, auf all diese Dinge auch aus der Ferne zugreifen zu können.
-
-
-### Die Lösung: ioBroker
-
-**ioBroker** ist eine Softwarelösung zur Automatisierung Deines Heims. Es erlaubt verschiedenste Smarthome-Systeme, die ohne
-ioBroker Insellösungen bleiben würden, einzubinden und so übergreifend zu steuern.
-
-**ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten aus fast allen Lebensbereiche oder auch die Integration von selbst erstellten Lösungen.
-
-Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adaptern genannt, um die individuellen Wünsche erweitert werden. 
-
-Weit über 600 Adapter realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
+Mit weit über 600 Adaptern ermöglicht ioBroker die Integration verschiedener Plattformen, Systeme und Geräte von A wie Alexa bis Z wie Zigbee und bietet viele weitere Möglichkeiten zur Automatisierung.
 
 #### Was sind Adapter? 
 
-Adapter sind in JavsScript für Node.js geschriebene Softwaremodule (kleine Programme) sein, welche für bestimmte Geräte, Gerätetypen, Geräte bestimmter Hersteller oder andere Dienste ,wie zum Beispiel zur Abfrage von Webseiten, programmiert wurden. Die Adapter stellen die Verbindung zwischen den physischen Geräten (z. B. Steckdosen mit Schaltfunktion, Relais, Fernthermometern, u.ä.) und dem zentralen ioBroker-System her. Sie können die von den Geräten gemessenen Werte auslesen und diese Geräte steuern. Oft geschieht das über WLAN im eigenen Heimnetz. 
+Adapter sind Softwaremodule in JavaScript für Node.js, die speziell für bestimmte Geräte, Gerätetypen, Geräte bestimmter Hersteller oder andere Dienste
+wie beispielsweise die Abfrage von Webseiten programmiert wurden.
+Diese Adapter ermöglichen die Verbindung zwischen physischen Geräten (zum Beispiel steuerbare Steckdosen, Relais, Fernthermometer und ähnliche)
+und dem zentralen ioBroker-System. Sie lesen die von den Geräten gemessenen Werte aus und steuern diese Geräte.
+Dies erfolgt häufig über WLAN im eigenen Heimnetz.
 
-Andere Adapter dienen dazu, Messwerte (z. B. Temperatur, Leistung, Verbrauchswerte oder Schaltzustände) graphisch in Diagrammen darzustellen (zu visualisieren). Adapter zur Visualisierung bieten aber auch noch viele andere Möglichkeiten, wie das Einbinden von Bildern (z. B. von Überwachungskammeras), Wetterdaten und vielem mehr.
+Andere Adapter sind dafür konzipiert, Messwerte wie Temperatur, Leistung, Verbrauchswerte oder Schaltzustände graphisch in Diagrammen zu visualisieren.
+Visualisierungsadapter bieten zudem viele weitere Möglichkeiten, wie das Einbinden von Bildern (beispielsweise von Überwachungskameras), Wetterdaten und vieles mehr.
 
-Darüber hinaus gibt es noch Adpter, deren Aufgabe es ist, die Möglichkeit mathematischer Berechnungen oder logischer Operationen (Vergleiche) bereitzustellen. Sie können auch dazu dienen, kleine Programme zu erstellen und die für die Automatisierung erforderlichen Regeln zu definieren.
-Da JavaScript eine der am meisten genutzten Programmiersprachen heutzutage ist, gibt es auch für nahezu alles schon fertige Module - oder diese sind schnell geschrieben. Wenn also ein Adapter fehlt kann oft mit vergleichsweise geringem Aufwand ein solcher entwickelt werden. Die aktive ioBroker Entwickler-Community unterstützt neue Entwickler hierbei jederzeit gern.
+Zusätzlich existieren Adapter, die Funktionen für mathematische Berechnungen oder logische Operationen (wie Vergleiche) bereitstellen.
+Diese können auch zum Erstellen kleiner Programme und zur Definition von Automatisierungsregeln verwendet werden.
+Da JavaScript eine der am meisten genutzten Programmiersprachen ist, existieren bereits viele fertige Module,
+und neue können oft mit relativ geringem Aufwand entwickelt werden. Die aktive ioBroker-Entwicklergemeinschaft unterstützt neue Entwickler hierbei jederzeit gerne.
 
 **Tipp:**
  [Übersicht verfügbaren Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
 
 
-
-
-
-
-
-### ioBroker verbindet unterschiedlichste Smarthomesysteme
+### ioBroker verbindet unterschiedlichste Smarthome-Systeme
 
 ![](media/iobroker-simple-overview.png)  
 
-Diese Grafik zeigt wie ioBroker als zentrales System die verschiedensten Smarthomesysteme und weitere Dienste (z.B. Kalender) koordiniert und miteinander verbindet.
-Die in ioBroker zur Verfügung stehenden Adapter können unter anderem mit zentral verwalteten Kalendern oder herstellerspezfischen Smart-Home-Systemen (welche im LAN oder WLAN angeschlossen sind) kommunizieren. Auf diese Weise kann die ioBroker Software Statusinformationen lesen oder Steuerungsaktionen auslösen.
-
+Diese Grafik veranschaulicht, wie ioBroker als zentrales System verschiedenste Smart-Home-Systeme und weitere Dienste, wie zum Beispiel Kalender,
+koordiniert und miteinander verbindet.
+Die in ioBroker verfügbaren Adapter ermöglichen eine Kommunikation mit zentral
+verwalteten Kalendern oder herstellerspezifischen Smart-Home-Systemen, die im LAN oder WLAN angeschlossen sind.
+Auf diese Weise kann die ioBroker-Software Statusinformationen abrufen oder Steuerungsaktionen ausführen.
 
 ### Anwendungsbeispiel Anwesenheitssimulation
-In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthomesysteme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
+In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthome-Systeme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
 
-Durch die Anbindung der beiden Smarthomesysteme an die ioBroker Software, ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rolläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
+Durch die Anbindung der beiden Smarthome-Systeme an die ioBroker Software, ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rollläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
 
-Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten den folgende Ablauf realisieren:
+Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten dem folgenden Ablauf realisieren:
 
 - Wenn im Kalender der Eintrag "Urlaub" eingetragen ist, werden um 18 Uhr Abends alle HUE Lampen eingeschaltet.
-- Um 22:00 Uhr werden alle Rolläden geschlossen und alle Hue Lampen ausgeschaltet.
-- Um 08:00 Uhr morgens werden alle Rolläden wieder hochgefahren.
+- Um 22:00 Uhr werden alle Rollläden geschlossen und alle Hue Lampen ausgeschaltet.
+- Um 08:00 Uhr morgens werden alle Rollläden wieder hochgefahren.
 
-Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rolläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
-
-
-
-
+Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rollläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
 
 ## Stärken von ioBroker
 
@@ -103,13 +88,14 @@ großen Multicore-Servern möglich.
 Mit den Logik Adaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
 In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
 
-In ioBroker können diese individuellen Abläufe durch Drag and Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode implementiert werden. 
+In ioBroker können diese individuellen Abläufe durch Drag-and-Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode implementiert werden. 
 
 Weitere Erklärungen zu den Logikbausteinen sowie eine weitere Vorstellung von weiteren Logikbausteinen wie Node-Red oder der Szenen-Adapter werden in dieser Doku im Abschnitt "Logik und Automatisierung" erläutert.
 
 
 ## Visualisierung
-Mehrere Visualisierungsadapter bietem dem Anwender die Möglichkeit Steuerungsoptionen sowie Zustandsinformationen grafisch zu realisieren. Diese individuellen Visualisierungen können dann auf einem Tablet, Smartphone oder Computer dargestellt und bedient werden.
+Mehrere Visualisierungsadapter bieten dem Anwender die Möglichkeit Steuerungsoptionen, sowie Zustandsinformationen, grafisch zu realisieren.
+Diese individuellen Visualisierungen können dann auf einem Tablet, Smartphone oder Computer dargestellt und bedient werden.
 
 Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften kurz vorgestellt. 
 
@@ -118,18 +104,18 @@ Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften ku
 [Adapterseite vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
 
 ioBroker stellt mit dem Adapter VIS (Visualisierung) ein mächtiges Tool zur Erstellung von individuellen 
-Visualisierungen zur Verfügung. Aktuelle Werte von Sensoren können genau so wie 
+Visualisierungen zur Verfügung. Aktuelle Werte von Sensoren können genauso wie 
 historische Verläufe grafisch aufbereitet dargestellt werden. Live-Bilder von 
 Überwachungskameras, die Implementierung einer Alarmanlage, Heizungssysteme und 
-Klimatechnik - fast alles was vorstellbar ist, kann auch umgesetzt werden. 
+Klimatechnik - fast alles, was vorstellbar ist, kann auch umgesetzt werden. 
 
 Mit dem Einsatz von VIS hat der Anwender bei der Realisierung maximale Gestaltungsfreiheiten. Vorgefertigte Bausteine zur 
-einfachen Verwendung helfen dem Anwender dabei beim zusammenstellen der UI. Doch nicht nur die Anzeige von 
+einfachen Verwendung helfen dem Anwender dabei beim Zusammenstellen der UI. Doch nicht nur die Anzeige von 
 Informationen ist möglich. Auch die Steuerung von Geräten ist über die 
 Visualisierungsoberfläche schnell umgesetzt. Die Bedienung der Oberfläche kann 
 dabei auf die unterschiedlichsten Endgeräte abgestimmt werden - vom Smartphone 
 über das Wandtablet mit Touchfunktion bis hin zum PC - alles kann 
-durch einfaches Drag and Drop realisiert werden. 
+durch einfaches Drag-and-Drop realisiert werden. 
 
 ![](media/iobroker-visualisation-vis.png)
 
@@ -137,20 +123,12 @@ durch einfaches Drag and Drop realisiert werden.
 ![VIS](media/vis2.png)  
 ![](media/iobroker-visualisation-vis-wetter.png)
 
-
-
-
-
 ### Material UI
 React und Material UI interface.
 
 [Adapterseite Material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
 
 ![](media/iobroker-visualisation-material.png)  
-
-
-
-
 
 ### Jarvis
 [Adapterseite Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
@@ -164,10 +142,6 @@ Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tab
 ![](media/iobroker-visualisation-jarvis.png)
 ![](media/iobroker-visualisation-jarvisDevices.png)
 
-
-
-
-
 ### iQontrol
 
 Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
@@ -179,16 +153,11 @@ Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
 
 Video [iQontrol Demo Video][]
 
-
 <img src="media/iobroker-visualisation-iqontrol.png" width="200"> 
 <img src="media/iobroker-visualisation-iqontrol2.png" width="200">
 <img src="media/iobroker-visualisation-iqontrol3.png" width="200">
 <img src="media/iobroker-visualisation-iqontrol4.png" width="200">
 <img src="media/iobroker-visualisation-iqontrol5.png" width="200">
-
-
-
-
 
 ### Lovelace
 
@@ -207,14 +176,17 @@ Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) erm
 
 
 ## Wer steckt hinter ioBroker?
-ioBroker ist ein Open Source Projekt welches von der ioBroker Community entwickelt wird und von [Bluefox](https://github.com/GermanBluefox) als Projektowner administriert wird.
+ioBroker ist ein Open-Source-Projekt, welches von der ioBroker Community entwickelt wird und von [Bluefox](https://github.com/GermanBluefox) als Projektbesitzer administriert wird.
 
 Viele Entwickler und viele weitere Helfer entwickeln in ihrer Freizeit ehrenamtlich an den zentralen ioBroker System-Komponenten, den vielen Adaptern, dem Social-Media-Support, der Dokumentation und vielem mehr.  
 Mit der großen und hilfsbereiten Community hat sich bisher zu jedem Problem eine Lösung gefunden.   
 
-ioBroker verfolgt einen dezentralen Ansatz, bei welchem jeder Adapter in einem eigenen GitHub-Repository gepflegt wird. Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend eigenständig die Entscheidungen zu seinem Adapter. Featurewünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
+ioBroker verfolgt einen dezentralen Ansatz, bei welchem jeder Adapter in einem eigenen GitHub-Repository gepflegt wird.
+Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend eigenständig die Entscheidungen zu seinem Adapter.
+Funktionalitäterweiterungs-Wünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
 
-Einige Entwickler haben sich darüber hinaus in der ioBroker Adapter-Community zusammengeschlossen um sicherzustellen das auch im Falle davon, das einzelne Entwickler keine Zeit mehr für Ihre Adapter haben, diese weitergepflegt werden können.
+Einige Entwickler haben sich darüber hinaus in der ioBroker Adapter-Community zusammengeschlossen, um sicherzustellen das auch im Falle davon,
+dass einzelner Entwickler keine Zeit mehr für Ihre Adapter haben, diese weitergepflegt werden können.
 
 Es gibt keinen vertraglich festgelegten Support aus der Open-Source Community, aber gemeinsam haben wir bisher jedes Problem gelöst bekommen!
 
@@ -228,32 +200,26 @@ Das ioBroker Core Entwicklerteam setzt sich zusammen aus:
 
 Eine Liste der [ioBroker Developer](https://forum.iobroker.net/groups/developer) findet ihr im ioBroker Forum.
 
-
-
-
-
 ### Lizenzen und Kosten
-Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung. In den allermeisten Fällen steht der Quellcode unter der MIT Lizenz. Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtgen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
+Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung.
+In den allermeisten Fällen steht der Quellcode unter der MIT-Lizenz.
+Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtigen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
 Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
 
-In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt um einen Adapter zu nutzen. Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
-Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing). Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
-
-
-
-
+In sehr seltenen Fällen (<5 Adapter aktuell) wird eine (teils kostenpflichtige) Lizenz benötigt, um einen Adapter zu nutzen.
+Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
+Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing).
+Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
 
 ### Wie finanziert sich ioBroker?
 Alle zentralen Komponenten und nahezu alle weiteren Adapter sind kostenfrei erhältlich und der Quellcode der allermeisten Adapter steht auf GitHub offen zur Verfügung.
 
-Da ein Open Source Projekt keine Einnahmen erzielen kann, um z.B. Server zu kaufen, bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH. Die ioBroker GmbH bietet unter anderem auch einen kommerziellen Support für die ioBroker Software oder verkauft z.B. einen ioBroker-Server. 
+Da ein Open-Source-Projekt keine Einnahmen erzielen kann, um z.B. Server zu kaufen, bedarf es für diese Dinge eine offizielle Gesellschaftsform, die ioBroker GmbH.
+Die ioBroker GmbH bietet unter anderem auch einen kommerziellen Support für die ioBroker Software oder verkauft z.B. einen ioBroker-Server. 
 
-Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den Forum Server) kostenfrei zur Verfügung und hat auch in der Vergangenheit bereits Entwicklungsleistung eingekauft, welche in die Entwicklung der Open Source Projekte (zB Admin5) geflossen ist. 
+Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den Forum-Server) kostenfrei zur Verfügung und hat auch in der Vergangenheit bereits Entwicklungsleistung eingekauft, welche in die Entwicklung der Open Source Projekte (z.B. Admin) geflossen ist. 
 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
-
-
-
 
 
 ## Remotezugriff auf deine ioBroker Installation über die ioBroker Cloud 
@@ -261,12 +227,9 @@ Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community
 für Systemintegratoren die Remote-Verwaltung auf ein lokal installiertes ioBroker
 -System 24/7 möglich. Die Zugriffsteuerung kann mittels Benutzer und Gruppen vom
 Anwender frei konfiguriert werden.
-In der folgende Grafik werden die ioBroker Cloud Service Produkte im Überblick dargestellt.
+In der folgenden Grafik werden die ioBroker Cloud Service Produkte im Überblick dargestellt.
 
 ![](media/iobroker-cloud-services-overview.png)  
-
-
-
 
 
 ## Community
@@ -281,16 +244,8 @@ Linksammlung der offiziellen ioBroker Communities:
 - Facebookgruppe "IoBroker SmartHome und IoT": [FacebookIoBrokerSmartHomeIoT](https://www.facebook.com/groups/440499112958264)
 - Facebookgruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
-
-
-
-
 ## ioBroker Statistiken
 Auf [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
-
-
-
-
 
 
 [Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
