@@ -39,11 +39,12 @@ Weit über 600 Adapter realisieren die Einbindung von verschiedenen Plattformen,
 
 #### Was sind Adapter? 
 
-Adapter können Softwaremodule (kleine Programme) sein, welche für bestimmte Geräte, Gerätetypen oder Geräte bestimmter Hersteller programmiert wurden. Die Adapter stellen die Verbindung zwischen den physischen Geräten (z. B. Steckdosen mit Schaltfunktion, Relais, Fernthermometern, u.ä.) und dem zentralen ioBroker-System her. Sie können die von den Geräten gemessenen Werte auslesen und diese Geräte steuern. Oft geschieht das über WLAN im eigenen Heimnetz. 
+Adapter sind in JavsScript für Node.js geschriebene Softwaremodule (kleine Programme) sein, welche für bestimmte Geräte, Gerätetypen, Geräte bestimmter Hersteller oder andere Dienste ,wie zum Beispiel zur Abfrage von Webseiten, programmiert wurden. Die Adapter stellen die Verbindung zwischen den physischen Geräten (z. B. Steckdosen mit Schaltfunktion, Relais, Fernthermometern, u.ä.) und dem zentralen ioBroker-System her. Sie können die von den Geräten gemessenen Werte auslesen und diese Geräte steuern. Oft geschieht das über WLAN im eigenen Heimnetz. 
 
 Andere Adapter dienen dazu, Messwerte (z. B. Temperatur, Leistung, Verbrauchswerte oder Schaltzustände) graphisch in Diagrammen darzustellen (zu visualisieren). Adapter zur Visualisierung bieten aber auch noch viele andere Möglichkeiten, wie das Einbinden von Bildern (z. B. von Überwachungskammeras), Wetterdaten und vielem mehr.
 
 Darüber hinaus gibt es noch Adpter, deren Aufgabe es ist, die Möglichkeit mathematischer Berechnungen oder logischer Operationen (Vergleiche) bereitzustellen. Sie können auch dazu dienen, kleine Programme zu erstellen und die für die Automatisierung erforderlichen Regeln zu definieren.
+Da JavaScript eine der am meisten genutzten Programmiersprachen heutzutage ist, gibt es auch für nahezu alles schon fertige Module - oder diese sind schnell geschrieben. Wenn also ein Adapter fehlt kann oft mit vergleichsweise geringem Aufwand ein solcher entwickelt werden. Die aktive ioBroker Entwickler-Community unterstützt neue Entwickler hierbei jederzeit gern.
 
 **Tipp:**
  [Übersicht verfügbaren Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
