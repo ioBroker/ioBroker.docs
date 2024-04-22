@@ -438,3 +438,10 @@ https://github.com/TA2k/ioBroker.tedee
 
 Adapter for Tedee Locks. This Adapter uses the local bridge API to control a tedee lock.
 All Lock devices by Tedee are supported.
+
+## pid (22.4.2024) – new adapter
+https://github.com/mcm4iob/ioBroker.pid
+
+<img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
+
+This adapter provides the functionality of a PID controller.
