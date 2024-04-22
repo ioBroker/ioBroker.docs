@@ -16,7 +16,8 @@ Und es bietet auf Wunsch noch mehr: Automatisierung und die Möglichkeit, auf al
 **ioBroker** ist eine Softwarelösung zur Automatisierung deines Zuhauses.
 Sie ermöglicht die Integration verschiedenster Smarthome-Systeme, die ohne ioBroker isoliert bleiben würden, und ermöglicht so eine übergreifende Steuerung.
 
-**ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten aus fast allen Lebensbereichen sowie die Integration von selbst erstellten Lösungen.
+**ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten
+aus fast allen Lebensbereichen sowie die Integration von selbst erstellten Lösungen.
 
 Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adaptern genannt, gemäß den individuellen Wünschen erweitert werden.
 
@@ -24,19 +25,19 @@ Mit weit über 600 Adaptern ermöglicht ioBroker die Integration verschiedener P
 
 #### Was sind Adapter? 
 
-Adapter sind Softwaremodule in JavaScript für Node.js, die speziell für bestimmte Geräte, Gerätetypen, Geräte bestimmter Hersteller oder andere Dienste
-wie beispielsweise die Abfrage von Webseiten programmiert wurden.
-Diese Adapter ermöglichen die Verbindung zwischen physischen Geräten (zum Beispiel steuerbare Steckdosen, Relais, Fernthermometer und ähnliche)
-und dem zentralen ioBroker-System. Sie lesen die von den Geräten gemessenen Werte aus und steuern diese Geräte.
-Dies erfolgt häufig über WLAN im eigenen Heimnetz.
+**Adapter** sind in JavaScript für Node.js geschriebene **PlugIns** (Softwaremodule, kleine Programme), die speziell für bestimmte Geräte, Gerätetypen, Geräte bestimmter Hersteller oder andere Dienste, wie beispielsweise zur Abfrage von Webseiten, entwickelt wurden.
 
-Andere Adapter sind dafür konzipiert, Messwerte wie Temperatur, Leistung, Verbrauchswerte oder Schaltzustände graphisch in Diagrammen zu visualisieren.
-Visualisierungsadapter bieten zudem viele weitere Möglichkeiten, wie das Einbinden von Bildern (beispielsweise von Überwachungskameras), Wetterdaten und vieles mehr.
+Diese Adapter ermöglichen die Verbindung zwischen physischen Geräten (zum Beispiel steuerbare Steckdosen, Relais, Fernthermometer und ähnliche) und dem zentralen ioBroker-System. Sie sind in der Lage, die von den Geräten gemessenen Werte auszulesen und die Geräte zu steuern, was oft über WLAN im eigenen Heimnetz geschieht.
 
-Zusätzlich existieren Adapter, die Funktionen für mathematische Berechnungen oder logische Operationen (wie Vergleiche) bereitstellen.
-Diese können auch zum Erstellen kleiner Programme und zur Definition von Automatisierungsregeln verwendet werden.
-Da JavaScript eine der am meisten genutzten Programmiersprachen ist, existieren bereits viele fertige Module,
-und neue können oft mit relativ geringem Aufwand entwickelt werden. Die aktive ioBroker-Entwicklergemeinschaft unterstützt neue Entwickler hierbei jederzeit gerne.
+Andere Adapter sind darauf ausgelegt, Messwerte wie Temperatur, Leistung, Verbrauchswerte oder Schaltzustände grafisch in Diagrammen darzustellen.
+Visualisierungsadapter bieten zudem weitere Möglichkeiten, wie das Einbinden von Bildern (etwa von Überwachungskameras), Wetterdaten und vieles mehr.
+
+Zusätzlich gibt es Adapter, die Funktionen für mathematische Berechnungen oder logische Operationen (wie Vergleiche) anbieten.
+Sie können auch zur Erstellung kleiner Programme und zur Definition der für die Automatisierung notwendigen Regeln eingesetzt werden.
+
+Da JavaScript eine der meistgenutzten Programmiersprachen ist, existieren bereits viele fertige Module, und neue können oft mit relativ geringem Aufwand entwickelt werden.
+Sollte ein Adapter fehlen, kann daher meistens schnell ein passender entwickelt werden.
+Die aktive **ioBroker-Entwickler-Community** unterstützt neue Entwickler dabei jederzeit gerne.
 
 **Tipp:**
  [Übersicht verfügbaren Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
