@@ -3,30 +3,47 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.oilfox/README.md
 title: ioBroker.oilfox
-hash: rhrnoNmZHp8qqkhj5Tel8GA3T5Nseg1pHj9hJboVOdk=
+hash: QVQTCx+iDVtZMRmiQJPf5HjjTE+IRKtHbYpQc/HzWYY=
 ---
-![商标](../../../en/adapterref/iobroker.oilfox/img/oilfox.png)
+![标识](../../../en/adapterref/iobroker.oilfox/img/oilfox.png)
 
 ![安装数量](http://iobroker.live/badges/oilfox-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.oilfox.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.oilfox.svg)
 
 # IoBroker.oilfox
-![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.oilfox/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/oilfox/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.oilfox/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/oilfox/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ＃＃ 描述
 该适配器允许通过 Oilfox 网站从 Oilfox 传感器获取数据。
 
-## 设置
-* 在配置页面指定您的电子邮件和密码
-
-<!-- 下一个版本的占位符（在行首）：
-
-### **正在进行中** -->
+＃＃ 设置
+* 在配置页面中指定您的电子邮件和密码
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 4.3.0 (2024-04-21)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 4.2.1 (2024-01-30)
+* (mcm1957) Adapter will be terminated now after a maximum of 45s execution time to clean unresponsive service.
+* (mcm1957) Default cron schedule will be changed to random executions once a hour.
+* (mcm1957) Dependencies have been updated.
+
+### 4.2.0 (2023-09-08)
+* (mcm1957) Adapter requires node 16 or newer now
+* (mcm1957) A timeout of 5s has been added to http requests to avoid hanging processes (#110)
+* (mcm1957) Dependencies have been updated
+
+### 4.1.2 (2022-04-10)
+* (bluefox) Corrected configuration GUI
+
 ### 4.1.1 (2022-04-03)
 * (inidona) Usage of new oilfox api
 * (bluefox) Added usage JSON configuration
@@ -78,7 +95,8 @@ hash: rhrnoNmZHp8qqkhj5Tel8GA3T5Nseg1pHj9hJboVOdk=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, ioBroker Community Developers
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

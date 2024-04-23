@@ -35,6 +35,12 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2024-04-19)
+* Check numerical values for plausibility #75
+* realization the "limit the power fed to grid" (Export control)
+* realization the "forcible Charge or Discharge Power"
+* If the error 'ECONNRESET' appear, the modbus proxy should not terminate
+
 ### 0.7.1 (2024-04-09)
 * inverter model name too many characters #73
 

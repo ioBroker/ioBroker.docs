@@ -33,6 +33,11 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
 
+### 0.9.0 (20.04.2024)
+
+* (HombachC) BREAKING: dropped support for node.js 16 (#455)
+* (HombachC) BREAKING: js-controller >= 5 is required (#456)
+
 ### 0.8.5 (27.03.2024)
 
 * (HombachC) updated CI definitions, switched to node 20 as main test scenario

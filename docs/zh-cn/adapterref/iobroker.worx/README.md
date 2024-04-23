@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
+hash: pJhWU4qLXcjozjFrLH+P4LP0ockG4t74pPWbaBp2ppA=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -29,7 +29,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ![实例设置 img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
 
 ＃＃＃ 文件夹
-- `activityLog`：你的活动日志（可控制）
+- `activityLog`：您的活动日志（可控制）
 - `areas`: 区域（可控制）
 - `calendar`: 时间表（可控制）
 - `模块`：您的模块（可控制）
@@ -136,9 +136,11 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `batteryState`：电池状态（％）（电线和视觉/只读）
 - `batteryTemperature`：电池温度（摄氏度）（电线和视觉/只读）
 - `batteryVoltage`：电池电压（伏特）（电线和视觉/只读）
+- `cameraStatus`：相机状态 0=OK/1=Error (Vision/readonly)
+- `cameraError`: 相机错误 0=OK/1=Error (Vision/readonly)
 - `cutOverSlabs`: 切换板开启 = true / 关闭 = false （视觉/可更改）
 - `direction`：梯度方向（wire & Vision/readonly）
-- `edgecut`: 启动 EdgeCut (线材 & 视觉/可更改)
+- `edgecut`: 启动 EdgeCut (线和视觉/可更改)
 - `error`：来自割草机的错误消息（wire & Vision/readonly）
 
 ```json
@@ -227,6 +229,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 ![割草机 img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
 
+- `rfidStatus`：状态 RF 传感器 0=OK/1=Error（视觉/只读）
 - `sendCommand`: 发送 cmd 命令 (有线 & 视觉/可更改)
 
 ```json
@@ -279,7 +282,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `totalDistance`：总距离（电线和视觉/只读）
 - `totalTime`: 总工作时间 (wire & Vision/readonly)
 - `waitRain`：降雨延迟最大为 12 小时，以 30 分钟为单位（电线和视觉/可更改）
-- `waitRainCountdown` 当传感器从湿变干时开始倒计时（电线和视觉/只读）
+- `waitRainCountdown` 当传感器从湿变干时开始倒计时（电线和视觉/只读）（当前已禁用）
 - `waitRainSensor` 状态 0 表示干燥，1 表示潮湿（电线和视觉/只读）
 - `wifiQuality`：WiFi 质量（有线和视觉/只读）
 
@@ -296,17 +299,16 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 ### 另外对于视觉
 - 多区域
-- `multiZone.passages.passage_01.tagIdFrom`: z1 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
-- `multiZone.passages.passage_01.tagIdTo`: z2 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
-- `multiZone.passages.passage_01.zoneIdFrom`：区域来自（必须 z1 < z2） - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（视觉/可更改）
-- `multiZone.passages.passage_01.zoneIdTo`: 区域关闭（必须 z2 > z1） - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（vision/changeable）
-- `multiZone.zones.zone_1.borderDistance`：边缘切割（单位：毫米）- 允许 50 毫米、100 毫米、150 毫米和 20 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（视觉/可更改）
-- `multiZone.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
-- `multiZone.zones.zone_1.cutOverBorder`: 如果检测到车牌，则为 1，否则为 0。每个区域不允许使用不同的值 - 立即使用 Blockly 设置 - 更改写入 `multiZone.multiZone` (Vision /changeable)
-- `multiZone.zones.zone_1.zone_id`: 编号 - 从 1 开始 - （vision/readonly）
-- `multiZone.rfid`: 总 RF（只读）
-- `multiZone.multiZone`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-startsequence-vision)
-- `multiZone.sendMultiZoneJson`：延迟 1.1 秒将更改发送到 Worx（视觉/可更改）
+- `multiZones.zones.zone_1.borderDistance`: 切割边框时，到边缘的距离（以毫米为单位） - 允许 50 毫米、100 毫米、150 毫米和 200 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（视觉/可更改）
+- `multiZones.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.zones.zone_1.cutOverBorder`: 如果检测到车牌，则为 1，否则为 0。使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (Vision /changeable)
+- `multiZones.zones.zone_1.zone_id`: 编号 - 从 1 开始 - （vision/readonly）
+- `multiZones.passages.passage_01.tagIdFrom`: zoneIdFrom 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.passages.passage_01.tagIdTo`: zoneIdTo 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.passages.passage_01.zoneIdFrom`：区域来自（必须 zoneIdFrom < zoneIdTo） - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（vision/changeable）
+- `multiZones.passages.passage_01.zoneIdTo`: 区域关闭 (必须 zoneIdTo > zoneIdFrom) - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.multiZones`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-sendMultiZonesJson-vision)
+- `multiZones.sendMultiZonesJson`：将更改发送到 Worx，延迟 1.1 秒（视觉/可更改）
 
 例子：
 
@@ -329,7 +331,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
                 "c": 1, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm - allowed 10mm, 15mm und 20mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -339,7 +341,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
                 "c": 0, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -388,14 +390,14 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `incompleteOperationCount`：提交给连接但尚未完成的操作总数。未确认的操作是其中的一部分。
 - `incompleteOperationSize`：提交给连接但尚未完成的操作的总数据包大小。未确认的操作是其中的一部分。
 - `unackedOperationCount`：已发送到服务器并在完成之前等待相应 ACK 的操作总数。
-- `unackedOperationSize`：已发送到服务器并在等待相应 ACK 才能完成的操作的总数据包大小。
+- `unackedOperationSize`：已发送到服务器且正在等待相应 ACK 才能完成的操作的总数据包大小。
 - `last_update`: 来自 token 的最后更新
 - `next_update`: 来自 token 的下一次更新
 - `online`：MQTT 连接状态（false=离线/true=在线）
 
 ![愿景 img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
-### 示例 Blockly startsequence Vision
+### 示例 Blockly sendMultiZonesJson Vision
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -420,7 +422,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -487,7 +489,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -531,7 +533,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -598,7 +600,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -690,7 +692,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <next>
           <block type="control" id="k$;?LM/[x-TbZ^m=F4}i">
             <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-            <field name="OID">worx.0.xxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxx.multiZones.sendMultiZonesJson</field>
             <field name="WITH_DELAY">FALSE</field>
             <value name="VALUE">
               <block type="convert_object2json" id="b~2Bz}OiNg{V]!QgN^J7">
@@ -718,7 +720,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ![ok_direct.png](../../../en/adapterref/iobroker.worx/img/ok_direct.png)
 
 ＃＃＃ 不允许
-![ok_direct.png](img/not_ok_direct.png) ![json_nok.png](img/json_nok.png) ![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
+![json_nok.png](img/json_nok.png) ![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
 

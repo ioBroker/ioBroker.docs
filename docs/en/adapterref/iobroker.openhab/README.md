@@ -1,5 +1,4 @@
-# Moved to https://github.com/iobroker-community-adapters/ioBroker.openhab
-![Number of Installations](http://iobroker.live/badges/openhab-installed.svg) ![Number of Installations](http://iobroker.live/badges/openhab-stable.svg) 
+[Number of Installations](http://iobroker.live/badges/openhab-installed.svg) ![Number of Installations](http://iobroker.live/badges/openhab-stable.svg) 
 ![Logo](admin/openhab.png)
 # ioBroker.openhab
 =================
@@ -14,6 +13,14 @@ It exports devices and groups from openhab and then monitors updates of variable
 - Items deleted from OpenHab do not disappear in ioBroker
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.2.0 (2024-04-21)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.1.0 (2019.02.12)
 * (Schluesselmeister) Add first support for new OH type definition
 
@@ -45,6 +52,7 @@ It exports devices and groups from openhab and then monitors updates of variable
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2017-2018 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

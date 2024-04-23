@@ -117,12 +117,16 @@ sendTo("kodi.0", {
  - Reboot -  перезагрузка системы
  - Shutdown - выключает систему
  - Suspend - приостанавливает Kodi
+
+## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
-## Changelog
 ### 3.0.0 (2023-09-08)
 * (agross) Fixed seeking on Kodi >= 19
 * (bluefox) Supported only node.js versions >= 16
@@ -246,6 +250,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

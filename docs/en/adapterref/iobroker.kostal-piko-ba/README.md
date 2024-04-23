@@ -35,6 +35,16 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 4.0.0 (21.04.2024)
+
+* (HombachC) BREAKING: Dropped support for Node.js 16 (#591)
+* (HombachC) BREAKING: Minimum needed js-controller bumped to 5 (#592)
+* (HombachC) changed timeout settings for older Kostal inverters (#589)
+* (HombachC) dependency updates
+* (HombachC) added tests for node.js 21
+* (HombachC) raised minimum poll time for daily statistics
+* (HombachC) code optimizations
+
 ### 3.1.0 (29.03.2024)
 
 * (HombachC) changed to tier 2 as data provider

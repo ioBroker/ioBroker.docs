@@ -112,6 +112,9 @@ The alias contains a simple write function.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2024-04-16)
+* (foxriver76) added `controllerVersion` to results
+
 ### 1.1.4 (2022-12-30)
 * (foxriver76) fixed cleanup after `getStatesMulti`
 

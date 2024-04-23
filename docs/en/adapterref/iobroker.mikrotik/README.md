@@ -34,12 +34,12 @@ Reset power USB in mikrotik
 
 ## Changelog
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+### 1.2.0 (2024-04-20)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.1.1 (2022-10-17)
 * (bluefox) Packages updated
@@ -123,6 +123,7 @@ Reset power USB in mikrotik
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2022 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

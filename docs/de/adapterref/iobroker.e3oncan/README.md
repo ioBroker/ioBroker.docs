@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: 0PTmaOXVHpkPDqmlQ/go/URzNHOh+cJh2KDmgM0x3sA=
+hash: t0hprmXWqAcvpKhDsvzKKIKMcgqXnZXQeneXlp5Q6Y0=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -20,7 +20,7 @@ hash: 0PTmaOXVHpkPDqmlQ/go/URzNHOh+cJh2KDmgM0x3sA=
 # Basiskonzept
 Geräte der Viessmann E3-Serie (One Base) tauschen viele Daten über den CAN-Bus aus.
 
-Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Der häufig verwendete Energiezähler E380 CA wird ebenfalls unterstützt.
+Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Energiezähler E380CA und E3100CB werden ebenfalls unterstützt.
 
 Parallel dazu wird das **Lesen von Datenpunkten** (ReadByDid) unterstützt. Informationen, die beim Mithören nicht verfügbar sind, können aktiv abgefragt werden. Das UDSonCAN-Protokoll wird auch von anderen Geräten verwendet, z.B. von bekannten WAGO-Gateways.
 
@@ -51,7 +51,7 @@ Alle von diesem Adapter bereitgestellten Dienste basieren auf der Geräteliste I
 
 **Aufbau**
 
-* Nach Abschluss der Installation des Adapters wird ein Konfigurationsdialogfeld angezeigt, in dem Sie bis zu zwei CAN-Bus-Adapter konfigurieren können (Registerkarte „CAN-ADAPTER“).
+* Nach Abschluss der Installation des Adapters wird ein Konfigurationsdialog angezeigt, in dem Sie bis zu zwei CAN-Bus-Adapter konfigurieren können (Registerkarte „CAN-ADAPTER“).
 * Bearbeiten Sie den Namen des Adapters und aktivieren Sie das Kontrollkästchen "Mit Adapter verbinden" zumindest für den externen Adapter
 * Wenn Sie fertig sind, drücken Sie die Schaltfläche „SPEICHERN“, um die Änderungen anzuwenden. Dieser Schritt ist **obligatorisch**. Die Instanz wird neu gestartet und stellt eine Verbindung zum CAN-Adapter her.
 * Gehen Sie zur Registerkarte „LISTE DER UDS-GERÄTE“ und führen Sie einen Scan nach auf dem Bus verfügbaren Geräten durch, indem Sie die Scan-Schaltfläche drücken. **Dies dauert einige Sekunden.** Sie können die Aktivitäten in einer zweiten Browser-Registerkarte verfolgen, indem Sie sich die Protokollinformationen des Adapters ansehen.
@@ -62,7 +62,7 @@ Dieser Schritt ist nicht zwingend erforderlich, wird aber dringend empfohlen. We
 
 * Nach erfolgreichem Datenpunktscan stehen die Datenpunkte im Objektbaum des jeweiligen Gerätes zur Verfügung. Sie können die Datenpunkte in der Konfiguration einsehen, indem Sie ein Gerät auswählen und auf „Liste der Datenpunkte aktualisieren“ klicken. Klicken Sie auf das Filtersymbol und geben Sie ein Suchmuster ein, um nach Name und/oder Codec zu filtern. Dies dient nur zu Ihrer Information. Bitte deaktivieren Sie die Filterung, bevor Sie ein anderes Gerät auswählen, um Fehlermeldungen zu vermeiden.
 * Der letzte Schritt besteht darin, Zeitpläne für die Datenerfassung auf der Registerkarte „ZUWEISUNGEN ZU EXTERNEN CAN-ADAPTERN“ zu konfigurieren.
-* Beim **Energiezähler E380** (sofern in Ihrem Setup vorhanden) können Sie die Option nur aktivieren oder deaktivieren. Beachten Sie dabei den Wert „Min. Aktualisierungszeit (s)“. Aktualisierungen einzelner Datenpunkte erfolgen nicht schneller als der angegebene Wert (Standard ist 5 Sekunden). Bei Auswahl von Null werden alle empfangenen Daten gespeichert. Da der E380 sehr schnell Daten sendet (mehr als 20 Werte pro Sekunde), wird empfohlen, hier nicht Null zu verwenden. Dies würde das ioBroker-System stark belasten.
+* Bei **Energiezählern** (sofern in Ihrem Setup vorhanden) können Sie diese Option nur aktivieren oder deaktivieren. Beachten Sie dabei den Wert „Min. Aktualisierungszeit (s)“. Aktualisierungen einzelner Datenpunkte werden nicht schneller als der angegebene Wert durchgeführt (Standard ist 5 Sekunden). Bei Auswahl von Null werden alle empfangenen Daten gespeichert. Da Energiezähler Daten sehr schnell senden (mehr als 20 Werte pro Sekunde), wird empfohlen, hier nicht Null zu verwenden. Dies würde das ioBroker-System stark belasten.
 * Wenn Sie E3-Geräte über den CAN-Bus angeschlossen haben, z. B. Vitocal und VX3, können Sie die zwischen diesen Geräten ausgetauschten Daten in Echtzeit mithören. Drücken Sie „+“, um eine Zeile hinzuzufügen, aktivieren Sie das Kontrollkästchen „aktiv“, wählen Sie ein Gerät aus und bearbeiten Sie „Min. Aktualisierungszeit (s)“. Es ist möglich, hier 0 Sekunden zu verwenden, ich empfehle jedoch, bei 5 Sekunden zu bleiben.
 * Schließlich können Sie Zeitpläne für die Datenanforderung über das UDSonCAN-Protokoll hinzufügen. Drücken Sie erneut die Schaltfläche „+“ und bearbeiten Sie die Einstellungen. Sie können auf jedem Gerät mehrere Zeitpläne haben. Auf diese Weise können Sie einige Datenpunkte häufiger anfordern als andere. Der Standardwert 0 für „Zeitplan(e)“ bedeutet, dass diese Datenpunkte beim Start der Instanz nur einmal angefordert werden.
 
@@ -81,12 +81,33 @@ CAN-Adresse=98: Datenpunkte mit ungeraden IDs
 | ID | Daten| Einheit |
 | ------|:--- |------|
 | 592,593 | Wirkleistung L1, L2, L3, Gesamt | W |
-| 594,595 | Blindleistung L1, L2, L3, Gesamt | VA |
-| 596,597 | Strom, L1, L2, L3, cosPhi | A, - |
+| 594,595 | Blindleistung L1, L2, L3, Gesamt | var |
+| 596,597 | Absoluter Strom, L1, L2, L3, cosPhi | A, - |
 | 598,599 | Spannung, L1, L2, L3, Frequenz | V, Hz |
 | 600.601 | Kumulierter Import, Export | kWh |
-| 602,603 | Gesamtwirkleistung, Gesamtblindleistung | W, VA |
+| 602,603 | Gesamtwirkleistung, Gesamtblindleistung | W, var |
 | 604.605 | Kumulierter Import | kWh |
+
+# E3100CB Daten und Einheiten
+| ID | Daten| Einheit |
+| ------|:--- |------|
+| 1385_01 | Kumulierter Import | kWh |
+| 1385_02 | Kumulierter Export | kWh |
+| 1385_03 | Zustand: -1 => Einspeisung \| +1 => Lieferung | |
+| 1385_04 | Wirkleistung gesamt | W |
+| 1385_08 | Wirkleistung L1 | W |
+| 1385_12 | Wirkleistung L2 | W |
+| 1385_16 | Wirkleistung L3 | W |
+| 1385_05 | Blindleistung gesamt | var |
+| 1385_09 | Blindleistung L1 | var |
+| 1385_13 | Blindleistung L2 | var |
+| 1385_17 | Blindleistung L3 | var |
+| 1385_06 | Aktuell, Absolut L1 | A |
+| 1385_10 | Aktuell, Absolut L2 | A |
+| 1385_14 | Aktuell, Absolut L3 | A |
+| 1385_07 | Spannung, L1 | V |
+| 1385_11 | Spannung, L2 | V |
+| 1385_15 | Spannung, L3 | V |
 
 # Hinweise und Einschränkungen
 ## Dieser ioBroker-Adapter befindet sich in der Entwicklung und im *Beta-Stadium*
@@ -103,7 +124,7 @@ CAN-Adresse=98: Datenpunkte mit ungeraden IDs
 
 ## Was ist anders am open3e-Projekt?
 * Der Hauptunterschied liegt natürlich in der direkten Integration in ioBroker. Die Konfiguration kann über Dialoge erfolgen, Daten werden direkt in Objektbäumen aufgelistet.
-* Zusätzlich zu open3e wird das Sammeln von Daten in Echtzeit durch Abhören unterstützt.
+* Zusätzlich zu open3e wird das Echtzeit-Erfassen von Daten durch Abhören unterstützt.
 * Das Schreiben von Daten ist viel einfacher. Ändern Sie einfach die Daten im entsprechenden Status und drücken Sie die Schaltfläche Speichern.
 
 ## Darf open3e parallel verwendet werden?
@@ -117,6 +138,13 @@ Ja, das ist unter bestimmten Voraussetzungen möglich:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2024-04-21)
+* (MyHomeMyData) Structure of data point 1690 (ElectricalEnergySystemPhotovoltaicStatus) changed based on issue https://github.com/MyHomeMyData/E3onCAN/issues/6. Manual adaptations may be needed, please check!
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240420
+* (MyHomeMyData) Added support for energy meter E3100CB
+* (MyHomeMyData) Update of list of data points for E380 to version 20240418
+* (MyHomeMyData) Main change for E380 id 600/601 (GridEnergy): Now using correct data format. Many thanks to @M4n197 for unveiling the right data format. Manual adaptations may be needed, please check!
+
 ### 0.8.0 (2024-03-22)
 * (MyHomeMyData) Added support for energy meter E380 with CAN-address=98
 * (MyHomeMyData) Update of list of data points for E380 to version 20240320

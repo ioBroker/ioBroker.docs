@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: 0PTmaOXVHpkPDqmlQ/go/URzNHOh+cJh2KDmgM0x3sA=
+hash: t0hprmXWqAcvpKhDsvzKKIKMcgqXnZXQeneXlp5Q6Y0=
 ---
 ![标识](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -20,7 +20,7 @@ hash: 0PTmaOXVHpkPDqmlQ/go/URzNHOh+cJh2KDmgM0x3sA=
 ＃ 基本概念
 Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换。
 
-该适配器可以监听该通信并提取许多有用信息。还支持常用的电能表 E380 CA。
+该适配器可以监听该通信并提取许多有用信息。还支持电表 E380CA 和 E3100CB。
 
 同时支持**读取数据点** (ReadByDid)。可以主动请求通过监听无法获得的信息。其他设备也使用 UDSonCAN 协议，例如著名的 WAGO 网关。
 
@@ -61,7 +61,7 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 
 * 数据点扫描成功完成后，每个设备的对象树中都会显示数据点。您可以选择设备并按下“更新数据点列表”按钮来查看配置中的数据点。按下过滤符号并输入搜索模式以过滤名称和/或编解码器。这仅供您参考。请在选择其他设备之前停用过滤功能以避免出现错误消息。
 * 最后一步是在“分配到外部 CAN 适配器”选项卡上配置收集数据的时间表。
-* 对于**能量计 E380**（如果您的设置中可用），您可以激活或不激活。请注意“最小更新时间（秒）”的值。单个数据点的更新不会比给定值更快（默认值为 5 秒）。通过选择零，将存储所有收到的数据。由于 E380 发送数据非常快（每秒超过 20 个值），建议不要在此处使用零。这会给 ioBroker 系统带来很高的负载。
+* 对于**能量计**（如果您的设置中可用），您可以激活或不激活。请注意“最小更新时间（秒）”的值。单个数据点的更新不会比给定值更快（默认值为 5 秒）。通过选择零，将存储所有收到的数据。由于能量计发送数据的速度非常快（每秒超过 20 个值），因此建议不要在此处使用零。这会给 ioBroker 系统带来很高的负载。
 * 如果您已通过 CAN 总线连接 E3 设备，例如 Vitocal 和 VX3，则可以通过监听实时收集这些设备之间交换的数据。按“+”添加一行，选中“活动”复选框，选择一个设备并编辑“最小更新时间（秒）”。这里可以使用 0 秒，但我建议将其设置为 5 秒。
 * 最后，您可以添加通过 UDSonCAN 协议请求数据的时间表。再次按下“+”按钮并编辑设置。每个设备上可以有多个时间表。这样，您可以比其他数据点更频繁地请求某些数据点。“时间表”的默认值为 0，表示在实例启动期间只会请求一次这些数据点。
 
@@ -80,12 +80,33 @@ CAN-address=98：具有奇数 ID 的数据点
 | ID | 数据| 单位|
 | ------|:--- |------|
 | 592,593 | 有功功率 L1、L2、L3、总计 | W |
-| 594,595 | 无功功率 L1、L2、L3、总计 | VA |
-| 596,597 | 电流，L1，L2，L3，cosPhi | A，- |
+| 594,595 | 无功功率 L1、L2、L3、总计 | var |
+| 596,597 | 绝对电流，L1，L2，L3，cosPhi | A，- |
 | 598,599 | 电压，L1，L2，L3，频率 | V，Hz |
 | 600,601 | 累计进出口 | 千瓦时 |
-| 602,603 | 总有功功率，总无功功率 | W，VA |
+| 602,603 | 总有功功率，总无功功率 | W, var |
 | 604,605 | 累计进口量 | 千瓦时 |
+
+# E3100CB 数据和单位
+| ID | 数据| 单位|
+| ------|:--- |------|
+| 1385_01 | 累计进口量 | kWh |
+| 1385_02 | 累计输出 | kWh |
+| 1385_03 | 状态： -1 => 进料 \| +1 => 供应 | |
+| 1385_04 | 有功功率总计 | W |
+| 1385_08 | 有功功率 L1 | W |
+| 1385_12 | 有功功率 L2 | W |
+| 1385_16 | 有功功率 L3 | W |
+| 1385_05 | 无功功率总计 | var |
+| 1385_09 | 无功功率 L1 | var |
+| 1385_13 | 无功功率 L2 | var |
+| 1385_17 | 无功功率 L3 | var |
+| 1385_06 | 电流，绝对 L1 | A |
+| 1385_10 | 电流，绝对 L2 | A |
+| 1385_14 | 电流，绝对 L3 | A |
+| 1385_07 | 电压，L1 | V |
+| 1385_11 | 电压，L2 | V |
+| 1385_15 |电压，L3 | V |
 
 # 提示和限制
 ## 此 ioBroker 适配器正在开发中，处于*测试阶段*
@@ -108,7 +129,7 @@ CAN-address=98：具有奇数 ID 的数据点
 ## Open3e 可以并行使用吗？
 是的，在某些条件下这是可能的：
 
-* 如果您在这里只使用数据收集，那么您可以无限制地使用 open3e。
+* 如果您仅在此处使用数据收集，则可以无限制使用 open3e。
 * 如果您在此处使用 UDSonCAN，请务必不要对与 open3e 相同的设备执行此操作。如果您这样做，您将遇到偶尔的通信错误。
 
 ## Changelog
@@ -116,6 +137,13 @@ CAN-address=98：具有奇数 ID 的数据点
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2024-04-21)
+* (MyHomeMyData) Structure of data point 1690 (ElectricalEnergySystemPhotovoltaicStatus) changed based on issue https://github.com/MyHomeMyData/E3onCAN/issues/6. Manual adaptations may be needed, please check!
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240420
+* (MyHomeMyData) Added support for energy meter E3100CB
+* (MyHomeMyData) Update of list of data points for E380 to version 20240418
+* (MyHomeMyData) Main change for E380 id 600/601 (GridEnergy): Now using correct data format. Many thanks to @M4n197 for unveiling the right data format. Manual adaptations may be needed, please check!
+
 ### 0.8.0 (2024-03-22)
 * (MyHomeMyData) Added support for energy meter E380 with CAN-address=98
 * (MyHomeMyData) Update of list of data points for E380 to version 20240320

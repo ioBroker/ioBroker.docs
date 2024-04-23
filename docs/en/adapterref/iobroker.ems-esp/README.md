@@ -23,6 +23,7 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 * ems-esp gateway (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
   The old ESP8266 gateways with API V2 are NOT SUPPORTED ANYMORE !!
   The adapter is tested for the ems-esp gateway with latest firmware version (> V3.6.0) of ESP32
+  Latest dev versions of firmware might not work stable with the ioBroker adapter. Use is on own risk.
 
 * New Bosch-Group Cloud-Gateways (MX300 / EasyControl ...) are not supported since they do not support LAN API !
 
@@ -30,6 +31,7 @@ The ioBroker ems-esp adapter can read and write data to both gateways to control
 It can be used either for the original Bosch-Group gateways or the ems-esp or both in parallel.
 All changed states from own scripts or the object browser does have to set acknowledged = false !!!
 
+## NEW in Version >= 3.3.0: Intoduce warnings for using non-productive ems-esp firmware. 
 
 ## NEW in Version >= 3.0.0: EMS+ entities (switchPrograms and holidayModes) are implemented for EMS-ESP gateway and if found states are created. 
 	The ems-esp gateway firmware does not support switchPrograms and holidayModes for EMS+ thermostats (RC310 / RC300 or similar)
@@ -73,23 +75,22 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.4.0 (2024-04-22)
+* changes for ems-esp firmware 3.7.0 
+* introduce warnings in log for using ems-esp dev firmware
+
+### 3.3.0 (2024-04-20)
+* introduce a new check for ems-esp gateway formatting settings for boolean and enum values
+* stop ems-esp polling if wrong settings are detected !
+
+### 3.2.1 (2024-04-17)
+* update release script
+
+### 3.2.0 (2024-04-17)
+* change for ems-esp firmware 3.7 - add dhw tag
+
 ### 3.1.1 (2024-04-11)
 * update dependencies and release  script
-
-### 3.1.0 (2024-04-07)
-* Update km200 gateway encryption test for wrong passwords
-* avoid json error on adapter start for field /gateway/firmware
-
-### 3.0.5 (2024-04-07)
-* avoid json error on adapter start for field /gateway/firmware
-* update test-and-release worflow
-* update license info
-
-### 3.0.4 (2024-04-07)
-* avoid json error on adapter start for field /gateway/firmware
-
-### 3.0.3 (2024-03-09)
-* improve km200 data read to avoid errors
 
 ## License
 MIT License

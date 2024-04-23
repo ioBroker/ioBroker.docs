@@ -120,6 +120,10 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.3.0 (2023-12-15)
 
 - fix login
@@ -282,6 +286,7 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

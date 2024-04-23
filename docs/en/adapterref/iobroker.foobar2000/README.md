@@ -41,6 +41,10 @@ To display the cover as a link to a file, in the file ```c:\Users\{USER}\AppData
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2024-04-17)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.1.0 (2023-11-07)
 * (mcm1957) Adapter requires nodejs16 or newer now.
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organization.
@@ -81,7 +85,7 @@ To display the cover as a link to a file, in the file ```c:\Users\{USER}\AppData
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

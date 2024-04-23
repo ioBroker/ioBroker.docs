@@ -46,6 +46,14 @@ If you find the adapter useful for you and want to support my work, feel free to
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.5.3 (2024-04-19)
+
+- Fix autoRecover datatype issue
+
+### 1.5.2 (2024-04-17)
+
+- Minor bugfixes and improvements
+
 ### 1.5.0 (2024-04-12)
 
 - Add the possibility to connect to the 'Fallback' MQTT server known as 'Developer MQTT'. This server is read-only - so no control is possible!

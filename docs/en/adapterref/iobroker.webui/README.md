@@ -129,6 +129,12 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.4.8 (2024-04-20)
+- fix for controller v6
+
+### 1.4.7 (2024-04-20)
+- compact mode on controler 6 support
+
 ### 1.4.6 (2024-04-10)
 - fix encoding for all files
 

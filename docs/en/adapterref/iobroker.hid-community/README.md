@@ -82,6 +82,14 @@ Restart the iobroker.hid-community module...
 -->
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.4.0 (2024-04-17)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.3.0 (2023-01-04)
 * Renamed to hid-community
 
@@ -91,6 +99,7 @@ Restart the iobroker.hid-community module...
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2023 ioBroker-Community, soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

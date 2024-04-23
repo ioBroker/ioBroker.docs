@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
+hash: tDqMsfwdHnBhTrnQMUFXYtGUx0Uvwep6ITJ82u84Aq4=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -14,45 +14,48 @@ hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 ![NPM](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)
 
 # IoBroker.ems-esp
-**Tests:** ![Test und Freigabe](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
 ## Bosch / Buderus Heizsysteme mit km200 / IP-inside und/oder ems-esp Schnittstelle
 Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe über EMS- oder EMS+-Bus.
 (Buderus / Junkers / Netfit usw.).
 
-## Es kann über Web-API-Aufrufe eine Schnittstelle zum Heizsystem herstellen:
-* km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von Bosch Group)
+## Es kann mithilfe von Web-API-Aufrufen eine Schnittstelle zum Heizsystem herstellen für:
+* km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von der Bosch-Gruppe)
 
-* ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit der neuesten Entwicklungsversion (siehe unten) und dem ESP32-Chip.
+* ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit neuester Entwicklerversion (siehe unten) und dem ESP32-Chip.
 
-Die alten ESP8266-Gateways mit API V2 werden NICHT MEHR UNTERSTÜTZT!! Der Adapter ist für das EMS-ESP-Gateway mit der neuesten Firmware-Version (> V3.6.0) von ESP32 getestet
+Die alten ESP8266-Gateways mit API V2 werden NICHT MEHR UNTERSTÜTZT!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten Firmware-Version (> V3.6.0) von ESP32 getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
 
 * Neue Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
 
-Der ioBroker ems-esp-Adapter kann Daten zu beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
-Es kann entweder für die Original-Gateways der Bosch-Gruppe oder das ems-esp oder beide parallel verwendet werden.
-Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen quittiert = falsch gesetzt werden !!!
+Der ioBroker ems-esp Adapter kann Daten von beiden Gateways lesen und schreiben, um alle Heizkomponenten zu steuern.
+Er kann entweder für die originalen Bosch-Group Gateways oder das ems-esp oder beide parallel verwendet werden.
+Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen auf acknowledged = false gesetzt werden!!!
 
-## NEU in Version >= 3.0.0: EMS+-Entitäten (switchPrograms und HolidayModes) werden für das EMS-ESP-Gateway implementiert und bei gefundenen Zuständen werden erstellt.
-Die ems-esp-Gateway-Firmware unterstützt keine SwitchPrograms und HolidayModes für EMS+-Thermostate (RC310 / RC300 oder ähnlich). Durch die Aktivierung dieser neuen Funktion werden Rohtelegramme an das ems-esp-Gateway gesendet und dann versucht, die Antwort zu lesen.
-Die Tests werden für die Schaltprogramme A und B für HC1 bis HC4, Brauchwasser (Warmwasser) und Zirkulationspumpe (CP) sowie die Urlaubsmodi hm1–hm5 durchgeführt.
-Die gefundenen erweiterten Entitäten werden in den Instanzeinstellungen gespeichert. Daher erfolgt einmalig ein Neustart der Adapterinstanz.
+## NEU in Version >= 3.3.0: Einführung von Warnungen für die Verwendung nicht produktiver ems-esp-Firmware.
+## NEU in Version >= 3.0.0: EMS+-Entitäten (SwitchPrograms und HolidayModes) sind für das EMS-ESP-Gateway implementiert und wenn gefunden, werden Zustände erstellt.
+Die ems-esp-Gateway-Firmware unterstützt keine switchPrograms und holidayModes für EMS+-Thermostate (RC310 / RC300 oder ähnliche). Durch Aktivieren dieser neuen Funktion werden Rohtelegramme an das ems-esp-Gateway gesendet und dann versucht, die Antwort zu lesen.
 
-Anschließend wird nach diesen gefundenen Zuständen die Rohantwort dekodiert und es werden Zustände ähnlich den KM200-Gateway-API-Daten erstellt.
-Wenn das km200-Gateway aktiviert ist, ist diese Funktion deaktiviert, um doppelte Einträge mit demselben Namen zu vermeiden.
-Die erstellten Zustände bestehen aus JSON-Strukturen, Enum-Werten oder Arrays und sind beschreibbar – Seien Sie vorsichtig mit dem richtigen Inhalt.
-Ich empfehle einen Test mit den Bosch/Buderus-Apps, um die richtigen Inhalte zu identifizieren – insbesondere für die Urlaubsmodi.
-Die Abfrage ist auf alle 2 Minuten eingestellt.
+Es werden die switchPrograms A und B für hc1 bis hc4, dhw (Warmwasser) und Umwälzpumpe (cp) und holidayModes hm1-hm5 getestet.
 
-## NEU Energieaufzeichnungen und -statistiken benötigen eine aktive Datenbankinstanz.
-Aufzeichnungen erfordern eine InfluxDB-Adapterversion >= 4.0.2, die das Löschen von DB-Datensätzen ermöglicht. Der Aufbewahrungszeitraum wird jetzt gelesen und Aufzeichnungen werden nur innerhalb des Aufbewahrungszeitraums gespeichert – Beta-Status. InfluxDB v2 benötigt zum Speichern einen Aufbewahrungszeitraum von > 2 Jahren Alles historische Werte.
+Die gefundenen erweiterten Entitäten werden in den Instanzeinstellungen gespeichert. Daher wird einmalig ein Neustart der Adapterinstanz durchgeführt.
+
+Nach diesen gefundenen Zuständen wird die Rohantwort dekodiert und Zustände werden ähnlich den API-Daten des KM200-Gateways erstellt.
+Wenn das KM200-Gateway aktiviert ist, wird diese Funktion deaktiviert, um doppelte Einträge mit demselben Namen zu vermeiden.
+Die erstellten Zustände bestehen aus JSON-Strukturen, Enumerationswerten oder Arrays und sind beschreibbar – achten Sie auf den richtigen Inhalt.
+Ich empfehle, mit den Bosch/Buderus-Apps zu testen, um den richtigen Inhalt zu identifizieren – insbesondere für Urlaubsmodi.
+Die Abfrage erfolgt alle 2 Minuten.
+
+## NEU Energieaufzeichnungen und -statistiken erfordern eine aktive Datenbankinstanz.
+Für Aufzeichnungen ist ein InfluxDB-Adapter mit einer Version >= 4.0.2 erforderlich, der das Löschen von Datenbankaufzeichnungen ermöglicht. Die Aufbewahrungsfrist wird jetzt gelesen und Aufzeichnungen werden nur innerhalb der Aufbewahrungsfrist gespeichert – Betastatus: Für InfluxDB v2 muss die Aufbewahrungsfrist auf > 2 Jahre eingestellt werden, damit alle historischen Werte gespeichert werden.
 In V2 ist dies ein globaler Parameter für alle Zustände!
 
-## NEU: Hysterese des Wärmebedarfs verbessert.
-Schalten Sie den Wärmebedarf ein, wenn Ist-Temperatur <= Soll-Temp. - Delta. Ausschalten, wenn Soll-Temp. < Ist-Temp. Zwischen Soll-Delta und Soll-Temp. nichts unternehmen. Stellen Sie sicher, dass Delta hoch genug ist, um zu viele Kesselstarts zu vermeiden.
+## NEU: Wärmebedarfs-Hysterese verbessert.
+Wärmebedarf einschalten, wenn Isttemperatur <= Solltemperatur – Delta. Ausschalten, wenn Solltemperatur < Isttemperatur. Zwischen Solltemperatur – Delta und Solltemperatur nichts unternehmen. Sicherstellen, dass das Delta hoch genug ist, um zu viele Kesselstarts zu vermeiden.
 
 ## NEU: Wärmebedarfsparameter können während der aktiven Instanz geändert werden
-Die Wärmebedarfsparameter Delta/Gewicht für jeden Thermostat können während der aktiven Instanz innerhalb von Objekten geändert werden. Anmerkung: Das aktualisierte Gewicht wird nur verwendet, wenn ein neuer Wärmebedarf gefunden wird. Die Wärmebedarfsparameter Gewichtung/Gewichtung für jeden Heizkreis können während der aktiven Instanz innerhalb von Objekten geändert werden
+Die Wärmebedarfsparameter Delta / Gewicht für jeden Thermostat können innerhalb von Objekten während der aktiven Instanz geändert werden. Hinweis: Das aktualisierte Gewicht wird nur verwendet, wenn ein neuer Wärmebedarf gefunden wird. Die Wärmebedarfsparameter Gewicht ein / Gewicht aus für jeden Heizkreis können innerhalb von Objekten während der aktiven Instanz geändert werden.
 
 Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 
@@ -67,27 +70,26 @@ Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.0.3 (2024-03-09)
-* improve km200 data read to avoid errors
+### **WORK IN PROGRESS**
+* changes for ems-esp firmware 3.7.0 
+* introduce warnings in log for using ems-esp dev firmware
 
-### 3.0.2 (2024-03-02)
-* improve km200 data read to avoid errors - try http get up to 3 times now - especially for recordings
+### 3.3.0 (2024-04-20)
+* introduce a new check for ems-esp gateway formatting settings for boolean and enum values
+* stop ems-esp polling if wrong settings are detected !
 
-### 3.0.1 (2024-02-25)
-* change KM200 error messages for recordings
+### 3.2.1 (2024-04-17)
+* update release script
 
-### 3.0.0 (2024-02-17)
-* Node >= 18 required
-* update heatdemand weight changes to be effective during active instance
-* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* create writable objects / states for switchPrograms and holidayModes
-* this function is only active when no km200 gateway is selected - ems-esp gateway only
-* improve error messages for km200 (wrong ip / passwords)
-* small changes within PDF adapter documentation
+### 3.2.0 (2024-04-17)
+* change for ems-esp firmware 3.7 - add dhw tag
 
-### 3.0.0-alpha.2 (2024-02-16)
-* Node >= 18 required
-* update heatdemand weight changes to be effective during active instance
+### 3.1.1 (2024-04-11)
+* update dependencies and release  script
+
+### 3.1.0 (2024-04-07)
+* Update km200 gateway encryption test for wrong passwords
+* avoid json error on adapter start for field /gateway/firmware
 
 ## License
 MIT License

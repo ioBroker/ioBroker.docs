@@ -46,6 +46,10 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.4 (2024-04-18)
+* (HGlab01) Add attribute 'runningOfflineSchedule'
+* (HGlab01) Bump axios to 1.6.8
+
 ### 0.5.3 (2024-01-29)
 * (HGlab01) Improve axios handling
 * (HGlab01) Bump axios to 1.6.7
@@ -66,11 +70,6 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 * (HGlab01) switch finaly to Admin5 UI
 * (HGlab01) Improve REST-call handling
 * (HGlab01) Bump axios to 1.6.1
-
-### 0.4.11 (2023-10-09)
-* (HGlab01) Bump json-explorer to 0.1.14
-* (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
-* (HGlab01) Bump axios to 1.5.1
 
 ## License
 MIT License

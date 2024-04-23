@@ -2,28 +2,37 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mpd/README.md
-title: Адаптер ioBroker.mpd
-hash: HE1Y4R29p9lYuhOs70rcV3/e60XmSDQFJUONHWQRzNI=
+title: адаптер ioBroker.mpd
+hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mpd/admin/mpd.png)
 
 ![Количество установок](http://iobroker.live/badges/mpd-stable.svg)
-![версия NPM](https://img.shields.io/npm/v/iobroker.mpd.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.mpd.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mpd.svg)
 ![НПМ](https://nodei.co/npm/iobroker.mpd.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # Адаптер ioBroker.mpd [![Тесты] (https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mpd/actions/)
-Подключайтесь к серверу [демон музыкального проигрывателя](http://musicpd.org), отправляйте команды, генерируйте события.
+Подключайтесь к серверу [демон музыкального проигрывателя](http://musicpd.org), отправляйте команды, отправляйте события.
 
 ## Документация
-См. также [Документация по протоколу MPD](http://www.musicpd.org/doc/protocol/).
-
-<!-- Заполнитель для следующей версии (в начале строки):
-
-### **В РАБОТЕ** -->
+См. также [Документация протокола MPD](http://www.musicpd.org/doc/protocol/).
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 2.1.0 (2024-04-20)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2023-09-18)
+* (maffmeier) Changed playlist command to recommended playlistinfo
+* (raintonr) Fix play button (start from last position in queue/track, not beginning)
+* (bluefox) Refactoring: minimum node.js version is 16
+
 ### 1.1.1 (2023-04-02)
 * (bluefox) Just small refactoring
 
@@ -117,6 +126,7 @@ hash: HE1Y4R29p9lYuhOs70rcV3/e60XmSDQFJUONHWQRzNI=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

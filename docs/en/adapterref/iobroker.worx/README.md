@@ -145,6 +145,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `batteryState`: Battery state in % (wire & Vision/readonly)
 -   `batteryTemperature`: Battery temperature in celsius (wire & Vision/readonly)
 -   `batteryVoltage`: Battery voltage in Volt (wire & Vision/readonly)
+-   `cameraStatus`: Status Camera 0=OK/1=Error (Vision/readonly)
+-   `cameraError`: Camera error 0=OK/1=Error (Vision/readonly)
 -   `cutOverSlabs`: Cut over slabs on = true / off = false (Vision/changeable)
 -   `direction`: Direction in grad (wire & Vision/readonly)
 -   `edgecut`: Start EdgeCut (wire & Vision/changeable)
@@ -236,6 +238,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ![Mower img/mower_3.png](img/mower_3.png)
 
+-   `rfidStatus`: Status RF sensor 0=OK/1=Error (vision/read only)
 -   `sendCommand`: Send cmd command (wire & Vision/changeable)
 
 ```json
@@ -288,7 +291,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `totalDistance`: Total distance (wire & Vision/readonly)
 -   `totalTime`: Total working time (wire & Vision/readonly)
 -   `waitRain`: Rain delay max. 12h in 30 minute steps (wire & Vision/changeable)
--   `waitRainCountdown` Start countdown when the sensor changes from wet to dry (wire & Vision/readonly)
+-   `waitRainCountdown` Start countdown when the sensor changes from wet to dry (wire & Vision/readonly) (currently disabled)
 -   `waitRainSensor` Status 0 for dry and 1 for wet (wire & Vision/readonly)
 -   `wifiQuality`: Wifi quality (wire & Vision/readonly)
 
@@ -305,18 +308,17 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### Additionally for vision
 
--   MultiZone
-    -   `multiZone.passages.passage_01.tagIdFrom`: RFID id of z1 - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
-    -   `multiZone.passages.passage_01.tagIdTo`: RFID id of z2 - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
-    -   `multiZone.passages.passage_01.zoneIdFrom`: Zone from (must z1 < z2) - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
-    -   `multiZone.passages.passage_01.zoneIdTo`: Zone closed (must z2 > z1) - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
-    -   `multiZone.zones.zone_1.borderDistance`: Edge cut in mm - allowed 50mm, 100mm, 150mm and 20mm - Set with Blockly without delay - Change is written in `multiZone.multiZone` (vision/changeable)
-    -   `multiZone.zones.zone_1.chargingStation`: 1 If the charging station is found in this zone. 0 for no charging station - Set with Blockly without delay - Change is written to `multiZone.multiZone` (vision/changeable)
-    -   `multiZone.zones.zone_1.cutOverBorder`: 1 to drive over plates if they are detected, otherwise 0. Different values ​​per zone are not permitted - Set with Blockly without delay - Change is written to `multiZone.multiZone` (Vision /changeable)
-    -   `multiZone.zones.zone_1.zone_id`: Numbering - Start with 1 - (vision/readonly)
-    -   `multiZone.rfid`: Total RF (readonly)
-    -   `multiZone.multiZone`: Multizone JSON (Vision/changeable) [Example](#example-blockly-startsequence-vision)
-    -   `multiZone.sendMultiZoneJson`: Send changes to Worx with a delay of 1.1 seconds (vision/changeable)
+-   MultiZones
+    -   `multiZones.zones.zone_1.borderDistance`: When boarder cutting, the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm - Set with Blockly without delay - Change is written in `multiZones.multiZones` (vision/changeable)
+    -   `multiZones.zones.zone_1.chargingStation`: 1 If the charging station is found in this zone. 0 for no charging station - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
+    -   `multiZones.zones.zone_1.cutOverBorder`: 1 to drive over plates if they are detected, otherwise 0. Set with Blockly without delay - Change is written to `multiZones.multiZones` (Vision /changeable)
+    -   `multiZones.zones.zone_1.zone_id`: Numbering - Start with 1 - (vision/readonly)
+    -   `multiZones.passages.passage_01.tagIdFrom`: RFID id of zoneIdFrom - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
+    -   `multiZones.passages.passage_01.tagIdTo`: RFID id of zoneIdTo - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
+    -   `multiZones.passages.passage_01.zoneIdFrom`: Zone from (must zoneIdFrom < zoneIdTo) - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
+    -   `multiZones.passages.passage_01.zoneIdTo`: Zone closed (must zoneIdTo > zoneIdFrom) - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
+    -   `multiZones.multiZones`: Multizones JSON (Vision/changeable) [Example](#example-blockly-sendMultiZonesJson-vision)
+    -   `multiZones.sendMultiZonesJson`: Send changes to Worx with a delay of 1.1 seconds (vision/changeable)
 
 Example:
 
@@ -339,7 +341,7 @@ Example:
                 "c": 1, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm - allowed 10mm, 15mm und 20mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -349,7 +351,7 @@ Example:
                 "c": 0, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -406,7 +408,7 @@ Default without zone:
 
 ![Vision img/mqtt_info.png](img/mqtt_info.png)
 
-### Example Blockly startsequence Vision
+### Example Blockly sendMultiZonesJson Vision
 
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -432,7 +434,7 @@ Default without zone:
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -499,7 +501,7 @@ Default without zone:
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -543,7 +545,7 @@ Default without zone:
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -610,7 +612,7 @@ Default without zone:
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -703,7 +705,7 @@ Default without zone:
         <next>
           <block type="control" id="k$;?LM/[x-TbZ^m=F4}i">
             <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-            <field name="OID">worx.0.xxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxx.multiZones.sendMultiZonesJson</field>
             <field name="WITH_DELAY">FALSE</field>
             <value name="VALUE">
               <block type="convert_object2json" id="b~2Bz}OiNg{V]!QgN^J7">
@@ -733,7 +735,6 @@ Default without zone:
 
 ### not allowed
 
-![img/ok_direct.png](img/not_ok_direct.png)
 ![img/json_nok.png](img/json_nok.png)
 ![img/array_nok.png](img/array_nok.png)
 

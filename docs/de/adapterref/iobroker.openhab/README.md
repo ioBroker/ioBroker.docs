@@ -2,25 +2,34 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openhab/README.md
-title: Verschoben nach https://github.com/iobroker-community-adapters/ioBroker.openhab
-hash: 4ZdWn3iLr1RFw/oEu2l/uV8zXKJDY0DUGjmY+Mg2noo=
+title: ioBroker.openhab
+hash: Vm+wnbH0oOdX66Pivd4ERaoNxGRdd8+RrZCgBhvIXTw=
 ---
-# Verschoben nach https://github.com/iobroker-community-adapters/ioBroker.openhab
 ![Logo](../../../en/adapterref/iobroker.openhab/admin/openhab.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/openhab-stable.svg)
 
-# IoBroker.openhab ===================
-Dieser Adapter verbindet den ioBroker mit [Openhab](http://openhab.org/).
+# IoBroker.openhab
+=================
 
-Es exportiert Geräte und Gruppen aus openhab und überwacht dann die Aktualisierung von Variablen.
+Dieser Adapter verbindet ioBroker mit [kontakt](http://openhab.org/).
+
+Es exportiert Geräte und Gruppen aus Openhab und überwacht dann Aktualisierungen der Variablen.
 
 ## Machen
 - Neue Geräte auch ohne Adapterneustart erkennen?
-- Im Moment nur Artikel anzeigen / umschaltbar, können auch die "Dinge" gelesen werden
-- Elemente, die aus OpenHab gelöscht wurden, verschwinden nicht im ioBroker
+- Zur Zeit nur Artikel anzeigen/umschaltbar, können auch die "Dinge" gelesen werden
+- Aus OpenHab gelöschte Elemente verschwinden nicht in ioBroker
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.2.0 (2024-04-21)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.1.0 (2019.02.12)
 * (Schluesselmeister) Add first support for new OH type definition
 
@@ -52,6 +61,7 @@ Es exportiert Geräte und Gruppen aus openhab und überwacht dann die Aktualisie
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2017-2018 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

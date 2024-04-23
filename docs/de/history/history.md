@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 2zkq9gMk4+UFfnhE8YMlENxvmtuAnGV5br1B85FMsiU=
+hash: 9lkXwIslTMt6irib7UzghCowTaF7S9gl5Z75CkBYJdA=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
 - Bitte definieren Sie den Header als
 
 ## AdapterName (JJJJ-MM-TT) - [Kurzbeschreibung]
-- Die Aufnahmebeschreibung könnte lauten:
+- Die Beschreibung der Aufnahme könnte lauten:
 - neuer Adapter
   - stabile Version
   - neue Funktion
@@ -209,7 +209,7 @@ https://github.com/boergegrunicke/ioBroker.govee-local
 
 <img src="https://raw.githubusercontent.com/boergegrunicke/ioBroker.govee-local/main/admin/govee-local.png" width="100" height="100" />
 
-Steuern Sie Govee-Geräte über lokalen Zugriff (keine Cloud)
+Steuern Sie Govee-Geräte über den lokalen Zugriff (keine Cloud)
 
 ## Pylontech (23.10.2023) - neuer Adapter
 https://github.com/PLCHome/ioBroker.pylontech
@@ -271,7 +271,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-## Emporia (07.12.2023) - neuer Adapter
+##emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -402,7 +402,7 @@ https://github.com/Standarduser/ioBroker.vis-homekittiles
 
 <img src="https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/admin/vis-homekittiles.png" width="100" height="100" />
 
-Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert. Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles über CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei /widgets/homekittiles/css/style.css als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
+Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert. Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles über CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei /widgets/homekittiles/css/style.css als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Es ist auch möglich, über den VIS-Editor im Bereich „Allgemein“ der Widgets eigene CSS-Klassen hinzuzufügen.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
@@ -431,3 +431,32 @@ https://github.com/BenAhrdt/ioBroker.smoothed
 <img src="https://github.com/BenAhrdt/ioBroker.smoothed/blob/main/admin/smoothed.png" width="100" height="100" />
 
 Dieser Adapter macht es einfach, einige Icons auszuwählen, um sie entsprechend einem ausgewählten Algorithmus und der Glättungszeit (Filterzeit) zu glätten. Sie können eine ID mehrmals auswählen, um sie in verschiedenen Algorithmen und/oder Zeiten zu glätten. Das Ziel ist eine ID im Verzeichnis des Flgers, der Ihnen die geglätteten Werte liefert. Sie können die Min- oder Max-Werte begrenzen. Begrenzen Sie die Dezimalstellen. Oder ignorieren Sie Werte mit einer hohen Standardabweichung.
+
+##heizoel24-mex (14.4.2024) – neuer Adapter
+https://github.com/ltspicer/ioBroker.heizoel24-mex
+
+<img src="https://github.com/ltspicer/ioBroker.heizoel24-mex/blob/main/admin/heizoel24-mex.png" width="100" height="100" />
+
+Der MEX ist ein Heizöl-Niveaumessgerät. Dieser Adapter liest die MEX-Daten vom Heizoel24-Server aus.
+
+## Hydrawise (17.4.2024) – neuer Adapter
+https://github.com/SentiQ/ioBroker.hydrawise
+
+<img src="https://github.com/SentiQ/ioBroker.hydrawise/blob/main/admin/hydrawise.jpg" width="100" height="100" />
+
+Integrieren Sie Ihren Hydrawise-Controller in iobroker. Sie können alle Controllerinformationen, Zeitpläne und Sensoren einsehen. Es ist auch möglich, die geplante Bewässerung um x Sekunden zu unterbrechen.
+
+## Tedee (17.4.2024) – neuer Adapter
+https://github.com/TA2k/ioBroker.tedee
+
+<img src="https://github.com/TA2k/ioBroker.tedee/blob/main/admin/tedee.png" width="100" height="100" />
+
+Adapter für Tedee-Schlösser. Dieser Adapter verwendet die lokale Bridge-API, um ein Tedee-Schloss zu steuern.
+Alle Lock-Geräte von Tedee werden unterstützt.
+
+## Pid (22.4.2024) – neuer Adapter
+https://github.com/mcm4iob/ioBroker.pid
+
+<img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
+
+Dieser Adapter bietet die Funktionalität eines PID-Reglers.

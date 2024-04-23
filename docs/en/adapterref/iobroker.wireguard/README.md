@@ -106,6 +106,11 @@ Basically there are three ways to execute the command:
 ## Changelog
 ### **WORK IN PROGRESS**
 
+### 1.6.3 (2024-04-16)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Fix: Removed annoying warning when setting null or undefined values (introduced in v1.6.2)
+* (grizzelbee) Upd: Requiring at least admin v6.13.16
+
 ### 1.6.2 (2024-03-26)
 * (grizzelbee) Upd: Dependencies got updated
 * (grizzelbee) Fix: fixed sentry issues WIREGUARD-2B & WIREGUARD-2C
