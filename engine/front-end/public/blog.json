@@ -12,10 +12,10 @@
       "type": "news",
       "originalName": "2024_04_21.md",
       "desc": {
-        "de": "Dieser Blogbeitrag bietet einen umfassenden Überblick über neue Adapter und Funktionen, die zwischen Februar und April 2024 in ioBroker eingeführt wurden. Er zielt darauf ab, grundlegende Informationen für Benutzer aller technischen Hintergründe bereitzustellen.",
+        "de": "# Zusammenfassung der neuen Adapter und Funktionen zwischen Februar und April 2024\\nDieser Blogbeitrag bietet einen umfassenden Überblick über neue Adapter und Funktionen, die zwischen Februar und April 2024 in ioBroker eingeführt wurden. Er zielt darauf ab, grundlegende Informationen für Benutzer aller technischen Hintergründe bereitzustellen.",
         "en": "This blog post provides a comprehensive overview of new adapters and features introduced in ioBroker between February and April 2024\\nIt aims to deliver basic information for users of all technical backgrounds.",
-        "ru": "В этом сообщении блога представлен подробный обзор новых адаптеров и функций, представленных в ioBroker в период с февраля по апрель 2024 г. Целью статьи является предоставление базовой информации для пользователей с любым техническим опытом.",
-        "zh-cn": "这篇博文全面概述了 2024 年 2 月至 4 月期间 ioBroker 中引入的新适配器和功能，旨在为所有技术背景的用户提供基本信息。"
+        "ru": "# Обзор новых адаптеров и функций с февраля по апрель 2024 г.\\nВ этом сообщении блога представлен подробный обзор новых адаптеров и функций, представленных в ioBroker в период с февраля по апрель 2024 г. Целью статьи является предоставление базовой информации для пользователей с любым техническим опытом.",
+        "zh-cn": "# 2024 年 2 月至 4 月新适配器和功能汇总\\n这篇博文全面概述了 2024 年 2 月至 4 月期间 ioBroker 中引入的新适配器和功能，旨在为所有技术背景的用户提供基本信息。"
       }
     },
     "2023_09_16": {
