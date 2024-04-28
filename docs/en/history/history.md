@@ -303,7 +303,7 @@ https://github.com/nograx/ioBroker.zendure-solarflow
 
 This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API. It uses the official API provided by Zendure.
 
-# echarts (03.02.2024) - new feature
+## echarts (03.02.2024) - new feature
 Added "radar" chart type
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />
@@ -445,3 +445,10 @@ https://github.com/mcm4iob/ioBroker.pid
 <img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
 
 This adapter provides the functionality of a PID controller.
+
+## unifi-protect (28.4.2024) – stable release
+https://github.com/iobroker-community-adapters/ioBroker.unifi-protect
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/admin/unifi-protect.png" width="100" height="100" />
+
+Connects to Unifi Protect Controller and pulls all Data from added Cameras.
