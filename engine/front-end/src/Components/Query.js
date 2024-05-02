@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
-import PropTypes from 'prop-types';
 
 import { Button } from '@mui/material';
 
@@ -36,13 +35,6 @@ const styles = () => ({
 });
 
 class Query extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showUserMeetingDialog: false,
-        };
-    }
-
     render() {
         return <Button
             key="button"
@@ -50,13 +42,9 @@ class Query extends Component {
             className={this.props.classes.mainButton}
             onClick={() => window.open('https://usertreffen.iobroker.in', 'usertreffen')}
         >
-            <img src={userTreffen} alt="usertreffen"/>
+            <img src={userTreffen} alt="usertreffen" style={{ height: 36 }} />
         </Button>;
     }
 }
-
-Query.propTypes = {
-    mobile: PropTypes.bool,
-};
 
 export default withStyles(styles)(Query);

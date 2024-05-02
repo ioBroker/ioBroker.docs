@@ -87,17 +87,16 @@ class Affiliates extends Component {
         super(props);
         this.state = {
             explanation: false,
-            expanded: window.localStorage?.getItem('Docs.affExpanded') === 'true' || false,
         };
     }
 
     renderExplanation() {
         if (!this.state.explanation) {
-            return;
+            return null;
         }
 
         return <Dialog
-            open={true}
+            open={!0}
             onClose={() => this.setState({ explanation: false })}
         >
             <DialogTitle id="alert-dialog-title">{I18n.t('Why this link is here?')}</DialogTitle>
@@ -107,22 +106,32 @@ class Affiliates extends Component {
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button onClick={() => this.setState({explanation: false})} color="primary" autoFocus>Ok</Button>
+                <Button onClick={() => this.setState({ explanation: false })} color="primary" autoFocus>
+                    Ok
+                </Button>
             </DialogActions>
         </Dialog>;
     }
 
     renderOne(one) {
         return <div key={one.text} className={this.props.classes.mainDiv}>
-            {one.date ? <div className={this.props.classes.date}>{I18n.t('Last edit')}: {one.date}</div> : null}
+            {one.date ? <div className={this.props.classes.date}>
+                <span style={{ marginRight: 8 }}>{I18n.t('Last edit')}:</span>
+                {one.date}
+            </div> : null}
             {one.title ? <div className={this.props.classes.title}>{one.title}</div> : null}
-            {one.img ? <div className={this.props.classes.imgDiv}><img className={this.props.classes.img} src={one.img} alt="product"/></div> : null}
+            {one.img ? <div className={this.props.classes.imgDiv}>
+                <img className={this.props.classes.img} src={one.img} alt="product" />
+            </div> : null}
             {one.text ? <div className={this.props.classes.text}>{one.text}</div> : null}
             <div className={this.props.classes.buttonDiv}>
-                <Button className={this.props.classes.button} onClick={() => Utils.openLink(one.link)} color="secondary">{I18n.t('to Shop')} *</Button>
+                <Button className={this.props.classes.button} onClick={() => Utils.openLink(one.link)} color="secondary">
+                    <span style={{ marginRight: 8 }}>{I18n.t('to Shop')}</span>
+                    *
+                </Button>
                 <div className={this.props.classes.partnerLink}>{I18n.t('* partner link')}</div>
             </div>
-            <IconButton title={I18n.t('Explanation')} onClick={() => this.setState({explanation: true})} className={this.props.classes.question}><IconQuestion/></IconButton>
+            <IconButton title={I18n.t('Explanation')} onClick={() => this.setState({ explanation: true })} className={this.props.classes.question}><IconQuestion /></IconButton>
             {this.renderExplanation()}
         </div>;
     }
@@ -130,14 +139,13 @@ class Affiliates extends Component {
     renderExpands() {
         if (this.props.data.length > 1) {
             return <Accordion key="expansion" className={this.props.classes.morePanel}>
-                <AccordionSummary className={this.props.classes.summary} classes={{expanded: this.props.classes.moreSummary}} expandIcon={<IconExpandMore />}>{I18n.t('More devices')}</AccordionSummary>
+                <AccordionSummary className={this.props.classes.summary} classes={{ expanded: this.props.classes.moreSummary }} expandIcon={<IconExpandMore />}>{I18n.t('More devices')}</AccordionSummary>
                 <AccordionActions className={this.props.classes.moreDetails}>
                     {this.props.data.filter((a, i) => i > 0).map(a => this.renderOne(a))}
                 </AccordionActions>
             </Accordion>;
-        } else {
-            return null;
         }
+        return null;
     }
 
     render() {
@@ -149,10 +157,7 @@ class Affiliates extends Component {
 }
 
 Affiliates.propTypes = {
-    language: PropTypes.string,
     data: PropTypes.array,
-    theme: PropTypes.string,
-    mobile: PropTypes.bool,
 };
 
 export default withStyles(styles)(Affiliates);

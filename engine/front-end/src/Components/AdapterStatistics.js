@@ -20,9 +20,9 @@ import {
 
 import I18n from '../i18n';
 import Utils from '../Utils';
-import PieStats from '../Components/PieStats';
+import PieStats from './PieStats';
 
-const styles = theme => ({
+const styles = {
     dialogContent: {
         textAlign: 'center',
     },
@@ -82,7 +82,7 @@ const styles = theme => ({
     tableColumnPercent: {
 
     },
-});
+};
 const MAX_MOBILE_WIDTH = 1000;
 
 class AdapterStatistics extends Component {
@@ -104,7 +104,7 @@ class AdapterStatistics extends Component {
     sortHandler(col) {
         if (this.state.orderBy === col) {
             const order = this.state.order === 'asc' ? 'desc' : 'asc';
-            this.setState({order});
+            this.setState({ order });
             window.localStorage && window.localStorage.setItem('Docs.asOrder', order);
         } else {
             const order = 'desc';
@@ -129,7 +129,9 @@ class AdapterStatistics extends Component {
                     active={this.state.orderBy === type}
                     direction={this.state.order}
                     onClick={() => this.sortHandler(type)}
-                >{I18n.t(type)}</TableSortLabel>
+                >
+                    {I18n.t(type)}
+                </TableSortLabel>
             </Tooltip>
         </TableCell>);
     }
@@ -167,7 +169,10 @@ class AdapterStatistics extends Component {
                 {versions.map(v => <TableRow className={this.props.classes.tableRow}>
                     <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnVersion}`}>{v}</TableCell>
                     <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnCount}`}>{stats[v]}</TableCell>
-                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`}>{Math.round((stats[v] / sum) * 10000) / 100}%</TableCell>
+                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`}>
+                        {Math.round((stats[v] / sum) * 10000) / 100}
+                        %
+                    </TableCell>
                 </TableRow>)}
             </TableBody>
         </Table>;
@@ -176,13 +181,16 @@ class AdapterStatistics extends Component {
     renderContent() {
         const { classes } = this.props;
         return [
-            <h2>{I18n.t('Total count: ')} {this.props.statistics.adapters[this.props.adapter]}</h2>,
+            <h2>
+                <span style={{ marginRight: 8 }}>{I18n.t('Total count: ')}</span>
+                {this.props.statistics.adapters[this.props.adapter]}
+            </h2>,
             <Paper className={`${classes.paper} ${classes.paperPie} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>
                 <PieStats
                     data={this.props.statistics.versions[this.props.adapter]}
-                    size={'45%'}
+                    size="45%"
                     height={400}
-                    hideNumbersInLegend={true}
+                    hideNumbersInLegend
                     startFromPercent={3}
                     series={I18n.t('Count')}
                 />
@@ -217,8 +225,6 @@ class AdapterStatistics extends Component {
 }
 
 AdapterStatistics.propTypes = {
-    language: PropTypes.string,
-    theme: PropTypes.string,
     mobile: PropTypes.bool,
     width: PropTypes.number,
     adapter: PropTypes.string,

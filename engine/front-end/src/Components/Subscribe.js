@@ -14,13 +14,15 @@ import {
     DialogTitle,
 } from '@mui/material';
 
-import { FaMailBulk as IconEmail } from 'react-icons/fa';
-import { FaEnvelopeOpen as IconSubscribe } from 'react-icons/fa';
+import {
+    FaMailBulk as IconEmail,
+    FaEnvelopeOpen as IconSubscribe,
+} from 'react-icons/fa';
 
-import I18n from '../i18n';
 import { MdClose as IconClose } from 'react-icons/md';
+import I18n from '../i18n';
 
-const styles = theme => ({
+const styles = {
     mainDiv: {
         background: '#FFFFFF',
         width: 'calc(100% - 60px)',
@@ -34,10 +36,10 @@ const styles = theme => ({
         marginLeft: 10,
     },
     inputIcon: {
-        color: '#737373'
+        color: '#737373',
     },
     inputRoot: {
-        textAlign: 'center'
+        textAlign: 'center',
     },
     inputRootNotEmpty: {
         textAlign: 'left',
@@ -54,7 +56,7 @@ const styles = theme => ({
         '&:hover': {
             backgroundColor: '#8c9ba7',
             color: '#f7c6c7',
-        }
+        },
     },
     buttonFull: {
         width: 200,
@@ -73,7 +75,7 @@ const styles = theme => ({
     promiseHide: {
         opacity: 0,
     },
-});
+};
 
 const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -84,7 +86,7 @@ class Subscribe extends Component {
             email: '',
             inputFocused: '',
             tooltip: '',
-            showUnsubscribe: ''
+            showUnsubscribe: '',
         };
     }
 
@@ -106,7 +108,7 @@ class Subscribe extends Component {
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button onClick={() => this.setState({showUnsubscribe: ''})} color="secondary">
+                <Button onClick={() => this.setState({ showUnsubscribe: '' })} color="secondary">
                     {I18n.t('Cancel')}
                 </Button>
                 <Button onClick={() => this.onUnsubscribe()} color="primary">
@@ -143,9 +145,9 @@ class Subscribe extends Component {
                     .then(data => data.json())
                     .then(data => {
                         if (data.result === 'added') {
-                            this.setState({ tooltip: I18n.t('Subscribed!')});
+                            this.setState({ tooltip: I18n.t('Subscribed!') });
                         } else if (data.result === 'yet exists') {
-                            this.setState({ showUnsubscribe: this.state.email});
+                            this.setState({ showUnsubscribe: this.state.email });
                         } else {
                             this.setState({ tooltip: `${I18n.t('Cannot subscribe:')} ${I18n.t(data.result)}`, errorTooltip: true });
                         }
@@ -166,7 +168,7 @@ class Subscribe extends Component {
             autoHideDuration={6000}
             onClose={() => this.setState({ tooltip: '', errorTooltip: false })}
             message={<span id="message-id">{this.state.tooltip}</span>}
-            classes={{root: this.state.errorTooltip ? this.props.classes.tooltipError: undefined}}
+            classes={{ root: this.state.errorTooltip ? this.props.classes.tooltipError : undefined }}
             action={[
                 <IconButton
                     key="close"
@@ -183,23 +185,25 @@ class Subscribe extends Component {
     render() {
         const error = this.state.email && !regEmail.test(this.state.email.toLowerCase());
         return <div key="subscribe" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
-            <IconSubscribe className={this.props.classes.inputIcon}/>
+            <IconSubscribe className={this.props.classes.inputIcon} />
             <Input
                 error={!!error}
                 placeholder={this.state.inputFocused ? I18n.t('Your e-mail address') : I18n.t('Newsletter subscribe')}
                 classes={{ input: this.state.inputFocused || this.state.email ? this.props.classes.inputRootNotEmpty : this.props.classes.inputRoot }}
                 className={this.props.classes.input}
                 onKeyUp={e => e.keyCode === 13 && this.onSubscribe()}
-                onFocus={() => this.setState({inputFocused: true})}
-                onBlur={() => this.setState({inputFocused: false})}
-                onChange={e => this.setState({email: e.target.value})}
-            /><br/>
+                onFocus={() => this.setState({ inputFocused: true })}
+                onBlur={() => this.setState({ inputFocused: false })}
+                onChange={e => this.setState({ email: e.target.value })}
+            />
+            <br />
             <Button
                 color="primary"
                 className={`${this.props.classes.button} ${this.state.inputFocused || this.state.email ? this.props.classes.buttonFull : ''}`}
                 disabled={error || !this.state.email}
-                onClick={() => this.onSubscribe()}>
-                <IconEmail fontSize="small" style={{ marginRight: 5 }}/>
+                onClick={() => this.onSubscribe()}
+            >
+                <IconEmail fontSize="small" style={{ marginRight: 5 }} />
                 {this.state.inputFocused ? I18n.t('Subscribe') : ''}
             </Button>
             <div className={`${this.props.classes.promise} ${this.state.inputFocused || this.state.email ? this.props.classes.promiseHide : ''}`}>{I18n.t('We will not spam you. Promise!')}</div>
@@ -211,8 +215,6 @@ class Subscribe extends Component {
 
 Subscribe.propTypes = {
     language: PropTypes.string,
-    theme: PropTypes.string,
-    mobile: PropTypes.bool,
     backClass: PropTypes.string,
 };
 
