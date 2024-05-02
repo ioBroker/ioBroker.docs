@@ -137,7 +137,7 @@ const styles = theme => ({
         marginLeft: 10,
         marginRight: 10,
         padding: 15,
-        borderRadius: 100,
+        borderRadius: 20,
         textTransform: 'uppercase',
         background: '#3399CC',
         color: '#FFFFFF',
@@ -325,7 +325,7 @@ class Intro extends Component {
                 className={this.props.classes.userButton}
                 onClick={() => window.open('https://usertreffen.iobroker.in', 'usertreffen')}
             >
-                <img src={userTreffen} alt="usertreffen" style={{ height: 36 }} />
+                <img src={userTreffen} alt="usertreffen" style={{ height: 70, borderRadius: 10 }} />
             </div>
         </div>;
     }
