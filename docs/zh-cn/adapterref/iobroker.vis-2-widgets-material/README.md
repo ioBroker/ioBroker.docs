@@ -2,17 +2,17 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
-title: ioBroker.vis 2.0 的材质小部件
-hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
+title: ioBroker.vis 2.0 的 Material 小部件
+hash: NbZzVpDRzjaniHO/LzukDm6Up4OwVLs7vxfalnkaoR8=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
 ![安装数量](http://iobroker.live/badges/vis-2-widgets-material-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis-2-widgets-material.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-2-widgets-material.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-material.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.vis-2-widgets-material.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.vis-2-widgets-material.png?downloads=true)
 
-# IoBroker.vis 2.0 的材质小部件
+# IoBroker.vis 2.0 的 Material 小部件
 ## 小部件
 ### 按钮和开关
 ![开关](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-switches.png)
@@ -28,7 +28,7 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 
 - 模拟变化
 
-![模拟时钟 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
+![时钟模拟 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
 
 - 数字的
 
@@ -39,7 +39,7 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ![数字2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-digital-2.png)
 
 ### 简单状态
-使用此小部件，您可以控制一台设备。布尔值或数字。
+使用此小部件，您可以控制一个设备。布尔值或数字。
 
 - 数字
 
@@ -52,21 +52,21 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ### 在小部件中查看
 ![在小部件中查看](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
 
-不作为按钮：视图可以全尺寸显示，并且您可以控制视图中的元素。
+不像按钮：视图可以全尺寸显示，并且您可以控制视图中的元素。
 
 ![在小部件中查看 - 按钮](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-作为按钮：您可以显示视图的小缩略图，按下它，它将以全尺寸显示。
+作为按钮：您可以显示视图的小缩略图，按下它后，它将以全尺寸显示。
 
 ### 恒温器
 ![恒温器](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
 
-此外，如果您激活它，它还可以显示历史记录。
+此外，如果您激活了它，它可以显示历史记录。
 
 ### 带图表的实际值
 ![实际价值](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-1.png)
 
-![实际值与图表](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-2.png)
+![带图表的实际值](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-2.png)
 
 ＃＃＃ 安全控制
 ![安全控制](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-0.png)
@@ -75,7 +75,7 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 
 您可以定义延迟（以秒为单位）。
 
-激活后，定义的ID将被写入延迟秒数，延迟结束后，定义的ID将被设置为0，警报ID将被设置为true。
+通过激活，定义的ID将被写入延迟秒数，并且延迟结束后，定义的ID将被设置为0，并且警报ID将被设置为true。
 
 ![安全控制](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-2.png)
 
@@ -85,6 +85,8 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ＃＃＃ 地图
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-map-1.png)
 
+位置可以定义为一种组合状态，如`9.2344;41.374652` - (经度;纬度)，或两个独立的状态。
+
 ＃＃＃ 相机
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-camera-1.png)
 
@@ -92,33 +94,33 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
 Html 模板可用于显示任何 html 代码。
-此外，您也可以使用此小部件显示图像或 iframe。
+此外，您还可以使用此小部件显示图像或 iframe。
 
 ### 百叶窗
 ![百叶窗](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
 
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
-### 彩色灯
-通过RGB灯小部件，您可以控制不同类型的RGB灯。这里有些例子：
+### 彩灯
+使用 RGB 灯小部件，您可以控制不同类型的 RGB 灯。以下是一些示例：
 
 - RGB 颜色设置为一种状态，如“#RRGGBB”
-- R/G/B颜色设置为0到255的不同状态
-- RGBW 作为一个变量，如“#RRGGBBWW”
-- R/G/B/W颜色设置为0到255的不同状态
-- 色调/饱和度/亮度作为 3 种不同的状态
-- 色温为从 2700 到 6500 的一种状态或由物体的最小/最大定义
-- 白色模式状态可用于通过特殊状态在RGB和白色模式之间切换
+- R/G/B 颜色设置为从 0 到 255 的不同状态
+- RGBW 作为一个变量，如 '#RRGGBBWW'
+- R/G/B/W 颜色设置为从 0 到 255 的不同状态
+- 色调/饱和度/亮度为 3 种不同状态
+- 色温为 2700 至 6500 之间的一种状态，或由物体的最小值/最大值定义
+- 白色模式状态可通过特殊状态在RGB和白色模式之间切换
 
-![RGB灯1个](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-1.png)
+![RGB 灯 1](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-1.png)
 
-![RGB灯2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
+![RGB 灯 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
 
 ＃＃＃ 门锁
 ![门锁](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
 
 ＃＃＃ 吸尘器
-该小部件主要适用于小米吸尘器。但它也可以用于任何其他真空吸尘器。
+此小部件主要用于小米吸尘器。但它也可以用于任何其他吸尘器。
 
 唯一的区别是小米支持房间清洁。
 
@@ -126,13 +128,42 @@ Html 模板可用于显示任何 html 代码。
 
 ### 时间选择器
 ＃＃ 去做
-- 带百叶窗的百叶窗展开
+- 带百叶窗的窗帘
 
-<!-- 下一个版本的占位符（在行的开头）：
+<!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.3.31 (2024-04-26)
+* (bluefox) Improved wizard layout
+
+### 1.3.28 (2024-04-19)
+* (bluefox) Improved resolving of icons
+
+### 1.3.27 (2024-04-09)
+* (bluefox) Updated packages
+* (bluefox) improved RGB widget
+
+### 1.3.25 (2024-03-07)
+* (bluefox) Corrected filter property in the widget settings
+
+### 1.3.23 (2024-03-05)
+* (bluefox) Added possibility to change the icon size in simple widget
+
+### 1.3.21 (2024-02-22)
+* (bluefox) Corrected small input fields
+
+### 1.3.18 (2024-01-16)
+* (bluefox) Corrected long click for RGB widget on touch devices
+* (bluefox) Corrected dimmer widget
+
+### 1.3.17 (2023-12-19)
+* (bluefox) Added option to hide the line in switches widget
+
+### 1.3.15 (2023-12-17)
+* (foxriver76) Added option to rotate video
+
 ### 1.3.14 (2023-12-05)
 * (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
 * (bluefox) Added class names to ON/OFF widgets to allow styling
@@ -235,7 +266,7 @@ Html 模板可用于显示任何 html 代码。
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2023 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2022-2024 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

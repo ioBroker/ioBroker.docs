@@ -129,6 +129,43 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.6.5 (2024-05-07)
+- designer update
+
+### 1.6.4 (2024-05-05)
+- expand/collapse of child nodes in tree
+- undock all windows
+
+### 1.6.3 (2024-05-05)
+- jump to all css declarations
+
+### 1.6.2 (2024-05-04)
+- jump to styles
+
+### 1.6.1 (2024-05-02)
+- better icons
+
+### 1.6.0 (2024-05-02)
+- remove metro ui
+
+### 1.5.4 (2024-05-02)
+- fix delay command
+
+### 1.5.3 (2024-05-02)
+- fixes after package updates
+
+### 1.5.2 (2024-05-02)
+- removed missing prop
+
+### 1.5.1 (2024-05-02)
+- add delay in blockly & npm updates
+
+### 1.5.0 (2024-04-28)
+- nicer two way bindings
+
+### 1.4.9 (2024-04-24)
+- fix toastify
+
 ### 1.4.8 (2024-04-20)
 - fix for controller v6
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: l/uZNBMal/EgkzkxhIWRrGrTZKRsiNiUY7UgregSJHg=
+hash: 8tA+V8SN00R6sI+L20sFVqelcCZ+6srIMDexcZ7Xfhc=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -11,7 +11,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 具有多个选项卡的 `jsonConfig.json` 文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
-您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并支持注释。
+您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并且支持注释。
 
 此外，对于 JSON 文件，您必须在 `common` 部分的 `io-package.json` 中定义：
 
@@ -28,7 +28,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 表示适配器支持 JSON 配置。
 
 如果您测试此适配器，则可以看到几乎所有组件都在运行：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
-您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo` 来安装它。
+您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo`来安装它。
 
 所有标签、文本、帮助文本都可以是多种语言或仅仅是字符串。
 
@@ -120,7 +120,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `base64` - 如果为 true，图像将作为 data-url 保存在属性中，否则作为二进制文件保存在文件存储中
 -`!最大宽度`
 - `!最大高度`
-- `!crop` - 如果为 true，则允许用户裁剪图像
+- `!crop` - 如果为 True，则允许用户裁剪图像
 - `!square` - 宽度必须等于高度，或者裁剪必须只允许正方形作为形状
 
 ```
@@ -478,7 +478,7 @@ adapter.on('message', obj => {
 
 - `uuid` - 显示 iobroker UUID
 - `port` - 端口的特殊输入。它会自动检查端口是否被其他实例使用并显示警告。
-- `min` - 允许的最小端口号。它可以是 0。如果该值为零，则不会检查端口是否被占用。
+- `min` - 允许的最小端口号。它可以是 0。如果值为零，则不会检查端口是否被占用。
 
 - `deviceManager` - 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
 
@@ -512,8 +512,6 @@ adapter.on('message', obj => {
 }
 ```
 
-**注意：标有“！”的属性或控件尚未实现。**
-
 ## 控件的常用属性
 所有类型都可以有：
 
@@ -545,7 +543,7 @@ adapter.on('message', obj => {
 - `buttonTooltipNoTranslation` - 不翻译按钮工具提示
 - `placeholder` - 占位符（用于文本控制）
 - `noTranslation` - 不翻译选择或其他选项（不用于帮助、标签或占位符）
-- `onChange` - 结构形式为 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
+- `onChange` - 形式为 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` 的结构
 - `doNotSave` - 不保存此属性，因为仅用于内部计算
 - `noMultiEdit` - 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。
 -`确认`

@@ -106,6 +106,9 @@ Basically there are three ways to execute the command:
 ## Changelog
 ### **WORK IN PROGRESS**
 
+### 1.6.4 (2024-05-08)
+* (grizzelbee) Upd: Dependencies got updated
+
 ### 1.6.3 (2024-04-16)
 * (grizzelbee) Upd: Dependencies got updated
 * (grizzelbee) Fix: Removed annoying warning when setting null or undefined values (introduced in v1.6.2)

@@ -39,6 +39,10 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2024-04-30)
+
+-   (SentiQ) fixed adapter crash after dns not reachable
+
 ### 0.3.3 (2024-04-22)
 
 -   (SentiQ) updated dependencies

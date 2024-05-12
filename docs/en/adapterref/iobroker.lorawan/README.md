@@ -23,6 +23,29 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.9 (2024-05-11)
+* (BenAhrdt) remove debug warn logging
+
+### 1.0.8 (2024-05-11)
+* (BenAhrdt) set keepalive value to 0 => deactivate automatic reconnection
+
+### 1.0.7 (2024-05-10)
+* (BenAhrdt) setObjectAsynch bug after offline solved
+
+### 1.0.6 (2024-05-10)
+* (BenAhrdt) icons changed
+* (BenAhrdt) device offline notofication placed in messagehandler.js
+
+### 1.0.5 (2024-05-10)
+* (BenAhrdt) device offline location changed
+
+### 1.0.4 (2024-05-10)
+* (BenAhrdt) changed icon and offline time
+
+### 1.0.3 (2024-05-10)
+* (BenAhrdt) notifications for connection and disconnection LNS added
+* (BenAhrdt) notifiction for device offline added
+
 ### 1.0.2 (2024-03-27)
 * (BenAhrdt) change some comments and logging
 

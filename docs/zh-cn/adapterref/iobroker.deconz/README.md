@@ -3,50 +3,58 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
 title: 无题
-hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
+hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
 ---
 ![标识](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![安装数量](http://iobroker.live/badges/deconz-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![NPM 版本](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![下载](https://img.shields.io/npm/dm/iobroker.deconz.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
-ioBroker deConz 德累斯顿电子适配器
+ioBroker deConz dresden-elektronik 适配器
 
 ==============
 
 ＃＃ 注意
-不支持 deConz 的 Beta 版本
+不支持 deConz 测试版
 
-所需的 js-controller 版本 >2.x.x，所需的 node.js >= 10.x.x
+所需 js-controller 版本 >2.x.x, 所需 node.js >= 10.x.x
 
 ＃＃ 英语
-连接到由 dresden-elektronik 开发的 deConz 软件。该软件旨在成为通用 ZigBee 网关解决方案，使用 dresden-elektronik 的硬件、ConBee USB 记忆棒和用于 Raspberry Pi 的模块 RaspBee。
+连接到 dresden-elektronik 开发的 deConz REST-API 软件。该软件旨在成为通用的 ZigBee 网关解决方案，使用 dresden-elektronik 的硬件 ConBee(X) USB 棒和 RaspBee(X) Raspberry Pi 模块。
 
 您必须首先链接到 deConz。
 
-1.a) 输入 deConz 的 IP 地址
+1. a) 输入 deConz 的 IP 地址<br>
 
-    b) 输入标准桥接端口：80 和标准 Websocket：443
+b）输入标准桥接端口：80 和标准 Websocket：443
 
-2. 输入 IP 地址和端口并保存后，点击“创建 API 密钥”按钮。现在您可以输入 deConz 的凭据或前往 Phoscon APP 并将 ioBroker 注册为第三方 APP。
+2. 输入并保存 IP 地址和端口后，点击“创建 API 密钥”按钮。现在您可以输入 deConz 的凭证或转到 Phoscon APP 并将 ioBroker 注册为第三方 APP。
+
+## 为避免更新（deconz/adapter）后出现某些错误，请停止适配器并删除对象结构中的这些条目。启动时，将重新创建对象结构。
+![Deconz 适配器](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
 
 #### 同时发送多个命令
-为此，有一个称为“action”的对象。
+为了这个目的，有一个名为“动作”的对象。
 
 例子：
 
 `"on": true, "xy": [0.6586,0.3138]`
 
-`"on": true, "transitiontime": 5, "hue": 65500`
+`"on": true, "transitiontime": 5, "hue": 360`
 
-## 链接
-[德康兹](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [休息插件](https://github.com/dresden-elektronik/deconz-rest-plugin) [网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+链接
+[deCONZ REST-API 插件](https://github.com/dresden-elektronik/deconz-rest-plugin) [deCONZ REST-API 插件文档](https://dresden-elektronik.github.io/deconz-rest-doc/) [网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [赞助商](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.4.1 (2024-05-05)
+* (mattreim) Added new objects for various sensors
+
+### 1.4.0 (2024-01-29)
+* (mattreim) Added new objects for Tuya and Bosch thermostats
 
 ### 1.3.23 (2023-11-05)
 * fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
@@ -298,4 +306,4 @@ ioBroker deConz 德累斯顿电子适配器
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2023 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2024 Jey Cee jey-cee@live.com

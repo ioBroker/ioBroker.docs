@@ -173,8 +173,10 @@ This project uses the following components:
   * ()
 
 -->
-### **WORK IN PROGRESS**
+### 1.3.5 (2024-05-05)
 * (dirkhe) increase dependecy adapter-core
+* (dirkhe) fix json config
+* (dirkhe) update dependecies
 
 ### 1.3.3 (2024-04-07)	
 * (dirkhe) fix config validation

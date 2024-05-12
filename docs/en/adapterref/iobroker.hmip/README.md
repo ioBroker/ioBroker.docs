@@ -69,6 +69,9 @@ https://github.com/ioBroker/AdapterRequests/issues/62
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.23.1 (2024-04-30)
+* (bluefox) Allowed calling token request without PIN
+
 ### 1.23.0 (2024-04-19)
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
@@ -77,11 +80,11 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (bluefox) IMPORTANT: Node.js 16.x or newer is now required
 * (bluefox) Module `require` has been replaced by `axios`
 * (bluefox) Added JSON config
-* (ChristianFue) Added support for Hmip-RGBW 
+* (ChristianFue) Added support for Hmip-RGBW
 - (bluefox) Dependencies have been updated.
 
 ### 1.21.1 (2024-01-15)
-- (ApolloSK) Some issuses for energySensor have been fixed.
+- (ApolloSK) Some issues for energySensor have been fixed.
 - (mcm1957) Dependencies have been updated.
 
 ### 1.21.0 (2023-12-27)
@@ -168,7 +171,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Removed some generic (error/info) states that only exist on chosen devices to re-add later in a generic way
 
 ### 1.13.2 (2021-08-25)
-* (Apollon77) Fix warning on js-controller 3.3 with two datapoints
+* (Apollon77) Fix warning on js-controller 3.3 with two data points
 
 ### 1.13.1 (2021-08-06)
 * (Apollon77) Fix warning on js-controller 3.3 with "sabotage" datapoint

@@ -106,6 +106,10 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-04-29)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.2.2 (2023-12-25)
 * (foxriver76) trim host messages from notification-manager correctly
 

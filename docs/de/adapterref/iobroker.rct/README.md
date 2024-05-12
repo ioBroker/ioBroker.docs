@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
+hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rct.svg)
@@ -15,39 +15,49 @@ hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
 [![Logo](admin/rct.png)](https://www.rct-power.com/de)
 
 # IoBroker.rct
-**Tests:** ![Test und Freigabe](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
-
-## Besitzerwechsel
-Nachdem Lauff zum Home Assistant gewechselt ist, wird das Projekt von aruttkamp weitergeführt
+**Tests:** ![Testen und Freigeben](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
 ## RCT-Adapter für ioBroker
-Bitte beachten Sie, dass es sich um ein privates Projekt handelt und ich (Andreas Ruttkamp) in keinerlei Zusammenhang mit RCT stehe.
-
-Lesen Sie Werte eines RCT Power Photovoltaik-Stromrichters.
+Bitte beachten Sie, dass es sich hierbei um ein privates Projekt handelt und ich (Andreas Ruttkamp) in keiner Verbindung zu RCT stehe.
+Werte eines RCT Power Photovoltaik-Stromrichters ablesen.
 
 ## BEMERKUNGEN
-### Produktive Veröffentlichung
-Diese Produktivversion hat sich als stabil erwiesen.
+Über das Feld „RCT-Elemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen.
 
-Über das Feld „RCT Elements“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen.
-Wenn hier nichts eingegeben wird, wird die Standardeinstellung verwendet:
+Wenn hier nichts eingetragen wird, wird die Vorgabe verwendet:
 
-"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1] .flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag"
+"Batterie.bat_status,Batterie.soc,Batterie.soc_target,Batterie.soc_target_high,Batterie.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,Fehler[0].flt,Fehler[1].flt,Fehler[2].flt,Fehler[3].flt,g_syn c.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
-Weitere Elemente finden Sie im Code (Datei „rct/rc_core2.js“). Da dies nicht selbstbeschreibend ist, erfolgt die Verwendung auf eigene Gefahr!
+Weitere Elemente finden sich im Code (Datei "rct/rc_core2.js"). Da dieser nicht selbsterklärend ist, Verwendung auf eigene Gefahr!
 
 Das Objekt „battery.bat_status“ zeigt den Status einer angeschlossenen Batterie an:
 
 * 0 -> Laden/Entladen (Normalbetrieb)
-* 8 -> Aufladen (Kalibrierung)
-* 1024 -> Entladung (Kalibrierung)
-* 2048 -> Balancieren
+* 3 -> Update? (nicht sicher)
+* 5 -> Starten? (nicht sicher)
+* 8 -> Kalibrieren - Ladephase (0% --> 100%)
+* 1024 -> Kalibrieren - Entladephase (xx% --> 0%)
+* 2048 -> Ausgleich
+
+Das Objekt „inverter_state“ zeigt den Status des Wechselrichters an
+
+* 0 -> 'Standby'
+* 1 -> 'Initialisierung'
+* 2 -> 'Standby'
+* 3 -> 'Effizienz (Debug-Status für Entwicklungszwecke)'
+* 4 -> ‚Isolationsprüfung‘
+* 5 -> ‚Inselprüfung (Entscheidung, wohin man geht – Netzanschluss oder Insel)‘
+* 6 -> 'Powercheck (Entscheidung, ob noch genügend Energie zum Starten vorhanden ist oder nicht'
+* 7 -> 'Symmetrie (Zwischenkreisausrichtung)'
+* 8 -> 'Relaistest'
+* 9 -> ‚Grid Passive (Wechselrichter bezieht Strom aus dem Netz ohne Brückentaktung‘
+* 10 -> ‚Fledermaus passiv vorbereiten‘
+* 11 -> ‚Batteriepassage (netzunabhängig)‘
+* 12 -> 'Hardwaretest'
+* 13 -> 'Einspeisung'
 
 ## Bekannte Probleme
-### Falsche Kanäle/Zustände
-Eine neue Version ist möglicherweise nicht in der Lage, die richtigen ioBroker-Kanäle/-Zustände zu erstellen. In den meisten Fällen ist dies daran zu erkennen, dass der Knoten „Batterie“ als einzelnes Element und nicht als Ordner angezeigt wird.
-
-Stoppen Sie in diesem Fall den Adapter und löschen Sie den Knoten „rct.0“ manuell.
+Keiner
 
 ## Changelog
 
@@ -55,6 +65,26 @@ Stoppen Sie in diesem Fall den Adapter und löschen Sie den Knoten „rct.0“ m
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (NCIceWolf) Implementation of new adminUI
+* (Andreas Ruttkamp) index_m.html deleted
+
+
+### 1.2.7 (2024-05-05)
+* (Andreas Ruttkamp) prim_sm.state added
+* (NCIceWolf) handling of type errors added
+* (Andreas Ruttkamp) some Code cleaning
+* (NCIceWolf) Update io-package.json
+
+### 1.2.6 (2024-05-03)
+* (Andreas Ruttkamp) unused parameter deleted
+
+### 1.2.5 (2024-05-02)
+* (Andreas Ruttkamp) misspelling in rct_core2 corrected
+* (Andreas Ruttkamp) Missing ack:true added ( issue:#89)
+* (Andreas Ruttkamp) datatypes corrected ( issue:#106)
+* (NCIceWolf) changes to correct loosing connection ( issue:#114 )
+
 ### 1.2.4 (2024-02-09)
 * (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed
 

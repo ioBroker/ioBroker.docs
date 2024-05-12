@@ -3,51 +3,60 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
+hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
 ---
-![NPM版本](https://img.shields.io/npm/v/iobroker.rct.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rct.svg)
 ![安装数量（最新）](https://iobroker.live/badges/rct-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/rct-stable.svg)
-![GitHub 存储库的 Libraries.io 依赖关系状态](https://img.shields.io/librariesio/release/npm/ioBroker.rct)
-![国家公共管理](https://nodei.co/npm/iobroker.rct.png?downloads=true)
+![GitHub repo 的 Libraries.io 依赖状态](https://img.shields.io/librariesio/release/npm/ioBroker.rct)
+![新平台](https://nodei.co/npm/iobroker.rct.png?downloads=true)
 
-[![徽标](admin/rct.png)](https://www.rct-power.com/de)
+[![徽标]（admin/rct.png）](https://www.rct-power.com/de)
 
 # IoBroker.rct
-**测试：** ![测试与发布](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
-
-## 所有者变更
-劳夫切换到家庭助理后 - 项目将由 aruttkamp 继续
+**测试：**![测试与发布](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 RCT 适配器
-请注意，这是一个私人项目，我 (Andreas Ruttkamp) 与 RCT 没有任何关系。
-
+请注意，这是一个私人项目，我（Andreas Ruttkamp）与 RCT 没有任何关系。
 读取 RCT Power 光伏电源转换器的值。
 
 ＃＃ 评论
-### 高效发布
-这个富有成效的版本已被证明是稳定的。
+通过使用“RCT 元素”字段，可以选择从电源转换器读取哪些数据。
+如果此处未输入任何内容，则将使用默认值：
 
-通过使用“RCT元素”字段，可以选择应从功率转换器读取哪些数据。
-如果此处未输入任何内容，将使用默认值：
+“电池.bat_status，电池.soc，电池.soc_target，电池.soc_target_high，电池.soc_target_low，dc_conv.dc_conv_struct[0].p_dc_lp，dc_conv.dc_conv_struct[1].p_dc_lp，故障[0].flt，故障[1].flt，故障[2].flt，故障[3].flt，g_syn c.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
-"电池.bat_status,电池.soc,电池.soc_target,电池.soc_target_high,电池.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,故障[0].flt,故障[1] .flt,故障[2].flt,故障[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag"
+其他元素可在代码（文件“rct/rc_core2.js”）中找到。由于这不是自我描述的，因此使用时需自担风险！
 
-其他元素可以在代码（文件“rct/rc_core2.js”）中找到。由于这不是自我描述，因此使用风险自负！
-
-对象“battery.bat_status”指示已连接电池的状态：
+对象“battery.bat_status”指示所连接电池的状态：
 
 * 0 -> 充电/放电（正常操作）
-* 8 -> 充电（校准）
-* 1024 -> 放电（校准）
+* 3 -> 更新？（不确定）
+* 5 -> 开始？（不确定）
+* 8 -> 校准 - 充电阶段 (0% --> 100%)
+* 1024 -> 校准 - 放电阶段 (xx% --> 0%)
 * 2048 -> 平衡
 
-＃＃ 已知的问题
-### 错误的频道/状态
-新版本可能无法创建正确的 ioBroker 通道/状态。在大多数情况下，这可以通过显示为单个元素而不是文件夹的节点“电池”来识别。
+对象“inverter_state”指示逆变器的状态
 
-如果发生这种情况，请停止适配器并手动删除节点“rct.0”。
+* 0 -> ‘待机’
+* 1 -> ‘初始化’
+* 2 -> ‘待机’
+* 3 -> ‘效率（开发目的的调试状态）’
+* 4 -> ‘绝缘检查’
+* 5 -> ‘岛屿检查（决定去哪里 - 电网连接或岛屿）’
+* 6 -> '功率检查（决定是否有足够的能量来启动'
+* 7 -> ‘对称性（直流链路对齐）’
+* 8 -> ‘中继测试’
+* 9 -> ‘电网无源（逆变器从电网获取电力，无需桥接时钟）’
+* 10 -> ‘准备蝙蝠被动’
+* 11 -> ‘电池被动（离网）’
+* 12 -> ‘硬件测试’
+* 13 -> ‘单数’
+
+＃＃ 已知的问题
+没有任何
 
 ## Changelog
 
@@ -55,6 +64,26 @@ hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (NCIceWolf) Implementation of new adminUI
+* (Andreas Ruttkamp) index_m.html deleted
+
+
+### 1.2.7 (2024-05-05)
+* (Andreas Ruttkamp) prim_sm.state added
+* (NCIceWolf) handling of type errors added
+* (Andreas Ruttkamp) some Code cleaning
+* (NCIceWolf) Update io-package.json
+
+### 1.2.6 (2024-05-03)
+* (Andreas Ruttkamp) unused parameter deleted
+
+### 1.2.5 (2024-05-02)
+* (Andreas Ruttkamp) misspelling in rct_core2 corrected
+* (Andreas Ruttkamp) Missing ack:true added ( issue:#89)
+* (Andreas Ruttkamp) datatypes corrected ( issue:#106)
+* (NCIceWolf) changes to correct loosing connection ( issue:#114 )
+
 ### 1.2.4 (2024-02-09)
 * (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed
 

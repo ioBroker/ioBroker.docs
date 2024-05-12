@@ -104,8 +104,8 @@ The following request are sent to the API. But the availlable datapoints strongl
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+### 2.1.0 (2024-04-29)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
 
 ### 2.0.2 (2023-06-28)
@@ -136,67 +136,11 @@ The following request are sent to the API. But the availlable datapoints strongl
 -   (schweigel) Added archive polling intervall
 -   (schweigel) Added devicetype string
 
-### 1.1.1 (2020-11-30)
-
--   (schweigel) Added missing units
--   (schweigel) Added inverterinfo
-
-### 1.1.0 (2020-11-24)
-
--   (nkleber78) Implementation change for support of SYMO GEN24
--   (nkleber78) Fix issue with adapters connected state
-
-### 1.0.5 (2019-01-18)
-
--   (ldittmar) compact mode compatibility added
--   (ldittmar) add chinese support
-
-### 1.0.4
-
--   (ldittmar) Fix assignment to constant variable error
-
-### 1.0.3
-
--   (ldittmar) Ready for Admin 3
-
-### 1.0.2
-
--   (tobintax) Bugfix - Inverter Query regarding PAC adjusted.
-
-### 1.0.1
-
--   (tobintax) Added more values from Smartmeter
--   (tobintax) Added more Powerflow Values
--   (tobintax) Removed Value "EnergyReal_WAC_Minus_Relative" . This Value had no result and is undocumented in the fronius api documentation.
-
-### 1.0.0
-
--   (ldittmar) Fixed little errors
-
-### 0.0.5
-
--   (ldittmar) Read storage data and error/status codes
-
-### 0.0.4
-
--   (ldittmar) Read more data
-
-### 0.0.3
-
--   (ldittmar) Improved installation routine
-
-### 0.0.2
-
--   (ldittmar) First data is read
-
-### 0.0.1
-
--   (ldittmar) initial commit
-
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

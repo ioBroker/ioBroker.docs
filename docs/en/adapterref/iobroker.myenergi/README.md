@@ -28,6 +28,10 @@ To do this, click on “Advanced” and generate key
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (mcm1957) Adapter requires nodejs >=18 now.
+  
 ### 0.0.3
 
 add zappi unlock

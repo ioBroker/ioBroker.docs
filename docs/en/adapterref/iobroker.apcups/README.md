@@ -4,10 +4,11 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.apcups.svg)](https://www.npmjs.com/package/iobroker.apcups)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.apcups.svg)](https://www.npmjs.com/package/iobroker.apcups)
 ![Number of Installations (latest)](https://iobroker.live/badges/apcups-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/apcups-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.apcups.png?downloads=true)](https://nodei.co/npm/iobroker.apcups/)
 
-**Tests:** [![Test and Release](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/main.yml/badge.svg)](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/main.yml)
+**Tests:** [![Test and Release](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml)
 
 ## Apc UPS adapter for ioBroker
 
@@ -25,6 +26,13 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 ## Changelog
+### 4.0.0 (2024-05-10)
+ - BREAKING! 
+1. Added support of multiple UPS so states structure was changed. All existed states will be deleted. Please do backup before upgrade the adapter! Also existed configuration will be lost. Please re-configure the adapter and add one or more devices to it.
+2. Minimal js-controller version is 5.0.19
+3. Minimal admin version is 6.13.16
+### 3.0.1 (2024-04-25)
+ - Update dependencies
 ### 3.0.0 (2024-04-22)
  - BREAKING! Changed the minimal version of nodejs to 18, js-controller to 4.0.0
 ### 2.0.0 (2024-02-17)
@@ -45,7 +53,7 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 ## License
 MIT License
 
-Copyright (c) 2022 Serhiy Krasovskyy xhunter74@gmail.com"
+Copyright (c) 2024 Serhiy Krasovskyy xhunter74@gmail.com"
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

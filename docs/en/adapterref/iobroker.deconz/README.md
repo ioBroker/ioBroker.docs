@@ -6,7 +6,7 @@ ioBroker deConz dresden-elektronik Adapter
 ![Number of Installations](http://iobroker.live/badges/deconz-installed.svg) ![Number of Installations](http://iobroker.live/badges/deconz-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz)  [![Downloads](https://img.shields.io/npm/dm/iobroker.deconz.svg)](https://www.npmjs.com/package/iobroker.deconz) [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/deconz/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 
-[![NPM](https://nodei.co/npm/iobroker.deconz.png?downloads=true)](https://nodei.co/npm/iobroker.deconz/)
+[![NPM version](https://nodei.co/npm/iobroker.deconz.png?downloads=true)](https://nodei.co/npm/iobroker.deconz/)
 
 ## Notice
 No Support for Beta Versions of deConz
@@ -15,14 +15,16 @@ Required js-controller version >2.x.x, Required node.js >= 10.x.x
 
 ## English
 
-Connects to deConz software developed by dresden-elektronik. This software aims to be a universal ZigBee Gateway solution, using hardware from dresden-elektronik the ConBee USB stick and RaspBee a modul for the Raspberry Pi.
+Connects to deConz REST-API software developed by dresden-elektronik. This software aims to be a universal ZigBee Gateway solution, using hardware from dresden-elektronik the ConBee(X) USB stick and RaspBee(X) a modul for the Raspberry Pi.
 
 
 You must first link to deConz.
-1.  a) Enter ip address for deConz 
-    b) Enter standard Bridge Port: 80 and standard Websocket: 443
+1. a) Enter IP address for deConz <br>
+   b) Enter standard Bridge Port: 80 and standard Websocket: 443
 2. After IP address and port is entered and saved hit "Create API Key" Button. Now you can enter the credentials for deConz or go to Phoscon APP and register ioBroker as third party APP.
 
+## To avoid some errors after an update (deconz/adapter), stop the adapter and delete these entries in the object structure. When you start, the object structure is recreated.
+![Deconz-Adapter](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
 
 #### Send more than one command at the same time
 For this purpose there is a object called "action".
@@ -31,19 +33,22 @@ Examples:
 
 `"on": true, "xy": [0.6586,0.3138]`
 
-`"on": true, "transitiontime": 5, "hue": 65500`
+`"on": true, "transitiontime": 5, "hue": 360`
 
 
 ## Links
-[deConz](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/)  
-[REST plugin](https://github.com/dresden-elektronik/deconz-rest-plugin)  
+[deCONZ REST-API Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin)  
+[Documentation of deCONZ REST-API Plugin](https://dresden-elektronik.github.io/deconz-rest-doc/)  
 [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)  
 
 ## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
 
-### 1.4.0 (2023-01-29)
+### 1.4.1 (2024-05-05)
+* (mattreim) Added new objects for various sensors
+
+### 1.4.0 (2024-01-29)
 * (mattreim) Added new objects for Tuya and Bosch thermostats
 
 ### 1.3.23 (2023-11-05)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: 64pu2JH3IQGKk7ZQAuxUhXYOGtcOjlIJLb5VGdmAF54=
+hash: DwnhRiQ86diHMEuGidaw65VZ+1L8kmoYbYP7aZSGch8=
 ---
 ![Logo](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
@@ -12,32 +12,34 @@ hash: 64pu2JH3IQGKk7ZQAuxUhXYOGtcOjlIJLb5VGdmAF54=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.meross.svg)
 
 # IoBroker.meross
-![Test und Freigabe](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.** **MEROSS ist eine Marke von Chengdu Meross Technology Co., Ltd.**
+**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein Geschäftsziel.** **MEROSS ist ein Warenzeichen von Chengdu Meross Technology Co., Ltd.**
 
 ## Beschreibung
 Dieser Adapter ermöglicht die Steuerung von Meross-Geräten durch Verbindung mit den Meross-Cloud-Servern.
 
-Sie müssen Ihre Cloud-Anmeldedaten angeben. Der Adapter stellt eine Verbindung zu Ihrem Cloud-Konto her und abonniert alle Gerätedaten über MQTT. Aus diesem Grund müssen die Geräte mit ihrer Cloud verbunden sein. Derzeit ist keine Möglichkeit bekannt, die Geräte lokal zu steuern.
+Sie müssen Ihre Cloud-Anmeldeinformationen angeben. Der Adapter verbindet sich mit Ihrem Cloud-Konto und abonniert alle Gerätedaten über MQTT. Aus diesem Grund müssen die Geräte mit ihrer Cloud verbunden sein. Derzeit ist keine Möglichkeit bekannt, die Geräte lokal zu steuern.
 
-Eine Adapterinstanz zeigt alle Geräte eines Meross Cloud-Kontos an und ermöglicht deren Steuerung.
+Eine Adapterinstanz zeigt alle Geräte von einem Meross-Cloud-Konto an und ermöglicht deren Steuerung.
 
-## Hinweis bei Verwendung von MFA
-Der Adapter ermöglicht die Eingabe des aktuellen MFA-Codes in den Einstellungen. Bitte beachten Sie, dass ein Code nur 30 Sekunden gültig ist, also schnell eingeben und speichern :-)
+Wenn dem Meross-Cloud-Konto neue Geräte hinzugefügt werden, muss der Meross-Adapter neu gestartet werden, um den Iobroker-Datenbaum des Adapters entsprechend zu aktualisieren.
 
-Der Adapter versucht, sich das Token zu merken, aber dieses Token geht nach einiger Zeit aus! Bei Verwendung von MFA bedeutet dies also, dass beim Neustart des Adapters keine erneute Anmeldung erfolgen kann, da das Token ungültig ist und auch der MFA-Code! In diesem Fall bleibt der Adapter offline, bis Sie einen neuen MFA-Code eingeben.
+## Hinweis zur Verwendung von MFA
+Der Adapter ermöglicht es, den aktuellen MFA-Code in den Einstellungen einzugeben. Bitte beachten Sie, dass ein Code nur 30 Sekunden gültig ist, also schnell eingeben und speichern :-)
+
+Der Adapter versucht, sich das Token zu merken, aber dieses Token läuft nach einiger Zeit ab! Bei Verwendung von MFA bedeutet dies, dass beim Neustart des Adapters keine erneute Anmeldung möglich ist, da das Token und auch der MFA-Code ungültig sind! In diesem Fall bleibt der Adapter offline, bis Sie einen neuen MFA-Code eingeben.
 
 ## Bekannte funktionierende Geräte
-Nach meinem derzeitigen Wissensstand sollten alle Geräte funktionieren. Bitte überprüfen Sie jedoch die Protokolle oder melden Sie alle Funktionen oder neuen Gerätetypen, die keine Status erstellen (neue Gerätetypen müssen von mir manuell hinzugefügt werden, daher ist ein Problem wichtig).
+Nach meinem derzeitigen Kenntnisstand sollten alle Geräte funktionieren. Bitte überprüfen Sie jedoch die Protokolle oder melden Sie alle Funktionen oder neuen Gerätetypen, die keine Zustände erstellen (neue Gerätetypen müssen von mir manuell hinzugefügt werden, daher ist ein Problem wichtig).
 
-## So melden Sie Probleme und Funktionswünsche
-Bitte nutzen Sie hierfür GitHub Issues.
+## So melden Sie Probleme und Funktionsanfragen
+Bitte verwenden Sie hierfür GitHub-Probleme.
 
-Am besten stellen Sie den Adapter auf den Debug-Protokollmodus ein (Instanzen -> Expertenmodus -> Spaltenprotokollebene). Dann holen Sie sich bitte die Protokolldatei von der Festplatte (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis und nicht vom Administrator, da der Administrator die Zeilen abschneidet). Wenn Sie es nicht in der GitHub-Ausgabe bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) senden. Bitte fügen Sie einen Verweis auf das entsprechende GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
+Am besten stellen Sie den Adapter auf den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalte Log-Level). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis und nicht von Admin, da Admin die Zeilen abschneidet). Wenn Sie es nicht in einem GitHub-Problem bereitstellen möchten, können Sie es mir auch per E-Mail senden (iobroker@fischer-ka.de). Fügen Sie bitte einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
 
 ## Changelog
 ### 1.17.0 (2023-12-30)

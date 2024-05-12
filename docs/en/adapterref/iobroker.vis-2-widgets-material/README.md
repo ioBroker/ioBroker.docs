@@ -78,6 +78,8 @@ and after the delay is over, the defined ID will be set to 0, and the alarm ID b
 ### Map
 ![Player](img/material-map-1.png)
 
+Position could be defined as a combined state, like `9.2344;41.374652` - (longitude;latitude) or as two separate states.
+
 ### Camera
 ![Player](img/material-camera-1.png)
 
@@ -125,8 +127,10 @@ The only difference is that Xiaomi supports the room cleaning.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ## Changelog
+### 1.3.31 (2024-04-26)
+* (bluefox) Improved wizard layout
+
 ### 1.3.28 (2024-04-19)
 * (bluefox) Improved resolving of icons
 

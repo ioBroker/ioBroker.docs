@@ -61,9 +61,22 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Breaking change: Renamed input states (now digital/analog) of Shelly Plus Addon (Ext)
+* (klein0r) Added Shelly Plus Uni
+* (klein0r) Added Shelly H&T (Gen3)
+* (klein0r) Improved structure of ble events (receivedBy) - see documentation for details
+
+### 7.0.0 (2024-04-29)
+
 NodeJS >= 18.x and js-controller >= 5 is required
 
+* (klein0r) Added Shelly 1 Mini (Gen3)
 * (svenbluege) Added Shelly 1 PM Mini (Gen3)
+* (klein0r) Added Shelly PM Mini (Gen3)
+* (klein0r) Added Shelly Pro Dimmer 1 PM and Pro Dimmer 2 PM
+* (klein0r) Fixed Shelly Wall Display integration
+* (klein0r) Added device list of ble events (receivedBy) - removed rssi state
+* (klein0r) Added Switch Addon for Shelly Pro 3 EM
 
 ### 6.9.0 (2024-03-12)
 
@@ -86,10 +99,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 * (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2
 * (klein0r) Added humidity of Shelly Plus Addon
 * (klein0r) Not all devices have external power
-
-### 6.6.0 (2023-10-17)
-
-* (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
 
 ## License
 

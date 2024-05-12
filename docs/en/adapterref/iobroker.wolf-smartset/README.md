@@ -24,6 +24,9 @@ To login you only need your username and password from your smartset-app. After 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.3 (2024-04-29)
+- (mcm1957) Dependencies have been updated
+
 ### 1.2.2 (2024-04-22)
 - (flingo64) A crash during re-authentication has been fixed. OpenIdInit will be called only once to avoid endless loop during re-authentication.
 

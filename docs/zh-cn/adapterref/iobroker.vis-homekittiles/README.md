@@ -3,51 +3,69 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: uNnhx/0Ug2tl/hOGTCobHT+OrmoWIqKKS4KMkZQ9mLI=
+hash: kqvZ7d9RUB2YoTuHY5Nbx+5/WhQ8RixDVyUkEi820nU=
 ---
 # IoBroker.vis-homekittiles
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-homekittiles.svg)
 ![安装数量](https://iobroker.live/badges/vis-homekittiles-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/vis-homekittiles-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.vis-homekittiles.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.vis-homekittiles.png?downloads=true)
 
 <img src="doc/img/title-pic_hkt-on-ipad.png" />
 
-**测试：** ![测试与发布](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker-VIS 的 HomeKit-Tiles
-Homekit Tiles 是一个基于 Apple HomeKit 设计的小部件集。
-这些小部件的特殊之处在于它们不包含任何固定的样式元素，但所有内容均使用 CSS 进行格式化。因此，VIS编辑器中没有单独设置图标、标签等的位置和/或大小。通过更改CSS代码来调整设计。为此，可以使用文件`/widgets/homekittiles/css/style.css`中的CSS代码作为模板。代码被插入到 VIS 编辑器的 CSS 选项卡中，并且可以根据需要进行自定义。还可以通过 VIS 编辑器在小部件的“常规”部分添加您自己的 CSS 类。
+Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
+小部件的特殊之处在于它们不包含任何固定样式元素，而是使用 CSS 格式化所有内容。因此，VIS 编辑器中没有针对图标、标签等的位置和/或大小的单独设置。通过更改 CSS 代码来调整设计。为此，可以使用文件 `/widgets/homekittiles/css/style.css` 中的 CSS 代码作为模板。代码插入到 VIS 编辑器中的 CSS 选项卡中，可以根据需要进行自定义。还可以通过 VIS 编辑器在小部件的“常规”部分中添加自己的 CSS 类。
 
 这些小部件是为 VIS 1.x 设计的。
 
-**注意：** 出于许可原因，此适配器不包含任何图标。非常好的图标来源是：
+**注意：**由于许可原因，此适配器不包含任何图标。图标的极佳来源是：
 
-* [https://www.flaticon.com](https://www.flaticon.com)
-* [https://icons8.com](https://icons8.com)
+* [https://www.flaticon.com]（https://www.flaticon.com）
+* [https://icons8.com]（https://icons8.com）
 
-[🇩🇪 文档](doc/homekittiles-de.md)[🇺🇸 文档](doc/homekittiles-en.md)
+[🇩🇪 文档](doc/homekittiles-de.md) [🇺🇸 文档](doc/homekittiles-en.md)
 
-## 要做的事情
-* 自己的瓷砖信号图片
-* 迷你媒体播放器
-* 恒温器
-* 选择
-* 子菜单按钮
-* CSS：使对话框窗口的颜色变得漂亮
-* CSS：使日期选择器窗口的颜色变得漂亮
+要做的事情
+* 创建迷你媒体播放器
+* 创建选择图块
+* 创建子菜单按钮
+* 单选按钮：新属性“division”，具有可选值（1:1；3:4）
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.13 (2024-05-05)
+
+* (Standarduser) made colors of datepicker window nice
+* (Standarduser) removed test divs from hkt-ViewInWidget-Dialog
+* (Standarduser) added thermostat widget
+
+### 0.0.12 (2024-05-03)
+
+* (Standarduser) added preview for label-widget
+* (Standarduser) added notification bubbles for navigation button-set
+* (Standarduser) removed navigation button (use navigation button-set instead)
+* (Standarduser) added Settings-Widget with select value list
+
+### 0.0.11 (2024-04-30)
+
+* (Standarduser) added own signal pictures for all tiles widgets
+* (Standarduser) Radiobutton: allow HTML in button label
+* (Standarduser) Radiobutton: some css corrections
+* (Standarduser) added Text field (label) with predefined css-classes
+
+### 0.0.10 (2024-04-26)
 
 * (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
 * (Standarduser) repaired Increment function
+* (Standarduser) added own signal pictures
 
 ### 0.0.9 (2024-02-02)
 
