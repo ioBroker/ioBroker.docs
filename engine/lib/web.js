@@ -48,7 +48,7 @@ function init() {
             let redirects;
             if (site.redirects) {
                 try {
-                    redirects = require(site.redirects)
+                    redirects = require(site.redirects);
                 } catch (e) {
                     console.error(`Cannot read ${site.redirects}: ${e}`);
                 }

@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: gDel+Ncrf4sgE5tKtWQsSp0rcav10I1lO9lr1hIFyXU=
+hash: sHdSkDkuekNh4hkjyFtQSBBVpAPA7bn397lYUO6ob04=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
 - Bitte definieren Sie den Header als
 
 ## AdapterName (JJJJ-MM-TT) - [Kurzbeschreibung]
-- Die Beschreibung der Aufnahme könnte lauten:
+- Die Aufnahmebeschreibung könnte lauten:
 - neuer Adapter
   - stabile Version
   - neue Funktion
@@ -71,7 +71,7 @@ Kontextmenü:
 ## Javascript (01.09.2023)
 Spielplatz für JavaScript-Code:
 
-- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur zum Testen der Möglichkeiten von ChatGPT
+- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur dazu, die Möglichkeiten von ChatGPT zu testen
 
   ![Bild 1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
 
@@ -171,9 +171,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
-
 Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
-
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
 ## Admin und mqtt (11.10.2023) - neue Funktion
@@ -271,7 +269,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-## Emporia (07.12.2023) - neuer Adapter
+##emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -318,7 +316,7 @@ https://github.com/nograx/ioBroker.zendure-solarflow
 
 Dieses Projekt ist ein ioBroker-Adapter zum Lesen von Daten aus der Zendure Solarflow Cloud API. Es verwendet die offizielle API von Zendure.
 
-# Echarts (03.02.2024) - neues Feature
+## Echarts (03.02.2024) - neues Feature
 Diagrammtyp „Radar“ hinzugefügt
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />
@@ -460,6 +458,13 @@ https://github.com/mcm4iob/ioBroker.pid
 <img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
 
 Dieser Adapter bietet die Funktionalität eines PID-Reglers.
+
+## Unifi-protect (28.4.2024) – stabile Version
+https://github.com/iobroker-community-adapters/ioBroker.unifi-protect
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/admin/unifi-protect.png" width="100" height="100" />
+
+Verbindet sich mit dem Unifi Protect Controller und ruft alle Daten von den hinzugefügten Kameras ab.
 
 ## Air-q (1.5.2024) – neuer Adapter
 https://github.com/CorantGmbH/ioBroker.air-q

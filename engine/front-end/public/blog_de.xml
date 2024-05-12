@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Sun, 21 Apr 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 23 Apr 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Ein Roundup Teil 1: von Oktober 2023 bis November 2023]]></title>
+            <description><![CDATA[
+                <p>*Ein „Besser spät als nie“-Überblick über die Neuigkeiten, Adapter und Funktionen von ioBroker*.\nIn der sich ständig weiterentwickelnden Welt der Heimautomatisierung bleibt ioBroker mit einer Reihe von Updates und Ergänzungen von Oktober 2023 bis Februar 2024 präsent.\nWerfen wir einen genaueren Blick auf einige der in dieser Zeit eingeführten Fortschritte, obwohl dieser Blogbeitrag etwas spät kommt.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_04_23</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_04_23</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 23 Apr 2024 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Zusammenfassung der neuen Adapter und Funktionen zwischen Februar und April 2024]]></title>
             <description><![CDATA[
