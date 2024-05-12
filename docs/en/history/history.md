@@ -303,7 +303,7 @@ https://github.com/nograx/ioBroker.zendure-solarflow
 
 This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API. It uses the official API provided by Zendure.
 
-# echarts (03.02.2024) - new feature
+## echarts (03.02.2024) - new feature
 Added "radar" chart type
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />
@@ -446,6 +446,14 @@ https://github.com/mcm4iob/ioBroker.pid
 
 This adapter provides the functionality of a PID controller.
 
+
+## unifi-protect (28.4.2024) – stable release
+https://github.com/iobroker-community-adapters/ioBroker.unifi-protect
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/admin/unifi-protect.png" width="100" height="100" />
+
+Connects to Unifi Protect Controller and pulls all Data from added Cameras.
+
 ## air-q (1.5.2024) – new adapter
 https://github.com/CorantGmbH/ioBroker.air-q
 
@@ -459,3 +467,4 @@ https://github.com/iobroker-community-adapters/ioBroker.boschindego
 <img src="https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/admin/boschindego.png" width="100" height="100" />
 
 Adapter for Bosch Indego Mower to show the state of the mower and control the mower.
+
