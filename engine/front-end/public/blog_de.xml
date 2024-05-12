@@ -3,12 +3,22 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Tue, 23 Apr 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 May 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[Ein Roundup Teil 1: von Oktober 2023 bis November 2023]]></title>
+            <title><![CDATA[Ein Roundup Teil 2 - von Dezember 2023 bis Februar 2024]]></title>
             <description><![CDATA[
-                <p>*Ein „Besser spät als nie“-Überblick über die Neuigkeiten, Adapter und Funktionen von ioBroker*.\nIn der sich ständig weiterentwickelnden Welt der Heimautomatisierung bleibt ioBroker mit einer Reihe von Updates und Ergänzungen von Oktober 2023 bis Februar 2024 präsent.\nWerfen wir einen genaueren Blick auf einige der in dieser Zeit eingeführten Fortschritte, obwohl dieser Blogbeitrag etwas spät kommt.</p>
+                <p># Ein Roundup Teil 2: von Dezember 2023 bis Februar 2024\n*Eine Übersicht über neue Adapter und Funktionen in ioBroker*.\nWeitere Informationen: Dieser Blog hebt zusätzliche Adapter und Funktionen hervor, die in diesem Zeitraum veröffentlicht wurden.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_05_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 12 May 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ein Roundup Teil 1 - von Oktober 2023 bis November 2023]]></title>
+            <description><![CDATA[
+                <p># Ein Roundup Teil 1: von Oktober 2023 bis November 2023\n*Ein „Besser spät als nie“-Überblick über die Neuigkeiten, Adapter und Funktionen von ioBroker*.\nIn der sich ständig weiterentwickelnden Welt der Heimautomatisierung bleibt ioBroker mit einer Reihe von Updates und Ergänzungen von Oktober 2023 bis Februar 2024 präsent.\nWerfen wir einen genaueren Blick auf einige der in dieser Zeit eingeführten Fortschritte, obwohl dieser Blogbeitrag etwas spät kommt.</p>
             ]]></description>
             <link>https://www.iobroker.net/#de/blog/2024_04_23</link>
             <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_04_23</guid>

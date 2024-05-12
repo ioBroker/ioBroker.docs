@@ -3,10 +3,20 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[News, announcements and ideas about ioBroker]]></description>
         <link>https://www.iobroker.net/#en/blog</link>
-        <lastBuildDate>Tue, 23 Apr 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 May 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[A Roundup Part 1: from October 2023 to November 2023]]></title>
+            <title><![CDATA[A Roundup Part 2 - from December 2023 to February 2024]]></title>
+            <description><![CDATA[
+                <p>*An overview of new adapters, and features in ioBroker*.\nExploring Further: This blog highlights additional adapters and features released during this period.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#en/blog/2024_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2024_05_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 12 May 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[A Roundup Part 1 - from October 2023 to November 2023]]></title>
             <description><![CDATA[
                 <p>*A "better late than never" review of the ioBroker news, adapters, and features*.\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late.</p>
             ]]></description>

@@ -3,12 +3,22 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Tue, 23 Apr 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 May 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[综述第 1 部分：2023 年 10 月至 2023 年 11 月]]></title>
+            <title><![CDATA[综述第 2 部分 - 2023 年 12 月至 2024 年 2 月]]></title>
             <description><![CDATA[
-                <p>*对 ioBroker 新闻、适配器和功能的“迟做总比不做好”评论*。\n在不断发展的家庭自动化世界中，ioBroker 将继续存在，并在 2023 年 10 月至 2024 年 2 月期间进行一系列更新和添加。\n让我们仔细看看这段时间引入的一些进展，尽管这篇博文有点晚了。</p>
+                <p># 综述第二部分：2023 年 12 月至 2024 年 2 月\n*ioBroker 中新适配器和功能的概述*。\n进一步探索：本博客重点介绍了在此期间发布的其他适配器和功能。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_05_12</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_05_12</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 12 May 2024 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[综述第 1 部分 - 2023 年 10 月至 2023 年 11 月]]></title>
+            <description><![CDATA[
+                <p># 综述第 1 部分：2023 年 10 月至 2023 年 11 月\n*对 ioBroker 新闻、适配器和功能的“迟做总比不做好”评论*。\n在不断发展的家庭自动化世界中，ioBroker 将继续存在，并在 2023 年 10 月至 2024 年 2 月期间进行一系列更新和添加。\n让我们仔细看看这段时间引入的一些进展，尽管这篇博文有点晚了。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2024_04_23</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_04_23</guid>
