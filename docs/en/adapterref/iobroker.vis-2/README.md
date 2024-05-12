@@ -264,6 +264,15 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.9.60 (2024-05-07)
+* (foxriver76) test automatic release
+
+### 2.9.53 (2024-05-06)
+* (bluefox) Allowed applying styles to jqui buttons
+
+### 2.9.52 (2024-04-25)
+* (bluefox) Navigation was improved: adjustable menu width and bulk edit were added
+
 ### 2.9.50 (2024-04-19)
 * (bluefox) Corrected widget in widget behavior
 

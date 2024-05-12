@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: l/uZNBMal/EgkzkxhIWRrGrTZKRsiNiUY7UgregSJHg=
+hash: 8tA+V8SN00R6sI+L20sFVqelcCZ+6srIMDexcZ7Xfhc=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -151,7 +151,7 @@ Mögliche Typen:
 - `{common: {custom: true}}` – zeige nur Objekte mit einigen benutzerdefinierten Einstellungen
 - `{common: {custom: 'sql.0'}}` – zeige nur Objekte mit benutzerdefinierten SQL.0-Einstellungen (nur der spezifischen Instanz)
 - `{common: {custom: '_dataSources'}}` – zeige nur Objekte der Adapter `influxdb` oder `sql` oder `history`
-- `{common: {custom: 'adapterName.'}}` – zeigt nur Objekte mit benutzerdefinierten Einstellungen eines bestimmten Adapters (alle Instanzen)
+- `{common: {custom: 'adapterName.'}}` – zeigt nur Objekte mit benutzerdefinierten Einstellungen eines bestimmten Adapters an (alle Instanzen)
 - `{type: 'channel'}` – nur Kanäle anzeigen
 - `{type: ['channel', 'device']}` - nur Kanäle und Geräte anzeigen
 - `{common: {type: 'number'}` - zeigt nur Zustände vom Typ 'number
@@ -206,7 +206,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `Variante` - `enthalten`, `umrissen` oder nichts
 - `openUrl` - wenn wahr - URL in neuem Tab öffnen, wenn die Antwort das Attribut `openUrl` enthält, wie `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „reloadBrowser“ – wenn wahr – lädt das aktuelle Browserfenster neu, wenn die Antwort das Attribut „reloadBrowser“ enthält, wie „{„reloadBrowser“: true}“.
-- `window` – wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort aus dem `window`-Attribut besteht.
+- „window“ – wenn „openUrl“ wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort aus dem Attribut „window“ besteht.
 
 `this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
 
@@ -214,7 +214,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `useNative` – wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird es für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
 - „Timeout“ – Timeout für Anforderung in ms. Standard: keine.
-- `onLoaded` - führe die Schaltflächenlogik zunächst einmal aus
+- `onLoaded` - führt die Schaltflächenlogik zunächst einmal aus
 
 - `setState` - Schaltfläche zum Festlegen des Status der Instanz
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen
@@ -472,7 +472,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `agreeText` - Text der vereinbarten Schaltfläche
 - `checkBox` - Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert.
 
-- `checkLicense` – Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die nativen Eigenschaften `license` und `useLicenseManager` benötigt.
+- `checkLicense` – Eine sehr spezielle Komponente, um die Lizenz online zu überprüfen. Es werden genau die Eigenschaften `license` und `useLicenseManager` nativ benötigt.
 - `uuid` – UUID prüfen
 - `version` – Version prüfen
 
@@ -512,8 +512,6 @@ Hier ist ein Beispiel, wie der Geräte-Manager in einer Registerkarte angezeigt 
 }
 ```
 
-**Hinweis: Mit "!" gekennzeichnete Attribute oder Steuerelemente sind noch nicht implementiert.**
-
 ## Gemeinsame Attribute von Steuerelementen
 Alle Typen könnten haben:
 
@@ -543,7 +541,7 @@ Alle Typen könnten haben:
 - „button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
 - „buttonTooltip“ – Button-Tooltip (Standard: „Daten nach Instanz anfordern“)
 - `buttonTooltipNoTranslation` – Button-Tooltip nicht übersetzen
-- `placeholder` – Platzhalter (zur Textsteuerung)
+- `placeholder` - Platzhalter (zur Textsteuerung)
 - „noTranslation“ – übersetzt keine Auswahlen oder andere Optionen (nicht für Hilfe, Beschriftung oder Platzhalter)
 - `onChange` - Struktur in der Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - `doNotSave` - Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird
@@ -553,7 +551,7 @@ Alle Typen könnten haben:
 - „Text“ – Text des Bestätigungsdialogs
 - „Titel“ – Titel des Bestätigungsdialogs
 - `ok` - Text für die OK-Schaltfläche
-- `cancel` - Text für die Schaltfläche „Abbrechen“
+- `Abbrechen` - Text für die Schaltfläche „Abbrechen“
 - „Typ“ – Einer von: „Info“, „Warnung“, „Fehler“, „Keiner“
 - `alsoDependsOn` – Array mit Attributen, um den Zustand auch anhand dieser Attribute zu prüfen
 
@@ -622,7 +620,7 @@ data: {
 In diesem Fall muss die Eingabe Text sein, wobei `__different__` angezeigt wird, mit der Autovervollständigungsoption von drei möglichen Werten.
 Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
 
-Boolesche Werte müssen unbestimmt sein, wenn der Wert [false, true] ist.
+Boolesche Werte müssen Unbestimmtheit unterstützen, wenn der Wert [false, true] ist.
 
 Für unveränderte `__different__` muss der Wert different zurückgegeben werden:
 

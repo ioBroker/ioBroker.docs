@@ -3,60 +3,63 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apcups/README.md
 title: ioBroker.apcups
-hash: PsNp0J2WZMaXgUdZhR9Qe29ydrcYuGzOxMfZjSauqWY=
+hash: FM26q1o/yfLjfIRKYni4eBA4ezWrIXiLWFHtxRiXLRI=
 ---
 ![Logo](../../../en/adapterref/iobroker.apcups/admin/ups.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.apcups.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.apcups.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/apcups-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/apcups-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/apcups-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.apcups.png?downloads=true)
 
 # IoBroker.apcups
-**Tests:** [![Test und Freigabe](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/main.yml/badge.svg)](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/main.yml)
+**Tests:** [![Testen und Freigeben](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/xhunter74/ioBroker.apcups/actions/workflows/test-and-release.yml)
 
-## APC USV-Adapter für ioBroker
+## Apc USV-Adapter für ioBroker
 Adapter für ioBroker, um Informationen von APS-USVs über apcupsd zu erhalten.
 
 apcupsd-Homepage: http://www.apcupsd.org/
 
-apcupsd ist ein Daemon zur Steuerung von APC-USVs. Mit diesem Adapter können Sie den USV-Status überwachen und einige Entscheidungen basierend auf den bereitgestellten Informationen treffen.
+apcupsd ist ein Daemon zur Steuerung von APC-USVs. Mit diesem Adapter können Sie den USV-Status überwachen und auf Grundlage der bereitgestellten Informationen einige Entscheidungen treffen.
 
-**apcupsd auf Ubuntu installieren:**
+**Installieren Sie apcupsd auf Ubuntu:**
 
-sudo apt-get -y install apcupsd
+sudo apt-get -y installiere apcupsd
 
 Weitere nützliche Informationen zur apcupsd-Konfiguration für Ubuntu finden Sie unter https://help.ubuntu.com/community/apcupsd
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Changelog
-
-### 0.0.9 (2022-02-21)
- - Changed adapter type
-### 0.0.8 (2022-02-18)
- - Fixed review issues
-### 0.0.7 (2022-02-18)
- - Changed default log level to 'info'
-### 0.0.6 (2022-02-17)
- - Cleanup code.
- - Sentry integration
-### 0.0.5 (2022-02-16)
- - Fixed issues with uncaught exception.
-### 0.0.4 (2022-01-12)
- - Fixed issue with polling interval greater than 15 sec.
-### 0.0.3 (2021-10-18)
- - Fixed parse values bugs.
-### 0.0.2 (2021-09-13)
- - Initial commit. Alpha Version. 
-
-### **WORK IN PROGRESS**
-* (Author) initial release
+### 4.0.0 (2024-05-10)
+ - BREAKING! 
+1. Added support of multiple UPS so states structure was changed. All existed states will be deleted. Please do backup before upgrade the adapter! Also existed configuration will be lost. Please re-configure the adapter and add one or more devices to it.
+2. Minimal js-controller version is 5.0.19
+3. Minimal admin version is 6.13.16
+### 3.0.1 (2024-04-25)
+ - Update dependencies
+### 3.0.0 (2024-04-22)
+ - BREAKING! Changed the minimal version of nodejs to 18, js-controller to 4.0.0
+### 2.0.0 (2024-02-17)
+ - BREAKING! Changed the minimal version of nodejs to 16 
+### 1.0.15 (2023-04-25)
+ - Changed approach how to states are creating
+### 1.0.13 (2023-04-24)
+ - Added 'END APC' and 'BATDATE' fields 
+### 1.0.10 (2022-12-22)
+ - Added Ukrainian language
+### 1.0.9 (2022-12-12)
+ - Optimized reconnection flow
+### 1.0.8 (2022-11-16)
+ - Added validation on config screen
+### 1.0.7 (2022-11-14)
+ - Added validation on config screen
 
 ## License
 MIT License
 
-Copyright (c) 2022 Serhiy Krasovskyy xhunter74@gmail.com"
+Copyright (c) 2024 Serhiy Krasovskyy xhunter74@gmail.com"
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

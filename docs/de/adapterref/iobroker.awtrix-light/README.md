@@ -93,7 +93,7 @@ Beispiel
 2. Lege eine weitere Instanz für das zweite Gerät an (`awtrix-light.1`)
 3. Wähle `awtrix-light.0` in den Instanz-Einstellungen von `awtrix-light.1` um die gleichen Apps auf dem zweiten Gerät darzustellen
 
-Seit Version 0.15.0 (und neuer) wird die Sichtbarkeit von Apps und alle Inhalte der Experten-Apps auch auf andere Geräte übertragen, welche die App-Einstellungen kopieren. Im Beispiel oben werden z.B. die Apps der Instanz `awtrix-light.1` ebenfalls versteckt, sobald die Sichtbarkeit der App in der Hauptinstanz `awtrix-light.0` geändert wird. Das gleiche gilt für alle Inhalte der Experten-Apps.
+Seit Version 0.15.0 (und neuer) wird die Sichtbarkeit von benutzerdefinierten Apps und alle Inhalte der Experten-Apps auch auf andere Geräte übertragen, welche die App-Einstellungen kopieren. Im Beispiel oben werden z.B. die Apps der Instanz `awtrix-light.1` ebenfalls versteckt, sobald die Sichtbarkeit der App in der Hauptinstanz `awtrix-light.0` geändert wird. Das gleiche gilt für alle Inhalte der Experten-Apps.
 
 ## Blockly und JavaScript
 
@@ -199,9 +199,18 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-05-11)
+
+* (klein0r) Sync app activations (if enabled)
+
+### 1.0.1 (2024-04-28)
+
+* (klein0r) Keep text case of expert apps (ignore system settings)
+
 ### 1.0.0 (2024-04-04)
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
 Updated recommended firmware version to 0.96
 
 ### 0.16.0 (2024-03-12)
@@ -215,14 +224,6 @@ Updated recommended firmware version to 0.95
 ### 0.15.1 (2024-03-12)
 
 * (klein0r) Fixed default values of color states
-
-### 0.15.0 (2024-03-06)
-
-* (klein0r) Keep apps contents in sync
-
-### 0.14.1 (2024-03-06)
-
-* (klein0r) Fixed roles of calendar header, body and text (rgb)
 
 ## License
 MIT License

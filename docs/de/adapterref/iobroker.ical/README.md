@@ -206,6 +206,13 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (klein0r) Breaking change: Removed trigger state (subscribe is deprecated in js-controller 6.x)
+
+### 1.15.0 (2024-04-30)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.14.3 (2024-02-28)
 * (jens-maus) update node-ical to latest 0.18.0
 
@@ -219,10 +226,6 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 ### 1.14.0 (2024-01-07)
 * (klein0r) Allow to set custom http user agent
 * (klein0r) Added option to use files tab for calendar files
-
-### 1.13.6 (2023-12-25)
-* (mcm1957) Incorrect jsonConfig has been fixed [#602]
-* (mcm1957) Dependencies have been updated
 
 ## License
 

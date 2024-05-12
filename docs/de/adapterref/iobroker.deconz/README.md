@@ -3,50 +3,58 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
 title: kein Titel
-hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
+hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/deconz-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![NPM-Version](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.deconz.svg)
-![NPM](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
 ioBroker deConz dresden-elektronik Adapter
 
 ==============
 
 ## Beachten
-Keine Unterstützung für Beta-Versionen von deConz
+Kein Support für Betaversionen von deConz
 
-Erforderliche js-Controller-Version >2.x.x, erforderliche node.js >= 10.x.x
+Erforderliche JS-Controller-Version >2.x.x, Erforderliches Node.js >= 10.x.x
 
 ## Englisch
-Verbindet sich mit der von dresden-elektronik entwickelten deConz-Software. Diese Software zielt darauf ab, eine universelle ZigBee-Gateway-Lösung zu sein, die Hardware von dresden-elektronik, den ConBee-USB-Stick, und RaspBee, ein Modul für den Raspberry Pi, verwendet.
+Verbindet sich mit der von dresden-elektronik entwickelten deConz REST-API-Software. Diese Software soll eine universelle ZigBee-Gateway-Lösung sein und verwendet Hardware von dresden-elektronik, den ConBee(X)-USB-Stick und RaspBee(X), ein Modul für den Raspberry Pi.
 
-Sie müssen zunächst auf deConz verlinken.
+Sie müssen zuerst eine Verknüpfung zu deConz herstellen.
 
-1. a) Geben Sie die IP-Adresse für deConz ein
+1. a) IP-Adresse für deConz eingeben<br>
 
-    b) Geben Sie den Standard-Bridge-Port: 80 und den Standard-Websocket: 443 ein
+b) Geben Sie den Standard-Bridge-Port ein: 80 und den Standard-Websocket: 443
 
-2. Nachdem IP-Adresse und Port eingegeben und gespeichert wurden, klicken Sie auf die Schaltfläche „API-Schlüssel erstellen“. Jetzt können Sie die Zugangsdaten für deConz eingeben oder zur Phoscon APP gehen und ioBroker als Drittanbieter-APP registrieren.
+2. Nachdem IP-Adresse und Port eingegeben und gespeichert wurden, klicken Sie auf die Schaltfläche „API-Schlüssel erstellen“. Jetzt können Sie die Anmeldeinformationen für deConz eingeben oder zur Phoscon-App gehen und ioBroker als Drittanbieter-App registrieren.
 
-#### Senden Sie mehr als einen Befehl gleichzeitig
+## Um einige Fehler nach einem Update (Deconz/Adapter) zu vermeiden, stoppen Sie den Adapter und löschen Sie diese Einträge in der Objektstruktur. Beim Starten wird die Objektstruktur neu erstellt.
+![Deconz-Adapter](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+
+#### Senden Sie mehrere Befehle gleichzeitig
 Zu diesem Zweck gibt es ein Objekt namens „Aktion“.
 
 Beispiele:
 
 `"on": true, "xy": [0.6586,0.3138]`
 
-`"on": true, "transitiontime": 5, "hue": 65500`
+`"on": true, "transitiontime": 5, "hue": 360`
 
 ## Links
-[deConz](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [REST-Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[deCONZ REST-API Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin) [Dokumentation des deCONZ REST-API Plugin](https://dresden-elektronik.github.io/deconz-rest-doc/) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Sponsoren](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.4.1 (2024-05-05)
+* (mattreim) Added new objects for various sensors
+
+### 1.4.0 (2024-01-29)
+* (mattreim) Added new objects for Tuya and Bosch thermostats
 
 ### 1.3.23 (2023-11-05)
 * fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
@@ -298,4 +306,4 @@ Beispiele:
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2023 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2024 Jey Cee jey-cee@live.com

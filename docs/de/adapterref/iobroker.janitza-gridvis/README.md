@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.janitza-gridvis/README.md
 title: ioBroker.janitza-gridvis
-hash: OU046Ap4wNMBB89k0JIaAj7TnR1BMUdMmQUSqS57EcE=
+hash: FHVN1izpRHwlKON+CYZxl8sDJt8mV68+AhqkubZ/9xY=
 ---
 ![Logo](../../../en/adapterref/iobroker.janitza-gridvis/admin/janitza-gridvis.png)
 
@@ -14,19 +14,91 @@ hash: OU046Ap4wNMBB89k0JIaAj7TnR1BMUdMmQUSqS57EcE=
 ![NPM](https://nodei.co/npm/iobroker.janitza-gridvis.png?downloads=true)
 
 # IoBroker.janitza-gridvis
-![Testen und freigeben](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/workflows/Test%20and%20Release/badge.svg)
+![Testen und Freigeben](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/workflows/Test%20and%20Release/badge.svg)
 
 ## Janitza-gridvis-Adapter für ioBroker
 Daten aus dem Energiemanagementsystem Janitza® GridVis® auslesen.
-Sie können alle Online-Werte der vorhandenen Geräte auslesen.
+Sie können alle Onlinewerte der vorhandenen Geräte auslesen.
 Zusätzlich können Sie die historischen Energiewerte der vorhandenen Geräte auslesen.
-Folgende Zeiten sind implementiert: Today Yesterday ThisWeek LastWeek ThisMonth LastMonth ThisQuarter LastQuarter ThisYear LastYear
+Implementiert sind folgende Zeitpunkte: Heute Gestern Diese Woche Letzte Woche Dieser Monat Letzter Monat Dieses Quartal Letztes Quartal Dieses Jahr Letztes Jahr Flexible Zeitbasen
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.1.12 (2024-05-08)
+* (BenAhrdt) config default for additional flexible time changed
+
+### 3.1.11 (2024-05-07)
+* (BenAhrdt) Plugin for release added
+
+### 3.1.10 (2024-05-07)
+* (BenAhrdt) manual review for release script
+
+### 3.1.9 (2024-05-07)
+* (BenAhrdt) implement more flexible timebases
+
+### 3.1.8 (2023-11-08)
+* (BenAhrdt) remove debuglogging from stable version
+
+### 3.1.7 (2023-11-08)
+* (BenAhrdt) Handling of iconsetting improoved & implements new icon
+
+### 3.1.6 (2023-11-04)
+* (BenAhrdt) Bugfix Logging utc time
+
+### 3.1.5 (2023-11-04)
+* (BenAhrdt) change endstring of timerparameters to utc
+
+### 3.1.4 (2023-11-02)
+* (BenAhrdt) corrction in jsonconfig schema & new order of deviceicons
+
+### 3.1.3 (2023-10-11)
+* (BenAhrdt) Errorhandling improoved in case if device is not present. => Reducing API connection trafic
+
+### 3.1.2 (2023-04-18)
+* (BenAhrdt) check timestamp improoved
+
+### 3.1.1 (2023-04-18)
+* (BenAhrdt) warning in case of invalid timestamp
+
+### 3.1.0 (2023-04-17)
+* (BenAhrdt) flexible timebases with timestamp added
+
+### 3.0.0 (2023-04-05)
+* (BenAhrdt) Timbases from past implemented (to compare)
+
+### 2.2.2 (2023-03-30)
+* (BenAhrdt) node-schedule updated
+
+### 2.2.1 (2023-03-30)
+* (BenAhrdt) get projects and get devices improved
+
+### 2.2.0 (2023-03-29)
+* (BenAhrdt) Testings 12.x removed & Testings 18.x implemented
+
+### 2.1.32 (2023-03-29)
+* (BenAhrdt) do some code improvments
+
+### 2.1.31 (2023-03-29)
+* (BenAhrdt) internal rename of variables
+
+### 2.1.30 (2023-02-17)
+* (BenAhrdt) Bugfix: devicestates will created only once at startup (not more times at startup)
+
+### 2.1.29 (2023-02-15)
+* (BenAhrdt) deficeinfo in case of values is NaN added
+
+### 2.1.28 (2023-02-15)
+* (BenAhrdt) devicetype added to info-folder for every device
+
+### 2.1.27 (2023-02-14)
+* (BenAhrdt) Bugfix info-folder will not deleted at startup, if there is no connection
+
+### 2.1.26 (2023-02-14)
+* (BenAhrdt) adding info folder for every device
+
 ### 2.1.25 (2022-10-21) - Bugfix errorcheck
 * (BenAhrdt) before checking error for status, the error will be check for exist
 
@@ -186,7 +258,7 @@ Folgende Zeiten sind implementiert: Today Yesterday ThisWeek LastWeek ThisMonth 
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

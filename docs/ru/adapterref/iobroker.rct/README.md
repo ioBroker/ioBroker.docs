@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
+hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
 ---
 ![НПМ-версия](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rct.svg)
@@ -17,37 +17,46 @@ hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
 # IoBroker.rct
 **Тесты:** ![Тестирование и выпуск](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## Смена владельца
-После того, как Лауфф перешел на Home Assistant - проект будет продолжен aruttkamp
-
 ##адаптер RCT для ioBroker
 Обратите внимание, что это частный проект и что я (Андреас Рутткамп) не имею никакого отношения к RCT.
-
 Считайте значения фотоэлектрического преобразователя мощности RCT Power.
 
 ## ПРИМЕЧАНИЯ
-### Продуктивный выпуск
-Этот продуктивный выпуск оказался стабильным.
-
 Используя поле «Элементы RCT», можно выбрать, какие данные следует считывать с преобразователя мощности.
 Если здесь ничего не введено, будет использовано значение по умолчанию:
 
-"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1] .flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag"
+"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1] .flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
 Остальные элементы можно найти в коде (файл «rct/rc_core2.js»). Поскольку это не самоописательно, используйте на свой страх и риск!
 
 Объект «battery.bat_status» указывает на состояние подключенной батареи:
 
 * 0 -> заряд/разряд (нормальная работа)
-*8 -> зарядка (калибровка)
-*1024 -> разряд (калибровка)
+* 3 -> Обновить? ( не уверен )
+* 5 -> Начать? ( не уверен )
+* 8 -> калибровка - фаза зарядки (0% --> 100%)
+*1024 -> калибровка - фаза разряда (xx% --> 0%)
 *2048 -> балансировка
 
-## Известные вопросы
-### Неправильные каналы/состояния
-Новая версия может не иметь возможности создавать правильные каналы/состояния ioBroker. В большинстве случаев это можно распознать по узлу «батарея», отображающемуся как отдельный элемент, а не как папка.
+Объект «inverter_state» указывает состояние инвертора.
 
-Если это произойдет, остановите адаптер и вручную удалите узел «rct.0».
+* 0 -> «Режим ожидания»
+* 1 -> «Инициализация»
+* 2 -> «Режим ожидания»
+* 3 -> «Эффективность (состояние отладки для целей разработки)»
+* 4 -> «Проверка изоляции»
+* 5 -> «Проверка острова (решение, куда идти — сеть подключена или остров)»
+* 6 -> «Проверка мощности (решение, достаточно ли энергии для запуска или нет»
+* 7 -> «Симметрия (выравнивание звена постоянного тока»
+* 8 -> «Тест реле»
+* 9 -> «Пассивная сеть» (инвертор получает питание от сети без синхронизации моста)
+* 10 -> «Подготовить пассивную летучую мышь»
+* 11 -> «Отключение аккумулятора (автономно)»
+* 12 -> «Проверка оборудования»
+* 13 -> «Впечатление»
+
+## Известные вопросы
+Никто
 
 ## Changelog
 
@@ -55,6 +64,26 @@ hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (NCIceWolf) Implementation of new adminUI
+* (Andreas Ruttkamp) index_m.html deleted
+
+
+### 1.2.7 (2024-05-05)
+* (Andreas Ruttkamp) prim_sm.state added
+* (NCIceWolf) handling of type errors added
+* (Andreas Ruttkamp) some Code cleaning
+* (NCIceWolf) Update io-package.json
+
+### 1.2.6 (2024-05-03)
+* (Andreas Ruttkamp) unused parameter deleted
+
+### 1.2.5 (2024-05-02)
+* (Andreas Ruttkamp) misspelling in rct_core2 corrected
+* (Andreas Ruttkamp) Missing ack:true added ( issue:#89)
+* (Andreas Ruttkamp) datatypes corrected ( issue:#106)
+* (NCIceWolf) changes to correct loosing connection ( issue:#114 )
+
 ### 1.2.4 (2024-02-09)
 * (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed
 

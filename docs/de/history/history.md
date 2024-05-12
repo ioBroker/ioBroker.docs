@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 9lkXwIslTMt6irib7UzghCowTaF7S9gl5Z75CkBYJdA=
+hash: gDel+Ncrf4sgE5tKtWQsSp0rcav10I1lO9lr1hIFyXU=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -71,7 +71,7 @@ Kontextmenü:
 ## Javascript (01.09.2023)
 Spielplatz für JavaScript-Code:
 
-- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur dazu, die Möglichkeiten von ChatGPT zu testen
+- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur zum Testen der Möglichkeiten von ChatGPT
 
   ![Bild 1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
 
@@ -209,7 +209,7 @@ https://github.com/boergegrunicke/ioBroker.govee-local
 
 <img src="https://raw.githubusercontent.com/boergegrunicke/ioBroker.govee-local/main/admin/govee-local.png" width="100" height="100" />
 
-Steuern Sie Govee-Geräte über den lokalen Zugriff (keine Cloud)
+Steuern Sie Govee-Geräte über lokalen Zugriff (keine Cloud)
 
 ## Pylontech (23.10.2023) - neuer Adapter
 https://github.com/PLCHome/ioBroker.pylontech
@@ -271,7 +271,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-##emporia (07.12.2023) - neuer Adapter
+## Emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -460,3 +460,17 @@ https://github.com/mcm4iob/ioBroker.pid
 <img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
 
 Dieser Adapter bietet die Funktionalität eines PID-Reglers.
+
+## Air-q (1.5.2024) – neuer Adapter
+https://github.com/CorantGmbH/ioBroker.air-q
+
+<img src="https://github.com/CorantGmbH/ioBroker.air-q/blob/main/admin/air-q.png" width="100" height="100" />
+
+Dieser ioBroker Adapter wird in Verbindung mit unserem air-Q Gerät verwendet. Er fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker Umgebung an.
+
+##boschindego (4.5.2024) – neuer Adapter
+https://github.com/iobroker-community-adapters/ioBroker.boschindego
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/admin/boschindego.png" width="100" height="100" />
+
+Adapter für Bosch Indego Mower zur Anzeige des Mäherzustands und zur Steuerung des Mähers.

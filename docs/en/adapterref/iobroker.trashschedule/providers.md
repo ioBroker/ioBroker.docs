@@ -1,0 +1,117 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
+---
+![Logo](../../admin/trashschedule.png)
+
+# ioBroker.trashschedule
+
+## Jumomind (MyMüll)
+
+- Darmstadt-Dieburg (ZAW)
+	- Darmstadt-Dieburg (ZAW)
+- Altötting (LK)
+	- Altötting (LK)
+- Aurich (MKW)
+	- Aurich (MKW)
+- Bad Homburg vdH
+	- Bad Homburg vdH
+- Barnim
+	- Barnim
+- Hattersheim am Main
+	- Hattersheim am Main
+- Ingolstadt
+	- Ingolstadt
+- Lübbecke
+	- Lübbecke
+- Minden
+	- Minden
+- Recklinghausen
+	- Recklinghausen
+- Rhein-Hunsrück
+	- Rhein-Hunsrück
+- Uckermark
+	- Uckermark
+- My Müll (App)
+	- Aschaffenburg
+	- Bad Arolsen
+	- Beverungen
+	- Darmstadt
+	- Esens
+	- Flensburg
+	- Großkrotzenburg
+	- Hainburg
+	- Holtgast
+	- Kamp-Lintfort
+	- Kirchdorf
+	- Landkreis Aschaffenburg
+	- Landkreis Biberach
+	- Landkreis Eichstätt
+	- Landkreis Friesland
+	- Landkreis Leer
+	- Landkreis Mettmann
+	- Landkreis Paderborn
+	- Landkreis Wittmund
+	- Landkreis Wittmund
+	- Main-Kinzig-Kreis
+	- Mühlheim am Main
+	- Nenndorf
+	- Neumünster
+	- Salzgitter
+	- Schmitten im Taunus
+	- Schöneck
+	- Seligenstadt
+	- Ulm
+	- Usingen
+	- Volkmarsen
+	- Vöhringen
+	- Wegberg
+	- Westerholt
+	- Wilhelmshaven
+- Neustadt an der Weinstraße
+	- Neustadt an der Weinstraße
+- Ostholstein
+	- Ostholstein
+- Celle
+	- Celle
+- Landkreis Grafschaft
+	- Landkreis Grafschaft
+- Landkreis Harz
+	- Landkreis Harz
+- Höxter
+	- Höxter
+- Langen
+	- Langen
+- Rosbach Vor Der Höhe
+	- Rosbach Vor Der Höhe
+- Main Kinzig Kreis
+	- Main Kinzig Kreis
+
+## Abfall.io
+
+- Abfallwirtschaft Landkreis Böblingen
+	- Aidlingen
+	- Altdorf
+	- Böblingen
+	- Bondorf
+	- Deckenpfronn
+	- Ehningen
+	- Gärtringen
+	- Gäufelden
+	- Grafenau
+	- Herrenberg
+	- Hildrizhausen
+	- Holzgerlingen
+	- Jettingen
+	- Leonberg
+	- Magstadt
+	- Mötzingen
+	- Nufringen
+	- Renningen
+	- Rutesheim
+	- Schönaich
+	- Sindelfingen
+	- Steinenbronn
+	- Waldenbuch
+	- Weil der Stadt
+	- Weil im Schönbuch
+	- Weissach

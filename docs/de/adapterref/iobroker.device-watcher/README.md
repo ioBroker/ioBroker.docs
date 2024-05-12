@@ -27,10 +27,15 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.12.1 (2024-05-09)
+
+-   (ciddi89) Added: [#341](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/341) Support for Zigbee battery_state datapoint
+
 ### 2.12.0 (2024-04-05)
-- (mcm1957) Adapter requires nodeJS >= 18 and js-controller >= 5 now
-- (mcm1957) Adpter has been migrated to iobroker-community-adapters organisation
-- (mcm1957) Dependencies have been updated
+
+-   (mcm1957) Adapter requires nodeJS >= 18 and js-controller >= 5 now
+-   (mcm1957) Adpter has been migrated to iobroker-community-adapters organisation
+-   (mcm1957) Dependencies have been updated
 
 ### 2.11.0 (2024-03-18)
 

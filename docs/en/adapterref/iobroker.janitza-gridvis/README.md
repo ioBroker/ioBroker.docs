@@ -26,12 +26,24 @@ Implemented are the following times:
 	LastQuarter
 	ThisYear
 	LastYear
-
+	Flexible Timebases
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.1.12 (2024-05-08)
+* (BenAhrdt) config default for additional flexible time changed
+
+### 3.1.11 (2024-05-07)
+* (BenAhrdt) Plugin for release added
+
+### 3.1.10 (2024-05-07)
+* (BenAhrdt) manual review for release script
+
+### 3.1.9 (2024-05-07)
+* (BenAhrdt) implement more flexible timebases
+
 ### 3.1.8 (2023-11-08)
 * (BenAhrdt) remove debuglogging from stable version
 
@@ -251,7 +263,7 @@ Implemented are the following times:
 ## License
 MIT License
 
-Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

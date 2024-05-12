@@ -93,7 +93,7 @@ Example:
 2. Create a new instance for the second device (`awtrix-light.1`)
 3. Choose `awtrix-light.0` in the instance configuration of `awtrix-light.1` to use the same apps on the second device
 
-Since version 0.15.0 (and later) the app visibility and contents of expert apps are also applied to other devices (when app settings are copied). In the example above the apps of `awtrix-light.1` will be hidden automatically if the visibility state of an app in instance `awtrix-light.0` changes.
+Since version 0.15.0 (and later) the visibility of custom apps and contents of expert apps are also applied to other devices (when app settings are copied). In the example above the apps of `awtrix-light.1` will be hidden automatically if the visibility state of an app in instance `awtrix-light.0` changes.
 
 ## Blockly and JavaScript
 
@@ -199,9 +199,18 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-05-11)
+
+* (klein0r) Sync app activations (if enabled)
+
+### 1.0.1 (2024-04-28)
+
+* (klein0r) Keep text case of expert apps (ignore system settings)
+
 ### 1.0.0 (2024-04-04)
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
 Updated recommended firmware version to 0.96
 
 ### 0.16.0 (2024-03-12)
@@ -215,14 +224,6 @@ Updated recommended firmware version to 0.95
 ### 0.15.1 (2024-03-12)
 
 * (klein0r) Fixed default values of color states
-
-### 0.15.0 (2024-03-06)
-
-* (klein0r) Keep apps contents in sync
-
-### 0.14.1 (2024-03-06)
-
-* (klein0r) Fixed roles of calendar header, body and text (rgb)
 
 ## License
 MIT License

@@ -113,7 +113,7 @@ const styles = theme => ({
     search: {
         width: 120,
         transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-        //padding: '8px 8px 8px 72px',
+        // padding: '8px 8px 8px 72px',
         boxSizing: 'content-box',
         backgroundColor: '#CCCCCC',
         padding: '3px 0 1px 0',
@@ -169,18 +169,28 @@ const styles = theme => ({
 });
 
 const LANGUAGES = {
-    'en': { full: 'English', short: 'En' },
-    'de': { full: 'Deutsch', short: 'De' },
-    'ru': { full: 'Русский', short: 'Ру' },
+    en: { full: 'English', short: 'En' },
+    de: { full: 'Deutsch', short: 'De' },
+    ru: { full: 'Русский', short: 'Ру' },
     'zh-cn': { full: '简体中文', short: 'zh-cn' },
 };
 
 const PAGES = {
-    blog: { tabIndex: 1, component: Blog, icon: null, name: 'Blog' },
-    download: { tabIndex: 2, component: Downloads, icon: null, name: 'Download' },
-    documentation: { tabIndex: 3, name: 'Documentation', content: 'content.json' },
-    adapters: { tabIndex: 4, name: 'Adapters', content: 'adapters.json' },
-    forum: { tabIndex: 5, name: 'Forum',
+    blog: {
+        tabIndex: 1, component: Blog, icon: null, name: 'Blog',
+    },
+    download: {
+        tabIndex: 2, component: Downloads, icon: null, name: 'Download',
+    },
+    documentation: {
+        tabIndex: 3, name: 'Documentation', content: 'content.json',
+    },
+    adapters: {
+        tabIndex: 4, name: 'Adapters', content: 'adapters.json',
+    },
+    forum: {
+        tabIndex: 5,
+        name: 'Forum',
         links: {
             en: 'https://forum.iobroker.net',
             nl: 'https://forum.iobroker.net/category/40/nederlands',
@@ -190,13 +200,14 @@ const PAGES = {
         },
         target: '_self',
     },
-    about:          {
+    about: {
         tabIndex: 6,
         name: 'About',
         menu: [
             { tab: 'statistics', name: 'Statistics', icon: null },
             { name: 'Imprint', tab: 'imprint', icon: null },
-        ]},
+        ],
+    },
     cloud: {
         tabIndex: 7,
         name: 'Cloud',
@@ -219,7 +230,7 @@ class App extends Router {
     constructor(props) {
         super(props);
 
-        let hash = Router.getLocation();
+        const hash = Router.getLocation();
         let language = hash.language || window.localStorage.getItem('iobroker.net.language') || Router.detectLanguage();
         if (!LANGUAGES[language]) {
             language = 'de';
@@ -262,12 +273,12 @@ class App extends Router {
         this.updateWindowDimensionsBound = this.updateWindowDimensions.bind(this);
         Blog.fetchData()
             .then(json => {
-               const data = Object.keys(json.pages).sort().pop().split('_');
-               this.setState({ latestBlog: new Date(parseInt(data[0], 10), parseInt(data[1], 10) - 1, parseInt(data[2], 10)).getTime() });
+                const data = Object.keys(json.pages).sort().pop().split('_');
+                this.setState({ latestBlog: new Date(parseInt(data[0], 10), parseInt(data[1], 10) - 1, parseInt(data[2], 10)).getTime() });
             });
     }
 
-    componentDidMount () {
+    componentDidMount() {
         super.componentDidMount();
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensionsBound);
@@ -330,37 +341,36 @@ class App extends Router {
 
     renderLanguage() {
         return [
-            <div key="langButton" style={{ display: 'inherit' }} onClick={e => this.setState({ languageMenu: true, anchorMenu: e.target })}
+            <div
+                key="langButton"
+                style={{ display: 'inherit' }}
+                onClick={e => this.setState({ languageMenu: true, anchorMenu: e.target })}
             >
                 <IconLanguage className={this.props.classes.languageButton} />
                 <span className={this.props.classes.languageText}>{LANGUAGES[this.state.language].short}</span>
             </div>,
-            this.state.languageMenu ? [
-                <Menu
-                    key="langMenu"
-                    id="language-menu"
-                    transitionDuration={0}
-                    anchorEl={this.state.anchorMenu}
-                    open
-                    onClose={() => this.setState({ languageMenu: false, anchorMenu: null })}
-                >
-                    {Object.keys(LANGUAGES).map(lang => (
-                        <MenuItem
-                            key={lang}
-                            selected={this.state.language === lang}
-                            onClick={() =>
-                                this.setState({ languageMenu: false, anchorMenu: null }, () => {
-                                    window.localStorage.setItem('iobroker.net.language', lang);
-                                    const location = Router.getLocation();
-                                    this.onNavigate(lang, location.tab || 'intro', location.page, location.chapter);
-                                }
-                            )}
-                        >
-                            {LANGUAGES[lang].full}
-                        </MenuItem>
-                    ))}
-                </Menu>
-            ] : null
+            this.state.languageMenu ? <Menu
+                key="langMenu"
+                id="language-menu"
+                transitionDuration={0}
+                anchorEl={this.state.anchorMenu}
+                open
+                onClose={() => this.setState({ languageMenu: false, anchorMenu: null })}
+            >
+                {Object.keys(LANGUAGES).map(lang => (
+                    <MenuItem
+                        key={lang}
+                        selected={this.state.language === lang}
+                        onClick={() => this.setState({ languageMenu: false, anchorMenu: null }, () => {
+                            window.localStorage.setItem('iobroker.net.language', lang);
+                            const location = Router.getLocation();
+                            this.onNavigate(lang, location.tab || 'intro', location.page, location.chapter);
+                        })}
+                    >
+                        {LANGUAGES[lang].full}
+                    </MenuItem>
+                ))}
+            </Menu> : null,
         ];
     }
 
@@ -387,7 +397,7 @@ class App extends Router {
                     this.searchAnchor = this.searchAnchor || e.target;
                     this.searchValue = e.target.value;
 
-                    //this.setState({search: e.target.value});
+                    // this.setState({search: e.target.value});
                     this.searchTimeout && clearTimeout(this.searchTimeout);
                     this.searchTimeout = setTimeout(() => {
                         this.searchTimeout = null;
@@ -411,19 +421,20 @@ class App extends Router {
         const tab = type === '...' ? type : (type === 'adapterref' ? 'adapters' : 'documentation');
         return <div
             className={ARUtils.clsx(this.props.classes.sRdiv, !last && this.props.classes.sRdivNotLast)}
-             onClick={e => {
-                 e.preventDefault();
-                 e.stopPropagation();
-                 this.setState({searchResults: null});
-                 this.onNavigate(null, tab, result.id)
-             }}>
+            onClick={e => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.setState({ searchResults: null });
+                this.onNavigate(null, tab, result.id);
+            }}
+        >
             <div className={this.props.classes.sRdivType}>{I18n.t(tab)}</div>
             <div className={this.props.classes.sRdivText}>{type === '...' ? I18n.t('More %s results', result.title) : result.title}</div>
         </div>;
     }
 
     renderSearchResults() {
-        const len = this.state.searchResults &&this.state.searchResults.length;
+        const len = this.state.searchResults && this.state.searchResults.length;
         return <Popper
             placement="bottom"
             disablePortal={false}
@@ -442,19 +453,20 @@ class App extends Router {
                     },
                 },
             ]}
-            children={this.state.searchResults && this.state.searchResults.length ?
+        >
+            {this.state.searchResults && this.state.searchResults.length ?
                 <Paper className={this.props.classes.searchResultsDiv}>{this.state.searchResults.map((link, i) => this.renderSearchResult(link, len - 1 === i))}</Paper>
                 :
                 <Paper className={this.props.classes.searchResultsDiv}>{I18n.t('No results found')}</Paper>}
-        />;
+        </Popper>;
     }
 
-    onNavigate(language, tab, page, chapter) {
+    onNavigate = (language, tab, page, chapter) => {
         this.contentRef.current.scrollTop = 0;
         language = language || this.state.language;
 
         super.onNavigate(language, tab, page, chapter);
-    }
+    };
 
     renderMenu(name) {
         if (this.state.menuOpened.includes(name)) {
@@ -469,32 +481,33 @@ class App extends Router {
                     if (pos !== -1) {
                         menuOpened.splice(pos, 1);
                         this.setState({ menuOpened, anchorMenu: null });
-                    }}
-                }
+                    }
+                }}
             >
-                {PAGES[name].menu.map(item =>
-                    <MenuItem
-                        key={item.name}
-                        onClick={() => {
-                            if (item.link) {
-                                Utils.openLink(item.link, item.target);
-                            } else if (item.tab) {
-                                this.onNavigate(null, item.tab);
-                            }
-                            const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                            const pos = menuOpened.indexOf(name);
-                            if (pos !== -1) {
-                                menuOpened.splice(pos, 1);
-                                this.setState({ menuOpened, anchorMenu: null });
-                            }
-                        }}
-                    >
-                        {item.icon || ''}{I18n.t(item.name)}
-                        {this.state.last}
-                    </MenuItem>
-                )}
+                {PAGES[name].menu.map(item => <MenuItem
+                    key={item.name}
+                    onClick={() => {
+                        if (item.link) {
+                            Utils.openLink(item.link, item.target);
+                        } else if (item.tab) {
+                            this.onNavigate(null, item.tab);
+                        }
+                        const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                        const pos = menuOpened.indexOf(name);
+                        if (pos !== -1) {
+                            menuOpened.splice(pos, 1);
+                            this.setState({ menuOpened, anchorMenu: null });
+                        }
+                    }}
+                >
+                    {item.icon || ''}
+                    {I18n.t(item.name)}
+                    {this.state.last}
+                </MenuItem>)}
             </Menu>;
         }
+
+        return null;
     }
 
     renderTabs() {
@@ -508,27 +521,25 @@ class App extends Router {
             value={selected}
             variant="standard"
             onChange={(e, value) => {
-                  const selectedPage = Object.keys(PAGES)[value];
-                  if (selectedPage === 'blog') {
-                      window.localStorage.setItem('iobroker.net.lastSeenBlog', new Date().toISOString());
-                      this.setState({ lastSeenBlog: Date.now() });
-                  }
-
-                  if (PAGES[selectedPage].links) {
-                      Utils.openLink(PAGES[selectedPage].links[this.state.language] || PAGES[selectedPage].links.en, PAGES[selectedPage].target);
-                  } else
-                  if (PAGES[selectedPage].link) {
-                      Utils.openLink(PAGES[selectedPage].link, PAGES[selectedPage].target);
-                  } else if (PAGES[selectedPage].menu) {
-                      const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                      if (menuOpened.indexOf(selectedPage) === -1) {
-                          menuOpened.push(selectedPage);
-                      }
-                      this.setState({ menuOpened, anchorMenu: e.target })
-                  } else {
-                      this.onNavigate(this.state.language, selectedPage);
-                  }
-              }}
+                const selectedPage = Object.keys(PAGES)[value];
+                if (selectedPage === 'blog') {
+                    window.localStorage.setItem('iobroker.net.lastSeenBlog', new Date().toISOString());
+                    this.setState({ lastSeenBlog: Date.now() });
+                }
+                if (PAGES[selectedPage].links) {
+                    Utils.openLink(PAGES[selectedPage].links[this.state.language] || PAGES[selectedPage].links.en, PAGES[selectedPage].target);
+                } else if (PAGES[selectedPage].link) {
+                    Utils.openLink(PAGES[selectedPage].link, PAGES[selectedPage].target);
+                } else if (PAGES[selectedPage].menu) {
+                    const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                    if (menuOpened.indexOf(selectedPage) === -1) {
+                        menuOpened.push(selectedPage);
+                    }
+                    this.setState({ menuOpened, anchorMenu: e.target });
+                } else {
+                    this.onNavigate(this.state.language, selectedPage);
+                }
+            }}
         >
             {Object.keys(PAGES).map(tab => {
                 if (!PAGES[tab].tabIndex) {
@@ -538,34 +549,32 @@ class App extends Router {
                 if (PAGES[tab].menu) {
                     return [
                         <Tab
-                            classes={{root: this.props.classes.tab}}
+                            classes={{ root: this.props.classes.tab }}
                             key={tab}
                             fullWidth={false}
                             label={PAGES[tab].icon ? [<span key="text">{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
                         />,
-                        this.renderMenu(tab)
+                        this.renderMenu(tab),
                     ];
-                } else {
-                    let star = false;
-                    if (tab === 'blog') {
-                        if (this.state.latestBlog > this.state.lastSeenBlog) {
-                            star = true;
-                        }
-                    }
-                    return <Tab
-                        key={tab}
-                        classes={{ root: ARUtils.clsx(this.props.classes.tab, star && this.props.classes.tabAction) }}
-                        fullWidth={false}
-                        label={PAGES[tab].icon ? [(<span key="text">{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
-                    />;
                 }
+                let star = false;
+                if (tab === 'blog') {
+                    if (this.state.latestBlog > this.state.lastSeenBlog) {
+                        star = true;
+                    }
+                }
+                return <Tab
+                    key={tab}
+                    classes={{ root: ARUtils.clsx(this.props.classes.tab, star && this.props.classes.tabAction) }}
+                    fullWidth={false}
+                    label={PAGES[tab].icon ? [(<span key="text">{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
+                />;
             })}
-
         </Tabs>;
     }
 
     renderPagesMenu() {
-        return <Drawer key="drawer" open={this.state.showTabMenu} anchor="right" onClose={() => this.setState({showTabMenu: false})}>
+        return <Drawer key="drawer" open={this.state.showTabMenu} anchor="right" onClose={() => this.setState({ showTabMenu: false })}>
             <List>
                 {Object.keys(PAGES).map(tab => {
                     if (!PAGES[tab].tabIndex) {
@@ -574,45 +583,45 @@ class App extends Router {
 
                     if (PAGES[tab].menu) {
                         return [
-                            <ListItem button key={tab}
-                                   onClick={() => {
-                                       const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                                       const pos = menuOpened.indexOf(tab);
-                                       if (pos === -1) {
-                                           menuOpened.push(tab);
-                                       } else {
-                                           menuOpened.splice(pos, 1);
-                                       }
-                                       this.setState({menuOpened});
-                                   }}
+                            <ListItem
+                                button
+                                key={tab}
+                                onClick={() => {
+                                    const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                                    const pos = menuOpened.indexOf(tab);
+                                    if (pos === -1) {
+                                        menuOpened.push(tab);
+                                    } else {
+                                        menuOpened.splice(pos, 1);
+                                    }
+                                    this.setState({ menuOpened });
+                                }}
                             >
                                 {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
                                 <ListItemText primary={I18n.t(PAGES[tab].name)} />
                             </ListItem>,
 
-                            this.state.menuOpened.indexOf(tab) !== -1 ? <List key="list" className={this.props.classes.subMenu}>
-                                {PAGES[tab].menu.map(item =>
-                                    <ListItem
-                                        classes={{ root: this.props.classes.subMenuItem }}
-                                        selected={this.state.selectedPage === tab}
-                                        button
-                                        key={item}
-                                        onClick={() => {
-                                            if (item.links) {
-                                                Utils.openLink(item.links[this.state.language] || item.links.en, item.target);
-                                            } else if (item.link) {
-                                                Utils.openLink(item.link, item.target)
-                                            } else if (item.tab) {
-                                                this.onNavigate(null, item.tab);
-                                            }
-                                            this.setState({ showTabMenu: false });
-                                        }}
-                                    >
-                                        {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
-                                        <ListItemText classes={{ primary: this.props.classes.subMenuItemText }} primary={item.name} />
-                                    </ListItem>
-                                )}
-                            </List> : null
+                            this.state.menuOpened.includes(tab) ? <List key="list" className={this.props.classes.subMenu}>
+                                {PAGES[tab].menu.map(item => <ListItem
+                                    classes={{ root: this.props.classes.subMenuItem }}
+                                    selected={this.state.selectedPage === tab}
+                                    button
+                                    key={item}
+                                    onClick={() => {
+                                        if (item.links) {
+                                            Utils.openLink(item.links[this.state.language] || item.links.en, item.target);
+                                        } else if (item.link) {
+                                            Utils.openLink(item.link, item.target);
+                                        } else if (item.tab) {
+                                            this.onNavigate(null, item.tab);
+                                        }
+                                        this.setState({ showTabMenu: false });
+                                    }}
+                                >
+                                    {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
+                                    <ListItemText classes={{ primary: this.props.classes.subMenuItemText }} primary={item.name} />
+                                </ListItem>)}
+                            </List> : null,
                         ];
                     }
                     return <ListItem
@@ -624,7 +633,7 @@ class App extends Router {
                                 if (PAGES[tab].links) {
                                     Utils.openLink(PAGES[tab].links[this.state.language] || PAGES[tab].links.en, PAGES[tab].target);
                                 } else if (PAGES[tab].link) {
-                                    Utils.openLink(PAGES[tab].link, PAGES[tab].target)
+                                    Utils.openLink(PAGES[tab].link, PAGES[tab].target);
                                 } else {
                                     this.onNavigate(null, tab);
                                 }
@@ -669,7 +678,7 @@ class App extends Router {
                 {PageComponent ? <PageComponent
                     theme={this.state.themeType}
                     mobile={this.state.mobile}
-                    onNavigate={this.onNavigate.bind(this)}
+                    onNavigate={this.onNavigate}
                     language={this.state.language}
                     contentWidth={this.state.width}
                 /> : null}
@@ -677,25 +686,27 @@ class App extends Router {
                     path={PAGES[selectedPage].md}
                     theme={this.state.themeType}
                     mobile={this.state.mobile}
-                    onNavigate={this.onNavigate.bind(this)}
+                    onNavigate={this.onNavigate}
                     contentWidth={this.state.width}
-                    language={this.state.language} /> : null}
+                    language={this.state.language}
+                /> : null}
                 {PAGES[selectedPage] && PAGES[selectedPage].content ? <TreePage
                     contentPath={PAGES[selectedPage].content}
                     theme={this.state.themeType}
                     mobile={this.state.mobile}
-                    onNavigate={this.onNavigate.bind(this)}
+                    onNavigate={this.onNavigate}
                     contentWidth={this.state.width}
-                    language={this.state.language} /> : null}
+                    language={this.state.language}
+                /> : null}
             </div>
             {this.renderError()}
             {this.renderSearchResults()}
             <Cookies
                 theme={this.state.themeType}
-                 mobile={this.state.mobile}
-                 onNavigate={this.onNavigate.bind(this)}
-                 language={this.state.language}
-                 contentWidth={this.state.width}
+                mobile={this.state.mobile}
+                onNavigate={this.onNavigate}
+                language={this.state.language}
+                contentWidth={this.state.width}
             />
         </div>;
     }

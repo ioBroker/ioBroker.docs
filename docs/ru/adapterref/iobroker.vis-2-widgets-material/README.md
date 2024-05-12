@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
+hash: NbZzVpDRzjaniHO/LzukDm6Up4OwVLs7vxfalnkaoR8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -52,7 +52,7 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ### Посмотреть в виджете
 ![Посмотреть в виджете](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
 
-Не как кнопка: представление может отображаться в полном размере, и вы можете управлять элементами в представлении.
+Не как кнопка: представление может отображаться в полном размере, и вы можете управлять отображаемыми элементами.
 
 ![Посмотреть в виджете - кнопка](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
@@ -84,6 +84,8 @@ hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 
 ### Карта
 ![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-map-1.png)
+
+Позиция может быть определена как объединенное состояние, например `9.2344;41.374652` - (долгота;широта), или как два отдельных состояния.
 
 ### Камера
 ![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-camera-1.png)
@@ -133,6 +135,35 @@ HTML-шаблон можно использовать для отображен�
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 1.3.31 (2024-04-26)
+* (bluefox) Improved wizard layout
+
+### 1.3.28 (2024-04-19)
+* (bluefox) Improved resolving of icons
+
+### 1.3.27 (2024-04-09)
+* (bluefox) Updated packages
+* (bluefox) improved RGB widget
+
+### 1.3.25 (2024-03-07)
+* (bluefox) Corrected filter property in the widget settings
+
+### 1.3.23 (2024-03-05)
+* (bluefox) Added possibility to change the icon size in simple widget
+
+### 1.3.21 (2024-02-22)
+* (bluefox) Corrected small input fields
+
+### 1.3.18 (2024-01-16)
+* (bluefox) Corrected long click for RGB widget on touch devices
+* (bluefox) Corrected dimmer widget
+
+### 1.3.17 (2023-12-19)
+* (bluefox) Added option to hide the line in switches widget
+
+### 1.3.15 (2023-12-17)
+* (foxriver76) Added option to rotate video
+
 ### 1.3.14 (2023-12-05)
 * (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
 * (bluefox) Added class names to ON/OFF widgets to allow styling
@@ -235,7 +266,7 @@ HTML-шаблон можно использовать для отображен�
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2023 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2022-2024 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

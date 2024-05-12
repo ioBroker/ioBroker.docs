@@ -121,6 +121,9 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.8 (2024-04-27)
+- BugFix Cockpit und Batterie (thanks to @MCP-KC, @gik007)
+
 ### 0.2.7 (2024-04-08)
 - BugFix gps Location (thanks to @MCP-KC)
 

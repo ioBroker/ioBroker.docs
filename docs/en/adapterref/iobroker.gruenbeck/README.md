@@ -19,14 +19,19 @@ An ioBroker adapter for Grünbeck Wasseraufbereitung SC18, SC23, SD18, SD21, SD2
 SD Daten findet man unter Stream
 
 ## Changelog
+### 0.0.43 (2024-04-28)
+
+- add config index for multiple devices
 
 ### 0.0.42
 
 - Fix für SC Anlagen mit akuteller Node Version
+
 ### 0.0.29
 
 - Fix login
-- 
+-
+
 ### 0.0.28
 
 - Fix reconnect for SD
@@ -105,14 +110,14 @@ SD Daten findet man unter Stream
 ### 0.0.5 (2019-03-30)
 
 - Fehlercode History hinzugefügt. Fehlerspeicher muss nicht mehr zurückgesetzt für neue Fehler State. Nur der muss manuell auf 0 gesetzt werden.
-    Alle 4sek wird jetzt der aktuelle Durchfluss abgerufen.
+  Alle 4sek wird jetzt der aktuelle Durchfluss abgerufen.
 
 ### 0.0.4
 
 - (tombox) Bugfixes,
-    added Restkapazität Austauscher to refresh values
-    added berechneter Salzstand and reset Salzstand
-    added Fehlerspeicher reset
+  added Restkapazität Austauscher to refresh values
+  added berechneter Salzstand and reset Salzstand
+  added Fehlerspeicher reset
 
 ### 0.0.3
 
@@ -130,7 +135,7 @@ SD Daten findet man unter Stream
 
 MIT License
 
-Copyright (c) 2021 tombox
+Copyright (c) 2021-2030 tombox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

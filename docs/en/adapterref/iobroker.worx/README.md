@@ -16,37 +16,35 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `App Email`: Your APP Username (eMail)
 -   `App Password`: Your APP Password
 -   `App Name`: Choose your device
+-   `Update interval in minutes` Interval to update all data (Range from 10 to 1440 possible)
 -   `Delay for EdgeCut`: When should EdgeCut start (example 5 seconds to lawn)
-
-![Instance Settings img/instance_1.png](img/instance_1.png)
-
 -   `Distance and time in min and m`: Default h and km
--   `Ping MQTT Connection every 10 minutes.`: Just to test. Please no longer than 1 hour!
--   `Updating MQTT data after token update.`: Loads the Worx data after the refresh token. 24 additional queries per day/devices.
+-   `Updating MQTT data after token update.`: Loads the Worx data after the refresh token.
 
-![Instance Settings img/instance_2.png](img/instance_2.png)
+![Instance Settings img/instance.png](img/instance.png)
 
 ### Folder
 
--   `activityLog`: Your activity log (control possible)
--   `areas`: Areas (control possible)
--   `calendar`: Time schedule (control possible)
--   `Modules`: Your module(s) (control possible)
--   `mower`: Your mower (control possible)
--   `product`: All properties of your devices (readonly)
--   `rawMqtt`: All data from the cloud (readonly)
+-   `activityLog`: Your activity log (Wire & Vision / control possible)
+-   `areas`: Areas (Wire / control possible)
+-   `multiZones`: Multizones (Vision / control possible)
+-   `calendar`: Time schedule (Wire & Vision / control possible)
+-   `Modules`: Your module(s) (Wire & Vision / control possible)
+-   `mower`: Your mower (Wire & Vision / control possible)
+-   `product`: All properties of device (Wire & Vision / readonly)
+-   `rawMqtt`: All data from the cloud (Wire & Vision / readonly)
 
 ![Folder img/all_folders.png](img/all_folders.png)
 
 ### activityLog (Wire and Vision)
 
--   `last_update`: Last update as timestamp
--   `manuell_update`: Loads the current activity log (automatically after status changes)
+-   `last_update`: Last update as timestamp (Wire & Vision / readonly)
+-   `manuell_update`: Loads the current activity log (automatically after status changes - Wire & Vision / control possible)
 -   `payload`: Activity log as JSON Table (for VIS or Blockly)
 
 ![Activity img/activity.png](img/activity.png)
 
-### areas (without Vision)
+### areas (wire)
 
 -   `actualArea`: Current
 -   `actualAreaIndicator`: Next array zone start
@@ -65,7 +63,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
     -   `wednesday.borderCut`: With or without bordercut (Change value without delay) (changeable)
     -   `wednesday.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay) (changeable)
-    -   `wednesday.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endzeit 09:30 (Change value without delay) (changeable)
+    -   `wednesday.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = endtime 09:30 (Change value without delay) (changeable)
     -   `calJson_sendto`: If all States are set, then press button to send (with a 1,1 second delay). The mower will now mow for 30 minutes (changeable)
     -   `calJson_tosend`: This data is sent to Mqtt (Both mowing schedule/is set automatically). You can also create this JSON yourself. (changeable)
     -   `calendar.calJson`: Array for the weekly mowing plan. You can also create this ARRAY yourself. (mowing schedule 1/is set automatically - for wire only) (changeable)
@@ -80,8 +78,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
     -   `friday.time_0.borderCut`: With or without bordercut (Change value without delay) (changeable)
     -   `friday.time_0.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay) (changeable)
-    -   `friday.time_0.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endzeit 09:30 (Change value without delay) (changeable)
-    -   `friday.time_0.enabled_time`: Activate or deactivate time. When deactivated, the timeslot is deleted (set without delay) (can be changed)
+    -   `friday.time_0.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endtime 09:30 (Change value without delay) (changeable)
+    -   `friday.time_0.enabled_time`: Activate or deactivate time. (set without delay) (can be changed)
     -   `friday.time_0.zones`: Which zones should be approached, e.g. Example [1,2,3] (set without delay) (can be changed)
     -   `calJson_sendto`: If all States are set then set this button to true (with a delay of 1.1). The mower will now mow for 30 minutes! (changeable)
     -   `calJson_tosend`: This JSON is automatically filled and then sent to Mqtt. Of course you can also create it yourself. (changeable)
@@ -116,7 +114,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   Off Limit Module (Wire and Vision)
 
     -   `DF.OLMSwitch_Cutting`: Prevents magnetic tape from being run over - true-on/false-off
-    -   `DF.OLMSwitch_FastHoming`: Fast return to the charging station - true-on/false-off
+    -   `DF.OLMSwitch_FastHoming`: Fast return to the charging station - using shortcuts made from magnetic strips - true-on/false-off
 
 -   ACS Module (Wire only)
 
@@ -148,36 +146,55 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `cameraStatus`: Status Camera 0=OK/1=Error (Vision/readonly)
 -   `cameraError`: Camera error 0=OK/1=Error (Vision/readonly)
 -   `cutOverSlabs`: Cut over slabs on = true / off = false (Vision/changeable)
--   `direction`: Direction in grad (wire & Vision/readonly)
+-   `direction`: Direction in degrees (wire & Vision/readonly)
 -   `edgecut`: Start EdgeCut (wire & Vision/changeable)
 -   `error`: Error message from mower (wire & Vision/readonly)
 
 ```json
 {
     "states": {
-        "0": "No error", //(wire & Vision)
-        "1": "Trapped", //(wire & Vision unknown)
-        "2": "Lifted", //(wire & Vision)
-        "3": "Wire missing", //(wire & Vision unknown)
-        "4": "Outside wire", //(wire & Vision unknown)
-        "5": "Raining", //(wire & Vision)
-        "6": "Close door to mow", //(wire & Vision)
-        "7": "Close door to go home", //(wire & Vision)
-        "8": "Blade motor blocked", //(wire & Vision)
-        "9": "Wheel motor blocked", //(wire & Vision)
-        "10": "Trapped timeout", //(wire & Vision)
-        "11": "Upside down", //(wire & Vision)
-        "12": "Battery low", //(wire & Vision)
-        "13": "Reverse wire", //(wire & Vision unknown)
-        "14": "Charge error", //(wire & Vision)
-        "15": "Timeout finding home", //(wire & Vision)
-        "16": "Mower locked", //(wire & Vision)
-        "17": "Battery over temperature", //(wire & Vision)
-        "18": "dummy model", //(wire & Vision)
-        "19": "Battery trunk open timeout", //(wire & Vision)
-        "20": "wire sync", //(wire & Vision unknown)
-        "21": "msg num", //(wire & Vision)
-        "110": "Camera error" //(Vision)
+        "0": "No error", //(Draht & Vision & RTK)
+        "1": "Trapped", //(Draht & Vision & RTK-Body)
+        "2": "Lifted", //(Draht & Vision & RTK-Body)
+        "3": "Wire missing", //(Draht)
+        "4": "Outside boundary", //(Draht & Vision & RTK-Body)
+        "5": "Raining", //(Draht & Vision & RTK-Body)
+        "6": "Close door to cut grass", //(Draht)
+        "7": "Close door to go home", //(Draht)
+        "8": "Blade motor fault", //(Draht & Vision & RTK-Body)
+        "9": "Wheel motor fault", //(Draht & Vision & RTK-Body)
+        "10": "Trapped timeout fault", //(Draht & Vision & RTK-Body)
+        "11": "Upside down", //(Draht & Vision & RTK-Body)
+        "12": "Battery low", //(Draht & Vision & RTK)
+        "13": "Wire reversed", //(Draht)
+        "14": "Charge error", //(Draht & Vision & RTK-Body)
+        "15": "Home search timeout", //(Draht & Vision)
+        "16": "Wifi locked", //(Draht & Vision)
+        "17": "Battery over temperature", //(Draht & Vision & RTK)
+        "18": "Dummy model", //(Draht)
+        "19": "Battery trunk open timeout", //(Draht & Vision)
+        "20": "Wire signal out of sync", //(Draht)
+        "100": "Charging station docking error", //(RTK-Body)
+        "101": "HBI error", //(RTK-Body)
+        "102": "OTA upgrade error", //(Vision & RTK)
+        "103": "Map error", //(RTK)
+        "104": "Excessive slope", //(RTK-Body)
+        "105": "Unreachable zone", //(RTK-Body)
+        "106": "Unreachable charging station", //(RTK-Body)
+        "107": "Calibration needed", //(RTK-Head)
+        "108": "Insufficient sensor data", //(RTK)
+        "109": "Training start disallowed", //(RTK)
+        "110": "Camera error", //(Vision)
+        "111": "Lawn exploration required", //(Vision)
+        "112": "Mapping exploration failed", //(Vision)
+        "113": "RFID reader error", //(Vision)
+        "114": "Headlight error", //(Vision)
+        "115": "Missing charging station", //(RTK-Body)
+        "116": "Blade height adjustment blocked", //(Vision & RTK-Body)
+        "117": "Unsupported blade height", //(Vision & RTK-Body)
+        "118": "Manual firrnware upgrade required", //(Vision & RTK-Body)
+        "119": "Area limit exceeded", //(RTK-Body)
+        "120": "Charging station undocking error" //(RTK-Body)
     }
 }
 ```
@@ -205,9 +222,11 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `firmware_head` Value from dat.head.fw (Vision/readonly)
 -   `firmware_update_start`: Start firmware update in 2 steps - see below `firmware_update_start_approved` (wire & Vision/changeable)
 -   `firmware_update_start_approved`: Start firmware update - `firmware_update_start` must be set to true (wire & Vision/changeable)
--   `gradient`: Gradient in grad (wire & Vision/readonly)
--   `inclination`: Inclination in grad (wire & Vision/readonly)
+-   `gradient`: Gradient in degrees (wire & Vision/readonly)
+-   `inclination`: Inclination in degrees (wire & Vision/readonly)
 -   `last_command`: Last Request from iobroker or APP as JSON Table (wire & Vision/readonly)
+-   `last_update` Last update (wire & Vision/readonly)
+-   `last_update_connection` Which connection (Mqtt or Cloud / wire & Vision/readonly)
 -   `mowTimeExtend`: Mow time extend in % Range: -100%->100% (wire/changeable)
 -   `mowerActive`: Pause mowing plan (wire/changeable)
 -   `mqtt_update`: Update Mqtt data max. 150/day (wire & Vision/changeable)
@@ -244,15 +263,21 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```json
 {
     "states": {
-        "1": "Start", //(wire & Vision)
-        "2": "Stop", //(wire & Vision)
-        "3": "Home", //(wire & Vision)
-        "4": "Start Zone Taining", //(wire & Vision unknown)
-        "5": "Lock", //(wire & Vision unknown)
-        "6": "Unlock", //(wire & Vision)
-        "7": "Restart Robot", //(wire & Vision)
-        "8": "pause when follow wire", //(wire & Vision unknown)
-        "9": "safe homing" //(wire & Vision unknown)
+        "1": "Start", //(wire & Vision & RTK)
+        "2": "Stop", //(wire & Vision & RTK)
+        "3": "Home", //(wire & Vision & RTK)
+        "4": "Follow border", //(wire & Vision & RTK)
+        "5": "Wi-Fi Lock", //(wire & Vision unknown)
+        "6": "Wi-Fi Unlock", //(wire & Vision)
+        "7": "Reset Log", //(wire & Vision & RTK)
+        "8": "Pause over border", //(wire & Vision)
+        "9": "Safe go home", //(wire & Vision unknown)
+        "10": "Start once", //(Vision)
+        "100": "Pairing command", //(Vision)
+        "101": "Border Cut", //(Vision & RTK)
+        "102": "Resume cutting", //(RTK)
+        "103": "Start driving", //(Draht & Vision & RTK)
+        "104": "Stop driving" //(Draht & Vision & RTK)
     }
 }
 ```
@@ -263,25 +288,41 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```json
 {
     "states": {
-        "0": "IDLE", //(wire & Vision)
-        "1": "Home", //(wire & Vision)
-        "2": "Start sequence", //(wire & Vision)
-        "3": "Leaving home", //(wire & Vision)
-        "4": "Follow wire", //(wire & Vision unknown)
-        "5": "Searching home", //(wire & Vision)
-        "6": "Searching wire", //(wire & Vision unknown)
-        "7": "Mowing", //(wire & Vision)
-        "8": "Lifted", //(wire & Vision)
-        "9": "Trapped", //(wire & Vision)
-        "10": "Blade blocked", //(wire & Vision)
-        "11": "Debug", //(wire & Vision)
-        "12": "Remote control", //(wire & Vision)
-        "13": "escape from off limits", //(wire & Vision)
+        "0": "IDLE", //(wire & Vision & RTK-Body)
+        "1": "Home", //(wire & Vision & RTK-Body)
+        "2": "Start sequence", //(wire)
+        "3": "Leaving home", //(wire & Vision & RTK-Body)
+        "4": "Following border", //(wire)
+        "5": "Searching home", //(wire & Vision & RTK-Body)
+        "6": "Searching border", //(wire & Vision)
+        "7": "Mowing", //(wire & Vision & RTK-Body)
+        "8": "Lifted", //(wire & Vision & RTK-Body)
+        "9": "Trapped", //(wire & Vision & RTK-Body)
+        "10": "Blade blocked", //(wire & Vision & RTK-Body)
+        "11": "Debug", //(wire)
+        "12": "Driving", //(wire & Vision)
+        "13": "Digital fence escape", //(wire & Vision)
         "30": "Going home", //(wire & Vision)
         "31": "Zone training", //(wire & Vision)
         "32": "Border Cut", //(wire & Vision)
         "33": "Searching zone", //(wire & Vision)
-        "34": "Pause" //(wire & Vision)
+        "34": "Pause", //(wire & Vision)
+        "100": "Map training (completable)", //(RTK-Head)
+        "101": "Map processing", //(RTK)
+        "102": "Upgrading firmware", //(RTK)
+        "103": "Moving to zone", //(RTK-Body)
+        "104": "Going home", //(RTK-Body)
+        "105": "Ready for training", //(RTK-Head)
+        "106": "Map download in progress", //(RTK)
+        "107": "Map upload in progress", //(RTK-Head)
+        "108": "Map training paused", //(RTK-Head)
+        "109": "Map training (not completable)", //(RTK-Head)
+        "110": "Border crossing", //(Vision)
+        "111": "Exploring lawn", //(Vision)
+        "112": "Moving to recovery point", //(RTK-Body)
+        "113": "Waiting for position", //(RTK-Body)
+        "114": "Map training (driving)", //(Vision & RTK-Body)
+        "115": "Map training (rolling back)" //(Vision)
     }
 }
 ```
@@ -311,7 +352,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   MultiZones
     -   `multiZones.zones.zone_1.borderDistance`: When boarder cutting, the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm - Set with Blockly without delay - Change is written in `multiZones.multiZones` (vision/changeable)
     -   `multiZones.zones.zone_1.chargingStation`: 1 If the charging station is found in this zone. 0 for no charging station - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
-    -   `multiZones.zones.zone_1.cutOverBorder`: 1 to drive over plates if they are detected, otherwise 0. Set with Blockly without delay - Change is written to `multiZones.multiZones` (Vision /changeable)
+    -   `multiZones.zones.zone_1.cutOverBorder`: 1 to drive over slabs if they are detected, otherwise 0. Set with Blockly without delay - Change is written to `multiZones.multiZones` (Vision /changeable)
     -   `multiZones.zones.zone_1.zone_id`: Numbering - Start with 1 - (vision/readonly)
     -   `multiZones.passages.passage_01.tagIdFrom`: RFID id of zoneIdFrom - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
     -   `multiZones.passages.passage_01.tagIdTo`: RFID id of zoneIdTo - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable)
@@ -742,15 +783,27 @@ Default without zone:
 
 ### **WORK IN PROGRESS**
 
+-   (Lucky-ESA) mowTimeExtend restricted input
+-   (Lucky-ESA) Fixed TypeError
+
+### 3.0.1 (2024-05-08)
+
+-   (Lucky-ESA) Preperation mission Kress new API
+-   (Lucky-ESA) Fixed TypeError
+-   (Lucky-ESA) Fixed missing activity states
+-   (Lucky-ESA) Added update interval in instance setting
+-   (Lucky-ESA) Added last update
+
+### 3.0.0 (2024-04-25)
+
 -   (Lucky-ESA) Fixed Sentry messages
 -   (Lucky-ESA) Catch publish crash
--   (Lucky-ESA) Added for Vision electric height adjustment
--   (Lucky-ESA) Added for Vision new calendar
--   (Lucky-ESA) Added Vision head light
--   (Lucky-ESA) Added Vision cut over slabs
+-   (Lucky-ESA) Added Vision completely
 -   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) JS-Controller >= 5.0.19 required
+-   (Lucky-ESA) Admin >=6.13.16 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Added Vision Multi Zone
+-   (Lucky-ESA) Delete ping
 
 ### 2.3.4 (2023-10-19)
 

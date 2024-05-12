@@ -12,6 +12,7 @@
 [![NPM](https://nodei.co/npm/iobroker.volvo.png?downloads=true)](https://nodei.co/npm/iobroker.volvo/)
 
 **Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.volvo/workflows/Test%20and%20Release/badge.svg)
+
 ## volvo adapter for ioBroker
 
 Volvo On Call and new Electric API for Android Automotive Cars Adapter
@@ -20,10 +21,9 @@ Volvo On Call and new Electric API for Android Automotive Cars Adapter
 
 Non Eletric car can login via username and password.
 
-
 ## Eletric Android Automotive Cars need a VCC API Key
 
-Register/Login into 
+Register/Login into
 <https://developer.volvocars.com/account/>
 
 You need a Google or Github Account this is not related to you APP Credentials
@@ -39,48 +39,51 @@ Paste the API Key in the Instance settings
 Enter Volvoe App Username and password.
 
 ## Controling Eletric Android
-Controlling Eletric Android with the volvo.0.id.remote is not possible at the moment. The commands are send succeful to the API and are accepted but it looks like the API is not complete to control the car.
 
+Controlling Eletric Android with the volvo.0.id.remote is not possible at the moment. The commands are send succeful to the API and are accepted but it looks like the API is not complete to control the car.
 
 ## Getting started
 
 Use objects under remote to control the vehicle
 
-
-
 ## Changelog
+### 0.1.2 (2024-05-02)
+
+- added support for v2 api
+
 ### 0.1.1
 
-* added location api information
+- added location api information
 
 ### 0.1.0
 
-* (TA2k) add new api for electric cars
+- (TA2k) add new api for electric cars
+
 ### 0.0.6
 
-* (TA2k) fix trip object naming
-  
+- (TA2k) fix trip object naming
+
 ### 0.0.5
 
-* (TA2k) fix receiving data
+- (TA2k) fix receiving data
 
 ### 0.0.4
 
-* (TA2k) fix jscontroller
-  
+- (TA2k) fix jscontroller
+
 ### 0.0.3
 
-* (TA2k) fix preclimate
+- (TA2k) fix preclimate
 
 ### 0.0.2
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 TA2k <tombox2020@gmail.com>
+Copyright (c) 2020-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

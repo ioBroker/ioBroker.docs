@@ -88,6 +88,10 @@ In each Channel you have following states:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2024-04-25)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.1.1 (2023-11-28)
 * (mcm1957) Role definitions have been corrected.
 
@@ -128,7 +132,7 @@ Code adaptions to use HERE v8 pi have been provided by @icastillo15 <starwarsmal
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019 BuZZy1337 <buzzy1337@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

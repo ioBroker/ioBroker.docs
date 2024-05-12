@@ -2685,38 +2685,33 @@ return 'your result';
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (paul53) Allow negative values in formatTimeDiff
+* (klein0r) Updated tests and fixed Blockly translations
+
+### 8.3.0 (2024-05-09)
+
+* (klein0r) Added createTempFile to sandbox
+* (klein0r) Fixed log message on script start
+* (klein0r) Added instance/from to log window (like in admin)
+
+### 8.2.0 (2024-05-07)
+
+* (PeterVoronov) Added toArray to result object of $-selector
+* (klein0r) Added Blockly block for onLog
+
+### 8.1.1 (2024-05-03)
+
+* (klein0r) Updated Blockly/JS and Rules/JS image (as svg)
+
+### 8.1.0 (2024-05-03)
+
+* (bluefox) Updated admin config to jsonConfig (dropped materialize)
+
 ### 8.0.3 (2024-04-11)
 
 * (klein0r) Updates dependencies (latest adapter-react-v5 framework)
-
-### 8.0.2 (2024-04-08)
-
-* (klein0r) Forced downgrade of socket-client (object change issues)
-
-### 8.0.1 (2024-04-08)
-
-* (klein0r) Fixed some missing translations (uk)
-* (klein0r) Raised supported ecmaVersion from es2021 to es2022 (node18)
-
-### 8.0.0 (2024-04-05)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Breaking change: Removed support for binary states (deprecated since v6.2.0)
-* (klein0r) Breaking change: Protected filesystem (iobroker-data/files) to prevent direct file writes
-* (klein0r) Breaking change: request property has been removed of the sandbox (require the module if still needed)
-* (klein0r) Added blockly block for global variables (e.g. script name)
-* (klein0r) Added missing functions to protectFS
-* (klein0r) Fixed httpPost (missing data)
-* (klein0r) Fixed hasAttribute blockly block
-* (klein0r) Fixed parenthesis insertion in blockly for multi and/or
-* (PeterVoronov) Added setStateChanged / setStateChangedAsync
-
-### 7.11.1 (2024-03-28)
-
-* (klein0r) Added exec result blockly block
-* (klein0r) Protect iobroker-data/files to avoid direct writes with node:fs
-* (klein0r) Escape single quotes in blockly obj attributes
 
 ## License
 The MIT License (MIT)

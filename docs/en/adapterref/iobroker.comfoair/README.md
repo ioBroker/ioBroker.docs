@@ -70,6 +70,11 @@ Tested on comfoair CA350.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2024-04-24)
+
+* (mcm1957) The dependency requirements have been corrected
+* (mcm1957) Some dependencies have been updated
+
 ### 1.2.0 (2024-04-14)
 
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now

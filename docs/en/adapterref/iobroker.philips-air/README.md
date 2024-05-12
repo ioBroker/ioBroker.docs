@@ -24,10 +24,15 @@ It can happen, that some devices have not all variables, and they will stay unfi
 
 ![Objects](img/objects.png)
 
+## Changelog
 <!--
+    Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-## Changelog
+### 1.1.0 (2024-04-25)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.3 (2022-12-23)
 * (Apollon77) Finalized and optimized HTTP communication protocol
 * (Apollon77) Fixed type issues with device.error
@@ -54,6 +59,7 @@ It can happen, that some devices have not all variables, and they will stay unfi
 ## License
 MIT License
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

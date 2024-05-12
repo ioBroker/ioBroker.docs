@@ -253,9 +253,17 @@ class Blog extends Router {
 
         return <Paper key={page} className={this.props.classes.pagePage}>
             {data.logo ? <div className={this.props.classes.pageLogoDiv} style={{ backgroundImage: `url(${data.logo})` }} /> : null}
-            <h2 className={this.props.classes.pageTitle} style={{ cursor: 'pointer' }} onClick={() => this.props.onNavigate(null, null, page)}>{data.title[this.props.language] || data.title.en}</h2>
+            <h2
+                className={this.props.classes.pageTitle}
+                style={{ cursor: 'pointer' }}
+                onClick={() => this.props.onNavigate(null, null, page)}
+            >
+                {data.title[this.props.language] || data.title.en}
+            </h2>
             <div className={this.props.classes.pagePosted}>
-                <span style={{ fontWeight: 'bold', marginRight: 8 }}>{data.author || data.Author}</span>
+                <span style={{ fontWeight: 'bold', marginRight: 8 }}>
+                    {data.author || data.Author}
+                </span>
                 {I18n.t('posted on %s', Blog.page2Date(page))}
             </div>
             <p className={this.props.classes.pageDesc}>{data.desc && (data.desc[this.props.language] || data.desc.en || '').replace(/\\n/g, '\n')}</p>
@@ -300,8 +308,14 @@ class Blog extends Router {
                     <span style={{ fontWeight: 'bold', marginRight: 8 }}>{header.author || header.Author}</span>
                     {I18n.t('posted on %s', Blog.page2Date(date))}
                 </div>
-                {next ? <Button variant="contained" className={this.props.classes.pageTitleNextButton} onClick={() => this.onNavigate(null, null, pages[pos - 1])}>← {next}</Button> : null}
-                {prev ? <Button variant="contained" className={this.props.classes.pageTitlePrevButton} onClick={() => this.onNavigate(null, null, pages[pos + 1])}>{prev} →</Button> : null}
+                {next ? <Button variant="contained" className={this.props.classes.pageTitleNextButton} onClick={() => this.onNavigate(null, null, pages[pos - 1])}>
+                    ←
+                    <span style={{ marginLeft: 8 }}>{next}</span>
+                </Button> : null}
+                {prev ? <Button variant="contained" className={this.props.classes.pageTitlePrevButton} onClick={() => this.onNavigate(null, null, pages[pos + 1])}>
+                    <span style={{ marginRight: 8 }}>{prev}</span>
+                    →
+                </Button> : null}
             </div>
 
             {header.translatedFrom ?
