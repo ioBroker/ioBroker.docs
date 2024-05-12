@@ -330,7 +330,7 @@ It is possible to use categories in scenes
 ## solaredge (15.2.2024) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.solaredge
 
-<img src="https://raw.githubusercontent.com/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
 
 Get data from solaredge monitoring portal. Currently, only the /overview data point is used to get the current power and day/month/year/lifetime energy readings.
 

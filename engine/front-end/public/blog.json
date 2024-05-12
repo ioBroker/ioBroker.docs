@@ -14,8 +14,8 @@
       "desc": {
         "de": "*Eine Übersicht über die Neuentwicklungen in ioBroker*. \\nIn diesem zweiten Teil unseres Blogs werden weitere Adapter und Funktionen vorgestellt, die in diesem Zeitraum veröffentlicht wurden.",
         "en": "*An overview of new adapters, and features in ioBroker*.\\nExploring Further: This blog highlights additional adapters and features released during this period.",
-        "ru": "*Обзор новых адаптеров и функций ioBroker*.\\nДальнейшие исследования: в этом блоге рассказывается о дополнительных адаптерах и функциях, выпущенных за этот период.",
-        "zh-cn": "*ioBroker 中新适配器和功能的概述*。\\n进一步探索：本博客重点介绍了在此期间发布的其他适配器和功能。"
+        "ru": "# Обзор, часть 2: с декабря 2023 г. по февраль 2024 г.\\n*Обзор новых адаптеров и функций ioBroker*.\\nДальнейшие исследования: в этом блоге рассказывается о дополнительных адаптерах и функциях, выпущенных за этот период.",
+        "zh-cn": "# 综述第二部分：2023 年 12 月至 2024 年 2 月\\n*ioBroker 中新适配器和功能的概述*。\\n进一步探索：本博客重点介绍了在此期间发布的其他适配器和功能。"
       }
     },
     "2024_04_23": {
