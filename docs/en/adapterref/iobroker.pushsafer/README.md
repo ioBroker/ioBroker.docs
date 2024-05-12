@@ -50,9 +50,8 @@ You can find API description [here](https://www.pushsafer.com/en/pushapi)
 You can use blockly too.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* IMPORTANT: This adapter now requires Node.js 16.x+
+### 1.1.0 (2024-04-21)
+* IMPORTANT: This adapter now requires Node.js 18.x+
 * (ChrMaass) Fix Blockly priority and answer
 
 ### 1.0.3 (2021-01-13)

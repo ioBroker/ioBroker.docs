@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: 92cBpCuRfRuA7W4aJ8ZJWjPwsVYs5xcr9U5TP7fbsgo=
+hash: 8tA+V8SN00R6sI+L20sFVqelcCZ+6srIMDexcZ7Xfhc=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -35,6 +35,8 @@ Alle Beschriftungen, Texte und Hilfetexte können mehrsprachig oder nur aus Zeic
 *Wenn der Attributname mit "_" beginnt, wird er nicht im Objekt gespeichert.*
 
 ## Beinhaltet
+Erfordert Admin 6.17.1 oder neuer.
+
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
 Die eingebundene Datei muss sich im selben Verzeichnis wie die Hauptdatei befinden.
 
@@ -65,7 +67,7 @@ Mögliche Typen:
 
 - `text` – Textkomponente
 - `maxLength` – maximale Länge des Textes im Feld
-- `readOnly` - Nur-Lese-Feld
+- `readOnly` - schreibgeschütztes Feld
 - „trim“ – Standard ist „true“. Setzen Sie dieses Attribut auf „false“, wenn kein Trimmen gewünscht ist.
 - „minRows“ – Standard ist 1. Setzen Sie dieses Attribut auf „2“ oder höher, wenn Sie einen Textbereich mit mehr als einer Zeile haben möchten.
 - `maxRows` – maximale Anzahl an Zeilen im Textbereich. Wird nur verwendet, wenn `minRows` > 1.
@@ -119,7 +121,7 @@ Mögliche Typen:
 - `!maxBreite`
 - `!maxHöhe`
 - „!crop“ – wenn wahr, erlaubt dem Benutzer, das Bild zuzuschneiden
-- „!Quadrat“ – Breite muss gleich Höhe sein, oder beim Zuschneiden darf nur das Quadrat als Form zulässig sein
+- „!square“ – die Breite muss gleich der Höhe sein, oder der Zuschnitt darf nur Quadrate als Form zulassen
 
 ```
   "login-bg.png": {
@@ -170,7 +172,7 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
+- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
 - `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
 - „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
@@ -190,7 +192,7 @@ Nur Text: Instanz läuft, Instanz läuft nicht
 
 - „Muster“ – schreibgeschütztes Feld mit Muster wie „https://${data.ip}:${data.port}“ (wird nicht in der Konfiguration gespeichert)
 
-Texteingabe mit der Nur-Lese-Flagge, die ein Muster anzeigt.
+Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 
 - `copyToClipboard` - wenn wahr - Schaltfläche anzeigen
 - `Muster` - mein Muster
@@ -204,7 +206,7 @@ Texteingabe mit der Nur-Lese-Flagge, die ein Muster anzeigt.
 - `Variante` - `enthalten`, `umrissen` oder nichts
 - `openUrl` - wenn wahr - URL in neuem Tab öffnen, wenn die Antwort das Attribut `openUrl` enthält, wie `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „reloadBrowser“ – wenn wahr – lädt das aktuelle Browserfenster neu, wenn die Antwort das Attribut „reloadBrowser“ enthält, wie „{„reloadBrowser“: true}“.
-- `window` – wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort aus dem `window`-Attribut besteht.
+- „window“ – wenn „openUrl“ wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort aus dem Attribut „window“ besteht.
 
 `this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
 
@@ -231,7 +233,7 @@ Texteingabe mit der Nur-Lese-Flagge, die ein Muster anzeigt.
 - „Button“ – einen Link als Schaltfläche anzeigen
 - „Variante“ – Art der Schaltfläche („umrissen“, „enthalten“, „Text“)
 - „Farbe“ – Farbe der Schaltfläche (z. B. „primär“)
-- `icon` - wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
+- `icon` - wenn Icon angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an)
 
 - `staticImage` – statisches Bild
 - `href` – optionaler HTTP-Link
@@ -249,9 +251,10 @@ Texteingabe mit der Nur-Lese-Flagge, die ein Muster anzeigt.
 - „Exportieren“ – [optional] – ob die Schaltfläche „Exportieren“ angezeigt werden soll. Als CSV-Datei exportieren.
 - „importieren“ – [optional] – ob die Schaltfläche „Importieren“ angezeigt werden soll. Importieren aus CSV-Datei.
 - `uniqueColumns` - [optional] - Geben Sie ein Array von Spalten an, die eindeutige Einträge haben müssen
+- `encryptedAttributes` – [optional] – Geben Sie ein Array von Spalten an, die verschlüsselt werden sollen
 
 - „Akkordeon“ – Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können (Admin 6.6.0 und neuer)
-- `items` - `[{"type": siehe oben, "attr": "name", "default": ""}]` - Elemente können wie auf einem `Panel` platziert werden (xs, sm, md, lg und newLine)
+- `items` - `[{"type": siehe oben, "attr": "name", "default": ""}]` - Elemente können wie auf einem `panel` platziert werden (xs, sm, md, lg und newLine)
 - `titleAttr` - Schlüssel der Artikelliste, der als Name verwendet werden soll
 - `noDelete` - Boolesch, wenn Löschen oder Hinzufügen deaktiviert ist. Wenn `noDelete` falsch ist, sollten Hinzufügen, Löschen und Hoch-/Runterschieben funktionieren.
 - `clone` – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn wahr, wird die Schaltfläche „Klonen“ angezeigt. Wenn Attributname, ist dieser Name eindeutig.
@@ -469,7 +472,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `agreeText` - Text der vereinbarten Schaltfläche
 - `checkBox` - Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert.
 
-- `checkLicense` – Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die nativen Eigenschaften `license` und `useLicenseManager` benötigt.
+- `checkLicense` – Eine sehr spezielle Komponente, um die Lizenz online zu überprüfen. Es werden genau die Eigenschaften `license` und `useLicenseManager` nativ benötigt.
 - `uuid` – UUID prüfen
 - `version` – Version prüfen
 
@@ -509,8 +512,6 @@ Hier ist ein Beispiel, wie der Geräte-Manager in einer Registerkarte angezeigt 
 }
 ```
 
-**Hinweis: Mit "!" gekennzeichnete Attribute oder Steuerelemente sind noch nicht implementiert.**
-
 ## Gemeinsame Attribute von Steuerelementen
 Alle Typen könnten haben:
 
@@ -527,7 +528,7 @@ Alle Typen könnten haben:
 - `helpLink` – href zur Hilfe (kann nur zusammen mit `help` verwendet werden)
 - „style“ – CSS-Stil in ReactJS-Notation: „radiusBorder“ und nicht „radius-border“.
 - `darkStyle` – CSS-Stil für den Dunkelmodus
-- „validator“ – JS-Funktion: true, kein Fehler, false, Fehler
+- „validator“ – JS-Funktion: „true“, kein Fehler, „false“, Fehler
 - `validatorErrorText` - Text, der angezeigt wird, wenn der Validator fehlschlägt
 - `validatorNoSaveOnError` - Deaktivieren der Schaltfläche „Speichern“, wenn ein Fehler auftritt
 - `tooltip` – optionaler Tooltip
@@ -540,7 +541,7 @@ Alle Typen könnten haben:
 - „button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
 - „buttonTooltip“ – Button-Tooltip (Standard: „Daten nach Instanz anfordern“)
 - `buttonTooltipNoTranslation` – Button-Tooltip nicht übersetzen
-- `placeholder` – Platzhalter (zur Textsteuerung)
+- `placeholder` - Platzhalter (zur Textsteuerung)
 - „noTranslation“ – übersetzt keine Auswahlen oder andere Optionen (nicht für Hilfe, Beschriftung oder Platzhalter)
 - `onChange` - Struktur in der Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - `doNotSave` - Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird
@@ -773,7 +774,7 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 
 Die folgenden Variablen sind in der JS-Funktion in den Adaptereinstellungen verfügbar:
 
-- „data“ – native Einstellungen für diese Instanz oder aktuelle Zeile in der Tabelle (um auf alle Einstellungen zuzugreifen, verwenden Sie globalData)
+- „data“ – native Einstellungen für diese Instanz oder aktuelle Zeile in der Tabelle (um auf alle Einstellungen zuzugreifen, verwenden Sie „globalData“)
 - `_system` – Systemkonfiguration
 - `_alive` – ist die Instanz aktiv
 - `_common` – allgemeine Einstellungen für diese Instanz

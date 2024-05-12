@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
+hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -18,35 +18,33 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `App Email`：您的 APP 用户名（电子邮件）
 - `应用密码`：您的应用密码
 - `应用程序名称`：选择您的设备
+- `更新间隔（分钟）` 更新所有数据的间隔（范围从 10 到 1440）
 - `EdgeCut 延迟`：EdgeCut 何时启动（例如 5 秒后开始修剪草坪）
-
-![实例设置 img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
-
 - `距离和时间（以分钟和米为单位）`：默认小时和公里
-- `每 10 分钟 Ping MQTT 连接一次。`：仅用于测试。请不要超过 1 小时！
-- `令牌更新后更新 MQTT 数据。`：刷新令牌后加载 Worx 数据。每个设备每天额外 24 个查询。
+- `在令牌更新后更新 MQTT 数据。`：在刷新令牌后加载 Worx 数据。
 
-![实例设置 img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
+![实例设置 img/instance.png](../../../en/adapterref/iobroker.worx/img/instance.png)
 
 ＃＃＃ 文件夹
-- `activityLog`：你的活动日志（可控制）
-- `areas`: 区域（可控制）
-- `calendar`: 时间表（可控制）
-- `模块`：您的模块（可控制）
-- `mower`：你的割草机（可控制）
-- `product`：您设备的所有属性（只读）
-- `rawMqtt`: 来自云端的所有数据（只读）
+- `activityLog`：您的活动日志（可能为有线和视觉/控制）
+- `areas`: 区域（可以连接/控制）
+- `multiZones`：多区域（可实现视觉/控制）
+- `日历`：时间表（可以进行有线和视觉/控制）
+- `模块`：您的模块（可能的线路和视觉/控制）
+- `mower`：你的割草机（可用电线和视觉/控制）
+- `product`：设备的所有属性（Wire & Vision / readonly）
+- `rawMqtt`: 来自云端的所有数据 (Wire & Vision / readonly)
 
 ![文件夹 img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
 ### ActivityLog（Wire 和 Vision）
-- `last_update`: 最后更新时间戳
-- `manuell_update`：加载当前活动日志（状态改变后自动）
+- `last_update`：最后更新时间戳（Wire＆Vision /只读）
+- `manuell_update`：加载当前活动日志（状态改变后自动加载 - 可以使用 Wire & Vision/控制）
 - `payload`：活动日志作为 JSON 表（用于 VIS 或 Blockly）
 
 ![活动 img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
 
-### 区域（无视觉）
+### 区域（线路）
 - `actualArea`：当前
 - `actualAreaIndicator`: 下一个数组区域开始
 - `area_0`: 区域 1 的起始位置（以米为单位）（数组=0）（可更改）
@@ -63,7 +61,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 - `wednesday.borderCut`：有或无bordercut（立即更改值）（可更改）
 - `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（无延迟更改值）（可更改）
-- `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = Endzeit 09:30（立即更改值）（可更改）
+- `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时） 例如 30 = 结束时间 09:30（立即更改值）（可更改）
 - `calJson_sendto`：如果所有状态都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）
 - `calJson_tosend`：此数据将发送到 Mqtt（割草计划/自动设置）。您也可以自己创建此 JSON。（可更改）
 - `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 1/自动设置 - 仅适用于电线）（可更改）
@@ -77,8 +75,8 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 - `friday.time_0.borderCut`：有无bordercut（立即更改值）（可更改）
 - `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（立即更改值）（可更改）
-- `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = Endzeit 09:30（立即更改值）（可更改）
-- `friday.time_0.enabled_time`：激活或停用时间。停用时，时间段将被删除（无延迟设置）（可更改）
+- `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）
+- `friday.time_0.enabled_time`：激活或停用时间。（无延迟设置）（可以更改）
 - `friday.time_0.zones`：应接近哪些区域，例如示例 [1,2,3]（无延迟设置）（可以更改）
 - `calJson_sendto`：如果所有状态都已设置，则将此按钮设置为 true（延迟 1.1）。割草机现在将割草 30 分钟！（可更改）
 - `calJson_tosend`: 这个 JSON 是自动填充然后发送给 Mqtt 的。当然你也可以自己创建。(可更改)
@@ -110,7 +108,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - 禁区模块（电线和视觉）
 
 - `DF.OLMSwitch_Cutting`：防止磁带被碾过 - true-on/false-off
-- `DF.OLMSwitch_FastHoming`：快速返回充电站 - true-on/false-off
+- `DF.OLMSwitch_FastHoming`：快速返回充电站 - 使用磁条制作的快捷方式 - 真开/假关
 
 - ACS 模块（仅限有线）
 
@@ -136,37 +134,58 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `batteryState`：电池状态（％）（电线和视觉/只读）
 - `batteryTemperature`：电池温度（摄氏度）（电线和视觉/只读）
 - `batteryVoltage`：电池电压（伏特）（电线和视觉/只读）
+- `cameraStatus`：相机状态 0=OK/1=Error (Vision/readonly)
+- `cameraError`: 相机错误 0=OK/1=Error (Vision/readonly)
 - `cutOverSlabs`: 切换板开启 = true / 关闭 = false （视觉/可更改）
-- `direction`：梯度方向（wire & Vision/readonly）
-- `edgecut`: 启动 EdgeCut (线材 & 视觉/可更改)
+- `direction`：以度为单位的方向（wire & Vision/readonly）
+- `edgecut`: 启动 EdgeCut (线和视觉/可更改)
 - `error`：来自割草机的错误消息（wire & Vision/readonly）
 
 ```json
 {
     "states": {
-        "0": "No error", //(wire & Vision)
-        "1": "Trapped", //(wire & Vision unknown)
-        "2": "Lifted", //(wire & Vision)
-        "3": "Wire missing", //(wire & Vision unknown)
-        "4": "Outside wire", //(wire & Vision unknown)
-        "5": "Raining", //(wire & Vision)
-        "6": "Close door to mow", //(wire & Vision)
-        "7": "Close door to go home", //(wire & Vision)
-        "8": "Blade motor blocked", //(wire & Vision)
-        "9": "Wheel motor blocked", //(wire & Vision)
-        "10": "Trapped timeout", //(wire & Vision)
-        "11": "Upside down", //(wire & Vision)
-        "12": "Battery low", //(wire & Vision)
-        "13": "Reverse wire", //(wire & Vision unknown)
-        "14": "Charge error", //(wire & Vision)
-        "15": "Timeout finding home", //(wire & Vision)
-        "16": "Mower locked", //(wire & Vision)
-        "17": "Battery over temperature", //(wire & Vision)
-        "18": "dummy model", //(wire & Vision)
-        "19": "Battery trunk open timeout", //(wire & Vision)
-        "20": "wire sync", //(wire & Vision unknown)
-        "21": "msg num", //(wire & Vision)
-        "110": "Camera error" //(Vision)
+        "0": "No error", //(Draht & Vision & RTK)
+        "1": "Trapped", //(Draht & Vision & RTK-Body)
+        "2": "Lifted", //(Draht & Vision & RTK-Body)
+        "3": "Wire missing", //(Draht)
+        "4": "Outside boundary", //(Draht & Vision & RTK-Body)
+        "5": "Raining", //(Draht & Vision & RTK-Body)
+        "6": "Close door to cut grass", //(Draht)
+        "7": "Close door to go home", //(Draht)
+        "8": "Blade motor fault", //(Draht & Vision & RTK-Body)
+        "9": "Wheel motor fault", //(Draht & Vision & RTK-Body)
+        "10": "Trapped timeout fault", //(Draht & Vision & RTK-Body)
+        "11": "Upside down", //(Draht & Vision & RTK-Body)
+        "12": "Battery low", //(Draht & Vision & RTK)
+        "13": "Wire reversed", //(Draht)
+        "14": "Charge error", //(Draht & Vision & RTK-Body)
+        "15": "Home search timeout", //(Draht & Vision)
+        "16": "Wifi locked", //(Draht & Vision)
+        "17": "Battery over temperature", //(Draht & Vision & RTK)
+        "18": "Dummy model", //(Draht)
+        "19": "Battery trunk open timeout", //(Draht & Vision)
+        "20": "Wire signal out of sync", //(Draht)
+        "100": "Charging station docking error", //(RTK-Body)
+        "101": "HBI error", //(RTK-Body)
+        "102": "OTA upgrade error", //(Vision & RTK)
+        "103": "Map error", //(RTK)
+        "104": "Excessive slope", //(RTK-Body)
+        "105": "Unreachable zone", //(RTK-Body)
+        "106": "Unreachable charging station", //(RTK-Body)
+        "107": "Calibration needed", //(RTK-Head)
+        "108": "Insufficient sensor data", //(RTK)
+        "109": "Training start disallowed", //(RTK)
+        "110": "Camera error", //(Vision)
+        "111": "Lawn exploration required", //(Vision)
+        "112": "Mapping exploration failed", //(Vision)
+        "113": "RFID reader error", //(Vision)
+        "114": "Headlight error", //(Vision)
+        "115": "Missing charging station", //(RTK-Body)
+        "116": "Blade height adjustment blocked", //(Vision & RTK-Body)
+        "117": "Unsupported blade height", //(Vision & RTK-Body)
+        "118": "Manual firrnware upgrade required", //(Vision & RTK-Body)
+        "119": "Area limit exceeded", //(RTK-Body)
+        "120": "Charging station undocking error" //(RTK-Body)
     }
 }
 ```
@@ -194,9 +213,11 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - 来自 dat.head.fw 的 `firmware_head` 值 (Vision/readonly)
 - `firmware_update_start`：分 2 步启动固件更新 - 请参阅下文 `firmware_update_start_approved`（有线和视觉/可更改）
 - `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true (wire & Vision/changeable)
-- `gradient`：渐变（wire & Vision/readonly）
-- `inclination`：梯度倾斜度（wire & Vision/readonly）
+- `gradient`：梯度（线和视觉/只读）
+- `inclination`：倾斜度（线和视觉/只读）
 - `last_command`: 来自 iobroker 或 APP 的最后一个请求，以 JSON 表形式 (wire & Vision/readonly)
+- `last_update` 最后更新 (wire & Vision/readonly)
+- `last_update_connection` 哪个连接（Mqtt 或 Cloud / wire & Vision/readonly）
 - `mowTimeExtend`：割草时间延长百分比范围：-100%->100%（有线/可变）
 - `mowerActive`：暂停割草计划（有线/可更改）
 - `mqtt_update`: 每天最多更新 150 条 Mqtt 数据（有线和视觉/可更改）
@@ -227,20 +248,27 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 ![割草机 img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
 
+- `rfidStatus`：状态 RF 传感器 0=OK/1=Error（视觉/只读）
 - `sendCommand`: 发送 cmd 命令 (有线 & 视觉/可更改)
 
 ```json
 {
     "states": {
-        "1": "Start", //(wire & Vision)
-        "2": "Stop", //(wire & Vision)
-        "3": "Home", //(wire & Vision)
-        "4": "Start Zone Taining", //(wire & Vision unknown)
-        "5": "Lock", //(wire & Vision unknown)
-        "6": "Unlock", //(wire & Vision)
-        "7": "Restart Robot", //(wire & Vision)
-        "8": "pause when follow wire", //(wire & Vision unknown)
-        "9": "safe homing" //(wire & Vision unknown)
+        "1": "Start", //(wire & Vision & RTK)
+        "2": "Stop", //(wire & Vision & RTK)
+        "3": "Home", //(wire & Vision & RTK)
+        "4": "Follow border", //(wire & Vision & RTK)
+        "5": "Wi-Fi Lock", //(wire & Vision unknown)
+        "6": "Wi-Fi Unlock", //(wire & Vision)
+        "7": "Reset Log", //(wire & Vision & RTK)
+        "8": "Pause over border", //(wire & Vision)
+        "9": "Safe go home", //(wire & Vision unknown)
+        "10": "Start once", //(Vision)
+        "100": "Pairing command", //(Vision)
+        "101": "Border Cut", //(Vision & RTK)
+        "102": "Resume cutting", //(RTK)
+        "103": "Start driving", //(Draht & Vision & RTK)
+        "104": "Stop driving" //(Draht & Vision & RTK)
     }
 }
 ```
@@ -251,25 +279,41 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ```json
 {
     "states": {
-        "0": "IDLE", //(wire & Vision)
-        "1": "Home", //(wire & Vision)
-        "2": "Start sequence", //(wire & Vision)
-        "3": "Leaving home", //(wire & Vision)
-        "4": "Follow wire", //(wire & Vision unknown)
-        "5": "Searching home", //(wire & Vision)
-        "6": "Searching wire", //(wire & Vision unknown)
-        "7": "Mowing", //(wire & Vision)
-        "8": "Lifted", //(wire & Vision)
-        "9": "Trapped", //(wire & Vision)
-        "10": "Blade blocked", //(wire & Vision)
-        "11": "Debug", //(wire & Vision)
-        "12": "Remote control", //(wire & Vision)
-        "13": "escape from off limits", //(wire & Vision)
+        "0": "IDLE", //(wire & Vision & RTK-Body)
+        "1": "Home", //(wire & Vision & RTK-Body)
+        "2": "Start sequence", //(wire)
+        "3": "Leaving home", //(wire & Vision & RTK-Body)
+        "4": "Following border", //(wire)
+        "5": "Searching home", //(wire & Vision & RTK-Body)
+        "6": "Searching border", //(wire & Vision)
+        "7": "Mowing", //(wire & Vision & RTK-Body)
+        "8": "Lifted", //(wire & Vision & RTK-Body)
+        "9": "Trapped", //(wire & Vision & RTK-Body)
+        "10": "Blade blocked", //(wire & Vision & RTK-Body)
+        "11": "Debug", //(wire)
+        "12": "Driving", //(wire & Vision)
+        "13": "Digital fence escape", //(wire & Vision)
         "30": "Going home", //(wire & Vision)
         "31": "Zone training", //(wire & Vision)
         "32": "Border Cut", //(wire & Vision)
         "33": "Searching zone", //(wire & Vision)
-        "34": "Pause" //(wire & Vision)
+        "34": "Pause", //(wire & Vision)
+        "100": "Map training (completable)", //(RTK-Head)
+        "101": "Map processing", //(RTK)
+        "102": "Upgrading firmware", //(RTK)
+        "103": "Moving to zone", //(RTK-Body)
+        "104": "Going home", //(RTK-Body)
+        "105": "Ready for training", //(RTK-Head)
+        "106": "Map download in progress", //(RTK)
+        "107": "Map upload in progress", //(RTK-Head)
+        "108": "Map training paused", //(RTK-Head)
+        "109": "Map training (not completable)", //(RTK-Head)
+        "110": "Border crossing", //(Vision)
+        "111": "Exploring lawn", //(Vision)
+        "112": "Moving to recovery point", //(RTK-Body)
+        "113": "Waiting for position", //(RTK-Body)
+        "114": "Map training (driving)", //(Vision & RTK-Body)
+        "115": "Map training (rolling back)" //(Vision)
     }
 }
 ```
@@ -279,7 +323,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `totalDistance`：总距离（电线和视觉/只读）
 - `totalTime`: 总工作时间 (wire & Vision/readonly)
 - `waitRain`：降雨延迟最大为 12 小时，以 30 分钟为单位（电线和视觉/可更改）
-- `waitRainCountdown` 当传感器从湿变干时开始倒计时（电线和视觉/只读）
+- `waitRainCountdown` 当传感器从湿变干时开始倒计时（电线和视觉/只读）（当前已禁用）
 - `waitRainSensor` 状态 0 表示干燥，1 表示潮湿（电线和视觉/只读）
 - `wifiQuality`：WiFi 质量（有线和视觉/只读）
 
@@ -296,17 +340,16 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 ### 另外对于视觉
 - 多区域
-- `multiZone.passages.passage_01.tagIdFrom`: z1 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
-- `multiZone.passages.passage_01.tagIdTo`: z2 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
-- `multiZone.passages.passage_01.zoneIdFrom`：区域来自（必须 z1 < z2） - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（视觉/可更改）
-- `multiZone.passages.passage_01.zoneIdTo`: 区域关闭（必须 z2 > z1） - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（vision/changeable）
-- `multiZone.zones.zone_1.borderDistance`：边缘切割（单位：毫米）- 允许 50 毫米、100 毫米、150 毫米和 20 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone`（视觉/可更改）
-- `multiZone.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZone.multiZone` (vision/changeable)
-- `multiZone.zones.zone_1.cutOverBorder`: 如果检测到车牌，则为 1，否则为 0。每个区域不允许使用不同的值 - 立即使用 Blockly 设置 - 更改写入 `multiZone.multiZone` (Vision /changeable)
-- `multiZone.zones.zone_1.zone_id`: 编号 - 从 1 开始 - （vision/readonly）
-- `multiZone.rfid`: 总 RF（只读）
-- `multiZone.multiZone`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-startsequence-vision)
-- `multiZone.sendMultiZoneJson`：延迟 1.1 秒将更改发送到 Worx（视觉/可更改）
+- `multiZones.zones.zone_1.borderDistance`: 切割边框时，到边缘的距离（以毫米为单位） - 允许 50 毫米、100 毫米、150 毫米和 200 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（视觉/可更改）
+- `multiZones.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.zones.zone_1.cutOverBorder`: 如果检测到平板则为 1，否则为 0。使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (Vision /changeable)
+- `multiZones.zones.zone_1.zone_id`: 编号 - 从 1 开始 - （vision/readonly）
+- `multiZones.passages.passage_01.tagIdFrom`: zoneIdFrom 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.passages.passage_01.tagIdTo`: zoneIdTo 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.passages.passage_01.zoneIdFrom`：区域来自（必须 zoneIdFrom < zoneIdTo） - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（vision/changeable）
+- `multiZones.passages.passage_01.zoneIdTo`: 区域关闭 (必须 zoneIdTo > zoneIdFrom) - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
+- `multiZones.multiZones`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-sendMultiZonesJson-vision)
+- `multiZones.sendMultiZonesJson`：将更改发送到 Worx，延迟 1.1 秒（视觉/可更改）
 
 例子：
 
@@ -329,7 +372,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
                 "c": 1, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm - allowed 10mm, 15mm und 20mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -339,7 +382,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
                 "c": 0, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -395,7 +438,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 ![愿景 img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
-### 示例 Blockly startsequence Vision
+### 示例 Blockly sendMultiZonesJson Vision
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -420,7 +463,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -487,7 +530,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -531,7 +574,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -598,7 +641,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -690,7 +733,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <next>
           <block type="control" id="k$;?LM/[x-TbZ^m=F4}i">
             <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-            <field name="OID">worx.0.xxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxx.multiZones.sendMultiZonesJson</field>
             <field name="WITH_DELAY">FALSE</field>
             <value name="VALUE">
               <block type="convert_object2json" id="b~2Bz}OiNg{V]!QgN^J7">
@@ -718,21 +761,33 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ![ok_direct.png](../../../en/adapterref/iobroker.worx/img/ok_direct.png)
 
 ＃＃＃ 不允许
-![ok_direct.png](img/not_ok_direct.png) ![json_nok.png](img/json_nok.png) ![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
+![json_nok.png](img/json_nok.png) ![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
+-   (Lucky-ESA) mowTimeExtend restricted input
+-   (Lucky-ESA) Fixed TypeError
+
+### 3.0.1 (2024-05-08)
+
+-   (Lucky-ESA) Preperation mission Kress new API
+-   (Lucky-ESA) Fixed TypeError
+-   (Lucky-ESA) Fixed missing activity states
+-   (Lucky-ESA) Added update interval in instance setting
+-   (Lucky-ESA) Added last update
+
+### 3.0.0 (2024-04-25)
+
 -   (Lucky-ESA) Fixed Sentry messages
 -   (Lucky-ESA) Catch publish crash
--   (Lucky-ESA) Added for Vision electric height adjustment
--   (Lucky-ESA) Added for Vision new calendar
--   (Lucky-ESA) Added Vision head light
--   (Lucky-ESA) Added Vision cut over slabs
+-   (Lucky-ESA) Added Vision completely
 -   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) JS-Controller >= 5.0.19 required
+-   (Lucky-ESA) Admin >=6.13.16 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Added Vision Multi Zone
+-   (Lucky-ESA) Delete ping
 
 ### 2.3.4 (2023-10-19)
 

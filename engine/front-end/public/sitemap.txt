@@ -40,6 +40,7 @@ https://www.iobroker.net/#de/blog/2022_01_19
 https://www.iobroker.net/#de/blog/2022_02_16
 https://www.iobroker.net/#de/blog/2023_02_15
 https://www.iobroker.net/#de/blog/2023_09_16
+https://www.iobroker.net/#de/blog/2024_04_21
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -54,6 +55,7 @@ https://www.iobroker.net/#en/blog/2022_01_19
 https://www.iobroker.net/#en/blog/2022_02_16
 https://www.iobroker.net/#en/blog/2023_02_15
 https://www.iobroker.net/#en/blog/2023_09_16
+https://www.iobroker.net/#en/blog/2024_04_21
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -68,6 +70,7 @@ https://www.iobroker.net/#ru/blog/2022_01_19
 https://www.iobroker.net/#ru/blog/2022_02_16
 https://www.iobroker.net/#ru/blog/2023_02_15
 https://www.iobroker.net/#ru/blog/2023_09_16
+https://www.iobroker.net/#ru/blog/2024_04_21
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -82,6 +85,7 @@ https://www.iobroker.net/#zh-cn/blog/2022_01_19
 https://www.iobroker.net/#zh-cn/blog/2022_02_16
 https://www.iobroker.net/#zh-cn/blog/2023_02_15
 https://www.iobroker.net/#zh-cn/blog/2023_09_16
+https://www.iobroker.net/#zh-cn/blog/2024_04_21
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
@@ -910,7 +914,6 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.imap/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.imow/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.influxdb/README.md
-https://www.iobroker.net/#de/adapters/adapterref/iobroker.info/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.intesishome/README.md
@@ -1213,6 +1216,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.tradfri/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.trashschedule/blockly.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.trashschedule/faq.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.trashschedule/javascript.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.trashschedule/providers.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.trashschedule/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.trivum/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.tronity/README.md
@@ -1240,6 +1244,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
@@ -1570,7 +1575,6 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.imap/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.imow/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.influxdb/README.md
-https://www.iobroker.net/#en/adapters/adapterref/iobroker.info/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.intesishome/README.md
@@ -1873,6 +1877,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.tradfri/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.trashschedule/blockly.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.trashschedule/faq.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.trashschedule/javascript.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.trashschedule/providers.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.trashschedule/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.trivum/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.tronity/README.md
@@ -1900,6 +1905,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
@@ -2230,7 +2236,6 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.imap/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.imow/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.influxdb/README.md
-https://www.iobroker.net/#ru/adapters/adapterref/iobroker.info/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.intesishome/README.md
@@ -2533,6 +2538,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tradfri/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.trashschedule/blockly.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.trashschedule/faq.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.trashschedule/javascript.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.trashschedule/providers.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.trashschedule/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.trivum/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tronity/README.md
@@ -2560,6 +2566,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
@@ -2890,7 +2897,6 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.imap/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.imow/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.influxdb/README.md
-https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.info/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innogy-smarthome/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intesishome/README.md
@@ -3193,6 +3199,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tradfri/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trashschedule/blockly.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trashschedule/faq.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trashschedule/javascript.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trashschedule/providers.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trashschedule/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.trivum/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tronity/README.md
@@ -3220,6 +3227,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md

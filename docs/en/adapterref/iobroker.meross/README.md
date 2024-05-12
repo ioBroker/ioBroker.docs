@@ -23,6 +23,8 @@ You need to provide your Cloud login credentials. The adapter connects to your c
 
 One Adapter instance will show all devices from one Meross Cloud account and allows to control them.
 
+If new devices are added to Meross Cloud account, it is necessary to restart the Meross adapter to update the adapters iobroker data tree accordingly.
+
 ## Note when using MFA
 The adapter allows to enter the current MFA code in the settings. Please be aware that a code is only valid 30s, so enter and save fast :-)
 

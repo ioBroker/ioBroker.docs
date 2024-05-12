@@ -28,23 +28,41 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
-* Own signal pcitures for tiles
-* Mini-mediaplayer
-* Thermostat
-* Select
-* Submenue-Button
-* CSS: make colors of dialog window nice
-* CSS: make colors of datepicker window nice
+* create Mini-mediaplayer
+* create Select-tile
+* create Submenue-Button
+* Radiobutton: new property "division" with selectable values (1:1; 3:4)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.13 (2024-05-05)
+
+* (Standarduser) made colors of datepicker window nice
+* (Standarduser) removed test divs from hkt-ViewInWidget-Dialog
+* (Standarduser) added thermostat widget
+
+### 0.0.12 (2024-05-03)
+
+* (Standarduser) added preview for label-widget
+* (Standarduser) added notification bubbles for navigation button-set
+* (Standarduser) removed navigation button (use navigation button-set instead)
+* (Standarduser) added Settings-Widget with select value list
+
+### 0.0.11 (2024-04-30)
+
+* (Standarduser) added own signal pictures for all tiles widgets
+* (Standarduser) Radiobutton: allow HTML in button label
+* (Standarduser) Radiobutton: some css corrections
+* (Standarduser) added Text field (label) with predefined css-classes
+
+### 0.0.10 (2024-04-26)
 
 * (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
 * (Standarduser) repaired Increment function
+* (Standarduser) added own signal pictures
 
 ### 0.0.9 (2024-02-02)
 

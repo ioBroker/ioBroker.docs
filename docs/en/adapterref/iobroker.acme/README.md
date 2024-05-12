@@ -93,6 +93,10 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.1.2 (2023-11-15)
  * (mcm1957) Issues reported by adapter checker have been fixed.
  * (mcm1957) Release 0.1.1 has been released again due to error during deploy.
@@ -115,6 +119,7 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 ## License
 MIT License
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Robin Rainton <robin@rainton.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

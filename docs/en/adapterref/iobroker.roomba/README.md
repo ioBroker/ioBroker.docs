@@ -308,6 +308,10 @@ You may edit the variable ```message``` to any notification you would like to re
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-04-26)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.2.2 (2023-09-03)
 * (mcm1957) some dependencies have been upgraded
 * (TheRealArthurDent) Background color of the adapter settings page has been removed to make it useable in dark mode.
@@ -431,7 +435,7 @@ Icons made by <a href="https://www.flaticon.com/authors/iconnice" title="Iconnic
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2020 Zefau <zefau@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

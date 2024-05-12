@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: Адаптер ioBroker Discover
-hash: 9q9hk+XosZMUV7Kv3DKTr9Qi0BuHcX5rQtJlRBo/RRg=
+hash: 8ZC7Dm35Xlje6vXUX0PcjjVgWk0L6sXeaxRpbl3uHyM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -21,6 +21,7 @@ hash: 9q9hk+XosZMUV7Kv3DKTr9Qi0BuHcX5rQtJlRBo/RRg=
 
 ## Действительно поддерживается
 ### Обнаружено автоматически
+- Эйр-Кью
 - Бекхофф ПЛС
 - Умный дом Бош
 - Бозе Саундтач
@@ -129,7 +130,7 @@ hash: 9q9hk+XosZMUV7Kv3DKTr9Qi0BuHcX5rQtJlRBo/RRg=
 - Би-Контроль-Эм? (Блюфокс)
 - cul/maxcul (Bluefox)
 - Foobar200 (Инсталлятор)
-- фрицбокс (70 руб.)
+- фрицбокс (ruhr70)
 - км200 (шутка)
 - мегаэсп (ausHaus)
 - Modbus (Bluefox)
@@ -148,6 +149,9 @@ hash: 9q9hk+XosZMUV7Kv3DKTr9Qi0BuHcX5rQtJlRBo/RRg=
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 4.5.0 (2024-04-21)
+* (pr0crstntr) Added Air-Q
+
 ### 4.4.0 (2024-02-23)
 * (klein0r) Added WLED
 * (klein0r) Added LaMetric
@@ -161,10 +165,6 @@ hash: 9q9hk+XosZMUV7Kv3DKTr9Qi0BuHcX5rQtJlRBo/RRg=
 
 ### 4.1.0 (2023-09-25)
 * (pdbjjens) Added detection of myvbus and resol
-
-### 4.0.0 (2023-09-04)
-* (pdbjjens) Added: frontier_silicon, sma-em, and speedwire
-* (bluefox) Dropped node14 support, refactoring
 
 ## License
 

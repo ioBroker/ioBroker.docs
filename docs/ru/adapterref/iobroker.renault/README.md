@@ -3,37 +3,35 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: 97GXKchTYDc8dUJM6UI+2pv/ZcrZ0WOL8bP2TDnAaDQ=
+hash: 5BErlG99F5UwFWKZqVr2z8c/30IhUf1u+hW5gpZx+78=
 ---
 ![Логотип](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.renault.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.renault.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.renault.svg)
 ![Количество установок](https://iobroker.live/badges/renault-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/renault-stable.svg)
-![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.renault.svg)
-![НПМ](https://nodei.co/npm/iobroker.renault.png?downloads=true)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/renault-stable.svg)
 
 # IoBroker.renault
-** Испытания: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер renault / dacia для ioBroker
-Адаптер для Renault и Dacia
+## Адаптер renault/dacia для ioBroker
+Адаптер для Renault и Dacia.
 
-## Loginablauf
-Die myRenault / myDacia Mail und Passwort eingeben.
+## Логинабауф
+Введите myRenault/myDacia Mail и пароль.
 
-## Steuern
+## Стойерн
 renault.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 
-## Diskussion und Fragen
+## Обсуждение и Fragen
 <https://forum.iobroker.net/topic/48074/test-adapter-renault-v0-0-x>
 
 ## Changelog
 
 ### 0.0.7
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

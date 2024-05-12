@@ -44,21 +44,12 @@ const styles = theme => ({
 class MDPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            editMode: false,
-        };
-        this.mounted = false;
-
         this.contentRef = React.createRef();
-    }
-
-    componentDidMount() {
-        this.mounted = true;
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
         if (this.props.mobile !== nextProps.mobile) {
-            //setTimeout(() => this.forceUpdate(), 100);
+            // setTimeout(() => this.forceUpdate(), 100);
         }
         if (this.props.path !== nextProps.path) {
             this.forceUpdate();
@@ -99,9 +90,7 @@ class MDPage extends Component {
         this.props.onNavigate(language, tab, page, chapter);
     }
 
-    onEditMode(editMode) {
-        this.props.onEditMode(editMode);
-    }
+    onEditMode = editMode => this.props.onEditMode(editMode);
 
     render() {
         return [
@@ -112,34 +101,36 @@ class MDPage extends Component {
                 ref={this.contentRef}
             >
                 {this.props.path === 'adapters.md' || this.props.path === 'adapters' ?
-                    <Adapters path={this.props.path}
-                         language={this.props.language}
-                         theme={this.props.theme}
-                         contentWidth={this.props.contentWidth}
-                         mobile={this.props.mobile}
-                         scrollPosition={top => {
-                             if (top !== undefined) {
-                                 this.contentRef.current.parentNode.scrollTop = top;
-                             } else {
-                                 return this.contentRef.current.parentNode.scrollTop;
-                             }
-                         }}
-                         onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
+                    <Adapters
+                        path={this.props.path}
+                        language={this.props.language}
+                        theme={this.props.theme}
+                        contentWidth={this.props.contentWidth}
+                        mobile={this.props.mobile}
+                        scrollPosition={top => {
+                            if (top !== undefined) {
+                                this.contentRef.current.parentNode.scrollTop = top;
+                            } else {
+                                return this.contentRef.current.parentNode.scrollTop;
+                            }
+                        }}
+                        onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
                     />
                     :
-                    <Markdown path={this.props.path}
-                         editor={Editor}
-                         affiliates={Affiliates}
-                         language={this.props.language}
-                         theme={this.props.theme}
-                         mobile={this.props.mobile}
-                         editMode={this.props.editMode}
-                         onEditMode={this.onEditMode.bind(this)}
-                         editEnabled
-                         onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
+                    <Markdown
+                        path={this.props.path}
+                        editor={Editor}
+                        affiliates={Affiliates}
+                        language={this.props.language}
+                        theme={this.props.theme}
+                        mobile={this.props.mobile}
+                        editMode={this.props.editMode}
+                        onEditMode={this.onEditMode}
+                        editEnabled
+                        onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
                     />}
             </div>,
-            !this.props.editMode ? <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} /> : null
+            !this.props.editMode ? <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} /> : null,
         ];
     }
 }

@@ -16,32 +16,30 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `App-Benutzername`: APP Benutzername (eMail)
 -   `App-Passwort`: APP Passwort
 -   `App Name`: Geräte auswählen
+-   `Aktualisierungsintervall in Minuten` Intervall um alle Daten zu aktualisieren (Bereich von 10 bis 1440 möglich)
 -   `Verzögerung für Kantenschnitt`: Wann soll EdgeCut nach dem Losfahren starten (Beispiel nach 5 Sekunden bis zum Rasen)
-
-![Instance Settings img/instance_1.png](img/instance_1.png)
-
 -   `Entfernung und Zeit in Minuten und Metern`: Einheit für Laufzeit und Arbeitszeit in Min./Std. und Meter/KM
--   `MQTT-Verbindung alle 10 Minuten anpingen`: Nur zum testen. Bitte nicht länger als 1 Stunde!
--   `Aktualisieren der MQTT-Daten nach der Token-Aktualisierung.`: Nach der Erneuerung vom Token (jede Stunde) die Mqtt Daten neu laden. Das sind 24 zusätzlich Abfragen pro Tag und pro Geräte.
+-   `Aktualisieren der MQTT-Daten nach der Token-Aktualisierung.`: Nach der Erneuerung vom Token (jede Stunde) die Mqtt Daten neu laden.
 
-![Instance Settings img/instance_2.png](img/instance_2.png)
+![Instance Settings img/instance.png](img/instance.png)
 
 ### Ordner
 
--   `activityLog`: Aktivitätenprotokoll (Kontrolle möglich)
--   `areas`: Zonen (Kontrolle möglich)
--   `calendar`: Mähplan (Kontrolle möglich)
--   `Modules`: Verfügbare Module (Kontrolle möglich)
--   `mower`: Mäher (Kontrolle möglich)
--   `product`: Alle Eigenschaften vom Geräte (Nur lesen)
--   `rawMqtt`: Alle Daten von der Worx-Cloud (Nur lesen)
+-   `activityLog`: Aktivitätenprotokoll (Draht & Vision / Kontrolle möglich)
+-   `areas`: Zonen (Draht / Kontrolle möglich)
+-   `multiZones`: Multizonen (Vision / Kontrolle möglich)
+-   `calendar`: Mähplan (Draht & Vision / Kontrolle möglich)
+-   `Modules`: Verfügbare Module (Draht & Vision / Kontrolle möglich)
+-   `mower`: Mäher (Draht & Vision / Kontrolle möglich)
+-   `product`: Alle Eigenschaften vom Gerät (Draht & Vision / Nur lesen)
+-   `rawMqtt`: Alle Daten von der Cloud (Draht & Vision / Nur lesen)
 
 ![Folder img/all_folders.png](../en/img/all_folders.png)
 
 ### activityLog (Draht und Vision)
 
 -   `last_update`: Letzte Update als Zeitstempel (nur lesen)
--   `manuell_update`: Lädt das aktuelle Aktivitätenprotokoll (automatisch nach Statusänderungen) (änderbar)
+-   `manuell_update`: Lädt das aktuelle Aktivitätenprotokoll (automatisch nach Statusänderungen - Draht & Vision / Kontrolle möglich)
 -   `payload`: Protokoll als JSON (für VIS oder Blockly) (nur lesen)
 
 ![Activity img/activity.png](../en/img/activity.png)
@@ -75,13 +73,13 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### calendar (Vision)
 
--   Beispiel Zeiteinstellung Mittwoch
+-   Beispiel Zeiteinstellung Freitag
 -   Als Standard werden 2 Timeslots angelegt. Werden 3 Slots in der APP angelegt werden auch 3 in ioBroker erstellt. Wird wieder auf 2 reduziert, dann wird in ioBroker diese Slots gelöscht. Der Tag mit den meisten Slots wird als Referenz für alle Tage verwendet.
 
     -   `friday.time_0.borderCut`: Mit oder ohne Kantenschnitt (ohne Verzögerung setzen) (änderbar)
     -   `friday.time_0.startTime`: Startzeit als Format hh:mm (0-23/0-59) Bsp.: 09:00 (ohne Verzögerung setzen) (änderbar)
     -   `friday.time_0.workTime`: Arbeitszeit in Minuten (180 min = 3h) Bsp.: 30 = Endzeit 09:30 (ohne Verzögerung setzen) (änderbar)
-    -   `friday.time_0.enabled_time`: Zeit aktivieren oder deaktivieren. Bei Deaktivierung wird der Timeslot gelöscht (ohne Verzögerung setzen) (änderbar)
+    -   `friday.time_0.enabled_time`: Zeit aktivieren oder deaktivieren. (ohne Verzögerung setzen) (änderbar)
     -   `friday.time_0.zones`: Welche Zonen sollen angefahren werden z. Bsp. [1,2,3] (ohne Verzögerung setzen) (änderbar)
     -   `calJson_sendto`: Sind alle Datenpunkte gesetzt dann diesen Button auf true setzen (mit einer Verzögerung von 1,1). Der Mäher mäht nun für 30 Minuten! (änderbar)
     -   `calJson_tosend`: Dieser JSON wird automatisch gefüllt und dann an Mqtt versendet. Kann natürlich auch selber erstellt werden. (änderbar)
@@ -104,7 +102,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
         "cfg": {
             "cut": {
                 "b": 1, // 0=ohne Kantenschnitt/1=Mit Kantenschnitt
-                "z": [1] // In welchen Zonen - Beispiel 3 Zonen [1,2,6]
+                "z": [1] // In which zones - example 3 zones [1,2,6]
             }
         }
     }
@@ -116,7 +114,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   Off Limit Modul (Draht und Vision)
 
     -   `DF.OLMSwitch_Cutting`: Verhindert das überfahren vom Magnetband - true-an/false-aus
-    -   `DF.OLMSwitch_FastHoming`: Verwendet erstellte Abkürzungen mit Magnetband - true-an/false-aus
+    -   `DF.OLMSwitch_FastHoming`: Verwendet erstellte Abkürzungen mit Magnetband - mithilfe von Abkürzungen aus Magnetstreifen - true-an/false-aus
 
 -   ACS Modul (nur Draht)
 
@@ -125,7 +123,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 -   EA Modul (nur Vision)
 
-    -   `EA.height`: Höheneinstellung Mähwerk von 30-60 in 5 Schritte
+    -   `EA.height`: Höheneinstellung Mähwerk von 30-60 in 5mm Schritte
 
 -   HL Modul (nur Vision)
     -   `HL.status`: Status Scheinwerfer
@@ -145,6 +143,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `batteryState`: Batteriestatus in % (Draht & Vision/nur lesen)
 -   `batteryTemperature`: Batterietemperatur in Celsius (Draht & Vision/nur lesen)
 -   `batteryVoltage`: Batteriespannung in Volt (Draht & Vision/nur lesen)
+-   `cameraStatus`: Status Camera 0=OK/1=Error (Vision/nur lesen)
+-   `cameraError`: Camera error 0=OK/1=Error (Vision/nur lesen)
 -   `cutOverSlabs`: Über Platten mähen an = true / aus = false (Vision/änderbar)
 -   `direction`: Richtung in Grad (Draht & Vision/nur lesen)
 -   `edgecut`: Start EdgeCut (Draht & Vision/änderbar)
@@ -153,34 +153,53 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```json
 {
     "states": {
-        "0": "No error", //(Draht & Vision)
-        "1": "Trapped", //(Draht & Vision unbekannt)
-        "2": "Lifted", //(Draht & Vision)
-        "3": "Wire missing", //(Draht & Vision unbekannt)
-        "4": "Outside wire", //(Draht & Vision unbekannt)
-        "5": "Raining", //(Draht & Vision)
-        "6": "Close door to mow", //(Draht & Vision)
-        "7": "Close door to go home", //(Draht & Vision)
-        "8": "Blade motor blocked", //(Draht & Vision)
-        "9": "Wheel motor blocked", //(Draht & Vision)
-        "10": "Trapped timeout", //(Draht & Vision)
-        "11": "Upside down", //(Draht & Vision)
-        "12": "Battery low", //(Draht & Vision)
-        "13": "Reverse wire", //(Draht & Vision unbekannt)
-        "14": "Charge error", //(Draht & Vision)
-        "15": "Timeout finding home", //(Draht & Vision)
-        "16": "Mower locked", //(Draht & Vision)
-        "17": "Battery over temperature", //(Draht & Vision)
-        "18": "dummy model", //(Draht & Vision)
+        "0": "No error", //(Draht & Vision & RTK)
+        "1": "Trapped", //(Draht & Vision & RTK-Body)
+        "2": "Lifted", //(Draht & Vision & RTK-Body)
+        "3": "Wire missing", //(Draht)
+        "4": "Outside boundary", //(Draht & Vision & RTK-Body)
+        "5": "Raining", //(Draht & Vision & RTK-Body)
+        "6": "Close door to cut grass", //(Draht)
+        "7": "Close door to go home", //(Draht)
+        "8": "Blade motor fault", //(Draht & Vision & RTK-Body)
+        "9": "Wheel motor fault", //(Draht & Vision & RTK-Body)
+        "10": "Trapped timeout fault", //(Draht & Vision & RTK-Body)
+        "11": "Upside down", //(Draht & Vision & RTK-Body)
+        "12": "Battery low", //(Draht & Vision & RTK)
+        "13": "Wire reversed", //(Draht)
+        "14": "Charge error", //(Draht & Vision & RTK-Body)
+        "15": "Home search timeout", //(Draht & Vision)
+        "16": "Wifi locked", //(Draht & Vision)
+        "17": "Battery over temperature", //(Draht & Vision & RTK)
+        "18": "Dummy model", //(Draht)
         "19": "Battery trunk open timeout", //(Draht & Vision)
-        "20": "wire sync", //(Draht & Vision unbekannt)
-        "21": "msg num", //(Draht & Vision)
-        "110": "Camera error" //(Vision)
+        "20": "Wire signal out of sync", //(Draht)
+        "100": "Charging station docking error", //(RTK-Body)
+        "101": "HBI error", //(RTK-Body)
+        "102": "OTA upgrade error", //(Vision & RTK)
+        "103": "Map error", //(RTK)
+        "104": "Excessive slope", //(RTK-Body)
+        "105": "Unreachable zone", //(RTK-Body)
+        "106": "Unreachable charging station", //(RTK-Body)
+        "107": "Calibration needed", //(RTK-Head)
+        "108": "Insufficient sensor data", //(RTK)
+        "109": "Training start disallowed", //(RTK)
+        "110": "Camera error", //(Vision)
+        "111": "Lawn exploration required", //(Vision)
+        "112": "Mapping exploration failed", //(Vision)
+        "113": "RFID reader error", //(Vision)
+        "114": "Headlight error", //(Vision)
+        "115": "Missing charging station", //(RTK-Body)
+        "116": "Blade height adjustment blocked", //(Vision & RTK-Body)
+        "117": "Unsupported blade height", //(Vision & RTK-Body)
+        "118": "Manual firrnware upgrade required", //(Vision & RTK-Body)
+        "119": "Area limit exceeded", //(RTK-Body)
+        "120": "Charging station undocking error" //(RTK-Body)
     }
 }
 ```
 
-![Mower img/mower_1.png](../en/img/mower_1.png)
+![Mower img/mower_1.png](img/mower_1.png)
 
 -   `firmware`: Installierte Firmware (Draht & Vision/nur lesen)
 -   `firmware_available`: Verfügbare Firmware (Draht & Vision/nur lesen)
@@ -206,12 +225,14 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `gradient`: Gefälle oder Anstieg in Grad (Draht & Vision/nur lesen)
 -   `inclination`: Neigung in Grad (Draht & Vision/nur lesen)
 -   `last_command`: Letzter Befehl von iobroker oder der APP als JSON Table (Draht & Vision/nur lesen)
+-   `last_update` Letzte Update (wire & Vision/nur lesen)
+-   `last_update_connection` Von welcher Verbindung (Mqtt oder Cloud / wire & Vision/nur lesen)
 -   `mowTimeExtend`: Mähzeitverlängerung-/Verkürzung in % Bereich: -100%->100% (Draht/änderbar)
 -   `mowerActive`: Pause Mähplan (Draht/änderbar)
 -   `mqtt_update`: Update Mqtt Daten vom Mäher - max. 150/Tag (Draht & Vision/änderbar)
 -   `mqtt_update_count`: Counter von Update Mqtt Daten (Draht & Vision/nur lesen)
 
-![Mower img/mower_2.png](../en/img/mower_2.png)
+![Mower img/mower_2.png](img/mower_2.png)
 
 -   `oneTimeJson`: einmaliges Mähen als JSON (Draht & Vision/änderbar)
 
@@ -234,51 +255,74 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `reset_blade_time`: Klingenarbeitszeit in 2 Schritten zurücksetzen (Draht & Vision/änderbar)
 -   `reset_blade_time_approved`: Klingenarbeitszeit zurücksetzen bestätigen - `reset_battery_time` muss auf true gesetzt sein (Draht & Vision/änderbar)
 
-![Mower img/mower_3.png](../en/img/mower_3.png)
+![Mower img/mower_3.png](img/mower_3.png)
 
+-   `rfidStatus`: Status RF Sensor 0=OK/1=Fehler (Vision/nur lesen)
 -   `sendCommand`: Ein Befehl versenden (Draht & Vision/änderbar)
 
 ```json
 {
     "states": {
-        "1": "Start", //(Draht & Vision)
-        "2": "Stop", //(Draht & Vision)
-        "3": "Home", //(Draht & Vision)
-        "4": "Start Zone Taining", //(Draht & Vision unbekannt)
-        "5": "Lock", //(Draht & Vision)
-        "6": "Unlock", //(Draht & Vision)
-        "7": "Restart Robot", //(Draht & Vision unbekannt)
-        "8": "pause when follow wire", //(Draht & Vision unbekannt)
-        "9": "safe homing" //(Draht & Vision unbekannt)
+        "1": "Start", //(Draht & Vision & RTK)
+        "2": "Stop", //(Draht & Vision & RTK)
+        "3": "Home", //(Draht & Vision & RTK)
+        "4": "Follow border", //(Draht & Vision & RTK)
+        "5": "Wi-Fi Lock", //(Draht & Vision)
+        "6": "Wi-Fi Unlock", //(Draht & Vision)
+        "7": "Reset Log", //(Draht & Vision & RTK)
+        "8": "Pause over border", //(Draht & Vision)
+        "9": "Safe go home", //(Draht & Vision & RTK)
+        "10": "Start once", //(Vision)
+        "100": "Pairing command", //(Vision & RTK)
+        "101": "Border Cut", //(Vision & RTK)
+        "102": "Resume cutting", //(RTK)
+        "103": "Start driving", //(Vision & RTK)
+        "104": "Stop driving" //(Vision & RTK)
     }
 }
 ```
 
 -   `state`: True für Mähvorgang starten und False für Mähvorgang beenden (Draht & Vision/änderbar)
--   `status`: Status vom Mäher (Draht & Vision/nur lesen)
+-   `status`: Status vom Mäher (Draht & Vision & RTK/nur lesen)
 
 ```json
 {
     "states": {
-        "0": "IDLE", //(Draht & Vision)
-        "1": "Home", //(Draht & Vision)
-        "2": "Start sequence", //(Draht & Vision)
-        "3": "Leaving home", //(Draht & Vision)
-        "4": "Follow wire", //(Draht & Vision unbekannt)
-        "5": "Searching home", //(Draht & Vision)
-        "6": "Searching wire", //(Draht & Vision unbekannt)
-        "7": "Mowing", //(Draht & Vision)
-        "8": "Lifted", //(Draht & Vision)
-        "9": "Trapped", //(Draht & Vision)
-        "10": "Blade blocked", //(Draht & Vision)
-        "11": "Debug", //(Draht & Vision)
-        "12": "Remote control", //(Draht & Vision)
-        "13": "escape from off limits", //(Draht & Vision)
-        "30": "Going home", //(Draht & Vision)
-        "31": "Zone training", //(Draht & Vision)
-        "32": "Border Cut", //(Draht & Vision)
-        "33": "Searching zone", //(Draht & Vision)
-        "34": "Pause" //(Draht & Vision)
+        "0": "IDLE", //(wire & Vision & RTK-Body)
+        "1": "Home", //(wire & Vision & RTK-Body)
+        "2": "Start sequence", //(wire)
+        "3": "Leaving home", //(wire & Vision & RTK-Body)
+        "4": "Following border", //(wire)
+        "5": "Searching home", //(wire & Vision & RTK-Body)
+        "6": "Searching border", //(wire & Vision)
+        "7": "Mowing", //(wire & Vision & RTK-Body)
+        "8": "Lifted", //(wire & Vision & RTK-Body)
+        "9": "Trapped", //(wire & Vision & RTK-Body)
+        "10": "Blade blocked", //(wire & Vision & RTK-Body)
+        "11": "Debug", //(wire)
+        "12": "Driving", //(wire & Vision)
+        "13": "Digital fence escape", //(wire & Vision)
+        "30": "Going home", //(wire & Vision)
+        "31": "Zone training", //(wire & Vision)
+        "32": "Border Cut", //(wire & Vision)
+        "33": "Searching zone", //(wire & Vision)
+        "34": "Pause", //(wire & Vision)
+        "100": "Map training (completable)", //(RTK-Head)
+        "101": "Map processing", //(RTK)
+        "102": "Upgrading firmware", //(RTK)
+        "103": "Moving to zone", //(RTK-Body)
+        "104": "Going home", //(RTK-Body)
+        "105": "Ready for training", //(RTK-Head)
+        "106": "Map download in progress", //(RTK)
+        "107": "Map upload in progress", //(RTK-Head)
+        "108": "Map training paused", //(RTK-Head)
+        "109": "Map training (not completable)", //(RTK-Head)
+        "110": "Border crossing", //(Vision)
+        "111": "Exploring lawn", //(Vision)
+        "112": "Moving to recovery point", //(RTK-Body)
+        "113": "Waiting for position", //(RTK-Body)
+        "114": "Map training (driving)", //(Vision & RTK-Body)
+        "115": "Map training (rolling back)" //(Vision)
     }
 }
 ```
@@ -288,35 +332,34 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `totalDistance`: Gesamte Entfernung (Draht & Vision/nur lesen)
 -   `totalTime`: Gesamte Rasenmäher-Arbeitszeit (Draht & Vision/nur lesen)
 -   `waitRain`: Regenverzögerung max. 12h in 30 Minuten Schritte (Draht & Vision/änderbar)
--   `waitRainCountdown` Countdown wenn der Sensor wechselt von nass zu trocken (Draht & Vision/nur lesen)
--   `waitRainSensor` Status 0 für trochen und 1 für feucht (Draht & Vision/nur lesen)
+-   `waitRainCountdown` Countdown wenn der Sensor wechselt von nass zu trocken (Draht & Vision/nur lesen) (derzeit deaktiviert)
+-   `waitRainSensor` Status 0 für trocken und 1 für feucht (Draht & Vision/nur lesen)
 -   `wifiQuality`: Wifi Qualität (Draht & Vision/nur lesen)
 
 ```json
 {
     "rain": {
-        "s": 0, // 0 für trochen und 1 für nass (Draht & Vision)
+        "s": 0, // 0 für trocken und 1 für nass (Draht & Vision)
         "cnt": 59 // Countdown wenn Wechsel von s=1 nass zu s=0 trocken - Regen wurde erkannt (Draht & Vision)
     }
 }
 ```
 
-![Mower img/mower_4.png](../en/img/mower_4.png)
+![Mower img/mower_4.png](img/mower_4.png)
 
 ### Zusätzlich Vision Infos
 
--   MultiZone
-    -   `multiZone.passages.passage_01.tagIdFrom`: RFID id von z1 - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZone.multiZone` geschrieben (Vision/änderbar)
-    -   `multiZone.passages.passage_01.tagIdTo`: RFID id von z2 - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZone.multiZone` geschrieben (Vision/änderbar)
-    -   `multiZone.passages.passage_01.zoneIdFrom`: Zone von (muss z1 < z2) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZone.multiZone` geschrieben (Vision/änderbar)
-    -   `multiZone.passages.passage_01.zoneIdTo`: Zone zu (muss z2 > z1) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZone.multiZone` geschrieben (Vision/änderbar)
-    -   `multiZone.zones.zone_1.borderDistance`: Kantenschnitt in mm - erlaubt 50mm, 100mm, 150mm und 20mm - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZone.multiZone` geschrieben (Vision/änderbar)
-    -   `multiZone.zones.zone_1.chargingStation`: 1 Wenn sich die Ladestation in diese Zone gefindet. 0 für keine Ladestation - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZone.multiZone` geschrieben (Vision/änderbar)
-    -   `multiZone.zones.zone_1.cutOverBorder`: 1 zum Überfahren von Platten, wenn diese erkannt werden, ansonsten 0.Unterschiedliche Werte pro Zone sind nicht zulässig - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZone.multiZone` geschrieben (Vision/änderbar)
-    -   `multiZone.zones.zone_1.zone_id`: Nummerierung - Start mit 1 - geschrieben (Vision/nur lesen)
-    -   `multiZone.rfid`: Anzahl RF (nur lesen)
-    -   `multiZone.multiZone`: Multizone JSON (Vision/änderbar) [Beispiel](#beispiel-blockly-startsequence-vision)
-    -   `multiZone.sendMultiZoneJson`: Änderungen an Worx senden mit mit einer Verzögerung von 1,1 Sekunden (Vision/änderbar)
+-   multiZones
+    -   `multiZones.zones.zone_1.borderDistance`: Beim Kantenschnitt der Abstand zur Kante in mm - erlaubt 50mm, 100mm, 150mm und 200mm - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
+    -   `multiZones.zones.zone_1.chargingStation`: 1 Wenn sich die Ladestation in dieser Zone befindet. 0 für keine Ladestation - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
+    -   `multiZones.zones.zone_1.cutOverBorder`: 1 zum Überfahren von Platten, wenn diese erkannt werden, ansonsten 0. Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
+    -   `multiZones.zones.zone_1.zone_id`: Nummerierung - Start mit 1 (Vision/nur lesen)
+    -   `multiZones.passages.passage_01.tagIdFrom`: RFID id von zoneIdFrom - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
+    -   `multiZones.passages.passage_01.tagIdTo`: RFID id von zoneIdTo - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
+    -   `multiZones.passages.passage_01.zoneIdFrom`: Zone von (muss zoneIdFrom < zoneIdTo) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
+    -   `multiZones.passages.passage_01.zoneIdTo`: Zone zu (muss zoneIdTo > zoneIdFrom) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
+    -   `multiZones.multiZones`: multiZones JSON (Vision/änderbar) [Beispiel](#beispiel-blockly-sendMultiZonesJson-vision)
+    -   `multiZones.sendMultiZonesJson`: Änderungen an Worx senden mit mit einer Verzögerung von 1,1 Sekunden (Vision/änderbar)
 
 Beispiel:
 
@@ -336,20 +379,20 @@ Beispiel:
             // Die Zonen selbst
             {
                 "id": 1, // Nummerierung - Start mit 1
-                "c": 1, // 1 Wenn sich die Ladestation in diese Zone gefindet. 0 für keine Ladestation.
+                "c": 1, // 1 Wenn sich die Ladestation in dieser Zone befindet. 0 für keine Ladestation.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // Kantenschnitt in mm - erlaubt 10mm, 15mm und 20mm
+                        "bd": 100, // Kantenschnitt der Abstand zur Kante in mm - erlaubt 50mm, 100mm, 150mm und 200mm
                         "ob": 0 // 1 zum Überfahren von Platten, wenn diese erkannt werden, ansonsten 0.Unterschiedliche Werte pro Zone sind nicht zulässig
                     }
                 }
             },
             {
                 "id": 2, // Nummerierung fortlaufend
-                "c": 0, // 1 Wenn sich die Ladestation in diese Zone gefindet. 0 für keine Ladestation.
+                "c": 0, // 1 Wenn sich die Ladestation in dieser Zone befindet. 0 für keine Ladestation.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // Kantenschnitt in mm
+                        "bd": 100, // Kantenschnitt der Abstand zur Kante in mm - erlaubt 50mm, 100mm, 150mm und 200mm
                         "ob": 0 // 1 zum Überfahren von Platten, wenn diese erkannt werden, ansonsten 0. Unterschiedliche Werte pro Zone sind nicht zulässig
                     }
                 }
@@ -396,8 +439,8 @@ Standard ohne Zonen:
 
 ### info_mqtt (Draht und Vision)
 
--   `incompleteOperationCount`: Gesamtzahl der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht gepackte Operationen sind eine Teilmenge davon.
--   `incompleteOperationSize`: Gesamtpaketgröße der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht gepackte Operationen sind eine Teilmenge davon.
+-   `incompleteOperationCount`: Gesamtzahl der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht quitierte Operationen sind eine Teilmenge davon.
+-   `incompleteOperationSize`: Gesamtpaketgröße der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht quitierte Operationen sind eine Teilmenge davon.
 -   `unackedOperationCount`: Gesamtzahl der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
 -   `unackedOperationSize`: Gesamtpaketgröße der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
 -   `last_update`: Letzte Aktualisierung vom Token
@@ -406,7 +449,7 @@ Standard ohne Zonen:
 
 ![Vision img/mqtt_info.png](../en/img/mqtt_info.png)
 
-### Beispiel Blockly startsequence Vision
+### Beispiel Blockly sendMultiZonesJson Vision
 
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -432,7 +475,7 @@ Standard ohne Zonen:
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -499,7 +542,7 @@ Standard ohne Zonen:
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -543,7 +586,7 @@ Standard ohne Zonen:
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -610,7 +653,7 @@ Standard ohne Zonen:
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -703,7 +746,7 @@ Standard ohne Zonen:
         <next>
           <block type="control" id="k$;?LM/[x-TbZ^m=F4}i">
             <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-            <field name="OID">worx.0.xxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxx.multiZones.sendMultiZonesJson</field>
             <field name="WITH_DELAY">FALSE</field>
             <value name="VALUE">
               <block type="convert_object2json" id="b~2Bz}OiNg{V]!QgN^J7">
@@ -733,7 +776,6 @@ Standard ohne Zonen:
 
 ### nicht erlaubt
 
-![img/ok_direct.png](img/not_ok_direct.png)
 ![img/json_nok.png](../en/img/json_nok.png)
 ![img/array_nok.png](../en/img/array_nok.png)
 
@@ -741,15 +783,27 @@ Standard ohne Zonen:
 
 ### **WORK IN PROGRESS**
 
+-   (Lucky-ESA) mowTimeExtend restricted input
+-   (Lucky-ESA) Fixed TypeError
+
+### 3.0.1 (2024-05-08)
+
+-   (Lucky-ESA) Preperation mission Kress new API
+-   (Lucky-ESA) Fixed TypeError
+-   (Lucky-ESA) Fixed missing activity states
+-   (Lucky-ESA) Added update interval in instance setting
+-   (Lucky-ESA) Added last update
+
+### 3.0.0 (2024-04-25)
+
 -   (Lucky-ESA) Fixed Sentry messages
 -   (Lucky-ESA) Catch publish crash
--   (Lucky-ESA) Added for Vision electric height adjustment
--   (Lucky-ESA) Added for Vision new calendar
--   (Lucky-ESA) Added Vision head light
--   (Lucky-ESA) Added Vision cut over slabs
+-   (Lucky-ESA) Added Vision completely
 -   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) JS-Controller >= 5.0.19 required
+-   (Lucky-ESA) Admin >=6.13.16 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Added Vision Multi Zone
+-   (Lucky-ESA) Delete ping
 
 ### 2.3.4 (2023-10-19)
 

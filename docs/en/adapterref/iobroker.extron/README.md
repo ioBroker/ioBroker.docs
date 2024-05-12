@@ -48,8 +48,17 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) updated to adapter-dev and release script
 * (Bannsaenger) updated dependencies
 
+### 0.2.12
+* (mschlgl) added instance.comon.title / .titleLang to be set at startup
+
+### 0.2.11
+* (mschlgl) added instance.device.name to be set at startup
+
+### 0.2.10
+* (mschlgl) corrected preset list handling on SMD202
+
 ### 0.2.9
-* (mschlgl) odisable subtitle command on startup added
+* (mschlgl) disable subtitle command on startup added for SMD202
 
 ### 0.2.8
 * (mschlgl) onStreamData command debug msg added
@@ -66,25 +75,25 @@ If you are a non commercial organisation or use it for private use you can get a
 * (mschlgl) corrected typo in object_templates
 
 ### 0.2.3
-* (mschlgl) fixed DMP120 file handling
+* (mschlgl) fixed DMP128 file handling
 
 ### 0.2.2
 * (mschlgl) fixed SMD202 loopmode command
 
 ### 0.2.1
-* (mschlgl) updated log messages, improved group control
+* (mschlgl) updated log messages, improved group control on DMP128
 
 ### 0.2.0
 * (Bannsaenger) updated dependencies
 
 ### 0.1.16
-* (mschlgl) fixed group command issues, added statedelay log message
+* (mschlgl) fixed group command issues, added statedelay log message on DMP128
 
 ### 0.1.15
-* (mschlgl) added statedelay log message
+* (mschlgl) added statedelay log message on DMP128
 
 ### 0.1.14
-* (mschlgl) fixed group command issues
+* (mschlgl) fixed group command issues on DMP128
 
 ### 0.1.13
 * (mschlgl) fixed source code version issues
@@ -137,7 +146,7 @@ If you are a non commercial organisation or use it for private use you can get a
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 
-Copyright (c) 2021-2023 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2024 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
 
 ![CC BY-NC License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
 

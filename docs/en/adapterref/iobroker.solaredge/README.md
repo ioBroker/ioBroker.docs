@@ -45,6 +45,10 @@ This adapter would not have been possible without the great work of @92lleo (htt
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.1 (2024-04-28)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.3.0 (2024-02-15)
 * (mcm1957) BREAKING: adapter requires node.js 18 or newer now.
 * (mcm1957) Adapter translations have been linked to weblate.

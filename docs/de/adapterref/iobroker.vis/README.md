@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: hyk2is8CltwN54o8devI0fHbnhr3fgj4ePi+Rtoa0nY=
+hash: u5RHVJwMNPvuFMWJazdtORFpU0eLPIxFaw2vV7RhgS4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -15,14 +15,16 @@ hash: hyk2is8CltwN54o8devI0fHbnhr3fgj4ePi+Rtoa0nY=
 # Visualisierung
 WEB-Visualisierung für die ioBroker-Plattform.
 
-## Installation und Dokumentation
-![Demo-Schnittstelle](img/user0.png) ![Demo-Schnittstelle](../../../en/adapterref/iobroker.vis/img/user7.png)
+***Die Entwicklung dieser Version wurde eingestellt. Bitte migrieren Sie Ihre Projekte auf vis-2.***
 
-[Online-Demos](https://iobroker.click/)
+## Installation und Dokumentation
+![Demo-Oberfläche](img/user0.png) ![Demo-Oberfläche](../../../en/adapterref/iobroker.vis/img/user7.png)
+
+[Online Demos](https://iobroker.click/)
 
 ## Bindungen von Objekten
-Normalerweise verfügen die meisten Widgets über das ObjectID-Attribut und dieses Attribut kann mit einem bestimmten Wert der Objekt-ID verknüpft werden.
-Es gibt aber noch eine andere Möglichkeit, *beliebiges* Attribut eines Widgets an eine ObjectID zu binden.
+Normalerweise haben die meisten Widgets ein ObjectID-Attribut und dieses Attribut kann mit einem Wert einer Objekt-ID verknüpft werden.
+Es gibt jedoch eine andere Möglichkeit, *jedes* Attribut eines Widgets an eine ObjectID zu binden.
 
 Schreiben Sie einfach in das Attribut `{object.id}` und es wird (nicht im Bearbeitungsmodus) an den Wert dieses Objekts gebunden.
 Wenn Sie das spezielle Format verwenden, können Sie damit sogar einige einfache Operationen durchführen, z. B. Multiplizieren oder Formatieren.
@@ -32,35 +34,35 @@ Patten hat das folgende Format:
 {objectID;operation1;operation2;...}
 ```
 
-Folgende Operationen werden unterstützt:
+Die folgenden Vorgänge werden unterstützt:
 
-- `\*` - multiplizieren. Das Argument muss in Klammern stehen, z. B. „*(4)“. In diesem Beispiel multiplizieren wir den Wert mit 4.
-- `\+` - hinzufügen. Das Argument muss in Klammern stehen, z. B. „+(4,5)“. In diesem Beispiel addieren wir zum Wert 4,5.
-- `\-` - subtrahieren. Das Argument muss in Klammern stehen, z. B. „-(-674,5)“. In diesem Beispiel subtrahieren wir vom Wert -674,5.
-- `/` - Teilen. Das Argument muss in Klammern stehen, z. B. „/(0,5)“. In diesem Beispiel teilen wir den Wert durch 0,5.
-- `%` – Modulo. Das Argument muss in Klammern stehen, z. B. „%(5)“. In diesem Beispiel nehmen wir Modulo von 5.
-- „round“ – den Wert runden.
-- „round(N)“ – Runden Sie den Wert mit N Stellen nach dem Punkt, z. B. 34,678;round(1) => 34,7
-- „hex“ – Wert in Hexadezimalwert umwandeln. Alle Buchstaben werden in Kleinbuchstaben geschrieben.
-- „hex2“ – Wert in Hexadezimalwert umwandeln. Alle Buchstaben werden in Kleinbuchstaben geschrieben. Wenn der Wert kleiner als 16 ist, wird die führende Null hinzugefügt.
+- `\*` - Multiplikation. Das Argument muss in Klammern stehen, z. B. "*(4)". In diesem Beispiel multiplizieren wir den Wert mit 4.
+- `\+` - addieren. Das Argument muss in Klammern stehen, z. B. "+(4,5)". In diesem Beispiel addieren wir zum Wert 4,5.
+- `\-` - Subtrahieren. Das Argument muss in Klammern stehen, z. B. "-(-674,5)". In diesem Beispiel subtrahieren wir vom Wert -674,5.
+- `/` - Dividieren. Das Argument muss in Klammern stehen, z. B. "/(0,5)". In diesem Beispiel dividieren wir den Wert durch 0,5.
+- `%` - Modulo. Das Argument muss in Klammern stehen, z. B. "%(5)". In diesem Beispiel nehmen wir Modulo von 5.
+- „round“ – rundet den Wert.
+- `round(N)` - rundet den Wert mit N Stellen nach dem Komma, zB 34.678;round(1) => 34.7
+- „hex“ – Wert in Hexadezimalwert umwandeln. Alle Buchstaben werden klein geschrieben.
+- `hex2` - Wert in Hexadezimalwert umwandeln. Alle Buchstaben werden klein geschrieben. Wenn der Wert kleiner als 16 ist, wird die führende Null hinzugefügt.
 - „HEX“ – dasselbe wie Hex, aber in Großbuchstaben.
-- „HEX2“ – wie hex2, jedoch in Großbuchstaben.
-- „Datum“ – Datum entsprechend dem angegebenen Format formatieren. Das Format ist das gleiche wie in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
-- „min(N)“ – wenn der Wert kleiner als N ist, nimm den N-Wert, sonst den Wert
-- „max(M)“ – wenn der Wert größer als M ist, nimm den M-Wert, sonst den Wert
-- „sqrt“ – Quadratwurzel
-- „pow(n)“ – Potenz von N.
+- „HEX2“ – dasselbe wie Hex2, aber in Großbuchstaben.
+- `date` – Datum entsprechend dem angegebenen Format formatieren. Das Format ist dasselbe wie in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
+- `min(N)` - wenn der Wert kleiner als N ist, nimm N, sonst den Wert
+- `max(M)` - wenn der Wert größer als M ist, nimm M, sonst den Wert
+- `sqrt` - Quadratwurzel
+- `pow(n)` – Potenz von N.
 - „pow“ – Potenz von 2.
-- `floor` – Math.floor
+- `Boden` - Math.floor
 - `ceil` - Math.ceil
-- „json“ – Vorgang zum Abrufen von JSON- oder Objekteigenschaften. Zum Beispiel „{id;json(common.name.en)}“.
-- „random(R)“ – Math.random() * R, oder einfach Math.random(), wenn kein Argument vorhanden ist
-- „formatValue(decimals)“ – Wert entsprechend den Systemeinstellungen formatieren und Dezimalzahlen verwenden
-- `date(format)` – Wert als Datum formatieren. Das Format ist wie folgt: „JJJJ-MM-TT hh:mm:ss.sss“.
-- „momentDate(format, useTodayOrYesterday)“ – Wert mit Moment.js als Datum formatieren. [Genehmigte Formate müssen gemäß der moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit „useTodayOrYesterday=true“ wird das Momentjs-Format „ddd“/„dddd“ mit heute/gestern überschrieben
-- „array(element1,element2[,element3,element4])“ – gibt das Element des Index zurück. z.B.: „{id.ack;array(ack is false,ack is true)}“.
+- `json` – Operation zum Abrufen von JSON- oder Objekteigenschaft. Beispiel: `{id;json(common.name.en)}`
+- `random(R)` - Math.random() * R oder nur Math.random(), wenn kein Argument vorhanden ist
+- „formatValue(decimals)“ – Wert entsprechend den Systemeinstellungen formatieren und Dezimalstellen verwenden
+- `date(format)` - Wert als Datum formatieren. Das Format ist etwa: `JJJJ-MM-TT hh:mm:ss.sss`
+- `momentDate(format, useTodayOrYesterday)` - Wert mit Moment.js als Datum formatieren. [Freigegebene Formate müssen gemäß der Moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` wird das Momentjs-Format `ddd`/`dddd` mit today / yesterday überschrieben
+- `array(element1,element2[,element3,element4])` – gibt das Element des Index zurück. Beispiel: `{id.ack;array(ack is false,ack is true)}`
 
-Sie können dieses Muster in jedem Text verwenden, z
+Sie können dieses Muster in jedem beliebigen Text verwenden, beispielsweise
 
 ```
 My calculations with {objectID1;operation1;operation2;...} are {objectID2;operation3;operation4;...}
@@ -72,13 +74,13 @@ oder Farbberechnungen:
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-Um den Zeitstempel des Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für letzte Änderung) an das Ende der Objekt-ID, z. B.:
+Um den Zeitstempel des Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für letzte Änderung) an das Ende der Objekt-ID, zum Beispiel:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
 ```
 
-Es gibt noch eine andere Möglichkeit, das Muster zu schreiben:
+Es gibt noch eine andere Möglichkeit das Muster zu schreiben:
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(h*h + w*w))}
@@ -94,28 +96,28 @@ value = (function () {
 })();
 ```
 
-Sie können *beliebige* Javascript-Funktionen verwenden. Argumente müssen mit „:“ definiert werden, andernfalls werden sie als Formel interpretiert.
+Sie können *beliebige* JavaScript-Funktionen verwenden. Argumente müssen mit ':' definiert werden, andernfalls werden sie als Formel interpretiert.
 
-Achten Sie auf Typen. Alle von ihnen sind als Zeichenfolgen definiert. Um sicherzugehen, dass dieser Wert als Zahl behandelt wird, verwenden Sie die Funktion parseFloat.
+Achten Sie auf die Typen. Alle sind als Zeichenfolgen definiert. Um sicherzugehen, dass der Wert als Zahl behandelt wird, verwenden Sie die Funktion parseFloat.
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
 ### Spezielle Bindungen
-Es gibt verschiedene interne Bindungen, um zusätzliche Informationen in Ansichten bereitzustellen:
+Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Informationen in Ansichten bereitzustellen:
 
-* „Benutzername“ – zeigt den angemeldeten Benutzer an
-* „Ansicht“ – Name der tatsächlichen Ansicht
-* „wname“ – Widget-Name
-* „Widget“ – ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie „{a:a;widget.data.name}“.
-* „wid“ – Name des tatsächlichen Widgets
+* `Benutzername` - zeigt den angemeldeten Benutzer
+* „Ansicht“ – Name der aktuellen Ansicht
+* `wname` - Widgetname
+* `widget` – ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie `{a:a;widget.data.name}`
+* `wid` – Name des aktuellen Widgets
 * „Sprache“ – kann „de“, „en“ oder „ru“ sein.
-* „Instanz“ – Browserinstanz
-* „Anmelden“ – ob eine Anmeldung erforderlich ist oder nicht (z. B. um die Schaltfläche „Abmelden“ anzuzeigen/auszublenden)
-* „local_*“ – wenn der Statusname von „local_“ aus gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
+* `Instanz` – Browserinstanz
+* „Anmelden“ – ob eine Anmeldung erforderlich ist oder nicht (z. B. um die Schaltfläche zum Abmelden anzuzeigen/auszublenden)
+* `local_*` – wenn der Statusname von `local_` aus gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für die aktuelle Browsersitzung)
 
-Hinweis: Um „:“ in Berechnungen (z. B. in einer Zeichenfolgenformel) zu verwenden, verwenden Sie stattdessen „::“.
+Hinweis: Um in Berechnungen (z. B. in Zeichenfolgenformeln) ein „:“ zu verwenden, verwenden Sie stattdessen „::“.
 
 **Denken Sie daran**, dass Stildefinitionen als Bindungen interpretiert werden. Verwenden Sie daher `{{style: value}}` oder einfach
 
@@ -128,76 +130,77 @@ Hinweis: Um „:“ in Berechnungen (z. B. in einer Zeichenfolgenformel) zu verw
 dafür.
 
 ## Filter
-Um die gesamte Anzahl der Widgets in einer Ansicht anzuzeigen, können Sie Filter verwenden, um die Anzahl der gleichzeitig in der Ansicht angezeigten Widgets zu reduzieren.
+Um die gesamte Anzahl der Widgets in einer Ansicht zu visualisieren, können Sie Filter verwenden, um die Anzahl der gleichzeitig in der Ansicht angezeigten Widgets zu reduzieren.
 
-Jedes Widget hat ein Feld `filter`. Wenn Sie es auf einen Wert festlegen, z. `light`, sodass Sie über ein anderes Widget `(bars - filters, filter - dropdown)` steuern können, welcher Filter tatsächlich aktiv ist.
+Jedes Widget hat ein Feld `filter`. Wenn Sie es auf einen Wert setzen, z. B. `light`, können Sie mit dem anderen Widget `(bars - filters, filter - dropdown)` steuern, welcher Filter tatsächlich aktiv ist.
 
-## Steuerschnittstelle
+## Bedienoberfläche
 Vis erstellt 3 Variablen:
 
-- „control.instance“ – Hier sollte die Browser-Instanz geschrieben werden oder „FFFFFFFF“, wenn jeder Browser gesteuert werden muss.
+- „control.instance“ – Hier sollte die Browserinstanz geschrieben werden oder „FFFFFFFF“, wenn jeder Browser gesteuert werden muss.
 - `control.data` – Parameter für Befehl. Siehe spezifische Befehlsbeschreibung.
-- `control.command` – Befehlsname. Das Schreiben dieser Variablen löst den Befehl aus. Das heißt, bevor der Befehl geschrieben wird, müssen die „Instanz“ und die „Daten“ mit Daten vorbereitet werden.
+- `control.command` – Befehlsname. Das Schreiben dieser Variable löst den Befehl aus. Das bedeutet, bevor der Befehl geschrieben wird, müssen die „Instanz“ und „Daten“ mit Daten vorbereitet werden.
 
 Befehle:
 
-* „alert“ – zeigt ein Warnfenster in der Vis an. „control.data“ hat das folgende Format „message;title;jquery-icon“. Titel und JQuery-Icon sind optional. Symbolnamen finden Sie [hier](http://jqueryui.com/themeroller/). Um das Symbol „ui-icon-info“ anzuzeigen, schreiben Sie „Message;;info“.
-* „changeView“ – zur gewünschten Ansicht wechseln. „control.data“ muss den Namen der Ansicht haben. Sie können den Projektnamen auch als „Projekt/Ansicht“ angeben. Das Standardprojekt ist „main“.
-* „Aktualisieren“ – lädt die Vis neu, zum Beispiel nachdem ein Projekt geändert wurde, um sie in allen Browsern neu zu laden.
-* „Neu laden“ – dasselbe wie Aktualisieren.
-* „dialog“ – Dialogfenster anzeigen. Der Dialog muss angezeigt werden. Einer von:
+* `alert` – zeigt ein Warnfenster im Visuellen an. „control.data“ hat das folgende Format „message;title;jquery-icon“. Titel und jquery-icon sind optional. Symbolnamen finden Sie [hier](http://jqueryui.com/themeroller/). Um das Symbol „ui-icon-info“ anzuzeigen, schreiben Sie „Message;;info“.
+* `changeView` - zur gewünschten Ansicht wechseln. „control.data“ muss den Namen der Ansicht haben. Sie können auch den Projektnamen als „project/view“ angeben. Das Standardprojekt ist „main“.
+* „Aktualisieren“ – die Visualisierung neu laden, zum Beispiel nachdem ein Projekt so geändert wurde, dass es in allen Browsern neu geladen wird.
+* „Neuladen“ – dasselbe wie Aktualisieren.
+* `dialog` - Dialogfenster anzeigen. Dialog muss in der Ansicht vorhanden sein. Eines von:
 
-    - `statisch - HTML - Dialog`,
-    - „Statisch – Symbol – Dialog“,
-    - „Container – HTML – Ansicht im JQUI-Dialog“,
-    - „Container – ext cmd – Ansicht im JQUI-Dialog“,
-    - „Container – Symbol – Ansicht im JQUI-Dialog“,
-    - „Container – Schaltfläche – Ansicht im JQUI-Dialog“.
+- `statisch - HTML - Dialog`,
+- `statisch - Symbol - Dialog`,
+- `Container – HTML – Ansicht im jqui-Dialog`,
+- `Container – ext cmd – im jqui-Dialog anzeigen`,
+- `Container – Symbol – im JQUI-Dialog anzeigen`,
+- „Container – Schaltfläche – im JQUI-Dialog anzeigen“.
 
-    `control.data` muss die ID des Dialog-Widgets haben, z. B. `w00056`.
+`control.data` muss die ID des Dialog-Widgets haben, z. B. `w00056`.
 
-* `dialogClose`
-* „Popup“ – öffnet ein neues Browserfenster. Der Link muss in „control.data“ angegeben werden, z. B. http://google.com
-* „playSound“ – Sounddatei abspielen. Der Link zur Datei ist in „control.data“ angegeben, z. B. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
+* `dialogSchließen`
+* `popup` - öffnet ein neues Browserfenster. Der Link muss in `control.data` angegeben werden, z. B. http://google.com
+* `playSound` - Sounddatei abspielen. Der Link zur Datei ist in `control.data` angegeben, z.B. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
 
-  Sie können Ihre eigene Datei in vis hochladen und sie abspielen lassen, z. B. `/vis.0/main/img/myFile.mp3`.
+Sie können Ihre eigene Datei in vis hochladen und sie beispielsweise als `/vis.0/main/img/myFile.mp3` abspielen lassen.
 
-Wenn der Benutzer die Ansicht wechselt oder beim Start, werden die Variablen von der Vis mit gefüllt
+Bei einem Wechsel der Ansicht oder beim Start werden die Variablen vom Vis gefüllt mit
 
-- „control.instance“: Browserinstanz und „ack=true“.
-- „control.data“: Projekt- und Ansichtsname in der Form „Projekt/Ansicht“, z.B. „main/view“ (und „ack=true“)
-- „control.command“: „changedView“ und „ack=true“.
+- `control.instance`: Browserinstanz und `ack=true`
+- `control.data`: Projekt- und Ansichtsname in der Form `project/view`, zB `main/view` (und `ack=true`)
+- `control.command`: `changedView` und `ack=true`
 
-Sie können den JSON-String oder das Objekt als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` in `control.command` schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
+Sie können den JSON-String oder das Objekt in `control.command` als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` schreiben. In diesem Fall werden die Instanz und die Daten aus dem JSON-Objekt übernommen.
 
-Beispiel für einen Javascript-Adapter:
+Beispiel für Javascript-Adapter:
 
 ```
 setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
 ```
 
 ## Standardansicht
-Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü=>Extras=>Auflösung). Dies ist nur der visuelle Rahmen im Bearbeitungsmodus, um Ihnen die Bildschirmgröße auf einem bestimmten Gerät anzuzeigen. Im Echtzeitmodus ist es nicht sichtbar und alle Widgets außerhalb des Rahmens sind sichtbar.
+Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü=>Tools=>Auflösung). Dies ist nur der visuelle Rahmen im Bearbeitungsmodus, um Ihnen die Bildschirmgröße auf einem bestimmten Gerät anzuzeigen. Im Echtzeitmodus ist er nicht sichtbar und alle Widgets außerhalb des Rahmens sind sichtbar.
 
 Zusätzlich können Sie festlegen, ob diese Ansicht als Standard für diese Auflösung verwendet werden soll.
 
-Bei jedem Aufruf der `index.html` (ohne `#viewName`) wird also die für diese Auflösung am besten geeignete Ansicht geöffnet.
-Wenn nur eine Ansicht das Flag *"Standard"* hat, wird diese Ansicht unabhängig von der Bildschirmauflösung oder Ausrichtung geöffnet.
+Daher wird bei jedem Aufruf von `index.html` (ohne `#viewName`) die für diese Auflösung am besten geeignete Ansicht geöffnet.
+
+Wenn nur eine Ansicht das Flag *„Standard“* hat, wird diese Ansicht unabhängig von Bildschirmauflösung oder -ausrichtung geöffnet.
 
 Sie können beispielsweise zwei Ansichten „Querformat-Mobil“ und „Hochformat-Mobil“ erstellen und diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
 
 Es gibt ein Hilfs-Widget „Basic – Bildschirmauflösung“, das die tatsächliche Bildschirmauflösung und die am besten geeignete Standardansicht für diese Auflösung anzeigt.
 
 ## Einstellungen
-### Neu laden, wenn der Schlaf länger dauert als
-Es gibt eine Regel, dass nach einer gewissen Zeit der Verbindungsunterbrechung die gesamte VIS-Seite neu geladen wird, um das Projekt zu synchronisieren.
-Sie können es im Menü „Einstellungen…“ konfigurieren. Wenn Sie ein Intervall auf „Nie“ einstellen, wird die Seite nie neu geladen.
+### Neu laden, wenn der Schlaf länger als
+Es gibt eine Regel, dass nach einer gewissen Zeit der Trennung die gesamte VIS-Seite neu geladen wird, um das Projekt zu synchronisieren.
+Sie können dies im Menü „Einstellungen…“ konfigurieren. Wenn Sie das Intervall auf „nie“ einstellen, wird die Seite nie neu geladen.
 
 ### Wiederverbindungsintervall
-Legen Sie das Intervall zwischen den Verbindungsversuchen fest, wenn die Verbindung getrennt wird. Wenn Sie 2 Sekunden einstellen, wird alle 2 Sekunden versucht, die Verbindung herzustellen.
+Legen Sie das Intervall zwischen den Verbindungsversuchen bei Verbindungsunterbrechung fest. Wenn Sie 2 Sekunden festlegen, wird alle 2 Sekunden versucht, die Verbindung herzustellen.
 
-### Dunkler Bildschirm zum erneuten Verbinden
-Manchmal (nachts) ist ein dunkler Ladebildschirm erforderlich. Mit dieser Option können Sie es einstellen.
+### Dunkler Wiederverbindungsbildschirm
+Manchmal (nachts) ist ein dunkler Ladebildschirm erforderlich. Mit dieser Option können Sie dies einstellen.
 
 Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht für die erste Verbindung gültig sind.
 
@@ -205,9 +208,15 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Removed usage of `storage` and uses localStorage instead.
+
+### 1.5.5 (2024-04-12)
+* (bluefox) Corrected small warning
+
 ### 1.5.4 (2023-11-29)
 * (agav99) added the new binding operation for getting property of JSON or object
 * (agav99) Checked the initialization of the `local_` variables
@@ -556,17 +565,12 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 * (bluefox) change security settings
 
 ## License
-To use this adapter in ioBroker, you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
-
-Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
-* **Community-License: Free for private use!**: Get a free license by registering an account on https://iobroker.net . The license if checked online against the ioBroker license server when the vis adapter is started, so an online connection at this timepoint is required!
-* **Private use Offline-License**: For paying a small support fee, you can get rid of the required online license check on adapter startup. **Only for Private use!**
-* **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
+The adapter is free for all kinds of usage.
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2013-2023 Denis Haev <dogafox@gmail.com>,
+Copyright (c) 2013-2024 Denis Haev <dogafox@gmail.com>,
 Copyright (c) 2013      hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

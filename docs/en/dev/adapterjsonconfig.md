@@ -28,6 +28,8 @@ All labels, texts, help texts can be multi-language or just strings.
 *If the attribute name starts with "_" it will not be saved in the object.*
 
 ## Includes
+Requires admin 6.17.1 or newer.
+
 To write complex json files, you can include other json files.
 The included file must be in the same directory as the main file.
 
@@ -58,7 +60,7 @@ Possible types:
 
 - `text` - Text component
   - `maxLength` - max length of the text in field
-  - `readOnly` - read only field
+  - `readOnly` - read-only field
   - `trim` - default is true. Set this attribute to `false` if trim is not desired.
   - `minRows` - default is 1. Set this attribute to `2` or more if you want to have a textarea with more than one row.  
   - `maxRows` - max rows of textarea. Used only if `minRows` > 1.  
@@ -176,8 +178,8 @@ Possible types:
     - `textAlive` - default text is `Instance %s is alive`, where %s will be replaced by `ADAPTER.0`.
     - `textNotAlive` - default text is `Instance %s is not alive`, where %s will be replaced by `ADAPTER.0`.
 
-- `pattern` - read only field with pattern like 'https://${data.ip}:${data.port}' (will not be saved in config)
-  Text input with the read only flag, that shows a pattern.
+- `pattern` - read-only field with pattern like 'https://${data.ip}:${data.port}' (will not be saved in config)
+  Text input with the read-only flag, that shows a pattern.
     - `copyToClipboard` - if true - show button
     - `pattern` - my pattern
 
@@ -190,7 +192,7 @@ Possible types:
     - `variant` - `contained`, `outlined` or nothing
     - `openUrl` - if true - open URL in new tab, if response contains attribute `openUrl`, like `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. If `saveConfig` is true, the user will be requested to save the configuration.
     - `reloadBrowser` - if true - reload the current browser window, if response contains attribute `reloadBrowser`, like `{"reloadBrowser": true}`.
-    - `window` - if `openUrl` is true, this is name of the new window. Could be overwritten if response consist `window` attribute.
+    - `window` - if `openUrl` is true, this is a name of the new window. Could be overwritten if response consist `window` attribute.
       `this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
     - `icon` - if icon should be shown: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. You can use `base64` icons (like `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`). (Request via issue if you need more icons)
     - `useNative` - if adapter returns a result with `native` attribute it will be used for configuration. If `saveConfig` is true, the user will be requested to save the configuration.
@@ -233,6 +235,7 @@ Possible types:
     - `export` - [optional] - if export button should be shown. Export as csv file.
     - `import` - [optional] - if import button should be shown. Import from csv file.
     - `uniqueColumns` - [optional] - specify an array of columns, which need to have unique entries
+    - `encryptedAttributes` - [optional] - specify an array of columns, which should be encrypted
 
 - `accordion` - accordion with items that could be deleted, added, moved up, moved down (Admin 6.6.0 and newer)
     - `items` - `[{"type": see above, "attr": "name", "default": ""}]` - items can be placed like on a `panel` (xs, sm, md, lg and newLine)
@@ -472,8 +475,6 @@ adapter.on('message', obj => {
   }
 }
 ```
-
-**Note: attributes or controls marked with "!", are not yet implemented.**
 
 ## Common attributes of controls
 All types could have:

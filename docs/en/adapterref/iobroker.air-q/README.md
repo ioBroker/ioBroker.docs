@@ -61,6 +61,11 @@ The data will be retrieved and shown in the objects-tab according to your config
 
 ## Changelog <a id="change" />
 
+### 1.0.2
+
+* Added units for each sensor value
+* Updates within config files
+
 ### 1.0.1
 
 * Added sensor list update when connecting to a different air-Q in the same instance

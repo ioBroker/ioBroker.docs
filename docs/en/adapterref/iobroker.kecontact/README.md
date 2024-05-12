@@ -107,10 +107,12 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
- * (Sneak-L8) fix url for download page at Keba website
+* (mcm1957) Adapter requires nodejs >= 18 and js-controller >= 5 now.
+* (mcm1957) Dependencies have been updated.
+* (Sneak-L8) fix url for download page at Keba website
 
 ### 2.1.1 (2024-03-16)
- * (fischmi) fix error when chanigig dynamic SoC parameter
+* (fischmi) fix error when chanigig dynamic SoC parameter
 
 ### 2.1.0 (2024-01-06)
 * (Sneak-L8) multiple options for battery storage strategy

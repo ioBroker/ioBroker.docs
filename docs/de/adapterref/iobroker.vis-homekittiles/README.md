@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: uNnhx/0Ug2tl/hOGTCobHT+OrmoWIqKKS4KMkZQ9mLI=
+hash: kqvZ7d9RUB2YoTuHY5Nbx+5/WhQ8RixDVyUkEi820nU=
 ---
 # IoBroker.vis-homekittiles
 
@@ -15,15 +15,15 @@ hash: uNnhx/0Ug2tl/hOGTCobHT+OrmoWIqKKS4KMkZQ9mLI=
 
 <img src="doc/img/title-pic_hkt-on-ipad.png" />
 
-**Tests:** ![Test und Freigabe](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
 ## HomeKit-Kacheln für ioBroker-VIS
-Homekit Tiles ist ein Widget-Set, das auf dem Design von Apple HomeKit basiert.
-Das Besondere an den Widgets ist, dass sie keine festen Stilelemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine gesonderten Einstellungen für die Position und/oder Größe der Icons, Beschriftungen etc. Das Design wird durch Änderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` als Vorlage verwendet werden. Der Code wird im VIS-Editor in den CSS-Tab eingefügt und kann nach Wunsch angepasst werden. Es ist auch möglich, eigene CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets hinzuzufügen.
+Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert.
+Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
-**Hinweis:** Aus Lizenzgründen sind diesem Adapter keine Symbole beigefügt. Sehr gute Quellen für Icons sind:
+**Hinweis:** Aus Lizenzgründen sind in diesem Adapter keine Icons enthalten. Sehr gute Quellen für Icons sind:
 
 * [https://www.flaticon.com](https://www.flaticon.com)
 * [https://icons8.com](https://icons8.com)
@@ -31,23 +31,41 @@ Die Widgets sind für VIS 1.x konzipiert.
 [🇩🇪 Dokumentation](doc/homekittiles-de.md) [🇺🇸 Dokumentation](doc/homekittiles-en.md)
 
 ## Dinge die zu tun sind
-* Eigene Signalbilder für Kacheln
-* Mini-Mediaplayer
-* Thermostat
-* Wählen
-* Untermenü-Button
-* CSS: Farben des Dialogfensters schön gestalten
-* CSS: Farben des Datumsauswahlfensters schön gestalten
+* Mini-Mediaplayer erstellen
+* Select-Kachel erstellen
+* Untermenü-Button erstellen
+* Radiobutton: neue Eigenschaft "Teilung" mit wählbaren Werten (1:1; 3:4)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.13 (2024-05-05)
+
+* (Standarduser) made colors of datepicker window nice
+* (Standarduser) removed test divs from hkt-ViewInWidget-Dialog
+* (Standarduser) added thermostat widget
+
+### 0.0.12 (2024-05-03)
+
+* (Standarduser) added preview for label-widget
+* (Standarduser) added notification bubbles for navigation button-set
+* (Standarduser) removed navigation button (use navigation button-set instead)
+* (Standarduser) added Settings-Widget with select value list
+
+### 0.0.11 (2024-04-30)
+
+* (Standarduser) added own signal pictures for all tiles widgets
+* (Standarduser) Radiobutton: allow HTML in button label
+* (Standarduser) Radiobutton: some css corrections
+* (Standarduser) added Text field (label) with predefined css-classes
+
+### 0.0.10 (2024-04-26)
 
 * (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
 * (Standarduser) repaired Increment function
+* (Standarduser) added own signal pictures
 
 ### 0.0.9 (2024-02-02)
 

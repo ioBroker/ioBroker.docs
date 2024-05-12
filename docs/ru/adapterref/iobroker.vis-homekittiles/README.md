@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: uNnhx/0Ug2tl/hOGTCobHT+OrmoWIqKKS4KMkZQ9mLI=
+hash: kqvZ7d9RUB2YoTuHY5Nbx+5/WhQ8RixDVyUkEi820nU=
 ---
 # IoBroker.vis-homekittiles
 
@@ -31,23 +31,41 @@ Homekit Tiles — это набор виджетов, основанный на 
 [🇩🇪 Документация](doc/homekittiles-de.md) [🇺🇸 Документация](doc/homekittiles-en.md)
 
 ## Дела, которые необходимо сделать
-* Собственные сигнальные картинки для тайлов
-* Мини-медиаплеер
-* Термостат
-* Выбирать
-* Кнопка подменю
-* CSS: сделайте цвета диалогового окна красивыми.
-* CSS: сделайте цвета окна выбора даты красивыми
+* создать мини-медиаплеер
+* создать Select-тайл
+* создать кнопку подменю
+* Радиокнопка: новое свойство «деление» с выбираемыми значениями (1:1; 3:4).
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.13 (2024-05-05)
+
+* (Standarduser) made colors of datepicker window nice
+* (Standarduser) removed test divs from hkt-ViewInWidget-Dialog
+* (Standarduser) added thermostat widget
+
+### 0.0.12 (2024-05-03)
+
+* (Standarduser) added preview for label-widget
+* (Standarduser) added notification bubbles for navigation button-set
+* (Standarduser) removed navigation button (use navigation button-set instead)
+* (Standarduser) added Settings-Widget with select value list
+
+### 0.0.11 (2024-04-30)
+
+* (Standarduser) added own signal pictures for all tiles widgets
+* (Standarduser) Radiobutton: allow HTML in button label
+* (Standarduser) Radiobutton: some css corrections
+* (Standarduser) added Text field (label) with predefined css-classes
+
+### 0.0.10 (2024-04-26)
 
 * (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
 * (Standarduser) repaired Increment function
+* (Standarduser) added own signal pictures
 
 ### 0.0.9 (2024-02-02)
 

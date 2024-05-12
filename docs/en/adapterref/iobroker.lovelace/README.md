@@ -473,6 +473,11 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 4.1.9 (2024-04-26)
+* (Garfonso) add support for new service call structure.
+* (Garfonso) add support for delivering files from other adapters, for example, local cover images.
+* (Garfonso) cleaned up service descriptions.
+
 ### 4.1.8 (2024-03-11)
 * (Garfonso) prevent even more possible crashes
 * (smarthomejoey) fixed: tilt level and inversion
@@ -486,11 +491,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 4.1.4 (2024-02-10)
 * (Garfonso) improved fix: lamp icons now turn gray on switch off.
-
-### 4.1.3 (2024-02-10)
-* (Garfonso) prevent warning for browser_mod/recall_id service call
-* (Garfonso) fix: lamp icons now turn gray on switch off.
-* (Garfonso) fix: notifications via sendTo work again.
 
 ## License
 

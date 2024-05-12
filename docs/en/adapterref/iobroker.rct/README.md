@@ -13,43 +13,47 @@
 
 **Tests:** ![Test and Release](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## Owner Change
-
-After lauff switched to Home Assistant - project will continued by aruttkamp
-
-
 ## RCT adapter for ioBroker
 
 Please note that this is a private project and that I (Andreas Ruttkamp) am not related to RCT in any way.
-
 Read values of a RCT Power photovoltaics power converter.
 
 ## REMARKS
 
-### Productive release
-
-This productive release has proven stable.
-
 By using the "RCT Elements" field, one may select which data shall be read from the power converter.
 If nothing is entered here, default will be used:
 
-"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag"
+"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
 Other elements can be found in the code (file "rct/rc_core2.js"). Since this is not self descriptive, use at own risk!
 
 The object "battery.bat_status" indicates the status of a connected battery:
 * 0 -> charge/discharge (normal operation)
-* 8 -> charge (calibration)
-* 1024 -> discharge (calibration)
+*	3 -> Update? ( not sure ) 
+*	5 -> Start ? ( not sure )
+* 8 -> calibrating - charging phase (0% --> 100%)
+* 1024 -> calibrating - discharge phase (xx% --> 0%)
 * 2048 -> balancing
+	
+The object "inverter_state" indicates the status of the inverter
+*	0 -> 'Standby'
+*	1 -> 'Initialization'
+*	2 -> 'Standby'
+*	3 -> 'Efficiency (debug state for development purposes)'
+*	4 -> 'Insulation check'
+*	5 -> 'Island check (decision where to go - grid connected or island)'
+*	6 -> 'Power check (decision if enougth energy to start or not'
+*	7 -> 'Symmetry (DC-link alignment'
+*	8 -> 'Relays test'
+*	9 -> 'Grid Passive (inverter get power from grid without bridge clocking'
+*	10 -> 'Prepare Bat passive'
+*	11 -> 'Battery passice (off-grid)'
+*	12 -> 'Hardwaretest'
+*	13 -> 'Einspeisung'
 
 ## Known Issues
 
-### Wrong Channels / States
-
-A new version might not be able to create the right ioBroker channels / states. In most cases this can be recognized by the node "battery" showing up as a single element instead of a folder.
-
-If this happens, stop the adapter and manually delete the node "rct.0".
+None
 
 ## Changelog
 
@@ -57,11 +61,25 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+* (NCIceWolf) Implementation of new adminUI
+* (Andreas Ruttkamp) index_m.html deleted
+
+
+### 1.2.7 (2024-05-05)
+* (Andreas Ruttkamp) prim_sm.state added
+* (NCIceWolf) handling of type errors added
+* (Andreas Ruttkamp) some Code cleaning
+* (NCIceWolf) Update io-package.json
+
+### 1.2.6 (2024-05-03)
+* (Andreas Ruttkamp) unused parameter deleted
+
+### 1.2.5 (2024-05-02)
 * (Andreas Ruttkamp) misspelling in rct_core2 corrected
 * (Andreas Ruttkamp) Missing ack:true added ( issue:#89)
-
+* (Andreas Ruttkamp) datatypes corrected ( issue:#106)
+* (NCIceWolf) changes to correct loosing connection ( issue:#114 )
 
 ### 1.2.4 (2024-02-09)
 * (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed

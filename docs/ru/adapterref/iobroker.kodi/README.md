@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kodi/README.md
 title: Kodi для ioBroker (JSON-RPC API)
-hash: qAlRZtML3qdXIoe7sRiqtDoHz6EMGa0+6KEfbAqyHPE=
+hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
@@ -24,7 +24,7 @@ hash: qAlRZtML3qdXIoe7sRiqtDoHz6EMGa0+6KEfbAqyHPE=
 Включение удаленного управления и веб-сервера.
 ![Включение дистанционного управления.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-JSON-RPC API использует **по умолчанию порт 9090**, для того чтобы его изменить необходимо внести изменения в файл [AdvancedSettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
+JSON-RPC API использует **по умолчанию порт 9090**, для того чтобы его изменить необходимо внести изменения в файл [Advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml)
 
 _Примечание: Файл AdvancedSettings.xml не существует по умолчанию. Вы должны сначала создать его!_
 
@@ -70,7 +70,7 @@ sendTo("kodi.0", {
 
 ### ПереключательПВР:
 Переключение каналов PVR IPTV по названию канала в плейлисте.
-**Пример:** ТВ канал - Discovery Science найдет как по полному названию так и по Discovery,
+**Пример:** ТВ канал - Discovery Science найдет как по полному названию так и по открытию,
 
 ### YouTube:
 Для открытия видео с сайта YouTube достаточно записать код видео в данном статусе. Начиная с версии 0.1.5 и выше можно указать прямую ссылку на видео, а также код или полную ссылку на плейлист.
@@ -81,7 +81,7 @@ sendTo("kodi.0", {
 После записи значений завершите поиск проигрывателя KODI.
 
 ### Позиция:
-Текущая позиция в плейлисте, так же в этом статусе может быть записана необходимая поза, и KODI тут же перейдет к воспроизведению данной позиции.
+Текущая позиция в плейлисте, так же в этом статусе может быть записана необходимая поза, и KODI тут же перейдет к воспроизведению этой позиции.
 
 ### Искать:
 Текущее значение позиции определяется в процентах от 0 до 100.
@@ -106,7 +106,7 @@ sendTo("kodi.0", {
 ### Каталог:
 Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
 
-### Активировать окно:
+### АктивироватьОкно:
 Активизирует в проигрывателе окно. Поддерживает следующий список:
 
 ```
@@ -128,11 +128,15 @@ sendTo("kodi.0", {
  - Выключение - выключение системы
  - Приостановить - приостанавливает Kodi
 
-<!-- Заполнитель следующей версии (в начале строки):
-
-### **РАБОТА В ПРОГРЕССЕ** -->
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 3.0.0 (2023-09-08)
 * (agross) Fixed seeking on Kodi >= 19
 * (bluefox) Supported only node.js versions >= 16
@@ -256,6 +260,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

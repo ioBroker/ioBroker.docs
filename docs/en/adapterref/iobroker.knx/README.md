@@ -244,6 +244,10 @@ relation.
 -->
 
 ## Changelog
+### 2.0.27 (02.05.2024)
+* updated the adapter import schema for ETS 6.2.2
+* fixed UTF-8 error
+
 ### 2.0.26 (28.03.2024)
 * updated the adapter import schema for ETS 6.2.1
 * nodejs >= 18 is required

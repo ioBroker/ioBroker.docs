@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: 97GXKchTYDc8dUJM6UI+2pv/ZcrZ0WOL8bP2TDnAaDQ=
+hash: 5BErlG99F5UwFWKZqVr2z8c/30IhUf1u+hW5gpZx+78=
 ---
 ![标识](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -11,29 +11,27 @@ hash: 97GXKchTYDc8dUJM6UI+2pv/ZcrZ0WOL8bP2TDnAaDQ=
 ![下载](https://img.shields.io/npm/dm/iobroker.renault.svg)
 ![安装数量](https://iobroker.live/badges/renault-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/renault-stable.svg)
-![依赖状态](https://img.shields.io/david/TA2k/iobroker.renault.svg)
-![新产品管理](https://nodei.co/npm/iobroker.renault.png?downloads=true)
 
 # IoBroker.renault
-**测试：** ![测试和发布](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
 
-## 用于 ioBroker 的雷诺/达契亚适配器
-雷诺和达契亚的适配器
+## 适用于 ioBroker 的 Renault/Dacia 适配器
+雷诺和达契亚适配器
 
-## 登录名
-Die myRenault/myDacia Mail 和 Passwort eingeben。
+## 登录
+输入 myRenault/myDacia 邮件和密码。
 
-##斯图恩
-renault.0.vin.remote auf true setzen steuert den jeweiligen Befehl
+## 施托伊恩
+renault.0.vin.remote 已设置为 jeweligen Befehl
 
-## 讨论和 Fragen
+## 讨论和提问
 <https://forum.iobroker.net/topic/48074/test-adapter-renault-v0-0-x>
 
 ## Changelog
 
 ### 0.0.7
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

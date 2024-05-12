@@ -17,6 +17,9 @@
 Adapter for FordPass
 
 ## Changelog
+### 0.2.1 (2024-05-10)
+
+- fixed login and added domain ending in settings
 
 ### 0.2.0
 
@@ -50,7 +53,7 @@ Adapter for FordPass
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

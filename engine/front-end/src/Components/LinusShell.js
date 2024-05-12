@@ -8,7 +8,7 @@ import { IconButton } from '@mui/material';
 import { MdContentCopy as IconCopy } from 'react-icons/md';
 import Utils from '../Utils';
 
-const styles = theme => ({
+const styles = {
     linuxShell: {
         width: 380,
         height: 150,
@@ -86,7 +86,7 @@ const styles = theme => ({
             backgroundImage: 'repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px)',
         },
     },
-});
+};
 
 class LinusShell extends React.Component {
     constructor(props) {
@@ -105,7 +105,7 @@ class LinusShell extends React.Component {
     }
 
     render() {
-        let styles = {
+        let _styles = {
             linuxShell: {},
             linuxShellHeader: {},
             linuxShellHeaderTitle: {},
@@ -113,14 +113,14 @@ class LinusShell extends React.Component {
         };
 
         if (this.state.linuxSize === 'full') {
-            styles = {
+            _styles = {
                 linuxShell: { width: 'calc(100% - 60px)', height: 'calc(100% - 40px)' },
                 linuxShellHeader: {},
                 linuxShellHeaderTitle: {},
                 linuxShellWindow: {},
             };
         } else if (this.state.linuxSize === 'small') {
-            styles = {
+            _styles = {
                 linuxShell: { width: 68, height: 24 },
                 linuxShellHeader: {},
                 linuxShellHeaderTitle: { display: 'none' },
@@ -128,33 +128,39 @@ class LinusShell extends React.Component {
             };
         }
 
-        return <div className={this.props.classes.linuxShell} style={styles.linuxShell}>
-            <div className={this.props.classes.linuxShellHeader} style={styles.linuxShellHeader}>
-                <div className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonClose}`}
-                     onClick={() => this.onLinuxSize('small')}
+        return <div className={this.props.classes.linuxShell} style={_styles.linuxShell}>
+            <div className={this.props.classes.linuxShellHeader} style={_styles.linuxShellHeader}>
+                <div
+                    className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonClose}`}
+                    onClick={() => this.onLinuxSize('small')}
                 />
-                <div className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonHide}`}
-                     onClick={() => this.onLinuxSize('normal')}
+                <div
+                    className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonHide}`}
+                    onClick={() => this.onLinuxSize('normal')}
                 />
-                <div className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonFull}`}
-                     onClick={() => this.onLinuxSize('full')}
+                <div
+                    className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonFull}`}
+                    onClick={() => this.onLinuxSize('full')}
                 />
-                <span className={this.props.classes.linuxShellHeaderTitle} style={styles.linuxShellHeaderTitle}>{this.props.header || 'shell'}</span>
+                <span className={this.props.classes.linuxShellHeaderTitle} style={_styles.linuxShellHeaderTitle}>{this.props.header || 'shell'}</span>
             </div>
-            <div className={this.props.classes.linuxShellWindow} style={styles.linuxShellWindow}>
+            <div className={this.props.classes.linuxShellWindow} style={_styles.linuxShellWindow}>
                 pi@raspberry:~#&nbsp;
                 <Typed
                     strings={this.state.text}
                     typeSpeed={40}
-                    onComplete={() => setTimeout(() => this.setState({animationDone: true, text: [this.props.typedText]}), 500)}
+                    onComplete={() => setTimeout(() => this.setState({ animationDone: true, text: [this.props.typedText] }), 500)}
                 />
                 <IconButton
                     className={`${this.props.classes.linuxShellWindowCopy} ${this.state.animationDone ? this.props.classes.linuxShellHeaderWindowCopyDone : ''}`}
                     title={this.props.copyTitle || 'copy to clipboard'}
                     onClick={e => {
                         Utils.onCopy(e, this.props.typedText);
-                        this.setState({text: ['', this.props.copiedText || 'copied to clipboard']});
-                    }}><IconCopy/></IconButton>
+                        this.setState({ text: ['', this.props.copiedText || 'copied to clipboard'] });
+                    }}
+                >
+                    <IconCopy />
+                </IconButton>
             </div>
         </div>;
     }

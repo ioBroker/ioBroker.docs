@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mpd/README.md
 title: ioBroker.mpd-Adapter
-hash: HE1Y4R29p9lYuhOs70rcV3/e60XmSDQFJUONHWQRzNI=
+hash: BE5qE1VcmCJxAla75VRDboDJGzG0LhArx2PnaGfw5mQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.mpd/admin/mpd.png)
 
@@ -14,16 +14,25 @@ hash: HE1Y4R29p9lYuhOs70rcV3/e60XmSDQFJUONHWQRzNI=
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.mpd-Adapter [![Tests](https://github.com/instalator/iobroker.mpd/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mpd/actions/)
-Verbinden Sie sich mit einem [Musik-Player-Daemon](http://musicpd.org)-Server, senden Sie Befehle, geben Sie Ereignisse aus.
+Verbindung zu einem [Musik-Player-Daemon](http://musicpd.org)-Server herstellen, Befehle senden, Ereignisse ausgeben.
 
 ## Dokumentation
-Siehe auch die [MPD-Protokolldokumentation](http://www.musicpd.org/doc/protocol/).
-
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
-
-### **IN ARBEIT** -->
+Siehe auch [MPD-Protokolldokumentation](http://www.musicpd.org/doc/protocol/).
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 2.1.0 (2024-04-20)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2023-09-18)
+* (maffmeier) Changed playlist command to recommended playlistinfo
+* (raintonr) Fix play button (start from last position in queue/track, not beginning)
+* (bluefox) Refactoring: minimum node.js version is 16
+
 ### 1.1.1 (2023-04-02)
 * (bluefox) Just small refactoring
 
@@ -117,6 +126,7 @@ Siehe auch die [MPD-Protokolldokumentation](http://www.musicpd.org/doc/protocol/
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

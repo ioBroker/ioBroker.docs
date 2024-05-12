@@ -30,6 +30,7 @@ Regardless if they are connected directly via Wi-Fi or XGW3000 Gateway. It imple
 To install, do the following:
 
 1. Install via Admin using the
+1. Install via Admin using the
 * stable Repo - to get the current stable version
 * latest Repo - to get the latest test version (maybe not stable)
 * via: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - to get the latest development version
@@ -112,6 +113,17 @@ If you like to get a deeper understanding or need a raw-value translation please
 
 ## Changelog
 ### **WORK IN PROGRESS**
+
+### 6.5.6 (2024-05-10) (Dying for an Angel)
+
+- (grizzelbee) New: [402](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/402) Added signalDoor to Washing machines, Tumble dryer and Washer dryer
+- (grizzelbee) Upd: Dependencies got updated
+
+### 6.5.5 (2024-01-03) (Dying for an Angel)
+
+- (grizzelbee) Upd: Added year 2024 to licence
+- (grizzelbee) Upd: Dependencies got updated
+
 
 ### 6.5.4 (2023-05-03) (Dying for an Angel)
 * (grizzelbee) New: Added file `.ncurc.json` to prevent axios-oauth-client from being automatically updated by `npx npm-check-updates` 
@@ -566,4 +578,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Copyright
-Copyright (c) 2023 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2024 grizzelbee <open.source@hingsen.de>

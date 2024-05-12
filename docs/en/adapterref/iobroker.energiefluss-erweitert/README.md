@@ -30,6 +30,9 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.1 (2024-04-18)
+- Hotfix: After uprading the Adapter, it could happen, that the first datasource was not updated properly
+
 ### 0.4.0 (2024-04-15)
 - Added: The adapter provides 3 new states. charging_grid (battery charged via grid), charging_solar (battery charged via solar) and production (overall production) (#173, #152, #148)
 - Added: Datasources for the battery calculation now need to be provided via the datasources tab and selected in the calculation tab (!!! Important: !!! This is a major change)

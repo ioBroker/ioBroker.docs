@@ -83,6 +83,10 @@ Or you can use the tab **files** to upload the file. (see image below)\
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2024-04-28)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.1.0 (2023-11-05)
 * (Scrounger) Bugfix: objects will be created only if necessary
 * (Scrounger) Bugfix for excessive number of warnings has been added
@@ -99,12 +103,10 @@ Or you can use the tab **files** to upload the file. (see image below)\
 ### 0.1.1 (2023-02-05)
 * (xXBJXx) Dependencies updated
 
-### 0.1.0 (2023-02-05)
-* (xXBJXx) first release
-
 ## License
 MIT License
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

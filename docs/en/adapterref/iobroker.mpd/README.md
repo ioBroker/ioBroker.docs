@@ -17,11 +17,15 @@ emit events.
 
 See also the [MPD Protocol Documentation](http://www.musicpd.org/doc/protocol/).
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-## Changelog
+### 2.1.0 (2024-04-20)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 2.0.1 (2023-09-18)
 * (maffmeier) Changed playlist command to recommended playlistinfo
 * (raintonr) Fix play button (start from last position in queue/track, not beginning)
@@ -120,6 +124,7 @@ See also the [MPD Protocol Documentation](http://www.musicpd.org/doc/protocol/).
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

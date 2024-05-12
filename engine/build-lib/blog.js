@@ -60,7 +60,7 @@ function build(lang, content) {
                     }
                 }
 
-                // take first paragraph as description
+                // take the first paragraph as description
                 const desc = [];
                 let i = 0;
                 while(lines[i]) {
@@ -142,7 +142,7 @@ function sync2Languages(fromLang, toLang, content, cb) {
         const toFilePublic = `${consts.FRONT_END_DIR + toLang}/blog/${file}.md`;
 
         // read from
-        let {body, header} = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
+        let { body, header } = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
         let originalBody = body;
         const originalHeader = header;
         let translatedBody;
@@ -237,7 +237,8 @@ function buildAll() {
 
                     fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(contents[0], null, 2));
 
-                    buildRSS().then(() => resolve(content));
+                    buildRSS()
+                        .then(() => resolve(content));
                 });
             });
     });

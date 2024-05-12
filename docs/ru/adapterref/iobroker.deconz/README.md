@@ -3,14 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
 title: без заголовка
-hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
+hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Количество установок](http://iobroker.live/badges/deconz-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![НПМ-версия](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
-![НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
 Адаптер ioBroker deConz Dresden-elektronik
 
@@ -22,15 +21,18 @@ hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
 Требуемая версия js-контроллера >2.x.x, Требуемый node.js >= 10.x.x
 
 ## Английский
-Подключается к программному обеспечению deConz, разработанному Dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway, использующим аппаратное обеспечение Dresden-elektronik (USB-накопитель ConBee) и модуль RaspBee для Raspberry Pi.
+Подключается к программному обеспечению deConz REST-API, разработанному Dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway, использующим аппаратное обеспечение от Dresden-elektronik, USB-накопитель ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
 
 Сначала вы должны дать ссылку на deConz.
 
-1. а) Введите IP-адрес для deConz
+1. а) Введите IP-адрес для deConz<br>
 
-    б) Введите стандартный порт моста: 80 и стандартный веб-сокет: 443.
+   б) Введите стандартный порт моста: 80 и стандартный веб-сокет: 443.
 
 2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или зайти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
+
+## Чтобы избежать ошибок после обновления (деконструкции/адаптера), остановите адаптер и удалите эти записи в структуре объекта. При запуске структура объекта воссоздается.
+![Деконц-адаптер](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
 
 #### Отправка более одной команды одновременно
 Для этого существует объект под названием «действие».
@@ -39,14 +41,20 @@ hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
 
 `"on": true, "xy": [0.6586,0.3138]`
 
-`"on": true, "transitiontime": 5, "hue": 65500`
+`"on": true, "transitiontime": 5, "hue": 360`
 
 ## Ссылки
-[деКонц](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [REST-плагин](https://github.com/dresden-elektronik/deconz-rest-plugin) [Шлюзы (Аппаратное обеспечение)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[Плагин deCONZ REST-API](https://github.com/dresden-elektronik/deconz-rest-plugin) [Документация плагина deCONZ REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/) [Шлюзы (Аппаратное обеспечение)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Спонсоры](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.4.1 (2024-05-05)
+* (mattreim) Added new objects for various sensors
+
+### 1.4.0 (2024-01-29)
+* (mattreim) Added new objects for Tuya and Bosch thermostats
 
 ### 1.3.23 (2023-11-05)
 * fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
@@ -298,4 +306,4 @@ hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2023 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2024 Jey Cee jey-cee@live.com

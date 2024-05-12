@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: HT+wYxU2YwD7CgkCyvogd0N925lVY0TwsBkn2AyBNOo=
+hash: X0FH0AAyrKizVzTfpVwNLsTbw4D1qeGSFk0nawRnlys=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -46,11 +46,11 @@ hash: HT+wYxU2YwD7CgkCyvogd0N925lVY0TwsBkn2AyBNOo=
 
 **如何切换到最新固件版本？**
 
-只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络刷新器（除非固件更新明确要求这样做）。
+只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络闪光器（除非固件更新明确要求这样做）。
 
 **充电时设备会变热。**
 
-不幸的是，硬件设计并不是最佳的。建议使用可提供最大 1A 电流的最弱电源。
+不幸的是，硬件设计并不是最佳的。建议使用尽可能弱的电源，最大可提供 1A 的电流。
 
 **您可以从设备中取出电池吗？**
 
@@ -93,7 +93,7 @@ hash: HT+wYxU2YwD7CgkCyvogd0N925lVY0TwsBkn2AyBNOo=
 2. 为第二个设备创建另一个实例 (`awtrix-light.1`)
 3. 在`awtrix-light.1`的实例设置中选择`awtrix-light.0`以在第二个设备上显示相同的应用程序
 
-自版本 0.15.0（及更高版本）以来，应用程序和专家应用程序的所有内容的可见性也会传输到复制应用程序设置的其他设备。例如，在上面的示例中，一旦主实例`awtrix-light.0`中的应用程序的可见性发生更改，实例`awtrix-light.1`的应用程序也会被隐藏。这同样适用于专家应用程序的所有内容。
+自版本 0.15.0（及更高版本）以来，自定义应用程序和所有专家应用程序内容的可见性也会传输到复制应用程序设置的其他设备。例如，在上面的示例中，一旦主实例`awtrix-light.0`中的应用程序的可见性发生更改，实例`awtrix-light.1`的应用程序也会被隐藏。这同样适用于专家应用程序的所有内容。
 
 ## Blockly 和 JavaScript
 `sendTo` /消息框可用于
@@ -191,9 +191,18 @@ sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-05-11)
+
+* (klein0r) Sync app activations (if enabled)
+
+### 1.0.1 (2024-04-28)
+
+* (klein0r) Keep text case of expert apps (ignore system settings)
+
 ### 1.0.0 (2024-04-04)
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
 Updated recommended firmware version to 0.96
 
 ### 0.16.0 (2024-03-12)
@@ -207,14 +216,6 @@ Updated recommended firmware version to 0.95
 ### 0.15.1 (2024-03-12)
 
 * (klein0r) Fixed default values of color states
-
-### 0.15.0 (2024-03-06)
-
-* (klein0r) Keep apps contents in sync
-
-### 0.14.1 (2024-03-06)
-
-* (klein0r) Fixed roles of calendar header, body and text (rgb)
 
 ## License
 MIT License

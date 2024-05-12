@@ -79,6 +79,14 @@ The name must be equal to DeviceID in OwnTracks app.
 ![Settings](img/settings1.png)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.0 (2024-04-22)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.5 (2022-10-08)
 * (Apollon77) Prepare for future js-controller versions
 
@@ -134,6 +142,7 @@ The name must be equal to DeviceID in OwnTracks app.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2022 bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

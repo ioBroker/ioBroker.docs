@@ -19,7 +19,8 @@ const styles = () => ({
 });
 
 function registerTheme() {
-    /*echarts.registerTheme('westeros', {
+    /*
+    echarts.registerTheme('westeros', {
         "color": [
             "#516b91",
             "#59c4e6",
@@ -508,7 +509,8 @@ function registerTheme() {
                 }
             }
         }
-    });*/
+    }); */
+
     echarts.registerTheme('westeros', {
         color: [
             '#3fb1e3',
@@ -516,22 +518,22 @@ function registerTheme() {
             '#626c91',
             '#a0a7e6',
             '#c4ebad',
-            '#96dee8'
+            '#96dee8',
         ],
         backgroundColor: 'rgba(252,252,252,0)',
         textStyle: {},
         title: {
             textStyle: {
-                color: '#222'
+                color: '#222',
             },
             subtextStyle: {
-                color: '#999999'
+                color: '#999999',
             },
         },
         line: {
             itemStyle: {
                 normal: {
-                    borderWidth: '2'
+                    borderWidth: '2',
                 },
             },
             lineStyle: {
@@ -871,14 +873,16 @@ class PieStats extends Component {
             ],
         };
 
-        /*const ddd = labels.map((n, i) => {
+        /*
+        const ddd = labels.map((n, i) => {
             return {
                 value: series[i],
                 name: n,
                 className: this.colors[i] || undefined,
                 meta: 'Meta One'
             };
-        });*/
+        });
+        */
 
         return <ReactEchartsCore
             echarts={echarts}
@@ -890,22 +894,20 @@ class PieStats extends Component {
             opts={{ renderer: 'svg' }}
         />;
 
-        /*return <ReactEcharts
+        /*
+        return <ReactEcharts
             option={option}
             notMerge
             style={{ height: this.props.height || '350px', width: '100%' }}
             lazyUpdate
             //               opts={{renderer: 'svg'}}
             theme="westeros"
-        />;*/
+        />;
+        */
     }
 }
 
 PieStats.propTypes = {
-    language: PropTypes.string,
-    onNavigate: PropTypes.func,
-    theme: PropTypes.string,
-    mobile: PropTypes.bool,
     data: PropTypes.object,
     series: PropTypes.string,
     height: PropTypes.string,

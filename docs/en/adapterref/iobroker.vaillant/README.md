@@ -237,6 +237,11 @@ zone/2/xxxx
 
 ## Changelog
 
+<!-- ### **WORK IN PROGRESS** -->
+### 0.7.2 (2024-04-18)
+
+- fix month stats period
+
 ### 0.3.0
 
 - add boost
@@ -281,7 +286,7 @@ zone/2/xxxx
 
 MIT License
 
-Copyright (c) 2020 TA2k <tombox2020@gmail.com>
+Copyright (c) 2020-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

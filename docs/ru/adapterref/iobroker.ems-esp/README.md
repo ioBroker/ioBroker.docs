@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
+hash: tDqMsfwdHnBhTrnQMUFXYtGUx0Uvwep6ITJ82u84Aq4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -25,7 +25,7 @@ hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 
 * шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией для разработчиков (см. ниже) и чипом ESP32.
 
-Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ! Адаптер протестирован для шлюза ems-esp с последней версией прошивки (> V3.6.0) ESP32.
+Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ! Адаптер протестирован для шлюза ems-esp с последней версией прошивки (> V3.6.0) ESP32. Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Использование осуществляется на свой страх и риск.
 
 * Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, поскольку они не поддерживают LAN API!
 
@@ -33,6 +33,7 @@ hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 Его можно использовать либо для оригинальных шлюзов Bosch-Group, либо для ems-esp, либо для обоих параллельно.
 Все измененные состояния из собственных скриптов или браузера объектов должны устанавливать подтверждение = false !!!
 
+## НОВОЕ в версии >= 3.3.0: Введены предупреждения об использовании непродуктивной прошивки ems-esp.
 ## НОВОЕ в версии >= 3.0.0: объекты EMS+ (switchPrograms и HolidayModes) реализованы для шлюза EMS-ESP и при обнаружении создаются состояния.
 Прошивка шлюза ems-esp не поддерживает программы переключения и HolidayModes для термостатов EMS+ (RC310 / RC300 или аналогичных). Включение этой новой функции приведет к отправке необработанных телеграмм шлюзу ems-esp, а затем попытается прочитать ответ.
 Тестирование выполняется для программ переключения A и B для hc1 на hc4, ГВС (теплая вода) и циркуляционного насоса (cp) и режимов отпуска hm1-hm5.
@@ -44,8 +45,8 @@ hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 Я рекомендую провести тестирование с помощью приложений Bosch/Buderus, чтобы определить правильный контент, особенно для HolidayModes.
 Опрос установлен каждые 2 минуты.
 
-## НОВИНКА Для записей и статистики энергопотребления требуется активный экземпляр базы данных.
-Для записей требуется адаптер InfluxDB версии >= 4.0.2, который позволяет удалять записи базы данных. Период восстановления теперь считывается, и записи сохраняются только в течение периода хранения. Бета-статус InfluxDB v2 требует, чтобы период хранения был установлен на > 2 года для хранения. все исторические ценности.
+## НОВОЕ Для записей и статистики энергопотребления требуется активный экземпляр базы данных.
+Для записей требуется адаптер InfluxDB версии >= 4.0.2, который позволяет удалять записи базы данных. Период восстановления теперь считывается, и записи сохраняются только в течение периода хранения - бета-статус InfluxDB v2 требует, чтобы период хранения был установлен на > 2 года для хранения. все исторические ценности.
 В V2 это глобальный параметр для всех состояний!
 
 ## НОВИНКА: улучшен гистерезис потребности в тепле.
@@ -67,27 +68,22 @@ hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.0.3 (2024-03-09)
-* improve km200 data read to avoid errors
+### 3.4.0 (2024-04-22)
+* changes for ems-esp firmware 3.7.0 
+* introduce warnings in log for using ems-esp dev firmware
 
-### 3.0.2 (2024-03-02)
-* improve km200 data read to avoid errors - try http get up to 3 times now - especially for recordings
+### 3.3.0 (2024-04-20)
+* introduce a new check for ems-esp gateway formatting settings for boolean and enum values
+* stop ems-esp polling if wrong settings are detected !
 
-### 3.0.1 (2024-02-25)
-* change KM200 error messages for recordings
+### 3.2.1 (2024-04-17)
+* update release script
 
-### 3.0.0 (2024-02-17)
-* Node >= 18 required
-* update heatdemand weight changes to be effective during active instance
-* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* create writable objects / states for switchPrograms and holidayModes
-* this function is only active when no km200 gateway is selected - ems-esp gateway only
-* improve error messages for km200 (wrong ip / passwords)
-* small changes within PDF adapter documentation
+### 3.2.0 (2024-04-17)
+* change for ems-esp firmware 3.7 - add dhw tag
 
-### 3.0.0-alpha.2 (2024-02-16)
-* Node >= 18 required
-* update heatdemand weight changes to be effective during active instance
+### 3.1.1 (2024-04-11)
+* update dependencies and release  script
 
 ## License
 MIT License

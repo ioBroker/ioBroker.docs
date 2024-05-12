@@ -13,7 +13,6 @@ import {
 import {
     MdCloud as IconCloud,
     MdClose as IconClose,
-    MdCake as IconCake,
 } from 'react-icons/md';
 import ServerImg from '../assets/iob-server.png';
 import HausAutomatisierungImg from '../assets/haus_automatisierung.png';
@@ -28,12 +27,12 @@ import Adapters from '../Components/Adapters';
 import SupportUs from '../Components/SupportUs';
 import About from '../Components/About';
 import Screenshots from '../Components/Screenshots';
-import UserMeeting from '../Components/UserMeeting';
 import Query from '../Components/Query';
 
 import BackImage from '../assets/background.jpg';
 import LinusShell from '../Components/LinusShell';
 import I18n from '../i18n';
+import userTreffen from '../assets/2024_05_01_usertreffen_long.jpg';
 
 const styles = theme => ({
     content: theme.content,
@@ -138,7 +137,7 @@ const styles = theme => ({
         marginLeft: 10,
         marginRight: 10,
         padding: 15,
-        borderRadius: 100,
+        borderRadius: 20,
         textTransform: 'uppercase',
         background: '#3399CC',
         color: '#FFFFFF',
@@ -311,17 +310,6 @@ class Intro extends Component {
         </div>;
     }
 
-    renderUserMeetingDialog() {
-        if (!this.state.showUserMeetingDialog) {
-            return null;
-        }
-        return <UserMeeting
-            key="userMeeting"
-            mobile={this.props.mobile}
-            onClose={() => this.setState({ showUserMeetingDialog: false })}
-        />;
-    }
-
     renderUserMeeting() {
         const smallMargin = window.screen.height < 500;
 
@@ -335,17 +323,9 @@ class Intro extends Component {
         >
             <div
                 className={this.props.classes.userButton}
-                onClick={() => this.setState({ showUserMeetingDialog: true })}
+                onClick={() => window.open('https://usertreffen.iobroker.in', 'usertreffen')}
             >
-                <IconCake className={this.props.classes.coloredIcon} />
-                <div
-                    className={this.props.classes.userButtonText}
-                    style={{
-                        whiteSpace: this.props.mobile ? 'wrap' : undefined,
-                    }}
-                >
-                    User-Treffen November 2024
-                </div>
+                <img src={userTreffen} alt="usertreffen" style={{ height: 70, borderRadius: 10 }} />
             </div>
         </div>;
     }
@@ -456,7 +436,6 @@ class Intro extends Component {
             <Adapters key="adapters" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
             <Screenshots key="screenshots" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
             <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
-            this.renderUserMeetingDialog(),
         ];
     }
 }

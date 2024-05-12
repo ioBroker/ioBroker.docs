@@ -64,16 +64,13 @@ class Screenshots extends Component {
                 centerMode={false}
                 emulateTouch
             >
-                {Images.map((img, i) => <div key={'img' + i}><img src={img} alt="Screenshot"/></div>)}
+                {Images.map((img, i) => <div key={`img${i}`}><img src={img} alt="Screenshot" /></div>)}
             </Carousel>
         </div>;
     }
 }
 
 Screenshots.propTypes = {
-    language: PropTypes.string,
-    theme: PropTypes.string,
-    mobile: PropTypes.bool,
     backClass: PropTypes.string,
 };
 

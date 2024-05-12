@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: 92cBpCuRfRuA7W4aJ8ZJWjPwsVYs5xcr9U5TP7fbsgo=
+hash: 8tA+V8SN00R6sI+L20sFVqelcCZ+6srIMDexcZ7Xfhc=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -11,7 +11,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 具有多个选项卡的 `jsonConfig.json` 文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
-您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并支持注释。
+您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并且支持注释。
 
 此外，对于 JSON 文件，您必须在 `common` 部分的 `io-package.json` 中定义：
 
@@ -35,6 +35,8 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 *如果属性名称以“_”开头，则不会保存在对象中。*
 
 包括
+需要管理员 6.17.1 或更新版本。
+
 要编写复杂的 json 文件，可以包含其他 json 文件。
 包含的文件必须与主文件位于同一目录中。
 
@@ -152,7 +154,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `{common: {custom: 'adapterName.'}}` - 仅显示特定适配器的自定义设置的对象（所有实例）
 - `{type: 'channel'}` - 仅显示频道
 - `{type: ['channel', 'device']}` - 仅显示频道和设备
-- `{common: {type: 'number'}` - 仅显示类型为 'number 的状态
+- `{common: {type: 'number'}` - 仅显示数字类型的状态
 - `{common: {type: ['number', 'string']}` - 仅显示数字和字符串类型的状态
 - `{common: {role: 'switch']}` - 仅显示角色从 switch 开始的状态
 - `{common: {role: ['switch', 'button]}` - 仅显示角色以 `switch` 和 `button` 开头的状态
@@ -188,7 +190,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `textAlive` - 默认文本为 `Instance %s is alive`，其中 %s 将被 `ADAPTER.0` 替换。
 - `textNotAlive` - 默认文本为“实例 %s 未处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。
 
-- `pattern` - 只读字段，模式类似 'https://${data.ip}:${data.port}'（不会保存在配置中）
+- `pattern` - 具有类似 'https://${data.ip}:${data.port}' 模式的只读字段（不会保存在配置中）
 
 带有只读标志的文本输入，显示一种模式。
 
@@ -239,7 +241,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `table` - 包含可以删除、添加、上移、下移的项目的表格
 - `items` - `[{"type": 见上文, "width": px 或 %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]`
-- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `objKeyName` - （旧设置，请勿使用！） - `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中密钥的名称
 - `objValueName` - （旧设置，请勿使用！） - `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` 中的值的名称
 - `allowAddByFilter` - 即使设置了过滤器，也允许添加
@@ -249,11 +251,12 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `export` - [可选] - 是否显示导出按钮。导出为 csv 文件。
 - `import` - [可选] - 是否显示导入按钮。从 csv 文件导入。
 - `uniqueColumns` - [可选] - 指定列数组，这些列需要具有唯一的条目
+- `encryptedAttributes` - [可选] - 指定需要加密的列数组
 
 - `accordion` - 可以删除、添加、上移、下移项目的手风琴（Admin 6.6.0 及更新版本）
 - `items` - `[{"type": 见上文, "attr": "name", "default": ""}]` - 项目可以像在 `panel` 上一样放置（xs、sm、md、lg 和 newLine）
 - `titleAttr` - 项目列表的键，应用于名称
-- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `clone` - [可选] - 是否应显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。
 
 - `jsonEditor` - json 编辑器
@@ -508,8 +511,6 @@ adapter.on('message', obj => {
   }
 }
 ```
-
-**注意：标有“！”的属性或控制尚未实现。**
 
 ## 控件的常用属性
 所有类型都可以有：

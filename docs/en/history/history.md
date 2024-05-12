@@ -438,3 +438,24 @@ https://github.com/TA2k/ioBroker.tedee
 
 Adapter for Tedee Locks. This Adapter uses the local bridge API to control a tedee lock.
 All Lock devices by Tedee are supported.
+
+## pid (22.4.2024) – new adapter
+https://github.com/mcm4iob/ioBroker.pid
+
+<img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
+
+This adapter provides the functionality of a PID controller.
+
+## air-q (1.5.2024) – new adapter
+https://github.com/CorantGmbH/ioBroker.air-q
+
+<img src="https://github.com/CorantGmbH/ioBroker.air-q/blob/main/admin/air-q.png" width="100" height="100" />
+
+This ioBroker Adapter is used in connection with our air-Q device. It polls the values from our sensors and displays them for you in the ioBroker environment.
+
+## boschindego (4.5.2024) – new adapter
+https://github.com/iobroker-community-adapters/ioBroker.boschindego
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/admin/boschindego.png" width="100" height="100" />
+
+Adapter for Bosch Indego Mower to show the state of the mower and control the mower.

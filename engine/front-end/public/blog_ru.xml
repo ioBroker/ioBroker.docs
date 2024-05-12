@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.net/#ru/blog</link>
-        <lastBuildDate>Sat, 16 Sep 2023 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 21 Apr 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Обзор новых адаптеров и функций с февраля по апрель 2024 г.]]></title>
+            <description><![CDATA[
+                <p>В этом сообщении блога представлен обзор новых адаптеров и функций, представленных в ioBroker в период с февраля по апрель 2024 г. Целью статьи является предоставление базовой информации для пользователей с любым техническим опытом.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#ru/blog/2024_04_21</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_04_21</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 21 Apr 2024 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Новости от ioBroker (август-сентябрь 2023 г.)]]></title>
             <description><![CDATA[

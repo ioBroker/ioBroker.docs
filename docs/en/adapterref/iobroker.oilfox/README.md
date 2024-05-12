@@ -16,12 +16,16 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 
 ## Settings
 * specify your e-mail and password in the configuration page
+
+## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.3.0 (2024-04-21)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
-## Changelog
 ### 4.2.1 (2024-01-30)
 * (mcm1957) Adapter will be terminated now after a maximum of 45s execution time to clean unresponsive service.
 * (mcm1957) Default cron schedule will be changed to random executions once a hour.

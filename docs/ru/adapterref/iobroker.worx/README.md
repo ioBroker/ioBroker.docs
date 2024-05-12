@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: Адаптер ioBroker.worx
-hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
+hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 ---
 ![Логотип](../../../en/admin/worx.png)
 
@@ -18,41 +18,39 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - «Электронная почта приложения»: ваше имя пользователя приложения (электронная почта).
 - `Пароль приложения`: ваш пароль приложения.
 - «Имя приложения»: выберите свое устройство.
+- `Интервал обновления в минутах` Интервал обновления всех данных (возможен диапазон от 10 до 1440)
 - «Задержка для EdgeCut»: когда должен запускаться EdgeCut (например, 5 секунд до газона)
-
-![Настройки экземпляра img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
-
 - `Расстояние и время в минутах и м`: по умолчанию ч и км.
-- «Пинг-соединение MQTT каждые 10 минут».: Просто для проверки. Пожалуйста, не более 1 часа!
-- `Обновление данных MQTT после обновления токена`: загружает данные Worx после обновления токена. 24 дополнительных запроса в день/устройства.
+- `Обновление данных MQTT после обновления токена`: загружает данные Worx после обновления токена.
 
-![Настройки экземпляра img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
+![Настройки экземпляра img/instance.png](../../../en/adapterref/iobroker.worx/img/instance.png)
 
 ### Папка
-- `activityLog`: журнал вашей активности (возможен контроль)
-- `области`: Области (возможно управление)
-- `календарь`: расписание (возможно управление)
-- `Модули`: Ваш модуль(и) (возможно управление)
-- `косилка`: Ваша косилка (возможно управление)
-- `product`: все свойства ваших устройств (только чтение).
-- `rawMqtt`: все данные из облака (только чтение).
+- «ActivityLog»: журнал вашей активности (возможен Wire & Vision/управление)
+- `области`: Области (возможен провод/управление)
+- `multiZones`: мультизоны (возможно видение/управление)
+- `календарь`: расписание (возможны Wire & Vision/управление)
+- «Модули»: ваши модули (возможны проводное и визуальное управление)
+- `косилка`: ваша газонокосилка (возможны проводное и визуальное управление)
+- `product`: все свойства устройства (Wire & Vision/только чтение).
+- `rawMqtt`: все данные из облака (Wire & Vision/только чтение)
 
 ![Папка img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
 ###Журнал активности (Wire и Vision)
-- `last_update`: последнее обновление как временная метка.
-- `manuell_update`: загружает текущий журнал активности (автоматически после изменения статуса)
+- `last_update`: последнее обновление в виде отметки времени (Wire & Vision / только чтение).
+- `manuell_update`: загружает текущий журнал активности (автоматически после изменения статуса - возможно Wire & Vision/управление)
 - `полезная нагрузка`: журнал активности в виде таблицы JSON (для VIS или Blockly).
 
 ![Активность img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
 
-### Области (без обзора)
+### Области (провод)
 - `actualArea`: Текущий
 - `actualAreaIndicator`: начало следующей зоны массива.
 - `area_0`: начало зоны 1 в метрах (массив=0) (изменяемо)
 - `area_1`: начало зоны 2 в метрах (массив=1) (изменяемо)
 - `area_2`: начало зоны 3 в метрах (массив=2) (изменяемо)
-- `area_3`: начало зоны 4 в метрах (массив=3) (изменяемо)
+- `area_3`: Начало зоны 4 в метрах (массив=3) (изменяемо)
 - `startSequence`: начало зоны массива (события 0-9), например. Запуск только в зоне 3 [2,2,2,2,2,2,2,2,2,2] (изменяемо)
 - `zoneKeeper`: Безопасное вождение в узких зонах пересечения (Области должны быть созданы) (начиная с прошивки 3.30) (изменяемо)
 
@@ -61,12 +59,12 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ###календарь (Проводной)
 - Например. установка времени на среду
 
-    - `wednesday.borderCut`: с обрезанием рамки или без него (изменить значение без задержки) (изменяемо)
+    - `wednesday.borderCut`: с обрезанием границы или без него (изменить значение без задержки) (изменяемо)
     - `wednesday.startTime`: время начала чч:мм (0-23/0-59), например 09:00 (Изменить значение без задержки) (изменяемо)
-    - `wednesday.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = Конец 09:30 (Изменить значение без задержки) (изменяемо)
+    - `wednesday.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = время окончания 09:30 (изменить значение без задержки) (изменяемо)
     - `calJson_sendto`: если все состояния установлены, нажмите кнопку для отправки (с задержкой 1,1 секунды). Теперь газонокосилка будет косить в течение 30 минут (можно изменить).
     - `calJson_tosend`: эти данные отправляются в Mqtt (оба графика кошения устанавливаются автоматически). Вы также можете создать этот JSON самостоятельно. (Сменный)
-    - `calendar.calJson`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 1/устанавливается автоматически - только для проволоки) (изменяемый)
+    - `calendar.calJson`: Массив еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 1/устанавливается автоматически - только для проволоки) (изменяемый)
     - `calendar.calJson2`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 2/устанавливается автоматически – только для проволоки) (изменяемый)
 
 ![Папка img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
@@ -77,8 +75,8 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
     - `friday.time_0.borderCut`: с обрезанием рамки или без него (изменить значение без задержки) (изменяемо)
     - `friday.time_0.startTime`: время начала чч:мм (0-23/0-59), например. 09:00 (Изменить значение без задержки) (изменяемо)
-    - `friday.time_0.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = Конец 09:30 (Изменить значение без задержки) (изменяемо)
-    - `friday.time_0.enabled_time`: активировать или деактивировать время. При деактивации временной интервал удаляется (устанавливается без задержки) (можно изменить)
+    - `friday.time_0.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = Время окончания 09:30 (Изменить значение без задержки) (изменяемо)
+    - `friday.time_0.enabled_time`: активировать или деактивировать время. (устанавливается без задержки) (можно изменить)
     - `friday.time_0.zones`: к каким зонам следует приближаться, например Пример [1,2,3] (устанавливается без задержки) (можно изменить)
     - `calJson_sendto`: если все состояния установлены, установите для этой кнопки значение true (с задержкой 1,1). Теперь газонокосилка будет косить 30 минут! (Сменный)
     - `calJson_tosend`: этот JSON автоматически заполняется, а затем отправляется в Mqtt. Конечно, вы также можете создать его самостоятельно. (Сменный)
@@ -107,10 +105,10 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ```
 
 ### Модулей (Wire и Vision)
-- Модуль Off Limit (провод и зрение)
+- Модуль ограничения (провод и зрение)
 
     - `DF.OLMSwitch_Cutting`: предотвращает перетирание магнитной ленты - истинное включение/ложное выключение.
-    - `DF.OLMSwitch_FastHoming`: быстрый возврат на зарядную станцию - истинное включение/ложное выключение.
+    - `DF.OLMSwitch_FastHoming`: быстрый возврат на зарядную станцию — с использованием ярлыков, сделанных из магнитных полос — истинное включение/ложное выключение.
 
 - Модуль ACS (только проводной)
 
@@ -136,37 +134,58 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `batteryState`: состояние батареи в % (проводное и Vision/только чтение)
 - `batteryTemperature`: температура батареи в градусах Цельсия (проводное и Vision/только чтение)
 - `batteryVoltage`: напряжение батареи в Вольтах (проводное и Vision/только чтение)
+- `cameraStatus`: Статус камеры 0=ОК/1=Ошибка (видение/только чтение)
+- `cameraError`: ошибка камеры 0=ОК/1=Ошибка (видение/только чтение)
 - `cutOverSlabs`: разрезание плит включено = true / выключено = false (видение/изменяемое)
-- `direction`: направление в градусах (провод и видение/только чтение)
-- `edgecut`: запустить EdgeCut (проволока и Vision/сменный)
+- `direction`: направление в градусах (проводное и Vision/только чтение).
+- `edgecut`: запуск EdgeCut (проволока и Vision/сменный)
 - `error`: сообщение об ошибке от газонокосилки (провод и Vision/только чтение)
 
 ```json
 {
     "states": {
-        "0": "No error", //(wire & Vision)
-        "1": "Trapped", //(wire & Vision unknown)
-        "2": "Lifted", //(wire & Vision)
-        "3": "Wire missing", //(wire & Vision unknown)
-        "4": "Outside wire", //(wire & Vision unknown)
-        "5": "Raining", //(wire & Vision)
-        "6": "Close door to mow", //(wire & Vision)
-        "7": "Close door to go home", //(wire & Vision)
-        "8": "Blade motor blocked", //(wire & Vision)
-        "9": "Wheel motor blocked", //(wire & Vision)
-        "10": "Trapped timeout", //(wire & Vision)
-        "11": "Upside down", //(wire & Vision)
-        "12": "Battery low", //(wire & Vision)
-        "13": "Reverse wire", //(wire & Vision unknown)
-        "14": "Charge error", //(wire & Vision)
-        "15": "Timeout finding home", //(wire & Vision)
-        "16": "Mower locked", //(wire & Vision)
-        "17": "Battery over temperature", //(wire & Vision)
-        "18": "dummy model", //(wire & Vision)
-        "19": "Battery trunk open timeout", //(wire & Vision)
-        "20": "wire sync", //(wire & Vision unknown)
-        "21": "msg num", //(wire & Vision)
-        "110": "Camera error" //(Vision)
+        "0": "No error", //(Draht & Vision & RTK)
+        "1": "Trapped", //(Draht & Vision & RTK-Body)
+        "2": "Lifted", //(Draht & Vision & RTK-Body)
+        "3": "Wire missing", //(Draht)
+        "4": "Outside boundary", //(Draht & Vision & RTK-Body)
+        "5": "Raining", //(Draht & Vision & RTK-Body)
+        "6": "Close door to cut grass", //(Draht)
+        "7": "Close door to go home", //(Draht)
+        "8": "Blade motor fault", //(Draht & Vision & RTK-Body)
+        "9": "Wheel motor fault", //(Draht & Vision & RTK-Body)
+        "10": "Trapped timeout fault", //(Draht & Vision & RTK-Body)
+        "11": "Upside down", //(Draht & Vision & RTK-Body)
+        "12": "Battery low", //(Draht & Vision & RTK)
+        "13": "Wire reversed", //(Draht)
+        "14": "Charge error", //(Draht & Vision & RTK-Body)
+        "15": "Home search timeout", //(Draht & Vision)
+        "16": "Wifi locked", //(Draht & Vision)
+        "17": "Battery over temperature", //(Draht & Vision & RTK)
+        "18": "Dummy model", //(Draht)
+        "19": "Battery trunk open timeout", //(Draht & Vision)
+        "20": "Wire signal out of sync", //(Draht)
+        "100": "Charging station docking error", //(RTK-Body)
+        "101": "HBI error", //(RTK-Body)
+        "102": "OTA upgrade error", //(Vision & RTK)
+        "103": "Map error", //(RTK)
+        "104": "Excessive slope", //(RTK-Body)
+        "105": "Unreachable zone", //(RTK-Body)
+        "106": "Unreachable charging station", //(RTK-Body)
+        "107": "Calibration needed", //(RTK-Head)
+        "108": "Insufficient sensor data", //(RTK)
+        "109": "Training start disallowed", //(RTK)
+        "110": "Camera error", //(Vision)
+        "111": "Lawn exploration required", //(Vision)
+        "112": "Mapping exploration failed", //(Vision)
+        "113": "RFID reader error", //(Vision)
+        "114": "Headlight error", //(Vision)
+        "115": "Missing charging station", //(RTK-Body)
+        "116": "Blade height adjustment blocked", //(Vision & RTK-Body)
+        "117": "Unsupported blade height", //(Vision & RTK-Body)
+        "118": "Manual firrnware upgrade required", //(Vision & RTK-Body)
+        "119": "Area limit exceeded", //(RTK-Body)
+        "120": "Charging station undocking error" //(RTK-Body)
     }
 }
 ```
@@ -174,8 +193,8 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ![Косилка img/mower_1.png](../../../en/adapterref/iobroker.worx/img/mower_1.png)
 
 - `firmware`: текущая установленная прошивка (проводное и Vision/только чтение).
-- `firmware_available`: доступная прошивка (проводное и Vision/только чтение)
-- «firmware_available_all»: последняя доступная прошивка в формате JSON. Этот JSON будет обновляться при появлении нового обновления (проводное и Vision/только чтение).
+- `firmware_available`: Доступная прошивка (проводное и Vision/только чтение)
+- `firmware_available_all`: последняя доступная прошивка в формате JSON. Этот JSON будет обновляться при появлении нового обновления (проводное и Vision/только чтение).
 
 ```json
 {
@@ -191,12 +210,14 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 - `firmware_available_date`: дата доступной прошивки - Dummy 1970-01-01, когда адаптер переустановлен и обновление недоступно (проводное и Vision/только чтение)
 - Значение `firmware_body` из dat.fw (Vision/только для чтения)
-- Значение `firmware_head` из dat.head.fw (Vision/только для чтения)
+- «firmware_head» Значение из dat.head.fw (Vision/только для чтения)
 - «firmware_update_start»: запустить обновление прошивки в 2 этапа — см. ниже «firmware_update_start_approved» (проводное и Vision/сменное)
-- «firmware_update_start_approved»: начать обновление встроенного ПО. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
+- «firmware_update_start_approved»: начать обновление прошивки. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
 - `gradient`: градиент в градусах (проводное и Vision/только чтение)
 - `inclination`: наклон в градусах (проводное и Vision/только чтение)
 - `last_command`: последний запрос от iobroker или приложения в виде таблицы JSON (проводное и Vision/только чтение)
+- `last_update` Последнее обновление (проводное и Vision/только чтение)
+- `last_update_connection` Какое соединение (Mqtt или Cloud/wire & Vision/только для чтения)
 - `mowTimeExtend`: увеличение времени кошения в %. Диапазон: -100%->100% (проводной/изменяемый).
 - `mowerActive`: приостановить план кошения (проводной/изменяемый)
 - `mqtt_update`: макс. обновление данных Mqtt. 150/день (проводной и Vision/сменный)
@@ -214,33 +235,40 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ```
 
 - `oneTimeStart`: однократный запуск кошения «Сначала установите oneTimeWithBorder, oneTimeWorkTime и oneTimeZones для Vision» — с задержкой 1,1 секунды (проводное и Vision/изменяемое)
-- `oneTimeWithBorder`: с рамкой - изменение значения без задержки (проводное и Vision/изменяемое)
+- `oneTimeWithBorder`: с обрамлением - изменение значения без задержки (проводное и Vision/изменяемое)
 - `oneTimeWorkTime`: Макс. рабочее время. 8 часов с шагом 30 минут — изменение значения без задержки (проводное и Vision/изменяемое)
 - `oneTimeZones`: установить зоны [1,2,4] (видение/изменяемые)
 - «онлайн»: газонокосилка онлайн (проводное и Vision/только чтение)
 - `partyModus`: включение/выключение Partymodus (проводное и Vision/изменяемое)
 - «Пауза»: включение/выключение прерывания газонокосилки (проводное и Vision/изменяемое)
 - `reset_battery_time`: сброс заряда батареи в 2 этапа (проводной и визуальный/сменный)
-- `reset_battery_time_approved`: подтвердите сброс заряда батареи. Для `reset_battery_time` должно быть установлено значение true (проводное и визуальное/изменяемое)
+- `reset_battery_time_approved`: подтвердите сброс заряда батареи. - `reset_battery_time` должно быть установлено в значение true (проводное и визуальное/изменяемое)
 - `reset_blade_time`: сброс рабочего времени лезвия в 2 этапа (провод и зрение/изменяемое)
 - `reset_blade_time_approved`: подтвердите сброс рабочего времени лезвия. - `reset_battery_time` должно быть установлено в значение true (проводное и визуальное/изменяемое)
 
 ![Косилка img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
 
+- `rfidStatus`: статус радиочастотного датчика 0=ОК/1=Ошибка (только просмотр/чтение)
 - `sendCommand`: отправить команду cmd (проводное и Vision/изменяемое)
 
 ```json
 {
     "states": {
-        "1": "Start", //(wire & Vision)
-        "2": "Stop", //(wire & Vision)
-        "3": "Home", //(wire & Vision)
-        "4": "Start Zone Taining", //(wire & Vision unknown)
-        "5": "Lock", //(wire & Vision unknown)
-        "6": "Unlock", //(wire & Vision)
-        "7": "Restart Robot", //(wire & Vision)
-        "8": "pause when follow wire", //(wire & Vision unknown)
-        "9": "safe homing" //(wire & Vision unknown)
+        "1": "Start", //(wire & Vision & RTK)
+        "2": "Stop", //(wire & Vision & RTK)
+        "3": "Home", //(wire & Vision & RTK)
+        "4": "Follow border", //(wire & Vision & RTK)
+        "5": "Wi-Fi Lock", //(wire & Vision unknown)
+        "6": "Wi-Fi Unlock", //(wire & Vision)
+        "7": "Reset Log", //(wire & Vision & RTK)
+        "8": "Pause over border", //(wire & Vision)
+        "9": "Safe go home", //(wire & Vision unknown)
+        "10": "Start once", //(Vision)
+        "100": "Pairing command", //(Vision)
+        "101": "Border Cut", //(Vision & RTK)
+        "102": "Resume cutting", //(RTK)
+        "103": "Start driving", //(Draht & Vision & RTK)
+        "104": "Stop driving" //(Draht & Vision & RTK)
     }
 }
 ```
@@ -251,25 +279,41 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ```json
 {
     "states": {
-        "0": "IDLE", //(wire & Vision)
-        "1": "Home", //(wire & Vision)
-        "2": "Start sequence", //(wire & Vision)
-        "3": "Leaving home", //(wire & Vision)
-        "4": "Follow wire", //(wire & Vision unknown)
-        "5": "Searching home", //(wire & Vision)
-        "6": "Searching wire", //(wire & Vision unknown)
-        "7": "Mowing", //(wire & Vision)
-        "8": "Lifted", //(wire & Vision)
-        "9": "Trapped", //(wire & Vision)
-        "10": "Blade blocked", //(wire & Vision)
-        "11": "Debug", //(wire & Vision)
-        "12": "Remote control", //(wire & Vision)
-        "13": "escape from off limits", //(wire & Vision)
+        "0": "IDLE", //(wire & Vision & RTK-Body)
+        "1": "Home", //(wire & Vision & RTK-Body)
+        "2": "Start sequence", //(wire)
+        "3": "Leaving home", //(wire & Vision & RTK-Body)
+        "4": "Following border", //(wire)
+        "5": "Searching home", //(wire & Vision & RTK-Body)
+        "6": "Searching border", //(wire & Vision)
+        "7": "Mowing", //(wire & Vision & RTK-Body)
+        "8": "Lifted", //(wire & Vision & RTK-Body)
+        "9": "Trapped", //(wire & Vision & RTK-Body)
+        "10": "Blade blocked", //(wire & Vision & RTK-Body)
+        "11": "Debug", //(wire)
+        "12": "Driving", //(wire & Vision)
+        "13": "Digital fence escape", //(wire & Vision)
         "30": "Going home", //(wire & Vision)
         "31": "Zone training", //(wire & Vision)
         "32": "Border Cut", //(wire & Vision)
         "33": "Searching zone", //(wire & Vision)
-        "34": "Pause" //(wire & Vision)
+        "34": "Pause", //(wire & Vision)
+        "100": "Map training (completable)", //(RTK-Head)
+        "101": "Map processing", //(RTK)
+        "102": "Upgrading firmware", //(RTK)
+        "103": "Moving to zone", //(RTK-Body)
+        "104": "Going home", //(RTK-Body)
+        "105": "Ready for training", //(RTK-Head)
+        "106": "Map download in progress", //(RTK)
+        "107": "Map upload in progress", //(RTK-Head)
+        "108": "Map training paused", //(RTK-Head)
+        "109": "Map training (not completable)", //(RTK-Head)
+        "110": "Border crossing", //(Vision)
+        "111": "Exploring lawn", //(Vision)
+        "112": "Moving to recovery point", //(RTK-Body)
+        "113": "Waiting for position", //(RTK-Body)
+        "114": "Map training (driving)", //(Vision & RTK-Body)
+        "115": "Map training (rolling back)" //(Vision)
     }
 }
 ```
@@ -278,9 +322,9 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 - `totalBladeTime`: общее время работы блейда (проводное и Vision/только чтение)
 - `totalDistance`: общее расстояние (провод и зрение/только чтение)
 - `totalTime`: общее рабочее время (проводное и Vision/только чтение)
-- `waitRain`: Макс. задержка дождя. 12 часов с шагом 30 минут (проводное и Vision/сменное)
-- `waitRainCountdown` Начать обратный отсчет, когда датчик переключится с влажного на сухой (проводное и Vision/только чтение)
-- Состояние `waitRainSensor` 0 для сухого и 1 для влажного (проводное и Vision/только чтение)
+- `waitRain`: Макс. задержка дождя. 12 часов с шагом по 30 минут (проводное и Vision/сменное)
+- `waitRainCountdown` Начать обратный отсчет, когда датчик переключится с влажного на сухой (проводное и Vision/только чтение) (в настоящее время отключено)
+- Состояние `waitRainSensor` 0 для сухого состояния и 1 для влажного (проводное и Vision/только чтение)
 - `wifiQuality`: качество Wi-Fi (проводное и Vision/только чтение)
 
 ```json
@@ -295,18 +339,17 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ![Косилка img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
 
 ### Дополнительно для зрения
-- Мультизона
-    - `multiZone.passages.passage_01.tagIdFrom`: RFID-идентификатор z1 - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
-    - `multiZone.passages.passage_01.tagIdTo`: RFID-идентификатор z2 - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
-    - `multiZone.passages.passage_01.zoneIdFrom`: зона из (должно быть z1 < z2) - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видение/изменяемое)
-    - `multiZone.passages.passage_01.zoneIdTo`: зона закрыта (должна быть z2 > z1). - Устанавливается с помощью Blockly без задержки. - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое).
-    - `multiZone.zones.zone_1.borderDistance`: обрезка кромки в мм - разрешено 50 мм, 100 мм, 150 мм и 20 мм - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
-    - `multiZone.zones.zone_1.chargingStation`: 1 Если зарядная станция найдена в этой зоне. 0 для отсутствия зарядной станции - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` (видимое/изменяемое)
-    - `multiZone.zones.zone_1.cutOverBorder`: 1 для проезда пластин, если они обнаружены, иначе 0. Разные значения для каждой зоны не допускаются - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZone.multiZone` ( Видение/изменяемое)
-    - `multiZone.zones.zone_1.zone_id`: нумерация – начинается с 1 – (видение/только чтение)
-    - `multiZone.rfid`: общий RF (только чтение)
-    - `multiZone.multiZone`: многозонный JSON (видение/изменяемый) [Пример](#example-blockly-startsequence-vision)
-    - `multiZone.sendMultiZoneJson`: отправлять изменения в Worx с задержкой 1,1 секунды (видение/изменяемость)
+- Мультизоны
+    - `multiZones.zones.zone_1.borderDistance`: при обрезке границ расстояние до края в мм - разрешено 50 мм, 100 мм, 150 мм и 200 мм - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZones.multiZones` (vision/ Сменный)
+    - `multiZones.zones.zone_1.chargingStation`: 1 Если зарядная станция найдена в этой зоне. 0 для отсутствия зарядной станции - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZones.multiZones` (видимое/изменяемое)
+    - `multiZones.zones.zone_1.cutOverBorder`: 1 для проезда плит, если они обнаружены, в противном случае 0. Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZones.multiZones` (Vision/changeable)
+    - `multiZones.zones.zone_1.zone_id`: нумерация - Начинается с 1 - (видение/только чтение)
+    - `multiZones.passages.passage_01.tagIdFrom`: RFID-идентификатор зоныIdFrom - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZones.multiZones` (видимое/изменяемое)
+    - `multiZones.passages.passage_01.tagIdTo`: RFID-идентификатор зоныIdTo - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZones.multiZones` (видимое/изменяемое)
+    - `multiZones.passages.passage_01.zoneIdFrom`: зона из (должен ZoneIdFrom < ZoneIdTo) - Установить с помощью Blockly без задержки - Изменение записывается в `multiZones.multiZones` (видение/изменяемое)
+    - `multiZones.passages.passage_01.zoneIdTo`: зона закрыта (должна быть ZoneIdTo > ZoneIdFrom) - Устанавливается с помощью Blockly без задержки - Изменение записывается в `multiZones.multiZones` (видение/изменяемое)
+    - `multiZones.multiZones`: мультизонный JSON (видение/изменяемый) [Пример](#example-blockly-sendMultiZonesJson-vision)
+    - `multiZones.sendMultiZonesJson`: отправлять изменения в Worx с задержкой 1,1 секунды (видение/изменяемость)
 
 Пример:
 
@@ -329,7 +372,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
                 "c": 1, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm - allowed 10mm, 15mm und 20mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -339,7 +382,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
                 "c": 0, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm
+                        "bd": 100, // Edge cut the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm
                         "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
@@ -380,12 +423,12 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ![Видение img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
 
 - Косилка
-    - `paused`: приостановленное расписание в минутах (изменяемое)
+    - `paused`: приостановленное расписание в минутах (изменяемое).
 
 ![Видение img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
 ### Info_mqtt (Wire и Vision)
-- `incompleteOperationCount`: общее количество операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
+- `incompleteOperationCount`: общее количество операций, отправленных на соединение, которые еще не были завершены. Неподдерживаемые операции являются подмножеством этого.
 - `incompleteOperationSize`: общий размер пакета операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
 - `unackedOperationCount`: общее количество операций, которые были отправлены на сервер и ожидают соответствующего подтверждения, прежде чем они могут быть завершены.
 - `unackedOperationSize`: общий размер пакетов операций, которые были отправлены на сервер и ожидают соответствующего подтверждения, прежде чем они могут быть завершены.
@@ -395,7 +438,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 
 ![Видение img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
-### Пример Blockly startsequence Vision
+### Пример блочного sendMultiZonesJson Vision
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -420,7 +463,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -487,7 +530,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -531,7 +574,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <value name="VALUE">
           <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
             <field name="ATTR">val</field>
-            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
           </block>
         </value>
       </block>
@@ -598,7 +641,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
             <next>
               <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
                 <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.multiZones.sendMultiZonesJson</field>
                 <field name="WITH_DELAY">FALSE</field>
                 <value name="VALUE">
                   <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
@@ -690,7 +733,7 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
         <next>
           <block type="control" id="k$;?LM/[x-TbZ^m=F4}i">
             <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-            <field name="OID">worx.0.xxxxxxxxxx.areas.startSequence</field>
+            <field name="OID">worx.0.xxxxxxxxxx.multiZones.sendMultiZonesJson</field>
             <field name="WITH_DELAY">FALSE</field>
             <value name="VALUE">
               <block type="convert_object2json" id="b~2Bz}OiNg{V]!QgN^J7">
@@ -718,21 +761,33 @@ hash: YThpMCoT9Q4n8aeTDMko4896OZViUrz98OvYxtEnU7Q=
 ![img/ok_direct.png](../../../en/adapterref/iobroker.worx/img/ok_direct.png)
 
 ### Не допускается
-![img/ok_direct.png](img/not_ok_direct.png) ![img/json_nok.png](img/json_nok.png) ![img/array_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
+![img/json_nok.png](img/json_nok.png) ![img/array_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
+-   (Lucky-ESA) mowTimeExtend restricted input
+-   (Lucky-ESA) Fixed TypeError
+
+### 3.0.1 (2024-05-08)
+
+-   (Lucky-ESA) Preperation mission Kress new API
+-   (Lucky-ESA) Fixed TypeError
+-   (Lucky-ESA) Fixed missing activity states
+-   (Lucky-ESA) Added update interval in instance setting
+-   (Lucky-ESA) Added last update
+
+### 3.0.0 (2024-04-25)
+
 -   (Lucky-ESA) Fixed Sentry messages
 -   (Lucky-ESA) Catch publish crash
--   (Lucky-ESA) Added for Vision electric height adjustment
--   (Lucky-ESA) Added for Vision new calendar
--   (Lucky-ESA) Added Vision head light
--   (Lucky-ESA) Added Vision cut over slabs
+-   (Lucky-ESA) Added Vision completely
 -   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) JS-Controller >= 5.0.19 required
+-   (Lucky-ESA) Admin >=6.13.16 required
 -   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Added Vision Multi Zone
+-   (Lucky-ESA) Delete ping
 
 ### 2.3.4 (2023-10-19)
 

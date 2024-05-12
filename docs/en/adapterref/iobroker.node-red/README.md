@@ -60,35 +60,24 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 ### ioBroker sendTo
 
 ## Changelog
-### 5.2.0 (2024-02-17)
+### 5.2.1 (2024-04-27)
 
+- (Apollon77) Update node-red to 3.1.9 to fix execution on windows
+- (Apollon77) Restore log behavior as it was in till 5.0.x
+
+### 5.2.0 (2024-02-17)
 - (klein0r) Added persistence of context data (filesystem)
 
 ### 5.1.0 (2023-12-27)
-
 - (klein0r) Allow custom themes
 - (klein0r) Fixed scoped node-red packages
 
 ### 5.0.2 (2023-12-14)
-
 - (TheRealArthurDent) Fixed a fatal error when getting a non-existent value
 
 ### 5.0.1 (2023-12-05)
-
 - (klein0r) Fixed credentials decrypt
 - (klein0r) Added connection state (process is running)
-
-### 5.0.0 (2023-11-26)
-
-**NodeJS 16.4.x is required**
-**Please check instance configuration and re-enter your passwords (encryption has changed).**
-
-- (klein0r) Updated Node-RED to 3.1.0. Please check your nodes for compatibility!
-- (klein0r) Admin 5/6 JSON config for instance configuration
-- (klein0r) Added sendTo node with callback
-- (klein0r) Allow custom attribute name for "ioBroker in" node
-- (klein0r) Added option to select editor (monaco, ace)
-- (klein0r) Added table for custom env vars to instance configuration
 
 ## License
 

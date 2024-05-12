@@ -133,6 +133,9 @@ This adapter would not have been possible without the great work of @Zefau (http
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm1957) Adapter requires nodejs >= 18 now
+
 ### 1.1.4 (2023-11-06)
 - (ticaki) move logmessage into debug
 

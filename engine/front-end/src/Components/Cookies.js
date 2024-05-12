@@ -11,27 +11,27 @@ const styles = theme => ({
         position: 'absolute',
         bottom: 16,
         left: 16,
-//        alignContent: 'center',
-//        alignItems: 'center',
+        // alignContent: 'center',
+        // alignItems: 'center',
         background: '#3c4043',
         borderRadius: 2,
         color: '#fff',
-//        display: 'flex',
+        // display: 'flex',
         boxShadow: '0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15)',
-//        boxOrient: 'horizontal',
-//        boxDirection: 'normal',
-//        flexDirection: 'row',
+        // boxOrient: 'horizontal',
+        // boxDirection: 'normal',
+        // flexDirection: 'row',
         fontSize: 14,
         minHeight: 48,
         padding: 0,
         zIndex: 2,
     },
     mainDivMobile: {
-        width: 'calc(100% - 32px)'
+        width: 'calc(100% - 32px)',
     },
     text: {
-//        flexGrow: 1,
-//        flexShrink: 1,
+        // flexGrow: 1,
+        // flexShrink: 1,
         lineHeight: 'normal',
         overflow: 'hidden',
         padding: 24,
@@ -89,11 +89,8 @@ class Cookies extends Component {
 }
 
 Cookies.propTypes = {
-    language: PropTypes.string,
-    theme: PropTypes.string,
     mobile: PropTypes.bool,
     onNavigate: PropTypes.func,
-    contentWidth: PropTypes.number,
 };
 
 export default withStyles(styles)(Cookies);

@@ -736,6 +736,10 @@ lg-thinq.0.xxx.area muss gefüllt sein!
 -   (Lucky-ESA) Changed airState.quality.odor max value
 -   (Lucky-ESA) Fixed sentry messages
 -   (Lucky-ESA) Added jet & airclean for device 401
+-   (Lucky-ESA) Added Mqtt wakeup for device 406
+-   (Lucky-ESA) Node 18 required
+-   (Lucky-ESA) JS-Controller >= 5.0.19 required
+-   (Lucky-ESA) Admin >=6.13.16 required
 
 ### 0.3.3 (2024-01-14)
 

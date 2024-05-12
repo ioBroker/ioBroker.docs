@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: utkRsFtZBLnnrbiKMhFWnLy7zFBrA5SbERuqBGMc8yI=
+hash: 0D3dMICFt9G+gq1NQ2y2G8aax/Ih1h5+Hm6iw7lrW5E=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -14,112 +14,134 @@ hash: utkRsFtZBLnnrbiKMhFWnLy7zFBrA5SbERuqBGMc8yI=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 ![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 
-# IoBroker.mielecloudservice [![Test und Freigabe](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
+# IoBroker.mielecloudservice [![Testen und Freigeben](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
 ## Mielecloudservice-Adapter für ioBroker
-Verbinden Sie Ihre Miele Geräte (XGW3000 & WiFiConn@ct).
+Vernetzen Sie Ihre Miele-Geräte (XGW3000 & WiFiConn@ct)
 
-&gt;Wenn dir dieser Adapter gefällt und du erwägst, mich zu unterstützen:<br/> &gt;[![Mit PayPal spenden](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+&gt;Wenn Ihnen dieser Adapter gefällt und Sie erwägen, mich zu unterstützen:<br/> &gt;[![Spenden mit PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ## Beschreibung
-Dieser Adapter dient zum Abrufen von Informationen über alle Ihre Miele@Home-Geräte von der offiziellen Miele-3rd-Party-API.
-Unabhängig davon, ob sie direkt über Wi-Fi oder XGW3000 Gateway verbunden sind. Es implementiert die **Miele 3rd Party API V1.0.5**
+Dieser Adapter dient zum Abrufen von Informationen zu all Ihren Miele@Home-Geräten von der offiziellen Miele-API von Drittanbietern.
+
+Unabhängig davon, ob sie direkt über WLAN oder XGW3000 Gateway verbunden sind. Er implementiert die **Miele-API von Drittanbietern V1.0.5**
 
 ## Voraussetzungen
-* Miele@Home Benutzer (Smartphone-App)
-* Miele@Home Passwort (Smartphone-App)
+* Miele@Home User (Smartphone App)
+* Miele@Home Passwort (Smartphone App)
 * Miele Client_id (von https://www.miele.com/developer/)
 * Miele Client_secret (von https://www.miele.com/developer/ )
 
 ## Installation
 Gehen Sie zur Installation wie folgt vor:
 
-1. Installieren Sie über Admin mit der
-* Stable Repo - um die aktuelle stabile Version zu erhalten
-* neuestes Repo - um die neueste Testversion zu erhalten (möglicherweise nicht stabil)
-* über: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - um die neueste Entwicklungsversion zu erhalten
-2. Erstellen Sie einen App-Account für Miele@Home in der Miele Smartphone App
+1. Installieren Sie über den Admin mit dem
+1. Installieren Sie über den Admin mit dem
+* stabiles Repo - um die aktuelle stabile Version zu erhalten
+* latest Repo - um die neueste Testversion zu erhalten (möglicherweise nicht stabil)
+* über: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git – um die neueste Entwicklungsversion zu erhalten
+2. App-Konto für Miele@Home in der Miele Smartphone App anlegen
 3. Erstellen Sie ein Entwicklerkonto unter https://www.miele.com/f/com/en/register_api.aspx
-4. Fügen Sie Ihre Miele-Geräte zur App hinzu (falls nicht automatisch hinzugefügt)
-6. Geben Sie das client_secret und die client_id ein, die Sie vom Miele-Entwicklerteam erhalten haben, sowie die Konto-ID und das Passwort von der App.
+4. Fügen Sie Ihre Miele-Geräte zur App hinzu (sofern nicht automatisch hinzugefügt)
+6. Geben Sie das Client-Geheimnis und die Client-ID ein, die Sie vom Miele-Entwicklerteam erhalten haben, sowie die Konto-ID und das Passwort aus der App.
 
 ## Merkmale
 Dieser Adapter implementiert derzeit fast alle Funktionen der Miele API V1.0.5 und einige Teile der API V1.0.6.
-Die Funktionen der API können (und tun dies derzeit) von den Funktionen der iOS- und Android-Apps abweichen.
-Z.B. Es sind keine Informationen zu TwinDos verfügbar - selbst die Apps haben sie.
-Das beinhaltet:
+Die Funktionen der API können (und tun dies derzeit auch) von den Funktionen der iOS- und Android-Apps abweichen.
+Zum Beispiel sind keine Informationen zum TwinDos verfügbar – selbst die Apps haben sie.
+Dazu gehören:
 
-* Alle bekannten und dokumentierten Appliance-Typen werden unterstützt (API V1.0.6).
-* Grundlegende Informationen für alle Gerätetypen.
+* Alle bekannten und dokumentierten Gerätetypen werden unterstützt (API V1.0.6).
+* Grundlegende Informationen zu allen Gerätetypen.
 * Erweiterte Informationen für alle Gerätetypen.
 * EcoFeedback (Wasser- und/oder Stromverbrauch) für Geräte, die dies melden.
 
-  `Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
+`Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
 
-* Unterstützte Aktionen, die Sie auf diesem Gerät ausführen können – Fähigkeiten des Geräts werden meistens von der API selbst gemeldet.
+* Unterstützte Aktionen, die Sie auf diesem Gerät ausführen können – die Funktionen des Geräts werden größtenteils von der API selbst gemeldet.
 
 ## Bekannte Probleme
-* Die Programme werden grundsätzlich seit v6.0.0 des Adapters unterstützt. Außer Programme, die zusätzliche Parameter benötigen, wie z. B. für Öfen.
+* Die Programme werden grundsätzlich seit v6.0.0 des Adapters unterstützt. Ausgenommen Programme die zusätzliche Parameter benötigen wie z.B. für Öfen.
 
 ## Aufbau
-### Grundkonfig
+### Grundkonfiguration
 Um diesen Adapter zum Laufen zu bringen, benötigen Sie mindestens:
 
-* Miele@Home User (aus der Smartphone-App)
-* Miele@Home Passwort (aus der Smartphone-App)
+* Miele@Home User (aus der Smartphone App)
+* Miele@Home Passwort (aus der Smartphone App)
 * Miele Client_id (von https://www.miele.com/developer/)
 * Miele Client_secret (von https://www.miele.com/developer/ )
 
-### Daten von Miele Servern anfordern
-Seit V6.2.0 haben Sie die Möglichkeit zwischen zu wählen
+### Daten von Miele-Servern anfordern
+Seit V6.2.0 haben Sie die Möglichkeit zu wählen zwischen
 
-* Server-Sent Events (Server-Sent Events Checkbox ist aktiviert - Standard und *dringend empfohlen*)
-* Zeitbasiertes Daten-Polling (Server-Sent Events Checkbox ist deaktiviert)
+* Server-Sent Events (Kontrollkästchen „Server-Sent Events“ ist aktiviert – Standard und *dringend empfohlen*)
+* Zeitbasierte Datenabfrage (Kontrollkästchen „Vom Server gesendete Ereignisse“ ist deaktiviert)
 * Verzögerte Verarbeitung
 
 #### Vom Server gesendete Ereignisse (dringend empfohlen)
-Vom Server gesendete Ereignisse sind eine sehr praktische Methode, um Daten von den Miele-Servern zu erhalten, da die Server Ihnen bei jeder Änderung Daten senden. Kein nutzloses Abfragen alle xx Sekunden, das ignoriert, ob es Änderungen gab oder nicht. Leider gibt es Probleme mit diesem Verbindungstyp - er schlägt ziemlich oft fehl und nur ein Neustart des Adapters löst das Problem.
+Server-Sent Events sind eine sehr praktische Methode, um Daten von den Miele-Servern abzurufen, da die Server Ihnen Daten senden, sobald es Änderungen gibt. Kein nutzloses Polling alle xx Sekunden, bei dem ignoriert wird, ob es Änderungen gab oder nicht. Leider gibt es bei dieser Verbindungsart Probleme – sie schlägt ziemlich oft fehl und nur ein Neustart des Adapters löst dieses Problem.
 
 #### Zeitbasierte Datenabfrage
-Um die Stabilität des Adapters zu verbessern, habe ich die Datenabfrage als Konfigurationsoption wieder eingeführt, die Sie verwenden können, wenn SSE bei Ihnen fehlschlägt.
-Nichtsdestotrotz ist SSE der Standard, und ich empfehle dringend, es auszuprobieren und zu verwenden, da es viele Ressourcen auf Ihrer und auf Mieles-Seite spart. Ansonsten konzentriere ich mich auf SSE seit Version 5.x.x.
+Um die Stabilität des Adapters zu verbessern, habe ich die Datenabfrage als Konfigurationsoption wieder eingeführt, die Sie verwenden können, wenn SSE für Sie ausfällt.
+Trotzdem ist SSE die Standardeinstellung, und ich empfehle dringend, es auszuprobieren und zu verwenden, da es sowohl auf Ihrer als auch auf Mieles Seite viele Ressourcen spart. Abgesehen davon konzentriere ich mich seit Version 5.x.x auf SSE.
 Die zeitbasierte Datenabfrage basiert auf den beiden Konfigurationsoptionen:
 
-* Abfrageintervall
-* Abfrageintervalleinheit (Sekunden/Minuten)
+* Poll-Intervall
+* Einheit des Polling-Intervalls (Sekunden/Minuten)
 
-#### Verzögerte Bearbeitung
-Falls Sie einige Miele-Geräte besitzen und gleichzeitig verwenden, kann es vorkommen, dass die API in kurzer Zeit viele Nachrichten sendet. Abhängig von Ihrer ioBroker-Hardware kann dies Ihren Server überlasten und zu einer nicht reagierenden Visualisierung oder einem überhaupt nicht reagierenden Broker führen. Um dies zu vermeiden, reduziert diese Konfigurationsoption die Anzahl der verarbeiteten Nachrichten auf eine Nachricht alle xxx Millisekunden.
-Verwandte Konfigurationsoptionen:
+#### Verzögerte Verarbeitung
+Falls Sie mehrere Miele-Geräte besitzen und diese gleichzeitig verwenden, kann es vorkommen, dass die API in kurzer Zeit viele Nachrichten sendet. Abhängig von Ihrer ioBroker-Hardware kann dies Ihren Server überlasten und dazu führen, dass die Visualisierung nicht mehr reagiert oder der Broker überhaupt nicht mehr reagiert. Um dies zu vermeiden, reduziert diese Konfigurationsoption die Anzahl der verarbeiteten Nachrichten auf eine Nachricht alle xxx Millisekunden.
+Zugehörige Konfigurationsoptionen:
 
 * verzögerte Bearbeitung
 * Nachrichtenverzögerung
 
-## Steuerung Ihrer Geräte
+## Steuern Sie Ihre Geräte
 ### Aktionen
 Alle derzeit unterstützten und dokumentierten Aktionen für alle Geräte sind implementiert (API V1.0.5).
-> Bitte denken Sie daran, dass Aktionen nur funktionieren, wenn Sie Ihr Gerät in den entsprechenden Zustand versetzen (z. B. Mobile Control, powerOn, ...).
-Weitere Informationen zu Aktionen finden Sie in [Miele-Dokumentation](#documentation).
+> Bitte beachten Sie, dass Aktionen nur funktionieren, wenn Sie Ihr Gerät in den entsprechenden Zustand versetzen (z. B. Mobile Control, PowerOn, ...).
+Weitere Informationen zu Aktionen finden Sie unter [Miele-Dokumentation](#documentation).
 
-### Programme (eingeführt in API V1.0.5)
+### Programme (Eingeführt in API V1.0.5)
 Mit API V1.0.5 hat Miele einen neuen Endpunkt namens „/programs“ eingeführt.
-Die Unterstützung für diesen Endpunkt beginnt mit Adapterversion 4.5.0. Es wird ein neuer Datenpunkt [device.Actions.Program] erstellt, der alle von Miele zurückgegebenen unterstützten Programme auflistet.
-**Wenn Sie einen der Werte auswählen, wird das Programm sofort ausgeführt!** Derzeit werden nur einfache Programme unterstützt. Z.B. Öfen benötigen einige zusätzliche Informationen - dies wird in einer zukünftigen Version implementiert.
+Die Unterstützung für diesen Endpunkt beginnt mit Adapterversion 4.5.0. Ein neuer Datenpunkt [device.Actions.Program] wird erstellt, der alle von Miele zurückgegebenen unterstützten Programme auflistet.
+**Wenn Sie einen der Werte auswählen, wird das Programm sofort ausgeführt!** Derzeit werden nur einfache Programme unterstützt. Beispielsweise benötigen Backöfen einige zusätzliche Informationen – dies wird in einer zukünftigen Version implementiert.
 
-Bei der Veröffentlichung des Adapters hat Miele einige Gerätekategorien dokumentiert, um diesen Endpunkt zu unterstützen, und nur (zumindest für mich) funktioniert nur eine Teilmenge davon wirklich. Bei meinem Kaffeesystem, meiner Waschmaschine und meinem Wäschetrockner funktioniert es nur für das Kaffeesystem.
-Doch Miele arbeitet daran und verlängert den Support regelmäßig.
-Weitere Informationen finden Sie in der allgemeinen Miele API-Dokumentation (unten).
+Bei der Veröffentlichung des Adapters hat Miele einige Gerätekategorien dokumentiert, die diesen Endpunkt unterstützen, und nur (zumindest bei mir) eine Teilmenge davon funktioniert wirklich. Für mein Kaffeesystem, meine Waschmaschine und meinen Wäschetrockner funktioniert es nur für das Kaffeesystem.
+Aber Miele arbeitet daran und erweitert die Unterstützung regelmäßig.
+Weitere Informationen finden Sie in der allgemeinen Miele-API-Dokumentation (unten).
 
 ## Dokumentation
-Wenn Sie ein tieferes Verständnis erlangen möchten oder eine Rohwertübersetzung benötigen, lesen Sie bitte [diese Dokumentation.](machine_states.md)
+Wenn Sie ein tieferes Verständnis erlangen möchten oder eine Rohwertumrechnung benötigen, lesen Sie bitte [dieser Dokumentation.](machine_states.md)
 
 ## Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie es deaktiviert werden kann, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Detaillierte Informationen dazu, was das Plugin macht, welche Informationen gesammelt werden und wie man es deaktivieren kann, wenn man den Autor nicht mit Informationen zu Abstürzen unterstützen möchte, finden Sie unter [Plugin-Startseite](https://github.com/ioBroker/plugin-sentry).
 
 ## Urheberrechte ©
-Copyright (c) 2023 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2024 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
 ### **WORK IN PROGRESS**
+
+### 6.5.6 (2024-05-10) (Dying for an Angel)
+
+- (grizzelbee) New: [402](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/402) Added signalDoor to Washing machines, Tumble dryer and Washer dryer
+- (grizzelbee) Upd: Dependencies got updated
+
+### 6.5.5 (2024-01-03) (Dying for an Angel)
+
+- (grizzelbee) Upd: Added year 2024 to licence
+- (grizzelbee) Upd: Dependencies got updated
+
+
+### 6.5.4 (2023-05-03) (Dying for an Angel)
+* (grizzelbee) New: Added file `.ncurc.json` to prevent axios-oauth-client from being automatically updated by `npx npm-check-updates` 
+
+### 6.5.3 (2023-04-26) (Dying for an Angel)
+* (grizzelbee) Fix: two minor bug fixes - including a fix that prevents objects from being updated constantly.
+
+### 6.5.2 (2023-04-21) (Dying for an Angel)
+* (grizzelbee) Fix: [367](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/367) Fixed "oauth is not a function" error during startup by downgrading axios-oauth-client to v1.5.0
 
 ### 6.5.1 (2023-04-21) (Dying for an Angel)
 * (grizzelbee) Fix: Some minor fixes for ioBroker adapter checker
@@ -135,7 +157,7 @@ Copyright (c) 2023 grizzelbee <open.source@hingsen.de>
 * (grizzelbee) New: Added RAW-Value to Platesteps (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
 * (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERROR occurred when switching ventilationStep
 * (grizzelbee) Fix: [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356) In some cases the value 0 (zero) is ignored (e.g. at PlateStep)
-* (grizzelbee) Fix: [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359) Fixed "oauth is not a function" error during startup with downgrade of axios-oauth-client to v1.5.0
+* (grizzelbee) Fix: [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359) Fixed "oauth is not a function" error during startup by downgrading axios-oauth-client to v1.5.0
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now
