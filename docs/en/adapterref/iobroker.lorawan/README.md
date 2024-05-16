@@ -23,6 +23,12 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2024-05-15)
+* (BenAhrdt) mqtt dependencies updated for better keepalive
+
+### 1.1.0 (2024-05-12)
+* (BenAhrdt) implement keepalive in config
+
 ### 1.0.9 (2024-05-11)
 * (BenAhrdt) remove debug warn logging
 

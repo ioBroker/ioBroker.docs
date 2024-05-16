@@ -48,7 +48,7 @@ If you wish to have any specific API command included...just let me now.
  - IR Light
  - LED Light
  - Mail Notification
- 
+
 ### Example Usage of get image:
 
 ```
@@ -68,12 +68,19 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 - RLC-522
 - RLC-810A
 - RLC-823A
+- Duo 3 PoE
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
+* (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
+* (Nibbels) added setWhiteLedMode function
+* (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
+
 ### 1.0.3 (2024-01-21)
 * (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
 * (oelison) [#47](https://github.com/aendue/ioBroker.reolink/issues/47)

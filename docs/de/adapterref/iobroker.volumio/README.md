@@ -3,62 +3,68 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.volumio/README.md
 title: ioBroker.volumio
-hash: DbvHbyB6CJysKT2u0D/hKX3zeydtPRIkex7ZxOvChCk=
+hash: lzXBMYVia1qv+k5tqmOTF0WgDWGQq9z0xDbFsTvfCDc=
 ---
 ![Logo](../../../en/adapterref/iobroker.volumio/admin/volumio.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.volumio.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.volumio.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/volumio-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/volumio-stable.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/volumio-installed.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/volumio-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/a-i-ks/iobroker.volumio.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/a-i-ks/ioBroker.volumio/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/a-i-ks/ioBroker.volumio/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.volumio.png?downloads=true)
 
 # IoBroker.volumio
-** Tests: ** ![Testen und freigeben](https://github.com/a-i-ks/ioBroker.volumio/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/a-i-ks/ioBroker.volumio/workflows/Test%20and%20Release/badge.svg)
 
 ### Unterstütze mich
-Wenn dieser Adapter Ihnen geholfen hat, coole Automatisierungen in Ihrem SmartHome zu realisieren und die Entwicklungszeit zu verkürzen, können Sie mich zu einer Tasse Kaffee einladen :)
+Wenn du mit diesem Adapter coole Automatisierungen in deinem SmartHome realisieren und die Entwicklungszeit verkürzen konntest, kannst du mich gerne auf eine Tasse Kaffee einladen :)
 
-[![Spenden] (https://raw.githubusercontent.com/a-i-ks/ioBroker.volumio/master/donate_button.png)](http://paypal.me/iske)
+[![Spenden](https://raw.githubusercontent.com/a-i-ks/ioBroker.volumio/master/donate_button.png)](http://paypal.me/iske)
 
-## Volumio adapter für ioBroker
-Volumio Adapter für ioBroker Dies ist ein Adapter zur Fernsteuerung einer Volumio-Instanz.
+## Volumio-Adapter für ioBroker
+Volumio-Adapter für ioBroker
 
-Es wird die folgende REST-API verwendet: https://volumio.github.io/docs/API/REST_API.html
+Dies ist ein Adapter zur Fernsteuerung einer Volumio-Instanz.
 
-Derzeit sind folgende Funktionen implementiert:
+Es verwendet die folgende REST-API: https://volumio.github.io/docs/API/REST_API.html
+
+Zur Zeit sind folgende Funktionen implementiert:
 
 * Spielerbefehle
-    * Stumm / Stummschaltung aufheben
-    * Weiter / Zurück
-    * Abspielen
-        * Spielen Sie das n-te Lied aus der Wiedergabeliste ab
+* Stummschalten / Ton einschalten
+* Weiter / Zurück
+    * Spielen
+* Spiele das n-te Lied aus der Playlist
     * Pause
-    * Zwischen Wiedergabe / Pause umschalten
-    * Halt
+* Zwischen Wiedergabe/Pause umschalten
+    * Stoppen
     * Lautstärkeregelung
-        * Auf einen bestimmten Wert einstellen
-        * Lautstärke erhöhen / verringern
+* Auf bestimmten Wert einstellen
+* Lautstärke erhöhen / verringern
 * Warteschlange
-    * Warteschlange löschen
-    * Titel wiederholen
-    * Shuffel-Modus
+* Warteschlange löschen
+* Titel wiederholen
+* Shuffle-Modus
 * Spielerstatus erhalten
 
 Machen:
 
-- [] Suchposition einstellen
-- [] Wiedergabelisten auflisten
-- [] Durchsuchen
+- [ ] Suchposition setzen
+- [ ] Wiedergabelisten auflisten
+- [ ] Durchsuchen
 
 ## Changelog
+### 0.2.0
+ * (André Iske) 
+    - Updated to newest ioBroker adapter structure 
+    - Fixed adapter crashes
+
+### 0.1.3
+* (André Iske) Security patches 
 
 ### 0.1.2
-* (André Iske) Minor bug fixes 
-
-### 0.1.1
 * (André Iske) Minor bug fixes 
 
 ### 0.1.0
@@ -72,7 +78,7 @@ Machen:
 ## License
 MIT License
 
-Copyright (c) 2021 André Iske <andre.iske@mailbox.org>
+Copyright (c) 2024 André Iske <andre.iske@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: tDqMsfwdHnBhTrnQMUFXYtGUx0Uvwep6ITJ82u84Aq4=
+hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -34,32 +34,7 @@ ioBroker ems-esp 适配器可以读取和写入两个网关的数据以控制所
 所有来自自身脚本或对象浏览器的更改状态都必须设置 acknowledged = false !!!
 
 ## 版本 >= 3.3.0 中的新功能：引入使用非生产性 ems-esp 固件的警告。
-## 版本 >= 3.0.0 中的新功能：为 EMS-ESP 网关实现了 EMS+ 实体（switchPrograms 和 holidayModes），并且如果发现状态则创建。
-ems-esp 网关固件不支持 EMS+ 恒温器（RC310 / RC300 或类似产品）的 switchPrograms 和 holidayModes。启用此新功能将向 ems-esp 网关发出原始电报，然后尝试读取响应。
-针对 hc1 至 hc4、dhw（温水）和循环泵 (cp) 以及 holidayModes hm1-hm5 的 switchPrograms A 和 B 进行测试。
-找到的扩展实体存储在实例设置中。因此，一旦适配器实例重新启动就会发生。
-
-然后，在找到这些状态后，解码原始响应并创建类似于 KM200 网关 API 数据的状态。
-启用 km200 网关后，将禁用此功能以避免使用相同名称进行重复输入。
-创建的状态由 JSON 结构、枚举值或数组组成，并且是可写的 - 请小心使用正确的内容。
-我建议使用 Bosch/Buderus 应用程序进行测试以识别正确的内容 - 尤其是对于 holidayModes。
-轮询设置为每 2 分钟一次。
-
-## 新的能源记录和统计需要一个活动的数据库实例。
-记录需要 InfluxDB 适配器版本 >= 4.0.2，它允许删除 db-records。现在读取保留期，并且记录仅存储在保留期内 - Beta 状态 InfluxDB v2 需要将保留期设置为 > 2 年，以存储所有历史值。
-在 V2 中，这是所有状态的全局参数！
-
-## 新功能：热需求滞后得到改善。
-当实际温度 <= 设定温度 - 增量时，打开加热需求；当设定温度 < 实际温度时，关闭加热需求；在设定温度 - 增量和设定温度之间不执行任何操作；确保增量足够高，以避免锅炉启动过多。
-
-## 新功能：热需求参数可以在活动实例期间更改
-在活动实例中，可以在对象内更改每个恒温器的热需求参数 delta / weight 备注：仅当发现新的热需求时才使用更新的权重 在活动实例中，可以在对象内更改每个加热回路的热需求参数 weighton / weightoff
-
-德语文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
-
-英文文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
-
-德国 ioBroker 论坛：https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
+德语文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf 英文文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf 德语 ioBroker 论坛：https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 # Iobroker.ems-esp
 
@@ -68,22 +43,21 @@ ems-esp 网关固件不支持 EMS+ 恒温器（RC310 / RC300 或类似产品）�
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.4.0 (2024-04-22)
-* changes for ems-esp firmware 3.7.0 
-* introduce warnings in log for using ems-esp dev firmware
+### 3.5.0 (2024-05-15)
+* warm water starts not supported anymore within statistics due to namechanges within ems-esp firmware 3.7
 
-### 3.3.0 (2024-04-20)
-* introduce a new check for ems-esp gateway formatting settings for boolean and enum values
-* stop ems-esp polling if wrong settings are detected !
+### 3.4.4 (2024-05-15)
+* improve delays between axios get requests for km200 and ems-esp to avoid errors
 
-### 3.2.1 (2024-04-17)
-* update release script
+### 3.4.3 (2024-05-14)
+* corrections for reading gateway data for km200 gateway
 
-### 3.2.0 (2024-04-17)
-* change for ems-esp firmware 3.7 - add dhw tag
+### 3.4.2 (2024-05-13)
+* update dependencies
+* replace setTimeout by adapter.delay
 
-### 3.1.1 (2024-04-11)
-* update dependencies and release  script
+### 3.4.1 (2024-04-26)
+* correct enum settings for ems-esp gateway on adapter start
 
 ## License
 MIT License

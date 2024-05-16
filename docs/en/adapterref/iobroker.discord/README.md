@@ -167,7 +167,7 @@ for example, that a server has more channels as displayed.
 
 | Name | Description |
 |---|---|
-| `activityType` | The type of the bot activity. One of `Playing`, `Streaming`, `Listening`, `Watching`, `Competing` or an empty string. |
+| `activityType` | The type of the bot activity. One of `Playing`, `Streaming`, `Listening`, `Watching`, `Competing`, `Custom` or an empty string. |
 | `activityName` | The name of the bot activity. Only used if a type is set. |
 | `status` | The presence status of the bot. One of `online`, `idle`, `dnd` and `invisible`. |
 
@@ -1341,11 +1341,13 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.3.0 (2024-05-14)
 
+* (crycode-de) 💥 Node.js 18+ is now required!
 * (crycode-de) Added support for custom bot activities
 * (crycode-de) Fixed Issue with embed colors not accepting hex color codes
 * (crycode-de) Fixed user activities for users with custom activities (see [#60](https://github.com/crycode-de/ioBroker.discord/issues/60))
+* (crycode-de) Updated dependencies
 
 ### 2.2.1 (2024-04-13)
 

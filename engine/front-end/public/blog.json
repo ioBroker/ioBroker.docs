@@ -14,8 +14,8 @@
       "desc": {
         "de": "*Eine Übersicht über die Neuentwicklungen in ioBroker*. \\nIn diesem zweiten Teil unseres Blogs werden weitere Adapter und Funktionen vorgestellt, die in diesem Zeitraum veröffentlicht wurden.",
         "en": "*An overview of new adapters, and features in ioBroker*.\\nExploring Further: This blog highlights additional adapters and features released during this period.",
-        "ru": "# Обзор, часть 2: с декабря 2023 г. по февраль 2024 г.\\n*Обзор новых адаптеров и функций ioBroker*.\\nДальнейшие исследования: в этом блоге рассказывается о дополнительных адаптерах и функциях, выпущенных за этот период.",
-        "zh-cn": "# 综述第二部分：2023 年 12 月至 2024 年 2 月\\n*ioBroker 中新适配器和功能的概述*。\\n进一步探索：本博客重点介绍了在此期间发布的其他适配器和功能。"
+        "ru": "*Обзор новых адаптеров и функций ioBroker*.\\nДальнейшие исследования: в этом блоге рассказывается о дополнительных адаптерах и функциях, выпущенных за этот период.",
+        "zh-cn": "*ioBroker 中新适配器和功能的概述*。\\n进一步探索：本博客重点介绍了在此期间发布的其他适配器和功能。"
       }
     },
     "2024_04_23": {
@@ -32,8 +32,8 @@
       "desc": {
         "de": "*Ein „Besser spät als nie“-Überblick über News, neue Adapter und Funktionen in ioBroker*.\\nIn der sich ständig weiterentwickelnden Welt der Hausautomatisierung bleibt ioBroker mit einer Reihe von Updates und Ergänzungen von Oktober 2023 bis Februar 2024 präsent.\\nLasst uns einen genaueren Blick auf einige der Fortschritte werfen, die in diesem Zeitraum eingeführt wurden, auch wenn dieser Blogbeitrag etwas spät kommt.",
         "en": "*A \"better late than never\" review of the ioBroker news, adapters, and features*.\\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late.",
-        "ru": "# Обзор, часть 1: с октября 2023 г. по ноябрь 2023 г.\\n*Обзор новостей, адаптеров и функций ioBroker «лучше поздно, чем никогда»*.\\nВ постоянно развивающемся мире домашней автоматизации ioBroker продолжает присутствовать с серией обновлений и дополнений с октября 2023 года по февраль 2024 года.\\nДавайте подробнее рассмотрим некоторые достижения, появившиеся за это время, хотя эта запись в блоге немного запоздала.",
-        "zh-cn": "# 综述第 1 部分：2023 年 10 月至 2023 年 11 月\\n*对 ioBroker 新闻、适配器和功能的“迟做总比不做好”评论*。\\n在不断发展的家庭自动化世界中，ioBroker 将继续存在，并在 2023 年 10 月至 2024 年 2 月期间进行一系列更新和添加。\\n让我们仔细看看这段时间引入的一些进展，尽管这篇博文有点晚了。"
+        "ru": "*Обзор новостей, адаптеров и функций ioBroker «лучше поздно, чем никогда»*.\\nВ постоянно развивающемся мире домашней автоматизации ioBroker продолжает присутствовать с серией обновлений и дополнений с октября 2023 года по февраль 2024 года.\\nДавайте подробнее рассмотрим некоторые достижения, появившиеся за это время, хотя эта запись в блоге немного запоздала.",
+        "zh-cn": "*对 ioBroker 新闻、适配器和功能的“迟做总比不做好”评论*。\\n在不断发展的家庭自动化世界中，ioBroker 将继续存在，并在 2023 年 10 月至 2024 年 2 月期间进行一系列更新和添加。\\n让我们仔细看看这段时间引入的一些进展，尽管这篇博文有点晚了。"
       }
     },
     "2024_04_21": {

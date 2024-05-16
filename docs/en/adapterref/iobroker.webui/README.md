@@ -129,6 +129,22 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.7.3 (2024-05-15)
+- fix transform combinations in designer
+- fix treeview jump to
+
+### 1.7.2 (2024-05-15)
+- few more small designer fixes
+
+### 1.7.1 (2024-05-15)
+- fix in designer
+
+### 1.7.0 (2024-05-15)
+- Add screen contextmenu
+- support editing of repeat in grid colum/row templates
+- designer updates
+- force styles
+
 ### 1.6.5 (2024-05-07)
 - designer update
 

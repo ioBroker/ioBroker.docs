@@ -109,11 +109,16 @@ The adapter understands also 'sendTo' commands.
 * If you learn the same signal multiple times the code can be different everytime. This can not be changed.
 * Sometimes it does not find devices if they do not respond to the search. Do a rescan or restart adapter to restart a new instance.
 
-## Important/Wichtig
-
-* Requires node >=V6
-
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.3.0-alpha.2 (2024-05-15)
+* (mattreim) Adapter migrated to jsonConfig
+* (mcm1957) Dependencies have been updated
+
 ### 2.2.0 (2024-04-05)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated

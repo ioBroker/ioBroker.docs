@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: QwSlSj3ti8v4JMV37nTh1xdRXHkut2mYfbHhG/v+nm8=
+hash: kU3wT/Hp6fLzWrtzLnmeYP3CMJbYa0jykAN+mOPR91M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
@@ -22,7 +22,7 @@ hash: QwSlSj3ti8v4JMV37nTh1xdRXHkut2mYfbHhG/v+nm8=
 
 В целом все новые камеры Reolink поддерживают команды API. Они просто отличаются поддерживаемыми командами.
 
-Если вы хотите включить какую-либо конкретную команду API... просто позвольте мне это сделать.
+Если вы хотите включить какую-либо конкретную команду API... просто дайте мне знать.
 
 ## Реализованные функции
 ### НАБОР
@@ -77,12 +77,23 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 - РЛК-522
 - РЛК-810А
 - РЛК-823А
+- Дуо 3 PoE
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
+* (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
+* (Nibbels) added setWhiteLedMode function
+* (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
+
+### 1.0.3 (2024-01-21)
+* (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
+* (oelison) [#47](https://github.com/aendue/ioBroker.reolink/issues/47)
+
 ### 1.0.2 (2023-12-19)
 * (oelison) known working cameras added
 * (oelison) setIrLights accept "On" now
@@ -147,7 +158,7 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 ## License
 MIT License
 
-Copyright (c) 2023 Andy Grundt <andygrundt@gmail.com>
+Copyright (c) 2024 Andy Grundt <andygrundt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

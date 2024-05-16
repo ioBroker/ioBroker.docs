@@ -473,6 +473,10 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) device icons work again.
+
+
 ### 4.1.9 (2024-04-26)
 * (Garfonso) add support for new service call structure.
 * (Garfonso) add support for delivering files from other adapters, for example, local cover images.

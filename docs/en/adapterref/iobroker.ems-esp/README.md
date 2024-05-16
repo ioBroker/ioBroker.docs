@@ -33,40 +33,8 @@ All changed states from own scripts or the object browser does have to set ackno
 
 ## NEW in Version >= 3.3.0: Intoduce warnings for using non-productive ems-esp firmware. 
 
-## NEW in Version >= 3.0.0: EMS+ entities (switchPrograms and holidayModes) are implemented for EMS-ESP gateway and if found states are created. 
-	The ems-esp gateway firmware does not support switchPrograms and holidayModes for EMS+ thermostats (RC310 / RC300 or similar)
-	Enabling this new function will issue raw telegrams toward the ems-esp gateway and then try to read the response.
-	Testing is done for switchPrograms A and B for hc1 to hc4, dhw (warm water) and circulation pump (cp) and holidayModes hm1-hm5.
-	The found extended entities are stored within instance settings. Therfore once an adapter instance restart will happen.
-		
-	Then after these found states the raw response is decoded and states are created similar to KM200 gateway API data.
-	When the km200 gateway is enabled then this function is disabled to avoid double entries with same name.
-	The states created consist of JSON structures, enum values or arrays and are writable - Be carefull with the right content.
-	I recommend to test by using the Bosch/Buderus apps to identify the right content - especially for holidayModes.
-	Polling is set to every 2 minutes.
-
-## NEW Energy recordings and statistics need an active database instance. 
-	Recordings require a InfluxDB adapter version >= 4.0.2 which allows deleting of db-records
-	Retition period is now read and recordings are only stored within retention period -- Beta status
-	InfluxDB v2 needs the retention period to be set to > 2 years for storing all historic values. 
-	In V2 this is a global parameter for all states ! 
-	
-## NEW: Heat Demand hysteresis improved. 
-	Switch heat demand on when actual temp <= settemp - delta
-	Switch off when settemp < actual temp
-	Do nothing between settemp - delta and settemp
-	Make sure that delta is high enough to avoid too many boiler starts.
-
-## NEW: Heat Demand parameters can be changed during active instance
-	Heat demand parameters delta / weight for each thermostat can be changed within objects during active instance
-	Remark: Updated weight is only used wen a new Heat Demand is found
-	Heat demand parameters weighton / weightoff for each heating circuit can be changed within objects during active instance
-
-
 German  documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
-
 English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
-
 German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 
@@ -75,22 +43,21 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.5.0 (2024-05-15)
+* warm water starts not supported anymore within statistics due to namechanges within ems-esp firmware 3.7
+
+### 3.4.4 (2024-05-15)
+* improve delays between axios get requests for km200 and ems-esp to avoid errors
+
+### 3.4.3 (2024-05-14)
+* corrections for reading gateway data for km200 gateway
+
+### 3.4.2 (2024-05-13)
+* update dependencies
+* replace setTimeout by adapter.delay
+
 ### 3.4.1 (2024-04-26)
 * correct enum settings for ems-esp gateway on adapter start
-
-### 3.4.0 (2024-04-22)
-* changes for ems-esp firmware 3.7.0 
-* introduce warnings in log for using ems-esp dev firmware
-
-### 3.3.0 (2024-04-20)
-* introduce a new check for ems-esp gateway formatting settings for boolean and enum values
-* stop ems-esp polling if wrong settings are detected !
-
-### 3.2.1 (2024-04-17)
-* update release script
-
-### 3.2.0 (2024-04-17)
-* change for ems-esp firmware 3.7 - add dhw tag
 
 ## License
 MIT License

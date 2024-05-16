@@ -21,19 +21,32 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.1.3 (2024-05-12)
+* (Steiger04) new build run
+
+### 2.1.2 (2024-05-12)
+* (Steiger04) test-and-release.yml changed
+
+### 2.1.1 (2024-05-12)
+* (Steiger04) test-and-release.yml changed
+
+### 2.1.0 (2024-05-12)
+* (Steiger04) Dependencies updated
+* (Steiger04) Some code optimizations
+
 ### 2.0.0 (2024-04-10)
 * (Steiger04) !!! No VIS widgets anymore. Continue using v1.3.1 for VIS widgets. Starting from this version, only VIS-2 widgets are supported. !!! 
 * (Steiger04) Changed Wiki
 * (Steiger04) Many optimizations and bug fixes
 
 ### 1.3.1 (2024-02-10)
-* (Steiger04) bug fixes trapInfo for traps
+* (Steiger04) Bug fixes trapInfo for traps
 
 ### 1.3.0 (2024-02-08)
 * Steiger04) new states for new and rejected traps
 
 ### 1.2.0 (2024-02-04)
-* (Steiger04) added new state lastUpdated
+* (Steiger04) Added new state lastUpdated
 * (Steiger04) UI optimized
 
 ### 1.1.5 (2024-01-23)
@@ -43,20 +56,20 @@
 * (Steiger04) legacy-peer-deps added
 
 ### 1.1.3 (2024-01-22)
-* (Steiger04) some GUI optimizations
+* (Steiger04) Some GUI optimizations
 
 ### 1.1.2 (2024-01-15)
-* (Steiger04) fixed version conflict between react 17 and react 18
+* (Steiger04) Fixed version conflict between react 17 and react 18
 
 ### 1.1.1 (2024-01-14)
-* (Steiger04) fixed legacy-peer-deps
+* (Steiger04) Fixed legacy-peer-deps
 
 ### 1.1.0 (2024-01-14)
-* (Steiger04) updated on mui5, adapter-react-v5, react 18, react-dom 18
-* (Steiger04) fixed some issues in connection with react 18
+* (Steiger04) Updated on mui5, adapter-react-v5, react 18, react-dom 18
+* (Steiger04) Fixed some issues in connection with react 18
 
 ### 1.0.13 (2023-12-23)
-* (Steiger04) circle mode added
+* (Steiger04) Circle mode added
 
 ### 1.0.12 (2023-12-19)
 * (Steiger04) test-and-release.yml changed

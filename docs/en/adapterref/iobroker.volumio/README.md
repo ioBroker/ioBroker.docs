@@ -20,6 +20,7 @@ If this adapter has helped you to realise cool automations in your SmartHome and
 ## volumio adapter for ioBroker
 
 Volumio Adapter for ioBroker
+
 This is an adapter for remote controlling a volumio instance.
 
 It uses the following REST api:
@@ -50,6 +51,11 @@ Todo:
 
 
 ## Changelog
+### 0.2.0
+ * (André Iske) 
+    - Updated to newest ioBroker adapter structure 
+    - Fixed adapter crashes
+
 ### 0.1.3
 * (André Iske) Security patches 
 
@@ -67,7 +73,7 @@ Todo:
 ## License
 MIT License
 
-Copyright (c) 2021 André Iske <andre.iske@mailbox.org>
+Copyright (c) 2024 André Iske <andre.iske@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

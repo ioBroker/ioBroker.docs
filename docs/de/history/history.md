@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: sHdSkDkuekNh4hkjyFtQSBBVpAPA7bn397lYUO6ob04=
+hash: eurAVjU/DkwgFKsYPNIlJFU90ErIprAOJtdagTUvldw=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -171,7 +171,9 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
+
 Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
+
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
 ## Admin und mqtt (11.10.2023) - neue Funktion
@@ -234,7 +236,7 @@ Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robus
 Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
-Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Aktivität geprüft.
+Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
 
@@ -343,7 +345,7 @@ Es ist möglich, Kategorien in Szenen zu verwenden
 ##solaredge (15.2.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.solaredge
 
-<img src="https://raw.githubusercontent.com/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
 
 Holen Sie sich Daten vom SolarEdge-Überwachungsportal. Derzeit wird nur der Datenpunkt /overview verwendet, um die aktuellen Leistungs- und Energiewerte für Tag/Monat/Jahr/Lebensdauer abzurufen.
 

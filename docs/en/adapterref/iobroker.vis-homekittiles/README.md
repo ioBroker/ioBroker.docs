@@ -28,6 +28,9 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
+* create Simpe button with icon
+* Thermostat widget: show low bat and unreach on tile
+* Thermostat widget: add signal pictures
 * create Mini-mediaplayer
 * create Select-tile
 * create Submenue-Button
@@ -38,6 +41,11 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.14 (2024-05-15)
+
+* (Standarduser) settings-bool: corrected height of widget
+* (Standarduser) thermostat: autofill + text templates + select for setpoint mode and heating profile
+
 ### 0.0.13 (2024-05-05)
 
 * (Standarduser) made colors of datepicker window nice

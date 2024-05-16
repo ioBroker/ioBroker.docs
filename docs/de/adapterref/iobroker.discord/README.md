@@ -172,7 +172,7 @@ als angezeigt werden.
 
 | Name | Beschreibung |
 |---|---|
-| `activityType` | Die Art der Bot-Aktivität. Mögliche Werte sind `Playing`, `Streaming`, `Listening`, `Watching`, `Competing` oder ein leerer String. |
+| `activityType` | Die Art der Bot-Aktivität. Mögliche Werte sind `Playing`, `Streaming`, `Listening`, `Watching`, `Competing`, `Custom` oder ein leerer String. |
 | `activityName` | Der Name der Bot-Aktivität. Wird nur verwendet, wenn eine Art gesetzt ist. |
 | `status` | Der Anwesenheitsstatus des Bots. Mögliche Werte sind `online`, `idle`, `dnd` und `invisible`. |
 
@@ -1402,11 +1402,13 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.3.0 (2024-05-14)
 
+* (crycode-de) 💥 Node.js 18+ is now required!
 * (crycode-de) Added support for custom bot activities
 * (crycode-de) Fixed Issue with embed colors not accepting hex color codes
 * (crycode-de) Fixed user activities for users with custom activities (see [#60](https://github.com/crycode-de/ioBroker.discord/issues/60))
+* (crycode-de) Updated dependencies
 
 ### 2.2.1 (2024-04-13)
 

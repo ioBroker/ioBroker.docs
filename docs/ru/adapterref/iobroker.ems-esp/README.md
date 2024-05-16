@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: tDqMsfwdHnBhTrnQMUFXYtGUx0Uvwep6ITJ82u84Aq4=
+hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -34,32 +34,7 @@ hash: tDqMsfwdHnBhTrnQMUFXYtGUx0Uvwep6ITJ82u84Aq4=
 Все измененные состояния из собственных скриптов или браузера объектов должны устанавливать подтверждение = false !!!
 
 ## НОВОЕ в версии >= 3.3.0: Введены предупреждения об использовании непродуктивной прошивки ems-esp.
-## НОВОЕ в версии >= 3.0.0: объекты EMS+ (switchPrograms и HolidayModes) реализованы для шлюза EMS-ESP и при обнаружении создаются состояния.
-Прошивка шлюза ems-esp не поддерживает программы переключения и HolidayModes для термостатов EMS+ (RC310 / RC300 или аналогичных). Включение этой новой функции приведет к отправке необработанных телеграмм шлюзу ems-esp, а затем попытается прочитать ответ.
-Тестирование выполняется для программ переключения A и B для hc1 на hc4, ГВС (теплая вода) и циркуляционного насоса (cp) и режимов отпуска hm1-hm5.
-Найденные расширенные сущности сохраняются в настройках экземпляра. Поэтому после перезагрузки экземпляра адаптера произойдет перезагрузка.
-
-Затем после этих найденных состояний необработанный ответ декодируется и создаются состояния, аналогичные данным API шлюза KM200.
-Когда шлюз km200 включен, эта функция отключается, чтобы избежать двойного ввода одного и того же имени.
-Создаваемые состояния состоят из структур JSON, значений перечислений или массивов и доступны для записи. Будьте осторожны с правильным содержимым.
-Я рекомендую провести тестирование с помощью приложений Bosch/Buderus, чтобы определить правильный контент, особенно для HolidayModes.
-Опрос установлен каждые 2 минуты.
-
-## НОВОЕ Для записей и статистики энергопотребления требуется активный экземпляр базы данных.
-Для записей требуется адаптер InfluxDB версии >= 4.0.2, который позволяет удалять записи базы данных. Период восстановления теперь считывается, и записи сохраняются только в течение периода хранения - бета-статус InfluxDB v2 требует, чтобы период хранения был установлен на > 2 года для хранения. все исторические ценности.
-В V2 это глобальный параметр для всех состояний!
-
-## НОВИНКА: улучшен гистерезис потребности в тепле.
-Включайте запрос тепла, когда фактическая температура <= заданная температура - дельта. Выключайте, когда заданная температура < фактическая температура. Ничего не делайте между заданной температурой - дельта и заданной температурой. Убедитесь, что разница достаточно высока, чтобы избежать слишком большого количества запусков котла.
-
-## НОВИНКА: параметры потребности в тепле можно изменить во время активного экземпляра.
-Параметры потребности в тепле (дельта/вес) для каждого термостата могут быть изменены внутри объектов во время активного экземпляра. Примечание. Обновленный вес используется только в том случае, если обнаружена новая потребность в тепле.
-
-Документация на немецком языке: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf.
-
-Английская документация: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf.
-
-Немецкий форум ioBroker: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
+Документация на немецком языке: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf Документация на английском языке: https://github.com/tp1de/ioBroker.ems-esp /blob/main/doc/ems-esp-es.pdf Немецкий форум ioBroker: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 # Iobroker.ems-esp
 
@@ -68,22 +43,21 @@ hash: tDqMsfwdHnBhTrnQMUFXYtGUx0Uvwep6ITJ82u84Aq4=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.4.0 (2024-04-22)
-* changes for ems-esp firmware 3.7.0 
-* introduce warnings in log for using ems-esp dev firmware
+### 3.5.0 (2024-05-15)
+* warm water starts not supported anymore within statistics due to namechanges within ems-esp firmware 3.7
 
-### 3.3.0 (2024-04-20)
-* introduce a new check for ems-esp gateway formatting settings for boolean and enum values
-* stop ems-esp polling if wrong settings are detected !
+### 3.4.4 (2024-05-15)
+* improve delays between axios get requests for km200 and ems-esp to avoid errors
 
-### 3.2.1 (2024-04-17)
-* update release script
+### 3.4.3 (2024-05-14)
+* corrections for reading gateway data for km200 gateway
 
-### 3.2.0 (2024-04-17)
-* change for ems-esp firmware 3.7 - add dhw tag
+### 3.4.2 (2024-05-13)
+* update dependencies
+* replace setTimeout by adapter.delay
 
-### 3.1.1 (2024-04-11)
-* update dependencies and release  script
+### 3.4.1 (2024-04-26)
+* correct enum settings for ems-esp gateway on adapter start
 
 ## License
 MIT License

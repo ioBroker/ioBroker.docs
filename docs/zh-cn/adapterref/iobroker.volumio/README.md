@@ -3,62 +3,68 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.volumio/README.md
 title: ioBroker.volumio
-hash: DbvHbyB6CJysKT2u0D/hKX3zeydtPRIkex7ZxOvChCk=
+hash: lzXBMYVia1qv+k5tqmOTF0WgDWGQq9z0xDbFsTvfCDc=
 ---
 ![标识](../../../en/adapterref/iobroker.volumio/admin/volumio.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.volumio.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.volumio.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.volumio.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.volumio.svg)
 ![安装数量（最新）](http://iobroker.live/badges/volumio-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/volumio-stable.svg)
 ![依赖状态](https://img.shields.io/david/a-i-ks/iobroker.volumio.svg)
 ![已知漏洞](https://snyk.io/test/github/a-i-ks/ioBroker.volumio/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.volumio.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.volumio.png?downloads=true)
 
-＃ioBroker.volumio
+# IoBroker.volumio
 **测试：**![测试与发布](https://github.com/a-i-ks/ioBroker.volumio/workflows/Test%20and%20Release/badge.svg)
 
 ＃＃＃ 支持我
-如果此适配器帮助您在SmartHome中实现了凉爽的自动化并帮助您缩短了开发时间，则可以邀请我喝杯咖啡:)
+如果这个适配器帮助您在 SmartHome 中实现了很酷的自动化并帮助您减少了开发时间，您可以邀请我喝杯咖啡 :)
 
 [![捐赠]（https://raw.githubusercontent.com/a-i-ks/ioBroker.volumio/master/donate_button.png）](http://paypal.me/iske)
 
-## IoBroker的volumio适配器
-用于ioBroker的Volumio适配器这是用于远程控制volumio实例的适配器。
+## IoBroker 的 volumio 适配器
+ioBroker 的 Volumio 适配器
 
-它使用以下REST api：https://volumio.github.io/docs/API/REST_API.html
+这是一个用于远程控制 volumio 实例的适配器。
 
-目前，实现了以下功能：
+它使用以下 REST api：https://volumio.github.io/docs/API/REST_API.html
 
-*播放器命令
-    *静音/取消静音
-    *下一个/上一个
+目前已实现以下功能：
+
+* 玩家命令
+* 静音 / 取消静音
+* 下一页 / 上一页
     * 玩
-        *从播放列表播放第n首歌曲
+* 播放播放列表中的第 n 首歌曲
     * 暂停
-    *在播放/暂停之间切换
+* 播放/暂停切换
     * 停止
     * 音量控制
-        *设置为特定值
-        *音量提高/降低
+* 设置为特定值
+* 音量增高 / 减低
 * 队列
-    *清除队列
-    *重复曲目
-    *混响模式
-*接收玩家状态
+* 清除队列
+* 重复曲目
+* 随机模式
+* 接收玩家状态
 
 去做：
 
--[]设定搜寻位置
--[]列出播放列表
--[]浏览
+- [ ] 设置搜索位置
+- [ ] 列出播放列表
+- [ ] 浏览
 
 ## Changelog
+### 0.2.0
+ * (André Iske) 
+    - Updated to newest ioBroker adapter structure 
+    - Fixed adapter crashes
+
+### 0.1.3
+* (André Iske) Security patches 
 
 ### 0.1.2
-* (André Iske) Minor bug fixes 
-
-### 0.1.1
 * (André Iske) Minor bug fixes 
 
 ### 0.1.0
@@ -72,7 +78,7 @@ hash: DbvHbyB6CJysKT2u0D/hKX3zeydtPRIkex7ZxOvChCk=
 ## License
 MIT License
 
-Copyright (c) 2021 André Iske <andre.iske@mailbox.org>
+Copyright (c) 2024 André Iske <andre.iske@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

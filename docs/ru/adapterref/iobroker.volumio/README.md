@@ -3,62 +3,68 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.volumio/README.md
 title: ioBroker.volumio
-hash: DbvHbyB6CJysKT2u0D/hKX3zeydtPRIkex7ZxOvChCk=
+hash: lzXBMYVia1qv+k5tqmOTF0WgDWGQq9z0xDbFsTvfCDc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.volumio/admin/volumio.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.volumio.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.volumio.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.volumio.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/volumio-installed.svg)
+![Количество установок (последних)](http://iobroker.live/badges/volumio-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/volumio-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/a-i-ks/iobroker.volumio.svg)
 ![Известные уязвимости](https://snyk.io/test/github/a-i-ks/ioBroker.volumio/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.volumio.png?downloads=true)
 
 # IoBroker.volumio
-** Тесты: ** ![Тестирование и выпуск](https://github.com/a-i-ks/ioBroker.volumio/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/a-i-ks/ioBroker.volumio/workflows/Test%20and%20Release/badge.svg)
 
 ### Поддержите меня
-Если этот адаптер помог вам реализовать классную автоматизацию в вашем SmartHome и помог сократить время на разработку, вы можете пригласить меня на чашечку кофе :)
+Если этот адаптер помог вам реализовать крутую автоматизацию в вашем Умном доме и сократить время на разработку, можете пригласить меня на чашечку кофе :)
 
-[![Пожертвовать] (https://raw.githubusercontent.com/a-i-ks/ioBroker.volumio/master/donate_button.png)](http://paypal.me/iske)
+[![Пожертвовать](https://raw.githubusercontent.com/a-i-ks/ioBroker.volumio/master/donate_button.png)](http://paypal.me/iske)
 
 ## Адаптер volumio для ioBroker
-Адаптер Volumio для ioBroker Это адаптер для удаленного управления экземпляром volumio.
+Адаптер Volumio для ioBroker
 
-Он использует следующий API REST: https://volumio.github.io/docs/API/REST_API.html
+Это адаптер для удаленного управления экземпляром volumio.
+
+Он использует следующий API REST: https://volumio.github.io/docs/API/REST_API.html.
 
 На данный момент реализованы следующие функции:
 
 * Команды игрока
-    * Отключить / включить
-    * След. / Назад
-    * Играть в
-        * Воспроизвести n-ю песню из плейлиста
+    * Отключить/включить звук
+    * Следующий/Предыдущий
+    * Играть
+        * Воспроизвести n-ю песню из плейлиста.
     * Пауза
-    * Переключение между воспроизведением / паузой
+    * Переключение между воспроизведением/паузой.
     * Останавливаться
     * Контроль громкости
-        * Установите конкретное значение
-        * Увеличение / уменьшение громкости
+        * Установите определенное значение
+        * Шаг громкости вверх/вниз
 * Очередь
     * Очистить очередь
     * Повтор трека
-    * Режим воспроизведения в случайном порядке
+    * Режим перемешивания
 * Получить состояние игрока
 
-Сделать:
+Делать:
 
-- [] Установить позицию поиска
-- [] Список плейлистов
-- [] Просмотр
+- [ ] Установить позицию поиска
+- [ ] Список плейлистов
+- [ ] Просмотр
 
 ## Changelog
+### 0.2.0
+ * (André Iske) 
+    - Updated to newest ioBroker adapter structure 
+    - Fixed adapter crashes
+
+### 0.1.3
+* (André Iske) Security patches 
 
 ### 0.1.2
-* (André Iske) Minor bug fixes 
-
-### 0.1.1
 * (André Iske) Minor bug fixes 
 
 ### 0.1.0
@@ -72,7 +78,7 @@ hash: DbvHbyB6CJysKT2u0D/hKX3zeydtPRIkex7ZxOvChCk=
 ## License
 MIT License
 
-Copyright (c) 2021 André Iske <andre.iske@mailbox.org>
+Copyright (c) 2024 André Iske <andre.iske@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

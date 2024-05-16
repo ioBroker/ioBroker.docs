@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: kqvZ7d9RUB2YoTuHY5Nbx+5/WhQ8RixDVyUkEi820nU=
+hash: 0bWcQBiuO+3z3rc3W+Ngox6So4B1c7VhiE+r/Kc/zbk=
 ---
 # IoBroker.vis-homekittiles
 
@@ -19,7 +19,7 @@ hash: kqvZ7d9RUB2YoTuHY5Nbx+5/WhQ8RixDVyUkEi820nU=
 
 ## HomeKit-Kacheln für ioBroker-VIS
 Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert.
-Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
+Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Die Anpassung des Designs erfolgt durch Veränderung des CSS-Codes. Als Vorlage kann hierfür der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
@@ -31,6 +31,9 @@ Die Widgets sind für VIS 1.x konzipiert.
 [🇩🇪 Dokumentation](doc/homekittiles-de.md) [🇺🇸 Dokumentation](doc/homekittiles-en.md)
 
 ## Dinge die zu tun sind
+* Einfache Schaltfläche mit Symbol erstellen
+* Thermostat-Widget: Niedrige Bat- und Nichtreichweite-Anzeige auf der Kachel anzeigen
+* Thermostat-Widget: Signalbilder hinzufügen
 * Mini-Mediaplayer erstellen
 * Select-Kachel erstellen
 * Untermenü-Button erstellen
@@ -41,6 +44,11 @@ Die Widgets sind für VIS 1.x konzipiert.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.14 (2024-05-15)
+
+* (Standarduser) settings-bool: corrected height of widget
+* (Standarduser) thermostat: autofill + text templates + select for setpoint mode and heating profile
+
 ### 0.0.13 (2024-05-05)
 
 * (Standarduser) made colors of datepicker window nice

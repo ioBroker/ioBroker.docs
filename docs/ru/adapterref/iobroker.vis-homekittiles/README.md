@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: kqvZ7d9RUB2YoTuHY5Nbx+5/WhQ8RixDVyUkEi820nU=
+hash: 0bWcQBiuO+3z3rc3W+Ngox6So4B1c7VhiE+r/Kc/zbk=
 ---
 # IoBroker.vis-homekittiles
 
@@ -31,6 +31,9 @@ Homekit Tiles — это набор виджетов, основанный на 
 [🇩🇪 Документация](doc/homekittiles-de.md) [🇺🇸 Документация](doc/homekittiles-en.md)
 
 ## Дела, которые необходимо сделать
+* создать кнопку Simpe со значком
+* Виджет термостата: показывает низкий уровень заряда и отсутствие доступа на плитке.
+* Виджет термостата: добавьте изображения сигналов
 * создать мини-медиаплеер
 * создать Select-тайл
 * создать кнопку подменю
@@ -41,6 +44,11 @@ Homekit Tiles — это набор виджетов, основанный на 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.14 (2024-05-15)
+
+* (Standarduser) settings-bool: corrected height of widget
+* (Standarduser) thermostat: autofill + text templates + select for setpoint mode and heating profile
+
 ### 0.0.13 (2024-05-05)
 
 * (Standarduser) made colors of datepicker window nice
