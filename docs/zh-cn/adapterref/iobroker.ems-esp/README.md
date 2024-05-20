@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
+hash: wMIWfazgk0pOBxXjHbVM8RfGCY1jJBpy2OL7a7kbo2Y=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -17,15 +17,15 @@ hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
 **测试：**![测试与发布](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
 ## 带有 km200 / IP-inside 和/或 ems-esp 接口的 Bosch / Buderus 加热系统
-该适配器支持使用 EMS 或 EMS+ 总线与博世集团供暖系统进行接口。
+该适配器支持使用 EMS 或 EMS+ 总线与博世集团的加热系统进行接口。
 （Buderus / Junkers / Netfit 等）。
 
 ## 它可以通过使用 Web-API 调用与加热系统交互：
 * km200、km200 hrv、km100、km50、HMC300 或 IP-inside（来自博世集团）
 
-* ems-esp 网关（https://github.com/emsesp/EMS-ESP32）具有最新开发版本（见下文）和 ESP32 芯片。
+* 带有 ESP32 芯片的 ems-esp 网关（https://github.com/emsesp/EMS-ESP32）。
 
-不再支持带有 API V2 的旧 ESP8266 网关！！该适配器针对 ems-esp 网关进行了测试，固件版本为 ESP32 最新固件版本 (> V3.6.0)。最新开发版本的固件可能无法与 ioBroker 适配器稳定配合使用。使用风险自负。
+不再支持带有 API V2 的旧 ESP8266 网关！！该适配器针对 ems-esp 网关进行了测试，固件版本最新稳定版本 (V3.6.5) 可能无法与 ioBroker 适配器稳定配合使用。使用风险自负。
 
 * 不支持新的博世集团云网关（MX300 / EasyControl...），因为它们不支持 LAN API！
 
@@ -43,8 +43,15 @@ ioBroker ems-esp 适配器可以读取和写入两个网关的数据以控制所
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* adapter now with json config
+* js controller version >= 4.0.24 and admin version >= 6.3.5 required
+* add expert settings for ems-esp gateway (own states by polling raw telegrams)
+* support different ems-esp bus id's for own states
+* add pdf documentation for new functionality
+
 ### 3.5.0 (2024-05-15)
-* warm water starts not supported anymore within statistics due to namechanges within ems-esp firmware 3.7
+* warm water starts not supported anymore within statistics due to name changes within ems-esp firmware 3.7
 
 ### 3.4.4 (2024-05-15)
 * improve delays between axios get requests for km200 and ems-esp to avoid errors

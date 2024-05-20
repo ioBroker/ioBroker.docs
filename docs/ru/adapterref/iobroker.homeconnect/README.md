@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
+hash: GTUDvjs9GnT4DlODALr0GeQzsiybVL5aFfRsP8zoFfg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
@@ -11,7 +11,7 @@ hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
 ![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
 ![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
-![GitHub фиксирует с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![GitHub фиксирует данные с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
 ![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
@@ -22,16 +22,11 @@ hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
 [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск] (https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL] (https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
 
 ## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Адаптер Homeconnect для ioBroker
-## Информация об установке
-Очень важно установить Node.js версии 16!!
-
-Для адаптера будет полезен ClientID. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
-
 ## Требования перед установкой
-Должен быть установлен как минимум Node.js версии 16!
+Должен быть установлен как минимум Node.js версии 18!
 
 Для адаптера требуется ClientID. Используйте настройки для каждого шага для регистрации.
 
@@ -39,60 +34,25 @@ hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Если вы используете **учетную запись пользователя Home Connect по умолчанию для тестирования**, где указан адрес электронной почты, при регистрации приложения Home-Connect-App этот адрес будет отправлен, а также будет полезен процесс авторизации.
-
 Для **Учетной записи пользователя Home Connect по умолчанию для тестирования** укажите адрес электронной почты, на который будет отправлено приложение Home Connect.
 был зарегистрирован, это также потребуется в дальнейшем в процессе авторизации.
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **Тип учетной записи** Индивидуальный аккаунт. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
-
 В поле **Тип учетной записи** выберите Индивидуальный. Добавьте оставшиеся данные, если они доступны (не знаю, будет ли это проверено).
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
 
-Пожалуйста, перейдите к разделу **Приложения** и отмените его в разделе **Зарегистрировать приложение**.
-
 Затем перейдите в раздел **Приложения**, а затем в раздел **Зарегистрировать приложение**.
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
-
-**Идентификатор приложения** einen Namen für die Application eintragen, z.B. ioБрокер. Выберите **Поток OAuth** Поток устройства.
-**Учетная запись пользователя Home Connect для тестирования** kann leer bleiben. **Успешное перенаправление** eine URI eintragen, z.B. https://example.com.
-Дайте знать и еще раз, чтобы получить хороший ClientID.
 
 В поле **Идентификатор приложения** введите имя приложения, например. ioБрокер. С помощью **Потока OAuth** выберите «Поток устройства».
 **Учетная запись пользователя Home Connect для тестирования** может оставаться пустой. Для параметра **Перенаправление успеха** введите URI, например. https://example.com.
 Затем сохраните, и у вас есть необходимый ClientID.
 
 ## Конфигурация
-В конфигурации адаптера необходимо указать имя приложения Homeconnect, пароль и второй ClientID.
-
-## Бенуцунг
-В командах указано, что программа может быть остановлена, приостановлена или приостановлена.
-
-В настройках указано, что вы можете быть готовы к использованию или отключены.
-
-Обновление программ iQ300: Es muss das gewüschnte Programm eingetragen werden. Если вы используете program.selected.BSH_Common_Root_SelectedProgram и хотите, чтобы пользователь мог использовать новую программу, она будет доступна для использования ioBroker.
-
-Список состояний программ.выбранных.BSH_Common_Root_SelectedProgram для выбора программ или опций
-
-Если вы хотите проверить свою программу, вы должны сделать это
-
-status.BSH_Common_Status_OperationState
-
-auf den kompletten Статус Имя übrprüft werden:
-
-BSH.Common.EnumType.OperationState.Finished
-
-Weitere Zustände sind noch:
-
-"BSH.Common.EnumType.OperationState.Inactive": "Неактивно", "BSH.Common.EnumType.OperationState.Ready": "Готово", "BSH.Common.EnumType.OperationState.Run": "Выполнить", "BSH" .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Завершено"
-
-Oder ob ein Gerät geöffnet ist
-
-"BSH.Common.EnumType.DoorState.Open": "Открыто", "BSH.Common.EnumType.DoorState.Closed": "Закрыто"
+Добавьте имя пользователя, пароль и сгенерированный идентификатор cleintId приложения Homeconnect в конфигурацию адаптера.
 
 ## Использование
 С помощью состояний команд вы можете остановить, приостановить и возобновить программу.
@@ -104,6 +64,10 @@ Oder ob ein Gerät geöffnet ist
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.3.0 (2023-12-15)
 
 - fix login
@@ -266,6 +230,7 @@ Oder ob ein Gerät geöffnet ist
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

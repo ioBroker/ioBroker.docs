@@ -11,11 +11,11 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sun2000.png?downloads=true
 ---
 # ioBroker adapter SUN2000 Documentation
 
-* [Setup Inverters](./inverter.md)
-* [Adapter configuration](./configuration.md)
-* [Calculation](./calculation.md)
-* [VIS Exsample](./vis.md)
-* [Interface definitions](./definitions.md)
+* [Setup Inverters](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/inverter.md)
+* [Adapter configuration](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/configuration.md)
+* [Calculation](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/calculation.md)
+* [VIS Exsample](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/vis.md)
+* [Interface definitions](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/definitions.md)
 
 ## Wiki
 Some interesting things are explained in the [wiki](https://github.com/bolliy/ioBroker.sun2000/wiki)

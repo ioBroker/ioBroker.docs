@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
+hash: wMIWfazgk0pOBxXjHbVM8RfGCY1jJBpy2OL7a7kbo2Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -23,9 +23,9 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 ## Es kann mithilfe von Web-API-Aufrufen eine Schnittstelle zum Heizsystem herstellen für:
 * km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von der Bosch-Gruppe)
 
-* ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit neuester Entwicklerversion (siehe unten) und dem ESP32-Chip.
+* ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit dem ESP32-Chip.
 
-Die alten ESP8266-Gateways mit API V2 werden NICHT MEHR UNTERSTÜTZT!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten Firmware-Version (> V3.6.0) von ESP32 getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
+Die alten ESP8266-Gateways mit API V2 werden nicht mehr unterstützt!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version (V3.6.5) getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
 
 * Neue Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
 
@@ -43,8 +43,15 @@ Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* adapter now with json config
+* js controller version >= 4.0.24 and admin version >= 6.3.5 required
+* add expert settings for ems-esp gateway (own states by polling raw telegrams)
+* support different ems-esp bus id's for own states
+* add pdf documentation for new functionality
+
 ### 3.5.0 (2024-05-15)
-* warm water starts not supported anymore within statistics due to namechanges within ems-esp firmware 3.7
+* warm water starts not supported anymore within statistics due to name changes within ems-esp firmware 3.7
 
 ### 3.4.4 (2024-05-15)
 * improve delays between axios get requests for km200 and ems-esp to avoid errors

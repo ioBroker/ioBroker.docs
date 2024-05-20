@@ -17,6 +17,9 @@
 Adapter for FordPass
 
 ## Changelog
+### 0.2.3 (2024-05-17)
+
+- reverted domain ending setting to fix login
 
 ### 0.2.1 (2024-05-10)
 

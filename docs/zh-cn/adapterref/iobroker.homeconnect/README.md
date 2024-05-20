@@ -3,35 +3,30 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
+hash: GTUDvjs9GnT4DlODALr0GeQzsiybVL5aFfRsP8zoFfg=
 ---
 ![标识](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
 ![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)
 ![下载](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
 ![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
-![GitHub 自最新版本以来提交的内容（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 自最新版本以来的提交情况（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
 ![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
-![NPM版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/homeconnect-stable.svg)
 ![安装数量](https://iobroker.live/badges/homeconnect-installed.svg)
 
 # IoBroker.homeconnect
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg）](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
 
-## 哨兵
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## IoBroker 的 Homeconnect 适配器
-## 安装前的 Voraussetzungen
-请注意 Node.js 版本 16 安装！！
-
-Für den Adapter wrd eine ClientID benötigt。 Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen。
-
-## 安装前的要求
-至少必须安装 Node.js 版本 16！
+## 安装前要求
+至少必须安装 Node.js 18 版本！
 
 适配器需要 ClientID。使用每个步骤的设置进行注册。
 
@@ -39,64 +34,29 @@ Für den Adapter wrd eine ClientID benötigt。 Nutze die Einstellungen um jeden
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **用于测试的默认 Home Connect 用户帐户** 已注册电子邮件地址，请注册 Home-Connect-App，然后再注册授权过程。
-
-对于 **用于测试的默认 Home Connect 用户帐户**，指定用于发送 Home Connect 应用程序的电子邮件地址。
-已注册，稍后在授权过程中也需要这样做。
+对于**用于测试的默认 Home Connect 用户帐户**，请指定用于发送 Home Connect 应用程序的电子邮件地址。
+已注册，这在后续授权过程中也是必需的。
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **账户类型** 个人 auswählen。 Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wrd)。
-
-对于**帐户类型**，选择个人。添加剩余数据（如果可用）（不知道是否会检查）。
+对于**帐户类型**，选择个人。如果可用，请添加其余数据（不知道是否会检查）。
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
-
-Dann auf **应用程序** 和 anschließend auf **注册应用程序** gehen。
 
 然后转到**应用程序**，然后转到**注册应用程序**。
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-Bei **应用程序 ID** einen Namen für die 应用程序 eintragen，z.B. ioBroker。 Bei **OAuth Flow** 设备流程选择。
-**用于测试的 Home Connect 用户帐户** kann leer bleiben。 Bei **成功重定向** eine URI eintragen，z.B. https://example.com。
-Dann Speichern 和 dann hat man die benötigte ClientID。
+对于 **应用程序 ID**，请输入应用程序的名称，例如 ioBroker。使用 **OAuth Flow** 设备流进行选择。
+**Home Connect 测试用户帐户** 可以保留为空。对于 **成功重定向**，请输入 URI，例如 https://example.com。
+然后保存，您便获得了所需的 ClientID。
 
-对于**应用程序 ID**，输入应用程序的名称，例如ioBroker。使用 **OAuth Flow** 设备流选择。
-**用于测试的 Home Connect 用户帐户**可以保留为空。对于 **成功重定向** 输入 URI，例如https://example.com。
-然后保存，您就有了所需的 ClientID。
-
-## 配置
-在 Adapter-Config 中，输入 Homeconnect 应用程序的名称、密码和 ClientID 即可。
-
-## 贝努宗
-Mit den 在命令中声明 kannst du das Programm stoppen, pausieren oder fortführen。
-
-Mit den 的设置为 kannst du das Gerät ein oder ausschalten。
-
-在状态programs.active.BSH_Common_Root_ActiveProgram 中启动程序更新iQ300：这是一个非常好的程序。 Wenn manprograms.selected.BSH_Common_Root_SelectedProgram ausliest and einträgt, hat der User die Möglichkeit am Gerät des gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
-
-在 Statesprograms.selected.BSH_Common_Root_SelectedProgram 中包含 Programms oder Optionen
-
-Wenn man checken möchte, ob ein Programm fertig ist muss
-
-状态.BSH_Common_Status_OperationState
-
-auf den kompleten 状态名称 übrprüft werden:
-
-BSH.Common.EnumType.OperationState.Finished
-
-Weitere Zustände sind noch：
-
-"BSH.Common.EnumType.OperationState.Inactive": "非活动", "BSH.Common.EnumType.OperationState.Ready": "就绪", "BSH.Common.EnumType.OperationState.Run": "运行", "BSH .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "已完成"
-
-Oder ob ein Gerät geoffnet ist
-
-"BSH.Common.EnumType.DoorState.Open": "打开", "BSH.Common.EnumType.DoorState.Closed": "关闭"
+＃＃ 配置
+请将 Homeconnect App 用户名、密码和生成的 cleintId 添加到适配器配置中。
 
 ＃＃ 用法
-通过命令中的状态，您可以停止、暂停和恢复程序。
-通过设置中的状态，您可以关闭或打开设备。更改programs.active.BSH_Common_Root_ActiveProgram 的值将导致启动程序更新iQ300：您需要在此变量中设置程序名称。如果复制programs.selected.BSH_Common_Root_SelectedProgram，机器用户可以在机器上预定义所需的程序，并将通过ioBroker启动该程序。更改programs.selected.BSH_Common_Root_SelectedProgram的值导致选择程序或选项
+使用命令中的状态，您可以停止、暂停和恢复程序。
+使用设置中的状态，您可以关闭或打开设备 更改 programs.active.BSH_Common_Root_ActiveProgram 的值会导致启动程序 更新 iQ300：您需要在此变量中设置程序名称。如果复制了 programs.selected.BSH_Common_Root_SelectedProgram，机器用户可以在机器上预定义所需的程序，它将通过 ioBroker 启动 更改 programs.selected.BSH_Common_Root_SelectedProgram 的值会导致选择程序或选项
 
 ## Changelog
 
@@ -104,6 +64,10 @@ Oder ob ein Gerät geoffnet ist
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.3.0 (2023-12-15)
 
 - fix login
@@ -266,6 +230,7 @@ Oder ob ein Gerät geoffnet ist
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

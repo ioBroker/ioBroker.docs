@@ -18,6 +18,10 @@ Unter commands das commando auf klappen und den button neben start drücken wenn
 Remote sind vorgefertige Remote Befehle
 
 ## Changelog
+### 0.2.3 (2024-05-18)
+
+- improve websocket ping with not internet connection
+
 ### 0.2.1 (2024-04-08)
 
 - reduce cpu usage

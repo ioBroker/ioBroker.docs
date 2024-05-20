@@ -2,55 +2,55 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.puppeteer/README.md
-title: ioBroker.кукловод
-hash: ZnCM+j2vcSykqibFuRmMp4P4/WEy44jI65uogH0Ac2g=
+title: ioBroker.puppeteer
+hash: VeLC461Ko9ywOY4dm7OHmZxThOgAd9HdahzVtSVIGDo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.puppeteer/admin/puppeteer.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.puppeteer.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.puppeteer.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.puppeteer.svg)
 ![Количество установок](https://iobroker.live/badges/puppeteer-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/puppeteer-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/puppeteer-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.puppeteer.png?downloads=true)
 
-# IoBroker.кукловод
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/foxriver76/ioBroker.puppeteer/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.puppeteer
+**Тесты:** ![Тестирование и выпуск](https://github.com/foxriver76/ioBroker.puppeteer/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер puppeteer для ioBroker
-Безголовый браузер для создания скриншотов на основе Chrome
+##адаптер puppeteer для ioBroker
+Безголовый браузер для создания скриншотов на базе Chrome
 
 ## Отказ от ответственности
-Puppeteer является продуктом Google Inc. Разработчики этого модуля никоим образом не поддерживаются и не связаны с Google Inc. или какими-либо связанными дочерними компаниями, логотипами или товарными знаками.
+Puppeteer является продуктом Google Inc. Разработчики этого модуля никоим образом не одобрены и не связаны с Google Inc. или какими-либо связанными с ней дочерними компаниями, логотипами или товарными знаками.
 
 ## Как
-Адаптер полностью настраивается через состояния и не предоставляет настройки в интерфейсе администратора.
+Адаптер полностью настраивается через состояния и не предоставляет настроек в интерфейсе администратора.
 Состояния (кроме `url`) не получат никаких флагов подтверждения от адаптера, а флаги подтверждения обычно игнорируются.
 
 ### Состояния
 #### Имя файла
 Укажите имя файла (полный путь) изображения.
 
-#### Адрес
-Укажите URL-адрес, с которого вы хотите сделать снимок экрана. Если состояние написано, скриншот будет создан немедленно.
-После создания снимка экрана адаптер установит для флага подтверждения состояния URL значение true.
+#### URL
+Укажите URL-адрес, с которого вы хотите сделать снимок экрана. Если состояние написано, скриншот будет создан сразу.
+После создания снимка экрана адаптер установит для флага подтверждения состояния URL-адреса значение true.
 
 #### Полная страница
-Если это состояние оценивается как true, будет выполнен снимок экрана всей страницы. Параметры обрезки будут игнорироваться.
+Если это состояние имеет значение true, будет выполнен снимок экрана всей страницы. Параметры обрезки будут игнорироваться.
 
-#### Обрезка по левому краю/верху/высоте/ширине
-Настройте параметры кадрирования в `px`, чтобы сделать скриншот только нужного сегмента страницы.
-Если для `fullPage` задано значение true, кадрирование выполняться не будет.
+#### Обрезка слева/сверху/высоты/ширины
+Настройте параметры обрезки в `px`, чтобы сделать скриншот только нужного сегмента страницы.
+Если для параметра `fullPage` установлено значение true, обрезка выполняться не будет.
 
-#### Ожидание селектора
-Скриншот будет сделан после того, как селектор появится на странице, например. `#time`. Если `waitForSelector` активен, другие операции ожидания, такие как `renderTime`, игнорируются.
+#### WaitForSelector
+Снимок экрана будет сделан после того, как на странице появится селектор, например. `#time`. Если `waitForSelector` активен, другие операции ожидания, такие как `renderTime`, игнорируются.
 
-#### Время рендеринга
-Интервал в мс для ожидания отображения страницы
+####время рендеринга
+Интервал в мс для ожидания рендеринга страницы
 
 ### Сообщения
-В качестве альтернативы вы можете делать снимки экрана, отправляя сообщения адаптеру.
-Все параметры, кроме `url` и `ioBrokerOptions`, передаются непосредственно в Puppeteer API, поддерживаемые в настоящее время параметры можно найти ниже, чтобы получить более свежую версию, проверьте [Описание API](https://pptr.dev/api/puppeteer.screenshotoptions).
-Кроме того, вы можете определить `waitOption` для ожидания заданного времени или селектора. Наконец, вы можете использовать параметр `ioBrokerOptions.storagePath`, чтобы сохранять снимки экрана непосредственно в хранилище ioBroker в разделе `0_userdata.0`, которые затем можно просматривать через адаптеры администрирования и визуализации.
+Альтернативно вы можете делать снимки экрана, отправляя сообщения на адаптер.
+Все параметры, кроме `url` и `ioBrokerOptions`, передаются непосредственно в API Puppeteer. Поддерживаемые в настоящее время параметры можно найти ниже. Для получения более актуальной версии проверьте [Описание API](https://pptr.dev/api/puppeteer.screenshotoptions).
+Кроме того, вы можете определить `waitOption` для ожидания заданного времени или селектора. Наконец, вы можете использовать опцию `ioBrokerOptions.storagePath`, чтобы сохранять снимки экрана непосредственно в хранилище ioBroker под `0_userdata.0`, которые затем можно просмотреть через адаптеры администратора и визуализации.
 
 ```typescript
 sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
@@ -128,7 +128,7 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
         log(`Error taking screenshot: ${obj.error.message}`, 'error');
       } else {
         // the binary representation of the image is contained in `obj.result`
-        log(`Sucessfully took screenshot: ${obj.result}`);
+        log(`Successfully took screenshot: ${obj.result}`);
       }
 });
 ```
@@ -138,6 +138,16 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2024-05-19)
+* (foxriver76) allowed to specify additional arguments for the puppeteer process
+* (foxriver76) updated puppeteer dependency
+
+### 0.2.8 (2024-01-09)
+* (foxriver76) update puppeteer dependency
+
+### 0.2.7 (2023-03-18)
+* (foxriver76) update puppeteer dependency
+
 ### 0.2.6 (2022-08-14)
 * (foxriver76) we now close the page also when screenshot taken via message
 

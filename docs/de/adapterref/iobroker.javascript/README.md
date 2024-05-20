@@ -57,6 +57,10 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Added checks/warnings for more incorrect blockly connections
+
 ### 8.3.1 (2024-05-13)
 
 * (paul53) Allow negative values in formatTimeDiff

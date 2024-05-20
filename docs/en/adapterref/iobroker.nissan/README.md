@@ -1,4 +1,5 @@
 ![Logo](admin/nissan.png)
+
 # ioBroker.nissan
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.nissan.svg)](https://www.npmjs.com/package/iobroker.nissan)
@@ -16,14 +17,19 @@
 Nissan Adapter
 
 ## Changelog
+### 0.1.0 (2024-05-18)
+
+- login fixed
 
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

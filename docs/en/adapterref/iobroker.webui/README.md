@@ -129,6 +129,33 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.8.3 (2024-05-20)
+- fix style parsing and style bindings at runtime
+
+### 1.8.2 (2024-05-19)
+- fix in manifest parser of designer
+
+### 1.8.1 (2024-05-19)
+- fix manifest parsing
+
+### 1.8.0 (2024-05-19)
+- bindings inside of css
+
+### 1.7.8 (2024-05-19)
+- fix remove of ctx menu
+
+### 1.7.7 (2024-05-17)
+- fix stylesheet matching
+
+### 1.7.6 (2024-05-17)
+- fix edit text in transformed surface
+
+### 1.7.5 (2024-05-17)
+- more fixes with transformed elements
+
+### 1.7.4 (2024-05-16)
+- designer transformation fixes
+
 ### 1.7.3 (2024-05-15)
 - fix transform combinations in designer
 - fix treeview jump to

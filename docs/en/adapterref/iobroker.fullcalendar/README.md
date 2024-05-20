@@ -35,6 +35,9 @@ How to use:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.3.9 (2024-05-20)
+* (bluefox) Corrected vis-2 widget
+
 ### 2.3.4 (2023-11-28)
 * (bluefox) Corrected monthly events
 
@@ -90,7 +93,7 @@ How to use:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
+hash: wMIWfazgk0pOBxXjHbVM8RfGCY1jJBpy2OL7a7kbo2Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -23,9 +23,9 @@ hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
 ## Он может взаимодействовать с системой отопления с использованием вызовов Web-API для:
 * км200, км200 грн, км100, км50, HMC300 или IP-inside (от Bosch Group)
 
-* шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией для разработчиков (см. ниже) и чипом ESP32.
+* шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с чипом ESP32.
 
-Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ! Адаптер протестирован для шлюза ems-esp с последней версией прошивки (> V3.6.0) ESP32. Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Использование осуществляется на свой страх и риск.
+Старые шлюзы ESP8266 с API V2 больше не поддерживаются!! Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки (V3.6.5). Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Использование осуществляется на свой страх и риск.
 
 * Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, поскольку они не поддерживают LAN API!
 
@@ -43,8 +43,15 @@ hash: C/kKfnlXzTppJxgSLeJa/aEjjErCh3Jdx0W6PGGMZ0E=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* adapter now with json config
+* js controller version >= 4.0.24 and admin version >= 6.3.5 required
+* add expert settings for ems-esp gateway (own states by polling raw telegrams)
+* support different ems-esp bus id's for own states
+* add pdf documentation for new functionality
+
 ### 3.5.0 (2024-05-15)
-* warm water starts not supported anymore within statistics due to namechanges within ems-esp firmware 3.7
+* warm water starts not supported anymore within statistics due to name changes within ems-esp firmware 3.7
 
 ### 3.4.4 (2024-05-15)
 * improve delays between axios get requests for km200 and ems-esp to avoid errors

@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
+hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -31,7 +31,7 @@ hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 - `multiZones`：多区域（可实现视觉/控制）
 - `日历`：时间表（可以进行有线和视觉/控制）
 - `模块`：您的模块（可能的线路和视觉/控制）
-- `mower`：你的割草机（可用电线和视觉/控制）
+- `mower`：你的割草机（可以使用电线和视觉/控制）
 - `product`：设备的所有属性（Wire & Vision / readonly）
 - `rawMqtt`: 来自云端的所有数据 (Wire & Vision / readonly)
 
@@ -61,7 +61,7 @@ hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 
 - `wednesday.borderCut`：有或无bordercut（立即更改值）（可更改）
 - `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（无延迟更改值）（可更改）
-- `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时） 例如 30 = 结束时间 09:30（立即更改值）（可更改）
+- `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）
 - `calJson_sendto`：如果所有状态都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）
 - `calJson_tosend`：此数据将发送到 Mqtt（割草计划/自动设置）。您也可以自己创建此 JSON。（可更改）
 - `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 1/自动设置 - 仅适用于电线）（可更改）
@@ -234,7 +234,7 @@ hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 }
 ```
 
-- `oneTimeStart`：一次性割草开始“首先为 Vision 设置 oneTimeWithBorder、oneTimeWorkTime 和 oneTimeZones” - 延迟 1.1 秒（电线和 Vision/可更改）
+- `oneTimeStart`：一次性割草开始“首先为 Vision 设置 oneTimeWithBorder、oneTimeWorkTime 和 oneTimeZones” - 延迟 1.1 秒（线路和 Vision/可更改）
 - `oneTimeWithBorder`: 带 bordercut - 无延迟更改值（线和视觉/可更改）
 - `oneTimeWorkTime`：工作时间最长为 8 小时，每 30 分钟为一个步骤 - 无延迟更改值（线路和视觉/可更改）
 - `oneTimeZones`: 设置区域 [1,2,4] (视觉/可更改)
@@ -322,7 +322,7 @@ hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 - `totalBladeTime`: 刀片总时间（电线和视觉/只读）
 - `totalDistance`：总距离（电线和视觉/只读）
 - `totalTime`: 总工作时间 (wire & Vision/readonly)
-- `waitRain`：降雨延迟最大为 12 小时，以 30 分钟为单位（电线和视觉/可更改）
+- `waitRain`：降雨延迟最大为 12 小时，步长为 30 分钟，0 为关闭（有线和视觉/可更改）
 - `waitRainCountdown` 当传感器从湿变干时开始倒计时（电线和视觉/只读）（当前已禁用）
 - `waitRainSensor` 状态 0 表示干燥，1 表示潮湿（电线和视觉/只读）
 - `wifiQuality`：WiFi 质量（有线和视觉/只读）
@@ -342,7 +342,7 @@ hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 - 多区域
 - `multiZones.zones.zone_1.borderDistance`: 切割边框时，到边缘的距离（以毫米为单位） - 允许 50 毫米、100 毫米、150 毫米和 200 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（视觉/可更改）
 - `multiZones.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
-- `multiZones.zones.zone_1.cutOverBorder`: 如果检测到平板则为 1，否则为 0。使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (Vision /changeable)
+- `multiZones.zones.zone_1.cutOverBorder`：如果检测到平板则为 1，否则为 0。使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（视觉/可更改）
 - `multiZones.zones.zone_1.zone_id`: 编号 - 从 1 开始 - （vision/readonly）
 - `multiZones.passages.passage_01.tagIdFrom`: zoneIdFrom 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
 - `multiZones.passages.passage_01.tagIdTo`: zoneIdTo 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
@@ -431,7 +431,7 @@ hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 - `incompleteOperationCount`：提交给连接但尚未完成的操作总数。未确认的操作是其中的一部分。
 - `incompleteOperationSize`：提交给连接但尚未完成的操作的总数据包大小。未确认的操作是其中的一部分。
 - `unackedOperationCount`：已发送到服务器并在完成之前等待相应 ACK 的操作总数。
-- `unackedOperationSize`：已发送到服务器并在等待相应 ACK 才能完成的操作的总数据包大小。
+- `unackedOperationSize`：已发送到服务器且正在等待相应 ACK 才能完成的操作的总数据包大小。
 - `last_update`: 来自 token 的最后更新
 - `next_update`: 来自 token 的下一次更新
 - `online`：MQTT 连接状态（false=离线/true=在线）
@@ -764,8 +764,7 @@ hash: HW96gMDcqGCzu8ehDeLb3fywjgH25lq7CfOLjrZTXI8=
 ![json_nok.png](img/json_nok.png) ![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 3.0.2 (2024-05-12)
 
 -   (Lucky-ESA) mowTimeExtend restricted input
 -   (Lucky-ESA) Fixed TypeError

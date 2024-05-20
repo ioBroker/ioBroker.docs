@@ -3,100 +3,61 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
+hash: GTUDvjs9GnT4DlODALr0GeQzsiybVL5aFfRsP8zoFfg=
 ---
 ![Logo](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
 ![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/homeconnect-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/homeconnect-installed.svg)
 
 # IoBroker.homeconnect
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
 
 ## Wachposten
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Homeconnect-Adapter für ioBroker
 ## Voraussetzungen vor der Installation
-Es muss mindestens Node.js Version 16 installiert sein!!
+Es muss mindestens Node.js Version 18 installiert sein!
 
-Für den Adapter wird eine ClientID benötigt. Nutzen Sie die Einstellungen, um jeden Schritt der Registrierung zu erreichen.
-
-## Anforderungen vor der Installation
-Es muss mindestens Node.js Version 16 installiert sein!
-
-Für den Adapter ist eine ClientID erforderlich. Verwenden Sie zur Registrierung die Einstellungen für jeden Schritt.
+Für den Adapter ist eine ClientID erforderlich. Zur Anmeldung nutzen Sie die Einstellungen für die einzelnen Schritte.
 
 <https://developer.home-connect.com>
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse angeben, mit der die Home-Connect-App registriert wurde, wird diese später auch beim Autorisierungsprozess benötigt.
-
-Geben Sie bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse an, mit der die Home Connect-App versendet werden soll.
-registriert wurde, ist dies auch später im Autorisierungsprozess erforderlich.
+Bei **Standard Home Connect Benutzerkonto zum Testen** geben Sie die E-Mail-Adresse an, mit der die Home Connect App versendet werden soll.
+registriert wurde, diese wird auch später im Autorisierungsprozess benötigt.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **Kontotyp** Einzelperson auswählen. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
-
-Wählen Sie für **Kontotyp** die Option „Individuell“ aus. Fügen Sie die restlichen Daten hinzu, falls verfügbar (keine Ahnung, ob dies überprüft wird).
+Wählen Sie bei **Kontotyp** Einzelperson aus. Fügen Sie die restlichen Daten hinzu, falls verfügbar (keine Ahnung, ob dies überprüft wird).
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
 
-Dann auf **Bewerbungen** und anschließend auf **Register Application** gehen.
-
-Gehen Sie dann zu **Bewerbungen** und dann zu **Bewerbung registrieren**.
+Gehen Sie dann zu **Bewerbungen** und anschließend zu **Bewerbung registrieren**.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-Bei **Application ID** einen Namen für die Bewerbung eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow auswählen.
-**Home Connect-Benutzerkonto zum Testen** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://example.com.
-Dann speichern und dann hat man die benötigte ClientID.
+Bei **Application ID** geben Sie einen Namen für die Anwendung ein, z.B. ioBroker. Bei **OAuth Flow** wählen Sie Device Flow.
 
-Geben Sie unter **Anwendungs-ID** einen Namen für die Anwendung ein, z. B. ioBroker. Mit **OAuth Flow** Device Flow auswählen.
-**Home Connect-Benutzerkonto zum Testen** kann leer bleiben. Geben Sie für **Success Redirect** einen URI ein, z. B. https://example.com.
-Anschließend speichern und Sie haben die benötigte ClientID.
+**Home Connect User Account for Testing** kann leer bleiben. Bei **Success Redirect** geben Sie eine URI ein, z.B. https://example.com.
+Anschließend speichern und schon haben Sie die benötigte ClientID.
 
-## Konfiguration
-In der Adapter-Config müssen der Homeconnect App Benutzername und Passwort und die erstellte ClientID eingetragen werden.
-
-## Benutzung
-Mit den Zuständen in Befehlen kannst du das Programm stoppen, pausieren oder fortführen.
-
-Mit den Zuständen in den Einstellungen kannst du das Gerät ein- oder ausschalten.
-
-Ändern des Status „Programme.active.BSH_Common_Root_ActiveProgram“ führt zum Starten eines Programms Update iQ300: Es muss das gewünschte Programm registriert werden. Wenn man Programme.selected.BSH_Common_Root_SelectedProgram ausliest und einträgt, hat der Benutzer die Möglichkeit, am Gerät das gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
-
-Das Ändern des Status „programs.selected.BSH_Common_Root_SelectedProgram“ führt zum Auswählen des Programms oder der Optionen
-
-Wenn man prüfen möchte, ob ein Programm fertig ist, muss
-
-status.BSH_Common_Status_OperationState
-
-Auf den vollständigen Statusnamen wird geprüft:
-
-BSH.Common.EnumType.OperationState.Finished
-
-Weitere Zustände sind noch:
-
-„BSH.Common.EnumType.OperationState.Inactive“: „Inaktiv“, „BSH.Common.EnumType.OperationState.Ready“: „Bereit“, „BSH.Common.EnumType.OperationState.Run“: „Ausführen“, „BSH .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Fertig"
-
-Oder ob ein Gerät geöffnet ist
-
-„BSH.Common.EnumType.DoorState.Open“: „Offen“, „BSH.Common.EnumType.DoorState.Closed“: „Geschlossen“
+## Aufbau
+Bitte fügen Sie den Benutzernamen, das Passwort und die generierte Client-ID der Homeconnect-App zur Adapterkonfiguration hinzu.
 
 ## Verwendung
 Mit den Zuständen in Befehlen können Sie ein Programm stoppen, pausieren und fortsetzen.
-Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einschalten. Ändern Sie den Wert von „Programme.active.BSH_Common_Root_ActiveProgram“, um ein Programm zu starten. Update iQ300: Sie müssen den Programmnamen in dieser Variablen festlegen. Wenn „programs.selected.BSH_Common_Root_SelectedProgram“ kopiert wird, kann der Maschinenbenutzer das gewünschte Programm an der Maschine vordefinieren und es wird über ioBroker gestartet. Eine Änderung des Werts von „programs.selected.BSH_Common_Root_SelectedProgram“ führt zur Auswahl eines Programms oder von Optionen
+Mit den Zuständen in Einstellungen können Sie das Gerät aus- oder einschalten. Das Ändern des Wertes von programs.active.BSH_Common_Root_ActiveProgram führt zum Starten eines Programms. Update iQ300: Sie müssen den Programmnamen in dieser Variable festlegen. Wenn programs.selected.BSH_Common_Root_SelectedProgram kopiert wird, kann der Maschinenbenutzer das gewünschte Programm an der Maschine vordefinieren und es wird über ioBroker gestartet. Das Ändern des Wertes von programs.selected.BSH_Common_Root_SelectedProgram führt zur Auswahl eines Programms oder von Optionen.
 
 ## Changelog
 
@@ -104,6 +65,10 @@ Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einscha
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.3.0 (2023-12-15)
 
 - fix login
@@ -266,6 +231,7 @@ Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einscha
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

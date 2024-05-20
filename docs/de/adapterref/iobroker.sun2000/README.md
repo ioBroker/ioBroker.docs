@@ -4,6 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sun2000.svg
 BADGE-Number of Installations: https://iobroker.live/badges/sun2000-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/sun2000-stable.svg
 BADGE-Documentation: https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white
+BADGE-Wiki: https://img.shields.io/badge/wiki-documentation-forestgreen
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 BADGE-NPM: https://nodei.co/npm/iobroker.sun2000.png?downloads=true
@@ -11,14 +12,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000/README.md
 title: ioBroker-Adapter SUN2000 Dokumentation
-hash: Dz2NL0KVKXgnqXxR2r7idyDM8Pqi/YfDGUml99Kod7c=
+hash: vD/OS+Z1FLoMsiptno3KFlwKMHLNK91rMpHkqHqSyig=
 ---
 # IoBroker-Adapter SUN2000 Dokumentation
-* [Wechselrichter einrichten](./inverter.md)
-* [Adapterkonfiguration](./configuration.md)
-* [Berechnung](./calculation.md)
-* [VIS-Beispiel](./vis.md)
-* [Schnittstellendefinitionen](./definitions.md)
+* [Wechselrichter einrichten](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/inverter.md)
+* [Adapterkonfiguration](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/configuration.md)
+* [Berechnung](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/calculation.md)
+* [VIS-Beispiel](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/vis.md)
+* [Schnittstellendefinitionen](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/definitions.md)
 
 ## Wiki
 Einige interessante Dinge werden im [Wiki](https://github.com/bolliy/ioBroker.sun2000/wiki) erklärt
@@ -37,6 +38,19 @@ In Arbeit
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.9.0 (2024-05-09)
+* dependency and configuration updates
+* modbus device remains active in standby on the inverter M2,M3
+
+### 0.8.0 (2024-04-19)
+* Check numerical values for plausibility #75
+* realization the "limit the power fed to grid" (Export control)
+* realization the "forcible Charge or Discharge Power"
+* If the error 'ECONNRESET' appear, the modbus proxy should not terminate
+
+### 0.7.1 (2024-04-09)
+* inverter model name too many characters #73
+
 ### 0.7.0 (2024-04-03)
 * breaking changes
 	- Node.js 18.x or higher required
@@ -144,3 +158,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[def]: https://github.com/bolliy/ioBroker.sun2000/wiki

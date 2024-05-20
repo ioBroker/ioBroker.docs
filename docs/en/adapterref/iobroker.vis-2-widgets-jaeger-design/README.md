@@ -34,6 +34,9 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.23 (2024-05-18)
+* (bluefox) Corrected font-size of thermostat
+
 ### 1.1.22 (2024-05-14)
 * (bluefox) Added possibility to show a simple state without a border
 * (bluefox) Added possibility to add a caption for some widgets

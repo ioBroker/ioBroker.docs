@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.puppeteer/README.md
 title: ioBroker.puppeteer
-hash: ZnCM+j2vcSykqibFuRmMp4P4/WEy44jI65uogH0Ac2g=
+hash: VeLC461Ko9ywOY4dm7OHmZxThOgAd9HdahzVtSVIGDo=
 ---
 ![Logo](../../../en/adapterref/iobroker.puppeteer/admin/puppeteer.png)
 
@@ -13,44 +13,44 @@ hash: ZnCM+j2vcSykqibFuRmMp4P4/WEy44jI65uogH0Ac2g=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/puppeteer-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.puppeteer.png?downloads=true)
 
-# IoBroker.puppenspieler
-**Tests:** ![Testen und freigeben](https://github.com/foxriver76/ioBroker.puppeteer/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.puppeteer
+**Tests:** ![Testen und Freigeben](https://github.com/foxriver76/ioBroker.puppeteer/workflows/Test%20and%20Release/badge.svg)
 
-## Puppenspieler-Adapter für ioBroker
-Headless-Browser zum Generieren von Screenshots auf Basis von Chrome
+## Puppeteer-Adapter für ioBroker
+Headless-Browser zum Erstellen von Screenshots basierend auf Chrome
 
 ## Haftungsausschluss
-Puppeteer ist ein Produkt von Google Inc. Die Entwickler dieses Moduls werden in keiner Weise von Google Inc. oder verbundenen Tochterunternehmen, Logos oder Marken unterstützt oder sind mit ihnen verbunden.
+Puppeteer ist ein Produkt von Google Inc. Die Entwickler dieses Moduls werden in keiner Weise von Google Inc. oder zugehörigen Tochterunternehmen, Logos oder Marken unterstützt oder sind mit diesen verbunden.
 
 ## Wie man
-Der Adapter ist vollständig über Status konfigurierbar und bietet keine Einstellungen in der Admin-Oberfläche.
-Die Zustände (außer `url`) bekommen kein ack-Flag vom Adapter und ack-Flags werden generell ignoriert.
+Der Adapter ist vollständig über Zustände konfigurierbar und bietet keine Einstellungen in der Administratoroberfläche.
+Die Zustände (außer `url`) erhalten vom Adapter kein Bestätigungsflag und Bestätigungsflags werden im Allgemeinen ignoriert.
 
 ### Zustände
 #### Dateiname
-Geben Sie den Dateinamen (vollständiger Pfad) des Bildes an.
+Geben Sie den Dateinamen (vollständigen Pfad) des Bildes an.
 
 #### URL
-Geben Sie die URL an, von der Sie einen Screenshot machen möchten. Wird der Zustand geschrieben, wird sofort ein Screenshot erstellt.
-Nachdem der Screenshot erstellt wurde, setzt der Adapter das ack-Flag des URL-Status auf „true“.
+Geben Sie die URL an, von der Sie einen Screenshot machen möchten. Wenn der Status geschrieben ist, wird sofort ein Screenshot erstellt.
+Nachdem der Screenshot erstellt wurde, setzt der Adapter das Ack-Flag des URL-Status auf „true“.
 
 #### Volle Seite
-Wenn dieser Status als wahr ausgewertet wird, wird ein Screenshot der gesamten Seite erstellt. Die Zuschneideoptionen werden ignoriert.
+Wenn dieser Status als „true“ ausgewertet wird, wird ein Screenshot der gesamten Seite erstellt. Die Zuschneideoptionen werden ignoriert.
 
-#### ZuschneidenLinks/Oben/Höhe/Breite
-Konfigurieren Sie die Zuschneideoptionen in `px`, um nur den gewünschten Abschnitt der Seite zu scannen.
-Wenn `fullPage` auf true gesetzt ist, wird kein Cropping durchgeführt.
+#### CropLeft/Oben/Höhe/Breite
+Konfigurieren Sie die Zuschneideoptionen in `px`, um nur den gewünschten Abschnitt der Seite als Screenshot zu erstellen.
+Wenn `fullPage` auf „true“ gesetzt ist, wird kein Zuschneiden durchgeführt.
 
-#### WaitForSelector
-Der Screenshot wird gemacht, nachdem der Selektor auf der Seite sichtbar ist, z. `#time`. Wenn `waitForSelector` aktiv ist, werden andere Warteoperationen wie `renderTime` ignoriert.
+#### WarteAufAuswahl
+Der Screenshot wird erstellt, nachdem der Selektor auf der Seite sichtbar ist, z. B. `#time`. Wenn `waitForSelector` aktiv ist, werden andere Warteoperationen wie `renderTime` ignoriert.
 
 #### Renderzeit
-Intervall in ms, das gewartet wird, bis die Seite gerendert wird
+Intervall in ms, das gewartet werden soll, bis die Seite gerendert wird
 
 ### Mitteilungen
-Alternativ können Sie Screenshots erstellen, indem Sie Nachrichten an den Adapter senden.
-Alle Optionen außer `url` und `ioBrokerOptions` werden direkt an die Puppeteer-API übergeben, die derzeit unterstützten Parameter finden Sie unten, für eine aktuellere Version überprüfen Sie die [API-Beschreibung](https://pptr.dev/api/puppeteer.screenshotoptions).
-Zusätzlich können Sie einen `waitOption` definieren, um auf eine bestimmte Zeit oder auf einen Selektor zu warten. Schließlich können Sie mit der Option `ioBrokerOptions.storagePath` Screenshots direkt im ioBroker-Speicher unter `0_userdata.0` speichern, die dann über Admin- und Visualisierungsadapter angezeigt werden können.
+Alternativ können Sie Screenshots machen, indem Sie Nachrichten an den Adapter senden.
+Alle Optionen außer `url` und `ioBrokerOptions` werden direkt an die Puppeteer-API übergeben. Die aktuell unterstützten Parameter finden Sie weiter unten. Eine aktuellere Version finden Sie unter [API-Beschreibung](https://pptr.dev/api/puppeteer.screenshotoptions).
+Zusätzlich können Sie ein `waitOption` definieren, um auf eine bestimmte Zeit oder auf einen Selektor zu warten. Schließlich können Sie die Option `ioBrokerOptions.storagePath` verwenden, um Screenshots direkt im ioBroker-Speicher unter `0_userdata.0` zu speichern, die dann über Admin- und Visualisierungsadapter angezeigt werden können.
 
 ```typescript
 sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
@@ -128,7 +128,7 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
         log(`Error taking screenshot: ${obj.error.message}`, 'error');
       } else {
         // the binary representation of the image is contained in `obj.result`
-        log(`Sucessfully took screenshot: ${obj.result}`);
+        log(`Successfully took screenshot: ${obj.result}`);
       }
 });
 ```
@@ -138,6 +138,16 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2024-05-19)
+* (foxriver76) allowed to specify additional arguments for the puppeteer process
+* (foxriver76) updated puppeteer dependency
+
+### 0.2.8 (2024-01-09)
+* (foxriver76) update puppeteer dependency
+
+### 0.2.7 (2023-03-18)
+* (foxriver76) update puppeteer dependency
+
 ### 0.2.6 (2022-08-14)
 * (foxriver76) we now close the page also when screenshot taken via message
 

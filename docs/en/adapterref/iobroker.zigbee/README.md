@@ -131,6 +131,9 @@ There is [another](https://www.zigbee2mqtt.io/) with the same functions and the 
 Other topics related to this adapter are also documented in the associated wiki.
 
 ## Changelog
+
+* (arteck) icon fix
+
 ### 1.10.4 (2024-04-20)
 * (arteck) core update
 * (arteck) dependency update

@@ -3,32 +3,37 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nissan/README.md
 title: ioBroker.nissan
-hash: u4NmKmxN91zUotL4vViLBxiapH3dbIFQms+0mkCaTD8=
+hash: Bucylx/ohyhOKYOUH79e5Q0EfDGhPfdDpplFmsbN9jw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nissan/admin/nissan.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.nissan.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.nissan.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nissan.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/nissan-installed.svg)
+![Количество установок (последних)](https://iobroker.live/badges/nissan-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/nissan-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.nissan.svg)
 ![НПМ](https://nodei.co/npm/iobroker.nissan.png?downloads=true)
 
 # IoBroker.nissan
-** Испытания: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
 
-## Переходник nissan для ioBroker
-Адаптер Nissan
+##адаптер Nissan для ioBroker
+Ниссан Адаптер
 
 ## Changelog
+### 0.1.0 (2024-05-18)
+
+- login fixed
 
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

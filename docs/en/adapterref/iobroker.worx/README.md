@@ -331,7 +331,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `totalBladeTime`: Total blade time (wire & Vision/readonly)
 -   `totalDistance`: Total distance (wire & Vision/readonly)
 -   `totalTime`: Total working time (wire & Vision/readonly)
--   `waitRain`: Rain delay max. 12h in 30 minute steps (wire & Vision/changeable)
+-   `waitRain`: Rain delay max. 12h in 30 minute steps and 0 for off (wire & Vision/changeable)
 -   `waitRainCountdown` Start countdown when the sensor changes from wet to dry (wire & Vision/readonly) (currently disabled)
 -   `waitRainSensor` Status 0 for dry and 1 for wet (wire & Vision/readonly)
 -   `wifiQuality`: Wifi quality (wire & Vision/readonly)
