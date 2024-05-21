@@ -468,3 +468,8 @@ https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
 Adapter for Bosch Indego Mower to show the state of the mower and control the mower.
 
+## Windows installer (20.5.2024) – new feature
+There is a new version for Windows installer available: 3.1.0
+New features:
+- Update/Upgrade of JS-Controller implemented
+- Some bugfixes
