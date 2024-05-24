@@ -1,6 +1,6 @@
 ---
 title: "Windows"
-lastChanged: "14.01.2024"
+lastChanged: "21.05.2024"
 ---
 
 # Voraussetzungen prüfen
@@ -88,10 +88,12 @@ Mit einem Klick auf "Fertigstellen" öffnet sich ein Webbrowser und ioBroker lei
 !> Normalerweise verlaufen Updates völlig problemlos und sicher. Dennoch sollte vor der Durchführung vorsichtshalber eine Datensicherung durchgeführt werden.
 
 - Mit Hilfe des Windows Installers kann automatisch die installierte Node.js Version auf den empfohlenen Stand gebracht werden.
-  Dafür einfach den Installer aus dem Windows Startmenü ("ioBroker Setup") starten und den Anweisungen folgen.
-- Der js-controller kann leider nicht mit dem Windows Installer aktualisiert werden. Das muss mit Hilfe der ioBroker Command Line erledigt werden. Diese kann aus dem Windows Startmenü unter "ioBroker automation platform" - "ioBroker Command Line" gestartet werden.
+  Dafür einfach den Installer aus dem Windows Startmenü ("ioBroker Setup") starten und den Anweisungen folgen. Ein verfügbares Update für Node.js wird automatisch erkannt und im weiteren Verlauf angeboten.
+- Seit Windows Installer Version 3.1.0 kann mit dem Windows Installer auch ein Update des JS-Controllers durchgeführt werden.
+  Dafür einfach den Installer aus dem Windows Startmenü ("ioBroker Setup") starten und den Anweisungen folgen. Ein verfügbares Update für JS-Controller wird automatisch erkannt und im weiteren Verlauf angeboten.
+- Außerdem ist es möglich, JS-Controller manuell zu aktualisieren. Es wird aber ausdrücklich empfohlen, Aktualisierungen mit dem Windows Installer durchzuführen.
 
-  Die Aktualisierung wird dann durch folgende Kommandos durchgeführt:
+  Will man die Aktualisierung dennoch manuell vornehmen, geht das mit den folgenden Kommandos:
 
   `iob stop`
 
