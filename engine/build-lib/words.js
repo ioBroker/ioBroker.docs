@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const fs = require('node:fs');
 const fileName = 'words.js';
 const EMPTY = '';
 const translate = require('./translation').translateText;

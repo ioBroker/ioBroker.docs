@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require('axios');
-const fs = require('fs');
+const fs = require('node:fs');
 let lastRequest = null;
 const { Translate } = require('@google-cloud/translate').v2;
 // Your Google Cloud Platform project ID

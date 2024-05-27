@@ -2,8 +2,8 @@
 const utils = require('./utils');
 const consts = require('./consts');
 const translation = require('./translation');
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const IGNORE = ['/adapterref'];
 

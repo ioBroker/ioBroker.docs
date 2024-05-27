@@ -4,8 +4,8 @@
 // 2. Cross translate adapters in master/front-end/public/LN/adapterreff. start from english
 
 const axios  = require('axios');
-const fs     = require('fs');
-const path   = require('path');
+const fs     = require('node:fs');
+const path   = require('node:path');
 const utils  = require('./utils');
 const consts = require('./consts');
 
