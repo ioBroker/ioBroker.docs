@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: 62JEVPWZ/Z7dJXFKS3wt4g34dFy7nLaeqoqEtaDgV/U=
+hash: I7ikYjd2himy1fYw6ohBoLiOoxcbcOPaTR2LVLljw90=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -39,7 +39,7 @@ Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
 Dyson Pure Humidify+Cool (PH01, Produkttyp 358)
 Dyson Pure Humidify+Cool (PH03, Produkttyp 358E)
 Dyson Pure Humidify+Cool Formaldehyde (PH04, Produkttyp 358K)
-Dyson Luftreiniger Hot+Cool Formaldehyd HP09
+- Dyson Purifier Big+Quiet Formaldehyd (BP03, Produkttyp 664)
 
 ## Merkmale
 Verbindet Ihre Dyson-Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter mit ioBroker.
@@ -74,7 +74,7 @@ Führen Sie `npm install iobroker.dysonairpurifier` auf Ihrer ioBroker-Installat
 #### Alternative: Verwenden der GitHub-URL
 Installieren Sie es über die ioBroker-Admin-Benutzeroberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-Sie können mit diesen Methoden auch ältere Release-Versionen installieren (indem Sie in der URL auf einen Versionstag verweisen, z. B. `v0.6.0` statt `master`), im Allgemeinen ist jedoch die aktuellste Version vorzuziehen.
+Sie können mit diesen Methoden auch ältere Release-Versionen installieren (indem Sie in der URL auf einen Versionstag verweisen, z. B. `v0.6.0` statt `master`), aber im Allgemeinen ist die aktuellste Version vorzuziehen.
 
 ### Konfigurationsdaten benötigt
 - Benutzername des Dyson-Kontos
@@ -182,11 +182,11 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ---- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --- |
 | ercd | Letzter Fehlercode | KEINER oder einige Hexa-Werte | |
-| filf | verbleibende Filterlebensdauer | 0000 – 4300 | Stunden |
+| filf | verbleibende Filterlebensdauer | 0000 - 4300 | Stunden |
 | fmod | Modus | LÜFTER, AUTO, AUS | |
 | fpwr | Hauptstromversorgung | EIN, AUS | |
 | fnst | Lüfterstatus | EIN, AUS, LÜFTER | |
-| fnsp | Lüftergeschwindigkeit | 0001 - 0010, AUTO | |
+| nsp | Lüftergeschwindigkeit | 0001 - 0010, AUTO | |
 | fdir | Lüfterrichtung aka Jet Focus/ EIN=Vorne, AUS=Hinten | EIN, AUS | |
 | ffoc | JetFocus | EIN, AUS | |
 | nmod | Nachtmodus | EIN , AUS | |
@@ -219,7 +219,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | clcr | DeepcleanCycle | CLNO=inaktiv, CLAC=Tiefenreinigung läuft, CLCM=Fertig | |
 | hsta | Heizzustand | AKTIV/LEERLAUF | |
 | msta | Befeuchtungszustand | Aktiv/Leerlauf AUS, HUMD | |
-| pfe | [HP0x] Unbekannt | INIT, CLNG, INV, AUS | |
+| n.p.a. | [HP0x] Unbekannt | INIT, CLNG, INV, AUS | |
 | bril | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
 | fqhp | unbekannt | | |
 | Neigung | [HP0x] Unbekannt | Zeichenfolge | |
@@ -285,13 +285,37 @@ Dyson, Pure Cool, Pure Hot & Cool und andere sind Marken oder eingetragene Marke
 
 ### **WORK IN PROGRESS**
 
+### 3.2.0 (2024-05-27) (Marching on)
+
+- (grizzelbee) Chg: Lamps (Product type 552a) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
+- (grizzelbee) Chg: Vacuum cleaner robots (Product types 276 and 277) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
+- (grizzelbee) New: [#289](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/289) Added Support for Dyson Purifier Big+Quiet Formaldehyde (BP03, Produce type 664) 
+- (grizzelbee) Fix: [#287](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/287) Added Switzerland again to config 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Chg: removed obsolete index_m.html
+- (grizzelbee) Fix: Fixed broken NO2Index
+- (grizzelbee) Fix: Fixed broken fan speeds 0-10
+- (grizzelbee) Fix: Fixed polling of sensor data
+- (grizzelbee) Fix: setting fan speed = Auto works 
+
+### 3.1.10 (2024-05-14) (Marching on)
+
+- (grizzelbee) Fix: [#281](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/281) Removed duplicate Sleeptimer field from config
+- (grizzelbee) New: Enabled editing of field Sleeptimer 
+- (grizzelbee) Fix: [#283](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/283) Late config of fields
+- (grizzelbee) Fix: Mapping text values in fields Sleeptimer & fanspeed to numerical values
+
+### 3.1.9 (2024-05-13) (Marching on)
+
+- (arcticon)   Fix: [#278](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/278) Changeable fields are working again.
+
 ### 3.1.8 (2024-05-10) (Marching on)
 
 - (arcticon)   Upd: Dependencies got updated
 - (grizzelbee) Chg: code refactoring  
 - (arcticon)   Chg: code refactoring  
-- (arcticon)   Chg:  [#273](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/273) Performance improvements
-- (arcticon)   Chg:  [#274](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/274) Update of outdated certificate
+- (arcticon)   Chg: [#273](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/273) Performance improvements
+- (arcticon)   Chg: [#274](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/274) Update of outdated certificate
 
 ### 3.1.7 (2024-04-24) (Marching on)
 

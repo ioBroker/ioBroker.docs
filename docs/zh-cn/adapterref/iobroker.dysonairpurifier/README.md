@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: 62JEVPWZ/Z7dJXFKS3wt4g34dFy7nLaeqoqEtaDgV/U=
+hash: I7ikYjd2himy1fYw6ohBoLiOoxcbcOPaTR2LVLljw90=
 ---
 ![安装数量（最新）](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
@@ -20,7 +20,7 @@ hash: 62JEVPWZ/Z7dJXFKS3wt4g34dFy7nLaeqoqEtaDgV/U=
 
 ## 适用于戴森空气净化器和风扇的 ioBroker 适配器
 该适配器将 ioBroker 连接到各种戴森空气净化器。
-徽标中的风扇图标由[Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/) 创建。
+徽标中的风扇图标由 [Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/) 创建。
 
 &gt; 如果您喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
@@ -39,7 +39,7 @@ hash: 62JEVPWZ/Z7dJXFKS3wt4g34dFy7nLaeqoqEtaDgV/U=
 - 戴森 Pure Humidify+Cool（PH01，产品类型 358）
 - 戴森 Pure Humidify+Cool（PH03，产品类型 358E）
 - 戴森 Pure Humidify+Cool Formaldehyde（PH04，产品类型 358K）
-- 戴森冷热甲醛净化器 HP09
+- 戴森净化器 Big+Quiet 甲醛 (BP03, 产品型号 664)
 
 ＃＃ 特征
 将您的戴森风扇、风扇加热器、空气净化器和空气加湿器连接到 ioBroker。
@@ -74,7 +74,7 @@ hash: 62JEVPWZ/Z7dJXFKS3wt4g34dFy7nLaeqoqEtaDgV/U=
 #### 替代方案：使用 GitHub URL
 通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-您也可以使用这些方法安装旧的发布版本（通过指向版本标签，例如 URL 中的`v0.6.0`而不是`master`），但通常最好使用最新版本。
+您也可以使用这些方法安装旧的发布版本（通过指向版本标签，例如 URL 中的`v0.6.0`而不是`master`），但通常首选最新版本。
 
 ### 需要配置数据
 - 戴森账户用户名
@@ -165,7 +165,7 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 - 在某些情况下，只需拔下风扇电源约 10 秒钟即可重置，然后再重新插入即可。试试看吧！
 - 在其他情况下，这是 IP/DNS 问题。重置 DHCP/DNS 服务器（路由器）解决了该问题。
 
-## 戴森 API 数据（消息有效负载）的解释
+## 戴森 API 数据（消息有效负载）说明
 从 <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md> 复制并扩展的信息
 
 ＃＃＃ 当前状态
@@ -223,7 +223,7 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 | bril | 未知 | 0002 | LEVEL_LOW，LEVEL_MEDIUM，LEVEL_HIGH |
 | fqhp | 未知 | | |
 | 倾斜 | [HP0x] 未知 | 字符串 | |
-| 拨号 | [DP0x] 未知| | |
+| 拨号 | [DP0x] 未知|||
 
 | 错误代码 | 含义 |
 | ----------- | -------------------------------------------------------------------------------------------- |
@@ -285,13 +285,37 @@ Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson
 
 ### **WORK IN PROGRESS**
 
+### 3.2.0 (2024-05-27) (Marching on)
+
+- (grizzelbee) Chg: Lamps (Product type 552a) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
+- (grizzelbee) Chg: Vacuum cleaner robots (Product types 276 and 277) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
+- (grizzelbee) New: [#289](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/289) Added Support for Dyson Purifier Big+Quiet Formaldehyde (BP03, Produce type 664) 
+- (grizzelbee) Fix: [#287](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/287) Added Switzerland again to config 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Chg: removed obsolete index_m.html
+- (grizzelbee) Fix: Fixed broken NO2Index
+- (grizzelbee) Fix: Fixed broken fan speeds 0-10
+- (grizzelbee) Fix: Fixed polling of sensor data
+- (grizzelbee) Fix: setting fan speed = Auto works 
+
+### 3.1.10 (2024-05-14) (Marching on)
+
+- (grizzelbee) Fix: [#281](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/281) Removed duplicate Sleeptimer field from config
+- (grizzelbee) New: Enabled editing of field Sleeptimer 
+- (grizzelbee) Fix: [#283](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/283) Late config of fields
+- (grizzelbee) Fix: Mapping text values in fields Sleeptimer & fanspeed to numerical values
+
+### 3.1.9 (2024-05-13) (Marching on)
+
+- (arcticon)   Fix: [#278](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/278) Changeable fields are working again.
+
 ### 3.1.8 (2024-05-10) (Marching on)
 
 - (arcticon)   Upd: Dependencies got updated
 - (grizzelbee) Chg: code refactoring  
 - (arcticon)   Chg: code refactoring  
-- (arcticon)   Chg:  [#273](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/273) Performance improvements
-- (arcticon)   Chg:  [#274](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/274) Update of outdated certificate
+- (arcticon)   Chg: [#273](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/273) Performance improvements
+- (arcticon)   Chg: [#274](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/274) Update of outdated certificate
 
 ### 3.1.7 (2024-04-24) (Marching on)
 

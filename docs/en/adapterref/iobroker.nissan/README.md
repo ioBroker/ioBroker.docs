@@ -17,6 +17,10 @@
 Nissan Adapter
 
 ## Changelog
+### 0.1.1 (2024-05-20)
+
+- Login fixed.
+
 ### 0.1.0 (2024-05-18)
 
 - login fixed

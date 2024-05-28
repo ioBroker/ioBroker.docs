@@ -149,7 +149,8 @@ You cannot send POST request to commands via GUI.
 -->
 
 ## Changelog
-### 2.0.0 (2024-04-09)
+### 2.0.1 (2024-05-23)
+* (foxriver76) ported to `@iobroker/webserver`
 * (theshengfui) Fixed history requests
 * (bluefox) Minimum required node.js version is 16
 

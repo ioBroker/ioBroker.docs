@@ -61,6 +61,12 @@ The data will be retrieved and shown in the objects-tab according to your config
 
 ## Changelog <a id="change" />
 
+### 1.0.3
+
+* Added a checkbox for showing and hiding the password in the instance configuration
+* Edited the error messages to be more helpful
+* Added logging information when the air-Q device is actually connected
+
 ### 1.0.2
 
 * Added units for each sensor value

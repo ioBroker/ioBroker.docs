@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
+hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
 ---
 ![НПМ-версия](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rct.svg)
@@ -32,8 +32,9 @@ hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
 Объект «battery.bat_status» указывает на состояние подключенной батареи:
 
 * 0 -> заряд/разряд (нормальная работа)
-* 3 -> Обновить? ( не уверен )
-* 5 -> Начать? ( не уверен )
+* 1 -> холостой ход (без CAN-подключения инвертора -> аккумулятор)
+* 3 -> подключение (инвертор -> аккумулятор)
+* 5 -> синхронизация (инвертор -> аккумулятор)
 * 8 -> калибровка - фаза зарядки (0% --> 100%)
 *1024 -> калибровка - фаза разряда (xx% --> 0%)
 *2048 -> балансировка
@@ -46,14 +47,14 @@ hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
 * 3 -> «Эффективность (состояние отладки для целей разработки)»
 * 4 -> «Проверка изоляции»
 * 5 -> «Проверка острова (решение, куда идти — сеть подключена или остров)»
-* 6 -> «Проверка мощности (решение, достаточно ли энергии для запуска или нет»
-* 7 -> «Симметрия (выравнивание звена постоянного тока»
+* 6 -> «Проверка мощности (решение, достаточно ли энергии для запуска)»
+* 7 -> «Симметрия (выравнивание звена постоянного тока)»
 * 8 -> «Тест реле»
-* 9 -> «Пассивная сеть» (инвертор получает питание от сети без синхронизации моста)
+* 9 -> «Пассивная сеть (инвертор получает питание от сети без синхронизации моста)»
 * 10 -> «Подготовить пассивную летучую мышь»
 * 11 -> «Отключение аккумулятора (автономно)»
 * 12 -> «Проверка оборудования»
-* 13 -> «Впечатление»
+* 13 -> «Einspeisung»
 
 ## Известные вопросы
 Никто
@@ -64,10 +65,23 @@ hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* (NCIceWolf) some improvements on connect / disconnect 
+
+### 1.2.9 (2024-05-17)
+* (Andreas Ruttkamp) wrong type for next_calib_date corrected
+
+
+### 1.2.8 (2024-05-16)
 * (NCIceWolf) Implementation of new adminUI
 * (Andreas Ruttkamp) index_m.html deleted
-
+* (Andreas Ruttkamp) Datatype battery_stack_cycles corrected
+* (NCIceWolf) style.css deleted (not needed for json admin)
+* (NCIceWolf) removed tab-materialize (leftover from initial adapter creation)
+* (NCIceWolf) updated minimum js-controller version to >= 5.0.0 (current: 5.0.19)
+* (NCIceWolf) added minimum admin version to >= 5.0.0 (current stable : 6.13.16), could even be >= 6.0.0
+* (NCIceWolf) prepared translations (further handling -> https://github.com/ioBroker/adapter-dev#manage-translations)
 
 ### 1.2.7 (2024-05-05)
 * (Andreas Ruttkamp) prim_sm.state added

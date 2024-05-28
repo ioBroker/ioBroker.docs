@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: CixtIWeegkZdILCau1XzGI68LNfcPIeaL4JErovTOIw=
+hash: 8wDh7cXhCkzlq0x3E2224YMuZyf32PYekvxxEejClJQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -16,26 +16,31 @@ hash: CixtIWeegkZdILCau1XzGI68LNfcPIeaL4JErovTOIw=
 ![NPM](https://nodei.co/npm/iobroker.apg-info.png?downloads=true)
 
 # IoBroker.apg-info
-[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
+[![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Testen und Freigeben](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## Apg-info-Adapter für ioBroker
-Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bereit, in denen Stromverbrauch vermieden werden soll. Darüber hinaus stellt der Adapter die PHELIX Day-Ahead (EPEX Spot)-Preise für Österreich und Deutschland bereit (in den Adaptereinstellungen konfigurieren). Anbietergebühr, Steuer, Netzkosten können optional in der Konfiguration hinzugefügt werden (Registerkarte Berechnung).
+Dieser Adapter liefert die Spitzenzeiten für das österreichische Stromnetz, in denen der Stromverbrauch vermieden werden soll. Darüber hinaus liefert der Adapter die PHELIX Day-Ahead (EPEX Spot) Preise für Österreich und Deutschland (Konfiguration in den Adaptereinstellungen). Anbietergebühren, Steuern und Netzkosten können optional in der Konfiguration hinzugefügt werden (Registerkarte Berechnung).
 `[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
+Mit der Standardkonfiguration läuft der Adapter um 00:00, 13:00 und 15:00 Uhr. Es wird dringend empfohlen, den Lauf um 00:00 Uhr nicht zu entfernen, da sonst der Tageswechsel (morgen --> heute) nicht richtig funktioniert.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
 * Node.js 18 oder höher
-* ioBroker-Host (JS-Controller) 5.0 oder höher
+* ioBroker-Host (js-Controller) 5.0 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.1.7 (2024-05-27)
+* (HGlab01) Add date to today and tomorrow to make the date of today and tomorrow clear
+* (HGlab01) bump axios to 1.7.2
+
+### 0.1.6 (2024-03-17)
 * (HGlab01) fix issue in debug-mode: Cannot read properties of null (reading 'data')
-* (HGlab01) bump axios to 1.6.7
+* (HGlab01) bump axios to 1.6.8
 
 ### 0.1.5 (2024-01-20)
 * (HGlab01) Add fee, grid costs and tax calculation
@@ -45,13 +50,6 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
 
 ### 0.1.3 (2023-12-26)
 * (HGlab01) Fix issue 'Request failed with status code 500' (#170)
-
-### 0.1.2 (2023-12-22)
-* (HGlab01) Fix issue 'no marketprice found' when price is 0.00
-* (HGlab01) Bump json-explorer to 0.1.15
-
-### 0.1.1 (2023-12-14)
-* (HGlab01) support Exxa10.15 auction as forecast
 
 ## License
 MIT License

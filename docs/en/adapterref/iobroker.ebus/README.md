@@ -69,9 +69,9 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.3.0 (2024-05-24)
 * (René) remove cron dependency
+* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
 
 ### 3.2.6 (2024-02-11)
 * (René) see issue #245: support ebusd 23.3

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: 8tA+V8SN00R6sI+L20sFVqelcCZ+6srIMDexcZ7Xfhc=
+hash: GuO6dGOLPUezvnKJEazdhcs5BQy8VNQHZos4RQd/k5k=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -55,7 +55,7 @@ Die eingebundene Datei muss sich im selben Verzeichnis wie die Hauptdatei befind
 Mögliche Typen:
 
 - `tabs` - Registerkarten mit Elementen
-- `items` – Objekt mit Feldern `{"tab1": {}, "tab2": {}...}`
+- `items` – Objekt mit Bedienfeldern `{"tab1": {}, "tab2": {}...}`
 - `iconPosition` – `bottom`, `end`, `start` oder `top`. Nur für Panels mit `icon`-Attribut. Standard: `start`
 
 - „Panel“ – Registerkarte mit Elementen
@@ -71,6 +71,7 @@ Mögliche Typen:
 - „trim“ – Standard ist „true“. Setzen Sie dieses Attribut auf „false“, wenn kein Trimmen gewünscht ist.
 - „minRows“ – Standard ist 1. Setzen Sie dieses Attribut auf „2“ oder höher, wenn Sie einen Textbereich mit mehr als einer Zeile haben möchten.
 - `maxRows` – maximale Anzahl an Zeilen im Textbereich. Wird nur verwendet, wenn `minRows` > 1.
+- `noClearButton` - wenn wahr, wird die Schaltfläche Löschen nicht angezeigt.
 
 - `Nummer`
 - `min` - Minimalwert
@@ -78,6 +79,7 @@ Mögliche Typen:
 - `Schritt` - Schritt
 
 - „Farbe“ – Farbwähler
+- `noClearButton` - wenn wahr, wird die Schaltfläche Löschen nicht angezeigt.
 
 - `checkbox` – Kontrollkästchen anzeigen
 
@@ -172,7 +174,7 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
+- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
 - `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
 - „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
@@ -214,7 +216,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `useNative` – wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird es für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
 - „Timeout“ – Timeout für Anforderung in ms. Standard: keine.
-- `onLoaded` - führt die Schaltflächenlogik zunächst einmal aus
+- `onLoaded` - führe die Schaltflächenlogik zunächst einmal aus
 
 - `setState` - Schaltfläche zum Festlegen des Status der Instanz
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen
@@ -283,6 +285,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
   ```
 
 - „certCollection“ – Zertifikatssammlung auswählen oder einfach alle Sammlungen verwenden oder Let’s Encrypt überhaupt nicht verwenden.
+- `leCollectionName` – Name der Zertifikatssammlung
 
 - `benutzerdefiniert` (nur Admin6)
 - „Name“ – Komponentenname, der über Props bereitgestellt wird, z. B. ComponentInstancesEditor
@@ -472,7 +475,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `agreeText` - Text der vereinbarten Schaltfläche
 - `checkBox` - Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert.
 
-- `checkLicense` – Eine sehr spezielle Komponente, um die Lizenz online zu überprüfen. Es werden genau die Eigenschaften `license` und `useLicenseManager` nativ benötigt.
+- `checkLicense` – Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die nativen Eigenschaften `license` und `useLicenseManager` benötigt.
 - `uuid` – UUID prüfen
 - `version` – Version prüfen
 

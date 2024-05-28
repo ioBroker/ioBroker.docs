@@ -35,6 +35,15 @@ How to use:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.3.17 (2024-05-26)
+* (bluefox) Corrected the simulation
+
+### 2.3.16 (2024-05-25)
+* (bluefox) Small UI fixes on widget
+
+### 2.3.10 (2024-05-22)
+* (bluefox) Small UI fixes
+
 ### 2.3.9 (2024-05-20)
 * (bluefox) Corrected vis-2 widget
 

@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: 8tA+V8SN00R6sI+L20sFVqelcCZ+6srIMDexcZ7Xfhc=
+hash: GuO6dGOLPUezvnKJEazdhcs5BQy8VNQHZos4RQd/k5k=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
 可以在 JSON 文件中定义配置，然后在 Admin 中使用它。
 
-具有多个选项卡的 `jsonConfig.json` 文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
+具有多个选项卡的`jsonConfig.json`文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
-您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并且支持注释。
+您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并支持注释。
 
 此外，对于 JSON 文件，您必须在 `common` 部分的 `io-package.json` 中定义：
 
@@ -28,7 +28,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 表示适配器支持 JSON 配置。
 
 如果您测试此适配器，则可以看到几乎所有组件都在运行：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
-您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo`来安装它。
+您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo` 来安装它。
 
 所有标签、文本、帮助文本都可以是多种语言或仅仅是字符串。
 
@@ -71,6 +71,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `trim` - 默认为 true。如果不需要修剪，请将此属性设置为 `false`。
 - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更大。
 - `maxRows` - 文本区域的最大行数。仅当 `minRows` > 1 时使用。
+- `noClearButton` - 如果为真，则不会显示清除按钮
 
 - `数字`
 - `min` - 最小值
@@ -78,6 +79,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `步骤` - 步骤
 
 - `color` - 颜色选择器
+- `noClearButton` - 如果为真，则不会显示清除按钮
 
 - `checkbox` - 显示复选框
 
@@ -102,7 +104,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `func` - 从 `enum.func` 中选择函数（带颜色和图标）-（仅限 Admin6）
 - `short` - 没有 `enum.func.`
-- `allowDeactivate` - 允许将功能留空
+- `allowDeactivate` - 允许让功能为空
 
 -`选择`
 - `options` - `[{label: {en: "option 1"}, value: 1}, ...]` 或
@@ -241,7 +243,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `table` - 包含可以删除、添加、上移、下移的项目的表格
 - `items` - `[{"type": 见上文, "width": px 或 %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]`
-- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `objKeyName` - （旧设置，请勿使用！） - `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中密钥的名称
 - `objValueName` - （旧设置，请勿使用！） - `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` 中的值的名称
 - `allowAddByFilter` - 即使设置了过滤器，也允许添加
@@ -256,7 +258,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `accordion` - 可以删除、添加、上移、下移项目的手风琴（Admin 6.6.0 及更新版本）
 - `items` - `[{"type": 见上文, "attr": "name", "default": ""}]` - 项目可以像在 `panel` 上一样放置（xs、sm、md、lg 和 newLine）
 - `titleAttr` - 项目列表的键，应用于名称
-- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `clone` - [可选] - 是否应显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。
 
 - `jsonEditor` - json 编辑器
@@ -283,6 +285,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   ```
 
 - `certCollection` - 选择证书集合或仅使用所有集合或根本不使用加密。
+- `leCollectionName` - 证书集合的名称
 
 - `自定义` (仅限 Admin6)
 - `name` - 将通过 props 提供的组件名称，例如 ComponentInstancesEditor
@@ -478,7 +481,7 @@ adapter.on('message', obj => {
 
 - `uuid` - 显示 iobroker UUID
 - `port` - 端口的特殊输入。它会自动检查端口是否被其他实例使用并显示警告。
-- `min` - 允许的最小端口号。它可以是 0。如果值为零，则不会检查端口是否被占用。
+- `min` - 允许的最小端口号。它可以是 0。如果该值为零，则不会检查端口是否被占用。
 
 - `deviceManager` - 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
 
@@ -543,7 +546,7 @@ adapter.on('message', obj => {
 - `buttonTooltipNoTranslation` - 不翻译按钮工具提示
 - `placeholder` - 占位符（用于文本控制）
 - `noTranslation` - 不翻译选择或其他选项（不用于帮助、标签或占位符）
-- `onChange` - 形式为 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` 的结构
+- `onChange` - 结构形式为 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - `doNotSave` - 不保存此属性，因为仅用于内部计算
 - `noMultiEdit` - 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。
 -`确认`

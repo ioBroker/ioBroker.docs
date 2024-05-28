@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
+hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rct.svg)
@@ -27,13 +27,14 @@ hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
 
 “电池.bat_status，电池.soc，电池.soc_target，电池.soc_target_high，电池.soc_target_low，dc_conv.dc_conv_struct[0].p_dc_lp，dc_conv.dc_conv_struct[1].p_dc_lp，故障[0].flt，故障[1].flt，故障[2].flt，故障[3].flt，g_syn c.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
-其他元素可在代码（文件“rct/rc_core2.js”）中找到。由于这不是自我描述的，因此使用时需自担风险！
+其他元素可在代码（文件“rct/rc_core2.js”）中找到。由于这不是自我描述的，因此使用时需自行承担风险！
 
 对象“battery.bat_status”指示所连接电池的状态：
 
 * 0 -> 充电/放电（正常操作）
-* 3 -> 更新？（不确定）
-* 5 -> 开始？（不确定）
+* 1 -> 空闲 (无 CAN 连接逆变器 -> 电池)
+* 3 -> 连接（逆变器 -> 电池）
+* 5 -> 同步 (逆变器 -> 电池)
 * 8 -> 校准 - 充电阶段 (0% --> 100%)
 * 1024 -> 校准 - 放电阶段 (xx% --> 0%)
 * 2048 -> 平衡
@@ -46,10 +47,10 @@ hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
 * 3 -> ‘效率（开发目的的调试状态）’
 * 4 -> ‘绝缘检查’
 * 5 -> ‘岛屿检查（决定去哪里 - 电网连接或岛屿）’
-* 6 -> '功率检查（决定是否有足够的能量来启动'
-* 7 -> ‘对称性（直流链路对齐）’
+* 6 -> ‘功率检查（决定是否有足够的能量来启动）’
+* 7 -> ‘对称性 (DC-link 对齐)’
 * 8 -> ‘中继测试’
-* 9 -> ‘电网无源（逆变器从电网获取电力，无需桥接时钟）’
+* 9 -> ‘电网无源 (逆变器从电网获取电力，无需桥接时钟)’
 * 10 -> ‘准备蝙蝠被动’
 * 11 -> ‘电池被动（离网）’
 * 12 -> ‘硬件测试’
@@ -64,10 +65,23 @@ hash: ShtzmrJJbgRoDqB4ujHwqyN0rY0CH6kACD41ZyDvKBo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* (NCIceWolf) some improvements on connect / disconnect 
+
+### 1.2.9 (2024-05-17)
+* (Andreas Ruttkamp) wrong type for next_calib_date corrected
+
+
+### 1.2.8 (2024-05-16)
 * (NCIceWolf) Implementation of new adminUI
 * (Andreas Ruttkamp) index_m.html deleted
-
+* (Andreas Ruttkamp) Datatype battery_stack_cycles corrected
+* (NCIceWolf) style.css deleted (not needed for json admin)
+* (NCIceWolf) removed tab-materialize (leftover from initial adapter creation)
+* (NCIceWolf) updated minimum js-controller version to >= 5.0.0 (current: 5.0.19)
+* (NCIceWolf) added minimum admin version to >= 5.0.0 (current stable : 6.13.16), could even be >= 6.0.0
+* (NCIceWolf) prepared translations (further handling -> https://github.com/ioBroker/adapter-dev#manage-translations)
 
 ### 1.2.7 (2024-05-05)
 * (Andreas Ruttkamp) prim_sm.state added

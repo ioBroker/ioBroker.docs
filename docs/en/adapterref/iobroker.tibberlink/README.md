@@ -96,9 +96,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 3.1.2 (2024-05-2x)
+### 3.1.2 (2024-05-20)
 
--   (HombachC) WIP (#393)
+-   (HombachC) deleting unused temp home objects after adapter config (#393)
+-   (HombachC) bump dependencies
 
 ### 3.1.1 (2024-05-16)
 

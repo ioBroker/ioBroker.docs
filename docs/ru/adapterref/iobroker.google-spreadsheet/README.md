@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-таблица
-hash: pNNJabJ6O6XqQiqNx6Uq1ZsvnOEWJqn8HYgvg21zAsE=
+hash: nIYm1Ad3WTVvd/mndQZOu/tMzmOjTqCo45gMWTz8sCI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -25,6 +25,8 @@ hash: pNNJabJ6O6XqQiqNx6Uq1ZsvnOEWJqn8HYgvg21zAsE=
 * [Создание листов] (features/create-sheet.md)
 * [Удалить листы](features/delete-sheet.md)
 * [Дубликаты листов] (features/duulate-sheet.md)
+* [Читать ячейку] (features/read-cell.md)
+* [Запись ячейки](features/write-cell.md)
 
 ## Использование
 ### Настраивать
@@ -64,9 +66,9 @@ hash: pNNJabJ6O6XqQiqNx6Uq1ZsvnOEWJqn8HYgvg21zAsE=
 #### Настройка экземпляра адаптера
 Добавьте следующую информацию в конфигурацию экземпляра вашего адаптера в ioBroker:
 
-- **Идентификатор таблицы**. Идентификатор можно найти в URL-адресе вашей таблицы.
+- **Идентификатор таблицы** – идентификатор можно найти в URL-адресе вашей таблицы.
 - **Учетная запись службы** – адрес электронной почты созданной вами учетной записи службы.
-- **Закрытый ключ** – откройте загруженный файл JSON и найдите в нем закрытый ключ. Скопируйте только ту часть, которая начинается с «----- BEGIN PRIVATE KEY -----».
+- **Закрытый ключ** – откройте загруженный файл JSON и найдите в нем закрытый ключ. Скопируйте только часть, начинающуюся с «-----BEGIN PRIVATE KEY-----».
 
 #### Найдите идентификатор таблицы в URL-адресе
 Чтобы найти «Идентификатор электронной таблицы» в URL-адресе вашего документа Google Таблиц, выполните следующие действия:
@@ -77,7 +79,7 @@ hash: pNNJabJ6O6XqQiqNx6Uq1ZsvnOEWJqn8HYgvg21zAsE=
 https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ```
 
-2. «SPREADSHEET_ID» — это длинная строка символов и цифр между частями «/d/» и «/edit» URL-адреса.
+2. SPREADSHEET_ID — это длинная строка символов и цифр между частями URL-адреса «/d/» и «/edit».
 
 ### Блочно
 Используйте доступные блоки для автоматического взаимодействия с вашей электронной таблицей.
@@ -85,13 +87,17 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ![Блочно](../../../en/adapterref/iobroker.google-spreadsheet/img/blockly-append.png)
 
 ## Поиск неисправностей
-### Ошибка при отправке данных в электронную таблицу Google: Ошибка: ошибка: 0909006C: процедуры PEM: get_name: нет начальной строки
+### Ошибка при отправке данных в электронную таблицу Google: Ошибка: ошибка: 0909006C: Подпрограммы PEM: get_name: нет начальной строки
 При копировании закрытого ключа в конфигурацию убедитесь, что в нем нет \n. Если в ключе есть \n, замените его обычными переносами строк.
 
 ### Ошибка при отправке данных в таблицу Google: Ошибка: у вызывающего абонента нет разрешения
 Убедитесь, что у учетной записи службы есть достаточные разрешения для записи в электронную таблицу. См. раздел «Предоставить доступ к электронной таблице» выше.
 
 ## Changelog
+### 0.3.0
+* (Thomas Pohl) Added writing of single cells
+* (Thomas Pohl) Added reading of single cells
+* (Thomas Pohl) Documentation for all features
 ### 0.2.0
 * (Thomas Pohl) Parsing of private keys is now more robust
 

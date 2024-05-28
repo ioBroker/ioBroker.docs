@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: t0hprmXWqAcvpKhDsvzKKIKMcgqXnZXQeneXlp5Q6Y0=
+hash: yOPURHjALTS8LFxCvZ7F6bRoIinPS2T2dFhTsl/Yrn0=
 ---
 ![标识](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -20,22 +20,24 @@ hash: t0hprmXWqAcvpKhDsvzKKIKMcgqXnZXQeneXlp5Q6Y0=
 ＃ 基本概念
 Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换。
 
-该适配器可以监听该通信并提取许多有用信息。还支持电表 E380CA 和 E3100CB。
+该适配器可以监听此通信并提取许多有用信息。还支持电表 E380CA 和 E3100CB。这种操作模式称为**收集**。
 
-同时支持**读取数据点** (ReadByDid)。可以主动请求通过监听无法获得的信息。其他设备也使用 UDSonCAN 协议，例如著名的 WAGO 网关。
-
-还支持通过 UDSonCAN (WriteByDid) 写入数据点。通过写入数据点，可以更改设定点、计划等。甚至可以添加新的计划，例如家用热水循环泵的计划。
+同时支持**读取和写入数据点**。可以主动请求通过监听无法获得的信息。通过写入数据点，可以更改设定点、计划等。甚至可以添加新的计划，例如用于家用热水循环泵。这种操作模式称为**UDSonCAN**。其他设备（例如著名的 WAGO 网关）也使用 UDSonCAN 协议（基于 CAN 总线的**通用**诊断**服务）。
 
 数据写入通过存储相应状态（`Acknowledged` 未选中（ack=false））来触发 - 是的，就这么简单！写入后 2.5 秒，数据点将再次从设备读取并存储在该状态中。如果状态未得到确认，请查看日志。
 
 使用**白名单**将写入限制为一组数据点。该列表存储在每个设备的信息部分，例如`e3oncan.0.vitocal.info.udsDidsWritable`。您可以通过编辑此状态来添加更多数据点。确保在保存状态时**不要**检查`Acknowledged`。
 
-适配器实例首次启动时，将进行设备扫描，并提供配置对话框中所有可用设备的列表。
-首次设置时，应扫描每个设备的数据点。
+适配器实例首次启动时，将进行设备扫描，提供配置对话框中所有可用 E3 设备的列表（未列出电能表）。
+应在首次设置期间扫描每个 E3 设备的数据点，详情见下文。
+
+可以使用哪些操作模式（收集和/或 UDSonCAN）取决于您的**设备拓扑**。更多信息请参见[这里](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34)。
+
+对于可能的**用例**，请参阅此[讨论](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35)（正在建设中）。
 
 本适配器的重要部分基于项目[open3e](https://github.com/open3e)。
 
-还可以使用基于 Python 的 MQTT 消息传递实现纯监听方法，请参阅[E3onCAN](https://github.com/MyHomeMyData/E3onCAN)。
+还可以使用基于 Python 的、使用 MQTT 消息传递的纯监听方法（仅收集）实现，请参阅[E3onCAN](https://github.com/MyHomeMyData/E3onCAN)。
 
 ＃ 入门
 **先决条件：**
@@ -71,7 +73,7 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 * 就是这样。按“保存并关闭”按钮并检查对象树中收集的数据。
 
 # E380 数据和单位
-最多支持两个 E380 能量计。数据点的 ID 取决于设备 CAN 地址：
+最多支持两个 E380 电能表。数据点的 ID 取决于设备 CAN 地址：
 
 CAN-address=97：偶数 ID 的数据点
 
@@ -109,27 +111,24 @@ CAN-address=98：具有奇数 ID 的数据点
 | 1385_15 |电压，L3 | V |
 
 # 提示和限制
-## 此 ioBroker 适配器正在开发中，处于*测试阶段*
-* 数据结构和功能在未来版本中可能会发生变化。
-* 欢迎您在自己的环境中测试适配器。请向我反馈您的体验和发现。
-
-## 为什么要并行使用数据收集（仅监听）和 UDSonCAN（ReadByDid）？
-* 连接 E3 设备后，您就可以从交换的数据中受益。只需聆听，您就可以在变化时实时收到可用数据。因此，您可以在每次变化时直接获得快速变化的数据（例如能量流值）和缓慢变化的数据（例如温度）。您可以随时了解这些值。
-* 其他无法或很少通过收集获得的数据，您可以通过 UDSonCAN ReadByDid 添加。通常对于设定点数据，这是最佳方法。
+## 为什么要并行使用数据收集（模式 Collect）和 UDSonCAN？
+* 连接 E3 设备后，您就可以从交换的数据中受益（[更多详细信息](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34)）。只需监听，您就可以在变化时实时收到可用数据。因此，您可以在每次变化时直接获得快速变化的数据（例如能量流值）和缓慢变化的数据（例如温度）。您可以随时了解这些值。
+* 您可以通过 UDSonCAN ReadByDid 添加无法或很少通过收集获得的其他数据。通常对于设定点数据，这是最佳方法。
 * 因此，从我的角度来看，两种方法的结合是最好的方法。
 
 ## 收集数据的限制
-* 目前，仅 Vitocal（CAN id 0x693 上的监听器）、Vitocharge VX3 和 Vitoair（均为 CAN id 0x451 上的监听器）知道该通信协议。
+* 目前，仅 Vitocal（内部 CAN 上的 CAN id 0x693 上的监听器）、Vitocharge VX3 和 Vitoair（外部 CAN 上的 CAN id 0x451 上的监听器）知道该通信协议。
 
 ## 与 open3e 项目有何不同？
 * 显然，主要区别在于直接集成到 ioBroker。配置可以通过对话框完成，数据直接列在对象树中。
 * 除了 open3e 之外，还支持通过监听实时收集数据。
 * 写入数据更加简单，只需在相应状态下更改数据，然后按保存按钮即可。
+* 无需通过 MQTT 交换数据。但是，当然可以通过配置数据状态来实现。
 
 ## Open3e 可以并行使用吗？
 是的，在某些条件下这是可能的：
 
-* 如果您仅在此处使用数据收集，则可以无限制使用 open3e。
+* 如果您在这里只使用数据收集，那么您可以无限制地使用 open3e。
 * 如果您在此处使用 UDSonCAN，请务必不要对与 open3e 相同的设备执行此操作。如果您这样做，您将遇到偶尔的通信错误。
 
 ## Changelog
@@ -137,6 +136,11 @@ CAN-address=98：具有奇数 ID 的数据点
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.1 (2024-05-26)
+* (MyHomeMyData) Updated README, added links for description of device topology and to uses cases
+* (MyHomeMyData) Added info for data points 2404_BivalenceControlMode and 2831_BivalenceControlAlternativeTemperature
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240505
+
 ### 0.9.0 (2024-04-21)
 * (MyHomeMyData) Structure of data point 1690 (ElectricalEnergySystemPhotovoltaicStatus) changed based on issue https://github.com/MyHomeMyData/E3onCAN/issues/6. Manual adaptations may be needed, please check!
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20240420

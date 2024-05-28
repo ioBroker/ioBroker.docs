@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: t0hprmXWqAcvpKhDsvzKKIKMcgqXnZXQeneXlp5Q6Y0=
+hash: yOPURHjALTS8LFxCvZ7F6bRoIinPS2T2dFhTsl/Yrn0=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -20,23 +20,25 @@ hash: t0hprmXWqAcvpKhDsvzKKIKMcgqXnZXQeneXlp5Q6Y0=
 # Basiskonzept
 Geräte der Viessmann E3-Serie (One Base) tauschen viele Daten über den CAN-Bus aus.
 
-Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Energiezähler E380CA und E3100CB werden ebenfalls unterstützt.
+Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Die Energiezähler E380CA und E3100CB werden ebenfalls unterstützt. Dieser Betriebsmodus wird **Collect** genannt.
 
-Parallel dazu wird das **Lesen von Datenpunkten** (ReadByDid) unterstützt. Informationen, die beim Mithören nicht verfügbar sind, können aktiv abgefragt werden. Das UDSonCAN-Protokoll wird auch von anderen Geräten verwendet, z.B. von bekannten WAGO-Gateways.
-
-Das **Schreiben von Datenpunkten** über UDSonCAN (WriteByDid) wird ebenfalls unterstützt. Durch das Schreiben auf Datenpunkte ist es möglich, Sollwerte, Zeitpläne usw. zu ändern. Es ist sogar möglich, neue Zeitpläne hinzuzufügen, z. B. für die Brauchwasserzirkulationspumpe.
+Parallel wird das **Lesen und Schreiben von Datenpunkten** unterstützt. Informationen, die nicht über das Listening verfügbar sind, können aktiv angefordert werden. Durch das Schreiben auf Datenpunkte ist es möglich, Sollwerte, Zeitpläne usw. zu ändern. Es ist sogar möglich, neue Zeitpläne hinzuzufügen, z. B. für die Brauchwasserzirkulationspumpe. Diese Betriebsart wird **UDSonCAN** genannt. Das UDSonCAN-Protokoll (**U**niversal **D**iagnostic **S**ervices based **on CAN** bus) wird auch von anderen Geräten verwendet, z. B. vom bekannten WAGO-Gateway.
 
 Das Schreiben der Daten wird durch das Speichern des entsprechenden Status mit `Acknowledged` nicht aktiviert (ack=false) ausgelöst - ja, so einfach ist das! Der Datenpunkt wird 2,5 Sekunden nach dem Schreiben erneut vom Gerät gelesen und im Status gespeichert. Wenn der Status nicht bestätigt wird, sehen Sie bitte in den Protokollen nach.
 
 Das Schreiben ist mithilfe einer **Whitelist** auf eine Reihe von Datenpunkten beschränkt. Die Liste wird im Infobereich jedes Geräts gespeichert, z. B. unter `e3oncan.0.vitocal.info.udsDidsWritable`. Sie können weitere Datenpunkte hinzufügen, indem Sie diesen Status bearbeiten. Achten Sie darauf, beim Speichern des Status `Acknowledged` **nicht** zu aktivieren.
 
-Beim ersten Start der Adapterinstanz wird ein Gerätescan durchgeführt, der eine Liste aller verfügbaren Geräte für den Konfigurationsdialog bereitstellt.
+Beim ersten Start der Adapterinstanz wird ein Gerätescan durchgeführt, der eine Liste aller verfügbaren E3-Geräte für den Konfigurationsdialog bereitstellt (Energiezähler werden nicht aufgelistet).
 
-Bei der ersten Einrichtung sollte ein Scan nach Datenpunkten jedes Geräts durchgeführt werden.
+Bei der ersten Einrichtung sollte ein Scan nach Datenpunkten jedes E3-Geräts durchgeführt werden, Einzelheiten siehe unten.
+
+Welche Betriebsarten (Collect und/oder UDSonCAN) verwendet werden können, hängt von Ihrer **Gerätetopologie** ab. Weitere Informationen finden Sie unter [Hier](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34).
+
+Mögliche **Anwendungsfälle** finden Sie hier: [Diskussion](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35) (im Aufbau).
 
 Wichtige Teile dieses Adapters basieren auf dem Projekt [offen3e](https://github.com/open3e).
 
-Eine Python-basierte Implementierung eines reinen Listening-Ansatzes mit MQTT-Messaging ist ebenfalls verfügbar, siehe [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
+Eine Python-basierte Implementierung eines reinen Listening-Ansatzes (nur Collect) unter Verwendung von MQTT-Messaging ist ebenfalls verfügbar, siehe [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
 # Erste Schritte
 **Voraussetzungen:**
@@ -51,7 +53,7 @@ Alle von diesem Adapter bereitgestellten Dienste basieren auf der Geräteliste I
 
 **Aufbau**
 
-* Nach Abschluss der Installation des Adapters wird ein Konfigurationsdialog angezeigt, in dem Sie bis zu zwei CAN-Bus-Adapter konfigurieren können (Registerkarte „CAN-ADAPTER“).
+* Nach Abschluss der Installation des Adapters wird ein Konfigurationsdialogfeld angezeigt, in dem Sie bis zu zwei CAN-Bus-Adapter konfigurieren können (Registerkarte „CAN-ADAPTER“).
 * Bearbeiten Sie den Namen des Adapters und aktivieren Sie das Kontrollkästchen "Mit Adapter verbinden" zumindest für den externen Adapter
 * Wenn Sie fertig sind, drücken Sie die Schaltfläche „SPEICHERN“, um die Änderungen anzuwenden. Dieser Schritt ist **obligatorisch**. Die Instanz wird neu gestartet und stellt eine Verbindung zum CAN-Adapter her.
 * Gehen Sie zur Registerkarte „LISTE DER UDS-GERÄTE“ und führen Sie einen Scan nach auf dem Bus verfügbaren Geräten durch, indem Sie die Scan-Schaltfläche drücken. **Dies dauert einige Sekunden.** Sie können die Aktivitäten in einer zweiten Browser-Registerkarte verfolgen, indem Sie sich die Protokollinformationen des Adapters ansehen.
@@ -110,22 +112,19 @@ CAN-Adresse=98: Datenpunkte mit ungeraden IDs
 | 1385_15 | Spannung, L3 | V |
 
 # Hinweise und Einschränkungen
-## Dieser ioBroker-Adapter befindet sich in der Entwicklung und im *Beta-Stadium*
-* Datenstruktur und Funktionalität können sich in zukünftigen Versionen ändern.
-* Gerne können Sie den Adapter in Ihrer Umgebung testen. Bitte geben Sie mir Feedback zu Ihren Erfahrungen und Erkenntnissen.
-
-## Warum Datenerfassung (nur Abhören) und UDSonCAN (ReadByDid) parallel verwenden?
-* Wenn Sie E3-Geräte angeschlossen haben, können Sie von den ausgetauschten Daten profitieren. Durch bloßes Zuhören erhalten Sie verfügbare Daten in Echtzeit direkt bei der Änderung. So können Sie schnell wechselnde Daten (z. B. Energieflusswerte) und langsam wechselnde Daten (z. B. Temperaturen) direkt bei jeder Änderung erhalten. Sie sind über diese Werte immer auf dem Laufenden.
+## Warum Datenerfassung (Modus Collect) und UDSonCAN parallel verwenden?
+* Wenn Sie E3-Geräte angeschlossen haben, können Sie von den ausgetauschten Daten profitieren ([weitere Details](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34)). Durch bloßes Zuhören erhalten Sie verfügbare Daten in Echtzeit direkt bei der Änderung. So können Sie schnell wechselnde Daten (z. B. Energieflusswerte) und langsam wechselnde Daten (z. B. Temperaturen) direkt bei jeder Änderung abrufen. Sie sind über diese Werte immer auf dem Laufenden.
 * Andere Daten, die nicht oder nur selten über die Sammlung verfügbar sind, können Sie über UDSonCAN ReadByDid hinzufügen. Normalerweise ist dies für Sollwertdaten der beste Ansatz.
 * Daher ist aus meiner Sicht die Kombination beider Methoden der beste Ansatz.
 
 ## Einschränkung der Datenerfassung
-* Derzeit ist das Kommunikationsprotokoll nur für Vitocal (Listener auf CAN-ID 0x693), Vitocharge VX3 und Vitoair (beide Listener auf CAN-ID 0x451) bekannt.
+* Derzeit ist das Kommunikationsprotokoll nur für Vitocal (Listener auf CAN-ID 0x693 auf internem CAN), Vitocharge VX3 und Vitoair (beide Listener auf CAN-ID 0x451 auf externem CAN) bekannt.
 
 ## Was ist anders am open3e-Projekt?
 * Der Hauptunterschied liegt natürlich in der direkten Integration in ioBroker. Die Konfiguration kann über Dialoge erfolgen, Daten werden direkt in Objektbäumen aufgelistet.
-* Zusätzlich zu open3e wird das Echtzeit-Erfassen von Daten durch Abhören unterstützt.
+* Zusätzlich zu open3e wird das Sammeln von Daten in Echtzeit durch Abhören unterstützt.
 * Das Schreiben von Daten ist viel einfacher. Ändern Sie einfach die Daten im entsprechenden Status und drücken Sie die Schaltfläche Speichern.
+* Der Datenaustausch über MQTT ist nicht zwingend erforderlich. Über die Konfiguration der Datenzustände ist er jedoch selbstverständlich möglich.
 
 ## Darf open3e parallel verwendet werden?
 Ja, das ist unter bestimmten Voraussetzungen möglich:
@@ -138,6 +137,11 @@ Ja, das ist unter bestimmten Voraussetzungen möglich:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.1 (2024-05-26)
+* (MyHomeMyData) Updated README, added links for description of device topology and to uses cases
+* (MyHomeMyData) Added info for data points 2404_BivalenceControlMode and 2831_BivalenceControlAlternativeTemperature
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240505
+
 ### 0.9.0 (2024-04-21)
 * (MyHomeMyData) Structure of data point 1690 (ElectricalEnergySystemPhotovoltaicStatus) changed based on issue https://github.com/MyHomeMyData/E3onCAN/issues/6. Manual adaptations may be needed, please check!
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20240420

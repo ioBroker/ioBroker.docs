@@ -63,6 +63,15 @@ sometimes npm intall must be called more then one time to successfully install a
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.3.2 (2024-05-26)
+* (René) change of dependencies
+
+### 4.3.1 (2024-05-23)
+* (René) bug fix for data history in VIS-2
+
+### 4.3.0 (2024-05-22)
+* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
+
 ### 4.2.4 (2024-01-13)
 * (René) upgrade better-sqlite
 

@@ -15,22 +15,24 @@
 # Basic concept
 Viessmann E3 series devices (One Base) are doing a lot of data exchange on CAN bus.
 
-This adapter can listen to this communication and extract many useful information. Energy meter E380CA and E3100CB also are supported.
+This adapter can listen to this communication and extract many useful information. Energy meter E380CA and E3100CB also are supported. This mode of operation is called **Collect**.
 
-In parallel **reading of data points** (ReadByDid) is supported. Informations not available via listening can be actively requested. The UDSonCAN protocol is also used by other equipment, e.g. by well known WAGO gateway.
-
-**Writing of data points** via UDSonCAN (WriteByDid) is supported as well. By writing to data points it's possible to change setpoints, schedules and so on. It's even possible to add new schedules e.g. for domestic hot water circulation pump.
+In parallel **reading and writing of data points** is supported. Informations not available via listening can be actively requested. By writing to data points it's possible to change setpoints, schedules and so on. It's even possible to add new schedules e.g. for domestic hot water circulation pump. This mode of operation is called **UDSonCAN**. The UDSonCAN protocol (**U**niversal **D**iagnostic **S**ervices based **on CAN** bus) is also used by other equipment, e.g. by well known WAGO gateway.
 
 Writing of data is triggered by storing the corresponding state with `Acknowledged` not checked (ack=false) - yes, it's that simple! The data point will be read again from device and stored in the state 2.5 seconds after writing. If state not get's acknowledged, please take a look to the logs.
 
 Writing is restricted to a set of data points using a **white list**. The list is stored in the info section of each device, e.g. at `e3oncan.0.vitocal.info.udsDidsWritable`. You can add more data points by editing this state. Make sure, **not** to check `Acknowledged` when saving the state.
 
-During first start of adapter instance a device scan will be done providing a list of all available devices for configuration dialog.
-A scan for data points of each device should be done during first setup.
+During first start of adapter instance a device scan will be done providing a list of all available E3 devices for configuration dialog (energy meters are not listed).
+A scan for data points of each E3 device should be done during first setup, details see below.
+
+Which modes of operation (Collect and/or UDSonCAN) can be used depends on your **device topology**. Additional information is available [here](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34).
+
+For possible **use cases** please refer to this [discussion](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35) (under construction).
 
 Important parts of this adpater are based on the project [open3e](https://github.com/open3e).
 
-A python based implementation of a pure listening approach using MQTT messaging is also availabe, see [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
+A python based implementation of a pure listening approach (Collect only) using MQTT messaging is also availabe, see [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
 # Getting started
 
@@ -102,22 +104,19 @@ CAN-address=98: data points with odd IDs
 
 # Hints and limitations
 
-## This ioBroker adapter is under development and *beta stage*
-* Data structure and functionality may chenge in future versions.
-* You're welcome to test the adapter in your environment. Please give me feedback about your experience and findings.
-
-## Why using data collection (listening only) and UDSonCAN (ReadByDid) in parallel?
-* When you have connected E3 devices you can benefit of the exchanged data. By just listening you will receive available data in realtime right on changing. So you can get fast changing data (e.g. energy flow values) and slowly changing data (e.g. temperatures) directly on each change. You're up do date all time for those values.
+## Why using data collection (mode Collect) and UDSonCAN in parallel?
+* When you have connected E3 devices you can benefit of the exchanged data ([more details](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34)). By just listening you will receive available data in realtime right on changing. So you can get fast changing data (e.g. energy flow values) and slowly changing data (e.g. temperatures) directly on each change. You're up do date all time for those values.
 * Other data, not or rarely available via collection, you can add via UDSonCAN ReadByDid. Typically for setpoint data this is best approach.
 * Therfore from my point of view, combination of both methods is best approach.
 
 ## Limitation of collecting data
-* At present, the communication protocol is known only for Vitocal (listener on CAN id 0x693), Vitocharge VX3 and Vitoair (both listener on CAN id 0x451).
+* At present, the communication protocol is known only for Vitocal (listener on CAN id 0x693 on internal CAN), Vitocharge VX3 and Vitoair (both listener on CAN id 0x451 on external CAN).
 
 ## What is different to open3e project?
 * Obviously, the main differece is the direct integration to ioBroker. Configuration can be done via dialogs, data get's directly listed in object trees.
 * In addition to open3e real time collecting of data via listening is supported.
-* Writing of data is much simpler. Just change the data in corresponding state and press Save button. 
+* Writing of data is much simpler. Just change the data in corresponding state and press Save button.
+* Exchanging data via MQTT is not neccessary. However it's of course available via configuration of data states.
 
 ## May open3e be used in parallel?
 Yes, that is possible under certain conditions:
@@ -129,6 +128,11 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.1 (2024-05-26)
+* (MyHomeMyData) Updated README, added links for description of device topology and to uses cases
+* (MyHomeMyData) Added info for data points 2404_BivalenceControlMode and 2831_BivalenceControlAlternativeTemperature
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240505
+
 ### 0.9.0 (2024-04-21)
 * (MyHomeMyData) Structure of data point 1690 (ElectricalEnergySystemPhotovoltaicStatus) changed based on issue https://github.com/MyHomeMyData/E3onCAN/issues/6. Manual adaptations may be needed, please check!
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20240420

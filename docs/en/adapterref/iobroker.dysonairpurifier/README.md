@@ -36,7 +36,7 @@ Fan-Icon in Logo created by [Freepik](https://www.flaticon.com/de/autoren/freepi
 - Dyson Pure Humidify+Cool (PH01, ProductType 358)
 - Dyson Pure Humidify+Cool (PH03, ProductType 358E)
 - Dyson Pure Humidify+Cool Formaldehyde (PH04, ProductType 358K)
-- Dyson Purifier Hot+Cool Formaldehyde HP09
+- Dyson Purifier Big+Quiet Formaldehyde (BP03, Produce type 664)
 
 ## Features
 
@@ -184,6 +184,19 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 ## Changelog
 
 ### **WORK IN PROGRESS**
+
+### 3.2.0 (2024-05-27) (Marching on)
+
+- (grizzelbee) Chg: Lamps (Product type 552a) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
+- (grizzelbee) Chg: Vacuum cleaner robots (Product types 276 and 277) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
+- (grizzelbee) New: [#289](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/289) Added Support for Dyson Purifier Big+Quiet Formaldehyde (BP03, Produce type 664) 
+- (grizzelbee) Fix: [#287](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/287) Added Switzerland again to config 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Chg: removed obsolete index_m.html
+- (grizzelbee) Fix: Fixed broken NO2Index
+- (grizzelbee) Fix: Fixed broken fan speeds 0-10
+- (grizzelbee) Fix: Fixed polling of sensor data
+- (grizzelbee) Fix: setting fan speed = Auto works 
 
 ### 3.1.10 (2024-05-14) (Marching on)
 

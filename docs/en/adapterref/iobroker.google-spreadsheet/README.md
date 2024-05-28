@@ -21,6 +21,8 @@ This adapter can be used to automatically interact with google spreadsheets.
 * [Create sheets](features/create-sheet.md)
 * [Delete sheets](features/delete-sheet.md)
 * [Duplicate sheets](features/duplicate-sheet.md)
+* [Read cell](features/read-cell.md)
+* [Write cell](features/write-cell.md)
 
 ## Usage
 
@@ -98,6 +100,10 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 
 
 ## Changelog
+### 0.3.0
+* (Thomas Pohl) Added writing of single cells
+* (Thomas Pohl) Added reading of single cells
+* (Thomas Pohl) Documentation for all features
 ### 0.2.0
 * (Thomas Pohl) Parsing of private keys is now more robust
 

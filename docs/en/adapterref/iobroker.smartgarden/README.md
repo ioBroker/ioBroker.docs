@@ -130,9 +130,9 @@ at least one working [GARDENA smart device](#supported-devices).
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [2.0.1](#201)
      * [2.0.0](#200)
-     * [1.0.6](#106)
-     * [previous versions](#105)
+     * [previous versions](#106)
   * [Credits](#credits)
   * [License](#license)  
   
@@ -651,6 +651,15 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+### 2.0.1
+* (jpgorganizer) 2024-May-25
+  - fixed warning `smartgarden has an invalid jsonConfig`, e.g. 
+  [Issue 72](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/72)
+  - fixed [Issue 64](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/64)
+    `Connection == true` when adapter is stopped
+  - Fix comparison with `NaN` in api.js, e.g. [Pull request 67](https://github.com/jpgorganizer/ioBroker.smartgarden/pull/67)
+  - some further minor changes
+
 ### 2.0.0
 * (jpgorganizer) 2022-Jun-13
   - support for new login procedure to Gardena webservice: using *Application secret* and *Application key* 
@@ -835,7 +844,7 @@ smartgarden logo: http://www.freepik.com Designed by Freepik
 
 ## License
 
-Copyright (c) 2020 - 2023 jpgorganizer, https://github.com/jpgorganizer 
+Copyright (c) 2020 - 2024 jpgorganizer, https://github.com/jpgorganizer 
 
 smartgarden by jpgorganizer is licensed under a 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 
@@ -843,4 +852,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2871 $ $Date: 2022-12-24 15:01:59 +0100 (Sa, 24 Dez 2022) $ --->
+<!--- SVN: $Rev: 3209 $ $Date: 2024-05-25 12:16:16 +0200 (Sa, 25 Mai 2024) $ --->

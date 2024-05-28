@@ -1,10 +1,10 @@
 ---
 title: 视窗
-lastChanged: 14.01.2024
+lastChanged: 21.05.2024
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/windows.md
-hash: /MbzX3VqXu5BJwgcY2sPyem5I8kvkABYfsYbjNyEsig=
+hash: G2wervEILmAU3LoeQyL7+J2VcZk6xmau2UNkVKG17Jc=
 ---
 # 检查需求
 安装之前，请检查系统是否满足所有必要的[安装要求](./requirements.md)。
@@ -65,7 +65,7 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 3. ioBroker Fixer无法选择
 
 接下来的两个选项可以更改，但通常建议保留默认设置。
-最后，安装程序提供了采用现有安装配置的选项。这需要整个“iobroker-data”文件夹，如果存在 ioBroker 安装，则可以在 ioBroker 文件夹中找到该文件夹。这可以来自 Windows 或 Linux 下的 ioBroker 安装。数据是在安装过程中从此文件夹中获取的；该文件夹的内容不会更改。
+最后，安装程序提供了采用现有安装配置的选项。这需要整个“iobroker-data”文件夹，如果存在 ioBroker 安装，则可以在 ioBroker 文件夹中找到该文件夹。这可以来自 Windows 或 Linux 下的 ioBroker 安装。安装期间从该文件夹中获取数据；该文件夹的内容不会更改。
 单击“下一步”后，我们现在可以看到计划操作的摘要：
 
    ![选项](../../de/install/media/windows/InstallWin_summary.png "选项")
@@ -87,11 +87,15 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 
 - 在 Windows Installer 的帮助下，已安装的 Node.js 版本可以自动更新到推荐的级别。
 
-  为此，只需从 Windows 开始菜单（“ioBroker 安装程序”）启动安装程序并按照说明进行操作即可。
+  为此，只需从 Windows 开始菜单（“ioBroker 安装程序”）启动安装程序并按照说明进行操作即可。稍后会自动检测并提供 Node.js 的可用更新。
 
-- 不幸的是，js 控制器无法使用 Windows Installer 进行更新。这必须使用 ioBroker 命令行来完成。这可以从 Windows 开始菜单中的“ioBroker 自动化平台”-“ioBroker 命令行”启动。
+- 从 Windows Installer 版本 3.1.0 开始，Windows Installer 也可用于更新 JS 控制器。
 
-  然后使用以下命令执行更新：
+  为此，只需从 Windows 开始菜单（“ioBroker 安装程序”）启动安装程序并按照说明进行操作即可。 JS 控制器的可用更新会自动检测并稍后提供。
+
+- 也可以手动更新 JS 控制器。但是，明确建议使用 Windows Installer 执行更新。
+
+  如果您仍想手动更新，可以使用以下命令进行更新：
 
   `iob stop`
 

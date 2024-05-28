@@ -39,6 +39,15 @@ Switches
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.9 (2024-05-24)
+* Fixed missing object id if type is nav (#14)
+* Fixed content color for icons not working (#22)
+
+### 0.1.7 (2024-05-22)
+* Fixed missing object id if type is nav (#14)
+* Fixed image aspect ratio (#15)
+* Added options to customize dialog
+
 ### 0.1.5 (2024-04-14)
 * Added optional button click feedback options
 * Added widget type to send http requests and open urls

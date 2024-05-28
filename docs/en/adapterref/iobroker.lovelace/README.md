@@ -473,9 +473,9 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.10 (2024-05-23)
 * (Garfonso) device icons work again.
-
+* (Garfonso) default user sometimes was not found in system.
 
 ### 4.1.9 (2024-04-26)
 * (Garfonso) add support for new service call structure.
@@ -492,9 +492,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 4.1.5 (2024-03-05)
 * (Garfonso) fixed: possible crashes during startup
-
-### 4.1.4 (2024-02-10)
-* (Garfonso) improved fix: lamp icons now turn gray on switch off.
 
 ## License
 
