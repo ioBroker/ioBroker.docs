@@ -473,3 +473,10 @@ There is a new version for Windows installer available: 3.1.0
 New features:
 - Update/Upgrade of JS-Controller implemented
 - Some bugfixes
+
+## radar-trap (29.5.2024) – new adapter at stable
+https://github.com/Steiger04/ioBroker.radar-trap
+
+<img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
+
+Adapter to detect speed traps and obstacles.
