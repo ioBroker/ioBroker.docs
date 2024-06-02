@@ -23,6 +23,9 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2024-05-28)
+* (BenAhrdt) change deviceInformations (keep old values in structure)
+
 ### 1.1.1 (2024-05-15)
 * (BenAhrdt) mqtt dependencies updated for better keepalive
 

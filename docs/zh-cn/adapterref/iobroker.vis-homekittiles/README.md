@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: 0bWcQBiuO+3z3rc3W+Ngox6So4B1c7VhiE+r/Kc/zbk=
+hash: airOhvSaq8KtRqgPpF0JkO3COqgwAP9G7WCP+W76vVs=
 ---
 # IoBroker.vis-homekittiles
 
@@ -32,8 +32,6 @@ Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
 
 要做的事情
 * 创建带图标的简单按钮
-* 恒温器小部件：在面板上显示电池电量低和未接通电源
-* 恒温器小部件：添加信号图片
 * 创建迷你媒体播放器
 * 创建选择图块
 * 创建子菜单按钮
@@ -41,9 +39,16 @@ Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
 
 ## Changelog
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+### 0.0.15 (2024-05-31)
+
+* (Standarduser) dialog: fixed positioning
+* (Standarduser) thermostat: corrected symbols
+* (Standarduser) thermostat: show low bat and unreach on tile
+* (Standarduser) thermostat: added signal pictures
+
 ### 0.0.14 (2024-05-15)
 
 * (Standarduser) settings-bool: corrected height of widget

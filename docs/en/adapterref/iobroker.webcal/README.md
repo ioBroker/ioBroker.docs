@@ -173,6 +173,10 @@ This project uses the following components:
   * ()
 
 -->
+### 1.3.7 (2024-05-20)
+  * (dirkhe) improve logging
+  * (dirkhe) fix passort was not stored
+
 ### 1.3.6 (2024-05-18)
   * (dirkhe) fix bug in repeated events
 

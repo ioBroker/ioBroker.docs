@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/README.md
 title: Адаптер Synology ioBroker
-hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
+hash: r9VVnVypmDX5q/4gTy9yNfoMJmm5TimtUA6puWDSGlI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -14,13 +14,16 @@ hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
 # Адаптер Synology ioBroker
 ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Описание
 Драйвер позволяет получать данные и управлять сервером Synology NAS.
 
 ### Настройки 2FA
 Если вы используете 2FA в DSM6/7, см. инструкции [здесь](docs/en/template.md).
+
+### Важное примечание по установке Windows
+Для этого адаптера в системе Hist должен быть установлен git. Установочный носитель можно найти по адресу https://git-scm.com/download/win.
 
 ### Перезагрузка и выключение
 Адаптер будет делать это через SSH, начиная с версии 2.1.4, поэтому установите порт SSH в настройках адаптера. Посмотреть его можно в настройках Synology: ![графика](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![графика](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png).
@@ -49,7 +52,7 @@ hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
 ***AudioStation.players.{PLAYERID}***:
 
 *play, пауза, стоп, следующая, предыдущая - Управление воспроизведением (кнопка, только true)
-* повтор - Управление повтором (Выкл., Все, Один)
+* повтор - управление повтором (Выкл., Все, Один)
 * shuffle — управление перемешиванием (true/false)
 * Volume - Громкость пульта плеера (0-100)
 *see - Управление поиском воспроизведения (0-100)
@@ -62,7 +65,7 @@ hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
 * activeTask — количество незавершенных загрузок
 * listTasks — массив с незавершенными загрузками
 * shedule_enabled, shedule_emule_enabled — Статус и контроль запланированных или немедленных загрузок.
-* add_hash_download — добавить в хеш-загрузки (например, ``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``)
+* add_hash_download — добавить в хэш-загрузки (например, ``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``)
 * add_url_download — добавить URL-адрес для загрузки или магнитную ссылку.
 * папка — папка для загрузки, задается перед добавлением загрузки, в противном случае она загружается в папку по умолчанию.
 * пауза_таск, резюме_таск - Приостановить загрузку и возобновить ее. (например, ``dbid_170``, ``170`` или ``all``)
@@ -78,6 +81,14 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 <!--
      ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 3.0.1 (2023-10-01)
+* (Standarduser) A Typo in RegEx for Mac-Address has been corrected.
+* (McM1957) Dependencies have been updated.
+
 ### 3.0.0 (2023-09-07)
 * (Standarduser) Added WOL to awake Synology NAS server
 * (bluefox) Only node 16 or higher supported
@@ -247,6 +258,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/README.md
-title: ioBroker Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-hash: CUJE1vXzY4Olp+i/hUXHsA24LdITdLKRME/fHR+ZYKQ=
+title: ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
+hash: 6oGOIu4JOzmhPK4CsPEWl+x4BltfWPs2lJbBrk4MT5M=
 ---
 ![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed-logo.png)
 
@@ -14,30 +14,31 @@ hash: CUJE1vXzY4Olp+i/hUXHsA24LdITdLKRME/fHR+ZYKQ=
 ![AppVeyor-Build-Status](https://img.shields.io/appveyor/ci/oweitman/iobroker-rssfeed.svg)
 ![GitHub-Probleme](https://img.shields.io/github/issues/oweitman/ioBroker.rssfeed.svg)
 
-# IoBroker Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
+# IoBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
 ## Überblick
-Adapter zum Abrufen und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF).
-Sie können die Ausgabe des Feeds mit einem Vorlagensystem anpassen. In die Vorlagen können Sie HTML, CSS und Javascript einbinden.
+Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF).
+Die Ausgabe des Feeds können Sie über ein Vorlagensystem individuell anpassen. In die Vorlagen können Sie HTML, CSS und Javascript einbinden.
 
-Wichtig: Aufgrund von Fehlern in der automatischen Übersetzung durch iobroker in andere Sprachen ist nur die englische Übersetzung gültig
+Wichtig: Aufgrund von Fehlern bei automatischen Übersetzungen in andere Sprachen durch iobroker ist nur die englische Übersetzung gültig.
 
-## Instanz hinzufügen
+## Eine Instanz hinzufügen
 Nach der Installation sollte der Adapter dann im Adapterbereich im iobroker angezeigt werden.
+
 Manchmal kommt es vor, dass die Änderungen nicht sichtbar sind, insbesondere bei Web-Änderungen (Widgets / Konfigurationsdialog), ggf. muss folgender Befehl auf der Kommandozeile ausgeführt werden:
 
 ```bash
 iobroker upload rssfeed
 ```
 
-Im rechten Bereich in der Zeile des Adapters kann über die Plus-Schaltfläche eine Instanz hinzugefügt werden
+Im rechten Bereich in der Zeile des Adapters kann über den Plus-Button eine Instanz hinzugefügt werden
 
 ## Aufbau
 Die Konfiguration ist einfach. Es gibt nur wenige Felder
 
 | Einstellung | Beschreibung |
 | ------- | ----------- |
-| Standardaktualisierung (Min.) | ist die allgemeine Angabe, wie oft der Feed in Minuten wieder aufgerufen werden soll. Der Standardwert ist 60 Minuten |
-| Max. Artikel (Standard) | Die Gesamtmenge der zu verarbeitenden Daten kann hier begrenzt werden.|
+| Standardmäßiger Refresh (min) | ist die allgemeine Angabe in Minuten, wie oft der Feed erneut aufgerufen werden soll. Der Standardwert liegt bei 60 Minuten |
+| Max Artikel (Standard) | Die Gesamtmenge der zu verarbeitenden Daten kann hier begrenzt werden.|
 
 Dann für jeden neuen Feed:
 
@@ -46,23 +47,23 @@ Dann für jeden neuen Feed:
 | Name | Ein Name für den Datenpunkt. Innerhalb eines Ordners darf ein Name nicht zweimal vorkommen. |
 | Kategorie | Name für einen Unterordner, in dem der Datenpunkt erscheinen soll. Die Kategorie muss eindeutig sein |
 | URL | Die vollständige Adresse des Feeds (mit http:// oder https://, siehe Beispiele unten) |
-| Aktualisieren (min) | Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Spezifikation genommen |
-| Max Artikel | Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Spezifikation genommen |
+| Aktualisierung (min) | Für diesen Feed kann ein anderer Wert angegeben werden. Ansonsten wird die allgemeine Angabe übernommen |
+| Max Artikel | Für diesen Feed kann ein anderer Wert angegeben werden. Ansonsten wird die allgemeine Angabe übernommen |
 
-Wenn Sie die Konfiguration gespeichert und geschlossen haben, finden Sie die Feed-Daten als JSON-Datenpunkt im Objektbaum.
+Wenn Sie die Konfiguration gespeichert und geschlossen haben, sind die Feed-Daten als JSON-Datenpunkt im Objektbaum zu finden.
 Wenn Sie einen Eintrag löschen, werden die Datenpunkte nicht gelöscht.
 
 ## Vis und Widgets
-Die folgenden Widgets existieren tatsächlich
+Folgende Widgets gibt es aktuell
 
 * `RSS-Feed-Widget 2` - um einen einzelnen Feed anzuzeigen
-* `RSS-Feed-Multi-Widget` - um mehrere aggregierte Feeds in einem Widget anzuzeigen.
-* `RSS Feed Meta Helper` - ein Helfer-Widget, um die Metadaten eines Feeds zu untersuchen
-* `RSS Feed Article Helper 2` - ein Hilfs-Widget zum Einsehen der Artikeldaten eines Feeds
-* `RSS Feed Title marquee 3` - ein Widget, um die Schlagzeilen eines Feeds als Laufschrift anzuzeigen
-* `JSON Template` - ein Wdiget, das nichts mit RSS-Feeds zu tun hat, aber die gleiche Technologie verwendet und Sie können ein benutzerdefiniertes Template definieren, um beliebige JSON-Daten in vis anzuzeigen.
+* „RSS-Feed-Multi-Widget“ – um mehrere aggregierte Feeds in einem Widget anzuzeigen.
+* `RSS Feed Meta Helper` - ein Hilfs-Widget zum Überprüfen der Metadaten eines Feeds
+* `RSS Feed Article Helper 2` - ein Hilfs-Widget zur Überprüfung der Artikeldaten eines Feeds
+* `RSS Feed Title marquee 3` - ein Widget, um die Überschriften eines Feeds als Laufschrift anzuzeigen
+* „JSON-Vorlage“ – ein Widget, das nichts mit RSS-Feeds zu tun hat, aber die gleiche Technologie verwendet, und Sie können eine benutzerdefinierte Vorlage definieren, um beliebige JSON-Daten in Visual anzuzeigen.
 
-Dokumentation für die vis-Widgets sind verfügbar innerhalb von vis oder [Widget-Dokumentation/deutsch](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.rssfeed/blob/master/widgets/rssfeed/doc.html)
+Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/deutsch](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.rssfeed/blob/master/widgets/rssfeed/doc.html)
 
 ## Vorlage basierend auf Beispielen
 Ein Beispiel, das ich mit folgenden RSS-Feeds getestet habe:
@@ -85,39 +86,39 @@ Die verwendeten Tags bedeuten Folgendes
 
 | Tag | Beschreibung |
 | ----- | --------------------------------------------------------------------- |
-| <%= | Der Inhalt des enthaltenen Ausdrucks / der enthaltenen Variable wird maskiert. |
-| <%- | Der Inhalt des enthaltenen Ausdrucks / der enthaltenen Variable ist nicht maskiert. |
+| <%= | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird maskiert. |
+| <%- | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird nicht maskiert. |
 | <% | Keine Ausgabe, wird für eingeschlossene Javascript-Anweisungen verwendet |
-| %> | ist im Allgemeinen ein schließendes Tag, um eines der vorherigen zu vervollständigen |
+| %> | ist im Allgemeinen ein schließender Tag, der einen der vorherigen vervollständigt |
 
-Alles, was sich außerhalb dieser Tags befindet, wird genau so angezeigt, wie es ist, oder wenn es sich um HTML handelt, wird es als HTML interpretiert. (siehe z.B. p-tag, div-tag, small-tag Innerhalb des Templates stehen Ihnen 2 vordefinierte Variablen zur Verfügung
+Alles was außerhalb dieser Tags steht wird genauso dargestellt wie es ist oder als HTML interpretiert. (siehe z.B. das p-Tag, div-Tag, small-Tag) Innerhalb des Templates stehen dir 2 vordefinierte Variablen zur Verfügung
 
 ### `meta`
-Diese enthält alle Metainformationen zum Feed. Die folgenden Inhalte sind verfügbar. Ich denke, die Bezeichner sind selbsterklärend. In der Hilfe werde ich sie genauer beschreiben. oder geben Sie den Inhalt an (einige sind Arrays)
+Hier stehen alle Metainformationen zum Feed. Folgende Inhalte stehen zur Verfügung. Die Bezeichner sind meiner Meinung nach selbsterklärend. In der Hilfe beschreibe ich sie genauer. bzw. spezifiziere den Inhalt (einige sind Arrays)
 
-* `meta.title`
-* `meta.description`
-* `meta.link`
+* `Meta.Titel`
+* `Meta.Beschreibung`
+* `Meta.Link`
 * `meta.xmlurl`
-* `meta.date`
-* `meta.publikation`
+* `meta.datum`
+* `meta.pubdate`
 * `meta.autor`
-* `meta.sprache`
-* `meta.image`
+* `Metasprache`
+* `Meta.Bild`
 * `meta.favicon`
-* `meta.Copyright`
+* `meta.copyright`
 * `meta.generator`
-* `Meta.Kategorien`
+* `meta.kategorien`
 
 #### `articles`
-Ist ein Array mit einzelnen Elementen (Javascript-Array). Jedes Element hat die folgenden Eigenschaften.
-Damit es zum Beispiel passt, mache ich das Präfix-Item davor. Aber wenn du willst, kannst du das selbst wählen. Es muss nur in der Schleife entsprechend benannt werden (forEach). Auch hier sind die Bezeichner selbsterklärend. Nicht alle Attribute sind in jedem Feed ausgefüllt. Die wichtigsten sind bereits in der obigen Vorlage enthalten.
+Ist ein Array mit einzelnen Elementen (Javascript-Array). Jedes Element hat folgende Eigenschaften.
+Damit es passt, mache ich z.B. noch das Präfix item davor. Aber wer will kann das ja auch selbst wählen. Es muss nur in der Schleife entsprechend benannt werden (forEach). Auch hier sind die Bezeichner selbsterklärend. Nicht in jedem Feed sind alle Attribute ausgefüllt. Die wichtigsten sind im Template oben schon enthalten.
 
-* `Artikel.Titel`
-* `Artikel.Beschreibung`
-* `Artikel.Zusammenfassung`
+* `Artikeltitel`
+* `Artikelbeschreibung`
+* `Artikelzusammenfassung`
 * `Artikel.Link`
-* `Artikel.Origlink`
+* `Artikel.origlink`
 * `Artikel.Permalink`
 * `Artikel.Datum`
 * `Artikel.Veröffentlichungsdatum`
@@ -126,8 +127,8 @@ Damit es zum Beispiel passt, mache ich das Präfix-Item davor. Aber wenn du will
 * `Artikel.Kommentare`
 * `Artikel.Bild`
 * `Artikel.Kategorien`
-* `Element.Quelle`
-* `Artikel.Gehäuse`
+* `Artikel.Quelle`
+* `Artikel.Anlagen`
 
 ## Vorlagenbeispiel und ausführliche Beschreibung
 ```html
@@ -140,17 +141,17 @@ Damit es zum Beispiel passt, mache ich das Präfix-Item davor. Aber wenn du will
 <% }); %>
 ```
 
-Kurzbeschreibung was in den einzelnen Zeilen passiert Z1: Die Ausgabe des Feedtitels Z2: Ohne Ausgabe. Javascript-Befehl zum Durchlaufen aller Artikel, bei jedem Durchlauf wird das aktuelle Element dem variablen Artikel zugewiesen.
-Z3: Ausgabe von Datum und Uhrzeit ist. Es ist mit einem p / small-Tag zur Formatierung versehen. Zur Formatierung wird die Funktion vis-own date format verwendet. Beschreibung finden Sie im Adaptervis.
-Z4: Die Ausgabe des Artikeltitels. Zur Formatierung wird ein Header 3 - Tag verwendet.
-Z5: Ausgabe des Inhalts des Artikels. Es ist mit einem p-Tag umschlossen. Hier ist zumindest in den beiden Beispielen HTML-Code eingebunden, der meist mit Bild und beschreibendem Text daherkommt Z6: Ausgabe eines div-Tags, das spezielle Formatierungen im Feed-html löscht (wird in beiden Beispielen für tagesschau und bild benötigt. Anderes Futter brauchte es vielleicht nicht.
-Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
+Kurzbeschreibung was in den einzelnen Zeilen passiert Z1: Die Ausgabe des Feedtitels Z2: Ohne Ausgabe. Javascriptbefehl zum Loopen über alle Artikel, bei jedem Turn wird das aktuelle Element der Variable item zugewiesen.
+Z3: Ausgabe von Datum und Uhrzeit. Wird mit einem p/small-Tag zur Formatierung eingefasst. Zur Formatierung wird die vis-eigene Datumsformatfunktion verwendet. Beschreibung findet sich im Adapter vis.
+Z4: Die Ausgabe des Artikeltitels. Zur Formatierung wird ein Header3-Tag verwendet.
+Z5: Ausgabe des Inhalts des Artikels. Wird mit einem p-Tag eingefasst. Hier wird, zumindest in den beiden Beispielen, HTML-Code eingebunden, der meist mit Bild und Beschreibungstext daherkommt Z6: Ausgabe eines div-Tags, der spezielle Formatierungen im Feed-html aufhebt (in beiden Beispielen für tagesschau und bild wird das benötigt. Andere Feeds brauchen das vielleicht nicht.
+Z7: Ohne Ausgabe. Mit dieser Zeile wird die Javascript-Schleife geschlossen. Alles was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
 
 ## Machen
-* Unbenutzte Einträge im Datenpunkt info.lastRequest bereinigen durch Speichern im Admin-Dialog.
-* Schaltfläche zum Bereinigen nicht verwendeter Datenpunkte im Admin-Dialog
-* ~~Multi-Widget-RSS-Feeds~~
-* ~~Multi-Widget-Festzelt~~
+* Bereinigen Sie nicht verwendete Einträge im Datenpunkt info.lastRequest, indem Sie sie im Admin-Dialog speichern.
+* Button zum Bereinigen nicht genutzter Datenpunkte im Admin-Dialog
+* ~~RSS-Feeds mit mehreren Widgets~~
+* ~~Multi-Widget-Laufschrift~~
 * ~~Weitere Datenpunkte im Template verfügbar machen.~~
 * ~~Widget für Laufschrift mit den Titeln <https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
 
@@ -160,18 +161,26 @@ Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwisch
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.8.2 (2024-04-21)
+* (bluefox) Fixed loading of words.js in vis
+
+### 2.8.1 (2023-03-15)
+* (bluefox) Corrected vis widget
+* admin changed to jsonConfig, dev-environment now devcontainer
+
+### 2.7.0 (2022-12-11)
 
 ### 2.6.1 (2022-07-30)
 
-* add more informations to sentry
+* added more information to sentry
 
 ### 2.6.0 (2022-07-26)
 
-* add sentry
+* added sentry
 
 ### 2.4.0 (2022-07-25)
 
-* add name option to marquee widget
+* added name option to marquee widget
 
 ### 2.0.0
 
@@ -180,30 +189,30 @@ Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwisch
 
 ### 1.0.0
 
-* Release in stable
+* Released in stable
 
 ### 0.9.0
 
-* fix/extend json template
+* fixed/extended json template
 
 ### 0.8.0
 
-* adapt configuration pages to react.
-* Prepare for stable release
+* adapted configuration pages to react.
+* Prepared for stable release
 
 ### 0.0.30
 
-* add some template examples to the widget documentation
+* added some template examples to the widget documentation
 
 ### 0.0.29
 
-* improve error messages
-* remove deprecated widget / change widget beta flag
-* change createObject/setState logic due iobroker-controller >3.0
+* improved error messages
+* removed deprecated widget / change widget beta flag
+* changed createObject/setState logic due iobroker-controller >3.0
 
 ### 0.0.28
 
-* remove customtab
+* removed customtab
 
 ### 0.0.27
 
@@ -211,7 +220,7 @@ Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwisch
 
 ### 0.0.26
 
-* correct changelog size
+* corrected changelog size
 
 ### 0.0.25
 
@@ -307,7 +316,7 @@ Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwisch
 
 ### 0.0.7
 
-* test with encapsulation of ejs.js, becaus of error in some browsers
+* test with encapsulation of ejs.js, because of error in some browsers
 
 ### 0.0.6
 
@@ -316,7 +325,7 @@ Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwisch
 ### 0.0.5
 
 * new widget marquee for article titles
-* add filter function for articles. the filter searchs in title,description and categories, seceral filter criteria can be seperated by semicolon
+* add filter function for articles. the filter searches in title,description and categories, several filter criteria can be seperated by semicolon
 
 ### 0.0.4
 
@@ -338,7 +347,7 @@ Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwisch
 
 MIT License
 
-Copyright (c) 2021 oweitman <oweitman@gmx.de>
+Copyright (c) 2021-2024 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

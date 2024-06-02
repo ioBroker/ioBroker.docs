@@ -264,6 +264,9 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.9.64 (2024-05-23)
+* (bluefox) Added possibility to clear a text field by button
+
 ### 2.9.63 (2024-05-15)
 * (bluefox) Migrated some files to typescript
 

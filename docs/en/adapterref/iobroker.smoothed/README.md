@@ -27,8 +27,20 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Ben1983) Updating Dependencies
+### 1.0.7 (2024-05-22)
+* (Ben1983) reduce more times subscribtion of the same id
+
+### 1.0.6 (2024-05-21)
+* (Ben1983) solve error in setState
+
+### 1.0.5 (2024-05-21)
+* (Ben1983) change some loggings
+
+### 1.0.4 (2024-05-21)
+* (Ben1983) added more silly debugging for value changes
+
+### 1.0.3 (2024-05-21)
+* (Ben1983) added time for standard deviation in unsmeethed mode
 
 ### 1.0.2 (2024-04-24)
 * (Ben1983) remove wrong warning

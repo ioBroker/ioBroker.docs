@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: GuO6dGOLPUezvnKJEazdhcs5BQy8VNQHZos4RQd/k5k=
+hash: 8SGVqYnaZEQqupAo6BSie3QE8KWo34eK/DdyPkYtmOs=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -71,7 +71,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `trim` - 默认为 true。如果不需要修剪，请将此属性设置为 `false`。
 - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更大。
 - `maxRows` - 文本区域的最大行数。仅当 `minRows` > 1 时使用。
-- `noClearButton` - 如果为真，则不会显示清除按钮
+- `noClearButton` - 如果为真，则不会显示清除按钮（admin >= 6.17.13）
 
 - `数字`
 - `min` - 最小值
@@ -79,7 +79,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `步骤` - 步骤
 
 - `color` - 颜色选择器
-- `noClearButton` - 如果为真，则不会显示清除按钮
+- `noClearButton` - 如果为真，则不会显示清除按钮（admin >= 6.17.13）
 
 - `checkbox` - 显示复选框
 
@@ -321,7 +321,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `pattern` - 文件扩展名模式。允许 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹 `folderName` 中的所有文件。默认为 `**/*.*`。
 - `fileTypes` - [可选] 文件类型：`audio`, `image`, `text`
 - `objectID` - `meta` 类型的对象 ID。您可以使用特殊占位符 `%INSTANCE%`：例如 `myAdapter.%INSTANCE%.files`
-- `upload` - 路径，上传的文件将存储于此。类似 `folderName`。如果未定义，则不会显示上传字段。要在根目录中上传，请将此字段设置为 `/`。
+- `upload` - 路径，上传的文件将存储于此。类似 `folderName`。如果未定义，则不会显示上传字段。若要在根目录中上传，请将此字段设置为 `/`。
 - `refresh` - 在选择附近显示刷新按钮。
 - `maxSize` - 最大文件大小（默认 2MB）
 - `withFolder` - 即使所有文件都在同一个文件夹中，也显示文件夹名称

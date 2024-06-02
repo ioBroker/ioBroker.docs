@@ -19,6 +19,10 @@ The driver allows you to receive data and manage your Synology NAS server.
 
 If you use 2FA in DSM6/7 see instructions [here](docs/en/template.md)
 
+### Important note for Windows Installations
+
+This adapter requires git to be installed at the hist system. Installation media can be found at https://git-scm.com/download/win.
+
 ### Reboot and Shutdown
 The adapter will do this via SSH since v2.1.4, so please set the SSH port in the adapter setttings. You can see it in the Synology settings:
 ![grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png)

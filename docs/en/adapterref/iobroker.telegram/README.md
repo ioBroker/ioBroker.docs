@@ -725,6 +725,18 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.3.2 (2024-05-26)
+* (foxriver76) fixed problem with webserver handling
+
+### 3.3.1 (2024-05-25)
+* (mcm1957) Dependencies have been updated - especially 'node-telegram-bot-api'
+* (mcm1957) see https://github.com/yagop/node-telegram-bot-api/blob/master/CHANGELOG.md
+
+### 3.3.0 (2024-05-25)
+* (foxriver76) Adapter has been migrated to `@iobroker/webserver`
+* (foxriver76) Adapter supports js-controller 6 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.2.1 (2024-04-03)
 * (PeterVoronov) An error at providing error information has been fixed.
 
@@ -732,18 +744,7 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (PeterVoronov) The current error is added as a separate property error to the response object (messageId) now.
 * (theknut) Added units to responses
-* (mcm1957) Dependencies have been updated0
-
-### 3.1.0 (2024-02-17)
-* (theknut) Option to send state updates without notification sound has been added. [#793]
-* (mcm1957) Dependencies have been updated.
-
-### 3.0.1 (2023-12-08)
-* (foxriver76) send the actual message too via notification-manager
-
-### 3.0.0 (2023-11-06)
-* (boergegrunicke) BREAKING CHANGE: Socks5 support has been removed.
-* (PeterVoronov ) Extended and improved the returned list of processed messages.
+* (mcm1957) Dependencies have been updated
 
 ## License
 

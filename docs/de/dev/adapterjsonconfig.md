@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: GuO6dGOLPUezvnKJEazdhcs5BQy8VNQHZos4RQd/k5k=
+hash: 8SGVqYnaZEQqupAo6BSie3QE8KWo34eK/DdyPkYtmOs=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -34,7 +34,7 @@ Alle Beschriftungen, Texte und Hilfetexte können mehrsprachig oder nur aus Zeic
 
 *Wenn der Attributname mit "_" beginnt, wird er nicht im Objekt gespeichert.*
 
-## Beinhaltet
+## Enthält
 Erfordert Admin 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
@@ -71,7 +71,7 @@ Mögliche Typen:
 - „trim“ – Standard ist „true“. Setzen Sie dieses Attribut auf „false“, wenn kein Trimmen gewünscht ist.
 - „minRows“ – Standard ist 1. Setzen Sie dieses Attribut auf „2“ oder höher, wenn Sie einen Textbereich mit mehr als einer Zeile haben möchten.
 - `maxRows` – maximale Anzahl an Zeilen im Textbereich. Wird nur verwendet, wenn `minRows` > 1.
-- `noClearButton` - wenn wahr, wird die Schaltfläche Löschen nicht angezeigt.
+- „noClearButton“ – wenn wahr, wird die Schaltfläche „Löschen“ nicht angezeigt (Admin >= 6.17.13)
 
 - `Nummer`
 - `min` - Minimalwert
@@ -79,7 +79,7 @@ Mögliche Typen:
 - `Schritt` - Schritt
 
 - „Farbe“ – Farbwähler
-- `noClearButton` - wenn wahr, wird die Schaltfläche Löschen nicht angezeigt.
+- „noClearButton“ – wenn wahr, wird die Schaltfläche „Löschen“ nicht angezeigt (Admin >= 6.17.13)
 
 - `checkbox` – Kontrollkästchen anzeigen
 
@@ -169,12 +169,12 @@ Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden!
 Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapter als `admin` und `cloud` schützen, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
 
 - `repeat` - Wiederholungspasswort muss mit Passwort verglichen werden
-- „sichtbar“ – wahr, wenn das Anzeigen des Passworts durch Umschalten der Schaltfläche „Anzeigen“ erlaubt ist (nur für ein neues Passwort während der Eingabe)
+- „sichtbar“ – Wahr, wenn das Anzeigen des Passworts durch Umschalten der Schaltfläche „Anzeigen“ erlaubt ist (nur für ein neues Passwort während der Eingabe)
 - `maxLength` – maximale Länge des Textes im Feld
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
+- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
 - `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
 - „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
@@ -216,7 +216,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `useNative` – wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird es für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
 - „Timeout“ – Timeout für Anforderung in ms. Standard: keine.
-- `onLoaded` - führe die Schaltflächenlogik zunächst einmal aus
+- `onLoaded` - führt die Schaltflächenlogik zunächst einmal aus
 
 - `setState` - Schaltfläche zum Festlegen des Status der Instanz
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen
@@ -256,7 +256,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `encryptedAttributes` – [optional] – Geben Sie ein Array von Spalten an, die verschlüsselt werden sollen
 
 - „Akkordeon“ – Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können (Admin 6.6.0 und neuer)
-- `items` - `[{"type": siehe oben, "attr": "name", "default": ""}]` - Elemente können wie auf einem `panel` platziert werden (xs, sm, md, lg und newLine)
+- `items` - `[{"type": siehe oben, "attr": "name", "default": ""}]` - Elemente können wie auf einem `Panel` platziert werden (xs, sm, md, lg und newLine)
 - `titleAttr` - Schlüssel der Artikelliste, der als Name verwendet werden soll
 - `noDelete` - Boolesch, wenn Löschen oder Hinzufügen deaktiviert ist. Wenn `noDelete` falsch ist, sollten Hinzufügen, Löschen und Hoch-/Runterschieben funktionieren.
 - `clone` – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn wahr, wird die Schaltfläche „Klonen“ angezeigt. Wenn Attributname, ist dieser Name eindeutig.
@@ -481,7 +481,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 
 - `uuid` – Iobroker-UUID anzeigen
 - `port` - Spezieller Eintrag für Ports. Es wird automatisch geprüft, ob der Port von anderen Instanzen verwendet wird und es wird eine Warnung angezeigt
-- `min` - minimal zulässige Portnummer. Sie könnte 0 sein. Und wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt.
+- `min` - minimal zulässige Portnummer. Sie kann 0 sein. Wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt.
 
 - `deviceManager` - Gerätemanager anzeigen. Dafür muss der Adapter das Gerätemanagerprotokoll unterstützen. Siehe iobroker/dm-utils.
 
@@ -544,7 +544,7 @@ Alle Typen könnten haben:
 - „button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
 - „buttonTooltip“ – Button-Tooltip (Standard: „Daten nach Instanz anfordern“)
 - `buttonTooltipNoTranslation` – Button-Tooltip nicht übersetzen
-- `placeholder` - Platzhalter (zur Textsteuerung)
+- `placeholder` – Platzhalter (zur Textsteuerung)
 - „noTranslation“ – übersetzt keine Auswahlen oder andere Optionen (nicht für Hilfe, Beschriftung oder Platzhalter)
 - `onChange` - Struktur in der Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - `doNotSave` - Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird
@@ -623,7 +623,7 @@ data: {
 In diesem Fall muss die Eingabe Text sein, wobei `__different__` angezeigt wird, mit der Autovervollständigungsoption von drei möglichen Werten.
 Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
 
-Boolesche Werte müssen Unbestimmtheit unterstützen, wenn der Wert [false, true] ist.
+Boolesche Werte müssen unbestimmt sein, wenn der Wert [false, true] ist.
 
 Für unveränderte `__different__` muss der Wert different zurückgegeben werden:
 

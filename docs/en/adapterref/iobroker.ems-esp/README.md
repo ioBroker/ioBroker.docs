@@ -44,8 +44,19 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* support different ems-esp bus id's for own states
+* use statepicker for jsonConfig (ems-esp energy statistics, boiler efficiency and heating demand)
+* new file location for km200.csv file -- breaking change
+* old file location for km200.csv file(s) will be deleted by adapter
+* new selection for database within parameters
 
+### 4.0.1 (2024-05-31)
+* jsonConfig optimization for tablets and medium resolution screens
+
+### 4.0.0 (2024-05-30)
+* support different ems-esp bus id's for own states polled
+* now with jsonConfig for adapter config
+* rework enum attributes for room and function for all adapter states created 
+* admin adapter version >= 6.13.16 required - nicer layout with admin version >= 6.17.13
 
 ### 3.5.0 (2024-05-15)
 * warm water starts not supported anymore within statistics due to name changes within ems-esp firmware 3.7
@@ -55,13 +66,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 
 ### 3.4.3 (2024-05-14)
 * corrections for reading gateway data for km200 gateway
-
-### 3.4.2 (2024-05-13)
-* update dependencies
-* replace setTimeout by adapter.delay
-
-### 3.4.1 (2024-04-26)
-* correct enum settings for ems-esp gateway on adapter start
 
 ## License
 MIT License
@@ -83,6 +87,6 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+*OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."
 # iobroker.ems-esp

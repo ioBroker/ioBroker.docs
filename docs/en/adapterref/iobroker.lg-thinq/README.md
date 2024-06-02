@@ -730,8 +730,12 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+### 1.0.1 (2024-05-21)
 
-### **WORK IN PROGRESS**
+-   (Lucky-ESA) Fixed Mqtt wakeup for device 406 only
+-   (Lucky-ESA) Fixed TypeError
+
+### 1.0.0 (2024-05-20)
 
 -   (Lucky-ESA) Changed airState.quality.odor max value
 -   (Lucky-ESA) Fixed sentry messages

@@ -129,6 +129,101 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.11.3 (2024-06-02)
+- fix load subfolders
+
+### 1.11.2 (2024-06-01)
+- screens grid view
+
+### 1.11.1 (2024-05-31)
+- fix icons view path
+
+### 1.11.0 (2024-05-31)
+- add a icons view
+
+### 1.10.9 (2024-05-30)
+- show undo count
+
+### 1.10.8 (2024-05-30)
+- better tooltip for multiplex
+- remove unused solution entries
+
+### 1.10.7 (2024-05-29)
+- fix iframe d&d
+
+### 1.10.6 (2024-05-29)
+- better evt editor for new events
+
+### 1.10.5 (2024-05-29)
+- show events on webui controls
+
+### 1.10.4 (2024-05-29)
+- work on events
+
+### 1.10.3 (2024-05-29)
+- add events service for manifest
+
+### 1.10.2 (2024-05-28)
+- fix getDomelement
+
+### 1.10.1 (2024-05-28)
+- support classlist in setElementProperty
+
+### 1.10.0 (2024-05-28)
+- fix screen & parent screen access
+
+### 1.9.10 (2024-05-28)
+- fixes for blockly
+
+### 1.9.9 (2024-05-28)
+- fix firefox
+
+### 1.9.8 (2024-05-27)
+- try faster loading
+
+### 1.9.7 (2024-05-27)
+- fix change root style
+
+### 1.9.6 (2024-05-27)
+- fix null ref
+
+### 1.9.5 (2024-05-27)
+- few small changes
+
+### 1.9.4 (2024-05-27)
+- fix scripts not workin
+
+### 1.9.3 (2024-05-27)
+- update packages
+
+### 1.9.2 (2024-05-27)
+- fix screenviewer styles
+
+### 1.9.1 (2024-05-27)
+- fix first div styled from designer when zoom
+
+### 1.9.0 (2024-05-27)
+- fix zooming of child screens
+
+### 1.8.9 (2024-05-26)
+- one more spec. calculation fix
+
+### 1.8.8 (2024-05-26)
+- need to await stylesheet parse
+
+### 1.8.7 (2024-05-26)
+- fix specificity calculation
+
+### 1.8.6 (2024-05-21)
+- fix in designer property grid
+
+### 1.8.5 (2024-05-21)
+- stretch property for screenviewer
+- screennames in property list (property services now async)
+
+### 1.8.4 (2024-05-20)
+- fix typo in bindingshelper
+
 ### 1.8.3 (2024-05-20)
 - fix style parsing and style bindings at runtime
 

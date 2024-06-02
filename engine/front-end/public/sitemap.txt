@@ -865,6 +865,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.google-spreadsheet/REA
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.growatt/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gruenbeck/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gsmsms/README.md
@@ -888,6 +889,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.heytech/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hid-community/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hilink/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.hiob/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.hm-rpc/README.md
@@ -938,7 +940,10 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/blockly.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/javascript.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/upgrade-guide.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.kecontact/README.md
@@ -1043,6 +1048,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.notification-manager/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nsclient/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nuki-extended/README.md
@@ -1526,6 +1532,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.google-spreadsheet/REA
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.growatt/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gruenbeck/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gsmsms/README.md
@@ -1549,6 +1556,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.heytech/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hid-community/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hilink/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.hiob/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.hm-rpc/README.md
@@ -1599,7 +1607,10 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/blockly.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/javascript.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/upgrade-guide.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.kecontact/README.md
@@ -1704,6 +1715,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.notification-manager/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nsclient/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nuki-extended/README.md
@@ -2187,6 +2199,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.google-spreadsheet/REA
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.growatt/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gruenbeck/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gsmsms/README.md
@@ -2210,6 +2223,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.heytech/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hid-community/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hilink/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hiob/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.hm-rpc/README.md
@@ -2260,7 +2274,10 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/blockly.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/javascript.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/upgrade-guide.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.kecontact/README.md
@@ -2365,6 +2382,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.notification-manager/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nsclient/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nuki-extended/README.md
@@ -2848,6 +2866,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.google-spreadsheet/
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gotify/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.govee-local/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.growatt/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gruenbeck/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gsmsms/README.md
@@ -2871,6 +2890,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heytech/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hid-community/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hilink/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hiob/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.history/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hm-rega/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hm-rpc/README.md
@@ -2921,7 +2941,10 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/blockly.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/javascript.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/upgrade-guide.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.kecontact/README.md
@@ -3026,6 +3049,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.notification-manager/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.notificationforandroidtv/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nsclient/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nuki/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nuki-extended/README.md

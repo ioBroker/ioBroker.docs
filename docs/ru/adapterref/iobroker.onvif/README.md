@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: +FKIDF5jk7DDvBwI/46nf++kQOEVeUq2jobOf10nK6c=
+hash: 2k4Xao5mfl0FBgg5tIX2HIL+SO6SWLQkGKdqmPNSrnQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -19,7 +19,7 @@ hash: +FKIDF5jk7DDvBwI/46nf++kQOEVeUq2jobOf10nK6c=
 ## Адаптер ONVIF для ioBroker
 **Адаптер для камер ONVIF**
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 [немецкая документация](README-de.md)
 
@@ -39,7 +39,7 @@ onvif.0.IP_PORT.events События камеры, например, обнар
 
 onvif.0.IP_PORT.general Общая информация о камерах
 
-onvif.0.IP_PORT.infos Информация о камере обновляется только при запуске адаптера или при удаленном обновлении
+onvif.0.IP_PORT.infos Информация о камере обновляется только при запуске адаптера или при удаленном обновлении.
 
 URL-адрес видео и снимка:
 
@@ -247,7 +247,7 @@ setTimeout(function () {
 
 onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
-### _Не используйте состояние в виде потока, иначе нагрузка на диск будет слишком велика._
+### _Не используйте состояние в виде потока, иначе нагрузка на диск будет слишком высокой._
 #### Обновите состояние через onvif.0.IP_PORT.remote.snapshot
 Назначьте элемент `String img src` состоянию onvif.0.IP_PORT.snapshot.
 
@@ -278,6 +278,15 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2024-05-27)
+
+- update onvif lib to support newer TAPO cameras
+- (mcm1957) Adapter requires nodejs >=18 now.
+
+### 1.1.3 (2024-03-15)
+
+- Allow non number PTZ presets
+
 ### 1.1.2 (2023-12-29)
 
 - (TA2k) Catch callback error

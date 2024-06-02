@@ -54,8 +54,8 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.2.15 (2024-05-28)
+* (René) change of dependencies
 * (René) show cron job in log after creation
 
 ### 0.2.14 (2024-01-12)

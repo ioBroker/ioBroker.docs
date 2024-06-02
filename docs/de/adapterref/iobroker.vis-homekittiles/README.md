@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: 0bWcQBiuO+3z3rc3W+Ngox6So4B1c7VhiE+r/Kc/zbk=
+hash: airOhvSaq8KtRqgPpF0JkO3COqgwAP9G7WCP+W76vVs=
 ---
 # IoBroker.vis-homekittiles
 
@@ -19,7 +19,7 @@ hash: 0bWcQBiuO+3z3rc3W+Ngox6So4B1c7VhiE+r/Kc/zbk=
 
 ## HomeKit-Kacheln für ioBroker-VIS
 Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert.
-Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Die Anpassung des Designs erfolgt durch Veränderung des CSS-Codes. Als Vorlage kann hierfür der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
+Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
@@ -32,8 +32,6 @@ Die Widgets sind für VIS 1.x konzipiert.
 
 ## Dinge die zu tun sind
 * Einfache Schaltfläche mit Symbol erstellen
-* Thermostat-Widget: Niedrige Bat- und Nichtreichweite-Anzeige auf der Kachel anzeigen
-* Thermostat-Widget: Signalbilder hinzufügen
 * Mini-Mediaplayer erstellen
 * Select-Kachel erstellen
 * Untermenü-Button erstellen
@@ -41,9 +39,16 @@ Die Widgets sind für VIS 1.x konzipiert.
 
 ## Changelog
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+### 0.0.15 (2024-05-31)
+
+* (Standarduser) dialog: fixed positioning
+* (Standarduser) thermostat: corrected symbols
+* (Standarduser) thermostat: show low bat and unreach on tile
+* (Standarduser) thermostat: added signal pictures
+
 ### 0.0.14 (2024-05-15)
 
 * (Standarduser) settings-bool: corrected height of widget

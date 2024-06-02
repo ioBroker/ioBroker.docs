@@ -3,31 +3,31 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: без заголовка
-hash: R9fOiJyoT2DZytnnC+cE6C+nwMWndONVOBFvcpla20A=
+hash: G9+pPja5y/AjJQaB9C9Q6N56ohBNs3VK6oK3cmSPVsM=
 ---
-![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) Адаптер ioBroker RPI-Monitor
+![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) Адаптер ioBroker RPI-Monitor
 
-![Количество установок](http://iobroker.live/badges/rpi2-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.rpi2.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.rpi2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
+![Количество установок](https://iobroker.live/badges/rpi2-installed.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/rpi2-stable.svg)
+![НПМ](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
 
 ==============
 
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
+**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
 
 ## Важная информация
-Работает только с node> = 0.12
+Работает только с узлом >= 18
 
-** ioBroker требуются особые разрешения для управления GPIO. ** В большинстве дистрибутивов Linux это может быть достигнуто путем добавления пользователя ioBroker в группу `gpio` (рекомендуется) или запуска ioBroker под `root` (менее безопасно).
+**ioBroker требуются специальные разрешения для управления GPIO.** В большинстве дистрибутивов Linux этого можно добиться, добавив пользователя ioBroker в группу `gpio` (рекомендуется) или запустив ioBroker под `root` (менее безопасно).
 
 ## Монтаж
 После установки вам необходимо настроить все необходимые модули через страницу администрирования.
 
-После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker в пределах rpi. <instance>. <modulename>, например. rpi.0.cpu
+После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker внутри rpi.<экземпляр>.<имя модуля>, например. rpi.0.cpu
 
-Убедитесь, что установлены python и build-essential:
+Убедитесь, что установлены Python и build-essential:
 
 ```
 sudo apt-get update
@@ -37,20 +37,20 @@ sudo apt-get install -y build-essential python
 После выбора доступны следующие объекты:
 
 #### **ПРОЦЕССОР**
-- cpu_frequency
-- load1
-- load5
-- load15
+- частота процессора
+- нагрузка1
+- нагрузка5
+- нагрузка15
 
-#### **Малина (требуется vcgencmd)**
-- cpu_voltage
+#### **Raspberry (требуется vcgencmd)**
+- напряжение процессора
 - mem_arm
-- mem_gpu
+- мем_гпу
 
 #### **Объем памяти**
-- memory_available
-- memory_free
-- memory_total
+- память_доступна
+- память_свободно
+- память_всего
 
 #### **Сеть (eth0)**
 - net_received
@@ -72,7 +72,7 @@ sudo apt-get install -y build-essential python
 #### **Время работы**
 - время безотказной работы
 
-#### **WLAN**
+#### **Беспроводная локальная сеть**
 - wifi_received
 - wifi_send
 
@@ -85,19 +85,19 @@ sudo apt-get install -y build-essential python
 - Сеть
 - SD Card
 - Менять
-- температура
+- Температура
 - Время безотказной работы
 - WLAN
 
-## Файлы журнала / Настройки конфигурации
+## Файлы журналов/Настройки конфигурации
 ## Функции
 ## Делать
 ## Протестированное оборудование
- - Odroid C1
- - Raspberry Pi 1
+ - Одроид С1
+ - Малиновый Пи 1
 
 ## GPIO
-Вы также можете читать и управлять GPIO.
+Вы также можете читать и контролировать GPIO.
 Все, что вам нужно сделать, это настроить в настройках параметры GPIO (дополнительная вкладка).
 
 ![GPIO](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
@@ -106,8 +106,8 @@ sudo apt-get install -y build-essential python
 
 - rpi.0.gpio.PORT.state
 
-Нумерация портов - BCM (контакты BroadComm на кристалле). Вы можете получить перечисление с помощью ```gpio readall```.
-Например, PI2:
+Нумерация портов — BCM (контакты BroadComm на чипе). Вы можете получить перечисление с помощью ```gpio readall```.
+Например PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -138,12 +138,32 @@ sudo apt-get install -y build-essential python
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-## Датчики DHTxx / AM23xx
-Вы можете считывать показания датчиков температуры / влажности DHT11, DHT22 и AM2302.
+## Датчики DHTxx/AM23xx
+Вы можете считывать данные с датчиков температуры/влажности DHT11, DHT22 и AM2302.
 
-Подключите такой датчик к контакту GPIO, как описано на странице пакета [узел-dht-сенсор](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков могут быть подключены к *нескольким* контактам (это *не* шинная система), как обсуждалось.
+Подключите такой датчик к выводу GPIO, как описано на странице пакета [узел-dht-сенсор](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков могут быть подключены к *нескольким* контактам (это *не* шинная система), как обсуждалось.
 
 ## Changelog
+
+<!--
+	PLACEHOLDER for the next version:
+	### **WORK IN PROGRESS**
+-->
+### 2.0.0-alpha.3 (2024-05-24)
+* (Garfonso) fix crash
+
+### 2.0.0-alpha.2 (2024-05-24)
+* (Garfonso) get rid of old sync-exec.
+
+### 2.0.0-alpha.1 (2024-05-23)
+* (Garfonso) Fix stuff.
+
+### 2.0.0-alpha.0 (2024-05-23)
+* (Garfonso) Get stuff up to date...
+
+### 1.3.2 (2022-02-17)
+* Important: This version requires at leas js-controller 3.3
+* (Apollon77) Stop the adapter when GPIO module is configured but not working due to a needed rebuild that js-controller can pick up
 
 ### 1.3.1 (2021-07-16)
 * (Apollon77) Prevent js-controller 3.3 warnings
@@ -163,10 +183,10 @@ sudo apt-get install -y build-essential python
 - (Apollon77) Error messages for not existing values are logged only once
 
 ### 1.1.0
- - (Apollon77) Nodejs 10 support 
+ - (Apollon77) Nodejs 10 support
 
 ### 1.0.0 (2018-08-20)
- - (bluefox) Admin3 support 
+ - (bluefox) Admin3 support
 
 ### 0.3.2 (2017-11-29)
  - (Homoran) fixed Mem available readings on Stretch
@@ -205,7 +225,24 @@ sudo apt-get install -y build-essential python
  - Initial commit. Alpha Version.
 
 ## License
-
-Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
-
 MIT License
+
+Copyright (c) 2024 Garfonso <garfonso@mobo.info>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

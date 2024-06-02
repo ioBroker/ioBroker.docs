@@ -185,7 +185,7 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 
 ### **WORK IN PROGRESS**
 
-### 3.2.0 (2024-05-27) (Marching on)
+### 3.2.0 (2024-05-28) (Marching on)
 
 - (grizzelbee) Chg: Lamps (Product type 552a) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
 - (grizzelbee) Chg: Vacuum cleaner robots (Product types 276 and 277) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.

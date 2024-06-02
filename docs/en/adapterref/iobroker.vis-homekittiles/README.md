@@ -29,8 +29,6 @@ The widgets are designed for VIS 1.x.
 ## Things to do
 
 * create Simpe button with icon
-* Thermostat widget: show low bat and unreach on tile
-* Thermostat widget: add signal pictures
 * create Mini-mediaplayer
 * create Select-tile
 * create Submenue-Button
@@ -38,9 +36,16 @@ The widgets are designed for VIS 1.x.
 
 ## Changelog
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
+### 0.0.15 (2024-05-31)
+
+* (Standarduser) dialog: fixed positioning
+* (Standarduser) thermostat: corrected symbols
+* (Standarduser) thermostat: show low bat and unreach on tile
+* (Standarduser) thermostat: added signal pictures
+
 ### 0.0.14 (2024-05-15)
 
 * (Standarduser) settings-bool: corrected height of widget
