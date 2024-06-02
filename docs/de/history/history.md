@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: CdKXh+PxfaE0rtY583Bu5E2nEr+GTT3JYI7uPchQqJ0=
+hash: bcUtWWBjFY/25BQYfViS78GScN3MGkHWq5f9sz9+6dQ=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -71,7 +71,7 @@ Kontextmenü:
 ## Javascript (01.09.2023)
 Spielplatz für JavaScript-Code:
 
-- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur zum Testen der Möglichkeiten von ChatGPT
+- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur dazu, die Möglichkeiten von ChatGPT zu testen
 
   ![Bild 1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
 
@@ -171,9 +171,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
-
 Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
-
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
 ## Admin und mqtt (11.10.2023) - neue Funktion
@@ -402,7 +400,7 @@ https://github.com/Standarduser/ioBroker.vis-homekittiles
 
 <img src="https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/admin/vis-homekittiles.png" width="100" height="100" />
 
-Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert. Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles über CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei /widgets/homekittiles/css/style.css als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
+Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert. Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles über CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei /widgets/homekittiles/css/style.css als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Es ist auch möglich, über den VIS-Editor im Bereich „Allgemein“ der Widgets eigene CSS-Klassen hinzuzufügen.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
@@ -487,3 +485,10 @@ Es ist eine neue Version des Windows-Installers verfügbar: 3.1.0 Neue Funktione
 
 - Update/Upgrade des JS-Controllers implementiert
 - Einige Bugfixes
+
+## Radar-trap (29.5.2024) – neuer Adapter am Stall
+https://github.com/Steiger04/ioBroker.radar-trap
+
+<img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
+
+Adapter zur Erkennung von Radarfallen und Hindernissen.

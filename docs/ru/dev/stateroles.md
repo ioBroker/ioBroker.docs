@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
+hash: qdw07mqB6d7XtYGvoKV1gB2DKu5esodk5wF5knok1FE=
 ---
 # Государственные роли
 Для объектов типа `state` необходимо, чтобы для свойства `common.role` была установлена одна из ролей, определенных в списке ниже.
@@ -20,10 +20,10 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 ## Общий
 * `state` — очень распространенная цель. Если вы не знаете, какую роль играет государство, используйте эту.
 * `текст` `common.type = строка`
-* `text.url` `common.type = string` State val содержит URL-адрес для использования в привязке, iframe или img.
+* `text.url` `common.type = string` State val содержит URL-адрес для использования в привязке, iframe или img
 * `html` `common.type = строка`
 * `json` `common.type = строка`
-* `list` `common.type = array`
+* `list` `common.type = массив`
 * `date` `common.type = string` - анализируется строкой `new Date(ddd)`
 * `date` `common.type = число` - `эпоха секунд * 1000`
 
@@ -35,7 +35,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 * `sensor.alarm` — какой-то общий сигнал тревоги
 * `sensor.alarm.flood` - утечка воды
 * `sensor.alarm.fire` - датчик пожара
-* `sensor.alarm.secure` - открыта дверь, открыто окно или обнаружено движение во время тревоги.
+* `sensor.alarm.secure` — открыта дверь, открыто окно или обнаружено движение во время тревоги.
 * `sensor.alarm.power` - Нет питания ("напряжение = 0")
 * `sensor.light` - сигнал от лампы о том, что она включена
 * `sensor.lock` - фактическое положение замка
@@ -74,7 +74,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 `common.type=number, common.write=false`
 
 * `ценность`
-* `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Важно иметь (`CLOSED/TILTED/ ОТКРЫТЬ`). Значения могут отличаться.
+* `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Важно иметь (`CLOSED/TILTED/ ОТКРЫТО`). Значения могут отличаться.
 * `value.temperature` (`common.unit='°C' или '°F' или 'K'`)
 * `значение.влажность`
 * `value.co2` — CO2 (единица измерения: ppm)
@@ -88,8 +88,8 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 * `value.interval` (common.unit='sec') — интервал в секундах (может быть 0,1 или меньше)
 * ~~value.date (common.type=string) - Дата в формате 2015.01.01 (без времени)~~
 * ~~value.datetime (common.type=string) — дата и время в системном формате~~
-* `value.gps.longitude` - координаты долготы GPS
-* `value.gps.latitude` - широта GPS
+* `value.gps.longitude` — координаты долготы GPS
+* `value.gps.latitude` — широта GPS
 * `value.gps.elevation` - высота GPS
 * `value.gps` — долгота и широта вместе, например «5,56; 43,45».
 * `value.gps.accuracy` - точность текущего измерения GPS
@@ -105,7 +105,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 * `value.power.active` - активная мощность (единица измерения=Вт, кВт)
 * `value.power.reactive` - реактивная мощность (единица измерения=вар, квар)
 * `value.power.consumed` — потребляемая мощность (единица измерения = Вт или кВт)
-* `value.power.produced` — произведенная мощность (единица = Вт или кВт)
+* `value.power.produced` — произведенная мощность (единица измерения = Вт или кВт)
 * `value.direction` - (common.type=number ~~or string~~, указывает вверх/вниз, влево/вправо, 4-позиционные переключатели, направление ветра, ...)
 * `value.curtain` - фактическое положение шторы
 * `value.blind` - фактическое положение жалюзи (`max = полностью открыто, min = полностью закрыто`)
@@ -113,7 +113,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 * `value.lock` - фактическое положение замка
 * `value.speed` - скорость ветра
 * `value.pressure` - (единица измерения: мбар)
-* `значение.дистанция`
+* `value.distance`
 * `value.distance.visibility`
 * `value.severity` — некоторая серьезность (можно указать состояния), чем выше, тем важнее
 * `value.warning` — некоторое предупреждение (можно указать состояния), чем выше, тем важнее
@@ -134,7 +134,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 * `индикатор`
 * `indicator.working` — указывает, что целевая система что-то выполняет, например, открывает жалюзи или замок.
 * `indicator.reachable` — если устройство онлайн.
-* `indicator.connected` — используется только для экземпляров. Используйте index.reachable для устройств.
+* `indicator.connected` — используется только для экземпляров. Используйте «indicator.reachable» для устройств.
 * `indicator.maintenance` — указывает на системные предупреждения/ошибки, аварийные сигналы, сервисные сообщения, разряд батареи и тому подобное.
 * `indicator.maintenance.lowbat`
 * `indicator.maintenance.unreach`
@@ -167,7 +167,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 * `level.current.min` - минимальный ток, например, для зарядки аккумуляторных устройств.
 * `level.current.max` — максимальный ток, например, для зарядки аккумуляторных устройств.
 * `level. Frequency` - целевая частота для генераторов
-* `level. Frequency.min` - минимальная частота для генераторов или сигналов тревоги электросети.
+* `level. Frequency.min` — минимальная частота для генераторов или сигналов тревоги электросети.
 * `level. Frequency.max` — максимальная частота для генераторов или для сигнализации электросети.
 * `level.fill` — заданное значение для любого состояния уровня заполнения контейнера.
 * `level.min` - минимальный разрешенный уровень
@@ -195,6 +195,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 * `level.volume.group` - (`min=0, max=100`) - громкость звука, для группы устройств
 * `level.curtain` - установить положение шторы
 * `level.tilt` - установка положения наклона жалюзи (max = полностью открыто, min = полностью закрыто)
+* `level.speed` — скорость, например. вентилятор, вентилятор, ..
 
 ## Переключатели (логические значения, чтение-запись)
 Переключатель управляет логическим устройством (`true = ON, false = OFF`)
@@ -202,7 +203,7 @@ hash: DVgmkOUCrQbq5td8T6d2eyAx5FiQGWKKJIf2Cvj+Aa4=
 `common.type=boolean, common.write=true`
 
 * `переключатель`
-* `switch.lock` - блокировка(`true - открыть замок, false - закрыть замок`)
+* `switch.lock` — блокировка («true — открыть замок, false — закрыть замок»)
 * `switch.lock.door` - дверной замок
 * `switch.lock.window` - блокировка окна
 * `switch.mode.boost` - запуск/остановка режима повышения температуры термостата.
@@ -235,9 +236,9 @@ TODO: Подумайте об ионизации и колебаниях.
 * `value.water` - уровень воды 0-100%.
 * `value.waste` - уровень мусорного бака 0-100%. (0% — пусто, 100% — полно)
 * `indicator.maintenance.waste` - Мусорная корзина дура.
-* `value.state` — `ДОМ, УБОРКА, ПАУЗА` и так далее.
+* `value.state` - `ДОМ, УБОРКА, ПАУЗА` и так далее.
 
-Кроме того, для этих состояний обычно требуется `switch.power`, необходимый для сопоставления пылесоса. `switch.power` в данном случае работает как: `true` - очистить, `false` - вернуться домой.
+Кроме того, для этих состояний обычно требуется `switch.power`, чтобы сопоставить пылесос. `switch.power` в данном случае работает как: `true` - очистить, `false` - вернуться домой.
 Дополнительно `value.battery` и
 
 ## Ворота
@@ -287,7 +288,7 @@ TODO: Подумайте об ионизации и колебаниях.
 * `media.date` — песня года
 * `media.track` - (`common.type=string`) идентификатор текущего воспроизводимого трека `[0 - ~]` (важно, чтобы тип действительно был `string`, чтобы можно было указать отсутствие трека с помощью "")
 * `media.playid` - идентификатор трека медиаплеера
-* `media.add` - добавить текущий плейлист
+* `media.add` — добавить текущий плейлист
 * `media.clear` — очистить текущий плейлист (только запись)
 * `media.playlist` — массив json, например
 * `media.url` — URL-адрес для воспроизведения или текущий URL-адрес
@@ -350,9 +351,9 @@ TODO: Подумайте об ионизации и колебаниях.
 * `value.temperature.feelslike` — Фактическая температура «по ощущениям»
 * `value.temperature.min` — минимальная температура за последние 24 часа.
 * `value.temperature.max` — Максимальная температура за последние 24 часа.
-* `value.humidity` - фактическая или средняя влажность
+* `value.humidity` — фактическая или средняя влажность
 * `value.humidity.min` — фактическая влажность
-* `value.humidity.max` — фактическая влажность
+* `value.humidity.max` - фактическая влажность
 * `value.speed.wind` - фактическая или средняя скорость ветра
 * `value.speed.max.wind` - максимальная скорость ветра за последние 24 часа.
 * `value.speed.min.wind` - минимальная скорость ветра за последние 24 часа.
@@ -367,10 +368,10 @@ TODO: Подумайте об ионизации и колебаниях.
 * `dayofweek` — день недели в виде текста
 * `location` — текстовое описание местоположения (например, адрес)
 * `weather.icon` — URL-адрес значка фактического состояния на данный момент.
-* `weather.icon.wind` — фактический URL-адрес значка ветра на данный момент.
+* `weather.icon.wind` — актуальный URL-адрес значка ветра на данный момент.
 * `weather.icon.name` — фактическое имя значка состояния на данный момент.
 * `weather.state` — фактическое описание погоды.
-* `value.precipitation` - (`type: number, unit: mm`) осадки в виде дождя/снег за последние 24 часа (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
+* `value.precipitation` - (`type: number, unit: mm`) осадки за последние 24 часа в виде дождя/снега (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
 * `value.precipitation.hour` - Фактический уровень осадков за последний час
 * `value.precipitation.today` - Фактический уровень осадков на сегодня (до 0:00)
 * `value.precipitation.chance` — фактическая вероятность осадков на сегодня.
@@ -418,7 +419,7 @@ TODO: Подумайте об ионизации и колебаниях.
 
 ## Информация
 * `info.ip` - ip устройства
-* `info.mac` — Mac устройства
+* `info.mac` - Mac устройства
 * `info.name` - имя устройства
 * `info.address` — какой-то другой адрес (например KNX)
 * `info.serial` — серийный номер
@@ -434,7 +435,7 @@ TODO: Подумайте об ионизации и колебаниях.
 ## Здоровье
 `common.type=number, common.read=true, common.write=false`
 
-* `value.health.fat` — индекс жира в организме в %
+* `value.health.fat` - индекс жира в организме в %
 * `value.health.weight` - масса тела в кг, фунтах
 * `value.health.bmi` — индекс ИМТ
 * `value.health.калории` — сожженные калории
