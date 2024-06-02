@@ -8,14 +8,14 @@
         "ru": "Обновление за май 2024 г.: последние новости и события в ioBroker",
         "zh-cn": "2024 年 5 月更新 - ioBroker 的最新新闻和动态"
       },
-      "logo": "",
+      "logo": "en/blog/images/2024_06_02.jpg",
       "type": "news",
       "originalName": "2024_06_02.md",
       "desc": {
         "de": "Hallo, ioBroker-Community!",
         "en": "Hello, ioBroker community! ",
-        "ru": "# Обновление за май 2024 г.: последние новости и события в ioBroker\\nПривет, сообщество ioBroker!",
-        "zh-cn": "# 2024 年 5 月更新：ioBroker 的最新新闻和动态\\n您好，ioBroker 社区！"
+        "ru": "Привет, сообщество ioBroker!",
+        "zh-cn": "您好，ioBroker 社区！"
       }
     },
     "2024_05_12": {
