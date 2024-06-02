@@ -43,11 +43,12 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.0 (2024-06-02)
+* BREAKING CHANGES
 * use statepicker for jsonConfig (ems-esp energy statistics, boiler efficiency and heating demand)
 * new file location for km200.csv file -- breaking change
 * old file location for km200.csv file(s) will be deleted by adapter
-* new selection for database within parameters
+* new content for selection of database within parameters tab - adpters tries to convert, but please check.
 
 ### 4.0.1 (2024-05-31)
 * jsonConfig optimization for tablets and medium resolution screens
@@ -63,9 +64,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 
 ### 3.4.4 (2024-05-15)
 * improve delays between axios get requests for km200 and ems-esp to avoid errors
-
-### 3.4.3 (2024-05-14)
-* corrections for reading gateway data for km200 gateway
 
 ## License
 MIT License
