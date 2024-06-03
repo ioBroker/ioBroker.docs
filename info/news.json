@@ -837,7 +837,7 @@
       "it": "Adattatore ioBroker.apple-find-me è deprecato ora",
       "es": "Adaptador ioBroker.apple-find-me está deprecado ahora",
       "pl": "Adapter iOBroker.apple-find-me jest teraz zdeprecjonowany",
-      "uk": "Адаптер ioBroker.apple-find-me відхилений зараз"
+      "uk": "Адаптер ioBroker.apple-find-me відхилений зараз",
       "zh-cn": "适配器 ioBroker. apple-find-me 现在已经贬值了"
     },
     "content": {
@@ -921,7 +921,7 @@
       "es": "El adaptador ioBroker.hiperión será deprecatado y será eliminado de los depósitos. Tenga en cuenta que esto no se refiere a ioBroker. hiperion-ng pero a ioBroker. hiperión. Según el foro publica el adaptador ioBroker. El hiperión ya no funciona y no hubo reacción del encargado. Con ioBroker. hiperion-ng an replacemengt parece existir (altogh este adaptador no se desarrolla de forma activa tampoco).",
       "pl": "Adapter jOBroker.hyperion zostanie usunięty z repozytoriów. Należy pamiętać, że nie dotyczy to joBrokera. ale do ioBrokera. Hiperion. Według postów forum adapter joBroker. Hiperion nie działa i nie wystąpiła reakcja opiekuna. Z JoBrokerem. hyperion- ng replacemengt wydaje się istnieć (altogh ten adapter nie jest aktywnie rozwinięty również).",
       "uk": "Адаптер ioBroker.hyperion буде відхилений і буде видалено з репозиторіїв. Будь ласка, зауважте, що це не відноситься до ioBroker. гіперіон-нг, але до ioBroker. гіперіон. За повідомленнями форуму адаптер ioBroker. гіперіон більше не працює, і не було реакції від підтримки. З ioBroker. гіперіон-англ. замінникам, здається, існують (щодо цього адаптера не активовано або не активовано).",
-      "zh-cn": "适配器 ioBroker.hyperion 将贬值,从寄存器中移除. 请注意,这与ioBroker无关。 {\\fn华文仿宋\\fs16\\1cHD1D1D1}是超离子纳克,但是对ioBroker来说 超强 根据论坛贴出适配器ioBroker. 超离子已经失效 维护者没有反应 与ioBroker(英语:ioBroker). hyperion-ng 似乎存在一个替代的mengt(altogh 这个适配器也没有积极开发)."    
+      "zh-cn": "适配器 ioBroker.hyperion 将贬值,从寄存器中移除. 请注意,这与ioBroker无关。 {\\fn华文仿宋\\fs16\\1cHD1D1D1}是超离子纳克,但是对ioBroker来说 超强 根据论坛贴出适配器ioBroker. 超离子已经失效 维护者没有反应 与ioBroker(英语:ioBroker). hyperion-ng 似乎存在一个替代的mengt(altogh 这个适配器也没有积极开发)."
     },
     "id": "hyperion-deprecation",
     "class": "warning",
@@ -930,6 +930,22 @@
     "conditions": {
       "info": "installed"
     }
+  },
+  {
+    "title": {
+      "en": "Get your Ticket for the ioBroker Community-Meeting Solingen 09.11.2024",
+      "de": "Hol Dir Dein Ticket für das ioBroker Community-Treffen Solingen 09.11.2024"
+    },
+    "content": {
+      "en": "The ticket sale for the ioBroker Community-Meeting on 09.11.2024 in Solingen just started. Get all information, an overview of the planned agenda and your ticket at the <a href=\"https://usertreffen.iobroker.in/\">Community-Meeting Webpage</a>.",
+      "de": "Der Ticketverkauf für das ioBroker Community-Treffen in Solingen am 09.11.2024 hat gerade gestartet. Alle Informationen zum Event, einen Überblick über die geplante Agenda und Dein Ticket erhältst Du auf der <a href=\"https://usertreffen.iobroker.in/\">Community-Treffen Webseite</a>."
+    },
+    "id": "iobcommunitysolingen2024",
+    "class": "info",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-06-03T14:00:00.000Z",
+    "conditions": {
+      "admin": "installed"
+    }
   }
-
 ]
