@@ -259,7 +259,7 @@ Trigger device functions. Here, the Denon AV receiver is turned on or off when t
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.5.0 (2024-06-02)
 * (WolfspiritM) Multiple subnets can be entered as comma seperated list now. (#147)
 * (mcm1957) Testing for node.js 22 has been added.
 * (mcm1957) Dependencies have been updated.

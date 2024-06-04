@@ -35,6 +35,10 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 4.0.1 (xx.06.2024) WORK in PROGRESS
+
+* (HombachC) dependency updates
+
 ### 4.0.0 (21.04.2024)
 
 * (HombachC) BREAKING: Dropped support for Node.js 16 (#591)

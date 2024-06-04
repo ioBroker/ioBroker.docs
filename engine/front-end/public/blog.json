@@ -4,18 +4,18 @@
       "date": "2024.06.06",
       "title": {
         "de": "ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024",
-        "en": "",
-        "ru": "",
-        "zh-cn": ""
+        "en": "IoBroker JavaScript adapter: Improvements April-May 2024",
+        "ru": "Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.",
+        "zh-cn": "IoBroker JavaScript 适配器：2024 年 4 月至 5 月的改进"
       },
       "logo": "",
       "type": "news",
       "originalName": "2024_06_06.md",
       "desc": {
         "de": "**Besonderer Dank geht an Matthias Kleine [*(kleinOr)*](https://github.com/klein0r) für seine großartige Arbeit an diesem Adapter!**",
-        "en": "# IoBroker JavaScript adapter: Improvements April-May 2024\\n**Special thanks to Matthias Kleine [*(smallOr)*](https://github.com/klein0r) for his great work on this adapter!**",
-        "ru": "# Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.\\n**Особая благодарность Маттиасу Кляйне [*(маленькийИли)*](https://github.com/klein0r) за прекрасную работу над этим адаптером!**",
-        "zh-cn": "# IoBroker JavaScript 适配器：2024 年 4 月至 5 月的改进\\n**特别感谢 Matthias Kleine [*(小或)*](https://github.com/klein0r) 在该适配器上所做的出色工作！**"
+        "en": "**Special thanks to Matthias Kleine [*(smallOr)*](https://github.com/klein0r) for his great work on this adapter!**",
+        "ru": "**Особая благодарность Маттиасу Кляйне [*(маленькийИли)*](https://github.com/klein0r) за прекрасную работу над этим адаптером!**",
+        "zh-cn": "**特别感谢 Matthias Kleine [*(小或)*](https://github.com/klein0r) 在该适配器上所做的出色工作！**"
       }
     },
     "2024_06_02": {
@@ -32,8 +32,8 @@
       "desc": {
         "de": "Hallo, ioBroker-Community!",
         "en": "Hello, ioBroker community! ",
-        "ru": "# Обновление за май 2024 г.: последние новости и события в ioBroker\\nПривет, сообщество ioBroker!",
-        "zh-cn": "# 2024 年 5 月更新：ioBroker 的最新新闻和动态\\n您好，ioBroker 社区！"
+        "ru": "Привет, сообщество ioBroker!",
+        "zh-cn": "您好，ioBroker 社区！"
       }
     },
     "2024_05_12": {

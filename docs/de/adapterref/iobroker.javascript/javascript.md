@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
 title: kein Titel
-hash: zjORbumG0KPomxiRSgSPK+nsOHPMcXcsMtUy4CJPCvk=
+hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 ---
 ## Inhalt
 - [Anmerkung](#Anmerkung)
@@ -14,7 +14,7 @@ hash: zjORbumG0KPomxiRSgSPK+nsOHPMcXcsMtUy4CJPCvk=
 - [Funktionen](#folgende-Funktionen-können-in-Skripten-verwendet-werden)
 - [erforderlich - ein Modul laden](#erforderlich---ein-Modul-laden)
 - [Puffer](#Puffer)
-- [log - Gibt die Nachricht ins Log aus](#log---gibt-die-Nachricht-in-das-Log-aus)
+- [log - Gibt die Nachricht ins Log aus](#log---gibt-die-Nachricht-in-seinem-Log-aus)
 - [exec - führe einen Betriebssystembefehl aus, etwa „cp file1 file2“](#exec---execute-some-os-command-like-cp-file1-file2)
 - [on - Abonnieren Sie Änderungen oder Aktualisierungen eines bestimmten Status](#on---subscribe-on-changes-or-updates-of-some-state)
 - [einmal](#einmal)
@@ -213,7 +213,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 
 | Parameter | Typ/Wert | Beschreibung |
-|-----------  |-------     |-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Logik | Zeichenfolge | „und“ oder „oder“-Logik zum Kombinieren der Bedingungen \(Standard: „und“\) |
 |             |            |                                                                                                                                                     |
 | ID | Zeichenfolge | ID ist gleich der angegebenen |
@@ -257,7 +257,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | tsGt | Zeichenfolge | Der Zeitstempel des neuen Werts darf nicht mit dem angegebenen übereinstimmen (state.ts != ts) |
 | tsGe | Zeichenfolge | Der Zeitstempel des neuen Werts muss größer sein als der angegebene Wert (state.ts > ts) |
 | tsLt | Zeichenfolge | Der Zeitstempel des neuen Werts muss größer oder gleich dem angegebenen sein (state.ts >= ts) |
-| tsLe | Zeichenfolge | Der Zeitstempel des neuen Werts muss kleiner sein als der angegebene (state.ts < ts) |
+| tsLe | Zeichenfolge | Der Zeitstempel des neuen Werts muss kleiner als der angegebene sein (state.ts < ts) |
 |             |            |                                                                                                                                                     |
 | oldTs | Zeichenfolge | Vorheriger Zeitstempel muss mit dem angegebenen übereinstimmen (oldState.ts == ts) |
 | oldTsGt | Zeichenfolge | Vorheriger Zeitstempel darf nicht mit dem angegebenen übereinstimmen (oldState.ts != ts) |
@@ -356,7 +356,7 @@ setState('stateId1', 'new value');
 // stateId2 will be set to 'triggered'.
 ```
 
-Die Funktion `on` gibt den Handler zurück. Dieser Handler kann beim Abbestellen verwendet werden.
+Die Funktion `on` gibt den Handler zurück. Dieser Handler kann durch Abbestellen verwendet werden.
 
 *Hinweis:* Standardmäßig werden nur Zustände mit der Qualität 0x00 an die Callback-Funktion übergeben. Wenn Sie alle Ereignisse erhalten möchten, fügen Sie der Musterstruktur `{q: '*'}` hinzu.
 
@@ -549,7 +549,7 @@ Die folgenden Werte können als Attribut in der Astrofunktion verwendet werden:
 - „sunriseEnd“: Sonnenaufgang endet (Unterkante der Sonne berührt den Horizont)
 - „goldenHourEnd“: die goldene Stunde am Morgen (weiches Licht, die beste Zeit zum Fotografieren) endet
 - „solarNoon“: Sonnenmittag (Sonne steht am höchsten)
-- „goldenHour“: Beginn der goldenen Stunde am Abend
+- „goldenHour“: Beginn der goldenen Abendstunde
 - „sunsetStart“: Sonnenuntergang beginnt (Unterkante der Sonne berührt den Horizont)
 - „Sonnenuntergang“: Sonnenuntergang (die Sonne verschwindet unter dem Horizont, die bürgerliche Abenddämmerung beginnt)
 - „Dusk“: Dämmerung (Beginn der abendlichen nautischen Dämmerung)
@@ -558,11 +558,11 @@ Die folgenden Werte können als Attribut in der Astrofunktion verwendet werden:
 - „nightEnd“: die Nacht endet (die astronomische Morgendämmerung beginnt)
 - „nauticalDawn“: nautische Morgendämmerung (Beginn der morgendlichen nautischen Dämmerung)
 - „Dawn“: Morgendämmerung (die morgendliche nautische Dämmerung endet, die morgendliche bürgerliche Dämmerung beginnt)
-- „Nadir“: Nadir (dunkelster Moment der Nacht, Sonne steht am tiefsten)
+- „Nadir“: Nadir (der dunkelste Moment der Nacht, die Sonne steht am tiefsten)
 
 **Hinweis:** Um die „Astro“-Funktion zu verwenden, müssen „Breitengrad“ und „Längengrad“ in den Einstellungen des JavaScript-Adapters definiert werden.
 
-**Hinweis:** An manchen Stellen kann es vorkommen, dass keine Nacht/NachtEnde existiert. Bitte lesen Sie dazu [Hier](https://github.com/mourner/suncalc/issues/70).
+**Hinweis:** An manchen Stellen kann es vorkommen, dass keine Nacht/NachtEnde vorhanden ist. Bitte lesen Sie dazu [Hier](https://github.com/mourner/suncalc/issues/70).
 
 **Hinweis:** Sie können die Funktion „Ein“ mit kleinen Änderungen für den Zeitplan verwenden:
 
@@ -751,8 +751,8 @@ setState('myState', 1);
 Informationen zur Verwendung von `ack` finden Sie unter https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses.
 Kurz:
 
-- `ack` = false : Skript möchte einen Befehl senden, der vom Zielgerät/Adapter ausgeführt werden soll
-- `ack` = true: Befehl wurde erfolgreich ausgeführt und der Status wird als positives Ergebnis aktualisiert
+- `ack` = `false` : Das Skript möchte einen Befehl senden, der vom Zielgerät/Adapter ausgeführt werden soll
+- „ack“ = „true“: Der Befehl wurde erfolgreich ausgeführt und der Status wird als positives Ergebnis aktualisiert.
 
 ### SetStateAsync
 ```js
@@ -883,7 +883,7 @@ const stateObject = await getStateAsync(id);
 
 Wie getState, aber mit `promise`.
 
-### ExistiertStatus
+### ExistiertZustand
 ```js
 existsState(id, (err, isExists) => {});
 ```
@@ -1249,18 +1249,18 @@ formatDate(millisecondsOrDate, format);
 - `millisecondsOrDate`: Anzahl der Millisekunden aus state.ts oder state.lc (Anzahl der Millisekunden vom 01.01.1970 00:00:00) oder Javascript *new Date()*-Objekt oder Anzahl der Millisekunden aus *(new Date().getTime())*
 - `format`: Kann `null` sein, dann wird das Systemzeitformat verwendet, andernfalls
 
-* YYYY, JJJJ, ГГГГ - vollständiges Jahr, z. B. 2015
+* YYYY, JJJJ, ГГГГ – vollständiges Jahr, z. B. 2015
 * YY, JJ, ГГ - kurzes Jahr, zB 15
 * MM, ММ (kyrillisch) – vollständiger Monat, z. B. 01
-* M, М (kyrillisch) - kurzer Monat, zB 1
+* M, М (kyrillisch) - kurzer Monat, z. B. 1
 * TT, TT, ДД - ganzer Tag, zB 02
-* D, T, Ä - kurzer Tag, zB 2
+* D, T, Ä - kurzer Tag, z. B. 2
 * hh, SS, чч – volle Stunden, zB 03
 * h, S, ч - kurze Stunden, zB 3
 * mm, мм(kyrillisch) – volle Minuten, zB 04
-* m, м (kyrillisch) – kurze Minuten, zB 4
+* m, м (kyrillisch) – kurze Minuten, z. B. 4
 * ss, сс (kyrillisch) – volle Sekunden, zB 05
-* s, с (kyrillisch) – kurze Sekunde, zB 5
+* s, с (kyrillisch) – kurze Sekunden, z. B. 5
 * sss, ссс(kyrillisch) - Millisekunden
 * WW, НН(kyrillisch) - ganzer Wochentag als Text
 * W, Н (kyrillisch) - kurzer Wochentag als Text
@@ -1287,14 +1287,14 @@ formatTimeDiff(milliseconds, format);
 - „Millisekunden“: Differenz in Millisekunden*
 - `format`: Kann `null` sein, daher wird das Format `hh:mm:ss` verwendet, andernfalls
 
-* TT, TT, ДД - ganzer Tag, zB 02
-* D, T, Ä - kurzer Tag, zB 2
-* hh, SS, чч – volle Stunden, zB 03
-* h, S, ч - kurze Stunden, zB 3
-* mm, мм(kyrillisch) – volle Minuten, zB 04
-* m, м (kyrillisch) – kurze Minuten, zB 4
-* ss, сс (kyrillisch) – volle Sekunden, zB 05
-* s, с (kyrillisch) – kurze Sekunden, zB 5
+* TT, TT, ДД – ganzer Tag, zB „02“
+* D, T, Д - kurzer Tag, z. B. „2“
+* hh, SS, чч – volle Stunden, zB „03“
+* h, S, ч – kurze Stunden, zB „3“
+* mm, мм(kyrillisch) – volle Minuten, zB „04“
+* m, м (kyrillisch) – kurze Minuten, z. B. „4“
+* ss, сс (kyrillisch) – volle Sekunden, zB „05“
+* s, с (kyrillisch) – kurze Sekunden, z. B. „5“
 
 #### Beispiel
 ```js
@@ -1625,7 +1625,7 @@ runScript('scriptName', () => {
 });
 ```
 
-Startet andere Skripte (und auch sich selbst) oder startet sie neu, und zwar anhand des Namens.
+Startet andere Skripte (und auch sich selbst) oder startet sie neu anhand des Namens.
 
 ```js
 // restart script
@@ -1889,7 +1889,7 @@ Der zweite Parameter kann ein Objekt mit weiteren Optionen sein (optional). Alle
 - „basicAuth“ (Objekt) – Grundlegende HTTP-Authentifizierungsdaten. z. B. „{ Benutzer: „admin“, Passwort: „iobroker“ }“
 - `bearerAuth` (Zeichenfolge) – Token für die Trägerauthentifizierung
 - „headers“ (Objekt) – Zusätzliche benutzerdefinierte HTTP-Header, z. B. „{ „Accept-Language“: „en-GB,en;q=0.9“ }“
-- `validateCertificate` (Boolesch) - Lässt selbst signierte Zertifikate zu, wenn `false`
+- `validateCertificate` (Boolesch) - Lässt selbstsignierte Zertifikate zu, wenn `false`
 
 ```js
 httpGet('http://jsonplaceholder.typicode.com/posts', { timeout: 1000 }, (err, response) => {
@@ -2011,7 +2011,7 @@ log(`Script ${scriptName} started!`);
 ```
 
 ### Instanz
-`instance` – Die JavaScript-Instanz, in der das Skript ausgeführt wird (z. B. `0`).
+`instance` – Die JavaScript-Instanz, in der ein Skript ausgeführt wird (z. B. `0`).
 
 ```js
 log(`Script ${scriptName} started started by ${instance}`);
@@ -2037,7 +2037,7 @@ if (verbose) {
 ```
 
 ## Option - „Beim Start nicht alle Zustände abonnieren“
-Es gibt zwei Modi zum Abonnieren von Zuständen:
+Es gibt zwei Arten, Zustände zu abonnieren:
 
 - Der Adapter abonniert alle Änderungen beim Start und empfängt alle Änderungen aller Zustände (es ist einfach, getStates(id) zu verwenden, erfordert aber mehr CPU und RAM):
 

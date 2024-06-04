@@ -6,9 +6,9 @@
         <lastBuildDate>Thu, 06 Jun 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[]]></title>
+            <title><![CDATA[Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.]]></title>
             <description><![CDATA[
-                <p># Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.\n**Особая благодарность Маттиасу Кляйне [*(маленькийИли)*](https://github.com/klein0r) за прекрасную работу над этим адаптером!**</p>
+                <p>**Особая благодарность Маттиасу Кляйне [*(маленькийИли)*](https://github.com/klein0r) за прекрасную работу над этим адаптером!**</p>
             ]]></description>
             <link>https://www.iobroker.net/#ru/blog/2024_06_06</link>
             <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_06_06</guid>
@@ -18,7 +18,7 @@
         <item>
             <title><![CDATA[Обновление за май 2024 г.: последние новости и события в ioBroker]]></title>
             <description><![CDATA[
-                <p># Обновление за май 2024 г.: последние новости и события в ioBroker\nПривет, сообщество ioBroker!</p>
+                <p>Привет, сообщество ioBroker!</p>
             ]]></description>
             <link>https://www.iobroker.net/#ru/blog/2024_06_02</link>
             <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_06_02</guid>

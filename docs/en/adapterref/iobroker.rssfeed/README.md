@@ -2,12 +2,14 @@
 
 # ioBroker Adapter to request and show RSS Feeds of different standards (Atom, RSS, RDF)
 
-[![Number of Installations](http://iobroker.live/badges/rssfeed-installed.svg)](https://github.com/oweitman/ioBroker.rssfeed)
-[![NPM version](http://img.shields.io/npm/v/iobroker.rssfeed.svg)](https://www.npmjs.com/package/iobroker.rssfeed)
+[![NPM version](https://img.shields.io/npm/v/iobroker.rssfeed.svg)](https://www.npmjs.com/package/iobroker.rssfeed)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.rssfeed.svg)](https://www.npmjs.com/package/iobroker.rssfeed)
-[![Travis](https://img.shields.io/travis/oweitman/ioBroker.rssfeed.svg)](https://travis-ci.org/oweitman/ioBroker.rssfeed/)
-[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/oweitman/iobroker-rssfeed.svg)](https://ci.appveyor.com/project/oweitman/iobroker-rssfeed)
-[![GitHub issues](https://img.shields.io/github/issues/oweitman/ioBroker.rssfeed.svg)](https://github.com/oweitman/ioBroker.rssfeed/issues)
+![Number of Installations](https://iobroker.live/badges/rssfeed-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/rssfeed-stable.svg)
+
+[![NPM](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)](https://nodei.co/npm/iobroker.rssfeed/)
+
+**Tests:** ![Test and Release](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
 ## Overview
 
@@ -82,7 +84,7 @@ An example that I have tested with the following RSS feeds:
 The template system works with certain tags.
 The tags used mean the following
 
-| tag   | description                                                           |  
+| `tag`   | description                                                           |  
 | ----- | --------------------------------------------------------------------- |  
 | <%=   | The content of the contained expression / variable will be escaped.   |  
 | <%-   | The content of the contained expression / variable is unescaped.      |  
@@ -167,10 +169,21 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.9.2 (2024-06-04)
+
+* add some translations
+* fix warning from adapter checker
+
+### 2.9.1 (2024-06-03)
+
+* update iobroker files and settings
+
 ### 2.8.2 (2024-04-21)
+
 * (bluefox) Fixed loading of words.js in vis
 
 ### 2.8.1 (2023-03-15)
+
 * (bluefox) Corrected vis widget
 * admin changed to jsonConfig, dev-environment now devcontainer
 

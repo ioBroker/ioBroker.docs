@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/javascript.md
 title: 无题
-hash: zjORbumG0KPomxiRSgSPK+nsOHPMcXcsMtUy4CJPCvk=
+hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 ---
 ＃＃ 内容
 - [注意](#note)
@@ -213,7 +213,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 您可以使用以下参数来指定触发器：
 
 | 参数 | 类型/值 | 描述 |
-|-----------  |-------     |-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | 逻辑 | 字符串 | 使用“and”或“or”逻辑来组合条件\（默认：“and”\）|
 |             |            |                                                                                                                                                     |
 | id | 字符串 | id 等于给定的 |
@@ -277,7 +277,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | oldLcLt | 字符串 | 上次更改时间戳必须大于或等于给定的时间戳 (oldState.lc >= lc) |
 | oldLcLe | 字符串 | 上次更改时间戳必须小于给定的时间戳 (oldState.lc < lc) |
 |             |            |                                                                                                                                                     |
-| channelId | string | 频道ID必须等于给定的|
+| channelId | 字符串 | 频道ID必须等于给定的|
 | | RegExp | 与正则表达式匹配的频道ID |
 | | 数组 | 与允许的频道 ID 列表匹配的频道 ID |
 |             |            |                                                                                                                                                     |
@@ -356,7 +356,7 @@ setState('stateId1', 'new value');
 // stateId2 will be set to 'triggered'.
 ```
 
-函数`on`返回处理程序。此处理程序可用于取消订阅。
+函数`on`返回处理程序。取消订阅后即可使用该处理程序。
 
 *注意：*默认情况下，只有质量为 0x00 的状态才会传递给回调函数。如果要获取所有事件，请将 `{q: '*'}` 添加到模式结构中。
 
@@ -751,8 +751,8 @@ setState('myState', 1);
 有关`ack`的使用方法，请参阅 https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses。
 简述：
 
-- `ack` = false ：脚本想要发送一个命令给目标设备/适配器执行
-- `ack` = true ：命令已成功执行，并且状态更新为肯定结果
+- `ack` = `false` ：脚本想要发送一个命令给目标设备/适配器执行
+- `ack` = `true` ：命令已成功执行，并且状态更新为肯定结果
 
 ### 设置状态异步
 ```js
@@ -874,7 +874,7 @@ getState(id);
 ```
 
 如果状态不存在，则会在日志中打印警告，并返回对象`{ val: null, notExist: true }`。
-要抑制警告，请在调用 getState 之前检查状态是否存在（请参阅[存在状态](#existsState)）。
+要取消警告，请在调用 getState 之前检查状态是否存在（请参阅[存在状态](#existsState)）。
 
 ### 获取状态异步
 ```js
@@ -904,7 +904,7 @@ getObject(id, enumName);
 ```
 
 获取系统中存储的对象 ID 的描述。
-您可以指定枚举名称。如果已定义，则将向结果添加两个附加属性：enumIds 和 enumNames。
+您可以指定枚举名称。如果已定义，则会向结果添加两个附加属性：enumIds 和 enumNames。
 这些数组包含所有枚举，其中 ID 是其成员。例如：
 
 ```js
@@ -1181,7 +1181,7 @@ sendToHost(hostName, command, message, callback);
 - ``获取安装信息''
 - `“获取版本”`
 - `“获取诊断数据”`
-- ``getLocationOnDisk''
+- ``getLocationOnDisk''`
 - ``获取DevList''
 - `“getLogs”`
 - `“获取主机信息”`
@@ -1254,7 +1254,7 @@ formatDate(millisecondsOrDate, format);
 * MM、MM（西里尔文）- 完整月份，例如 01
 * M, М（西里尔文）- 短月份，例如 1
 * DD、TT、ДД - 全天，例如 02
-* D、T、Д - 短日，例如 2
+* D, T, Д - 短日，例如 2
 * hh, SS, чч - 整点，例如 03
 * h, S, ч - 短小时，例如 3
 * mm, мм（西里尔文）- 完整分钟，例如 04
@@ -1263,7 +1263,7 @@ formatDate(millisecondsOrDate, format);
 * s, с（西里尔文）- 短秒，例如 5
 * sss，ссс（西里尔文） - 毫秒
 * WW，НН（西里尔文）- 以文本形式显示完整星期几
-* W、Н（西里尔文）- 短星期几作为文本
+* W, Н（西里尔文）- 短星期几作为文本
 * OO, ОО（西里尔文）- 整月以文本表示
 * OOO, ООО（西里尔文）- 完整的月份作为属格文本
 * O, О（西里尔文）- 短月份为文本
@@ -1287,14 +1287,14 @@ formatTimeDiff(milliseconds, format);
 -`毫秒`：毫秒差*
 - `format`：可以为 `null`，因此将使用 `hh:mm:ss` 格式，否则
 
-* DD、TT、ДД - 全天，例如 02
-* D、T、Д - 短日，例如 2
-* hh, SS, чч - 整点，例如 03
-* h, S, ч - 短小时，例如 3
-* mm, мм（西里尔文）- 完整分钟，例如 04
-* m, м（西里尔文）- 短分钟，例如 4
-* ss, сс（西里尔文） - 整秒，例如 05
-* s, с（西里尔文）- 短秒，例如 5
+* DD、TT、ДД - 全天，例如“02”
+* D, T, Д - 短日，例如“2”
+* hh, SS, чч - 整点，例如“03”
+* h, S, ч - 短小时，例如“3”
+* mm, мм（西里尔文）- 完整分钟，例如“04”
+* m, м（西里尔文）- 短分钟，例如“4”
+* ss，сс（西里尔文）- 整秒，例如“05”
+* s, с（西里尔文）-短秒，例如“5”
 
 ＃＃＃＃ 例子
 ```js
@@ -1788,7 +1788,7 @@ onMessage('messageName', (data, callback) => {
 订阅 javascript 适配器消息总线并通过回调传递响应。
 首先发送响应的脚本的响应将被接受为答案，所有其他答案将被忽略。
 
-要向 JavaScript 脚本发送消息，然后由该处理程序接收，请使用[消息收件人](#messageTo)。
+要将消息发送到 JavaScript 脚本并由该处理程序接收，请使用[消息收件人](#messageTo)。
 
 要从任何其他适配器发送消息，请使用
 
@@ -1833,7 +1833,7 @@ onLog('error', data => {
 
 订阅具有指定严重程度的日志。
 
-*重要：*您不能在处理程序中输出具有相同严重性的日志以避免无限循环。
+*重要：*您不能在处理程序中输出具有相同严重性的日志，以避免无限循环。
 
 例如，这不会产生任何日志：
 

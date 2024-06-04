@@ -107,11 +107,17 @@ The controller instance subscribes on an alias namespace. 4 secondaries each set
 The controller instance subscribes on an alias namespace. 4 secondaries each set `iterations / 4` alias states. As soon as the controller received all `iterations` publishes, the test is finished.
 The alias contains a simple write function.
 
+### statesSubscriptionSingle
+Ten secondaries each subscribe on the same `iterations` states. Instead of using one `subscribe` call each perform `iterations` single subscribe calls. As soon as all `ìterations` are received by every secondary, the test is finished.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-06-03)
+* (foxriver76) added test `statesSubscriptionSingle`
+
 ### 1.2.0 (2024-04-16)
 * (foxriver76) added `controllerVersion` to results
 

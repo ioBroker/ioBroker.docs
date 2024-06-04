@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rssfeed/README.md
 title: Адаптер ioBroker для запроса и отображения RSS-каналов различных стандартов (Atom, RSS, RDF)
-hash: 6oGOIu4JOzmhPK4CsPEWl+x4BltfWPs2lJbBrk4MT5M=
+hash: w3/59h3RcCjkaOOU18hRd1xbdEdToo2ZhJXm55J+JcM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed-logo.png)
 
-![Количество установок](http://iobroker.live/badges/rssfeed-installed.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.rssfeed.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.rssfeed.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rssfeed.svg)
-![Трэвис](https://img.shields.io/travis/oweitman/ioBroker.rssfeed.svg)
-![Статус сборки AppVeyor](https://img.shields.io/appveyor/ci/oweitman/iobroker-rssfeed.svg)
-![Проблемы с GitHub](https://img.shields.io/github/issues/oweitman/ioBroker.rssfeed.svg)
+![Количество установок](https://iobroker.live/badges/rssfeed-installed.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/rssfeed-stable.svg)
+![НПМ](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
 
 # Адаптер ioBroker для запроса и отображения RSS-каналов различных стандартов (Atom, RSS, RDF)
+**Тесты:** ![Тестирование и выпуск](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
+
 ## Обзор
 Адаптер для запроса и отображения RSS-каналов разных стандартов (Atom, RSS, RDF).
 Вы можете настроить вывод канала с помощью системы шаблонов. В шаблоны вы можете включать HTML, CSS и Javascript.
@@ -22,7 +23,7 @@ hash: 6oGOIu4JOzmhPK4CsPEWl+x4BltfWPs2lJbBrk4MT5M=
 Важно: действителен только английский перевод из-за ошибок в автоматических переводах на другие языки, сделанных iobroker.
 
 ## Добавить экземпляр
-После установки адаптер должен отображаться в разделе адаптеров в iobroker.
+После установки адаптер должен отображаться в разделе адаптера в iobroker.
 Иногда случается, что изменения не видны, особенно при веб-изменениях (диалог виджетов/конфигурации), возможно, придется выполнить в командной строке следующую команду:
 
 ```bash
@@ -60,7 +61,7 @@ iobroker upload rssfeed
 * `RSS Feed Meta Helper` — вспомогательный виджет для проверки метаданных канала.
 * `RSS Feed Article Helper 2` — вспомогательный виджет для проверки данных статей в канале.
 * `RSS Feed Title Marquee 3` — виджет, показывающий заголовки канала в виде рамки.
-* `JSON Template` — виджет, который не имеет ничего общего с RSS-каналами, но использует ту же технологию, и вы можете определить собственный шаблон для отображения любых JSON-данных в vis.
+* `JSON Template` — виджет, который не имеет ничего общего с RSS-каналами, но использует ту же технологию, и вы можете определить собственный шаблон для отображения любых JSON-данных в Vis.
 
 Документация по vis-виджетам доступна внутри vis или [Документация по виджетам/немецкий](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.rssfeed/blob/master/widgets/rssfeed/doc.html).
 
@@ -83,10 +84,10 @@ iobroker upload rssfeed
 Система шаблонов работает с определенными тегами.
 Используемые теги означают следующее
 
-| тег | описание |
+| `tag` | описание |
 | ----- | --------------------------------------------------------------------- |
 | <%= | Содержимое содержащегося выражения/переменной будет экранировано.   |
-| <%- | Содержимое содержащегося выражения/переменной не экранируется.      |
+| <%- | Содержимое содержащегося выражения/переменной не экранировано.      |
 | <% | Нет вывода, используется для вложенных инструкций JavaScript |
 | %> | обычно является закрывающим тегом для завершения одного из предыдущих |
 
@@ -144,7 +145,7 @@ iobroker upload rssfeed
 Z3: Вывод даты и времени есть. Он заключен в небольшой тег p/для форматирования. Для форматирования используется функция формата даты vis-own. Описание можно найти в адаптере.
 Z4: вывод заголовка статьи. Тег Header 3 используется для форматирования.
 Z5: Вывод содержания статьи. Он заключен в p-тег. Здесь, по крайней мере в двух примерах, включен HTML-код, который обычно включает изображение и описательный текст. Z6: Выведите тег div, который очищает специальное форматирование в Feed-html (в обоих примерах для tagesschau и bild он необходим. Другой корм, возможно, в этом не нуждался.
-Z7: Без вывода. Эта строка замыкает цикл JavaScript. Все, что было определено между Z2 и Z7, повторяется для каждой статьи.
+Z7: Без вывода. Эта строка замыкает цикл JavaScript. Все, что было определено между Z2 и Z7, повторяется для каждой отдельной статьи.
 
 ## Делать
 * очистка неиспользуемых записей в datapoint info.lastRequest путем сохранения в диалоговом окне администратора.
@@ -160,10 +161,21 @@ Z7: Без вывода. Эта строка замыкает цикл JavaScrip
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.9.2 (2024-06-04)
+
+* add some translations
+* fix warning from adapter checker
+
+### 2.9.1 (2024-06-03)
+
+* update iobroker files and settings
+
 ### 2.8.2 (2024-04-21)
+
 * (bluefox) Fixed loading of words.js in vis
 
 ### 2.8.1 (2023-03-15)
+
 * (bluefox) Corrected vis widget
 * admin changed to jsonConfig, dev-environment now devcontainer
 

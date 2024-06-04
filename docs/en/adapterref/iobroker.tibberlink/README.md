@@ -54,6 +54,7 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
     ![Calculator States](docu/calculatorStates.png)
 -   The behavior of each channel is determined by its type: "best cost (LTF)", "best single hours (LTF)", "best hours block (LTF)" or "smart battery buffer".
 -   Each channel populates one or two external states as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writeable external state.
+-   If no external output state is selected, an internal state within the channel's range will be created.
 -   The values to be written to the output state can be defined in "value YES" and "value NO," e.g., "true" for boolean states or a number or text to be written.
 -   Outputs:
     -   "Best cost": Utilizes the "TriggerPrice" state as input, producing a "YES" output every hour when the current Tibber energy cost is below the trigger price.
@@ -95,6 +96,18 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 3.2.1 (2024-06-03)
+
+-   (HombachC) added unique endpoint string
+
+### 3.2.0 (2024-06-03)
+
+-   (HombachC) IMPORTANT: adapter components had been blocked by Tibber - you have to update!
+-   (HombachC) bump base dependencies
+-   (HombachC) adapter will use internal output states for calculator if none defined in configuration (#325)
+-   (HombachC) implement first run mode in calculator to reduce system load
+-   (HombachC) internal optimisations
 
 ### 3.1.2 (2024-05-20)
 

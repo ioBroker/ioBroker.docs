@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/README.md
 title: ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-hash: 6oGOIu4JOzmhPK4CsPEWl+x4BltfWPs2lJbBrk4MT5M=
+hash: w3/59h3RcCjkaOOU18hRd1xbdEdToo2ZhJXm55J+JcM=
 ---
 ![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed-logo.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/rssfeed-installed.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.rssfeed.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.rssfeed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rssfeed.svg)
-![Travis](https://img.shields.io/travis/oweitman/ioBroker.rssfeed.svg)
-![AppVeyor-Build-Status](https://img.shields.io/appveyor/ci/oweitman/iobroker-rssfeed.svg)
-![GitHub-Probleme](https://img.shields.io/github/issues/oweitman/ioBroker.rssfeed.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/rssfeed-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/rssfeed-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
 
 # IoBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
+**Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
+
 ## Überblick
 Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF).
 Die Ausgabe des Feeds können Sie über ein Vorlagensystem individuell anpassen. In die Vorlagen können Sie HTML, CSS und Javascript einbinden.
@@ -84,7 +85,7 @@ Ein Beispiel, das ich mit folgenden RSS-Feeds getestet habe:
 Das Vorlagensystem arbeitet mit bestimmten Tags.
 Die verwendeten Tags bedeuten Folgendes
 
-| Tag | Beschreibung |
+| `tag` | Beschreibung |
 | ----- | --------------------------------------------------------------------- |
 | <%= | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird maskiert. |
 | <%- | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird nicht maskiert. |
@@ -141,11 +142,11 @@ Damit es passt, mache ich z.B. noch das Präfix item davor. Aber wer will kann d
 <% }); %>
 ```
 
-Kurzbeschreibung was in den einzelnen Zeilen passiert Z1: Die Ausgabe des Feedtitels Z2: Ohne Ausgabe. Javascriptbefehl zum Loopen über alle Artikel, bei jedem Turn wird das aktuelle Element der Variable item zugewiesen.
-Z3: Ausgabe von Datum und Uhrzeit. Wird mit einem p/small-Tag zur Formatierung eingefasst. Zur Formatierung wird die vis-eigene Datumsformatfunktion verwendet. Beschreibung findet sich im Adapter vis.
-Z4: Die Ausgabe des Artikeltitels. Zur Formatierung wird ein Header3-Tag verwendet.
-Z5: Ausgabe des Inhalts des Artikels. Wird mit einem p-Tag eingefasst. Hier wird, zumindest in den beiden Beispielen, HTML-Code eingebunden, der meist mit Bild und Beschreibungstext daherkommt Z6: Ausgabe eines div-Tags, der spezielle Formatierungen im Feed-html aufhebt (in beiden Beispielen für tagesschau und bild wird das benötigt. Andere Feeds brauchen das vielleicht nicht.
-Z7: Ohne Ausgabe. Mit dieser Zeile wird die Javascript-Schleife geschlossen. Alles was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
+Kurzbeschreibung, was in den einzelnen Zeilen passiert Z1: Die Ausgabe des Feedtitels Z2: Ohne Ausgabe. Javascript-Befehl zum Loopen über alle Artikel, bei jedem Turn wird das aktuelle Element der Variable item zugewiesen.
+Z3: Ausgabe von Datum und Uhrzeit. Wird mit einem p/small-Tag zur Formatierung umschlossen. Zur Formatierung wird die vis-eigene Datumsformat-Funktion verwendet. Beschreibung findet sich im Adapter vis.
+Z4: Die Ausgabe des Artikeltitels. Wird mit einem Header3-Tag umschlossen.
+Z5: Ausgabe des Inhalts des Artikels. Wird mit einem p-Tag umschlossen. Hier wird, zumindest in den beiden Beispielen, HTML-Code eingebunden, der meist mit Bild und Beschreibungstext daherkommt Z6: Ausgabe eines div-Tags, der spezielle Formatierungen im Feed-html aufhebt (in beiden Beispielen für tagesschau und bild wird das benötigt. Andere Feeds brauchen das vielleicht nicht.
+Z7: Ohne Ausgabe. Mit dieser Zeile wird die Javascript-Schleife geschlossen. Alles, was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
 
 ## Machen
 * Bereinigen Sie nicht verwendete Einträge im Datenpunkt info.lastRequest, indem Sie sie im Admin-Dialog speichern.
@@ -161,10 +162,21 @@ Z7: Ohne Ausgabe. Mit dieser Zeile wird die Javascript-Schleife geschlossen. All
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.9.2 (2024-06-04)
+
+* add some translations
+* fix warning from adapter checker
+
+### 2.9.1 (2024-06-03)
+
+* update iobroker files and settings
+
 ### 2.8.2 (2024-04-21)
+
 * (bluefox) Fixed loading of words.js in vis
 
 ### 2.8.1 (2023-03-15)
+
 * (bluefox) Corrected vis widget
 * admin changed to jsonConfig, dev-environment now devcontainer
 

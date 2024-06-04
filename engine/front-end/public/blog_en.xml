@@ -6,9 +6,9 @@
         <lastBuildDate>Thu, 06 Jun 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[]]></title>
+            <title><![CDATA[IoBroker JavaScript adapter: Improvements April-May 2024]]></title>
             <description><![CDATA[
-                <p># IoBroker JavaScript adapter: Improvements April-May 2024\n**Special thanks to Matthias Kleine [*(smallOr)*](https://github.com/klein0r) for his great work on this adapter!**</p>
+                <p>**Special thanks to Matthias Kleine [*(smallOr)*](https://github.com/klein0r) for his great work on this adapter!**</p>
             ]]></description>
             <link>https://www.iobroker.net/#en/blog/2024_06_06</link>
             <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2024_06_06</guid>

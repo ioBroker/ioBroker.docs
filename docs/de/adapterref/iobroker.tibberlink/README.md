@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: 7fN5FrABztCO5Y6BdXIVUph4eWcQ6o7gvfNwt8kBJC4=
+hash: UJTyxv3/U2FZDXcrTx0stOwqK2a3AhYvg4MzxP/J+h8=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -12,13 +12,13 @@ hash: 7fN5FrABztCO5Y6BdXIVUph4eWcQ6o7gvfNwt8kBJC4=
 ![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.tibberlink?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.tibberlink?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/hombach/iobroker.tibberlink?style=flat-square)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/hombach/iobroker.tibberlink?logo=github&style=flat-square)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=main&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)
-![SNYK Bekannte Sicherheitslücken](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)
+![Bekannte SNYK-Sicherheitslücken](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)
 ![Beta](https://img.shields.io/npm/v/iobroker.tibberlink.svg?color=red&label=beta)
 ![Stabil](https://iobroker.live/badges/tibberlink-stable.svg)
 ![Eingerichtet](https://iobroker.live/badges/tibberlink-installed.svg)
@@ -29,69 +29,131 @@ hash: 7fN5FrABztCO5Y6BdXIVUph4eWcQ6o7gvfNwt8kBJC4=
 
 ## Versionen
 ## Adapter zur Nutzung von TIBBER-Energiedaten in ioBroker
-Dieser Adapter erleichtert die Verbindung von Daten aus der API Ihres Tibber-Kontos zur Verwendung in ioBroker, sei es für ein einzelnes Zuhause oder mehrere Residenzen.
+Dieser Adapter erleichtert die Verbindung von Daten aus der API Ihres Tibber-Kontos zur Verwendung innerhalb von ioBroker, unabhängig davon, ob es sich um ein einzelnes Haus oder mehrere Wohnsitze handelt.
 
-Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich mich sehr freuen, wenn Sie meinen Empfehlungslink verwenden könnten: [Tibber-Empfehlungslink](https://invite.tibber.com/mu8c82n5).
+Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn Sie meinen Empfehlungslink verwenden könnten: [Tibber-Empfehlungslink](https://invite.tibber.com/mu8c82n5).
 
 ## Standardkonfiguration
 - Beginnen Sie mit der Erstellung einer neuen Instanz des Adapters.
-– Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten können: [Tibber Developer API](https://developer.tibber.com).
-- Geben Sie in den Standardeinstellungen Ihr Tibber-API-Token ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
-- Speichern Sie die Einstellungen und verlassen Sie die Konfiguration, um den Adapter neu zu starten. Mit diesem Schritt können Ihre Häuser zum ersten Mal vom Tibber-Server abgefragt werden.
-- Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Häuser aus, von denen Sie Echtzeitdaten mit Ihrem Tibber Pulse abrufen möchten. Sie können auch Häuser auswählen und den Feed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse überprüft hat).
-- Sie haben die Möglichkeit, den Abruf der Preisdaten für heute und morgen zu deaktivieren, wenn Sie beispielsweise ausschließlich Pulse-Live-Feeds nutzen möchten
-- Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Bitte geben Sie die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Mit „0“ können Sie je nach Wunsch eines oder mehrere dieser Intervalle deaktivieren.
-- Hinweis: Es ist wichtig, auf die Größe des Datensatzes zu achten, da zu große Anfragen dazu führen können, dass der Tibber-Server nicht antwortet. Wir empfehlen, mit der Datensatzgröße zu experimentieren, um eine optimale Funktionalität sicherzustellen. Das Anpassen der Intervalle und Datensatzzahlen kann dabei helfen, das richtige Gleichgewicht zwischen der Gewinnung aufschlussreicher Daten und der Aufrechterhaltung der Serverreaktionsfähigkeit zu finden. Z.B. 48 ist eine recht gute Menge für Stunden.
+- Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten: [Tibber Developer API](https://developer.tibber.com).
+- Tragen Sie in den Standardeinstellungen Ihren Tibber-API-Token ein und konfigurieren Sie mindestens eine Zeile für die Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
+- Speichern Sie die Einstellungen und beenden Sie die Konfiguration, um den Adapter neu zu starten. Dieser Schritt ermöglicht die erste Abfrage Ihres/Ihrer Zuhauses vom Tibber-Server.
+- Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Häuser aus, von denen Sie mit Ihrem Tibber Pulse Echtzeitdaten abrufen möchten. Sie können auch Häuser auswählen und den Feed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse überprüft hat).
+- Sie haben die Möglichkeit, den Abruf der Preisdaten für heute und morgen zu deaktivieren, wenn Sie beispielsweise nur Pulse-Live-Feeds nutzen möchten
+- Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Geben Sie hierfür die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Mit „0“ können Sie ein oder mehrere dieser Intervalle nach Ihren Wünschen deaktivieren.
+- Hinweis: Es ist wichtig, auf die Größe des Datensatzes zu achten, da übermäßig große Anfragen zu einer fehlenden Antwort vom Tibber-Server führen können. Wir empfehlen, mit der Datensatzgröße zu experimentieren, um eine optimale Funktionalität sicherzustellen. Durch Anpassen der Intervalle und Datensatznummern können Sie das richtige Gleichgewicht zwischen dem Erhalt aufschlussreicher Daten und der Aufrechterhaltung der Serverreaktionsfähigkeit finden. Beispielsweise ist 48 eine recht gute Anzahl an Stunden.
 - Speichern Sie die Einstellungen.
 
 ## Rechnerkonfiguration
-– Nachdem die Tibber-Verbindung nun eingerichtet ist und läuft, können Sie den Rechner auch nutzen, um zusätzliche Automatisierungsfunktionen in den TibberLink-Adapter zu integrieren.
-- Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Haus verknüpft ist.
+– Da die Tibber-Verbindung nun besteht, können Sie den Rechner auch nutzen, um zusätzliche Automatisierungsfunktionen in den TibberLink-Adapter zu integrieren.
+- Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Zuhause verknüpft ist.
 - Diese Kanäle können basierend auf entsprechenden Zuständen aktiviert oder deaktiviert werden.
-– Diese Zustände dienen als externe, dynamische Eingaben für TibberLink und ermöglichen Ihnen beispielsweise die Anpassung der Grenzkosten („TriggerPrice“) aus einer externen Quelle oder die Deaktivierung des Rechnerkanals („Active“).
-- Die Zustände eines Rechnerkanals werden neben den Heimatzuständen positioniert und entsprechend der Kanalnummer benannt. Hiermit wird der im Admin-Bildschirm gewählte Kanalname angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
+- Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
+- Die Zustände eines Rechnerkanals werden neben den Home-Zuständen platziert und nach der Kanalnummer benannt. Dabei wird der im Admin-Bildschirm gewählte Kanalname hier angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
 
     ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
 
 - Das Verhalten jedes Kanals wird durch seinen Typ bestimmt: „Best Cost (LTF)“, „Best Single Hours (LTF)“, „Best Hours Block (LTF)“ oder „Smart Battery Buffer“.
-- Jeder Kanal füllt einen oder zwei externe Zustände als Ausgang, die im Reiter „Einstellungen“ ausgewählt werden müssen. Dieser Status könnte beispielsweise „0_userdata.0.example_state“ oder ein anderer beschreibbarer externer Status sein.
-- Die in den Ausgabezustand zu schreibenden Werte können in „Wert JA“ und „Wert NEIN“ definiert werden, z. B. „wahr“ für boolesche Zustände oder eine zu schreibende Zahl oder ein zu schreibender Text.
+- Jeder Kanal füllt einen oder zwei externe Zustände als Ausgabe aus, die auf der Registerkarte „Einstellungen“ ausgewählt werden müssen. Dieser Zustand könnte beispielsweise „0_userdata.0.example_state“ oder ein anderer beschreibbarer externer Zustand sein.
+- Wenn kein externer Ausgabezustand ausgewählt ist, wird ein interner Zustand innerhalb des Bereichs des Kanals erstellt.
+- Die in den Ausgangszustand zu schreibenden Werte können in „Wert JA“ und „Wert NEIN“ definiert werden, z.B. „true“ für boolesche Zustände oder eine zu schreibende Zahl bzw. ein zu schreibender Text.
 - Ausgänge:
-    - „Beste Kosten“: Verwendet den Status „TriggerPrice“ als Eingabe und erzeugt jede Stunde eine „JA“-Ausgabe, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
-    - „Beste einzelne Stunden“: Erzeugt während der günstigsten Stunden eine „JA“-Ausgabe, wobei die im Status „AmountHours“ definierte Anzahl angegeben wird.
-    - „Bester Stundenblock“: Gibt „JA“ während des kostengünstigsten Stundenblocks aus, mit der im Status „AmountHours“ angegebenen Stundenanzahl.
+- „Beste Kosten“: Verwendet den Status „TriggerPrice“ als Eingabe und erzeugt stündlich eine „JA“-Ausgabe, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
+- „Beste Einzelstunden“: Generiert eine „JA“-Ausgabe während der günstigsten Stunden mit der im Status „AmountHours“ definierten Anzahl.
+- „Bester Stundenblock“: Gibt „JA“ während des kostengünstigsten Stundenblocks mit der im Status „AmountHours“ angegebenen Stundenanzahl aus.
 
-        Zusätzlich werden die durchschnittlichen Gesamtkosten im ermittelten Block in einen Status „AverageTotalCost“ in der Nähe der Eingangsstatus dieses Kanals geschrieben. Als Ergebnis der Berechnung wird auch die Start- und Endstunde des Blocks in „BlockStartFullHour“ und „BlockEndFullHour“ geschrieben.
+Zusätzlich werden die durchschnittlichen Gesamtkosten im ermittelten Block in einen Status „AverageTotalCost“ in der Nähe der Eingangszustände dieses Kanals geschrieben. Außerdem werden Start- und Endstunde des Blocks als Ergebnis der Berechnung in „BlockStartFullHour“ und „BlockEndFullHour“ geschrieben.
 
-    - „Best cost LTF“: „Best cost“ innerhalb eines begrenzten Zeitrahmens (LTF).
-    - „Beste Einzelstunden LTF“: „Beste Einzelstunden“ innerhalb eines begrenzten Zeitrahmens (LTF).
-    - „Beste Stunden Block LTF“: „Beste Stunden Block“ innerhalb eines begrenzten Zeitrahmens (LTF).
-    - „Smart Battery Buffer“: Nutzen Sie den Parameter „EfficiencyLoss“, um den Effizienzverlust des Batteriesystems anzugeben. Der Parameter „EfficiencyLoss“ kann zwischen 0 und 1 liegen, wobei 0 für keinen Effizienzverlust und 1 für einen vollständigen Effizienzverlust steht. Beispielsweise bedeutet ein Wert von 0,25 einen Effizienzverlust von 25 % für einen Lade-/Entladezyklus.
+- „Best cost LTF“: „Beste Kosten“ innerhalb eines begrenzten Zeitrahmens (LTF).
+- „Beste Einzelstunden LTF“: „Beste Einzelstunden“ innerhalb eines begrenzten Zeitrahmens (LTF).
+- „Best hours block LTF“: „Best hours block“ innerhalb eines begrenzten Zeitrahmens (LTF).
+- „Smart Battery Buffer“: Verwenden Sie den Parameter „EfficiencyLoss“, um den Effizienzverlust des Batteriesystems anzugeben. Der Parameter „EfficiencyLoss“ kann zwischen 0 und 1 liegen, wobei 0 keinen Effizienzverlust und 1 einen vollständigen Effizienzverlust darstellt. Ein Wert von 0,25 bedeutet beispielsweise einen Effizienzverlust von 25 % für einen Lade-/Entladezyklus.
 
-        Geben Sie mit dem Parameter „AmountHours“ die gewünschte Stundenzahl für die Batterieladung ein. Der Rechner aktiviert die Batterieladung („Wert JA“) und deaktiviert die Batteriezufuhr („Wert 2 NEIN“) während der angegebenen „AmountHours“ günstigsten Stunden. Umgekehrt wird in den Stunden mit den höchsten Kosten die Batterieladung deaktiviert („Wert NEIN“) und die Batteriespeisung aktiviert („Wert 2 JA“), sofern die Kosten höher sind als der höchste Gesamtpreis unter den günstigen Stunden. In den verbleibenden Normalstunden, in denen eine Energiepufferung durch die Batterie wirtschaftlich nicht sinnvoll ist, werden beide Ausgänge abgeschaltet.
+Geben Sie mit dem Parameter „AmountHours“ die gewünschte Stundenzahl für die Batterieladung ein. Der Rechner wird während der angegebenen „AmountHours“-Preisgünstigsten Stunden die Batterieladung aktivieren („Wert JA“) und die Batteriespeisung deaktivieren („Wert 2 NEIN“). Umgekehrt wird er während der Stunden mit den höchsten Kosten die Batterieladung deaktivieren („Wert NEIN“) und die Batteriespeisung aktivieren („Wert 2 JA“), sofern diese Kosten höher sind als der höchste Gesamtpreis der Preisgünstigen Stunden. In den übrigen Normalstunden, in denen eine Energiepufferung durch die Batterie nicht wirtschaftlich ist, werden beide Ausgänge abgeschaltet.
 
-- LTF-Kanäle: Funktionieren ähnlich wie Standardkanäle, arbeiten jedoch nur innerhalb eines durch die Statusobjekte „StartTime“ und „StopTime“ definierten Zeitrahmens. Nach „StopTime“ deaktiviert sich der Kanal. „StartTime“ und „StopTime“ können sich über mehrere Tage erstrecken. Die Bundesstaaten müssen mit einer Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit Zeitzonenversatz gefüllt sein, z. B.: „2024-01-17T21:00:00.000+01:00“. Darüber hinaus verfügen die Kanäle über einen neuen Statusparameter namens „RepeatDays“, der standardmäßig auf 0 gesetzt ist. Wenn „RepeatDays“ auf einen positiven ganzzahligen Wert eingestellt ist, wiederholt der Kanal seinen Zyklus, indem er sowohl StartTime als auch StopTime um die in „RepeatDays“ angegebene Anzahl von Tagen erhöht, sobald StopTime erreicht ist. Z.B. Für eine tägliche Wiederholung setzen Sie „RepeatDays“ auf 1.“
+- LTF-Kanäle: Funktionieren ähnlich wie Standardkanäle, arbeiten jedoch nur innerhalb eines Zeitrahmens, der durch die Statusobjekte „StartTime“ und „StopTime“ definiert ist. Nach „StopTime“ deaktiviert sich der Kanal selbst. „StartTime“ und „StopTime“ können sich über mehrere Tage erstrecken. Die Status müssen mit einer Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit einem Zeitzonenoffset gefüllt werden, z. B.: „2024-01-17T21:00:00.000+01:00“. Darüber hinaus verfügen die Kanäle über einen neuen Statusparameter namens „RepeatDays“, der standardmäßig auf 0 gesetzt ist. Wenn „RepeatDays“ auf einen positiven ganzzahligen Wert gesetzt ist, wiederholt der Kanal seinen Zyklus, indem er sowohl StartTime als auch StopTime um die in „RepeatDays“ angegebene Anzahl von Tagen erhöht, sobald StopTime erreicht ist. Setzen Sie beispielsweise für eine tägliche Wiederholung „RepeatDays“ auf 1.“
 
 ### Hinweise
-#### Umgekehrte Verwendung
-Um beispielsweise Spitzenzeiten statt optimaler Stunden zu erhalten, kehren Sie einfach die Verwendung und die Parameter um: ![Rechnerzustände invers](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch den Austausch von true <-> false erhalten Sie in der ersten Zeile ein true zu geringen Kosten und ein true at ein hoher Aufwand in der zweiten Zeile (Kanalnamen sind keine Auslöser und dennoch frei wählbar).
+#### Inverse Verwendung
+Um beispielsweise Spitzenzeiten statt Optimalzeiten zu erhalten, vertauschen Sie einfach Verwendung und Parameter: ![Rechner für inverse Zustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch Vertauschen von true <-> false erhalten Sie in der ersten Zeile ein True bei geringen Kosten und in der zweiten Zeile ein True bei hohen Kosten (Kanalnamen sind keine Auslöser und weiterhin frei wählbar).
 
-Achtung: Für einzelne Spitzenzeiten, wie im Beispiel, müssen Sie auch die Stundenzahl anpassen. Original: 5 -> Invers (24-5) = 19 -> Sie erhalten während der 5 Spitzenstunden ein echtes Ergebnis.
+Achtung: Für einzelne Spitzenstunden, wie im Beispiel, müssen Sie auch die Stundenanzahl anpassen. Original: 5 -> Invers (24-5) = 19 -> Sie erhalten ein wahres Ergebnis während der 5 Spitzenstunden.
 
 #### LTF-Kanäle
-Die Berechnung wird für „mehrtägige“ Daten durchgeführt. Da uns nur Informationen für „heute“ und „morgen“ vorliegen (verfügbar ab ca. 13:00 Uhr), ist der Zeitumfang effektiv auf maximal 35 Stunden begrenzt. Es ist jedoch wichtig, dieses Verhalten im Auge zu behalten, da sich das berechnete Ergebnis gegen 13:00 Uhr ändern kann/wird, wenn neue Daten für die morgigen Preise verfügbar werden.
+Die Berechnung wird für „mehrtägige“ Daten durchgeführt. Da wir nur Informationen für „heute“ und „morgen“ haben (verfügbar ab ca. 13:00 Uhr), ist der Zeitrahmen effektiv auf maximal 35 Stunden begrenzt. Es ist jedoch wichtig, dieses Verhalten zu beachten, da sich das berechnete Ergebnis gegen 13:00 Uhr ändern kann/wird, wenn neue Daten für die Preise von morgen verfügbar werden.
 
-Um diese dynamische Änderung des Zeitrahmens für einen Standardkanal zu beobachten, können Sie sich für einen Limited Time Frame (LTF) entscheiden, der sich über mehrere Jahre erstreckt. Dies ist besonders nützlich für das Szenario „Beste einzelne Stunden LTF“.
+Um diese dynamische Änderung des Zeitrahmens für einen Standardkanal zu beobachten, können Sie sich für einen begrenzten Zeitrahmen (Limited Time Frame, LTF) entscheiden, der mehrere Jahre umfasst. Dies ist insbesondere für das Szenario „Best Single Hours LTF“ nützlich.
 
 ## Wachposten
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in den [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Reporting wird ab js-controller 3.0 initiiert.
+Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 gestartet.
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie sich einfach großzügig fühlen, denken Sie darüber nach, mir ein Bier zu spendieren. Prost! :Biere:
+<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, denken Sie darüber nach, mir ein Bier auszugeben. Prost! :Bier:
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 3.2.1 (2024-06-03)
+
+-   (HombachC) added unique endpoint string
+
+### 3.2.0 (2024-06-03)
+
+-   (HombachC) IMPORTANT: adapter components had been blocked by Tibber - you have to update!
+-   (HombachC) bump base dependencies
+-   (HombachC) adapter will use internal output states for calculator if none defined in configuration (#325)
+-   (HombachC) implement first run mode in calculator to reduce system load
+-   (HombachC) internal optimisations
+
+### 3.1.2 (2024-05-20)
+
+-   (HombachC) deleting unused temp home objects after adapter config (#393)
+-   (HombachC) bump dependencies
+
+### 3.1.1 (2024-05-16)
+
+-   (HombachC) throttle down reconnection speed
+-   (HombachC) logging optimizations (#396; #217)
+-   (HombachC) adaptations to newer environment (#394; #395)
+
+### 3.1.0 (2024-05-07)
+
+-   (HombachC) enable manual control of configured outputs when automation is deactivated (#334)
+-   (HombachC) fix not working LTF Channel when using too short LTF (#383)
+-   (HombachC) code optimisations
+-   (HombachC) update adapter-core to 3.1.4
+-   (HombachC) bump dependencies
+
+### 3.0.1 (2024-04-20)
+
+-   (HombachC) updated adapter testing
+-   (HombachC) bump dependencies
+
+### 3.0.0 (2024-04-15)
+
+-   (HombachC) BREAKING: dropped support for node.js 16 (#368)
+-   (HombachC) BREAKING: js-controller >= 5 is required
+-   (HombachC) changed to tier 2 as data provider
+-   (HombachC) corrected io-package.json according to new schema (#368)
+-   (HombachC) update typescript to 5.4.5
+-   (HombachC) update adapter-core to 3.0.6
+
+### 2.3.2 (2024-03-17)
+
+-   (HombachC) code optimizations
+-   (HombachC) fix undefined force mode (#349)
+-   (HombachC) fix poll of not existing current price state (#348)
+-   (HombachC) fix current price poll when configured as not to poll (#350)
+-   (HombachC) bump dependencies
+
+### 2.3.1 (2024-03-10)
+
+-   (HombachC) BREAKING: Calculator channels of type 'smart battery buffer' will now switch outputs to 'OFF' only once, directly after setting the channel to Active=false (#332)
+-   (HombachC) Fixed error in jsonConfig.json (#329)
+-   (HombachC) deleted feed disconnect debug-message, cause warn message already exists
+-   (HombachC) bump typescript-eslint to gen 7
+-   (HombachC) bump dependencies
 
 ### 2.2.2 (2024-02-19)
 
@@ -193,72 +255,6 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 -   (HombachC) remove not used calculator channel state objects (#188)
 -   (HombachC) code optimizations
 -   (HombachC) optimize translation handling
-
-### 1.4.3 (2023-11-08)
-
--   (HombachC) fix possible type error in first calculator calls notified by Sentry
--   (HombachC) change state object description of production values (#167)
--   (HombachC) optimize pulse feed error message in case of error as object (#176)
--   (HombachC) preparations for calculator object names (#186)
--   (HombachC) bump dependencies
-
-### 1.4.2 (2023-11-03)
-
--   (HombachC) complete rework of task scheduling for more precise pull timing (#149)
--   (HombachC) critical vulnerability fix for axios
--   (HombachC) fix debug message typos, code optimisations in calculator
--   (HombachC) fix type error in price average calculation notified by Sentry
--   (HombachC) fix error in update prices tomorrow - possible false positive
-
-### 1.4.1 (2023-10-25)
-
--   (HombachC) implement forced update of all data after adapter restart (#155)
--   (HombachC) Bump actions/setup-node from 3.8.1 to 4.0.0 (#157)
--   (HombachC) remove node.js 16 actions - dependency updates
-
-### 1.4.0 (2023-10-24)
-
--   (HombachC) implement min/max states (#131)
--   (HombachC) fix error with ignored calculator channel deaktivations (#143)
--   (HombachC) optimize translation handling, code cleanup
-
-### 1.3.1 (2023-10-21)
-
--   (HombachC) fix initialisiation of channel states (#141)
--   (HombachC) change message "reconnect successful" to level info (#80)
--   (HombachC) documentation tweaks - dependency updates
-
-### 1.3.0 (2023-10-20)
-
--   (HombachC) implement tibber calculator mode "best hours block" (#16)
--   (HombachC) handle empty calculator destination states - detected by sentry
-
-### 1.2.0 (2023-10-18)
-
--   (HombachC) implement tibber calculator mode "best single hours" (#16)
--   (HombachC) changed i18n files to inline translations, single files aren't update compatible (#128)
--   (HombachC) fixed error in initial read of calculator states (#129)
-
-### 1.1.2 (2023-10-15)
-
--   (HombachC) fix timing error in calculator
-
-### 1.1.1 (2023-10-14)
-
--   (HombachC) fix error in startup of additional channels
-
-### 1.1.0 (2023-10-14)
-
--   (HombachC) implement tibber calculator mode "best price" (#16)
--   (HombachC) precised pull times of current cost
--   (HombachC) reduced error messages (#80)
--   (HombachC) extend documentation
--   (HombachC) update adapter-core
-
-### 1.0.0 (2023-10-05)
-
--   (HombachC) Increase to the first major release, as now a stable level is reached
--   (HombachC) Code cleanup
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

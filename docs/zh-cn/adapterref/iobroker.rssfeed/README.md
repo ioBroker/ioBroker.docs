@@ -3,18 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rssfeed/README.md
 title: ioBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
-hash: 6oGOIu4JOzmhPK4CsPEWl+x4BltfWPs2lJbBrk4MT5M=
+hash: w3/59h3RcCjkaOOU18hRd1xbdEdToo2ZhJXm55J+JcM=
 ---
 ![标识](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed-logo.png)
 
-![安装数量](http://iobroker.live/badges/rssfeed-installed.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.rssfeed.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.rssfeed.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rssfeed.svg)
-![特拉维斯](https://img.shields.io/travis/oweitman/ioBroker.rssfeed.svg)
-![AppVeyor 构建状态](https://img.shields.io/appveyor/ci/oweitman/iobroker-rssfeed.svg)
-![GitHub 问题](https://img.shields.io/github/issues/oweitman/ioBroker.rssfeed.svg)
+![安装数量](https://iobroker.live/badges/rssfeed-installed.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/rssfeed-stable.svg)
+![新平台](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
 
 # IoBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
+**测试：**![测试与发布](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
+
 ＃＃ 概述
 适配器用于请求和显示不同标准（Atom、RSS、RDF）的 RSS 源。
 您可以使用模板系统自定义源的输出。在模板中，您可以包含 HTML、CSS 和 Javascript。
@@ -83,7 +84,7 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 模板系统与某些标签配合使用。
 使用的标签含义如下
 
-| 标签 | 描述 |
+| `tag` | 描述 |
 | ----- | --------------------------------------------------------------------- |
 | <%= | 包含的表达式/变量的内容将被转义。|
 | <%- | 所包含的表达式/变量的内容未转义。|
@@ -102,7 +103,7 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 *`meta.date`
 * `meta.pubdate`
 * `meta.author`
-*`元语言`
+*`meta.language`
 * `meta.image`
 * `meta.favicon`
 * `meta.版权`
@@ -149,7 +150,7 @@ Z7：无输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定义�
 ＃＃ 去做
 * 通过在管理对话框中保存来清理数据点 info.lastRequest 中未使用的条目。
 * 管理对话框中未使用的数据点清理按钮
-* ~~多部件 RSS 提要~~
+* ~~多部件 RSS 源~~
 * ~~多个小部件选取框~~
 * ~~模板中的更多信息已通过测试。~~
 * ~~带有标题的报纸小部件 <https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
@@ -160,10 +161,21 @@ Z7：无输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定义�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.9.2 (2024-06-04)
+
+* add some translations
+* fix warning from adapter checker
+
+### 2.9.1 (2024-06-03)
+
+* update iobroker files and settings
+
 ### 2.8.2 (2024-04-21)
+
 * (bluefox) Fixed loading of words.js in vis
 
 ### 2.8.1 (2023-03-15)
+
 * (bluefox) Corrected vis widget
 * admin changed to jsonConfig, dev-environment now devcontainer
 
