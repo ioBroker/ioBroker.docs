@@ -6,9 +6,9 @@
         <lastBuildDate>Thu, 06 Jun 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[IoBroker JavaScript 适配器：2024 年 4 月至 5 月的改进]]></title>
+            <title><![CDATA[]]></title>
             <description><![CDATA[
-                <p>**特别感谢 Matthias Kleine [*(小或)*](https://github.com/klein0r) 在该适配器上所做的出色工作！**</p>
+                <p># IoBroker JavaScript 适配器：2024 年 4 月至 5 月的改进\n此摘要包含 JavaScript 适配器自版本 8.0.0 以来最重要的更改。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2024_06_06</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_06_06</guid>

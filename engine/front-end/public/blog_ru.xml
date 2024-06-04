@@ -6,9 +6,9 @@
         <lastBuildDate>Thu, 06 Jun 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.]]></title>
+            <title><![CDATA[]]></title>
             <description><![CDATA[
-                <p>**Особая благодарность Маттиасу Кляйне [*(маленькийИли)*](https://github.com/klein0r) за прекрасную работу над этим адаптером!**</p>
+                <p># Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.\nВ этом обзоре представлены наиболее важные изменения адаптера JavaScript версии 8.0.0.</p>
             ]]></description>
             <link>https://www.iobroker.net/#ru/blog/2024_06_06</link>
             <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_06_06</guid>

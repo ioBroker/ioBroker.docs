@@ -4,18 +4,18 @@
       "date": "2024.06.06",
       "title": {
         "de": "ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024",
-        "en": "IoBroker JavaScript adapter: Improvements April-May 2024",
-        "ru": "Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.",
-        "zh-cn": "IoBroker JavaScript 适配器：2024 年 4 月至 5 月的改进"
+        "en": "",
+        "ru": "",
+        "zh-cn": ""
       },
       "logo": "",
       "type": "news",
       "originalName": "2024_06_06.md",
       "desc": {
-        "de": "**Besonderer Dank geht an Matthias Kleine [*(kleinOr)*](https://github.com/klein0r) für seine großartige Arbeit an diesem Adapter!**",
-        "en": "**Special thanks to Matthias Kleine [*(smallOr)*](https://github.com/klein0r) for his great work on this adapter!**",
-        "ru": "**Особая благодарность Маттиасу Кляйне [*(маленькийИли)*](https://github.com/klein0r) за прекрасную работу над этим адаптером!**",
-        "zh-cn": "**特别感谢 Matthias Kleine [*(小或)*](https://github.com/klein0r) 在该适配器上所做的出色工作！**"
+        "de": "Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.",
+        "en": "# IoBroker JavaScript adapter: Improvements April-May 2024\\nThis summary contains the most important changes to the JavaScript adapter starting with version 8.0.0.",
+        "ru": "# Адаптер JavaScript ioBroker: улучшения, апрель–май 2024 г.\\nВ этом обзоре представлены наиболее важные изменения адаптера JavaScript версии 8.0.0.",
+        "zh-cn": "# IoBroker JavaScript 适配器：2024 年 4 月至 5 月的改进\\n此摘要包含 JavaScript 适配器自版本 8.0.0 以来最重要的更改。"
       }
     },
     "2024_06_02": {

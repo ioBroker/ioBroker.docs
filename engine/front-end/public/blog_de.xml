@@ -8,7 +8,7 @@
         <item>
             <title><![CDATA[ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024]]></title>
             <description><![CDATA[
-                <p>**Besonderer Dank geht an Matthias Kleine [*(kleinOr)*](https://github.com/klein0r) für seine großartige Arbeit an diesem Adapter!**</p>
+                <p>Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.</p>
             ]]></description>
             <link>https://www.iobroker.net/#de/blog/2024_06_06</link>
             <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_06_06</guid>

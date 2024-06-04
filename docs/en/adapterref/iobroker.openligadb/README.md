@@ -74,8 +74,12 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 
 <!--
   Placeholder for the next version (at the beginning of the line):
-   ### **WOxRK IN PROGRESS**
+   ### **WORK IN PROGRESS**
 -->
+### 1.4.7 (2024-06-04)
+
+* update dependencies
+
 ### 1.4.6 (2024-06-01)
 
 * fix yml structure
