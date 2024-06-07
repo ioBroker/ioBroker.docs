@@ -369,7 +369,7 @@ const CONVERTER_OPTIONS = {
     splitAdjacentBlockquotes: true,
 };
 
-let title;
+let gTitle;
 
 const ADAPTER_CARD = ['version', 'authors', 'keywords', 'mode', 'materialize', 'compact'];
 
@@ -399,8 +399,8 @@ class Markdown extends Router {
             hideContent: window.localStorage ? window.localStorage.getItem('Docs.hideContent') === 'true' : false,
         };
 
-        if (!title) {
-            title = window.title;
+        if (!gTitle) {
+            gTitle = window.title;
         }
 
         this.mounted = false;
@@ -450,7 +450,9 @@ class Markdown extends Router {
             </a></span>);
         }
          */
-        this.customH = ({ text, id, level, prefix }) => {
+        this.customH = ({
+            text, id, level, prefix,
+        }) => {
             const _level = parseInt(level, 10);
 
             if (_level === 1) {
@@ -516,7 +518,7 @@ class Markdown extends Router {
         }
     }
 
-    onHashChange(location) {
+    static onHashChange(location) {
         location = location || Router.getLocation();
         if (location.chapter) {
             const el = window.document.getElementById(location.chapter);
@@ -615,7 +617,7 @@ class Markdown extends Router {
             title: _title,
         });
 
-        this.onHashChange && setTimeout(() => this.onHashChange(), 200);
+        this.onHashChange && setTimeout(() => Markdown.onHashChange(), 200);
     }
 
     load(path, language) {
@@ -649,7 +651,9 @@ class Markdown extends Router {
             title,
         } = Utils.decorateText(body, header, `${this.props.path && (this.props.path[0] === '/' ? this.props.path : `/${this.props.path}`)}`);
 
-        return { header, parts, content, license, changeLog, title };
+        return {
+            header, parts, content, license, changeLog, title,
+        };
     }
 
     formatAuthors(text) {
@@ -730,7 +734,10 @@ class Markdown extends Router {
                     <List>{ADAPTER_CARD
                         .filter(attr => this.state.header.hasOwnProperty(attr))
                         .map(attr => <ListItem key={attr} className={this.props.classes.adapterCardListItem}>
-                            <div className={this.props.classes.adapterCardAttr}>{I18n.t(attr)}: </div>
+                            <div className={this.props.classes.adapterCardAttr}>
+                                {I18n.t(attr)}
+                                <span>: </span>
+                            </div>
                             <span>{attr === 'authors' ? this.formatAuthors(this.state.header[attr]) : this.state.header[attr].toString()}</span>
                         </ListItem>)}
                     </List>
@@ -839,12 +846,10 @@ class Markdown extends Router {
                     const level = this.state.content[item].level;
                     let   title = this.state.content[item].title.replace('&gt;', '>').replace('&lt;', '<').replace('&amp;', '&');
 
-                    return (
-                        <li key={title} style={{ fontSize: 16 - level * 2, paddingLeft: level * 8, fontWeight: !level ? 'bold' : 'normal' }}>
-                            <span onClick={() => this.onNavigate(item, link)} className={this.props.classes.contentLinks}>{title}</span>
-                            {this.state.content[item].children ? this._renderSubContent(this.state.content[item]) : null}
-                        </li>
-                    );
+                    return <li key={title} style={{ fontSize: 16 - level * 2, paddingLeft: level * 8, fontWeight: !level ? 'bold' : 'normal' }}>
+                        <span onClick={() => this.onNavigate(item, link)} className={this.props.classes.contentLinks}>{title}</span>
+                        {this.state.content[item].children ? this._renderSubContent(this.state.content[item]) : null}
+                    </li>;
                 })
                     .filter(e => e)}
             </ul>

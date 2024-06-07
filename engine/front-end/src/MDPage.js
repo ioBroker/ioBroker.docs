@@ -110,6 +110,7 @@ class MDPage extends Component {
                         scrollPosition={top => {
                             if (top !== undefined) {
                                 this.contentRef.current.parentNode.scrollTop = top;
+                                return top;
                             } else {
                                 return this.contentRef.current.parentNode.scrollTop;
                             }

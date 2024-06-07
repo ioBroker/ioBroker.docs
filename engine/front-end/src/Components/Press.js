@@ -74,7 +74,12 @@ const PRESS = [
         image: ImageLinuxMagazin,
         link: 'http://www.linux-magazin.de/ausgaben/2018/04/io-broker/',
     },
-    {title: '2017.08', alt: 'C\'t', image: ImageCT, link: 'https://www.heise.de/select/ct/2017/18/1503875643519180'},
+    {
+        title: '2017.08',
+        alt: 'C\'t',
+        image: ImageCT,
+        link: 'https://www.heise.de/select/ct/2017/18/1503875643519180',
+    },
     {
         title: '2017.07',
         alt: 'Linux Magazin',
@@ -95,7 +100,7 @@ class Press extends Component {
             <div className={this.props.classes.title}>{I18n.t('ioBroker in The Press')}</div>
             <div className={this.props.classes.preBox}>
                 <div className={this.props.classes.box}>
-                    {PRESS.map((p, i) => <div key={ i } className={this.props.classes.card} onClick={() => Utils.openLink(p.link)}>
+                    {PRESS.map((p, i) => <div key={i} className={this.props.classes.card} onClick={() => Utils.openLink(p.link)}>
                         <img className={`${this.props.classes.cardLink} ${this.props.mobile ? this.props.classes.cardLinkMobile : ''}`} src={p.image} alt={p.alt} />
                         <div className={this.props.classes.cardTitle}>{p.title}</div>
                     </div>)}
