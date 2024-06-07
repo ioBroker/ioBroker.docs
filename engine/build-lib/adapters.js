@@ -218,12 +218,11 @@ function getIcon(url, checkFile) {
     if (url) {
         if (checkFile && fs.existsSync(checkFile)) {
             return Promise.resolve(fs.readFileSync(checkFile));
-        } else {
-            return getUrl(url, true);
         }
-    } else {
-        return Promise.resolve();
+        return getUrl(url, true);
     }
+
+    return Promise.resolve();
 }
 
 function getUrl(url, binary) {
@@ -234,7 +233,7 @@ function getUrl(url, binary) {
         return urlsCache[url];
     }
     urlsCache[url] = new Promise(resolve => {
-        console.log('Requested ' + url);
+        console.log(`Requested ${url}`);
         axios(url, {responseType: 'arraybuffer', validateStatus: status => status === 200})
             .then(result => {
                 resolve(binary ? result.data : result.data.toString());
@@ -683,15 +682,15 @@ function copyAdapterToFrontEnd(lang, adapter) {
                             console.error(`Adapter ${adapter} has no readme. Please fix it!!!!`);
                         } else {
                             if (repo[adapter].readme.indexOf('/main/')) {
-                                link = repo[adapter].readme
+                                link = `${repo[adapter].readme
                                     .replace('/blob/main/README.md', '')
                                     .replace('/main/README.md', '')
-                                    .replace('github.com', 'raw.githubusercontent.com') + '/main/' + file.replace(dirName.endsWith('/') ? dirName : dirName + '/', '');
+                                    .replace('github.com', 'raw.githubusercontent.com')}/main/${file.replace(dirName.endsWith('/') ? dirName : `${dirName}/`, '')}`;
                             } else {
-                                link = repo[adapter].readme
+                                link = `${repo[adapter].readme
                                     .replace('/blob/master/README.md', '')
                                     .replace('/master/README.md', '')
-                                    .replace('github.com', 'raw.githubusercontent.com') + '/master/' + file.replace(dirName.endsWith('/') ? dirName : dirName + '/', '');
+                                    .replace('github.com', 'raw.githubusercontent.com')}/master/${file.replace(dirName.endsWith('/') ? dirName : `${dirName}/`, '')}`;
                             }
                         }
                     }
@@ -717,7 +716,7 @@ function copyAdapterToFrontEnd(lang, adapter) {
                                 if (!fs.existsSync(dst)) {
                                     const src = `${consts.FRONT_END_DIR}${result.logo}`;
 
-                                    // copy logo into main dir
+                                    // copy logo into the main directory
                                     if (fs.existsSync(src) && (src.toLowerCase().endsWith('.png') || src.toLowerCase().endsWith('.svg') || src.toLowerCase().endsWith('.jpg'))) {
                                         const logo = fs.readFileSync(src);
                                         utils.writeSafe(dst, logo);
