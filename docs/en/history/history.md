@@ -485,3 +485,11 @@ Adapter to detect speed traps and obstacles.
 - Log tab was improved. (Mostly layout and GUI)
 - Added support for the adapter's auto-update option. New version of js-controller required.
 - Only installed adapters in the adapter tab or first 100 adapters are shown. To see more adapters, the user must enter some filter.
+
+## gree-hvac (10.6.2024) – new adapter at stable
+https://github.com/XHunter74/ioBroker.gree-hvac
+
+<img src="https://github.com/XHunter74/ioBroker.gree-hvac/blob/master/admin/air-conditioner.png" width="100" height="100" />
+
+Adapter for Gree and C&H conditioners.
+
