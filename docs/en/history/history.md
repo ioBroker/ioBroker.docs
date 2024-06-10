@@ -480,3 +480,8 @@ https://github.com/Steiger04/ioBroker.radar-trap
 <img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
 
 Adapter to detect speed traps and obstacles.
+
+## Admin (10.6.2024) – new feature
+- Log tab was improved. (Mostly layout and GUI)
+- Added support for the adapter's auto-update option. New version of js-controller required.
+- Only installed adapters in the adapter tab or first 100 adapters are shown. To see more adapters, the user must enter some filter.
