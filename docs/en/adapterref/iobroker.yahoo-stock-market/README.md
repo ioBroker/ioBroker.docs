@@ -19,6 +19,9 @@ Check the current stock value
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.7 (2024-06-10)
+* fox #14, update yahoo-api
+
 ### 0.0.6 (2024-04-24)
 * fix #9, update yahoo-api
 

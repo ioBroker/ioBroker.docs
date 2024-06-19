@@ -33,13 +33,21 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.7.2 (2024-06-17)
 
--	#144 Add new feature in setState: Now it is possible to set a static Value with a dynamic Value from id
+-   FIX: #158 Telegram-menu connection
+-   FIX: #155 DynSwitch
+
+### 1.7.1 (2024-06-10)
+
+-   FIX: Delete Messages
+-   FIX: Add new row in action
+-   FIX: Error setState "value.includes is not a function"
+-   FIX: #144 Add new feature in setState: Now it is possible to set a static Value with a dynamic Value from id
 
 ### 1.7.0 (2024-05-11)
 
--	Switched to typescript
+-   Switched to typescript
 
 ### 1.6.3 (2024-02-27)
 

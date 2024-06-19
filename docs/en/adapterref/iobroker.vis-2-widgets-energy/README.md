@@ -25,6 +25,9 @@ This widget set consists of the following widgets:
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.3.12 (2024-06-09)
+* (bluefox) Allowed setting the title color
+
 ### 0.3.11 (2024-02-16)
 * (bluefox) show value with green color if we feed back into power line
 

@@ -43,6 +43,13 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.2.0 (2024-06-11)
+* ems-esp: process double entity names between boiler and thermostat for dhw
+* ems-esp: add original device name to iobroker object name when km200-structure is selected
+
+### 4.1.3 (2024-06-05)
+* fix crash on wrong ems-esp ip address
+
 ### 4.1.2 (2024-06-03)
 * km200 private password might has to be re-entered
 * update dependencies (dependabot)
@@ -57,15 +64,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 * new file location for km200.csv file -- breaking change
 * old file location for km200.csv file(s) will be deleted by adapter
 * new content for selection of database within parameters tab - adpters tries to convert, but please check.
-
-### 4.0.1 (2024-05-31)
-* jsonConfig optimization for tablets and medium resolution screens
-
-### 4.0.0 (2024-05-30)
-* support different ems-esp bus id's for own states polled
-* now with jsonConfig for adapter config
-* rework enum attributes for room and function for all adapter states created 
-* admin adapter version >= 6.13.16 required - nicer layout with admin version >= 6.17.13
 
 ## License
 MIT License

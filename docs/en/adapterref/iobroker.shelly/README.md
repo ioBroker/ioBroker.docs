@@ -59,6 +59,8 @@ Questions? Check the [FAQ](faq.md) section first!
 -->
 ### **WORK IN PROGRESS**
 
+* (imperial929) Added Shelly 1 PM Gen3
+* (imperial929) Added Shelly 1 Gen3
 * (klein0r) Breaking change: Renamed input states (now digital/analog) of Shelly Plus Addon (Ext)
 * (klein0r) Added Shelly Plus Uni
 * (klein0r) Added Shelly H&T (Gen3)

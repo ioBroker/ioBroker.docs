@@ -30,7 +30,7 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 - nodejs 18 (or later)
 - js-controller 5.0.0 (or later)
 - Admin Adapter 6.0.0 (or later)
-- _LaMetric Time_ with firmware _2.3.8_ (_3.0.21_ on the 2022 model) (or later)
+- _LaMetric Time_ with firmware _2.3.8_ (_3.1.0_ on the 2022 model) (or later)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
@@ -59,9 +59,15 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.1 (2024-06-12)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
+* (@klein0r) Updated dependencies
+
+### 3.2.0 (2024-06-07)
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
+* (klein0r) Fixed Blockly definitions (removed warnings)
 
 ### 3.1.3 (2024-01-31)
 
@@ -75,20 +81,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 ### 3.1.1 (2023-10-27)
 
 * (klein0r) Fixed issue with foreign states of version 3.1.0
-
-### 3.1.0 (2023-10-25)
-
-NodeJS 16.x is required
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.18)
-* (klein0r) Updated admin tab layout (icons, button style)
-* (klein0r) Fixed path of default widgets
-
-### 3.0.0 (2023-09-13)
-
-* (klein0r) Added push option for My Data DIY
-* (klein0r) Added option to force app reload
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
 
 ## License
 

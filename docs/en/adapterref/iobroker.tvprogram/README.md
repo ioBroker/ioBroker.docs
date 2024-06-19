@@ -1,31 +1,32 @@
 ![Logo](admin/tvprogram.png)
+
 # ioBroker.tvprogram
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.tvprogram.svg)](https://www.npmjs.com/package/iobroker.tvprogram)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.tvprogram.svg)](https://www.npmjs.com/package/iobroker.tvprogram)
-![Number of Installations (latest)](http://iobroker.live/badges/tvprogram-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/tvprogram-stable.svg)
-[![Dependency Status](https://img.shields.io/david/oweitman/iobroker.tvprogram.svg)](https://david-dm.org/oweitman/iobroker.tvprogram)
-[![Known Vulnerabilities](https://snyk.io/test/github/oweitman/ioBroker.tvprogram/badge.svg)](https://snyk.io/test/github/oweitman/ioBroker.tvprogram)
+[![NPM version](https://img.shields.io/npm/v/iobroker.tvprogram1.svg)](https://www.npmjs.com/package/iobroker.tvprogram1)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.tvprogram1.svg)](https://www.npmjs.com/package/iobroker.tvprogram1)
+![Number of Installations](https://iobroker.live/badges/tvprogram1-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/tvprogram1-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.tvprogram.png?downloads=true)](https://nodei.co/npm/iobroker.tvprogram/)
+[![NPM](https://nodei.co/npm/iobroker.tvprogram1.png?downloads=true)](https://nodei.co/npm/iobroker.tvprogram1/)
 
-**Tests:** 
+**Tests:** ![Test and Release](https://github.com/oweitman/ioBroker.tvprogram1/workflows/Test%20and%20Release/badge.svg)
+
+**Tests:**
 [![Travis-CI](http://img.shields.io/travis/oweitman/ioBroker.tvprogram/master.svg)](https://travis-ci.com/oweitman/ioBroker.tvprogram)
 [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/oweitman/iobroker-tvprogram.svg)](https://ci.appveyor.com/project/oweitman/iobroker-tvprogram)
 
-
 ## tvprogram adapter for ioBroker
 
-This adapter polls information about the television program at regular intervals. 
-The data can be displayed in various widgets. 
+This adapter polls information about the television program at regular intervals.
+The data can be displayed in various widgets.
 
-To set it up, the adapter must have already accessed and filled the necessary data. 
+To set it up, the adapter must have already accessed and filled the necessary data.
 Due to its size, the data is not stored in data points but in files (Linux path: /opt/iobroker/data-files/tvprogram) and in the adapter's memory.
 In the configuration, the widget only needs to be filled with any data point of the adapter (e.g.cmd).
 The widget searches for all remaining data points automatically.
 
 ## Installation
+
 The adapter can be installed via the stable or for testing verions via beta/latest repository.
 
 ### Adapter Configuration
@@ -34,7 +35,7 @@ You can configure how much different TVs, or at least different configurations y
 
 ### Warnings in the iobroker-log
 
-Warnings like 
+Warnings like
 
 "Read-only state "tvprogram.0.tv1.cmd" has been written without ack-flag with value "new|program|2021-01-01"
 
@@ -46,6 +47,7 @@ Widgets are supported only in modern browsers (Google Chrome, Mozilla Firefox, O
 Not supported Internet Explorer or Microsoft Edge without Chromium (Version <79).
 
 #### Time
+
 This widget shows the current TV program on a timeline by TV channel.
 
 If the text behind the channel logos shows through, a background color must be selected in the widget.
@@ -73,6 +75,7 @@ Minimum configuration is to set the datapoint to the cmd-datapoint.
 | dialogheightpercent   | 90                       | size of the dialogs in percent of the widget                                                                      |
 
 ##### CSS-Classes
+
 Please change w00001 to your widget ID
 
 To Change the formatting of the dialogs
@@ -89,7 +92,7 @@ To Change the formatting of the dialogs
 }
 ```
 
-If you use some extra dialogs with other z-index-setting you can set higher z-index for the tvprogram dialogs. 
+If you use some extra dialogs with other z-index-setting you can set higher z-index for the tvprogram dialogs.
 Maybe you have to set a higher number than 300. This depends on settings in other dialogs which overlap or hide the tvprogram (broadcast info and channel select) dialogs
 
 ```css
@@ -99,6 +102,7 @@ Maybe you have to set a higher number than 300. This depends on settings in othe
 ```
 
 To Change the formatting of the alternating background colors of the broadcasts
+
 ```css
 #w00001 .scrollcontainer ul.tv-row:nth-child(odd)> li.broadcast:nth-child(odd),#w00001 ul.tv-row:nth-child(odd)> li.time:nth-child(odd) {
    background-color: rgba(128, 128, 128, 0.65);
@@ -116,6 +120,7 @@ To Change the formatting of the alternating background colors of the broadcasts
 ```
 
 #### Favorites
+
 This widget shows a list of the selected favorites, sorted by date and time.
 
 The following attributes are available for configuration in vis
@@ -130,6 +135,7 @@ Minimum configuration is to set the datapoint to the cmd-datapoint.
 | highlightcolor | yellow               | color for the favorites                             |
 
 #### Control
+
 This widget shows all actual broadcasts. You can click on the channel logo to switch channel.
 you can click on the broadcast to get detailed information about thew broadcast.
 
@@ -167,6 +173,7 @@ To Change the formatting of the alternating background colors of the broadcasts
 ```
 
 #### Search
+
 With this widget you can search for broadcast within the title, description, a start date and for a broadcast type.
 The input field "From" ist prefilled with the actual date. if this field is unchanged the search starts with the actual time.
 if you change this field to a future or past date, the search starts at 00:00 of this date.
@@ -202,24 +209,23 @@ To Change the formatting of the alternating background colors of the broadcasts
 
 ```
 
-
 ### Provided Datapoints
 
 The following set of datapoint exists for every created TV
 
-**channelfilter**
+#### channelfilter
 
 this datapoint contains the channels shown in the widget as a JSON-Array
 
-**cmd**
+#### cmd
 
 this datapoint is used for internal communication between the widgets and the adapter
 
-**favorites**
+#### favorites
 
 this datapoint contains the selected favorites as a JSON-Array
 
-**record**
+#### record
 
 This datapoint is set if the user clicks the record button in the detail view of a broadcast.
 The provided data are
@@ -234,16 +240,15 @@ The provided data are
 | channelname | ZDF                        | Readable channel name  |
 | eventid     | 12345678                   | Unique broadcast id    |
 
-
-**selectchannel**
+#### selectchannel
 
 This datapoint is used to recognize a channel switch command with a click on the channel logo or the switch icon in the detail view.
 
-**show**
+#### show
 
 this datapoint contains the status of whether only favorites or everything should be displayed in the widget tvprogram
 
-**config**
+#### config
 
 this datapoint is deprecated and will be removed in the next versions
 
@@ -253,9 +258,9 @@ All Data can be requested from the adapter by sendto-commands. this can be used 
 
 #### getServerData
 
-Request base data from the adapter. 
+Request base data from the adapter.
 
-**Valid parameters are**
+##### Valid parameters are
 
 * categories
 * genres
@@ -273,9 +278,9 @@ sendTo("tvprogram.0","getServerData","categories",(data)=>console.log(data));
 
 #### getServerTVProgram
 
-Request program data from the adapter. 
+Request program data from the adapter.
 
-**Valid parameters are**
+##### Valid parameters are
 
 a datestring in the following format: yyyy-mm-dd
 
@@ -293,7 +298,7 @@ sendTo("tvprogram.0","getServerTVProgram","2021-02-10",(data)=>console.log(data)
 
 Request the detail data of a broadcast.
 
-**Valid parameters are**
+##### Valid parameters are
 
 a object that contains an
 viewdate in the following format yyyy-mm-dd
@@ -313,7 +318,7 @@ sendTo("tvprogram.0","getServerBroadcast",{viewdate:"2021-02-10",eventid:"106595
 
 Request all favorite broadcast from now till end of saved data.
 
-**Valid parameters are**
+##### Valid parameters are
 
 Array of favorites
 
@@ -332,9 +337,9 @@ sendTo("tvprogram.0","getFavoritesDatax",['heute','Tagesschau'],(data)=>console.
 
 Requests all broadcasts that are currently running
 
-**Valid parameters are**
+##### Valid parameters are
 
-Array of channelIDs of your favorite channels 
+Array of channelIDs of your favorite channels
 
 **Returns:**
 
@@ -351,10 +356,10 @@ sendTo("tvprogram.0","getServerBroadcastNow",[1,6,22,7],(data)=>console.log(data
 
 Requests all broadcasts that are running at a datetime
 
-**Valid parameters are**
+##### Valid parameters are
 
 Array of channelIDs of your favorite channels
-datetime 
+datetime
 
 **Returns:**
 
@@ -371,7 +376,7 @@ sendTo("tvprogram.0","getServerBroadcastDate",{channelfilter:[1,6,22,7],date:"20
 
 Search for broadcasts in a range of time and optional with categories
 
-**Valid parameters are**
+##### Valid parameters are
 
 channelfilter: Array of channelIDs of your favorite channels
 categoryfilter: Optional Array of categoryIDs
@@ -401,7 +406,7 @@ sendTo("tvprogram.0","getServerBroadcastFind",{
 
 Request available dates of broadcast in the adapter memory
 
-**Valid parameters are**
+##### Valid parameters are
 
 empty object
 
@@ -591,6 +596,7 @@ Enter as json_oid the datapoint with the recordlist and as json_template the fol
 ```
 
 #### Favorite broadcast at the moment
+
 The following script determines once a minute whether a favorite program is currently running.
 
 ```javascript
@@ -610,6 +616,7 @@ var timer = setInterval(function() {
 },1000*60);
 
 ```
+
 #### Coloring of programs that are located in the recordlist data point in the widget tvprogram
 
 the following template is for the widget JSON template from the adapter rssfeed.
@@ -641,55 +648,71 @@ and insert the following template in json_template
   </style>
 ```
 
+### Functions
 
-### Functions:
-
-- show tv data on timeline by tv channel
-- show details about a tv broadcast if available
-- show a marker of actual position with automatic scrolling
-- configure displayed tv channels and order, reordering ist possible via dragNdrop.
-- switch command via datapoint after click on logo
-- zoomin/zoomout
-- navigation next and prev days
-- play button to switchchannel datapoint
-- center zoom in next days
-- return to today
-- reset zoom
-- favorite broadcasts
-- copy text from Detailview
-- markerposition is configurable
-- dialog width and height is configurable 
-- Datenpunkt record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird
-- Widget for Favorites
-- hide Non-Favorites 
+* show tv data on timeline by tv channel
+* show details about a tv broadcast if available
+* show a marker of actual position with automatic scrolling
+* configure displayed tv channels and order, reordering ist possible via dragNdrop.
+* switch command via datapoint after click on logo
+* zoomin/zoomout
+* navigation next and prev days
+* play button to switchchannel datapoint
+* center zoom in next days
+* return to today
+* reset zoom
+* favorite broadcasts
+* copy text from Detailview
+* markerposition is configurable
+* dialog width and height is configurable
+* Datenpunkt record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird
+* Widget for Favorites
+* hide Non-Favorites
 
 ### Todo
 
 widget tvprogram:
-- maybe a highlight broadcasts widget 
-- Data adapter for other sources (Internet, hardware such as Enigma, VU-Box). Considerations on this are currently suspended due to the low demand
-- ~~improve documentation for configuring the widgets~~
-- ~~broadcast pictures if available in the main view of the time widget~~
-- ~~search through the whole text to also find directors and actors~~
-- ~~tooltips for the buttons in the time widget~~
-- ~~Ideas for further widgets based on the existing TV program script~~
-- ~~Problem: endless scroll in firefox~~
-- ~~to be discussed: Datenpunkt, mit allen Aufnahmedaten, should be implementet at a videorecorder adapter or in a seperate script~~
-- ~~responsive design for detail view->no responsive design possible for jquery dialog, found another solution with fixed layouts for height>width~~
-- ~~Problem: small Pixel glitch if scroll pane is completle on the left side~~
+
+* maybe a highlight broadcasts widget
+* Data adapter for other sources (Internet, hardware such as Enigma, VU-Box). Considerations on this are currently suspended due to the low demand
+* ~~improve documentation for configuring the widgets~~
+* ~~broadcast pictures if available in the main view of the time widget~~
+* ~~search through the whole text to also find directors and actors~~
+* ~~tooltips for the buttons in the time widget~~
+* ~~Ideas for further widgets based on the existing TV program script~~
+* ~~Problem: endless scroll in firefox~~
+* ~~to be discussed: Datenpunkt, mit allen Aufnahmedaten, should be implementet at a videorecorder adapter or in a seperate script~~
+* ~~responsive design for detail view->no responsive design possible for jquery dialog, found another solution with fixed layouts for height>width~~
+* ~~Problem: small Pixel glitch if scroll pane is completle on the left side~~
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.3-alpha.1 (2024-06-04)
+
+* fix lint errors
+
+### 1.1.3-alpha.0 (2024-06-04)
+
+* align structures and files
 
 ### 1.1.1 (2021-08-10)
+
 * remove dead code / extend doku about the warnings in the iobroker log * change the method of setting for configuration data from widget to datapoint
+
 ### 1.1.0 (2021-05-06)
+
 * tooltips for the buttons in the time widget / search through the whole text to also find directors and actors / add showpictures option in time,control and search widget / improve documentation
+
 ### 1.0.0
+
 * (oweitman) stable version
 
 ## License
-MIT License
 
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -709,4 +732,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2021 oweitman <oweitman@gmx.de>
+Copyright (c) 2024 oweitman <oweitman@gmx.de>

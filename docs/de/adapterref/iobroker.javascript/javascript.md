@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
 title: kein Titel
-hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
+hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
 ---
 ## Inhalt
 - [Anmerkung](#Anmerkung)
@@ -13,8 +13,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 
 - [Funktionen](#folgende-Funktionen-können-in-Skripten-verwendet-werden)
 - [erforderlich - ein Modul laden](#erforderlich---ein-Modul-laden)
-- [Puffer](#Puffer)
-- [log - Gibt die Nachricht ins Log aus](#log---gibt-die-Nachricht-in-seinem-Log-aus)
+- [Konsole – Gibt die Nachricht ins Protokoll aus](#Konsole---gibt-die-Nachricht-in-das-Protokoll-aus)
 - [exec - führe einen Betriebssystembefehl aus, etwa „cp file1 file2“](#exec---execute-some-os-command-like-cp-file1-file2)
 - [on - Abonnieren Sie Änderungen oder Aktualisierungen eines bestimmten Status](#on---subscribe-on-changes-or-updates-of-some-state)
 - [einmal](#einmal)
@@ -25,7 +24,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
     - [Zeitplan Zeitplan)
 - [Zeitplan](#time-schedule)
 - [Astro-Funktion](#Astro-Funktion)
-- [scheduleById](#scheduleById)
+- [scheduleById](#schedulebyid)
 - [getSchedules](#getschedules)
 - [Zeitplan löschen](#Zeitplan löschen)
 - [getAttr](#getattr)
@@ -61,7 +60,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 - [Zeitüberschreitung löschen](#Zeitüberschreitung löschen)
 - [Sofort festlegen](#Sofort festlegen)
 - [formatDate](#formatdate)
-– [formatTimeDiff](#formattimediff)
+- [formatTimeDiff](#formattimediff)
 - [getDateObject](#getDateObject)
 – [Formatwert](#Formatwert)
 - [adapterAbonnieren](#adaptersubscribe)
@@ -78,7 +77,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 - [Skript ausführen](#Skript ausführen)
 - [runScriptAsync](#runScriptAsync)
 - [Startskript](#Startskript)
-- [startScriptAsync](#startscript)
+– [startScriptAsync](#startscriptasync)
 - [Stoppskript](#Stoppskript)
 - [stopScriptAsync](#stopScriptAsync)
 - [istScriptActive](#isscriptactive)
@@ -235,7 +234,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 |             |            |                                                                                                                                                     |
 | val | gemischt | Neuer Wert muss gleich dem angegebenen sein |
 | valNe | gemischt | Neuer Wert darf nicht gleich dem angegebenen sein |
-| valGt | gemischt | Neuer Wert muss größer als vorgegebener sein |
+| valGt | gemischt | Neuer Wert muss größer als vorgegeben sein |
 | valGe | gemischt | Der neue Wert muss größer oder gleich dem angegebenen sein |
 | valLt | gemischt | Neuer Wert muss kleiner als vorgegeben sein |
 | valLe | gemischt | Der neue Wert muss kleiner oder gleich dem angegebenen sein |
@@ -281,7 +280,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | | RegExp | Kanal-ID stimmt mit regulärem Ausdruck überein |
 | | Array | Kanal-ID stimmt mit einer Liste zulässiger Kanal-IDs überein |
 |             |            |                                                                                                                                                     |
-| Kanalname | Zeichenfolge | Der Kanalname muss mit dem angegebenen übereinstimmen |
+| Kanalname | Zeichenfolge | Der Kanalname muss dem angegebenen entsprechen |
 | | RegExp | Kanalname stimmt mit regulärem Ausdruck überein |
 | | Array | Kanalname stimmt mit einer Liste zulässiger Kanalnamen überein |
 |             |            |                                                                                                                                                     |
@@ -412,15 +411,15 @@ Beispiel für ein Ergebnis:
 
 ```js
 {
-	"megad.0.dataPointName": [
-		{
-			"name" : "script.js.NameOfScript",
-			"pattern" : {
-				"id" : "megad.0.dataPointName",
-				"change" : "ne"
-			}
-		}
-	]
+    'megad.0.dataPointName': [
+        {
+            name : 'script.js.NameOfScript',
+            pattern : {
+                id : 'megad.0.dataPointName',
+                change : 'ne'
+            }
+        }
+    ]
 }
 ```
 
@@ -431,13 +430,13 @@ Beispiel für ein Ergebnis:
 
 ```js
 {
-	"vis.0$%$main/*": [
-		{
-			"name" : "script.js.NameOfScript",
-			"id" : "vis.0",
-            "fileNamePattern": "main/*"
-		}
-	]
+    'vis.0$%$main/*': [
+        {
+            name : 'script.js.NameOfScript',
+            id : 'vis.0',
+            fileNamePattern: 'main/*'
+        }
+    ]
 }
 ```
 
@@ -549,7 +548,7 @@ Die folgenden Werte können als Attribut in der Astrofunktion verwendet werden:
 - „sunriseEnd“: Sonnenaufgang endet (Unterkante der Sonne berührt den Horizont)
 - „goldenHourEnd“: die goldene Stunde am Morgen (weiches Licht, die beste Zeit zum Fotografieren) endet
 - „solarNoon“: Sonnenmittag (Sonne steht am höchsten)
-- „goldenHour“: Beginn der goldenen Abendstunde
+- „goldenHour“: Beginn der goldenen Stunde am Abend
 - „sunsetStart“: Sonnenuntergang beginnt (Unterkante der Sonne berührt den Horizont)
 - „Sonnenuntergang“: Sonnenuntergang (die Sonne verschwindet unter dem Horizont, die bürgerliche Abenddämmerung beginnt)
 - „Dusk“: Dämmerung (Beginn der abendlichen nautischen Dämmerung)
@@ -822,8 +821,8 @@ getStateDelayed('hm-rpc.0.LQE91119.1.STATE');
 
 // returns an array like
 [
-	{ timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
-	{ timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
+    { timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
+    { timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
 ]
 ```
 
@@ -834,13 +833,13 @@ getStateDelayed();
 
 // returns an object like
 {
-	'hm-rpc.0.LQE91119.1.STATE': [
-		{ timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
-		{ timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
-	],
-	'hm-rpc.0.LQE91119.2.LEVEL': [
-		{ timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false }
-	]
+    'hm-rpc.0.LQE91119.1.STATE': [
+        { timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
+        { timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
+    ],
+    'hm-rpc.0.LQE91119.2.LEVEL': [
+        { timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false },
+    ],
 }
 ```
 
@@ -904,8 +903,8 @@ getObject(id, enumName);
 ```
 
 Beschreibung der Objekt-ID abrufen, wie sie in einem System gespeichert ist.
-Sie können den Aufzählungsnamen angeben. Wenn dieser definiert ist, werden dem Ergebnis zwei zusätzliche Attribute hinzugefügt: enumIds und enumNames.
-Diese Arrays enthalten alle Aufzählungen, bei denen die ID ein Mitglied ist. Beispiel:
+Sie können den Enumerationsnamen angeben. Wenn dieser definiert ist, werden dem Ergebnis zwei zusätzliche Attribute hinzugefügt: enumIds und enumNames.
+Diese Arrays enthalten alle Enumerationen, bei denen die ID ein Mitglied ist. Beispiel:
 
 ```js
 getObject('adapter.N.objectName', 'rooms');
@@ -1056,7 +1055,7 @@ common => {
 Es ist ein Kurztyp von createState möglich:
 
 - `createState('myDatapoint')` - erstellt einfach einen Datenpunkt, wenn er nicht existiert
-- `createState('myDatapoint', 1)` - Datenpunkt erstellen, wenn er nicht existiert und mit dem Wert 1 initialisieren
+- `createState('myDatapoint', 1)` - Datenpunkt erstellen, falls er nicht existiert und mit dem Wert 1 initialisieren
 - `createState('myDatapoint', { type: 'string', role: 'json', read: true, write: false }, () => { log('created'); });` – mit allgemeinen Definitionen wie Typ, Lesen, Schreiben und Rolle
 - `createState('myDatapoint', { name: 'Mein eigener Datenpunkt', unit: '°C' }, () => { log('erstellt'); });`
 - `createState('myDatapoint', 1, { name: 'Mein eigener Datenpunkt', unit: '°C' })` - Datenpunkt erstellen, wenn er nicht mit spezifischem Namen und Einheiten existiert
@@ -1086,7 +1085,7 @@ Löschen Sie einfach den Datenpunkt, falls vorhanden.
 await deleteStateAsync(name);
 ```
 
-Dasselbe wie `deleteState`, aber das Versprechen wird zurückgegeben.
+Wie `deleteState`, aber das Versprechen wird zurückgegeben.
 
 ### Alias erstellen
 ```js
@@ -1384,7 +1383,7 @@ Präfixe ***(nicht implementiert – sollte besprochen werden)*** :
 - `$('channel[role=switch](rooms=Wohnzimmer)[state.id=*.STATE]').setState(false)` - Alle Zustände mit .STATE von Kanälen mit der Rolle „switch“ im „Wohnzimmer“ auf „false“ umschalten
 - `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - alle Zustände der Aufzählung „Windows“ im Protokoll ausgeben
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` – druckt alle Zeitpläne mit 65 am Ende
-- `$('.switch §"Wohnzimmer")` - Zustände mit allen Schaltern in 'Wohnzimmer' übernehmen ***(nicht implementiert – sollte besprochen werden)***
+- `$('.switch §"Wohnzimmer")` - Zustände mit allen Schaltern im 'Wohnzimmer' übernehmen ***(nicht implementiert – sollte besprochen werden)***
 - `$('channel .switch §"Wohnzimmer")` - Zustände mit allen Schaltern im 'Wohnzimmer' annehmen ***(nicht implementiert – sollte besprochen werden)***
 
 ***Erklärung*** Werfen wir einen Blick auf:
@@ -1484,7 +1483,7 @@ writeFile('vis.0', '/screenshots/1.png', data, (error) => {
 });
 ```
 
-### Datei löschen
+### DelFile
 ```js
 delFile(adapter, fileName, (error) => {});
 ```
@@ -1615,7 +1614,7 @@ getHistory({
     });
 ```
 
-**Hinweis: ** Natürlich muss der Verlauf zuerst für die ausgewählte ID im Administrator aktiviert werden.
+**Hinweis:** Natürlich muss der Verlauf zuerst für die ausgewählte ID im Administrator aktiviert werden.
 
 ### Skript ausführen
 ```js
@@ -1625,7 +1624,7 @@ runScript('scriptName', () => {
 });
 ```
 
-Startet andere Skripte (und auch sich selbst) oder startet sie neu anhand des Namens.
+Startet andere Skripte (und auch sich selbst) oder startet sie neu, und zwar anhand des Namens.
 
 ```js
 // restart script
@@ -1821,7 +1820,7 @@ onMessageUnregister(id);
 onMessageUnregister('messageName');
 ```
 
-Hiermit kündigen Sie das Abonnement für diese Nachricht.
+Hiermit kündigen Sie das Abonnement dieser Nachricht.
 
 ### Beim Anmelden
 ```js
@@ -1978,7 +1977,7 @@ httpPost(
 );
 ```
 
-### Temporäre Datei erstellen
+### TempDatei erstellen
 *Erfordert Version >= 8.3.0*
 
 ```js

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: I7ikYjd2himy1fYw6ohBoLiOoxcbcOPaTR2LVLljw90=
+hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -25,20 +25,20 @@ Lüftersymbol im Logo erstellt von [Freepik](https://www.flaticon.com/de/autoren
 &gt; Wenn Ihnen dieser Adapter gefällt und Sie erwägen, mich zu unterstützen<br/> &gt; [![Spenden mit PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### Unterstützte Geräte
-Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
-- Dyson Pure Cool Tower, Modell 2018 (TP04, Produkttyp 438)
-- Dyson Pure Cool Tower Formaldehyde, Modell 2018 (TP07, Produkttyp 438E)
-- Dyson Pure Cool Tower Formaldehyde, Modell 2018 (TP07, Produkttyp 438K)
-Dyson Pure Cool Link Desk (DP01, Produkttyp 469)
-- Dyson Pure Cool Desk, Modell 2018 (DP04, Produkttyp 520)
-Dyson Pure Hot+Cool Link (HP02, Produkttyp 455)
-- Dyson Pure Hot+Cool Link Neu (Produkttyp 455A)
-- Dyson Pure Hot+Cool, Modell 2018 (HP04, Produkttyp 527)
-Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
-- Dyson Pure Hot+Cool Formaldehyd (HP09, Produkttyp 527K)
 Dyson Pure Humidify+Cool (PH01, Produkttyp 358)
 Dyson Pure Humidify+Cool (PH03, Produkttyp 358E)
 Dyson Pure Humidify+Cool Formaldehyde (PH04, Produkttyp 358K)
+- Dyson Pure Cool Tower, Modell 2018 (TP04, Produkttyp 438)
+- Dyson Pure Cool Tower Formaldehyde, Modell 2018 (TP07, Produkttyp 438E)
+- Dyson Pure Cool Tower Formaldehyde, Modell 2018 (TP07, Produkttyp 438K)
+Dyson Pure Hot+Cool Link (HP02, Produkttyp 455)
+- Dyson Pure Hot+Cool Link Neu (Produkttyp 455A)
+Dyson Pure Cool Link Desk (DP01, Produkttyp 469)
+Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
+- Dyson Pure Cool Desk, Modell 2018 (DP04, Produkttyp 520)
+- Dyson Pure Hot+Cool, Modell 2018 (HP04, Produkttyp 527)
+Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
+- Dyson Pure Hot+Cool Formaldehyd (HP09, Produkttyp 527K)
 - Dyson Purifier Big+Quiet Formaldehyd (BP03, Produkttyp 664)
 
 ## Merkmale
@@ -74,7 +74,7 @@ Führen Sie `npm install iobroker.dysonairpurifier` auf Ihrer ioBroker-Installat
 #### Alternative: Verwenden der GitHub-URL
 Installieren Sie es über die ioBroker-Admin-Benutzeroberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-Sie können mit diesen Methoden auch ältere Release-Versionen installieren (indem Sie in der URL auf einen Versionstag verweisen, z. B. `v0.6.0` statt `master`), aber im Allgemeinen ist die aktuellste Version vorzuziehen.
+Sie können mit diesen Methoden auch ältere Release-Versionen installieren (indem Sie in der URL auf einen Versionstag verweisen, z. B. `v0.6.0` statt `master`), im Allgemeinen ist jedoch die aktuellste Version vorzuziehen.
 
 ### Konfigurationsdaten benötigt
 - Benutzername des Dyson-Kontos
@@ -157,11 +157,16 @@ Zurzeit gibt es nur grobe Informationen zu den Fehlern, und die Datenpunkte vari
 Wenn Sie bessere Informationen zu einem Fehler haben, zögern Sie nicht, ihn mir zu melden, damit ich den Adapter verbessern kann.
 Alle Zustände melden, ob ein Fehler vorliegt oder nicht. `True` bedeutet einen Fehler, `false` bedeutet „Kein Fehler“.
 
+### Poll Intervall
+- Ab v3.2.2 deaktiviert ein Polling-Intervall von 0 das Polling definitiv. Aus mathematischen Gründen mag es vorher funktioniert haben - aber nicht mit Sicherheit und mit unbekannten Nebenwirkungen.
+
+Das ist gut zu wissen, da die Geräte (zumindest meine) ihren Status normalerweise selbst senden, wenn er sich ändert. Die Verwendung dieser Einstellung trägt dazu bei, Ihren Netzwerkverkehr zu reduzieren, indem unnötige Abfragen verhindert werden.
+
 ### Bekannte Probleme
 - Keine automatische IP-Erkennung der Geräte
 - Immer noch viele unbekannte Gerätemeldungen (meist Fehler und Warnungen)
 - Filter-Reset funktioniert nicht, da die richtige MQTT-Nachricht unbekannt ist
-- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wiederherstellen. `Das ist normalerweise kein Problem des Adapters selbst, sondern ein Problem in Ihrem lokalen Netzwerk!`
+- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wieder verbinden. `Das ist normalerweise kein Problem des Adapters selbst, sondern ein Problem in Ihrem lokalen Netzwerk!`
 - In manchen Fällen reicht es aus, den Ventilator für ca. 10 Sekunden auszustecken, um ihn zurückzusetzen, und ihn dann wieder einzustecken. Probieren Sie es einfach aus!
 - In anderen Fällen war es ein IP/DNS-Problem. Das Zurücksetzen des DHCP/DNS-Servers (Router) löste das Problem.
 
@@ -175,14 +180,14 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | Staatsräson | | MODUS | |
 | rssi | WLAN-Stärke | -100 – 0 | dBm |
 | Kanal | WIFI-Kanal | 52 | |
-| sfqhp | | 96704 | |
+| 96704 | |
 | 70480 | |
 
 #### Produktstatus
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ---- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --- |
 | ercd | Letzter Fehlercode | KEINER oder einige Hexa-Werte | |
-| filf | verbleibende Filterlebensdauer | 0000 - 4300 | Stunden |
+| filf | verbleibende Filterlebensdauer | 0000 – 4300 | Stunden |
 | fmod | Modus | LÜFTER, AUTO, AUS | |
 | fpwr | Hauptstromversorgung | EIN, AUS | |
 | fnst | Lüfterstatus | EIN, AUS, LÜFTER | |
@@ -215,11 +220,11 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | wath | Wasserhärte | SOFT="2025", MEDIUM="1350", HARD="0675" | |
 | wacd | Warncode | KEINER... | |
 | rstf | Filter-Lebenszyklus zurücksetzen | „RSTF“, „STET“, RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION | |
-| corf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit | |
+| Korf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit | |
 | clcr | DeepcleanCycle | CLNO=inaktiv, CLAC=Tiefenreinigung läuft, CLCM=Fertig | |
 | hsta | Heizzustand | AKTIV/LEERLAUF | |
 | msta | Befeuchtungszustand | Aktiv/Leerlauf AUS, HUMD | |
-| n.p.a. | [HP0x] Unbekannt | INIT, CLNG, INV, AUS | |
+| psta | [HP0x] Unbekannt | INIT, CLNG, INV, OFF | |
 | bril | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
 | fqhp | unbekannt | | |
 | Neigung | [HP0x] Unbekannt | Zeichenfolge | |
@@ -285,7 +290,17 @@ Dyson, Pure Cool, Pure Hot & Cool und andere sind Marken oder eingetragene Marke
 
 ### **WORK IN PROGRESS**
 
-### 3.2.0 (2024-05-27) (Marching on)
+### 3.2.2 (2024-06-18) (Marching on)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
+- (grizzelbee) Upd: Poll intervall of 0 disables polling
+
+### 3.2.1 (2024-06-04) (Marching on)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
+
+
+### 3.2.0 (2024-05-28) (Marching on)
 
 - (grizzelbee) Chg: Lamps (Product type 552a) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
 - (grizzelbee) Chg: Vacuum cleaner robots (Product types 276 and 277) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.

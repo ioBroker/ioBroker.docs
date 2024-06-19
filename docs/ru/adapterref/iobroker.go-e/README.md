@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: ZrummTtzjDvBnF8oxSQ2X2GUzdc5FLZMTb/TtQJWeY8=
+hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
@@ -13,16 +13,10 @@ hash: ZrummTtzjDvBnF8oxSQ2X2GUzdc5FLZMTb/TtQJWeY8=
 ![Количество установок (последних)](http://iobroker.live/badges/go-e-installed.svg)
 ![Версия Установок (стабильная)](http://iobroker.live/badges/go-e-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
-![Сборка и тестирование](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
 ![НПМ](https://nodei.co/npm/iobroker.go-e.png?mini=true)
 ![Значок кодации](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
-![Оповещения](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
-![Качество кода](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
 
 # IoBroker.go-echarger
-# Использование Sentry
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
-
 # Настенная коробка go-eCharger
 ![Изображение продукта](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) Для получения более подробной информации посетите https://go-e.co/
 
@@ -30,11 +24,12 @@ hash: ZrummTtzjDvBnF8oxSQ2X2GUzdc5FLZMTb/TtQJWeY8=
 Этот адаптер в настоящее время работает только с API v1. Поддержка нового API v2 в настоящее время находится на рассмотрении.
 Пожалуйста, убедитесь, что в приложении вы включили API v1.
 
-Адаптер Dieser позволяет использовать API v1. Взаимодействие с API v2 находится в локации Warteschlange. Немного интереснее, откройте приложение API v1 и активируйте его.
-![API_v1](../../../en/adapterref/iobroker.go-e/docs/active_v1.jpg)
+Адаптер позволяет использовать API v1 и использовать его функции в V2. Немного информации о том, как активировать приложение API v1 и v2, включено.
 
-## Адаптер go-eCharger для ioBroker **RU** go-e — это приглашение к электрическому переезду. Электронная мобильность — это наша движущая сила, поэтому нашей основной компетенцией являются технологии зарядки электромобилей. От индивидуальной зарядной станции для электромобилей до фотоэлектрических соединений и управления нагрузкой целых зданий — мы являемся поставщиками комплексных системных решений для всех требований современной электронной мобильности.
-**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität - это Antrieb, wobei unsere Kerncompetenz die Ladetechnik für Elektroautos ist. Для получения дополнительной информации о Ladestation для электронных автомобилей используйте фотовольтаическую привязку, которая будет использоваться для последнего управления автомобилем, а также с использованием Anbieter Gesamtheitlicher Systemlösungen для sämtliche Anforderungen der Modernen e-Mobilität.
+## Адаптер go-eCharger для ioBroker
+**RU** go-e — это приглашение к электрическому переезду. Электронная мобильность — это наша движущая сила, поэтому нашей основной компетенцией являются технологии зарядки электромобилей. От индивидуальной зарядной станции для электромобилей до фотоэлектрических соединений и управления нагрузкой целых зданий — мы являемся поставщиками комплексных системных решений для всех требований современной электронной мобильности.
+
+**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität - это Antrieb, wobei unsere Kerncompetenz die Ladetechnik für Elektroautos ist. Для использования электростанций для электронных автомобилей необходимо использовать фотовольтаическую установку для последнего управления электромобилями, а также использовать систему Anbieter Gesamtheitlicher Systemlösungen для комплексного обслуживания современной электронной мобильности.
 
 ## Руководство по ioBroker-Adapter / Краткое руководство пользователя
 Руководство по установке и настройке вы можете найти здесь: [Руководство по адаптеру](./docs/Readme.md).
@@ -42,7 +37,7 @@ hash: ZrummTtzjDvBnF8oxSQ2X2GUzdc5FLZMTb/TtQJWeY8=
 ## Руководство разработчика
 Присоединяйтесь к сообществу адаптеров https://t.me/goECharger.
 
-Официальная документация API: https://github.com/goecharger/go-eCharger-API-v1.
+Официальная документация API: https://github.com/goecharger/go-eCharger-API-v1 https://github.com/goecharger/go-eCharger-API-v2.
 
 Официальная поддержка продукта: https://go-e.co/support/
 
@@ -53,6 +48,26 @@ hash: ZrummTtzjDvBnF8oxSQ2X2GUzdc5FLZMTb/TtQJWeY8=
 Авторские права (c) 2023 MK-2001 go-e@itinsi.de
 
 ## Changelog
+
+### 1.0.35
+* switch between ioBroker and go-e Hardware logic for PV-Calculation
+* Adding phaseSwitch Buffer to reduce switch on coudy days
+* improved documentation
+* Bug #232
+* Wrong deafult value type
+
+### 1.0.32
+* Timer for loading
+
+### 1.0.31
+* Versioning updates
+
+### 1.0.30
+* added max ampere in settings
+* Added level to switch 1-phase to 3 pahases
+* enables phasesSwitchMode
+* Only possible if V2 is enabled
+* some bugs
 
 ### 1.0.29
 * Bugfixes.

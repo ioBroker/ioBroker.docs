@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
-title: ioBroker-E-Mail
-hash: V9ZiJFBBiK4b2VIceoFz0SVcAzIY1qvrSVAf/tgiaHY=
+title: ioBroker E-Mail
+hash: m+iTfz/eu+K9plwOKiOxq6OVW/fN8GZGXpf8ViAawOk=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -12,51 +12,55 @@ hash: V9ZiJFBBiK4b2VIceoFz0SVcAzIY1qvrSVAf/tgiaHY=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)
 
 # IoBroker-E-Mail
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Senden Sie E-Mails von ioBroker.
 
 Der Adapter verwendet [Knotenmailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Um Google Mail zu verwenden, müssen Sie möglicherweise "Weniger sichere Apps zulassen" in Ihrem Google Mail-Konto konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssten Sie ein anwendungsspezifisches Passwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit „Zugriff auf Ihr Google-Konto zulassen“ entsperren, um SMTP verwenden zu können.
+Um Gmail zu verwenden, müssen Sie möglicherweise „Weniger sichere Apps zulassen“ in Ihrem Gmail-Konto konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssten Sie ein anwendungsspezifisches Passwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit „Zugriff auf Ihr Google-Konto zulassen“ entsperren, um SMTP verwenden zu können.
 
-## Verwendungszweck
+## Verwendung
 Um eine E-Mail von ScriptEngine zu senden, schreiben Sie einfach:
 
-```
+```js
 // send email to all instances of email adapter
-sendTo("email", "Email body");
+sendTo('email', 'Email body');
 
 // send email to specific instance of email adapter
-sendTo("email.1", "Email body");
+sendTo("email.1", 'Email body');
 
 // To specify subject or other options
-sendTo("email", {
-    from:    "iobroker@mydomain.com",
-    to:      "aabbcc@gmail.com, xxyyzz@gmail.com", // comma separated multiple recipients.
-    subject: "Message from ioBroker",
-    text:    "This is test email to you!"
+sendTo('email', {
+    from:    'iobroker@mydomain.com',
+    to:      'aabbcc@gmail.com, xxyyzz@gmail.com', // comma separated multiple recipients.
+    subject: 'Message from ioBroker',
+    text:    'This is test email to you!',
 });
 
 // To send attachments
-sendTo("email", {
+sendTo('email', {
     attachments: [
-       // use file on disk as attachment
-       {path: "/pathToImage/picture1.jpg"},
-       {   // use URL as an attachment
+        {
+            path: '/pathToImage/picture1.jpg', // use file on disk as attachment
+        },
+        {
             filename: 'license.txt',
-            path: 'https://raw.github.com/andris9/Nodemailer/master/LICENSE'
-       }
+            path: 'https://raw.github.com/andris9/Nodemailer/master/LICENSE', // use URL as an attachment
+        },
     ]
 });
 
 // To send in html format
-sendTo("email", {
-    html: "<p>Embedded image: <img src='cid:image1'/></p>",
+sendTo('email', {
+    html: '<p>Embedded image: <img src='cid:image1'/></p>',
     attachments:[
-        {path: "path/to/file/image1.jpg", cid: "image1"}
+        {
+            path: 'path/to/file/image1.jpg',
+            cid: 'image1',
+        },
     ]
 });
 ```
@@ -68,106 +72,67 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion **ada
 - AOL
 - DebugMail.io
 - DynectEmail
--FastMail
+- FastMail
 - GandiMail
-- Gmail
+- Google Mail
 - Los Papa
 - GodaddyAsia
-- GodaddyEurope
+- GodaddyEuropa
 - heiß.ee
 - Heisse Mail
 - iCloud
-- mit
+- ich
 - mail.ee
--Mail.ru
+- Mail.ru
 - Mailgun
 - Mailjet
 - Mandrill
-- Naver
+- Navigation
 - Büro 365
 - OpenMailBox
 - Poststempel
--QQ
+- Frage
 - QQex
--SendCloud
+- SendCloud
 - SendGrid
-- SE
-- SES-USA-OST-1
--SES-US-WEST-2
+- SES
+- SES-US-EAST-1
+- SES-US-WEST-2
 - SES-EU-WEST-1
 - Sparkpost
 - Yahoo
-- Jandex
--Zoho
+- Yandex
+- Zoho
 - Benutzerspezifisch (Server, Port und Sicherheit manuell definiert)
 
-Für andere Dienste siehe Dokumentation von **Nodemailer**: `§§LLLLL_0§§`
+Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0§§`
 
 ## Changelog
-### 1.1.0 (2022-05-11)
-* (Apollon77) Adjust default settings for web.de and 1und1 and add ionos
-* (Apollon77) Add "Always use STARTTLS" option for custom SMTP settings
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.3.1 (2024-06-09)
+* (klein0r) Updated Blockly definitions
 
-### 1.0.10 (2021-07-06)
-* (Apollon77) Optimize for js-controller 3.3
+### 1.3.0 (2024-04-29)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
-### 1.0.9 (2021-02-22)
-* (Apollon77) Call message callback always with error or without
+### 1.2.2 (2023-12-25)
+* (foxriver76) trim host messages from notification-manager correctly
 
-### 1.0.7 (2020-06-11)
-* (Apollon77) Make sure adapter is not crashing on stop in some edge cases
-* (Apollon77) Add Sentry for crash reporting with js-controller >=3.x
+### 1.2.1 (2023-12-08)
+ * (foxriver76) send the actual message too via notification-manager
 
-### 1.0.6 (2019-12-29)
-* (bluefox) Compact mode supported
-
-### 1.0.5 (2019-09-18)
-* (Apollon77/bluefox) js-controller 2.0 compatibility, dependency updates
-
-### 1.0.4 (2018-03-26)
-* (skraw.iobroker) Add ith
-
-### 1.0.3 (2018-03-04)
-* (bluefox) fix blockly
-* (bluefox) Admin3 ready
-
-### 1.0.2 (2017-01-31)
-* (instalator) fix translations
-
-### 1.0.1 (2016-12-20)
-* (bluefox) add Office365
-
-### 1.0.0 (2016-10-12)
-* (bluefox) support of blockly
-
-### 0.2.1 (2016-09-03)
-* (bluefox) fix sending emails after first one
-
-### 0.2.0 (2016-08-29)
-* (bluefox) filter out double messages
-* (bluefox) use new nodemailer packet
-
-### 0.1.2 (2015-04-30)
-* (bluefox) fix settings if "user defined" was selected
-
-### 0.1.1 (2015-04-28)
-* (bluefox) update configuration page and decode errors
-
-### 0.1.0 (2015-01-02)
-* (bluefox) prepare npm
-
-### 0.0.4 (2014-11-2)
-(bluefox) support of new naming concept
-
-### 0.0.3 (2014-10-09)
-* (bluefox) support of daemon mode
-* (bluefox) add Gruntfile.js
+### 1.2.0 (2023-06-02)
+* (foxriver76) support [Notification Manager](https://github.com/foxriver76/ioBroker.notification-manager)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox
+Copyright (c) 2014-2024 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

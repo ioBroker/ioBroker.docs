@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: airOhvSaq8KtRqgPpF0JkO3COqgwAP9G7WCP+W76vVs=
+hash: DtHtYJQ2qVyk4C1ID1E1wTG7erQXaiviSwWgbin6eFM=
 ---
 # IoBroker.vis-homekittiles
 
@@ -36,12 +36,18 @@ Homekit Tiles — это набор виджетов, основанный на 
 * создать Select-тайл
 * создать кнопку подменю
 * Радиокнопка: новое свойство «деление» с выбираемыми значениями (1:1; 3:4).
+* Выбор даты: динамические значки дня/месяца.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.16 (2024-06-08)
+
+* (Standarduser) thermostat: fixed window-sizing
+* (Standarduser) date-picker: fixed block operation
+
 ### 0.0.15 (2024-05-31)
 
 * (Standarduser) dialog: fixed positioning

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: /BV5lid8JySojmWSYk+wFC92fGyNFSIH5Ps2KRuBIZY=
+hash: +1fddSVtqwpfVYHmbGCNW3hoPgPwDPyjK/kA/lN2bfw=
 ---
-![标识](../../../en/adapterref/iobroker.vis-2/packages/vis-2/admin/vis-2.png)
+![标识](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
 ![安装数量](http://iobroker.live/badges/vis-2-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-2.svg)
@@ -27,7 +27,7 @@ ioBroker 平台的 WEB 可视化。
 - [SVG 和 currentColor](#svg-and-currentcolor)
 
 安装和文档
-![演示界面](packages/vis-2/img/user0.png) ![演示界面](../../../en/adapterref/iobroker.vis-2/packages/vis-2/img/user7.png)
+![演示界面](packages/iobroker.vis-2/img/user0.png) ![演示界面](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
 [在线演示](https://iobroker.click/)
 
@@ -177,12 +177,12 @@ Vis 创建了 3 个变量：
 * `playSound` - 播放声音文件。文件链接在 `control.data` 中指定，例如 http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3。
 
 您可以在 vis-2 中上传自己的文件并让其播放，例如 `/vis-2.0/main/img/myFile.mp3`。
-**重要** 浏览器无法播放音频，除非用户至少点击过一次页面。这是浏览器安全策略。[这里](https://github.com/Hugo22O/chrome-autoplay) 您可以阅读更多内容。
+**重要** 浏览器无法播放音频，除非用户至少点击过页面一次。这是浏览器安全策略。[这里](https://github.com/Hugo22O/chrome-autoplay) 您可以阅读更多内容。
 
 如果用户在开始时更改视图，则变量将由 vis-2 填充
 
 - `control.instance`：浏览器实例和 `ack=true`
-- `control.data`：项目和视图名称，格式为 `project/view`，例如 `main/view`（和 `ack=true`）
+- `control.data`：项目和视图名称，格式为 `project/view`，例如 `main/view`（并且 `ack=true`）
 - `control.command`: `changedView` 和 `ack=true`
 
 您可以将 JSON 字符串或对象写入 `control.command` 中，例如 `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
@@ -239,7 +239,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 
 请注意，这些设置仅对重新连接有效，对第一次连接无效。
 
-![黑暗的](../../../en/adapterref/iobroker.vis-2/packages/vis-2/img/dark_screen.png)
+![黑暗的](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/dark_screen.png)
 
 ## SVG 和 currentColor
 CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本颜色。
@@ -263,6 +263,24 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### **正在进行中** -->
 
 ## Changelog
+### 2.9.64 (2024-05-23)
+* (bluefox) Added possibility to clear a text field by button
+
+### 2.9.63 (2024-05-15)
+* (bluefox) Migrated some files to typescript
+
+### 2.9.60 (2024-05-07)
+* (foxriver76) test automatic release
+
+### 2.9.53 (2024-05-06)
+* (bluefox) Allowed applying styles to jQui buttons
+
+### 2.9.52 (2024-04-25)
+* (bluefox) Navigation was improved: adjustable menu width and bulk edit were added
+
+### 2.9.50 (2024-04-19)
+* (bluefox) Corrected widget in widget behavior
+
 ### 2.9.49 (2024-04-11)
 * (bluefox) Corrected the scroll buttons in Tabs widget
 * (bluefox) Corrected resizers if the border width is set
@@ -308,7 +326,7 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### 2.9.32 (2024-02-16)
 * (foxriver76) implemented buttons to show or hide all views in views manager
 * (foxriver76) fixed issue with signals on RxWidgets
-* (foxriver76) allow to disable Sentry only for this instance
+* (foxriver76) allow disabling Sentry only for this instance
 
 ### 2.9.31 (2024-02-06)
 * (foxriver76) apply default overflow correctly

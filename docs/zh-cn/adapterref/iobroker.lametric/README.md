@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
+hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
 ---
 ![标识](../../../en/admin/lametric.png)
 
@@ -32,7 +32,7 @@ hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
 - nodejs 18（或更高版本）
 - js-controller 5.0.0 (或更高版本)
 - 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 固件版本为 _2.3.8_（2022 型号为 _3.0.21_）（或更高版本）
+- _LaMetric Time_ 固件版本为 _2.3.8_（2022 型号为 _3.1.0_）（或更高版本）
 
 [固件更新日志](https://firmware.lametric.com) [固件更新日志时间2](https://firmware.lametric.com/?product=time2)
 
@@ -59,9 +59,15 @@ hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.1 (2024-06-12)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
+* (@klein0r) Updated dependencies
+
+### 3.2.0 (2024-06-07)
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
+* (klein0r) Fixed Blockly definitions (removed warnings)
 
 ### 3.1.3 (2024-01-31)
 
@@ -75,20 +81,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 ### 3.1.1 (2023-10-27)
 
 * (klein0r) Fixed issue with foreign states of version 3.1.0
-
-### 3.1.0 (2023-10-25)
-
-NodeJS 16.x is required
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.18)
-* (klein0r) Updated admin tab layout (icons, button style)
-* (klein0r) Fixed path of default widgets
-
-### 3.0.0 (2023-09-13)
-
-* (klein0r) Added push option for My Data DIY
-* (klein0r) Added option to force app reload
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
 
 ## License
 

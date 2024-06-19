@@ -3,48 +3,59 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rainbird/README.md
 title: ioBroker.rainbird
-hash: KvmP8NrJCEwT8wxVoeV2M2i8GBVTL6MnskcixnV3WQY=
+hash: /YJXlyBSaILis+KUmtEyaDLpid6UsaLyP988L8RtQrQ=
 ---
-![логотип](../../../en/adapterref/iobroker.rainbird/admin/rainbird.png)
+![Логотип](../../../en/adapterref/iobroker.rainbird/admin/rainbird.png)
 
 ![Количество установок](http://iobroker.live/badges/rainbird-installed.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rainbird.svg)
-![NPM](https://nodei.co/npm/iobroker.rainbird.png?downloads=true)
-![стабильный](http://iobroker.live/badges/rainbird-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.rainbird.svg)
+![НПМ](https://nodei.co/npm/iobroker.rainbird.png?downloads=true)
+![Стабильный](http://iobroker.live/badges/rainbird-stable.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.rainbird.svg)
 ![Статус сборки](https://travis-ci.org/StrathCole/ioBroker.rainbird.svg?branch=master)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 
 # IoBroker.rainbird
 Адаптер ioBroker для Rain Bird с адаптером LNK WiFi. Этот проект не имеет никакого отношения к Rain Bird.
 
-Основано на библиотеке питонов "pyrainbird" с https://github.com/jbarrancos/pyrainbird и полностью перенесено на NodeJS. Адаптер устанавливает прямое соединение с устройством через WiFi-соединение и не использует облачный сервис Rain Bird.
+Основан на библиотеке Python «pyrainbird» с https://github.com/jbarrancos/pyrainbird и полностью портирован на NodeJS. Адаптер подключается к устройству напрямую через соединение Wi-Fi и не использует облачный сервис Rain Bird.
 
 ## Состояния
-`rainbird.X.device.commands.advanceZone` - Когда работает текущая программа, перейдите к следующей зоне орошения и остановите текущую.
-`rainbird.X.device.commands.runProgram` - Запустите указанную программу вручную (от 1 до X), как ранее было настроено в устройстве.
-`rainbird.X.device.commands.stopIrrigation` - Немедленно прекратить полив во всех зонах.
+`rainbird.X.device.commands.advanceZone` - Когда текущая программа запущена, перейдите к следующей зоне полива и остановите текущую.
+`rainbird.X.device.commands.runProgram` — Запустите указанную программу вручную (от 1 до X), как ранее было настроено в устройстве.
+`rainbird.X.device.commands.stopIrrigation` — Немедленно остановить полив во всех зонах.
 
-`rainbird.X.device.irrigation.active` - Полив в настоящее время активен. Если false, это может означать, что вы установили переключатель на устройстве в положение «Стоп».
-`rainbird.X.device.irrigation.station` - Номер зоны, которая орошается в настоящее время.
+`rainbird.X.device.irrigation.active` - В данный момент орошение активно. Если значение false, это может означать, что вы установили переключатель на устройстве в положение «Стоп».
+`rainbird.X.device.irrigation.station` — Номер зоны, которая в данный момент орошается.
 
-`rainbird.X.device.sensors.rain` - Истина, если подключен датчик дождя и обнаружен дождь.
+`rainbird.X.device.sensors.rain` — истинно, если подключен датчик дождя и обнаружен дождь.
 
-`rainbird.X.device.settings.rainDelay` - Текущая задержка полива (в днях), установленная для устройства.
-`rainbird.X.device.settings.seasonalAdjust` - Текущая сезонная корректировка для бюджета на воду.
+`rainbird.X.device.settings.rainDelay` — Текущая задержка полива (в днях), установленная для устройства.
+`rainbird.X.device.settings.seasonalAdjust` — текущая сезонная корректировка водного бюджета.
 
-`rainbird.X.device.stations.Y.available` - Истина, если в устройстве доступна зона Y.
-`rainbird.X.device.stations.Y.irrigation` - Истина, если зона Y в настоящее время орошается.
-`rainbird.X.device.stations.Y.remaining` - Оставшееся время полива в секундах. `rainbird.X.device.stations.Y.runZone` - Запустите полив вручную в зоне Y на указанное количество минут.
-`rainbird.X.device.stations.Y.testZone` - Тестовая зона Y.
+`rainbird.X.device.stations.Y.available` — True, если в устройстве доступна зона Y.
+`rainbird.X.device.stations.Y.irrigation` — true, если зона Y в настоящее время орошается.
+`rainbird.X.device.stations.Y.remaining` — Оставшееся время полива в секундах `rainbird.X.device.stations.Y.runZone` — Вручную запустить полив в зоне Y на указанное количество минут.
+`rainbird.X.device.stations.Y.testZone` — Тестовая зона Y.
+
+## Кредиты
+Этот адаптер был бы невозможен без великой работы Мариуса Буркарда <m.burkard@pixcept.de>, который выпускал предыдущие выпуски этого адаптера.
 
 ## Пожертвовать
-[![PayPal] (https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFLJ8HCW9T698&source=url)
+[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFLJ8HCW9T698&source=url)
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.1 (2024-06-06)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Adapter has been move to iobroker-community-adapters organization
+* (mcm1957) Adapter-core has been adapter, adapter supports js-controller 6 now.
+* (mcm1957) Dependencies have been updated
 
 ### 0.2.3
-
 -   Fixed problem with sensor data
 -   Added seasonal water budget adjust information
 
@@ -62,23 +73,12 @@ hash: KvmP8NrJCEwT8wxVoeV2M2i8GBVTL6MnskcixnV3WQY=
 -   Added remaining irrigation time of zone
 -   Fixed bug in decoding responses
 
-### 0.1.2
-
--   Fixed adapter stalling on connection timeout
-
-### 0.1.1
-
--   Smaller fixes
-
-### 0.1.0
-
--   First running Version
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Marius Burkard
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

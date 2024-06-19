@@ -520,6 +520,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 3.0.1 (2024-06-13)
+* (foxriver76) upgraded dependencies
+
 ### 3.0.0 (2023-09-13)
 * IMPORTANT: Node.js 16.x is now needed at a minimum!
 * (bluefox) Allowed setting port 0 as default
@@ -856,7 +859,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2023 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2024 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: UJTyxv3/U2FZDXcrTx0stOwqK2a3AhYvg4MzxP/J+h8=
+hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -39,6 +39,7 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn S
 - Tragen Sie in den Standardeinstellungen Ihren Tibber-API-Token ein und konfigurieren Sie mindestens eine Zeile für die Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
 - Speichern Sie die Einstellungen und beenden Sie die Konfiguration, um den Adapter neu zu starten. Dieser Schritt ermöglicht die erste Abfrage Ihres/Ihrer Zuhauses vom Tibber-Server.
 - Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Häuser aus, von denen Sie mit Ihrem Tibber Pulse Echtzeitdaten abrufen möchten. Sie können auch Häuser auswählen und den Feed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse überprüft hat).
+- Hinweis: Wenn Sie in Ihrem Tibber-Konto mehr als ein aktives Zuhause haben, müssen Sie alle hinzufügen, um Fehlermeldungen zu vermeiden, die durch möglicherweise nicht benötigte Zuhause verursacht werden. Fügen Sie alle hinzu und deaktivieren Sie die Optionen.
 - Sie haben die Möglichkeit, den Abruf der Preisdaten für heute und morgen zu deaktivieren, wenn Sie beispielsweise nur Pulse-Live-Feeds nutzen möchten
 - Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Geben Sie hierfür die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Mit „0“ können Sie ein oder mehrere dieser Intervalle nach Ihren Wünschen deaktivieren.
 - Hinweis: Es ist wichtig, auf die Größe des Datensatzes zu achten, da übermäßig große Anfragen zu einer fehlenden Antwort vom Tibber-Server führen können. Wir empfehlen, mit der Datensatzgröße zu experimentieren, um eine optimale Funktionalität sicherzustellen. Durch Anpassen der Intervalle und Datensatznummern können Sie das richtige Gleichgewicht zwischen dem Erhalt aufschlussreicher Daten und der Aufrechterhaltung der Serverreaktionsfähigkeit finden. Beispielsweise ist 48 eine recht gute Anzahl an Stunden.
@@ -48,7 +49,7 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn S
 – Da die Tibber-Verbindung nun besteht, können Sie den Rechner auch nutzen, um zusätzliche Automatisierungsfunktionen in den TibberLink-Adapter zu integrieren.
 - Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Zuhause verknüpft ist.
 - Diese Kanäle können basierend auf entsprechenden Zuständen aktiviert oder deaktiviert werden.
-- Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
+– Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
 - Die Zustände eines Rechnerkanals werden neben den Home-Zuständen platziert und nach der Kanalnummer benannt. Dabei wird der im Admin-Bildschirm gewählte Kanalname hier angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
 
     ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
@@ -88,11 +89,22 @@ Um diese dynamische Änderung des Zeitrahmens für einen Standardkanal zu beobac
 Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 gestartet.
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, denken Sie darüber nach, mir ein Bier auszugeben. Prost! :Bier:
+<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, könnten Sie mir ein Bier spendieren. Prost! :Bier:
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 3.3.1 (2024-06-13)
+
+-   (HombachC) fix small sentry discovered error (#418)
+-   (HombachC) added note for multihomes to documentation (#422)
+
+### 3.3.0 (2024-06-05)
+
+-   (HombachC) implements optional, obsolete api call for total historical cost, incl. grid fees (#405)
+-   (HombachC) Updates @iobroker/adapter-core from 3.1.6
+-   (HombachC) Updates @iobroker/types from 5.0.19 to 6.0.0
 
 ### 3.2.1 (2024-06-03)
 

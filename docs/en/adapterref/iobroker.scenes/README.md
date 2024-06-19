@@ -152,6 +152,10 @@ sendTo(
 -->
 
 ## Changelog
+### 3.1.0 (2024-06-14)
+* (bluefox) Packages updated
+* (bluefox) Prepared for js-controller 6
+
 ### 3.0.4 (2024-04-27)
 * (bluefox) Corrected error if profile is empty
 

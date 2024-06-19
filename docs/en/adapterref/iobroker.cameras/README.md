@@ -71,8 +71,12 @@ To add a new camera, you must create a Pull Request on GitHub with the following
 -->
 
 ## Changelog
+### 2.0.8 (2024-06-09)
+* (bluefox) Packages updated
+* (bluefox) Allowed selecting another source (with bigger resolution) for URL cameras
+
 ### 2.0.5 (2023-12-19)
-* (bluefox) Minimal supported NodeJS version is 18
+* (bluefox) Minimal supported Node.js version is 18
 * (bluefox) Corrected widgets
 
 ### 1.4.0 (2023-12-04)
@@ -130,7 +134,7 @@ To add a new camera, you must create a Pull Request on GitHub with the following
 ## License
 MIT License
 
-Copyright (c) 2020-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

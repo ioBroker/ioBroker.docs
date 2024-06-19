@@ -170,6 +170,9 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 2.1.3 (work in progress)
+* (Sickboy78) fix lock mode is undefined
+
 ### 2.1.2 (2024-06-02)
 * (Sickboy78) dependency updates
 

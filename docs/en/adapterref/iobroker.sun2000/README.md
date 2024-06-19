@@ -35,6 +35,12 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.10.0 (2024-06-14)
+* dependency and configuration updates
+* adjust roles in the control path
+* Battery control: add backup power SOC #84
+* fix: wrong state name `control.battery.targetSOC` with trailing space
+
 ### 0.9.0 (2024-05-09)
 * dependency and configuration updates
 * modbus device remains active in standby on the inverter M2,M3

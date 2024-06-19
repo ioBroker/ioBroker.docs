@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: NyzVyk4vYcX20icjCAJmiV9u29yAY1Vfyeym5KHkObw=
+hash: RpMOucw8igSZtPZLPvyx4jDtS5zdyMhwPh/f/iPGgIg=
 ---
 ![标识](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -25,13 +25,13 @@ PiCAN M 是一款专为 Raspberry Pi 3/4 设计的紧凑型附加板。
 该板可以通过外部 12V 电源供电。
 此外，当与 PiCAN-M 板一起使用时，它还可以选择通过 NMEA2000 总线直接为 Raspberry Pi 供电。
 
-**PiCAN-M 缺乏针对 12V 电源电压的反极性保护。当以 12V 外部供电时，必须在电源线中加入 1A 保险丝。**
+**PiCAN-M 缺乏针对 12V 电源电压的反极性保护。当以 12V 外部供电时，必须在电源线中安装 1A 保险丝。**
 
 由于 Raspberry Pi 对电源的要求很高，我们建议使用外部电源（至少 3A）为 Raspberry PI 供电。
 NMEA2000 和 USB 供电可以并行运行而不会出现问题。
 
 ＃＃＃ 安装
-更多详细信息请参阅[PiCAN-M 用户指南](img/pican-m_UGB_10.pdf) 中的第 3 章，以下是简短摘要：
+请参阅[PiCAN-M 用户指南](img/pican-m_UGB_10.pdf) 中的第 3 章了解更多详细信息，但这里是简短摘要：
 
 编辑文件`/boot/config.txt`（带有`sudo nano /boot/config.txt`），并在文件末尾添加以下几行：
 
@@ -75,11 +75,24 @@ Actisense NGT-1 可在 Windows 或 Linux 上显示，无需任何附加驱动程
 - 如果取消选择标志“组合环境”，那么温度将使用 PGN 130314，湿度将使用 PGN 130313，压力将使用 PGN 130314。
 - 如果选择标志“组合环境”，那么所有三个值将与其他可能的环境值一起在 PGN 130311 中发送。
 
+＃＃ 时区
+可以根据 GPS 坐标设置时区。
+为此，必须在适配器设置中启用相应选项，并允许 `iobroker` 用户执行命令：`sudo visudo`
+
+```
+iobroker ALL=(ALL) timedatectl set-timezone
+```
+
 <!--
 
 ### **正在进行中** -->
 
 ## Changelog
+### 0.2.0 (2024-06-15)
+* (bluefox) Backend was rewritten on TypeScript
+* (bluefox) Support for AIS added
+* (bluefox) Valid processing of temperature, pressure and humidity
+
 ### 0.1.8 (2024-03-20)
 * (bluefox) Corrected vis-2 widgets
 

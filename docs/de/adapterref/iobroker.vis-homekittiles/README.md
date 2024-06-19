@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: airOhvSaq8KtRqgPpF0JkO3COqgwAP9G7WCP+W76vVs=
+hash: DtHtYJQ2qVyk4C1ID1E1wTG7erQXaiviSwWgbin6eFM=
 ---
 # IoBroker.vis-homekittiles
 
@@ -36,12 +36,18 @@ Die Widgets sind für VIS 1.x konzipiert.
 * Select-Kachel erstellen
 * Untermenü-Button erstellen
 * Radiobutton: neue Eigenschaft "Teilung" mit wählbaren Werten (1:1; 3:4)
+* Datumsauswahl: dynamische Tag-/Monatssymbole
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.16 (2024-06-08)
+
+* (Standarduser) thermostat: fixed window-sizing
+* (Standarduser) date-picker: fixed block operation
+
 ### 0.0.15 (2024-05-31)
 
 * (Standarduser) dialog: fixed positioning

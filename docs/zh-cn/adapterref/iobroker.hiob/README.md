@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hiob/README.md
 title: ioBroker.hiob
-hash: 5fRwXw4oQsiPgEHQPEj9Wel2mEONLH6l+gPSVHU5wFI=
+hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
 ---
 ![标识](../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -51,6 +51,16 @@ hash: 5fRwXw4oQsiPgEHQPEj9Wel2mEONLH6l+gPSVHU5wFI=
 
 ＃＃ 已知的问题
 - 0.1.4：blockly 元素不应该出现在这个版本中。它目前不起作用
+
+路线图
+- 重新设计模板/小部件的概念 [30%]
+- 简化添加新模板/小部件功能的过程
+- 删除高级模板并拆分成多个小部件
+- 允许所有小部件弹出菜单
+- 允许每个小部件的主题规则
+- 添加历史数据图表 [0%]
+- 通过列出所有 [0%] 简化添加设备的过程
+- 根据选定的设备自动创建小部件 [0%]
 
 ## Changelog
 

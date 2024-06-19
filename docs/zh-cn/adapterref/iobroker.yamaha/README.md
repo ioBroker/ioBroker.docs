@@ -3,46 +3,56 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yamaha/README.md
 title: 无题
-hash: 42NBPSFBWCuYjuhCxR3pxX4ukS3Ii3BNzjo2ofN5AY8=
+hash: 7OJuYFsy6VNYKUCbfYG3oHnTo5qf9BztKBSu3G86OrU=
 ---
-![商标](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
+![标识](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
 
 ![安装数量](http://iobroker.live/badges/yamaha-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.yamaha.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.yamaha.svg)
 
 ## IoBroker.yamaha
-![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ＃＃＃＃ 描述
 雅马哈 AV 接收器适配器
 
-请在 github 或 https://forum.iobroker.net/topic/53174/weiterentwicklung-yamaha-adapter 进行讨论
+请在 github 或 https://forum.iobroker.net/topic/53174/weiterentwicklung-yamaha-adapter 上进行讨论
 
 ### 初始创建
-该适配器最初由 @soef 在 https://github.com/soef/ioBroker.yamaha 创建，但不再维护，因此我们将其移至 iobroker-community 以便修复错误。感谢@soef 的工作。
+该适配器最初由 @soef 在 https://github.com/soef/ioBroker.yamaha 创建，但不再维护，因此我们将其移至 iobroker-community 以便修复错误。感谢 @soef 的工作。
 
 ＃＃＃＃ 配置
 目前没有自动发现，您必须输入接收器的 IP
 
 ＃＃＃＃ 安装
-通过 ioBroker 管理员。
+通过 ioBroker Admin。
 
-否则在 iobroker 根目录（例如在 /opt/iobroker 中）执行以下命令 `` npm install iobroker.yamaha iobroker upload yamaha ``
+否则，在 iobroker 根目录（例如在 /opt/iobroker）中执行以下命令“npm install iobroker.yamaha iobroker upload yamaha”
 
 ＃＃＃＃ 即时的
-状态将在它们发生时被创建。 IE。使用你的 ir-remote 并改变一些东西，你会看到新的状态。
-yamaha 设备只接受一个连接。
+状态发生时，将创建状态。即使用您的红外遥控器并进行一些更改，您将看到新状态。
+雅马哈设备仅接受一个连接。
 
 ＃＃＃＃ 要求
 雅马哈接收器
 
-您必须在接收器的配置中启用“网络待机”功能
+您必须在接收器配置中启用“网络待机”功能
 
 ## Changelog
-### 0.5.1
+### 0.5.4 (2024-06-14)
+* (foxriver76) updated packages
+
+### 0.5.3 (2022-06-17)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.2 (2022-04-23)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.1 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
 * (Sneak-L8) fix type of pureDirect
 
 ### 0.5.0 (2022-03-08)
@@ -101,7 +111,7 @@ yamaha 设备只接受一个连接。
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 soef <soef@gmx.net>
+Copyright (c) 2015-2024 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

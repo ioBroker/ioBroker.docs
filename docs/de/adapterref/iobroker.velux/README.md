@@ -3,37 +3,48 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.velux/README.md
 title: ioBroker.velux
-hash: 7e92LnjeE0SgrBs2hMe35kLcWdVhbLQF+CYh6a6cLOs=
+hash: dNMaWTk3dVhHLWhtugFae3Avh3GIMG9DZi/pe2tRNnY=
 ---
 ![Logo](../../../en/adapterref/iobroker.velux/admin/velux.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.velux.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.velux.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/ta2k/iobroker.velux.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ta2k/ioBroker.velux/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/ta2k/ioBroker.velux/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.velux.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.velux/master.svg)
 
 # IoBroker.velux
-## Velux adapter für ioBroker
+## Velux-Adapter für ioBroker
 Adapter für Velux KIX 300
 
 ## Verwendung
-Geben Sie unter Modul Ihre neue Zielposition ein. Windows erlaubt nur target_position 0.
+Geben Sie unter Modul Ihre neue Zielposition ein. Windows erlaubt nur die Zielposition 0.
 
 ## Changelog
 
-### 0.0.4
+### 0.0.8
 
-* Improve room assignment
-  
+- Update to latest dependencies
+
+### 0.0.7
+
+- fix js-controller 3.2 and interval problem
+
+### 0.0.6
+
+- fix js-controller 3 problem
+
+### 0.0.5
+
+- Improve room assignment
+
 ### 0.0.2
 
-* add changing target_position for non windows  
-  
+- add changing target_position for non windows
+
 ### 0.0.1
 
-* (ta2k) initial release
+- (ta2k) initial release
 
 ## License
 

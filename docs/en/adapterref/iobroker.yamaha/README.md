@@ -37,12 +37,15 @@ The states will be created, when they occur. I.e. use your ir-remote and change 
 Only one connection is accepted by yamaha devices.
 
 #### Requirements
-Yamaha Reciver
+Yamaha Receiver
 
 You have to enable "network standby" function in the configuration of your receiver
 
 
 ## Changelog
+### 0.5.4 (2024-06-14)
+* (foxriver76) updated packages
+
 ### 0.5.3 (2022-06-17)
 * (Apollon77) Fix crash cases reported by Sentry
 
@@ -109,7 +112,7 @@ You have to enable "network standby" function in the configuration of your recei
 ### License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 soef <soef@gmx.net>
+Copyright (c) 2015-2024 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

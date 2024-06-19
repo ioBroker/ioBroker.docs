@@ -8,8 +8,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 
 - [Functions](#following-functions-can-be-used-in-scripts)
     - [require - load some module](#require---load-some-module)
-    - [Buffer](#buffer)
-    - [log - Gives out the message into log](#log---gives-out-the-message-into-log)
+    - [console - Gives out the message into log](#console---gives-out-the-message-into-log)
     - [exec - execute some OS command, like "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
     - [on - Subscribe on changes or updates of some state](#on---subscribe-on-changes-or-updates-of-some-state)
     - [once](#once)
@@ -20,7 +19,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [schedule](#schedule)
         - [Time schedule](#time-schedule)
         - [Astro-function](#astro-function)
-    - [scheduleById](#scheduleById)
+    - [scheduleById](#schedulebyid)
     - [getSchedules](#getschedules)
     - [clearSchedule](#clearschedule)
     - [getAttr](#getattr)
@@ -73,7 +72,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [runScript](#runscript)
     - [runScriptAsync](#runScriptAsync)
     - [startScript](#startscript)
-    - [startScriptAsync](#startscript)
+    - [startScriptAsync](#startscriptasync)
     - [stopScript](#stopscript)
     - [stopScriptAsync](#stopScriptAsync)
     - [isScriptActive](#isscriptactive)
@@ -403,15 +402,15 @@ Get the list of subscriptions.
 Example of a result:
 ```js
 {
-	"megad.0.dataPointName": [
-		{
-			"name" : "script.js.NameOfScript",
-			"pattern" : {
-				"id" : "megad.0.dataPointName",
-				"change" : "ne"
-			}
-		}
-	]
+    'megad.0.dataPointName': [
+        {
+            name : 'script.js.NameOfScript',
+            pattern : {
+                id : 'megad.0.dataPointName',
+                change : 'ne'
+            }
+        }
+    ]
 }
 ```
 
@@ -421,13 +420,13 @@ Get the list of file subscriptions.
 Example of a result:
 ```js
 {
-	"vis.0$%$main/*": [
-		{
-			"name" : "script.js.NameOfScript",
-			"id" : "vis.0",
-            "fileNamePattern": "main/*"
-		}
-	]
+    'vis.0$%$main/*': [
+        {
+            name : 'script.js.NameOfScript',
+            id : 'vis.0',
+            fileNamePattern: 'main/*'
+        }
+    ]
 }
 ```
 
@@ -796,8 +795,8 @@ getStateDelayed('hm-rpc.0.LQE91119.1.STATE');
 
 // returns an array like
 [
-	{ timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
-	{ timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
+    { timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
+    { timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
 ]
 ```
 
@@ -808,13 +807,13 @@ getStateDelayed();
 
 // returns an object like
 {
-	'hm-rpc.0.LQE91119.1.STATE': [
-		{ timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
-		{ timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
-	],
-	'hm-rpc.0.LQE91119.2.LEVEL': [
-		{ timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false }
-	]
+    'hm-rpc.0.LQE91119.1.STATE': [
+        { timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
+        { timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
+    ],
+    'hm-rpc.0.LQE91119.2.LEVEL': [
+        { timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false },
+    ],
 }
 ```
 

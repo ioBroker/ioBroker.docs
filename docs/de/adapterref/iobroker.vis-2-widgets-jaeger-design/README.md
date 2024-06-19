@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-hash: Ta+VSlxWD5cdm7oEr2W52PZD5C1t3yo72JsZoutNOjk=
+hash: FlPUifv8rJ+ON3PymwZF9EU/ZyLAHFAES1n06U4TTIA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -13,6 +13,12 @@ hash: Ta+VSlxWD5cdm7oEr2W52PZD5C1t3yo72JsZoutNOjk=
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
 # Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
+![Youtube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.png)
+
+Das Video zur Verwendung der Widgets finden Sie unter [Hier](https://www.youtube.com/watch?v=4bctUvfpPuQ).
+
+Das Video, wie man die Widgets benutzt, kann man unter [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
+
 ## Widgets
 ### Knöpfe und Schalter
 ### Aktuelle Nachrichten
@@ -38,9 +44,100 @@ Und verwenden Sie dann das Objekt `javascript.0.rss` in diesem Widget.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.1.27 (2024-05-27)
+* (bluefox) Added descriptions
+
+### 1.1.26 (2024-05-23)
+* (bluefox) Corrected font-size of thermostat
+
+### 1.1.22 (2024-05-14)
+* (bluefox) Added possibility to show a simple state without a border
+* (bluefox) Added possibility to add a caption for some widgets
+
+### 1.1.21 (2024-05-01)
+* (bluefox) Changed layout for mobile view
+
+### 1.1.20 (2024-04-09)
+* (bluefox) Allowed changing font size for thermostat
+
+### 1.1.19 (2024-03-12)
+* (bluefox) Allowed changing the palette for every widget
+
+### 1.1.15 (2024-03-06)
+* (bluefox) Improved dimmer widget
+
+### 1.1.14 (2024-02-21)
+* (bluefox) Added top info in the mobile view
+
+### 1.1.12 (2024-02-20)
+* (bluefox) Corrected some layout issues
+
+### 1.1.10 (2024-01-19)
+* (bluefox) Small changes on layout and added new distance settings
+
+### 1.1.8 (2024-01-18)
+* (bluefox) Corrected info button in mobile view
+
+### 1.1.5 (2023-12-05)
+* (bluefox) Added an option to start action or scene from new line
+
+### 1.1.0 (2023-11-29)
+* (bluefox) Corrected license check
+* (bluefox) Added class names to all important layout components
+
+### 1.0.12 (2023-11-22)
+* (bluefox) Allowed reordering of the actions and scenes
+* (bluefox) Added a new option to show scenes before actions
+* (bluefox) Added option to show value in dimmer
+* (bluefox) Added option for adjustable width of the right view on the home page
+* (bluefox) Added option to provide icons for scenes and actions
+* (bluefox) Added option set the distance between menu items
+* (bluefox) Added possibility to set control value for scenes
+* (bluefox) Added possibility to adjust font size for scenes and actions
+
+### 1.0.11 (2023-11-10)
+* (bluefox) Corrected error local variables and controls
+
+### 1.0.10 (2023-11-08)
+* (bluefox) Corrected error with scenes
+* (bluefox) Improved state widget with custom icons
+
+### 1.0.9 (2023-11-07)
+* (bluefox) Allowed setting distance between actions and scenes on the home page
+
+### 1.0.8 (2023-11-06)
+* (bluefox) Corrected the cameras widget
+
+### 1.0.7 (2023-10-31)
+* (bluefox) Added possibility to reorder info on status bar
+
+### 1.0.5 (2023-10-17)
+* (bluefox) Corrected error with fakeView
+
+### 1.0.4 (2023-10-10)
+* (bluefox) Corrected layout of thermostat
+
+### 1.0.3 (2023-10-10)
+* (bluefox) Corrected error if shutter was inverted
+
+### 1.0.2 (2023-09-28)
+* (bluefox) Corrected touch behavior for dimmer and shutter
+
+### 1.0.1 (2023-09-26)
+* (bluefox) Corrected small issues
+
+### 1.0.0 (2023-08-11)
+* (bluefox) Changed style of shutter and state widgets
+
+### 0.6.5 (2023-08-09)
+* (bluefox) Corrected view selector and empty menu item
+
+### 0.6.4 (2023-07-31)
+* (bluefox) Set constant width and height of thermostat icons
+
 ### 0.6.3 (2023-07-25)
 * (bluefox) Added many new features
 
@@ -92,5 +189,5 @@ Und verwenden Sie dann das Objekt `javascript.0.rss` in diesem Widget.
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
 All rights reserved.

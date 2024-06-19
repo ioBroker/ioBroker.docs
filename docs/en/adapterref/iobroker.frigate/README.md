@@ -119,6 +119,10 @@ Event with Person: frigate.0.events.after.label = person
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.1 (2024-06-06)
+
+- add remote to restart frigate
+
 ### 1.2.0 (2024-04-10)
 
 - add new notifications sending

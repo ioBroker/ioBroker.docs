@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hiob/README.md
 title: ioBroker.hiob
-hash: 5fRwXw4oQsiPgEHQPEj9Wel2mEONLH6l+gPSVHU5wFI=
+hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -51,6 +51,16 @@ hash: 5fRwXw4oQsiPgEHQPEj9Wel2mEONLH6l+gPSVHU5wFI=
 
 ## Известные вопросы
 - 0.1.4: Блочный элемент не должен быть в этом выпуске. В данный момент это не работает
+
+## Дорожная карта
+- Переработана концепция шаблонов/виджетов [30%]
+    - Упрощение процесса добавления новых функций шаблонов/виджетов.
+    - Удалить шаблон Advance и разделить его на несколько виджетов.
+    - Разрешить всплывающее меню для всех виджетов.
+    - Разрешить правила темы для каждого виджета
+- Добавить графики для исторических данных [0%]
+- Упростите процесс добавления устройств, перечислив все [0%]
+- Автоматически создавать виджеты на основе выбранного устройства [0%]
 
 ## Changelog
 

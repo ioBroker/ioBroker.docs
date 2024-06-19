@@ -282,6 +282,9 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.12.8 (2024-06-05)
+* (René) bug fix heating period: calculation of cron job string fixed
+
 ### 2.12.7 (2024-05-28)
 * (René) see issue #561: change of dependencies
 

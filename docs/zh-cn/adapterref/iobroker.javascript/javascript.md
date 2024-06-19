@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/javascript.md
 title: 无题
-hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
+hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
 ---
 ＃＃ 内容
 - [注意](#note)
@@ -13,8 +13,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 
 - [函数](#以下函数可在脚本中使用)
 - [require - 加载一些模块](#require---load-some-module)
-- [缓冲区]（#缓冲区）
-- [log - 将消息输出到日志中](#log---gives-out-the-message-into-log)
+- [控制台 - 将消息输出到日志中](#console---gives-out-the-message-into-log)
 - [exec - 执行一些操作系统命令，如“cp file1 file2”]（#exec---execute-some-os-command-like-cp-file1-file2）
 - [on - 订阅某些状态的变更或更新](#on---subscribe-on-changes-or-updates-of-some-state)
 - [一次](#一次)
@@ -25,7 +24,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 - [日程安排](#日程安排)
 - [时间表](#time-schedule)
 - [Astro-function](#astro-function)
-- [scheduleById](#scheduleById)
+- [scheduleById](#schedulebyid)
 - [获取计划](#获取计划)
 - [清除计划](#清除计划)
 - [获取属性](#获取属性)
@@ -78,7 +77,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 - [runScript](#runscript)
 - [runScriptAsync](#runScriptAsync)
 - [startScript](#startscript)
-- [startScriptAsync](#startscript)
+- [startScriptAsync](#startscriptasync)
 - [stopScript](#stopscript)
 - [stopScriptAsync](#stopScriptAsync)
 - [isScriptActive](#isscriptactive)
@@ -277,7 +276,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | oldLcLt | 字符串 | 上次更改时间戳必须大于或等于给定的时间戳 (oldState.lc >= lc) |
 | oldLcLe | 字符串 | 上次更改时间戳必须小于给定的时间戳 (oldState.lc < lc) |
 |             |            |                                                                                                                                                     |
-| channelId | 字符串 | 频道ID必须等于给定的|
+| channelId | string | 频道ID必须等于给定的|
 | | RegExp | 与正则表达式匹配的频道ID |
 | | 数组 | 与允许的频道 ID 列表匹配的频道 ID |
 |             |            |                                                                                                                                                     |
@@ -412,15 +411,15 @@ on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
 
 ```js
 {
-	"megad.0.dataPointName": [
-		{
-			"name" : "script.js.NameOfScript",
-			"pattern" : {
-				"id" : "megad.0.dataPointName",
-				"change" : "ne"
-			}
-		}
-	]
+    'megad.0.dataPointName': [
+        {
+            name : 'script.js.NameOfScript',
+            pattern : {
+                id : 'megad.0.dataPointName',
+                change : 'ne'
+            }
+        }
+    ]
 }
 ```
 
@@ -431,13 +430,13 @@ on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
 
 ```js
 {
-	"vis.0$%$main/*": [
-		{
-			"name" : "script.js.NameOfScript",
-			"id" : "vis.0",
-            "fileNamePattern": "main/*"
-		}
-	]
+    'vis.0$%$main/*': [
+        {
+            name : 'script.js.NameOfScript',
+            id : 'vis.0',
+            fileNamePattern: 'main/*'
+        }
+    ]
 }
 ```
 
@@ -822,8 +821,8 @@ getStateDelayed('hm-rpc.0.LQE91119.1.STATE');
 
 // returns an array like
 [
-	{ timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
-	{ timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
+    { timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
+    { timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
 ]
 ```
 
@@ -834,13 +833,13 @@ getStateDelayed();
 
 // returns an object like
 {
-	'hm-rpc.0.LQE91119.1.STATE': [
-		{ timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
-		{ timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
-	],
-	'hm-rpc.0.LQE91119.2.LEVEL': [
-		{ timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false }
-	]
+    'hm-rpc.0.LQE91119.1.STATE': [
+        { timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
+        { timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
+    ],
+    'hm-rpc.0.LQE91119.2.LEVEL': [
+        { timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false },
+    ],
 }
 ```
 
@@ -1181,7 +1180,7 @@ sendToHost(hostName, command, message, callback);
 - ``获取安装信息''
 - `“获取版本”`
 - `“获取诊断数据”`
-- ``getLocationOnDisk''`
+- ``getLocationOnDisk''
 - ``获取DevList''
 - `“getLogs”`
 - `“获取主机信息”`
@@ -1788,7 +1787,7 @@ onMessage('messageName', (data, callback) => {
 订阅 javascript 适配器消息总线并通过回调传递响应。
 首先发送响应的脚本的响应将被接受为答案，所有其他答案将被忽略。
 
-要将消息发送到 JavaScript 脚本并由该处理程序接收，请使用[消息收件人](#messageTo)。
+要向 JavaScript 脚本发送消息，然后由该处理程序接收，请使用[消息收件人](#messageTo)。
 
 要从任何其他适配器发送消息，请使用
 
@@ -1833,7 +1832,7 @@ onLog('error', data => {
 
 订阅具有指定严重程度的日志。
 
-*重要：*您不能在处理程序中输出具有相同严重性的日志，以避免无限循环。
+*重要：*您不能在处理程序中输出具有相同严重性的日志以避免无限循环。
 
 例如，这不会产生任何日志：
 

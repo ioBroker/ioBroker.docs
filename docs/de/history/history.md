@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: bcUtWWBjFY/25BQYfViS78GScN3MGkHWq5f9sz9+6dQ=
+hash: pcxyjj8SQmI/EkWtZQPpPHDKLzNBcmKwI9prd/2XcFQ=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -171,7 +171,9 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
+
 Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
+
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
 ## Admin und mqtt (11.10.2023) - neue Funktion
@@ -207,7 +209,7 @@ https://github.com/boergegrunicke/ioBroker.govee-local
 
 <img src="https://raw.githubusercontent.com/boergegrunicke/ioBroker.govee-local/main/admin/govee-local.png" width="100" height="100" />
 
-Steuern Sie Govee-Geräte über lokalen Zugriff (keine Cloud)
+Steuern Sie Govee-Geräte über den lokalen Zugriff (keine Cloud)
 
 ## Pylontech (23.10.2023) - neuer Adapter
 https://github.com/PLCHome/ioBroker.pylontech
@@ -269,7 +271,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-##emporia (07.12.2023) - neuer Adapter
+## Emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -492,3 +494,15 @@ https://github.com/Steiger04/ioBroker.radar-trap
 <img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
 
 Adapter zur Erkennung von Radarfallen und Hindernissen.
+
+## Admin (10.6.2024) – neue Funktion
+- Die Registerkarte „Protokoll“ wurde verbessert. (Vor allem Layout und GUI)
+- Unterstützung für die automatische Update-Option des Adapters hinzugefügt. Neue Version des JS-Controllers erforderlich.
+- Es werden nur die im Adapter-Tab installierten Adapter oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
+
+## Gree-hvac (10.6.2024) – neuer Adapter bei stabil
+https://github.com/XHunter74/ioBroker.gree-hvac
+
+<img src="https://github.com/XHunter74/ioBroker.gree-hvac/blob/master/admin/air-conditioner.png" width="100" height="100" />
+
+Adapter für Klimaanlagen von Gree und C&H.

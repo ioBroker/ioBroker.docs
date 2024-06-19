@@ -6,6 +6,12 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design/)
 
+![youtube](img/youtube.png)
+
+You can find the video how to use the widgets [here](https://www.youtube.com/watch?v=4bctUvfpPuQ) (in german).
+
+Das Video wie man die Widgets benutzt kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
+
 ## Widgets
 ### Buttons and switches
 

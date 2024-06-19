@@ -55,6 +55,16 @@ This app allows you to control your ioBroker Smarthome system via the hiob app. 
 ## Known Issues
 - 0.1.4: The blockly element shouldn't be in this release. It doesn't work at the time
 
+## Roadmap
+- Rework concept of Templates/Widgets [30%]
+    - Simplify process of adding new Templates/Widgets features
+    - Remove Advance Template and split into multiple Widgets
+    - Allow Popup Menu for all widgets
+    - Allow Theme rules for every widget
+- Add graphs for history data [0%]
+- Simplify process of adding devices by listing all [0%]
+- Automatically create widgets based on selected device [0%]
+
 ## Changelog
 
 <!--

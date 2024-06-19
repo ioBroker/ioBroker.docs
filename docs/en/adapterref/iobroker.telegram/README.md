@@ -725,26 +725,21 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.3.2 (2024-05-26)
-* (foxriver76) fixed problem with webserver handling
+### 3.5.3 (2024-06-18)
+* (foxriver76) escape all unallowed characters when sending with notification manager
 
-### 3.3.1 (2024-05-25)
-* (mcm1957) Dependencies have been updated - especially 'node-telegram-bot-api'
-* (mcm1957) see https://github.com/yagop/node-telegram-bot-api/blob/master/CHANGELOG.md
+### 3.5.2 (2024-06-16)
+* (foxriver76) escape more unallowed characters when sending with notification manager
 
-### 3.3.0 (2024-05-25)
-* (foxriver76) Adapter has been migrated to `@iobroker/webserver`
-* (foxriver76) Adapter supports js-controller 6 now
-* (mcm1957) Dependencies have been updated
+### 3.5.1 (2024-06-12)
+* (klein0r) Fixed file handling for voice files
+* (klein0r) Updated dependencies
 
-### 3.2.1 (2024-04-03)
-* (PeterVoronov) An error at providing error information has been fixed.
+### 3.5.0 (2024-06-12)
+* (klein0r) Added option to save media files into ioBroker file system (files tab)
 
-### 3.2.0 (2024-04-02)
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
-* (PeterVoronov) The current error is added as a separate property error to the response object (messageId) now.
-* (theknut) Added units to responses
-* (mcm1957) Dependencies have been updated
+### 3.4.1 (2024-06-09)
+* (klein0r) Blockly 9 compatibility for new ask block
 
 ## License
 

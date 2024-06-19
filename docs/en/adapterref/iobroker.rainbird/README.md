@@ -37,10 +37,22 @@ Based on the python library "pyrainbird" from https://github.com/jbarrancos/pyra
 `rainbird.X.device.stations.Y.testZone` - Test zone Y.  
 
 
+## Credits
+
+This adapter would not have been possible without the great work of Marius Burkard <m.burkard@pixcept.de>, who previous releases of this adapter.
+
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.1 (2024-06-06)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Adapter has been move to iobroker-community-adapters organization
+* (mcm1957) Adapter-core has been adapter, adapter supports js-controller 6 now.
+* (mcm1957) Dependencies have been updated
 
 ### 0.2.3
-
 -   Fixed problem with sensor data
 -   Added seasonal water budget adjust information
 
@@ -58,22 +70,11 @@ Based on the python library "pyrainbird" from https://github.com/jbarrancos/pyra
 -   Added remaining irrigation time of zone
 -   Fixed bug in decoding responses
 
-### 0.1.2
-
--   Fixed adapter stalling on connection timeout
-
-### 0.1.1
-
--   Smaller fixes
-
-### 0.1.0
-
--   First running Version
-
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

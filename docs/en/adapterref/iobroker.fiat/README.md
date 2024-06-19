@@ -1,4 +1,5 @@
 ![Logo](admin/fiat.png)
+
 # ioBroker.fiat
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.fiat.svg)](https://www.npmjs.com/package/iobroker.fiat)
@@ -16,30 +17,43 @@
 Adapter für Fiat und Jeep
 
 ## Loginablauf:
+
 Die Fiat oder Jeep App Mail und Passwort eingeben.
 
 ## Steuern
+
 fiat.0.id.remote auf true setzen steuert den jeweiligen Befehl
 
 ## Diskussion und Fragen:
+
 https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x
 
 ## Changelog
+### 0.0.10 (2024-06-10)
+
+- added schedule edit via remote.CPPLUS
 
 ### 0.0.7
-* (TA2k) Added Jeep support
-  
+
+- (TA2k) Added Jeep support
+
 ### 0.0.3
-* (TA2k) Added precondition
+
+- (TA2k) Added precondition
+
 ### 0.0.2
-* (TA2k) Enable deep refresh to update charging state
+
+- (TA2k) Enable deep refresh to update charging state
+
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

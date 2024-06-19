@@ -3,38 +3,33 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: ZrummTtzjDvBnF8oxSQ2X2GUzdc5FLZMTb/TtQJWeY8=
+hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
 ---
 ![标识](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.go-e.svg)
-![阿帕奇2.0](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.go-e.svg)
+![Apache 2.0](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
 ![下载](https://img.shields.io/npm/dm/iobroker.go-e.svg)
 ![安装数量（最新）](http://iobroker.live/badges/go-e-installed.svg)
 ![安装版本（稳定）](http://iobroker.live/badges/go-e-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
-![构建和测试](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.go-e.png?mini=true)
-![科达西徽章](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
-![警报](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
-![代码质量](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
+![新平台](https://nodei.co/npm/iobroker.go-e.png?mini=true)
+![Codacy 徽章](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
 
 # IoBroker.go-echarger
-# 哨兵的使用
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
-
-# Go-eCharger 壁箱
-![产品图片](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) 欲了解更多详情，请访问 https://go-e.co/
+# Go-eCharger 壁挂式充电盒
+![产品图像](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) 更多详情请访问https://go-e.co/
 
 ＃＃ 注意
-该适配器当前仅使用 API v1 运行。新的 API v2 支持目前正在等待中。
-请确保您在应用程序中开启了 API v1.1。
+此适配器当前仅使用 API v1 运行。新的 API v2 支持目前正在等待中。
+请确保您在应用程序中启用了 API v1。
 
-Dieser Adapter unterstützt derzeit nur die API v1。 API v2 是在 Warteschlange 中进行的。 Bitte stelle sicher，dass in der APP die API v1 aktiviert wurde。
-![API_v1](../../../en/adapterref/iobroker.go-e/docs/active_v1.jpg)
+该适配器支持 API v1，并且可用于 V2 等多种功能。但请确保在 APP 中启用了 API v1 和 v2。
 
-## IoBroker 的 go-eCharger 适配器 **EN** go-e 是电动移动的邀请。电动汽车是我们的动力，我们的核心竞争力是电动汽车的充电技术。从电动汽车的单独充电站到光伏连接，再到整个建筑的负载管理，我们是满足现代电动汽车所有要求的整体系统解决方案的提供商。
-**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen。电动汽车是 Antrieb 的核心，也是 Elektroautos 的核心技术。电动汽车的最后管理是电动汽车的最后管理，它是现代电动汽车的全面管理系统。
+## 适用于 ioBroker 的 go-eCharger 适配器
+**EN** go-e 是电动出行的邀请。电动出行是我们的动力，而我们的核心竞争力是电动汽车充电技术。从电动汽车的独立充电站到光伏连接，再到整个建筑的负载管理，我们为现代电动出行的所有需求提供整体系统解决方案。
+
+**DE** go-e 是辅助设备，它以电气方式运行。 e-Mobilität 是我们的主力，也是我们电动汽车充电技术的核心部件。从单独的电动汽车光伏设备充电站到最终用户的最终管理，我们为现代电动汽车提供了全面的系统解决方案。
 
 ## IoBroker-Adapter 手册/快速入门指南
 您可以在此处找到安装和配置手册：[适配器手册](./docs/Readme.md)
@@ -42,17 +37,37 @@ Dieser Adapter unterstützt derzeit nur die API v1。 API v2 是在 Warteschlang
 ## 开发者手册
 加入适配器社区 https://t.me/goECharger
 
-官方API文档：https://github.com/goecharger/go-eCharger-API-v1
+官方 API 文档：https://github.com/goecharger/go-eCharger-API-v1 https://github.com/goecharger/go-eCharger-API-v2
 
 官方产品支持：https://go-e.co/support/
 
 ## 翻译
-大部分翻译来自 https://translator-ui.iobroker.in，如果翻译过程中出现问题，请随时贡献。
+大部分翻译来自 https://translator-ui.iobroker.in，如果翻译过程中出现问题，请随时做出贡献。
 
 ## 版权
 版权所有 (c) 2023 MK-2001 go-e@itinsi.de
 
 ## Changelog
+
+### 1.0.35
+* switch between ioBroker and go-e Hardware logic for PV-Calculation
+* Adding phaseSwitch Buffer to reduce switch on coudy days
+* improved documentation
+* Bug #232
+* Wrong deafult value type
+
+### 1.0.32
+* Timer for loading
+
+### 1.0.31
+* Versioning updates
+
+### 1.0.30
+* added max ampere in settings
+* Added level to switch 1-phase to 3 pahases
+* enables phasesSwitchMode
+* Only possible if V2 is enabled
+* some bugs
 
 ### 1.0.29
 * Bugfixes.

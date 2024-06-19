@@ -61,11 +61,27 @@ The mode of the lawn mower can be controlled by changing robonect.0.status.mode.
 
 It is possible to control the extensions GPIO 1, GPIO 2, OUT 1 and OUT 2 of the Robonect module. Requirement is that the mode of the extension is configured as "API" via the Robonect Web-UI. If for example LEDs are connected to OUT1, it is possible to switch them on in the night and off in the morning by setting Robonect.0.extension.out1.status to "true" or "false".
 
+## Known Issues:
+* To ensure the robonect is reachable - the adapter pings the device first before sending any requests. 
+This ping may fail especially if ioBroker is installed in a container.
+It's not an issue with the adapter itself, but since it may happen, and it's pretty difficult to find a solution try
+executing  `sudo chmod 4755 /bin/ping` in a shell inside the ioBroker container. This solution assumes that there is a 
+permission issue between the iobroker user and the ping utility.
+
 ## Changelog
 
 ### Work in progress
-* Add timePickers to Admin UI for rest times as soon as they work properly
 
+### 1.3.5 (2024-06-04)
+
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Upd: Requires at least admin  v6.13.16
+* (grizzelbee) Upd: Requires at least nodeJs v18.0.2
+* (grizzelbee) Upd: Updated translations
+* (grizzelbee) Upd: Reorganized Admin-UI
+* (grizzelbee) New: Added Ping-Option to admin 
+
+ 
 ### 1.3.4 (2023-10-10)
 
 * (grizzelbee) Chg: massive code refactoring 
@@ -229,7 +245,7 @@ It is possible to control the extensions GPIO 1, GPIO 2, OUT 1 and OUT 2 of the 
 
 The MIT License (MIT)
 
-Copyright (c) 2020 braindead1
+Copyright (c) 2024 grizzelbee
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

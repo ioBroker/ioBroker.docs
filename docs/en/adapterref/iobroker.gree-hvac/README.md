@@ -23,6 +23,18 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### 1.0.6 (2024-06-14)
+ - Added button titles and translation.
+### 1.0.5 (2024-06-12)
+ - Added time field.
+### 1.0.4 (2024-06-12)
+ - Code optimization. Bug fixes.
+### 1.0.3 (2024-06-12)
+ - Added refresh devices button on tab page.
+### 1.0.2 (2024-06-11)
+ - Added support of Fhareinheit degrees.
+### 1.0.1 (2024-06-10)
+ - Implemented value mapping for fan speed parameter
 ### 1.0.0 (2024-05-31)
  - Small fixes. Ready to production.
 ### 0.0.14 (2024-04-15)

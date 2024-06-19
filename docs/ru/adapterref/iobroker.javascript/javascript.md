@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.javascript/javascript.md
 title: без заголовка
-hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
+hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
 ---
 ## Содержание
 - [Примечание](#примечание)
@@ -13,8 +13,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
 
 - [Функции](#следующие-функции-можно-использовать-в-скриптах)
     - [require - загрузить какой-то модуль](#require---load-some-module)
-    - [Буфер](#буфер)
-    - [log - Выдает сообщение в журнал](#log---выдает-сообщение-в-журнал)
+    - [консоль - выдает сообщение в журнал](#console---выдает-сообщение-в-журнал)
     - [exec - выполнить некоторую команду ОС, например "cp file1 file2"](#exec ---execute-some-os-command-like-cp-file1-file2)
     - [on - Подписаться на изменения или обновления некоторого состояния](#on---подписаться-на-изменения-или-обновления-некоторого-состояния)
     - [один раз](#один раз)
@@ -25,7 +24,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
     - [расписание](#расписание)
         - [Расписание](#time-schedule)
         - [Астро-функция](#астро-функция)
-    - [scheduleById](#scheduleById)
+    - [scheduleById](#schedulebyid)
     - [getSchedules](#getschedules)
     - [clearSchedule](#clearschedule)
     - [getAttr](#getattr)
@@ -78,7 +77,7 @@ hash: 8IITaaaM35D+2fDrzk37oOoq9pT2chu+1w+Zuvq+Bw0=
     - [runScript](#runscript)
     - [runScriptAsync](#runScriptAsync)
     - [startScript](#startscript)
-    - [startScriptAsync](#startscript)
+    - [startScriptAsync](#startscriptasync)
     - [стопскрипт](#стопскрипт)
     - [stopScriptAsync](#stopScriptAsync)
     - [isScriptActive](#isscriptactive)
@@ -226,7 +225,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 |             |            |                                                                                                                                                     |
 | изменить | строка | "eq", "ne", "gt", "ge", "lt", "le", "any" |
 |             | "экв" | (равно) Новое значение должно быть равно старому (state.val == oldState.val) |
-|             | "не" | (не равно) Новое значение не должно быть равно старому (state.val != oldState.val) **Если шаблон представляет собой id-строку, это значение используется по умолчанию** |
+|             | "не" | (не равно) Новое значение не должно быть равно старому (state.val != oldState.val) **Если шаблон представляет собой строку идентификатора, это значение используется по умолчанию** |
 |             | "гт" | (больше) Новое значение должно быть больше старого значения (state.val > oldState.val) |
 |             | "ге" | (больше или равно) Новое значение должно быть больше или равно старому (state.val >= oldState.val) |
 |             | "л" | (меньше) Новое значение должно быть меньше старого (state.val < oldState.val) |
@@ -267,7 +266,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 |             |            |                                                                                                                                                     |
 | ЖК | строка | Временная отметка последнего изменения должна быть равна заданной (state.lc == lc) |
 | ЛКГТ | строка | Временная отметка последнего изменения не должна быть равна заданной (state.lc != lc) |
-| ЖКГе | строка | Временная отметка последнего изменения должна быть больше заданного значения (state.lc > lc) |
+| ЖКГе | строка | Отметка времени последнего изменения должна быть больше заданного значения (state.lc > lc) |
 | лкЛт | строка | Временная отметка последнего изменения должна быть больше или равна заданной (state.lc >= lc) |
 | лкле | строка | Временная отметка последнего изменения должна быть меньше заданной (state.lc < lc) |
 |             |            |                                                                                                                                                     |
@@ -412,15 +411,15 @@ on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
 
 ```js
 {
-	"megad.0.dataPointName": [
-		{
-			"name" : "script.js.NameOfScript",
-			"pattern" : {
-				"id" : "megad.0.dataPointName",
-				"change" : "ne"
-			}
-		}
-	]
+    'megad.0.dataPointName': [
+        {
+            name : 'script.js.NameOfScript',
+            pattern : {
+                id : 'megad.0.dataPointName',
+                change : 'ne'
+            }
+        }
+    ]
 }
 ```
 
@@ -431,13 +430,13 @@ on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
 
 ```js
 {
-	"vis.0$%$main/*": [
-		{
-			"name" : "script.js.NameOfScript",
-			"id" : "vis.0",
-            "fileNamePattern": "main/*"
-		}
-	]
+    'vis.0$%$main/*': [
+        {
+            name : 'script.js.NameOfScript',
+            id : 'vis.0',
+            fileNamePattern: 'main/*'
+        }
+    ]
 }
 ```
 
@@ -505,7 +504,7 @@ schedule({ hour: 12, minute: 30 }, () => {
 - `конец`
 - `правило`
 
-начало и конец определяют объект Date, DateString или количество миллисекунд с 01 января 1970 года 00:00:00 UTC.
+start и end определяют объект Date DateString или количество миллисекунд с 01 января 1970 года 00:00:00 UTC.
 Правило представляет собой строку расписания с [Cron-синтаксис](http://en.wikipedia.org/wiki/Cron) или объект:
 
 ```js
@@ -551,7 +550,7 @@ schedule({ astro: 'sunset', shift: 10 }, () => {
 - `"solarNoon"`: солнечный полдень (солнце находится в самом высоком положении)
 - `"goldenHour"`: начинается вечерний золотой час
 - `"sunsetStart"`: начинается закат (нижний край солнца касается горизонта)
-- `"закат"`: закат (солнце исчезает за горизонтом, начинаются вечерние гражданские сумерки)
+- `"закат"`: закат (солнце уходит за горизонт, начинаются вечерние гражданские сумерки)
 - `"сумерки"`: сумерки (начинаются вечерние морские сумерки)
 - `"nauticalDusk"`: морские сумерки (начинаются вечерние астрономические сумерки)
 - «ночь»: начинается ночь (достаточно темно для астрономических наблюдений)
@@ -562,7 +561,7 @@ schedule({ astro: 'sunset', shift: 10 }, () => {
 
 **Примечание:** для использования «астро»-функции «широта» и «долгота» должны быть определены в настройках адаптера JavaScript.
 
-**Примечание:** в некоторых местах иногда может быть так, что night/nightEnd не существует. Пожалуйста, прочитайте [здесь](https://github.com/mourner/suncalc/issues/70) об этом.
+**Примечание:** в некоторых местах ночь/ночьEnd может отсутствовать. Пожалуйста, прочитайте [здесь](https://github.com/mourner/suncalc/issues/70) об этом.
 
 **Примечание:** вы можете использовать функцию включения для расписания с небольшими изменениями:
 
@@ -658,7 +657,7 @@ getAttr({ attr1: { attr2: 5 } }, 'attr1.attr2');
 
 Возвращает атрибут объекта. Путь к атрибуту может быть вложенным, как в примере.
 
-Если первым атрибутом является строка, функция попытается проанализировать строку как строку JSON.
+Если первый атрибут — строка, функция попытается проанализировать строку как строку JSON.
 
 ### GetAstroDate
 ```js
@@ -680,7 +679,7 @@ let tomorrowNight = getAstroDate('night', tomorrow);
 
 **Примечание. В зависимости от вашего географического положения могут быть случаи, когда, например, 'night'/'nightEnd' не существует в определенные моменты времени (например, в северных регионах в мае/июне каждого года!**
 
-Вы можете использовать веб-страницы, такие как [suncalc.net](http://suncalc.net), чтобы проверить правильность моментов времени.
+Вы можете использовать такие веб-страницы, как [suncalc.net](http://suncalc.net), чтобы проверить правильность моментов времени.
 
 ### IsAstroDay
 ```js
@@ -822,8 +821,8 @@ getStateDelayed('hm-rpc.0.LQE91119.1.STATE');
 
 // returns an array like
 [
-	{ timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
-	{ timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
+    { timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
+    { timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
 ]
 ```
 
@@ -834,13 +833,13 @@ getStateDelayed();
 
 // returns an object like
 {
-	'hm-rpc.0.LQE91119.1.STATE': [
-		{ timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
-		{ timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
-	],
-	'hm-rpc.0.LQE91119.2.LEVEL': [
-		{ timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false }
-	]
+    'hm-rpc.0.LQE91119.1.STATE': [
+        { timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
+        { timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
+    ],
+    'hm-rpc.0.LQE91119.2.LEVEL': [
+        { timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false },
+    ],
 }
 ```
 
@@ -952,7 +951,7 @@ extendObject(id, obj, callback);
 
 Это почти то же самое, что `setObject`, но сначала он считывает объект и пытается объединить все настройки вместе.
 
-Используйте его следующим образом:
+Используйте это следующим образом:
 
 ```js
 // Stop instance
@@ -1073,7 +1072,7 @@ await createStateAsync(name, initialValue, forceCreation, common, native);
 deleteState(name, callback);
 ```
 
-Удалить состояние и объект в пространстве JavaScript, например. `javascript.0.mystate`. Состояния из других адаптеров удалить нельзя.
+Удалить состояние и объект в пространстве javascript, например. `javascript.0.mystate`. Состояния из других адаптеров удалить нельзя.
 
 ```js
 deleteState('myDatapoint')
@@ -1106,7 +1105,7 @@ createAlias(name, alias, forceCreation, common, native, callback);
 
 Возможен короткий тип createAlias:
 
-- `createAlias('myAlias', 'myDatapoint')` - просто создайте alias.0.myAlias, который ссылается на javascript.X.myDatapoint, если он не существует.
+- `createAlias('myAlias', 'myDatapoint')` — просто создайте alias.0.myAlias, который ссылается на javascript.X.myDatapoint, если он не существует.
 - `createAlias('myAlias', { id: { read: 'myReadDatapoint', write: 'myWriteDatapoint' }})` — создает псевдоним и ссылку на различные состояния чтения/записи.
 
 Дополнительные сведения см. в createState, он аналогичен.
@@ -1383,8 +1382,8 @@ $(selector).getState();
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Получить все жалюзи Homematic
 - `$('channel[role=switch](rooms=Living room)[state.id=*.STATE]').setState(false)` - Переключить все состояния с помощью .STATE каналов с ролью "switch" в " Гостиная» на ложь
 - `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - распечатать все состояния перечисления "windows" в журнале
-- `$('schedule[id=*65]').each(function (id, i) {log(id);});` - распечатать все расписания с 65 в конце
-- `$('.switch §"Гостиная")` - Принять состояния для всех переключателей в "Гостиной" ***(не реализовано - следует обсудить)***
+- `$('schedule[id=*65]').each(function (id, i) {log(id);});` - вывести все расписания с цифрой 65 в конце
+- `$('.switch §"Гостиная")` - Принимать состояния всех переключателей в "Гостиной" ***(не реализовано - следует обсудить)***
 - `$('channel .switch §"Гостиная")` - Принимать состояния со всеми переключателями в "Гостиной" ***(не реализовано - следует обсудить)***
 
 ***Пояснение*** Давайте посмотрим:
@@ -1396,7 +1395,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
 ```
 
 Этот код ищет в каналах.
-Найдите все каналы с `common.role="switch"`, принадлежащие к `enum.rooms.Wohnzimmer`.
+Найдите все каналы с `common.role="switch"` и принадлежащие `enum.rooms.Wohnzimmer`.
 Возьмите все их состояния, у которых id заканчивается на `".STATE"`, и сделайте подписку на все эти состояния.
 Если некоторые из этих состояний изменятся, обратный вызов будет вызван как для функции «on».
 
@@ -1484,7 +1483,7 @@ writeFile('vis.0', '/screenshots/1.png', data, (error) => {
 });
 ```
 
-### DelFile
+###дельФайл
 ```js
 delFile(adapter, fileName, (error) => {});
 ```
@@ -1747,7 +1746,7 @@ messageTo('messageName', data, result => {
 });
 ```
 
-Обратный вызов и параметры являются необязательными, а время ожидания по умолчанию составляет 5000 миллисекунд (если обратный вызов предусмотрен).
+Обратный вызов и параметры не являются обязательными, а время ожидания по умолчанию составляет 5000 миллисекунд (если обратный вызов предусмотрен).
 
 ```js
 messageTo('messageName', dataWithNoResponse);
@@ -1785,7 +1784,7 @@ onMessage('messageName', (data, callback) => {
 });
 ```
 
-Подписывается на шину сообщений адаптера JavaScript и доставляет ответ посредством обратного вызова.
+Подписывается на шину сообщений адаптера JavaScript и доставляет ответ через обратный вызов.
 Ответ от скрипта, который отправляет ответ первым, будет принят как ответ, все остальные ответы будут игнорироваться.
 
 Чтобы отправить сообщение сценарию JavaScript, который затем будет получен этим обработчиком, используйте [сообщениеКому](#messageTo).
@@ -2003,8 +2002,8 @@ onFile('0_userdata.0', 'test.jpg', true, async (id, fileName, size, data, mimeTy
 ```
 
 ## Глобальные переменные скрипта
-### Имя сценария
-`scriptName` — Имя скрипта.
+###имя сценария
+`scriptName` - Имя скрипта.
 
 ```js
 log(`Script ${scriptName} started!`);

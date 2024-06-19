@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: UJTyxv3/U2FZDXcrTx0stOwqK2a3AhYvg4MzxP/J+h8=
+hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -39,9 +39,10 @@ hash: UJTyxv3/U2FZDXcrTx0stOwqK2a3AhYvg4MzxP/J+h8=
 - 在标准设置中输入您的 Tibber API 令牌，并为实时源设置配置至少一行（选择“无可用”）。
 - 保存设置并退出配置以重新启动适配器；此步骤允许从 Tibber 服务器第一次查询您的主页。
 - 返回配置屏幕并选择您希望使用 Tibber Pulse 从中获取实时数据的家庭。您还可以选择家庭并禁用馈送（注意：这仅在安装了硬件并且 Tibber 服务器已验证与 Pulse 的连接时才有效）。
+- 注意：如果您的 Tibber 帐户中有多个活跃的主页，则必须添加所有主页，以消除可能不需要的主页导致的错误消息。添加所有主页并禁用选项。
 - 您可以选择停用今天和明天的价格数据检索，例如，如果您只想使用 Pulse 实时信息
 - 您也可以选择启用历史消费数据检索。请指定小时、天、周、月和年的数据集数量。您可以根据自己的偏好使用“0”来禁用其中一个或多个间隔。
-- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器响应不足。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
+- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器没有响应。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
 - 保存设置。
 
 ## 计算器配置
@@ -77,7 +78,7 @@ hash: UJTyxv3/U2FZDXcrTx0stOwqK2a3AhYvg4MzxP/J+h8=
 逆向使用
 例如，为了获得高峰时段而不是最佳时段，只需反转使用情况和参数：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png)通过交换 true <-> false，您将在第一行收到低成本的 true，在第二行收到高成本的 true（频道名称不是触发器，仍然可以自由选择）。
 
-注意：对于高峰单小时，如示例中，您还需要调整小时数。 原值：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
+注意：对于高峰单小时，如示例中，您还需要调整小时数。 原来：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
 
 #### LTF 频道
 计算针对的是“多日”数据。由于我们只有“今天”和“明天”（大约 13:00 后可用）的信息，因此时间范围实际上被限制为最多 35 小时。但是，务必注意这种行为，因为计算结果可能会/将在 13:00 左右发生变化，届时明天的价格新数据将可用。
@@ -93,6 +94,17 @@ hash: UJTyxv3/U2FZDXcrTx0stOwqK2a3AhYvg4MzxP/J+h8=
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 3.3.1 (2024-06-13)
+
+-   (HombachC) fix small sentry discovered error (#418)
+-   (HombachC) added note for multihomes to documentation (#422)
+
+### 3.3.0 (2024-06-05)
+
+-   (HombachC) implements optional, obsolete api call for total historical cost, incl. grid fees (#405)
+-   (HombachC) Updates @iobroker/adapter-core from 3.1.6
+-   (HombachC) Updates @iobroker/types from 5.0.19 to 6.0.0
 
 ### 3.2.1 (2024-06-03)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: airOhvSaq8KtRqgPpF0JkO3COqgwAP9G7WCP+W76vVs=
+hash: DtHtYJQ2qVyk4C1ID1E1wTG7erQXaiviSwWgbin6eFM=
 ---
 # IoBroker.vis-homekittiles
 
@@ -36,12 +36,18 @@ Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
 * 创建选择图块
 * 创建子菜单按钮
 * 单选按钮：新属性“division”，具有可选值（1:1；3:4）
+* 日期选择器：动态日/月图标
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.16 (2024-06-08)
+
+* (Standarduser) thermostat: fixed window-sizing
+* (Standarduser) date-picker: fixed block operation
+
 ### 0.0.15 (2024-05-31)
 
 * (Standarduser) dialog: fixed positioning

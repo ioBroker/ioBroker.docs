@@ -7,14 +7,8 @@
 ![Number of Installations (latest)](http://iobroker.live/badges/go-e-installed.svg)
 ![Version of Installations (stable)](http://iobroker.live/badges/go-e-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)](https://snyk.io/test/github/MK-2001/ioBroker.go-e)
-![Build & Tests](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
 [![NPM](https://nodei.co/npm/iobroker.go-e.png?mini=true)](https://nodei.co/npm/iobroker.go-e/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)](https://www.codacy.com/gh/MK-2001/ioBroker.go-e/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MK-2001/ioBroker.go-e&amp;utm_campaign=Badge_Grade)
-![Alerts](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
-![Code Quality](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
-
-# Usage of Sentry
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 # The go-eCharger Wallbox
 ![Product Image](admin/go-eCharger-HOME-Wallbox.png)
@@ -24,8 +18,8 @@ For more details please visit https://go-e.co/
 This Adapter is currently only running with API v1. The new API v2 support is currently pending.
 Please make sure that in the App you turned on the API v1.
 
-Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API v2 steht in der Warteschlange. Bitte stelle sicher, dass in der APP die API v1 aktiviert wurde.
-![API_v1](./docs/active_v1.jpg)
+Dieser Adapter unterstützt derzeit die API v1 und benötigt zur vollen funktionalität auch die V2. Bitte stelle sicher, dass in der APP die API v1 und v2 aktiviert wurde.
+
 ## go-eCharger adapter for ioBroker
 **EN**
 go-e is an invitation to move electrically. E-mobility is our drive, whereby our core competence is the charging technology for electric cars. From the individual charging station for e-cars to photovoltaic connections to load management of entire buildings, we are providers of holistic system solutions for all requirements of modern e-mobility.
@@ -45,11 +39,32 @@ https://t.me/goECharger
 
 Official API Documentation:
 https://github.com/goecharger/go-eCharger-API-v1
+https://github.com/goecharger/go-eCharger-API-v2
 
 Official Product Support:
 https://go-e.co/support/
 
 ## Changelog
+
+### 1.0.35
+* switch between ioBroker and go-e Hardware logic for PV-Calculation
+* Adding phaseSwitch Buffer to reduce switch on coudy days
+* improved documentation
+* Bug #232
+* Wrong deafult value type
+
+### 1.0.32
+* Timer for loading
+
+### 1.0.31
+* Versioning updates
+
+### 1.0.30
+* added max ampere in settings
+* Added level to switch 1-phase to 3 pahases
+* enables phasesSwitchMode
+* Only possible if V2 is enabled
+* some bugs
 
 ### 1.0.29
 * Bugfixes.

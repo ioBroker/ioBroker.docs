@@ -22,20 +22,20 @@ Fan-Icon in Logo created by [Freepik](https://www.flaticon.com/de/autoren/freepi
 
 ### supported devices
 
-- Dyson Pure Cool Link Tower (TP02, ProductType 475)
-- Dyson Pure Cool Tower, 2018 model (TP04, ProductType 438)
-- Dyson Pure Cool Tower Formaldehyde, 2018 model (TP07, ProductType 438E)
-- Dyson Pure Cool Tower Formaldehyde, 2018 model (TP07, ProductType 438K)
-- Dyson Pure Cool Link Desk (DP01, ProductType 469)
-- Dyson Pure Cool Desk, 2018 model (DP04, ProductType 520)
-- Dyson Pure Hot+Cool Link (HP02, ProductType 455)
-- Dyson Pure Hot+Cool Link New (ProductType 455A)
-- Dyson Pure Hot+Cool, 2018 model (HP04, ProductType 527)
-- Dyson Pure Hot+Cool (HP07, ProductType 527E)
-- Dyson Pure Hot+Cool Formaldehyde (HP09, ProductType 527K)
 - Dyson Pure Humidify+Cool (PH01, ProductType 358)
 - Dyson Pure Humidify+Cool (PH03, ProductType 358E)
 - Dyson Pure Humidify+Cool Formaldehyde (PH04, ProductType 358K)
+- Dyson Pure Cool Tower, 2018 model (TP04, ProductType 438)
+- Dyson Pure Cool Tower Formaldehyde, 2018 model (TP07, ProductType 438E)
+- Dyson Pure Cool Tower Formaldehyde, 2018 model (TP07, ProductType 438K)
+- Dyson Pure Hot+Cool Link (HP02, ProductType 455)
+- Dyson Pure Hot+Cool Link New (ProductType 455A)
+- Dyson Pure Cool Link Desk (DP01, ProductType 469)
+- Dyson Pure Cool Link Tower (TP02, ProductType 475)
+- Dyson Pure Cool Desk, 2018 model (DP04, ProductType 520)
+- Dyson Pure Hot+Cool, 2018 model (HP04, ProductType 527)
+- Dyson Pure Hot+Cool (HP07, ProductType 527E)
+- Dyson Pure Hot+Cool Formaldehyde (HP09, ProductType 527K)
 - Dyson Purifier Big+Quiet Formaldehyde (BP03, Produce type 664)
 
 ## Features
@@ -172,6 +172,11 @@ For now there are only rough information on the failures, and the data points va
 If you have better information on a failure don't hesitate to report it to me to improve the adapter.
 All states report whether there is a failure or not. `True` means a failure, `false` means "No failure".
 
+### Poll Intervall
+- Starting with v3.2.2 a poll intervall of 0 definitely disables polling. It may have worked before due to mathematics - but not for sure and with unknown side effects.
+This is nice to know because the devices usually send (at least mine do) their state by themself when it changes. Using this setting helps reducing your network traffic by stopping unnecessary polling.  
+
+
 ### Known issues
 
 - No automatic IP detection of devices
@@ -184,6 +189,16 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 ## Changelog
 
 ### **WORK IN PROGRESS**
+
+### 3.2.2 (2024-06-18) (Marching on)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
+- (grizzelbee) Upd: Poll intervall of 0 disables polling
+
+### 3.2.1 (2024-06-04) (Marching on)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
+
 
 ### 3.2.0 (2024-05-28) (Marching on)
 

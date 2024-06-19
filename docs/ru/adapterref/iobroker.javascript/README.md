@@ -16,36 +16,43 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (klein0r) Escape all field inputs correctly when using single quotes
+* (klein0r) Added sandbox functions to start/restart/stop an instance
+* (klein0r) Added Blockly block to start/restart/stop an instance
+* (klein0r) Added Blockly block to start/stop a script
+* (foxriver76) fixed issue in importing additional node modules for packages which do not provide a default export (e.g. `mathjs`)
+
+### 8.6.0 (2024-06-14)
+
+* (foxriver76) fixed issue with additional node modules which are installed from GitHub (controller v6)
+* (klein0r) Added new Blockly block to save http response into temp file
+* (klein0r) Escape single quotes in all object Blockly blocks
+* (klein0r) Grouped Blockly blocks / changed order of blocks
+* (klein0r) Allow multi line comments
+
+### 8.5.2 (2024-06-11)
+
+* (foxriver76) fixed issue with additional node modules when using js-controller version 6
+* (klein0r) Added Blockly block to check if text includes another text
+* (klein0r) Fixed onFile error when file has been deleted
+
+### 8.5.1 (2024-06-10)
+
+* (klein0r) Added Blockly dark theme
+* (klein0r) Fixed sendTo custom parameters with special chars
+
+### 8.5.0 (2024-06-07)
+
+* (klein0r) Ack flag on state object has priorty (in setState/setStateDelayed)
+* (klein0r) Fixed all blockly declarations (to avoid warnings in logs)
+* (klein0r) Updated Blockly Core to 10.4.3
+
 ### 8.4.3 (2024-06-04)
 
 * (klein0r) Added response time to httpGet and httpPost result
 * (klein0r) Added trigger block to ack new values
 * (bluefox) Allowed selecting different ChatGPT models for AI code generator
-
-### 8.4.2 (2024-05-28)
-
-* (klein0r) Fixed createState (removed redundant native attributes)
-* (winnyschuster) Fixed astro custom component
-
-### 8.4.1 (2024-05-26)
-
-* (klein0r) Fixed httpPost block
-* (klein0r) Just raise deprecated warnings once per script start/usage
-
-### 8.4.0 (2024-05-25)
-
-* (klein0r) Added checks/warnings for more incorrect blockly connections
-* (klein0r) Added option to disable certificate validation in httpGet
-* (klein0r) Added expire option to Blockly block
-* (klein0r) Fixed variables.astro times when date is not available
-* (klein0r) Fixed jsonConfig for libraries and library typings
-* (klein0r) Implemented new js-controller 6.x functions for package handling
-* (klein0r) Updated to ChatGPT-4o
-
-### 8.3.1 (2024-05-13)
-
-* (paul53) Allow negative values in formatTimeDiff
-* (klein0r) Updated tests and fixed Blockly translations
 
 ## License
 The MIT License (MIT)

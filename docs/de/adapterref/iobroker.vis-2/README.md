@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: /BV5lid8JySojmWSYk+wFC92fGyNFSIH5Ps2KRuBIZY=
+hash: +1fddSVtqwpfVYHmbGCNW3hoPgPwDPyjK/kA/lN2bfw=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-2/packages/vis-2/admin/vis-2.png)
+![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-2-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-2.svg)
@@ -27,7 +27,7 @@ WEB-Visualisierung für die ioBroker-Plattform.
 - [SVG und aktuelle Farbe](#svg-and-currentcolor)
 
 ## Installation und Dokumentation
-![Demo-Oberfläche](packages/vis-2/img/user0.png) ![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/vis-2/img/user7.png)
+![Demo-Oberfläche](packages/iobroker.vis-2/img/user0.png) ![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
 [Online Demos](https://iobroker.click/)
 
@@ -193,7 +193,7 @@ Beispiel für Javascript-Adapter:
 setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
 
-Wenn Sie das JSON als String schreiben, achten Sie auf die Analysierbarkeit, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie das `"`.
+Wenn Sie das JSON als Zeichenfolge schreiben, stellen Sie sicher, dass es analysierbar ist, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie das `"`.
 
 ## Standardansicht
 Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü=>Tools=>Auflösung).
@@ -240,7 +240,7 @@ Manchmal (nachts) ist es erforderlich, den Ladebildschirm dunkel zu halten. Mit 
 
 Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht für die erste Verbindung gültig sind.
 
-![Dunkel](../../../en/adapterref/iobroker.vis-2/packages/vis-2/img/dark_screen.png)
+![Dunkel](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/dark_screen.png)
 
 ## SVG und currentColor
 Mit dem Schlüsselwort currentColor in CSS können Elemente die aktuelle Textfarbe von ihrem übergeordneten Element übernehmen.
@@ -265,6 +265,24 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 2.9.64 (2024-05-23)
+* (bluefox) Added possibility to clear a text field by button
+
+### 2.9.63 (2024-05-15)
+* (bluefox) Migrated some files to typescript
+
+### 2.9.60 (2024-05-07)
+* (foxriver76) test automatic release
+
+### 2.9.53 (2024-05-06)
+* (bluefox) Allowed applying styles to jQui buttons
+
+### 2.9.52 (2024-04-25)
+* (bluefox) Navigation was improved: adjustable menu width and bulk edit were added
+
+### 2.9.50 (2024-04-19)
+* (bluefox) Corrected widget in widget behavior
+
 ### 2.9.49 (2024-04-11)
 * (bluefox) Corrected the scroll buttons in Tabs widget
 * (bluefox) Corrected resizers if the border width is set
@@ -310,7 +328,7 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 ### 2.9.32 (2024-02-16)
 * (foxriver76) implemented buttons to show or hide all views in views manager
 * (foxriver76) fixed issue with signals on RxWidgets
-* (foxriver76) allow to disable Sentry only for this instance
+* (foxriver76) allow disabling Sentry only for this instance
 
 ### 2.9.31 (2024-02-06)
 * (foxriver76) apply default overflow correctly

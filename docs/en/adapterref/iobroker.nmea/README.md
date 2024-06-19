@@ -67,10 +67,24 @@ With the flag `Combined environment` you can define the PGN number which will be
 - If you unselect the flag `Combined environment`, so for the temperature will be used PGN 130314, for humidity PGN 130313 and for pressure PGN 130314.
 - If you select the flag `Combined environment`, so all three values will be sent in PGN 130311 together with other possible environmental values.
 
+## Time zone
+There is a possibility to set the time zone from GPS coordinates.
+For this the according option must be enabled in the adapter settings and allowed for `iobroker` user the command execution:
+`sudo visudo`
+
+```
+iobroker ALL=(ALL) timedatectl set-timezone
+```
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.2.0 (2024-06-15)
+* (bluefox) Backend was rewritten on TypeScript
+* (bluefox) Support for AIS added
+* (bluefox) Valid processing of temperature, pressure and humidity
+
 ### 0.1.8 (2024-03-20)
 * (bluefox) Corrected vis-2 widgets
 

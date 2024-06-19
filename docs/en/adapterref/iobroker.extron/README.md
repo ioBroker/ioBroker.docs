@@ -48,6 +48,12 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) updated to adapter-dev and release script
 * (Bannsaenger) updated dependencies
 
+### 0.2.14 (2024-06-10)
+* (mschlgl) changed function createDatabase to use setObj()
+
+### 0.2.13 (2024-06-06)
+* (mschlgl) corrected instance.comon.titleLang to be set at startup, updated role definitions, added audiofile transfer functionality for DMPxxx
+
 ### 0.2.12
 * (mschlgl) added instance.comon.title / .titleLang to be set at startup
 
@@ -169,3 +175,14 @@ Attribution — You must give appropriate credit, provide a link to the license,
 NonCommercial — You may not use the material for commercial purposes.
 
 No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

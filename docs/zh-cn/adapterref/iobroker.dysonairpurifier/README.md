@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: I7ikYjd2himy1fYw6ohBoLiOoxcbcOPaTR2LVLljw90=
+hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
 ---
 ![安装数量（最新）](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
@@ -25,20 +25,20 @@ hash: I7ikYjd2himy1fYw6ohBoLiOoxcbcOPaTR2LVLljw90=
 &gt; 如果您喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### 支持的设备
-- 戴森 Pure Cool Link Tower（TP02，产品类型 475）
-- Dyson Pure Cool Tower，2018 年型号（TP04，产品类型 438）
-- Dyson Pure Cool Tower Formaldehyde，2018 年型号（TP07，产品类型 438E）
-- Dyson Pure Cool Tower Formaldehyde，2018 年型号（TP07，产品类型 438K）
-- 戴森 Pure Cool Link 书桌 (DP01, 产品类型 469)
-- Dyson Pure Cool Desk，2018 年型号（DP04，ProductType 520）
-- 戴森 Pure Hot+Cool Link（HP02，产品类型 455）
-- 戴森 Pure Hot+Cool Link 新品 (产品类型 455A)
-- Dyson Pure Hot+Cool，2018 年型号（HP04，产品类型 527）
-- 戴森 Pure Hot+Cool（HP07，产品类型 527E）
-- 戴森 Pure Hot+Cool 甲醛 (HP09, 产品类型 527K)
 - 戴森 Pure Humidify+Cool（PH01，产品类型 358）
 - 戴森 Pure Humidify+Cool（PH03，产品类型 358E）
 - 戴森 Pure Humidify+Cool Formaldehyde（PH04，产品类型 358K）
+- Dyson Pure Cool Tower，2018 年型号（TP04，产品类型 438）
+- Dyson Pure Cool Tower Formaldehyde，2018 年型号（TP07，产品类型 438E）
+- Dyson Pure Cool Tower Formaldehyde，2018 年型号（TP07，产品类型 438K）
+- 戴森 Pure Hot+Cool Link（HP02，产品类型 455）
+- 戴森 Pure Hot+Cool Link 新品 (产品类型 455A)
+- 戴森 Pure Cool Link 书桌 (DP01, 产品类型 469)
+- 戴森 Pure Cool Link Tower（TP02，产品类型 475）
+- Dyson Pure Cool Desk，2018 年型号（DP04，ProductType 520）
+- Dyson Pure Hot+Cool，2018 年型号（HP04，产品类型 527）
+- 戴森 Pure Hot+Cool（HP07，产品类型 527E）
+- 戴森 Pure Hot+Cool 甲醛 (HP09, 产品类型 527K)
 - 戴森净化器 Big+Quiet 甲醛 (BP03, 产品型号 664)
 
 ＃＃ 特征
@@ -74,7 +74,7 @@ hash: I7ikYjd2himy1fYw6ohBoLiOoxcbcOPaTR2LVLljw90=
 #### 替代方案：使用 GitHub URL
 通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-您也可以使用这些方法安装旧的发布版本（通过指向版本标签，例如 URL 中的`v0.6.0`而不是`master`），但通常首选最新版本。
+您也可以使用这些方法安装旧的发布版本（通过指向版本标签，例如 URL 中的`v0.6.0`而不是`master`），但通常最好使用最新版本。
 
 ### 需要配置数据
 - 戴森账户用户名
@@ -93,7 +93,7 @@ _请注意_：由于戴森的 mDNS 实施不符合要求，您需要在_首次�
 
 _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器就会尝试通过其主机名（序列号）连接到设备。这将在两个先决条件下起作用：
 
-1. 您的 LAN 中有一个 DNS 服务器正在运行。无论是在您的路由器中（例如 FritzBox 有 DNS 正在运行）还是专用路由器中。
+1. 您的 LAN 中有一个 DNS 服务器正在运行。它位于您的路由器中（例如 FritzBox 有一个 DNS 正在运行），或位于专用路由器中。
 2.您没有更改默认设备名称。
 3. 设备名称已正确映射到其 IP（如果您手动管理 DNS）。
 
@@ -157,6 +157,11 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 如果您有关于故障的更好信息，请随时向我报告以改进适配器。
 所有状态都报告是否存在故障。`True` 表示故障，`false` 表示“无故障”。
 
+### 轮询间隔
+- 从 v3.2.2 开始，轮询间隔为 0 肯定会禁用轮询。以前可能因为数学原因而起作用 - 但不确定，而且有未知的副作用。
+
+知道这一点很好，因为设备通常会在状态发生变化时自行发送（至少我的设备会这样做）。使用此设置有助于通过停止不必要的轮询来减少网络流量。
+
 ＃＃＃ 已知的问题
 - 没有自动检测设备的 IP
 - 仍然有许多未知的设备消息（主要是故障和警告）
@@ -215,11 +220,11 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 | wath | 水硬度 | 软="2025", 中="1350", 硬="0675" | |
 | wacd | 警告代码 | 无... | |
 | rstf | 重置过滤器生命周期 | 'RSTF', 'STET', RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION | |
-| corf | 温度格式 | ON=摄氏度，OFF=华氏度 | |
+|科尔夫 |温度格式 |开=摄氏度，关=华氏度 | |
 | clcr | DeepcleanCycle | CLNO=非活动，CLAC=深度清洁正在进行中，CLCM=已完成 | |
 | hsta | 加热状态 | ACTIVE/IDLE | |
 | msta | 加湿状态 | 活动/空闲 OFF, HUMD | |
-|韓國語 | [HP0x] 未知| INIT，CLNG，INV，关闭| |
+| psta | [HP0x] 未知 | INIT，CLNG，INV，OFF | |
 | bril | 未知 | 0002 | LEVEL_LOW，LEVEL_MEDIUM，LEVEL_HIGH |
 | fqhp | 未知 | | |
 | 倾斜 | [HP0x] 未知 | 字符串 | |
@@ -262,7 +267,7 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 ＃＃＃＃ 数据
 | 名称 | 含义 | 可能的值 | 单位 |
 | ----------- | ------------------------------------------------------------------------ | ------------------------------------------- | ----------- | --- |
-| pal0 - pal9 | 从一小时开始在此灰尘层中度过的秒数 | 0000 - 3600 | |
+| pal0 - pal9 | 从一小时开始在此层灰尘中度过的秒数 | 0000 - 3600 | |
 | palm | 似乎是 palX 的中值 | | |
 | vol0 - vol9 | 自一小时开始以来在此 voc 级别上花费的秒数 | 0000 - 3600 | |
 | volm | 似乎是 volX | | | 的中值 |
@@ -285,7 +290,17 @@ Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson
 
 ### **WORK IN PROGRESS**
 
-### 3.2.0 (2024-05-27) (Marching on)
+### 3.2.2 (2024-06-18) (Marching on)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
+- (grizzelbee) Upd: Poll intervall of 0 disables polling
+
+### 3.2.1 (2024-06-04) (Marching on)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
+
+
+### 3.2.0 (2024-05-28) (Marching on)
 
 - (grizzelbee) Chg: Lamps (Product type 552a) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
 - (grizzelbee) Chg: Vacuum cleaner robots (Product types 276 and 277) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.

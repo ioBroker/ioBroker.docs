@@ -32,6 +32,10 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.2.1 (2024-06-05)
+* (BenAhrdt) do not send axios or setState after unload Adapter
+* (BenAhrdt) rename reconnectCout in reconnectCount (connfig-parameter)
+
 ### 3.2.0 (2024-05-17)
 * (BenAhrdt) add historic timebases (hours)
 

@@ -51,6 +51,15 @@ E.g: ```10;AB400D;00004d;1;OFF;```. Please read documentation to understand the 
 -->
 
 ## Changelog
+### 2.1.12 (2024-06-12)
+* (foxriver76) fix serialport
+
+### 2.1.8 (2024-06-11)
+* (foxriver76) upgrade serialport
+
+### 2.1.7 (2024-06-11)
+* (foxriver76) ensured js-controller v6 compatibility
+
 ### 2.1.6 (2020-09-25)
 * (evanes68) The reconnect on the disconnection was added
 * (bluefox) Compact mode was implemented

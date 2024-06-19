@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/README.md
 title: ioBroker.hiob
-hash: 5fRwXw4oQsiPgEHQPEj9Wel2mEONLH6l+gPSVHU5wFI=
+hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
 ---
 ![Logo](../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -51,6 +51,16 @@ Android 10/11/13
 
 ## Bekannte Probleme
 - 0.1.4: Das Blockly-Element sollte nicht in dieser Version enthalten sein. Es funktioniert derzeit nicht
+
+## Fahrplan
+- Überarbeitung des Konzepts von Templates/Widgets [30%]
+- Vereinfachen Sie den Prozess zum Hinzufügen neuer Vorlagen-/Widget-Funktionen
+- Erweiterte Vorlage entfernen und in mehrere Widgets aufteilen
+- Popup-Menü für alle Widgets zulassen
+- Erlaube Designregeln für jedes Widget
+- Diagramme für Verlaufsdaten hinzufügen [0 %]
+- Vereinfachen Sie den Prozess des Hinzufügens von Geräten, indem Sie alle auflisten [0 %]
+- Widgets automatisch basierend auf dem ausgewählten Gerät erstellen [0 %]
 
 ## Changelog
 

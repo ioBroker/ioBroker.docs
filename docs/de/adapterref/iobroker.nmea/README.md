@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: NyzVyk4vYcX20icjCAJmiV9u29yAY1Vfyeym5KHkObw=
+hash: RpMOucw8igSZtPZLPvyx4jDtS5zdyMhwPh/f/iPGgIg=
 ---
 ![Logo](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -78,11 +78,24 @@ Mit dem Flag `Combined environment` können Sie die PGN-Nummer festlegen, die f�
 - Wenn Sie die Flagge „Kombinierte Umgebung“ deaktivieren, wird für die Temperatur PGN 130314, für die Luftfeuchtigkeit PGN 130313 und für den Druck PGN 130314 verwendet.
 - Wenn Sie die Flagge „Kombinierte Umgebung“ auswählen, werden alle drei Werte zusammen mit anderen möglichen Umgebungswerten in PGN 130311 gesendet.
 
+## Zeitzone
+Es besteht die Möglichkeit, die Zeitzone anhand der GPS-Koordinaten einzustellen.
+Dazu muss die entsprechende Option in den Adaptereinstellungen aktiviert sein und dem Benutzer `iobroker` die Ausführung des Befehls `sudo visudo` gestattet sein.
+
+```
+iobroker ALL=(ALL) timedatectl set-timezone
+```
+
 <!--
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 0.2.0 (2024-06-15)
+* (bluefox) Backend was rewritten on TypeScript
+* (bluefox) Support for AIS added
+* (bluefox) Valid processing of temperature, pressure and humidity
+
 ### 0.1.8 (2024-03-20)
 * (bluefox) Corrected vis-2 widgets
 

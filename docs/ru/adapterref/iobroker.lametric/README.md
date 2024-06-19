@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
+hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -32,7 +32,7 @@ hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
 - nodejs 18 (или новее)
 - js-контроллер 5.0.0 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
-- _LaMetric Time_ с прошивкой _2.3.8_ (_3.0.21_ на модели 2022 года) (или новее)
+- _LaMetric Time_ с прошивкой _2.3.8_ (_3.1.0_ на модели 2022 г.) (или более поздней версии)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
@@ -59,9 +59,15 @@ hash: YZ8jbSXRzpGHMXbD5rEwLmRkOcLMUADwrwtzRDNuUPU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.1 (2024-06-12)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
+* (@klein0r) Updated dependencies
+
+### 3.2.0 (2024-06-07)
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
+* (klein0r) Fixed Blockly definitions (removed warnings)
 
 ### 3.1.3 (2024-01-31)
 
@@ -75,20 +81,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 ### 3.1.1 (2023-10-27)
 
 * (klein0r) Fixed issue with foreign states of version 3.1.0
-
-### 3.1.0 (2023-10-25)
-
-NodeJS 16.x is required
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.18)
-* (klein0r) Updated admin tab layout (icons, button style)
-* (klein0r) Fixed path of default widgets
-
-### 3.0.0 (2023-09-13)
-
-* (klein0r) Added push option for My Data DIY
-* (klein0r) Added option to force app reload
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
 
 ## License
 

@@ -199,6 +199,11 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.1 (2024-06-07)
+
+* (klein0r) Fixed Blockly definitions (removed warnings)
+* (klein0r) Updated dependencies
+
 ### 1.2.0 (2024-05-16)
 
 * (klein0r) Fixed wrong translations ins expert apps (duration)
@@ -217,14 +222,6 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
 NodeJS >= 18.x and js-controller >= 5 is required
 
 Updated recommended firmware version to 0.96
-
-### 0.16.0 (2024-03-12)
-
-Updated recommended firmware version to 0.95
-
-* (klein0r) Added notification for firmware update
-* (klein0r) Added setting state for volume
-* (klein0r) Rebranding Awtrix Light to Awtrix 3
 
 ## License
 MIT License

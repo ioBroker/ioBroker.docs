@@ -9,8 +9,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.velux.png?downloads=true)](https://nodei.co/npm/iobroker.velux/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.velux/master.svg)](https://travis-ci.org/ta2k/ioBroker.velux)
-
 ## velux adapter for ioBroker
 
 Adapter for Velux KIX 300
@@ -21,24 +19,29 @@ Enter under module your new target_position. Windows allows only target_position
 
 ## Changelog
 
+### 0.0.8
+
+- Update to latest dependencies
+
 ### 0.0.7
 
--   fix js-controller 3.2 and interval problem
+- fix js-controller 3.2 and interval problem
+
 ### 0.0.6
 
--   fix js-controller 3 problem
+- fix js-controller 3 problem
 
 ### 0.0.5
 
--   Improve room assignment
+- Improve room assignment
 
 ### 0.0.2
 
--   add changing target_position for non windows
+- add changing target_position for non windows
 
 ### 0.0.1
 
--   (ta2k) initial release
+- (ta2k) initial release
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: Q2OX4G2Y4FGzXN5q/OzU4jrQLAkq9jVnCD1TgAceyog=
+hash: Q47BVVpyPnZejeYC0pAFCqs/NiNWvj6Zwvwp8fmtZpE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
@@ -20,19 +20,22 @@ hash: Q2OX4G2Y4FGzXN5q/OzU4jrQLAkq9jVnCD1TgAceyog=
 ## Адаптер smartthings для ioBroker
 Адаптер для Samsung Smartthings
 
-## Логинабауф:
-Используйте ссылку. https://account.smartthings.com/tokens Melden Sie mit Ihrem Samsung-Konto и на сайте «Personliche Zugriffstoken» zu gelangen.
-Tippen Sie auf die Schaltfläche «Neuen Token Generieren», um auf die Seite «Neuer Zugriffstoken» zu gelangen.
-Geben Sie einen Namen für das neue Token an. Если вы используете «Авторизованный ключ», вы должны быть уверены в том, что он будет работать автоматически.
-Tippen Sie auf die Schaltfläche «Token Generieren», когда Sie Fertig Sind, und Sie kehren zur Seite «Personliche Zugriffstoken» zurück. Kopieren Sie das neu Generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu Generierten Tokenwert abzurufen.
+## Процесс входа:
+Посетите ссылку. https://account.smartthings.com/tokens Войдите в свою учетную запись Samsung, чтобы перейти на страницу «Токены личного доступа».
+Нажмите кнопку «Создать новый токен», чтобы перейти на страницу «Новый токен доступа».
+Укажите имя для нового токена. В разделе «Авторизованные области» выберите любую функциональность, которую вы хотите авторизовать для токена.
+Когда закончите, нажмите кнопку «Создать токен», и вы вернетесь на страницу «Токены личного доступа». Скопируйте вновь сгенерированный токен и сохраните его в надежном месте. Это ваш единственный способ получить вновь сгенерированное значение токена.
 
-## Стойерн
-smartthings.0.id.capabilities entweder true setzen или ein vorgegebenen Wert setzen
+## Руль
+smartthings.0.id.capabilities либо устанавливается в значение true, либо устанавливает предопределенное значение.
 
-## Обсуждение и Fragen:
+## Обсуждение и вопросы:
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
+### 0.1.2 (2024-05-19)
+
+- Update Dependencies
 
 - 0.1.0 Added object excluding to reduce cpu usage
 
@@ -44,7 +47,7 @@ https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

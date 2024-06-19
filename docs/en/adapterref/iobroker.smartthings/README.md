@@ -16,19 +16,19 @@
 
 Adapter for Samsung Smartthings
 
-## Loginablauf:
+## Login process:
 
-Besuchen Sie den Link. https://account.smartthings.com/tokens  
-Melden Sie sich mit Ihrem Samsung-Konto an, um zur Seite \"Persönliche Zugriffstoken\" zu gelangen.  
-Tippen Sie auf die Schaltfläche „Neuen Token generieren“, um auf die Seite „Neuer Zugriffstoken“ zu gelangen.  
-Geben Sie einen Namen für das neue Token an. Wählen Sie im Abschnitt „Autorisierte Bereiche“ eine beliebige Funktionalität aus, die Sie für das Token autorisieren möchten.  
-Tippen Sie auf die Schaltfläche \"Token generieren\", wenn Sie fertig sind, und Sie kehren zur Seite \"Persönliche Zugriffstoken\" zurück. Kopieren Sie das neu generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu generierten Tokenwert abzurufen.
+Visit the link. https://account.smartthings.com/tokens
+Log in with your Samsung account to go to the \"Personal Access Tokens\" page.
+Tap the \"Generate New Token\" button to go to the \"New Access Token\" page.
+Provide a name for the new token. In the \"Authorized Scopes\" section, select any functionality you want to authorize for the token.
+Tap the \"Generate Token\" button when you are done and you will be returned to the \"Personal Access Tokens\" page. Copy the newly generated token and keep it in a safe place. This is your only way to retrieve the newly generated token value.
 
-## Steuern
+## Steer
 
-smartthings.0.id.capabilities entweder true setzen oder ein vorgegebenen Wert setzen
+smartthings.0.id.capabilities either set to true or set a predefined value
 
-## Diskussion und Fragen:
+## Discussion and Questions:
 
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 

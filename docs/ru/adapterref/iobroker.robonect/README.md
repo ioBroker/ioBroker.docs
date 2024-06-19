@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
+hash: kLYp0ODrqg0EXmEyQbeVjPGV0UV8RrpAdPPMtY779Kg=
 ---
 # IoBroker.robonect
 ![Логотип](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
@@ -12,14 +12,14 @@ hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
 ![Количество установок](http://iobroker.live/badges/robonect-stable.svg)
 ![НПМ-версия](https://img.shields.io/npm/v/iobroker.robonect.svg)
 
-[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml)
+[![Тестирование и выпуск](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml)
 
 Это адаптер ioBroker для вашей газонокосилки с поддержкой Robonect HX.
 
 * Было протестировано с Robonect v1.1b (с ZeroConf v1.4) и Gardena R70Li.
 * Он также был протестирован с Robonect v1.3b (с ZeroConf v1.9) и Gardena R40Li.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Настройки
 * Необходимо ввести IP-адрес (например, 192.168.xx) или имя хоста (например, robonect-D247BF) или полное доменное имя (например, robonect-D247BF.fritz.box) модуля Robonect. Если заданы имя пользователя и пароль, они также потребуются.
@@ -35,7 +35,7 @@ hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
 ### Push-сервис
 Модуль robonect имеет опцию конфигурации под названием «Push Service» — она передает информацию о состоянии в зависимости от некоторых настраиваемых событий.
 При активации адаптер будет получать push-уведомления, если произойдет одно из событий. Если эта опция активирована, вы можете использовать гораздо более длинные интервалы опроса, чем значения по умолчанию (например, 6-12 часов для статуса и 24 часа для информации).
-Эти данные также необходимо настроить в модуле Robonect. Даже если вы прослушиваете все IP-адреса (0.0.0.0), вам необходимо настроить реальный IP-адрес в robonect. Используемый формат IP похож на 192.168.xx:Port.
+Эти данные также необходимо настроить в модуле Robonect. Даже если прослушиваются все IP-адреса (0.0.0.0), вам необходимо настроить реальный IP-адрес в robonect. Используемый формат IP похож на 192.168.xx:Port.
 
 * Вы можете выбрать GET или POST в Robonect — оба варианта работают одинаково.
 * Имя пользователя или пароль не требуются.
@@ -56,11 +56,26 @@ hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
 ### Расширения
 Можно управлять расширениями GPIO 1, GPIO 2, OUT 1 и OUT 2 модуля Robonect. Требованием является то, что режим расширения настроен как «API» через веб-интерфейс Robonect. Если, например, светодиоды подключены к OUT1, их можно включать ночью и выключать утром, установив для Robonect.0.extension.out1.status значение «true» или «false».
 
+## Известные вопросы:
+* Чтобы обеспечить доступность robonect, адаптер сначала проверяет устройство, прежде чем отправлять какие-либо запросы.
+
+Этот пинг может завершиться неудачей, особенно если ioBroker установлен в контейнере.
+Это не проблема самого адаптера, но поскольку это может произойти и найти решение довольно сложно, попробуйте выполнить `sudo chmod 4755 /bin/ping` в оболочке внутри контейнера ioBroker. В этом решении предполагается, что существует проблема с разрешениями между пользователем iobroker и утилитой ping.
+
 ## Changelog
 
 ### Work in progress
-* Add timePickers to Admin UI for rest times as soon as they work properly
 
+### 1.3.5 (2024-06-04)
+
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Upd: Requires at least admin  v6.13.16
+* (grizzelbee) Upd: Requires at least nodeJs v18.0.2
+* (grizzelbee) Upd: Updated translations
+* (grizzelbee) Upd: Reorganized Admin-UI
+* (grizzelbee) New: Added Ping-Option to admin 
+
+ 
 ### 1.3.4 (2023-10-10)
 
 * (grizzelbee) Chg: massive code refactoring 
@@ -224,7 +239,7 @@ hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
 
 The MIT License (MIT)
 
-Copyright (c) 2020 braindead1
+Copyright (c) 2024 grizzelbee
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
