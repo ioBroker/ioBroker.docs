@@ -24,6 +24,9 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `date`              `common.type = number` - `epoch seconds * 1000`
 
 ## Sensor (booleans, read-only)
+Buttons do not have a value and are only used to send an event (TRUE) when pressed, therefore the attribute read must be FALSE
+Button events triggering onChange on an adapter should be confirmed with ACK = TRUE to show the event has been recognized and processed.
+
 `common.type=boolean, common.write=false`
 
 * `sensor.window`         - window opened-`true` or closed-`false`
