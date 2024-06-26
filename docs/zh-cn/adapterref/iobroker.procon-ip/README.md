@@ -3,71 +3,69 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
+hash: r3v1HpHgaM6AreOp4sP/GcYQi40K77lrb7cpjns6LB0=
 ---
 ![标识](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
 ![安装数量](http://iobroker.live/badges/procon-ip-installed.svg)
 ![当前稳定版本](http://iobroker.live/badges/procon-ip-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
 ![已知漏洞](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 
 # IoBroker.procon-ip
-[![测试和发布](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
+[![测试与发布]（https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg）](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 
-用于 Pool Digital ProCon.IP 游泳池控制器的 ioBroker 适配器。
-它旨在与您的 ioBroker 家庭自动化集成，例如。
+ioBroker 适配器适用于 Pool Digital ProCon.IP 游泳池控制器。
+它旨在与您的 ioBroker 家庭自动化集成，例如
 构建涉及其他设备的逻辑或与您最喜欢的语音助手配对：
 
 * 您可以使用 [_cloud_](https://github.com/ioBroker/ioBroker.cloud) 或
 
-[_物联网_](https://github.com/ioBroker/ioBroker.iot) Alexa 适配器（我想还有 Google Home）和
+[物联网](https://github.com/ioBroker/ioBroker.iot) Alexa 适配器（我认为还有 Google Home）和
 
 * [_yahka_](https://github.com/jensweigele/ioBroker.yahka) 适配器作为桥梁
 
-  Siri 可以访问的 Apple HomeKit 或
+Apple HomeKit 可以通过 Siri 或
 
 * 使用 [_javascript_](https://github.com/ioBroker/ioBroker.javascript)
 
-  适配器来构建您自己的自定义逻辑。
+适配器来构建您自己的自定义逻辑。
 
-有关详细信息，请参阅[维基百科](https://github.com/ylabonte/ioBroker.procon-ip/wiki)。
+请参阅[维基百科](https://github.com/ylabonte/ioBroker.procon-ip/wiki)以了解更多信息。
 
-## ProCon.IP 池控制器是什么？
-![图片来自pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
+## 什么是 ProCon.IP 池控制器？
+ProCon.IP 泳池控制器是一款适用于家庭泳池的低成本网络附加控制单元。借助软件切换继电器，它可以控制多个泵（用于泳池过滤器和不同的剂量方面），这些泵既可以简单地按时间表进行计划，也可以根据其众多测量输入通道之一的读数/值进行控制（例如，输入/输出流量传感器、Dallas 1-Wire 温度计、氧化还原和 pH 电极）。至少还有按需切换这些继电器的选项，这使得它们也适用于打开/关闭灯（或任何其他您想要的东西）。
+并非所有功能都可以通过 API 访问。事实上，有一个记录的 API 用于读取（轮询）CSV 值（`/GetState.csv`）。在我的记忆中，还有另一个用于打开/关闭和打开继电器的计时器。但我再也找不到第二个了。所以即使不漂亮，但功能齐全：ProCon.IP 有两个本机 Web 界面，可以对其进行分析，以某种方式对给定功能进行逆向工程（例如切换继电器）。
 
-ProCon.IP 泳池控制器是一款用于家庭泳池的低预算网络附加控制单元。借助其软件开关继电器，它可以控制多个泵（用于池过滤器和不同的剂量方面），或者根据时间表简单地计划，或者根据来自其许多输入通道之一的读数/值进行测量（例如，I/O 流量）传感器、Dallas 1-Wire 温度计、氧化还原和 pH 电极）。至少还可以选择根据需要切换这些继电器，这使得它们也适用于打开/关闭灯（或您想要的任何其他东西）。
-并非所有功能都可以通过 API 访问。事实上，有一个已记录的 API 用于以 CSV 形式读取（轮询）值 (`/GetState.csv`)。在我的记忆中，还有另一种用于通过计时器打开/关闭继电器和打开继电器的功能。但我再也找不到第二个了。因此，虽然不漂亮，但功能齐全：ProCon.IP 有两个本机 Web 界面，可以对其进行分析，以对给定的功能进行某种逆向工程（例如切换继电器）。
+有关详细信息，请参阅以下链接（抱歉，只有德语；到目前为止还没有找到英文文档/信息）：
 
-有关更多信息，请参阅以下链接（抱歉，只有德语版本；到目前为止尚未找到英文文档/信息）：
+* [pooldigital.de 网上商店](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [pooldigital.de 论坛](https://www.poolsteuerung.de/)
 
-* [pooldigital.de 网上商店](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-* [pooldigital.de 论坛](http://forum.pooldigital.de/)
-
-**需要明确的是：我与泳池控制装置的开发、销售、营销或支持无关。我刚刚开发了一个解决方案，将其与 ioBroker 集成，让我父母的家变得更加智能。**
+**需要说明的是：我与泳池控制单元的开发、销售、营销或支持无关。我只是开发了一种解决方案，将其与 ioBroker 集成，使我父母的家变得更智能。**
 
 ## 适配器的详细信息
-该适配器使用 ProCon.IP 的 `/GetState.csv` API 来轮询其值，并使用另一个（未记录的）API，该 API 通过按位命令操作来切换继电器。 ProCon.IP 的原始 Web 界面也使用第二个。因此，未来可能会有固件升级，以限制与该适配器的兼容性，或者至少限制其切换继电器的功能。
+适配器使用 ProCon.IP 的 `/GetState.csv` API 来轮询其值，并使用另一个未记录的 API，该 API 使用按位命令来切换继电器。ProCon.IP 的原始 Web 界面也使用第二个 API。因此，将来可能会有固件升级，这会破坏与此适配器的兼容性，或者至少破坏其切换继电器的功能。
 
 ＃＃＃ 兼容性
-目前，该适配器已与 ProCon.IP 固件**版本 1.7.6.a** 结合进行了测试和开发。但它应该适用于任何先前的较新/即将推出的固件版本。
+目前，该适配器已与 ProCon.IP 固件**修订版 1.7.6.a** 结合测试和开发。但它应该可以与任何先前更新/即将推出的固件版本配合使用。
 
 ## 发展与参与
 如果您希望参与此适配器的开发、翻译或文档编制，请随时与我联系。
 
-该方法的有用链接将是
+有关该方法的有用链接如下
 
 * [TypeScript 适配器模板](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
 
-  我从 开始 和
+我已经从和
 
 * [适配器开发人员指南](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md)。
 
 ## 捐赠
 如果您想支持此适配器或表示感谢，您可以：
 
-[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="请我喝杯咖啡" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="给我买杯咖啡" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
 ### 1.5.4 (2024-02-27)
@@ -76,11 +74,9 @@ ProCon.IP 泳池控制器是一款用于家庭泳池的低预算网络附加控�
 * Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the 
   latest version.
 
-## Changelog
 ### 1.5.3 (2024-02-27)
 * Update dependencies.
 
-## Changelog
 ### 1.5.2 (2024-02-13)
 * Add newline before descriptive text in adapter config.
 * Update dependencies.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: 8SGVqYnaZEQqupAo6BSie3QE8KWo34eK/DdyPkYtmOs=
+hash: ClDJCj9QzYDHf2oWQ0fHIOi0XwSqJVaQbYHJe8mSdQQ=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -28,7 +28,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 表示适配器支持 JSON 配置。
 
 如果您测试此适配器，则可以看到几乎所有组件都在运行：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
-您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo` 来安装它。
+您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo`来安装它。
 
 所有标签、文本、帮助文本都可以是多种语言或仅仅是字符串。
 
@@ -117,12 +117,12 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `image` - 将图像保存为 `adapter.X` 对象的文件或属性中的 base64
 - `filename` - 文件的名称是结构名称。在下面的例子中，`login-bg.png` 是 `writeFile("myAdapter.INSTANCE", "login-bg.png")` 的文件名
-- `accept` - html 接受属性，如 `image/*,.pdf`
+- `accept` - html 接受属性，如 `{'image/**': [], 'application/pdf': ['.pdf'] }`，默认 `{'image/*': [] }`
 - `maxSize` - 上传文件的最大大小
 - `base64` - 如果为 true，图像将作为 data-url 保存在属性中，否则作为二进制文件保存在文件存储中
+- `crop` - 如果为 true，则允许用户裁剪图像
 -`!最大宽度`
 - `!最大高度`
-- `!crop` - 如果为 True，则允许用户裁剪图像
 - `!square` - 宽度必须等于高度，或者裁剪必须只允许正方形作为形状
 
 ```
@@ -158,8 +158,8 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `{type: ['channel', 'device']}` - 仅显示频道和设备
 - `{common: {type: 'number'}` - 仅显示数字类型的状态
 - `{common: {type: ['number', 'string']}` - 仅显示数字和字符串类型的状态
-- `{common: {role: 'switch']}` - 仅显示角色从 switch 开始的状态
-- `{common: {role: ['switch', 'button]}` - 仅显示角色以 `switch` 和 `button` 开头的状态
+- `{common: {role: 'switch'}` - 仅显示角色从 switch 开始的状态
+- `{common: {role: ['switch', 'button']}` - 仅显示角色以 `switch` 和 `button` 开头的状态
 - `filterFunc` - [可选] 不能与 `type` 设置一起使用。它是一个将为每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'`
 
 - `password` - 密码字段
@@ -336,13 +336,13 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `disableEdit` - 如果用户可以手动输入文件名，而不仅仅是通过选择对话框
 - `limitPath` - 将选择限制为一个特定类型的 `meta` 对象并遵循路径（非强制性）
 - `filterFiles` - 如 `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
-- `filterByType` - `图像、代码、txt、音频、视频`
 - `allowUpload` - 允许上传文件
 - `allowDownload` - 允许下载文件（默认 true）
 - `allowCreateFolder` - 允许创建文件夹
 - `allowView` - 允许平铺视图（默认为 true）
 - `showToolbar` - 显示工具栏（默认 true）
 - `selectOnlyFolders` - 用户只能选择文件夹（例如上传路径）
+- `trim` - 修剪文件名
 
 - `imageSendTo` - 显示从后端接收的以 base64 字符串形式呈现的图像
 - `width` - QR 码的宽度（单位：px）

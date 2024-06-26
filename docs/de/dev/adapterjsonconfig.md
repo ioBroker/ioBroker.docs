@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: 8SGVqYnaZEQqupAo6BSie3QE8KWo34eK/DdyPkYtmOs=
+hash: ClDJCj9QzYDHf2oWQ0fHIOi0XwSqJVaQbYHJe8mSdQQ=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -55,7 +55,7 @@ Die eingebundene Datei muss sich im selben Verzeichnis wie die Hauptdatei befind
 Mögliche Typen:
 
 - `tabs` - Registerkarten mit Elementen
-- `items` – Objekt mit Bedienfeldern `{"tab1": {}, "tab2": {}...}`
+- `items` – Objekt mit Feldern `{"tab1": {}, "tab2": {}...}`
 - `iconPosition` – `bottom`, `end`, `start` oder `top`. Nur für Panels mit `icon`-Attribut. Standard: `start`
 
 - „Panel“ – Registerkarte mit Elementen
@@ -117,12 +117,12 @@ Mögliche Typen:
 
 - `image` - speichert das Bild als Datei des `adapter.X`-Objekts oder als Base64 im Attribut
 - `filename` - Name der Datei ist Strukturname. Im folgenden Beispiel ist `login-bg.png` der Dateiname für `writeFile("myAdapter.INSTANCE", "login-bg.png")`
-- „accept“ – HTML-Akzeptierattribut, wie „image/*,.pdf“
+- „accept“ – HTML-Akzeptanzattribut, wie „{ „image/**“: [], „application/pdf“: [„.pdf“] }“, Standard „{ „image/*“: [] }“
 - `maxSize` – maximale Größe der hochzuladenden Datei
 - `base64` - wenn wahr, wird das Bild als Daten-URL im Attribut gespeichert, andernfalls als Binärdatei im Dateispeicher
+- „crop“ – wenn wahr, erlaubt dem Benutzer, das Bild zuzuschneiden
 - `!maxBreite`
 - `!maxHöhe`
-- „!crop“ – wenn wahr, erlaubt dem Benutzer, das Bild zuzuschneiden
 - „!square“ – die Breite muss gleich der Höhe sein, oder der Zuschnitt darf nur Quadrate als Form zulassen
 
 ```
@@ -151,15 +151,15 @@ Mögliche Typen:
 - `root` – [optional] Nur dieses Stammobjekt und seine untergeordneten Objekte anzeigen
 - `customFilter` - [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. Beispiele
 - `{common: {custom: true}}` – zeige nur Objekte mit einigen benutzerdefinierten Einstellungen
-- `{common: {custom: 'sql.0'}}` – zeige nur Objekte mit benutzerdefinierten SQL.0-Einstellungen (nur der spezifischen Instanz)
+- `{common: {custom: 'sql.0'}}` – zeigt nur Objekte mit benutzerdefinierten SQL.0-Einstellungen an (nur der spezifischen Instanz)
 - `{common: {custom: '_dataSources'}}` – zeige nur Objekte der Adapter `influxdb` oder `sql` oder `history`
 - `{common: {custom: 'adapterName.'}}` – zeigt nur Objekte mit benutzerdefinierten Einstellungen eines bestimmten Adapters an (alle Instanzen)
 - `{type: 'channel'}` – nur Kanäle anzeigen
 - `{type: ['channel', 'device']}` - nur Kanäle und Geräte anzeigen
 - `{common: {type: 'number'}` - zeigt nur Zustände vom Typ 'number
 - `{common: {type: ['number', 'string']}` - zeigt nur Zustände vom Typ 'number' und 'string' an.
-- `{common: {role: 'switch']}` - zeige nur Zustände mit Rollen, beginnend mit switch
-- `{common: {role: ['switch', 'button]}` - zeige nur Zustände mit Rollen, die mit `switch` und `button` beginnen
+- `{common: {role: 'switch'}` - zeige nur Zustände mit Rollen, beginnend mit switch
+- `{common: {role: ['switch', 'button']}` - zeige nur Zustände mit Rollen, die mit `switch` und `button` beginnen
 - `filterFunc` – [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es ist eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'`
 
 - „Passwort“ – Passwortfeld
@@ -169,7 +169,7 @@ Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden!
 Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapter als `admin` und `cloud` schützen, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
 
 - `repeat` - Wiederholungspasswort muss mit Passwort verglichen werden
-- „sichtbar“ – Wahr, wenn das Anzeigen des Passworts durch Umschalten der Schaltfläche „Anzeigen“ erlaubt ist (nur für ein neues Passwort während der Eingabe)
+- „sichtbar“ – wahr, wenn das Anzeigen des Passworts durch Umschalten der Schaltfläche „Anzeigen“ erlaubt ist (nur für ein neues Passwort während der Eingabe)
 - `maxLength` – maximale Länge des Textes im Feld
 
 - `Instanz`
@@ -177,7 +177,7 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 - `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
 - `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
-- „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
+- „long“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
 - „short“ – der Wert sieht wie „0“ aus und nicht wie „ADAPTER.0“.
 - „alle“ – Fügen Sie den Optionen „alle“ die Option mit dem Wert „*“ hinzu
 
@@ -215,14 +215,14 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `icon` – wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Icons (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
 - `useNative` – wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird es für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
-- „Timeout“ – Timeout für Anforderung in ms. Standard: keine.
-- `onLoaded` - führt die Schaltflächenlogik zunächst einmal aus
+- „timeout“ – Timeout für Anforderung in ms. Standard: keine.
+- `onLoaded` - führe die Schaltflächenlogik zunächst einmal aus
 
 - `setState` - Schaltfläche zum Festlegen des Status der Instanz
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen
-- `ack` - false (Standard: false)
+- „ack“ – false (Standard: false)
 - `val` - '${data.myText}_test' oder Zahl. Der Typ wird automatisch anhand des Statustyps erkannt und die Konvertierung wird ebenfalls durchgeführt.
-- `okText` - Warnung, die durch Drücken der Taste angezeigt wird
+- `okText` - Alarm, der durch Drücken der Taste angezeigt wird
 - `Variante` - `enthalten`, `umrissen`, ''
 
 - `staticText` – statischer Text wie Beschreibung
@@ -235,7 +235,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - „Button“ – einen Link als Schaltfläche anzeigen
 - „Variante“ – Art der Schaltfläche („umrissen“, „enthalten“, „Text“)
 - „Farbe“ – Farbe der Schaltfläche (z. B. „primär“)
-- `icon` - wenn Icon angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an)
+- `icon` - wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
 
 - `staticImage` – statisches Bild
 - `href` – optionaler HTTP-Link
@@ -284,7 +284,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 }
   ```
 
-- „certCollection“ – Zertifikatssammlung auswählen oder einfach alle Sammlungen verwenden oder Let’s Encrypt überhaupt nicht verwenden.
+- „certCollection“ – Zertifikatssammlung auswählen oder einfach alle Sammlungen verwenden oder „Let’s Encrypt“ überhaupt nicht verwenden.
 - `leCollectionName` – Name der Zertifikatssammlung
 
 - `benutzerdefiniert` (nur Admin6)
@@ -336,13 +336,13 @@ Eingabefeld mit Dateiauswahl
 - „disableEdit“ – wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog
 - „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
 - `filterFiles` - wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
-- „filterByType“ – „Bilder, Code, TXT, Audio, Video“
 - `allowUpload` - erlaubtes Hochladen von Dateien
 - `allowDownload` – Download von Dateien erlaubt (Standard: true)
 - `allowCreateFolder` – erlaubte Erstellung von Ordnern
 - `allowView` – Kachel-Ansicht erlaubt (Standard: true)
 - `showToolbar` – Symbolleiste anzeigen (Standard: true)
 - „selectOnlyFolders“ – Benutzer kann nur Ordner auswählen (z. B. für den Upload-Pfad)
+- `trim` - kürzt den Dateinamen
 
 - `imageSendTo` - zeigt das Bild, das vom Backend als Base64-String empfangen wurde
 - „Breite“ – Breite des QR-Codes in px
@@ -481,7 +481,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 
 - `uuid` – Iobroker-UUID anzeigen
 - `port` - Spezieller Eintrag für Ports. Es wird automatisch geprüft, ob der Port von anderen Instanzen verwendet wird und es wird eine Warnung angezeigt
-- `min` - minimal zulässige Portnummer. Sie kann 0 sein. Wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt.
+- `min` - minimal zulässige Portnummer. Sie könnte 0 sein. Und wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt.
 
 - `deviceManager` - Gerätemanager anzeigen. Dafür muss der Adapter das Gerätemanagerprotokoll unterstützen. Siehe iobroker/dm-utils.
 
@@ -531,7 +531,7 @@ Alle Typen könnten haben:
 - `helpLink` – href zur Hilfe (kann nur zusammen mit `help` verwendet werden)
 - „style“ – CSS-Stil in ReactJS-Notation: „radiusBorder“ und nicht „radius-border“.
 - `darkStyle` – CSS-Stil für den Dunkelmodus
-- „validator“ – JS-Funktion: „true“, kein Fehler, „false“, Fehler
+- „validator“ – JS-Funktion: true, kein Fehler, false, Fehler
 - `validatorErrorText` - Text, der angezeigt wird, wenn der Validator fehlschlägt
 - `validatorNoSaveOnError` - Deaktivieren der Schaltfläche „Speichern“, wenn ein Fehler auftritt
 - `tooltip` – optionaler Tooltip
@@ -554,7 +554,7 @@ Alle Typen könnten haben:
 - „Text“ – Text des Bestätigungsdialogs
 - „Titel“ – Titel des Bestätigungsdialogs
 - `ok` - Text für die OK-Schaltfläche
-- `Abbrechen` - Text für die Schaltfläche „Abbrechen“
+- `cancel` - Text für die Schaltfläche „Abbrechen“
 - „Typ“ – Einer von: „Info“, „Warnung“, „Fehler“, „Keiner“
 - `alsoDependsOn` – Array mit Attributen, um den Zustand auch anhand dieser Attribute zu prüfen
 
@@ -623,7 +623,7 @@ data: {
 In diesem Fall muss die Eingabe Text sein, wobei `__different__` angezeigt wird, mit der Autovervollständigungsoption von drei möglichen Werten.
 Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
 
-Boolesche Werte müssen unbestimmt sein, wenn der Wert [false, true] ist.
+Boolesche Werte müssen Unbestimmtheit unterstützen, wenn der Wert [false, true] ist.
 
 Für unveränderte `__different__` muss der Wert different zurückgegeben werden:
 
@@ -777,7 +777,7 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 
 Die folgenden Variablen sind in der JS-Funktion in den Adaptereinstellungen verfügbar:
 
-- „data“ – native Einstellungen für diese Instanz oder aktuelle Zeile in der Tabelle (um auf alle Einstellungen zuzugreifen, verwenden Sie „globalData“)
+- „data“ – native Einstellungen für diese Instanz oder aktuelle Zeile in der Tabelle (um auf alle Einstellungen zuzugreifen, verwenden Sie globalData)
 - `_system` – Systemkonfiguration
 - `_alive` – ist die Instanz aktiv
 - `_common` – allgemeine Einstellungen für diese Instanz

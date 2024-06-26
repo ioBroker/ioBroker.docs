@@ -13,7 +13,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: WOfJHntlnct290cbQ5De/aApPS0pIWQ0PuQtdfMmHik=
+hash: 1CX57riukuEhE4auf0j8p9GvmB3Glsfpz5vS9su8S3c=
 ---
 ![Logo](../../../en/admin/telegram.png)
 
@@ -99,24 +99,23 @@ Um ein Foto zu senden, senden Sie einfach einen Pfad zur Datei anstelle von Text
 Beispiel zum Senden eines Screenshots von der Webcam an Telegram:
 
 ```javascript
-var request = require('request');
-var fs      = require('fs');
-
 function sendImage() {
-    request.get({url: 'http://login:pass@ipaddress/web/tmpfs/snap.jpg', encoding: 'binary'}, function (err, response, body) {
-        fs.writeFile('/tmp/snap.jpg', body, 'binary', function (err) {
-
+    httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png', { responseType: 'arraybuffer' }, async (err, response) => {
         if (err) {
             console.error(err);
         } else {
-            console.log('Snapshot sent');
-            sendTo('telegram.0', '/tmp/snap.jpg');
-            //sendTo('telegram.0', {text: '/tmp/snap.jpg', caption: 'Snapshot'});
+            const tempFilePath = createTempFile('telegram-image.png', response.data);
+
+            sendTo('telegram.0', 'send', {
+                text: tempFilePath,
+                caption: 'A wonderful adapter',
+                user: 'yourUsername',
+            });
         }
-      });
     });
 }
-on('someState', function (obj) {
+
+on('0_userdata.0.someState', (obj) => {
     if (obj.state.val) {
         // send 4 images: immediately, in 5, 15 and 30 seconds
         sendImage();
@@ -479,7 +478,7 @@ Anschließend könnte die Option „Neue Benutzer nicht authentifizieren“ akti
 Um diese Option nutzen zu können, muss die Option „Authentifizierte Benutzer merken“ aktiviert sein.
 
 ## Anrufe per Telegramm
-Dank der API [rufmichbot an](https://www.callmebot.com/) können Sie Ihren Telegramm-Account anrufen und einige Texte werden über die TTS-Engine vorgelesen.
+Dank der API [ruf mich an](https://www.callmebot.com/) können Sie Ihren Telegramm-Account anrufen und einige Texte werden über die TTS-Engine vorgelesen.
 
 Um dies vom JavaScript-Adapter aus zu tun, rufen Sie einfach Folgendes auf:
 
@@ -493,7 +492,7 @@ oder
 sendTo('telegram.0', 'call', {
     text: 'Some text',
     user: '@Username', // optional and the call will be done to the first user in telegram.0.communicate.users.
-    language: 'de-DE-Standard-A', // optional and the system language will be taken
+    lang: 'de-DE-Standard-A', // optional and the system language will be taken
     repeats: 0, // number of repeats
 });
 ```
@@ -540,12 +539,12 @@ Mögliche Werte für Sprache:
 - `en-GB-Standard-C` - Englisch (UK) (weiblich, 2 Stimmen)
 - `en-GB-Standard-D` - Englisch (UK) (Männlich, 2 Stimmen)
 - `en-US-Standard-B` - Englisch (US) (Männliche Stimme)
-- `en-US-Standard-C` - Englisch (US) (weibliche Stimme)
+- `en-US-Standard-C` – Englisch (US) (weibliche Stimme)
 - `en-US-Standard-D` - Englisch (US) (Männlich, 2 Stimmen)
 - `en-US-Standard-E` - Englisch (US) (weiblich, 2 Stimmen)
 - `fil-PH-Standard-A` – Filipino (Philippinen) (weibliche Stimme)
 - `fi-FI-Standard-A` - Finnisch (Finnland) (weibliche Stimme)
-- `fr-CA-Standard-A` – Französisch (Kanada) (weibliche Stimme)
+- `fr-CA-Standard-A` - Französisch (Kanada) (weibliche Stimme)
 - `fr-CA-Standard-B` - Französisch (Kanada) (Männerstimme)
 - `fr-CA-Standard-C` - Französisch (Kanada) (weiblich, 2 Stimmen)
 - `fr-CA-Standard-D` - Französisch (Kanada) (Männlich, 2 Stimmen)
@@ -605,7 +604,7 @@ Mögliche Werte für Sprache:
 - `tr-TR-Standard-C` - Türkisch (Türkei) (weiblich, 2 Stimmen)
 - `tr-TR-Standard-D` - Türkisch (Türkei) (weiblich, 3 Stimmen)
 - `tr-TR-Standard-E` - Türkisch (Türkei) (Männerstimme)
-- `uk-UA-Standard-A` - Ukrainisch (Ukraine) (weibliche Stimme)
+- `uk-UA-Standard-A` - Ukrainisch (Ukraine) (Weibliche Stimme)
 - `vi-VN-Standard-A` – Vietnamesisch (Vietnam) (Weibliche Stimme)
 - `vi-VN-Standard-B` – Vietnamesisch (Vietnam) (Männliche Stimme)
 - `vi-VN-Standard-C` - Vietnamesisch (Vietnam) (weiblich, 2 Stimmen)
@@ -705,7 +704,7 @@ BotFather: Success! The new status is: DISABLED. /help
 ```
 
 ## So senden Sie Nachrichten über Node-Red
-Für einfache Textnachrichten an alle Benutzer fügen Sie den Text einfach in die Nutzlast der Nachricht ein und senden ihn an den ioBroker-Status `telegram.INSTANCE.communicate.response`.
+Für einfache Textnachrichten an alle Benutzer fügen Sie den Text einfach in die Nutzlast der Nachricht ein und senden Sie ihn an den ioBroker-Status `telegram.INSTANCE.communicate.response`.
 
 Wenn Sie zusätzliche Optionen festlegen möchten, füllen Sie die Nutzlast mit einem JSON-Objekt, etwa:
 
@@ -727,25 +726,27 @@ Vor dem Senden an `telegram.INSTANCE.communicate.responseJson you need to string
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.2.1 (2024-04-03)
-* (PeterVoronov) An error at providing error information has been fixed.
+### **WORK IN PROGRESS**
+* (klein0r) Removed default / shadow fiel from Blockly block ask
 
-### 3.2.0 (2024-04-02)
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
-* (PeterVoronov) The current error is added as a separate property error to the response object (messageId) now.
-* (theknut) Added units to responses
-* (mcm1957) Dependencies have been updated0
+### 3.6.0 (2024-06-19)
+* (klein0r) Save videos which have been recorded with telegram (video_note)
+* (klein0r) Added answer timeout to instance configuration
+* (klein0r) Added option to send status updates to specific users
+* (klein0r) Added states for thread id (of supergroups)
 
-### 3.1.0 (2024-02-17)
-* (theknut) Option to send state updates without notification sound has been added. [#793]
-* (mcm1957) Dependencies have been updated.
+### 3.5.3 (2024-06-18)
+* (foxriver76) escape all unallowed characters when sending with notification manager
 
-### 3.0.1 (2023-12-08)
-* (foxriver76) send the actual message too via notification-manager
+### 3.5.2 (2024-06-16)
+* (foxriver76) escape more unallowed characters when sending with notification manager
 
-### 3.0.0 (2023-11-06)
-* (boergegrunicke) BREAKING CHANGE: Socks5 support has been removed.
-* (PeterVoronov ) Extended and improved the returned list of processed messages.
+### 3.5.1 (2024-06-12)
+* (klein0r) Fixed file handling for voice files
+* (klein0r) Updated dependencies
+
+### 3.5.0 (2024-06-12)
+* (klein0r) Added option to save media files into ioBroker file system (files tab)
 
 ## License
 

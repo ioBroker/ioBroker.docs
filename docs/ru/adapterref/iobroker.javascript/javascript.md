@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.javascript/javascript.md
 title: без заголовка
-hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
+hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 ---
 ## Содержание
 - [Примечание](#примечание)
@@ -99,7 +99,7 @@ hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
 - [Журнал изменений](#changelog)
 
 ## Глобальные функции
-Вы можете определить глобальные сценарии в папке `global`.
+Вы можете определить глобальные скрипты в папке `global`.
 Все глобальные сценарии доступны во всех экземплярах. Если глобальный скрипт отключен, он не будет использоваться.
 Глобальный скрипт будет просто добавлен к обычному скрипту и скомпилирован, поэтому вы не сможете обмениваться данными между скриптами через глобальные скрипты. Используйте для этого состояния.
 
@@ -225,7 +225,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 |             |            |                                                                                                                                                     |
 | изменить | строка | "eq", "ne", "gt", "ge", "lt", "le", "any" |
 |             | "экв" | (равно) Новое значение должно быть равно старому (state.val == oldState.val) |
-|             | "не" | (не равно) Новое значение не должно быть равно старому (state.val != oldState.val) **Если шаблон представляет собой строку идентификатора, это значение используется по умолчанию** |
+|             | "не" | (не равно) Новое значение не должно быть равно старому (state.val != oldState.val) **Если шаблон представляет собой id-строку, это значение используется по умолчанию** |
 |             | "гт" | (больше) Новое значение должно быть больше старого значения (state.val > oldState.val) |
 |             | "ге" | (больше или равно) Новое значение должно быть больше или равно старому (state.val >= oldState.val) |
 |             | "л" | (меньше) Новое значение должно быть меньше старого (state.val < oldState.val) |
@@ -266,7 +266,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 |             |            |                                                                                                                                                     |
 | ЖК | строка | Временная отметка последнего изменения должна быть равна заданной (state.lc == lc) |
 | ЛКГТ | строка | Временная отметка последнего изменения не должна быть равна заданной (state.lc != lc) |
-| ЖКГе | строка | Отметка времени последнего изменения должна быть больше заданного значения (state.lc > lc) |
+| ЖКГе | строка | Временная отметка последнего изменения должна быть больше заданного значения (state.lc > lc) |
 | лкЛт | строка | Временная отметка последнего изменения должна быть больше или равна заданной (state.lc >= lc) |
 | лкле | строка | Временная отметка последнего изменения должна быть меньше заданной (state.lc < lc) |
 |             |            |                                                                                                                                                     |
@@ -504,7 +504,7 @@ schedule({ hour: 12, minute: 30 }, () => {
 - `конец`
 - `правило`
 
-start и end определяют объект Date DateString или количество миллисекунд с 01 января 1970 года 00:00:00 UTC.
+начало и конец определяют объект Date, DateString или количество миллисекунд с 01 января 1970 года 00:00:00 UTC.
 Правило представляет собой строку расписания с [Cron-синтаксис](http://en.wikipedia.org/wiki/Cron) или объект:
 
 ```js
@@ -657,7 +657,7 @@ getAttr({ attr1: { attr2: 5 } }, 'attr1.attr2');
 
 Возвращает атрибут объекта. Путь к атрибуту может быть вложенным, как в примере.
 
-Если первый атрибут — строка, функция попытается проанализировать строку как строку JSON.
+Если первым атрибутом является строка, функция попытается проанализировать строку как строку JSON.
 
 ### GetAstroDate
 ```js
@@ -718,7 +718,7 @@ compareTime(startTime, endTime, operation, timeToCompare);
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
 ```
 
-Также можно определить время со смещением:
+Также возможно определить время со смещением:
 
 ```js
 log(compareTime({ astro: 'sunsetStart', offset: 30 }, { astro: 'sunrise', offset: -30 }, '>') ? 'Now is at least 30 minutes after sunset' : 'No idea');
@@ -995,17 +995,42 @@ getEnums(enumName);
 ```js
 getEnums('rooms');
 
-// returns:
+// returns all rooms - e.g.:
 [
     {
-        "id":"enum.rooms.LivingRoom",
-        "members":["hm-rpc.0.JEQ0024123.1","hm-rpc.0.BidCoS-RF.4"],
-        "name": "Living room"
+        id: 'enum.rooms.LivingRoom',
+        members: [ 'hm-rpc.0.JEQ0024123.1', 'hm-rpc.0.BidCoS-RF.4' ],
+        name: 'Living room'
     },
     {
-        "id":"enum.rooms.Bath",
-        "members":["hm-rpc.0.JEQ0024124.1","hm-rpc.0.BidCoS-RF.5"],
-        "name": "Bath"
+        id: 'enum.rooms.Bath',
+        members: [ 'hm-rpc.0.JEQ0024124.1', 'hm-rpc.0.BidCoS-RF.5' ],
+        name: 'Bath'
+    }
+]
+
+getEnums('functions');
+
+// returns all functions - e.g.:
+[
+    {
+        id: 'enum.functions.light',
+        members: [
+            '0_userdata.0.AnotherOne',
+            '0_userdata.0.MyLigh'
+        ],
+        name: {
+            en: 'Light',
+            ru: 'Свет',
+            de: 'Licht',
+            fr: 'Lumière',
+            it: 'Leggero',
+            nl: 'Licht',
+            pl: 'Lekki',
+            pt: 'Luz',
+            es: 'Luz',
+            'zh-cn': '光'
+        }
     }
 ]
 ```
@@ -1030,7 +1055,7 @@ createState(name, initialValue, forceCreation, common, native, callback);
 Если вы установите в `common` флаг `alias` на `true`, то псевдоним будет создан с тем же именем (но в пространстве имен `alias.0`), что и состояние.
 Псевдоним создается только в том случае, если он еще не существует.
 
-Следующие настройки для псевдонимов также действительны:
+Следующие настройки псевдонимов также действительны:
 
 ```js
 common => {
@@ -1344,7 +1369,7 @@ adapterSubscribe(id);
 
 Отправьте адаптеру сообщение «подписаться», чтобы проинформировать адаптер. Если адаптер имеет общий флаг «подписка», в случае функции «подписка» эта функция будет вызываться автоматически.
 
-###адаптерОтписаться
+### АдаптерОтписаться
 ```js
 adapterUnsubscribe(id);
 ```
@@ -1395,7 +1420,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
 ```
 
 Этот код ищет в каналах.
-Найдите все каналы с `common.role="switch"` и принадлежащие `enum.rooms.Wohnzimmer`.
+Найдите все каналы с `common.role="switch"`, принадлежащие к `enum.rooms.Wohnzimmer`.
 Возьмите все их состояния, у которых id заканчивается на `".STATE"`, и сделайте подписку на все эти состояния.
 Если некоторые из этих состояний изменятся, обратный вызов будет вызван как для функции «on».
 
@@ -1784,7 +1809,7 @@ onMessage('messageName', (data, callback) => {
 });
 ```
 
-Подписывается на шину сообщений адаптера JavaScript и доставляет ответ через обратный вызов.
+Подписывается на шину сообщений адаптера JavaScript и доставляет ответ посредством обратного вызова.
 Ответ от скрипта, который отправляет ответ первым, будет принят как ответ, все остальные ответы будут игнорироваться.
 
 Чтобы отправить сообщение сценарию JavaScript, который затем будет получен этим обработчиком, используйте [сообщениеКому](#messageTo).
@@ -1887,7 +1912,7 @@ httpGet('http://jsonplaceholder.typicode.com/posts', (err, response) => {
 - `responseType` (строка). Поддерживаемые значения: `text` (по умолчанию) или `arraybuffer` для двоичных данных в ответе.
 - `basicAuth` (объект) – учетные данные базовой аутентификации HTTP. например `{ пользователь: 'admin', пароль: 'iobroker' }`
 - `bearerAuth` (строка) — токен для аутентификации носителя.
-- `headers` (объект) – дополнительные пользовательские HTTP-заголовки, например. `{ 'Accept-Language': 'en-GB,en;q=0.9' }`
+- `headers` (объект) – дополнительные пользовательские заголовки HTTP, например. `{ 'Accept-Language': 'en-GB,en;q=0.9' }`
 - `validateCertificate` (логическое значение) – разрешает самозаверяющие сертификаты, если значение `false`
 
 ```js
@@ -1994,16 +2019,33 @@ httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/a
 ```
 
 ```js
-onFile('0_userdata.0', 'test.jpg', true, async (id, fileName, size, data, mimeType) => {
+onFile('0_userdata.0', '*.jpg', true, async (id, fileName, size, data, mimeType) => {
     const tempFilePath = createTempFile(fileName, response.data);
 
     // Use the new path in other scripts (e.g. sendTo)
 });
 ```
 
+```js
+readFile('0_userdata.0', 'test.jpg', (err, data, mimeType) => {
+    if (err) {
+        console.error(err);
+    } else {
+        const tempFilePath = createTempFile('test.jpg', data);
+
+        // Use the new path in other scripts (e.g. sendTo)
+        sendTo('telegram.0', 'send', {
+            text: tempFilePath,
+            caption: 'Just a test image',
+            user: 'yourUsername',
+        });
+    }
+});
+```
+
 ## Глобальные переменные скрипта
 ###имя сценария
-`scriptName` - Имя скрипта.
+`scriptName` — Имя скрипта.
 
 ```js
 log(`Script ${scriptName} started!`);

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
 title: kein Titel
-hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
+hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 ---
 ## Inhalt
 - [Anmerkung](#Anmerkung)
@@ -60,7 +60,7 @@ hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
 - [Zeitüberschreitung löschen](#Zeitüberschreitung löschen)
 - [Sofort festlegen](#Sofort festlegen)
 - [formatDate](#formatdate)
-- [formatTimeDiff](#formattimediff)
+– [formatTimeDiff](#formattimediff)
 - [getDateObject](#getDateObject)
 – [Formatwert](#Formatwert)
 - [adapterAbonnieren](#adaptersubscribe)
@@ -136,7 +136,7 @@ Um andere Module zu verwenden, geben Sie den Namen (und die Version) des Moduls 
 ### Konsole - Gibt die Nachricht ins Protokoll aus
 Die Verwendung ist die gleiche wie in `javascript`
 
-### Exec – führe einen Betriebssystembefehl aus, etwa `cp file1 file2`
+### Exec – führe einen Betriebssystembefehl aus, wie `cp file1 file2`
 ```js
 exec(cmd, [options], callback);
 ```
@@ -268,7 +268,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | lcGt | Zeichenfolge | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (state.lc != lc) |
 | lcGe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer sein als der angegebene Wert (state.lc > lc) |
 | lcLt | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer oder gleich dem angegebenen sein (state.lc >= lc) |
-| lcLe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss kleiner als der angegebene sein (state.lc < lc) |
+| lcLe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss kleiner sein als der angegebene (state.lc < lc) |
 |             |            |                                                                                                                                                     |
 | oldLc | Zeichenfolge | Der Zeitstempel der letzten Änderung muss mit dem angegebenen übereinstimmen (oldState.lc == lc) |
 | oldLcGt | Zeichenfolge | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (oldState.lc != lc) |
@@ -280,7 +280,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | | RegExp | Kanal-ID stimmt mit regulärem Ausdruck überein |
 | | Array | Kanal-ID stimmt mit einer Liste zulässiger Kanal-IDs überein |
 |             |            |                                                                                                                                                     |
-| Kanalname | Zeichenfolge | Der Kanalname muss dem angegebenen entsprechen |
+| Kanalname | Zeichenfolge | Der Kanalname muss mit dem angegebenen übereinstimmen |
 | | RegExp | Kanalname stimmt mit regulärem Ausdruck überein |
 | | Array | Kanalname stimmt mit einer Liste zulässiger Kanalnamen überein |
 |             |            |                                                                                                                                                     |
@@ -712,7 +712,7 @@ Die Zeit kann ein Datumsobjekt oder ein Datum mit Zeit oder nur die Zeit sein.
 
 Für die Zeitdefinition können Astronamen verwendet werden. Alle 3 Parameter können als Astrozeit eingestellt werden.
 Folgende Werte sind möglich: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
-Siehe [Astro](#astro--function) für Details.
+Weitere Einzelheiten finden Sie unter [Astro](#astro--function).
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -882,12 +882,12 @@ const stateObject = await getStateAsync(id);
 
 Wie getState, aber mit `promise`.
 
-### ExistiertZustand
+### ExistiertStatus
 ```js
 existsState(id, (err, isExists) => {});
 ```
 
-Wenn die Option „Beim Start nicht alle Zustände abonnieren“ deaktiviert ist, kann ein einfacherer Aufruf verwendet werden:
+Wenn die Option „Beim Start nicht alle Zustände abonnieren“ deaktiviert ist, kann man einen einfacheren Aufruf verwenden:
 
 ```js
 existsState(id)
@@ -919,7 +919,7 @@ setObject(id, obj, callback);
 
 Schreibt ein Objekt in die Datenbank. Dieser Befehl kann in den Adaptereinstellungen deaktiviert werden. Verwenden Sie diese Funktion mit Vorsicht, da die globalen Einstellungen beschädigt werden können.
 
-Sie sollten es verwenden, um ein vorhandenes Objekt zu **ändern**, das Sie vorher gelesen haben, zB:
+Sie sollten es verwenden, um ein vorhandenes Objekt zu **ändern**, das Sie zuvor gelesen haben, zB:
 
 ```js
 const obj = getObject('adapter.N.objectName');
@@ -995,17 +995,42 @@ Holen Sie sich die Liste der vorhandenen Aufzählungen mit Mitgliedern, wie:
 ```js
 getEnums('rooms');
 
-// returns:
+// returns all rooms - e.g.:
 [
     {
-        "id":"enum.rooms.LivingRoom",
-        "members":["hm-rpc.0.JEQ0024123.1","hm-rpc.0.BidCoS-RF.4"],
-        "name": "Living room"
+        id: 'enum.rooms.LivingRoom',
+        members: [ 'hm-rpc.0.JEQ0024123.1', 'hm-rpc.0.BidCoS-RF.4' ],
+        name: 'Living room'
     },
     {
-        "id":"enum.rooms.Bath",
-        "members":["hm-rpc.0.JEQ0024124.1","hm-rpc.0.BidCoS-RF.5"],
-        "name": "Bath"
+        id: 'enum.rooms.Bath',
+        members: [ 'hm-rpc.0.JEQ0024124.1', 'hm-rpc.0.BidCoS-RF.5' ],
+        name: 'Bath'
+    }
+]
+
+getEnums('functions');
+
+// returns all functions - e.g.:
+[
+    {
+        id: 'enum.functions.light',
+        members: [
+            '0_userdata.0.AnotherOne',
+            '0_userdata.0.MyLigh'
+        ],
+        name: {
+            en: 'Light',
+            ru: 'Свет',
+            de: 'Licht',
+            fr: 'Lumière',
+            it: 'Leggero',
+            nl: 'Licht',
+            pl: 'Lekki',
+            pt: 'Luz',
+            es: 'Luz',
+            'zh-cn': '光'
+        }
     }
 ]
 ```
@@ -1055,7 +1080,7 @@ common => {
 Es ist ein Kurztyp von createState möglich:
 
 - `createState('myDatapoint')` - erstellt einfach einen Datenpunkt, wenn er nicht existiert
-- `createState('myDatapoint', 1)` - Datenpunkt erstellen, falls er nicht existiert und mit dem Wert 1 initialisieren
+- `createState('myDatapoint', 1)` - Datenpunkt erstellen, wenn er nicht existiert und mit dem Wert 1 initialisieren
 - `createState('myDatapoint', { type: 'string', role: 'json', read: true, write: false }, () => { log('created'); });` – mit allgemeinen Definitionen wie Typ, Lesen, Schreiben und Rolle
 - `createState('myDatapoint', { name: 'Mein eigener Datenpunkt', unit: '°C' }, () => { log('erstellt'); });`
 - `createState('myDatapoint', 1, { name: 'Mein eigener Datenpunkt', unit: '°C' })` - Datenpunkt erstellen, wenn er nicht mit spezifischem Namen und Einheiten existiert
@@ -1085,14 +1110,14 @@ Löschen Sie einfach den Datenpunkt, falls vorhanden.
 await deleteStateAsync(name);
 ```
 
-Wie `deleteState`, aber das Versprechen wird zurückgegeben.
+Dasselbe wie `deleteState`, aber das Versprechen wird zurückgegeben.
 
 ### Alias erstellen
 ```js
 createAlias(name, alias, forceCreation, common, native, callback);
 ```
 
-Erstellen Sie einen Alias im Bereich `alias.0`, falls dieser nicht existiert, z. B. `javascript.0.myalias`, und verweisen Sie auf einen Status oder Lese-/Schreibstatus.
+Erstellen Sie einen Alias im Bereich `alias.0`, falls dieser nicht vorhanden ist, z. B. `javascript.0.myalias`, und verweisen Sie auf einen Status oder Lese-/Schreibstatus.
 Die gemeinsame Definition wird aus dem gelesenen Alias-ID-Objekt übernommen, aber eine bereitgestellte gemeinsame Definition hat Vorrang.
 
 #### Parameter:
@@ -1166,7 +1191,7 @@ const res = await sendToAsync('sql.0', 'getEnabledDPs', {});
 log(JSON.stringify(res));
 ```
 
-### SendToHost
+### SendeAnHost
 ```js
 sendToHost(hostName, command, message, callback);
 ```
@@ -1248,9 +1273,9 @@ formatDate(millisecondsOrDate, format);
 - `millisecondsOrDate`: Anzahl der Millisekunden aus state.ts oder state.lc (Anzahl der Millisekunden vom 01.01.1970 00:00:00) oder Javascript *new Date()*-Objekt oder Anzahl der Millisekunden aus *(new Date().getTime())*
 - `format`: Kann `null` sein, dann wird das Systemzeitformat verwendet, andernfalls
 
-* YYYY, JJJJ, ГГГГ – vollständiges Jahr, z. B. 2015
+* YYYY, JJJJ, ГГГГ - vollständiges Jahr, z. B. 2015
 * YY, JJ, ГГ - kurzes Jahr, zB 15
-* MM, ММ (kyrillisch) – vollständiger Monat, z. B. 01
+* MM, ММ (kyrillisch) – vollständiger Monat, z. B. 01
 * M, М (kyrillisch) - kurzer Monat, z. B. 1
 * TT, TT, ДД - ganzer Tag, zB 02
 * D, T, Ä - kurzer Tag, z. B. 2
@@ -1483,7 +1508,7 @@ writeFile('vis.0', '/screenshots/1.png', data, (error) => {
 });
 ```
 
-### DelFile
+### Datei löschen
 ```js
 delFile(adapter, fileName, (error) => {});
 ```
@@ -1614,7 +1639,7 @@ getHistory({
     });
 ```
 
-**Hinweis:** Natürlich muss der Verlauf zuerst für die ausgewählte ID im Administrator aktiviert werden.
+**Hinweis: ** Natürlich muss der Verlauf zuerst für die ausgewählte ID im Administrator aktiviert werden.
 
 ### Skript ausführen
 ```js
@@ -1624,7 +1649,7 @@ runScript('scriptName', () => {
 });
 ```
 
-Startet andere Skripte (und auch sich selbst) oder startet sie neu, und zwar anhand des Namens.
+Startet andere Skripte (und auch sich selbst) oder startet sie neu anhand des Namens.
 
 ```js
 // restart script
@@ -1977,7 +2002,7 @@ httpPost(
 );
 ```
 
-### TempDatei erstellen
+### Temporäre Datei erstellen
 *Erfordert Version >= 8.3.0*
 
 ```js
@@ -1994,10 +2019,27 @@ httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/a
 ```
 
 ```js
-onFile('0_userdata.0', 'test.jpg', true, async (id, fileName, size, data, mimeType) => {
+onFile('0_userdata.0', '*.jpg', true, async (id, fileName, size, data, mimeType) => {
     const tempFilePath = createTempFile(fileName, response.data);
 
     // Use the new path in other scripts (e.g. sendTo)
+});
+```
+
+```js
+readFile('0_userdata.0', 'test.jpg', (err, data, mimeType) => {
+    if (err) {
+        console.error(err);
+    } else {
+        const tempFilePath = createTempFile('test.jpg', data);
+
+        // Use the new path in other scripts (e.g. sendTo)
+        sendTo('telegram.0', 'send', {
+            text: tempFilePath,
+            caption: 'Just a test image',
+            user: 'yourUsername',
+        });
+    }
 });
 ```
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
+hash: sqx85/dahqva12edT+C3ZDet63lgaQKL3RYSBhBJjOc=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rct.svg)
@@ -51,11 +51,11 @@ Das Objekt „inverter_state“ zeigt den Status des Wechselrichters an
 * 6 -> 'Powercheck (Entscheidung, ob noch genügend Energie zum Starten vorhanden ist oder nicht)'
 * 7 -> 'Symmetrie (DC-Link-Ausrichtung)'
 * 8 -> 'Relaistest'
-* 9 -> ‚Netzpassiv (Wechselrichter bezieht Strom aus dem Netz ohne Brückentaktung)‘
-* 10 -> ‚Fledermaus passiv vorbereiten‘
-* 11 -> ‚Batteriepassage (netzunabhängig)‘
+* 9 -> 'Netz passiv (Wechselrichter bezieht Strom aus dem Netz ohne Brückentaktung)'
+* 10 -> 'Batterie passiv vorbereiten'
+* 11 -> ‚Batterie passiv (netzunabhängig)‘
 * 12 -> 'Hardwaretest'
-* 13 -> 'Einspeisung'
+* 13 -> 'Netzeinspeisung'
 
 ## Bekannte Probleme
 Keiner
@@ -73,16 +73,15 @@ Keiner
 ### 1.2.9 (2024-05-17)
 * (Andreas Ruttkamp) wrong type for next_calib_date corrected
 
-
 ### 1.2.8 (2024-05-16)
 * (NCIceWolf) Implementation of new adminUI
 * (Andreas Ruttkamp) index_m.html deleted
 * (Andreas Ruttkamp) Datatype battery_stack_cycles corrected
 * (NCIceWolf) style.css deleted (not needed for json admin)
 * (NCIceWolf) removed tab-materialize (leftover from initial adapter creation)
-* (NCIceWolf) updated minimum js-controller version to >= 5.0.0 (current: 5.0.19)
-* (NCIceWolf) added minimum admin version to >= 5.0.0 (current stable : 6.13.16), could even be >= 6.0.0
-* (NCIceWolf) prepared translations (further handling -> https://github.com/ioBroker/adapter-dev#manage-translations)
+* (NCIceWolf) updated minimum js-controller version to >= 5.0.0
+* (NCIceWolf) added minimum admin version to >= 5.0.0
+* (NCIceWolf) prepared translations for adminUI
 
 ### 1.2.7 (2024-05-05)
 * (Andreas Ruttkamp) prim_sm.state added

@@ -5,7 +5,6 @@
 ![NPM version (stable)](https://ioBroker.live/badges/kostal-piko-ba-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)](https://www.npmjs.com/package/iobroker.kostal-piko-ba)
 ![Number of Installations (latest)](https://ioBroker.live/badges/kostal-piko-ba-installed.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba)
 
 **CI-Tests:**
 ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
@@ -35,9 +34,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 4.0.1 (xx.06.2024) WORK in PROGRESS
+### 4.0.1 (24.06.2024)
 
-* (HombachC) dependency updates
+* (HombachC) dependency updates, removed unfunctional snyk tests
 
 ### 4.0.0 (21.04.2024)
 

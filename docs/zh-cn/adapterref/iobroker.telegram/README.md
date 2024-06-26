@@ -13,7 +13,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: WOfJHntlnct290cbQ5De/aApPS0pIWQ0PuQtdfMmHik=
+hash: 1CX57riukuEhE4auf0j8p9GvmB3Glsfpz5vS9su8S3c=
 ---
 ![标识](../../../en/admin/telegram.png)
 
@@ -21,7 +21,8 @@ hash: WOfJHntlnct290cbQ5De/aApPS0pIWQ0PuQtdfMmHik=
 ＃＃ 配置
 请求[@BotFather](https://telegram.me/botfather) 创建新的机器人`/newbot`。
 
-系统将要求您输入机器人的名称，然后输入用户名。 之后，您将获得令牌。
+系统会要求您输入机器人的名称，然后输入用户名。
+之后，您将获得令牌。
 
 ![截屏](../../../en/adapterref/iobroker.telegram/img/chat.png)
 
@@ -86,36 +87,35 @@ setState('telegram.0.communicate.response', '<MarkdownV2>Test message, but with 
 通过向 JSON 消息负载提供`chat_id`，您实际上可以向这些群组发送消息。
 
 为了找出`chat_id`，您必须将适配器的日志级别设置为`debug`。
-然后，您只需在希望机器人向其发送消息的组中 ping 您的机器人即可。
-请确保在消息前面放置`/`，以便机器人可以看到该消息（[如果机器人隐私已打开](#How-to-receive-messages-in-group-chats-using-telegram-adapter)）。
+然后，您只需在希望机器人发送消息的组中 ping 您的机器人即可。
+确保在消息前面放置`/`，以便机器人可以看到该消息（[如果机器人隐私已打开](#How-to-receive-messages-in-group-chats-using-telegram-adapter)）。
 然后，iobroker 日志将在日志中显示聊天 ID。
 
 ＃＃ 用法
-您可以使用带[文本到命令](https://github.com/ioBroker/ioBroker.text2command)适配器的电报。有一个预定义的通信模式，您可以以文本形式向您的家发出命令。
+您可以使用带有[文本到命令](https://github.com/ioBroker/ioBroker.text2command)适配器的电报。有一个预定义的通信模式，您可以以文本形式向您的家发出命令。
 
 要发送照片，只需发送文件路径而不是文本或 URL：`sendTo('telegram', 'absolute/path/file.png')` 或 `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`。
 
 如何将屏幕截图从网络摄像头发送到电报的示例：
 
 ```javascript
-var request = require('request');
-var fs      = require('fs');
-
 function sendImage() {
-    request.get({url: 'http://login:pass@ipaddress/web/tmpfs/snap.jpg', encoding: 'binary'}, function (err, response, body) {
-        fs.writeFile('/tmp/snap.jpg', body, 'binary', function (err) {
-
+    httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png', { responseType: 'arraybuffer' }, async (err, response) => {
         if (err) {
             console.error(err);
         } else {
-            console.log('Snapshot sent');
-            sendTo('telegram.0', '/tmp/snap.jpg');
-            //sendTo('telegram.0', {text: '/tmp/snap.jpg', caption: 'Snapshot'});
+            const tempFilePath = createTempFile('telegram-image.png', response.data);
+
+            sendTo('telegram.0', 'send', {
+                text: tempFilePath,
+                caption: 'A wonderful adapter',
+                user: 'yourUsername',
+            });
         }
-      });
     });
 }
-on('someState', function (obj) {
+
+on('0_userdata.0.someState', (obj) => {
     if (obj.state.val) {
         // send 4 images: immediately, in 5, 15 and 30 seconds
         sendImage();
@@ -271,7 +271,7 @@ sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123'});
 以下方法允许您更改消息历史记录中的现有消息，而不是发送带有操作结果的新消息。这对于使用回调查询的*内联键盘*消息最有用，但也有助于减少与常规聊天机器人对话中的混乱。
 
 ### 编辑消息文本
-使用此方法编辑机器人发送的文本或通过机器人发送的文本（适用于内联机器人）。成功时，如果机器人发送了编辑后的消息，则返回编辑后的消息；否则返回 *True*。
+使用此方法编辑由机器人或通过机器人发送的文本（适用于内联机器人）。成功时，如果机器人发送了编辑的消息，则返回编辑的消息；否则返回 *True*。
 
 ```javascript
 if (command === '1_2') {
@@ -434,7 +434,7 @@ on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
 
 ## 特殊命令
 ### /state stateName - 读取状态值
-如果您现在知道 ID，则可以请求状态值：
+如果你知道 ID，则可以请求状态值：
 
 ```
 /state system.adapter.admin.0.memHeapTotal
@@ -467,7 +467,7 @@ Telegram 只能与 HTTPS 服务器一起工作，但您可以使用 **let's encr
 - Let's encrypt 选项 - 设置 **let's encrypt** 证书非常简单。请阅读[此处](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) 了解详情。
 
 ## 高级安全性
-可以禁用用户身份验证。这样新用户就无法进行身份验证。
+用户身份验证可能会被禁用。这样新用户就无法进行身份验证。
 
 要创建可信用户列表，首先禁用“不验证新用户”选项，然后通过发送`/password <PASSWORD>` 消息来验证应该在可信列表中的所有用户。
 
@@ -492,7 +492,7 @@ sendTo('telegram.0', 'call', 'Some text');
 sendTo('telegram.0', 'call', {
     text: 'Some text',
     user: '@Username', // optional and the call will be done to the first user in telegram.0.communicate.users.
-    language: 'de-DE-Standard-A', // optional and the system language will be taken
+    lang: 'de-DE-Standard-A', // optional and the system language will be taken
     repeats: 0, // number of repeats
 });
 ```
@@ -562,7 +562,7 @@ sendTo('telegram.0', 'call', {
 - `id-ID-Standard-A` - 印尼语（印度尼西亚）（女声）
 - `id-ID-Standard-B` - 印尼语（印度尼西亚）（男声）
 - `id-ID-Standard-C` - 印尼语（印度尼西亚）（男 2 声）
-- `it-IT-Standard-A` - 意大利语（意大利）（女声 - 如果系统语言为 IT 且未提供语言则使用）
+- `it-IT-Standard-A` - 意大利语（意大利）（女声 - 如果系统语言是 IT 并且未提供任何语言，则将使用女声）
 - `it-IT-Standard-B` - 意大利语（意大利）（女声 2）
 - `it-IT-Standard-C` - 意大利语（意大利）（男声）
 - `it-IT-Standard-D` - 意大利语（意大利）（男 2 声）
@@ -615,7 +615,7 @@ sendTo('telegram.0', 'call', {
 - 地点
 
 ## 根据管理员设置自动内联键盘（Easy-Keyboard）
-对于每个状态，可以启用附加设置：
+对于每个状态，都可以启用附加设置：
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
 
@@ -647,7 +647,7 @@ sendTo('telegram.0', 'call', {
 
 ### 按钮在一行中
 一个设备一行中必须显示多少个按钮。
-由于名称较长，可能最好一行中只显示 2 个（甚至只有一个）按钮。
+由于名称较长，一行中可能最好只显示 2 个（甚至只有一个）按钮。
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
@@ -679,7 +679,7 @@ sendTo('telegram.0', 'call', {
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
 
-## 如何使用电报适配器接收群聊中的消息
+## 如何使用电报适配器在群聊中接收消息
 如果电报机器人在私人聊天中收到用户发送给机器人的消息，但没有收到用户在群聊中发送的消息。
 在这种情况下，您必须与`@botfather`交谈并禁用隐私模式。
 
@@ -726,25 +726,27 @@ msg.payload = {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 3.2.1 (2024-04-03)
-* (PeterVoronov) An error at providing error information has been fixed.
+### **WORK IN PROGRESS**
+* (klein0r) Removed default / shadow fiel from Blockly block ask
 
-### 3.2.0 (2024-04-02)
-* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
-* (PeterVoronov) The current error is added as a separate property error to the response object (messageId) now.
-* (theknut) Added units to responses
-* (mcm1957) Dependencies have been updated0
+### 3.6.0 (2024-06-19)
+* (klein0r) Save videos which have been recorded with telegram (video_note)
+* (klein0r) Added answer timeout to instance configuration
+* (klein0r) Added option to send status updates to specific users
+* (klein0r) Added states for thread id (of supergroups)
 
-### 3.1.0 (2024-02-17)
-* (theknut) Option to send state updates without notification sound has been added. [#793]
-* (mcm1957) Dependencies have been updated.
+### 3.5.3 (2024-06-18)
+* (foxriver76) escape all unallowed characters when sending with notification manager
 
-### 3.0.1 (2023-12-08)
-* (foxriver76) send the actual message too via notification-manager
+### 3.5.2 (2024-06-16)
+* (foxriver76) escape more unallowed characters when sending with notification manager
 
-### 3.0.0 (2023-11-06)
-* (boergegrunicke) BREAKING CHANGE: Socks5 support has been removed.
-* (PeterVoronov ) Extended and improved the returned list of processed messages.
+### 3.5.1 (2024-06-12)
+* (klein0r) Fixed file handling for voice files
+* (klein0r) Updated dependencies
+
+### 3.5.0 (2024-06-12)
+* (klein0r) Added option to save media files into ioBroker file system (files tab)
 
 ## License
 

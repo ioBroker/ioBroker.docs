@@ -106,10 +106,11 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.0 (2024-06-23)
 * (mcm1957) Adapter requires nodejs >= 18 and js-controller >= 5 now.
 * (mcm1957) Dependencies have been updated.
 * (Sneak-L8) fix url for download page at Keba website
+* (Sneak-L8) fix lint problems by replacing double by single quotes
 
 ### 2.1.1 (2024-03-16)
 * (fischmi) fix error when chanigig dynamic SoC parameter
@@ -129,14 +130,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 
 ### 2.0.1 (2023-07-10)
 * (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
-
-### 2.0.0 (2023-06-26)
-* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available) including Keba KeContact S10
-* (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
-* (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
-* (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
-* (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
-* (Sneak-L8) added new Keba model Company Car Wall Box MID (sentry IOBROKER-KECONTACT-1K)
 
 ## Legal
 

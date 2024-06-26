@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
+hash: sqx85/dahqva12edT+C3ZDet63lgaQKL3RYSBhBJjOc=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rct.svg)
@@ -51,10 +51,10 @@ hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
 * 7 -> ‘对称性 (DC-link 对齐)’
 * 8 -> ‘中继测试’
 * 9 -> ‘电网无源 (逆变器从电网获取电力，无需桥接时钟)’
-* 10 -> ‘准备蝙蝠被动’
+* 10 -> ‘准备电池被动’
 * 11 -> ‘电池被动（离网）’
 * 12 -> ‘硬件测试’
-* 13 -> ‘单数’
+* 13 -> ‘网格供电’
 
 ＃＃ 已知的问题
 没有任何
@@ -72,16 +72,15 @@ hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
 ### 1.2.9 (2024-05-17)
 * (Andreas Ruttkamp) wrong type for next_calib_date corrected
 
-
 ### 1.2.8 (2024-05-16)
 * (NCIceWolf) Implementation of new adminUI
 * (Andreas Ruttkamp) index_m.html deleted
 * (Andreas Ruttkamp) Datatype battery_stack_cycles corrected
 * (NCIceWolf) style.css deleted (not needed for json admin)
 * (NCIceWolf) removed tab-materialize (leftover from initial adapter creation)
-* (NCIceWolf) updated minimum js-controller version to >= 5.0.0 (current: 5.0.19)
-* (NCIceWolf) added minimum admin version to >= 5.0.0 (current stable : 6.13.16), could even be >= 6.0.0
-* (NCIceWolf) prepared translations (further handling -> https://github.com/ioBroker/adapter-dev#manage-translations)
+* (NCIceWolf) updated minimum js-controller version to >= 5.0.0
+* (NCIceWolf) added minimum admin version to >= 5.0.0
+* (NCIceWolf) prepared translations for adminUI
 
 ### 1.2.7 (2024-05-05)
 * (Andreas Ruttkamp) prim_sm.state added

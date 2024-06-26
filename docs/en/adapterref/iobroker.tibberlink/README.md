@@ -98,6 +98,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 3.3.2 (2024-06-21)
+
+-   (HombachC) fix 2 security issues in dependencies
+-   (HombachC) fix sentry notified possible error
+
 ### 3.3.1 (2024-06-13)
 
 -   (HombachC) fix small sentry discovered error (#418)

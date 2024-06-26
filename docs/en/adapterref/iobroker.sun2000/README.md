@@ -35,6 +35,7 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### 0.10.0 (2024-06-14)
 * dependency and configuration updates
 * adjust roles in the control path
@@ -46,6 +47,7 @@ Work in progress
 * modbus device remains active in standby on the inverter M2,M3
 
 ### 0.8.0 (2024-04-19)
+
 * Check numerical values for plausibility #75
 * realization the "limit the power fed to grid" (Export control)
 * realization the "forcible Charge or Discharge Power"

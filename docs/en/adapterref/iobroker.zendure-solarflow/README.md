@@ -46,6 +46,18 @@ If you find the adapter useful for you and want to support my work, feel free to
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.6.7 (2024-06-23)
+
+- Fix reconnect again. Adapter will now restart every 3 hours to cleanup fully.
+
+### 1.6.6 (2024-06-21)
+
+- Tweaked recurring refresh of access token.
+
+### 1.6.5 (2024-06-20)
+
+- Fix reconnect issue. Adapter will now restart if connection semms to be broken.
+
 ### 1.6.4 (2024-06-03)
 
 - Fix services

@@ -100,7 +100,7 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 1.8.3 (2024-06-17)
+### 1.8.4 (2024-06-21)
 * (foxriver76) upgraded dependencies
 
 ### 1.8.0 (2024-02-03)

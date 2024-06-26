@@ -787,7 +787,13 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.7.3 (2024-06-20)
+* (simatec) Fix Sunprotect End-Delay
+
+### 1.7.2 (2024-06-20)
+* (simatec) Fix Shutterstate enabled
+
+### 1.7.1 (2024-06-19)
 * (simatec) Dependencies updated
 * (simatec) Docu updated
 

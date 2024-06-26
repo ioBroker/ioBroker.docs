@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rssfeed/README.md
 title: ioBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
-hash: w3/59h3RcCjkaOOU18hRd1xbdEdToo2ZhJXm55J+JcM=
+hash: 2EJ3w/l3dIfXZJMpjQqU13o7sbmZyqWpAWMgWgAWZZY=
 ---
-![标识](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed-logo.png)
+![标识](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.rssfeed.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rssfeed.svg)
@@ -36,14 +36,14 @@ iobroker upload rssfeed
 配置很简单。只有几个字段
 
 | 设置 | 描述 |
-| ------- | ----------- |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | 默认刷新（分钟）| 是多久一次再次调用 feed 的一般规范（以分钟为单位）。默认值为 60 分钟 |
 | Max Artikel（标准）| 可以在此处限制要处理的数据总量。|
 
 然后对于每个新的 feed：
 
 | 设置 | 描述 |
-| ------- | ----------- |
+| ------------- | ---------------------------------------------------------------------------------------------- |
 | 名称 | 数据点的名称。文件夹内的名称不得出现两次。|
 | 类别 | 数据点应出现的子文件夹的名称。类别必须是唯一的 |
 | Url | feed 的完整地址（使用 http:// 或 https://，见下文示例）|
@@ -56,24 +56,23 @@ iobroker upload rssfeed
 ## Vis 和小部件
 以下小部件确实存在
 
-* `RSS Feed widget 2` - 显示单个 feed
-* `RSS Feed Multi widget` - 在一个小部件中显示几个聚合的提要。
-* `RSS Feed Meta Helper` - 用于检查 feed 元数据的辅助小部件
-* `RSS Feed Article Helper 2` - 一个用于检查 feed 文章数据的辅助小部件
-* `RSS Feed Title marquee 3` - 一个用于将 feed 的标题显示为字幕的小部件
-* `JSON 模板` - 一个与 RSS 提要无关的小部件，但使用相同的技术，您可以定义自定义模板以在 vis 中显示任何 JSON 数据。
+- `RSS Feed widget 2` - 显示单个 feed
+- `RSS Feed Multi widget` - 在一个小部件中显示几个聚合的提要。
+- `RSS Feed Meta Helper` - 用于检查 feed 元数据的辅助小部件
+- `RSS Feed Article Helper 2` - 一个用于检查 feed 文章数据的辅助小部件
+- `RSS Feed Title marquee 3` - 一个用于将 Feed 的标题显示为字幕的小部件
+- `JSON 模板` - 一个与 RSS 提要无关的小部件，但使用相同的技术，您可以定义自定义模板以在 vis 中显示任何 JSON 数据。
 
 vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.rssfeed/blob/master/widgets/rssfeed/doc.html) 中找到
 
 ## 基于示例的模板
 我已使用以下 RSS 源测试过的示例：
 
-* <http://www.tagesschau.de/xml/rss2>
-* <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
+- <http://www.tagesschau.de/xml/rss2>
+- <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
 
 ```html
-<%= meta.title %>
-<% articles.forEach(function(item){ %>
+<%= meta.title %> <% articles.forEach(function(item){ %>
 <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
 <h3><%- item.title %></h3>
 <p><%- item.description %></p>
@@ -85,7 +84,7 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 使用的标签含义如下
 
 | `tag` | 描述 |
-| ----- | --------------------------------------------------------------------- |
+| ----- | ------------------------------------------------------------------- |
 | <%= | 包含的表达式/变量的内容将被转义。|
 | <%- | 所包含的表达式/变量的内容未转义。|
 | <% | 无输出，用于封闭的 javascript 指令 |
@@ -96,44 +95,43 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 ###`meta`
 这包含有关 feed 的所有元信息。以下内容可用。我认为标识符是不言自明的。在帮助中，我将更详细地描述它们。或指定内容（有些是数组）
 
-* `meta.title`
-*`meta.description`
-* `meta.link`
-*`meta.xmlurl`
-*`meta.date`
-* `meta.pubdate`
-* `meta.author`
-*`meta.language`
-* `meta.image`
-* `meta.favicon`
-* `meta.版权`
-*`meta.generator`
-*`meta.categories`
+-`meta.title`
+-`meta.description`
+- `meta.link`
+-`meta.xmlurl`
+-`meta.date`
+- `meta.pubdate`
+-`meta.author`
+-`meta.language`
+-`meta.image`
+- `meta.favicon`
+- `meta.copyright`
+-`meta.generator`
+-`meta.categories`
 
 #### `articles`
 是一个包含单个元素的数组（javascript 数组）。每个元素都具有以下属性。
 例如，为了适合，我将在其前面添加前缀 item。但是如果您愿意，您可以自己选择。只需在循环（forEach）中相应地命名即可。在这里，标识符也是不言自明的。并非所有属性都在每个 feed 中都填写。最重要的属性已包含在上面的模板中。
 
-* `项目.标题`
-*`项目.描述`
-*`项目.摘要`
-* `item.link`
-* `item.origlink`
-* `item.permalink`
-* `项目.日期`
-* `项目.发布日期`
-* `项目.作者`
-* `item.guid`
-*`项目.评论`
-* `项目.图像`
-* `项目.类别`
-* `项目.源`
-*`项目.外壳`
+- `项目.title`
+-`项目.描述`
+-`项目.摘要`
+- `item.link`
+- `item.origlink`
+- `item.permalink`
+- `项目.日期`
+- `item.pubdate`
+- `item.author`
+-`item.guid`
+- `item.comments`
+- `项目.图像`
+-`item.categories`
+- `item.source`
+-`item.enclosures`
 
 ## 模板示例及详细说明
 ```html
-<%= meta.title %>
-<% articles.forEach(function(item){ %>
+<%= meta.title %> <% articles.forEach(function(item){ %>
 <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
 <h3><%- item.title %></h3>
 <p><%- item.description %></p>
@@ -148,12 +146,12 @@ Z5：输出文章内容。它用 p 标签括起来。这里，至少在两个示
 Z7：无输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定义的所有内容都会针对每一篇文章重复。
 
 ＃＃ 去做
-* 通过在管理对话框中保存来清理数据点 info.lastRequest 中未使用的条目。
-* 管理对话框中未使用的数据点清理按钮
-* ~~多部件 RSS 源~~
-* ~~多个小部件选取框~~
-* ~~模板中的更多信息已通过测试。~~
-* ~~带有标题的报纸小部件 <https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
+- 通过在管理对话框中保存来清理数据点 info.lastRequest 中未使用的条目。
+- 管理对话框中的清理未使用的数据点按钮
+- ~~多部件 RSS 源~~
+- ~~多部件选框~~
+- ~~更多数据点已在模板中被使用。~~
+- ~~带有标题的报纸小部件 <https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
 
 ## Changelog
 
@@ -161,198 +159,221 @@ Z7：无输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定义�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- ignore widgets in vis-2
+
+### 2.9.7 (2024-06-22)
+
+- formating code
+- remove common.main from io-package.json
+
+### 2.9.6 (2024-06-06)
+
+- fix branch name in link
+
+### 2.9.4 (2024-06-05)
+
+- test release after rename branch from master to main
+
+### 2.9.3 (2024-06-05)
+
+- switch branchname from master to main
+- add node 22 to tests
+
 ### 2.9.2 (2024-06-04)
 
-* add some translations
-* fix warning from adapter checker
+- add some translations
+- fix warning from adapter checker
 
 ### 2.9.1 (2024-06-03)
 
-* update iobroker files and settings
+- update iobroker files and settings
 
 ### 2.8.2 (2024-04-21)
 
-* (bluefox) Fixed loading of words.js in vis
+- (bluefox) Fixed loading of words.js in vis
 
 ### 2.8.1 (2023-03-15)
 
-* (bluefox) Corrected vis widget
-* admin changed to jsonConfig, dev-environment now devcontainer
+- (bluefox) Corrected vis widget
+- admin changed to jsonConfig, dev-environment now devcontainer
 
 ### 2.7.0 (2022-12-11)
 
 ### 2.6.1 (2022-07-30)
 
-* added more information to sentry
+- added more information to sentry
 
 ### 2.6.0 (2022-07-26)
 
-* added sentry
+- added sentry
 
 ### 2.4.0 (2022-07-25)
 
-* added name option to marquee widget
+- added name option to marquee widget
 
 ### 2.0.0
 
-* Rework of the admin dialog
-* Fix some errors and glitches
+- Rework of the admin dialog
+- Fix some errors and glitches
 
 ### 1.0.0
 
-* Released in stable
+- Released in stable
 
 ### 0.9.0
 
-* fixed/extended json template
+- fixed/extended json template
 
 ### 0.8.0
 
-* adapted configuration pages to react.
-* Prepared for stable release
+- adapted configuration pages to react.
+- Prepared for stable release
 
 ### 0.0.30
 
-* added some template examples to the widget documentation
+- added some template examples to the widget documentation
 
 ### 0.0.29
 
-* improved error messages
-* removed deprecated widget / change widget beta flag
-* changed createObject/setState logic due iobroker-controller >3.0
+- improved error messages
+- removed deprecated widget / change widget beta flag
+- changed createObject/setState logic due iobroker-controller >3.0
 
 ### 0.0.28
 
-* removed customtab
+- removed customtab
 
 ### 0.0.27
 
-* adapter configuration is now editable
+- adapter configuration is now editable
 
 ### 0.0.26
 
-* corrected changelog size
+- corrected changelog size
 
 ### 0.0.25
 
-* the error messages for the template are improved
+- the error messages for the template are improved
 
 ### 0.0.24
 
-* errors in the request of feeds are now real errors in the iobroker log
-* loading of rules for ejs in the editor is improved
-* marquee3 widget: options to show time and date
+- errors in the request of feeds are now real errors in the iobroker log
+- loading of rules for ejs in the editor is improved
+- marquee3 widget: options to show time and date
 
 ### 0.0.23
 
-* republish to npm
+- republish to npm
 
 ### 0.0.22
 
-* improvements in the configuration dialog
-* remove unused admintab
-* new RSS Feed multi widget. in this widget you can add your one or more datapoints, that are available in the template.
-* New marquee widget 3 replaces the existing marquee widget 2.The marquee widget 3 is now a multi widget and can handle more than one feed. The Headlines are now aggregated.
-* the existing widget JSON template is improved. in this widget you can add your one or more datapoints, that are available in the template.
-* Remove several deprecated widgets (RSS Feed widget 1, Article Helper 1, Marquee 1, JSON template 1)
+- improvements in the configuration dialog
+- remove unused admintab
+- new RSS Feed multi widget. in this widget you can add your one or more datapoints, that are available in the template.
+- New marquee widget 3 replaces the existing marquee widget 2.The marquee widget 3 is now a multi widget and can handle more than one feed. The Headlines are now aggregated.
+- the existing widget JSON template is improved. in this widget you can add your one or more datapoints, that are available in the template.
+- Remove several deprecated widgets (RSS Feed widget 1, Article Helper 1, Marquee 1, JSON template 1)
 
 ### 0.0.21
 
-* add link option to marquee widget
-* widget help added
-* marquee widget: the divider characters (default: +++) are configurable
+- add link option to marquee widget
+- widget help added
+- marquee widget: the divider characters (default: +++) are configurable
 
 ### 0.0.20
 
-* add ejs syntax to template editor
+- add ejs syntax to template editor
 
 ### 0.0.19
 
-* try to fix marquee widget.
+- try to fix marquee widget.
 
 ### 0.0.18
 
-* try to fix the wrong NoSave dialog
+- try to fix the wrong NoSave dialog
 
 ### 0.0.17
 
-* rework setting objects and states
+- rework setting objects and states
 
 ### 0.0.16
 
-* improve logic adding rssfeed in configuration dialog
-* fix wrong icon for marquee widget
-* define default template for rssfeed widget
-* deprecate existing and replace with new version of widgets to improve naming of the attributes in case of translation
-* widget rss marquee: replace duration attribute with speed attribute and improved the calculation algorithm. now same number is same speed regardless of the length of the titles
+- improve logic adding rssfeed in configuration dialog
+- fix wrong icon for marquee widget
+- define default template for rssfeed widget
+- deprecate existing and replace with new version of widgets to improve naming of the attributes in case of translation
+- widget rss marquee: replace duration attribute with speed attribute and improved the calculation algorithm. now same number is same speed regardless of the length of the titles
 
 ### 0.0.15
 
-* fix bug saving last request in adapter configuration / improve debug messages
+- fix bug saving last request in adapter configuration / improve debug messages
 
 ### 0.0.14
 
-* update package.json and install new tools for stream encoding/decoding detection
-* implement encoding detection and stream encoding
-* change the ejs lib with a real browserified lib
+- update package.json and install new tools for stream encoding/decoding detection
+- implement encoding detection and stream encoding
+- change the ejs lib with a real browserified lib
 
 ### 0.0.13
 
-* new widget as a guest, because it is not directly related to the rssfeed functionality, but reuse the same code base. maybe later i transfer it to an own adapter. the new widget can take a json datapoint and you can visualize the data with the ejs template system.
+- new widget as a guest, because it is not directly related to the rssfeed functionality, but reuse the same code base. maybe later i transfer it to an own adapter. the new widget can take a json datapoint and you can visualize the data with the ejs template system.
 
 ### 0.0.12
 
-* now you can download the adapter configuration in the admin dialog. upload is not possible due to security restrictions in modern browsers.
+- now you can download the adapter configuration in the admin dialog. upload is not possible due to security restrictions in modern browsers.
 
 ### 0.0.11
 
-* improve admin layout
-* implement a forceRefresh button
+- improve admin layout
+- implement a forceRefresh button
 
 ### 0.0.10
 
-* fix bug a bug in marquee widget. not all styles should applied to the span tag.
+- fix bug a bug in marquee widget. not all styles should applied to the span tag.
 
 ### 0.0.9
 
-* apply widget styles also to the inner span element, because they had not any effect on the marquee.
-* renew the package-lock.json
-* add categories to save feeds in subfolders
-* improve mechanism to write only updated feeds to datapoint. the feed has new data if comparision of articles in title and description is different.
+- apply widget styles also to the inner span element, because they had not any effect on the marquee.
+- renew the package-lock.json
+- add categories to save feeds in subfolders
+- improve mechanism to write only updated feeds to datapoint. the feed has new data if comparision of articles in title and description is different.
 
 ### 0.0.8
 
-* improve lasrequest logic of the adapter
-* fix problem with datapoint naming
+- improve lasrequest logic of the adapter
+- fix problem with datapoint naming
 
 ### 0.0.7
 
-* test with encapsulation of ejs.js, because of error in some browsers
+- test with encapsulation of ejs.js, because of error in some browsers
 
 ### 0.0.6
 
-* add attribute duration for widget marquee to control animation duration
+- add attribute duration for widget marquee to control animation duration
 
 ### 0.0.5
 
-* new widget marquee for article titles
-* add filter function for articles. the filter searches in title,description and categories, several filter criteria can be seperated by semicolon
+- new widget marquee for article titles
+- add filter function for articles. the filter searches in title,description and categories, several filter criteria can be seperated by semicolon
 
 ### 0.0.4
 
-* some adjustments in readme, io-package
+- some adjustments in readme, io-package
 
 ### 0.0.3
 
-* add addveyor build
+- add addveyor build
 
 ### 0.0.2
 
-* added widgets meta helper and article helper
+- added widgets meta helper and article helper
 
 ### 0.0.1
 
-* initial release
+- initial release
 
 ## License
 

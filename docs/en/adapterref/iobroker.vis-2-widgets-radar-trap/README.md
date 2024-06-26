@@ -28,6 +28,10 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.1.0 (2024-06-26)
+- (steiger04) Dependencies updated
+- (steiger04) All widget attributes are now available
+
 ### 2.0.0 (2024-04-10)
 - (steiger04) !!! Requires at least radar-trap version 2.0.0 !!!
 - (steiger04) Many optimizations and bug fixes

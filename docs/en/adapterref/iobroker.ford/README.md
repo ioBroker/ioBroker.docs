@@ -17,6 +17,9 @@
 Adapter for FordPass
 
 ## Changelog
+### 1.0.3 (2024-06-22)
+
+- improve help text
 
 ### 1.0.2 (2024-05-24)
 

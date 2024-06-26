@@ -46,6 +46,9 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.5 (2024-06-25)
+* (HGlab01) Bump axios to 1.7.2
+
 ### 0.5.4 (2024-04-18)
 * (HGlab01) Add attribute 'runningOfflineSchedule'
 * (HGlab01) Bump axios to 1.6.8
@@ -65,11 +68,6 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 * (HGlab01) fix jsonConf validation issue
 * (HGlab01) Bump axios to 1.6.2
 * (HGlab01) update contact data
-
-### 0.4.12 (2023-11-14)
-* (HGlab01) switch finaly to Admin5 UI
-* (HGlab01) Improve REST-call handling
-* (HGlab01) Bump axios to 1.6.1
 
 ## License
 MIT License

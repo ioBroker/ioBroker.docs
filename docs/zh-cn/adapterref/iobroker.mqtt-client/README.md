@@ -3,87 +3,102 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-客户端
-hash: XK5Xtt7JLVj8s1aTQamLmu4JQk7bY/jI6kpXPlHfTXY=
+hash: zW4LoHreN+gpPCnvEs3vSptN0V+v1rINjKN992x61hE=
 ---
 ![标识](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
-![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.mqtt-client)
-![下载](https://img.shields.io/npm/dm/iobroker.mqtt-client.svg)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub 自最新版本以来提交的内容（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.mqtt-client/latest)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.mqtt-client)
-![NPM版本](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/mqtt-client-stable.svg)
-![安装数量](https://iobroker.live/badges/mqtt-client-installed.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.mqtt-client?style=flat-square)
+![下载](https://img.shields.io/npm/dm/iobroker.mqtt-client?label=npm%20downloads&style=flat-square)
+![节点](https://img.shields.io/node/v-lts/iobroker.mqtt-client?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.mqtt-client?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.mqtt-client?style=flat-square)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub 工作流程状态](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.mqtt-client/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![测试版](https://img.shields.io/npm/v/iobroker.mqtt-client.svg?color=red&label=beta)
+![稳定的](http://iobroker.live/badges/mqtt-client-stable.svg)
+![已安装](http://iobroker.live/badges/mqtt-client-installed.svg)
 
 # IoBroker.mqtt-客户端
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/mqtt-client/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml)
+## 版本
+发布和订阅 ioBroker 状态到 MQTT Brokers
 
-## 哨兵
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 适配器设置
 ![适配器](../../../en/adapterref/iobroker.mqtt-client/img/settings.png)
 
-### 关于连接主题和消息
-每次客户端连接或重新连接到服务器时，```on connect message```都会发布到```on connect topic```。
+### 连接主题和消息
+每次客户端连接或重新连接服务器时，```on connect message``` 都会发布到```on connect topic```。
 
-### 关于断开主题和消息
-当适配器正常停止时，```on disconnect message``` 将发布到 ```on disconnect topic```。
+### 断开主题和消息
+当适配器正常停止时，```on disconnect message``` 会发布到```on disconnect topic```。
 
-###最后的主题和消息
-每次客户端连接或重新连接到服务器时，```last will message```都会发布到```last will topic```。
+### 遗嘱主题和信息
+每次客户端连接或重新连接到服务器时，```last will message``` 都会发布到 ```last will topic```。
 当客户端意外断开连接时，服务器将存储此消息并将其发送给其订阅者。
 
 ### 订阅
 现有状态未涵盖的主题的逗号分隔列表。
-接收到的消息将转换为适配器命名空间（例如 mqtt.0）内的状态并进行订阅。
-创建所有状态后，您可以删除主题。
+收到的消息将转换为适配器命名空间内的状态（例如 mqtt.0）并订阅。
+您可以在创建所有状态后删除主题。
 
 ### 发布前缀
-发布时，这将被添加到所有主题之前。
+发布时，此内容将被添加到所有主题的前面。
 默认为空（无前缀）。
 
 ### 订阅前缀
-订阅时，这将被添加到所有主题之前。
+订阅时，此内容将被添加到所有主题的前面。
 默认为空（无前缀）。
 
 ## 状态设置
 ![状态](../../../en/adapterref/iobroker.mqtt-client/img/dialog.png)
 
 ### 已启用
-启用或禁用此状态的 mqtt 客户端功能。
-禁用将删除此状态下的任何 mqtt-client 设置。
+启用或禁用此状态下的 mqtt-client 功能。
+禁用将从此状态中删除任何 mqtt-client 设置。
 
 ＃＃＃ 话题
-此状态发布和订阅的主题。
-默认：state-ID 转换为 mqtt 主题。
+此状态发布到和订阅的主题。
+默认值：转换为 mqtt 主题的 state-ID。
 
 ### 发布
-* ``启用````状态将被发布
-* ```changes only``` 状态仅在其值发生变化时才会发布
+* ```enable`` 状态将被发布
+* ```changes only``` 状态仅当其值发生变化时才会发布
 * ```as object``` 整个状态将作为对象发布
-* ```qos``` 请参阅 <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
-* ```retain``` 请参阅 <http://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages>
+* ```qos``` 参见 <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
+* ```retain``` 参见 <http://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages>
 
 ＃＃＃ 订阅
-* ``enable```` 主题将被订阅并且状态将相应更新
-* ```仅更改```状态仅在值更改时才会写入
+* ```enable``` 主题将被订阅，状态将相应更新
+* ```changes only``` 状态仅当值发生改变时才会被写入
 * ```as object``` 消息将被解释为对象
-* ```qos``` 请参阅 <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
-* 状态更新时“ack”将相应地设置 ack 标志
+* ```qos``` 参见 <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
+* ```ack`` 在状态更新时，ack 标志将相应设置
 
 ＃＃＃＃ 笔记
-* 当 ack 设置为 true 时，它将覆盖对象 ack，请参阅``as object```
-* 为了防止消息循环，如果同时启用了发布和订阅，则“仅更改”始终处于订阅状态
+* 当 ack 设置为 true 时，它将覆盖对象 ack，请参阅 ```as object```
+* 为防止消息循环，如果发布和订阅都启用，则订阅时始终启用“仅更改”
 
-<!-- 下一个版本的占位符（在行的开头）：
+<!-- 下一版本的占位符（在行首）：
 
 ### __正在进行中__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (@klein0r) Added missing information in configuration dialog
+
+### 2.0.0 (2024-06-21)
+* (klein0r) Password is now encrypted - you have to re-renter your password in instance settings!
+* (klein0r) Use jsonConfig instead of materialize (for instance settings)
+
+### 1.8.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.7.0 (2023-10-30)
 
 * (mcm1957) Dependencies have been updated
@@ -181,6 +196,7 @@ hash: XK5Xtt7JLVj8s1aTQamLmu4JQk7bY/jI6kpXPlHfTXY=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

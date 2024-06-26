@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ring/README.md
 title: Ringadapter
-hash: VAuDrniQrkEeYjoiFdJ/8lkukKW3sL1I0HFmNPJmxs4=
+hash: xLiRXI7wH5yl6HEec+cgjm+jnMQdpKrTdjVegN3gvE4=
 ---
 ![Logo](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
-![Travis CI Build-Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.ring.svg?branch=master)
+![Travis CI-Build-Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.ring.svg?branch=master)
 ![AppVeyor-Build-Status](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.ring?branch=master&svg=true)
 ![Anzahl der Installationen](http://iobroker.live/badges/ring-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ring.svg)
@@ -15,13 +15,13 @@ hash: VAuDrniQrkEeYjoiFdJ/8lkukKW3sL1I0HFmNPJmxs4=
 ![NPM](https://nodei.co/npm/iobroker.ring.png?downloads=true)
 
 # Ringadapter
-Der Ring-Adapter funktioniert mit Ring-Geräten wie der Ring Video Doorbell und der Ring Cam und zeigt an, ob jemand an der Tür klingelt oder eine Bewegung erkannt wird.
-Die Ring Video Doorbell oder Cam sendet einen Videostream, wenn eine Bewegung oder Türklingel erkannt wird.
+Der Ring-Adapter funktioniert mit Ring-Geräten wie der Ring Video Doorbell und der Ring Cam und zeigt an, ob jemand klingelt oder eine Bewegung erkannt wird.
+Die Ring Video Doorbell oder Cam sendet einen Videostream, wenn eine Bewegung oder eine Türklingel erkannt wird.
 
 ## Installation und Konfiguration
-Nach der Installation des Adapters müssen Sie Ihren Token eingeben.
+Nach der Installation des Adapters müssen Sie Ihr Token eingeben.
 Ring erfordert jetzt die Verwendung der Zwei-Faktor-Authentifizierung (2fa) für alle Konten.
-Um das Token zu erhalten, gehen Sie bitte in Ihrer Shell wie folgt vor.
+Um das Token zu erhalten, führen Sie bitte die folgenden Schritte auf Ihrer Shell aus.
 
 ```shell
 npx -p ring-client-api ring-auth-cli
@@ -38,49 +38,51 @@ cd /opt/iobroker/node_modules/iobroker.ring/node_modules/ring-client-api
 node ring-auth-cli
 ```
 
-Sie können spezielle Variablen für den Pfad und Dateinamen Ihres Livestreams und Snapshots verwenden. Diese Variablen werden durch einen Zähler, Zeitstempel, Ring-ID oder Ringart ersetzt.
+Sie können spezielle Variablen für den Pfad und Dateinamen Ihres Livestreams und Schnappschusses verwenden. Diese Variablen werden durch einen Zähler, einen Zeitstempel, eine Ring-ID oder eine Ringart ersetzt.
 
-* „%d“: Unix-Zeitstempel. Beispiel: „test_%d -> test_1588331430061“.
-* „%i“: ID Ihres Ringgeräts: Beispiel: „test_%i -> test_234567890“.
-* „%n“: Zähler seit dem Start der Ringinstanz. Beispiel: „test_%n -> test_1“.
-* „%k“: Art Ihres Ring-Geräts: Beispiel: „test_%k -> test_doorbell“.
+* `%d`: Unix-Zeitstempel. Beispiel: `test_%d -> test_1588331430061`
+* `%g`: Formatiert mit Datum JJJJMMTT. Beispiel: `test_%g -> test_20240614`
+* `%t`: Formatierte Zeit HHiiss. Beispiel: `test_%t -> test_235901`
+* `%i`: ID Ihres Ringgeräts: Beispiel: `test_%i -> test_234567890`
+* `%n`: Zähler seit Start der Ringinstanz. Beispiel: `test_%n -> test_1`
+* `%k`: Art Ihres Ring-Geräts: Beispiel: `test_%k -> test_doorbell`
 
 ### FAQ
-#### Ich erhalte keine Ereignisse, Schnappschüsse und Videos zu Bewegungen oder erkannten Personen
-Herzlichen Glückwunsch, es ist sehr wahrscheinlich, dass Ihr aktuelles Token per Ring auf eine schwarze Liste gesetzt wurde, wodurch Ihnen die Push-Benachrichtigung verweigert wurde, die Sie benötigen würden.
-Der beste Weg, dieses Problem zu beheben, besteht darin, alle vorherigen Browser-/Adapter-Tokens auf der Ring-Website zu entfernen und ein neues Token für den Adapter zu generieren.
+#### Ich erhalte keine Ereignisse, Schnappschüsse und Videos bei Bewegung oder erkannter Person
+Glückwunsch, es ist sehr wahrscheinlich, dass Ihr aktuelles Token von Ring auf eine schwarze Liste gesetzt wurde, sodass Sie die Push-Benachrichtigungen, die Sie benötigen, nicht erhalten.
+Die beste Möglichkeit, dieses Problem zu beheben, besteht darin, alle vorherigen Browser-/Adapter-Token auf der Ring-Website zu entfernen und ein neues Token für den Adapter zu generieren.
 
-Damit dieser Adapter ordnungsgemäß auf Ereignisse reagieren kann, muss Ring die Push-Benachrichtigung an die verwendeten [Ring-API-Client](https://github.com/dgreif/ring) senden, damit dieser Adapter darauf reagieren kann. Die Logik in diesem Adapter wurde mehrfach überprüft und funktioniert für viele Benutzer. Wenn Sie also Probleme mit fehlenden Ereignissen haben, liegt dies wahrscheinlich nicht an diesem Adapter.
+Damit dieser Adapter richtig auf Ereignisse reagieren kann, muss Ring die Push-Benachrichtigung an den verwendeten [Ring-API-Client](https://github.com/dgreif/ring) senden, damit dieser Adapter darauf reagieren kann. Die Logik in diesem Adapter wurde mehrfach überprüft und funktioniert bei vielen Benutzern. Wenn Sie also Probleme mit fehlenden Ereignissen haben, liegt dies wahrscheinlich nicht an diesem Adapter.
 
-### V5 Breaking Changes
-1. Einige Datenpunkte wurden umbenannt, um konsistenter zu sein (z. B. wurde „livestream_request“ wie bereits auf „request“ reduziert).
+### V5 Wichtige Änderungen
+1. Einige Datenpunkte wurden umbenannt, um einheitlicher zu sein (z. B. wurde `livestream_request` auf `request` reduziert, da es bereits
 
-   befindet sich im Kanal `livestream`).
+befindet sich im Kanal `livestream`).
 
-2. Sie können nun konfigurieren, ob Sie auf Ereignisse reagieren möchten (mit Aufzeichnung, Snapshot, ...) oder nicht.
-3. Binärzustände wurden entfernt.
+2. Sie können nun konfigurieren, ob Sie auf Ereignisse (mit Aufzeichnung, Schnappschuss, ...) reagieren möchten oder nicht.
+3. Binäre Zustände wurden entfernt.
 
-### V3 Breaking Changes neu schreiben
-1. Die Gerätenamen wurden um ihre Beschreibung erweitert (z. B. von „Gerät 1234567“)
+### V3 Neufassung - Wichtige Änderungen
+1. Die Gerätenamen wurden um die Beschreibung erweitert (z.B. von `Gerät 1234567`
 
-   zu `Device 1234567 ("Floodlight Garden")`)
+zu `Device 1234567 ("Floodlight Garden")`)
 
 2. Snapshot-/Livestream-Daten befinden sich jetzt in einem entsprechenden Kanal, der die anderen Datenpunkte enthält.
-3. Das Snapshot-/Livestream-Objekt wurde vom Typ „Meta“ in „Status mit Typ Datei“ geändert.
-4. Ereignisse (Bewegung, Klingeln usw.) befinden sich jetzt im jeweiligen Kanal.
-5. Da „ring-api“ die Unterstützung für Knoten vor „v16.x“ eingestellt hat, benötigt dieser Adapter „node v16.x“ oder „node v18.x“.
-6. Aktive Aktualisierungen werden auf einmal alle 2 Stunden reduziert, da wir Ereignisse abhören/auf sie reagieren.
+3. Das Snapshot-/Livestream-Objekt wurde vom Typ „Meta“ in „State“ mit dem Typ „File“ geändert.
+4. Ereignisse (Bewegung, Ding usw.) liegen nun im jeweiligen Kanal vor.
+5. Da „Ring-API“ die Unterstützung für Node vor „v16.x“ einstellt, benötigt dieser Adapter „Node v16.x“ oder „Node v18.x“.
+6. Aktive Aktualisierungen werden auf einmal alle 2 Stunden reduziert, da wir auf Ereignisse hören/darauf reagieren.
 
 ### SIP (vor Version 3.x)
 Sie können die SIP-Informationen für eine SIP-Videokonferenz mit Ihrem SIP-Client verwenden.
-Der Adapter stellt nicht alle Ringgeräte bereit, da die verwendete API nicht alle Ringgeräte umfasst.
+Der Adapter stellt nicht alle Ringgeräte bereit, da die verwendete API nicht alle Ringgeräte einschließt.
 
 Sie können beispielsweise den Blink SIP-Client auf [http://icanblink.com/](http://icanblink.com/) verwenden.
-Um das Video zum Laufen zu bringen, gehen Sie zu Blinks Einstellungen und wechseln Sie unter „Konten“ zur Registerkarte „Medien“ und deaktivieren Sie „Audio und Video verschlüsseln“ unter „RTP-Optionen“.
+Um Video zum Laufen zu bringen, gehen Sie in die Einstellungen von Blink und wechseln Sie unter „Konten“ zur Registerkarte „Medien“ und deaktivieren Sie „Audio und Video verschlüsseln“ unter „RTP-Optionen“.
 Seien Sie vorsichtig, die SIP-Informationen verfallen nach einigen Sekunden! Hoffentlich kann ich bald einen Videostream unterstützen.
-Leider verfügt [ring.com](https://ring.com) nicht über eine offizielle API, die diese Funktion unterstützt.
-Wenn Sie die `livestream request`-Taste drücken, erhalten Sie neue SIP-Informationen zum Aufbau einer SIP-Videoanrufsitzung.
-Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verlauf einen http-Link zu Ihrem zuletzt aufgezeichneten Bewegungs-/Türklingelvideo.
+Leider hat [ring.com](https://ring.com) keine offizielle API, die diese Funktion unterstützt.
+Wenn Sie die Schaltfläche `livestream request` drücken, erhalten Sie neue SIP-Informationen zum Aufbau einer SIP-Videoanrufsitzung.
+Wenn Sie die [ring.com](https://ring.com)-Cloud verwenden, finden Sie unter Verlauf einen HTTP-Link zu Ihrem zuletzt aufgezeichneten Bewegungs-/Türklingelvideo.
 
 ## Changelog
 
@@ -88,6 +90,11 @@ Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verl
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2024-06-22)
+
+* (SFGJK) #710 Enhancement of filename placeholder feature
+* (theimo1221) Updated Packages
+
 ### 5.0.10 (2023-11-06)
 
 * (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
@@ -473,7 +480,7 @@ Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verl
 
 MIT License
 
-Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2024 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

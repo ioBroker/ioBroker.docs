@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
+hash: r3v1HpHgaM6AreOp4sP/GcYQi40K77lrb7cpjns6LB0=
 ---
 ![Logo](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
@@ -14,58 +14,56 @@ hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 
 # IoBroker.procon-ip
-[![Test und Freigabe](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
+[![Testen und Freigeben](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 
-ioBroker-Adapter für den Schwimmbad-Controller Pool Digital ProCon.IP.
-Es ist für die Integration in Ihre ioBroker-Hausautomation gedacht, z.
-um eine Logik zu erstellen, die andere Geräte einbezieht oder mit Ihren bevorzugten Sprachassistenten gekoppelt werden soll:
+ioBroker-Adapter für den Pool Digital ProCon.IP-Schwimmbad-Controller.
+Er ist für die Integration mit Ihrer ioBroker-Heimautomatisierung vorgesehen, z. B.
+um eine Logik aufzubauen, die andere Geräte einbezieht, oder um mit Ihren bevorzugten Sprachassistenten gekoppelt zu werden:
 
-* Sie können die [_cloud_](https://github.com/ioBroker/ioBroker.cloud) oder verwenden
+* Sie können die [_Cloud_](https://github.com/ioBroker/ioBroker.cloud) verwenden oder
 
 [_IoT_](https://github.com/ioBroker/ioBroker.iot) Adapter für Alexa (und auch Google Home, glaube ich) und
 
 * [_yahka_](https://github.com/jensweigele/ioBroker.yahka) Adapter als Brücke zu
 
-  das Apple HomeKit per Siri erreichbar sein bzw
+das Apple HomeKit über Siri erreichbar ist oder
 
-* Verwenden Sie das [_javascript_](https://github.com/ioBroker/ioBroker.javascript)
+* verwenden Sie [_Javascript_](https://github.com/ioBroker/ioBroker.javascript)
 
-  Adapter zum Erstellen Ihrer eigenen benutzerdefinierten Logik.
+Adapter zum Erstellen Ihrer eigenen benutzerdefinierten Logik.
 
-Weitere Informationen finden Sie in den [Wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
+Weitere Informationen finden Sie unter [Wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
 
 ## Was ist der ProCon.IP Poolcontroller?
-![Bild von pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
+Die ProCon.IP-Poolsteuerung ist eine preisgünstige, netzwerkfähige Steuereinheit für private Schwimmbäder. Mit ihren softwaregesteuerten Relais kann sie mehrere Pumpen (für den Poolfilter und verschiedene Dosierungsaspekte) steuern, entweder einfach nach Zeitplan geplant oder abhängig von einem Messwert/Wert von einem ihrer vielen Eingangskanäle für Messungen (z. B. E/A-Durchflusssensoren, Dallas 1-Wire-Thermometer, Redox- und pH-Elektroden). Zumindest gibt es auch die Möglichkeit, diese Relais bei Bedarf zu schalten, wodurch sie auch zum Ein- und Ausschalten von Lichtern (oder allem anderen, was Sie wollen) geeignet sind.
+Nicht alle Funktionen sind über die API erreichbar. Tatsächlich gibt es eine dokumentierte API zum Lesen (Abfragen) von Werten als CSV (`/GetState.csv`). Soweit ich mich erinnere, gab es noch eine weitere zum Ein- und Ausschalten der Relais und zum Einschalten mit Timer. Aber die zweite kann ich nicht mehr finden. Also nicht einmal schön, aber funktional: Der ProCon.IP hat zwei native Weboberflächen, die analysiert werden können, um eine bestimmte Funktionalität (wie das Schalten der Relais) irgendwie zurückzuentwickeln.
 
-Die ProCon.IP Poolsteuerung ist eine preisgünstige, netzwerkfähige Steuereinheit für Heimschwimmbäder. Mit seinen per Software geschalteten Relais kann es mehrere Pumpen (für den Poolfilter und verschiedene Dosierungsaspekte) steuern, entweder einfach nach Zeitplan geplant oder abhängig von einem Messwert/Wert von einem seiner vielen Eingangskanäle für Messungen (z. B. E/A-Durchfluss). Sensoren, Dallas 1-Wire-Thermometer, Redox- und pH-Elektroden). Zumindest gibt es auch die Möglichkeit, diese Relais bei Bedarf zu schalten, wodurch sie auch zum Ein-/Ausschalten von Lichtern (oder allem anderen, was Sie wollen) verwendet werden können.
-Nicht alle Funktionen sind über die API erreichbar. Tatsächlich gibt es eine dokumentierte API zum Lesen (Abfragen) von Werten als CSV (`/GetState.csv`). In meiner Erinnerung gab es noch einen zum Ein-/Ausschalten und Einschalten der Relais mit Timer. Aber den zweiten kann ich nicht mehr finden. Also nicht einmal hübsch, aber funktional: Der ProCon.IP verfügt über zwei native Webschnittstellen, die analysiert werden können, um eine bestimmte Funktionalität (z. B. das Schalten der Relais) nachzuentwickeln.
+Weitere Informationen finden Sie unter dem folgenden Link (leider nur auf Deutsch; ich habe bisher keine englische Dokumentation/Informationen gefunden):
 
-Weitere Informationen finden Sie unter folgendem Link (leider nur auf Deutsch; ich habe bisher keine englische Dokumentation/Informationen gefunden):
+* [pooldigital.de webshop](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [pooldigital.de-Forum](https://www.poolsteuerung.de/)
 
-* [pooldigital.de Webshop](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-* [pooldigital.de-Forum](http://forum.pooldigital.de/)
-
-**Nur um es klarzustellen: Ich habe nichts mit der Entwicklung, dem Vertrieb, dem Marketing oder dem Support der Poolsteuerung zu tun. Ich habe gerade eine Lösung zur Integration mit ioBroker entwickelt, um das Zuhause meiner Eltern ein bisschen intelligenter zu machen.**
+**Nur um das klarzustellen: Ich habe nichts mit der Entwicklung, dem Verkauf, dem Marketing oder dem Support der Pool-Steuereinheit zu tun. Ich habe lediglich eine Lösung entwickelt, um diese mit ioBroker zu integrieren und so das Haus meiner Eltern ein bisschen intelligenter zu machen.**
 
 ## Details zum Adapter
-Der Adapter nutzt die `/GetState.csv` API des ProCon.IP zum Abfragen seiner Werte und eine weitere – nicht dokumentierte – API, die mit bitweisen Befehlen zum Schalten der Relais arbeitet. Die zweite wird auch von den Original-Weboberflächen des ProCon.IP verwendet. Daher könnte es zukünftige Firmware-Upgrades geben, die die Kompatibilität mit diesem Adapter beeinträchtigen oder zumindest die Funktionalität zum Schalten der Relais beeinträchtigen.
+Der Adapter verwendet die `/GetState.csv` API des ProCon.IP um dessen Werte abzufragen und eine weitere - nicht dokumentierte - API, die mit bitweisen Befehlen arbeitet um die Relais zu schalten. Die zweite wird auch von den originalen Webinterfaces des ProCon.IP verwendet. Es kann also sein, dass zukünftige Firmware-Upgrades die Kompatibilität mit diesem Adapter oder zumindest dessen Funktionalität zum Schalten der Relais beeinträchtigen.
 
 ### Kompatibilität
-Derzeit wurde der Adapter in Kombination mit der ProCon.IP-Firmware **Revision 1.7.6.a** getestet und entwickelt. Aber es sollte mit jeder früheren neueren/kommenden Firmware-Version funktionieren.
+Derzeit wurde der Adapter in Kombination mit der ProCon.IP-Firmware **Revision 1.7.6.a** getestet und entwickelt. Er sollte jedoch mit jeder früheren neueren/kommenden Firmware-Version funktionieren.
 
-## Entwicklung und Beteiligung
-Kontaktieren Sie mich gerne, wenn Sie an der Entwicklung, Übersetzung oder Dokumentation dieses Adapters mitwirken möchten.
+## Entwicklung und Partizipation
+Wenn Sie an der Entwicklung, Übersetzung oder Dokumentation dieses Adapters mitwirken möchten, können Sie sich gerne an mich wenden.
 
-Nützliche Links für den Ansatz werden sein
+Nützliche Links für den Ansatz finden Sie unter
 
 * die [TypeScript-Adaptervorlage](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
 
-  Ich hatte von und angefangen
+Ich hatte angefangen und
 
 * der [Leitfaden für Adapterentwickler](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
 
 ## Spende
-Wenn Sie diesen Adapter unterstützen oder sich bedanken möchten, können Sie:
+Wenn Sie diesen Adapter unterstützen oder Danke sagen möchten, können Sie:
 
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Kauf mir einen Kaffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
@@ -76,11 +74,9 @@ Wenn Sie diesen Adapter unterstützen oder sich bedanken möchten, können Sie:
 * Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the 
   latest version.
 
-## Changelog
 ### 1.5.3 (2024-02-27)
 * Update dependencies.
 
-## Changelog
 ### 1.5.2 (2024-02-13)
 * Add newline before descriptive text in adapter config.
 * Update dependencies.

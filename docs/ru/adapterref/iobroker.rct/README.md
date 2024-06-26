@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
+hash: sqx85/dahqva12edT+C3ZDet63lgaQKL3RYSBhBJjOc=
 ---
 ![НПМ-версия](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rct.svg)
@@ -51,10 +51,10 @@ hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
 * 7 -> «Симметрия (выравнивание звена постоянного тока)»
 * 8 -> «Тест реле»
 * 9 -> «Пассивная сеть (инвертор получает питание от сети без синхронизации моста)»
-* 10 -> «Подготовить пассивную летучую мышь»
-* 11 -> «Отключение аккумулятора (автономно)»
-* 12 -> «Проверка оборудования»
-* 13 -> «Einspeisung»
+* 10 -> «Подготовить пассивную батарею»
+* 11 -> «Пассивный аккумулятор (автономный)»
+* 12 -> «Тест оборудования»
+* 13 -> «Подача сетки»
 
 ## Известные вопросы
 Никто
@@ -72,16 +72,15 @@ hash: tewK0Rcf3Idn2jnkGgmyQhAlO3WjL4sMO0Gbhb0UNkQ=
 ### 1.2.9 (2024-05-17)
 * (Andreas Ruttkamp) wrong type for next_calib_date corrected
 
-
 ### 1.2.8 (2024-05-16)
 * (NCIceWolf) Implementation of new adminUI
 * (Andreas Ruttkamp) index_m.html deleted
 * (Andreas Ruttkamp) Datatype battery_stack_cycles corrected
 * (NCIceWolf) style.css deleted (not needed for json admin)
 * (NCIceWolf) removed tab-materialize (leftover from initial adapter creation)
-* (NCIceWolf) updated minimum js-controller version to >= 5.0.0 (current: 5.0.19)
-* (NCIceWolf) added minimum admin version to >= 5.0.0 (current stable : 6.13.16), could even be >= 6.0.0
-* (NCIceWolf) prepared translations (further handling -> https://github.com/ioBroker/adapter-dev#manage-translations)
+* (NCIceWolf) updated minimum js-controller version to >= 5.0.0
+* (NCIceWolf) added minimum admin version to >= 5.0.0
+* (NCIceWolf) prepared translations for adminUI
 
 ### 1.2.7 (2024-05-05)
 * (Andreas Ruttkamp) prim_sm.state added

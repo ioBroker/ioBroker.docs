@@ -30,6 +30,32 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0-alpha.0 (2024-06-24)
+**!!! Please note, this currently a Alpha-Version, because many things are changed and needed to be tested!!!**  
+The core of the adapter keeps running on the same 0.4.1 version like before, but the configuration page has many improvements. See the list below! 
+
+Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it, it case needed or downgrading to the official version again! 
+
+After downloading the BETA Version of the adapter, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
+described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#uploadvonadapterdateien
+
+- Added: Support for Websockets is now integrated. Adapter uses the faster Websockets if available. If not, the connection falls back to socket polling 
+- Added: Better Darkmode Support (including Log, Overrides and CSS Styles layout)
+- Added: New option "Manual value change" for click options of datasources. With this you can directly modify the associated state inside ioBroker. Also predefined value(s) for quick accesses are possible.
+- Added: Automatic line-break after x characters for datasources, which provide longer text (e.g. weather forecasts)
+- Added: Define one Datasource as display and choose an other one to control (e.g. display the energy of a wallsocket, but switch it on or off with a different state via click-option)
+- Added: Language and dependencies are updated
+- Added: Better support for iOS devices as the values are not calculated via the objects itself anymore (should work for thickness and alignments)
+- Added: Autocomplete when adding or modifying sources inside datasources (if active)
+- Added: Import and Exports elements (e.g. for sharing a nice designed element with others)
+- Added: Preview elements (circle and rect) with their fill or outline layout
+- Added: Image gallery and query via web implementation of ioBroker
+- Added: Select datasources which contain image paths for images (e.g. WeatherAdapter)
+- Added: Improved workspace (better adding of elements, when scrolled, many design and element improvements etc.)
+- FIX: Some bugs or routines where not working as they should
+- FIX: Battery-Discharge was wrongly calculated, if the DoD should discharge till 0%
+- FIX: Removed kW settings in calculation tab as they are already set as factor inside the datasource area
+
 ### 0.4.1 (2024-04-18)
 - Hotfix: After uprading the Adapter, it could happen, that the first datasource was not updated properly
 
@@ -41,7 +67,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 - Added: Better support inside configuration area for smaller devices like mobilephones and tablets
 - Added: A new override property (img_url) has been added, to change pictures addresses for picture elements
 - Added: Overrides can now contain states from iobroker, to directly read and for example calculate a value with an additional state. Please provide the name in curly braces.
-- FIX: Wrong allingment of rectangle with border-fill if height and width are different (#172)
+- FIX: Wrong alignment of rectangle with border-fill if height and width are different (#172)
 - FIX: The adapter could crash if the data source inside calculation was missing or deleted (#178)
 
 ### 0.3.0 (2024-03-12)

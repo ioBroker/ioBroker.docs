@@ -25,7 +25,6 @@ See the [wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki) for more
 information.
 
 ## What is the ProCon.IP pool controller?
-![Picture from pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
 
 The ProCon.IP pool control is a low budget network attached control unit for
 home swimming pools. With its software switched relays, it can control
@@ -45,8 +44,8 @@ switching the relays).
 
 For more information see the following link (sorry it's only in german;
 haven't found an english documentation/information so far):
-* [pooldigital.de webshop](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-* [pooldigital.de forum](http://forum.pooldigital.de/)
+* [pooldigital.de webshop](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [pooldigital.de forum](https://www.poolsteuerung.de/)
 
 **Just to be clear: I have nothing to do with the development, sellings,
 marketing or support of the pool control unit. I just developed a solution

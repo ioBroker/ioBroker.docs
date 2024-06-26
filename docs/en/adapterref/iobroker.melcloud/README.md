@@ -36,7 +36,7 @@ Discussion:
 
 ### **WORK IN PROGRESS**
 
-- (Black-Thunder) Minimum node.js version was raised to 18
+- (Black-Thunder) Adapter requires node.js >= 18, admin >= 6 and js-controller >= 5 now
 
 ### 1.4.1 (2024-05-24)
 

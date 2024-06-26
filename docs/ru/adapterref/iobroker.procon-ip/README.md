@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
+hash: r3v1HpHgaM6AreOp4sP/GcYQi40K77lrb7cpjns6LB0=
 ---
 ![Логотип](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
@@ -14,7 +14,7 @@ hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 
 # IoBroker.procon-ip
-[![Тестирование и выпуск] (https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
+[![Тестирование и выпуск](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 
 Адаптер ioBroker для контроллера бассейна Pool Digital ProCon.IP.
 Он предназначен для интеграции с вашей системой домашней автоматизации ioBroker, например.
@@ -24,9 +24,9 @@ hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
 
 [_Интернет вещей_](https://github.com/ioBroker/ioBroker.iot) адаптер для Alexa (а также Google Home, я думаю) и
 
-* Адаптер [_yahka_](https://github.com/jensweigele/ioBroker.yahka) в качестве моста к
+* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) адаптер как мост к
 
-  Apple HomeKit, к которому можно получить доступ через Siri или
+  Apple HomeKit, к которому будет обращаться Siri или
 
 * используйте [_javascript_](https://github.com/ioBroker/ioBroker.javascript)
 
@@ -35,20 +35,18 @@ hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
 Дополнительную информацию см. в [вики](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
 
 ## Что такое контроллер пула ProCon.IP?
-![Изображение с сайта Pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
-
-Устройство управления бассейном ProCon.IP — это недорогой сетевой блок управления для домашних бассейнов. Благодаря программно переключаемым реле он может управлять несколькими насосами (для фильтра бассейна и различных аспектов дозирования), либо просто планируя по расписанию, либо в зависимости от показаний/значений одного из многочисленных входных каналов для измерений (например, расход ввода-вывода). датчики, термометры Dallas 1-Wire, окислительно-восстановительные и pH-электроды). По крайней мере, есть возможность переключать эти реле по требованию, что делает их применимыми для включения/выключения освещения (или чего-либо еще).
+Устройство управления бассейном ProCon.IP — это недорогой сетевой блок управления для домашних бассейнов. Благодаря реле с программным управлением он может управлять несколькими насосами (для фильтра бассейна и различных аспектов дозирования), либо просто планируя по расписанию, либо в зависимости от показаний/значений одного из многочисленных входных каналов для измерений (например, входной/выходной расход). датчики, термометры Dallas 1-Wire, окислительно-восстановительные и pH-электроды). По крайней мере, есть возможность переключать эти реле по требованию, что делает их применимыми для включения/выключения освещения (или чего-либо еще).
 Не все его функции доступны через API. Фактически существует один документированный API для чтения (опроса) значений в формате CSV (`/GetState.csv`). На моей памяти был еще один для включения/выключения реле и включения по таймеру. Но второго я уже не могу найти. Так что это даже не красиво, но функционально: ProCon.IP имеет два встроенных веб-интерфейса, которые можно анализировать для какого-то обратного проектирования заданной функциональности (например, переключения реле).
 
 Для получения дополнительной информации см. следующую ссылку (извините, она только на немецком языке; документация/информация на английском языке пока не найдена):
 
-* [интернет-магазинpooldigital.de](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-* [форумpooldigital.de](http://forum.pooldigital.de/)
+* [Интернет-магазинpooldigital.de](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [форумpooldigital.de](https://www.poolsteuerung.de/)
 
 **Для ясности: я не имею никакого отношения к разработке, продажам, маркетингу или поддержке блока управления бассейном. Я только что разработал решение для его интеграции с ioBroker, чтобы сделать дом моих родителей немного умнее.**
 
 ## Подробности об адаптере
-Адаптер использует API `/GetState.csv` ProCon.IP для опроса своих значений и другой, недокументированный API, который работает с побитовыми командами для переключения реле. Второй также используется оригинальными веб-интерфейсами ProCon.IP. Таким образом, в будущем могут появиться обновления прошивки, которые тормозят совместимость с этим адаптером или, по крайней мере, его функциональность переключения реле.
+Адаптер использует `/GetState.csv` API ProCon.IP для опроса своих значений и другой, недокументированный API, который работает с побитовыми командами для переключения реле. Второй также используется оригинальными веб-интерфейсами ProCon.IP. Таким образом, в будущем могут появиться обновления прошивки, которые тормозят совместимость с этим адаптером или, по крайней мере, его функциональность переключения реле.
 
 ### Совместимость
 На данный момент адаптер протестирован и разработан в сочетании с прошивкой ProCon.IP **версия 1.7.6.a**. Но он должен работать с любой предыдущей/предстоящей версией прошивки.
@@ -76,11 +74,9 @@ hash: eqBpIzWm+OoQ3aQRN0gZDXTYzu++EMdxNl2T7OpjCcQ=
 * Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the 
   latest version.
 
-## Changelog
 ### 1.5.3 (2024-02-27)
 * Update dependencies.
 
-## Changelog
 ### 1.5.2 (2024-02-13)
 * Add newline before descriptive text in adapter config.
 * Update dependencies.

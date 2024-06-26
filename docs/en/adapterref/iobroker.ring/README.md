@@ -38,6 +38,8 @@ You can use special variables for your livestream and snapshot path and filename
 a counter, timestamp, ring id or kind of ring.
 
 * `%d`: Unix timestamp. Example: `test_%d -> test_1588331430061`
+* `%g`: Formatted dated YYYYMMDD. Example: `test_%g -> test_20240614`
+* `%t`: Formatted time HHiiss. Example: `test_%t -> test_235901`
 * `%i`: ID of your ring device: Example: `test_%i -> test_234567890`
 * `%n`: Counter since ring instance start. Example: `test_%n -> test_1`
 * `%k`: Kind of your ring device: Example: `test_%k -> test_doorbell`
@@ -95,6 +97,11 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2024-06-22)
+
+* (SFGJK) #710 Enhancement of filename placeholder feature
+* (theimo1221) Updated Packages
+
 ### 5.0.10 (2023-11-06)
 
 * (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
@@ -480,7 +487,7 @@ doorbell recorded video.
 
 MIT License
 
-Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2024 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

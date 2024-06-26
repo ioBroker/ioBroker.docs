@@ -12,11 +12,33 @@
 
 **Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
 
-## nissan adapter for ioBroker
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**\
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\
+Sentry reporting is used starting with js-controller 3.0.
 
-Nissan Adapter
+## Nissan adapter for ioBroker
+
+With the Nissan adapter you can ask your nissan vehicle for the latest data, display the current battery and charging status, the current state of the climate control, start or stop climate control and and start charging remotely.
+
+[Nissan Connect/App information](https://www.nissan.de/kunden/nissan-connect-apps.html)
+
+## Forum
+
+Feel free to follow the discussions in the german [iobroker forum](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x)
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+- (bolliy) Dependency and configuration updates
+- (bolliy) Added Admin 5 configuration
+- (bolliy) ConnectEV: Update status before reading cachedeStatus
+- (bolliy) improve State roles and types
+
 ### 0.1.2 (2024-05-31)
 
 - Refresh Token fix
@@ -37,7 +59,7 @@ Nissan Adapter
 
 MIT License
 
-Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

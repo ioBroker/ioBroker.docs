@@ -43,6 +43,11 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* improve search for EMS+ and EMS 2.0 entities (switchTimes & holidayModes) with raw telegrams
+* support different thermostat id's
+* change ems-esp warning messages to info on start-up for 3.7 dev versions
+
 ### 4.2.0 (2024-06-11)
 * ems-esp: process double entity names between boiler and thermostat for dhw
 * ems-esp: add original device name to iobroker object name when km200-structure is selected

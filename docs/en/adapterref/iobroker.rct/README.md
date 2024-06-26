@@ -46,11 +46,11 @@ The object "inverter_state" indicates the status of the inverter
 *	6 -> 'Power check (decision if enougth energy to start or not)'
 *	7 -> 'Symmetry (DC-link alignment)'
 *	8 -> 'Relays test'
-*	9 -> 'Grid Passive (inverter get power from grid without bridge clocking)'
-*	10 -> 'Prepare Bat passive'
-*	11 -> 'Battery passice (off-grid)'
-*	12 -> 'Hardwaretest'
-*	13 -> 'Einspeisung'
+*	9 -> 'Grid passive (inverter get power from grid without bridge clocking)'
+*	10 -> 'Prepare battery passive'
+*	11 -> 'Battery passive (off-grid)'
+*	12 -> 'Hardware test'
+*	13 -> 'Grid feeding'
 
 ## Known Issues
 
@@ -69,16 +69,15 @@ None
 ### 1.2.9 (2024-05-17)
 * (Andreas Ruttkamp) wrong type for next_calib_date corrected
 
-
 ### 1.2.8 (2024-05-16)
 * (NCIceWolf) Implementation of new adminUI
 * (Andreas Ruttkamp) index_m.html deleted
 * (Andreas Ruttkamp) Datatype battery_stack_cycles corrected
 * (NCIceWolf) style.css deleted (not needed for json admin)
 * (NCIceWolf) removed tab-materialize (leftover from initial adapter creation)
-* (NCIceWolf) updated minimum js-controller version to >= 5.0.0 (current: 5.0.19)
-* (NCIceWolf) added minimum admin version to >= 5.0.0 (current stable : 6.13.16), could even be >= 6.0.0
-* (NCIceWolf) prepared translations (further handling -> https://github.com/ioBroker/adapter-dev#manage-translations)
+* (NCIceWolf) updated minimum js-controller version to >= 5.0.0
+* (NCIceWolf) added minimum admin version to >= 5.0.0
+* (NCIceWolf) prepared translations for adminUI
 
 ### 1.2.7 (2024-05-05)
 * (Andreas Ruttkamp) prim_sm.state added

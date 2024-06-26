@@ -97,24 +97,23 @@ To send a photo, just send a path to file instead of text or URL: `sendTo('teleg
 Example how to send a screenshot from webcam to telegram:
 
 ```javascript
-var request = require('request');
-var fs      = require('fs');
-
 function sendImage() {
-    request.get({url: 'http://login:pass@ipaddress/web/tmpfs/snap.jpg', encoding: 'binary'}, function (err, response, body) {
-        fs.writeFile('/tmp/snap.jpg', body, 'binary', function (err) {
-
+    httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png', { responseType: 'arraybuffer' }, async (err, response) => {
         if (err) {
             console.error(err);
         } else {
-            console.log('Snapshot sent');
-            sendTo('telegram.0', '/tmp/snap.jpg');
-            //sendTo('telegram.0', {text: '/tmp/snap.jpg', caption: 'Snapshot'});
+            const tempFilePath = createTempFile('telegram-image.png', response.data);
+
+            sendTo('telegram.0', 'send', {
+                text: tempFilePath,
+                caption: 'A wonderful adapter',
+                user: 'yourUsername',
+            });
         }
-      });
     });
 }
-on('someState', function (obj) {
+
+on('0_userdata.0.someState', (obj) => {
     if (obj.state.val) {
         // send 4 images: immediately, in 5, 15 and 30 seconds
         sendImage();
@@ -484,18 +483,18 @@ To do that from javascript adapter, just call:
 sendTo('telegram.0', 'call', 'Some text');
 ```
 
-or 
+or
 
 ```javascript
 sendTo('telegram.0', 'call', {
     text: 'Some text',
     user: '@Username', // optional and the call will be done to the first user in telegram.0.communicate.users.
-    language: 'de-DE-Standard-A', // optional and the system language will be taken
+    lang: 'de-DE-Standard-A', // optional and the system language will be taken
     repeats: 0, // number of repeats 
 });
 ```
 
-or 
+or
 
 ```javascript
 sendTo('telegram.0', 'call', {
@@ -504,7 +503,7 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-or 
+or
 
 ```javascript
 sendTo('telegram.0', 'call', {
@@ -725,6 +724,15 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (klein0r) Removed default / shadow fiel from Blockly block ask
+
+### 3.6.0 (2024-06-19)
+* (klein0r) Save videos which have been recorded with telegram (video_note)
+* (klein0r) Added answer timeout to instance configuration
+* (klein0r) Added option to send status updates to specific users
+* (klein0r) Added states for thread id (of supergroups)
+
 ### 3.5.3 (2024-06-18)
 * (foxriver76) escape all unallowed characters when sending with notification manager
 
@@ -737,9 +745,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 
 ### 3.5.0 (2024-06-12)
 * (klein0r) Added option to save media files into ioBroker file system (files tab)
-
-### 3.4.1 (2024-06-09)
-* (klein0r) Blockly 9 compatibility for new ask block
 
 ## License
 

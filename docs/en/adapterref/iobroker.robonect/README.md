@@ -72,21 +72,26 @@ permission issue between the iobroker user and the ping utility.
 
 ### Work in progress
 
+### 1.3.6 (2024-06-21)
+
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: minor fixes for AdapterChecker
+
 ### 1.3.5 (2024-06-04)
 
-* (grizzelbee) Upd: Dependencies got updated
-* (grizzelbee) Upd: Requires at least admin  v6.13.16
-* (grizzelbee) Upd: Requires at least nodeJs v18.0.2
-* (grizzelbee) Upd: Updated translations
-* (grizzelbee) Upd: Reorganized Admin-UI
-* (grizzelbee) New: Added Ping-Option to admin 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: Requires at least admin  v6.13.16
+- (grizzelbee) Upd: Requires at least nodeJs v18.0.2
+- (grizzelbee) Upd: Updated translations
+- (grizzelbee) Upd: Reorganized Admin-UI
+- (grizzelbee) New: Added Ping-Option to admin 
 
  
 ### 1.3.4 (2023-10-10)
 
-* (grizzelbee) Chg: massive code refactoring 
-* (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses
-* (grizzelbee) Chg: Forcing pollType info for pushService when enabled it's enabled in config
+- (grizzelbee) Chg: massive code refactoring 
+- (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses
+- (grizzelbee) Chg: Forcing pollType info for pushService when enabled it's enabled in config
 
 ### 1.3.2 (2023-10-04)
 

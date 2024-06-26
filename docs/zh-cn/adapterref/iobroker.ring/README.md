@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ring/README.md
 title: 环形适配器
-hash: VAuDrniQrkEeYjoiFdJ/8lkukKW3sL1I0HFmNPJmxs4=
+hash: xLiRXI7wH5yl6HEec+cgjm+jnMQdpKrTdjVegN3gvE4=
 ---
 ![标识](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
 ![Travis CI 构建状态](https://travis-ci.org/iobroker-community-adapters/ioBroker.ring.svg?branch=master)
 ![AppVeyor 构建状态](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.ring?branch=master&svg=true)
 ![安装数量](http://iobroker.live/badges/ring-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.ring.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.ring.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.ring.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.ring.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.ring.png?downloads=true)
 
 # 环形适配器
-Ring 适配器可与 Ring 视频门铃和 Ring Cam 等 Ring 设备配合使用，并显示是否有人按门铃或是否检测到运动。
-如果检测到运动或门铃，环形视频门铃或摄像头会发送视频流。
+Ring 适配器可与 Ring 视频门铃和 Ring Cam 等 Ring 设备配合使用，并显示是否有人按门铃或是否检测到动作。
+如果检测到动作或门铃，Ring 视频门铃或摄像头会发送视频流。
 
 ## 安装和配置
 安装适配器后，您必须输入您的令牌。
@@ -38,49 +38,51 @@ cd /opt/iobroker/node_modules/iobroker.ring/node_modules/ring-client-api
 node ring-auth-cli
 ```
 
-您可以为直播和快照路径和文件名使用特殊变量。这些变量将被替换为计数器、时间戳、环 ID 或环类型。
+您可以使用特殊变量作为直播和快照路径和文件名。这些变量将被计数器、时间戳、环 ID 或环类型替换。
 
-* `%d`: Unix 时间戳。示例：`test_%d -> test_1588331430061`
-* `%i`：您的戒指设备的 ID：示例：`test_%i -> test_234567890`
+* `%d`：Unix 时间戳。示例：`test_%d -> test_1588331430061`
+* `%g`：格式化日期为 YYYYMMDD。示例：`test_%g -> test_20240614`
+* `%t`: 格式化时间 HHiiss。例如：`test_%t -> test_235901`
+* `%i`：你的环设备的ID：例如：`test_%i -> test_234567890`
 * `%n`：自环实例启动以来的计数器。示例：`test_%n -> test_1`
-* `%k`：您的响铃设备类型：示例：`test_%k -> test_doorbell`
+* `%k`：你的铃声设备类型：例如：`test_%k -> test_doorbell`
 
 ＃＃＃ 常问问题
 #### 我没有收到有关运动或检测到的人的事件、快照和视频
-恭喜，您当前的令牌很可能已被环列入黑名单，从而拒绝您需要的推送通知。
-解决此问题的最佳方法是删除环网站上以前的任何浏览器/适配器令牌，并为适配器生成新令牌。
+恭喜，您当前的令牌很可能被 Ring 列入黑名单，从而拒绝您所需的推送通知。
+解决此问题的最佳方法是删除 Ring 网站上任何以前的浏览器/适配器令牌，并为适配器生成新令牌。
 
-为了使该适配器能够正确地对事件做出反应，Ring 必须将推送通知发送到所使用的 [环API客户端](https://github.com/dgreif/ring)，以便该适配器对其做出反应。该适配器中的逻辑经过多次检查并且适用于大量用户，因此如果您遇到有关丢失事件的问题，则不太可能是该适配器的错误。
+为了使此适配器能够正确响应事件，Ring 必须将推送通知发送到使用的 [Ring Api 客户端](https://github.com/dgreif/ring)，以便此适配器对其做出响应。此适配器中的逻辑经过多次检查，并且适用于大量用户，因此如果您遇到与丢失事件有关的问题，则不太可能是此适配器的问题。
 
 ### V5 重大变化
-1. 一些数据点被重命名为更加一致（例如`livestream_request`被简化为`request`，因为它已经
+1. 一些数据点被重命名以更加一致（例如，“livestream_request”被简化为“request”，因为它已经
 
-   位于频道`livestream`)。
+位于频道`livestream`）。
 
-2. 您现在可以配置是否要对事件做出反应（通过录制、快照等）。
-3.二元状态被删除。
+2. 您现在可以配置是否对事件做出反应（录制、快照等）。
+3. 二元状态被删除。
 
-### V3 重写重大更改
-1. 设备名称通过其描述进行扩展（例如，来自“设备 1234567”
+### V3 重写重大变更
+1. 设备名称根据其描述进行了扩展（例如，从“设备 1234567”
 
-   至`Device 1234567 ("Floodlight Garden")`)
+至`Device 1234567 ("Floodlight Garden")`）
 
-2. 快照/直播数据现在位于各自的通道中，包含其他数据点。
-3.快照/直播对象从meta类型更改为file类型的state。
+2. 快照/实时流数据现在位于相应的通道中，包含其他数据点。
+3. 快照/直播流对象从元类型更改为文件类型状态。
 4. 事件（运动、叮等）现在位于相应的频道中。
-5. 由于“ring-api”放弃了对“v16.x”之前的节点的支持，此适配器需要“node v16.x”或“node v18.x”
+5. 由于 `ring-api` 不再支持 `v16.x` 之前的 node，此适配器需要 `node v16.x` 或 `node v18.x`
 6. 由于我们正在监听/响应事件，主动刷新减少到每 2 小时一次。
 
-### SIP（版本 3.x 之前）
-您可以通过 SIP 客户端使用 SIP 信息进行 SIP 视频会议。
+### SIP（3.x 版本之前）
+您可以使用 SIP 信息与您的 SIP 客户端进行 SIP 视频会议。
 适配器不会提供所有环设备，因为使用的 API 不包括所有环设备。
 
 例如，您可以在 [http://icanblink.com/](http://icanblink.com/) 上使用 Blink SIP 客户端。
-要使视频正常工作，请进入 Blink 的首选项，在“帐户”下，将选项卡切换到“媒体”，然后取消选择“RTP 选项”下的“加密音频和视频”。
-请注意，SIP 信息将在几秒钟后过期！希望我很快就能支持视频流。
-遗憾的是，[环网](https://ring.com) 没有支持此功能的官方 API。
-如果您按下 `livestream request` 按钮，您将获得用于建立 SIP 视频呼叫会话的新 SIP 信息。
-如果您使用[环网](https://ring.com)云，您会在历史记录下找到指向您上次运动/门铃录制视频的http链接。
+要使视频正常工作，请进入 Blink 的“首选项”，在“帐户”下，将选项卡切换到“媒体”，然后取消选择“RTP 选项”下的“加密音频和视频”。
+请注意，SIP 信息会在几秒钟后过期！希望我能尽快支持视频流。
+不幸的是，[ring.com](https://ring.com) 没有支持此功能的官方 API。
+如果您按下 `livestream request` 按钮，您将获得用于建立 SIP 视频通话会话的新 SIP 信息。
+如果您使用 [ring.com](https://ring.com) 云，您会在历史记录下找到指向您上次运动/门铃录制视频的 http 链接。
 
 ## Changelog
 
@@ -88,6 +90,11 @@ node ring-auth-cli
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2024-06-22)
+
+* (SFGJK) #710 Enhancement of filename placeholder feature
+* (theimo1221) Updated Packages
+
 ### 5.0.10 (2023-11-06)
 
 * (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
@@ -473,7 +480,7 @@ node ring-auth-cli
 
 MIT License
 
-Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2024 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

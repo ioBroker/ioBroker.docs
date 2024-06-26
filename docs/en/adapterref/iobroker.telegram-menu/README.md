@@ -33,6 +33,15 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.7.4 (2024-06-24)
+
+-   FEAT: #160 Expand setDynamicValue
+
+### 1.7.3 (2024-06-22)
+
+-   FIX: Multi-user fixed
+-   FIX: #159 Functions fixed
+
 ### 1.7.2 (2024-06-17)
 
 -   FIX: #158 Telegram-menu connection
@@ -47,52 +56,74 @@ You can create different groups with separate menus, and then assign users to th
 
 ### 1.7.0 (2024-05-11)
 
--   Switched to typescript
+-   Switched to "Typescript"
 
 ### 1.6.3 (2024-02-27)
 
--   Bug in copy card fixed
--   #104 HTTP Request Beta
--   #111 status Value in dynamicSwitch
--   #112 change value
+-   FIX: Bug in copy card fixed
+-   FIX: #104 HTTP Request Beta
+-   FIX: #111 status Value in dynamicSwitch
+-   FIX: #112 change value
+-   FIX: Bug in copy card fixed
+-   FIX: #104 HTTP Request Beta
+-   FIX: #111 status Value in dynamicSwitch
+-   FIX: #112 change value
 -   **_Change!!!_** menu:deleteAll removes automatic Request Ids which are older than 48h from list. The list is completely deleted once during the update
--   Fixed menu:number with negativ Values, see the documentation
+-   FIX: menu:number with negativ Values, see the documentation
+-   FIX: menu:number with negativ Values, see the documentation
 
 ### 1.6.2 (2024-01-07)
 
--   #102 **_Breaking Change!!!_** menu:dynSwitch with decimal numbers, if you use it, you have to adjust the function manually. For more information, see the documentation
--   #106 **_Breaking Change!!!_** fixed change `{status:'id':'ID':true}` has now a new parameter, check docs
--   #107 one line menu without workaround
--   #103 scrollbar in Navigation and Action
+-   FIX: #102 **_Breaking Change!!!_** menu:dynSwitch with decimal numbers, if you use it, you have to adjust the function manually. For more information, see the documentation
+-   FIX: #106 **_Breaking Change!!!_** fixed change `{status:'id':'ID':true}` has now a new parameter, check docs
+-   FIX: #107 one line menu without workaround
+-   FIX: #103 scrollbar in Navigation and Action
+-   FIX: #102 **_Breaking Change!!!_** menu:dynSwitch with decimal numbers, if you use it, you have to adjust the function manually. For more information, see the documentation
+-   FIX: #106 **_Breaking Change!!!_** fixed change `{status:'id':'ID':true}` has now a new parameter, check docs
+-   FIX: #107 one line menu without workaround
+-   FIX: #103 scrollbar in Navigation and Action
 -   Small visual changes in actions for small screens
--   Fixed checkbox send menu after restart in settings
--   #94 Menu:number with Float Numbers fixed
+-   FIX: Checkbox send menu after restart in settings
+-   FIX: #94 Menu:number with Float Numbers fixed
+-   FIX: Checkbox send menu after restart in settings
+-   FIX: #94 Menu:number with Float Numbers fixed
 -   Trigger Info - Overview of all menus and users, only visual but without functions
 -   Remaining text reattached
 
 ### 1.6.1 (2023-12-27)
 
--   fixed, shoppinglist
+-   FIX: Shoppinglist
+-   FIX: Shoppinglist
 
 ### 1.6.0 (2023-12-26)
 
--   json Table in combination with the alexa-shoppinglist adapter can remove items
--   json Table without Head
--   fixes in menu:back
+-   Json Table in combination with the alexa-shoppinglist adapter can remove items
+-   Json Table without Head
+-   FIX: Menu:back
+-   Json Table in combination with the alexa-shoppinglist adapter can remove items
+-   Json Table without Head
+-   FIX: Menu:back
 -   Possibility to stop sending Menu after restart (after save)
 
 ### 1.5.1 (2023-12-20)
 
--   no Icons in events condition
--   fixed, copy events and echarts
--   moveable DropBox
+-   No Icons in events condition
+-   FIX: Copy events and echarts
+-   Moveable DropBox
+-   No Icons in events condition
+-   FIX: Copy events and echarts
+-   Moveable DropBox
 
 ### 1.5.0 (2023-12-19)
 
--   #92 send echarts
--   #93 Scrollbar in Menus
--   #89 go back to menu by setting setDynamicValue
--   delete all Messages by Bot
+-   FIX: #92 send echarts
+-   FIX: #93 Scrollbar in Menus
+-   FIX: #89 go back to menu by setting setDynamicValue
+-   Delete all Messages by Bot
+-   FIX: #92 send echarts
+-   FIX: #93 Scrollbar in Menus
+-   FIX: #89 go back to menu by setting setDynamicValue
+-   Delete all Messages by Bot
 
 ### 1.4.0 (2023-12-16)
 

@@ -36,6 +36,12 @@ For better view a custom lovelace card is created - see https://github.com/algar
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.5.0 (2024-06-23)
+* (xdaamg) limit updates to once an hour, this fixes part of issue #273.
+* (mcm1957) Adapter requires js-controller >= 5 and admin >= 6 now
+* (mcm1957) Node 22 support has been added to testing
+* (mcm1957) Dependencies have been updated
+
 ### 1.4.0 (2024-04-02)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated

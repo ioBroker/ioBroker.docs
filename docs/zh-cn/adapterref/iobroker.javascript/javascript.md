@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/javascript.md
 title: 无题
-hash: dViRabKp0N5ZMlnv3odq50RMtCrHkYEoCks8bqFaFyQ=
+hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 ---
 ＃＃ 内容
 - [注意](#note)
@@ -798,7 +798,7 @@ await setStateChangedAsync(id, state, ack);
 clearStateDelayed(id);
 ```
 
-清除指定状态ID或某些特定延迟任务的所有延迟任务。
+清除指定状态ID或某个特定延迟任务的所有延迟任务。
 
 ```js
 setStateDelayed('Kitchen.Light.Lamp', false,  10000); // Switch OFF the light in the kitchen in ten second
@@ -995,17 +995,42 @@ getEnums(enumName);
 ```js
 getEnums('rooms');
 
-// returns:
+// returns all rooms - e.g.:
 [
     {
-        "id":"enum.rooms.LivingRoom",
-        "members":["hm-rpc.0.JEQ0024123.1","hm-rpc.0.BidCoS-RF.4"],
-        "name": "Living room"
+        id: 'enum.rooms.LivingRoom',
+        members: [ 'hm-rpc.0.JEQ0024123.1', 'hm-rpc.0.BidCoS-RF.4' ],
+        name: 'Living room'
     },
     {
-        "id":"enum.rooms.Bath",
-        "members":["hm-rpc.0.JEQ0024124.1","hm-rpc.0.BidCoS-RF.5"],
-        "name": "Bath"
+        id: 'enum.rooms.Bath',
+        members: [ 'hm-rpc.0.JEQ0024124.1', 'hm-rpc.0.BidCoS-RF.5' ],
+        name: 'Bath'
+    }
+]
+
+getEnums('functions');
+
+// returns all functions - e.g.:
+[
+    {
+        id: 'enum.functions.light',
+        members: [
+            '0_userdata.0.AnotherOne',
+            '0_userdata.0.MyLigh'
+        ],
+        name: {
+            en: 'Light',
+            ru: 'Свет',
+            de: 'Licht',
+            fr: 'Lumière',
+            it: 'Leggero',
+            nl: 'Licht',
+            pl: 'Lekki',
+            pt: 'Luz',
+            es: 'Luz',
+            'zh-cn': '光'
+        }
     }
 ]
 ```
@@ -1994,10 +2019,27 @@ httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/a
 ```
 
 ```js
-onFile('0_userdata.0', 'test.jpg', true, async (id, fileName, size, data, mimeType) => {
+onFile('0_userdata.0', '*.jpg', true, async (id, fileName, size, data, mimeType) => {
     const tempFilePath = createTempFile(fileName, response.data);
 
     // Use the new path in other scripts (e.g. sendTo)
+});
+```
+
+```js
+readFile('0_userdata.0', 'test.jpg', (err, data, mimeType) => {
+    if (err) {
+        console.error(err);
+    } else {
+        const tempFilePath = createTempFile('test.jpg', data);
+
+        // Use the new path in other scripts (e.g. sendTo)
+        sendTo('telegram.0', 'send', {
+            text: tempFilePath,
+            caption: 'Just a test image',
+            user: 'yourUsername',
+        });
+    }
 });
 ```
 

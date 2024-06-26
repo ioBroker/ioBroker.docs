@@ -1,29 +1,30 @@
 ![Logo](admin/mqtt-client.png)
+
 # ioBroker.mqtt-client
 
-[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.mqtt-client)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/blob/master/LICENSE)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.mqtt-client.svg)](https://www.npmjs.com/package/iobroker.mqtt-client)
-![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.mqtt-client)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/mqtt-client/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.mqtt-client/latest)
-![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.mqtt-client)
-</br>
-**Version:** </br>
-[![NPM version](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)](https://www.npmjs.com/package/iobroker.mqtt-client)
-![Current version in stable repository](https://iobroker.live/badges/mqtt-client-stable.svg)
-![Number of Installations](https://iobroker.live/badges/mqtt-client-installed.svg)
-</br>
-**Tests:** </br>
-[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml)
-[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml)
+[![NPM version](https://img.shields.io/npm/v/iobroker.mqtt-client?style=flat-square)](https://www.npmjs.com/package/iobroker.mqtt-client)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.mqtt-client?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.mqtt-client)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.mqtt-client?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.mqtt-client?label=npm%20dependencies&style=flat-square)
 
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.mqtt-client?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.mqtt-client/test-and-release.yml?branch=master&logo=github&style=flat-square)
+
+## Versions
+
+![Beta](https://img.shields.io/npm/v/iobroker.mqtt-client.svg?color=red&label=beta)
+![Stable](http://iobroker.live/badges/mqtt-client-stable.svg)
+![Installed](http://iobroker.live/badges/mqtt-client-installed.svg)
+
+Publish and subscribe ioBroker states to MQTT Brokers
 
 ## Sentry
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 ## Adapter Settings
 ![Adapter](img/settings.png)
@@ -85,8 +86,14 @@ default: state-ID converted to a mqtt topic.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
 ## Changelog
+### __WORK IN PROGRESS__
+* (@klein0r) Added missing information in configuration dialog
+
+### 2.0.0 (2024-06-21)
+* (klein0r) Password is now encrypted - you have to re-renter your password in instance settings!
+* (klein0r) Use jsonConfig instead of materialize (for instance settings)
+
 ### 1.8.0 (2024-04-07)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nissan/README.md
 title: ioBroker.nissan
-hash: Bucylx/ohyhOKYOUH79e5Q0EfDGhPfdDpplFmsbN9jw=
+hash: FbxmhAnuLWz2syQPO2VGYuM2z74lmRVrTUd5kZrMjuQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nissan/admin/nissan.png)
 
@@ -17,10 +17,37 @@ hash: Bucylx/ohyhOKYOUH79e5Q0EfDGhPfdDpplFmsbN9jw=
 # IoBroker.nissan
 **Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.nissan/workflows/Test%20and%20Release/badge.svg)
 
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.**\ Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Отчеты Sentry используются, начиная с js-контроллера. 3.0.
+
 ##адаптер Nissan для ioBroker
-Ниссан Адаптер
+С помощью адаптера Nissan вы можете запросить у вашего автомобиля Nissan последние данные, отобразить текущий статус аккумулятора и зарядки, текущее состояние климат-контроля, запустить или остановить климат-контроль, а также начать зарядку удаленно.
+
+[Nissan Connect/информация о приложении](https://www.nissan.de/kunden/nissan-connect-apps.html)
+
+## Форум
+Не стесняйтесь следить за обсуждениями на немецком языке [форум iobroker](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x).
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+- (bolliy) Dependency and configuration updates
+- (bolliy) Added Admin 5 configuration
+- (bolliy) ConnectEV: Update status before reading cachedeStatus
+- (bolliy) improve State roles and types
+
+### 0.1.2 (2024-05-31)
+
+- Refresh Token fix
+
+### 0.1.1 (2024-05-20)
+
+- Login fixed.
+
 ### 0.1.0 (2024-05-18)
 
 - login fixed
@@ -33,7 +60,7 @@ hash: Bucylx/ohyhOKYOUH79e5Q0EfDGhPfdDpplFmsbN9jw=
 
 MIT License
 
-Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -649,6 +649,18 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 3.0.7 (2024-06-26)
+* (simatec) Restore Information added
+* (simatec) Fix Formaterrors
+* (bluefox) Fixing the problems with styles
+* (simatec) Fix iobroker Backup Error
+
+### 3.0.6 (2024-06-26)
+* (simatec) Restore Information added
+* (simatec) Fix Formaterrors
+* (bluefox) Fixing the problems with styles
+* (simatec) Fix iobroker Backup Error
+
 ### 3.0.5 (2024-06-18)
 * (simatec) Fix Build
 
@@ -1385,16 +1397,16 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ### 1.5.9 (21.07.2020)
 * (simatec) small fixes on mysql backup
-* (simatec) next bugfixs errorhandling sentry.io
+* (simatec) next bugfixs error handling sentry.io
 * (simatec) updated dependencies
 
 ### 1.5.8 (20.05.2020)
 * (simatec) small fixes on zigbee backup
 * (simatec) added log for zigbee Instances
-* (simatec) next bugfix errorhandling sentry.io
+* (simatec) next bugfix error handling sentry.io
 
 ### 1.5.7 (11.05.2020)
-* (simatec) bugfix errorhandling sentry.io
+* (simatec) bugfix error handling sentry.io
 * (simatec) updated dependencies
 * (simatec) added node14 support
 
@@ -1402,17 +1414,17 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 * (simatec) Bugfix reading restore list
 
 ### 1.5.5 (01.05.2020)
-* (simatec) bugfix errorhandling sentry.io
+* (simatec) bugfix error handling sentry.io
 
 ### 1.5.4 (29.04.2020)
 * (simatec) added osDependencies for nfs and cifs
-* (simatec) Bugfixes for errorhandling telegram, pushover, e-mail, ftp list and create backup folder
+* (simatec) Bugfixes for error handling telegram, pushover, e-mail, ftp list and create backup folder
 
 ### 1.5.3 (28.04.2020)
-* (simatec) many smal Bugfixes for errorhandling sentry.io
+* (simatec) many smal Bugfixes for error handling sentry.io
 
 ### 1.5.2 (24.04.2020)
-* (simatec) errorhandling sentry.io
+* (simatec) error handling sentry.io
 * (AlCalzone) docu updated
 
 ### 1.5.1 (23.04.2020)
@@ -1448,7 +1460,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 * (simatec) added Name Suffix for mysql Backup
 * (simatec) added more Options for mysql
 * (simatec) added domain support for cifs
-* (simatec) added json historystate
+* (simatec) added json history state
 
 ### 1.3.6 (18.12.2019)
 * (simatec) Fixed historyList for compact-mode
@@ -1477,7 +1489,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 * (simatec) Bug fix
 
 ### 1.3.1 (02.12.2019)
-* (bluefox) Added information about latest backup
+* (bluefox) Added information about the latest backup
 * (simatec) some Bug fix
 * (simatec) add new translation
 * (simatec) Fixed translation
@@ -1486,7 +1498,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ### 1.3.0 (22.11.2019)
 * (simatec) support end for the total backup
-* (simatec) Added backup of history data path
+* (simatec) Added backup of a history data path
 * (simatec) Added startup of all adapters after restore
 * (simatec) Revision of the restoration for Redis
 * (simatec) revision of log issues
@@ -1536,7 +1548,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ### 1.0.8 (26.01.2019)
 * (simatec) modification for new installer
-* (simatec) WOL-waittime adjustable
+* (simatec) WOL-wait time adjustable
 * (simatec) Fixed History settings
 
 ### 1.0.7 (17.01.2019)
@@ -1619,7 +1631,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 * (simatec) Fixed Restart after total-backup
 
 ### 0.3.3 (27.09.2018)
-* (simatec) Fixed Backup-Directoy for dropbox
+* (simatec) Fixed Backup-Directory for dropbox
 * (simatec) Fixed Restart after total-backup
 * (simatec) Fixed error Log on cifs
 
@@ -1655,7 +1667,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ### 0.2.5 (26.07.2018)
 * (simatec) Check for dependencies
-* (simatec) Delete older files if number of files greater than X
+* (simatec) Delete older files if the number of files is greater than X
 * (simatec) Check for Backup Dir
 * (simatec) Translations added
 
@@ -1664,7 +1676,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
  * (peoples) Added translations in words.js
 
 ### 0.2.3 (19.07.2018)
- * (bluefox) The backup buttons in configuration dialog were added
+ * (bluefox) The backup buttons in the configuration dialog were added
  * (bluefox) Show bash output text
  * (peoples) Bug Fix Mysql-Login Error
 
@@ -1710,7 +1722,7 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2024 simatec
+Copyright (c) 2018-2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

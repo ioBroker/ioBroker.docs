@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: pcxyjj8SQmI/EkWtZQPpPHDKLzNBcmKwI9prd/2XcFQ=
+hash: MqnS06VDetSr4sXhr7MZXNtQiSLV4YkL8HIBqzeuyWg=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
 - Bitte definieren Sie den Header als
 
 ## AdapterName (JJJJ-MM-TT) - [Kurzbeschreibung]
-- Die Beschreibung der Aufnahme könnte lauten:
+- Die Aufnahmebeschreibung könnte lauten:
 - neuer Adapter
   - stabile Version
   - neue Funktion
@@ -209,7 +209,7 @@ https://github.com/boergegrunicke/ioBroker.govee-local
 
 <img src="https://raw.githubusercontent.com/boergegrunicke/ioBroker.govee-local/main/admin/govee-local.png" width="100" height="100" />
 
-Steuern Sie Govee-Geräte über den lokalen Zugriff (keine Cloud)
+Steuern Sie Govee-Geräte über lokalen Zugriff (keine Cloud)
 
 ## Pylontech (23.10.2023) - neuer Adapter
 https://github.com/PLCHome/ioBroker.pylontech
@@ -271,7 +271,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-## Emporia (07.12.2023) - neuer Adapter
+##emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -495,10 +495,54 @@ https://github.com/Steiger04/ioBroker.radar-trap
 
 Adapter zur Erkennung von Radarfallen und Hindernissen.
 
-## Admin (10.6.2024) – neue Funktion
-- Die Registerkarte „Protokoll“ wurde verbessert. (Vor allem Layout und GUI)
-- Unterstützung für die automatische Update-Option des Adapters hinzugefügt. Neue Version des JS-Controllers erforderlich.
-- Es werden nur die im Adapter-Tab installierten Adapter oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
+## Waterkotte-easycon (12.4.2024) – spätestens mit neuem Adapter
+https://github.com/theknut/ioBroker.waterkotte-easycon
+
+<img src="https://raw.githubusercontent.com/theknut/ioBroker.waterkotte-easycon/main/admin/waterkotte-easycon.png" width="100" height="100" />
+
+Adapter für Klimaanlagen von Gree und C&H.
+
+## Vis-2-widgets-inventwo (25.4.2024) – spätestens neuer Adapter
+https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-inventwo/main/admin/vis-2-widgets-inventwo.png" width="100" height="100" />
+
+Fügt Schalter, Schaltflächen, Schieberegler und mehr als Widgets für ioBroker VIS 2.0 hinzu.
+
+## Webui (3.10.2023) - neuer Adapter
+https://github.com/iobroker-community-adapters/ioBroker.webui
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
+
+Dies ist ein vollständiges Visualisierungssystem für ioBroker.
+
+* komplett auf Webkomponenten basierend
+* WYSIWYG-Editor für die Benutzeroberfläche, Sie können aber auch zur Quellansicht oder zur geteilten Ansicht wechseln
+* Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visal Studio
+* Bindungen per Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
+* komplexe Bindungen mit Javascript darin und Konverter
+* einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann
+
+## Hiob (22.5.2024) – spätestens neuer Adapter
+https://github.com/moba15/ioBroker.hiob
+
+<img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
+
+Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Es ist eine einfachere und schnellere Alternative zu vergleichbaren Projekten mit weniger Konfigurationsmöglichkeiten. Es ist hauptsächlich für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktops.
+
+## Notificationforandroidtv (22.5.2024) – spätestens neuer Adapter
+https://github.com/DNAngelX/ioBroker.notificationforandroidtv
+
+<img src="https://raw.githubusercontent.com/DNAngelX/ioBroker.notificationforandroidtv/main/admin/notificationforandroidtv.png" width="100" height="100" />
+
+Die Benachrichtigungsintegration für ioBroker umfasst Unterstützung für Benachrichtigungen für Android TV und Benachrichtigungen für Fire TV. Mit dieser Integration können Sie Benachrichtigungen an Ihr Android TV-Gerät senden. Sie ermöglicht eine Überlagerung, die den Nachrichteninhalt für eine anpassbare Dauer anzeigt, bevor sie verschwindet. Darüber hinaus unterstützt sie das Senden von Bildern, z. B. von Überwachungskameras, und benutzerdefinierten Symbolen. Symbole funktionieren ähnlich wie Bilder und erscheinen kleiner und links von der Benachrichtigung, während Bilder größer und über der Benachrichtigung angezeigt werden.
+
+Diese Benachrichtigungen gelten global auf Ihrem Android TV-Gerät und werden unabhängig von der aktiven Anwendung angezeigt.
+
+## IOB Mobile App für Android und iOS (04.6.2024) - neue App
+![Logo](https://raw.githubusercontent.com/iobroker/iobroker.docs/master/docs/en/history/media/2024_06_30_iob_mobile.png)
+
+Wiki: https://github.com/peter9teufel/iobmobile-issues/wiki/IOB-Mobile-Quickstart
 
 ## Gree-hvac (10.6.2024) – neuer Adapter bei stabil
 https://github.com/XHunter74/ioBroker.gree-hvac
@@ -506,3 +550,8 @@ https://github.com/XHunter74/ioBroker.gree-hvac
 <img src="https://github.com/XHunter74/ioBroker.gree-hvac/blob/master/admin/air-conditioner.png" width="100" height="100" />
 
 Adapter für Klimaanlagen von Gree und C&H.
+
+## Admin (10.6.2024) – neue Funktion
+- Die Registerkarte „Protokoll“ wurde verbessert. (Vor allem Layout und GUI)
+- Unterstützung für die automatische Update-Option des Adapters hinzugefügt. Neue Version des JS-Controllers erforderlich.
+- Es werden nur die im Adapter-Tab installierten Adapter oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
