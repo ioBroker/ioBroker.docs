@@ -120,7 +120,10 @@ the mesh objects for every device in the Fritzbox device list are created.
 If this option is checked the states for guests are created. 
 
 ### qr-code generation
-If this option is checked the qr-code from guest wlan is generated. 
+If this option is checked the qr-code from guest wlan is generated.
+You can show this QR code in your VIS with the widget "Basic Boolesches SVG".
+Please use following settings:
+<img src="doc/QRCode.png"/>
 
 ### Family member settings
 For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. 

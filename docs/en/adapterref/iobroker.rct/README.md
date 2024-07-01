@@ -62,9 +62,12 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.11 (2024-06-28)
+* (NCIceWolf) Tippfehler korrigiert
 
-### **WORK IN PROGRESS**
-* (NCIceWolf) some improvements on connect / disconnect 
+### 1.2.10 (2024-06-28)
+* (NCIceWolf) some improvements on connect / disconnect  
+* (Andreas Ruttkamp) Little code corrections
 
 ### 1.2.9 (2024-05-17)
 * (Andreas Ruttkamp) wrong type for next_calib_date corrected

@@ -60,8 +60,11 @@ UL3, IL3 = mains voltage, mains power phase 3
 TKK= Temperature inverter
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.1.1 (2024-06-28)
 * (afuerhoff) change to typescript
+* (afuerhoff) dependencies updated
+* (afuerhoff) bugfix CCU variable
+* (afuerhoff) documentation changed
 
 ### 1.1.0 (2024-05-29)
 * (afuerhoff) code optimizations
@@ -81,11 +84,6 @@ TKK= Temperature inverter
 * (afuerhoff) dependencies updated
 * (afuerhoff) Interval settings changed from minutes to seconds
 * (afuerhoff) States only writen after changes
-
-### 1.0.5 (2022-02-17)
-* (afuerhoff) dependencies updated
-* (afuerhoff) test and release updated
-* (afuerhoff) smaller changes
 
 ## License
 MIT License

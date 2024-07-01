@@ -28,6 +28,9 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.1.1 (2024-06-30)
+- (steiger04) Dependencies updated
+
 ### 2.1.0 (2024-06-26)
 - (steiger04) Dependencies updated
 - (steiger04) All widget attributes are now available

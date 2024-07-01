@@ -24,19 +24,30 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 * [Forum thread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
 * [English description](./docs/en/README.md)
 * [Deutsche Beschreibung](./docs/de/README.md)
+* [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1-alpha.0 (2024-06-28)
+- FIX: The coordinates and size of an added icon could not be changed
+- FIX: Cursor as Pointer (hand) did not appear on elements with action
+- FIX: NPM dependency for gallery was not fetched properly
+- FIX: Newly added Text didnt save text (was empty instead)
+- FIX: Under some circumstances an element could not be deleted (Error: Existing connection!)
+- Added: Text-Elements can now be used as date and time element
+- Added: Icons can now be rotated and flipped (even when using overrides for them)
+- Added: New overrides parameter 'icon' available to change icons (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons))
+
 ### 0.5.0-alpha.0 (2024-06-24)
-**!!! Please note, this currently a Alpha-Version, because many things are changed and needed to be tested!!!**  
+**!!! Please note, this currently an Alpha-Version, because many things are changed and needed to be tested!!!**  
 The core of the adapter keeps running on the same 0.4.1 version like before, but the configuration page has many improvements. See the list below! 
 
 Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it, it case needed or downgrading to the official version again! 
 
-After downloading the BETA Version of the adapter, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
+After downloading the BETA Version, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
 described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#uploadvonadapterdateien
 
 - Added: Support for Websockets is now integrated. Adapter uses the faster Websockets if available. If not, the connection falls back to socket polling 

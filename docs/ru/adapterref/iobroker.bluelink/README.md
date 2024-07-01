@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
+hash: +wu7t5+rsYxiYxI+26cps2HjaB1zvzUGQGTp9kVtd1Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -17,7 +17,7 @@ hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
 ![Тестирование и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер bluelink для ioBroker
-Адаптер для управления автомобилем Hyundai или Kia
+Адаптер для управления автомобилем Hyundai или Kia (до 2023 г.)
 
 [Обсуждение](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
@@ -27,13 +27,16 @@ hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
 
 <!-- Заполнитель следующей версии (в начале строки):
 
-https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p iobroker License --all 0.9.8 -> 1.0.0 npm Run Release Minor -- -p iobroker License --all 0.9 .8 -> 0.10.0 npm run Release patch -- -p iobroker License --all 0.9.8 -> 0.9.9 npm Run Release Prelease Beta -- -p iobroker License --all v0.2.1 -> v0.2.2 -бета.0
+https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p iobroker License --all 0.9.8 -> 1.0.0 npm Run Release Minor -- -p iobroker License --all 0.9 .8 -> 0.10.0 npm run Release patch -- -p iobroker License --all 0.9.8 -> 0.9.9 npm Run Release Pre-Release Beta -- -p iobroker License --all v0.2.1 -> v0.2.2 -бета.0
 
 ### **РАБОТА В ПРОГРЕССЕ** -->
 ## Пожертвование
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 2.3.8 (2024-02-25)
+* (arteck) corr steerWheelHeat
+
 ### 2.3.7 (2024-02-04)
 * (arteck) set default force_update to server
 

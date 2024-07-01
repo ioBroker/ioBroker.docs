@@ -48,6 +48,12 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) updated to adapter-dev and release script
 * (Bannsaenger) updated dependencies
 
+### 0.2.16 (2024-06-28)
+* (mschlgl) enhanced network reconnect functionality
+
+### 0.2.15 (2024-06-12)
+* (mschlgl) fixed typo in io-package.json
+
 ### 0.2.14 (2024-06-10)
 * (mschlgl) changed function createDatabase to use setObj()
 

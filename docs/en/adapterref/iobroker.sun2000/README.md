@@ -35,6 +35,9 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.11.0 (2024-06-27)
+* added a donation link in the adapter settings
+* dependency updated
 
 ### 0.10.0 (2024-06-14)
 * dependency and configuration updates

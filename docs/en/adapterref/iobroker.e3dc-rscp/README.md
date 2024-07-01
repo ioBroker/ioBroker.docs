@@ -154,7 +154,7 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>PM</td>
     <td>Power Meter</td>
-    <td>not supported (yet)</td>
+    <td>partially supported (REQ tags ok, SET tags not implemented yet)</td>
   </tr>
   <tr>
     <td>DB</td>
@@ -462,6 +462,13 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.3.0
+
+MODIFIED ADAPTER SETTINGS - do not re-use settings stored in json-file!
+ 
+(git-kick)
+* Fixed [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - added PM (power meter) namespace. **Only reading values, no SET tags.**
+
 ### 1.2.6
  
 (git-kick)

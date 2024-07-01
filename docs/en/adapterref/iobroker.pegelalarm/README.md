@@ -38,6 +38,7 @@ When the adapter crashes or an other Code error happens, this error message that
 <!--### __WORK IN PROGRESS__-->
 ### __WORK IN PROGRESS__
 * (simatec) Dependencies updated
+* (simatec) dev-server added
 
 ### 1.3.3 (2024-02-08)
 * (simatec) Dependencies updated

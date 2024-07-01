@@ -23,6 +23,9 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.3 (2024-06-26)
+* (BenAhrdt) Bugfix offlinenotification (calculation of diffenerce)
+
 ### 1.2.2 (2024-06-25)
 * (BenAhrdt) Bugfix inf generate Deviceinfo at startup for chirpstack
 

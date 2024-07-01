@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fb-checkpresence/README.md
 title: ioBroker.fb-checkpresence
-hash: OdugxapAS9iewTmrgIl680zXsFjafz4WonR+ow1+Uag=
+hash: jMiJjfk5hvvWoF25noxAKL/RGnHjS+4UWLO49qZgXDU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
 
@@ -34,7 +34,7 @@ hash: OdugxapAS9iewTmrgIl680zXsFjafz4WonR+ow1+Uag=
 (c) 2007–2009 Стивен Левитан <stevenlevithan.com> npm: https://www.npmjs.com/package/dateformat github: https://github.com/felixge/node-dateformat лицензия: MIT
 
 ### Предварительные условия адаптера
-Для корректной работы вам необходимо установить адаптер истории. Вы можете выбрать один из следующих адаптеров:
+Для корректной работы необходимо установить адаптер истории. Вы можете выбрать один из следующих адаптеров:
 
 * История
 * SQL
@@ -71,11 +71,11 @@ hash: OdugxapAS9iewTmrgIl680zXsFjafz4WonR+ow1+Uag=
 
 ## Диалоговое окно конфигурации
 ### Общий
-Значения конфигурации проверяются, и могут быть сохранены только правильные значения. В противном случае кнопка сохранения будет отключена.
+Значения конфигурации проверяются, и могут быть сохранены только правильные значения. В противном случае кнопка сохранения будет неактивна.
 
 ### IP-адрес, пользователь и пароль Fritzbox
 Настройка IP-адреса, пользователя и пароля необходима для получения данных устройства из fritzbox.
-Поэтому пользователя необходимо создать в fritzbox. Это необходимо для более новой версии прошивки (>= 7.25) fritzbox. Дополнительную информацию см. здесь: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf. Пароль зашифрован и не был сохранен в виде открытого текста. Имя пользователя и пароль могут содержать максимум 32 символа. См. информацию: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf. %20nicht%20leer%20sein.
+Поэтому пользователя необходимо создать в fritzbox. Это требуется для более новой версии прошивки (>= 7.25) fritzbox. Информацию см. здесь: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf Пароль зашифрован и не был сохранен в виде открытого текста. Имя пользователя и пароль могут содержать максимум 32 символа. См. информацию: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf. %20nicht%20leer%20sein.
 Подсказка: в некоторых случаях fritzbox мог заблокировать пользователя, если пароль был введен неправильно.
 Часто в журнале появляется сообщение о тайм-ауте. Пожалуйста, проверьте, правильно ли вы ввели имя пользователя и пароль. Затем вам придется перезагрузить fritzbox.
 
@@ -100,7 +100,7 @@ hash: OdugxapAS9iewTmrgIl680zXsFjafz4WonR+ow1+Uag=
 
 ###Создание устройств ФБ
 Если эта опция отмечена, объекты для каждого устройства в списке устройств Fritzbox создаются.
-Если эта опция отключена, информация о сетке также отключается.
+Если эта опция отключена, то информация о сетке также отключается.
 
 ### Ресинхронизация объектов устройств FB
 Если эта опция отмечена, то объект устройства FB повторно синхронизируется со списком устройств из Fritzbox.
@@ -112,15 +112,15 @@ hash: OdugxapAS9iewTmrgIl680zXsFjafz4WonR+ow1+Uag=
 Если эта опция отмечена, создаются состояния для гостей.
 
 ### Генерация qr-кода
-Если эта опция отмечена, генерируется qr-код от гостевой сети WLAN.
+Если эта опция отмечена, генерируется qr-код из гостевой сети WLAN. Вы можете показать этот QR-код в своей VIS с помощью виджета «Basic Boolesches SVG». Пожалуйста, используйте следующие настройки:<img src="doc/QRCode.png"/>
 
 ### Настройки членов семьи
 Для настроенного члена семьи вам необходимо ввести имя члена, имя хоста, Mac- и IP-адрес, комментарий, и вы можете включить или отключить этого члена. Группа не является обязательной.
-Если вы оставите группу пустой и установите для флага совместимости значение true, поведение будет похоже на более старую версию адаптера. Вы можете использовать состояние присутствия члена семьи или состояние, непосредственно сопоставленное с именем члена семьи. В будущей версии вы должны будете использовать состояние присутствия. Это поведение можно включить/выключить с помощью флажка совместимости: -> совместимость = true: поведение старой версии с пустой группой.
+Если вы оставите группу пустой и установите для флага совместимости значение true, поведение будет аналогично более старой версии адаптера. Вы можете использовать состояние присутствия члена семьи или состояние, непосредственно сопоставленное с именем члена семьи. В будущей версии вы должны будете использовать состояние присутствия. Это поведение можно включить/отключить с помощью флажка совместимости: -> совместимость = true: поведение старой версии с пустой группой.
 -> совместимость = true и группа не пуста: новое поведение. Все штаты в папке «члены семьи».
 -> совместимость = false: новое поведение. Все штаты в папке «члены семьи».
 
-Для каждого участника адаптер создает состояние присутствия и проверяет, присутствует или отсутствует этот участник. Состояние менялось, если менялось состояние присутствия.
+Для каждого участника адаптер создает состояние присутствия и проверяет, присутствует ли этот участник или отсутствует. Состояние менялось, если менялось состояние присутствия.
 Вы также можете включить фильтрацию для участника. Если состояние истинно, оно немедленно меняется на истинное. Если оно ложно, значение будет проверено снова по истечении времени фильтрации.
 Если в обоих случаях состояние ложно, оно меняется на ложное. В противном случае оно не меняется.
 
@@ -197,8 +197,19 @@ QR-код гостевой сети сохраняется в состоянии
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (afuerhoff) new filter function implemented
+* (afuerhoff) node >=18
+* (afuerhoff) dependencies updated
+
+### 1.2.4 (2024-02-09)
+* (afuerhoff) test code deleted [#257](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/257)
+* (afuerhoff) dependencies updated
+
+### 1.2.3 (2024-01-18)
 * (afuerhoff) Readme updated
 * (afuerhoff) function jsontables optimized
+* (afuerhoff) non existent members set to false [#253](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/253)
+* (afuerhoff) optimization of log message [#240](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/240)
 
 ### 1.2.2 (2023-07-28)
 * (afuerhoff) bug fixed json tables [#215](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/215)
@@ -211,18 +222,10 @@ QR-код гостевой сети сохраняется в состоянии
 * (afuerhoff) dependencies updated
 * (afuerhoff) mesh link added to family members [#206](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/206)
 
-### 1.1.26 (2023-04-06)
-* (afuerhoff) Wrong default settings in io-package.json [#188](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/188)
-* (afuerhoff) Wrong Axios parameter in getMeshList [#197](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/197)
-* (afuerhoff) dependencies updated
-
-### 1.1.25 (2023-01-21)
-* (afuerhoff) Warning message empty hostname optimized. Issue [#180](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/180)
-
 ## License
 MIT License
 
-Copyright (c) 2019-2023 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2024 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

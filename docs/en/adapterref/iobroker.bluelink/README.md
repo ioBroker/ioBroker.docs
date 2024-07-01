@@ -14,7 +14,7 @@
 
 ## bluelink adapter for ioBroker
 
-Adapter to control Hyundai or Kia vehicle
+Adapter to control Hyundai or Kia vehicle (until 2023)
 
 [Discussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 

@@ -1341,6 +1341,11 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.3.1 (2024-06-29)
+
+* (crycode-de) Fixed Blockly for the latest JavaScript adapter changes
+* (crycode-de) Updated dependencies
+
 ### 2.3.0 (2024-05-14)
 
 * (crycode-de) 💥 Node.js 18+ is now required!

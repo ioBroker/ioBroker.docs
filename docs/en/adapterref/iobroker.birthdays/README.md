@@ -31,6 +31,10 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2024-06-26)
+
+* (@klein0r) Fixed value of nextWeekday in states
+
 ### 3.0.0 (2024-05-13)
 
 NodeJS >= 18.x and js-controller >= 5 is required
@@ -50,11 +54,6 @@ NodeJS 16.x is required
 ### 2.3.1 (2023-06-16)
 
 * (klein0r) Added current age text to JSON
-
-### 2.3.0 (2023-06-16)
-
-* (klein0r) Added JSON and count for each month
-* (klein0r) Added current age as text
 
 ## License
 

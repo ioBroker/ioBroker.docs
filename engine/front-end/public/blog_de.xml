@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Tue, 04 Jun 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 30 Jun 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!]]></title>
+            <description><![CDATA[
+                <p>In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_06_30</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_06_30</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 30 Jun 2024 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024]]></title>
             <description><![CDATA[

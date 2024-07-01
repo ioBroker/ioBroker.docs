@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.energiefluss-erweitert/README.md
 title: ioBroker.energiefluss-erweitert
-hash: 7qnqGyExdgk8yrFmU23TvTqclxiZQj0+Z/9fLEi8P64=
+hash: vsARQbYdgcw/lJBEm2U3w2stnXawxezk2ZEksje8PLY=
 ---
 ![Logo](../../../en/adapterref/iobroker.energiefluss-erweitert/admin/energiefluss-erweitert.png)
 
@@ -27,19 +27,62 @@ Es bietet einen animierten Energiefluss für alle Elemente, die Sie hinzufügen.
 * [Forumsthread](https://forum.iobroker.net/topic/64734/test-adapter-energiefluss-erweitert-v0-0-x-github-latest)
 * [Englische Beschreibung](./docs/en/README.md)
 * [Deutsche Beschreibung](./docs/de/README.md)
+* [Ansichten-Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- Added: The adapter can provide 3 new states. charging_grid (battery charged via grid), charging_solar (battery charged via solar) and production (overall production) (#173, #152, #148()
-- Added: Datasources for the battery calculation now need to be provided via the datasources tab and selected in the calculation tab (!!! Important: !!! This is a major change)
-- Added: A HH:MM Timestamp for Values can be selected
-- FIX: Wrong allingment of rectangle with border-fill, if height and width are different
-- FIX: After adding a new source, it is not sorted alphabetically into the list
-- FIX: The adapter could crash if the data source was missing under certain circumstances
+### 0.5.1-alpha.0 (2024-06-28)
+- FIX: The coordinates and size of an added icon could not be changed
+- FIX: Cursor as Pointer (hand) did not appear on elements with action
+- FIX: NPM dependency for gallery was not fetched properly
+- FIX: Newly added Text didnt save text (was empty instead)
+- FIX: Under some circumstances an element could not be deleted (Error: Existing connection!)
+- Added: Text-Elements can now be used as date and time element
+- Added: Icons can now be rotated and flipped (even when using overrides for them)
+- Added: New overrides parameter 'icon' available to change icons (Explained in [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki/Custom-Overrides-for-elements#for-icons))
+
+### 0.5.0-alpha.0 (2024-06-24)
+**!!! Please note, this currently an Alpha-Version, because many things are changed and needed to be tested!!!**  
+The core of the adapter keeps running on the same 0.4.1 version like before, but the configuration page has many improvements. See the list below! 
+
+Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it, it case needed or downgrading to the official version again! 
+
+After downloading the BETA Version, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
+described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#uploadvonadapterdateien
+
+- Added: Support for Websockets is now integrated. Adapter uses the faster Websockets if available. If not, the connection falls back to socket polling 
+- Added: Better Darkmode Support (including Log, Overrides and CSS Styles layout)
+- Added: New option "Manual value change" for click options of datasources. With this you can directly modify the associated state inside ioBroker. Also predefined value(s) for quick accesses are possible.
+- Added: Automatic line-break after x characters for datasources, which provide longer text (e.g. weather forecasts)
+- Added: Define one Datasource as display and choose an other one to control (e.g. display the energy of a wallsocket, but switch it on or off with a different state via click-option)
+- Added: Language and dependencies are updated
+- Added: Better support for iOS devices as the values are not calculated via the objects itself anymore (should work for thickness and alignments)
+- Added: Autocomplete when adding or modifying sources inside datasources (if active)
+- Added: Import and Exports elements (e.g. for sharing a nice designed element with others)
+- Added: Preview elements (circle and rect) with their fill or outline layout
+- Added: Image gallery and query via web implementation of ioBroker
+- Added: Select datasources which contain image paths for images (e.g. WeatherAdapter)
+- Added: Improved workspace (better adding of elements, when scrolled, many design and element improvements etc.)
+- FIX: Some bugs or routines where not working as they should
+- FIX: Battery-Discharge was wrongly calculated, if the DoD should discharge till 0%
+- FIX: Removed kW settings in calculation tab as they are already set as factor inside the datasource area
+
+### 0.4.1 (2024-04-18)
+- Hotfix: After uprading the Adapter, it could happen, that the first datasource was not updated properly
+
+### 0.4.0 (2024-04-15)
+- Added: The adapter provides 3 new states. charging_grid (battery charged via grid), charging_solar (battery charged via solar) and production (overall production) (#173, #152, #148)
+- Added: Datasources for the battery calculation now need to be provided via the datasources tab and selected in the calculation tab (**!!! Important: !!! This is a major change**)
+- Added: A Milliseconds Timestamp for Values can be selected (This can be used for custom overrides, to display what ever the user likes)
+- Added: Object browser now provides the names of channels and devices and is more responsive
+- Added: Better support inside configuration area for smaller devices like mobilephones and tablets
+- Added: A new override property (img_url) has been added, to change pictures addresses for picture elements
+- Added: Overrides can now contain states from iobroker, to directly read and for example calculate a value with an additional state. Please provide the name in curly braces.
+- FIX: Wrong alignment of rectangle with border-fill if height and width are different (#172)
+- FIX: The adapter could crash if the data source inside calculation was missing or deleted (#178)
 
 ### 0.3.0 (2024-03-12)
 - Added: Up to 50% faster performance on saving data to the "data" datapoint due to removing unnecessary stuff

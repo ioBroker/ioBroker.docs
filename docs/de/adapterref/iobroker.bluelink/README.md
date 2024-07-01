@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
+hash: +wu7t5+rsYxiYxI+26cps2HjaB1zvzUGQGTp9kVtd1Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -14,26 +14,29 @@ hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![Test und Freigabe](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Bluelink-Adapter für ioBroker
-Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen
+Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen (bis 2023)
 
 [Diskussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-[Anmeldeinformationen](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
+[Login Infos](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p iobroker-Lizenz --all 0.9.8 -> 1.0.0 npm run Release Minor -- -p iobroker-Lizenz --all 0.9 .8 -> 0.10.0 npm Run Release Patch -- -p iobroker License --all 0.9.8 -> 0.9.9 npm Run Release Prerelease Beta -- -p iobroker License --all v0.2.1 -> v0.2.2 -beta.0
+https://github.com/AlCalzone/release-script#usage npm-Ausführung Release Major -- -p iobroker-Lizenz --all 0.9.8 -> 1.0.0 npm-Ausführung Release Minor -- -p iobroker-Lizenz --all 0.9.8 -> 0.10.0 npm-Ausführung Release Patch -- -p iobroker-Lizenz --all 0.9.8 -> 0.9.9 npm-Ausführung Release Prerelease Beta -- -p iobroker-Lizenz --all v0.2.1 -> v0.2.2-beta.0
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 ## Spende
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 2.3.8 (2024-02-25)
+* (arteck) corr steerWheelHeat
+
 ### 2.3.7 (2024-02-04)
 * (arteck) set default force_update to server
 

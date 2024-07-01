@@ -649,6 +649,10 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (Grothesk242/simatec) foreceuid and forcegid added
+* (simatec) dependencies updated
+
 ### 3.0.7 (2024-06-26)
 * (simatec) Restore Information added
 * (simatec) Fix Formaterrors

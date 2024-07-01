@@ -43,7 +43,7 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.3.0 (2024-06-26)
 * improve search for EMS+ and EMS 2.0 entities (switchTimes & holidayModes) with raw telegrams
 * support different thermostat id's
 * change ems-esp warning messages to info on start-up for 3.7 dev versions
@@ -62,13 +62,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 ### 4.1.1 (2024-06-03)
 * corrections in io-package.json
 * install dependabot
-
-### 4.1.0 (2024-06-02)
-* BREAKING CHANGES
-* use statepicker for jsonConfig (ems-esp energy statistics, boiler efficiency and heating demand)
-* new file location for km200.csv file -- breaking change
-* old file location for km200.csv file(s) will be deleted by adapter
-* new content for selection of database within parameters tab - adpters tries to convert, but please check.
 
 ## License
 MIT License

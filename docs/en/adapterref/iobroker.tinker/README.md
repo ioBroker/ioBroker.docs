@@ -86,6 +86,7 @@ On configuration page you can select following modules:
 ### __WORK IN PROGRESS__
 * (simatec) Dependencies updated
 * (simatec) Docu updated
+* (simatec) dev-server added
 
 ### 1.3.2 (2024-02-14)
 * (simatec) Design Fix

@@ -38,6 +38,7 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 - (bolliy) Added Admin 5 configuration
 - (bolliy) ConnectEV: Update status before reading cachedeStatus
 - (bolliy) improve State roles and types
+- (bolliy) ConnectEV: Update Blowfish v4.1 
 
 ### 0.1.2 (2024-05-31)
 

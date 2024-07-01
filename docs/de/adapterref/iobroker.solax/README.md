@@ -103,6 +103,13 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.9.9 (2024-06-27)
+* (simatec) Fix X1-Mini G4
+
+### 0.9.8 (2024-06-27)
+* (simatec) Dependencies updated
+* (simatec) X1-Mini G4 added
+
 ### 0.9.7 (2024-06-19)
 * (simatec) Cloud-URL updated
 * (simatec) Dependencies updated
