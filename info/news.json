@@ -928,7 +928,7 @@
     "fa-icon": "exclamation-circle",
     "created": "2024-0407T00:00:00.000Z",
     "conditions": {
-      "info": "installed"
+      "hyperion": "installed"
     }
   },
   {
@@ -946,6 +946,41 @@
     "created": "2024-06-03T14:00:00.000Z",
     "conditions": {
       "admin": "installed"
+    }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.egigeozone has been deprecated",
+      "de": "Adapter ioBroker.egigeozone wurde depreciert",
+      "ru": "Адаптер ioBroker.egigeozone был обесценен",
+      "pt": "Adapter ioBroker.egigeozone foi desprecaído",
+      "nl": "Adapter ioBroker.egigeozone is verouderd",
+      "fr": "L'adaptateur ioBroker.egigeozone a été déprécié",
+      "it": "Adattatore ioBroker.egigeozone è stato deprecato",
+      "es": "Adaptador ioBroker.egigeozone ha sido deprecatado",
+      "pl": "Adapter joBroker.egigeozone został zdepregowany",
+      "uk": "Адаптер ioBroker.egigeozone був розшифрований",
+      "zh-cn": "适应器 ioBroker.egigeozone 已贬值"
+    },
+    "content": {
+      "en": "The adapter ioBroker.egigeozone has been deprecated and has been removed from repositories. Please consider switching to ne adapter ioBroker.egigeozone2.",
+      "de": "Der Adapter ioBroker.egigeozone wurde abgeschrieben und aus Repositories entfernt. Bitte beachten Sie die Umstellung auf den Adapter ioBroker.egigeozone2.",
+      "ru": "Адаптер ioBroker.egigeozone был обесценен и был удален из хранилищ. Пожалуйста, перейдите на адаптер ioBroker.egigeozone2.",
+      "pt": "O adaptador ioBroker.egigeozone foi desprezado e foi removido de repositórios. Por favor, considere mudar para o adaptador ne ioBroker.egigeozone2.",
+      "nl": "De adapter ioBroker.egigeozone is verouderd en verwijderd uit repositories. Overweeg om te schakelen naar ne adapter ioBroker.egigeozone2.",
+      "fr": "L'adaptateur ioBroker.egigeozone a été déprécié et retiré des dépôts. Veuillez envisager de passer à l'adaptateur ioBroker.egigeozone2.",
+      "it": "L'adattatore ioBroker.egigeozone è stato deprecato ed è stato rimosso dai repository. Si prega di prendere in considerazione il passaggio al ne adattatore ioBroker.egigeozone2.",
+      "es": "El adaptador ioBroker.egigeozone ha sido deprecado y ha sido eliminado de los repositorios. Por favor considere cambiar a ne adaptador ioBroker.egigeozone2.",
+      "pl": "Adapter jOBroker.egigeozone został usunięty z repozytoriów. Proszę rozważyć przełączenie na ne adapter joBroker.egigeozone2.",
+      "uk": "Перехідник ioBroker.egigeozone був вилучений і був видалений з репозиторіїв. Будь ласка, враховуйте комутацію до адаптера ioBroker.egigeozone2.",
+      "zh-cn": "适配器ioBroker.egigeozone已经贬值,从寄存器中移除. 请考虑切换到 ioBroker.egigeozone2."
+    }
+    "id": "egigeozone-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-06-24T00:00:00.000Z",
+    "conditions": {
+      "egigeozone": "installed"
     }
   }
 ]
