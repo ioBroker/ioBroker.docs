@@ -540,3 +540,11 @@ Adapter for Gree and C&H conditioners.
 - Added support for the adapter's auto-update option. New version of js-controller required.
 - Only installed adapters in the adapter tab or first 100 adapters are shown. To see more adapters, the user must enter some filter.
 
+## opcua (13.6.2024) – new adapter at stable
+https://github.com/ioBroker/ioBroker.opcua
+
+<img src="https://github.com/ioBroker/ioBroker.opcua/blob/master/admin/opcua.png" width="100" height="100" />
+
+ioBroker OPC-UA Adapter.
+
+
