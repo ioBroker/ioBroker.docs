@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
@@ -24,8 +23,6 @@ import {
 
 import { MdFullscreen as IconZoom } from 'react-icons/md';
 
-import { Utils as ARUtils } from '@iobroker/adapter-react-v5';
-
 import I18n from '../i18n';
 import Utils from '../Utils';
 import PieStats from '../Components/PieStats';
@@ -33,8 +30,7 @@ import Footer from '../Footer';
 
 echarts.use([LineChart, TooltipComponent, LegendComponent, GridComponent, SVGRenderer]);
 
-const styles = theme => ({
-    content: theme.content,
+const styles = {
     iframe: {
         border: 0,
         overflow: 'hidden',
@@ -127,7 +123,7 @@ const styles = theme => ({
     tableColumnPercent: {
 
     },
-});
+};
 const MAX_MOBILE_WIDTH = 1000;
 class Statistics extends Component {
     constructor(props) {
@@ -156,15 +152,15 @@ class Statistics extends Component {
     }
 
     renderMap() {
-        return <Paper key="map" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperMap)}>
+        return <Paper key="map" style={{ ...styles.paper, ...styles.paperMap }}>
             <IconButton
-                className={this.props.classes.iframeButton}
+                style={styles.iframeButton}
                 title={I18n.t('Open in new window')}
                 onClick={() => Utils.openLink('data/map.html')}
             >
                 <IconZoom />
             </IconButton>
-            <iframe title="googleMaps" className={this.props.classes.iframe} src="data/map.html" />
+            <iframe title="googleMaps" style={styles.iframe} src="data/map.html" />
         </Paper>;
     }
 
@@ -175,20 +171,20 @@ class Statistics extends Component {
         const keys = Object.keys(countries);
         keys.forEach(c => sum += countries[c]);
 
-        return <Table key="table" padding="none" className={this.props.classes.table}>
+        return <Table key="table" padding="none" style={styles.table}>
             <TableHead>
                 <TableRow style={{ background: 'grey', color: 'white' }}>
-                    <TableCell className={ARUtils.clsx(this.props.classes.tableCell, this.props.classes.tableColumnVersion)} align="left">{I18n.t('Country')}</TableCell>
-                    <TableCell className={ARUtils.clsx(this.props.classes.tableCell, this.props.classes.tableColumnCount)} align="left">{I18n.t('Count')}</TableCell>
-                    <TableCell className={ARUtils.clsx(this.props.classes.tableCell, this.props.classes.tableColumnPercent)} align="left">%</TableCell>
+                    <TableCell style={{ ...styles.tableCell, ...styles.tableColumnVersion }} align="left">{I18n.t('Country')}</TableCell>
+                    <TableCell style={{ ...styles.tableCell, ...styles.tableColumnCount }} align="left">{I18n.t('Count')}</TableCell>
+                    <TableCell style={{ ...styles.tableCell, ...styles.tableColumnPercent }} align="left">%</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {keys.map((c, i) =>
-                    <TableRow key={i} className={this.props.classes.tableRow}>
-                        <TableCell className={ARUtils.clsx(this.props.classes.tableCell, this.props.classes.tableColumnVersion)}>{c}</TableCell>
-                        <TableCell className={ARUtils.clsx(this.props.classes.tableCell, this.props.classes.tableColumnCount)}>{countries[c]}</TableCell>
-                        <TableCell className={ARUtils.clsx(this.props.classes.tableCell, this.props.classes.tableColumnPercent)}>
+                    <TableRow key={i} sx={styles.tableRow}>
+                        <TableCell style={{ ...styles.tableCell, ...styles.tableColumnVersion }}>{c}</TableCell>
+                        <TableCell style={{ ...styles.tableCell, ...styles.tableColumnCount }}>{countries[c]}</TableCell>
+                        <TableCell style={{ ...styles.tableCell, ...styles.tableColumnPercent }}>
                             {Math.round((countries[c] / sum) * 10000) / 100}
                             %
                         </TableCell>
@@ -202,7 +198,7 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="countries" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperCountries, this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="countries" style={{ ...styles.paper, ...styles.paperCountries, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
             {this.renderCountriesTable()}
         </Paper>;
     }
@@ -212,8 +208,8 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="plattform" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
-            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Platforms')}</div>
+        return <Paper key="plattform" style={{ ...styles.paper, ...styles.paperPlatforms, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
+            <div style={styles.paperHeader} title={this.state.date}>{I18n.t('Platforms')}</div>
             <PieStats
                 data={this.state.statistics.platforms}
                 height="380px"
@@ -228,8 +224,8 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="language" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperLanguages, this.state.mobile ? this.props.classes.paperMobile : '')}>
-            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Languages')}</div>
+        return <Paper key="language" style={{ ...styles.paper, ...styles.paperLanguages, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
+            <div style={styles.paperHeader} title={this.state.date}>{I18n.t('Languages')}</div>
             <PieStats
                 data={this.state.statistics.languages}
                 startFromPercent={0}
@@ -244,8 +240,8 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="nodes" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperNodes, this.state.mobile ? this.props.classes.paperMobile : '')}>
-            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Node versions')}</div>
+        return <Paper key="nodes" style={{ ...styles.paper, ...styles.paperNodes, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
+            <div style={styles.paperHeader} title={this.state.date}>{I18n.t('Node versions')}</div>
             <PieStats
                 data={this.state.statistics.nodes}
                 height="380px"
@@ -321,10 +317,10 @@ class Statistics extends Component {
             }],
         };
 
-        return <Paper key="counters" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperCounters, this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="counters" style={{ ...styles.paper, ...styles.paperCounters, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
             <div
                 title={this.state.date}
-                className={this.props.classes.paperHeader}
+                style={styles.paperHeader}
             >
                 {`${I18n.t('Installations')} ${counts[labels[labels.length - 1]]} - ${labels[labels.length - 1]}`}
             </div>
@@ -345,8 +341,8 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="types" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
-            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('State DB Types')}</div>
+        return <Paper key="types" style={{ ...styles.paper, ...styles.paperPlatforms, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
+            <div style={styles.paperHeader} title={this.state.date}>{I18n.t('State DB Types')}</div>
             <PieStats
                 data={this.state.statistics.dbTypeStates}
                 height="380px"
@@ -361,8 +357,8 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="dbs" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
-            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Object DB Types')}</div>
+        return <Paper key="dbs" style={{ ...styles.paper, ...styles.paperPlatforms, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
+            <div style={styles.paperHeader} title={this.state.date}>{I18n.t('Object DB Types')}</div>
             <PieStats
                 data={this.state.statistics.dbTypeObjects}
                 height="380px"
@@ -377,8 +373,8 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="plattform" className={ARUtils.clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
-            <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Docker vs Normal')}</div>
+        return <Paper key="plattform" style={{ ...styles.paper, ...styles.paperPlatforms, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
+            <div style={styles.paperHeader} title={this.state.date}>{I18n.t('Docker vs Normal')}</div>
             <PieStats
                 data={this.state.statistics.docker}
                 height="380px"
@@ -391,7 +387,7 @@ class Statistics extends Component {
     render() {
         return [
             this.renderMap(),
-            <div key="stat" className={this.props.classes.root}>
+            <div key="stat" style={styles.root}>
                 {this.renderPlatforms()}
                 {this.renderLanguages()}
                 {this.renderNodes()}
@@ -413,4 +409,4 @@ Statistics.propTypes = {
     contentWidth: PropTypes.number,
 };
 
-export default withStyles(styles)(Statistics);
+export default Statistics;

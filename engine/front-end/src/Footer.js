@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/styles';
 
 import {
     FaGithubSquare as IconGithub,
@@ -12,13 +11,14 @@ import LogoIoBroker from './assets/iobroker-logo-small.png';
 
 import Utils from './Utils';
 import I18n from './i18n';
+import {Box} from "@mui/material";
 
-const styles = theme => ({
-    footer: {
+const styles = {
+    footer: theme => ({
         background: theme.palette.primary.light,
         textAlign: 'center',
-        padding: 20,
-    },
+        p: '20px',
+    }),
     footerIconDiv: {
         width: 54,
         height: 54,
@@ -51,46 +51,45 @@ const styles = theme => ({
         color: '#b1b1b1',
         paddingRight: 10,
     },
-});
+};
 
 class Loader extends React.Component {
     render() {
-        return <div className={this.props.classes.footer}>
-            <div title="Repository" className={this.props.classes.footerIconDiv}>
+        return <Box sx={styles.footer}>
+            <div title="Repository" style={styles.footerIconDiv}>
                 <IconGithub
-                    className={this.props.classes.footerIcon}
+                    style={styles.footerIcon}
                     onClick={() => Utils.openLink('https://github.com/ioBroker')}
                 />
             </div>
-            <div title="Community adapters repository" className={this.props.classes.footerIconDiv}>
+            <div title="Community adapters repository" style={styles.footerIconDiv}>
                 <IconGithub
-                    className={this.props.classes.footerIcon}
+                    style={styles.footerIcon}
                     onClick={() => Utils.openLink('https://github.com/iobroker-community-adapters')}
                 />
-                <div className={this.props.classes.footerIconText}>Community</div>
+                <div style={styles.footerIconText}>Community</div>
             </div>
-            <div title="Unofficial Facebook group" className={this.props.classes.footerIconDiv}>
+            <div title="Unofficial Facebook group" style={styles.footerIconDiv}>
                 <IconFacebook
-                    className={this.props.classes.footerIcon}
+                    style={styles.footerIcon}
                     onClick={() => Utils.openLink('https://www.facebook.com/groups/440499112958264')}
                 />
             </div>
-            <div title="Discord Server" className={this.props.classes.footerIconDiv}>
+            <div title="Discord Server" style={styles.footerIconDiv}>
                 <IconDiscord
-                    className={this.props.classes.footerIcon}
-                    style={{ height: 50 }}
+                    style={{ ...styles.footerIcon, height: 50 }}
                     onClick={() => Utils.openLink('https://discord.gg/HwUCwsH')}
                 />
             </div>
             <br />
 
-            <div className={this.props.classes.footerLink} onClick={() => this.props.onNavigate(null, 'imprint')}>{I18n.t('Imprint')}</div>
-            <div className={this.props.classes.footerLink} style={{ cursor: 'inherit' }}> | </div>
-            <div className={this.props.classes.footerLink} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
+            <div style={styles.footerLink} onClick={() => this.props.onNavigate(null, 'imprint')}>{I18n.t('Imprint')}</div>
+            <div style={{ ...styles.footerLink, cursor: 'inherit' }}> | </div>
+            <div style={styles.footerLink} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
 
-            <p className={this.props.classes.footerCopyright}>Copyright © 2014-2024 by the ioBroker Community and the ioBroker GmbH.</p>
-            <img src={LogoIoBroker} className={this.props.classes.footerLogo} alt="logo" />
-        </div>;
+            <p style={styles.footerCopyright}>Copyright © 2014-2024 by the ioBroker Community and the ioBroker GmbH.</p>
+            <img src={LogoIoBroker} style={styles.footerLogo} alt="logo" />
+        </Box>;
     }
 }
 
@@ -98,4 +97,4 @@ Loader.propTypes = {
     onNavigate: PropTypes.func,
 };
 
-export default withStyles(styles)(Loader);
+export default Loader;
