@@ -547,4 +547,13 @@ https://github.com/ioBroker/ioBroker.opcua
 
 ioBroker OPC-UA Adapter.
 
+## e3oncan (25.7.2024) – new adapter at stable
+https://github.com/MyHomeMyData/ioBroker.e3oncan
+
+<img src="admin/e3oncan_small.png" width="100" height="100" />
+
+Viessmann E3 series devices (One Base) are doing a lot of data exchange on CAN bus. This adapter can listen to this communication and extract many useful information. Energy meter E380CA and E3100CB also are supported. This mode of operation is called Collect..  
+
+Note: This adapter is supported at linux systems only.
+
 
