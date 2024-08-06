@@ -633,6 +633,13 @@ Anschließend muss der User noch der sudo Gruppe zugeordnet werden.
 usermod -aG sudo benutzername
 ~~~
 
+Falls ein User nachträglich angelegt werden soll muss dieser noch per 
+
+~~~
+usermod -aG adm,dialout,sudo,audio,video,plugdev,users,iobroker benutzername
+~~~
+den relevanten Gruppen hinzugefügt werden. 
+
 <details>
 <summary>User anlegen</summary>
 
