@@ -556,4 +556,12 @@ Viessmann E3 series devices (One Base) are doing a lot of data exchange on CAN b
 
 Note: This adapter is supported at linux systems only.
 
+## egigeozone2 (6.8.2024) – new adapter at stable
+https://github.com/obakuhl/ioBroker.egigeozone2
+
+<img src="https://github.com/obakuhl/ioBroker.egigeozone2/blob/master/admin/egigeozone.png" width="100" height="100" />
+
+This is an ioBroker adapter for Android geofencing app "EgiGeoZone". It is able to receive geofence events as HTTP requests when entering or leaving a defined area with your mobile device.
+
+#
 
