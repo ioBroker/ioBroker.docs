@@ -132,6 +132,16 @@ Alternativ geht auch
 bind 0.0.0.0
 ```
 
+Ab redis version 7, muss man auch protected mode deactivieren. Dafür muss man die Zeile 
+```
+protected-mode yes
+```
+auf 
+```
+protected-mode no
+```
+ändern.
+
 Zum Schluss den Redis-Server oder Rechner neu starten. zB:
 
 ```
