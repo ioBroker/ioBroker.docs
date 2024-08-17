@@ -570,4 +570,9 @@ https://github.com/moba15/ioBroker.hiob
 
 This app allows you to control your ioBroker Smarthome system via the hiob app. It is an simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
 
+## extron (17.8.2024) – new adapter at stable
+https://github.com/Bannsaenger/ioBroker.extron
 
+<img src="https://github.com/Bannsaenger/ioBroker.extron/blob/master/admin/extron.png" width="100" height="100" />
+
+Control devices from Extron. This Adapter is designed to control some of the Extron Audio Video Products via the Simple Instruction Set Protocol. The functional scope of the devices is tremendous. Not all of the features make sense to be supported with the adapter and the interaction with iobroker.
