@@ -563,5 +563,11 @@ https://github.com/obakuhl/ioBroker.egigeozone2
 
 This is an ioBroker adapter for Android geofencing app "EgiGeoZone". It is able to receive geofence events as HTTP requests when entering or leaving a defined area with your mobile device.
 
-#
+## hiob (17.8.2024) – new adapter at stable
+https://github.com/moba15/ioBroker.hiob
+
+<img src="https://github.com/moba15/ioBroker.hiob/blob/main/admin/hiob.png" width="100" height="100" />
+
+This app allows you to control your ioBroker Smarthome system via the hiob app. It is an simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
+
 
