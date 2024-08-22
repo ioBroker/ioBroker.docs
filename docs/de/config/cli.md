@@ -24,6 +24,7 @@ Befehlsübersicht:
 - [iobroker upgrade](#iobroker-upgrade)
 - [iobroker upgrade self](#iobroker-upgrade-self)
 - [iobroker upgrade adapterName](#iobroker-upgrade-adaptername)
+- [iobroker nodejs-update](#iobroker-nodejs-update)
 - [iobroker object get objectId](#iobroker-object-get)
 - [iobroker object chmod](#iobroker-object-chmod)
 - [iobroker object chown](#iobroker-object-chown)
@@ -261,6 +262,11 @@ Dieser Befehl aktualisiert den angegebenen Adapter auf die Version, die sich im 
 
 - ```iobroker upgrade email``` - Upgrade des ioBroker.email-Adapters auf die Version im konfigurierten Repository.
 - ```iobroker upgrade email https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json``` - Upgrade des ioBroker.email-Adapters auf die Version vom Online-Repository .
+
+## iobroker nodejs-update
+Dieser Befehl aktualisiert Node.js auf die sich im Repository zu findende Version.
+
+- ```iobroker nodejs-update``` - aktualisiert Node.js auf die aktuelle Version im konfigurierten Repository.
 
 ## iobroker object get
 Liest Wert einer Objekt ID aus. Beispiel ```iobroker object get system.adapter.admin.0.uptime``` gibt aus:
