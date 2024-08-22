@@ -23,6 +23,7 @@ Following commands are possible:
 - [iobroker upgrade \[repository url\]](#iobroker-upgrade)
 - [iobroker upgrade self \[repository url\]](#iobroker-upgrade-self)
 - [iobroker upgrade adapterName \[repository url\]](#iobroker-upgrade-adaptername)
+- [iobroker nodejs-update](#iobroker-nodejs-update)
 - [iobroker object get objectId](#iobroker-object-get)
 - [iobroker object chmod \<object-mode\> \[state-mode\] \<id\>](#iobroker-object-chmod)
 - [iobroker object chown \<user\> \<group\> \<id\>](#iobroker-object-chown)
@@ -280,6 +281,11 @@ This command upgrades specified adapter to version, that will be found in reposi
 
 - ```iobroker upgrade email``` - upgrade ioBroker.email adapter to version in the configured repository.
 - ```iobroker upgrade email https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json``` - upgrade ioBroker.email adapter to version from on-line repository.
+
+## iobroker nodejs-update
+This command upgrades Node.js to version, that will be found in repository.
+
+- ```iobroker nodejs-update``` - upgrade Node.js to version in the configured repository.
 
 ## iobroker object get
 Full syntax: ```iobroker get objectId```
