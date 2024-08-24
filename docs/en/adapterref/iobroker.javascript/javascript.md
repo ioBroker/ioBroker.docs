@@ -89,6 +89,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [httpGet](#httpget)
     - [httpPost](#httppost)
     - [createTempFile](#createtempfile)
+    - [registerNotification](#registerNotification)
 
 - [Scripts activity](#scripts-activity)
 - [Changelog](#changelog)
@@ -1163,15 +1164,32 @@ sendToHost(hostName, command, message, callback);
 Send a message to controller instance.
 
 The following commands are supported:
-- `"cmdExec"`
-- `"getRepository"`
-- `"getInstalled"`
-- `"getVersion"`
-- `"getDiagData"`
-- `"getLocationOnDisk"`
-- `"getDevList"`
-- `"getLogs"`
-- `"getHostInfo"`
+- `'cmdExec'`
+- `'getRepository'`
+- `'getInstalled'`
+- `'getVersion'`
+- `'getDiagData'`
+- `'getLocationOnDisk'`
+- `'getDevList'`
+- `'getLogs'`
+- `'getLogFile'`
+- `'getLogFiles'`
+- `'delLogs'`
+- `'getHostInfo'`
+- `'getHostInfoShort'`
+- `'updateMultihost'`
+- `'upgradeController'` - Upgrade js-controller to newest version
+- `'getInterfaces'` - Returns all available network interfaces of the system
+- `'getInterfaces'` - Starts an adapter upload
+- `'rebuildAdapter'`
+- `'readBaseSettings'`
+- `'writeBaseSettings'`
+- `'addNotification'`
+- `'clearNotifications'`
+- `'getNotifications'`
+- `'updateLicenses'` - read licenses from iobroker.net
+- `'upgradeOsPackages'`
+- `'restartController'`
 
 It is rather specific commands and are not required often.
 
@@ -1995,6 +2013,15 @@ readFile('0_userdata.0', 'test.jpg', (err, data, mimeType) => {
         });
     }
 });
+```
+
+## registerNotification
+
+*Requires version >= 8.8.0*
+
+```js
+registerNotification('This is just an information'); // Notify
+registerNotification('This is an important message!', true); // Alert
 ```
 
 ## Global script variables

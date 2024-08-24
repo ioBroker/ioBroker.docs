@@ -13,9 +13,9 @@
       "originalName": "2024_06_30.md",
       "desc": {
         "de": "In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.",
-        "en": "# RoundUp June 2024. New month, new ioBroker features!\\nIn this blog post we take a look at the new features, updates and news about ioBroker in June 2024: js-controller 6.0 in beta, new widgets, changes in admin 7.0, new adapters (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), new app, new YouTube videos.",
-        "ru": "# Сводка новостей, июнь 2024 г. Новый месяц, новые возможности ioBroker!\\nВ этом сообщении блога мы рассмотрим инновации, обновления и новости ioBroker в июне 2024 года: бета-версия js-controller 6.0, новые виджеты, изменения в admin 7.0, новые адаптеры (waterkotte-easycon, hiob, Notificationforandroidtv, gree-hvac). ), новое приложение, новые видео на YouTube.",
-        "zh-cn": "# 2024 年 6 月综述。新的月份，新的 ioBroker 功能！\\n在这篇博文中，我们将了解 2024 年 6 月有关 ioBroker 的创新、更新和新闻：测试版 js-controller 6.0、新小部件、admin 7.0 中的更改、新适配器（waterkotte-easycon、hiob、notificationforandroidtv、gree-hvac） ）、新应用、新 YouTube 视频。"
+        "en": "In this blog post, we take a look at the new features, updates and news about ioBroker in June 2024: js-controller 6.0 in beta, new widgets, changes in admin 7.0, new adapters (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), new app, new YouTube videos.",
+        "ru": "В этом сообщении блога мы рассмотрим инновации, обновления и новости ioBroker в июне 2024 года: бета-версия js-controller 6.0, новые виджеты, изменения в admin 7.0, новые адаптеры (waterkotte-easycon, hiob, Notificationforandroidtv, gree-hvac). ), новое приложение, новые видео на YouTube.",
+        "zh-cn": "在这篇博文中，我们将了解 2024 年 6 月有关 ioBroker 的创新、更新和新闻：测试版 js-controller 6.0、新小部件、admin 7.0 中的更改、新适配器（waterkotte-easycon、hiob、notificationforandroidtv、gree-hvac） ）、新应用、新 YouTube 视频。"
       }
     },
     "2024_06_04": {

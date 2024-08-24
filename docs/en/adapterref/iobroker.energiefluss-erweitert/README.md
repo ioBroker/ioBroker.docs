@@ -31,6 +31,46 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Configbar was not opening, after clicking when another element was moved before (#232)
+- FIX: Adapter was crashing, if a static picture from the gallery has had an associated datasource (#233)
+
+### 0.5.1-alpha.4 (2024-08-07)
+- Added: Alignments for elements refactored (Better detection if they run out of the workspace)
+- Added: New element "ForeignObject" added. This allows normal HTML content inside the workspace.
+- Added: Images can now have a shadow
+- Added: Keyboard copy, paste and delete functions added (Strg/cmd + c and Strg/cmd + v, Entf/del)
+- Added: Double-Click on element or Connection-Line opens the 'extended'-tab and single click opens 'basic'-tab inside the configbar
+- Added: The liveview can now be displayed in fullscreen via doubleclick oder double-tap
+- Added: Better handling of images through datasources (image will be hidden, if datasource is empty)
+- Added: Connection-Lines can now have frame options for opening URLs
+- Added: Object-Browser scrolls the first clicked parent folder to the top 
+- FIX: Element with linebreak was not able to be moved after applying linebreak
+
+### 0.5.1-alpha.3 (2024-07-18)
+- Added: Rewritten Upload engine (Using Web-POST instead of sockets)
+- Added: Behaviour of the lines can be changed in the connection area. This includes the radius length (smaller and bigger) and the start of the curves (earlier and later)
+- Added: Several functions are optimized
+- FIX: Warn message in Web-Adapter was missleading (removed)
+- FIX: Message, that adapter is not configured was handling a different exception (solved)
+
+### 0.5.1-alpha.2 (2024-07-09)
+- Added: Support for https via Web-Adapter (own certificates necessary)
+- Added: Icon-Proxy is removed from the adapter settings and runs on the extension of the Web-Adapter (If you use it or not - no changes are required)
+- Added: 2 new override parameter "pos_x" and "pos_y" are available, to position text and datasource elements depending on their value
+- Added: Energiefluss-erweitert is now available through the welcome screen of the Web-Adapter
+- Added: Energiefluss-erweitert is now reachable via iobroker.net through the ioBroker-cloud adapter (No pro license required)
+- Added: If the Web-Adapter is configured to use valid certificates, the view of Energiefluss-erweitert can be installed as PWA (progressive Web App) on Android and iOS [Explained here](https://www.google.de/search?q=what+is+a+pwa)
+- FIX: Sometimes, the object-browser could not load states and crashed
+
+### 0.5.1-alpha.1 (2024-07-04)
+- Added: The image gallery has now a filter function which helps you to find the images more easily
+- Added: The datasource object-browser has now a filter function which helps you to find the datasource more easily
+- FIX: Added some crash-handler, which might throw an error, when the associated state is not found
+- FIX: Linebreak was not working correctly (Delimiter was ignored)
+- FIX: Under some circumstances a datasource could not be modified
+- FIX: Text prepend was not working correctly if source is displayed as text
+
 ### 0.5.1-alpha.0 (2024-06-28)
 - FIX: The coordinates and size of an added icon could not be changed
 - FIX: Cursor as Pointer (hand) did not appear on elements with action

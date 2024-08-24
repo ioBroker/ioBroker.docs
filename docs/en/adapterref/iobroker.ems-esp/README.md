@@ -31,7 +31,6 @@ The ioBroker ems-esp adapter can read and write data to both gateways to control
 It can be used either for the original Bosch-Group gateways or the ems-esp or both in parallel.
 All changed states from own scripts or the object browser does have to set acknowledged = false !!!
 
-## NEW in Version >= 3.3.0: Intoduce warnings for using non-productive ems-esp firmware. 
 
 German  documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
@@ -43,25 +42,22 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 4.3.0 (2024-06-26)
-* improve search for EMS+ and EMS 2.0 entities (switchTimes & holidayModes) with raw telegrams
-* support different thermostat id's
-* change ems-esp warning messages to info on start-up for 3.7 dev versions
+### 4.7.2 (2024-08-17)
+* ems-esp: enable writing on custom entities
 
-### 4.2.0 (2024-06-11)
-* ems-esp: process double entity names between boiler and thermostat for dhw
-* ems-esp: add original device name to iobroker object name when km200-structure is selected
+### 4.7.1 (2024-08-17)
+* ems-esp: custom entities are now under object structure "custom"
 
-### 4.1.3 (2024-06-05)
-* fix crash on wrong ems-esp ip address
+### 4.7.0 (2024-08-16)
+* ems-esp: do not allow more then one thermostat for extended own entities
+* ems-esp: error correction for holidayModes custom entities
 
-### 4.1.2 (2024-06-03)
-* km200 private password might has to be re-entered
-* update dependencies (dependabot)
+### 4.6.4 (2024-08-14)
+* ems-esp: error correction on polling for 3.6.5
 
-### 4.1.1 (2024-06-03)
-* corrections in io-package.json
-* install dependabot
+### 4.6.3 (2024-08-14)
+* small adjustments
+* dependabot updates dependencies
 
 ## License
 MIT License

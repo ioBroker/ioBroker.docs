@@ -42,6 +42,9 @@ docker run -p 3000:3000 browserless/chrome
 ausgeführt werden und ist dann unter `http://[IP-des-docker-hosts]:3000` zu erreichen. Erscheint die Weboberfläche des Containers, so funktioniert er wie erwartet und der entprechende Pfad kann in der Adapterkonfiguration eingegeben werden.
 
 ## Changelog
+### 1.1.0 (2024-08-18)
+* Updated dependencies
+
 ### 1.0.7 (2023-11-30)
 * BREAKING CHANGE due to renaming of object ids
 * Changed object IDs to English
@@ -85,7 +88,7 @@ ausgeführt werden und ist dann unter `http://[IP-des-docker-hosts]:3000` zu err
 ## License
 MIT License
 
-Copyright (c) 2023 satchafunkilus
+Copyright (c) 2024 satchafunkilus
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

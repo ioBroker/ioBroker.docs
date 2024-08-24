@@ -127,7 +127,7 @@ There are a number of different internal bindings to provide additional informat
 * `view` - name of actual view
 * `wname` - widget name
 * `widget` - is an object with all data of widget. Can be used only in JS part, like `{a:a;widget.data.name}`
-* `widgetOid` - use the oid of the widget to assign the widgets value in the assignment section, like `{t:widgetOid.val;t}`
+* `widgetOid` - use the OID of the widget to assign the widget's value in the assignment section, like `{t:widgetOid.val;t}`
 * `wid` - name of actual widget
 * `language` - can be `de`, `en` or `ru`.
 * `instance` - browser instance
@@ -257,6 +257,36 @@ Here's a simple example with a circle in an SVG:
 In this case, if the SVG takes the color of parent element.
 E.g., if it was used in a menu and the menu is red, the circle would be red.
 
+## Development and Debugging
+
+In order to make adjustments to the vis-2 editor itself, to search for errors and to debug, the following steps must be carried out.
+
+1. fork the iobroker/iobroker.vis-2 repository into your own account via user interface of GitHub
+
+2. clone the repository into a directory. copy the url from your GitHub repository. the command looks like
+
+```
+git clone https://github.com/<your profile name>/ioBroker.vis-2.git
+```
+
+3. open the downloaded repository with your IDE
+
+4. to install and download all necessary libraries, run the following command in a terminal in the root directory of the repository
+
+```
+npm run install-monorepo
+```
+
+5. to start the editor in the browser, please execute the following command. 
+An already separately running iobroker server instance must be available on port 8082.
+
+```
+npm run start
+```
+
+- Debugging is available in the browser e.g. chrome F12
+- if you change a file, automatic reload of the editor is supported
+
 
 ## Todo
 <!--
@@ -264,6 +294,25 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.10.7 (2024-07-23)
+* (bluefox) Optimization of the module federation
+
+### 2.10.6 (2024-07-20)
+* (bluefox) Improved the typing in typescript
+
+### 2.10.4 (2024-07-16)
+* (bluefox) Corrected the jumping by object selection
+* (bluefox) Implemented swipe widget
+
+### 2.10.3 (2024-07-11)
+* (bluefox) Converted the CanJSWidget to typescript
+* (bluefox) Added "clone" button to the attribute groups
+
+### 2.10.2 (2024-07-10)
+* (bluefox) Removed incompatible package for styles
+* (bluefox) All widgets must be updated
+* (bluefox) The basic input value widget was migrated to ReactJS
+
 ### 2.9.64 (2024-05-23)
 * (bluefox) Added possibility to clear a text field by button
 
@@ -377,7 +426,7 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
 * (foxriver76) added select box to dimension attributes if multiple widgets selected
 
 ### 2.9.18 (2024-01-15)
-* (foxriver76) fixed issue, that old attributes value is shown in some scenarios
+* (foxriver76) fixed issue that old attributes value is shown in some scenarios
 * (foxriver76) dedicated permission system extended to view level
 
 ### 2.9.17 (2024-01-13)
@@ -392,14 +441,14 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
 ### 2.9.14 (2024-01-09)
 * (foxriver76) fixed last change y-offset for some widgets
 * (foxriver76) fixed issue where JquiState did not respect data type
-* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing wrong button)
+* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing the wrong button)
 * (foxriver76) implemented workaround resize bug for https://github.com/devbookhq/splitter/issues/15
 
 ### 2.9.13 (2024-01-08)
 * (foxriver76) correctly detect IDs in bindings when they contain hash character
 * (foxriver76) fix crash when multiple JquiState widgets selected
-* (foxriver76) prevent showing widget in group after it is already cut out
-* (foxriver76) prevent usage of widgets which are not in group for calculating rulers on group view
+* (foxriver76) prevent showing widget in a group after it is already cut out
+* (foxriver76) prevent usage of widgets which are not in a group for calculating rulers on group view
 
 ### 2.9.12 (2024-01-04)
 * (foxriver76) optimized copy/paste/cut in groups
@@ -408,10 +457,10 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
 * (foxriver76) fixed bug with visibility calculation
 
 ### 2.9.10 (2024-01-02)
-* (foxriver76) remove accidentally added script file, which lead to crash
+* (foxriver76) remove accidentally added script file, which leads to crash
 
 ### 2.9.9 (2024-01-01)
-* (foxriver76) allow to import views without attribute `activeWidgets`
+* (foxriver76) allow importing views without attribute `activeWidgets`
 * (foxriver76) make BasicBulb behave more like its old version
 * (foxriver76) fixed issue that data of different widget is displayed in edit mode
 * (foxriver76) fixed issue that every state update is used for visibility calculation
@@ -424,7 +473,7 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
 * (foxriver76) fixed issue on theme switch
 
 ### 2.9.7 (2023-12-19)
-* (bluefox) Allowed the read only flag for Styled/Input
+* (bluefox) Allowed the read-only flag for Styled/Input
 
 ### 2.9.6 (2023-12-14)
 * (foxriver76) fixed issues with the BulkEditor
@@ -451,7 +500,7 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
 * (foxriver76) fixed import of views, which were inside a folder
 * (foxriver76) fixed theme also applied in iframe
 * (foxriver76) do not simply reuse widget ids when importing or copying views
-* (foxriver76) implemented basic bulb widget as react widget
+* (foxriver76) implemented basic bulb widget as React widget
 * (foxriver76) made script tags work in basic html widget
 
 ### 2.9.2 (2023-11-29)
@@ -462,19 +511,19 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
 
 ### 2.9.1 (2023-11-28)
 * (foxriver76) recalculate fields after moving widgets
-* (foxriver76) fixed pasting group on other view
+* (foxriver76) fixed a pasting group on other view
 * (foxriver76) fixed theme also applied in iframe
-* (bluefox) implemented Basic Image as react widget
+* (bluefox) implemented Basic Image as React widget
 
 ### 2.9.0 (2023-11-27)
 * (bluefox) implemented SVG shape and Screen Resolution widgets natively
-* (bluefox) implemented Basic iFrame as react widget
+* (bluefox) implemented Basic iFrame as React widget
 * (foxriver76) only allow zip files at project import
 * (foxriver76) fix overflow being overwritten
 * (foxriver76) sort pages and projects alphabetically
 * (foxriver76) fixed problem on saving
 * (foxriver76) fixed problem with groups when `always render` is activated
-* (foxriver76) allow to change color and write lowercase in tabs component
+* (foxriver76) allow changing color and write lowercase in a tabs component
 * (foxriver76) fixed problem that navigation from a alwaysRender page is shown on different page
 
 ### 2.8.0 (2023-11-24)

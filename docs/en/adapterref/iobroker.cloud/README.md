@@ -75,6 +75,10 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) updated socket classes
+* (bluefox) minimum required node.js version is 18
+
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
 * (bluefox) minimum required node.js version is 16

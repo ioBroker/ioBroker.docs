@@ -151,6 +151,11 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.0.0 (2024-07-21)
+* (bluefox) Packages updated
+* (bluefox) Minimum node.js version is 18.x
+* (bluefox) Updated licenses for knx and jarvis
+
 ### 4.5.0 (2024-04-21)
 * (pr0crstntr) Added Air-Q
 
@@ -164,9 +169,6 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 
 ### 4.2.0 (2023-10-09)
 * (pdbjjens) Changed detection of myvbus and resol
-
-### 4.1.0 (2023-09-25)
-* (pdbjjens) Added detection of myvbus and resol
 
 ## License
 

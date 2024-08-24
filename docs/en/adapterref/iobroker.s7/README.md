@@ -92,7 +92,7 @@ Column A through M are based on the structure in ioBroker and have to be filled 
 * Column O: Formula: ```=CONCATENATE_ _(D2;":";F2;":=";"0.000000e+000;";"//";E2)```
 
 #### Create DB sources in Step7
-We will now generate the DBs in Step7 using the code in column O of our spread sheet. In your Step7 program insert an STL source by clicking the right mouse button on “Sources”. [
+We will now generate the DBs in Step7 using the code in column O of our spread sheet. In your Step7 program, insert an STL source by clicking the right mouse button on “Sources”. [
 ![](img/adapter_en_s7_step7_1.png)
  
 Rename the new source to “DB20”. 
@@ -254,6 +254,9 @@ Drag& drop a switch widget on your view, connect it to the Object ID of a switch
 Important: The user is in charge of connecting the correct data points to the widgets. You can connect a real value to a binary status (e.g. light bulb), so the light bulb will show “on” once the real value is >1.0. That’s all, folks, pretty easy and straight forward, huh?
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Updated GUI packages
+
 ### 1.4.3 (2024-02-17)
 * (Bettman66) Fix REAL number parsing error
 

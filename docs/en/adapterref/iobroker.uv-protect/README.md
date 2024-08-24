@@ -37,6 +37,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### __WORK IN PROGRESS__
 * (simatec) Dependencies updated
 * (simatec) dev-server added
+* (simatec) Repo Check fix
 
 ### 0.6.0 (2024-02-05)
 * (simatec) Dependencies updated
@@ -122,7 +123,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2021 - 2024 simatec
+Copyright (c) 2021-2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

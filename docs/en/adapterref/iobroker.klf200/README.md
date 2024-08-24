@@ -207,8 +207,22 @@ The following devices are defined:
     -   wink - Set this state to true to let the product wink. This is used to
         identify a device, e.g. a window will move its handle, a roller shutter
         will move up and down a little bit. This state is writable, only.
+    -   Limitation-related states (each state for main parameter (XX=MP) and functional parameters 1-4 (XX=FP1-FP4), if applicable):
+        -   limitationXXMinRaw - Raw value of min limitation of the product. See the table at [Functional parameters](#functional-parameters).
+        -   limitationXXMaxRaw - Raw value of max limitation of the product. See the table at [Functional parameters](#functional-parameters).
+        -   limitationXXMin - Raw value of min limitation of the product mapped to percentage (0-100%).
+        -   limitationXXMax - Raw value of max limitation of the product mapped to percentage (0-100%).
+        -   limitationXXOriginator - Origin of the limitation.
+        -   limitationXXTimeRaw - Raw value of the time of the limitation.
+        -   limitationXXTime - Raw value of the limitation time mapped to seconds.
 
-##### Functional parameters
+> **Note:** According to the type of the actuator the raw values will be mapped either to a range of 0%-100% or 100%-0%.
+> This can be irritating especially for the limitation values, where the max limitation value can be lower than the min
+> limitation value. The logic behind is that the min _raw_ value starts at 0 and the max _raw_ value ends at 51200 and a
+> limitation, e.g. from a rain sensor, will be set by setting these raw values internally.
+> If you need it the _right_ way, please use aliases in ioBroker.
+
+##### Functional parameters and other raw values
 
 The functional parameters control further aspects of the product while moving.
 Mostly they are used for controlling the speed, but they can be used for different other aspects.
@@ -248,7 +262,25 @@ The values of the state provide multiple manipulation modes:
 <!-- prettier-ignore -->
 ### __WORK IN PROGRESS__
 
--   (Michael Schroeder) Upgrade dependencies, min. Node version 18.x, min. js-controller 5.x
+-   (Michael Schroeder) [#210](https://github.com/MiSchroe/ioBroker.klf200/issues/210) Run integration tests against a virtual mock version of an KLF-200.
+-   (Michael Schroeder) [#233](https://github.com/MiSchroe/ioBroker.klf200/issues/233) Fix findings of Adapter Checker.
+-   (Michael Schroeder) Upgrade dependencies
+
+### 1.3.1 (2024-07-17)
+
+-   (Michael Schroeder) [#214](https://github.com/MiSchroe/ioBroker.klf200/issues/214) Fixed error while retrieving the version number of the klf-200-api package.
+-   (Michael Schroeder) [#215](https://github.com/MiSchroe/ioBroker.klf200/issues/215) Added a device manager tab to the settings dialog for managing devices, groups and scenes.
+-   (Michael Schroeder) [#217](https://github.com/MiSchroe/ioBroker.klf200/issues/217) Refresh statusReply after reading the limitations to show correct values.
+-   (Michael Schroeder) [#218](https://github.com/MiSchroe/ioBroker.klf200/issues/218) Refresh runStatus after reading the limitations to show correct values.
+
+### 1.3.0 (2024-07-15)
+
+-   (Michael Schroeder) [#180](https://github.com/MiSchroe/ioBroker.klf200/issues/180) Fixed handling new product detection.
+-   (Michael Schroeder) [#47](https://github.com/MiSchroe/ioBroker.klf200/issues/47), [#113](https://github.com/MiSchroe/ioBroker.klf200/issues/113) Support limitations (e.g. rain sensor)
+-   (Michael Schroeder) [#209](https://github.com/MiSchroe/ioBroker.klf200/issues/209) Support of [ioBroker.device-manager](https://www.npmjs.com/package/iobroker.device-manager) for managing products, groups and scenes.
+-   (Michael Schroeder) Fix missing removal of event handlers.
+-   (Michael Schroeder) Upgrade dependencies, min. Node version 18.x, min. js-controller 5.x.
+-   (Michael Schroeder) Added stricter linting rules and fixed findings.
 
 ### 1.2.0 (2024-02-09)
 

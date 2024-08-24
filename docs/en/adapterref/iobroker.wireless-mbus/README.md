@@ -73,6 +73,9 @@ Afterwards, when you delete the device from the object tree, the adapter will no
 
 ## Changelog
 
+### 0.9.3
+* (ChL) Fix handling of 64bit integer DIFs
+
 ### 0.9.2
 * (ChL) Fix handling of frame type B without CRC
 
@@ -203,6 +206,6 @@ Afterwards, when you delete the device from the object tree, the adapter will no
 ## License
 
 Copyright (c) 2019 ISFH - Institute for Solar Energy Research www.isfh.de
-Copyright (c) 2021 Christian Landvogt
+Copyright (c) 2021 - 2024 Christian Landvogt
 
 Licensed under GPLv2. See [LICENSE](LICENSE) and [NOTICE](NOTICE)

@@ -87,6 +87,7 @@ On configuration page you can select following modules:
 * (simatec) Dependencies updated
 * (simatec) Docu updated
 * (simatec) dev-server added
+* (simatec) Repo Check fix
 
 ### 1.3.2 (2024-02-14)
 * (simatec) Design Fix
@@ -141,7 +142,7 @@ On configuration page you can select following modules:
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2024 simatec
+Copyright (c) 2018-2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

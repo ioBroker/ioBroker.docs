@@ -219,10 +219,16 @@ otherwise it is more complex and individually to be parametrized.
 * DECT 350 (batterylow, battery)
 
 ## Changelog
-### 2.5.10 (npm)
+
+### 2.5.11 (npm)
+* upadate devDeps, linting error corrections
+* iob checker corrections
+
+### 2.5.10
 * more loggimg for issue #500 of restart loop
 * some error messages downgraded to warnings
 * correction related to thermostat value take over, when reduced setting is activated
+* update devDeps
 
 ### 2.5.9 (npm)
 * correction for statistics,
@@ -549,3 +555,5 @@ otherwise it is more complex and individually to be parametrized.
 The MIT License (MIT)
 
 Copyright (c) 2018 - 2024 foxthefox <foxthefox@wysiwis.net>
+
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

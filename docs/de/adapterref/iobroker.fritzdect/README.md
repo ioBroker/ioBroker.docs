@@ -62,10 +62,16 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
-### 2.5.10 (npm)
+
+### 2.5.11 (npm)
+* upadate devDeps, linting error corrections
+* iob checker corrections
+
+### 2.5.10
 * more loggimg for issue #500 of restart loop
 * some error messages downgraded to warnings
 * correction related to thermostat value take over, when reduced setting is activated
+* update devDeps
 
 ### 2.5.9 (npm)
 * correction for statistics,
@@ -392,3 +398,5 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 The MIT License (MIT)
 
 Copyright (c) 2018 - 2024 foxthefox <foxthefox@wysiwis.net>
+
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

@@ -104,6 +104,11 @@ The following request are sent to the API. But the availlable datapoints strongl
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2024-07-24)
+* (nkleber78) Better handling of empty objects [#374]
+* (mcm1957) Some issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated.
+
 ### 2.1.0 (2024-04-29)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -127,14 +132,6 @@ The following request are sent to the API. But the availlable datapoints strongl
 -   (nkleber78) Fixed issue #97, Added some new predefined objects
 -   (nkleber78) Added Inverter Temperature readout (#86)
 -   (mcm1957) Dependencies and toolset have been updated.
-
-### 1.1.3 (2021-03-15)
-
--   (nkleber78) Split main.js into multiple files for better maintenance
--   (nkleber78) Prevent creating info objects which are not supported by the inverters
--   (schweigel) Added archive request values
--   (schweigel) Added archive polling intervall
--   (schweigel) Added devicetype string
 
 ## License
 

@@ -57,6 +57,22 @@ All product and company names or logos are trademarks™ or registered® tradema
 	Serial numbers adjusted for M series
 -->
 
+### 0.1.0 (2024-08-06)
+
+-   (raschy) Computing module stabilised
+-   (raschy) Typo in error handling corrected
+
+### 0.0.16 (2024-07-31)
+
+-   (raschy) Stabilisation on connection
+
+### 0.0.15 (2024-07-28)
+
+-   (raschy) Minor code refactorings
+-   (raschy) Revision of the calculation area
+-   (raschy) NodeJS >= 18.x and js-controller >= 5 is required
+-   (raschy) Allow http addresses
+
 ### 0.0.14 (2023-10-20)
 
 -   (raschy) Heartbeat also filtered

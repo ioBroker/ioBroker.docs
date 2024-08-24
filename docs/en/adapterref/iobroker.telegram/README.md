@@ -90,7 +90,7 @@ Make sure you put a `/` in front of the message in order for the bot to see the 
 The iobroker log will then show you the chat id in the logs.
 
 ## Usage
-You can use telegram with [text2command](https://github.com/ioBroker/ioBroker.text2command) adapter. There is a predefined communication schema, and you can command to you home in text form.
+You can use a telegram with [text2command](https://github.com/ioBroker/ioBroker.text2command) adapter. There is a predefined communication schema, and you can command to you home in text form.
 
 To send a photo, just send a path to file instead of text or URL: `sendTo('telegram', 'absolute/path/file.png')` or `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
@@ -107,7 +107,7 @@ function sendImage() {
             sendTo('telegram.0', 'send', {
                 text: tempFilePath,
                 caption: 'A wonderful adapter',
-                user: 'yourUsername',
+                user: 'yourUserName1,yourUserName2',
             });
         }
     });
@@ -140,7 +140,7 @@ In this case, the action command will be sent.
 The description for telegram API can be found [here](https://core.telegram.org/bots/api), and you can use all options defined in this api, just by including that into send object. E.g.:
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     text:                   '/tmp/snap.jpg',
     caption:                'Snapshot',
     disable_notification:   true
@@ -160,13 +160,24 @@ sendTo('telegram.0', {
 
 Adapter tries to detect the type of message (photo, video, audio, document, sticker, action, location) depends on a text in the message if the text is a path to existing file, it will be sent as according to a type.
 
-Location will be detected on attribute latitude:
+Location will be detected on attribute latitude and longitude:
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     latitude:               52.522430,
     longitude:              13.372234,
     disable_notification:   true
+});
+```
+
+Venue will be detected on attribute latitude, longitude, title and address:
+
+```javascript
+sendTo('telegram.0', 'send', {
+    latitude:               52.51630462381893,
+    longitude:              13.37770039691943,
+    title:                  'Brandenburger Tor',
+    address:                'Pariser Platz 8, 10117 Berlin',
 });
 ```
 
@@ -176,7 +187,7 @@ You have the possibility to define extra the type of the message in case you wan
 The following types are possible: *sticker*, *video*, *document*, *audio*, *photo*.
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     text: fs.readFileSync('/opt/path/picture.png'),
     type: 'photo'
 });
@@ -186,8 +197,8 @@ sendTo('telegram.0', {
 You can show keyboard **ReplyKeyboardMarkup** in the client:
 
 ```javascript
-sendTo('telegram.0', {
-    text:   'Press button',
+sendTo('telegram.0', 'send', {
+    text: 'Press button',
     reply_markup: {
         keyboard: [
             ['Line 1, Button 1', 'Line 1, Button 2'],
@@ -204,8 +215,8 @@ You can read more [here](https://core.telegram.org/bots/api#replykeyboardmarkup)
 You can show keyboard **InlineKeyboardMarkup** in the client:
 
 ```javascript
-sendTo('telegram', {
-    user: user,
+sendTo('telegram', 'send', {
+    user: 'my_username;username2', // optional. Separator could be ";" or "," or space
     text: 'Click the button',
     reply_markup: {
         inline_keyboard: [
@@ -225,8 +236,8 @@ Use this method to send answers to callback queries sent from inline keyboards. 
 
 ```javascript
 if (command === '1_2') {
-    sendTo('telegram', {
-        user: user,
+    sendTo('telegram', 'send', {
+     user: 'my_username username2', // optional. Separator could be ";" or "," or space 
         answerCallbackQuery: {
             text: 'Pressed!',
             showAlert: false, // Optional parameter
@@ -239,7 +250,7 @@ You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/rel
 
 ### Question
 You can send to telegram the message, and the next answer will be returned in callback. 
-Timeout can be set in configuration and by default is 60 seconds.
+Timeout can be set in instance configuration (default is 60 seconds).
 
 ```javascript
 sendTo('telegram.0', 'ask', {
@@ -255,13 +266,27 @@ sendTo('telegram.0', 'ask', {
 }, msg => {
     console.log('user says ' + msg.data);
 });
-``` 
+```
 
 ## Chat ID
 From version 0.4.0 you can use chat ID to send messages to chat.
 
 ```javascript
-sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123'});
+sendTo('telegram.0', 'send', {
+    text: 'Message to chat',
+    chatId: 'SOME-CHAT-ID-123'
+});
+```
+
+## Thread ID
+You can also set a thread id for super groups.
+
+```javascript
+sendTo('telegram.0', 'send', {
+    text: 'Message to chat',
+    chatId: 'SOME-CHAT-ID-123',
+    message_thread_id: 7,
+});
 ```
 
 ## Updating messages
@@ -333,7 +358,7 @@ You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/rel
 
 ### editMessageMedia
 Use this method to edit picture of the message sent by the bot or via the bot (for inline bots). 
-On success, if an edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
+On success, if an edited message is sent by the bot, the edited Message is returned; otherwise *True* is returned.
 
 ```javascript
 if (command === '1_2') {
@@ -402,7 +427,10 @@ if (command === 'delete') {
 You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
 
 ## Reacting to user replies / messages
-Suppose you are using only JavaScript without `text2command`. You have already sent a message/question to your user using `sendTo()` as described above. The user replies to that by pushing a button or writing a message. You can extract the command and give feedback to your user, execute commands or switch states in iobroker.
+Suppose you are using only JavaScript without `text2command`.
+You have already sent a message/question to your user using `sendTo()` as described above.
+The user replies to that by pushing a button or writing a message.
+You can extract the command and give feedback to your user, execute commands or switch states in iobroker.
 
  - telegram.0 is your iobroker Telegram instance you want to use
  - user is the user registered with you TelegramBot which sent the message
@@ -623,7 +651,7 @@ By entering `/cmds` the following keyboard will be displayed in telegram:
 If **Use rooms in keyboard command** option is enabled in the configuration dialog of telegram adapter, so in the first step the room list will be shown. ***Not yet implemented***
 
 ### Settings in the state
-First the configuration must be enabled.
+The first, the configuration must be enabled.
 
 #### Alias  
 Name of the device. If the name is empty, the name will be taken from an object. 
@@ -633,7 +661,7 @@ By entering "Door lamp" the following menu will be shown for boolean state.
 You can switch the device ON, turn the device OFF or request the state. 
 If you Click `Door lamp ?`, you will get `Door lamp  => switched off`.
  
-### Read only
+### Read-only
 If activated, ON/OFF buttons will be not shown, just a `Door lamp ?`.
 
 ### Report changes
@@ -646,7 +674,7 @@ Because of the long name, maybe it is better to show only 2 (or even just one) b
   
 ![settings](img/stateSettings3.png)
 
-### Write only
+### Write-only
 If activated, the status query (`Door lamp ?`) button will be not shown.
  ![settings](img/stateSettings4.png)
  
@@ -724,27 +752,21 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.9.0 (2024-07-22)
+* (klein0r) Added option to send venue (with title and address)
+
+### 3.8.2 (2024-07-16)
+* (bluefox) Username can consist of more than one user. The separator is comma, semicolon or space.
+
+### 3.8.0 (2024-07-14)
+* (bluefox) Migrated GUI for Admin 7
+
+### 3.7.1 (2024-07-03)
+* (klein0r) Restored translations for messages
+
+### 3.7.0 (2024-07-03)
 * (klein0r) Removed default / shadow fiel from Blockly block ask
-
-### 3.6.0 (2024-06-19)
-* (klein0r) Save videos which have been recorded with telegram (video_note)
-* (klein0r) Added answer timeout to instance configuration
-* (klein0r) Added option to send status updates to specific users
-* (klein0r) Added states for thread id (of supergroups)
-
-### 3.5.3 (2024-06-18)
-* (foxriver76) escape all unallowed characters when sending with notification manager
-
-### 3.5.2 (2024-06-16)
-* (foxriver76) escape more unallowed characters when sending with notification manager
-
-### 3.5.1 (2024-06-12)
-* (klein0r) Fixed file handling for voice files
-* (klein0r) Updated dependencies
-
-### 3.5.0 (2024-06-12)
-* (klein0r) Added option to save media files into ioBroker file system (files tab)
+* (klein0r) Added state to answer last request (same chat)
 
 ## License
 

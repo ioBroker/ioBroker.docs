@@ -28,6 +28,14 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.3.0 (2024-08-23)
+- (steiger04) Added CircularProgress during refreshing traps
+- (steiger04) Updated packages
+
+### 2.2.0 (2024-07-04)
+- (steiger04) Added refresh button to area widget and route widget
+- (steiger04) Dependencies updated
+
 ### 2.1.1 (2024-06-30)
 - (steiger04) Dependencies updated
 

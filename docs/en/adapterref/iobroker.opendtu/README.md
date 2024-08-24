@@ -28,8 +28,8 @@ For more information on the data points, see their description or click [here](h
 ## Configuration
 
 1. Create a new instance of the adapter
-2. Fill in Scheme *(default http)*, WebUi-Address and WebUi-port *(default 80)* of the [OpenDTU](https://github.com/tbnobody/OpenDTU) hardware 
-3. Set the WebUi-Password **(this is mandatory, if it is incorrect no limit can be set!)**
+2. Fill in Security *(default http)*, IP-Address and port *(default 80)* of the [OpenDTU](https://github.com/tbnobody/OpenDTU) hardware 
+3. Set the WebUI-Password **(this is mandatory, if it is incorrect no limit can be set!)**
 4. Save the settings
 
 ## Changelog
@@ -42,10 +42,13 @@ For more information on the data points, see their description or click [here](h
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.0.0 (2024-08-13)
 
 - (o0shojo0o) changes for new websocket structure ([#129](https://github.com/o0shojo0o/ioBroker.opendtu/issues/129))
 - (o0shojo0o) `Efficiency`, `YieldTotal`, `YieldDay` and `DC Power` moved from the AC section to the INV (old data points must be removed manually)
+- (mattreim) update to current OpenDTU logo ([#156](https://github.com/o0shojo0o/ioBroker.opendtu/issues/156))
+- (mattreim) update dependencies ([#162](https://github.com/o0shojo0o/ioBroker.opendtu/issues/162)), ([#179](https://github.com/o0shojo0o/ioBroker.opendtu/issues/179))
+- (mattreim) fix GUI translation ([#163](https://github.com/o0shojo0o/ioBroker.opendtu/issues/163))
 
 ### 1.0.1 (2023-10-29)
 
@@ -100,7 +103,7 @@ For more information on the data points, see their description or click [here](h
 ## License
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

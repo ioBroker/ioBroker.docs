@@ -35,6 +35,9 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* Requirements from ioBroker Check and Service Bot #104
+
 ### 0.11.0 (2024-06-27)
 * added a donation link in the adapter settings
 * dependency updated

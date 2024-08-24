@@ -58,6 +58,12 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+### 1.1.0 (2024-08-15) - 2024H2 maintenance release
+
+- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
+- (pdbjjens) Change: Removed .npmignore
+- (pdbjjens) New: Updated dependencies
+- (pdbjjens) Fix: IP family property changed from string to number in nodejs 18.0.0-18.4.0
 
 ### 1.0.1 (2024-01-26) - 2024 maintenance release
 
@@ -83,12 +89,6 @@ From this, the object names are put together, e.g.
 
 - (pdbjjens) Updated dependencies
 - (pdbjjens) New: Use adapter-dev instead of gulp translate
-
-### 0.6.5 (2022-02-19)
-
-- Updated dependencies
-- Compatibility check for js-controller 4.0
-- Prevent onUnload warnings
 
 ## License
 

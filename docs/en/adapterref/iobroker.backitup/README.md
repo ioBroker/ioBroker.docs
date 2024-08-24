@@ -149,6 +149,10 @@ The operation of the Restore tab is as follows.
 
 ![adminTabInfo](img/backitup_history.png)
 
+
+![backitupConfig](img/backitup_config.png)
+
+
 _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ---
@@ -562,7 +566,14 @@ All states and objects as well as the user files such as VIS are backed up here 
 The restore is also completely identical to the CLI command `iobroker restore <backupname>` of the js-controller.
 
 With a restore, all states, objects and user data are restored by Backup.
+
+![adminByRestore](img/backitup_restore1.png)
+
+
 After the restore, your ioBroker restarts and from there the js-controller takes over the installation of missing adapters again.
+
+![adminAfterRestore](img/backitup_restore2.png)
+
 
 `ioBroker.backitup` has no effect whatsoever on the recovery after the ioBroker has started. This all happens in the background, and the js-controller takes over based on the restored information in the States and Objects.
 
@@ -577,9 +588,6 @@ On Linux systems this folder is located under the following path: `/opt/iobroker
 
 With the backup types "ioBroker" and "redis", the ioBroker is stopped during the restore and then restarted automatically.
 
-After stopping the ioBroker, a new browser tab opens showing the progress of the restore.
-
-***If this tab does not open, the browser settings for block popups must be checked.***
 
 **ioBroker is not stopped with all other backup types. Here only the affected adapters are temporarily stopped.**
 
@@ -600,6 +608,22 @@ Detailed instructions for restoring with Backup and also for manual restoring ca
     - Execute the command: “/bin/restoreBackup.sh /user/local/tmp/BackupFileName” on the RaspberryMatic.
     - Execute the command: “reboot“ on the RaspberryMatic to restart the PI
     - Alternatively, the backup can of course also be restored as usual via the web interface.
+
+
+### Restoring an InfluxDB database
+
+When restoring an InfluxDB backup, please note that the InfluxDB adapter must be stopped beforehand and the database must not exist. 
+
+> [!NOTE]
+> If the database does exist, it must be deleted before the restore.
+
+The InfluxDB Adapter may only be restarted after the restore, as it will always attempt to create the database.
+
+Furthermore, to restore from an InfluxDB 2.x database, the operator token must be configured in the ioBroker.backitup menu before the restore.
+
+> [!NOTE]
+> No restore is possible without the correct operator token.
+
 
 _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
@@ -649,9 +673,66 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (Grothesk242/simatec) foreceuid and forcegid added
+### 3.0.20 (2024-08-22)
+* (simatec) Responsive Design for Tab added
+* (simatec) Responsive Design for jsonConfig added
 * (simatec) dependencies updated
+
+### 3.0.19 (2024-08-15)
+* (simatec) Fix CCU Backup
+* (simatec) Fix InfluxDB Backup Config
+* (simatec) Fix Backup-Log for Slave Instanz
+
+### 3.0.18 (2024-08-14)
+* (simatec) Package optimisation
+* (simatec) Fix the warning when opening the configuration
+* (simatec) dependencies updated
+
+### 3.0.17 (2024-08-12)
+* (simatec) Fix io-package for Release
+* (simatec) manual-review added
+* (simatec) Fix Slave Backup
+* (simatec) dependencies updated
+
+### 3.0.16 (2024-08-05)
+* (bluefox) dependencies updated
+* (simatec) Rename json5 Files
+
+### 3.0.15 (2024-08-03)
+* (simatec) fix dependencies
+
+### 3.0.14 (2024-08-02)
+* (simatec) dependencies updated
+* (simatec) Improved log outputs
+
+### 3.0.12 (2024-08-01)
+* (simatec) Backup Log for History added
+* (simatec) Added separate selection for deleting FTP backups
+* (simatec) Added separate selection for deleting Onedrive backups
+* (simatec) Added separate selection for deleting Webdav backups
+* (simatec) Added separate selection for deleting Dropbox backups
+* (simatec) Added separate selection for deleting Googledrive backups
+* (simatec) Improved log outputs
+* (simatec) Source code cleaned up
+* (simatec) dependencies updated
+
+### 3.0.11 (2024-07-28)
+* (simatec) Design Fix
+* (simatec) dependencies updated
+
+### 3.0.10 (2024-07-22)
+* (simatec) Design Fix for Dark Mode
+* (bluefox) dependencies updated
+
+### 3.0.9 (2024-07-11)
+* (simatec) Tab Icons added
+* (simatec) small fix
+* (simatec) Docu updated
+
+### 3.0.8 (2024-07-01)
+* (Grothesk242/simatec) forceuid and forcegid added
+* (simatec) dependencies updated
+* (simatec) small fix
 
 ### 3.0.7 (2024-06-26)
 * (simatec) Restore Information added
@@ -1731,4 +1812,17 @@ Copyright (c) 2018-2024 simatec
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, p
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

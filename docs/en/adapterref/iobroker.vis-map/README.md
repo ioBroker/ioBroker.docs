@@ -10,7 +10,7 @@
 
 Widgets, that can show coordinates on a map.
 Actually supported only Open Street Maps and Google. To use Google Maps you should get the API Key for Google Maps.
-You can get it [here](https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend&keyType=CLIENT_SIDE&reusekey=true)
+You can get it [here](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ## Usage
 
@@ -27,6 +27,10 @@ You can bind longitude and latitude apart or just place into **longitude** the O
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.2 (2024-07-12)
+- fix datapoint handling for lat/lan
+- Make data points in 0_userdata work again
+
 ### 1.1.0 (2024-03-07)
 - (bluefox) Removed dependency to `iobroker.vis`. Only show the message if vis is not installed
 

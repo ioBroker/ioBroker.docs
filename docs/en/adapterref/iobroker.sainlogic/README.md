@@ -94,6 +94,8 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Latest version
 
+#### 0.11.4 Fix yearlyrain max value and mapping for CO2 sensors
+
 #### 0.10.5 Bugfix for state initialization, removed log messages for forwarding
 
 #### 0.10.4 Bugfix for lightning count, new battery states for additional sensors
@@ -141,7 +143,7 @@ Lisa for her [code to translate wind degrees in a heading](https://www.programmi
 ## License
 MIT License
 
-Copyright (c) 2023 Fogg <foggch@gmail.com>
+Copyright (c) 2024 Fogg <foggch@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

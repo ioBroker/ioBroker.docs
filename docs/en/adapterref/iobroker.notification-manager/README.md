@@ -103,6 +103,9 @@ if the messaging adapter was able to deliver the notification, else it should re
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2024-08-05)
+* (@klein0r) Added Blockly blocks
+
 ### 1.1.2 (2024-05-02)
 * (foxriver76) made logging a bit more silent
 

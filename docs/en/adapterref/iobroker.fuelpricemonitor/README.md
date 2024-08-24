@@ -27,6 +27,11 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.1 (2024-07-04)
+* (HGlab01) fix "Method "deleteDevice" is deprecated" (#692)
+* (HGlab01) Bump axios to 1.7.2
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.16
+
 ### 0.4.0 (2023-12-05)
 * (HGlab01) Breaking changes
     - Node.js 18.0 or higher
@@ -43,9 +48,6 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 ### 0.3.4 (2023-02-05)
 * (HGlab01) Cheapest station from experimental to stable
 * (HGlab01) Bump axios to 1.3.2
-
-### 0.3.3 (2022-12-22)
-* (HGlab01) Cheapest station now per fuel type (#445)
 
 ## License
 MIT License

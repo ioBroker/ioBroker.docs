@@ -21,6 +21,9 @@
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.0 (2024-07-07)
+* (bluefox) Removed withStyles package
+
 ### 1.0.4 (2024-05-26)
 * (bluefox) updated packages
 

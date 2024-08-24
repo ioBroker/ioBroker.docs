@@ -30,6 +30,10 @@ The data point CalculatedRemaining/JsonForEcharts (calculated remaining quantity
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.5 (2024-08-08)
+
+js-controller dependency updated
+
 ### 1.3.3 (2024-06-04)
 
 Fix: no error if CalculatedRemaining is empty and mqtt is active

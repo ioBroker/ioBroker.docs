@@ -20,28 +20,18 @@ The adapter is also designed to support a sophisticated notification routing sys
 ## Configuration
 
 ## Changelog
+### 1.0.0 (2024-08-24) - 2024 Maintenance Release
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
-### 0.1.1 (2023-09-09)
-
+-   (jpawlowski) Set minimum Node version to 18.x
+-   (jpawlowski) Set minimum JS-Controller version to 5.0.19
 -   (jpawlowski) Update package dependencies
-
-### 0.1.0 (2023-06-29)
-
--   (jpawlowski) First stable version
-
-### 0.1.0-beta.2 (2023-03-12)
-
--   (jpawlowski) Pets are now allowed to follow the presence of guest residents
+-   (jpawlowski) Some minor internal housekeeping
 
 ## License
 
 MIT License
 
-Copyright (c) 2022-2023 Julian Pawlowski <metres_topaz.0v@icloud.com>
+Copyright (c) 2022-2024 Julian Pawlowski <metres_topaz.0v@icloud.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

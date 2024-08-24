@@ -1402,6 +1402,12 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2024-07-10)
+
+* (crycode-de) Added basic support for interactions unknown to the adapter (custom scripts required for handling)
+* (crycode-de) Raw interaction JSON is now written to the state after the interaction is initially handled to prevent some race conditions
+* (crycode-de) Updated dependencies
+
 ### 2.3.1 (2024-06-29)
 
 * (crycode-de) Fixed Blockly for the latest JavaScript adapter changes

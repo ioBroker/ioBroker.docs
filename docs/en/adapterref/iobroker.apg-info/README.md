@@ -13,7 +13,7 @@
 [![NPM](https://nodei.co/npm/iobroker.apg-info.png?downloads=true)](https://nodei.co/npm/iobroker.apg-info/)
 
 ## apg-info adapter for ioBroker
-This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria and Germany (configure in Adapter settngs). Provider fee, tax, grid costs can be added optionally in the config (tab Calculation). 
+This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria, Swiss and Germany (configure in Adapter settngs). Provider fee, tax, grid costs can be added optionally in the config (tab Calculation). 
 `[..].marketprice.today.jsonChart` and `[..].marketprice.tomorrow.jsonChart` can be used with https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.  
 With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clock. It's highly recommended not to remove the run at 00:00, otherwise the day-change (tomorrow --> today) will nit work propperly.
 
@@ -23,11 +23,24 @@ With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clo
 * Node.js 18 or higher
 * ioBroker host (js-controller) 5.0 or higher
 
+## Swiss market
+For the swiss market a token from entsoe.eu is needed. Please add your token to the adapter configuration in the tab "ENTSOE TOKEN".
+Register at the page https://transparency.entsoe.eu/ and send afterwards and email to transparency@entsoe.eu asking for RESTFUL API access for the email address you registered. <br>
+For more details check https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
+
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.9 (2024-08-21)
+* (HGlab01) Support eslint9
+
+### 0.1.8 (2024-07-31)
+* (HGlab01) Swiss market support; Token needed! Check readme!
+* (HGlab01) Bump json-explorer to 0.1.16
+
 ### 0.1.7 (2024-05-27)
 * (HGlab01) Add date to today and tomorrow to make the date of today and tomorrow clear
 * (HGlab01) bump axios to 1.7.2
@@ -38,12 +51,6 @@ With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clo
 
 ### 0.1.5 (2024-01-20)
 * (HGlab01) Add fee, grid costs and tax calculation
-
-### 0.1.4 (2024-01-15)
-* (HGlab01) fix 'Cannot read properties of undefined (reading 'status')'
-
-### 0.1.3 (2023-12-26)
-* (HGlab01) Fix issue 'Request failed with status code 500' (#170)
 
 ## License
 MIT License

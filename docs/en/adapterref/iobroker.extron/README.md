@@ -5,10 +5,18 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.extron.svg)](https://www.npmjs.com/package/iobroker.extron)
 ![Number of Installations (latest)](http://iobroker.live/badges/extron-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/extron-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Bannsaenger/iobroker.extron.svg)](https://david-dm.org/Bannsaenger/iobroker.extron)
+![Test and Release](https://github.com/bannsaenger/iobroker.extron/workflows/Test%20and%20Release/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/Bannsaenger/ioBroker.extron/badge.svg)](https://snyk.io/test/github/Bannsaenger/ioBroker.extron)
 
 [![NPM](https://nodei.co/npm/iobroker.extron.png?downloads=true)](https://nodei.co/npm/iobroker.extron/)
+
+## References
+Extron®, CrossPoint®, DTP®, NetPA®, XPA®, XTP® are registered trademarks of RGB Systems, Incorporated\
+See [www.extron.com](https://www.extron.com/article/termsprivacy)
+
+The logo is taken from the Extron Control App by Extron
+
+Dante® is a trademark of [Audinate](https://www.audinate.com/)
 
 ## extron adapter for ioBroker
 
@@ -29,8 +37,10 @@ If you are a non commercial organisation or use it for private use you can get a
 - 8x2 Presentation Matrix Switcher (DTP2 CrossPoint 82)
 - H.264 Streaming Media Player and Decoder (SMD 202)
 - Streaming Media Encoder (SME 211)
+- 6x4 ProDSP Processor w/AEC and Dante (DMP 64 Plus C AT)
 - 12x8 ProDSP Processor w/Dante (DMP 128 Plus AT)
 - 12x8 ProDSP Processor w/AEC, VoIP, and Dante (DMP 128 Plus C V AT)
+- Dante Audio Matrix Processor with AEC (XMP 240 C AT)
 
 ## ToDo
 - The device type is checked on begin of the conversation. This fails sometimes. Must be changed to a more reliable mechanism. 
@@ -42,14 +52,13 @@ If you are a non commercial organisation or use it for private use you can get a
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
-    * (Bannsaenger) introducing admin 5 UI (jsonConfig)
 -->
 ### **WORK IN PROGRESS**
 * (Bannsaenger) updated to adapter-dev and release script
 * (Bannsaenger) updated dependencies
-
-### 0.2.16 (2024-06-28)
-* (mschlgl) enhanced network reconnect functionality
+* (Bannsaenger) introducing jsonConfig
+* (mschlgl) add more DSP SIS commands
+* (mschlgl) enhanced network reconnect functionality, added DANTE remote commands, additional devices
 
 ### 0.2.15 (2024-06-12)
 * (mschlgl) fixed typo in io-package.json

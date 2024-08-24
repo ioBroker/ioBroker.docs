@@ -33,6 +33,9 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.3.0
+* (holomekc) Support for user automations
+
 ### 0.2.8
 * (holomekc) Improve stability and update dependencies 
 
@@ -53,8 +56,6 @@ If you want to support the work I would appreciate a small donation. This is 100
 * (holomekc) Add support for climate schedules with two options to activate them
 * (holomekc) Update intrusion detection so that more information is shown
 * (holomekc) Update intrusion detection and climate schedule switches stay active now
-
-### 0.2.2
 * (holomekc) Support for rooms. Configuration to ignore server certificates. Allow ttesting controller 2 and can prevent issues in case certificates expire. Less secure though.
 
 ### 0.2.1

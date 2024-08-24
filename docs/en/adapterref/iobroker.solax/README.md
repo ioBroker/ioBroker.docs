@@ -100,6 +100,10 @@ If you would like to have other inverters integrated, you should make the data e
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) small fix
+* (simatec) Dependencies updated
+
 ### 0.9.9 (2024-06-27)
 * (simatec) Fix X1-Mini G4
 

@@ -636,6 +636,10 @@ This prevents the roller shutter from going up and down several times a day.
 Very practical in blind operation when the height is kept down (option checked),
 and just open and close the slats.
 
+**Delay for falling below the brightness until shading is ended (minutes)**
+The time is set here at which a delay should take place if the shade is darkened and the brightness falls below the set level.
+The default value is 0 and can be adjusted if required. This option only works in conjunction with a brightness sensor
+
 **Heat protection**
 This option allows the roller shutter to be completely closed in hot weather.
 After activating this option, the field for entering the temperature in °C appears.
@@ -790,6 +794,18 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+* (simatec) Fix End-Delay for Sunprotect
+* (simatec) Update Translations
+* (simatec) Trigger changed
+* (simatec) Code revision and improvements
+* (simatec) many small fixes
+* (simatec) Fix Sunprotect end by Shutter up
+* (simatec) Fix Shutter up when open the Window
+* (simatec) Test & Release updated
+* (simatec) Fix Trigger
+
 ### 1.7.3 (2024-06-20)
 * (simatec) Fix Sunprotect End-Delay
 

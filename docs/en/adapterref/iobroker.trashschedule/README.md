@@ -66,6 +66,10 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Validate user inputs in instance configuration
+
 ### 3.3.0 (2024-04-28)
 
 NodeJS >= 18.x and js-controller >= 5 is required
