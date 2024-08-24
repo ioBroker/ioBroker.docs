@@ -166,6 +166,7 @@ With **levels**, you can control or set some number value.
 * `level.frequency.min`   - minimum frequency for generators or for power grid alarms
 * `level.frequency.max`   - maximum frequency for generators or for power grid alarms
 * `level.fill`            - setpoint for any container fill level states 
+* `level.brightness`      - luminance level (unit: lux, )
 * `level.min`             - minimum level allowed  
 * `level.max`             - maximum level allowed
 * `level.default`         - default level
