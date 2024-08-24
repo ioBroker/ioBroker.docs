@@ -9,8 +9,8 @@ die wichtigsten Begriffe, die im und um den ioBroker auftreten erläutert.
 
 * **Adapter**
 
-    Ein Modul oder Treiber für ein Gerät, Service oder zur Bereistellung von  
-    Daten. Durch den sehr modularen Aufbau von ioBroker ist quasi alles ein  
+    Ein Modul oder Treiber für ein Gerät, Service oder zur Bereistellung von Daten.
+    Durch den sehr modularen Aufbau von ioBroker ist quasi alles ein  
     Adapter: Admin-Oberfläche, Visualisierung, Scripting, …
 
 * **Admin**
@@ -20,11 +20,11 @@ die wichtigsten Begriffe, die im und um den ioBroker auftreten erläutert.
     Instanzen, anlegen und prüfen von Objekten, Zuständen, editieren von  
     Skripten und vielem mehr.
 
-* **Aufzählung**
+* **Kategorien**
 
     englischer Begriff: enum(eration)
 
-    Eine Aufzählung ist eine Liste bestimmter Objekte, die zu einer Gruppe  
+    Eine Aufzählung/Kategorie ist eine Liste bestimmter Objekte, die zu einer Gruppe  
     zusammengefügt wurden.
 
 * **Blockly**

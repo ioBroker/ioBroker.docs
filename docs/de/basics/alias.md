@@ -11,7 +11,7 @@ Zusätzlich dazu, dass die Hardware ausgetauscht wird, wird die Adresse dieses G
 
 Da die alte Adresse an vielen Stellen wie vis, Javascript, Szenen oder anderen verwendet wurde, muss der Benutzer nun alle diese Stellen finden und dort ersetzen.
 
-Diese Funktion ermöglicht es dem Benutzer, einen Alias für den Datenpunkt eines physisches Gerätes zuzuweisen und diesen Alias in allen Fällen zu verwenden.
+Diese Funktion ermöglicht es dem Benutzer, einen Alias für den Datenpunkt eines physischen Gerätes zuzuweisen und diesen Alias in allen Fällen zu verwenden.
 Wenn das Gerät ausgetauscht werden muss, muss die ID nur im Alias geändert werden.
 
 Ein weiterer Anwendungsfall für diese Funktion ist die Unterstützung von Geräten in speziellen intelligenten Adaptern wie iot oder material.

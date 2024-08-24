@@ -9,7 +9,7 @@
   * [Objects](basics/objects)
   * [States or Datapoints](basics/states)
   * [Alias](basics/alias)
-  * [Enums](basics/functions)
+  * [Enums](basics/enums)
   * [Roles](basics/roles)
   * [Glossary](basics/glossary)
 

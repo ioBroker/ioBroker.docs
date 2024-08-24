@@ -21,8 +21,6 @@ In den Systemeinstellungen über den Schraubenschlüssel die Basiseinstellungen 
 
 ![](media/Repository_IconBasicSettings.png)
 
-
-
 ![](media/Repository_BasicsSettingsDefaultPath.png)
 
 (1) Im Reiter Repositories kann das gewünschte Repository ausgewählt werden, indem in der Spalte "Aktiv" die entsprechende Checkbox aktiviert wird.
@@ -43,7 +41,7 @@ Wurde das Beta Repository ausgewählt, so erfolgt in der Adapterübersicht eine 
 Früher bedeutete dies im ioBroker das Repository von Stable auf Beta umzustellen, den einen 
 Adapter zu installieren und dann wieder zurückzuwechseln. Letzteres ist dann meistens auf der Strecke geblieben. 
 
-Seit Admin 5 geht dies aber viel komfortabler, OHNE das Repository umzustellen zu müssen! 
+Seit Admin 5 geht dies aber viel komfortabler, OHNE das Repository umzustellen, zu müssen! 
 
 - Aktiviere den Expertenmodus 
 - Im Menü "Adapter" auf den Button "Installieren aus eigener URL" (GitHub) gehen und auf den ersten Tab "Von NPM" wechseln
@@ -55,9 +53,8 @@ Auf diese Weise kann man die neueste Beta-Version installieren, ohne sein Reposi
 
 Wichtiger Hinweis: Installiere einen Adapter aus Github nur dann, wenn du vom Entwickler hierzu explizit aufgefordert wirst (z.B. im Rahmen von Alpha Tests, Bugfixing etc.). Adapterversionen welche direkt von Github installiert werden befinden sich in der Entwicklung und können somit auch zwischenzeitlich nicht funktionsfähig sein.
 
-
 ## Wie kommt ein Adapter in das Beta oder Stable Repository? 
-Lange bevor ein Adapter zur Installation in ioBroker über die Adminoberfläche bereit steht stellt 
+Lange bevor ein Adapter zur Installation in ioBroker über die Adminoberfläche bereitsteht, stellt 
 ein Entwickler einen Antrag auf Aufnahme ins Repository. Wenn das passiert ist, schauen sich 
 erfahrene Entwickler den neuen Adapterquellcode an und geben dem anfragenden Entwickler ein Feedback 
 mit den Punkten welche abgearbeitet werden müssen, bevor der neue Adapter ins Repository aufgenommen werden kann. 
