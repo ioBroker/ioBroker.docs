@@ -2,27 +2,26 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hausbus_de/README.md
-title: iobroker.hausbusde
-hash: /PCvBwHfqoLsI4h5Epb6ay3a8yEf+tmk4UmCxLfHfI0=
+title: iobroker.hausbus_de
+hash: ZnyoDSWe3HkqtcNMEUQ6T/17g+LeOpskkJLiCNUbH5M=
 ---
 ![标识](../../../en/adapterref/iobroker.hausbus_de/admin/hausbusde.png)
 
-# Iobroker.hausbusde
-支持所有 haus-bus.de 组件的 IO Broker 适配器。<br>有关支持的硬件和 IO Broker 集成的文档，请检查<br>www.haus-bus.de/iobroker
+# Iobroker.hausbus_de
+支持所有 haus-bus.de 组件的 IO Broker Adapter。<br>有关支持的硬件和 IO Broker 集成的文档，请查看<br>www.haus-bus.de/iobroker
 
 ＃＃ 安装<a name="installation"></a>
-该适配器在官方 ioBroker 目录中作为稳定版本提供。<br>建议直接从 ioBroker 内的目录安装。<br>如果您需要比官方 ioBroker 目录中提供的版本更新的版本，您也可以直接从 github 安装此版本。<br>如果您遇到任何问题或错误，请联系 info@haus-bus.de<br>
+该适配器在官方 ioBroker 目录中作为稳定版本提供。<br>建议直接从 ioBroker 内的目录安装。<br>如果您需要比官方 ioBroker 目录中提供的更新的版本，您也可以直接从 github 安装此版本。<br>如果您遇到任何问题或错误，请联系 info@haus-bus.de<br>
 
 ＃＃ 设置
-HausBus.de 适配器无需进一步配置即可使用。它使用 UDP 广播请求自动搜索 haus-bus.de 组件。必须至少有一个带有网络接口（例如任何中继模块）的 haus-bus.de 组件，该组件与 io 代理一样连接到同一网络。任何其他组件都可以通过 RS485 连接到带有以太网网关的模块。
+HausBus.de 适配器无需进一步配置即可使用。它使用 UDP 广播请求自动搜索 haus-bus.de 组件。必须至少有一个带有网络接口的 haus-bus.de 组件（例如任何中继模块），该组件连接到与 io 代理相同的网络。任何其他组件都可以通过 RS485 连接到带有以太网网关的模块。
 
 <br> <br> <br>
 
 ## Changelog
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS** 
--->
+### 1.4.6 (2024-08-07)
+* support for new 12 channel relay module
+
 ### 1.3.0 (2023-12-31) 
 * support for new analog inputs (0-10V or 4-20mA)
 

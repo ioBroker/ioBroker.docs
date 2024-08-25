@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
+hash: K8hWv/0WbiSbPH9kxOdbE6JQPnr5DYtafIVCabwcbKs=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -16,7 +16,7 @@ hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 ![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub 上次提交](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub 问题](https://img.shields.io/github/issues/hombach/iobroker.tibberlink?logo=github&style=flat-square)
-![GitHub 工作流程状态](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=main&logo=github&style=flat-square)
+![GitHub 工作流程状态](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=master&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)
 ![SNYK 已知漏洞](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)
 ![测试版](https://img.shields.io/npm/v/iobroker.tibberlink.svg?color=red&label=beta)
@@ -29,7 +29,8 @@ hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 
 ## 版本
 ## 在 ioBroker 中使用 TIBBER 能源数据的适配器
-该适配器方便连接您的 Tibber 帐户 API 中的数据以便在 ioBroker 中使用，无论是用于单个住宅还是多个住宅。
+此适配器有助于将 Tibber 帐户 API 中的数据连接到 ioBroker 中以供使用，无论是用于单个家庭还是多个住宅。
+新功能：该适配器现在支持通过家庭网络直接本地读取 Tibber 脉冲传感器，从而无需完全依赖云 API 即可进行实时监控和数据收集。
 
 如果您目前不是 Tibber 用户，我将非常感激如果您可以使用我的推荐链接：[Tibber 推荐链接](https://invite.tibber.com/mu8c82n5)。
 
@@ -72,11 +73,11 @@ hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 
 使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜的时段内激活电池充电（“值 YES”）并停用电池供电（“值 2 NO”）。相反，它将在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于最便宜时段中的最高总价。在剩余的正常时段，如果电池的能量缓冲在经济上不可行，则两个输出都将关闭。
 
-- LTF 通道：功能类似于标准通道，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。在“StopTime”之后，通道将自行停用。“StartTime”和“StopTime”可能跨越数天。状态必须用 ISO-8601 格式的日期时间字符串填充，并带有时区偏移，例如：“2024-01-17T21:00:00.000+01:00”。此外，通道有一个名为“RepeatDays”的新状态参数，默认情况下设置为 0。如果将“RepeatDays”设置为正整数值，则一旦达到 StopTime，通道将通过将 StartTime 和 StopTime 增加“RepeatDays”中指定的天数来重复其周期。例如，对于每日重复，将“RepeatDays”设置为 1。
+- LTF 通道：功能类似于标准通道，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。在“StopTime”之后，通道会自动停用。“StartTime”和“StopTime”可能跨越数天。状态必须用 ISO-8601 格式的日期时间字符串填充，并带有时区偏移，例如：“2024-01-17T21:00:00.000+01:00”。此外，通道有一个名为“RepeatDays”的新状态参数，默认情况下设置为 0。如果将“RepeatDays”设置为正整数值，则一旦达到 StopTime，通道将通过将 StartTime 和 StopTime 增加“RepeatDays”中指定的天数来重复其周期。例如，对于每日重复，将“RepeatDays”设置为 1。
 
 ### 提示
 逆向使用
-例如，为了获得高峰时段而不是最佳时段，只需反转使用情况和参数：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png)通过交换 true <-> false，您将在第一行收到低成本的 true，在第二行收到高成本的 true（频道名称不是触发器，仍然可以自由选择）。
+例如，要获得高峰时段而不是最佳时段，只需反转使用情况和参数：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png)通过交换 true <-> false，您将在第一行收到低成本的 true，在第二行收到高成本的 true（频道名称不是触发器，仍然可以自由选择）。
 
 注意：对于高峰单小时，如示例中，您还需要调整小时数。 原来：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
 
@@ -85,15 +86,84 @@ hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 
 要观察标准频道时间范围的动态变化，您可以选择跨越数年的有限时间范围 (LTF)。这对于“最佳单小时 LTF”场景特别有用。
 
+## 直接本地轮询 Pulse 数据
+为了使其工作，您需要修改 Bridge 的 Web 界面以保持永久启用状态。
+marq24 在此处描述了如何出色地实现他的 HomeAssistant 集成：
+
+https://github.com/marq24/ha-tibber-pulse-local
+
+如果一切正常，电表数据将每 2 秒写入 ioBroker 状态一次。
+
 哨兵
 此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告从 js-controller 3.0 开始启动。
 
 ## 捐赠
-<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！:beers:
+<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！:beers:
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+### 3.4.8 (2024-08-xx)
+
+-   (HombachC) updated axios because of vulnerability
+-   (HombachC) added tests for Node.js 22
+
+### 3.4.7 (2024-08-10)
+
+-   (HombachC) adapter checker detected optimizations (#493)
+-   (HombachC) improved error message (#490)
+
+### 3.4.6 (2024-08-07)
+
+-   (HombachC) Catch wrong OBIS Codes, probably caused by Pulse communication errors
+-   (HombachC) code cleanup
+
+### 3.4.5 (2024-07-31)
+
+-   (HombachC) decode meter mode 4 for local Tipper Pulse poll (#477)
+-   (HombachC) decode meter mode 1 for local Tipper Pulse poll (#478)
+-   (HombachC) fixed wrong Pulse local status names (voltage)
+-   (HombachC) add docu on local Pulse poll config screen (#479)
+-   (HombachC) code cleanup
+-   (HombachC) bump dependencies
+
+### 3.4.4 (2024-07-28)
+
+-   (HombachC) local poll of data - change units Wh to kWh and round to 0,1kWh (#469)
+
+### 3.4.3 (2024-07-14)
+
+-   (HombachC) added unit to Pulse temperature and round to 0,1°C
+-   (HombachC) added unit to Pulse battery voltage and round to 100mV
+-   (HombachC) added unit to Pulse uptime
+-   (HombachC) added state with Pulse uptime as human readable string
+-   (HombachC) reinitialize some TibberLocal states upon adapter startup
+-   (HombachC) code optimisation
+-   (HombachC) bump dependencies
+
+### 3.4.2 (2024-07-13)
+
+-   (HombachC) fix typos in units
+-   (HombachC) fix type mismatch for state objects (#455)
+-   (HombachC) code optimisation
+
+### 3.4.1 (2024-07-13)
+
+-   (HombachC) fix logging error
+-   (HombachC) bump dependencies
+
+### 3.4.0 (2024-07-12)
+
+-   (HombachC) add mode for local poll of Pulse data (#201)
+
+### 3.3.3 (2024-07-04)
+
+-   (HombachC) fix sentry notified possible error
+-   (HombachC) try to fix startup error (#444)
+
+### 3.3.2 (2024-06-21)
+
+-   (HombachC) fix 2 security issues in dependencies
+-   (HombachC) fix sentry notified possible error
 
 ### 3.3.1 (2024-06-13)
 

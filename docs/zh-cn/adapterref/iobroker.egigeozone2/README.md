@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.egigeozone2/README.md
-title: 无题
-hash: ukMdhtpnvkfB8vxKtyXYZAvPl6qc2x9EJsiwjftHKGs=
+title: 无标题
+hash: 2ZAEhIa9/NGXHlAuVANrHY764+g5ZsQRNI85R2/FpyU=
 ---
 ![标识](../../../en/adapterref/iobroker.egigeozone2/admin/egigeozone.png)
 
@@ -36,14 +36,18 @@ hash: ukMdhtpnvkfB8vxKtyXYZAvPl6qc2x9EJsiwjftHKGs=
 * **port** 应该是适配器正在监听的端口。
 * **person** 是将用于在 atHome 数组中列出的人。
 
-＃＃＃ 例子
+### 示例
 * https://my-domain:7654/John 或
 * http://我的域名:7654/Paul
 
 ## 致谢
-该实现主要基于 dschaedl 的[ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) 和 BasGo 的 [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone) 适配器。徽标取自 [Free Icons PNG](http://www.freeiconspng.com/images/maps-icon)，并已修改为具有透明背景。
+该实现主要基于 dschaedl 的 [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) 和 BasGo 的 [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone) 适配器。
 
 ## Changelog
+
+### 1.0.6
+* (obakuhl) Improved object definition
+* (obakuhl) New icon
 
 ### 1.0.5
 * (obakuhl) use `@iobroker/webserver`

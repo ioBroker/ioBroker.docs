@@ -10,3 +10,4 @@ Von Start an gibt es zwei Kategorien: `Räume` und `Funktionen`. Allerdings kön
 - **Visualisierung**: Die Kategorien helfen dabei, die Objekte in der Visualisierung zu gruppieren und zu sortieren.
 - **Logik**: In Skripten können die Kategorien verwendet werden, um bestimmte Aktionen für alle Objekte einer Kategorie auszuführen.
 - **Szenes**: Die Kategorien können in Szenen verwendet werden.
+- **Sprachsteuerung**: Die Kategorien können in der Sprachsteuerung verwendet werden um z.B. zu sagen "Schalte alle Lichter im Wohnzimmer an"

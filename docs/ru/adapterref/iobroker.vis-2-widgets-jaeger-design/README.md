@@ -1,30 +1,34 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-hash: FlPUifv8rJ+ON3PymwZF9EU/ZyLAHFAES1n06U4TTIA=
+hash: qJeEJ8ncgCfZoYvL/D1Bmfqc3k6U9lmz+R4Pxc9Lzm0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-2-widgets-jaeger-design-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
 # Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-![YouTube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.png)
+![ютуб](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.png)
 
-Вы можете найти видео, как использовать виджеты [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ) (на немецком языке).
+Видеоролик об использовании виджетов можно найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ) (на немецком языке).
+
+**Важно: для виджетов требуется платная лицензия, которую можно заказать по адресу [iobroker.net](https://iobroker.net/www/pricing#commercial/iobroker.vis-2-widgets-jaeger-design)**
 
 Видео с виджетами можно найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ).
+
+Das Video wie man die Widgets benutzt kann man [здесь](https://youtu.be/Rplr2Ba-G7o) (на немецком языке) (TEIL2)
 
 ## Виджеты
 ### Кнопки и переключатели
 ### Актуальные новости
 ![Актуальные новости](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/news.png)
 
-Чтобы использовать этот виджет, вам необходимо создать небольшой скрипт в адаптере Javascript:
+Для использования этого виджета вам необходимо создать небольшой скрипт в адаптере Javascript:
 
 ```
 const axios = require('axios');
@@ -42,11 +46,27 @@ createState('javascript.0.rss', {type: 'string'}, () => {
 
 А затем используйте объект `javascript.0.rss` в этом виджете.
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.2.7 (2024-07-17)
+* (bluefox) allowed multi-line buttons for the thermostat
+
+### 1.2.6 (2024-07-16)
+* (bluefox) Corrected the power state of the thermostat
+
+### 1.2.5 (2024-07-12)
+* (bluefox) Added possibility to control other IDs with memory buttons (Dimmer, Shutter)
+* (bluefox) Added the power option for thermostat
+* (bluefox) Implemented the writing of specific values for state widget
+* (bluefox) Added label to state widget
+
+### 1.2.1 (2024-07-07)
+* (bluefox) Removed withStyles usage
+* (bluefox) Added confirmation dialog
+
 ### 1.1.27 (2024-05-27)
 * (bluefox) Added descriptions
 

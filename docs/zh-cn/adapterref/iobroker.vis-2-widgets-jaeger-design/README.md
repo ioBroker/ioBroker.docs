@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: ioBroker.vis 2.0 的特殊 Jaeger Design 小部件
-hash: FlPUifv8rJ+ON3PymwZF9EU/ZyLAHFAES1n06U4TTIA=
+hash: qJeEJ8ncgCfZoYvL/D1Bmfqc3k6U9lmz+R4Pxc9Lzm0=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -17,7 +17,11 @@ hash: FlPUifv8rJ+ON3PymwZF9EU/ZyLAHFAES1n06U4TTIA=
 
 您可以找到如何使用小部件[这里](https://www.youtube.com/watch?v=4bctUvfpPuQ)（德语）的视频。
 
-可以使用该 Widgets 的视频找到[耶尔](https://www.youtube.com/watch?v=4bctUvfpPuQ)。
+**重要提示：小部件需要非免费许可证，可在[iobroker.net](https://iobroker.net/www/pricing#commercial/iobroker.vis-2-widgets-jaeger-design)订购**
+
+Das Video wie man die Widgets benutzt kann man [耶尔](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden。
+
+Das Video wie man die Widgets benutzt kann man [耶尔](https://youtu.be/Rplr2Ba-G7o)（德语）(TEIL2)
 
 ## 小部件
 ### 按钮和开关
@@ -47,6 +51,22 @@ createState('javascript.0.rss', {type: 'string'}, () => {
 ### **正在进行中** -->
 
 ## Changelog
+### 1.2.7 (2024-07-17)
+* (bluefox) allowed multi-line buttons for the thermostat
+
+### 1.2.6 (2024-07-16)
+* (bluefox) Corrected the power state of the thermostat
+
+### 1.2.5 (2024-07-12)
+* (bluefox) Added possibility to control other IDs with memory buttons (Dimmer, Shutter)
+* (bluefox) Added the power option for thermostat
+* (bluefox) Implemented the writing of specific values for state widget
+* (bluefox) Added label to state widget
+
+### 1.2.1 (2024-07-07)
+* (bluefox) Removed withStyles usage
+* (bluefox) Added confirmation dialog
+
 ### 1.1.27 (2024-05-27)
 * (bluefox) Added descriptions
 

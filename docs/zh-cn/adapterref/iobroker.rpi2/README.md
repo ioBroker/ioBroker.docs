@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rpi2/README.md
-title: 无题
-hash: G9+pPja5y/AjJQaB9C9Q6N56ohBNs3VK6oK3cmSPVsM=
+title: 无标题
+hash: eqFbMVAtc2KJ4WQOBCX2RsFccxIp6aRsiZMzepwkGJw=
 ---
 ![标识](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) ioBroker RPI 监控适配器
 
@@ -22,6 +22,8 @@ hash: G9+pPja5y/AjJQaB9C9Q6N56ohBNs3VK6oK3cmSPVsM=
 
 **ioBroker 需要特殊权限来控制 GPIO。**在大多数 Linux 发行版中，可以通过将 ioBroker 用户添加到 `gpio` 组（推荐）或在 `root`（不太安全）下运行 ioBroker 来实现。
 
+为了使 gpio 正常工作，您需要在安装适配器之前安装 libgpiod，如下所示：`sudo apt-get install -y libgpiod-dev`
+
 ＃＃ 安装
 安装后，您必须通过管理页面配置所有必需的模块。
 
@@ -32,7 +34,10 @@ iobroker.rpi 启动后，所有选定的模块都会在 ioBroker 中的 rpi.<ins
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential python
+sudo apt-get install -y libgpiod-dev
 ```
+
+（如果你想使用 GPIO，最后一个才是必需的）
 
 选择后，以下对象可用：
 
@@ -56,7 +61,7 @@ sudo apt-get install -y build-essential python
 - 净接收量
 - 网络发送
 
-＃＃＃＃ **SD卡**
+#### **SD卡**
 - SD卡启动总数
 -sdcard_boot_used
 - SD卡根目录
@@ -91,7 +96,7 @@ sudo apt-get install -y build-essential python
 
 ## 日志文件/配置设置
 ＃＃ 特征
-＃＃ 去做
+待办事项
 ## 经过测试的硬件
 -Odroid C1
 树莓派 1

@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/enums.md
 title: 类别/列表
-hash: rqOKByMjzSQxp3fb+HKbbzMiZ4L35Ng+UhehMESFDjY=
+hash: dRtaZaSersmPe015O54LIxsy7mWuVT4pyEN1yf2HifE=
 ---
 # 类别/列表
 类别定义在 ioBroker 中发挥着重要作用。
@@ -17,3 +17,4 @@ hash: rqOKByMjzSQxp3fb+HKbbzMiZ4L35Ng+UhehMESFDjY=
 - **可视化**：类别有助于对可视化中的对象进行分组和排序。
 - **逻辑**：在脚本中，类别可用于对类别中的所有对象执行特定操作。
 - **场景**：类别可以在场景中使用。
+- **语音控制**：类别可以在语音控制中使用，例如“打开客厅的所有灯”

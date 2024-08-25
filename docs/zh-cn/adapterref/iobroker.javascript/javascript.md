@@ -3,8 +3,8 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/javascript.md
-title: 无题
-hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
+title: 无标题
+hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 ---
 ＃＃ 内容
 - [注意](#note)
@@ -28,11 +28,11 @@ hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 - [获取计划](#获取计划)
 - [清除计划](#清除计划)
 - [获取属性](#获取属性)
-- [获取AstroDate](#获取AstroDate)
+- [获取AstroDate](#getastrodate)
 - [isAstroDay](#isastroday)
 - [比较时间](#比较时间)
 - [设置状态](#设置状态)
-- [setstateasync](#setstateasync)
+    - [setStateAsync](#setstateasync)
 - [setStateDelayed](#setstatedelayed)
 - [clearStateDelayed](#clearstatedelayed)
 - [getStateDelayed](#getstatedelayed)
@@ -88,12 +88,13 @@ hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 - [onMessage](#onmessage)
 - [onMessageUnregister](#onmessageunregister)
 - [onLog](#onlog)
-- [onLogUnregister](#onlogunregister)
-    - [等等）
+    - [onLogUnregister](#onlogunregister)
+- [等待](#等待)
 - [睡觉](#睡觉)
 - [httpGet](#httpget)
 - [httpPost](#httppost)
 - [创建临时文件](#创建临时文件)
+- [注册通知](#注册通知)
 
 - [脚本活动](#scripts-activity)
 - [变更日志](#changelog)
@@ -119,7 +120,7 @@ declare function globalFn(arg: string): void;
 globalFn('test');
 ```
 
-＃＃＃＃ 最佳实践：
+#### 最佳实践：
 创建两个 javascript 适配器实例：一个“测试”，一个“生产”。
 脚本在“测试”实例中测试后，可以将其移至“生产”。这样，您可以根据需要重新启动“测试”实例。
 
@@ -250,7 +251,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | oldValLe | hybrid | 先前的值必须小于或等于给定的值 |
 |             |            |                                                                                                                                                     |
 | oldAck | bool | 前一个值的确认状态等于给定值 |
-| oldQ | 数字 | 先前值的质量代码状态等于给定值。您可以使用 '*' 匹配任何代码 |
+| oldQ | number | 先前值的质量代码状态等于给定值。您可以使用 '*' 匹配任何代码 |
 |             |            |                                                                                                                                                     |
 | ts | 字符串 | 新值的时间戳必须等于给定的时间戳 (state.ts == ts) |
 | tsGt | 字符串 | 新值的时间戳必须不等于给定的时间戳 (state.ts != ts) |
@@ -273,10 +274,10 @@ on('adapter.0.device.channel.sensor', (data) => {
 | oldLc | 字符串 | 上次更改时间戳必须等于给定的时间戳 (oldState.lc == lc) |
 | oldLcGt | 字符串 | 上次更改时间戳必须不等于给定的时间戳 (oldState.lc != lc) |
 | oldLcGe | 字符串 | 上次更改时间戳必须大于给定值 (oldState.lc > lc) |
-| oldLcLt | 字符串 | 上次更改时间戳必须大于或等于给定的时间戳 (oldState.lc >= lc) |
+| oldLcLt | 字符串 | 上次更改时间戳必须大于或等于给定的时间戳（oldState.lc >= lc）|
 | oldLcLe | 字符串 | 上次更改时间戳必须小于给定的时间戳 (oldState.lc < lc) |
 |             |            |                                                                                                                                                     |
-| channelId | string | 频道ID必须等于给定的|
+| channelId | 字符串 | 频道ID必须等于给定的|
 | | RegExp | 与正则表达式匹配的频道ID |
 | | 数组 | 与允许的频道 ID 列表匹配的频道 ID |
 |             |            |                                                                                                                                                     |
@@ -288,7 +289,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | | RegExp | 与正则表达式匹配的设备ID |
 | | 数组 | 与允许的设备 ID 列表匹配的设备 ID |
 |             |            |                                                                                                                                                     |
-| 设备名称 | 字符串 | 设备名称必须等于给定的名称 |
+| 设备名称 | 字符串 | 设备名称必须与给定名称相同 |
 | | RegExp | 与正则表达式匹配的设备名称 |
 | | 数组 | 与允许的设备名称列表匹配的设备名称 |
 |             |            |                                                                                                                                                     |
@@ -316,7 +317,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | | RegExp | 旧值不是来自与正则表达式匹配的适配器 |
 | | 数组 | 旧值不是来自给定的禁用适配器列表中的适配器 |
 
-示例：如果所有 ID 为 `'*.STATE'` 的状态都已确认且具有新值 `true`，则触发它们。
+示例：如果所有 ID 为 `'*.STATE'` 的状态都已确认且具有新值 `true`，则触发这些状态。
 
 ```js
 {
@@ -346,7 +347,7 @@ on('stateId1', 'stateId2');
 
 *stateId1*的所有改变都会写入*stateId2*。
 
-如果将`value`参数与状态 id 结合设置为第二个参数，则在任何更改时，状态都将填充`value`。
+如果将`value`参数与状态 ID 结合设置为第二个参数，则在任何更改时，状态都将填充`value`。
 
 ```js
 on('stateId1', 'stateId2', 'triggered');
@@ -445,10 +446,10 @@ on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
 schedule(pattern, callback);
 ```
 
-具有天文功能的时间表。
+具有天文功能的时间调度程序。
 
-＃＃＃＃ 时间表
-模式可以是带有[Cron语法](http://en.wikipedia.org/wiki/Cron)的字符串，由 5 位（不包含秒数）或 6 位（包含秒数）数字组成：
+#### 时间表
+模式可以是带有[Cron 语法](http://en.wikipedia.org/wiki/Cron)的字符串，由 5 位（不包含秒数）或 6 位（包含秒数）数字组成：
 
 ```
 * * * * * *
@@ -505,7 +506,7 @@ schedule({ hour: 12, minute: 30 }, () => {
 -`规则`
 
 start 和 end 定义一个 Date 对象、一个 DateString 或自 1970 年 1 月 1 日 00:00:00 UTC 以来的毫秒数。
-规则是一个带有 [Cron语法](http://en.wikipedia.org/wiki/Cron) 的计划字符串或一个对象：
+规则是一个带有 [Cron 语法](http://en.wikipedia.org/wiki/Cron) 的计划字符串或一个对象：
 
 ```js
 let startTime = new Date(Date.now() + 5000);
@@ -528,7 +529,7 @@ schedule({ start: startTime, end: endTime, rule: ruleData }, () => {
 ```
 
 #### 天文功能
-天文功能可以通过“astro”属性使用：
+天文函数可以通过“astro”属性使用：
 
 ```js
 schedule({ astro: 'sunrise' }, () => {
@@ -798,7 +799,7 @@ await setStateChangedAsync(id, state, ack);
 clearStateDelayed(id);
 ```
 
-清除指定状态ID或某个特定延迟任务的所有延迟任务。
+清除指定状态ID或某些特定延迟任务的所有延迟任务。
 
 ```js
 setStateDelayed('Kitchen.Light.Lamp', false,  10000); // Switch OFF the light in the kitchen in ten second
@@ -1121,14 +1122,14 @@ createAlias(name, alias, forceCreation, common, native, callback);
 通用定义取自读取别名 ID 对象，但提供的通用定义优先。
 
 ＃＃＃＃ 参数：
-- `name`：新别名状态的 ID（可能没有别名命名空间），例如 `test.mystate`（将添加命名空间 `alias.0.` = `alias.0.test.mystate`）
+- `name`：新别名状态的 id（可能没有别名命名空间），例如 `test.mystate`（将添加命名空间 `alias.0.` = `alias.0.test.mystate`）
 - `alias`：可以是字符串形式的现有状态 ID，也可以是具有完整别名定义的对象，包括读/写 ID 和读/写函数。注意：别名定义不能设置为通用参数的一部分！
 - `forceCreation`：无论状态是否存在，都创建/覆盖别名。
 - `common`：别名对象的通用描述，请参阅[此处](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state) 的描述。此处提供的值将优先于读取别名 id 对象的通用定义。注意：别名定义不能作为此通用参数的一部分进行设置，请参阅别名参数！
 - `native`：对象的原生描述。任何特定信息。
 - `callback`：在状态创建并初始化后调用。
 
-可以使用简短类型的 createAlias：
+可以使用简短的 createAlias 类型：
 
 - `createAlias('myAlias', 'myDatapoint')` - 如果不存在，则简单地创建引用 javascript.X.myDatapoint 的 alias.0.myAlias
 - `createAlias('myAlias', { id: { read: 'myReadDatapoint', write: 'myWriteDatapoint' }})` - 创建别名并引用不同的读/写状态
@@ -1142,7 +1143,7 @@ await createAliasAsync(name, alias, forceCreation, common, native);
 
 与`createAlias`相同，但将返回承诺。
 
-＃＃＃ 发给
+### 发送至
 ```js
 sendTo(adapter, command, message, callback);
 sendTo(adapter, command, message, options, callback);
@@ -1200,15 +1201,32 @@ sendToHost(hostName, command, message, callback);
 
 支持以下命令：
 
-- ``cmdExec''
-- ``获取存储库''
-- ``获取安装信息''
-- `“获取版本”`
-- `“获取诊断数据”`
-- ``getLocationOnDisk''
-- ``获取DevList''
-- `“getLogs”`
-- `“获取主机信息”`
+-`‘cmdExec’`
+-`‘获取存储库’`
+-`'获取安装'`
+-`'获取版本'`
+- `'获取诊断数据'`
+- `‘getLocationOnDisk’`
+- `'获取DevList'`
+-`'获取日志'`
+-`'获取日志文件'`
+- `'获取日志文件'`
+-`‘delLogs’`
+- `'获取主机信息'`
+- `'getHostInfoShort'`
+-`'updateMultihost'`
+- `'upgradeController'` - 将 js-controller 升级到最新版本
+- `'getInterfaces'` - 返回系统所有可用的网络接口
+- `'getInterfaces'` - 开始适配器上传
+-`'rebuildAdapter'`
+- `'读取基本设置'`
+-`'writeBaseSettings'`
+- `'添加通知'`
+- `'清除通知'`
+- `'获取通知'`
+- `'updateLicenses'` - 从 iobroker.net 读取许可证
+- `'upgradeOsPackages'`
+- `'重启控制器'`
 
 它是相当具体的命令并且并不经常需要。
 
@@ -1281,15 +1299,15 @@ formatDate(millisecondsOrDate, format);
 * D, T, Д - 短日，例如 2
 * hh, SS, чч - 整点，例如 03
 * h, S, ч - 短小时，例如 3
-* mm, мм（西里尔文）- 完整分钟，例如 04
+* mm, мм（西里尔文）- 整分钟，例如 04
 * m, м（西里尔文）- 短分钟，例如 4
 * ss, сс（西里尔文） - 整秒，例如 05
 * s, с（西里尔文）- 短秒，例如 5
 * sss，ссс（西里尔文） - 毫秒
 * WW，НН（西里尔文）- 以文本形式显示完整星期几
-* W, Н（西里尔文）- 短星期几作为文本
+* W、Н（西里尔文）- 短星期几作为文本
 * OO, ОО（西里尔文）- 整月以文本表示
-* OOO, ООО（西里尔文）- 完整的月份作为属格文本
+* OOO, ООО（西里尔文）- 全月作为属格文本
 * O, О（西里尔文）- 短月份为文本
 
 ＃＃＃＃ 例子
@@ -1517,7 +1535,7 @@ delFile(adapter, fileName, (error) => {});
 
 此方法的替代名称是`unlink`
 
-＃＃＃ 重新命名文件
+### 重命名文件
 ```js
 renameFile(adapter, oldName, newName, (error) => {});
 ```
@@ -1568,7 +1586,7 @@ onFile(id, fileName);
 onStop (() => { /* do something when script is stopped */ }, timeout);
 ```
 
-安装回调，如果脚本停止，将会调用该回调。例如，用于停止通信或关闭连接。
+安装回调，脚本停止时将调用该回调。例如，用于停止通信或关闭连接。
 
 ```js
 // establish connection
@@ -1728,7 +1746,7 @@ log(`Script was ${stopped ? 'stopped' : 'already stopped'}`);
 stopScript();
 ```
 
-### 是否为脚本活动
+### 是否激活脚本
 ```js
 isScriptActive('scriptName');
 ```
@@ -1739,7 +1757,7 @@ isScriptActive('scriptName');
 它不是一个函数。它是一个带有 javascript 实例的变量，在脚本范围内可见。
 
 ### 转 Int
-＃＃＃ 浮
+### 浮点数
 ### 布尔值
 ### Jsonata表达式
 ＃＃＃ 等待
@@ -1908,7 +1926,7 @@ httpGet('http://jsonplaceholder.typicode.com/posts', (err, response) => {
 
 第二个参数可以是带有进一步选项的对象（可选）。所有选项都是可选的。支持的标志：
 
-- `timeout` (number) - 以毫秒为单位的超时时间
+- `timeout` (number) - 超时时间（以毫秒为单位）
 - `responseType` (字符串) - 支持的值是 `text` (默认) 或 `arraybuffer` (用于响应中的二进制数据)
 - `basicAuth` (对象) - HTTP 基本身份验证凭证。例如 `{ 用户：'admin'，密码：'iobroker' }`
 - `bearerAuth` (字符串) - 用于承载身份验证的令牌
@@ -2043,6 +2061,14 @@ readFile('0_userdata.0', 'test.jpg', (err, data, mimeType) => {
 });
 ```
 
+## 注册通知
+*要求版本 >= 8.8.0*
+
+```js
+registerNotification('This is just an information'); // Notify
+registerNotification('This is an important message!', true); // Alert
+```
+
 ## 全局脚本变量
 ### 脚本名称
 `scriptName`——脚本的名称。
@@ -2080,7 +2106,7 @@ if (verbose) {
 ## 选项 - “启动时不订阅所有状态”
 订阅状态有两种模式：
 
-- 适配器在启动时订阅所有变化并接收所有状态的所有变化（使用 getStates(id) 很容易，但需要更多的 CPU 和 RAM）：
+- 适配器在启动时订阅所有更改并接收所有状态的所有更改（使用 getStates(id) 很容易，但需要更多的 CPU 和 RAM）：
 
 ```js
 log(getState('someID').val);

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openligadb/README.md
 title: ioBroker 适配器从 OpenLigaDB 获取足球比赛结果
-hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
+hash: e5bt04T3osN7C2hpyfmVE5dX3PSxxSGuFY7/ibkCVe4=
 ---
 ![标识](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
@@ -37,15 +37,15 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
 ### 目标达成者 v2
 这个小部件显示本赛季的进球者
 
-＃＃＃ 比赛日
-实际或选定比赛日的所有比赛。有许多小部件属性可用于配置显示的数据量
+### 比赛日
+实际或选定比赛日的所有比赛。有许多小部件属性可以配置显示的数据量
 
 ### 最喜爱的俱乐部的比赛
 显示您最喜爱的俱乐部的所有当前或未来比赛
 
 vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html) 中找到
 
-＃＃ 去做
+待办事项
 - 如果用户没有选择正确的数据点，则在小部件中进行验证
 -   翻译
 - ~~新小部件数据透视表和 goalgetters 的文档~~
@@ -58,7 +58,10 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 - ~~文档适配器/小部件~~
 - ~~修复俱乐部栏目动态问题~~
 - ~~新小部件：俱乐部的下 x 场比赛~~
-- ~~小部件比赛日设置用于开始比赛日的长度（-1,3 = 显示前一个比赛日和之后的 3 个比赛日）~~
+- ~~widget gameday 设置开始比赛日的长度 (-1,3 = 显示上一个
+
+比赛日和之后的 3 个比赛日）~~
+
 - ~~如果 showgameday 设置了绑定，则替换编辑模式的值~~
 - ~~突出显示最喜欢的俱乐部~~
 - ~~在比赛日小部件中可控制比赛日~~
@@ -69,6 +72,15 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.4.11 (2024-08-09)
+
+-   fix issues from adapter checker
+
+### 1.4.10 (2024-08-02)
+
+-   switch to eslint 9
+-   adjust markdownlint settings to be compatible with prettier
+
 ### 1.4.9 (2024-06-13)
 
 -   fix if no game exist for team1/team2
@@ -178,14 +190,17 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 
 ### 0.11.1
 
--   change some template settings, goalgetter table get headers, add object change sensing
+-   change some template settings, goalgetter table get headers,
+    add object change sensing
 -   widget goalgetters: add parameter highlight and showonlyhighlight
 -   widget pivottable: add sort option and choice to place favorite teams on top
 -   remove year from date for several widgets
 
 ### 0.11.0
 
--   extend table to calculate with x last games and extend table to calculate ranking for a defined gameday, to ensure backward compatibility i have to create a new table v3 widget
+-   extend table to calculate with x last games and extend table to calculate
+    ranking for a defined gameday, to ensure backward compatibility i have to
+    create a new table v3 widget
 -   extend table with trend sign (arrow up/down, point for no change)
 -   new widget goal getter ranking with sort function
 -   new widget pivot table of played games
@@ -193,21 +208,27 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 
 ### 0.10.3
 
--   change computing and output logic of gameday widget to mark gameday header with favorite class
+-   change computing and output logic of gameday widget to mark gameday
+    header with favorite class
 -   improve documentation with css-klasses for table widget
 -   bugfix for calculate gameday.
 
 ### 0.10.2
 
--   Add data column goaldiff to table widget, improve more documentation (systax highlighting,copy code function), add example to control gameday with buttons,
+-   Add data column goaldiff to table widget, improve more documentation
+    (systax highlighting,copy code function), add example to
+    control gameday with buttons,
 
 ### 0.10.1
 
--   Improve documentation with more recipes and syntax highlighting, improve code to get and subscribe states
+-   Improve documentation with more recipes and syntax highlighting,
+    improve code to get and subscribe states
 
 ### 0.10.0
 
--   New widget Table 2 that includes the calculation of the total, home and away results. the previous widget is now deprecated, due to the different datapoint (allmatches) to be selected.
+-   New widget Table 2 that includes the calculation of the total, home and
+    away results. the previous widget is now deprecated, due to the
+    different datapoint (allmatches) to be selected.
 
 ### 0.9.3
 
@@ -223,11 +244,14 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 
 ### 0.9.0
 
--   new Function for vis Binding to search for games at the actual day for favorite clubs, css-classes für games at actual day, fix bug to show the right match results,
+-   new Function for vis Binding to search for games at the actual day for
+    favorite clubs, css-classes für games at actual day, fix bug to show
+    the right match results,
 
 ### 0.8.0
 
--   push version for latest repository. fix some typos. fix a problem with date handling on different OS
+-   push version for latest repository. fix some typos. fix a problem with
+    date handling on different OS
 
 ### 0.0.11
 
@@ -239,11 +263,13 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 
 ### 0.0.9
 
--   optional weekday for widgets: gameday and gamesoffavclub,highlight the clubname in gamesoffavclub
+-   optional weekday for widgets: gameday and gamesoffavclub,highlight the
+    clubname in gamesoffavclub
 
 ### 0.0.8
 
--   new widget games of favorite clubs with multi league support as replacement for the old one
+-   new widget games of favorite clubs with multi league support as
+    replacement for the old one
 
 ### 0.0.7
 
@@ -257,7 +283,8 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 
 -   highlight favorite club,
 -   Replacement value for edit mode if showgameday is set with binding,
--   widget gameday setting for start gameday an length (-1,3 = show previous gameday and 3 gamedays after that)
+-   widget gameday setting for start gameday an length (-1,3 = show previous
+    gameday and 3 gamedays after that)
 -   some documentation
 -   remove unused code
 -   new widget: next x games of club

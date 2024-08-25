@@ -13,7 +13,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: 1CX57riukuEhE4auf0j8p9GvmB3Glsfpz5vS9su8S3c=
+hash: 4bqUvopK6VJFk9nKbkT2Fn54ZPPfbBbWrcZEDwLwAJw=
 ---
 ![标识](../../../en/admin/telegram.png)
 
@@ -21,8 +21,7 @@ hash: 1CX57riukuEhE4auf0j8p9GvmB3Glsfpz5vS9su8S3c=
 ＃＃ 配置
 请求[@BotFather](https://telegram.me/botfather) 创建新的机器人`/newbot`。
 
-系统会要求您输入机器人的名称，然后输入用户名。
-之后，您将获得令牌。
+系统将要求您输入机器人的名称，然后输入用户名。 之后，您将获得令牌。
 
 ![截屏](../../../en/adapterref/iobroker.telegram/img/chat.png)
 
@@ -109,7 +108,7 @@ function sendImage() {
             sendTo('telegram.0', 'send', {
                 text: tempFilePath,
                 caption: 'A wonderful adapter',
-                user: 'yourUsername',
+                user: 'yourUserName1,yourUserName2',
             });
         }
     });
@@ -131,7 +130,7 @@ on('0_userdata.0.someState', (obj) => {
 - *输入* - 用于发送短信，
 - *upload_photo* - 用于照片，
 - *upload_video* - 对于视频，
-- *record_video* - 对于视频，
+- *record_video* - 用于视频，
 - *record_audio* - 用于音频，
 - *upload_audio* - 对于音频，
 - *upload_document* - 对于文件，
@@ -142,7 +141,7 @@ on('0_userdata.0.someState', (obj) => {
 电报 API 的描述可以在 [这里](https://core.telegram.org/bots/api) 中找到，您可以使用此 API 中定义的所有选项，只需将其包含在发送对象中即可。例如：
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     text:                   '/tmp/snap.jpg',
     caption:                'Snapshot',
     disable_notification:   true
@@ -163,13 +162,24 @@ sendTo('telegram.0', {
 
 适配器尝试根据消息中的文本检测消息的类型（照片、视频、音频、文档、贴纸、动作、位置），如果文本是现有文件的路径，则将根据类型发送。
 
-将根据属性纬度检测位置：
+将根据纬度和经度属性检测位置：
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     latitude:               52.522430,
     longitude:              13.372234,
     disable_notification:   true
+});
+```
+
+将根据属性纬度、经度、标题和地址检测场地：
+
+```javascript
+sendTo('telegram.0', 'send', {
+    latitude:               52.51630462381893,
+    longitude:              13.37770039691943,
+    title:                  'Brandenburger Tor',
+    address:                'Pariser Platz 8, 10117 Berlin',
 });
 ```
 
@@ -179,7 +189,7 @@ sendTo('telegram.0', {
 可能的类型如下：*贴纸*、*视频*、*文档*、*音频*、*照片*。
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     text: fs.readFileSync('/opt/path/picture.png'),
     type: 'photo'
 });
@@ -189,8 +199,8 @@ sendTo('telegram.0', {
 您可以在客户端显示键盘**ReplyKeyboardMarkup**：
 
 ```javascript
-sendTo('telegram.0', {
-    text:   'Press button',
+sendTo('telegram.0', 'send', {
+    text: 'Press button',
     reply_markup: {
         keyboard: [
             ['Line 1, Button 1', 'Line 1, Button 2'],
@@ -207,8 +217,8 @@ sendTo('telegram.0', {
 您可以在客户端显示键盘**InlineKeyboardMarkup**：
 
 ```javascript
-sendTo('telegram', {
-    user: user,
+sendTo('telegram', 'send', {
+    user: 'my_username;username2', // optional. Separator could be ";" or "," or space
     text: 'Click the button',
     reply_markup: {
         inline_keyboard: [
@@ -228,8 +238,8 @@ sendTo('telegram', {
 
 ```javascript
 if (command === '1_2') {
-    sendTo('telegram', {
-        user: user,
+    sendTo('telegram', 'send', {
+     user: 'my_username username2', // optional. Separator could be ";" or "," or space
         answerCallbackQuery: {
             text: 'Pressed!',
             showAlert: false, // Optional parameter
@@ -242,7 +252,7 @@ if (command === '1_2') {
 
 ＃＃＃ 问题
 您可以向电报发送消息，下一个答案将在回调中返回。
-可以在配置中设置超时时间，默认为 60 秒。
+可以在实例配置中设置超时（默认为 60 秒）。
 
 ```javascript
 sendTo('telegram.0', 'ask', {
@@ -264,7 +274,21 @@ sendTo('telegram.0', 'ask', {
 从 0.4.0 版本开始，您可以使用聊天 ID 发送消息进行聊天。
 
 ```javascript
-sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123'});
+sendTo('telegram.0', 'send', {
+    text: 'Message to chat',
+    chatId: 'SOME-CHAT-ID-123'
+});
+```
+
+## 线程 ID
+您还可以为超级组设置一个线程 ID。
+
+```javascript
+sendTo('telegram.0', 'send', {
+    text: 'Message to chat',
+    chatId: 'SOME-CHAT-ID-123',
+    message_thread_id: 7,
+});
 ```
 
 ## 更新消息
@@ -335,8 +359,8 @@ if (command === '1_2') {
 您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
 
 ### 编辑消息媒体
-使用此方法编辑机器人发送的消息或通过机器人发送的消息的图片（对于内联机器人）。
-成功时，如果机器人发送了编辑后的消息，则返回编辑后的消息，否则返回 *True*。
+使用此方法编辑机器人发送的消息或通过机器人发送的消息的图片（适用于内联机器人）。
+成功时，如果机器人发送了已编辑的消息，则返回已编辑的消息；否则返回 *True*。
 
 ```javascript
 if (command === '1_2') {
@@ -407,7 +431,10 @@ if (command === 'delete') {
 您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage)。
 
 ## 对用户回复/消息做出反应
-假设您只使用 JavaScript，而不使用 `text2command`。您已经使用 `sendTo()` 向用户发送了一条消息/问题，如上所述。用户通过按下按钮或写消息来回复。您可以提取命令并向用户提供反馈，执行命令或在 iobroker 中切换状态。
+假设您只使用 JavaScript，而不使用 `text2command`。
+您已经使用 `sendTo()` 向用户发送了一条消息/问题，如上所述。
+用户通过按下按钮或写消息来回复。
+您可以提取命令并向用户提供反馈，执行命令或在 iobroker 中切换状态。
 
 - telegram.0 是您想要使用的 iobroker Telegram 实例
 - 用户是向您注册的发送消息的 TelegramBot 用户
@@ -530,7 +557,7 @@ sendTo('telegram.0', 'call', {
 - `en-AU-Standard-A` - 英语（澳大利亚）（女声）
 - `en-AU-Standard-B` - 英语（澳大利亚）（男声）
 - `en-AU-Standard-C` - 英语（澳大利亚）（女声 2）
-- `en-AU-Standard-D` - 英语（澳大利亚）（男 2 声）
+- `en-AU-Standard-D` - 英语（澳大利亚）（男声 2 声）
 - `en-IN-Standard-A` - 英语（印度）（女声）
 - `en-IN-Standard-B` - 英语（印度）（男声）
 - `en-IN-Standard-C` - 英语（印度）（男 2 声）
@@ -562,7 +589,7 @@ sendTo('telegram.0', 'call', {
 - `id-ID-Standard-A` - 印尼语（印度尼西亚）（女声）
 - `id-ID-Standard-B` - 印尼语（印度尼西亚）（男声）
 - `id-ID-Standard-C` - 印尼语（印度尼西亚）（男 2 声）
-- `it-IT-Standard-A` - 意大利语（意大利）（女声 - 如果系统语言是 IT 并且未提供任何语言，则将使用女声）
+- `it-IT-Standard-A` - 意大利语（意大利）（女声 - 如果系统语言为 IT 且未提供语言则使用女声）
 - `it-IT-Standard-B` - 意大利语（意大利）（女声 2）
 - `it-IT-Standard-C` - 意大利语（意大利）（男声）
 - `it-IT-Standard-D` - 意大利语（意大利）（男 2 声）
@@ -586,7 +613,7 @@ sendTo('telegram.0', 'call', {
 - `pl-PL-Standard-B` - 波兰语（波兰）（男声）
 - `pl-PL-Standard-C` - 波兰语（波兰）（男 2 声）
 - `pl-PL-Standard-D` - 波兰语（波兰）（女声 2）
-- `pl-PL-Standard-E` - 波兰语（波兰）（女声 3）
+- `pl-PL-Standard-E` - 波兰语（波兰）（女声 3 声）
 - `pt-BR-Standard-A` - 葡萄牙语（巴西）（女声 - 如果系统语言为 PT 且未提供任何语言则使用）
 - `pt-PT-Standard-A` - 葡萄牙语（葡萄牙）（女声）
 - `pt-PT-Standard-B` - 葡萄牙语（葡萄牙）（男声）
@@ -610,12 +637,12 @@ sendTo('telegram.0', 'call', {
 - `vi-VN-Standard-C` - 越南语（越南）（女声 2）
 - `vi-VN-Standard-D` - 越南语（越南）（男 2 声）
 
-去做：
+待办事项：
 
 - 地点
 
 ## 根据管理员设置自动内联键盘（Easy-Keyboard）
-对于每个状态，都可以启用附加设置：
+对于每个状态，可以启用附加设置：
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
 
@@ -628,7 +655,7 @@ sendTo('telegram.0', 'call', {
 如果在电报适配器的配置对话框中启用了**在键盘命令中使用房间**选项，那么在第一步中将显示房间列表。***尚未实现***
 
 ### 状态中的设置
-首先必须启用配置。
+首先，必须启用配置。
 
 别名
 设备名称。如果名称为空，则名称将从对象中获取。
@@ -638,7 +665,7 @@ sendTo('telegram.0', 'call', {
 您可以打开设备、关闭设备或请求状态。
 如果您单击`Door lamp ?`，您将获得`Door lamp  => switched off`。
 
-＃＃＃ 只读
+### 只读
 如果激活，则不会显示开/关按钮，只显示`Door lamp ?`。
 
 ### 报告变更
@@ -647,7 +674,7 @@ sendTo('telegram.0', 'call', {
 
 ### 按钮在一行中
 一个设备一行中必须显示多少个按钮。
-由于名称较长，一行中可能最好只显示 2 个（甚至只有一个）按钮。
+由于名称较长，可能最好一行中只显示 2 个（甚至只有一个）按钮。
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
@@ -726,27 +753,21 @@ msg.payload = {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.9.0 (2024-07-22)
+* (klein0r) Added option to send venue (with title and address)
+
+### 3.8.2 (2024-07-16)
+* (bluefox) Username can consist of more than one user. The separator is comma, semicolon or space.
+
+### 3.8.0 (2024-07-14)
+* (bluefox) Migrated GUI for Admin 7
+
+### 3.7.1 (2024-07-03)
+* (klein0r) Restored translations for messages
+
+### 3.7.0 (2024-07-03)
 * (klein0r) Removed default / shadow fiel from Blockly block ask
-
-### 3.6.0 (2024-06-19)
-* (klein0r) Save videos which have been recorded with telegram (video_note)
-* (klein0r) Added answer timeout to instance configuration
-* (klein0r) Added option to send status updates to specific users
-* (klein0r) Added states for thread id (of supergroups)
-
-### 3.5.3 (2024-06-18)
-* (foxriver76) escape all unallowed characters when sending with notification manager
-
-### 3.5.2 (2024-06-16)
-* (foxriver76) escape more unallowed characters when sending with notification manager
-
-### 3.5.1 (2024-06-12)
-* (klein0r) Fixed file handling for voice files
-* (klein0r) Updated dependencies
-
-### 3.5.0 (2024-06-12)
-* (klein0r) Added option to save media files into ioBroker file system (files tab)
+* (klein0r) Added state to answer last request (same chat)
 
 ## License
 

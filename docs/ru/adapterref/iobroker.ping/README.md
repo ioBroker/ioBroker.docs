@@ -1,26 +1,26 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ping/README.md
-title: ПИН-адаптер
-hash: MAGjUdHBudMUVg9QoTfLArDzpKf+ftdBhWu6hu3FqJA=
+title: Адаптер PING
+hash: Sxv9m2nXnXAw1YjMyPaVSDFJsJ+yklUu/k93fWbggTs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
 ![Количество установок](http://iobroker.live/badges/ping-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.ping.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.ping.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
-# PING-адаптер
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Адаптер PING
+![Тест и выпуск](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Пингует настроенные IP-адреса.
-Пингует указанные IP-адреса с заданным интервалом и отслеживает результаты.
+Осуществляет пингование указанных IP-адресов с заданным интервалом и отслеживает результаты.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-## Пинг с javascript-адаптера
-Вы можете пропинговать любой IP-адрес из адаптера javascript с помощью команды:
+## Пинг с адаптера JavaScript
+Вы можете выполнить ping любого IP-адреса из адаптера JavaScript с помощью команды:
 
 ```
 sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
@@ -28,18 +28,37 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 });
 ```
 
-## Известные вопросы
-* если невозможно пропинговать ваш Linux-клиент, проверьте, правильно ли установлен `iputils-ping` на клиенте.
+## Известные проблемы
+* если не удаётся выполнить ping вашего клиента Linux, проверьте, правильно ли установлен `iputils-ping` на клиенте.
+
+* Команда `ping` в Linux требует прав root.
+
+Вы можете предоставить адаптеру права на выполнение команды `ping` от имени пользователя root.
+
+Для этого необходимо добавить следующую строку в файл `/etc/sudoers` с командой `sudo visudo`: `iobroker ALL=(ALL) NOPASSWD: /bin/ping`.
+
+Или вы можете разрешить выполнение ping с помощью команды `sudo setcap cap_net_raw+ep /bin/ping`.
+
+Если `setcup` не найден, необходимо установить setcap с `sudo apt-get install libcap2-bin`.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.7.0 (2024-08-17)
+* (bluefox) Added possibility to browse the IP ranges
+
+### 1.6.4 (2024-07-17)
+* (bluefox) Added possibility to execute `setcap` command to allow ping without root rights
+
+### 1.6.3 (2024-07-16)
+* (bluefox) Updated the packages
+
 ### 1.6.2 (2023-07-19)
 * (McM1957) Handling of state updates causing crashes with js-controller 5 has been corrected. (Issue #106)
 * (McM1957) Trailing spaces are now removed from ip address and name. Trailing spaces blocked correct operation. (Issue #98)
-* (bluefox) Added json config
+* (bluefox) Added JSON config
 * (bluefox) Added different intervals for online and offline devices
 * (bluefox) implemented export/import of devices
 
@@ -54,7 +73,7 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 * (Apollon77) optimize for js-controller 3.3
 
 ### 1.4.12 (2020-09-18)
-* (Apollon77) Prevent a crash case when no devices are defined (Sentry IOBROKER-PING-R)
+* (Apollon77) Prevented a crash case when no devices are defined (Sentry IOBROKER-PING-R)
 
 ### 1.4.11 (2020-08-26)
 * (Apollon77) update js-controller dependency to correct version (1.5.8)
@@ -66,11 +85,11 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 * (Apollon77) finally try to catch spawn errors (Sentry IOBROKER-PING-2)
 
 ### 1.4.6 (2020-04-29)
-* (Apollon77) Make sure adapter does not crash if ping command can not be executed (Sentry)
+* (Apollon77) Make sure the adapter does not crash if ping command cannot be executed (Sentry)
 * (Apollon77) Catch error when `ping.probe` could not be started (Sentry IOBROKER-PING-2)
 
 ### 1.4.5 (2020-04-23)
-* (Apollon77) Fixed potential crash case (Sentry)
+* (Apollon77) Fixed a potential crash case (Sentry)
 
 ### 1.4.4 (2020-04-17)
 * (bluefox) Added support for Admin3
@@ -83,7 +102,7 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 * (JayVee2) Sort the IP addresses
 
 ### 1.4.1 (2019-01-08)
-* (simatec) support compact mode
+* (simatec) supported compact mode
 
 ### 1.4.0 (2018-01-25)
 * (vdemidov) refactored, added ping time and roundtrips per second for every host
@@ -92,7 +111,7 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 * (ldittmar) object values are converted to the valid type
 
 ### 1.3.0 (2017-02-21)
-* (bluefox) allow to remove host name from state's name
+* (bluefox) allowed removing host name from state's name
 
 ### 1.2.0 (2016-12-09)
 * (bluefox) change configuration dialog
@@ -111,7 +130,7 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 * (bluefox) add tests
 
 ### 0.1.3 (2015-01-26)
-* (bluefox) Fixed the error if configuration changed
+* (bluefox) Fixed the error if the configuration changed
 
 ### 0.1.2 (2015-01-14)
 * (bluefox) Fixed the configuration page
@@ -138,7 +157,7 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

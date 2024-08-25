@@ -4,7 +4,7 @@ lastChanged: 29.02.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: gxiIWnKD+23DCnfq39JpJ/SHUxlNFIHgBpRtg49DlrY=
+hash: WWTt2d6oRczIfqwVnp6kXk77YQF1UxohHL8GkwChkIM=
 ---
 ## Make your life easier: Smart Home
 Wouldn't it be practical to be able to read temperatures, consumption values or switching states of devices from different manufacturers centrally in one place? Wouldn't it be necessary to remember to switch devices on or off when certain conditions or states are reached?
@@ -27,7 +27,7 @@ With well over 600 adapters, ioBroker enables the integration of various platfor
 
 These adapters enable the connection between physical devices (for example controllable sockets, relays, remote thermometers and the like) and the central ioBroker system. They are able to read the values measured by the devices and control the devices, which often happens via WLAN in the home network.
 
-Other adapters are designed to graphically display measured values such as temperature, power, consumption values or switching states in diagrams.
+Other adapters are designed to display measured values such as temperature, power, consumption values or switching states graphically in diagrams.
 Visualization adapters also offer other options, such as integrating images (e.g. from surveillance cameras), weather data and much more.
 
 In addition, there are adapters that offer functions for mathematical calculations or logical operations (such as comparisons).
@@ -139,14 +139,14 @@ The Lovelace Editor (WYSIWYG principle - what you see is what you get principle)
 ## Who is behind ioBroker?
 ioBroker is an open source project developed by the ioBroker community and administered by [Bluefox](https://github.com/GermanBluefox) as project owner.
 
-Many developers and many other helpers volunteer their free time to develop the central ioBroker system components, the many adapters, the social media support, the documentation and much more.
+Many developers and many other helpers volunteer their time to develop the central ioBroker system components, the many adapters, the social media support, the documentation and much more.
 With the large and helpful community, a solution has been found for every problem so far.
 
 ioBroker follows a decentralized approach in which each adapter is maintained in its own GitHub repository.
 The respective adapter developer makes decisions about his adapter largely independently.
 Requests for functionality extensions or external feature extensions as a "pull request" are of course taken into account.
 
-Some developers have also joined forces in the ioBroker adapter community to ensure that even if individual developers no longer have time for their adapters, they can continue to be maintained.
+Some developers have also joined forces in the ioBroker adapter community to ensure that even if individual developers no longer have time for their adapters, they can still be maintained.
 
 There is no contractual support from the open source community, but together we have solved every problem so far!
 
@@ -172,7 +172,7 @@ An overview and ordering of the license for these adapters can be found on this 
 The costs for commercial use of these adapters are also listed there.
 
 ### How does ioBroker finance itself?
-All central components and almost all other adapters are available free of charge and the source code of the vast majority of adapters is openly available on GitHub.
+All central components and almost all other adapters are available free of charge and the source code of most adapters is openly available on GitHub.
 
 Since an open source project cannot generate income to buy servers, for example, an official legal form is required for these things, the ioBroker GmbH.
 The ioBroker GmbH also offers, among other things, commercial support for the ioBroker software or sells, for example, an ioBroker server.
@@ -188,7 +188,7 @@ The following graphic provides an overview of the ioBroker Cloud Service product
 ![](../de/media/iobroker-cloud-services-overview.png)
 
 ## Community
-Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. Users and developers meet in the specially set up [Forum](https://forum.iobroker.net) and exchange their experiences and suggestions. On the ioBroker [Discord](https://discord.gg/sGWE65zF) server, experiences can be exchanged in live chat and live debug sessions can be carried out at short notice in order to get to the bottom of current problems.
+Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many advantages. Users and developers meet in the specially set up [forum](https://forum.iobroker.net) and exchange their experiences and suggestions. On the ioBroker [Discord](https://discord.gg/sGWE65zF) server, experiences can be exchanged in live chat and live debug sessions can be carried out at short notice in order to get to the bottom of current problems.
 
 Link collection of the official ioBroker communities:
 

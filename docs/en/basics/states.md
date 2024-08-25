@@ -1,10 +1,10 @@
 ---
-lastChanged: 06.06.2019
+lastChanged: 25.08.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/states.md
 title: States and data points
-hash: MuOzn/4lCqzcKVo9fnOB28aNM+QE+RBdW9FF8LOvq00=
+hash: 190MIPX6wgLnFl6yKQR3EpEWnybrYzc4cf2YD6kb+rE=
 ---
 # States and data points
 A **data point** consists of a static object of type `state` and a dynamic state.
@@ -19,11 +19,11 @@ Properties of a state are:
 * `from` - (optional) source (adapter instance) of the last update
 * `user` - (optional) User name who last wrote the value.
 * `c` - (optional) comment
-* `expire` - (optional) Time in seconds when the value is reset to `null`.
+* `expire` - (optional) Time in seconds when the value is set to `null`.
 
 Attributes of the static object are id, type = 'state', common, native. The following common attributes are possible:
 
-* `common.type` (optional) - default is 'mixed' = any type. Possible values: `number`, `string`, `boolean`, `array`, `object`, `mixed`, `file`.
+* `common.type` (optional) - default is `mixed` = any type. Possible values: `number`, `string`, `boolean`, `array`, `object`, `mixed`, `file`.
 * `common.name` (optional, string)
 * `common.max` (optional, number)
 * `common.step` (optional, number) - increase / decrease interval. E.g. 0.5 for thermostat

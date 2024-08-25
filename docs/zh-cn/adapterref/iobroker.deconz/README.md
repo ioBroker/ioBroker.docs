@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
-title: 无题
-hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
+title: 无标题
+hash: hlKt04F3x+GnGSRv+J1Vzxx+hVFOw/RGHzMwRBs/Iz0=
 ---
 ![标识](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -11,14 +11,14 @@ hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
 ![NPM 版本](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![下载](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 
-ioBroker deConz dresden-elektronik 适配器
+ioBroker deConz 德累斯顿电子适配器
 
 ==============
 
 ＃＃ 注意
 不支持 deConz 测试版
 
-所需 js-controller 版本 >2.x.x, 所需 node.js >= 10.x.x
+所需 js-controller 版本 >5.x.x, 所需 node.js >= 18.x.x
 
 ＃＃ 英语
 连接到 dresden-elektronik 开发的 deConz REST-API 软件。该软件旨在成为通用的 ZigBee 网关解决方案，使用 dresden-elektronik 的硬件 ConBee(X) USB 棒和 RaspBee(X) Raspberry Pi 模块。
@@ -49,6 +49,9 @@ b）输入标准桥接端口：80 和标准 Websocket：443
 ## [赞助商](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.5.0 (2024-08-11)
+* (mattreim) Dependencies have been updated
 
 ### 1.4.1 (2024-05-05)
 * (mattreim) Added new objects for various sensors
