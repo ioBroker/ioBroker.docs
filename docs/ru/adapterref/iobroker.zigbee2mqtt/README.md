@@ -1,6 +1,6 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zigbee2mqtt/README.md
 title: ioBroker.zigbee2mqtt
 hash: ljR/3om6JFDm5lkP46CzyT5GLcwPWMGEM7uJmZv/9xA=

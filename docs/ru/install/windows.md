@@ -2,7 +2,7 @@
 title: Окна
 lastChanged: 21.05.2024
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/windows.md
 hash: G2wervEILmAU3LoeQyL7+J2VcZk6xmau2UNkVKG17Jc=
 ---

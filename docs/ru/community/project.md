@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/community/project.md
 template: true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 hash: HmjA9FxgHIt1aJQNniA0CUJqNrAxFRVJqJYDUi4rk34=
 ---
 # Способствовать дальнейшему развитию ioBroker

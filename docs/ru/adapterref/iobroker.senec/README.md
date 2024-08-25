@@ -6,7 +6,7 @@ BADGE-Number of Installations (stable): http://iobroker.live/badges/senec-stable
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.senec/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.senec.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.senec/README.md
 title: ioBroker.senec
 hash: ElUBy0cv/a3WwNZ/OuBIPXp0UTVQlJueUj6s7RqKEPE=

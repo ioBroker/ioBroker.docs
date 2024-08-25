@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.node-red.svg?color=red&label=b
 BADGE-Stable: http://iobroker.live/badges/node-red-stable.svg
 BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.node-red/README.md
 title: ioBroker.node-красный
 hash: lQJqoLOtGuM3IgvqdSc/Ax1wJh+46YQzM5L56qCawrU=

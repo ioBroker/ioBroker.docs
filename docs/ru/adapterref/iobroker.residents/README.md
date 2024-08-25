@@ -5,7 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/residents-installed.
 BADGE-Current version in stable repository: https://iobroker.live/badges/residents-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.residents.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.residents/README.md
 title: жители
 hash: ZTA45eYXfVkiwThISlNrnOQqoQYoEAF1v93Rk/ct5OQ=

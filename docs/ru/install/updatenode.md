@@ -2,7 +2,7 @@
 title: Обновить NodeJS
 lastChanged: 11.08.2023
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/updatenode.md
 hash: pFg4K3FLxNRB0d97+1vrNGa5Fk2/nQkW6FFnW2x6kk0=
 ---

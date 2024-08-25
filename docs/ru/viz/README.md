@@ -3,7 +3,7 @@ title: визуализация
 lastChanged: 13.09.2018
 template: true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/viz/README.md
 hash: e/pa1rpO81WAmPBYZ6UTeunOhW6lOv/N4we0bAFmncA=
 ---

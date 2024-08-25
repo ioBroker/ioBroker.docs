@@ -1,6 +1,6 @@
 ---
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/downloads/ioBroker_Image_Tinker_201900813_buster.md
 title: Образ ioBroker для Rock64 с растяжкой 20190730
 hash: Knij0kKVnXf5W7yzCfj3x/rGFiUZx7zcUpMprYGAW9c=

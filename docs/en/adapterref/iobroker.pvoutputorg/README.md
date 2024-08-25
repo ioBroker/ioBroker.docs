@@ -113,6 +113,10 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.8.13 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
 ### 1.8.12 (2024-05-28)
 * (René) change of dependencies
 * (René) show cron status after job creation

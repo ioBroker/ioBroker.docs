@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.proxmox.svg?color=red&label=be
 BADGE-Stable: http://iobroker.live/badges/proxmox-stable.svg
 BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.proxmox/README.md
 title: ioBroker.proxmox
 hash: L2mnlxx3dkyTPLjb3eeZAR7O8Wlw9kFtWG84EewUPx4=

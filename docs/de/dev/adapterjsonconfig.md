@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: ClDJCj9QzYDHf2oWQ0fHIOi0XwSqJVaQbYHJe8mSdQQ=
+hash: yeuuz/VQ8X9abPD73ngTtsZUJ8pTPMo3NBqR6MK5IEc=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -30,11 +30,13 @@ um zu sagen, dass der Adapter die JSON-Konfiguration unterstützt.
 Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter testen: https://github.com/mcm4iob/ioBroker.jsonconfig-demo.
 Sie können ihn über das GitHub-Symbol im Adminbereich installieren, indem Sie auf der Registerkarte „npm“ `iobroker.jsonconfig-demo` eingeben.
 
+Das Schema für die JSON-Konfigurationsdatei ist hier definiert: https://github.com/ioBroker/adapter-react-v5/blob/main/schemas/jsonConfig.json
+
 Alle Beschriftungen, Texte und Hilfetexte können mehrsprachig oder nur aus Zeichenfolgen bestehen.
 
 *Wenn der Attributname mit "_" beginnt, wird er nicht im Objekt gespeichert.*
 
-## Enthält
+## Beinhaltet
 Erfordert Admin 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
@@ -57,13 +59,15 @@ Mögliche Typen:
 - `tabs` - Registerkarten mit Elementen
 - `items` – Objekt mit Feldern `{"tab1": {}, "tab2": {}...}`
 - `iconPosition` – `bottom`, `end`, `start` oder `top`. Nur für Panels mit `icon`-Attribut. Standard: `start`
+- `tabsStyle` – CSS-Stile im React-Format („marginLeft“ und nicht „margin-left“) für die Mui-Tabs-Komponente
 
 - „Panel“ – Registerkarte mit Elementen
 - „Symbol“ – Registerkarte kann Symbole (Base64 wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) haben
-- „label“ – Beschriftung der Registerkarte
+- „label“ – Bezeichnung der Registerkarte
 - `Elemente` - Objekt `{"attr1": {}, "attr2": {}}...`
 - `collapsable` – nur möglich, da es sich nicht um einen Teil von tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) handelt.
 - `color` - Farbe der einklappbaren Kopfzeile `primary` oder `sekundary` oder nichts
+- `innerStyle` – CSS-Stile für innere Divs im React-Format („marginLeft“ und nicht „margin-left“) für die Panel-Komponente. Wird nicht für einklappbare Panels verwendet.
 
 - `text` – Textkomponente
 - `maxLength` – maximale Länge des Textes im Feld
@@ -72,6 +76,9 @@ Mögliche Typen:
 - „minRows“ – Standard ist 1. Setzen Sie dieses Attribut auf „2“ oder höher, wenn Sie einen Textbereich mit mehr als einer Zeile haben möchten.
 - `maxRows` – maximale Anzahl an Zeilen im Textbereich. Wird nur verwendet, wenn `minRows` > 1.
 - „noClearButton“ – wenn wahr, wird die Schaltfläche „Löschen“ nicht angezeigt (Admin >= 6.17.13)
+- `validateJson` – wenn wahr, wird der Text als JSON validiert
+- „allowEmpty“ – wenn wahr, wird das JSON nur validiert, wenn der Wert nicht leer ist
+- „Zeit“ – der Wert ist die Zeit in ms oder eine Zeichenfolge. Wird nur mit dem Flag „readOnly“ verwendet.
 
 - `Nummer`
 - `min` - Minimalwert
@@ -88,6 +95,13 @@ Mögliche Typen:
 - `max` - (Standard 100)
 - „Schritt“ – (Standard: „(max – min) / 100“)
 - `unit` - Einheit des Schiebereglers
+
+- „qrCode“ – Daten in einem QR-Code anzeigen (ab Admin 7)
+- `data` - die im QR-Code zu kodierenden Daten
+- „Größe“ – Größe des QR-Codes
+- `fgColor` – Vordergrundfarbe
+- `bgColor` – Hintergrundfarbe
+- „Ebene“ – Ebene des QR-Codes (`L` `M` `Q` `H`)
 
 - `ip` - Bind-Adresse
 - `listenOnAllPorts` - 0.0.0.0 zur Option hinzufügen
@@ -109,7 +123,7 @@ Mögliche Typen:
 - `auswählen`
 - `Optionen` - `[{label: {en: "option 1"}, value: 1}, ...]` oder
 
-`[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
+                `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
 
 - `Autovervollständigung`
 - `Optionen` - `["Wert1", "Wert2", ...]` oder `[{"Wert": "Wert", "Bezeichnung": "Wert1"}, "Wert2", ...]` (Schlüssel müssen eindeutig sein)
@@ -151,7 +165,7 @@ Mögliche Typen:
 - `root` – [optional] Nur dieses Stammobjekt und seine untergeordneten Objekte anzeigen
 - `customFilter` - [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um eine JSON-Zeichenfolge. Beispiele
 - `{common: {custom: true}}` – zeige nur Objekte mit einigen benutzerdefinierten Einstellungen
-- `{common: {custom: 'sql.0'}}` – zeigt nur Objekte mit benutzerdefinierten SQL.0-Einstellungen an (nur der spezifischen Instanz)
+- `{common: {custom: 'sql.0'}}` – zeige nur Objekte mit benutzerdefinierten SQL.0-Einstellungen (nur der spezifischen Instanz)
 - `{common: {custom: '_dataSources'}}` – zeige nur Objekte der Adapter `influxdb` oder `sql` oder `history`
 - `{common: {custom: 'adapterName.'}}` – zeigt nur Objekte mit benutzerdefinierten Einstellungen eines bestimmten Adapters an (alle Instanzen)
 - `{type: 'channel'}` – nur Kanäle anzeigen
@@ -169,28 +183,29 @@ Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden!
 Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapter als `admin` und `cloud` schützen, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
 
 - `repeat` - Wiederholungspasswort muss mit Passwort verglichen werden
-- „sichtbar“ – wahr, wenn das Anzeigen des Passworts durch Umschalten der Schaltfläche „Anzeigen“ erlaubt ist (nur für ein neues Passwort während der Eingabe)
+- „sichtbar“ – Wahr, wenn das Anzeigen des Passworts durch Umschalten der Schaltfläche „Anzeigen“ erlaubt ist (nur für ein neues Passwort während der Eingabe)
+- `readOnly` - das Nur-Lese-Flag. Visible ist automatisch wahr, wenn readOnly wahr ist
 - `maxLength` – maximale Länge des Textes im Feld
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
+- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
 - `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
-- „long“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
+- „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
 - „short“ – der Wert sieht wie „0“ aus und nicht wie „ADAPTER.0“.
 - „alle“ – Fügen Sie den Optionen „alle“ die Option mit dem Wert „*“ hinzu
 
 - „Chips“ – der Benutzer kann das Wort eingeben und es wird hinzugefügt (siehe Cloud => Dienste => Whitelist). Die Ausgabe ist ein Array, wenn kein „Trennzeichen“ definiert ist.
 - `delimiter` - wenn es definiert ist, wird die Option als Zeichenfolge mit Trennzeichen statt als Array gespeichert. Beispielsweise erhalten Sie mit `delimiter=;` `a;b;c` statt `['a', 'b', 'c']`
 
-- „alive“ – nur eine Anzeige, ob die Instanz aktiv ist, und kann in den Modi „versteckt“ und „deaktiviert“ verwendet werden (wird nicht in der Konfiguration gespeichert)
+- „alive“ – nur ein Hinweis darauf, ob die Instanz aktiv ist und in den Modi „versteckt“ und „deaktiviert“ verwendet werden kann (wird nicht in der Konfiguration gespeichert)
 
 Nur Text: Instanz läuft, Instanz läuft nicht
 
 - `Instanz` – prüft, ob die Instanz aktiv ist. Wenn nicht definiert, wird die aktuelle Instanz verwendet. Sie können im Text das Muster `${data.number}` verwenden.
-- „textAlive“ – der Standardtext lautet „Instanz %s ist aktiv“, wobei %s durch „ADAPTER.0“ ersetzt wird.
-- „textNotAlive“ – der Standardtext lautet „Instanz %s ist nicht aktiv“, wobei %s durch „ADAPTER.0“ ersetzt wird.
+- `textAlive` - Standardtext ist `Instance %s is alive`, wobei %s durch `ADAPTER.0` ersetzt wird. Die Übersetzung muss in i18n-Dateien vorhanden sein
+- `textNotAlive` - der Standardtext lautet `Instanz %s ist nicht aktiv`, wobei %s durch `ADAPTER.0` ersetzt wird. Die Übersetzung muss in i18n-Dateien vorhanden sein
 
 - „Muster“ – schreibgeschütztes Feld mit Muster wie „https://${data.ip}:${data.port}“ (wird nicht in der Konfiguration gespeichert)
 
@@ -203,8 +218,8 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - „Befehl“ – (Standard: „Senden“)
 - `jsonData` - Zeichenfolge - `"{\"subject1\": \"${data.subject}\", \"options1\": {\"host\": \"${data.host}\"}}"`. Sie können die speziellen Variablen `data._origin` und `data._originIp` verwenden, um der Instanz die Anrufer-URL zu senden, z. B. `http://127.0.0.1:8081/admin`.
 - `data` - object - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides.
-- `Ergebnis` - `{Ergebnis1: {en: 'A'}, Ergebnis2: {en: 'B'}}`
-- `Fehler` - `{Fehler1: {en: 'E'}, Fehler2: {en: 'E2'}}`
+    - `result` - `{result1: {en: 'A'}, result2: {en: 'B'}}`
+    - `error` - `{error1: {en: 'E'}, error2: {en: 'E2'}}`
 - `Variante` - `enthalten`, `umrissen` oder nichts
 - `openUrl` - wenn wahr - URL in neuem Tab öffnen, wenn die Antwort das Attribut `openUrl` enthält, wie `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „reloadBrowser“ – wenn wahr – lädt das aktuelle Browserfenster neu, wenn die Antwort das Attribut „reloadBrowser“ enthält, wie „{„reloadBrowser“: true}“.
@@ -216,13 +231,13 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `useNative` – wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird es für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
 - „timeout“ – Timeout für Anforderung in ms. Standard: keine.
-- `onLoaded` - führe die Schaltflächenlogik zunächst einmal aus
+- `onLoaded` - führt die Schaltflächenlogik zunächst einmal aus
 
 - `setState` - Schaltfläche zum Festlegen des Status der Instanz
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen
 - „ack“ – false (Standard: false)
 - `val` - '${data.myText}_test' oder Zahl. Der Typ wird automatisch anhand des Statustyps erkannt und die Konvertierung wird ebenfalls durchgeführt.
-- `okText` - Alarm, der durch Drücken der Taste angezeigt wird
+- `okText` - Warnung, die durch Drücken der Taste angezeigt wird
 - `Variante` - `enthalten`, `umrissen`, ''
 
 - `staticText` – statischer Text wie Beschreibung
@@ -235,7 +250,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - „Button“ – einen Link als Schaltfläche anzeigen
 - „Variante“ – Art der Schaltfläche („umrissen“, „enthalten“, „Text“)
 - „Farbe“ – Farbe der Schaltfläche (z. B. „primär“)
-- `icon` - wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
+- `icon` - wenn Icon angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an)
 
 - `staticImage` – statisches Bild
 - `href` – optionaler HTTP-Link
@@ -247,13 +262,14 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `objKeyName` – (alte Einstellung, nicht verwenden!) – Name des Schlüssels in `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}`
 - `objValueName` – (alte Einstellung, nicht verwenden!) – Name des Wertes in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}`
 - `allowAddByFilter` - wenn Hinzufügen erlaubt ist, auch wenn Filter gesetzt ist
-- `showSecondAddAt` - Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am Ende der Tabelle angezeigt wird. Standard 5
+- `showSecondAddAt` - Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am Ende der Tabelle angezeigt wird. Standardmäßig 5
 - „showFirstAddOnTop“ – Zeigt den ersten Plus-Button oben in der ersten Spalte und nicht links.
 - `clone` – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn wahr, wird die Schaltfläche „Klonen“ angezeigt. Wenn Attributname, ist dieser Name eindeutig.
 - „Exportieren“ – [optional] – ob die Schaltfläche „Exportieren“ angezeigt werden soll. Als CSV-Datei exportieren.
 - „importieren“ – [optional] – ob die Schaltfläche „Importieren“ angezeigt werden soll. Importieren aus CSV-Datei.
 - `uniqueColumns` - [optional] - Geben Sie ein Array von Spalten an, die eindeutige Einträge haben müssen
 - `encryptedAttributes` – [optional] – Geben Sie ein Array von Spalten an, die verschlüsselt werden sollen
+- `compact` – [optional] – wenn wahr, wird die Tabelle im kompakten Modus angezeigt
 
 - „Akkordeon“ – Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können (Admin 6.6.0 und neuer)
 - `items` - `[{"type": siehe oben, "attr": "name", "default": ""}]` - Elemente können wie auf einem `Panel` platziert werden (xs, sm, md, lg und newLine)
@@ -262,6 +278,8 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `clone` – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn wahr, wird die Schaltfläche „Klonen“ angezeigt. Wenn Attributname, ist dieser Name eindeutig.
 
 - `jsonEditor` - JSON-Editor
+- „validateJson“ – wenn falsch, wird der Text nicht als JSON validiert
+- „allowEmpty“ – wenn wahr, wird das JSON nur validiert, wenn der Wert nicht leer ist
 
 - „Sprache“ – Sprache auswählen
 - „system“ – erlaubt die Verwendung der Systemsprache aus „system.config“ als Standard (hat einen leeren String-Wert, wenn ausgewählt)
@@ -284,13 +302,13 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 }
   ```
 
-- „certCollection“ – Zertifikatssammlung auswählen oder einfach alle Sammlungen verwenden oder „Let’s Encrypt“ überhaupt nicht verwenden.
+- „certCollection“ – Zertifikatssammlung auswählen oder einfach alle Sammlungen verwenden oder Let’s Encrypt überhaupt nicht verwenden.
 - `leCollectionName` – Name der Zertifikatssammlung
 
 - `benutzerdefiniert` (nur Admin6)
 - „Name“ – Komponentenname, der über Props bereitgestellt wird, z. B. ComponentInstancesEditor
 - `url` - Speicherort der Komponente
-- „custom/customComponents.js“: in diesem Fall werden die Dateien von „/adapter/ADAPTER_NAME/custom/customComponents.js“ geladen.
+- „custom/customComponents.js“: In diesem Fall werden die Dateien von „/adapter/ADAPTER_NAME/custom/customComponents.js“ geladen.
 - `https://URL/myComponent`: direkt von der URL
 - `./adapter/ADAPTER_NAME/custom/customComponent.js`: in diesem Fall werden die Dateien von `/adapter/ADAPTER_NAME/custom/customComponents.js` geladen.
 - `i18n` – wahr, wenn sich `i18n/xx.json`-Dateien im selben Verzeichnis wie die Komponente oder das Übersetzungsobjekt `{"text1": {"en": Text1"}}` befinden.
@@ -323,7 +341,7 @@ Die Komponente gibt eine analysierbare Datumszeichenfolge zurück.
 - `objectID` – Objekt-ID vom Typ `meta`. Sie können den speziellen Platzhalter `%INSTANCE%` verwenden: wie `myAdapter.%INSTANCE%.files`
 - `upload` - Pfad, in dem die hochgeladenen Dateien gespeichert werden. Wie `folderName`. Wenn nicht definiert, wird kein Upload-Feld angezeigt. Um in das Stammverzeichnis hochzuladen, setzen Sie dieses Feld auf `/`.
 - „Aktualisieren“ – Schaltfläche „Aktualisieren“ neben der Auswahl anzeigen.
-- „maxSize“ – maximale Dateigröße (Standard 2 MB)
+- „maxSize“ – maximale Dateigröße (Standard: 2 MB)
 - „withFolder“ – Ordnernamen anzeigen, auch wenn sich alle Dateien im selben Ordner befinden
 - `delete` - Löschen von Dateien erlauben
 - `noNone` - Option `none` nicht anzeigen
@@ -337,7 +355,7 @@ Eingabefeld mit Dateiauswahl
 - „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
 - `filterFiles` - wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
 - `allowUpload` - erlaubtes Hochladen von Dateien
-- `allowDownload` – Download von Dateien erlaubt (Standard: true)
+- `allowDownload` – erlaubter Download von Dateien (Standard: true)
 - `allowCreateFolder` – erlaubte Erstellung von Ordnern
 - `allowView` – Kachel-Ansicht erlaubt (Standard: true)
 - `showToolbar` – Symbolleiste anzeigen (Standard: true)
@@ -363,7 +381,7 @@ adapter.on('message', obj => {
 });
 ```
 
-- `wählenSendenAn`
+- `Senden an auswählen`
 
 Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
 
@@ -430,14 +448,26 @@ Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implemen
 
 Zeigt ein schreibgeschütztes Steuerelement mit den von der Instanz angegebenen Werten.
 
-- „Container“ - Div, Text
+- „Container“ – Div, Text, HTML
 - `copyToClipboard` - wenn wahr - Schaltfläche anzeigen
 - `alsoDependsOn` - bei Änderung welcher Attribute muss der Befehl erneut gesendet werden
 - `Befehl` - sendTo-Befehl
 - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet.
 - `data` - object - `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist.
 
-Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss eine Zeichenfolge sein.
+Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss eine Zeichenfolge oder ein Objekt mit den folgenden Parametern sein:
+
+```
+{
+    text: 'text to show',  // mandatory
+    style: {color: 'red'}, // optional
+    icon: 'search',        // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
+                           // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, puase, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
+    iconStyle: {width: 30} // optional
+}
+```
+
+Beispiel:
 
 ```
 adapter.on('message', obj => {
@@ -445,6 +475,10 @@ adapter.on('message', obj => {
       switch (obj.command) {
         case 'command':
           obj.callback && adapter.sendTo(obj.from, obj.command, 'Received ' + JSON.stringify(obj.message), obj.callback);
+          // or with style
+          obj.callback && adapter.sendTo(obj.from, obj.command, { text: 'Received ' + JSON.stringify(obj.message), style: { color: 'red' }, icon: 'search', iconStyle: { width: 30 }}, obj.callback);
+          // or as html
+          obj.callback && adapter.sendTo(obj.from, obj.command, `<div style="color: green">${JSON.stringify(obj.message)}</div>`, obj.callback);
           break;
       }
     }
@@ -459,7 +493,7 @@ Ermittelt den aktuellen Standort und verwendet `system.config`-Koordinaten, fall
 - `autoInit` - Feld mit aktuellen Koordinaten initialisieren, wenn leer
 - `longitudeName` - wenn definiert, wird der Längengrad in diesem Attribut gespeichert, Teiler werden ignoriert
 - `latitudeName` - wenn definiert, wird der Breitengrad in diesem Attribut gespeichert, Teiler werden ignoriert
-- `useSystemName` - wenn definiert, wird das Kontrollkästchen "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus system.config gelesen, ein Boolean wird unter dem angegebenen Namen gespeichert
+- `useSystemName` - wenn definiert, wird das Kontrollkästchen "Systemeinstellungen verwenden" angezeigt und Breiten- und Längengrad werden aus `system.config` gelesen, ein Boolean wird unter dem angegebenen Namen gespeichert
 
 - `Schnittstelle`
 
@@ -475,7 +509,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `agreeText` - Text der vereinbarten Schaltfläche
 - `checkBox` - Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert.
 
-- `checkLicense` – Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die nativen Eigenschaften `license` und `useLicenseManager` benötigt.
+- `checkLicense` – Eine sehr spezielle Komponente, um die Lizenz online zu überprüfen. Es werden genau die Eigenschaften `license` und `useLicenseManager` nativ benötigt.
 - `uuid` – UUID prüfen
 - `version` – Version prüfen
 
@@ -541,11 +575,11 @@ Alle Typen könnten haben:
 - `data` – statische Daten
 - `jsonData` – statische Daten
 - wenn weder `data` noch `jsonData` definiert sind, werden die folgenden Informationen gesendet `{"attr": "<attribute name>", "value": "<current value>"}`
-- „button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
+- „Button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
 - „buttonTooltip“ – Button-Tooltip (Standard: „Daten nach Instanz anfordern“)
 - `buttonTooltipNoTranslation` – Button-Tooltip nicht übersetzen
 - `placeholder` – Platzhalter (zur Textsteuerung)
-- „noTranslation“ – übersetzt keine Auswahlen oder andere Optionen (nicht für Hilfe, Beschriftung oder Platzhalter)
+- `noTranslation` - übersetzt keine Auswahlen oder andere Optionen (nicht für Hilfe, Beschriftung oder Platzhalter)
 - `onChange` - Struktur in der Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - `doNotSave` - Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird
 - „noMultiEdit“ – wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zum Bearbeiten ausgewählt hat.
@@ -623,7 +657,7 @@ data: {
 In diesem Fall muss die Eingabe Text sein, wobei `__different__` angezeigt wird, mit der Autovervollständigungsoption von drei möglichen Werten.
 Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
 
-Boolesche Werte müssen Unbestimmtheit unterstützen, wenn der Wert [false, true] ist.
+Boolesche Werte müssen unbestimmt sein, wenn der Wert [false, true] ist.
 
 Für unveränderte `__different__` muss der Wert different zurückgegeben werden:
 
@@ -777,7 +811,7 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 
 Die folgenden Variablen sind in der JS-Funktion in den Adaptereinstellungen verfügbar:
 
-- „data“ – native Einstellungen für diese Instanz oder aktuelle Zeile in der Tabelle (um auf alle Einstellungen zuzugreifen, verwenden Sie globalData)
+- „data“ – native Einstellungen für diese Instanz oder aktuelle Zeile in der Tabelle (um auf alle Einstellungen zuzugreifen, verwenden Sie „globalData“)
 - `_system` – Systemkonfiguration
 - `_alive` – ist die Instanz aktiv
 - `_common` – allgemeine Einstellungen für diese Instanz

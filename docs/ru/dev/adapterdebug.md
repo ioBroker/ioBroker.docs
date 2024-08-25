@@ -2,7 +2,7 @@
 title: отладка
 lastChanged: 14.09.2018
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterdebug.md
 hash: IPSFpfv8zfu2KhGaRA83bHcfSob2Nn2knD7iwyPmncY=
 ---

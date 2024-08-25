@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-map/README.md
-title: ioBroker.vis-map
-hash: AuN4FwNGTj3kE9XUp7CpFeo9c3fj97QGvtmTjLa72nk=
+title: ioBroker.vis-Karte
+hash: wrWX5vCEa+TyCgDVUkiRLNIyI2SdtOdQd4cOyJHlgv4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-map/admin/vis-map.png)
 
@@ -13,26 +13,33 @@ hash: AuN4FwNGTj3kE9XUp7CpFeo9c3fj97QGvtmTjLa72nk=
 ![NPM](https://nodei.co/npm/iobroker.vis-map.png?downloads=true)
 
 # IoBroker.vis-map
-![Bildschirmfoto](../../../en/adapterref/iobroker.vis-map/img/widgets.png)
+![Screenshot](../../../en/adapterref/iobroker.vis-map/img/widgets.png)
 
 Widgets, die Koordinaten auf einer Karte anzeigen können.
-Unterstützt werden eigentlich nur Open Street Maps und Google. Um Google Maps nutzen zu können, benötigen Sie den API-Schlüssel für Google Maps.
-Sie können es bekommen [Hier](https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend&keyType=CLIENT_SIDE&reusekey=true)
+Aktuell werden nur Open Street Maps und Google unterstützt. Um Google Maps zu verwenden, sollten Sie den API-Schlüssel für Google Maps erhalten.
+Sie erhalten ihn unter [Hier](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ## Verwendung
-Sie können Längen- und Breitengrad voneinander trennen oder einfach die Objekt-ID mit dem folgenden Wert in **Längengrad** einfügen:
+Sie können Längen- und Breitengrad trennen oder in **Längengrad** einfach die Objekt-ID mit dem folgenden Wert einfügen:
 
 - 7.0001;49.0000 (Längengrad; Breitengrad)
 - 7.0001;49.0000 (Längengrad; Breitengrad)
 - 7.0001,49.0000 (Längengrad, Breitengrad)
-- 49.0000,7.0001 (Breitengrad, Längengrad + Swap-Flag)
-- 49.0000;7.0001 (Breitengrad; Längengrad + Swap-Flag)
+- 49.0000,7.0001 (Breitengrad, Längengrad + Umschaltflagge)
+- 49.0000;7.0001 (Breitengrad; Längengrad + Flagge vertauschen)
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.1.2 (2024-07-12)
+- fix datapoint handling for lat/lan
+- Make data points in 0_userdata work again
+
+### 1.1.0 (2024-03-07)
+- (bluefox) Removed dependency to `iobroker.vis`. Only show the message if vis is not installed
+
 ### 1.0.5 (2024-01-14)
 - (bluefox) Added vis-2 to the restart by installation
 

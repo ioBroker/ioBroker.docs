@@ -1,6 +1,6 @@
 ---
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/faq/_040_contibution/010_how_to_debug_gui.md
 title: без заголовка
 hash: eh141K6ZgUBSAOs1s5Ypj/mn6GJoohoZ3t/LHHuvcd0=

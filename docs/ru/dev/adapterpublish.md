@@ -3,7 +3,7 @@ title: Публиковать
 lastChanged: 21.01.2020
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterpublish.md
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 hash: YpNSzRL3HYx2hWdzZmSbfQwlt4jfy74+sB2elXA8sTU=
 ---
 # Опубликовать адаптер

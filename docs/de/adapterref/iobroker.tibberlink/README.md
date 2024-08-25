@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
+hash: K8hWv/0WbiSbPH9kxOdbE6JQPnr5DYtafIVCabwcbKs=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -16,7 +16,7 @@ hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/hombach/iobroker.tibberlink?logo=github&style=flat-square)
-![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=main&logo=github&style=flat-square)
+![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=master&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)
 ![Bekannte SNYK-Sicherheitslücken](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)
 ![Beta](https://img.shields.io/npm/v/iobroker.tibberlink.svg?color=red&label=beta)
@@ -29,7 +29,8 @@ hash: 82ykeoQu1uq2ZJzykQ+qKEoYmayBC0ItDo+iINz1Yfo=
 
 ## Versionen
 ## Adapter zur Nutzung von TIBBER-Energiedaten in ioBroker
-Dieser Adapter erleichtert die Verbindung von Daten aus der API Ihres Tibber-Kontos zur Verwendung innerhalb von ioBroker, unabhängig davon, ob es sich um ein einzelnes Haus oder mehrere Wohnsitze handelt.
+Dieser Adapter erleichtert die Verbindung von Daten aus der API Ihres Tibber-Kontos zur Verwendung innerhalb von ioBroker, egal ob für ein einzelnes Haus oder mehrere Wohnungen.
+Neue Funktion: Der Adapter unterstützt jetzt das direkte lokale Auslesen des Tibber-Pulssensors über Ihr Heimnetzwerk und ermöglicht so Echtzeitüberwachung und Datenerfassung, ohne sich ausschließlich auf die Cloud-API verlassen zu müssen.
 
 Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn Sie meinen Empfehlungslink verwenden könnten: [Tibber-Empfehlungslink](https://invite.tibber.com/mu8c82n5).
 
@@ -49,13 +50,13 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn S
 – Da die Tibber-Verbindung nun besteht, können Sie den Rechner auch nutzen, um zusätzliche Automatisierungsfunktionen in den TibberLink-Adapter zu integrieren.
 - Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Zuhause verknüpft ist.
 - Diese Kanäle können basierend auf entsprechenden Zuständen aktiviert oder deaktiviert werden.
-– Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
+- Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
 - Die Zustände eines Rechnerkanals werden neben den Home-Zuständen platziert und nach der Kanalnummer benannt. Dabei wird der im Admin-Bildschirm gewählte Kanalname hier angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
 
     ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
 
-- Das Verhalten jedes Kanals wird durch seinen Typ bestimmt: „Best Cost (LTF)“, „Best Single Hours (LTF)“, „Best Hours Block (LTF)“ oder „Smart Battery Buffer“.
-- Jeder Kanal füllt einen oder zwei externe Zustände als Ausgabe aus, die auf der Registerkarte „Einstellungen“ ausgewählt werden müssen. Dieser Zustand könnte beispielsweise „0_userdata.0.example_state“ oder ein anderer beschreibbarer externer Zustand sein.
+- Das Verhalten jedes Kanals wird durch seinen Typ bestimmt: „Beste Kosten (LTF)“, „Beste Einzelstunden (LTF)“, „Bester Stundenblock (LTF)“ oder „Smart Battery Buffer“.
+- Jeder Kanal füllt einen oder zwei externe Zustände als Ausgabe aus, die auf der Registerkarte „Einstellungen“ ausgewählt werden müssen. Dieser Zustand könnte beispielsweise „0_userdata.0.example_state“ oder ein beliebiger anderer beschreibbarer externer Zustand sein.
 - Wenn kein externer Ausgabezustand ausgewählt ist, wird ein interner Zustand innerhalb des Bereichs des Kanals erstellt.
 - Die in den Ausgangszustand zu schreibenden Werte können in „Wert JA“ und „Wert NEIN“ definiert werden, z.B. „true“ für boolesche Zustände oder eine zu schreibende Zahl bzw. ein zu schreibender Text.
 - Ausgänge:
@@ -67,7 +68,7 @@ Zusätzlich werden die durchschnittlichen Gesamtkosten im ermittelten Block in e
 
 - „Best cost LTF“: „Beste Kosten“ innerhalb eines begrenzten Zeitrahmens (LTF).
 - „Beste Einzelstunden LTF“: „Beste Einzelstunden“ innerhalb eines begrenzten Zeitrahmens (LTF).
-- „Best hours block LTF“: „Best hours block“ innerhalb eines begrenzten Zeitrahmens (LTF).
+- „Beststundenblock LTF“: „Beststundenblock“ innerhalb eines begrenzten Zeitrahmens (LTF).
 - „Smart Battery Buffer“: Verwenden Sie den Parameter „EfficiencyLoss“, um den Effizienzverlust des Batteriesystems anzugeben. Der Parameter „EfficiencyLoss“ kann zwischen 0 und 1 liegen, wobei 0 keinen Effizienzverlust und 1 einen vollständigen Effizienzverlust darstellt. Ein Wert von 0,25 bedeutet beispielsweise einen Effizienzverlust von 25 % für einen Lade-/Entladezyklus.
 
 Geben Sie mit dem Parameter „AmountHours“ die gewünschte Stundenzahl für die Batterieladung ein. Der Rechner wird während der angegebenen „AmountHours“-Preisgünstigsten Stunden die Batterieladung aktivieren („Wert JA“) und die Batteriespeisung deaktivieren („Wert 2 NEIN“). Umgekehrt wird er während der Stunden mit den höchsten Kosten die Batterieladung deaktivieren („Wert NEIN“) und die Batteriespeisung aktivieren („Wert 2 JA“), sofern diese Kosten höher sind als der höchste Gesamtpreis der Preisgünstigen Stunden. In den übrigen Normalstunden, in denen eine Energiepufferung durch die Batterie nicht wirtschaftlich ist, werden beide Ausgänge abgeschaltet.
@@ -85,15 +86,84 @@ Die Berechnung wird für „mehrtägige“ Daten durchgeführt. Da wir nur Infor
 
 Um diese dynamische Änderung des Zeitrahmens für einen Standardkanal zu beobachten, können Sie sich für einen begrenzten Zeitrahmen (Limited Time Frame, LTF) entscheiden, der mehrere Jahre umfasst. Dies ist insbesondere für das Szenario „Best Single Hours LTF“ nützlich.
 
+## Direkte lokale Abfrage der Pulsdaten
+Damit es funktioniert, müssen Sie die Weboberfläche der Bridge so ändern, dass sie dauerhaft aktiviert bleibt.
+marq24 hat hier für seine HomeAssistant-Integration hervorragend beschrieben, wie das geht:
+
+https://github.com/marq24/ha-tibber-pulse-local
+
+Wenn alles richtig funktioniert, werden die Zählerdaten alle 2 Sekunden in die ioBroker-Zustände geschrieben.
+
 ## Wachposten
 Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 gestartet.
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, könnten Sie mir ein Bier spendieren. Prost! :Bier:
+<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, denken Sie darüber nach, mir ein Bier auszugeben. Prost! :Bier:
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+### 3.4.8 (2024-08-xx)
+
+-   (HombachC) updated axios because of vulnerability
+-   (HombachC) added tests for Node.js 22
+
+### 3.4.7 (2024-08-10)
+
+-   (HombachC) adapter checker detected optimizations (#493)
+-   (HombachC) improved error message (#490)
+
+### 3.4.6 (2024-08-07)
+
+-   (HombachC) Catch wrong OBIS Codes, probably caused by Pulse communication errors
+-   (HombachC) code cleanup
+
+### 3.4.5 (2024-07-31)
+
+-   (HombachC) decode meter mode 4 for local Tipper Pulse poll (#477)
+-   (HombachC) decode meter mode 1 for local Tipper Pulse poll (#478)
+-   (HombachC) fixed wrong Pulse local status names (voltage)
+-   (HombachC) add docu on local Pulse poll config screen (#479)
+-   (HombachC) code cleanup
+-   (HombachC) bump dependencies
+
+### 3.4.4 (2024-07-28)
+
+-   (HombachC) local poll of data - change units Wh to kWh and round to 0,1kWh (#469)
+
+### 3.4.3 (2024-07-14)
+
+-   (HombachC) added unit to Pulse temperature and round to 0,1°C
+-   (HombachC) added unit to Pulse battery voltage and round to 100mV
+-   (HombachC) added unit to Pulse uptime
+-   (HombachC) added state with Pulse uptime as human readable string
+-   (HombachC) reinitialize some TibberLocal states upon adapter startup
+-   (HombachC) code optimisation
+-   (HombachC) bump dependencies
+
+### 3.4.2 (2024-07-13)
+
+-   (HombachC) fix typos in units
+-   (HombachC) fix type mismatch for state objects (#455)
+-   (HombachC) code optimisation
+
+### 3.4.1 (2024-07-13)
+
+-   (HombachC) fix logging error
+-   (HombachC) bump dependencies
+
+### 3.4.0 (2024-07-12)
+
+-   (HombachC) add mode for local poll of Pulse data (#201)
+
+### 3.3.3 (2024-07-04)
+
+-   (HombachC) fix sentry notified possible error
+-   (HombachC) try to fix startup error (#444)
+
+### 3.3.2 (2024-06-21)
+
+-   (HombachC) fix 2 security issues in dependencies
+-   (HombachC) fix sentry notified possible error
 
 ### 3.3.1 (2024-06-13)
 

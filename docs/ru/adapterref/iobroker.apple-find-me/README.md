@@ -4,7 +4,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.apple-find-me.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.apple-find-me.png?downloads=true
 BADGE-Donate: https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat&logo=PayPal
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apple-find-me/README.md
 title: iobroker.apple-найди меня
 hash: bR+SdSpoVWfD8age2DK4/d6Zbhx46lnK4c/Z1phIoS8=

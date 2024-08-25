@@ -2,7 +2,7 @@
 lastChanged: 20.07.2018
 local: true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harmony/README.md
 title: Логитек Гармония
 hash: aGutf+nqKKk59Zci67BUBICmxdGGXNhuY0ktt6U10HI=

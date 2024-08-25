@@ -2,7 +2,7 @@
 title: системные настройки
 lastChanged: 04.11.2022
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/admin/settings.md
 hash: +6nOeDB6s7PHWeJeTEytOPviSDptUaLlFSS4oQnuCEg=
 ---

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.egigeozone2/README.md
-title: kein Titel
-hash: ukMdhtpnvkfB8vxKtyXYZAvPl6qc2x9EJsiwjftHKGs=
+title: ohne Titel
+hash: 2ZAEhIa9/NGXHlAuVANrHY764+g5ZsQRNI85R2/FpyU=
 ---
 ![Logo](../../../en/adapterref/iobroker.egigeozone2/admin/egigeozone.png)
 
@@ -26,7 +26,7 @@ Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet zugänglich z
 * Nutzen Sie für Anfragen oder
 * Integrieren Sie einen Proxyserver (z. B. nginx) zum Filtern eingehender Anfragen.
 
-## Aufbau
+## Konfiguration
 Innerhalb von EgiGeoZone sollte die URL mit der folgenden Syntax definiert werden:
 
 Protokoll://Adresse:Port/Person
@@ -41,9 +41,13 @@ Protokoll://Adresse:Port/Person
 * http://meine-domain:7654/Paul
 
 ## Credits
-Die Implementierung basiert größtenteils auf [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) & BasGos [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone) Adapter. Das Logo wurde von [Free Icons PNG] übernommen.](http://www.freeiconspng.com/images/maps-icon) von dschaedl und wurde so geändert, dass sie einen transparenten Hintergrund hat.
+Die Implementierung basiert größtenteils auf dem [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) & BasGos [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone)-Adapter von dschaedl.
 
 ## Changelog
+
+### 1.0.6
+* (obakuhl) Improved object definition
+* (obakuhl) New icon
 
 ### 1.0.5
 * (obakuhl) use `@iobroker/webserver`

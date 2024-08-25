@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-hash: FlPUifv8rJ+ON3PymwZF9EU/ZyLAHFAES1n06U4TTIA=
+hash: qJeEJ8ncgCfZoYvL/D1Bmfqc3k6U9lmz+R4Pxc9Lzm0=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -13,11 +13,15 @@ hash: FlPUifv8rJ+ON3PymwZF9EU/ZyLAHFAES1n06U4TTIA=
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
 # Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-![Youtube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.png)
+![youtube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.png)
 
 Das Video zur Verwendung der Widgets finden Sie unter [Hier](https://www.youtube.com/watch?v=4bctUvfpPuQ).
 
-Das Video, wie man die Widgets benutzt, kann man unter [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
+**Wichtig: die Widgets erfordern eine kostenpflichtige Lizenz, die unter [iobroker.net](https://iobroker.net/www/pricing#commercial/iobroker.vis-2-widgets-jaeger-design)** bestellt werden kann.
+
+Das Video wie man die Widgets benutzt kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
+
+Das Video wie man die Widgets benutzt kann man [hier](https://youtu.be/Rplr2Ba-G7o) (auf Deutsch) (TEIL2)
 
 ## Widgets
 ### Knöpfe und Schalter
@@ -47,6 +51,22 @@ Und verwenden Sie dann das Objekt `javascript.0.rss` in diesem Widget.
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.2.7 (2024-07-17)
+* (bluefox) allowed multi-line buttons for the thermostat
+
+### 1.2.6 (2024-07-16)
+* (bluefox) Corrected the power state of the thermostat
+
+### 1.2.5 (2024-07-12)
+* (bluefox) Added possibility to control other IDs with memory buttons (Dimmer, Shutter)
+* (bluefox) Added the power option for thermostat
+* (bluefox) Implemented the writing of specific values for state widget
+* (bluefox) Added label to state widget
+
+### 1.2.1 (2024-07-07)
+* (bluefox) Removed withStyles usage
+* (bluefox) Added confirmation dialog
+
 ### 1.1.27 (2024-05-27)
 * (bluefox) Added descriptions
 

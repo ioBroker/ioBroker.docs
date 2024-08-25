@@ -2,7 +2,7 @@
 title: пользователь
 lastChanged: 09.11.2022
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/admin/users.md
 hash: Li7Kk2AK3eAMQe855up3wP5w3oTNxQo4i6DeGGwDmvw=
 ---

@@ -2,61 +2,61 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-shoppinglist/README.md
-title: ioBroker.alexa-список покупок
-hash: HSFwRXQrrs4eNztQ9DaQN8lE/YF/bl79FvsVUjpidLs=
+title: ioBroker.alexa-shoppingList
+hash: 6egxt8ZmXvDHA1Wy1yHws/5BBQHshFPj77Kv1TE6mws=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.alexa-shoppinglist.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.alexa-shoppinglist.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.alexa-shoppinglist.svg)
 ![Количество установок](https://iobroker.live/badges/alexa-shoppinglist-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
-# IoBroker.alexa-список покупок
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.alexa-shoppingList
+**Тесты:** ![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер alexa-shoppinglist для ioBroker
-Генерирует список покупок из Alexa
+## Alexa-shoppingList адаптер для ioBroker
+Формирует список покупок из Alexa
 
-Вы также можете использовать другие списки Alexa. Настройте его в админке.
-Когда вы используете новый пользовательский интерфейс администратора, вам будет намного проще.
+Вы также можете использовать другие списки из alexa. Настройте их в Admin.
+Когда вы используете новый пользовательский интерфейс Admin, вам будет намного проще.
 
-Существует состояние для вставки новых элементов. Просто напишите текст и введите.
+Есть Состояние для вставки новых элементов. Просто напишите Текст и нажмите Enter.
 Вы можете удалить активные и неактивные списки.
-Вы также можете перемещать только один элемент в обоих направлениях.
+Вы также можете переместить только один элемент в обоих направлениях.
 
-Я надеюсь, вам понравится
+Надеюсь вам понравится
 
-**Если вам это нравится, рассмотрите пожертвование:**
+**Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ## Точки данных
 | Имя DP | Тип | Описание |
 | ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
 | add_position | Строка | Введите текст для вставки в список |
-| удалить_актив_список | Кнопка | Очищает активный список и перемещает его в неактивный список |
-| удалить_inactiv_list | Кнопка | Очищает неактивный список |
-| position_to_shift | Номер | Вы можете вставить номер позиции перемещения элемента, чем кнопка to_active_list или to_inactive list |
-| список_активный | JSON | Активный список в формате JSON |
-| list_active_sort | Переключатель | Вы можете отсортировать активный список по имени или по времени вставки |
-| список_неактивный | JSON | Неактивный список в формате JSON |
-| list_inactive_sort | Переключатель | Вы можете отсортировать неактивный список по имени или по времени вставки |
+| delete_activ_list | Кнопка | Очищает активный список и перемещает его в неактивный список |
+| delete_inactiv_list | Кнопка | Очищает неактивный список |
+| position_to_shift | Номер | Вы можете вставить номер позиции перемещения элемента, затем кнопку to_active_list или to_inactive list |
+| list_active | JSON | Список актив в формате JSON |
+| list_active_sort | Switch | Вы можете сортировать активный список по имени или по времени вставки |
+| list_inactive | JSON | Неактивный список в формате JSON |
+| list_inactive_sort | Switch | Вы можете отсортировать неактивный список по имени или по времени вставки |
 | to_activ_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к activ_list |
 | to_inactive_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к inactiv_list |
 
-| Атрибут в формате JSON | Описание |
+| Атрибут в JSON | Описание |
 | ----------------- | ----------------------------------------- |
 | имя | Название товара |
-| время | Отметка времени вставки |
-| идентификатор | id в адаптере Alexa2 |
-| поз | Позиция в списке |
-| кнопка двигаться | Кнопка для перехода к активному или неактивному списку |
-| кнопкаудалить | Кнопка для полного удаления элемента |
+| время | Временная метка вставки |
+| id | id в адаптере Alexa2 |
+| pos | Позиция в списке |
+| buttonmove | Кнопка для перехода в активный или неактивный список |
+| buttondelete | Кнопка полного удаления элемента |
 
-JSON теперь содержит 2 кнопки для перемещения или удаления элементов.
-Для этого вам нужно вставить код в VIS Editor под Skript, вставьте это:
+JSON теперь содержит 2 кнопки для перемещения элементов или удаления.
+Для этого вам нужно вставить код в редакторе VIS в разделе Скрипт, вставьте это:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -64,15 +64,21 @@ JSON теперь содержит 2 кнопки для перемещения 
 function setOnDblClickCustomShop( myvalue) {
     let id = myvalue.slice(0,myvalue.indexOf(","));
     let val = myvalue.slice(myvalue.indexOf(",")+1, myvalue.length);
-    if (val){
-      vis.setValue(id,val);
+    if (val=== "true"){
+      vis.setValue(id,true);
+      return
     }
+    vis.setValue(id,false);
   }
 ```
 
 ![](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/Skript.png)
 
 ## Changelog
+### 1.0.0 (2024-08-09)
+
+- Js-controller >=5.0.19 is required
+- Breaking change: minimal supported node.js version is 18.x
 
 ### 0.1.5 (09.01.2023)
 
@@ -80,8 +86,8 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### 0.1.4 (25.09.2022)
 
-- Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
-- You only have to check the Checkbox
+- Its now possible to delete always the inactive list, when you delete an article from the active list
+- You only have to check the checkbox
 
 ### 0.1.2 ( 09.04.2022)
 
@@ -103,7 +109,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 MIT License
 
-Copyright (c) 2023 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2024 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,11 +1,48 @@
 ---
-lastChanged: 13.09.2018
-template: true
+lastChanged: 24.08.2024
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/adapter.md
-title: 适配器和控制器
-hash: LFTRAFEC1wDFB8F2D+OtPKcErzAHeBl1Et/jX/Hou8s=
+title: 控制器和适配器
+hash: 8HcEKegvo687TBc+kFOupFkmNBDZ+XMvC0iQNS62dKE=
 ---
-# 适配器和控制器
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。
+# 控制器和适配器
+## 什么是控制器？
+ioBroker 中的控制器是负责管理和协调整个 ioBroker 系统的中心组件。
+它承担诸如管理适配器、存储数据以及提供系统各个组件之间的通信接口等任务。
+目前Controller是用TypeScript编写的。
+
+### 控制器的主要功能
+-
+
+- **适配器的管理**：控制器监视和控制ioBroker系统中安装的各种适配器。
+- **数据管理**：控制器存储和管理适配器收集的数据。
+- **系统监控**：控制器监控整个系统的运行状况，并确保所有组件和适配器正常工作。当问题发生时，它可以触发通知和警报。
+
+## 什么是适配器？
+ioBroker中的适配器是一个软件组件，允许将各种设备、服务或协议集成到ioBroker系统中。
+适配器充当 ioBroker 与您控制或从中收集数据的外部系统之间的接口。
+
+### 适配器的主要功能
+1. **数据集成**：适配器从外部设备或服务收集数据，并使这些数据在 ioBroker 中可用。这可以包括例如传感器数据、状态信息或其他相关数据。
+2. **控制**：适配器允许通过ioBroker系统控制外部设备或服务。例如，这可以包括打开和关闭设备、设置参数或执行命令。
+3. **协议翻译**：适配器将外部设备或服务的通信协议翻译成ioBroker可以理解的格式。这允许使用不同协议的不同系统的无缝集成。
+
+### 适配器示例
+- **Zigbee 适配器**：允许您集成基于 Zigbee 的设备，例如灯、传感器和开关。
+- **MQTT 适配器**：启用与基于 MQTT 的服务和设备的通信。
+- **HTTP 适配器**：允许集成通过 HTTP 通信的服务。
+
+### 使用适配器的优点
+- **灵活性**：适配器允许集成各种设备和服务，无论其通信协议如何。
+- **可扩展性**：可以开发新的适配器来支持额外的设备或服务，从而允许ioBroker系统不断扩展。
+- **集中化**：通过使用适配器，所有设备和服务都可以通过ioBroker系统进行集中管理和控制。
+
+### 适配器类型
+- **设备适配器**：这些适配器可以集成和控制物理设备，例如灯、传感器和开关。例如 Zigbee 适配器和 Z-Wave 适配器。
+- **协议适配器**：这些适配器将各种通信协议转换为 ioBroker 可以理解的格式。示例包括 MQTT 适配器和 HTTP 适配器。
+- **服务适配器**：这些适配器支持在线服务和 API 的集成。例如 Alexa 适配器和 Google Home 适配器。
+- **数据库适配器**：这些适配器支持在各种数据库系统中进行数据存储和查询。示例包括 SQL 适配器和 InfluxDB 适配器。
+- **可视化适配器**：这些适配器提供用于可视化和显示数据的选项。例如 Vis 适配器和 Flot 适配器。
+- **脚本适配器**：这些适配器允许您在 ioBroker 中创建和运行脚本。示例包括 JavaScript 适配器和 Blockly 适配器。
+- **专用适配器**：这些适配器提供不属于其他类别的特殊功能或集成。例如 Ping 适配器和 Backitup 适配器。

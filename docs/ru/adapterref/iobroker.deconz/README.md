@@ -2,13 +2,13 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
-title: без заголовка
-hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
+title: нет названия
+hash: hlKt04F3x+GnGSRv+J1Vzxx+hVFOw/RGHzMwRBs/Iz0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Количество установок](http://iobroker.live/badges/deconz-stable.svg)
-![НПМ-версия](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
+![версия НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 
 Адаптер ioBroker deConz Dresden-elektronik
@@ -18,24 +18,24 @@ hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
 ## Уведомление
 Нет поддержки бета-версий deConz
 
-Требуемая версия js-контроллера >2.x.x, Требуемый node.js >= 10.x.x
+Требуемая версия js-controller >5.x.x, Требуемый node.js >= 18.x.x
 
 ## Английский
-Подключается к программному обеспечению deConz REST-API, разработанному Dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway, использующим аппаратное обеспечение от Dresden-elektronik, USB-накопитель ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
+Подключается к программному обеспечению deConz REST-API, разработанному dresden-elektronik. Это программное обеспечение нацелено на универсальное решение ZigBee Gateway, использующее оборудование от dresden-elektronik USB-накопитель ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
 
-Сначала вы должны дать ссылку на deConz.
+Сначала необходимо сделать ссылку на deConz.
 
 1. а) Введите IP-адрес для deConz<br>
 
-   б) Введите стандартный порт моста: 80 и стандартный веб-сокет: 443.
+б) Введите стандартный порт моста: 80 и стандартный Websocket: 443
 
-2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или зайти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
+2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
 
-## Чтобы избежать ошибок после обновления (деконструкции/адаптера), остановите адаптер и удалите эти записи в структуре объекта. При запуске структура объекта воссоздается.
-![Деконц-адаптер](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+## Чтобы избежать некоторых ошибок после обновления (deconz/adapter), остановите адаптер и удалите эти записи в структуре объекта. При запуске структура объекта пересоздается.
+![Адаптер Deconz](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
 
 #### Отправка более одной команды одновременно
-Для этого существует объект под названием «действие».
+Для этой цели существует объект, называемый «действие».
 
 Примеры:
 
@@ -44,11 +44,14 @@ hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
 `"on": true, "transitiontime": 5, "hue": 360`
 
 ## Ссылки
-[Плагин deCONZ REST-API](https://github.com/dresden-elektronik/deconz-rest-plugin) [Документация плагина deCONZ REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/) [Шлюзы (Аппаратное обеспечение)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[Плагин deCONZ REST-API](https://github.com/dresden-elektronik/deconz-rest-plugin) [Документация по плагину deCONZ REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/) [Шлюзы (Аппаратные)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Спонсоры](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.5.0 (2024-08-11)
+* (mattreim) Dependencies have been updated
 
 ### 1.4.1 (2024-05-05)
 * (mattreim) Added new objects for various sensors

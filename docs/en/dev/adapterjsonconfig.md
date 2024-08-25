@@ -22,6 +22,7 @@ to say that the adapter supports JSON configuration.
 You can see almost all components in action if you test this adapter: https://github.com/mcm4iob/ioBroker.jsonconfig-demo.
 You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-demo` on the npm tab.
 
+The schema for JSON config file is defined here: https://github.com/ioBroker/adapter-react-v5/blob/main/schemas/jsonConfig.json
 
 All labels, texts, help texts can be multi-language or just strings.
 
@@ -30,7 +31,7 @@ All labels, texts, help texts can be multi-language or just strings.
 ## Includes
 Requires admin 6.17.1 or newer.
 
-To write complex json files, you can include other json files.
+To write complex JSON files, you can include other JSON files.
 The included file must be in the same directory as the main file.
 
 ```json5
@@ -50,6 +51,7 @@ Possible types:
 - `tabs` - Tabs with items
   - `items` - Object with panels `{"tab1": {}, "tab2": {}...}`
   - `iconPosition` - `bottom`, `end`, `start` or `top`. Only for panels that has `icon` attribute. Default: `start`
+  - `tabsStyle` - CSS Styles in React format (`marginLeft` and not `margin-left`) for the Mui-Tabs component
   
 - `panel` - Tab with items
   - `icon` - tab can have icon (base64 like `data:image/svg+xml;base64,...`) or `jpg/png` images (ends with `.png`)
@@ -57,14 +59,18 @@ Possible types:
   - `items` - Object `{"attr1": {}, "attr2": {}}...`
   - `collapsable` - only possible as not part of tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
   - `color` - color of collapsable header `primary` or `secondary` or nothing
+  - `innerStyle` - CSS Styles for inner div in React format (`marginLeft` and not `margin-left`) for the Panel component. Not used for collapsable panels.
 
 - `text` - Text component
   - `maxLength` - max length of the text in field
   - `readOnly` - read-only field
   - `trim` - default is true. Set this attribute to `false` if trim is not desired.
   - `minRows` - default is 1. Set this attribute to `2` or more if you want to have a textarea with more than one row.  
-  - `maxRows` - max rows of textarea. Used only if `minRows` > 1.  
+  - `maxRows` - max rows of textarea. Used only if `minRows` > 1.
   - `noClearButton` - if true, the clear button will not be shown (admin >= 6.17.13)
+  - `validateJson` - if true, the text will be validated as JSON
+  - `allowEmpty` - if true, the JSON will be validated only if the value is not empty
+  - `time` - the value is time in ms or a string. Used only with readOnly flag
 
 - `number`
   - `min` - minimal value
@@ -81,6 +87,13 @@ Possible types:
   - `max` - (default 100)
   - `step` - (default `(max - min) / 100`)
   - `unit` - Unit of slider
+
+- `qrCode` - show data in a QR Code (up from Admin 7)
+  - `data` - the data to be encoded in the QR Code
+  - `size` - size of the QR code
+  - `fgColor` - Foreground color
+  - `bgColor` - Background color
+  - `level` - QR code level (`L` `M` `Q` `H`)
 
 - `ip` - bind address
   - `listenOnAllPorts` - add 0.0.0.0 to option
@@ -160,6 +173,7 @@ Possible types:
   Additionally, you can protect this property from being served to other adapters but `admin` and `cloud` by adding it to `protectedNative` in `io-package.json` file.
     - `repeat` - repeat password must be compared with password
     - `visible` - true if allow viewing the password by toggling the view button (only for a new password while entering)
+    - `readOnly` - the read-only flag. Visible is automatically true if readOnly is true
     - `maxLength` - max length of the text in field
 
 - `instance`
@@ -177,8 +191,8 @@ Possible types:
 - `alive` - just indication if the instance is alive, and it could be used in "hidden" and "disabled" (will not be saved in config)
   Just text: Instance is running, Instance is not running
     - `instance` - check if the instance is alive. If not defined, it will be used current instance. You can use `${data.number}` pattern in the text.
-    - `textAlive` - default text is `Instance %s is alive`, where %s will be replaced by `ADAPTER.0`.
-    - `textNotAlive` - default text is `Instance %s is not alive`, where %s will be replaced by `ADAPTER.0`.
+    - `textAlive` - default text is `Instance %s is alive`, where %s will be replaced by `ADAPTER.0`. The translation must exist in i18n files
+    - `textNotAlive` - default text is `Instance %s is not alive`, where %s will be replaced by `ADAPTER.0`. The translation must exist in i18n files
 
 - `pattern` - read-only field with pattern like 'https://${data.ip}:${data.port}' (will not be saved in config)
   Text input with the read-only flag, that shows a pattern.
@@ -238,6 +252,7 @@ Possible types:
     - `import` - [optional] - if import button should be shown. Import from csv file.
     - `uniqueColumns` - [optional] - specify an array of columns, which need to have unique entries
     - `encryptedAttributes` - [optional] - specify an array of columns, which should be encrypted
+    - `compact` - [optional] - if true, the table will be shown in a compact mode
 
 - `accordion` - accordion with items that could be deleted, added, moved up, moved down (Admin 6.6.0 and newer)
     - `items` - `[{"type": see above, "attr": "name", "default": ""}]` - items can be placed like on a `panel` (xs, sm, md, lg and newLine)
@@ -246,6 +261,8 @@ Possible types:
     - `clone` - [optional] - if clone button should be shown. If true, the clone button will be shown. If attribute name, this name will be unique.
 
 - `jsonEditor` - json editor
+    - `validateJson` - if false, the text will be not validated as JSON
+    - `allowEmpty` - if true, the JSON will be validated only if the value is not empty
 
 - `language` - select language
     - `system` - allow the usage of the system language from `system.config` as default (will have an empty string value if selected)
@@ -267,7 +284,7 @@ Possible types:
   ```
 
 - `certCollection` - select certificate collection or just use all collections or don't use let's encrypt at all.
-    - `leCollectionName` - name of the certificates collection
+    - `leCollectionName` - name of the certificate collection
 
 - `custom` (only Admin6)
     - `name` - Component name that will be provided via props, like ComponentInstancesEditor
@@ -401,20 +418,35 @@ adapter.on('message', obj => {
 
 - `textSendTo`
   Shows readonly control with the given from the instance values.
-  - `container` - div, text
+  - `container` - div, text, html
   - `copyToClipboard` - if true - show button
   - `alsoDependsOn` - by change of which attributes, the command must be resent
   - `command` - sendTo command
   - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend
   - `data` - object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.
   To use this option, your adapter must implement a message handler:
-    The result of command must be a string.
+    The result of command must be a string or object with the following parameters:
+```
+{
+    text: 'text to show',  // mandatory
+    style: {color: 'red'}, // optional
+    icon: 'search',        // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
+                           // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, puase, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
+    iconStyle: {width: 30} // optional
+}
+```
+
+Example:
 ```
 adapter.on('message', obj => {
     if (obj) {
       switch (obj.command) {
         case 'command':
           obj.callback && adapter.sendTo(obj.from, obj.command, 'Received ' + JSON.stringify(obj.message), obj.callback);
+          // or with style
+          obj.callback && adapter.sendTo(obj.from, obj.command, { text: 'Received ' + JSON.stringify(obj.message), style: { color: 'red' }, icon: 'search', iconStyle: { width: 30 }}, obj.callback);
+          // or as html
+          obj.callback && adapter.sendTo(obj.from, obj.command, `<div style="color: green">${JSON.stringify(obj.message)}</div>`, obj.callback);
           break;
       }
     }
@@ -427,7 +459,7 @@ adapter.on('message', obj => {
   - `autoInit` - init field with current coordinates if empty
   - `longitudeName` - if defined, the longitude will be stored in this attribute, divider will be ignored
   - `latitudeName` - if defined, the latitude will be stored in this attribute, divider will be ignored
-  - `useSystemName` - if defined, the checkbox with "Use system settings" will be shown and latitude, longitude will be read from system.config, a boolean will be saved to the given name
+  - `useSystemName` - if defined, the checkbox with "Use system settings" will be shown and latitude, longitude will be read from `system.config`, a boolean will be saved to the given name
 
 - `interface`
   Selects the interface from of the host, where the instance runs

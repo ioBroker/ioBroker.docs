@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.opendtu/README.md
 title: ioBroker.opendtu
-hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
+hash: Ie+cd0PqK6PA2b6Hnqs1yikiFlpJncDXK7lIbdJ83ac=
 ---
 ![Logo](../../../en/adapterref/iobroker.opendtu/admin/opendtu.png)
 
@@ -14,12 +14,13 @@ hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
 ![NPM](https://nodei.co/npm/iobroker.opendtu.png?downloads=true)
 
 # IoBroker.opendtu
-**Tests:** ![Test und Veröffentlichung](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu /actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
+**Tests:** ![Testen und Freigeben](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
 
-# Ich suche einen neuen Betreuer für diesen Adapter, bei Interesse kontaktieren Sie mich einfach über ein Issues!
-## Opendtu-Adapter für ioBroker
-Dieser Adapter stellt die Datenpunkte aus dem Projekt [OpenDTU](https://github.com/tbnobody/OpenDTU) in Echtzeit zur Verfügung.
-Darüber hinaus können über den Adapter folgende Datenpunkte zur Leistungsbegrenzung des OpenDTU gesteuert werden.
+# Ich suche einen neuen Betreuer für diesen Adapter. Bei Interesse kontaktiere mich einfach über ein Issues-Konto!
+## OpenDTU-Adapter für ioBroker
+Über diesen Adapter werden die Datenpunkte aus dem Projekt [OpenDTU](https://github.com/tbnobody/OpenDTU) in Echtzeit zur Verfügung gestellt.
+
+Zusätzlich können über den Adapter folgende Datenpunkte zur Leistungsbegrenzung des OpenDTU genutzt werden.
 
 ```
 - opendtu.0.xxxxxx.power_control.limit_nonpersistent_absolute
@@ -28,12 +29,12 @@ Darüber hinaus können über den Adapter folgende Datenpunkte zur Leistungsbegr
 - opendtu.0.xxxxxx.power_control.limit_persistent_relative
 ```
 
-Weitere Informationen zu den Datenpunkten finden Sie in deren Beschreibung oder klicken Sie auf [Hier](https://github.com/tbnobody/OpenDTU/blob/master/docs/MQTT_Topics.md#inverter-limit-specific-topics).
+Weitere Informationen zu den Datenpunkten erhalten Sie in deren Beschreibung oder indem Sie auf [Hier](https://github.com/tbnobody/OpenDTU/blob/master/docs/MQTT_Topics.md#inverter-limit-specific-topics) klicken.
 
-## Aufbau
+## Konfiguration
 1. Erstellen Sie eine neue Instanz des Adapters
-2. Geben Sie Schema *(Standard http)*, WebUi-Adresse und WebUi-Port *(Standard 80)* der [OpenDTU](https://github.com/tbnobody/OpenDTU)-Hardware ein
-3. Legen Sie das WebUi-Passwort fest **(dies ist obligatorisch, wenn es falsch ist, kann kein Limit festgelegt werden!)**
+2. Geben Sie Sicherheit *(Standard http)*, IP-Adresse und Port *(Standard 80)* der [OpenDTU](https://github.com/tbnobody/OpenDTU)-Hardware ein
+3. Legen Sie das WebUI-Passwort fest **(dieses ist obligatorisch, wenn es falsch ist, kann kein Limit festgelegt werden!)**
 4. Speichern Sie die Einstellungen
 
 ## Changelog
@@ -46,6 +47,14 @@ Weitere Informationen zu den Datenpunkten finden Sie in deren Beschreibung oder 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-08-13)
+
+- (o0shojo0o) changes for new websocket structure ([#129](https://github.com/o0shojo0o/ioBroker.opendtu/issues/129))
+- (o0shojo0o) `Efficiency`, `YieldTotal`, `YieldDay` and `DC Power` moved from the AC section to the INV (old data points must be removed manually)
+- (mattreim) update to current OpenDTU logo ([#156](https://github.com/o0shojo0o/ioBroker.opendtu/issues/156))
+- (mattreim) update dependencies ([#162](https://github.com/o0shojo0o/ioBroker.opendtu/issues/162)), ([#179](https://github.com/o0shojo0o/ioBroker.opendtu/issues/179))
+- (mattreim) fix GUI translation ([#163](https://github.com/o0shojo0o/ioBroker.opendtu/issues/163))
+
 ### 1.0.1 (2023-10-29)
 
 - (o0shojo0o) fixed `power_control.current_limit_absolute" has value "-1" less than min "0"`
@@ -99,7 +108,7 @@ Weitere Informationen zu den Datenpunkten finden Sie in deren Beschreibung oder 
 ## License
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

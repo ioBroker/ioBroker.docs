@@ -1,6 +1,6 @@
 ---
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/downloads/ioBroker_Image_OdroidC2_20190209_stretch.md
 title: Изображение ioBroker для Odroid C2 с растяжкой 20190209
 hash: iH8lwAH09suBze4A8aYWuU8K9QY0mbMjxa7TjalM9co=

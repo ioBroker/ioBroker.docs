@@ -3,17 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: MqnS06VDetSr4sXhr7MZXNtQiSLV4YkL8HIBqzeuyWg=
+hash: t7SdWlx71aYib6BBQbn2pmoE0dqK1Gtf8MiV+cOLz3c=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
 - Bitte definieren Sie den Header als
 
 ## AdapterName (JJJJ-MM-TT) - [Kurzbeschreibung]
-- Die Aufnahmebeschreibung könnte lauten:
+- Die Beschreibung der Aufnahme könnte lauten:
 - neuer Adapter
-  - stabile Version
-  - neue Funktion
+- stabile Version
+- neue Funktion
 - neues Widget
 - wenn Sie Neuigkeiten zum neuen Adapter haben, fügen Sie bitte einen GitHub-Link und ein Logo des Adapters hinzu
 
@@ -66,14 +66,14 @@ Kontextmenü:
 
 - z. B. einfache Erstellung von Aliasnamen
 
-  ![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
+  ![Bild1](../../en/history/media/2023_09_26_admin_context.png)
 
 ## Javascript (01.09.2023)
 Spielplatz für JavaScript-Code:
 
-- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur dazu, die Möglichkeiten von ChatGPT zu testen
+- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur zum Testen der Möglichkeiten von ChatGPT
 
-  ![Bild 1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
+  ![Bild1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
 
 ## Cec2 (06.09.2023)
 https://github.com/iobroker-community-adapters/ioBroker.cec2
@@ -88,7 +88,7 @@ Adapter für HDMI CEC - Sie können Geräte mit HDMI CEC überwachen/steuern. Di
 ## Vis-2-widgets-material (10.09.2023)
 * (Bluefox) Türschloss-Widget wurde hinzugefügt
 
-![Bild 1](media/2023_09_10_vis-2-widgets-material-lock-1.png) ![Bild 1](../../en/history/media/2023_09_10_vis-2-widgets-material-lock-2.png)
+![Bild1](media/2023_09_10_vis-2-widgets-material-lock-1.png) ![Bild1](../../en/history/media/2023_09_10_vis-2-widgets-material-lock-2.png)
 
 ## Pushbullet (10.09.2023)
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
@@ -109,18 +109,18 @@ https://github.com/MiRo1310/ioBroker.telegram-menu
 Einfaches Erstellen von Telegram-Menüs
 
 ## Vis-2 (12.09.2023)
-* (bluefox) Horizontaler Menü
+* (bluefox) Horizontales Menü
 
-  ![Bild 1](../../en/history/media/2023_09_12_vis-2-menu.png)
+  ![Bild1](../../en/history/media/2023_09_12_vis-2-menu.png)
 
 ## Echarts (12.09.2023)
 * (Bluefox) Möglichkeit zum Exportieren der Daten in eine JSON-Datei hinzugefügt
 
-  ![Bild 1](../../en/history/media/2023_09_12_echart-1.png)
+  ![Bild1](../../en/history/media/2023_09_12_echart-1.png)
 
 * (Bluefox) Möglichkeit hinzugefügt, Zoom und Schwenken nach X Sekunden Inaktivität wiederherzustellen
 
-  ![Bild 1](../../en/history/media/2023_09_12_echart-2.png)
+  ![Bild1](../../en/history/media/2023_09_12_echart-2.png)
 
 * (bluefox) Legende als Dialog anzeigen
 
@@ -142,7 +142,7 @@ https://github.com/HGlab01/ioBroker.tinymqttbroker
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
 
-Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände im iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz zum Veröffentlichen und Abonnieren von Themen als MQTT-Client bietet.
+Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in ioBroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz zum Veröffentlichen und Abonnieren von Themen als MQTT-Client bietet.
 
 ## Awtrix-light (2.10.2023) - neuer Adapter
 https://github.com/klein0r/ioBroker.awtrix-light
@@ -158,11 +158,11 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 
 Dies ist ein vollständiges Visualisierungssystem für ioBroker.
 
-* komplett auf Webkomponenten basierend
+* komplett auf Web-Komponenten basierend
 * WYSIWYG-Editor für die Benutzeroberfläche, Sie können aber auch zur Quellansicht oder zur geteilten Ansicht wechseln
-* Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visal Studio
+* Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
 * Bindungen per Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
-* komplexe Bindungen mit Javascript darin und Konverter
+* komplexe Bindungen mit JavaScript und Konverter
 * einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann
 
 ## Heizungssteuerung (4.10.2023) - neuer Adapter
@@ -193,7 +193,7 @@ Dieses Widget ist primär für Xiaomi-Staubsauger gedacht.
 Es kann aber auch für jeden anderen Staubsauger verwendet werden.
 Der einzige Unterschied besteht darin, dass Xiaomi die Raumreinigung unterstützt.
 
-![Bild 1](../../en/history/media/2023_10_13_material-vacuum.png)
+![Bild1](../../en/history/media/2023_10_13_material-vacuum.png)
 
 ## Willkommen (17.10.2023) - neuer Adapter
 https://github.com/ioBroker/ioBroker.welcome
@@ -233,10 +233,10 @@ Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, biet
 Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche bereitzustellen.
 
 ## Vis (06.11.2023) - neue Funktion
-Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
+Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
-Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Aktivität geprüft.
+Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
 
@@ -257,7 +257,7 @@ https://github.com/ticaki/ioBroker.weather-warnings
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
-Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Staaten erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
+Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Zustände erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
 
 ## Tractive-gps (06.12.2023) - neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
@@ -271,7 +271,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-##emporia (07.12.2023) - neuer Adapter
+## Emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -297,7 +297,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-##energiefluss (25.01.2024) - neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -380,7 +380,7 @@ https://github.com/nobl/ioBroker.senec
 
 Zunächst auf das Senec Home V2.1 System ausgerichtet. Im Senec.Home System können nur ausgewählte Werte durch den Adapter verändert werden. Senec bietet aktuell auch keine zuverlässige Möglichkeit mehr, Peak Shaving über die Weboberfläche zu beeinflussen. Ob auch andere Systeme (z.B. V3) damit funktionieren, hängt davon ab, ob diese ebenfalls auf lala.cgi basieren und die gleichen JSON-Informationen liefern.
 
-##energiefluss-erweitert (11.3.2024) – neuer Adapter
+## Energiefluss-erweitert (11.3.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png" width="100" height="100" />
@@ -444,7 +444,7 @@ https://github.com/SentiQ/ioBroker.hydrawise
 
 <img src="https://github.com/SentiQ/ioBroker.hydrawise/blob/main/admin/hydrawise.jpg" width="100" height="100" />
 
-Integrieren Sie Ihren Hydrawise-Controller in iobroker. Sie können alle Controllerinformationen, Zeitpläne und Sensoren einsehen. Es ist auch möglich, die geplante Bewässerung um x Sekunden zu unterbrechen.
+Integrieren Sie Ihren Hydrawise-Controller in ioBroker. Sie können alle Controllerinformationen, Zeitpläne und Sensoren sehen. Es ist auch möglich, die geplante Bewässerung um x Sekunden zu unterbrechen.
 
 ## Tedee (17.4.2024) – neuer Adapter
 https://github.com/TA2k/ioBroker.tedee
@@ -473,9 +473,9 @@ https://github.com/CorantGmbH/ioBroker.air-q
 
 <img src="https://github.com/CorantGmbH/ioBroker.air-q/blob/main/admin/air-q.png" width="100" height="100" />
 
-Dieser ioBroker Adapter wird in Verbindung mit unserem air-Q Gerät verwendet. Er fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker Umgebung an.
+Dieser ioBroker Adapter kommt in Verbindung mit unserem air-Q Gerät zum Einsatz. Er fragt die Werte unserer Sensoren ab und stellt sie für Sie in der ioBroker Umgebung dar.
 
-##boschindego (4.5.2024) – neuer Adapter
+## Boschindego (4.5.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
 <img src="https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/admin/boschindego.png" width="100" height="100" />
@@ -488,7 +488,7 @@ Es ist eine neue Version des Windows-Installers verfügbar: 3.1.0 Neue Funktione
 - Update/Upgrade des JS-Controllers implementiert
 - Einige Bugfixes
 
-## Radar-trap (29.5.2024) – neuer Adapter am Stall
+## Radar-trap (29.5.2024) – neuer Adapter im Stall
 https://github.com/Steiger04/ioBroker.radar-trap
 
 <img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
@@ -516,11 +516,11 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 
 Dies ist ein vollständiges Visualisierungssystem für ioBroker.
 
-* komplett auf Webkomponenten basierend
+* komplett auf Web-Komponenten basierend
 * WYSIWYG-Editor für die Benutzeroberfläche, Sie können aber auch zur Quellansicht oder zur geteilten Ansicht wechseln
-* Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visal Studio
+* Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
 * Bindungen per Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
-* komplexe Bindungen mit Javascript darin und Konverter
+* komplexe Bindungen mit JavaScript und Konverter
 * einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann
 
 ## Hiob (22.5.2024) – spätestens neuer Adapter
@@ -555,3 +555,46 @@ Adapter für Klimaanlagen von Gree und C&H.
 - Die Registerkarte „Protokoll“ wurde verbessert. (Vor allem Layout und GUI)
 - Unterstützung für die automatische Update-Option des Adapters hinzugefügt. Neue Version des JS-Controllers erforderlich.
 - Es werden nur die im Adapter-Tab installierten Adapter oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
+
+## Opcua (13.6.2024) – neuer Adapter im stabilen
+https://github.com/ioBroker/ioBroker.opcua
+
+<img src="https://github.com/ioBroker/ioBroker.opcua/blob/master/admin/opcua.png" width="100" height="100" />
+
+ioBroker OPC-UA-Adapter.
+
+## E3oncan (25.7.2024) – neuer Adapter bei stabil
+https://github.com/MyHomeMyData/ioBroker.e3oncan
+
+<img src="admin/e3oncan_small.png" width="100" height="100" />
+
+Geräte der Viessmann E3-Serie (One Base) führen einen umfangreichen Datenaustausch über den CAN-Bus durch. Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Die Energiezähler E380CA und E3100CB werden ebenfalls unterstützt. Dieser Betriebsmodus wird `Collect` genannt.
+
+Hinweis: Dieser Adapter wird nur auf Linux-Systemen unterstützt.
+
+## Egigeozone2 (6.8.2024) – neuer Adapter im stabilen
+https://github.com/obakuhl/ioBroker.egigeozone2
+
+<img src="https://github.com/obakuhl/ioBroker.egigeozone2/blob/master/admin/egigeozone.png" width="100" height="100" />
+
+Dies ist ein ioBroker-Adapter für die Android-Geofencing-App „EgiGeoZone“. Er kann Geofence-Ereignisse als HTTP-Anfragen empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
+
+## Hiob (17.8.2024) – neuer Adapter im Stall
+https://github.com/moba15/ioBroker.hiob
+
+<img src="https://github.com/moba15/ioBroker.hiob/blob/main/admin/hiob.png" width="100" height="100" />
+
+Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Es ist eine einfachere und schnellere Alternative zu vergleichbaren Projekten mit weniger Konfigurationsmöglichkeiten. Es ist hauptsächlich für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktops.
+
+## Extron (17.8.2024) – neuer Adapter bei stabil
+https://github.com/Bannsaenger/ioBroker.extron
+
+<img src="https://github.com/Bannsaenger/ioBroker.extron/blob/master/admin/extron.png" width="100" height="100" />
+
+Steuergeräte von Extron. Dieser Adapter ist für die Steuerung einiger Audio-Video-Produkte von Extron über das Simple Instruction Set Protocol konzipiert. Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen sind sinnvollerweise mit dem Adapter und der Interaktion mit ioBroker unterstützt.
+
+## Ping (23.08.2024) - neue Funktion
+Der Ping-Adapter kann den IP-Adressbereich erkennen, wenn der Bereich weniger als 4096 Adressen umfasst.
+
+## Admin (23.08.2024) - neue Funktion
+Zustände könnten direkt aus der JSON-Konfiguration heraus gesteuert werden, um etwa eine Bereichserkennung zu starten.

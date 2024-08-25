@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.simple-api/README.md
 title: Einfache API
-hash: 4RFMQDhl6Ykf1fKcCSeay0BhY4g6WW5/qXLN8c7sGhs=
+hash: uZ6qv91MUDsp64vaDdJZv17hn5SFo1Qn8zeHBd097Ec=
 ---
 ![Logo](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -11,10 +11,10 @@ hash: 4RFMQDhl6Ykf1fKcCSeay0BhY4g6WW5/qXLN8c7sGhs=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.simple-api.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
 
-# Einfache-API
+# Einfache API
 ![Testen und Freigeben](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Dies ist eine RESTFul-Schnittstelle zum Lesen der Objekte und Zustände von ioBroker und zum Schreiben/Steuern der Zustände über HTTP-Get/Post-Anfragen.
+Dies ist eine RESTFul-Schnittstelle zum Lesen der Objekte und Zustände von ioBroker und zum Schreiben/Steuern der Zustände über HTTP Get/Post-Anfragen.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -179,7 +179,7 @@ oder
 
 `http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - um alle Zustände im Zweig `system.adapter.admin.0` zu lesen
 
-### Zustände
+### Staaten
 ### Suchen
 Ist eine Datenquelle (History, SQL) in der Konfiguration festgelegt, dann werden nur die der Datenquelle bekannten Datenpunkte aufgelistet.
 
@@ -432,7 +432,7 @@ Alle Steuerobjekte des Adapters system.adapter.admin.0 abrufen:
 
 ```
 
-### Zustände
+### Staaten
 Ruft die Liste aller Zustände für das Muster ab. Wenn kein Muster angegeben ist, werden alle Zustände als JSON-Array zurückgegeben.
 
 ```http://ip:8087/states?prettyPrint```
@@ -616,6 +616,12 @@ Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, wird 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Updated packages
+
+### 2.8.0 (2024-05-23)
+* (foxriver76) ported to `@iobroker/webserver`
+
 ### 2.7.2 (2022-10-08)
 * (Apollon77) Prepare for future js-controller versions
 
@@ -775,7 +781,7 @@ Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, wird 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

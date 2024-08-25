@@ -5,7 +5,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.s7.svg
 BADGE-Tests: https://travis-ci.org/ioBroker/ioBroker.s7.svg?branch=master
 BADGE-NPM: https://nodei.co/npm/iobroker.s7.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.s7/README.md
 title: ioBroker.S7
 hash: nAuRGgna8b2Yl/7OOGbig0EnQ2VauC1p6p25yWF+jwg=

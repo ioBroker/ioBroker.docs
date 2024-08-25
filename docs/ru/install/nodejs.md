@@ -2,7 +2,7 @@
 title: Node.js и нпм
 lastChanged: 11.08.2023
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/nodejs.md
 hash: /hSnG0OLvcDTR6X3kHdCsXwqL6zIPClPDIsPLmmynDI=
 ---

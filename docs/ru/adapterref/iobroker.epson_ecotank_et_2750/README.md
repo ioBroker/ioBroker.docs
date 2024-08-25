@@ -1,6 +1,6 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.epson_ecotank_et_2750/README.md
 title: ioBroker.epson_ecotank_et_2750
 hash: QGYERdKPKZrMtzmYLiSa+4TLNez3Ad6i+rFBxaqw9eI=

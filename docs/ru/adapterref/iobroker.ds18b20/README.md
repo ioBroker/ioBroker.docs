@@ -5,7 +5,7 @@ BADGE-Number of Installations (latest): https://iobroker.live/badges/ds18b20-ins
 BADGE-Number of Installations (stable): https://iobroker.live/badges/ds18b20-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.ds18b20.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ds18b20/README.md
 title: ioBroker.ds18b20
 hash: ty/iHkk1GwPIcn4IpA4wGkBtan8uKjBpFvHhOJye4ec=

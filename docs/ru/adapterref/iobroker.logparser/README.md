@@ -10,7 +10,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.logparser.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/logparser-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/logparser-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.logparser/README.md
 title: Конфигурация
 hash: 5zs2X6FhpG3ahs4RzVTvqdP9xanfT3Sxx46uIvsWJ6Y=

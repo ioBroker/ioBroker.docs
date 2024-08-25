@@ -2,7 +2,7 @@
 title: монтаж
 lastChanged: 13.09.2018
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/virtualbox.md
 hash: slUqfVNS38ZC/Qkic41PwsrfkOker7g3nElPwh6kQAM=
 ---

@@ -1,6 +1,6 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rssfeed/README.md
 title: Адаптер ioBroker для запроса и отображения RSS-каналов различных стандартов (Atom, RSS, RDF)
 hash: 2EJ3w/l3dIfXZJMpjQqU13o7sbmZyqWpAWMgWgAWZZY=

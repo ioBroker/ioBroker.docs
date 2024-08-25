@@ -5,7 +5,7 @@ BADGE-Stable version: http://iobroker.live/badges/sma-em-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sma-em.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sma-em/README.md
 title: Документация по адаптеру счетчика электроэнергии SMA
 hash: WS7L5oYrhVkm1f4PLor2KG6Ab/cXAojCxkX/Z0Wo/rY=

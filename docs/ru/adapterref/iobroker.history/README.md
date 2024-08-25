@@ -3,7 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/history-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.history.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.history.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.history/README.md
 title: ioBroker.история
 hash: 1BxcjI7DZqZM1IqZ+fVidPAtovw2njq9lR8wXUMol9k=

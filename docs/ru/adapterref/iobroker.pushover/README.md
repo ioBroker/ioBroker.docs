@@ -3,7 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/pushover-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.pushover.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pushover.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pushover/README.md
 title: ioBroker.pushover
 hash: TPAyzEDw5p3Prh33C7Gu/sfALjyHt59qWdA0psxUAFY=

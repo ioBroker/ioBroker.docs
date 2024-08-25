@@ -10,7 +10,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
 hash: 1CX57riukuEhE4auf0j8p9GvmB3Glsfpz5vS9su8S3c=

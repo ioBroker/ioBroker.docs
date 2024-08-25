@@ -2,7 +2,7 @@
 title: Линукс
 lastChanged: 23.10.2022
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/linux.md
 hash: INgimHYt+dgON9a05AHCKC6PlrCewIMCP83w/bz6CxQ=
 ---

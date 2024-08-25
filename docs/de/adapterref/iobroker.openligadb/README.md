@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openligadb/README.md
 title: ioBroker-Adapter zum Abrufen von Fußballspielergebnissen von OpenLigaDB
-hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
+hash: e5bt04T3osN7C2hpyfmVE5dX3PSxxSGuFY7/ibkCVe4=
 ---
 ![Logo](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
@@ -14,10 +14,10 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
 ![NPM](https://nodei.co/npm/iobroker.openligadb.png?downloads=true)
 
 # IoBroker-Adapter zum Abrufen von Fußballspielergebnissen von OpenLigaDB
-## Überblick
+## Übersicht
 Adapter zum Anfordern von Spieldaten für Fußball oder andere Spiele von openligadb.de
 
-## Aufbau
+## Konfiguration
 Füge eine Instanz des Adapters hinzu und klicke auf das Schraubenschlüsselsymbol. Im Formular kannst du die Verknüpfung einer Liga und einer Saison hinzufügen.
 Bitte besuche openligadb.de für verfügbare Ligen, Saisons und Verknüpfungen. Wenn sich eine Saison über zwei Jahre erstreckt, gib bitte nur das Startjahr ein.
 
@@ -45,20 +45,23 @@ Alle aktuellen und zukünftigen Spiele deiner Lieblingsvereine anzeigen
 
 Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/deutsch](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html)
 
-## Machen
+## Aufgaben
 - Validierung im Widget, wenn der Benutzer nicht den richtigen Datenpunkt ausgewählt hat
--   Übersetzung
+- Übersetzung
 - ~~Dokumentation für neue Widgets „PivotTable“ und „Goalgetters“~~
 - ~~Tabellenmodi um 1. Runde und 2. Runde erweitern~~
 - ~~neue Widget-Pivot-Tabelle der gespielten Spiele~~
-- ~~neues Widget „Zielerreicher-Ranking“ mit Sortierfunktion~~
+- ~~neues Widget für Zielerreichungsranking mit Sortierfunktion~~
 - ~~Tabelle mit Trendzeichen erweitern (Pfeil hoch/runter, Punkt für keine Veränderung)~~
 - ~~Tabelle erweitern um mit den letzten x Spielen zu rechnen~~
 - ~~Tabelle erweitern um Rangliste für einen bestimmten Spieltag zu berechnen~~
 - ~~Dokumentationsadapter/Widget~~
 - ~~Problem mit der dynamischen Spalte „Club“ behoben~~
 - ~~Neues Widget: Nächste x Spiele des Clubs~~
-- ~~Widget-Spieltagseinstellung für Spieltagbeginn und -länge (-1,3 = vorherigen Spieltag und 3 Spieltage danach anzeigen)~~
+- ~~Widget Spieltag Einstellung für Start Spieltag und Länge (-1,3 = vorherige anzeigen
+
+Spieltag und 3 Spieltage danach)~~
+
 - ~~Ersatzwert für den Editiermodus, wenn Showgameday mit Bindung gesetzt ist~~
 - ~~Lieblingsclub hervorheben~~
 - ~~steuerbarer Spieltag im Spieltags-Widget~~
@@ -69,6 +72,15 @@ Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.4.11 (2024-08-09)
+
+-   fix issues from adapter checker
+
+### 1.4.10 (2024-08-02)
+
+-   switch to eslint 9
+-   adjust markdownlint settings to be compatible with prettier
+
 ### 1.4.9 (2024-06-13)
 
 -   fix if no game exist for team1/team2
@@ -178,14 +190,17 @@ Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/
 
 ### 0.11.1
 
--   change some template settings, goalgetter table get headers, add object change sensing
+-   change some template settings, goalgetter table get headers,
+    add object change sensing
 -   widget goalgetters: add parameter highlight and showonlyhighlight
 -   widget pivottable: add sort option and choice to place favorite teams on top
 -   remove year from date for several widgets
 
 ### 0.11.0
 
--   extend table to calculate with x last games and extend table to calculate ranking for a defined gameday, to ensure backward compatibility i have to create a new table v3 widget
+-   extend table to calculate with x last games and extend table to calculate
+    ranking for a defined gameday, to ensure backward compatibility i have to
+    create a new table v3 widget
 -   extend table with trend sign (arrow up/down, point for no change)
 -   new widget goal getter ranking with sort function
 -   new widget pivot table of played games
@@ -193,21 +208,27 @@ Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/
 
 ### 0.10.3
 
--   change computing and output logic of gameday widget to mark gameday header with favorite class
+-   change computing and output logic of gameday widget to mark gameday
+    header with favorite class
 -   improve documentation with css-klasses for table widget
 -   bugfix for calculate gameday.
 
 ### 0.10.2
 
--   Add data column goaldiff to table widget, improve more documentation (systax highlighting,copy code function), add example to control gameday with buttons,
+-   Add data column goaldiff to table widget, improve more documentation
+    (systax highlighting,copy code function), add example to
+    control gameday with buttons,
 
 ### 0.10.1
 
--   Improve documentation with more recipes and syntax highlighting, improve code to get and subscribe states
+-   Improve documentation with more recipes and syntax highlighting,
+    improve code to get and subscribe states
 
 ### 0.10.0
 
--   New widget Table 2 that includes the calculation of the total, home and away results. the previous widget is now deprecated, due to the different datapoint (allmatches) to be selected.
+-   New widget Table 2 that includes the calculation of the total, home and
+    away results. the previous widget is now deprecated, due to the
+    different datapoint (allmatches) to be selected.
 
 ### 0.9.3
 
@@ -223,11 +244,14 @@ Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/
 
 ### 0.9.0
 
--   new Function for vis Binding to search for games at the actual day for favorite clubs, css-classes für games at actual day, fix bug to show the right match results,
+-   new Function for vis Binding to search for games at the actual day for
+    favorite clubs, css-classes für games at actual day, fix bug to show
+    the right match results,
 
 ### 0.8.0
 
--   push version for latest repository. fix some typos. fix a problem with date handling on different OS
+-   push version for latest repository. fix some typos. fix a problem with
+    date handling on different OS
 
 ### 0.0.11
 
@@ -239,11 +263,13 @@ Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/
 
 ### 0.0.9
 
--   optional weekday for widgets: gameday and gamesoffavclub,highlight the clubname in gamesoffavclub
+-   optional weekday for widgets: gameday and gamesoffavclub,highlight the
+    clubname in gamesoffavclub
 
 ### 0.0.8
 
--   new widget games of favorite clubs with multi league support as replacement for the old one
+-   new widget games of favorite clubs with multi league support as
+    replacement for the old one
 
 ### 0.0.7
 
@@ -257,7 +283,8 @@ Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/
 
 -   highlight favorite club,
 -   Replacement value for edit mode if showgameday is set with binding,
--   widget gameday setting for start gameday an length (-1,3 = show previous gameday and 3 gamedays after that)
+-   widget gameday setting for start gameday an length (-1,3 = show previous
+    gameday and 3 gamedays after that)
 -   some documentation
 -   remove unused code
 -   new widget: next x games of club

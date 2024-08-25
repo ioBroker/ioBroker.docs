@@ -5,7 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/worx-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/worx-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: Адаптер ioBroker.worx
 hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=

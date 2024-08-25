@@ -1,6 +1,6 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.km200/README.md
 title: Этот адаптер УСТАРЕЛ и не будет развиваться дальше.
 hash: Ddot5xcNC6sREnW6nGImZAmdi9FoTlYzZ74ir13C2YE=

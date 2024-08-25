@@ -3,7 +3,7 @@ title: Документация по руководству по стилю
 lastChanged: 13.06.2019
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/community/styleguidedoc.md
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 hash: Zmgjn4ZXZEX/lmxZOYDoitahdM5B6U5aczZS5gjD+Sk=
 ---
 # Документация по стилю

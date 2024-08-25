@@ -1,6 +1,6 @@
 ---
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/viz/timeandweather.md
 title: Время и погода
 hash: 3F5tnNInLrwz9Ic7Db40MfwRZ7qhrC1UraDW+wpkF5c=

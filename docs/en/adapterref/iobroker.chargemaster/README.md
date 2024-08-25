@@ -40,11 +40,16 @@ To connect to the wallboxes type in the states with needed data in the config.
 
 This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
 
+## Donate
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>  
+If you enjoyed this project � or just feeling generous, consider buying me a beer. Cheers! :beers:
+
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.11.0 (2024-08-xx)
+### 0.11.0 (2024-08-24)
 
 -   (HombachC) implement variable wallbox amount 
 -   (HombachC) fix errors in wallbox control

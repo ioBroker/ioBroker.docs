@@ -6,7 +6,7 @@ BADGE-Current version in stable repository: https://iobroker.live/badges/wiegand
 BADGE-Dependency Status: https://img.shields.io/david/kbrausew/iobroker.wiegand-tcpip.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.wiegand-tcpip.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wiegand-tcpip/README.md
 title: **Настраивать**
 hash: dfVQu1onk5GZrjjfwS/zm9lJvc7qy6w2j6crpfH8rgY=

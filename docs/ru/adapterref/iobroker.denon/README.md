@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.denon.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.denon/README.md
 title: ioBroker.denon
 hash: pVtahMGL0HeNcKSx8rUcOXvmb126tYXzTjoxeXwdwvo=

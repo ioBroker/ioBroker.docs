@@ -84,8 +84,6 @@
   * [Editors](cloud/editor)
   * [Alexa Smarthome-Skill](cloud/alexasmart)
   * [Alexa Custom-Skill](cloud/alexacustom)
-  * [IFTTT](cloud/ifttt)
-  * [Mediola Plugin](cloud/mediola)
   * [Android App](cloud/androidapp)
   * [iOS App](cloud/iosapp)
 

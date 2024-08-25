@@ -7,7 +7,7 @@ BADGE-Dependency Status: https://img.shields.io/david/klein0r/iobroker.luftdaten
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.luftdaten.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luftdaten/README.md
 title: ioBroker.luftdaten
 hash: RgjyUcz+6h/w4vumvBaWQBnfA/ViD04Q1jOZLvyagTk=

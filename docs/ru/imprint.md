@@ -2,7 +2,7 @@
 title: отпечаток
 lastChanged: 02.11.2022
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/imprint.md
 hash: m/le4rnINxIhMPsIbkVsFZI++y8EhxHdiC2HmuJikeA=
 ---

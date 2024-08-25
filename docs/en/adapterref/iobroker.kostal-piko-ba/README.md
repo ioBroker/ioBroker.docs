@@ -44,10 +44,14 @@ To connect to the Kostal Piko (BA / MP plus) inverter, you must configure its IP
 Optionally, you can adjust the update frequencies for live data, daily statistics, and lifetime statistics.
 If your hardware supports it, you can also enable the read-out of the four analog values.
 
-## Notes
+## Sentry
 
-This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.
-For more information and instructions on how to disable error reporting, see the [Sentry Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Sentry reporting is enabled starting with js-controller 3.0.
+This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
+
+## Donate
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=XFFBB332R4RCQ"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>  
+If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
 

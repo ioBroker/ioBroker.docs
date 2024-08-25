@@ -1,5 +1,5 @@
 ---
-lastChanged: "06.06.2019"
+lastChanged: "25.08.2024"
 ---
 
 # States und Datenpunkte
@@ -15,10 +15,10 @@ Eigenschaften eines Zustands sind:
  * `from` - (optional) Quelle(Adapter Instanz) der letzten Aktualisierung
  * `user` - (optional) Anwendername, wer als letzter den Wert geschrieben hat.
  * `c` - (optional) Kommentar
- * `expire` - (optional) Zeit in Sekunden, wann der Wert auf `null` resetet wird.
+ * `expire` - (optional) Zeit in Sekunden, wann der Wert auf `null` gesetzt wird.
   
 Attribute des statischen Objektes sind id, type = 'state', common, native. Folgende common-Attribute sind möglich:
-* `common.type` (optional) - Standard ist 'mixed' = beliebiger Typ. Mögliche Werte: `number`, `string`, `boolean`, `array`, `object`, `mixed`, `file`.
+* `common.type` (optional) - Standard ist `mixed` = beliebiger Typ. Mögliche Werte: `number`, `string`, `boolean`, `array`, `object`, `mixed`, `file`.
 * `common.name` (optional, string)
 * `common.max` (optional, number)
 * `common.step` (optional, number) - Intervall erhöhen / verringern. Z.B. 0.5 für Thermostat

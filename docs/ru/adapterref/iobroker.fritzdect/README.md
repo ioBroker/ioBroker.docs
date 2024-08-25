@@ -5,7 +5,7 @@ BADGE-Number of Installations (latest): http://iobroker.live/badges/fritzdect-in
 BADGE-Number of Installations (stable): http://iobroker.live/badges/fritzdect-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fritzdect/README.md
 title: Инструкция по установке
 hash: lwwdDTRwowRvfKRVnTjca+VueSpo7Z2PQgz7nn97AoY=
