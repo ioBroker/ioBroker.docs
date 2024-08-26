@@ -30,7 +30,7 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 - nodejs 18 (or later)
 - js-controller 5.0.0 (or later)
 - Admin Adapter 6.0.0 (or later)
-- _LaMetric Time_ with firmware _2.3.8_ (_3.1.0_ on the 2022 model) (or later)
+- _LaMetric Time_ with firmware _2.3.9_ (_3.1.1_ on the 2022 model) (or later)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
@@ -59,7 +59,20 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.3.0 (2024-08-05)
+
+* (@klein0r) Added api version as state (and check value)
+
+### 3.2.3 (2024-07-21)
+
+* (@klein0r) Fixed blockly definitions
+
+### 3.2.2 (2024-07-13)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.1)
+
 ### 3.2.1 (2024-06-12)
+
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
 * (@klein0r) Updated dependencies
 
@@ -68,19 +81,6 @@ Features are limited by the [official API features](https://lametric-documentati
 NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Fixed Blockly definitions (removed warnings)
-
-### 3.1.3 (2024-01-31)
-
-* (klein0r) Fixed web extension
-
-### 3.1.2 (2023-12-27)
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
-* (klein0r) Some devices don't have bluetooth low energy states (sa8)
-
-### 3.1.1 (2023-10-27)
-
-* (klein0r) Fixed issue with foreign states of version 3.1.0
 
 ## License
 

@@ -3,7 +3,7 @@ title: Собственный адаптер
 lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterdev.md
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 hash: R2odBG9nZ5xpmHaxcp4rCRDeG2avZyzvVWozlHLbphw=
 ---
 # Разработайте свой собственный адаптер

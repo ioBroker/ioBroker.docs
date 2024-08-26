@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: wMIWfazgk0pOBxXjHbVM8RfGCY1jJBpy2OL7a7kbo2Y=
+hash: elU8v7ZAgneVz347C06yN0EWDQkmPmhe8/wbzQUEObM=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -33,7 +33,6 @@ Der ioBroker ems-esp Adapter kann Daten von beiden Gateways lesen und schreiben,
 Er kann entweder für die originalen Bosch-Group Gateways oder das ems-esp oder beide parallel verwendet werden.
 Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen auf acknowledged = false gesetzt werden!!!
 
-## NEU in Version >= 3.3.0: Einführung von Warnungen für die Verwendung nicht produktiver ems-esp-Firmware.
 Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf Englische Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 # Iobroker.ems-esp
@@ -43,28 +42,22 @@ Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* adapter now with json config
-* js controller version >= 4.0.24 and admin version >= 6.3.5 required
-* add expert settings for ems-esp gateway (own states by polling raw telegrams)
-* support different ems-esp bus id's for own states
-* add pdf documentation for new functionality
+### 4.7.2 (2024-08-17)
+* ems-esp: enable writing on custom entities
 
-### 3.5.0 (2024-05-15)
-* warm water starts not supported anymore within statistics due to name changes within ems-esp firmware 3.7
+### 4.7.1 (2024-08-17)
+* ems-esp: custom entities are now under object structure "custom"
 
-### 3.4.4 (2024-05-15)
-* improve delays between axios get requests for km200 and ems-esp to avoid errors
+### 4.7.0 (2024-08-16)
+* ems-esp: do not allow more then one thermostat for extended own entities
+* ems-esp: error correction for holidayModes custom entities
 
-### 3.4.3 (2024-05-14)
-* corrections for reading gateway data for km200 gateway
+### 4.6.4 (2024-08-14)
+* ems-esp: error correction on polling for 3.6.5
 
-### 3.4.2 (2024-05-13)
-* update dependencies
-* replace setTimeout by adapter.delay
-
-### 3.4.1 (2024-04-26)
-* correct enum settings for ems-esp gateway on adapter start
+### 4.6.3 (2024-08-14)
+* small adjustments
+* dependabot updates dependencies
 
 ## License
 MIT License
@@ -86,5 +79,5 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+*OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."

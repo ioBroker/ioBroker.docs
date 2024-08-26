@@ -38,7 +38,9 @@ ATX20KV1B, ATX25KV1B, ATX35KV1B, , ATXL25J2V1B, ATXL35J2V1B,
 Compatible units in combination with **BRP069A44 (?)**:
 FTX50KV1B, FTX60KV1B
 
-Note: For devices with-newer WLAN Adapter like **BRP069C4x** which can only be used by the Onecta App please use the [Daikin-CLoud](https://github.com/Apollon77/ioBroker.daikin-cloud) adapter instead.
+Note: it seems that, according to reports so far, the adapters here keep their local API even when upgraded to the Firmware that allows Daikin Cloud usage. So this adapter should still work with these devices.
+
+Note: For devices with-newer WLAN Adapter like **BRP069C4x** which can only be used by the Onecta App please use the [Daikin-Cloud](https://github.com/Apollon77/ioBroker.daikin-cloud) adapter instead.
 
 ## Disclaimer
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**

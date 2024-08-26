@@ -16,12 +16,12 @@ SayIt Adapter can convert text to speech and play it on some device.
 ## Configuration
 Actually, the following outputs are supported:
 
-- *Browser* - the text will be played by browser with opened `iobroker.vis` page. It is supported almost by every desktop browser and by few mobile Browsers.
+- *Browser* - browser will play the text within opened `iobroker.vis` page. It is supported almost by every desktop browser and by few mobile Browsers.
 
 - *[Home24- MediaPlayer](http://www.home-24.net/index.php?app=media)* - the text will be sent and played to the Android device with Home24 - MediaPlayer installed. For this will be used build in Android text to speech engine. The port cannot be changed and set to 50000.
 
 - *Home24 - MediaPlayer and [FTP Server](https://play.google.com/store/apps/details?id=lutey.FTPServer)* - the text will be sent and played on the Android device with Home24 - MediaPlayer installed. For this will be used the Google text to speech engine. Generated mp3 file will be copied over FTP to an Android device and played with Home24 - MediaPlayer.
-    Both apps have to have same home directories. (E.g. root directory of \"sd card\").
+    Both apps have to have same home directories. (E.g., root directory of \"sd card\").
 
 - *System* - the text will be played by OS, where the ioBroker adapter runs. Following OS are supported: Windows, linux, Mac OSx.
 
@@ -49,7 +49,7 @@ Online:
   To use Yandex.cloud you should register here: [https://cloud.yandex.ru/], install SpeechKIT API in the Cloud and get Auth Token and Folder ID as described in API instructions.
 - Cloud: To use Cloud voices you need configured and running `cloud` adapter or enter app-key directly in settings
 - Amazon Web Services Polly:
-  To use AWS Polly voices you need to create an access key and secret key [here](https://console.aws.amazon.com/iam/home). The Amazon documentation can you find [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
+  To use AWS Polly voices, you need to create an access key and secret key [here](https://console.aws.amazon.com/iam/home). The Amazon documentation can you find [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
 
 Offline:
 - PicoTTS (linux only): English, German, Italian, Spanish, French;
@@ -73,17 +73,17 @@ More [info](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit
 ### System command
 If you have some program, that can play audio files locally or somewhere else, you can write this command here. E.g.
 
-```myCustomPlayer --option```
+`myCustomPlayer --option`
 
 If **System** output is selected, the `sayit` adapter will execute the following command on a local system:
 
-```myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3```
+`myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3`
 
 If file name must stay somewhere in the middle, you can use *%s* to specify where the file name must be placed:
 
-```myCustomPlayer --option "%s" > /dev/null```
+`myCustomPlayer --option "%s" > /dev/null`
 
-sayIt will make ```myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null``` from it.
+sayIt will make `myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null` from it.
 
 ## Usage
 SayIt adapter cannot be used alone. It must be controlled from javascript adapter or from "vis" with specific widget.
@@ -95,20 +95,20 @@ After creation of adapter instance, you can find the following objects:
    E.g., you can enter here manually "No internet" and if ping to google.com is negative, write "No internet" to "tts.text" and it will be pronounced. Of course, cache must be enabled.
 
 State `tts.text` supports extended syntax, so the language/engine and volume can be defined together with text. It is used to enable multi-language text2speech engines.
-E.g., if adapter has engine "Google-english", it is possible with phrase ```de:Sag es``` to force using Google-Deutsch speech engine.
+E.g., if adapter has engine `Google-english`, it is possible with phrase `de:Sag es` to force using Google-Deutsch speech engine.
 
-With ```ru;75;Погода хорошая``` we can force using russian language and volume 75%.
+With `ru;75;Погода хорошая` we can force using russian language and volume 75%.
 
-You can specify the volume of announcement in percent from current or given volume (not from maximal). E.g., if command is ```de;75;Gutes Wetter```and "announce volume" is 50%, the announcement will be played with volume 38% from 100% possible.
+You can specify the volume of announcement in percent from current or given volume (not from maximal). E.g., if command is `de;75;Gutes Wetter`and "announce volume" is 50%, the announcement will be played with volume 38% from 100% possible.
 
 The system command to play the mp3 file can be specified too. If you leave it blank, the default settings will be used: windows - `cmdmp3.exe`, OSX - `/usr/bin/afplay`, linux - `mpg321` or `omxplayer` (recommended).
 
-To install omxplayer write ```sudo apt-get install omxplayer``` or write ```sudo apt-get install mpg321``` to install mpg321.
+To install omxplayer write `sudo apt-get install omxplayer` or write `sudo apt-get install mpg321` to install mpg321.
 
 **Note:** The default announce selection will be possible only after the start of the instance.
 
 ### Priorities
-To immediately pronounce the text despite the queued texts, you have 2 possibilities:
+To immediately pronounce the text despite the queued texts, you have two possibilities:
 - place "!" as a first character in text, so this text will be pronounced immediately after the current one.
 - write true into "tts.clearQueue" state and the queue will be cleared. After that you can write a new text into `tts.text`, but all queued texts are thrown away.
 
@@ -267,6 +267,17 @@ The following values for engines are possible:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.0.0 (2024-07-16)
+* (mcm1957) Adapter requires admin v7 or newer now
+* (mcm1957) Adapter requires jas-controller 5 or newer now
+* (bluefox) Added possibility to play directly from states: `sayit.0/tts.userfiles/gong.mp3`
+
+### 4.0.5 (2024-07-12)
+* (bluefox) Packages updated
+* (bluefox) Corrected playing in vis
+* (bluefox) Corrected blockly
+* (bluefox) Corrected upload of files
+
 ### 4.0.1 (2024-05-25)
 * (bluefox) Packages updated
 * (neopholus) Using the pre-calculated duration of the mp3 to wait long enough even for longer announcements
@@ -331,7 +342,7 @@ The following values for engines are possible:
 
 ### 1.11.0 (2020-08-02)
 * (Apollon77) Move the generated mp3 file to an own directory in iobroker-data instead of inside node_modules (Hopefully not breaking)
-* (Apollon77) Change File write to use Sync methods to make sure they cannot run in parallel
+* (Apollon77) Change the file writing to use Sync methods to make sure they cannot run in parallel
 
 ### 1.10.2 (2020-07-19)
 * (Apollon77) Crash case prevented (Sentry IOBROKER-SAYIT-8)
@@ -405,7 +416,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 1.6.3 (2017-10-04)
 * (bluefox) Code refactoring
-* (bluefox) Add google home as output
+* (bluefox) Add Google Home as output
 * (bluefox) Remove ivona because not more supported
 
 ### 1.5.2 (2017-03-09)
@@ -416,11 +427,11 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 1.5.0 (2017-01-27)
 * (DarkChaos) Add AWS Polly as source
-* (bluefox) Add cloud as source
+* (bluefox) Add cloud as a source
 
 ### 1.4.0 (2017-01-16)
 * (bluefox) fixed install problem
-* (bluefox) add PicoTTS as source
+* (bluefox) add PicoTTS as a source
 
 ### 1.3.3 (2017-01-13)
 * (bluefox) show only installed instances in blockly
@@ -448,7 +459,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 * (bluefox) Add omxplayer option
 
 ### 1.0.1 (2016-10-12)
-* (bluefox) support of blockly
+* (bluefox) support for blockly
 
 ### 1.0.0 (2016-05-14)
 * (bluefox) Make the type of mp3 as file
@@ -470,7 +481,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 0.3.12 (2015-10-06)
 * (bluefox) fixed error if received mp3 file is too short
-* (bluefox) try to implement cache datapoint (you can use sayit.0.tts.cachetext to create cache for phrases and use sayit without internet)
+* (bluefox) try to implement cache datapoint (you can use `sayit.0.tts.cachetext` to create cache for phrases and use sayit without internet)
 
 ### 0.3.11 (2015-08-03)
 * (bluefox) change google requests from http to https
@@ -488,7 +499,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 0.3.7 (2015-05-28)
 * (bluefox) fixed volume for an announcement
-* (bluefox) support for play files from internal filesystem, like "/sayit.0/tts.userfiles/myGong.mp3"
+* (bluefox) support for play files from internal filesystem, like `/sayit.0/tts.userfiles/myGong.mp3`
 
 ### 0.3.6 (2015-03-24)
 * (bluefox) fixed error with volume by sonos

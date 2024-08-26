@@ -3,56 +3,56 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: Адаптер точки доступа ioBroker HomeMatic IP Cloud
-hash: 5eoRlykq1weQE21A6Rnnfh4KaF4vAUa68EacmchWtlM=
+hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![Количество установок](http://iobroker.live/badges/hmip-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.hmip.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.hmip.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
-# Адаптер точки доступа ioBroker HomeMatic IP Cloud
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Адаптер точки доступа IP Cloud ioBroker HomeMatic
+![Тест и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Отказ от ответственности
-**Все названия и логотипы продуктов и компаний являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения с их стороны или любых связанных с ними дочерних компаний! Этот личный проект поддерживается в свободное время и не преследует никакой коммерческой цели.** **HomeMatic является торговой маркой ELV Elektronik AG**
+**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками их соответствующих владельцев. Их использование не подразумевает какой-либо связи или одобрения ими или любыми связанными дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет бизнес-целей.** **HomeMatic является товарным знаком ELV Elektronik AG**
 
 ## Описание
-Этот адаптер обеспечивает связь с HomematicIP CloudAccessPoint через Rest API облака Homematic IP.
+Этот адаптер обеспечивает связь с HomematicIP CloudAccessPoint через Rest API Homematic IP Cloud.
 
-**Важное примечание:** Пожалуйста, ограничьте запросы управления до минимума, потому что EQ-3 начал блокировать IP-адреса, когда вы делаете слишком много!
+**Важное примечание:** Пожалуйста, ограничьте запросы на управление до минимума, поскольку EQ-3 начал блокировать IP-адреса, когда вы делали это слишком часто!
 
-## Монтаж
-Для этого адаптера требуется node-js версии >= 16.0.
+## Установка
+Для этого адаптера требуется node-js версии >= 16.0
 
 Вот пошаговое видео по установке на YouTube https://youtu.be/kXWfJRUYJIA
 
 ## Информация
 Большинство IP-устройств Homematic уже работают с последней версией адаптера.
 
-Я буду постоянно его улучшать, но это займет время. Любая помощь от сообщества, например. Запрос на извлечение будет высоко оценен.
+Я буду постоянно улучшать его, но это займет время. Любая помощь от сообщества, например, через Pull Request, будет высоко оценена.
 
-Если устройства HmIP не работают, создайте проблему с этой информацией (по одной на каждое устройство и, если возможно, укажите техническое название в теме).
-Переключите ведение журнала адаптера в ioBroker в глупый режим и добавьте json устройства, который печатается в журнале в задаче.
-Мне также может понадобиться JSON изменения состояния.
+Для неработающих устройств HmIP создайте проблему с этой информацией (по одной на устройство и, если возможно, укажите техническое имя в теме).
+Переключите ведение журнала адаптера в ioBroker в режим Silly и добавьте json устройства, который выводится в журнал в проблеме.
+Мне также может понадобиться json изменения состояния.
 
 Спасибо!
 
-Если вы ищете информацию, если настройки сигнализации активны, вам необходимо проверить активное состояние группы ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют собой комбинацию трех состояний сигнализации. ВНУТРЕННИЙ и ВНЕШНИЙ активен означает «В гостях», только ВНЕШНИЙ активен означает активен только «Периметр».
+Если вы ищете информацию, если настройки сигнализации активны, вам нужно проверить активное состояние групп INTERNAL и EXTERNAL, они представляют собой комбинацию трех состояний тревоги. INTERNAL и EXTERNAL активны означают «Отсутствие», активен только EXTERNAL, означает активен только Perimeter.
 
-## Важная информация, что можно сделать с помощью этого адаптера
-!!! С помощью этого адаптера вы можете запускать только те события, которые можно запустить через оригинальное приложение Homematic IP.
+## Важная информация о том, что можно сделать с помощью этого адаптера
+!!! С помощью этого адаптера вы можете запускать только те события, которые можно запускать через оригинальное приложение Homematic IP.
 Например, прямые соединения между устройствами не имеют событий в приложении и также не могут быть запущены через этот адаптер!!!
 
 ## Настройки
-* введите свой SGTIN (на задней стороне точки доступа) и PIN-код (если он был установлен ранее) и подтвердите данные, нажав синюю светодиодную кнопку. Это создаст токен аутентификации.
+* введите свой SGTIN (на задней стороне точки доступа) и PIN-код (если он был установлен ранее), и подтвердите данные, нажав синюю светодиодную кнопку. Это создаст токен аутентификации.
 
 ## Специальные настройки
 ### HMIP-DLD (привод дверного замка)
-Если вы назначили PIN-код для замка в приложении HmIP (Настройки / Разрешения доступа - немецкий: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройства. Это НЕ ПИН-код вашей системы! Если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
-Кроме того, добавьте клиента «iobroker» в список клиентов контроля доступа в настройках приложения HmIP!
+Если вы назначили PIN-код для замка в приложении HmIP (Настройки / Авторизация доступа - немецкий: "Zutrittsberechtigungen"), то PIN-код необходимо установить в состоянии PIN-кода объектов устройства. Это НЕ ваш системный PIN-код!! если вы не установили PIN-код в настройках, вы также можете оставить пустым состояние PIN-кода.
+Кроме того, добавьте клиента "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
 
 ## Спасибо
 * @coreGreenberet за его библиотеку Python (https://github.com/coreGreenberet/homematicip-rest-api)
@@ -63,24 +63,38 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ## Запрос адаптера на GitHub
 https://github.com/ioBroker/AdapterRequests/issues/62
 
-<!--
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### 1.24.1 (2024-08-06)
+* (bluefox) GUI was migrated for Admin 7
+
+### 1.23.4 (2024-07-07)
+* (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected
+* (Apollon77) Optimize websocket reconnection handling
+
+### 1.23.3 (2024-05-27)
+* (bluefox) Ignored status 400 by token request
+
+### 1.23.2 (2024-05-24)
+* (bluefox) Allowed calling token request without PIN
+* (bluefox) Corrected the token request
+
+### 1.23.0 (2024-04-19)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.22.0 (2024-01-17)
 * (bluefox) IMPORTANT: Node.js 16.x or newer is now required
 * (bluefox) Module `require` has been replaced by `axios`
 * (bluefox) Added JSON config
-* (ChristianFue) Added support for Hmip-RGBW 
+* (ChristianFue) Added support for Hmip-RGBW
 - (bluefox) Dependencies have been updated.
 
 ### 1.21.1 (2024-01-15)
-- (ApolloSK) Some issuses for energySensor have been fixed.
+- (ApolloSK) Some issues for energySensor have been fixed.
 - (mcm1957) Dependencies have been updated.
 
 ### 1.21.0 (2023-12-27)
@@ -167,7 +181,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Removed some generic (error/info) states that only exist on chosen devices to re-add later in a generic way
 
 ### 1.13.2 (2021-08-25)
-* (Apollon77) Fix warning on js-controller 3.3 with two datapoints
+* (Apollon77) Fix warning on js-controller 3.3 with two data points
 
 ### 1.13.1 (2021-08-06)
 * (Apollon77) Fix warning on js-controller 3.3 with "sabotage" datapoint
@@ -315,7 +329,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters <mcm57@gmx.at>  
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

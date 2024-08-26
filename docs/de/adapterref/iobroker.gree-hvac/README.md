@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gree-hvac/README.md
 title: iobroker.gree-hvac
-hash: MsbsiEqqFGmnBK3nPZW4/lrI1zumEhj+80UUJ3NPpNY=
+hash: nbnCeatkP5YX4f21mweyh2a/mosv3Qal1E5BFx02vvI=
 ---
 ![Logo](../../../en/adapterref/iobroker.gree-hvac/admin/air-conditioner.png)
 
@@ -15,7 +15,7 @@ hash: MsbsiEqqFGmnBK3nPZW4/lrI1zumEhj+80UUJ3NPpNY=
 # Iobroker.gree-hvac
 **Tests:** [![Testen und Freigeben](https://github.com/xhunter74/ioBroker.gree-hvac/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/xhunter74/ioBroker.gree-hvac/actions/workflows/test-and-release.yml)
 
-Adapter für Klimaanlagen von Gree und C&H
+Adapter für Gree- und C&H-Conditioner
 
 ## Unterstützte Geräte
 Alle Geräte, die über die EWPE Smart App gesteuert werden können, sollten unterstützt werden, darunter:
@@ -33,12 +33,23 @@ Alle Geräte, die über die EWPE Smart App gesteuert werden können, sollten unt
 - [tomikaa87](https://github.com/tomikaa87) für das Reverse Engineering des Gree-Protokolls
 - [stas-demydiuk](https://github.com/stas-demydiuk) für den Code von DeviceManager
 - Sizenko Alexander für Digital-7-Schriftarten
+- [cont1nuity] zum Hinzufügen der AES-GCM-Verschlüsselung
 
 ## Changelog
-### 1.0.0 (2024-05-31)
- - Small fixes. Ready to production.
-### 0.0.14 (2024-04-15)
- - First version of the adapter
+### 1.1.0 (2024-08-13)
+ - Added the AES-GCM encryption which is needed for some devices with newer firmware versions (e.g. gree model 32776, v1.23)
+### 1.0.7 (2024-07-03)
+ - Host Google icons locally. Updated dependencies.
+### 1.0.6 (2024-06-14)
+ - Added button titles and translation.
+### 1.0.5 (2024-06-12)
+ - Added time field.
+### 1.0.4 (2024-06-12)
+ - Code optimization. Bug fixes.
+### 1.0.3 (2024-06-12)
+ - Added refresh devices button on tab page.
+### 1.0.2 (2024-06-11)
+ - Added support of Fhareinheit degrees.
 
 ## License
 MIT License

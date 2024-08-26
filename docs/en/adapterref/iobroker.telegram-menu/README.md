@@ -33,9 +33,11 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-08-11)
 
-### **WORK IN PROGRESS**
-
+-   Js-controller >=5.0.19 is required
+-   FIX: Colors in triggerOverview
+-   FIX: #154 #152 Import config from file
 -   Delete messages adjusted
 
 ### 1.7.4 (2024-06-24)

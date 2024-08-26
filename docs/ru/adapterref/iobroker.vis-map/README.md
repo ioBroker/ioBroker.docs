@@ -3,36 +3,43 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-map/README.md
 title: ioBroker.vis-карта
-hash: AuN4FwNGTj3kE9XUp7CpFeo9c3fj97QGvtmTjLa72nk=
+hash: wrWX5vCEa+TyCgDVUkiRLNIyI2SdtOdQd4cOyJHlgv4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-map/admin/vis-map.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-map-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-map.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.vis-map.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-map.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-map.png?downloads=true)
 
-# IoBroker.vis-map
+# IoBroker.vis-карта
 ![Скриншот](../../../en/adapterref/iobroker.vis-map/img/widgets.png)
 
-Виджеты, отображающие координаты на карте.
-Фактически поддерживаются только Open Street Maps и Google. Чтобы использовать Карты Google, вам необходимо получить ключ API для Карт Google.
-Вы можете получить его [здесь](https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend&keyType=CLIENT_SIDE&reusekey=true)
+Виджеты, которые могут показывать координаты на карте.
+Фактически поддерживаются только Open Street Maps и Google. Чтобы использовать Google Maps, вам необходимо получить API Key для Google Maps.
+Вы можете получить его [здесь](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ## Использование
-Вы можете связать долготу и широту отдельно или просто поместить в **longitude** идентификатор объекта со следующим значением:
+Вы можете связать долготу и широту отдельно или просто поместить в **долготу** идентификатор объекта со значением, как показано ниже:
 
-- 7.0001;49.0000 (долгота; широта)
-- 7,0001;49,0000 (долгота; широта)
+- 7.0001;49.0000 (долгота ; широта)
+- 7,0001;49,0000 (долгота ; широта)
 - 7.0001,49.0000 (долгота, широта)
 - 49.0000,7.0001 (широта, долгота + флаг замены)
-- 49.0000;7.0001 (широта; долгота + флаг замены)
+- 49.0000;7.0001 (широта ; долгота + флаг замены)
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.1.2 (2024-07-12)
+- fix datapoint handling for lat/lan
+- Make data points in 0_userdata work again
+
+### 1.1.0 (2024-03-07)
+- (bluefox) Removed dependency to `iobroker.vis`. Only show the message if vis is not installed
+
 ### 1.0.5 (2024-01-14)
 - (bluefox) Added vis-2 to the restart by installation
 

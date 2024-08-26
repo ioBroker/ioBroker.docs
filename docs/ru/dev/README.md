@@ -2,7 +2,7 @@
 title: разработка
 lastChanged: 21.21.2019
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/README.md
 hash: pb6bx/2ae0DzT4mCTOwzIWW8ZxZh1RvojNggXy9OWxI=
 ---

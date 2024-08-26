@@ -15,6 +15,10 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+## TADO° X
+Tado X **is currently not supported** by this adapter. The adapter supports Tado V3, V3+ and V2.
+If someone is supporting to add Tado X functionality, raise a ticket or send an email to <myiobrokeradapters@gmail.com>. You will need to support some debugging session and interact with the adapter developer.
+
 ## Things you can steer
 | State | Description |
 | ----- | ----------- |
@@ -46,6 +50,12 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.6 (2024-08-06)
+* (HGlab01) Improve AccessToken Management
+* (HGlab01) Bump axios to 1.7.3
+* (HGlab01) Add attribute 'language'
+* (HGlab01) Add attribute 'isHeatPumpInstalled'
+
 ### 0.5.5 (2024-06-25)
 * (HGlab01) Bump axios to 1.7.2
 
@@ -60,14 +70,6 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 ### 0.5.1 (2023-12-11)
 * (HGlab01) Bump json-explorer to 0.1.15
 * (HGlab01) Prepare (c) for 2024
-
-### 0.5.0 (2023-11-25)
-* (HGlab01) Breaking changes
-    - Node.js 18.0 or higher
-    - ioBroker host (js-controller) 5.0 or higher
-* (HGlab01) fix jsonConf validation issue
-* (HGlab01) Bump axios to 1.6.2
-* (HGlab01) update contact data
 
 ## License
 MIT License

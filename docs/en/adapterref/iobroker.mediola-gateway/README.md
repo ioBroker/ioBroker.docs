@@ -58,6 +58,13 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   Node 16 removed
+-   some updates of libs
+-   DY2 as 2DY added (Thanks to JEnsR)
+
 ### 1.1.0 (2024-01-21)
 
 -   RT (Somfy) system added (Thanks to Falk)

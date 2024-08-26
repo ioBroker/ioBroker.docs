@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rssfeed/README.md
 title: ioBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
-hash: 2EJ3w/l3dIfXZJMpjQqU13o7sbmZyqWpAWMgWgAWZZY=
+hash: h+308Gfw/ORgLpz15BGP+BgOnriuS2UqVYxy+f2ctnU=
 ---
 ![标识](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
 
@@ -57,61 +57,257 @@ iobroker upload rssfeed
 以下小部件确实存在
 
 - `RSS Feed widget 2` - 显示单个 feed
-- `RSS Feed Multi widget` - 在一个小部件中显示几个聚合的提要。
+- `RSS Feed Multi widget 3` - 在一个小部件中显示几个聚合的提要。
 - `RSS Feed Meta Helper` - 用于检查 feed 元数据的辅助小部件
 - `RSS Feed Article Helper 2` - 一个用于检查 feed 文章数据的辅助小部件
 - `RSS Feed Title marquee 3` - 一个用于将 Feed 的标题显示为字幕的小部件
 - `JSON 模板` - 一个与 RSS 提要无关的小部件，但使用相同的技术，您可以定义自定义模板以在 vis 中显示任何 JSON 数据。
 
-vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.rssfeed/blob/master/widgets/rssfeed/doc.html) 中找到
+### RSS 源小部件 2
+此小部件可用于在适配器的配置对话框中显示订阅的 RSS 源。选择模板系统以确保最佳显示效果。格式和语法的描述可在以下页面中找到。
 
-## 基于示例的模板
-我已使用以下 RSS 源测试过的示例：
+#### 属性 rss_oid
+使用相应的 RSS 提要选择数据点。
 
-- <http://www.tagesschau.de/xml/rss2>
-- <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
+#### 属性 rss_template
+模板决定了 RSS 源的外观。模板中可以使用所有有效的 HTML 标签（包括 style 标签中的 CSS 属性）。
+此外，还有一些特殊标签，其中显示源数据并可执行 JavaScript 指令。为了更好地识别数据和使用的属性名称，有两个小部件，rssfeed Meta 助手和 rssfeed Article 助手。
 
-```html
-<%= meta.title %> <% articles.forEach(function(item){ %>
-<p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
-<h3><%- item.title %></h3>
-<p><%- item.description %></p>
-<div style="clear:both;" />
-<% }); %>
-```
+**变量的可用性：**
 
-模板系统与某些标签配合使用。
-使用的标签含义如下
+- rss.meta：feed 的元信息
+- rss.articles：所有文章的数组
+- widgetid: 小部件的 widgetID
+- style：如果你配置了附加样式信息，则为样式对象
 
-| `tag` | 描述 |
-| ----- | ------------------------------------------------------------------- |
-| <%= | 包含的表达式/变量的内容将被转义。|
-| <%- | 所包含的表达式/变量的内容未转义。|
-| <% | 无输出，用于封闭的 javascript 指令 |
-| %> | 通常是一个结束标签，用于完成前面的一个标签 |
+有关这些变量的更多详细信息，请参阅章节**可用变量**
 
-这些标签之外的所有内容都会按原样显示，或者将其解释为 HTML。（例如，参见模板中的 p 标签、div 标签、small 标签，您有 2 个预定义变量可用
+有关模板系统的详细信息，请参阅基于示例的模板章节
 
-###`meta`
-这包含有关 feed 的所有元信息。以下内容可用。我认为标识符是不言自明的。在帮助中，我将更详细地描述它们。或指定内容（有些是数组）
+#### 属性 rss_maxarticles
+RSS 源中显示的最大单个文章数
+
+#### 属性 rss_filter
+对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。
+搜索时会搜索以下文章属性：标题、描述、类别。
+仅显示包含其中一个术语的文章。
+
+### RSS Feed 多窗口小部件 3
+使用此小部件，可以将多个提要聚合到一个提要中。
+由于有多个提要，与普通的 RSS 提要小部件相比，模板中的数据可用性存在一些差异。
+模板中没有元变量。但是，每个单独的文章中都有 3 个元属性标题和说明，名称为 meta_title 和 meta_description。
+此外，可以在设置中为每个提要分配一个通用名称，该名称在模板中以 meta_name 的名称提供，以便可以识别文章的来源。
+否则，模板适用与 RSS 提要小部件相同的规则。
+
+#### 属性 rss_feedCount - 常规组
+您可以在此处设置要配置的 feed 数量。在 vis 中为每个 feed 创建单独的配置组。
+
+#### 属性 rss_template
+模板决定了 RSS 源的外观。模板中可以使用所有有效的 HTML 标签（包括 style 标签中的 CSS 属性）。
+此外，还有一些特殊标签，其中显示源数据并可执行 JavaScript 指令。为了更好地识别数据和使用的属性名称，有两个小部件，rssfeed Meta 助手和 rssfeed Article 助手。
+
+有关模板系统的详细信息，请参阅基于示例的模板章节
+
+**变量的可用性：**
+
+- rss.articles：所有文章的数组。
+
+- 文章中提供了项目元信息的子集，形式为 **meta_name**、**meta_title** 和 **meta_description**
+
+- dp[] 作为数组，如果你配置额外的数据点
+- widgetid: 小部件的 widgetID
+- style：如果你配置了附加样式信息，则为样式对象
+
+有关这些变量的更多详细信息，请参阅可用变量一章
+
+#### 属性 rss_dpCount - 一般组
+您可以在此处指定模板中应提供的附加数据点的数量。
+
+#### 属性 rss_dp[number] - 一般组
+您可以在此处选择相应的数据点。数据点在模板中的变量 dp 下可用。这意味着可以在模板中按如下方式检索数据点
+
+有关这些变量的详细信息，请参阅可用变量一章
+
+#### 属性 rss_oid - 组 feeds[number]
+选择具有相应 RSS 提要的数据点。
+
+#### 属性 rss_name - 组 feeds[number]
+您可以在此处输入一个名称，该名称将在模板中为属性名称 meta_name 下的每个文章提供。
+
+#### 属性 rss_maxarticles - 组 feeds[number]
+RSS 源中显示的最大单个文章数
+
+#### 属性 rss_filter - 组 feeds[number]
+对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。
+搜索时会搜索以下文章属性：标题、描述、类别。
+仅显示包含其中一个术语的文章。
+
+### RSS 源元助手
+此小部件可用于显示特定提要的元属性。它只是用作帮助小部件，用于创建模板以快速轻松地显示 RSS 提要数据的内容。
+属性
+
+#### 属性 rss_oid
+选择具有相应 RSS 提要的数据点。
+
+### RSS Feed 文章助手
+此小部件可用于显示特定提要的文章属性。它只是用作帮助小部件，用于创建模板以快速轻松地显示 RSS 提要数据的内容。
+
+#### 属性 rss_oid
+选择具有相应 RSS 提要的数据点。
+
+#### 属性 rss_prefix
+为了更容易通过复制/粘贴使用属性名称，可以在此处指定文章模板中使用的变量名称。
+
+#### 属性 rss_article
+此属性可用于在 RSS 提要中的现有各篇文章之间切换。
+
+### RSS 源标题框 3
+使用此小部件，所有标题属性都将显示为滚动文本。作为从 Marquee 小部件 2 到 3 的更改的一部分，此小部件现在是一个多小部件，您可以在其中聚合多个 RSS 源。
+
+#### 属性 rss_feedCount - 常规组
+您可以在此处设置要配置的 feed 数量。在 vis 中为每个要配置的 feed 创建一个单独的组。
+
+#### 属性 rss_speed - 一般组
+滚动文本的滚动速度 属性 rss_divider - 常规组 您可以在此处输入用于分隔标题的字符。默认值为+++。
+
+#### 属性 rss_pauseonhover - 一般组
+如果打开此选项，则只要将鼠标悬停在文本上，滚动文本就会停止。
+
+#### 属性 rss_link - 常规组
+如果启用此选项，标题将显示为链接。如果您点击或触摸标题，文章链接将在新窗口或选项卡中打开。
+
+#### 属性 rss_withtime - 常规组
+如果打开此选项，则会在相应的标题之前显示时间。属性 rss_withdate - 常规组如果启用此选项，则会在相应的标题之前显示不带年份的日期和时间。
+
+#### 属性 rss_withyear - 一般组
+如果启用此选项，则会在相应的标题前显示日期、年份和时间。
+
+#### 属性 rss_oid - Feeds[number] 组
+选择具有相应 RSS 提要的数据点。
+
+#### 属性 rss_maxarticles - Feeds[number] 组
+RSS 源中显示的最大单个文章数
+
+#### 属性 rss_filter - Feeds[number] 组
+对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。
+搜索时会搜索以下文章属性：标题、描述、类别。
+仅显示包含其中一个术语的文章。
+
+### JSON 模板2
+使用此小部件，可以根据需要显示任何具有 JSON 数据的数据点。
+显示使用模板格式完成，可以将其视为 HTML 代码 + JavaScript + 控制 JSON 属性显示的特殊标签的组合形式。
+
+#### 属性 json_oid
+选择具有相应 JSON 数据的数据点。
+
+#### 属性 rss_template
+模板可用于确定 JSON 数据的外观。模板中可使用所有有效的 HTML 标签（包括 style 标签中的 CSS 属性）。
+还有特殊标签，可在其中显示 JSON 数据并执行 JavaScript 指令。
+
+有关模板系统的详细信息，请参阅基于示例的模板章节
+
+JSON 数据以前缀 data 的形式传递给模板。此外，当前 widgetID 也可用作变量，以便在单独的 CSS 指令中指定。
+
+**示例对象**
+
+{ “onearray”：[ “一”， “二” ]，“oneobject”：{ “attribute1”：1，“attribute2”：2 }，“onenumber”：123，“onetext”：“onetwothree” }
+
+对于上面的例子，属性可以输出如下
+
+<%- 数据.onenumber %><%- 数据.onetext %>
+
+**结果**
+
+123 一二三
+
+数组可以通过索引访问。索引始终从 0 开始。但是，也存在伪数组，其中索引不从 0 开始，甚至由文本组成。这里适用对象的规则。在上面的例子中，这将是
+
+<%- 数据.onearray[0] %><%- 数据.onearray[1] %>
+
+**结果**
+
+一二
+
+如果你尝试直接输出没有索引的数组，模板将输出以逗号分隔的所有元素
+
+<%- 数据.onearray %>
+
+**结果**
+
+一、二
+
+数组也可以由对象集合组成。此处的示例仅包含一个简单的数组。稍后将给出带有对象的数组的示例。
+
+<% for (var i = 0; i < data.onearray.length ; i++ ) { %><%- data.onearray[i] %><% } %>
+
+**结果**
+
+一二
+
+**对象** 可以再次包含单个属性、数组或对象。这意味着 JSON 数据可以嵌套到任意深度。
+
+对象的属性可以使用点符号或括号符号来表示。只有当属性符合某些命名约定（第一个字符必须是字母，其余为数字或字母或下划线）时，点符号才有效。
+括号符号也适用于不符合命名约定的属性。
+
+**点符号**
+
+<%- 数据.oneobject.attribute1 %>
+
+**括号表示法**
+
+<%- 数据.oneobject["属性1"] %>
+
+**两个示例的结果**
+
+1
+
+循环遍历对象的属性
+
+<% for (var prop in data.oneobject) { %><%- "data.oneobject." + prop + " = " + data.oneobject[prop] %><% } %>
+
+**结果**
+
+数据.一个对象.属性1 = 1 数据.一个对象.属性2 = 2
+
+**高级用例**
+
+上面的示例中仅涵盖了纯输出。现在还可以使用 HTML 标签丰富模板，以实现特定布局。以下是示例：
+
+<h3>输出</h3><style> .mycssclassproperty { color:green; } .mycssclassdata { color:red; } </style>&lt;% for (var prop in data.oneobject) { %&gt;<div> <span class="mycssclassproperty">&lt;%- &quot;数据.oneobject。&quot; + prop + &quot; = &quot; %&gt;</span> <span class="mycssclassdata">&lt;%- 数据.oneobject[prop] %&gt;</span></div> &lt;% } %&gt;
+
+**结果**
+
+数据.一个对象.属性1 = 1 数据.一个对象.属性2 = 2
+
+（在 Markdown 中颜色不可见）
+
+## 模板中可用的变量
+###`rss.meta`
+这包含有关 feed 的所有元信息。以下内容可用。我认为标识符是不言自明的。在帮助中，我将更详细地描述它们。或指定内容（一些是数组）只有在 Rss Feed 小部件 2 中，才有完整的元信息集
+
+模板中的使用见**基于示例的模板**
 
 -`meta.title`
 -`meta.description`
 - `meta.link`
 -`meta.xmlurl`
 -`meta.date`
-- `meta.pubdate`
+-`meta.pubdate`
 -`meta.author`
 -`meta.language`
 -`meta.image`
 - `meta.favicon`
 - `meta.copyright`
 -`meta.generator`
--`meta.categories`
+- `meta.categories`
 
-#### `articles`
+#### `rss.articles or articles`
 是一个包含单个元素的数组（javascript 数组）。每个元素都具有以下属性。
 例如，为了适合，我将在其前面添加前缀 item。但是如果您愿意，您可以自己选择。只需在循环（forEach）中相应地命名即可。在这里，标识符也是不言自明的。并非所有属性都在每个 feed 中都填写。最重要的属性已包含在上面的模板中。
+
+文章可在 RSS feed widget 2 中以 rss.articles 形式获取，也可在 RSS feed multi widget 3 中以 articles 形式获取
+
+模板中的使用见**基于示例的模板**
 
 - `项目.title`
 -`项目.描述`
@@ -129,6 +325,185 @@ vis-widgets 的文档可以在 vis 或[Widget 文档/德语](https://htmlpreview
 - `item.source`
 -`item.enclosures`
 
+## 基于示例的模板
+### 基本模板 RSS-Feed 小部件 2
+以下模板目前在 RSS feed 小部件 2 中用作标准。
+已使用以下 feed 进行了测试
+
+- <http://www.tagesschau.de/xml/rss2> 或
+- <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
+
+```
+<!--
+    available variables:
+    widgetid      ->  id of the widget
+    rss.meta      ->  all meta informations of an feed, details see Meta Helper widget
+    rss.articles  ->  all articles as array, details see Article Helper widget
+    style         ->  all style settings for the widget
+
+    all variables are read only
+    -->
+<style>
+  #<%- widgetid %> img {
+    width: calc(<%- style.width %> - 15px);
+    height: auto;
+  }
+  #<%- widgetid %> img.rssfeed {
+    width: auto;
+    height: auto;
+  }
+</style>
+<p><%- rss.meta.title %></p>
+<% rss.articles.forEach(function(item){ %>
+<div class="article">
+  <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
+  <h3><%- item.title %></h3>
+  <p><%- item.description %></p>
+  <div style="clear:both;"></div>
+</div>
+<% }); %>
+```
+
+### 基本模板 RSS-Feed 多窗口小部件 3
+以下模板目前在 RSS feed 多窗口小部件 3 中用作标准。
+请注意变量使用中的细微差别 它已使用以下提要进行了测试
+
+```
+<!--
+    available variables:
+    widgetid      ->  id of the widget
+    articles      ->  all articles as array, details see Article Helper widget
+                      only subset of meta information of the feed is available as
+                      articles[0].meta_name
+                      articles[0].meta_title
+                      articles[0].meta_description
+    style         ->  all style settings for the widget
+    dp[]          ->  array of addition configured datapoints
+
+    all variables are read only
+    -->
+<style>
+  #<%- widgetid %> img {
+    width: calc(<%- style.width || "230px" %> - 15px);
+    height: auto;
+  }
+  #<%- widgetid %> img.rssfeed {
+    width: auto;
+    height: auto;
+  }
+</style>
+<% rss.articles.forEach(function(item){ %>
+    <p><%- item.meta_name || item.meta_title || '' %></p>
+    <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
+    <h3><%- item.title %></h3>
+    <p><%- item.description %></p>
+    <div style="clear:both;" />
+<% }); %>
+```
+
+### RSS-Feed 多窗口小部件 3 的示例模板，其中文章以幻灯片形式显示，并带有上一个/下一个按钮
+```
+<!--
+ available variables:
+ widgetid      ->  id of the widget
+ rss.articles  ->  all articles as array, details see Article Helper widget
+ style         ->  all style settings for the widget
+
+ all variables are read only
+-->
+
+<style>
+#<%- widgetid %> img {
+    width: calc(<%- style.width || "230px" %> - 15px);
+    height: auto;
+}
+#<%- widgetid %> img.rssfeed  {
+    width: auto;
+    height: auto;
+}
+
+.container {
+    overflow: hidden;
+    height: 100%;
+}
+.content {
+    position: relative;
+    border: 1px solid #ccc;
+    overflow: scroll;
+    height: 90%;
+}
+
+.slide {
+    position: absolute;
+    display: none;
+}
+
+.slide.active {
+    display: contents;
+}
+
+.controls {
+    margin-top: 10px;
+}
+</style>
+
+<div class="container">
+    <div class="content">
+        <% rss.articles.forEach(function(item){ %>
+        <div class="article slide">
+          <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
+          <h3><%- item.title %></h3>
+          <p><%- item.description %></p>
+          <div style="clear:both;"></div>
+        </div>
+        <% }); %>
+    </div>
+    <div class="controls">
+        <button onclick="prevSlide()">Zurück</button>
+        <button onclick="nextSlide()">Weiter</button>
+    </div>
+</div>
+
+<script>
+currentSlide = 0;
+slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+    showSlide(currentSlide);
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+    showSlide(currentSlide);
+}
+showSlide(currentSlide);
+
+</script>
+```
+
+模板系统与某些标签配合使用。
+使用的标签含义如下
+
+| `tag` | 描述 |
+| ----- | ------------------------------------------------------------------- |
+| <%= | 包含的表达式/变量的内容将被转义。|
+| <%- | 所包含的表达式/变量的内容未转义。|
+| <% | 无输出，用于封闭的 javascript 指令 |
+| %> | 通常是一个结束标签，用于完成前面的一个标签 |
+
+这些标签之外的所有内容都会按原样显示，或者将其解释为 HTML。（例如，参见模板中的 p 标签、div 标签、small 标签，您有 2 个预定义变量可用
+
 ## 模板示例及详细说明
 ```html
 <%= meta.title %> <% articles.forEach(function(item){ %>
@@ -145,13 +520,13 @@ Z4：输出文章标题。Header 3 - 标签用于格式化。
 Z5：输出文章内容。它用 p 标签括起来。这里，至少在两个示例中，包含 HTML 代码，通常带有图像和描述性文本 Z6：输出一个 div 标签，用于清除 feed-html 中的特殊格式（在 tagesschau 和 bild 的两个示例中都需要它。其他 feed 可能不需要它。
 Z7：无输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定义的所有内容都会针对每一篇文章重复。
 
-＃＃ 去做
+待办事项
 - 通过在管理对话框中保存来清理数据点 info.lastRequest 中未使用的条目。
 - 管理对话框中的清理未使用的数据点按钮
 - ~~多部件 RSS 源~~
 - ~~多部件选框~~
-- ~~更多数据点已在模板中被使用。~~
-- ~~带有标题的报纸小部件 <https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
+- ~~Weitere Datenpunkte im Template verfügbar machen.~~
+- ~~标题的Laufschrift小部件<https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
 
 ## Changelog
 
@@ -159,10 +534,45 @@ Z7：无输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定义�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2024-08-11)
 
-### **WORK IN PROGRESS**
+- adjust dependency to js-controller in a minor release
+
+### 3.0.2 (2024-08-09)
+
+- add keyword in package.json
+
+### 3.0.1 (2024-08-09)
+
+- add template example for articles as a Diashow
+- adjust dependency to js-controller
+
+### 3.0.0 (2024-07-24)
+
+- update multifeed widget 3 and deprecate multifeed widget 2
+- breaking change: in rssfeed widget 2: articles and meta have to be changed to rss.articles and rss.meta
+
+### 2.10.0 (2024-07-11)
+
+- fine tuning on templates and available variables
+- fine tuning on format and translation
+- move widget documentation form doc.html to readme
+
+### 2.9.10 (2024-07-11)
+
+- update images for dark and light theme
+
+### 2.9.9 (2024-07-11)
+
+- update packages
+- update formating and improve error logging
+- remove detailed sentry status reporting
+- fix subscribing states
+
+### 2.9.8 (2024-07-09)
 
 - ignore widgets in vis-2
+- add restart vis/vis2
 
 ### 2.9.7 (2024-06-22)
 

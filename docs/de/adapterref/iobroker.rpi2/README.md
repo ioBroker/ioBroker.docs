@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
-title: kein Titel
-hash: G9+pPja5y/AjJQaB9C9Q6N56ohBNs3VK6oK3cmSPVsM=
+title: ohne Titel
+hash: eqFbMVAtc2KJ4WQOBCX2RsFccxIp6aRsiZMzepwkGJw=
 ---
 ![Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) ioBroker RPI-Monitor-Adapter
 
@@ -22,6 +22,8 @@ Funktioniert nur mit Knoten >= 18
 
 **ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Bei den meisten Linux-Distributionen kann dies erreicht werden, indem der ioBroker-Benutzer zur Gruppe `gpio` hinzugefügt wird (empfohlen) oder ioBroker unter `root` ausgeführt wird (weniger sicher).
 
+Damit gpio funktioniert, müssen Sie libgpiod **vor** der Installation des Adapters installieren, und zwar wie folgt: `sudo apt-get install -y libgpiod-dev`
+
 ## Installation
 Nach der Installation müssen Sie alle benötigten Module über die Administrationsseite konfigurieren.
 
@@ -32,7 +34,10 @@ Stellen Sie sicher, dass Python und Build-Essential installiert sind:
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential python
+sudo apt-get install -y libgpiod-dev
 ```
+
+(letzteres ist nur notwendig, wenn Sie mit GPIOs arbeiten möchten)
 
 Folgende Objekte stehen nach der Auswahl zur Verfügung:
 
@@ -76,14 +81,14 @@ sdcard_boot_total
 - WLAN empfangen
 - WLAN_senden
 
-## Aufbau
+## Konfiguration
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 - CPU
 - Himbeere
 - Erinnerung
 Netzwerk
-- SD-Karte
+SD-Karte
 - Tauschen
 - Temperatur
 Betriebszeit
@@ -91,7 +96,7 @@ WLAN
 
 ## Logdateien / Konfigurationseinstellungen
 ## Merkmale
-## Machen
+## Aufgaben
 ## Getestete Hardware
 - Odroid C1
 Himbeer-Pi 1
@@ -107,7 +112,7 @@ Nachdem einige Ports aktiviert wurden, werden im Objektbaum folgende Zustände a
 - rpi.0.gpio.PORT.state
 
 Die Nummerierung der Ports erfolgt in BCM (BroadComm Pins on Chip). Die Nummerierung erhalten Sie mit ```gpio readall```.
-Beispiel PI2:
+Zum Beispiel PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+

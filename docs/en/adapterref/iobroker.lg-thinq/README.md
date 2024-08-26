@@ -730,6 +730,10 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Update dependencies
+
 ### 1.0.1 (2024-05-21)
 
 -   (Lucky-ESA) Fixed Mqtt wakeup for device 406 only

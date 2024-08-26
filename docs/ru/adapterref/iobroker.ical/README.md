@@ -3,7 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/ical-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.ical.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ical.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ical/README.md
 title: ioBroker.ical
 hash: n+aSV0Lm+AD52tM6N/ad25Fz91tkPXGsOgGDB5JOcxw=

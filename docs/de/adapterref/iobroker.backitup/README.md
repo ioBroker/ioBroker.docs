@@ -128,6 +128,7 @@ Hier eine kurze Erklärung der Optionen im Tab Menü
 | 13. | Öffnet ein neuen Tab und zeigt die Readme von `ioBroker.backitup` an.                                                                                                                                               |
 
 
+
 ![adminTabRestore](img/backitup_restore.png)
 
 Die Bedienung des Restore Tabs sieht wie folgt aus.
@@ -142,6 +143,9 @@ Die Bedienung des Restore Tabs sieht wie folgt aus.
 
 
 ![adminTabInfo](img/backitup_history.png)
+
+
+![backitupConfig](img/backitup_config.png)
 
 _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
@@ -595,7 +599,12 @@ Es werden hier identisch dem Standard Backup des js-controllers alle States und 
 Auch der Restore ist vollkommen identisch dem CLI Befehl des js-controllers.
 
 Bei einem Restore werden alle States, Objects und Nutzerdaten von `ioBroker.backitup` wiederhergestellt.
+
+![adminByRestore](img/backitup_restore1.png)
+
 Nach dem Restore startet euer ioBroker neu und ab da übernimmt die Installation fehlender Adapter dann wieder der js-controller.
+
+![adminAfterRestore](img/backitup_restore2.png)
 
 `ioBroker.backitup` hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherstellung. Dies  übernimmt der js-controller im Hintergrund anhand der wiederhergestellten Informationen in den States und Objects.
 
@@ -611,12 +620,6 @@ Wer den sichersten Weg wählt und den Restore lokal ausführen möchte, muss die
 Auf Linuxsystemen befindet sich dieser Ordner unter folgenden Pfad: `/opt/iobroker/backups`
 
 Bei den Backuptypen "ioBroker" und "redis" wird beim Restore der ioBroker gestoppt und im Anschluss automatisch wieder gestartet.
-
-Nach dem Stop des iobrokers öffnet sich ein neuer Browser-Tab, in dem der Verlauf des Restores zu sehen ist.
-
-
-***Falls dieser Tab nicht öffnet, müssen die Browser-Einstellungen für Popups blockieren kontrolliert werden.***
-
 
 
 **Bei allen anderen Backuptypen wird ioBroker nicht gestoppt. Hier werden lediglich die betroffnenen Adapter kurzzeitig gestoppt.**
@@ -640,6 +643,21 @@ Eine detailierte Anleitung zum Restore mit `ioBroker.backitup` und auch zum manu
     - Den Befehl: „/bin/restoreBackup.sh /user/local/tmp/EuerBackupDateiname“ auf der Raspberrymatic ausführen.
     - Den Befehl: “reboot“ auf der Raspberrymatic ausführen, um den PI neu zu starten
     - Alternativ kann das Backup natürlich auch wie gewohnt über das Webinterface wieder hergestellt werden.
+
+### Restore einer InfluxDB Datenbank
+
+Bei dem Restore eine InfluxDB Sicherung ist zu beachten, dass im Vorfeld der InfluxDB Adapter gestoppt sein muss und die Datenbank nicht existieren darf. 
+
+> [!NOTE]
+> Sollte die Datenbank existieren, muss diese vor dem Restore gelöscht werden.
+
+Der InfluxDB Adapter darf erst nach dem Restore wieder gestartet werden, da dieser immer versuchen wird, die Datenbank zu erstellen.
+
+Des Weiteren ist für den Restore von einer InfluxDB 2.x Datenbank der Operator-Token vor dem Restore im Menü von ioBroker.backitup zu konfigurieren.
+
+> [!NOTE]
+> Ohne den richtigen Operator-Token ist kein Restore möglich.
+
 
 _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
@@ -693,9 +711,66 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (Grothesk242/simatec) foreceuid and forcegid added
+### 3.0.20 (2024-08-22)
+* (simatec) Responsive Design for Tab added
+* (simatec) Responsive Design for jsonConfig added
 * (simatec) dependencies updated
+
+### 3.0.19 (2024-08-15)
+* (simatec) Fix CCU Backup
+* (simatec) Fix InfluxDB Backup Config
+* (simatec) Fix Backup-Log for Slave Instanz
+
+### 3.0.18 (2024-08-14)
+* (simatec) Package optimisation
+* (simatec) Fix the warning when opening the configuration
+* (simatec) dependencies updated
+
+### 3.0.17 (2024-08-12)
+* (simatec) Fix io-package for Release
+* (simatec) manual-review added
+* (simatec) Fix Slave Backup
+* (simatec) dependencies updated
+
+### 3.0.16 (2024-08-05)
+* (bluefox) dependencies updated
+* (simatec) Rename json5 Files
+
+### 3.0.15 (2024-08-03)
+* (simatec) fix dependencies
+
+### 3.0.14 (2024-08-02)
+* (simatec) dependencies updated
+* (simatec) Improved log outputs
+
+### 3.0.12 (2024-08-01)
+* (simatec) Backup Log for History added
+* (simatec) Added separate selection for deleting FTP backups
+* (simatec) Added separate selection for deleting Onedrive backups
+* (simatec) Added separate selection for deleting Webdav backups
+* (simatec) Added separate selection for deleting Dropbox backups
+* (simatec) Added separate selection for deleting Googledrive backups
+* (simatec) Improved log outputs
+* (simatec) Source code cleaned up
+* (simatec) dependencies updated
+
+### 3.0.11 (2024-07-28)
+* (simatec) Design Fix
+* (simatec) dependencies updated
+
+### 3.0.10 (2024-07-22)
+* (simatec) Design Fix for Dark Mode
+* (bluefox) dependencies updated
+
+### 3.0.9 (2024-07-11)
+* (simatec) Tab Icons added
+* (simatec) small fix
+* (simatec) Docu updated
+
+### 3.0.8 (2024-07-01)
+* (Grothesk242/simatec) forceuid and forcegid added
+* (simatec) dependencies updated
+* (simatec) small fix
 
 ### 3.0.7 (2024-06-26)
 * (simatec) Restore Information added
@@ -1775,4 +1850,17 @@ Copyright (c) 2018-2024 simatec
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, p
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

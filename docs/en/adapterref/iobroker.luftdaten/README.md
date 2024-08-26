@@ -56,7 +56,7 @@ Wait some seconds until the cronjob collects the data for the first time.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.0.0 (2024-08-09)
 
 NodeJS >= 18.x and js-controller >= 5 is required
 
@@ -86,10 +86,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Always stop instance when tasks are completed
 * (klein0r) Updated log messages
-
-### 2.2.2 (2022-03-14)
-
-* (klein0r) Bugfix: Requested local sensors with https instead of http
 
 ## License
 

@@ -1,26 +1,19 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.myuplink.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/myuplink-stable.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.myuplink.svg
+BADGE-Number of Installations: https://iobroker.live/badges/myuplink-installed.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.myuplink.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.myuplink/README.md
 title: ioBroker.myuplink
-hash: +c8Neb3KKonGY9VtQq66QhvwidPModoE5QWdcaxh5Og=
+hash: IeZvYW3c0DaaueslEjv8qw0vKPC1TrKdSqYRGxumEAE=
 ---
 # IoBroker.myuplink
-
-![NPM 版本](https://img.shields.io/npm/v/iobroker.myuplink.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/myuplink-stable.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.myuplink.svg)
-![安装数量](https://iobroker.live/badges/myuplink-installed.svg)
-![新平台](https://nodei.co/npm/iobroker.myuplink.png?downloads=true)
-
-[![构建状态]（https://github.com/sebilm/ioBroker.myuplink/workflows/Test%20and%20Release/badge.svg）](https://github.com/sebilm/ioBroker.myuplink/actions/workflows/test-and-release.yml)
-
-## Myuplink.com ioBroker 适配器
-此 ioBroker 适配器从 myUplink.com 接收数据。
+此 ioBroker 适配器从 myUplink.com 接收数据。myUplink 已为此启用的设置可以更改。
 
 ## 使用此适配器
-以下是德语版本 - 此指南将继续提供德语版本。
-
 1. 您需要一个 myUplink 兼容热泵，品牌包括 NIBE、AIT、Cetetherm、ClimateMaster、Contura、CTA、CTC、Enertech Global 或 Høiax - 如果没有，请购买一个 ;-)
 2. 您需要一个 myUplink 账户：https://myuplink.com
 3. 前往 myUplink Api：https://dev.myuplink.com 并登录
@@ -49,51 +42,26 @@ hash: +c8Neb3KKonGY9VtQq66QhvwidPModoE5QWdcaxh5Og=
 ## 适配器的工作原理
 适配器每 x 分钟（取决于设置）从 myUplink API 检索一次系统和设备列表。然后，它会检索每个设备的可用参数并将其保存在对象树中。如果 myUplink 在此过程中发送了新参数，这些参数会自动添加到对象树中。
 
-适配器通常不会删除任何对象，以便如果 myUplink 不发送参数，数据就不会丢失。
+适配器通常不会删除任何对象，因此如果 myUplink 不发送参数，数据就不会丢失。
 
 适配器对 myUplink 发送哪些参数也没有影响。
 
-## 使用这些适配器
-1. 将使用与 myUplink 兼容的 NIBE、AIT、Cetetherm、ClimateMaster、Contura、CTA、CTC、Enertech Global 或 Høiax 暖气泵。
-2. 您将在 myUplink 上拥有一个帐户：https://myuplink.com
-3. 在 myUplink-API 网站上登录：https://dev.myuplink.com
-4. 点击“应用程序”和“创建新应用程序”
-5. 名称和描述可以证明是 ausgefüllt werden, z.B. “ioBroker”
-6. 回调 URL 是授权码授予流程的一部分。可以创建 https://sebilm.github.io/ioBroker.myuplink/myuplink.html。
-7. 必须接受 myUplink API 服务协议，并且必须单击“创建”。
-8. 将会显示一个标识符和一个秘密 - 这些将会有用。
-9. 在 ioBroker 中安装此适配器。
-10. 在适配器设置页面上输入标识符和密码。
-11. 选择并设置语言和其他所有设置。
-12. 点击仓库和闸门。
-
-设备将使用名为“setData”的对象集来执行该操作。你可以使用 JSON 格式的对象
-
-```json
-{
-    "12345": "42",
-    "23456": "1"
-}
-```
-
-物体诞生了。值得注意的是，发送和接收 API 时会显示更多相同的数据。
-也可以使用未发送 API 的数据点来替代它。
-
-## 适配器作业
-适配器通过 myuplink-API 连接到 x 分钟（然后设置）系统和设备列表。请将上述设备连接到指定的设备，以获取所需的预先设置参数并将其存储在对象库中。当 myUplink 收到新参数时，就会自动生成此对象。
-
-由于适配器通常没有对象，因此无法发送数据，因此 myUplink 无法发送参数。
-
-该适配器也没有输入任何内容，因此发送了 myUplink 参数。
-
 ## Changelog
+### 0.8.1 (2024-08-18)
 
-### **WORK IN PROGRESS**
+-   Existing incorrect minimum and maximum values are now deleted #39
+-   Minimum and maximum values of the API are not adopted if the current value is outside minimum and maximum #39
+-   Instructions for German and English have been moved to separate files #47
+-   Dependencies have been updated
 
--   Do not send empty objects (setData)
+### 0.8.0 (2024-07-14)
+
+-   No empty objects are sent (setData)
+-   Incorrect minimum and maximum values of the API are not adopted #39
 -   The initial refresh interval was set to 5 minutes
 -   The code has been restructured internally
 -   At least Node.js 18 is required!
+-   Unit tests have been added
 -   Dependencies have been updated
 
 ### 0.7.1 (2024-02-10)

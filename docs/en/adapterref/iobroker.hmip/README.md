@@ -62,13 +62,17 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 <!--
-    ### **WORK IN PROGRESS**
--->
-## Changelog
-<!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+## Changelog
+### 1.24.1 (2024-08-06)
+* (bluefox) GUI was migrated for Admin 7
+
+### 1.23.4 (2024-07-07)
+* (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected
+* (Apollon77) Optimize websocket reconnection handling
+
 ### 1.23.3 (2024-05-27)
 * (bluefox) Ignored status 400 by token request
 

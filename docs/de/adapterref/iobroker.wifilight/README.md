@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wifilight/README.md
 title: ioBroker.wifilight
-hash: 0s+GfsnvdScrPZYX+N3JjBu9Z/g9LtFF6NewlDXsDlc=
+hash: 7c2nJoRfY/j3XWOssHmvFNnG3HeclP8bAs9OJXfF87Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.wifilight/admin/wifilight.png)
 
@@ -12,23 +12,23 @@ hash: 0s+GfsnvdScrPZYX+N3JjBu9Z/g9LtFF6NewlDXsDlc=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.wifilight.svg)
 
 # IoBroker.wifilight
-![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.wifilight/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/wifilight/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/iobroker-community-adapters/iobroker.wifilight/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/wifilight/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
-ioBroker-Adapter für WiFi Light
+ioBroker Adapter für WiFi Light
 
 ## Die Info
 Unterstützt LW12, LD382 und LD382A.
 Unterstützung für Mi-Light/LimitlessLED RGBW hinzugefügt.
 
 ## Ersterstellung
-Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.wifilight erstellt, aber nicht mehr gepflegt, also haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden können. Danke @soef für seine Arbeit.
+Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.wifilight erstellt, aber nicht mehr gepflegt. Daher haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden konnten. Danke @soef für seine Arbeit.
 
 ### So verwenden Sie den Befehlsstatus:
-+ Mögliche Bezeichner sind: ``red, r, green, g, blue, b, bri, sat, transition, on, off`` + Der String kann ein JSON mit oder ohne Klammern sein.
-+ Sie können auch einen Wert zuweisen durch = + Farbbereich: ```0..255``` + Farbbereich: ``0..100``
++ Mögliche Bezeichner sind: ``red, r, green, g, blue, b, bri, sat, transition, on, off`` + Die Zeichenfolge kann ein JSON mit oder ohne Klammern sein.
++ Sie können einen Wert auch durch = zuweisen + Farbbereich: `0..255` + Bri-Bereich: `0..100`
 
 Einige Beispiele:
 
@@ -43,31 +43,38 @@ on
 ```
 
 Um die Farbe zu ändern, müssen Sie nicht alle drei Werte verwenden.
-Beispielsweise bleiben ``` red = 0 ```, Blau und Grün unverändert.
+Beispiel: `red = 0`, Blau und Grün bleiben unverändert.
 
 ### R, g, b, w Zustände:
 + Werte 0..255 + \#rrggbb[ww]
 
-## Installation
-Verwenden Sie das Adapter-Bedienfeld in iobroker, um eine Instanz hinzuzufügen.
-
-Falls nicht vorhanden, führen Sie den folgenden Befehl im Stammverzeichnis von iobroker aus (z. B. in /opt/iobroker).
-
-```
-npm install iobroker.wifilight
-```
-
-### Fehlerbehebung
-Falls dies nicht funktioniert, versuchen Sie, das Paket soef npm zu installieren
-
-```
-cd /opt/iobroker/node_modules/iobroker.wifilight
-sudo npm install soef
-```
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.2 (2024-08-12)
+* (mcm1957) files section has been fixed
+
+### 1.3.1 (2024-08-12)
+* (p-kehling) Added ignorance of acknowledgement messages for on/off commands
+* (bluefox) refactoring
+
+### 1.2.2 (2024-04-15)
+* (mcm1957) Fix js-controller dependency
+
+### 1.2.1 (2024-04-13)
+* (mcm1957) Dependencies have been updated
+
+### 1.2.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.1.4 (2022-06-17)
+* (Apollon77) Prevent a crash case reported by sentry
+
 ### 1.1.3 (2022-04-27)
-* (Apollon77) Prevent crash case reported by sentry
+* (Apollon77) Prevent a crash case reported by sentry
 
 ### 1.1.2 (2022-04-19)
 * (Apollon77) Prevent crashes when states are controlled with null as value
@@ -85,6 +92,7 @@ sudo npm install soef
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

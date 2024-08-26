@@ -2,7 +2,7 @@
 title: Структура документации
 lastChanged: 10.05.2021
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/intro/README.md
 hash: 4qnNEeC0RZEuSKq+nskiHOiQSq3TjltlnSv7wyMg9uA=
 ---

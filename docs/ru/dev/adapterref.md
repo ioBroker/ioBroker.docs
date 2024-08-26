@@ -3,7 +3,7 @@ title: ссылка на адаптер
 lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterref.md
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 hash: Ad0AddDAdDBh/iKtmoy2o/v6XigJcQuFn8pgOkgGOB8=
 ---
 # Ссылка на адаптер

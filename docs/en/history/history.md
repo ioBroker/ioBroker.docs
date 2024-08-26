@@ -123,7 +123,7 @@ https://github.com/HGlab01/ioBroker.tinymqttbroker
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
 
-This is a very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+This is a very tiny MQTT broker which is not managing any objects/states in ioBroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
 
 ## awtrix-light (2.10.2023) - new adapter
 https://github.com/klein0r/ioBroker.awtrix-light
@@ -138,12 +138,12 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
 
 This is a complete visualization system for ioBroker.
-* completely based on webcomponents
+* completely based on web-components
 * wysiwyg editor for UI, but you can also switch to source view, or split view
-* multi window ui in edit view, like in visal studio
-* bindings per drag/drop of ioBroker objects on ui-elments or properties
-* complex bindings with javascript inside, and converters
-* simple script language wich could be created via ui
+* multi window ui in edit view, like in visual studio
+* bindings per drag/drop of ioBroker objects on ui-elements or properties
+* complex bindings with JavaScript inside, and converters
+* simple script language which could be created via ui
 
 ## heizungssteuerung (4.10.2023) - new adapter
 https://github.com/jbeenenga/ioBroker.heizungssteuerung
@@ -226,7 +226,7 @@ Added possibility to add custom links to the welcome page. The pages will be che
 <img src="media/2023_11_07_welcome.png" width="500" />
 
 ## echarts (08.11.2023) - new feature
-Vis-2 widget was added. Now, additionally to presets, you can use the object ID with history data directly.
+Vis-2 widget was added. Now, additionally to the presets, you can use the object ID with history data directly.
 
 <img src="media/2023_11_08_echarts.png" width="500" />
 
@@ -242,7 +242,7 @@ https://github.com/ticaki/ioBroker.weather-warnings
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
-This adapter accesses weather warnings of different weather services and outputs them as text or voice messages. Additionally it creates States grouped by type, which can be used to react to current warnings.
+This adapter accesses weather warnings of different weather services and outputs them as text or voice messages. Additionally, it creates States grouped by type, which can be used to react to current warnings.
 
 ## tractive-gps (06.12.2023) - new adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
@@ -429,7 +429,7 @@ https://github.com/SentiQ/ioBroker.hydrawise
 
 <img src="https://github.com/SentiQ/ioBroker.hydrawise/blob/main/admin/hydrawise.jpg" width="100" height="100" />
 
-Integrate your Hydrawise controller into iobroker. You can see all controller information, schedules and sensors. It is also possible to suspend planned watering by x seconds.
+Integrate your Hydrawise controller into ioBroker. You can see all controller information, schedules and sensors. It is also possible to suspend planned watering by x seconds.
 
 ## tedee (17.4.2024) – new adapter
 https://github.com/TA2k/ioBroker.tedee
@@ -493,7 +493,7 @@ https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-inventwo/main/admin/vis-2-widgets-inventwo.png" width="100" height="100" />
 
-Adds switches, buttons, sliders and more as widgets for ioBroker VIS 2.0.
+Adds switches, buttons, sliders, and more as widgets for ioBroker VIS 2.0.
 
 ## webui (3.10.2023) - new adapter
 https://github.com/iobroker-community-adapters/ioBroker.webui
@@ -501,18 +501,18 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
 
 This is a complete visualization system for ioBroker.
-* completely based on webcomponents
+* completely based on web-components
 * wysiwyg editor for UI, but you can also switch to source view, or split view
-* multi window ui in edit view, like in visal studio
-* bindings per drag/drop of ioBroker objects on ui-elments or properties
-* complex bindings with javascript inside, and converters
-* simple script language wich could be created via ui
+* multi window ui in edit view, like in visual studio
+* bindings per drag/drop of ioBroker objects on ui-elements or properties
+* complex bindings with JavaScript inside, and converters
+* simple script language which could be created via ui
 ## hiob (22.5.2024) – new adapter at latest
 https://github.com/moba15/ioBroker.hiob
 
 <img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
 
-This app allows you to control your ioBroker Smarthome system via the hiob app. It is an simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
+This app allows you to control your ioBroker Smarthome system via the hiob app. It is a simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
 
 ## notificationforandroidtv (22.5.2024) – new adapter at latest
 https://github.com/DNAngelX/ioBroker.notificationforandroidtv
@@ -552,9 +552,9 @@ https://github.com/MyHomeMyData/ioBroker.e3oncan
 
 <img src="admin/e3oncan_small.png" width="100" height="100" />
 
-Viessmann E3 series devices (One Base) are doing a lot of data exchange on CAN bus. This adapter can listen to this communication and extract many useful information. Energy meter E380CA and E3100CB also are supported. This mode of operation is called Collect..  
+Viessmann E3 series devices (One Base) are doing a lot of data exchanges on CAN bus. This adapter can listen to this communication and extract much useful information. Energy meters E380CA and E3100CB also are supported. This mode of operation is called `Collect`.  
 
-Note: This adapter is supported at linux systems only.
+Note: This adapter is supported on linux systems only.
 
 ## egigeozone2 (6.8.2024) – new adapter at stable
 https://github.com/obakuhl/ioBroker.egigeozone2
@@ -568,11 +568,17 @@ https://github.com/moba15/ioBroker.hiob
 
 <img src="https://github.com/moba15/ioBroker.hiob/blob/main/admin/hiob.png" width="100" height="100" />
 
-This app allows you to control your ioBroker Smarthome system via the hiob app. It is an simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
+This app allows you to control your ioBroker Smarthome system via the hiob app. It is a simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
 
 ## extron (17.8.2024) – new adapter at stable
 https://github.com/Bannsaenger/ioBroker.extron
 
 <img src="https://github.com/Bannsaenger/ioBroker.extron/blob/master/admin/extron.png" width="100" height="100" />
 
-Control devices from Extron. This Adapter is designed to control some of the Extron Audio Video Products via the Simple Instruction Set Protocol. The functional scope of the devices is tremendous. Not all of the features make sense to be supported with the adapter and the interaction with iobroker.
+Control devices from Extron. This Adapter is designed to control some of the Extron Audio Video Products via the Simple Instruction Set Protocol. The functional scope of the devices is tremendous. Not all of the features make sense to be supported with the adapter and the interaction with ioBroker.
+
+## ping (23.08.2024) - new feature
+Ping adapter can detect the range of IP addresses if the range has less than 4096 addresses.
+
+## admin (23.08.2024) - new feature
+States could be controlled directly from JSON Config to start range detection or something similar.

@@ -3,23 +3,23 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.opendtu/README.md
 title: ioBroker.opendtu
-hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
+hash: Ie+cd0PqK6PA2b6Hnqs1yikiFlpJncDXK7lIbdJ83ac=
 ---
 ![标识](../../../en/adapterref/iobroker.opendtu/admin/opendtu.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.opendtu.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.opendtu.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.opendtu.svg)
 ![安装数量](https://iobroker.live/badges/opendtu-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/opendtu-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.opendtu.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.opendtu.png?downloads=true)
 
 # IoBroker.opendtu
-**测试：** ![测试和发布](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu /actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
+**测试：**![测试和发布](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
 
-# 我正在寻找这个适配器的新维护者，如果您有兴趣，请通过问题与我联系！
+# 我正在为这个适配器寻找一个新的维护者，如果您有兴趣，请通过问题联系我！
 ## IoBroker 的 opendtu 适配器
-该适配器实时获取来自项目[开放式DTU](https://github.com/tbnobody/OpenDTU)的数据点。
-此外，可以通过适配器使用以下数据点来控制 OpenDTU 的功率限制。
+此适配器可实时获取项目[开放DTU](https://github.com/tbnobody/OpenDTU) 中的可用数据点。
+此外，还可通过适配器使用以下数据点来控制 OpenDTU 的功率限制。
 
 ```
 - opendtu.0.xxxxxx.power_control.limit_nonpersistent_absolute
@@ -32,9 +32,9 @@ hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
 
 ＃＃ 配置
 1. 创建适配器的新实例
-2.填写[OpenDTU](https://github.com/tbnobody/OpenDTU)硬件的Scheme*(默认http)*、WebUi-Address和WebUi-port*(默认80)*
-3.设置WebUi密码**（此为必填项，如果不正确则无法设置限制！）**
-4. 保存设置
+2. 填写 [OpenDTU](https://github.com/tbnobody/OpenDTU) 硬件的安全性 *(默认 http)*、IP 地址和端口 *(默认 80)*
+3. 设置 WebUI 密码（这是强制性的，如果不正确则无法设置限制！）**
+4.保存设置
 
 ## Changelog
 <!--
@@ -46,6 +46,14 @@ hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-08-13)
+
+- (o0shojo0o) changes for new websocket structure ([#129](https://github.com/o0shojo0o/ioBroker.opendtu/issues/129))
+- (o0shojo0o) `Efficiency`, `YieldTotal`, `YieldDay` and `DC Power` moved from the AC section to the INV (old data points must be removed manually)
+- (mattreim) update to current OpenDTU logo ([#156](https://github.com/o0shojo0o/ioBroker.opendtu/issues/156))
+- (mattreim) update dependencies ([#162](https://github.com/o0shojo0o/ioBroker.opendtu/issues/162)), ([#179](https://github.com/o0shojo0o/ioBroker.opendtu/issues/179))
+- (mattreim) fix GUI translation ([#163](https://github.com/o0shojo0o/ioBroker.opendtu/issues/163))
+
 ### 1.0.1 (2023-10-29)
 
 - (o0shojo0o) fixed `power_control.current_limit_absolute" has value "-1" less than min "0"`
@@ -99,7 +107,7 @@ hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
 ## License
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -7,7 +7,7 @@ lastChanged: 12.08.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/proxmox.md
-hash: GTdiSJAqeapsRk5ntyy0dMUNB5ei1fCEpOchce+ZVgs=
+hash: enM995Z97XWBmmDE2xZ1rD4JLuVKeffwIj8zqX9hPfY=
 ---
 # 普罗克斯莫克斯
 ![普罗克斯莫克斯标志](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -15,7 +15,7 @@ hash: GTdiSJAqeapsRk5ntyy0dMUNB5ei1fCEpOchce+ZVgs=
 ## Proxmox 安装
 Proxmox虚拟环境（简称Proxmox VE）是一个基于Debian的虚拟化平台。 Proxmox 的虚拟化技术基于 QEMU/KVM。
 
-Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非常容易（并且还支持 Linux 容器 - LXC）。一方面，这使得 Proxmox 适合初学者，但另一方面，它也非常强大，可以在专业环境中使用。
+Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非常容易（并且还支持 Linux 容器 – LXC）。一方面，这使得 Proxmox 适合初学者，但另一方面，它功能强大，也可以在专业环境中使用。
 
 本节通过一个例子来展示Proxmox免费版（非订阅）的安装和基本配置。
 
@@ -26,7 +26,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 
 - 64位CPU
 - CPU 和主板必须支持 Intel VT/AMD-V 虚拟化，并且必须在 BIOS 中激活。
-- 1 GB RAM（仅适用于 Proxmox）——根据要操作的虚拟机数量，这里当然需要更多 RAM。因此，建议至少使用 8 GB 或更好的 16 GB RAM。
+- 1 GB RAM（仅适用于 Proxmox）——根据要操作的虚拟机数量，这里当然需要更多 RAM。因此，这里建议至少 8 GB，甚至更好，16 GB RAM。
 
 </详情>
 
@@ -42,7 +42,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 安装时，必须使用此 ISO 映像创建可启动 USB 记忆棒。其内存至少应为 2 GB。创建可启动棒的方法有多种，请参阅[准备安装介质](https://pve.proxmox.com/wiki/Prepare_Installation_Media#_instructions_for_windows)
 
 ＃＃＃ 安装
-必须在 UEFI/BIOS 中配置系统，以便可以从 USB 设备引导。插入 U 盘后，稍等片刻就会出现 Proxmox 安装菜单（如果没有出现，您也可以手动指定 U 盘作为启动介质（在大多数主板上，您可以使用 F8 或 F11 执行此操作）。
+必须在 UEFI/BIOS 中配置系统，以便可以从 USB 设备引导。插入 U 盘后，过一会儿就会出现 Proxmox 安装菜单（如果没有，您也可以手动指定 U 盘作为启动介质（在大多数主板上，您可以使用 F8 或 F11 执行此操作）。
 
 只需在安装菜单中选择“**安装 Proxmox VE**”即可。
 
@@ -60,7 +60,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 
 </详情>
 
-接下来是选择要安装 Proxmox 的硬盘驱动器。如果服务器上安装了多个硬盘，请务必选择正确的硬盘！
+下一步是选择要安装 Proxmox 的硬盘。如果服务器上安装了多个硬盘，请务必选择正确的硬盘！
 
 <details><summary>硬盘选择</summary>
 
@@ -77,7 +77,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 </详情>
 
 Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume_Manager) (LVM)。通过此处的高级选项，可以对 LVM 等进行详细配置。
-安装程序创建一个名为 pve 的卷组 (VG) 和名为 root（这里安装了 Proxmox 本身）的附加逻辑卷 (LV)、数据（存储 VM 虚拟磁盘的存储）和交换（这里交换文件已存储）。
+安装程序创建一个名为 pve 的卷组 (VG) 和名为 root（这里安装了 Proxmox 本身）的附加逻辑卷 (LV)、数据（存储虚拟机虚拟磁盘的存储）和交换（这里交换文件已存储）。
 
 <details><summary>通过高级设置，可以在此处指定某些参数：</summary>
 
@@ -168,7 +168,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-现在必须调整 Proxmox 软件包源，以便您可以接收更新。
+现在，必须调整 Proxmox 软件包源，以便您可以接收更新。
 
 <details><summary>包来源</summary>
 
@@ -194,7 +194,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-＃＃＃ 更新
+### 更新
 更改软件包源后，应执行初始系统更新。最好的方法是通过网络界面：
 
 <details><summary>更新</summary>
@@ -203,7 +203,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-只需选择所需的 Proxmox 节点（例如“pve”），然后单击“更新”下的“**更新**”。所谓的任务查看器在此处打开，当系统上执行任何活动时始终会显示该任务查看器。现在可以再次关闭任务查看器。顺便说一句，当显示任务查看器时，您不必等到任务完成（“任务确定”）；该对话框始终可以直接再次关闭 - 任务本身继续在后台运行。
+只需选择所需的 Proxmox 节点（例如“pve”），然后单击“更新”下的“**更新**”。所谓的任务查看器在此处打开，当系统上执行任何活动时始终会显示该任务查看器。现在可以再次关闭任务查看器。顺便说一句，当任务查看器显示时，您不必等到任务完成（“任务确定”）；该对话框始终可以直接再次关闭 - 任务本身将继续在后台运行。
 如果现在有可用更新，则可以通过单击“**升级**”来安装它们。
 
 然后，Web 控制台将在此处打开，您可以监控进度。
@@ -292,7 +292,7 @@ VM 启动后，转到 VM 控制台并启动 **安装**。
 
 <span style="color:red">**危险！ - 不得指定 root 密码。**</span>
 
-一个通知：
+通知：
 
 不要选择 **iobroker** 作为您的用户名，因为这已在系统内部使用。
 
@@ -359,7 +359,7 @@ VM 启动后，转到 VM 控制台并启动 **安装**。
 
 已找到 IP 地址。这是通过 ssh 远程连接到虚拟机所必需的，如下一步所示。
 
-<details><summary>IP地址</summary>
+<details><summary>IP 地址</summary>
 
 ![虚拟机IP地址](../../de/install/media/proxmox/vm-ipaddr.png)
 
@@ -392,7 +392,7 @@ VM 启动后，转到 VM 控制台并启动 **安装**。
 
 </详情>
 
-<span style="color:orange">**危险！ - 对于 Ubuntu 安装，必须安装并启动 Qemu Guest Agent。**</span>
+<span style="color:orange">**危险！ - 对于 Ubuntu 安装，必须安装并启动 Qemu 来宾代理。**</span>
 
 为此的命令：
 
@@ -433,9 +433,9 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 为了清楚起见，可以打开图像描述和附加信息。
 
 ### 1 - 下载容器模板
-首先，需要一个模板，在基本安装中必须将其加载到根目录（本地）中（如果没有创建其他驱动器）。
+首先，需要一个模板，必须将其加载到基本安装中的根目录（本地）中（如果没有创建其他驱动器）。
 
-为此，请转至本地 > 容器模板。单击 **模板** 将打开一个选择列表。这里选择 debian-11-standard(bullseye) 并点击下载。
+为此，请转至本地 > 容器模板。通过单击“**模板**”，将打开一个选择列表。这里选择 debian-11-standard(bullseye) 并点击下载。
 
 <details><summary>下载模板</summary>
 
@@ -528,7 +528,7 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 现在您创建未来的用户。在这种情况下替换“用户名”。为用户分配密码。其余的可以用ENTER确认。
 
-一个通知：
+通知：
 
 不要选择 **iobroker** 作为您的用户名，因为这已在系统内部使用。
 
@@ -537,6 +537,10 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 然后必须将用户分配到 sudo 组。
 
 ~~~ usermod -aG sudo 用户名 ~~~
+
+如果随后要创建用户，仍然必须通过
+
+~~~ usermod -aG adm,dialout,sudo,audio,video,plugdev,users,iobroker username ~~~ 添加到相关组中。
 
 <details><summary>创建用户</summary>
 
@@ -550,13 +554,13 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 然后用新用户登录。现在可以安装 iobroker。
 
-<details><summary>注销并使用用户登录</summary>
+<details><summary>注销并以用户身份登录</summary>
 
 ![lxc用户登录](../../de/install/media/proxmox/lxc-useranmeldung.png)
 
 </详情>
 
-为了使 LXC 即使在计算机重新启动 (Proxmox) 后也能自动启动，必须在容器选项中激活它。
+为了使 LXC 在计算机重新启动 (Proxmox) 后也能自动启动，必须在容器选项中激活它。
 
 <details><summary>启动选项</summary>
 
@@ -622,7 +626,7 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 ![实例](../../de/install/media/proxmox/instanzen.png)
 
-![iobroker就绪](../../de/install/media/proxmox/iobroker-fertig.png)
+![iobroker 完成](../../de/install/media/proxmox/iobroker-fertig.png)
 
 </详情>
 
@@ -633,9 +637,9 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 ## Proxmox - LXC（Linux 容器）-> 传递 USB 设备
 这部分说明逐步解释了如何将 Proxmox 中的 USB 设备（USB 直通）传递到 LXC（Linux 容器）。
 
-使用VM，可以直接通过Proxmox Web界面传递USB设备；使用Linux容器，目前必须手动编辑lxc配置文件。
+对于 VM，可以直接通过 Proxmox Web 界面传递 USB 设备；对于 Linux 容器，目前必须手动编辑 lxc 配置文件。
 
-这些说明描述了如何集成 **Texas Instruments Inc. CC2531** Zigbee 棒，但相同的步骤也可类似地用于其他 Zigbee 棒（ConBee、CC2652P 等）或除 USB 网络设备之外的其他 USB 设备可以使用（蓝牙/WLAN）。
+这些说明描述了如何集成 **Texas Instruments Inc. CC2531** Zigbee 棒，但相同的步骤也可类似地用于其他 Zigbee 棒（ConBee、CC2652P 等）或其他 USB 设备（USB 网络设备除外）可以使用（蓝牙/WiFi）。
 
 * 本部分说明使用 Proxmox 7.1 版。
 
@@ -650,7 +654,7 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 以下命令列出 Proxmox 主机上当前连接的所有 USB 设备：
 
-~~~lsusb~~~
+~~~ lsusb ~~~
 
 ![proxmoxlxc00](../../de/install/media/proxmox/proxmoxlxc00.PNG)
 
@@ -670,7 +674,7 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 ![proxmoxlxc02](../../de/install/media/proxmox/proxmoxlxc02.PNG)
 
-在此示例中，USB 设备的主设备号为 **189**，请在文本文件中记下您的设备的值，并附注：#1
+在此示例中，USB 设备的主设备号为 **189**，请在文本文件中记下设备的值，并附注：#1
 
 ![proxmoxlxc03](../../de/install/media/proxmox/proxmoxlxc03.PNG)
 
@@ -723,9 +727,9 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 在配置文件末尾添加以下内容：
 
-~~~ lxc.cgroup2.devices.allow：c 189：* rwm lxc.mount.entry：usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0 X00124 B0012023529-if00 无绑定，可选，创建=文件
+~~~ lxc.cgroup2.devices.allow：c 189：* rwm lxc.mount.entry：usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC__ _0X001 24B0012023529-if00 无绑定，可选，创建=文件
 
-lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none 绑定，可选，创建=文件 ~~~
+lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/ttyACM0 无绑定，可选，创建=文件~~~
 
 将标记的值替换为笔记中注明的条目！
 
@@ -804,11 +808,11 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 * 重要的是ttyACM0在屏幕截图中具有相同的权限，即**crw-rw-rw- 1无人nogroup**
 
->***如果不检查配置文件中的所有值是否都按照描述设置，如果权限仍然不匹配，则跳转到第5点.***
+>***如果不检查配置文件中的所有值是否都按照描述设置，权限应该还是不匹配，跳到第5点。***
 
-* 在屏幕截图中您还可以看到 cc2531 的设备编号已从值 3 更改为 4，这是因为棒同时被拔出并再次插入。但是，由于在配置文件中指定了唯一 ID 而不是总线/设备编号，因此 USB 直通将继续工作。
+* 在屏幕截图中您还可以看到 cc2531 的设备编号已从值 3 更改为 4，这是因为棒同时被拔出并再次插入。由于在配置文件中指定了唯一 ID 而不是总线/设备编号，因此 USB 直通将继续工作。
 
-如果如上所述将 Zigbee 棒传递到容器，则它必须位于 Zigbee 适配器设置中的 iobroker 项 COM 端口名称下
+如果按照开头所述将 Zigbee 棒传递到容器，则它必须位于 iobroker 中 Zigbee 适配器设置中的 COM 端口名称项下
 
 ~~~ /dev/ttyACM0 ~~~
 
@@ -825,7 +829,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 ~~~ chmod o+rw /dev/ttyACM* ~~~
 
-ttyACM0 的适当权限已设置，但这些权限更改会在 Proxmox 主机重新启动时重置。Proxmox 主机上需要 udev 规则才能进行永久调整。
+已设置 ttyACM0 的适当权限，但这些权限更改会在 Proxmox 主机重新启动时重置。Proxmox 主机上需要 udev 规则才能进行永久调整。
 
 使用 lsusb 我们再次列出当前连接的 USB 设备：
 
@@ -903,7 +907,7 @@ ttyACM0 的适当权限已设置，但这些权限更改会在 Proxmox 主机重
 
 以下示例说明涉及直接在 Proxmox 主机上进行设置。您还可以使用 ssh/putty。
 
-**请注意，以下命令需要root。如果主机上使用单独的用户，则以下命令必须在前面加上sudo才能执行。**
+**请注意，以下命令需要 root 用户，如果在主机上使用单独的用户，则必须在前面加上 sudo 来执行以下命令。**
 
 ### 准备设备
 ### 1 - 识别设备
@@ -911,7 +915,7 @@ ttyACM0 的适当权限已设置，但这些权限更改会在 Proxmox 主机重
 
 ~~~ lsblk ~~~
 
-然后它看起来像这样（字母根据集成的设备数量而变化）
+它看起来像这样（字母根据集成的设备数量而变化）
 
 ~~~ sdd 8:48 0 119.2G 0 磁盘 ├─sdd1 8:49 0 119.2G 0 部分 └─sdd9 8:57 0 8M 0 部分 sde 8:64 0 931.5G 0 磁盘 <-- 这是磁盘 / dev/sde └─sde1 8:65 0 931.5G 0 部分 <-- 这是第一个分区 /dev/sde1，如果已经格式化了 sr0 11:0 1 1024M 0 rom sr1 11:1 1 1024M 0 rom ~~~
 
@@ -927,7 +931,7 @@ ttyACM0 的适当权限已设置，但这些权限更改会在 Proxmox 主机重
 ~~~ mkfs.vfat /dev/sde1 ~~~
 
 ### 4 - 安装驱动器
-为了能够使用完整的数据载体，它必须是[安装的](https://wiki.ubuntuusers.de/mount/)。
+为了能够使用完整的数据载体，它必须是[已安装](https://wiki.ubuntuusers.de/mount/)。
 
 为此，将创建一个合适的安装点，以便在重新启动后自动重新安装数据载体，您还需要在 [/etc/fstab](https://wiki.ubuntuusers.de/fstab/) 中添加合适的条目。
 

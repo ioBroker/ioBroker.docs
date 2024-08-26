@@ -266,7 +266,7 @@ Dieser Befehl aktualisiert den angegebenen Adapter auf die Version, die sich im 
 ## iobroker nodejs-update
 Dieser Befehl aktualisiert Node.js auf die sich im Repository zu findende Version.
 
-- ```iobroker nodejs-update``` - aktualisiert Node.js auf die aktuelle Version im konfigurierten Repository.
+- `iobroker nodejs-update` - aktualisiert Node.js auf die aktuelle Version im konfigurierten Repository.
 
 ## iobroker object get
 Liest Wert einer Objekt ID aus. Beispiel ```iobroker object get system.adapter.admin.0.uptime``` gibt aus:

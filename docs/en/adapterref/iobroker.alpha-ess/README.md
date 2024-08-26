@@ -15,7 +15,7 @@
 
 ### For support please open a GitHub issue or visit
 
-https://forum.iobroker.net/post/892023  
+https://forum.iobroker.net/post/892023
 https://www.storion4you.de/thread/683
 
 ---
@@ -35,10 +35,10 @@ The quality attribute of each state is set accordingly to its status:
 | Quality | meaning |
 |:--------|:--------------------------------------------------|
 |0x00 |OK and up to date |
-|0x01 |value not updated due to unknown reason, see log |
+|0x01 |value not updated due to unknown reason, see debug log |
 |0x02 |problem with online connection for this data point |
 |0x12 |adapter disconnected or stopped |
-|0x44 |API returned error or internal error, see log |
+|0x44 |API returned error or internal error, see debug log |
 
 ## Settings:
 
@@ -47,7 +47,7 @@ How to find SN and Check code for registration is described here: https://github
 
 -   **Personal application ID:** The application ID (see above)
 -   **Personal application Secret:** The application Secret (see above)
--   **Alpha-ESS System ID:** The system Identifier of your Alpha-ESS equipment
+-   **Alpha-ESS System ID:** The S/N (serial number) of your Alpha-ESS equipment
 -   **Interval to read realtime data:** Unit: seconds.
 -   **Interval to read energy data:** Unit: minutes.
 -   **Interval to read charging settings:** Unit: minutes.
@@ -61,6 +61,27 @@ How to find SN and Check code for registration is described here: https://github
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
+### 2.1.4 (2024-08-13)
+
+-   (Gaspode) Updated some formal stuff
+
+### 2.1.3 (2024-08-07)
+
+-   (Gaspode) Increased read timeout from 10 to 20 s
+
+### 2.1.2 (2024-08-07)
+
+-   (Gaspode) Quality of states optimized
+
+### 2.1.1 (2024-08-07)
+
+-   (Gaspode) Do not longer report read timeouts as error. It should be enough to set the quality of concerned states to values according the table above and to display warnings, if values were not updated for a long time. To see details, debug log level must be enabled by the user.
+
+### 2.1.0 (2024-08-01)
+
+-   (Gaspode) Adapter requires node.js >= 18 and js-controller >= 5 now
+-   (Gaspode) Dependencies updated
+-   (Gaspode) Adapter logo updated. Alpha-ESS has kindly permitted to use the Alpha-ESS logo. This does not imply any affiliation with Alpha-ESS! Alpha-ESS is not the developer or provider of this adapter!
 
 ### 2.0.2 (2024-01-12)
 

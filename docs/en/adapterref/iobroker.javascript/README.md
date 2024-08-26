@@ -18,47 +18,23 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (klein0r) Escape all field inputs correctly when using single quotes
-* (klein0r) Added sandbox function to subscribe to all enum members
-* (klein0r) Added Blockly block to subscribe to all enum members
-* (klein0r) Added sandbox functions to start/restart/stop an instance
-* (klein0r) Added Blockly block to start/restart/stop an instance
-* (klein0r) Added Blockly block to start/stop a script
-* (klein0r) Added Blockly result blocks for script messages
-* (klein0r) Fixed onLog / onLogUnregister return types
-* (foxriver76) fixed issue in importing additional node modules for packages which do not provide a default export (e.g. `mathjs`)
+### 8.8.2 (2024-08-07)
+* (@GermanBluefox) updated dependencies
 
-### 8.6.0 (2024-06-14)
+### 8.8.0 (2024-08-05)
+* (@klein0r) Added option to register notifications via scripts
+* (@klein0r) Fixed sendTo block with an empty name list
 
-* (foxriver76) fixed issue with additional node modules which are installed from GitHub (controller v6)
-* (klein0r) Added new Blockly block to save http response into temp file
-* (klein0r) Escape single quotes in all object Blockly blocks
-* (klein0r) Grouped Blockly blocks / changed order of blocks
-* (klein0r) Allow multi line comments
+### 8.7.7 (2024-08-04)
+* (@klein0r) Fixed import scripts dialog
+* (@klein0r) Allowed removing all custom packages (empty list)
 
-### 8.5.2 (2024-06-11)
+### 8.7.6 (2024-07-28)
+* (foxriver76) fix error with subpath imports in scripts
 
-* (foxriver76) fixed issue with additional node modules when using js-controller version 6
-* (klein0r) Added Blockly block to check if text includes another text
-* (klein0r) Fixed onFile error when file has been deleted
-
-### 8.5.1 (2024-06-10)
-
-* (klein0r) Added Blockly dark theme
-* (klein0r) Fixed sendTo custom parameters with special chars
-
-### 8.5.0 (2024-06-07)
-
-* (klein0r) Ack flag on state object has priorty (in setState/setStateDelayed)
-* (klein0r) Fixed all blockly declarations (to avoid warnings in logs)
-* (klein0r) Updated Blockly Core to 10.4.3
-
-### 8.4.3 (2024-06-04)
-
-* (klein0r) Added response time to httpGet and httpPost result
-* (klein0r) Added trigger block to ack new values
-* (bluefox) Allowed selecting different ChatGPT models for AI code generator
+### 8.7.5 (2024-07-27)
+* (@klein0r) Fixed right aligned script names when using multiple instances
+* (foxriver76) added fallback for all require calls in scripts
 
 ## License
 The MIT License (MIT)

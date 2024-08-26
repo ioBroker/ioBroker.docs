@@ -195,6 +195,10 @@ Auszug:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-07-18)
+* (bluefox) Updated packages
+* (bluefox) Removed support of Node.js 16
+
 ### 1.17.0 (2024-03-18)
 * (klein0r) Fixed encrypted configuration
 
@@ -208,9 +212,6 @@ Auszug:
 
 ### 1.15.19 (2023-08-08)
 * (bluefox) Updated packages
-
-### 1.15.18 (2023-05-08)
-* (foxriver76) no longer support EOL versions, please upgrade to node 16
 
 ### Older entries
 [here](OLD_CHANGELOG.md)

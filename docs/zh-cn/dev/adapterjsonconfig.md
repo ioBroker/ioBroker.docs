@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: ClDJCj9QzYDHf2oWQ0fHIOi0XwSqJVaQbYHJe8mSdQQ=
+hash: yeuuz/VQ8X9abPD73ngTtsZUJ8pTPMo3NBqR6MK5IEc=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -11,9 +11,9 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 具有多个选项卡的`jsonConfig.json`文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
-您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并支持注释。
+您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并且支持注释。
 
-此外，对于 JSON 文件，您必须在 `common` 部分的 `io-package.json` 中定义：
+此外，对于 JSON 文件，您必须在`common` 部分的`io-package.json` 中定义：
 
 ```json
 {
@@ -25,19 +25,21 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 }
 ```
 
-表示适配器支持 JSON 配置。
+说明适配器支持 JSON 配置。
 
 如果您测试此适配器，则可以看到几乎所有组件都在运行：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
-您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo`来安装它。
+您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo` 来安装它。
 
-所有标签、文本、帮助文本都可以是多种语言或仅仅是字符串。
+JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapter-react-v5/blob/main/schemas/jsonConfig.json
+
+所有标签、文本、帮助文本都可以是多种语言或仅为字符串。
 
 *如果属性名称以“_”开头，则不会保存在对象中。*
 
 包括
 需要管理员 6.17.1 或更新版本。
 
-要编写复杂的 json 文件，可以包含其他 json 文件。
+要编写复杂的 JSON 文件，您可以包含其他 JSON 文件。
 包含的文件必须与主文件位于同一目录中。
 
 ```json5
@@ -57,6 +59,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `tabs` - 带有项目的标签
 - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
 - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有 `icon` 属性的面板。默认值：`start`
+- `tabsStyle` - Mui-Tabs 组件的 React 格式的 CSS 样式（`marginLeft` 而不是 `margin-left`）
 
 - `panel` - 带有项目的标签
 - `icon` - 选项卡可以有图标（base64 如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
@@ -64,6 +67,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
 - `collapsable` - 仅可能不属于 tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
 - `color` - 可折叠标题的颜色 `primary` 或 `secondary` 或者无
+- `innerStyle` - Panel 组件的 React 格式（`marginLeft` 而非 `margin-left`）内层 div 的 CSS 样式。不适用于可折叠面板。
 
 - `text` - 文本组件
 - `maxLength` - 字段中文本的最大长度
@@ -72,6 +76,9 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更大。
 - `maxRows` - 文本区域的最大行数。仅当 `minRows` > 1 时使用。
 - `noClearButton` - 如果为真，则不会显示清除按钮（admin >= 6.17.13）
+- `validateJson` - 如果为 true，文本将被验证为 JSON
+- `allowEmpty` - 如果为 true，则仅当值不为空时才会验证 JSON
+- `time` - 值是毫秒或字符串的时间。仅与 readOnly 标志一起使用
 
 - `数字`
 - `min` - 最小值
@@ -89,6 +96,13 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `step` - （默认 `(max - min) / 100`）
 - `unit` - 滑块的单位
 
+- `qrCode` - 在二维码中显示数据（来自 Admin 7）
+- `data` - 要在二维码中编码的数据
+- `size` - QR 码的大小
+- `fgColor` - 前景色
+- `bgColor` - 背景颜色
+- `level` - QR 码级别（`L` `M` `Q` `H`）
+
 - `ip` - 绑定地址
 - `listenOnAllPorts` - 将 0.0.0.0 添加到选项
 - `onlyIp4` - 仅显示 IP4 地址
@@ -104,12 +118,12 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `func` - 从 `enum.func` 中选择函数（带颜色和图标）-（仅限 Admin6）
 - `short` - 没有 `enum.func.`
-- `allowDeactivate` - 允许让功能为空
+- `allowDeactivate` - 允许将功能留空
 
 -`选择`
 - `options` - `[{label: {en: "option 1"}, value: 1}, ...]` 或
 
-`[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
+                `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
 
 -`自动完成`
 - `options` - `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1"}, "value2", ...]` （键必须是唯一的）
@@ -170,6 +184,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `repeat` - 重复密码必须与密码进行比较
 - `visible` - 如果允许通过切换查看按钮查看密码则为 true（仅适用于输入新密码时）
+- `readOnly` - 只读标志。如果 readOnly 为真，则 Visible 自动为真
 - `maxLength` - 字段中文本的最大长度
 
 -`实例`
@@ -189,8 +204,8 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 仅文本：实例正在运行，实例未运行
 
 - `instance` - 检查实例是否处于活动状态。如果未定义，则将使用当前实例。您可以在文本中使用 `${data.number}` 模式。
-- `textAlive` - 默认文本为 `Instance %s is alive`，其中 %s 将被 `ADAPTER.0` 替换。
-- `textNotAlive` - 默认文本为“实例 %s 未处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。
+- `textAlive` - 默认文本为 `Instance %s is alive`，其中 %s 将被 `ADAPTER.0` 替换。翻译必须存在于 i18n 文件中
+- `textNotAlive` - 默认文本为“实例 %s 未激活”，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中
 
 - `pattern` - 具有类似 'https://${data.ip}:${data.port}' 模式的只读字段（不会保存在配置中）
 
@@ -203,8 +218,8 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `命令` - （默认`发送`）
 - `jsonData` - 字符串 - `"{\"subject1\": \"${data.subject}\", \"options1\": {\"host\": \"${data.host}\"}}"`。您可以使用特殊变量 `data._origin` 和 `data._originIp` 向实例发送调用者 URL，例如 `http://127.0.0.1:8081/admin`。
 - `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。
-- `结果` - `{结果1：{en：'A'}，结果2：{en：'B'}}`
-- `错误` - `{错误1：{en：'E'}，错误2：{en：'E2'}}`
+    - `结果` - `{结果1: {en: 'A'}, 结果2: {en: 'B'}}`
+    - `错误` - `{error1: {en: 'E'}, error2: {en: 'E2'}}`
 - `variant` - `contained`, `outlined` 或者什么都没有
 - `openUrl` - 如果为 true - 在新选项卡中打开 URL，如果响应包含属性 `openUrl`，例如 `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果 `saveConfig` 为 true，则将请求用户保存配置。
 - `reloadBrowser` - 如果为 true - 重新加载当前浏览器窗口，如果响应包含属性 `reloadBrowser`，如 `{"reloadBrowser": true}`。
@@ -243,7 +258,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `table` - 包含可以删除、添加、上移、下移的项目的表格
 - `items` - `[{"type": 见上文, "width": px 或 %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]`
-- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `objKeyName` - （旧设置，请勿使用！） - `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中密钥的名称
 - `objValueName` - （旧设置，请勿使用！） - `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` 中的值的名称
 - `allowAddByFilter` - 即使设置了过滤器，也允许添加
@@ -254,14 +269,17 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `import` - [可选] - 是否显示导入按钮。从 csv 文件导入。
 - `uniqueColumns` - [可选] - 指定列数组，这些列需要具有唯一的条目
 - `encryptedAttributes` - [可选] - 指定需要加密的列数组
+- `compact` - [可选] - 如果为 true，表格将以紧凑模式显示。
 
 - `accordion` - 可以删除、添加、上移、下移项目的手风琴（Admin 6.6.0 及更新版本）
 - `items` - `[{"type": 见上文, "attr": "name", "default": ""}]` - 项目可以像在 `panel` 上一样放置（xs、sm、md、lg 和 newLine）
 - `titleAttr` - 项目列表的键，应用于名称
-- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `clone` - [可选] - 是否应显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。
 
 - `jsonEditor` - json 编辑器
+- `validateJson` - 如果为 false，则文本将不会被验证为 JSON
+- `allowEmpty` - 如果为 true，则仅当值不为空时才会验证 JSON
 
 - `语言` - 选择语言
 - `system` - 允许默认使用 `system.config` 中的系统语言（如果选择，则将有一个空字符串值）
@@ -430,14 +448,26 @@ adapter.on('message', obj => {
 
 显示根据实例值给定的只读控制。
 
-- `容器` - div，文本
+- `容器` - div，文本，html
 - `copyToClipboard` - 如果为 true - 显示按钮
 - `alsoDependsOn` - 通过改变哪些属性，必须重新发送命令
 - `command` - sendTo 命令
 - `jsonData` - 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端
 - `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。
 
-要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是一个字符串。
+要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是具有以下参数的字符串或对象：
+
+```
+{
+    text: 'text to show',  // mandatory
+    style: {color: 'red'}, // optional
+    icon: 'search',        // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
+                           // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, puase, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
+    iconStyle: {width: 30} // optional
+}
+```
+
+例子：
 
 ```
 adapter.on('message', obj => {
@@ -445,6 +475,10 @@ adapter.on('message', obj => {
       switch (obj.command) {
         case 'command':
           obj.callback && adapter.sendTo(obj.from, obj.command, 'Received ' + JSON.stringify(obj.message), obj.callback);
+          // or with style
+          obj.callback && adapter.sendTo(obj.from, obj.command, { text: 'Received ' + JSON.stringify(obj.message), style: { color: 'red' }, icon: 'search', iconStyle: { width: 30 }}, obj.callback);
+          // or as html
+          obj.callback && adapter.sendTo(obj.from, obj.command, `<div style="color: green">${JSON.stringify(obj.message)}</div>`, obj.callback);
           break;
       }
     }
@@ -459,7 +493,7 @@ adapter.on('message', obj => {
 - `autoInit` - 如果为空，则使用当前坐标初始化字段
 - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
 - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
-- `useSystemName` - 如果已定义，则会显示带有“使用系统设置”的复选框，并从 system.config 中读取纬度、经度，并将布尔值保存到给定的名称
+- `useSystemName` - 如果已定义，则会显示带有“使用系统设置”的复选框，并从 `system.config` 中读取纬度、经度，并将布尔值保存到给定的名称
 
 -`界面`
 
@@ -481,7 +515,7 @@ adapter.on('message', obj => {
 
 - `uuid` - 显示 iobroker UUID
 - `port` - 端口的特殊输入。它会自动检查端口是否被其他实例使用并显示警告。
-- `min` - 允许的最小端口号。它可以是 0。如果该值为零，则不会检查端口是否被占用。
+- `min` - 允许的最小端口号。它可以是 0。如果值为零，则不会检查端口是否被占用。
 
 - `deviceManager` - 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
 

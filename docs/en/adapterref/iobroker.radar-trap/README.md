@@ -21,6 +21,12 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 2.2.2 (2024-08-04)
+* (Steiger04) Deprecated createState, createChannel, createDevice replaced with setObject and delDevice replaced with delObject
+
+### 2.2.1 (2024-07-07)
+* (Steiger04) Dependencies updated
+
 ### 2.2.0 (2024-05-22)
 * (Steiger04) Added counties selection for areas
 
@@ -38,7 +44,7 @@
 * (Steiger04) Some code optimizations
 
 ### 2.0.0 (2024-04-10)
-* (Steiger04) !!! No VIS widgets anymore. Continue using v1.3.1 for VIS widgets. Starting from this version, only VIS-2 widgets are supported. !!! 
+* (Steiger04) !!! No VIS widgets anymore. Continue using v1.3.1 for VIS widgets. Starting from this version, only VIS-2 widgets are supported. !!!
 * (Steiger04) Changed Wiki
 * (Steiger04) Many optimizations and bug fixes
 

@@ -46,6 +46,56 @@ If you find the adapter useful for you and want to support my work, feel free to
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.8.4 (2024-08-16)
+
+- Add support for Smart Plug, but only Power is available at the moment - unstable as often data is not updated by MQTT
+- Some code improvements
+
+### 1.8.3 (2024-08-12)
+
+- Fix SOC and energyWhMax Value (counted by type of attached batteries)
+- Add Calculation for Grid Input (only for Ace 1500 and Hyper 2000)
+- Fix suggestions by ioBroker repository checker
+
+### 1.7.7 (2024-08-02)
+
+- Fix Input and Output limit for Hyper 2000
+
+### 1.7.6 (2024-08-01)
+
+- Fix support for 'Hyper_Test' devices
+- Improved code for state creation
+
+### 1.7.5 (2024-07-31)
+
+- Fix controlling AC mode for Hyper 2000 (set acMode to 1: Charge by AC, 2: Output to AC)
+- Show product name in channel name
+- Show battery type as state in packData
+- Show Hyper Temperature in States
+
+### 1.7.4 (2024-07-31)
+
+- Set max value and step for setInputLimit
+
+### 1.7.3 (2024-07-30)
+
+- Fix AC input value for Hyper to max. 1200W
+- Fix dcSwitch and acSwitch value
+
+### 1.7.2 (2024-07-29)
+
+- Fix acSwitch for ACE and Hyper
+
+### 1.7.1 (2024-07-29)
+
+- Fix missing ACE 1500 when connected with HUB1200 / HUB2000
+- Fix some missing states
+
+### 1.7.0 (2024-07-26)
+
+- Add support for Hyper 2000 and ACE 1500. Maybe not all states and control parameter are available. Still need to do some investigation.
+- Some minor bugfixes.
+
 ### 1.6.7 (2024-06-23)
 
 - Fix reconnect again. Adapter will now restart every 3 hours to cleanup fully.
@@ -222,7 +272,7 @@ If you find the adapter useful for you and want to support my work, feel free to
 ### 1.0.1 (2023-11-03)
 
 - Fix translationscd so
-- Use 'extendObjectAsync' instead of 'setObjectNotExistsAsync'
+- Use 'extendObject' instead of 'setObjectNotExistsAsync'
 - First official release version
 
 ### 0.1.0-alpha.2 (2023-10-27)

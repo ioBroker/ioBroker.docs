@@ -3,65 +3,68 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openligadb/README.md
 title: Адаптер ioBroker для получения результатов футбольных матчей из OpenLigaDB
-hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
+hash: e5bt04T3osN7C2hpyfmVE5dX3PSxxSGuFY7/ibkCVe4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.openligadb.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.openligadb.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.openligadb.svg)
 ![Количество установок](https://iobroker.live/badges/openligadb-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/openligadb-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/openligadb-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.openligadb.png?downloads=true)
 
 # Адаптер ioBroker для получения результатов футбольных матчей из OpenLigaDB
 ## Обзор
-Адаптер для запроса игровых данных для футбола или других игр с сайта openligadb.de
+Адаптер для запроса данных об игре в футбол или других играх с openligadb.de
 
 ## Конфигурация
-Добавьте экземпляр адаптера и нажмите на символ гаечного ключа. В форму можно добавить ярлык от лиги и сезона.
-Пожалуйста, посетите openligadb.de, чтобы узнать о доступных лигах, сезонах и ярлыках. Если сезон длится два года, введите только год начала.
+Добавьте экземпляр адаптера и щелкните по символу гаечного ключа. В форме вы можете добавить ярлык из лиги и сезона.
+Пожалуйста, посетите openligadb.de для доступных лиг, сезонов и ярлыков. Если сезон распространяется на два года, пожалуйста, введите только год начала.
 
-Пример данных для 1. Немецкой Бундлиги сокращен = bl1 сезон = 2023 г.
+Пример данных для 1. Немецкая Бундлига — сокращенный вариант = bl1 сезон = 2023
 
-Если вы сохранили и закрыли конфигурацию, вскоре после этого должны появиться новые точки данных для вашей лиги и сезона.
+Если вы сохранили и закрыли конфигурацию, через некоторое время после этого должны появиться новые точки данных для вашей лиги и сезона.
 
-## Визуальные эффекты и виджеты
-На самом деле доступно 5 виджетов. Пожалуйста, введите openligadb в фильтр виджетов.
+## Vis и виджеты
+На самом деле доступно 5 виджетов. Введите openligadb в фильтр виджетов
 
 ### Таблица v4
 Этот виджет отображает текущий рейтинг вашей лиги.
 
-### Поворотная версия 2
-Этот виджет отображает все результаты в сводной таблице.
+### Сводная версия v2
+Этот виджет показывает все результаты в сводной таблице.
 
-### Вратари v2
-Этот виджет показывает игроков, забивших голы в этом сезоне.
+### Голеатры v2
+Этот виджет показывает игроков, забивших голы в этом сезоне
 
 ### День игры
-Все игры текущего или выбранного игрового дня. Существует множество атрибутов виджетов для настройки количества отображаемых данных.
+Все игры текущего или выбранного игрового дня. Существует множество виджет-атрибутов для настройки количества отображаемых данных
 
-###Игры любимых клубов
-Отобразите все текущие или будущие игры ваших любимых клубов.
+### Игры любимых клубов
+Отображение всех текущих или будущих игр ваших любимых клубов
 
-Документация по vis-виджетам доступна внутри vis или [Документация по виджетам/немецкий](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html).
+Документация по vis-виджетам доступна внутри vis или [Виджет-Документация/немецкий](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html)
 
-## Делать
+## То, что нужно сделать
 - проверка в виджете, если пользователь не выбрал правильную точку данных
 - перевод
-- ~~документация для новых виджетов, сводных таблиц и ворот~~
-- ~~расширить режимы стола с 1-м и 2-м раундами~~
+- ~~документация для новых виджетов pivottable и goalgetters~~
+- ~~расширенные режимы таблицы с 1-м раундом, 2-м раундом~~
 - ~~новый виджет сводной таблицы сыгранных игр~~
-- ~~новый виджет рейтинга получателей целей с функцией сортировки~~
-- ~~расширить таблицу со знаком тренда (стрелка вверх/вниз, точка без изменений)~~
-- ~~расширить таблицу для расчета с учетом x последних игр~~
-- ~~расширить таблицу для расчета рейтинга для определенного игрового дня~~
+- ~~новый виджет рейтинга добытчиков целей с функцией сортировки~~
+- ~~расширить таблицу со знаком тренда (стрелка вверх/вниз, точка для отсутствия изменений)~~
+- ~~расширить таблицу для расчета с x последними играми~~
+- ~~расширить таблицу для расчета рейтинга за определенный игровой день~~
 - ~~адаптер документации/виджет~~
-- ~~исправлена проблема с динамической колонкой клуба~~
-- ~~новый виджет: следующие игры клуба~~
-- ~~Настройка игрового дня в виджете для продолжительности начала игрового дня (-1,3 = показать предыдущий игровой день и 3 игровых дня после него)~~
-- ~~Значение замены для режима редактирования, если showgameday установлен с привязкой~~
+- ~~исправить проблему с динамикой колонки клуба~~
+- ~~новый виджет: следующие x игр клуба~~
+- ~~настройка игрового дня виджета для начала игрового дня и его длины (-1,3 = показать предыдущий
+
+игровой день и 3 игровых дня после него)~~
+
+- ~~Заменяющее значение для режима редактирования, если showgameday установлен с привязкой~~
 - ~~выделить любимый клуб~~
-- ~~управляемый игровой день в виджете игрового дня~~
+- ~~контролируемый игровой день в виджете игрового дня~~
 
 ## Changelog
 
@@ -69,6 +72,15 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.4.11 (2024-08-09)
+
+-   fix issues from adapter checker
+
+### 1.4.10 (2024-08-02)
+
+-   switch to eslint 9
+-   adjust markdownlint settings to be compatible with prettier
+
 ### 1.4.9 (2024-06-13)
 
 -   fix if no game exist for team1/team2
@@ -178,14 +190,17 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
 
 ### 0.11.1
 
--   change some template settings, goalgetter table get headers, add object change sensing
+-   change some template settings, goalgetter table get headers,
+    add object change sensing
 -   widget goalgetters: add parameter highlight and showonlyhighlight
 -   widget pivottable: add sort option and choice to place favorite teams on top
 -   remove year from date for several widgets
 
 ### 0.11.0
 
--   extend table to calculate with x last games and extend table to calculate ranking for a defined gameday, to ensure backward compatibility i have to create a new table v3 widget
+-   extend table to calculate with x last games and extend table to calculate
+    ranking for a defined gameday, to ensure backward compatibility i have to
+    create a new table v3 widget
 -   extend table with trend sign (arrow up/down, point for no change)
 -   new widget goal getter ranking with sort function
 -   new widget pivot table of played games
@@ -193,21 +208,27 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
 
 ### 0.10.3
 
--   change computing and output logic of gameday widget to mark gameday header with favorite class
+-   change computing and output logic of gameday widget to mark gameday
+    header with favorite class
 -   improve documentation with css-klasses for table widget
 -   bugfix for calculate gameday.
 
 ### 0.10.2
 
--   Add data column goaldiff to table widget, improve more documentation (systax highlighting,copy code function), add example to control gameday with buttons,
+-   Add data column goaldiff to table widget, improve more documentation
+    (systax highlighting,copy code function), add example to
+    control gameday with buttons,
 
 ### 0.10.1
 
--   Improve documentation with more recipes and syntax highlighting, improve code to get and subscribe states
+-   Improve documentation with more recipes and syntax highlighting,
+    improve code to get and subscribe states
 
 ### 0.10.0
 
--   New widget Table 2 that includes the calculation of the total, home and away results. the previous widget is now deprecated, due to the different datapoint (allmatches) to be selected.
+-   New widget Table 2 that includes the calculation of the total, home and
+    away results. the previous widget is now deprecated, due to the
+    different datapoint (allmatches) to be selected.
 
 ### 0.9.3
 
@@ -223,11 +244,14 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
 
 ### 0.9.0
 
--   new Function for vis Binding to search for games at the actual day for favorite clubs, css-classes für games at actual day, fix bug to show the right match results,
+-   new Function for vis Binding to search for games at the actual day for
+    favorite clubs, css-classes für games at actual day, fix bug to show
+    the right match results,
 
 ### 0.8.0
 
--   push version for latest repository. fix some typos. fix a problem with date handling on different OS
+-   push version for latest repository. fix some typos. fix a problem with
+    date handling on different OS
 
 ### 0.0.11
 
@@ -239,11 +263,13 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
 
 ### 0.0.9
 
--   optional weekday for widgets: gameday and gamesoffavclub,highlight the clubname in gamesoffavclub
+-   optional weekday for widgets: gameday and gamesoffavclub,highlight the
+    clubname in gamesoffavclub
 
 ### 0.0.8
 
--   new widget games of favorite clubs with multi league support as replacement for the old one
+-   new widget games of favorite clubs with multi league support as
+    replacement for the old one
 
 ### 0.0.7
 
@@ -257,7 +283,8 @@ hash: NBGbAbS3DF+r/1+iR9CjF/p41QVywpNvyYwVhtiUX60=
 
 -   highlight favorite club,
 -   Replacement value for edit mode if showgameday is set with binding,
--   widget gameday setting for start gameday an length (-1,3 = show previous gameday and 3 gamedays after that)
+-   widget gameday setting for start gameday an length (-1,3 = show previous
+    gameday and 3 gamedays after that)
 -   some documentation
 -   remove unused code
 -   new widget: next x games of club

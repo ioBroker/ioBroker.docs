@@ -9,7 +9,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/fullybrowser-installe
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.fullybrowser.svg?color=red&label=beta
 BADGE-Stable: https://iobroker.live/badges/fullybrowser-stable.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullybrowser/README.md
 title: без заголовка
 hash: KsmbgnWJZz4LQf3vFtp3jSzjdp/2sdxgNWfoJ0c0kkc=

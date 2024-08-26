@@ -6,11 +6,12 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.backit
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.backitup?style=flat
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
+BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.backitup/README.md
 title: ioBroker.backitup 的文档和说明
-hash: Dub415YWC1uiiYFQagyyJTIGweVk67OZ2fOm5hn80R8=
+hash: qg49JH36K9QlTa5ZjW83ZOVxqc+dh3z4nRPbdMrWOKA=
 ---
 ![标识](../../../de/adapterref/iobroker.backitup/img/backitup.png)
 
@@ -41,7 +42,7 @@ hash: Dub415YWC1uiiYFQagyyJTIGweVk67OZ2fOm5hn80R8=
 
 **************************************************************************************************************
 
-＃＃ 基本
+## 基础知识
 `ioBroker.backitup` 是一种备份解决方案，允许循环备份 ioBroker 安装和 Homematic CCU。
 
 该适配器适用于多平台，除了 Linux 安装之外，还可以在 Windows 和 Mac 安装上使用。
@@ -55,14 +56,14 @@ hash: Dub415YWC1uiiYFQagyyJTIGweVk67OZ2fOm5hn80R8=
 恢复也与 js 控制器的 CLI 命令`iobroker restore <backupname>`完全相同。
 
 恢复期间，`ioBroker.backitup` 中的所有状态、对象和用户数据都会被恢复。
-恢复后，您的 iobroker 将重新启动，从此 js 控制器将再次接管丢失适配器的安装。
+恢复后，您的 iobroker 会重新启动，从那时起，js 控制器将再次接管丢失适配器的安装。
 
 `ioBroker.backitup`对启动iobroker后的恢复没有影响。这一切都在后台发生，js 控制器根据状态和对象中恢复的信息进行接管。
 
 与 CLI 命令相反，`ioBroker.backitup` 还可以恢复各种可选备份。
 这是无法通过 CLI 实现的。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -90,7 +91,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
     - [InfluxDB 2.x 安装指南](https://docs.influxdata.com/influxdb/v2.1/install/)
     - [Influx CLI 2.x 安装指南](https://docs.influxdata.com/influxdb/v2.1/tools/influx-cli/?t=Linux)
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -136,15 +137,17 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ![管理标签信息](../../../de/adapterref/iobroker.backitup/img/backitup_history.png)
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+![备份配置](../../../de/adapterref/iobroker.backitup/img/backitup_config.png)
+
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
 ## 备份类型
-`ioBroker.backitup` 提供了许多选项，用于循环执行各种备份类型或按下按钮。默认情况下，每个备份都存储在 /opt/iobroker/backups 目录中。或者，可以设置 FTP 上传，也可以使用 CIFS/NFS 安装。
+`ioBroker.backitup` 提供了许多选项，用于循环或按按钮执行不同类型的备份。默认情况下，每个备份都存储在 /opt/iobroker/backups 目录中。或者，可以设置 FTP 上传，也可以使用 CIFS/NFS 安装。
 
 ### IoBroker 备份
-此备份对应于 ioBroker 中包含的备份，可以通过调用 `iobroker backup` 在控制台中启动该备份。仅在这里，它是通过适配器配置或 OneClick Backup 小部件中的指定设置来执行的，而无需使用控制台。
+此备份对应于 ioBroker 中包含的备份，可以通过调用 `iobroker backup` 在控制台中启动该备份。仅在这里，它是通过适配器配置或 OneClick Backup 小组件中的指定设置执行的，而无需使用控制台。
 
 ### CCU 备份（家庭）
 此备份提供了备份 Homematic 安装的三种不同变体（CCU-Original / pivCCU / Raspberrymatic）的选项。还可以使用适配器配置或 OneClick 备份小部件中指定的设置来执行此备份。
@@ -154,10 +157,10 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 > [!重要] > CCU 的备份只能由 CCU 的用户 `Admin` 执行！
 
 ### Mysql备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 这里重要的是，即使Mysql服务器运行在远程系统上，mysqldump也必须运行在ioBroker系统上。
-对于 Linux 系统，安装命令如下：`sudo apt install mysql-client` 或在 Debian 下为 `sudo apt install default-mysql-client` 或对于 MariaDB 系统为`sudo apt install mariadb-client`。
+对于 Linux 系统，安装命令如下：`sudo apt install mysql-client` 或在 Debian 下`sudo apt install default-mysql-client` 或对于 MariaDB 系统`sudo apt install mariadb-client`。
 
 如果您不想只备份一个数据库，则可以激活“备份多个系统”选项，然后在表中定义您的数据库。
 
@@ -242,7 +245,7 @@ bind-address = "0.0.0.0:8088"
 > [!重要] > 为了创建 InfluxDB2 备份并能够恢复它，需要操作员令牌！
 
 ### PostgreSQL 备份
-如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 这里重要的是，即使 PostgreSQL 服务器运行在远程系统上，PostgreSQL 也必须运行在 ioBroker 系统上。
 有 Linux 系统的安装说明[这里](https://www.postgresql.org/download/linux/debian/)。
@@ -280,7 +283,7 @@ sudo reboot
 ```
 
 ### 节点红色备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 ### Grafana 备份
 如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
@@ -295,7 +298,7 @@ API 密钥可以在***“配置 → API 密钥或服务令牌”***下创建，�
 
 所有系统设置和设备设置均由 Homekit 备份。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -308,7 +311,7 @@ ioBroker 中的默认备份位置是`/opt/iobroker/backups`。
 其他存储选项（例如云或 FTP）只需在主机系统之外的选定位置创建备份副本。
 
 ### CIFS
-Linux下CIFS挂载不是问题。
+CIFS 安装在 Linux 上不是问题。
 
 需要注意的是cifs-utils已安装。
 
@@ -359,10 +362,10 @@ ioBroker 仅访问定义的区域；云中不存储任何令牌或用户数据�
 * 第 1 步：使用“创建应用程序”按钮
 * 步骤 2：选择“范围访问”。
 * 步骤3：选择“应用程序文件夹”。
-* 第 4 步：分配“命名您的应用程序”并选择“创建应用程序”按钮
+* 第 4 步：指定“为您的应用程序命名”并选择“创建应用程序”按钮
 * 步骤 5：在“权限”选项卡中，将“文件和文件夹”区域中的所有 4 个复选标记全部选中
 * 步骤 6：在“设置”选项卡中，将“访问令牌过期”设置为“无过期”。
-* 步骤7：按“生成的访问令牌”按钮（生成的令牌在`ioBroker.backitup`的设置中输入）
+* 第 7 步：按“生成的访问令牌”按钮（生成的令牌将输入到 `ioBroker.backitup` 的设置中）
 
 您的 Dropbox 中现在有一个名为“Apps”的新文件夹。
 
@@ -373,8 +376,8 @@ ioBroker 仅访问定义的区域。 oAuth 的代码可以在 [这里](https://g
 
 云中不存储任何令牌或用户数据。
 
-＃＃＃ 一个驱动器
-为了在 Onedrive 中使用备份，您必须获得访问令牌。您可以在`ioBroker.backitup`的配置页面上执行此操作。
+### Onedrive
+为了在 Onedrive 中使用备份，您必须获取访问令牌。您可以在`ioBroker.backitup`的配置页面上执行此操作。
 
 ioBroker 仅访问定义的区域；云中不存储任何令牌或用户数据。
 
@@ -390,7 +393,7 @@ ioBroker 仅访问定义的区域；云中不存储任何令牌或用户数据�
 
 仅当禁用“仅允许签名证书”选项时，才能与本地 IP 地址建立连接。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -404,7 +407,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 哪些备份被删除以及删除过程中可能出现的错误都会在调试日志中输出。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -438,7 +441,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 该选项可在菜单中配置。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -456,11 +459,11 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * 端口 9081 - 用于通过“ioBroker.backitup”的 Web 界面下载备份的文件服务器
 * 端口 9082 - 用于通过“ioBroker.backitup”的 Web 界面上传备份的文件服务器
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
-＃＃ 使用
+＃＃ 用法
 1.适配器创建一些数据点供Vis中使用
 
 	* oneClick.ccu -> 用作 CCU 备份的触发器（可以通过按钮在 Vis 中设置为 true）
@@ -520,7 +523,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 语法：{值：<BackitupInstance>.oneClick.<Trigger>;值===“真”||值===真？ “备份创建期间的文本”：“默认文本”}
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -536,7 +539,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
    * 矩阵
    *不和谐
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
@@ -545,12 +548,17 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 `ioBroker.backitup` 与 js 控制器密切配合，并创建与 CLI 命令“iobroker backup”相同的 iobroker 备份。
 
-所有状态和对象，以及VIS等用户文件，都以与js控制器标准备份相同的方式备份在这里。
+这里，所有状态和对象，以及VIS等用户文件，都以与js控制器标准备份相同的方式进行备份。
 
 恢复也与 js 控制器的 CLI 命令完全相同。
 
 恢复期间，`ioBroker.backitup` 中的所有状态、对象和用户数据都会被恢复。
-恢复后，您的 ioBroker 会重新启动，从那时起，js 控制器将再次接管丢失适配器的安装。
+
+![恢复管理](../../../de/adapterref/iobroker.backitup/img/backitup_restore1.png)
+
+恢复后，您的 ioBroker 将重新启动，从此 js 控制器将再次接管丢失适配器的安装。
+
+![恢复后管理](../../../de/adapterref/iobroker.backitup/img/backitup_restore2.png)
 
 `ioBroker.backitup`对启动iobroker后的恢复没有影响。 js 控制器根据状态和对象中恢复的信息在后台执行此操作。
 
@@ -563,10 +571,6 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 对于备份类型“ioBroker”和“redis”，ioBroker 在恢复期间停止，然后自动再次启动。
 
-iobroker 停止后，将打开一个新的浏览器选项卡，其中可以看到恢复进度。
-
-***如果此选项卡未打开，您需要检查浏览器设置以阻止弹出窗口。***
-
 **对于所有其他备份类型，ioBroker 不会停止。这里只有受影响的适配器会短暂停止。**
 
 如果您希望手动恢复备份，您应该执行以下操作：
@@ -577,7 +581,7 @@ iobroker 停止后，将打开一个新的浏览器选项卡，其中可以看�
     - 可以使用以下命令从控制台恢复：`iobroker restore <备份文件名>`。
     - 恢复后需要“iobroker upload all”
 
-使用`ioBroker.backitup` 进行恢复以及手动恢复的详细说明可在[这里](https://github.com/simatec/ioBroker.backitup/wiki/%5BHowTo%5D-Restore-auf-Linux-Distributionen) 中找到。
+使用 `ioBroker.backitup` 恢复以及手动恢复的详细说明可在 [这里](https://github.com/simatec/ioBroker.backitup/wiki/%5BHowTo%5D-Restore-auf-Linux-Distributionen) 中找到。
 
 **CCU 备份仍必须通过 CCU Web 界面恢复。**
 
@@ -589,19 +593,30 @@ iobroker 停止后，将打开一个新的浏览器选项卡，其中可以看�
     - 在 Raspberrymatic 上运行命令：“reboot”以重新启动 PI
     - 或者，当然也可以通过网络界面照常恢复备份。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+### 恢复 InfluxDB 数据库
+恢复 InfluxDB 备份时，请注意，必须事先停止 InfluxDB 适配器，并且数据库不能存在。
+
+> [!NOTE] > 如果数据库存在，则必须在恢复之前将其删除。
+
+InfluxDB 适配器只能在恢复后再次启动，因为它将始终尝试创建数据库。
+
+此外，要恢复 InfluxDB 2.x 数据库，必须在恢复之前在 ioBroker.backitup 菜单中配置操作员令牌。
+
+> [!NOTE] > 如果没有正确的操作员令牌，则无法进行恢复。
+
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
-＃＃ 故障排除
+## 故障排除
     为了记录错误，必须在 ioBroker“实例”选项卡下将`ioBroker.backitup`设置为日志级别“调试”。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
 ## 遇到的错误/解决方案
-以下是迄今为止发生的问题及其解决方案的列表（如果有）。
+以下是迄今为止出现的问题及其解决方案（如果有）的列表。
 
 1. Olifall（来自论坛）存在恢复后无法再访问ioBroker Web界面的问题。他通过控制台按照以下步骤解决了这个问题：
     - sudo iobroker 状态
@@ -627,7 +642,7 @@ sudo reboot
 
 7. 如果您在创建Redis数据库时出现错误提示，请检查您的用户iobroker是否有权限以及是否存在于Redis用户组中。
 
-    如果不是这种情况，您可以在控制台中使用以下命令修复此问题。
+    如果不是这种情况，您可以在控制台中使用以下命令修复它。
 
 ```
 sudo usermod -a -G redis iobroker
@@ -638,19 +653,117 @@ sudo reboot
 
 8. 如果将 Fritzbox 用作固件 >= 7.21 的 NAS，则 `ioBroker.backitup` 中的 SMB 设置应设置为“3.1.1”，并应激活“noserverino”选项。
 
-_[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
+_[回到最初](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ---
 
 ## Changelog
-<!-- ### **WORK IN PROGRESS** -->
-### 3.0.1 (2024-05-29)
-* (simatec) Fix umount callback
-* (simatec) Fix Backup Message
+### 3.0.20 (2024-08-22)
+* (simatec) Responsive Design for Tab added
+* (simatec) Responsive Design for jsonConfig added
+* (simatec) dependencies updated
+
+### 3.0.19 (2024-08-15)
+* (simatec) Fix CCU Backup
+* (simatec) Fix InfluxDB Backup Config
+* (simatec) Fix Backup-Log for Slave Instanz
+
+### 3.0.18 (2024-08-14)
+* (simatec) Package optimisation
+* (simatec) Fix the warning when opening the configuration
+* (simatec) dependencies updated
+
+### 3.0.17 (2024-08-12)
+* (simatec) Fix io-package for Release
+* (simatec) manual-review added
+* (simatec) Fix Slave Backup
+* (simatec) dependencies updated
+
+### 3.0.16 (2024-08-05)
+* (bluefox) dependencies updated
+* (simatec) Rename json5 Files
+
+### 3.0.15 (2024-08-03)
+* (simatec) fix dependencies
+
+### 3.0.14 (2024-08-02)
+* (simatec) dependencies updated
+* (simatec) Improved log outputs
+
+### 3.0.12 (2024-08-01)
+* (simatec) Backup Log for History added
+* (simatec) Added separate selection for deleting FTP backups
+* (simatec) Added separate selection for deleting Onedrive backups
+* (simatec) Added separate selection for deleting Webdav backups
+* (simatec) Added separate selection for deleting Dropbox backups
+* (simatec) Added separate selection for deleting Googledrive backups
+* (simatec) Improved log outputs
+* (simatec) Source code cleaned up
+* (simatec) dependencies updated
+
+### 3.0.11 (2024-07-28)
+* (simatec) Design Fix
+* (simatec) dependencies updated
+
+### 3.0.10 (2024-07-22)
+* (simatec) Design Fix for Dark Mode
+* (bluefox) dependencies updated
+
+### 3.0.9 (2024-07-11)
+* (simatec) Tab Icons added
+* (simatec) small fix
+* (simatec) Docu updated
+
+### 3.0.8 (2024-07-01)
+* (Grothesk242/simatec) forceuid and forcegid added
+* (simatec) dependencies updated
+* (simatec) small fix
+
+### 3.0.7 (2024-06-26)
+* (simatec) Restore Information added
+* (simatec) Fix Formaterrors
+* (bluefox) Fixing the problems with styles
+* (simatec) Fix iobroker Backup Error
+
+### 3.0.6 (2024-06-26)
+* (simatec) Restore Information added
+* (simatec) Fix Formaterrors
+* (bluefox) Fixing the problems with styles
+* (simatec) Fix iobroker Backup Error
+
+### 3.0.5 (2024-06-18)
+* (simatec) Fix Build
+
+### 3.0.4 (2024-06-18)
+* (simatec) History Gui Fix
+* (simatec) Tab GUI modified
+* (bluefox) Added support for Admin 7
+* (simatec) Onedrive ready for School/Business Accounts
+
+### 3.0.3 (2024-06-10)
+* (simatec) Fixed WebDav
+* (simatec) Admin Notification for Backup errors added
+* (simatec) Remove Sentry Config
 * (simatec) Translations updated
-* (simatec) Fix InfluxDB Multi Backup
-* (simatec) Fix Restore Console
-* (simatec) Fix Backup Console
+* (simatec) Error handling optimized
+* (simatec) dependencies updated
+
+### 3.0.2 (2024-06-06)
+* (simatec) Fixed Google Drive
+* (simatec) Fixed Translations
+* (simatec) Fixed Onedrive
+* (simatec) Fixed MySql Backup
+* (simatec) Fixed Translation added
+* (simatec) Design Fix
+* (simatec) new notifications content added
+
+### 3.0.1 (2024-05-29)
+* (simatec) Fixed umount callback
+* (simatec) Fixed Backup Message
+* (simatec) Translations updated
+* (simatec) Fixed InfluxDB Multi Backup
+* (simatec) Fixed Restore Console
+* (simatec) Fixed Backup Console
 
 ### 3.0.0 (2024-05-28)
 * (simatec) jsonConfig added
@@ -658,14 +771,14 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (bluefox) Added react components
 * (bluefox/simatec) Working on React GUI
 * (simatec) dependencies updated
-* (simatec) Fix Yahka Backup
-* (simatec) Fix Nodered Backup
+* (simatec) Fixed Yahka Backup
+* (simatec) Fixed Nodered Backup
 * (simatec) some bugs fixed
 * (bluefox/simatec) New Restore-Interface
 * (simatec) Translation updated
 
 ### 2.11.0 (2024-03-04)
-* (simatec) Fix Sqlite3 Path
+* (simatec) Fixed Sqlite3 Path
 
 ### 2.10.11 (2024-02-14)
 * (simatec) Design Fix
@@ -675,10 +788,10 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) small Design Fix
 
 ### 2.10.9 (2024-02-01)
-* (simatec) Fix Translation
+* (simatec) Fixed Translation
 
 ### 2.10.8 (2024-01-30)
-* (simatec) Fix Expert Mount
+* (simatec) Fixed Expert Mount
 * (simatec) Docu updated
 * (simatec) dependencies updated
 
@@ -698,10 +811,10 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) dependencies updated
 
 ### 2.10.5 (2024-01-22)
-* (simatec) Fix CCU Backup with selfsigned Certificates
+* (simatec) Fixed CCU Backup with selfsigned Certificates
 
 ### 2.10.4 (2024-01-21)
-* (simatec) Fix CCU Backup
+* (simatec) Fixed CCU Backup
 
 ### 2.10.3 (2024-01-19)
 * (simatec) CCU backup switched from request to axios
@@ -724,7 +837,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Breaking Changes for Docker mapping ports
 
 ### 2.9.10 (2023-12-29)
-* (simatec) Fix node-red restore
+* (simatec) Fixed node-red restore
 * (simatec) auto install after restore for node-red added
 
 ### 2.9.9 (2023-12-29)
@@ -737,7 +850,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 2.9.7 (2023-12-12)
 * (simatec) URL Update
-* (simatec) Fix redis Password
+* (simatec) Fixed redis Password
 
 ### 2.9.6 (2023-12-10)
 * (simatec) Gotify Notication added
@@ -746,17 +859,17 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 2.9.5 (2023-11-29)
 * (simatec) dependencies updated
-* (simatec) Fix redis Password
+* (simatec) Fixed redis Password
 
 ### 2.9.4 (2023-11-20)
 * (simatec) dependencies updated
-* (simatec) Fix CIFS Password
-* (simatec) Fix mySql Password
-* (simatec) Fix pgSql Password
-* (simatec) Fix redis Password
+* (simatec) Fixed CIFS Password
+* (simatec) Fixed mySql Password
+* (simatec) Fixed pgSql Password
+* (simatec) Fixed redis Password
 
 ### 2.9.3 (2023-11-11)
-* (simatec) Fix Port for Filerserver
+* (simatec) Fixed Port for Filerserver
 * (simatec) Docu updated
 
 ### 2.9.2 (2023-11-10)
@@ -778,26 +891,26 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (buanet) fix restore in docker v9
 
 ### 2.8.6 (2023-10-13)
-* (simatec) Fix node-red restore
+* (simatec) Fixed node-red restore
 * (simatec) dependencies updated
 
 ### 2.8.5 (2023-10-13)
-* (simatec) Fix mount errors
+* (simatec) Fixed mount errors
 
 ### 2.8.4 (2023-10-11)
-* (simatec) Fix mysql Backup
-* (simatec) Fix pgsql Backup
-* (simatec) Fix InfluxDB Backup
+* (simatec) Fixed mysql Backup
+* (simatec) Fixed pgsql Backup
+* (simatec) Fixed InfluxDB Backup
 
 ### 2.8.3 (2023-10-10)
 * (simatec) Wake on LAN Advanced Settings added
 * (simatec) dependencies updated
 
 ### 2.8.2 (2023-09-28)
-* (simatec) Fix redis backup
+* (simatec) Fixed redis backup
 
 ### 2.8.1 (2023-09-12)
-* (simatec) Fix roles
+* (simatec) Fixed roles
 * (simatec) help-links added
 
 ### 2.8.0 (2023-09-11)
@@ -806,13 +919,13 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Docu & Wiki updated
 * (simatec) Translation updated
 * (simatec) dependencies updated
-* (simatec) Fix Webdav
+* (simatec) Fixed Webdav
 * (simatec) WOL Address & Port added
 * (simatec) Restore for Backitup Config added
 
 ### 2.7.0 (2023-08-14)
 * (simatec) dependencies updated
-* (simatec) Fix error Messages
+* (simatec) Fixed error Messages
 * (simatec) edit automatic name addition added
 * (simatec) Docu & Wiki updated
 * (simatec) small bug fixes
@@ -820,18 +933,18 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (crycode-de) Add support for sending notifications via discord (requires ioBroker.discord >= 2.1)
 
 ### 2.6.23 (2023-05-25)
-* (simatec) Fix Influx Restore for MultiDB
+* (simatec) Fixed Influx Restore for MultiDB
 * (simatec) Token renew for Onedrive added
-* (simatec) Fix PSQL Restore
+* (simatec) Fixed PSQL Restore
 
 ### 2.6.22 (2023-05-24)
-* (simatec) Fix Influx Restore for MultiDB
+* (simatec) Fixed Influx Restore for MultiDB
 * (simatec) Default Ports for InfluxDB added
 
 ### 2.6.21 (2023-05-19)
 * (simatec) small Sentry fixes
-* (simatec) Fix Influx Restore
-* (simatec) Fix Onedrive Download
+* (simatec) Fixed Influx Restore
+* (simatec) Fixed Onedrive Download
 * (simatec) dependencies updated
 
 ### 2.6.20 (2023-05-02)
@@ -847,7 +960,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Error notifications optimized
 
 ### 2.6.17 (2023-04-13)
-* (simatec) Fix delete InfluxDB tmp dir
+* (simatec) Fixed delete InfluxDB tmp dir
 * (simatec) small Sentry fixes
 
 ### 2.6.16 (2023-03-30)
@@ -863,35 +976,35 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Bug Fix History JSON
 
 ### 2.6.13 (2023-03-22)
-* (simatec) Fix Zigbee2mqtt Restore
-* (simatec) Fix Grafana Backup
+* (simatec) Fixed Zigbee2mqtt Restore
+* (simatec) Fixed Grafana Backup
 * (simatec) Backup notifications optimized
 * (simatec) Error notifications optimized
 * (simatec) history data optimized
 * (simatec) small bug fixes
 
 ### 2.6.12 (2023-03-16)
-* (simatec) Fix Zigbee2mqtt Backup & Restore
+* (simatec) Fixed Zigbee2mqtt Backup & Restore
 * (simatec) Node-Red Backup optimized
 * (simatec) Grafana Backup optimized
 * (simatec) InfluxDB Backup optimized
 * (simatec) Docu & Wiki updated
 
 ### 2.6.11 (2023-03-11)
-* (simatec) Fix Zigbee2mqtt Backup & Restore
+* (simatec) Fixed Zigbee2mqtt Backup & Restore
 
 ### 2.6.10 (2023-03-10)
 * (simatec) Design Fix
 * (simatec) node 14 set as minimum requirement
 * (simatec) cleaning status log added
-* (simatec) Fix Node-Red Backup & Restore
+* (simatec) Fixed Node-Red Backup & Restore
 
 ### 2.6.9 (2023-03-08)
 * (simatec) Dropbox session upload optimized
 * (simatec) Error handling optimized
 
 ### 2.6.8 (2023-03-07)
-* (simatec) Fix Dropbox session upload
+* (simatec) Fixed Dropbox session upload
 
 ### 2.6.7 (2023-03-06)
 * (simatec) Dropbox session upload optimized
@@ -900,19 +1013,19 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Dropbox file upload up to 350 GB added
 
 ### 2.6.5 (2023-03-03)
-* (simatec) Fix cifs Password
-* (simatec) Fix InfluxDB-Backup
+* (simatec) Fixed cifs Password
+* (simatec) Fixed InfluxDB-Backup
 
 ### 2.6.4 (2023-02-26)
 * (simatec) Design optimized
 * (simatec) Onedrive Upload Session added
 
 ### 2.6.3 (2023-02-24)
-* (simatec) Fix SQLite3 Backup
-* (simatec) Fix Matrix Message
+* (simatec) Fixed SQLite3 Backup
+* (simatec) Fixed Matrix Message
 
 ### 2.6.2 (2023-02-23)
-* (simatec) Fix SQLite3 Backup
+* (simatec) Fixed SQLite3 Backup
 
 ### 2.6.1 (2023-02-20)
 * (simatec) igonore temp-files for redis added
@@ -931,26 +1044,26 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) many small Fixes
 
 ### 2.5.12 (2023-01-19)
-* (simatec) Fix Windows ioBroker-Restore
+* (simatec) Fixed Windows ioBroker-Restore
 
 ### 2.5.11 (2023-01-18)
-* (simatec) Fix Windows ioBroker-Restore
+* (simatec) Fixed Windows ioBroker-Restore
 
 ### 2.5.10 (2023-01-03)
-* (simatec) Fix Docker Restore
-* (simatec) Fix Link Design
+* (simatec) Fixed Docker Restore
+* (simatec) Fixed Link Design
 * (simatec) dependencies updated
-* (Grothesk242) Fix CIFS Mount
+* (Grothesk242) Fixed CIFS Mount
 
 ### 2.5.9 (2022-12-05)
 * (simatec) dependencies dropbox-v2-api updated
-* (simatec) Fix Zigbee Restore
-* (simatec) Fix Yahka Restore
-* (simatec) Fix Javascript Restore
-* (simatec) Fix Dropbox Error Messages
+* (simatec) Fixed Zigbee Restore
+* (simatec) Fixed Yahka Restore
+* (simatec) Fixed Javascript Restore
+* (simatec) Fixed Dropbox Error Messages
 
 ### 2.5.8 (2022-12-03)
-* (simatec) Fix iobroker Backup
+* (simatec) Fixed iobroker Backup
 * (simatec) dependencies updated
 
 ### 2.5.7 (2022-11-27)
@@ -958,8 +1071,8 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (bluefox) Added ukrainian language
 
 ### 2.5.6 (2022-11-14)
-* (simatec) Fix Grafana Backup
-* (simatec) Fix Downloadserver
+* (simatec) Fixed Grafana Backup
+* (simatec) Fixed Downloadserver
 * (simatec) Translation updated
 
 ### 2.5.5 (2022-11-13)
@@ -967,9 +1080,9 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Docker DB Support added
 
 ### 2.5.4 (2022-11-02)
-* (simatec) Fix maxBuffer for DB-Backups
+* (simatec) Fixed maxBuffer for DB-Backups
 * (simatec) Docu updated
-* (simatec) Fix Dropbox error messages
+* (simatec) Fixed Dropbox error messages
 * (simatec) Grafana self signed Certificates added
 
 ### 2.5.3 (2022-11-01)
@@ -997,25 +1110,25 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 2.4.13 (2022-09-28)
 * (simatec) dependencies updated
-* (simatec) Fix Grafana Backup
+* (simatec) Fixed Grafana Backup
 * (simatec) Appveyor testing removed
-* (simatec) Fix Test & Release
+* (simatec) Fixed Test & Release
 
 ### 2.4.12 (2022-08-11)
-* (simatec) Fix WebDav Error Handling
+* (simatec) Fixed WebDav Error Handling
 
 ### 2.4.11 (2022-08-10)
 * (simatec) Filesize Check added
 * (simatec) dependencies updated
-* (simatec) Fix mySql Backup
-* (simatec) Fix pgSql Backup
+* (simatec) Fixed mySql Backup
+* (simatec) Fixed pgSql Backup
 
 ### 2.4.10 (2022-07-05)
 * (simatec) Code cleaning
 * (simatec) dependencies updated
 * (simatec) Disclaimer added
 * (simatec) Travis Support removed
-* (simatec) Fix backup-download with ssl
+* (simatec) Fixed backup-download with ssl
 
 ### 2.4.9 (2022-05-25)
 * (simatec) German Wiki added
@@ -1023,12 +1136,12 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) ignore .tar.gz files for zigbee Backups
 
 ### 2.4.8 (2022-05-18)
-* (simatec) Fix restore from local Mount path
+* (simatec) Fixed restore from local Mount path
 
 ### 2.4.7 (2022-05-16)
 * (simatec) dependencies updated
 * (simatec) many small bugfixes
-* (simatec) Fix Sentry Error Messages
+* (simatec) Fixed Sentry Error Messages
 * (simatec) Default SMB Version 3.1.1
 
 ### 2.4.6 (2022-04-06)
@@ -1077,7 +1190,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 2.3.2 (2022-02-13)
 * (simatec) Bugfix Restore Interface for http
-* (simatec) Fix json history
+* (simatec) Fixed json history
 
 ### 2.3.1 (2022-02-12)
 * (simatec) Bugfix Grafana
@@ -1101,15 +1214,15 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 2.2.4 (2022-01-27)
 * (simatec) Restore backup of different controller version added
-* (simatec) Fix YAHKA Backup for more Instances
+* (simatec) Fixed YAHKA Backup for more Instances
 
 ### 2.2.3 (2022-01-10)
 * (simatec) Bugfix Error Message
 * (simatec) dependencies updated
 
 ### 2.2.2 (06.11.2021)
-* (simatec) Fix CCU option to use self-signed certificates
-* (simatec) Fix Config Menu
+* (simatec) Fixed CCU option to use self-signed certificates
+* (simatec) Fixed Config Menu
 * (simatec) dependabot added
 * (simatec) small Bugfixes
 
@@ -1354,16 +1467,16 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 1.5.9 (21.07.2020)
 * (simatec) small fixes on mysql backup
-* (simatec) next bugfixs errorhandling sentry.io
+* (simatec) next bugfixs error handling sentry.io
 * (simatec) updated dependencies
 
 ### 1.5.8 (20.05.2020)
 * (simatec) small fixes on zigbee backup
 * (simatec) added log for zigbee Instances
-* (simatec) next bugfix errorhandling sentry.io
+* (simatec) next bugfix error handling sentry.io
 
 ### 1.5.7 (11.05.2020)
-* (simatec) bugfix errorhandling sentry.io
+* (simatec) bugfix error handling sentry.io
 * (simatec) updated dependencies
 * (simatec) added node14 support
 
@@ -1371,17 +1484,17 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Bugfix reading restore list
 
 ### 1.5.5 (01.05.2020)
-* (simatec) bugfix errorhandling sentry.io
+* (simatec) bugfix error handling sentry.io
 
 ### 1.5.4 (29.04.2020)
 * (simatec) added osDependencies for nfs and cifs
-* (simatec) Bugfixes for errorhandling telegram, pushover, e-mail, ftp list and create backup folder
+* (simatec) Bugfixes for error handling telegram, pushover, e-mail, ftp list and create backup folder
 
 ### 1.5.3 (28.04.2020)
-* (simatec) many smal Bugfixes for errorhandling sentry.io
+* (simatec) many smal Bugfixes for error handling sentry.io
 
 ### 1.5.2 (24.04.2020)
-* (simatec) errorhandling sentry.io
+* (simatec) error handling sentry.io
 * (AlCalzone) docu updated
 
 ### 1.5.1 (23.04.2020)
@@ -1400,13 +1513,13 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Bugfix CIFS Domain
 
 ### 1.4.4 (23.03.2020)
-* (simatec) Fix history error
+* (simatec) Fixed history error
 
 ### 1.4.3 (21.03.2020)
-* (simatec) Fix for autochecker
+* (simatec) Fixed for autochecker
 
 ### 1.4.2 (21.03.2020)
-* (simatec) Fix start after restore
+* (simatec) Fixed start after restore
 * (simatec) update dependencies
 
 ### 1.4.1 (02.03.2020)
@@ -1417,21 +1530,21 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) added Name Suffix for mysql Backup
 * (simatec) added more Options for mysql
 * (simatec) added domain support for cifs
-* (simatec) added json historystate
+* (simatec) added json history state
 
 ### 1.3.6 (18.12.2019)
-* (simatec) Fix historyList for compact-mode
+* (simatec) Fixed historyList for compact-mode
 * (simatec) Added ack for history states
 
 ### 1.3.5 (17.12.2019)
-* (simatec) Fix compact-mode for history
+* (simatec) Fixed compact-mode for history
 
 ### 1.3.4 (15.12.2019)
-* (simatec) Fix hide passwords
+* (simatec) Fixed hide passwords
 
 ### 1.3.3 (14.12.2019)
-* (simatec) Fix Webinterface for Restore
-* (simatec) Fix MySql Backup
+* (simatec) Fixed Webinterface for Restore
+* (simatec) Fixed MySql Backup
 * (simatec) Added some debug logs for Restore
 * (simatec) some Bug Fix
 * (simatec) Messagebox for restore list
@@ -1439,23 +1552,23 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Added password hiding
 * (simatec) Clean Code
 * (simatec) detected history path
-* (simatec) Fix deteced
+* (simatec) Fix detected
 
 ### 1.3.2 (04.12.2019)
 * (simatec) Add Webinterface for Restore
 * (simatec) Bug fix
 
 ### 1.3.1 (02.12.2019)
-* (bluefox) Added information about latest backup
+* (bluefox) Added information about the latest backup
 * (simatec) some Bug fix
 * (simatec) add new translation
-* (simatec) Fix translation
+* (simatec) Fixed translation
 * (simatec) Default backup renamed to ioBroker backup
 * (simatec) delete old objects
 
 ### 1.3.0 (22.11.2019)
 * (simatec) support end for the total backup
-* (simatec) Added backup of history data path
+* (simatec) Added backup of a history data path
 * (simatec) Added startup of all adapters after restore
 * (simatec) Revision of the restoration for Redis
 * (simatec) revision of log issues
@@ -1467,10 +1580,10 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) fixed some small bugs
 
 ### 1.2.2 (20.10.2019)
-* (simatec) Fix update process
+* (simatec) Fixed update process
 
 ### 1.2.1 (19.10.2019)
-* (simatec) Fix CIFS password with special characters
+* (simatec) Fixed CIFS password with special characters
 
 ### 1.2.0 (02.07.2019)
 * (bluefox) Google Drive was added
@@ -1489,10 +1602,10 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 1.1.2 (21.02.2019)
 * (simatec) exec Start for iobroker
-* (simatec) Fix umount before Restore
+* (simatec) Fixed umount before Restore
 
 ### 1.1.1 (12.02.2019)
-* (simatec) Fix iobroker-stop for total backup
+* (simatec) Fixed iobroker-stop for total backup
 
 ### 1.1.0 (10.02.2019)
 * (simatec) stable Release
@@ -1505,18 +1618,18 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 ### 1.0.8 (26.01.2019)
 * (simatec) modification for new installer
-* (simatec) WOL-waittime adjustable
-* (simatec) Fix History settings
+* (simatec) WOL-wait time adjustable
+* (simatec) Fixed History settings
 
 ### 1.0.7 (17.01.2019)
 * (simatec) better start/stop Handling for backup and restore
 
 ### 1.0.6 (16.01.2019)
-* (simatec) Fix Start/Stop for new iobroker-installer
+* (simatec) Fixed Start/Stop for new iobroker-installer
 
 ### 1.0.5 (14.01.2019)
-* (simatec) Fix compact mode
-* (simatec) Fix total backup
+* (simatec) Fixed compact mode
+* (simatec) Fixed total backup
 * (simatec) better history handling for html
 * (simatec) better history handling
 * (simatec) error Message for telegram
@@ -1530,24 +1643,24 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Bugfix
 
 ### 1.0.2 (05.01.2019)
-* (simatec) Fix start/stop for new iobroker-Installer
+* (simatec) Fixed start/stop for new iobroker-Installer
 
 ### 1.0.1 (30.12.2018)
-* (simatec) Fix delete old Files
-* (simatec) Add wake on LAN for CIFS and NFS
+* (simatec) Fixed delete old Files
+* (simatec) Add a wake on LAN for CIFS and NFS
 
 ### 1.0.0 (24.12.2018)
 * (simatec) Stable Release
 
 ### 0.4.4 (19.12.2018)
-* (simatec) Fix cifs-mount User
+* (simatec) Fixed cifs-mount User
 
 ### 0.4.3 (17.12.2018)
 * (simatec) Add device ID for pushover
 
 ### 0.4.2 (10.12.2018)
-* (simatec) Fix mount / umount
-* (simatec) Fix Readme
+* (simatec) Fixed mount / umount
+* (simatec) Fixed Readme
 
 ### 0.4.1 (07.12.2018)
 * (simatec) Added boolean for backup Success
@@ -1558,45 +1671,45 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (simatec) Added Pushover Notification
 
 ### 0.3.9 (03.12.2018)
-* (simatec) Fix cifs/nfs mount and umount
+* (simatec) Fixed cifs/nfs mount and umount
 
 ### 0.3.8 (08.11.2018)
-* (simatec) Fix notifications format
-* (simatec) Fix Telegram User
+* (simatec) Fixed notifications format
+* (simatec) Fixed Telegram User
 
 ### 0.3.7 (07.11.2018)
 * (simatec) Added e-mail notification
 * (simatec) Create backup directory on first boot
 * (simatec) many small changes
-* (peoples) Fix Telegram SilentNotice
+* (peoples) Fixed Telegram SilentNotice
 * (peoples) Added Possibility to select a Telegram Receiver
 * (peoples) Added Possibility to select a Telegram Notification length
 * (peoples) Some Translations
 
 ### 0.3.6 (16.10.2018)
-* (simatec) Fix Dropbox Backup
-* (simatec) Fix Restore path for ownDir
-* (simatec) Fix FTP and NAS path
-* (simatec) Fix Access Token for dropbox
+* (simatec) Fixed Dropbox Backup
+* (simatec) Fixed Restore path for ownDir
+* (simatec) Fixed FTP and NAS path
+* (simatec) Fixed Access Token for dropbox
 
 ### 0.3.5 (03.10.2018)
-* (simatec) Fix Translation
-* (simatec) Fix Filename Suffix for Restore
+* (simatec) Fixed Translation
+* (simatec) Fixed Filename Suffix for Restore
 * (peoples) Bugfix Title for Backup deletion
 
 ### 0.3.4 (01.10.2018)
-* (simatec) Fix Restart after total-backup
+* (simatec) Fixed Restart after total-backup
 
 ### 0.3.3 (27.09.2018)
-* (simatec) Fix Backup-Directoy for dropbox
-* (simatec) Fix Restart after total-backup
-* (simatec) Fix error Log on cifs
+* (simatec) Fixed Backup-Directory for dropbox
+* (simatec) Fixed Restart after total-backup
+* (simatec) Fixed error Log on cifs
 
 ### 0.3.2 (25.09.2018)
-* (simatec) Fix Filename for ccu backup
+* (simatec) Fixed Filename for ccu backup
 
 ### 0.3.1 (25.09.2018)
-* (simatec) Fix FTP Directory
+* (simatec) Fixed FTP Directory
 * (simatec) delete old Files
 
 ### 0.3.0 (24.09.2018)
@@ -1608,23 +1721,23 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 * (bluefox/simatec) Restore added via NAS/FTP/Local/Dropbox (Beta)
 * (simatec) NFS support added
 * (bluefox) Dropbox Support added
-* (bluefox) Fix History
+* (bluefox) Fixed History
 * (peoples) Added silent mode for telegram
 * (simatec) Redis/mysql added with standard backup
 * (simatec) translations added
 * (simatec) Docs adapted
 
 ### 0.2.7 (29.07.2018)
-* (simatec) Fix Delete old Files
+* (simatec) Fixed Delete old Files
 
 ### 0.2.6 (27.07.2018)
 * (bluefox) Configurable redis path was added
 * (simatec) Translations Script
-* (simatec) Fix FTP Upload
+* (simatec) Fixed FTP Upload
 
 ### 0.2.5 (26.07.2018)
 * (simatec) Check for dependencies
-* (simatec) Delete older files if number of files greater than X
+* (simatec) Delete older files if the number of files is greater than X
 * (simatec) Check for Backup Dir
 * (simatec) Translations added
 
@@ -1633,7 +1746,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
  * (peoples) Added translations in words.js
 
 ### 0.2.3 (19.07.2018)
- * (bluefox) The backup buttons in configuration dialog were added
+ * (bluefox) The backup buttons in the configuration dialog were added
  * (bluefox) Show bash output text
  * (peoples) Bug Fix Mysql-Login Error
 
@@ -1679,7 +1792,7 @@ _[回到顶部](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2024 simatec
+Copyright (c) 2018-2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

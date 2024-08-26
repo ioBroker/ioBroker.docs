@@ -6,7 +6,7 @@ BADGE-Number of Installations (stable): http://iobroker.live/badges/tesla-wallco
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.tesla-wallconnector3/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.tesla-wallconnector3.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tesla-wallconnector3/README.md
 title: ioBroker.tesla-wallconnector3
 hash: iKtO46Js4Xpf2TthwiqmqYLee95Mb2biEhaBNTJMW3E=

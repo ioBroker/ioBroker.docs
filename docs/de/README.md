@@ -147,7 +147,7 @@ Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tab
 
 Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
 - Die Vis einmal erstellen und überall nutzen: Vom PC, über Tablet zum Handy, iQontrol läuft auf allen Endgeräten - entweder im Browser oder als WebApp (lässt sich auf dem Homescreen speichern und fühlt sich dann an, wie eine App)
-- iQontrol passt sich dabei allen Auflösungen dynamisch an (responsive fähgies Design)
+- iQontrol passt sich dabei allen Auflösungen dynamisch an (responsive fähiges Design)
 - Superschnelle Ladezeit
 - Mit den Standard-Einstellungen kommt man schnell zum Ziel
 - Mit den erweiterten Einstellungen und Widgets hat man hingegen hohe Flexibilität und Anpassungsmöglichkeiten (bei manchen Installationen erkennt man gar nicht mehr, dass es eigentlich iQontrol ist)

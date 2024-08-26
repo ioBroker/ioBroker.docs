@@ -209,6 +209,12 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
+
+### 1.1.4
+* fixed main.surround_ai
+* update devDeps, eslint corrections
+* IOB checker corrections
+
 ### 1.1.3
 * translation with adapter-dev
 
@@ -338,4 +344,5 @@ The following objects are currently implemented:
 
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2017 - 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

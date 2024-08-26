@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: vG8Yn8jR+++6UtW2i2J8JjSa35jID2Ixd6qaZItdCM0=
+hash: gvz3gFW9L2NI9eDe61wgfWppkxQ00wGLxWHEDJZNyt0=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -17,49 +17,70 @@ hash: vG8Yn8jR+++6UtW2i2J8JjSa35jID2Ixd6qaZItdCM0=
 ## Alpha-ess-Adapter für ioBroker
 ---
 
-### Für Unterstützung öffnen Sie bitte ein GitHub-Problem oder besuchen Sie
+### Für Support öffnen Sie bitte ein GitHub-Problem oder besuchen Sie
 https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
 
 ---
 
-### Aufgrund der aktuellen Umstände beachten Sie bitte!
+### Aufgrund der aktuellen Umstände bitte beachten!
 [Ankündigung einer Schnittstellenbeschränkung](https://github.com/alphaess-developer/alphacloud_open_api/issues/54)
 
 ---
 
-Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen für Ihr Alpha-ESS-Gerät ab.\ Abhängig von Ihrem Alpha-ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten für Ihr Gerät abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrer Alpha-ESS-Ausrüstung ab.
+Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen zu Ihrem Alpha-ESS-Gerät ab.\ Abhängig von Ihrem Alpha-ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten für Ihr Gerät abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrem Alpha-ESS-Gerät ab.
 
 Dieser Adapter verwendet die Alpha-ESS Open API, eine offizielle und dokumentierte API für Alpha-ESS-Geräte.
 
-Das Qualitätsattribut jedes Staates wird entsprechend seinem Status festgelegt:
+Das Qualitätsattribut jedes Zustands wird entsprechend seinem Status festgelegt:
 
 | Qualität | Bedeutung |
 |:--------|:--------------------------------------------------|
 |0x00 |OK und aktuell |
-|0x01 |Wert aus unbekanntem Grund nicht aktualisiert, siehe Protokoll |
+|0x01 |Wert aus unbekanntem Grund nicht aktualisiert, siehe Debug-Protokoll |
 |0x02 |Problem mit der Online-Verbindung für diesen Datenpunkt |
 |0x12 |Adapter getrennt oder gestoppt |
-|0x44 |API hat einen Fehler oder einen internen Fehler zurückgegeben, siehe Protokoll |
+|0x44 |API hat einen Fehler oder einen internen Fehler zurückgegeben, siehe Debug-Protokoll |
 
 ## Einstellungen:
-Um die Alpha-ESS Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Sie benötigen diese, um Zugriff auf die Open API zu haben.
-Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier beschrieben: https://github.com/alphaess-developer/alphacloud_open_api
+Um die Alpha-ESS Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Diese benötigen Sie, um Zugriff auf die Open API zu haben.
+Wie Sie SN und Checkcode für die Registrierung finden, ist hier beschrieben: https://github.com/alphaess-developer/alphacloud_open_api
 
 - **Persönliche Bewerbungs-ID:** Die Bewerbungs-ID (siehe oben)
 - **Persönliches Bewerbungsgeheimnis:** Das Bewerbungsgeheimnis (siehe oben)
-- **Alpha-ESS-System-ID:** Die Systemkennung Ihrer Alpha-ESS-Ausrüstung
+- **Alpha-ESS System-ID:** Die S/N (Seriennummer) Ihres Alpha-ESS-Geräts
 - **Intervall zum Lesen von Echtzeitdaten:** Einheit: Sekunden.
 - **Intervall zum Lesen der Energiedaten:** Einheit: Minuten.
 - **Intervall zum Lesen der Ladeeinstellungen:** Einheit: Minuten.
 - **Intervall zum Lesen der Entladeeinstellungen:** Einheit: Minuten.
 - **Intervall zum Lesen der Zusammenfassungsdaten:** Einheit: Minuten.
-- **Intervall zum Auslesen der Wallbox-Daten:** Einheit: Minuten. Achtung: Derzeit wird nur eine Wallbox unterstützt.
-- **Unveränderte Zustände aktualisieren:** Wenn diese Option aktiviert ist, werden Zustände geändert, auch wenn der entsprechende Wert unverändert ist.
+- **Intervall zum Lesen der Wallbox-Daten:** Einheit: Minuten. Achtung: Aktuell wird nur eine Wallbox unterstützt.
+- **Unveränderte Zustände aktualisieren:** Ist diese Option aktiviert, werden Zustände auch dann geändert, wenn der zugehörige Wert unverändert bleibt.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
+**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.**
 
 ## Changelog
+### 2.1.4 (2024-08-13)
+
+-   (Gaspode) Updated some formal stuff
+
+### 2.1.3 (2024-08-07)
+
+-   (Gaspode) Increased read timeout from 10 to 20 s
+
+### 2.1.2 (2024-08-07)
+
+-   (Gaspode) Quality of states optimized
+
+### 2.1.1 (2024-08-07)
+
+-   (Gaspode) Do not longer report read timeouts as error. It should be enough to set the quality of concerned states to values according the table above and to display warnings, if values were not updated for a long time. To see details, debug log level must be enabled by the user.
+
+### 2.1.0 (2024-08-01)
+
+-   (Gaspode) Adapter requires node.js >= 18 and js-controller >= 5 now
+-   (Gaspode) Dependencies updated
+-   (Gaspode) Adapter logo updated. Alpha-ESS has kindly permitted to use the Alpha-ESS logo. This does not imply any affiliation with Alpha-ESS! Alpha-ESS is not the developer or provider of this adapter!
 
 ### 2.0.2 (2024-01-12)
 

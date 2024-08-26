@@ -525,6 +525,14 @@ Existiert nicht mehr
 
 ## Changelog
 
+### 1.6.14
+* Bugfix (values were way off)
+
+### 1.6.13 (NoBl)
+* Removed Support for node 16
+* Added more translations
+* Code cleanup
+
 ### 1.6.12 (NoBl)
 * Updated license
 

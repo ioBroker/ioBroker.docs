@@ -3,7 +3,7 @@ title: логика
 lastChanged: 13.09.2018
 template: true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/logic/README.md
 hash: vxqqk0O1inbjH9+/8WxkMD6gelAyro575dJ4WW8YX40=
 ---

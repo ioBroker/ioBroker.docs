@@ -144,6 +144,9 @@ See [example Scripts](doc/ExampleScripts.md) for some example scripts that help 
 	PLACEHOLDER for next version:
 	### __WORK IN PROGRESS__
 -->
+### 0.1.3 (2024-07-04)
+* remove unnecessary files from npm package
+
 ### 0.1.2 (2024-06-04)
 * prevent crash
 * try restart in case of error with cec-client
@@ -161,9 +164,6 @@ See [example Scripts](doc/ExampleScripts.md) for some example scripts that help 
 * Switched from unmaintained dependency to own code to control cec-monitor binary.
 * Swtiched from event-stream to readline.
 * Probably fixed missed incomming events.
-
-### 0.0.7 (2021-01-24)
-* fix warnings
 
 ## License
 MIT License

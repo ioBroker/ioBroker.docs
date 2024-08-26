@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: DtHtYJQ2qVyk4C1ID1E1wTG7erQXaiviSwWgbin6eFM=
+hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
 ---
 # IoBroker.vis-homekittiles
 
@@ -31,18 +31,48 @@ Die Widgets sind für VIS 1.x konzipiert.
 [🇩🇪 Dokumentation](doc/homekittiles-de.md) [🇺🇸 Dokumentation](doc/homekittiles-en.md)
 
 ## Dinge die zu tun sind
-* Einfache Schaltfläche mit Symbol erstellen
 * Mini-Mediaplayer erstellen
 * Select-Kachel erstellen
-* Untermenü-Button erstellen
-* Radiobutton: neue Eigenschaft "Teilung" mit wählbaren Werten (1:1; 3:4)
+* Kontrollkästchen für Sonos-Gruppe erstellen
 * Datumsauswahl: dynamische Tag-/Monatssymbole
+* neues Widget: Pinpad (IN ARBEIT)
+* Kacheln: Schaltfläche für Dialog hinzufügen
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* Added option to show icons colored on tiles and radio
+* Added new styles "big", "small" and "only icon" for all tiles
+
+### 0.3.1 (2024-07-12)
+
+* Added submenu widget
+
+### 0.2.7 (2024-07-10)
+
+* repaired Thermostat dialog tile widget
+
+### 0.2.6 (2024-07-05)
+
+* Block operation: added ability to show widget disabled
+* Added JSON Table
+* Navigation-Button-Set: fixed notification arrangement
+* Dynamization of some input fields
+
+### 0.1.1 (2024-07-02)
+
+* Added missing translations
+* Added new style "indicator" for all tiles (IF YOUR TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - JUST CLICK ON IT. Sorry for that.)
+* Radiobutton: new property "division" with selectable values
+* Radiobutton: change size automatically if direction was changed
+* Signal pictures: repaired comparision with number (<=nn)
+* Signal pictures: checkbox for show/not show in editor
+* Thermostat dialog: sort order of attributes (dialog attrs one up)
+
 ### 0.0.16 (2024-06-08)
 
 * (Standarduser) thermostat: fixed window-sizing

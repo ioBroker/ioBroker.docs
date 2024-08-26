@@ -2,28 +2,28 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.egigeozone2/README.md
-title: без заголовка
-hash: ukMdhtpnvkfB8vxKtyXYZAvPl6qc2x9EJsiwjftHKGs=
+title: нет названия
+hash: 2ZAEhIa9/NGXHlAuVANrHY764+g5ZsQRNI85R2/FpyU=
 ---
 ![логотип](../../../en/adapterref/iobroker.egigeozone2/admin/egigeozone.png)
 
 ![Количество установок](http://iobroker.live/badges/egigeozone2-stable.svg)
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.egigeozone2.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.egigeozone2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.egigeozone2.svg)
 ![НПМ](https://nodei.co/npm/iobroker.egigeozone2.png?downloads=true)
 
 ## IoBroker.egigeozone2
-[![Тестирование и выпуск] (https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/egigeozone2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Тестирование и выпуск](https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/obakuhl/ioBroker.egigeozone2/actions/workflows/test-and-release.yml) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/egigeozone2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Описание
-Это адаптер ioBroker для приложения геозон Android «EgiGeoZone» ([Веб-сайт](https://egigeozone.de/)). Он может получать события геозоны в виде HTTP-запросов при входе или выходе из определенной области с помощью вашего мобильного устройства.
+Это адаптер ioBroker для приложения геозонирования Android "EgiGeoZone" ([веб-сайт](https://egigeozone.de/)). Он способен получать события геозонирования в виде HTTP-запросов при входе или выходе из определенной области с помощью вашего мобильного устройства.
 
-## Совет по безопасности
-Не рекомендуется предоставлять этот адаптер общедоступному Интернету (например, открывая настроенный порт на маршрутизаторе). Это означает, что любой запрос к этому порту будет перенаправлен на экземпляр ioBroker, на котором работает адаптер. Существует несколько вариантов повышения безопасности доступа к этому адаптеру:
+## Советы по безопасности
+Не рекомендуется выставлять этот адаптер в открытый доступ в Интернет (например, открывая настроенный порт на маршрутизаторе). Это означает, что любой запрос к этому порту будет перенаправлен на экземпляр ioBroker, на котором работает адаптер. Существует несколько вариантов повышения безопасности доступа к этому адаптеру:
 
-* Всегда используйте VPN-соединение для запросов или
+* Всегда используйте VPN-подключение для запросов или
 * интегрировать прокси-сервер (например, nginx) для фильтрации входящих запросов.
 
 ## Конфигурация
@@ -34,16 +34,20 @@ hash: ukMdhtpnvkfB8vxKtyXYZAvPl6qc2x9EJsiwjftHKGs=
 * **протокол** может быть **http** или **https**.
 * **адрес** должен быть адресом, по которому доступен экземпляр адаптера.
 * **port** должен быть портом, который прослушивает адаптер.
-* **person** — это человек, который будет использоваться для перечисления внутри массива atHome.
+* **person** — это человек, который будет использоваться для перечисления в массиве atHome.
 
 ### Примеры
-* https://мой-домен:7654/Джон или
+* https://my-domain:7654/John или
 * http://мой-домен:7654/Пол
 
 ## Кредиты
-Реализация в основном основана на [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) и адаптер BasGo [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone). Логотип взят из [Бесплатные Иконки PNG]](http://www.freeiconspng.com/images/maps-icon) dschaedl и была изменена для обеспечения прозрачного фона.
+Реализация в основном основана на адаптере [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency) и BasGo [ioBroker.egigeozone](https://github.com/BasGo/ioBroker.egigeozone) от dschaedl.
 
 ## Changelog
+
+### 1.0.6
+* (obakuhl) Improved object definition
+* (obakuhl) New icon
 
 ### 1.0.5
 * (obakuhl) use `@iobroker/webserver`

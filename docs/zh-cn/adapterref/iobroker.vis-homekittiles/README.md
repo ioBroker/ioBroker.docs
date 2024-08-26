@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: DtHtYJQ2qVyk4C1ID1E1wTG7erQXaiviSwWgbin6eFM=
+hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
 ---
 # IoBroker.vis-homekittiles
 
@@ -18,8 +18,8 @@ hash: DtHtYJQ2qVyk4C1ID1E1wTG7erQXaiviSwWgbin6eFM=
 **测试：**![测试与发布](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker-VIS 的 HomeKit-Tiles
-Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
-小部件的特殊之处在于它们不包含任何固定样式元素，而是使用 CSS 格式化所有内容。因此，VIS 编辑器中没有针对图标、标签等的位置和/或大小的单独设置。通过更改 CSS 代码来调整设计。为此，可以使用文件 `/widgets/homekittiles/css/style.css` 中的 CSS 代码作为模板。代码插入到 VIS 编辑器中的 CSS 选项卡中，可以根据需要进行自定义。还可以通过 VIS 编辑器在小部件的“常规”部分中添加自己的 CSS 类。
+Homekit Tiles 是基于 Apple HomeKit 设计的一组小部件。
+小部件的特殊之处在于它们不包含任何固定的样式元素，而是使用 CSS 格式化所有内容。因此，VIS 编辑器中没有针对图标、标签等的位置和/或大小的单独设置。通过更改 CSS 代码来调整设计。为此，可以使用文件 `/widgets/homekittiles/css/style.css` 中的 CSS 代码作为模板。代码插入到 VIS 编辑器中的 CSS 选项卡中，可以根据需要进行自定义。还可以通过 VIS 编辑器在小部件的“常规”部分中添加自己的 CSS 类。
 
 这些小部件是为 VIS 1.x 设计的。
 
@@ -28,21 +28,51 @@ Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
 * [https://www.flaticon.com]（https://www.flaticon.com）
 * [https://icons8.com]（https://icons8.com）
 
-[🇩🇪 文档](doc/homekittiles-de.md) [🇺🇸 文档](doc/homekittiles-en.md)
+[🇩🇪 文档](doc/homekittiles-de.md)[🇺🇸 文档](doc/homekittiles-en.md)
 
 要做的事情
-* 创建带图标的简单按钮
 * 创建迷你媒体播放器
 * 创建选择图块
-* 创建子菜单按钮
-* 单选按钮：新属性“division”，具有可选值（1:1；3:4）
+* 为 Sonos Group 创建复选框
 * 日期选择器：动态日/月图标
+* 新小部件：pinpad（正在进行中）
+* Tiles：添加对话框按钮
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* Added option to show icons colored on tiles and radio
+* Added new styles "big", "small" and "only icon" for all tiles
+
+### 0.3.1 (2024-07-12)
+
+* Added submenu widget
+
+### 0.2.7 (2024-07-10)
+
+* repaired Thermostat dialog tile widget
+
+### 0.2.6 (2024-07-05)
+
+* Block operation: added ability to show widget disabled
+* Added JSON Table
+* Navigation-Button-Set: fixed notification arrangement
+* Dynamization of some input fields
+
+### 0.1.1 (2024-07-02)
+
+* Added missing translations
+* Added new style "indicator" for all tiles (IF YOUR TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - JUST CLICK ON IT. Sorry for that.)
+* Radiobutton: new property "division" with selectable values
+* Radiobutton: change size automatically if direction was changed
+* Signal pictures: repaired comparision with number (<=nn)
+* Signal pictures: checkbox for show/not show in editor
+* Thermostat dialog: sort order of attributes (dialog attrs one up)
+
 ### 0.0.16 (2024-06-08)
 
 * (Standarduser) thermostat: fixed window-sizing

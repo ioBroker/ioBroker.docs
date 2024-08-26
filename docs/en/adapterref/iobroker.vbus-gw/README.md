@@ -59,6 +59,12 @@ If you only want to connect to a single serial port it is recommended to configu
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.0 (2024-08-13) - 2024H2 maintenance release
+
+- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
+- (pdbjjens) New: Updated dependencies
+- (pdbjjens) New: Ensure that vbus-gw is started before myvbus or resol
+
 ### 0.0.7 (2024-02-24)
 
 - (pdbjjens) Fix: VBus write fixed
@@ -80,10 +86,6 @@ If you only want to connect to a single serial port it is recommended to configu
 - (pdbjjens) New: Selectable discovery port
 - (pdbjjens) New: Check for default password
 - (pdbjjens) New: support for up to 3 serial ports
-
-### 0.0.3 (2023-09-21)
-
-- (pdbjjens) Fix: Disable SENTRY
 
 ## License
 

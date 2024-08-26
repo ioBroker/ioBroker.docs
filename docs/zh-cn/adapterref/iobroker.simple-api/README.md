@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.simple-api/README.md
 title: 简单 API
-hash: 4RFMQDhl6Ykf1fKcCSeay0BhY4g6WW5/qXLN8c7sGhs=
+hash: uZ6qv91MUDsp64vaDdJZv17hn5SFo1Qn8zeHBd097Ec=
 ---
 ![标识](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -14,7 +14,7 @@ hash: 4RFMQDhl6Ykf1fKcCSeay0BhY4g6WW5/qXLN8c7sGhs=
 # 简单 API
 ![测试与发布](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-这是 RESTFul 接口，用于从 ioBroker 读取对象和状态以及通过 HTTP Get/Post 请求写入/控制状态。
+这是一个 RESTFul 接口，用于从 ioBroker 读取对象和状态并通过 HTTP Get/Post 请求写入/控制状态。
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
@@ -179,7 +179,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 
 `http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - 读取分支 `system.adapter.admin.0` 中的所有状态
 
-＃＃＃ 状态
+### 州
 ＃＃＃ 搜索
 如果配置中设置了数据源（历史记录、SQL），则仅列出数据源已知的数据点。
 如果已激活“列出所有数据点”选项或未指定数据源，则将列出所有数据点。
@@ -190,7 +190,7 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 Grafana JSON / SimpleJSON 插件需要此命令。
 
 ＃＃＃ 帮助
-返回[这](#usage)输出
+返回 [这](#usage) 输出
 
 ＃＃ 用法
 假设我们没有安全性并且服务器在默认端口 8087 上运行。
@@ -430,7 +430,7 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 
 ```
 
-＃＃＃ 状态
+### 州
 获取模式的所有状态列表。如果没有指定模式，则将返回所有状态作为 JSON 数组。
 
 ```http://ip:8087/states?prettyPrint```
@@ -613,6 +613,12 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Updated packages
+
+### 2.8.0 (2024-05-23)
+* (foxriver76) ported to `@iobroker/webserver`
+
 ### 2.7.2 (2022-10-08)
 * (Apollon77) Prepare for future js-controller versions
 
@@ -772,7 +778,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

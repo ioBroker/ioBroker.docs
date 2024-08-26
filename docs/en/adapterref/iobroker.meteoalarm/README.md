@@ -25,6 +25,11 @@ Choose your country, and afterwards the region you want the warnings for. If you
 
 ## Changelog
 
+### 3.0.3 (2024-08-11)
+* (jack-blackson) Updated repositories
+* (jack-blackson) Small adjustments in package settings
+
+
 ### 3.0.2 (2024-02-24)
 * (jack-blackson) Bugfix for notification text - missing space
 * (jack-blackson) Bugfix for notification text - fix to just show "warning level in words" in the notification if it is ticked in the setup

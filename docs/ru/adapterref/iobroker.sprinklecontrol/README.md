@@ -6,7 +6,7 @@ BADGE-Dependency Status: https://img.shields.io/david/Dirk-Peter-md/iobroker.spr
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sprinklecontrol/README.md
 title: СпринклКонтроль
 hash: zYzTZ3/dX2jdrqbMzeM+/sc625qzpXC07eTKAWwSwJA=

@@ -2,7 +2,7 @@
 title: экземпляры
 lastChanged: 10.05.02021
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/admin/instances.md
 hash: ryoo5q50Xq8cxSezNgJU212bACYAHiFSrZdXotHE6us=
 ---

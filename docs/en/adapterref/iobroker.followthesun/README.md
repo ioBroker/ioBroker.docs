@@ -30,6 +30,9 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.1 (2024-08-21)
+* (HGlab01) Fixing repository checker issues
+
 ### 0.5.0 (2023-12-05)
 * (HGlab01) Breaking changes
     - Node.js 18 or higher required
@@ -49,11 +52,6 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 * (HGlab01) !Breaking change! NodeJS 14.16 or higher required
 * (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
 * (HGlab01) Update libs
-
-### 0.3.9 (2022-02-24)
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
-* (HGlab01) js-controller 4.0 readiness
-* (HGlab01) fix sometimes today is not today
 
 ## License
 MIT License

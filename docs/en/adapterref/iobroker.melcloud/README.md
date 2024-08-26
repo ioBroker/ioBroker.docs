@@ -33,8 +33,15 @@ Discussion:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 2.0.2 (2024-08-14)
 
-### **WORK IN PROGRESS**
+- (Black-Thunder) Dependencies were updated
+
+### 2.0.1 (2024-08-08)
+
+- (Black-Thunder) Dependencies were updated
+
+### 2.0.0 (2024-08-07)
 
 - (Black-Thunder) Adapter requires node.js >= 18, admin >= 6 and js-controller >= 5 now
 

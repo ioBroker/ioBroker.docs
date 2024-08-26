@@ -1,38 +1,84 @@
 ![Logo](admin/picoba.png)
+
 # ioBroker.kostal-piko-ba
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)](https://www.npmjs.com/package/iobroker.kostal-piko-ba)
-![NPM version (stable)](https://ioBroker.live/badges/kostal-piko-ba-stable.svg)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)](https://www.npmjs.com/package/iobroker.kostal-piko-ba)
-![Number of Installations (latest)](https://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.kostal-piko-ba)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.kostal-piko-ba?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.kostal-piko-ba?label=npm%20dependencies&style=flat-square)
 
-**CI-Tests:**
-![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
+![GitHub](https://img.shields.io/github/license/hombach/iobroker.kostal-piko-ba?style=flat-square)	
+![GitHub repo size](https://img.shields.io/github/repo-size/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.kostal-piko-ba/test-and-release.yml?branch=main&logo=github&style=flat-square)
 [![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
 [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-kostal-piko-ba)
 
+## Versions
+
+![Beta](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg?color=red&label=beta)
+![Stable](https://iobroker.live/badges/kostal-piko-ba-stable.svg)
+![Installed](https://iobroker.live/badges/kostal-piko-ba-installed.svg)
+
 [![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)](https://nodei.co/npm/iobroker.kostal-piko-ba/)
 
+## Adapter for Reading Kostal Piko & Piko BA Data for iOBroker
 
-## Adapter for reading Kostal Piko & Piko BA data for iOBroker
-Adapter for reading Kostal Piko, Piko BA and PIKO MP plus data. Adapter creates some states and updates them sequentially.
-Adapter designed for Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA inverters.
-Adapter also working with Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 & 36 inverters. 
-NEW! Adapter now also working with MP plus inverters - tested with Kostal PIKO 1.5-1, 2.0-1, 3.0-1 MP plus.
-It's greatly appreciated if you verify functionality with other inverters and please send me a note.
+This adapter allows for reading data from Kostal Piko, Piko BA, and PIKO MP plus inverters.
+It creates and sequentially updates several states, ensuring that the latest information is always available.
+The adapter is specifically designed for Kostal Piko BA, 6.0BA, 8.0BA, and 10BA inverters, but it also supports a wide range of other models, including:
+
+- Kostal Piko: 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20, and 36.
+- Kostal PIKO MP: 1.5, 3.0, 3.6.
+- Kostal PIKO MP plus: 1.5-1, 2.0-1, 2.5-1, 3.0-1, 3.0-2, 3.6-1, 3.6-2 and 5.0-2.
+
+We appreciate any feedback on functionality with other inverters. Please send us a note if you test it with additional models.
 
 ## Settings
-Be aware that your Piko or Piko BA inverter has to be updated to Kostal UI >= 6.11!
-To connect to the Kostal Piko (BA / MP plus) inverter, setting its IP-address in the config is mandatory.
-Optionally you could also edit the update frequencies of live data, daily and livetime statistics.
-If needed and supoported by your hardware, set the mark for read-out of the 4 analog values, too.
 
-## Notes
-This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+Ensure that your Piko or Piko BA inverter is updated to Kostal UI version 6.11 or higher.
+To connect to the Kostal Piko (BA / MP plus) inverter, you must configure its IP address in the settings.
+Optionally, you can adjust the update frequencies for live data, daily statistics, and lifetime statistics.
+If your hardware supports it, you can also enable the read-out of the four analog values.
+
+## Sentry
+
+This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
+
+## Donate
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=XFFBB332R4RCQ"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>  
+If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+Note: Missing version entries typically indicate dependency updates for improved security.
+
+### 4.1.3 (13.08.2024)
+
+* (HombachC) fixed vulnerability in dependency
+
+### 4.1.2 (10.08.2024)
+
+* (HombachC) optimized translation handling
+* (HombachC) hide not used configuration inputs
+
+### 4.1.1 (09.08.2024)
+
+* (HombachC) adapter checker detected optimizations (#643)
+
+### 4.1.0 (05.08.2024)
+
+* (HombachC) replaced deprecated ioBroker state calls
+* (HombachC) doku cleanup
+
+### 4.0.2 (04.08.2024)
+
+* (HombachC) added node.js 22 tests
+* (HombachC) dependency updates
 
 ### 4.0.1 (24.06.2024)
 
@@ -112,7 +158,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## License
 MIT License
 
-Copyright (c) 2020 - 2024 HombachC
+Copyright (c) 2020-2024 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

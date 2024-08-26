@@ -11,7 +11,7 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/Lucky-ESA/ioBroker.ima
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.imap.svg?color=red&label=beta
 BADGE-NPM: https://nodei.co/npm/iobroker.imap.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.imap/README.md
 title: ioBroker.imap
 hash: LNk2CBO2kvK/Fj1IY3zLUsUnJ7v6kVAMY/5qnGBDHt0=

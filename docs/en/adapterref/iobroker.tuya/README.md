@@ -175,10 +175,11 @@ When there are issues with the Tuya App Cloud synchronisation then additional lo
 Send the log with reference to the generated GitHub issue to iobroker@fischer-ka.de
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77) Try to support phase_X information with 10 bytes
-* (Apollon77) More schema information added/updated
+### 3.16.0 (2024-08-15)
+* js-controller 5.0 is now required at least
+* (Apollon77) Improves stability
+* (Apollon77) Tries to support phase_X information with 10 bytes
+* (Apollon77) More schema information were added/updated
 
 ### 3.15.0 (2023-11-23)
 * (agraf) Add support to login with "Ledvance" App account
@@ -533,7 +534,7 @@ Send the log with reference to the generated GitHub issue to iobroker@fischer-ka
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2024 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

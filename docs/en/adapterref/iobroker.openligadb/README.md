@@ -23,7 +23,8 @@ If a season is spread over two years, please enter only the start year.
 Example data for 1. German Bundliga is
 shortcut = bl1 season = 2023
 
-If you saved and closed the configuration, a short while after this there must be new datapoints for your league and season.
+If you saved and closed the configuration, a short while after this there must
+be new datapoints for your league and season.
 
 ## vis and Widgets
 
@@ -43,7 +44,8 @@ This widget show goal getters of this season
 
 ### Gameday
 
-All games of the actual or selected gameday. There are many widget-attributes to configure the amount of the displayed data
+All games of the actual or selected gameday. There are many widget-attributes
+to configure the amount of the displayed data
 
 ### Games of favorite clubs
 
@@ -65,7 +67,8 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 -   ~~documentation adapter / widget~~
 -   ~~fix issue for dynamic with of club column~~
 -   ~~new widget: next x games of club~~
--   ~~widget gameday setting for start gameday an length (-1,3 = show previous gameday and 3 gamedays after that)~~
+-   ~~widget gameday setting for start gameday an length (-1,3 = show previous
+    gameday and 3 gamedays after that)~~
 -   ~~Replacement value for edit mode if showgameday is set with binding~~
 -   ~~highlight favorite club~~
 -   ~~controllable gameday in the gameday widget~~
@@ -76,6 +79,15 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.4.11 (2024-08-09)
+
+-   fix issues from adapter checker
+
+### 1.4.10 (2024-08-02)
+
+-   switch to eslint 9
+-   adjust markdownlint settings to be compatible with prettier
+
 ### 1.4.9 (2024-06-13)
 
 -   fix if no game exist for team1/team2
@@ -185,14 +197,17 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 
 ### 0.11.1
 
--   change some template settings, goalgetter table get headers, add object change sensing
+-   change some template settings, goalgetter table get headers,
+    add object change sensing
 -   widget goalgetters: add parameter highlight and showonlyhighlight
 -   widget pivottable: add sort option and choice to place favorite teams on top
 -   remove year from date for several widgets
 
 ### 0.11.0
 
--   extend table to calculate with x last games and extend table to calculate ranking for a defined gameday, to ensure backward compatibility i have to create a new table v3 widget
+-   extend table to calculate with x last games and extend table to calculate
+    ranking for a defined gameday, to ensure backward compatibility i have to
+    create a new table v3 widget
 -   extend table with trend sign (arrow up/down, point for no change)
 -   new widget goal getter ranking with sort function
 -   new widget pivot table of played games
@@ -200,21 +215,27 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 
 ### 0.10.3
 
--   change computing and output logic of gameday widget to mark gameday header with favorite class
+-   change computing and output logic of gameday widget to mark gameday
+    header with favorite class
 -   improve documentation with css-klasses for table widget
 -   bugfix for calculate gameday.
 
 ### 0.10.2
 
--   Add data column goaldiff to table widget, improve more documentation (systax highlighting,copy code function), add example to control gameday with buttons,
+-   Add data column goaldiff to table widget, improve more documentation
+    (systax highlighting,copy code function), add example to
+    control gameday with buttons,
 
 ### 0.10.1
 
--   Improve documentation with more recipes and syntax highlighting, improve code to get and subscribe states
+-   Improve documentation with more recipes and syntax highlighting,
+    improve code to get and subscribe states
 
 ### 0.10.0
 
--   New widget Table 2 that includes the calculation of the total, home and away results. the previous widget is now deprecated, due to the different datapoint (allmatches) to be selected.
+-   New widget Table 2 that includes the calculation of the total, home and
+    away results. the previous widget is now deprecated, due to the
+    different datapoint (allmatches) to be selected.
 
 ### 0.9.3
 
@@ -230,11 +251,14 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 
 ### 0.9.0
 
--   new Function for vis Binding to search for games at the actual day for favorite clubs, css-classes für games at actual day, fix bug to show the right match results,
+-   new Function for vis Binding to search for games at the actual day for
+    favorite clubs, css-classes für games at actual day, fix bug to show
+    the right match results,
 
 ### 0.8.0
 
--   push version for latest repository. fix some typos. fix a problem with date handling on different OS
+-   push version for latest repository. fix some typos. fix a problem with
+    date handling on different OS
 
 ### 0.0.11
 
@@ -246,11 +270,13 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 
 ### 0.0.9
 
--   optional weekday for widgets: gameday and gamesoffavclub,highlight the clubname in gamesoffavclub
+-   optional weekday for widgets: gameday and gamesoffavclub,highlight the
+    clubname in gamesoffavclub
 
 ### 0.0.8
 
--   new widget games of favorite clubs with multi league support as replacement for the old one
+-   new widget games of favorite clubs with multi league support as
+    replacement for the old one
 
 ### 0.0.7
 
@@ -264,7 +290,8 @@ Documentation for the vis-widgets are available inside vis or [Widget-Documentat
 
 -   highlight favorite club,
 -   Replacement value for edit mode if showgameday is set with binding,
--   widget gameday setting for start gameday an length (-1,3 = show previous gameday and 3 gamedays after that)
+-   widget gameday setting for start gameday an length (-1,3 = show previous
+    gameday and 3 gamedays after that)
 -   some documentation
 -   remove unused code
 -   new widget: next x games of club

@@ -965,6 +965,11 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.12 (2024-07-23)
+* (foxriver76) updated dependencies
+* (foxriver76) added tier and license information
+* (foxriver76) fixed invalid object `denon.0`
+
 ### 1.15.5 (2024-01-06)
 * (foxriver76) fixed issue on setting tuner frequency (closes #328)
 

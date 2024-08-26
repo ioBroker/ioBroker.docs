@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
-title: ioBroker HomeMatic IP Cloud AccessPoint-Adapter
-hash: 5eoRlykq1weQE21A6Rnnfh4KaF4vAUa68EacmchWtlM=
+title: ioBroker HomeMatic IP Cloud AccessPoint Adapter
+hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -11,48 +11,50 @@ hash: 5eoRlykq1weQE21A6Rnnfh4KaF4vAUa68EacmchWtlM=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.hmip.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
-# IoBroker HomeMatic IP Cloud AccessPoint-Adapter
-![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker HomeMatic IP Cloud AccessPoint Adapter
+![Testen und Freigeben](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein geschäftliches Ziel.** **HomeMatic ist eine Marke der ELV Elektronik AG**
+**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.** **HomeMatic ist ein Warenzeichen der ELV Elektronik AG**
 
 ## Beschreibung
 Dieser Adapter ermöglicht die Kommunikation mit einem HomematicIP CloudAccessPoint über die Rest API der Homematic IP Cloud
 
-**Wichtiger Hinweis:** Bitte beschränken Sie Kontrollanfragen auf das Nötigste, da EQ-3 anfängt, IPs zu blockieren, wenn Sie zu viel tun!
+**Wichtiger Hinweis:** Bitte beschränken Sie Steuerungsanfragen auf das absolute Minimum, da EQ-3 beginnt, IPs zu blockieren, wenn Sie zu viel tun!
 
 ## Installation
-Dieser Adapter benötigt Node-JS in der Version >= 16.0
+Dieser Adapter benötigt node-js in Version >= 16.0
 
 Hier ist ein Schritt-für-Schritt-Installationsvideo auf YouTube https://youtu.be/kXWfJRUYJIA
 
 ## Die Info
-Die meisten Homematic IP-Geräte funktionieren bereits mit der neuesten Adapterversion.
+Die meisten Homematic IP Geräte funktionieren bereits mit der neusten Adapterversion.
 
-Ich werde es ständig verbessern, aber es wird Zeit brauchen. Jegliche Hilfe der Community, z.B. Pull Request wäre sehr dankbar.
+Ich werde es ständig verbessern, aber das wird einige Zeit dauern. Jede Hilfe aus der Community, z. B. über Pull Request, wäre sehr willkommen.
 
-Für nicht funktionierende HmIP-Geräte erstellen Sie bitte eine Ausgabe mit diesen Informationen (bitte eine pro Gerät und wenn möglich den technischen Namen im Betreff).
-Schalten Sie die Adapterprotokollierung in ioBroker in den Silly-Modus und fügen Sie den JSON-Code des Geräts hinzu, der im Problemprotokoll ausgedruckt wird.
-Möglicherweise benötige ich auch einen JSON einer Statusänderung.
+Für nicht funktionierende HmIP-Geräte erstellen Sie bitte ein Problem mit diesen Informationen (bitte eines pro Gerät und wenn möglich den technischen Namen im Betreff).
+Schalten Sie die Adapterprotokollierung in ioBroker in den Silly-Modus und fügen Sie das JSON des Geräts hinzu, das im Problem in das Protokoll gedruckt wird.
+Ich benötige möglicherweise auch ein JSON einer Statusänderung.
 
 Danke schön!
 
-Wenn Sie nach Informationen suchen, ob die Alarmeinstellungen aktiv sind, müssen Sie den aktiven Status der Gruppen INTERN und EXTERN überprüfen, sie repräsentieren in Kombination die drei Alarmzustände. INTERNE und EXTERNE Aktivwerte bedeuten „Abwesend“, nur EXTERNALE Aktivwerte bedeuten, dass nur Perimeter aktiv ist.
+Wenn Sie die Information suchen, ob die Alarmeinstellungen aktiv sind, müssen Sie den aktiven Status der Gruppen INTERN und EXTERN prüfen, sie stellen in Kombination die drei Alarmzustände dar. INTERN und EXTERN aktiv bedeutet Abwesend, nur EXTERN aktiv bedeutet nur Perimeter aktiv.
 
-## Wichtige Information, was mit diesem Adapter gemacht werden kann
-!!! Mit diesem Adapter können Sie nur Ereignisse auslösen, die über die Original-Homematic-IP-App ausgelöst werden können.
-Beispielsweise haben direkte Verbindungen zwischen Geräten keine Ereignisse in der App und können auch nicht über diesen Adapter ausgelöst werden!!!
+## Wichtige Informationen, was mit diesem Adapter gemacht werden kann
+!!! Mit diesem Adapter können ausschließlich Events ausgelöst werden, die auch über die originale Homematic IP App ausgelöst werden können.
+
+Direkte Verbindungen zwischen Geräten haben beispielsweise keine Events in der App und können auch nicht über diesen Adapter ausgelöst werden!!!
 
 ## Einstellungen
-* Geben Sie Ihre SGTIN (Rückseite des Access Points) und die PIN (falls zuvor festgelegt) ein und validieren Sie die Daten durch Drücken der blauen LED-Taste. Dadurch wird ein Authentifizierungstoken erstellt.
+* Geben Sie Ihre SGTIN (Rückseite des Access Points) und die PIN (sofern bereits festgelegt) ein und bestätigen Sie die Daten durch Drücken der blauen LED-Taste. Dadurch wird ein Authentifizierungstoken erstellt.
 
 ## Spezielle Einstellungen
 ### HMIP-DLD (Türschlossantrieb)
-Wenn Sie dem Schloss in der HmIP-App (Einstellungen / Zugangsberechtigungen) eine PIN zugewiesen haben, muss die PIN im Pin-Status der Geräteobjekte festgelegt werden. Es handelt sich NICHT um Ihre System-PIN!! Wenn Sie in den Einstellungen keine PIN festgelegt haben, können Sie den Pin-Status auch leer lassen.
-Fügen Sie außerdem bitte den „iobroker“-Client zur Liste der Zugriffskontroll-Clients in den HmIP-App-Einstellungen hinzu!
+Wenn du dem Schloss in der HmIP-App (Einstellungen / Zugangsberechtigungen) eine PIN zugewiesen hast, muss diese PIN im PIN-Status der Geräteobjekte eingetragen werden. Es ist NICHT deine System-PIN!! Wenn du in den Einstellungen keine PIN festgelegt hast, kannst du den PIN-Status auch leer lassen.
+
+Füge außerdem den Client „iobroker“ zur Liste der Zutrittskontroll-Clients in den HmIP-App-Einstellungen hinzu!
 
 ## Danke
 * an @coreGreenberet für seine Python-Bibliothek (https://github.com/coreGreenberet/homematicip-rest-api)
@@ -60,27 +62,41 @@ Fügen Sie außerdem bitte den „iobroker“-Client zur Liste der Zugriffskontr
 ## Diskussion im ioBroker-Forum
 https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 
-## Adapteranfrage auf GitHub
+## Adapter Request auf GitHub
 https://github.com/ioBroker/AdapterRequests/issues/62
 
-<!--
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### 1.24.1 (2024-08-06)
+* (bluefox) GUI was migrated for Admin 7
+
+### 1.23.4 (2024-07-07)
+* (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected
+* (Apollon77) Optimize websocket reconnection handling
+
+### 1.23.3 (2024-05-27)
+* (bluefox) Ignored status 400 by token request
+
+### 1.23.2 (2024-05-24)
+* (bluefox) Allowed calling token request without PIN
+* (bluefox) Corrected the token request
+
+### 1.23.0 (2024-04-19)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.22.0 (2024-01-17)
 * (bluefox) IMPORTANT: Node.js 16.x or newer is now required
 * (bluefox) Module `require` has been replaced by `axios`
 * (bluefox) Added JSON config
-* (ChristianFue) Added support for Hmip-RGBW 
+* (ChristianFue) Added support for Hmip-RGBW
 - (bluefox) Dependencies have been updated.
 
 ### 1.21.1 (2024-01-15)
-- (ApolloSK) Some issuses for energySensor have been fixed.
+- (ApolloSK) Some issues for energySensor have been fixed.
 - (mcm1957) Dependencies have been updated.
 
 ### 1.21.0 (2023-12-27)
@@ -167,7 +183,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Removed some generic (error/info) states that only exist on chosen devices to re-add later in a generic way
 
 ### 1.13.2 (2021-08-25)
-* (Apollon77) Fix warning on js-controller 3.3 with two datapoints
+* (Apollon77) Fix warning on js-controller 3.3 with two data points
 
 ### 1.13.1 (2021-08-06)
 * (Apollon77) Fix warning on js-controller 3.3 with "sabotage" datapoint
@@ -315,7 +331,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters <mcm57@gmx.at>  
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

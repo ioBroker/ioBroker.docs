@@ -17,6 +17,10 @@
 Adapter for FordPass
 
 ## Changelog
+### 1.0.5 (2024-07-09)
+
+- Add location update option to reduce update requests
+
 ### 1.0.3 (2024-06-22)
 
 - improve help text

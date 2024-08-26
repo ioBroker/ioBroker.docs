@@ -28,18 +28,48 @@ The widgets are designed for VIS 1.x.
 
 ## Things to do
 
-* create Simpe button with icon
 * create Mini-mediaplayer
 * create Select-tile
-* create Submenue-Button
-* Radiobutton: new property "division" with selectable values (1:1; 3:4)
+* create Checkbox for Sonos Group
 * Datepicker: dynamic day/month icons
+* new widget: pinpad (WORK IN PROGRESS)
+* Tiles: add button for dialog
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* Added option to show icons colored on tiles and radio
+* Added new styles "big", "small" and "only icon" for all tiles
+
+### 0.3.1 (2024-07-12)
+
+* Added submenu widget
+
+### 0.2.7 (2024-07-10)
+
+* repaired Thermostat dialog tile widget
+
+### 0.2.6 (2024-07-05)
+
+* Block operation: added ability to show widget disabled
+* Added JSON Table
+* Navigation-Button-Set: fixed notification arrangement
+* Dynamization of some input fields
+
+### 0.1.1 (2024-07-02)
+
+* Added missing translations
+* Added new style "indicator" for all tiles (IF YOUR TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - JUST CLICK ON IT. Sorry for that.)
+* Radiobutton: new property "division" with selectable values
+* Radiobutton: change size automatically if direction was changed
+* Signal pictures: repaired comparision with number (<=nn)
+* Signal pictures: checkbox for show/not show in editor
+* Thermostat dialog: sort order of attributes (dialog attrs one up)
+
 ### 0.0.16 (2024-06-08)
 
 * (Standarduser) thermostat: fixed window-sizing

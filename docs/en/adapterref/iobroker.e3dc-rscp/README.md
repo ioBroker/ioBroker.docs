@@ -468,6 +468,14 @@ MODIFIED ADAPTER SETTINGS - do not re-use settings stored in json-file!
  
 (git-kick)
 * Fixed [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - added PM (power meter) namespace. **Only reading values, no SET tags.**
+* Fixed two newly reported "undefined" occurences in main.js.
+* Fixed errors listed in [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - reported by the ioBroker Check and Service Bot.
+  * \[E162\]: js-controller dependency updated to >= 5.0.19
+  * \[E204\]: "remove news version 1.3.0" considered a false finding; in v1.2.6, io-package.json does not contain common.news "1.3.0"
+  * \[E605\]: updated copyright to 2024 in README.md
+  * \[E605\]: removed .npmignore from project directory
+  * \[W040\]: added keyword "ioBroker" in package.json
+  * \[W130\]: deleted all but some recent common.news in io-packege.json 
 
 ### 1.2.6
  

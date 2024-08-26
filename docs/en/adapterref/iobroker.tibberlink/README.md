@@ -13,7 +13,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=main&logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=master&logo=github&style=flat-square)
 [![CodeQL](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml)
 [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-tibberlink)
 [![SNYK Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.tibberlink)
@@ -29,6 +29,7 @@
 ## Adapter for Utilizing TIBBER energy data in ioBroker
 
 This adapter facilitates the connection of data from your Tibber account's API to be used within ioBroker, whether for a single home or multiple residences.
+New Feature: The adapter now supports direct local reading of the Tibber Pulse Sensor through your home network, allowing for real-time monitoring and data collection without relying solely on the cloud API.
 
 If you're not currently a Tibber user, I would greatly appreciate it if you could use my referral link: [Tibber Referral Link](https://invite.tibber.com/mu8c82n5).
 
@@ -85,18 +86,83 @@ The calculation is performed for "multiday" data. As we only have information fo
 
 To observe this dynamic change in the time scope for a standard channel, you may opt for a Limited Time Frame (LTF) spanning several years. This is particularly useful for the "Best Single Hours LTF" scenario.
 
+## Direct local poll of Pulse data
+
+To make it work, you need to modify the web interface of the Bridge to remain permanently enabled.
+marq24 has described how to do this excellently for his HomeAssistant integration here:
+
+https://github.com/marq24/ha-tibber-pulse-local
+
+If everything works correctly, the meter data will be written to IoBroker states every 2 seconds.
+
 ## Sentry
 
 This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
 
 ## Donate
 
-<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>  
+<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a>  
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+### 3.4.8 (2024-08-xx)
+
+-   (HombachC) updated axios because of vulnerability
+-   (HombachC) added tests for Node.js 22
+
+### 3.4.7 (2024-08-10)
+
+-   (HombachC) adapter checker detected optimizations (#493)
+-   (HombachC) improved error message (#490)
+
+### 3.4.6 (2024-08-07)
+
+-   (HombachC) Catch wrong OBIS Codes, probably caused by Pulse communication errors
+-   (HombachC) code cleanup
+
+### 3.4.5 (2024-07-31)
+
+-   (HombachC) decode meter mode 4 for local Tipper Pulse poll (#477)
+-   (HombachC) decode meter mode 1 for local Tipper Pulse poll (#478)
+-   (HombachC) fixed wrong Pulse local status names (voltage)
+-   (HombachC) add docu on local Pulse poll config screen (#479)
+-   (HombachC) code cleanup
+-   (HombachC) bump dependencies
+
+### 3.4.4 (2024-07-28)
+
+-   (HombachC) local poll of data - change units Wh to kWh and round to 0,1kWh (#469)
+
+### 3.4.3 (2024-07-14)
+
+-   (HombachC) added unit to Pulse temperature and round to 0,1°C
+-   (HombachC) added unit to Pulse battery voltage and round to 100mV
+-   (HombachC) added unit to Pulse uptime
+-   (HombachC) added state with Pulse uptime as human readable string
+-   (HombachC) reinitialize some TibberLocal states upon adapter startup
+-   (HombachC) code optimisation
+-   (HombachC) bump dependencies
+
+### 3.4.2 (2024-07-13)
+
+-   (HombachC) fix typos in units
+-   (HombachC) fix type mismatch for state objects (#455)
+-   (HombachC) code optimisation
+
+### 3.4.1 (2024-07-13)
+
+-   (HombachC) fix logging error
+-   (HombachC) bump dependencies
+
+### 3.4.0 (2024-07-12)
+
+-   (HombachC) add mode for local poll of Pulse data (#201)
+
+### 3.3.3 (2024-07-04)
+
+-   (HombachC) fix sentry notified possible error
+-   (HombachC) try to fix startup error (#444)
 
 ### 3.3.2 (2024-06-21)
 

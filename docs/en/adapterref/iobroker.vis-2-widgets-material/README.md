@@ -128,6 +128,27 @@ The only difference is that Xiaomi supports the room cleaning.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.10 (2024-08-09)
+* (Steiger04) Corrected recursive icon search on channel, device, instance and adapter.
+
+### 1.4.9 (2024-08-03)
+* (bluefox) Corrected blinds dialog
+* (bluefox) Added the invert option for blinds
+
+### 1.4.8 (2024-07-12)
+* (bluefox) Small changes for SweetHome3D
+
+### 1.4.7 (2024-07-11)
+* (bluefox) Corrected thermostat chart button
+
+### 1.4.6 (2024-07-10)
+* (bluefox) Better detection of modes for thermostat
+* (bluefox) Round temperature in charts
+
+### 1.4.1 (2024-07-07)
+* (bluefox) removed withStyles package
+* (bluefox) Better thermostat visualization by narrow height
+
 ### 1.3.33 (2024-06-10)
 * (bluefox) Wait for data before the map is shown
 * (bluefox) Round of value is possible now in the actual value widget (with chart)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: +1fddSVtqwpfVYHmbGCNW3hoPgPwDPyjK/kA/lN2bfw=
+hash: RttxszkZBkPktx1h3S4c1CTM4MNtGAultzO499yhV3k=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -15,7 +15,7 @@ hash: +1fddSVtqwpfVYHmbGCNW3hoPgPwDPyjK/kA/lN2bfw=
 # Visualisierung der nächsten Generation für ioBroker: vis-2
 WEB-Visualisierung für die ioBroker-Plattform.
 
-## Überblick
+## Übersicht
 - [Lizenzanforderungen](#Lizenzanforderungen)
 - [Installation und Dokumentation](#installation--documentation)
 - [Bindungen von Objekten](#bindings-of-objects)
@@ -27,7 +27,7 @@ WEB-Visualisierung für die ioBroker-Plattform.
 - [SVG und aktuelle Farbe](#svg-and-currentcolor)
 
 ## Installation und Dokumentation
-![Demo-Oberfläche](packages/iobroker.vis-2/img/user0.png) ![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
+![Demo-Schnittstelle](packages/iobroker.vis-2/img/user0.png) ![Demo-Schnittstelle](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
 [Online Demos](https://iobroker.click/)
 
@@ -124,14 +124,14 @@ Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Information
 * „Ansicht“ – Name der aktuellen Ansicht
 * `wname` - Widgetname
 * `widget` – ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie `{a:a;widget.data.name}`
-* „widgetOid“ – verwenden Sie das OID des Widgets, um den Widgetwert im Zuweisungsabschnitt zuzuweisen, z. B. „{t:widgetOid.val;t}“
+* „widgetOid“ – verwenden Sie die OID des Widgets, um den Wert des Widgets im Zuweisungsabschnitt zuzuweisen, z. B. „{t:widgetOid.val;t}“
 * `wid` – Name des aktuellen Widgets
 * „Sprache“ – kann „de“, „en“ oder „ru“ sein.
 * `Instanz` – Browserinstanz
 * „Anmelden“ – ob eine Anmeldung erforderlich ist oder nicht (z. B. um die Schaltfläche zum Abmelden anzuzeigen/auszublenden)
 * `local_*` – wenn der Statusname von `local_` aus gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für die aktuelle Browsersitzung)
 
-Hinweis: Um in Berechnungen (z. B. in Zeichenfolgenformeln) ein „:“ zu verwenden, verwenden Sie stattdessen „::“.
+Hinweis: Um in Berechnungen (z. B. in Zeichenfolgenformeln) ein „::“ zu verwenden, verwenden Sie stattdessen „::“.
 
 **Denken Sie daran**, dass Stildefinitionen als Bindungen interpretiert werden. Verwenden Sie daher `{{style: value}}` oder einfach
 
@@ -163,7 +163,7 @@ Befehle:
 * „Neuladen“ – dasselbe wie Aktualisieren.
 * `dialog` - Dialogfenster anzeigen. Dialog muss in der Ansicht vorhanden sein. Eines von:
 
-- `statisch - HTML - Dialog`,
+- `statischer - HTML - Dialog`,
 - `statisch - Symbol - Dialog`,
 - `Container – HTML – Ansicht im jqui-Dialog`,
 - `Container – ext cmd – im jqui-Dialog anzeigen`,
@@ -193,7 +193,7 @@ Beispiel für Javascript-Adapter:
 setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
 
-Wenn Sie das JSON als Zeichenfolge schreiben, stellen Sie sicher, dass es analysierbar ist, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie das `"`.
+Wenn Sie das JSON als String schreiben, achten Sie auf die Analysierbarkeit, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie das `"`.
 
 ## Standardansicht
 Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü=>Tools=>Auflösung).
@@ -245,7 +245,7 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 ## SVG und currentColor
 Mit dem Schlüsselwort currentColor in CSS können Elemente die aktuelle Textfarbe von ihrem übergeordneten Element übernehmen.
 
-Besonders nützlich kann dies bei SVGs (Scalable Vector Graphics) sein, da es eine dynamischere Gestaltung und eine einfachere Integration mit HTML-Inhalten ermöglicht.
+Es kann insbesondere bei SVGs (Scalable Vector Graphics) nützlich sein, da es eine dynamischere Gestaltung und eine einfachere Integration mit HTML-Inhalten ermöglicht.
 
 Sie können das Schlüsselwort currentColor anstelle eines bestimmten Farbwerts für jede Eigenschaft innerhalb des SVG verwenden, die einen Farbwert akzeptiert.
 Hier ist ein einfaches Beispiel mit einem Kreis in einem SVG:
@@ -259,12 +259,61 @@ Hier ist ein einfaches Beispiel mit einem Kreis in einem SVG:
 In diesem Fall nimmt das SVG die Farbe des übergeordneten Elements an.
 Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wäre der Kreis rot.
 
-## Machen
+## Entwicklung und Debugging
+Um Anpassungen am vis-2 Editor selbst vorzunehmen, Fehler zu suchen und zu debuggen, müssen folgende Schritte durchgeführt werden.
+
+1. Forken Sie das Repository iobroker/iobroker.vis-2 über die Benutzeroberfläche von GitHub in Ihr eigenes Konto.
+
+2. Klonen Sie das Repository in ein Verzeichnis. Kopieren Sie die URL aus Ihrem GitHub-Repository. Der Befehl sieht so aus
+
+```
+git clone https://github.com/<your profile name>/ioBroker.vis-2.git
+```
+
+3. Öffnen Sie das heruntergeladene Repository mit Ihrer IDE
+
+4. Um alle notwendigen Bibliotheken zu installieren und herunterzuladen, führen Sie den folgenden Befehl in einem Terminal im Stammverzeichnis des Repositorys aus
+
+```
+npm run install-monorepo
+```
+
+5. Um den Editor im Browser zu starten, führen Sie bitte den folgenden Befehl aus.
+
+Eine bereits separat laufende iobroker Serverinstanz muss auf Port 8082 verfügbar sein.
+
+```
+npm run start
+```
+
+- Debuggen ist im Browser verfügbar, z. B. Chrome F12
+- Wenn Sie eine Datei ändern, wird das automatische Neuladen des Editors unterstützt
+
+## Aufgaben
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 2.10.7 (2024-07-23)
+* (bluefox) Optimization of the module federation
+
+### 2.10.6 (2024-07-20)
+* (bluefox) Improved the typing in typescript
+
+### 2.10.4 (2024-07-16)
+* (bluefox) Corrected the jumping by object selection
+* (bluefox) Implemented swipe widget
+
+### 2.10.3 (2024-07-11)
+* (bluefox) Converted the CanJSWidget to typescript
+* (bluefox) Added "clone" button to the attribute groups
+
+### 2.10.2 (2024-07-10)
+* (bluefox) Removed incompatible package for styles
+* (bluefox) All widgets must be updated
+* (bluefox) The basic input value widget was migrated to ReactJS
+
 ### 2.9.64 (2024-05-23)
 * (bluefox) Added possibility to clear a text field by button
 
@@ -378,7 +427,7 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 * (foxriver76) added select box to dimension attributes if multiple widgets selected
 
 ### 2.9.18 (2024-01-15)
-* (foxriver76) fixed issue, that old attributes value is shown in some scenarios
+* (foxriver76) fixed issue that old attributes value is shown in some scenarios
 * (foxriver76) dedicated permission system extended to view level
 
 ### 2.9.17 (2024-01-13)
@@ -393,14 +442,14 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 ### 2.9.14 (2024-01-09)
 * (foxriver76) fixed last change y-offset for some widgets
 * (foxriver76) fixed issue where JquiState did not respect data type
-* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing wrong button)
+* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing the wrong button)
 * (foxriver76) implemented workaround resize bug for https://github.com/devbookhq/splitter/issues/15
 
 ### 2.9.13 (2024-01-08)
 * (foxriver76) correctly detect IDs in bindings when they contain hash character
 * (foxriver76) fix crash when multiple JquiState widgets selected
-* (foxriver76) prevent showing widget in group after it is already cut out
-* (foxriver76) prevent usage of widgets which are not in group for calculating rulers on group view
+* (foxriver76) prevent showing widget in a group after it is already cut out
+* (foxriver76) prevent usage of widgets which are not in a group for calculating rulers on group view
 
 ### 2.9.12 (2024-01-04)
 * (foxriver76) optimized copy/paste/cut in groups
@@ -409,10 +458,10 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 * (foxriver76) fixed bug with visibility calculation
 
 ### 2.9.10 (2024-01-02)
-* (foxriver76) remove accidentally added script file, which lead to crash
+* (foxriver76) remove accidentally added script file, which leads to crash
 
 ### 2.9.9 (2024-01-01)
-* (foxriver76) allow to import views without attribute `activeWidgets`
+* (foxriver76) allow importing views without attribute `activeWidgets`
 * (foxriver76) make BasicBulb behave more like its old version
 * (foxriver76) fixed issue that data of different widget is displayed in edit mode
 * (foxriver76) fixed issue that every state update is used for visibility calculation
@@ -425,7 +474,7 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 * (foxriver76) fixed issue on theme switch
 
 ### 2.9.7 (2023-12-19)
-* (bluefox) Allowed the read only flag for Styled/Input
+* (bluefox) Allowed the read-only flag for Styled/Input
 
 ### 2.9.6 (2023-12-14)
 * (foxriver76) fixed issues with the BulkEditor
@@ -452,7 +501,7 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 * (foxriver76) fixed import of views, which were inside a folder
 * (foxriver76) fixed theme also applied in iframe
 * (foxriver76) do not simply reuse widget ids when importing or copying views
-* (foxriver76) implemented basic bulb widget as react widget
+* (foxriver76) implemented basic bulb widget as React widget
 * (foxriver76) made script tags work in basic html widget
 
 ### 2.9.2 (2023-11-29)
@@ -463,19 +512,19 @@ Wenn es beispielsweise in einem Menü verwendet wird und das Menü rot ist, wär
 
 ### 2.9.1 (2023-11-28)
 * (foxriver76) recalculate fields after moving widgets
-* (foxriver76) fixed pasting group on other view
+* (foxriver76) fixed a pasting group on other view
 * (foxriver76) fixed theme also applied in iframe
-* (bluefox) implemented Basic Image as react widget
+* (bluefox) implemented Basic Image as React widget
 
 ### 2.9.0 (2023-11-27)
 * (bluefox) implemented SVG shape and Screen Resolution widgets natively
-* (bluefox) implemented Basic iFrame as react widget
+* (bluefox) implemented Basic iFrame as React widget
 * (foxriver76) only allow zip files at project import
 * (foxriver76) fix overflow being overwritten
 * (foxriver76) sort pages and projects alphabetically
 * (foxriver76) fixed problem on saving
 * (foxriver76) fixed problem with groups when `always render` is activated
-* (foxriver76) allow to change color and write lowercase in tabs component
+* (foxriver76) allow changing color and write lowercase in a tabs component
 * (foxriver76) fixed problem that navigation from a alwaysRender page is shown on different page
 
 ### 2.8.0 (2023-11-24)

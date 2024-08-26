@@ -46,6 +46,9 @@ https://go-e.co/support/
 
 ## Changelog
 
+### 1.0.38
+* Bug on Negate Watts if use Go-e charger
+
 ### 1.0.35
 * switch between ioBroker and go-e Hardware logic for PV-Calculation
 * Adding phaseSwitch Buffer to reduce switch on coudy days

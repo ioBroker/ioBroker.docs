@@ -2,7 +2,7 @@
 title: решения
 lastChanged: 13.09.2018
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/lib/README.md
 hash: bfUQqrCkrUN/SM2q9w/T+gZsl5iJRnJ3PK00fyE/SjU=
 ---

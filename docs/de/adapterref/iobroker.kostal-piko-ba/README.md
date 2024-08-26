@@ -3,151 +3,159 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: o8WKJRbH1NvZZ7/KkuUQq2W7tvgOz+JJsSAZP7Leakc=
+hash: Wt8AzwewSKrFltCL+THLWDot1KNDkhRpkVvXRRtapyE=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba?label=npm%20downloads&style=flat-square)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.kostal-piko-ba?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.kostal-piko-ba?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/hombach/iobroker.kostal-piko-ba?style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
+![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.kostal-piko-ba/test-and-release.yml?branch=main&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)
+![Beta](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg?color=red&label=beta)
+![Stabil](https://iobroker.live/badges/kostal-piko-ba-stable.svg)
+![Eingerichtet](https://iobroker.live/badges/kostal-piko-ba-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
 
 # IoBroker.kostal-piko-ba
-![NPM-Version (stabil)](https://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Anzahl der Installationen (aktuell)](https://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+[![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
 
-**CI-Tests:** ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg) [![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
+## Versionen
+## Adapter zum Einlesen von Kostal Piko & Piko BA Daten für iOBroker
+Dieser Adapter ermöglicht das Lesen von Daten von Kostal Piko-, Piko BA- und PIKO MP plus-Wechselrichtern.
+Er erstellt und aktualisiert nacheinander mehrere Zustände und stellt so sicher, dass immer die aktuellsten Informationen verfügbar sind.
+Der Adapter ist speziell für Kostal Piko BA-, 6.0BA-, 8.0BA- und 10BA-Wechselrichter konzipiert, unterstützt aber auch eine Vielzahl anderer Modelle, darunter:
 
-## Adapter zum Auslesen von Kostal Piko & Piko BA Daten für iOBroker
-Adapter zum Auslesen von Kostal Piko, Piko BA und PIKO MP plus Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
-Adapter für Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA Wechselrichter.
-Adapter funktioniert auch mit den Wechselrichtern Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 und 36.
-NEU! Adapter funktioniert jetzt auch mit MP plus Wechselrichtern – getestet mit Kostal PIKO 1.5-1, 2.0-1, 3.0-1 MP plus.
-Wir freuen uns sehr, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
+- Kostal Piko: 3,0, 4,2, 4,6, 5,5, 7,0, 8,5, 10, 12, 15, 17, 20 und 36.
+- Kostal PIKO MP: 1,5, 3,0, 3,6.
+- Kostal PIKO MP plus: 1,5-1, 2,0-1, 2,5-1, 3,0-1, 3,0-2, 3,6-1, 3,6-2 und 5,0-2.
+
+Wir freuen uns über jede Rückmeldung zur Funktionalität mit anderen Wechselrichtern. Wenn Sie die Funktion mit weiteren Modellen testen, senden Sie uns bitte eine Nachricht.
 
 ## Einstellungen
-Beachten Sie, dass Ihr Piko- oder Piko BA-Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um eine Verbindung zum Kostal Piko (BA / MP plus) Wechselrichter herzustellen, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
-Optional können Sie auch die Aktualisierungshäufigkeit von Live-Daten sowie Tages- und Livetime-Statistiken bearbeiten.
-Wenn nötig und von Ihrer Hardware unterstützt, setzen Sie auch die Markierung für das Auslesen der 4 Analogwerte.
+Stellen Sie sicher, dass Ihr Piko- oder Piko-BA-Wechselrichter auf Kostal UI Version 6.11 oder höher aktualisiert ist.
+Um eine Verbindung zum Kostal Piko (BA / MP plus)-Wechselrichter herzustellen, müssen Sie dessen IP-Adresse in den Einstellungen konfigurieren.
+Optional können Sie die Aktualisierungsfrequenzen für Livedaten, Tagesstatistiken und Lebensdauerstatistiken anpassen.
+Wenn Ihre Hardware es unterstützt, können Sie auch das Auslesen der vier analogen Werte aktivieren.
 
-## Anmerkungen
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+## Wachposten
+Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 gestartet.
+
+## Spenden
+<a href="https://www.paypal.com/donate/?hosted_button_id=XFFBB332R4RCQ"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, könnten Sie mir ein Bier spendieren. Prost! :Bier:
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+Note: Missing version entries typically indicate dependency updates for improved security.
 
-### 2.5.2 (02.06.2023)
-* (HombachC) fixed a wording error
-* (HombachC) bumped dependencies, added tests for node.js 20
-* (HombachC) it's recommended to switch to minimum node.js 16, adapter still working with node 14
-### 2.5.1 (25.04.2023)
-* (HombachC) fixed a sentry reported error
-### 2.5.0 (22.04.2023)
-* (HombachC) implemented battery power calculation
-### 2.4.7 (13.04.2023)
-* (HombachC) improved error handling
-### 2.4.6 (09.04.2023)
-* (HombachC) fixed vulnerability in xml2js
-### 2.4.5 (07.04.2023)
-* (HombachC) improved error handling
-### 2.4.4 (04.04.2023)
-* (HombachC) improved error handling
-### 2.4.3 (03.04.2023)
-* (HombachC) improved error handling
-### 2.4.2 (07.03.2023)
-* (HombachC) fixed error in Piko MP Plus AC current
-* (HombachC) added Piko MP Plus total yield
-### 2.4.1 (06.03.2023)
-* (HombachC) fixed Piko MP Plus support for two channel hardware
-### 2.4.0 (06.03.2023)
-* (HombachC) added support of AC and DC power values for Piko MP inverters
-### 2.3.1 (05.03.2023)
-* (HombachC) fix error with zero values in DC & AC
-### 2.3.0 (26.02.2023)
-* (HombachC) replaced got by axios
-* (HombachC) added warning for not supported Piko MP inverters
-* (HombachC) removed travis
-### 2.2.2 (14.02.2023)
-* (HombachC) fixed error with missing grid limitation response
-### 2.2.0 (03.02.2023)
-* (HombachC) added support for phase 1-3 of homeconsumption power
-* (HombachC) enhanced sentry support
-### 2.1.3 (03.02.2023)
-* (HombachC) optimized debug data
-### 2.1.2 (29.01.2023)
-* (HombachC) fixed errors with single phase inverters (Piko 3)
-### 2.1.1 (29.12.2022)
-* (HombachC) year 2023 changes
-### 2.1.0 (04.11.2022)
-* (HombachC) added ukrainian translations
-### 2.0.2 (16.10.2022)
-* (HombachC) fixed small sentry reported error
-* (HombachC) optimized error logging
-### 2.0.1 (11.10.2022)
-* (HombachC) optimized error logging
-### 2.0.0 (28.08.2022)
-* (HombachC) BREAKING: Dropped support for Node.js 12
-* (HombachC) changed the minimal required js-controller version to 3.2.16
-* (HombachC) added state of inverter as string
-### 1.5.0 (05.08.2022)
-* (HombachC) added minimum values for poll times to prevent communication errors
-### 1.4.7 (26.06.2022)
-* (HombachC) bumped dependency because of security vulnerability
-### 1.4.6 (06.06.2022)
-* (HombachC) removed gulp, bumped dependencies, added tests for node.js 18
-* (HombachC) removed tests for node.js 12 -> it's recommended to switch to node.js 14, adapter still working with node 12
-### 1.4.5 (03.05.2022)
-* (HombachC) added UI version to sentry feedback and documentation
-### 1.4.4 (01.05.2022)
-* (HombachC) optimized sentry feedback and documentation
-### 1.4.3 (24.04.2022)
-* (HombachC) normalizing of analog values added
-### 1.4.2 (01.02.2022)
-* (HombachC) added support for inverter type, version and name
-* (HombachC) fixed timing error
-### 1.4.1 (31.01.2022)
-* (HombachC) optimized logging
-### 1.4.0 (30.01.2022)
-* (HombachC) added support for grid 1-3 current, voltage and power
-### 1.3.1 (23.01.2022)
-* (HombachC) correct rounding of analog values
-* (HombachC) added validation of configured IPv4 address
-### 1.3.0 (01.01.2022)
-* (HombachC) added optional support for analog inputs
-### 1.2.1 (24.12.2021)
-* (HombachC) introduced rounding of battery temp
-### 1.2.0 (16.12.2021)
-* (HombachC) dropped node.js 10 support; fixed vulnerability
-### 1.1.13 (16.10.2021)
+### 4.1.3 (13.08.2024)
+
+* (HombachC) fixed vulnerability in dependency
+
+### 4.1.2 (10.08.2024)
+
+* (HombachC) optimized translation handling
+* (HombachC) hide not used configuration inputs
+
+### 4.1.1 (09.08.2024)
+
+* (HombachC) adapter checker detected optimizations (#643)
+
+### 4.1.0 (05.08.2024)
+
+* (HombachC) replaced deprecated ioBroker state calls
+* (HombachC) doku cleanup
+
+### 4.0.2 (04.08.2024)
+
+* (HombachC) added node.js 22 tests
+* (HombachC) dependency updates
+
+### 4.0.1 (24.06.2024)
+
+* (HombachC) dependency updates, removed unfunctional snyk tests
+
+### 4.0.0 (21.04.2024)
+
+* (HombachC) BREAKING: Dropped support for Node.js 16 (#591)
+* (HombachC) BREAKING: Minimum needed js-controller bumped to 5 (#592)
+* (HombachC) changed timeout settings for older Kostal inverters (#589)
+* (HombachC) dependency updates
+* (HombachC) added tests for node.js 21
+* (HombachC) raised minimum poll time for daily statistics
+* (HombachC) code optimizations
+
+### 3.1.0 (29.03.2024)
+
+* (HombachC) changed to tier 2 as data provider
+
+### 3.0.11 (29.03.2024)
+
+* (HombachC) corrected io-package.json according to new schema
+* (HombachC) bump adapter-core to 3.0.6
+
+### 3.0.10 (03.03.2024)
+
 * (HombachC) fixed vulnerability
-### 1.1.12 (07.10.2021)
-* (GermanBlueFox) fixed icon link
-### 1.1.7 (09.05.2021)
-* (HombachC) added tests for node.js 16; fixed vulnerability
-### 1.1.3 (23.11.2020)
-* (HombachC) added battery.Voltage; added additional error handler
-### 1.1.1 (09.10.2020) stable
-* (HombachC) minor documentation tweaks; DC current accuracy changed to mA
-### 1.1.0 (09.10.2020)
-* (tobstare) added DC1-3 current, voltage and power
-* (HombachC) added battery.ChargeCycles
-* (HombachC) added battery.temperature
-### 1.0.2 (23.09.2020)
-* (HombachC) public release for stable repo
-### 0.8.0 (18.08.2020)
-* (HombachC) seperate editable poll timer for statistics data
-### 0.7.4 (03.07.2020)
-* (HombachC) added sentry.io support
-### 0.6.1 (28.06.2020)
-* (HombachC) poll of statistics data separated
-### 0.1.0 (15.05.2020)
-* (HombachC) initial working release
+
+### 3.0.9 (23.12.2023)
+
+* (HombachC) year 2024 changes
+* (HombachC) several dependency updates 
+
+### 3.0.8 (29.10.2023)
+
+* (HombachC) bump axios to 1.6.0 because of vulnerability
+* (HombachC) several dependency updates 
+
+### 3.0.7 (01.10.2023)
+
+* (HombachC) several dependency updates 
+
+### 3.0.6 (27.08.2023)
+
+* (HombachC) improved error handling in case of offline inverters - centralized error handling 
+
+### 3.0.5 (19.08.2023)
+
+* (HombachC) mitigating another sentry notified error in case of network trouble
+
+### 3.0.4 (13.08.2023)
+
+* (HombachC) bumped adapter core to V3
+
+### 3.0.3 (17.07.2023)
+
+* (HombachC) fixing sentry notified error in case of network trouble
+
+### 3.0.2 (14.07.2023)
+
+* (HombachC) fix small error in MP recognition
+* (HombachC) sentry notified error in object handling
+
+### 3.0.1 (23.06.2023)
+
+* (HombachC) corrected state description
+
+### 3.0.0 (08.06.2023)
+
+* (HombachC) BREAKING: Dropped support for Node.js 14
+* (HombachC) changed config screen to admin 5 solution
+* (HombachC) dropped Admin <5 support
+* (HombachC) removed tests for node 14
+
+### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2020 - 2023 HombachC
+Copyright (c) 2020-2024 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

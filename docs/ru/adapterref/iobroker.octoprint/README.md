@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.octoprint.svg?color=red&label=
 BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
 BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
 hash: cYOYFp1Y39ceUYYXZlZ+871wI/BUlyMv9Kz7AwXcTYU=

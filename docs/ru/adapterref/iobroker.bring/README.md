@@ -5,7 +5,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.bring.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.bring.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.bring.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bring/README.md
 title: ioBroker.bring
 hash: n6gj+FadnEAVuCqrbe2EjFPQ5wpAhfWqqMdNwo4T0LQ=

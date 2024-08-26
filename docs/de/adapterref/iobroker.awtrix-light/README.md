@@ -199,6 +199,14 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Added support for notification manager
+
+### 1.3.0 (2024-08-01)
+
+* (@klein0r) Added sentry plugin for error reporting
+
 ### 1.2.1 (2024-06-07)
 
 * (klein0r) Fixed Blockly definitions (removed warnings)
@@ -216,12 +224,6 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
 ### 1.0.1 (2024-04-28)
 
 * (klein0r) Keep text case of expert apps (ignore system settings)
-
-### 1.0.0 (2024-04-04)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-Updated recommended firmware version to 0.96
 
 ## License
 MIT License

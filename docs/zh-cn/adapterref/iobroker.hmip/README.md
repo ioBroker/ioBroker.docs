@@ -3,84 +3,98 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP 云接入点适配器
-hash: 5eoRlykq1weQE21A6Rnnfh4KaF4vAUa68EacmchWtlM=
+hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
 ---
 ![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![安装数量](http://iobroker.live/badges/hmip-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.hmip.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.hmip.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # IoBroker HomeMatic IP 云接入点适配器
 ![测试与发布](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 免责声明
-**所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何关联子公司有任何隶属关系或认可！此个人项目是在业余时间维护的，没有任何商业目标。** **HomeMatic 是 ELV Elektronik AG 的商标**
+**所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何相关子公司有任何关联或认可！此个人项目是在业余时间维护的，没有商业目标。** **HomeMatic 是 ELV Elektronik AG 的商标**
 
 ＃＃ 描述
 该适配器允许通过 Homematic IP Cloud 的 Rest API 与 HomematicIP CloudAccessPoint 进行通信
 
-**重要提示：** 请将控制请求限制在最低限度，因为当您做得太多时，EQ-3 就会开始阻止 IP！
+**重要提示**：请将控制请求限制在最低限度，因为当您做得太多时，EQ-3 会开始阻止 IP！
 
 ＃＃ 安装
-该适配器需要版本> = 16.0的node-js
+此适配器需要 node-js 版本 >= 16.0
 
 这是 YouTube 上的分步安装视频 https://youtu.be/kXWfJRUYJIA
 
 ## 信息
-大多数 Homematic IP 设备已可使用最新的适配器版本。
+大多数 Homematic IP 设备已经可以使用最新的适配器版本。
 
-我会不断改进它，但这需要时间。来自社区的任何帮助，例如请求请求将受到高度赞赏。
+我会不断改进它，但这需要时间。如果社区能通过 Pull Request 等方式提供帮助，我将不胜感激。
 
-对于无法工作的 HmIP 设备，请使用此信息创建一个问题（请为每个设备创建一个问题，如果可能，请在主题中提供技术名称）。
-将 ioBroker 中的适配器日志记录切换为愚蠢模式，并添加设备的 json，该 json 会打印到问题中的日志中。
+对于无法正常工作的 HmIP 设备，请使用此信息创建一个问题（每个设备一个，如果可能，请在主题中写上技术名称）。
+将 ioBroker 中的适配器日志切换到傻瓜模式，并添加设备的 json，该 json 会打印到问题日志中。
 我可能还需要状态更改的 json。
 
 谢谢你！
 
-如果您正在查找信息，如果警报设置处于活动状态，则必须检查 INTERNAL 和 EXTERNAL 组的活动状态，它们代表三种警报状态的组合。内部和外部活动意味着离开，仅外部活动意味着仅外围活动。
+如果您正在寻找信息，如果警报设置处于活动状态，则必须检查 INTERNAL 和 EXTERNAL 组的活动状态，它们组合代表三种警报状态。INTERNAL 和 EXTERNAL 活动表示离开，只有 EXTERNAL 活动表示只有周界活动。
 
-## 重要信息 该适配器可以做什么
-!!!您只能使用此适配器触发可通过原始 Homematic IP 应用程序触发的事件。
-例如，设备之间的直接连接在应用程序中没有事件，也无法通过此适配器触发！
+## 重要信息 此适配器可以做什么
+!!! 您只能使用此适配器触发可通过原始 Homematic IP 应用程序触发的事件。
+例如，设备之间的直接连接在应用程序中没有事件，也无法通过此适配器触发!!!
 
 ＃＃ 设置
-* 输入您的 SGTIN（接入点背面）和 PIN（如果之前设置过），并通过按下蓝色 LED 按钮验证数据。这将创建一个身份验证令牌。
+* 输入您的 SGTIN（接入点背面）和 PIN（如果之前已设置），然后按下蓝色 LED 按钮验证数据。这将创建一个身份验证令牌。
 
 ## 特殊设置
 ### HMIP-DLD（门锁驱动器）
-如果您已在 HmIP 应用程序（设置/访问授权 - 德语：“Zutrittsberechtigungen”）中为锁分配了 PIN，则需要在设备对象的 PIN 状态中设置 PIN。这不是您的系统 PIN 码！如果您没有在设置中设置 PIN，也可以将 PIN 状态留空。
+如果您已在 HmIP 应用程序中为锁分配了 PIN（设置/访问权限 - 德语：“Zutrittsberechtigungen”），则需要在设备对象的 PIN 状态中设置 PIN。这不是您的系统 PIN！！如果您未在设置中设置 PIN，您也可以在 PIN 状态中留空。
 此外，请将“iobroker”客户端添加到 HmIP 应用程序设置中的访问控制客户端列表中！
 
 ＃＃ 谢谢
-* @coreGreenberet 的 python 库 (https://github.com/coreGreenberet/homematicip-rest-api)
+* 感谢 @coreGreenberet 提供的 python 库（https://github.com/coreGreenberet/homematicip-rest-api）
 
 ## IoBroker 论坛中的讨论
 https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 
-## 适配器请求 auf GitHub
+## GitHub 上的适配器请求
 https://github.com/ioBroker/AdapterRequests/issues/62
 
-<!--
+<!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### 1.24.1 (2024-08-06)
+* (bluefox) GUI was migrated for Admin 7
+
+### 1.23.4 (2024-07-07)
+* (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected
+* (Apollon77) Optimize websocket reconnection handling
+
+### 1.23.3 (2024-05-27)
+* (bluefox) Ignored status 400 by token request
+
+### 1.23.2 (2024-05-24)
+* (bluefox) Allowed calling token request without PIN
+* (bluefox) Corrected the token request
+
+### 1.23.0 (2024-04-19)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.22.0 (2024-01-17)
 * (bluefox) IMPORTANT: Node.js 16.x or newer is now required
 * (bluefox) Module `require` has been replaced by `axios`
 * (bluefox) Added JSON config
-* (ChristianFue) Added support for Hmip-RGBW 
+* (ChristianFue) Added support for Hmip-RGBW
 - (bluefox) Dependencies have been updated.
 
 ### 1.21.1 (2024-01-15)
-- (ApolloSK) Some issuses for energySensor have been fixed.
+- (ApolloSK) Some issues for energySensor have been fixed.
 - (mcm1957) Dependencies have been updated.
 
 ### 1.21.0 (2023-12-27)
@@ -167,7 +181,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Removed some generic (error/info) states that only exist on chosen devices to re-add later in a generic way
 
 ### 1.13.2 (2021-08-25)
-* (Apollon77) Fix warning on js-controller 3.3 with two datapoints
+* (Apollon77) Fix warning on js-controller 3.3 with two data points
 
 ### 1.13.1 (2021-08-06)
 * (Apollon77) Fix warning on js-controller 3.3 with "sabotage" datapoint
@@ -315,7 +329,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters <mcm57@gmx.at>  
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

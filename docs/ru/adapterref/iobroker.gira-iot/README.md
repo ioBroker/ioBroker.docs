@@ -13,7 +13,7 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.gira-iot.svg?color=red&label=b
 BADGE-Stable: http://iobroker.live/badges/gira-iot-stable.svg
 BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gira-iot/README.md
 title: ioBroker.gira-iot
 hash: 1UNCQgOaNs357wtc7SITLiJR6usxSkM2+yWt2uP5NOM=

@@ -108,9 +108,13 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) 
--   (mcm1957) Adapter requires node.js >= 18 now
+### 1.7.0 (2024-08-23)
+
+-   (Schmakus) Dependencies have been updated
+
+### 1.6.0 (2024-07-02)
+
+-   (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
 -   (mcm1957) Dependencies have been updated
 
 ### 1.5.0 (2024-03-01)
@@ -124,15 +128,6 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
 ### 1.4.0 (2024-02-22)
 
 -   (Schmakus) update dependencies (security updates)
-
-### 1.3.1 (2024-02-01)
-
--   (Schmakus) update dependencies
-
-### 1.3.0 (2023-10-03)
-
--   (Schmakus) add debug logs to find out "Maximum call stack size exceeded"
--   (Schmakus) update dependencies
 
 ## License
 

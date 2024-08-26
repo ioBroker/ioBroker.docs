@@ -97,6 +97,11 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.0.0 (2024-08-17)
+
+* (crocri) Multiple fixes
+* (theimo1221) Update Ring-Api to V13
+
 ### 5.1.0 (2024-06-22)
 
 * (SFGJK) #710 Enhancement of filename placeholder feature

@@ -13,18 +13,18 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: 1CX57riukuEhE4auf0j8p9GvmB3Glsfpz5vS9su8S3c=
+hash: 4bqUvopK6VJFk9nKbkT2Fn54ZPPfbBbWrcZEDwLwAJw=
 ---
 ![Logo](../../../en/admin/telegram.png)
 
 # IoBroker.telegram
-## Aufbau
+## Konfiguration
 Bitten Sie [@BotFather](https://telegram.me/botfather), einen neuen Bot `/newbot` zu erstellen.
 
 Sie werden aufgefordert, den Namen des Bots und dann den Benutzernamen einzugeben.
 Danach erhalten Sie das Token.
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.telegram/img/chat.png)
+![Screenshot](../../../en/adapterref/iobroker.telegram/img/chat.png)
 
 Im Konfigurationsdialog legen Sie das Passwort für die Kommunikation fest. Starten Sie anschließend den Adapter.
 
@@ -92,7 +92,7 @@ Stellen Sie sicher, dass Sie vor der Nachricht ein `/` setzen, damit der Bot die
 Das iobroker-Protokoll zeigt Ihnen dann die Chat-ID in den Protokollen an.
 
 ## Verwendung
-Sie können Telegramm mit dem Adapter [text2command](https://github.com/ioBroker/ioBroker.text2command) verwenden. Es gibt ein vordefiniertes Kommunikationsschema und Sie können Befehle in Textform an Ihr Zuhause senden.
+Sie können ein Telegramm mit dem Adapter [text2command](https://github.com/ioBroker/ioBroker.text2command) verwenden. Es gibt ein vordefiniertes Kommunikationsschema und Sie können Befehle in Textform an Ihr Zuhause senden.
 
 Um ein Foto zu senden, senden Sie einfach einen Pfad zur Datei anstelle von Text oder URL: `sendTo('telegram', 'absolute/path/file.png')` oder `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
@@ -109,7 +109,7 @@ function sendImage() {
             sendTo('telegram.0', 'send', {
                 text: tempFilePath,
                 caption: 'A wonderful adapter',
-                user: 'yourUsername',
+                user: 'yourUserName1,yourUserName2',
             });
         }
     });
@@ -142,14 +142,14 @@ In diesem Fall wird der Aktionsbefehl gesendet.
 Die Beschreibung der Telegram-API finden Sie unter [Hier](https://core.telegram.org/bots/api). Sie können alle in dieser API definierten Optionen verwenden, indem Sie diese einfach in das Sendeobjekt einbinden. Beispiel:
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     text:                   '/tmp/snap.jpg',
     caption:                'Snapshot',
     disable_notification:   true
 });
 ```
 
-**Möglichkeiten**:
+**Mögliche Optionen**:
 
 - *disable_notification*: Sendet die Nachricht im Hintergrund. iOS-Benutzer erhalten keine Benachrichtigung, Android-Benutzer erhalten eine Benachrichtigung ohne Ton. (alle Typen)
 - *parse_mode*: Senden Sie Markdown oder HTML, wenn Telegram-Apps in der Nachricht Ihres Bots fetten, kursiven oder Text mit fester Breite oder Inline-URLs anzeigen sollen. Mögliche Werte: „Markdown“, „MarkdownV2“, „HTML“ (Nachricht)
@@ -161,15 +161,26 @@ sendTo('telegram.0', {
 - *Breite*: Videobreite (Video)
 - *Höhe*: Videohöhe (Video)
 
-Der Adapter versucht, den Nachrichtentyp (Foto, Video, Audio, Dokument, Aufkleber, Aktion, Standort) abhängig vom Text in der Nachricht zu erkennen. Handelt es sich bei dem Text um einen Pfad zu einer vorhandenen Datei, wird er dem Typ entsprechend gesendet.
+Der Adapter versucht, den Nachrichtentyp (Foto, Video, Audio, Dokument, Aufkleber, Aktion, Standort) anhand des Textes in der Nachricht zu erkennen. Handelt es sich bei dem Text um einen Pfad zu einer vorhandenen Datei, wird er dem Typ entsprechend gesendet.
 
-Der Standort wird anhand des Breitengradattributs ermittelt:
+Der Standort wird anhand der Attributlänge und -breite ermittelt:
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     latitude:               52.522430,
     longitude:              13.372234,
     disable_notification:   true
+});
+```
+
+Der Veranstaltungsort wird anhand der Attribute Breitengrad, Längengrad, Titel und Adresse erkannt:
+
+```javascript
+sendTo('telegram.0', 'send', {
+    latitude:               52.51630462381893,
+    longitude:              13.37770039691943,
+    title:                  'Brandenburger Tor',
+    address:                'Pariser Platz 8, 10117 Berlin',
 });
 ```
 
@@ -179,7 +190,7 @@ Sie haben die Möglichkeit, den Nachrichtentyp zusätzlich zu definieren, falls 
 Folgende Typen sind möglich: *Aufkleber*, *Video*, *Dokument*, *Audio*, *Foto*.
 
 ```javascript
-sendTo('telegram.0', {
+sendTo('telegram.0', 'send', {
     text: fs.readFileSync('/opt/path/picture.png'),
     type: 'photo'
 });
@@ -189,8 +200,8 @@ sendTo('telegram.0', {
 Sie können die Tastatur **ReplyKeyboardMarkup** im Client anzeigen:
 
 ```javascript
-sendTo('telegram.0', {
-    text:   'Press button',
+sendTo('telegram.0', 'send', {
+    text: 'Press button',
     reply_markup: {
         keyboard: [
             ['Line 1, Button 1', 'Line 1, Button 2'],
@@ -207,8 +218,8 @@ Mehr dazu lesen Sie [hier](https://core.telegram.org/bots/api#replykeyboardmarku
 Sie können die Tastatur **InlineKeyboardMarkup** im Client anzeigen:
 
 ```javascript
-sendTo('telegram', {
-    user: user,
+sendTo('telegram', 'send', {
+    user: 'my_username;username2', // optional. Separator could be ";" or "," or space
     text: 'Click the button',
     reply_markup: {
         inline_keyboard: [
@@ -228,8 +239,8 @@ Verwenden Sie diese Methode, um Antworten auf Rückrufanfragen zu senden, die vo
 
 ```javascript
 if (command === '1_2') {
-    sendTo('telegram', {
-        user: user,
+    sendTo('telegram', 'send', {
+     user: 'my_username username2', // optional. Separator could be ";" or "," or space
         answerCallbackQuery: {
             text: 'Pressed!',
             showAlert: false, // Optional parameter
@@ -242,7 +253,7 @@ Mehr dazu lesen Sie [Hier](https://github.com/yagop/node-telegram-bot-api/blob/r
 
 ### Frage
 Sie können die Nachricht per Telegramm senden und die nächste Antwort wird per Rückruf zurückgegeben.
-Das Timeout kann in der Konfiguration festgelegt werden und beträgt standardmäßig 60 Sekunden.
+Das Timeout kann in der Instanzkonfiguration festgelegt werden (Standard ist 60 Sekunden).
 
 ```javascript
 sendTo('telegram.0', 'ask', {
@@ -264,7 +275,21 @@ sendTo('telegram.0', 'ask', {
 Ab Version 0.4.0 können Sie die Chat-ID verwenden, um Nachrichten an den Chat zu senden.
 
 ```javascript
-sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123'});
+sendTo('telegram.0', 'send', {
+    text: 'Message to chat',
+    chatId: 'SOME-CHAT-ID-123'
+});
+```
+
+## Thread-ID
+Sie können auch eine Thread-ID für Supergruppen festlegen.
+
+```javascript
+sendTo('telegram.0', 'send', {
+    text: 'Message to chat',
+    chatId: 'SOME-CHAT-ID-123',
+    message_thread_id: 7,
+});
 ```
 
 ## Nachrichten aktualisieren
@@ -336,7 +361,7 @@ Mehr dazu lesen Sie [Hier](https://github.com/yagop/node-telegram-bot-api/blob/r
 
 ### EditMessageMedia
 Verwenden Sie diese Methode, um das Bild der vom Bot oder über den Bot gesendeten Nachricht zu bearbeiten (für Inline-Bots).
-Bei Erfolg wird, wenn der Bot eine bearbeitete Nachricht sendet, die bearbeitete Nachricht zurückgegeben, andernfalls wird *True* zurückgegeben.
+Bei Erfolg wird, wenn der Bot eine bearbeitete Nachricht sendet, die bearbeitete Nachricht zurückgegeben; andernfalls wird *True* zurückgegeben.
 
 ```javascript
 if (command === '1_2') {
@@ -407,7 +432,10 @@ if (command === 'delete') {
 Mehr dazu lesen Sie [Hier](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
 
 ## Auf Benutzerantworten/Nachrichten reagieren
-Angenommen, Sie verwenden nur JavaScript ohne `text2command`. Sie haben Ihrem Benutzer bereits eine Nachricht/Frage mit `sendTo()` gesendet, wie oben beschrieben. Der Benutzer antwortet darauf, indem er eine Taste drückt oder eine Nachricht schreibt. Sie können den Befehl extrahieren und Ihrem Benutzer Feedback geben, Befehle ausführen oder Zustände in iobroker wechseln.
+Angenommen, Sie verwenden nur JavaScript ohne `text2command`.
+Sie haben Ihrem Benutzer bereits eine Nachricht/Frage mit `sendTo()` gesendet, wie oben beschrieben.
+Der Benutzer antwortet darauf, indem er eine Taste drückt oder eine Nachricht schreibt.
+Sie können den Befehl extrahieren und Ihrem Benutzer Feedback geben, Befehle ausführen oder Zustände in iobroker wechseln.
 
 - telegram.0 ist die iobroker Telegram-Instanz, die Sie verwenden möchten
 - Benutzer ist der bei Ihrem TelegramBot registrierte Benutzer, der die Nachricht gesendet hat
@@ -530,21 +558,21 @@ Mögliche Werte für Sprache:
 - `en-AU-Standard-A` - Englisch (Australien) (weibliche Stimme)
 - `en-AU-Standard-B` - Englisch (Australien) (Männliche Stimme)
 - `en-AU-Standard-C` - Englisch (Australien) (weiblich, 2 Stimmen)
-- `en-AU-Standard-D` - Englisch (Australien) (Männlich, 2 Stimmen)
+- „en-AU-Standard-D“ – Englisch (Australien) (männlich, 2 Stimmen)
 - `en-IN-Standard-A` – Englisch (Indien) (weibliche Stimme)
 - `en-IN-Standard-B` - Englisch (Indien) (Männerstimme)
 - `en-IN-Standard-C` - Englisch (Indien) (Männlich, 2 Stimmen)
 - „en-GB-Standard-A“ – Englisch (UK) (Weibliche Stimme – wird verwendet, wenn die Systemsprache EN ist und keine Sprache angegeben wurde)
-- `en-GB-Standard-B` - Englisch (UK) (Männliche Stimme)
+- `en-GB-Standard-B` - Englisch (UK) (Männerstimme)
 - `en-GB-Standard-C` - Englisch (UK) (weiblich, 2 Stimmen)
 - `en-GB-Standard-D` - Englisch (UK) (Männlich, 2 Stimmen)
 - `en-US-Standard-B` - Englisch (US) (Männliche Stimme)
-- `en-US-Standard-C` – Englisch (US) (weibliche Stimme)
+- `en-US-Standard-C` - Englisch (US) (weibliche Stimme)
 - `en-US-Standard-D` - Englisch (US) (Männlich, 2 Stimmen)
 - `en-US-Standard-E` - Englisch (US) (weiblich, 2 Stimmen)
 - `fil-PH-Standard-A` – Filipino (Philippinen) (weibliche Stimme)
 - `fi-FI-Standard-A` - Finnisch (Finnland) (weibliche Stimme)
-- `fr-CA-Standard-A` - Französisch (Kanada) (weibliche Stimme)
+- `fr-CA-Standard-A` – Französisch (Kanada) (weibliche Stimme)
 - `fr-CA-Standard-B` - Französisch (Kanada) (Männerstimme)
 - `fr-CA-Standard-C` - Französisch (Kanada) (weiblich, 2 Stimmen)
 - `fr-CA-Standard-D` - Französisch (Kanada) (Männlich, 2 Stimmen)
@@ -568,7 +596,7 @@ Mögliche Werte für Sprache:
 - `it-IT-Standard-D` - Italienisch (Italien) (Männlich, 2 Stimmen)
 - `ja-JP-Standard-A` – Japanisch (Japan) (weibliche Stimme)
 - `ja-JP-Standard-B` - Japanisch (Japan) (weiblich, 2 Stimmen)
-- `ja-JP-Standard-C` – Japanisch (Japan) (Männliche Stimme)
+- `ja-JP-Standard-C` - Japanisch (Japan) (Männliche Stimme)
 - `ja-JP-Standard-D` - Japanisch (Japan) (Männlich, 2 Stimmen)
 - `ko-KR-Standard-A` – Koreanisch (Südkorea) (weibliche Stimme)
 - `ko-KR-Standard-B` – Koreanisch (Südkorea) (weiblich, 2 Stimmen)
@@ -604,13 +632,13 @@ Mögliche Werte für Sprache:
 - `tr-TR-Standard-C` - Türkisch (Türkei) (weiblich, 2 Stimmen)
 - `tr-TR-Standard-D` - Türkisch (Türkei) (weiblich, 3 Stimmen)
 - `tr-TR-Standard-E` - Türkisch (Türkei) (Männerstimme)
-- `uk-UA-Standard-A` - Ukrainisch (Ukraine) (Weibliche Stimme)
+- `uk-UA-Standard-A` - Ukrainisch (Ukraine) (weibliche Stimme)
 - `vi-VN-Standard-A` – Vietnamesisch (Vietnam) (Weibliche Stimme)
 - `vi-VN-Standard-B` – Vietnamesisch (Vietnam) (Männliche Stimme)
 - `vi-VN-Standard-C` - Vietnamesisch (Vietnam) (weiblich, 2 Stimmen)
 - `vi-VN-Standard-D` - Vietnamesisch (Vietnam) (Männlich, 2 Stimmen)
 
-MACHEN:
+Aufgaben:
 
 - Veranstaltungsort
 
@@ -627,8 +655,8 @@ Durch Eingabe von `/cmds` wird im Telegramm folgende Tastatur angezeigt:
 
 Wenn die Option **Räume in Tastaturbefehlen verwenden** im Konfigurationsdialog des Telegrammadapters aktiviert ist, wird im ersten Schritt die Raumliste angezeigt. ***Noch nicht implementiert***
 
-### Einstellungen im Status
-Zuerst muss die Konfiguration aktiviert werden.
+### Einstellungen im Staat
+Zunächst muss die Konfiguration aktiviert werden.
 
 #### Alias
 Name des Gerätes. Wenn der Name leer ist, wird der Name von einem Objekt übernommen.
@@ -651,11 +679,11 @@ Aufgrund des langen Namens ist es möglicherweise besser, nur 2 (oder sogar nur 
 
 ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
-### Nur schreiben
+### Nur Schreiben
 Wenn aktiviert, wird die Schaltfläche „Statusabfrage“ (`Door lamp ?`) nicht angezeigt.
 ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
 
-### Auf Befehl
+### ON-Befehl
 Welcher Text wird auf der Schaltfläche `ON` angezeigt?
 Wie hier: ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
 
@@ -704,7 +732,7 @@ BotFather: Success! The new status is: DISABLED. /help
 ```
 
 ## So senden Sie Nachrichten über Node-Red
-Für einfache Textnachrichten an alle Benutzer fügen Sie den Text einfach in die Nutzlast der Nachricht ein und senden Sie ihn an den ioBroker-Status `telegram.INSTANCE.communicate.response`.
+Für einfache Textnachrichten an alle Benutzer fügen Sie den Text einfach in die Nutzlast der Nachricht ein und senden ihn an den ioBroker-Status `telegram.INSTANCE.communicate.response`.
 
 Wenn Sie zusätzliche Optionen festlegen möchten, füllen Sie die Nutzlast mit einem JSON-Objekt, etwa:
 
@@ -726,27 +754,21 @@ Vor dem Senden an `telegram.INSTANCE.communicate.responseJson you need to string
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.9.0 (2024-07-22)
+* (klein0r) Added option to send venue (with title and address)
+
+### 3.8.2 (2024-07-16)
+* (bluefox) Username can consist of more than one user. The separator is comma, semicolon or space.
+
+### 3.8.0 (2024-07-14)
+* (bluefox) Migrated GUI for Admin 7
+
+### 3.7.1 (2024-07-03)
+* (klein0r) Restored translations for messages
+
+### 3.7.0 (2024-07-03)
 * (klein0r) Removed default / shadow fiel from Blockly block ask
-
-### 3.6.0 (2024-06-19)
-* (klein0r) Save videos which have been recorded with telegram (video_note)
-* (klein0r) Added answer timeout to instance configuration
-* (klein0r) Added option to send status updates to specific users
-* (klein0r) Added states for thread id (of supergroups)
-
-### 3.5.3 (2024-06-18)
-* (foxriver76) escape all unallowed characters when sending with notification manager
-
-### 3.5.2 (2024-06-16)
-* (foxriver76) escape more unallowed characters when sending with notification manager
-
-### 3.5.1 (2024-06-12)
-* (klein0r) Fixed file handling for voice files
-* (klein0r) Updated dependencies
-
-### 3.5.0 (2024-06-12)
-* (klein0r) Added option to save media files into ioBroker file system (files tab)
+* (klein0r) Added state to answer last request (same chat)
 
 ## License
 

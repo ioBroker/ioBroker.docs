@@ -69,6 +69,19 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.3.5 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 3.3.4 (2024-07-12)
+ * (René) bug fix after 3.3.2 update
+
+### 3.3.3 (2024-07-12)
+ * (René) downgrade of "promise-socket" to 7.0.0
+
+### 3.3.2 (2024-07-11)
+ * (René) see issue #338: due to error in ebusd json no data are parsed
+
 ### 3.3.1 (2024-05-28)
 * (René) change of dependencies
 

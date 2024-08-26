@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
-title: kein Titel
-hash: Dc4tjO/xtBalbSuxDA44MBYpEiqM/i3HuhNYFgBNqmk=
+title: ohne Titel
+hash: hlKt04F3x+GnGSRv+J1Vzxx+hVFOw/RGHzMwRBs/Iz0=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -18,7 +18,7 @@ ioBroker deConz dresden-elektronik Adapter
 ## Beachten
 Kein Support für Betaversionen von deConz
 
-Erforderliche JS-Controller-Version >2.x.x, Erforderliches Node.js >= 10.x.x
+Erforderliche JS-Controller-Version >5.x.x, Erforderliches Node.js >= 18.x.x
 
 ## Englisch
 Verbindet sich mit der von dresden-elektronik entwickelten deConz REST-API-Software. Diese Software soll eine universelle ZigBee-Gateway-Lösung sein und verwendet Hardware von dresden-elektronik, den ConBee(X)-USB-Stick und RaspBee(X), ein Modul für den Raspberry Pi.
@@ -49,6 +49,9 @@ Beispiele:
 ## [Sponsoren](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.5.0 (2024-08-11)
+* (mattreim) Dependencies have been updated
 
 ### 1.4.1 (2024-05-05)
 * (mattreim) Added new objects for various sensors

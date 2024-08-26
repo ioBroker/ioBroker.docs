@@ -128,6 +128,16 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.3 (2024-08-20)
+* (MyHomeMyData) Bugfix: Updating UDS communication statistics, even in case of persistent timeout events
+* (MyHomeMyData) Disabled sinon should interface
+* (MyHomeMyData) Fixes based on issues #55,#56
+* (MyHomeMyData) Bugfix: Time delta between schedules of UDS workes was not working properly
+
+### 0.9.2 (2024-08-09)
+* (MyHomeMyData) Update of dependencies, fixes based on issue #53
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240808
+
 ### 0.9.1 (2024-05-26)
 * (MyHomeMyData) Updated README, added links for description of device topology and to uses cases
 * (MyHomeMyData) Added info for data points 2404_BivalenceControlMode and 2831_BivalenceControlAlternativeTemperature

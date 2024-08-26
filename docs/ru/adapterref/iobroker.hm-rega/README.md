@@ -1,7 +1,7 @@
 ---
 local: true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hm-rega/README.md
 title: ГлавнаяMatic ReGaHSS
 hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
@@ -112,10 +112,13 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2024-07-18)
+* (bluefox) required node 18
+* (bluefox) updated dependencies
+
 ### 4.0.0 (2023-09-04)
 * (mcm1957) required node 16 due to adapter-core 3.x.x
 * (bluefox) removed deprecated package - `request`
-*
 
 ### 3.0.47 (2023-08-08)
 * (bluefox) Updated packages
@@ -568,7 +571,7 @@ or non existent if no rpc instance existed
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

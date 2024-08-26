@@ -11,7 +11,7 @@ ioBroker deConz dresden-elektronik Adapter
 ## Notice
 No Support for Beta Versions of deConz
 
-Required js-controller version >2.x.x, Required node.js >= 10.x.x
+Required js-controller version >5.x.x, Required node.js >= 18.x.x
 
 ## English
 
@@ -44,6 +44,9 @@ Examples:
 ## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.5.0 (2024-08-11)
+* (mattreim) Dependencies have been updated
 
 ### 1.4.1 (2024-05-05)
 * (mattreim) Added new objects for various sensors

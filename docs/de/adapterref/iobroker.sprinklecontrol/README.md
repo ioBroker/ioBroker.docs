@@ -745,7 +745,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ## License
 MIT License
 
-Copyright (c) 2022 Dirk Peter <dirk.peter@freenet.de>
+Copyright (c) 2024 Dirk Peter <dirk.peter@freenet.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

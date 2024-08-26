@@ -24,14 +24,13 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.7 (2024-08-18)
 
-### **WORK IN PROGRESS**
-
--   update core dependecies and min required node version to 18
+-   update core dependencies and min required node version to 18
 
 ### 0.2.6 (2024-02-06)
 
--   fix brightness change also changing white tmperature
+-   fix brightness change also changing white temperature
 
 ### 0.2.5 (2024-01-13)
 
@@ -45,7 +44,7 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 
 ### 0.2.2 (2024-01-05)
 
--   fix color temperature messsage
+-   fix color temperature message
 
 ### 0.2.1 (2023-12-24)
 
@@ -71,7 +70,7 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 -   clear all timeouts, when adapter is stopped
 -   replace forbidden characters in names
 -   update translations
--   update dependecies
+-   update dependencies
 
 ### 0.0.6 (2023-05-18)
 
@@ -83,11 +82,11 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 
 ### 0.0.4 (2023-04-02)
 
--   make device status refresh invertal indepentent from device search interval
+-   make device status refresh independent from device search interval
 
 ### 0.0.3 (2023-04-01)
 
--   update dependecies
+-   update dependencies
 
 ### 0.0.2
 

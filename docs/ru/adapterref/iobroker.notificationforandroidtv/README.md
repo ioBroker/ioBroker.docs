@@ -1,6 +1,6 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.notificationforandroidtv/README.md
 title: ioBroker.notificationforandroidtv — интеграция для Android TV/Fire TV
 hash: YI6BFufhPQmA6Z0Uq+gCBtF2K4JJ1ZLP1TLPqIHvfZA=

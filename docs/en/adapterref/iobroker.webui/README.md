@@ -129,6 +129,31 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.13.2 (2024-08-21)
+- designer updates
+- add find methods
+
+### 1.13.1 (2024-08-18)
+- small designer tweaks
+
+### 1.13.0 (2024-08-18)
+- update designer
+
+### 1.12.4 (2024-07-25)
+- one more designer update
+
+### 1.12.3 (2024-07-25)
+- update designer
+
+### 1.12.2 (2024-07-24)
+- fix offset finding in box drawing
+
+### 1.12.1 (2024-07-24)
+- update edit text in designer
+
+### 1.12.0 (2024-07-24)
+- update designer
+
 ### 1.11.3 (2024-06-02)
 - fix load subfolders
 

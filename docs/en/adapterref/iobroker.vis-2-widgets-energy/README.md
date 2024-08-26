@@ -25,6 +25,12 @@ This widget set consists of the following widgets:
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.2 (2024-08-06)
+* (bluefox) updated packages
+
+### 1.0.0 (2024-07-07)
+* (bluefox) Removed withStyles package
+
 ### 0.3.12 (2024-06-09)
 * (bluefox) Allowed setting the title color
 

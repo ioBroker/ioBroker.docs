@@ -21,6 +21,16 @@ e.g. you can use it for power or temperature values.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 2.1.6 (2024-08-09)
+* (BenAhrdt) correct changes for check and service bot
+
+### 2.1.5 (2024-08-09)
+* (BenAhrdt) changes for check and service bot
+
 ### 2.1.4 (2023-11-26)
 * (BenAhrdt) Add actual value to observed values (observe more times easily possible)
 
@@ -78,7 +88,7 @@ e.g. you can use it for power or temperature values.
 ## License
 MIT License
 
-Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

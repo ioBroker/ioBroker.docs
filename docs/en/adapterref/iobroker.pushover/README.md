@@ -91,6 +91,17 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.1.0 (2024-08-17)
+* (isi07) added HTML/monospace options to blockly
+* (isi07) fixed issue that blockly block is invalid when different priority other than normal is selected
+* (isi07) fixed the error when log level selected by duplicate quotes
+
+### 4.0.0 (2024-07-13)
+* Breaking changes: NodeJS >= 18.x and js-controller >= 5 are required
+* (@klein0r) Updated dependencies
+* (@klein0r) Fixed blockly definitions
+* (@klein0r) Updated translations
+
 ### 3.0.6 (2023-11-06)
 * (ticaki) Caught the error by sending of sendToAsync if no configuration exists
 
@@ -100,18 +111,11 @@ sendTo('pushover', 'glances', {
 ### 3.0.4 (2023-08-08)
 * (MrStefanH) Added new ttl parameter to blockly
 
-### 3.0.3 (2022-07-27)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 3.0.2 (2022-07-14)
-* (bluefox) Added log output of sent messages
-* (bluefox) Added custom sound to blockly
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

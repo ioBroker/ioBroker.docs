@@ -3,7 +3,7 @@ BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wolf/README.md
 title: iobroker.wolf
 hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 title: inventwo Widgets für ioBroker.vis 2.0
-hash: 1udj/7fAB/xLRg+chT0pVlnDVsVOk2BzBWVe/IbGXZc=
+hash: 7zOWdVk5ONHUBzdmQC97Qu8Litfu07Yl94t4DgEh9Yo=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-inventwo/admin/vis-2-widgets-inventwo.png)
 
@@ -44,6 +44,24 @@ Schalter
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.11 (2024-07-18)
+* Fixed issues mentioned by eslint
+
+### 0.1.10 (2024-07-18)
+* Removed styles libraries as they are not compatible with vis 2.0
+* Fixed compare by for widget type view in dialog (#24)
+* Fixed text color not working in slider and added other font styles (#25)
+* Fixed switch doesn't toggle without defining values (#28)
+
+### 0.1.9 (2024-05-24)
+* Fixed missing object id if a type is nav (#14)
+* Fixed content color for icons not working (#22)
+
+### 0.1.7 (2024-05-22)
+* Fixed missing object id if a type is nav (#14)
+* Fixed image aspect ratio (#15)
+* Added options to customize dialog
+
 ### 0.1.5 (2024-04-14)
 * Added optional button click feedback options
 * Added widget type to send http requests and open urls

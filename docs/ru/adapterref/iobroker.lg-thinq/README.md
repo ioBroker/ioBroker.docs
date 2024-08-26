@@ -5,7 +5,7 @@ BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-in
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
 hash: YDnIJ0GvHTGBGq5n7NiuUhgs/mEwPiJTTbvWLyk2DeY=

@@ -3,46 +3,76 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: DtHtYJQ2qVyk4C1ID1E1wTG7erQXaiviSwWgbin6eFM=
+hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
 ---
 # IoBroker.vis-homekittiles
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-homekittiles.svg)
 ![Количество установок](https://iobroker.live/badges/vis-homekittiles-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/vis-homekittiles-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/vis-homekittiles-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-homekittiles.png?downloads=true)
 
 <img src="doc/img/title-pic_hkt-on-ipad.png" />
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
-## HomeKit-Tiles для ioBroker-VIS
+## HomeKit-плитки для ioBroker-VIS
 Homekit Tiles — это набор виджетов, основанный на дизайне Apple HomeKit.
-Особенностью виджетов является то, что они не содержат элементов фиксированного стиля, а все форматируется с помощью CSS. В результате в редакторе VIS нет отдельных настроек положения и/или размера значков, надписей и т.п. Дизайн корректируется путем изменения CSS-кода. Для этого в качестве шаблона можно использовать CSS-код из файла `/widgets/homekittiles/css/style.css`. Код вставляется во вкладку CSS в редакторе VIS и может быть настроен по желанию. Также можно добавить свои собственные классы CSS через редактор VIS в разделе виджетов «Общие».
+Особенностью виджетов является то, что они не содержат никаких фиксированных элементов стиля, а все форматируется с помощью CSS. В результате в редакторе VIS нет отдельных настроек для положения и/или размера иконок, надписей и т. д. Дизайн корректируется путем изменения кода CSS. Для этого в качестве шаблона можно использовать код CSS из файла `/widgets/homekittiles/css/style.css`. Код вставляется во вкладку CSS в редакторе VIS и может быть настроен по желанию. Также можно добавлять собственные классы CSS через редактор VIS в разделе «Общие» виджетов.
 
-Виджеты предназначены для VIS 1.x.
+Виджеты разработаны для VIS 1.x.
 
-**Примечание.** По причинам лицензирования в этот адаптер не включены значки. Очень хорошие источники иконок:
+**Примечание:** По причинам лицензирования в комплект этого адаптера не входят иконки. Очень хорошие источники иконок:
 
 * [https://www.flaticon.com](https://www.flaticon.com)
 * [https://icons8.com](https://icons8.com)
 
 [🇩🇪 Документация](doc/homekittiles-de.md) [🇺🇸 Документация](doc/homekittiles-en.md)
 
-## Дела, которые необходимо сделать
-* создать кнопку Simpe со значком
-* создать мини-медиаплеер
-* создать Select-тайл
-* создать кнопку подменю
-* Радиокнопка: новое свойство «деление» с выбираемыми значениями (1:1; 3:4).
-* Выбор даты: динамические значки дня/месяца.
+## Чем заняться
+* создать Мини-медиаплеер
+* создать Select-плитку
+* создать флажок для Sonos Group
+* Выбор даты: динамические значки дня/месяца
+* новый виджет: пинпад (РАБОТА В ПРОЦЕССЕ)
+* Плитки: добавить кнопку для диалога
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* Added option to show icons colored on tiles and radio
+* Added new styles "big", "small" and "only icon" for all tiles
+
+### 0.3.1 (2024-07-12)
+
+* Added submenu widget
+
+### 0.2.7 (2024-07-10)
+
+* repaired Thermostat dialog tile widget
+
+### 0.2.6 (2024-07-05)
+
+* Block operation: added ability to show widget disabled
+* Added JSON Table
+* Navigation-Button-Set: fixed notification arrangement
+* Dynamization of some input fields
+
+### 0.1.1 (2024-07-02)
+
+* Added missing translations
+* Added new style "indicator" for all tiles (IF YOUR TILES LOOK BROKEN AFTER UPDATE: SELECT EVERY TILE IN EDITOR - JUST CLICK ON IT. Sorry for that.)
+* Radiobutton: new property "division" with selectable values
+* Radiobutton: change size automatically if direction was changed
+* Signal pictures: repaired comparision with number (<=nn)
+* Signal pictures: checkbox for show/not show in editor
+* Thermostat dialog: sort order of attributes (dialog attrs one up)
+
 ### 0.0.16 (2024-06-08)
 
 * (Standarduser) thermostat: fixed window-sizing

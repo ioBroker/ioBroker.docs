@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
+hash: IO5+rqB51zflaqhylcHU8sd4IeKnvHhejFEVYoFEucw=
 ---
 ![标识](../../../en/admin/lametric.png)
 
@@ -32,7 +32,7 @@ hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
 - nodejs 18（或更高版本）
 - js-controller 5.0.0 (或更高版本)
 - 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 固件版本为 _2.3.8_（2022 型号为 _3.1.0_）（或更高版本）
+- _LaMetric Time_ 固件版本为 _2.3.9_（2022 型号为 _3.1.1_）（或更高版本）
 
 [固件更新日志](https://firmware.lametric.com) [固件更新日志时间2](https://firmware.lametric.com/?product=time2)
 
@@ -59,7 +59,20 @@ hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.3.0 (2024-08-05)
+
+* (@klein0r) Added api version as state (and check value)
+
+### 3.2.3 (2024-07-21)
+
+* (@klein0r) Fixed blockly definitions
+
+### 3.2.2 (2024-07-13)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.1)
+
 ### 3.2.1 (2024-06-12)
+
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
 * (@klein0r) Updated dependencies
 
@@ -68,19 +81,6 @@ hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
 NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Fixed Blockly definitions (removed warnings)
-
-### 3.1.3 (2024-01-31)
-
-* (klein0r) Fixed web extension
-
-### 3.1.2 (2023-12-27)
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
-* (klein0r) Some devices don't have bluetooth low energy states (sa8)
-
-### 3.1.1 (2023-10-27)
-
-* (klein0r) Fixed issue with foreign states of version 3.1.0
 
 ## License
 

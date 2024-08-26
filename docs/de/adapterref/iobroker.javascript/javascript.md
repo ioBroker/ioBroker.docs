@@ -3,8 +3,8 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
-title: kein Titel
-hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
+title: ohne Titel
+hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 ---
 ## Inhalt
 - [Anmerkung](#Anmerkung)
@@ -21,7 +21,7 @@ hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 - [abbestellen](#abbestellen)
 - [getSubscriptions](#getsubscriptions)
 - [getFileSubscriptions](#getfilesubscriptions)
-    - [Zeitplan Zeitplan)
+- [Zeitplan](#Zeitplan)
 - [Zeitplan](#time-schedule)
 - [Astro-Funktion](#Astro-Funktion)
 - [scheduleById](#schedulebyid)
@@ -32,7 +32,7 @@ hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 - [istAstroDay](#istastroday)
 - [Vergleichszeit](#Vergleichszeit)
 - [Zustand festlegen](#Zustand festlegen)
-- [setStateAsync](#setstateasync)
+    - [setStateAsync](#setstateasync)
 - [setStateDelayed](#setstatedelayed)
 - [clearStateDelayed](#clearstatedelayed)
 - [getStateDelayed](#getstatedelayed)
@@ -81,19 +81,20 @@ hash: tSh2bNi2LAyClozboXjDGFgeItCkIG2z63i4kqiDtvA=
 - [Stoppskript](#Stoppskript)
 - [stopScriptAsync](#stopScriptAsync)
 - [istScriptActive](#isscriptactive)
-    - [Name Name)
+- [Name](#Name)
 - [Instanz](#Instanz)
 - [Nachricht an](#Nachricht an)
 - [Nachricht an Async](#Nachricht an Async)
 - [beiNachricht](#beiNachricht)
 - [beiNachrichtenabmeldung](#beiNachrichtenabmeldung)
 - [beimLog](#beimLog)
-- [beiAbmeldung](#onlogunregister)
-    - [warte warte)
-    - [Schlaf Schlaf)
+    - [onLogUnregister](#onlogunregister)
+- [warten](#warten)
+- [schlafen](#schlafen)
 - [httpGet](#httpget)
 - [httpPost](#httppost)
 - [Temporäre Datei erstellen](#temporäre Datei erstellen)
+- [Benachrichtigung registrieren](#Benachrichtigung registrieren)
 
 - [Skriptaktivität](#scripts-activity)
 - [Änderungsprotokoll](#changelog)
@@ -119,7 +120,7 @@ declare function globalFn(arg: string): void;
 globalFn('test');
 ```
 
-#### Beste Übung:
+#### Bewährte Methode:
 Erstellen Sie zwei Instanzen des JavaScript-Adapters: eine „Test“- und eine „Produktions“-Instanz.
 Nachdem das Skript in der „Test“-Instanz getestet wurde, kann es in die „Produktion“ verschoben werden. Dadurch können Sie die „Test“-Instanz nach Belieben neu starten.
 
@@ -136,7 +137,7 @@ Um andere Module zu verwenden, geben Sie den Namen (und die Version) des Moduls 
 ### Konsole - Gibt die Nachricht ins Protokoll aus
 Die Verwendung ist die gleiche wie in `javascript`
 
-### Exec – führe einen Betriebssystembefehl aus, wie `cp file1 file2`
+### Exec – führe einen Betriebssystembefehl aus, etwa `cp file1 file2`
 ```js
 exec(cmd, [options], callback);
 ```
@@ -155,7 +156,7 @@ Es empfiehlt sich, immer vollständige Pfadnamen für Befehle zu verwenden, um s
 
 **Hinweis:** Sie müssen die Option *Befehl „setObject“ aktivieren* aktivieren, um ihn aufzurufen.
 
-### On - Abonnieren Sie Änderungen oder Aktualisierungen eines bestimmten Status
+### On - Abonnieren Sie Änderungen oder Aktualisierungen eines Status
 ```js
 on(pattern, callbackOrId, value);
 ```
@@ -223,7 +224,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | | RegExp | Name stimmt mit regulärem Ausdruck überein |
 | | Array | Name, der mit einer Liste zulässiger Namen übereinstimmt |
 |             |            |                                                                                                                                                     |
-| ändern | Zeichenfolge | „eq“, „ne“, „gt“, „ge“, „lt“, „le“, „any“ |
+| ändern | Zeichenfolge | "eq", "ne", "gt", "ge", "lt", "le", "any" |
 | | "eq" | (gleich) Der neue Wert muss dem alten entsprechen (state.val == oldState.val) |
 | | "ne" | (ungleich) Der neue Wert darf nicht mit dem alten identisch sein (state.val != oldState.val) **Wenn das Muster eine ID-Zeichenfolge ist, wird standardmäßig dieser Wert verwendet** |
 | | "gt" | (größer) Der neue Wert muss größer sein als der alte Wert (state.val > oldState.val) |
@@ -242,7 +243,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | ack | boolean | Bestätigter Status des neuen Werts ist gleich dem angegebenen |
 | q | Zahl | Der Qualitätscodestatus des neuen Werts ist gleich dem angegebenen. Sie können '*' zum Zuordnen zu jedem Code verwenden. **Wenn nicht angegeben, wird q = 0 als Muster festgelegt!** |
 |             |            |                                                                                                                                                     |
-| oldVal | gemischt | Vorheriger Wert muss mit dem angegebenen übereinstimmen |
+| oldVal | gemischt | Der vorherige Wert muss mit dem angegebenen übereinstimmen |
 | oldValNe | gemischt | Vorheriger Wert darf nicht mit dem angegebenen identisch sein |
 | oldValGt | gemischt | Vorheriger Wert muss größer als der angegebene sein |
 | oldValGe | gemischt | Der vorherige Wert muss größer oder gleich dem angegebenen sein |
@@ -250,7 +251,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | oldValLe | gemischt | Vorheriger Wert muss kleiner oder gleich dem angegebenen sein |
 |             |            |                                                                                                                                                     |
 | oldAck | bool | Der bestätigte Status des vorherigen Werts ist gleich dem angegebenen |
-| oldQ | Nummer | Der Qualitätscodestatus des vorherigen Wertes ist gleich dem angegebenen. Sie können '*' zum Zuordnen zu jedem Code verwenden |
+| oldQ | Nummer | Der Qualitätscodestatus des vorherigen Wertes ist gleich dem angegebenen. Sie können '*' für die Übereinstimmung mit jedem Code verwenden |
 |             |            |                                                                                                                                                     |
 | ts | Zeichenfolge | Der Zeitstempel des neuen Werts muss mit dem angegebenen übereinstimmen (state.ts == ts) |
 | tsGt | Zeichenfolge | Der Zeitstempel des neuen Werts darf nicht mit dem angegebenen übereinstimmen (state.ts != ts) |
@@ -268,7 +269,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | lcGt | Zeichenfolge | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (state.lc != lc) |
 | lcGe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer sein als der angegebene Wert (state.lc > lc) |
 | lcLt | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer oder gleich dem angegebenen sein (state.lc >= lc) |
-| lcLe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss kleiner sein als der angegebene (state.lc < lc) |
+| lcLe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss kleiner als der angegebene sein (state.lc < lc) |
 |             |            |                                                                                                                                                     |
 | oldLc | Zeichenfolge | Der Zeitstempel der letzten Änderung muss mit dem angegebenen übereinstimmen (oldState.lc == lc) |
 | oldLcGt | Zeichenfolge | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (oldState.lc != lc) |
@@ -280,7 +281,7 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | | RegExp | Kanal-ID stimmt mit regulärem Ausdruck überein |
 | | Array | Kanal-ID stimmt mit einer Liste zulässiger Kanal-IDs überein |
 |             |            |                                                                                                                                                     |
-| Kanalname | Zeichenfolge | Der Kanalname muss mit dem angegebenen übereinstimmen |
+| Kanalname | Zeichenfolge | Der Kanalname muss dem angegebenen entsprechen |
 | | RegExp | Kanalname stimmt mit regulärem Ausdruck überein |
 | | Array | Kanalname stimmt mit einer Liste zulässiger Kanalnamen überein |
 |             |            |                                                                                                                                                     |
@@ -556,7 +557,7 @@ Die folgenden Werte können als Attribut in der Astrofunktion verwendet werden:
 - „Nacht“: die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
 - „nightEnd“: die Nacht endet (die astronomische Morgendämmerung beginnt)
 - „nauticalDawn“: nautische Morgendämmerung (Beginn der morgendlichen nautischen Dämmerung)
-- „Dawn“: Morgendämmerung (die morgendliche nautische Dämmerung endet, die morgendliche bürgerliche Dämmerung beginnt)
+- „Dawn“: Morgendämmerung (die nautische Morgendämmerung endet, die bürgerliche Morgendämmerung beginnt)
 - „Nadir“: Nadir (der dunkelste Moment der Nacht, die Sonne steht am tiefsten)
 
 **Hinweis:** Um die „Astro“-Funktion zu verwenden, müssen „Breitengrad“ und „Längengrad“ in den Einstellungen des JavaScript-Adapters definiert werden.
@@ -712,7 +713,7 @@ Die Zeit kann ein Datumsobjekt oder ein Datum mit Zeit oder nur die Zeit sein.
 
 Für die Zeitdefinition können Astronamen verwendet werden. Alle 3 Parameter können als Astrozeit eingestellt werden.
 Folgende Werte sind möglich: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
-Weitere Einzelheiten finden Sie unter [Astro](#astro--function).
+Siehe [Astro](#astro--function) für Details.
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -882,7 +883,7 @@ const stateObject = await getStateAsync(id);
 
 Wie getState, aber mit `promise`.
 
-### ExistiertStatus
+### ExistiertZustand
 ```js
 existsState(id, (err, isExists) => {});
 ```
@@ -934,7 +935,7 @@ setObject('adapter.N.objectName', obj, (err) => {
 existsObject(id, function (err, isExists) {});
 ```
 
-Wenn die Option "Nicht alle Zustände beim Start abonnieren" deaktiviert ist, kann man auch einen einfacheren Aufruf verwenden:
+Wenn die Option „Beim Start nicht alle Zustände abonnieren“ deaktiviert ist, kann man auch einen einfacheren Aufruf verwenden:
 
 ```js
 existsObject(id)
@@ -1090,7 +1091,7 @@ Es ist ein Kurztyp von createState möglich:
 await createStateAsync(name, initialValue, forceCreation, common, native);
 ```
 
-Dasselbe wie `createState`, aber das Versprechen wird zurückgegeben.
+Wie `createState`, aber das Versprechen wird zurückgegeben.
 
 ### Status löschen
 ```js
@@ -1110,14 +1111,14 @@ Löschen Sie einfach den Datenpunkt, falls vorhanden.
 await deleteStateAsync(name);
 ```
 
-Dasselbe wie `deleteState`, aber das Versprechen wird zurückgegeben.
+Wie `deleteState`, aber das Versprechen wird zurückgegeben.
 
 ### Alias erstellen
 ```js
 createAlias(name, alias, forceCreation, common, native, callback);
 ```
 
-Erstellen Sie einen Alias im Bereich `alias.0`, falls dieser nicht vorhanden ist, z. B. `javascript.0.myalias`, und verweisen Sie auf einen Status oder Lese-/Schreibstatus.
+Erstellen Sie einen Alias im Bereich `alias.0`, falls dieser nicht existiert, z. B. `javascript.0.myalias`, und verweisen Sie auf einen Status oder Lese-/Schreibstatus.
 Die gemeinsame Definition wird aus dem gelesenen Alias-ID-Objekt übernommen, aber eine bereitgestellte gemeinsame Definition hat Vorrang.
 
 #### Parameter:
@@ -1140,7 +1141,7 @@ Weitere Einzelheiten finden Sie unter „createState“, es ist ähnlich.
 await createAliasAsync(name, alias, forceCreation, common, native);
 ```
 
-Dasselbe wie `createAlias`, aber das Versprechen wird zurückgegeben.
+Wie `createAlias`, aber das Versprechen wird zurückgegeben.
 
 ### Senden an
 ```js
@@ -1200,15 +1201,32 @@ Senden Sie eine Nachricht an die Controllerinstanz.
 
 Die folgenden Befehle werden unterstützt:
 
-- `"cmdExec"`
-- `"getRepository"`
-- `"getInstalled"`
-- `"getVersion"`
-- `"getDiagData"`
-- `"getLocationOnDisk"`
-- `"getDevList"`
-- `"getLogs"`
-- `"getHostInfo"`
+- `'cmdExec'`
+- `'getRepository'`
+- `'getInstalled'`
+- `'Version abrufen'`
+- `'getDiagData'`
+- `'getLocationOnDisk'`
+- `'getDevList'`
+- `'getLogs'`
+- `'getLogFile'`
+- `'getLogFiles'`
+- `'delLogs'`
+- `'getHostInfo'`
+- `'getHostInfoShort'`
+- `'Multihost aktualisieren'`
+- „upgradeController“ – JS-Controller auf die neueste Version aktualisieren
+- `'getInterfaces'` - Gibt alle verfügbaren Netzwerkschnittstellen des Systems zurück
+- `'getInterfaces'` - Startet einen Adapter-Upload
+- `'Adapter neu erstellen'`
+- `'BaseSettings lesen'`
+- `'writeBaseSettings'`
+- `'Benachrichtigung hinzufügen'`
+- `'Benachrichtigungen löschen'`
+- `'Benachrichtigungen erhalten'`
+- „updateLicenses“ – Lizenzen von iobroker.net lesen
+- `'upgradeOsPackages'`
+- `'Controller neu starten'`
 
 Es handelt sich eher um spezifische Befehle, die nicht oft benötigt werden.
 
@@ -1275,7 +1293,7 @@ formatDate(millisecondsOrDate, format);
 
 * YYYY, JJJJ, ГГГГ - vollständiges Jahr, z. B. 2015
 * YY, JJ, ГГ - kurzes Jahr, zB 15
-* MM, ММ (kyrillisch) – vollständiger Monat, z. B. 01
+* MM, ММ (kyrillisch) – vollständiger Monat, z. B. 01
 * M, М (kyrillisch) - kurzer Monat, z. B. 1
 * TT, TT, ДД - ganzer Tag, zB 02
 * D, T, Ä - kurzer Tag, z. B. 2
@@ -1286,7 +1304,7 @@ formatDate(millisecondsOrDate, format);
 * ss, сс (kyrillisch) – volle Sekunden, zB 05
 * s, с (kyrillisch) – kurze Sekunden, z. B. 5
 * sss, ссс(kyrillisch) - Millisekunden
-* WW, НН(kyrillisch) - ganzer Wochentag als Text
+* WW, НН (kyrillisch) - vollständiger Wochentag als Text
 * W, Н (kyrillisch) - kurzer Wochentag als Text
 * OO, ОО (kyrillisch) – vollständiger Monat als Text
 * OOO, ООО (kyrillisch) - ganzer Monat als Text im Genitiv
@@ -1526,7 +1544,7 @@ Datei oder Verzeichnis umbenennen. „oldName“ ist der Name der Datei oder des
 
 Der alternative Name dieser Methode ist `rename`
 
-### Aktenkundig
+### In Datei
 ```js
 onFile(id, fileName, withFile, (id, fileName, size, fileData, mimeType) => {});
 // or
@@ -1535,7 +1553,7 @@ onFile(id, fileName, (id, fileName, size) => {});
 
 Dateiänderungen abonnieren:
 
-- „id“ ist die ID eines Objekts vom Typ „Meta“, wie „vis.0“
+- „id“ ist die ID eines Objekts vom Typ „Meta“, beispielsweise „vis.0“
 - „fileName“ ist ein Dateiname oder ein Muster, wie „main/*“ oder „main/vis-view.json“.
 - „withFile“, ob der Inhalt der Datei im Rückruf übermittelt werden soll oder nicht. Die Übermittlung von Dateiinhalten kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie „withFile“ auf „false“.
 
@@ -1649,7 +1667,7 @@ runScript('scriptName', () => {
 });
 ```
 
-Startet andere Skripte (und auch sich selbst) oder startet sie neu anhand des Namens.
+Startet andere Skripte (und auch sich selbst) oder startet sie neu, und zwar anhand des Namens.
 
 ```js
 // restart script
@@ -1739,7 +1757,7 @@ Das Skript kann beendet, aber dennoch aktiviert sein.
 Es handelt sich nicht um eine Funktion. Es handelt sich um eine Variable mit einer JavaScript-Instanz, die im Gültigkeitsbereich des Skripts sichtbar ist.
 
 ### ZuInt
-### Schweben
+### ZuFloat
 ### ZuBoolean
 ### JsonataAusdruck
 ### Warten
@@ -1845,7 +1863,7 @@ onMessageUnregister(id);
 onMessageUnregister('messageName');
 ```
 
-Hiermit kündigen Sie das Abonnement dieser Nachricht.
+Hiermit kündigen Sie das Abonnement für diese Nachricht.
 
 ### Beim Anmelden
 ```js
@@ -2041,6 +2059,14 @@ readFile('0_userdata.0', 'test.jpg', (err, data, mimeType) => {
         });
     }
 });
+```
+
+## Benachrichtigung registrieren
+*Erfordert Version >= 8.8.0*
+
+```js
+registerNotification('This is just an information'); // Notify
+registerNotification('This is an important message!', true); // Alert
 ```
 
 ## Globale Skriptvariablen

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daikin-cloud/README.md
 title: ioBroker.daikin-cloud
-hash: cSKtpMuG2tBxU9KOMdGSFWUyWjlyg0ikhHEA6FvDiO0=
+hash: fc+lDvniOI9v/PO4rz0DAdRWjY9t8XW07zgPlvQiPIU=
 ---
 ![Logo](../../../en/adapterref/iobroker.daikin-cloud/admin/daikin-cloud.jpg)
 
@@ -12,49 +12,69 @@ hash: cSKtpMuG2tBxU9KOMdGSFWUyWjlyg0ikhHEA6FvDiO0=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.daikin-cloud.svg)
 
 # IoBroker.daikin-cloud
-![Test und Freigabe](https://github.com/Apollon77/iobroker.daikin-cloud/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/daikin-cloud/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/Apollon77/iobroker.daikin-cloud/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/daikin-cloud/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 5.0 verwendet.
 
 ## Daikin-Cloud-Adapter für ioBroker
-Steuern Sie Daikin-Geräte, die nur mit der Daikin Cloud/der Onecta-App verbunden sind. Der Adapter verbindet sich mit der Daikin-Cloud und fragt die Daten von dort ab.
+Steuern Sie Daikin-Geräte, die nur mit der Daikin-Cloud / der Onecta-App verbunden sind. Der Adapter verbindet sich mit der Daikin-Cloud und fragt die Daten von dort ab. Damit dies funktioniert, müssen Sie sich einen „Daikin Europe Developer Account“ besorgen und dort eine Anwendung erstellen. Der Adapter verwendet dann die Anmeldeinformationen dieser Anwendung, um sich mit der Daikin-Cloud zu verbinden.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.** **Daikin ist eine Marke von DAIKIN INDUSTRIES, LTD.**
+**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.** **Daikin ist ein Warenzeichen von DAIKIN INDUSTRIES, LTD.**
 
 ## Kompatibilität
-Dieser Adapter sollte mit Geräten mit den Daikin WLAN-Adaptern **BRP069C4x** kompatibel sein, die über die Daikin Onecta App gesteuert werden können. Eine lokale Verbindung zu diesen Geräten ist nicht möglich!
+Dieser Adapter soll zu Geräten mit dem Daikin WLAN-Adapter **BRP069C4x** kompatibel sein, die über die Daikin Onecta App gesteuert werden können. Eine lokale Verbindung zu diesen Geräten ist nicht möglich!
 
-Hinweis: Für Geräte mit älteren WLAN-Adaptern wie **BRP069A4x**, die nur von der Daikin Controller App verwendet werden können, verwenden Sie bitte stattdessen den [Daikin](https://github.com/Apollon77/ioBroker.daikin)-Adapter.
+Hinweis: Für Geräte mit älteren WLAN-Adaptern wie **BRP069A4x**, die nur von der Daikin Controller App genutzt werden können, verwenden Sie bitte stattdessen den Adapter [Daikin](https://github.com/Apollon77/ioBroker.daikin).
 
 ## Funktionalität
-Die neueren Daikin-Geräte, die seit 2020 verkauft werden, enthalten einen neueren WLAN-Adapter (z. B. BRP069C4x), der nur eine Verbindung zur Daikin-Cloud herstellt und nicht mehr lokal erreichbar ist. Diese Geräte sind nur mit der Daikin Onecta App steuerbar.
+Die neueren Daikin-Geräte, die seit 2020 verkauft wurden, enthalten einen neueren WLAN-Adapter (z. B. BRP069C4x), der sich nur mit der Daikin-Cloud verbindet und lokal nicht mehr erreichbar ist. Diese Geräte sind nur mit der Daikin Onecta App steuerbar.
 
-Mit diesem Adapter können Sie zunächst (hoffentlich einmal) Token abrufen, indem Sie einen Proxy verwenden, um sich bei der Daikin Cloud anzumelden. Danach können diese Token verwendet und aktualisiert werden, um mit den Geräten zu interagieren.
+Dieser Adapter ermöglicht es, zunächst (hoffentlich einmalig) Token mithilfe des persönlichen Entwicklerkontos und eines einmaligen Login-Flows abzurufen. Danach können diese Token verwendet und aktualisiert werden, um mit den Geräten zu interagieren.
 
-Nach der Verbindung mit dem Daikin Cloud-Konto erstellt der Adapter automatisch ein neues Gerät für jedes Gerät, das mit der Daikin Cloud verbunden ist. Alle verfügbaren Daten werden angezeigt und mehrere Zustände ermöglichen die Steuerung des Geräts.
-**Bitte beachten Sie, dass die Befehlsgeschwindigkeit der Daikin-Cloud nicht besonders hoch ist, was bedeutet, dass es bis zu 3 Minuten dauern kann, bis der Befehl tatsächlich ausgeführt oder Zustände aktualisiert werden!**
+Nach der Verbindung mit dem Daikin Cloud-Konto erstellt der Adapter automatisch ein neues Gerät für jedes Gerät, das mit der Daikin Cloud verbunden ist. Alle verfügbaren Daten werden angezeigt und verschiedene Zustände ermöglichen die Steuerung des Geräts.
+**Bitte beachten Sie, dass die Befehlsgeschwindigkeit der Daikin Cloud nicht megaschnell ist, was bedeutet, dass es bis zu 3 Minuten dauern kann, bis der Befehl tatsächlich ausgeführt wird oder Zustände aktualisiert werden!**
 
-### Anmeldung per E-Mail/Passwort
-Wenn Sie die Daikin Cloud-Anmeldeinformationen angeben möchten, kann der Adapter versuchen, sich automatisch bei der Cloud anzumelden. E-Mail und Passwort werden verschlüsselt in der Konfiguration gespeichert.
+Darüber hinaus gibt es für die Daikin Cloud API eine Ratenbegrenzung von 200 Anfragen pro Tag. Beachten Sie deshalb die folgenden Best Practices:
 
-Es kann vorkommen, dass dieser Vorgang nicht funktioniert, da die Daikin-Website Sie zum Lösen eines Captchas auffordert. In dieser Dose können Sie folgenden Trick anwenden:
+* Ein Standardabfrageintervall von 15 Minuten sollte für die meisten Anwendungsfälle ausreichend sein und gleichzeitig etwas Spielraum für die Steuerung der Geräte lassen. Bedenken Sie, dass jede Steuerungsaktion zwei Anfragen erfordert (eine zur Steuerung, eine zum Aktualisieren der Daten 1 Minute nach dem Steuerungsaufruf). Insbesondere bei vielen Geräten kann dies wirklich problematisch werden.
+* Der Adapter unterstützt auch „Slow Polling“, wobei Sie ein eigenes Intervall definieren können. Verwenden Sie den Status „useSlowPolling“, um das langsame Polling je nach Bedarf zu aktivieren oder zu deaktivieren (z. B. nachts nur stündlich abfragen ...)
+* Idealerweise sollten zwischen dem Umschalten des Gerätestromzustands mindestens 10 Minuten vergehen, da dies sonst die beweglichen Teile des Geräts schädigt.
 
-* Starten Sie den Proxy über die Adapterkonfiguration im Admin
-* Klicken Sie im Proxy-Popup auf den QR-Code
-* Sie müssen das Zertifikat **nicht** importieren!
-* Klicken Sie einfach auf den Link „Bei der Daikin Cloud anmelden, um die Token abzurufen“ am Ende der Anleitungsseite, melden Sie sich dort einmal an und lösen Sie das Captcha.
-* Schließen Sie das Browserfenster und starten Sie den Adapter neu
-
-### Anmeldung über Proxy
-**Weitere Informationen zum Proxy-Fortschritt für Endbenutzer – da Sie Zertifikaten und Ähnlichem vertrauen und sie auf die Whitelist setzen müssen – finden Sie in [PROXY.md](PROXY.md)!** Info: Dieses Projekt ergreift keinen Benutzernamen oder kein Passwort, sondern nur die Nachdem Sie sich angemeldet haben, werden Token erstellt. Dies bedeutet auch, dass Sie diesen Vorgang erneut durchführen müssen, wenn Daikin Token zurücksetzt oder diese ablaufen!
+Die aktuellen Ratenbegrenzungsdetails sind in den Ifo-Zuständen des Adapters enthalten und werden jedes Mal aktualisiert, wenn der Adapter eine Anfrage an die Daikin Cloud sendet.
 
 ## Haftungsausschluss
-**Daikin ist eine Marke von DAIKIN INDUSTRIES, LTD. Ich werde in keiner Weise von DAIKIN INDUSTRIES, LTD. oder damit verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder bin mit ihnen verbunden. Dieses persönliche Projekt wird in der Freizeit gepflegt.**
+**Daikin ist eine Marke von DAIKIN INDUSTRIES, LTD. Ich werde in keiner Weise von DAIKIN INDUSTRIES, LTD. oder zugehörigen Tochtergesellschaften, Logos oder Marken unterstützt oder bin mit diesen verbunden. Dieses persönliche Projekt wird in meiner Freizeit gepflegt.**
 
 ## Changelog
+### 0.4.10 (2024-07-20)
+* (Apollon77) Fixes some error cases reported by Sentry
 
-### __WORK IN PROGRESS__
+### 0.4.9 (2024-07-19)
+* (Apollon77) Optimized write handling
+
+### 0.4.8 (2024-07-12)
+* (Apollon77) Optimized handling of rate limits, block maximum 24h and retry then
+* (Apollon77) Added option to prevent sending the same values again (prevented by default!)
+
+### 0.4.7 (2024-07-09)
+* (Apollon77) Handles initialization issue where objects could be deleted wrongly
+* (Apollon77) Also check for HTTPS usage when returning the redirect URL
+
+### 0.4.6 (2024-07-07)
+* (Apollon77) Update dependencies with optimizations and second blocking layer for rate limiting
+
+### 0.4.5 (2024-07-06)
+* (Apollon77) Block communication when rate limited according to Daikin response
+
+### 0.4.4 (2024-07-06)
+* (Apollon77) Fix initialization retry schedule
+
+### 0.4.3 (2024-07-05)
+* IMPORTANT: Minimum Node.js version is 18.2
+* (Apollon77) BREAKING: Adjusted to new Daiking Cloud API - You need to reauthenticate!
+* (Apollon77) BREAKING: New rate limit of new API is 200 requests per day!! Adjust your usage!
+* (Apollon77) Added option to set "slow polling" interval
 * (Apollon77) Make electrical data available as states (arrays for now)
 * (Apollon77) Restore last data updated timestamp
 * (Apollon77) Make sure cloudConnection always contains a boolean
@@ -95,7 +115,7 @@ Es kann vorkommen, dass dieser Vorgang nicht funktioniert, da die Daikin-Website
 ## License
 MIT License
 
-Copyright (c) 2022-2023 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2022-2024 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -62,12 +62,26 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.13 (2024-07-17)
+* (NCIceWolf) Added multiple debugging messages
+* (NCIceWolf) Corrected debug messages to be shown as debug, not info
+* (NCIceWolf) corrected connection abortion if not successfully established
+* (NCIceWolf) elements from inverter are only requested once a connection is successfully established
+* (NCIceWolf) added requested and received elements to/from inverter to debug logging
+* (NCIceWolf) merged recent dependabot suggestions   
+* (Andreas Ruttkamp) Dependabot suggested updates
+* (Andreas Ruttkamp) some Code cosmetics
+
+### 1.2.12 (2024-07-03)
+* (Andreas Ruttkamp) Dependabot suggested updates
+* (NCIceWolf) Improving connectivity to inverter
+
 ### 1.2.11 (2024-06-28)
-* (NCIceWolf) Tippfehler korrigiert
+* (NCIceWolf) mistyping corrected
 
 ### 1.2.10 (2024-06-28)
-* (NCIceWolf) some improvements on connect / disconnect  
-* (Andreas Ruttkamp) Little code corrections
+* (NCIceWolf) stability improvements for data connection to inverter
+* (Andreas Ruttkamp) some code corrections
 
 ### 1.2.9 (2024-05-17)
 * (Andreas Ruttkamp) wrong type for next_calib_date corrected

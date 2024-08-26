@@ -1,6 +1,6 @@
 ![Logo](admin/alexa-shoppinglist.png)
 
-# ioBroker.alexa-shoppinglist
+# ioBroker.alexa-shoppingList
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.alexa-shoppinglist.svg)](https://www.npmjs.com/package/iobroker.alexa-shoppinglist)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.alexa-shoppinglist.svg)](https://www.npmjs.com/package/iobroker.alexa-shoppinglist)
@@ -11,16 +11,16 @@
 
 **Tests:** ![Test and Release](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
-## alexa-shoppinglist adapter for ioBroker
+## alexa-shoppingList adapter for ioBroker
 
-Generates the Shoppinglist from Alexa
+Generates the shoppingList from Alexa
 
-You can also use other Lists from Alexa. Configure it in Admin.
+You can also use other Lists from alexa. Configure it in Admin.
 When you use the new Admin UI, it will be much easier for you.
 
 There is a State to insert new Items. Just write the Text and Enter.
-You can delete activ and inactiv Lists.
-You can akso move only one Item, to both directions.
+You can delete active and inactive Lists.
+You can also move only one Item, to both directions.
 
 I hope you enjoy
 
@@ -28,7 +28,7 @@ I hope you enjoy
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
-## Datapoints
+## DataPoints
 
 | DP Name             | Type   | Description                                                                                         |
 | ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ I hope you enjoy
 | id                | id in the Alexa2 Adapter                  |
 | pos               | Position in the list                      |
 | buttonmove        | Button to move to active or inactive list |
-| buttondelete      | Button to completly delete the item       |
+| buttondelete      | Button to completely delete the item      |
 
 The JSON contains now 2 Buttons to move Items or to delete.
 For this you have to insert Code in the VIS Editor under Skript, put this in:
@@ -61,19 +61,21 @@ For this you have to insert Code in the VIS Editor under Skript, put this in:
 function setOnDblClickCustomShop( myvalue) {
     let id = myvalue.slice(0,myvalue.indexOf(","));
     let val = myvalue.slice(myvalue.indexOf(",")+1, myvalue.length);
-    if (val){
-      vis.setValue(id,val);
+    if (val=== "true"){
+      vis.setValue(id,true);
+      return
     }
+    vis.setValue(id,false);
   }
 ```
 
 ![](admin/Skript.png)
 
 ## Changelog
+### 1.0.0 (2024-08-09)
 
-### **WORK IN PROGRESS**
-
-- Breaking change: minimal supported node.js version is 16.x
+- Js-controller >=5.0.19 is required
+- Breaking change: minimal supported node.js version is 18.x
 
 ### 0.1.5 (09.01.2023)
 
@@ -81,8 +83,8 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### 0.1.4 (25.09.2022)
 
-- Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
-- You only have to check the Checkbox
+- Its now possible to delete always the inactive list, when you delete an article from the active list
+- You only have to check the checkbox
 
 ### 0.1.2 ( 09.04.2022)
 

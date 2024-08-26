@@ -2,61 +2,66 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
-title: без заголовка
-hash: G9+pPja5y/AjJQaB9C9Q6N56ohBNs3VK6oK3cmSPVsM=
+title: нет названия
+hash: eqFbMVAtc2KJ4WQOBCX2RsFccxIp6aRsiZMzepwkGJw=
 ---
-![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) Адаптер ioBroker RPI-Monitor
+![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) Адаптер ioBroker RPI-монитор
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.rpi2.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.rpi2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
 ![Количество установок](https://iobroker.live/badges/rpi2-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/rpi2-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/rpi2-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
 
 ==============
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
+**Тесты:** ![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
 
 ## Важная информация
 Работает только с узлом >= 18
 
-**ioBroker требуются специальные разрешения для управления GPIO.** В большинстве дистрибутивов Linux этого можно добиться, добавив пользователя ioBroker в группу `gpio` (рекомендуется) или запустив ioBroker под `root` (менее безопасно).
+**ioBroker требуются специальные разрешения для управления GPIO.** В большинстве дистрибутивов Linux этого можно добиться, добавив пользователя ioBroker в группу `gpio` (рекомендуется) или запустив ioBroker под учетной записью `root` (менее безопасно).
 
-## Монтаж
+Для работы gpio необходимо установить libgpiod **перед** установкой адаптера, например так: `sudo apt-get install -y libgpiod-dev`
+
+## Установка
 После установки вам необходимо настроить все необходимые модули через страницу администрирования.
 
-После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker внутри rpi.<экземпляр>.<имя модуля>, например. rpi.0.cpu
+После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker в rpi.<instance>.<modulename> например rpi.0.cpu
 
-Убедитесь, что установлены Python и build-essential:
+Убедитесь, что установлены python и build-essential:
 
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential python
+sudo apt-get install -y libgpiod-dev
 ```
+
+(последний необходим только если вы хотите работать с GPIO)
 
 После выбора доступны следующие объекты:
 
 #### **ПРОЦЕССОР**
-- частота процессора
+- частота_процессора
 - нагрузка1
 - нагрузка5
 - нагрузка15
 
 #### **Raspberry (требуется vcgencmd)**
-- напряжение процессора
+- напряжение_процессора
 - mem_arm
-- мем_гпу
+- mem_gpu
 
-#### **Объем памяти**
+#### **Память**
 - память_доступна
-- память_свободно
+- память_свободна
 - память_всего
 
 #### **Сеть (eth0)**
 - net_received
 - net_send
 
-#### **SD Card**
+#### **SD-карта**
 - sdcard_boot_total
 - sdcard_boot_used
 - sdcard_root_total
@@ -69,11 +74,11 @@ sudo apt-get install -y build-essential python
 #### **Температура**
 - soc_temp
 
-#### **Время работы**
+#### **Время безотказной работы**
 - время безотказной работы
 
-#### **Беспроводная локальная сеть**
-- wifi_received
+#### **Беспроводная ЛВС**
+- wifi_получен
 - wifi_send
 
 ## Конфигурация
@@ -81,24 +86,24 @@ sudo apt-get install -y build-essential python
 
 - ПРОЦЕССОР
 - Малина
-- Объем памяти
+- Память
 - Сеть
-- SD Card
+- SD-карта
 - Менять
 - Температура
 - Время безотказной работы
-- WLAN
+- Беспроводная локальная сеть
 
-## Файлы журналов/Настройки конфигурации
+## Файлы журналов / Параметры конфигурации
 ## Функции
-## Делать
+## То, что нужно сделать
 ## Протестированное оборудование
- - Одроид С1
- - Малиновый Пи 1
+- Одроид С1
+- Raspberry Pi 1
 
 ## GPIO
-Вы также можете читать и контролировать GPIO.
-Все, что вам нужно сделать, это настроить в настройках параметры GPIO (дополнительная вкладка).
+Вы также можете читать и управлять GPIO.
+Все, что вам нужно сделать, это настроить параметры GPIO в настройках (дополнительная вкладка).
 
 ![GPIO](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
@@ -106,8 +111,8 @@ sudo apt-get install -y build-essential python
 
 - rpi.0.gpio.PORT.state
 
-Нумерация портов — BCM (контакты BroadComm на чипе). Вы можете получить перечисление с помощью ```gpio readall```.
-Например PI2:
+Нумерация портов — BCM (контакты BroadComm на чипе). Вы можете получить нумерацию с помощью ```gpio readall```.
+Например, PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -139,9 +144,9 @@ sudo apt-get install -y build-essential python
 ```
 
 ## Датчики DHTxx/AM23xx
-Вы можете считывать данные с датчиков температуры/влажности DHT11, DHT22 и AM2302.
+Вы можете считывать показания с датчиков температуры/влажности DHT11, DHT22 и AM2302.
 
-Подключите такой датчик к выводу GPIO, как описано на странице пакета [узел-dht-сенсор](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков могут быть подключены к *нескольким* контактам (это *не* шинная система), как обсуждалось.
+Подключите такой датчик к выводу GPIO, как описано на странице пакета [узел-dht-датчик](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков можно подключить к *нескольким* выводам (это *не* шинная система), как обсуждалось.
 
 ## Changelog
 

@@ -2,53 +2,54 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
-title: ioBroker.roborock
-hash: ZbXfzwhuQCvaMwzAEM00uIjetXhhWHpf5hSd6wz3ids=
+title: ioBroker.роборок
+hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.roborock.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.roborock.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.roborock.svg)
 ![Количество установок](https://iobroker.live/badges/roborock-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/roborock-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/roborock-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
-**Тесты:** ![Тестирование и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
 **Перевод:** [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер Roborock для ioBroker
-Этот адаптер позволяет вам управлять, получать состояния, историю уборки и просматривать карту пылесоса Roborock, настроенную в приложении Roborock.
+Этот адаптер позволяет вам управлять, получать данные о состоянии, историю уборки и просматривать карту пылесоса Roborock, настроенного в приложении Roborock.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Поддерживаемые роботы:
 - Роборок S4
 - Роборок S4 Макс
 - Роборок S5 Макс
 - Роборок S6
-- Роборок S6 Чистый
-- Роборок С6 МаксВ
+- Roborock S6 Чистый
+- Roborock S6 MaxV
 - Роборок S7
-- Роборок S7 MaxV (Ультра)
+- Roborock S7 MaxV (Ультра)
 - Роборок Q7
 - Роборок Q7 Макс
-- Роборок С7 Про Ультра
-- Роборок S7 Макс Ультра
+- Roborock S7 Pro Ультра
+- Roborock S7 Max Ultra
 - Роборок S8
-- Роборок С8 Про Ультра
+- Roborock S8 Pro Ультра
 - Роборок Кью Рево
 - Роборок Q8 Макс
-- Роборок Q5 Про
+- Роборок Q5 Pro
+- Roborock Q Revo Pro
 
-## Очистка зоны
-Эта функция работает только тогда, когда в настройках адаптера включено создание карт!
+## Зональная уборка
+Эта функция работает только в том случае, если в настройках адаптера включена функция создания карты!
 
 ### Создание карты не работает на Raspberry Pi
- - Работает веб-сервер. Порт по умолчанию — 6824.
- - Откройте http://iobroker:6824/map.html в своем браузере (измените http://iobroker на свое имя хоста или IP-адрес ioBroker!!!)
- - Нарисуйте свой квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон очистки одновременно.
+- Веб-сервер запущен. Порт по умолчанию 6824.
+- Откройте http://iobroker:6824/map.html в вашем браузере (измените http://iobroker на имя хоста или IP вашего ioBroker!!!)
+- Нарисуйте свой квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон уборки одновременно.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 
@@ -57,6 +58,43 @@ hash: ZbXfzwhuQCvaMwzAEM00uIjetXhhWHpf5hSd6wz3ids=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.6 (2024-07-14)
+* (copystring) require min node 20 to operate correctly with current dependencies
+
+### 0.6.5 (2024-07-13)
+* (copystring) Add and fix some parameters and attributes
+* (copystring) Fix getMap() in getParameter()
+* (copystring) Add connection state to timeouts
+* (copystring) Detect and report unsupported attributes
+* (copystring) Improve camera and voice support detection
+* (copystring) Wait for TCP client to connect on start of adapter
+* (copystring) Add handling of TCP chunks. This will fix a lot of timeouts 🎉
+* (copystring) Manage stop/stop in the webinterface via state of robot instead of guessing via clicking the buttons in the webinterface
+* (copystring) Refactor and improve javascript code of web interface
+* (copystring) Add Roborock Q Revo Pro
+* (copystring) Update dependencies
+
+### 0.6.4 (2024-04-21)
+* (copystring) Fix io-package.json and update packages
+
+### 0.6.3 (2024-04-21)
+* (copystring) Add consumables to Qrevo MaxV
+* (copystring) Fix S5 Max clean records defintion
+* (copystring) Fix app_start via web interface
+* (copystring) Improve local devices discovery
+
+### 0.6.2 (2024-04-05)
+* (copystring) Fix start of go2rtc
+
+### 0.6.1 (2024-04-02)
+* (copystring) Fix lint
+
+### 0.6.0 (2024-04-02)
+* (copystring) New and improved message queue handler
+* (copystring) Convert robot features to new much more modular system
+* (copystring) Add support for large photos of obstacles
+* (copystring) Many bug fixes I can't remember :D
+
 ### 0.5.4 (2024-02-01)
 * (copystring) Fix mqtt disconnect/reconnect bug on start of adapter
 

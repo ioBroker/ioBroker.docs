@@ -2,27 +2,26 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hausbus_de/README.md
-title: iobroker.hausbusde
-hash: /PCvBwHfqoLsI4h5Epb6ay3a8yEf+tmk4UmCxLfHfI0=
+title: iobroker.hausbus_de
+hash: ZnyoDSWe3HkqtcNMEUQ6T/17g+LeOpskkJLiCNUbH5M=
 ---
 ![Logo](../../../en/adapterref/iobroker.hausbus_de/admin/hausbusde.png)
 
-# Iobroker.hausbusde
-IO-Broker-Adapter, der alle haus-bus.de-Komponenten unterstützt.<br> Eine Dokumentation zur unterstützten Hardware und IO-Broker-Integration finden Sie hier<br> www.haus-bus.de/iobroker
+# Iobroker.hausbus_de
+IO-Broker-Adapter, der alle haus-bus.de-Komponenten unterstützt.<br> Eine Dokumentation über die unterstützte Hardware und IO Broker-Integration finden Sie unter<br> www.haus-bus.de/iobroker
 
 ## Installation<a name="installation"></a>
-Dieser Adapter ist als stabile Version im offiziellen ioBroker-Katalog verfügbar.<br> Es wird empfohlen, es direkt aus dem Katalog in ioBroker zu installieren.<br> Wenn Sie eine neuere Version benötigen, als im offiziellen ioBroker-Katalog verfügbar ist, können Sie diese Version auch direkt hier von Github installieren.<br> Bei Problemen oder Bugs wenden Sie sich bitte an info@haus-bus.de<br>
+Dieser Adapter ist als stabile Version im offiziellen ioBroker-Katalog verfügbar.<br> Es wird empfohlen, es direkt aus dem Katalog in ioBroker zu installieren.<br> Wenn Sie eine neuere Version benötigen als im offiziellen ioBroker-Katalog verfügbar ist, können Sie diese Version auch hier direkt von GitHub installieren.<br> Bei Problemen oder Fehlern wenden Sie sich bitte an info@haus-bus.de<br>
 
 ## Aufstellen
-Der HausBus.de-Adapter ist ohne weitere Konfigurationen sofort einsatzbereit. Es sucht automatisch nach haus-bus.de-Komponenten mithilfe von UDP-Broadcast-Anfragen. Es ist zwingend erforderlich, dass mindestens eine haus-bus.de-Komponente mit einer Netzwerkschnittstelle (z. B. ein beliebiges Relaismodul) mit demselben Netzwerk wie der io-Broker verbunden ist. Beliebige weitere Komponenten können per RS485 an das Modul mit Ethernet-Gateway angeschlossen werden.
+Der HausBus.de-Adapter ist ohne weitere Konfigurationen einsatzbereit. Er sucht automatisch nach haus-bus.de-Komponenten über UDP-Broadcast-Anfragen. Es muss mindestens eine haus-bus.de-Komponente mit Netzwerkschnittstelle (z. B. ein beliebiges Relaismodul) vorhanden sein, die mit demselben Netzwerk wie der IO-Broker verbunden ist. Alle weiteren Komponenten können über RS485 mit dem Ethernet-Gateway an das Modul angeschlossen werden.
 
 <br> <br> <br>
 
 ## Changelog
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS** 
--->
+### 1.4.6 (2024-08-07)
+* support for new 12 channel relay module
+
 ### 1.3.0 (2023-12-31) 
 * support for new analog inputs (0-10V or 4-20mA)
 

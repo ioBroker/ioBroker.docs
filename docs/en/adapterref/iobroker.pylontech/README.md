@@ -531,6 +531,7 @@ If true without ack is written to set, the current time is sent to the Pylontech
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### 0.0.10 (2024-03-01)
 
 - (PLCHome) Hex numbers are also recognized as such if text follows them.

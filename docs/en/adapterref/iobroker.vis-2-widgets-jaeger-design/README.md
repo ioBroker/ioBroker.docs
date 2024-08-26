@@ -10,7 +10,11 @@
 
 You can find the video how to use the widgets [here](https://www.youtube.com/watch?v=4bctUvfpPuQ) (in german).
 
+**Important: the widgets require a non-free license, that could be ordered at [iobroker.net](https://iobroker.net/www/pricing#commercial/iobroker.vis-2-widgets-jaeger-design)**
+
 Das Video wie man die Widgets benutzt kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
+
+Das Video wie man die Widgets benutzt kann man [hier](https://youtu.be/Rplr2Ba-G7o) (in German) (TEIL2)
 
 ## Widgets
 ### Buttons and switches
@@ -40,6 +44,22 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.2.7 (2024-07-17)
+* (bluefox) allowed multi-line buttons for the thermostat
+
+### 1.2.6 (2024-07-16)
+* (bluefox) Corrected the power state of the thermostat
+
+### 1.2.5 (2024-07-12)
+* (bluefox) Added possibility to control other IDs with memory buttons (Dimmer, Shutter)
+* (bluefox) Added the power option for thermostat
+* (bluefox) Implemented the writing of specific values for state widget
+* (bluefox) Added label to state widget
+
+### 1.2.1 (2024-07-07)
+* (bluefox) Removed withStyles usage
+* (bluefox) Added confirmation dialog
+
 ### 1.1.27 (2024-05-27)
 * (bluefox) Added descriptions
 

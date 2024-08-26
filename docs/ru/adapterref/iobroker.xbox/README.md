@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.xbox.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.xbox.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.xbox.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xbox/README.md
 title: адаптеры Xbox
 hash: pcG+8TxQ7pCADt2NJ++C/N0wn/OapckjMTSm7DFFkEY=

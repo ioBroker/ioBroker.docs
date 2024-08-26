@@ -9,7 +9,7 @@
   * [Objects](basics/objects)
   * [States or Datapoints](basics/states)
   * [Alias](basics/alias)
-  * [Enums](basics/functions)
+  * [Enums](basics/enums)
   * [Roles](basics/roles)
   * [Glossary](basics/glossary)
 
@@ -78,16 +78,13 @@
   * [Best Practices](logic/examples)
 
 * en:Cloud-Services & Apps;de:Cloud-Services & Apps;ru:Облачные сервисы & Apps;zh-cn:云服务
-  * [IoT](cloud/iot)
   * [Introduction](cloud/README)
+  * [IoT](cloud/iot)
   * [Visualisations](cloud/viz)
   * [Editors](cloud/editor)
   * [Alexa Smarthome-Skill](cloud/alexasmart)
   * [Alexa Custom-Skill](cloud/alexacustom)
-  * [IFTTT](cloud/ifttt)
-  * [Mediola Plugin](cloud/mediola)
-  * [Android App](cloud/androidapp)
-  * [iOS App](cloud/iosapp)
+  * [App](cloud/app)
 
 * en:Advanced configuration;de:Erweiterte Konfiguration;ru:Экспертные настройки;zh-cn:高级配置
   * [Introduction](config/README)

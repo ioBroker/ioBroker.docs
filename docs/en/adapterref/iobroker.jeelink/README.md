@@ -66,6 +66,14 @@ to be done in admin
 
 
 ## Changelog:
+
+### 1.2.4 (npm)
+* (foxthefox) eslint upgrade and corrections
+
+### 1.2.4 (npm)
+* (foxthefox) IOB checker corrections
+
+
 ### 1.2.3 (npm)
 * (foxthefox) serialport 12
 * (foxthefox) translation with @iobroker/adapter-dev
@@ -150,4 +158,5 @@ to be done in admin
 
 The MIT License (MIT)
 
-Copyright (c) 2016 - 2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016 - 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

@@ -1,20 +1,15 @@
+---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.myuplink.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/myuplink-stable.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.myuplink.svg
+BADGE-Number of Installations: https://iobroker.live/badges/myuplink-installed.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.myuplink.png?downloads=true
+---
 # ioBroker.myuplink
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.myuplink.svg)](https://www.npmjs.com/package/iobroker.myuplink)
-![Current version in stable repository](https://iobroker.live/badges/myuplink-stable.svg)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.myuplink.svg)](https://www.npmjs.com/package/iobroker.myuplink)
-![Number of Installations](https://iobroker.live/badges/myuplink-installed.svg)
-[![Build Status](https://github.com/sebilm/ioBroker.myuplink/workflows/Test%20and%20Release/badge.svg)](https://github.com/sebilm/ioBroker.myuplink/actions/workflows/test-and-release.yml)
-
-[![NPM](https://nodei.co/npm/iobroker.myuplink.png?downloads=true)](https://nodei.co/npm/iobroker.myuplink/)
-
-## myuplink.com adapter for ioBroker
-
-This ioBroker adapter receives data from myUplink.com.
+This ioBroker adapter receives data from myUplink.com. Settings that have been enabled for this by myUplink can be changed.
 
 ## Using this adapter
-
-German version below - Eine deutsche Version dieser Anleitung gibt's weiter unten.
 
 1. You need a myUplink compatible heat pump from NIBE, AIT, Cetetherm, ClimateMaster, Contura, CTA, CTC, Enertech Global or Høiax - buy one if you don't have ;-)
 2. You need an account at myUplink: https://myuplink.com
@@ -51,51 +46,22 @@ The adapter generally does not delete any objects so that data is not lost if my
 
 The adapter also has no influence on which parameters are sent by myUplink.
 
-## Verwendung dieses Adapters
-
-1. Es wird eine myUplink-kompatible Wärmepumpe von NIBE, AIT, Cetetherm, ClimateMaster, Contura, CTA, CTC, Enertech Global or Høiax benötigt.
-2. Es wird ein Account bei myUplink benötigt: https://myuplink.com
-3. Auf der myUplink-API-Webseite einloggen: https://dev.myuplink.com
-4. "Applications" und dann "Create New Application" anklicken
-5. Name und Description können beliebig ausgefüllt werden, z.B. "ioBroker"
-6. Die Callback URL ist für den Authorization Code Grant Flow wichtig. Es kann https://sebilm.github.io/ioBroker.myuplink/myuplink.html eingetragen werden.
-7. Die myUplink API Services Agreements müssen akzeptiert und es muss auf "Create" geklickt werden.
-8. Es wird ein Identifier und ein Secret angezeigt - diese werden benötigt.
-9. Nun diesen Adapter in ioBroker installieren.
-10. Auf der Einstellungsseite des Adapters den Identifier und das Secret eingeben.
-11. Die Sprache und alle anderen Einstellungen auswählen und einstellen.
-12. Speichern und Schliessen klicken.
-
-Jedes Gerät verfügt über ein Objekt im Objektbaum namens "setData". Dort kann ein JSON-Objekt der Form
-
-```json
-{
-    "12345": "42",
-    "23456": "1"
-}
-```
-
-in das Objekt eingetragen werden. Dies ermöglicht es, mehrere Datenpunkte gleichzeitig an die API zu senden und zu ändern.
-Es kann auch verwendet werden, um Datenpunkte zu ändern, die nicht von der API gesendet werden.
-
-## Arbeitsweise des Adapters
-
-Der Adapter holt von der myuplink-API aller x Minuten (je nach Einstellung) die Liste der Systeme und Geräte. Anschließend
-holt er für jedes Gerät die vorhandenen Parameter und speichert sie im Objektbaum. Wenn myUplink dabei neue Parameter sendet,
-dann werden diese automatisch dem Objektbaum hinzugefügt.
-
-Der Adapter löscht generell keine Objekt, damit es nicht zu Datenverlust kommt, falls myUplink mal einen Parameter nicht mit sendet.
-
-Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesendet werden.
-
 ## Changelog
+### 0.8.1 (2024-08-18)
 
-### **WORK IN PROGRESS**
+-   Existing incorrect minimum and maximum values are now deleted #39
+-   Minimum and maximum values of the API are not adopted if the current value is outside minimum and maximum #39
+-   Instructions for German and English have been moved to separate files #47
+-   Dependencies have been updated
 
--   Do not send empty objects (setData)
+### 0.8.0 (2024-07-14)
+
+-   No empty objects are sent (setData)
+-   Incorrect minimum and maximum values of the API are not adopted #39
 -   The initial refresh interval was set to 5 minutes
 -   The code has been restructured internally
 -   At least Node.js 18 is required!
+-   Unit tests have been added
 -   Dependencies have been updated
 
 ### 0.7.1 (2024-02-10)

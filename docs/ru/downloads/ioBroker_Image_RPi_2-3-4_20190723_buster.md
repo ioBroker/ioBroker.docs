@@ -1,6 +1,6 @@
 ---
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/downloads/ioBroker_Image_RPi_2-3-4_20190723_buster.md
 title: Образ ioBroker для Raspberry Pi2/3/4 Buster 20190723
 hash: 82XBeinwOoCOn6wOy2v79LLG191TTFS8zl6LmJJLI3A=

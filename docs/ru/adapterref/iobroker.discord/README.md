@@ -5,7 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/discord-installed.sv
 BADGE-Current version in stable repository: https://iobroker.live/badges/discord-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.discord.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discord/README.md
 title: ioBroker.discord
 hash: hUaI9HQKBfRnywBPumwOB2Wp3kW0gY117LQwZm3Hc1Y=

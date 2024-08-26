@@ -18,6 +18,28 @@ Automatically updates the registered domain name at Cloudflare with your public 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.1 (2024-08-16)
+* Fixed Axios High Vulnerability Issue detected by Dependabot
+
+### 1.2.0 (2024-08-12)
+* Version Bump
+
+### 1.1.6 (2024-08-09)
+* Fixed E204 from Checker
+* Fixed E162 from Checker
+
+### 1.1.5 (2024-08-09)
+* Updated Workflows
+
+### 1.1.4 (2024-08-09)
+* Updated LicenseInformation
+
+### 1.1.3 (2024-08-09)
+* Fixes some issues from checker
+
+### 1.1.2 (2024-08-09)
+* Updating to newest versions
+
 ### 1.1.1 (2022-11-16)
 * Updated Translations
 
@@ -69,7 +91,7 @@ Automatically updates the registered domain name at Cloudflare with your public 
 ## License
 MIT License
 
-Copyright (c) 2022 Marco15453 <support@marco15453.xyz>
+Copyright (c) 2024 Marco15453 <support@marco15453.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

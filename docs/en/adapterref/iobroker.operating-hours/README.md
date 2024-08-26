@@ -19,6 +19,16 @@ To reset the counted operating hours just write one numeric state to 0.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 1.0.8 (2024-08-09)
+* (BenAhrdt) correct changes for issue from check and sevice bot
+
+### 1.0.7 (2024-08-09)
+* (BenAhrdt) do changes for issue from check and sevice bot
+
 ### 1.0.6 (2023-11-12)
 * (BenAhrdt) insert check for node >= 16
 
@@ -99,7 +109,7 @@ To reset the counted operating hours just write one numeric state to 0.
 ## License
 MIT License
 
-Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

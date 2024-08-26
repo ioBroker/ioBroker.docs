@@ -2,27 +2,26 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hausbus_de/README.md
-title: iobroker.hausbusde
-hash: /PCvBwHfqoLsI4h5Epb6ay3a8yEf+tmk4UmCxLfHfI0=
+title: iobroker.hausbus_de
+hash: ZnyoDSWe3HkqtcNMEUQ6T/17g+LeOpskkJLiCNUbH5M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hausbus_de/admin/hausbusde.png)
 
-# Iobroker.hausbusde
-Адаптер IO Broker, поддерживающий все компоненты haus-bus.de.<br> Для получения документации о поддерживаемом оборудовании и интеграции IO Broker см.<br> www.haus-bus.de/iobroker
+# Iobroker.hausbus_de
+Адаптер IO Broker, поддерживающий все компоненты haus-bus.de.<br> Документацию о поддерживаемом оборудовании и интеграции IO Broker см.<br> www.haus-bus.de/iobroker
 
-## Монтаж<a name="installation"></a>
-Этот адаптер доступен как стабильная версия в официальном каталоге ioBroker.<br> Рекомендуется устанавливать его непосредственно из каталога в ioBroker.<br> Если вам нужна более новая версия, чем доступна в официальном каталоге ioBroker, вы также можете напрямую установить эту версию здесь с github.<br> Если у вас возникли какие-либо проблемы или ошибки, свяжитесь с нами по адресу info@haus-bus.de.<br>
+## Установка<a name="installation"></a>
+Этот адаптер доступен в стабильной версии в официальном каталоге ioBroker.<br> Рекомендуется устанавливать его непосредственно из каталога в ioBroker.<br> Если вам нужна более новая версия, чем та, что доступна в официальном каталоге ioBroker, вы также можете напрямую установить эту версию с github.<br> Если у вас возникли какие-либо проблемы или ошибки, свяжитесь с нами по адресу info@haus-bus.de.<br>
 
 ## Настраивать
-Адаптер HausBus.de готов к использованию без дополнительных настроек. Он автоматически ищет компоненты haus-bus.de, используя широковещательные запросы UDP. Обязательно наличие хотя бы одного компонента haus-bus.de с сетевым интерфейсом (например, любого релейного модуля), подключенного к той же сети, что и io-брокер. Любые дополнительные компоненты могут быть подключены через RS485 к модулю со шлюзом Ethernet.
+Адаптер HausBus.de готов к использованию без дополнительных настроек. Он автоматически ищет компоненты haus-bus.de с помощью широковещательных запросов UDP. Обязательно наличие хотя бы одного компонента haus-bus.de с сетевым интерфейсом (например, любого релейного модуля), подключенного к той же сети, что и брокер io. Любые другие компоненты могут быть подключены по RS485 к модулю с шлюзом Ethernet.
 
 <br> <br> <br>
 
 ## Changelog
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS** 
--->
+### 1.4.6 (2024-08-07)
+* support for new 12 channel relay module
+
 ### 1.3.0 (2023-12-31) 
 * support for new analog inputs (0-10V or 4-20mA)
 

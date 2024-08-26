@@ -3,7 +3,7 @@ title: Руководство по стилю документации
 lastChanged: 06.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterdocstyleguide.md
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 hash: KNaN4V9UbZzyglcLi3e59mWopbv6OYPmg0lWHg4svgU=
 ---
 # Руководство по стилю для создания документации адаптера

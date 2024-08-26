@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
+hash: IO5+rqB51zflaqhylcHU8sd4IeKnvHhejFEVYoFEucw=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -25,31 +25,31 @@ hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
 ## Оглавление
 - [Приложения](apps.md)
 - [Блокли](blockly.md)
-- [Мои данные DIY](my-data-diy.md)
+- [Мои данные своими руками](my-data-diy.md)
 - [Уведомления](notifications.md)
 
 ## Требования
-- nodejs 18 (или новее)
-- js-контроллер 5.0.0 (или новее)
-- Адаптер администратора 6.0.0 (или новее)
-- _LaMetric Time_ с прошивкой _2.3.8_ (_3.1.0_ на модели 2022 г.) (или более поздней версии)
+- nodejs 18 (или более поздняя версия)
+- js-controller 5.0.0 (или более поздняя версия)
+- Административный адаптер 6.0.0 (или более поздней версии)
+- _LaMetric Time_ с прошивкой _2.3.9_ (_3.1.1_ на модели 2022 года) (или более поздней)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
 ## Конфигурация
-Вы можете получить ключ API вашего устройства [здесь](https://developer.lametric.com/user/devices).
+Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
 
 ![API-ключ](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ## Функции
-- Установите яркость дисплея (в процентах, автоматический режим/ручной режим)
+- Установка яркости дисплея (процент, автоматический режим/ручной режим)
 - Установить громкость звука (в процентах)
-- Настройка заставки (включить/отключить, по времени, в темноте)
+- Настройка заставки (включить/выключить, по времени, в темноте)
 - Активировать/деактивировать Bluetooth и изменить имя Bluetooth
-- Переключение между приложениями (следующее, предыдущее, переход к конкретному приложению)
-- Отправка уведомлений блочно (с настраиваемым приоритетом, звуком, значками, текстом и т. д.)
-- Управляйте специальными приложениями, такими как «часы», «радио», «секундомер» или «погода».
-- Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянной информации.
+- Переключение между приложениями (следующее, предыдущее, переход к определенному приложению)
+- Отправлять уведомления поблочно (с настраиваемым приоритетом, звуком, значками, текстом, ...)
+- Управление специальными приложениями, такими как «часы», «радио», «секундомер» или «погода»
+- Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянной информации
 
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
@@ -59,7 +59,20 @@ hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.3.0 (2024-08-05)
+
+* (@klein0r) Added api version as state (and check value)
+
+### 3.2.3 (2024-07-21)
+
+* (@klein0r) Fixed blockly definitions
+
+### 3.2.2 (2024-07-13)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.1)
+
 ### 3.2.1 (2024-06-12)
+
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
 * (@klein0r) Updated dependencies
 
@@ -68,19 +81,6 @@ hash: PmNF+I6lnUmgz/Y3jNjCR28zGBSiG0O83CA88+cCTIQ=
 NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Fixed Blockly definitions (removed warnings)
-
-### 3.1.3 (2024-01-31)
-
-* (klein0r) Fixed web extension
-
-### 3.1.2 (2023-12-27)
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
-* (klein0r) Some devices don't have bluetooth low energy states (sa8)
-
-### 3.1.1 (2023-10-27)
-
-* (klein0r) Fixed issue with foreign states of version 3.1.0
 
 ## License
 

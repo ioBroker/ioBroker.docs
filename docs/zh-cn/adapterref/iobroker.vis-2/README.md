@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: +1fddSVtqwpfVYHmbGCNW3hoPgPwDPyjK/kA/lN2bfw=
+hash: RttxszkZBkPktx1h3S4c1CTM4MNtGAultzO499yhV3k=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -27,7 +27,7 @@ ioBroker 平台的 WEB 可视化。
 - [SVG 和 currentColor](#svg-and-currentcolor)
 
 安装和文档
-![演示界面](packages/iobroker.vis-2/img/user0.png) ![演示界面](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
+![演示界面](packages/iobroker.vis-2/img/user0.png)![演示界面](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
 [在线演示](https://iobroker.click/)
 
@@ -92,7 +92,7 @@ Patten 的格式如下：
 - `pow` - 2 的幂。
 - `floor` - Math.floor
 - `ceil` - Math.ceil
-- `json` - 获取 json 或对象属性的操作。例如，`{id;json(common.name.en)}`
+- `json` - 用于获取 json 或对象属性的操作。例如，`{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R，如果没有参数则仅使用 Math.random()
 - `formatValue(decimals)` - 根据系统设置格式化值并使用小数
 - `date(format)` - 将值格式化为日期。格式如下：“YYYY-MM-DD hh:mm:ss.sss”
@@ -124,7 +124,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 * `view` - 实际视图的名称
 * `wname` - 小部件名称
 * `widget` - 是包含所有 widget 数据的对象。只能在 JS 部分使用，例如 `{a:a;widget.data.name}`
-* `widgetOid` - 使用小部件的 oid 在分配部分分配小部件值，例如 `{t:widgetOid.val;t}`
+* `widgetOid` - 使用小部件的 OID 在分配部分分配小部件的值，例如 `{t:widgetOid.val;t}`
 * `wid` - 实际小部件的名称
 * `language` — 可以是 `de`、`en` 或 `ru`。
 * `instance` - 浏览器实例
@@ -141,7 +141,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 }
 ```
 
-为了那个原因。
+为此。
 
 ## 过滤器
 为了在一个视图上直观地显示所有小部件的数量，您可以使用过滤器来减少视图上同时显示的小部件的数量。
@@ -182,7 +182,7 @@ Vis 创建了 3 个变量：
 如果用户在开始时更改视图，则变量将由 vis-2 填充
 
 - `control.instance`：浏览器实例和 `ack=true`
-- `control.data`：项目和视图名称，格式为 `project/view`，例如 `main/view`（并且 `ack=true`）
+- `control.data`：项目和视图名称，格式为 `project/view`，例如 `main/view`（和 `ack=true`）
 - `control.command`: `changedView` 和 `ack=true`
 
 您可以将 JSON 字符串或对象写入 `control.command` 中，例如 `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
@@ -195,7 +195,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 
 如果将 JSON 写为字符串，请确保它是可解析的，例如 `{"instance": "*", "command": "refresh", "data": ""}`，请注意 `"`。
 
-＃＃ 默认视图
+## 默认视图
 您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。
 这只是编辑模式下的可视边框，用于显示某些特定设备的屏幕尺寸。在实时模式下，它将不可见，并且边框外的所有小部件都将可见。
 
@@ -257,12 +257,61 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 在这种情况下，如果 SVG 采用父元素的颜色。
 例如，如果它在菜单中使用并且菜单是红色的，那么圆圈将是红色的。
 
-＃＃ 去做
+## 开发和调试
+为了对 vis-2 编辑器本身进行调整、搜索错误和调试，必须执行以下步骤。
+
+1. 通过 GitHub 的用户界面将 iobroker/iobroker.vis-2 存储库分叉到您自己的帐户中
+
+2. 将存储库克隆到目录中。从 GitHub 存储库复制 URL。命令如下
+
+```
+git clone https://github.com/<your profile name>/ioBroker.vis-2.git
+```
+
+3. 使用 IDE 打开下载的存储库
+
+4. 要安装和下载所有必要的库，请在存储库根目录中的终端中运行以下命令
+
+```
+npm run install-monorepo
+```
+
+5.要在浏览器中启动编辑器，请执行以下命令。
+
+端口 8082 上必须有一个单独运行的 iobroker 服务器实例。
+
+```
+npm run start
+```
+
+- 可在浏览器中进行调试，例如 chrome F12
+- 如果您更改文件，则支持自动重新加载编辑器
+
+待办事项
 <!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 2.10.7 (2024-07-23)
+* (bluefox) Optimization of the module federation
+
+### 2.10.6 (2024-07-20)
+* (bluefox) Improved the typing in typescript
+
+### 2.10.4 (2024-07-16)
+* (bluefox) Corrected the jumping by object selection
+* (bluefox) Implemented swipe widget
+
+### 2.10.3 (2024-07-11)
+* (bluefox) Converted the CanJSWidget to typescript
+* (bluefox) Added "clone" button to the attribute groups
+
+### 2.10.2 (2024-07-10)
+* (bluefox) Removed incompatible package for styles
+* (bluefox) All widgets must be updated
+* (bluefox) The basic input value widget was migrated to ReactJS
+
 ### 2.9.64 (2024-05-23)
 * (bluefox) Added possibility to clear a text field by button
 
@@ -376,7 +425,7 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 * (foxriver76) added select box to dimension attributes if multiple widgets selected
 
 ### 2.9.18 (2024-01-15)
-* (foxriver76) fixed issue, that old attributes value is shown in some scenarios
+* (foxriver76) fixed issue that old attributes value is shown in some scenarios
 * (foxriver76) dedicated permission system extended to view level
 
 ### 2.9.17 (2024-01-13)
@@ -391,14 +440,14 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### 2.9.14 (2024-01-09)
 * (foxriver76) fixed last change y-offset for some widgets
 * (foxriver76) fixed issue where JquiState did not respect data type
-* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing wrong button)
+* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing the wrong button)
 * (foxriver76) implemented workaround resize bug for https://github.com/devbookhq/splitter/issues/15
 
 ### 2.9.13 (2024-01-08)
 * (foxriver76) correctly detect IDs in bindings when they contain hash character
 * (foxriver76) fix crash when multiple JquiState widgets selected
-* (foxriver76) prevent showing widget in group after it is already cut out
-* (foxriver76) prevent usage of widgets which are not in group for calculating rulers on group view
+* (foxriver76) prevent showing widget in a group after it is already cut out
+* (foxriver76) prevent usage of widgets which are not in a group for calculating rulers on group view
 
 ### 2.9.12 (2024-01-04)
 * (foxriver76) optimized copy/paste/cut in groups
@@ -407,10 +456,10 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 * (foxriver76) fixed bug with visibility calculation
 
 ### 2.9.10 (2024-01-02)
-* (foxriver76) remove accidentally added script file, which lead to crash
+* (foxriver76) remove accidentally added script file, which leads to crash
 
 ### 2.9.9 (2024-01-01)
-* (foxriver76) allow to import views without attribute `activeWidgets`
+* (foxriver76) allow importing views without attribute `activeWidgets`
 * (foxriver76) make BasicBulb behave more like its old version
 * (foxriver76) fixed issue that data of different widget is displayed in edit mode
 * (foxriver76) fixed issue that every state update is used for visibility calculation
@@ -423,7 +472,7 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 * (foxriver76) fixed issue on theme switch
 
 ### 2.9.7 (2023-12-19)
-* (bluefox) Allowed the read only flag for Styled/Input
+* (bluefox) Allowed the read-only flag for Styled/Input
 
 ### 2.9.6 (2023-12-14)
 * (foxriver76) fixed issues with the BulkEditor
@@ -450,7 +499,7 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 * (foxriver76) fixed import of views, which were inside a folder
 * (foxriver76) fixed theme also applied in iframe
 * (foxriver76) do not simply reuse widget ids when importing or copying views
-* (foxriver76) implemented basic bulb widget as react widget
+* (foxriver76) implemented basic bulb widget as React widget
 * (foxriver76) made script tags work in basic html widget
 
 ### 2.9.2 (2023-11-29)
@@ -461,19 +510,19 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 
 ### 2.9.1 (2023-11-28)
 * (foxriver76) recalculate fields after moving widgets
-* (foxriver76) fixed pasting group on other view
+* (foxriver76) fixed a pasting group on other view
 * (foxriver76) fixed theme also applied in iframe
-* (bluefox) implemented Basic Image as react widget
+* (bluefox) implemented Basic Image as React widget
 
 ### 2.9.0 (2023-11-27)
 * (bluefox) implemented SVG shape and Screen Resolution widgets natively
-* (bluefox) implemented Basic iFrame as react widget
+* (bluefox) implemented Basic iFrame as React widget
 * (foxriver76) only allow zip files at project import
 * (foxriver76) fix overflow being overwritten
 * (foxriver76) sort pages and projects alphabetically
 * (foxriver76) fixed problem on saving
 * (foxriver76) fixed problem with groups when `always render` is activated
-* (foxriver76) allow to change color and write lowercase in tabs component
+* (foxriver76) allow changing color and write lowercase in a tabs component
 * (foxriver76) fixed problem that navigation from a alwaysRender page is shown on different page
 
 ### 2.8.0 (2023-11-24)

@@ -54,6 +54,10 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.16 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
 ### 0.2.15 (2024-05-28)
 * (René) change of dependencies
 * (René) show cron job in log after creation

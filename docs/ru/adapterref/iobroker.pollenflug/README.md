@@ -3,97 +3,96 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pollenflug/README.md
 title: Индекс риска пыльцы
-hash: RjP/kMcMjP8AFiLqq64h2tjH2yUsQbolm3pTtgV7UQs=
+hash: azUqlE8U4xUni87ATfGl3Us9WLxbI1W/4imlG05+XLM=
 ---
-![логотип](../../../en/adapterref/iobroker.pollenflug/admin/pollenflug.png)
+![Логотип](../../../en/adapterref/iobroker.pollenflug/admin/pollenflug.png)
 
-![Travis CI Статус сборки](https://travis-ci.org/schmupu/ioBroker.pollenflug.svg?branch=master)
-![AppVeyor Статус сборки](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.pollenflug?branch=master&svg=true)
+![Статус сборки Travis CI](https://travis-ci.org/schmupu/ioBroker.pollenflug.svg?branch=master)
+![Статус сборки AppVeyor](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.pollenflug?branch=master&svg=true)
 ![Количество установок](http://iobroker.live/badges/pollenflug-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.pollenflug.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.pollenflug.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pollenflug.svg)
-![NPM](https://nodei.co/npm/iobroker.pollenflug.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.pollenflug.png?downloads=true)
 
 # Индекс риска пыльцы
-![DWDLogo](../../../en/adapterref/iobroker.pollenflug/docs/dwdlogo.png)
+![DWDЛоготип](../../../en/adapterref/iobroker.pollenflug/docs/dwdlogo.png)
 
-Немецкая служба погоды DWD готовит ежедневные прогнозы индекса риска пыльцы.
-Прогнозируются виды пыльцы: орешник, ольха, ясень, береза, трава, рожь, полынь и амброзия на сегодня и завтра, в пятницу также на послезавтра (воскресенье).
+Немецкая метеорологическая служба DWD готовит ежедневные прогнозы индекса пыльцевого риска.
+Прогнозируются следующие виды пыльцы: орешник, ольха, ясень, береза, трава, рожь, полынь и амброзия на сегодня и завтра, в пятницу также на послезавтра (воскресенье).
 Обновляется ежедневно утром.
-Информацию о округах пыльцы можно найти по адресу: https://www.dwd.de/pollenflug. Авторские права на используемые данные пыльцы: © Deutscher Wetterdienst (Quelle: Deutscher Wetterdienst).
+Информация о пыльцевых округах доступна по адресу: https://www.dwd.de/pollenflug Авторские права на используемые данные о пыльце: © Deutscher Wetterdienst (Quelle: Deutscher Wetterdienst)
 
 ## Установка и настройка
-Требуется node.js 8.0 или выше и Admin v3! Выберите округ в конфигурации адаптера ioBroker. Вы получите индекс риска пыльцы для этого округа. Индекс будет обновляться один раз в день, около 11 часов.
-В объектах info.today, info.trible и info.dayaftertuture будет указан срок действия.
-Возможно, например, что сегодня пятница, но в объекте info.today день - четверг.
-Это верно, потому что данные DWD все еще с четверга и не обновляются до сих пор. Обновление будет в 11 часов обычно.
+Выберите округ в конфигурации адаптера ioBroker. Вы получите индекс риска пыльцы для этого округа. Индекс будет обновляться один раз в день, около 11 часов.
+В объектах info.today, info.tomorrow и info.dayaftertomorrow будет показан период действия.
+Возможно, например, сегодня пятница, но в объекте info.today день — четверг.
+Это верно, потому что данные DWD все еще с четверга и не обновлялись до сих пор. Обновление будет происходить в 11 часов, как правило.
 
 Предоставленные немецкие округа:
 
-* Шлезвиг-Гольштейн и Гамбург (регион 11 и 12)
-    * Inseln und Marschen (регион 11)
-    * Geest, Шлезвиг-Гольштейн и Гамбург (регион 12)
+* Шлезвиг-Гольштейн и Гамбург (регионы 11 и 12)
+    * Инсельн и Маршен (регион 11)
+    * Гест, земли Шлезвиг-Гольштейн и Гамбург (регион 12)
 * Мекленбург-Передняя Померания (регион 20)
-* Niedersachsen und Bremen (регион 31 и 32)
-    * Вестл. Нидерсаксен / Бремен (регион 31)
-    * Остл. Нидерсаксен (регион 32)
-* Северный Рейн-Вестфалия (регион 41, 42 и 43)
-    * Рейн-Вестфал. Тифленд (регион 41)
-    * Оствестфален (регион 42)
-    * Mittelgebirge NRW (регион 43)
+* Нидерсаксония и Бремен (регионы 31 и 32)
+    * Вестл. Нидерсаксен/Бремен (регион 31)
+    * Эстл. Нидерсаксен (регион 32)
+* Северный Рейн-Вестфалия (регионы 41, 42 и 43)
+    * Рейн.-Вестфаль. Тифланд (регион 41)
+    * Оствестфален (регион 42)
+    * Миттельгебирге NRW (регион 43)
 * Бранденбург и Берлин (регион 50)
-* Sachsen-Anhalt (регион 61 и 62)
-    * Tiefland Sachsen-Anhalt (регион 61)
-    * Гарц (регион 62)
-* Тюринген (регион 71 и 72)
-    * Tiefland Thüringen (регион 71)
-    * Миттельгебирге Тюринген (регион 72)
-* Sachsen (регион 81 и 82)
-    * Tiefland Sachsen (регион 81)
-    * Mittelgebirge Sachsen (регион 82)
-* Гессен (регион 91 и 92)
-    * Nordhessen und hess. Миттельгебирге (регион 91)
-    * Рейн-Майн (регион 92)
+* Саксония-Анхальт (регионы 61 и 62)
+    * Тифланд Саксония-Анхальт (регион 61)
+* Гарц (регион 62)
+* Тюрингия (регионы 71 и 72)
+    * Тифланд Тюринген (регион 71)
+    * Миттельгебирге Тюрингия (регион 72)
+* Саксония (регионы 81 и 82)
+    * Тифланд Саксония (регион 81)
+    * Миттельгебирге Саксония (регион 82)
+* Гессен (регионы 91 и 92)
+    * Нордессен и Гесс. Миттельгебирге (регион 91)
+* Рейн-Майн (регион 92)
 * Рейнланд-Пфальц и Саар (регионы 101, 102 и 103)
-    * Рейн, Пфальц, Нахе и Мозель (регион 101)
-    * Mittelgebirgsbereich Рейнланд-Пфальц (регион 102)
-    * Саар (регион 103)
-* Баден-Вюртемберг (регион 111, 112 и 113)
-    * Oberrhein und unteres Neckartal (регион 111)
-    * Гогенлоэ / Митлерер Неккар / Обершвабен (регион 112)
-    * Миттельгебирге Баден-Вюртемберг (регион 113)
-* Бавария (регион 121, 122, 123 и 124)
-    * Allgäu / Oberbayern / Bay. Вальд (регион 121)
-    * Donauniederungen (регион 122)
-    * Бавария Нордл. дер Донау, о. Bayr. Вальд, о. Mainfranken (регион 123)
-    * Mainfranken (регион 124)
+    * Рейн, Пфальц, Наэ и Мозель (регион 101)
+    * Mittelgebirgsbereich Rheinland-Pfalz (регион 102)
+* Саар (регион 103)
+* Баден-Вюртемберг (регионы 111, 112 и 113)
+    * Oberrhein und unteres Neckartal (регион 111)
+    * Гогенлоэ/миттлерер Неккар/Обершвабен (регион 112)
+    * Миттельгебирге Баден-Вюртемберг (регион 113)
+* Бавария (регионы 121, 122, 123 и 124)
+    * Альгой/Обербайерн/Бэй. Вальд (121 регион)
+    * Донауниедерунген (регион 122)
+    * Бавария Нёрдль. дер Донау, о. Байр. Вальд, о. Майнфранкен (регион 123)
+    * Майнфранкен (регион 124)
 
 ![ioBroker1](../../../en/adapterref/iobroker.pollenflug/docs/iobroker-pollenflug1.png)
 
-Исходный индекс риска DWD 0, 0-1, 1, 1-2, 2, 2-3 и 3 изменяется на 0, 1, 2, 3, 4, 5 и 6.
-Этот формат проще использовать в ioBroker.
+Первоначальный индекс риска DWD 0, 0-1, 1, 1-2, 2, 2-3 и 3 изменен на 0, 1, 2, 3, 4, 5 и 6. Этот формат можно проще использовать в ioBroker.
 
 | Индекс | Индекс DWD | описание |
 |-----	|---------- |------------------------------------ |
-| -1 | -1 | нет данных |
+| -1 | -1 | данные отсутствуют |
 | 0 | 0 | нет концентрации пыльцы |
-| 1 | 0-1 | нет низкой концентрации пыльцы |
+| 1 | 0-1 | от нуля до низкой концентрации пыльцы |
 | 2 | 1 | низкая концентрация пыльцы |
-| 3 | 1-2 | низкая и средняя концентрация пыльцы |
+| 3 | 1-2 | низкая или средняя концентрация пыльцы |
 | 4 | 2 | средняя концентрация пыльцы |
-| 5 | 2-3 | концентрация пыльцы от средней до высокой |
+| 5 | 2-3 | средняя или высокая концентрация пыльцы |
 | 6 | 3 | высокая концентрация пыльцы |
 
-** Пример полета пыльцы: ** ![ioBroker2](../../../en/adapterref/iobroker.pollenflug/docs/iobroker-pollenflug2.png)
+**Пример полета пыльцы:** ![ioBroker2](../../../en/adapterref/iobroker.pollenflug/docs/iobroker-pollenflug2.png)
 
 ![ioBroker3](../../../en/adapterref/iobroker.pollenflug/docs/iobroker-pollenflug3.png)
 
-URL-адрес изображения пыльцы из DWD
+URL-адрес изображений пыльцы из DWD
 
 ![ioBroker4](https://www.dwd.de/DWD/warnungen/medizin/pollen/pollen_1_0.png)
 
 ## Пример
-Если поступят новые данные из DWD (изменится сегодняшняя дата), сценарий покажет индекс риска пыльцы для Hasel и Erle.
+Если поступят новые данные от DWD (сегодняшняя дата изменится), скрипт покажет индекс риска пыльцы для Хазела и Эрла.
 
 ```
 on({id: "pollenflug.0.info.today"/*Today*/, change: "ne"}, (obj) => {
@@ -104,7 +103,30 @@ on({id: "pollenflug.0.info.today"/*Today*/, change: "ne"}, (obj) => {
 });
 ```
 
+## Кредиты
+Создание этого адаптера было бы невозможно без выдающейся работы schmupu (https://github.com/schmupu), который создал версию V1.x.x этого адаптера.
+
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.0 (2024-07-24)
+* (mcm1957) This adapter hase been moved to iobroker-community-adapters organization
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now.
+* (mcm1957) Dependencies have been updated
+
+### 1.0.6 (03.05.2019)
+* (Stübi) User can enable/disable sentry logging
+
+### 1.0.5 (29.04.2019)
+* (Stübi) Add Sentry to adapter
+
+### 1.0.4 (19.10.2019)
+* (Stübi) Bugfixing
+
+### 1.0.3 (12.04.2019)
+* (Stübi) Bugfixing, changing logo size
 
 ### 1.0.2 (12.03.2019)
 * (Stübi) Bugfixing, of changing sepaation of entries in riskindex_x from ',' to ', '
@@ -132,7 +154,8 @@ on({id: "pollenflug.0.info.today"/*Today*/, change: "ne"}, (obj) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019 Thorsten Stueben <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2024 iobroker-community <iobroker-community-adapters@gmx.de>
+Copyright (c) 2020 Thorsten Stueben <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

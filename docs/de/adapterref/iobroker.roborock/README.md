@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: ZbXfzwhuQCvaMwzAEM00uIjetXhhWHpf5hSd6wz3ids=
+hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -14,41 +14,42 @@ hash: ZbXfzwhuQCvaMwzAEM00uIjetXhhWHpf5hSd6wz3ids=
 ![NPM](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
-**Tests:** ![Test und Freigabe](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
 **Übersetzung:** [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Roborock-Adapter für ioBroker
-Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Status und Reinigungsverlauf abrufen und die Karte anzeigen, die in der Roborock-App eingerichtet ist.
+Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Zustände und Reinigungsverläufe abrufen sowie die Karte anzeigen, der in der Roborock-App eingerichtet ist.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Die unterstützten Roboter sind:
 - Roborock S4
 - Roborock S4 Max
 - Roborock S5 Max
 - Roborock S6
-- Roborock S6 Pure
+Roborock S6 Pure
 - Roborock S6 MaxV
 - Roborock S7
-- Roborock S7 MaxV (Ultra)
+Roborock S7 MaxV (Ultra)
 - Roborock Q7
 - Roborock Q7 Max
-- Roborock S7 Pro Ultra
+Roborock S7 Pro Ultra
 - Roborock S7 Max Ultra
 - Roborock S8
-- Roborock S8 Pro Ultra
+Roborock S8 Pro Ultra
 - Roborock Q Revo
 - Roborock Q8 Max
-- Roborock Q5 Pro
+Roborock Q5 Pro
+Roborock Q Revo Pro
 
 ## Zonenreinigung
 Diese Funktion funktioniert nur, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
 
-### Die Kartenerstellung funktioniert auf dem Raspberry Pi nicht
- - Es läuft ein Webserver. Der Standardport ist 6824
- - Öffnen Sie http://iobroker:6824/map.html in Ihrem Browser (ändern Sie http://iobroker Ihren ioBroker-Hostnamen oder Ihre IP!!!)
- - Zeichnen Sie Ihr zum Reinigen vorgesehenes Quadrat. Roborock unterstützt bis zu 4 Reinigungszonen gleichzeitig.
+### Kartenerstellung funktioniert auf Raspberry Pi nicht
+- Es läuft ein Webserver. Der Standardport ist 6824
+- Öffnen Sie http://iobroker:6824/map.html in Ihrem Browser (ändern Sie http://iobroker in Ihren ioBroker-Hostnamen oder Ihre IP!!!)
+Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigungszonen gleichzeitig.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 
@@ -57,6 +58,43 @@ Diese Funktion funktioniert nur, wenn die Kartenerstellung in den Adapteroptione
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.6 (2024-07-14)
+* (copystring) require min node 20 to operate correctly with current dependencies
+
+### 0.6.5 (2024-07-13)
+* (copystring) Add and fix some parameters and attributes
+* (copystring) Fix getMap() in getParameter()
+* (copystring) Add connection state to timeouts
+* (copystring) Detect and report unsupported attributes
+* (copystring) Improve camera and voice support detection
+* (copystring) Wait for TCP client to connect on start of adapter
+* (copystring) Add handling of TCP chunks. This will fix a lot of timeouts 🎉
+* (copystring) Manage stop/stop in the webinterface via state of robot instead of guessing via clicking the buttons in the webinterface
+* (copystring) Refactor and improve javascript code of web interface
+* (copystring) Add Roborock Q Revo Pro
+* (copystring) Update dependencies
+
+### 0.6.4 (2024-04-21)
+* (copystring) Fix io-package.json and update packages
+
+### 0.6.3 (2024-04-21)
+* (copystring) Add consumables to Qrevo MaxV
+* (copystring) Fix S5 Max clean records defintion
+* (copystring) Fix app_start via web interface
+* (copystring) Improve local devices discovery
+
+### 0.6.2 (2024-04-05)
+* (copystring) Fix start of go2rtc
+
+### 0.6.1 (2024-04-02)
+* (copystring) Fix lint
+
+### 0.6.0 (2024-04-02)
+* (copystring) New and improved message queue handler
+* (copystring) Convert robot features to new much more modular system
+* (copystring) Add support for large photos of obstacles
+* (copystring) Many bug fixes I can't remember :D
+
 ### 0.5.4 (2024-02-01)
 * (copystring) Fix mqtt disconnect/reconnect bug on start of adapter
 
