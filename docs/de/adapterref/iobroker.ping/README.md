@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ping/README.md
 title: PING-Adapter
-hash: Sxv9m2nXnXAw1YjMyPaVSDFJsJ+yklUu/k93fWbggTs=
+hash: vvoS/oLF9jnvIumCY8jRJGIeyDM05311R+jue/2I+t4=
 ---
 ![Logo](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
@@ -39,13 +39,21 @@ Dazu müssen Sie der Datei `/etc/sudoers` mit dem Befehl `sudo visudo` folgende 
 
 Oder Sie können die Ping-Ausführung mit dem Befehl `sudo setcap cap_net_raw+ep /bin/ping` zulassen.
 
-Sie müssen setcap vorher mit `sudo apt-get install libcap2-bin` installieren, wenn `setcup` nicht gefunden wird.
+Sie müssen `setcap` mit `sudo apt-get install libcap2-bin` installieren, bevor `setcup` nicht gefunden wird.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
+## Aufgaben
+- [ ] Implementierung der Möglichkeit zur Überwachung von TCP-Ports
 
 ## Changelog
+### 1.7.3 (2024-08-25)
+* (bluefox) Added the functionality to poll the address range periodically
+
+### 1.7.1 (2024-08-25)
+* (bluefox) Added resolution of IP addresses to MAC addresses
+
 ### 1.7.0 (2024-08-17)
 * (bluefox) Added possibility to browse the IP ranges
 

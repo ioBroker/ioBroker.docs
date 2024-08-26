@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: Wt8AzwewSKrFltCL+THLWDot1KNDkhRpkVvXRRtapyE=
+hash: CG7zT6steqVPVFubw52Nx9uNu0BnoA7E+iyf6qzLvgI=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -38,7 +38,7 @@ Der Adapter ist speziell für Kostal Piko BA-, 6.0BA-, 8.0BA- und 10BA-Wechselri
 
 Wir freuen uns über jede Rückmeldung zur Funktionalität mit anderen Wechselrichtern. Wenn Sie die Funktion mit weiteren Modellen testen, senden Sie uns bitte eine Nachricht.
 
-## Einstellungen
+## Konfiguration
 Stellen Sie sicher, dass Ihr Piko- oder Piko-BA-Wechselrichter auf Kostal UI Version 6.11 oder höher aktualisiert ist.
 Um eine Verbindung zum Kostal Piko (BA / MP plus)-Wechselrichter herzustellen, müssen Sie dessen IP-Adresse in den Einstellungen konfigurieren.
 Optional können Sie die Aktualisierungsfrequenzen für Livedaten, Tagesstatistiken und Lebensdauerstatistiken anpassen.
@@ -52,110 +52,58 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 
 ## Changelog
 
-Note: Missing version entries typically indicate dependency updates for improved security.
+### 4.2.0 (2024-08-xx)
 
-### 4.1.3 (13.08.2024)
+-   (HombachC) convert adapter to TypeScript
+-   (HombachC) switch to ES2022 code
+-   (HombachC) migrate eslint to >9.x
+-   (HombachC) repository cleanup
+-   (HombachC) dependency updates
+-   (HombachC) code optimizations
 
-* (HombachC) fixed vulnerability in dependency
+### 4.1.3 (2024-08-13)
 
-### 4.1.2 (10.08.2024)
+-   (HombachC) fixed vulnerability in dependency
 
-* (HombachC) optimized translation handling
-* (HombachC) hide not used configuration inputs
+### 4.1.2 (2024-08-10)
 
-### 4.1.1 (09.08.2024)
+-   (HombachC) optimized translation handling
+-   (HombachC) hide not used configuration inputs
 
-* (HombachC) adapter checker detected optimizations (#643)
+### 4.1.1 (2024-08-09)
 
-### 4.1.0 (05.08.2024)
+-   (HombachC) adapter checker detected optimizations (#643)
 
-* (HombachC) replaced deprecated ioBroker state calls
-* (HombachC) doku cleanup
+### 4.1.0 (2024-08-05)
 
-### 4.0.2 (04.08.2024)
+-   (HombachC) replaced deprecated ioBroker state calls
+-   (HombachC) doku cleanup
 
-* (HombachC) added node.js 22 tests
-* (HombachC) dependency updates
+### 4.0.2 (2024-08-04)
 
-### 4.0.1 (24.06.2024)
+-   (HombachC) added node.js 22 tests
+-   (HombachC) dependency updates
 
-* (HombachC) dependency updates, removed unfunctional snyk tests
+### 4.0.1 (2024-06-24)
 
-### 4.0.0 (21.04.2024)
+-   (HombachC) dependency updates, removed unfunctional snyk tests
 
-* (HombachC) BREAKING: Dropped support for Node.js 16 (#591)
-* (HombachC) BREAKING: Minimum needed js-controller bumped to 5 (#592)
-* (HombachC) changed timeout settings for older Kostal inverters (#589)
-* (HombachC) dependency updates
-* (HombachC) added tests for node.js 21
-* (HombachC) raised minimum poll time for daily statistics
-* (HombachC) code optimizations
+### 4.0.0 (2024-04-21)
 
-### 3.1.0 (29.03.2024)
-
-* (HombachC) changed to tier 2 as data provider
-
-### 3.0.11 (29.03.2024)
-
-* (HombachC) corrected io-package.json according to new schema
-* (HombachC) bump adapter-core to 3.0.6
-
-### 3.0.10 (03.03.2024)
-
-* (HombachC) fixed vulnerability
-
-### 3.0.9 (23.12.2023)
-
-* (HombachC) year 2024 changes
-* (HombachC) several dependency updates 
-
-### 3.0.8 (29.10.2023)
-
-* (HombachC) bump axios to 1.6.0 because of vulnerability
-* (HombachC) several dependency updates 
-
-### 3.0.7 (01.10.2023)
-
-* (HombachC) several dependency updates 
-
-### 3.0.6 (27.08.2023)
-
-* (HombachC) improved error handling in case of offline inverters - centralized error handling 
-
-### 3.0.5 (19.08.2023)
-
-* (HombachC) mitigating another sentry notified error in case of network trouble
-
-### 3.0.4 (13.08.2023)
-
-* (HombachC) bumped adapter core to V3
-
-### 3.0.3 (17.07.2023)
-
-* (HombachC) fixing sentry notified error in case of network trouble
-
-### 3.0.2 (14.07.2023)
-
-* (HombachC) fix small error in MP recognition
-* (HombachC) sentry notified error in object handling
-
-### 3.0.1 (23.06.2023)
-
-* (HombachC) corrected state description
-
-### 3.0.0 (08.06.2023)
-
-* (HombachC) BREAKING: Dropped support for Node.js 14
-* (HombachC) changed config screen to admin 5 solution
-* (HombachC) dropped Admin <5 support
-* (HombachC) removed tests for node 14
+-   (HombachC) BREAKING: Dropped support for Node.js 16 (#591)
+-   (HombachC) BREAKING: Minimum needed js-controller bumped to 5 (#592)
+-   (HombachC) changed timeout settings for older Kostal inverters (#589)
+-   (HombachC) dependency updates
+-   (HombachC) added tests for node.js 21
+-   (HombachC) raised minimum poll time for daily statistics
+-   (HombachC) code optimizations
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2020-2024 HombachC
+Copyright (c) 2020-2024 C.Hombach <Kostal-Piko-BA@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

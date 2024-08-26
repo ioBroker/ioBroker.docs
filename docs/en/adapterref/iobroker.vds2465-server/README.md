@@ -44,6 +44,9 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 
 ## Changelog
 
+### 1.0.0
+* (Hirsch-DE) Packages updated
+* (Hirsch-DE) Minimum node.js version is 18.x
 ### 0.1.10
 * (Hirsch-DE) Fix VdSServiceRequest
 ### 0.1.9
@@ -78,7 +81,7 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 ## License
 MIT License
 
-Copyright (c) 2022 Hirsch-DE <github731@hirschfeldonline.de>
+Copyright (c) 2024 Hirsch-DE <github731@hirschfeldonline.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

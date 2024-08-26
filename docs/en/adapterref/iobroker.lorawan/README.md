@@ -24,7 +24,7 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (BenAhrdt) function to assign roles
+* (BenAhrdt) function to assign properties
 
 ### 1.3.1 (2024-07-30)
 * (BenAhrdt) implements example image

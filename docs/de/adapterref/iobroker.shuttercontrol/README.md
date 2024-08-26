@@ -9,6 +9,7 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 ---
 ![Logo](img/shuttercontrol.png)
 
+
 # Dokumentation und Anleitung für Shuttercontrol
 
 ![Number of Installations](http://iobroker.live/badges/shuttercontrol-installed.svg) 
@@ -802,6 +803,8 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 * (simatec) Fix Shutter up when open the Window
 * (simatec) Test & Release updated
 * (simatec) Fix Trigger
+* (simatec) Responsive Design added
+* (simatec) Docu Sync2Wiki added
 
 ### 1.7.3 (2024-06-20)
 * (simatec) Fix Sunprotect End-Delay

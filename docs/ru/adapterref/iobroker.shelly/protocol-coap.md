@@ -1,15 +1,15 @@
 ---
 chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/protocol-coap.md
 title: ioBroker.shelly
-hash: gc8jZAg9p35LDhThP/8RdtMgFKgZD5ODYeIVfrrPYWM=
+hash: 3XDteAEV6pM9eOz5aWZOezb3pF10fD1EEYiHyntKT+w=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-Это немецкая документация - [🇺🇸Немецкая версия](../en/protocol-coap.md).
+Это немецкая документация - [🇺🇸 Английская версия](../en/protocol-coap.md).
 
 ## CoAP (CoIoT)
 **CoAP/CoIoT поддерживается только устройствами Gen1. Устройства Plus и Pro (Gen2) не поддерживают этот протокол!**
@@ -39,7 +39,7 @@ CoAP/CoIoT добавляет все устройства в вашу сеть. 
 
 #### Прошивка Shelly 1.8.0 (или новее)
 - Если вы используете протокол CoAP/CoIoT, начиная с этой версии необходимо использовать адаптер версии 4.0.0 (или новее).
-- Для устройств со старой прошивкой (кроме Shelly 4 Pro) необходимо использовать адаптер версии 3.3.6 (или старше). Адаптер версии 4.0.0 (или новее) не совместим со старыми версиями прошивок!
+- Для устройств со старой прошивкой (кроме Shelly 4 Pro) необходимо использовать адаптер версии 3.3.6 (или старше). Версия адаптера 4.0.0 (или новее) несовместима со старыми версиями прошивки!
 
 #### Прошивка Shelly 1.9.4 (или новее)
 - Начиная с этой версии, сервер CoAP/CoIoT должен храниться на каждом Shelly, если используется протокол CoAP/CoIoT (одноадресная рассылка).

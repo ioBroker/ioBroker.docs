@@ -805,6 +805,8 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 * (simatec) Fix Shutter up when open the Window
 * (simatec) Test & Release updated
 * (simatec) Fix Trigger
+* (simatec) Responsive Design added
+* (simatec) Docu Sync2Wiki added
 
 ### 1.7.3 (2024-06-20)
 * (simatec) Fix Sunprotect End-Delay

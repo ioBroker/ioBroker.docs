@@ -46,6 +46,15 @@
           },
           "content": "basics/architecture.md"
         },
+        "Adapter & Instanzen": {
+          "title": {
+            "en": "Adapter & Instanzen",
+            "de": "Controller und Adapter",
+            "ru": "Контроллеры и адаптеры: строительные блоки от ioBroker",
+            "zh-cn": "控制器和适配器：ioBroker 的构建块"
+          },
+          "content": "basics/adapter.md"
+        },
         "Repositories": {
           "title": {
             "en": "Repositories",
@@ -73,12 +82,21 @@
           },
           "content": "basics/alias.md"
         },
+        "Enums": {
+          "title": {
+            "en": "Enums",
+            "de": "Kategorien/Aufzählungen",
+            "ru": "Категории/списки",
+            "zh-cn": "类别/列表"
+          },
+          "content": "basics/enums.md"
+        },
         "Roles": {
           "title": {
             "en": "Roles",
             "de": "Rollen von Datenpunkten",
-            "ru": "Роли точек данных",
-            "zh-cn": "数据点的作用"
+            "ru": "Скользящие точки данных",
+            "zh-cn": "滚动数据点"
           },
           "content": "basics/roles.md"
         },
@@ -407,6 +425,15 @@
             "zh-cn": "物联网云"
           },
           "content": "cloud/iot.md"
+        },
+        "App": {
+          "title": {
+            "en": "App",
+            "de": "App (Android und iOS)",
+            "ru": "Приложение (Android и iOS)",
+            "zh-cn": "应用程序（Android 和 iOS）"
+          },
+          "content": "cloud/app.md"
         }
       }
     },

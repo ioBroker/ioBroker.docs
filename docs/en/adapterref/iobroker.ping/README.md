@@ -33,14 +33,23 @@ For this, you need to add the following line to the `/etc/sudoers` file with `su
 
 Or you can allow the ping execution by `sudo setcap cap_net_raw+ep /bin/ping` command.
 
-You must install setcap with `sudo apt-get install libcap2-bin` before if `setcup` not found.
+You must install `setcap` with `sudo apt-get install libcap2-bin` before if `setcup` not found.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
+## Todo
+- [ ] Implement the possibility to monitor TCP ports
+
 ## Changelog
+### 1.7.3 (2024-08-25)
+* (bluefox) Added the functionality to poll the address range periodically
+
+### 1.7.1 (2024-08-25)
+* (bluefox) Added resolution of IP addresses to MAC addresses
+
 ### 1.7.0 (2024-08-17)
 * (bluefox) Added possibility to browse the IP ranges
 

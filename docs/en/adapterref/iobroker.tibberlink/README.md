@@ -106,7 +106,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 3.4.8 (2024-08-xx)
+### 3.4.9 (2024-08-xx)
+
+-   (HombachC) repository cleanup
+-   (HombachC) dependency updates
+
+### 3.4.8 (2024-08-16)
 
 -   (HombachC) updated axios because of vulnerability
 -   (HombachC) added tests for Node.js 22

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ping/README.md
 title: PING 适配器
-hash: Sxv9m2nXnXAw1YjMyPaVSDFJsJ+yklUu/k93fWbggTs=
+hash: vvoS/oLF9jnvIumCY8jRJGIeyDM05311R+jue/2I+t4=
 ---
 ![标识](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
@@ -39,13 +39,21 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 
 或者您可以通过`sudo setcap cap_net_raw+ep /bin/ping`命令允许 ping 执行。
 
-如果未找到`setcup`，则必须先使用`sudo apt-get install libcap2-bin`安装 setcap。
+如果未找到`setcup`，则必须先安装`setcap` 和`sudo apt-get install libcap2-bin`。
 
 <!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
+待办事项
+- [ ] 实现监控 TCP 端口的可能性
 
 ## Changelog
+### 1.7.3 (2024-08-25)
+* (bluefox) Added the functionality to poll the address range periodically
+
+### 1.7.1 (2024-08-25)
+* (bluefox) Added resolution of IP addresses to MAC addresses
+
 ### 1.7.0 (2024-08-17)
 * (bluefox) Added possibility to browse the IP ranges
 

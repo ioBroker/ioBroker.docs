@@ -59,7 +59,11 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 8.1.0 (2024-08-25)
+
+* (esusxunil) Added Shelly Pro EM 2x50A
+
+### 8.0.0 (2024-08-25)
 
 * (imperial929) Added Shelly 1 PM Gen3
 * (imperial929) Added Shelly 1 Gen3
@@ -67,6 +71,7 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 * (klein0r) Added Shelly Plus Uni
 * (klein0r) Added Shelly H&T (Gen3)
 * (klein0r) Improved structure of ble events (receivedBy) - see documentation for details
+* (bluefox) Improved the color of icons in the admin interface
 
 ### 7.0.0 (2024-04-29)
 
@@ -90,17 +95,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 * (klein0r) Updated BLE script to 0.2 (new shelly motion firmware)
 * (klein0r) Updated Shelly i3 number limits
 * (klein0r) Added screenshots to instance configuration
-
-### 6.7.0 (2023-12-22)
-
-* (klein0r) Updated handling of ble payloads
-* (D1gitaldad) Added Shelly Wall Display
-
-### 6.6.1 (2023-10-20)
-
-* (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2
-* (klein0r) Added humidity of Shelly Plus Addon
-* (klein0r) Not all devices have external power
 
 ## License
 

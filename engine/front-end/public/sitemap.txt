@@ -122,7 +122,7 @@ https://www.iobroker.net/#de/documentation/admin/users.md
 https://www.iobroker.net/#de/documentation/basics/adapter.md
 https://www.iobroker.net/#de/documentation/basics/alias.md
 https://www.iobroker.net/#de/documentation/basics/architecture.md
-https://www.iobroker.net/#de/documentation/basics/functions.md
+https://www.iobroker.net/#de/documentation/basics/enums.md
 https://www.iobroker.net/#de/documentation/basics/glossary.md
 https://www.iobroker.net/#de/documentation/basics/objects.md
 https://www.iobroker.net/#de/documentation/basics/README.md
@@ -131,12 +131,10 @@ https://www.iobroker.net/#de/documentation/basics/roles.md
 https://www.iobroker.net/#de/documentation/basics/states.md
 https://www.iobroker.net/#de/documentation/cloud/alexacustom.md
 https://www.iobroker.net/#de/documentation/cloud/alexasmart.md
-https://www.iobroker.net/#de/documentation/cloud/androidapp.md
+https://www.iobroker.net/#de/documentation/cloud/app.md
 https://www.iobroker.net/#de/documentation/cloud/editor.md
-https://www.iobroker.net/#de/documentation/cloud/ifttt.md
 https://www.iobroker.net/#de/documentation/cloud/iosapp.md
 https://www.iobroker.net/#de/documentation/cloud/iot.md
-https://www.iobroker.net/#de/documentation/cloud/mediola.md
 https://www.iobroker.net/#de/documentation/cloud/README.md
 https://www.iobroker.net/#de/documentation/cloud/viz.md
 https://www.iobroker.net/#de/documentation/community/doc.md
@@ -269,6 +267,7 @@ https://www.iobroker.net/#en/documentation/admin/users.md
 https://www.iobroker.net/#en/documentation/basics/adapter.md
 https://www.iobroker.net/#en/documentation/basics/alias.md
 https://www.iobroker.net/#en/documentation/basics/architecture.md
+https://www.iobroker.net/#en/documentation/basics/enums.md
 https://www.iobroker.net/#en/documentation/basics/functions.md
 https://www.iobroker.net/#en/documentation/basics/glossary.md
 https://www.iobroker.net/#en/documentation/basics/objects.md
@@ -278,12 +277,10 @@ https://www.iobroker.net/#en/documentation/basics/roles.md
 https://www.iobroker.net/#en/documentation/basics/states.md
 https://www.iobroker.net/#en/documentation/cloud/alexacustom.md
 https://www.iobroker.net/#en/documentation/cloud/alexasmart.md
-https://www.iobroker.net/#en/documentation/cloud/androidapp.md
+https://www.iobroker.net/#en/documentation/cloud/app.md
 https://www.iobroker.net/#en/documentation/cloud/editor.md
-https://www.iobroker.net/#en/documentation/cloud/ifttt.md
 https://www.iobroker.net/#en/documentation/cloud/iosapp.md
 https://www.iobroker.net/#en/documentation/cloud/iot.md
-https://www.iobroker.net/#en/documentation/cloud/mediola.md
 https://www.iobroker.net/#en/documentation/cloud/README.md
 https://www.iobroker.net/#en/documentation/cloud/viz.md
 https://www.iobroker.net/#en/documentation/community/doc.md
@@ -415,6 +412,7 @@ https://www.iobroker.net/#ru/documentation/admin/users.md
 https://www.iobroker.net/#ru/documentation/basics/adapter.md
 https://www.iobroker.net/#ru/documentation/basics/alias.md
 https://www.iobroker.net/#ru/documentation/basics/architecture.md
+https://www.iobroker.net/#ru/documentation/basics/enums.md
 https://www.iobroker.net/#ru/documentation/basics/functions.md
 https://www.iobroker.net/#ru/documentation/basics/glossary.md
 https://www.iobroker.net/#ru/documentation/basics/objects.md
@@ -424,12 +422,10 @@ https://www.iobroker.net/#ru/documentation/basics/roles.md
 https://www.iobroker.net/#ru/documentation/basics/states.md
 https://www.iobroker.net/#ru/documentation/cloud/alexacustom.md
 https://www.iobroker.net/#ru/documentation/cloud/alexasmart.md
-https://www.iobroker.net/#ru/documentation/cloud/androidapp.md
+https://www.iobroker.net/#ru/documentation/cloud/app.md
 https://www.iobroker.net/#ru/documentation/cloud/editor.md
-https://www.iobroker.net/#ru/documentation/cloud/ifttt.md
 https://www.iobroker.net/#ru/documentation/cloud/iosapp.md
 https://www.iobroker.net/#ru/documentation/cloud/iot.md
-https://www.iobroker.net/#ru/documentation/cloud/mediola.md
 https://www.iobroker.net/#ru/documentation/cloud/README.md
 https://www.iobroker.net/#ru/documentation/cloud/viz.md
 https://www.iobroker.net/#ru/documentation/community/doc.md
@@ -562,6 +558,7 @@ https://www.iobroker.net/#zh-cn/documentation/admin/users.md
 https://www.iobroker.net/#zh-cn/documentation/basics/adapter.md
 https://www.iobroker.net/#zh-cn/documentation/basics/alias.md
 https://www.iobroker.net/#zh-cn/documentation/basics/architecture.md
+https://www.iobroker.net/#zh-cn/documentation/basics/enums.md
 https://www.iobroker.net/#zh-cn/documentation/basics/functions.md
 https://www.iobroker.net/#zh-cn/documentation/basics/glossary.md
 https://www.iobroker.net/#zh-cn/documentation/basics/objects.md
@@ -571,12 +568,10 @@ https://www.iobroker.net/#zh-cn/documentation/basics/roles.md
 https://www.iobroker.net/#zh-cn/documentation/basics/states.md
 https://www.iobroker.net/#zh-cn/documentation/cloud/alexacustom.md
 https://www.iobroker.net/#zh-cn/documentation/cloud/alexasmart.md
-https://www.iobroker.net/#zh-cn/documentation/cloud/androidapp.md
+https://www.iobroker.net/#zh-cn/documentation/cloud/app.md
 https://www.iobroker.net/#zh-cn/documentation/cloud/editor.md
-https://www.iobroker.net/#zh-cn/documentation/cloud/ifttt.md
 https://www.iobroker.net/#zh-cn/documentation/cloud/iosapp.md
 https://www.iobroker.net/#zh-cn/documentation/cloud/iot.md
-https://www.iobroker.net/#zh-cn/documentation/cloud/mediola.md
 https://www.iobroker.net/#zh-cn/documentation/cloud/README.md
 https://www.iobroker.net/#zh-cn/documentation/cloud/viz.md
 https://www.iobroker.net/#zh-cn/documentation/community/doc.md
@@ -746,6 +741,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.awtrix-light/weather-a
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.b-control-em/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.backitup/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.bambulab/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.bascloud/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.batrium-bms/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.beckhoff/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.benchmark/README.md
@@ -845,6 +841,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.fahrplan/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fakeroku/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fb-checkpresence/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.feiertage/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.fenecon/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.firetv/README.md
@@ -872,6 +869,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gotify/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.govee-local/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.growatt/README.md
@@ -1111,7 +1109,6 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.proxy/README.md
-https://www.iobroker.net/#de/adapters/adapterref/iobroker.psa/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pushbullet/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pushover/README.md
@@ -1273,7 +1270,9 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-gauges/R
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-ovarious/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-bars/README.md
@@ -1413,6 +1412,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.awtrix-light/weather-a
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.b-control-em/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.backitup/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.bambulab/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.bascloud/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.batrium-bms/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.beckhoff/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.benchmark/README.md
@@ -1512,6 +1512,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.fahrplan/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fakeroku/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fb-checkpresence/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.feiertage/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.fenecon/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.firetv/README.md
@@ -1539,6 +1540,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gotify/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.govee-local/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.growatt/README.md
@@ -1778,7 +1780,6 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.proxy/README.md
-https://www.iobroker.net/#en/adapters/adapterref/iobroker.psa/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pushbullet/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pushover/README.md
@@ -1940,7 +1941,9 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-gauges/R
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-ovarious/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-bars/README.md
@@ -2080,6 +2083,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.awtrix-light/weather-a
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.b-control-em/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.backitup/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.bambulab/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.bascloud/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.batrium-bms/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.beckhoff/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.benchmark/README.md
@@ -2179,6 +2183,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fahrplan/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fakeroku/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fb-checkpresence/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.feiertage/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fenecon/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.firetv/README.md
@@ -2206,6 +2211,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gotify/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.govee-local/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.growatt/README.md
@@ -2445,7 +2451,6 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.proxy/README.md
-https://www.iobroker.net/#ru/adapters/adapterref/iobroker.psa/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pushbullet/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pushover/README.md
@@ -2607,7 +2612,9 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-gauges/R
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-ovarious/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-bars/README.md
@@ -2747,6 +2754,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.awtrix-light/weathe
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.b-control-em/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.backitup/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bambulab/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bascloud/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.batrium-bms/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.beckhoff/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benchmark/README.md
@@ -2846,6 +2854,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fahrplan/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fakeroku/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fb-checkpresence/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.feiertage/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fenecon/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.firetv/README.md
@@ -2873,6 +2882,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.go-e/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.googleauth/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gotify/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gotify-ws/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.govee-local/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gree-hvac/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.growatt/README.md
@@ -3112,7 +3122,6 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.powerfox2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.procon-ip/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.proxmox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.proxy/README.md
-https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.psa/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.puppeteer/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pushbullet/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pushover/README.md
@@ -3274,7 +3283,9 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-gauge
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-inventwo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-ovarious/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-bars/README.md

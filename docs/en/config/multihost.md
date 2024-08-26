@@ -4,7 +4,7 @@ lastChanged: 13.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: buMvB17Ha7Du5O18O+YwAnU1meUFr2kyt6p4jH44oUg=
+hash: KNwtUz95PfkVuqZM+ktV3pg/Qlb70Y12Xez8KmwMYjY=
 ---
 # Multihost operation
 ioBroker is able to have the tasks performed by multiple servers. This allows the computing load to be distributed across multiple hosts.
@@ -12,7 +12,7 @@ But you can also use system-specific extensions of a single-board computer (GPIO
 
 After creating a multi-host system, all configurations are carried out centrally via the master's admin. The slave's admin can no longer be reached via their web interface(s).
 
-It therefore makes sense to use a host with a minimal installation for a slave, i.e., only the js-controller and the admin.
+It therefore makes sense to use a host with a minimal installation for a slave, i.e. only the js-controller and the admin.
 
 ## Installation
 ### Master configuration
@@ -39,7 +39,7 @@ Host name of this machine [ioBroker-RasPi]:
 
 2. `iobroker multihost enable`
 
-``` enter pass phrase```
+` enter pass phrase`
 
 3. `iobroker restart`
 
@@ -62,7 +62,7 @@ Port of states DB (redis), default[6379]:
 Host name of this machine [raspi-sub-1]:
 ```
 
-At the end the following information appears:
+Finally, the information appears:
 
 ```
 creating conf/iobroker.json
@@ -107,7 +107,7 @@ nano /etc/redis/redis.conf
 
 The line `bind 127.0.0.1` must be supplemented with the IP of the network adapter so that the Redis server allows external connects.
 
-For example
+So e.g.
 
 ```
 bind 127.0.0.1 192.168.1.10
@@ -115,7 +115,7 @@ bind 127.0.0.1 192.168.1.10
 
 assuming that 192.168.1.10 is the local IP of the ioBroker master.
 
-This adjustment is only necessary for the master.
+This adjustment is only necessary on the master.
 
 Alternatively,
 
@@ -123,7 +123,7 @@ Alternatively,
 bind 0.0.0.0
 ```
 
-Starting with redis version 7, you also have to deactivate protected mode. To do this, you have to add the line
+Starting with redis version 7, you also have to disable protected mode. To do this, you have to add the line
 
 ```
 protected-mode yes
@@ -156,12 +156,12 @@ Then add the instance there by clicking on the (+) in the right column.
 To delete a host, activate the expert mode in the Objects admin tab of the master and activate the host option in the Type column. Then delete the desired host.
 
 ## Possible problems
-sometimes a message appears similar to:
+Sometimes a message appears similar to:
 
-```> ... bytes ... in strict mode```
+`> ... bytes ... in strict mode`
 
 Then please edit the file in which this occurs with the nano editor. Right at the beginning is `'use strict';`, comment out this line with // and save.
 
-```> IP Address of the host is 127.0.0.1. It accepts no connections. Please change.```
+`> IP Address of the host is 127.0.0.1. It accepts no connections. Please change.`
 
-if you have not done ``` setup custom ``` on the master system
+if you haven't done ``` setup custom ``` on the master system.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ping/README.md
 title: Адаптер PING
-hash: Sxv9m2nXnXAw1YjMyPaVSDFJsJ+yklUu/k93fWbggTs=
+hash: vvoS/oLF9jnvIumCY8jRJGIeyDM05311R+jue/2I+t4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
@@ -39,13 +39,21 @@ sendTo('ping.0', 'ping', '192.168.1.1', (res) => {
 
 Или вы можете разрешить выполнение ping с помощью команды `sudo setcap cap_net_raw+ep /bin/ping`.
 
-Если `setcup` не найден, необходимо установить setcap с `sudo apt-get install libcap2-bin`.
+Если `setcup` не найден, необходимо установить `setcap` с `sudo apt-get install libcap2-bin`.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
+## То, что нужно сделать
+- [ ] Реализовать возможность мониторинга TCP-портов
 
 ## Changelog
+### 1.7.3 (2024-08-25)
+* (bluefox) Added the functionality to poll the address range periodically
+
+### 1.7.1 (2024-08-25)
+* (bluefox) Added resolution of IP addresses to MAC addresses
+
 ### 1.7.0 (2024-08-17)
 * (bluefox) Added possibility to browse the IP ranges
 
