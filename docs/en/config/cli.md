@@ -35,7 +35,7 @@ The following commands are possible:
 - [iobroker state set objectId newValue](#iobroker-state-set)
 - [iobroker state del objectId](#iobroker-state-del)
 - [iobroker message \<adapter\>\[.instanceid\] \<command\> \[\message\]](#iobroker-message)
-- [iobroker setup](#iobroker-state-setplain)
+- [iobroker setup](#iobroker-setup)
 - [iobroker clean](#iobroker-clean)
 - [iobroker backup](#iobroker-backup)
 - [iobroker host](#iobroker-host)
@@ -70,23 +70,23 @@ Usage examples:
 
 - `npm install iobroker.admin` - update or install "admin" adapter
 - `npm install iobroker.js-controller` - update or install js-controller itself
-- `npm install https://github.com/husky-koglhof/ioBroker.hmm/tarball/master/` - install adapter direct from github or from some other place. It must be a ZIP or GZ package and must content package.json.
+- `npm install https://github.com/husky-koglhof/ioBroker.hmm/tarball/master/` - install adapter direct from GitHub or from some other place. It must be a ZIP or GZ package and must content `package.json`.
 
 If the adapter was installed, after call of `npm install ..` the restart of specified adapter or whole js-controller should be done so the changes will be active.
 
-This can be done with `iobroker restart adapterName` or just `iobroker restart`. See [here](#restart) for details.
+This can be done with `iobroker restart adapterName` or just `iobroker restart`. See [here](#iobroker-restart) for details.
 
 ***Note:*** only packages with the name `ioBroker.zzz` can be so installed.
 
-##iobroker start
-Starts the iobroker as a daemon. If the ioBroker yet started you will get the warning:
+## iobroker start
+Starts the iobroker as a daemon. If the ioBroker yet started, you will get the warning:
 
 `ioBroker controller daemon already running. PID: xx`
 
-***Note for Windows:*** normally the ioBroker under Windows is started as service. This command will start second instance of ioBroker and this will lead to conflict. Use `serviceIoBroker.bat start` from ioBroker directory instead of `iobroker start` command. You should have administrator rights to startthe service.
+***Note for Windows:*** normally the ioBroker under Windows is started as service. This command will start second instance of ioBroker and this will lead to conflict. Use `serviceIoBroker.bat start` from ioBroker directory instead of `iobroker start` command. You should have administrator rights to start the service.
 
-##iobroker stop
-Stops the iobroker if it runs as a daemon. If the ioBroker not started you will get the warning:
+## iobroker stop
+It stops the iobroker if it runs as a daemon. If the ioBroker is not started, you will get the warning:
 
 `ioBroker controller daemon is not running`
 
@@ -124,12 +124,12 @@ Usage:
 - `iobroker stop email.0` - enables and starts adapter instance ioBroker.email.0
 
 ## iobroker restart adapterName.instance
-Just restarts the specified adapter. If it is disabled, it will be enabled.
+It just restarts the specified adapter. If it is disabled, it will be enabled.
 
 ## iobroker add adapterName
 Full syntax is `iobroker add adapterName [desiredInstanceNumber] [--enabled] [--host \<host\>] [--port \<port\>]`
 
-Installs if not installed and creates the instance of specified adapter. If an instance of adapter yet exists, the next instance number will be used.
+This command installs if not installed and creates the instance of specified adapter. If an instance of adapter yet exists, the next instance number will be used.
 
 There are some additional parameters:
 
@@ -151,7 +151,7 @@ Only installs the adapter in ioBroker and creates no instance. If adapter yet in
 
 ## iobroker upload adapterName
 Upload web pages from "www" and "admin" folders in adapter into ioBroker file storage. Used normally by developers to see the changes done in the configuration pages or on "www" pages.
-You cannot change the files directly in `iobroker/iobroker-data/adapter/file`. There is a flag for developers in a config file (`iobroker-data/iobroker.json`) objects.noFileCache to disable cache of the file. With this flag set to true (of course new start required after a configuration file was changed) the changes in iobroker-data directory will be seen on the web without `iobroker upload adapterName` command.
+You cannot change the files directly in `iobroker/iobroker-data/adapter/file`. There is a flag for developers in a config file (`iobroker-data/iobroker.json`) objects.noFileCache to disable cache of the file. With this flag set to true (of course new start required after a configuration file was changed), the changes in iobroker-data directory will be seen on the web without `iobroker upload adapterName` command.
 
 Note: you can call `iobroker upload all` to upload all adapters, e.g., after restore.
 
@@ -255,7 +255,7 @@ To show only updatable adapters use filter `--updatable`.
 ## iobroker upgrade
 Full syntax: `iobroker upgrade \[repository url\]`
 
-Upgrades all adapters (not js-controller) if they are available with a newer version in specified repository. If no repository link is specified, so configured repository will be used.
+It upgrades all adapters (not js-controller) if they are available with a newer version in specified repository. If no repository link is specified, so configured repository will be used.
 
 Usage:
 
@@ -265,12 +265,12 @@ Usage:
 ## iobroker upgrade self
 Full syntax: `iobroker upgrade self \[repository url\]`
 
-This command upgrades ioBroker.js-controller to version, that will be found in the repository.
+This command upgrades ioBroker.js-controller to version that will be found in the repository.
 
 **Note:** If specified or configured repository has a lower version, it will be downgraded to this version.
 
 - `iobroker upgrade self` - upgrade js-controller to a version in the configured repository.
-- `iobroker upgrade self https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - upgrade js-controller to version from on-line repository.
+- `iobroker upgrade self https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - upgrade js-controller to a version from on-line repository.
 
 ## iobroker upgrade adapterName
 Full syntax: `iobroker upgrade adapterName \[repository url\]`
@@ -280,7 +280,7 @@ This command upgrades specified adapter to the version that will be found in the
 **Note:** If specified or configured repository has a lower version, it will be downgraded to this version.
 
 - `iobroker upgrade email` - upgrade `ioBroker.email` adapter to version in the configured repository.
-- `iobroker upgrade email https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - upgrade ioBroker.email adapter to version from on-line repository.
+- `iobroker upgrade email https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - upgrade `ioBroker.email` adapter to a version from on-line repository.
 
 ## iobroker nodejs-update
 This command upgrades Node.js to the version that will be found in the repository.
@@ -290,7 +290,7 @@ This command upgrades Node.js to the version that will be found in the repositor
 ## iobroker object get
 Full syntax: `iobroker get objectId`
 
-Reads from the command line the description of the object:
+The command reads from the command line the description of the object:
 C:\pWork>iobroker object get system.adapter.admin.0.uptime
 
 ```
@@ -389,7 +389,7 @@ Read plain value of the state as a list attributes:
 ## iobroker state set
 Full syntax: `iobroker state set stateId newValue ack`
 
-Set value of the state. "ack is by default = false.
+Set the value of the state. `ack` is by default = `false`.
 
 `>iobroker state set sayit.0.tts.text "Текст сказать"`
 
@@ -432,12 +432,12 @@ Please specify one of the backup names:
    2015_07_18-12_20_28_backupIoBroker.tar.gz or 2015_07_18-12_20_28 or 0
    2015_07_17-21_54_01_backupIoBroker.tar.gz or 2015_07_17-21_54_01 or 1
 ```
-You can call `iobroker restore 0` to use a latest backup file or some other index.
+You can call `iobroker restore 0` to use the latest backup file or some other index.
 The following commands are the same for given example:
-- iobroker restore 0
-- iobroker 2015_07_18-12_20_28
-- iobroker 2015_07_17-21_54_01_backupIoBroker.tar.gz
-- iobroker /opt/iobroker/backups/2015_07_17-21_54_01_backupIoBroker.tar.gz
+- `iobroker restore 0`
+- `iobroker 2015_07_18-12_20_28`
+- `iobroker 2015_07_17-21_54_01_backupIoBroker.tar.gz`
+- `iobroker /opt/iobroker/backups/2015_07_17-21_54_01_backupIoBroker.tar.gz`
 
 All adapters will be restored as disabled, except `admin`. To enable all adapters at once, you can call `iobroker start all`. If some adapters are not uploaded, you can call "iobroker upload all" to upload all adapter's files at once.
 

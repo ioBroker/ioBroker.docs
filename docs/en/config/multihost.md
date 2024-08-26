@@ -12,7 +12,7 @@ But you can also use system-specific extensions of a single-board computer (GPIO
 
 After creating a multi-host system, all configurations are carried out centrally via the master's admin. The slave's admin can no longer be reached via their web interface(s).
 
-It therefore makes sense to use a host with a minimal installation for a slave, i.e. only the js-controller and the admin.
+It therefore makes sense to use a host with a minimal installation for a slave, i.e., only the js-controller and the admin.
 
 ## Installation
 ### Master configuration
@@ -115,7 +115,7 @@ bind 127.0.0.1 192.168.1.10
 
 assuming that 192.168.1.10 is the local IP of the ioBroker master.
 
-This adjustment is only necessary on the master.
+This adjustment is only necessary for the master.
 
 Alternatively,
 

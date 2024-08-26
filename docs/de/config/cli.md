@@ -85,7 +85,7 @@ Startet Iobroker als Daemon. Wenn der ioBroker bereits gestartet ist, erscheint 
 `ioBroker controller daemon already running. PID: xx`
 
 ***Hinweis für Windows:*** ioBroker wird unter Windows als Dienst gestartet. Der Befehl `iobroker start` startet eine zweite Instanz von ioBroker und dies führt hier zu Konflikten. 
-Stattdessen mit Administratorrechten im ioBroker-Verzeichnis den Befehl `serviceIoBroker.bat start` ausführen um den Dienst zu starten.
+Stattdessen mit Administratorrechten im ioBroker-Verzeichnis den Befehl `serviceIoBroker.bat start` ausführen, um den Dienst zu starten.
 
 ## iobroker stop
 Stoppt IoBroker, wenn er als Dämon ausgeführt wird. Wenn der ioBroker nicht gestartet war, erscheint die Warnung:
@@ -130,13 +130,13 @@ Parameter:
 
 - enabled: Die Adapterinstanz wird nach der Erstellung automatisch aktiviert. Andernfalls wird der vom Adapter vordefinierte Wert dafür verwendet.
 - host: Name des Hosts, auf dem die Adapterinstanz erstellt werden soll. Die Liste der verfügbaren Hosts kann mit dem Befehl `iobroker list hosts` abgefragt werden.
-- port: Hier wird der gewünschte Port eingestellt. Bei normaler Installtion ist dies nicht notwendig, da der native port des Adapters verwendet wird.
+- port: Hier wird der gewünschte Port eingestellt. Bei normaler Installation ist dies nicht notwendig, da der native port des Adapters verwendet wird.
 - desiredInstanceNumber: Hiermit wird die gewünschte ID der Instanz vergeben.
 
-Beipiel:
+Beispiel:
 
 - `iobroker add dwd` - Installiert und erstellt eine Instanz des dwd-Adapters.
-- `iobroker add admin --enabled --port 80` - Erstellt eine zweite (normalerweise ist admin.0 schon vorhanden) Instanz des Admin Adapters auf Port 80 und aktiviert sie.
+- `iobroker add admin --enabled --port 80` - Erstellt eine zweite (normalerweise ist admin.0 schon vorhanden) Instanz des Admin-Adapters auf Port 80 und aktiviert sie.
 
 Falls dies nicht funktionieren sollte, ist die Installation immer über den Befehl `npm install iobroker.adapterName` im ioBroker-Stammverzeichnis möglich. Falls keine Instanz erstellt wird, den Befehl `iobroker add iobroker.adapterName` noch einmal aufrufen.
 
@@ -178,7 +178,8 @@ Entfernt alle Instanzen und Zustände dieses Adapters vollständig von ioBroker 
 
 ***Hinweis:*** Die Einstellungen der Adapterinstanzen können nach dem Löschen nicht wiederhergestellt werden.
 
-Bespiel:
+Beispiel:
+
 `iobroker del dwd` - löscht alle Instanzen und Zustände des dwd Adapters.
 
 ## iobroker del adapterName.instance
@@ -390,7 +391,7 @@ Lesen Sie den einfachen Wert des Status als Listenattribute:
 ## iobroker state set
 Vollständige Syntax: `iobroker state set stateId newValue ack`
 
-Setzt den Wert eines states. "ack" ist standardmäßig "false".
+Setzt den Wert eines states. `ack` ist standardmäßig `false`.
 
 `>iobroker state set sayit.0.tts.text "Text"`
 
@@ -687,7 +688,7 @@ Compact group:          0
 Bedeutung der Felder:
 * Compact mode supported: Der Adapter unterstützt den Compact Mode generell
 * Compact mode enabled: Diese Instanz wird im Compact Modus gestartet
-* Compact group: Die Instanz wird in der Compact-Gruppe gestartet wie angegeben. 0 bedeutet "im Haupt-js-controller-Prozess dieses Hosts" (höheres Risiko, wenigster RAM Bedarf). >0 bedeutet jeweils ein eigener Host-Prozess (weniger Risiko, dafür etwas mehr RAM Bedarf)
+* Compact group: Die Instanz wird in der Compact-Gruppe gestartet wie angegeben. 0 bedeutet "im Haupt-js-controller-Prozess dieses Hosts" (höheres Risiko, wenigster RAM-Bedarf). >0 bedeutet jeweils ein eigener Host-Prozess (weniger Risiko, dafür etwas mehr RAM-Bedarf)
 
 ### compact adapterName.instance group &lt;group-id&gt;
 
