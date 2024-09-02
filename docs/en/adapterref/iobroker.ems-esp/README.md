@@ -16,7 +16,7 @@
 The adapter supports an interface towards the heating systems from Bosch Group using EMS or EMS+ bus. 
 (Buderus / Junkers / Netfit etc). 
 
-## It can interface towards the heating system with use of Web-API calls toward:
+## The adapter can interface towards the heating system using API calls. Supported gateways are:
 
 * km200, km200 hrv, km100, km50, HMC300 or IP-inside (from Bosch Group) 
 
@@ -42,6 +42,14 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* km200: change encryption for private password - pw has to be re-entered 
+* support small screens
+* update dependencies
+
+### 4.8.0 (2024-08-27)
+* ems-esp: disabled parameter to search for extended EMS+ entities due to memory limitations in gateway
+
 ### 4.7.2 (2024-08-17)
 * ems-esp: enable writing on custom entities
 
@@ -54,10 +62,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 
 ### 4.6.4 (2024-08-14)
 * ems-esp: error correction on polling for 3.6.5
-
-### 4.6.3 (2024-08-14)
-* small adjustments
-* dependabot updates dependencies
 
 ## License
 MIT License

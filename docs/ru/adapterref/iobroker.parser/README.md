@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parser/README.md
 title: Адаптер парсера ioBroker
-hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
+hash: JGWFOrJmQiymwBAKSTgMT/ZQacopD19LF+/l++bVvxk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -16,7 +16,7 @@ hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-Этот адаптер анализирует данные, полученные через URL или из файла, используя регулярные выражения. Для каждого правила, настроенного в настройках этого адаптера, будет создано состояние в `parser.<instance number>`, заполненное и обновленное проанализированной информацией.
+Этот адаптер анализирует данные, полученные через URL или из файла, используя регулярные выражения. Для каждого правила, настроенного в настройках этого адаптера, состояние будет создано в `parser.<instance number>` и заполнено и обновлено с помощью проанализированной информации.
 
 ## Настройки
 ### 1. Интервал опроса по умолчанию
@@ -70,7 +70,7 @@ hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
 
 ## Примеры настроек
 | Имя | URL или имя файла | RegEx | Роль | Тип | Единица | Интервал |
-| ----------------- |:-------------------------------------------------------| :----------------------------------- | ----------- | ------- | ---- | -------- |
+|-------------------|:-------------------------------------------------------|:-------------------------------------|-------------|---------|------|-----------|
 | температураМюнхен | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | температура | число | °C | 180000 |
 | cloudRunning | `https://iobroker.net/` | `Privacy Notice` | индикатор | логическое значение | | 60000 |
 | cpuTemperature | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | температура | число | °C | 30000 |
@@ -125,7 +125,7 @@ on("parser.0.kleinanzeigen", (obj) => {
 Значения могут иметь коды качества:
 
 - 0 - ОК
-- 0x82 - URL или файл не могут быть прочитаны.
+- 0x82 - URL или файл не может быть прочитан.
 - 0x44 - Число или строковое значение не найдено в тексте
 
 ## Запуск
@@ -149,6 +149,10 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 2.2.4 (2024-08-26)
+* (bluefox) updated packages
+* (bluefox) corrected a problem with the creation of rule
+
 ### 2.2.2 (2024-07-14)
 * (bluefox) GUI was migrated for admin v7
 

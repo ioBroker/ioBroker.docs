@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Конфигурация JSON ioBroker
-hash: yeuuz/VQ8X9abPD73ngTtsZUJ8pTPMo3NBqR6MK5IEc=
+hash: xCmuorGDcVxcXzyEQt9kKqIeTRsuhVt+ovvAMEkljiY=
 ---
 # Конфигурация JSON ioBroker
 Admin (начиная с версии 6) поддерживает конфигурацию JSON для адаптеров.
@@ -11,7 +11,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 
 Пример файла `jsonConfig.json` с несколькими вкладками можно найти здесь: https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5, а пример с одной панелью — здесь: https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
-Вы можете определить настройки в формате JSON или JSON5. JSON5 более удобен для чтения и поддерживает комментарии.
+Вы можете определить настройки в формате JSON или JSON5. JSON5 более удобен для восприятия человеком и поддерживает комментарии.
 
 Кроме того, в файле JSON необходимо определить в части `io-package.json` в `common`:
 
@@ -104,7 +104,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `level` - уровень QR-кода (`L` `M` `Q` `H`)
 
 - `ip` - адрес привязки
-- `listenOnAllPorts` - добавить 0.0.0.0 к опции
+- `listenOnAllPorts` - добавьте 0.0.0.0 к опции
 - `onlyIp4` - показывать только адреса IP4
 - `onlyIp6` - показывать только адреса IP6
 - `noInternal` - не показывать внутренние IP-адреса
@@ -247,6 +247,8 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `staticLink` - статическая ссылка
 - `label` - многоязычный текст
 - `href` - ссылка. Ссылка может быть динамической, например `#tab-objects/customs/${data.parentId}`
+- `target` - `_blank` или `_self` или имя окна
+- `close` - если true, GUI будет закрыт (используется не для JsonConfig в админке, а для динамического GUI)
 - `button` - показать ссылку как кнопку
 - `вариант` - тип кнопки (`контурная`, `содержащая`, `текстовая`)
 - `color` - цвет кнопки (например, `primary`)
@@ -313,7 +315,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `./adapter/ADAPTER_NAME/custom/customComponent.js`: в этом случае файлы будут загружены из `/adapter/ADAPTER_NAME/custom/customComponents.js`
 - `i18n` - true, если файлы `i18n/xx.json` расположены в том же каталоге, что и компонент или объект перевода `{"text1": {"en": Text1"}}`
 
-- `datePicker` - позволяет пользователю выбирать дату, формат ввода пользовательского интерфейса берется из настроенного `dateFormat` в установке пользователя.
+- `datePicker` - позволяет пользователю выбирать дату ввода, формат пользовательского интерфейса берется из настроенного `dateFormat` в установке пользователя.
 
 компонент возвращает анализируемую строку даты.
 

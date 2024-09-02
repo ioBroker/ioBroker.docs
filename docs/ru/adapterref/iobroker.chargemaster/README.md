@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
+hash: bTuT2dMq1fYAl56LTKtWGcR+jaXJU2IaMDUOJQ5p+oI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
@@ -31,7 +31,7 @@ hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
 ## Адаптер для управления одним или несколькими зарядными устройствами для электромобилей с использованием солнечной энергии
 **!!! ЭТОТ АДАПТЕР ВСЕ ЕЩЕ НАХОДИТСЯ В СТАДИИ РАЗРАБОТКИ!!!**
 
-Адаптер для управления одним или несколькими зарядными устройствами для электромобилей (wallbox) с использованием энергии от солнечных батарей. В настоящее время адаптер поддерживает до 3 настенных станций для электромобилей для управления зарядкой доступной мощности сети с потенциальным использованием избыточной энергии от солнечных батарей.
+Адаптер для управления одним или несколькими зарядными устройствами для электромобилей (Wallbox) с использованием избыточной энергии фотоэлектрических систем.
 
 ## Настройки
 Для подключения к настенным устройствам введите в конфигурацию штаты с необходимыми данными.
@@ -40,7 +40,7 @@ hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
 Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения дополнительных сведений и информации о том, как отключить отчеты об ошибках, обратитесь к [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry инициируются, начиная с js-controller 3.0.
 
 ## Пожертвовать
-<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Если вам понравился этот проект � или вы просто чувствуете себя щедрым, подумайте о том, чтобы купить мне пива. Ура! :beers:
+<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете щедрость, подумайте о том, чтобы угостить меня пивом. Ура! :beers:
 
 ## Протестировано с
 - 3 зарядных устройства go-E и Костал ПикоБА
@@ -49,7 +49,7 @@ hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.11.0 (2024-08-24)
+### 0.11.0 (2024-08-29)
 
 -   (HombachC) implement variable wallbox amount 
 -   (HombachC) fix errors in wallbox control

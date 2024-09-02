@@ -139,6 +139,9 @@ CCU / Homematic поддерживает различные типы устро�
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2024-08-26)
+* (bluefox) Updated packages
+
 ### 2.0.0 (2024-07-18)
 * (bluefox) Updated packages
 * (bluefox) Removed support of Node.js 16
@@ -153,9 +156,6 @@ CCU / Homematic поддерживает различные типы устро�
 * (JeyCee) Added support for the device manager
 * (bluefox) Added JSON config
 * (foxriver76) port to adapters internal `setTimeout/setInterval` methods
-
-### 1.15.19 (2023-08-08)
-* (bluefox) Updated packages
 
 ### Older entries
 [here](OLD_CHANGELOG.md)

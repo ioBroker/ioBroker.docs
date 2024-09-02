@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parser/README.md
 title: ioBroker-Parser-Adapter
-hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
+hash: JGWFOrJmQiymwBAKSTgMT/ZQacopD19LF+/l++bVvxk=
 ---
 ![Logo](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -24,13 +24,13 @@ Dieser Standard-Pollingintervallwert wird verwendet, wenn für einen Eintrag in 
 
 **Hinweis:** Verwenden Sie kein zu aggressives Abfrageintervall, insbesondere für Website-URLs. Wenn Sie beispielsweise den Preis Ihrer Aktien von einer bestimmten Website abrufen möchten, sollten Sie wahrscheinlich mit einem Intervall von nur 24 Stunden (= 86400000 ms) auskommen, wenn Sie kein Daytrader sind. Wenn Sie zu oft versuchen, Daten von bestimmten URLs abzurufen, kann die Website Sie sperren und auf eine Server-Blacklist setzen. Verwenden Sie das Abfrageintervall daher bitte mit Vorsicht.
 
-### 2. Zeitüberschreitung der Anforderung
+### 2. Anforderungs-Timeout
 Geben Sie an, wie lange der Adapter bei Website-Abfragen auf eine HTTP-Antwort wartet
 
 ### 3. Verzögerung zwischen Anfragen
 Geben Sie an, wie lange der Adapter bei der Ausführung von Remoteabfragen zwischen HTTP-Anfragen wartet. Nützlich beim Abrufen von Daten von langsamen Hosts oder über langsame Verbindungen, um eine Überlastung beider Hosts zu vermeiden. Null (Standard) bedeutet keine Verzögerung.
 
-Diese Verzögerung gilt pro Host. Wenn Remoteabfragen so konfiguriert sind, dass sie von mehreren Remotehosts abgerufen werden, wird jeder Host parallel abgefragt.
+Diese Verzögerung gilt für jeden Host einzeln. Wenn Remoteabfragen so konfiguriert sind, dass sie von mehreren Remotehosts abgerufen werden, wird jeder Host parallel abgefragt.
 
 Die Verzögerung ist ein Mindestwert zwischen dem Einleiten jeder Anfrage. Das heißt, wenn das Lesen einer Anfrage länger dauert als dieser Verzögerungsparameter, wird die nächste sofort gestartet, sobald der Lesevorgang abgeschlossen ist.
 
@@ -70,7 +70,7 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
 
 ## Beispieleinstellungen
 | Name | URL oder Dateiname | RegEx | Rolle | Typ | Einheit | Intervall |
-| ----------------- |:-------------------------------------------------------| :----------------------------------- | ----------- | ------- | ---- | -------- |
+|-------------------|:-------------------------------------------------------|:-------------------------------------|-------------|---------|------|-----------|
 | TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Zahl | °C | 180000 |
 | cloudRunning | `https://iobroker.net/` | `Privacy Notice` | Indikator | Boolesch | | 60000 |
 | CPU-Temperatur | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Zahl | °C | 30000 |
@@ -149,6 +149,10 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 2.2.4 (2024-08-26)
+* (bluefox) updated packages
+* (bluefox) corrected a problem with the creation of rule
+
 ### 2.2.2 (2024-07-14)
 * (bluefox) GUI was migrated for admin v7
 

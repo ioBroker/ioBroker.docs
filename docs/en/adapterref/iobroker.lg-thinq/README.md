@@ -733,6 +733,7 @@ lg-thinq.0.xxx.area must be filled!
 ### **WORK IN PROGRESS**
 
 -   (Lucky-ESA) Update dependencies
+-   (Lucky-ESA) Changed autoDryRemainTime max value
 
 ### 1.0.1 (2024-05-21)
 

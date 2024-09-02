@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: VZ/DSrc+CJb1AdeCUXgibAgMsPYcfamP8YaiwwDlnEY=
+hash: HJryfexLIXphK1YlIMjqCipowD4GymxAdXbogHES4Gs=
 ---
 ![标识](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.eusec.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.eusec.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.eusec.svg)
 ![总下载量](https://img.shields.io/npm/dt/iobroker.eusec.svg)
 ![节点版本要求](https://img.shields.io/node/v/iobroker.eusec)
@@ -15,148 +15,79 @@ hash: VZ/DSrc+CJb1AdeCUXgibAgMsPYcfamP8YaiwwDlnEY=
 ![安装数量（稳定）](https://iobroker.live/badges/eusec-stable.svg)
 ![依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.eusec)
 ![已知漏洞](https://snyk.io/test/github/bropat/ioBroker.eusec/badge.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
 # IoBroker.euSec
-**测试：** ![测试与发布](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
-这是一个用于与 Eufy 设备通信的 [使用 [eufy-security-client 的 ioBroker](https://www.iobroker.net) 适配器](https://github.com/bropat/eufy-security-client) 库。
+这是一个用于与 Eufy 设备通信的[使用 [eufy-security-client](https://www.iobroker.net) 适配器的 ioBroker](https://github.com/bropat/eufy-security-client)库。
 
-如果您欣赏我的工作和进步并想支持我，您可以在这里进行：
+如果您欣赏我的工作和进步并且想要支持我，您可以在这里这样做：
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E332Q6Z)
+[![ko-fi]（https://www.ko-fi.com/img/githubbutton_sm.svg）](https://ko-fi.com/E1E332Q6Z)
 
-**此项目不隶属于 Anker 和 Eufy (Eufy Security)。这是一个在业余时间维护的个人项目。**
+**本项目与 Anker 和 Eufy（Eufy Security）无关。这是一个业余时间维护的个人项目。**
 
 ＃＃ 描述
-该适配器允许通过连接到 Eufy 云服务器和本地/远程站来控制[Eufy安全设备](https://us.eufylife.com/collections/security)。
+该适配器允许通过连接到 Eufy 云服务器和本地/远程站来控制[Eufy 安全设备](https://us.eufylife.com/collections/security)。
 
-您需要提供您的云登录凭据。该适配器连接到您的云帐户并通过 HTTPS 轮询所有设备数据。现在还支持与 Eufy 站/设备的本地或远程 P2P 连接。然而，连接到 Eufy Cloud 始终是先决条件。
+您需要提供您的云登录凭据。适配器连接到您的云帐户并通过 HTTPS 轮询所有设备数据。现在还支持与 Eufy 站/设备的本地或远程 P2P 连接。但是，连接到 Eufy Cloud 始终是先决条件。
 
 一个适配器实例将显示来自一个 Eufy Cloud 帐户的所有设备并允许控制它们。
 
-＃＃ 特征
-* 支持本地和远程p2p连接到站点
-* 两因素认证
-* Livestream作为HLS流（支持所有平台，但引入延迟）
-* 始终保存最后的 HLS 直播流以供以后观看
-* 收到推送通知时下载事件视频（异步）
-* 获取直播或下载视频的 jpeg 缩略图
-* 基站：
-  * 状态：
-    * 配置守卫模式
-    * 当前守卫模式
-    * 姓名
-    * 模型
-    * 序列号
-    * 软件版本
-    * 硬件版本
-    * MAC地址
-    * 局域网IP地址
-  * 行动：
-    * 改变守卫模式
-    * 触发报警声音
-    * 重置闹钟声音
-    * 重启站
-  * 活动：
-    * 报警模式改变
-* 相机：
-  * 状态：
-    * 线上/线下等
-    * 电池 ％
-    * 电池温度
-    * 姓名
-    * 模型
-    * 序列号
-    * 软件版本
-    * 硬件版本
-    * MAC地址
-    * 无线网络RSSI
-    * 过滤自上次充电以来的虚假事件
-    * 自上次充电以来保存/记录的事件
-    * 自上次充电以来的总事件数
-    * 自上次充电以来的使用天数
-    * 还有更多...
-  * 行动：
-    * 开始直播（hls；也支持本地直播）
-    * 停止直播 (hls)
-    * 启用/禁用设备
-    * 启用/禁用自动夜视
-    * 启用/禁用 LED（仅限摄像头 2 产品、室内摄像头、泛光摄像头、单人摄像头和门铃）
-    * 启用/禁用防盗检测（仅限摄像头2产品）
-    * 启用/禁用运动检测
-    * 启用/禁用宠物检测（仅限室内摄像机）
-    * 启用/禁用声音检测（仅限室内摄像机）
-    * 启用/禁用RTSP流（仅限camera2产品、室内摄像机和单机摄像机）
-    * 更改视频水印设置
-    * 还有更多...
-  * 活动：
-    * 检测到运动
-    * 检测到人员
-    * 响铃（仅限门铃）
-    * 检测到哭泣（仅限室内摄像机）
-    * 检测到声音（仅限室内摄像机）
-    * 检测到宠物（仅限室内摄像机）
-* 传感器：
-  * 进入传感器：
-    * 状态：
-      * 线上/线下等
-      * 低电量
-      * 姓名
-      * 模型
-      * 序列号
-      * 软件版本
-      * 硬件版本
-    * 活动：
-      * 打开关闭
-  * 运动传感器：
-    * 状态：
-      * 线上/线下等
-      * 低电量
-      * 姓名
-      * 模型
-      * 序列号
-      * 软件版本
-      * 硬件版本
-    * 活动：
-      * 检测到运动
-* 键盘：
-  * 状态：
-    * 线上/线下等
-    * 低电量
-    * 姓名
-    * 模型
-    * 序列号
-    * 软件版本
-    * 硬件版本
-* 锁：
-  * 状态：
-    * 线上/线下等
-    * 电池 ％
-    * 锁定状态
-    * 姓名
-    * 模型
-    * 序列号
-    * 软件版本
-    * 硬件版本
-    * 无线网络RSSI
-  * 行动：
-    * 锁定/解锁
-* 更多内容即将推出...
-
 ## 文档
-看[这里](https://bropat.github.io/ioBroker.eusec/)
+查看文档[这里](https://bropat.github.io/ioBroker.eusec/)。
 
-## 已知的工作设备
-有关支持的设备的信息可以找到[这里](https://github.com/bropat/eufy-security-client#known-working-devices)。
+## 已知可工作的设备
+关于支持的设备的信息可以在[这里](https://github.com/bropat/eufy-security-client#known-working-devices)中找到。
 
 ## 如何报告问题和功能请求
-请为此使用 GitHub 问题。
+请使用 GitHub 问题来解决此问题。
 
-最好的方法是将适配器设置为调试日志模式（请参阅[这里](https://bropat.github.io/ioBroker.eusec/#/debugging)）。然后，请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从管理员获取，因为管理员会截断行）。
+最好将适配器设置为调试日志模式（参见[这里](https://bropat.github.io/ioBroker.eusec/#/debugging)）。然后请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从管理员处获取，因为管理员会切断线路）。
 
 ## Changelog
+
+### 1.3.0 (2024-08-27)
+
+* (bropat) Requires ioBroker.admin version >= 7.0.12
+* (bropat) Requires ioBroker.js-controller version >= 6.0.0
+* (bropat) Requires node version >= 20
+* (bropat) Added new setting to choose country indipendently of ioBroker setting
+* (bropat) New go2rtc streaming implementation
+* (bropat) Added messagebox support (sendTo) to exhibit new commands (snooze #294, chime, quickResponse, getQuickResponseVoices, pollRefresh)
+* (bropat) Fixed deletion of obsolete devices, channels and states
+* (bropat) Added support for Video Smart Lock S330 (T8530)
+* (bropat) Added support for Smart Lock C210 (T8502)
+* (bropat) Added support for Smart Lock C220 (T8506)
+* (bropat) Added support for Smart Lock S230 (T8510P)
+* (bropat) Added support for Smart Lock S231 (T8520P)
+* (bropat) Added support for Retrofit Smart Lock E110 (T8503)
+* (bropat) Added support for Retrofit Smart Lock E130 (T8504)
+* (bropat) Added support for Smart Drop S300 (T8790)
+* (bropat/martijnpoppen) Added support for Video Doorbell E340 (T8214)
+* (martijnpoppen) Added support for MiniBase Chime (T8023)
+* (bropat/martijnpoppen) Added support for eufyCam E330 (Professional; T8600; #391)
+* (bropat/martijnpoppen) Added support for Solar Wall Light Cam S120 (T84A0; #406)
+* (bropat/martijnpoppen) Added support for SoloCam S340 (T8170; #399)
+* (bropat) Added support for Indoor Cam S350 (T8416; #403)
+* (bropat) Added support for Floodlight Cam E340 (T8425, #428)
+* (bropat) Added support for SoloCam C210 (T8B00)
+* (bropat) Storage of files switched to [Meta-Storage](https://iobroker.readthedocs.io/de/latest/bestpractice/storefiles.html#meta-storage)
+* (bropat) Implemented workaround for livestreaming issue introduced by CVE-2023-46809 in Node.js (18.19.1=<; 20.11.1=<; 21.6.2=<)
+* (bropat) Changed ffmpeg static package from `ffmpeg-static` to `ffmpeg-for-homebridge`
+* (bropat) Fixed issue #432
+* (bropat) Fixed issue #422
+* (bropat) Fixed issue #420
+* (bropat) Fixed issue #387
+* (bropat) Fixed issue #380
+* (bropat) Fixed issue #379
+* (bropat) Fixed issue #376
+* (bropat) Fixed issue #371
+* (bropat) Updated version of the package go2rtc-static (1.8.5)
+* (bropat) Updated version of the package eufy-security-client (3.0.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (3.0.0)
 
 ### 1.2.1 (2023-11-04)
 
@@ -704,7 +635,7 @@ hash: VZ/DSrc+CJb1AdeCUXgibAgMsPYcfamP8YaiwwDlnEY=
 
 MIT License
 
-Copyright (c) 2020-2023 bropat <patrick.broetto@gmail.com>
+Copyright (c) 2020-2024 bropat <patrick.broetto@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -74,8 +74,8 @@ The following States are available:
 sendTo('twinkly.0', 'uploadMovie', {
     connection : 'Fenster',
     frames     : [
-        [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
-        [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
+        [{"r":18,"g":105,"b":58},{"r":18,"g":105,"b":58}, ...],
+        [{"r":18,"g":105,"b":58},{"r":18,"g":105,"b":58}, ...],
         ...
     ],
     delay : 250
@@ -118,19 +118,19 @@ By sending the colors in the property `colors` you get an array of frames return
 ```
 sendTo('twinkly.0', 'generateFrame', {
     connection : 'Fenster',
-    color      : '#dd0055' // or {r: 221, g: 0, b: 85}
+    color      : '#12693a' // or {"r": 18,"g":105,"b":58}
 });
 response => {
-    // [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
+    // [{"r":18,"g":105,"b":58},{"r":18,"g":105,"b":58}, ...]
     ...
 }
 
 sendTo('twinkly.0', 'generateFrame', {
     connection : 'Fenster',
-    colors     : ['#dd0055', ...] // or [{r: 221, g: 0, b: 85}, ...]
+    colors     : ['#12693a', ...] // or [{"r":18,"g":105,"b":58}, ...]
 });
 response => {
-    // [[{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...], ..]
+    // [[{"r":18,"g":105,"b":58},{"r":18,"g":105,"b":58}, ...], ..]
     ...
 }
 ```
@@ -140,6 +140,9 @@ response => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* Update dependencies
+
 ### 1.0.14 (2023-07-19)
 * Add formatting to some states (hex-values -> uppercase, uptime in hours)
 * Handle Sentry message (IOBROKER-TWINKLY-8P)
@@ -173,7 +176,7 @@ response => {
 ## License
 MIT License
 
-Copyright (c) 2023 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2024 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -119,6 +119,10 @@ Event with Person: frigate.0.events.after.label = person
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2024-08-30)
+
+- fixed to much states
+
 ### 1.3.0 (2024-07-29)
 
 - fix for frigate v0.14

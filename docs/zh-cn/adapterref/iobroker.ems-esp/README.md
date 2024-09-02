@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: elU8v7ZAgneVz347C06yN0EWDQkmPmhe8/wbzQUEObM=
+hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -20,7 +20,7 @@ hash: elU8v7ZAgneVz347C06yN0EWDQkmPmhe8/wbzQUEObM=
 该适配器支持使用 EMS 或 EMS+ 总线与博世集团的加热系统进行接口。
 （Buderus / Junkers / Netfit 等）。
 
-## 它可以通过使用 Web-API 调用与加热系统交互：
+## 适配器可以使用 API 调用与加热系统交互。支持的网关包括：
 * km200、km200 hrv、km100、km50、HMC300 或 IP-inside（来自博世集团）
 
 * 带有 ESP32 芯片的 ems-esp 网关（https://github.com/emsesp/EMS-ESP32）。
@@ -42,6 +42,14 @@ ioBroker ems-esp 适配器可以读取和写入两个网关的数据以控制所
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* km200: change encryption for private password - pw has to be re-entered 
+* support small screens
+* update dependencies
+
+### 4.8.0 (2024-08-27)
+* ems-esp: disabled parameter to search for extended EMS+ entities due to memory limitations in gateway
+
 ### 4.7.2 (2024-08-17)
 * ems-esp: enable writing on custom entities
 
@@ -54,10 +62,6 @@ ioBroker ems-esp 适配器可以读取和写入两个网关的数据以控制所
 
 ### 4.6.4 (2024-08-14)
 * ems-esp: error correction on polling for 3.6.5
-
-### 4.6.3 (2024-08-14)
-* small adjustments
-* dependabot updates dependencies
 
 ## License
 MIT License

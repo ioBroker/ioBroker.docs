@@ -711,6 +711,11 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 3.0.21 (2024-09-01)
+* (simatec) Fix Onedrive Notification
+* (simatec) Fix Zigbee2MQTT Backup
+* (simatec) dependencies updated
+
 ### 3.0.20 (2024-08-22)
 * (simatec) Responsive Design for Tab added
 * (simatec) Responsive Design for jsonConfig added

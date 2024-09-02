@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
+hash: bTuT2dMq1fYAl56LTKtWGcR+jaXJU2IaMDUOJQ5p+oI=
 ---
 ![Logo](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
@@ -31,7 +31,7 @@ hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
 ## Adapter zur Steuerung eines oder mehrerer EV-Ladegeräte unter Nutzung von PV-Energie
 **!!! DIESER ADAPTER STELLT NOCH EINEN ENTWICKLUNGSSTAND DAR!!!**
 
-Adapter zur Steuerung eines oder mehrerer EV-Ladegeräte (Wallboxen) mit Nutzung von PV-Energie. Der Adapter verwaltet derzeit bis zu 3 EV-Wallboxen, um das Laden des verfügbaren Netzstroms mit potenzieller Nutzung von PV-Überschussenergie zu verwalten.
+Adapter zur Steuerung eines oder mehrerer EV-Ladegeräte (Wallboxen) mit Nutzung von PV-Überschussenergie.
 
 ## Einstellungen
 Um eine Verbindung zu den Wallboxen herzustellen, geben Sie die Zustände mit den benötigten Daten in die Konfiguration ein.
@@ -49,7 +49,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.11.0 (2024-08-24)
+### 0.11.0 (2024-08-29)
 
 -   (HombachC) implement variable wallbox amount 
 -   (HombachC) fix errors in wallbox control

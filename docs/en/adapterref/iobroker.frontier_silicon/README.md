@@ -19,22 +19,24 @@ Provides support for media players, internet radios and SmartRadios equipped wit
 
 NOTE: This adapter has been transferred to iobroker-community-adapters for maintenance. Thus planned features (see below) will not be implemented. Only important bug fixes and dependency updates will be released in the future. However PRs with bug fixes or feature enhancements are always welcome.
 
-RELEASE NOTES: Version 0.1.x includes some Breaking Changes:
+RELEASE NOTES: Version 0.3.x includes some Breaking Changes:
 
-- node>=14, js-contoller>=4 and admin>=5 required
-
+- node>=18, js-contoller>=5 and admin>=6 required  
 Upgrade your ioBroker to at least this software level, if you want to use this adapter
 
-- PIN encryption and validity check of all parameters in config UI
+- PIN encryption and validity check of all parameters in config UI  
 If you update this adapter from a previous version instead of a new installation, the adapter will not start, even if your PIN in your config is correct and has not been changed. To fix this, simply enter the same previous PIN once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
 
-- The type of "frontier_silicon.X.modes.selectPreset" changed from "string" to "number"
+- The type of "frontier_silicon.X.modes.selectPreset" changed from "string" to "number"  
 If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:
 `State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"`
 To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
 
-- Synchronization of power, volume and mute states with the UNDOK App
+- Synchronization of power, volume and mute states with the UNDOK App  
 Synchronization with the UNDOK App here means that power, volume and mute settings changed by the UNDOK App will now also be updated in the states of this adapter.  Due to the limitations of the FSAPI protocol the state synchronization of the UNDOK App with the adapter still is unreliable and will not be instantaneous but only happen when e.g. a preset or a mode is changed using the UNDOK App.
+
+- Cyclic connection retry instead of disabling the adapter  
+Previously the adapter was terminated after 10 session connection attempts when the device was unreachable due to long-lasting network problems like router restarts, LAN or WiFi outage. Now the adapter will retry after every session refresh interval until the device is reachable again. If you want to avoid log entries regarding these retries you have to stop the adapter manually. If your network problem is fixed while the retry period is still ongoing, simply restart the adapter.
 
 ## Features
 
@@ -207,6 +209,14 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2024-08-27) - 2024H2 maintenance release
+
+- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
+- (pdbjjens) Change: Removed .npmignore
+- (pdbjjens) Change: Cyclic connection retry instead of disabling the adapter (#191)
+- (pdbjjens) New: Updated dependencies
+- (pdbjjens) Fix: Replace deprecated method "deleteChannel" by "delObject" (#224)
+
 ### 0.2.0 (2024-01-28)
 
 - (pdbjjens) Change: Increase minor version number
@@ -233,13 +243,6 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 - (pdbjjens) New: Re-establish session if network connection is lost
 - (pdbjjens) New: Remove obsolete unit testing
 - (pdbjjens) Fix: Prevent crashes if radio device is not reachable
-
-### 0.0.11 (2023-03-30) 2023 maintenance release
-
-- (pdbjjens) New: Transfer of adapter to community
-- (pdbjjens) New: Updated dependencies
-- (pdbjjens) New: Use adapter-dev instead of gulp translate
-- (pdbjjens) Fix: Prevent js-controller >=3.2.x warnings regarding non-existent objects and typeErrors
 
 ## Legal Notices
 

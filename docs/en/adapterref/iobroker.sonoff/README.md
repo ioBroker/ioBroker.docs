@@ -122,6 +122,9 @@ States:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.2.0 (2024-08-28)
+* (bluefox) Added information about connected clients in the server mode
+
 ### 3.1.2 (2024-08-17)
 * (mattreim) updated packages
 

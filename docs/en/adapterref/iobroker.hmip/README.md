@@ -66,8 +66,9 @@ https://github.com/ioBroker/AdapterRequests/issues/62
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 1.24.1 (2024-08-06)
+### 1.24.3 (2024-09-02)
 * (bluefox) GUI was migrated for Admin 7
+* (bluefox) Removed gulp
 
 ### 1.23.4 (2024-07-07)
 * (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected

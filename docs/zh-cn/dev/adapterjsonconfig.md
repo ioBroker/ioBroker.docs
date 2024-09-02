@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: yeuuz/VQ8X9abPD73ngTtsZUJ8pTPMo3NBqR6MK5IEc=
+hash: xCmuorGDcVxcXzyEQt9kKqIeTRsuhVt+ovvAMEkljiY=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -11,9 +11,9 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 具有多个选项卡的`jsonConfig.json`文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
-您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并且支持注释。
+您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并支持注释。
 
-此外，对于 JSON 文件，您必须在`common` 部分的`io-package.json` 中定义：
+此外，对于 JSON 文件，您必须在 `common` 部分的 `io-package.json` 中定义：
 
 ```json
 {
@@ -32,7 +32,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapter-react-v5/blob/main/schemas/jsonConfig.json
 
-所有标签、文本、帮助文本都可以是多种语言或仅为字符串。
+所有标签、文本、帮助文本都可以是多种语言或仅仅是字符串。
 
 *如果属性名称以“_”开头，则不会保存在对象中。*
 
@@ -247,6 +247,8 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 - `staticLink` - 静态链接
 - `label` - 多语言文本
 - `href` - 链接。链接可以是动态的，例如 `#tab-objects/customs/${data.parentId}`
+- `target` - `_blank` 或 `_self` 或窗口名称
+- `close` - 如果为真，GUI 将被关闭（不是用于管理中的 JsonConfig，而是用于动态 GUI）
 - `按钮` - 将链接显示为按钮
 - `variant` - 按钮类型（`outlined`, `contained`, `text`）
 - `color` - 按钮颜色（例如 `primary`）

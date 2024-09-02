@@ -21,7 +21,7 @@ This adapter can create three types of scenes:
 ## Scenes
 **Scenes** will be created if setting "set on false" are not used. 
 Every scene can be configured individually, so you can have **scenes** and **groups** in one instance of adapter.
-The **scene** is just a list of states id and values, that these states must have by activation of the scene. E.g. we have created on the scene `scene.allLightInBath`:
+The **scene** is just a list of states id and values, that these states must have by activation of the scene. E.g., we have created on the scene `scene.allLightInBath`:
 
 ```
   scene.allLightInBath
@@ -48,7 +48,7 @@ After the fan will be switched off the value of `scene.allLightInBath` will go t
 States with delay are not participated in calculations.
 
 You can test the scene with a "play" button.
-Additionally, you can link this **scene** direct with other scene ID. E.g. if you have a sensor on the door, you can select it as a trigger:
+Additionally, you can link this **scene** direct with other scene ID. E.g., if you have a sensor on the door, you can select it as a trigger:
 
 ```
   trigger
@@ -152,6 +152,9 @@ sendTo(
 -->
 
 ## Changelog
+### 3.2.3 (2024-08-26)
+* (bluefox) Packages updated
+
 ### 3.2.1 (2024-06-21)
 * (bluefox) GUI migrated for the new `adapter-react` library
 

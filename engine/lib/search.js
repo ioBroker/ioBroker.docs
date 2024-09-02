@@ -2,8 +2,8 @@
 
 const config = require('../config');
 const MiniSearch = require('minisearch');
-const path = require('path');
-const fs = require('fs');
+const path = require('node:path');
+const fs = require('node:fs');
 const utils = require('../build-lib/utils');
 //const querystring = require('querystring');
 //const url = require('url');
@@ -97,7 +97,7 @@ function init(app) {
 
 function search(lang, text) {
     if (!langs[lang]) {
-        return [{id: 0, text: 'language unknown'}];
+        return [{ id: 0, text: 'language unknown' }];
     } else {
         const r = langs[lang].search(text).map(s =>
             s.title = Object.assign({}, s, titles[lang][s.id]));

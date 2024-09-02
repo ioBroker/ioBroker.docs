@@ -785,6 +785,7 @@ Default without zone:
 
 -   (Lucky-ESA) Added Landroid IP
 -   (Lucky-ESA) Fixed interval
+-   (Lucky-ESA) Fixed Vision Edgecut
 
 ### 3.0.2 (2024-05-12)
 

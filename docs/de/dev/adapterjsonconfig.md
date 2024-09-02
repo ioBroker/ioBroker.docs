@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: yeuuz/VQ8X9abPD73ngTtsZUJ8pTPMo3NBqR6MK5IEc=
+hash: xCmuorGDcVxcXzyEQt9kKqIeTRsuhVt+ovvAMEkljiY=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -189,7 +189,7 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
+- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
 - `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
 - „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
@@ -247,6 +247,8 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `staticLink` – statischer Link
 - `label` - mehrsprachiger Text
 - `href` – Link. Der Link könnte dynamisch sein, wie `#tab-objects/customs/${data.parentId}`
+- `target` - `_blank` oder `_self` oder Fenstername
+- „close“ – wenn wahr, wird die GUI geschlossen (wird nicht für JsonConfig im Admin verwendet, sondern für die dynamische GUI)
 - „Button“ – einen Link als Schaltfläche anzeigen
 - „Variante“ – Art der Schaltfläche („umrissen“, „enthalten“, „Text“)
 - „Farbe“ – Farbe der Schaltfläche (z. B. „primär“)
@@ -352,10 +354,10 @@ Die Komponente gibt eine analysierbare Datumszeichenfolge zurück.
 Eingabefeld mit Dateiauswahl
 
 - „disableEdit“ – wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog
-- „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
+- „limitPath“ – beschränkt die Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und den folgenden Pfad (nicht obligatorisch)
 - `filterFiles` - wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
 - `allowUpload` - erlaubtes Hochladen von Dateien
-- `allowDownload` – erlaubter Download von Dateien (Standard: true)
+- `allowDownload` – Download von Dateien erlaubt (Standard: true)
 - `allowCreateFolder` – erlaubte Erstellung von Ordnern
 - `allowView` – Kachel-Ansicht erlaubt (Standard: true)
 - `showToolbar` – Symbolleiste anzeigen (Standard: true)
@@ -381,7 +383,7 @@ adapter.on('message', obj => {
 });
 ```
 
-- `Senden an auswählen`
+- `wählenSendenAn`
 
 Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
 
@@ -509,7 +511,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `agreeText` - Text der vereinbarten Schaltfläche
 - `checkBox` - Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert.
 
-- `checkLicense` – Eine sehr spezielle Komponente, um die Lizenz online zu überprüfen. Es werden genau die Eigenschaften `license` und `useLicenseManager` nativ benötigt.
+- `checkLicense` – Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die nativen Eigenschaften `license` und `useLicenseManager` benötigt.
 - `uuid` – UUID prüfen
 - `version` – Version prüfen
 
@@ -578,7 +580,7 @@ Alle Typen könnten haben:
 - „Button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
 - „buttonTooltip“ – Button-Tooltip (Standard: „Daten nach Instanz anfordern“)
 - `buttonTooltipNoTranslation` – Button-Tooltip nicht übersetzen
-- `placeholder` – Platzhalter (zur Textsteuerung)
+- `placeholder` - Platzhalter (zur Textsteuerung)
 - `noTranslation` - übersetzt keine Auswahlen oder andere Optionen (nicht für Hilfe, Beschriftung oder Platzhalter)
 - `onChange` - Struktur in der Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - `doNotSave` - Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird

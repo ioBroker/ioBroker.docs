@@ -30,7 +30,7 @@
 
 **!!! THIS ADAPTER IS STILL REPRESENTING AN DEVELOPMENT STATE !!!**
 
-Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy. Adapter currently handles with up to 3 EV wallboxes to manage charging available grid power  with potential use of PV surplus energy. 
+Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV surplus energy. 
 
 ## Settings
 
@@ -43,13 +43,13 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 ## Donate
 
 <a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>  
-If you enjoyed this project � or just feeling generous, consider buying me a beer. Cheers! :beers:
+If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.11.0 (2024-08-24)
+### 0.11.0 (2024-08-29)
 
 -   (HombachC) implement variable wallbox amount 
 -   (HombachC) fix errors in wallbox control

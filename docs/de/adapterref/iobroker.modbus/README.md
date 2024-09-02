@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: id6hgF37n9I59yegQfQ2Jh4HNKHICnikRXvvgefINo0=
+hash: auS1mi7UAOtL+ObAEH1tEVhlw1cO4PxbLRXgZDz/Br4=
 ---
 ![Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -29,7 +29,7 @@ IP-Adresse des Modbus-Partners.
 ### Hafen
 TCP-Port des Modbus-Partners, wenn als Master (Client) konfiguriert, oder eigener Port, wenn als Slave (Server) konfiguriert.
 
-### Geräte ID
+### Geräte-ID
 Modbus-Geräte-ID. Wichtig, wenn eine TCP/Modbus-Brücke verwendet wird.
 
 ### Typ
@@ -51,7 +51,7 @@ Ohne dieses Flag werden die Bits wie folgt adressiert: `0 => 15, 1 => 14, 2 => 1
 Wenn dieses Flag aktiviert ist, werden die Bits wie folgt adressiert: `0 => 0, 1 => 1, 2 => 2, ..., 15 => 15`.
 
 ### Adressen nicht auf 16 Bit (Wort) ausrichten
-Normalerweise werden die Adressen der Spulen und diskreten Eingänge auf 16 Bit ausgerichtet.
+Normalerweise sind die Adressen der Spulen und diskreten Eingänge auf 16 Bit ausgerichtet.
 So werden Adressen von 3 bis 20 auf 0 bis 32 ausgerichtet.
 Wenn diese Option aktiviert ist, werden die Adressen nicht ausgerichtet.
 
@@ -71,7 +71,7 @@ Zyklisches Poll-Intervall (Nur für Master relevant)
 Wiederverbindungsintervall (Nur für Master relevant)
 
 ### Zeitüberschreitung beim Lesen
-Timeout für Leseanfragen in Millisekunden. Wenn in dieser Zeit keine Antwort von einem Slave eingeht, wird die Verbindung beendet.
+Timeout für Leseanfragen in Millisekunden. Wenn innerhalb dieser Zeit keine Antwort von einem Slave eingeht, wird die Verbindung beendet.
 
 ### Pulszeit
 Wenn Impulse für Spulen verwendet werden, definiert dies das Intervall in Millisekunden, wie lang der Impuls ist.
@@ -103,7 +103,7 @@ Normalerweise wird der Wert nicht in ioBroker geschrieben, wenn er sich nicht ge
 Dieses Flag ermöglicht die Aktualisierung des Zeitstempels des Werts bei jedem Zyklus.
 
 ### Keine Adressen in die ID einschließen
-Fügen Sie der generierten ioBroker-ID keine Adresse hinzu. `10_Input10` vs. `Input10`.
+Fügen Sie der generierten ioBroker-ID keine Adresse hinzu. `10_Input10` vs. `_Input10`.
 
 ### Punkte in der ID beibehalten
 Mit diesem Flag lautet der Name `Inputs.Input10`. Ohne => `Inputs_Input10`.
@@ -137,7 +137,7 @@ Dieser Faktor wird verwendet, um den ausgelesenen Wert vom Bus für die statisch
 Dieser Offset wird zum gelesenen Wert nach der obigen Multiplikation addiert. Die Berechnung sieht also folgendermaßen aus: `val = x * Factor + Offset`.
 
 ### Formel
-Dieses Feld kann für erweiterte Berechnungen verwendet werden, wenn Faktor und Offset nicht ausreichen. **Wenn dieses Feld gesetzt ist, werden die Felder Faktor und Offset ignoriert.** Die Formel wird von der Funktion eval() ausgeführt. Daher werden alle gängigen Funktionen unterstützt. Insbesondere die mathematischen Funktionen. Die Formel muss der Javascript-Syntax entsprechen, achten Sie daher auch auf Groß- und Kleinschreibung.
+Dieses Feld kann für erweiterte Berechnungen verwendet werden, wenn Faktor und Offset nicht ausreichen. **Wenn dieses Feld gesetzt ist, werden die Felder Faktor und Offset ignoriert.** Die Formel wird von der Funktion eval() ausgeführt. Daher werden alle gängigen Funktionen unterstützt. Insbesondere die mathematischen Funktionen. Die Formel muss der JavaScript-Syntax entsprechen, achten Sie daher auch auf Groß- und Kleinschreibung.
 
 In der Formel muss "x" für den aus Modbus ausgelesenen Wert verwendet werden. Beispiel: `x * Math.pow(10, sf['40065'])`
 
@@ -164,13 +164,13 @@ Zyklisches Schreiben
 
 ### SF
 Wert als Skalierungsfaktor verwenden.
-Dies ist für dynamische Skalierungsfaktoren erforderlich, die auf manchen Systemen über Werte auf der Schnittstelle bereitgestellt werden.
+Dies ist für die Verwendung durch dynamische Skalierungsfaktoren erforderlich, die auf einigen Systemen über Werte auf der Schnittstelle bereitgestellt werden.
 Wenn ein Wert mit diesem Flag markiert ist, wird der Wert in einer Variablen mit der folgenden Namenskonvention gespeichert: `sf['Modbus_address']`.
 Diese Variable kann dann später in jeder Formel für andere Parameter verwendet werden. Beispielsweise kann die folgende Formel Folgendes festlegen: `(x * sf['40065']) + 50;`
 
 ## Datentypen
 - `uint16be` - `Vorzeichenlose 16 Bit (Big Endian): AABB => AABB`
-- `uint16le` - `Vorzeichenlose 16 Bit (Little Endian): AABB => BBAA`
+- `uint16le` – `Unsigned 16 bit (Little Endian): AABB => BBAA`
 - `int16be` - `Vorzeichenbehaftete 16 Bit (Big Endian): AABB => AABB`
 - `int16le` - `Vorzeichenbehaftet 16 Bit (Little Endian): AABB => BBAA`
 - `uint32be` - `Vorzeichenlose 32 Bit (Big Endian): AABBCCDD => AABBCCDD`
@@ -187,12 +187,12 @@ Diese Variable kann dann später in jeder Formel für andere Parameter verwendet
 - `uint8le` - `Vorzeichenlose 8 Bit (Little Endian): AABB => AA`
 - `int8be` - `Vorzeichenbehaftete 8-Bit (Big Endian): AABB => BB`
 - `int8le` - `Vorzeichenbehaftete 8-Bit (Little Endian): AABB => AA`
-- `floatbe` - `Float (Big Endian): AABBCCDD => AABBCCDD`
+- „floatbe“ – „Float (Big Endian): AABBCCDD => AABBCCDD“.
 - `floatle` - `Float (Little Endian): AABBCCDD => DDCCBBAA`
 - `floatsw` - `Float (Big Endian Worttausch): AABBCCDD => CCDDAABB`
 - `floatsb` - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
 - `doublebe` - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
-- `doublele` - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `doublele` - `Double (Little Endian): AABBCCDCDEEFFGGHH => HHGGFFEEDDCCBBAA`
 - `string` - `String 8 bit (Null-Ende): ABCDEF\0 => ABCDEF\0`
 - `stringle` - `String 8 Bit (Little Endian, Null-Ende): ABCDEF\0 => BADCFE\0`
 - `string16` - `String 16 Bit (Null-Ende): \0A\0B\0C\0D\0E\0F\0\0 => ABCDEF\0`
@@ -240,7 +240,7 @@ Das bedeutet, dass bei der Übertragung einer numerischen Menge, die größer al
 
 Big-Endian ist das am häufigsten verwendete Format für Netzwerkprotokolle – so verbreitet, dass es auch als „Netzwerkreihenfolge“ bezeichnet wird.
 
-Da das Modbus RTU-Nachrichtenprotokoll Big-Endian ist, muss die Byte-Reihenfolge sowohl des Masters als auch des Slaves berücksichtigt werden, um einen 32-Bit-Datentyp erfolgreich über eine Modbus RTU-Nachricht auszutauschen. Viele RTU-Master- und Slave-Geräte ermöglichen eine spezifische Auswahl der Byte-Reihenfolge, insbesondere bei softwaresimulierten Einheiten. Es muss nur sichergestellt werden, dass beide Einheiten auf die gleiche Byte-Reihenfolge eingestellt sind.
+Da das Modbus RTU-Nachrichtenprotokoll Big-Endian ist, muss die Byte-Reihenfolge sowohl des Masters als auch des Slaves berücksichtigt werden, um einen 32-Bit-Datentyp erfolgreich über eine Modbus RTU-Nachricht austauschen zu können. Viele RTU-Master- und Slave-Geräte ermöglichen eine spezifische Auswahl der Byte-Reihenfolge, insbesondere bei softwaresimulierten Einheiten. Es muss lediglich sichergestellt werden, dass beide Einheiten auf die gleiche Byte-Reihenfolge eingestellt sind.
 
 Als Faustregel gilt, dass die Familie des Mikroprozessors eines Geräts dessen Byte-Reihenfolge bestimmt. Normalerweise findet man den Big-Endian-Stil (das höchstwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) in CPUs, die mit einem Motorola-Prozessor entwickelt wurden. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, gefolgt vom höchstwertigen Byte) findet man in der Regel in CPUs, die die Intel-Architektur verwenden. Es ist eine Frage der persönlichen Perspektive, welcher Stil als „rückwärts“ betrachtet wird.
 
@@ -263,29 +263,32 @@ Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei
 | 2.i16-1.ifloat | N/A | [ a b ] [ c d ] | [ a b c d ] |
 | 2.i16-1.ifloat-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c b a ] |
 | 2.i16-1.ifloat-sb | Byte-Swap | [ a b ] [ c d ] | [ b a d c ] |
-| 2.i16-1.ifloat-sw | Worttausch | [ a b ] [ c d ] | [ c d a b ] |
+| 2.i16-1.ifloat-sw | Wortvertauschung | [ a b ] [ c d ] | [ c d a b ] |
 
 Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die einen einzelnen 32-Bit-Gleitkommawert in zwei benachbarte 16-Bit-Register kopieren:
 
 | Funktionsschlüsselwort | Swap-Modus | Quellbytes | Zielbytes |
-|------------------|-------------------|-----------------|----------------|
-| 1.float-2.i16 |N/A | [ a b ] [ c d ] | [ a b ][ c d ] |
-| 1.float-2.i16-s |Byte- und Worttausch | [ a b ] [ c d ] | [ d c ][ b a ] |
-| 1.float-2.i16-sb |Byte-Swap | [ a b ] [ c d ] | [ b a ][ d c ] |
-| 1.float-2.i16-sw |Worttausch | [ a b ] [ c d ] | [ c d ][ a b ] |
+|------------------|--------------------|-----------------|----------------|
+| 1.float-2.i16 | N/A | [ a b ] [ c d ] | [ a b ][ c d ] |
+| 1.float-2.i16-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c ][ b a ] |
+| 1.float-2.i16-sb | Byte-Tausch | [ a b ] [ c d ] | [ b a ][ d c ] |
+| 1.float-2.i16-sw | Worttausch | [ a b ] [ c d ] | [ c d ][ a b ] |
 
 Angesichts der verschiedenen FieldServer-Funktionsverschiebungen hängt die korrekte Verarbeitung von 32-Bit-Daten von der Auswahl der richtigen ab. Beachten Sie das folgende Verhalten dieser FieldServer-Funktionsverschiebungen bei dem bekannten einfachgenauen Dezimal-Float-Wert 123456,00:
 
-|16-Bit-Werte | Funktion verschieben | Ergebnis | Funktion verschieben | Ergebnis |
-|--------------|------------------|-----------|------------------|---------------|
-|0x2000 0x47F1 | 2.i16-1.float | 123456,00 | 1.float-2.i16 | 0x2000 0x47F1 |
-|0xF147 0x0020 | 2.i16-1.float-s | 123456,00 | 1.float-2.i16-s | 0xF147 0X0020 |
-|0x0020 0xF147 | 2.i16-1.float-sb | 123456,00 | 1.float-2.i16-sb | 0x0020 0xF147 |
-|0x47F1 0x2000 | 2.i16-1.float-sw | 123456,00 | 1.float-2.i16-sw | 0x47F1 0x2000 |
+| 16-Bit-Werte | Funktion verschieben | Ergebnis | Funktion verschieben | Ergebnis |
+|---------------|------------------|-----------|------------------|---------------|
+| 0x2000 0x47F1 | 2.i16-1.float | 123456,00 | 1.float-2.i16 | 0x2000 0x47F1 |
+| 0xF147 0x0020 | 2.i16-1.float-s | 123456,00 | 1.float-2.i16-s | 0xF147 0X0020 |
+| 0x0020 0xF147 | 2.i16-1.float-sb | 123456,00 | 1.float-2.i16-sb | 0x0020 0xF147 |
+| 0x47F1 0x2000 | 2.i16-1.float-sw | 123456,00 | 1.float-2.i16-sw | 0x47F1 0x2000 |
 
 Beachten Sie, dass unterschiedliche Byte- und Wortreihenfolgen die Verwendung der entsprechenden FieldServer-Funktionsverschiebung erfordern. Sobald die richtige Funktionsverschiebung ausgewählt ist, können die Daten in beide Richtungen konvertiert werden.
 
-Von den vielen Hex-zu-Gleitkomma-Konvertern und -Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolge. Ein solches Dienstprogramm finden Sie unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können. Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogoberfläche ausgeführt. Das Dienstprogramm stellt den dezimalen Gleitkommawert 123456,00 wie folgt dar:
+Von den vielen Hex-zu-Gleitkomma-Konvertern und -Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolge.
+Ein solches Dienstprogramm finden Sie unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können.
+Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogoberfläche ausgeführt.
+Das Dienstprogramm stellt den dezimalen Gleitkommawert 123456,00 wie folgt dar:
 
 ![Bild5](../../../en/adapterref/iobroker.modbus/img/img5.png)
 
@@ -303,7 +306,7 @@ Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation
 - RMMS ist Master-Simulator
 - mod_RSsim.exe ist ein Slave-Simulator. Möglicherweise benötigen Sie [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582), um ihn zu starten (aufgrund eines SideBySide-Fehlers).
 
-## Machen
+## Aufgaben
 - [ ] Analysieren Sie Dateien auf https://github.com/ioBroker/modbus-templates und ermöglichen Sie deren direkten Import vom Adapter
 
 <!--
@@ -311,8 +314,27 @@ Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 6.3.2 (2024-08-29)
+* (bluefox) Corrected the error with alignment of addresses
+
+### 6.3.0 (2024-08-28)
+* (Apollon77) Fix Timeout management to prevent leaking memory
+* (bluefox) Added information about connected clients in the server mode
+* (bluefox) Tried to fix error with aligning addresses
+* (bluefox) GUI was migrated to admin 7
+
+### 6.2.3 (2024-05-25)
+* (Q7Jensen) Fixed error at aligning addresses to word
+* (Apollon77) Added device id to some errors
+
+### 6.2.2 (2024-04-26)
+* (Apollon77) Downgrade gulp to 4.0.2 to fix build
+
+### 6.2.1 (2024-04-16)
+* (PLCHome) Warning regarding scale factor due to incorrect check: "Calculation of a scaleFactor which is based on another scaleFactor seems strange."
+
 ### 6.2.0 (2024-04-12)
-* (PLCHome) String based on 16 bit values big endian as well as little endian
+* (PLCHome) String based on 16-bit values big endian as well as little endian
 * (PLCHome) Raw data as a hex string
 * (PLCHome) Fix issue stringle was always converted to number for slave
 * (PLCHome) Enable formula for strings and hex strings
@@ -342,7 +364,7 @@ Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation
 * (bluefox) Corrected type of connection indicator
 
 ### 5.0.3 (2022-05-13)
-* (bluefox) Fixed error with mutli-devices
+* (bluefox) Fixed error with multi-devices
 
 ### 5.0.0 (2022-05-11)
 * BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
@@ -354,7 +376,7 @@ Im Ordner `test` befinden sich einige Programme zum Testen der TCP-Kommunikation
 
 ### 4.0.3 (2022-03-21)
 * (bluefox) Updated serial port package
-* (bluefox) Minimal node.js version is 12
+* (bluefox) A minimal node.js version is 12
 
 ### 3.4.17 (2021-11-11)
 * (Apollon77) Catch errors in tasks processing to prevent crashes

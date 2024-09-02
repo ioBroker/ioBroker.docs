@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.owfs/README.md
 title: ioBroker OWFS-Adapter
-hash: Ir62HpXMEl851J+fT/lodPlDadOH41Je9nJwJ8I8gNc=
+hash: RwxkIEH8MixQzmS0v6KDw5fObOcnQ9BYB40ZCcZuxUA=
 ---
 ![Logo](../../../en/adapterref/iobroker.owfs/admin/owfs.png)
 
@@ -12,45 +12,36 @@ hash: Ir62HpXMEl851J+fT/lodPlDadOH41Je9nJwJ8I8gNc=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.owfs.svg)
 
 # IoBroker OWFS-Adapter
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/ioBroker/ioBroker.owfs/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/owfs/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## *One-Wire-Dateisystem*-Adapter für ioBroker.
+## *One Wire File System*-Adapter für ioBroker.
 Unterstützt
 
-Dieser Adapter verwendet die owfs-Bibliothek von https://www.npmjs.com/package/owjs und benötigt dementsprechend owfs-Server.
+Dieser Adapter verwendet die OWS-Bibliothek von https://www.npmjs.com/package/owjs und erfordert dementsprechend einen OWS-Server.
 
 ## Installieren Sie OWFS Linux
-```sudo apt-get install owfs```
+`sudo apt-get install owfs`
 
-Manchmal müssen Sie die folgenden Schritte schreiben:
+Manchmal müssen Sie die folgenden Schritte aufschreiben:
 
-- Um den Server zu starten, um über die serielle Schnittstelle mit 1-Wire-Sensoren zu kommunizieren
+- So starten Sie den Server, um über die serielle Schnittstelle mit 1-Wire-Sensoren zu kommunizieren
 
-```
-owserver -d "/dev/ttyUSB0" --nozero
-```
+`owserver -d "/dev/ttyUSB0" --nozero`
 
-*/dev/ttyUSB0* ist der Name Ihres seriellen Geräts. Hier wurde dafür ein USB-Stick verwendet.
+`/dev/ttyUSB0` ist der Name Ihres seriellen Geräts. Hier wurde hierfür ein USB-Stick verwendet.
 
 Dieser Befehl startet den 1wire-Server auf dem lokalen Port 4304.
 
-- Um die Daten vom lokalen 1wire-Server im Dateisystem anzuzeigen, rufen Sie folgenden Befehl auf:
+- Um die Daten vom lokalen 1wire Server im Dateisystem anzuzeigen, rufen Sie folgenden Befehl auf:
 
-```
-owfs -C -m /mnt/1wire --allow_other
-```
+`owfs -C -m /mnt/1wire --allow_other`
 
-Vorher muss das Verzeichnis */mnt/1wire* mit dem Befehl `mkdir /mnt/1wire` erstellt werden
+Zuvor müssen Sie das Verzeichnis */mnt/1wire* mit dem Befehl `mkdir /mnt/1wire` erstellen
 
-## OWFS-Fenster installieren
+## Installieren Sie OWFS-Fenster
 http://sourceforge.net/projects/owfs/
-
-## Installieren
-```node iobroker.js add owfs```
-
-## Aufbau
 
 ## Changelog
 ### 0.7.0 (2022-04-25)
@@ -65,12 +56,12 @@ http://sourceforge.net/projects/owfs/
 * (INgo Rah) Added the alarm state handling
 
 ### 0.6.2 (2019-10-29)
-* (RustyThePropellerHead) Improved data integrity when reading from local OWFS via file system
+* (RustyThePropellerHead) Improved data integrity when reading from local OWFS via a file system
 
 ### 0.6.1 (2018-07-11)
 * (bluefox) compact mode supported
 * (lvogt) Added data points counter.A/.B/.ALL from DS2423 to config page
-* (lvogt) Add option to not log faulty readouts
+* (lvogt) Added option to not log faulty readouts
 
 ### 0.5.0 (2018-03-16)
 * (bluefox) Ready for Admin3
@@ -88,17 +79,17 @@ http://sourceforge.net/projects/owfs/
 * (bluefox) custom poll interval for every sensor
 
 ### 0.3.2 (2016-08-24)
-* (bluefox) support of local OWFS via file system
+* (bluefox) support of local OWFS via a file system
 
 ### 0.2.2 (2016-07-29)
-* (bluefox) add new datapoints: pressure, volts, ...
+* (bluefox) add new data points: pressure, volts, ...
 
 ### 0.2.1 (2016-07-28)
-* (bluefox) fixes of write
+* (bluefox) fixes of writing
 
 ### 0.2.0 (2016-07-27)
 * (bluefox) discover sensors
-* (bluefox) use other npm library to fix write
+* (bluefox) used another npm library to fix writing
 
 ### 0.1.1 (2016-07-25)
 * (bluefox) check configuration
@@ -116,7 +107,7 @@ http://sourceforge.net/projects/owfs/
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

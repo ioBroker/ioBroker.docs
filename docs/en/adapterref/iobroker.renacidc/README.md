@@ -28,6 +28,19 @@ For further information on the product range, please visit the official website:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.2 (2024-08-30)
+* (raschy) Inverter details addet
+
+### 0.1.1 (2024-08-28)
+* (raschy) Fixing repository checker issues
+* (raschy) some refaktoring
+
+### 0.1.0 (2024-08-26)
+* (raschy) Adaptation to changed circumstances 
+* (raschy) updated dependencies
+* (raschy) NodeJS >= 18.x and js-controller >= 5 is required
+* (raschy) ApiClient removed (access blocked)
+
 ### 0.0.6 (2023-10-17)
 * (raschy) Preparation for transfer to latest
 

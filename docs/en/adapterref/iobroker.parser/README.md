@@ -67,21 +67,21 @@ If you enter the same URL or filename more than once into different table rows, 
 
 ## Sample settings
 
-| Name              | URL or file name                                       | RegEx                                | Role        | Type    | Unit | Interval |
-| ----------------- |:-------------------------------------------------------| :----------------------------------- | ----------- | ------- | ---- | -------- |
-| temperatureMunich | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<`               | temperature | number  | °C   | 180000   |
-| forumRunning      | `http://forum.iobroker.net/`                           | `Forum`                              | indicator   | boolean |      | 60000    |
-| cloudRunning      | `https://iobroker.net/`                                | `Privacy Notice`                     | indicator   | boolean |      | 60000    |
-| cpuTemperature    | `/sys/devices/virtual/thermal/thermal_zone0/temp`      | `(.*)`                               | temperature | number  | °C   | 30000    |
-| stockPrice.Visa   | `https://www.finanzen.net/aktien/visa-aktie`           | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value       | number  | €    | 86400000 |
-| kleinanzeigen     | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0`      | `data-href="(.*?).">`                | default     | string  |      | 600000   |
+| Name              | URL or file name                                       | RegEx                                | Role        | Type    | Unit | Interval  |
+|-------------------|:-------------------------------------------------------|:-------------------------------------|-------------|---------|------|-----------|
+| temperatureMunich | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<`               | temperature | number  | °C   | 180000    |
+| forumRunning      | `http://forum.iobroker.net/`                           | `Forum`                              | indicator   | boolean |      | 60000     |
+| cloudRunning      | `https://iobroker.net/`                                | `Privacy Notice`                     | indicator   | boolean |      | 60000     |
+| cpuTemperature    | `/sys/devices/virtual/thermal/thermal_zone0/temp`      | `(.*)`                               | temperature | number  | °C   | 30000     |
+| stockPrice.Visa   | `https://www.finanzen.net/aktien/visa-aktie`           | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value       | number  | €    | 86400000  |
+| kleinanzeigen     | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0`      | `data-href="(.*?).">`                | default     | string  |      | 600000    |
 
 *Note:* While applying regex to the retrieved URL/file data, all line breaks will be replaced with spaces to allow multi-line search.
 
 ## About Regular expressions (RegExp)
 Regular expressions are a powerful tool to parse and extract certain data from strings, and even more important: it allows to extract certain values/text from a given string (like from the HTML of a webpage, or text from a file) by applying rules.
 
-For boolean types, the regex is rather simple. For numeric types, you should mark the number with brackets - `()`. E.g. to extract the number from *The temperature is 5°C* you should use ` (\d+)` expression.
+For boolean types, the regex is rather simple. For numeric types, you should mark the number with brackets - `()`. E.g., to extract the number from *The temperature is 5°C* you should use ` (\d+)` expression.
 
 Further information on RegExp:
 -   [MDN/Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
@@ -143,6 +143,10 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.2.4 (2024-08-26)
+* (bluefox) updated packages
+* (bluefox) corrected a problem with the creation of rule
+
 ### 2.2.2 (2024-07-14)
 * (bluefox) GUI was migrated for admin v7
 

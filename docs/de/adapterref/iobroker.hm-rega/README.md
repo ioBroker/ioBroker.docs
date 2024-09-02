@@ -149,6 +149,9 @@ Abschließend sind die in der CCU angelegten Variablen aufgelistet
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2024-08-29)
+* (@foxriver76) added notification if devices are low on battery
+
 ### 5.0.0 (2024-07-18)
 * (bluefox) required node 18
 * (bluefox) updated dependencies

@@ -1,12 +1,12 @@
 'use strict';
 
 const config = require('../config');
-const http = !config.secure ? require('http') : require('https');
+const http = !config.secure ? require('node:http') : require('node:https');
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger  = new require('./logger')();
-const path = require('path');
-const fs = require('fs');
+const path = require('node:path');
+const fs = require('node:fs');
 const port = normalizePort(process.env.PORT || config.port || 443);
 const ExpressBrute = require('express-brute');
 // let x509;
@@ -36,7 +36,7 @@ function init() {
 
     app.app.disable('x-powered-by');
 
-    // do not allow to use this service from other domains or iframes
+    // do not allow using this service from other domains or iframes
     app.app.use((req, res, next) => {
         res.set('X-Frame-Options', 'SAMEORIGIN');
         next();

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
+hash: bTuT2dMq1fYAl56LTKtWGcR+jaXJU2IaMDUOJQ5p+oI=
 ---
 ![标识](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
@@ -31,7 +31,7 @@ hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
 ## 使用光伏能源管理一个或多个电动汽车充电器的适配器
 **!!! 该适配器仍然代表着发展状态 !!!**
 
-适配器使用光伏能源管理一个或多个电动汽车充电器（壁挂式充电箱）。适配器目前最多可处理 3 个电动汽车壁挂式充电箱，以管理可用的电网电力，并可能利用光伏剩余能源。
+适配器利用光伏剩余能量来管理一个或多个电动汽车充电器（壁挂箱）。
 
 ＃＃ 设置
 要连接到壁挂式安装盒，请在配置中输入需要数据的状态。
@@ -40,7 +40,7 @@ hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
 此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告从 js-controller 3.0 开始启动。
 
 ## 捐赠
-<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！：啤酒：
+<a href="https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！:beers:
 
 ## 测试
 - 3x go-E 充电器和 Kostal PikoBA
@@ -49,7 +49,7 @@ hash: xvFIPavgdxAYZECCfr+v6WITn12RRC+P9OASJVe7DQU=
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.11.0 (2024-08-24)
+### 0.11.0 (2024-08-29)
 
 -   (HombachC) implement variable wallbox amount 
 -   (HombachC) fix errors in wallbox control

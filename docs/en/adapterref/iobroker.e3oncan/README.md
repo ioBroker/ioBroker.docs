@@ -128,6 +128,10 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.4 (2024-08-26)
+* (MyHomeMyData) Start up an UDS worker for each device to allow writing of data points even when no schedule for reading is defined on this device
+* (MyHomeMyData) Update of npm dependencies
+
 ### 0.9.3 (2024-08-20)
 * (MyHomeMyData) Bugfix: Updating UDS communication statistics, even in case of persistent timeout events
 * (MyHomeMyData) Disabled sinon should interface

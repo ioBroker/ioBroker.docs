@@ -38,6 +38,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (simatec) Dependencies updated
 * (simatec) dev-server added
 * (simatec) Repo Check fix
+* (simatec) Responsive Design added
 
 ### 0.6.0 (2024-02-05)
 * (simatec) Dependencies updated

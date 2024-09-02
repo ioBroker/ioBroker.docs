@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.parser/README.md
 title: ioBroker 解析器适配器
-hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
+hash: JGWFOrJmQiymwBAKSTgMT/ZQacopD19LF+/l++bVvxk=
 ---
 ![标识](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -57,7 +57,7 @@ hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
 - 温度 - 该值为温度
 - 值 - 该值是一个数字（例如调光器）
 - 盲注 - 该值是盲注位置
-- switch - 值是开关位置（真/假）
+- switch - 值为开关位置（真/假）
 - 按钮 - 该值是一个按钮
 - 指标 - 布尔指标
 - **_Type_** - 每个下拉菜单的变量类型。
@@ -70,18 +70,18 @@ hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
 
 ## 示例设置
 | 名称 | URL 或文件名 | RegEx | 角色 | 类型 | 单位 | 间隔 |
-| ----------------- |:-------------------------------------------------------| :----------------------------------- | ----------- | ------- | ---- | -------- |
+|-------------------|:-------------------------------------------------------|:-------------------------------------|-------------|---------|------|-----------|
 | 温度慕尼黑 | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | 温度 | 数字 | °C | 180000 |
 | cloudRunning | `https://iobroker.net/` | `Privacy Notice` | 指标 | 布尔值 | | 60000 |
 | cpuTemperature | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | 温度 | 数字 | °C | 30000 |
 | stockPrice.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | 值 | 数量 | € | 86400000 |
-|克莱南泽根 | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` |默认|字符串|      | 600000 |
+|克莱南泽根 | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` |默认 |字符串 |      | 600000 |
 |克莱南泽根 | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` |默认 |字符串|      | 600000 |
 
 *注意：*将正则表达式应用于检索到的 URL/文件数据时，所有换行符都将被替换为空格，以允许多行搜索。
 
 ## 关于正则表达式（RegExp）
-正则表达式是一种从字符串中解析和提取特定数据的强大工具，更重要的是：它允许通过应用规则从给定的字符串中提取特定的值/文本（例如从网页的 HTML 或文件中的文本）。
+正则表达式是一种从字符串中解析和提取特定数据的强大工具，更重要的是：它允许通过应用规则从给定的字符串中提取某些值/文本（例如从网页的 HTML 或文件中的文本）。
 
 对于布尔类型，正则表达式相当简单。对于数字类型，您应该用括号标记数字 - `()`。例如，要从 *温度为 5°C* 中提取数字，您应该使用 ` (\d+)` 表达式。
 
@@ -97,9 +97,9 @@ hash: 699NFuNyBB5WvJ2oV9HHyNwPuee68cU6G0sWYfrak6U=
 - `[^hc]at` 匹配 .at 匹配的所有字符串，除了 `hat` 和 `cat`。
 - `^[hc]at` 匹配 `hat` 和 `cat`，但仅限于字符串或行的开头。
 - `[hc]at$` 匹配 `hat` 和 `cat`，但仅限于字符串或行的末尾。
-- `\[.\]` 匹配被 `[` 和 `]` 包围的任何单个字符，因为括号经过了转义，例如：`[a]` 和 `[b]`。
+- `\[.\]` 匹配由 `[` 和 `]` 包围的任何单个字符，因为括号经过了转义，例如：`[a]` 和 `[b]`。
 - `s.\*` 匹配 s 后跟零个或多个字符，例如：`s` 和 `saw` 和 `seed`。
-- `[hc]+at` 匹配 `hat`、`cat`、`hhat`、`chat`、`hcat`、`cchchat` 等，但不匹配 `at`。
+- `[hc]+at` 匹配 `hat`、`cat`、`hhat`、`chat`、`hcat`、`cchchat` 等等，但不匹配 `at`。
 - `[hc]?at` 匹配 `hat`、`cat` 和 `at`。
 - `[hc]\*at` 匹配 `hat`、`cat`、`hhat`、`chat`、`hcat`、`cchchat`、`at` 等等。
 - `cat|dog` 匹配 `cat` 或 `dog`。
@@ -149,6 +149,10 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ### **正在进行中** -->
 
 ## Changelog
+### 2.2.4 (2024-08-26)
+* (bluefox) updated packages
+* (bluefox) corrected a problem with the creation of rule
+
 ### 2.2.2 (2024-07-14)
 * (bluefox) GUI was migrated for admin v7
 

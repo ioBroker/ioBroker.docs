@@ -9,13 +9,13 @@
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "express-brute": "^1.0.1",
-    "minisearch": "^6.3.0",
+    "minisearch": "^7.1.0",
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@google-cloud/translate": "^8.3.0",
+    "@google-cloud/translate": "^8.5.0",
     "gulp": "^4.0.2",
-    "axios": "^1.7.2"
+    "axios": "^1.7.7"
   },
   "scripts": {
     "start": "node main",

@@ -224,6 +224,7 @@ Here you will find information about the history of the current day.
 * (afuerhoff) dependencies updated
 * (afuerhoff) repository checker issues fixed
 * (afuerhoff) issue fixed [#294](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/294)
+* (afuerhoff) 'devicename' as state added [#299](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/299)
 
 ### 1.2.4 (2024-02-09)
 * (afuerhoff) test code deleted [#257](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/257)

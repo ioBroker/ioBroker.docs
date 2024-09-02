@@ -29,6 +29,10 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.6.2 (2024-09-01)
+* (misanorot) updated iob checker issues
+* (misanorot) fixed disable password state
+
 ### 3.6.1 (2024-06-19)
 * (misanorot) fixed presence at burgle
 
@@ -40,9 +44,6 @@
 
 ### 3.4.3 (2023-11-05)
 * (misanorot) added silent_alarm (state list) to shortcuts
-
-### 3.4.2 (2023-10-31)
-* (misanorot) added enhancement #170
 
 ## License
 MIT License
