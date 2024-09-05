@@ -32,9 +32,12 @@ Please refer to the respective websites for the privacy policy.
 3. No Data Transmission without ioBroker Pro Account: In the absence of an ioBroker Pro account linked to your app, no data transmission takes place whatsoever.
    
 We continually review and refine our privacy practices to uphold the highest standards and comply with regulatory obligations.
+
 By utilizing the ioBroker Visu App, you implicitly consent to the collection and utilization of your information as delineated in this Privacy Policy.
 
 ## ioBroker BackItUp Google Drive App
 We affirm that the ioBroker BackItUp Google Drive App is utilized solely for the purpose of providing a backup function for ioBroker.
+
 We do not use data obtained through Google Workspace APIs to develop, improve, or train generalized artificial intelligence (AI) or machine learning (ML) models.
+
 All data accessed via Google Workspace APIs is handled in strict accordance with Google's API policies and is used exclusively to deliver the intended services to our users.
