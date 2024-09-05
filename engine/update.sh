@@ -10,5 +10,5 @@ cd front-end
 /usr/bin/npm i -f
 cd ..
 /usr/bin/node node_modules/gulp/bin/gulp.js buildOnly
-/usr/bin/pm2 restart doc
+/usr/local/bin/pm2 restart doc
 
