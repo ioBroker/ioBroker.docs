@@ -711,6 +711,11 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 3.0.22 (2024-09-03)
+* (simatec) Fix Notification Instance
+* (simatec) Fix Notification Design
+* (simatec) Fix Default Settings
+
 ### 3.0.21 (2024-09-01)
 * (simatec) Fix Onedrive Notification
 * (simatec) Fix Zigbee2MQTT Backup

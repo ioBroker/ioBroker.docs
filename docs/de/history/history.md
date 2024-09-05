@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: t7SdWlx71aYib6BBQbn2pmoE0dqK1Gtf8MiV+cOLz3c=
+hash: jKi9oiu1lS9yOKjBXAjr+nm7XJVDWe5B4v6X5fzVxWs=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -161,7 +161,7 @@ Dies ist ein vollständiges Visualisierungssystem für ioBroker.
 * komplett auf Web-Komponenten basierend
 * WYSIWYG-Editor für die Benutzeroberfläche, Sie können aber auch zur Quellansicht oder zur geteilten Ansicht wechseln
 * Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
-* Bindungen per Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
+* Bindungen per Drag/Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
 * komplexe Bindungen mit JavaScript und Konverter
 * einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann
 
@@ -216,7 +216,7 @@ https://github.com/PLCHome/ioBroker.pylontech
 
 <img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
 
-Fragen Sie die Zellspannungen und den Status von pylontech Batterien über die Konsole ab.
+Fragen Sie die Zellspannungen und den Status von pylontech-Akkus über die Konsole ab.
 
 ## Signifylights (26.10.2023) - neuer Adapter
 https://github.com/disaster123/ioBroker.signifylights
@@ -271,7 +271,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-## Emporia (07.12.2023) - neuer Adapter
+##emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -297,7 +297,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-##energiefluss (25.01.2024) – neuer Adapter
+## Energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -309,7 +309,7 @@ https://github.com/rg-engineering/ioBroker.amtronwallbox
 
 <img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.amtronwallbox/master/admin/amtronwallbox.png" width="100" height="100" />
 
-Der Adapter dient als Schnittstelle zu verschiedenen Amtron Wallboxen. Die von der Box bereitgestellten Daten werden ausgelesen und als Stand im Adapter bereitgestellt. Die Daten werden nur lokal verarbeitet, eine Cloudanbindung ist nicht notwendig.
+Der Adapter dient als Schnittstelle zu verschiedenen Amtron Wallboxen. Die von der Box bereitgestellten Daten werden ausgelesen und als Stand im Adapter bereitgestellt. Die Daten werden ausschließlich lokal verarbeitet, eine Cloudanbindung ist nicht notwendig.
 
 ## Zendure-solarflow (30.01.2024) - neuer Adapter
 https://github.com/nograx/ioBroker.zendure-solarflow
@@ -475,7 +475,7 @@ https://github.com/CorantGmbH/ioBroker.air-q
 
 Dieser ioBroker Adapter kommt in Verbindung mit unserem air-Q Gerät zum Einsatz. Er fragt die Werte unserer Sensoren ab und stellt sie für Sie in der ioBroker Umgebung dar.
 
-## Boschindego (4.5.2024) – neuer Adapter
+##boschindego (4.5.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
 <img src="https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/admin/boschindego.png" width="100" height="100" />
@@ -488,7 +488,7 @@ Es ist eine neue Version des Windows-Installers verfügbar: 3.1.0 Neue Funktione
 - Update/Upgrade des JS-Controllers implementiert
 - Einige Bugfixes
 
-## Radar-trap (29.5.2024) – neuer Adapter im Stall
+## Radar-trap (29.5.2024) – neuer Adapter am Stall
 https://github.com/Steiger04/ioBroker.radar-trap
 
 <img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
@@ -519,7 +519,7 @@ Dies ist ein vollständiges Visualisierungssystem für ioBroker.
 * komplett auf Web-Komponenten basierend
 * WYSIWYG-Editor für die Benutzeroberfläche, Sie können aber auch zur Quellansicht oder zur geteilten Ansicht wechseln
 * Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
-* Bindungen per Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
+* Bindungen per Drag/Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
 * komplexe Bindungen mit JavaScript und Konverter
 * einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann
 
@@ -598,3 +598,6 @@ Der Ping-Adapter kann den IP-Adressbereich erkennen, wenn der Bereich weniger al
 
 ## Admin (23.08.2024) - neue Funktion
 Zustände könnten direkt aus der JSON-Konfiguration heraus gesteuert werden, um etwa eine Bereichserkennung zu starten.
+
+## Wifilight (05.09.2024) - neue Funktion
+Der Wifilight-Adapter wurde komplett neu geschrieben und unterstützt jetzt den Kompaktmodus und die JSON-Konfiguration.

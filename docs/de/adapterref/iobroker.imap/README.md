@@ -599,10 +599,11 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Update dependencies
+-   (Lucky-ESA) Changed Log info to debug
+
 ### 0.2.0 (2024-06-15)
 
 -   (Lucky-ESA) Updated Blockly definitions

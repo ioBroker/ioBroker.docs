@@ -17,7 +17,7 @@ This adapter allows to connect Local Control Network [LCN](https://www.lcn.eu/) 
 
 ![pke](img/lcn-pku.png)
 
-**Don't forget that ioBroker.lcn will block one LCN Connection License.**
+**Don't forget that `ioBroker.lcn` will block one LCN Connection License.**
 
 The configuration and modules will be automatically detected by scan, that must be triggered manually from the configuration dialog and can be repeated any time again.
 
@@ -90,6 +90,12 @@ After the first start, the devices must be scanned. It can be done in the config
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.3 (2024-09-04)
+* (bluefox) Added translations
+
+### 2.0.2 (2024-09-03)
+* (bluefox) Corrected checking of licenses with license manager
+
 ### 2.0.1 (2024-08-07)
 * (bluefox) Disable possibility to install via git
 

@@ -61,6 +61,8 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 
 ### **WORK IN PROGRESS**
 
+- Use Typescript
+- FEAT: #118 get name from activeTimerList
 - FIX: #117 createDevice is deprecated
 
 ### 1.0.0 (2024-08-09)

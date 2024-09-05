@@ -582,3 +582,6 @@ Ping adapter can detect the range of IP addresses if the range has less than 409
 
 ## admin (23.08.2024) - new feature
 States could be controlled directly from JSON Config to start range detection or something similar.
+
+## wifilight (05.09.2024) - new feature
+The wifilight adapter was completely rewritten and now supports compact mode and JSON config.

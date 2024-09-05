@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome-Recherche
-hash: wjt8/4j+SR/hP41gz6ztVLW+12/LVqGLIvB0ErLzBAk=
+hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
 ---
 ![Logo](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -48,12 +48,12 @@ Erkennen Sie IP-Adressen von:
 - [ ] wled (ESP8266/ESP32),
 - [ ] vereinen,
 - [X] Harmonie,
-- [ ] Samsung (Fernseher),
-- [ ] onvif (Webkameras),
-- [ ] Kameras (URL oder IP-Kameras),
-- [ ] Proxmox,
+- [-] Samsung (TV) - zu viele Daten,
+- [-] onvif (Webkameras) - zu viele Daten,
+- [-]Kameras (URL oder IP-Kameras) - zu viele Daten,
+- [-] proxmox - nicht möglich, da Alexa keine IP-Adressen liest
 - [ ] broadlink2,
-- [ ] LGTV,
+- [-] lgtv - zu viele Daten,
 - [ ] knx (KNX-Gateway),
 - [ ] lcn,
 - [ ] Homekit-Controller,
