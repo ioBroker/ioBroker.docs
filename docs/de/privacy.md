@@ -50,3 +50,7 @@ Wir bestätigen, dass die ioBroker BackItUp Google Drive App ausschließlich fü
 Wir verwenden Daten, die über Google Workspace APIs erhalten wurden, nicht zur Entwicklung, Verbesserung oder Schulung von allgemeinen künstlichen Intelligenz- (KI) oder maschinellen Lern- (ML) Modellen.
 
 Alle über Google Workspace APIs abgerufenen Daten werden streng nach den API-Richtlinien von Google behandelt und ausschließlich zur Bereitstellung der beabsichtigten Dienste für unsere Benutzer verwendet.
+
+Wie speichern keine Daten oder Zugriffstoken von der ioBroker BackItUp Google Drive App. Der Zugriff auf Google Drive ist nur mit dem `ioBroker.backitup` Adapter und mit Zugriffstoken möglich, die in IHRER ioBroker-Instanz gespeichert sind.
+
+Falls Sie den Zugriff widerrufen möchten, löschen Sie einfach das Zugriffstoken in den Einstellungen des `ioBroker.backitup`-Adapters und widerrufen Sie den Zugriff von Drittanbietern in Ihrem [Google-Konto](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
