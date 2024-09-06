@@ -56,4 +56,4 @@
 
 Мы не сохраняем никаких данных или токенов доступа из приложения ioBroker BackItUp Google Drive. Таким образом, доступ к Google Drive возможен только с помощью адаптера `ioBroker.backitup` и с сохраненными токенами доступа в вашем экземпляре ioBroker.
 
-Если вы хотите отозвать доступ, просто удалите токен доступа в настройках адаптера `ioBroker.backitup` и отзовите доступ третьих сторон в вашем [Google-аккаунте](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
+Если вы хотите отозвать доступ, просто удалите токен доступа в настройках экземпляра `ioBroker.backitup` и отзовите доступ третьих сторон в вашем [Google-аккаунте](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)
