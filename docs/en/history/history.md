@@ -583,5 +583,12 @@ Ping adapter can detect the range of IP addresses if the range has less than 409
 ## admin (23.08.2024) - new feature
 States could be controlled directly from JSON Config to start range detection or something similar.
 
+## gotify-ws (4.9.2024) – new adapter at stable
+https://github.com/simatec/ioBroker.gotify-ws
+
+<img src="https://github.com/simatec/ioBroker.gotify-ws/blob/master/admin/gotify-ws.png" width="100" height="100" />
+
+Gotify-WS is an adapter that establishes a websocket connection to a Gotify server and can therefore receive and process all messages from the server.
+
 ## wifilight (05.09.2024) - new feature
 The wifilight adapter was completely rewritten and now supports compact mode and JSON config.
