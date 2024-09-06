@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome 研究
-hash: wjt8/4j+SR/hP41gz6ztVLW+12/LVqGLIvB0ErLzBAk=
+hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
 ---
 ![标识](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -48,12 +48,12 @@ hash: wjt8/4j+SR/hP41gz6ztVLW+12/LVqGLIvB0ErLzBAk=
 - [ ] wled (ESP8266/ESP32)，
 - [ ] 统一，
 - [X] 和谐，
-- [ ] 三星（电视），
-- [ ] onvif (网络摄像机),
-- [ ] 摄像机（IP 摄像机的 URL），
--[ ] proxmox，
+- [-] 三星（电视） - 数据太多，
+- [-] onvif (网络摄像机) - 数据太多，
+- [-] 摄像机（URL 或 IP 摄像机）- 数据太多，
+- [-] proxmox - 不可能，因为 alexa 读取不到 IP 地址
 - [ ] broadlink2，
--[ ] lgtv，
+- [-] lgtv - 数据太多，
 - [ ] knx (KNX网关),
 -[ ] lcn，
 - [ ] homekit 控制器，

@@ -106,7 +106,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 3.4.9 (2024-08-xx)
+### 3.4.9 (2024-09-xx)
 
 -   (HombachC) repository cleanup
 -   (HombachC) dependency updates

@@ -804,6 +804,9 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 6.1.2 (2024-09-04)
+* (bluefox) Corrected error if the client has no ID
+
 ### 6.1.1 (2024-08-29)
 * (bluefox) Added information about connected clients in the server mode
 
@@ -817,11 +820,6 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 ### 6.0.0 (2024-07-13)
 * Breaking Changes: NodeJS >= 18.x and js-controller >= 5 are required
 * (klein0r) Fixed blockly definitions
-
-### 5.2.0 (2024-01-08)
-* (ticaki) fixed: confirm onMessage()
-* (orpheus55) Added the authentication validation to request processing
-* (theimo1221) Added an option to filter certain topics
 
 ## License
 

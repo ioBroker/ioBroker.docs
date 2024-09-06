@@ -53,6 +53,28 @@ This feature only works when map creation is enabled in the adapter options!
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.10 (2024-09-05)
+* (copystring) Add `set_switch_status` to S7 MaxV and Q Revo Pro
+
+### 0.6.9 (2024-09-05)
+* (copystring) Fix bugs
+* (copystring) Add missing states
+* (copystring) Add missing translations
+
+### 0.6.8 (2024-09-04)
+* (copystring) Q Revo supports `switch_status` in `get_status`
+
+### 0.6.7 (2024-09-04)
+* (copystring) Update dependencies
+* (copystring) Many bug fixes
+* (copystring) Improve support for: Q Revo Pro
+* (copystring) Add parsing of dss in deviceStatus as `docking station status`
+* (copystring) Add `resume_segment_clean` & `stop_segment_clean`
+* (copystring) Improve reconnect intervall of direct connection
+* (copystring) Add missing translations
+* (copystring) Fix cleaningInfo of older Robots like S6 etc
+* (copystring) General logging improvements
+
 ### 0.6.6 (2024-07-14)
 * (copystring) require min node 20 to operate correctly with current dependencies
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome исследование
-hash: wjt8/4j+SR/hP41gz6ztVLW+12/LVqGLIvB0ErLzBAk=
+hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -48,12 +48,12 @@ hash: wjt8/4j+SR/hP41gz6ztVLW+12/LVqGLIvB0ErLzBAk=
 - [ ] светодиод (ESP8266/ESP32),
 - [ ] объединить,
 - [X] гармония,
-- [ ] самсунг (телевизор),
-- [ ] onvif (Веб-камеры),
-- [ ] камеры (URL или IP-камеры),
-- [ ] проксмокс,
-- [ ] бродлинк2,
-- [ ] lgtv,
+- [-] samsung (телевизор) - слишком много данных,
+- [-] onvif (Вебкамеры) - слишком много данных,
+- [-] камеры (URL или IP-камеры) - слишком много данных,
+- [-] proxmox - невозможно, так как alexa не считывает IP-адреса
+- [ ] широкая ссылка2,
+- [-] lgtv - слишком много данных,
 - [ ] knx (KNX-шлюз),
 - [ ] лкн,
 - [ ] контроллер homekit,

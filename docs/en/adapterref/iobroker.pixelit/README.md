@@ -30,6 +30,10 @@ Fill the IP and have fun :)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2024-09-02)
+
+-   (o0Shojo0o) update dependencies [[#631](https://github.com/pixelit-project/ioBroker.pixelit/issues/631)]
+
 ### 1.1.3 (2023-11-06)
 
 -   (o0Shojo0o) fixed `pixelit.x.show_clock` [[#521](https://github.com/pixelit-project/ioBroker.pixelit/issues/521)]
@@ -107,7 +111,7 @@ Fill the IP and have fun :)
 
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

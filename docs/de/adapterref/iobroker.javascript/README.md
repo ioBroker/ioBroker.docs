@@ -17,7 +17,7 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 8.8.3 (2024-09-05)
 * (bluefox) Fixed object selector in rules
 
 ### 8.8.2 (2024-08-07)
@@ -33,10 +33,6 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 
 ### 8.7.6 (2024-07-28)
 * (foxriver76) fix error with subpath imports in scripts
-
-### 8.7.5 (2024-07-27)
-* (@klein0r) Fixed right aligned script names when using multiple instances
-* (foxriver76) added fallback for all require calls in scripts
 
 ## License
 The MIT License (MIT)

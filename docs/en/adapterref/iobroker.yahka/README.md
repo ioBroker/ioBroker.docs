@@ -186,6 +186,9 @@ This repo includes one submodule, so before building you need to also close/init
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.8 (2024-09-05)
+* (Apollon77) Corrected Admin GUI
+
 ### 1.0.6 (2024-08-30)
 * (tarikweiss) Fixes errors with non-existing service types
 
