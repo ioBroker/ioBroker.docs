@@ -67,7 +67,7 @@ to be done in admin
 
 ## Changelog:
 
-### 1.2.4 (npm)
+### 1.2.5 (npm)
 * (foxthefox) eslint upgrade and corrections
 
 ### 1.2.4 (npm)

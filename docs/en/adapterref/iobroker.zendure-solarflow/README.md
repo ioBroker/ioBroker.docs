@@ -46,10 +46,14 @@ If you find the adapter useful for you and want to support my work, feel free to
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.8.6 (2024-09-06)
+
+- Change login method: Added a retry loop for connecting to Zendure Cloud, if the Cloud Service "hangs" or is not available it will retry the connection 3 times.
+
 ### 1.8.5 (2024-08-26)
 
 - Fix missing states for new HUB Firmware when connected to ACE
-- Fix corrent max value for AIO
+- Fix correct max value for AIO
 
 ### 1.8.4 (2024-08-16)
 
