@@ -1,5 +1,5 @@
 /*!
- * Copyright 2019, bluefox <dogafox@gmail.com>
+ * Copyright 2019-2024, bluefox <dogafox@gmail.com>
  * ioBroker gulpfile
  * Date: 2019-11-11
  * Build documentation site
@@ -7,8 +7,8 @@
 'use strict';
 
 const gulp          = require('gulp');
-const path          = require('path');
-const fs            = require('fs');
+const path          = require('node:path');
+const fs            = require('node:fs');
 const axios         = require('axios');
 const documentation = require('./build-lib/documentaion');
 const faq           = require('./build-lib/faq');
@@ -495,12 +495,12 @@ gulp.task('9.createSitemap', done => {
             lines.push(root + l);
         }
     });
-    fs.writeFileSync(consts.FRONT_END_DIR + 'sitemap.txt', lines.join('\n'));
+    fs.writeFileSync(`${consts.FRONT_END_DIR}sitemap.txt`, lines.join('\n'));
     done();
 });
 
 gulp.task('10.build', done => {
-    const { exec } = require('child_process');
+    const { exec } = require('node:child_process');
     const SRC_DATA_DIR = `${__dirname}/front-end/build/data`;
     const TGT_DATA_DIR = `${__dirname}/front-end/data`;
 
