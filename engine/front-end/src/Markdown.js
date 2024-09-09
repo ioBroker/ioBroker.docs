@@ -258,7 +258,7 @@ const styles = {
     warn: {
         borderColor: '#0b87da',
         borderWidth: '0 0 0 3px',
-        p: '10px',
+        p: '1px 10px',
         mt: '5px',
         mb: '5px',
         borderStyle: 'solid',
@@ -272,7 +272,7 @@ const styles = {
     alarm: {
         borderColor: '#da0b50',
         borderWidth: '0 0 0 3px',
-        p: '10px',
+        p: '1px 10px',
         mt: '5px',
         mb: '5px',
         borderStyle: 'solid',
@@ -286,7 +286,7 @@ const styles = {
     notice: {
         borderColor: '#9c989b',
         borderWidth: '0 0 0 3px',
-        p: '10px',
+        p: '1px 10px',
         mt: '5px',
         mb: '5px',
         borderStyle: 'solid',
@@ -537,6 +537,9 @@ class Markdown extends Router {
             const el = window.document.getElementById(id) || window.document.getElementById(id.replace('nbsp', ''));
             if (el) {
                 el.scrollIntoView(true);
+                if (this.props.mobile) {
+                    this.setState({ hideContent: true });
+                }
             }
         } else if (link) {
             // if relative path
@@ -862,7 +865,10 @@ class Markdown extends Router {
                 {links.map(item => {
                     const link  = this.state.content[item].external && this.state.content[item].link;
                     const level = this.state.content[item].level;
-                    const title = this.state.content[item].title.replace('&gt;', '>').replace('&lt;', '<').replace('&amp;', '&');
+                    const title = this.state.content[item].title
+                        .replace('&gt;', '>')
+                        .replace('&lt;', '<')
+                        .replace('&amp;', '&');
 
                     return <li key={title} style={{ fontSize: 16 - level * 2, paddingLeft: level * 8, fontWeight: !level ? 'bold' : 'normal' }}>
                         <Box component="span" onClick={() => this.onNavigate(item, link)} sx={styles.contentLinks}>{title}</Box>
