@@ -107,9 +107,9 @@ const styles = {
         verticalAlign: 'top',
     },
     serverButton: {
-        marginTop: 100,
-        paddingTop: 25,
-        height: 45,
+        paddingTop: 12,
+        paddingBottom: 12,
+        display: 'flex',
         borderRadius: 100,
         textTransform: 'uppercase',
         background: '#3399CC',
@@ -118,6 +118,8 @@ const styles = {
         fontSize: 20,
         opacity: 0.9,
         fontFamily: 'Audiowide, sans-serif',
+        alignItems: 'center',
+        justifyContent: 'center',
         cursor: 'pointer',
     },
     serverButtonImage: {
@@ -136,7 +138,6 @@ const styles = {
         marginTop: 20,
         marginLeft: 10,
         marginRight: 10,
-        padding: 15,
         borderRadius: 20,
         textTransform: 'uppercase',
         background: '#3399CC',
@@ -313,7 +314,10 @@ class Intro extends Component {
             }}
         >
             <div
-                style={styles.userButton}
+                style={{
+                    ...styles.userButton,
+                    padding: this.props.mobile ? 10 : 15,
+                }}
                 onClick={() => window.open('https://usertreffen.iobroker.in', 'usertreffen')}
             >
                 <img
@@ -362,14 +366,14 @@ class Intro extends Component {
 
     // Configure all only with your web browser
 
-    // Create your rules and scripts with scenes, javascript, blockly or node-red
+    // Create your rules and scripts with scenes, JavaScript, blockly or node-red
 
     // Actual 262 official adapters. Discover all...
 
     render() {
         let i = 0;
 
-        let link = 1;//new Date().getMinutes() % 2;
+        let link = new Date().getMinutes() % 2;
 
         if (I18n.getLanguage() !== 'de') {
             link = 0;
@@ -384,15 +388,11 @@ class Intro extends Component {
         } else {
             switch (link) {
                 case 1:
-                    middleButton = I18n.getLanguage() === 'de' ? this.renderHausAutomatisierung() : this.renderCloud();
+                    middleButton = this.renderCloud();
                     break;
                 case 2:
                     userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = userMeeting ? this.renderUserMeeting() : Intro.renderServer();
-                    break;
-                case 3:
-                    userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = this.renderCloud();
+                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderCloud();
                     break;
                 case 0:
                 default:
