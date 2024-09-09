@@ -218,7 +218,6 @@ class Downloads extends Router {
             onClose={() => this.closeDialog()}
             aria-labelledby="max-width-dialog-title"
         >
-
             <DialogContent
                 style={{ ...styles.dialogContent, ...(this.state.mobile ? styles.dialogContentMobile : undefined) }}>
                 {this.state.info.endsWith('.md') ?
@@ -251,11 +250,17 @@ class Downloads extends Router {
     }
 
     renderImage(image) {
-        if (this.state.filter && this.state.filter !== 'all' && this.state.filter !== image.device) {
-            return null;
-        }
+        // if (this.state.filter && this.state.filter !== 'all' && this.state.filter !== image.device) {
+        //     return null;
+        // }
 
-        return <Card key={image.file} style={{ ...styles.card, width: this.cardWidth }}>
+        return <Card
+            key={image.file}
+            style={{
+                ...styles.card,
+                width: this.props.mobile ? '100%' : this.cardWidth,
+            }}
+        >
             <CardActionArea>
                 <div
                     style={{ ...styles.cardMedia, backgroundImage: `url(img/${image.picture})` }}
@@ -369,9 +374,9 @@ class Downloads extends Router {
 
         return [
             this.renderInfoAboutInstall(),
-            this.renderSelector(),
+            // this.renderSelector(),
             <div key="table" style={{ ...styles.root, ...(this.props.mobile ? styles.rootMobile : undefined) }}>
-                {this.state.content && this.state.content.map(image => this.renderImage(image))}
+                {this.state.content?.map(image => this.renderImage(image))}
             </div>,
             <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
             this.renderSnackbar(),

@@ -32,7 +32,7 @@ const styles = {
     },
     adapter: {
         width: 50,
-        margin: 5,
+        m: '5px',
         display: 'inline-block',
         cursor: 'pointer',
         opacity: 0.8,

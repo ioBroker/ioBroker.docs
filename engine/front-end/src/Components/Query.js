@@ -29,7 +29,11 @@ class Query extends Component {
             sx={styles.mainButton}
             onClick={() => window.open('https://usertreffen.iobroker.in', 'usertreffen')}
         >
-            <img src={userTreffen} alt="usertreffen" style={{ height: 36 }} />
+            <img
+                src={userTreffen}
+                alt="usertreffen"
+                style={{ height: this.props.mobile ? 16 : 36 }}
+            />
         </Button>;
     }
 }

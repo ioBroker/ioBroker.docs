@@ -133,7 +133,7 @@ const styles = {
         verticalAlign: 'top',
     },
     userButton: {
-        marginTop: 100,
+        marginTop: 20,
         marginLeft: 10,
         marginRight: 10,
         padding: 15,
@@ -217,15 +217,13 @@ class Intro extends Component {
         this.action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 8);
     }
 
-    static renderCloud() {
-        const smallMargin = window.screen.height < 500;
-
+    renderCloud() {
         const long = I18n.getLanguage() === 'ru';
 
         return <div
             style={{
                 ...styles.cloudButton,
-                marginTop: smallMargin ? 10 : undefined,
+                marginTop: this.props.mobile ? 20 : 10,
                 width: long ? 330 : 230,
                 marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)',
             }}
@@ -305,12 +303,10 @@ class Intro extends Component {
         </div>;
     }
 
-    static renderUserMeeting() {
-        const smallMargin = window.screen.height < 500;
-
+    renderUserMeeting() {
         return <div
             style={{
-                marginTop: smallMargin ? 10 : undefined,
+                marginTop: this.props.mobile ? 20 : 10,
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -320,20 +316,25 @@ class Intro extends Component {
                 style={styles.userButton}
                 onClick={() => window.open('https://usertreffen.iobroker.in', 'usertreffen')}
             >
-                <img src={userTreffen} alt="usertreffen" style={{ height: 70, borderRadius: 10 }} />
+                <img
+                    src={userTreffen}
+                    alt="usertreffen"
+                    style={{
+                        height: this.props.mobile ? 35 : 70,
+                        borderRadius: this.props.mobile ? 5 : 10,
+                    }}
+                />
             </div>
         </div>;
     }
 
-    static renderHausAutomatisierung() {
-        const smallMargin = window.screen.height < 500;
-
+    renderHausAutomatisierung() {
         return <div
             style={{
                 ...styles.serverButton,
-                marginTop: smallMargin ? 10 : undefined,
-                width: 550,
-                marginLeft: 'calc(50% - 275px)',
+                marginTop: this.props.mobile ? 20 : 10,
+                width: this.props.mobile ? '100%' : 550,
+                marginLeft: this.props.mobile ? undefined : 'calc(50% - 275px)',
                 background: '#144578',
             }}
             onClick={() => {
@@ -342,7 +343,9 @@ class Intro extends Component {
             }}
         >
             <img style={styles.hausButtonImage} src={HausAutomatisierungImg} alt="server" />
-            <div style={styles.serverButtonText}>{I18n.t('Video course from our partner')}</div>
+            <div
+                style={{ ...styles.serverButtonText, fontSize: this.props.mobile ? 10 : 20 }}
+            >{I18n.t('Video course from our partner')}</div>
         </div>;
     }
 
@@ -366,7 +369,7 @@ class Intro extends Component {
     render() {
         let i = 0;
 
-        let link = new Date().getMinutes() % 2;
+        let link = 1;//new Date().getMinutes() % 2;
 
         if (I18n.getLanguage() !== 'de') {
             link = 0;
@@ -381,16 +384,20 @@ class Intro extends Component {
         } else {
             switch (link) {
                 case 1:
-                    middleButton = I18n.getLanguage() === 'de' ? Intro.renderHausAutomatisierung() : Intro.renderCloud();
+                    middleButton = I18n.getLanguage() === 'de' ? this.renderHausAutomatisierung() : this.renderCloud();
                     break;
                 case 2:
                     userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = userMeeting ? Intro.renderUserMeeting() : Intro.renderServer();
+                    middleButton = userMeeting ? this.renderUserMeeting() : Intro.renderServer();
+                    break;
+                case 3:
+                    userMeeting = I18n.getLanguage() === 'de';
+                    middleButton = this.renderCloud();
                     break;
                 case 0:
                 default:
                     userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = userMeeting ? Intro.renderUserMeeting() : Intro.renderCloud();
+                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderCloud();
                     break;
             }
         }
@@ -398,7 +405,7 @@ class Intro extends Component {
         return [
             <Box sx={styles.content} style={styles.backImage} key="content">
                 <Box style={styles.title}>
-                    <div style={styles.titleDiv}>
+                    <div style={{ ...styles.titleDiv, marginTop: this.props.mobile ? 50 : 75 }}>
                         <div style={styles.titleMain}>ioBroker</div>
                         <div style={styles.titleSecond}>Automate your life</div>
                         <div style={styles.titleDescription}>Open source automation platform</div>

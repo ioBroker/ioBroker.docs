@@ -176,7 +176,10 @@ class SupportUs extends Component {
                 key="button"
                 color="grey"
                 sx={styles.mainButton}
-                style={!this.props.noColoring ? styles.hueAnimation : undefined}
+                style={{
+                    ...(!this.props.noColoring ? styles.hueAnimation : undefined),
+                    fontSize: this.props.mobile ? 10 : 14,
+                }}
                 onClick={() => this.setState({ opened: true })}
             >
                 <img src={ImgAmazonSmall} style={styles.mainButtonIcon} alt="logo" />

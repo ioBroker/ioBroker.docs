@@ -73,7 +73,7 @@ const styles = {
     point: {
         '&::before': {
             content: '"•"',
-            paddingRight: 5,
+            pr: '5px',
             fontSize: 24,
         },
     },
@@ -123,24 +123,24 @@ class About extends Component {
                 <div style={styles.box}>
                     <div style={{ ...styles.text, ...(this.props.mobile ? styles.textMobile : styles.textDesktop) }}>
                         <div style={styles.textLine}>
-                            <IconAutomate style={styles.icon} />
-                            <div style={styles.lineTitle}>{I18n.t('Automate everything')}</div>
-                            <div style={styles.lineComment}>{I18n.t('Light, shutter, thermostat, schedule, ...')}</div>
+                            <IconAutomate style={{ ...styles.icon, fontSize: this.props.mobile ? 24 : 48 }} />
+                            <div style={{ ...styles.lineTitle, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Automate everything')}</div>
+                            <div style={{ ...styles.lineComment, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Light, shutter, thermostat, schedule, ...')}</div>
                         </div>
                         <div style={styles.textLine}>
-                            <IconJS style={styles.icon} />
-                            <div style={styles.lineTitle}>{I18n.t('Written with Node.js')}</div>
-                            <div style={styles.lineComment}>{I18n.t('Javascript is most popular language')}</div>
+                            <IconJS style={{ ...styles.icon, fontSize: this.props.mobile ? 24 : 48 }} />
+                            <div style={{ ...styles.lineTitle, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Written with Node.js')}</div>
+                            <div style={{ ...styles.lineComment, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Javascript is most popular language')}</div>
                         </div>
                         <div style={styles.textLine}>
-                            <IconPlatforms style={styles.icon} />
-                            <div style={styles.lineTitle}>{I18n.t('Runs on')}</div>
-                            <div style={styles.lineComment}>{I18n.t('Windows, Linux, OSX, Raspberry Pi, ARM or PC')}</div>
+                            <IconPlatforms style={{ ...styles.icon, fontSize: this.props.mobile ? 24 : 48 }} />
+                            <div style={{ ...styles.lineTitle, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Runs on')}</div>
+                            <div style={{ ...styles.lineComment, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Windows, Linux, OSX, Raspberry Pi, ARM or PC')}</div>
                         </div>
                         <div style={styles.textLine}>
-                            <IconSocial style={styles.icon} />
-                            <div style={styles.lineTitle}>{I18n.t('Social support')}</div>
-                            <div style={styles.lineComment}>{I18n.t('Dynamically growing community.')}</div>
+                            <IconSocial style={{ ...styles.icon, fontSize: this.props.mobile ? 24 : 48 }} />
+                            <div style={{ ...styles.lineTitle, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Social support')}</div>
+                            <div style={{ ...styles.lineComment, marginLeft: this.props.mobile ? 50 : 80 }}>{I18n.t('Dynamically growing community.')}</div>
                         </div>
                     </div>
                     <div style={{ ...styles.image, ...(this.props.mobile ? styles.imageMobile : styles.imageDesktop) }}>

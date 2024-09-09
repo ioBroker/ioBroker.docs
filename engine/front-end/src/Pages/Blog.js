@@ -80,6 +80,9 @@ const styles = {
         fontWeight: 400,
         // fontFamily: 'Open Sans,sans-serif',
         marginTop: 50,
+        '& img': {
+            maxWidth: '100%',
+        }
     },
     pageTitleNextButton: {
         float: 'left',
@@ -198,13 +201,20 @@ class Blog extends Router {
             style={{ ...styles.header, cursor: this.page ? 'pointer' : undefined }}
             onClick={() => this.onNavigate(null, null, '')}
         >
-            <h1 key="title" style={styles.headerTitle}>
+            <h1
+                style={{
+                    ...styles.headerTitle,
+                    fontSize: this.props.mobile ? 32 : 48,
+                    marginTop: this.props.mobile ? 16 : 32,
+                    marginBottom: this.props.mobile ? 10 : 21,
+                }}
+            >
                 {I18n.t('ioBroker Blog')}
                 <a href={`./blog_${this.props.language}.xml`} rel="noopener noreferrer" target="_blank" title={I18n.t('RSS Feed')}>
                     <IconRss style={styles.rssIcon} />
                 </a>
             </h1>
-            <div key="notice" style={styles.headerNotice}>
+            <div style={{ ...styles.headerNotice, fontSize: this.props.mobile ? 16 : 24 }}>
                 {I18n.t('News, announcements and ideas about ioBroker')}
             </div>
         </div>;
@@ -254,7 +264,11 @@ class Blog extends Router {
         return <Paper key={page} style={styles.pagePage}>
             {data.logo ? <div style={{ ...styles.pageLogoDiv, backgroundImage: `url(${data.logo})` }} /> : null}
             <h2
-                style={{ ...styles.pageTitle, cursor: 'pointer' }}
+                style={{
+                    ...styles.pageTitle,
+                    cursor: 'pointer',
+                    fontSize: this.props.mobile ? '1.5em' : 32,
+                }}
                 onClick={() => this.props.onNavigate(null, null, page)}
             >
                 {data.title[this.props.language] || data.title.en}
@@ -283,9 +297,9 @@ class Blog extends Router {
             return null;
         }
 
-        return <div style={styles.pages}>{
-            Object.keys(this.state.content.pages).map(page => this.renderEntry(page))
-        }</div>;
+        return <div style={styles.pages}>
+            {Object.keys(this.state.content.pages).map(page => this.renderEntry(page))}
+        </div>;
     }
 
     renderPage() {
@@ -328,7 +342,7 @@ class Blog extends Router {
             {header.translatedFrom ?
                 <Box sx={styles.pageTitleTranslated}>{I18n.t('Translated from %s', header.translatedFrom)}</Box> : null}
 
-            <div style={styles.pageDesc}>{reactElement}</div>
+            <Box sx={styles.pageDesc}>{reactElement}</Box>
 
             {header.editLink ?
                 <div style={styles.info}>
