@@ -12,6 +12,15 @@ import {
 
 import I18n from '../i18n';
 
+const styles = {
+    titleColor: {
+        // color: '#FFFFFF',
+    },
+    titleBackground: {
+        // background: '#FF0000',
+    },
+};
+
 class DialogError extends React.Component {
     handleOk = () => {
         this.props.onClose && this.props.onClose();
@@ -27,8 +36,7 @@ class DialogError extends React.Component {
             aria-describedby="alert-dialog-description"
         >
             <DialogTitle
-                className={this.props.classes.titleBackground}
-                classes={{ root: this.props.classes.titleColor }}
+                style={{ ...styles.titleColor, ...styles.titleBackground }}
                 id="alert-dialog-title"
             >
                 {this.props.title || I18n.t('Error')}

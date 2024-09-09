@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import SplitterLayout from 'react-splitter-layout';
 
@@ -28,7 +27,7 @@ import Utils from '../Utils';
 import MonacoEditor from '../Components/ScriptEditorVanilaMonaco';
 import Markdown from '../Markdown';
 
-const styles = () => ({
+const styles = {
     root: {
         width: '100%',
         height: '100%',
@@ -60,7 +59,7 @@ const styles = () => ({
         display: 'block',
         borderBottom: '1px solid #DDDDDD',
     },
-});
+};
 
 class Editor extends Component {
     constructor(props) {
@@ -158,11 +157,11 @@ class Editor extends Component {
     }
 
     renderEditor() {
-        return <div className={this.props.classes.editor}>
-            <div className={this.props.classes.buttonTab}>
+        return <div style={styles.editor}>
+            <div style={styles.buttonTab}>
                 <Button
                     color="grey"
-                    className={`${this.props.classes.copyButton} ${this.state.changed ? this.props.classes.copyButtonChanged : ''}`}
+                    style={{ ...styles.copyButton, ...(this.state.changed ? styles.copyButtonChanged : undefined) }}
                     onClick={e => {
                         Utils.onCopy(e, this.state.text);
                         this.setState({ tooltip: I18n.t('Copied') });
@@ -173,7 +172,7 @@ class Editor extends Component {
                 </Button>
                 <Button
                     color="grey"
-                    className={this.props.classes.githubButton}
+                    style={styles.githubButton}
                     onClick={e => {
                         if (this.state.noInstructions) {
                             this.openGithub(e);
@@ -187,7 +186,7 @@ class Editor extends Component {
                 </Button>
                 <Button
                     color="primary"
-                    className={this.props.classes.closeButton}
+                    style={styles.closeButton}
                     onClick={() => this.props.onClose()}
                 >
                     <IconClose />
@@ -200,7 +199,7 @@ class Editor extends Component {
                 theme={this.props.theme}
                 readOnly={false}
                 code={this.state.code || ''}
-            /> : <CircularProgress className={this.props.classes.progress} />}
+            /> : <CircularProgress style={styles.progress} />}
 
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -212,7 +211,7 @@ class Editor extends Component {
                     <IconButton
                         key="close"
                         color="inherit"
-                        className={this.props.classes.close}
+                        style={styles.close}
                         onClick={() => this.setState({ tooltip: '' })}
                     >
                         <IconClose />
@@ -224,9 +223,9 @@ class Editor extends Component {
 
     renderDoc() {
         if (!this.state.code) {
-            return <CircularProgress className={this.props.classes.progress} />;
+            return <CircularProgress style={styles.progress} />;
         }
-        return <div className={this.props.classes.doc}>
+        return <div style={styles.doc}>
             <Markdown
                 mobile={this.props.mobile}
                 language={this.props.language}
@@ -246,12 +245,11 @@ class Editor extends Component {
                 primaryIndex={1}
                 percentage
                 secondaryInitialSize={this.state.menuSize}
-                // onDragStart={() => this.setState({ resizing: true })}
                 onSecondaryPaneSizeChange={size => this.menuSize = parseFloat(size)}
-                customClassName={this.props.classes.splitterDivs}
+                style={styles.splitterDivs}
                 onDragEnd={() => {
-                    window.localStorage && window.localStorage.setItem('Docs.editorSize', this.menuSize.toString());
-                    this.setState({ /* resizing: false, */ menuSize: this.menuSize });
+                    window.localStorage.setItem('Docs.editorSize', this.menuSize.toString());
+                    this.setState({ menuSize: this.menuSize });
                 }}
             >
                 {this.renderEditor()}
@@ -270,4 +268,4 @@ Editor.propTypes = {
     onClose: PropTypes.func,
 };
 
-export default withStyles(styles)(Editor);
+export default Editor;

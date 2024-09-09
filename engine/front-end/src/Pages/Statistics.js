@@ -151,7 +151,7 @@ class Statistics extends Component {
         return null;
     }
 
-    renderMap() {
+    static renderMap() {
         return <Paper key="map" style={{ ...styles.paper, ...styles.paperMap }}>
             <IconButton
                 style={styles.iframeButton}
@@ -386,7 +386,7 @@ class Statistics extends Component {
 
     render() {
         return [
-            this.renderMap(),
+            Statistics.renderMap(),
             <div key="stat" style={styles.root}>
                 {this.renderPlatforms()}
                 {this.renderLanguages()}
@@ -396,7 +396,12 @@ class Statistics extends Component {
                 {this.renderDbStatesTypes()}
                 {this.renderDbObjectsTypes()}
                 {this.renderDocker()}
-                <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />
+                <Footer
+                    key="footer"
+                    theme={this.props.theme}
+                    mobile={this.props.mobile}
+                    onNavigate={this.props.onNavigate}
+                />
             </div>,
         ];
     }

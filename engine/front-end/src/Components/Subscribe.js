@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
@@ -12,6 +11,7 @@ import {
     DialogContent,
     DialogContentText,
     DialogTitle,
+    Box,
 } from '@mui/material';
 
 import {
@@ -168,12 +168,12 @@ class Subscribe extends Component {
             autoHideDuration={6000}
             onClose={() => this.setState({ tooltip: '', errorTooltip: false })}
             message={<span id="message-id">{this.state.tooltip}</span>}
-            classes={{ root: this.state.errorTooltip ? this.props.classes.tooltipError : undefined }}
+            style={this.state.errorTooltip ? styles.tooltipError : undefined}
             action={[
                 <IconButton
                     key="close"
                     color="inherit"
-                    className={this.props.classes.close}
+                    style={styles.close}
                     onClick={() => this.setState({ tooltip: '', errorTooltip: false })}
                 >
                     <IconClose />
@@ -184,14 +184,14 @@ class Subscribe extends Component {
 
     render() {
         const error = this.state.email && !regEmail.test(this.state.email.toLowerCase());
-        return <div key="subscribe" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
-            <IconSubscribe className={this.props.classes.inputIcon} />
+        return <Box key="subscribe" style={styles.mainDiv} sx={this.props.backStyle}>
+            <IconSubscribe style={styles.inputIcon} />
             <Input
                 error={!!error}
                 placeholder={this.state.inputFocused ? I18n.t('Your e-mail address') : I18n.t('Newsletter subscribe')}
-                classes={{ input: this.state.inputFocused || this.state.email ? this.props.classes.inputRootNotEmpty : this.props.classes.inputRoot }}
-                className={this.props.classes.input}
-                onKeyUp={e => e.keyCode === 13 && this.onSubscribe()}
+                sx={{ '& .MuiInput-input': this.state.inputFocused || this.state.email ? styles.inputRootNotEmpty : styles.inputRoot }}
+                style={styles.input}
+                onKeyUp={e => e.key === 'Enter' && this.onSubscribe()}
                 onFocus={() => this.setState({ inputFocused: true })}
                 onBlur={() => this.setState({ inputFocused: false })}
                 onChange={e => this.setState({ email: e.target.value })}
@@ -199,23 +199,24 @@ class Subscribe extends Component {
             <br />
             <Button
                 color="primary"
-                className={`${this.props.classes.button} ${this.state.inputFocused || this.state.email ? this.props.classes.buttonFull : ''}`}
+                sx={styles.button}
+                style={this.state.inputFocused || this.state.email ? styles.buttonFull : undefined}
                 disabled={error || !this.state.email}
                 onClick={() => this.onSubscribe()}
             >
                 <IconEmail fontSize="small" style={{ marginRight: 5 }} />
                 {this.state.inputFocused ? I18n.t('Subscribe') : ''}
             </Button>
-            <div className={`${this.props.classes.promise} ${this.state.inputFocused || this.state.email ? this.props.classes.promiseHide : ''}`}>{I18n.t('We will not spam you. Promise!')}</div>
+            <div style={{ ...styles.promise, ...(this.state.inputFocused || this.state.email ? styles.promiseHide : undefined) }}>{I18n.t('We will not spam you. Promise!')}</div>
             {this.renderSnackbar()}
             {this.renderUnsubscribeDialog()}
-        </div>;
+        </Box>;
     }
 }
 
 Subscribe.propTypes = {
     language: PropTypes.string,
-    backClass: PropTypes.string,
+    backStyle: PropTypes.func,
 };
 
-export default withStyles(styles)(Subscribe);
+export default Subscribe;

@@ -36,23 +36,25 @@ Detect IP addresses from:
 - [-] synology - it is a multifunctional device - ignore it,
 - [X] sonos,
 - [X] mihome-vacuum,
-- [ ] hmip (Homematic Cloud),
+- [-] hmip (It communicates with the cloud),
 - [ ] homeconnect,
-- [ ] wled (ESP8266/ESP32),
-- [ ] unify,
+- [X] wled (ESP8266/ESP32),
+- [X] unify,
 - [X] harmony,
 - [-] samsung (TV) - too many data,
 - [-] onvif (Webkameras) - too many data,
 - [-] kameras (URL oder IP-Kameras)  - too many data,
 - [-] proxmox - not possible, as alexa reads no IP addresses
-- [ ] broadlink2,
+- [X] broadlink2,
 - [-] lgtv - too many data,
-- [ ] knx (KNX-Gateway),
-- [ ] lcn,
-- [ ] homekit-controller,
-- [ ] upnp,
+- [X] knx (KNX-Gateway),
+- [X] openknx (KNX-Gateway),
+- [X] lcn,
+- [X] homekit-controller,
+- [X] upnp,
 - [X] openknx,
-- [ ] meross
+- [X] wifilight,
+- [-] meross - not possible, It communicates with the cloud
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -60,6 +62,9 @@ Detect IP addresses from:
 -->
 
 ## Changelog
+### 1.0.0 (2024-09-06)
+* (bluefox) Corrected configuration page
+
 ### 0.3.1 (2024-08-31)
 * (bluefox) Added detection of some IPs
 

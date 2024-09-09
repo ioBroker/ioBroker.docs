@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome 研究
-hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
+hash: uq1R+4MmZiJzu+VSg5HTAdslP+gOjBK0olM0Eee5DhA=
 ---
 ![标识](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -43,29 +43,34 @@ hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
 - [-] synology - 它是一个多功能设备 - 忽略它，
 - [X] Sonos，
 - [X] mihome-吸尘器，
-- [ ] hmip（Homematic Cloud），
+- [-] hmip（与云端通信），
 - [ ] 家庭连接，
-- [ ] wled (ESP8266/ESP32)，
-- [ ] 统一，
+- [X] wled（ESP8266/ESP32），
+- [X] 统一，
 - [X] 和谐，
 - [-] 三星（电视） - 数据太多，
 - [-] onvif (网络摄像机) - 数据太多，
 - [-] 摄像机（URL 或 IP 摄像机）- 数据太多，
 - [-] proxmox - 不可能，因为 alexa 读取不到 IP 地址
-- [ ] broadlink2，
+- [X] broadlink2，
 - [-] lgtv - 数据太多，
-- [ ] knx (KNX网关),
--[ ] lcn，
-- [ ] homekit 控制器，
-- [ ] UPNP，
+- [X] knx（KNX网关），
+- [X] openknx (KNX 网关),
+-[X] lcn，
+- [X] homekit 控制器，
+- [X] upnp，
 - [X] openknx，
-- [ ] 梅罗斯
+- [X] wifi灯，
+- [-] meross - 不可能，它与云端通信
 
 <!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.0.0 (2024-09-06)
+* (bluefox) Corrected configuration page
+
 ### 0.3.1 (2024-08-31)
 * (bluefox) Added detection of some IPs
 

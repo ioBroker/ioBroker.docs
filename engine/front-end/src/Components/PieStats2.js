@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ChartistGraph from 'react-chartist';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import I18n from '../i18n';
 
-const styles = () => ({
+const styles = {
     cardChart: {
         width: '100%',
         height: '100%',
@@ -31,33 +30,33 @@ const styles = () => ({
     chartColor18: { fill: '#3b15ff' },
     chartColor19: { fill: '#1685ff' },
     chartColor20: { fill: '#00fbff' },
-});
+};
 
 class PieStats2 extends Component {
     constructor(props) {
         super(props);
         this.colors = [
-            this.props.classes.chartColor0,
-            this.props.classes.chartColor1,
-            this.props.classes.chartColor2,
-            this.props.classes.chartColor3,
-            this.props.classes.chartColor4,
-            this.props.classes.chartColor5,
-            this.props.classes.chartColor6,
-            this.props.classes.chartColor7,
-            this.props.classes.chartColor8,
-            this.props.classes.chartColor9,
-            this.props.classes.chartColor10,
-            this.props.classes.chartColor11,
-            this.props.classes.chartColor12,
-            this.props.classes.chartColor13,
-            this.props.classes.chartColor14,
-            this.props.classes.chartColor15,
-            this.props.classes.chartColor16,
-            this.props.classes.chartColor17,
-            this.props.classes.chartColor18,
-            this.props.classes.chartColor19,
-            this.props.classes.chartColor20,
+            styles.chartColor0,
+            styles.chartColor1,
+            styles.chartColor2,
+            styles.chartColor3,
+            styles.chartColor4,
+            styles.chartColor5,
+            styles.chartColor6,
+            styles.chartColor7,
+            styles.chartColor8,
+            styles.chartColor9,
+            styles.chartColor10,
+            styles.chartColor11,
+            styles.chartColor12,
+            styles.chartColor13,
+            styles.chartColor14,
+            styles.chartColor15,
+            styles.chartColor16,
+            styles.chartColor17,
+            styles.chartColor18,
+            styles.chartColor19,
+            styles.chartColor20,
         ];
     }
 
@@ -90,14 +89,14 @@ class PieStats2 extends Component {
             return {
                 value: series[i],
                 name: n,
-                className: this.colors[i] || undefined,
+                style: this.colors[i],
                 meta: 'Meta One',
             };
         });
 
         return <ChartistGraph
-            className={this.props.classes.cardChart}
-            data={{series: ddd}}
+            style={styles.cardChart}
+            data={{ series: ddd }}
             options={{
                 labelInterpolationFnc: (value, index) => {
                     console.log(value);
@@ -132,4 +131,4 @@ PieStats2.propTypes = {
     startFromPercent: PropTypes.number,
 };
 
-export default withStyles(styles)(PieStats2);
+export default PieStats2;

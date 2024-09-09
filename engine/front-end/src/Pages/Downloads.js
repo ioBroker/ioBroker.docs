@@ -1,5 +1,4 @@
 import React from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
@@ -34,8 +33,7 @@ import Markdown from '../Markdown';
 import Router from '../Router';
 
 const MARGIN = 10;
-const styles = theme => ({
-    content: theme.content,
+const styles = {
     formControl: {
         marginLeft: 20,
         marginBottom: 10,
@@ -91,24 +89,24 @@ const styles = theme => ({
     cardLineName: {
         fontWeight: 'bold',
         flex: 1,
-        marginRight: theme.spacing(1),
+        marginRight: 8,
     },
     cardLineValue: {},
     instructionDiv: {
         width: 'calc(100% - 80px)',
-        marginLeft: 20,
-        marginRight: 20,
+        ml: '20px',
+        mr: '20px',
         maxWidth: 750,
-        marginBottom: 10,
-        marginTop: 5,
+        mb: '10px',
+        mt: '5px',
         minWidth: 100,
-        padding: 20,
+        p: '20px',
         overflow: 'hidden',
         '&:before': {
             content: '"⚠"',
             color: '#ff5a5a',
             fontSize: 24,
-            paddingRight: 10,
+            pr: '10px',
             // borderRadius: '50%',
             // background: '#008aff',
         },
@@ -122,14 +120,14 @@ const styles = theme => ({
     },
     instructionCopy: {
         position: 'absolute',
-        top: -4,
-        right: -9,
+        top: -2,
+        right: -4,
         color: '#FFFFFF',
         opacity: 0.8,
         cursor: 'pointer',
         zIndex: 1,
     },
-});
+};
 
 const IGNORED_ATTRS = ['file', 'date', 'linux', 'picture', 'device', 'info', 'details'];
 class Downloads extends Router {
@@ -172,13 +170,13 @@ class Downloads extends Router {
         password: 'raspberry',
         info: 'http://www.iobroker.net/docu/?page_id=8955&lang=de'
     } */
-    renderLine(name, value) {
-        return <div key={name} className={this.props.classes.cardLine}>
-            <span className={this.props.classes.cardLineName}>
+    static renderLine(name, value) {
+        return <div key={name} style={styles.cardLine}>
+            <span style={styles.cardLineName}>
                 {I18n.t(name)}
                 :
             </span>
-            <span className={this.props.classes.cardLineValue}>
+            <span style={styles.cardLineValue}>
                 {value}
             </span>
         </div>;
@@ -213,7 +211,7 @@ class Downloads extends Router {
         }
 
         return <Dialog
-            className={this.props.classes.dialog}
+            style={styles.dialog}
             fullWidth={this.state.mobile}
             maxWidth="xl"
             open={!0}
@@ -221,7 +219,8 @@ class Downloads extends Router {
             aria-labelledby="max-width-dialog-title"
         >
 
-            <DialogContent className={`${this.props.classes.dialogContent} ${this.state.mobile ? this.props.classes.dialogContentMobile : ''}`}>
+            <DialogContent
+                style={{ ...styles.dialogContent, ...(this.state.mobile ? styles.dialogContentMobile : undefined) }}>
                 {this.state.info.endsWith('.md') ?
                     <Markdown
                         path={`downloads/${this.state.info}`}
@@ -256,33 +255,32 @@ class Downloads extends Router {
             return null;
         }
 
-        return <Card key={image.file} className={this.props.classes.card} style={{ width: this.cardWidth }}>
+        return <Card key={image.file} style={{ ...styles.card, width: this.cardWidth }}>
             <CardActionArea>
                 <div
-                    className={this.props.classes.cardMedia}
-                    style={{ backgroundImage: `url(img/${image.picture})` }}
+                    style={{ ...styles.cardMedia, backgroundImage: `url(img/${image.picture})` }}
                 />
-                <div className={this.props.classes.cardTitle}>
+                <div style={styles.cardTitle}>
                     <h2>{image.device}</h2>
                 </div>
-                <CardContent className={this.props.classes.cardContent}>
+                <CardContent style={styles.cardContent}>
                     <h2>&nbsp;</h2>
-                    <div className={this.props.classes.cardInfo}>
+                    <div style={styles.cardInfo}>
                         <div>
-                            {image.date ? this.renderLine('Date', Downloads.formatDate(image.date)) : null}
-                            {image.linux === 'Windows' ? this.renderLine('OS', image.linux) : this.renderLine('Linux', image.linux)}
+                            {image.date ? Downloads.renderLine('Date', Downloads.formatDate(image.date)) : null}
+                            {image.linux === 'Windows' ? Downloads.renderLine('OS', image.linux) : Downloads.renderLine('Linux', image.linux)}
 
                             {Object.keys(image)
                                 .filter(attr => IGNORED_ATTRS.indexOf(attr) === -1)
                                 .map(attr => {
                                     if (image[attr].match(/^https?:/)) {
-                                        return this.renderLine(attr, <a href={image[attr]} target="_blank" rel="noopener noreferrer">{I18n.t('link')}</a>);
+                                        return Downloads.renderLine(attr, <a href={image[attr]} target="_blank" rel="noopener noreferrer">{I18n.t('link')}</a>);
                                     }
 
-                                    return this.renderLine(attr, image[attr]);
+                                    return Downloads.renderLine(attr, image[attr]);
                                 })}
 
-                            {image.details && this.renderLine('Details', Downloads.formatDetails(image.details))}
+                            {image.details && Downloads.renderLine('Details', Downloads.formatDetails(image.details))}
                         </div>
                     </div>
                 </CardContent>
@@ -306,7 +304,7 @@ class Downloads extends Router {
                 <IconButton
                     key="close"
                     color="inherit"
-                    className={this.props.classes.close}
+                    style={styles.close}
                     onClick={() => this.setState({ tooltip: '' })}
                 >
                     <IconClose />
@@ -316,18 +314,18 @@ class Downloads extends Router {
     }
 
     renderInfoAboutInstall() {
-        return <Paper key="instruction" className={this.props.classes.instructionDiv}>
+        return <Paper key="instruction" sx={styles.instructionDiv}>
             {I18n.t('instruction1')}
             <br />
             <br />
             {I18n.t('instruction2')}
             <br />
             <br />
-            <pre className={this.props.classes.instructionCode}>
+            <pre style={styles.instructionCode}>
                 curl -sLf https://iobroker.net/install.sh | bash -
                 <br />
                 <IconButton
-                    className={this.props.classes.instructionCopy}
+                    style={styles.instructionCopy}
                     title={I18n.t('copy to clipboard')}
                     onClick={e => {
                         Utils.onCopy(e, 'curl -sLf https://iobroker.net/install.sh | bash -');
@@ -348,7 +346,7 @@ class Downloads extends Router {
         const types = [];
         this.state.content.forEach(item => !types.includes(item.device) && types.push(item.device));
 
-        return <FormControl key="selector" className={this.props.classes.formControl}>
+        return <FormControl key="selector" style={styles.formControl}>
             <Select
                 variant="standard"
                 value={this.state.filter}
@@ -372,7 +370,7 @@ class Downloads extends Router {
         return [
             this.renderInfoAboutInstall(),
             this.renderSelector(),
-            <div key="table" className={`${this.props.classes.root} ${this.props.mobile ? this.props.classes.rootMobile : ''}`}>
+            <div key="table" style={{ ...styles.root, ...(this.props.mobile ? styles.rootMobile : undefined) }}>
                 {this.state.content && this.state.content.map(image => this.renderImage(image))}
             </div>,
             <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
@@ -389,4 +387,4 @@ Downloads.propTypes = {
     mobile: PropTypes.bool,
 };
 
-export default withStyles(styles)(Downloads);
+export default Downloads;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/styles';
 import Typed from 'react-typed';
 
 import { IconButton } from '@mui/material';
@@ -128,23 +127,23 @@ class LinusShell extends React.Component {
             };
         }
 
-        return <div className={this.props.classes.linuxShell} style={_styles.linuxShell}>
-            <div className={this.props.classes.linuxShellHeader} style={_styles.linuxShellHeader}>
+        return <div style={{ ...styles.linuxShell, ..._styles.linuxShell }}>
+            <div style={{ ...styles.linuxShellHeader, ..._styles.linuxShellHeader }}>
                 <div
-                    className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonClose}`}
+                    style={{ ...styles.linuxShellHeaderButton, ...styles.linuxShellHeaderButtonClose }}
                     onClick={() => this.onLinuxSize('small')}
                 />
                 <div
-                    className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonHide}`}
+                    style={{ ...styles.linuxShellHeaderButton, ...styles.linuxShellHeaderButtonHide }}
                     onClick={() => this.onLinuxSize('normal')}
                 />
                 <div
-                    className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonFull}`}
+                    style={{ ...styles.linuxShellHeaderButton, ...styles.linuxShellHeaderButtonFull }}
                     onClick={() => this.onLinuxSize('full')}
                 />
-                <span className={this.props.classes.linuxShellHeaderTitle} style={_styles.linuxShellHeaderTitle}>{this.props.header || 'shell'}</span>
+                <span style={{ ...styles.linuxShellHeaderTitle, ..._styles.linuxShellHeaderTitle }}>{this.props.header || 'shell'}</span>
             </div>
-            <div className={this.props.classes.linuxShellWindow} style={_styles.linuxShellWindow}>
+            <div style={{ ...styles.linuxShellWindow, ..._styles.linuxShellWindow }}>
                 pi@raspberry:~#&nbsp;
                 <Typed
                     strings={this.state.text}
@@ -152,7 +151,7 @@ class LinusShell extends React.Component {
                     onComplete={() => setTimeout(() => this.setState({ animationDone: true, text: [this.props.typedText] }), 500)}
                 />
                 <IconButton
-                    className={`${this.props.classes.linuxShellWindowCopy} ${this.state.animationDone ? this.props.classes.linuxShellHeaderWindowCopyDone : ''}`}
+                    style={{ ...styles.linuxShellWindowCopy, ...(this.state.animationDone ? styles.linuxShellHeaderWindowCopyDone : undefined) }}
                     title={this.props.copyTitle || 'copy to clipboard'}
                     onClick={e => {
                         Utils.onCopy(e, this.props.typedText);
@@ -173,4 +172,4 @@ LinusShell.propTypes = {
     copiedText: PropTypes.string,
 };
 
-export default withStyles(styles)(LinusShell);
+export default LinusShell;

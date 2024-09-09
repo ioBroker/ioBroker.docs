@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome-Recherche
-hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
+hash: uq1R+4MmZiJzu+VSg5HTAdslP+gOjBK0olM0Eee5DhA=
 ---
 ![Logo](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -43,29 +43,34 @@ Erkennen Sie IP-Adressen von:
 - [-] Synology - es ist ein Multifunktionsgerät - ignoriere es,
 - [X] Sonos,
 - [X] mihome-Vakuum,
-- [ ] hmip (Homematic Cloud),
+- [-] hmip (Es kommuniziert mit der Cloud),
 - [ ] Heimverbindung,
-- [ ] wled (ESP8266/ESP32),
-- [ ] vereinen,
+- [X] wled (ESP8266/ESP32),
+- [X] vereinen,
 - [X] Harmonie,
 - [-] Samsung (TV) - zu viele Daten,
 - [-] onvif (Webkameras) - zu viele Daten,
 - [-]Kameras (URL oder IP-Kameras) - zu viele Daten,
 - [-] proxmox - nicht möglich, da Alexa keine IP-Adressen liest
-- [ ] broadlink2,
+- [X] broadlink2,
 - [-] lgtv - zu viele Daten,
-- [ ] knx (KNX-Gateway),
-- [ ] lcn,
-- [ ] Homekit-Controller,
-- [ ] upnp,
+- [X] knx (KNX-Gateway),
+- [X] openknx (KNX-Gateway),
+- [X] lcn,
+- [X] Homekit-Controller,
+- [X] upnp,
 - [X] openknx,
-- [ ] meross
+- [X] WLAN-Licht,
+- [-] meross - nicht möglich, Es kommuniziert mit der Cloud
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.0.0 (2024-09-06)
+* (bluefox) Corrected configuration page
+
 ### 0.3.1 (2024-08-31)
 * (bluefox) Added detection of some IPs
 

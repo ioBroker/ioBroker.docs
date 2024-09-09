@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/styles';
 
 import ReactEchartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -10,13 +9,6 @@ import { SVGRenderer } from 'echarts/renderers';
 import I18n from '../i18n';
 
 echarts.use([PieChart, SVGRenderer]);
-
-const styles = () => ({
-    cardChart: {
-        width: '100%',
-        height: '100%',
-    },
-});
 
 function registerTheme() {
     /*
@@ -916,4 +908,4 @@ PieStats.propTypes = {
     startFromPercent: PropTypes.number,
 };
 
-export default withStyles(styles)(PieStats);
+export default PieStats;

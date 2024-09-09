@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
-import { Button } from '@mui/material';
+import {Box, Button} from '@mui/material';
 
 import I18n from '../i18n';
 
-const styles = theme => ({
+const styles = {
     mainDiv: {
         position: 'absolute',
         bottom: 16,
@@ -39,7 +38,7 @@ const styles = theme => ({
         wordBreak: 'break-word',
         display: 'inline-block',
     },
-    buttonMore: {
+    buttonMore: theme => ({
         color: theme.palette.secondary.light,
         lineHeight: 'normal',
         overflow: 'hidden',
@@ -48,7 +47,7 @@ const styles = theme => ({
         wordBreak: 'break-word',
         display: 'inline-block',
         cursor: 'pointer',
-    },
+    }),
     buttonOk: {
         lineHeight: 'normal',
         verticalAlign: 'top',
@@ -59,7 +58,7 @@ const styles = theme => ({
     buttonOkDesktop: {
         marginRight: 18,
     },
-});
+};
 
 class Cookies extends Component {
     constructor(props) {
@@ -79,11 +78,10 @@ class Cookies extends Component {
             return null;
         }
 
-        const classes = this.props.classes;
-        return <div className={`${classes.mainDiv} ${this.props.mobile ? classes.mainDivMobile : ''}`}>
-            <div className={classes.text}>{I18n.t('cookies_text')}</div>
-            <div className={classes.buttonMore} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
-            <Button variant="contained" className={`${classes.buttonOk} ${this.props.mobile ? '' : classes.buttonOkDesktop}`} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
+        return <div style={{ ...styles.mainDiv, ...(this.props.mobile ? styles.mainDivMobile : undefined) }}>
+            <div style={styles.text}>{I18n.t('cookies_text')}</div>
+            <Box sx={styles.buttonMore} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</Box>
+            <Button variant="contained" style={{ ...styles.buttonOk, ...(this.props.mobile ? undefiend: styles.buttonOkDesktop) }} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
         </div>;
     }
 }
@@ -93,4 +91,4 @@ Cookies.propTypes = {
     onNavigate: PropTypes.func,
 };
 
-export default withStyles(styles)(Cookies);
+export default Cookies;

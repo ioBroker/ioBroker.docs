@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
+import { Box } from '@mui/material';
 
 import ImageLinuxMagazin from '../assets/linux-magazine.png';
 import ImageCT from '../assets/ct.png';
@@ -10,7 +10,7 @@ import ImageHomeAndSmart from '../assets/home_and_smart.svg';
 import I18n from '../i18n';
 import Utils from '../Utils';
 
-const styles = () => ({
+const styles = {
     mainDiv: {
         background: '#FFFFFF',
         width: 'calc(100% - 60px)',
@@ -41,9 +41,9 @@ const styles = () => ({
     cardLink: {
         height: 48,
     },
-});
+};
 
-const Features = [
+const FeaturesLinks = [
     { title: '2018.08', alt: 'C\'t',          image: ImageCT,           link: 'https://www.heise.de/select/ct/2018/17/1534562336998502' },
     { title: '2018.08', alt: 'Smarthome DIY', image: ImageSmarthomeDIY, link: 'https://leanpub.com/smarthdiy' },
     { title: '2018.04', alt: 'Linux Magazin', image: ImageLinuxMagazin, link: 'http://www.linux-magazin.de/ausgaben/2018/04/io-broker/' },
@@ -54,17 +54,17 @@ const Features = [
 
 class Features extends Component {
     render() {
-        return <div key="Features" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
-            <div className={this.props.classes.title}>{I18n.t('ioBroker in The Features')}</div>
-            <div className={this.props.classes.preBox}>
-                <div className={this.props.classes.box}>
-                    {Features.map(p => <div key={p.title + p.alt} className={this.props.classes.card} onClick={() => Utils.openLink(p.link)}>
-                        <img className={this.props.classes.cardLink} src={p.image} alt={p.alt}/>
-                        <div className={this.props.classes.card}>{p.title}</div>
+        return <Box key="Features" style={styles.mainDiv} sx={this.props.backStyle}>
+            <div style={styles.title}>{I18n.t('ioBroker in The Features')}</div>
+            <div style={styles.preBox}>
+                <div style={styles.box}>
+                    {FeaturesLinks.map(p => <div key={p.title + p.alt} style={styles.card} onClick={() => Utils.openLink(p.link)}>
+                        <img style={styles.cardLink} src={p.image} alt={p.alt}/>
+                        <div style={styles.card}>{p.title}</div>
                     </div>)}
                 </div>
             </div>
-        </div>;
+        </Box>;
     }
 }
 
@@ -72,7 +72,7 @@ Features.propTypes = {
     language: PropTypes.string,
     theme: PropTypes.string,
     mobile: PropTypes.bool,
-    backClass: PropTypes.string,
+    backStyle: PropTypes.string,
 };
 
-export default withStyles(styles)(Features);
+export default Features;

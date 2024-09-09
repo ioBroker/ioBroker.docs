@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
@@ -12,7 +11,7 @@ import {
     DialogTitle,
     Accordion,
     AccordionSummary,
-    AccordionActions,
+    AccordionActions, Box,
 } from '@mui/material';
 
 import {
@@ -23,7 +22,7 @@ import {
 import I18n from '../i18n';
 import Utils from '../Utils';
 
-const styles = theme => ({
+const styles = {
     mainDiv: {
         marginTop: 10,
         marginBottom: 10,
@@ -38,11 +37,11 @@ const styles = theme => ({
         justifyContent: 'center',
         position: 'relative',
     },
-    title: {
+    title: theme => ({
         color: theme.palette.primary.light,
         fontSize: 24,
         fontWeight: 'bold',
-    },
+    }),
     imgDiv: {
 
     },
@@ -80,7 +79,7 @@ const styles = theme => ({
     moreDetails: {
         display: 'block',
     },
-});
+};
 
 class Affiliates extends Component {
     constructor(props) {
@@ -114,33 +113,38 @@ class Affiliates extends Component {
     }
 
     renderOne(one) {
-        return <div key={one.text} className={this.props.classes.mainDiv}>
-            {one.date ? <div className={this.props.classes.date}>
+        return <div key={one.text} style={styles.mainDiv}>
+            {one.date ? <div style={styles.date}>
                 <span style={{ marginRight: 8 }}>{I18n.t('Last edit')}:</span>
                 {one.date}
             </div> : null}
-            {one.title ? <div className={this.props.classes.title}>{one.title}</div> : null}
-            {one.img ? <div className={this.props.classes.imgDiv}>
-                <img className={this.props.classes.img} src={one.img} alt="product" />
+            {one.title ? <Box sx={styles.title}>{one.title}</Box> : null}
+            {one.img ? <div style={styles.imgDiv}>
+                <img style={styles.img} src={one.img} alt="product" />
             </div> : null}
-            {one.text ? <div className={this.props.classes.text}>{one.text}</div> : null}
-            <div className={this.props.classes.buttonDiv}>
-                <Button className={this.props.classes.button} onClick={() => Utils.openLink(one.link)} color="secondary">
+            {one.text ? <div style={styles.text}>{one.text}</div> : null}
+            <div style={styles.buttonDiv}>
+                <Button style={styles.button} onClick={() => Utils.openLink(one.link)} color="secondary">
                     <span style={{ marginRight: 8 }}>{I18n.t('to Shop')}</span>
                     *
                 </Button>
-                <div className={this.props.classes.partnerLink}>{I18n.t('* partner link')}</div>
+                <div style={styles.partnerLink}>{I18n.t('* partner link')}</div>
             </div>
-            <IconButton title={I18n.t('Explanation')} onClick={() => this.setState({ explanation: true })} className={this.props.classes.question}><IconQuestion /></IconButton>
+            <IconButton title={I18n.t('Explanation')} onClick={() => this.setState({ explanation: true })} style={styles.question}><IconQuestion /></IconButton>
             {this.renderExplanation()}
         </div>;
     }
 
     renderExpands() {
         if (this.props.data.length > 1) {
-            return <Accordion key="expansion" className={this.props.classes.morePanel}>
-                <AccordionSummary className={this.props.classes.summary} classes={{ expanded: this.props.classes.moreSummary }} expandIcon={<IconExpandMore />}>{I18n.t('More devices')}</AccordionSummary>
-                <AccordionActions className={this.props.classes.moreDetails}>
+            return <Accordion key="expansion">
+                <AccordionSummary
+                    style={styles.summary}
+                    expandIcon={<IconExpandMore />}
+                >
+                    {I18n.t('More devices')}
+                </AccordionSummary>
+                <AccordionActions style={styles.moreDetails}>
                     {this.props.data.filter((a, i) => i > 0).map(a => this.renderOne(a))}
                 </AccordionActions>
             </Accordion>;
@@ -160,4 +164,4 @@ Affiliates.propTypes = {
     data: PropTypes.array,
 };
 
-export default withStyles(styles)(Affiliates);
+export default Affiliates;

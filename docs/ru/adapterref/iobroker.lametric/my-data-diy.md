@@ -1,10 +1,10 @@
 ---
 chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"ioBroker.lametric"},"content":"de/adapterref/iobroker.lametric/README.md"},"de/adapterref/iobroker.lametric/apps.md":{"title":{"de":"ioBroker.lametric"},"content":"de/adapterref/iobroker.lametric/apps.md"},"de/adapterref/iobroker.lametric/my-data-diy.md":{"title":{"de":"ioBroker.lametric"},"content":"de/adapterref/iobroker.lametric/my-data-diy.md"},"de/adapterref/iobroker.lametric/notifications.md":{"title":{"de":"ioBroker.lametric"},"content":"de/adapterref/iobroker.lametric/notifications.md"},"de/adapterref/iobroker.lametric/blockly.md":{"title":{"de":"ioBroker.lametric"},"content":"de/adapterref/iobroker.lametric/blockly.md"}}}
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/my-data-diy.md
 title: ioBroker.lametric
-hash: X7Dc+dqW0V7txXEV+jnvqgGJGnhbIMLjFK5+GecN5QY=
+hash: hTFdXm8kF5J0YpvvpwIf3bDOvsHgUtNFf37hod0nSIY=
 ---
 ![логотип](../../../de/admin/lametric.png)
 
@@ -20,7 +20,7 @@ hash: X7Dc+dqW0V7txXEV+jnvqgGJGnhbIMLjFK5+GecN5QY=
 
 ## Мои данные (сделай сам) — нажмите *(требуется версия адаптера >= 3.0.0)* (рекомендуется)
 - Требуется приложение *My Data DIY* >= 2.0.0.
-- Требуется прошивка >= 2.3.7 (>= 3.0.16)
+- Требуется прошивка >= 3.0.16 (>= 2.3.7 на старых моделях, выпущенных до 2022 г.)
 
 ## Мои данные (сделай сам) — опрос *(требуется версия адаптера >= 1.1.0)*
 Для передачи данных в *LaMetric Time* можно использовать различные адаптеры:
@@ -37,7 +37,7 @@ hash: X7Dc+dqW0V7txXEV+jnvqgGJGnhbIMLjFK5+GecN5QY=
 3. Настройте порт нового веб-экземпляра (например, ``8082``).
 4. Установите приложение *My Data DIY* на свой *LaMetric Time* через магазин приложений.
 5. Откройте настройки приложения *Мои данные (DIY)* и настройте URL-адрес адаптера REST API (см. ниже).
-6. Заходим в настройки адаптера и добавляем новые кадры со своей информацией (см. следующий раздел)
+6. Заходим в настройки адаптера и добавляем новые рамки со своей информацией (см. следующий раздел)
 7. Не забудьте выбрать ранее настроенный веб-экземпляр!
 
 Конфигурация HTTP-опроса:
@@ -55,7 +55,7 @@ URL: http://172.16.0.219:8082/lametric.0/
 3. Добавьте нового пользователя lametric в группу пользователей.
 4. Установите приложение *My Data DIY* на свой *LaMetric Time* через магазин приложений.
 5. Откройте настройки приложения *Мои данные (DIY)* и настройте URL-адрес адаптера REST API (см. ниже).
-6. Заходим в настройки адаптера и добавляем новые кадры со своей информацией (см. следующий раздел)
+6. Заходим в настройки адаптера и добавляем новые рамки со своей информацией (см. следующий раздел)
 
 Конфигурация HTTP-опроса:
 
@@ -89,10 +89,10 @@ URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=
 **Замените пример IP, порта, имени пользователя и пароля в URL-адресе!**
 
 #### Конфигурация (без аутентификации)
-1. Установите [Адаптер Simple API ioBroker](https://github.com/ioBroker/ioBroker.simple-api).
+1. Установите [Адаптер Simple API ioBroker] (https://github.com/ioBroker/ioBroker.simple-api).
 2. Установите приложение *My Data DIY* на *LaMetric Time* через магазин приложений.
 3. Откройте настройки приложения *Мои данные (DIY)* и настройте URL-адрес адаптера Simple API (см. ниже).
-4. Заходим в настройки адаптера и добавляем новые рамки со своей информацией (см. следующий раздел)
+4. Заходим в настройки адаптера и добавляем новые кадры со своей информацией (см. следующий раздел)
 
 Конфигурация HTTP-опроса:
 
@@ -114,7 +114,7 @@ URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 
 ![пример конфигурации фрейма](../../../de/adapterref/iobroker.lametric/img/my-data-diy.png)
 
-### Конфигурация приложения «Мои данные DIY»
+### Конфигурация приложения «Мои данные» своими руками
 Начиная с версии 2.0.0 приложения *My Data DIY* можно выполнять дополнительные настройки.
 
 - Введите: «HTTP-опрос».

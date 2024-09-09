@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: IO5+rqB51zflaqhylcHU8sd4IeKnvHhejFEVYoFEucw=
+hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -30,13 +30,19 @@ hash: IO5+rqB51zflaqhylcHU8sd4IeKnvHhejFEVYoFEucw=
 
 ## Требования
 - nodejs 18 (или более поздняя версия)
-- js-controller 5.0.0 (или более поздняя версия)
+- js-controller 5.0.19 (или более поздняя версия)
 - Административный адаптер 6.0.0 (или более поздней версии)
-- _LaMetric Time_ с прошивкой _2.3.9_ (_3.1.1_ на модели 2022 года) (или более поздней)
+- _LaMetric Time_ с прошивкой _3.1.2_ (или более поздней)
+- прошивка _2.3.9_ (или более поздняя) на старых моделях (выпущенных до 2022 года)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
 ## Конфигурация
+1. Добавьте LaMetric Time в свою локальную сеть
+- Приложение LaMetric Time (2017–2021 гг.) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
+- Приложение LaMetric (с 2022 г. по настоящее время) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
+2. Скопируйте ключ API устройства из приложения (только модели 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
+
 Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
 
 ![API-ключ](../../../en/adapterref/iobroker.lametric/img/api-key.png)
@@ -59,6 +65,13 @@ hash: IO5+rqB51zflaqhylcHU8sd4IeKnvHhejFEVYoFEucw=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.4.0 (2024-09-06)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
+* (@klein0r) Added support for notification manager
+* (@klein0r) Added validator for icon inputs
+* (@klein0r) Fixed some missing translations
+
 ### 3.3.0 (2024-08-05)
 
 * (@klein0r) Added api version as state (and check value)
@@ -75,12 +88,6 @@ hash: IO5+rqB51zflaqhylcHU8sd4IeKnvHhejFEVYoFEucw=
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
 * (@klein0r) Updated dependencies
-
-### 3.2.0 (2024-06-07)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Fixed Blockly definitions (removed warnings)
 
 ## License
 

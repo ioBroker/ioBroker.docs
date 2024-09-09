@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: xCmuorGDcVxcXzyEQt9kKqIeTRsuhVt+ovvAMEkljiY=
+hash: uvQuLv+B2UrVMpWA3t0/bd9VxY4hTapAX8U0J3lRgV0=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -189,7 +189,7 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
+- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
 - `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
 - „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
@@ -227,7 +227,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 
 `this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
 
-- `icon` – wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Icons (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
+- `icon` – wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Icons (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie weitere Icons benötigen, wenden Sie sich bitte per Issue an uns.)
 - `useNative` – wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird es für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
 - „timeout“ – Timeout für Anforderung in ms. Standard: keine.
@@ -357,7 +357,7 @@ Eingabefeld mit Dateiauswahl
 - „limitPath“ – beschränkt die Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und den folgenden Pfad (nicht obligatorisch)
 - `filterFiles` - wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
 - `allowUpload` - erlaubtes Hochladen von Dateien
-- `allowDownload` – Download von Dateien erlaubt (Standard: true)
+- `allowDownload` – erlaubter Download von Dateien (Standard: true)
 - `allowCreateFolder` – erlaubte Erstellung von Ordnern
 - `allowView` – Kachel-Ansicht erlaubt (Standard: true)
 - `showToolbar` – Symbolleiste anzeigen (Standard: true)
@@ -448,7 +448,7 @@ Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implemen
 
 - `textSendTo`
 
-Zeigt ein schreibgeschütztes Steuerelement mit den von der Instanz angegebenen Werten.
+Zeigt die schreibgeschützte Steuerung mit den von der Instanz angegebenen Werten an.
 
 - „Container“ – Div, Text, HTML
 - `copyToClipboard` - wenn wahr - Schaltfläche anzeigen
@@ -516,8 +516,29 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `version` – Version prüfen
 
 - `uuid` – Iobroker-UUID anzeigen
+
 - `port` - Spezieller Eintrag für Ports. Es wird automatisch geprüft, ob der Port von anderen Instanzen verwendet wird und es wird eine Warnung angezeigt
 - `min` - minimal zulässige Portnummer. Sie könnte 0 sein. Und wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt.
+
+-
+
+- „state“ – Kontrolle oder Informationen vom Staat anzeigen
+- `oid` - Welche Objekt-ID soll zur Steuerung verwendet werden. Die ID ist ohne "adapter.X."-Präfix
+- `system` - Wenn wahr, wird der Status von system.adapter.XX.I. und nicht von XX.I übernommen.
+- „Steuerung“ – Wie der Wert des Status angezeigt werden soll: „Text“, „HTML“, „Eingabe“, „Schieberegler“, „Auswählen“, „Schaltfläche“, „Schalter“, „Zahl“
+- `gesteuert` - Wenn wahr, wird der Status als Schalter, Auswahl, Schaltfläche, Schieberegler oder Texteingabe angezeigt. Wird nur verwendet, wenn keine Steuerungseigenschaft definiert ist
+- „Einheit“ – Fügt dem Wert eine Einheit hinzu
+- `trueText` - dieser Text wird angezeigt, wenn der Wert true ist
+- `trueTextStyle` – Stil des Textes, wenn der Wert true ist
+- `falseText` - dieser Text wird angezeigt, wenn der Wert false ist oder das Steuerelement eine „Schaltfläche“ ist.
+- `falseTextStyle` - Stil des Textes, wenn der Wert false ist oder das Steuerelement eine „Schaltfläche“ ist
+- `trueImage` - Dieses Bild wird angezeigt, wenn der Wert true ist
+- `falseImage` - Dieses Bild wird angezeigt, wenn der Wert false ist oder das Steuerelement eine „Schaltfläche“ ist.
+- „min“ – Mindestwert für Steuerelementtyp „Schieberegler“ oder „Zahl“
+- „max“ – Maximalwert für Steuerelementtyp „Schieberegler“ oder „Zahl“
+- „Schritt“ – Schrittwert für Steuerelementtyp „Schieberegler“ oder „Zahl“
+- `controlDelay` - Verzögerung in ms für Schieberegler oder Zahl
+- „Variante“ – Variante der Schaltfläche: „enthalten“, „umrandet“, „Text“
 
 - `deviceManager` - Gerätemanager anzeigen. Dafür muss der Adapter das Gerätemanagerprotokoll unterstützen. Siehe iobroker/dm-utils.
 
@@ -577,9 +598,10 @@ Alle Typen könnten haben:
 - `data` – statische Daten
 - `jsonData` – statische Daten
 - wenn weder `data` noch `jsonData` definiert sind, werden die folgenden Informationen gesendet `{"attr": "<attribute name>", "value": "<current value>"}`
-- „Button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
+- „button“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
 - „buttonTooltip“ – Button-Tooltip (Standard: „Daten nach Instanz anfordern“)
 - `buttonTooltipNoTranslation` – Button-Tooltip nicht übersetzen
+- `allowSaveWithError` – Ermöglicht das Speichern der Konfiguration, auch wenn die Instanz offline ist
 - `placeholder` - Platzhalter (zur Textsteuerung)
 - `noTranslation` - übersetzt keine Auswahlen oder andere Optionen (nicht für Hilfe, Beschriftung oder Platzhalter)
 - `onChange` - Struktur in der Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`

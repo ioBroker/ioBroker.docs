@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/privacy.md
 title: 隐私政策
-hash: ae4tCZcd5km5Tx7EGFRBCRsTKWCZn0CASCniEKgCJ1M=
+hash: 7+1kbLeGZxhPR2Si8FMA1xSoVl1vzg0Glw2yv3N6jxQ=
 ---
 ＃ 隐私政策
 ## 数据保护
@@ -48,9 +48,16 @@ hash: ae4tCZcd5km5Tx7EGFRBCRsTKWCZn0CASCniEKgCJ1M=
 3. 如果没有 ioBroker Pro 帐户，则无法进行数据传输：如果没有 ioBroker Pro 帐户链接到您的应用程序，则不会进行数据传输。
 
 我们不断审查和改进我们的隐私实践，以保持最高标准并遵守监管义务。
+
 通过使用 ioBroker Visu 应用程序，您默示同意我们根据本隐私政策收集和使用您的信息。
 
 ## IoBroker BackItUp Google 云端硬盘应用程序
 我们确认 ioBroker BackItUp Google Drive 应用程序仅用于为 ioBroker 提供备份功能。
+
 我们不会使用通过 Google Workspace API 获得的数据来开发、改进或训练通用人工智能 (AI) 或机器学习 (ML) 模型。
+
 通过 Google Workspace API 访问的所有数据均严格按照 Google 的 API 政策进行处理，并且仅用于向我们的用户提供预期服务。
+
+我们不会存储来自 ioBroker BackItUp Google Drive 应用程序的任何数据或访问令牌。只有使用`ioBroker.backitup`适配器和存储在您的ioBroker实例中的访问令牌才能访问Google Drive。
+
+如果您想撤消访问权限，只需删除 `ioBroker.backitup` 实例设置中的访问令牌并撤消 [谷歌帐户](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity) 中的第三方访问权限即可

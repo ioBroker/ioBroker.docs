@@ -1,6 +1,6 @@
 import React from 'react';
-import { withStyles } from '@mui/styles';
 import ReactGA from 'react-ga';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 
 import {
     Tabs,
@@ -12,11 +12,10 @@ import {
     Drawer,
     List,
     ListItemText,
-    ListItem,
     ListItemIcon,
     Input,
     Popper,
-    Paper,
+    Paper, Box, ListItemButton,
 } from '@mui/material';
 
 import {
@@ -25,7 +24,9 @@ import {
     MdSearch as IconSearch,
 } from 'react-icons/md';
 
-import { Utils as ARUtils } from '@iobroker/adapter-react-v5';
+import { Theme } from '@iobroker/adapter-react-v5';
+
+import themeExtend, { APP_BAR_HEIGHT }from './createTheme';
 
 import DialogError from './Dialogs/Error';
 import MDPage from './MDPage';
@@ -52,36 +53,40 @@ import PageIntro from './Pages/Intro';
 import Loader from './Components/Loader';
 import I18n from './i18n';
 
-const styles = theme => ({
+const styles = {
     root: {},
 
     tabContent: {
-        height: `calc(100% - ${theme.tabs.height}px)`,
+        height: `calc(100% - ${APP_BAR_HEIGHT}px)`,
         overflow: 'auto',
         position: 'relative',
     },
     logoBig: {
         width: 135,
-        height: theme.tabs.height,
+        height: APP_BAR_HEIGHT,
         cursor: 'pointer',
     },
     logoSmall: {
-        width: theme.tabs.height - 10,
-        height: theme.tabs.height - 10,
+        width: APP_BAR_HEIGHT - 10,
+        height: APP_BAR_HEIGHT - 10,
         cursor: 'pointer',
     },
-    tabs: { display: 'flex', ...theme.tabs },
+    tabs: theme => ({ display: 'flex', ...theme.tabs }),
     tabsNoTabs: {
         paddingLeft: 0,
     },
     tab:  {
         minWidth: 'inherit',
     },
-    tabAction: {
+    tabAction: theme => ({
         backgroundColor: theme.palette.secondary.main,
         color: 'white',
-    },
+    }),
 
+    language: theme => ({
+        color: theme.palette.primary.main,
+        display: 'inherit',
+    }),
     languageButton: {
         width: 32,
         height: 32,
@@ -118,8 +123,8 @@ const styles = theme => ({
         backgroundColor: '#CCCCCC',
         padding: '3px 0 1px 0',
         border: 0,
-        marginLeft: 10,
-        borderRadius: 3,
+        marginLeft: '10px',
+        borderRadius: '3px',
         '&:after' : {
             border: 0,
         },
@@ -166,7 +171,7 @@ const styles = theme => ({
         display: 'inline-block',
         padding: '2px 5px',
     },
-});
+};
 
 const LANGUAGES = {
     en: { full: 'English', short: 'En' },
@@ -205,7 +210,7 @@ const PAGES = {
         name: 'About',
         menu: [
             { tab: 'statistics', name: 'Statistics', icon: null },
-            { name: 'Imprint', tab: 'imprint', icon: null },
+            { tab: 'imprint', name: 'Imprint', icon: null },
         ],
     },
     cloud: {
@@ -239,10 +244,22 @@ class App extends Router {
 
         const width = window.innerWidth;
 
+        const themeName = 'light';
+        const theme = Theme(themeName);
+        const extend = themeExtend(themeName);
+        theme.tabs = extend.tabs;
+        theme.content = extend.content;
+        Object.assign(theme.palette.primary, extend.palette.primary);
+        Object.assign(theme.palette.secondary, extend.palette.secondary);
+        theme.palette.darkPart = extend.palette.darkPart;
+        theme.palette.lightPart = extend.palette.lightPart;
+
         this.state = {
             errorText: '',
             loaded: true,
             themeType: 'light',
+            themeName,
+            theme,
             mobile: width < MOBILE_WIDTH,
             menuOpened: [],
             language,
@@ -334,21 +351,21 @@ class App extends Router {
         return <img
             src={this.state.mobile ? this.logoSmall : this.logo}
             alt="logo"
-            className={this.state.mobile ? this.props.classes.logoSmall : this.props.classes.logoBig}
+            style={this.state.mobile ? styles.logoSmall : styles.logoBig}
             onClick={() => this.onNavigate(this.state.language, 'intro')}
         />;
     }
 
     renderLanguage() {
         return [
-            <div
+            <Box
                 key="langButton"
-                style={{ display: 'inherit' }}
+                sx={styles.language}
                 onClick={e => this.setState({ languageMenu: true, anchorMenu: e.target })}
             >
-                <IconLanguage className={this.props.classes.languageButton} />
-                <span className={this.props.classes.languageText}>{LANGUAGES[this.state.language].short}</span>
-            </div>,
+                <IconLanguage style={styles.languageButton} />
+                <span style={styles.languageText}>{LANGUAGES[this.state.language].short}</span>
+            </Box>,
             this.state.languageMenu ? <Menu
                 key="langMenu"
                 id="language-menu"
@@ -385,12 +402,15 @@ class App extends Router {
     }
 
     renderSearch() {
-        return <div className={this.props.classes.searchDiv}>
+        return <div style={styles.searchDiv}>
             <Input
-                className={ARUtils.clsx(this.props.classes.search, this.state.searchFocus && this.props.classes.searchFocus)}
+                sx={{
+                    ...styles.search,
+                    '&.MuiInput-input': styles.searchInput,
+                }}
+                style={this.state.searchFocus ? styles.searchFocus : undefined}
                 // value={this.state.search}
                 placeholder={I18n.t('Search...')}
-                classes={{ input: this.props.classes.searchInput }}
                 onFocus={() => this.setState({ searchFocus: true })}
                 onBlur={() => setTimeout(() => this.setState({ searchFocus: false }), 100)}
                 onChange={e => {
@@ -405,14 +425,14 @@ class App extends Router {
                     }, 300);
                 }}
                 onKeyUp={e => {
-                    if (e.keyCode === 13) {
+                    if (e.key === 'Enter') {
                         this.searchTimeout && clearTimeout(this.searchTimeout);
                         this.searchTimeout = null;
                         this.onSearch();
                     }
                 }}
             />
-            <IconSearch className={this.props.classes.searchButton} />
+            <IconSearch style={styles.searchButton} />
         </div>;
     }
 
@@ -420,7 +440,7 @@ class App extends Router {
         const type = result.id.split('/').shift();
         const tab = type === '...' ? type : (type === 'adapterref' ? 'adapters' : 'documentation');
         return <div
-            className={ARUtils.clsx(this.props.classes.sRdiv, !last && this.props.classes.sRdivNotLast)}
+            style={{ ...styles.sRdiv, ...(!last ? styles.sRdivNotLast : undefined) }}
             onClick={e => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -428,8 +448,8 @@ class App extends Router {
                 this.onNavigate(null, tab, result.id);
             }}
         >
-            <div className={this.props.classes.sRdivType}>{I18n.t(tab)}</div>
-            <div className={this.props.classes.sRdivText}>{type === '...' ? I18n.t('More %s results', result.title) : result.title}</div>
+            <div style={styles.sRdivType}>{I18n.t(tab)}</div>
+            <div style={styles.sRdivText}>{type === '...' ? I18n.t('More %s results', result.title) : result.title}</div>
         </div>;
     }
 
@@ -455,9 +475,9 @@ class App extends Router {
             ]}
         >
             {this.state.searchResults && this.state.searchResults.length ?
-                <Paper className={this.props.classes.searchResultsDiv}>{this.state.searchResults.map((link, i) => this.renderSearchResult(link, len - 1 === i))}</Paper>
+                <Paper style={styles.searchResultsDiv}>{this.state.searchResults.map((link, i) => this.renderSearchResult(link, len - 1 === i))}</Paper>
                 :
-                <Paper className={this.props.classes.searchResultsDiv}>{I18n.t('No results found')}</Paper>}
+                <Paper style={styles.searchResultsDiv}>{I18n.t('No results found')}</Paper>}
         </Popper>;
     }
 
@@ -517,7 +537,7 @@ class App extends Router {
         }
 
         return <Tabs
-            className={this.props.classes.tabs}
+            sx={styles.tabs}
             value={selected}
             variant="standard"
             onChange={(e, value) => {
@@ -549,7 +569,7 @@ class App extends Router {
                 if (PAGES[tab].menu) {
                     return [
                         <Tab
-                            classes={{ root: this.props.classes.tab }}
+                            style={styles.tab}
                             key={tab}
                             fullWidth={false}
                             label={PAGES[tab].icon ? [<span key="text">{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
@@ -565,7 +585,8 @@ class App extends Router {
                 }
                 return <Tab
                     key={tab}
-                    classes={{ root: ARUtils.clsx(this.props.classes.tab, star && this.props.classes.tabAction) }}
+                    style={styles.tab}
+                    sx={star ? styles.tabAction : undefined}
                     fullWidth={false}
                     label={PAGES[tab].icon ? [(<span key="text">{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
                 />;
@@ -583,8 +604,7 @@ class App extends Router {
 
                     if (PAGES[tab].menu) {
                         return [
-                            <ListItem
-                                button
+                            <ListItemButton
                                 key={tab}
                                 onClick={() => {
                                     const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
@@ -599,13 +619,12 @@ class App extends Router {
                             >
                                 {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
                                 <ListItemText primary={I18n.t(PAGES[tab].name)} />
-                            </ListItem>,
+                            </ListItemButton>,
 
-                            this.state.menuOpened.includes(tab) ? <List key="list" className={this.props.classes.subMenu}>
-                                {PAGES[tab].menu.map(item => <ListItem
-                                    classes={{ root: this.props.classes.subMenuItem }}
+                            this.state.menuOpened.includes(tab) ? <List key="list" style={styles.subMenu}>
+                                {PAGES[tab].menu.map(item => <ListItemButton
+                                    style={styles.subMenuItem}
                                     selected={this.state.selectedPage === tab}
-                                    button
                                     key={item}
                                     onClick={() => {
                                         if (item.links) {
@@ -619,14 +638,13 @@ class App extends Router {
                                     }}
                                 >
                                     {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
-                                    <ListItemText classes={{ primary: this.props.classes.subMenuItemText }} primary={item.name} />
-                                </ListItem>)}
+                                    <ListItemText sx={{ '&.MuiListItemText-primary': styles.subMenuItemText }} primary={item.name} />
+                                </ListItemButton>)}
                             </List> : null,
                         ];
                     }
-                    return <ListItem
+                    return <ListItemButton
                         selected={this.state.selectedPage === tab}
-                        button
                         key={tab}
                         onClick={() => {
                             this.setState({ showTabMenu: false }, () => {
@@ -643,7 +661,7 @@ class App extends Router {
                     >
                         {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
                         <ListItemText primary={I18n.t(PAGES[tab].name)} />
-                    </ListItem>;
+                    </ListItemButton>;
                 })}
             </List>
         </Drawer>;
@@ -652,7 +670,12 @@ class App extends Router {
     renderAppBar() {
         const noTabs = this.state.width <= TABS_WIDTH;
 
-        return <Toolbar position="static" variant="dense" className={`${this.props.classes.tabs} ${noTabs ? this.props.classes.tabsNoTabs : ''}`}>
+        return <Toolbar
+            position="static"
+            variant="dense"
+            sx={styles.tabs}
+            style={noTabs ? styles.tabsNoTabs : undefined}
+        >
             {this.renderLogo()}
             {this.renderLanguage()}
             {this.renderSearch()}
@@ -666,50 +689,58 @@ class App extends Router {
 
     render() {
         if (!this.state.loaded) {
-            return <Loader theme={this.state.themeType} />;
+            return <StyledEngineProvider injectFirst>
+                <ThemeProvider theme={this.state.theme}>
+                    <Loader theme={this.state.themeType} />
+                </ThemeProvider>
+            </StyledEngineProvider>;
         }
 
         const selectedPage = this.state.selectedPage || 'intro';
         const PageComponent = PAGES[selectedPage] && PAGES[selectedPage].component;
 
-        return <div className="App">
-            {this.renderAppBar()}
-            <div className={this.props.classes.tabContent} ref={this.contentRef}>
-                {PageComponent ? <PageComponent
-                    theme={this.state.themeType}
-                    mobile={this.state.mobile}
-                    onNavigate={this.onNavigate}
-                    language={this.state.language}
-                    contentWidth={this.state.width}
-                /> : null}
-                {PAGES[selectedPage] && PAGES[selectedPage].md ? <MDPage
-                    path={PAGES[selectedPage].md}
-                    theme={this.state.themeType}
-                    mobile={this.state.mobile}
-                    onNavigate={this.onNavigate}
-                    contentWidth={this.state.width}
-                    language={this.state.language}
-                /> : null}
-                {PAGES[selectedPage] && PAGES[selectedPage].content ? <TreePage
-                    contentPath={PAGES[selectedPage].content}
-                    theme={this.state.themeType}
-                    mobile={this.state.mobile}
-                    onNavigate={this.onNavigate}
-                    contentWidth={this.state.width}
-                    language={this.state.language}
-                /> : null}
-            </div>
-            {this.renderError()}
-            {this.renderSearchResults()}
-            <Cookies
-                theme={this.state.themeType}
-                mobile={this.state.mobile}
-                onNavigate={this.onNavigate}
-                language={this.state.language}
-                contentWidth={this.state.width}
-            />
-        </div>;
+        return <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={this.state.theme}>
+                <div className="App">
+                    {this.renderAppBar()}
+                    <div style={styles.tabContent} ref={this.contentRef}>
+                        {PageComponent ? <PageComponent
+                            theme={this.state.themeType}
+                            mobile={this.state.mobile}
+                            onNavigate={this.onNavigate}
+                            language={this.state.language}
+                            contentWidth={this.state.width}
+                        /> : null}
+                        {PAGES[selectedPage] && PAGES[selectedPage].md ? <MDPage
+                            path={PAGES[selectedPage].md}
+                            theme={this.state.themeType}
+                            mobile={this.state.mobile}
+                            onNavigate={this.onNavigate}
+                            contentWidth={this.state.width}
+                            language={this.state.language}
+                        /> : null}
+                        {PAGES[selectedPage] && PAGES[selectedPage].content ? <TreePage
+                            contentPath={PAGES[selectedPage].content}
+                            theme={this.state.themeType}
+                            mobile={this.state.mobile}
+                            onNavigate={this.onNavigate}
+                            contentWidth={this.state.width}
+                            language={this.state.language}
+                        /> : null}
+                    </div>
+                    {this.renderError()}
+                    {this.renderSearchResults()}
+                    <Cookies
+                        theme={this.state.themeType}
+                        mobile={this.state.mobile}
+                        onNavigate={this.onNavigate}
+                        language={this.state.language}
+                        contentWidth={this.state.width}
+                    />
+                </div>
+            </ThemeProvider>
+        </StyledEngineProvider>;
     }
 }
 
-export default withStyles(styles)(App);
+export default App;

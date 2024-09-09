@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import {
+    Box,
     Button,
 } from '@mui/material';
 
@@ -15,7 +15,7 @@ import {
 import I18n from '../i18n';
 import Utils from '../Utils';
 
-const styles = () => ({
+const styles = {
     forumDiv: {
         width: 'calc(100% - 60px)',
         textAlign: 'center',
@@ -65,7 +65,7 @@ const styles = () => ({
         fontSize: 20,
         marginTop: 20,
     },
-});
+};
 
 class ForumInfo extends Component {
     constructor(props) {
@@ -104,48 +104,48 @@ class ForumInfo extends Component {
     }
 
     render() {
-        return <div key="forum" className={`${this.props.classes.forumDiv} ${this.props.backClass || ''}`}>
-            <IconForum className={this.props.classes.forumIconMain} />
+        return <Box key="forum" style={styles.forumDiv} sx={this.props.backStyle}>
+            <IconForum style={styles.forumIconMain} />
             <br />
-            <span className={this.props.classes.forumTitle}>{I18n.t('forum-text')}</span>
+            <span style={styles.forumTitle}>{I18n.t('forum-text')}</span>
             <br />
-            <div className={this.props.classes.forumDivInfo}>
-                <div className={this.props.classes.forumDivInfoBox}>
-                    <div className={this.props.classes.forumDivInfoCard} title={this.state.date}>
-                        <IconPosts className={this.props.classes.forumDivInfoIcon} />
+            <div style={styles.forumDivInfo}>
+                <div style={styles.forumDivInfoBox}>
+                    <div style={styles.forumDivInfoCard} title={this.state.date}>
+                        <IconPosts style={styles.forumDivInfoIcon} />
                         <br />
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Posts')}</span>
+                        <span style={styles.forumDivInfoText}>{I18n.t('Posts')}</span>
                         <br />
-                        <span className={`${this.props.classes.forumDivInfoValue} ${this.props.mobile ? this.props.classes.forumDivInfoValueMobile : ''}`}>{this.state.posts}</span>
+                        <span style={{ ...styles.forumDivInfoValue, ...(this.props.mobile ? styles.forumDivInfoValueMobile : undefined) }}>{this.state.posts}</span>
                     </div>
-                    <div className={this.props.classes.forumDivInfoCard} title={this.state.date}>
-                        <IconUsers className={this.props.classes.forumDivInfoIcon} />
+                    <div style={styles.forumDivInfoCard} title={this.state.date}>
+                        <IconUsers style={styles.forumDivInfoIcon} />
                         <br />
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Users')}</span>
+                        <span style={styles.forumDivInfoText}>{I18n.t('Users')}</span>
                         <br />
-                        <span className={`${this.props.classes.forumDivInfoValue} ${this.props.mobile ? this.props.classes.forumDivInfoValueMobile : ''}`}>{this.state.users}</span>
+                        <span style={{ ...styles.forumDivInfoValue, ...(this.props.mobile ? styles.forumDivInfoValueMobile : undefined) }}>{this.state.users}</span>
                     </div>
-                    <div className={this.props.classes.forumDivInfoCard} title={this.state.date}>
-                        <IconThemes className={this.props.classes.forumDivInfoIcon} />
+                    <div style={styles.forumDivInfoCard} title={this.state.date}>
+                        <IconThemes style={styles.forumDivInfoIcon} />
                         <br />
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Themes')}</span>
+                        <span style={styles.forumDivInfoText}>{I18n.t('Themes')}</span>
                         <br />
-                        <span className={`${this.props.classes.forumDivInfoValue} ${this.props.mobile ? this.props.classes.forumDivInfoValueMobile : ''}`}>{this.state.topics}</span>
+                        <span style={{ ...styles.forumDivInfoValue, ...(this.props.mobile ? styles.forumDivInfoValueMobile : undefined) }}>{this.state.topics}</span>
                     </div>
                 </div>
             </div>
             <br />
-            <Button variant="contained" color="secondary" className={this.props.classes.forumButton} onClick={() => this.onGoToForum()}>
+            <Button variant="contained" color="secondary" style={styles.forumButton} onClick={() => this.onGoToForum()}>
                 {I18n.t('Join now')}
             </Button>
-        </div>;
+        </Box>;
     }
 }
 
 ForumInfo.propTypes = {
     language: PropTypes.string,
     mobile: PropTypes.bool,
-    backClass: PropTypes.string,
+    backStyle: PropTypes.func,
 };
 
-export default withStyles(styles)(ForumInfo);
+export default ForumInfo;

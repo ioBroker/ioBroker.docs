@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome исследование
-hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
+hash: uq1R+4MmZiJzu+VSg5HTAdslP+gOjBK0olM0Eee5DhA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -43,29 +43,34 @@ hash: IaoRXgWR3mdcumGVGnenL+3KWpO7G+xiW+N6GrOq0EM=
 - [-] synology - это многофункциональное устройство - игнорируйте его,
 - [X] сонос,
 - [X] михоум-вакуум,
-- [ ] hmip (Homematic Cloud),
+- [-] hmip (общается с облаком),
 - [ ] хоумконнект,
-- [ ] светодиод (ESP8266/ESP32),
-- [ ] объединить,
+- [X] светодиод (ESP8266/ESP32),
+- [X] объединить,
 - [X] гармония,
 - [-] samsung (телевизор) - слишком много данных,
 - [-] onvif (Вебкамеры) - слишком много данных,
 - [-] камеры (URL или IP-камеры) - слишком много данных,
 - [-] proxmox - невозможно, так как alexa не считывает IP-адреса
-- [ ] широкая ссылка2,
+- [X] бродлинк2,
 - [-] lgtv - слишком много данных,
-- [ ] knx (KNX-шлюз),
-- [ ] лкн,
-- [ ] контроллер homekit,
-- [ ] уппнп,
+- [X] knx (KNX-шлюз),
+- [X] openknx (KNX-шлюз),
+- [X] лкн,
+- [X] контроллер homekit,
+- [X] упнп,
 - [X] openknx,
-- [ ] мерос
+- [X] Wi-Filight,
+- [-] meross - невозможно, он общается с облаком
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.0.0 (2024-09-06)
+* (bluefox) Corrected configuration page
+
 ### 0.3.1 (2024-08-31)
 * (bluefox) Added detection of some IPs
 

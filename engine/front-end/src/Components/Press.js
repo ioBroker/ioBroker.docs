@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
+
+import { Box } from '@mui/material';
 
 import ImageLinuxMagazin from '../assets/linux-magazine.png';
 import ImageCT from '../assets/ct.png';
@@ -96,23 +97,23 @@ const PRESS = [
 
 class Press extends Component {
     render() {
-        return <div key="press" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
-            <div className={this.props.classes.title}>{I18n.t('ioBroker in The Press')}</div>
-            <div className={this.props.classes.preBox}>
-                <div className={this.props.classes.box}>
-                    {PRESS.map((p, i) => <div key={i} className={this.props.classes.card} onClick={() => Utils.openLink(p.link)}>
-                        <img className={`${this.props.classes.cardLink} ${this.props.mobile ? this.props.classes.cardLinkMobile : ''}`} src={p.image} alt={p.alt} />
-                        <div className={this.props.classes.cardTitle}>{p.title}</div>
+        return <Box key="press" sx={this.props.backStyle} style={styles.mainDiv}>
+            <div style={styles.title}>{I18n.t('ioBroker in The Press')}</div>
+            <div style={styles.preBox}>
+                <div style={styles.box}>
+                    {PRESS.map((p, i) => <div key={i} style={styles.card} onClick={() => Utils.openLink(p.link)}>
+                        <img style={{ ...styles.cardLink, ...(this.props.mobile ? styles.cardLinkMobile :  undefined) }} src={p.image} alt={p.alt} />
+                        <div style={styles.cardTitle}>{p.title}</div>
                     </div>)}
                 </div>
             </div>
-        </div>;
+        </Box>;
     }
 }
 
 Press.propTypes = {
     mobile: PropTypes.bool,
-    backClass: PropTypes.string,
+    backStyle: PropTypes.func,
 };
 
-export default withStyles(styles)(Press);
+export default Press;

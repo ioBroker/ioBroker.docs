@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
+hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -14,28 +14,28 @@ hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
 ![NPM](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
 # IoBroker.alexa-timer-vis
-**Tests:** ![Test und Freigabe](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
-## Alexa-timer-vis-Adapter für ioBroker
+## Alexa-Timer-Vis-Adapter für ioBroker
 Ausgabe des Alexa-Timers zur Anzeige im Vis
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
-### Dies ist ein Beispiel meines Vis
+### Dies ist ein Beispiel für mein vis
 ![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
 
 ## Funktionalität
-Über Alexa wird ein oder mehrere Timer per Spracheingabe erstellt, diese werden vom Adapter ausgewertet und in Zustände geschrieben, um diese im Vis sichtbar zu machen. So haben Sie einen besseren Überblick, wenn Sie mehrere Timer gleichzeitig aktiv haben.
+Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser vom Adapter ausgewertet und in Zustände geschrieben um diese im Vis sichtbar zu machen. So hat man eine bessere Übersicht wenn man mehrere Timer gleichzeitig aktiv hat.
 
 - ---- Alexa2-Adapter wird benötigt ----
 - Das Vis Widget ist noch nicht integriert
 - Jeder Timer hat eine Taste, um ihn zu stoppen. Stoppt den Timer in Alexa und im Adapter
-- Unbegrenzte Timer können mit Alexa per Sprachbefehl erstellt werden.
+- Mit Alexa können per Sprachbefehl unbegrenzt viele Timer erstellt werden.
 - Beim Start des Adapters werden 4 Ordner mit allen Zuständen erstellt.
-- Zusätzliche Ordner werden erstellt, sobald ein 5. und weitere Timer über die Spracheingabe von Alexa erstellt werden.
-- Es funktioniert mit deutscher Eingabe
+- Zusätzliche Ordner werden erstellt, sobald ein 5. und mehr Timer über die Spracheingabe von Alexa erstellt werden.
+- Es funktioniert mit deutschen Eingaben
 
 ### Timer hinzufügen (Beispiele)
 - Alexa, Timer 5 Minuten
@@ -45,101 +45,130 @@ Ausgabe des Alexa-Timers zur Anzeige im Vis
 - Alexa, Timer für 120 Minuten
 - Alexa, Timer 9 Minuten Spaghetti
 
-### Timer löschen (Beispiele)
+### Timer löschen ( Beispiele )
 - Alexa, lösche alle Timer
-- Alexa, lösche den Pommes-Timer
+- Alexa, lösche Pommes Timer
 - Alexa, lösche den 5-Minuten-Timer
 
-### Wenn Sie Vorschläge haben, etwas zu verbessern oder weitere Funktionen hinzuzufügen, können Sie sich gerne an uns wenden
+### Wenn Sie Vorschläge zur Verbesserung oder zum Hinzufügen weiterer Funktionen haben, können Sie sich gerne an uns wenden
 
 ## Changelog
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 2.0.0 (2024-09-08)
+
+-   FIX: #119 Error "has no existing object" on first start
+-   Use Typescript
+-   FEAT: #118 get name from activeTimerList
+-   FIX: #117 createDevice is deprecated
+
+### 1.0.0 (2024-08-09)
+
+-   Js-controller >=5.0.19 is required
+
+### 0.3.0 (2023-12-23)
+
+-   #82 Delete Timer by Button
+-   #74 Fixed Starttime
+-   #71 Name of Echo in data tree
+-   #75 Percent from 0% to 100%
+-   Breaking change: minimal supported node.js version is 16.x
+-   #58 Another String Variation
+
+### 0.2.0 (2023-07-27)
+
+-   create Timer with Alexa2 TextCommand, fixed
+-   lengthen and shorten timers
+
 ### 0.1.15 (22.09.2022)
 
-- Include creation time to avoid creating duplicate timers
+-   Include creation time to avoid creating duplicate timers
 
 ### 0.1.14 (17.07.2022)
 
-- Added debouncing in the adapter configuration
+-   Added debouncing in the adapter configuration
 
 ### 0.0.13 (06.03.2022)
 
-- Delete of Timers with the same value, fixed
+-   Delete of Timers with the same value, fixed
 
 ### 0.1.12 (15.02.2022)
 
-- Delete of Timer fixed
+-   Delete of Timer fixed
 
 ### 0.1.11 (12.02.2022)
 
-- Delete of Timer with same Inputvalue, fixed
-- User can set the Intervall in admin
+-   Delete of Timer with same Inputvalue, fixed
+-   User can set the Intervall in admin
 
 ### 0.1.9 (30.1.2022)
 
-- Bugfix
+-   Bugfix
 
 ### 0.1.8 (28.01.2022)
 
-- Bugfix
-- Button added to stop the Timer
+-   Bugfix
+-   Button added to stop the Timer
 
 ### 0.1.7 (22.06.2022)
 
-- New State, "Input Device"
+-   New State, "Input Device"
 
 ### 0.1.6 (17.01.2022)
 
-- numbers from 1-9 are always displayed as two digits, 1 => 01
-- When you update to this or a newer Version, please delete the timer folders or delete the whole adapter, otherwise errors will occur
+-   numbers from 1-9 are always displayed as two digits, 1 => 01
+-   When you update to this or a newer Version, please delete the timer folders or delete the whole adapter, otherwise errors will occur
 
 ### 0.1.5 (08.01.2022)
 
-- New keywords added
+-   New keywords added
 
 ### 0.1.4 (05.01.2022)
 
-- States will be reset on adapter unload
-- Bugfix
+-   States will be reset on adapter unload
+-   Bugfix
 
 ### 0.1.3 (02.01.2022)
 
-- Start and EndTime added
+-   Start and EndTime added
 
 ### 0.1.2 (31.12.2021)
 
-- Bugfix (A double created Intervall, fixed)
+-   Bugfix (A double created Intervall, fixed)
 
 ### 0.1.1 (29.12.2021)
 
-- Adaptation to the English language (experimental)
-- Anpassung an die Englische Sprache (experimentell)
+-   Adaptation to the English language (experimental)
+-   Anpassung an die Englische Sprache (experimentell)
 
 ### 0.1.0 (28.12.021)
 
-- Fixed bug when deleting intervals and timeouts after shutdown
-- Fehler beim Löschen von Intervallen und Timeouts nach dem Shutdown, behoben
+-   Fixed bug when deleting intervals and timeouts after shutdown
+-   Fehler beim Löschen von Intervallen und Timeouts nach dem Shutdown, behoben
 
 ### 0.0.4 (27.12.2021)
 
-- Adaptation to various options for entering a timer
-- Anpassung an verschiedener Möglichkeiten der Eingabe eines Timers
+-   Adaptation to various options for entering a timer
+-   Anpassung an verschiedener Möglichkeiten der Eingabe eines Timers
 
 ### 0.0.3 (26.12.2021)
 
-- (Michael Roling) Bugfix
+-   (Michael Roling) Bugfix
 
 ### 0.0.2 (26.12.2021)
 
-- (Michael Roling) Bugfix
+-   (Michael Roling) Bugfix
 
 ### 0.0.1 (25.12.2021)
 
-- (Michael Roling) initial release
+-   (Michael Roling) initial release
 
 ## License
 
-Copyright (c) 2021-2023 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2024 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 

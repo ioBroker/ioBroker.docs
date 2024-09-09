@@ -28,13 +28,19 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 ## Requirements
 
 - nodejs 18 (or later)
-- js-controller 5.0.0 (or later)
+- js-controller 5.0.19 (or later)
 - Admin Adapter 6.0.0 (or later)
-- _LaMetric Time_ with firmware _2.3.9_ (_3.1.1_ on the 2022 model) (or later)
+- _LaMetric Time_ with firmware _3.1.2_ (or later)
+    - firmware _2.3.9_ (or later) on older models (produced before year 2022)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
 ## Configuration
+
+1. Add the LaMetric Time to your local network
+    - LaMetric Time App (2017 to 2021) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
+    - LaMetric App (2022 to heute) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
+2. Copy the device API key from the app (only models 2022 and newer). Use the following website for older models:
 
 You can get your device API key [here](https://developer.lametric.com/user/devices).
 
@@ -59,6 +65,13 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.4.0 (2024-09-06)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
+* (@klein0r) Added support for notification manager
+* (@klein0r) Added validator for icon inputs
+* (@klein0r) Fixed some missing translations
+
 ### 3.3.0 (2024-08-05)
 
 * (@klein0r) Added api version as state (and check value)
@@ -75,12 +88,6 @@ Features are limited by the [official API features](https://lametric-documentati
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
 * (@klein0r) Updated dependencies
-
-### 3.2.0 (2024-06-07)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Fixed Blockly definitions (removed warnings)
 
 ## License
 

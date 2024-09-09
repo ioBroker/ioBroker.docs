@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
+import { Box } from "@mui/material";
 
 import I18n from '../i18n';
 
-const styles = () => ({
+const styles = {
     mainDiv: {
         background: '#FFFFFF',
         width: 'calc(100% - 100px)',
@@ -49,7 +49,7 @@ const styles = () => ({
         borderRadius: 5,
         overflow: 'hidden',
     },
-});
+};
 
 const IGNORE = ['general', 'visualization-widgets', 'overview', 'visualization', 'date-and-time', 'visualization-icons', 'logic'];
 
@@ -99,26 +99,27 @@ class Adapters extends Component {
         this.words = this.words || {};
         this.words.installed = I18n.t('installed %s times');
 
-        return <div
+        return <Box
             key="adaptersAll"
-            className={`${this.props.classes.mainDiv} ${this.props.backClass || ''} ${this.props.mobile ? this.props.classes.mainDivMobile : ''}`}
+            sx={this.props.backStyle}
+            style={{ ...styles.mainDiv, ...(this.props.mobile ? styles.mainDivMobile : undefined) }}
         >
-            <div className={this.props.classes.title}>{I18n.t('Over %s connected services and systems!', this.state.count)}</div>
-            <div className={this.props.classes.boxDiv}>
-                <div className={this.props.classes.box}>
+            <div style={styles.title}>{I18n.t('Over %s connected services and systems!', this.state.count)}</div>
+            <div style={styles.boxDiv}>
+                <div style={styles.box}>
                     {this.state.adapters.map((a, i) =>
-                        <div key={`${a}_${i}`} className={this.props.classes.adapter} title={`${a.name}, ${this.words.installed.replace('%s', a.installs)}`}>
+                        <Box key={`${a}_${i}`} sx={styles.adapter} title={`${a.name}, ${this.words.installed.replace('%s', a.installs)}`}>
                             <img
-                                className={this.props.classes.icon}
+                                style={styles.icon}
                                 src={a.icon}
                                 alt={a.name}
                                 onClick={() =>
                                     this.props.onNavigate(null, 'adapters', `adapterref/iobroker.${a.name}/README.md`)}
                             />
-                        </div>)}
+                        </Box>)}
                 </div>
             </div>
-        </div>;
+        </Box>;
     }
 }
 
@@ -126,7 +127,7 @@ Adapters.propTypes = {
     onNavigate: PropTypes.func,
     language: PropTypes.string,
     mobile: PropTypes.bool,
-    backClass: PropTypes.string,
+    backStyle: PropTypes.func,
 };
 
-export default withStyles(styles)(Adapters);
+export default Adapters;

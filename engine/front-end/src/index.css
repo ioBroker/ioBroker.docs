@@ -47,6 +47,18 @@ body {
   border: 1px solid #fff !important;
 }
 
+@keyframes hue-animation {
+  0% {
+    color: hsl(82, 100%, 50%);
+  }
+  50% {
+    color: hsl(200, 100%, 50%);
+  }
+  100% {
+    color: hsl(82, 100%, 50%);
+  }
+}
+
 /* latin-ext */
 @font-face {
   font-family: 'Audiowide';

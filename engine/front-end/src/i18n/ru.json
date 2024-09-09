@@ -147,5 +147,6 @@
   "Docker vs Normal": "Докер vs Normal",
   "Object DB Types": "Типы БД объектов",
   "State DB Types": "Типы БД состояний",
-  "platform": "Система"
+  "platform": "Система",
+  "Statistics": "Статистика"
 }

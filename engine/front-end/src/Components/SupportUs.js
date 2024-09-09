@@ -10,7 +10,6 @@
 // </form>
 
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
@@ -35,7 +34,7 @@ import ImgAmazonSmall from '../assets/amazon_small.png';
 import I18n from '../i18n';
 import Utils from '../Utils';
 
-const styles = () => ({
+const styles = {
     mainButton: {
         background: '#3399CC',
         color: '#FFFFFF',
@@ -81,21 +80,10 @@ const styles = () => ({
         border: '1px solid #A48D53',
         height: 35,
     },
-    '@keyframes hue-animation': {
-        '0%': {
-            backgroundColor: 'hsl(82, 100%, 50%)',
-        },
-        '50%': {
-            backgroundColor: 'hsl(200, 100%, 50%)',
-        },
-        '100%': {
-            backgroundColor: 'hsl(82, 100%, 50%)',
-        },
-    },
     hueAnimation: {
-        animation: '$hue-animation 16s infinite',
+        animation: 'hue-animation 16s infinite',
     },
-});
+};
 
 const AMAZON_LINK = 'https://www.amazon.de/s?k=homematic&tag=httpwwwiobron-21';
 
@@ -112,12 +100,10 @@ class SupportUs extends Component {
     }
 
     renderPaypal() {
-        const { classes } = this.props;
-
-        return <Card key="paypal" className={`${classes.card} ${this.props.mobile ? this.props.classes.cardMobile : ''}`}>
+        return <Card key="paypal" style={{ ...styles.card, ...(this.props.mobile ? styles.cardMobile : undefined) }}>
             <CardActionArea onClick={() => SupportUs.onPaypal()}>
                 <CardMedia
-                    className={classes.media}
+                    style={styles.media}
                     image={ImgPayPal}
                     title={I18n.t('Donate with PayPal')}
                 />
@@ -142,18 +128,16 @@ class SupportUs extends Component {
     }
 
     renderAmazon() {
-        const { classes } = this.props;
-
-        return <Card key="amazon" className={`${classes.card} ${this.props.mobile ? this.props.classes.cardMobile : ''}`}>
+        return <Card key="amazon" style={{ ...styles.card, ...(this.props.mobile ? styles.cardMobile : undefined) }}>
             <CardActionArea onClick={() => Utils.openLink(AMAZON_LINK)}>
                 <CardMedia
-                    className={classes.media}
+                    style={styles.media}
                     image={ImgAmazon}
                     title={I18n.t('Buy what you need at amazon')}
                 />
                 <CardContent>
                     <h5>{I18n.t('Amazon Affiliate Links')}</h5>
-                    <Button className={classes.amazonButton} onClick={() => Utils.openLink(AMAZON_LINK)}>{I18n.t('Buy at Amazon')}</Button>
+                    <Button style={styles.amazonButton} onClick={() => Utils.openLink(AMAZON_LINK)}>{I18n.t('Buy at Amazon')}</Button>
                     <div style={{ textAlign: 'left' }}>{I18n.t('Amazon explanation')}</div>
                 </CardContent>
             </CardActionArea>
@@ -168,7 +152,7 @@ class SupportUs extends Component {
             fullScreen={this.props.mobile}
             fullWidth
             maxWidth="md"
-            className={`${this.props.classes.dialog} ${this.props.mobile ? '' : this.props.classes.dialogDesktop}`}
+            style={{ ...styles.dialog, ...(this.props.mobile ? undefined : styles.dialogDesktop) }}
             onClose={() => this.setState({ opened: false })}
             aria-labelledby="alert-dialog-support-title"
             aria-describedby="alert-dialog-support-description"
@@ -191,10 +175,11 @@ class SupportUs extends Component {
             <Button
                 key="button"
                 color="grey"
-                className={`${this.props.classes.mainButton} ${!this.props.noColoring ? this.props.classes.hueAnimation : ''}`}
+                sx={styles.mainButton}
+                style={!this.props.noColoring ? styles.hueAnimation : undefined}
                 onClick={() => this.setState({ opened: true })}
             >
-                <img src={ImgAmazonSmall} className={this.props.classes.mainButtonIcon} alt="logo" />
+                <img src={ImgAmazonSmall} style={styles.mainButtonIcon} alt="logo" />
                 {I18n.t('Support us!')}
             </Button>,
             this.renderDialog(),
@@ -207,4 +192,4 @@ SupportUs.propTypes = {
     noColoring: PropTypes.bool,
 };
 
-export default withStyles(styles)(SupportUs);
+export default SupportUs;

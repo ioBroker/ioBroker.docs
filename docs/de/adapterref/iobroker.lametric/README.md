@@ -28,15 +28,21 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 ## Anforderungen
 
 - nodejs 18 (oder neuer)
-- js-controller 5.0.0 (oder neuer)
+- js-controller 5.0.19 (oder neuer)
 - Admin Adapter 6.0.0 (oder neuer)
-- _LaMetric Time_ mit Firmware _2.3.9_ (_3.1.1_ auf dem 2022er Modell) (oder neuer)
+- _LaMetric Time_ mit Firmware _3.1.2_ (oder neuer)
+    - Firmware _2.3.9_ (oder neuer) auf älteren Modellen (hergestellt vor dem Jahr 2022)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
-## Configuration
+## Konfiguration
 
-Du bekommst deinen Geräte-Schlüssel (API-Key) [hier](https://developer.lametric.com/user/devices).
+1. Füge die LaMetric Time zu Deinem Netzwerk hinzu
+    - LaMetric Time App (2017 bis 2021) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
+    - LaMetric App (2022 bis heute) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
+2. Kopiere den Geräte-Schlüssel aus der App (nur Modell 2022 und neuer). Für ältere Modelle nutze die folgende Webseite:
+
+Du bekommst Deinen Geräte-Schlüssel (API-Key) [hier](https://developer.lametric.com/user/devices).
 
 ![api-key](./img/api-key.png)
 
@@ -59,6 +65,13 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.4.0 (2024-09-06)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
+* (@klein0r) Added support for notification manager
+* (@klein0r) Added validator for icon inputs
+* (@klein0r) Fixed some missing translations
+
 ### 3.3.0 (2024-08-05)
 
 * (@klein0r) Added api version as state (and check value)
@@ -75,12 +88,6 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
 * (@klein0r) Updated dependencies
-
-### 3.2.0 (2024-06-07)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Fixed Blockly definitions (removed warnings)
 
 ## License
 

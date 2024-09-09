@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Box } from '@mui/material';
 import {
     FaGithubSquare as IconGithub,
     FaFacebookSquare as IconFacebook,
@@ -11,7 +12,6 @@ import LogoIoBroker from './assets/iobroker-logo-small.png';
 
 import Utils from './Utils';
 import I18n from './i18n';
-import {Box} from "@mui/material";
 
 const styles = {
     footer: theme => ({
@@ -53,7 +53,7 @@ const styles = {
     },
 };
 
-class Loader extends React.Component {
+class Footer extends React.Component {
     render() {
         return <Box sx={styles.footer}>
             <div title="Repository" style={styles.footerIconDiv}>
@@ -93,8 +93,8 @@ class Loader extends React.Component {
     }
 }
 
-Loader.propTypes = {
+Footer.propTypes = {
     onNavigate: PropTypes.func,
 };
 
-export default Loader;
+export default Footer;

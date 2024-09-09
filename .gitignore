@@ -16,3 +16,4 @@
 /engine/front-end/node_modules
 /engine/front-end/package-lock.json
 /engine/front-end/public/blog.json
+/engine/front-end/public/data/forum.json

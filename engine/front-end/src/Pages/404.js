@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
+import { Box } from '@mui/material';
 
 /*
 Copyright 2019 Robin Selmer
@@ -8,8 +8,8 @@ https://codepen.io/robinselmer/pen/vJjbOZ
 
 import I18n from '../i18n';
 
-const styles = theme => ({
-    content: {
+const styles = {
+    content: theme => ({
         background: 'black',
         position: 'absolute',
         top: 0,
@@ -17,7 +17,7 @@ const styles = theme => ({
         left: 0,
         right: 0,
         ...theme.content,
-    },
+    }),
     root: {
         boxSizing: 'border-box',
         height: '100%',
@@ -87,30 +87,30 @@ const styles = theme => ({
     errorCode: {
         color: 'white',
     },
-});
+};
 
 class Page404 extends Component {
     render() {
-        return <div className={this.props.classes.content}>
-            <div className={this.props.classes.root}>
-                <div className={this.props.classes.overlay}>
-                    <div className={this.props.classes.terminal}>
+        return <Box sx={styles.content}>
+            <div style={styles.root}>
+                <Box sx={styles.overlay}>
+                    <div style={styles.terminal}>
                         <h1>
                             Error
-                            <span className={this.props.classes.errorCode}>404</span>
+                            <span style={styles.errorCode}>404</span>
                         </h1>
-                        <p className={this.props.classes.output}>
+                        <p style={styles.output}>
                             {I18n.t('The page you are looking for')}
                         </p>
-                        <p className={this.props.classes.output}>{I18n.t('Good luck')}</p>
+                        <p style={styles.output}>{I18n.t('Good luck')}</p>
                     </div>
-                </div>
+                </Box>
             </div>
-        </div>;
+        </Box>;
     }
 }
 
 Page404.propTypes = {
 };
 
-export default withStyles(styles)(Page404);
+export default Page404;

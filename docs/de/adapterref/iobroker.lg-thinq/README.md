@@ -550,6 +550,8 @@ Wenn einer der 3 Datenpunkte gefüllt wird, wird das ausgewählt Programm in den
 -   `remote.Statistic.period` Welche Periode
 -   `remote.Statistic.sendRequest` Auswahl senden
 -   `remote.Statistic.jsonResult` Statistik als JSON. Sind die Attribute leer dann unterstützt euer Geräte diese nicht oder es wurde ein falsches Datum angegeben.
+-   `remote.Statistic.ownrequest` Eigene Abfrage von Daten. Die Datei aus dem Link `modelJsonUri` öffnen und cmd, cmdOpt und value übernehmen.
+-   `remote.Statistic.ownresponse` Ergebnis von `remote.Statistic.ownrequest`
 
     ![401_thinq1_remote_statistic.png](img/401_thinq1_remote_statistic.png)
 
@@ -612,6 +614,25 @@ Wenn einer der 3 Datenpunkte gefüllt wird, wird das ausgewählt Programm in den
     "kwh": 0.3
   }
 ]
+```
+
+# ownrequest JSON
+
+```json
+{
+  "method": "POST", // POST oder GET Axios Request
+  "url": "rti/rtiControl", // URL
+  "data": {
+    "lgedmRoot": {
+      "deviceId": null, // Adapter ersetzt null
+      "workId": null, // Adapter ersetzt null
+      "cmd": "Config", // Änderung möglich
+      "cmdOpt": "Get", // Änderung möglich
+      "value": "InOutInstantPower", // Änderung möglich
+      "isControlFree": "Y" // NICHT ändern
+    }
+  }
+}
 ```
 
 ### 401 Remote Control thinq1
@@ -734,6 +755,7 @@ lg-thinq.0.xxx.area muss gefüllt sein!
 
 -   (Lucky-ESA) Dependencies updated
 -   (Lucky-ESA) Changed autoDryRemainTime max value
+-   (Lucky-ESA) Added own request for 401 thinq1
 
 ### 1.0.1 (2024-05-21)
 

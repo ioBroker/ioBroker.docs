@@ -1,11 +1,11 @@
 import React from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import MarkdownView from 'react-showdown';
 
 import {
     Paper,
     Button,
+    Box,
 } from '@mui/material';
 
 import {
@@ -19,7 +19,7 @@ import I18n from '../i18n';
 import Utils from '../Utils';
 import Router from '../Router';
 
-const styles = () => ({
+const styles = {
     root: {
         width: '100%',
     },
@@ -110,7 +110,7 @@ const styles = () => ({
         textDecoration: 'none',
         color: 'gray',
     },
-});
+};
 
 const CONVERTER_OPTIONS = {
     emoji: true,
@@ -195,17 +195,16 @@ class Blog extends Router {
     renderHeader() {
         return <div
             key="header"
-            style={this.page ? { cursor: 'pointer' } : {}}
+            style={{ ...styles.header, cursor: this.page ? 'pointer' : undefined }}
             onClick={() => this.onNavigate(null, null, '')}
-            className={this.props.classes.header}
         >
-            <h1 key="title" className={this.props.classes.headerTitle}>
+            <h1 key="title" style={styles.headerTitle}>
                 {I18n.t('ioBroker Blog')}
                 <a href={`./blog_${this.props.language}.xml`} rel="noopener noreferrer" target="_blank" title={I18n.t('RSS Feed')}>
-                    <IconRss className={this.props.classes.rssIcon} />
+                    <IconRss style={styles.rssIcon} />
                 </a>
             </h1>
-            <div key="notice" className={this.props.classes.headerNotice}>
+            <div key="notice" style={styles.headerNotice}>
                 {I18n.t('News, announcements and ideas about ioBroker')}
             </div>
         </div>;
@@ -222,7 +221,8 @@ class Blog extends Router {
                         }
 
                         reactObj.props.children[i] = <div
-                            className={`${this.props.classes.mdLink} md-link`}
+                            className="md-link"
+                            style={styles.mdLink}
                             title={link}
                             onClick={() => this.onNavigate(null, link)}
                         >
@@ -251,23 +251,30 @@ class Blog extends Router {
     renderEntry(page) {
         const data = this.state.content.pages[page];
 
-        return <Paper key={page} className={this.props.classes.pagePage}>
-            {data.logo ? <div className={this.props.classes.pageLogoDiv} style={{ backgroundImage: `url(${data.logo})` }} /> : null}
+        return <Paper key={page} style={styles.pagePage}>
+            {data.logo ? <div style={{ ...styles.pageLogoDiv, backgroundImage: `url(${data.logo})` }} /> : null}
             <h2
-                className={this.props.classes.pageTitle}
-                style={{ cursor: 'pointer' }}
+                style={{ ...styles.pageTitle, cursor: 'pointer' }}
                 onClick={() => this.props.onNavigate(null, null, page)}
             >
                 {data.title[this.props.language] || data.title.en}
             </h2>
-            <div className={this.props.classes.pagePosted}>
+            <div style={styles.pagePosted}>
                 <span style={{ fontWeight: 'bold', marginRight: 8 }}>
                     {data.author || data.Author}
                 </span>
                 {I18n.t('posted on %s', Blog.page2Date(page))}
             </div>
-            <p className={this.props.classes.pageDesc}>{data.desc && (data.desc[this.props.language] || data.desc.en || '').replace(/\\n/g, '\n')}</p>
-            <Button variant="contained" className={this.props.classes.pageButton} onClick={() => this.props.onNavigate(null, null, page)}>{I18n.t('Read')}</Button>
+            <p style={styles.pageDesc}>
+                {data.desc && (data.desc[this.props.language] || data.desc.en || '').replace(/\\n/g, '\n')}
+            </p>
+            <Button
+                variant="contained"
+                style={styles.pageButton}
+                onClick={() => this.props.onNavigate(null, null, page)}
+            >
+                {I18n.t('Read')}
+            </Button>
         </Paper>;
     }
 
@@ -276,7 +283,7 @@ class Blog extends Router {
             return null;
         }
 
-        return <div className={this.props.classes.pages}>{
+        return <div style={styles.pages}>{
             Object.keys(this.state.content.pages).map(page => this.renderEntry(page))
         }</div>;
     }
@@ -300,32 +307,32 @@ class Blog extends Router {
         const next = pos ? Blog.page2Date(pages[pos - 1]) : '';
         const prev = pos + 1 < pages.length ? Blog.page2Date(pages[pos + 1]) : '';
 
-        return <Paper className={this.props.classes.pagePage}>
-            {header.logo ? <div className={this.props.classes.pageLogoDiv} style={{ backgroundImage: `url(${header.logo})` }} /> : null}
-            <div className={this.props.classes.pageTitleDiv}>
-                <h2 className={this.props.classes.pageTitle}>{header.title}</h2>
-                <div className={this.props.classes.pagePosted}>
+        return <Paper style={styles.pagePage}>
+            {header.logo ? <div style={{ ...styles.pageLogoDiv, backgroundImage: `url(${header.logo})` }} /> : null}
+            <div style={styles.pageTitleDiv}>
+                <h2 style={styles.pageTitle}>{header.title}</h2>
+                <div style={styles.pagePosted}>
                     <span style={{ fontWeight: 'bold', marginRight: 8 }}>{header.author || header.Author}</span>
                     {I18n.t('posted on %s', Blog.page2Date(date))}
                 </div>
-                {next ? <Button variant="contained" className={this.props.classes.pageTitleNextButton} onClick={() => this.onNavigate(null, null, pages[pos - 1])}>
+                {next ? <Button variant="contained" style={styles.pageTitleNextButton} onClick={() => this.onNavigate(null, null, pages[pos - 1])}>
                     ←
                     <span style={{ marginLeft: 8 }}>{next}</span>
                 </Button> : null}
-                {prev ? <Button variant="contained" className={this.props.classes.pageTitlePrevButton} onClick={() => this.onNavigate(null, null, pages[pos + 1])}>
+                {prev ? <Button variant="contained" style={styles.pageTitlePrevButton} onClick={() => this.onNavigate(null, null, pages[pos + 1])}>
                     <span style={{ marginRight: 8 }}>{prev}</span>
                     →
                 </Button> : null}
             </div>
 
             {header.translatedFrom ?
-                <div className={this.props.classes.pageTitleTranslated}>{I18n.t('Translated from %s', header.translatedFrom)}</div> : null}
+                <Box sx={styles.pageTitleTranslated}>{I18n.t('Translated from %s', header.translatedFrom)}</Box> : null}
 
-            <div className={this.props.classes.pageDesc}>{reactElement}</div>
+            <div style={styles.pageDesc}>{reactElement}</div>
 
             {header.editLink ?
-                <div className={this.props.classes.info}>
-                    <a className={this.props.classes.infoEdit} rel="noopener noreferrer" href={header.editLink} target="_blank">
+                <div style={styles.info}>
+                    <a style={styles.infoEdit} rel="noopener noreferrer" href={header.editLink} target="_blank">
                         <IconEdit />
                         {I18n.t('Edit on github')}
                     </a>
@@ -339,7 +346,7 @@ class Blog extends Router {
         }
 
         return [
-            <div key="blog" className={this.props.classes.root}>
+            <div key="blog" style={styles.root}>
                 {this.renderHeader()}
                 {this.state.text ? this.renderPage() : this.renderEntries()}
             </div>,
@@ -355,4 +362,4 @@ Blog.propTypes = {
     mobile: PropTypes.bool,
 };
 
-export default withStyles(styles)(Blog);
+export default Blog;

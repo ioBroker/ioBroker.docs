@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
+    Box,
     Button,
     Dialog,
     DialogActions,
@@ -34,8 +34,8 @@ import LinusShell from '../Components/LinusShell';
 import I18n from '../i18n';
 import userTreffen from '../assets/2024_05_01_usertreffen_long.jpg';
 
-const styles = theme => ({
-    content: theme.content,
+const styles = {
+    content: theme => theme.content,
     backImage: {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -180,8 +180,8 @@ const styles = theme => ({
         display: 'inline-block',
         verticalAlign: 'top',
     },
-    darkPart: theme.palette.darkPart,
-    lightPart: theme.palette.lightPart,
+    darkPart: theme => theme.palette.darkPart,
+    lightPart: theme => theme.palette.lightPart,
     saleImage: {
         width: 100,
         height: 100,
@@ -204,12 +204,7 @@ const styles = theme => ({
             color: '#ffffff',
         },
     },
-    coloredIcon: {
-        animation: `$colors 3000ms ${theme.transitions.easing.easeInOut} infinite alternate`,
-        width: 30,
-        height: 30,
-    },
-});
+};
 
 class Intro extends Component {
     constructor(props) {
@@ -222,22 +217,22 @@ class Intro extends Component {
         this.action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 8);
     }
 
-    renderCloud() {
+    static renderCloud() {
         const smallMargin = window.screen.height < 500;
 
         const long = I18n.getLanguage() === 'ru';
 
         return <div
             style={{
+                ...styles.cloudButton,
                 marginTop: smallMargin ? 10 : undefined,
                 width: long ? 330 : 230,
                 marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)',
             }}
-            className={this.props.classes.cloudButton}
             onClick={() => window.document.location = 'https://iobroker.pro/accountRemote'}
         >
-            <IconCloud className={this.props.classes.cloudButtonIcon} />
-            <div className={this.props.classes.cloudButtonText}>{I18n.t('get cloud')}</div>
+            <IconCloud style={styles.cloudButtonIcon} />
+            <div style={styles.cloudButtonText}>{I18n.t('get cloud')}</div>
         </div>;
     }
 
@@ -248,8 +243,8 @@ class Intro extends Component {
             onClose={() => this.setState({ showActionDialog: false })}
         >
             <DialogContent>
-                <DialogContentText className={this.props.classes.saleText}>
-                    <img src={SaleImage} alt="sale" className={this.props.classes.saleImage} />
+                <DialogContentText style={styles.saleText}>
+                    <img src={SaleImage} alt="sale" style={styles.saleImage} />
                     <br />
                     {I18n.t('33% discount on Remote access and Assistants!')}
                 </DialogContentText>
@@ -274,43 +269,43 @@ class Intro extends Component {
             <div
                 key="button"
                 style={{
+                    ...styles.cloudButtonSale,
                     marginTop: smallMargin ? 10 : undefined,
                     width: long ? 300 : 300,
                     marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)',
                 }}
-                className={this.props.classes.cloudButtonSale}
                 onClick={() => this.setState({ showActionDialog: true })}
             >
-                <img className={this.props.classes.cloudButtonSaleIcon} src={ChristmasSale} alt="sale" />
-                <div className={this.props.classes.cloudButtonText}>{I18n.t('cloud sale!')}</div>
+                <img style={styles.cloudButtonSaleIcon} src={ChristmasSale} alt="sale" />
+                <div style={styles.cloudButtonText}>{I18n.t('cloud sale!')}</div>
             </div>,
             this.renderActionDialog(),
         ];
     }
 
-    renderServer() {
+    static renderServer() {
         const smallMargin = window.screen.height < 500;
 
         const long = I18n.getLanguage() === 'ru';
 
         return <div
             style={{
+                ...styles.serverButton,
                 marginTop: smallMargin ? 10 : undefined,
                 width: long ? 500 : 350,
                 marginLeft: long ? 'calc(50% - 250px)' : 'calc(50% - 175px)',
             }}
-            className={this.props.classes.serverButton}
             onClick={() => {
                 const win = window.open('https://iobroker.com/shop', '_blank');
                 win.focus();
             }}
         >
-            <img className={this.props.classes.serverButtonImage} src={ServerImg} alt="server" />
-            <div className={this.props.classes.serverButtonText}>{I18n.t('buy IOB server')}</div>
+            <img style={styles.serverButtonImage} src={ServerImg} alt="server" />
+            <div style={styles.serverButtonText}>{I18n.t('buy IOB server')}</div>
         </div>;
     }
 
-    renderUserMeeting() {
+    static renderUserMeeting() {
         const smallMargin = window.screen.height < 500;
 
         return <div
@@ -322,7 +317,7 @@ class Intro extends Component {
             }}
         >
             <div
-                className={this.props.classes.userButton}
+                style={styles.userButton}
                 onClick={() => window.open('https://usertreffen.iobroker.in', 'usertreffen')}
             >
                 <img src={userTreffen} alt="usertreffen" style={{ height: 70, borderRadius: 10 }} />
@@ -330,24 +325,24 @@ class Intro extends Component {
         </div>;
     }
 
-    renderHausAutomatisierung() {
+    static renderHausAutomatisierung() {
         const smallMargin = window.screen.height < 500;
 
         return <div
             style={{
+                ...styles.serverButton,
                 marginTop: smallMargin ? 10 : undefined,
                 width: 550,
                 marginLeft: 'calc(50% - 275px)',
                 background: '#144578',
             }}
-            className={this.props.classes.serverButton}
             onClick={() => {
                 const win = window.open('https://shop.haus-automatisierung.com/iobroker-master-kurs.html?refid=iobroker', '_blank');
                 win.focus();
             }}
         >
-            <img className={this.props.classes.hausButtonImage} src={HausAutomatisierungImg} alt="server" />
-            <div className={this.props.classes.serverButtonText}>{I18n.t('Video course from our partner')}</div>
+            <img style={styles.hausButtonImage} src={HausAutomatisierungImg} alt="server" />
+            <div style={styles.serverButtonText}>{I18n.t('Video course from our partner')}</div>
         </div>;
     }
 
@@ -386,29 +381,29 @@ class Intro extends Component {
         } else {
             switch (link) {
                 case 1:
-                    middleButton = I18n.getLanguage() === 'de' ? this.renderHausAutomatisierung() : this.renderCloud();
+                    middleButton = I18n.getLanguage() === 'de' ? Intro.renderHausAutomatisierung() : Intro.renderCloud();
                     break;
                 case 2:
                     userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderServer();
+                    middleButton = userMeeting ? Intro.renderUserMeeting() : Intro.renderServer();
                     break;
                 case 0:
                 default:
                     userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderCloud();
+                    middleButton = userMeeting ? Intro.renderUserMeeting() : Intro.renderCloud();
                     break;
             }
         }
 
         return [
-            <div className={`${this.props.classes.content} ${this.props.classes.backImage}`} key="content">
-                <div className={this.props.classes.title}>
-                    <div className={this.props.classes.titleDiv}>
-                        <div className={this.props.classes.titleMain}>ioBroker</div>
-                        <div className={this.props.classes.titleSecond}>Automate your life</div>
-                        <div className={this.props.classes.titleDescription}>Open source automation platform</div>
+            <Box sx={styles.content} style={styles.backImage} key="content">
+                <Box style={styles.title}>
+                    <div style={styles.titleDiv}>
+                        <div style={styles.titleMain}>ioBroker</div>
+                        <div style={styles.titleSecond}>Automate your life</div>
+                        <div style={styles.titleDescription}>Open source automation platform</div>
                     </div>
-                </div>
+                </Box>
                 {middleButton}
                 {!this.props.mobile ? <LinusShell
                     header={I18n.t('install on linux')}
@@ -416,8 +411,9 @@ class Intro extends Component {
                     copiedText={I18n.t('copied to clipboard')}
                     typedText="curl -sLf https://iobroker.net/install.sh | bash -"
                 /> : null}
-            </div>,
+            </Box>,
             <div
+                key="parts"
                 style={{
                     position: 'absolute',
                     top: 10,
@@ -429,12 +425,12 @@ class Intro extends Component {
                 {!userMeeting ? <Query key="query" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} /> : null}
                 <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} noColoring={userMeeting} />,
             </div>,
-            <ForumInfo key="forum" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
-            <About key="about" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
-            <Subscribe key="subscribe" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
-            <Press key="press" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
-            <Adapters key="adapters" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
-            <Screenshots key="screenshots" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
+            <ForumInfo key="forum" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <About key="about" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <Subscribe key="subscribe" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <Press key="press" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <Adapters key="adapters" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
+            <Screenshots key="screenshots" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
             <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
         ];
     }
@@ -447,4 +443,4 @@ Intro.propTypes = {
     mobile: PropTypes.bool,
 };
 
-export default withStyles(styles)(Intro);
+export default Intro;

@@ -1,4 +1,4 @@
-const APP_BAR_HEIGHT = 54;
+export const APP_BAR_HEIGHT = 54;
 
 const Theme = type => {
     if (type === 'dark') {

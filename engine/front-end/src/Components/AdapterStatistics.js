@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import {
@@ -114,9 +113,9 @@ class AdapterStatistics extends Component {
         }
     }
 
-    renderHeaderCell(className, type, align) {
+    renderHeaderCell(style, type, align) {
         return (<TableCell
-            className={`${this.props.classes.tableCell} ${className}`}
+            styles={{ ...styles.tableCell, ...style }}
             align={align}
             sortDirection={this.state.orderBy === type ? this.state.order : false}
         >
@@ -157,19 +156,19 @@ class AdapterStatistics extends Component {
         let sum = 0;
         versions.forEach(v => sum += stats[v]);
 
-        return <Table key="table" padding="dense" className={this.props.classes.table}>
+        return <Table key="table" padding="dense" style={styles.table}>
             <TableHead>
                 <TableRow>
-                    {this.renderHeaderCell(this.props.classes.tableColumnVersion, 'Version', 'right')}
-                    {this.renderHeaderCell(this.props.classes.tableColumnCount, 'Count', 'left')}
-                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`} align="left">%</TableCell>
+                    {this.renderHeaderCell(styles.tableColumnVersion, 'Version', 'right')}
+                    {this.renderHeaderCell(styles.tableColumnCount, 'Count', 'left')}
+                    <TableCell style={{ ...styles.tableCell, ...styles.tableColumnPercent }} align="left">%</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
-                {versions.map(v => <TableRow className={this.props.classes.tableRow}>
-                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnVersion}`}>{v}</TableCell>
-                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnCount}`}>{stats[v]}</TableCell>
-                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`}>
+                {versions.map(v => <TableRow sx={styles.tableRow}>
+                    <TableCell style={{ ...styles.tableCell, ...styles.tableColumnVersion }}>{v}</TableCell>
+                    <TableCell style={{ ...styles.tableCell, ...styles.tableColumnCount }}>{stats[v]}</TableCell>
+                    <TableCell style={{ ...styles.tableCell, ...styles.tableColumnPercent }}>
                         {Math.round((stats[v] / sum) * 10000) / 100}
                         %
                     </TableCell>
@@ -179,13 +178,12 @@ class AdapterStatistics extends Component {
     }
 
     renderContent() {
-        const { classes } = this.props;
         return [
             <h2>
                 <span style={{ marginRight: 8 }}>{I18n.t('Total count: ')}</span>
                 {this.props.statistics.adapters[this.props.adapter]}
             </h2>,
-            <Paper className={`${classes.paper} ${classes.paperPie} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>
+            <Paper style={{ ...styles.paper, ...styles.paperPie, ...(this.state.mobile ? styles.paperMobile : undefined) }}>
                 <PieStats
                     data={this.props.statistics.versions[this.props.adapter]}
                     size="45%"
@@ -195,13 +193,13 @@ class AdapterStatistics extends Component {
                     series={I18n.t('Count')}
                 />
             </Paper>,
-            <Paper className={`${classes.paper} ${classes.paperTable} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>{this.renderTable()}</Paper>,
+            <Paper style={{ ...styles.paper, ...styles.paperTable, ...(this.state.mobile ? styles.paperMobile : undefined) }}>{this.renderTable()}</Paper>,
         ];
     }
 
     render() {
         return <Dialog
-            className={this.props.classes.dialog}
+            style={styles.dialog}
             fullWidth={this.state.mobile}
             maxWidth="xl"
             open={!0}
@@ -209,7 +207,7 @@ class AdapterStatistics extends Component {
             aria-labelledby="max-width-dialog-title"
         >
             <DialogTitle id="max-width-dialog-title">{I18n.t('Adapter %s statistics', this.props.adapter)}</DialogTitle>
-            <DialogContent className={`${this.props.classes.dialogContent} ${this.state.mobile ? this.props.classes.dialogContentMobile : ''}`}>
+            <DialogContent style={{ ...styles.dialogContent, ...(this.state.mobile ? styles.dialogContentMobile : undefined) }}>
                 {
                     !this.props.statistics ||
                     !this.props.statistics.versions ||
@@ -232,4 +230,4 @@ AdapterStatistics.propTypes = {
     onClose: PropTypes.func,
 };
 
-export default withStyles(styles)(AdapterStatistics);
+export default AdapterStatistics;

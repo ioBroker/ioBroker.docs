@@ -53,6 +53,17 @@ This feature only works when map creation is enabled in the adapter options!
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+ * (copystring) Add basic support for S8 MaxV Ultra
+ * (copystring) Newly found attributes are now warning instead of error
+ * (copystring) Improve detection of `home_sec`
+
+### 0.6.12 (2024-09-08)
+ * (copystring) Change go2rtc github to go2rtc-static npm
+
+### 0.6.11 (2024-09-06)
+* (copystring) Add `voice_chat_status` to S7 MaxV
+
 ### 0.6.10 (2024-09-05)
 * (copystring) Add `set_switch_status` to S7 MaxV and Q Revo Pro
 

@@ -17,7 +17,7 @@ Both methods are explained in this document.
 ## My Data (DIY) - Push *(Adapter version >= 3.0.0 required)* (recommended)
 
 - Requires *My Data DIY* App >= 2.0.0
-- Requires Firmware >=2.3.7 (>= 3.0.16)
+- Requires Firmware >= 3.0.16 (>=2.3.7 on older models, produced before year 2022)
 
 ## My Data (DIY) - Poll *(Adapter version >= 1.1.0 required)*
 

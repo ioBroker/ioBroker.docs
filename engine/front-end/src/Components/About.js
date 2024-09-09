@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
+import { Box } from '@mui/material';
 
 import {
     FaCogs as IconAutomate,
@@ -14,7 +14,7 @@ import Image2 from '../assets/493271902.jpg';
 
 import I18n from '../i18n';
 
-const styles = () => ({
+const styles = {
     mainDiv: {
         background: '#FFFFFF',
         width: 'calc(100% - 40px)',
@@ -101,60 +101,60 @@ const styles = () => ({
         verticalAlign: 'top',
         marginLeft: 80,
     },
-});
+};
 
 class About extends Component {
     render() {
-        return <div key="about" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
-            <div className={this.props.classes.title}>{I18n.t('About ioBroker')}</div>
-            <div className={this.props.classes.preBox}>
-                <div className={this.props.classes.box}>
-                    <div className={`${this.props.classes.image} ${this.props.mobile ? this.props.classes.imageMobile : this.props.classes.imageDesktop}`}>
-                        <img className={this.props.classes.img} src={Image1} alt="Image1" />
+        return <Box key="about" style={styles.mainDiv} sx={this.props.backStyle}>
+            <div style={styles.title}>{I18n.t('About ioBroker')}</div>
+            <div style={styles.preBox}>
+                <div style={styles.box}>
+                    <div style={{ ...styles.image, ...(this.props.mobile ? styles.imageMobile : styles.imageDesktop) }}>
+                        <img style={styles.img} src={Image1} alt="Image1" />
                     </div>
-                    <div className={`${this.props.classes.text} ${this.props.mobile ? this.props.classes.textMobile : this.props.classes.textDesktop}`}>
-                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('ioBroker is an IoT platform (Fog computing).')}</span>
-                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('The ability to manage your IoT system as one intelligent, robust project.')}</span>
-                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('Unique graphics and beautiful interfaces for you.')}</span>
-                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('Use one of the best open source products for managing your automation system on premise.')}</span>
-                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('Comprehensive smart home support')}</span>
+                    <div style={{ ...styles.text, ...(this.props.mobile ? styles.textMobile : styles.textDesktop) }}>
+                        <Box component="span" style={styles.textLine} sx={styles.point}>{I18n.t('ioBroker is an IoT platform (Fog computing).')}</Box>
+                        <Box component="span" style={styles.textLine} sx={styles.point}>{I18n.t('The ability to manage your IoT system as one intelligent, robust project.')}</Box>
+                        <Box component="span" style={styles.textLine} sx={styles.point}>{I18n.t('Unique graphics and beautiful interfaces for you.')}</Box>
+                        <Box component="span" style={styles.textLine} sx={styles.point}>{I18n.t('Use one of the best open source products for managing your automation system on premise.')}</Box>
+                        <Box component="span" style={styles.textLine} sx={styles.point}>{I18n.t('Comprehensive smart home support')}</Box>
                     </div>
                 </div>
-                <div className={this.props.classes.box}>
-                    <div className={`${this.props.classes.text} ${this.props.mobile ? this.props.classes.textMobile : this.props.classes.textDesktop}`}>
-                        <div className={this.props.classes.textLine}>
-                            <IconAutomate className={this.props.classes.icon} />
-                            <div className={this.props.classes.lineTitle}>{I18n.t('Automate everything')}</div>
-                            <div className={this.props.classes.lineComment}>{I18n.t('Light, shutter, thermostat, schedule, ...')}</div>
+                <div style={styles.box}>
+                    <div style={{ ...styles.text, ...(this.props.mobile ? styles.textMobile : styles.textDesktop) }}>
+                        <div style={styles.textLine}>
+                            <IconAutomate style={styles.icon} />
+                            <div style={styles.lineTitle}>{I18n.t('Automate everything')}</div>
+                            <div style={styles.lineComment}>{I18n.t('Light, shutter, thermostat, schedule, ...')}</div>
                         </div>
-                        <div className={this.props.classes.textLine}>
-                            <IconJS className={this.props.classes.icon} />
-                            <div className={this.props.classes.lineTitle}>{I18n.t('Written with Node.js')}</div>
-                            <div className={this.props.classes.lineComment}>{I18n.t('Javascript is most popular language')}</div>
+                        <div style={styles.textLine}>
+                            <IconJS style={styles.icon} />
+                            <div style={styles.lineTitle}>{I18n.t('Written with Node.js')}</div>
+                            <div style={styles.lineComment}>{I18n.t('Javascript is most popular language')}</div>
                         </div>
-                        <div className={this.props.classes.textLine}>
-                            <IconPlatforms className={this.props.classes.icon} />
-                            <div className={this.props.classes.lineTitle}>{I18n.t('Runs on')}</div>
-                            <div className={this.props.classes.lineComment}>{I18n.t('Windows, Linux, OSX, Raspberry Pi, ARM or PC')}</div>
+                        <div style={styles.textLine}>
+                            <IconPlatforms style={styles.icon} />
+                            <div style={styles.lineTitle}>{I18n.t('Runs on')}</div>
+                            <div style={styles.lineComment}>{I18n.t('Windows, Linux, OSX, Raspberry Pi, ARM or PC')}</div>
                         </div>
-                        <div className={this.props.classes.textLine}>
-                            <IconSocial className={this.props.classes.icon} />
-                            <div className={this.props.classes.lineTitle}>{I18n.t('Social support')}</div>
-                            <div className={this.props.classes.lineComment}>{I18n.t('Dynamically growing community.')}</div>
+                        <div style={styles.textLine}>
+                            <IconSocial style={styles.icon} />
+                            <div style={styles.lineTitle}>{I18n.t('Social support')}</div>
+                            <div style={styles.lineComment}>{I18n.t('Dynamically growing community.')}</div>
                         </div>
                     </div>
-                    <div className={`${this.props.classes.image} ${this.props.mobile ? this.props.classes.imageMobile : this.props.classes.imageDesktop}`}>
-                        <img className={this.props.classes.img} src={Image2} alt="Image2" />
+                    <div style={{ ...styles.image, ...(this.props.mobile ? styles.imageMobile : styles.imageDesktop) }}>
+                        <img style={styles.img} src={Image2} alt="Image2" />
                     </div>
                 </div>
             </div>
-        </div>;
+        </Box>;
     }
 }
 
 About.propTypes = {
     mobile: PropTypes.bool,
-    backClass: PropTypes.string,
+    backStyle: PropTypes.func,
 };
 
-export default withStyles(styles)(About);
+export default About;

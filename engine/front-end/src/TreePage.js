@@ -1,5 +1,4 @@
 import React from 'react';
-import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import SplitterLayout from 'react-splitter-layout';
 
@@ -31,7 +30,7 @@ import MDPage from './MDPage';
 import Router from './Router';
 import I18n from './i18n';
 
-const styles = theme => ({
+const styles = {
     expandButton: {
         width: 37,
         height: 37,
@@ -55,7 +54,7 @@ const styles = theme => ({
     footer: {
         height: 24,
     },
-    footerButtons: {
+    footerButtons: theme => ({
         '&:hover': {
             backgroundColor: '#dbdbdb',
         },
@@ -65,7 +64,7 @@ const styles = theme => ({
         marginRight: 2,
         height: 22,
         width: 22,
-    },
+    }),
     footerButtonsRight: {
         float: 'right',
     },
@@ -78,10 +77,10 @@ const styles = theme => ({
         height: '100%',
         overflow: 'hidden',
     },
-    selected: {
+    selected: theme => ({
         background: theme.palette.primary.light,
         color: theme.palette.primary.contrastText,
-    },
+    }),
     searchInput: {
         width: 'calc(100% - 20px)',
         marginLeft: 10,
@@ -96,7 +95,7 @@ const styles = theme => ({
         marginTop: 5,
         cursor: 'pointer',
         '&:hover': {
-            opacitiy: 0.7,
+            opacity: 0.7,
         },
     },
     splitterDivs: {
@@ -108,7 +107,7 @@ const styles = theme => ({
         }
         */
     },
-});
+};
 
 class TreePage extends Router {
     constructor(props) {
@@ -247,14 +246,14 @@ class TreePage extends Router {
         if (children) {
             return <IconButton
                 key="expand"
-                className={this.props.classes.expandButton}
+                style={styles.expandButton}
                 onClick={isExpanded ? e => this.onCollapse(item, e) : e => this.onExpand(item, e)}
             >
                 {isExpanded ? <IconCollapse fontSize="small" /> : <IconExpand fontSize="small" />}
             </IconButton>;
         }
 
-        return <div key="expand1" className={this.props.classes.expandButton} />;
+        return <div key="expand1" style={styles.expandButton} />;
     }
 
     onNavigate(item, obj) {
@@ -273,10 +272,10 @@ class TreePage extends Router {
     getItemIcon(root) {
         if (root.content) {
             if (root.icon) {
-                return <img key="icon1" className={this.props.classes.icon} src={`${this.props.language}/${root.icon}`} alt="logo" />;
+                return <img key="icon1" style={styles.icon} src={`${this.props.language}/${root.icon}`} alt="logo" />;
             }
 
-            return <IconDocument key="icon" className={this.props.classes.icon} />;
+            return <IconDocument key="icon" style={styles.icon} />;
         }
 
         return null;
@@ -307,21 +306,21 @@ class TreePage extends Router {
         return [
             root.title && (!this.state.filter || areChildrenVisible || (root.title[this.props.language] || root.title.en).toLowerCase().includes(this.state.filter.toLowerCase())) ?
                 <ListItem
-                    style={style}
+                    style={{ ...styles.element, ...style }}
                     key={item}
-                    className={`${this.props.classes.element} ${root.content && root.content === this.state.path ? this.props.classes.selected : ''}`}
+                    sx={root.content && root.content === this.state.path ? styles.selected : ''}
                     onClick={() => this.onNavigate(item, root)}
                 >
                     {this.renderFolderButtons(item, root.pages, isExpanded)}
                     {root.pages ? <ListItemIcon
-                        className={this.props.classes.listExpandIcon}
+                        style={styles.listExpandIcon}
                         onClick={isExpanded ? e => this.onCollapse(item, e) : e => this.onExpand(item, e)}
                     >
                         {isExpanded ? <IconFolderOpened /> : <IconFolder />}
                     </ListItemIcon> : null}
                     <ListItemText
-                        classes={{ root: this.props.classes.listItem, primary: (root.content && root.content === this.state.path ? this.props.classes.selected : '') }}
-                        style={{}}
+                        sx={{ '&.MuiListItemText-primary': root.content && root.content === this.state.path ? styles.selected : undefined }}
+                        style={styles.listItem}
                         primary={[
                             this.getItemIcon(root),
                             <span key="text">{root.title[this.props.language] || root.title.en}</span>,
@@ -337,15 +336,15 @@ class TreePage extends Router {
         return [
             <IconExpandAll
                 key="expandAll"
-                className={`${this.props.classes.footerButtons}
-                ${this.props.classes.footerButtonsRight}`}
+                sx={styles.footerButtons}
+                style={styles.footerButtonsRight}
                 title={I18n.t('Expand all')}
                 onClick={() => this.onExpandAll()}
             />,
             this.state.expanded.length ? <IconCollapseAll
                 key="collapseAll"
-                className={`${this.props.classes.footerButtons}
-                ${this.props.classes.footerButtonsRight}`}
+                sx={styles.footerButtons}
+                style={styles.footerButtonsRight}
                 title={I18n.t('Collapse all')}
                 onClick={() => this.onCollapseAll()}
             /> : null,
@@ -368,10 +367,10 @@ class TreePage extends Router {
                 placeholder={I18n.t('Filter')}
                 onChange={e => this.setState({ filter: e.target.value })}
                 value={this.state.filter}
-                className={`${this.props.classes.searchInput} ${this.state.filter ? this.props.classes.searchInputWithClear : ''}`}
+                style={{ ...styles.searchInput, ...(this.state.filter ? styles.searchInputWithClear : undefined) }}
             />,
             this.state.filter ? <IconButton
-                className={this.props.classes.searchClear}
+                sx={styles.searchClear}
                 onClick={() => this.setState({ filter: '' })}
             >
                 <IconClear fontSize="small" />
@@ -382,15 +381,15 @@ class TreePage extends Router {
     renderList() {
         return [
             this.renderFilterInput(),
-            <List key="list" className={this.props.classes.list}>{this.renderMenuItem(this.state.content, '', 0)}</List>,
+            <List key="list" style={styles.list}>{this.renderMenuItem(this.state.content, '', 0)}</List>,
             <Divider key="divider" />,
-            <div key="footer" className={this.props.classes.footer}>{this.getBottomButtons()}</div>,
+            <div key="footer" style={styles.footer}>{this.getBottomButtons()}</div>,
         ];
     }
 
     renderDesktopDrawer() {
         if (this.state.menuOpened && !this.state.editMode) {
-            return <div key="drawer" className={this.props.classes.drawer}>
+            return <div key="drawer" style={styles.drawer}>
                 {this.renderList()}
             </div>;
         }
@@ -446,7 +445,7 @@ class TreePage extends Router {
             secondaryInitialSize={this.state.menuSize}
             onDragStart={() => this.setState({ resizing: true })}
             onSecondaryPaneSizeChange={size => this.menuSize = parseFloat(size)}
-            customClassName={`${this.props.classes.splitterDivs} ${!this.state.menuOpened ? this.props.classes.menuDivWithoutMenu : ''}`}
+            style={{ ...styles.splitterDivs, ...(!this.state.menuOpened ? styles.menuDivWithoutMenu : undefined) }}
             onDragEnd={() => {
                 window.localStorage && window.localStorage.setItem('Docs.menuSize', this.menuSize.toString());
                 this.setState({ resizing: false, menuSize: this.menuSize });
@@ -467,4 +466,4 @@ TreePage.propTypes = {
     contentWidth: PropTypes.number,
 };
 
-export default withStyles(styles)(TreePage);
+export default TreePage;
