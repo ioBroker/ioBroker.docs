@@ -34,14 +34,14 @@ The reasons for the division can be spatial or performance-related.
 An ioBroker server can be installed on almost any hardware.
 The only requirement is that there is a current version of [nodejs](https://nodejs.org/en/download/) for the corresponding operating system.
 
-!> As of August 2024, Node.js 18.x is recommended for ioBroker.
+!> As of August 2024, Node.js 20.x is recommended for ioBroker.
 
 For a larger installation, a RAM of at least 2 GB, preferably 4 GB, is recommended. For testing, a Raspberry Pi 2/3 with 1 GB RAM is sufficient; even smaller computers are sufficient as a slave for a few adapters in a multi-host environment.
 
-###Softwares
+### Softwares
 ioBroker manages the data in a database. The structure of the data is organized accordingly.
 
-For each adapter there is a so-called namespace that contains all the data for an instance of the adapter.
+For each adapter, there is a so-called namespace that contains all the data for an instance of the adapter.
 Accordingly, the name of the namespace is, for example: ***AdapterName.0***
 
 Within this area, ioBroker creates the devices, their channels and their data points with their values (states).
