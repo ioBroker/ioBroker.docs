@@ -532,8 +532,8 @@ ID: `system.adapter.<adapter.name>`
 * `common.nogit`              - if true, no installation from GitHub directly is possible
 * `common.nondeletable`       - [true/false] this adapter cannot be deleted or updated. It will be updated together with the controller.
 * `common.npmLibs`            - deprecated. Use package.json `dependencies`.
-* `common.onlyWWW`            - [true/false] say to controller, that adapter has only html files and no main.js, like rickshaw
-* `common.osDependencies.darwin` - array of OSX packages, that required for this adapter
+* `common.onlyWWW`            - [true/false] say to controller, that adapter has only HTML files and no main.js, like rickshaw
+* `common.osDependencies.darwin` - array of OSX packages that required for this adapter
 * `common.osDependencies.linux` - array of debian/centos packages, that required for this adapter (of course only OS with apt, apt-get, yum as package managers)
 * `common.osDependencies.win32` - not used, because win32 has no package manager
 * `common.os`                 - string or array of the supported operation systems, e.g. `["linux", "darwin"]`
@@ -564,9 +564,9 @@ ID: `system.adapter.<adapter.name>`
 * `common.version`            - **mandatory** available version
 * `common.visWidgets`         - Describes `vis2 react widgets`. Like `{"i18n": "component", "vis2NAMEWidgets": { "name": "vis2NAMEWidgets", "url": "vis-2-widgets-NAME/customWidgets.js", "components": [ "NAMEwidgetName"]} }`
 * `common.wakeup`             - Adapter will be started if some value is written into `system.adapter.NAME.x.wakeup`. Normally, the adapter should stop after processing of event.
-* `common.webByVersion`       - show version as prefix in web adapter (usually - `ip:port/material`, webByVersion - `ip:port/1.2.3/material`)
+* `common.webByVersion`       - show a version as prefix in web adapter (usually - `ip:port/material`, webByVersion - `ip:port/1.2.3/material`)
 * `common.webExtendable`      - [true/false] if web server in this adapter can be extended with plugin/extensions like proxy, simple-api
-* `common.webExtension`       - relative filename to connect the web extension. E.g. in `simple-api` `lib/simpleapi.js` relative to the adapter root directory. Additionally, `native.webInstance` is required to say where this extension will be included. Empty means, it must run as own web service. "*" means every web server must include it.
+* `common.webExtension`       - relative filename to connect the web extension. E.g., in `simple-api` `lib/simpleapi.js` relative to the adapter root directory. Additionally, `native.webInstance` is required to say where this extension will be included. Empty means, it must run as own web service. "*" means every web server must include it.
 * `common.webPreSettings`     - list of parameters that must be included in info.js by webServer adapter. (Example material)
 * `common.webservers`         - array of web server's instances that should serve content from the adapter's www folder
 * `common.welcomeScreen.order` - todo
@@ -637,7 +637,7 @@ ID: `system.host.<host>`
 * `common.platform`   - (mandatory) possible Values `Javascript/Node.js` (more to come)
 * `common.enabled`    - (mandatory) is a script activated or not
 * `common.source`     - (mandatory) the script source
-* `common.engine`     - (optional) *script engine* instance that should run this script (f.e. 'javascript.0') - if omitted engine is automatically selected
+* `common.engine`     - (optional) *script engine* instance that should run this script (e.g. 'javascript.0') - if omitted engine is automatically selected
 
 #### user
 * `common.name`       - (mandatory) Name of user (Case sensitive)
