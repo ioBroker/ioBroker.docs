@@ -42,7 +42,7 @@ const styles = {
         color: theme.palette.secondary.light,
         lineHeight: 'normal',
         overflow: 'hidden',
-        padding: 24,
+        p: '24px',
         textOverflow: 'ellipsis',
         wordBreak: 'break-word',
         display: 'inline-block',
@@ -81,7 +81,7 @@ class Cookies extends Component {
         return <div style={{ ...styles.mainDiv, ...(this.props.mobile ? styles.mainDivMobile : undefined) }}>
             <div style={styles.text}>{I18n.t('cookies_text')}</div>
             <Box sx={styles.buttonMore} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</Box>
-            <Button variant="contained" style={{ ...styles.buttonOk, ...(this.props.mobile ? undefiend: styles.buttonOkDesktop) }} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
+            <Button variant="contained" style={{ ...styles.buttonOk, ...(this.props.mobile ? undefined: styles.buttonOkDesktop) }} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
         </div>;
     }
 }
