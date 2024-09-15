@@ -1,12 +1,14 @@
 'use strict';
 
-const config = require('../config');
+const fs = require('node:fs');
+const path = require('node:path');
 const http = !config.secure ? require('node:http') : require('node:https');
 const express = require('express');
 const bodyParser = require('body-parser');
-const logger  = new require('./logger')();
-const path = require('node:path');
-const fs = require('node:fs');
+
+const config = require('../config');
+const Logger = require('./logger');
+const logger  = new Logger();
 const port = normalizePort(process.env.PORT || config.port || 443);
 const ExpressBrute = require('express-brute');
 // let x509;
@@ -46,7 +48,7 @@ function init() {
         config.sites.forEach(site => {
             console.log(`Install path ${site.route} => ${site.path}`);
             let redirects;
-            if (site.redirects) {
+            if (site.redirects && fs.existsSync(site.redirects)) {
                 try {
                     redirects = require(site.redirects);
                 } catch (e) {
