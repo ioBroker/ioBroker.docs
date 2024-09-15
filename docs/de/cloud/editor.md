@@ -10,7 +10,7 @@ Zu den zusätzlichen Funktionen gehören:
 
 - Zugriff auf die `Admin`-Oberfläche
 - Möglichkeit, Vis-2- und Vis-Projekte zu bearbeiten, nicht nur anzuzeigen
-- Lovelace-Zugang
+- `Lovelace`-Zugang
 - Mehr Ressourcen und weniger Benutzer, was zu einer schnelleren und zuverlässigeren Leistung führt
 
 ## Admin
@@ -34,6 +34,6 @@ Stellen Sie anschließend sicher, dass Sie in den Cloud-Einstellungen die neu er
 ## Vis und vis-2
 Zum Aktivieren der Vis- und Vis-2-Bearbeitung ist keine spezielle Konfiguration erforderlich. Öffnen Sie einfach das Vis- oder Vis-2-Projekt im Bearbeitungsmodus.
 
-## Liebeskette
-Die Lovelace-Cloud läuft auf Port 4463.
+## `Lovelace`
+Die `Lovelace`-Cloud läuft auf Port 4463.
 Stellen Sie sicher, dass Ihre Firewall-Einstellungen Ihrem Mobiltelefon oder Tablet den Zugriff auf die Cloud über Port 4463 erlauben.
