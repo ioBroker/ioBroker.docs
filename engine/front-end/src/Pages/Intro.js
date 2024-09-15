@@ -430,7 +430,7 @@ class Intro extends Component {
                 }}
             >
                 {!userMeeting ? <Query key="query" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} /> : null}
-                <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} noColoring={userMeeting} />,
+                <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} noColoring={userMeeting} />
             </div>,
             <ForumInfo key="forum" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
             <About key="about" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
