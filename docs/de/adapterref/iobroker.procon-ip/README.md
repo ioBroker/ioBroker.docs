@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: r3v1HpHgaM6AreOp4sP/GcYQi40K77lrb7cpjns6LB0=
+hash: 3BkX/qa456LhG4LmvbmvlmJdFn2MP0ecCJw5/Rdh454=
 ---
 ![Logo](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
@@ -40,7 +40,7 @@ Nicht alle Funktionen sind über die API erreichbar. Tatsächlich gibt es eine d
 
 Weitere Informationen finden Sie unter dem folgenden Link (leider nur auf Deutsch; ich habe bisher keine englische Dokumentation/Informationen gefunden):
 
-* [pooldigital.de webshop](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [pooldigital.de Webshop](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
 * [pooldigital.de-Forum](https://www.poolsteuerung.de/)
 
 **Nur um das klarzustellen: Ich habe nichts mit der Entwicklung, dem Verkauf, dem Marketing oder dem Support der Pool-Steuereinheit zu tun. Ich habe lediglich eine Lösung entwickelt, um diese mit ioBroker zu integrieren und so das Haus meiner Eltern ein bisschen intelligenter zu machen.**
@@ -68,6 +68,18 @@ Wenn Sie diesen Adapter unterstützen oder Danke sagen möchten, können Sie:
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Kauf mir einen Kaffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
+### 1.6.0 (2024-09-08)
+* Fix versioning according to prior changes in requirements (should have happened with v1.5.5).
+  * Raise minimum required js-controller version to 5.0.19.
+  * Raise minimum required node version to 18.
+* Dependency updates.
+
+### 1.5.5 (2024-08-19)
+* Dependency updates.
+* Raise minimum required js-controller version to 5.0.19.
+* Raise minimum required node version to 18.
+* Fix minor issues reported by the ioBroker adapter bot (https://github.com/ylabonte/ioBroker.procon-ip/issues/102).
+
 ### 1.5.4 (2024-02-27)
 * Fix the last issues that were reported by the ioBroker adapter checker.  
   (Includes a minor optimization in implementation.) 

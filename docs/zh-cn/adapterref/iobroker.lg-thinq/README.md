@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
+hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
 ---
 ![标识](../../../en/admin/lg-thinq.png)
 
@@ -77,7 +77,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 -`间隔.状态设备`
 - `OK` 间隔确定
 - `失败 - 0100` 请求失败 - 重新创建 WorkID
-- `失败-0106` 未连接设备-WorkID 已重新创建
+- `失败-0106` 未连接设备 - WorkID 已重新创建
 - `Error` 错误 WorkID - WorkID 已重新创建
     - `错误<code>` Unknown error - WorkID is recreated</code>
 - `结果错误`接收错误 - WorkID 被重新创建

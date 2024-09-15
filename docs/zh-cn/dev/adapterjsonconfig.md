@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: uvQuLv+B2UrVMpWA3t0/bd9VxY4hTapAX8U0J3lRgV0=
+hash: +uOK6gWkQbAQ4k4yti1NchfTCYFStb5dHU4RpT1773M=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -25,14 +25,14 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 }
 ```
 
-表示适配器支持 JSON 配置。
+说明适配器支持 JSON 配置。
 
 如果您测试此适配器，则可以看到几乎所有组件都在运行：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
-您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo`来安装它。
+您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入 `iobroker.jsonconfig-demo` 来安装它。
 
 JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapter-react-v5/blob/main/schemas/jsonConfig.json
 
-所有标签、文本、帮助文本都可以是多种语言或仅仅是字符串。
+所有标签、文本、帮助文本都可以是多种语言或仅为字符串。
 
 *如果属性名称以“_”开头，则不会保存在对象中。*
 
@@ -260,7 +260,7 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 
 - `table` - 包含可以删除、添加、上移、下移的项目的表格
 - `items` - `[{"type": 见上文, "width": px 或 %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]`
-- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `objKeyName` - （旧设置，请勿使用！） - `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中密钥的名称
 - `objValueName` - （旧设置，请勿使用！） - `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` 中的值的名称
 - `allowAddByFilter` - 即使设置了过滤器，也允许添加
@@ -276,7 +276,7 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 - `accordion` - 可以删除、添加、上移、下移项目的手风琴（Admin 6.6.0 及更新版本）
 - `items` - `[{"type": 见上文, "attr": "name", "default": ""}]` - 项目可以像在 `panel` 上一样放置（xs、sm、md、lg 和 newLine）
 - `titleAttr` - 项目列表的键，应用于名称
-- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
+- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
 - `clone` - [可选] - 是否应显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。
 
 - `jsonEditor` - json 编辑器
@@ -525,7 +525,7 @@ adapter.on('message', obj => {
 - `state` - 显示来自状态的控制或信息
 - `oid` - 应采用哪个对象 ID 进行控制。该 ID 不带“adapter.X.”前缀
 - `system` - 如果为真，状态将从 system.adapter.XX.I. 获取，而不是从 XX.I 获取
-- `control` - 如何显示状态值：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number`
+- `control` - 状态值应如何显示：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number`
 - `controlled` - 如果为 true，状态将显示为开关、选择、按钮、滑块或文本输入。仅在未定义控制属性时使用
 - `unit` - 将单位添加到值中
 - `trueText` - 如果值为真，则显示此文本

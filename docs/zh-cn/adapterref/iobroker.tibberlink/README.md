@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: K8hWv/0WbiSbPH9kxOdbE6JQPnr5DYtafIVCabwcbKs=
+hash: 6ZssLmg93ddl2dYIbFUznwkQ/HBfrK6DCwM9bPhoqKI=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -48,7 +48,7 @@ hash: K8hWv/0WbiSbPH9kxOdbE6JQPnr5DYtafIVCabwcbKs=
 
 ## 计算器配置
 - 现在 Tibber 连接已启动并运行，您还可以利用计算器将其他自动化功能合并到 TibberLink 适配器中。
-- 计算器使用频道进行操作，每个频道链接到一个选定的家庭。
+- 计算器通过频道进行操作，每个频道链接到一个选定的家庭。
 - 这些通道可以根据相应的状态被激活或停用。
 - 这些状态旨在作为 TibberLink 的外部动态输入，允许您例如从外部来源调整边际成本（“TriggerPrice”）或禁用计算器通道（“Active”）。
 - 计算器通道的状态位于主状态旁边，并根据通道号命名。因此，管理屏幕中选择的通道名称会显示在此处，以便更好地识别您的配置。
@@ -73,11 +73,11 @@ hash: K8hWv/0WbiSbPH9kxOdbE6JQPnr5DYtafIVCabwcbKs=
 
 使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜的时段内激活电池充电（“值 YES”）并停用电池供电（“值 2 NO”）。相反，它将在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于最便宜时段中的最高总价。在剩余的正常时段，如果电池的能量缓冲在经济上不可行，则两个输出都将关闭。
 
-- LTF 通道：功能类似于标准通道，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。在“StopTime”之后，通道会自动停用。“StartTime”和“StopTime”可能跨越数天。状态必须用 ISO-8601 格式的日期时间字符串填充，并带有时区偏移，例如：“2024-01-17T21:00:00.000+01:00”。此外，通道有一个名为“RepeatDays”的新状态参数，默认情况下设置为 0。如果将“RepeatDays”设置为正整数值，则一旦达到 StopTime，通道将通过将 StartTime 和 StopTime 增加“RepeatDays”中指定的天数来重复其周期。例如，对于每日重复，将“RepeatDays”设置为 1。
+- LTF 通道：功能类似于标准通道，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。在“StopTime”之后，通道将自行停用。“StartTime”和“StopTime”可能跨越数天。状态必须用 ISO-8601 格式的日期时间字符串填充，并带有时区偏移，例如：“2024-01-17T21:00:00.000+01:00”。此外，通道有一个名为“RepeatDays”的新状态参数，默认情况下设置为 0。如果将“RepeatDays”设置为正整数值，则一旦达到 StopTime，通道将通过将 StartTime 和 StopTime 增加“RepeatDays”中指定的天数来重复其周期。例如，对于每日重复，将“RepeatDays”设置为 1。
 
 ### 提示
 逆向使用
-例如，要获得高峰时段而不是最佳时段，只需反转使用情况和参数：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png)通过交换 true <-> false，您将在第一行收到低成本的 true，在第二行收到高成本的 true（频道名称不是触发器，仍然可以自由选择）。
+例如，为了获得高峰时段而不是最佳时段，只需反转使用情况和参数：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png)通过交换 true <-> false，您将在第一行收到低成本的 true，在第二行收到高成本的 true（频道名称不是触发器，仍然可以自由选择）。
 
 注意：对于高峰单小时，如示例中，您还需要调整小时数。 原来：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
 
@@ -102,7 +102,13 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 ## Changelog
 
-### 3.4.8 (2024-08-xx)
+### 3.4.9 (2024-09-xx)
+
+-   (HombachC) add docu link to config screen (#504)
+-   (HombachC) repository cleanup
+-   (HombachC) dependency updates
+
+### 3.4.8 (2024-08-16)
 
 -   (HombachC) updated axios because of vulnerability
 -   (HombachC) added tests for Node.js 22

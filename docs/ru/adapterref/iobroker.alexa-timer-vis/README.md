@@ -38,7 +38,7 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 - Работает с немецким вводом
 
 ### Добавление таймера ( Примеры )
-- Alexa, Таймер 5 минут
+- Алекса, Таймер 5 минут
 - Алекса, фри Таймер 9 минут
 - Алекса, поставь таймер на 1 час 30 минут.
 - Алекса, поставь таймер на 2 часа.
@@ -58,10 +58,24 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.3 (2024-09-13)
+
+-   FIX: #132 Second timer button reset deletes timer one
+-   FIX: #133 Timer names are not correct
+-   FIX: #134 All timer alive at start
+
+### 2.0.2 (2024-09-12)
+
+-   FIX: #130 Sting_2 remains empty
+
+### 2.0.1 (2024-09-10)
+
+-   FIX: #128 Timer creating error
+
 ### 2.0.0 (2024-09-08)
 
 -   FIX: #119 Error "has no existing object" on first start
--   Use Typescript
+-   FEAT: Use Typescript
 -   FEAT: #118 get name from activeTimerList
 -   FIX: #117 createDevice is deprecated
 
@@ -71,12 +85,12 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 
 ### 0.3.0 (2023-12-23)
 
--   #82 Delete Timer by Button
--   #74 Fixed Starttime
--   #71 Name of Echo in data tree
--   #75 Percent from 0% to 100%
+-   FIX: #82 Delete Timer by Button
+-   FIX: #74 Start time
+-   FEAT: #71 Name of Echo in data tree
+-   FEAT: #75 Percent from 0% to 100%
 -   Breaking change: minimal supported node.js version is 16.x
--   #58 Another String Variation
+-   FEAT: #58 Another String Variation
 
 ### 0.2.0 (2023-07-27)
 

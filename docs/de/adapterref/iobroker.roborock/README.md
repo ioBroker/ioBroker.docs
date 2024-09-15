@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
+hash: KQyJkrHrN2pfDPhqwZIHXP6HaOKF1GUsr794YtxHpPA=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -58,6 +58,39 @@ Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigun
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+ * (copystring) Add basic support for S8 MaxV Ultra
+ * (copystring) Newly found attributes are now warning instead of error
+ * (copystring) Improve detection of `home_sec`
+
+### 0.6.12 (2024-09-08)
+ * (copystring) Change go2rtc github to go2rtc-static npm
+
+### 0.6.11 (2024-09-06)
+* (copystring) Add `voice_chat_status` to S7 MaxV
+
+### 0.6.10 (2024-09-05)
+* (copystring) Add `set_switch_status` to S7 MaxV and Q Revo Pro
+
+### 0.6.9 (2024-09-05)
+* (copystring) Fix bugs
+* (copystring) Add missing states
+* (copystring) Add missing translations
+
+### 0.6.8 (2024-09-04)
+* (copystring) Q Revo supports `switch_status` in `get_status`
+
+### 0.6.7 (2024-09-04)
+* (copystring) Update dependencies
+* (copystring) Many bug fixes
+* (copystring) Improve support for: Q Revo Pro
+* (copystring) Add parsing of dss in deviceStatus as `docking station status`
+* (copystring) Add `resume_segment_clean` & `stop_segment_clean`
+* (copystring) Improve reconnect intervall of direct connection
+* (copystring) Add missing translations
+* (copystring) Fix cleaningInfo of older Robots like S6 etc
+* (copystring) General logging improvements
+
 ### 0.6.6 (2024-07-14)
 * (copystring) require min node 20 to operate correctly with current dependencies
 

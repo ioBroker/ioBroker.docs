@@ -426,6 +426,15 @@
           },
           "content": "cloud/iot.md"
         },
+        "Editors": {
+          "title": {
+            "en": "Editors",
+            "de": "Administrator und Redakteure",
+            "ru": "Администратор и редакторы",
+            "zh-cn": "管理员和编辑"
+          },
+          "content": "cloud/editor.md"
+        },
         "App": {
           "title": {
             "en": "App",

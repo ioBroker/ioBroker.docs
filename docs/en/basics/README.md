@@ -4,7 +4,7 @@ lastChanged: 24.08.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: 6xvHGly0d5k1wEIljo2LFIG407xeMG68bu2X7dPNd5Q=
+hash: MXTgEqstM92RN3uaLS8jZhn4QQRPF+WUr/K7ibC/BO0=
 ---
 ioBroker is a pure software solution for connecting different IoT systems to form an overall system.
 Accordingly, each system still requires a central unit (gateway/interface) in order to be able to integrate its devices.
@@ -38,10 +38,10 @@ The only requirement is that there is a current version of [nodejs](https://node
 
 For a larger installation, a RAM of at least 2 GB, preferably 4 GB, is recommended. For testing, a Raspberry Pi 2/3 with 1 GB RAM is sufficient; even smaller computers are sufficient as a slave for a few adapters in a multi-host environment.
 
-### Softwares
+###Softwares
 ioBroker manages the data in a database. The structure of the data is organized accordingly.
 
-For each adapter, there is a so-called namespace that contains all the data for an instance of the adapter.
+For each adapter there is a so-called namespace that contains all the data for an instance of the adapter.
 Accordingly, the name of the namespace is, for example: ***AdapterName.0***
 
 Within this area, ioBroker creates the devices, their channels and their data points with their values (states).

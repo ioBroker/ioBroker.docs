@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome исследование
-hash: uq1R+4MmZiJzu+VSg5HTAdslP+gOjBK0olM0Eee5DhA=
+hash: GMh6Hvemu6VdFYJM4+QnfLe5vk8c00DVT/m2xLW4gcQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 

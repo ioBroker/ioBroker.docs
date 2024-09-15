@@ -19,6 +19,15 @@ Der HausBus.de-Adapter ist ohne weitere Konfigurationen einsatzbereit. Er sucht 
 <br> <br> <br>
 
 ## Changelog
+### 1.4.10 (2024-09-07)
+* check health for devices that do not respond during search devices
+
+### 1.4.9 (2024-09-05)
+* fixed wrong value of brightness sensor
+
+### 1.4.8 (2024-09-02)
+* fixed high bus traffic during startup phase
+
 ### 1.4.6 (2024-08-07)
 * support for new 12 channel relay module
 

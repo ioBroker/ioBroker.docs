@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yahka/README.md
 title: iobroker.yahka
-hash: 5kS1aNzjVYFZ7GMXeZQp0GDoEU84l7z6x91GrxmtWbQ=
+hash: NeTnpfxPzOrV6XiuRuh+VVAFJY8MT0O8/zvi1ITnnoM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
 
@@ -194,7 +194,14 @@ enable-dbus=yes
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.9 (2024-09-08)
+* Corrected Admin GUI
+
+### 1.0.6 (2024-08-30)
+* (tarikweiss) Fixes errors with non-existing service types
+
+### 1.0.5 (2024-08-29)
+* (tarikweiss) Fixes errors with non-existing service types
 * (bluefox) Revert renaming of states back: `HomematicControlModeToHomekitHeatingCoolingState => HomematicControlModeToHomekitHeathingCoolingState, Deferred => Defered`
 
 ### 1.0.4 (2024-08-12)
@@ -218,12 +225,12 @@ enable-dbus=yes
 * (jw) added support to mark services as "primary" and as "hidden"
 * (jw) added ioFunctions "round" and "invert"
 * (jw) updated dependencies
-* (jw) Updated to HAP-NodeJS 0.9.2
+* (jw) Updated to HAP-Node.js 0.9.2
 * (jw) Fixed crashes due to changes in used HomeKit Library
 * (nh) improved changelog in readme
 
 ### 0.13.1 (2021-01-14)
-* (jw) switched to HAP-NodeJS 0.9.0-beta.113 and added useLegacyAdvertiser option
+* (jw) switched to HAP-Node.js 0.9.0-beta.113 and added useLegacyAdvertiser option
 * (jw) fixed bug which prevented cameras from deletion and duplication
 
 ### 0.13.0 (2021-01-08)
@@ -235,7 +242,7 @@ enable-dbus=yes
 * (jw) added support for linking services to support Television Services
 * (jw) added possibility to publish devices without the bridge (necessary for TV service)
 * (jw) added support for audio stream in camera 
-* (jw) added support for custom characteristics on the services (e.g. to add Wattage characteristic to plugs) 
+* (jw) added support for custom characteristics on the services (e.g., to add Wattage characteristic to plugs) 
 * (jw) added support for additional services to camera (to enable usage of doorbell service)> 
   (many20) fixed scaleInt conversion - results are now rounded
 
@@ -243,11 +250,11 @@ enable-dbus=yes
 * Intermediate release
 
 ### 0.10.0 (2020-02-19)
-* (apollon77) updated dependencies, nodejs 12 support
+* (apollon77) updated dependencies, Node.js 12 support
 
 ### 0.10.0
 * (jw) updated dependencies
-* (apollon77) removed support for NodeJS 4 - NodeJS 6 is now the minimum required NodeJS version (merged #109)  
+* (apollon77) removed support for Node.js 4 - Node.js 6 is now the minimum required Node.js version (merged #109)  
 * (yaming116) fixed scale conversion to support min values others than 0
 
 ### 0.9.2 (2019-03-12)
@@ -258,10 +265,10 @@ enable-dbus=yes
 * (jw) fixed a bug where the adapter crashes if a state does not exist
 * (jw) added io functions for HomeMatic dimmers ([#30](https://github.com/jensweigele/ioBroker.yahka/issues/30) and [#75](https://github.com/jensweigele/ioBroker.yahka/issues/75))
 * (jw) fixed a bug where adapter didn't start anymore when using the conversion function "inverse" ([#98](https://github.com/jensweigele/ioBroker.yahka/issues/98))
-* (jw) updated to latest HAP-NodeJS library to support TV services and characteristics (available since iOS 12.2 beta 1)<br>Note: that's still in development, not all services are working correctly. For more information see:  ([#89](https://github.com/jensweigele/ioBroker.yahka/issues/89))
+* (jw) updated to a latest HAP-Node.js library to support TV services and characteristics (available since iOS 12.2 beta 1)<br>Note: that's still in development, not all services are working correctly. For more information see:  ([#89](https://github.com/jensweigele/ioBroker.yahka/issues/89))
 
 ### 0.9.0 (2019-01-24)
-* (jw) added more services and characteristics (from https://github.com/homespun/hap-nodejs-community-types)
+* (jw) added more services and characteristics (from https://github.com/homespun/hap-Node.js-community-types)
 * (jw) improved admin interface to support individual editors for IO/Conversion functions
 * (jw) added new conversion function "script" which adds the ability to run JavaScript functions as conversion functions
 * (jw) fixed a bug in the scaleInt and scaleFloat methods (thanks to balzreber) 
@@ -292,7 +299,7 @@ enable-dbus=yes
 
 ### 0.7.0 (2018-02-01)
 * (bluefox) Fixed the ID select dialog in Admin3
-* (jw) updated hap-nodejs to support the following new services: Faucet, IrrigationSystem and Valve
+* (jw) updated hap-Node.js to support the following new services: Faucet, IrrigationSystem and Valve
 * (jw) added ip-package to dependencies to avoid errors on some installations
 
 ### 0.6.1 (2018-01-25)

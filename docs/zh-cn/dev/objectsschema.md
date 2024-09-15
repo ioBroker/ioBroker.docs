@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: SCFWAKmRG+ekvCEHVg0YQtsF9oxZXvc6BaPEDW3IkNk=
+hash: BiEVTlY0POTNU164Eo0JPdl73ApzrZcjlNRMnPWovug=
 ---
 # 核心概念
 ioBroker 中有两种根本不同的数据类型。即所谓的**状态**(`states`) 和**对象**。
 
-对象表示很少变化且较大的数据，例如系统设备的元数据、配置和附加文件。每个对象都必须有一个属性“类型”。有关可用的对象类型以及特定类型的对象需要哪些强制属性的更多信息，请参阅下文。适配器模块为您提供了 setObject、getObject 等函数。
+对象表示很少变化且较大的数据，例如系统设备、配置和附加文件的元数据。每个对象都必须有一个属性“类型”。有关可用的对象类型以及特定类型的对象需要哪些强制属性的更多信息，请参阅下文。适配器模块为您提供了 setObject、getObject 等函数。
 
 状态表示系统中经常变化的数据，例如灯是开着还是关着、运动检测器是否检测到运动、客厅的温度或遥控器按钮是否被按下。与对象相反，状态可用于触发操作，并且状态可以创建历史数据。要使用状态，适配器模块中有多个函数，如`setState`、`getState` 等。
 
@@ -17,7 +17,7 @@ ioBroker 中有两种根本不同的数据类型。即所谓的**状态**(`state
 以下章节描述数据库模式。
 
 ## ID
-ID是一个字符串，最大长度为240字节，采用层级结构，级别间以点分隔。
+ID是一个字符串，最大长度为240字节，采用层级结构，级别之间用点分隔。
 
 它用来检查 ID 中禁止使用的字符的正则表达式是[这里](https://github.com/ioBroker/ioBroker.js-controller/blob/4020943e2dc20d89672ab505a495384c62869987/packages/common/src/lib/common/tools.ts#L137)。
 
@@ -36,7 +36,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 - `2` - 频道名称
 - `VALUE` - 州名称
 
-命名空间
+## 命名空间
 * `system.`——系统对象和状态
 * `system.host.`——控制器进程
 * `system.config.`——系统设置，如默认语言
@@ -44,7 +44,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 * `system.user.` - 用户
 * `system.group.`——群组
 * `system.adapter.<adapter-name>` - 适配器的默认配置
-* `<adapter-name>.`——特定适配器的对象。
+* `<adapter-name>.` - 特定适配器的对象。
 * `<adapter-name>.meta.` - 此适配器的所有实例使用的通用元数据
 * `<adapter-name>.<instance-number>.` - 适配器实例命名空间
 * `enum.` - 枚举
@@ -175,7 +175,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 * `channel` - 用于对一个或多个状态进行分组的对象。父级应为设备。
 * `device` - 用于对一个或多个通道或状态进行分组的对象。除了适配器实例命名空间外，不应有父级。
 * `enum` - 在 `common.members` 中保存指向状态、通道、设备或文件的数组的对象。枚举可以有一个父枚举（可能为树结构）
-* `host` - 运行控制器进程的主机
+* `host` – 运行控制器进程的主机
 * `adapter` - 适配器的默认配置。存在还表明适配器已成功安装。（建议：应该有一个属性来保存安装主机的数组）
 * `instance` - 适配器的实例。父级必须是适配器类型
 * `meta` - 很少改变适配器或其实例所需的元信息
@@ -192,7 +192,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 ＃＃＃＃＃ 状态
 属性：
 
-* `common.type`（可选 - （默认为 `mixed`==any type）（可能的值：`array`、`boolean`、`file`、`json`、`mixed`、`multistate`、`number`、`object`、`string`）。作为例外，类型为 `meta` 的对象可以具有 `common.type=meta.user` 或 `meta.folder`。需要注意的是，数组、对象、混合和文件必须使用 `JSON.stringify()` 进行序列化。
+* `common.type`（可选 - （默认为 `mixed`==any type）（可能的值：`array`、`boolean`、`file`、`json`、`mixed`、`multistate`、`number`、`object`、`string`）。作为例外，类型为 `meta` 的对象可以具有 `common.type=meta.user` 或 `meta.folder`。重要的是要注意，数组、对象、混合和文件必须使用 `JSON.stringify()` 进行序列化。
 *`common.min`（可选）
 *`common.max`（可选）
 * `common.step`（可选）- 增加/减少间隔。例如，恒温器为 0.5
@@ -458,8 +458,8 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 
 ##### `phone` - 属性描述
 | **名称** | **common.role** | **M** | **W** | **common.type** | **描述** |
-| `ringing_number` | `text.phone_number` | | | `string` | |
-| `ringing` | `indicator` | | | `boolean` | |
+| `ringing_number` | `text.phone_number` |       |       | `string` |                 |
+| `ringing` | `indicator` |       |       | `boolean` |                 |
 | `响铃` | `指示器` | | | `布尔值` | |
 
 ...
@@ -487,13 +487,13 @@ ID：`system.adapter.<adapter.name>`
 * `common.adminTab.link` - TAB 中的 iframe 链接。您可以使用参数替换，如下所示：`http://%ip%:%port%`。IP 将替换为主机 IP。`port` 将从 `native.port` 中提取。
 * `common.adminTab.name` - 管理员中的 TAB 名称
 * `common.adminTab.singleton` - [true/false] 如果适配器有管理员的 TAB。所有实例仅显示一个 TAB。
-* `common.adminUI.config` - [none/json/materialize/html] 配置 UI 类型。如果未定义，适配器将显示为 html。（`admin` 文件夹中应为 `json` 的 `jsonConfig.json` 或 `jsonConfig.json5`、`materialize` 的 `index_m.html`、`html` 的 `index.html`）
+* `common.adminUI.config` - [none/json/materialize/html] 配置 UI 类型。如果未定义，适配器将显示为 html。（`admin` 文件夹中预计有 `json` 的 `jsonConfig.json` 或 `jsonConfig.json5`、`materialize` 的 `index_m.html`、`html` 的 `index.html`）
 * `common.adminUI.custom` - [none/json] 自定义配置 UI 类型。如果未定义，则不会显示自定义 UI。只能在 `admin` 文件夹中使用 `jsonCustom.json` 或 `jsonCustom.json5`。
 * `common.adminUI.tab` - [none/html] TAB UI 类型。如果定义为“html”，则“tab.html”或“tab_m.html”将在文件夹“admin”中扩展。
 * `common.allowInit` - [true/false] 如果设置发生变化或适配器启动，允许“预定”适配器在“不在时间表内”调用。或者允许预定适配器在配置更改后启动一次，然后按时间表启动。
 * `common.availableModes` - 如果有多种模式可用，则为 `common.mode` 的值
-* `common.blockly` - 如果适配器有针对 blockly 的自定义块，则为 [true/false]。（需要 `admin/blockly.js`）
-* `common.compact` - 告诉控制器，如果需要，此适配器可以在同一个进程中启动
+*`common.blockly` - 如果适配器有针对 blockly 的自定义块，则为 [true/false]。（需要`admin/blockly.js`）
+* `common.compact` - 告诉控制器，如果需要，这个适配器可以在同一个进程中启动
 * `common.config.height` - 配置对话框的默认高度（已弃用 - 仅对 admin2 有效）
 * `common.config.minHeight` - 配置对话框的最小高度（已弃用 - 仅对 admin2 有效）
 * `common.config.minWidth` - 配置对话框的最小宽度（已弃用 - 仅对 admin2 有效）
@@ -534,18 +534,18 @@ ID：`system.adapter.<adapter.name>`
 * `common.nogit` - 如果为真，则无法直接从 GitHub 安装
 * `common.nondeletable` - [true/false] 此适配器无法删除或更新。它将与控制器一起更新。
 * `common.npmLibs` - 已弃用。使用 package.json `dependencies`。
-* `common.onlyWWW` - [true/false] 告诉控制器，该适配器只有 html 文件，没有 main.js，就像 rickshaw 一样
+* `common.onlyWWW` - [true/false] 告诉控制器，该适配器只有 HTML 文件，没有 main.js，就像 rickshaw 一样
 * `common.osDependencies.darwin` - 此适配器所需的 OSX 包数组
 * `common.osDependencies.linux` - 此适配器所需的 debian/centos 包数组（当然仅限于使用 apt、apt-get、yum 作为包管理器的操作系统）
 * `common.osDependencies.win32` - 未使用，因为 win32 没有包管理器
 * `common.os` - 支持的操作系统的字符串或数组，例如 `["linux", "darwin"]`
-*`common.platform` - **强制** 可能值：Javascript/Node.js，更多即将推出
+*`common.platform` - **强制**可能值：Javascript/Node.js，更多即将推出
 * `common.preserveSettings` - 包含实例的公共属性名称的字符串（或数组），这些属性不会被删除。例如“history”，因此通过 `setState("system.adapter.mqtt.0", {..})`，即使新对象没有此字段，也不会删除字段 `common.history`。要删除属性，必须使用 `common: {history: null}` 明确执行。
 * `common.pugins.sentry` - 包含 `sentry` 插件配置数据的结构
 * `common.readme` - ReadMe 文件的 URL
-* `common.restartAdapters` - 包含安装此适配器后必须重新启动的适配器名称的数组，例如 ["vis"]
+* `common.restartAdapters` - 包含适配器名称的数组，安装此适配器后必须重新启动，例如 ["vis"]
 * `common.restartSchedule` - CRON 计划重新启动模式 `daemon` 适配器
-* `common.schedule` - 如果适配器在 `schedule` 模式下运行，则执行 CRON 计划。
+* `common.schedule` - 如果适配器在`schedule`模式下运行，则执行 CRON 计划。
 * `common.serviceStates` - [true/false 或 path] 如果适配器可以提供其他状态。如果是，则将调用路径 `adapter/lib/states.js`，并提供以下参数函数（对象、状态、实例、配置、回调）。该函数必须提供具有值的点数组，例如 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost` - 适配器只能在一个主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
@@ -568,7 +568,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.wakeup` - 如果将某个值写入 `system.adapter.NAME.x.wakeup`，适配器将启动。通常，适配器应在处理事件后停止。
 * `common.webByVersion` - 在 Web 适配器中显示版本作为前缀（通常为 - `ip:port/material`，webByVersion - `ip:port/1.2.3/material`）
 * `common.webExtendable` - [true/false] 此适配器中的 Web 服务器是否可以使用插件/扩展（如代理、simple-api）进行扩展
-* `common.webExtension` - 连接 Web 扩展的相对文件名。例如，在相对于适配器根目录的 `simple-api` `lib/simpleapi.js` 中。此外，还需要 `native.webInstance` 来说明此扩展将包含在哪里。空表示它必须作为自己的 Web 服务运行。“*”表示每个 Web 服务器都必须包含它。
+* `common.webExtension` - 连接 Web 扩展的相对文件名。例如，在 `simple-api` `lib/simpleapi.js` 中相对于适配器根目录。此外，还需要 `native.webInstance` 来说明此扩展将包含在哪里。空表示它必须作为自己的 Web 服务运行。“*”表示每个 Web 服务器都必须包含它。
 * `common.webPreSettings` - webServer 适配器必须包含在 info.js 中的参数列表。（示例材料）
 * `common.webservers` - 应提供来自适配器 www 文件夹的内容的 Web 服务器实例数组
 * `common.welcomeScreen.order` - 待办事项
@@ -616,7 +616,7 @@ ID：`system.adapter.&lt;adapter.name&gt;.&lt;instance-number&gt;`
 * `common.mode` - （强制）可能的值见下文
 
 ##### 适配器/实例 common.mode
-* `none`-此适配器不会启动进程
+* `none`-此适配器不启动进程
 * `daemon` - 始终运行的进程（如果进程退出，将重新启动）
 * `subscribe` - 当状态 `system.adapter.&lt;adapter-name&gt;.&lt;instance-number&gt;.alive` 更改为 `true` 时启动。当 `.alive` 更改为 `false` 时终止，如果进程退出，则将 `.alive` 设置为 `false`（进程退出时**不会**重新启动）
 * `schedule` - 由 `system.adapter.&lt;adapter-name&gt;.&lt;instance-number&gt; 中的计划启动。.schedule` - 通过重新安排新状态来对 `.schedule` 的变化做出反应
@@ -639,13 +639,13 @@ ID：`system.host.<host>`
 * `common.platform` - （强制）可能的值 `Javascript/Node.js`（后续会有更多）
 * `common.enabled` - （强制）脚本是否已激活
 * `common.source` - (强制) 脚本源
-* `common.engine` - （可选）应运行此脚本的*脚本引擎*实例（例如'javascript.0'）- 如果省略则自动选择引擎
+* `common.engine` - （可选）应运行此脚本的*脚本引擎*实例（例如“javascript.0”） - 如果省略则自动选择引擎
 
 #### 用户
 * `common.name` - （必填）用户名称（区分大小写）
-* `common.password` - (强制) 密码的 MD5 哈希值
+* `common.password` - （强制）密码的 MD5 哈希值
 
 ＃＃＃＃ 团体
 * `common.name` - （必填）组的名称
-* `common.members` - (强制) 用户对象 ID 数组
+* `common.members` - （强制）用户对象 ID 数组
 * `common.desc` - (可选) 群组目的描述

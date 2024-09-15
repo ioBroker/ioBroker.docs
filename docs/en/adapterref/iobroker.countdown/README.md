@@ -31,6 +31,12 @@ The goal of the adapter is to provide you a possibility to run countdowns for fu
 
 ## Changelog
 
+### 2.2.1 (2024-09-14) 
+* (jack-blackson) Additional check to avoid not allowed signs in countdown name
+* (jack-blackson) Updated dependencies
+* (jack-blackson) Small adjustments in package files
+
+
 ### 2.2.0 (2023-08-25) 
 * (jack-blackson) Added ability to maintain, adjust and delete countdowns in adapter settings
 * (jack-blackson) Bugfix with incorrect spaces as first character in "in words long" and "in words short"

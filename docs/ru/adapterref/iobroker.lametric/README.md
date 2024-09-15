@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
+hash: byiO25Mnsddj/XIeN8UjJ+MooB/qM+eBrz8jX0M3Sqg=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -41,7 +41,7 @@ hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
 1. Добавьте LaMetric Time в свою локальную сеть
 - Приложение LaMetric Time (2017–2021 гг.) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
 - Приложение LaMetric (с 2022 г. по настоящее время) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
-2. Скопируйте ключ API устройства из приложения (только модели 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
+2. Скопируйте API-ключ устройства из приложения (только модели 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
 
 Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
 

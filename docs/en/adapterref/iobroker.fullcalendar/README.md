@@ -35,7 +35,10 @@ How to use:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 2.4.2 (2024-07-07)
+### 2.4.5 (2024-09-09)
+* (bluefox) Corrected SelectID Dialog
+
+### 2.4.4 (2024-09-09)
 * (bluefox) Removed withStyles package
 
 ### 2.3.17 (2024-05-26)

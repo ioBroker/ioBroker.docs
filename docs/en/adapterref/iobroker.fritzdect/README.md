@@ -11,17 +11,6 @@
 
 Fritzbox DECT adapter for ioBroker
 
-## Installation:
-released version on npm with
-```javascript
- npm install iobroker.fritzdect
-```
-
-
-or the actual version from github with 
-```javascript
-npm install https://github.com/foxthefox/ioBroker.fritzdect/tarball/master --production
-```
 ## Setup
 
 IP-address and password of Fritzbox should be defined via admin page, before the first start of the instance.

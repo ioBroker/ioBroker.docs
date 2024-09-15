@@ -4,7 +4,7 @@ lastChanged: 24.08.2024
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/README.md
-hash: 6xvHGly0d5k1wEIljo2LFIG407xeMG68bu2X7dPNd5Q=
+hash: MXTgEqstM92RN3uaLS8jZhn4QQRPF+WUr/K7ibC/BO0=
 ---
 ioBroker 是一个纯软件解决方案，用于将不同的物联网系统连接成一个整体系统。
 因此，每个系统仍然需要一个中心站（网关/接口），以便能够集成其设备。
@@ -34,7 +34,7 @@ ioBroker 的一个特殊功能是任务**可以**分布在多个服务器上。
 ioBroker 服务器几乎可以安装在任何硬件上。
 唯一的条件是相应操作系统有 [节点js](https://nodejs.org/en/download/) 的最新版本。
 
-!> 自 2024 年 8 月起，ioBroker 建议使用 Node.js 18.x。
+!> 自 2024 年 8 月起，ioBroker 建议使用 Node.js 20.x。
 
 对于较大的安装，建议工作内存 (RAM) 至少为 2 GB，最好为 4 GB。具有 1 GB RAM 的 Raspberry Pi 2/3 足以进行测试；甚至更小的小型计算机也足以作为多主机环境中的几个适配器的从属计算机。
 
@@ -44,7 +44,7 @@ ioBroker 管理数据库中的数据。数据的结构是相应组织的。
 对于每个适配器，都有一个所谓的命名空间，其中包含有关适配器实例的所有数据。
 因此，命名空间的名称例如：***AdapterName.0***
 
-在此区域内，ioBroker 创建设备、其通道及其数据点及其值（状态）。
+在这个区域内，ioBroker 创建设备、它们的通道以及它们的数据点及其值（状态）。
 
 ![对象结构](../../de/admin/media/ADMIN_Objekte_status_tree.png)
 

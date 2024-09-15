@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome 研究
-hash: uq1R+4MmZiJzu+VSg5HTAdslP+gOjBK0olM0Eee5DhA=
+hash: GMh6Hvemu6VdFYJM4+QnfLe5vk8c00DVT/m2xLW4gcQ=
 ---
 ![标识](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 

@@ -65,7 +65,7 @@ You can then configure a notification service of your choice for forwarding.
 ---
 <!-- ### **WORK IN PROGRESS** -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.1.6 (2024-09-10)
 * (simatec) Fix Adapter Check
 * (simatec) Dependencies updated
 * (simatec) Responsive Design added

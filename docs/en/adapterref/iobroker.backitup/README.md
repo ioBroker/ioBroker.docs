@@ -136,6 +136,7 @@ Here is a brief explanation of the options in the Menu tab
 
 ![adminTabRestore](img/backitup_restore.png)
 
+
 The operation of the Restore tab is as follows.
 
 
@@ -673,6 +674,10 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Improvement of Google Drive authentication workflow
+* (bluefox) Removed gulp from a build process
+
 ### 3.0.22 (2024-09-03)
 * (simatec) Fix Notification Instance
 * (simatec) Fix Notification Design

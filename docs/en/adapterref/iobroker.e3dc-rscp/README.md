@@ -65,20 +65,20 @@ Here is what to configure when creating a new instance of the adapter. Settings 
       <img src="admin/e3dc-rscp-password.png" width="600">
     </td>
   </tr>
-    <td>SET_POWER re-send interval [s]</td>
+    <td>SET_POWER re-send interval [sec]</td>
     <td>Define how often ioBroker will request state updates from E3/DC. Experiments showed that SET_POWER may oscillate when this interval is longer than 10 seconds, despite a comment in the official E3/DC tag list saying that setting every 30 seconds is sufficient. If set to 0 (zero), no re-send will happen, i.e. you have to trigger the re-send from outside, otherwise the E3/DC will fall back to normal after ca. 10 seconds.</td>
   </tr>
   <tr>
-    <td>Tuple sending delay [s]</td>
+    <td>Tuple sending delay [sec]</td>
     <td>Define how long ioBroker will wait before writing idle period or data history changes to E3/DC. Purpose is to merge several subsequent changes into one single call. A dedicated timeout is set/reset upon every change concerning the values within one idle period or one data history scale, resepectively; changes are only transmitted after the timeout is   <tr>
+  <tr>
+    <td>Checkbox for each E3/DC namespace</td>
+    <td>Data will be requested only for checked namespaces.</td>
+  </tr>
     <td>Checkbox for Lazy SetState()</td>
     <td>If checked (default), the adapter will write to ioBroker States only when values have changed - this reduces workload, better for smaller hardware. Uncheck this option and the adapter will call setState() after every polling iterval, also for unchanged values - better if you have an application depending on regular State.ts updates. </td>
   </tr>
 over. This applies to EMS.IDLE_PERIODS_* and DB.HISTORY_DATA_*</td>
-  </tr>
-  <tr>
-    <td>Checkbox for each E3/DC namespace</td>
-    <td>Data will be requested only for checked namespaces.</td>
   </tr>
 
 </table>
@@ -90,15 +90,15 @@ over. This applies to EMS.IDLE_PERIODS_* and DB.HISTORY_DATA_*</td>
     <th>Meaning</th>
   </tr>
   <tr>
-    <td>Polling interval short [s]</td>
+    <td>Polling interval short [sec]</td>
     <td>Define how often ioBroker will request state updates from E3/DC for most dynamic variables.</td>
   </tr>
   <tr>
-    <td>Polling interval medium [m]</td>
+    <td>Polling interval medium [min]</td>
     <td>Define how often ioBroker will request state updates from E3/DC in the regular case.</td>
   </tr>
   <tr>
-    <td>Polling interval long [h]</td>
+    <td>Polling interval long [hrs]</td>
     <td>Define how often ioBroker will request state updates from E3/DC for rarely or never modified variables.</td>
   </tr>
   <tr>
@@ -462,9 +462,9 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
-### 1.3.0
+### 1.3.1
 
-MODIFIED ADAPTER SETTINGS - do not re-use settings stored in json-file!
+MODIFIED ADAPTER SETTINGS - see [Reuse of adapter configuration](https://github.com/git-kick/ioBroker.e3dc-rscp/tree/master?tab=readme-ov-file#reuse-of-adapter-configuration)
  
 (git-kick)
 * Fixed [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - added PM (power meter) namespace. **Only reading values, no SET tags.**
@@ -475,7 +475,11 @@ MODIFIED ADAPTER SETTINGS - do not re-use settings stored in json-file!
   * \[E605\]: updated copyright to 2024 in README.md
   * \[E605\]: removed .npmignore from project directory
   * \[W040\]: added keyword "ioBroker" in package.json
-  * \[W130\]: deleted all but some recent common.news in io-packege.json 
+  * \[W130\]: deleted all but some recent common.news in io-package.json 
+  * \[W184\]: removed "common.materialize" from io-package.json 
+  * \[S522\]: migrated to admin5 UI (jsonConfig.json5)
+
+### 1.3.0  - Deprecated - Do not install -
 
 ### 1.2.6
  
@@ -622,82 +626,12 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 * Adapter review (PR#1589): removed tab stuff (tab_m.html)
 * Adapter review (PR#1589): onUnload(), clear _all_ timers and close TCP connection
 * Remove Sentry, because it was only a trial and not properly configured
-### 0.0.17-beta
-(git-kick)
-* DB namespace - experimental implementation
-* Timestamps are now aligned to ioBroker format: "2022-01-30 12:00:00.000" - using local timezone (not UTC)
-* EMS.STATUS bitmap is now decoded into EMS.STATUS_[0..9] - thanks to @ArnoD for providing E3/DC specs
-### 0.0.16-beta
-(git-kick)
-* Bugfix: Wallbox count (WB_CONNECTED_DEVICES) was not handled correctly.
-* Bugfix: name for 3 SET_POWER objects is now displayed.
-* Bugfix: removed needless vertical scrollbar from configuration page (index_m.html).
-### 0.0.15-beta
-(git-kick)
-* First attempt to read wallbox data (namespace WB).
-### 0.0.14-beta
-(git-kick)
-* Polling intervals (S/M/L) are now assignable per request tag, see second configuration tab.
-* Bug fix: short and medium timers for polling intervals did not work properly.
-### 0.0.13-beta
-(git-kick)
-* IDLE_PERIODS are now writable - note "SET_IDLE_PERIOD delay" in configuration.
-* EMS.MODE was empirically re-mapped to 0 = IDLE, 1 = DISCHARGE, 2 = CHARGE.
-* SET_POWER_MODE/VALUE are now acknowledged after frame was queued to E3/DC.
-* Units are now trailing the values (no longer at end of name).
-
-### 0.0.12-beta
-(git-kick)
-* New in configuration panel: select namespaces to query - use it to reduce CPU load (and transmitted data volume)
-* Polling interval: only 11 most important parameters left in "short" class, according to [@ArnoD's analysis](https://forum.iobroker.net/post/711108)
-### 0.0.11-beta
-(git-kick) 
-* SET_POWER_MODE=0(NORMAL) stops timer for re-sending SET_POWER_* 
-* Introduced short/medium/long polling intervals to reduce amount of (mostly redundant) requests
-### 0.0.10-beta
-(git-kick) 
-* SET_POWER is now initialized and appears after adapter setup
-* Translations: EMS_ERROR_*, BAT_FCC, BAT_RC, BAT_SPECIFIED_CAPACITY
-* Timestamps are displayed in ISO-8601 format
-* Object names: replaced "#" by "_" to avoid interference with ioBoroker name resolution (e.g. former BAT#0 is now BAT_0)  -  **NOTE: this is likely to break <=0.0.9 based js scripts; adjust object references!**
-* Solved issue setting EMS.WEATHER_REGULATED_CHARGE_ENABLED (before, failed with warning)
-* Solved issue setting EMS.POWER_LIMITS_USED (before, object was defined r/o)
-* SET_POWER: values set are re-sent according to a given interval (see admin panel)
-* SET_POWER: introduced extra objects for entering desired values (SET_POWER_MODE, SET_POWER_VALUE)  -  **E3/DC behavior is still unclear. Feature under development.**
-### 0.0.9-beta
-(git-kick) 
-* EMS: SET_POWER, first implementation for setting MODE and VALUE
-* EP: values are in a separate device now
-* ASOC / State of Health (SOH) German naming: "Alterungszustand"
-* ERRORs will be decoded to short text
-* WARN messages resulting from BAT and PVI probing are now filtered (will not show up anymore) 
-* Refactoring: recursive parser for incoming data
-### 0.0.8-beta
-(git-kick) 
-* Reworked INDEX handling (due to bug concerning PVI#0/#1 data assignment)
-* resolved UNDEFINED names
-* excluded PVI_COS_PHI (always returns ERROR tag)
-### 0.0.7-beta
-(git-kick) 
-* Complete coverage of INV namespace, including multiple strings and phases
-* started Sentry integration
-### 0.0.6-beta
-(git-kick) 
-* Complete coverage of BAT namespace, including multiple DCBs and voltage/temperature lists
-* Dynamic state creation for support of INDEXed tags
-* Extended RSCP tag list using rxhan/RscpGUI
-* Handle TCP fragmentation
-### 0.0.5-beta
-(git-kick) 
-* Ready for public testing
-* I18N for admin and statenames
-* Catch type/range exceptions when writing values
-* Reconnect after end of TCP connection
-* Fixed message queue memory leak
-* Reworked sample code
 
 <a name="lic"></a>
 ## License
+
+Copyright (c) 2024 Ulrich Kick <iobroker@kick-web.de>
+
 ```
 					GNU GENERAL PUBLIC LICENSE
 					   Version 3, 29 June 2007
@@ -1374,4 +1308,3 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 ```
-Copyright (c) 2024 Ulrich Kick <iobroker@kick-web.de>

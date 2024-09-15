@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: uvQuLv+B2UrVMpWA3t0/bd9VxY4hTapAX8U0J3lRgV0=
+hash: +uOK6gWkQbAQ4k4yti1NchfTCYFStb5dHU4RpT1773M=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -36,7 +36,7 @@ Alle Beschriftungen, Texte und Hilfetexte können mehrsprachig oder nur aus Zeic
 
 *Wenn der Attributname mit "_" beginnt, wird er nicht im Objekt gespeichert.*
 
-## Beinhaltet
+## Enthält
 Erfordert Admin 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
@@ -63,7 +63,7 @@ Mögliche Typen:
 
 - „Panel“ – Registerkarte mit Elementen
 - „Symbol“ – Registerkarte kann Symbole (Base64 wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) haben
-- „label“ – Bezeichnung der Registerkarte
+- „label“ – Beschriftung der Registerkarte
 - `Elemente` - Objekt `{"attr1": {}, "attr2": {}}...`
 - `collapsable` – nur möglich, da es sich nicht um einen Teil von tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) handelt.
 - `color` - Farbe der einklappbaren Kopfzeile `primary` oder `sekundary` oder nichts
@@ -137,7 +137,7 @@ Mögliche Typen:
 - „crop“ – wenn wahr, erlaubt dem Benutzer, das Bild zuzuschneiden
 - `!maxBreite`
 - `!maxHöhe`
-- „!square“ – die Breite muss gleich der Höhe sein, oder der Zuschnitt darf nur Quadrate als Form zulassen
+- `!square` – Breite muss gleich Höhe sein, oder der Zuschnitt darf nur Quadrate als Form zulassen
 
 ```
   "login-bg.png": {
@@ -189,9 +189,9 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
+- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
-- `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
+- `onlyEnabled` - wenn wahr. Es werden nur aktivierte Instanzen angezeigt
 - „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
 - „short“ – der Wert sieht wie „0“ aus und nicht wie „ADAPTER.0“.
 - „alle“ – Fügen Sie den Optionen „alle“ die Option mit dem Wert „*“ hinzu
@@ -199,7 +199,7 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 - „Chips“ – der Benutzer kann das Wort eingeben und es wird hinzugefügt (siehe Cloud => Dienste => Whitelist). Die Ausgabe ist ein Array, wenn kein „Trennzeichen“ definiert ist.
 - `delimiter` - wenn es definiert ist, wird die Option als Zeichenfolge mit Trennzeichen statt als Array gespeichert. Beispielsweise erhalten Sie mit `delimiter=;` `a;b;c` statt `['a', 'b', 'c']`
 
-- „alive“ – nur ein Hinweis darauf, ob die Instanz aktiv ist und in den Modi „versteckt“ und „deaktiviert“ verwendet werden kann (wird nicht in der Konfiguration gespeichert)
+- „alive“ – nur eine Anzeige, ob die Instanz aktiv ist, und kann in den Modi „versteckt“ und „deaktiviert“ verwendet werden (wird nicht in der Konfiguration gespeichert)
 
 Nur Text: Instanz läuft, Instanz läuft nicht
 
@@ -227,7 +227,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 
 `this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
 
-- `icon` – wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Icons (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie weitere Icons benötigen, wenden Sie sich bitte per Issue an uns.)
+- `icon` – wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Icons (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
 - `useNative` – wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird es für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
 - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
 - „timeout“ – Timeout für Anforderung in ms. Standard: keine.
@@ -252,7 +252,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - „Button“ – einen Link als Schaltfläche anzeigen
 - „Variante“ – Art der Schaltfläche („umrissen“, „enthalten“, „Text“)
 - „Farbe“ – Farbe der Schaltfläche (z. B. „primär“)
-- `icon` - wenn Icon angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an)
+- `icon` - wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
 
 - `staticImage` – statisches Bild
 - `href` – optionaler HTTP-Link
@@ -264,7 +264,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `objKeyName` – (alte Einstellung, nicht verwenden!) – Name des Schlüssels in `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}`
 - `objValueName` – (alte Einstellung, nicht verwenden!) – Name des Wertes in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}`
 - `allowAddByFilter` - wenn Hinzufügen erlaubt ist, auch wenn Filter gesetzt ist
-- `showSecondAddAt` - Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am Ende der Tabelle angezeigt wird. Standardmäßig 5
+- `showSecondAddAt` - Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am Ende der Tabelle angezeigt wird. Standard 5
 - „showFirstAddOnTop“ – Zeigt den ersten Plus-Button oben in der ersten Spalte und nicht links.
 - `clone` – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn wahr, wird die Schaltfläche „Klonen“ angezeigt. Wenn Attributname, ist dieser Name eindeutig.
 - „Exportieren“ – [optional] – ob die Schaltfläche „Exportieren“ angezeigt werden soll. Als CSV-Datei exportieren.
@@ -354,10 +354,10 @@ Die Komponente gibt eine analysierbare Datumszeichenfolge zurück.
 Eingabefeld mit Dateiauswahl
 
 - „disableEdit“ – wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog
-- „limitPath“ – beschränkt die Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und den folgenden Pfad (nicht obligatorisch)
+- „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
 - `filterFiles` - wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
 - `allowUpload` - erlaubtes Hochladen von Dateien
-- `allowDownload` – erlaubter Download von Dateien (Standard: true)
+- `allowDownload` – Download von Dateien erlaubt (Standard: true)
 - `allowCreateFolder` – erlaubte Erstellung von Ordnern
 - `allowView` – Kachel-Ansicht erlaubt (Standard: true)
 - `showToolbar` – Symbolleiste anzeigen (Standard: true)
@@ -366,7 +366,7 @@ Eingabefeld mit Dateiauswahl
 
 - `imageSendTo` - zeigt das Bild, das vom Backend als Base64-String empfangen wurde
 - „Breite“ – Breite des QR-Codes in px
-- „height“ – Höhe des QR-Codes in px
+- „Höhe“ – Höhe des QR-Codes in px
 - `Befehl` - sendTo-Befehl
 - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet.
 - `data` - object - `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist.
@@ -383,7 +383,7 @@ adapter.on('message', obj => {
 });
 ```
 
-- `wählenSendenAn`
+- `Senden an auswählen`
 
 Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
 
@@ -511,7 +511,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `agreeText` - Text der vereinbarten Schaltfläche
 - `checkBox` - Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert.
 
-- `checkLicense` – Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die nativen Eigenschaften `license` und `useLicenseManager` benötigt.
+- `checkLicense` – Eine sehr spezielle Komponente, um die Lizenz online zu überprüfen. Es werden genau die Eigenschaften `license` und `useLicenseManager` nativ benötigt.
 - `uuid` – UUID prüfen
 - `version` – Version prüfen
 
@@ -612,7 +612,7 @@ Alle Typen könnten haben:
 - „Text“ – Text des Bestätigungsdialogs
 - „Titel“ – Titel des Bestätigungsdialogs
 - `ok` - Text für die OK-Schaltfläche
-- `cancel` - Text für die Schaltfläche „Abbrechen“
+- `Abbrechen` - Text für die Schaltfläche „Abbrechen“
 - „Typ“ – Einer von: „Info“, „Warnung“, „Fehler“, „Keiner“
 - `alsoDependsOn` – Array mit Attributen, um den Zustand auch anhand dieser Attribute zu prüfen
 

@@ -100,6 +100,9 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.9.2 (2024-09-10)
+* (bluefox) Fixed polar and bar charts
+
 ### 1.9.0 (2024-08-06)
 * (bluefox) upgraded packages
 * (bluefox) removed `withStyles`

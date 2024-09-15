@@ -4,14 +4,14 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/my-data-diy.md
 title: ioBroker.lametric
-hash: hTFdXm8kF5J0YpvvpwIf3bDOvsHgUtNFf37hod0nSIY=
+hash: FZH01/aAuo1VaT3LqJEVl2EF035nhz1B28UKboy1TIY=
 ---
 ![标识](../../../de/admin/lametric.png)
 
 # IoBroker.lametric
 *LaMetric* 提供了一个附加应用程序（通过集成应用程序商店）来显示您自己的信息。此应用程序名为[我的数据DIY](https://apps.lametric.com/apps/my_data__diy_/8942)。该适配器以所需格式创建数据点。
 
-从该应用程序的 2.0.0 版本开始，数据可以通过不同的方式传输到设备。
+从该应用程序的 2.0.0 版本开始，可以通过不同的方式将数据传输到设备。
 
 - 推送：适配器定期将数据发送到设备（如果发生变化） - **标准选项**
 - 民意调查：定期收集*LaMetric Time* 的数据（可配置）
@@ -32,7 +32,7 @@ hash: hTFdXm8kF5J0YpvvpwIf3bDOvsHgUtNFf37hod0nSIY=
 ### Web 适配器（推荐）
 ```ioBroker LaMetric Adapter -> Zustand mit Frame-Informationen <- ioBroker Web Adapter <- My Data DIY App <- LaMetric```
 
-1.安装[Web ioBroker适配器](https://github.com/ioBroker/ioBroker.web)
+1. 安装[Web ioBroker适配器](https://github.com/ioBroker/ioBroker.web)
 2. 创建 Web 适配器的新实例（例如“web.0”）
 3. 配置新Web实例的端口（例如``8082``）
 4. 通过应用程序商店在您的 *LaMetric Time* 上安装 *My Data DIY* 应用程序
@@ -52,7 +52,7 @@ URL: http://172.16.0.219:8082/lametric.0/
 #### 配置（带身份验证）
 1.安装[REST API ioBroker适配器](https://github.com/ioBroker/ioBroker.rest-api)
 2. 使用名称“lametric”和您自己的密码（例如“HhX7dZl3Fe”）创建一个新的 ioBroker 用户
-3. 将新的“lametric”用户添加到“users”组
+3. 将新的“lametric”用户添加到“users”组中
 4. 通过应用程序商店在您的 *LaMetric Time* 上安装 *My Data DIY* 应用程序
 5. 打开*我的数据（DIY）*应用程序的设置并配置REST API适配器的URL（见下文）
 6. 转到适配器设置并使用您自己的信息添加新框架（请参阅下一节）
@@ -71,8 +71,8 @@ Password: HhX7dZl3Fe
 ```ioBroker LaMetric Adapter -> Zustand mit Frame-Informationen <- ioBroker Simple API Adapter <- My Data DIY App <- LaMetric```
 
 #### 配置（带身份验证）
-1.安装【简单API ioBroker适配器】(https://github.com/ioBroker/ioBroker.simple-api)
-2. 使用名称“lametric”和您自己的密码创建一个新的 ioBroker 用户（例如“HhX7dZl3Fe”）
+1.安装【Simple API ioBroker适配器】(https://github.com/ioBroker/ioBroker.simple-api)
+2. 使用名称“lametric”和您自己的密码（例如“HhX7dZl3Fe”）创建一个新的 ioBroker 用户
 3. 将新的“lametric”用户添加到“users”组中
 4. 通过应用程序商店在您的 *LaMetric Time* 上安装 *My Data DIY* 应用程序
 5. 打开*我的数据（DIY）*应用程序的设置并配置简单API适配器的URL（见下文）
@@ -89,9 +89,9 @@ URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=
 **替换 URL 中的示例 IP、端口、用户名和密码！**
 
 #### 配置（无需身份验证）
-1.安装【Simple API ioBroker适配器】(https://github.com/ioBroker/ioBroker.simple-api)
-2. 通过应用程序商店在您的 *LaMetric Time* 上安装 *My Data DIY* 应用程序
-3. 打开*我的数据 (DIY)* 应用程序设置并配置简单 API 适配器 URL（见下文）
+1.安装【简单API ioBroker适配器】(https://github.com/ioBroker/ioBroker.simple-api)
+2. 通过应用程序商店在您的*LaMetric Time* 上安装*My Data DIY* 应用程序
+3. 打开*我的数据（DIY）*应用程序的设置并配置简单API适配器的URL（见下文）
 4. 转到适配器设置并使用您自己的信息添加新框架（请参阅下一节）
 
 HTTP 轮询配置：
@@ -106,7 +106,7 @@ URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 
 ### 帧配置
 - 使用加号按钮添加任意数量的框架
-- 图标：从[官方网站](https://developer.lametric.com/icons)选择一个图标并将ID粘贴到字段中。 **重要提示：使用 i（对于静态符号）或 a（对于动画符号）作为 ID 前缀（例如：`i3389`）**
+- 图标：从[官方网站](https://developer.lametric.com/icons)选择一个图标并将ID粘贴到字段中。 **重要提示：使用 i（对于静态符号）或 a（对于动画符号）作为 ID 的前缀（例如：`i3389`）**
 - 文本：键入要显示的任何文本。您可以通过在大括号中指定数据点的 ID 来查询数据点的信息。然后将数据点的当前值插入到此处。 （示例：“{youtube.0.channels.HausAutomatisierungCom.statistics.subscriberCount} 订阅者”）
 - 持续时间：确定每帧应显示多长时间（默认 = 5 秒）
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: r3v1HpHgaM6AreOp4sP/GcYQi40K77lrb7cpjns6LB0=
+hash: 3BkX/qa456LhG4LmvbmvlmJdFn2MP0ecCJw5/Rdh454=
 ---
 ![标识](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
@@ -52,7 +52,7 @@ ProCon.IP 泳池控制器是一款适用于家庭泳池的低成本网络附加�
 目前，该适配器已与 ProCon.IP 固件**修订版 1.7.6.a** 结合测试和开发。但它应该可以与任何先前更新/即将推出的固件版本配合使用。
 
 ## 发展与参与
-如果您希望参与此适配器的开发、翻译或文档编制，请随时与我联系。
+如果您希望参与此适配器的开发、翻译或文档编写，请随时联系我。
 
 有关该方法的有用链接如下
 
@@ -68,6 +68,18 @@ ProCon.IP 泳池控制器是一款适用于家庭泳池的低成本网络附加�
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="给我买杯咖啡" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
+### 1.6.0 (2024-09-08)
+* Fix versioning according to prior changes in requirements (should have happened with v1.5.5).
+  * Raise minimum required js-controller version to 5.0.19.
+  * Raise minimum required node version to 18.
+* Dependency updates.
+
+### 1.5.5 (2024-08-19)
+* Dependency updates.
+* Raise minimum required js-controller version to 5.0.19.
+* Raise minimum required node version to 18.
+* Fix minor issues reported by the ioBroker adapter bot (https://github.com/ylabonte/ioBroker.procon-ip/issues/102).
+
 ### 1.5.4 (2024-02-27)
 * Fix the last issues that were reported by the ioBroker adapter checker.  
   (Includes a minor optimization in implementation.) 

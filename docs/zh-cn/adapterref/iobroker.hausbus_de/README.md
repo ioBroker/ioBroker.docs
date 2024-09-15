@@ -19,6 +19,15 @@ HausBus.de 适配器无需进一步配置即可使用。它使用 UDP 广播请�
 <br> <br> <br>
 
 ## Changelog
+### 1.4.10 (2024-09-07)
+* check health for devices that do not respond during search devices
+
+### 1.4.9 (2024-09-05)
+* fixed wrong value of brightness sensor
+
+### 1.4.8 (2024-09-02)
+* fixed high bus traffic during startup phase
+
 ### 1.4.6 (2024-08-07)
 * support for new 12 channel relay module
 
