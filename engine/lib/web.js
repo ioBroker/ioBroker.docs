@@ -2,11 +2,13 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+
+const config = require('../config');
+
 const http = !config.secure ? require('node:http') : require('node:https');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const config = require('../config');
 const Logger = require('./logger');
 const logger  = new Logger();
 const port = normalizePort(process.env.PORT || config.port || 443);
