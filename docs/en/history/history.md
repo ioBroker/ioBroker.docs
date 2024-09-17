@@ -592,3 +592,10 @@ Gotify-WS is an adapter that establishes a websocket connection to a Gotify serv
 
 ## wifilight (05.09.2024) - new feature
 The wifilight adapter was completely rewritten and now supports compact mode and JSON config.
+
+## rainbird (17.9.2024) – new adapter at stable
+https://github.com/iobroker-community-adapters/ioBroker.rainbird
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.rainbird/blob/master/admin/rainbird.png" width="100" height="100" />
+
+An ioBroker adapter for Rain Bird with LNK WiFi adapter. This project has no affiliation with Rain Bird.
