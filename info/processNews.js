@@ -1,6 +1,6 @@
 const {readFileSync, writeFileSync} = require('node:fs');
 
-const json = readFileSync('news.json', 'utf8');
+const json = readFileSync(`${__dirname}/news.json`, 'utf8');
 let news;
 try {
     news = JSON.parse(json);
