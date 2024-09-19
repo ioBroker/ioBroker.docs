@@ -26,6 +26,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 ## Sensor (booleans, read-only)
 `common.type=boolean, common.write=false`
 
+* `sensor.contact`        - general contact: open - `true` or closed -`false`
 * `sensor.window`         - window opened-`true` or closed-`false`
 * `sensor.door`           - door opened-`true` or closed-`false`
 * `sensor.alarm`          - some common alarm
