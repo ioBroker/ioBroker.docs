@@ -592,3 +592,11 @@ Gotify-WS is an adapter that establishes a websocket connection to a Gotify serv
 
 ## wifilight (05.09.2024) - new feature
 The wifilight adapter was completely rewritten and now supports compact mode and JSON config.
+
+## vis-2-widgets-rssfeed (18.9.2024) – new adapter at stable
+https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
+
+<img src="https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed/blob/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
+
+This adapter contains only the vis-2 widgets for the adapter rssfeed. For a detailed description of the widgets and functionality see Adapter rssfeed.
+
