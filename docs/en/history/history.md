@@ -607,4 +607,12 @@ https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
 
 This adapter contains only the vis-2 widgets for the adapter rssfeed. For a detailed description of the widgets and functionality see Adapter rssfeed.
 
+## kisshome-research (19.9.2024) – new adapter at stable
+https://github.com/ioBroker/ioBroker.kisshome-research
+
+<img src="https://github.com/ioBroker/ioBroker.kisshome-research/blob/main/admin/kisshome-research.png" width="100" height="100" />
+
+This special adapter was developed for the KISSHome research project. It is not intended for general use.
+
+
 
