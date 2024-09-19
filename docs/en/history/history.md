@@ -593,10 +593,26 @@ Gotify-WS is an adapter that establishes a websocket connection to a Gotify serv
 ## wifilight (05.09.2024) - new feature
 The wifilight adapter was completely rewritten and now supports compact mode and JSON config.
 
+## rainbird (17.9.2024) – new adapter at stable
+https://github.com/iobroker-community-adapters/ioBroker.rainbird
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.rainbird/blob/master/admin/rainbird.png" width="100" height="100" />
+
+An ioBroker adapter for Rain Bird with LNK WiFi adapter. This project has no affiliation with Rain Bird.
+
 ## vis-2-widgets-rssfeed (18.9.2024) – new adapter at stable
 https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
 
 <img src="https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed/blob/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
 
 This adapter contains only the vis-2 widgets for the adapter rssfeed. For a detailed description of the widgets and functionality see Adapter rssfeed.
+
+## kisshome-research (19.9.2024) – new adapter at stable
+https://github.com/ioBroker/ioBroker.kisshome-research
+
+<img src="https://github.com/ioBroker/ioBroker.kisshome-research/blob/main/admin/kisshome-research.png" width="100" height="100" />
+
+This special adapter was developed for the KISSHome research project. It is not intended for general use.
+
+
 
