@@ -62,6 +62,9 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.14 (2024-09-13)
+* (Andreas Ruttkamp) removed .npmignore
+
 ### 1.2.13 (2024-07-17)
 * (NCIceWolf) Added multiple debugging messages
 * (NCIceWolf) Corrected debug messages to be shown as debug, not info

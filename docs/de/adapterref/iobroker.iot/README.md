@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: 3AdctVwx6dXvfnYJdZA/QIdLnzJjOqQZFit5PEoN7fQ=
+hash: QLCR8kdkbOC6tKocRTAIZVdUsr+AB33jinpbjQHEiJc=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -28,7 +28,7 @@ Um den IoT-Adapter zu verwenden, sollten Sie sich zunächst in der ioBroker-Clou
 
 ### Sprache
 Wenn Sie die „Standardsprache“ auswählen, werden die intelligenten Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
-Dies dient dem schnellen Umschalten zwischen mehreren Sprachen zu Demonstrationszwecken.
+Dies geschieht, um zu Demonstrationszwecken schnell zwischen mehreren Sprachen wechseln zu können.
 
 ### Platzieren Sie die Funktion zuerst in Namen
 Reihenfolge von Funktionen und Rollen in selbst generierten Namen ändern:
@@ -101,7 +101,7 @@ Funktionen sind z.B.: Licht, Jalousie, Heizung.
 Um den Status in die automatisch generierte Liste zu erhalten, müssen folgende Bedingungen erfüllt sein:
 
 - der Status muss in einer „Funktions“-Aufzählung enthalten sein.
-- Der Status muss eine Rolle haben („Zustand“, „Schalter“ oder „Level.*“, z. B. Level.Dimmer), wenn er nicht direkt in „Funktionen“ enthalten ist.
+- Der Status muss eine Rolle haben („Zustand“, „Schalter“ oder „Ebene.*“, z. B. Ebene.Dimmer), wenn er nicht direkt in „Funktionen“ enthalten ist.
 
 Es kann sein, dass der Kanal in den "Funktionen" ist, der Status selbst jedoch nicht.
 
@@ -111,9 +111,9 @@ Es kann sein, dass der Kanal in den "Funktionen" ist, der Status selbst jedoch n
 
 Befindet sich der Zustand nur in „Funktionen“ und in keinem „Raum“, wird der Name des Zustands verwendet.
 
-Die Zustandsnamen werden aus Funktion und Raum generiert. So werden z.B. alle *Lichter* im *Wohnzimmer* im virtuellen Device *Wohnzimmerlicht* gesammelt.
+Die Zustandsnamen werden aus Funktion und Raum generiert. So werden z. B. alle *Lichter* im *Wohnzimmer* im virtuellen Device *Wohnzimmerlicht* gesammelt.
 Der Benutzer kann diesen Namen nicht ändern, da er automatisch generiert wird.
-Ändert sich jedoch der Enumerationsname, wird dieser Name ebenfalls geändert. (z.B. wird die Funktion "Licht" in "Lichter" geändert, also wird das *Wohnzimmerlicht* in *Wohnzimmerlichter* geändert)
+Ändert sich jedoch der Enumerationsname, wird dieser Name ebenfalls geändert. (z. B. wird die Funktion „Licht“ in „Lichter“ geändert, also wird das *Wohnzimmerlicht* in *Wohnzimmerlichter* geändert.)
 
 Alle Regeln werden ignoriert, wenn der Status common.smartName hat. In diesem Fall wird nur der Smart Name verwendet.
 
@@ -173,7 +173,7 @@ Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger`. Diese m�
 
 Sie können die gültige URL für den Dienst auch per Nachricht anfordern:
 
-```
+```js
 sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result =>
   console.log(JSON.stringify(result)));
   // Output: {"result":
@@ -239,7 +239,7 @@ Es erfolgt keine Antwort der iot-Instanz auf die Nachricht!
 
 **Beispiel eines Skripts, das Texte verwendet**
 
-```
+```js
 // important, that ack=true
 on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
     // you have 200ms to prepare the answer and to write it into iot.X.smart.lastResponse
@@ -249,7 +249,7 @@ on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
 
 **Beispiel eines Skripts, das JSON-Objekte verwendet**
 
-```
+```js
 // important, that ack=true
 on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
     // you have 200ms to prepare the answer and to write it into iot.X.smart.lastResponse
@@ -269,11 +269,11 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
 ```
 
 ### Private Cloud
-Wenn Sie eine private Fertigkeit/Aktion/Taste für die Kommunikation mit `Alexa/Google Home/Алиса` verwenden, haben Sie die Möglichkeit, eine IoT-Instanz zu verwenden, um die Anfragen davon zu verarbeiten.
+Wenn Sie eine private Fertigkeit/Aktion/Taste für die Kommunikation mit `Alexa/Google Home/Алиса` verwenden, haben Sie die Möglichkeit, eine IoT-Instanz zu verwenden, um die Anfragen zu verarbeiten.
 
 Beispielsweise für `yandex alice`:
 
-```
+```js
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
 OBJECT_FROM_ALISA_SERVICE.alisa = '/path/v1.0/user/devices'; // called URL, 'path' could be any text, but it must be there
 sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, response => {
@@ -321,13 +321,17 @@ setState('iot.0.app.message', JSON.stringify({
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.4.2 (2024-09-17)
+* (@GermanBluefox) Updated GUI packages and removed `gulp`
+* (@foxriver76) do not override custom `result` attribute on `sendToAdapter` response (Visu App - only relevant for developers)
+
 ### 3.4.0 (2024-08-26)
 * (@foxriver76) added new commands for the visu app
 * (bluefox) updated packages
 * (bluefox) Migrated GUI for admin v7
 
 ### 3.3.0 (2024-05-09)
-* (foxriver76) Fix error on reconnect
+* (foxriver76) Fix error on reconnecting
 * (foxriver76) prepared adapter for new ioBroker Visu app states
 * (bluefox) updated packages
 

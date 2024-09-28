@@ -34,6 +34,7 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 -->
 ### **WORK IN PROGRESS**
 - (bolliy) Requirements from ioBroker Check and Service Bot
+- (bolliy) dependency updates
 
 ### 0.1.4 (2024-07-07)
 

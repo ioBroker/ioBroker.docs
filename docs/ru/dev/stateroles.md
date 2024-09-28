@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: gaG1gZgKYbxkNA/HRP8j1pSbrSxpGG7e2EjYNjKGKHU=
+hash: aHyvtMHcTSOzQozXbLKaDQz4IqueeciLvGkSmz9ra7Q=
 ---
 # Государственные роли
 Объектам типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
@@ -30,12 +30,13 @@ hash: gaG1gZgKYbxkNA/HRP8j1pSbrSxpGG7e2EjYNjKGKHU=
 ## Датчик (логические значения, только для чтения)
 `common.type=boolean, common.write=false`
 
+* `sensor.contact` - общий контакт: открытый - `true` или закрытый -`false`
 * `sensor.window` - окно открыто-`true` или закрыто-`false`
 * `sensor.door` - дверь открыта-`true` или закрыта-`false`
 * `sensor.alarm` - некоторые общие сигналы тревоги
 * `sensor.alarm.flood` - утечка воды
 * `sensor.alarm.fire` - пожарный датчик
-* `sensor.alarm.secure` - открыта дверь, открыто окно или обнаружено движение во время срабатывания сигнализации.
+* `sensor.alarm.secure` - открыта дверь, открыто окно или обнаружено движение во время тревоги.
 * `sensor.alarm.power` - Нет питания (`voltage = 0`)
 * `sensor.light` - обратная связь от лампы, что она включена
 * `sensor.lock` - фактическое положение замка
@@ -50,7 +51,7 @@ hash: gaG1gZgKYbxkNA/HRP8j1pSbrSxpGG7e2EjYNjKGKHU=
 * `button.long`
 * `button.stop` - например, остановка ролика,
 * `кнопка.стоп.наклон`
-* `button.start`
+* `кнопка.старт`
 * `button.resume`
 * `кнопка.открыть.дверь`
 * `кнопка.открыть.окно`
@@ -106,7 +107,7 @@ hash: gaG1gZgKYbxkNA/HRP8j1pSbrSxpGG7e2EjYNjKGKHU=
 * `value.power.reactive` - реактивная мощность (единица=вар, кВар)
 * `value.power.consumed` - потребляемая мощность (единица измерения=Вт или кВт)
 * `value.power.produced` - произведенная мощность (единица измерения=Вт или кВт)
-* `value.direction` - (common.type=number ~~or string~~, указывает вверх/вниз, влево/вправо, 4-позиционные переключатели, направление ветра, ... )
+* `value.direction` - (common.type=число ~~или строка~~, указывает вверх/вниз, влево/вправо, 4-позиционные переключатели, направление ветра, ... )
 * `value.curtain` - фактическое положение занавеса
 * `value.blind` - фактическое положение жалюзи (`max = полностью открыто, min = полностью закрыто`)
 * `value.tilt` - фактическое положение наклона (`max = полностью открыто, min = полностью закрыто`)
@@ -156,7 +157,7 @@ hash: gaG1gZgKYbxkNA/HRP8j1pSbrSxpGG7e2EjYNjKGKHU=
 * `level.battery` - целевое напряжение/емкость батареи, т.е. для нагрузки
 * `level.battery.min` - минимальное напряжение/емкость аккумулятора
 * `level.battery.max` - максимальное напряжение/емкость аккумулятора
-* `level.valve` - величина открытия клапанов
+* `level.valve` - значение открытия клапанов
 * `уровень.давления` -
 * `level.pressure.min` - минимально допустимое значение давления воздуха или масла
 * `level.pressure.max` - максимально допустимое значение давления воздуха или масла
@@ -399,13 +400,13 @@ TODO: Подумайте об ионизации и колебаниях.
 * `value.direction.wind.forecast.0` - прогноз направления ветра на сегодня в градусах
 * `weather.direction.wind.forecast.0` - прогноз направления ветра на сегодня в текстовом виде
 * `value.pressure.forecast.0` - прогноз давления на сегодня
-* `value.temperature.min.forecast.0` - Минимальный прогноз температуры на сегодня
+* `value.temperature.min.forecast.0` - Мин. прогноз температуры на сегодня
 * `value.temperature.max.forecast.0` - Прогноз максимальной температуры на сегодня
 * `value.precipitation.forecast.0` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на сегодня
 * `value.precipitation.forecast.0` - (`тип: число, единица: мм`) Прогноз уровня осадков на сегодня
 * `weather.title.forecast.0` - Очень краткое описание завтрашнего дня
 * `value.precipitation.day.forecast.0` - Прогноз осадков на дневное время
-* `value.precipitation.night.forecast.0` - Прогноз осадков на ночное время
+* `value.precipitation.night.forecast.0` - Прогноз осадков на ночь
 
 * `date.forecast.1` - завтрашняя дата
 * `weather.icon.forecast.1` - значок завтрашнего дня
@@ -426,7 +427,7 @@ TODO: Подумайте об ионизации и колебаниях.
 * `info.serial` - серийный номер
 * `info.firmware` - версия прошивки
 * `info.hardware` - версия оборудования
-* `info.port` - порт tcp
+* `info.port` - порт TCP
 * `info.standby` - true, если устройство находится в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства

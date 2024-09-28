@@ -34,6 +34,8 @@ Important parts of this adpater are based on the project [open3e](https://github
 
 A python based implementation of a pure listening approach (Collect only) using MQTT messaging is also availabe, see [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
+Note: Support for **Node.js 22** not fully tested yet!
+
 # Getting started
 
 **Preconditions:**
@@ -128,6 +130,9 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.5 (2024-09-19)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240916
+
 ### 0.9.4 (2024-08-26)
 * (MyHomeMyData) Start up an UDS worker for each device to allow writing of data points even when no schedule for reading is defined on this device
 * (MyHomeMyData) Update of npm dependencies

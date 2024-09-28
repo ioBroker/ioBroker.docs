@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Конфигурация JSON ioBroker
-hash: +uOK6gWkQbAQ4k4yti1NchfTCYFStb5dHU4RpT1773M=
+hash: selFI/h/82dTNnFQIjRwfWcPY1bQ/0yfhIDXpb/O0sY=
 ---
 # Конфигурация JSON ioBroker
 Admin (начиная с версии 6) поддерживает конфигурацию JSON для адаптеров.
@@ -17,11 +17,11 @@ Admin (начиная с версии 6) поддерживает конфигу
 
 ```json
 {
-  "common": {
-    "adminUI": {
-      "config": "json"
+    "common": {
+        "adminUI": {
+            "config": "json"
+        }
     }
-  }
 }
 ```
 
@@ -34,7 +34,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 
 Все метки, тексты, тексты справки могут быть многоязычными или просто строками.
 
-*Если имя атрибута начинается с «_», оно не будет сохранено в объекте.*
+_Если имя атрибута начинается с «\_», оно не будет сохранено в объекте._
 
 ## Включает
 Требуется администратор 6.17.1 или более поздняя версия.
@@ -44,12 +44,12 @@ Admin (начиная с версии 6) поддерживает конфигу
 
 ```json5
 {
-    "tabs": {
-        "tab1": {
-            "type": "panel", // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
-            "#include": "tab1.json"
-        }
-    }
+    tabs: {
+        tab1: {
+            type: 'panel', // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
+            '#include': 'tab1.json',
+        },
+    },
 }
 ```
 
@@ -96,7 +96,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `шаг` - (по умолчанию `(макс - мин) / 100`)
 - `unit` - Единица измерения ползунка
 
-- `qrCode` - отображение данных в QR-коде (по сравнению с Admin 7)
+- `qrCode` - показывать данные в QR-коде (admin >= 7.0.18)
 - `data` - данные, которые будут закодированы в QR-коде
 - `size` - размер QR-кода
 - `fgColor` - Цвет переднего плана
@@ -123,7 +123,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `выбрать`
 - `options` - `[{label: {en: "option 1"}, value: 1}, ...]` или
 
-                `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
+`[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
 
 - `автозаполнение`
 - `options` - `["value1", "value2", ...]` или `[{"value": "value", "label": "Value1"}, "value2", ...]` (ключи должны быть уникальными)
@@ -133,13 +133,13 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `filename` - имя файла - это имя структуры. В примере ниже `login-bg.png` - это имя файла для `writeFile("myAdapter.INSTANCE", "login-bg.png")`
 - `accept` - атрибут принятия HTML, например `{ 'image/**': [], 'application/pdf': ['.pdf'] }`, по умолчанию `{ 'image/*': [] }`
 - `maxSize` - максимальный размер файла для загрузки
-- `base64` - если true, изображение будет сохранено как data-url в атрибуте, в противном случае как двоичное в файловом хранилище
+- `base64` - если true, изображение будет сохранено как data-url в атрибуте, в противном случае как двоичный файл в файловом хранилище
 - `crop` - если true, разрешить пользователю обрезать изображение
 - `!максШирина`
 - `!maxHeight`
 - `!square` - ширина должна быть равна высоте, или обрезка должна допускать только квадратную форму
 
-```
+```json
   "login-bg.png": {
        "type": "image",
        "accept": "image/png",
@@ -236,7 +236,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `setState` - кнопка, устанавливающая состояние экземпляра
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, вы можете использовать заполнитель `%INSTANCE%`, чтобы заменить его на имя текущего экземпляра
 - `ack` - false (по умолчанию false)
-- `val` - '${data.myText}_test' или число. Тип будет определен автоматически из типа состояния и преобразование также выполнено
+- `val` - '${data.myText}\_test' или число. Тип будет определен автоматически из типа состояния и преобразование также выполнено
 - `okText` - Оповещение, которое будет показано при нажатии кнопки
 - `вариант` - `содержащийся`, `очерченный`, ''
 
@@ -287,22 +287,22 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `system` - разрешить использование системного языка из `system.config` по умолчанию (при выборе будет иметь пустое строковое значение)
 
 - `сертификат`
-- `certType` - один из: `public`, `private`, `chained`. Но с версии 6.4.0 можно использовать тип `certificates`.
+- `certType` - из: `public`, `private`, `chained`. Но с версии 6.4.0 можно использовать тип `certificates`.
 
 - `certificates` - это универсальный тип, который управляет атрибутами `certPublic`, `certPrivate`, `certChained` и `leCollection`.
 
-  Пример:
+    Пример:
 
 ```json
 {
-   "_certs": {
-       "type": "certificates",
-       "newLine": true,
-       "hidden": "!data.secure",
-       "sm": 12
-   }
+    "_certs": {
+        "type": "certificates",
+        "newLine": true,
+        "hidden": "!data.secure",
+        "sm": 12
+    }
 }
-  ```
+```
 
 - `certCollection` - выберите коллекцию сертификатов или просто используйте все коллекции или вообще не используйте Let's Encrypt.
 - `leCollectionName` - имя коллекции сертификатов
@@ -349,10 +349,7 @@ Admin (начиная с версии 6) поддерживает конфигу
 - `noNone` - Не показывать опцию `none`
 - `noSize` - Не показывать размер файлов
 
-- `file` (только Admin6)
-
-Поле ввода с селектором файлов
-
+- `file` - (только Admin6) Поле ввода с выбором файла
 - `disableEdit` - если пользователь может вручную ввести имя файла, а не только через диалог выбора
 - `limitPath` - ограничить выборку одним конкретным объектом типа `meta` и следующим путем (не обязательно)
 - `filterFiles` - например `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
@@ -383,10 +380,7 @@ adapter.on('message', obj => {
 });
 ```
 
-- `selectSendTo`
-
-Показывает раскрывающееся меню с указанными значениями экземпляра.
-
+- `selectSendTo` - Показывает раскрывающееся меню с указанными значениями экземпляра.
 - `команда` - команда sendTo
 - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Эти данные будут отправлены на бэкэнд
 - `data` - object - `{"subject1": 1, "data": "static"}`. Вы можете указать jsonData или data, но не оба. Эти данные будут отправлены на бэкэнд, если jsonData не определен.
@@ -399,7 +393,7 @@ adapter.on('message', obj => {
 
 - `alsoDependsOn` - при изменении каких атрибутов команда должна быть отправлена повторно
 
-```
+```js
 adapter.on('message', obj => {
    if (obj) {
        switch (obj.command) {
@@ -459,10 +453,10 @@ adapter.on('message', obj => {
 
 Чтобы использовать эту опцию, ваш адаптер должен реализовать обработчик сообщений: Результатом команды должна быть строка или объект со следующими параметрами:
 
-```
+```json5
 {
     text: 'text to show',  // mandatory
-    style: {color: 'red'}, // optional
+    style: { color: 'red' }, // optional
     icon: 'search',        // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
                            // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, puase, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
     iconStyle: {width: 30} // optional
@@ -471,7 +465,7 @@ adapter.on('message', obj => {
 
 Пример:
 
-```
+```js
 adapter.on('message', obj => {
     if (obj) {
       switch (obj.command) {
@@ -520,9 +514,7 @@ adapter.on('message', obj => {
 - `port` - Специальный ввод для портов. Он автоматически проверяет, используется ли порт другими экземплярами, и выводит предупреждение
 - `min` - минимально допустимый номер порта. Может быть 0. И если значение равно нулю, то проверка на занятость порта не произойдет.
 
--
-
-- `state` - Показать элемент управления или информацию из состояния
+- `state` - (admin >= 7.1.0) Показать элемент управления или информацию из состояния
 - `oid` - Какой идентификатор объекта следует взять для управления. Идентификатор не имеет префикса "adapter.X."
 - `system` - Если true, состояние будет взято из system.adapter.XX.I., а не из XX.I.
 - `control` - Как должно отображаться значение состояния: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number`
@@ -539,12 +531,13 @@ adapter.on('message', obj => {
 - `step` - Значение шага для типа элемента управления: ползунок или число
 - `controlDelay` - задержка в мс для ползунка или числа
 - `variant` - Вариант кнопки: `contained`, `outlined`, `text`
+- `readOnly` - Определяет, доступен ли элемент управления только для чтения.
 
 - `deviceManager` - показать диспетчер устройств. Для этого адаптер должен поддерживать протокол диспетчера устройств. См. iobroker/dm-utils.
 
 Вот пример того, как отобразить диспетчер устройств на вкладке:
 
-```
+```json
 "_deviceManager": {
   "type": "panel",
   "label": "Device manager",
@@ -575,10 +568,11 @@ adapter.on('message', obj => {
 ## Общие атрибуты элементов управления
 Все типы могут иметь:
 
-- `sm` - ширина в 1/12 экрана на маленьком экране
-- `md` - ширина в 1/12 экрана на средних экранах
-- `lg` - ширина в 1/12 экрана на больших экранах
-- `xs` - ширина в 1/12 экрана на маленьких экранах
+- `xl` - ширина в 1/12 экрана на очень больших экранах (1536 пикселей < ширина)
+- `lg` - ширина в 1/12 экрана на больших экранах (1200px <= ширина < 1536px)
+- `md` - ширина в 1/12 экрана на средних экранах (900px <= ширина < 1200px)
+- `sm` - ширина в 1/12 экрана на маленьком экране (600px <= ширина < 900px)
+- `xs` - ширина в 1/12 экрана на маленьких экранах (ширина < 600 пикселей)
 - `newLine` - следует отображать с новой строки
 - `label` - Строка или объект типа {en: 'Name', ru: 'Имя'}
 - `hidden` - функция JS, которая может использовать `native.attribute` для вычислений
@@ -586,8 +580,8 @@ adapter.on('message', obj => {
 - `disabled` - функция JS, которая может использовать `native.attribute` для вычислений
 - `help` - текст справки (многоязычный)
 - `helpLink` - href для справки (может использоваться только вместе с `help`)
-- `style` - стиль css в нотации ReactJS: `radiusBorder`, а не `radius-border`.
-- `darkStyle` - css-стиль для темного режима
+- `style` - стиль CSS в нотации ReactJS: `radiusBorder`, а не `radius-border`.
+- `darkStyle` - стиль CSS для темного режима
 - `validator` - функция JS: true - нет ошибки, false - ошибка
 - `validatorErrorText` - Текст, отображаемый в случае сбоя валидатора
 - `validatorNoSaveOnError` - отключить кнопку сохранения в случае ошибки
@@ -616,7 +610,7 @@ adapter.on('message', obj => {
 - `type` - Один из: `info`, `warning`, `error`, `none`
 - `alsoDependsOn` - массив с атрибутами, для проверки условия и по этим атрибутам
 
-```
+```json5
 {
     "type": "tabs",
     "items": {
@@ -665,13 +659,13 @@ adapter.on('message', obj => {
 
 Пример:
 
-```
-...
+```json
+// ...
    "timeout": {
       "type": "number",
       "label": "Timeout"
    }
-...
+// ...
 
 data: {
    timeout: [1000, 2000, 3000]
@@ -701,7 +695,7 @@ newData: {
 
 Компонент должен выглядеть так
 
-```
+```jsx
 <SchemaEditor
     style={customStyle}
     className={classes.myClass}
@@ -729,17 +723,17 @@ newData: {
 
 ```json
 {
-  "i18n": true,
-  "type": "panel",
-  "style": {
-    "backgroundImage": "url(adapter/mpd/background.png)",
-    "backgroundPosition": "top",
-    "backgroundRepeat": "no-repeat",
-    "backgroundSize": "cover"
-  },
-  "items": {
-    "...": {}
-  }
+    "i18n": true,
+    "type": "panel",
+    "style": {
+        "backgroundImage": "url(adapter/mpd/background.png)",
+        "backgroundPosition": "top",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover"
+    },
+    "items": {
+        "...": {}
+    }
 }
 ```
 
@@ -753,29 +747,29 @@ newData: {
 
 - `admin/i18n/de/translations.json`
 - `admin/i18n/en/translations.json`
-- ...
+-   ...
 
 или
 
 - `admin/i18n/de.json`
 - `admin/i18n/en.json`
-- ...
+-   ...
 
 Кроме того, пользователь может указать путь к файлам i18n, `i18n: "customI18n"`и указать файлы в админке:
 
 - `admin/customI18n/de/translations.json`
 - `admin/customI18n/en/translations.json`
-- ...
+-   ...
 
 или
 
 - `admin/customI18n/de.json`
 - `admin/customI18n/en.json`
-- ...
+-   ...
 
 2. Пользователь может предоставить переводы непосредственно в метке, например:
 
-```
+```json
 {
    "type": "text",
    "label: {
@@ -787,7 +781,7 @@ newData: {
 
 3. Пользователь может предоставить переводы в атрибуте i18n:
 
-```
+```json
 {
     "18n": {
         "My Text: {
@@ -810,7 +804,7 @@ newData: {
 ### Диалоговое окно конфигурации
 Функция JS:
 
-```
+```js
 const myValidator = "_alive === true && data.options.myType == 2";
 
 const func = new Function(
@@ -847,7 +841,7 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 ### Диалоговое окно пользовательских настроек
 Функция JS:
 
-```
+```js
 const myValidator = "customObj.common.type === 'boolean' && data.options.myType == 2";
 
 const func = new Function(
@@ -875,7 +869,7 @@ const isValid = func(data || this.props.data, this.props.originalData, this.prop
 - `globalData` - используется только в таблице для всех настроек, а не только в одной строке таблицы
 
 ## Пользовательский компонент
-```
+```jsx
 <CustomInstancesEditor
     common={common data}
     alive={isInstanceAlive}

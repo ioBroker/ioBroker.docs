@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
+hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 ---
 ![Логотип](../../../en/admin/lg-thinq.png)
 
@@ -104,7 +104,7 @@ hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
 - `remote.Statistic.command` Какую историю следует загрузить
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -354,7 +354,7 @@ hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
 
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -427,7 +427,7 @@ hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
 - `remote.Statistic.command` Какую историю следует загрузить
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -642,7 +642,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.Statistic.command` Какую историю следует загрузить
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -694,7 +694,7 @@ lg-thinq.0.xxx.area должен быть заполнен!
     ![погода.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.2 (2024-09-10)
 
 -   (Lucky-ESA) Dependencies updated
 -   (Lucky-ESA) Changed autoDryRemainTime max value

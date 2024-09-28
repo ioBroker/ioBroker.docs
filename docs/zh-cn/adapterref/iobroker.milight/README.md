@@ -3,115 +3,103 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.milight/README.md
 title: ioBroker.milight
-hash: Ecq04r4TXFjADX8OGk+fwmG2HESTZdjmC1XwtyMIxwg=
+hash: qErBHu72dxLHQ4Qw9RqTJzzOvk+r3FR4JZKRKiDV7+k=
 ---
-![商标](../../../en/adapterref/iobroker.milight/admin/easybulb_logo.png)
+![标识](../../../en/adapterref/iobroker.milight/admin/easybulb_logo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.milight.svg)
+![安装数量](http://iobroker.live/badges/milight-stable.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.milight.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.milight.svg)
-![建立状态](https://travis-ci.org/foxthefox/ioBroker.milight.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.milight.png?downloads=true)
+![构建状态](https://travis-ci.org/foxthefox/ioBroker.milight.svg?branch=master)
+![新平台](https://nodei.co/npm/iobroker.milight.png?downloads=true)
 
-＃ioBroker.milight
-用于ioBroker的适配器，用于LED灯，如milight，easybulb，无限
+# IoBroker.milight
+ioBroker 适配器，适用于 milight、easybulb、limitless 等 LED 灯
 
-##安装：
-来自npm
-
-```javascript
-npm install iobroker.milight
-```
-
-来自github的实际版本
-
-```javascript
-npm install https://github.com/foxthefox/ioBroker.milight/tarball/master --production
-```
-
-##常用设置：
+## 常用设置：
 在管理页面中
 
-* IP-Adress->网桥IP
-*港口 - >桥港
-*延迟之间 -  UDP包之间的延迟 - >毫秒（v5为100毫秒）
-* repeatPackage  - >重复次数（v5为1）
-*版本的milight协议v5或v6  - >自动设置相应的端口
-*更改为白色模式时设置全亮度
+* IP 地址 -> 桥的 IP
+* 端口 -> 桥的端口
+* delaybetweenPackages -> UDP 包之间的毫秒延迟（v5 为 100 毫秒）
+* repeatPackage -> 重复次数 (v5 为 1)
+* milight 协议版本 v5 或 v6 -> 自动设置相应端口
+* 切换到白色模式时设置全亮度
 
-##区域中的灯泡类型：
+## 区域中的灯泡类型：
 在管理页面中
 
-* basic =仅适用于区域1和v6
-* RGBWW =全白色灯泡，带白色LED和色温调节（增加色温意味着冷色调），仅限于v6
-* RGB =纯色灯泡，仅适用于1区
-* RGBW =带白色LED的彩色灯泡
-*白色= WW / CW白色灯泡，带色温调节（增加色温意味着冷色调）
+* basic = 仅适用于区域 1 和 v6 的桥接
+* RGBWW = 带白色 LED 和色温调节的全彩灯泡（增加色温意味着颜色更冷），仅在 v6 中
+* RGB = 纯色灯泡（不含白光）仅适用于 1 区
+* RGBW = 带白色 LED 的彩色灯泡
+* 白色 = WW/CW 白色灯泡，带色温调节功能（色温越高，颜色越冷）
 
-Zone0或ZoneAll可用于向所有4个区域发出命令，适配器在v6中使用base / bridge命令配置，在v5中使用rgbw命令配置。
+Zone0 或 ZoneAll 可用于向所有 4 个区域发出命令，适配器在 v6 中使用 base/bridge 命令进行配置，在 v5 中使用 rgbw 命令进行配置。
 
-版本6中的##状态
-|可用状态|基本/桥梁|白色| RGB | RGBW | RGBWW |
+## 版本 6 中的状态
+| 可用状态 | 基本/桥接 | 白色 | RGB | RGBW | RGBWW |
 |:-------------------------------------------:|:--------------------------------:|:------------------------------:|:------------------------------:|:-------------------------------------:|:--------------------------------------:|
-| ON / OFF作为开关| state（zone1），function |州（区），功能| state（zone1），function |州（区），功能|州（区），功能|
-|按下按钮| on（zone1），native | on（zone），native | on（zone1），native | on（zone），native | on（zone），native |
-|关闭按钮| off（zone1），native |关（区），本地| off（zone1），native |关（区），本地|关（区），本地|
-| colorMode作为布尔状态| | | | colorMode（0 = nightMode，1 = whiteMode）| colorMode（0 = nightMode，1 = whiteMode）|
-| maxWhite作为按钮| | maxBright（区域），原生| | | |
-| whiteMode as button | whiteMode（zone1），native | | | whiteMode（zone），native | whiteMode（zone），native |
-| nightMode作为按钮| | nightMode（区域），原生| | nightMode（区域），原生| nightMode（区域），原生|
-|亮度值（0-100％）|亮度（区域），原生| | |亮度（区域），原生|亮度（区域），原生|
-|颜色为3个十六进制值|颜色（区域），原生| |颜色（区域），原生|颜色（区域），原生|颜色（区域），原生|
-| rgb作为组合值（＃000000  -  #FFFFFF）| rgb（zone），native | | rgb（zone），native | rgb（zone），native | rgb（zone），native |
-|模式为值| mode（zone），native | | | mode（zone），native | mode（zone），native |
-| modeSpeedUp as按钮| | modeSpeedUp（zone），native | | modeSpeedUp（zone），native | modeSpeedUp（zone），native |
-| modeSpeedDown为按钮| | modeSpeedDown（zone），native | | modeSpeedDown（zone），native | modeSpeedDown（zone），native |
-|链接为按钮| | | |链接（区域），原生|链接（区域），原生|
-|取消链接作为按钮| | | | unlink（zone），native | unlink（zone），native |
-|饱和度为值（0-100％）| | | | |饱和度（区域），原生|
-| colorTemp作为值（0-100等于2700K到6500K）| | | | | colorTemp（zone），native |
-| brightnessUp as button | brightnessUp（区域），功能| brightnessUp（zone），native | brightnessUp（zone），native | brightnessUp（区域），功能| brightnessUp（区域），功能|
-| brightnessDown按钮| brightnessDown（区域），功能| brightnessDown（区域），原生| brightnessDown（区域），原生| brightnessDown（区域），功能| brightnessDown（区域），功能|
-| colorUp as button | colorUp（zone），function | | | colorUp（zone），function | colorUp（zone），function |
-|颜色向下按钮|颜色向下（区域），功能| |颜色向下（区域），功能|颜色向下（区域），功能| |
-| saturationUp as button | | | | | saturationUp（zone），function |
-| saturationDown为按钮| | | | | saturationDown（zone），函数|
-| colorTempUp as button | | colorTempUp（zone），native | | | colorTempUp（zone），function |
-| colorTempDown as button | | colorTempDown（zone），native | | | colorTempDown（zone），函数|
-|色调为值（0-360）| | | |色调（区域），功能|色调（区域），功能|
+| 开/关作为开关 | 状态（区域 1），功能 | 状态（区域），功能 | 状态（区域 1），功能 | 状态（区域），功能 | 状态（区域），功能 | 状态（区域），功能 |
+| 以按钮开启 | 在（区域 1），本机 | 在（区域），本机 | 在（区域 1），本机 | 在（区域），本机 | 在（区域），本机 | 在（区域），本机 |
+| 关闭按钮 | 关闭（区域 1），本机 | 关闭（区域），本机 | 关闭（区域 1），本机 | 关闭（区域），本机 | 关闭（区域），本机 |
+| colorMode 作为布尔状态 | | | | colorMode (0=nightMode, 1=whiteMode) | colorMode (0=nightMode, 1=whiteMode) |
+| maxWhite 作为按钮 | | maxBright(区域), 原生 | | | |
+| whiteMode 作为按钮 | whiteMode（zone1），本机 | | | whiteMode（区域），本机 | whiteMode（区域），本机 |
+| nightMode 作为按钮 | | nightMode(zone), native | | nightMode(zone), native | nightMode(zone), native |
+| 亮度作为值（0-100％）| 亮度（区域），原生 | | | 亮度（区域），原生 | 亮度（区域），原生 |
+| 颜色为 3 个十六进制值 | 颜色（区域），原生 | | 颜色（区域），原生 | 颜色（区域），原生 | 颜色（区域），原生 |
+| rgb 作为组合值 (#000000 - #FFFFFF) | rgb (区域)，本机 | | rgb (区域)，本机 | rgb (区域)，本机 | rgb (区域)，本机 |
+| 模式作为值 | 模式（区域），本机 | | | 模式（区域），本机 | 模式（区域），本机 |
+| modeSpeedUp 作为按钮 | | modeSpeedUp（区域），本机 | | modeSpeedUp（区域），本机 | modeSpeedUp（区域），本机 |
+| modeSpeedDown 作为按钮 | | modeSpeedDown (区域), 本机 | | modeSpeedDown(区域), 本机 | modeSpeedDown(区域), 本机 |
+| 链接为按钮 | | | | 链接（区域），本机 | 链接（区域），本机 |
+| 取消链接为按钮 | | | | 取消链接（区域），本机 | 取消链接（区域），本机 |
+| 饱和度值（0-100%）| | | | | 饱和度（区域），原生|
+| colorTemp 作为值（0-100 等于 2700K 到 6500K）| | | | | colorTemp（区域），原生|
+| brightnessUp 作为按钮 | brightnessUp (区域), 功能 | brightnessUp (区域), 本机 | brightnessUp (区域), 本机 | brightnessUp (区域), 功能 | brightnessUp (区域), 功能 |
+| brightDown 作为按钮 | brightDown (区域)，功能 | brightDown (区域)，本机 | brightDown (区域)，本机 | brightDown (区域)，功能 | brightDown (区域)，功能 |
+| colorUp 作为按钮 | colorUp(区域), 函数 | | | colorUp(区域), 函数 | colorUp(区域), 函数 |
+| 颜色向下作为按钮 | 颜色向下（区域），功能 | | 颜色向下（区域），功能 | 颜色向下（区域），功能 | |
+| saturationUp 作为按钮 | | | | | saturationUp (区域), 功能 |
+| saturationDown 作为按钮 | | | | | saturationDown (区域), 功能 |
+| colorTempUp 作为按钮 | | colorTempUp (区域), 本机 | | | colorTempUp (区域), 功能 |
+| colorTempDown 作为按钮 | | colorTempDown (区域), 本机 | | | colorTempDown (区域), 功能 |
+| 色调作为值（0-360） | | | | 色调（区域），功能 | 色调（区域），功能 |
 
-版本5 /版本4中的##状态
-|可用状态| RGB |白色| RGBW |
+## 版本 5/版本 4 中的状态
+| 可用状态 | RGB | 白色 | RGBW |
 |:---------------------------------------------:|:-----------------------:|:-----------------------:|:----------------------------------------:|
-| ON / OFF作为开关|州（区），功能|州（区），功能|州（区），功能|
-|按下按钮| on（zone），native | on（zone），native | on（zone），native |
-|关闭按钮|关（区），本地|关（区），本地|关（区），本地|
-| colorMode作为布尔状态| | | colorMode（0 / hs = whiteMode，1 / ct = color（hue = 55））|
-| maxWhite作为按钮| | maxBright（区域），原生| |
-| whiteMode as button | | | whiteMode（zone），native |
-| nightMode作为按钮| | | nightMode（区域），原生|
-|颜色为色调值（0-255）| | |色调，原生|
-| rgb作为组合值（＃000000  -  #FFFFFF）| | | rgb，native |
-| colorTempUp as button | |温暖，本地人| |
-| colorTempDown as button | |冷却器，原生的| |
-|亮度值（0-100％）| | |亮度，原生|
-|亮度值（0-100％），扩展范围| | | |
-| effectModeNext作为按钮| | | effectModeNext，native |
-| speedUp as button | speedUp，native | | effectSpeedUp，native |
-| speedDown作为按钮| speedDown，native | | effectSpeedDown，native |
-| brightUp as button | brightUp，native | brightUp，native | |
-| brightDown作为按钮| brightDown，native | brightDown，native | |
-| effectModeNext作为按钮| effectSpeedUp，native | | |
-| effectModePrev为按钮| effectSpeedDown，native | | |
+| 开/关作为开关 | 状态（区域），功能 | 状态（区域），功能 | 状态（区域），功能 |
+| ON 作为按钮 | on（区域），本机 | on（区域），本机 | on（区域），本机 |
+| 关闭按钮 | 关闭（区域），本机 | 关闭（区域），本机 | 关闭（区域），本机 |
+| colorMode 作为布尔状态 | | | colorMode (0/hs=whiteMode, 1/ct=color(hue=55))|
+| maxWhite 作为按钮 | | maxBright(区域), 原生 | |
+| whiteMode 作为按钮 | | | whiteMode(区域), 原生 |
+| nightMode 作为按钮 | | | nightMode(zone), native |
+| 颜色作为色调值（0-255） | | | 色调，原生 |
+| rgb 作为组合值 (#000000 - #FFFFFF) | | | rgb，原生 |
+| colorTempUp 作为按钮 | | 更温暖，原生 | |
+| colorTempDown 作为按钮 | | 更凉爽，原生 | |
+| 亮度值（0-100%）| | | 亮度，原生|
+| 亮度作为值（0-100%），扩展范围 | | | |
+| effectModeNext 作为按钮 | | | effectModeNext，本机 |
+| speedUp 作为按钮 | speedUp，原生 | | effectSpeedUp，原生 |
+| speedDown 作为按钮 | speedDown，本机 | | effectSpeedDown，本机 |
+| brightUp 作为按钮 | brightUp，本机 | brightUp，本机 | |
+| brightDown 作为按钮 | brightDown，本机 | brightDown，本机 | |
+| effectModeNext 作为按钮 | effectSpeedUp，本机 | | |
+| effectModePrev 作为按钮 | effectSpeedDown，本机 | | |
 
-effectSpeedUp / Down有不同的含义（对于rgb更改模式，对于rgbw它会改变速度）！
+effectSpeedUp/Down 具有不同的含义（对于 rgb 来说改变模式，对于 rgbw 来说改变速度）！
 
-##配置：
-在适配器版本5的管理页面中也用于v4灯
+＃＃ 配置：
+在适配器版本 5 的管理页面中也可用于 v4 灯
 
-＃＃ 去做：
+待办事项：
 * ??
 
-＃＃ 已知的问题：
+## 已知问题：
 * ??
 
 ## Changelog
@@ -173,4 +161,4 @@ effectSpeedUp / Down有不同的含义（对于rgb更改模式，对于rgbw它�
 
 The MIT License (MIT)
 
-Copyright (c) 2018 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2020 foxthefox <foxthefox@wysiwis.net>

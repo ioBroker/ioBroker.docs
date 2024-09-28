@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: 3fxXNSl3Q46kwluuppMYZNwqFjy+3v/cFiVl/7t3+lg=
+hash: hRZ4r8f17LSpFSUQieNsSDvTwwlBNjqZEYaiL58d/mU=
 ---
 ![Logo](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
@@ -13,18 +13,18 @@ hash: 3fxXNSl3Q46kwluuppMYZNwqFjy+3v/cFiVl/7t3+lg=
 
 # IoBroker.LinkTap
 ## IoBroker.linktap
-Steuern Sie Ihre Gartenbewässerung mit dem LinkTap Wireless Water Timer Hersteller: https://www.link-tap.com/
+Steuern Sie Ihre Gartenbewässerung mit dem kabellosen Wassertimer von LinkTap. Hersteller: https://www.link-tap.com/
 
 ## Installation
-Bitte verwenden Sie Node.js 16 oder höher.
+Bitte verwenden Sie Node.js 18 oder höher.
 
 ## Einstellungen
-Erstellen Sie einen API-Schlüssel unter https://www.link-tap.com/#!/api-for-developers mit Ihren LinkTap-Anmeldeinformationen.
+Erstellen Sie unter https://www.link-tap.com/#!/api-for-developers einen API-Schlüssel mit Ihren LinkTap-Anmeldeinformationen.
 
-Bitte geben Sie in der Konfiguration den Benutzernamen und den API-Schlüssel ein.
-Alle verbundenen Gateways und Taplinker werden nach dem Start des Adapters abgerufen. Der Hersteller erlaubt eine Abfrage aller Gateways und Geräte alle 5 Minuten. Der Adapter führt den Abruf automatisch stündlich oder bei jedem Neustart des Adapters durch.
+Bitte geben Sie den Benutzernamen und den API-Schlüssel in der Konfiguration ein.
+Alle verbundenen Gateways und Taplinker werden nach dem Start des Adapters abgefragt. Der Hersteller erlaubt eine Abfrage aller Gateways und Geräte alle 5 Minuten. Der Adapter führt die Abfrage automatisch jede Stunde oder bei jedem Neustart des Adapters durch.
 
-Der Bewässerungsstatusabruf kann in der Konfiguration individuell auf Minutenbasis eingestellt werden. Es kann bis zu einer Minute dauern, bis der Webdienst von LinkTap aktualisierte Bewässerungsinformationen bereitstellt.
+Der Abruf des Bewässerungsstatus kann in der Konfiguration individuell auf Minutenbasis eingestellt werden. Es kann bis zu einer Minute dauern, bis der Webservice von LinkTap aktualisierte Bewässerungsinformationen bereitstellt.
 
 Alle von der API bereitgestellten Bewässerungsfunktionen wurden implementiert.
 
@@ -32,7 +32,10 @@ Wichtig: Die gewünschten Zeitpläne müssen vor der Nutzung in der App eingeric
 
 ## Changelog
 
-### 0.2.3
+### 1.0.0
+* (Smart-Gang) Update of various dependencies and update to Node 18.
+
+### 0.3.0
 * (Smart-Gang) Added support for new devices (ValveLinker and multiple-outlet water timer) with 18-digit IDs.
 
 ### 0.2.1
@@ -53,7 +56,7 @@ Wichtig: Die gewünschten Zeitpläne müssen vor der Nutzung in der App eingeric
 ## License
 MIT License
 
-Copyright (c) 2021 Author <gangrulez@gmail.com>
+Copyright (c) 2024 Author <gangrulez@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

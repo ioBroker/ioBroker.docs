@@ -51,6 +51,9 @@ For example, `red = 0`, blue and green will stay unchanged.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2024-09-09)
+* (bluefox) Trying to reconnect after the EHOSTUNREACH error code
+
 ### 2.0.1 (2024-09-06)
 * (bluefox) Corrected error with array comparison
 * (bluefox) Added tests

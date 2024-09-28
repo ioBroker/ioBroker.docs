@@ -17,7 +17,7 @@ BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 
 # ioBroker.octoprint
 
-**Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.9.3**
+**Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.2**
 
 ## Features
 
@@ -72,6 +72,8 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
 ### **WORK IN PROGRESS**
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
+Tested with OctoPrint 1.10.2
 
 ### 5.1.0 (2023-10-25)
 

@@ -11,18 +11,6 @@
 
 adapter for Yamaha MusicCast devices like WX-010/030, YSP-1600
 
-## Installation:
-Installation requires nodejs v10 at minimum
-
-from npm
-```javascript
-npm install iobroker.musiccast
-```
-actual version from github (this might not every time work, when development is in progress)
-```javascript
-npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --production
-```
-
 ## Settings
 The admin page the "+" can be used for adding manually the IP address, DeviceID, Type and Name.
 Press the search button for discovery. If you have multiple devices, you have to hit the button multiple times until all devices are discovered. Unfortunately the discovery returns only one object at the time and this could be any of your MusicCast devices. If the return is the same as already part of the table, you have to hit the button again. Sometimes it helps to save and open the damin page again. 

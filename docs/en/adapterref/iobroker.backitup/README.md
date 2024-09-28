@@ -674,9 +674,13 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.25 (2024-09-26)
 * (bluefox) Improvement of Google Drive authentication workflow
 * (bluefox) Removed gulp from a build process
+* (simatec) small Design Fix
+* (simatec) Fix for Admin 7.1.5
+* (simatec) Fix Test & Release
+* (simatec) Fix ESlint errors
 
 ### 3.0.22 (2024-09-03)
 * (simatec) Fix Notification Instance

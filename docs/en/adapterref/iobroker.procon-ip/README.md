@@ -82,7 +82,7 @@ If you want to support this adapter or say thank you, you can:
 ### 1.6.0 (2024-09-08)
 * Fix versioning according to prior changes in requirements (should have happened with v1.5.5).
   * Raise minimum required js-controller version to 5.0.19.
-  * Raise minimum required node version to 18.
+  * Raise minimum required node version to 20.
 * Dependency updates.
 
 ### 1.5.5 (2024-08-19)

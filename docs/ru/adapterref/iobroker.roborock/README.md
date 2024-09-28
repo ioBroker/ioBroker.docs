@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.роборок
-hash: KQyJkrHrN2pfDPhqwZIHXP6HaOKF1GUsr794YtxHpPA=
+hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -58,10 +58,23 @@ hash: KQyJkrHrN2pfDPhqwZIHXP6HaOKF1GUsr794YtxHpPA=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.15 (2024-09-22)
+ * (copystring) Refactor some code
+ * (copystring) improve handling of online/offline detection and related logging
+ * (copystring) S6 MaxV supports avoid carpet
+
+### 0.6.14 (2024-09-13)
+ * (copystring) Fix bug in app_goto_target parameter validation
+
+### 0.6.13 (2024-09-12)
+ * (copystring) Bug fixes
  * (copystring) Add basic support for S8 MaxV Ultra
  * (copystring) Newly found attributes are now warning instead of error
  * (copystring) Improve detection of `home_sec`
+ * (copystring) Fix docking station detection
+ * (copystring) BREAKING: Adjust docking station states to reflect the smart phone app
+ * (copystring) Detect remote devices and connect via mqtt instead
+ * (copystring) Improve docking station feature handling
 
 ### 0.6.12 (2024-09-08)
  * (copystring) Change go2rtc github to go2rtc-static npm

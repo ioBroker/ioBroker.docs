@@ -35,8 +35,10 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.12.0 (2024-09-23)
 * Requirements from ioBroker Check and Service Bot #104
+* added battery packs #85
+* added config panel `Further Register`
 
 ### 0.11.0 (2024-06-27)
 * added a donation link in the adapter settings
@@ -53,7 +55,6 @@ Work in progress
 * modbus device remains active in standby on the inverter M2,M3
 
 ### 0.8.0 (2024-04-19)
-
 * Check numerical values for plausibility #75
 * realization the "limit the power fed to grid" (Export control)
 * realization the "forcible Charge or Discharge Power"

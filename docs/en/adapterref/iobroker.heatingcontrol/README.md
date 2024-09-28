@@ -282,6 +282,9 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (René) see issue #611: test with nodejs@22
+
 ### 2.12.10 (2024-08-18)
 * (René) update dependencies
 * (René) adaption for new Vis-2 widgets (Weather / Heating)

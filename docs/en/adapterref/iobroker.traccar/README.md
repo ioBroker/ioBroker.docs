@@ -35,8 +35,9 @@ This adapter imports in real time the position and the extended data from [Tracc
 	Placeholder for the next version (at the beginning of the line):
 	
 -->
-### **WORK IN PROGRESS**
--   (arteck) transfer to arteck
+### 1.1.5 (2024-09-26)
+-   (arteck) transfer to arteck 
+-   (arteck) add accuracy
 
 ### 1.1.4 (2023-10-30)
 -   (arteck) fix last_update DP
@@ -45,71 +46,71 @@ This adapter imports in real time the position and the extended data from [Tracc
 -   (arteck) geofances fix for Server >= 5.8 (check adapter Settings)
 
 ### 1.1.2 (2023-07-16)
--   (o0shojo0o) another fix for Traccar Server >= v5.8
+-   (arteck) another fix for Traccar Server >= v5.8
 
 ### 1.1.1 (2023-07-01)
--   (o0shojo0o) fix translation
+-   (arteck) fix translation
 
 ### 1.1.0 (2023-07-01)
--   (o0shojo0o) support for https/wss connections
--   (o0shojo0o) fix for Traccar Server < v5.8
+-   (arteck) support for https/wss connections
+-   (arteck) fix for Traccar Server < v5.8
 
 ### 1.0.1 (2023-06-22)
--   (o0shojo0o) fix deploy workflow
+-   (arteck) fix deploy workflow
 
 ### 1.0.0 (2023-06-22)
--   (o0shojo0o) fix for Traccar Server >= v5.8
+-   (arteck) fix for Traccar Server >= v5.8
 
 ### 0.0.12 (2022-07-20)
 
--   (o0shojo0o) fix geofenceIds now nullable
--   (o0shojo0o) add Device datapoint Status
+-   (arteck) fix geofenceIds now nullable
+-   (arteck) add Device datapoint Status
 
 ### 0.0.11 (2021-08-19)
 
--   (o0shojo0o) fix translation
+-   (arteck) fix translation
 
 ### 0.0.10 (2021-08-18)
 
--   (o0shojo0o) change UI to JSONConfig
+-   (arteck) change UI to JSONConfig
 
 ### 0.0.9 (2021-05-19)
 
--   (o0shojo0o) prevent unnecessary process attributes from being interrupted
--   (o0shojo0o) optimization of the link between device and incoming message
+-   (arteck) prevent unnecessary process attributes from being interrupted
+-   (arteck) optimization of the link between device and incoming message
 
 ### 0.0.8 (2021-04-30)
 
--   (o0shojo0o) bugfix wrong value type
+-   (arteck) bugfix wrong value type
 -   (Weblate) german language update
 
 ### 0.0.7 (2021-03-24)
 
--   (o0shojo0o) bugfix special characters in password or username
--   (o0shojo0o) code refactor
--   (o0shojo0o) better handling with new device or geolocation at runtime
+-   (arteck) bugfix special characters in password or username
+-   (arteck) code refactor
+-   (arteck) better handling with new device or geolocation at runtime
 
 ### 0.0.6 (2021-03-19)
 
--   (o0shojo0o) adjustments according to the adapter review
+-   (arteck) adjustments according to the adapter review
 
 ### 0.0.5 (2021-03-08)
 
--   (o0shojo0o) add [release-script](https://github.com/AlCalzone/release-script)
+-   (arteck) add [release-script](https://github.com/AlCalzone/release-script)
 
 ### 0.0.4
 
--   (o0shojo0o) add datapoint address (https://www.traccar.org/reverse-geocoding/)
+-   (arteck) add datapoint address (https://www.traccar.org/reverse-geocoding/)
 
 ### 0.0.3
 
--   (o0shojo0o) workaround for unclean geofences in the database
+-   (arteck) workaround for unclean geofences in the database
 
 ### 0.0.2
 
--   (o0shojo0o) add websocket connection
--   (o0shojo0o) add position url
--   (o0shojo0o) add dynamic datapoints for attributes
+-   (arteck) add websocket connection
+-   (arteck) add position url
+-   (arteck) add dynamic datapoints for attributes
 
 ### 0.0.1
 

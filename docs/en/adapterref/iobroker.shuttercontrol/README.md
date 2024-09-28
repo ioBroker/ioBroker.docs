@@ -794,7 +794,13 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.8.2 (2024-09-23)
+* (simatec) Responsive design Fix
+
+### 1.8.1 (2024-09-21)
+* (simatec) small Design Fix
+
+### 1.8.0 (2024-09-16)
 * (simatec) Dependencies updated
 * (simatec) Fix End-Delay for Sunprotect
 * (simatec) Update Translations

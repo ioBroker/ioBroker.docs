@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: byiO25Mnsddj/XIeN8UjJ+MooB/qM+eBrz8jX0M3Sqg=
+hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
 ---
 ![标识](../../../en/admin/lametric.png)
 

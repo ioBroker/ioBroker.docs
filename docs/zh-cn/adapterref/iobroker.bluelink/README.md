@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: +wu7t5+rsYxiYxI+26cps2HjaB1zvzUGQGTp9kVtd1Y=
+hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -31,9 +31,24 @@ https://github.com/AlCalzone/release-script#usage npm run release major -- -p io
 
 ### **正在进行中** -->
 ## 捐赠
-[![]（https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.0.1 (2024-09-27)
+* (arteck) activate jsonconfig
+  
+### 3.0.0 (2024-09-27)
+* (arteck) new structure jsonconfig
+
+### 2.3.11 (2024-09-27)
+* (arteck) redesign
+
+### 2.3.10 (2024-09-27)
+* (arteck) add address as text using openstreetmap
+
+### 2.3.9 (2024-09-26)
+* (arteck) add ccs2 car status
+
 ### 2.3.8 (2024-02-25)
 * (arteck) corr steerWheelHeat
 

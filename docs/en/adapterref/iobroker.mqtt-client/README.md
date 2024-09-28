@@ -87,8 +87,9 @@ default: state-ID converted to a mqtt topic.
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
-### __WORK IN PROGRESS__
+### 2.0.1 (2024-09-23)
 * (@klein0r) Added missing information in configuration dialog
+* (@klein0r) Fixed type of port configuration to avoid conflicts
 
 ### 2.0.0 (2024-06-21)
 * (klein0r) Password is now encrypted - you have to re-renter your password in instance settings!

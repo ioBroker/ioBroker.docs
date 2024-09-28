@@ -42,10 +42,11 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* km200: change encryption for private password - pw has to be re-entered 
+### 4.9.0 (2024-09-26)
+* ems-esp: improve reading for temperatureSensors
 * support small screens
 * update dependencies
+* update translations
 
 ### 4.8.0 (2024-08-27)
 * ems-esp: disabled parameter to search for extended EMS+ entities due to memory limitations in gateway
@@ -59,9 +60,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 ### 4.7.0 (2024-08-16)
 * ems-esp: do not allow more then one thermostat for extended own entities
 * ems-esp: error correction for holidayModes custom entities
-
-### 4.6.4 (2024-08-14)
-* ems-esp: error correction on polling for 3.6.5
 
 ## License
 MIT License

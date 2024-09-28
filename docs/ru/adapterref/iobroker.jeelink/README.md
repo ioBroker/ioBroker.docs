@@ -1,54 +1,29 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: b4G41zaqVIxZxuG/kePTos+2oSEKN60Tfxc7ktLC4Zc=
+hash: ygqO6reRPimNACWJSTeIFwnWGaYTFXUX8w51il+EQno=
 ---
 ![Логотип](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
 ![Количество установок](http://iobroker.live/badges/jeelink-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.jeelink.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.jeelink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.jeelink.svg)
 
 # IoBroker.jeelink
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
 
 Это адаптер для ioBroker для интеграции RFM12B/RFM69 через Jeelink.
-Jeelink можно использовать с предварительно загруженным программным обеспечением (rfmdemo) для считывания показаний датчиков openenergy (emon).
+Jeelink можно использовать с предустановленным программным обеспечением (rfmdemo) для считывания датчиков openenergy (emon).
 Для использования датчиков LaCrosse необходимо заменить прошивку (см. форум iobroker).
-
-## Установка:
-### Выпущенная версия
-```javascript
-npm install iobroker.jeelink
-```
-
-на малине может помочь использование:
-
-```javascript
- npm install --unsafe-perm iobroker.jeelink
- ```
-
- потому что пакет serialport должен быть собран на неподдерживаемом arm-hw
-
-### Актуальная версия разработки с github (при тестировании может не работать!)
-```javascript
-npm install https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
-```
-
-или же
-
-```javascript
-npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
-```
 
 ## Настройки:
 - USB-порт JeelinkAdapter обычно /dev/ttyACME
-- Серийная скорость обычно 57600 бод
+- Скорость последовательного порта обычно составляет 57600 бод
 
 ## Конфигурация:
-сделать в админке
+быть сделано в админ
 
 * определение порта USB
 * установка скорости передачи данных
@@ -58,27 +33,42 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 - определить комнату
 
 ## Датчики
-|Объект|варианты устройств|пример телеграммы|Описание|
+|Объект|Варианты устройств|Пример телеграммы|Описание|
 |--------|-------|:-:|--------|
-|emonTH|emonTH|ОК 19 ...|датчик с сайта openenergy.org|
+|emonTH|emonTH|OK 19 ...|датчик с openenergy.org|
 |emonWater|emonWater|OK 21 ... |датчик с RFM12B для учета воды|
-|LaCrosseDTH |TX|OK 9 ... |датчики LaCrosse, technoline|
-|LaCrosseDTT |TX|OK 9 ... |датчики LaCrosse, technoline double temp|
+|LaCrosseDTH |TX|OK 9 ... |датчики от LaCrosse, technoline|
+|LaCrosseDTT |TX|OK 9 ... |датчики от LaCrosse, technoline double temp|
 |HMS100TF |TXH29DTH-IT|H00 ... |датчики technoline|
-|LaCrosseBMP180||OK WS ... |сенсорный мод, суперджи|
+|LaCrosseBMP180||OK WS ... |сенсорный мод, superjee|
 |LaCrosseWS|WS1080,TX22,WS1600|OK WS ... |Метеостанция|
 |EC3000|EC3000|OK 22 ... |Счетчик энергии|
-|EMT7110|EMT7110|OK EMT7110 ... |Счетчик энергии|
-|уровень|уровень|ОК LS ... |датчик уровня|
-|DavisVantage|Davis Vantage|ОК ЗНАЧЕНИЕ ДЭВИС ... |Метеостанция|
+|EMT7110|EMT7110|OK EMT7110 ... |Счетчик электроэнергии|
+|уровень|уровень|OK LS ... |датчик уровня|
+|DavisVantage|Davis Vantage|OK VALUE DAVIS ... |Метеостанция|
 
 ## ДЕЛАТЬ:
 * другие типы датчиков
-* поместите код датчика в отдельный файл
+* поместить код датчика в отдельный файл
 * добавление нового датчика в конфигурацию, после чего он отображается на странице администрирования/конфигурации
-* HMS100TF Температура ниже 0°C и низкий заряд батареи должны быть реализованы
+* HMS100TF Температура ниже 0°C и низкий заряд батареи будут реализованы
 
 ## Changelog
+
+### 1.2.5 (npm)
+* (foxthefox) eslint upgrade and corrections
+
+### 1.2.4 (npm)
+* (foxthefox) IOB checker corrections
+
+
+### 1.2.3 (npm)
+* (foxthefox) serialport 12
+* (foxthefox) translation with @iobroker/adapter-dev
+
+### 1.2.2
+* (foxthefox) more datapoints for Davis Vantage
+
 ### 1.2.1
 * (foxthefox) corrections for Davis Vantage
 
@@ -156,4 +146,5 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 
 The MIT License (MIT)
 
-Copyright (c) 2016 - 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016 - 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

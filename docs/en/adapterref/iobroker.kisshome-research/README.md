@@ -1,4 +1,5 @@
 ![Logo](admin/kisshome-research.png)
+
 # ioBroker KISSHome research
 
 ![Number of Installations](http://iobroker.live/badges/kisshome-research-installed.svg)
@@ -13,48 +14,18 @@
 
 This special adapter was developed for the KISSHome research project. It is not intended for general use.
 
-To use this adapter, you must first register on the [KISSHome research](https://kisshome-feldversuch.if-is.net) website and get the confirmation email.
+To use this adapter, you must first register on the [KISSHome research](https://kisshome-research.if-is.net) website and get the confirmation email.
 
 To run this adapter, you need:
-- More than 3 smart home devices
-- Fritz!Box Router. Without `Fritz!Box`, the adapter will not work.
-- iobroker must run on debian/raspbian (or at least on linux, where the following commands are available: `which`, `rsync`)
+
+-   More than 3 smart home devices
+-   Fritz!Box Router. Without `Fritz!Box`, the adapter will not work.
+-   iobroker must run on debian/raspbian (or at least on linux, where the following commands are available: `which`, `rsync`)
 
 ## Todo
+
 Detect IP addresses from:
-- [X] hm-rpc (Homematic CCU),
-- [X] loxone,
-- [X] shelly,
-- [X] mqtt
-- [X] tr-064,
-- [-] alexa-2 - not possible, as alexa reads no IP addresses
-- [X] sonoff,
-- [X] modbus,
-- [X] hue (philips hue),
-- [-] tuya - not possible, It communicates with the cloud
-- [X] mqtt-client,
-- [-] synology - it is a multifunctional device - ignore it,
-- [X] sonos,
-- [X] mihome-vacuum,
-- [-] hmip (It communicates with the cloud),
-- [ ] homeconnect,
-- [X] wled (ESP8266/ESP32),
-- [X] unify,
-- [X] harmony,
-- [-] samsung (TV) - too many data,
-- [-] onvif (Webkameras) - too many data,
-- [-] kameras (URL oder IP-Kameras)  - too many data,
-- [-] proxmox - not possible, as alexa reads no IP addresses
-- [X] broadlink2,
-- [-] lgtv - too many data,
-- [X] knx (KNX-Gateway),
-- [X] openknx (KNX-Gateway),
-- [X] lcn,
-- [X] homekit-controller,
-- [X] upnp,
-- [X] openknx,
-- [X] wifilight,
-- [-] meross - not possible, It communicates with the cloud
+-   [ ] homeconnect,
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -62,28 +33,65 @@ Detect IP addresses from:
 -->
 
 ## Changelog
+### 1.0.11 (2024-09-26)
+-   (bluefox) Trying to fix CI
+-   (bluefox) Do not allow the traffic recording of FritzBox 
+-   (bluefox) Do not allow recording the traffic if no any MAC provided
+-   (bluefox) Corrected links to web page
+
+### 1.0.7 (2024-09-21)
+-   (bluefox) Corrected the error if MAC address cannot be determined
+
+### 1.0.6 (2024-09-21)
+-   (ChrisDietrich) Corrected the link in readme.md
+-   (bluefox) Corrected the Big-Endian PCAP format
+-   (bluefox) the Fixed build pipeline
+
+### 1.0.4 (2024-09-19)
+
+-   (bluefox) Corrected GUI
+-   (bluefox) Filter out not used interfaces
+-   (bluefox) Added notification to admin if public key not accepted
+-   (bluefox) Try to detect zero bytes interfaces
+
+### 1.0.2 (2024-09-15)
+
+-   (bluefox) Added error logging
+
+### 1.0.1 (2024-09-14)
+
+-   (bluefox) Implemented the support for the big endian format of a PCAP file
+
 ### 1.0.0 (2024-09-06)
-* (bluefox) Corrected configuration page
+
+-   (bluefox) Corrected configuration page
 
 ### 0.3.1 (2024-08-31)
-* (bluefox) Added detection of some IPs
+
+-   (bluefox) Added detection of some IPs
 
 ### 0.2.1 (2024-08-28)
-* (bluefox) used valid URL address
+
+-   (bluefox) used valid URL address
 
 ### 0.1.1 (2024-08-20)
-* (bluefox) Used MD5 for the file consistency check
+
+-   (bluefox) Used MD5 for the file consistency check
 
 ### 0.1.0 (2024-08-19)
-* (bluefox) File upload was implemented
+
+-   (bluefox) File upload was implemented
 
 ### 0.0.3 (2024-08-14)
-* (bluefox) Added the recording enabled option
+
+-   (bluefox) Added the recording enabled option
 
 ### 0.0.2 (2024-07-22)
-* (bluefox) Initial commit
+
+-   (bluefox) Initial commit
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2024 Denis Haev <dogafox@gmail.com>

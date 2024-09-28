@@ -71,6 +71,10 @@ Now we have implemented a "auto-repair" which changes to structure to documented
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) see issue #406: test with nodejs@22
+
 ### 3.1.16 (2024-08-18)
 * (René) update dependencies
 * (René) bug fixes based on adapter checker recommendation

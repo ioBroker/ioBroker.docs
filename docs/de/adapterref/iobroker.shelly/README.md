@@ -59,6 +59,17 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 8.2.1 (2024-09-23)
+
+* (@Matze2010) Added datapoint for cover target position
+* (@klein0r) Fixed integration of Shelly 1 PM Gen 3
+
+### 8.2.0 (2024-09-19)
+
+* (@Scrounger) Added Shelly BLU Wall Switch 4 & Shelly BLU RC Button 4
+* (@Paradoxa) Added Shelly Plus RGBW PM
+* (simatec) Responsive Design added
+
 ### 8.1.1 (2024-08-27)
 
 * (@klein0r) Fixed lint issues and Shelly Gen 3 import
@@ -76,23 +87,6 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 * (klein0r) Added Shelly H&T (Gen3)
 * (klein0r) Improved structure of ble events (receivedBy) - see documentation for details
 * (bluefox) Improved the color of icons in the admin interface
-
-### 7.0.0 (2024-04-29)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Added Shelly 1 Mini (Gen3)
-* (svenbluege) Added Shelly 1 PM Mini (Gen3)
-* (klein0r) Added Shelly PM Mini (Gen3)
-* (klein0r) Added Shelly Pro Dimmer 1 PM and Pro Dimmer 2 PM
-* (klein0r) Fixed Shelly Wall Display integration
-* (klein0r) Added device list of ble events (receivedBy) - removed rssi state
-* (klein0r) Added Switch Addon for Shelly Pro 3 EM
-
-### 6.9.0 (2024-03-12)
-
-* (klein0r) Added Shelly Plus 0-10V
-* (klein0r) Admin notification for available firmware updates
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: qQ89mfWA4OhgZOGhnPzzMrTC5iiGari5AcH8qy9ZR1k=
+hash: giiX9+hLwLWA5HvDhp/CfEdsy2+ubQ+cvWtQJK0h248=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
@@ -53,7 +53,11 @@ Sie müssen den ioBroker-Status für diese Systemvariable eingeben -> **z. B. �
 daily = Tagesertrag (kWh) montly = Monatsertrag (kWh) yearly = Jahresertrag (kWh) total = Gesamtertrag (kWh) current = Generatorleistung in W UDC, UDCB, UDCC, UDCD = Generatorspannungen in Volt je MPP-Tracker IDC, IDCB, IDCC, IDCD = Generatorstrom in Ampere je MPP-Tracker UL1, IL1 = Netzspannung Netzphase 1 UL2, IL2 = Netzspannung Netzphase 2 UL3, IL3 = Netzspannung Netzphase 3 TKK = Temperatur Wechselrichter
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.1.3 (2024-09-17)
+* (afuerhoff) adapter checker changes [#176](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/176)
+* (afuerhoff) dependencies updated
+
+### 1.1.2 (2024-09-13)
 * (afuerhoff) adapter checker changes
 * (afuerhoff) dependencies updated
 * (afuerhoff) automatic restart [#170](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/170)
@@ -74,14 +78,6 @@ daily = Tagesertrag (kWh) montly = Monatsertrag (kWh) yearly = Jahresertrag (kWh
 ### 1.0.8 (2024-01-18)
 * (afuerhoff) dependencies updated
 * (afuerhoff) translations updated
-
-### 1.0.7 (2022-12-21)
-* (afuerhoff) dependencies updated
-
-### 1.0.6 (2022-07-04)
-* (afuerhoff) dependencies updated
-* (afuerhoff) Interval settings changed from minutes to seconds
-* (afuerhoff) States only writen after changes
 
 ## License
 MIT License

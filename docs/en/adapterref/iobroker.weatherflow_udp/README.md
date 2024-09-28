@@ -12,7 +12,6 @@
 [![NPM](https://nodei.co/npm/iobroker.weatherflow_udp.png?downloads=true)](https://nodei.co/npm/iobroker.weatherflow_udp/)
 
 **Tests:**
-[![Travis-CI](http://img.shields.io/travis/woessmich/ioBroker.weatherflow_udp/master.svg)](https://travis-ci.com/github/woessmich/ioBroker.weatherflow_udp)
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/woessmich/ioBroker.weatherflow_udp?branch=master&svg=true)](https://ci.appveyor.com/project/woessmich/iobroker-weatherflow-udp)
 
 
@@ -59,6 +58,8 @@ The protocol sends a lightning distance of 0 when no lightning was detected. Val
 
 ## Changelog
 
+### 0.1.4
+(womi) updated to reflect latest requirements on dependencies, node.js, js-controller etc.
 ### 0.1.3 
 (Scrounger) calculation of absolute humidity added
 ### 0.1.2
@@ -89,4 +90,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2022 womi <woessmich@gmail.com>
+Copyright (c) 2024 womi <woessmich@gmail.com>

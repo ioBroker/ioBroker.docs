@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: yOPURHjALTS8LFxCvZ7F6bRoIinPS2T2dFhTsl/Yrn0=
+hash: v79sB+qJGF251kaqSEKfkFR2Mp5ayVC4dF53uCcv1hc=
 ---
 ![标识](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -17,12 +17,12 @@ hash: yOPURHjALTS8LFxCvZ7F6bRoIinPS2T2dFhTsl/Yrn0=
 **测试：**![测试与发布](https://github.com/MyHomeMyData/ioBroker.e3oncan/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 e3oncan 适配器
-＃ 基本概念
+# 基本概念
 Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换。
 
 该适配器可以监听此通信并提取许多有用信息。还支持电表 E380CA 和 E3100CB。这种操作模式称为**收集**。
 
-同时支持**读取和写入数据点**。可以主动请求通过监听无法获得的信息。通过写入数据点，可以更改设定点、计划等。甚至可以添加新的计划，例如用于家用热水循环泵。这种操作模式称为**UDSonCAN**。其他设备（例如著名的 WAGO 网关）也使用 UDSonCAN 协议（基于 CAN 总线的**通用**诊断**服务）。
+同时支持**读取和写入数据点**。可以主动请求通过监听无法获得的信息。通过写入数据点，可以更改设定点、计划等。甚至可以添加新的计划，例如用于家用热水循环泵。这种操作模式称为**UDSonCAN**。其他设备（例如著名的 WAGO 网关）也使用 UDSonCAN 协议（基于 CAN 总线的通用诊断服务）。
 
 数据写入通过存储相应状态（`Acknowledged` 未选中（ack=false））来触发 - 是的，就这么简单！写入后 2.5 秒，数据点将再次从设备读取并存储在该状态中。如果状态未得到确认，请查看日志。
 
@@ -38,6 +38,8 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 本适配器的重要部分基于项目[open3e](https://github.com/open3e)。
 
 还可以使用基于 Python 的、使用 MQTT 消息传递的纯监听方法（仅收集）实现，请参阅[E3onCAN](https://github.com/MyHomeMyData/E3onCAN)。
+
+注意：对 **Node.js 22** 的支持尚未完全测试！
 
 ＃ 入门
 **先决条件：**
@@ -89,7 +91,7 @@ CAN-address=98：具有奇数 ID 的数据点
 | 602,603 | 总有功功率，总无功功率 | W, var |
 | 604,605 | 累计进口量 | 千瓦时 |
 
-# E3100CB 数据和单位
+#E3100CB 数据和单位
 | ID | 数据| 单位|
 | ------|:--- |------|
 | 1385_01 | 累计进口量 | kWh |
@@ -108,12 +110,12 @@ CAN-address=98：具有奇数 ID 的数据点
 | 1385_14 | 电流，绝对 L3 | A |
 | 1385_07 | 电压，L1 | V |
 | 1385_11 | 电压，L2 | V |
-| 1385_15 |电压，L3 | V |
+| 1385_15 | 电压，L3 | V |
 
 # 提示和限制
 ## 为什么要并行使用数据收集（模式 Collect）和 UDSonCAN？
 * 连接 E3 设备后，您就可以从交换的数据中受益（[更多详细信息](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34)）。只需监听，您就可以在变化时实时收到可用数据。因此，您可以在每次变化时直接获得快速变化的数据（例如能量流值）和缓慢变化的数据（例如温度）。您可以随时了解这些值。
-* 您可以通过 UDSonCAN ReadByDid 添加无法或很少通过收集获得的其他数据。通常对于设定点数据，这是最佳方法。
+* 其他无法或很少通过收集获得的数据，您可以通过 UDSonCAN ReadByDid 添加。通常对于设定点数据，这是最佳方法。
 * 因此，从我的角度来看，两种方法的结合是最好的方法。
 
 ## 收集数据的限制
@@ -136,6 +138,23 @@ CAN-address=98：具有奇数 ID 的数据点
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.5 (2024-09-19)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240916
+
+### 0.9.4 (2024-08-26)
+* (MyHomeMyData) Start up an UDS worker for each device to allow writing of data points even when no schedule for reading is defined on this device
+* (MyHomeMyData) Update of npm dependencies
+
+### 0.9.3 (2024-08-20)
+* (MyHomeMyData) Bugfix: Updating UDS communication statistics, even in case of persistent timeout events
+* (MyHomeMyData) Disabled sinon should interface
+* (MyHomeMyData) Fixes based on issues #55,#56
+* (MyHomeMyData) Bugfix: Time delta between schedules of UDS workes was not working properly
+
+### 0.9.2 (2024-08-09)
+* (MyHomeMyData) Update of dependencies, fixes based on issue #53
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240808
+
 ### 0.9.1 (2024-05-26)
 * (MyHomeMyData) Updated README, added links for description of device topology and to uses cases
 * (MyHomeMyData) Added info for data points 2404_BivalenceControlMode and 2831_BivalenceControlAlternativeTemperature

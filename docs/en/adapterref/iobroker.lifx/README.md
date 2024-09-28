@@ -8,17 +8,6 @@
 
 Lifx adapter for ioBroker
 
-## Installation:
-the official released version
-```javascript
-npm install iobroker.lifx
-```
-
-the actual version from github:
-```javascript
-npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --production
-```
-
 ## Settings/Configuration:
 - no settings or configuration required, adapter automatically detects the lamps
 ### metro widget unreachable status

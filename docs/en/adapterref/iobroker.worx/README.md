@@ -231,8 +231,10 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 -   `mowerActive`: Pause mowing plan (wire/changeable)
 -   `mqtt_update`: Update Mqtt data max. 150/day (wire & Vision/changeable)
 -   `mqtt_update_count`: Counter Update Mqtt data (wire & Vision/readonly)
+-   `notification`: Enable or disable notification via JS controller. Offline and error messages are output. (Design & Vision/changeable)
 
-![Mower img/mower_2.png](img/mower_2.png)
+![Mower img/mower_2.png](img/mower_2.png)</br>
+![Mower img/info_connection.png](img/info_connection.png)
 
 -   `oneTimeJson`: One-time mowing as JSON (wire & Vision/changeable)
 
@@ -781,7 +783,11 @@ Default without zone:
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+**WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added JS-Controller Notification
+
+### 3.1.0 (2024-09-10)
 
 -   (Lucky-ESA) Added Landroid IP
 -   (Lucky-ESA) Fixed interval

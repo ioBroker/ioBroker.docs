@@ -44,6 +44,9 @@ This should give you the password and a status in return.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Morluktom) Bugfix: State value to set for "lg-ess-home.0.user.essinfo.home.statistics.bat_status" has to be type "number" but received type "string"
+
 ### 0.3.0 (2024-08-10)
 * (Morluktom) Fixed warnings found by adapter checker
 * (Morluktom) Added Admin 5 configuration

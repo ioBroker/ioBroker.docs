@@ -75,9 +75,9 @@ sendTo("reolink.0",{action: "snap"}, function(result){
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.2 (2024-09-14)
 * (oelison) [#22](https://github.com/aendue/ioBroker.reolink/issues/22) password with some more special chars works now
-* (oelison) adapter warnings resolved (not all)
+* (oelison) adapter warnings resolved
 
 ### 1.1.1 (2024-08-03)
 * (oelison) removed warnings from adapter check

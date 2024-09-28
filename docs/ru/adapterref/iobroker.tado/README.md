@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: geVZ7oXA8AL/ojS3YQGyqgz0/bMerKYEh5QjLFk6zy8=
+hash: wcKDGuZTcAl+b0gv/mO1IAPS9wElt49zMNjRAsMdLH8=
 ---
 # IoBroker.tado
 
@@ -48,6 +48,7 @@ Tado X **в настоящее время не поддерживается** э
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (только устройства AC с версией V3+) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Вертикальное качание (только устройства переменного тока с версией V3+) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Горизонтальное качание (только устройства переменного тока с V3 и более старыми версиями) |
+| tado.[x].[yyyyyy].meterReadings | JSON-объект с {"date":"YYYY-MM-DD","reading": 1234} можно использовать для загрузки показаний счетчиков в Energy IQ |
 
 ## Требует
 * Node.js 18 или выше
@@ -58,6 +59,13 @@ Tado X **в настоящее время не поддерживается** э
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.7-alpha.1 (2024-09-25)
+* (HGlab01) Change of attribute "light" supported
+* (HGlab01) Add attribute 'connection'
+* (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'
+* (HGlab01) Bump axios to 1.7.7
+* (HGlab01) EnergyIQ meter-readings can be uploaded
+
 ### 0.5.6 (2024-08-06)
 * (HGlab01) Improve AccessToken Management
 * (HGlab01) Bump axios to 1.7.3
@@ -74,10 +82,6 @@ Tado X **в настоящее время не поддерживается** э
 ### 0.5.3 (2024-01-29)
 * (HGlab01) Improve axios handling
 * (HGlab01) Bump axios to 1.6.7
-
-### 0.5.1 (2023-12-11)
-* (HGlab01) Bump json-explorer to 0.1.15
-* (HGlab01) Prepare (c) for 2024
 
 ## License
 MIT License

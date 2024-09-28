@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-hash: qJeEJ8ncgCfZoYvL/D1Bmfqc3k6U9lmz+R4Pxc9Lzm0=
+hash: 5lVnGUkghKSehN1aDAMXEmrP6XnAxenBvUzyN+8W8ko=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -16,8 +16,6 @@ hash: qJeEJ8ncgCfZoYvL/D1Bmfqc3k6U9lmz+R4Pxc9Lzm0=
 ![ютуб](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.png)
 
 Видеоролик об использовании виджетов можно найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ) (на немецком языке).
-
-**Важно: для виджетов требуется платная лицензия, которую можно заказать по адресу [iobroker.net](https://iobroker.net/www/pricing#commercial/iobroker.vis-2-widgets-jaeger-design)**
 
 Видео с виджетами можно найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ).
 
@@ -51,6 +49,10 @@ createState('javascript.0.rss', {type: 'string'}, () => {
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.3.1 (2024-09-23)
+* (bluefox) Removed gulp from a build process
+* (bluefox) Added the possibility to select camera from the "cameras" adapter
+
 ### 1.2.7 (2024-07-17)
 * (bluefox) allowed multi-line buttons for the thermostat
 

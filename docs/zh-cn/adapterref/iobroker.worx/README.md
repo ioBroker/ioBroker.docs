@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
+hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -31,14 +31,14 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - `multiZones`：多区域（可实现视觉/控制）
 - `日历`：时间表（可以进行有线和视觉/控制）
 - `模块`：您的模块（可能的线路和视觉/控制）
-- `mower`：你的割草机（可以使用电线和视觉/控制）
+- `mower`：你的割草机（可用电线和视觉/控制）
 - `product`：设备的所有属性（Wire & Vision / readonly）
 - `rawMqtt`: 来自云端的所有数据 (Wire & Vision / readonly)
 
 ![文件夹 img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
 ### ActivityLog（Wire 和 Vision）
-- `last_update`：最后更新时间戳（Wire＆Vision /只读）
+- `last_update`：最后更新时间戳（Wire＆Vision/只读）
 - `manuell_update`：加载当前活动日志（状态改变后自动加载 - 可以使用 Wire & Vision/控制）
 - `payload`：活动日志作为 JSON 表（用于 VIS 或 Blockly）
 
@@ -57,7 +57,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 ![区域 img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
 ### 日历（电报）
-- 例如，周三的时间设置
+- 例如，时间设置为星期三
 
 - `wednesday.borderCut`：有或无bordercut（立即更改值）（可更改）
 - `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（无延迟更改值）（可更改）
@@ -73,7 +73,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - 例如，时间设置为星期五
 - 标准情况下，会创建 2 个时间段。如果在 APP 中创建了 3 个时间段，ioBroker 中也会创建 3 个时间段。如果再次减少到 2 个时间段，ioBroker 中会删除这些时间段。时间段最多的一天将作为所有日期的参考。
 
-- `friday.time_0.borderCut`：有无bordercut（立即更改值）（可更改）
+- `friday.time_0.borderCut`：有无边框（立即更改值）（可更改）
 - `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（立即更改值）（可更改）
 - `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）
 - `friday.time_0.enabled_time`：激活或停用时间。（无延迟设置）（可以更改）
@@ -82,7 +82,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - `calJson_tosend`: 这个 JSON 是自动填充然后发送给 Mqtt 的。当然你也可以自己创建。(可更改)
 - `add_timeslot`：添加额外的时间段。重启后，未使用的时间段将被删除。（可更改）
 
-![文件夹 img/calendar.png](img/calendar_vision.png) ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
+![文件夹 img/calendar.png](img/calendar_vision.png)![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
 
 ### 示例时间段（愿景）
 - `calJson_tosend` 此 JSON 将在周日输入 1 次，并删除所有其他日期。整个星期必须始终提交。
@@ -138,7 +138,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - `cameraError`: 相机错误 0=OK/1=Error (Vision/readonly)
 - `cutOverSlabs`: 切换板开启 = true / 关闭 = false （视觉/可更改）
 - `direction`：以度为单位的方向（wire & Vision/readonly）
-- `edgecut`: 启动 EdgeCut (线和视觉/可更改)
+- `edgecut`: 启动 EdgeCut (线材 & 视觉/可更改)
 - `error`：来自割草机的错误消息（wire & Vision/readonly）
 
 ```json
@@ -222,8 +222,9 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - `mowerActive`：暂停割草计划（有线/可更改）
 - `mqtt_update`: 每天最多更新 150 条 Mqtt 数据（有线和视觉/可更改）
 - `mqtt_update_count`：计数器更新 Mqtt 数据（有线和视觉/只读）
+- `notification`：通过 JS 控制器启用或禁用通知。输出离线和错误消息。（设计与愿景/可更改）
 
-![割草机 img/mower_2.png](../../../en/adapterref/iobroker.worx/img/mower_2.png)
+![割草机 img/mower_2.png](img/mower_2.png)</br> ![割草机 img/info_connection.png](../../../en/adapterref/iobroker.worx/img/info_connection.png)
 
 - `oneTimeJson`: 一次性割草为 JSON (wire & Vision/可更改)
 
@@ -239,7 +240,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - `oneTimeWorkTime`：工作时间最长为 8 小时，每 30 分钟为一个步骤 - 无延迟更改值（线路和视觉/可更改）
 - `oneTimeZones`: 设置区域 [1,2,4] (视觉/可更改)
 - `online`：割草机在线（有线和视觉/只读）
-- `partyModus`：Partymodus 开启/关闭（线路和视觉/可更改）
+- `partyModus`：Partymodus 开启/关闭（线路与视觉/可更改）
 - `暂停`：割草机断电开启/关闭（电线和视觉/可更改）
 - `reset_battery_time`：分两步重置电池电量（线路和视觉/可更改）
 - `reset_battery_time_approved`：确认重置电池电量 - `reset_battery_time` 必须设置为 true （线路和视觉/可修改）
@@ -249,7 +250,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 ![割草机 img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
 
 - `rfidStatus`：状态 RF 传感器 0=OK/1=Error（视觉/只读）
-- `sendCommand`: 发送 cmd 命令 (有线 & 视觉/可更改)
+- `sendCommand`: 发送 cmd 命令 (wire & Vision/changeable)
 
 ```json
 {
@@ -349,7 +350,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - `multiZones.passages.passage_01.zoneIdFrom`：区域来自（必须 zoneIdFrom < zoneIdTo） - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（vision/changeable）
 - `multiZones.passages.passage_01.zoneIdTo`: 区域关闭 (必须 zoneIdTo > zoneIdFrom) - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
 - `multiZones.multiZones`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-sendMultiZonesJson-vision)
-- `multiZones.sendMultiZonesJson`：将更改发送到 Worx，延迟 1.1 秒（视觉/可更改）
+- `multiZones.sendMultiZonesJson`：延迟 1.1 秒将更改发送到 Worx（视觉/可更改）
 
 例子：
 
@@ -431,7 +432,7 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 - `incompleteOperationCount`：提交给连接但尚未完成的操作总数。未确认的操作是其中的一部分。
 - `incompleteOperationSize`：提交给连接但尚未完成的操作的总数据包大小。未确认的操作是其中的一部分。
 - `unackedOperationCount`：已发送到服务器并在完成之前等待相应 ACK 的操作总数。
-- `unackedOperationSize`：已发送到服务器且正在等待相应 ACK 才能完成的操作的总数据包大小。
+- `unackedOperationSize`：已发送到服务器并在等待相应 ACK 才能完成的操作的总数据包大小。
 - `last_update`: 来自 token 的最后更新
 - `next_update`: 来自 token 的下一次更新
 - `online`：MQTT 连接状态（false=离线/true=在线）
@@ -760,10 +761,21 @@ hash: IPa3Iu0n8NiIiCDAjFZBnWYrEca0cI7/ZG7hmXF+tAU=
 
 ![ok_direct.png](../../../en/adapterref/iobroker.worx/img/ok_direct.png)
 
-＃＃＃ 不允许
-![json_nok.png](img/json_nok.png) ![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
+### 不允许
+![json_nok.png](img/json_nok.png)![图片/数组_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
+
+**WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added JS-Controller Notification
+
+### 3.1.0 (2024-09-10)
+
+-   (Lucky-ESA) Added Landroid IP
+-   (Lucky-ESA) Fixed interval
+-   (Lucky-ESA) Fixed Vision Edgecut
+
 ### 3.0.2 (2024-05-12)
 
 -   (Lucky-ESA) mowTimeExtend restricted input

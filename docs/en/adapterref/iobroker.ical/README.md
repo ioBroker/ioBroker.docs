@@ -204,6 +204,7 @@ Whitelist: If you only want to include events of a specific location, use regula
 -->
 ### **WORK IN PROGRESS**
 * (klein0r) Breaking change: Removed trigger state (subscribe is deprecated in js-controller 6.x)
+* (simatec) Responsive design added
 
 ### 1.15.0 (2024-04-30)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now

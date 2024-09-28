@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: yOPURHjALTS8LFxCvZ7F6bRoIinPS2T2dFhTsl/Yrn0=
+hash: v79sB+qJGF251kaqSEKfkFR2Mp5ayVC4dF53uCcv1hc=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -17,7 +17,7 @@ hash: yOPURHjALTS8LFxCvZ7F6bRoIinPS2T2dFhTsl/Yrn0=
 **Tests:** ![Testen und Freigeben](https://github.com/MyHomeMyData/ioBroker.e3oncan/workflows/Test%20and%20Release/badge.svg)
 
 ## E3oncan-Adapter für ioBroker
-# Basiskonzept
+# Grundkonzept
 Geräte der Viessmann E3-Serie (One Base) tauschen viele Daten über den CAN-Bus aus.
 
 Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Die Energiezähler E380CA und E3100CB werden ebenfalls unterstützt. Dieser Betriebsmodus wird **Collect** genannt.
@@ -40,6 +40,8 @@ Wichtige Teile dieses Adapters basieren auf dem Projekt [offen3e](https://github
 
 Eine Python-basierte Implementierung eines reinen Listening-Ansatzes (nur Collect) unter Verwendung von MQTT-Messaging ist ebenfalls verfügbar, siehe [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
+Hinweis: Die Unterstützung für **Node.js 22** ist noch nicht vollständig getestet!
+
 # Erste Schritte
 **Voraussetzungen:**
 
@@ -51,9 +53,9 @@ Eine Python-basierte Implementierung eines reinen Listening-Ansatzes (nur Collec
 
 Alle von diesem Adapter bereitgestellten Dienste basieren auf der Geräteliste Ihres spezifischen Viessmann E3-Setups. Daher müssen Sie bei der ersten Einrichtung die folgenden Schritte ausführen:
 
-**Aufbau**
+**Konfiguration**
 
-* Nach Abschluss der Installation des Adapters wird ein Konfigurationsdialogfeld angezeigt, in dem Sie bis zu zwei CAN-Bus-Adapter konfigurieren können (Registerkarte „CAN-ADAPTER“).
+* Nach Abschluss der Installation des Adapters wird ein Konfigurationsdialog angezeigt, in dem bis zu zwei CAN-Bus-Adapter konfiguriert werden können (Registerkarte „CAN-ADAPTER“).
 * Bearbeiten Sie den Namen des Adapters und aktivieren Sie das Kontrollkästchen "Mit Adapter verbinden" zumindest für den externen Adapter
 * Wenn Sie fertig sind, drücken Sie die Schaltfläche „SPEICHERN“, um die Änderungen anzuwenden. Dieser Schritt ist **obligatorisch**. Die Instanz wird neu gestartet und stellt eine Verbindung zum CAN-Adapter her.
 * Gehen Sie zur Registerkarte „LISTE DER UDS-GERÄTE“ und führen Sie einen Scan nach auf dem Bus verfügbaren Geräten durch, indem Sie die Scan-Schaltfläche drücken. **Dies dauert einige Sekunden.** Sie können die Aktivitäten in einer zweiten Browser-Registerkarte verfolgen, indem Sie sich die Protokollinformationen des Adapters ansehen.
@@ -137,6 +139,23 @@ Ja, das ist unter bestimmten Voraussetzungen möglich:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.9.5 (2024-09-19)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240916
+
+### 0.9.4 (2024-08-26)
+* (MyHomeMyData) Start up an UDS worker for each device to allow writing of data points even when no schedule for reading is defined on this device
+* (MyHomeMyData) Update of npm dependencies
+
+### 0.9.3 (2024-08-20)
+* (MyHomeMyData) Bugfix: Updating UDS communication statistics, even in case of persistent timeout events
+* (MyHomeMyData) Disabled sinon should interface
+* (MyHomeMyData) Fixes based on issues #55,#56
+* (MyHomeMyData) Bugfix: Time delta between schedules of UDS workes was not working properly
+
+### 0.9.2 (2024-08-09)
+* (MyHomeMyData) Update of dependencies, fixes based on issue #53
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20240808
+
 ### 0.9.1 (2024-05-26)
 * (MyHomeMyData) Updated README, added links for description of device topology and to uses cases
 * (MyHomeMyData) Added info for data points 2404_BivalenceControlMode and 2831_BivalenceControlAlternativeTemperature

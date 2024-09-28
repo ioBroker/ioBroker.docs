@@ -32,6 +32,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.9 (2024-09-09)
+* (misanorot) fixed issue #211
+
 ### 1.4.8 (2024-09-01)
 * (misanorot) updated iob checker issues
 * (misanorot) fixed issue #211
@@ -44,11 +47,6 @@
 
 ### 1.4.5 (2023-08-13)
 * (misanorot) fixed issue #135
-
-### 1.4.4 (2023-06-21) 
-* (misanorot) Fixed JS-Controller 5 issues
-
-**[older changelogs](CHANGELOG_OLD.md)**
 
 ### License
 

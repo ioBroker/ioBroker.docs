@@ -21,24 +21,49 @@ Furthermore you have to add the functions temperature, humidity and engine to th
 ![Configuration exampe](img/configExample.png)
 
 ### Main Settings
-*heating mode:* you can choose beween cooling and heating.
+#### heating mode
+you can choose beween cooling and heating.
 
-*Reset temperatures to default on adapter starts:* if this setting is active, all temperature states will be overwritten with default temperature and targetUntil. So the next temperature check will set the temperatures to the configured temperatures setted in periods.
+#### Reset temperatures to default on adapter starts
+ if this setting is active, all temperature states will be overwritten with default temperature and targetUntil. So the next temperature check will set the temperatures to the configured temperatures setted in periods.
 
-*Stop cooling if humidity is higher than:*  If humudity is reached, cooling will be stopped. It only works, if you have add the humidity sensor to the Function and the Room.
+#### Stop cooling if humidity is higher than
+  If humudity is reached, cooling will be stopped. It only works, if you have add the humidity sensor to the Function and the Room.
 
-*Update intervall in seconds:* Define how often the adapter will check the temperatures an set the engines
+#### Update intervall in seconds
+ Define how often the adapter will check the temperatures an set the engines
 
-*Default temperature:* Define the temperature to set if no period is matching for the a room
+#### Default temperature
+ Define the temperature to set if no period is matching for the a room
 
-*Time until pause will be end in minutes:* Define the time until die pause state will be reset to inactive in minutes
+#### Time until pause will be end in minutes
+ Define the time until die pause state will be reset to inactive in minutes
 
-*Time until boost will be end in minutes:* Define the time until die boost state will be reset to inactive in minutes
+#### Time until boost will be end in minutes
+ Define the time until die boost state will be reset to inactive in minutes
 
-*Diffenernce from target temperature until start or stop heating:* Define the difference from target temperature until the adapter will start or stop heating. For example if 20° is target temperature, this setting is 0.5 and engine is off heting will start if temperature is lower than 19.5° and will stop heating if temperature is higher tan 20.5°.
+#### Diffenernce from target temperature until start or stop heating
+ Define the difference from target temperature until the adapter will start or stop heating. For example if 20° is target temperature, this setting is 0.5 and engine is off heting will start if temperature is lower than 19.5° and will stop heating if temperature is higher tan 20.5°.
 
 ### Periods
 You can define periods for every room and time. Forthermore you can define whether this period should be used for cooling or heating. If heating mode is not matching to the setted mode on main settings the period will be ignored.
+
+### Actions
+While the adapter is running, you can use actions to change the handling for special cases. These actions will be found in objects in the *Actions* folder below your adapter. Some actions are avaliable for all rooms and for speccial rooms. 
+#### Absence
+To deactivate the heating control while e.g. holiday you can insert an absence until date in your objects in *Actions absenceUntil*. Here you can enter an date in format *dd.MM.yyyy hh:mm* (e.g. *01.01.2024 14:00*). If activated the periods will be ignored and temperatures will be set to [default temperature](#default-temperature).
+
+This config is avaliable for all room in general. 
+
+#### Pause
+To stop the heating for a while you can activate a pause. The pause state will be resetted after the time defined in [settings](#time-until-pause-will-be-end-in-minutes) to deactivated. If pause is active the periods will be ignored and no heating will be performed.
+
+This config is avaliable for all room in general and for special rooms. 
+
+#### Boost
+To stop the heating for a while you can activate a boost. The boost state will be resetted after the time defined in [settings](#time-until-boost-will-be-end-in-minutes) to deactivated. If boost is active the periods will be ignored and heating will be performed.
+
+This config is avaliable for all room in general and for special rooms. 
 
 
 ## Changelog
@@ -46,6 +71,11 @@ You can define periods for every room and time. Forthermore you can define wheth
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-09-17)
+* (jbeenenga) update dependencies
+* (jbeenenga) add absence mode
+* (jbeenenga) fix pause and boost for cooling mode
+
 ### 1.7.0 (2023-01-05)
 * (jbeenenga) fix bug for end boost or pause mode
 * (jbeenenga) provide corrent humidity in temperatures
@@ -77,7 +107,7 @@ The main image created by Freepick (https://www.flaticon.com/de/kostenloses-icon
 ## License
 MIT License
 
-Copyright (c) 2023 jbeenenga <j.beenenga@gmail.com>
+Copyright (c) 2024 jbeenenga <j.beenenga@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

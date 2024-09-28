@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yahka/README.md
 title: iobroker.yahka
-hash: NeTnpfxPzOrV6XiuRuh+VVAFJY8MT0O8/zvi1ITnnoM=
+hash: 5kS1aNzjVYFZ7GMXeZQp0GDoEU84l7z6x91GrxmtWbQ=
 ---
 ![标识](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
 
@@ -24,7 +24,7 @@ hash: NeTnpfxPzOrV6XiuRuh+VVAFJY8MT0O8/zvi1ITnnoM=
 只需点击 ioBroker 管理面板中“适配器”页面上“Homekit yahka 适配器”后面的“+”按钮即可。
 
 ## 安装最新的**Beta**
-如果您想抢先测试最新的测试版本，您可以通过 GitHub url 安装适配器。
+如果您想抢先测试最新的测试版，您可以通过 GitHub url 安装适配器。
 
 （有时需要额外上传（例如`iobroker upload yahka`）并重新启动适配器）
 

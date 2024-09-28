@@ -10,8 +10,6 @@
 
 You can find the video how to use the widgets [here](https://www.youtube.com/watch?v=4bctUvfpPuQ) (in german).
 
-**Important: the widgets require a non-free license, that could be ordered at [iobroker.net](https://iobroker.net/www/pricing#commercial/iobroker.vis-2-widgets-jaeger-design)**
-
 Das Video wie man die Widgets benutzt kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
 
 Das Video wie man die Widgets benutzt kann man [hier](https://youtu.be/Rplr2Ba-G7o) (in German) (TEIL2)
@@ -44,6 +42,10 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.3.1 (2024-09-23)
+* (bluefox) Removed gulp from a build process
+* (bluefox) Added the possibility to select camera from the "cameras" adapter
+
 ### 1.2.7 (2024-07-17)
 * (bluefox) allowed multi-line buttons for the thermostat
 

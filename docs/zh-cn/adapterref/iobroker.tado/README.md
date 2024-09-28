@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: geVZ7oXA8AL/ojS3YQGyqgz0/bMerKYEh5QjLFk6zy8=
+hash: wcKDGuZTcAl+b0gv/mO1IAPS9wElt49zMNjRAsMdLH8=
 ---
 # IoBroker.tado
 
@@ -40,7 +40,7 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | 选择活动时间表 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | 启用/禁用恒温器上的开窗检测 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | 当检测到打开的窗户时，恒温器关闭的超时时间 |
-| tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | 当检测到打开的窗户时关闭恒温器（仅当恒温器检测到打开的窗户时才有效）|
+| tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | 当检测到打开的窗户时关闭恒温器（仅当恒温器检测到打开的窗户时有效）|
 | tado.[x].[yyyyyy].Home.state.presence | 设置在家、外出或自动模式 |
 | tado.[x].[yyyyyy].Home.masterswitch | 打开/关闭所有设备 |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | 空调模式（仅限空调设备）|
@@ -48,6 +48,7 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel（仅限 V3+ 版本的 AC 设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | 垂直摆动（仅限 V3+ 版本的 AC 设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | 水平摆动（仅限 V3 及更早版本的 AC 设备）|
+| tado.[x].[yyyyyy].meterReadings | 带有 {"date":"YYYY-MM-DD","reading": 1234} 的 JSON 对象可用于将电表读数上传到 Energy IQ |
 
 ## 需要
 * Node.js 18 或更高版本
@@ -58,6 +59,13 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.7-alpha.1 (2024-09-25)
+* (HGlab01) Change of attribute "light" supported
+* (HGlab01) Add attribute 'connection'
+* (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'
+* (HGlab01) Bump axios to 1.7.7
+* (HGlab01) EnergyIQ meter-readings can be uploaded
+
 ### 0.5.6 (2024-08-06)
 * (HGlab01) Improve AccessToken Management
 * (HGlab01) Bump axios to 1.7.3
@@ -74,10 +82,6 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
 ### 0.5.3 (2024-01-29)
 * (HGlab01) Improve axios handling
 * (HGlab01) Bump axios to 1.6.7
-
-### 0.5.1 (2023-12-11)
-* (HGlab01) Bump json-explorer to 0.1.15
-* (HGlab01) Prepare (c) for 2024
 
 ## License
 MIT License

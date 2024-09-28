@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: Ac4RcFrkpoyzU6LCqkumAkmr+ocpdLi4PMJZVZs7n/A=
+hash: SLEQGS3SNTdTr/oW8nwQtR2kQ0/Z0t0u8fgAHgisX6s=
 ---
 ![Logo](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
 
@@ -15,35 +15,59 @@ hash: Ac4RcFrkpoyzU6LCqkumAkmr+ocpdLi4PMJZVZs7n/A=
 ![NPM](https://nodei.co/npm/iobroker.heizungssteuerung.png?downloads=true)
 
 # IoBroker.heizungssteuerung
-**Tests:** ![Testen und freigeben](https://github.com/jbeenenga/ioBroker.heizungssteuerung/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/jbeenenga/ioBroker.heizungssteuerung/workflows/Test%20and%20Release/badge.svg)
 
-##Heizungssteuerungsadapter für ioBroker
-Mit diesem Adapter können Heizungsanlagen verwaltet werden. Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren. Außerdem können Sie die Solltemperatur für einen Raum überschreiben.
+## Heizungssteuerungsadapter für ioBroker
+Mit diesem Adapter können Sie Heizungsanlagen steuern. Sie können zwischen Kühl- und Heizbetrieb wählen und für einen Raum Boost oder Pause aktivieren. Außerdem können Sie die Zieltemperatur für einen Raum überschreiben.
 
-## Aufbau
-Um den Adapter zu verwenden, müssen Sie Räume zu Räumen hinzufügen und die Sensoren und Motoren zu den Räumen hinzufügen.
-Außerdem müssen die Funktionen Temperatur, Feuchtigkeit und Motor den richtigen Zuständen hinzugefügt werden. Die Enums werden nach dem ersten Start des Adapters erstellt. Wenn Sie keinen Feuchtigkeitssensor haben, können Sie ihn leer lassen.
+## Konfiguration
+Um den Adapter zu verwenden, müssen Sie Räume zur Enumeration hinzufügen und die Sensoren und Motoren zu den Räumen hinzufügen.
+Außerdem müssen Sie die Funktionen Temperatur, Luftfeuchtigkeit und Motor den richtigen Zuständen hinzufügen. Die Enumerationen werden nach dem ersten Start des Adapters erstellt. Wenn Sie keinen Luftfeuchtigkeitssensor haben, können Sie das Feld leer lassen.
 ![Konfigurationsbeispiel](../../../en/adapterref/iobroker.heizungssteuerung/img/configExample.png)
 
 ### Haupteinstellungen
-*Heizmodus:* Sie können zwischen Kühlen und Heizen wählen.
+#### Heizmodus
+Sie können zwischen Kühlen und Heizen wählen.
 
-*Temperaturen beim Adapterstart auf Standard zurücksetzen:* Wenn diese Einstellung aktiv ist, werden alle Temperaturzustände mit Standardtemperatur und ZielUntil überschrieben. Bei der nächsten Temperaturprüfung werden die Temperaturen also auf die konfigurierten Temperaturen eingestellt, die in Perioden eingestellt sind.
+#### Setzen Sie die Temperaturen beim Adapterstart auf die Standardeinstellung zurück
+Wenn diese Einstellung aktiv ist, werden alle Temperaturzustände mit der Standardtemperatur und dem Zielwert überschrieben. Bei der nächsten Temperaturprüfung werden die Temperaturen dann auf die in den Perioden festgelegten, konfigurierten Temperaturen gesetzt.
 
-*Kühlung stoppen, wenn die Luftfeuchtigkeit höher ist als:* Wenn die Luftfeuchtigkeit erreicht ist, wird die Kühlung gestoppt. Es funktioniert nur, wenn Sie den Feuchtigkeitssensor der Funktion und dem Raum hinzugefügt haben.
+#### Stoppen Sie die Kühlung, wenn die Luftfeuchtigkeit höher ist als
+Wenn die Luftfeuchtigkeit erreicht ist, wird die Kühlung gestoppt. Dies funktioniert nur, wenn Sie der Funktion und dem Raum einen Feuchtigkeitssensor hinzugefügt haben.
 
-*Aktualisierungsintervall in Sekunden:* Legen Sie fest, wie oft der Adapter die Temperaturen überprüft und die Motoren einstellt
+#### Updateintervall in Sekunden
+Legen Sie fest, wie oft der Adapter die Temperaturen prüft und die Motoren einstellt
 
-*Standardtemperatur:* Definieren Sie die Temperatur, die eingestellt werden soll, wenn kein Zeitraum für einen Raum passt
+#### Standardtemperatur
+Definieren Sie die einzustellende Temperatur, wenn für einen Raum kein passender Zeitraum vorhanden ist
 
-*Zeit bis zum Ende der Pause in Minuten:* Definieren Sie die Zeit in Minuten, bis der Pausenzustand auf inaktiv zurückgesetzt wird
+#### Zeit bis zum Ende der Pause in Minuten
+Definieren Sie die Zeit in Minuten, bis der Pausenzustand auf inaktiv zurückgesetzt wird
 
-*Zeit bis zum Ende des Boosts in Minuten:* Definieren Sie die Zeit in Minuten, bis der Boost-Status auf inaktiv zurückgesetzt wird
+#### Zeit bis zum Ende des Boosts in Minuten
+Definieren Sie die Zeit in Minuten, bis der Boost-Status auf inaktiv zurückgesetzt wird
 
-*Differenz von der Zieltemperatur bis zum Start oder Stopp der Heizung:* Definieren Sie die Differenz von der Zieltemperatur, bis der Adapter die Heizung startet oder beendet. Wenn beispielsweise 20° die Zieltemperatur ist, beträgt diese Einstellung 0,5 und der Motor ist aus. Die Heizung beginnt, wenn die Temperatur unter 19,5° liegt, und stoppt die Heizung, wenn die Temperatur über 20,5° liegt.
+#### Differenz von der Zieltemperatur bis zum Start oder Stopp des Heizens
+Definieren Sie die Differenz von der Zieltemperatur, ab der der Adapter mit dem Heizen beginnt oder aufhört. Wenn beispielsweise 20 °C die Zieltemperatur sind, beträgt diese Einstellung 0,5 und der Motor ist ausgeschaltet. Die Heizung startet, wenn die Temperatur unter 19,5 °C liegt, und stoppt das Heizen, wenn die Temperatur über 20,5 °C liegt.
 
 ### Perioden
-Sie können Zeiträume für jeden Raum und jede Uhrzeit definieren. Außerdem können Sie festlegen, ob dieser Zeitraum zum Kühlen oder Heizen verwendet werden soll. Wenn der Heizmodus nicht mit dem eingestellten Modus in den Haupteinstellungen übereinstimmt, wird der Zeitraum ignoriert.
+Sie können für jeden Raum und jede Uhrzeit Zeiträume definieren. Außerdem können Sie festlegen, ob dieser Zeitraum zum Kühlen oder Heizen verwendet werden soll. Wenn der Heizmodus nicht mit dem in den Haupteinstellungen eingestellten Modus übereinstimmt, wird der Zeitraum ignoriert.
+
+### Aktionen
+Während der Adapter läuft, können Sie Aktionen verwenden, um die Behandlung für spezielle Fälle zu ändern. Diese Aktionen finden Sie in Objekten im Ordner *Aktionen* unter Ihrem Adapter. Einige Aktionen sind für alle Räume und für spezielle Räume verfügbar.
+
+#### Abwesenheit Um die Heizungssteuerung während z.B. eines Urlaubs zu deaktivieren, können Sie in Ihren Objekten unter *Aktionen AbwesenheitBis* ein Abwesenheits-bis-Datum eintragen. Hier können Sie ein Datum im Format *tt.MM.jjjj hh:mm* eingeben (z.B. *01.01.2024 14:00*). Wenn aktiviert, werden die Zeiträume ignoriert und die Temperaturen auf [Standardtemperatur](#default-temperature) gesetzt.
+Diese Konfiguration ist grundsätzlich für alle Räume verfügbar.
+
+#### Pause
+Um die Heizung für eine Weile zu stoppen, können Sie eine Pause aktivieren. Der Pausenzustand wird nach der in [Einstellungen](#time-until-pause-will-be-end-in-minutes) definierten Zeit auf deaktiviert zurückgesetzt. Wenn die Pause aktiv ist, werden die Zeiträume ignoriert und es wird keine Heizung durchgeführt.
+
+Diese Konfiguration ist für alle Räume allgemein und für spezielle Räume verfügbar.
+
+#### Schub
+Um die Heizung für eine Weile zu stoppen, können Sie einen Boost aktivieren. Der Boost-Zustand wird nach der in [Einstellungen](#time-until-boost-will-be-end-in-minutes) definierten Zeit auf deaktiviert zurückgesetzt. Wenn Boost aktiv ist, werden die Zeiträume ignoriert und die Heizung wird ausgeführt.
+
+Diese Konfiguration ist für alle Räume allgemein und für spezielle Räume verfügbar.
 
 ## Bilder
 Das Hauptbild erstellt von Freepick (https://www.flaticon.com/de/kostenloses-icon/heizung_1295221)
@@ -53,6 +77,15 @@ Das Hauptbild erstellt von Freepick (https://www.flaticon.com/de/kostenloses-ico
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-09-17)
+* (jbeenenga) update dependencies
+* (jbeenenga) add absence mode
+* (jbeenenga) fix pause and boost for cooling mode
+
+### 1.7.0 (2023-01-05)
+* (jbeenenga) fix bug for end boost or pause mode
+* (jbeenenga) provide corrent humidity in temperatures
+
 ### 1.6.7 (2022-12-16)
 * (jbeenenga) fix date format
 
@@ -74,90 +107,10 @@ Das Hauptbild erstellt von Freepick (https://www.flaticon.com/de/kostenloses-ico
 * (jbeenenga) add config for temperature offset
 * (jbeenenga) add boost and pause function
 
-### 1.4.6 (2022-09-12)
-* (jbeenenga) small fix
-
-### 1.4.5 (2022-09-10)
-* (jbeenenga) correct type of temperatures to write into states
-
-### 1.4.4 (2022-09-10)
-* (jbeenenga) small fix for state creation
-
-### 1.4.3 (2022-09-10)
-* (jbeenenga) small fix for state creation
-
-### 1.4.2 (2022-09-10)
-* (jbeenenga) small fix for state creation
-
-### 1.4.1 (2022-09-10)
-* (jbeenenga) little logging fixes
-
-### 1.4.0 (2022-09-10)
-* (jbeenenga) add default temperature
-* (jbeenenga) write current and target temperature into states
-
-### 1.3.0 (2022-09-08)
-* (jbeenenga) add possibility to define update intervall
-
-### 1.2.4 (2022-09-08)
-* (jbeenenga) small fixes
-
-### 1.2.3 (2022-09-04)
-* (jbeenenga) set engine with boolean value
-
-### 1.2.2 (2022-09-04)
-* (jbeenenga) set engine with boolean value
-
-### 1.2.1 (2022-09-04)
-* (jbeenenga) some logging issues
-
-### 1.2.0 (2022-09-02)
-* (jbeenenga) update dependencies
-
-### 1.1.6 (2022-07-22)
-* (jbeenenga) little fix
-
-### 1.1.5 (2022-07-22)
-* (jbeenenga) add some documentation
-* (jbeenenga) remove connection state
-
-### 1.1.4 (2022-07-22)
-* (jbeenenga) little changes
-
-### 1.1.3 (2022-07-22)
-* (jbeenenga) changed admin dependency to minimum version 5.3.8
-
-### 1.1.2 (2022-07-22)
-* (jbeenenga) correct version problems
-
-### 1.1.1 (2022-07-22)
-* (jbeenenga) correct version problems
-
-### 1.1.0 (2022-07-22)
-* (jbeenenga) correct version problems
-
-### 1.0.1 (2022-07-22)
-* (jbeenenga) correct version problems
-
-### 1.0.0 (2022-07-22)
-* (jbeenenga) some changes
-
-### 0.1.3 (2022-07-22)
-* (jbeenenga) changed some dependency versions
-
-### 0.1.2 (2022-07-22)
-* (jbeenenga) add main logic
-
-### 0.1.1 (2022-07-15)
-* (jbeenenga) little changes
-
-### 0.1.0 (2022-07-15)
-* (jbeenenga) initial release
-
 ## License
 MIT License
 
-Copyright (c) 2022 jbeenenga <j.beenenga@gmail.com>
+Copyright (c) 2024 jbeenenga <j.beenenga@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

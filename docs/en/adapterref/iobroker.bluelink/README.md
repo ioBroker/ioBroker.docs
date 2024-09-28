@@ -34,7 +34,23 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 -->
 
 
+
 ## Changelog
+### 3.0.1 (2024-09-27)
+* (arteck) activate jsonconfig
+  
+### 3.0.0 (2024-09-27)
+* (arteck) new structure jsonconfig
+
+### 2.3.11 (2024-09-27)
+* (arteck) redesign
+
+### 2.3.10 (2024-09-27)
+* (arteck) add address as text using openstreetmap
+
+### 2.3.9 (2024-09-26)
+* (arteck) add ccs2 car status
+
 ### 2.3.8 (2024-02-25)
 * (arteck) corr steerWheelHeat
 

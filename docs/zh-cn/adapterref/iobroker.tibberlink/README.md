@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: 6ZssLmg93ddl2dYIbFUznwkQ/HBfrK6DCwM9bPhoqKI=
+hash: K8hWv/0WbiSbPH9kxOdbE6JQPnr5DYtafIVCabwcbKs=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -29,8 +29,8 @@ hash: 6ZssLmg93ddl2dYIbFUznwkQ/HBfrK6DCwM9bPhoqKI=
 
 ## 版本
 ## 在 ioBroker 中使用 TIBBER 能源数据的适配器
-此适配器有助于将 Tibber 帐户 API 中的数据连接到 ioBroker 中以供使用，无论是用于单个家庭还是多个住宅。
-新功能：该适配器现在支持通过家庭网络直接本地读取 Tibber 脉冲传感器，从而无需完全依赖云 API 即可进行实时监控和数据收集。
+此适配器有助于将您 Tibber 帐户 API 中的数据连接到 ioBroker 中以供使用，无论是用于单个家庭还是多个住宅。
+新功能：该适配器现在支持通过您的家庭网络直接本地读取 Tibber 脉冲传感器，从而无需完全依赖云 API 即可进行实时监控和数据收集。
 
 如果您目前不是 Tibber 用户，我将非常感激如果您可以使用我的推荐链接：[Tibber 推荐链接](https://invite.tibber.com/mu8c82n5)。
 
@@ -43,12 +43,12 @@ hash: 6ZssLmg93ddl2dYIbFUznwkQ/HBfrK6DCwM9bPhoqKI=
 - 注意：如果您的 Tibber 帐户中有多个活跃的主页，则必须添加所有主页，以消除可能不需要的主页导致的错误消息。添加所有主页并禁用选项。
 - 您可以选择停用今天和明天的价格数据检索，例如，如果您只想使用 Pulse 实时信息
 - 您也可以选择启用历史消费数据检索。请指定小时、天、周、月和年的数据集数量。您可以根据自己的偏好使用“0”来禁用其中一个或多个间隔。
-- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器没有响应。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
+- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器响应不足。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
 - 保存设置。
 
 ## 计算器配置
 - 现在 Tibber 连接已启动并运行，您还可以利用计算器将其他自动化功能合并到 TibberLink 适配器中。
-- 计算器通过频道进行操作，每个频道链接到一个选定的家庭。
+- 计算器使用频道进行操作，每个频道链接到一个选定的家庭。
 - 这些通道可以根据相应的状态被激活或停用。
 - 这些状态旨在作为 TibberLink 的外部动态输入，允许您例如从外部来源调整边际成本（“TriggerPrice”）或禁用计算器通道（“Active”）。
 - 计算器通道的状态位于主状态旁边，并根据通道号命名。因此，管理屏幕中选择的通道名称会显示在此处，以便更好地识别您的配置。
@@ -102,8 +102,15 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 ## Changelog
 
-### 3.4.9 (2024-09-xx)
+### 3.4.10 (2024-09-16)
 
+-   (HombachC) add verification of poll interval (#518)
+-   (HombachC) bumb date-fns to 4.0.0
+
+### 3.4.9 (2024-09-15)
+
+-   (HombachC) add adjustable Bridge poll intervall (#518)
+-   (HombachC) add node.js 22 to the adapter testing (#519)
 -   (HombachC) add docu link to config screen (#504)
 -   (HombachC) repository cleanup
 -   (HombachC) dependency updates

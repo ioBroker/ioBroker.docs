@@ -31,6 +31,23 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1-alpha.9 (2024-09-23)
+- FIX: Wording for some boxes updated and general improvements of help functions
+- Added: Support for Apple Devices including correct placement of texts and applying shadows to elements
+- Added: Error handling for 'Browser Frame' inside iFrame overlay - if the URL can not be loaded in 5 seconds, the overlay will be closed
+
+### 0.5.1-alpha.8 (2024-09-18)
+- Added: New option "Auto detect" for "Show source as". The source and unit (if present and not entered before) will be automatically detected
+- Added: UI improvements
+- FIX: Some basic values were not saved properly
+- FIX: Skipping version check while in display-mode (reduces loading time and bandwidth)
+
+### 0.5.1-alpha.7 (2024-09-16)
+- Added: Backup routine reworked to improve storage (sending/receiving data reduced)
+- Added: Elements, which have addition or subtraction in use, now create states with their values and can be re-used by the user
+- Added: Language and explanation improvements, some routines updated
+- Added: Optimized contextmenu for touch-devices
+
 ### 0.5.1-alpha.6 (2024-08-29)
 - Added: Show element coordinates when selecting and while dragging (can be deactivated inside settings)
 - Added: Workspace can not be less height and width than the coordinates of the placed elements

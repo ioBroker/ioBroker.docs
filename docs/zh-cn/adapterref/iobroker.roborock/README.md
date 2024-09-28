@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: KQyJkrHrN2pfDPhqwZIHXP6HaOKF1GUsr794YtxHpPA=
+hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -44,7 +44,7 @@ Roborock Q5 Pro
 Roborock Q Revo Pro
 
 ## 区域清洁
-此功能仅在适配器选项中启用地图创建时有效！
+此功能仅在适配器选项中启用地图创建时才有效！
 
 ### 地图创建在树莓派上不起作用
 - 有一个网络服务器正在运行。默认端口为 6824
@@ -58,10 +58,23 @@ Roborock Q Revo Pro
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.15 (2024-09-22)
+ * (copystring) Refactor some code
+ * (copystring) improve handling of online/offline detection and related logging
+ * (copystring) S6 MaxV supports avoid carpet
+
+### 0.6.14 (2024-09-13)
+ * (copystring) Fix bug in app_goto_target parameter validation
+
+### 0.6.13 (2024-09-12)
+ * (copystring) Bug fixes
  * (copystring) Add basic support for S8 MaxV Ultra
  * (copystring) Newly found attributes are now warning instead of error
  * (copystring) Improve detection of `home_sec`
+ * (copystring) Fix docking station detection
+ * (copystring) BREAKING: Adjust docking station states to reflect the smart phone app
+ * (copystring) Detect remote devices and connect via mqtt instead
+ * (copystring) Improve docking station feature handling
 
 ### 0.6.12 (2024-09-08)
  * (copystring) Change go2rtc github to go2rtc-static npm

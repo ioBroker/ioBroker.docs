@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: +uOK6gWkQbAQ4k4yti1NchfTCYFStb5dHU4RpT1773M=
+hash: selFI/h/82dTNnFQIjRwfWcPY1bQ/0yfhIDXpb/O0sY=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -11,30 +11,30 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 具有多个选项卡的`jsonConfig.json`文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
-您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并且支持注释。
+您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并支持注释。
 
-此外，对于 JSON 文件，您必须在`common` 部分的`io-package.json` 中定义：
+此外，对于 JSON 文件，您必须在 `common` 部分的 `io-package.json` 中定义：
 
 ```json
 {
-  "common": {
-    "adminUI": {
-      "config": "json"
+    "common": {
+        "adminUI": {
+            "config": "json"
+        }
     }
-  }
 }
 ```
 
 说明适配器支持 JSON 配置。
 
 如果您测试此适配器，则可以看到几乎所有组件都在运行：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
-您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入 `iobroker.jsonconfig-demo` 来安装它。
+您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo` 来安装它。
 
 JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapter-react-v5/blob/main/schemas/jsonConfig.json
 
 所有标签、文本、帮助文本都可以是多种语言或仅为字符串。
 
-*如果属性名称以“_”开头，则不会保存在对象中。*
+如果属性名称以“\_”开头，则它将不会保存在对象中。
 
 包括
 需要管理员 6.17.1 或更新版本。
@@ -44,12 +44,12 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 
 ```json5
 {
-    "tabs": {
-        "tab1": {
-            "type": "panel", // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
-            "#include": "tab1.json"
-        }
-    }
+    tabs: {
+        tab1: {
+            type: 'panel', // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
+            '#include': 'tab1.json',
+        },
+    },
 }
 ```
 
@@ -96,7 +96,7 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 - `step` - （默认 `(max - min) / 100`）
 - `unit` - 滑块的单位
 
-- `qrCode` - 在二维码中显示数据（来自 Admin 7）
+- `qrCode` - 在二维码中显示数据（管理员 >= 7.0.18）
 - `data` - 要在二维码中编码的数据
 - `size` - QR 码的大小
 - `fgColor` - 前景色
@@ -123,7 +123,7 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 -`选择`
 - `options` - `[{label: {en: "option 1"}, value: 1}, ...]` 或
 
-                `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
+`[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
 
 -`自动完成`
 - `options` - `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1"}, "value2", ...]` （键必须是唯一的）
@@ -139,7 +139,7 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 - `!最大高度`
 - `!square` - 宽度必须等于高度，或者裁剪必须只允许正方形作为形状
 
-```
+```json
   "login-bg.png": {
        "type": "image",
        "accept": "image/png",
@@ -236,7 +236,7 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 - `setState` - 设置实例状态的按钮
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`，可以使用占位符 `%INSTANCE%` 替换为当前实例名称
 - `ack` - false （默认 false）
-- `val` - '${data.myText}_test' 或数字。类型将自动从状态类型中检测并完成转换
+- `val` - '${data.myText}\_test' 或数字。类型将自动从状态类型中检测并完成转换
 - `okText` - 按下按钮时显示的警报
 - `变体` - `包含`, `概述`, ''
 
@@ -291,18 +291,18 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 
 - `certificates` - 它是一种通用类型，可为您管理 `certPublic`、`certPrivate`、`certChained` 和 `leCollection` 属性。
 
-  例子：
+    例子：
 
 ```json
 {
-   "_certs": {
-       "type": "certificates",
-       "newLine": true,
-       "hidden": "!data.secure",
-       "sm": 12
-   }
+    "_certs": {
+        "type": "certificates",
+        "newLine": true,
+        "hidden": "!data.secure",
+        "sm": 12
+    }
 }
-  ```
+```
 
 - `certCollection` - 选择证书集合或仅使用所有集合或根本不使用加密。
 - `leCollectionName` - 证书集合的名称
@@ -349,10 +349,7 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 - `noNone` - 不显示 `none` 选项
 - `noSize` - 不显示文件大小
 
-- `文件` (仅限 Admin6)
-
-带有文件选择器的输入字段
-
+- `file` - （仅限 Admin6）带文件选择器的输入字段
 - `disableEdit` - 如果用户可以手动输入文件名，而不仅仅是通过选择对话框
 - `limitPath` - 将选择限制为一个特定类型的 `meta` 对象并遵循路径（非强制性）
 - `filterFiles` - 如 `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
@@ -383,10 +380,7 @@ adapter.on('message', obj => {
 });
 ```
 
--`selectSendTo`
-
-显示根据实例值给定的下拉菜单。
-
+- `selectSendTo` - 显示根据实例值给出的下拉菜单。
 - `command` - sendTo 命令
 - `jsonData` - 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端
 - `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。
@@ -399,7 +393,7 @@ adapter.on('message', obj => {
 
 - `alsoDependsOn` - 通过改变哪些属性，必须重新发送命令
 
-```
+```js
 adapter.on('message', obj => {
    if (obj) {
        switch (obj.command) {
@@ -459,10 +453,10 @@ adapter.on('message', obj => {
 
 要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是具有以下参数的字符串或对象：
 
-```
+```json5
 {
     text: 'text to show',  // mandatory
-    style: {color: 'red'}, // optional
+    style: { color: 'red' }, // optional
     icon: 'search',        // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
                            // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, puase, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
     iconStyle: {width: 30} // optional
@@ -471,7 +465,7 @@ adapter.on('message', obj => {
 
 例子：
 
-```
+```js
 adapter.on('message', obj => {
     if (obj) {
       switch (obj.command) {
@@ -520,12 +514,10 @@ adapter.on('message', obj => {
 - `port` - 端口的特殊输入。它会自动检查端口是否被其他实例使用并显示警告。
 - `min` - 允许的最小端口号。它可以是 0。如果值为零，则不会检查端口是否被占用。
 
--
-
-- `state` - 显示来自状态的控制或信息
+- `state` - (admin >= 7.1.0) 显示来自状态的控制或信息
 - `oid` - 应采用哪个对象 ID 进行控制。该 ID 不带“adapter.X.”前缀
 - `system` - 如果为真，状态将从 system.adapter.XX.I. 获取，而不是从 XX.I 获取
-- `control` - 状态值应如何显示：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number`
+- `control` - 如何显示状态值：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number`
 - `controlled` - 如果为 true，状态将显示为开关、选择、按钮、滑块或文本输入。仅在未定义控制属性时使用
 - `unit` - 将单位添加到值中
 - `trueText` - 如果值为真，则显示此文本
@@ -539,12 +531,13 @@ adapter.on('message', obj => {
 - `step` - 控制类型滑块或数字的步长值
 - `controlDelay` - 滑块或数字的延迟（以毫秒为单位）
 - `variant` - 按钮的变体：`contained`, `outlined`, `text`
+- `readOnly` - 定义控件是否为只读
 
 - `deviceManager` - 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
 
 以下是如何在选项卡中显示设备管理器的示例：
 
-```
+```json
 "_deviceManager": {
   "type": "panel",
   "label": "Device manager",
@@ -575,10 +568,11 @@ adapter.on('message', obj => {
 ## 控件的常用属性
 所有类型都可以有：
 
-- `sm` - 小屏幕上屏幕宽度为 1/12
-- `md` - 中间屏幕的宽度为屏幕的 1/12
-- `lg` - 大屏幕上的 1/12 宽度
-- `xs` - 小屏幕上的宽度为屏幕的 1/12
+- `xl` - 超大屏幕上 1/12 的屏幕宽度（1536px < 宽度）
+- `lg` - 大屏幕上的 1/12 宽度（1200px <= width < 1536px）
+- `md` - 中间屏幕的宽度为屏幕的 1/12（900px <= width < 1200px）
+- `sm` - 小屏幕上宽度为屏幕的 1/12（600px <= 宽度 < 900px）
+- `xs` - 小屏幕上的宽度为屏幕的 1/12（宽度 < 600px）
 - `newLine` - 应从新行开始显示
 - `label` - 字符串或对象，如 {en: 'Name', ru: 'Имя'}
 - `hidden` - 可以使用 `native.attribute` 进行计算的 JS 函数
@@ -586,8 +580,8 @@ adapter.on('message', obj => {
 - `disabled` - 可以使用 `native.attribute` 进行计算的 JS 函数
 - `help` - 帮助文本（多语言）
 - `helpLink` - 帮助 href（只能与 `help` 一起使用）
-- `style` - ReactJS 符号中的 css 样式：`radiusBorder` 而不是 `radius-border`。
-- `darkStyle` - 暗黑模式的 css 样式
+- `style` - ReactJS 符号中的 CSS 样式：`radiusBorder` 而不是 `radius-border`。
+- `darkStyle` - 暗黑模式的 CSS 样式
 - `validator` - JS 函数：true 无错误，false - 错误
 - `validatorErrorText` - 验证器失败时显示的文本
 - `validatorNoSaveOnError` - 如果出现错误则禁用保存按钮
@@ -616,7 +610,7 @@ adapter.on('message', obj => {
 - `type` - 以下之一：`info`, `warning`, `error`, `none`
 - `alsoDependsOn` - 带有属性的数组，也用于通过这些属性检查条件
 
-```
+```json5
 {
     "type": "tabs",
     "items": {
@@ -665,13 +659,13 @@ adapter.on('message', obj => {
 
 例子：
 
-```
-...
+```json
+// ...
    "timeout": {
       "type": "number",
       "label": "Timeout"
    }
-...
+// ...
 
 data: {
    timeout: [1000, 2000, 3000]
@@ -701,7 +695,7 @@ newData: {
 
 组件必须看起来像
 
-```
+```jsx
 <SchemaEditor
     style={customStyle}
     className={classes.myClass}
@@ -729,17 +723,17 @@ newData: {
 
 ```json
 {
-  "i18n": true,
-  "type": "panel",
-  "style": {
-    "backgroundImage": "url(adapter/mpd/background.png)",
-    "backgroundPosition": "top",
-    "backgroundRepeat": "no-repeat",
-    "backgroundSize": "cover"
-  },
-  "items": {
-    "...": {}
-  }
+    "i18n": true,
+    "type": "panel",
+    "style": {
+        "backgroundImage": "url(adapter/mpd/background.png)",
+        "backgroundPosition": "top",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover"
+    },
+    "items": {
+        "...": {}
+    }
 }
 ```
 
@@ -753,29 +747,29 @@ newData: {
 
 -`admin/i18n/de/translations.json`
 -`admin/i18n/en/translations.json`
-- ...
+-   ...
 
 或者
 
 -`admin/i18n/de.json`
 -`admin/i18n/en.json`
-- ...
+-   ...
 
 此外，用户可以提供 i18n 文件的路径，`i18n: "customI18n"`并在管理员中提供文件：
 
 -`admin/customI18n/de/translations.json`
 -`admin/customI18n/en/translations.json`
-- ...
+-   ...
 
 或者
 
 -`admin/customI18n/de.json`
 -`admin/customI18n/en.json`
-- ...
+-   ...
 
 2. 用户可以直接在标签中提供翻译，例如：
 
-```
+```json
 {
    "type": "text",
    "label: {
@@ -787,7 +781,7 @@ newData: {
 
 3. 用户可以在 i18n 属性中提供翻译：
 
-```
+```json
 {
     "18n": {
         "My Text: {
@@ -810,7 +804,7 @@ JS 函数
 ### 配置对话框
 JS 函数为：
 
-```
+```js
 const myValidator = "_alive === true && data.options.myType == 2";
 
 const func = new Function(
@@ -847,7 +841,7 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 ### 自定义设置对话框
 JS 函数为：
 
-```
+```js
 const myValidator = "customObj.common.type === 'boolean' && data.options.myType == 2";
 
 const func = new Function(
@@ -875,7 +869,7 @@ const isValid = func(data || this.props.data, this.props.originalData, this.prop
 - `globalData` - 仅在表的所有设置中使用，而不仅仅是一行表
 
 ## 自定义组件
-```
+```jsx
 <CustomInstancesEditor
     common={common data}
     alive={isInstanceAlive}

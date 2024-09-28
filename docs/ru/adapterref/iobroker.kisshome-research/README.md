@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome исследование
-hash: GMh6Hvemu6VdFYJM4+QnfLe5vk8c00DVT/m2xLW4gcQ=
+hash: fAGv4G+hivk/fDF9RiPUhvcTaET15Nf61udWouped1E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -18,7 +18,7 @@ hash: GMh6Hvemu6VdFYJM4+QnfLe5vk8c00DVT/m2xLW4gcQ=
 
 Этот специальный адаптер был разработан для исследовательского проекта KISSHome. Он не предназначен для общего использования.
 
-Чтобы использовать этот адаптер, вам необходимо сначала зарегистрироваться на сайте [KISSДомашние исследования](https://kisshome-feldversuch.if-is.net) и получить письмо с подтверждением.
+Чтобы использовать этот адаптер, вам необходимо сначала зарегистрироваться на сайте [KISSДомашние исследования](https://kisshome-research.if-is.net) и получить письмо с подтверждением.
 
 Для запуска этого адаптера вам необходимо:
 
@@ -29,67 +29,72 @@ hash: GMh6Hvemu6VdFYJM4+QnfLe5vk8c00DVT/m2xLW4gcQ=
 ## То, что нужно сделать
 Определить IP-адреса из:
 
-- [X] hm-rpc (Homematic CCU),
-- [X] локсон,
-- [X] Шелли,
-- [X] mqtt
-- [X] тр-064,
-- [-] alexa-2 - невозможно, так как alexa не считывает IP-адреса
-- [X] сонофф,
-- [X] модбус,
-- [X] оттенок (оттенок Philips),
-- [-] туя - невозможно, он общается с облаком
-- [X] mqtt-клиент,
-- [-] synology - это многофункциональное устройство - игнорируйте его,
-- [X] сонос,
-- [X] михоум-вакуум,
-- [-] hmip (общается с облаком),
 - [ ] хоумконнект,
-- [X] светодиод (ESP8266/ESP32),
-- [X] объединить,
-- [X] гармония,
-- [-] samsung (телевизор) - слишком много данных,
-- [-] onvif (Вебкамеры) - слишком много данных,
-- [-] камеры (URL или IP-камеры) - слишком много данных,
-- [-] proxmox - невозможно, так как alexa не считывает IP-адреса
-- [X] бродлинк2,
-- [-] lgtv - слишком много данных,
-- [X] knx (KNX-шлюз),
-- [X] openknx (KNX-шлюз),
-- [X] лкн,
-- [X] контроллер homekit,
-- [X] упнп,
-- [X] openknx,
-- [X] Wi-Filight,
-- [-] meross - невозможно, он общается с облаком
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.0.11 (2024-09-26)
+-   (bluefox) Trying to fix CI
+-   (bluefox) Do not allow the traffic recording of FritzBox 
+-   (bluefox) Do not allow recording the traffic if no any MAC provided
+-   (bluefox) Corrected links to web page
+
+### 1.0.7 (2024-09-21)
+-   (bluefox) Corrected the error if MAC address cannot be determined
+
+### 1.0.6 (2024-09-21)
+-   (ChrisDietrich) Corrected the link in readme.md
+-   (bluefox) Corrected the Big-Endian PCAP format
+-   (bluefox) the Fixed build pipeline
+
+### 1.0.4 (2024-09-19)
+
+-   (bluefox) Corrected GUI
+-   (bluefox) Filter out not used interfaces
+-   (bluefox) Added notification to admin if public key not accepted
+-   (bluefox) Try to detect zero bytes interfaces
+
+### 1.0.2 (2024-09-15)
+
+-   (bluefox) Added error logging
+
+### 1.0.1 (2024-09-14)
+
+-   (bluefox) Implemented the support for the big endian format of a PCAP file
+
 ### 1.0.0 (2024-09-06)
-* (bluefox) Corrected configuration page
+
+-   (bluefox) Corrected configuration page
 
 ### 0.3.1 (2024-08-31)
-* (bluefox) Added detection of some IPs
+
+-   (bluefox) Added detection of some IPs
 
 ### 0.2.1 (2024-08-28)
-* (bluefox) used valid URL address
+
+-   (bluefox) used valid URL address
 
 ### 0.1.1 (2024-08-20)
-* (bluefox) Used MD5 for the file consistency check
+
+-   (bluefox) Used MD5 for the file consistency check
 
 ### 0.1.0 (2024-08-19)
-* (bluefox) File upload was implemented
+
+-   (bluefox) File upload was implemented
 
 ### 0.0.3 (2024-08-14)
-* (bluefox) Added the recording enabled option
+
+-   (bluefox) Added the recording enabled option
 
 ### 0.0.2 (2024-07-22)
-* (bluefox) Initial commit
+
+-   (bluefox) Initial commit
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2024 Denis Haev <dogafox@gmail.com>

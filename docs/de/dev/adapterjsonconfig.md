@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: +uOK6gWkQbAQ4k4yti1NchfTCYFStb5dHU4RpT1773M=
+hash: selFI/h/82dTNnFQIjRwfWcPY1bQ/0yfhIDXpb/O0sY=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt JSON-Konfiguration für Adapter.
@@ -17,11 +17,11 @@ Zusätzlich zur JSON-Datei müssen Sie im Teil `io-package.json` im `common` Fol
 
 ```json
 {
-  "common": {
-    "adminUI": {
-      "config": "json"
+    "common": {
+        "adminUI": {
+            "config": "json"
+        }
     }
-  }
 }
 ```
 
@@ -34,9 +34,9 @@ Das Schema für die JSON-Konfigurationsdatei ist hier definiert: https://github.
 
 Alle Beschriftungen, Texte und Hilfetexte können mehrsprachig oder nur aus Zeichenfolgen bestehen.
 
-*Wenn der Attributname mit "_" beginnt, wird er nicht im Objekt gespeichert.*
+_Wenn der Attributname mit "\_" beginnt, wird er nicht im Objekt gespeichert._
 
-## Enthält
+## Beinhaltet
 Erfordert Admin 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
@@ -44,12 +44,12 @@ Die eingebundene Datei muss sich im selben Verzeichnis wie die Hauptdatei befind
 
 ```json5
 {
-    "tabs": {
-        "tab1": {
-            "type": "panel", // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
-            "#include": "tab1.json"
-        }
-    }
+    tabs: {
+        tab1: {
+            type: 'panel', // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
+            '#include': 'tab1.json',
+        },
+    },
 }
 ```
 
@@ -63,7 +63,7 @@ Mögliche Typen:
 
 - „Panel“ – Registerkarte mit Elementen
 - „Symbol“ – Registerkarte kann Symbole (Base64 wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) haben
-- „label“ – Beschriftung der Registerkarte
+- „label“ – Bezeichnung der Registerkarte
 - `Elemente` - Objekt `{"attr1": {}, "attr2": {}}...`
 - `collapsable` – nur möglich, da es sich nicht um einen Teil von tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) handelt.
 - `color` - Farbe der einklappbaren Kopfzeile `primary` oder `sekundary` oder nichts
@@ -96,7 +96,7 @@ Mögliche Typen:
 - „Schritt“ – (Standard: „(max – min) / 100“)
 - `unit` - Einheit des Schiebereglers
 
-- „qrCode“ – Daten in einem QR-Code anzeigen (ab Admin 7)
+- „qrCode“ – Daten in einem QR-Code anzeigen (Admin >= 7.0.18)
 - `data` - die im QR-Code zu kodierenden Daten
 - „Größe“ – Größe des QR-Codes
 - `fgColor` – Vordergrundfarbe
@@ -123,7 +123,7 @@ Mögliche Typen:
 - `auswählen`
 - `Optionen` - `[{label: {en: "option 1"}, value: 1}, ...]` oder
 
-                `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
+`[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
 
 - `Autovervollständigung`
 - `Optionen` - `["Wert1", "Wert2", ...]` oder `[{"Wert": "Wert", "Bezeichnung": "Wert1"}, "Wert2", ...]` (Schlüssel müssen eindeutig sein)
@@ -137,9 +137,9 @@ Mögliche Typen:
 - „crop“ – wenn wahr, erlaubt dem Benutzer, das Bild zuzuschneiden
 - `!maxBreite`
 - `!maxHöhe`
-- `!square` – Breite muss gleich Höhe sein, oder der Zuschnitt darf nur Quadrate als Form zulassen
+- „!square“ – die Breite muss gleich der Höhe sein, oder der Zuschnitt darf nur Quadrate als Form zulassen
 
-```
+```json
   "login-bg.png": {
        "type": "image",
        "accept": "image/png",
@@ -189,9 +189,9 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 
 - `Instanz`
 - `adapter` – Name des Adapters. Mit dem speziellen Namen `_dataSources` können Sie alle Adapter mit dem Flag `common.getHistory` abrufen.
-- `Adapter` - optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut `Adapter` nicht definiert ist.
+- „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
 - `allowDeactivate` - wenn wahr. Zusätzliche Option "Deaktivieren" wird angezeigt
-- `onlyEnabled` - wenn wahr. Es werden nur aktivierte Instanzen angezeigt
+- `onlyEnabled` - wenn wahr. Nur aktivierte Instanzen werden angezeigt
 - „lang“ – der Wert sieht wie „system.adapter.ADAPTER.0“ aus und nicht wie „ADAPTER.0“.
 - „short“ – der Wert sieht wie „0“ aus und nicht wie „ADAPTER.0“.
 - „alle“ – Fügen Sie den Optionen „alle“ die Option mit dem Wert „*“ hinzu
@@ -199,7 +199,7 @@ Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapt
 - „Chips“ – der Benutzer kann das Wort eingeben und es wird hinzugefügt (siehe Cloud => Dienste => Whitelist). Die Ausgabe ist ein Array, wenn kein „Trennzeichen“ definiert ist.
 - `delimiter` - wenn es definiert ist, wird die Option als Zeichenfolge mit Trennzeichen statt als Array gespeichert. Beispielsweise erhalten Sie mit `delimiter=;` `a;b;c` statt `['a', 'b', 'c']`
 
-- „alive“ – nur eine Anzeige, ob die Instanz aktiv ist, und kann in den Modi „versteckt“ und „deaktiviert“ verwendet werden (wird nicht in der Konfiguration gespeichert)
+- „alive“ – nur ein Hinweis darauf, ob die Instanz aktiv ist und in den Modi „versteckt“ und „deaktiviert“ verwendet werden kann (wird nicht in der Konfiguration gespeichert)
 
 Nur Text: Instanz läuft, Instanz läuft nicht
 
@@ -235,8 +235,8 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 
 - `setState` - Schaltfläche zum Festlegen des Status der Instanz
 - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen
-- „ack“ – false (Standard: false)
-- `val` - '${data.myText}_test' oder Zahl. Der Typ wird automatisch anhand des Statustyps erkannt und die Konvertierung wird ebenfalls durchgeführt.
+- `ack` - false (Standard: false)
+- `val` - '${data.myText}\_test' oder Zahl. Der Typ wird automatisch anhand des Statustyps erkannt und die Konvertierung wird ebenfalls durchgeführt.
 - `okText` - Warnung, die durch Drücken der Taste angezeigt wird
 - `Variante` - `enthalten`, `umrissen`, ''
 
@@ -252,7 +252,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - „Button“ – einen Link als Schaltfläche anzeigen
 - „Variante“ – Art der Schaltfläche („umrissen“, „enthalten“, „Text“)
 - „Farbe“ – Farbe der Schaltfläche (z. B. „primär“)
-- `icon` - wenn Icons angezeigt werden sollen: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an uns.)
+- `icon` - wenn Icon angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können `base64`-Icons (beginnt mit `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie mehr Icons benötigen, wenden Sie sich bitte per Issue an)
 
 - `staticImage` – statisches Bild
 - `href` – optionaler HTTP-Link
@@ -264,7 +264,7 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 - `objKeyName` – (alte Einstellung, nicht verwenden!) – Name des Schlüssels in `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}`
 - `objValueName` – (alte Einstellung, nicht verwenden!) – Name des Wertes in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}`
 - `allowAddByFilter` - wenn Hinzufügen erlaubt ist, auch wenn Filter gesetzt ist
-- `showSecondAddAt` - Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am Ende der Tabelle angezeigt wird. Standard 5
+- `showSecondAddAt` - Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am Ende der Tabelle angezeigt wird. Standardmäßig 5
 - „showFirstAddOnTop“ – Zeigt den ersten Plus-Button oben in der ersten Spalte und nicht links.
 - `clone` – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn wahr, wird die Schaltfläche „Klonen“ angezeigt. Wenn Attributname, ist dieser Name eindeutig.
 - „Exportieren“ – [optional] – ob die Schaltfläche „Exportieren“ angezeigt werden soll. Als CSV-Datei exportieren.
@@ -291,18 +291,18 @@ Texteingabe mit dem Nur-Lese-Flag, die ein Muster zeigt.
 
 - „Zertifikate“ – dies ist ein universeller Typ, der die Attribute „certPublic“, „certPrivate“, „certChained“ und „leCollection“ für Sie verwaltet.
 
-  Beispiel:
+    Beispiel:
 
 ```json
 {
-   "_certs": {
-       "type": "certificates",
-       "newLine": true,
-       "hidden": "!data.secure",
-       "sm": 12
-   }
+    "_certs": {
+        "type": "certificates",
+        "newLine": true,
+        "hidden": "!data.secure",
+        "sm": 12
+    }
 }
-  ```
+```
 
 - „certCollection“ – Zertifikatssammlung auswählen oder einfach alle Sammlungen verwenden oder Let’s Encrypt überhaupt nicht verwenden.
 - `leCollectionName` – Name der Zertifikatssammlung
@@ -343,21 +343,18 @@ Die Komponente gibt eine analysierbare Datumszeichenfolge zurück.
 - `objectID` – Objekt-ID vom Typ `meta`. Sie können den speziellen Platzhalter `%INSTANCE%` verwenden: wie `myAdapter.%INSTANCE%.files`
 - `upload` - Pfad, in dem die hochgeladenen Dateien gespeichert werden. Wie `folderName`. Wenn nicht definiert, wird kein Upload-Feld angezeigt. Um in das Stammverzeichnis hochzuladen, setzen Sie dieses Feld auf `/`.
 - „Aktualisieren“ – Schaltfläche „Aktualisieren“ neben der Auswahl anzeigen.
-- „maxSize“ – maximale Dateigröße (Standard: 2 MB)
+- „maxSize“ – maximale Dateigröße (Standard 2 MB)
 - „withFolder“ – Ordnernamen anzeigen, auch wenn sich alle Dateien im selben Ordner befinden
 - `delete` - Löschen von Dateien erlauben
 - `noNone` - Option `none` nicht anzeigen
 - `noSize` - Größe der Dateien nicht anzeigen
 
-- `file` (nur Admin6)
-
-Eingabefeld mit Dateiauswahl
-
+- `file` - (nur Admin6) Eingabefeld mit Dateiauswahl
 - „disableEdit“ – wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog
-- „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
+- „limitPath“ – beschränkt die Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und den folgenden Pfad (nicht obligatorisch)
 - `filterFiles` - wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
 - `allowUpload` - erlaubtes Hochladen von Dateien
-- `allowDownload` – Download von Dateien erlaubt (Standard: true)
+- `allowDownload` – erlaubter Download von Dateien (Standard: true)
 - `allowCreateFolder` – erlaubte Erstellung von Ordnern
 - `allowView` – Kachel-Ansicht erlaubt (Standard: true)
 - `showToolbar` – Symbolleiste anzeigen (Standard: true)
@@ -383,10 +380,7 @@ adapter.on('message', obj => {
 });
 ```
 
-- `Senden an auswählen`
-
-Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
-
+- „selectSendTo“ – Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
 - `Befehl` - sendTo-Befehl
 - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet.
 - `data` - object - `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist.
@@ -399,7 +393,7 @@ Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implemen
 
 - `alsoDependsOn` - bei Änderung welcher Attribute muss der Befehl erneut gesendet werden
 
-```
+```js
 adapter.on('message', obj => {
    if (obj) {
        switch (obj.command) {
@@ -459,10 +453,10 @@ Zeigt die schreibgeschützte Steuerung mit den von der Instanz angegebenen Werte
 
 Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss eine Zeichenfolge oder ein Objekt mit den folgenden Parametern sein:
 
-```
+```json5
 {
     text: 'text to show',  // mandatory
-    style: {color: 'red'}, // optional
+    style: { color: 'red' }, // optional
     icon: 'search',        // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
                            // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, puase, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
     iconStyle: {width: 30} // optional
@@ -471,7 +465,7 @@ Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implemen
 
 Beispiel:
 
-```
+```js
 adapter.on('message', obj => {
     if (obj) {
       switch (obj.command) {
@@ -520,9 +514,7 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - `port` - Spezieller Eintrag für Ports. Es wird automatisch geprüft, ob der Port von anderen Instanzen verwendet wird und es wird eine Warnung angezeigt
 - `min` - minimal zulässige Portnummer. Sie könnte 0 sein. Und wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt.
 
--
-
-- „state“ – Kontrolle oder Informationen vom Staat anzeigen
+- `state` - (admin >= 7.1.0) Zeigt Kontrolle oder Informationen vom Staat
 - `oid` - Welche Objekt-ID soll zur Steuerung verwendet werden. Die ID ist ohne "adapter.X."-Präfix
 - `system` - Wenn wahr, wird der Status von system.adapter.XX.I. und nicht von XX.I übernommen.
 - „Steuerung“ – Wie der Wert des Status angezeigt werden soll: „Text“, „HTML“, „Eingabe“, „Schieberegler“, „Auswählen“, „Schaltfläche“, „Schalter“, „Zahl“
@@ -539,12 +531,13 @@ Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
 - „Schritt“ – Schrittwert für Steuerelementtyp „Schieberegler“ oder „Zahl“
 - `controlDelay` - Verzögerung in ms für Schieberegler oder Zahl
 - „Variante“ – Variante der Schaltfläche: „enthalten“, „umrandet“, „Text“
+- `readOnly` - Definiert, ob das Steuerelement schreibgeschützt ist
 
 - `deviceManager` - Gerätemanager anzeigen. Dafür muss der Adapter das Gerätemanagerprotokoll unterstützen. Siehe iobroker/dm-utils.
 
 Hier ist ein Beispiel, wie der Geräte-Manager in einer Registerkarte angezeigt wird:
 
-```
+```json
 "_deviceManager": {
   "type": "panel",
   "label": "Device manager",
@@ -575,10 +568,11 @@ Hier ist ein Beispiel, wie der Geräte-Manager in einer Registerkarte angezeigt 
 ## Gemeinsame Attribute von Steuerelementen
 Alle Typen könnten haben:
 
-- „sm“ – Breite in 1/12 des Bildschirms auf kleinen Bildschirmen
-- `md` - Breite in 1/12 des Bildschirms auf mittleren Bildschirmen
-- `lg` - Breite in 1/12 des Bildschirms auf großen Bildschirmen
-- `xs` - Breite in 1/12 des Bildschirms auf kleinen Bildschirmen
+- „xl“ – Breite in 1/12 des Bildschirms auf extragroßen Bildschirmen (1536 Pixel < Breite)
+- „lg“ – Breite in 1/12 des Bildschirms auf großen Bildschirmen (1200px <= Breite < 1536px)
+- „md“ – Breite in 1/12 des Bildschirms auf mittleren Bildschirmen (900px <= Breite < 1200px)
+- „sm“ – Breite in 1/12 des Bildschirms auf kleinen Bildschirmen (600px <= Breite < 900px)
+- „xs“ – Breite in 1/12 des Bildschirms auf kleinen Bildschirmen (Breite < 600 Pixel)
 - `newLine` – sollte ab einer neuen Zeile angezeigt werden
 - `label` – Zeichenfolge oder Objekt wie {en: 'Name', ru: 'Имя'}
 - `hidden` - JS-Funktion, die `native.attribute` zur Berechnung verwenden könnte
@@ -616,7 +610,7 @@ Alle Typen könnten haben:
 - „Typ“ – Einer von: „Info“, „Warnung“, „Fehler“, „Keiner“
 - `alsoDependsOn` – Array mit Attributen, um den Zustand auch anhand dieser Attribute zu prüfen
 
-```
+```json5
 {
     "type": "tabs",
     "items": {
@@ -665,13 +659,13 @@ In diesem Fall wird der Wert als Array aller möglichen Werte bereitgestellt.
 
 Beispiel:
 
-```
-...
+```json
+// ...
    "timeout": {
       "type": "number",
       "label": "Timeout"
    }
-...
+// ...
 
 data: {
    timeout: [1000, 2000, 3000]
@@ -681,7 +675,7 @@ data: {
 In diesem Fall muss die Eingabe Text sein, wobei `__different__` angezeigt wird, mit der Autovervollständigungsoption von drei möglichen Werten.
 Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
 
-Boolesche Werte müssen unbestimmt sein, wenn der Wert [false, true] ist.
+Boolesche Werte müssen Unbestimmtheit unterstützen, wenn der Wert [false, true] ist.
 
 Für unveränderte `__different__` muss der Wert different zurückgegeben werden:
 
@@ -701,7 +695,7 @@ Der Wert `__different__` ist reserviert und kann von keiner Texteingabe vom Benu
 
 Komponente muss aussehen wie
 
-```
+```jsx
 <SchemaEditor
     style={customStyle}
     className={classes.myClass}
@@ -729,17 +723,17 @@ Sie können auch Stile für Bedienfelder festlegen. Hier ist ein Beispiel mit Be
 
 ```json
 {
-  "i18n": true,
-  "type": "panel",
-  "style": {
-    "backgroundImage": "url(adapter/mpd/background.png)",
-    "backgroundPosition": "top",
-    "backgroundRepeat": "no-repeat",
-    "backgroundSize": "cover"
-  },
-  "items": {
-    "...": {}
-  }
+    "i18n": true,
+    "type": "panel",
+    "style": {
+        "backgroundImage": "url(adapter/mpd/background.png)",
+        "backgroundPosition": "top",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover"
+    },
+    "items": {
+        "...": {}
+    }
 }
 ```
 
@@ -753,29 +747,29 @@ Auf der obersten Ebene der Struktur `i18n: true` setzen und Dateien im Admin ber
 
 - `admin/i18n/de/translations.json`
 - `admin/i18n/en/translations.json`
-- ...
+-   ...
 
 oder
 
 - `admin/i18n/de.json`
 - `admin/i18n/en.json`
-- ...
+-   ...
 
 Darüber hinaus kann der Benutzer den Pfad zu i18n-Dateien angeben, `i18n: "customI18n"`, und Dateien im Adminbereich bereitstellen:
 
 - `admin/customI18n/de/translations.json`
 - `admin/customI18n/en/translations.json`
-- ...
+-   ...
 
 oder
 
 - `admin/customI18n/de.json`
 - `admin/customI18n/en.json`
-- ...
+-   ...
 
 2. Der Benutzer kann Übersetzungen direkt im Etikett bereitstellen, wie:
 
-```
+```json
 {
    "type": "text",
    "label: {
@@ -787,7 +781,7 @@ oder
 
 3. Der Benutzer kann Übersetzungen im i18n-Attribut bereitstellen:
 
-```
+```json
 {
     "18n": {
         "My Text: {
@@ -810,7 +804,7 @@ Wir empfehlen, wenn möglich die Variante 1 zu verwenden, da die Texte dann mit 
 ### Konfigurationsdialog
 Die JS-Funktion ist:
 
-```
+```js
 const myValidator = "_alive === true && data.options.myType == 2";
 
 const func = new Function(
@@ -847,7 +841,7 @@ Die folgenden Variablen sind in der JS-Funktion in den Adaptereinstellungen verf
 ### Dialogfeld „Benutzerdefinierte Einstellungen“
 Die JS-Funktion ist:
 
-```
+```js
 const myValidator = "customObj.common.type === 'boolean' && data.options.myType == 2";
 
 const func = new Function(
@@ -875,7 +869,7 @@ Die folgenden Variablen sind in der JS-Funktion in benutzerdefinierten Einstellu
 - `globalData` - wird nur in der Tabelle für alle Einstellungen verwendet und nicht nur in einer Tabellenzeile
 
 ## Benutzerdefinierte Komponente
-```
+```jsx
 <CustomInstancesEditor
     common={common data}
     alive={isInstanceAlive}

@@ -1,233 +1,218 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.musiccast/README.md
 title: ioBroker.musiccast
-hash: T5qSweTthdZEApvP+6oMSEZA/qXiooHxcYxHPtmHTrc=
+hash: +Y3fTE3nCjE0f9m03KWr9TD02GnweDhdmOqMaSdMScg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.musiccast/admin/musiccast.png)
 
 ![Количество установок](http://iobroker.live/badges/musiccast-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.musiccast.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.musiccast.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.musiccast.svg)
 
 # IoBroker.musiccast
-**Тесты:** ![Тестирование и выпуск](https://github.com/foxthefox/ioBroker.musiccast/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/foxthefox/ioBroker.musiccast/workflows/Test%20and%20Release/badge.svg)
 
 адаптер для устройств Yamaha MusicCast, таких как WX-010/030, YSP-1600
 
-## Монтаж:
-Для установки требуется как минимум nodejs v10.
-
-из НПМ
-
-```javascript
-npm install iobroker.musiccast
-```
-
-актуальная версия с github (это может сработать не всегда, пока идет разработка)
-
-```javascript
-npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --production
-```
-
 ## Настройки
-На странице администратора «+» можно использовать для добавления вручную IP-адреса, DeviceID, типа и имени.
-Нажмите кнопку поиска для открытия. Если у вас несколько устройств, вам придется нажать кнопку несколько раз, пока все устройства не будут обнаружены. К сожалению, обнаружение одновременно возвращает только один объект, и это может быть любое из ваших устройств MusicCast. Если возврат такой же, как и уже часть таблицы, вам придется нажать кнопку еще раз. Иногда помогает сохранить и снова открыть страницу даммина.
+Страница администратора «+» может использоваться для ручного добавления IP-адреса, DeviceID, типа и имени.
+Нажмите кнопку поиска для обнаружения. Если у вас несколько устройств, вам придется нажимать кнопку несколько раз, пока все устройства не будут обнаружены. К сожалению, обнаружение возвращает только один объект за раз, и это может быть любое из ваших устройств MusicCast. Если возврат такой же, как и уже часть таблицы, вам придется нажать кнопку еще раз. Иногда помогает сохранить и снова открыть страницу damin.
 
-В том маловероятном случае, когда два или более устройств передают один и тот же идентификатор, слегка измените один идентификатор. В противном случае адаптер не сможет различить два устройства.
+В маловероятном случае, если 2 или более устройств выдают один и тот же идентификатор, немного измените один идентификатор. В противном случае адаптер не сможет различить 2 устройства.
 
-Если вы хотите, чтобы время воспроизведения обновлялось для треков, которые вы слушаете, установите/установите соответствующий флажок. Имейте в виду, что это увеличивает количество сообщений (каждую секунду для каждого устройства происходит пинг-понг обновлений).
+Если вы хотите видеть обновленное время воспроизведения для прослушиваемых вами треков, включите/отметьте соответствующий флажок. Имейте в виду, что это увеличивает количество сообщений (каждую секунду для каждого устройства пинг-понг обновлений).
 
-## Доступных объектов
-На данный момент реализованы следующие объекты:
+## Доступные объекты
+В настоящее время реализованы следующие объекты:
 
 ### Базовый (зона)
-|Объект|Значение|настраиваемое|Описание|
+|Объект|Значение|устанавливаемое|Описание|
 |--------|-------|:-:|--------|
-|{zone}.power|boolean|x|true/false -> ON/Standby|
-|{zone}.zone_b|boolean|?|true/false -> целевой зоной является зона B|
-|{zone}.mute|boolean|x|true/false -> звук отключен/не отключен|
-|{zone}.volume|value|x|0...max (макс. в зависимости от устройства)|
-|{zone}.act_vol_mode|текст|?|фактическая громкость в режиме дБ|
-|{zone}.act_vol_val|значение|?|фактическая громкость в дБ значение|
-|{zone}.act_vol_unit|текст|-|фактическая единица громкости (должно быть дБ)|
-|{zone}.act_vol_mode_list|текст|-|фактическая громкость в режимах дБ|
-|{zone}.input|текст|x|входы в зависимости от устройства|
-|{зона}.input_list|текст|-|возможные входные данные|
-|{zone}.input_text|текст|-|выбран ввод как текст|
+|{zone}.power|boolean|x|true/false -> ВКЛ/Режим ожидания|
+|{zone}.zone_b|логическое значение|?|истина/ложь -> целевая зона — зона B|
+|{zone}.mute|boolean|x|true/false -> отключен звук/не отключен звук|
+|{zone}.volume|value|x|0...max (max зависит от устройства)|
+|{zone}.act_vol_mode|text|?|фактическая громкость в режиме дБ|
+|{zone}.act_vol_val|value|?|фактическое значение громкости в дБ|
+|{zone}.act_vol_unit|text|-|фактическая единица громкости (должна быть дБ)|
+|{zone}.act_vol_mode_list|text|-|фактическая громкость в дБ модах|
+|{zone}.input|text|x|входы в зависимости от устройства|
+|{zone}.input_list|текст|-|возможные входы|
+|{zone}.input_text|текст|-|выбранный ввод как текст|
 |{zone}.sound_program|text|x|установить звуковую программу|
 |{zone}.sound_program_list|текст|-|возможные звуковые программы|
-|{zone}.surr_decoder_type|текст|?|установить тип объемного звучания|
-|{zone}.surr_decoder_type_list|текст|-|возможный декодер объемного звучания|
+|{zone}.surr_decoder_type|text|?|установить тип объемного звучания|
+|{zone}.surr_decoder_type_list|text|-|возможный декодер объемного звучания|
 |{zone}.link_control|text|x|установить управление ссылкой|
-|{zone}.link_control_list|текст|-|возможные настройки управления ссылками|
-|{zone}.link_audio_delay|text|x|установить задержку звука по ссылке|
-|{zone}.link_audio_delay_list|текст|-|возможные настройки задержки звука ссылки |
+|{zone}.link_control_list|text|-|возможные настройки управления ссылками|
+|{zone}.link_audio_delay|text|x|установить задержку звука ссылки|
+|{zone}.link_audio_delay_list|text|-|возможные настройки задержки звука link link|
 |{zone}.clearVoice|boolean|x|очистить голосовое управление|
-|{zone}.low|value|x|уровень эквалайзера низкий|
-|{зона}.mid|значение|x|уровень эквалайзера Mid|
+|{zone}.low|value|x|level EQ низкий|
+|{zone}.mid|value|x|level эквалайзер средний|
 |{zone}.high|value|x|уровень эквалайзера высокий|
-|{zone}.subwoofer_volume|значение|x|уровень громкости сабвуфера|
-|{zone}.bass|значение|x|уровень баса|
-|{зона}.treble|значение|x|уровень высоких частот|
+|{zone}.subwoofer_volume|value|x|уровень громкости сабвуфера|
+|{zone}.bass|value|x|уровень баса|
+|{zone}.treble|значение|x|уровень высоких частот|
 |{zone}.tone_control_mode_list|текст|-|возможный режим управления тембром|
-|{zone}.tone_mode|boolean|?|режим управления тоном|
-|{зона}.баланс|значение|x|баланс уровня|
-|{зона}.direct|логическое значение|x|установить прямую|
+|{zone}.tone_mode|логическое значение|?|режим управления тембром|
+|{zone}.balance|value|x|уровень баланса|
+|{zone}.direct|логическое|x|установить прямое|
 |{zone}.pure_direct|boolean|x|установить чистый прямой|
 |{zone}.enhancer|boolean|x|установить усилитель|
-|{zone}.bass_extension|boolean|x|установить расширение баса|
-|{зона}.sleep|значение|x|таймер сна|
-|{zone}.disable_flags|boolean|x|установить отключенные_флаги|
-|{zone}.contents_display|boolean|x|установить содержимое_display|
-|{zone}.party_enable|boolean|x|set party_enable|
-|{zone}.extra_bass|boolean|x|set extra_bass|
-|{zone}.adaptive_drc|boolean|x|set Adaptive_drc|
-|{зона}.dts_dialogue_control|значение|x|установить dts_dialogue_control|
-|{zone}.adaptive_dsp_level|boolean|x|set Adaptive_dsp_level|
+|{zone}.bass_extension|логическое значение|x|установить расширение баса|
+|{zone}.sleep|значение|x|таймер сна|
+|{zone}.disable_flags|логическое значение|x|установить disable_flags|
+|{zone}.contents_display|логическое значение|x|установить content_display|
+|{zone}.party_enable|логическое значение|x|установить party_enable|
+|{zone}.extra_bass|логическое значение|x|установить extra_bass|
+|{zone}.adaptive_drc|логическое|x|установить адаптивное_drc|
+|{zone}.dts_dialogue_control|значение|x|установить dts_dialogue_control|
+|{zone}.adaptive_dsp_level|логическое значение|x|установить адаптивный_dsp_level|
 
-### Нетусб
-|Объект|Значение|настраиваемое|Описание|
+### Netusb
+|Объект|Значение|устанавливаемое|Описание|
 |--------|-------|:-:|--------|
-|netusb.input|значение|x|заданный/фактический ввод|
-|netusb.playPause|boolean|x|установить воспроизведение/паузу|
-|netusb.playback|текст|-|статус сетевого игрока|
-|netusb.stop|boolean|x|установить стоп|
-|netusb.auto_stop|логическое значение|-|автоматически остановлено|
-|netusb.next|boolean|x|установить вперед|
-|netusb.prev|boolean|x|установить перемотку назад|
+|netusb.input|значение|x|установленный/фактический ввод|
+|netusb.playPause|логическое значение|x|установить воспроизведение/паузу|
+|netusb.playback|текст|-|статус сетевого проигрывателя|
+|netusb.stop|логическое|x|установить Стоп|
+|netusb.auto_stop|boolean|-|автоматически остановлен|
+|netusb.next|boolean|x|установить Переслать|
+|netusb.prev|boolean|x|установить перемотку|
 |netusb.shuffle|boolean|x|переключить перемешивание|
 |netusb.shuffle_stat|текст|-|статус перемешивания|
-|netusb.repeat|логическое значение|x|переключить повтор|
+|netusb.repeat|boolean|x|переключить повтор|
 |netusb.repeat_stat|текст|-|повторить статус|
 |netusb.artist|текст|-|имя исполнителя|
 |netusb.album|текст|-|название альбома|
-|netusb.track|текст|-|название трека|
+|netusb.track|текст|-|имя трека|
 |netusb.albumart_url|текст|-|http-адрес для обложки альбома|
 |netusb.albumart_id|значение|-|идентификатор обложки альбома|
-|netusb.play_time|значение|-|время воспроизведения в с|
+|netusb.play_time|value|-|время воспроизведения в с|
 |netusb.play_queue_type|текст|-|тип очереди netusb|
-|netusb.total_time|значение|-|общее время игры в с|
-|netusb.recent_info|json|-|история сыгранных предметов|
-|netusb.preset_info|json|-|сохраненные пресеты/избранное|
-|netusb.presetrecallnumber|значение|x|вызов # из списка избранного|
+|netusb.total_time|value|-|общее время воспроизведения в с|
+|netusb.recent_info|json|-|история воспроизведенных предметов|
+|netusb.preset_info|json|-|сохраненные предустановки/избранное|
+|netusb.presetrecallnumber|value|x|вызвать # из списка избранного|
 |netusb.usb_devicetype|текст|-|тип подключенного USB-устройства|
-|netusb.attribute|значение|-|который, возможно, имеет услугу, подлежащую декодированию|
-|netusb.recallRecentItem|значение|x|какие возможности имеют сервис, подлежащий декодированию|
+|netusb.attribute|value|-|какие возможности имеет служба, подлежащая декодированию|
+|netusb.recallRecentItem|value|x|какие возможности имеет служба, подлежащая декодированию|
 
 ### Система
-|Объект|Значение|настраиваемое|Описание|
+|Объект|Значение|устанавливаемое|Описание|
 |--------|-------|:-:|--------|
 |system.api_version|значение|-|Версия API|
 |system.system_version|значение|-|Версия системы|
-|system.inputs.{service}|значение|-|доступный сервис ввода|
-|system.inputs.{service}.account_enable|значение|-|доступная служба ввода включена|
-|system.inputs.{service}.distribution_enable|значение|-|доступный распространяемый входной сервис|
-|system.inputs.{service}.play_info_type|значение|-|доступный тип службы ввода|
+|system.inputs.{service}|value|-|доступная служба ввода|
+|system.inputs.{service}.account_enable|value|-|доступная служба ввода включена|
+|system.inputs.{service}.distribution_enable|value|-|доступная служба ввода, распределяемая|
+|system.inputs.{service}.play_info_type|value|-|доступный тип службы ввода|
 
 ### CD-плеер
-|Объект|Значение|настраиваемое|Описание|
+|Объект|Значение|устанавливаемое|Описание|
 |--------|-------|:-:|--------|
-|cd.playPause|boolean|x|установить воспроизведение/паузу|
-|cd.playback|текст|-|статус проигрывателя компакт-дисков|
-|cd.stop|boolean|x|установить стоп|
-|cd.next|boolean|x|установить вперед|
+|cd.playPause|логическое значение|x|установить воспроизведение/паузу|
+|cd.playback|текст|-|статус CD-плеера|
+|cd.stop|логическое|x|установить Стоп|
+|cd.next|логическое|x|установить вперед|
 |cd.prev|boolean|x|установить перемотку назад|
 |cd.shuffle|boolean|x|переключить перемешивание|
 |cd.shuffle_stat|текст|-|статус перемешивания|
 |cd.repeat|логическое значение|x|переключить повтор|
-|cd.repeat_stat|текст|-|повторить статус|
-|cd.device_stat|текст|-|статус устройства|
-|cd.playtime|значение|-|текущее время воспроизведения|
-|cd.totaltime|значение|-|общее время текущего трека|
-|cd.disctime|значение|-|Общее время компакт-диска|
-|cd.tracknumber|значение|-|текущая дорожка в воспроизведении|
-|cd.totaltracks|значение|-|всего треков компакт-диска|
+|cd.repeat_stat|текст|-|статус повтора|
+|cd.device_stat|текст|-|состояние устройства|
+|cd.playtime|value|-|текущее время воспроизведения|
+|cd.totaltime|value|-|общее время текущего трека|
+|cd.disctime|value|-|Общее время CD|
+|cd.tracknumber|value|-|текущий воспроизводимый трек|
+|cd.totaltracks|value|-|всего треков CD|
 |cd.artist|текст|-|имя исполнителя|
 |cd.album|текст|-|название альбома|
-|cd.track|текст|-|название трека|
+|cd.track|текст|-|имя трека|
 
 ### Тюнер
-|Объект|Значение|настраиваемое|Описание|
+|Объект|Значение|устанавливаемое|Описание|
 |--------|-------|:-:|--------|
 |tuner.common_preset_info|массив|-|Информация о предустановках|
-|tuner.am.preset_info|array|-|Информация о предустановленной AM|
-|tuner.fm.preset_info|array|-|Информация о предустановленной FM|
-|tuner.dab.preset_info|array|-|Информация о предустановленных настройках DAB|
-|tuner.am.preset|номер|x|Номер предустановки AM|
-|tuner.am.freq|число|x|Частота AM в кГц|
-|tuner.am.tuned|логическое значение|-|AM настроено|
-|tuner.fm.preset|номер|x|Номер предустановки FM|
-|tuner.fm.freq|число|x|Частота FM в кГц|
-|tuner.fm.tuned|логическое значение|-|Настройка FM|
-|tuner.fm.audio_mode|строка|-|FM моно/стерео|
-|tuner.dab.preset|номер|x|Номер предустановки DAB|
-|tuner.dab.id|номер|-|Идентификатор станции DAB|
-|tuner.dab.status|строка|-|Состояние DAB|
+|tuner.am.preset_info|array|-|Предустановленная информация AM|
+|tuner.fm.preset_info|array|-|Предустановленная информация о FM|
+|tuner.dab.preset_info|array|-|Предустановленная информация DAB|
+|tuner.am.preset|номер|x|номер предустановки AM|
+|tuner.am.freq|number|x|Частота AM в кГц|
+|tuner.am.tuned|логическое|-|AM настроен|
+|tuner.fm.preset|номер|x|номер предустановки FM|
+|tuner.fm.freq|number|x|Частота FM в кГц|
+|tuner.fm.tuned|логическое|-|FM настроен|
+|tuner.fm.audio_mode|string|-|FM моно/стерео|
+|tuner.dab.preset|number|x|номер предустановки DAB|
+|tuner.dab.id|номер|-|ID станции DAB|
+|tuner.dab.status|строка|-|статус DAB|
 |tuner.dab.freq|номер|-|частота DAB|
-|tuner.dab.category|строка|-|первичный/вторичный|
-|tuner.dab.audio_mode|строка|-|DAB моно/стерео|
-|tuner.dab.bit_rate|число|-|Скорость передачи данных DAB в кбит/с|
-|tuner.dab.quality|номер|-|Качество DAB 0–100|
+|tuner.dab.category|string|-|первичный/вторичный|
+|tuner.dab.audio_mode|string|-|DAB моно/стерео|
+|tuner.dab.bit_rate|число|-|скорость передачи данных DAB в кбит/с|
+|tuner.dab.quality|номер|-|Качество DAB 0-100|
 |tuner.dab.tune_aid|номер|-|Сила сигнала DAB 0–100|
-|tuner.dab.off_air|boolean|-|DAB отключен от эфира|
-|tuner.dab.dab_plus|логическое значение|-|DAB+|
-|tuner.dab.program_type|строка|-|Тип программы DAB|
-|tuner.dab.ch_label|строка|-|метка DAB CH|
-|tuner.dab.service_label|строка|-|Служебная метка DAB|
+|tuner.dab.off_air|boolean|-|DAB выключен из эфира|
+|tuner.dab.dab_plus|логическое|-|DAB+|
+|tuner.dab.program_type|string|-|Тип программы DAB|
+|tuner.dab.ch_label|string|-|Метка DAB CH|
+|tuner.dab.service_label|string|-|Метка службы DAB|
 |tuner.dab.dls|строка|-|DAB DLS|
-|tuner.dab.ensemble_label|строка|-|метка ансамбля DAB|
-|tuner.dab.initial_scan_progress|число|-|Прогресс начального сканирования DAB 0-100|
-|tuner.dab.total_station_num|номер|-|Тахеометры DAB 0–255|
-|tuner.rds.program_type|строка|-|Тип программы RDS|
-|tuner.rds.program_service|строка|-|программный сервис RDS|
-|tuner.rds.radio_text_a|строка|-|текст RDS A|
-|tuner.rds.radio_text_b|строка|-|текст RDS B|
+|tuner.dab.ensemble_label|string|-|Метка ансамбля DAB|
+|tuner.dab.initial_scan_progress|number|-|Прогресс начального сканирования DAB 0-100|
+|tuner.dab.total_station_num|число|-|общее количество станций DAB 0-255|
+|tuner.rds.program_type|string|-|Тип программы RDS|
+|tuner.rds.program_service|string|-|Служба программы RDS|
+|tuner.rds.radio_text_a|строка|-|RDS текст A|
+|tuner.rds.radio_text_b|string|-|RDS текст B|
 
 ### Часы
-|Объект|Значение|настраиваемое|Описание|
+|Объект|Значение|устанавливаемое|Описание|
 |--------|-------|:-:|--------|
-|lock.auto_sync|boolean|x|Автосинхронизация часов|
-|lock.format|string|x|Формат часов 12ч/24ч|
-|lock.alarm_on|boolean|x|Состояние будильника вкл./выкл.|
-|lock.volume|number|x|Громкость будильника|
-|lock.fade_interval|number|x|Интервал затухания будильника|
-|lock.fade_type|number|x|Тип исчезновения будильника|
-|lock.mode|string|x|Режим будильника один день/еженедельно|
-|lock.repeat|boolean|x|Повтор будильника, если указан один день|
-|lock.{day}.enable|boolean|x|Действительность настройки часов|
-|lock.{day}.time|строка|-|Время включения будильника ччмм 00-23,00-59|
-|lock.{day}.beep|boolean|x|Действительность звукового сигнала|
-|lock.{day}.playback_type|string|-|Тип воспроизведения будильника возобновление/предустановка|
-|lock.{day}.resume_input|string|-|Идентификатор входа возобновления будильника |
-|lock.{day}.preset_type|string|-|Тип предустановки будильника|
-|часы.{день}.preset_num|номер|-|Идентификатор входа предустановленного сигнала будильника|
-|lock.{day}.preset_netusb_input|string|-|Идентификатор входа netusb будильника |
-|lock.{day}.preset_netusb_text|строка|-|Текст будильника netusb|
-|lock.{day}.preset_tuner_band|строка|-|Диапазон тюнера будильника|
-|lock.{day}.preset_tuner_number|номер|-|Частота тюнера будильника или идентификатор станции|
+|clock.auto_sync|boolean|x|Автоматическая синхронизация часов|
+|clock.format|string|x|Формат времени 12ч/24ч|
+|clock.alarm_on|boolean|x|Состояние будильника вкл/выкл|
+|clock.volume|число|x|Громкость будильника|
+|clock.fade_interval|number|x|Интервал затухания будильника|
+|clock.fade_type|number|x|Тип затухания будильника|
+|clock.mode|string|x|Режим будильника один день/еженедельно|
+|clock.repeat|boolean|x|Повтор будильника, если указан один день|
+|clock.{day}.enable|boolean|x|Допустимость настройки часов|
+|clock.{day}.time|string|-|Время срабатывания будильника ччмм 00-23,00-59|
+|clock.{day}.beep|boolean|x|Достоверность сигнала часов|
+|clock.{day}.playback_type|string|-|Тип воспроизведения будильника возобновление/предустановка|
+|clock.{day}.resume_input|string|-|Идентификатор ввода возобновления будильника|
+|clock.{day}.preset_type|string|-|Тип предустановки будильника|
+|clock.{day}.preset_num|number|-|Идентификатор входа предустановки будильника|
+|clock.{day}.preset_netusb_input|string|-|Идентификатор входа netusb будильника|
+|clock.{day}.preset_netusb_text|string|-|Текст будильника netusb|
+|clock.{day}.preset_tuner_band|string|-|Полоса тюнера будильника|
+|clock.{day}.preset_tuner_number|number|-|Частота тюнера будильника или идентификатор станции|
 
-## Делать
+## Задача
 * поддержка списков
-* изменение значений взаимодействия на красивое наименование
+* изменение значений взаимодействия на приятные названия
 * быстрая перемотка вперед/перемотка вперед для NETUSB/CD
 * Bluetooth
 * уровень диалога
 
-## 1.0.0 СЕРЬЕЗНЫЕ ИЗМЕНЕНИЯ
-* идентификатор устройства ранее был идентификатором системы, который не является уникальным. Теперь используется deviceId, это меняет дерево объектов
-* API музыкального вещания 2.0.0
+## 1.0.0 ВАЖНЕЙШИЕ ИЗМЕНЕНИЯ
+* deviceId раньше был systemId, который не является уникальным. Теперь используется deviceId, это меняет дерево объектов
+* API Musiccast 2.0.0
 * поиск устройств теперь может возвращать более 1 устройства
-* новый вывод для разработчика в админ-панели
+* новый вывод для разработчика в панели администратора
 * больше асинхронности/ожидания
-* исправлено тестирование
+* исправленное тестирование
 
 #### 0.2.2
-* API музыкального вещания 0.0.14
+* API musiccast 0.0.14
 
 #### 0.2.1
-* лицензия 2022 г.
+* лицензия 2022
 * коррекция зависимости
 
 #### 0.2.0
@@ -241,13 +226,13 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * (Scrounger) исправление несоответствия типов (объект массива)
 
 #### 0.1.3
-* (foxthefox) добавлена запись для linkControl/linkAudioDelay/linkAudioQuality.
+* (foxthefox) добавлена запись для linkControl/linkAudioDelay/linkAudioQuality
 
 #### 0.1.2
-* (Scrunger) исправление несоответствия типов (строковое логическое значение)
+* (Scrounger) исправление несоответствия типов (строка boolean)
 
 #### 0.1.1
-* поправка на часы «один день»
+* поправка на часы "oneday"
 
 #### 0.1.0
 * компактный режим
@@ -255,52 +240,58 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * обновление виджета
 
 #### 0.0.9
-* adminV3 использует таблицу значений2 и снова добавляет кнопку
+* adminV3 использует values2table и кнопку добавления снова
 * зона 2/3/4 теперь работает
 * расширенное автоматическое тестирование
-* кнопка в админке для сбора ответов в формате JSON
+* кнопка в админке для сбора JSON-ответов
 
 #### 0.0.8
 * автоматическое обновление тестирования
-* имя, указанное на странице администратора, будет отображаться в объекте (устройстве)
+* указанное имя на странице администратора для отображения в объекте (устройстве)
 
 #### 0.0.7
 * поддержка тюнера
-* круглосуточная поддержка (в основном информационная)
+* поддержка часов (в основном информация)
 * поддержка большего количества зон
-* поддержка MC-Link
-* установка минимального и максимального значений в соответствии с характеристиками
-* админ v3
+* поддержка mc-link
+* установка минимальных и максимальных значений в соответствии с характеристиками
+* администратор v3
 
 #### 0.0.6
-* набор виджетов, соответствующий объектам и элементам управления
-* cd.shuffle_stat boolean -> текст
+* набор виджетов, соответствующих объектам и элементам управления
+* cd.shuffle_stat логическое значение -> текст
 * новый netusb.shuffle_stat (текст)
-* обновление статуса посредством подписки на UDP-сообщения
-* переключатель для обновления информации о времени игры (отключение уменьшает трафик)
+* обновление статуса через подписку на UDP-сообщения
+* включить обновление информации о времени воспроизведения (отключение снижает трафик)
 
 #### 0.0.5
-* очистка в админке
+* очистка на странице администратора
 * улучшение создания объектов
 * больше объектов на netusb
 * больше объектов в системе
 * добавлена поддержка CD
 
 #### 0.0.4
-* новые объекты и функции (вход, sound_prog, EQ,clearVoice)
+* новые объекты и функции (input, sound_prog, EQ, clearVoice)
 * поиск/обнаружение на странице администратора
 
 #### 0.0.3
 * реализовано больше объектов
 
 #### 0.0.2
-* небольшие исправления
+* незначительные исправления
 
 #### 0.0.1
-* первоначальный выпуск с настройкой IP на странице конфигурации,
-* доступные команды: питание, отключение звука, громкость
+* начальный релиз с настройкой IP на странице конфигурации,
+* доступны команды питание, отключение звука, громкость
 
 ## Changelog
+
+### 1.1.4
+* fixed main.surround_ai
+* update devDeps, eslint corrections
+* IOB checker corrections
+
 ### 1.1.3
 * translation with adapter-dev
 
@@ -345,4 +336,5 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2017 - 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

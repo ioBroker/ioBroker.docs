@@ -6,15 +6,15 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.zigbee/README.md
 title: 适用于 ZigBee 设备的 ioBroker 适配器
-hash: c+rBra27Jf9WhBo5kKn29SuZPRKdO0D0nsy7s0hQhlY=
+hash: kHg3UwoxvNd3H3XJITny6w+hj+SUYUtVOP+o0PGRE5Q=
 ---
 # ZigBee 设备的 ioBroker 适配器
-在协调器的帮助下，基于“Texas Instruments CC253x”（和其他）芯片，创建了一个 ZigBee 网络，供 ZigBee 设备（灯泡、调光器、传感器等）加入。由于与协调器直接交互，ZigBee 适配器无需任何制造商网关/网桥（Xiaomi/Tradfri/Hue）即可控制设备。有关 ZigBee 的更多信息，请参见[这里](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network)。
+在协调器的帮助下，基于“Texas Instruments CC253x”（和其他）芯片，创建了一个 ZigBee 网络，供 ZigBee 设备（灯泡、调光器、传感器等）加入。由于与协调器直接交互，ZigBee 适配器无需任何制造商网关/网桥（Xiaomi/Tradfri/Hue）即可控制设备。有关 ZigBee 的更多信息请参见[这里](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network)。
 
 ＃＃硬件
 协调器需要额外的硬件（见上文），以实现 USB 和 ZigBee 无线电信号之间的转换。有 2 组：
 
-• RaspberryPi 的附件模块（其旧版本且不支持 Zigbee V3）<br> • USB 棒之类的硬件
+• RaspberryPi 的附件模块（较旧且不支持 Zigbee V3）<br> • USB 棒之类的硬件
 
 ![](../de/img/CC2531.png) ![](../de/img/sku_429478_2.png) ![](../de/img/cc26x2r.PNG) ![](../de/img/CC2591.png) ![](../../../de/adapterref/de/img/sonoff.png)
 
@@ -22,7 +22,7 @@ hash: c+rBra27Jf9WhBo5kKn29SuZPRKdO0D0nsy7s0hQhlY=
 
 “Sonoff ZIGBEE 3.0 USB STICK CC2652P”越来越受欢迎：![](../../../de/adapterref/de/img/sonoff.png)
 
-   - 刷新合适的固件并不是绝对必要的（硬件已随合适的固件一起交付）
+   - 闪烁合适的固件并不是绝对必要的（硬件已经附带合适的固件）
    - 支持较新的 ZigBee 3.0 标准
 
 连接到 ZigBee 网络的设备将其状态传输给协调器并通知其事件（按钮按下、运动检测、温度变化等）。此信息显示在相应 ioBroker 对象下的适配器中，因此可以在 ioBroker 中进一步处理。还可以向 ZigBee 设备发送命令（更改插座和灯的状态、颜色和亮度设置等）。
@@ -42,14 +42,14 @@ hash: c+rBra27Jf9WhBo5kKn29SuZPRKdO0D0nsy7s0hQhlY=
 
 ＃＃ 安装
 1. 将协调器硬件连接到 Raspberry Pi。<br>
-2. 通过 PuTTY 连接到 RaspberryPi。<br>
+2. 连接到 RaspberryPi，例如通过 PuTTY。<br>
 3. 删除任何现有的 ZigBee 备份文件。否则，ZigBee 适配器将不会在 ioBroker 中变绿，并且 ioBroker 日志将指出适配器配置错误<br>
 4.找出协调者的路径：
 
 `ls -la /dev/serial/by-id/`![](../../../de/adapterref/de/img/Bild2.png)
 
 5. ioBroker -&gt; 安装 ZigBee 适配器，这里版本 1.8.10<br> ![](../../../de/adapterref/de/img/Img3.png)<br>这将安装所有必需的软件部件（转换器和适配器）。
-6. 打开适配器 -&gt; ![](img/Bild4.png) -&gt; 输入之前确定的协调器路径，添加 /dev/serial/by-id/:![](../../../de/adapterref/de/img/图片5.jpg)<br>路径末尾不得有空格。
+6. 打开适配器 -&gt; ![](../../../de/adapterref/iobroker.zigbee/img/Bild4.png) -&gt; 输入之前确定的协调器路径，添加 /dev/serial/by-id/:![](../de/img/图片5.jpg）<br>路径末尾不得有空格。
 7. 配置网络 ID 和 Pan ID，以区别于无线电范围内的其他 ZigBee 网络，例如<br>
 
    ![](../de/img/Img6.png) ![](../de/img/Img7.png)<br> ![](../de/img/Img8.png) ![](../../../de/adapterref/iobroker.zigbee/img/Bild9.png)
@@ -84,7 +84,7 @@ hash: c+rBra27Jf9WhBo5kKn29SuZPRKdO0D0nsy7s0hQhlY=
    - 在最坏的情况下，当前不支持 ZigBee 设备。下一节将介绍使用该 ZigBee 设备需要做什么。
 
 ## 目前未知 ZigBee 设备的配对
-到目前为止，对于未知的 ZigBee 设备，在配对期间会出现 ZigBee 设备的 ZigBee 名称（例如 HOMA1001），并添加“statesMapping 中未描述”的内容<br>![](../de/img/Bild28.png)<br> ![](../../../de/adapterref/de/img/Bild16.png)<br>
+到目前为止，对于未知的 ZigBee 设备，ZigBee 设备的 ZigBee 名称（例如 HOMA1001）在配对期间会出现，并添加“statesMapping 中未描述”的内容<br>![](../de/img/Bild28.png)<br> ![](../../../de/adapterref/de/img/Bild16.png)<br>
 
 转动此图块可为您提供有关 ZigBee 设备的详细信息：<br> ![](../de/img/Img17.png) ![](../../../de/adapterref/iobroker.zigbee/img/Bild18.png)<br>
 
@@ -94,7 +94,7 @@ hash: c+rBra27Jf9WhBo5kKn29SuZPRKdO0D0nsy7s0hQhlY=
 
    - 将图块的详细信息（见上文）插入问题中，创建简短文档（最好是英文）并发送。然后开发人员将通过该问题做出回应。
 
-修改相关文件后，必须重新启动 ZigBee 适配器，并且必须取消 ZigBee 设备与协调器的配对：![](../de/img/Bild20.png)<br>之后，可以重复配对。配对后目标状态：<br> ![](../../../de/adapterref/de/img/Bild21.png)<br>
+修改相关文件后，必须重新启动ZigBee适配器，并且必须将ZigBee设备与协调器取消配对：![](../de/img/Bild20.png)<br>之后，可以重复配对。配对后目标状态：<br> ![](../../../de/adapterref/de/img/Bild21.png)<br>
 
 对于某些 ZigBee 设备，需要在 ioBroker 对象中显示新 ZigBee 设备的所有软件接口（“公开”），以便能够使用该 ZigBee 设备的所有功能。在这种情况下，新的 ZigBee 设备必须包含在“排除”组中。
 
@@ -104,26 +104,55 @@ hash: c+rBra27Jf9WhBo5kKn29SuZPRKdO0D0nsy7s0hQhlY=
 
 ## ZigBee 适配器内的符号
 |图标|描述 |
-| ------------- | ------------- |
-| ![](../../../de/adapterref/de/img/Bild30.png) | **状态清理** 删除无效的 ioBroker 对象，这可能是“排除”过程导致的。 |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](../../../de/adapterref/de/img/Bild30.png) | **状态清理** 删除无效的 ioBroker 对象，这可能是“排除”过程导致的。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ![](../../../de/adapterref/de/img/Bild32.png) | **添加组** 使用此功能，ZigBee 设备可以组合成一个逻辑组，然后通过一个 ioBroker 对象一起控制，例如Brightness=20 将组中所有 ZigBee 设备的亮度设置为 20。 |
-| ![](../../../de/adapterref/de/img/Bild33.png) | **Touchlink 重置和配对** Touchlink 是一种 ZigBee 功能，允许物理上彼此靠近的设备无需位于同一网络中即可相互通信。并非所有设备都支持此功能。要通过 Touchlink 将 ZigBee 设备重置为出厂设置，请将设备靠近 ZigBee 协调器（< 10 厘米），然后按此绿色图标。 |
-| ![](../../../de/adapterref/de/img/Bild34.png) | **使用二维码配对** 对于某些 ZigBee 设备，可以使用二维码进行配对。 |
-| ![](../../../de/adapterref/de/img/Bild35.png) | **让我们开始配对** 开始新 ZigBee 设备的配对过程。 |
-| ![](../../../de/adapterref/de/img/Bild36.png) |自上次与此 ZigBee 设备交换数据以来的时间。 |
-| ![](../../../de/adapterref/de/img/Bild37.png) |此 ZigBee 设备上的 ZigBee 无线电信号的强度（<10 差，<50 中，>50 好）。ZigBee 是无线网状网络。大多数主电源供电的 ZigBee 设备（例如 Philips Hue 灯泡）都可以充当 ZigBee 路由器，这意味着充当无线电节点。因此，ZigBee 设备不一定必须与协调器建立直接无线连接，而是可以使用网络中的任何路由器进行无线连接。因此，每个 ZigBee 路由器都扩展了网络的无线电范围。所有 ZigBee 设备都会定期检查是否有更好的无线电路由并自动切换。但是，此过程可能需要几分钟时间。 |
-| ![](../../../de/adapterref/de/img/Bild37.png) |此 ZigBee 设备上的 ZigBee 无线电信号的强度（<10 差，<50 中，>50 好）。ZigBee 是无线网状网络。大多数主电源供电的 ZigBee 设备（例如 Philips Hue 灯泡）都可以充当 ZigBee 路由器，这意味着充当无线电节点。因此，ZigBee 设备不一定必须与协调器建立直接无线连接，而是可以使用网络中的任何路由器进行无线连接。因此，每个 ZigBee 路由器都扩展了网络的无线电范围。所有 ZigBee 设备都会定期检查是否有更好的无线电路由并自动切换。但是，此过程可能需要几分钟时间。 |
+| ![](../../../de/adapterref/de/img/Bild33.png) | **Touchlink 重置和配对** Touchlink 是一种 ZigBee 功能，允许物理上彼此靠近的设备无需位于同一网络中即可相互通信。并非所有设备都支持此功能。要通过 Touchlink 将 ZigBee 设备重置为出厂设置，请将设备靠近 ZigBee 协调器（< 10 厘米），然后按此绿色图标。                                                                                                                                                                                                                                                                                                 |
+| ![](../../../de/adapterref/de/img/Bild34.png) | **使用二维码配对** 对于某些 ZigBee 设备，可以使用二维码进行配对。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ![](../../../de/adapterref/de/img/Bild35.png) | **让我们开始配对** 开始新 ZigBee 设备的配对过程。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ![](../../../de/adapterref/de/img/Bild36.png) |自上次与此 ZigBee 设备交换数据以来的时间。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ![](../../../de/adapterref/de/img/Bild37.png) |此 ZigBee 设备上的 ZigBee 无线电信号的强度（<10 差，<50 中，>50 好）。ZigBee 是无线网状网络。大多数主电源供电的 ZigBee 设备（例如 Philips Hue 灯泡）都可以充当 ZigBee 路由器，这意味着充当无线电节点。因此，ZigBee 设备不一定必须与协调器建立直接无线连接，而是可以使用网络中的任何路由器进行无线连接。因此，每个 ZigBee 路由器都扩展了网络的无线电范围。所有 ZigBee 设备都会定期检查是否有更好的无线电路由并自动切换。但是，此过程可能需要几分钟的时间。 |
+| ![](../../../de/adapterref/de/img/Bild37.png) |此 ZigBee 设备上的 ZigBee 无线电信号的强度（<10 差，<50 中，>50 好）。ZigBee 是无线网状网络。大多数主电源供电的 ZigBee 设备（例如 Philips Hue 灯泡）都可以充当 ZigBee 路由器，这意味着充当无线电节点。因此，ZigBee 设备不一定必须与协调器建立直接无线连接，而是可以使用网络中的任何路由器进行无线连接。因此，每个 ZigBee 路由器都扩展了网络的无线电范围。所有 ZigBee 设备都会定期检查是否有更好的无线电路由并自动切换。但是，此过程可能需要几分钟的时间。 |
 
 ＃＃ 附加信息
 有[其他](https://www.zigbee2mqtt.io/)具有相同的功能和相同的技术，通过MQTT协议与相同的设备通信。如果 ZigBee2MQTT 项目中包含任何改进或新支持的设备，也可以将它们添加到该项目中。如果您发现任何差异，请写一个问题，我们会处理。
 与此适配器相关的其他主题也记录在相关的 wiki 中。
 
 ## Changelog
+
+### UNRELEASED
+* (lebrinkma) fix linter errors
+
+### 1.10.9 (2024-09-05)
+* (arteck) typo admin settings
+* (arteck) eslint config
+
+### 1.10.8 (2024-09-05)
+* (arteck) corr admin settings
+* (arteck) add new eslint version
+
+### 1.10.7 (2024-09-05)
+* (arteck) add flow control option 
+* (asgothian) add new NewHerdsman
+* (arteck) add new ezsp coordinator Firmware (7.4.1.0)
+
+### 1.10.5 (2024-06-21)
+* (arteck) icon ota device update
+* (arteck) icon fix
+
+### 1.10.4 (2024-04-20)
+* (arteck) core update
+* (arteck) dependency update
+
+### 1.10.3 (2024-04-06)
+* (arteck) dependency update
+
+## Changelog
 ### 1.10.2 (2024-01-25)
 * (arteck) dependency update
 
 ### 1.10.1 (2024-01-21)
-* (arteck) Baudrate is now configurable. works ONLY with Deconz/Conbee( 38400 )
+* (arteck) Baudrate is now configurable. works ONLY with Deconz/Conbee(38400)
 * (arteck) add nvbackup.json delete button
 
 ### 1.10.0 (2024-01-13)
@@ -211,17 +240,17 @@ hash: c+rBra27Jf9WhBo5kKn29SuZPRKdO0D0nsy7s0hQhlY=
 * (arteck) new Documentation (thx Stefan)
 
 ### 1.8.11 (2022-12-10)
-* (arteck) fix compsite exposes with list
+* (arteck) fix compsite exposes with a list
 
 ### 1.8.10 (2022-12-12)
 * (asgothian) fix group access
 * (asgothian) add option for pairing code:
-   A new icon allows to open the network after first entering a pairing code
+   A new icon allows opening the network after first entering a pairing code
    listed on the device
 * (asgothian) easier use of external converters
    - external converters can now be placed in the zigbee adapter data folder
    - no absolite path is required to access them
-   - external converters posted on the github for zigbee-herdsman-converters
+   - external converters posted on the GitHub for zigbee-herdsman-converters
      should work as they are - folders for libraries are rewritten to match
      the expected location when 'required' from within the zigbee adapter
    - Log entries will identify which files are entered as converters. Errors
@@ -391,7 +420,7 @@ in this case, the *states* attribute will be formed based on the *exposes* descr
 
 ### 1.2.1 (2020-08-16)
 * Fixes after changing device identify method
-* (Garfonso) Allow to unbind from coordinator
+* (Garfonso) Allow unbinding from coordinator
 
 ### 1.2.0 (2020-08-09)
 * Serialport 9.0.0. (zigbee-herdsman)
@@ -407,8 +436,8 @@ Improvements and fixes:
 * (allofmex) Improved DeveloperTab logs
 * (allofmex) Add humidity and temperature calibration state to Tuya RH3052
 * (kirovilya) Fixed a typo due to which extPanID was not set
-* (allofmex) Retry reconnect gateway all the time for tcp connected gateway
-* (kirovilya) Allow to collect zigbee-herdsman logs to iobroker logs
+* (allofmex) Retry reconnect gateway all the time for TCP-connected gateway
+* (kirovilya) Allow collecting zigbee-herdsman logs to iobroker logs
 * (kirovilya) Additional states for QBKG12LM
 
 New devices:
@@ -466,7 +495,7 @@ new Zigbee-herdsman features:
 * (kirovilya) Moes Zigbee Thermostatic Radiator
 * (kirovilya) LifeControl power plug MCLH-03, bulb MCLH-02, water leak MCLH-07, door sensor MCLH-04
 * (kirovilya) Philips LCT002, LCT011, LTW015, LWG004
-* (kirovilya) Gledopto GL-C-007 with with channel
+* (kirovilya) Gledopto GL-C-007 with a channel
 * (MultivitaminJuice) Iluminize 511.040
 * (Sacred-Shadow) Bitron 902010/24
 * (kirovilya) Color indication of LQI and Battery icon

@@ -3,32 +3,237 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.jarvis/README.md
 title: ioBroker.jarvis
-hash: naNq35W6MAbQo5RaJ0VOMNz+JHnHtZfp0iLI6VPQVhE=
+hash: 3wohBwLi6Ebe1JKZMUAiv/oT6CwTaAUl6uOktfJ16pE=
 ---
 ![标识](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
 
 ![安装数量](https://iobroker.live/badges/jarvis-installed.svg)
-![稳定版](https://iobroker.live/badges/jarvis-stable.svg)
-![新版本](http://img.shields.io/npm/v/iobroker.jarvis.svg)
+![稳定版本](https://iobroker.live/badges/jarvis-stable.svg)
+![下载](https://nodei.co/npm/iobroker.jarvis.png?downloads=true)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.jarvis.svg)
 ![自上次发布以来的提交](https://img.shields.io/github/commits-since/Zefau/ioBroker.jarvis/latest.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.jarvis.svg)
-![新产品管理](https://nodei.co/npm/iobroker.jarvis.png?downloads=true)
 
-# IoBroker.jarvis jarvis - 又一个非凡的可视化
-[![Travis CI](https://travis-ci.com/Zefau/ioBroker.jarvis.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.jarvis)
+# IoBroker.jarvis jarvis - 又一个非凡的 vis
+[![npm 发布]（https://github.com/Zefau/ioBroker.jarvis/actions/workflows/publish-npm.yml/badge.svg）](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/publish-npm.yml)
 
 ## Anleitung / 安装 / Hilfe
-谢赫[维基链接](https://github.com/Zefau/ioBroker.jarvis/wiki)。
+瞧[Wiki 中的链接汇集](https://github.com/Zefau/ioBroker.jarvis/wiki)。
 
 ## Changelog
 
 Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
 
+### v3.2.0-alpha.39 (2024-01-07)
+
+#### bug :bug: (4 changes)
+- fixed `[v3.2.0-alpha.36] Darkmode` (alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2515](https://github.com/Zefau/ioBroker.jarvis/issues/2515))
+- fixed `[v3.2.0-alpha.36] Keine DPs mehr übernehmen` (alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2517](https://github.com/Zefau/ioBroker.jarvis/issues/2517))
+- fixed `v3.2.0-alpha.37 Fehlermeldungen` (alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2518](https://github.com/Zefau/ioBroker.jarvis/issues/2518))
+- fixed `[v3.2.0-alpha.37] invalid time value im ioBroker Log` (Module Calendar, alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2519](https://github.com/Zefau/ioBroker.jarvis/issues/2519))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.37 (2024-01-04)
+
+#### bug :bug: (6 changes)
+- fixed `Bindings im Datenpunkt Stil funktionieren nicht` (binding :link:, [#2487](https://github.com/Zefau/ioBroker.jarvis/issues/2487))
+- fixed `[v3.2.0-alpha.27] Anzeigevariante zum ausblenden vom Wert greift nicht im Secondary State` (binding :link:, alpha / beta :construction:, [#2505](https://github.com/Zefau/ioBroker.jarvis/issues/2505))
+- fixed `v3.2.0-alpha.35 Einstellungen Fehler` (alpha / beta :construction:, [#2513](https://github.com/Zefau/ioBroker.jarvis/issues/2513))
+- fixed `[v3.2.0-alpha.36] Darkmode` (alpha / beta :construction:, [#2515](https://github.com/Zefau/ioBroker.jarvis/issues/2515))
+- fixed `[v3.2.0-alpha.36] Kalender` (Module Calendar, alpha / beta :construction:, [#2516](https://github.com/Zefau/ioBroker.jarvis/issues/2516))
+- fixed `[v3.2.0-alpha.36] Keine DPs mehr übernehmen` (alpha / beta :construction:, [#2517](https://github.com/Zefau/ioBroker.jarvis/issues/2517))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.36 (2024-01-02)
+
+#### bug :bug: (4 changes)
+- fixed `v3.2.0-alpha.30 DesignFehler Layout` (#status: implemented-locally :hammer_and_wrench:, [#2510](https://github.com/Zefau/ioBroker.jarvis/issues/2510))
+- fixed `v3.2.0-alpha.34 Fehler` (alpha / beta :construction:, [#2511](https://github.com/Zefau/ioBroker.jarvis/issues/2511))
+- fixed `[v3.2.0-alpha.30] Bodystilfehler` (binding :link:, alpha / beta :construction:, [#2512](https://github.com/Zefau/ioBroker.jarvis/issues/2512))
+- fixed `v3.2.0-alpha.35 Einstellungen Fehler` (alpha / beta :construction:, [#2513](https://github.com/Zefau/ioBroker.jarvis/issues/2513))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.34 (2024-01-01)
+
+#### feature :star2: (1 changes)
+- added `Multiple Trigger` (pro, [#695](https://github.com/Zefau/ioBroker.jarvis/issues/695))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.30 (2023-12-29)
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` (core, binding, [#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.28 (2023-12-29)
+
+#### :bug: bug (1 changes)
+- fixed `[v3.2.0-alpha.27] Kalender funktioniert nicht richtig` (Module Calendar, [#2503](https://github.com/Zefau/ioBroker.jarvis/issues/2503))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.27 (2023-12-28)
+
+#### :star2: feature (2 changes)
+- added `v3: icon Auswahl` ([#902](https://github.com/Zefau/ioBroker.jarvis/issues/902))
+- added `Refactor ioBroker.jarvis backend` (core, binding, [#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+#### :bug: bug (3 changes)
+- fixed `Dezimaltrennzeichen bei negativen Werten Punkt statt Komma` ([#2498](https://github.com/Zefau/ioBroker.jarvis/issues/2498))
+- fixed `[v3.2.0-alpha.26] Jarvis sehr langsam` ([#2500](https://github.com/Zefau/ioBroker.jarvis/issues/2500))
+- fixed `[v3.2.0-alpha.26] Geräteliste plötzlich leer` ([#2501](https://github.com/Zefau/ioBroker.jarvis/issues/2501))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.26 (2023-12-27)
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` (core, binding, [#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+SyntaxError: Unexpected token t in JSON at position 142
+    at JSON.parse (<anonymous>)
+    at /home/runner/work/jarvis/jarvis/scripts/changelog.generate.js:21:56
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (/home/runner/work/jarvis/jarvis/scripts/changelog.generate.js:20:9)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:128:12)
+    at node:internal/main/run_main_module:28:49 [
+  `["PVTI_lAHOANtAK84AAVGnzgLeFb0","I_kwDODbcoCM56PNH4",[":bug: bug"],2493,"3.2.0-alpha.21 - TypeError: Cannot read properties of null (reading ts)"]`
+]
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.21 (2023-12-19)
+
+#### :bug: bug (1 changes)
+- fixed `v3.2.0-alpha.13 Konfiguration ohne Inhalte` ([#2488](https://github.com/Zefau/ioBroker.jarvis/issues/2488))
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` ([#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.20 (2023-12-18)
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` ([#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.13 (2023-12-09)
+
+#### :bug: bug (1 changes)
+- fixed `v3.2.0-alpha.12 Geräte Liste ist leer` ([#2484](https://github.com/Zefau/ioBroker.jarvis/issues/2484))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.12 (2023-12-08)
+
+#### :star2: feature (1 changes)
+- added `Dynamic Lists for StateList` ([#2480](https://github.com/Zefau/ioBroker.jarvis/issues/2480))
+
+#### :bug: bug (2 changes)
+- fixed `v3.2.0-alpha.11 Einige Fehler Anzeigen` ([#2481](https://github.com/Zefau/ioBroker.jarvis/issues/2481))
+- fixed `v3.2.0-alpha.11 StateList Geräte hinzufügen nicht auswählbar` ([#2482](https://github.com/Zefau/ioBroker.jarvis/issues/2482))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.11 (2023-12-06)
+
+#### :star2: feature (1 changes)
+- added `Dynamic Lists for StateList` ([#2480](https://github.com/Zefau/ioBroker.jarvis/issues/2480))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.10 (2023-12-06)
+
+#### :star2: feature (1 changes)
+- added `Dynamic Lists for StateList` ([#2480](https://github.com/Zefau/ioBroker.jarvis/issues/2480))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.7 (2023-11-08)
+
+#### :star2: feature (2 changes)
+- added `v3: Geräten Räumen zuweisen` ([#911](https://github.com/Zefau/ioBroker.jarvis/issues/911))
+- added `Schalter Entwicklung ` (quick to implement, [#2409](https://github.com/Zefau/ioBroker.jarvis/issues/2409))
+
+#### :bug: bug (3 changes)
+- fixed `v3.2.0-alpha.6 Filterung funktioniert nicht mehr korrekt` ([#2466](https://github.com/Zefau/ioBroker.jarvis/issues/2466))
+- fixed `v3.2.0-alpha.6 Unterschiedliche Darstellung der Elemente in der Geräte-Übersicht` ([#2467](https://github.com/Zefau/ioBroker.jarvis/issues/2467))
+- fixed `Seit 3.2.0 absolut keine Socketverbindung mehr` ([#2468](https://github.com/Zefau/ioBroker.jarvis/issues/2468))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.6 (2023-11-07)
+
+#### :star2: feature (5 changes)
+- added `add option in Device configuration to add state to ioBroker.iot` (quick to implement, [#599](https://github.com/Zefau/ioBroker.jarvis/issues/599))
+- added `v3: Geräten Räumen zuweisen` ([#911](https://github.com/Zefau/ioBroker.jarvis/issues/911))
+- added `Schalter Entwicklung ` (quick to implement, [#2409](https://github.com/Zefau/ioBroker.jarvis/issues/2409))
+- added `Support import of devices from ioBroker.roborock` ([#2455](https://github.com/Zefau/ioBroker.jarvis/issues/2455))
+- added `Karte (Map widget) in der Ausrichtung  drehen` (Module Map, quick to implement, [#2162](https://github.com/Zefau/ioBroker.jarvis/issues/2162))
+
+#### :bug: bug (1 changes)
+- fixed `v3.1.0-beta.35 Speicherung der Änderungen läuft teilweise nicht ` ([#2070](https://github.com/Zefau/ioBroker.jarvis/issues/2070))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.2 (2023-10-28)
+
+#### :star2: feature (3 changes)
+- added `add option in Device configuration to add state to ioBroker.iot` (quick to implement, [#599](https://github.com/Zefau/ioBroker.jarvis/issues/599))
+- added `add option in Device configuration to add state to any history adapter` (quick to implement, [#600](https://github.com/Zefau/ioBroker.jarvis/issues/600))
+- added `Layout: Add Widgets at any place within layout (not only at the end)` ([#2452](https://github.com/Zefau/ioBroker.jarvis/issues/2452))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.1 (2023-09-24)
+
+#### :star2: feature (3 changes)
+- added `Support iPad 2 and older devices / browsers (using older socket-io version)` (core, pro, [#866](https://github.com/Zefau/ioBroker.jarvis/issues/866))
+- added `Manually trigger Socket reconnect...` ([#2418](https://github.com/Zefau/ioBroker.jarvis/issues/2418))
+- added `Move from socket.io to WebSocket` ([#2438](https://github.com/Zefau/ioBroker.jarvis/issues/2438))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.1.9-beta.3 (2023-09-21)
+
+#### :bug: bug (1 changes)
+- fixed `Kalendervorschau zum nächsten Monat` (Module Calendar, [#2380](https://github.com/Zefau/ioBroker.jarvis/issues/2380))
+
+#### :star2: feature (1 changes)
+- added `Add Mode to quickly sort devices in widgets` ([#2432](https://github.com/Zefau/ioBroker.jarvis/issues/2432))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.1.9-beta.2 (2023-05-30)
+
+#### :bug: bug (3 changes)
+- fixed `v3.1.4-beta.17 - HomeKitTile - "mittig zentriert" ist linksbündig` ([#2348](https://github.com/Zefau/ioBroker.jarvis/issues/2348))
+- fixed `Automatische Übersetzung vom Widgetnamen?` ([#2361](https://github.com/Zefau/ioBroker.jarvis/issues/2361))
+- fixed `v3.1.8 Fehler in Kalender-Anzeige` (Module Calendar, [#2371](https://github.com/Zefau/ioBroker.jarvis/issues/2371))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.1.6 (2023-05-22)
+
+#### :bug: bug (1 changes)
+- fixed `v3.1.5 wird als v3.1.3-beta.40 angezeigt` ([#2370](https://github.com/Zefau/ioBroker.jarvis/issues/2370))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
 
 ### v3.0.0
-
-#### :exclamation: BREAKING CHANGES
-- Replace Module `StateListHorizontal` with `HomeKitTile`
 
 #### :star2: newly added features
 **Layout**
@@ -95,24 +300,13 @@ Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases
 - Many many many bugs fixed, [see list of fixed bugs](https://github.com/Zefau/ioBroker.jarvis/issues?q=is%3Aissue+project%3AZefau%2FioBroker.jarvis%2F4+label%3A%22%3Abug%3A+bug%22+)
 
 ## License
-The MIT License (MIT)
+The CC BY-NC-ND 4.0 License
+https://creativecommons.org/licenses/by-nc-nd/4.0/
 
-Copyright (c) 2019-2021 Zefau <zefau@mailbox.org>
+Copyright (c) 2020 - 2024 Zefau <zefau@mailbox.org>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License ("Public License").
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Read full license text in [LICENSE](LICENSE)

@@ -55,6 +55,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 4.2.1 (2024-09-17)
+
+-   (HombachC) add node.js 22 to the adapter testing (#666)
+-   (HombachC) update ioBroker testing
+-   (HombachC) dependency updates
+
 ### 4.2.0 (2024-08-29)
 
 -   (HombachC) convert adapter to TypeScript

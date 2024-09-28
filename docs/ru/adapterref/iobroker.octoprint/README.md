@@ -13,40 +13,40 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.octoprint.svg?color=red&label=
 BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
 BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: cYOYFp1Y39ceUYYXZlZ+871wI/BUlyMv9Kz7AwXcTYU=
+hash: GH+E+8OyTXQ2YFvkzh2jHBge9KVA/XgDTnrst6g7WTI=
 ---
 ![Логотип](../../../en/admin/octoprint.png)
 
 # IoBroker.octoprint
-**Протестировано с [ОктоПринт](https://github.com/OctoPrint/OctoPrint/releases) 1.9.3**
+**Проверено с [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.2**
 
 ## Функции
 ### Информация
 - Получить информацию о версии
 - Получить информацию о принтере (когда он «работает»)
-- Получить текущую информацию о задании печати (при печати)
-- Получить информацию о списке файлов (если не ``печатает``)
+- Получить информацию о текущем задании на печать (во время ``печати``)
+- Получить информацию о списке файлов (когда не выполняется ``печать``)
 
 ### Инструменты
-- Установите температуру инструмента (когда он «работает»)
-- Установите температуру кровати (когда она «работает»)
-- Выдавливание/Втягивание (когда ``работает``)
+- Установить температуру инструмента (в рабочем состоянии)
+- Установка температуры кровати (при ``эксплуатации``)
+- Выдавливание/Втягивание (в рабочем состоянии)
 
 ### Команды
-- Принтер: подключение, отключение и домой.
-- Задание: запуск, пауза, возобновление, отмена, перезапуск.
-- SD-карта: инициализация, обновление, выпуск
+- Принтер: подключение, отключение и возврат домой
+- Задание: Запуск, Пауза, Возобновление, Отмена, Перезапуск
+- SD-карта: инициализация, обновление, освобождение
 - Пользовательские команды принтера
 - Системные команды
-- Перемещение по оси X, Y и Z
+- Перемещение по осям X, Y и Z
 - Выберите файл или распечатайте его
 
 ### Поддерживаемые плагины
-— [Прогресс слоя отображения] (https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) — протестировано с версией 1.28.0 (требуется **адаптер версии 2.1.0** или более поздней версии).
-- [Миниатюры слайсеров](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) — протестировано с версией 1.0.0 (требуется **адаптер версии 2.2.0** или более поздней версии)
+- [Прогресс отображения слоя](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - протестировано с версией 1.28.0 (требуется **версия адаптера 2.1.0** или более поздняя)
+- [Миниатюры слайсера](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - протестировано с версией 1.0.0 (требуется **версия адаптера 2.2.0** или более поздняя)
 
 ## Важный!
 НЕ перезапускайте экземпляр OctoPrint (или любой другой экземпляр) с помощью такого кода:
@@ -57,9 +57,9 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-Поскольку `API key` является защищенным атрибутом, начиная с версии 1.1.0, настроенный ключ API будет удален. Причина в том, что `getObject` не возвращает защищенную информацию (поэтому ключ API не включается в возвращаемый объект). При сохранении объекта вы сохраните объект без ключа.
+Поскольку `API key` является защищенным атрибутом с версии 1.1.0, это приведет к удалению настроенного ключа API. Причина в том, что `getObject` не возвращает защищенную информацию (поэтому ключ API не включен в возвращаемый объект). При сохранении объекта вы сохраните объект без ключа.
 
-Используйте состояние `system.adapter.octoprint.0.alive`, чтобы остановить/запустить экземпляр.
+Используйте состояние `system.adapter.octoprint.0.alive` для остановки/запуска экземпляра.
 
 ## Changelog
 
@@ -67,6 +67,12 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+Tested with OctoPrint 1.10.2
+
 ### 5.1.0 (2023-10-25)
 
 NodeJS 16.x is required
@@ -104,7 +110,7 @@ Tested with OctoPrint 1.8.4
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

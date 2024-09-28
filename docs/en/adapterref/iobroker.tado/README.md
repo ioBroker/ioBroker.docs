@@ -40,6 +40,7 @@ If someone is supporting to add Tado X functionality, raise a ticket or send an 
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (only AC devices with V3+ version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertical swing (only AC devices with V3+ version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontal swing (only AC devices with V3 and olderversions) |
+| tado.[x].[yyyyyy].meterReadings | JSON-Object with {"date":"YYYY-MM-DD","reading": 1234} can be used to upload meter-readings to Energy IQ |
 
 ## Requires
 * Node.js 18 or higher
@@ -50,6 +51,13 @@ If someone is supporting to add Tado X functionality, raise a ticket or send an 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.7-alpha.1 (2024-09-25)
+* (HGlab01) Change of attribute "light" supported
+* (HGlab01) Add attribute 'connection'
+* (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'
+* (HGlab01) Bump axios to 1.7.7
+* (HGlab01) EnergyIQ meter-readings can be uploaded
+
 ### 0.5.6 (2024-08-06)
 * (HGlab01) Improve AccessToken Management
 * (HGlab01) Bump axios to 1.7.3
@@ -66,10 +74,6 @@ If someone is supporting to add Tado X functionality, raise a ticket or send an 
 ### 0.5.3 (2024-01-29)
 * (HGlab01) Improve axios handling
 * (HGlab01) Bump axios to 1.6.7
-
-### 0.5.1 (2023-12-11)
-* (HGlab01) Bump json-explorer to 0.1.15
-* (HGlab01) Prepare (c) for 2024
 
 ## License
 MIT License

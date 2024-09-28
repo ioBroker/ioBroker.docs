@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: P0CtFswR6/6RJevS0yjEBHNjmKEFeBntez6I3uZpk7k=
+hash: 6S9NjelLYybrq/uuYKBjCaILlozioPq9WStPzlARLU8=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -172,7 +172,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
 
-Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
+Sie können zwischen Kühl- und Heizbetrieb wählen und für einen Raum Boost oder Pause aktivieren.
 
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
@@ -216,7 +216,7 @@ https://github.com/PLCHome/ioBroker.pylontech
 
 <img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
 
-Fragen Sie die Zellspannungen und den Status von pylontech Batterien über die Konsole ab.
+Fragen Sie die Zellspannungen und den Status von pylontech-Akkus über die Konsole ab.
 
 ## Signifylights (26.10.2023) - neuer Adapter
 https://github.com/disaster123/ioBroker.signifylights
@@ -233,7 +233,7 @@ Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, biet
 Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche bereitzustellen.
 
 ## Vis (06.11.2023) - neue Funktion
-Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine Lizenz erforderlich ist.
+Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
 Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Aktivität geprüft.
@@ -473,7 +473,7 @@ https://github.com/CorantGmbH/ioBroker.air-q
 
 <img src="https://github.com/CorantGmbH/ioBroker.air-q/blob/main/admin/air-q.png" width="100" height="100" />
 
-Dieser ioBroker Adapter wird in Verbindung mit unserem air-Q Gerät verwendet. Er fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker Umgebung an.
+Dieser ioBroker Adapter kommt in Verbindung mit unserem air-Q Gerät zum Einsatz. Er fragt die Werte unserer Sensoren ab und stellt sie für Sie in der ioBroker Umgebung dar.
 
 ## Boschindego (4.5.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
@@ -488,7 +488,7 @@ Es ist eine neue Version des Windows-Installers verfügbar: 3.1.0 Neue Funktione
 - Update/Upgrade des JS-Controllers implementiert
 - Einige Bugfixes
 
-## Radar-trap (29.5.2024) – neuer Adapter im Stall
+## Radar-trap (29.5.2024) – neuer Adapter am Stall
 https://github.com/Steiger04/ioBroker.radar-trap
 
 <img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
@@ -519,7 +519,7 @@ Dies ist ein vollständiges Visualisierungssystem für ioBroker.
 * komplett auf Web-Komponenten basierend
 * WYSIWYG-Editor für die Benutzeroberfläche, Sie können aber auch zur Quellansicht oder zur geteilten Ansicht wechseln
 * Multi-Window-Benutzeroberfläche in der Bearbeitungsansicht, wie in Visual Studio
-* Bindungen per Drag/Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
+* Bindungen per Drag & Drop von ioBroker-Objekten auf UI-Elemente oder Eigenschaften
 * komplexe Bindungen mit JavaScript und Konverter
 * einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann
 
@@ -596,6 +596,8 @@ Steuergeräte von Extron. Dieser Adapter ist für die Steuerung einiger Audio-Vi
 ## Ping (23.08.2024) - neue Funktion
 Der Ping-Adapter kann den IP-Adressbereich erkennen, wenn der Bereich weniger als 4096 Adressen umfasst.
 
+Benutzer können die IP-Adressen direkt aus der Benachrichtigung hinzufügen.
+
 ## Admin (23.08.2024) - neue Funktion
 Zustände könnten direkt aus der JSON-Konfiguration heraus gesteuert werden, um etwa eine Bereichserkennung zu starten.
 
@@ -608,3 +610,29 @@ Gotify-WS ist ein Adapter, der eine WebSocket-Verbindung zu einem Gotify-Server 
 
 ## Wifilight (05.09.2024) - neue Funktion
 Der Wifilight-Adapter wurde komplett neu geschrieben und unterstützt jetzt den Kompaktmodus und die JSON-Konfiguration.
+
+##rainbird (17.9.2024) – neuer Adapter am Stall
+https://github.com/iobroker-community-adapters/ioBroker.rainbird
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.rainbird/blob/master/admin/rainbird.png" width="100" height="100" />
+
+Ein ioBroker-Adapter für Rain Bird mit LNK-WiFi-Adapter. Dieses Projekt hat keine Verbindung zu Rain Bird.
+
+## Vis-2-widgets-rssfeed (18.9.2024) – neuer Adapter im stabilen
+https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
+
+<img src="https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed/blob/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
+
+Dieser Adapter enthält nur die Vis-2-Widgets für den Adapter RSS-Feed. Eine detaillierte Beschreibung der Widgets und der Funktionalität finden Sie unter Adapter RSS-Feed.
+
+## Kisshome-research (19.9.2024) – neuer Adapter bei stabil
+https://github.com/ioBroker/ioBroker.kisshome-research
+
+<img src="https://github.com/ioBroker/ioBroker.kisshome-research/blob/main/admin/kisshome-research.png" width="100" height="100" />
+
+Dieser Spezialadapter wurde für das Forschungsprojekt KISSHome entwickelt. Er ist nicht für den allgemeinen Gebrauch bestimmt.
+
+## Admin (28.09.2024) - neue Funktion
+![Kennwort überprüfen](../../en/history/media/2024_09_28_admin_password.png) Der Admin prüft jetzt auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert und fordert zur Änderung auf, wenn ein solcher Benutzer gefunden wurde.
+
+Der Administrator unterstützt die GUI dynamischer Benachrichtigungen.

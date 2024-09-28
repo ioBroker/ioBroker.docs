@@ -16,40 +16,40 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: cYOYFp1Y39ceUYYXZlZ+871wI/BUlyMv9Kz7AwXcTYU=
+hash: GH+E+8OyTXQ2YFvkzh2jHBge9KVA/XgDTnrst6g7WTI=
 ---
 ![标识](../../../en/admin/octoprint.png)
 
 # IoBroker.octoprint
-**使用 [奥克托打印](https://github.com/OctoPrint/OctoPrint/releases) 1.9.3 进行测试**
+**已使用 [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.2 进行测试**
 
 ＃＃ 特征
 ＃＃＃ 信息
 - 获取版本信息
 - 获取打印机信息（当“操作”时）
-- 获取当前打印作业信息（当“打印”时）
-- 获取文件列表信息（当不“打印”时）
+- 获取当前打印作业信息（“打印”时）
+- 获取文件列表信息（非“打印”时）
 
 ＃＃＃ 工具
-- 设置工具温度（“运行时”）
-- 设置床温（“运行时”）
-- 伸出/缩回（当“操作”时）
+- 设置工具温度（“操作时”）
+- 设定床温（“操作时”）
+- 挤压/收缩 (当 ``操作'' 时)
 
 ### 命令
-- 打印机：连接、断开连接和返回
+- 打印机：连接、断开连接和主页
 - 作业：开始、暂停、恢复、取消、重新启动
 - SD 卡：初始化、刷新、释放
 - 自定义打印机命令
 - 系统命令
-- 点动 X、Y 和 Z 轴
-- 选择一个文件或打印它
+- 旋转 X、Y 和 Z 轴
+- 选择文件或打印
 
 ### 支持的插件
-- [显示层进度](https://github.com/OllisGit/OctoPrint-DisplayLayerProgress) - 使用版本 1.28.0 进行测试（需要 **适配器版本 2.1.0** 或更高版本）
-- [切片器缩略图](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - 使用版本 1.0.0 进行测试（需要 **适配器版本 2.2.0** 或更高版本）
+- [显示层进度]（https://github.com/OllisGit/OctoPrint-DisplayLayerProgress） - 使用版本 1.28.0 测试（需要**适配器版本 2.1.0** 或更高版本）
+- [切片器缩略图](https://github.com/jneilliii/OctoPrint-PrusaSlicerThumbnails) - 使用版本 1.0.0 测试（需要**适配器版本 2.2.0** 或更高版本）
 
 ＃＃ 重要的！
-不要使用如下代码重新启动您的 OctoPrint 实例（或任何其他实例）：
+请勿使用如下代码重新启动 OctoPrint 实例（或任何其他实例）：
 
 ```javascript
 var obj = getObject('system.adapter.octoprint.0');
@@ -57,9 +57,9 @@ obj.common.enabled = false;
 setObject('system.adapter.octoprint.0', obj);
 ```
 
-由于 `API key` 自版本 1.1.0 起是受保护的属性，因此这将删除配置的 API 密钥。原因是，`getObject` 不返回受保护的信息（因此 api 密钥不包含在返回的对象中）。当您保存对象时，您将保存一个没有密钥的对象。
+由于 `API key` 自 1.1.0 版起为受保护属性，因此这将删除配置的 API 密钥。原因是 `getObject` 不返回受保护信息（因此返回的对象中不包含 API 密钥）。保存对象时，您将保存一个没有密钥的对象。
 
-请使用状态`system.adapter.octoprint.0.alive`停止/启动实例。
+请使用状态`system.adapter.octoprint.0.alive`来停止/启动实例。
 
 ## Changelog
 
@@ -67,6 +67,12 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+Tested with OctoPrint 1.10.2
+
 ### 5.1.0 (2023-10-25)
 
 NodeJS 16.x is required
@@ -104,7 +110,7 @@ Tested with OctoPrint 1.8.4
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер Интернета вещей ioBroker
-hash: 3AdctVwx6dXvfnYJdZA/QIdLnzJjOqQZFit5PEoN7fQ=
+hash: QLCR8kdkbOC6tKocRTAIZVdUsr+AB33jinpbjQHEiJc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -27,7 +27,7 @@ hash: 3AdctVwx6dXvfnYJdZA/QIdLnzJjOqQZFit5PEoN7fQ=
 ![Вступление](../../../en/adapterref/iobroker.iot/img/intro.png)
 
 ### Язык
-Если вы выберете язык «по умолчанию», то смарт-имена устройств и перечислений не будут переведены. Если указан какой-либо язык, все известные имена будут переведены на этот язык. Это сделано для быстрого переключения между многими языками в демонстрационных целях.
+Если вы выберете язык "по умолчанию", то смарт-имена устройств и перечислений не будут переведены. Если указан какой-либо язык, все известные имена будут переведены на этот язык. Это сделано для быстрого переключения между многими языками в демонстрационных целях.
 
 ### Сначала укажите функцию в именах
 Измените порядок функций и ролей в самогенерируемых именах:
@@ -69,7 +69,7 @@ hash: 3AdctVwx6dXvfnYJdZA/QIdLnzJjOqQZFit5PEoN7fQ=
 - `level.color.saturation` - требуется для определения канала,
 - `уровень.цвет.оттенок`,
 - `level.dimmer`,
-- `switch` - необязательно,
+- `переключатель` - необязательно,
 - `уровень.цвет.температура` (необязательно)
 
 ```
@@ -170,7 +170,7 @@ Alexa v3 поддерживает режим переключения. Это о
 
 Вы также можете запросить действительный URL-адрес для сервиса, отправив сообщение:
 
-```
+```js
 sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result =>
   console.log(JSON.stringify(result)));
   // Output: {"result":
@@ -215,7 +215,7 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
 * `deviceRoom` содержит сопоставленный идентификатор комнаты, который можно настроить в пользовательском интерфейсе администратора IoT для собранных deviceIds
 * `sessionId` содержит sessionId сеанса навыка, должен быть одинаковым, если было произнесено несколько команд, предоставляется Amazon, будет пустой строкой, если не указано
 * `userId` содержит идентификатор пользователя от владельца устройства (или, возможно, позже, пользователя, который взаимодействовал с навыком), предоставленный Amazon, будет пустой строкой, если не указан
-* `userName` содержит сопоставленное имя пользователя, которое можно настроить в пользовательском интерфейсе администратора IoT для собранных идентификаторов пользователей
+* `userName` содержит сопоставленное имя пользователя, которое можно настроить в пользовательском интерфейсе администратора IoT для собранных идентификаторов пользователей.
 
 Более подробную информацию о том, как распознаются слова и какие типы запросов различает Alexa Custom Skill, можно найти на странице https://forum.iobroker.net/viewtopic.php?f=37&t=17452.
 
@@ -236,7 +236,7 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
 
 **Пример скрипта, использующего тексты**
 
-```
+```js
 // important, that ack=true
 on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
     // you have 200ms to prepare the answer and to write it into iot.X.smart.lastResponse
@@ -246,7 +246,7 @@ on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
 
 **Пример скрипта, использующего объекты JSON**
 
-```
+```js
 // important, that ack=true
 on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
     // you have 200ms to prepare the answer and to write it into iot.X.smart.lastResponse
@@ -270,7 +270,7 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
 
 Например, для `yandex alice`:
 
-```
+```js
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
 OBJECT_FROM_ALISA_SERVICE.alisa = '/path/v1.0/user/devices'; // called URL, 'path' could be any text, but it must be there
 sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, response => {
@@ -318,13 +318,17 @@ setState('iot.0.app.message', JSON.stringify({
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 3.4.2 (2024-09-17)
+* (@GermanBluefox) Updated GUI packages and removed `gulp`
+* (@foxriver76) do not override custom `result` attribute on `sendToAdapter` response (Visu App - only relevant for developers)
+
 ### 3.4.0 (2024-08-26)
 * (@foxriver76) added new commands for the visu app
 * (bluefox) updated packages
 * (bluefox) Migrated GUI for admin v7
 
 ### 3.3.0 (2024-05-09)
-* (foxriver76) Fix error on reconnect
+* (foxriver76) Fix error on reconnecting
 * (foxriver76) prepared adapter for new ioBroker Visu app states
 * (bluefox) updated packages
 

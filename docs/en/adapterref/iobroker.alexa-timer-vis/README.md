@@ -58,9 +58,18 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.3 (2024-09-13)
+### 2.0.5 (2024-09-26)
+
+-   FIX: #142 Timeout error
+-   FIX: #137 Reset timer name
+-   FEAT: Add json state
+
+### 2.0.4 (2024-09-18)
 
 -   FIX: #132 Second timer button reset deletes timer one
+
+### 2.0.3 (2024-09-13)
+
 -   FIX: #133 Timer names are not correct
 -   FIX: #134 All timer alive at start
 
@@ -170,15 +179,15 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 
 ### 0.0.3 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.2 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.1 (25.12.2021)
 
--   (Michael Roling) initial release
+-   initial release
 
 ## License
 

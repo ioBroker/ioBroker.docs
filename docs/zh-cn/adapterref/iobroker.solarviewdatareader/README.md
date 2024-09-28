@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: qQ89mfWA4OhgZOGhnPzzMrTC5iiGari5AcH8qy9ZR1k=
+hash: giiX9+hLwLWA5HvDhp/CfEdsy2+ubQ+cvWtQJK0h248=
 ---
 ![标识](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
@@ -53,7 +53,11 @@ hash: qQ89mfWA4OhgZOGhnPzzMrTC5iiGari5AcH8qy9ZR1k=
 daily = 日产量（kWh） montly = 月产量（kWh） annual = 年产量（kWh） total = 总产量（kWh） current = 发电机功率（W） UDC、UDCB、UDCC、UDCD = 发电机电压（伏特/MPP-Tracker） IDC、IDCB、IDCC、IDCD = 发电机电流（安培/MPP-Tracker） UL1、IL1 = 主电源电压，主电源相 1 UL2、IL2 = 主电源电压，主电源相 2 UL3、IL3 = 主电源电压，主电源相 3 TKK= 温度逆变器
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.1.3 (2024-09-17)
+* (afuerhoff) adapter checker changes [#176](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/176)
+* (afuerhoff) dependencies updated
+
+### 1.1.2 (2024-09-13)
 * (afuerhoff) adapter checker changes
 * (afuerhoff) dependencies updated
 * (afuerhoff) automatic restart [#170](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/170)
@@ -74,14 +78,6 @@ daily = 日产量（kWh） montly = 月产量（kWh） annual = 年产量（kWh�
 ### 1.0.8 (2024-01-18)
 * (afuerhoff) dependencies updated
 * (afuerhoff) translations updated
-
-### 1.0.7 (2022-12-21)
-* (afuerhoff) dependencies updated
-
-### 1.0.6 (2022-07-04)
-* (afuerhoff) dependencies updated
-* (afuerhoff) Interval settings changed from minutes to seconds
-* (afuerhoff) States only writen after changes
 
 ## License
 MIT License

@@ -138,6 +138,10 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2024-09-17)
+* (@foxriver76) updated puppeteer dependency
+* (@foxriver76) allow to specify an external browser for puppeteer
+
 ### 0.3.0 (2024-05-19)
 * (foxriver76) allowed to specify additional arguments for the puppeteer process
 * (foxriver76) updated puppeteer dependency
@@ -173,7 +177,7 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
 ## License
 MIT License
 
-Copyright (c) 2022 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2024 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

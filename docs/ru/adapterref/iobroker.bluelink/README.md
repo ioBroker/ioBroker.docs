@@ -1,23 +1,23 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: +wu7t5+rsYxiYxI+26cps2HjaB1zvzUGQGTp9kVtd1Y=
+hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.bluelink.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
-![Количество установок (последних)](https://iobroker.live/badges/bluelink-installed.svg)
+![Количество установок (последнее)](https://iobroker.live/badges/bluelink-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/bluelink-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![Тестирование и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тест и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер bluelink для ioBroker
-Адаптер для управления автомобилем Hyundai или Kia (до 2023 г.)
+Адаптер для управления автомобилем Hyundai или Kia (до 2023 года)
 
 [Обсуждение](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
@@ -25,15 +25,30 @@ hash: +wu7t5+rsYxiYxI+26cps2HjaB1zvzUGQGTp9kVtd1Y=
 
 [Вики](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p iobroker License --all 0.9.8 -> 1.0.0 npm Run Release Minor -- -p iobroker License --all 0.9 .8 -> 0.10.0 npm run Release patch -- -p iobroker License --all 0.9.8 -> 0.9.9 npm Run Release Pre-Release Beta -- -p iobroker License --all v0.2.1 -> v0.2.2 -бета.0
+https://github.com/AlCalzone/release-script#usage npm run release major ---p iobroker license --all 0.9.8 -> 1.0.0 npm run release minor ---p iobroker license --all 0.9.8 -> 0.10.0 npm run release patch ---p iobroker license --all 0.9.8 -> 0.9.9 npm run release prerelease beta ---p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 ## Пожертвование
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.0.1 (2024-09-27)
+* (arteck) activate jsonconfig
+  
+### 3.0.0 (2024-09-27)
+* (arteck) new structure jsonconfig
+
+### 2.3.11 (2024-09-27)
+* (arteck) redesign
+
+### 2.3.10 (2024-09-27)
+* (arteck) add address as text using openstreetmap
+
+### 2.3.9 (2024-09-26)
+* (arteck) add ccs2 car status
+
 ### 2.3.8 (2024-02-25)
 * (arteck) corr steerWheelHeat
 

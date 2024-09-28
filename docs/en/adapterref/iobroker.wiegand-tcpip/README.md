@@ -128,7 +128,11 @@ The publicly known IP port of the ioBroker instance on the remote network after 
 [^8]: You can replace the "Unicast Address" with the "Directed Broadcast Address" in the configuration.
 
 ## Changelog
-[Changelog](CHANGELOG.md)
+0.4.6 (2022-03-18)
+-   Documentation
+-   Translations
+-   Cosmetic improvements
+-   Fix for [Repository PR1720](https://github.com/ioBroker/ioBroker.repositories/pull/1720)
 
 ## License
 GPL-3.0-only

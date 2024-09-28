@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: KQyJkrHrN2pfDPhqwZIHXP6HaOKF1GUsr794YtxHpPA=
+hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -25,7 +25,7 @@ Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Zustände und
 
 ## Die unterstützten Roboter sind:
 - Roborock S4
-- Roborock S4 Max
+Roborock S4 Max
 - Roborock S5 Max
 - Roborock S6
 Roborock S6 Pure
@@ -58,10 +58,23 @@ Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigun
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.15 (2024-09-22)
+ * (copystring) Refactor some code
+ * (copystring) improve handling of online/offline detection and related logging
+ * (copystring) S6 MaxV supports avoid carpet
+
+### 0.6.14 (2024-09-13)
+ * (copystring) Fix bug in app_goto_target parameter validation
+
+### 0.6.13 (2024-09-12)
+ * (copystring) Bug fixes
  * (copystring) Add basic support for S8 MaxV Ultra
  * (copystring) Newly found attributes are now warning instead of error
  * (copystring) Improve detection of `home_sec`
+ * (copystring) Fix docking station detection
+ * (copystring) BREAKING: Adjust docking station states to reflect the smart phone app
+ * (copystring) Detect remote devices and connect via mqtt instead
+ * (copystring) Improve docking station feature handling
 
 ### 0.6.12 (2024-09-08)
  * (copystring) Change go2rtc github to go2rtc-static npm

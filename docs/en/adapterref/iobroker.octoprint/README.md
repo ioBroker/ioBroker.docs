@@ -17,7 +17,7 @@ BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 
 # ioBroker.octoprint
 
-**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.9.3**
+**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.2**
 
 ## Features
 
@@ -72,6 +72,8 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 ### **WORK IN PROGRESS**
 
 NodeJS >= 18.x and js-controller >= 5 is required
+
+Tested with OctoPrint 1.10.2
 
 ### 5.1.0 (2023-10-25)
 

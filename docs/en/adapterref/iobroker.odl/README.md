@@ -50,6 +50,12 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2024-09-23)
+
+* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
+* (crycode-de) Migrate to jsonConfig
+* (crycode-de) Updated dependencies
+
 ### 3.0.1 (2023-09-27)
 
 * (crycode-de) Node.js >= 16 is required
@@ -148,7 +154,7 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 
 ## License
 
-Copyright (c) 2019-2023 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
+hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 ---
 ![标识](../../../en/admin/lg-thinq.png)
 
@@ -77,7 +77,7 @@ hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
 -`间隔.状态设备`
 - `OK` 间隔确定
 - `失败 - 0100` 请求失败 - 重新创建 WorkID
-- `失败-0106` 未连接设备 - WorkID 已重新创建
+- `失败-0106` 未连接设备-WorkID 已重新创建
 - `Error` 错误 WorkID - WorkID 已重新创建
     - `错误<code>` Unknown error - WorkID is recreated</code>
 - `结果错误`接收错误 - WorkID 被重新创建
@@ -421,7 +421,7 @@ hash: v83mKNMUu0ns8IMEhxzoa6vOP5LZ7rwRdkCzkomiEaE=
 ### 401 远程文件夹 Thinq2
 ![远程控制](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_remote.png)
 
-### 401 远程统计 thinq2
+### 401 远程统计 thingq2
 [概括](#summary)
 
 - `remote.Statistic.command` 应该加载哪些历史记录
@@ -694,7 +694,7 @@ lg-thinq.0.xxx.area必须填写！
     ![天气.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.2 (2024-09-10)
 
 -   (Lucky-ESA) Dependencies updated
 -   (Lucky-ESA) Changed autoDryRemainTime max value

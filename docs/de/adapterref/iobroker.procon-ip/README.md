@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: 3BkX/qa456LhG4LmvbmvlmJdFn2MP0ecCJw5/Rdh454=
+hash: r3v1HpHgaM6AreOp4sP/GcYQi40K77lrb7cpjns6LB0=
 ---
 ![Logo](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
@@ -71,7 +71,7 @@ Wenn Sie diesen Adapter unterstützen oder Danke sagen möchten, können Sie:
 ### 1.6.0 (2024-09-08)
 * Fix versioning according to prior changes in requirements (should have happened with v1.5.5).
   * Raise minimum required js-controller version to 5.0.19.
-  * Raise minimum required node version to 18.
+  * Raise minimum required node version to 20.
 * Dependency updates.
 
 ### 1.5.5 (2024-08-19)

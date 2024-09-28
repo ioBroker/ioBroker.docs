@@ -1341,6 +1341,11 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.5.0 (2024-09-23)
+
+* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
+* (crycode-de) Updated dependencies
+
 ### 2.4.0 (2024-07-10)
 
 * (crycode-de) Added basic support for interactions unknown to the adapter (custom scripts required for handling)

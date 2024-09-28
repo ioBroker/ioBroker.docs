@@ -31,6 +31,11 @@ The goal of the adapter is to provide you a possibility to run countdowns for fu
 
 ## Changelog
 
+### 2.3.0 (2024-09-20) 
+* (jack-blackson) Compatibility for js-controller 7
+* (jack-blackson/bagsik) Added new object fullJSON with all objects included - thanks to bagsik who had the idea and created the code!
+
+
 ### 2.2.1 (2024-09-14) 
 * (jack-blackson) Additional check to avoid not allowed signs in countdown name
 * (jack-blackson) Updated dependencies
@@ -145,7 +150,7 @@ The goal of the adapter is to provide you a possibility to run countdowns for fu
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2023 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

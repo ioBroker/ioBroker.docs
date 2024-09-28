@@ -69,6 +69,9 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (René) see issue #371: test with nodejs@22
+
 ### 3.3.6 (2024-08-25)
  * (René) downgrade of "promise-socket" to 7.0.0
 

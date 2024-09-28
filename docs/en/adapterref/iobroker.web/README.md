@@ -89,6 +89,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 6.3.1 (2024-09-23)
+* (@foxriver76) added new admin icon (svg)
+
 ### 6.3.0 (2024-06-27)
 * (bluefox) Corrected call of getObjectView with null parameter
 * (bluefox) updated packages

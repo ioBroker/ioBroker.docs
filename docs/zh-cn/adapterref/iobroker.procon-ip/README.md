@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: 3BkX/qa456LhG4LmvbmvlmJdFn2MP0ecCJw5/Rdh454=
+hash: r3v1HpHgaM6AreOp4sP/GcYQi40K77lrb7cpjns6LB0=
 ---
 ![标识](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
@@ -36,7 +36,7 @@ Apple HomeKit 可以通过 Siri 或
 
 ## 什么是 ProCon.IP 池控制器？
 ProCon.IP 泳池控制器是一款适用于家庭泳池的低成本网络附加控制单元。借助软件切换继电器，它可以控制多个泵（用于泳池过滤器和不同的剂量方面），这些泵既可以简单地按时间表进行计划，也可以根据其众多测量输入通道之一的读数/值进行控制（例如，输入/输出流量传感器、Dallas 1-Wire 温度计、氧化还原和 pH 电极）。至少还有按需切换这些继电器的选项，这使得它们也适用于打开/关闭灯（或任何其他您想要的东西）。
-并非所有功能都可以通过 API 访问。事实上，有一个记录的 API 用于读取（轮询）CSV 值（`/GetState.csv`）。在我的记忆中，还有另一个用于打开/关闭和打开继电器的计时器。但我再也找不到第二个了。所以即使不漂亮，但功能齐全：ProCon.IP 有两个本机 Web 界面，可以对其进行分析，以某种方式对给定功能进行逆向工程（例如切换继电器）。
+并非所有功能都可以通过 API 访问。事实上，有一个记录的 API 用于读取（轮询）CSV 值（`/GetState.csv`）。在我的记忆中，还有另一个 API 用于打开/关闭和打开继电器（使用计时器）。但我再也找不到第二个了。所以即使不漂亮，但功能齐全：ProCon.IP 有两个本机 Web 界面，可以对其进行分析，以某种方式对给定功能进行逆向工程（例如切换继电器）。
 
 有关详细信息，请参阅以下链接（抱歉，只有德语；到目前为止还没有找到英文文档/信息）：
 
@@ -71,7 +71,7 @@ ProCon.IP 泳池控制器是一款适用于家庭泳池的低成本网络附加�
 ### 1.6.0 (2024-09-08)
 * Fix versioning according to prior changes in requirements (should have happened with v1.5.5).
   * Raise minimum required js-controller version to 5.0.19.
-  * Raise minimum required node version to 18.
+  * Raise minimum required node version to 20.
 * Dependency updates.
 
 ### 1.5.5 (2024-08-19)

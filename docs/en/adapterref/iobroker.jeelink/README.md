@@ -11,25 +11,6 @@ This is an adapter for ioBroker to integrate RFM12B/RFM69 via Jeelink.
 The jeelink can be used with the preloaded software (rfmdemo) for the reading of openenergy sensors (emon).
 For the usage of LaCrosse sensors, the firmware has to be exchanged (see iobroker forum).
 
-## Installation:
-### released version
-```javascript
-npm install iobroker.jeelink
-```
-on raspberry it might help to use:
-```javascript
- npm install --unsafe-perm iobroker.jeelink
- ```
- because serialport package must be built on unsupported arm-hw 
-
-### the actual development version from github (when under testing, may not work!)
-```javascript
-npm install https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
-```
-or
-```javascript
-npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
-```
 ## Settings:
 - USB port of JeelinkAdapter usually /dev/ttyACME
 - Serial Speed usually 57600 Baud

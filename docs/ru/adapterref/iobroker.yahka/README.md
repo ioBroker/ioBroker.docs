@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yahka/README.md
 title: iobroker.yahka
-hash: NeTnpfxPzOrV6XiuRuh+VVAFJY8MT0O8/zvi1ITnnoM=
+hash: 5kS1aNzjVYFZ7GMXeZQp0GDoEU84l7z6x91GrxmtWbQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
 
@@ -31,7 +31,7 @@ hash: NeTnpfxPzOrV6XiuRuh+VVAFJY8MT0O8/zvi1ITnnoM=
 ## Резервное копирование и восстановление
 Внимание: Чтобы иметь возможность восстановить `ioBroker.yahka` в другой системе, в дополнение к обычным `iobroker backup` и `iobroker restore`, папка `yahka.X.hapdata` в `/opt/iobroker/iobroker-data` также должна быть зарезервирована и, при необходимости, восстановлена. [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/ioBroker.yahka-auf-ein-anderes-System-umziehen) / [Проблема](https://github.com/jensweigele/ioBroker.yahka/issues/176)
 
-Другим вариантом для резервного копирования и восстановления является адаптер [Резервное копирование](https://github.com/simatec/ioBroker.backitup/blob/master/README.md). Он автоматически создает резервную копию папки `yahka.X.hapdata`. Восстановление также возможно через графический интерфейс BackItUp.
+Другой вариант для резервного копирования и восстановления — адаптер [Резервное копирование](https://github.com/simatec/ioBroker.backitup/blob/master/README.md). Он автоматически создает резервную копию папки `yahka.X.hapdata`. Восстановление также возможно через графический интерфейс BackItUp.
 
 Подробное описание вы можете найти [здесь](https://github.com/simatec/ioBroker.backitup/wiki/ioBroker.backitup-Wiki-Deutsch#yahka-backup).
 

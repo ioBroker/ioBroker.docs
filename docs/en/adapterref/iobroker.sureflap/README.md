@@ -172,6 +172,13 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 2.3.0 (2024-09-14)
+
+* (Sickboy78) improved handling of missing, invalid or incomplete data from API
+* (Sickboy78) improved error handling for pets
+* (Sickboy78) fixed no battery data error
+* (Sickboy78) dependency updates
+
 ### 2.2.1 (2024-08-11)
 
 * (Sickboy78) added new data to feeder

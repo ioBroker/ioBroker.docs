@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: 3AdctVwx6dXvfnYJdZA/QIdLnzJjOqQZFit5PEoN7fQ=
+hash: QLCR8kdkbOC6tKocRTAIZVdUsr+AB33jinpbjQHEiJc=
 ---
 ![标识](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -20,7 +20,7 @@ hash: 3AdctVwx6dXvfnYJdZA/QIdLnzJjOqQZFit5PEoN7fQ=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ＃＃ 设置
-要使用物联网适配器，您应该首先在ioBroker云[https://iobroker.pro](https://iobroker.pro)上注册。
+要使用物联网适配器，您首先应该在ioBroker云[https://iobroker.pro](https://iobroker.pro)上注册。
 
 [参考google API类型设置](https://developers.google.com/actions/smarthome/guides/)
 
@@ -59,7 +59,7 @@ hash: 3AdctVwx6dXvfnYJdZA/QIdLnzJjOqQZFit5PEoN7fQ=
 - 命令：“打开灯”。*调光器* => 40%，*开关* => 开启。
 
 ### 来自 ON
-您可以选择 ON 命令将针对数字状态执行的行为。可以选择具体值，或者将使用最后一个非零值。
+您可以选择 ON 命令将针对数字状态出现的行为。可以选择具体值，或者将使用最后一个非零值。
 
 ### 写回复至
 对于每个命令，都会生成文本响应。您可以在此处定义对象 ID，此文本必须写入其中。例如 *sayit.0.tts.text*。
@@ -100,7 +100,7 @@ Alexa, lock the "lock name"
 要想获取自动生成列表中的状态，必须满足以下条件：
 
 — 状态必须处于某个“功能”枚举中。
-- 如果状态没有直接包含在“功能”中，则必须具有角色（“状态”、“开关”或“level.*”，例如 level.dimmer）。
+- 如果状态没有直接包含在“功能”中，则必须具有角色（“状态”、“开关”或“级别*”，例如，level.dimmer）。
 
 有可能频道处于“功能”中，但状态本身却不在。
 
@@ -129,7 +129,7 @@ Alexa, lock the "lock name"
 为了创建自己的组，用户可以安装“场景”适配器或在 JavaScript 适配器中创建“脚本”。
 
 ### 替换
-您可以指定可在设备名称中自动替换的字符串。例如，如果您将替换设置为：`.STATE,.LEVEL`，则所有`.STATE` 和`.LEVEL` 都将从名称中删除。请注意空格。
+您可以指定可在设备名称中自动替换的字符串。例如，如果您将替换设置为：`.STATE,.LEVEL`，则所有`.STATE` 和`.LEVEL` 都将被从名称中删除。请注意空格。
 如果您设置`.STATE, .LEVEL`，则`.STATE` 和`.LEVEL` 将被替换，而不会替换`.LEVEL`。
 
 ## 辅助状态
@@ -174,7 +174,7 @@ Alexa v3 支持切换模式。
 
 您也可以通过消息询问服务的有效网址：
 
-```
+```js
 sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result =>
   console.log(JSON.stringify(result)));
   // Output: {"result":
@@ -239,7 +239,7 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
 
 **使用文本的脚本示例**
 
-```
+```js
 // important, that ack=true
 on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
     // you have 200ms to prepare the answer and to write it into iot.X.smart.lastResponse
@@ -249,7 +249,7 @@ on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
 
 **使用 JSON 对象的脚本示例**
 
-```
+```js
 // important, that ack=true
 on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
     // you have 200ms to prepare the answer and to write it into iot.X.smart.lastResponse
@@ -269,11 +269,11 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
 ```
 
 ### 私有云
-如果您使用私人技能/动作/навык 与`Alexa/Google Home/Алиса` 进行通信，那么您就可以使用 IoT 实例来处理来自它的请求。
+如果您使用私人技能/动作/навык 与`Alexa/Google Home/Алиса` 进行通信，那么您可以使用 IoT 实例来处理来自它的请求。
 
 例如对于`yandex alice`：
 
-```
+```js
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
 OBJECT_FROM_ALISA_SERVICE.alisa = '/path/v1.0/user/devices'; // called URL, 'path' could be any text, but it must be there
 sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, response => {
@@ -321,13 +321,17 @@ setState('iot.0.app.message', JSON.stringify({
 ### **正在进行中** -->
 
 ## Changelog
+### 3.4.2 (2024-09-17)
+* (@GermanBluefox) Updated GUI packages and removed `gulp`
+* (@foxriver76) do not override custom `result` attribute on `sendToAdapter` response (Visu App - only relevant for developers)
+
 ### 3.4.0 (2024-08-26)
 * (@foxriver76) added new commands for the visu app
 * (bluefox) updated packages
 * (bluefox) Migrated GUI for admin v7
 
 ### 3.3.0 (2024-05-09)
-* (foxriver76) Fix error on reconnect
+* (foxriver76) Fix error on reconnecting
 * (foxriver76) prepared adapter for new ioBroker Visu app states
 * (bluefox) updated packages
 
