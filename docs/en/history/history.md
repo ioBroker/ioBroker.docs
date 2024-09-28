@@ -580,6 +580,8 @@ Control devices from Extron. This Adapter is designed to control some of the Ext
 ## ping (23.08.2024) - new feature
 Ping adapter can detect the range of IP addresses if the range has less than 4096 addresses.
 
+Users can add the IP-Addresses directly from notification.
+
 ## admin (23.08.2024) - new feature
 States could be controlled directly from JSON Config to start range detection or something similar.
 
@@ -614,5 +616,9 @@ https://github.com/ioBroker/ioBroker.kisshome-research
 
 This special adapter was developed for the KISSHome research project. It is not intended for general use.
 
+## admin (28.09.2024) - new feature
+![Check password](media/2024_09_28_admin_password.png)
+Admin checks now on Linux systems if the system user with a well-known password exist and asks to change it if such a user was found.
 
+Admin supports dynamic notification's GUI.
 

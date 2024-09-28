@@ -34,7 +34,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `sensor.alarm.fire`     - fire sensor
 * `sensor.alarm.secure`   - door opened, window opened or motion detected during alarm is ON.
 * `sensor.alarm.power`    - No power (`voltage = 0`)
-* `sensor.light`          - feedback from lamp, that it is ON
+* `sensor.light`          - feedback from the lamp, that it is ON
 * `sensor.lock`           - actual position of lock
 * `sensor.motion`         - motion sensor
 * `sensor.rain`           - rain detected
