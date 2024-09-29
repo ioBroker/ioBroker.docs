@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MarkdownView from 'react-showdown';
+import markdownit from 'markdown-it';
 
 import {
     Paper,
@@ -33,6 +34,8 @@ import Loader from './Components/Loader';
 import I18n from './i18n';
 import Utils from './Utils';
 import Page404 from './Pages/404';
+
+const md = markdownit({ html: true, breaks: true });
 
 const styles = {
     root: {
@@ -419,7 +422,8 @@ class Markdown extends Router {
         this.contentRef = React.createRef();
 
         this.customLink = ({ text, link }) =>
-            <Box component="a"
+            <Box
+                component="a"
                 className="md-link"
                 sx={styles.mdLink}
                 onClick={() => {
@@ -711,10 +715,12 @@ class Markdown extends Router {
         }
 
         if (this.state.header.adapter) {
-            data.push(<h1 key="h1">{[
-                this.state.header.logo ? <img key="logo" src={this.state.header.logo} alt="logo" style={styles.logoImage} /> : null,
-                <div key="title" style={styles.titleText}>{this.state.header.title}</div>,
-            ]}</h1>);
+            data.push(<h1 key="h1">
+                {[
+                    this.state.header.logo ? <img key="logo" src={this.state.header.logo} alt="logo" style={styles.logoImage} /> : null,
+                    <div key="title" style={styles.titleText}>{this.state.header.title}</div>,
+                ]}
+            </h1>);
 
             if (this.state.header.readme) {
                 const link = this.state.header.readme
@@ -845,8 +851,7 @@ class Markdown extends Router {
             onClick={() => this.onToggleContentButton()}
         >
             <IconClose />
-        </IconButton>
-            ;
+        </IconButton>;
     }
 
     renderContent() {

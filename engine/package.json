@@ -7,15 +7,23 @@
   },
   "dependencies": {
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-brute": "^1.0.1",
     "minisearch": "^7.1.0",
-    "cors": "^2.8.5"
+    "remark": "^15.0.1",
+    "remark-parse": "^11.0.0",
+    "markdown-it": "^14.1.0",
+    "rehype-parse": "^9.0.1",
+    "rehype-remark": "^10.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@google-cloud/translate": "^8.5.0",
-    "gulp": "^4.0.2",
-    "axios": "^1.7.7"
+    "axios": "^1.7.7",
+    "gulp": "^4.0.2"
   },
   "scripts": {
     "start": "node main",

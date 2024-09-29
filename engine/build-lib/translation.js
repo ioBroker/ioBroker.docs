@@ -4,6 +4,10 @@ const axios = require('axios');
 const fs = require('node:fs');
 let lastRequest = null;
 const { Translate } = require('@google-cloud/translate').v2;
+
+const markdownit = require('markdown-it');
+const md = new markdownit();
+
 // Your Google Cloud Platform project ID
 const projectId = 'web-site-1377';
 process.env.GOOGLE_APPLICATION_CREDENTIALS = `${__dirname}/../google-keys.json`;
@@ -70,6 +74,7 @@ function translateGoogleSync(text, targetLang, sourceLang, cb) {
         fs.writeFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
     }
 
+    console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
     if (fs.existsSync(process.env.GOOGLE_APPLICATION_CREDENTIALS)) {
         // we may not send more than 100.000 chars per minute, so we must calculate it: https://cloud.google.com/translate/quotas
         if (countGoogle.start && countGoogle.count + text.length >= 99999) {
@@ -84,7 +89,7 @@ function translateGoogleSync(text, targetLang, sourceLang, cb) {
         countGoogle.count += text.length;
 
         translate
-            .translate(text, { to: targetLang, from: sourceLang })
+            .translate(text, { to: targetLang, from: sourceLang, format: 'html'})
             .then(results => cb(null, results[0]))
             .catch(err => cb(err));
     } else {
@@ -611,6 +616,36 @@ function translateMD(fromLang, text, toLang, translatedText, saveNoSource, fileN
     });
 }
 
+async function translateMDFull(fromLang, text, toLang, translatedText, saveNoSource, fileName) {
+    return new Promise(async resolve => {
+        const rehypeStringify = (await import('rehype-stringify')).default;
+        const remarkParse = (await import('remark-parse')).default;
+        const remarkRehype = (await import('remark-rehype')).default;
+        const rehypeParse = (await import('rehype-parse')).default;
+        const rehypeRemark = (await import('rehype-remark')).default;
+        const remarkStringify = (await import('remark-stringify')).default;
+        const unified = (await import('unified')).unified;
+
+        console.log(text);
+
+        const result = await unified()
+        .use(remarkParse) // Parse markdown content to a syntax tree
+        .use(remarkRehype) // Turn markdown syntax tree to HTML syntax tree, ignoring embedded HTML
+        .use(rehypeStringify) // Serialize HTML syntax tree
+        .process(text);
+        console.log(result.toString());
+
+        const translatedResult = await _translateText(result.toString(), toLang, false, fromLang)
+
+        const result2 = await unified()
+            .use(rehypeParse) // Parse HTML to a syntax tree
+            .use(rehypeRemark) // Turn HTML syntax tree to markdown syntax tree
+            .use(remarkStringify) // Serialize HTML syntax tree
+            .process(translatedResult);
+        console.log(result2.toString());
+    });
+}
+
 function translateText(fromLang, text, toLang) {
     if (!text) {
         return Promise.resolve('');
@@ -791,3 +826,24 @@ module.exports = {
     translateMD,
     translateText
 };
+
+const text2 = (`# markdown-it rulezz!
+This is need to translate
+
+\`\`\`
+This is need to translate
+\`\`\`
+    `);
+// (async () => {
+//     console.log(await _translateText(text2, 'ru', false, 'en'));
+// })();
+
+    // process.exit();
+const text = fs.readFileSync(`${__dirname}/../../docs/en/basics/adapter.md`).toString();
+
+const [empty, header, body] = text.split('---', 3);
+
+translateMDFull('en', text, 'ru')
+    .then(text => {
+        console.log(text);
+    });

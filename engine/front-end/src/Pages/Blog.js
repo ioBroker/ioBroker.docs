@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MarkdownView from 'react-showdown';
+import markdownit from 'markdown-it';
 
 import {
     Paper,
@@ -18,6 +19,8 @@ import Loader from '../Components/Loader';
 import I18n from '../i18n';
 import Utils from '../Utils';
 import Router from '../Router';
+
+const md = new markdownit();
 
 const styles = {
     root: {
@@ -82,7 +85,7 @@ const styles = {
         marginTop: 50,
         '& img': {
             maxWidth: '100%',
-        }
+        },
     },
     pageTitleNextButton: {
         float: 'left',
@@ -311,7 +314,8 @@ class Blog extends Router {
 
         const { body, header } = Utils.extractHeader(this.state.text);
 
-        const reactElement = <MarkdownView markdown={body} options={CONVERTER_OPTIONS} />;
+        // const reactElement = <MarkdownView markdown={body} options={CONVERTER_OPTIONS} />;
+        const reactElement = <div dangerouslySetInnerHTML={{ __html: md.render(body) }} />;
 
         this.replaceHref(reactElement, `${this.props.language}/blog/`);
 
