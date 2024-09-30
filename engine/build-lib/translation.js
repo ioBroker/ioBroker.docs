@@ -843,7 +843,7 @@ const text = fs.readFileSync(`${__dirname}/../../docs/en/basics/adapter.md`).toS
 
 const [empty, header, body] = text.split('---', 3);
 
-translateMDFull('en', text, 'ru')
-    .then(text => {
-        console.log(text);
-    });
+// translateMDFull('en', text, 'ru')
+//     .then(text => {
+//         console.log(text);
+//     });

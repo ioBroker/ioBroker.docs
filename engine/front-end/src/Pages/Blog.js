@@ -20,7 +20,10 @@ import I18n from '../i18n';
 import Utils from '../Utils';
 import Router from '../Router';
 
-const md = new markdownit();
+const md = new markdownit({
+    html: true,
+    linkify: true,
+});
 
 const styles = {
     root: {

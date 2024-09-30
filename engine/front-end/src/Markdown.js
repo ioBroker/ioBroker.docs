@@ -35,7 +35,7 @@ import I18n from './i18n';
 import Utils from './Utils';
 import Page404 from './Pages/404';
 
-const md = markdownit({ html: true, breaks: true });
+const md = markdownit({ html: true, linkify: true });
 
 const styles = {
     root: {
@@ -903,7 +903,10 @@ class Markdown extends Router {
                 </span>
             </AccordionSummary>
             <AccordionActions>
-                <MarkdownView markdown={this.state.license} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />
+                {
+                    // <MarkdownView markdown={this.state.license} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />
+                }
+                <div dangerouslySetInnerHTML={{ __html: md.render(this.state.license) }} />
             </AccordionActions>
         </Accordion>;
     }
@@ -923,7 +926,10 @@ class Markdown extends Router {
                 {I18n.t('Changelog')}
             </AccordionSummary>
             <AccordionActions style={styles.changeLogAccordion}>
-                <MarkdownView markdown={this.state.changeLog} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />
+                {
+                    // <MarkdownView markdown={this.state.changeLog} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />
+                }
+                <div dangerouslySetInnerHTML={{ __html: md.render(this.state.changeLog) }} />
             </AccordionActions>
         </Accordion>;
     }
@@ -1042,7 +1048,8 @@ class Markdown extends Router {
             const cells = [];
             for (let j = 0; j < header.length; j++) {
                 parts[j] = Markdown.replaceHref(parts[j]);
-                const crt = <MarkdownView markdown={parts[j] || ''} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />;
+                // const crt = <MarkdownView markdown={parts[j] || ''} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />;
+                const crt = <div dangerouslySetInnerHTML={{ __html: md.render(parts[j] || '') }} />;
                 cells.push(<TableCell sx={styles.tableCell} key={`cell${i}_${j}`}>{crt}</TableCell>);
             }
 
@@ -1053,7 +1060,10 @@ class Markdown extends Router {
                 <TableRow style={styles.tableRowHead}>
                     {header.map((h, i) =>
                         <TableCell sx={styles.tableCellHead} key={`header${i}`}>
-                            <MarkdownView markdown={h} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />
+                            {
+                                // <MarkdownView markdown={h} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />
+                            }
+                            <div dangerouslySetInnerHTML={{ __html: md.render(h) }} />
                         </TableCell>)}
                 </TableRow>
             </TableHead>
@@ -1109,7 +1119,8 @@ class Markdown extends Router {
             // replace <- with &lt;
             line = line.replace(/<-/g, '&lt;-');
 
-            const rct = <MarkdownView markdown={line} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />;
+            // const rct = <MarkdownView markdown={line} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }} />;
+            const rct = <div dangerouslySetInnerHTML={{ __html: md.render(line) }} />;
 
             if (part.type === 'warn') {
                 return <Box key={`parts${i}`} sx={styles.warn}>{rct}</Box>;
