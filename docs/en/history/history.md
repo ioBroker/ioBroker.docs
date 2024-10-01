@@ -622,3 +622,9 @@ Admin checks now on Linux systems if the system user with a well-known password 
 
 Admin supports dynamic notification's GUI.
 
+## node-red (30.09.2024) - new feature
+![Select ID dialog](media/2024_09_30_node_red.png)
+Node-red got at least the same select ID dialog as other adapters.
+It requires running admin instance on the same host.
+
+Node-red package version was increased from 3 to 4.0.3
