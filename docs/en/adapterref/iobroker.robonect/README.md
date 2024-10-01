@@ -69,10 +69,12 @@ executing  `sudo chmod 4755 /bin/ping` in a shell inside the ioBroker container.
 permission issue between the iobroker user and the ping utility.
 
 ## Changelog
+### 1.4.2 (2024-10-01)
+- (grizzelbee) Fix: Minor fix in readme.md for release script
 
-### Work in progress
-
+### 1.4.1 (2024-09-30)
 - (grizzelbee) New: Added ioBroker adapter release script
+- (grizzelbee) Fix  [#18](https://github.com/Grizzelbee/ioBroker.robonect/issues/48): Fixed some issues mentioned by adapter-checker
 
 ### 1.4.0 (2024-09-11)
 
@@ -91,9 +93,8 @@ permission issue between the iobroker user and the ping utility.
 - (grizzelbee) Upd: Requires at least nodeJs v18.0.2
 - (grizzelbee) Upd: Updated translations
 - (grizzelbee) Upd: Reorganized Admin-UI
-- (grizzelbee) New: Added Ping-Option to admin 
+- (grizzelbee) New: Added Ping-Option to admin
 
- 
 ### 1.3.4 (2023-10-10)
 
 - (grizzelbee) Chg: massive code refactoring 
@@ -107,7 +108,7 @@ permission issue between the iobroker user and the ping utility.
 
 ### 1.3.1 (2023-10-02)
 
-* (grizzelbee) Chg: removed unnecessary Info log entries 
+* (grizzelbee) Chg: removed unnecessary Info log entries
 
 ### 1.3.0 (2023-10-02)
 
@@ -120,7 +121,7 @@ permission issue between the iobroker user and the ping utility.
 * (mcm1957) Fix: Adapter requires NodeJs >= 16.0.0  
 * (crocri)  New: Introduced code to clear errors 
 * (crocri)  Upd: Highlighted issues in functions getValueAsync() and testPushServerConfig()
-* (grizzelbee) Fix: Fixed functions getValueAsync() and testPushServerConfig() 
+* (grizzelbee) Fix: Fixed functions getValueAsync() and testPushServerConfig()
 
 ### 1.1.5 (2023-09-08)
 

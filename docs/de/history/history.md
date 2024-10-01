@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: Xau1E5rVK4IrJ5VRCb4MSOlDWS/Rlt9siHAd2SOe+G0=
+hash: dxi1fS/SizXUgxX/FTjp9Y4nG6LWoDqVCXxyir25aNE=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -71,7 +71,7 @@ Kontextmenü:
 ## Javascript (01.09.2023)
 Spielplatz für JavaScript-Code:
 
-- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur dazu, die Möglichkeiten von ChatGPT zu testen
+- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur zum Testen der Möglichkeiten von ChatGPT
 
   ![Bild1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
 
@@ -233,7 +233,7 @@ Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, biet
 Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche bereitzustellen.
 
 ## Vis (06.11.2023) - neue Funktion
-Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
+Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
 Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
@@ -276,7 +276,7 @@ https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
 
-Dieser Adapter ruft Daten vom Emporia Energiesystem ab.
+Dieser Adapter ruft Daten vom Emporia-Energiesystem ab.
 
 ## Reolink (27.12.2023) - neuer Adapter
 https://github.com/aendue/ioBroker.reolink
@@ -400,7 +400,7 @@ Und sogar den Raymarine-Autopiloten steuern.
 ## Vis-homekittiles (25.3.2024) – neuer Adapter
 https://github.com/Standarduser/ioBroker.vis-homekittiles
 
-<img src="https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/admin/vis-homekittiles.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png" width="100" height="100" />
 
 Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert. Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles über CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei /widgets/homekittiles/css/style.css als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Es ist auch möglich, über den VIS-Editor im Bereich „Allgemein“ der Widgets eigene CSS-Klassen hinzuzufügen.
 
@@ -428,28 +428,28 @@ https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/SCHEM
 ## Geglättet (8.4.2024) – neuer Adapter
 https://github.com/BenAhrdt/ioBroker.smoothed
 
-<img src="https://github.com/BenAhrdt/ioBroker.smoothed/blob/main/admin/smoothed.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.smoothed/main/admin/smoothed.png" width="100" height="100" />
 
 Dieser Adapter macht es einfach, einige Icons auszuwählen, um sie entsprechend einem ausgewählten Algorithmus und der Glättungszeit (Filterzeit) zu glätten. Sie können eine ID mehrmals auswählen, um sie in verschiedenen Algorithmen und/oder Zeiten zu glätten. Das Ziel ist eine ID im Verzeichnis des Flgers, der Ihnen die geglätteten Werte liefert. Sie können die Min- oder Max-Werte begrenzen. Begrenzen Sie die Dezimalstellen. Oder ignorieren Sie Werte mit einer hohen Standardabweichung.
 
 ##heizoel24-mex (14.4.2024) – neuer Adapter
 https://github.com/ltspicer/ioBroker.heizoel24-mex
 
-<img src="https://github.com/ltspicer/ioBroker.heizoel24-mex/blob/main/admin/heizoel24-mex.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.heizoel24-mex/main/admin/heizoel24-mex.png" width="100" height="100" />
 
 Der MEX ist ein Heizöl-Niveaumessgerät. Dieser Adapter liest die MEX-Daten vom Heizoel24-Server aus.
 
 ## Hydrawise (17.4.2024) – neuer Adapter
 https://github.com/SentiQ/ioBroker.hydrawise
 
-<img src="https://github.com/SentiQ/ioBroker.hydrawise/blob/main/admin/hydrawise.jpg" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/SentiQ/ioBroker.hydrawise/main/admin/hydrawise.jpg" width="100" height="100" />
 
 Integrieren Sie Ihren Hydrawise-Controller in ioBroker. Sie können alle Controllerinformationen, Zeitpläne und Sensoren sehen. Es ist auch möglich, die geplante Bewässerung um x Sekunden zu unterbrechen.
 
 ## Tedee (17.4.2024) – neuer Adapter
 https://github.com/TA2k/ioBroker.tedee
 
-<img src="https://github.com/TA2k/ioBroker.tedee/blob/main/admin/tedee.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.tedee/main/admin/tedee.png" width="100" height="100" />
 
 Adapter für Tedee-Schlösser. Dieser Adapter verwendet die lokale Bridge-API, um ein Tedee-Schloss zu steuern.
 Alle Lock-Geräte von Tedee werden unterstützt.
@@ -457,28 +457,28 @@ Alle Lock-Geräte von Tedee werden unterstützt.
 ## Pid (22.4.2024) – neuer Adapter
 https://github.com/mcm4iob/ioBroker.pid
 
-<img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.pid/master/admin/pid.png" width="100" height="100" />
 
 Dieser Adapter bietet die Funktionalität eines PID-Reglers.
 
 ## Unifi-protect (28.4.2024) – stabile Version
 https://github.com/iobroker-community-adapters/ioBroker.unifi-protect
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/admin/unifi-protect.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.unifi-protect/master/admin/unifi-protect.png" width="100" height="100" />
 
 Verbindet sich mit dem Unifi Protect Controller und ruft alle Daten von den hinzugefügten Kameras ab.
 
 ## Air-q (1.5.2024) – neuer Adapter
 https://github.com/CorantGmbH/ioBroker.air-q
 
-<img src="https://github.com/CorantGmbH/ioBroker.air-q/blob/main/admin/air-q.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/CorantGmbH/ioBroker.air-q/main/admin/air-q.png" width="100" height="100" />
 
 Dieser ioBroker Adapter wird in Verbindung mit unserem air-Q Gerät verwendet. Er fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker Umgebung an.
 
-## Boschindego (4.5.2024) – neuer Adapter
+##boschindego (4.5.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/admin/boschindego.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.boschindego/main/admin/boschindego.png" width="100" height="100" />
 
 Adapter für Bosch Indego Mower zur Anzeige des Mäherzustands und zur Steuerung des Mähers.
 
@@ -491,7 +491,7 @@ Es ist eine neue Version des Windows-Installers verfügbar: 3.1.0 Neue Funktione
 ## Radar-trap (29.5.2024) – neuer Adapter im Stall
 https://github.com/Steiger04/ioBroker.radar-trap
 
-<img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Steiger04/ioBroker.radar-trap/main/admin/radar-trap.png" width="100" height="100" />
 
 Adapter zur Erkennung von Radarfallen und Hindernissen.
 
@@ -547,7 +547,7 @@ Wiki: https://github.com/peter9teufel/iobmobile-issues/wiki/IOB-Mobile-Quickstar
 ## Gree-hvac (10.6.2024) – neuer Adapter bei stabil
 https://github.com/XHunter74/ioBroker.gree-hvac
 
-<img src="https://github.com/XHunter74/ioBroker.gree-hvac/blob/master/admin/air-conditioner.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/XHunter74/ioBroker.gree-hvac/master/admin/air-conditioner.png" width="100" height="100" />
 
 Adapter für Klimaanlagen von Gree und C&H.
 
@@ -559,14 +559,14 @@ Adapter für Klimaanlagen von Gree und C&H.
 ## Opcua (13.6.2024) – neuer Adapter im stabilen
 https://github.com/ioBroker/ioBroker.opcua
 
-<img src="https://github.com/ioBroker/ioBroker.opcua/blob/master/admin/opcua.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.opcua/master/admin/opcua.png" width="100" height="100" />
 
 ioBroker OPC-UA-Adapter.
 
 ## E3oncan (25.7.2024) – neuer Adapter bei stabil
 https://github.com/MyHomeMyData/ioBroker.e3oncan
 
-<img src="admin/e3oncan_small.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/e3oncan_small.png" width="100" height="100" />
 
 Geräte der Viessmann E3-Serie (One Base) führen einen umfangreichen Datenaustausch über den CAN-Bus durch. Dieser Adapter kann diese Kommunikation abhören und viele nützliche Informationen extrahieren. Die Energiezähler E380CA und E3100CB werden ebenfalls unterstützt. Dieser Betriebsmodus wird `Collect` genannt.
 
@@ -575,21 +575,21 @@ Hinweis: Dieser Adapter wird nur auf Linux-Systemen unterstützt.
 ## Egigeozone2 (6.8.2024) – neuer Adapter im stabilen
 https://github.com/obakuhl/ioBroker.egigeozone2
 
-<img src="https://github.com/obakuhl/ioBroker.egigeozone2/blob/master/admin/egigeozone.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/obakuhl/ioBroker.egigeozone2/master/admin/egigeozone.png" width="100" height="100" />
 
 Dies ist ein ioBroker-Adapter für die Android-Geofencing-App „EgiGeoZone“. Er kann Geofence-Ereignisse als HTTP-Anfragen empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
 
 ## Hiob (17.8.2024) – neuer Adapter im Stall
 https://github.com/moba15/ioBroker.hiob
 
-<img src="https://github.com/moba15/ioBroker.hiob/blob/main/admin/hiob.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
 
 Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steuern. Es ist eine einfachere und schnellere Alternative zu vergleichbaren Projekten mit weniger Konfigurationsmöglichkeiten. Es ist hauptsächlich für Android-Geräte gedacht, funktioniert aber auch auf Windows- und Linux-Desktops.
 
 ## Extron (17.8.2024) – neuer Adapter bei stabil
 https://github.com/Bannsaenger/ioBroker.extron
 
-<img src="https://github.com/Bannsaenger/ioBroker.extron/blob/master/admin/extron.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.extron/master/admin/extron.png" width="100" height="100" />
 
 Steuergeräte von Extron. Dieser Adapter ist für die Steuerung einiger Audio-Video-Produkte von Extron über das Simple Instruction Set Protocol konzipiert. Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen sind sinnvollerweise mit dem Adapter und der Interaktion mit ioBroker unterstützt.
 
@@ -598,13 +598,20 @@ Der Ping-Adapter kann den IP-Adressbereich erkennen, wenn der Bereich weniger al
 
 Benutzer können die IP-Adressen direkt aus der Benachrichtigung hinzufügen.
 
+![Dynamische Benachrichtigungen](../../en/history/media/2024_09_24_dynamic_notifications.png)
+
 ## Admin (23.08.2024) - neue Funktion
 Zustände könnten direkt aus der JSON-Konfiguration heraus gesteuert werden, um etwa eine Bereichserkennung zu starten.
+
+## Admin (01.09.2024) - neue Funktion
+![Kontextmenü](../../en/history/media/2024_09_10_admin_context_menu.png)
+
+Einige Benutzer sind möglicherweise bereits mit dem Kontextmenü im ioBroker Admin Object Browser vertraut. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick schnellen Zugriff auf das Kontextmenü bietet und es Ihnen ermöglicht, verschiedene Vorgänge an Objekten durchzuführen, z. B. einen Alias für sie zu erstellen.
 
 ## Gotify-ws (4.9.2024) – neuer Adapter im stabilen
 https://github.com/simatec/ioBroker.gotify-ws
 
-<img src="https://github.com/simatec/ioBroker.gotify-ws/blob/master/admin/gotify-ws.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.gotify-ws/master/admin/gotify-ws.png" width="100" height="100" />
 
 Gotify-WS ist ein Adapter, der eine WebSocket-Verbindung zu einem Gotify-Server aufbaut und somit alle Nachrichten vom Server empfangen und verarbeiten kann.
 
@@ -614,31 +621,40 @@ Der Wifilight-Adapter wurde komplett neu geschrieben und unterstützt jetzt den 
 ##rainbird (17.9.2024) – neuer Adapter am Stall
 https://github.com/iobroker-community-adapters/ioBroker.rainbird
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.rainbird/blob/master/admin/rainbird.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.rainbird/master/admin/rainbird.png" width="100" height="100" />
 
 Ein ioBroker-Adapter für Rain Bird mit LNK-WiFi-Adapter. Dieses Projekt hat keine Verbindung zu Rain Bird.
 
 ## Vis-2-widgets-rssfeed (18.9.2024) – neuer Adapter im stabilen
 https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
 
-<img src="https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed/blob/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-rssfeed/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
 
 Dieser Adapter enthält nur die Vis-2-Widgets für den Adapter RSS-Feed. Eine detaillierte Beschreibung der Widgets und der Funktionalität finden Sie unter Adapter RSS-Feed.
 
 ## Kisshome-research (19.9.2024) – neuer Adapter bei stabil
 https://github.com/ioBroker/ioBroker.kisshome-research
 
-<img src="https://github.com/ioBroker/ioBroker.kisshome-research/blob/main/admin/kisshome-research.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
 
 Dieser Spezialadapter wurde für das Forschungsprojekt KISSHome entwickelt. Er ist nicht für den allgemeinen Gebrauch bestimmt.
 
+## Admin (21.09.2024) - neue Funktion
+![Kennwort überprüfen](../../en/history/media/2024_10_01_admin_back_alias.gif)
+
+Benutzer können vom Aliasziel zum Alias selbst springen.
+
 ## Admin (28.09.2024) - neue Funktion
-![Kennwort überprüfen](../../en/history/media/2024_09_28_admin_password.png) Der Admin prüft jetzt auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert und fordert zur Änderung auf, wenn ein solcher Benutzer gefunden wurde.
+![Kennwort überprüfen](../../en/history/media/2024_09_28_admin_password.png)
+
+Der Administrator prüft jetzt auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert, und fordert ihn auf, das Passwort zu ändern, wenn ein solcher Benutzer gefunden wurde.
 
 Der Administrator unterstützt die GUI dynamischer Benachrichtigungen.
 
 ## Node-red (30.09.2024) - neue Funktion
-![Dialogfeld „ID auswählen“](../../en/history/media/2024_09_30_node_red.png) Node-red hat mindestens denselben ID-Auswahldialog wie andere Adapter.
+![Dialogfeld „ID auswählen“](../../en/history/media/2024_09_30_node_red.png)
+
+Node-Red hat mindestens denselben ID-Auswahldialog wie andere Adapter.
 Es erfordert die Ausführung einer Administratorinstanz auf demselben Host.
 
 Die Node-Red-Paketversion wurde von 3 auf 4.0.3 erhöht

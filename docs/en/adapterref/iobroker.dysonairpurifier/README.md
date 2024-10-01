@@ -187,8 +187,11 @@ This is nice to know because the devices usually send (at least mine do) their s
   - In other cases it has been an IP/DNS issue. Resetting the DHCP/DNS server (router) solved the issue.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 3.2.4 (2024-10-01)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Removed plugin-sentry
+- (grizzelbee) Fix: [#318](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/318) Added tests for node 22
+- (grizzelbee) Upd: [#315](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/315) Fixed some issues mentioned by adapter-checker
 
 ### 3.2.3 (2024-06-21) (Marching on)
 - (grizzelbee) Fix: Added missing clearInterval in onUnload
@@ -202,7 +205,6 @@ This is nice to know because the devices usually send (at least mine do) their s
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
 
-
 ### 3.2.0 (2024-05-28) (Marching on)
 
 - (grizzelbee) Chg: Lamps (Product type 552a) won't generate a warning on startup any longer but show an info that they are not supported by this adapter.
@@ -214,7 +216,7 @@ This is nice to know because the devices usually send (at least mine do) their s
 - (grizzelbee) Fix: Fixed broken NO2Index
 - (grizzelbee) Fix: Fixed broken fan speeds 0-10
 - (grizzelbee) Fix: Fixed polling of sensor data
-- (grizzelbee) Fix: setting fan speed = Auto works 
+- (grizzelbee) Fix: setting fan speed = Auto works
 
 ### 3.1.10 (2024-05-14) (Marching on)
 

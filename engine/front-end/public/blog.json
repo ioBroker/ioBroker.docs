@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2024_10_01": {
+      "date": "2024.10.01",
+      "title": {
+        "de": "ioBroker News – August & September 2024",
+        "en": "ioBroker News – August & September 2024",
+        "ru": "Новости ioBroker – август и сентябрь 2024 г.",
+        "zh-cn": "ioBroker 新闻 – 2024 年 8 月和 9 月"
+      },
+      "logo": "en/blog/images/2024_10_01.png",
+      "type": "news",
+      "originalName": "2024_10_01.md",
+      "desc": {
+        "de": "Der Sommer ist vorbei, und es geht mit frischem Schwung in den Herbst. Obwohl es in den letzten Monaten traditionell etwas ruhiger war, \\nda viele der Dev's im wohlverdienten Urlaub waren, gab es dennoch einige Updates und neue Adapter, die wir euch vorstellen möchten.",
+        "en": "# IoBroker News – August & September 2024\\nSummer is over and we're heading into autumn with renewed vigor. Although things have traditionally been a bit quieter in recent months as many of the developers have been on well-deserved vacation, there have still been a few updates and new adapters that we would like to introduce to you.",
+        "ru": "# Новости ioBroker – август и сентябрь 2024 г.\\nЛето закончилось, и осень с новой энергией движется в осень. Хотя в последние несколько месяцев традиционно все было немного спокойнее, поскольку многие разработчики были в заслуженном отпуске, все же были некоторые обновления и новые адаптеры, которые мы хотели бы вам представить.",
+        "zh-cn": "# IoBroker 新闻 – 2024 年 8 月和 9 月\\n夏天过去了，秋天带着新鲜的活力进入秋天。尽管过去几个月事情比较安静，因为许多开发人员正在享受应得的假期，但我们仍然想向您介绍一些更新和新适配器。"
+      }
+    },
     "2024_06_30": {
       "date": "2024.06.30",
       "title": {

@@ -50,52 +50,56 @@ You must install `setcap` with `sudo apt-get install libcap2-bin` before if `set
 -   [ ] Implement the possibility to monitor TCP ports
 
 ## Changelog
+### 1.7.9 (2024-10-01)
+   
+-   (@GermanBluefox) Small changes the layout of the dynamic messages
+
 ### 1.7.8 (2024-09-28)
 
--   (bluefox) Used `iobroker/eslint-config`
--   (bluefox) Fixed some errors with `setcup`
--   (bluefox) Corrected admin notification
+-   (@GermanBluefox) Used `iobroker/eslint-config`
+-   (@GermanBluefox) Fixed some errors with `setcup`
+-   (@GermanBluefox) Corrected admin notification
 
 ### 1.7.6 (2024-09-21)
 
--   (bluefox) Corrected notification message
+-   (@GermanBluefox) Corrected notification message
 
 ### 1.7.5 (2024-09-18)
 
--   (bluefox) Corrected small error about range length
+-   (@GermanBluefox) Corrected small error about range length
 
 ### 1.7.4 (2024-09-17)
 
--   (bluefox) Added support for dynamic notifications
--   (bluefox) Added custom range settings
+-   (@GermanBluefox) Added support for dynamic notifications
+-   (@GermanBluefox) Added custom range settings
 
 ### 1.7.3 (2024-08-25)
 
--   (bluefox) Added the functionality to poll the address range periodically
+-   (@GermanBluefox) Added the functionality to poll the address range periodically
 
 ### 1.7.1 (2024-08-25)
 
--   (bluefox) Added resolution of IP addresses to MAC addresses
+-   (@GermanBluefox) Added resolution of IP addresses to MAC addresses
 
 ### 1.7.0 (2024-08-17)
 
--   (bluefox) Added possibility to browse the IP ranges
+-   (@GermanBluefox) Added possibility to browse the IP ranges
 
 ### 1.6.4 (2024-07-17)
 
--   (bluefox) Added possibility to execute `setcap` command to allow ping without root rights
+-   (@GermanBluefox) Added possibility to execute `setcap` command to allow ping without root rights
 
 ### 1.6.3 (2024-07-16)
 
--   (bluefox) Updated the packages
+-   (@GermanBluefox) Updated the packages
 
 ### 1.6.2 (2023-07-19)
 
 -   (McM1957) Handling of state updates causing crashes with js-controller 5 has been corrected. (Issue #106)
 -   (McM1957) Trailing spaces are now removed from ip address and name. Trailing spaces blocked correct operation. (Issue #98)
--   (bluefox) Added JSON config
--   (bluefox) Added different intervals for online and offline devices
--   (bluefox) implemented export/import of devices
+-   (@GermanBluefox) Added JSON config
+-   (@GermanBluefox) Added different intervals for online and offline devices
+-   (@GermanBluefox) implemented export/import of devices
 
 ### 1.5.3 (2022-02-24)
 
@@ -137,7 +141,7 @@ You must install `setcap` with `sudo apt-get install libcap2-bin` before if `set
 
 ### 1.4.4 (2020-04-17)
 
--   (bluefox) Added support for Admin3
+-   (@GermanBluefox) Added support for Admin3
 
 ### 1.4.3 (2020-04-17)
 
@@ -162,66 +166,66 @@ You must install `setcap` with `sudo apt-get install libcap2-bin` before if `set
 
 ### 1.3.0 (2017-02-21)
 
--   (bluefox) allowed removing host name from state's name
+-   (@GermanBluefox) allowed removing host name from state's name
 
 ### 1.2.0 (2016-12-09)
 
--   (bluefox) change configuration dialog
+-   (@GermanBluefox) change configuration dialog
 
 ### 1.1.3 (2016-11-16)
 
--   (bluefox) catch error if no IP defined
+-   (@GermanBluefox) catch error if no IP defined
 
 ### 1.1.1 (2016-04-10)
 
--   (bluefox) remove ms
+-   (@GermanBluefox) remove ms
 
 ### 1.1.0 (2016-04-10)
 
--   (bluefox) rewrite ping for windows
+-   (@GermanBluefox) rewrite ping for windows
 
 ### 1.0.0 (2016-04-03)
 
--   (bluefox) support for freebsd and all windows languages
--   (bluefox) add tests
+-   (@GermanBluefox) support for freebsd and all windows languages
+-   (@GermanBluefox) add tests
 
 ### 0.1.3 (2015-01-26)
 
--   (bluefox) Fixed the error if the configuration changed
+-   (@GermanBluefox) Fixed the error if the configuration changed
 
 ### 0.1.2 (2015-01-14)
 
--   (bluefox) Fixed the configuration page
+-   (@GermanBluefox) Fixed the configuration page
 
 ### 0.1.1 (2015-01-03)
 
--   (bluefox) Enabled npm install
+-   (@GermanBluefox) Enabled npm install
 
 ### 0.1.0 (2014-11-26)
 
--   (bluefox) Used ping npm module instead of static one
+-   (@GermanBluefox) Used ping npm module instead of static one
 
 ### 0.0.5 (2014-11-21)
 
--   (bluefox) Made possible to have shorter ping intervals (down to 5 seconds)
+-   (@GermanBluefox) Made possible to have shorter ping intervals (down to 5 seconds)
 
 ### 0.0.4 (2014-11-07)
 
--   (bluefox) fix ping node
+-   (@GermanBluefox) fix ping node
 
 ### 0.0.3 (2014-11-03)
 
--   (bluefox) fix ping node (do not forget to remove package from git when the npm gets the update)
+-   (@GermanBluefox) fix ping node (do not forget to remove package from git when the npm gets the update)
 
 ### 0.0.1 (2014-11-02)
 
--   (bluefox) support of server (actually no authentication)
+-   (@GermanBluefox) support of server (actually no authentication)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024, @GermanBluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

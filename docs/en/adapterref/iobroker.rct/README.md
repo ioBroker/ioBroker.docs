@@ -62,6 +62,10 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) include node.js 22 testing
+
 ### 1.2.14 (2024-09-13)
 * (Andreas Ruttkamp) removed .npmignore
 

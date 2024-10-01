@@ -42,6 +42,10 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.9.1 (2024-10-01)
+* update dependencies
+* update translations
+
 ### 4.9.0 (2024-09-26)
 * ems-esp: improve reading for temperatureSensors
 * support small screens
@@ -56,10 +60,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 
 ### 4.7.1 (2024-08-17)
 * ems-esp: custom entities are now under object structure "custom"
-
-### 4.7.0 (2024-08-16)
-* ems-esp: do not allow more then one thermostat for extended own entities
-* ems-esp: error correction for holidayModes custom entities
 
 ## License
 MIT License

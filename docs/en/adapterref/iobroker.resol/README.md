@@ -146,7 +146,24 @@ Save the file and restart the adapter, you will find now a new object Rueckkuehl
 ## Todo
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.5.0 (2024-10-01)
+* (grizzelbee) Upd: Fixed some issues mentioned by adapter-checker
+
+### 1.4.2 (2024-10-01)
+* (grizzelbee) Upd: Internal update
+
+### 1.4.1 (2024-10-01)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Fix: Plugin-Sentry removed
+* (grizzelbee) Upd: made release script working
+
+### 1.4.0 (2024-07-xx)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Upd: Translations got updated
+* (grizzelbee) Fix: Finished work on new jsonConfig admin-UI
+* (grizzelbee) New: Added new option for MX-Controllers to admin-UI
+* (grizzelbee) New: Admin-UI now hides options which are invalid for the selected device.
+* (gargano)    New: Integrated Actions for MX-Controller (V1 and V2)
 
 ### 1.3.0 (2022-11-01)
 * (grizzelbee) Fix: [#106](https://github.com/Grizzelbee/ioBroker.resol/issues/106) Attempt to fix errors in log regarding DeltaSol-BX
@@ -295,5 +312,4 @@ SOFTWARE.
 
 ## Copyright
 
-Copyright (c) 2022 grizzelbee <open.source@hingsen.de>
-
+Copyright (c) 2024 grizzelbee <open.source@hingsen.de>
