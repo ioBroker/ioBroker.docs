@@ -767,5 +767,40 @@
     "conditions": {
       "egigeozone": "installed"
     }
-  }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.info is deprecated",
+      "de": "Adapter ioBroker.info ist abgekündigt",
+      "ru": "Adapter ioBroker.info теперь депрецирован",
+      "pt": "Adapter ioBroker.info is deprecated",
+      "nl": "Adapter ioBroker.info is nu verouderd",
+      "fr": "Adapter ioBroker.info est déprécié",
+      "it": "Adattatore ioBroker.info è deprecato ora",
+      "es": "Adaptador ioBroker.info está deprecado ahora",
+      "pl": "Adapter iOBroker.info jest teraz zdeprecjonowany",
+      "uk": "English, Українська, Français..",
+      "zh-cn": "适配器 ioBroker. info 现在已经贬值了"
+    },
+    "content": {
+      "en": "The adapter ioBroker.info has been deprecated. It does no longer work correctly. A deinstallation of the adapter ioBroker.info is recommended.",
+      "de": "Der Adapter ioBroker.info ist veraltet. Dieser funktioniert nicht mehr sicher. Eine Deinstallation des Adapters ioBroker.info wird empfohlen.",
+      "ru": "Адаптер ioBroker.info был обесценен. Он больше не работает правильно. Удаление адаптера ioBroker. Информация рекомендуется.",
+      "pt": "O adaptador ioBroker.info foi desprezado. Já não funciona corretamente. Uma desinstalação do adaptador ioBroker. info é recomendado.",
+      "nl": "De adapter ioBroker.info is verouderd. Het werkt niet meer correct. Een deinstallatie van de adapter ioBroker. informatie wordt aanbevolen.",
+      "fr": "L'adaptateur ioBroker.info a été déprécié. Il ne fonctionne plus correctement. Une désinstallation de l'adaptateur ioBroker. info est recommandé.",
+      "it": "L'adattatore ioBroker.info è stato deprecato. Non funziona più correttamente. Una deinstallazione dell'adattatore ioBroker. info è consigliato.",
+      "es": "El adaptador ioBroker.info ha sido deprecado. Ya no funciona correctamente. Una desinstalación del adaptador ioBroker. Se recomienda información.",
+      "pl": "Adapter jOBroker.info został zdepregowany. Nie działa już poprawnie. Demontaż adaptera jOBroker. Info jest zalecane.",
+      "uk": "ioBroker.info було вилучено. Він не працює правильно. Видалення адаптера ioBroker. Рекомендовано інформацію.",
+      "zh-cn": "适配器ioBroker.info已经贬值. 它不再正确运作。 适配器ioBroker的解装. 建议提供有关资料."
+    },
+    "id": "info-deprecation-2",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-09-14T00:00:00.000Z",
+    "conditions": {
+      "info": "installed"
+    }
+  }  
 ]
