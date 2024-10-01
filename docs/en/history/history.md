@@ -582,6 +582,8 @@ Ping adapter can detect the range of IP addresses if the range has less than 409
 
 Users can add the IP-Addresses directly from notification.
 
+![Dynamic notifications](media/2024_09_24_dynamic_notifications.png)
+
 ## admin (23.08.2024) - new feature
 States could be controlled directly from JSON Config to start range detection or something similar.
 
