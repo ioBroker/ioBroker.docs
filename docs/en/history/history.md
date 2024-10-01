@@ -585,6 +585,11 @@ Users can add the IP-Addresses directly from notification.
 ## admin (23.08.2024) - new feature
 States could be controlled directly from JSON Config to start range detection or something similar.
 
+## admin (01.09.2024) - new feature
+![Context menu](media/2024_09_10_admin_context_menu.png)
+
+Some users may already be familiar with the context menu in the ioBroker Admin Object Browser. However, we want to remind everyone that a simple left-click provides quick access to the context menu, allowing you to perform various operations on objects, such as creating an alias for them.
+
 ## gotify-ws (4.9.2024) – new adapter at stable
 https://github.com/simatec/ioBroker.gotify-ws
 
@@ -615,6 +620,11 @@ https://github.com/ioBroker/ioBroker.kisshome-research
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
 
 This special adapter was developed for the KISSHome research project. It is not intended for general use.
+
+## admin (21.09.2024) - new feature
+![Check password](media/2024_10_01_admin_back_alias.gif)
+
+Users can jump from alias target to alias itself.
 
 ## admin (28.09.2024) - new feature
 ![Check password](media/2024_09_28_admin_password.png)
