@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 6S9NjelLYybrq/uuYKBjCaILlozioPq9WStPzlARLU8=
+hash: Xau1E5rVK4IrJ5VRCb4MSOlDWS/Rlt9siHAd2SOe+G0=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -71,7 +71,7 @@ Kontextmenü:
 ## Javascript (01.09.2023)
 Spielplatz für JavaScript-Code:
 
-- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur zum Testen der Möglichkeiten von ChatGPT
+- Sie können ChatGPT (erforderlicher API-Schlüssel) verwenden, um das Skript zu generieren. Es dient nur dazu, die Möglichkeiten von ChatGPT zu testen
 
   ![Bild1](../../en/history/media/2023_09_27_javascript_chat_gpt.png)
 
@@ -172,7 +172,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
 
-Sie können zwischen Kühl- und Heizbetrieb wählen und für einen Raum Boost oder Pause aktivieren.
+Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
 
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
@@ -236,7 +236,7 @@ Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robus
 Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
-Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Aktivität geprüft.
+Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
 
@@ -473,7 +473,7 @@ https://github.com/CorantGmbH/ioBroker.air-q
 
 <img src="https://github.com/CorantGmbH/ioBroker.air-q/blob/main/admin/air-q.png" width="100" height="100" />
 
-Dieser ioBroker Adapter kommt in Verbindung mit unserem air-Q Gerät zum Einsatz. Er fragt die Werte unserer Sensoren ab und stellt sie für Sie in der ioBroker Umgebung dar.
+Dieser ioBroker Adapter wird in Verbindung mit unserem air-Q Gerät verwendet. Er fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker Umgebung an.
 
 ## Boschindego (4.5.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
@@ -488,7 +488,7 @@ Es ist eine neue Version des Windows-Installers verfügbar: 3.1.0 Neue Funktione
 - Update/Upgrade des JS-Controllers implementiert
 - Einige Bugfixes
 
-## Radar-trap (29.5.2024) – neuer Adapter am Stall
+## Radar-trap (29.5.2024) – neuer Adapter im Stall
 https://github.com/Steiger04/ioBroker.radar-trap
 
 <img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
@@ -554,7 +554,7 @@ Adapter für Klimaanlagen von Gree und C&H.
 ## Admin (10.6.2024) – neue Funktion
 - Die Registerkarte „Protokoll“ wurde verbessert. (Vor allem Layout und GUI)
 - Unterstützung für die automatische Update-Option des Adapters hinzugefügt. Neue Version des JS-Controllers erforderlich.
-- Es werden nur die installierten Adapter im Adapter-Tab oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
+- Es werden nur die im Adapter-Tab installierten Adapter oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
 
 ## Opcua (13.6.2024) – neuer Adapter im stabilen
 https://github.com/ioBroker/ioBroker.opcua
@@ -636,3 +636,9 @@ Dieser Spezialadapter wurde für das Forschungsprojekt KISSHome entwickelt. Er i
 ![Kennwort überprüfen](../../en/history/media/2024_09_28_admin_password.png) Der Admin prüft jetzt auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort existiert und fordert zur Änderung auf, wenn ein solcher Benutzer gefunden wurde.
 
 Der Administrator unterstützt die GUI dynamischer Benachrichtigungen.
+
+## Node-red (30.09.2024) - neue Funktion
+![Dialogfeld „ID auswählen“](../../en/history/media/2024_09_30_node_red.png) Node-red hat mindestens denselben ID-Auswahldialog wie andere Adapter.
+Es erfordert die Ausführung einer Administratorinstanz auf demselben Host.
+
+Die Node-Red-Paketversion wurde von 3 auf 4.0.3 erhöht

@@ -14,15 +14,15 @@ BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
 BADGE-Installed: http://iobroker.live/badges/shelly-installed.svg
 chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
+hash: Uz3Ry8D/plZQTN+bQwUultYzPjqhk5vWw1PXNE8Owxw=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-Это немецкая документация - [🇺🇸 Английская версия](../en/README.md).
+Это немецкая документация - [🇺🇸Немецкая версия](../en/README.md).
 
 ## Оглавление
 - [Протокол MQTT](protocol-mqtt.md)
@@ -34,8 +34,8 @@ hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
 
 ## Требования
 1. Node.js 18 (или новее)
-2. js-контроллер 5.0.0 (или новее)
-4. Адаптер администратора 6.0.0 (или новее)
+2. js-контроллер 5.0.19 (или новее)
+3. Адаптер администратора 6.0.0 (или новее)
 
 ## Поколения устройств
 Дополнительную информацию см. в разделе *поддерживаемые устройства*.
@@ -60,37 +60,34 @@ hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 8.2.1 (2024-09-23)
 
-NodeJS >= 18.x and js-controller >= 5 is required
+* (@Matze2010) Added datapoint for cover target position
+* (@klein0r) Fixed integration of Shelly 1 PM Gen 3
 
-* (svenbluege) Added Shelly 1 PM Mini (Gen3)
+### 8.2.0 (2024-09-19)
 
-### 6.9.0 (2024-03-12)
+* (@Scrounger) Added Shelly BLU Wall Switch 4 & Shelly BLU RC Button 4
+* (@Paradoxa) Added Shelly Plus RGBW PM
+* (simatec) Responsive Design added
 
-* (klein0r) Added Shelly Plus 0-10V
-* (klein0r) Admin notification for available firmware updates
+### 8.1.1 (2024-08-27)
 
-### 6.8.0 (2024-02-17)
+* (@klein0r) Fixed lint issues and Shelly Gen 3 import
 
-* (klein0r) Updated BLE script to 0.2 (new shelly motion firmware)
-* (klein0r) Updated Shelly i3 number limits
-* (klein0r) Added screenshots to instance configuration
+### 8.1.0 (2024-08-25)
 
-### 6.7.0 (2023-12-22)
+* (esusxunil) Added Shelly Pro EM 2x50A
 
-* (klein0r) Updated handling of ble payloads
-* (D1gitaldad) Added Shelly Wall Display
+### 8.0.0 (2024-08-25)
 
-### 6.6.1 (2023-10-20)
-
-* (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2
-* (klein0r) Added humidity of Shelly Plus Addon
-* (klein0r) Not all devices have external power
-
-### 6.6.0 (2023-10-17)
-
-* (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
+* (imperial929) Added Shelly 1 PM Gen3
+* (imperial929) Added Shelly 1 Gen3
+* (klein0r) Breaking change: Renamed input states (now digital/analog) of Shelly Plus Addon (Ext)
+* (klein0r) Added Shelly Plus Uni
+* (klein0r) Added Shelly H&T (Gen3)
+* (klein0r) Improved structure of ble events (receivedBy) - see documentation for details
+* (bluefox) Improved the color of icons in the admin interface
 
 ## License
 

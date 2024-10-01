@@ -404,13 +404,13 @@ class Intro extends Component {
 
         return [
             <Box sx={styles.content} style={styles.backImage} key="content">
-                <Box style={styles.title}>
+                <div style={styles.title}>
                     <div style={{ ...styles.titleDiv, marginTop: this.props.mobile ? 50 : 75 }}>
                         <div style={styles.titleMain}>ioBroker</div>
                         <div style={styles.titleSecond}>Automate your life</div>
                         <div style={styles.titleDescription}>Open source automation platform</div>
                     </div>
-                </Box>
+                </div>
                 {middleButton}
                 {!this.props.mobile ? <LinusShell
                     header={I18n.t('install on linux')}

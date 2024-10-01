@@ -4,12 +4,12 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-mqtt.md
 title: ioBroker.shelly
-hash: EJVMK4X87HaUFIMR6su6MHjplm/TSvh97ugZgVQ40EE=
+hash: Q9oP75fCGPw8B0RiW4pzL/QKPVh9I7OE5KTWs6HN4GA=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-这是德语文档 - [🇺🇸英文版](../en/protocol-mqtt.md)
+这是德语文档 - [🇺🇸 德语版](../en/protocol-mqtt.md)
 
 ## MQTT
 ![iobroker_general_mqtt](../../../de/adapterref/iobroker.shelly/img/iobroker_general_mqtt.png)
@@ -43,13 +43,9 @@ hash: EJVMK4X87HaUFIMR6su6MHjplm/TSvh97ugZgVQ40EE=
 
 - **不要更改此配置中的“客户端 ID”**
 - **对于第 2+ 代设备 (Gen2+)，必须激活所有 RPC 选项（参见屏幕截图）！**
-- 不得激活 SSL/TLS
+- SSL/TLS 不得激活
 
 ![雪莉第二代](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2.png)
-
-*第 2 代设备 (Gen2) 的较旧固件版本具有不同的 Web 界面 - 请更新到当前稳定版本！*
-
-![雪莉 gen2 老](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2-old.png)
 
 ### 第一代设备
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）

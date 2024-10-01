@@ -61,6 +61,13 @@ After the beep from base you can turn the kettle back on base and use it.
 ---
 ## Changelog
 
+### 1.0.2
+* (Jey Cee) Add watchdog for connection to prevent adapter freeze
+* (Jey Cee) Migrate config to JSON Config
+* (Jey Cee) Update dependencies 
+* (Jey Cee) Fix issues found by adapter checker
+
+### 1.0.1
 * (Jey Cee) fixes for Beta release
 
 ### 1.0.0
@@ -69,7 +76,7 @@ After the beep from base you can turn the kettle back on base and use it.
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Jey Cee <jey-cee@live.com>
+Copyright (c) 2021-2024 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

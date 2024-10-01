@@ -1,4 +1,5 @@
 ![Logo](admin/welcome.png)
+
 # ioBroker.welcome
 
 ![Number of Installations](http://iobroker.live/badges/web-installed.svg)
@@ -27,28 +28,41 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 -->
 
 ## Changelog
+### 1.0.0 (2024-09-29)
+
+-   (@GermanBluefox) Updated packages
+-   (@GermanBluefox) Used new eslint-config
+-   (@GermanBluefox) Added support for SVG files
+
 ### 0.3.0 (2023-11-30)
-* (bluefox) Allowed adding own logo to the welcome screen
+
+-   (@GermanBluefox) Allowed adding own logo to the welcome screen
 
 ### 0.2.0 (2023-11-28)
-* (bluefox) Added custom redirect URL
+
+-   (@GermanBluefox) Added custom redirect URL
 
 ### 0.1.0 (2023-11-07)
-* (bluefox) Added custom links
+
+-   (@GermanBluefox) Added custom links
 
 ### 0.0.5 (2023-10-16)
-* (bluefox) Corrected the adapter list
+
+-   (@GermanBluefox) Corrected the adapter list
 
 ### 0.0.4 (2023-10-16)
-* (bluefox) First release
+
+-   (@GermanBluefox) First release
 
 ### 0.0.1 (2023-10-16)
-* (bluefox) Initial commit
+
+-   (@GermanBluefox) Initial commit
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2023 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2024 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

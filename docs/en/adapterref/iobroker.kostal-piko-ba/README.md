@@ -55,6 +55,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 4.2.2 (2024-09-30)
+
+-   (HombachC) add more Sentry triggered error handling
+-   (HombachC) code optimization
+-   (HombachC) update adapter core
+-   (HombachC) dependency updates
+
 ### 4.2.1 (2024-09-17)
 
 -   (HombachC) add node.js 22 to the adapter testing (#666)

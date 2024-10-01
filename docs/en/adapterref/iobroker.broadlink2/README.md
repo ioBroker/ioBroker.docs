@@ -115,6 +115,9 @@ The adapter understands also 'sendTo' commands.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (mattreim) Several issues reported by adapter checker have been fixed
+
 ### 2.3.0 (2024-05-21)
 * (mattreim) Adapter migrated to jsonConfig
 * (mcm1957) Adapter requires admin >= 6 now

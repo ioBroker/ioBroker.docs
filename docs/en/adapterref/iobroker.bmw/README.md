@@ -25,10 +25,9 @@ bmw.0.VIN.properties
 bmw.0.VIN.remotev2
 
 ## Changelog
+### 2.8.1 (2024-09-30)
 
-### 2,8.0
-
-- Add support service demand and trip api
+- fix remote commands
 
 ### 2.7.1
 

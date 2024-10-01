@@ -4,12 +4,15 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/faq.md
 title: ioBroker.shelly
-hash: tqBzJqrlwxJCvPxk4+OFMmmGxlA5sQuE3ueJiVY3CrI=
+hash: CO+o37e6Ps6qhGmfzCMRSgZrG+72XVMMdfpO6RXs6XA=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-这是德语文档 - [🇺🇸 德语版](../en/faq.md)
+这是德语文档 - [🇺🇸英文版](../en/faq.md)
+
+## 您也可以使用Shelly应用程序进行配置吗？
+所有文档均基于设备的 Web 界面设置。应用程序中可能缺少某些选项。所以不推荐这条路线！
 
 ## 可以同时使用CoAP（CoIoT）和MQTT吗？
 不需要，但您可以创建 Shelly 适配器的第二个实例，然后将其配置为 MQTT（另一个实例配置为 CoAP/CoIoT）。
@@ -26,7 +29,7 @@ hash: tqBzJqrlwxJCvPxk4+OFMmmGxlA5sQuE3ueJiVY3CrI=
 *CoAP/CoIoT 仅受第一代 (Gen1) 设备支持！*
 
 ## Shelly 适配器无法识别我的设备
-在适配器支持的设备列表中尚未找到该设备，或者 Shelly 上的 MQTT 设置中的客户端 ID 已更改。根据[文档](protocol-mqtt.md)，不得更改此 ID，因为此 ID 用于确定设备类型！
+该设备尚未位于适配器支持的设备列表中，或者 Shelly 上的 MQTT 设置中的客户端 ID 已更改。根据[文档](protocol-mqtt.md)，不得更改此 ID，因为此 ID 用于确定设备类型！
 
 ## 是否可以将 Shelly 适配器连接到现有的 MQTT 代理？
 无法将 Shelly 适配器连接到网络上现有的 MQTT 代理。 Shelly 适配器在内部启动自己的 MQTT 代理，该代理在端口“`1882`”上启动，以避免与同一系统上的其他 MQTT 代理发生冲突。

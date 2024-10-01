@@ -812,6 +812,8 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.easee/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ebus/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.echarts/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecoflow/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ecovacs-deebot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ekey/README.md
@@ -1486,6 +1488,8 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.easee/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ebus/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.echarts/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecoflow/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ecovacs-deebot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ekey/README.md
@@ -2160,6 +2164,8 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.easee/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ebus/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.echarts/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecoflow/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ecovacs-deebot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ekey/README.md
@@ -2834,6 +2840,8 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.easee/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ebus/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.echarts/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecoflow/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecoflow-mqtt/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ecovacs-deebot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.egigeozone2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ekey/README.md

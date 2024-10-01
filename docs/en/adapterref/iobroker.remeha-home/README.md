@@ -54,6 +54,10 @@ You must enter these in the configuration of the adapter.
 <!-- ### **WORK IN PROGRESS** -->
 
 ## Changelog
+### 0.2.4 (2024-09-28)
+* (simatec) Fix request error
+* (simatec) Dependencies updated
+
 ### 0.2.3 (2024-09-26)
 * (simatec) Fix jsonConfig
 * (simatec) Fix for Admin 7.1.5

@@ -37,6 +37,10 @@ or any associated subsidiaries, logos or trademarks.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.1.4 (2024-09-30)
+* Update dependencies
+* Fix issues found by adapter checker
+
 ### 0.1.3 (2023-07-27)
 * stable release
 

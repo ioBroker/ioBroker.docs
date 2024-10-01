@@ -79,7 +79,7 @@ const styles = {
     pageDesc: {
         fontWeight: 400,
         // fontFamily: 'Open Sans,sans-serif',
-        marginTop: 50,
+        marginTop: '50px',
         '& img': {
             maxWidth: '100%',
         }
@@ -93,9 +93,9 @@ const styles = {
     pageTitleTranslated: {
         borderColor: '#009c4f',
         borderWidth: '0 0 0 3px',
-        padding: 10,
-        marginTop: 5,
-        marginBottom: 5,
+        padding: '10px',
+        marginTop: '5px',
+        marginBottom: '5px',
         borderStyle: 'solid',
         background: '#bdded5',
         '&:before': {

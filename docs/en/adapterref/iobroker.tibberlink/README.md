@@ -106,6 +106,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 3.5.0 (2024-10-xx)
+
+-   (HombachC) update adapter core
+-   (HombachC) fix error in SML decoder
+-   (HombachC) add 2 new SML scale factor codes (#535)
+-   (HombachC) dependency updates
+
 ### 3.4.10 (2024-09-16)
 
 -   (HombachC) add verification of poll interval (#518)

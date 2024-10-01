@@ -1,20 +1,23 @@
 ---
 chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/faq.md
 title: ioBroker.shelly
-hash: tqBzJqrlwxJCvPxk4+OFMmmGxlA5sQuE3ueJiVY3CrI=
+hash: CO+o37e6Ps6qhGmfzCMRSgZrG+72XVMMdfpO6RXs6XA=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-Это немецкая документация - [🇺🇸Немецкая версия](../en/faq.md).
+Это немецкая документация - [🇺🇸 Английская версия](../en/faq.md).
+
+## Можете ли вы также выполнить настройку с помощью приложения Shelly?
+Вся документация основана на настройках веб-интерфейса устройств. Некоторые опции могут отсутствовать в приложении. Поэтому маршрут не рекомендуется!
 
 ## Можете ли вы использовать CoAP (CoIoT) и MQTT одновременно?
 Нет, но вы можете создать второй экземпляр адаптера Shelly, который затем будет настроен для MQTT (а другой — для CoAP/CoIoT).
 
-## Я не знаю, как работает MQTT, сложно ли его использовать?
+## Я не знаю, как работает MQTT, сложно ли им пользоваться?
 Нет, вам просто нужно настроить устройства Shelly, как объясняет [здесь](protocol-mqtt.md). Адаптер Shelly сделает все остальное самостоятельно.
 
 ## Могу ли я переключаться между CoAP (CoIoT) и MQTT?

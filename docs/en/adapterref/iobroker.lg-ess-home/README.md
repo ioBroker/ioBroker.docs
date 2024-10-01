@@ -46,6 +46,7 @@ This should give you the password and a status in return.
 -->
 ### **WORK IN PROGRESS**
 * (Morluktom) Bugfix: State value to set for "lg-ess-home.0.user.essinfo.home.statistics.bat_status" has to be type "number" but received type "string"
+* LG ESS HOME 15 Plus added
 
 ### 0.3.0 (2024-08-10)
 * (Morluktom) Fixed warnings found by adapter checker

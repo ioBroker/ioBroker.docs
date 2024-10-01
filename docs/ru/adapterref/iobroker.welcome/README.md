@@ -1,48 +1,70 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.welcome/README.md
-title: ioBroker.welcome
-hash: jkzi1/Siu0dakUu5BPH4ebgxGY3FGjGwTjgDSzN/9lc=
+title: ioBroker.добро пожаловать
+hash: pP1EIBTpXsebJh73MPhL9tOfaxRpxmM3UjJ0kZ9i9nE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.welcome/admin/welcome.png)
 
 ![Количество установок](http://iobroker.live/badges/web-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.welcome.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.welcome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.welcome.svg)
 
-# IoBroker.welcome
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.welcome/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.добро пожаловать
+![Тест и выпуск](https://github.com/ioBroker/ioBroker.welcome/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Этот адаптер отображает все веб-экземпляры и экземпляры администратора ioBroker на одной странице через порт 80 (настраиваемый).
+Этот адаптер отображает все веб- и административные экземпляры ioBroker на одной странице на порту 80 (настраивается)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ![Добро пожаловать](../../../en/adapterref/iobroker.welcome/img/screen.png)
 
-Обычно этот адаптер должен работать на порте 80 или 443 и отображает доступные адаптеры с веб-серверами.
+Обычно этот адаптер должен работать на порту 80 или 443 и отображать доступные адаптеры с веб-серверами.
 
 При желании вы можете указать экземпляр, на который он будет автоматически перенаправлен при открытии страницы приветствия.
-В этом случае при открытии http://IP он будет немедленно перенаправлен на указанный экземпляр веб-сайта.
+В этом случае при открытии http://IP он будет немедленно перенаправлен на указанный веб-экземпляр.
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.0.0 (2024-09-29)
+
+-   (@GermanBluefox) Updated packages
+-   (@GermanBluefox) Used new eslint-config
+-   (@GermanBluefox) Added support for SVG files
+
+### 0.3.0 (2023-11-30)
+
+-   (@GermanBluefox) Allowed adding own logo to the welcome screen
+
+### 0.2.0 (2023-11-28)
+
+-   (@GermanBluefox) Added custom redirect URL
+
+### 0.1.0 (2023-11-07)
+
+-   (@GermanBluefox) Added custom links
+
 ### 0.0.5 (2023-10-16)
-* (bluefox) Corrected the adapter list
+
+-   (@GermanBluefox) Corrected the adapter list
 
 ### 0.0.4 (2023-10-16)
-* (bluefox) First release
+
+-   (@GermanBluefox) First release
 
 ### 0.0.1 (2023-10-16)
-* (bluefox) Initial commit
+
+-   (@GermanBluefox) Initial commit
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2023 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2024 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -76,9 +76,12 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+* (Jey Cee) Optimize config for better responsive behavior
+
 ### 1.0.11 27.03.2024
 * (Jey Cee) Fix high CPU load while running discovering devices
-* 
+
 ### 1.0.9 19.03.2024
 * (Jey Cee) Fix unexpected stop of discovery
 

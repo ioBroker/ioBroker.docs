@@ -1,10 +1,10 @@
 ---
 title: 视窗
-lastChanged: 21.05.2024
+lastChanged: 29.09.2024
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/windows.md
-hash: G2wervEILmAU3LoeQyL7+J2VcZk6xmau2UNkVKG17Jc=
+hash: jULy3BfFGFvYaxcTpTGgY/ShX6i8ja5ZizBz+Scho18=
 ---
 # 检查需求
 安装之前，请检查系统是否满足所有必要的[安装要求](./requirements.md)。
@@ -42,7 +42,7 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 
 ![许可证页面](../../de/install/media/windows/InstallWin_license.png "许可证页面")
 
-我们必须接受许可证，然后再次单击“下一步”。在接下来的页面上，我们现在可以选择 ioBroker 安装的安装文件夹：
+我们必须接受许可证，然后再次单击“下一步”。在下一页上，我们现在可以选择 ioBroker 安装的安装文件夹：
 
 ![安装文件夹](../../de/install/media/windows/InstallWin_folder.png "安装文件夹")
 
@@ -50,7 +50,7 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 
 ![评论](../../de/install/media/windows/InstallWin_check.png "评论")
 
-这可能需要一些时间。检查结果会自动出现：
+这可能需要一些时间。然后自动显示检查结果：
 
 ![验证结果](../../de/install/media/windows/InstallWin_checkresult.png "验证结果")
 
@@ -58,14 +58,14 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 
 ![选项](../../de/install/media/windows/InstallWin_options.png "选项")
 
-在 ioBroker 的初始安装过程中，前三个选项是固定的：
+在ioBroker的初始安装过程中，前三个选项是固定的：
 
 1、ioBroker的运行环境Node.js下载并安装，推荐版本
 2.ioBroker本身安装
 3. ioBroker Fixer无法选择
 
 接下来的两个选项可以更改，但通常建议保留默认设置。
-最后，安装程序提供了采用现有安装配置的选项。这需要整个“iobroker-data”文件夹，如果存在 ioBroker 安装，则可以在 ioBroker 文件夹中找到该文件夹。这可以来自 Windows 或 Linux 下的 ioBroker 安装。安装期间从该文件夹中获取数据；该文件夹的内容不会更改。
+最后，安装程序提供了采用现有安装配置的选项。这需要整个“iobroker-data”文件夹，如果存在 ioBroker 安装，则可以在 ioBroker 文件夹中找到该文件夹。这可以来自 Windows 或 Linux 下的 ioBroker 安装。在安装过程中从该文件夹中获取数据；该文件夹的内容不会更改。
 单击“下一步”后，我们现在可以看到计划操作的摘要：
 
    ![选项](../../de/install/media/windows/InstallWin_summary.png "选项")
@@ -83,9 +83,9 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 单击“完成”，将打开 Web 浏览器，ioBroker 将引导您完成设置的第一步。
 
 ＃＃ 更新
-!> 通常更新是完全没有问题且安全的。但为以防万一，在执行之前应进行数据备份。
+!> 通常更新是完全没有问题且安全的。但是，作为预防措施，您应该在继续操作之前备份数据。
 
-- 在 Windows Installer 的帮助下，已安装的 Node.js 版本可以自动更新到推荐的级别。
+- 在Windows Installer的帮助下，安装的Node.js版本可以自动更新到推荐的级别。
 
   为此，只需从 Windows 开始菜单（“ioBroker 安装程序”）启动安装程序并按照说明进行操作即可。稍后会自动检测并提供 Node.js 的可用更新。
 
@@ -105,7 +105,17 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 
   `iob start`
 
-＃＃ 故障排除
+## 专家模式
+安装程序还提供专家模式，普通 ioBroker 用户通常不需要该模式。可以通过双击 ioBroker 徽标，然后选中“专家模式”复选框，在安装程序的第一页上激活它。
+
+专家模式提供以下附加功能：
+
+- 在一台PC上并行安装和维护多个ioBroker服务器
+- 安装 JS Controller alpha 版本
+
+![专家模式](../../de/install/media/windows/InstallWin_expertmode.png "专家模式")
+
+## 故障排除
 **问题：** 由于端口 9001 被名为“System”的进程占用，安装无法完成。
 
 **可能的解决方案：** 已知英特尔® 显卡命令中心会阻止端口 9001。

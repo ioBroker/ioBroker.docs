@@ -1,6 +1,6 @@
 ---
 title: "Windows"
-lastChanged: "21.05.2024"
+lastChanged: "29.09.2024"
 ---
 
 # Voraussetzungen prüfen
@@ -102,6 +102,17 @@ Mit einem Klick auf "Fertigstellen" öffnet sich ein Webbrowser und ioBroker lei
   `iob upgrade self`
 
   `iob start`
+
+## Expertenmodus
+
+Der Installer bietet auch einen Expertenmodus, der für den normalen ioBroker Anwender normalerweise nicht erforderlich ist. Er kann auf der ersten Seite des Installers durch einen Doppelklick auf das ioBroker Logo und anschließend durch setzen des Häkchens "Expertenmodus" aktiviert werden.
+
+Der Expertenmodus bietet folgende zusätzlichen Funktionen:
+
+- Installation und Pflege mehrerer ioBroker Server parallel auf einem PC
+- Installieren von JS-Controller Alpha-Versionen
+
+![Expertenmodus](./media/windows/InstallWin_expertmode.png "Expertenmodus")
 
 ## Fehlersuche
 
