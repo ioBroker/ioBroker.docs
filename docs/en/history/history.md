@@ -531,7 +531,7 @@ Wiki: https://github.com/peter9teufel/iobmobile-issues/wiki/IOB-Mobile-Quickstar
 ## gree-hvac (10.6.2024) – new adapter at stable
 https://github.com/XHunter74/ioBroker.gree-hvac
 
-<img src="https://github.com/XHunter74/ioBroker.gree-hvac/blob/master/admin/air-conditioner.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/XHunter74/ioBroker.gree-hvac/master/admin/air-conditioner.png" width="100" height="100" />
 
 Adapter for Gree and C&H conditioners.
 
@@ -543,14 +543,14 @@ Adapter for Gree and C&H conditioners.
 ## opcua (13.6.2024) – new adapter at stable
 https://github.com/ioBroker/ioBroker.opcua
 
-<img src="https://github.com/ioBroker/ioBroker.opcua/blob/master/admin/opcua.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.opcua/master/admin/opcua.png" width="100" height="100" />
 
 ioBroker OPC-UA Adapter.
 
 ## e3oncan (25.7.2024) – new adapter at stable
 https://github.com/MyHomeMyData/ioBroker.e3oncan
 
-<img src="admin/e3oncan_small.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/e3oncan_small.png" width="100" height="100" />
 
 Viessmann E3 series devices (One Base) are doing a lot of data exchanges on CAN bus. This adapter can listen to this communication and extract much useful information. Energy meters E380CA and E3100CB also are supported. This mode of operation is called `Collect`.  
 
@@ -559,21 +559,21 @@ Note: This adapter is supported on linux systems only.
 ## egigeozone2 (6.8.2024) – new adapter at stable
 https://github.com/obakuhl/ioBroker.egigeozone2
 
-<img src="https://github.com/obakuhl/ioBroker.egigeozone2/blob/master/admin/egigeozone.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/obakuhl/ioBroker.egigeozone2/master/admin/egigeozone.png" width="100" height="100" />
 
 This is an ioBroker adapter for Android geofencing app "EgiGeoZone". It is able to receive geofence events as HTTP requests when entering or leaving a defined area with your mobile device.
 
 ## hiob (17.8.2024) – new adapter at stable
 https://github.com/moba15/ioBroker.hiob
 
-<img src="https://github.com/moba15/ioBroker.hiob/blob/main/admin/hiob.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
 
 This app allows you to control your ioBroker Smarthome system via the hiob app. It is a simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
 
 ## extron (17.8.2024) – new adapter at stable
 https://github.com/Bannsaenger/ioBroker.extron
 
-<img src="https://github.com/Bannsaenger/ioBroker.extron/blob/master/admin/extron.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.extron/master/admin/extron.png" width="100" height="100" />
 
 Control devices from Extron. This Adapter is designed to control some of the Extron Audio Video Products via the Simple Instruction Set Protocol. The functional scope of the devices is tremendous. Not all of the features make sense to be supported with the adapter and the interaction with ioBroker.
 
@@ -588,7 +588,7 @@ States could be controlled directly from JSON Config to start range detection or
 ## gotify-ws (4.9.2024) – new adapter at stable
 https://github.com/simatec/ioBroker.gotify-ws
 
-<img src="https://github.com/simatec/ioBroker.gotify-ws/blob/master/admin/gotify-ws.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.gotify-ws/master/admin/gotify-ws.png" width="100" height="100" />
 
 Gotify-WS is an adapter that establishes a websocket connection to a Gotify server and can therefore receive and process all messages from the server.
 
@@ -598,21 +598,21 @@ The wifilight adapter was completely rewritten and now supports compact mode and
 ## rainbird (17.9.2024) – new adapter at stable
 https://github.com/iobroker-community-adapters/ioBroker.rainbird
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.rainbird/blob/master/admin/rainbird.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.rainbird/master/admin/rainbird.png" width="100" height="100" />
 
 An ioBroker adapter for Rain Bird with LNK WiFi adapter. This project has no affiliation with Rain Bird.
 
 ## vis-2-widgets-rssfeed (18.9.2024) – new adapter at stable
 https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
 
-<img src="https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed/blob/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-rssfeed/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
 
 This adapter contains only the vis-2 widgets for the adapter rssfeed. For a detailed description of the widgets and functionality see Adapter rssfeed.
 
 ## kisshome-research (19.9.2024) – new adapter at stable
 https://github.com/ioBroker/ioBroker.kisshome-research
 
-<img src="https://github.com/ioBroker/ioBroker.kisshome-research/blob/main/admin/kisshome-research.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
 
 This special adapter was developed for the KISSHome research project. It is not intended for general use.
 
