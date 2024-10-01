@@ -261,7 +261,7 @@ https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
 
-This adapter retrieves data from emporia engergy system.
+This adapter retrieves data from emporia energy system.
 
 ## reolink (27.12.2023) - new adapter
 https://github.com/aendue/ioBroker.reolink
@@ -385,7 +385,7 @@ And even control the Raymarine autopilot.
 ## vis-homekittiles (25.3.2024) – new adapter
 https://github.com/Standarduser/ioBroker.vis-homekittiles
 
-<img src="https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/admin/vis-homekittiles.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png" width="100" height="100" />
 
 Homekit Tiles is a widget set based on the design of Apple HomeKit. The special feature of the widgets is that they do not contain any fixed style elements, but everything is formatted using CSS. As a result, there are no separate settings in the VIS editor for the position and/or size of the icons, labels, etc. The design is adjusted by changing the CSS code. For this purpose, the CSS code from the file /widgets/homekittiles/css/style.css can be used as a template. The code is inserted into the CSS tab in the VIS editor and can be customized as desired. It is also possible to add your own CSS classes via the VIS editor in the "General" section of the widgets.
 
@@ -413,28 +413,28 @@ https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/SCHEM
 ## smoothed (8.4.2024) – new adapter
 https://github.com/BenAhrdt/ioBroker.smoothed
 
-<img src="https://github.com/BenAhrdt/ioBroker.smoothed/blob/main/admin/smoothed.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.smoothed/main/admin/smoothed.png" width="100" height="100" />
 
 This Adapter make it easy to select some icons to smooth it according to a selected allgorithem and the smoothtime (filtertime). You can select one id more times to smooth it in defferent allgorithems and or times. The destination is an id in the directory of the flger, wicht delivers you the smoothed values. You can limit the min- or max- values. Limit the decimal places. Or ignore values with a high standard deviation.
 
 ## heizoel24-mex (14.4.2024) – new adapter
 https://github.com/ltspicer/ioBroker.heizoel24-mex
 
-<img src="https://github.com/ltspicer/ioBroker.heizoel24-mex/blob/main/admin/heizoel24-mex.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.heizoel24-mex/main/admin/heizoel24-mex.png" width="100" height="100" />
 
 The MEX is a heating oil level measuring device. This adapter reads the MEX data from the Heizoel24 server.
 
 ## hydrawise (17.4.2024) – new adapter
 https://github.com/SentiQ/ioBroker.hydrawise
 
-<img src="https://github.com/SentiQ/ioBroker.hydrawise/blob/main/admin/hydrawise.jpg" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/SentiQ/ioBroker.hydrawise/main/admin/hydrawise.jpg" width="100" height="100" />
 
 Integrate your Hydrawise controller into ioBroker. You can see all controller information, schedules and sensors. It is also possible to suspend planned watering by x seconds.
 
 ## tedee (17.4.2024) – new adapter
 https://github.com/TA2k/ioBroker.tedee
 
-<img src="https://github.com/TA2k/ioBroker.tedee/blob/main/admin/tedee.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.tedee/main/admin/tedee.png" width="100" height="100" />
 
 Adapter for Tedee Locks. This Adapter uses the local bridge API to control a tedee lock.
 All Lock devices by Tedee are supported.
@@ -442,7 +442,7 @@ All Lock devices by Tedee are supported.
 ## pid (22.4.2024) – new adapter
 https://github.com/mcm4iob/ioBroker.pid
 
-<img src="https://github.com/mcm4iob/ioBroker.pid/blob/master/admin/pid.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.pid/master/admin/pid.png" width="100" height="100" />
 
 This adapter provides the functionality of a PID controller.
 
@@ -450,21 +450,21 @@ This adapter provides the functionality of a PID controller.
 ## unifi-protect (28.4.2024) – stable release
 https://github.com/iobroker-community-adapters/ioBroker.unifi-protect
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.unifi-protect/blob/master/admin/unifi-protect.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.unifi-protect/master/admin/unifi-protect.png" width="100" height="100" />
 
 Connects to Unifi Protect Controller and pulls all Data from added Cameras.
 
 ## air-q (1.5.2024) – new adapter
 https://github.com/CorantGmbH/ioBroker.air-q
 
-<img src="https://github.com/CorantGmbH/ioBroker.air-q/blob/main/admin/air-q.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/CorantGmbH/ioBroker.air-q/main/admin/air-q.png" width="100" height="100" />
 
 This ioBroker Adapter is used in connection with our air-Q device. It polls the values from our sensors and displays them for you in the ioBroker environment.
 
 ## boschindego (4.5.2024) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.boschindego/blob/main/admin/boschindego.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.boschindego/main/admin/boschindego.png" width="100" height="100" />
 
 Adapter for Bosch Indego Mower to show the state of the mower and control the mower.
 
@@ -477,7 +477,7 @@ New features:
 ## radar-trap (29.5.2024) – new adapter at stable
 https://github.com/Steiger04/ioBroker.radar-trap
 
-<img src="https://github.com/Steiger04/ioBroker.radar-trap/blob/main/admin/radar-trap.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Steiger04/ioBroker.radar-trap/main/admin/radar-trap.png" width="100" height="100" />
 
 Adapter to detect speed traps and obstacles.
 
