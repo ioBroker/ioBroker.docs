@@ -35,6 +35,9 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.12.1 (2024-09-29)
+* no warning from check the valid number during standby: "no irradiation"
+
 ### 0.12.0 (2024-09-23)
 * Requirements from ioBroker Check and Service Bot #104
 * added battery packs #85

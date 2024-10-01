@@ -17,12 +17,12 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
+hash: Uz3Ry8D/plZQTN+bQwUultYzPjqhk5vWw1PXNE8Owxw=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-这是德语文档 - [🇺🇸英文版](../en/README.md)
+这是德语文档 - [🇺🇸 德语版](../en/README.md)
 
 ＃＃ 目录
 - [MQTT协议](protocol-mqtt.md)
@@ -34,8 +34,8 @@ hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
 
 ＃＃ 要求
 1.Node.js 18（或更高版本）
-2.js-controller 5.0.0（或更高版本）
-4. 管理适配器 6.0.0（或更高版本）
+2.js-controller 5.0.19（或更高版本）
+3.管理适配器6.0.0（或更高版本）
 
 ## 设备代数
 有关更多信息，请参阅*支持的设备*。
@@ -60,37 +60,34 @@ hash: EU+u8TKfcQsY1dvBLTuwiSxY2zB8c7Xt1DM65LiNNAc=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 8.2.1 (2024-09-23)
 
-NodeJS >= 18.x and js-controller >= 5 is required
+* (@Matze2010) Added datapoint for cover target position
+* (@klein0r) Fixed integration of Shelly 1 PM Gen 3
 
-* (svenbluege) Added Shelly 1 PM Mini (Gen3)
+### 8.2.0 (2024-09-19)
 
-### 6.9.0 (2024-03-12)
+* (@Scrounger) Added Shelly BLU Wall Switch 4 & Shelly BLU RC Button 4
+* (@Paradoxa) Added Shelly Plus RGBW PM
+* (simatec) Responsive Design added
 
-* (klein0r) Added Shelly Plus 0-10V
-* (klein0r) Admin notification for available firmware updates
+### 8.1.1 (2024-08-27)
 
-### 6.8.0 (2024-02-17)
+* (@klein0r) Fixed lint issues and Shelly Gen 3 import
 
-* (klein0r) Updated BLE script to 0.2 (new shelly motion firmware)
-* (klein0r) Updated Shelly i3 number limits
-* (klein0r) Added screenshots to instance configuration
+### 8.1.0 (2024-08-25)
 
-### 6.7.0 (2023-12-22)
+* (esusxunil) Added Shelly Pro EM 2x50A
 
-* (klein0r) Updated handling of ble payloads
-* (D1gitaldad) Added Shelly Wall Display
+### 8.0.0 (2024-08-25)
 
-### 6.6.1 (2023-10-20)
-
-* (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2
-* (klein0r) Added humidity of Shelly Plus Addon
-* (klein0r) Not all devices have external power
-
-### 6.6.0 (2023-10-17)
-
-* (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
+* (imperial929) Added Shelly 1 PM Gen3
+* (imperial929) Added Shelly 1 Gen3
+* (klein0r) Breaking change: Renamed input states (now digital/analog) of Shelly Plus Addon (Ext)
+* (klein0r) Added Shelly Plus Uni
+* (klein0r) Added Shelly H&T (Gen3)
+* (klein0r) Improved structure of ble events (receivedBy) - see documentation for details
+* (bluefox) Improved the color of icons in the admin interface
 
 ## License
 

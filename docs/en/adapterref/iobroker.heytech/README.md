@@ -27,6 +27,12 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 
 ## Changelog
 
+### 1.1.0 (2024-09-30)
+* (Jey Cee) Delete group objects if the group was removed from configuration
+* (Jey Cee) Migrate configuration to JSON Config
+* (Jey Cee) Update dependencies
+* (Jey Cee) Fix issues found by adapter checker
+
 ### 0.2.4 / 0.2.5 / 1.0.0 / 1.0.1
 * back to original & updated telnet-rxjs dependency
 

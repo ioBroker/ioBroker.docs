@@ -1,10 +1,10 @@
 ---
 title: Windows
-lastChanged: 21.05.2024
+lastChanged: 29.09.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/windows.md
-hash: G2wervEILmAU3LoeQyL7+J2VcZk6xmau2UNkVKG17Jc=
+hash: jULy3BfFGFvYaxcTpTGgY/ShX6i8ja5ZizBz+Scho18=
 ---
 # Check requirements
 Before installation, please check whether the system meets all necessary [Installation requirements](./requirements.md).
@@ -32,7 +32,7 @@ First, the installer must be downloaded. The current version is always available
 
 Then start the installer by double-clicking. First we select the language to be used:
 
-![language selection](../../de/install/media/windows/InstallWin_language.png "language selection")
+![Language selection](../../de/install/media/windows/InstallWin_language.png "Language selection")
 
 The welcome page then appears:
 
@@ -104,6 +104,16 @@ If you still want to update manually, you can do so with the following commands:
 `iob upgrade self`
 
 `iob start`
+
+## Expert mode
+The installer also offers an expert mode, which is not normally required for the normal ioBroker user. It can be activated on the first page of the installer by double-clicking on the ioBroker logo and then checking the "Expert mode" box.
+
+The expert mode offers the following additional functions:
+
+- Installation and maintenance of several ioBroker servers in parallel on one PC
+- Installing JS Controller Alpha Versions
+
+![Expert mode](../../de/install/media/windows/InstallWin_expertmode.png "Expert mode")
 
 ## Troubleshooting
 **Problem:** The installation cannot be completed because port 9001 is in use by a process named "System".

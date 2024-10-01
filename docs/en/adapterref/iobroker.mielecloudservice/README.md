@@ -113,6 +113,7 @@ If you like to get a deeper understanding or need a raw-value translation please
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@foxriver76) removed `@iobroker/plugin-sentry` dependency (necessary for js-controller v7)
 
 ### 6.5.6 (2024-05-10) (Dying for an Angel)
 

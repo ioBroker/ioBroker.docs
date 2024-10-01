@@ -4,12 +4,12 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/restricted-login.md
 title: ioBroker.shelly
-hash: z4prGm23mwxbuAqkkSpvIWqMry4F0JXvb33oN/DV+6g=
+hash: Ui9mTY78X/lhS65cNS2PF9O0KE7TPiLgyr8WYAYbVcg=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-这是德语文档 - [🇺🇸英文版](../en/restricted-login.md)
+这是德语文档 - [🇺🇸 德语版](../en/restricted-login.md)
 
 ## 受保护的登录
 为了保护 Shelly 设备免遭未经授权的访问，请在 ioBroker 配置的“常规设置”选项卡中设置任何用户名和密码。
@@ -40,15 +40,6 @@ hash: z4prGm23mwxbuAqkkSpvIWqMry4F0JXvb33oN/DV+6g=
 4.保存配置
 
 ![雪莉第二代](../../../de/adapterref/iobroker.shelly/img/shelly_restrict_login-gen2.png)
-
-较旧的固件版本 (`< 0.12`) 具有不同的用户界面：
-
-1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）
-2. 转到“设备 -> 身份验证”
-3.激活密码功能，输入刚才配置的密码
-4.保存配置
-
-![雪莉 gen2 老](../../../de/adapterref/iobroker.shelly/img/shelly_restrict_login-gen2-old.png)
 
 ### 第一代设备
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）

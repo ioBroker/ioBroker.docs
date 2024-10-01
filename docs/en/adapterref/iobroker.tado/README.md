@@ -51,7 +51,7 @@ If someone is supporting to add Tado X functionality, raise a ticket or send an 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.5.7-alpha.1 (2024-09-25)
+### 0.5.7 (2024-09-30)
 * (HGlab01) Change of attribute "light" supported
 * (HGlab01) Add attribute 'connection'
 * (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'

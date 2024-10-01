@@ -1,10 +1,10 @@
 ---
 chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/protocol-mqtt.md
 title: ioBroker.shelly
-hash: EJVMK4X87HaUFIMR6su6MHjplm/TSvh97ugZgVQ40EE=
+hash: Q9oP75fCGPw8B0RiW4pzL/QKPVh9I7OE5KTWs6HN4GA=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -29,7 +29,7 @@ hash: EJVMK4X87HaUFIMR6su6MHjplm/TSvh97ugZgVQ40EE=
 3. Откройте вкладку **Настройки MQTT**.
 4. Выберите имя пользователя и надежный пароль (эту информацию необходимо хранить на всех устройствах Shelly)
 
-> Адаптер Shelly запускает собственный MQTT-брокер (внутренний). Настроенное имя пользователя и пароль должны храниться на всех устройствах Shelly, которые должны подключаться к этому брокеру.
+> Адаптер Shelly запускает собственный брокер MQTT (внутренний). Настроенное имя пользователя и пароль должны храниться на всех устройствах Shelly, которые должны подключаться к этому брокеру.
 
 ![iobroker_mqtt](../../../de/adapterref/iobroker.shelly/img/iobroker_mqtt.png)
 
@@ -38,7 +38,7 @@ hash: EJVMK4X87HaUFIMR6su6MHjplm/TSvh97ugZgVQ40EE=
 ### Устройства поколения 2+ (Plus и Pro)
 1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
 2. Откройте вкладку Настройки и перейдите в Сети -> Mqtt.
-3. Активируйте MQTT и введите только что настроенные данные пользователя и IP-адрес системы, в которой установлен ioBroker, а затем настроенный порт (например, `192.168.1.2:1882`)
+3. Активируйте MQTT и введите только что настроенные данные пользователя и IP-адрес системы, в которой установлен ioBroker, а затем настроенный порт (например, `192.168.1.2:1882`).
 4. Сохраните конфигурацию — Shelly автоматически перезагрузится.
 
 - **Не меняйте «идентификатор клиента» в этой конфигурации**
@@ -47,14 +47,10 @@ hash: EJVMK4X87HaUFIMR6su6MHjplm/TSvh97ugZgVQ40EE=
 
 ![Шелли gen2](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2.png)
 
-*Старые версии прошивки устройств поколения 2 (Gen2) имеют другой веб-интерфейс — обновите его до текущей стабильной версии!*
-
-![Шелли gen2 старый](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2-old.png)
-
 ### Устройства поколения 1
 1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
 2. Перейдите в «Настройки Интернета и безопасности -> Дополнительно - Настройки разработчика».
-3. Активируйте MQTT и введите только что настроенные данные пользователя и IP-адрес системы, в которой установлен ioBroker, а затем настроенный порт (например, `192.168.1.2:1882`)
+3. Активируйте MQTT и введите только что настроенные данные пользователя и IP-адрес системы, в которой установлен ioBroker, а затем настроенный порт (например, `192.168.1.2:1882`).
 4. Сохраните конфигурацию — Shelly автоматически перезагрузится.
 
 ![Шелли 1 поколение](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen1.png)
