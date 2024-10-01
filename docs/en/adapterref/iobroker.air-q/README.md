@@ -61,6 +61,11 @@ The data will be retrieved and shown in the objects-tab according to your config
 
 ## Changelog <a id="change" />
 
+### 1.0.4
+
+* Updated dependencies: bumped multiple packages (`chai-as-promised`, `sinon`, `mocha`) to address vulnerabilities
+* Codebase maintenance: updated `io-package.json` and added tests against Node.js 22
+
 ### 1.0.3
 
 * Added a checkbox for showing and hiding the password in the instance configuration

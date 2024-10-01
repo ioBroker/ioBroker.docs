@@ -18,6 +18,9 @@ The HausBus.de adapter is ready to use without further configurations. It is aut
 <br>
 
 ## Changelog
+### 1.4.11 (2024-10-01)
+* removed js-controller as dependency
+
 ### 1.4.10 (2024-09-07)
 * check health for devices that do not respond during search devices
 
