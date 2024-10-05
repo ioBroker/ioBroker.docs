@@ -3,8 +3,10 @@ User-agent: Googlebot
 User-agent: bingbot
 User-agent: yandex
 User-agent: yandexbot
+User-agent: DuckDuckBot
 Crawl-delay: 1
 Allow: /
+Disallow: /docu/
 
 User-agent: *
 Disallow: /
