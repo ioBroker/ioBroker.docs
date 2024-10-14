@@ -642,3 +642,10 @@ Node-red got at least the same select ID dialog as other adapters.
 It requires running admin instance on the same host.
 
 Node-red package version was increased from 3 to 4.0.3
+
+## ecoflow-mqtt (14.10.2024) – new adapter at stable
+https://github.com/foxthefox/ioBroker.ecoflow-mqtt
+
+<img src="https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/admin/ecoflow-mqtt.png" width="100" height="100" />
+
+This adapter connects to products of Ecoflow ([https://www.ecoflow.com])
