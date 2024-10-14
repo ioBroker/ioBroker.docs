@@ -20,7 +20,7 @@
 ## ecoflow-mqtt (2024-10-14) - new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
-<img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/master/main/admin/ecoflow-mqtt.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
    
 ioBroker adapter for connection to the Ecoflow MQTT Server (emulating the App communication), provides also a Home Assistant Gateway via discovery function.
 
