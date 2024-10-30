@@ -555,7 +555,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.subscribe`          - name of variable that is subscribed automatically
 * `common.supportCustoms`     - [true/false] if the adapter support settings for every state. It has to have custom.html file in the admin. Sample can be found in `ioBroker.history`
 * `common.supportStopInstance`- [true/false] if adapter supports signal stopInstance (**messagebox** required). The signal will be sent before stop to the adapter. (used if the problems occurred with SIGTERM)
-* `common.tier`               - start oder of the instance. Allowed values: 1, 2, 3. 1 - first, 3 - last
+* `common.tier`               - start order of the instance. Allowed values: 1, 2, 3. 1 - first, 3 - last
 * `common.titleLang`          - **mandatory** longer name of adapter in all supported languages like `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title`              - (deprecated) longer name of adapter to show in admin
 * `common.type`               - Adapter type. See [Types](adapterpublish.md)
