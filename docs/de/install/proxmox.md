@@ -674,6 +674,58 @@ Damit der LXC auch nach einem reboot des Rechners(Proxmox) automatisch startet, 
 
 </details>
 
+### Optional: Warnungen / Fehlermeldungen bzgl. nicht gestarteter Services beheben
+
+Beim Aufruf iob diag können beispielsweise untenstehende Fehlermeldungen in der Ausgabe zu finden sein.
+Teilweise treten sie nur bei nicht privilegierten Containern aus, teilweise auch bei privilegierten Containern.
+
+~~~
+....
+*** FAILED SERVICES ***
+
+  UNIT                                 LOAD   ACTIVE SUB    DESCRIPTION
+* run-rpc_pipefs.mount                 loaded failed failed RPC Pipe File System
+* sys-kernel-config.mount              loaded failed failed Kernel Configuration File System
+* systemd-networkd-wait-online.service loaded failed failed Wait for Network to be Configured
+...
+~~~
+
+
+Wenn man den Container schon vor dem Installieren von iobroker aufräumen will, kriegt man die "FAILED SERVICES" folgendermaßen:
+
+~~~
+systemctl list-units --failed
+~~~
+
+Hier eine Sammlung von Vorgehensweisen zur Behebung:
+
+#### failed service run-rpc_pipefs.mount
+
+~~~
+sudo systemctl mask run-rpc_pipefs.mount
+sudo systemctl mask var-lib-nfs-rpc_pipefs.mount
+~~~
+
+#### failed service sys-kernel-config.mount
+
+An die Container Konfigurationsdatei im Verzeichnis "/etc/pve/lxc" folgende Zeile anhängen:
+
+~~~
+lxc.cap.drop: "sys_rawio audit_read" 
+~~~
+
+#### failed service systemd-networkd-wait-online.service
+
+Ersetzen des ifupdown Service durch ifupdown2:
+
+~~~
+sudo systemctl disable --now systemd-networkd-wait-online.service
+sudo systemctl disable --now systemd-networkd.service
+sudo systemctl disable --now ifupdown-wait-online
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install ifupdown2
+~~~
 
 ---
 
