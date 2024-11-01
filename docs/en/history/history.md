@@ -655,3 +655,11 @@ https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 <img src="https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/admin/ecoflow-mqtt.png" width="100" height="100" />
 
 This adapter connects to products of Ecoflow ([https://www.ecoflow.com])
+
+## remeha-home (28.10.2024) – new adapter at stable
+https://github.com/simatec/ioBroker.remeha-home
+
+<img src="https://github.com/simatec/ioBroker.remeha-home/blob/master/admin/remeha-home.png" width="100" height="100" />
+
+The ioBroker.remeha-home adapter enables the integration and control of Remeha heating systems via the Remeha Home platform. The adapter continuously connects to the Remeha Home API and retrieves current data to make it available in the ioBroker system. This allows the heating system to be optimally monitored and controlled.
+
