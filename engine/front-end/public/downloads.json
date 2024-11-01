@@ -21,7 +21,7 @@
     "platform": "Raspberry OS",
     "date": "",
     "device": "Raspberry Pi 5",
-    "details": "Raspberry OS Image with ioBroker. Password: 2024=smart!",
+    "details": "Raspberry OS Image. Password: 2024=smart!",
     "picture": "Pi5.png",
     "info": "https://github.com/GermanBluefox/kisshome-raspi-image"
   }
