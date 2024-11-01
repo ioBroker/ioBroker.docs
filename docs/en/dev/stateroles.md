@@ -40,6 +40,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `sensor.motion`         - motion sensor
 * `sensor.rain`           - rain detected
 * `sensor.noise`          - noise detected
+* `swnsor.switch`         - switch status: on - `true` or off - `false`
 
 ## Buttons (booleans, write-only)
 `common.type=boolean, common.write=true, common.read=false`
