@@ -252,7 +252,7 @@ Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man si
 
 ## Proxmox - Erstellen einer Virtuellen Qemu/KVM-Maschine (VM) + ioBroker Installation im Anschluß
 
-Diese Beispiel-Anleitung zeigt wie eine [VM](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11) erstellt und anschließend ioBroker darin installiert wird.
+Diese Beispiel-Anleitung zeigt wie eine [VM](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian stable (Stand 30.10.2024 = Debian 12 'Bookworm')) erstellt und anschließend ioBroker darin installiert wird.
 
 Es ist natürlich möglich anstatt Debian auch ein Ubuntu zu verwenden, jedoch ist hierbei darauf zu achten, eine Ubuntu Server **LTS Version** zu verwenden.
 
@@ -260,7 +260,7 @@ Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum au
 
 ### 1 - ISO-Image herunterladen
 
-Zuerst wird ein [ISO-Image](https://www.debian.org/distrib/)(64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
+Zuerst wird ein [ISO-Image](https://www.debian.org/distrib/) (64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
 
 Hierzu geht man auf local > ISO-Images. Dort gibt es zwei Möglichkeiten.
 
@@ -335,6 +335,7 @@ Hierbei wird man durch die Installation geführt und muss währenddessen einige 
 Hinweis:
 
 **iobroker** nicht als Benutzernamen wählen, da dieser schon Systemintern verwendet wird.
+Der Benutzername sollte lediglich aus Kleinbuchstaben und den Ziffern 0-9 bestehen und mit einem Buchstaben beginnen. Ebenfalls zulässig ist der Bindestrich, allerdings nicht als erstes Zeichen. 
 
 
 <details>
@@ -413,7 +414,7 @@ die IP Adresse ausfindig gemacht. Diese wird benötigt, um wie im nächsten Schr
 
 </details>
 
-Nun kann per ssh (z.b. Putty) auf die VM zugegriffen werden. Hier loggt man sich ebenfalls wieder mit "Benutzername" und "Passwort" ein.
+Nun kann per ssh (z.b. PuTTY) auf die VM zugegriffen werden. Hier loggt man sich ebenfalls wieder mit "Benutzername" und "Passwort" ein.
 Anschließend kann die Netzwerkadresse von **dhcp** auf **statisch** geändert werden. (was bei Serverbetrieb zu empfehlen ist)
 
 ~~~
