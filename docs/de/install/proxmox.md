@@ -693,7 +693,7 @@ Teilweise treten sie nur bei nicht privilegierten Containern aus, teilweise auch
 Wenn man den Container schon vor dem Installieren von iobroker aufräumen will, kriegt man die "FAILED SERVICES" folgendermaßen:
 
 ~~~
-sudo systemctl | grep failed
+sudo systemctl list-units --failed
 ~~~
 
 Hier eine Sammlung von Vorgehensweisen zur Behebung:
