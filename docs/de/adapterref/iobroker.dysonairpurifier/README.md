@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
+hash: bNUdqvJICJaQ89tHreBIeLUFjHyxdXcY/SuCSN1X3RU=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -16,7 +16,7 @@ hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![Testen und veröffentlichen](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml) ![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
+[![Testen und Freigeben](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml) ![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 
 ## IoBroker-Adapter für Dyson-Luftreiniger und -Ventilatoren
 Dieser Adapter verbindet ioBroker mit verschiedenen Dyson-Luftreinigern.
@@ -47,9 +47,9 @@ Verbindet Ihre Dyson-Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter 
 - Liest Werte von Geräten und Sensoren
 - Kann Geräte steuern, indem Sie die Möglichkeit haben, einige Werte zu ändern (Hauptstromversorgung, Schwingung, Heizung, Lüftergeschwindigkeit, ...)
 - Liest Geräteliste von Dyson-Servern
-- Verwaltet eine _unbegrenzte_ Anzahl von Fans (tatsächlich begrenzen die Ressourcen Ihres ioBroker-Hosts die Anzahl).
+- Verwaltet eine _unbegrenzte_ Anzahl von Fans (tatsächlich wird die Anzahl durch die Ressourcen Ihres ioBroker-Hosts begrenzt).
 
-## Wie es funktioniert
+## So funktioniert es
 Beim Start wird die Dyson-Cloud nach allen bekannten Geräten abgefragt, die an Ihr Konto gebunden sind, sowie nach deren MQTT-Passwörtern. Mit dieser Liste stellt der Adapter eine Verbindung zu allen Geräten vor Ort her und interagiert mit ihnen.
 
 - Die Verbindung zur Dyson-Cloud wird nur benötigt, um die Liste der an Ihr Konto gebundenen Geräte und deren MQTT-Passwörter abzurufen.
@@ -65,7 +65,7 @@ Beim Start wird die Dyson-Cloud nach allen bekannten Geräten abgefragt, die an 
 - Mindestens js-Controller 3.0.0 wird benötigt
 - Mindestens Admin 6.0.0 ist erforderlich
 - Um diesen Adapter zu betreiben, benötigen Sie ein Dyson-Konto.
-- Denken Sie daran, Ihren Fan Ihrem Konto hinzuzufügen. Entweder über die App oder online.
+- Denken Sie daran, Ihren Fan zu Ihrem Konto hinzuzufügen. Entweder über die App oder online.
 
 ### Adapterinstallation
 #### Verwenden von npm
@@ -93,7 +93,7 @@ _Bitte beachten_: Aufgrund einer nicht konformen mDNS-Implementierung von Dyson 
 
 _Zusätzlicher Hinweis_: Seit Version 0.7.1 versucht der Adapter, sich über den Hostnamen (Seriennummer) mit dem Gerät zu verbinden, solange keine Hostadresse/IP angegeben ist. Dies funktioniert unter zwei Voraussetzungen:
 
-1. In Ihrem LAN läuft ein DNS-Server. Entweder in Ihrem Router (z. B. FritzBoxen haben einen DNS-Server) oder ein dedizierter.
+1. In Ihrem LAN läuft ein DNS-Server. Entweder in Ihrem Router (z. B. FritzBoxen haben einen DNS-Server am Laufen) oder ein dedizierter.
 2. Sie haben den Standardgerätenamen nicht geändert.
 3. Der Gerätename ist seiner IP korrekt zugeordnet (falls Sie Ihr DNS manuell verwalten).
 
@@ -118,7 +118,7 @@ Alle Werte werden gespeichert und weiterhin angezeigt.
 1. Melden Sie sich von Ihrer Dyson-Smartphone-App ab
 2. Warten Sie ein paar Minuten
 3. Geben Sie Ihre Anmeldedaten für den Adapter ein (falls noch nicht geschehen) und führen Sie das 2FA-Verfahren bis zum Ende durch.
-4. Der Adapter sollte starten und grün werden.
+4. Der Adapter sollte starten und grün leuchten.
 5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht mehr, da Dyson einen Blocker für zu viele Anfragen in einem kurzen Zeitraum hat)
 6. Melden Sie sich erneut bei Ihrer Dyson-Smartphone-App an, wenn Sie sie verwenden möchten.
 
@@ -131,7 +131,7 @@ Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
 - Oszillation, Oszillation des Lüfters (Ein, Aus).
 - Schwingung rechts, Schwingungswinkel obere Grenze
 - OscillationLeft, OscillationAngle Untergrenze
-- Schwingungswinkel, Schwingungswinkel
+- Schwingungswinkel , Schwingungswinkel
 - ContinuousMonitoring, kontinuierliche Überwachung von Umgebungssensoren, auch wenn das Gerät ausgeschaltet ist.
 - MainPower, Hauptstromversorgung des Lüfters.
 - AutomaticMode , Lüfter ist im Automatikbetrieb.
@@ -141,7 +141,7 @@ Dieser Adapter kann derzeit die folgenden Zustände Ihrer Geräte steuern:
 - HeatingTargetTemp , Zieltemperatur für Heizung
 - AirQualityTarget, Zielluftqualität für den Automatikmodus.
 Befeuchtungsmodus, Ein / Aus
-BefeuchtenAutoModus, Auto / Aus
+HumidifyAutoMode, Auto / Aus
 - AutoHumidificationTarget, Automatisches HumidificationTarget
 - Befeuchtungsziel, manuelles Befeuchtungsziel
 - TemperatureUnit, Einheit zur Anzeige von Temperaturwerten (Lüfteranzeige).
@@ -166,21 +166,21 @@ Das ist gut zu wissen, da die Geräte (zumindest meine) ihren Status normalerwei
 - Keine automatische IP-Erkennung der Geräte
 - Immer noch viele unbekannte Gerätemeldungen (meist Fehler und Warnungen)
 - Filter-Reset funktioniert nicht, da die richtige MQTT-Nachricht unbekannt ist
-- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wieder verbinden. `Das ist normalerweise kein Problem des Adapters selbst, sondern ein Problem in Ihrem lokalen Netzwerk!`
+- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wiederherstellen. `Das ist normalerweise kein Problem des Adapters selbst, sondern ein Problem in Ihrem lokalen Netzwerk!`
 - In manchen Fällen reicht es aus, den Ventilator für ca. 10 Sekunden auszustecken, um ihn zurückzusetzen, und ihn dann wieder einzustecken. Probieren Sie es einfach aus!
 - In anderen Fällen war es ein IP/DNS-Problem. Das Zurücksetzen des DHCP/DNS-Servers (Router) löste das Problem.
 
 ## Erklärung der Dyson API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
 
-### AKTUELLEN ZUSTAND
+### AKTUELLER STAND
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ------------ | ---------------------------------------------------------- | -------------------- | ---- |
-| Modus-Grund | Aktueller Modus wurde per RemoteControl, App, Scheduler | PRC, LAPP, LSCH, PUI | | eingestellt. |
+| Modus-Grund | Aktueller Modus wurde per RemoteControl, App, Scheduler | PRC, LAPP, LSCH, PUI | | festgelegt. |
 | Staatsräson | | MODUS | |
 | rssi | WLAN-Stärke | -100 – 0 | dBm |
 | Kanal | WIFI-Kanal | 52 | |
-| 96704 | |
+| fqhp |                                                            | 96704 |      |
 | 70480 | |
 
 #### Produktstatus
@@ -191,23 +191,23 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | fmod | Modus | LÜFTER, AUTO, AUS | |
 | fpwr | Hauptstromversorgung | EIN, AUS | |
 | fnst | Lüfterstatus | EIN, AUS, LÜFTER | |
-| nsp | Lüftergeschwindigkeit | 0001 - 0010, AUTO | |
+| fnsp | Lüftergeschwindigkeit | 0001 - 0010, AUTO |                                     |
 | fdir | Lüfterrichtung aka Jet Focus/ EIN=Vorne, AUS=Hinten | EIN, AUS | |
 | ffoc | JetFocus | EIN, AUS | |
 | nmod | Nachtmodus | EIN , AUS | |
 | Oson | Schwingung | EIN, AUS | |
 | osal | Untere Grenze des Schwingungswinkels | 0005 – 355 | ° (Grad) |
 | osau | Obere Grenze des Schwingungswinkels | 0005 – 355 | ° (Grad) |
-| oscs | OscillationActive | EIN, AUS, LEERLAUF | |
+| oscs | OszillationAktiv | EIN, AUS, LEERLAUF | |
 | ancp | Schwingungswinkel | CUST, 0180 | ° (Grad) |
 | qtar | Luftqualitätsziel | 0001=Gut, 0002=Normal, 0003=Schlecht, 0004=Sehr schlecht | |
 | rhtm | Kontinuierliche Überwachung | EIN, AUS | |
 | auto | Automatikmodus | EIN, AUS | |
 | nmdv | Maximale Lüftergeschwindigkeit im Nachtmodus? | 0004 | |
 | cflr | Status Kohlefilter | 0000 - 0100 | Prozent |
-| cflt | Kohlefilter | CARF, KEINE | |
+| cflt | Kohlefilter | CARF, KEINE |                                     |
 | hflr | Status HEPA-Filter | 0000 - 0100 | Prozent |
-| hflt | HEPA-Filter | GHEP, GCOM | |
+| hflt | HEPA-Filter | GHEP, GCOM |                                     |
 | sltm | Sleeptimer | EIN, AUS | | |
 | hmod | Heizmodus [EIN/AUS] | HEIZEN | |
 | hmax | Zieltemperatur Heizen | 0 .. 5000 | K |
@@ -216,15 +216,15 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | humt | Befeuchtungsziel | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY | |
 | cdrr | CleanDurationRemaining | Ganzzahl | Minuten |
 | Rechteck | AutoHumidificationTarget | Ganzzahl | % |
-| cltr | VerbleibendeZeitBisNächsteReinigung | Ganzzahl | Stunden |
+| cltr | TimeRemainingToNextClean | Ganzzahl | Stunden |
 | wath | Wasserhärte | SOFT="2025", MEDIUM="1350", HARD="0675" | |
-| wacd | Warncode | KEINER... | |
+| wacd | Warncode | KEINE... |                                     |
 | rstf | Filter-Lebenszyklus zurücksetzen | „RSTF“, „STET“, RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION | |
-| Korf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit | |
+| corf | Temperaturformat | EIN=Celsius, AUS=Fahrenheit |                                     |
 | clcr | DeepcleanCycle | CLNO=inaktiv, CLAC=Tiefenreinigung läuft, CLCM=Fertig | |
 | hsta | Heizzustand | AKTIV/LEERLAUF | |
 | msta | Befeuchtungszustand | Aktiv/Leerlauf AUS, HUMD | |
-| psta | [HP0x] Unbekannt | INIT, CLNG, INV, OFF | |
+| psta | [HP0x] Unbekannt | INIT, CLNG, INV, AUS |                                     |
 | bril | unbekannt | 0002 | LEVEL_LOW, LEVEL_MEDIUM, LEVEL_HIGH |
 | fqhp | unbekannt | | |
 | Neigung | [HP0x] Unbekannt | Zeichenfolge | |
@@ -240,8 +240,8 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | Name | Bedeutung | mögliche Werte | Einheit |
 | ---- | ------------------ | --------------- | ---- |
 | dstv | Sommerzeit | 0001… | |
-| srsc | ? | 7c68... | |
-| tzid | Zeitzone?          | 0001... | |
+| ? | 7c68... | |
+| tzid | Zeitzone?          | 0001... |      |
 
 ### UMWELT-STROM-SENSOR-DATEN
 #### Daten
@@ -287,8 +287,19 @@ Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und dies
 Dyson, Pure Cool, Pure Hot & Cool und andere sind Marken oder eingetragene Marken von [Dyson Ltd.](https://www.dyson.com). Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+### 3.2.5 (2024-10-08) 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Fixed GUI issues
+- (grizzelbee) Fix: Added missing files to files-section in package.json
 
-### **WORK IN PROGRESS**
+### 3.2.4 (2024-10-01)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Removed plugin-sentry
+- (grizzelbee) Fix: [#318](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/318) Added tests for node 22
+- (grizzelbee) Upd: [#315](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/315) Fixed some issues mentioned by adapter-checker
+
+### 3.2.3 (2024-06-21) (Marching on)
+- (grizzelbee) Fix: Added missing clearInterval in onUnload
 
 ### 3.2.2 (2024-06-18) (Marching on)
 - (grizzelbee) Upd: Dependencies got updated
@@ -298,7 +309,6 @@ Dyson, Pure Cool, Pure Hot & Cool und andere sind Marken oder eingetragene Marke
 ### 3.2.1 (2024-06-04) (Marching on)
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
-
 
 ### 3.2.0 (2024-05-28) (Marching on)
 
@@ -311,7 +321,7 @@ Dyson, Pure Cool, Pure Hot & Cool und andere sind Marken oder eingetragene Marke
 - (grizzelbee) Fix: Fixed broken NO2Index
 - (grizzelbee) Fix: Fixed broken fan speeds 0-10
 - (grizzelbee) Fix: Fixed polling of sensor data
-- (grizzelbee) Fix: setting fan speed = Auto works 
+- (grizzelbee) Fix: setting fan speed = Auto works
 
 ### 3.1.10 (2024-05-14) (Marching on)
 
@@ -714,4 +724,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 .. 2024 Hanjo Hingsen <open-source@hingsen.de>
+Copyright (c) 2024 Hanjo Hingsen <open-source@hingsen.de>

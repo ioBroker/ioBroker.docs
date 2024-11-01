@@ -103,6 +103,9 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
 ### 0.9.12 (2024-09-26)
 * (simatec) Fix for Admin 7.1.5
 

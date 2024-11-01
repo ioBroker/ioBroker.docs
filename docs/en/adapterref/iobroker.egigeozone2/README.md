@@ -38,6 +38,10 @@ protocol://address:port/person
 
 ## Changelog
 
+### 1.0.7
+* (obakuhl) Fully implemented responsive design
+* (obakuhl) Minor adjustments
+
 ### 1.0.6
 * (obakuhl) Improved object definition
 * (obakuhl) New icon

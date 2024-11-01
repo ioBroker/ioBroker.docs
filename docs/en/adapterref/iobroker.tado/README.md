@@ -15,11 +15,11 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## TADO° X
-Tado X **is currently not supported** by this adapter. The adapter supports Tado V3, V3+ and V2.
-If someone is supporting to add Tado X functionality, raise a ticket or send an email to <myiobrokeradapters@gmail.com>. You will need to support some debugging session and interact with the adapter developer.
+## Tado° X
+Basic support for Tado° X available.
+If your setup is not working, please raise a [ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=). You will need to support some debugging session and interact with the adapter developer to improve Tado° X features.
 
-## Things you can steer
+## Things you can steer on Tado° V3+, V3, V2
 | State | Description |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power | Turn device on/off |
@@ -33,13 +33,27 @@ If someone is supporting to add Tado X functionality, raise a ticket or send an 
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Enable/Disable open window detection on thermostat |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout how long thermostats are turned off when an open window is detected |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Switch thermostats off when an open window is detected (only works if the thermostat detects an open window) | 
-| tado.[x].[yyyyyy].Home.state.presence | Set HOME, AWAY or AUTO mode |
-| tado.[x].[yyyyyy].Home.masterswitch | Turn all devices on/off |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC mode (only AC devices) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed (only AC devices with V3 and older versions) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (only AC devices with V3+ version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertical swing (only AC devices with V3+ version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontal swing (only AC devices with V3 and olderversions) |
+| tado.[x].[yyyyyy].Home.state.presence | Set HOME, AWAY or AUTO mode |
+| tado.[x].[yyyyyy].Home.masterswitch | Turn all devices on/off |
+| tado.[x].[yyyyyy].meterReadings | JSON-Object with {"date":"YYYY-MM-DD","reading": 1234} can be used to upload meter-readings to Energy IQ |
+
+## Things you can steer on Tado° X
+| State | Description |
+| ----- | ----------- |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | Turn device on/off |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.value | Define temperature |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.controlType | Set time table mode |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.remainingTimeInSeconds | Duration time for timer mode |
+| tado.[x].[yyyyyy].Rooms.[z].resumeScheduleRoom | Back to automatic mode for this room |
+| tado.[x].[yyyyyy].Rooms.resumeScheduleHome | Back to automatic mode for all rooms |
+| tado.[x].[yyyyyy].Rooms.allOff | Switch all rooms off |
+| tado.[x].[yyyyyy].Rooms.boost | Switch all rooms to boost mode |
+| tado.[x].[yyyyyy].Home.state.presence | Set HOME, AWAY or AUTO mode |
 | tado.[x].[yyyyyy].meterReadings | JSON-Object with {"date":"YYYY-MM-DD","reading": 1234} can be used to upload meter-readings to Energy IQ |
 
 ## Requires
@@ -51,6 +65,12 @@ If someone is supporting to add Tado X functionality, raise a ticket or send an 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.6.0 (2024-10-23)
+* (HGlab01) Start supporting Tado° X
+
+### 0.5.9 (2024-10-16)
+* (HGlab01) Improve axios promise handling
+
 ### 0.5.7 (2024-09-30)
 * (HGlab01) Change of attribute "light" supported
 * (HGlab01) Add attribute 'connection'
@@ -66,14 +86,6 @@ If someone is supporting to add Tado X functionality, raise a ticket or send an 
 
 ### 0.5.5 (2024-06-25)
 * (HGlab01) Bump axios to 1.7.2
-
-### 0.5.4 (2024-04-18)
-* (HGlab01) Add attribute 'runningOfflineSchedule'
-* (HGlab01) Bump axios to 1.6.8
-
-### 0.5.3 (2024-01-29)
-* (HGlab01) Improve axios handling
-* (HGlab01) Bump axios to 1.6.7
 
 ## License
 MIT License

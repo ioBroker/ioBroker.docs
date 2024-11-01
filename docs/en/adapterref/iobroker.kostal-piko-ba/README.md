@@ -55,6 +55,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 4.2.3 (2024-10-20)
+
+-   (HombachC) optimize responsive design (#699)
+-   (HombachC) dependency updates
+
 ### 4.2.2 (2024-09-30)
 
 -   (HombachC) add more Sentry triggered error handling

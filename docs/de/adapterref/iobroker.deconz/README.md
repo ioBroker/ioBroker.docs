@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
 title: ohne Titel
-hash: hlKt04F3x+GnGSRv+J1Vzxx+hVFOw/RGHzMwRBs/Iz0=
+hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -27,11 +27,11 @@ Sie müssen zuerst eine Verknüpfung zu deConz herstellen.
 
 1. a) IP-Adresse für deConz eingeben<br>
 
-b) Geben Sie den Standard-Bridge-Port ein: 80 und den Standard-Websocket: 443
+b) Geben Sie den Standard-Bridge-Port ein: 80 und den Standard-Websocket: 443<br> [zB Phoscon App - Hilfe - API Informationen - Kein Filter - Suche nach Port/WebSocketport]
 
 2. Nachdem IP-Adresse und Port eingegeben und gespeichert wurden, klicken Sie auf die Schaltfläche „API-Schlüssel erstellen“. Jetzt können Sie die Anmeldeinformationen für deConz eingeben oder zur Phoscon-App gehen und ioBroker als Drittanbieter-App registrieren.
 
-## Um einige Fehler nach einem Update (Deconz/Adapter) zu vermeiden, stoppen Sie den Adapter und löschen Sie diese Einträge in der Objektstruktur. Beim Starten wird die Objektstruktur neu erstellt.
+## Um einige Fehler nach einem Update (deConz/Adapter) zu vermeiden, stoppen Sie den Adapter und löschen Sie diese Einträge in der Objektstruktur. Beim Starten wird die Objektstruktur neu erstellt.
 ![Deconz-Adapter](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
 
 #### Senden Sie mehrere Befehle gleichzeitig
@@ -44,14 +44,38 @@ Beispiele:
 `"on": true, "transitiontime": 5, "hue": 360`
 
 ## Links
-[deCONZ REST-API Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin) [Dokumentation des deCONZ REST-API Plugin](https://dresden-elektronik.github.io/deconz-rest-doc/) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[deCONZ REST-API Plugin](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [Dokumentation des deCONZ REST-API Plugin](https://dresden-elektronik.github.io/deconz-rest-doc/) [Gateways (Hardware)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Sponsoren](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
 
+### 1.6.4 (2024-10-06)
+* (mattreim) Add "protectedNative" and "encryptedNative"
+* (mattreim) Fix websocket connection
+* (Jey Cee) Fix missing port for create api key function
+
+### 1.6.3 (2024-10-04)
+* (Jey Cee) Fix connection problems
+
+### 1.6.2 (2024-10-04)
+* (Jey Cee) Fix no connection on new installation
+
+### 1.6.1 (2024-10-03)
+* (Jey Cee/mattreim) Highlight helper text for authentication
+
+### 1.6.0 (2024-10-02)
+* (Jey Cee/mattreim) Migrate config to JSONConfig
+* (Jey Cee) Removed device and group management from config
+* (mattreim) Add natives
+* (Jey Cee) Update dependencies
+* (Jey Cee) Use default test and release action
+
 ### 1.5.0 (2024-08-11)
+* Updated/added some translations
 * (mattreim) Dependencies have been updated
+* (mattreim) Logo compressed
+* (mattreim) Remove common.title
 
 ### 1.4.1 (2024-05-05)
 * (mattreim) Added new objects for various sensors

@@ -132,8 +132,14 @@ Other topics related to this adapter are also documented in the associated wiki.
 
 ## Changelog
 
-### UNRELEASED
+### ### 1.10.10 (2024-09-27)
 * (lebrinkma) fix linter errors
+* (asgothian) disable map display for deactivated devices
+* (asgothian) new option on map: disable physics interaction
+* (asgothian) new zigbee-herdsman-converters 20.28.0
+* (asgothian) new zigbee-herdsman 2.1.1
+* (asgothian) Allow use of keyless converters (used for TuYa and compatible devices in zigbee-herdsman-converters
+* (arteck) swap from request to axios
 
 ### 1.10.9 (2024-09-05)
 * (arteck) typo admin settings

@@ -48,9 +48,14 @@ Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesen
 
 ## Changelog
 
+### 0.8.3 (2024-10-20)
+
+-   TabsStyle was added to jsonConfig #71
+-   Dependencies have been updated
+
 ### 0.8.2 (2024-09-14)
 
--   Changes due to API changes -> #60
+-   Changes due to API changes #60
 -   Dependencies have been updated
 
 ### 0.8.1 (2024-08-18)

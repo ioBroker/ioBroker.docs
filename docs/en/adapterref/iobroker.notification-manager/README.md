@@ -33,6 +33,14 @@ Whenever a category is `active` but has not configured any specific settings yet
 fallback settings. New categories are always `active` by default to ensure you will be notified. This means whenever a new `category`
 is implemented by some adapter, the fallback settings for the given `severity` will be applied.
 
+You can further define to just `suppress` a category. The `notification-manager` will then simply acknowledge the notification, so that is 
+does not appear in your system. 
+
+Since js-controller version 7, adapters have the possibility to add additional `contextData` to notifications. This is for example used
+to display specific actions for the user in the Admin GUI. By default, the `notification-manager` will send you these notifications and will 
+__NOT__ delete them, so that these stay present for later user interactions. However, if you decide that you don't need such interactions
+fort certain `category` you can disable them via the checkbox.
+
 ### Registering user-centric notifications
 As a user you at best know, when you want to be notified about specific situations in your system. 
 Thus, the `notification-manager` provides you with an interface to register your own notifications inside
@@ -103,6 +111,10 @@ if the messaging adapter was able to deliver the notification, else it should re
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-10-10)
+* (@foxriver76) by default we do not delete notifications with `contextData`
+* (@foxriver76) added checkbox to also delete notifications with `contextData` for specific categories
+
 ### 1.2.1 (2024-08-29)
 * (@foxriver76) fixed issue if host name contains `.`
 

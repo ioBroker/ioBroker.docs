@@ -169,10 +169,16 @@ This project uses the following components:
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
-  * ()
 
--->
+
+-->	
+### **WORK IN PROGRESS**
+  * (dirkhe) update dependecies
+  
+### 1.3.10 (2024-10-09)
+* (dirkhe) update dependecies
+* (dirkhe) fix calendar test functionality
+
 ### 1.3.8 (2024-07-02)
   * (dirkhe) update dependecies
   * (dirkhe) allow download calendar without passwort

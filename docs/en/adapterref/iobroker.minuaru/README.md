@@ -13,6 +13,8 @@
 
 alarmsystem for ioBroker and minuvis
 
+> **BREAKING CHANGE with V2.0.0: Existing alarms of version 1.x will be deleted**
+
 ## Instructions
 
 - install adapter as usual
@@ -54,8 +56,10 @@ alarmsystem for ioBroker and minuvis
 
 
 ## Changelog
-### 1.1.1 (2024-07-08)
-* (svallant) bugfix
+### 2.0.0-beta (2024-10-11)
+* BREAKING CHANGE: Existings alarms of version 1.x will be deleted
+* (svallant) fixing issues detected by repository checker
+* (svallant) switch to duckdb
 
 ### 1.1.0 (2023-03-19)
 * (svallant) respect ack-flag at control-states
@@ -75,7 +79,7 @@ alarmsystem for ioBroker and minuvis
 ## License
 MIT License
 
-Copyright (c) 2023 svallant <svallant@gmx.eu>
+Copyright (c) 2024 svallant <svallant@gmx.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

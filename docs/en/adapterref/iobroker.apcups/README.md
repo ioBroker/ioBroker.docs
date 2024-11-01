@@ -26,6 +26,9 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 ## Changelog
+### 4.0.2 (2024-10-16) 
+ - Updated dependencies
+ - Adjusted admin layout
 ### 4.0.0 (2024-05-10)
  - BREAKING! 
 1. Added support of multiple UPS so states structure was changed. All existed states will be deleted. Please do backup before upgrade the adapter! Also existed configuration will be lost. Please re-configure the adapter and add one or more devices to it.
@@ -46,8 +49,6 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 ### 1.0.9 (2022-12-12)
  - Optimized reconnection flow
 ### 1.0.8 (2022-11-16)
- - Added validation on config screen
-### 1.0.7 (2022-11-14)
  - Added validation on config screen
 
 ## License

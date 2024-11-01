@@ -206,7 +206,14 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.16.1 (2024-11-01)
+* (jens-maus) fix issue with handling rrule timezones incorrect with latest node-ical (#708).
+* (jens-maus) update node-ical to latest 0.20.1
+* (jens-maus) save cached files to os tmpdir instead.
+
+### 1.16.0 (2024-10-29)
+* (cvoelkel76) add checkbox to allow to exactly match a calender event.
+* (jens-maus) update node-ical to latest 0.20.0
 * (klein0r) Breaking change: Removed trigger state (subscribe is deprecated in js-controller 6.x)
 * (simatec) Responsive design added
 
@@ -219,14 +226,6 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ### 1.14.2 (2024-01-29)
 * (jens-maus) update node-ical to latest 0.17.2
-
-### 1.14.1 (2024-01-29)
-* (klein0r) Create dummy file in files tab
-* (klein0r) Fixed recurring events
-
-### 1.14.0 (2024-01-07)
-* (klein0r) Allow to set custom http user agent
-* (klein0r) Added option to use files tab for calendar files
 
 ## License
 

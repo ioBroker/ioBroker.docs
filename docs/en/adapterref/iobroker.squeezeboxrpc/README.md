@@ -11,97 +11,95 @@
 
 **Tests:** ![Test and Release](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
-This is an alternative Adapter that uses the JSON/RPC-Protokoll to get data
+This is an alternative Adapter that uses the `JSON/RPC`-protocol to get data
 and send commands to the Logitech Media Server ([LMS](https://de.wikipedia.org/wiki/Logitech_Media_Server))
 for controlling connected devices like
 
--   native [squeezebox](https://de.wikipedia.org/wiki/Squeezebox),
--   raspberry pi with additional audio module and small linux based firmwares
+- native [squeezebox](https://de.wikipedia.org/wiki/Squeezebox),
+- raspberry pi with additional audio module and small linux based firmwares
     like [picoreplayer](https://picoreplayer.org/) or [max2play](https://www.max2play.com).
--   with plugins chromecast, airplay or UPnP/DLNA-Devices
+- with plugins chromecast, airplay or `UPnP/DLNA`-Devices
 
-The LMS-Server can manage/provide very big music collections on harddrives
-or NAS, connect to different streaming providers like Spotify, Deezer,
-Soundcloud, shoutcast, tunein, napster, pandora, tidal and more
+The `LMS`-Server can manage/provide very big music collections on harddrives
+or `NAS`, connect to different streaming providers like `Spotify`, `Deezer`,
+`Soundcloud`, `shoutcast`, `tunein`, `napster`, `pandora`, `tidal` and more
 
-Why another squeezebox adapter?
+Why another `Squeezebox` adapter?
 
-The existing adapter use telnet to access the LMS. The telnet has some disadvantages.
-The actual main web interface of the LMS also uses the rpc/json-protocol to get
+The existing adapter use `telnet` to access the `LMS`. The telnet has some disadvantages.
+The actual main web interface of the `LMS` also uses the rpc/json-protocol to get
 all needed informations or send commands to the server/players.
 
 ## Features
 
--   most of data that the LMS-Service provides is available in the adapter
--   detailed information about the player status, song title, artist,
+- most of [data](#server) that the `LMS`-Service provides is available in the adapter
+- detailed [information](#players) about the player status, song title, artist,
     album, artwork, playlist
--   many control features to play, pause, stop, forward, rewind, repeat,
-    shuffle, play favorite, jump to time (absolute and relative) , jump to
-    playlist index (absolute and relative), power on/off and preset buttons
--   all favorites and all sub levels from server
--   many widgets for the iobroker-vis component are included to create own
+- [many control features](#provided-states) to play, pause, stop, forward,\
+     rewind, repeat, shuffle, play favorite, jump to time\
+     (absolute and relative) , jump to playlist index (absolute and relative),\
+     power on/off and preset buttons
+- all [favorites](#favorites) and all sub levels from server
+- many [widgets](#widgets) for the iobroker-vis component are included to\
+     create own
     control user interfaces (select player,select favorites, manage syncgroups,
     buttons for play/pause,fwd,rew, repeat mode and shuffle mode selection)
 
-Documentation for the vis-widgets are available inside vis or [Widget-Documentation/german](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.squeezeboxrpc/blob/master/widgets/squeezeboxrpc/doc.html)
-
 ## Installation
 
--   Install the package
--   Create an instance
--   Configure the Instance with the IP of the logitech media server
+- Install the package
+- Create an instance
+- Configure the Instance with the IP of the logitech media server
     and the port (normaly 9000)
--   start/restart the instance
+- start/restart the instance
 
 ## Update
 
--   after changes in the widget code and upadte of the adapter, iobroker
-    should upload webfiles to the internal webserver. user reported that this
-    sometimes didnt happend or only with delay. you can trigger this action
-    with the following command
+- After installation or update, it may sometimes be necessary\
+     to execute the following command if problems have arisen in vis-1
 
-iobroker upload squeezeboxpc
+`iobroker upload squeezeboxpc`
 
 ## Provided states
 
 ### Server
 
-| state            | Description                   |
-| ---------------- | ----------------------------- |
-| LastScan         | timestamp of last music scan  |
-| PlayerCount      | Number of known players       |
-| PlayerCountOther | Number of known other Players |
-| PlayerCountSN    | Number of known SN Players    |
-| TotalAlbums      | Number of all known Albums    |
-| TotalArtists     | Number of all known Artists   |
-| TotalDuration    | Sum playtime of all songs     |
-| TotalGenres      | Number of all known Genres    |
-| TotalSongs       | Number of all known songs     |
-| SyncGroups       | Existing Syncgroups           |
-| Version          | Version of LMS                |
-| mac              | MAC-ID of the server          |
-| uuid             | uuid of the LMS-instance      |
+| State              | Description                   |
+| ------------------ | ----------------------------- |
+| `LastScan`         | timestamp of last music scan  |
+| `PlayerCount`      | Number of known players       |
+| `PlayerCountOther` | Number of known other Players |
+| `PlayerCountSN`    | Number of known SN Players    |
+| `TotalAlbums`      | Number of all known Albums    |
+| `TotalArtists`     | Number of all known Artists   |
+| `TotalDuration`    | Sum playtime of all songs     |
+| `TotalGenres`      | Number of all known Genres    |
+| `TotalSongs`       | Number of all known songs     |
+| `SyncGroups`       | Existing Syncgroups           |
+| `Version`          | Version of `LMS`              |
+| `mac`              | MAC-ID of the server          |
+| `uuid`             | uuid of the `LMS`-instance    |
 
 additional a defined button to refresh the favorites
 
-| button       | Description                       |
-| ------------ | --------------------------------- |
-| getFavorites | request all favorites from server |
+| button         | Description                       |
+| -------------- | --------------------------------- |
+| `getFavorites` | request all favorites from server |
 
 ### Favorites
 
 For each favorite
 All attributes are read only
 
-| state    | Description                                |
-| -------- | ------------------------------------------ |
-| Name     | Name of the favorite                       |
-| hasitems | indicates if this is a dir                 |
-| id       | id of the favorite                         |
-| image    | image/icon for favorite if available       |
-| isaudio  | isaudio                                    |
-| type     | Example types: link, text, audio, playlist |
-| url      | url of the track                           |
+| State      | Description                                |
+| ---------- | ------------------------------------------ |
+| `Name`     | Name of the favorite                       |
+| `hasitems` | indicates if this is a dir                 |
+| `id`       | id of the favorite                         |
+| `image`    | image/icon for favorite if available       |
+| `isaudio`  | isaudio                                    |
+| `type`     | Example types: link, text, audio, playlist |
+| `url`      | url of the track                           |
 
 All sub levels (subdirectories) of favorite are available.
 
@@ -111,355 +109,655 @@ for each player
 The mode shows if you can change the value. the taken action is
 described at the attribute
 
-| state                | mode | Description                                                                                                                   |
-| -------------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Alarms               | R/-  | All registered Alarms for this player as JSON                                                                                 |
-| Album                | R/-  | Name of the current album                                                                                                     |
-| Artist               | R/-  | Name of Artist                                                                                                                |
-| ArtworkUrl           | R/-  | url to the Artwork                                                                                                            |
-| Bitrate              | R/-  | Bitrate of the track                                                                                                          |
-| Connected            | R/-  | connectionstate of player (0/1)                                                                                               |
-| Duration             | R/-  | Duration of the track                                                                                                         |
-| Genre                | R/-  | genre of the track                                                                                                            |
-| IP                   | R/-  | IP of the player                                                                                                              |
-| Mode                 | R/-  | play / pause / stop                                                                                                           |
-| Playername           | R/-  | Name of the Player                                                                                                            |
-| PlayerID             | R/-  | Player ID                                                                                                                     |
-| Playlist             | R/-  | The actual Playlist as JSON                                                                                                   |
-| PlaylistCurrentIndex | R/W  | go to a absolut position by specifying the <br>trackindex or go relative with a + or - at the <br>beginning. Example 10,-3,+2 |
-| PlaylistRepeat       | R/W  | Repeat song(1)/playlist(2)/dont repeat(0)                                                                                     |
-| PlaylistShuffle      | R/W  | shuffle playlist(1)/shuffle album(2)/dont shuffle(0)                                                                          |
-| Power                | R/W  | get/set Powerstate of player off(0)/on(1)                                                                                     |
-| RadioName            | R/-  | Name of Radiostation                                                                                                          |
-| Rate                 | R/-  | Rating of the song                                                                                                            |
-| Remote               | R/-  | If remote stream (1)                                                                                                          |
-| SyncMaster           | R/-  | ID/MAC of Syncmaster                                                                                                          |
-| SyncSlaves           | R/-  | ID/Mac of Players in Syncgroup                                                                                                |
-| Time                 | R/-  | elapsed song time                                                                                                             |
-| Title                | R/-  | song title                                                                                                                    |
-| Type                 | R/-  | type of media (eg MP3 Radio)                                                                                                  |
-| Url                  | R/-  | Url of track / stream                                                                                                         |
-| Volume               | R/W  | get/set Volume of the player (0-100)                                                                                          |
-| state                | R/W  | get/set play state: pause(0),play(1),stop(2)                                                                                  |
+| State                  | mode | Description                                                                                                          |
+| ---------------------- | ---- | -------------------------------------------------------------------------------------------------------------------- |
+| `Alarms`               | R/-  | All registered Alarms for this player as JSON                                                                        |
+| `Album`                | R/-  | Name of the current album                                                                                            |
+| `Artist`               | R/-  | Name of Artist                                                                                                       |
+| `ArtworkUrl`           | R/-  | url to the Artwork                                                                                                   |
+| `Bitrate`              | R/-  | Bitrate of the track                                                                                                 |
+| `Connected`            | R/-  | connectionstate of player (0/1)                                                                                      |
+| `Duration`             | R/-  | Duration of the track                                                                                                |
+| `Genre`                | R/-  | genre of the track                                                                                                   |
+| `IP`                   | R/-  | IP of the player                                                                                                     |
+| `Mode`                 | R/-  | play / pause / stop                                                                                                  |
+| `Playername`           | R/-  | Name of the Player                                                                                                   |
+| `PlayerID`             | R/-  | Player ID                                                                                                            |
+| `Playlist`             | R/-  | The actual Playlist as JSON                                                                                          |
+| `PlaylistCurrentIndex` | R/W  | go to a absolut position by specifying thetrackindex or go relative with a + or - at the beginning. Example 10,-3,+2 |
+| `PlaylistRepeat`       | R/W  | Repeat song(1)/playlist(2)/dont repeat(0)                                                                            |
+| `PlaylistShuffle`      | R/W  | shuffle playlist(1)/shuffle album(2)/dont shuffle(0)                                                                 |
+| `Power`                | R/W  | get/set Powerstate of player off(0)/on(1)                                                                            |
+| `RadioName`            | R/-  | Name of Radiostation                                                                                                 |
+| `Rate`                 | R/-  | Rating of the song                                                                                                   |
+| `Remote`               | R/-  | If remote stream (1)                                                                                                 |
+| `SyncMaster`           | R/-  | ID/MAC of Syncmaster                                                                                                 |
+| `SyncSlaves`           | R/-  | ID/Mac of Players in Syncgroup                                                                                       |
+| `Time`                 | R/-  | elapsed song time                                                                                                    |
+| `Title`                | R/-  | song title                                                                                                           |
+| `Type`                 | R/-  | type of media (eg MP3 Radio)                                                                                         |
+| `Url`                  | R/-  | Url of track / stream                                                                                                |
+| `Volume`               | R/W  | get/set Volume of the player (0-100)                                                                                 |
+| `state`                | R/W  | get/set play state: pause(0),play(1),stop(2)                                                                         |
 
-The playlist provide actual the following attributes if available in LMS.
+The playlist provide actual the following attributes if available in `LMS`.
 Somme attributes depends of the type of songs (stream/file/...)
 All attributes are read only
 
-| attribute  | Description                       |
-| ---------- | --------------------------------- |
-| Album      | Name of the current album         |
-| Artist     | Name of Artist                    |
-| ArtworkUrl | url to the Artwork                |
-| Bitrate    | Bitrate of the track              |
-| Duration   | Duration of the track             |
-| RadioName  | Name of Radiostation              |
-| Rate       | Rating of the song                |
-| title      | song title                        |
-| Type       | type of media (eg MP3 Radio)      |
-| url        | Url of track / stream             |
-| index      | index of the song in the playlist |
-| id         | id of the song                    |
+| Attribute    | Description                       |
+| ------------ | --------------------------------- |
+| `Album`      | Name of the current album         |
+| `Artist`     | Name of Artist                    |
+| `ArtworkUrl` | url to the Artwork                |
+| `Bitrate`    | Bitrate of the track              |
+| `Duration`   | Duration of the track             |
+| `RadioName`  | Name of Radiostation              |
+| `Rate`       | Rating of the song                |
+| `title`      | song title                        |
+| `Type`       | type of media (eg MP3 Radio)      |
+| `url`        | Url of track / stream             |
+| `index`      | index of the song in the playlist |
+| `id`         | id of the song                    |
 
 additional defined buttons:
 
-| button          | Description                                                                                                                                                       |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| btnForward      | Next song                                                                                                                                                         |
-| btnRewind       | Previous song                                                                                                                                                     |
-| btnPreset\_\*   | 1-6 buttons to define in player or server                                                                                                                         |
-| cmdGeneral      | a general command field to send commands to the player. every field must enclosed by quotation marks. parameters musst be seperated by comma. Example: "play","1" |
-| cmdPlayFavorite | to play a favorite set the id of the favorite                                                                                                                     |
-| cmdPlayUrl      | to play a url´example "<http://50.7.77.114:8101/>;"                                                                                                               |
-| cmdGoTime       | jump to a absolut position by specifying a number of seconds or jump relative with a + or - at the beginning of the seconds. Example 100,-50,+50                  |
+| Button            | Description                                                                                                                                                       |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `btnForward`      | Next song                                                                                                                                                         |
+| `btnRewind`       | Previous song                                                                                                                                                     |
+| `btnPreset\_\*`     | 1-6 buttons to define in player or server                                                                                                                         |
+| `cmdGeneral`      | a general command field to send commands to the player. every field must enclosed by quotation marks. parameters musst be seperated by comma. Example: "play","1" |
+| `cmdPlayFavorite` | to play a favorite set the id of the favorite                                                                                                                     |
+| `cmdPlayUrl`      | to play a url´example "<http://50.7.77.114:8101/>;"                                                                                                               |
+| `cmdGoTime`       | jump to a absolut position by specifying a number of seconds or jump relative with a + or - at the beginning of the seconds. Example 100,-50,+50                  |
+
+#### Remarks on Datapoints depending of the Setting TPE2 in LMS
+
+Depending on the setting, different MP3 tags are delivered to the data points.
+The capitalized names are the names of the mp3 tags
+
+| Setting TPE2 in LMS            | Artist      | Albumartist |  Trackartist | Band        |
+| ------------------------------ | ----------- | ----------- |  ----------- | ----------- |
+| as a band                      | ARTIST      | empty       |  TRACKARTIST | ALBUMARTIST |
+| as the performers of the album | ALBUMARTIST | ALBUMARTIST |  empty       | empty       |
+
+It should also be noted that after a change in the LMS, the entire library must\
+be searched and indexed again, and a song must be stopped and restarted\
+before the LMS delivers other data.
+
+### Further API documentation
 
 For more information visit the CLI-documentation:
 
-<https://github.com/elParaguayo/LMS-CLI-Documentation/blob/master/LMS-CLI.md>
+<https://github.com/oweitman/LMS-CLI-Documentation/blob/master/LMS-CLI.md>
+
+## Widgets
+
+### Player button bar
+
+![Player button bar](/widgets/squeezeboxrpc/img/players.png)
+
+All players that are integrated into your Logitech Media Server can be selected\
+using this widget. After selecting a `squeezerpc.?` instance, the available\
+players are displayed in the widget.
+
+#### Attributes
+
+| Group                   | Attribute       | Description                                                                                                                                                                                                                                                                        |
+| ----------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SqueezeboxRPC instance  | General group   | Select an instance of the squeezeboxrpc adapter. Only these are recognized as valid here.                                                                                                                                                                                          |
+| Widget format           | General group   | The widget type can be selected here. The "formatbutton" type has the full range of functions and also works with the SyncGroup widget. The "formatselect" type is a simple selection box. The player name or an individual text is used as the name.                              |
+| Display index           | General group   | Individual buttons can be hidden or displayed in a different order by deleting the button’s index. To hide them, simply delete the respective index position, including the comma. Index numbers are displayed on the respective button in edit mode if edit mode help is enabled. |
+| Line break in CamelCase | General group   | If the player name is written in CamelCase, a line break can be activated here so that the player name appears larger on the button.                                                                                                                                               |
+| Edit mode help          | General group   | If this help is activated, index numbers are displayed on the respective button, and the “transparency” setting in the button settings has no effect.                                                                                                                              |
+| Image width             | button settings | Image width of a button                                                                                                                                                                                                                                                            |
+| Image height            | button settings | Image height of a button                                                                                                                                                                                                                                                           |
+| Transparency            | button settings | If the button is not activated, it is hidden against the background. 0 = Invisible, 1 = Fully visible                                                                                                                                                                              |
+| Border width            | button settings | Border width in pixels around the button                                                                                                                                                                                                                                           |
+| Border display          | button settings | Type of border display, e.g., solid, dashed.                                                                                                                                                                                                                                       |
+| Normal border color     | button settings | If the button is not activated, it is shown by this color.                                                                                                                                                                                                                         |
+| Border color active     | button settings | If the button is activated, it is shown by this color.                                                                                                                                                                                                                             |
+| border-radius           | button settings | A radius in pixels can be entered here for curved border corners.                                                                                                                                                                                                                  |
+| Background color        | button settings | Background color for text                                                                                                                                                                                                                                                          |
+| Image                   | button[x]       | An image can be defined individually here. The image takes precedence over the text.                                                                                                                                                                                               |
+| Text                    | button[x]       | Text can be defined individually here. The image takes precedence over the text.                                                                                                                                                                                                   |
+
+### Favorites button bar
+
+![Favorites button bar](/widgets/squeezeboxrpc/img/favorites.png)
+
+You can use this widget to select all of the favorites that have been\
+created in your Logitech Media Server.
+After selecting the Player widget, the available favorites are displayed in the widget.
+
+| Group               | Attribute       | Description                                                                                           |
+| ------------------- | --------------- | ----------------------------------------------------------------------------------------------------- |
+| Player widget       | General group   | Select the Player widget.                                                                             |
+| Display index       | General group   | Individual buttons can be hidden or displayed in a different order using the index.                   |
+| Edit mode help      | General group   | If this help is activated, index numbers are displayed on each respective button.                     |
+| Image width         | button settings | Image width of a button                                                                               |
+| Image height        | button settings | Image height of a button                                                                              |
+| Transparency        | button settings | If the button is not activated, it is hidden against the background. 0 = Invisible, 1 = Fully visible |
+| Border width        | button settings | Border width in pixels around the button                                                              |
+| Border display      | button settings | Type of border display, e.g., solid, dashed.                                                          |
+| Normal border color | button settings | If the button is not activated, it is displayed with this color.                                      |
+| Border color active | button settings | If the button is activated, it is displayed with this color.                                          |
+| border-radius       | button settings | A radius in pixels can be entered here for curved border corners.                                     |
+| Background color    | button settings | Background color for text                                                                             |
+| Image               | button[x]       | An image can be individually defined here. The image takes precedence over the text.                  |
+| Text                | button[x]       | Text can be individually defined here. The image takes precedence over the text.                      |
+
+### Play Button
+
+![Play Button](/widgets/squeezeboxrpc/img/play.png)
+
+The play button starts or stops the music on the selected player.\
+To prepare, you must connect the button to the player widget.\
+The button has its own graphics (SVG),\
+alternatively you can also select your own graphics.
+
+#### Attributes for Play button
+
+| Group         | Attribute          | Description                     |
+| ------------- | ------------------ | ------------------------------- |
+| Player Widget | General group      | Selection of the player widget. |
+| Pause image   | General group      | Image for pause                 |
+| Play image    | General group      | Image for play                  |
+| Stop image    | General group      | Image for stop                  |
+| fillcolor     | SVG settings group | Fill color of the button        |
+| strokecolor   | SVG settings group | Color for the border            |
+| strokewidth   | SVG settings group | Width of the border in pixels   |
+
+### Forward
+
+![Forward](/widgets/squeezeboxrpc/img/fwd.png)
+
+The Forward widget allows you to skip forward in the current track.\
+The button can be configured to skip forward by a specific amount\
+of time if the player supports this feature.
+
+#### Attributes for Forward button
+
+| Group         | Attribute     | Description                                                      |
+| ------------- | ------------- | ---------------------------------------------------------------- |
+| Player widget | General group | Selection of the Player widget.                                  |
+| Step size     | General group | Specifies the amount of time in seconds to skip forward.         |
+| Button label  | General group | Customizable label for the button.                               |
+| Button icon   | General group | Selection of an icon for the button, e.g., for skipping forward. |
+
+### Rewind
+
+![Rewind](/widgets/squeezeboxrpc/img/rew.png)
+
+The Rewind widget allows you to jump back in the current track.\
+Similar to the Forward widget, a time period can be set.
+
+#### Attributes for Rewind button
+
+| Group         | Attribute     | Description                                                   |
+| ------------- | ------------- | ------------------------------------------------------------- |
+| Player widget | General group | Selection of the Player widget.                               |
+| Step size     | General group | Specifies the time period in seconds by which to jump back.   |
+| Button label  | General group | Customizable label for the button.                            |
+| Button symbol | General group | Selection of a symbol for the button, e.g., for jumping back. |
+
+### Repeat
+
+![Repeat](/widgets/squeezeboxrpc/img/repeat0.svg)
+
+The Repeat widget allows you to activate or deactivate the repeat function\
+for the current track or playlist if this function is supported by the player.
+
+#### Attributes for Repeat button
+
+| Group         | Attribute     | Description                                                                                 |
+| ------------- | ------------- | ------------------------------------------------------------------------------------------- |
+| Player widget | General group | Selection of the Player widget.                                                             |
+| Button label  | General group | Customizable label for the button.                                                          |
+| Button symbol | General group | Selection of a symbol for the button, e.g., for repeat.                                     |
+| Repeat mode   | General group | The mode can be selected here, for example single repeat (track) or list repeat (playlist). |
+
+### Shuffle
+
+![Shuffle](/widgets/squeezeboxrpc/img/shuffle0.svg)
+
+The Shuffle widget enables or disables shuffle for the current playlist,\
+if this feature is supported by the player.
+
+#### Attributes for Shuffle button
+
+| Group         | Attribute     | Description                                             |
+| ------------- | ------------- | ------------------------------------------------------- |
+| Player widget | General group | Selection of the Player widget.                         |
+| Button label  | General group | Customizable label for the button.                      |
+| Button icon   | General group | Selection of an icon for the button, e.g., for shuffle. |
+| Enabled state | General group | Color or style of the button when shuffle is enabled.   |
+
+### Volume
+
+![Volume](/widgets/squeezeboxrpc/img/volume.png)
+
+The Volume widget displays the current volume level of the player and\
+allows you to adjust the volume.
+
+#### Attributes for Volume button
+
+| Group                       | Attribute     | Description                                                       |
+| --------------------------- | ------------- | ----------------------------------------------------------------- |
+| Player widget               | General group | Selection of the Player widget.                                   |
+| Volume step size            | General group | Specifies the step size for increasing or decreasing the volume.  |
+| Maximum volume              | General group | Sets the maximum value for the volume, e.g., 100.                 |
+| Volume bar main color       | General group | Color for the area of the bar that represents the current volume. |
+| Volume bar background color | General group | Color for the area of the bar that is not covered by the volume.  |
+| Button icon                 | General group | Selection of an icon for the volume control.                      |
+
+### SyncGroup button bar
+
+![SyncGroup button bar](/widgets/squeezeboxrpc/img/syncgroups.png)
+
+This widget can be used in conjunction with the player widget to control\
+the synchronization of the players with each other.
+Most of the settings for the number of buttons, labels or images are taken\
+over by the player widget.
+To prepare, you must connect the button to the player widget.
+After selecting a player in the player widget, the current synchronization\
+is visible in the SyncGroup widget.
+The sync status is shown using the various adjustable colors.
+The player selected in the player widget cannot be selected in the SyncGroup widget.
+If a player is selected in the SyncGroup widget that is already in\
+another group, it is automatically removed from this group.
+
+#### Attributes for SyncGroup button
+
+| Group                         | Attribute       | Description                                                                                    |
+| ----------------------------- | --------------- | ---------------------------------------------------------------------------------------------- |
+| Player widget                 | General group   | Selection of the player widget.                                                                |
+| Border width                  | button settings | Border width/border width in pixels around the button.                                         |
+| Border display                | button settings | Type of border display, e.g. solid, dashed.                                                    |
+| Border color - Not in group   | button settings | The button gets a border with this color if the player is not in a group.                      |
+| Border color - In group       | button settings | The button gets a border with this color if the player is in a group with the selected player. |
+| Border color - In other group | button settings | The button gets a border with this color if the player is in another group.                    |
+| border-radius                 | button settings | A radius in pixels can be entered here for curved border corners.                              |
+| Background color              | button settings | Background color for text.                                                                     |
+
+### Playtime bar
+
+![Playtime bar](/widgets/squeezeboxrpc/img/playtime.png)
+
+The playtime bar visually shows the progress of the song currently being played,\
+provided that a total running time (duration) is provided by the server.\
+This is usually not the case with online streams. The width of the bar\
+corresponds to 100% of the playing time of the song. By clicking on a point on\
+the bar you can jump to the desired point in the song.\
+To prepare, you must connect the button to the player widget.
+
+#### Attributes for Playtime bar
+
+| Group          | Attribute     | Description                                                     |
+| -------------- | ------------- | --------------------------------------------------------------- |
+| Player widget  | General group | Selection of the player widget.                                 |
+| Bar main color | General group | The background color of the bar for times not yet played.       |
+| Playtime color | General group | The color of the bar for times played.                          |
+| Frame width    | General group | Frame width/border width in pixels around the button.           |
+| Border display | General group | Type of border display, e.g. solid, dashed.                     |
+| Border color   | General group | Color of the border around the bar.                             |
+| border radius  | General group | A radius in pixels can be entered here for curved edge corners. |
+
+### String/character string
+
+![String](/widgets/squeezeboxrpc/img/string.png)
+
+Display of player-specific character strings. To prepare, you must connect\
+the button to the player widget.
+
+#### Attributes for String
+
+| Group            | Attribute     | Description                                                       |
+| ---------------- | ------------- | ----------------------------------------------------------------- |
+| Player widget    | General group | Selection of the player widget.                                   |
+| Player Attribute | General group | Selection list of all available attributes of a player.           |
+| Test text        | General group | Text that should be displayed in the editor for testing purposes. |
+
+### Number
+
+![Number](/widgets/squeezeboxrpc/img/number.png)
+
+Display of numbers with additional formatting options. To prepare,\
+you must connect the button to the player widget.
+
+#### Attributes for Number
+
+| Group                 | Attribute         | Description                                                       |
+| --------------------- | ----------------- | ----------------------------------------------------------------- |
+| Player widget         | General group     | Selection of the player widget.                                   |
+| Player Attribute      | General group     | Selection list of all available attributes of a player.           |
+| Prepend HTML          | General group     | Text or HTML code that is placed in front of the number.          |
+| Append HTML           | General group     | Text or HTML code that is appended to the number.                 |
+| Test text             | General group     | Text that should be displayed in the editor for testing purposes. |
+| Character after comma | Advanced settings | Number of decimal places.                                         |
+| Comma as separator    | Advanced settings | A comma is used to separate the decimal places.                   |
+| Thousands separator   | Advanced settings | For large numbers, a separator is inserted every 3 places.        |
 
 ## Todo
 
--   more testing/fixing
--   reduce dependencys to other packages (squeezenode)
--   more configuration to optionaly turn features on/off to improve memory and performance
--   add playlist widget
--   add browse widget to browse in LMS-Menu
--   add player controlled circle knob widget
--   stop playing if favorite button is pressed again.
--   cmdGeneral für Server.
--   ~~add telnet communication to get push events from the server to optimize the polling~~
--   ~~implement a command state to place user individual commands (via json) for server and player~~
--   ~~implement more control features (select playlist pos to play,ffwd,frew,jump to a time position in song,repeat song,random song)~~
--   ~~add the playlist to playerdata as json array~~
--   ~~add artwork (station-logo/playlist-cover) for favorites~~
--   ~~implement more levels (subdirectories) of favorites~~
--   ~~autodiscover logitech media server~~
+- more testing/fixing
+- reduce dependencys to other packages (squeezenode)
+- more configuration to optionaly turn features on/off to improve memory and performance
+- add playlist widget
+- add browse widget to browse in `LMS`-Menu
+- add player controlled circle knob widget
+- stop playing if favorite button is pressed again.
+- cmdGeneral für Server.
+- ~~add telnet communication to get push events from the server to\
+     optimize the polling~~
+- ~~implement a command state to place user individual commands (via json)\
+     for server and player~~
+- ~~implement more control features (select playlist pos to play,ffwd,frew,\
+     jump to a time position in song,repeat song,random song)~~
+- ~~add the playlist to playerdata as json array~~
+- ~~add artwork (station-logo/playlist-cover) for favorites~~
+- ~~implement more levels (subdirectories) of favorites~~
+- ~~autodiscover logitech media server~~
 
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
+
 -->
+### 1.4.0-alpha.1 (2024-10-27)
+
+- move widget documentation from html to markdown
+- adjust responsive tab style
+- improve attribute widgets
+- change TPE2 handling once more
+
+### 1.4.0-alpha.0 (2024-10-24)
+
+- jsonConfig add sizing options for differenz screen sizes
+- test implementation of TPE2 handling. switch in settings
+- add datapoints album_artist, track_artist, artistOriginal
+
+### 1.3.17 (2024-10-23)
+
+- add edit button to the vie index field of favorites widget
+
+### 1.3.16 (2024-10-23)
+
+- fixed icons of the favorites widget
+
 ### 1.3.15 (2024-08-09)
 
--   due to a adapter checker issue i have to remove the release 1.3.13 from npm.
+- due to a adapter checker issue i have to remove the release 1.3.13 from npm.
     but changes from 1.3.13 are included in 1.3.14
 
 ### 1.3.14 (2024-08-05)
 
--   fix formatting
+- fix formatting
 
 ### 1.3.13 (2024-08-05)
 
--   revert the fix for artist handling due to negative effect of spotify
+- revert the fix for artist handling due to negative effect of spotify
 
 ### 1.3.12 (2024-08-05)
 
--   improve cmdGoto handling by kairauer, close PR #74
--   fix issues from adapter checker
--   integrate squeezenode lib
+- improve cmdGoto handling by kairauer, close PR #74
+- fix issues from adapter checker
+- integrate squeezenode lib
 
 ### 1.3.11 (2024-08-05)
 
--   update adapter structure and switch to jsonconfig
+- update adapter structure and switch to jsonconfig
 
 ### 1.3.10
 
--   getalbumartist as artist if setting of TPE2/TPE3 in LMS are changed"
+- getalbumartist as artist if setting of TPE2/TPE3 in `LMS` are changed"
 
 ### 1.3.9
 
--   fix error with deleting favorites
--   fix wrong type for datapoint
+- fix error with deleting favorites
+- fix wrong type for datapoint
 
 ### 1.3.8
 
--   fix forward button widget
+- fix forward button widget
 
 ### 1.3.7
 
--   fix object creation of states in player modul
+- fix object creation of states in player modul
 
 ### 1.3.6
 
--   fix object creation of states
+- fix object creation of states
 
 ### 1.3.5
 
--   fix object creation for favorites
+- fix object creation for favorites
 
 ### 1.3.4
 
--   fix object creation for favorites / \* center widgets in sidebar
+- fix object creation for favorites / \* center widgets in sidebar
 
 ### 1.3.3
 
--   repair imageproxy for image datapoints of favorites
+- repair imageproxy for image datapoints of favorites
 
 ### 1.3.2
 
--   fix for Alarm contains only enabled Alarms
+- fix for Alarm contains only enabled Alarms
 
 ### 1.3.1
 
--   fix problem with git dependency url
+- fix problem with git dependency url
 
 ### 1.3.0
 
--   fix problem wit setting own icon in player widget / \* add infos about alarms to a player datapoint
+- fix problem wit setting own icon in player widget / \* add infos about\
+     alarms to a player datapoint
 
 ### 1.2.1
 
--   fix small issue in last version
+- fix small issue in last version
 
 ### 1.2.0
 
--   improve handling of imageproxy artwork
+- improve handling of imageproxy artwork
 
 ### 1.1.0
 
--   make request of favorites configurable
+- make request of favorites configurable
 
 ### 1.0.1
 
--   change setstate/createobject logic
--   fix role and type for Mode-state
--   update tests
--   update dependency versions
--   improve io-package.json
+- change setstate/createobject logic
+- fix role and type for Mode-state
+- update tests
+- update dependency versions
+- improve io-package.json
 
 ### 1.0.0
 
--   prepare for stable repository
+- prepare for stable repository
 
 ### 0.8.32
 
--   the adapter function iobroker.deleteChannel didnt works as expected. it didnt delete the whole subtree of states. now i implement my own delete function
+- the adapter function iobroker.deleteChannel didnt works as expected.\
+     It didnt delete the whole subtree of states. now i implement my own delete function
 
 ### 0.8.31
 
--   change behaviour of deleting favorites
+- change behaviour of deleting favorites
 
 ### 0.8.30
 
--   change from the issue of the adapter checker
+- change from the issue of the adapter checker
 
 ### 0.8.29
 
--   optimize handling of player state power and connected
+- optimize handling of player state power and connected
 
 ### 0.8.28
 
--   add advanced signaling function with telnet and fix some more authorization issues with LMS
+- add advanced signaling function with telnet and fix some more authorization\
+     issues with `LMS`
 
 ### 0.8.27
 
--   initialization for the new calctype property if empty in volumebar
+- initialization for the new calctype property if empty in volumebar
 
 ### 0.8.26
 
--   more improvement and fixing at volumebar / remove playlist widget from master. not ready yet
+- more improvement and fixing at volumebar / remove playlist widget from\
+     master. not ready yet
 
 ### 0.8.25
 
--   fixing css-settings on volumebar
+- fixing css-settings on volumebar
 
 ### 0.8.24
 
--   volumebar didnt get events between the segments, change clickevent and calculation
+- volumebar didnt get events between the segments, change clickevent and calculation
 
 ### 0.8.23
 
--   adjust dependencies to remove vulnerabilities in dependend packages. alos remove travis due of unresolvable build-failures for win+node10/12
+- adjust dependencies to remove vulnerabilities in dependend packages.\
+     also remove travis due of unresolvable build-failures for win+node10/12
 
 ### 0.8.22
 
--   due to iobroker.controller 2.0 a command in the api changed (socket to vis.conn.\_socket)
+- due to iobroker.controller 2.0 a command in the api changed (socket to vis.conn.\_socket)
 
 ### 0.8.21
 
--   add command für playing urls
+- add command für playing urls
 
 ### 0.8.20
 
--   remove node v6 test setting
+- remove node v6 test setting
 
 ### 0.8.19
 
--   shorten news history
+- shorten news history
 
 ### 0.8.18 (2019-06-27)
 
--   last minute changes.
+- last minute changes.
 
 ### 0.8.17 (2019-06-26)
 
--   add more widges: playtime bar, string, number, datetime, image. add button margin to player and favorite widget, improve editing of viewindex. do some refactoring.
+- add more widges: playtime bar, string, number, datetime, image.\
+     add button margin to player and favorite widget, improve editing of viewindex.\
+     do some refactoring.
 
 ### 0.8.16 (2019-06-24)
 
--   resolve a cross browser issue for firefox. the style.font attribute is empty and you have to construct the font string by yourself
+- resolve a cross browser issue for firefox. the style.\
+     font attribute is empty and you have to construct the font string by yourself
 
 ### 0.8.15 (2019-06-19)
 
--   minor issue with not ready states
+- minor issue with not ready states
 
 ### 0.8.14 (2019-06-19)
 
--   add syncgroups as new server-datapoint,add syncgroup widget, change some jquery event logic
+- add syncgroups as new server-datapoint,add syncgroup widget,/
+    change some jquery event logic
 
 ### 0.8.13 (2019-06-16)
 
--   rename widgetset from squeezeboxrpcwidgets to squeezeboxrpc
+- rename widgetset from squeezeboxrpcwidgets to squeezeboxrpc
 
 ### 0.8.12 (2019-06-16)
 
--   sync version with npm
+- sync version with npm
 
 ### 0.8.11 (2019-06-15)
 
--   try to integrate the widgets into the main adapter
+- try to integrate the widgets into the main adapter
 
 ### 0.8.10 (2019-05-15)
 
--   another try to fix the EADDRINUSE error of the server discovery
+- another try to fix the EADDRINUSE error of the server discovery
 
 ### 0.8.9 (2019-05-15)
 
--   try to fix the EADDRINUSE error of the server discovery
+- try to fix the EADDRINUSE error of the server discovery
 
 ### 0.8.8 (2019-05-14)
 
--   make discover configurable
+- make discover configurable
 
 ### 0.8.7 (2019-05-11)
 
--   more control features (select playlist pos to play,ffwd,frew,jump to a time position in song,repeat song,random song)
+- more control features (select playlist pos to play,ffwd,frew,jump to/
+    a time position in song,repeat song,random song)
 
 ### 0.8.6 (2019-05-10)
 
--   move some configuration options into seperate tabs
+- move some configuration options into seperate tabs
 
 ### 0.8.5 (2019-05-08)
 
--   change serverdiscovery interval method, remove some double cmd lines, additional minor changes advised from eslint
+- change serverdiscovery interval method, remove some double cmd lines,/
+    additional minor changes advised from eslint
 
 ### 0.8.4
 
--   move some files to lib directory
+- move some files to lib directory
 
 ### 0.8.3
 
--   close port for discovery on unload
+- close port for discovery on unload
 
 ### 0.8.2
 
--   sync version with npm
+- sync version with npm
 
 ### 0.8.1
 
--   set compact mode flag
+- set compact mode flag
 
 ### 0.8.0
 
--   implementation of compact mode, change version to represent a realistic feature completness
+- implementation of compact mode, change version to represent a realistic/
+    feature completness
 
 ### 0.0.9
 
--   debug options are now configurable
+- debug options are now configurable
 
 ### 0.0.8
 
--   More playlist attributes + remove trailing and leading spaces from source
+- More playlist attributes + remove trailing and leading spaces from source
 
 ### 0.0.7
 
--   Add the playlist to each player as json
+- Add the playlist to each player as json
 
 ### 0.0.6
 
--   More config options
+- More config options
 
 ### 0.0.5
 
--   All levels/subdirectories of favorites are now available in iobroker
+- All levels/subdirectories of favorites are now available in iobroker
 
 ### 0.0.4
 
--   added the cmdPlayFavorite for each player
+- added the cmdPlayFavorite for each player
 
 ### 0.0.3
 
--   repair the no-data symbols for buttons in vis
+- repair the no-data symbols for buttons in vis
 
 ### 0.0.2
 
--   added autodiscovery
+- added autodiscovery
 
 ### 0.0.1
 
--   initial release
+- initial release
 
 ## License
 

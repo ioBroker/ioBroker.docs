@@ -106,7 +106,23 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 3.5.0 (2024-10-xx)
+### 3.5.2 (2024-10-30)
+
+-   (HombachC) add verification for YES/NO 2 values in calculator (#547)
+-   (HombachC) optimized responsive design (#544)
+-   (HombachC) migrate eslint to >9.x
+-   (HombachC) switch to ES2022 code
+-   (HombachC) adapted to new API constraints (#546)
+-   (HombachC) replace deprecated setStateAsync by setState
+
+### 3.5.1 (2024-10-05)
+
+-   (HombachC) changed to less feed disconnection warnings in log (#445)
+-   (HombachC) fix error in output2 of smart battery buffer (#538)
+-   (HombachC) update deprecated state calls
+-   (HombachC) dependency updates
+
+### 3.5.0 (2024-10-02)
 
 -   (HombachC) update adapter core
 -   (HombachC) fix error in SML decoder

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: wcKDGuZTcAl+b0gv/mO1IAPS9wElt49zMNjRAsMdLH8=
+hash: JuvG0mDiM8nB+9E4FTL4MJgYdkQSlYOUQEYUWl4/VJQ=
 ---
 # IoBroker.tado
 
@@ -23,11 +23,11 @@ Tado° (https://www.tado.com) ist der Experte für intelligentes Heiz- und Energ
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## TADO° X
-Tado X **wird derzeit nicht unterstützt** von diesem Adapter. Der Adapter unterstützt Tado V3, V3+ und V2.
-Wenn jemand die Tado X-Funktionalität hinzufügen möchte, erstellen Sie ein Ticket oder senden Sie eine E-Mail an <myiobrokeradapters@gmail.com>. Sie müssen einige Debugging-Sitzungen unterstützen und mit dem Adapterentwickler interagieren.
+## Tado° X
+Grundlegende Unterstützung für Tado° X verfügbar.
+Wenn Ihr Setup nicht funktioniert, melden Sie sich bitte bei [Ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=). Sie müssen einige Debugging-Sitzungen unterstützen und mit dem Adapterentwickler interagieren, um die Funktionen von Tado° X zu verbessern.
 
-## Dinge, die Sie steuern können
+## Dinge, die Sie mit Tado° V3+, V3, V2 steuern können
 | Staat | Beschreibung |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power | Gerät ein-/ausschalten |
@@ -41,13 +41,27 @@ Wenn jemand die Tado X-Funktionalität hinzufügen möchte, erstellen Sie ein Ti
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Fenster-offen-Erkennung am Thermostat aktivieren/deaktivieren |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout, wie lange Thermostate ausgeschaltet bleiben, wenn ein offenes Fenster erkannt wird |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Thermostate ausschalten, wenn ein offenes Fenster erkannt wird (funktioniert nur, wenn das Thermostat ein offenes Fenster erkennt) |
-| tado.[x].[yyyyyy].Home.state.presence | ZUHAUSE-, ABWESEND- oder AUTO-Modus einstellen |
-| tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit V3 und älteren Versionen) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte mit Version V3+) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikale Schaukel (nur AC-Geräte mit V3+ Version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontaler Schwung (nur AC-Geräte mit V3 und älteren Versionen) |
+| tado.[x].[yyyyyy].Home.state.presence | Modus ZUHAUSE, ABWESEND oder AUTO einstellen |
+| tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
+| tado.[x].[yyyyyy].meterReadings | JSON-Objekt mit {"date":"YYYY-MM-DD","reading": 1234} kann zum Hochladen von Zählerständen zu Energy IQ verwendet werden |
+
+## Dinge, die du mit Tado° X steuern kannst
+| Staat | Beschreibung |
+| ----- | ----------- |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | Gerät ein-/ausschalten |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.value | Temperatur definieren |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.controlType | Zeitplanmodus einstellen |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.remainingTimeInSeconds | Dauer für Timermodus |
+| tado.[x].[yyyyyy].Rooms.[z].resumeScheduleRoom | Zurück zum Automatikmodus für diesen Raum |
+| tado.[x].[yyyyyy].Rooms.resumeScheduleHome | Zurück zum Automatikmodus für alle Räume |
+| tado.[x].[yyyyyy].Rooms.allOff | Alle Räume ausschalten |
+| tado.[x].[yyyyyy].Rooms.boost | Alle Räume in den Boost-Modus schalten |
+| tado.[x].[yyyyyy].Home.state.presence | Modus ZUHAUSE, ABWESEND oder AUTO einstellen |
 | tado.[x].[yyyyyy].meterReadings | JSON-Objekt mit {"date":"YYYY-MM-DD","reading": 1234} kann zum Hochladen von Zählerständen zu Energy IQ verwendet werden |
 
 ## Erfordert
@@ -59,7 +73,13 @@ Wenn jemand die Tado X-Funktionalität hinzufügen möchte, erstellen Sie ein Ti
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.5.7-alpha.1 (2024-09-25)
+### 0.6.0 (2024-10-23)
+* (HGlab01) Start supporting Tado° X
+
+### 0.5.9 (2024-10-16)
+* (HGlab01) Improve axios promise handling
+
+### 0.5.7 (2024-09-30)
 * (HGlab01) Change of attribute "light" supported
 * (HGlab01) Add attribute 'connection'
 * (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'
@@ -74,14 +94,6 @@ Wenn jemand die Tado X-Funktionalität hinzufügen möchte, erstellen Sie ein Ti
 
 ### 0.5.5 (2024-06-25)
 * (HGlab01) Bump axios to 1.7.2
-
-### 0.5.4 (2024-04-18)
-* (HGlab01) Add attribute 'runningOfflineSchedule'
-* (HGlab01) Bump axios to 1.6.8
-
-### 0.5.3 (2024-01-29)
-* (HGlab01) Improve axios handling
-* (HGlab01) Bump axios to 1.6.7
 
 ## License
 MIT License

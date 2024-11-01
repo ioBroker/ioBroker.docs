@@ -48,10 +48,10 @@ Previously the adapter was terminated after 10 session connection attempts when 
 - Notifications for several states
 - Volume control
 - Notifications
+- Auto discovery
 
 ### Planned features
 
-- Auto discovery
 - More states
 - Translations
 - More Exception handling
@@ -66,6 +66,7 @@ Previously the adapter was terminated after 10 session connection attempts when 
 
 - The Media player must be on for preset discovery
 - Due to limitations of the FSAPI protocol, parallel operation with the UNDOK App is not reliable and thus not supported. Use at own risk.
+- Due to limitations of the FSAPI protocol, Radio station icons are not available in DAB+ mode.
 
 ## Documentation
 
@@ -97,17 +98,17 @@ While the adapter reads the device's settings ioBroker objects and states are cr
 
 - device
 
-  - friendlyName (`text, rw`)
+  - friendlyName (`string, rw`)
   - power (`boolean, rw`)
-  - radioId (`test, ro`)
+  - radioId (`string, ro`)
 
     My guess is that this is the MAC of the device
 
-  - version (`text, ro`)
+  - version (`string, ro`)
 
     Software version
 
-  - webfsapi (`text, ro`)
+  - webfsapi (`string, ro`)
 
     The address of the API
 
@@ -119,48 +120,60 @@ While the adapter reads the device's settings ioBroker objects and states are cr
 
 - media
 
-  - state (`number, rw`)
+  - state (`string, ro`)
 
     valid values are:
-    - 0: Pause
-    - 1: Play
+    - 0: “IDLE”
+    - 1: “BUFFERING”
+    - 2: “PLAYING”
+    - 3: “PAUSED”
+    - 4: “REBUFFERING”
+    - 5: “ERROR”
+    - 6: “STOPPED”
+    - 7: “ERROR_POPUP”
+  
+  - control (`boolean, wo`)
 
-  - control
-
-    - next
-    - plause
-    - play
-    - previous
+    - 0: “STOP”
+    - 1: “PLAY”
+    - 2: “PAUSE”
+    - 3: “NEXT”
+    - 4: “PREVIOUS”
 
   Do not take the following names too seriously. The radio uses them differently in different modes.
 
-  - album (`text, ro`)
-  - artist (`text, ro`)
-  - graphic (`text, ro`)
+  - album (`string, ro`)
+  - artist (`string, ro`)
+  - graphic (`string, ro`)
 
     Use this URL to get an album cover or a station's logo.
 
-  - name (`text, ro`)
-  - text (`text, ro`)
-  - title (`text, ro`)
+  - name (`string, ro`)
+  - string (`string, ro`)
+  - title (`string, ro`)
 
 - modes
 
-  - readPresets
+  - readPresets (`boolean, wo`)
 
     Re-reads all presets
 
-  - selectPreset (`number, rw`)
+  - selectPreset (`number, wo`)
 
-    Used to get or select a preset. Be warned that the adapter guesses as this value cannot be read from the API.
+    Used to get or select a preset.  
+    Be warned that the adapter guesses as this value cannot be read from the API.
 
   - selected (`number, rw`)
 
     Indicates or selects the selected mode. Can also be selected via `modes.{number}.switchTo`
 
+  - selected (`string, ro`)
+
+    Indicates the label of the selected mode.
+
   - `{number}`
 
-    - id (`text, ro`)
+    - id (`string, ro`)
 
       The name of that mode
 
@@ -176,13 +189,13 @@ While the adapter reads the device's settings ioBroker objects and states are cr
 
       Only present on multi-room enabled devices. `true` if this mode can be used as source for several multi-room devices.
   
-    - switchTo
+    - switchTo (`boolean, wo`)
 
       Selects that mode.
 
     - presets
 
-      - availabe (`boolean, ro`)
+      - available (`boolean, ro`)
 
         Indicates whether presets for this mode are available
 
@@ -190,15 +203,15 @@ While the adapter reads the device's settings ioBroker objects and states are cr
 
         The index of that preset. Equals `mode.*.presets.{number}.key`.
 
-        - key
+        - key (`number, ro`)
 
           The index of that preset. Equals `mode.*.presets.{number}` from object tree and can be written into `modes.selectPreset`.
 
-        - name (`text, ro`)
+        - name (`string, ro`)
 
           The name of that preset
 
-        - switchTo
+        - recall (`boolean, wo`)
 
           Selects that preset and the corresponding mode.
 
@@ -209,6 +222,15 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** - 2025H1 maintenance release
+
+- (pdbjjens) Change: media state changed from number to string and readonly (#241)
+- (pdbjjens) New: Added media control function "stop" (#241)
+- (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Fix: Added button state acknowledgement
+- (pdbjjens) Fix: Prevent warning on adapter stop
+- (pdbjjens) New: Updated dependencies
+
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
 - (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
@@ -256,7 +278,7 @@ The authors are in no way endorsed by or affiliated with Frontier Smart Technolo
 
 MIT License
 
-Copyright (c) 2024 halloamt <iobroker@halloserv.de>
+Copyright (c) 2025 halloamt <iobroker@halloserv.de> & IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

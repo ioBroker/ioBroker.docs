@@ -144,6 +144,9 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (simatec) Admin-UI has been adapted for small displays.
+
 ### 2.2.2 (2024-01-20)
 
 -   (ciddi89) Fixed: missing space in one entry of global blacklist [#145](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/145)

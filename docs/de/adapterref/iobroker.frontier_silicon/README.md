@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
+hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 ---
 # IoBroker.frontier_silicon
 ![Logo](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
@@ -34,7 +34,7 @@ Wenn Sie diesen Adapter von einer früheren Version aktualisieren, anstatt ihn n
 
 - Der Typ von „frontier_silicon.X.modes.selectPreset“ wurde von „String“ in „Number“ geändert.
 
-Wenn Sie diesen Adapter von einer früheren Version aktualisieren, anstatt ihn neu zu installieren, finden Sie möglicherweise Warnungen im ioBroker-Protokoll wie: `State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"` Um dies zu verhindern, besteht die einfachste Lösung darin, den Adapter im Instanzen-Tab von ioBroker zu stoppen, den Objektbaum im Objekt-Tab vollständig zu löschen und den Adapter dann neu zu starten. Dies ist natürlich nur einmal nach dem Update erforderlich und nicht erforderlich, wenn Sie eine saubere Neuinstallation durchführen.
+Wenn Sie diesen Adapter von einer früheren Version aktualisieren, anstatt ihn neu zu installieren, finden Sie möglicherweise Warnungen im ioBroker-Protokoll wie: `State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"` Um dies zu verhindern, besteht die einfachste Lösung darin, den Adapter im Instanzen-Tab von ioBroker zu stoppen, den Objektbaum im Objekt-Tab vollständig zu löschen und den Adapter dann neu zu starten. Dies ist natürlich nur einmal nach dem Update notwendig und nicht erforderlich, wenn Sie eine saubere Neuinstallation durchführen.
 
 - Synchronisierung der Einschalt-, Lautstärke- und Stummschaltzustände mit der UNDOK-App
 
@@ -52,9 +52,9 @@ Leistungsregelung
 - Benachrichtigungen für mehrere Staaten
 Lautstärkeregelung
 - Benachrichtigungen
+Automatische Erkennung
 
 ### Geplante Funktionen
-Automatische Erkennung
 - Weitere Staaten
 - Übersetzungen
 - Mehr Ausnahmebehandlung
@@ -67,13 +67,14 @@ Automatische Erkennung
 ### Bekannte Fehler und Einschränkungen
 - Der Media Player muss eingeschaltet sein, damit die Voreinstellungen erkannt werden können
 - Aufgrund von Einschränkungen des FSAPI-Protokolls ist der Parallelbetrieb mit der UNDOK-App nicht zuverlässig und wird daher nicht unterstützt. Verwendung auf eigene Gefahr.
+- Aufgrund von Einschränkungen des FSAPI-Protokolls sind Radiosendersymbole im DAB+-Modus nicht verfügbar.
 
 ## Dokumentation
 Mit diesem Adapter können Sie Internetradios und Mediaplayer auf Basis von Frontier Silicon-Chipsätzen steuern. Viele Geräte lassen sich über [UNDOK](https://support.undok.net) sollte funktionieren. Getestete Geräte kommen von [Revo](https://revo.co.uk/de/products/), [Sangean](https://www.sangean.eu/products/all_product.asp), [Hama](https://de.hama.com/produkte/audio-hifi/digitalradio) und [SilverCrest](https://www.lidl.de) steuern, andere sollten auch funktionieren.
 
 Nach der Installation müssen im Konfigurationsdialog die IP und PIN des Gerätes eingetragen werden. Sollte das Radio nach dem Einschalten über die UNDOK App oder diesen Adapter kein DAB spielen, versuche es noch einmal mit aktivierter Option "DAB startet ohne Ton".
 
-Beim ersten Start des Adapters sammelt dieser Informationen über das Gerät. Dazu muss er alle Modi durchlaufen. Während der Überprüfung der Einstellungen wird das Gerät für einige Sekunden stummgeschaltet, um störende Geräusche zu vermeiden.
+Beim ersten Start des Adapters werden zunächst Informationen über das Gerät gesammelt. Dazu muss er alle Modi durchlaufen. Während der Überprüfung der Einstellungen wird das Gerät für einige Sekunden stummgeschaltet, um störende Geräusche zu vermeiden.
 
 Während der Adapter die Geräteeinstellungen liest, werden ioBroker-Objekte und -Zustände erstellt. Zustände können schreibgeschützt (`ro`) oder schreibgeschützt (`rw`) sein. *ok, schreibgeschützte Zustände für Schaltflächen sind auch möglich*.
 
@@ -97,17 +98,17 @@ Erhöht oder verringert die Lautstärke um 1
 
 - Gerät
 
-- freundlicherName (`text, rw`)
+- freundlicherName (`string, rw`)
 - Leistung (`Boolesch, rw`)
-- Radio-ID („test, ro“)
+- Radio-ID (`Zeichenfolge, ro`)
 
 Ich vermute, dass dies die MAC des Geräts ist
 
-- Version (`Text, ro`)
+- Version (`string, ro`)
 
 Softwareversion
 
-- webfsapi („Text, ro“)
+- webfsapi (`Zeichenfolge, ro`)
 
 Die Adresse der API
 
@@ -119,49 +120,61 @@ Verbindungsanzeige für den Adapter
 
 - Medien
 
-- Status (`Nummer, rw`)
+- Status (`string, ro`)
 
 Gültige Werte sind:
 
-- 0: Pause
-1: Spielen
+- 0: „Leerlauf“
+- 1: „PUFFERUNG“
+- 2: „SPIELEN“
+- 3: „PAUSED“
+- 4: „Neupufferung“
+- 5: „FEHLER“
+- 6: „GESTOPPT“
+- 7: „ERROR_POPUP“
 
-  - Kontrolle
+- Steuerung (`Boolesch, wo`)
 
-    - nächste
-- plausibel
-    - spielen
-    - vorherige
+- 0: „STOP“
+- 1: „SPIELEN“
+- 2: „PAUSE“
+- 3: „WEITER“
+- 4: „VORHERIGE“
 
 Nehmen Sie die folgenden Namen nicht zu ernst. Das Radio verwendet sie in verschiedenen Modi unterschiedlich.
 
-- Album („Text, ro“)
-- Künstler (`Text, ro`)
-- Grafik (`Text, ro`)
+- Album (`Zeichenfolge, ro`)
+- Künstler (`string, ro`)
+- Grafik (`string, ro`)
 
 Verwenden Sie diese URL, um ein Albumcover oder das Logo eines Senders zu erhalten.
 
-- Name (`Text, ro`)
-- Text (`text, ro`)
-- Titel (`Text, ro`)
+- Name (`Zeichenfolge, ro`)
+- Zeichenfolge (`Zeichenfolge, ro`)
+- Titel (`string, ro`)
 
 - Modi
 
-- Voreinstellungen lesen
+- readPresets (`boolean, wo`)
 
 Liest alle Voreinstellungen erneut
 
-- selectPreset (`Nummer, rw`)
+- selectPreset (`Nummer, wo`)
 
-Wird verwendet, um eine Voreinstellung abzurufen oder auszuwählen. Beachten Sie, dass der Adapter rät, da dieser Wert nicht aus der API gelesen werden kann.
+Wird verwendet, um eine Voreinstellung abzurufen oder auszuwählen.
+Beachten Sie, dass der Adapter rät, da dieser Wert nicht aus der API gelesen werden kann.
 
 - ausgewählt (`Nummer, rw`)
 
 Zeigt den ausgewählten Modus an bzw. wählt ihn aus. Kann auch über `modes.{number}.switchTo` ausgewählt werden.
 
+- ausgewählt (`string, ro`)
+
+Zeigt die Bezeichnung des ausgewählten Modus an.
+
 - `{Nummer}`
 
-- ID (`Text, ro`)
+- ID (`Zeichenfolge, ro`)
 
 Der Name dieses Modus
 
@@ -177,7 +190,7 @@ Der Index dieses Modus. Entspricht `mode.{number}` aus dem Objektbaum und kann i
 
 Nur auf Multiroom-fähigen Geräten vorhanden. `true`, wenn dieser Modus als Quelle für mehrere Multiroom-Geräte verwendet werden kann.
 
-- wechseln zu
+- switchTo (`boolean, wo`)
 
 Wählt diesen Modus aus.
 
@@ -191,15 +204,15 @@ Zeigt an, ob Voreinstellungen für diesen Modus verfügbar sind
 
 Der Index dieser Voreinstellung. Ist gleich `mode.*.presets.{number}.key`.
 
-        - Schlüssel
+- Taste (`Nummer, ro`)
 
 Der Index dieser Voreinstellung. Entspricht `mode.*.presets.{number}` aus dem Objektbaum und kann in `modes.selectPreset` geschrieben werden.
 
-- Name (`Text, ro`)
+- Name (`Zeichenfolge, ro`)
 
 Der Name dieser Voreinstellung
 
-- wechseln zu
+- Rückruf (`Boolesch, wo`)
 
 Wählt diese Voreinstellung und den entsprechenden Modus aus.
 
@@ -217,6 +230,15 @@ Die Autoren werden in keiner Weise von Frontier Smart Technologies Limited oder 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** - 2025H1 maintenance release
+
+- (pdbjjens) Change: media state changed from number to string and readonly (#241)
+- (pdbjjens) New: Added media control function "stop" (#241)
+- (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Fix: Added button state acknowledgement
+- (pdbjjens) Fix: Prevent warning on adapter stop
+- (pdbjjens) New: Updated dependencies
+
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
 - (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
@@ -256,7 +278,7 @@ Die Autoren werden in keiner Weise von Frontier Smart Technologies Limited oder 
 
 MIT License
 
-Copyright (c) 2024 halloamt <iobroker@halloserv.de>
+Copyright (c) 2025 halloamt <iobroker@halloserv.de> & IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

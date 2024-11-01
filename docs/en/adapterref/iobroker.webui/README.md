@@ -129,6 +129,40 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.17.3 (2024-11-01)
+- fix compilation
+
+### 1.17.2 (2024-11-01)
+- switch combo in complex prop editor
+
+### 1.17.1 (2024-11-01)
+- selector for properties
+
+### 1.17.0 (2024-11-01)
+- internal control properties
+- internal screen properties
+
+### 1.16.3 (2024-10-31)
+- raise errors on unimplemented commands
+- wrong script upgrade
+
+### 1.16.2 (2024-10-31)
+- wrong default in script
+
+### 1.16.1 (2024-10-31)
+- fix base custom webcomp bindings
+
+### 1.16.0 (2024-10-30)
+- fix errors with script system, wrong parent used
+
+### 1.15.1 (2024-10-08)
+- fix typo in screenviewer
+
+### 1.15.0 (2024-10-08)
+- fixes in margin & padding
+- work on simpleScripts, add conditions
+- fix _getDomElements in screen viewer
+
 ### 1.14.0 (2024-09-18)
 - update npm packages
 

@@ -62,9 +62,9 @@ Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Obj
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
-### 0.2.8-beta.0 (2024-06-25)
+### 0.2.8 (2024-10-18)
 
-- improve amazon login
+- fix amazon login
 
 ### 0.0.30
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: kaEqfRlZYXy67B6ColPql3NQM2SZZLpg0x9VHCCS0RM=
+hash: m2PwMh6l9hfRq9laJ0nw9MD8VoT3HEmzp+Rv9Dd1w+c=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -25,17 +25,21 @@ Eine falsche Kommunikation oder das Einstellen falscher Werte kann die Funktiona
 
 Der Adapter basiert auf der Arbeit von:
 
-* meine eigene Bewertung und Recherche
+* meine eigene Auswertung und Recherche
 * https://github.com/tolwi/hassio-ecoflow-cloud
 * https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html
 * https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
 * https://konkludenz.de/de/ecoflow-wave2-smart-home-fähig-machen-mit-node-red-und-mqtt
 
-## Installation und Konfiguration
-Installieren Sie den Adapter von GitHub (der Adapter ist noch nicht im stabilen Repository).
+## Installation
+Der Adapter befindet sich in einem stabilen Repository und Sie können ihn daher installieren, indem Sie danach suchen.
+Wenn Updates verfügbar sind, sollten Sie diese installieren.
 
-![Einige weitere Details](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
+Wenn eine sehr neue Version verfügbar ist, kann es notwendig sein, eine benutzerdefinierte Installation von npm/github durchzuführen.
+In diesem Fall muss der Expertenmodus aktiviert werden, um Zugriff auf das „Octacat“-Symbol zu erhalten.
+![einige weitere Details](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
 
+## EF-Anmeldeinformationen
 Auf der Admin-Seite (erste Registerkarte) müssen die MQQT-Anmeldeinformationen für den MQQT-Broker eingegeben werden.
 
 * Benutzername – so etwas wie „app-…“
@@ -51,6 +55,7 @@ Es gibt 3 Möglichkeiten:
 
 Die MQQT-Broker-Einstellungen sind Standardeinstellungen und müssen normalerweise nicht geändert werden.
 
+## Geräteeinrichtung und -konfiguration
 Verwenden Sie die Registerkarte „Gerätekonfiguration“, um Ihre Ausrüstung hinzuzufügen.
 
 <details><summary><i>Parametrierung des Powerstreams</i></summary><p>
@@ -111,7 +116,7 @@ Verwenden Sie die Registerkarte „Gerätekonfiguration“, um Ihre Ausrüstung 
 <details><summary><i>Parametrierung des Power Kits und Hubs</i></summary><p>
 
 * eine neue Zeile hinzufügen
-* Stellen Sie die Geräte-ID des Power Kits so ein, wie in der App angezeigt, etwa „M10…“
+* Stellen Sie die Geräte-ID des Power Kits wie in der App angezeigt ein, etwa „M10…“
 * Gib ihm einen Namen
 * den Typ auf „Power Kit BP2000“ oder „Power Kit BP5000“ einstellen
 * wenn ein zweiter oder dritter Akku angeschlossen ist, dann markieren Sie ihn als Slave1 oder Slave2
@@ -140,7 +145,7 @@ Verwenden Sie die Registerkarte „Gerätekonfiguration“, um Ihre Ausrüstung 
 <details><summary><i>Parametrisierung des Gletschers</i></summary><p>
 
 * eine neue Zeile hinzufügen
-* Stellen Sie die Geräte-ID des Smart Plug so ein, wie in der App angezeigt, zum Beispiel „BX11ZCB...“
+* Stellen Sie die Geräte-ID des Smart Plug so ein, wie in der App angezeigt, etwa „BX11ZCB...“
 * Gib ihm einen Namen
 * setze den Typ auf „Gletscher“
 
@@ -148,7 +153,7 @@ Verwenden Sie die Registerkarte „Gerätekonfiguration“, um Ihre Ausrüstung 
 
 Verwenden Sie die Registerkarte „Homeassistant“ zum Einrichten der MQTT-Verbindung zu HA
 
-<details><summary><i>Parametrisierung des Homeassistant-Connectors</i></summary><p>
+<details><summary><i>Parametrisieren des Homeassistant-Connectors</i></summary><p>
 
 * den Dienst aktivieren
 * die Benutzereinstellungen des MQTT-Brokers von HA festlegen
@@ -163,7 +168,7 @@ Verwenden Sie die Registerkarte „Homeassistant“ zum Einrichten der MQTT-Verb
 </p></details>
 
 ## Aktualisieren des Adapters
-Normalerweise reicht es aus, die nächste Version über die alte zu installieren. In einigen Fällen (z. B. 1.0.0) kann es erforderlich sein, den gesamten Objektbaum zu löschen.
+Normalerweise reicht es aus, die nächste Version über die alte zu installieren. In manchen Fällen (z. B. 1.0.0) kann es erforderlich sein, den gesamten Objektbaum zu löschen.
 Wenn datenpunktbezogene Werte geändert werden, wie z. B. das Minimum oder Maximum des Bereichs, müssen Sie Folgendes tun:
 
 - Stoppen Sie den Adapter
@@ -203,7 +208,7 @@ Dies ist nicht unbedingt ein Fehler oder ein Hinweis auf einen nicht funktionier
 * Aufgrund der Asynchronität von Informationsaktualisierungen und Befehlsübertragungen können manchmal Race Conditions sichtbar werden. So kann beispielsweise ein Wechsel gesteuert werden und sein Hin- und Herschalten, bevor er stehen bleibt, beobachtet werden.
 * Neustart von HA wird im iobroker möglicherweise nicht richtig erkannt, daher ist ein manueller Neustart des Adapters erforderlich (WIP)
 
-## Implementierte Geräte
+## Implementierte Geräte und Struktur mit Datenpunkten
 einige Erläuterungen zu den Gerätedaten
 
 * Zahl -> Datenpunkt mit numerischem Wert
@@ -281,9 +286,14 @@ Wave ist nicht verfügbar, könnte implementiert werden, wenn Daten verfügbar s
 
 ## Haftungsausschluss
 Diese Open-Source-Software ist in keiner Weise mit der Firma Ecoflow verbunden oder wird von ihr unterstützt.
-Die Nutzung der Software erfolgt auf Ihr eigenes Risiko und nach eigenem Ermessen, und ich übernehme keine Haftung für mögliche Schäden oder Probleme, die durch die Nutzung der Software entstehen können. Es ist wichtig zu wissen, dass die Nutzung dieser Open-Source-Software ohne direkte Unterstützung oder Garantien der Firma Ecoflow erfolgt.
+Die Nutzung der Software erfolgt auf Ihr eigenes Risiko und nach eigenem Ermessen und ich übernehme keine Haftung für mögliche Schäden oder Probleme, die durch die Nutzung der Software entstehen können. Es ist wichtig zu wissen, dass die Nutzung dieser Open-Source-Software ohne direkte Unterstützung oder Garantien der Firma Ecoflow erfolgt.
 
 ## Changelog
+
+### 1.0.5 (npm)
+* (foxthefox) mppt.outWatts 500 -> 600; inverter_heartbeat.invOutputWatts 800 -> 810
+* (foxthefox) update of Readme (adapter now in stable)
+* (foxthefox) changes for responsive design #160
 
 ### 1.0.4 (npm)
 * (foxthefox) some more protobuf decoding for power ocean (ev pulse portion)

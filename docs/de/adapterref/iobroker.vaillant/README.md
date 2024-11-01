@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: 0S0upJibblOA6l9ZNY0BN0ASNBRryqHH3O/DxLiNUT4=
+hash: 5z/xxo7MdLkfdYiIUHp6Kt782i+8+qwlnxgq7AmmwEA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -20,17 +20,17 @@ hash: 0S0upJibblOA6l9ZNY0BN0ASNBRryqHH3O/DxLiNUT4=
 Vaillant multiMatic und myVaillant Adapter
 
 ### Erste Schritte
-Geben Sie in den Instanzoptionen Mail und Passwort der multimatic /senso oder myVaillant App ein.
+Geben Sie in den Instanzoptionen die E-Mail-Adresse und das Passwort der MultiMatic/Senso- oder myvaillant-App ein.
 
-Die Konfiguration kann geändert werden, indem sie unter dem Unterpunkt „Konfiguration“ angepasst wird. Manche Konfigurationen werden erst angewendet, wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
+Die Konfiguration kann geändert werden, indem sie unter dem Unterpunkt Konfiguration angepasst wird. Einige Optionen werden nur angewendet, wenn der Modus EIN oder MANUELL ist und nicht AUTO oder ZEITGESTEUERT.
 
 ## **Multimatic-Beispiel:**
-**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Zuerst auf MANUAL vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL. Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint und am Ende operation_mode auf ZEITGESTEUERT
+**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Zuerst auf MANUELL vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUELL dann Temperatur einstellen vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint und schließlich operation_mode auf ZEITGESTEUERT
 
-Parameter können über den Punkt parameterValue angepasst werden. Dabei beachten, welche Werte in der Objektdefinition erlaubt sind.
+Parameter können über den Parameterwertpunkt angepasst werden, dabei ist zu beachten, welche Werte in der Objektdefinition erlaubt sind.
 
 ## **Beispiel myVaillant:**
-vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false um Boost zu aktivieren oder zu deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um gewünschte Raumtemperatur einzustellen vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
 
 ## Remote-Befehle
 Für Aktualisieren und vordefinierte `vaillant.0.id.remote`
@@ -39,7 +39,7 @@ Für Aktualisieren und vordefinierte `vaillant.0.id.remote`
 Sie können eine benutzerdefinierte Command-Fernbedienung für nicht vordefinierte Fernbedienungen verwenden `vaillant.0.id.remotes.customCommand`
 
 ### Beispiele:
-## Die Zone kann von 0 bis X gehen. Bitte zone/0/ oder zone/2/ testen
+## Zonen können von 0 bis X reichen. Probieren Sie zone/0/ oder zone/2/ aus.
 zone/0/xxxx
 
 zone/1/xxxx
@@ -221,6 +221,17 @@ zone/2/xxxx
 
 ## Changelog
 
+### 0.7.3
+
+<!-- ### **WORK IN PROGRESS** -->
+- fix month stats period
+- initial english translation for documentation
+- formal cleanups for publishing process
+
+### 0.7.2 (2024-04-18)
+
+- fix month stats period
+
 ### 0.3.0
 
 - add boost
@@ -265,7 +276,7 @@ zone/2/xxxx
 
 MIT License
 
-Copyright (c) 2020 TA2k <tombox2020@gmail.com>
+Copyright (c) 2020-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

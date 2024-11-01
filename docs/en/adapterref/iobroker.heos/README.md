@@ -144,6 +144,20 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (withstu) improve group state updates
+
+### 2.2.4 (2024-10-31)
+* (withstu) improve tidal connect workaround
+
+### 2.2.3 (2024-10-30)
+* (withstu) fix audio format
+
+### 2.2.2 (2024-10-30)
+* (withstu) add workaround for tidal connect sid = 0 bug and fix audio format
+* (withstu) increase minimum node.js version to recommended version 18
+* (withstu) project maintenance
+
 ### 2.2.1 (2024-01-14)
 * (withstu) add workaround for node 19+ ECONNRESET bug #299
 

@@ -65,6 +65,10 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.4.1 (2024-10-29)
+
+* (@klein0r) Limit frame duration to 10 seconds (limited by LaMetric)
+
 ### 3.4.0 (2024-09-06)
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
@@ -83,11 +87,6 @@ Features are limited by the [official API features](https://lametric-documentati
 ### 3.2.2 (2024-07-13)
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.1)
-
-### 3.2.1 (2024-06-12)
-
-* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
-* (@klein0r) Updated dependencies
 
 ## License
 

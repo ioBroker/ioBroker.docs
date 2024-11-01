@@ -172,6 +172,12 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 2.3.1 (2024-10-18)
+
+* (Sickboy78) improved responsive design for admin page
+* (Sickboy78) added nodejs 22 to test matrix
+* (Sickboy78) dependency updates
+
 ### 2.3.0 (2024-09-14)
 
 * (Sickboy78) improved handling of missing, invalid or incomplete data from API

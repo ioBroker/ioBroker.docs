@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.notification-manager/README.md
-title: ioBroker.notification-manager
-hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
+title: ioBroker.Benachrichtigungs-Manager
+hash: 6DCRrUYRYkWX5WRD5rVWvyOwZ0X6vqzzshhOrNp6tTc=
 ---
 ![Logo](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
@@ -13,29 +13,34 @@ hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/notification-manager-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.notification-manager.png?downloads=true)
 
-# IoBroker.notification-manager
-**Tests:** ![Test und Freigabe](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.Benachrichtigungsmanager
+**Tests:** ![Testen und Freigeben](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
 
-## Notification-Manager-Adapter für ioBroker
-Verwalten Sie ioBroker-Benachrichtigungen, z. indem Sie sie als Nachrichten senden
+## Benachrichtigungsmanager-Adapter für ioBroker
+Verwalten Sie ioBroker-Benachrichtigungen, z. B. indem Sie sie als Nachrichten senden
 
 ### Allgemeine Beschreibung
-Dieser Adapter ermöglicht die Umleitung der ioBroker-internen `Notifications` auf Messenger-Adapter, die die `Notification System` unterstützen. Sollte Ihnen ein Adapter fehlen, eröffnen Sie bitte ein Ticket für den entsprechenden Adapter.
+Dieser Adapter ermöglicht die Umleitung des ioBroker-internen `Notifications` auf Messenger-Adapter, die `Notification System` unterstützen. Falls Sie einen Adapter vermissen, eröffnen Sie bitte ein Ticket für den entsprechenden Adapter.
 
-### Aufbau
-Für jeden `category` können Sie konfigurieren, ob der `category` aktiv sein soll. Wenn die Kategorie nicht aktiv ist, verarbeitet der `notification-manager` nichts für diesen spezifischen `category`.
+### Konfiguration
+Für jedes `category` können Sie konfigurieren, ob das `category` aktiv sein soll. Wenn die Kategorie nicht aktiv ist, wird das `notification-manager` für dieses spezifische `category` nichts ausführen.
 
-Zusätzlich können Sie konfigurieren, ob die `notification-manager` bestimmte `categories` unterdrücken sollen. Wenn ein `notification` für einen unterdrückten `category` registriert ist, löscht der Adapter diesen `notification` sofort, ohne Ihnen Nachrichten zu senden.
+Zusätzlich können Sie konfigurieren, ob die `notification-manager` bestimmte `categories` unterdrücken sollen. Wird eine `notification` für eine unterdrückte `category` eingetragen, löscht der Adapter diese `notification` sofort, ohne Ihnen eine Meldung zu senden.
 
 Schließlich können Sie unterstützte Messaging-Adapter konfigurieren. Immer wenn ein neuer `notification` für einen `active` (und `non-suppressed`) `category` generiert wird, sendet der Adapter den `notification` über den ersten konfigurierten Adapter. Wenn das Senden der Nachricht erfolgreich war, löscht der `notification-manager` den `notification`. Wenn das Senden nicht erfolgreich war, wird es mit dem zweiten Adapter erneut versucht.
 
-Wenn eine Kategorie `active` ist, aber noch keine spezifischen Einstellungen konfiguriert wurden, verwendet der Adapter die konfigurierten Fallback-Einstellungen. Neue Kategorien sind standardmäßig immer `active`, um sicherzustellen, dass Sie benachrichtigt werden. Dies bedeutet, dass immer dann, wenn ein neuer `category` von einem Adapter implementiert wird, die Fallback-Einstellungen für den angegebenen `severity` angewendet werden.
+Wenn eine Kategorie `active` ist, aber noch keine spezifischen Einstellungen konfiguriert hat, verwendet der Adapter die konfigurierten Fallback-Einstellungen. Neue Kategorien sind standardmäßig immer `active`, um sicherzustellen, dass Sie benachrichtigt werden. Das bedeutet, dass immer, wenn ein Adapter eine neue `category` implementiert, die Fallback-Einstellungen für die angegebene `severity` angewendet werden.
 
-### Registrieren benutzerzentrierter Benachrichtigungen
+Sie können außerdem nur `suppress` als Kategorie definieren. `notification-manager` bestätigt dann lediglich die Benachrichtigung, so dass diese nicht in Ihrem System erscheint.
+
+Seit Version 7 des js-controllers haben Adapter die Möglichkeit, Benachrichtigungen zusätzliche `contextData` hinzuzufügen. Dies wird beispielsweise verwendet, um bestimmte Aktionen für den Benutzer in der Admin-GUI anzuzeigen. Standardmäßig sendet Ihnen `notification-manager` diese Benachrichtigungen und löscht sie __NICHT__, sodass diese für spätere Benutzerinteraktionen erhalten bleiben. Wenn Sie jedoch entscheiden, dass Sie solche Interaktionen für bestimmte `category` nicht benötigen, können Sie sie über das Kontrollkästchen deaktivieren.
+
+### Benutzerzentrierte Benachrichtigungen registrieren
 Als Benutzer wissen Sie im besten Fall, wann Sie über bestimmte Situationen in Ihrem System benachrichtigt werden möchten.
-Somit bietet Ihnen `notification-manager` eine Schnittstelle zum Registrieren Ihrer eigenen Benachrichtigungen im ioBroker-Benachrichtigungssystem. Es werden drei Kategorien unterstützt, eine für jeden Schweregrad `notify`, `info` und `alert`.
 
-Die Benachrichtigungen können über `sendTo` registriert werden
+Daher bietet Ihnen `notification-manager` eine Schnittstelle, um Ihre eigenen Benachrichtigungen im ioBroker-Benachrichtigungssystem zu registrieren. Es werden drei Kategorien unterstützt, eine für jeden Schweregrad `notify`, `info` und `alert`.
+
+Die Benachrichtigungen können über `sendTo` registriert werden.
 
 ```ts
 (async () => {
@@ -48,7 +53,7 @@ Die Benachrichtigungen können über `sendTo` registriert werden
 ```
 
 ### Anforderungen für Messaging-Adapter
-Bitte setzen Sie in Ihren `io-package.json` das Flag `common.supportedMessages.notifications` auf `true`.
+Bitte setzen Sie in Ihrem `io-package.json` das Flag `common.supportedMessages.notifications` auf `true`.
 
 Immer wenn eine neue Benachrichtigung über den Messaging-Adapter zugestellt werden soll, sendet `notification-manager` eine Nachricht an die konfigurierte Instanz.
 
@@ -88,16 +93,29 @@ Die Nachrichten bestehen aus dem Befehl `sendNotification` und einer Nachricht m
 ```
 
 Dabei zeigt `category.instances` die betroffenen Adapterinstanzen für diese Benachrichtigung an.
-Darüber hinaus verfügt die Kategorie über eine i18n-Beschreibung und einen i18n-Namen.
-Für den Bereich der Kategorie gelten dieselben Eigenschaften. Zusätzlich ist der betroffene Host enthalten.
+Zusätzlich verfügt die Kategorie über eine i18n-Beschreibung und einen i18n-Namen.
+Die gleichen Eigenschaften gelten für den Umfang der Kategorie. Zusätzlich ist der betroffene Host enthalten.
 
-Nach dem Absenden der Benachrichtigung erwartet der `notification-manager` eine Antwort mit der Eigenschaft `{ sent: true }`, sofern der Messaging-Adapter die Benachrichtigung zustellen konnte, andernfalls sollte er mit `{ sent: false }` antworten.
+Nach dem Senden der Benachrichtigung erwartet der `notification-manager` eine Antwort mit der Eigenschaft `{ sent: true }`, wenn der Messaging-Adapter die Benachrichtigung zustellen konnte, andernfalls sollte er mit `{ sent: false }` antworten.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-10-10)
+* (@foxriver76) by default we do not delete notifications with `contextData`
+* (@foxriver76) added checkbox to also delete notifications with `contextData` for specific categories
+
+### 1.2.1 (2024-08-29)
+* (@foxriver76) fixed issue if host name contains `.`
+
+### 1.2.0 (2024-08-05)
+* (@klein0r) Added Blockly blocks
+
+### 1.1.2 (2024-05-02)
+* (foxriver76) made logging a bit more silent
+
 ### 1.1.1 (2024-03-16)
 * (foxriver76) added possibility to suppress messages
 * (foxriver76) fixed issue that bottom of settings page is shown behind toolbar

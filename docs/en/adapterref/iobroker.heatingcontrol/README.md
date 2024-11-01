@@ -282,8 +282,9 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.12.11 (2024-10-21)
 * (René) see issue #611: test with nodejs@22
+* (René) see issue #617: bug fix: TemperaturOverrideRemainingTime is not correct after Override interruption
 
 ### 2.12.10 (2024-08-18)
 * (René) update dependencies

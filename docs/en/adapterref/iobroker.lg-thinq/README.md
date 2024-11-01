@@ -493,8 +493,11 @@ When one of the 3 data points is filled, the selected program is written to the 
 
 [Summary](#summary)
 
--   `remote.basicCtrl.operation` 0 for off
--   `remote.basicCtrl.operation` 1 for on
+-   `remote.basicCtrl.operation` 0 for off and 1 for on
+-   `remote.basicCtrl.opMode` 0 for off and 4 for on
+-   `remote.basicCtrl.hotWater` 0 for off and 1 for on
+-   `remote.basicCtrl.hotWaterTarget` desired temperature
+-   `remote.basicCtrl.powerHotWater` Boost 0 for off and 1 for on
 -   `remote.basicCtrl.target` desired temperature
 
 -   If the error message 400 appears in the log, then this data point is not compatible with the device.
@@ -751,6 +754,11 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added hotwater for device 406 & 401
+-   (Lucky-ESA) Dependencies updated
+
 ### 1.0.2 (2024-09-10)
 
 -   (Lucky-ESA) Dependencies updated
@@ -790,38 +798,6 @@ lg-thinq.0.xxx.area must be filled!
 ### 0.3.1 (2023-12-20)
 
 -   (Lucky-ESA) Fixed crash thinq1 interval
-
-### 0.3.0 (2023-12-15)
-
--   (Lucky-ESA) Added device 406 (heat pump)
--   (Lucky-ESA) Added description
--   (Lucky-ESA) Added new thinq1 interval
--   (Lucky-ESA) Added statistic for thinq1 device 401
--   (Lucky-ESA) Bugfixe
-
-### 0.2.0
-
--   (Lucky-ESA) Added automatic terms acceptance
--   (Lucky-ESA) Added 401 Thinq1 device
--   (Lucky-ESA) Added 101 Thinq1 device
--   (TA2k) Bugfix
-
-### 0.1.4
-
--   (TA2k) Added warning for not supported devices
-
-### 0.1.1
-
--   (TA2k) Added AC Device 401 thinq2
--   (TA2k) Bugfix
-
-### 0.1.0
-
--   (TA2k) Added MQTT connection for live status updates
-
-### 0.0.3
-
--   (TA2k) initial release
 
 ## License
 

@@ -1,4 +1,5 @@
 ![Logo](admin/bestway.png)
+
 # ioBroker.bestway
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.bestway.svg)](https://www.npmjs.com/package/iobroker.bestway)
@@ -16,25 +17,32 @@
 Adapter for Bestway Smart Hub
 
 ## Loginablauf:
+
 Die Bestway Smart Hub App Mail und Passwort eingeben.
 
 ## Steuern
+
 bestway.0.id.remote auf true setzen steuert den jeweiligen Befehl
 
 ## Diskussion und Fragen:
+
 https://forum.iobroker.net/topic/48023/test-adapter-bestway-v0-0-x
 
 ## Changelog
 
-### 0.0.4
+### 0.0.5
+
 Support for v2 pump version
+
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

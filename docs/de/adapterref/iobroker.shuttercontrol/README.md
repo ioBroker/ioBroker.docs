@@ -792,6 +792,15 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Issue Info added
+* (simatec) Dependencies updated
+
+### 1.8.3 (2024-10-16)
+* (simatec) Fix Alarm
+* (simatec) Fix Design
+* (simatec) Dependencies updated
+
 ### 1.8.2 (2024-09-23)
 * (simatec) Responsive design Fix
 

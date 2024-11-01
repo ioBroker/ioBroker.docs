@@ -26,6 +26,10 @@ Not all plant types are implemented.
 
 Currently only data can be read, writing parameters or changing parameters is not possible.
 
+### Can I spend a coffee?
+
+Of course if you like my work via Paypal to PLChome _at_ fontanestr _dot_ de
+
 ---
 
 ## Adapter admin page
@@ -363,6 +367,17 @@ Therefore, the description has also been removed.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 3.3.1 (2024-10-26)
+
+- (PLCHome) Added ac charge for TLXH. Thanx to olli0815!
+- (PLCHome) Added time slots for TLXH. Thanks to olli0815 for debugging and support.
+- (PLCHome) Added Inverter On Off for TLX und TLXH. Thanks to olli0815 for debugging and support.
+
+### 3.3.0 (2024-10-25)
+
+- (PLCHome) Added time slots for TLXH. Thanks to olli0815 for debugging and support.
+- (PLCHome) Added Inverter On Off for TLX und TLXH. Thanks to olli0815 for debugging and support.
 
 ### 3.2.5 (2024-08-13)
 

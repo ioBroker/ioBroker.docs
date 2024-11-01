@@ -23,6 +23,18 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.5.3 (2024-10-30)
+* (BenAhrdt) add roles
+
+### 1.5.2 (2024-10-28)
+* (BenAhrdt) add new standard types / add new Roles / update core to 3.2.2
+
+### 1.5.1 (2024-10-17)
+* (BenAhrdt) remove some wrong loggings
+
+### 1.5.0 (2024-10-17)
+* (BenAhrdt) add some notifications for devices back online
+
 ### 1.4.2 (2024-09-27)
 * (BenAhrdt) add informations about delete an custom entry in config
 

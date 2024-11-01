@@ -235,6 +235,14 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2024-10-16)
+
+* (crycode-de) Node >= 18, js-controller >= 5.0.19 required
+* (crycode-de) Fixed possible issue on sensor search
+* (crycode-de) Small style fixes for jsonConfig
+* (crycode-de) Updated dependencies
+* (crycode-de) Refactored some code parts
+
 ### 2.0.5 (2023-10-29)
 
 * (crycode-de) Fixed cosmetic issue in config UI
@@ -252,14 +260,9 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
 * (crycode-de) Fixed bug on sensor migration
 * (crycode-de) 💥 Need to set a new remote encryption key in admin if remote sensors are used
 
-### 2.0.1 (2023-07-19)
-
-* (crycode-de) Fixed config migration
-* (crycode-de) Added warning message for upgrades
-
 ## License
 
-Copyright (c) 2019-2023 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
 
 ### MIT License
 

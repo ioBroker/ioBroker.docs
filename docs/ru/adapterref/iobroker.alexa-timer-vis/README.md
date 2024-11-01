@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-таймер-vis
-hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
+hash: PoPGCiiNOaxmME8+nBj39vGMIWOlIEU2r/6oGFqRm4Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -17,6 +17,8 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 **Тесты:** ![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## Alexa-timer-vis адаптер для ioBroker
+Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчет об ошибках, см. документацию Sentry-Plugin! Отчеты Sentry используются, начиная с js-controller 3.0.
+
 Вывод таймера Alexa для отображения в vis
 
 **Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
@@ -58,9 +60,22 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.3 (2024-09-13)
+### 2.0.6 (2024-10-19)
+
+-   FEAT: #151 Responsive Design
+
+### 2.0.5 (2024-09-26)
+
+-   FIX: #142 Timeout error
+-   FIX: #137 Reset timer name
+-   FEAT: Add json state
+
+### 2.0.4 (2024-09-18)
 
 -   FIX: #132 Second timer button reset deletes timer one
+
+### 2.0.3 (2024-09-13)
+
 -   FIX: #133 Timer names are not correct
 -   FIX: #134 All timer alive at start
 
@@ -170,15 +185,15 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 
 ### 0.0.3 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.2 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.1 (25.12.2021)
 
--   (Michael Roling) initial release
+-   initial release
 
 ## License
 

@@ -78,6 +78,10 @@ In this case please enter the state for your installation contactor and whetheri
 If you own a battery storage please fill in the options here. By specifiying states for surplus and regard of your battery storage, this adapter can control whether
 battery storage should be used for charging your vehicle or not, depenent from the strategy preficied in the options.
 
+### german §14a EnWG power limitation
+
+Due to german §14a EnWG there's an option to limit charging station to max. 6A fix or dynamically to regard of 3x6A (4.140 watts)
+
 ### power limitation
 
 You can also limit max. power of your wallbox to limit main power. E.g. when running night-storage heaters you might have to respect a maximum power limitation.
@@ -106,6 +110,12 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Sneak-L8) new option to limit charging station according to german §14a EnWG
+* (Sneak-L8) enable currTime for manual use and X2 even in passive mode
+* (Sneak-L8) minimum verison für js-controller now 5.0.19
+* (Sneak-L8) set currTimer timeout default value from 0 to 1
+
 ### 2.2.0 (2024-06-23)
 * (mcm1957) Adapter requires nodejs >= 18 and js-controller >= 5 now.
 * (mcm1957) Dependencies have been updated.

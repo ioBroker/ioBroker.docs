@@ -27,7 +27,15 @@ Use id.remote.\* to control the mower
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (simatec) Admin-UI has been adapted for small displays.
+
+### 1.2.2 (2024-10-18)
+
+- (TA2k) fix login
+
 ### 1.2.0 (2024-04-03)
+
 - (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
 
@@ -63,7 +71,7 @@ Use id.remote.\* to control the mower
 
 MIT License
 
-Copyright (c) 2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

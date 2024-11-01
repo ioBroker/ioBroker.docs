@@ -15,11 +15,11 @@
 This adapter connects the [BSB_LAN Interface](https://github.com/fredlcore/bsb_lan) to ioBroker.
 The BSB_LAN Interface brings the BSB (Boiler System Bus) to LAN. This adapter connects it to ioBroker.
 
-[BSB_LAN Interface User manual](https://github.com/1coderookie/BSB-LPB-LAN)
+[BSB_LAN Interface User manual](https://docs.bsb-lan.de)
 
 ## Supported devices
 - BSB/LPB compatible devices (e.g. Brötje, Elco, MHG, Fujitsu)
-- see for details: [Supported Devices](https://github.com/1coderookie/BSB-LPB-LAN)
+- see for details: [Supported Devices](https://docs.bsb-lan.de/supported_heating_systems.html)
 
 ## Usage
 - BSB_LAN Interface is up and running

@@ -1,6 +1,7 @@
 ![Logo](admin/cloudflare.png)
 # ioBroker.cloudflare
 
+[![ko-fi support](https://img.shields.io/badge/support-me-ff5e5b?style=flat-square&logo=ko-fi)](https://ko-fi.com/marco15453)
 [![NPM version](https://img.shields.io/npm/v/iobroker.cloudflare.svg)](https://www.npmjs.com/package/iobroker.cloudflare)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.cloudflare.svg)](https://www.npmjs.com/package/iobroker.cloudflare)
 ![Number of Installations](https://iobroker.live/badges/cloudflare-installed.svg)
@@ -18,6 +19,11 @@ Automatically updates the registered domain name at Cloudflare with your public 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2024-10-20)
+* Added NodeJS v22 to Workflows
+* Updated README
+* Fixes #14
+
 ### 1.2.1 (2024-08-16)
 * Fixed Axios High Vulnerability Issue detected by Dependabot
 

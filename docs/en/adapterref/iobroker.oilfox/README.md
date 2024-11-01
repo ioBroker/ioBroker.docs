@@ -22,6 +22,12 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.3.1 (2024-10-28)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Testing for node.js 22 has been added.
+- (mcm1957) Missing translations have been added.
+- (mcm1957) Dependencies have been updated.
+
 ### 4.3.0 (2024-04-21)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated

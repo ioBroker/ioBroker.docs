@@ -22,6 +22,7 @@ In parallel **reading and writing of data points** is supported. Informations no
 Writing of data is triggered by storing the corresponding state with `Acknowledged` not checked (ack=false) - yes, it's that simple! The data point will be read again from device and stored in the state 2.5 seconds after writing. If state not get's acknowledged, please take a look to the logs.
 
 Writing is restricted to a set of data points using a **white list**. The list is stored in the info section of each device, e.g. at `e3oncan.0.vitocal.info.udsDidsWritable`. You can add more data points by editing this state. Make sure, **not** to check `Acknowledged` when saving the state.
+Some data points cannot be changed, even if they are whitelisted. The device then returns a "negative response" code. In such a case, the adapter repeats the write process with another service. This only works on the internal CAN bus. However, this approach can also fail. In general, write processes should always be checked.  
 
 During first start of adapter instance a device scan will be done providing a list of all available E3 devices for configuration dialog (energy meters are not listed).
 A scan for data points of each E3 device should be done during first setup, details see below.
@@ -34,34 +35,32 @@ Important parts of this adpater are based on the project [open3e](https://github
 
 A python based implementation of a pure listening approach (Collect only) using MQTT messaging is also availabe, see [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
-Note: Support for **Node.js 22** not fully tested yet!
-
 # Getting started
 
 **Preconditions:**
-* You have a (USB to) CAN bus adapter connected to external CAN bus of Viessmann E3 device
+* You have a (USB to) CAN bus adapter connected to external or internal CAN bus of Viessmann E3 device
 * Currently only Linux based systems are supported.
 * CAN adapter is up and visible in system, e.g. as "can0" (use ifconfig to check).
-* Refer to open3e project for further details
-* **Make sure, no other UDSonCAN client (e.g. Open3Eclient.py) is running during initial setup!** This could cause communication errors in both applications.
+* Refer to [open3e project](https://github.com/open3e/open3e/wiki/020-Inbetriebnahme-CAN-Adapter-am-Raspberry) for further details
+* **Make sure, no other UDSonCAN client (e.g. open3e) is running during initial setup!** This could cause communication errors in both applications.
 
 All services provided by this adapter are based on device list of your specific Viessmann E3 setup. Therefore you have to follow following steps for first setup:
 
 **Configuration**
-* When installation of adapter has finished a confuration dialog will show up to configure up to two CAN bus adapters (tab "CAN ADAPTER")
-* Edit name of adapter and check the "Connect to adapter" checkbox at least for the external adapter
+* When installation of adapter has finished a configuration dialog will show up to configure up to two CAN bus adapters (tab "CAN ADAPTER")
+* Edit name of CAN adapter and check the "Connect to adapter" checkbox at least for one CAN adapter
 * When you're done, press "SAVE" button to apply the changes. This step is **mandatory**. The instance will restart and connect to the CAN adapter.
 * Go to tab "LIST OF UDS DEVICES" and do a scan for devices available on bus by pressing the scan button. **This will take a few seconds.** You may watch the activities in a 2nd browser tab by looking on the logging info of the adapter.
 * You may change the naming of the devices at 2nd column. Those names will be used to store all collected data in ioBoker's object tree. Again press "SAVE" button when you did your changes.
 * Instance will restart again and after a few seconds you are ready to do a scan for available data points. Go to tab "LIST OF DATA POINTS", press button "Start scan ..." and confirm with "OK". **Please be patient** - this may take **up to 5 minutes**. You may watch the progress in a 2nd browser tab by looking on the logging info of the adapter.
-This step is not mandatory but strongly recomended. If you would like to write to data points you need to do a data point scan first.
+This step is not mandatory but strongly recommended. If you would like to write to data points you need to do a data point scan first.
 * When data point scan was completed successfully, the data points are available in the object tree for each device. You may view the data points in configuration by selecting a device and pressing button "Update list of data points". Press filter symbol and type search pattern to filter for name and/or codec. This is for your information only. Please deactivate filtering before selecting another device to avoid error messages.
-* Last step is to configure schedules for collecting data on tab "ASSIGNMENTS TO EXTERNAL CAN ADAPTER".
+* Last step is to configure schedules for requesting data on tab "ASSIGNMENTS TO UDS CAN ADAPTER".
 * For **energy meters** (if available in your setup) you just can activate or not. Please notice the value "Min. update time (s)". Updates to single data points are done no faster than the given value (default is 5 seconds). By choosing zero every received data will be stored. Since energy meters are sending data very fast (more than 20 values per second), it's recommended not to use zero here. This would put a high load on the ioBroker system.
 * If you have connected E3 devices via CAN bus, e.g. Vitocal and VX3, you can collect data exchanged between those devices in realtime by listening. Press "+" to add a line, check "active" chackbox, select a device and edit "Min. update time (s)". It's feasable to use 0s here, however, I recommend to keep to the 5s.
 * Finally, you may add schedules for requesting data via UDSonCAN protocol. Again press "+" button and edit the settings. You may have several schedules on each device. By this you can request some data points more often than others. Default value of 0 for "Schedule (s)" means, those data points will be requested just once during startup of the instance.
 You may use data points informations on tab "LIST OF DATA POINTS" for reference (opening on 2nd tab could help).
-* If you have configured a CAN adapter connected to the **internal CAN bus**, a tab "ASSIGNMENTS TO INTERNAL CAN ADAPTER" is visible. Please configure the devices for colletion there. UDSonCAN is not supported on internal CAN bus by E3 devices.
+* If you have configured a CAN adapter connected to the **second CAN bus**, a tab "ASSIGNMENTS TO SECOND CAN ADAPTER" is visible. Please configure the devices for colletion there.
 * That's it. Press "SAVE & CLOSE" button and check the data collected in object tree.
 
 # E380 data and units
@@ -112,7 +111,7 @@ CAN-address=98: data points with odd IDs
 * Therfore from my point of view, combination of both methods is best approach.
 
 ## Limitation of collecting data
-* At present, the communication protocol is known only for Vitocal (listener on CAN id 0x693 on internal CAN), Vitocharge VX3 and Vitoair (both listener on CAN id 0x451 on external CAN).
+* At present, the communication protocol is known only for Vitocal (listener on CAN id 0x693 on internal CAN), Vitocharge VX3 and Vitoair (both listener on CAN id 0x451 on external and internal CAN).
 
 ## What is different to open3e project?
 * Obviously, the main differece is the direct integration to ioBroker. Configuration can be done via dialogs, data get's directly listed in object trees.
@@ -130,6 +129,13 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.1 (2024-10-20)
+* (MyHomeMyData) Fixes for issue #79 (improvements for usability on mobile devices)
+
+### 0.10.0 (2024-10-14)
+* (MyHomeMyData) Added extended support for writing of data points.
+* (MyHomeMyData) Changed naming for CAN adapter.
+
 ### 0.9.5 (2024-09-19)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20240916
 

@@ -24,7 +24,6 @@ Some interesting things are explained in the [wiki](https://github.com/bolliy/io
 Feel free to follow the discussions in the [german iobroker forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
 ## Inspiration
-
 The development of this adapter was inspired by discussions from the forum thread https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert and the iobroker javascript https://github.com/ChrisBCH/SunLuna2000_iobroker.
 
 Work in progress
@@ -35,6 +34,32 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* read additional register data of Huawei Emma
+
+### 0.15.2 (2024-10-30)
+* EMMA Device was not initialized
+
+### 0.15.1 (2024-10-28)
+* SDongle data was not written as object states
+* adjust the adapter settings
+
+### 0.15.0 (2024-10-24)
+* dependency and configuration updates
+* display a clearly legible table bar #121
+* modbus-proxy write data also to the read cache #119
+
+### 0.14.0 (2024-10-20)
+* adjust for Responsive Design #121
+* lock on asynchronous modbus code
+* writing data ​​via the modbus-proxy #119
+* read additional register data of Huawei Emma
+
+### 0.13.0 (2024-10-11)
+* improve Modbus reconnection #116
+* configuration update
+* initial Integration of Huawei Emma (Huawei Energy Management Assistant) #63
+
 ### 0.12.1 (2024-09-29)
 * no warning from check the valid number during standby: "no irradiation"
 

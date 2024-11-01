@@ -18,7 +18,9 @@ You can customize the output of the feed with a template system. In the template
 
 Important: Only the english translation is valid due to bugs in automatic translations into other languages made by iobroker
 
-## Add an Instance
+## Installation
+
+Install the adapter as normal from the stable repository. If you want to test new features or bug fixes you can also install the adapter from the beta repository. For Features and news, please see the Test and Support thread for this adapter in the iobroker forum.
 
 After Installation the adapter should then be displayed in the adapter section in the iobroker.
 Sometimes it happens that the changes are not visible, especially with web changes (widgets / configuration dialog), the following command may have to be executed on the command line:
@@ -40,40 +42,40 @@ The configuration is easy. There are only a few fields
 
 Then for each new feed:
 
-| Setting       | description                                                                                    |
-| ------------- | ---------------------------------------------------------------------------------------------- |
-| Name          | A name for the datapoint. Inside a folder a name must not appear twice.                        |
-| Category      | Name for a subfolder there the datapoint should appear. The category must be unique            |
-| Url           | The full address of the feed (with http: // or https: //, see examples below)                  |
-| Refresh (min) | A different value can be specified for this feed. Otherwise the general specification is taken |
-| Max Articles  | A different value can be specified for this feed. Otherwise the general specification is taken |
+| Setting       | description                                                                                                                                                |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name          | A name for the datapoint. Inside a folder a name must not appear twice.                                                                                    |
+| Category      | Name for a subfolder there the datapoint should appear.                                                                                                    |
+| Url           | The full address of the feed (with http: // or https: //, see examples below)                                                                              |
+| Refresh (min) | Time to refres/load the feed. A different value can be specified for this feed. Otherwise the general specification is taken                               |
+| Max Articles  | Number of Articles thare should be saved int the datapoint. A different value can be specified for this feed. Otherwise the general specification is taken |
 
 If you saved and closed the configuration, the feed-data can be found as a JSON data point in the object tree.
-If you delete an entry, the datapoints aren't deleted.
+If you delete an entry, the datapoints aren't deleted automatically.
 
 ## vis and widgets
 
 The following widgets actually exists
 
-- `RSS Feed widget 2` - to show a single feed
-- `RSS Feed Multi widget 3` - to show several aggregated feeds in one widget.
-- `RSS Feed Meta Helper` - a helper widget to inspect the metadata of a feed
-- `RSS Feed Article Helper 2` - a helper widget to inspect the article data of a feed
-- `RSS Feed Title marquee 3` - a widget to show the Headlines of a feed as a marquee
-- `JSON Template` - a widget that have nothing todo with RSS Feeds, but uses the same technology, and you can define a custom template to show any JSON-Data in vis.
+- [`RSS Feed widget 2`](#rss-feed-widget-2) - to show a single feed
+- [`RSS Feed Multi widget 3`](#rss-feed-multi-widget-3) - to show several aggregated feeds in one widget.
+- [`RSS Feed Meta Helper`](#rss-feed-meta-helper) - a helper widget to inspect the metadata of a feed
+- [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - a helper widget to inspect the article data of a feed
+- [`RSS Feed Title marquee 3`](#rss-feed-title-marquee-3) - a widget to show the Headlines of a feed as a marquee
+- [`JSON Template`(#json-template)] - a widget that have nothing todo with RSS Feeds, but uses the same technology, and you can define a custom template to show any JSON-Data in vis.
 
 ### RSS Feed widget 2
 
-This widget can be used to display the RSS feeds subscribed to in the adapter's configuration dialog. A template system was chosen to ensure the best possible display. Descriptions of the formatting and syntax can be found on the following pages.
+This widget can be used to display the RSS feeds subscribed to in the adapter's configuration dialog.
+With a template system, the output can be customized as desired. A simple standard template is already provided.
+Descriptions of the formatting and syntax can be found on the following pages.
 
-#### Attribut rss_oid
-
-Selecting the data point with the corresponding RSS feed.
-
-#### Attribut rss_template
-
-The template determines the appearance of the RSS feed. All valid HTML tags (including CSS attributes in style tags) can be used in the template.
-In addition, there are special tags within which the feed data is displayed and JavaScript instructions can be executed. In order to better identify the data and the attribute names used, there are two widgets, rssfeed Meta helper and rssfeed Article helper.
+| Setting         | description                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_oid         | Selecting the data point with the corresponding RSS feed.                                                                                                                                                                                                                                                                                                                                                            |
+| rss_template    | The template determines the appearance of the RSS feed. All valid HTML tags (including CSS attributes in style tags) can be used in the template. In addition, there are special tags within which the feed data is displayed and JavaScript instructions can be executed. In order to better identify the data and the attribute names used, there are two widgets, rssfeed Meta helper and rssfeed Article helper. |
+| rss_maxarticles | The maximum number of individual articles displayed from the RSS feed                                                                                                                                                                                                                                                                                                                                                |
+| rss_filter      | For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;). The following article attributes are searched for the search: title, description, categories. Only articles that contain one of these terms are displayed.                                                                                                                                            |
 
 **Availability of variable:**
 
@@ -86,16 +88,6 @@ For more details about these variables, see chapter **Available variables**
 
 For details on the template system, see chapter Template based on examples
 
-#### Attribute rss_maxarticles
-
-The maximum number of individual articles displayed from the RSS feed
-
-#### Attribute rss_filter
-
-For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;).
-The following article attributes are searched for the search: title, description, categories.
-Only articles that contain one of these terms are displayed.
-
 ### RSS Feed Multi widget 3
 
 With this widget, several feeds can be aggregated in one feed.
@@ -104,16 +96,16 @@ The meta variable is not available in the template. However, 3 meta attributes t
 In addition, a general name can be assigned to each feed in the settings, which is available within the template under the name meta_name in each article so that the origin of an article can be identified.
 Otherwise, the same rules apply to the template as for the RSS feed widget.
 
-#### Attribute rss_feedCount - General group
-
-Here you can set the number of feeds to be configured. A separate group for configuration is created in vis for each feed.
-
-#### Attribut rss_template
-
-The template determines the appearance of the RSS feed. All valid HTML tags (including CSS attributes in style tags) can be used in the template.
-In addition, there are special tags within which the feed data is displayed and JavaScript instructions can be executed. In order to better identify the data and the attribute names used, there are two widgets, rssfeed Meta helper and rssfeed Article helper.
-
-For details on the template system, see chapter Template based on examples
+| Setting         | Group               | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_feedCount   | General group       | Here you can set the number of feeds to be configured. A separate group for configuration is created in vis for each feed.                                                                                                                                                                                                                                                                                                                                                                      |
+| rss_template    |                     | The template determines the appearance of the RSS feed. All valid HTML tags (including CSS attributes in style tags) can be used in the template. In addition, there are special tags within which the feed data is displayed and JavaScript instructions can be executed. In order to better identify the data and the attribute names used, there are two widgets, rssfeed Meta helper and rssfeed Article helper. For details on the template system, see chapter Template based on examples |
+| rss_dpCount     | General group       | Here you can specify the number of additional data points that should be made available within the template.                                                                                                                                                                                                                                                                                                                                                                                    |
+| rss_dp[number]  | General group       | Here you can select the respective data point. The data point is available within the template under the variable dp. This means that a data point can be retrieved within the template as follows.For details on these variables, see chapter Available variables                                                                                                                                                                                                                              |
+| rss_oid         | Group feeds[number] | Selection of the data point with the corresponding RSS feed.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| rss_name        | Group feeds[number] | Here you can enter a name that will be made available in the template for each article under the attribute name meta_name.                                                                                                                                                                                                                                                                                                                                                                      |
+| rss_maxarticles | Group feeds[number] | The maximum number of individual articles displayed from the RSS feed                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| rss_filter      | Group feeds[number] | For more details on these variables, see chapter Available variablesFor the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;).The following article attributes are searched for the search: title, description, categories. Only articles that contain one of these terms are displayed.                                                                                                                                                    |
 
 **Availability of variable:**
 
@@ -125,229 +117,220 @@ For details on the template system, see chapter Template based on examples
 - widgetid: the widgetID of the widget
 - style: the style object if you configure additional style information
 
-For more details on these variables, see chapter Available variables
-
-#### Attribute rss_dpCount - General group
-
-Here you can specify the number of additional data points that should be made available within the template.
-
-#### Attribute rss_dp[number] - General group
-
-Here you can select the respective data point. The data point is available within the template under the variable dp. This means that a data point can be retrieved within the template as follows
-
-For details on these variables, see chapter Available variables
-
-#### Attribute rss_oid - group feeds[number]
-
-Selection of the data point with the corresponding RSS feed.
-
-#### Attribute rss_name - group feeds[number]
-
-Here you can enter a name that will be made available in the template for each article under the attribute name meta_name.
-
-#### Attribute rss_maxarticles - group feeds[number]
-
-The maximum number of individual articles displayed from the RSS feed
-
-#### Attribute rss_filter - group feeds[number]
-
-For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;).
-The following article attributes are searched for the search: title, description, categories.
-Only articles that contain one of these terms are displayed.
-
 ### RSS Feed Meta Helper
 
 This widget can be used to display the meta attributes of a specific feed. It is simply used as an help widget for creating a template to quickly and easily display the contents of the RSS feed data.
 Attributes
 
-#### Attribute rss_oid
-
-Selection of the data point with the corresponding RSS feed.
+| Setting | description                                                  |
+| ------- | ------------------------------------------------------------ |
+| rss_oid | Selection of the data point with the corresponding RSS feed. |
 
 ### RSS Feed Article Helper
 
 This widget can be used to display the article attributes of a specific feed. It is simply used as an help widget for creating a template to quickly and easily display the contents of the RSS feed data.
 
-#### Attribute rss_oid
-
-Selection of the data point with the corresponding RSS feed.
-
-#### Attribute rss_prefix
-
-To make it easier to use the attribute names via copy/paste, the variable name used in the template for an article can be specified here.
-
-#### Attribute rss_article
-
-This attribute can be used to switch between the various existing articles in the RSS feed.
+| Setting     | description                                                                                                                               |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_oid     | Selection of the data point with the corresponding RSS feed.                                                                              |
+| rss_prefix  | To make it easier to use the attribute names via copy/paste, the variable name used in the template for an article can be specified here. |
+| rss_article | This attribute can be used to switch between the various existing articles in the RSS feed.                                               |
 
 ### RSS Feed Title marquee 3
 
 With this widget, all title attributes will be displayed as a scrolling text. As part of the change from marquee widget 2 to 3, this widget is now a multi widget in which you can aggregate more than one RSS feed.
 
-#### Attribute rss_feedCount - General group
-
-Here you can set the number of feeds to be configured. A separate group is created in vis for each feed to be configured.
-
-#### Attribute rss_speed - General group
-
-The scrolling speed of the scrolling text
-Attribute rss_divider - General group
-Here you can enter the characters used to separate the headlines. The default value is +++.
-
-#### Attribute rss_pauseonhover - General group
-
-If this option is switched on, the scrolling text stops as soon as you hover the mouse over the text.
-
-#### Attribute rss_link - General group
-
-If this option is switched on, the headlines are displayed as a link. If you click or touch a headline, the link to the article opens in a new window or tab.
-
-#### Attribute rss_withtime - General group
-
-If this option is switched on, the time is displayed before the respective headline. Attribute rss_withdate - General group
-If this option is enabled, the date without the year and the time are displayed before the respective headline.
-
-#### Attribute rss_withyear - General group
-
-If this option is enabled, the date with the year and the time are displayed before the respective headline.
-
-#### Attribute rss_oid - Feeds[number] group
-
-Select the data point with the corresponding RSS feed.
-
-#### Attribute rss_maxarticles - Feeds[number] group
-
-The maximum number of individual articles displayed from the RSS feed
-
-#### Attribute rss_filter - Feeds[number] group
-
-For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;).
-The following article attributes are searched for the search: title, description, categories.
-Only articles that contain one of these terms are displayed.
+| Setting          | group               | description                                                                                                                                                                                                                                                               |
+| ---------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_feedCount    | General group       | Here you can set the number of feeds to be configured. A separate group is created in vis for each feed to be configured.                                                                                                                                                 |
+| rss_speed        | General group       | The scrolling speed of the scrolling text Attribute rss_divider - General group Here you can enter the characters used to separate the headlines. The default value is +++.                                                                                               |
+| rss_pauseonhover | General group       | If this option is switched on, the scrolling text stops as soon as you hover the mouse over the text.                                                                                                                                                                     |
+| rss_link         | General group       | If this option is switched on, the headlines are displayed as a link. If you click or touch a headline, the link to the article opens in a new window or tab.                                                                                                             |
+| rss_withtime     | General group       | If this option is switched on, the time is displayed before the respective headline. Attribute rss_withdate - General group If this option is enabled, the date without the year and the time are displayed before the respective headline.                               |
+| rss_withyear     | General group       | If this option is enabled, the date with the year and the time are displayed before the respective headline.                                                                                                                                                              |
+| rss_oid          | Feeds[number] group | Select the data point with the corresponding RSS feed.                                                                                                                                                                                                                    |
+| rss_maxarticles  | Feeds[number] group | The maximum number of individual articles displayed from the RSS feed                                                                                                                                                                                                     |
+| rss_filter       | Feeds[number] group | For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;). The following article attributes are searched for the search: title, description, categories. Only articles that contain one of these terms are displayed. |
 
 ### JSON Template2
 
 Using this widget, any data point with JSON data can be displayed as desired.
 The display is done using a template format, which can be thought of as a combined form of HTML code + JavaScript + special tags that control the display of the JSON attributes.
 
-#### Attribute json_oid
-
-Selection of the data point with the corresponding JSON data.
-
-#### Attribute rss_template
-
-The template can be used to determine the appearance of the JSON data. All valid HTML tags (including CSS attributes in style tags) can be used in the template.
-There are also special tags within which the JSON data is displayed and JavaScript instructions can be executed.
+| Setting      | description                                                                                                                                                                                                                                                                       |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_template | The template can be used to determine the appearance of the JSON data. All valid HTML tags (including CSS attributes in style tags) can be used in the template. There are also special tags within which the JSON data is displayed and JavaScript instructions can be executed. |
+| json_oid     | Selection of the data point with the corresponding JSON data.                                                                                                                                                                                                                     |
 
 For details on the template system, see chapter Template based on examples
 
 The JSON data is passed to the template with the prefix data. In addition, the current widgetID is also available as a variable so that it can be specified in individual CSS instructions.
 
-**Example object**
+**Advanced use case:**
 
-    {
-      "onearray": [
-        "one",
-        "two"
-      ],
-      "oneobject": {
-        "attribute1": 1,
-        "attribute2": 2
-      },
-      "onenumber": 123,
-      "onetext": "onetwothree"
-    }
+In the examples above, only the pure output was covered. The template can now also be enriched with HTML tags to achieve a specific layout. Here is an example:
 
-With the above example, attributes could be output as follows
+```html
+<h3>Output</h3>
+<style>
+  .mycssclassproperty {
+    color: green;
+  }
+  .mycssclassdata {
+    color: red;
+  }
+</style>
+<% for (var prop in data.oneobject) { %>
+<div>
+  <span class="mycssclassproperty"
+    ><%- "data.oneobject." + prop + " = " %></span
+  >
+  <span class="mycssclassdata"><%- data.oneobject[prop] %></span>
+</div>
+<% } %>
+```
 
-    <%- data.onenumber %>
-    <%- data.onetext %>
+**Result:**
 
-**Result**
+```text
+    data.oneobject.attribute1 = 1
+    data.oneobject.attribute2 = 2
+```
 
+(In Markdown colors arent visible)
+
+## Templatesystem
+
+## Tags
+
+The template system works with certain tags.
+The tags used mean the following
+
+| `tag` | description                                                         |
+| ----- | ------------------------------------------------------------------- |
+| <%=   | The content of the contained expression / variable will be escaped. |
+| <%-   | The content of the contained expression / variable is unescaped.    |
+| <%    | No output, is used for enclosed javascript instructions             |
+| %>    | is generally a closing tag to complete one of the previous ones     |
+
+Everything that is outside of these tags is displayed exactly as it is or if it is HTML interpreted as HTML.
+Within the template you have 2 predefined variables available
+
+### Example object
+
+For all the following examples the following json is used.
+
+```json
+{
+  "onearray": ["one", "two"],
+  "oneobject": {
+    "attribute1": 1,
+    "attribute2": 2
+  },
+  "onenumber": 123,
+  "onetext": "onetwothree"
+}
+```
+
+Attributes could be output as follows
+
+**Template:**
+
+```html
+<%- data.onenumber %> <%- data.onetext %>
+```
+
+**Result:**
+
+```text
     123 onetwothree
+```
 
 Arrays can be accessed via an index. The index always starts with 0. However, there are also fake arrays where the index does not start with 0 or even consists of text. Here the rules for objects apply. In the example above, this would be
 
-    <%- data.onearray[0] %>
-    <%- data.onearray[1] %>
+**Template:**
 
-**Result**
+```html
+<%- data.onearray[0] %> <%- data.onearray[1] %>
+```
 
+**Result:**
+
+```text
     one two
+```
 
 If you try to output an array directly without an index, the template outputs all elements separated by commas
 
-    <%- data.onearray %>
+**Template:**
 
-**Result**
+```html
+<%- data.onearray %>
+```
 
+**Result:**
+
+```text
     one,two
+```
 
 Arrays can also consist of a collection of objects. The example here contains only a simple array. An example of arrays with objects will be given later.
 
-    <% for (var i = 0; i < data.onearray.length ; i++ ) { %>
-    <%-  data.onearray[i] %>
-    <% } %>
+**Template:**
 
-**Result**
+```html
+<% for (var i = 0; i < data.onearray.length ; i++ ) { %> <%- data.onearray[i] %>
+<% } %>
+```
 
+**Result:**
+
+```text
     one two
+```
 
 **Objects** can contain individual attributes, arrays or objects again. This means that JSON data can be nested to any depth.
 
 Attributes of an object can be addressed using dot notation or bracket notation. The dot notation only works if the attribute conforms to certain naming conventions (first character must be a letter, rest numbers or letters or underscore).
 The bracket notation also works for attributes that do not conform to the naming convention.
 
-**Dot notation**
+**Dot notation:**
 
-    <%- data.oneobject.attribute1 %>
+**Template:**
 
-**Bracket notation**
+```html
+<%- data.oneobject.attribute1 %>
+```
 
-    <%- data.oneobject["attribute1"] %>
+**Bracket notation:**
 
-**Result for both examples**
+**Template:**
 
+```html
+<%- data.oneobject["attribute1"] %>
+```
+
+**Result for both examples:**
+
+```text
     1
+```
 
 Loop over the attributes of an object
 
-    <% for (var prop in data.oneobject) { %>
-      <%- "data.oneobject." + prop + " = " + data.oneobject[prop] %>
-    <% } %>
+**Template:**
 
-**Result**
+```html
+<% for (var prop in data.oneobject) { %> <%- "data.oneobject." + prop + " = " +
+data.oneobject[prop] %> <% } %>
+```
 
+**Result:**
+
+```text
     data.oneobject.attribute1 = 1
     data.oneobject.attribute2 = 2
-
-**Advanced use case**
-
-In the examples above, only the pure output was covered. The template can now also be enriched with HTML tags to achieve a specific layout. Here is an example:
-
-    <h3>Output</h3>
-    <style>
-      .mycssclassproperty {
-        color:green;
-      }
-      .mycssclassdata {
-        color:red;
-      }
-    </style>
-    <% for (var prop in data.oneobject) { %>
-        <div>
-            <span class="mycssclassproperty"><%- "data.oneobject." + prop + " = " %></span>
-            <span class="mycssclassdata"><%- data.oneobject[prop] %></span>
-        </div>
-    <% } %>
-
-**Result**
-
-    data.oneobject.attribute1 = 1
-    data.oneobject.attribute2 = 2
-
-(In Markdown colors arent visible)
+```
 
 ## Available variables in templates
 
@@ -372,7 +355,7 @@ The usage in the template see in **Template based on example**
 - `meta.generator`
 - `meta.categories`
 
-#### `rss.articles or articles`
+### `rss.articles or articles`
 
 Is an array with individual elements (javascript array). Each element has the following properties.
 So that it fits, for example, I will do the prefix item in front of it. But if you want you can choose that yourself. It only has to be named accordingly in the loop (forEach). Here, too, the identifiers are self-explanatory. Not all attributes are filled in every feed. The most important ones are already included in the template above.
@@ -407,7 +390,7 @@ It has been tested with the following feeds
 - <http://www.tagesschau.de/xml/rss2> or
 - <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
 
-```
+```html
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -418,11 +401,11 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-  #<%- widgetid %> img {
+  #<%- widgetid % > img {
     width: calc(<%- style.width %> - 15px);
     height: auto;
   }
-  #<%- widgetid %> img.rssfeed {
+  #<%- widgetid % > img.rssfeed {
     width: auto;
     height: auto;
   }
@@ -444,7 +427,7 @@ The following template is currently used as standard in the RSS feed multi widge
 Please note little differences in the usage of the variables
 It has been tested with the following feeds
 
-```
+```html
 <!--
     available variables:
     widgetid      ->  id of the widget
@@ -459,27 +442,27 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-  #<%- widgetid %> img {
+  #<%- widgetid % > img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
   }
-  #<%- widgetid %> img.rssfeed {
+  #<%- widgetid % > img.rssfeed {
     width: auto;
     height: auto;
   }
 </style>
 <% rss.articles.forEach(function(item){ %>
-    <p><%- item.meta_name || item.meta_title || '' %></p>
-    <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
-    <h3><%- item.title %></h3>
-    <p><%- item.description %></p>
-    <div style="clear:both;" />
+<p><%- item.meta_name || item.meta_title || '' %></p>
+<p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
+<h3><%- item.title %></h3>
+<p><%- item.description %></p>
+<div style="clear:both;" />
 <% }); %>
 ```
 
 ### Example Template for RSS-Feed multi widget 3 with articles as a slide show and Prev/Next-Buttons
 
-```
+```html
 <!--
  available variables:
  widgetid      ->  id of the widget
@@ -490,99 +473,87 @@ It has been tested with the following feeds
 -->
 
 <style>
-#<%- widgetid %> img {
+  #<%- widgetid % > img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
-}
-#<%- widgetid %> img.rssfeed  {
+  }
+  #<%- widgetid % > img.rssfeed {
     width: auto;
     height: auto;
-}
+  }
 
-.container {
+  .container {
     overflow: hidden;
     height: 100%;
-}
-.content {
+  }
+  .content {
     position: relative;
     border: 1px solid #ccc;
     overflow: scroll;
     height: 90%;
-}
+  }
 
-.slide {
+  .slide {
     position: absolute;
     display: none;
-}
+  }
 
-.slide.active {
+  .slide.active {
     display: contents;
-}
+  }
 
-.controls {
+  .controls {
     margin-top: 10px;
-}
+  }
 </style>
 
 <div class="container">
-    <div class="content">
-        <% rss.articles.forEach(function(item){ %>
-        <div class="article slide">
-          <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
-          <h3><%- item.title %></h3>
-          <p><%- item.description %></p>
-          <div style="clear:both;"></div>
-        </div>
-        <% }); %>
+  <div class="content">
+    <% rss.articles.forEach(function(item){ %>
+    <div class="article slide">
+      <p>
+        <small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small>
+      </p>
+      <h3><%- item.title %></h3>
+      <p><%- item.description %></p>
+      <div style="clear:both;"></div>
     </div>
-    <div class="controls">
-        <button onclick="prevSlide()">Zurück</button>
-        <button onclick="nextSlide()">Weiter</button>
-    </div>
+    <% }); %>
+  </div>
+  <div class="controls">
+    <button onclick="prevSlide()">Zurück</button>
+    <button onclick="nextSlide()">Weiter</button>
+  </div>
 </div>
 
 <script>
-currentSlide = 0;
-slides = document.querySelectorAll('.slide');
+  currentSlide = 0;
+  slides = document.querySelectorAll(".slide");
 
-function showSlide(index) {
+  function showSlide(index) {
     slides.forEach((slide, i) => {
-        if (i === index) {
-            slide.classList.add('active');
-        } else {
-            slide.classList.remove('active');
-        }
+      if (i === index) {
+        slide.classList.add("active");
+      } else {
+        slide.classList.remove("active");
+      }
     });
-}
+  }
 
-function prevSlide() {
-    currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+  function prevSlide() {
+    currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
     showSlide(currentSlide);
-}
+  }
 
-function nextSlide() {
-    currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+  function nextSlide() {
+    currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
     showSlide(currentSlide);
-}
-showSlide(currentSlide);
-
+  }
+  showSlide(currentSlide);
 </script>
 ```
 
-The template system works with certain tags.
-The tags used mean the following
-
-| `tag` | description                                                         |
-| ----- | ------------------------------------------------------------------- |
-| <%=   | The content of the contained expression / variable will be escaped. |
-| <%-   | The content of the contained expression / variable is unescaped.    |
-| <%    | No output, is used for enclosed javascript instructions             |
-| %>    | is generally a closing tag to complete one of the previous ones     |
-
-Everything that is outside of these tags is displayed exactly as it is or if it is HTML interpreted as HTML. (see e.g. the p-tag, div-tag, small-tag
-Within the template you have 2 predefined variables available
-
-## Template example and detailed description
+### Template example and detailed description
 
 ```html
 <%= meta.title %> <% articles.forEach(function(item){ %>
@@ -617,6 +588,11 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- update jsonconfig responsive
+
 ### 3.1.0 (2024-08-11)
 
 - adjust dependency to js-controller in a minor release

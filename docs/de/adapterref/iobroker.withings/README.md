@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.withings/README.md
 title: ioBroker.withings
-hash: +XUZL557iDBkrmnPtSlITsqNnIKWjsDnoIG8pZocV5U=
+hash: cEKsXk/xngOXOpVSSn9m7BSruVo9V6Y9HAprVLTmnhw=
 ---
 ![Logo](../../../en/adapterref/iobroker.withings/admin/withings.png)
 
@@ -15,13 +15,13 @@ hash: +XUZL557iDBkrmnPtSlITsqNnIKWjsDnoIG8pZocV5U=
 ![NPM](https://nodei.co/npm/iobroker.withings.png?downloads=true)
 
 # IoBroker.withings
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.withings/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.withings/workflows/Test%20and%20Release/badge.svg)
 
 ## Withings-Adapter für ioBroker
 Adapter für Withings
 
-## Anmeldeablauf
-Die Withings Email und Passwort eingeben
+## Loginablauf
+Die Withings-E-Mail und das Passwort eingeben
 
 https://account.withings.com/partner/dashboard_oauth2
 
@@ -29,7 +29,7 @@ Eine App registrieren
 
 Name: ioBroker
 
-Beliebiges Bild hochladen
+Beliebiges Bild aktuell
 
 Beschreibung: ioBroker
 
@@ -41,20 +41,26 @@ Rückruf-URI: http://localhost
 
 Eingeschränkter Modus: Ja
 
-Client-ID und Client-Secret eintragen
+Client-ID und Client-Geheimnis eingeben
 
-##Diskussion und Fragen
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/51104/test-withings-v0-0-x>
 
 ## Changelog
 
+### 0.0.8
+
+- (TA2k) Problem behoben mit zuvielen Datenpunkten unter sleep
+
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

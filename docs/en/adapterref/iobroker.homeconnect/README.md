@@ -21,6 +21,7 @@
 [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
 
 ## Sentry
+
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -71,10 +72,16 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.2 (2024-10-25)
+
+- fix for devices with object values
+
 ### 1.4.1 (2024-07-02)
-* (foxriver76) fixed invalid min/max values
+
+- (foxriver76) fixed invalid min/max values
 
 ### 1.4.0 (2024-04-18)
+
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
 
@@ -83,10 +90,6 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 - fix login
 
 ### 1.2.2 (2023-12-02)
-
-- bump version
-
-### 1.2.1 (2023-12-02)
 
 - bump version
 

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
-title: kein Titel
-hash: yeK+7qjG/tFGYwYR2fP9xAxycdFZPprsP44FK5e2mZ8=
+title: ohne Titel
+hash: w/wZnVe/W6/Uotei+a1qmXod98bfZVQ1gLVMVUEz6QE=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -14,161 +14,172 @@ hash: yeK+7qjG/tFGYwYR2fP9xAxycdFZPprsP44FK5e2mZ8=
 ![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Dieser Adapter funktioniert über die Cloud-Server von Growatt. Es gibt auch den [Grott-Projekt](https://github.com/johanmeijer/grott), der die Daten aus der Kommunikation abfängt.
 
 ---
 
 ### Growatt-Adapter für ioBroker
-ioBroker Growatt-Adapter zur Kommunikation mit Growatt Shine Server.
+ioBroker Growatt-Adapter zur Kommunikation mit dem Growatt Shine-Server.
 Ich bin nicht angeschlossen.
-Normalerweise werden die Daten alle 5 Minuten vom Datenlogger an die Cloud gesendet.
-Sie können es ändern, siehe unten.
+Normalerweise werden die Daten alle 5 Minuten vom Datenlogger in die Cloud gesendet.
+Sie können dies ändern, siehe unten.
 
-Nicht alle Anlagentypen werden umgesetzt.
+Es sind nicht alle Anlagentypen umgesetzt.
 
-Derzeit können nur Daten gelesen werden, das Schreiben von Parametern oder das Ändern von Parametern ist nicht möglich.
+Aktuell können nur Daten gelesen werden, das Schreiben von Parametern oder Ändern von Parametern ist nicht möglich.
+
+### Kann ich auf einen Kaffee vorbeikommen?
+Natürlich, wenn Ihnen meine Arbeit gefällt über Paypal an PLChome _at_ fontanestr _dot_ de
 
 ---
 
-## Adapter-Administratorseite
+## Adapter-Admin-Seite
 ### Haupteinstellungen
 #### Benutzer und Passwort
-Bitte geben Sie den Namen und das Passwort ein, die Sie auch in der Shine-App oder im Webportal verwenden.
+Bitte geben Sie den Namen und das Passwort ein, die Sie auch in der Shine App oder im Webportal verwenden.
 
 #### Anmeldung mit gemeinsamem Schlüssel
-Auf der Growatt-Website unter Energie, Anlagenmanagement, Betriebstools können Sie sich einen Schlüssel per E-Mail zusenden.
+Auf der Website von Growatt unter Energie, Anlagenmanagement, Betriebsmittel können Sie sich einen Schlüssel per E-Mail zusenden.
 
 #### Anlagendaten lesen
-Dieser Datensatz enthält die hinterlegten Stammdaten
+Dieser Datensatz enthält die gespeicherten Stammdaten
 
 #### Letzte Verlaufsdaten lesen
 Liest den letzten Datensatz aus der Historie des Datenloggers.
 Diese Funktion unterstützt Minutenintervalle für den Datenlogger.
 
 #### Statusdaten lesen
-Diese Daten sind nicht für alle Anlagen verfügbar (nicht INV/MAX/TLX). Dieser Datensatz enthält Live-Daten.
+Diese Daten sind nicht für alle Anlagen verfügbar (nicht INV/MAX/TLX). Dieser Datensatz enthält Livedaten.
 Diese Funktion unterstützt Minutenintervalle für den Datenlogger.
 
 #### Gesamtdaten lesen
-Dieser Datensatz enthält Aggregationsdaten.
+Dieser Datensatz enthält Aggregatdaten.
 
 #### Gerätedaten lesen
-Dieser Datensatz enthält einige Daten vom Gerät. Einige Daten sind auch in den anderen Kategorien verfügbar.
+In diesem Datensatz sind einige Daten des Gerätes enthalten. Einige Daten sind auch in den anderen Kategorien verfügbar.
 
 #### Wetter lesen
 Dieser Datensatz enthält die Wettervorhersage.
 
 #### Fehlerprotokolleinträge lesen
-Liest die Einträge im Störungsprotokoll des aktuellen Jahres und erstellt hierfür Objekte mit den Meldungen. Es wird nur die erste Seite mit den aktuellsten Berichten gelesen.
+Liest die Einträge im Störungsprotokoll des aktuellen Jahres und erstellt dazu Objekte mit den Meldungen. Es wird nur die erste Seite mit den aktuellsten Meldungen gelesen.
 
 #### Wechselrichtereinstellungen schreiben
-Wenn diese aktiviert ist, können einige Einstellungen für einige Wechselrichter bearbeitet werden.
+Ist diese aktiviert, können bei manchen Wechselrichtern einige Einstellungen bearbeitet werden.
 
-Für die Einstellungen werden Objekte unterhalb des Wechselrichter-Seriennummernelements erstellt. Für jede Einstellung wird ein Kanal erstellt.
+Unterhalb des Elements Wechselrichter-Seriennummer werden Objekte für die Einstellungen angelegt. Für jede Einstellung wird ein Kanal angelegt.
 
-Unterhalb der Objekte befinden sich „read“, „write“, „msg“ und die Knotenwerte. Unter den Werten befinden sich Parameter.
+Unter den Objekten befinden sich „read“, „write“, „msg“ und die Knotenwerte. Unter den Werten befinden sich die Parameter.
 
-Konnten die Werte der Parameter gelesen werden, werden sie mit ACK=true geschrieben. „read“ wird bei erfolgreichem Lesen mit ack auf true gesetzt. Wenn das Lesen fehlschlägt, wird „Read“ auf false ack=true gesetzt. Das Schreiben von „true“ auf „Read“ ohne ACK löst einen Lesevorgang aus. Wird eine neue Verbindung zur Cloud hergestellt, werden die Einstellungen ebenfalls ausgelesen.
+Konnten die Werte der Parameter gelesen werden, werden diese mit ACK=true geschrieben. Bei erfolgreichem Lesen mit ACK wird "read" auf true gesetzt. Schlägt das Lesen fehl, wird "Read" auf false ack=true gesetzt. Das Schreiben von "true" auf "Read" ohne ACK löst einen Lesevorgang aus. Wird eine neue Verbindung zur Cloud hergestellt, werden die Einstellungen ebenfalls ausgelesen.
 
-Um die Einstellungen zu schreiben, müssen zunächst die Parameter eingestellt werden. Dann wird „write“ mit ack=false auf true gesetzt.
-Wenn die Daten erfolgreich geschrieben wurden, wird „write“ auf „true“ ack=true gesetzt, wenn der Wechselrichter einen Fehler gemeldet hat, wird „write“ auf „false“ ack=true gesetzt. Zusätzlich wird die Rückmeldung des Wechselrichters in den Status „msg“ geschrieben.
+Um die Einstellungen zu schreiben, müssen zunächst die Parameter gesetzt werden. Anschließend wird "write" auf true mit ack=false gesetzt.
 
-War das Schreiben erfolgreich, wird automatisch das Lesen ausgelöst.
+Konnten die Daten erfolgreich geschrieben werden, wird "write" auf "true" ack=true gesetzt, hat der Wechselrichter einen Fehler gemeldet, wird "write" auf "false" ack=true gesetzt. Zusätzlich wird die Rückmeldung des Wechselrichters in den Status "msg" geschrieben.
 
-Der Wechselrichter kann jeweils nur eine Einstellung ändern und der Übertragungsweg verläuft vom ioBroker über die Cloud zum WLAN-Adapter und dann zum Wechselrichter. Die Einstellungen werden nacheinander über eine Warteschlange abgearbeitet. Eine zu kurze Sitzungszeit kann zu Problemen führen.
+Wenn das Schreiben erfolgreich war, wird automatisch das Lesen ausgelöst.
 
-Das Verfassen der Einstellungen erfolgte nach bestem Wissen und Gewissen. Der Autor übernimmt jedoch keine Haftung für enthaltene Fehler oder für Schäden, die durch die Nutzung der Software entstehen.
+Der Wechselrichter kann immer nur eine Einstellung gleichzeitig ändern und der Übertragungsweg ist vom ioBroker über die Cloud zum WLAN-Adapter und dann zum Wechselrichter. Die Einstellungen werden über eine Warteschlange nacheinander abgearbeitet. Eine zu kurze Sitzungszeit kann zu Problemen führen.
+
+Die Erstellung der Einstellungen erfolgte nach bestem Wissen und Gewissen. Der Autor übernimmt jedoch keine Haftung für darin enthaltene Fehler oder für Schäden, die durch die Nutzung der Software entstehen.
 
 #### Wählen Sie es aus, wenn Ihre Growatt-Seite eine schwarze C&I-Seite ist
-Wählen Sie es aus, wenn Ihre Growatt-Seite eine C&I-Pflanzenseite mit indexbC oder plantDo im Pfad der Growatt-Weboberfläche ist.
+Wählen Sie es aus, wenn Ihre Growatt-Seite eine C&I-Anlagenseite mit dem Index bC oder plantDo im Pfad der Growatt-Weboberfläche ist.
 
-Die schwarzen C&I-Seiten (gewerblich und industriell) haben einen anderen Pfad zu den Objekten, aber es scheint zu funktionieren, wenn dieses Kontrollkästchen aktiviert ist. Der Index wurde im Webpfad in indexbC geändert.
+Die schwarzen C&I-Seiten (kommerziell und industriell) haben einen anderen Pfad zu den Objekten, aber es scheint zu funktionieren, wenn dieses Kontrollkästchen aktiviert ist. Es hat den Index im Webpfad in indexbC geändert.
 
 #### Timeout in Sekunden
 Das Standard-Timeout für HTTP-Anfragen. Der Standardwert beträgt 60 Sekunden, wie bei Webbrowsern
 
 #### Prozess-Timeout in Sekunden
-Dieses Timeout überwacht die Datenerfassung vom Growatt-Server. Verarbeitet der Server innerhalb dieser Zeit nicht alle Daten, wird ein Fehler gemeldet, die Sitzung beendet und ein neuer Zyklustimer gestartet. Der Standardwert beträgt 600 Sekunden.
-Bei einem Wert von 0 wird diese Prüffunktion nicht ausgeführt.
+Dieses Timeout überwacht die Datenerfassung vom Growatt-Server. Wenn der Server nicht alle Daten innerhalb dieser Zeit verarbeitet, wird ein Fehler gemeldet, die Sitzung beendet und ein neuer Zyklustimer gestartet. Der Standardwert beträgt 600 Sekunden.
+Wenn der Wert 0 ist, wird diese Prüffunktion nicht ausgeführt.
 
-#### Websitzung beibehalten
-Der Adapter meldet sich nur einmal an und nicht bei jeder Datenanfrage vom Growatt-Server. Standardmäßig ist es aktiviert.
+#### Websitzung aufrechterhalten
+Der Adapter meldet sich nur einmal an und nicht bei jeder Datenanfrage vom Growatt-Server. Standardmäßig ist er eingeschaltet.
 
-#### Sitzungszeit in Minuten
-Hier können Sie einstellen, wann sich der Adapter vom Server abmeldet und wieder anmeldet. Eine 0 bedeutet, dass Sie sich nie abmelden. Der Standardwert ist 0=unendlich.
+#### Sitzungsdauer in Minuten
+Hier können Sie einstellen, wann sich der Adapter vom Server abmeldet und wieder anmeldet. Eine 0 bedeutet, dass er sich nie abmeldet. Der Standardwert ist 0 = unendlich.
 
 #### Zykluszeit in Sekunden
-Das Intervall, in dem die Daten vom Server angefordert werden. Die für die Datenabfrage benötigte Zeit wird dann von der nächsten abgezogen. Dauert die Abfrage länger als die Wartezeit, schläft der Adapter nur 100 ms. Der Standardwert beträgt 30 Sekunden.
+Das Intervall, in dem die Daten vom Server abgefragt werden. Die für die Datenabfrage benötigte Zeit wird dann von der nächsten abgezogen. Dauert die Abfrage länger als die Wartezeit, schläft der Adapter nur 100ms. Der Standardwert liegt bei 30 Sekunden.
 
 #### Fehlerzykluszeit in Sekunden
-Tritt beim Abfragen der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit anstelle der Zykluszeit verwendet. Der Standardwert beträgt 120 Sekunden
+Tritt beim Abfragen der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit statt der Zykluszeit verwendet. Der Standardwert beträgt 120 Sekunden
 
 #### Growatt-Server
-Hier kann eine andere URL eingegeben werden, um beispielsweise die US-Domain zu verwenden. Es muss jedoch mit „https://“ beginnen. Der Standardwert ist leer, daher wird https://server.growatt.com verwendet.
+Hier kann eine andere URL eingetragen werden, um beispielsweise die US-Domäne zu verwenden. Diese muss jedoch mit "https://" beginnen. Der Standardwert ist leer, daher wird https://server.growatt.com verwendet.
 
 ### Objekte verwalten
-Hier können Sie festlegen, was mit jedem Wert (Objekt) passieren soll, der vom Wechselrichter erfasst wird.
-Es gibt viele Werte, die nicht zu Ihrem Wechselrichter gehören. Diese können hier entfernt werden.
-Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Beim Drücken von „Speichern“ muss die Schaltfläche „Aktualisieren“ verwendet werden.
+Hier kannst du festlegen, was mit jedem Wert (Objekt) passieren soll, der vom Wechselrichter abgeholt wird.
+Es gibt sehr viele Werte, die nicht zu deinem Wechselrichter gehören. Diese kannst du hier entfernen.
+Da es kein Event gibt, mit dem die Objektliste beim Speichern neu geladen werden kann, muss beim Speichern der Update-Button gedrückt werden.
 
 #### Normal
-Das Objekt bleibt erhalten, der Wert wird aktualisiert.
+Das Objekt bleibt bestehen, der Wert wird aktualisiert.
 
 #### Löschen
 Das Objekt wird gelöscht und der vom Wechselrichter geladene Wert verworfen.
-Nach dem Update werden nur noch die ID und die Aktion angezeigt, da das Objekt nicht mehr existiert. Bei normaler Auswahl wird das Objekt nach dem Speichern erneut erstellt.
+Nach dem Update werden nur noch die ID und die Aktion angezeigt, da das Objekt nicht mehr existiert. Bei normaler Auswahl wird das Objekt nach dem Speichern neu angelegt.
 
 #### Kein Update
 Das Objekt bleibt bestehen, die Werte vom Wechselrichter werden verworfen.
 
 ### Logger verwalten
-Die Instanz muss ausgeführt und beim Server angemeldet sein. Anschließend können die Einstellungen des Datenloggers über den Aktualisieren-Button in diesem Reiter aufgerufen werden.
-Die Daten werden nicht automatisch abgefragt, die Anfrage kann nur über den Button erfolgen.
-Die für den Datenlogger angezeigten Felder können nicht geändert werden. Es handelt sich lediglich um abgerufene Daten.
-Für jeden Logger werden Schaltflächen angezeigt. Einstellungen können mit der Schaltfläche bearbeitet werden.
-_Bei Verwendung von GROTT muss das Ändern von Einstellungen in der INI aktiviert sein._ Bitte verwenden Sie die Einstellungen nicht, wenn ein Wert erscheint, den Sie nicht erwartet haben.
-Achtung, dies basiert auf Reingeneering. Für Schäden am Gerät übernehme ich keine Haftung.
+Die Instanz muss laufen und am Server angemeldet sein. Anschließend können über den Aktualisieren-Button in diesem Reiter die Einstellungen des Datenloggers aufgerufen werden.
 
-#### Tastenintervall
-Das aktuelle Intervall in Minuten wird aus dem Datenlogger ausgelesen und es erscheint eine Eingabemaske, in der der Wert angepasst werden kann.
-Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+Die Daten werden nicht automatisch abgefragt, die Abfrage kann nur über den Button erfolgen.
 
-#### Schaltfläche Server-IP
-Hier kann der Server für die Datenübertragung auf dem Logger eingestellt werden. Bei Verwendung von Grott oder US kann hier die lokale oder US-IP angegeben werden.
-Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+Die angezeigten Felder beim Datenlogger können nicht verändert werden. Es handelt sich nur um abgerufene Daten.
 
-#### Schaltfläche Server-Port
-Hier kann der Port auf dem Server für die Datenübertragung auf den Logger eingestellt werden.
-Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+Bei jedem Logger werden Buttons angezeigt. Über den Button können Einstellungen bearbeitet werden.
 
-#### Schaltfläche Firmware überprüfen
-Es wird abgefragt, ob die Firmware des Datenloggers aktuell ist.
+_Bei der Verwendung von GROTT muss das Ändern von Einstellungen in der INI aktiviert sein._ Bitte die Einstellungen nicht verwenden, wenn ein Wert erscheint, den Sie nicht erwartet haben.
+
+Achtung dies basiert auf Neuentwicklungen. Für Schäden am Gerät übernehme ich keine Haftung.
+
+#### Schaltflächenintervall
+Das aktuelle Intervall in Minuten wird aus dem Datenlogger ausgelesen und es erscheint ein Eingabeformular, in dem der Wert angepasst werden kann.
+Erhält man eine erfolgreiche Antwort, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+
+#### Schaltflächenserver-IP
+Hier kann der Server für die Datenübertragung auf den Logger eingestellt werden. Bei Verwendung von Grott oder US kann hier die lokale bzw. US-IP angegeben werden.
+
+Erhält man eine erfolgreiche Antwort, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+
+#### Schaltflächenserver-Port
+Hier kann der Port auf dem Server für die Datenübertragung zum Logger eingestellt werden.
+Erhält man eine erfolgreiche Antwort, sollte der Datenlogger neu gestartet werden um die Einstellungen zu aktivieren.
+
+#### Schaltfläche "Firmware überprüfen"
+Es wird abgefragt, ob die Firmware des Datenloggers auf dem neuesten Stand ist.
 Das Update muss auf der Growatt-Seite durchgeführt werden.
 
 #### Schaltfläche Datenlogger neu starten
-Jeder Stiefel ist gut.
+Jeder Bootvorgang ist gut.
 Die Einstellungen werden übernommen.
 
 ---
 
 ## SendTo für Skripte
-Es ist möglich, über sendTo einen Befehl an die Instanz zu senden. Der Adapter antwortet dann.
-Die folgenden Befehle sind implementiert.
-Der Rückgabewert wird abhängig von der Parameterübergabe zurückgegeben. Wenn die Parameter als JSON-String übergeben werden, wird ein JSON zurückgegeben. Werden die Parameter als Objekt übergeben, wird ein Objekt zurückgegeben.
+Es besteht die Möglichkeit per sendTo einen Befehl an die Instanz zu senden. Der Adapter antwortet dann.
+Folgende Befehle werden umgesetzt.
+Der Rückgabewert wird abhängig von der Parameterübergabe zurückgegeben. Werden die Parameter als JSON-String übergeben, wird ein JSON zurückgegeben. Werden die Parameter als Objekt übergeben, wird ein Objekt zurückgegeben.
 
 ### GetHistory
-Dieser Befehl listet den Verlauf auf. Es kann beispielsweise zur Ergänzung von Daten in einer Datenbank verwendet werden.
-Unabhängig vom Zeitraum scheint Growatt immer 80 Datensätze zurückzugeben. Ist das Intervall auf 1 Minute eingestellt und werden mehr als 80 Minuten benötigt, muss der Befehl mehrmals ausgeführt und der Start bei 0 immer weiter erhöht werden.
+Dieser Befehl listet die Historie auf. Er kann beispielsweise verwendet werden, um Daten in einer Datenbank zu ergänzen.
 
-| Parameter | Geben Sie | ein Beschreibung |
+Unabhängig vom Zeitbereich scheint Growatt immer 80 Datensätze zurückzugeben. Wenn das Intervall auf 1 Minute eingestellt ist und mehr als 80 Minuten benötigt werden, muss der Befehl mehrmals ausgeführt und der Start von 0 immer weiter erhöht werden.
+
+| Parameter | Typ | Beschreibung |
 | --------- | ------- | ------------------------------------------------------------------------------------------------------------ |
-| Typ | Zeichenfolge | Den Typ des Wechselrichters finden Sie im Objekt „growatt. – Instanz – . – nr – .devices. – sn – .growattType“. |
-| sn | Zeichenfolge | Die Seriennummer des Wechselrichters finden Sie im Objektpfad „growatt. - Instanz - . - nr - .devices. - sn -“. |
-| Startdatum | Datum | Der Atart |
-| Enddatum | Datum | Der Endmast wird größer als der Anfang |
-| Start | Ganzzahl | 0 ist die Startseite für den Anruf mit den neuesten Daten zuerst |
+| Typ | String | Den Typ des Wechselrichters finden Sie im Objekt „growatt.-instance.-nr.-devices.-sn.-growattType“. |
+| sn | String | Die Seriennummer des Wechselrichters finden Sie im Objektpfad „growatt.-instance-.-nr-.devices.-sn-“. |
+| Startdatum | Datum | Der Start |
+| Enddatum | Datum | Das Ende muss größer sein als der Anfang |
+| start | Integer | 0 ist die Startseite des Aufrufs mit den aktuellsten Daten zuerst |
 
 Beispielaufruf:
 
@@ -212,107 +223,107 @@ on({id: hist+'calendar', change: "ne"},(obj)=>{
 ```
 
 ### GetDatalogger
-Es gibt Ihnen Informationen über die Datenlogger.
-Diese Funktion hat keine Parameter. Es muss entweder „{}“ oder {} übergeben werden.
+Sie erhalten Informationen zu den Datenloggern.
+Diese Funktion hat keine Parameter. Es muss entweder "{}" oder {} übergeben werden.
 Die Rückgabe ist ein Array von Objekten.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ---- | ----------- |
 
 ### GetDataLoggerIntervalRegister
-Es liest das Intervall aus und gibt es zurück. Der Rückgabewert ist ein OBJ. Das Intervall ist in msg angegeben.
+Es liest das Intervall aus und gibt es zurück. Der Rückgabewert ist ein OBJ. Das Intervall ist in msg.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------ | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 
 ### SetDataLoggerIntervalRegister
-Schreibt das Intervall, in dem der Logger die Daten sendet.
+Schreibt das Intervall in dem der Logger die Daten sendet.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------- | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 | Wert | Ganzzahl | Der neue Wert in Minuten |
 
 Ein Objekt wird mit einer Nachricht zurückgegeben.
 
 ### GetDataLoggerIpRegister
-Es liest die IP, an die der Logger die Daten sendet, und gibt sie zurück. Der Rückgabewert ist ein OBJ. Die IP ist in msg.
+Es liest die IP, an die der Logger die Daten sendet und gibt sie zurück. Der Rückgabewert ist ein OBJ. Die IP steht in msg.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------ | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 
 ### SetDataLoggerIp
-Es schreibt die IP, an die der Logger die Daten sendet. Es ist nützlich für das Grott-Projekt. Der Rückgabewert ist ein Objekt, das sagt, was passiert ist.
+Es schreibt die IP, an die der Logger die Daten sendet. Es ist nützlich für das Grott-Projekt. Der Rückgabewert ist ein Objekt, das angibt, was passiert ist.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------- | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 | Wert | Ganzzahl | Der neue Wert in Minuten |
 
 Ein Objekt wird mit einer Nachricht zurückgegeben.
 
 ### GetDataLoggerPortRegister
-Es liest den Port, an den der Logger die Daten sendet, und gibt sie zurück. Der Rückgabewert ist ein OBJ. Die IP ist in msg.
+Es liest den Port, an den der Logger die Daten sendet und gibt diese zurück. Der Rückgabewert ist ein OBJ. Die IP steht in msg.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------ | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 
 ### SetDataLoggerPort
-Es schreibt den Port, an den der Logger die Daten sendet. Es ist nützlich für das Grott-Projekt. Der Rückgabewert ist ein Objekt, das sagt, was passiert ist.
+Es schreibt den Port, an den der Logger die Daten sendet. Es ist nützlich für das Grott-Projekt. Der Rückgabewert ist ein Objekt, das angibt, was passiert ist.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------- | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 | Wert | Ganzzahl | Der neue Wert in Minuten |
 
 Ein Objekt wird mit einer Nachricht zurückgegeben.
 
 ### CheckLoggerFirmware
-Ruft den Firmware-Check vom Logger auf. Ob ein Update notwendig ist, können Sie der Antwort entnehmen.
+Ruft den Firmwarecheck vom Logger ab. Ist ein Update notwendig, sieht man das in der Antwort.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------ | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 
-### RestartDatalogger
-Bewirkt einen Warmstart des Datenloggers.
+### Datalogger neu starten
+Führt zu einem Warmstart des Datenloggers.
 
-| Parameter | Geben Sie | ein Beschreibung |
+| Parameter | Typ | Beschreibung |
 | --------- | ------ | ------------------------------------------------------------- |
-| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| sn | string | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 
 ---
 
-## Interne Methode des Datenintervalls beschleunigen
-Schauen Sie sich „Logger verwalten“ und „Schaltflächenintervall“ an
+## Interne Methode zum Beschleunigen des Datenintervalls
+Schauen Sie sich Logger verwalten und Schaltflächenintervall an
 
-## Externe App-Methode zur Beschleunigung des Datenintervalls
+## Externe App-Methode zum Beschleunigen des Datenintervalls
 - Öffnen Sie die ShinePhone-App
 - Klicken Sie unten auf den Anhang
-- Oben rechts +, dann Datenlogger auflisten
-- Klicken Sie auf vorhandenen Datenlogger
+- Oben rechts +, dann Liste Datenlogger
+- Klicken Sie auf den vorhandenen Datenlogger
 - Datenlogger konfigurieren
-- Drahtloser Hotspot-Modus
-- Versetzen Sie den Stick in den AP-Modus
-- Mit WLAN-Hotspot verbinden, PW 123456789? <- nochmal prüfen
+Drahtloser Hotspot-Modus
+- Setzen Sie den Stick in den AP-Modus
+- Mit WLAN-Hotspot verbinden, PW 123456789 ? <- Noch einmal prüfen
 - Weitermachen
 - Fortschrittlich
 - Zeiteinstellung
 - Intervall bis 1
-- Geben Sie das Passwort „growattJJJJMMTT“ ein (z. B. „growatt20220209“).
-- Freischalten
-- Klicken Sie auf und übernehmen Sie die Änderungen
-- Hotspot-Modus verlassen
+- Geben Sie das Passwort „growattJJJJMMTT“ ein (z. B. „growatt20220209“)
+- Entsperren
+- Klicken und Änderungen übernehmen
+- Hotspot-Modus beenden
 
-## Externe alte Methode des Datenintervalls beschleunigen
-Im Hotspot-Modus ist eine Änderung des Intervalls nur auf der alten Firmware möglich.
+## Beschleunigen Sie das Datenintervall externer alter Methoden
+Im Hotspot-Modus ist es nur möglich, das Intervall auf der alten Firmware zu ändern.
 Growatt hat die Website aus der Firmware entfernt.
 Daher wurde auch die Beschreibung entfernt.
 
-**Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite. Dort ist lediglich eine Änderung der Daten des Datenloggers zu erkennen.**
+**Auf der Growatt-Seite gibt es keine Änderungen an den Diagrammen. Dort ist lediglich eine Änderung der Daten aus dem Datenlogger zu sehen.**
 
 -\*-
 
@@ -323,9 +334,27 @@ Daher wurde auch die Beschreibung entfernt.
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 3.3.1 (2024-10-26)
+
+- (PLCHome) Added ac charge for TLXH. Thanx to olli0815!
+- (PLCHome) Added time slots for TLXH. Thanks to olli0815 for debugging and support.
+- (PLCHome) Added Inverter On Off for TLX und TLXH. Thanks to olli0815 for debugging and support.
+
+### 3.3.0 (2024-10-25)
+
+- (PLCHome) Added time slots for TLXH. Thanks to olli0815 for debugging and support.
+- (PLCHome) Added Inverter On Off for TLX und TLXH. Thanks to olli0815 for debugging and support.
+
+### 3.2.5 (2024-08-13)
+
+- (PLCHome) Solved the problem that no inverter list but result 2 was returned in NOAH.
+- (PLCHome) Added NOAH.
+
+### 3.2.4 (2024-07-03)
 
 - (PLCHome) Configure this adapter to use the release script.
+- (PLCHome) no connection can be established password must now be transferred as MD5 hash.
+- (PLCHome) cookie issue
 
 ### 3.2.3 (27.01.2024)
 

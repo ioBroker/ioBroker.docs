@@ -674,6 +674,14 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+
+### 3.0.26 (2024-10-16)
+* (simatec) Fix FTP Connections
+* (simatec) dependencies updated
+* (simatec) Issue Workflow added
+
 ### 3.0.25 (2024-09-26)
 * (bluefox) Improvement of Google Drive authentication workflow
 * (bluefox) Removed gulp from a build process

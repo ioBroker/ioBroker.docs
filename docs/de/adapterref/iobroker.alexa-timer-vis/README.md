@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
+hash: PoPGCiiNOaxmME8+nBj39vGMIWOlIEU2r/6oGFqRm4Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -17,6 +17,8 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 **Tests:** ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## Alexa-Timer-Vis-Adapter für ioBroker
+Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der Sentry-Plugin-Dokumentation! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
 Ausgabe des Alexa-Timers zur Anzeige im Vis
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
@@ -34,12 +36,12 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 - Jeder Timer hat eine Taste, um ihn zu stoppen. Stoppt den Timer in Alexa und im Adapter
 - Mit Alexa können per Sprachbefehl unbegrenzt viele Timer erstellt werden.
 - Beim Start des Adapters werden 4 Ordner mit allen Zuständen erstellt.
-- Zusätzliche Ordner werden erstellt, sobald ein 5. und mehr Timer über die Spracheingabe von Alexa erstellt werden.
+- Zusätzliche Ordner werden erstellt, sobald ein 5. und weitere Timer über die Spracheingabe von Alexa erstellt werden.
 - Es funktioniert mit deutschen Eingaben
 
 ### Timer hinzufügen (Beispiele)
 - Alexa, Timer 5 Minuten
-- Alexa, Pommes Timer 9 Minuten
+- Alexa, Pommes-Timer 9 Minuten
 - Alexa, stelle einen Timer auf 1 Stunde und 30 Minuten
 - Alexa, stelle einen Timer auf 2 Stunden
 - Alexa, Timer für 120 Minuten
@@ -58,9 +60,22 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.3 (2024-09-13)
+### 2.0.6 (2024-10-19)
+
+-   FEAT: #151 Responsive Design
+
+### 2.0.5 (2024-09-26)
+
+-   FIX: #142 Timeout error
+-   FIX: #137 Reset timer name
+-   FEAT: Add json state
+
+### 2.0.4 (2024-09-18)
 
 -   FIX: #132 Second timer button reset deletes timer one
+
+### 2.0.3 (2024-09-13)
+
 -   FIX: #133 Timer names are not correct
 -   FIX: #134 All timer alive at start
 
@@ -170,15 +185,15 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 
 ### 0.0.3 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.2 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.1 (25.12.2021)
 
--   (Michael Roling) initial release
+-   initial release
 
 ## License
 

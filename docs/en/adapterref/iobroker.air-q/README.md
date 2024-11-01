@@ -61,6 +61,10 @@ The data will be retrieved and shown in the objects-tab according to your config
 
 ## Changelog <a id="change" />
 
+### 1.0.5
+* Fixed sensors dropping custom configuration after a restart
+* Updated dependencies: version bump for `adapter-core`
+
 ### 1.0.4
 
 * Updated dependencies: bumped multiple packages (`chai-as-promised`, `sinon`, `mocha`) to address vulnerabilities

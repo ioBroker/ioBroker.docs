@@ -33,9 +33,25 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.3 (2024-10-21)
 
-### **WORK IN PROGRESS**
+-	FIX: User checkbox error message
+-   FEAT: #194 Styling
 
+### 2.1.2 (2024-10-18)
+
+-   FIX: Different telegram instances cannot be selected
+-   FIX: Cannot set values in setState
+-   Styling
+
+### 2.1.1 (2024-10-16)
+
+-   FIX: Adapter ui cannot be loaded
+
+### 2.1.0 (2024-10-15)
+
+-   FIX: #191 No picture can be send
+-   FEAT: #175 Copy function in Action, Renamed Switch to Toggle
 -   FIX: #176 Error in setDynamic value
 -   FIX: #181 Required values in setState
 

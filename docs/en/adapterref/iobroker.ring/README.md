@@ -97,6 +97,38 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.2.4 (2024-10-31)
+
+* (simatec) Settings for responsive Design
+* (theimo1221) Update some developer packages
+
+### 6.2.3 (2024-10-31)
+
+* (theimo1221) Fix License-Info object in io-package.json
+* (theimo1221) Update iobroker test package
+* (theimo1221) Update some test packages regarding mocha
+
+### 6.2.2 (2024-10-31)
+
+* (theimo1221) Update pipelines to stop using node 18.x
+* (theimo1221) #746 Fix license information in io-package.json
+* (theimo1221) #746 Add tier in io-package.json
+* (theimo1221) #746 Remove deprecated property 'materializeTab' in io-package.json
+* (theimo1221) #746 Remove deprecated property 'main' in io-package.json
+* (theimo1221) #746 Bump minimum js-controller in io-package.json
+* (theimo1221) #746 Remove specific version reference to camera utils
+* (theimo1221) #746 Add @alcalzone/release-script-plugin-manual-review
+
+### 6.2.1 (2024-10-09)
+
+* (Speedbreaker12) js-controller7 compatibility #707
+
+### 6.2.0 (2024-10-08)
+
+* (Speedbreaker12) Added siren trigger functionality to cameras
+* (Speedbreaker12) Add battery status support for Ring Intercom
+* (theimo1221) Some minor package updates
+
 ### 6.1.0 (2024-09-20)
 
 * (theimo1221) Some package updates

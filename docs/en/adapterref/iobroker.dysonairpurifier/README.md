@@ -6,7 +6,7 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)](https://www.npmjs.com/package/iobroker.dysonairpurifier)
 ![Number of Installations (stable)](http://iobroker.live/badges/dysonairpurifier-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier)
-[![Test and Release](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml)
+[![Test and Release](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml)
 ![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 [![NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)](https://nodei.co/npm/iobroker.dysonairpurifier/)
 
@@ -187,6 +187,11 @@ This is nice to know because the devices usually send (at least mine do) their s
   - In other cases it has been an IP/DNS issue. Resetting the DHCP/DNS server (router) solved the issue.
 
 ## Changelog
+### 3.2.5 (2024-10-08) 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Fixed GUI issues
+- (grizzelbee) Fix: Added missing files to files-section in package.json
+
 ### 3.2.4 (2024-10-01)
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Fix: Removed plugin-sentry

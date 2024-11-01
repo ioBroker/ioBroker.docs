@@ -13,25 +13,12 @@
 TP-Link adapter for ioBroker
 ------------------------------------------------------------------------------
 
-Switch TP-Link Plug and Bulb
+with support for TP-Link Plug and Bulb
 
-
-for
+Devices :
 plug hs100
 plug hs110
 bulb LBxxx
-
-
-
-
-
-
-
-
-
-
-
-<b>NodeJs >> 8.x.x </b>
 
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -47,6 +34,12 @@ bulb LBxxx
 
 
 ## Changelog
+### 2.2.2 (2024-10-22)
+* (arteck) dependency update
+
+### 2.2.1 (2024-10-18)
+* (arteck) experimental crash correction (bug)
+
 ### 2.2.0 (2023-10-27)
 * switch to intervall
 
@@ -86,7 +79,7 @@ bulb LBxxx
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Arthur Rupp arteck@outlook.com
+Copyright (c) 2014-2024 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

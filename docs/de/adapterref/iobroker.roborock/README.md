@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
+hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -25,11 +25,11 @@ Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Zustände und
 
 ## Die unterstützten Roboter sind:
 - Roborock S4
-Roborock S4 Max
+- Roborock S4 Max
 - Roborock S5 Max
 - Roborock S6
 Roborock S6 Pure
-- Roborock S6 MaxV
+Roborock S6 MaxV
 - Roborock S7
 Roborock S7 MaxV (Ultra)
 - Roborock Q7
@@ -42,6 +42,8 @@ Roborock S8 Pro Ultra
 - Roborock Q8 Max
 Roborock Q5 Pro
 Roborock Q Revo Pro
+- Roborock Qrevo S
+Roborock Qrevo-Kurve
 
 ## Zonenreinigung
 Diese Funktion funktioniert nur, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
@@ -58,6 +60,18 @@ Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigun
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.17 (2024-10-14)
+ * (copystring) Add some missing attributes
+ * (copystring) Change min of update interval to 60s to prevent issues
+ * (copystring) Add web interface to sidebar
+
+### 0.6.16 (2024-10-02)
+ * (copystring) Bugfixes
+ * (copystring) update test-and-release.yml
+ * (Black-Thunder) Fix S6 feature detection
+ * (copystring) Migrate from canvas to @napu-rs/canvas
+ * (copystring) Add Qrevo S & Qrevo Curve
+
 ### 0.6.15 (2024-09-22)
  * (copystring) Refactor some code
  * (copystring) improve handling of online/offline detection and related logging

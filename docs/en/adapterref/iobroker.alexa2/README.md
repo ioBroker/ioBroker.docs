@@ -487,6 +487,13 @@ Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=A
 After deleting an unused device, please restart the adapter to remove them there too.
 
 ## Changelog
+<!-- ### __WORK IN PROGRESS__ -->
+### 3.26.7 (2024-10-24)
+* (Apollon77) Fix Sentry integration
+
+### 3.26.6 (2024-10-20)
+* (simatec) Responsive Design added
+
 ### 3.26.5 (2024-04-16)
 * (Apollon77) Adjust History query to recent Amazon changes
 

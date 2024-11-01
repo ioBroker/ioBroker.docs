@@ -218,6 +218,9 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (afuerhoff) dependencies updated
+
 ### 1.2.5 (2024-09-18)
 * (afuerhoff) new filter function implemented (experimental)
 * (afuerhoff) node >=18

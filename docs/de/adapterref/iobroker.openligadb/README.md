@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openligadb/README.md
 title: ioBroker-Adapter zum Abrufen von Fußballspielergebnissen von OpenLigaDB
-hash: L8JqNHp9+kP3AV+a34oxU+7KfFAaJ1BsFpfNqgZSmpM=
+hash: DB+jiEnmIjsdyzVLRF6oEEU3UF6WtWK0uJuomZNrzJM=
 ---
 ![Logo](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
@@ -25,23 +25,318 @@ Beispieldaten für die 1. Deutsche Bundesliga sind `shortcut = bl1 season = 2023
 
 Wenn du die Konfiguration gespeichert und geschlossen hast, sollten kurze Zeit später neue Datenpunkte für deine Liga und Saison vorhanden sein.
 
-## Vis und Widgets
+## Widgets
 Derzeit sind 5 Widgets verfügbar. Bitte geben Sie openligadb in den Widget-Filter ein.
 
-### Tabelle v4
-Dieses Widget zeigt das aktuelle Ranking deiner Liga an
+### Tabelle 4
+![Widget-Tabelle 4](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/table.png)
 
-### Pivotierbar v2
-Dieses Widget zeigt alle Ergebnisse in einer Pivot-Tabelle an
+Das ist die klassische Tabellenansicht.\ Die Tabelle enthält verschiedene Spalten.
 
-### Torjäger v2
-Dieses Widget zeigt die Torjäger dieser Saison
+- Sp=Anzahl gespielter Spiele
+- S=Belagerung
+- U=Unentschieden
+- N=Niederlagen
+- Tore=Torverhältnis
+- Punkte=Punktestand
 
-### Spieltag
-Alle Spiele des aktuellen oder ausgewählten Spieltags. Es gibt viele Widget-Attribute, um den Umfang der angezeigten Daten zu konfigurieren
+#### Attributtabelle
+| Attribut | Gruppe | Beschreibung |
+| ----------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| alle Übereinstimmungen |                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches (Achtung im alten Widget musste hier noch Tabelle ausgewählt werden) ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spieldaten einer Liga/Saison im JSON-Format. Aus diesen Daten werden dann auf Basis des Modus die Tabellen die verschiedenen Modi berechnet. |
+| aktueller Spieltag |                          | Hier ist ein Datenpunk zu wählen, der mit currgameday benannt ist. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spiel des offiziellen Spieltags und dem ersten Spiel des folgenden Spieltages.                           |
+| Modus |                          | Listenauswahl in welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt(1total), Heim (2home) oder Auswärts (3away), Hinrunde (4round1) oder Rückrunde (5round2).                                                                                                                                                                                                                                                        |
+| mode_binding |                          | Dieses Attribut entspricht im Wesentlichen dem Attributmodus. Es wurde ergänzt, sodass der Tabellenmodus ebenfalls per Bindung gesteuert werden kann. In diesem Textfeld können genau die gleichen Werte wie beim Modus eingetragen werden. Wenn hier ein korrekter Wert eingetragen ist, dann hat dieses Attribut vorrang vor dem Attributmodus. Ein Normalanwender sollte er nichts eintragen.                                       |
+| maxicon |                          | Maximale Größe des Manschaftsicons in x- oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                                   |
+| Kurzname |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                           |
+| Sautrend |                          | Auswahl, wenn Trendicons angezeigt werden sollen. Der Trend wird im Vergleich zum offiziellen Spieltag berechnet.                                                                                                                                                                                                                                                                                                                           |
+| hervorheben |                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Mannschaftsnamen. Der jeweilige Name wird mit HTML-Tags `<b>` eingefasst. Eine detaillierte Formatierung kann über die CSS-Klasse „favorite“ erfolgen. Ausserdem kann je Highlight eine individuelle CSS-Klasse angegeben werden. Vgl. Kapitel todo |
+| Filter |                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, anhand deren die Tabelle gefiltert dargestellt wird.                                                                                                                                                                                                                                                                                                    |
+| iconup,icondn,iconst | Attributgruppe Icons | Hier können eigene Trendicons definiert werden.                                                                                                                                                                                                                                                                                                                                                                                            |
+| showgameday in der Attributgruppe | Erweiterte Einstellungen | Hier kann ein vom aktuellen Spieltag abweichender Tag zur Berechnung der Tabelle eingegeben werden |
+| lastgamecount in der Attributgruppe | Erweiterte Einstellungen | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (in Abhängigkeit von currgameday und showgameday) Beispiel berechnet: Eingabe bei showgameday = 10 und bei lastgamecount=5: Die Tabelle wird nur für die Spieltage 6-10 berechnet (5 Spieltage) |
 
-### Spiele der Lieblingsvereine
-Alle aktuellen und zukünftigen Spiele deiner Lieblingsvereine anzeigen
+### Spiele des Spieltags v2
+![Widget Spieltag](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/gameday.png)
+
+Dieses Widget zeigt den Spieltag an. Je nach Einstellung kann immer der aktuelle, relativ zum aktuellen oder ein bestimmter Spieltag angezeigt werden.
+Darüber hinaus kann auch die Menge der angezeigten Spieltage festgelegt werden.
+Bestimmte Elemente der Anzeige wurden mit **CSS-Klassen** versehen, für die dann beliebig eine bestimmte Formatierung festgelegt werden kann:
+
+| CSS-Klasse | Formatierung betrifft welches Element | Anmerkung |
+| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Favorit | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Hier können Datum und Uhrzeit formatiert werden, wenn die Lieblingsmannschaft am Spieltag spielt. ggfs. kann es auch mit der CSS-Klasse „todaygameheader“ verbunden werden. |
+| Favorit | Mannschaftsname | Hier kann der Mannschaftsname entsprechend formatiert werden.                                                                                                             |
+| heutespiel | Die komplette Zeile eines Spiels | Wird markiert, wenn das Spiel am heutigen Tag statt findet.                                                                                                               |
+| todaygameheader | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Wird markiert, wenn das Spieltagdatum am heutigen Tag ist |
+
+#### Beispiele für CSS-Klassen
+##### Beispiel Anzeigekopf eines Spieltages (Datum allgemein)
+```css
+.oldb-tt tr.favorite {
+  color: yellow;
+}
+```
+
+##### Beispiel Mannschaftsname
+```css
+.oldb-tt b.favorite {
+  color: blue;
+}
+```
+
+##### Beispiel Zeile eines Spiels
+```css
+.oldb-tt .todaygame {
+  color: red;
+}
+```
+
+##### Beispiel Anzeigekopf eines Spieltages (Datum heute)
+```css
+.oldb-tt .todaygameheader {
+  color: lightgreen;
+}
+```
+
+#### Attribut Spiel der Spieltage
+| Attribut | Gruppe | Beschreibung |
+| ---------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| alle Übereinstimmungen |                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spiele und Ergebnisse einer Liga/Season im JSON-Format. Wenn der Spieltag am heutigen Tag statt findet, dann wird das Datum (todaygameheader) und das jeweilige Spiel (todaygame) mit CSS-Klassen versehen. |
+| aktueller Spieltag |                          | Hier ist ein Datenpunk zu wählen, der mit currgameday benannt ist. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spielt der vorgeschriebenen Spieltags und dem ersten Spiel des folgenden Spieltages.                      |
+| maxicon |                          | Maximale Größe des Manschaftsicons in x- oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                               |
+| Kurzname |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                       |
+| Showziele |                          | Es werden Informationen zu den Torschützen angezeigt.                                                                                                                                                                                                                                                                                                                                                                                       |
+| hervorheben |                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Mannschaftsnamen. Der jeweilige Name wird mit HTML-Tags `<b>` eingefasst. Eine detaillierte Formatierung kann über die CSS-Klasse „favorite“ erfolgen. Ausserdem kann je Highlight eine individuelle CSS-Klasse angegeben werden. Vgl. Kapitel todo |
+| Showspieltag | Erweiterte Einstellungen | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt. Trägt man eine positive Zahl ein, dann wird, falls vorhanden, der ausgewählte Spieltag angezeigt. Trägt man eine negative Zahl ein, dann wird relativ vom aktuellen Spieltag dieser angezeigt (bspw -1 entspricht dem offiziellen Spieltag) |
+| showgamedaycount | Erweiterte Einstellungen | Üblicherweise bleibt dieses Feld leer oder enthält 1. Dadurch wird genau ein Spieltag angezeigt. Wird hier eine andere Zahl eingegeben, dann wird diese Anzahl von Spieltagen, ab der 'Einstellung in showgameday' angezeigt.                                                                                                                                                                                                |
+| Showwochentag | Erweiterte Einstellungen | Zeigt vor dem Datum wahlweise den Wochentag an.                                                                                                                                                                                                                                                                                                                                                                                        |
+
+##### Beispiele
+###### Beispiele für das Binding im Attribut showgameday
+ggfs. kann dieses Feld auch über vis-binding berechnet und gefüllt werden.
+Beispiele für relativ berechneten Spieltag: |
+
+```text
+    Vorheriger Spieltag
+    {a:openligadb.0.bl1.2019.currgameday;a-1} oder
+    Nachfolgender Spieltag
+    {a:openligadb.0.bl1.2019.currgameday;a+1}
+```
+
+Da das Binding nicht im vis editmode berechnet wird, wird bei Verwendung von Binding im editmode immer der aktuelle Spieltag angezeigt.
+
+### Spiele der Lieblingsclubs 2
+![Lieblingsspiele](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) Dieses Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus einem oder mehreren Ligen an. Durch die Auswahl der Anzahl der verfügbaren Ligen wird für jede Liga eine separate Konfigurationsgruppe angezeigt, in der die folgenden Einstellungen vorgenommen werden können.
+Wenn das Spiel am heutigen Tag statt findet, dann wird das jeweilige Spiel (todaygame) mit CSS-Klassen versehen.
+
+#### Beispiel
+```css
+.todaygame {
+  color: red;
+}
+
+.todaygameheader {
+  color: yellow;
+}
+```
+
+#### Attribut
+| Attribut | Gruppe | Beschreibung |
+| ---------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Anzahl Liga | Allgemein | Hier kann die Anzahl der abzufragenden Ligen eingetragen werden. Für jede Liga wird eine separate Konfigurationsgruppe angezeigt.                                                                                                                                                                                                                                                                                           |
+| maxicon | Allgemeinv | Maximale Größe des Manschaftsicons in x- oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                   |
+| Ergebnis anzeigen | Allgemein | Auswahl, ob die Spielergebnisse, sofern bekannt, angezeigt werden sollen |
+| Abkürzung anzeigen | Allgemein | Um die Spiele der einzelnen Ligen unterscheiden zu können, kann man eine eigene Kürzung in die jeweilige Konfiguration eintragen. Hier kann ausgewählt werden, ob diese angezeigt werden sollen.                                                                                                                                                                                                                            |
+| Showwochentag | Allgemein | Zeigt vor dem Datum wahlweise den Wochentag an. Die folgenden Attribute in der Gruppe Liga können sich in Abhängigkeit der Eingabe bei **Anzahl Liga** mehrmals wiederholen.                                                                                                                                                                                                                                               |
+| alle Übereinstimmungen | Liga | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spiele und Ergebnisse einer Liga/Season im JSON-Format |
+| aktueller Spieltag | Liga | Hier muss ein Datenpunkt mit der Bezeichnung currgameday ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spielt der vorgeschriebenen Spieltags und dem ersten Spiel des folgenden Spieltages. |
+| Showspieltag | Liga | Wenn dieses Feld leer bleibt, wird immer vom aktuellen Spieltag ausgegangen. Trägt man eine positive Zahl ein, dann wird, falls vorhanden, vom ausgewählten Spieltag ausgegangen. Trägt man eine negative Zahl ein, dann wird relativ vom aktuellen Spieltag ausgegangen (bspw -1 entspricht dem offiziellen Spieltag) |
+| showgamedaycount | Liga | Hier kann angegeben werden, wie viele Spieltage die Spiele angezeigt werden sollen. Wenn das Feld leer bleibt, dann werden alle restlichen Spieltage angezeigt (max. 9999 Spieltage) Wird hier eine andere Zahl angezeigt, dann werden alle Spiele für diese Anzahl von Spieltagen, ab der 'Einstellung in showgameday' angezeigt.                                                                             |
+| Kurzname | Liga | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                           |
+| Abkürzung | Liga | Die Abkürzung für diese Liga soll angezeigt werden, sofern showabbreviation ausgewählt wurde.                                                                                                                                                                                                                                                                                                                              |
+| hervorheben | Liga | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, um die Lieblingsmanschaften zu finden. Die Suche erfolgt nur in den Mannschaftsnamen. Eine besondere Hervorhebung wie bei den anderen Widgets gibt es hier nicht.                                                                                                                                                                      |
+
+#### Beispiele Game of Favourite Clubs
+##### Beispiele für das Binding im Attribut showgameday Game of Favorite Clubs
+ggfs. kann dieses Feld auch über vis-binding berechnet und gefüllt werden.
+Beispiele für einen relativ berechneten Spieltag:
+
+```css
+    Vorheriger Spieltag
+    {a:openligadb.0.bl1.2019.currgameday;a-1} oder
+    Nachfolgender Spieltag
+    {a:openligadb.0.bl1.2019.currgameday;a+1}
+```
+
+Da das Binding nicht im vis editmode berechnet wird, wird bei Verwendung von Binding im editmode immer der aktuelle Spieltag angezeigt.
+
+### Pivot-Tabelle 2
+Dieses Widget zeigt die alle Spiele und Ergebnisse als Pivottabelle an
+
+| CSS-Klasse | Formatierung betrifft welches Element | Beispiel |
+| ---------- | ---------------------------------------------- | -------- |
+| Favorit | Der pro Highlight ausgewählte Mannschaftsnamen |          |
+
+#### Beispiele für Pivot-Tabellen
+##### Beispiel Der pro Highlight ausgewählte Mannschaftsnamen
+```css
+.oldb-tt .favorite {
+  color: yellow;
+}
+```
+
+#### Attribut-Pivot-Tabelle
+| Attribut | Gruppe | Beschreibung |
+| ------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| alle Übereinstimmungen | Allgemein | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spiele und Ergebnisse einer Liga/Season im JSON-Format |
+| aktueller Spieltag | Allgemein | Hier muss ein Datenpunkt mit der Bezeichnung currgameday ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spielt der vorgeschriebenen Spieltags und dem ersten Spiel des folgenden Spieltages. |
+| maxicon |           | Maximale Größe des Manschaftsicons in x- oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                   |
+| sort4e |           | Die Einstellung wird sortiert, nachdem sie ausgewählt werden soll.                                                                                                                                                                                                                                                                                                                                                                                  |
+| Kurzname |           | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                           |
+| Highlight am Anfang |           | Das Highlight wird am Anfang der Tabelle angezeigt.                                                                                                                                                                                                                                                                                                                                                                        |
+| hervorheben |           | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Mannschaftsnamen. Der jeweilige Name wird mit HTML-Tags `<b>` eingefasst. Eine detaillierte Formatierung kann über die CSS-Klasse „favorite“ erfolgen.                                                                                                                |
+
+### Torjäger 2
+Dieses Widget zeigt die alle Torjäger an
+
+#### Attribut Torjäger
+| Attribut | Gruppe | Beschreibung |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Torjäger | Allgemein | Hier muss ein Datenpunkt mit der Bezeichnung goalgetters ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Datenpunkt enthält alle Torjäger der aktuellen Saison.                                             |
+| maximale Anzahl |           | Es wird nur die angegebene Anzahl an Torjägern angezeigt.                                                                                                                                                                                                                                                   |
+| sortiert |           | Auswahl der Sortierreihenfolge.                                                                                                                                                                                                                                                                         |
+| Nur Highlights |           | Es werden nur die Einträge zum Highlightfilter angezeigt.                                                                                                                                                                                                                                                   |
+| hervorheben |           | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Spielernamen. Der jeweilige Name wird mit HTML-Tags `<b>` eingefasst. Eine detaillierte Formatierung kann über die CSS-Klasse „favorite“ erfolgen. |
+
+## Rezepte zur Wiederverwendung
+### Steuerung des Tabellenmodus über Knöpfe
+1. Eine Widgets-Tabelle v2 anlegen. und wie hier in der Hilfe beschrieben konfigurieren
+2. Bei Widgeteinstellungen in der Gruppe Sichtbarkeit bei Datenpunkt deinen
+
+   erstellten Datenpunk eintragen
+
+3. Dieses Widget kopieren und nebeneinander einfügen, so dass es insgesamt ist
+
+3 mal im view existiert
+
+4. Bei Widgeteinstellungen in der Gruppe Sichtbarkeit den „Wert für die.“
+
+Bedingung dann bei jedem der 3 Widgets jeweils nur einen der folgenden Werte eintragen: total,home,away
+
+5. Dann ein neues Widget anlegen: Radiobuttons ValueList (ist in der
+
+   Standardinstallation von vis bereits enthalten
+
+6. Wählen Sie in diesem Widget in der Gruppe Allgemein Ihre angelegte ObjectID aus
+7. Bei Werten das folgende eintragen: total;home;away (dies muss mit dem was
+
+   Du unter Sichtbarkeit bei den registrierten Widgets hast zusammenpassen
+
+8. Bei Texten das Folgende eintragen: Gesamt;Heim;Auswärts
+9. Dann in den vis runtime gehen und ausprobieren
+10. Wenn alles zum Schluss funktioniert, liegen die Widgets exakt übereinander
+
+    legen, so dass es wie eines aussieht
+
+### Laufschrift einer Widgetzeile
+Sieht nur schön aus, wenn nur eine oder wenige Zeilen angezeigt werden bspw bei dem FavGame-Widget
+
+`#w00000` ist die ID des Widgets, das animiert werden soll.
+
+Expandieren
+
+```css
+#w00000 .oldb-tt {
+  max-width: 100vw; /* iOS braucht das */
+  overflow: hidden;
+}
+
+#w00000 .oldb-tt tbody {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 10s linear infinite;
+}
+
+/* Make it move */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+```
+
+### Spieltag über +/- Buttons steuern, sowie direkte Auswahl per Listbox
+![Bedientasten](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/controlbuttons.png) Dazu ist für die Steuerung ein zusätzlicher Datenpunkt mit Typ Zahl/number anzulegen.
+In diesem Beispiel wurde er javascript.0.bl1.spieltag genannt.
+Danke an bommel_030 Die 4 Steuerelemente zum importieren findet ihr hier:
+
+Expandieren
+
+```text
+    [{"tpl":"_tplGroup","data":{"members":["w00065","w00066","g00001"],"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","attrCount":"1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"widgetSet":null,"style":{"top":38.28125,"left":"663px","width":"141px","height":"37px"}},{"tpl":"tplIconInc","data":{"oid":"javascript.0.bl1.spieltag","repeat_delay":"800","repeat_interval":"800","src":"","step":"-1","minmax":"1","text":"-","g_last_change":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"name":"spieltag_minus","g_visibility":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","g_gestures":false,"g_signals":false,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false},"style":{"left":"0%","top":"16.22%","background":"#303030","width":"17.73%","height":"67.57%","z-index":"50","font-family":"","background-color":"#303030","font-weight":"bolder","border-width":"2px","border-radius":"10px","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","color":"white","border-style":"solid","border-color":"white","font-size":""},"widgetSet":"jqui","grouped":true,"groupName":"w00065"},{"tpl":"tplIconInc","data":{"oid":"javascript.0.bl1.spieltag","repeat_delay":"800","repeat_interval":"800","src":"","step":"+1","minmax":"34","text":"+","gestures-offsetX":0,"gestures-offsetY":"-1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis.0/VIS/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis.0/VIS/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis.0/VIS/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"g_last_change":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"name":"spieltag_plus","g_visibility":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide"},"style":{"left":"82.27%","top":"16.22%","background":"#303030","width":"17.73%","height":"67.57%","z-index":"50","font-family":"","background-color":"#303030","font-weight":"bolder","border-width":"2px","border-radius":"10px","box-shadow":"2px 2px 3px rgba(20, 20, 20, 50)","color":"white","border-style":"solid","border-color":"white"},"widgetSet":"jqui","grouped":true,"groupName":"w00066"},{"tpl":"_tplGroup","data":{"members":["w00064","w00059"],"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","attrCount":"1","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"widgetSet":null,"style":{"top":"0%","left":"21.99%","width":"56.74%","height":"100%"},"grouped":true,"groupName":"g00001"},{"tpl":"tplJquiSelectList","data":{"oid":"javascript.0.bl1.spieltag","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":true,"g_css_border":true,"g_gestures":false,"g_signals":false,"values":"1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34","texts":"1. Spieltag;2. Spieltag;3. Spieltag;4. Spieltag;5. Spieltag;6. Spieltag;7. Spieltag;8. Spieltag;9. Spieltag;10. Spieltag;11. Spieltag;12. Spieltag;13. Spieltag;14. Spieltag;15. Spieltag;16. Spieltag;17. Spieltag;18. Spieltag;19. Spieltag;20. Spieltag;21. Spieltag;22. Spieltag;23. Spieltag;24. Spieltag;25. Spieltag;26. Spieltag;27. Spieltag;28. Spieltag;29. Spieltag;30. Spieltag;31. Spieltag;32. Spieltag;33. Spieltag;34. Spieltag","height":"150","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"no_style":true,"class":"","lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"open":false,"name":"spieltag_liste","visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide"},"style":{"left":"0%","top":"54.77%","height":"45.95%","width":"100%","background":"","box-shadow":"","border-radius":"5px","padding-left":"","padding-right":"","margin-right":"","color":"","font-weight":"bolder","border-width":"2px","border-style":"solid","border-color":"white","background-color":""},"widgetSet":"jqui","grouped":true,"groupName":"w00064"},{"tpl":"tplIconState","data":{"oid":"javascript.0.bl1.spieltag","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"text":"Heute","invert_icon":false,"value":"{openligadb.0.bl1.2019.currgameday}"},"style":{"left":"0%","top":"0%","color":"white","background":"#303030","font-size":"small","font-weight":"normal","height":"45.95%","border-width":"2px","border-style":"solid","border-color":"white","width":"100%"},"widgetSet":"jqui","grouped":true,"groupName":"w00059"}]
+```
+
+### Anzeige von bestimmten Eigenschaften, falls eine der Lieblingsmannschaften am heutigen Tag spielen
+**Beipiel 1** HTML-Widget erhält einen grünen Hintergrund, wenn Bayern heute spielt.
+Der Bindungsausdruck wir hier im Feld Hintergrundfarbe im Reiter CSS Hintergrund gesetzt.
+
+```text
+    {a:openligadb.0.bl1.2019.currgameday;vis.binds["openligadb"].checkTodayFavorite('openligadb.0.bl1.2019.allmatches','bayern')?'red':'green'}
+```
+
+Expandieren
+
+```text
+    [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":true,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0},"style":{"left":"445px","top":"589px","background":"{a:openligadb.0.bl1.2019.currgameday;vis.binds[\"openligadb\"].checkTodayFavorite('openligadb.0.bl1.2019.allmatches','bayer')?'red':'green'}","width":"70px","height":"70px","border-radius":"10px"},"widgetSet":"basic"}]
+```
+
+### Auswahl des Tabellenmodus für das Tabellen-Widget
+![Tabellenmodus](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/tableselect.png) Mit diesem HTML-Widget lässt sich der Modus des Tabellen-Widgets steuern.
+Der im folgenden Widget verwendete Datenpunkt lautet:
+
+`javascript.0.tabellemodus`
+
+Diese ist als Bindung in das Attribut mode_binding im tabellarischen widget wie folgt zu hinterlegen:
+
+```text
+    {javascript.0.tabellemodus}
+```
+
+Hier der Widget-Code zum Importieren.
+
+Expandieren
+
+```text
+    [{"tpl":"tplJquiRadioList","data":{"oid":"javascript.0.tabellemodus","g_fixed":true,"g_visibility":false,"g_css_font_text":true,"g_css_background":true,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","values":"1total;2home;3away;4round1;5round2","texts":"Gesamt;Heim;Auswärts;Hinrunde;Rückrunde","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"class":""},"style":{"left":"54px","top":"356px","background":"black","font-size":"xx-small"},"widgetSet":"jqui"}]
+```
+
+## Wichtige Funktionen
+### Vis.binds\["openligadb"\].checkTodayFavorite(ObjectID,Favorites)
+Javascript-Funktion zur Überprüfung, ob am heutigen Tag für ein oder mehrere Mannschaften ein Spiel statt findet. Diese Funktion kann über vis binding verwendet werden. Aufgrund der Anforderung des Bindings sind hier ein paar Dinge zu beachten.
+
+Diese Funktion kann im Binding bspw. wie folgt verwendet werden.
+Zum Test kann die folgende Notation in einem HTML-Widget eingetragen werden.
+Als Ergebnis wird dann entweder ja oder nein ausgegeben, je nachdem ob am heutigen Tag der Suchbegriff in den Mannschaftsnamen gefunden wurde.
+Alle Anführungszeichen (einfache und doppelte) müssen exakt so eingegeben werden.
+
+#### Schema
+```text
+    {a:oid;vis.binds["openligadb"].checkTodayFavorite('oid_allmatches','clubsuche1,clubsuche2')?'ja':'nein'}
+```
+
+#### Beispiel aus dem echten Leben
+```text
+    {a:openligadb.0.bl1.2024.currgameday;vis.binds["openligadb"].checkTodayFavorite('openligadb.0.bl1.2024.allmatches','bayern')?'ja':'nein'}
+```
+
+#### Bedeutung der Parameter
+```text
+<table><tbody><tr><td>oid</td><td>ein beliebiger Datenpunkt, der die Aktualisierung triggert. Es empfiehlt sich bspw. currgameday zu wählen,<br>da dies gleichzeitig mit allmatches aktualisiert wird.</td></tr><tr><td>oid_allmatches</td><td>Bezeichnung eines Datenpunktes allmatches der jeweiligen Liga/Saison.</td></tr><tr><td>clubsuche</td><td>ein oder mehrere Bezeichnungen (können auch Teilbezeichnungen sein), mit Komma (,) getrennt. Bitte beachten.<br>Diese Feld entspricht in den Widgets dem Feldt highlight. Mehrere Suchbegriffe müssen hier nur mit Komma getrennt werden und nicht mit Semikolon wie in den Widgets.</td></tr></tbody></table>
+```
 
 Dokumentation für die Vis-Widgets finden Sie in Vis oder [Widget-Dokumentation/deutsch](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.openligadb/blob/master/widgets/openligadb/doc.html)
 
@@ -101,6 +396,13 @@ Spieltag und 3 Spieltage danach)~~
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+
+### 1.8.0 (2024-10-27)
+
+- move widget documentation from html file to readme
+- adjust and prove responsive design for jsonconfig
+- implement individual color settings for highlite and filters for each widget
+
 ### 1.7.0 (2024-09-16)
 
 - fix quotes

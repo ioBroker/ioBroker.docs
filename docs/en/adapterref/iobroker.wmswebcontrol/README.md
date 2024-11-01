@@ -27,6 +27,9 @@ To control your device change the \*Convert values.
 `wmswebcontrol.0.Markise.setting2Convert`
 
 ## Changelog
+### 0.1.3 (2024-10-26)
+
+- fix login
 
 ### 0.1.2
 

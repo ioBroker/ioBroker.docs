@@ -11,12 +11,16 @@
 
 Send emails from ioBroker.
 
+| :exclamation: This adapter currently does not support microsoft mail servers (Hotmail, Live.com, Office365 und Web-Outlook).  |
+|-----------------------------------------|
+
 The adapter uses [nodemailer](https://github.com/nodemailer/nodemailer) to provide the functionality.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 To use Gmail you may need to configure "Allow Less Secure Apps" in your Gmail account unless you are using 2FA in which
 case you would have to create an Application Specific password. You also may need to unlock your account with "Allow access to your Google account" to use SMTP.
+
 
 ## Usage
 

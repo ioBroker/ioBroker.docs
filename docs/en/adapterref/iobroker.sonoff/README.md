@@ -122,6 +122,10 @@ States:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.2.1 (2024-10-07)
+
+* (bluefox) Sanitize the IDs of the clients
+
 ### 3.2.0 (2024-08-28)
 * (bluefox) Added information about connected clients in the server mode
 
@@ -132,7 +136,7 @@ States:
 * (mattreim) updated packages
 
 ### 3.1.0 (2024-05-25)
-* Important: Node.js 18.x and js-controller 5.0.19+ is needed at minimum
+* Important: Node.js 18.x and js-controller 5.0.19+ are necessary at minimum
 * (mattreim) upgraded states for Tasmota 13.4.0.3 20240402
 * (mattreim) enhanced some log messages
 * (mattreim) Added PWM Items

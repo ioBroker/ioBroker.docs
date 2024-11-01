@@ -7,7 +7,7 @@ lastChanged: 12.08.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/proxmox.md
-hash: enM995Z97XWBmmDE2xZ1rD4JLuVKeffwIj8zqX9hPfY=
+hash: HQHFcoX4FbJQNhhisg7QqnBrRNAt2B/H4N1Yxi9ZKiI=
 ---
 # 普罗克斯莫克斯
 ![普罗克斯莫克斯标志](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -15,7 +15,7 @@ hash: enM995Z97XWBmmDE2xZ1rD4JLuVKeffwIj8zqX9hPfY=
 ## Proxmox 安装
 Proxmox虚拟环境（简称Proxmox VE）是一个基于Debian的虚拟化平台。 Proxmox 的虚拟化技术基于 QEMU/KVM。
 
-Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非常容易（并且还支持 Linux 容器 – LXC）。一方面，这使得 Proxmox 适合初学者，但另一方面，它功能强大，也可以在专业环境中使用。
+Proxmox 将 QEMU/KVM“打包”在自己的 Web 界面中，使管理变得非常容易（并且还支持 Linux 容器 – LXC）。一方面，这使得 Proxmox 适合初学者，但另一方面，它功能强大，也可以在专业环境中使用。
 
 本节通过一个例子来展示Proxmox免费版（非订阅）的安装和基本配置。
 
@@ -26,7 +26,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 
 - 64位CPU
 - CPU 和主板必须支持 Intel VT/AMD-V 虚拟化，并且必须在 BIOS 中激活。
-- 1 GB RAM（仅适用于 Proxmox）——根据要操作的虚拟机数量，这里当然需要更多 RAM。因此，这里建议至少 8 GB，甚至更好，16 GB RAM。
+- 1 GB RAM（仅适用于 Proxmox）——根据要操作的虚拟机数量，这里当然需要更多 RAM。因此，建议至少使用 8 GB 或更好的 16 GB RAM。
 
 </详情>
 
@@ -42,7 +42,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 安装时，必须使用此 ISO 映像创建可启动 USB 记忆棒。其内存至少应为 2 GB。创建可启动棒的方法有多种，请参阅[准备安装介质](https://pve.proxmox.com/wiki/Prepare_Installation_Media#_instructions_for_windows)
 
 ＃＃＃ 安装
-必须在 UEFI/BIOS 中配置系统，以便可以从 USB 设备引导。插入 U 盘后，过一会儿就会出现 Proxmox 安装菜单（如果没有，您也可以手动指定 U 盘作为启动介质（在大多数主板上，您可以使用 F8 或 F11 执行此操作）。
+必须在 UEFI/BIOS 中配置系统，以便可以从 USB 设备启动。插入 U 盘后，稍等片刻就会出现 Proxmox 安装菜单（如果没有出现，您也可以手动指定 U 盘作为启动介质（在大多数主板上，您可以使用 F8 或 F11 执行此操作）。
 
 只需在安装菜单中选择“**安装 Proxmox VE**”即可。
 
@@ -60,7 +60,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 
 </详情>
 
-下一步是选择要安装 Proxmox 的硬盘。如果服务器上安装了多个硬盘，请务必选择正确的硬盘！
+接下来是选择要安装 Proxmox 的硬盘驱动器。如果服务器上安装了多个硬盘，请务必选择正确的硬盘！
 
 <details><summary>硬盘选择</summary>
 
@@ -77,7 +77,7 @@ Proxmox 将 QEMU/KVM“打包”到自己的 Web 界面中，使管理变得非�
 </详情>
 
 Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume_Manager) (LVM)。通过此处的高级选项，可以对 LVM 等进行详细配置。
-安装程序创建一个名为 pve 的卷组 (VG) 和名为 root（这里安装了 Proxmox 本身）的附加逻辑卷 (LV)、数据（存储虚拟机虚拟磁盘的存储）和交换（这里交换文件已存储）。
+安装程序创建一个名为 pve 的卷组 (VG) 和名为 root（这里安装了 Proxmox 本身）、数据（存储 VM 虚拟磁盘的存储）和交换（这里）的附加逻辑卷 (LV)交换文件已存储）。
 
 <details><summary>通过高级设置，可以在此处指定某些参数：</summary>
 
@@ -90,7 +90,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-通常您可以将所有选项保留为默认设置（即此处未指定任何内容）。这些已经针对大多数安装进行了最佳设置。
+通常，您可以将所有选项保留为默认设置（即此处未指定任何内容）。这些已经针对大多数安装进行了最佳设置。
 
 选择 Proxmox 的硬盘驱动器后，将请求本地化选项（国家/地区、时间和相关的键盘布局）：
 
@@ -168,7 +168,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-现在，必须调整 Proxmox 软件包源，以便您可以接收更新。
+现在必须调整 Proxmox 软件包源以便您可以接收更新。
 
 <details><summary>包来源</summary>
 
@@ -216,16 +216,18 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 当然也可以通过命令行（例如通过 SSH）更新 Proxmox 服务器：
 
-~~~ apt update && apt dist-upgrade ~~~
+```bash
+apt update && apt dist-upgrade
+```
 
 这里唯一重要的是你使用 **apt dist-upgrade** （在“普通”Debian/Ubuntu 机器上你倾向于使用 apt Upgrade）。然而，“dist-upgrade”对于 Proxmox 来说很重要，因为它更好地解决了操作 Proxmox 所需的依赖关系。
 
-从这方面来看，Proxmox 的基本配置现已完成。如果您想更详细地了解 Proxmox，值得查看[Proxmox Wiki](https://pve.proxmox.com/wiki/Main_Page) 或在 [官方论坛](https://forum.proxmox.com/)。
+至此，Proxmox 的基本配置现已完成。如果您想更详细地了解 Proxmox，值得查看[Proxmox Wiki](https://pve.proxmox.com/wiki/Main_Page) 或在 [官方论坛](https://forum.proxmox.com/)。
 
 ---
 
 ## Proxmox - 创建虚拟 Qemu/KVM 机器 (VM) + 随后安装 ioBroker
-本示例指南展示了如何创建 [虚拟机](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11)，然后在其中安装 ioBroker。
+本示例指南展示了如何创建 [虚拟机](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines)（debian stable（截至 2024 年 10 月 30 日 = Debian 12 'Bookworm'）），然后在其中安装 ioBroker。
 
 当然可以使用 Ubuntu 而不是 Debian，但请确保使用 Ubuntu Server **LTS 版本**。
 
@@ -248,9 +250,9 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 </详情>
 
 ### 2 - 创建虚拟机
-单击蓝色的 **创建 VM** 按钮，将打开一个窗口，必须在其中进行以下设置。
+单击蓝色的 **创建 VM** 按钮将打开一个窗口，必须在其中进行以下设置。
 
-- 一般：分配主机名和密码，指定ID（从100开始），可以更改，但以后不能更改。
+- 一般：分配主机名和密码，指定ID（以100开头），可以更改，但以后不能更改。
 - 操作系统：存储选择（本地）和 ISO 映像 (debian-11-netinst.iso)
 - 系统：一切保持默认设置，**检查 Qemu Agent**
 - 磁盘：存储local-lvm，磁盘大小10GB（10-20GB应该足够了，以后可以更改，但这里不再进一步描述）。
@@ -295,6 +297,7 @@ VM 启动后，转到 VM 控制台并启动 **安装**。
 通知：
 
 不要选择 **iobroker** 作为您的用户名，因为这已在系统内部使用。
+用户名只能由小写字母和数字 0-9 组成，并以字母开头。连字符也是允许的，但不能作为第一个字符。
 
 <details><summary>图像系列 Debian 安装</summary>
 
@@ -355,20 +358,24 @@ VM 启动后，转到 VM 控制台并启动 **安装**。
 ### 4 - 设置虚拟机
 重新启动虚拟机，然后使用安装时分配的“用户名”和“密码”登录。然后是命令
 
-~~~ IP地址~~~
+```bash
+ip addr
+```
 
 已找到 IP 地址。这是通过 ssh 远程连接到虚拟机所必需的，如下一步所示。
 
-<details><summary>IP 地址</summary>
+<details><summary>IP地址</summary>
 
 ![虚拟机IP地址](../../de/install/media/proxmox/vm-ipaddr.png)
 
 </详情>
 
-现在可以通过 ssh（例如 Putty）访问虚拟机。在这里您还可以使用“用户名”和“密码”再次登录。
+现在可以通过 ssh（例如 PuTTY）访问虚拟机。在这里您还可以使用“用户名”和“密码”再次登录。
 然后可以将网络地址从 **dhcp** 更改为 **静态**。 （推荐用于服务器操作）
 
-~~~ sudo nano /etc/network/interfaces ~~~
+```bash
+sudo nano /etc/network/interfaces
+```
 
 <details><summary>网络/接口</summary>
 
@@ -384,7 +391,9 @@ VM 启动后，转到 VM 控制台并启动 **安装**。
 
 对 IP 的更改仅在重新启动 VM 后才会生效。但在此之前，会检查 Qemu 访客代理是否处于活动状态
 
-~~~ sudo systemctl status qemu-guest-agent ~~~
+```bash
+sudo systemctl status qemu-guest-agent
+```
 
 <details><summary>客座代理</summary>
 
@@ -396,10 +405,16 @@ VM 启动后，转到 VM 控制台并启动 **安装**。
 
 为此的命令：
 
-~~~ sudo apt-get install qemu-guest-agent sudo systemctl start qemu-guest-agent ~~~
+```bash
+sudo apt-get install qemu-guest-agent
+sudo systemctl start qemu-guest-agent
+```
 
 此外，为了能够安装 iobroker，必须重新安装 **curl**。
-~~~ sudo apt安装curl ~~~
+
+```bash
+sudo apt install curl
+```
 
 <details><summary>重新安装卷曲</summary>
 
@@ -433,9 +448,9 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 为了清楚起见，可以打开图像描述和附加信息。
 
 ### 1 - 下载容器模板
-首先，需要一个模板，必须将其加载到基本安装中的根目录（本地）中（如果没有创建其他驱动器）。
+首先，需要一个模板，在基本安装中必须将其加载到根目录（本地）中（如果没有创建其他驱动器）。
 
-为此，请转至本地 > 容器模板。通过单击“**模板**”，将打开一个选择列表。这里选择 debian-11-standard(bullseye) 并点击下载。
+为此，请转至本地 > 容器模板。单击 **模板** 将打开一个选择列表。这里选择 debian-11-standard(bullseye) 并点击下载。
 
 <details><summary>下载模板</summary>
 
@@ -453,7 +468,7 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 - 常规：分配主机名和密码，指定 ID（以 100 开头），但可以更改。
 - 模板：存储选择（本地）和模板（debian-11-standard）
 - 磁盘：分配磁盘大小（不要太大，可以随时放大）
-- CPU：取决于电脑的强大程度（也可以随时调整）
+- CPU：取决于电脑的性能（也可以随时调整）
 - 内存：RAM/交换分配（可以随时调整，甚至在操作期间）
 - 网络：静态 IP/CIDR 分配、网关，如果未设置 IPv6，则设置为 SLAAC
 - DNS：通常不做任何更改（使用来自主机的值）
@@ -494,7 +509,9 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 在这里，您首先使用之前分配的密码（创建 LXC 时分配的密码）以 root 身份登录并将其更新。
 
-~~~ apt 更新 && apt 升级 ~~~
+```bash
+apt update && apt upgrade
+```
 
 <details><summary>升级</summary>
 
@@ -502,9 +519,11 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 </详情>
 
-立即指出时区仍需设置。
+这直接表明时区还需要设置。
 
-~~~ dpkg-重新配置tzdata ~~~
+```bash
+dpkg-reconfigure tzdata
+```
 
 <details><summary>时区</summary>
 
@@ -518,7 +537,9 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 现在 **sudo** 和 **curl** 将被安装。需要 Sudo 才能正确创建将来在控制台上使用的用户，如下一步所示。在最后一步中需要使用 Curl 来检索 ioBroker 安装脚本。
 
-~~~ apt install sudo curl ~~~
+```bash
+apt install sudo curl
+```
 
 <details><summary>重新安装</summary>
 
@@ -532,15 +553,23 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 不要选择 **iobroker** 作为您的用户名，因为这已在系统内部使用。
 
-~~~ 添加用户 用户名 ~~~
+```bash
+adduser benutzername
+```
 
 然后必须将用户分配到 sudo 组。
 
-~~~ usermod -aG sudo 用户名 ~~~
+```bash
+usermod -aG sudo benutzername
+```
 
-如果随后要创建用户，仍然必须通过
+如果稍后要创建用户，仍然必须通过
 
-~~~ usermod -aG adm,dialout,sudo,audio,video,plugdev,users,iobroker username ~~~ 添加到相关组中。
+```bash
+usermod -aG adm,dialout,sudo,audio,video,plugdev,users,iobroker benutzername
+```
+
+被添加到相关组中。
 
 <details><summary>创建用户</summary>
 
@@ -550,17 +579,19 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 最后一步，在安装ioBroker之前，注销一次
 
-~~~退出~~~
+```bash
+exit
+```
 
 然后用新用户登录。现在可以安装 iobroker。
 
-<details><summary>注销并以用户身份登录</summary>
+<details><summary>注销并使用用户登录</summary>
 
 ![lxc用户登录](../../de/install/media/proxmox/lxc-useranmeldung.png)
 
 </详情>
 
-为了使 LXC 在计算机重新启动 (Proxmox) 后也能自动启动，必须在容器选项中激活它。
+为了使 LXC 即使在计算机重新启动 (Proxmox) 后也能自动启动，必须在容器选项中激活它。
 
 <details><summary>启动选项</summary>
 
@@ -568,12 +599,61 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 </详情>
 
+### 可选：修复有关服务未启动的警告/错误消息
+例如，当调用 iob diag 时，可以在输出中找到以下错误消息。
+有时它们仅出现在非特权容器中，有时也出现在特权容器中。
+
+~~~....
+***服务失败***
+
+  单元负载活动子描述
+
+* run-rpc_pipefs.mount加载失败失败的RPC管道文件系统
+* sys-kernel-config.mount 加载失败 失败的内核配置文件系统
+* systemd-networkd-wait-online.service 加载失败失败等待网络配置
+
+...
+~~~
+
+如果你想在安装 iobroker 之前清理容器，你可以得到“FAILED SERVICES”，如下所示：
+
+```bash
+systemctl list-units --failed
+```
+
+以下是故障排除过程的集合：
+
+#### 服务 run-rpc_pipefs.mount 失败
+```bash
+sudo systemctl mask run-rpc_pipefs.mount
+sudo systemctl mask var-lib-nfs-rpc_pipefs.mount
+```
+
+#### 服务 sys-kernel-config.mount 失败
+将以下行附加到 `/etc/pve/lxc` 目录中的容器配置文件中：
+
+~~~ lxc.cap.drop:“sys_rawioaudit_read”~~~
+
+#### 服务失败 systemd-networkd-wait-online.service
+将 `ifupdown` 服务替换为 `ifupdown2`：
+
+```bash
+sudo systemctl disable --now systemd-networkd-wait-online.service
+sudo systemctl disable --now systemd-networkd.service
+sudo systemctl disable --now ifupdown-wait-online
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install ifupdown2
+```
+
 ---
 
 ## 安装 ioBroker
 安装 ioBroker 所需的只是一个命令。
 
-~~~curl -sLf https://iobroker.net/install.sh |重击-~~~
+```bash
+curl -sLf https://iobroker.net/install.sh | bash -
+```
 
 安装步骤分为4步，全自动。
 
@@ -626,7 +706,7 @@ VM 的安装和设置现已完成。现在可以重新启动 VM，然后可以�
 
 ![实例](../../de/install/media/proxmox/instanzen.png)
 
-![iobroker 完成](../../de/install/media/proxmox/iobroker-fertig.png)
+![iobroker就绪](../../de/install/media/proxmox/iobroker-fertig.png)
 
 </详情>
 
@@ -648,13 +728,17 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 建立与 Proxmox 的 SSH 连接：
 
-~~~ ssh root@IP地址~~~
+```bash
+ssh root@IP-Adresse
+```
 
 <span style="color:red">**如果 USB 设备已连接到 Proxmox 主机，请暂时拔下该设备。**</span>
 
 以下命令列出 Proxmox 主机上当前连接的所有 USB 设备：
 
-~~~ lsusb ~~~
+```bash
+lsusb
+```
 
 ![proxmoxlxc00](../../de/install/media/proxmox/proxmoxlxc00.PNG)
 
@@ -666,7 +750,9 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 除其他外，使用以下命令需要此信息：从设备输出**主设备号**：
 
-~~~ ls -l /dev/bus/usb/001/003 ~~~
+```bash
+ls -l /dev/bus/usb/001/003
+```
 
 在命令中使用 USB 总线编号和设备编号的输出非常重要！
 
@@ -680,7 +766,9 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 接下来，我们输出 USB 设备的唯一 id，并在文本文件中用注释记下输出值：#2
 
-~~~ ls /dev/serial/by-id/ ~~~
+```bash
+ls /dev/serial/by-id/
+```
 
 ![proxmoxlxc04](../../de/install/media/proxmox/proxmoxlxc04.PNG)
 
@@ -688,7 +776,9 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 最后一步，输出 ttyACM 的主设备号并用注释注明：#3：
 
-~~~ ls -l /dev/ttyACM* ~~~
+```bash
+ls -l /dev/ttyACM*
+```
 
 ![proxmoxlxc06](../../de/install/media/proxmox/proxmoxlxc06.PNG)
 
@@ -705,7 +795,9 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 使用以下命令切换到 Proxmox 主机上的 LXC 配置目录：
 
-~~~ cd /etc/pve/lxc ~~~
+```bash
+cd /etc/pve/lxc
+```
 
 配置文件的 ID 号与创建 lxc 时分配的 ID 号相同！
 
@@ -715,13 +807,17 @@ ioBroker 安装现已完成。根据应用和愿望，可以随时安装额外�
 
 在编辑配置文件之前，应创建备份副本：
 
-~~~ cp 201.conf 201.conf.backup ~~~
+```bash
+cp 201.conf 201.conf.backup
+```
 
 ![proxmoxlxc10](../../de/install/media/proxmox/proxmoxlxc10.PNG)
 
 现在使用 vi 或 nano 编辑配置文件：
 
-~~~ Nano 201.conf ~~~
+```bash
+nano 201.conf
+```
 
 ![proxmoxlxc11](../../de/install/media/proxmox/proxmoxlxc11.PNG)
 
@@ -769,13 +865,19 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 </br> 最后，发出以下命令来设置 ttyACM0 所需的权限：
 
-~~~ chmod o+rw /dev/ttyACM* ~~~
+```bash
+chmod o+rw /dev/ttyACM*
+```
 
 要将调整应用于 lxc，请使用 **pct stop id / pct start id** 从容器执行冷启动：
 
-~~~ pct 停止 201 ~~~
+```bash
+pct stop 201
+```
 
-~~~ pct开始201 ~~~
+```bash
+pct start 201
+```
 
 </br>
 
@@ -790,15 +892,21 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 建立与 LXC 的 SSH 连接：
 
-~~~ ssh用户@IP地址~~~
+```bash
+ssh Benutzer@IP-Adresse
+```
 
 使用命令：
 
-~~~lsusb~~~
+```bash
+lsusb
+```
 
 &
 
-~~~ ls -l /dev ~~~
+```bash
+ls -l /dev
+```
 
 它检查对配置文件的调整是否成功。
 
@@ -810,7 +918,7 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 >***如果不检查配置文件中的所有值是否都按照描述设置，权限应该还是不匹配，跳到第5点。***
 
-* 在屏幕截图中您还可以看到 cc2531 的设备编号已从值 3 更改为 4，这是因为棒同时被拔出并再次插入。由于在配置文件中指定了唯一 ID 而不是总线/设备编号，因此 USB 直通将继续工作。
+* 在屏幕截图中您还可以看到 cc2531 的设备编号已从值 3 更改为 4，这是因为棒同时被拔出并再次插入。但是，由于在配置文件中指定了唯一 ID 而不是总线/设备编号，因此 USB 直通将继续工作。
 
 如果按照开头所述将 Zigbee 棒传递到容器，则它必须位于 iobroker 中 Zigbee 适配器设置中的 COM 端口名称项下
 
@@ -827,13 +935,17 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 在第 3 步结束时使用命令
 
-~~~ chmod o+rw /dev/ttyACM* ~~~
+```bash
+chmod o+rw /dev/ttyACM*
+```
 
 已设置 ttyACM0 的适当权限，但这些权限更改会在 Proxmox 主机重新启动时重置。Proxmox 主机上需要 udev 规则才能进行永久调整。
 
 使用 lsusb 我们再次列出当前连接的 USB 设备：
 
-~~~lsusb~~~
+```bash
+lsusb
+```
 
 ![proxmoxlxc15](../../de/install/media/proxmox/proxmoxlxc15.PNG)
 
@@ -843,7 +955,9 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 现在使用 vi 或 nano 在 /etc/udev/rules.d 下创建 udev 规则：
 
-~~~ 纳米 /etc/udev/rules.d/50-myusb.rules ~~~
+```bash
+nano /etc/udev/rules.d/50-myusb.rules
+```
 
 并添加以下内容：
 
@@ -853,7 +967,9 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 最后，运行以下命令激活udev规则：
 
-~~~ udevadm 控制 --reload ~~~
+```bash
+udevadm control –-reload
+```
 
 </详情>
 
@@ -862,7 +978,10 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 **错误：** lxc 中的 ttyACM0 权限不适合或在短时间内丢失（ConBee II）。
 
-~~~ ls -l /dev/ttyACM0 c--------- 0 无人 nogroup 166, 0 二月 7 日 14:29 ttyACM0 ~~~
+```bash
+ls -l /dev/ttyACM0
+ c--------- 0 nobody nogroup 166, 0 Feb  7 14:29 ttyACM0
+```
 
 </br>
 
@@ -870,11 +989,17 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 
 为此，在路径 **“/var/lib/lxc/CONTAINERID”** 中创建文件夹 **devices**，并使用 mknod 在此文件夹中创建绑定：
 
-~~~ mkdir /var/lib/lxc/201/devices ~~~
+```bash
+mkdir /var/lib/lxc/201/devices
+```
 
-~~~ cd /var/lib/lxc/201/devices ~~~
+```bash
+cd /var/lib/lxc/201/devices
+```
 
-~~~ mknod -m 666 ttyACM0 c 166 0 ~~~
+```bash
+mknod -m 666 ttyACM0 c 166 0
+```
 
 + *mknod 在路径中创建一个名为 ttyACM0 的文件（只要该文件存在，设备就绑定到 lxc）*
 
@@ -913,7 +1038,9 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 ### 1 - 识别设备
 首先，您使用[LSBLK](https://wiki.ubuntuusers.de/lsblk/)定位设备。建议在插入之前和之后执行一次该命令。这使得设备更容易识别。
 
-~~~ lsblk ~~~
+```bash
+lsblk
+```
 
 它看起来像这样（字母根据集成的设备数量而变化）
 
@@ -922,28 +1049,52 @@ lxc.cgroup2.devices.allow：c 166：* rwm lxc.mount.entry：/dev/ttyACM0 dev/tty
 ### 2 - 分区
 驱动器通过菜单驱动的[cfdisk](https://wiki.ubuntuusers.de/fdisk/)进行分区
 
-~~~ cfdisk /dev/sde ~~~
+```bash
+cfdisk /dev/sde
+```
 
 ### 3 - 创建文件系统
 现在之前创建的分区仍然需要格式化。如上所述，根据预期用途有不同的选择。
 使用命令[MKFS](https://wiki.ubuntuusers.de/Formatieren/)和适当的参数格式化分区。
 
-~~~ mkfs.vfat /dev/sde1 ~~~
+```bash
+mkfs.vfat /dev/sde1
+```
 
 ### 4 - 安装驱动器
-为了能够使用完整的数据载体，它必须是[已安装](https://wiki.ubuntuusers.de/mount/)。
+为了能够使用完整的数据载体，它必须是[安装的](https://wiki.ubuntuusers.de/mount/)。
 
 为此，将创建一个合适的安装点，以便在重新启动后自动重新安装数据载体，您还需要在 [/etc/fstab](https://wiki.ubuntuusers.de/fstab/) 中添加合适的条目。
 
 为此，必须读取驱动器的唯一 **UUID**。
 
-创建挂载点 ~~~ mkdir /media/ext_usb ~~~
+创建挂载点
 
-挂载磁盘~~~挂载 /dev/sde1 /media/ext_usb ~~~
+```bash
+mkdir /media/ext_usb
+```
 
-确定UUID ~~~ blkid | grep -i sde ~~~ 结果为 ~~~ /dev/sde1: LABEL="Export_Images" UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" UUID_SUB="951e8519-8478-4d64-b093-c3597147f989" BLOCK_SIZE= “4096”类型=“btrfs”PARTUUID=“00011a10-01”~~~
+挂载磁盘
 
-使用 nano 编辑 */etc/fstab* 中的条目 ~~~ nano /etc/fstab ~~~ 现在添加并保存此条目 ~~~ UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ ext_usb vfat 默认 0 0 ~~~
+```bash
+mount /dev/sde1 /media/ext_usb
+```
+
+确定UUID
+
+```bash
+blkid | grep -i sde
+```
+
+结果 ~~~ /Dev /SDE1: Label = "Export_bilder" Uuid = "136b058d-F0C8-A82B-2ADC00B72BF" UUID_SUB = "951E8519-84-B093-C3597F989" Block_Size = " BTRFS " PARTUUID="00011a10-01" ~~ ～
+
+使用 nano 编辑 */etc/fstab* 中的条目
+
+```bash
+nano /etc/fstab
+```
+
+现在这个条目被添加并保存~~~ UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ext_usb vfat defaults 0 0 ~~~
 
 ### 5- 在 Proxmox 中添加存储
 现在可以在数据中心>存储下添加目录。 ID名称可以自由选择，例如*usb-backup*。

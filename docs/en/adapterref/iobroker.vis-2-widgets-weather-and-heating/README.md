@@ -93,6 +93,21 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 
 
 ## Changelog
+### 0.7.7 (2024-10-27)
+ * (René) show absolute / relative as info in Heating Room Profile Params widget
+ * (René) Heating Time Schedule: copy periods added
+
+### 0.7.6 (2024-10-20)
+ * (René) added missing svg's
+ * (René) see issue #55 and #50: in some widgets color configuration added (text and background)
+ * (René) see issue #55: bug fix to show icon in Heating Window Status widget
+ * (René) see issue #55: in weather widget position of y axis (left or right) adjustable
+
+### 0.7.4 (2024-10-11)
+ * (René) see issue #51: weather widget: title not shown at all, if no string available or no OID set
+ * (René) see issue #51: weather widget: color for title and axis lables adjustable
+ * (René) see issue #53: wrong icon (weather and wind) shown in WeatherDayWidget fixed
+
 ### 0.7.3 (2024-09-28)
  * (René) add missing translations
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nuki/README.md
 title: ioBroker.nuki
-hash: 0NwI4F2l9JM+WLttJWlD5gTrvhhGycNLkvJzpvrV7So=
+hash: tssDUVscG1a2RiJ4PrJZeRDf+6LBX3lQOGdshxvJA8E=
 ---
 ![Logo](../../../en/adapterref/iobroker.nuki/admin/nuki-logo.png)
 
@@ -14,71 +14,112 @@ hash: 0NwI4F2l9JM+WLttJWlD5gTrvhhGycNLkvJzpvrV7So=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.nuki.svg)
 ![NPM](https://nodei.co/npm/iobroker.nuki.png?downloads=true)
 
-# IoBroker.nuki [![Travis CI] (https://travis-ci.com/smaragdschlange/ioBroker.nuki.svg?branch=master)](https://travis-ci.com/smaragdschlange/ioBroker.nuki)
-Dieser ioBroker-Adapter ermöglicht die Steuerung und Überwachung der [Nuki Smart Lock](https://nuki.io/de/) mithilfe der API der Nuki Bridge.
+# IoBroker.nuki [![Travis CI](https://travis-ci.com/smaragdschlange/ioBroker.nuki.svg?branch=master)](https://travis-ci.com/smaragdschlange/ioBroker.nuki)
+Dieser ioBroker-Adapter ermöglicht die Steuerung und Überwachung des [Nuki Smart Lock](https://nuki.io/de/) mithilfe der API der Nuki Bridge.
 
-## Bedarf
-* Eine Nuki-Brücke (Hardware oder Software).
-* Ein Nuki Smart Lock und / oder ein Nuki Opener.
+## Anforderungen
+* Eine Nuki (Hardware oder Software) Bridge.
+* Ein Nuki Smart Lock und/oder ein Nuki Opener.
 * Eine laufende Instanz von ioBroker.
 
 ## Verwendung
-Jede Instanz des Nuki-Adapters repräsentiert eine Nuki-Brücke. Geben Sie beim Erstellen einer Instanz einfach die IP-Adresse, den Port und das Token Ihrer Nuki-Bridge ein. Der Name ist optional und wird automatisch generiert, wenn er leer gelassen wird. Das Kontrollkästchen "Rückruf verwenden" und der Wert "Rückrufport in ioBroker" sind optional und können gesetzt werden, um die Rückruffunktion des Nuki zu nutzen. Nach dem Speichern einer Instanz wird für jedes Nuki-Schloss, das mit der angegebenen Nuki-Brücke verbunden ist, ein Bridge-Gerät mit einem Kanal erstellt. Die Kanäle liefern den aktuellen Status der Nuki-Sperre als Ausgabeparameter:
+Jede Instanz des Nuki-Adapters stellt eine Nuki-Bridge dar. Beim Anlegen einer Instanz gibst du einfach IP-Adresse, Port und Token deiner Nuki-Bridge ein. Der Name ist optional und wird automatisch generiert, wenn er leer gelassen wird. Die Checkbox „Callback verwenden“ und der Wert „Callback-Port in ioBroker“ sind optional und können gesetzt werden, um die Callback-Funktion des Nuki zu nutzen. Nach dem Speichern einer Instanz wird für jedes Nuki-Schloss, das mit der angegebenen Nuki-Bridge verbunden ist, ein Bridge-Gerät mit einem Kanal erstellt. Die Kanäle liefern den aktuellen Zustand des Nuki-Schlosses als Ausgabeparameter:
 
-* Batteriekritisch: Anzeige für schwache Batterie
-* deviceType: Typ des Nuki-Geräts (Smart Lock oder Opener)
-* Modus: Betriebsmodus des Nuki-Geräts
-* doorState: Aktueller (numerischer) Türsensorstatus (Nuki native)
-* lockState: Zeigt an, ob Nuki gesperrt ist (nur Nuki Smart Lock)
-* state: Aktueller (numerischer) Sperrstatus (Nuki native)
+* batteryCritical: Anzeige für schwache Batterie
+* deviceType: Typ des Nuki-Gerätes (Smart Lock oder Opener)
+* mode: Betriebsmodus des Nuki Gerätes
+* doorState: Aktueller (numerischer) Türsensorstatus (Nuki nativ)
+* lockState: Anzeige ob Nuki gesperrt ist (nur Nuki Smart Lock)
+* Status: Aktueller (numerischer) Sperrstatus (Nuki nativ)
 * Zeitstempel: Zuletzt aktualisiert
 
-Zusätzlich bieten die Kanäle Eingangsparameter, die eine grundlegende Steuerung des Nuki-Schlosses ermöglichen:
+Darüber hinaus stellen die Kanäle Eingabeparameter zur Verfügung, welche eine grundlegende Steuerung des Nuki-Schlosses ermöglichen:
 
-* action: Numerischer Aktionscode zum Einstellen des Nuki-Status (Nuki native)
+* Aktion: Numerischer Aktionscode zum Setzen des Nuki Status (Nuki native)
 
 Gültige Eingabewerte für Sperren sind:
 
-0 (keine Aktion) 1 (Entsperren) 2 (Sperren) 3 (Entriegeln) 4 (Sperren 'n' go) 5 (Sperren 'n' gehen mit Entriegeln)
+0 (keine Aktion) 1 (entsperren) 2 (sperren) 3 (entriegeln) 4 (sperren und los) 5 (sperren und los mit entriegeln)
 
-* lockAction: Schalter zum Sperren / Entsperren des Nuki (true = entsperren; false = sperren)
-* openAction: Taste zum Entriegeln des Nuki
-* openLocknGoAction: Taste zum Entriegeln und nach einigen Sekunden zum Sperren des Nuki
-* refreshLocknGoAction: Taste zum Entsperren und nach einigen Sekunden zum Sperren des Nuki
+* lockAction: Schalter zum Sperren/Entsperren des Nuki (true = entsperren; false = sperren)
+* openAction: Button zum Entriegeln des Nuki
+* openLocknGoAction: Button zum Entriegeln und nach einigen Sekunden Sperren des Nuki
+* unlockLocknGoAction: Button zum Entsperren und nach einigen Sekunden Sperren des Nuki
 
-Gültige Eingabewerte für Opener sind:
+Gültige Eingabewerte für Öffner sind:
 
-0 (keine Aktion) 1 (rto aktivieren) 2 (rto deaktivieren) 3 (elektrische Schlagbetätigung) 4 (kontinuierlichen Modus aktivieren) 5 (kontinuierlichen Modus deaktivieren)
+0 (keine Aktion) 1 (rto aktivieren) 2 (rto deaktivieren) 3 (Öffneransteuerung) 4 (Dauerbetrieb aktivieren) 5 (Dauerbetrieb deaktivieren)
 
-* rtoAction: Schalter zum Aktivieren / Deaktivieren der Funktion Ring to Open (true = aktivieren; false = deaktivieren)
-* openAction: Taste zur elektrischen Schlagbetätigung
-* cmActiveAction: Schaltfläche zum Aktivieren des kontinuierlichen Modus
-* cmDeactiveAction: Schaltfläche zum Deaktivieren des kontinuierlichen Modus
+* rtoAction: Schalter zum Aktivieren/Deaktivieren der Ring to Open Funktion (true = aktivieren; false = deaktivieren)
+* openAction: Taster zur Türöffnerbetätigung
+* cmActiveAction: Button zum Aktivieren des Continous Mode
+* cmDeactiveAction: Button zum Deaktivieren des Continous Mode
 
-## Zusätzliche Information
-So erhalten Sie Ihren Bridge-Token:
+## Weitere Informationen
+So erhalten Sie Ihr Brücken-Token:
 
-* Rufen Sie http:// <bridge_ip>: <bridge_port> / auth in einem beliebigen Browser in Ihrem LAN auf -> Bridge leuchtet die LED
+* Rufen Sie http://<bridge_ip>:<bridge_port>/auth von einem beliebigen Browser in Ihrem LAN aus auf -> die Bridge schaltet ihre LED ein
 * Drücken Sie innerhalb von 30 Sekunden die Taste der Brücke
 * Das Ergebnis des Browseraufrufs sollte ungefähr so aussehen:
 
-{"token": "token123", "success": true} Rückruffunktion:
+{ "token": “token123”, "success": true } Rückruffunktion:
 
-Wenn die Rückruffunktion verwendet wird, versucht der Adapter, den Rückruf automatisch auf der Nuki-Brücke festzulegen, wenn die Instanz gespeichert wird. Wenn die Instanz entladen wird, wird der Rückruf erneut gelöscht. Alle Nuki-Zustände werden von der Nuki-Brücke auf dem neuesten Stand gehalten, während der Rückruf aktiviert ist.
-Rückrufe können in jedem Browser mit folgenden URLs festgelegt und entfernt werden:
+Wird die Callback-Funktion genutzt, versucht der Adapter beim Speichern der Instanz automatisch den Callback auf der Nuki Bridge zu setzen. Beim Entladen der Instanz wird der Callback wieder gelöscht. Alle Nuki-Zustände werden von der Nuki Bridge bei aktiviertem Callback aktuell gehalten.
+Callbacks können von jedem Browser aus mit folgenden URLs gesetzt und entfernt werden:
 
-Einstellen:
+Satz:
 
-* http:// <bridge_ip>: <bridge_port> / callback / add? url = http% 3A% 2F% 2F <host_ip>% 3A <host_port>% 2Fapi% 2Fnuki & token = <bridgeToken>
+* http://<Bridge-IP>:<Bridge-Port>/callback/add?url=http%3A%2F%2F<Host-IP>%3A<Host-Port>%2Fapi%2Fnuki&token=<BridgeToken>
 
 Entfernen:
 
-* http:// <bridge_ip>: <bridge_port> / callback / remove? id = <Rückruf-ID> & token = <bridgeToken>
+* http://<Bridge-IP>:<Bridge-Port>/callback/remove?id=<Callback-ID>&token=<BridgeToken>
 
-## Update
-Bei einem Update von 1.0.x auf 1.1.0 oder höher wird empfohlen, alle Instanzen der alten Version zu löschen, bevor Sie die neue Version installieren. Bitte beachten Sie, dass Versionsänderungen, die größer als auf Patch-Ebene sind (-> Änderung nur der letzten Ziffer), immer Änderungen an Datenpunkten enthalten können, z. 1.1.2 bis 1.1.4
+## Aktualisieren
+Beim Update von 1.0.x auf 1.1.0 oder höher wird empfohlen, vor der Installation der neuen Version alle Instanzen der alten Version zu löschen. Bitte beachten Sie, dass Versionsänderungen, die größer sind als auf Patch-Ebene (-> Änderung nur der letzten Ziffer), immer Änderungen an Datenpunkten enthalten können, z. B. 1.1.2 auf 1.1.4.
+Beim Update auf 2.x muss das Token erneut eingegeben werden.
 
 ## Changelog
+
+### 2.0.1
+* (smaragdschlange) update: dependencie updates
+
+### 2.0.0
+* (simatec) jsonConfig added
+* (simatec) dependency updated
+* (simatec) devdependency updated
+* (simatec) translate added
+* (simatec) test and release added
+* (simatec) Release Script added
+* (simatec) Remove Travis
+
+### 1.7.0
+* (smaragdschlange) update: implementation of latest bridge API changes (battery charge state)
+
+### 1.6.0
+* (smaragdschlange) improvement: support for Nuki Smart Door and Nuki Smart Lock 3.0 (Pro)
+
+### 1.5.0
+* (smaragdschlange) bug fix: compatibility with jscontroller 3.3.13
+
+### 1.4.4
+* (smaragdschlange) update: changes to comply with admin 5.x.x requirements
+
+### 1.4.3
+* (smaragdschlange) update: dependency axios to >=0.21.1
+
+### 1.4.2
+* (smaragdschlange) bug fix: common.dataSource type had an invalid type
+
+### 1.4.1
+* (smaragdschlange) bug fix: references fixed
+
+### 1.4.0
+* (smaragdschlange) improvement: support of keypad battery state 
+* (smaragdschlange) improvement: support of ring action states for opener
+
+### 1.3.1
+* (smaragdschlange) bug fix: some objects did not get updated
 
 ### 1.3.0
 * (smaragdschlange) improvement: support of doorsensor states
@@ -174,7 +215,7 @@ Bei einem Update von 1.0.x auf 1.1.0 oder höher wird empfohlen, alle Instanzen 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Smaragdschlange <smaragdschlange@gmx.de>
+Copyright (c) 2018-2024 Smaragdschlange <smaragdschlange@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,4 +1,5 @@
 ![Logo](admin/withings.png)
+
 # ioBroker.withings
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.withings.svg)](https://www.npmjs.com/package/iobroker.withings)
@@ -37,25 +38,27 @@ Callback URI: http://localhost
 
 Eingeschränkter Modus: Ja
 
-
 Client id und Client Secret eintragen
 
 ## Diskussion und Fragen
 
 <https://forum.iobroker.net/topic/51104/test-withings-v0-0-x>
 
-
 ## Changelog
 
 ### 0.0.8
-* (TA2k) Problem behoben mit zuvielen Datenpunkten unter sleep
+
+- (TA2k) Problem behoben mit zuvielen Datenpunkten unter sleep
+
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -33,6 +33,15 @@ Detect IP addresses from:
 -->
 
 ## Changelog
+### 1.1.1 (2024-10-30)
+-   (bluefox) Removed unused code
+-   (bluefox) Creation of META file if not exists
+-   (bluefox) Description for address must be longer than three characters
+-   (bluefox) Added adapter version to the meta file name
+
+### 1.0.13 (2024-10-17)
+-   (gsenkowski) Used actual IP and TCP header length for the PCAP file
+
 ### 1.0.11 (2024-09-26)
 -   (bluefox) Trying to fix CI
 -   (bluefox) Do not allow the traffic recording of FritzBox 

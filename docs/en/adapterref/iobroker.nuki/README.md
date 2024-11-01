@@ -81,9 +81,13 @@ Remove:
 * http://< bridge_ip >:< bridge_port >/callback/remove?id=< callback_id >&token=< bridgeToken >
 
 ## Update
-When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all instances of the old version before installing the new version. Please be aware that version changes bigger than on patch level (-> change of only the last digit) could always contain changes to data points e.g. 1.1.2 to 1.1.4
+When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all instances of the old version before installing the new version. Please be aware that version changes bigger than on patch level (-> change of only the last digit) could always contain changes to data points e.g. 1.1.2 to 1.1.4.
+When updating to 2.x the token has to be entered again.
 
 ## Changelog
+
+### 2.0.1
+* (smaragdschlange) update: dependencie updates
 
 ### 2.0.0
 * (simatec) jsonConfig added

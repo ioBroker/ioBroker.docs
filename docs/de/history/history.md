@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: dxi1fS/SizXUgxX/FTjp9Y4nG6LWoDqVCXxyir25aNE=
+hash: 4EcdORqXmStPGuUzEL7+axxfag4wJxbPWyv9qkCC9UQ=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -25,6 +25,13 @@ hash: dxi1fS/SizXUgxX/FTjp9Y4nG6LWoDqVCXxyir25aNE=
 
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
+
+## Ecoflow-mqtt (2024-10-14) - neuer Adapter
+https://github.com/foxthefox/ioBroker.ecoflow-mqtt
+
+<img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
+
+ioBroker-Adapter für die Verbindung zum Ecoflow MQTT-Server (emuliert die App-Kommunikation), stellt per Discovery-Funktion auch ein Home Assistant Gateway bereit.
 
 ## Fregatte (2023-08-20) - neuer Adapter
 https://github.com/Bettman66/ioBroker.frigate
@@ -151,7 +158,7 @@ https://github.com/klein0r/ioBroker.awtrix-light
 
 Integrieren Sie Ihr Awtrix Light-Gerät (z. B. Ulanzi TC001) über HTTP
 
-## Webui (3.10.2023) - neuer Adapter
+## Webui (3.10.2023) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.webui
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
@@ -171,9 +178,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Heizungsanlagen steuern.
-
 Sie können zwischen Kühl- und Heizbetrieb wählen und Boost oder Pause für einen Raum aktivieren.
-
 Darüber hinaus können Sie die Zieltemperatur für einen Raum überschreiben.
 
 ## Admin und mqtt (11.10.2023) - neue Funktion
@@ -216,7 +221,7 @@ https://github.com/PLCHome/ioBroker.pylontech
 
 <img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
 
-Fragen Sie die Zellspannungen und den Status von pylontech-Akkus über die Konsole ab.
+Fragen Sie die Zellspannungen und den Status von pylontech Batterien über die Konsole ab.
 
 ## Signifylights (26.10.2023) - neuer Adapter
 https://github.com/disaster123/ioBroker.signifylights
@@ -233,7 +238,7 @@ Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, biet
 Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche bereitzustellen.
 
 ## Vis (06.11.2023) - neue Funktion
-Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine Lizenz erforderlich ist.
+Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
 Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
@@ -257,7 +262,7 @@ https://github.com/ticaki/ioBroker.weather-warnings
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
-Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Zustände erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
+Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Staaten erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
 
 ## Tractive-gps (06.12.2023) - neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
@@ -271,7 +276,7 @@ Es ist möglich, Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
 
-## Emporia (07.12.2023) - neuer Adapter
+##emporia (07.12.2023) - neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
 <img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
@@ -309,7 +314,7 @@ https://github.com/rg-engineering/ioBroker.amtronwallbox
 
 <img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.amtronwallbox/master/admin/amtronwallbox.png" width="100" height="100" />
 
-Der Adapter dient als Schnittstelle zu verschiedenen Amtron Wallboxen. Die von der Box bereitgestellten Daten werden ausgelesen und als Stand im Adapter bereitgestellt. Die Daten werden ausschließlich lokal verarbeitet, eine Cloudanbindung ist nicht notwendig.
+Der Adapter dient als Schnittstelle zu verschiedenen Amtron Wallboxen. Die von der Box bereitgestellten Daten werden ausgelesen und als Stand im Adapter bereitgestellt. Die Daten werden nur lokal verarbeitet, eine Cloudanbindung ist nicht notwendig.
 
 ## Zendure-solarflow (30.01.2024) - neuer Adapter
 https://github.com/nograx/ioBroker.zendure-solarflow
@@ -430,7 +435,7 @@ https://github.com/BenAhrdt/ioBroker.smoothed
 
 <img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.smoothed/main/admin/smoothed.png" width="100" height="100" />
 
-Dieser Adapter macht es einfach, einige Icons auszuwählen, um sie entsprechend einem ausgewählten Algorithmus und der Glättungszeit (Filterzeit) zu glätten. Sie können eine ID mehrmals auswählen, um sie in verschiedenen Algorithmen und/oder Zeiten zu glätten. Das Ziel ist eine ID im Verzeichnis des Flgers, der Ihnen die geglätteten Werte liefert. Sie können die Min- oder Max-Werte begrenzen. Begrenzen Sie die Dezimalstellen. Oder ignorieren Sie Werte mit einer hohen Standardabweichung.
+Dieser Adapter macht es einfach, einige Icons auszuwählen, um sie entsprechend einem ausgewählten Algorithmus und der Glättungszeit (Filterzeit) zu glätten. Sie können eine ID mehrmals auswählen, um sie in verschiedenen Algorithmen und/oder Zeiten zu glätten. Das Ziel ist eine ID im Verzeichnis des Flgers, die Ihnen die geglätteten Werte liefert. Sie können die Min- oder Max-Werte begrenzen. Begrenzen Sie die Dezimalstellen. Oder ignorieren Sie Werte mit einer hohen Standardabweichung.
 
 ##heizoel24-mex (14.4.2024) – neuer Adapter
 https://github.com/ltspicer/ioBroker.heizoel24-mex
@@ -473,9 +478,9 @@ https://github.com/CorantGmbH/ioBroker.air-q
 
 <img src="https://raw.githubusercontent.com/CorantGmbH/ioBroker.air-q/main/admin/air-q.png" width="100" height="100" />
 
-Dieser ioBroker Adapter wird in Verbindung mit unserem air-Q Gerät verwendet. Er fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker Umgebung an.
+Dieser ioBroker Adapter kommt in Verbindung mit unserem air-Q Gerät zum Einsatz. Er fragt die Werte unserer Sensoren ab und stellt sie für Sie in der ioBroker Umgebung dar.
 
-##boschindego (4.5.2024) – neuer Adapter
+## Boschindego (4.5.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.boschindego/main/admin/boschindego.png" width="100" height="100" />
@@ -488,7 +493,7 @@ Es ist eine neue Version des Windows-Installers verfügbar: 3.1.0 Neue Funktione
 - Update/Upgrade des JS-Controllers implementiert
 - Einige Bugfixes
 
-## Radar-trap (29.5.2024) – neuer Adapter im Stall
+## Radar-trap (29.5.2024) – neuer Adapter am Stall
 https://github.com/Steiger04/ioBroker.radar-trap
 
 <img src="https://raw.githubusercontent.com/Steiger04/ioBroker.radar-trap/main/admin/radar-trap.png" width="100" height="100" />
@@ -509,7 +514,7 @@ https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
 Fügt Schalter, Schaltflächen, Schieberegler und mehr als Widgets für ioBroker VIS 2.0 hinzu.
 
-## Webui (3.10.2023) - neuer Adapter
+## Webui (3.10.2023) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.webui
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
@@ -554,7 +559,7 @@ Adapter für Klimaanlagen von Gree und C&H.
 ## Admin (10.6.2024) – neue Funktion
 - Die Registerkarte „Protokoll“ wurde verbessert. (Vor allem Layout und GUI)
 - Unterstützung für die automatische Update-Option des Adapters hinzugefügt. Neue Version des JS-Controllers erforderlich.
-- Es werden nur die im Adapter-Tab installierten Adapter oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
+- Es werden nur die installierten Adapter im Adapter-Tab oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
 
 ## Opcua (13.6.2024) – neuer Adapter im stabilen
 https://github.com/ioBroker/ioBroker.opcua
@@ -658,3 +663,17 @@ Node-Red hat mindestens denselben ID-Auswahldialog wie andere Adapter.
 Es erfordert die Ausführung einer Administratorinstanz auf demselben Host.
 
 Die Node-Red-Paketversion wurde von 3 auf 4.0.3 erhöht
+
+## Ecoflow-mqtt (14.10.2024) – neuer Adapter im stabilen
+https://github.com/foxthefox/ioBroker.ecoflow-mqtt
+
+<img src="https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/admin/ecoflow-mqtt.png" width="100" height="100" />
+
+Dieser Adapter verbindet sich mit Produkten von Ecoflow ([https://www.ecoflow.com])
+
+##remeha-home (28.10.2024) – neuer Adapter am Stall
+https://github.com/simatec/ioBroker.remeha-home
+
+<img src="https://github.com/simatec/ioBroker.remeha-home/blob/master/admin/remeha-home.png" width="100" height="100" />
+
+Der Adapter ioBroker.remeha-home ermöglicht die Integration und Steuerung von Remeha-Heizungssystemen über die Remeha Home-Plattform. Der Adapter verbindet sich kontinuierlich mit der Remeha Home-API und ruft aktuelle Daten ab, um diese im ioBroker-System bereitzustellen. So kann die Heizungsanlage optimal überwacht und gesteuert werden.

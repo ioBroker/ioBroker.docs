@@ -25,6 +25,10 @@ bmw.0.VIN.properties
 bmw.0.VIN.remotev2
 
 ## Changelog
+### 2.8.2 (2024-10-05)
+
+- fix error getvehicles v2 failed
+
 ### 2.8.1 (2024-09-30)
 
 - fix remote commands

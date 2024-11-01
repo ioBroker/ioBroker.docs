@@ -60,6 +60,14 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 8.4.0 (2024-10-20)
+
+* (@klein0r) Added AddOn support for Gen3 devices
+* (@kalledausb) Added Shelly 0/1-10V PM Gen3 Integration
+
+### 8.3.0 (2024-10-10)
+* (@rockflopp) Added Shelly 2 PM gen 3 Integration
+
 ### 8.2.1 (2024-09-23)
 
 * (@Matze2010) Added datapoint for cover target position
@@ -74,20 +82,6 @@ Questions? Check the [FAQ](faq.md) section first!
 ### 8.1.1 (2024-08-27)
 
 * (@klein0r) Fixed lint issues and Shelly Gen 3 import
-
-### 8.1.0 (2024-08-25)
-
-* (esusxunil) Added Shelly Pro EM 2x50A
-
-### 8.0.0 (2024-08-25)
-
-* (imperial929) Added Shelly 1 PM Gen3
-* (imperial929) Added Shelly 1 Gen3
-* (klein0r) Breaking change: Renamed input states (now digital/analog) of Shelly Plus Addon (Ext)
-* (klein0r) Added Shelly Plus Uni
-* (klein0r) Added Shelly H&T (Gen3)
-* (klein0r) Improved structure of ble events (receivedBy) - see documentation for details
-* (bluefox) Improved the color of icons in the admin interface
 
 ## License
 

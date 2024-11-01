@@ -38,6 +38,8 @@ This adapter allows you the control, get states, cleaning history and view the m
 - Roborock Q8 Max
 - Roborock Q5 Pro
 - Roborock Q Revo Pro
+- Roborock Qrevo S
+- Roborock Qrevo Curve
 
 ## Zone cleaning
 This feature only works when map creation is enabled in the adapter options!
@@ -53,6 +55,18 @@ This feature only works when map creation is enabled in the adapter options!
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.17 (2024-10-14)
+ * (copystring) Add some missing attributes
+ * (copystring) Change min of update interval to 60s to prevent issues
+ * (copystring) Add web interface to sidebar
+
+### 0.6.16 (2024-10-02)
+ * (copystring) Bugfixes
+ * (copystring) update test-and-release.yml
+ * (Black-Thunder) Fix S6 feature detection
+ * (copystring) Migrate from canvas to @napu-rs/canvas
+ * (copystring) Add Qrevo S & Qrevo Curve
+
 ### 0.6.15 (2024-09-22)
  * (copystring) Refactor some code
  * (copystring) improve handling of online/offline detection and related logging

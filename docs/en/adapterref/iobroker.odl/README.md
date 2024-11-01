@@ -1,48 +1,36 @@
-![Logo](admin/odl.png)
-
+---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.odl.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.odl.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/odl-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/odl-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.odl.png?downloads=true
+---
 # ioBroker.odl
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.odl.svg)](https://www.npmjs.com/package/iobroker.odl)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.odl.svg)](https://www.npmjs.com/package/iobroker.odl)
-![Number of Installations (latest)](https://iobroker.live/badges/odl-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/odl-stable.svg)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/odl/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Logo](../../admin/odl.png)
 
-[![NPM](https://nodei.co/npm/iobroker.odl.png?downloads=true)](https://nodei.co/npm/iobroker.odl/)
-
-**Tests:** ![Test and Release](https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg)
-
-## ODL adapter for ioBroker
+## The current environmental radioactivity in ioBroker
 
 This adapter integrates the ODL (Ortsdosisleistung / Ambient Dose Rate) values of specified measuring points of the German [Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) into ioBroker.
 
-For more information about the ambient dose rate in germany visit <https://odlinfo.bfs.de/>.
+The ODL measuring network of the Federal Office for Radiation Protection uses around 1,700 measuring probes to monitor radiation levels from natural radioactivity in the environment around the clock. The measuring network has an important early warning function in order to quickly detect increased radiation from radioactive substances in the air in Germany.  
+The measurement data obtained are collected and evaluated by the BfS and made publicly available under the _Data License Germany_.
 
----
+For more details regarding the Ambient Dose Rate see <https://odlinfo.bfs.de/>.
 
-## Die aktuelle Umweltradioaktivität in ioBroker
+This adapter downloads the current 1 hour mean values of the measurement data using the [official data interface provided by the BfS](https://odlinfo.bfs.de/ODL/EN/service/data-interface/data-interface_node.html). The BfS
 
-Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
+Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). The BfS is the originator of the data used by the adapter.  
+All data is provided by the adapter in an unchanged form as delivered by the data interface.
 
-Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
+If an enabled history adapter (_history_, _influxdb_ or _sql_) is detected for some value state, the adapter tries to fill missing values in the history by downloading missing values to create a complete history.
 
-Für weitere Informationen zur ODL siehe <https://odlinfo.bfs.de/>.
+By default, the adapter updates the current measurement data every hour. A shorter update interval is usually not useful, since the underlying measurement data on the BfS server (depending on the measuring point) are mostly updated hourly.  
+When the adapter is started for the first time, the time for retrieving the data is automatically adjusted so that not all installations retrieve the data at the same time and the BfS data interface is not unnecessarily loaded.
 
-Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
-Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
+[![Screenshot 1](../ioBroker-odl-01.png)](../ioBroker-odl-01.png)
 
-Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) für einen Werte-State erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
-
-Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.  
-Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird.
-
-[![Screenshot 1](./docs/ioBroker-odl-01.png)](./docs/ioBroker-odl-01.png)
-
-[![Screenshot 2](./docs/ioBroker-odl-02.png)](./docs/ioBroker-odl-02.png)
-
----
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+[![Screenshot 2](../ioBroker-odl-02.png)](../ioBroker-odl-02.png)
 
 ## Changelog
 
@@ -50,6 +38,11 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.1 (2024-10-23)
+
+* (crycode-de) Added support for tiny screens to jsonConfig
+* (crycode-de) Updated dependencies
+
 ### 4.0.0 (2024-09-23)
 
 * (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required

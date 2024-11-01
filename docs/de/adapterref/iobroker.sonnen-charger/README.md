@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonnen-charger/README.md
 title: ioBroker.sonnen-charger
-hash: 3S9zsY2VTfXcDFiF/YYwzuECoDTkYfp1ZS5+3WIDrlY=
+hash: vATzeNQGQW8IZuSUI/bk1Aq+ygmG+6AQwEb0Fpee0Jc=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonnen-charger/admin/sonnen-charger.png)
 
@@ -14,59 +14,59 @@ hash: 3S9zsY2VTfXcDFiF/YYwzuECoDTkYfp1ZS5+3WIDrlY=
 ![NPM](https://nodei.co/npm/iobroker.sonnen-charger.png?downloads=true)
 
 # IoBroker.sonnen-charger
-**Tests:** ![Test und Freigabe](https://github.com/ChrisWbb/ioBroker.sonnen-charger/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/ChrisWbb/ioBroker.sonnen-charger/workflows/Test%20and%20Release/badge.svg)
 
 ## Sonnen-Ladeadapter für ioBroker
-Dieser Adapter integriert Ihren sonnenCharger in ioBroker. Weitere Informationen zum sonnenCharger finden Sie unter [Anbieter-Webseite](https://sonnen.de/ladestation-elektroauto/).
+Dieser Adapter integriert Ihren sonnenCharger in den ioBroker. Weitere Informationen zum sonnenCharger finden Sie auf [Anbieter-Webseite](https://sonnen.de/ladestation-elektroauto/).
 
-## Aufbau
-Nachdem Sie eine Instanz des Apdaters erstellt haben, müssen Sie mehrere Parameter konfigurieren:
+## Konfiguration
+Nachdem Sie eine Instanz des Apdaters erstellt haben, müssen Sie verschiedene Parameter konfigurieren:
 
 |Parametername|Beschreibung|Standard|
 |:---|:---|:---|
-|IP-Adresse|IP-Adresse des sonnenChargers|-|
+|IP-Adresse|IP-Adresse des sonnenCharger|-|
 |Port|Port der Modbus-Schnittstelle des sonnenCharger|502|
-|Anforderungsintervall|Intervall zum Abrufen von Daten in Sekunden (ValueRage 30 - 3600) |30|
-|Schreibzugriff auf sonnenCharger erlauben|**EXPERIMENTAL** Seien Sie vorsichtig beim Schreiben von Daten in sonnenCharger|false|
+|Anforderungsintervall|Intervall zum Abrufen der Daten in Sekunden (Wertebereich 30 – 3600) |30|
+|Schreibzugriff auf sonnenCharger erlauben|**EXPERIMENTELL** Vorsicht beim Schreiben von Daten in sonnenCharger|false|
 
 ## Verwendung
-### Kanal: Info
-|Id|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusatzinformationen|
+### Kanal: info
+|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
 |:---|:---|:---|:---|:---|:---|
-|connection|Gerät oder Dienst verbunden|boolean|-|R|-|
+|Verbindung|Gerät oder Dienst verbunden|Boolesch|-|R|-|
 
-### Kanal: ChargerSettings
-|Id|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusatzinformationen|
+### Kanal: LadegerätEinstellungen
+|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
 |:---|:---|:---|:---|:---|:---|
 |serialNumber|Seriennummer|string||R||
-|model|Model|string||R||
-|hwVersion|Hardwareversion|string||R||
-|swVersion|Softwareversion|string||R||
+|Modell|Modell|Zeichenfolge||R||
+|hwVersion|Hardwareversion|Zeichenfolge||R||
+|swVersion|Softwareversion|Zeichenfolge||R||
 |numberOfConnectors|Anzahl der Anschlüsse|integer||R||
 
-### Kanal: ChargerSettings.connector.\<Nummer\>
-|Id|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusatzinformationen|
+### Kanal: chargerSettings.connector.\<Nummer\>
+|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
 |:---|:---|:---|:---|:---|:---|
-|connectorType|Connector-Typ|string||R||
-|numberOfPhases|Anzahl Phasen|integer||R||
-|l1ConnectedToPhase|L1 verbunden mit Phase|integer||R||
-|l2ConnectedToPhase|L2 verbunden mit Phase|integer||R||
-|l3ConnectedToPhase|L3 verbunden mit Phase|integer||R||
+|connectorType|Anschlusstyp|Zeichenfolge||R||
+|AnzahlPhasen|Anzahl Phasen|Ganzzahl||R||
+|l1ConnectedToPhase|L1 mit Phase verbunden|Integer||R||
+|l2ConnectedToPhase|L2 mit Phase verbunden|Integer||R||
+|l3ConnectedToPhase|L3 mit Phase verbunden|Integer||R||
 |customMaxCurrent|Benutzerdefinierter Maximalstrom|float|A|R||
 
 ### Kanal: Messungen.\<Nummer\>
-|Id|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusatzinformationen|
+|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
 |:---|:---|:---|:---|:---|:---|
-|connectorStatus|Connector-Status-ID|integer||R||
-|connectorStatusLabel|Connector-Statusbezeichnung|string||R|0 : Unbekannt<br> 1: SocketVerfügbar<br> 2: WaitingForVehicleToBeConnected<br> 3: WaitingForVehicleToStart<br> 4: Laden<br> 5: ChargingPausedByEv<br> 6: ChargingPausedByEvse<br> 7: Ladevorgang beendet<br> 8: Ladefehler<br> 9: Ladevorgang wird unterbrochen<br> 10: Nicht verfügbar|
-|measuredVehicleNumberOfPhases|Gemessene Fahrzeuganzahl der Phasen id|integer||R||
-|measuredVehicleNumberOfPhasesLabel|Gemessene Fahrzeuganzahl der Phasen label|string||R||
-|evMaxPhaseCurrent|EV max. Phasenstrom|float|A|R||
-|targetCurrentFromPowerMgm|Zielstrom von Power MGM oder Modbus|float|A|R||
-|Frequenz|Frequenz|float|Hz|R||
-|SpannungL1|L-N-Spannung (L1)|float|V|R||
-|SpannungL2|L-N-Spannung (L2)|float|V|R||
-|SpannungL3|L-N-Spannung (L3)|float|V|R||
+|connectorStatus|Connector-Status-ID|Integer||R||
+|connectorStatusLabel|Connector-Statusbezeichnung|Zeichenfolge||R|0: Unbekannt<br> 1: Sockel verfügbar<br> 2: Warten auf die Verbindung zum Fahrzeug<br> 3: WartenAufFahrzeugStarten<br> 4 : Aufladen<br> 5 : LadenPausiertVonEv<br> 6: Ladevorgang durch Evse angehalten<br> 7 : Ladevorgang beendet<br> 8: Ladefehler<br> 9 : Ladevorgang fortsetzen<br> 10: Nicht verfügbar|
+|measuredVehicleNumberOfPhases|Gemessene Fahrzeuganzahl der Phasen-ID|Integer||R||
+|measuredVehicleNumberOfPhasesLabel|Bezeichnung für die gemessene Phasenzahl des Fahrzeugs|Zeichenfolge||R||
+|evMaxPhaseCurrent|Maximaler Phasenstrom des EV|float|A|R||
+|targetCurrentFromPowerMgm|Zielstrom von Power Mgm oder Modbus|float|A|R||
+|Frequenz|Frequenz|Float|Hz|R||
+|SpannungL1|L-N-Spannung (L1)|Float|V|R||
+|SpannungL2|L-N-Spannung (L2)|Float|V|R||
+|SpannungL3|L-N-Spannung (L3)|Float|V|R||
 |currentL1|Strom (L1)|float|A|R||
 |currentL2|Strom (L2)|float|A|R||
 |currentL3|Strom (L3)|float|A|R||
@@ -74,63 +74,71 @@ Nachdem Sie eine Instanz des Apdaters erstellt haben, müssen Sie mehrere Parame
 |activePowerL2|Wirkleistung (L2)|float|kW|R||
 |activePowerL3|Wirkleistung (L3)|float|kW|R||
 |activePowerTotal|Wirkleistung (gesamt)|float|kW|R||
-|powerFactor|Leistungsfaktor|float||R||
+|Leistungsfaktor|Leistungsfaktor|Float||R||
 |totalImportedActiveEnergyInRunningSession|Gesamt importierte Wirkenergie in laufender Sitzung|float|kWh|R||
-|runningSessionDuration|Dauer der laufenden Sitzung|Anzahl|Sekunden|R||
-|runningSessionDepartureTime|Startzeit der laufenden Sitzung|Anzahl|Sekunden|R|Unix-Zeit (Sekunden seit 1970-01-01 00:00:00 UTC)|
-|runningSessionDepartureTimeISO|Startzeit der laufenden Sitzung im ISO-UTC-Format|string||R||
-|runningSessionID|Laufende Sitzungs-ID|integer||R|Für den Fall, dass das Ladegerät mit dem Zentralsystem kommuniziert, ist dies eine Transaktions-ID, die vom Zentralsystem über OCPP| bereitgestellt wird |
-|evMaxPower|EV max power|float|kW|R|Maximale Leistung, die in der aktuell laufenden Ladesitzung erkannt wurde|
-|evPlannedEnergy|EV geplante Energie|float|kWh|R|Gesamtenergiemenge, die für die aktuell laufende Ladesitzung geliefert werden soll|
+|runningSessionDuration|Dauer der laufenden Sitzung|Zahl|Sekunden|R||
+|runningSessionDepartureTime|Abgangszeit der laufenden Sitzung|Zahl|Sekunden|R|Unix-Zeit (Sekunden seit 01.01.1970 00:00:00 UTC)|
+|runningSessionDepartureTimeISO|Abgangszeit der laufenden Sitzung im ISO-UTC-Format|string||R||
+|runningSessionID|Laufende Sitzungs-ID|Integer||R|Falls das Ladegerät mit dem Zentralsystem kommuniziert, ist dies eine Transaktions-ID, die vom Zentralsystem über OCPP bereitgestellt wird|
+|evMaxPower|Maximale EV-Leistung|float|kW|R|Im aktuell laufenden Ladevorgang erkannte maximale Leistung|
+|evPlannedEnergy|Geplante EV-Energie|float|kWh|R|Gesamtmenge an Energie, die für den aktuell laufenden Ladevorgang geliefert werden soll|
 
 ### Kanal: Befehle
-|Id|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusatzinformationen|
+|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
 |:---|:---|:---|:---|:---|:---|
-|restart|Sonnen-Ladegerät neu starten|Taste||W||
-|setTime|Set time UTC"|integer|seconds|W|Unix-Zeit (Sekunden seit 1970-01-01 00:00:00 UTC)|
+|Neustart|Sonnen-Charger neu starten|Button||W||
+|setTime|Zeit einstellen UTC"|integer|Sekunden|W|Unix-Zeit (Sekunden seit 1970-01-01 00:00:00 UTC)|
 
 ### Kanal: commands.connectors\<Nummer\>
-|Id|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusatzinformationen|
+|ID|Beschreibung|Datentyp|Einheit|Lesen/Schreiben|Zusätzliche Informationen|
 |:---|:---|:---|:---|:---|:---|
-|stopCharging|Ladestopp|Taste||W||
-|PauseLaden|Laden anhalten|Taste||W||
-|setDepartureTime|Abfahrtszeit festlegen|integer|sekunden|W||
-|setCurrentSetpoint|Aktuellen Sollwert setzen|float|A|W||
+|stopCharging|Ladevorgang stoppen|Schaltfläche||W||
+|pauseCharging|Laden pausieren|Taste||W||
+|setDepartureTime|Abfahrtszeit festlegen|Integer|Sekunden|W||
+|setCurrentSetpoint|Aktuellen Sollwert einstellen|float|A|W||
 |cancelCurrentSetpoint|Aktuellen Sollwert abbrechen|Schaltfläche||W||
-|setPowerSetpoint|Leistungssollwert setzen|float|kW|W||
-|cancelPowerSetpoint|Leistungsvorgabe abbrechen|Schaltfläche||W||
+|setPowerSetpoint|Leistungssollwert einstellen|float|kW|W||
+|cancelPowerSetpoint|Leistungssollwert abbrechen|Schaltfläche||W||
+
+## **IN ARBEIT**
+* (ChrisWbb) Smart-Mode-Implementierung (derzeit nicht deaktiviert)
+* (ChrisWbb) Abhängigkeitsversionen aktualisieren
+
+### 1.2.1 (30.05.2024)
+* (ChrisWbb) Behebung der Fehler im Adapter-Checker
+
+### 1.2.0 (30.05.2024)
+* (ChrisWbb) Abhängigkeitsversionen aktualisieren
+* (ChrisWbb) Fehler beim Adapter-Checker behoben
+* (ChrisWbb) Staatsrollen anpassen
+* (ChrisWbb) neue Version von @types/node
+* (ChrisWbb) Tests für Knoten 20.x
+
+### 1.1.1 (30.03.2023)
+* (ChrisWbb) Release-Problem behoben
+
+### 1.1.0 (30.03.2023)
+* (ChrisWbb) Schreibzugriff auf Halteregister
+* (ChrisWbb) Refactoring asynchroner Aufrufe
+* (ChrisWbb) kleinere Änderungen basierend auf Vorschlägen aus der Überprüfung
+* (ChrisWbb) Readme aktualisieren
+
+### 1.0.2 (18.02.2023)
+* (ChrisWbb) ESLint-Ergebnisse beheben
+
+### 1.0.1 (18.02.2023)
+* (ChrisWbb) Vorbereitung zur Veröffentlichung
+* (ChrisWbb) kleine Korrekturen vom Adaptercheck
+
+### 1.0.0 (02.01.2023)
+* (ChrisWbb) erste Version
 
 ## Changelog
-
-### **WORK IN PROGRESS**
-* (ChrisWbb) adjust state roles
-* (ChrisWbb) new version of @types/node
-* (ChrisWbb) tests for node 20.x
-
-
-### 1.1.1 (2023-03-30)
-* (ChrisWbb) fixed release problem
-
-### 1.1.0 (2023-03-30)
-* (ChrisWbb) write access to holding register
-* (ChrisWbb) refactoring async calls
-* (ChrisWbb) smaller changes based on suggestions from review
-* (ChrisWbb) update readme
-
-### 1.0.2 (2023-02-18)
-* (ChrisWbb) fix ESLint findings
-
-### 1.0.1 (2023-02-18)
-* (ChrisWbb) preparation for release
-* (ChrisWbb) small fixes from adapter check
-
-### 1.0.0 (2023-01-02)
-* (ChrisWbb) initial version
 
 ## License
 MIT License
 
-Copyright (c) 2023 ChrisWbb <development@chrweber.de>
+Copyright (c) 2024 ChrisWbb <development@chrweber.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

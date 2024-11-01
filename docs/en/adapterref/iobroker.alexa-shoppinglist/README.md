@@ -72,6 +72,15 @@ function setOnDblClickCustomShop( myvalue) {
 ![](admin/Skript.png)
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.0.1 (2024-10-19)
+
+- FEAT: #95 Responsive Design
+
 ### 1.0.0 (2024-08-09)
 
 - Js-controller >=5.0.19 is required

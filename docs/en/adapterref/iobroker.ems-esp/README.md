@@ -42,6 +42,17 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.1 (2024-11-01)
+* update dependencies
+* new log entry for private password (km200) since enryption is changed
+
+### 5.0.0 (2024-10-27)
+* change encryption for private passwort (km200) - needs to be re-entered
+
+### 4.9.2 (2024-10-27)
+* update translations
+* responsive design added
+
 ### 4.9.1 (2024-10-01)
 * update dependencies
 * update translations
@@ -51,15 +62,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 * support small screens
 * update dependencies
 * update translations
-
-### 4.8.0 (2024-08-27)
-* ems-esp: disabled parameter to search for extended EMS+ entities due to memory limitations in gateway
-
-### 4.7.2 (2024-08-17)
-* ems-esp: enable writing on custom entities
-
-### 4.7.1 (2024-08-17)
-* ems-esp: custom entities are now under object structure "custom"
 
 ## License
 MIT License

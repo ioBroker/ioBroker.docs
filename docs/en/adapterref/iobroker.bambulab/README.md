@@ -74,13 +74,20 @@ All of this helps me to provide error-free adapters that basically never crash.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2024-10-28) - Door Indicator Fixes #115
+* (DutchmanNL) Added doorOpen indicator, Fixes [#115](https://github.com/DrozmotiX/ioBroker.bambulab/issues/115)
+
+### 0.3.3 (2024-10-27) - Bugfixes
+* (DutchmanNL) update state definitions, (solves [#77](https://github.com/DrozmotiX/ioBroker.bambulab/issues/77) [#58](https://github.com/DrozmotiX/ioBroker.bambulab/issues/58))
+* (DutchmanNL) update connection handling, show connection error only once (Solves #99 #78 #74)
+
 ### 0.3.2 (2023-11-20)
 * (DutchmanNL) Show finish time as ISO string
 
 ### 0.3.1 (2023-11-20)
 * (DutchmanNL) Bugfix control P & A Series
-* (DutchmanNL) Show end time as a separate state, resolves #53
-* (DutchmanNL) Bugfix resolves missing fan speed value, resolves #36
+* (DutchmanNL) Show end time as a separate state, resolves [#53](https://github.com/DrozmotiX/ioBroker.bambulab/issues/53)
+* (DutchmanNL) Bugfix resolves missing fan speed value, resolves [#36](https://github.com/DrozmotiX/ioBroker.bambulab/issues/36)
 
 ### 0.3.0 (2023-11-19) - Release candidate
 * (DutchmanNL) Update dependencies for state handling, resolves #50
@@ -130,7 +137,7 @@ All of this helps me to provide error-free adapters that basically never crash.
 ## License
 MIT License
 
-Copyright (c) 2023 DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2024 DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

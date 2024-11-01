@@ -173,6 +173,11 @@ data.oneobject.attribute1 = 1 data.oneobject.attribute2 = 2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+
+### **WORK IN PROGRESS**
+
+- add package @alcalzone/release-script-plugin-manual-review as requested
+
 ### 0.1.9 (2024-09-09)
 
 - fix wrong translation

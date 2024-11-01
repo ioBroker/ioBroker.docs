@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: 7ZfcQLE4vzTByHNxXthzOoL0iaydL0n0MW1hS0f3g14=
+hash: ZleT4V2h1sn7+SHyydmhlIKBDbjhJ7fAA55KqnTuJsw=
 ---
 ![Logo](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -49,7 +49,7 @@ Spotify-WS unterstützt derzeit die folgenden Benachrichtigungsdienste
 * Zwietracht
 * Signal
 * Telegram
-* WhatsApp
+* Whatsapp
 
 ---
 
@@ -66,10 +66,25 @@ Zur Weiterleitung können Sie anschließend einen Benachrichtigungsdienst Ihrer 
 
 --- <!-- ### **IN ARBEIT** -->
 
+### **IN ARBEIT**
+* (simatec) Abhängigkeiten aktualisiert
+
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.1.9 (2024-09-26)
+* (simatec) Fix for admin 7.1.5
+
+### 0.1.8 (2024-09-24)
+* (simatec) Responsive Design fix
+* (simatec) Cleaned code
+
+### 0.1.7 (2024-09-16)
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+
+### 0.1.6 (2024-09-10)
 * (simatec) Fix Adapter Check
 * (simatec) Dependencies updated
+* (simatec) Responsive Design added
 
 ### 0.1.5 (2024-07-22)
 * (simatec) small fix

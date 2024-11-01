@@ -13,6 +13,8 @@
 
 ## alexa-timer-vis adapter for ioBroker
 
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for information how to disable the error reporting see Sentry-Plugin Documentation! Sentry reporting is used starting with js-controller 3.0.
+
 Output Alexa timer to display in the vis
 
 **If you like it, please consider a donation:**
@@ -58,6 +60,10 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.6 (2024-10-19)
+
+-   FEAT: #151 Responsive Design
+
 ### 2.0.5 (2024-09-26)
 
 -   FIX: #142 Timeout error

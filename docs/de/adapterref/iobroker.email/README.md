@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
 title: ioBroker E-Mail
-hash: m+iTfz/eu+K9plwOKiOxq6OVW/fN8GZGXpf8ViAawOk=
+hash: lNw4hH7NA9g/td26lkvPQi8jRYt19m78JwKOpr5qD6c=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -15,6 +15,9 @@ hash: m+iTfz/eu+K9plwOKiOxq6OVW/fN8GZGXpf8ViAawOk=
 ![Testen und Freigeben](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Senden Sie E-Mails von ioBroker.
+
+| :exclamation: Dieser Adapter unterstützt derzeit keine Microsoft-Mailserver (Hotmail, Live.com, Office365 und Web-Outlook). |
+|-----------------------------------------|
 
 Der Adapter verwendet [Knotenmailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
 
@@ -75,20 +78,20 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion **ada
 - FastMail
 - GandiMail
 - Google Mail
-- Los Papa
+- GoDaddy
 - GodaddyAsia
 - GodaddyEuropa
 - heiß.ee
-- Heisse Mail
-- iCloud
-- ich
+- Heiße Mail
+iCloud
+- icht
 - mail.ee
 - Mail.ru
 - Mailgun
 - Mailjet
 - Mandrill
 - Navigation
-- Büro 365
+Office365
 - OpenMailBox
 - Poststempel
 - Frage
