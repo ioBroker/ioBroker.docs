@@ -15,14 +15,5 @@
     "details": "Docker image",
     "picture": "docker.png",
     "info": "https://docs.buanet.de/iobroker-docker-image/"
-  },
-  {
-    "file": "https://github.com/buanet/ioBroker.raspberry-os/releases",
-    "platform": "Raspberry OS",
-    "date": "",
-    "device": "Raspberry Pi",
-    "details": "Raspberry OS Image with ioBroker",
-    "picture": "Pi4.png",
-    "info": "https://forum.iobroker.net/topic/41520/raspberry-os-lite-image-for-with-iobroker"
   }
 ]
