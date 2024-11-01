@@ -26,6 +26,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 ## Sensor (booleans, read-only)
 `common.type=boolean, common.write=false`
 
+* `sensor`                - generic sensor state to represent a status: active - `true` or inactive `false`
 * `sensor.contact`        - general contact: open - `true` or closed -`false`
 * `sensor.window`         - window opened-`true` or closed-`false`
 * `sensor.door`           - door opened-`true` or closed-`false`
@@ -35,10 +36,11 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `sensor.alarm.secure`   - door opened, window opened or motion detected during alarm is ON.
 * `sensor.alarm.power`    - No power (`voltage = 0`)
 * `sensor.light`          - feedback from the lamp, that it is ON
-* `sensor.lock`           - actual position of lock
+* `sensor.lock`           - actual position of lock: unlocked - `true` or locked - `false`
 * `sensor.motion`         - motion sensor
 * `sensor.rain`           - rain detected
 * `sensor.noise`          - noise detected
+* `sensor.switch`         - switch status: on - `true` or off - `false`
 
 ## Buttons (booleans, write-only)
 `common.type=boolean, common.write=true, common.read=false`
