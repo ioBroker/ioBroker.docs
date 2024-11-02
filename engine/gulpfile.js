@@ -368,7 +368,7 @@ gulp.task('remove', done => {
         let adapter = process.argv[3].replace(/^-+/, '').replace(/^iobroker\./i, '');
         console.log(process.argv[3].replace(/^-+/, ''));
 
-        adapter = 'iobroker.' + adapter;
+        adapter = `iobroker.${adapter}`;
         consts.LANGUAGES.forEach(lang => {
             const dir = `${consts.SRC_DOC_DIR + lang}/adapterref/${adapter}`;
             if (fs.existsSync(dir)) {
@@ -402,7 +402,7 @@ gulp.task('2.downloadAdapters', () =>
             console.log(JSON.stringify(content))));
 
 gulp.task('3.downloadJsonConfig', () =>
-    axios('https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/packages/jsonConfig/SCHEMA.md')
+    axios('https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/packages/jsonConfig/README.md')
         .then(result => fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'en/dev/adapterjsonconfig.md'), result.data)));
 
 
