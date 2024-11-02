@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: BiEVTlY0POTNU164Eo0JPdl73ApzrZcjlNRMnPWovug=
+hash: rQlf/1A+NZatuOhG6sQXYjkrgLMEyFNEbC3CVjyQ6pQ=
 ---
 # 核心概念
-ioBroker 中有两种根本不同的数据类型。即所谓的**状态**(`states`) 和**对象**。
+ioBroker 中有两种根本不同的数据类型。所谓的**状态**(`states`) 和**对象**。
 
-对象表示很少变化且较大的数据，例如系统设备、配置和附加文件的元数据。每个对象都必须有一个属性“类型”。有关可用的对象类型以及特定类型的对象需要哪些强制属性的更多信息，请参阅下文。适配器模块为您提供了 setObject、getObject 等函数。
+对象表示很少改变且较大的数据，例如系统设备、配置和附加文件的元数据。每个对象都必须有一个属性“类型”。有关可用的对象类型以及特定类型的对象需要哪些强制属性的更多信息，请参阅下文。适配器模块为您提供了 setObject、getObject 等函数。
 
 状态表示系统中经常变化的数据，例如灯是开着还是关着、运动检测器是否检测到运动、客厅的温度或遥控器按钮是否被按下。与对象相反，状态可用于触发操作，并且状态可以创建历史数据。要使用状态，适配器模块中有多个函数，如`setState`、`getState` 等。
 
@@ -17,7 +17,7 @@ ioBroker 中有两种根本不同的数据类型。即所谓的**状态**(`state
 以下章节描述数据库模式。
 
 ## ID
-ID是一个字符串，最大长度为240字节，采用层级结构，级别之间用点分隔。
+ID是一个字符串，最大长度为240字节，采用层级结构，级别间以点分隔。
 
 它用来检查 ID 中禁止使用的字符的正则表达式是[这里](https://github.com/ioBroker/ioBroker.js-controller/blob/4020943e2dc20d89672ab505a495384c62869987/packages/common/src/lib/common/tools.ts#L137)。
 
@@ -153,7 +153,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
   0x84 - 10000100 - sensor reports error
 ```
 
-每个“状态”都必须由一个类型为`state` 的对象表示，其中包含该状态的元数据。见下文。
+每个“状态”都必须由一个类型为 `state` 的对象表示，其中包含该状态的元数据。见下文。
 
 ## 对象
 ### 强制属性
@@ -175,7 +175,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 * `channel` - 用于对一个或多个状态进行分组的对象。父级应为设备。
 * `device` - 用于对一个或多个通道或状态进行分组的对象。除了适配器实例命名空间外，不应有父级。
 * `enum` - 在 `common.members` 中保存指向状态、通道、设备或文件的数组的对象。枚举可以有一个父枚举（可能为树结构）
-* `host` – 运行控制器进程的主机
+* `host` - 运行控制器进程的主机
 * `adapter` - 适配器的默认配置。存在还表明适配器已成功安装。（建议：应该有一个属性来保存安装主机的数组）
 * `instance` - 适配器的实例。父级必须是适配器类型
 * `meta` - 很少改变适配器或其实例所需的元信息
@@ -204,7 +204,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 * `common.write` (布尔值，强制) - 如果状态可写则为 true
 * `common.role` (字符串，强制) - 状态角色（用于用户界面以指示选择哪个小部件，见下文）
 * `common.states` (可选) - 为具有字符串和数字数据类型的状态提供更多允许值的上下文：
-* 对于**未**提供 common.min/common.max 的数字：包含允许的数字值列表及其（显示的）标签，形式为 `{0: 'OFF', 1: 'ON', '-1': 'whatever'}`。仅允许这些值
+* 对于未提供 common.min/common.max 的数字：包含允许的数字值列表及其（显示的）标签，形式为 `{0: 'OFF', 1: 'ON', '-1': 'whatever'}`。仅允许这些值
 * 对于**带有**`common.min`**和/或**common.max的数字：允许的数字范围由 min/max 定义，此属性包含一个“特殊”数字值列表及其（显示）标签作为对象，如 `{0: 'OFF', 254: 'ON', 255: 'BLINK'}`（min=0，max=255）。只允许指定最小值**或**最大值，则缺失的限制将假定为 +/-Infinity（不包括 +/-Infinity）
 * 对于字符串，包含允许值的列表及其（显示的）标签作为对象，如 `{'value': 'valueName', 'value2': 'valueName2'}`。仅允许使用这些值
 * 对于字符串，包含允许值列表作为数组，如 `['Start', 'Flight', 'Land']`（实际上与 `{'Start': 'Start', 'Flight': 'Flight', 'Land': 'Land'}` 相同）。仅允许使用这些值
@@ -241,7 +241,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 *`光`
 * `light.dimmer` - 调光器
 * `light.switch`——电灯开关。
-* `light.color` - 具有颜色变化能力的灯光控制
+* `light.color` - 具有变色能力的灯光控制
 * `light.color.rgb` - 设置 RGB 颜色
 * `light.color.rgbw` - 设置 RGBW 中的颜色
 * `light.color.hsl` - 设置色相/饱和度/亮度的颜色（色相颜色光 - LivingColors...）
@@ -276,7 +276,7 @@ ID 有不同的级别。每个级别由点决定。示例：`system.adapter.admi
 #### 频道描述
 ~~属性的名称可以由适配器自由定义，除了用**粗体**字体书写的属性名称外。~~
 
-“W”-common.write = true
+“W”——common.write=true
 
 “M”——必填
 
@@ -492,7 +492,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.adminUI.tab` - [none/html] TAB UI 类型。如果定义为“html”，则“tab.html”或“tab_m.html”将在文件夹“admin”中扩展。
 * `common.allowInit` - [true/false] 如果设置发生变化或适配器启动，允许“预定”适配器在“不在时间表内”调用。或者允许预定适配器在配置更改后启动一次，然后按时间表启动。
 * `common.availableModes` - 如果有多种模式可用，则为 `common.mode` 的值
-*`common.blockly` - 如果适配器有针对 blockly 的自定义块，则为 [true/false]。（需要`admin/blockly.js`）
+* `common.blockly` - 如果适配器有针对 blockly 的自定义块，则为 [true/false]。（需要 `admin/blockly.js`）
 * `common.compact` - 告诉控制器，如果需要，这个适配器可以在同一个进程中启动
 * `common.config.height` - 配置对话框的默认高度（已弃用 - 仅对 admin2 有效）
 * `common.config.minHeight` - 配置对话框的最小高度（已弃用 - 仅对 admin2 有效）
@@ -527,10 +527,10 @@ ID：`system.adapter.<adapter.name>`
 * `common.messagebox` - 如果支持消息框则为 true。因此，适配器可以接收 sendTo 消息（用于电子邮件、推送等）
 * `common.messages` - 更新的条件消息。有关详细信息，请参阅[条件消息](#conditional-messages)。
 * `common.mode` - **强制** 可能的值见下文
-* `common.name` — 不带“ioBroker”的适配器的**强制**名称。
+* `common.name` — **强制** 不带“ioBroker”的适配器名称。
 * `common.noConfig` - [true/false] 例如不显示配置对话框
 * `common.noIntro` - 从不在管理员的简介/概览屏幕上显示此适配器的实例（如图标、小部件）
-* `common.noRepository` - [true/false] 如果适配器在初始安装时交付或有自己的存储库
+* `common.noRepository` - [true/false] 如果适配器随初始安装一起交付或者有自己的存储库
 * `common.nogit` - 如果为真，则无法直接从 GitHub 安装
 * `common.nondeletable` - [true/false] 此适配器无法删除或更新。它将与控制器一起更新。
 * `common.npmLibs` - 已弃用。使用 package.json `dependencies`。
@@ -557,7 +557,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.subscribe` - 自动订阅的变量名称
 * `common.supportCustoms` - [true/false] 适配器是否支持每个州的设置。它必须在管理中具有 custom.html 文件。可以在 `ioBroker.history` 中找到示例
 * `common.supportStopInstance`- [true/false] 如果适配器支持信号 stopInstance（需要 **messagebox**）。信号将在停止之前发送到适配器。（如果出现 SIGTERM 问题则使用）
-* `common.tier` - 实例的起始顺序。允许的值：1、2、3。1 - 第一，3 - 最后
+* `common.tier` - 实例的启动顺序。允许的值：1、2、3。1 - 第一，3 - 最后
 * `common.titleLang` - **强制** 所有支持语言中适配器的较长名称，如 `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title` -（已弃用）在管理员中显示的适配器的较长名称
 * `common.type` - 适配器类型。请参阅 [类型](adapterpublish.md)
@@ -626,7 +626,7 @@ ID：`system.adapter.&lt;adapter.name&gt;.&lt;instance-number&gt;`
 ＃＃＃＃ 主持人
 ID：`system.host.<host>`
 
-* `common.name` - 例如 `system.host.banana`
+* `common.name` — 例如 `system.host.banana`
 *`公共.进程`
 *`通用.版本`
 *`通用.平台`

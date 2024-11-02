@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: kaEqfRlZYXy67B6ColPql3NQM2SZZLpg0x9VHCCS0RM=
+hash: m2PwMh6l9hfRq9laJ0nw9MD8VoT3HEmzp+Rv9Dd1w+c=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -31,11 +31,15 @@ hash: kaEqfRlZYXy67B6ColPql3NQM2SZZLpg0x9VHCCS0RM=
 * https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
 * https://konkludenz.de/en/making-ecoflow-wave2-smart-home-capable-with-node-red-and-mqtt
 
-安装和配置
-从 github 安装适配器（适配器尚未在稳定的 repo 中）。
+＃＃ 安装
+该适配器位于稳定的存储库中，因此您可以通过搜索来安装它。
+如果有可用更新，您应该安装它们。
 
+如果有非常新的版本可用，可能需要从 npm/github 进行自定义安装。
+在这种情况下，必须启用专家模式才能访问“octacat”图标。
 ![更多细节](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
 
+## EF 凭证
 在管理页面（第一个选项卡）中需要插入 mqqt Broker 的 mqqt 凭证。
 
 * 用户名 - 类似于“app-....”
@@ -51,6 +55,7 @@ hash: kaEqfRlZYXy67B6ColPql3NQM2SZZLpg0x9VHCCS0RM=
 
 mqqt Broker 设置是默认的，通常不需要修改。
 
+## 设备设置和配置
 使用“设备配置”选项卡添加您的设备。
 
 <details><summary><i>参数化 Powerstream</i></summary><p>
@@ -62,7 +67,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 
 </p></详情>
 
-<details><summary><i>Powerstation 参数化</i></summary><p>
+<details><summary><i>参数化 Powerstation</i></summary><p>
 
 * 添加新行
 * 设置 Powerstation 的设备 ID，如应用程序中所示，字符串因设备类型而异
@@ -102,7 +107,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 <details><summary><i>智能家居面板参数化</i></summary><p>
 
 * 添加新行
-* 设置发电机的设备 ID 如应用程序中所示，例如“SP10....”
+* 设置发电机的设备 ID，如应用程序中所示，例如“SP10....”
 * 给它一个名字
 * 将类型设置为“SHP”或“SHP2”
 
@@ -151,7 +156,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 <details><summary><i>参数化 Homeassistant 连接器</i></summary><p>
 
 * 启用服务
-* 设置 HA 的 MQTT Broker 用户设置
+* 设置 HA 的 MQTT Broker 的用户设置
 * 设置HA的MQTT Broker连接参数
 * 如果需要，选择调试设置
 
@@ -164,7 +169,7 @@ HA端修改：
 
 ## 更新适配器
 通常，在旧版本之上安装下一个版本就足够了。在某些情况下（例如 1.0.0），可能需要清除整个对象树。
-如果数据点相关值发生更改，例如范围的最小值或最大值，则必须：
+如果数据点相关值发生变化，例如范围的最小值或最大值，则必须：
 
 - 停止适配器
 - 删除了相关数据点
@@ -203,7 +208,7 @@ HA端修改：
 * 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其来回切换直至其保持不动。
 * iobroker 可能无法正确识别 HA 的重启，因此需要手动重启适配器（WIP）
 
-## 已实现的设备
+## 使用数据点实现设备和结构
 对设备数据的一些解释
 
 * 数字 -> 具有数值的数据点
@@ -215,7 +220,7 @@ HA端修改：
 * 值到文本的转换可能会使用未经验证的文本（欢迎反馈），这在文本末尾以“？”表示
 
 ### 发电站
-[里弗·马克斯](./doc/devices/rivermax.md)
+[里弗马克斯](./doc/devices/rivermax.md)
 
 [河专业](./doc/devices/riverpro.md)
 
@@ -225,7 +230,7 @@ HA端修改：
 
 [达美航空](./doc/devices/deltamax.md)
 
-[達爾塔](./doc/devices/deltapro.md)
+[達達貿易](./doc/devices/deltapro.md)
 
 [河流 2 最大](./doc/devices/river2max.md)
 
@@ -274,7 +279,7 @@ HA端修改：
 [冰川](./doc/devices/glacier.md)
 
 待办事项
-* 检查命令中被遗忘的边界条件（抑制命令，或附加值）
+* 检查命令中被遗忘的边界条件（抑制命令，或者附加值）
 * 如果需要倒车，请检查蜂鸣命令
 * SlaveBattery DM，输出功率乘以 10
 * 更多 SHP 值的 getCmds
@@ -284,6 +289,11 @@ HA端修改：
 使用该软件的风险由您自行承担，对于使用该软件可能产生的任何潜在损害或问题，我不承担任何责任。重要的是要注意，使用此开源软件不会得到 Ecoflow 公司的直接支持或保证。
 
 ## Changelog
+
+### 1.0.5 (npm)
+* (foxthefox) mppt.outWatts 500 -> 600; inverter_heartbeat.invOutputWatts 800 -> 810
+* (foxthefox) update of Readme (adapter now in stable)
+* (foxthefox) changes for responsive design #160
 
 ### 1.0.4 (npm)
 * (foxthefox) some more protobuf decoding for power ocean (ev pulse portion)

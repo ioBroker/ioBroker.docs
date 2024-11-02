@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: 7ZfcQLE4vzTByHNxXthzOoL0iaydL0n0MW1hS0f3g14=
+hash: ZleT4V2h1sn7+SHyydmhlIKBDbjhJ7fAA55KqnTuJsw=
 ---
 ![标识](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -66,10 +66,25 @@ Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
 --- <!-- ### **正在进行中** -->
 
+### **正在进行中**
+*（simatec）依赖项已更新
+
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.1.9 (2024-09-26)
+* (simatec) Fix for admin 7.1.5
+
+### 0.1.8 (2024-09-24)
+* (simatec) Responsive Design fix
+* (simatec) Cleaned code
+
+### 0.1.7 (2024-09-16)
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+
+### 0.1.6 (2024-09-10)
 * (simatec) Fix Adapter Check
 * (simatec) Dependencies updated
+* (simatec) Responsive Design added
 
 ### 0.1.5 (2024-07-22)
 * (simatec) small fix

@@ -1,84 +1,125 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nuki/README.md
 title: ioBroker.nuki
-hash: 0NwI4F2l9JM+WLttJWlD5gTrvhhGycNLkvJzpvrV7So=
+hash: tssDUVscG1a2RiJ4PrJZeRDf+6LBX3lQOGdshxvJA8E=
 ---
-![логотип](../../../en/adapterref/iobroker.nuki/admin/nuki-logo.png)
+![Логотип](../../../en/adapterref/iobroker.nuki/admin/nuki-logo.png)
 
 ![Количество установок](http://iobroker.live/badges/nuki-installed.svg)
 ![Стабильная версия](http://iobroker.live/badges/nuki-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.nuki.svg)
-![Фиксируется с момента последнего выпуска](https://img.shields.io/github/commits-since/smaragdschlange/ioBroker.nuki/latest.svg)
+![Версия НПМ](http://img.shields.io/npm/v/iobroker.nuki.svg)
+![Коммиты с момента последнего релиза](https://img.shields.io/github/commits-since/smaragdschlange/ioBroker.nuki/latest.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nuki.svg)
-![NPM](https://nodei.co/npm/iobroker.nuki.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.nuki.png?downloads=true)
 
-# IoBroker.nuki [![Travis CI] (https://travis-ci.com/smaragdschlange/ioBroker.nuki.svg?branch=master)](https://travis-ci.com/smaragdschlange/ioBroker.nuki)
-Этот адаптер ioBroker позволяет контролировать и контролировать [Nuki Smart Lock](https://nuki.io/de/) с помощью API-интерфейса моста Nuki.
+# IoBroker.nuki [![Трэвис CI](https://travis-ci.com/smaragdschlange/ioBroker.nuki.svg?branch=master)](https://travis-ci.com/smaragdschlange/ioBroker.nuki)
+Этот адаптер ioBroker позволяет контролировать и отслеживать [Умный замок Nuki](https://nuki.io/de/) с помощью API Nuki Bridge.
 
 ## Требования
 * Мост Nuki (аппаратный или программный).
-* Nuki Smart Lock и / или Nuki Opener.
+* Умный замок Nuki и/или открывалка Nuki.
 * Работающий экземпляр ioBroker.
 
 ## Использование
-Каждый экземпляр адаптера Nuki представляет собой мост Nuki. При создании экземпляра просто введите IP-адрес, порт и токен вашего моста Nuki. Имя является необязательным и будет сгенерировано автоматически, если оставить его пустым. Флажок «использовать обратный вызов» и значение «порт обратного вызова в ioBroker» не являются обязательными и могут быть установлены для использования функции обратного вызова Nuki. После сохранения экземпляра будет создано мостовое устройство с каналом для каждой блокировки Nuki, которая подключена к указанному мосту Nuki. Каналы предоставляют текущее состояние блокировки Nuki в качестве выходных параметров:
+Каждый экземпляр адаптера Nuki представляет собой мост Nuki. При создании экземпляра просто введите IP-адрес, порт и токен вашего моста Nuki. Имя необязательно и будет сгенерировано автоматически, если оставить его пустым. Флажок «использовать обратный вызов» и значение «порт обратного вызова в ioBroker» необязательны и могут быть установлены для использования функции обратного вызова Nuki. После сохранения экземпляра будет создано устройство моста с каналом для каждого замка Nuki, подключенного к указанному мосту Nuki. Каналы предоставляют текущее состояние замка Nuki в качестве выходных параметров:
 
-* batteryCritical: индикатор низкого заряда батареи
-* deviceType: тип устройства Nuki (Smart Lock или Opener)
-* mode: режим работы устройства Nuki
-* doorState: текущее (числовое) состояние дверного сенсора (Nuki native)
-* lockState: индикатор того, заблокирован ли Nuki (только Nuki Smart Lock)
-* состояние: текущее (числовое) состояние блокировки (Nuki native)
-* отметка времени: последнее обновление
+* batteryCritical: Индикатор низкого заряда батареи
+* deviceType: Тип устройства Nuki (Smart Lock или Opener)
+* режим: Режим работы устройства Nuki
+* doorState: Текущее (числовое) состояние датчика двери (собственно Nuki)
+* lockState: Индикатор того, заблокирован ли Nuki (только Nuki Smart Lock)
+* состояние: Текущее (числовое) состояние блокировки (собственное Nuki)
+* временная метка: Последнее обновление
 
 Кроме того, каналы предоставляют входные параметры, которые обеспечивают базовое управление замком Nuki:
 
-* action: числовой код действия для установки состояния Nuki (Nuki native).
+* действие: числовой код действия для установки состояния Nuki (собственно Nuki)
 
-Допустимые значения ввода для блокировок:
+Допустимые входные значения для блокировок:
 
-0 (без действия) 1 (разблокировка) 2 (блокировка) 3 (разблокировка) 4 (блокировка n 'go) 5 (блокировка n' go с разблокировкой)
+0 (бездействие) 1 (разблокировать) 2 (заблокировать) 3 (разблокировать) 4 (заблокировать и запустить) 5 (заблокировать и запустить с разблокировкой)
 
-* lockAction: переключатель для блокировки / разблокировки Nuki (true = разблокировать; false = заблокировать)
-* openAction: кнопка разблокировки Nuki
-* openLocknGoAction: кнопка для разблокировки и через несколько секунд блокировки Nuki
-* unlockLocknGoAction: кнопка для разблокировки и через несколько секунд блокировки Nuki.
+* lockAction: Переключатель для блокировки/разблокировки Nuki (true = разблокировать; false = заблокировать)
+* openAction: Кнопка для разблокировки Nuki
+* openLocknGoAction: Кнопка для разблокировки и блокировки Nuki через несколько секунд
+* unlockLocknGoAction: Кнопка для разблокировки и блокировки Nuki через несколько секунд
 
-Допустимые входные значения для сошников:
+Допустимые входные значения для открывателей:
 
-0 (без действия) 1 (активировать rto) 2 (деактивировать rto) 3 (активация электрического удара) 4 (активировать непрерывный режим) 5 (деактивировать непрерывный режим)
+0 (бездействие) 1 (активировать rto) 2 (деактивировать rto) 3 (активация электрозащелки) 4 (активировать непрерывный режим) 5 (деактивировать непрерывный режим)
 
-* rtoAction: переключатель для активации / деактивации функции «Кольцо на открытие» (true = активировать; false = деактивировать)
-* openAction: кнопка для электрического удара
-* cmActiveAction: кнопка для активации непрерывного режима
-* cmDeactiveAction: кнопка для деактивации непрерывного режима
+* rtoAction: Переключатель для активации/деактивации функции «Звонок для открытия» (true = активировать; false = деактивировать)
+* openAction: Кнопка для приведения в действие электрозащелки
+* cmActiveAction: Кнопка для активации непрерывного режима
+* cmDeactiveAction: Кнопка для отключения непрерывного режима
 
 ## Дополнительная информация
 Как получить свой токен мостов:
 
-* Звоните http:// <bridge_ip>: <bridge_port> / auth из любого браузера в вашей локальной сети -> мост включает его светодиод
-* Нажмите кнопку моста в течение 30 секунд
-* Результат вызова браузера должен выглядеть примерно так:
+* Вызовите http://< bridge_ip >:< bridge_port >/auth из любого браузера в вашей локальной сети -> светодиод моста включится
+* Нажмите кнопку моста в течение 30 секунд.
+* Результат вызова браузера должен быть примерно таким:
 
-{"token": "token123", "success": true} Функция обратного вызова:
+{ "token": “token123”, "success": true } Функция обратного вызова:
 
-Если используется функция обратного вызова, адаптер попытается автоматически установить обратный вызов на мосту Nuki при сохранении экземпляра. Когда экземпляр выгружен, обратный вызов будет снова удален. Все состояния Nuki будут обновляться мостом Nuki, пока активирован обратный вызов.
-Обратные вызовы могут быть установлены и удалены из любого браузера со следующими URL:
+Если используется функция обратного вызова, адаптер попытается автоматически установить обратный вызов на мосту Nuki при сохранении экземпляра. Когда экземпляр выгружается, обратный вызов снова удаляется. Все состояния Nuki будут поддерживаться мостом Nuki в актуальном состоянии, пока активирован обратный вызов.
+Обратные вызовы можно устанавливать и удалять из любого браузера с помощью следующих URL-адресов:
 
-Устанавливать:
+Набор:
 
-* http:// <bridge_ip>: <bridge_port> / callback / add? url = http% 3A% 2F% 2F <host_ip>% 3A <host_port>% 2Fapi% 2Fnuki & token = <bridgeToken>
+* http://< bridge_ip >:< bridge_port >/callback/add?url=http%3A%2F%2F< host_ip >%3A< host_port >%2Fapi%2Fnuki&token=< bridgeToken >
 
 Удалять:
 
-* http:// <bridge_ip>: <bridge_port> / callback / remove? id = <callback_id> & token = <bridgeToken>
+* http://< bridge_ip >:< bridge_port >/callback/remove?id=< callback_id >&token=< bridgeToken >
 
-## Обновить
-При обновлении с 1.0.x до 1.1.0 или выше рекомендуется удалить все экземпляры старой версии перед установкой новой версии. Помните, что изменения версии больше, чем на уровне патча (-> изменение только последней цифры) всегда могут содержать изменения в точках данных, например, 1.1.2 до 1.1.4
+## Обновлять
+При обновлении с 1.0.x до 1.1.0 или выше рекомендуется удалить все экземпляры старой версии перед установкой новой версии. Обратите внимание, что изменения версии, большие, чем на уровне патча (-> изменение только последней цифры), всегда могут содержать изменения точек данных, например, с 1.1.2 до 1.1.4.
+При обновлении до 2.x токен необходимо ввести снова.
 
 ## Changelog
+
+### 2.0.1
+* (smaragdschlange) update: dependencie updates
+
+### 2.0.0
+* (simatec) jsonConfig added
+* (simatec) dependency updated
+* (simatec) devdependency updated
+* (simatec) translate added
+* (simatec) test and release added
+* (simatec) Release Script added
+* (simatec) Remove Travis
+
+### 1.7.0
+* (smaragdschlange) update: implementation of latest bridge API changes (battery charge state)
+
+### 1.6.0
+* (smaragdschlange) improvement: support for Nuki Smart Door and Nuki Smart Lock 3.0 (Pro)
+
+### 1.5.0
+* (smaragdschlange) bug fix: compatibility with jscontroller 3.3.13
+
+### 1.4.4
+* (smaragdschlange) update: changes to comply with admin 5.x.x requirements
+
+### 1.4.3
+* (smaragdschlange) update: dependency axios to >=0.21.1
+
+### 1.4.2
+* (smaragdschlange) bug fix: common.dataSource type had an invalid type
+
+### 1.4.1
+* (smaragdschlange) bug fix: references fixed
+
+### 1.4.0
+* (smaragdschlange) improvement: support of keypad battery state 
+* (smaragdschlange) improvement: support of ring action states for opener
+
+### 1.3.1
+* (smaragdschlange) bug fix: some objects did not get updated
 
 ### 1.3.0
 * (smaragdschlange) improvement: support of doorsensor states
@@ -174,7 +215,7 @@ hash: 0NwI4F2l9JM+WLttJWlD5gTrvhhGycNLkvJzpvrV7So=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Smaragdschlange <smaragdschlange@gmx.de>
+Copyright (c) 2018-2024 Smaragdschlange <smaragdschlange@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

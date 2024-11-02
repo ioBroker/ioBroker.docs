@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
+hash: M4U04T/lqElBWr/9sEcOAgB14FDrstxg6jiQKvT9mh0=
 ---
 ![标识](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
@@ -24,12 +24,12 @@ hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
 此适配器当前仅使用 API v1 运行。新的 API v2 支持目前正在等待中。
 请确保您在应用程序中启用了 API v1。
 
-该适配器支持 API v1，并且可用于 V2 等多种功能。但请确保在 APP 中启用了 API v1 和 v2。
+Dieser Adapter 具有 API v1 和 V2 的所有功能。 Bitte stelle sicher，请注意 APP API v1 和 v2 的激活方式。
 
 ## 适用于 ioBroker 的 go-eCharger 适配器
 **EN** go-e 是电动出行的邀请。电动出行是我们的动力，而我们的核心竞争力是电动汽车充电技术。从电动汽车的独立充电站到光伏连接，再到整个建筑的负载管理，我们为现代电动出行的所有需求提供整体系统解决方案。
 
-**DE** go-e 是辅助设备，它以电气方式运行。 e-Mobilität 是我们的主力，也是我们电动汽车充电技术的核心部件。从单独的电动汽车光伏设备充电站到最终用户的最终管理，我们为现代电动汽车提供了全面的系统解决方案。
+**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen。电动汽车是 Antrieb 的核心，也是 Elektroautos 的核心技术。电动汽车的最后管理是电动汽车的最后管理，它是现代电动汽车的全面管理系统。
 
 ## IoBroker-Adapter 手册/快速入门指南
 您可以在此处找到安装和配置手册：[适配器手册](./docs/Readme.md)
@@ -45,9 +45,22 @@ hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
 大部分翻译来自 https://translator-ui.iobroker.in，如果翻译过程中出现问题，请随时做出贡献。
 
 ## 版权
-版权所有 (c) 2023 MK-2001 go-e@itinsi.de
+版权所有 (c) 2024 MK-2001 go-e@itinsi.de
 
 ## Changelog
+
+### 1.0.42
+* Changed Adapter Core
+
+
+### 1.0.41
+* Update of dependencies
+* Default PSM Grid mode selectable
+* Bug in negate when using go-e software (Thanks to Markus D.)
+* ioBroker updates on core packes (dependencies update)
+
+### 1.0.38
+* Bug on Negate Watts if use Go-e charger
 
 ### 1.0.35
 * switch between ioBroker and go-e Hardware logic for PV-Calculation
@@ -71,21 +84,6 @@ hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
 
 ### 1.0.29
 * Bugfixes.
-
-### 1.0.27
-*Enabled foreign Object usage; Full Changelog online: https://github.com/MK-2001/ioBroker.go-e/blob/main/docs/CHANGELOG.md; Issue for Object not found.
-
-### 1.0.25
-* TempArray resize on FW 054 HW V2; Readme.Adaption; Dependency security updates; Added the options to consider acknowledged value changes of foreign adapters; Added choice of ack of foreign adapters (#125)\\n Minor bug for sentry; Error in tme object; Bug in Sentry. Added Catch.
-
-### 1.0.18
-* First adaption of V3 hardware from go-e; Added switch to disable writing of the temperatures array; write different amont of temperature sensors; Added addtional attributes to ast; Updated several FOSS libs
-
-### 1.0.15
-* Bug fixes
-
-### 1.0.10
-* Enabled new Version of hardware updates
 
 [Additional moved here](./CHANGELOG_OLD.md)
 

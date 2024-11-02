@@ -12,7 +12,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sun2000/README.md
 title: ioBroker 适配器 SUN2000 文档
-hash: vD/OS+Z1FLoMsiptno3KFlwKMHLNK91rMpHkqHqSyig=
+hash: nHq1uebidwtjuFjxVZI2ttog+EJx5FuNQPxWWyjw3wM=
 ---
 # IoBroker 适配器 SUN2000 文档
 * [设置逆变器]（https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/inverter.md）
@@ -30,7 +30,7 @@ hash: vD/OS+Z1FLoMsiptno3KFlwKMHLNK91rMpHkqHqSyig=
 ＃＃ 灵感
 该适配器的开发受到论坛主题 https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert 和 iobroker javascript https://github.com/ChrisBCH/SunLuna2000_iobroker 的讨论启发。
 
-工作正在进行中
+正在进行中
 
 ## Changelog
 
@@ -38,6 +38,51 @@ hash: vD/OS+Z1FLoMsiptno3KFlwKMHLNK91rMpHkqHqSyig=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.16.0 (2024-11-01)
+* dependency and configuration updates
+* read additional register data of Huawei Emma
+
+### 0.15.2 (2024-10-30)
+* EMMA Device was not initialized
+
+### 0.15.1 (2024-10-28)
+* SDongle data was not written as object states
+* adjust the adapter settings
+
+### 0.15.0 (2024-10-24)
+* dependency and configuration updates
+* display a clearly legible table bar #121
+* modbus-proxy write data also to the read cache #119
+
+### 0.14.0 (2024-10-20)
+* adjust for Responsive Design #121
+* lock on asynchronous modbus code
+* writing data ​​via the modbus-proxy #119
+* read additional register data of Huawei Emma
+
+### 0.13.0 (2024-10-11)
+* improve Modbus reconnection #116
+* configuration update
+* initial Integration of Huawei Emma (Huawei Energy Management Assistant) #63
+
+### 0.12.1 (2024-09-29)
+* no warning from check the valid number during standby: "no irradiation"
+
+### 0.12.0 (2024-09-23)
+* Requirements from ioBroker Check and Service Bot #104
+* added battery packs #85
+* added config panel `Further Register`
+
+### 0.11.0 (2024-06-27)
+* added a donation link in the adapter settings
+* dependency updated
+
+### 0.10.0 (2024-06-14)
+* dependency and configuration updates
+* adjust roles in the control path
+* Battery control: add backup power SOC #84
+* fix: wrong state name `control.battery.targetSOC` with trailing space
+
 ### 0.9.0 (2024-05-09)
 * dependency and configuration updates
 * modbus device remains active in standby on the inverter M2,M3

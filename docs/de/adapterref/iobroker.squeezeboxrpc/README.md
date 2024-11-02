@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.squeezeboxrpc/README.md
 title: ioBroker Logitech Squeezebox Adapter über JSON/RPC-Protokoll
-hash: ePcLjPLec+lSI3wdvshgwLvz2EYfsLhsbSTLNu3XuM0=
+hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 ---
 ![Logo](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -120,7 +120,7 @@ für jeden Spieler Der Modus zeigt an, ob du den Wert ändern kannst. Die ausgef
 | `PlayerID` | R/- | Spieler-ID |
 | `Playlist` | R/- | Die aktuelle Playlist als JSON |
 | `PlaylistCurrentIndex` | R/W | gehe zu einer absoluten Position, indem du den Trackindex angibst, oder gehe relativ, indem du am Anfang ein + oder - eingibst. Beispiel 10,-3,+2 |
-| `PlaylistRepeat` | R/W | Lied(1)/Playlist(2) wiederholen/Nicht wiederholen(0) |
+| `PlaylistRepeat` | R/W | Lied(1)/Playlist(2) wiederholen/nicht wiederholen(0) |
 | `PlaylistShuffle` | R/W | Zufallswiedergabe der Wiedergabeliste (1)/Zufallswiedergabe des Albums (2)/Nicht zufällige Wiedergabe (0) |
 | `Power` | R/W | Energiestatus des Players abrufen/einstellen aus(0)/an(1) |
 | `RadioName` | R/- | Name des Radiosenders |
@@ -171,7 +171,7 @@ Je nach Einstellung werden den Datenpunkten unterschiedliche MP3-Tags übergeben
 Die großgeschriebenen Namen sind die Namen der MP3-Tags
 
 | TPE2 in LMS einstellen | Künstler | Albumkünstler | Trackkünstler | Band |
-| ------------------------------ | ----------- | ----------- |  ----------- | ----------- |
+| ------------------------------ | ----------- | ----------- | ----------- | ----------- |
 | als Band | KÜNSTLER | leer | TRACKARTIST | ALBUMARTIST |
 | als Interpreten des Albums | ALBUMARTIST | ALBUMARTIST | leer | leer |
 
@@ -415,6 +415,10 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
    ### **WORK IN PROGRESS**
 
 -->
+### 1.4.0-alpha.2 (2024-11-01)
+
+- improve handlying for artwork_url
+
 ### 1.4.0-alpha.1 (2024-10-27)
 
 - move widget documentation from html to markdown
@@ -439,7 +443,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 1.3.15 (2024-08-09)
 
 - due to a adapter checker issue i have to remove the release 1.3.13 from npm.
-    but changes from 1.3.13 are included in 1.3.14
+  but changes from 1.3.13 are included in 1.3.14
 
 ### 1.3.14 (2024-08-05)
 
@@ -503,7 +507,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 1.3.0
 
 - fix problem wit setting own icon in player widget / \* add infos about\
-     alarms to a player datapoint
+   alarms to a player datapoint
 
 ### 1.2.1
 
@@ -532,7 +536,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.32
 
 - the adapter function iobroker.deleteChannel didnt works as expected.\
-     It didnt delete the whole subtree of states. now i implement my own delete function
+   It didnt delete the whole subtree of states. now i implement my own delete function
 
 ### 0.8.31
 
@@ -549,7 +553,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.28
 
 - add advanced signaling function with telnet and fix some more authorization\
-     issues with `LMS`
+   issues with `LMS`
 
 ### 0.8.27
 
@@ -558,7 +562,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.26
 
 - more improvement and fixing at volumebar / remove playlist widget from\
-     master. not ready yet
+   master. not ready yet
 
 ### 0.8.25
 
@@ -571,7 +575,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.23
 
 - adjust dependencies to remove vulnerabilities in dependend packages.\
-     also remove travis due of unresolvable build-failures for win+node10/12
+   also remove travis due of unresolvable build-failures for win+node10/12
 
 ### 0.8.22
 
@@ -596,13 +600,13 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.17 (2019-06-26)
 
 - add more widges: playtime bar, string, number, datetime, image.\
-     add button margin to player and favorite widget, improve editing of viewindex.\
-     do some refactoring.
+   add button margin to player and favorite widget, improve editing of viewindex.\
+   do some refactoring.
 
 ### 0.8.16 (2019-06-24)
 
 - resolve a cross browser issue for firefox. the style.\
-     font attribute is empty and you have to construct the font string by yourself
+   font attribute is empty and you have to construct the font string by yourself
 
 ### 0.8.15 (2019-06-19)
 
@@ -611,7 +615,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.14 (2019-06-19)
 
 - add syncgroups as new server-datapoint,add syncgroup widget,/
-    change some jquery event logic
+  change some jquery event logic
 
 ### 0.8.13 (2019-06-16)
 
@@ -640,7 +644,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.7 (2019-05-11)
 
 - more control features (select playlist pos to play,ffwd,frew,jump to/
-    a time position in song,repeat song,random song)
+  a time position in song,repeat song,random song)
 
 ### 0.8.6 (2019-05-10)
 
@@ -649,7 +653,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.5 (2019-05-08)
 
 - change serverdiscovery interval method, remove some double cmd lines,/
-    additional minor changes advised from eslint
+  additional minor changes advised from eslint
 
 ### 0.8.4
 
@@ -670,7 +674,7 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
 ### 0.8.0
 
 - implementation of compact mode, change version to represent a realistic/
-    feature completness
+  feature completness
 
 ### 0.0.9
 

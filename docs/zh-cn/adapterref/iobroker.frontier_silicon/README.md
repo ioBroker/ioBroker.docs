@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
+hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 ---
 # IoBroker.frontier_silicon
 ![标识](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
@@ -34,15 +34,15 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 - “frontier_silicon.X.modes.selectPreset”的类型从“字符串”更改为“数字”
 
-如果您从以前的版本更新此适配器而不是新安装，您可能会在 ioBroker 日志中发现类似这样的警告：`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"` 为了防止这种情况发生，最简单的解决方案是在 ioBroker 的实例选项卡中停止适配器，完全删除对象选项卡中的对象树，然后重新启动适配器。当然，这在更新后只需要一次，如果您进行全新安装，则不需要。
+如果您从以前的版本更新此适配器而不是从新安装，您可能会在 ioBroker 日志中发现类似这样的警告：`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"` 为了防止这种情况发生，最简单的解决方案是在 ioBroker 的实例选项卡中停止适配器，在对象选项卡中完全删除对象树，然后重新启动适配器。当然，这在更新后只需要一次，如果您进行全新安装，则不需要。
 
 - 与 UNDOK App 同步电源、音量和静音状态
 
-与 UNDOK App 同步意味着 UNDOK App 更改的电源、音量和静音设置现在也将在此适配器的状态中更新。由于 FSAPI 协议的限制，UNDOK App 与适配器的状态同步仍然不可靠，并且不会是即时的，而只会在使用 UNDOK App 更改预设或模式时发生。
+与 UNDOK App 同步意味着 UNDOK App 更改的电源、音量和静音设置现在也将在此适配器的状态中更新。由于 FSAPI 协议的限制，UNDOK App 与适配器的状态同步仍然不可靠，并且不会是即时的，而只会在使用 UNDOK App 更改预设或模式等时发生。
 
 - 循环重试连接而不是禁用适配器
 
-以前，当设备因路由器重启、LAN 或 WiFi 中断等长期网络问题而无法连接时，适配器会在 10 次会话连接尝试后终止。现在，适配器将在每个会话刷新间隔后重试，直到设备再次可连接。如果您想避免有关这些重试的日志条目，您必须手动停止适配器。如果在重试期间网络问题得到解决，只需重新启动适配器即可。
+以前，当设备因路由器重启、LAN 或 WiFi 中断等长期网络问题而无法连接时，适配器会在 10 次会话连接尝试后终止。现在，适配器将在每个会话刷新间隔后重试，直到设备再次可连接。如果您想避免有关这些重试的日志条目，您必须手动停止适配器。如果您的网络问题在重试期间仍在进行时得到解决，只需重新启动适配器即可。
 
 ＃＃ 特征
 ### 已实现的功能
@@ -52,9 +52,9 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 - 针对多个州的通知
 - 音量控制
 - 通知
+- 自动发现
 
 ### 计划的功能
-- 自动发现
 - 更多州
 - 翻译
 - 更多异常处理
@@ -67,6 +67,7 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 ### 已知错误和限制
 - 必须打开媒体播放器才能发现预设
 - 由于 FSAPI 协议的限制，与 UNDOK App 的并行操作不可靠，因此不支持。使用时风险自负。
+- 由于 FSAPI 协议的限制，DAB+ 模式下不提供电台图标。
 
 ## 文档
 此适配器可让您控制基于 Frontier Silicon 芯片组的互联网广播和媒体播放器。许多设备都可以通过 [UNDOK](https://support.undok.net) 应该可以工作。测试的设备来自 [Revo](https://revo.co.uk/de/products/)、[Sangean](https://www.sangean.eu/products/all_product.asp)、[Hama](https://de.hama.com/produkte/audio-hifi/digitalradio) 和 [SilverCrest](https://www.lidl.de) 进行控制，其他设备也应该可以正常工作。
@@ -97,17 +98,17 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 - 设备
 
-- friendlyName (`text, rw`)
+- friendlyName (`string, rw`)
 - 功率（`布尔值，rw`）
-- radioId (`测试，ro`)
+- radioId (`字符串，ro`)
 
 我猜这是设备的 MAC 地址
 
-- 版本（`text，ro`）
+- 版本（`string，ro`）
 
 软件版本
 
-- webfsapi (`文本，ro`)
+- webfsapi (`字符串，ro`)
 
 API地址
 
@@ -119,49 +120,61 @@ API地址
 
 - 媒体
 
-- 状态（`number，rw`）
+- 状态（`string，ro`）
 
 有效值为：
 
-- 0：暂停
-1：播放
+- 0：“空闲”
+1：“缓冲”
+- 2：“玩耍”
+3：“暂停”
+4：“重新缓冲”
+- 5：“错误”
+6：“停止”
+- 7：“ERROR_POPUP”
 
-  - 控制
+- 控制（`布尔值，wo`）
 
-    - 下一个
-- 抱歉
-    - 玩
-    - 以前的
+- 0：“停止”
+- 1：“播放”
+- 2：“暂停”
+- 3：“下一步”
+- 4：“上一个”
 
-请不要太在意以下名称。电台在不同模式下对它们的使用有所不同。
+请不要太在意以下名称。收音机在不同模式下对它们的使用有所不同。
 
-- 专辑（`text，ro`）
-- 艺术家 (`text, ro`)
-- 图形（`文本，ro`）
+- 专辑（`string，ro`）
+- 艺术家（`string，ro`）
+- 图形（`字符串，ro`）
 
 使用此 URL 获取专辑封面或电台标志。
 
-- 名称（`text，ro`）
-- 文本（`文本，ro`）
-- 标题（`text，ro`）
+- 名称（`string，ro`）
+- 字符串（`string，ro`）
+- 标题（`string，ro`）
 
 - 模式
 
-- 读取预设
+- readPresets (`布尔值，wo`)
 
 重新读取所有预设
 
-- selectPreset (`number, rw`)
+- selectPreset (`数字,wo`)
 
-用于获取或选择预设。请注意，适配器会进行猜测，因为无法从 API 读取此值。
+用于获取或选择预设。
+请注意，适配器会进行猜测，因为无法从 API 中读取此值。
 
 - 选定（`数字，rw`）
 
 指示或选择所选模式。也可以通过`modes.{number}.switchTo`选择
 
+- 选定（`字符串，ro`）
+
+表示所选模式的标签。
+
 - `{number}`
 
-- id (`文本，ro`)
+- id (`字符串，ro`)
 
 该模式的名称
 
@@ -177,13 +190,13 @@ API地址
 
 仅出现在支持多房间的设备上。`true` 如果此模式可用作多个多房间设备的源。
 
-- 切换到
+- switchTo (`布尔值，wo`)
 
 选择该模式。
 
 - 预设
 
-- availabe（`boolean，ro`）
+- 可用（`布尔值，ro`）
 
 指示此模式的预设是否可用
 
@@ -191,15 +204,15 @@ API地址
 
 该预设的索引。等于`mode.*.presets.{number}.key`。
 
-        - 钥匙
+- 键（`数字，ro`）
 
 该预设的索引。在对象树中等于`mode.*.presets.{number}`，可以写入`modes.selectPreset`。
 
-- 名称（`text，ro`）
+- 名称（`string，ro`）
 
 该预设的名称
 
-- 切换到
+- 回忆（`布尔值，wo`）
 
 选择该预设和相应的模式。
 
@@ -217,6 +230,15 @@ Frontier、Frontier Silicon、SmartRadio、UNDOK 和相关徽标是 Frontier Sma
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** - 2025H1 maintenance release
+
+- (pdbjjens) Change: media state changed from number to string and readonly (#241)
+- (pdbjjens) New: Added media control function "stop" (#241)
+- (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Fix: Added button state acknowledgement
+- (pdbjjens) Fix: Prevent warning on adapter stop
+- (pdbjjens) New: Updated dependencies
+
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
 - (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
@@ -256,7 +278,7 @@ Frontier、Frontier Silicon、SmartRadio、UNDOK 和相关徽标是 Frontier Sma
 
 MIT License
 
-Copyright (c) 2024 halloamt <iobroker@halloserv.de>
+Copyright (c) 2025 halloamt <iobroker@halloserv.de> & IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

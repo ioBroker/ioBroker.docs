@@ -852,6 +852,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.firetv/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fitbit-fitness/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.flexcharts/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.foobar2000/README.md
@@ -1340,6 +1341,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.windows-control/README
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wiobrowser/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wireguard/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wireless-mbus/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.wireless-settings/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.withings/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wlanthermo-nano/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wled/README.md
@@ -1528,6 +1530,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.firetv/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fitbit-fitness/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.flexcharts/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.foobar2000/README.md
@@ -2016,6 +2019,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.windows-control/README
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wiobrowser/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wireguard/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wireless-mbus/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.wireless-settings/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.withings/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wlanthermo-nano/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wled/README.md
@@ -2204,6 +2208,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.firetv/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fitbit-fitness/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.flexcharts/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.foobar2000/README.md
@@ -2692,6 +2697,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.windows-control/README
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wiobrowser/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wireguard/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wireless-mbus/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wireless-settings/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.withings/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wlanthermo-nano/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wled/README.md
@@ -2880,6 +2886,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fhem/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fiat/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.firetv/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fitbit-fitness/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.flexcharts/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.foobar2000/README.md
@@ -3368,6 +3375,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.windows-control/REA
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiobrowser/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wireguard/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wireless-mbus/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wireless-settings/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.withings/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wlanthermo-nano/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wled/README.md

@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
+hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 ---
 ![标识](../../../en/admin/lg-thinq.png)
 
@@ -45,7 +45,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 - [Datapoint Device 401 空调 Thinq1](#device-401-air-conditioner-thinq1)
 - [远程统计](#401-remote-statistic-thinq1)
 - [远程基本命令](#401-remote-control-thinq1)
-- [快照](#401-快照-thinq1)
+- [快照](#401-snapshot-thinq1)
 - [Datapoint Device 406 头部泵](#device-406-heat-pump-thinq2)
 - [远程统计](#406-remote-statistic-thinq2)
 - [远程基本命令](#406-remote-basicctrl-thinq2)
@@ -77,7 +77,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 -`间隔.状态设备`
 - `OK` 间隔确定
 - `失败 - 0100` 请求失败 - 重新创建 WorkID
-- `失败-0106` 未连接设备-WorkID 已重新创建
+- `失败-0106` 未连接设备 - WorkID 已重新创建
 - `Error` 错误 WorkID - WorkID 已重新创建
     - `错误<code>` Unknown error - WorkID is recreated</code>
 - `结果错误`接收错误 - WorkID 被重新创建
@@ -191,14 +191,14 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 
 - `remote.expressMode` 快速模式开/关/快速开启 -> thinq1 数据点快照.IcePlus
 - `remote.freezerTemp` 改变冰箱的温度（仅限摄氏度）
-- `remote.fridgeTemp` 改变冰箱的温度（仅限摄氏度）
+- `remote.fridgeTemp` 改变冰箱的温度（仅摄氏度）
 
     ![远程控制](../../../en/adapterref/iobroker.lg-thinq/img/101_remote_control.png)
 
 ### 101 快照 Thinq1 和 Thinq2
 [概括](#summary)
 
-![快照1.png](img/101_snapshot_1.png)![快照 2.png](../../../en/adapterref/iobroker.lg-thinq/img/101_snapshot_2.png)
+![快照1.png](img/101_snapshot_1.png)![快照2.png](../../../en/adapterref/iobroker.lg-thinq/img/101_snapshot_2.png)
 
 ### 设备 201 洗衣机签名 Thinq2
 [概括](#summary)
@@ -405,7 +405,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 - `remote.WMStop` 停止烘干机
 - `remote.WMWakeup` 唤醒烘干机
 
-![远程控制](img/202_remote_control.png)![202_远程课程.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_course.png)
+![远程控制](img/202_remote_control.png)![远程课程](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_course.png)
 
 ### 202 快照 Thinq1 和 Thinq2
 [概括](#summary)
@@ -438,7 +438,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 - `remote.Statistic.sendRequest` 发送选择
 - `remote.Statistic.jsonResult` 统计数据为 JSON。如果属性为空，则表示您的设备不支持它们或指定了错误的日期。
 
-    ![远程统计](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_remote_statistic.png)
+    ![401_thinq2_远程统计.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_remote_statistic.png)
 
 ```json
 [
@@ -463,8 +463,11 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 ### 401 远程控制 thingq2
 [概括](#summary)
 
-- `remote.basicCtrl.operation` 0 表示关闭
-- `remote.basicCtrl.operation` 1 表示开启
+- `remote.basicCtrl.operation` 0 表示关闭，1 表示打开
+- `remote.basicCtrl.opMode` 0 表示关闭，4 表示打开
+- `remote.basicCtrl.hotWater` 0 表示关闭，1 表示打开
+- `remote.basicCtrl.hotWaterTarget` 所需温度
+- `remote.basicCtrl.powerHotWater` 增强 0 表示关闭，1 表示打开
 - `remote.basicCtrl.target` 所需温度
 
 - 如果日志中出现错误消息 400，则表示该数据点与设备不兼容。
@@ -491,7 +494,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 ### 401 快照 Thinq2
 [概括](#summary)
 
-![快照](img/401_thinq2_snapshot_1.png) ![快照](img/401_thinq2_snapshot_2.png) ![快照](img/401_thinq2_snapshot_3.png) ![快照](img/401_thinq2_snapshot_4.png) ![快照](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_snapshot_5.png)
+![快照](img/401_thinq2_snapshot_1.png) ![快照](img/401_thinq2_snapshot_2.png) ![快照](img/401_thinq2_snapshot_3.png) ![图片尺寸 400X400](img/401_thinq2_snapshot_4.png) ![快照](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_snapshot_5.png)
 
 ### 设备 401 空调 Thinq1
 [概括](#summary)
@@ -694,6 +697,11 @@ lg-thinq.0.xxx.area必须填写！
     ![天气.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added hotwater for device 406 & 401
+-   (Lucky-ESA) Dependencies updated
+
 ### 1.0.2 (2024-09-10)
 
 -   (Lucky-ESA) Dependencies updated
@@ -733,38 +741,6 @@ lg-thinq.0.xxx.area必须填写！
 ### 0.3.1 (2023-12-20)
 
 -   (Lucky-ESA) Fixed crash thinq1 interval
-
-### 0.3.0 (2023-12-15)
-
--   (Lucky-ESA) Added device 406 (heat pump)
--   (Lucky-ESA) Added description
--   (Lucky-ESA) Added new thinq1 interval
--   (Lucky-ESA) Added statistic for thinq1 device 401
--   (Lucky-ESA) Bugfixe
-
-### 0.2.0
-
--   (Lucky-ESA) Added automatic terms acceptance
--   (Lucky-ESA) Added 401 Thinq1 device
--   (Lucky-ESA) Added 101 Thinq1 device
--   (TA2k) Bugfix
-
-### 0.1.4
-
--   (TA2k) Added warning for not supported devices
-
-### 0.1.1
-
--   (TA2k) Added AC Device 401 thinq2
--   (TA2k) Bugfix
-
-### 0.1.0
-
--   (TA2k) Added MQTT connection for live status updates
-
-### 0.0.3
-
--   (TA2k) initial release
 
 ## License
 

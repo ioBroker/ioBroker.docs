@@ -131,8 +131,12 @@ There is [another](https://www.zigbee2mqtt.io/) with the same functions and the 
 Other topics related to this adapter are also documented in the associated wiki.
 
 ## Changelog
-
-### ### 1.10.10 (2024-09-27)
+### 1.10.11 (2024-11-02)
+* BREAKING CHANGE
+* 
+*  bugs : ChannelScan is currently not available
+* 
+* 
 * (lebrinkma) fix linter errors
 * (asgothian) disable map display for deactivated devices
 * (asgothian) new option on map: disable physics interaction
@@ -140,6 +144,7 @@ Other topics related to this adapter are also documented in the associated wiki.
 * (asgothian) new zigbee-herdsman 2.1.1
 * (asgothian) Allow use of keyless converters (used for TuYa and compatible devices in zigbee-herdsman-converters
 * (arteck) swap from request to axios
+* (arteck) delete groups works again
 
 ### 1.10.9 (2024-09-05)
 * (arteck) typo admin settings
@@ -165,7 +170,6 @@ Other topics related to this adapter are also documented in the associated wiki.
 ### 1.10.3 (2024-04-06)
 * (arteck) dependency update
 
-## Changelog
 ### 1.10.2 (2024-01-25)
 * (arteck) dependency update
 

@@ -9,26 +9,26 @@ BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 BADGE-NPM: https://nodei.co/npm/iobroker.sun2000.png?downloads=true
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sun2000/README.md
-title: Адаптер ioBroker SUN2000 Документация
-hash: vD/OS+Z1FLoMsiptno3KFlwKMHLNK91rMpHkqHqSyig=
+title: Документация по адаптеру ioBroker SUN2000
+hash: nHq1uebidwtjuFjxVZI2ttog+EJx5FuNQPxWWyjw3wM=
 ---
-# Адаптер ioBroker SUN2000 Документация
+# IoBroker адаптер SUN2000 Документация
 * [Настройка инверторов](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/inverter.md)
 * [Конфигурация адаптера](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/configuration.md)
 * [Расчет](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/calculation.md)
 * [Пример VIS](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/vis.md)
-* [Определения интерфейса](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/definitions.md)
+* [Определения интерфейсов](https://github.com/bolliy/ioBroker.sun2000/tree/main/docs/definitions.md)
 
 ## Вики
-Некоторые интересные вещи объяснены в [вики](https://github.com/bolliy/ioBroker.sun2000/wiki).
+Некоторые интересные вещи объясняются в [вики](https://github.com/bolliy/ioBroker.sun2000/wiki)
 
 ## Форум
-Не стесняйтесь следить за обсуждениями в разделе [немецкий форум iobroker](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter).
+Не стесняйтесь следить за обсуждениями в [немецкий форум iobroker](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
 ## Вдохновение
-Разработка этого адаптера была вдохновлена обсуждениями в ветке форума https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert и javascript iobroker https://github. com/ChrisBCH/SunLuna2000_iobroker.
+Разработка этого адаптера была вдохновлена обсуждениями на форуме https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert и iobroker javascript https://github.com/ChrisBCH/SunLuna2000_iobroker.
 
 Работа в процессе
 
@@ -38,6 +38,51 @@ hash: vD/OS+Z1FLoMsiptno3KFlwKMHLNK91rMpHkqHqSyig=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.16.0 (2024-11-01)
+* dependency and configuration updates
+* read additional register data of Huawei Emma
+
+### 0.15.2 (2024-10-30)
+* EMMA Device was not initialized
+
+### 0.15.1 (2024-10-28)
+* SDongle data was not written as object states
+* adjust the adapter settings
+
+### 0.15.0 (2024-10-24)
+* dependency and configuration updates
+* display a clearly legible table bar #121
+* modbus-proxy write data also to the read cache #119
+
+### 0.14.0 (2024-10-20)
+* adjust for Responsive Design #121
+* lock on asynchronous modbus code
+* writing data ​​via the modbus-proxy #119
+* read additional register data of Huawei Emma
+
+### 0.13.0 (2024-10-11)
+* improve Modbus reconnection #116
+* configuration update
+* initial Integration of Huawei Emma (Huawei Energy Management Assistant) #63
+
+### 0.12.1 (2024-09-29)
+* no warning from check the valid number during standby: "no irradiation"
+
+### 0.12.0 (2024-09-23)
+* Requirements from ioBroker Check and Service Bot #104
+* added battery packs #85
+* added config panel `Further Register`
+
+### 0.11.0 (2024-06-27)
+* added a donation link in the adapter settings
+* dependency updated
+
+### 0.10.0 (2024-06-14)
+* dependency and configuration updates
+* adjust roles in the control path
+* Battery control: add backup power SOC #84
+* fix: wrong state name `control.battery.targetSOC` with trailing space
+
 ### 0.9.0 (2024-05-09)
 * dependency and configuration updates
 * modbus device remains active in standby on the inverter M2,M3

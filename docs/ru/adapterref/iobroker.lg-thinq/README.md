@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
+hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 ---
 ![Логотип](../../../en/admin/lg-thinq.png)
 
@@ -72,7 +72,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 
 - `interval.active` Сколько устройств в данный момент получают обновления
 - `interval.inactive` Сколько устройств в настоящее время не получают обновления
-- `interval.interval` Изменить интервал из настройки экземпляра. После перезапуска адаптера применяется настройка экземпляра.
+- `interval.interval` Изменить интервал из настройки экземпляра. После перезапуска адаптера настройка экземпляра применяется.
 - `interval.last_update` Последнее обновление
 - `interval.status_devices`
 - `OK` Интервал ОК
@@ -104,7 +104,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 - `remote.Statistic.command` Какую историю следует загрузить
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -222,7 +222,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -354,7 +354,7 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -463,8 +463,11 @@ hash: EBc2OWr2Bo/JgWeUFZJMJq4XUkvY7mISxag0b0/msQA=
 ### 401 Пульт дистанционного управления thinq2
 [Краткое содержание](#summary)
 
-- `remote.basicCtrl.operation` 0 для выключения
-- `remote.basicCtrl.operation` 1 для вкл.
+- `remote.basicCtrl.operation` 0 для выключения и 1 для включения
+- `remote.basicCtrl.opMode` 0 для выключения и 4 для включения
+- `remote.basicCtrl.hotWater` 0 для выключения и 1 для включения
+- `remote.basicCtrl.hotWaterTarget` желаемая температура
+- `remote.basicCtrl.powerHotWater` Увеличить 0 для выключения и 1 для включения
 - `remote.basicCtrl.target` желаемая температура
 
 - Если в журнале появляется сообщение об ошибке 400, то эта точка данных несовместима с устройством.
@@ -608,7 +611,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.SetOperation`, затем установите эту точку данных в значение true
 
 - Пример выключения:
-- `remote.settings.Operation` установлено на 0
+- `remote.settings.Operation` установлен на 0
 - `remote.SetOperation`, затем установите эту точку данных в значение true
 
 - Пример изменения температуры:
@@ -661,7 +664,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.basicCtrl.hotWaterTarget` Установка температуры
 - `remote.basicCtrl.opMode` Установить режим
 
-    ![406_remote_basicctrl](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_basicctrl.png)
+    ![406_удаленный_базовый_управление](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_basicctrl.png)
 
 ### 406 Удалённое резервированиеCtrl thinq2
 [Краткое содержание](#summary)
@@ -694,6 +697,11 @@ lg-thinq.0.xxx.area должен быть заполнен!
     ![погода.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added hotwater for device 406 & 401
+-   (Lucky-ESA) Dependencies updated
+
 ### 1.0.2 (2024-09-10)
 
 -   (Lucky-ESA) Dependencies updated
@@ -733,38 +741,6 @@ lg-thinq.0.xxx.area должен быть заполнен!
 ### 0.3.1 (2023-12-20)
 
 -   (Lucky-ESA) Fixed crash thinq1 interval
-
-### 0.3.0 (2023-12-15)
-
--   (Lucky-ESA) Added device 406 (heat pump)
--   (Lucky-ESA) Added description
--   (Lucky-ESA) Added new thinq1 interval
--   (Lucky-ESA) Added statistic for thinq1 device 401
--   (Lucky-ESA) Bugfixe
-
-### 0.2.0
-
--   (Lucky-ESA) Added automatic terms acceptance
--   (Lucky-ESA) Added 401 Thinq1 device
--   (Lucky-ESA) Added 101 Thinq1 device
--   (TA2k) Bugfix
-
-### 0.1.4
-
--   (TA2k) Added warning for not supported devices
-
-### 0.1.1
-
--   (TA2k) Added AC Device 401 thinq2
--   (TA2k) Bugfix
-
-### 0.1.0
-
--   (TA2k) Added MQTT connection for live status updates
-
-### 0.0.3
-
--   (TA2k) initial release
 
 ## License
 

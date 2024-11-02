@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: wcKDGuZTcAl+b0gv/mO1IAPS9wElt49zMNjRAsMdLH8=
+hash: JuvG0mDiM8nB+9E4FTL4MJgYdkQSlYOUQEYUWl4/VJQ=
 ---
 # IoBroker.tado
 
@@ -23,11 +23,11 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
-## 塔多° X
-此适配器**目前不支持** Tado X。此适配器支持 Tado V3、V3+ 和 V2。
-如果有人支持添加 Tado X 功能，请提交工单或发送电子邮件至 <myiobrokeradapters@gmail.com>。您需要支持一些调试会话并与适配器开发人员进行交互。
+## 多度° X
+提供对 Tado° X 的基本支持。
+如果您的设置不起作用，请提出 [票](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=)。您需要支持一些调试会话并与适配器开发人员互动以改进 Tado° X 功能。
 
-## 你可以控制的事情
+## 您可以在 Tado° V3+、V3、V2 上操控的东西
 | 状态 | 描述 |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power | 打开/关闭设备 |
@@ -41,13 +41,27 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | 启用/禁用恒温器上的开窗检测 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | 当检测到打开的窗户时，恒温器关闭的超时时间 |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | 当检测到打开的窗户时关闭恒温器（仅当恒温器检测到打开的窗户时有效）|
-| tado.[x].[yyyyyy].Home.state.presence | 设置在家、外出或自动模式 |
-| tado.[x].[yyyyyy].Home.masterswitch | 打开/关闭所有设备 |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | 空调模式（仅限空调设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | 风扇速度（仅限 V3 及更早版本的空调设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel（仅限 V3+ 版本的 AC 设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | 垂直摆动（仅限 V3+ 版本的 AC 设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | 水平摆动（仅限 V3 及更早版本的 AC 设备）|
+| tado.[x].[yyyyyy].Home.state.presence | 设置在家、外出或自动模式 |
+| tado.[x].[yyyyyy].Home.masterswitch | 打开/关闭所有设备 |
+| tado.[x].[yyyyyy].meterReadings | 带有 {"date":"YYYY-MM-DD","reading": 1234} 的 JSON 对象可用于将电表读数上传到 Energy IQ |
+
+## 你可以在 Tado° X 上操控
+| 状态 | 描述 |
+| ----- | ----------- |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | 打开/关闭设备 |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.value | 定义温度 |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.controlType | 设置时间表模式 |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.remainingTimeInSeconds | 定时器模式的持续时间 |
+| tado.[x].[yyyyyy].Rooms.[z].resumeScheduleRoom | 返回此房间的自动模式 |
+| tado.[x].[yyyyyy].Rooms.resumeScheduleHome | 所有房间恢复自动模式 |
+| tado.[x].[yyyyyy].Rooms.allOff | 关闭所有房间 |
+| tado.[x].[yyyyyy].Rooms.boost | 将所有房间切换到增强模式 |
+| tado.[x].[yyyyyy].Home.state.presence | 设置在家、外出或自动模式 |
 | tado.[x].[yyyyyy].meterReadings | 带有 {"date":"YYYY-MM-DD","reading": 1234} 的 JSON 对象可用于将电表读数上传到 Energy IQ |
 
 ## 需要
@@ -59,7 +73,13 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.5.7-alpha.1 (2024-09-25)
+### 0.6.0 (2024-10-23)
+* (HGlab01) Start supporting Tado° X
+
+### 0.5.9 (2024-10-16)
+* (HGlab01) Improve axios promise handling
+
+### 0.5.7 (2024-09-30)
 * (HGlab01) Change of attribute "light" supported
 * (HGlab01) Add attribute 'connection'
 * (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'
@@ -74,14 +94,6 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理方面的专�
 
 ### 0.5.5 (2024-06-25)
 * (HGlab01) Bump axios to 1.7.2
-
-### 0.5.4 (2024-04-18)
-* (HGlab01) Add attribute 'runningOfflineSchedule'
-* (HGlab01) Bump axios to 1.6.8
-
-### 0.5.3 (2024-01-29)
-* (HGlab01) Improve axios handling
-* (HGlab01) Bump axios to 1.6.7
 
 ## License
 MIT License

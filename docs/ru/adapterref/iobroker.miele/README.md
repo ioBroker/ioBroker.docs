@@ -1,14 +1,15 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.miele/README.md
-title: без названия
-hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
+title: нет названия
+hash: MhtTrk0CKa8kvJh0/sXd55AWksRoBe/Bahxmpuf+6Pc=
 ---
-![логотип](../../../en/adapterref/iobroker.miele/admin/miele.png)
+![Логотип](../../../en/adapterref/iobroker.miele/admin/miele.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.miele.svg)
-![тесты](http://img.shields.io/travis/soef/ioBroker.miele/master.svg)
+![Количество установок](http://iobroker.live/badges/miele-stable.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.miele.svg)
+![Тесты](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.miele/master.svg)
 ![Статус сборки](https://ci.appveyor.com/api/projects/status/o43a9fj5a19d5n6y?svg=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.miele.svg)
@@ -17,22 +18,35 @@ hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
 #### Описание
 Адаптер для устройств Miele
 
+### Первоначальное создание
+Первоначально этот адаптер был создан @soef на https://github.com/soef/ioBroker.miele, но больше не поддерживается, поэтому мы переместили его в iobroker-community, чтобы можно было исправить ошибки. Спасибо @soef за его работу.
+
 #### Конфигурация
 Конфигурация не требуется. Первая полученная трансляция создаст все доступные устройства и состояния
 
-#### Монтаж
-Выполните следующую команду в корневом каталоге iobroker (например, в / opt / iobroker)
+#### Установка
+Выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker)
 
 ```
 npm install iobroker.miele
 ```
 
 #### Требования
-Miele gateway, например, XGW 3000 <! -
+Шлюз Miele, например XGW 3000
+
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2016 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -52,4 +66,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
--->

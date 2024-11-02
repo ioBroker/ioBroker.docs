@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: v79sB+qJGF251kaqSEKfkFR2Mp5ayVC4dF53uCcv1hc=
+hash: E9v7po0F21TRSjvzpQdzvtcX4qUmRfH7zSOopGLuJIA=
 ---
 ![标识](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,7 +26,8 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 
 数据写入通过存储相应状态（`Acknowledged` 未选中（ack=false））来触发 - 是的，就这么简单！写入后 2.5 秒，数据点将再次从设备读取并存储在该状态中。如果状态未得到确认，请查看日志。
 
-使用**白名单**将写入限制为一组数据点。该列表存储在每个设备的信息部分，例如`e3oncan.0.vitocal.info.udsDidsWritable`。您可以通过编辑此状态来添加更多数据点。确保在保存状态时**不要**检查`Acknowledged`。
+使用**白名单**将写入限制到一组数据点。该列表存储在每个设备的信息部分，例如`e3oncan.0.vitocal.info.udsDidsWritable`。您可以通过编辑此状态来添加更多数据点。请确保在保存状态时**不要**检查`Acknowledged`。
+某些数据点即使列入白名单也无法更改。然后，设备返回“否定响应”代码。在这种情况下，适配器会使用另一个服务重复写入过程。这仅适用于内部 CAN 总线。但是，这种方法也可能失败。一般来说，应始终检查写入过程。
 
 适配器实例首次启动时，将进行设备扫描，提供配置对话框中所有可用 E3 设备的列表（未列出电能表）。
 应在首次设置期间扫描每个 E3 设备的数据点，详情见下文。
@@ -39,23 +40,21 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 
 还可以使用基于 Python 的、使用 MQTT 消息传递的纯监听方法（仅收集）实现，请参阅[E3onCAN](https://github.com/MyHomeMyData/E3onCAN)。
 
-注意：对 **Node.js 22** 的支持尚未完全测试！
-
 ＃ 入门
 **先决条件：**
 
-* 您有一个 (USB 转) CAN 总线适配器连接到 Viessmann E3 设备的外部 CAN 总线
+* 您有一个 (USB 到) CAN 总线适配器连接到 Viessmann E3 设备的外部或内部 CAN 总线
 * 目前仅支持基于 Linux 的系统。
 * CAN 适配器已启动并在系统中可见，例如“can0”（使用 ifconfig 检查）。
-* 更多详细信息请参阅 open3e 项目
-* **确保初始设置期间没有其他 UDSonCAN 客户端（例如 Open3Eclient.py）正在运行！** 这可能会导致两个应用程序出现通信错误。
+* 更多详细信息请参阅 [open3e 项目](https://github.com/open3e/open3e/wiki/020-Inbetriebnahme-CAN-Adapter-am-Raspberry)
+* **确保初始设置期间没有其他 UDSonCAN 客户端（例如 open3e）正在运行！** 这可能会导致两个应用程序出现通信错误。
 
 此适配器提供的所有服务均基于您特定的 Viessmann E3 设置的设备列表。因此，您必须按照以下步骤进行首次设置：
 
 **配置**
 
 * 适配器安装完成后，将显示一个配置对话框，用于配置最多两个 CAN 总线适配器（标签“CAN ADAPTER”）
-* 编辑适配器的名称并至少为外部适配器选中“连接到适配器”复选框
+* 编辑 CAN 适配器的名称，并至少为一个 CAN 适配器选中“连接到适配器”复选框
 * 完成后，按“保存”按钮应用更改。此步骤是**必需的**。实例将重新启动并连接到 CAN 适配器。
 * 转到“UDS 设备列表”选项卡，然后按扫描按钮扫描总线上可用的设备。**这将需要几秒钟。**您可以通过查看适配器的日志信息在第二个浏览器选项卡中观察活动。
 * 您可以在第二列更改设备的名称。这些名称将用于将所有收集的数据存储在 ioBoker 的对象树中。完成更改后再次按“保存”按钮。
@@ -64,18 +63,18 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 此步骤不是强制性的，但强烈建议执行。如果您想要写入数据点，则需要先进行数据点扫描。
 
 * 数据点扫描成功完成后，每个设备的对象树中都会显示数据点。您可以选择设备并按下“更新数据点列表”按钮来查看配置中的数据点。按下过滤符号并输入搜索模式以过滤名称和/或编解码器。这仅供您参考。请在选择其他设备之前停用过滤功能以避免出现错误消息。
-* 最后一步是在“分配到外部 CAN 适配器”选项卡上配置收集数据的时间表。
+* 最后一步是在“分配给 UDS CAN ADAPTER”选项卡上配置请求数据的时间表。
 * 对于**能量计**（如果您的设置中可用），您可以激活或不激活。请注意“最小更新时间（秒）”的值。单个数据点的更新不会比给定值更快（默认值为 5 秒）。通过选择零，将存储所有收到的数据。由于能量计发送数据的速度非常快（每秒超过 20 个值），因此建议不要在此处使用零。这会给 ioBroker 系统带来很高的负载。
 * 如果您已通过 CAN 总线连接 E3 设备，例如 Vitocal 和 VX3，则可以通过监听实时收集这些设备之间交换的数据。按“+”添加一行，选中“活动”复选框，选择一个设备并编辑“最小更新时间（秒）”。这里可以使用 0 秒，但我建议将其设置为 5 秒。
 * 最后，您可以添加通过 UDSonCAN 协议请求数据的时间表。再次按下“+”按钮并编辑设置。每个设备上可以有多个时间表。这样，您可以比其他数据点更频繁地请求某些数据点。“时间表”的默认值为 0，表示在实例启动期间只会请求一次这些数据点。
 
 您可以使用“数据点列表”选项卡上的数据点信息作为参考（打开第二个选项卡可能会有帮助）。
 
-* 如果您已配置连接到**内部 CAN 总线**的 CAN 适配器，则可以看到“分配到内部 CAN 适配器”选项卡。请在那里配置要收集的设备。E3 设备不支持在内部 CAN 总线上使用 UDSonCAN。
+* 如果您已配置连接到**第二条 CAN 总线**的 CAN 适配器，则可以看到“分配给第二条 CAN 适配器”选项卡。请在那里配置要收集的设备。
 * 就是这样。按“保存并关闭”按钮并检查对象树中收集的数据。
 
 # E380 数据和单位
-最多支持两个 E380 电能表。数据点的 ID 取决于设备 CAN 地址：
+最多支持两个 E380 能量计。数据点的 ID 取决于设备 CAN 地址：
 
 CAN-address=97：偶数 ID 的数据点
 
@@ -91,7 +90,7 @@ CAN-address=98：具有奇数 ID 的数据点
 | 602,603 | 总有功功率，总无功功率 | W, var |
 | 604,605 | 累计进口量 | 千瓦时 |
 
-#E3100CB 数据和单位
+# E3100CB 数据和单位
 | ID | 数据| 单位|
 | ------|:--- |------|
 | 1385_01 | 累计进口量 | kWh |
@@ -114,12 +113,12 @@ CAN-address=98：具有奇数 ID 的数据点
 
 # 提示和限制
 ## 为什么要并行使用数据收集（模式 Collect）和 UDSonCAN？
-* 连接 E3 设备后，您就可以从交换的数据中受益（[更多详细信息](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34)）。只需监听，您就可以在变化时实时收到可用数据。因此，您可以在每次变化时直接获得快速变化的数据（例如能量流值）和缓慢变化的数据（例如温度）。您可以随时了解这些值。
+* 连接 E3 设备后，您就可以从交换的数据中获益（[更多详细信息](https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/34)）。只需监听，您就可以在变化时实时收到可用数据。因此，您可以在每次变化时直接获得快速变化的数据（例如能量流值）和缓慢变化的数据（例如温度）。您可以随时了解这些值。
 * 其他无法或很少通过收集获得的数据，您可以通过 UDSonCAN ReadByDid 添加。通常对于设定点数据，这是最佳方法。
 * 因此，从我的角度来看，两种方法的结合是最好的方法。
 
 ## 收集数据的限制
-* 目前，仅 Vitocal（内部 CAN 上的 CAN id 0x693 上的监听器）、Vitocharge VX3 和 Vitoair（外部 CAN 上的 CAN id 0x451 上的监听器）知道该通信协议。
+* 目前，仅 Vitocal（内部 CAN 上的 CAN id 0x693 上的监听器）、Vitocharge VX3 和 Vitoair（外部 CAN 和内部 CAN 上的 CAN id 0x451 上的监听器）知道该通信协议。
 
 ## 与 open3e 项目有何不同？
 * 显然，主要区别在于直接集成到 ioBroker。配置可以通过对话框完成，数据直接列在对象树中。
@@ -138,6 +137,13 @@ CAN-address=98：具有奇数 ID 的数据点
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.1 (2024-10-20)
+* (MyHomeMyData) Fixes for issue #79 (improvements for usability on mobile devices)
+
+### 0.10.0 (2024-10-14)
+* (MyHomeMyData) Added extended support for writing of data points.
+* (MyHomeMyData) Changed naming for CAN adapter.
+
 ### 0.9.5 (2024-09-19)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20240916
 

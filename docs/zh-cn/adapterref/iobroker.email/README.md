@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.email/README.md
 title: ioBroker 电子邮件
-hash: m+iTfz/eu+K9plwOKiOxq6OVW/fN8GZGXpf8ViAawOk=
+hash: lNw4hH7NA9g/td26lkvPQi8jRYt19m78JwKOpr5qD6c=
 ---
 ![标识](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -15,6 +15,9 @@ hash: m+iTfz/eu+K9plwOKiOxq6OVW/fN8GZGXpf8ViAawOk=
 ![测试与发布](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 从 ioBroker 发送电子邮件。
+
+| :exclamation: 此适配器目前不支持微软邮件服务器（Hotmail、Live.com、Office365 和 Web-Outlook）。|
+|-----------------------------------------|
 
 适配器使用[节点邮件程序](https://github.com/nodemailer/nodemailer)来提供功能。
 
@@ -74,8 +77,8 @@ sendTo('email', {
 - Dynect电子邮件
 - FastMail
 - GandiMail
-- Gmail
-- 去吧爸爸
+- 谷歌邮箱
+- 哥达迪
 - Godaddy亚洲
 -Godaddy欧洲
 - hot.ee
@@ -89,7 +92,7 @@ sendTo('email', {
 - 山魈
 - Naver
 -Office365
-- 开放邮箱
+- OpenMailBox
 - 邮戳
 - QQ
 - QQex
@@ -97,7 +100,7 @@ sendTo('email', {
 - 发送网格
 - 塞拉
 - SES-美国-东部-1
-- SES-美国西部-2
+- SES-美国-西部-2
 - SES-欧盟-西部-1
 -Sparkpost
 - 雅虎

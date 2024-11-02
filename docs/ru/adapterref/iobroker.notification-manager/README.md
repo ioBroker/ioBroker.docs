@@ -1,41 +1,45 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.notification-manager/README.md
-title: ioBroker.notification-manager
-hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
+title: ioBroker.менеджер уведомлений
+hash: 6DCRrUYRYkWX5WRD5rVWvyOwZ0X6vqzzshhOrNp6tTc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.notification-manager.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.notification-manager.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.notification-manager.svg)
 ![Количество установок](https://iobroker.live/badges/notification-manager-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/notification-manager-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/notification-manager-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.notification-manager.png?downloads=true)
 
-# IoBroker.notification-manager
-**Тесты:** ![Тестирование и выпуск](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.менеджер уведомлений
+**Тесты:** ![Тест и выпуск](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер менеджера уведомлений для ioBroker
-Управляйте уведомлениями ioBroker, например. отправив их в виде сообщений
+Управляйте уведомлениями ioBroker, например, отправляя их в виде сообщений
 
 ### Общее описание
-Этот адаптер позволяет перенаправить внутренний `Notifications` ioBroker на адаптеры обмена сообщениями, которые поддерживают `Notification System`. Если вам не хватает адаптера, откройте заявку на соответствующий адаптер.
+Этот адаптер позволяет перенаправлять внутренний ioBroker `Notifications` на адаптеры мессенджеров, которые поддерживают `Notification System`. Если у вас отсутствует адаптер, пожалуйста, откройте тикет по соответствующему адаптеру.
 
 ### Конфигурация
-Для каждого `category` вы можете настроить, должен ли `category` быть активным. Если категория не активна, `notification-manager` ничего не будет обрабатывать для этой конкретной `category`.
+Для каждого `category` вы можете настроить, должен ли `category` быть активным. Если категория не активна, `notification-manager` не будет обрабатывать ничего для этого конкретного `category`.
 
-Кроме того, вы можете настроить, должен ли `notification-manager` подавлять определенные `categories`. Если зарегистрирован `notification` для подавленного `category`, адаптер немедленно очистит этот `notification`, не отправляя вам никаких сообщений.
+Кроме того, вы можете настроить, должен ли `notification-manager` подавлять определенные `categories`. Если `notification` для подавленного `category` зарегистрирован, адаптер немедленно очистит этот `notification`, не отправляя вам никаких сообщений.
 
-Наконец, вы можете настроить поддерживаемые адаптеры обмена сообщениями. Всякий раз, когда генерируется новый `notification` для `active` (и `non-suppressed`) `category`, адаптер отправляет `notification` через первый сконфигурированный адаптер. Если отправка сообщения прошла успешно, `notification-manager` очистит `notification`. ЕСЛИ отправка не удалась, будет повторена попытка со вторым адаптером.
+Наконец, вы можете настроить поддерживаемые адаптеры обмена сообщениями. Всякий раз, когда генерируется новый `notification` для `active` (и `non-suppressed`) `category`, адаптер отправит `notification` через первый настроенный адаптер. Если отправка сообщения прошла успешно, `notification-manager` очистит `notification`. ЕСЛИ отправка не удалась, он повторит попытку со вторым адаптером.
 
-Если категория имеет `active`, но еще не настроены какие-либо конкретные параметры, адаптер будет использовать настроенные резервные параметры. По умолчанию новые категории всегда имеют номер `active`, чтобы вы были уведомлены. Это означает, что всякий раз, когда какой-либо адаптер реализует новый `category`, будут применяться резервные настройки для данного `severity`.
+Всякий раз, когда категория `active`, но еще не настроены какие-либо конкретные параметры, адаптер будет использовать настроенные резервные параметры. Новые категории всегда `active` по умолчанию, чтобы гарантировать, что вы будете уведомлены. Это означает, что всякий раз, когда какой-либо адаптер реализует новый `category`, будут применены резервные параметры для данного `severity`.
+
+Вы можете дополнительно определить только категорию `suppress`. `notification-manager` затем просто подтвердит уведомление, так что оно не появится в вашей системе.
+
+Начиная с версии js-controller 7, адаптеры имеют возможность добавлять дополнительные `contextData` к уведомлениям. Например, это используется для отображения определенных действий для пользователя в графическом интерфейсе администратора. По умолчанию `notification-manager` будет отправлять вам эти уведомления и __НЕ__ удалять их, так что они останутся для последующих взаимодействий пользователя. Однако, если вы решите, что вам не нужны такие взаимодействия для определенных `category`, вы можете отключить их с помощью флажка.
 
 ### Регистрация уведомлений, ориентированных на пользователя
-Как пользователь, вы в лучшем случае знаете, когда хотите получать уведомления о конкретных ситуациях в вашей системе.
-Таким образом, `notification-manager` предоставляет вам интерфейс для регистрации ваших собственных уведомлений в системе уведомлений ioBroker. Поддерживаются три категории: по одной для каждого уровня серьезности `notify`, `info` и `alert`.
+Как пользователь вы в лучшем случае знаете, когда вы хотите получать уведомления о конкретных ситуациях в вашей системе.
+Таким образом, `notification-manager` предоставляет вам интерфейс для регистрации ваших собственных уведомлений внутри системы уведомлений ioBroker. Поддерживаются три категории, по одной для каждого уровня серьезности `notify`, `info` и `alert`.
 
-Уведомления можно зарегистрировать через `sendTo`.
+Уведомления можно зарегистрировать через `sendTo`
 
 ```ts
 (async () => {
@@ -50,9 +54,9 @@ hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
 ### Требования к адаптерам обмена сообщениями
 Пожалуйста, установите флаг `common.supportedMessages.notifications` на `true` в вашем `io-package.json`.
 
-Всякий раз, когда новое уведомление должно быть доставлено через адаптер обмена сообщениями, `notification-manager` отправит сообщение в настроенный экземпляр.
+Всякий раз, когда через адаптер обмена сообщениями должно быть доставлено новое уведомление, `notification-manager` отправит сообщение настроенному экземпляру.
 
-Сообщения состоят из команды `sendNotification` и сообщения следующей структуры:
+Сообщения состоят из команды `sendNotification` и сообщения со следующей структурой:
 
 ```json
 {
@@ -87,9 +91,9 @@ hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
 }
 ```
 
-Где `category.instances` показаны экземпляры адаптера, затронутые этим уведомлением.
+Где `category.instances` показывает затронутые экземпляры адаптера для этого уведомления.
 Кроме того, категория имеет описание i18n и имя i18n.
-Те же свойства существуют и для области действия категории. Кроме того, включен затронутый хост.
+Те же свойства существуют для области действия категории. Кроме того, включен затронутый хост.
 
 После отправки уведомления `notification-manager` ожидает ответа со свойством `{ sent: true }`, если адаптер обмена сообщениями смог доставить уведомление, в противном случае он должен ответить `{ sent: false }`.
 
@@ -98,6 +102,19 @@ hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-10-10)
+* (@foxriver76) by default we do not delete notifications with `contextData`
+* (@foxriver76) added checkbox to also delete notifications with `contextData` for specific categories
+
+### 1.2.1 (2024-08-29)
+* (@foxriver76) fixed issue if host name contains `.`
+
+### 1.2.0 (2024-08-05)
+* (@klein0r) Added Blockly blocks
+
+### 1.1.2 (2024-05-02)
+* (foxriver76) made logging a bit more silent
+
 ### 1.1.1 (2024-03-16)
 * (foxriver76) added possibility to suppress messages
 * (foxriver76) fixed issue that bottom of settings page is shown behind toolbar

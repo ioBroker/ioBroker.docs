@@ -1,13 +1,13 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.withings/README.md
 title: ioBroker.withings
-hash: +XUZL557iDBkrmnPtSlITsqNnIKWjsDnoIG8pZocV5U=
+hash: cEKsXk/xngOXOpVSSn9m7BSruVo9V6Y9HAprVLTmnhw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.withings/admin/withings.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.withings.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.withings.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.withings.svg)
 ![Количество установок](https://iobroker.live/badges/withings-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/withings-stable.svg)
@@ -15,17 +15,17 @@ hash: +XUZL557iDBkrmnPtSlITsqNnIKWjsDnoIG8pZocV5U=
 ![НПМ](https://nodei.co/npm/iobroker.withings.png?downloads=true)
 
 # IoBroker.withings
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.withings/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/TA2k/ioBroker.withings/workflows/Test%20and%20Release/badge.svg)
 
-## Withings адаптер для ioBroker
+## Адаптер withings для ioBroker
 Адаптер для Withings
 
-## Войти
-Электронная почта и пароль Die Withings
+## Логинаблауф
+Электронная почта Withings и пароль
 
 https://account.withings.com/partner/dashboard_oauth2
 
-Регистрация в приложении Eine
+Eine App зарегистрирован
 
 Имя: ioBroker
 
@@ -33,28 +33,34 @@ Beliebiges Bild hochladen
 
 Описание: ioBroker
 
-Электронная почта: Ваша почта
+Электронная почта: Yourmail
 
 Компания: ioBroker
 
 URI обратного вызова: http://localhost
 
-Eingeschränkter Modus: Ja
+Eingeschränkter Modus: Да
 
-Идентификатор клиента и секретный код клиента
+Идентификатор клиента и секрет клиента eintragen
 
-## Обсуждение и обсуждение
+## Обсуждение и Фрагменты
 <https://forum.iobroker.net/topic/51104/test-withings-v0-0-x>
 
 ## Changelog
 
+### 0.0.8
+
+- (TA2k) Problem behoben mit zuvielen Datenpunkten unter sleep
+
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

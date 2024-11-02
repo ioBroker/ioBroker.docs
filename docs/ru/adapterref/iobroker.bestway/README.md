@@ -1,13 +1,13 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bestway/README.md
 title: ioBroker.bestway
-hash: gkxOBvP/GTDL6DPZZyWo1f0e6eWzZU3h3kqNQaJRKFI=
+hash: aVYd28AjLM0etmyUCyGg+E7880tjgZIVKzeklZTIzi0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bestway/admin/bestway.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.bestway.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.bestway.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bestway.svg)
 ![Количество установок](https://iobroker.live/badges/bestway-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/bestway-stable.svg)
@@ -15,29 +15,35 @@ hash: gkxOBvP/GTDL6DPZZyWo1f0e6eWzZU3h3kqNQaJRKFI=
 ![НПМ](https://nodei.co/npm/iobroker.bestway.png?downloads=true)
 
 # IoBroker.bestway
-** Испытания: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.bestway/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/TA2k/ioBroker.bestway/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер bestway для ioBroker
 Адаптер для Bestway Smart Hub
 
-## Loginablauf:
-Почта и пароль приложения Bestway Smart Hub.
+## Логин:
+Используйте приложение Bestway Smart Hub для почты и пароля.
 
-## Steuern
+## Штойерн
 bestway.0.id.remote auf true setzen steuert den jeweiligen Befehl
 
-## Diskussion und Fragen:
+## Обсуждение и фрагменты:
 https://forum.iobroker.net/topic/48023/test-adapter-bestway-v0-0-x
 
 ## Changelog
 
+### 0.0.5
+
+Support for v2 pump version
+
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

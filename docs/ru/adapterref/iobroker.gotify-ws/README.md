@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: 7ZfcQLE4vzTByHNxXthzOoL0iaydL0n0MW1hS0f3g14=
+hash: ZleT4V2h1sn7+SHyydmhlIKBDbjhJ7fAA55KqnTuJsw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -66,10 +66,25 @@ Gotify-WS также требуется IP-адрес или домен и по�
 
 --- <!-- ### **РАБОТА В ХОДЕ** -->
 
+### **РАБОТА В ХОДЕ**
+* (simatec) Зависимости обновлены
+
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.1.9 (2024-09-26)
+* (simatec) Fix for admin 7.1.5
+
+### 0.1.8 (2024-09-24)
+* (simatec) Responsive Design fix
+* (simatec) Cleaned code
+
+### 0.1.7 (2024-09-16)
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+
+### 0.1.6 (2024-09-10)
 * (simatec) Fix Adapter Check
 * (simatec) Dependencies updated
+* (simatec) Responsive Design added
 
 ### 0.1.5 (2024-07-22)
 * (simatec) small fix

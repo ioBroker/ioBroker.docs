@@ -24,6 +24,11 @@ Reference to a company or a product name does not imply approval or recommendati
 that company or product to the exclusion of others.
 
 ## Changelog
+### 0.4.0 (2024-11-01)
+* add ESP26_SHRGB_01: WIZ Wi-Fi BLE ST64 E27 822-65 RGB CL
+* add ESP25_SHRGB_01: added (WiZ Wi-Fi BLE 60W A60 E27 822-65 RGB)
+* various stuff from adapter check
+
 ### 0.3.1 (2023-11-27)
 * fix scenes for ESP03_SHTWP_31, ESP24_SHRGBW_01, ESP06_SHTW1_01
 * retry to release v0.3.1
@@ -50,7 +55,7 @@ that company or product to the exclusion of others.
 ## License
 MIT License
 
-Copyright (c) 2023 disaster123 <stefan-iobroker@prie.be>
+Copyright (c) 2024 disaster123 <stefan-iobroker@prie.be>
 
 originally developed by Copyright (c) 2022 nxtstep <privat@konzeptplus.net>
 

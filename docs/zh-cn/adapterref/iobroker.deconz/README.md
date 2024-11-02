@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
 title: 无标题
-hash: hlKt04F3x+GnGSRv+J1Vzxx+hVFOw/RGHzMwRBs/Iz0=
+hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 ---
 ![标识](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -27,11 +27,11 @@ ioBroker deConz 德累斯顿电子适配器
 
 1. a) 输入 deConz 的 IP 地址<br>
 
-b）输入标准桥接端口：80 和标准 Websocket：443
+b）输入标准桥接端口：80 和标准 Websocket：443<br> [例如 Phoscon App - 帮助 - API 信息 - 无过滤器 - 搜索端口/websocketport]
 
 2. 输入并保存 IP 地址和端口后，点击“创建 API 密钥”按钮。现在您可以输入 deConz 的凭证或转到 Phoscon APP 并将 ioBroker 注册为第三方 APP。
 
-## 为避免更新（deconz/adapter）后出现某些错误，请停止适配器并删除对象结构中的这些条目。启动时，将重新创建对象结构。
+## 为避免更新 (deConz/adapter) 后出现某些错误，请停止适配器并删除对象结构中的这些条目。启动时，将重新创建对象结构。
 ![Deconz 适配器](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
 
 #### 同时发送多个命令
@@ -44,14 +44,38 @@ b）输入标准桥接端口：80 和标准 Websocket：443
 `"on": true, "transitiontime": 5, "hue": 360`
 
 链接
-[deCONZ REST-API 插件](https://github.com/dresden-elektronik/deconz-rest-plugin) [deCONZ REST-API 插件文档](https://dresden-elektronik.github.io/deconz-rest-doc/) [网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[deCONZ REST-API 插件](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [deCONZ REST-API 插件文档](https://dresden-elektronik.github.io/deconz-rest-doc/) [网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [赞助商](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
 
+### 1.6.4 (2024-10-06)
+* (mattreim) Add "protectedNative" and "encryptedNative"
+* (mattreim) Fix websocket connection
+* (Jey Cee) Fix missing port for create api key function
+
+### 1.6.3 (2024-10-04)
+* (Jey Cee) Fix connection problems
+
+### 1.6.2 (2024-10-04)
+* (Jey Cee) Fix no connection on new installation
+
+### 1.6.1 (2024-10-03)
+* (Jey Cee/mattreim) Highlight helper text for authentication
+
+### 1.6.0 (2024-10-02)
+* (Jey Cee/mattreim) Migrate config to JSONConfig
+* (Jey Cee) Removed device and group management from config
+* (mattreim) Add natives
+* (Jey Cee) Update dependencies
+* (Jey Cee) Use default test and release action
+
 ### 1.5.0 (2024-08-11)
+* Updated/added some translations
 * (mattreim) Dependencies have been updated
+* (mattreim) Logo compressed
+* (mattreim) Remove common.title
 
 ### 1.4.1 (2024-05-05)
 * (mattreim) Added new objects for various sensors

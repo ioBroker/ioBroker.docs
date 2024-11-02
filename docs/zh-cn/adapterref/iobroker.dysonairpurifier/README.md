@@ -3,8 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
+hash: bNUdqvJICJaQ89tHreBIeLUFjHyxdXcY/SuCSN1X3RU=
 ---
+# IoBroker.dysonAirPurifier
+![徽标](admin/dyson_logo.svg)![徽标](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
+
 ![安装数量（最新）](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/dysonairpurifier-stable.svg)
@@ -13,14 +16,11 @@ hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-#ioBroker.dysonAirPurifier
-![徽标](admin/dyson_logo.svg)![徽标](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
-
-[![测试与发布]（https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml/badge.svg）](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-deploy.yml) ![代码QL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
+[![测试与发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml)![代码QL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 
 ## 适用于戴森空气净化器和风扇的 ioBroker 适配器
 该适配器将 ioBroker 连接到各种戴森空气净化器。
-徽标中的风扇图标由 [Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/) 创建。
+徽标中的风扇图标由[Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/) 创建。
 
 &gt; 如果您喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
@@ -49,8 +49,8 @@ hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
 - 从戴森服务器读取设备列表
 - 处理无限数量的粉丝（当然，事实上您的 ioBroker 主机的资源限制了数量）。
 
-＃＃ 怎么运行的
-启动时，戴森云会查询绑定到您帐户的所有已知设备及其 MQTT 密码。获得该列表后，适配器便会本地连接到所有设备并与它们进行交互。
+工作原理
+启动时，戴森云会查询绑定到您帐户的所有已知设备及其 MQTT 密码。获得该列表后，适配器便会本地连接到所有设备并与它们交互。
 
 - 连接戴森云只需要获取绑定到您账户的设备列表及其 MQTT 密码。
 - 因此，只有在适配器启动时才能识别新设备。
@@ -65,7 +65,7 @@ hash: E7cHxltQg286+IEaXNjdl5IbCq0gktcuF5vADwqsuvw=
 - 至少需要 js-Controller 3.0.0
 - 至少需要 Admin 6.0.0
 - 要运行此适配器，您需要一个戴森帐户。
-- 确保将您的粉丝添加到您的帐户。通过应用程序或在线添加。
+- 确保将您的粉丝添加到您的帐户。通过应用程序或在线方式均可。
 
 ### 适配器安装
 使用 npm
@@ -162,25 +162,25 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 
 知道这一点很好，因为设备通常会在状态发生变化时自行发送（至少我的设备会这样做）。使用此设置有助于通过停止不必要的轮询来减少网络流量。
 
-＃＃＃ 已知的问题
+### 已知问题
 - 没有自动检测设备的 IP
-- 仍然有许多未知的设备消息（主要是故障和警告）
+- 仍有许多未知的设备消息（主要是故障和警告）
 - 由于正确的 mqtt 消息未知，因此过滤器重置不起作用
 - 有时适配器会丢失与风扇的 MQTT 连接，并且无法重新连接。`这通常不是适配器本身的问题，而是本地网络的问题！`
 - 在某些情况下，只需拔下风扇电源约 10 秒钟即可重置，然后再重新插入即可。试试看吧！
-- 在其他情况下，这是 IP/DNS 问题。重置 DHCP/DNS 服务器（路由器）解决了该问题。
+- 其他情况下是 IP/DNS 问题。重置 DHCP/DNS 服务器（路由器）可解决问题。
 
-## 戴森 API 数据（消息有效负载）说明
+## 戴森 API 数据（消息有效负载）的解释
 从 <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md> 复制并扩展的信息
 
-＃＃＃ 当前状态
+### 当前状态
 | 名称 | 含义 | 可能的值 | 单位 |
 | ------------ | ---------------------------------------------------------- | -------------------- | ---- |
 | 模式原因 | 当前模式已由 RemoteControl、App、Scheduler 设置 | PRC、LAPP、LSCH、PUI | |
 | 状态原因 | | 模式 | |
 | rssi | WIFI强度 | -100 - 0 | dBm |
 | 频道 | WIFI频道 | 52 | |
-| fqhp | | 96704 | |
+| fqhp |                                                            | 96704 |      |
 | fghp | | 70480 | |
 
 产品状态
@@ -191,7 +191,7 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 | fmod | 模式 | 风扇，自动，关闭 | |
 | fpwr | 主电源 | 开启，关闭 | |
 | fnst | 风扇状态 | 开，关，风扇 | |
-|韓國語 |风扇转速| 0001 - 0010，自动| |
+| fnsp|风扇转速| 0001 - 0010，自动 |                                     |
 | fdir | Fandirection 又名喷射焦点/开=前，关=后 | 开，关 | |
 | ffoc | JetFocus | 开启，关闭 | |
 | nmod | 夜间模式 | 开启，关闭 | |
@@ -205,9 +205,9 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 | 自动 | 自动模式 | 开，关 | |
 | nmdv | 夜间模式最大风扇速度？| 0004 | |
 | cflr | 碳过滤器状态 | 0000 - 0100 | 百分比 |
-| cflt |碳过滤器 | CARF，无| |
+| cflt|碳过滤器| CARF，无|                                     |
 | hflr | HEPA 过滤器状态 | 0000 - 0100 | 百分比 |
-| hflt | HEPA 过滤器 | GHEP, GCOM | |
+|哈弗 | HEPA 过滤器 | GHEP、GCOM |                                     |
 | sltm | 睡眠定时器 | 开启，关闭 | | |
 | hmod | 加热器模式 [开/关] | 加热 | |
 | hmax | 加热目标温度 | 0 .. 5000 | K |
@@ -218,13 +218,13 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 | 矩形 | AutoHumidificationTarget | 整数 | % |
 | cltr | TimeRemainingToNextClean | 整数 | 小时 |
 | wath | 水硬度 | 软="2025", 中="1350", 硬="0675" | |
-| wacd | 警告代码 | 无... | |
+|瓦CD |警告代码 |没有... |                                     |
 | rstf | 重置过滤器生命周期 | 'RSTF', 'STET', RESET_FILTER_LIFE_IGNORE, RESET_FILTER_LIFE_ACTION | |
-|科尔夫 |温度格式 |开=摄氏度，关=华氏度 | |
+|科尔夫|温度格式 | ON=摄氏度，OFF=华氏度 |                                     |
 | clcr | DeepcleanCycle | CLNO=非活动，CLAC=深度清洁正在进行中，CLCM=已完成 | |
 | hsta | 加热状态 | ACTIVE/IDLE | |
 | msta | 加湿状态 | 活动/空闲 OFF, HUMD | |
-| psta | [HP0x] 未知 | INIT，CLNG，INV，OFF | |
+|聚苯乙烯 | [HP0x] 未知 | INIT、CLNG、INV、OFF |                                     |
 | bril | 未知 | 0002 | LEVEL_LOW，LEVEL_MEDIUM，LEVEL_HIGH |
 | fqhp | 未知 | | |
 | 倾斜 | [HP0x] 未知 | 字符串 | |
@@ -241,7 +241,7 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 | ---- | ------------------ | --------------- | ---- |
 | dstv | 夏令时 | 0001... | |
 | srsc | ？ | 7c68... | |
-| tzid |时区？          | 0001... | |
+|齐德 |时区？          | 0001... |      |
 
 ### 环境电流传感器数据
 ＃＃＃＃ 数据
@@ -267,9 +267,9 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 ＃＃＃＃ 数据
 | 名称 | 含义 | 可能的值 | 单位 |
 | ----------- | ------------------------------------------------------------------------ | ------------------------------------------- | ----------- | --- |
-| pal0 - pal9 | 从一小时开始在此层灰尘中度过的秒数 | 0000 - 3600 | |
+| pal0 - pal9 | 从一小时开始在此灰尘层中度过的秒数 | 0000 - 3600 | |
 | palm | 似乎是 palX 的中值 | | |
-| vol0 - vol9 | 自一小时开始以来在此 voc 级别上花费的秒数 | 0000 - 3600 | |
+| vol0 - vol9 | 自一小时开始以来在此级别的 voc 中花费的秒数 | 0000 - 3600 | |
 | volm | 似乎是 volX | | | 的中值 |
 | aql0 - aql9 | 自一小时开始以来处于该空气质量等级的秒数 | max (pal, vol)) | 0000 - 3600 | |
 | aqlm | 似乎是 aqlX 的中值 | | |
@@ -283,12 +283,23 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 ### Sentry.io
 此适配器使用 sentry.io 收集崩溃详细信息并自动向作者报告。为此使用 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件。如果您不想用崩溃信息支持作者，请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件功能、收集哪些信息以及如何禁用它的详细信息。
 
-＃＃ 法律声明
+## 法律声明
 Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson.com) 的商标或注册商标。所有其他商标均为其各自所有者的财产。
 
 ## Changelog
+### 3.2.5 (2024-10-08) 
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Fixed GUI issues
+- (grizzelbee) Fix: Added missing files to files-section in package.json
 
-### **WORK IN PROGRESS**
+### 3.2.4 (2024-10-01)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Removed plugin-sentry
+- (grizzelbee) Fix: [#318](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/318) Added tests for node 22
+- (grizzelbee) Upd: [#315](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/315) Fixed some issues mentioned by adapter-checker
+
+### 3.2.3 (2024-06-21) (Marching on)
+- (grizzelbee) Fix: Added missing clearInterval in onUnload
 
 ### 3.2.2 (2024-06-18) (Marching on)
 - (grizzelbee) Upd: Dependencies got updated
@@ -298,7 +309,6 @@ Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson
 ### 3.2.1 (2024-06-04) (Marching on)
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Upd: [#286](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/286) Fixed polling which got broken in v3.1.10
-
 
 ### 3.2.0 (2024-05-28) (Marching on)
 
@@ -311,7 +321,7 @@ Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson
 - (grizzelbee) Fix: Fixed broken NO2Index
 - (grizzelbee) Fix: Fixed broken fan speeds 0-10
 - (grizzelbee) Fix: Fixed polling of sensor data
-- (grizzelbee) Fix: setting fan speed = Auto works 
+- (grizzelbee) Fix: setting fan speed = Auto works
 
 ### 3.1.10 (2024-05-14) (Marching on)
 
@@ -714,4 +724,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 .. 2024 Hanjo Hingsen <open-source@hingsen.de>
+Copyright (c) 2024 Hanjo Hingsen <open-source@hingsen.de>

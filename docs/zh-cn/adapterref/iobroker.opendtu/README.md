@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.opendtu/README.md
 title: ioBroker.opendtu
-hash: Ie+cd0PqK6PA2b6Hnqs1yikiFlpJncDXK7lIbdJ83ac=
+hash: alLXbwYFsoM6loMs4wtm8WG7PEhiR+WLYwwf3XsM8wg=
 ---
 ![标识](../../../en/adapterref/iobroker.opendtu/admin/opendtu.png)
 
@@ -16,7 +16,6 @@ hash: Ie+cd0PqK6PA2b6Hnqs1yikiFlpJncDXK7lIbdJ83ac=
 # IoBroker.opendtu
 **测试：**![测试和发布](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
 
-# 我正在为这个适配器寻找一个新的维护者，如果您有兴趣，请通过问题联系我！
 ## IoBroker 的 opendtu 适配器
 此适配器可实时获取项目[开放DTU](https://github.com/tbnobody/OpenDTU) 中的可用数据点。
 此外，还可通过适配器使用以下数据点来控制 OpenDTU 的功率限制。
@@ -30,6 +29,12 @@ hash: Ie+cd0PqK6PA2b6Hnqs1yikiFlpJncDXK7lIbdJ83ac=
 
 有关数据点的更多信息，请参阅其描述或单击[这里](https://github.com/tbnobody/OpenDTU/blob/master/docs/MQTT_Topics.md#inverter-limit-specific-topics)。
 
+## 致谢
+如果没有@o0Shojo0o (https://github.com/o0Shojo0o) 的出色工作，这个适配器就不可能实现，他开发了此适配器的早期版本。
+
+## 如何报告问题和功能请求
+理想情况下，请使用 GitHub 问题来实现这一点，最佳方法是将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后通过“log”ioBroker 子目录从磁盘检索日志文件，**不是**从 Admin 检索，这样会切断线路。
+
 ＃＃ 配置
 1. 创建适配器的新实例
 2. 填写 [OpenDTU](https://github.com/tbnobody/OpenDTU) 硬件的安全性 *(默认 http)*、IP 地址和端口 *(默认 80)*
@@ -38,14 +43,30 @@ hash: Ie+cd0PqK6PA2b6Hnqs1yikiFlpJncDXK7lIbdJ83ac=
 
 ## Changelog
 <!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
-    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
-    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mattreim) Description has benn translated into supported languages.
+- (mattreim) Admin-UI has been adapted for some display sizes.
+
+### 3.0.1 (2024-10-26)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Dependencies have been updated.
+
+### 3.0.0 (2024-10-19)
+- (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
+- (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
+- (mcm1957) Dependencies have been updated.
+
+### 2.1.0 (2024-10-11)
+
+- (o0shojo0o) update dependencies
+- (mattreim) support small screens
+- (mattreim) update translations
+- (mattreim) update object names
+- (mattreim) add variable polling intervall [1-59s]
+
 ### 2.0.0 (2024-08-13)
 
 - (o0shojo0o) changes for new websocket structure ([#129](https://github.com/o0shojo0o/ioBroker.opendtu/issues/129))
@@ -57,52 +78,6 @@ hash: Ie+cd0PqK6PA2b6Hnqs1yikiFlpJncDXK7lIbdJ83ac=
 ### 1.0.1 (2023-10-29)
 
 - (o0shojo0o) fixed `power_control.current_limit_absolute" has value "-1" less than min "0"`
-
-### 1.0.0 (2023-10-01)
-
-- (o0shojo0o) Increase to the first major release, as it has now reached a stable level. 
-- (o0shojo0o) added yieldtotal Protection against incorrect zeroing when the OpenDTU restarts if the inverter is not accessible
-- (o0shojo0o) added option `Set the states to 0 if the inverter is not accessible.` ([#97](https://github.com/o0shojo0o/ioBroker.opendtu/issues/97))
-
-### 0.1.8 (2023-09-22)
-
-- (o0shojo0o) added option `Protect self-set names from being overwritten by the adapter` ([#76](https://github.com/o0shojo0o/ioBroker.opendtu/issues/76))
-- (o0shojo0o) allow multiple AdminTabs for multiple instances ([#88](https://github.com/o0shojo0o/ioBroker.opendtu/issues/88))
-- (o0shojo0o) fixed password with special characters ([#35](https://github.com/o0shojo0o/ioBroker.opendtu/issues/35))
-- (o0shojo0o) fixed incorrect handling of zeroing of `yield*` data points by OpenDTU ([#96](https://github.com/o0shojo0o/ioBroker.opendtu/issues/96))
-- (o0shojo0o) remove zeroing of `yield*` data points by this adapter ([#96](https://github.com/o0shojo0o/ioBroker.opendtu/issues/96))
-
-### 0.1.7 (2023-06-30)
-
-- (o0shojo0o) workaround for incorrectly used button data point
-
-### 0.1.6 (2023-06-30)
-
-- (o0shojo0o) fixed power control (power_off)
-
-### 0.1.5 (2023-05-15)
-
-- (o0shojo0o) code optimizations
-
-### 0.1.4 (2023-03-23)
-
-- (o0shojo0o) fixed power control `on`, `off`, `restart`
-- (o0shojo0o) support for password protected liveview
-- (o0shojo0o) other small fixes
-
-### 0.1.2 (2023-03-03)
-
-- (o0shojo0o) fixed yield* values
-
-### 0.1.1 (2023-02-24)
-
-- (o0shojo0o) state rolls corrected
-- (o0shojo0o) add DTU datapoint `rssi` and `ip`
-- (o0shojo0o) repeated writing of the yieldtotal set to 00:01:00. (is necessary for e.g. sourceanalytix)
-
-### 0.1.0 (2023-02-17)
-
-- (o0shojo0o) initial release
 
 ## License
 MIT License

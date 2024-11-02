@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
+hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -25,7 +25,7 @@ hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 
 ## 支持的机器人有：
 -石头扫地机器人 S4
-Roborock S4 Max
+-Roborock S4 Max
 Roborock S5 Max
 -石头扫地机器人 S6
 Roborock S6 Pure
@@ -36,12 +36,14 @@ Roborock S6 Pure
 -Roborock Q7 Max
 Roborock S7 Pro Ultra
 -Roborock S7 Max Ultra
--Roborock S8
+-石头扫地机器人 S8
 -Roborock S8 Pro Ultra
-Roborock Q Revo
+-Roborock Q Revo
 -Roborock Q8 Max
 Roborock Q5 Pro
 Roborock Q Revo Pro
+-Roborock Qrevo S
+Roborock Qrevo Curve
 
 ## 区域清洁
 此功能仅在适配器选项中启用地图创建时才有效！
@@ -58,6 +60,18 @@ Roborock Q Revo Pro
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.17 (2024-10-14)
+ * (copystring) Add some missing attributes
+ * (copystring) Change min of update interval to 60s to prevent issues
+ * (copystring) Add web interface to sidebar
+
+### 0.6.16 (2024-10-02)
+ * (copystring) Bugfixes
+ * (copystring) update test-and-release.yml
+ * (Black-Thunder) Fix S6 feature detection
+ * (copystring) Migrate from canvas to @napu-rs/canvas
+ * (copystring) Add Qrevo S & Qrevo Curve
+
 ### 0.6.15 (2024-09-22)
  * (copystring) Refactor some code
  * (copystring) improve handling of online/offline detection and related logging

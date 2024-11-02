@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
+hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 ---
 # IoBroker.frontier_silicon
 ![Логотип](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
@@ -22,7 +22,7 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 ПРИМЕЧАНИЕ: Этот адаптер был передан в iobroker-community-adapters для обслуживания. Таким образом, запланированные функции (см. ниже) не будут реализованы. В будущем будут выпущены только важные исправления ошибок и обновления зависимостей. Однако PR с исправлениями ошибок или улучшениями функций всегда приветствуются.
 
-ЗАМЕТКИ О ВЫПУСКЕ: Версия 0.3.x включает в себя некоторые критические изменения:
+ЗАМЕТКИ К ВЫПУСКУ: Версия 0.3.x включает в себя некоторые критические изменения:
 
 - требуется node>=18, js-contoller>=5 и admin>=6
 
@@ -52,9 +52,9 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 - Уведомления для нескольких штатов
 - Регулировка громкости
 - Уведомления
+- Автоматическое обнаружение
 
 ### Планируемые функции
-- Автоматическое обнаружение
 - Больше штатов
 - Переводы
 - Дополнительная обработка исключений
@@ -67,6 +67,7 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 ### Известные ошибки и ограничения
 - Для обнаружения предустановок необходимо включить медиаплеер.
 - Из-за ограничений протокола FSAPI параллельная работа с приложением UNDOK ненадежна и поэтому не поддерживается. Используйте на свой страх и риск.
+- Из-за ограничений протокола FSAPI значки радиостанций недоступны в режиме DAB+.
 
 ## Документация
 Этот адаптер позволяет управлять интернет-радио и медиаплеерами на базе чипсетов Frontier Silicon. Многие устройства, которыми можно управлять через [UNDOK](https://support.undok.net) должно работать. Протестированные устройства от [Revo](https://revo.co.uk/de/products/), [Sangean](https://www.sangean.eu/products/all_product.asp), [Hama](https://de.hama.com/produkte/audio-hifi/digitalradio) и [SilverCrest](https://www.lidl.de), другие тоже должны работать.
@@ -83,7 +84,7 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 - maxVolume (`число, ro`)
 
-Максимальный выбираемый уровень громкости
+Максимальный выбираемый объем
 
 - отключить звук (`boolean, rw`)
 
@@ -97,17 +98,17 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 - устройство
 
-- friendlyName (`текст, rw`)
+- friendlyName (`string, rw`)
 - мощность (`boolean, rw`)
-- radioId (`test, ro`)
+- radioId (`string, ro`)
 
 Я предполагаю, что это MAC-адрес устройства.
 
-- версия (`текст, ro`)
+- версия (`string, ro`)
 
 Версия ПО
 
-- webfsapi (`текст, ro`)
+- webfsapi (`string, ro`)
 
 Адрес API
 
@@ -119,49 +120,61 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 - СМИ
 
-- состояние (`число, rw`)
+- состояние (`строка, ro`)
 
 Допустимые значения:
 
-- 0: Пауза
-- 1: Играть
+- 0: «ПРОСТО»
+- 1: «БУФЕРИЗАЦИЯ»
+- 2: «ИГРА»
+- 3: «ПАУЗА»
+- 4: «РЕБУФЕРИЗАЦИЯ»
+- 5: «ОШИБКА»
+- 6: «ОСТАНОВЛЕНО»
+- 7: «ERROR_POPUP»
 
-  - контроль
+- управление (`boolean, wo`)
 
-    - следующий
-- плаус
-    - играть
-    - предыдущий
+- 0: «СТОП»
+- 1: «ИГРАТЬ»
+- 2: «ПАУЗА»
+- 3: «ДАЛЕЕ»
+- 4: «ПРЕДЫДУЩИЙ»
 
 Не воспринимайте следующие названия слишком серьезно. Радио использует их по-разному в разных режимах.
 
-- альбом (`текст, ro`)
-- художник (`текст, ro`)
-- графика (`текст, ro`)
+- альбом (`string, ro`)
+- художник (`string, ro`)
+- графический (`string, ro`)
 
 Используйте этот URL, чтобы получить обложку альбома или логотип радиостанции.
 
-- имя (`текст, ro`)
-- текст (`текст, ro`)
-- заголовок (`текст, ro`)
+- имя (`строка, ro`)
+- строка (`строка, ro`)
+- заголовок (`строка, ro`)
 
 - режимы
 
-- readPresets
+- readPresets (`boolean, wo`)
 
 Перечитывает все пресеты
 
-- selectPreset (`number, rw`)
+- selectPreset (`number, wo`)
 
-Используется для получения или выбора предустановки. Имейте в виду, что адаптер угадывает, так как это значение не может быть прочитано из API.
+Используется для получения или выбора предустановки.
+Имейте в виду, что адаптер угадывает, так как это значение не может быть прочитано из API.
 
 - выбрано (`number, rw`)
 
 Указывает или выбирает выбранный режим. Также может быть выбран через `modes.{number}.switchTo`
 
+- выбрано (`string, ro`)
+
+Указывает метку выбранного режима.
+
 - `{номер}`
 
-- идентификатор (`текст, ro`)
+- идентификатор (`строка, ro`)
 
 Название этого режима
 
@@ -177,7 +190,7 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 Присутствует только на устройствах с поддержкой многокомнатных устройств. `true`, если этот режим можно использовать в качестве источника для нескольких многокомнатных устройств.
 
-- переключиться на
+- switchTo (`логическое значение, wo`)
 
 Выбирает этот режим.
 
@@ -191,15 +204,15 @@ hash: //8ThqIr9fqgCdlblkLGMCNzRjOBddKpx6bqeSIPc9k=
 
 Индекс этого пресета. Равен `mode.*.presets.{number}.key`.
 
-        - ключ
+- ключ (`число, ro`)
 
 Индекс этого пресета. Равен `mode.*.presets.{number}` из дерева объектов и может быть записан в `modes.selectPreset`.
 
-- имя (`текст, ro`)
+- имя (`строка, ro`)
 
 Имя этого пресета
 
-- переключиться на
+- отзыв (`boolean, wo`)
 
 Выбирает эту предустановку и соответствующий режим.
 
@@ -217,6 +230,15 @@ Frontier, Frontier Silicon, SmartRadio, UNDOK и связанные с ними 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** - 2025H1 maintenance release
+
+- (pdbjjens) Change: media state changed from number to string and readonly (#241)
+- (pdbjjens) New: Added media control function "stop" (#241)
+- (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Fix: Added button state acknowledgement
+- (pdbjjens) Fix: Prevent warning on adapter stop
+- (pdbjjens) New: Updated dependencies
+
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
 - (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
@@ -256,7 +278,7 @@ Frontier, Frontier Silicon, SmartRadio, UNDOK и связанные с ними 
 
 MIT License
 
-Copyright (c) 2024 halloamt <iobroker@halloserv.de>
+Copyright (c) 2025 halloamt <iobroker@halloserv.de> & IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,26 +1,29 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.email/README.md
-title: электронная почта ioBroker
-hash: m+iTfz/eu+K9plwOKiOxq6OVW/fN8GZGXpf8ViAawOk=
+title: ioBroker электронная почта
+hash: lNw4hH7NA9g/td26lkvPQi8jRYt19m78JwKOpr5qD6c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.email/admin/email.png)
 
 ![Количество установок](http://iobroker.live/badges/email-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.email.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.email.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.email.svg)
 
-# Адрес электронной почты ioBroker
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker электронная почта
+![Тест и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Отправляйте электронные письма от ioBroker.
+Отправляйте электронные письма из ioBroker.
 
-Адаптер использует [почтовая программа узла](https://github.com/nodemailer/nodemailer) для обеспечения функциональности.
+| :exclamation: В настоящее время этот адаптер не поддерживает почтовые серверы Microsoft (Hotmail, Live.com, Office365 и Web-Outlook). |
+|-----------------------------------------|
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+Адаптер использует [nodemailer](https://github.com/nodemailer/nodemailer) для обеспечения функциональности.
 
-Чтобы использовать Gmail, вам может потребоваться настроить «Разрешить менее безопасные приложения» в вашей учетной записи Gmail, если только вы не используете 2FA, и в этом случае вам придется создать пароль для конкретного приложения. Вам также может потребоваться разблокировать свою учетную запись с помощью параметра «Разрешить доступ к вашей учетной записи Google», чтобы использовать SMTP.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
+Для использования Gmail вам может потребоваться настроить «Разрешить менее безопасные приложения» в вашей учетной записи Gmail, если вы не используете 2FA, в этом случае вам придется создать пароль для конкретного приложения. Вам также может потребоваться разблокировать свою учетную запись с помощью «Разрешить доступ к вашей учетной записи Google» для использования SMTP.
 
 ## Использование
 Чтобы отправить электронное письмо из ScriptEngine, просто напишите:
@@ -65,23 +68,23 @@ sendTo('email', {
 });
 ```
 
-Чтобы отправить электронную почту с другого адаптера, используйте функцию **adapter.sendTo**.
+Для отправки электронной почты с другого адаптера используйте функцию **adapter.sendTo**.
 
 ## Поддерживаемые услуги
-- 1und1/ионос
+- 1und1 / ионос
 - АОЛ
 - DebugMail.io
-- Электронная почта Динекта
-- ФастПочта
-- ГандиПочта
+- DynectEmail
+- Быстрая почта
+- ГандиМейл
 - Gmail
-- Годадди
-- ГодаддиАзия
-- GodaddyЕвропа
+- Годэдди
+- GodaddyAsia
+- GodaddyEurope
 - hot.ee
-- Горячая почта
+- Хотмейл
 - iCloud
-- это
+- ит
 - mail.ee
 - Mail.ru
 - Почтовый пистолет
@@ -91,21 +94,21 @@ sendTo('email', {
 - Офис365
 - OpenMailBox
 - Почтовый штемпель
-- QQ
+- КК
 - QQex
-- ОтправитьОблако
-- ОтправитьГрид
+- SendCloud
+- SendGrid
 - СЭС
-- SES-US-EAST-1
+- ЮВС-США-ВОСТОК-1
 - SES-US-WEST-2
-- СЭС-ЕС-ЗАПАД-1
+- ЕЭП-ЕС-ЗАПАД-1
 - Спаркпост
 - Яху
 - Яндекс
 - Зохо
 - Зависит от пользователя (сервер, порт и безопасность определяются вручную)
 
-Информацию о других службах см. в документации **Nodemailer**: `§§LLLLL_0§§`.
+Для других служб см. документацию **Nodemailer**: `§§LLLLL_0§§`
 
 ## Changelog
 <!--

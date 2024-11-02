@@ -17,7 +17,7 @@ for controlling connected devices like
 
 - native [squeezebox](https://de.wikipedia.org/wiki/Squeezebox),
 - raspberry pi with additional audio module and small linux based firmwares
-    like [picoreplayer](https://picoreplayer.org/) or [max2play](https://www.max2play.com).
+  like [picoreplayer](https://picoreplayer.org/) or [max2play](https://www.max2play.com).
 - with plugins chromecast, airplay or `UPnP/DLNA`-Devices
 
 The `LMS`-Server can manage/provide very big music collections on harddrives
@@ -34,29 +34,29 @@ all needed informations or send commands to the server/players.
 
 - most of [data](#server) that the `LMS`-Service provides is available in the adapter
 - detailed [information](#players) about the player status, song title, artist,
-    album, artwork, playlist
+  album, artwork, playlist
 - [many control features](#provided-states) to play, pause, stop, forward,\
-     rewind, repeat, shuffle, play favorite, jump to time\
-     (absolute and relative) , jump to playlist index (absolute and relative),\
-     power on/off and preset buttons
+   rewind, repeat, shuffle, play favorite, jump to time\
+   (absolute and relative) , jump to playlist index (absolute and relative),\
+   power on/off and preset buttons
 - all [favorites](#favorites) and all sub levels from server
 - many [widgets](#widgets) for the iobroker-vis component are included to\
-     create own
-    control user interfaces (select player,select favorites, manage syncgroups,
-    buttons for play/pause,fwd,rew, repeat mode and shuffle mode selection)
+   create own
+  control user interfaces (select player,select favorites, manage syncgroups,
+  buttons for play/pause,fwd,rew, repeat mode and shuffle mode selection)
 
 ## Installation
 
 - Install the package
 - Create an instance
 - Configure the Instance with the IP of the logitech media server
-    and the port (normaly 9000)
+  and the port (normaly 9000)
 - start/restart the instance
 
 ## Update
 
 - After installation or update, it may sometimes be necessary\
-     to execute the following command if problems have arisen in vis-1
+   to execute the following command if problems have arisen in vis-1
 
 `iobroker upload squeezeboxpc`
 
@@ -165,7 +165,7 @@ additional defined buttons:
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `btnForward`      | Next song                                                                                                                                                         |
 | `btnRewind`       | Previous song                                                                                                                                                     |
-| `btnPreset\_\*`     | 1-6 buttons to define in player or server                                                                                                                         |
+| `btnPreset\_\*`   | 1-6 buttons to define in player or server                                                                                                                         |
 | `cmdGeneral`      | a general command field to send commands to the player. every field must enclosed by quotation marks. parameters musst be seperated by comma. Example: "play","1" |
 | `cmdPlayFavorite` | to play a favorite set the id of the favorite                                                                                                                     |
 | `cmdPlayUrl`      | to play a url´example "<http://50.7.77.114:8101/>;"                                                                                                               |
@@ -176,10 +176,10 @@ additional defined buttons:
 Depending on the setting, different MP3 tags are delivered to the data points.
 The capitalized names are the names of the mp3 tags
 
-| Setting TPE2 in LMS            | Artist      | Albumartist |  Trackartist | Band        |
-| ------------------------------ | ----------- | ----------- |  ----------- | ----------- |
-| as a band                      | ARTIST      | empty       |  TRACKARTIST | ALBUMARTIST |
-| as the performers of the album | ALBUMARTIST | ALBUMARTIST |  empty       | empty       |
+| Setting TPE2 in LMS            | Artist      | Albumartist | Trackartist | Band        |
+| ------------------------------ | ----------- | ----------- | ----------- | ----------- |
+| as a band                      | ARTIST      | empty       | TRACKARTIST | ALBUMARTIST |
+| as the performers of the album | ALBUMARTIST | ALBUMARTIST | empty       | empty       |
 
 It should also be noted that after a change in the LMS, the entire library must\
 be searched and indexed again, and a song must be stopped and restarted\
@@ -449,11 +449,11 @@ you must connect the button to the player widget.
 - stop playing if favorite button is pressed again.
 - cmdGeneral für Server.
 - ~~add telnet communication to get push events from the server to\
-     optimize the polling~~
+   optimize the polling~~
 - ~~implement a command state to place user individual commands (via json)\
-     for server and player~~
+   for server and player~~
 - ~~implement more control features (select playlist pos to play,ffwd,frew,\
-     jump to a time position in song,repeat song,random song)~~
+   jump to a time position in song,repeat song,random song)~~
 - ~~add the playlist to playerdata as json array~~
 - ~~add artwork (station-logo/playlist-cover) for favorites~~
 - ~~implement more levels (subdirectories) of favorites~~
@@ -466,6 +466,10 @@ you must connect the button to the player widget.
    ### **WORK IN PROGRESS**
 
 -->
+### 1.4.0-alpha.2 (2024-11-01)
+
+- improve handlying for artwork_url
+
 ### 1.4.0-alpha.1 (2024-10-27)
 
 - move widget documentation from html to markdown
@@ -490,7 +494,7 @@ you must connect the button to the player widget.
 ### 1.3.15 (2024-08-09)
 
 - due to a adapter checker issue i have to remove the release 1.3.13 from npm.
-    but changes from 1.3.13 are included in 1.3.14
+  but changes from 1.3.13 are included in 1.3.14
 
 ### 1.3.14 (2024-08-05)
 
@@ -554,7 +558,7 @@ you must connect the button to the player widget.
 ### 1.3.0
 
 - fix problem wit setting own icon in player widget / \* add infos about\
-     alarms to a player datapoint
+   alarms to a player datapoint
 
 ### 1.2.1
 
@@ -583,7 +587,7 @@ you must connect the button to the player widget.
 ### 0.8.32
 
 - the adapter function iobroker.deleteChannel didnt works as expected.\
-     It didnt delete the whole subtree of states. now i implement my own delete function
+   It didnt delete the whole subtree of states. now i implement my own delete function
 
 ### 0.8.31
 
@@ -600,7 +604,7 @@ you must connect the button to the player widget.
 ### 0.8.28
 
 - add advanced signaling function with telnet and fix some more authorization\
-     issues with `LMS`
+   issues with `LMS`
 
 ### 0.8.27
 
@@ -609,7 +613,7 @@ you must connect the button to the player widget.
 ### 0.8.26
 
 - more improvement and fixing at volumebar / remove playlist widget from\
-     master. not ready yet
+   master. not ready yet
 
 ### 0.8.25
 
@@ -622,7 +626,7 @@ you must connect the button to the player widget.
 ### 0.8.23
 
 - adjust dependencies to remove vulnerabilities in dependend packages.\
-     also remove travis due of unresolvable build-failures for win+node10/12
+   also remove travis due of unresolvable build-failures for win+node10/12
 
 ### 0.8.22
 
@@ -647,13 +651,13 @@ you must connect the button to the player widget.
 ### 0.8.17 (2019-06-26)
 
 - add more widges: playtime bar, string, number, datetime, image.\
-     add button margin to player and favorite widget, improve editing of viewindex.\
-     do some refactoring.
+   add button margin to player and favorite widget, improve editing of viewindex.\
+   do some refactoring.
 
 ### 0.8.16 (2019-06-24)
 
 - resolve a cross browser issue for firefox. the style.\
-     font attribute is empty and you have to construct the font string by yourself
+   font attribute is empty and you have to construct the font string by yourself
 
 ### 0.8.15 (2019-06-19)
 
@@ -662,7 +666,7 @@ you must connect the button to the player widget.
 ### 0.8.14 (2019-06-19)
 
 - add syncgroups as new server-datapoint,add syncgroup widget,/
-    change some jquery event logic
+  change some jquery event logic
 
 ### 0.8.13 (2019-06-16)
 
@@ -691,7 +695,7 @@ you must connect the button to the player widget.
 ### 0.8.7 (2019-05-11)
 
 - more control features (select playlist pos to play,ffwd,frew,jump to/
-    a time position in song,repeat song,random song)
+  a time position in song,repeat song,random song)
 
 ### 0.8.6 (2019-05-10)
 
@@ -700,7 +704,7 @@ you must connect the button to the player widget.
 ### 0.8.5 (2019-05-08)
 
 - change serverdiscovery interval method, remove some double cmd lines,/
-    additional minor changes advised from eslint
+  additional minor changes advised from eslint
 
 ### 0.8.4
 
@@ -721,7 +725,7 @@ you must connect the button to the player widget.
 ### 0.8.0
 
 - implementation of compact mode, change version to represent a realistic/
-    feature completness
+  feature completness
 
 ### 0.0.9
 

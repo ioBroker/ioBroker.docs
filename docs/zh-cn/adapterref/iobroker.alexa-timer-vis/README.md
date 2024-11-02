@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
+hash: PoPGCiiNOaxmME8+nBj39vGMIWOlIEU2r/6oGFqRm4Y=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -17,6 +17,8 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 **测试：**![测试与发布](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 alexa-timer-vis 适配器
+此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及如何禁用错误报告的信息，请参阅 Sentry-Plugin 文档！从 js-controller 3.0 开始使用 Sentry 报告。
+
 输出 Alexa 计时器以在 vis 中显示
 
 **如果您喜欢它，请考虑捐赠：**
@@ -43,7 +45,7 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 - Alexa，设置一个 1 小时 30 分钟的计时器
 - Alexa，设置 2 小时的定时器
 - Alexa，120 分钟定时器
-- Alexa，定时器 9 分钟意大利面条
+- Alexa，定时器 9 分钟意大利面
 
 ### 定时器删除 (示例)
 - Alexa，删除所有计时器
@@ -58,9 +60,22 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.3 (2024-09-13)
+### 2.0.6 (2024-10-19)
+
+-   FEAT: #151 Responsive Design
+
+### 2.0.5 (2024-09-26)
+
+-   FIX: #142 Timeout error
+-   FIX: #137 Reset timer name
+-   FEAT: Add json state
+
+### 2.0.4 (2024-09-18)
 
 -   FIX: #132 Second timer button reset deletes timer one
+
+### 2.0.3 (2024-09-13)
+
 -   FIX: #133 Timer names are not correct
 -   FIX: #134 All timer alive at start
 
@@ -170,15 +185,15 @@ hash: iHGaGbjvjGaqHD84Ng7PjnwyKqq0H5MAN4xEFx0LYmc=
 
 ### 0.0.3 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.2 (26.12.2021)
 
--   (Michael Roling) Bugfix
+-   Bugfix
 
 ### 0.0.1 (25.12.2021)
 
--   (Michael Roling) initial release
+-   initial release
 
 ## License
 

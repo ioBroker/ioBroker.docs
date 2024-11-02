@@ -3,50 +3,80 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bsblan/README.md
 title: ioBroker.bsblan
-hash: xUD8t6FT0RVhgnVBFyFDHVTD1appxS4rdHEINifPNdY=
+hash: aqqhGzhfFCM2Aptm7WyQ/ZDbNPadxuZkMPh5Dd1JyLU=
 ---
-![商标](../../../en/adapterref/iobroker.bsblan/admin/bsblan.png)
+![标识](../../../en/adapterref/iobroker.bsblan/admin/bsblan.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.bsblan.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.bsblan.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.bsblan.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.bsblan.svg)
 ![依赖状态](https://img.shields.io/david/hacki11/iobroker.bsblan.svg)
 ![已知漏洞](https://snyk.io/test/github/hacki11/ioBroker.bsblan/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.bsblan.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/hacki11/ioBroker.bsblan/master.svg)
+![新平台](https://nodei.co/npm/iobroker.bsblan.png?downloads=true)
+![特拉维斯-CI](http://img.shields.io/travis/hacki11/ioBroker.bsblan/master.svg)
 
-＃ioBroker.bsblan
-## IoBroker的bsb_lan适配器
-该适配器将[BSB_LAN接口](https://github.com/fredlcore/bsb_lan)连接到ioBroker。
-BSB_LAN接口将BSB（锅炉系统总线）带到LAN。该适配器将其连接到ioBroker。
+# IoBroker.bsblan
+## IoBroker 的 bsb_lan 适配器
+此适配器将 [BSB_LAN 接口](https://github.com/fredlcore/bsb_lan) 连接到 ioBroker。
+BSB_LAN 接口将 BSB（锅炉系统总线）连接到 LAN。此适配器将其连接到 ioBroker。
 
-[BSB_LAN接口用户手册](https://github.com/1coderookie/BSB-LPB-LAN)
+[BSB_LAN 接口用户手册](https://docs.bsb-lan.de)
 
-##支持的设备
--兼容BSB / LPB的设备（例如Brötje，Elco，MHG，Fujitsu）
--有关详情，请参见：[支持的设备]（https://github.com/1coderookie/BSB-LPB-LAN）
+## 支持的设备
+- BSB/LPB 兼容设备（例如 Brötje、Elco、MHG、Fujitsu）
+- 详情见：[支持的设备]（https://docs.bsb-lan.de/supported_heating_systems.html）
 
-##用法
--BSB_LAN接口已启动并正在运行
--安装适配器
+＃＃ 用法
+- BSB_LAN 接口已启动并正在运行
+- 安装适配器
 - 配置
-    -IP
-    -用户和密码（如果激活了基本身份验证）
-    -轮询间隔（以秒为单位）（最小值为10）
-    -应该轮询或更改的ID（以逗号或换行符分隔，有关可用ID，请参见BSB_LAN的Web界面）
+- 知识产权
+- 用户和密码（如果激活了基本身份验证）
+- 轮询间隔（秒）（最小 10 秒）
+- 应轮询或更改的 ID（以逗号或换行符分隔，请参阅 BSB_LAN 的 Web 界面以获取可用的 ID）
 
-##写作价值观
--将所有或特定ID激活为可写入
-  * zh：[只读或读/写访问权限]（https://1coderookie.github.io/BSB-LPB-LAN_EN/chap05.html）
-  * de：[Zugriff des Adapters auf den Regler]（https://1coderookie.github.io/BSB-LPB-LAN/kap05.html）
-  *全部使用：`bsb_lan_config.h：#define DEFAULT_FLAG 0`
-  *编译并上传
--添加应写入适配器实例配置的ID（请参阅用法）
--数字，枚举和hr：min类型现在是可写的（当然只能写可写的ID）
+## 写入值
+- 激活所有或特定 ID 为可写入
+* en: [只读或读写访问](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap05.html)
+  * de: [Zugriff des Adapters auf den Regler](https://1coderookie.github.io/BSB-LPB-LAN/kap05.html)
+* 对于所有：`bsb_lan_config.h: #define DEFAULT_FLAG 0`
+* 编译并上传
+- 添加应写入适配器实例配置的 ID（参见用法）
+- 数字、枚举和 hr:min 类型现在是可写的（当然只有可写的 ID 才可以写入）
 
-##积分
--由[Freepik]（https://www.freepik.com/home）从www.flaticon.com制作的图标
+## 致谢
+- 图标由 [Freepik](https://www.freepik.com/home) 制作，来源：www.flaticon.com
 
 ## Changelog
+### 0.3.4
+* Fix order of individual destinations (They need to be queried sorted by destination, starting with default destination)
+### 0.3.3
+* Support for individual destinations e.g. `710!7`
+### 0.3.2
+* Support dot-separated parameter ids like `20200.0`, `20200.1`. `.0` is omitted from object view as it is also omitted in the bsb_lan response.
+
+### 0.3.1
+* Code Quality Improvements
+### 0.3.0
+* Add support for BSB_LAN 2.x
+* BREAKING: Names of 24h Average values changed (e.g. Außentemperatur_(8700) => 24h Durchschnittswert. Außentemperatur_(20050))
+
+
+### 0.2.2
+* Replace invalid characters: https://github.com/ioBroker/ioBroker.js-controller/issues/198
+
+### 0.2.1
+* Fix write issue with new bsb_lan2 firmware
+
+### 0.2.0
+* Add 24h averages (needs BSB_LAN FW 1.1)
+
+### 0.1.2
+* Support INF interface for setting external room temperatures
+
+### 0.1.1
+* Support unit micro
+* Made robust against invalid or non existing IDs
+
 ### 0.1.0
 * Support write access
 
@@ -61,7 +91,7 @@ BSB_LAN接口将BSB（锅炉系统总线）带到LAN。该适配器将其连接�
 ## License
 MIT License
 
-Copyright (c) 2020 hacki11 <jur.schmid@gmail.com>
+Copyright (c) 2024 hacki11
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

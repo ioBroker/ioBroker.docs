@@ -34,7 +34,8 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.16.0 (2024-11-01)
+* dependency and configuration updates
 * read additional register data of Huawei Emma
 
 ### 0.15.2 (2024-10-30)

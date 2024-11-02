@@ -1,53 +1,66 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
+hash: M4U04T/lqElBWr/9sEcOAgB14FDrstxg6jiQKvT9mh0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.go-e.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.go-e.svg)
 ![Апач 2.0](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.go-e.svg)
-![Количество установок (последних)](http://iobroker.live/badges/go-e-installed.svg)
-![Версия Установок (стабильная)](http://iobroker.live/badges/go-e-stable.svg)
+![Количество установок (последнее)](http://iobroker.live/badges/go-e-installed.svg)
+![Версия установок (стабильная)](http://iobroker.live/badges/go-e-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.go-e.png?mini=true)
-![Значок кодации](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
+![Значок Кодаси](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
 
 # IoBroker.go-echarger
-# Настенная коробка go-eCharger
+# Настенное зарядное устройство go-eCharger
 ![Изображение продукта](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) Для получения более подробной информации посетите https://go-e.co/
 
 ## Уведомление
-Этот адаптер в настоящее время работает только с API v1. Поддержка нового API v2 в настоящее время находится на рассмотрении.
-Пожалуйста, убедитесь, что в приложении вы включили API v1.
+Этот адаптер в настоящее время работает только с API v1. Новая поддержка API v2 в настоящее время находится на рассмотрении.
+Убедитесь, что в приложении вы включили API v1.
 
-Адаптер позволяет использовать API v1 и использовать его функции в V2. Немного информации о том, как активировать приложение API v1 и v2, включено.
+Адаптер позволяет использовать API v1 и использовать его функции в V2. Немного информации о том, как активировать приложение API v1 и v2.
 
 ## Адаптер go-eCharger для ioBroker
-**RU** go-e — это приглашение к электрическому переезду. Электронная мобильность — это наша движущая сила, поэтому нашей основной компетенцией являются технологии зарядки электромобилей. От индивидуальной зарядной станции для электромобилей до фотоэлектрических соединений и управления нагрузкой целых зданий — мы являемся поставщиками комплексных системных решений для всех требований современной электронной мобильности.
+**EN** go-e — это приглашение двигаться на электричестве. Электромобильность — это наш двигатель, при этом наша основная компетенция — это технология зарядки электромобилей. От индивидуальной зарядной станции для электромобилей до фотоэлектрических соединений и управления нагрузкой целых зданий — мы являемся поставщиками комплексных системных решений для всех требований современной электромобильности.
 
-**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität - это Antrieb, wobei unsere Kerncompetenz die Ladetechnik für Elektroautos ist. Для использования электростанций для электронных автомобилей необходимо использовать фотовольтаическую установку для последнего управления электромобилями, а также использовать систему Anbieter Gesamtheitlicher Systemlösungen для комплексного обслуживания современной электронной мобильности.
+**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität - это Antrieb, wobei unsere Kerncompetenz die Ladetechnik für Elektroautos ist. Для использования электростанций с электронными автомобилями требуется фотовольтаическое привязывание к последнему управлению электромобилем, а также использование системных систем для современных электронных мобильных устройств.
 
-## Руководство по ioBroker-Adapter / Краткое руководство пользователя
-Руководство по установке и настройке вы можете найти здесь: [Руководство по адаптеру](./docs/Readme.md).
+## Руководство по ioBroker-Adapter / Краткое руководство по началу работы
+Руководство по установке и настройке вы можете найти здесь: [Руководство по эксплуатации адаптера](./docs/Readme.md)
 
 ## Руководство разработчика
-Присоединяйтесь к сообществу адаптеров https://t.me/goECharger.
+Присоединяйтесь к сообществу адаптеров https://t.me/goECharger
 
-Официальная документация API: https://github.com/goecharger/go-eCharger-API-v1 https://github.com/goecharger/go-eCharger-API-v2.
+Официальная документация API: https://github.com/goecharger/go-eCharger-API-v1 https://github.com/goecharger/go-eCharger-API-v2
 
 Официальная поддержка продукта: https://go-e.co/support/
 
 ## Переводы
-Большинство переводов поступает с https://translator-ui.iobroker.in, не стесняйтесь внести свой вклад, если во время переводов что-то пошло не так.
+Большинство переводов поступает с https://translator-ui.iobroker.in. Не стесняйтесь вносить свой вклад, если что-то пошло не так во время перевода.
 
 ## Авторские права
-Авторские права (c) 2023 MK-2001 go-e@itinsi.de
+Авторские права (c) 2024 MK-2001 go-e@itinsi.de
 
 ## Changelog
+
+### 1.0.42
+* Changed Adapter Core
+
+
+### 1.0.41
+* Update of dependencies
+* Default PSM Grid mode selectable
+* Bug in negate when using go-e software (Thanks to Markus D.)
+* ioBroker updates on core packes (dependencies update)
+
+### 1.0.38
+* Bug on Negate Watts if use Go-e charger
 
 ### 1.0.35
 * switch between ioBroker and go-e Hardware logic for PV-Calculation
@@ -71,21 +84,6 @@ hash: 8oX3a15Sju1VDNDgE0iYAV++rcSQiZ4sLIAA72hd6dc=
 
 ### 1.0.29
 * Bugfixes.
-
-### 1.0.27
-*Enabled foreign Object usage; Full Changelog online: https://github.com/MK-2001/ioBroker.go-e/blob/main/docs/CHANGELOG.md; Issue for Object not found.
-
-### 1.0.25
-* TempArray resize on FW 054 HW V2; Readme.Adaption; Dependency security updates; Added the options to consider acknowledged value changes of foreign adapters; Added choice of ack of foreign adapters (#125)\\n Minor bug for sentry; Error in tme object; Bug in Sentry. Added Catch.
-
-### 1.0.18
-* First adaption of V3 hardware from go-e; Added switch to disable writing of the temperatures array; write different amont of temperature sensors; Added addtional attributes to ast; Updated several FOSS libs
-
-### 1.0.15
-* Bug fixes
-
-### 1.0.10
-* Enabled new Version of hardware updates
 
 [Additional moved here](./CHANGELOG_OLD.md)
 

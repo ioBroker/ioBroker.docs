@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.роборок
-hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
+hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -42,6 +42,8 @@ hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 - Роборок Q8 Макс
 - Роборок Q5 Pro
 - Roborock Q Revo Pro
+- Роборок Крево S
+- Кривая Роборока Крево
 
 ## Зональная уборка
 Эта функция работает только в том случае, если в настройках адаптера включена функция создания карты!
@@ -58,6 +60,18 @@ hash: O7JKqAp+ZBiAMaW5WhpC3/jObo5ljSu2qxwqZsUSxy0=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.17 (2024-10-14)
+ * (copystring) Add some missing attributes
+ * (copystring) Change min of update interval to 60s to prevent issues
+ * (copystring) Add web interface to sidebar
+
+### 0.6.16 (2024-10-02)
+ * (copystring) Bugfixes
+ * (copystring) update test-and-release.yml
+ * (Black-Thunder) Fix S6 feature detection
+ * (copystring) Migrate from canvas to @napu-rs/canvas
+ * (copystring) Add Qrevo S & Qrevo Curve
+
 ### 0.6.15 (2024-09-22)
  * (copystring) Refactor some code
  * (copystring) improve handling of online/offline detection and related logging
