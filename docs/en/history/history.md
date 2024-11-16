@@ -663,3 +663,10 @@ https://github.com/simatec/ioBroker.remeha-home
 
 The ioBroker.remeha-home adapter enables the integration and control of Remeha heating systems via the Remeha Home platform. The adapter continuously connects to the Remeha Home API and retrieves current data to make it available in the ioBroker system. This allows the heating system to be optimally monitored and controlled.
 
+## ioBroker.gotify (16.11.2024) – new adapter at stable
+https://github.com/ThomasPohl/ioBroker.gotify
+
+<img src="https://github.com/ThomasPohl/ioBroker.gotify/blob/main/admin/gotify.png" width="100" height="100" />
+
+Send push notifications from ioBroker to Gotify.
+
