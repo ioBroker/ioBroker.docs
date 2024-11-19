@@ -16,7 +16,8 @@ located at your fork for best test results. Note that a restart of info adapter 
 
 ## Display options
 - **class** - (default: info) Value can be info (blue), success (green), warning (yellow) and danger (red)
-- **fa-icon** - (default: exclamation-triangle) Icon to be displayed on the left side [icons list](https://fontawesome.com/v4.7.0/icons/)
+
+**Nice to know** -`icon` and `fa-icon` were removed. Pleas use `img`.
 
 ## Conditions
 - **date-start** - When should the message be displayed (in format 2019-01-01T00:00:00.000Z)
