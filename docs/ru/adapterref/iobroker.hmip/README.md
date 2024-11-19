@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: Адаптер точки доступа ioBroker HomeMatic IP Cloud
-hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
+hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -35,8 +35,8 @@ hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
 Я буду постоянно улучшать его, но это займет время. Любая помощь от сообщества, например, через Pull Request, будет высоко оценена.
 
 Для неработающих устройств HmIP создайте проблему с этой информацией (по одной на устройство и, если возможно, укажите техническое имя в теме).
-Переключите ведение журнала адаптера в ioBroker в режим Silly и добавьте json устройства, который выводится в журнал в проблеме.
-Мне также может понадобиться json изменения состояния.
+Переключите ведение журнала адаптера в ioBroker в режим Silly и добавьте JSON устройства, который выводится в журнал в проблеме.
+Мне также может понадобиться JSON изменения состояния.
 
 Спасибо!
 
@@ -51,7 +51,7 @@ hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
 
 ## Специальные настройки
 ### HMIP-DLD (привод дверного замка)
-Если вы назначили PIN-код для замка в приложении HmIP (Настройки / Авторизация доступа - немецкий: "Zutrittsberechtigungen"), то PIN-код необходимо установить в состоянии PIN-кода объектов устройства. Это НЕ ваш системный PIN-код!! если вы не установили PIN-код в настройках, вы также можете оставить пустым состояние PIN-кода.
+Если вы назначили PIN-код для замка в приложении HmIP (Настройки / Разрешения на доступ - немецкий: "Zutrittsberechtigungen"), то PIN-код необходимо установить в состоянии PIN-кода объектов устройства. Это НЕ ваш системный PIN-код!! если вы не установили PIN-код в настройках, вы также можете оставить пустым состояние PIN-кода.
 Кроме того, добавьте клиента "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
 
 ## Спасибо
@@ -68,8 +68,14 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### 1.24.1 (2024-08-06)
+### 1.25.0 (2024-11-08)
+* (bluefox) Updated packages
+* (bluefox) User prettier for code
+* (bluefox) Added GUI test for the admin component
+
+### 1.24.3 (2024-09-02)
 * (bluefox) GUI was migrated for Admin 7
+* (bluefox) Removed gulp
 
 ### 1.23.4 (2024-07-07)
 * (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected

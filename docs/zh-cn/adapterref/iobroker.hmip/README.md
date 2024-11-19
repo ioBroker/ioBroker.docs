@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP 云接入点适配器
-hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
+hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 ---
 ![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -35,8 +35,8 @@ hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
 我会不断改进它，但这需要时间。如果社区能通过 Pull Request 等方式提供帮助，我将不胜感激。
 
 对于无法正常工作的 HmIP 设备，请使用此信息创建一个问题（每个设备一个，如果可能，请在主题中写上技术名称）。
-将 ioBroker 中的适配器日志切换到傻瓜模式，并添加设备的 json，该 json 会打印到问题日志中。
-我可能还需要状态更改的 json。
+将 ioBroker 中的适配器日志切换到傻瓜模式，并添加设备的 JSON，该 JSON 会打印到问题日志中。
+我可能还需要状态更改的 JSON。
 
 谢谢你！
 
@@ -68,8 +68,14 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ### **正在进行中** -->
 
 ## Changelog
-### 1.24.1 (2024-08-06)
+### 1.25.0 (2024-11-08)
+* (bluefox) Updated packages
+* (bluefox) User prettier for code
+* (bluefox) Added GUI test for the admin component
+
+### 1.24.3 (2024-09-02)
 * (bluefox) GUI was migrated for Admin 7
+* (bluefox) Removed gulp
 
 ### 1.23.4 (2024-07-07)
 * (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected

@@ -126,6 +126,13 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.1 (2024-11-13)
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+* (mcm1957) Message states have been added. [#229]
+* (simatec) Adapter changed to meet Responsive Design rules.
+* (mcm1957) Several issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated.
+
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
@@ -139,12 +146,6 @@ sendTo('enigma2.0', 'send', {
 
 ### 2.0.3 (2023-09-06)
 * (TDCroPower) fixed the problem that no objects are updated
-
-### 2.0.2 (2023-08-17)
-* (Lucky-ESA) Bugfixes: [#61](https://github.com/Matten-Matten/ioBroker.enigma2/issues/61)
-* (Lucky-ESA) Bugfixes: undefined e2eventlist
-* (bluefox) Added json config
-* (mcm1957) Adapter now requires node 16
 
 ## License
 MIT License

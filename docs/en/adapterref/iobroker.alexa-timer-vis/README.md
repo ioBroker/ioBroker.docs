@@ -60,6 +60,11 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.7 (2024-11-19)
+
+-   FIX: #157 Add size attribute xl for text in jsonConfig
+-   FIX: #156 Error in decomposeInputValue
+
 ### 2.0.6 (2024-10-19)
 
 -   FEAT: #151 Responsive Design

@@ -2,20 +2,16 @@
 
 # ioBroker.tvprogram
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.tvprogram1.svg)](https://www.npmjs.com/package/iobroker.tvprogram1)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.tvprogram1.svg)](https://www.npmjs.com/package/iobroker.tvprogram1)
-![Number of Installations](https://iobroker.live/badges/tvprogram1-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/tvprogram1-stable.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.tvprogram.svg)](https://www.npmjs.com/package/iobroker.tvprogram)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.tvprogram.svg)](https://www.npmjs.com/package/iobroker.tvprogram)
+![Number of Installations](https://iobroker.live/badges/tvprogram-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/tvprogram-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.tvprogram1.png?downloads=true)](https://nodei.co/npm/iobroker.tvprogram1/)
+[![NPM](https://nodei.co/npm/iobroker.tvprogram.png?downloads=true)](https://nodei.co/npm/iobroker.tvprogram/)
 
-**Tests:** ![Test and Release](https://github.com/oweitman/ioBroker.tvprogram1/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/oweitman/ioBroker.tvprogram/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:**
-[![Travis-CI](http://img.shields.io/travis/oweitman/ioBroker.tvprogram/master.svg)](https://travis-ci.com/oweitman/ioBroker.tvprogram)
-[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/oweitman/iobroker-tvprogram.svg)](https://ci.appveyor.com/project/oweitman/iobroker-tvprogram)
-
-## tvprogram adapter for ioBroker
+## `tvprogram` adapter for ioBroker
 
 This adapter polls information about the television program at regular intervals.
 The data can be displayed in various widgets.
@@ -32,14 +28,6 @@ The adapter can be installed via the stable or for testing verions via beta/late
 ### Adapter Configuration
 
 You can configure how much different TVs, or at least different configurations you will have.
-
-### Warnings in the iobroker-log
-
-Warnings like
-
-"Read-only state "tvprogram.0.tv1.cmd" has been written without ack-flag with value "new|program|2021-01-01"
-
-are ok by design, due the internal signalling mechanism between the adapter and the widgets, which are first set without the ack flag and after a while is reset with the ack flag.
 
 ### Widgets
 
@@ -61,34 +49,34 @@ iobroker upload all
 The following attributes are available for configuration in vis
 Minimum configuration is to set the datapoint to the cmd-datapoint.
 
-| Attribute             | Example                  | Description                                                                                                       |
-| --------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| tvprogram_oid         | tvprogram.0.tv1.cmd      | A Datapoint of a instance of the tvprogram adapter.                                                               |
-| widthItem             | 120                      | Standard width in pixels for a 30 minute segment                                                                  |
-| heightRow             | 35                       | Height for each displayed line                                                                                    |
-| showpictures          | x                        | Show pictures in timeline if available                                                                            |
-| headerfontpercent     | 125                      | Character size in percent for the heading (time)                                                                  |
-| broadcastfontpercent  | 75                       | Character size in percent for the broadcasts                                                                      |
-| highlightcolor        | yellow                   | color for the favorites                                                                                           |
-| markerpositionpercent | 25                       | Position of the Marker in percent ot the widget width                                                             |
-| dialogwidthpercent    | 90                       | size of the dialogs in percent of the widget                                                                      |
-| dialogheightpercent   | 90                       | size of the dialogs in percent of the widget                                                                      |
+| Attribute               | Example               | Description                                           |
+| ----------------------- | --------------------- | ----------------------------------------------------- |
+| `tvprogram_oid`         | `tvprogram.0.tv1.cmd` | A Datapoint of a instance of the `tvprogram` adapter. |
+| `widthItem`             | 120                   | Standard width in pixels for a 30 minute segment      |
+| `heightRow`             | 35                    | Height for each displayed line                        |
+| `showpictures`          | x                     | Show pictures in timeline if available                |
+| `headerfontpercent`     | 125                   | Character size in percent for the heading (time)      |
+| `broadcastfontpercent`  | 75                    | Character size in percent for the broadcasts          |
+| `highlightcolor`        | yellow                | color for the favorites                               |
+| `markerpositionpercent` | 25                    | Position of the Marker in percent ot the widget width |
+| `dialogwidthpercent`    | 90                    | size of the dialogs in percent of the widget          |
+| `dialogheightpercent`   | 90                    | size of the dialogs in percent of the widget          |
 
 ##### CSS-Classes
 
-Please change w00001 to your widget ID
+Please change `w00001` to your widget ID
 
 To Change the formatting of the dialogs
 
 ```css
 #w00001channeldlg {
-    background-color: red !important;
+  background-color: red !important;
 }
 ```
 
 ```css
 #w00001broadcastdlg {
-    background-color: red !important;
+  background-color: red !important;
 }
 ```
 
@@ -97,26 +85,36 @@ Maybe you have to set a higher number than 300. This depends on settings in othe
 
 ```css
 .ui-dialog.w00001 {
-   z-index:300 !important;
+  z-index: 300 !important;
 }
 ```
 
 To Change the formatting of the alternating background colors of the broadcasts
 
 ```css
-#w00001 .scrollcontainer ul.tv-row:nth-child(odd)> li.broadcast:nth-child(odd),#w00001 ul.tv-row:nth-child(odd)> li.time:nth-child(odd) {
-   background-color: rgba(128, 128, 128, 0.65);
+#w00001 .scrollcontainer ul.tv-row:nth-child(odd) > li.broadcast:nth-child(odd),
+#w00001 ul.tv-row:nth-child(odd) > li.time:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.65);
 }
-#w00001 .scrollcontainer ul.tv-row:nth-child(odd)> li.broadcast:nth-child(even),#w00001 ul.tv-row:nth-child(odd)> li.time:nth-child(even) {
-   background-color: rgba(128, 128, 128, 0.55);
+#w00001
+  .scrollcontainer
+  ul.tv-row:nth-child(odd)
+  > li.broadcast:nth-child(even),
+#w00001 ul.tv-row:nth-child(odd) > li.time:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.55);
 }
-#w00001 .scrollcontainer ul.tv-row:nth-child(even)> li.broadcast:nth-child(odd) {
-   background-color: rgba(128, 128, 128, 0.45);
+#w00001
+  .scrollcontainer
+  ul.tv-row:nth-child(even)
+  > li.broadcast:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.45);
 }
-#w00001 .scrollcontainer ul.tv-row:nth-child(even)> li.broadcast:nth-child(even) {
-   background-color: rgba(128, 128, 128, 0.35);
+#w00001
+  .scrollcontainer
+  ul.tv-row:nth-child(even)
+  > li.broadcast:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.35);
 }
-
 ```
 
 #### Favorites
@@ -126,13 +124,13 @@ This widget shows a list of the selected favorites, sorted by date and time.
 The following attributes are available for configuration in vis
 Minimum configuration is to set the datapoint to the cmd-datapoint.
 
-| Attribute      | Example              | Description                                         |
-| -------------- | -------------------- | --------------------------------------------------- |
-| oid            | tvprogram.0.tv 1.cmd | A Datapoint of a instance of the tvprogram adapter. |
-| channelname    | no                   | Show logo (off) or channelname                      |
-| showweekday    | yes                  | Show Weekday                                        |
-| maxfavorites   | 10                   | Max favorites to show                               |
-| highlightcolor | yellow               | color for the favorites                             |
+| Attribute        | Example                | Description                                           |
+| ---------------- | ---------------------- | ----------------------------------------------------- |
+| `oid`            | `tvprogram.0.tv 1.cmd` | A Datapoint of a instance of the `tvprogram` adapter. |
+| `channelname`    | `no`                   | Show logo (off) or channelname                        |
+| `showweekday`    | `yes`                  | Show Weekday                                          |
+| `maxfavorites`   | 10                     | Max favorites to show                                 |
+| `highlightcolor` | `yellow`               | color for the favorites                               |
 
 #### Control
 
@@ -142,34 +140,33 @@ you can click on the broadcast to get detailed information about thew broadcast.
 The following attributes are available for configuration in vis
 Minimum configuration is to set the datapoint to the cmd-datapoint.
 
-| Attribute             | Example                  | Description                                                                                        |
-| --------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
-| oid                   | tvprogram.0.tv1.cmd      | A Datapoint of a instance of the tvprogram adapter.                                                |
-| time                  |                          | If empty then the actual broadcasts would be shown                                                 |
-| time                  | 20:15                    | if time only the broadcast at this time would be shown for 120 minutes, then the next day is shown |
-| time                  | 20:15/200                | if time with duration the broadcast at this time would be shown for 200 minutes                    |
-| time                  | 2021-02-15T20:15:00.000Z | If valid Datestring, then the broadcast at this tim would be shown. Remember the timezones         |
-| heightRow             | 35                       | Height for each displayed line                                                                     |
-| showpictures          | x                        | Show pictures if available                                                                         |
-| broadcastfontpercent  | 75                       | Character size in percent for the broadcasts                                                       |
-| highlightcolor        | yellow                   | color for the favorites                                                                            |
-| dialogwidthpercent    | 90                       | size of the dialogs in percent of the widget                                                       |
-| dialogheightpercent   | 90                       | size of the dialogs in percent of the widget                                                       |
+| Attribute              | Example                  | Description                                                                                        |
+| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
+| `oid`                  | `tvprogram.0.tv1.cmd`    | A Datapoint of a instance of the `tvprogram` adapter.                                              |
+| `time`                 |                          | If empty then the actual broadcasts would be shown                                                 |
+| `time`                 | 20:15                    | if time only the broadcast at this time would be shown for 120 minutes, then the next day is shown |
+| `time`                 | 20:15/200                | if time with duration the broadcast at this time would be shown for 200 minutes                    |
+| `time`                 | 2021-02-15T20:15:00.000Z | If valid Datestring, then the broadcast at this tim would be shown. Remember the timezones         |
+| `heightRow`            | 35                       | Height for each displayed line                                                                     |
+| `showpictures`         | x                        | Show pictures if available                                                                         |
+| `broadcastfontpercent` | 75                       | Character size in percent for the broadcasts                                                       |
+| `highlightcolor`       | `yellow`                 | color for the favorites                                                                            |
+| `dialogwidthpercent`   | 90                       | size of the dialogs in percent of the widget                                                       |
+| `dialogheightpercent`  | 90                       | size of the dialogs in percent of the widget                                                       |
 
 ##### CSS-Classes
 
-Please change w00001 to your widget ID
+Please change `w00001` to your widget ID
 
 To Change the formatting of the alternating background colors of the broadcasts
 
 ```css
 #w00001 .tv-control .tv-row:nth-child(odd) {
-   background-color: rgba(128, 128, 128, 0.65);
+  background-color: rgba(128, 128, 128, 0.65);
 }
 #w00001 .tv-control .tv-row:nth-child(even) {
-   background-color: rgba(128, 128, 128, 0.55);
+  background-color: rgba(128, 128, 128, 0.55);
 }
-
 ```
 
 #### Search
@@ -182,119 +179,122 @@ One or both of the inputfields searchtext and category must be filled/selected.
 The following attributes are available for configuration in vis
 Minimum configuration is to set the datapoint to the cmd-datapoint.
 
-| Attribute             | Example             | Description                                          |
-| --------------------- | ------------------- | ---------------------------------------------------- |
-| Object ID             | tvprogram.0.tv1.cmd | A Datapoint of a instance of the tvprogram adapter.  |
-| showpictures          | x                   | Show pictures if available                           |
-| maxresults            | 10                  | max results in the List                              |
-| heightRow             | 35                  | Height for each displayed line                       |
-| broadcastfontpercent  | 75                  | Character size in percent for the broadcasts         |
-| highlightcolor        | yellow              | color for the favorites                              |
-| dialogwidthpercent    | 90                  | size of the dialogs in percent of the widget         |
-| dialogheightpercent   | 90                  | size of the dialogs in percent of the widget         |
+| Attribute              | Example               | Description                                           |
+| ---------------------- | --------------------- | ----------------------------------------------------- |
+| `Object ID`            | `tvprogram.0.tv1.cmd` | A Datapoint of a instance of the `tvprogram` adapter. |
+| `showpictures`         | x                     | Show pictures if available                            |
+| `maxresults`           | 10                    | max results in the List                               |
+| `heightRow`            | 35                    | Height for each displayed line                        |
+| `broadcastfontpercent` | 75                    | Character size in percent for the broadcasts          |
+| `highlightcolor`       | `yellow`              | color for the favorites                               |
+| `dialogwidthpercent`   | 90                    | size of the dialogs in percent of the widget          |
+| `dialogheightpercent`  | 90                    | size of the dialogs in percent of the widget          |
 
 ##### CSS-Classes
 
-Please change w00001 to your widget ID
+Please change `w00001` to your widget ID
 
 To Change the formatting of the alternating background colors of the broadcasts
 
 ```css
 #w00001 .tv-search .tv-row:nth-child(odd) {
-   background-color: rgba(128, 128, 128, 0.65);
+  background-color: rgba(128, 128, 128, 0.65);
 }
 #w00001 .tv-search .tv-row:nth-child(even) {
-   background-color: rgba(128, 128, 128, 0.55);
+  background-color: rgba(128, 128, 128, 0.55);
 }
-
 ```
 
 ### Provided Datapoints
 
 The following set of datapoint exists for every created TV
 
-#### channelfilter
+#### `channelfilter`
 
 this datapoint contains the channels shown in the widget as a JSON-Array
 
-#### cmd
+#### `cmd`
 
 this datapoint is used for internal communication between the widgets and the adapter
 
-#### favorites
+#### `favorites`
 
 this datapoint contains the selected favorites as a JSON-Array
 
-#### record
+#### `record`
 
 This datapoint is set if the user clicks the record button in the detail view of a broadcast.
 The provided data are
 
-| field       | Example                    | Description            |
-| ----------- | -------------------------- | ---------------------- |
-| startTime   | 2021-01-01T00:10:00+01:00  | Start time             |
-| endTime     | 2021-01-01T00:10:30+01:00  | End time               |
-| title       | Title of the broadcast     | title of the broadcast |
-| channel     | 7                          | Unique channel number  |
-| channelid   | zdf                        | Unique channel id      |
-| channelname | ZDF                        | Readable channel name  |
-| eventid     | 12345678                   | Unique broadcast id    |
+| field         | Example                   | Description            |
+| ------------- | ------------------------- | ---------------------- |
+| `startTime`   | 2021-01-01T00:10:00+01:00 | Start time             |
+| `endTime`     | 2021-01-01T00:10:30+01:00 | End time               |
+| `title`       | Title of the broadcast    | title of the broadcast |
+| `channel`     | 7                         | Unique channel number  |
+| `channelid`   | `zdf`                     | Unique channel id      |
+| `channelname` | `ZDF`                     | Readable channel name  |
+| `eventid`     | 12345678                  | Unique broadcast id    |
 
-#### selectchannel
+#### `selectchannel`
 
 This datapoint is used to recognize a channel switch command with a click on the channel logo or the switch icon in the detail view.
 
-#### show
+#### `show`
 
 this datapoint contains the status of whether only favorites or everything should be displayed in the widget tvprogram
 
-#### config
+#### `config`
 
 this datapoint is deprecated and will be removed in the next versions
 
-### Provided Sendto-Commands
+### Provided `Sendto`-Commands
 
 All Data can be requested from the adapter by sendto-commands. this can be used to develop individual functionalities
 
-#### getServerData
+#### `getServerData`
 
 Request base data from the adapter.
 
 ##### Valid parameters are
 
-* categories
-* genres
-* channels
+- `categories`
+- `genres`
+- `channels`
 
 **Returns:**
 
-Array
+`Array`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getServerData","categories",(data)=>console.log(data));
+sendTo("tvprogram.0", "getServerData", "categories", (data) =>
+  console.log(data),
+);
 ```
 
-#### getServerTVProgram
+#### `getServerTVProgram`
 
 Request program data from the adapter.
 
 ##### Valid parameters are
 
-a datestring in the following format: yyyy-mm-dd
+a datestring in the following format: `yyyy-mm-dd`
 
 **Returns:**
 
-Array
+`Array`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getServerTVProgram","2021-02-10",(data)=>console.log(data));
+sendTo("tvprogram.0", "getServerTVProgram", "2021-02-10", (data) =>
+  console.log(data),
+);
 ```
 
-#### getServerBroadcast
+#### `getServerBroadcast`
 
 Request the detail data of a broadcast.
 
@@ -306,34 +306,40 @@ the eventid of the broadcast
 
 **Returns:**
 
-Object
+`Object`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getServerBroadcast",{viewdate:"2021-02-10",eventid:"10659522"},(data)=>console.log(data));
+sendTo(
+  "tvprogram.0",
+  "getServerBroadcast",
+  { viewdate: "2021-02-10", eventid: "10659522" },
+  (data) => console.log(data),
+);
 ```
 
-#### getFavoritesDatax
+#### `getFavoritesDatax`
 
 Request all favorite broadcast from now till end of saved data.
 
 ##### Valid parameters are
 
-Array of favorites
+`Array` of favorites
 
 **Returns:**
 
-Array
+`Array`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getFavoritesDatax",['heute','Tagesschau'],(data)=>console.log(data));
-
+sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+  console.log(data),
+);
 ```
 
-#### getServerBroadcastNow
+#### `getServerBroadcastNow`
 
 Requests all broadcasts that are currently running
 
@@ -343,16 +349,17 @@ Array of channelIDs of your favorite channels
 
 **Returns:**
 
-Array
+`Array`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getServerBroadcastNow",[1,6,22,7],(data)=>console.log(data));
-
+sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
+  console.log(data),
+);
 ```
 
-#### getServerBroadcastDate
+#### `getServerBroadcastDate`
 
 Requests all broadcasts that are running at a datetime
 
@@ -363,46 +370,55 @@ datetime
 
 **Returns:**
 
-Array
+`Array`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getServerBroadcastDate",{channelfilter:[1,6,22,7],date:"2021-02-10T20:15:00.000Z"},(data)=>console.log(data));
-
+sendTo(
+  "tvprogram.0",
+  "getServerBroadcastDate",
+  { channelfilter: [1, 6, 22, 7], date: "2021-02-10T20:15:00.000Z" },
+  (data) => console.log(data),
+);
 ```
 
-#### getServerBroadcastFind
+#### `getServerBroadcastFind`
 
 Search for broadcasts in a range of time and optional with categories
 
 ##### Valid parameters are
 
-channelfilter: Array of channelIDs of your favorite channels
-categoryfilter: Optional Array of categoryIDs
-datetimefrom: datetime from
-datetimetill: datetime till
-textfilter: Optional title or part of a title to search
-maxresults: Optional the max amount of results. Default value is 10
+`channelfilter`: Array of channelIDs of your favorite channels
+`categoryfilter`: Optional Array of categoryIDs
+`datetimefrom`: datetime from
+`datetimetill`: datetime till
+`textfilter`: Optional title or part of a title to search
+`maxresults`: Optional the max amount of results. Default value is 10
 
 **Returns:**
 
-Array
+`Array`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getServerBroadcastFind",{
-    channelfilter:[1,6,22,7],
-    categoryfilter:[],
-    datefrom:"2021-02-10T10:00:00.000Z",
-    datetill:"2021-02-10T23:00:00.000Z",
-    textfilter:"",
-    maxresults:10
-},(data)=>console.log(data));
+sendTo(
+  "tvprogram.0",
+  "getServerBroadcastFind",
+  {
+    channelfilter: [1, 6, 22, 7],
+    categoryfilter: [],
+    datefrom: "2021-02-10T10:00:00.000Z",
+    datetill: "2021-02-10T23:00:00.000Z",
+    textfilter: "",
+    maxresults: 10,
+  },
+  (data) => console.log(data),
+);
 ```
 
-#### getServerInfo
+#### `getServerInfo`
 
 Request available dates of broadcast in the adapter memory
 
@@ -412,20 +428,19 @@ empty object
 
 **Returns:**
 
-Array
+`Array`
 
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0","getServerInfo","{}",(data)=>console.log(data));
-
+sendTo("tvprogram.0", "getServerInfo", "{}", (data) => console.log(data));
 ```
 
 ### Community provides widgets/scripts
 
-#### Harmony and MagentaTV
+#### `Harmony` and `MagentaTV`
 
-Skript provides by pix
+Skript provided by pix
 After click on the channel logo the script sets the mapped channel-id to the harmony-datapoint
 
 ```javascript
@@ -443,91 +458,103 @@ Adapter von 1/2021 von oweitmann https://github.com/oweitman/ioBroker.tvprogram
 const logging = true;
 const idKanalWahl = "tvprogram.0.tv1.selectchannel"; // Dateingabe aus VIS
 const fbdelay = 1000; // delay zwischen Tastendrücken der IR_Fernbedienung in ms
-const channelList = {  // Ausgabe vom Adapter : Kanalnummer im Receiver
-   "ard" : 1,
-   "zdf" : 2,
-   "rtl" : 3,
-   "sat1": 4,
-   "pro7": 5,
-   "vox" : 6,
-   "kaka":7,
-   "rtl2":8,
-   "superrtl":9,
-   "kika":10,
-   /* nickelodeon 11 */
-   "3sat":12,
-   "welt":13,
-   "ntv":14,
-   "phoenix":15,
-   "tele5":16,
-   "zdfneo":17,
-   /* #dabeiTV 18 */
-   /* disneyplus 19 */
-   /* lokalTV 20 */
-   "bayern3":21,
-   "hessen3":25,
-   "mdr":27,
-   "nord3":29,
-   /* "bremen":30, */
-   /* "rbb berlin":31, */
-   /* "sr":36, */
-   "sw3":37, // bw
-   /* "sw3":38, // rp */
-   "west3":39,
-   /* "eurosport1":50, */
-   "sport1":51,
-   /* sky sport news 52 */
-   "arte":55,
-   "one":56,
-   /* anixe 60 */
-   "dmax":64,
-   "pro7maxx":69,
-   "nitro":70,
-   /* sat1 gold 73 */
-   "sixx":75,
-   /* ard alpha 80 */
-   /* DW 85 */
-   /* euronews */
-   /* Kabel Eins Doku 89 */
-   /* N24 Doku 90 */
-   "tagesschau24":91,
-   /* Welt der Wunder 92 */
-   /* zdfinfo 93 */
-   "mtv":99,
+const channelList = {
+  // Ausgabe vom Adapter : Kanalnummer im Receiver
+  ard: 1,
+  zdf: 2,
+  rtl: 3,
+  sat1: 4,
+  pro7: 5,
+  vox: 6,
+  kaka: 7,
+  rtl2: 8,
+  superrtl: 9,
+  kika: 10,
+  /* nickelodeon 11 */
+  "3sat": 12,
+  welt: 13,
+  ntv: 14,
+  phoenix: 15,
+  tele5: 16,
+  zdfneo: 17,
+  /* #dabeiTV 18 */
+  /* disneyplus 19 */
+  /* lokalTV 20 */
+  bayern3: 21,
+  hessen3: 25,
+  mdr: 27,
+  nord3: 29,
+  /* "bremen":30, */
+  /* "rbb berlin":31, */
+  /* "sr":36, */
+  sw3: 37, // bw
+  /* "sw3":38, // rp */
+  west3: 39,
+  /* "eurosport1":50, */
+  sport1: 51,
+  /* sky sport news 52 */
+  arte: 55,
+  one: 56,
+  /* anixe 60 */
+  dmax: 64,
+  pro7maxx: 69,
+  nitro: 70,
+  /* sat1 gold 73 */
+  sixx: 75,
+  /* ard alpha 80 */
+  /* DW 85 */
+  /* euronews */
+  /* Kabel Eins Doku 89 */
+  /* N24 Doku 90 */
+  tagesschau24: 91,
+  /* Welt der Wunder 92 */
+  /* zdfinfo 93 */
+  mtv: 99,
 };
 
-function selectChannel (chNo) {
-   // Zerlegen mehrstelliger Zahlen
-   let ch_arr = new Array();
-   ch_arr = [];
-   if (logging) log("Kanalnummer gewählt: " + chNo);
-   while (chNo > 0) { // rückwärts
-       if (logging) log("erkannte Ziffer: " + chNo % 10 );
-       ch_arr.push(chNo % 10); // letzte Ziffer hinten dran hängen
-       chNo = chNo / 10;
-       chNo = parseInt(chNo);
-   }
-   // array umdrehen und wieder auslesen und Taste(n) der HARMONY+Fernbedienung drücken
-   ch_arr.reverse();
-   if (logging) log ("Senderplatz hat " + ch_arr.length + " Ziffern" + ch_arr);
-   for (let i = 0; i < ch_arr.length; i++) {
-       // passende OID füllen
-       setStateDelayed("harmony.0.Harmony_Hub.Telekom-DVR.Number" + ch_arr[i], 1, fbdelay, function() {
-           if (logging) log ((i+1) + ". Taste: " + ch_arr[i] + " gedrückt");
-       });
-   }
+function selectChannel(chNo) {
+  // Zerlegen mehrstelliger Zahlen
+  let ch_arr = new Array();
+  ch_arr = [];
+  if (logging) log("Kanalnummer gewählt: " + chNo);
+  while (chNo > 0) {
+    // rückwärts
+    if (logging) log("erkannte Ziffer: " + (chNo % 10));
+    ch_arr.push(chNo % 10); // letzte Ziffer hinten dran hängen
+    chNo = chNo / 10;
+    chNo = parseInt(chNo);
+  }
+  // array umdrehen und wieder auslesen und Taste(n) der HARMONY+Fernbedienung drücken
+  ch_arr.reverse();
+  if (logging) log("Senderplatz hat " + ch_arr.length + " Ziffern" + ch_arr);
+  for (let i = 0; i < ch_arr.length; i++) {
+    // passende OID füllen
+    setStateDelayed(
+      "harmony.0.Harmony_Hub.Telekom-DVR.Number" + ch_arr[i],
+      1,
+      fbdelay,
+      function () {
+        if (logging) log(i + 1 + ". Taste: " + ch_arr[i] + " gedrückt");
+      },
+    );
+  }
 }
 
 on(idKanalWahl, function (obj) {
-   log("Neues TV Programm: " + obj.state.val + " auf Kanal " + channelList[obj.state.val] + " gewählt");
-   selectChannel(channelList[obj.state.val]);
+  log(
+    "Neues TV Programm: " +
+      obj.state.val +
+      " auf Kanal " +
+      channelList[obj.state.val] +
+      " gewählt",
+  );
+  selectChannel(channelList[obj.state.val]);
 });
-
 ```
 
 ### functions not implemented in the Adapter, but provides as scripts for the javascript-adapter
 
-#### Recordlist
+#### `Recordlist`
 
 List of all current recording times recorded by the recording data point and updated every minute.
 You have to configure the data point name of your RecorderList and the name of the data point to be observed.
@@ -537,43 +564,42 @@ As soon as the script has added the recording to the list, the record data point
 // datapoint where the List should be saved
 var recorderListDP = "0_userdata.0.tvprogram.RecorderList";
 // datapoint who should be monitored of new data
-var recorderDP ="tvprogram.0.tv1.record";
+var recorderDP = "tvprogram.0.tv1.record";
 
 on(recorderDP, function (obj) {
-    var recorderList;
-    var index;
-        console.log(obj.state.val);
-    try {
-        var recObj = JSON.parse(obj.state.val);
-    } catch {
-        return;
-    }
-    var s = getState(recorderListDP).val;
-    s = (s=="") ? s="[]":s;
-    recorderList = JSON.parse(s) || [];
-    index = recorderList.findIndex(function(el) {
-        return JSON.stringify(el)==JSON.stringify(recObj);
-    });
-    if (index>-1) {
-        recorderList.splice(index,1);
-    }
-    recorderList.push(recObj);
-    setState(recorderListDP,JSON.stringify(recorderList));
-    setState(recorderDP,"");
-
+  var recorderList;
+  var index;
+  console.log(obj.state.val);
+  try {
+    var recObj = JSON.parse(obj.state.val);
+  } catch {
+    return;
+  }
+  var s = getState(recorderListDP).val;
+  s = s == "" ? (s = "[]") : s;
+  recorderList = JSON.parse(s) || [];
+  index = recorderList.findIndex(function (el) {
+    return JSON.stringify(el) == JSON.stringify(recObj);
+  });
+  if (index > -1) {
+    recorderList.splice(index, 1);
+  }
+  recorderList.push(recObj);
+  setState(recorderListDP, JSON.stringify(recorderList));
+  setState(recorderDP, "");
 });
-var timer = setInterval(function() {
-    var recorderList;
-    var s = getState(recorderListDP).val;
-    s = (s=="") ? s="[]":s;
-    recorderList = JSON.parse(s) || [];
-    recorderList=recorderList.filter( (el) => new Date(el.endTime)>new Date());
-    setState(recorderListDP,JSON.stringify(recorderList));
-},1000*60);
- ```
+var timer = setInterval(function () {
+  var recorderList;
+  var s = getState(recorderListDP).val;
+  s = s == "" ? (s = "[]") : s;
+  recorderList = JSON.parse(s) || [];
+  recorderList = recorderList.filter((el) => new Date(el.endTime) > new Date());
+  setState(recorderListDP, JSON.stringify(recorderList));
+}, 1000 * 60);
+```
 
 To visualize this data, the widget JSON template from the adapter myTime can help with the following template.
-Enter as json_oid the datapoint with the recordlist and as json_template the following code:
+Enter as json_oid the datapoint with the `recordlist` and as json_template the following code:
 
 ```javascript
 <% data.sort((a,b)=>new Date(a.startTime) - new Date(b.startTime)) %>
@@ -605,19 +631,21 @@ var favoritesDP = "tvprogram.0.tv1.favorites";
 // channelfilter datapoint of your tv
 var channelfilterDP = "tvprogram.0.tv1.channelfilter";
 // datapoint where the result should be saved
-var favoritesBool ="0_userdata.0.tvprogram.favoriteNow";
+var favoritesBool = "0_userdata.0.tvprogram.favoriteNow";
 
-var timer = setInterval(function() {
-    var favorites = JSON.parse(getState(favoritesDP).val);
-    var channelfilter = JSON.parse(getState(channelfilterDP).val);
-    sendTo("tvprogram.0","getServerBroadcastNow",channelfilter,(data)=>{
-            setState(favoritesBool,data.some((el) => favorites.includes(el.events[0].title)))
-    });
-},1000*60);
-
+var timer = setInterval(function () {
+  var favorites = JSON.parse(getState(favoritesDP).val);
+  var channelfilter = JSON.parse(getState(channelfilterDP).val);
+  sendTo("tvprogram.0", "getServerBroadcastNow", channelfilter, (data) => {
+    setState(
+      favoritesBool,
+      data.some((el) => favorites.includes(el.events[0].title)),
+    );
+  });
+}, 1000 * 60);
 ```
 
-#### Coloring of programs that are located in the recordlist data point in the widget tvprogram
+#### Coloring of programs that are located in the `recordlist` data point in the widget tvprogram
 
 the following template is for the widget JSON template from the adapter rssfeed.
 this template does not generate any visible output, but generates css instructions that color the current programs.
@@ -650,65 +678,75 @@ and insert the following template in json_template
 
 ### Functions
 
-* show tv data on timeline by tv channel
-* show details about a tv broadcast if available
-* show a marker of actual position with automatic scrolling
-* configure displayed tv channels and order, reordering ist possible via dragNdrop.
-* switch command via datapoint after click on logo
-* zoomin/zoomout
-* navigation next and prev days
-* play button to switchchannel datapoint
-* center zoom in next days
-* return to today
-* reset zoom
-* favorite broadcasts
-* copy text from Detailview
-* markerposition is configurable
-* dialog width and height is configurable
-* Datenpunkt record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird
-* Widget for Favorites
-* hide Non-Favorites
+- show tv data on timeline by tv channel
+- show details about a tv broadcast if available
+- show a marker of actual position with automatic scrolling
+- configure displayed tv channels and order, reordering ist possible via dragNdrop.
+- switch command via datapoint after click on logo
+- zoomin/zoomout
+- navigation next and prev days
+- play button to switchchannel datapoint
+- center zoom in next days
+- return to today
+- reset zoom
+- favorite broadcasts
+- copy text from Detailview
+- markerposition is configurable
+- dialog width and height is configurable
+- Datenpunkt record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird
+- Widget for Favorites
+- hide Non-Favorites
 
 ### Todo
 
 widget tvprogram:
 
-* maybe a highlight broadcasts widget
-* Data adapter for other sources (Internet, hardware such as Enigma, VU-Box). Considerations on this are currently suspended due to the low demand
-* ~~improve documentation for configuring the widgets~~
-* ~~broadcast pictures if available in the main view of the time widget~~
-* ~~search through the whole text to also find directors and actors~~
-* ~~tooltips for the buttons in the time widget~~
-* ~~Ideas for further widgets based on the existing TV program script~~
-* ~~Problem: endless scroll in firefox~~
-* ~~to be discussed: Datenpunkt, mit allen Aufnahmedaten, should be implementet at a videorecorder adapter or in a seperate script~~
-* ~~responsive design for detail view->no responsive design possible for jquery dialog, found another solution with fixed layouts for height>width~~
-* ~~Problem: small Pixel glitch if scroll pane is completle on the left side~~
+- maybe a highlight broadcasts widget
+- Data adapter for other sources (Internet, hardware such as Enigma, VU-Box). Considerations on this are currently suspended due to the low demand
+- ~~improve documentation for configuring the widgets~~
+- ~~broadcast pictures if available in the main view of the time widget~~
+- ~~search through the whole text to also find directors and actors~~
+- ~~tooltips for the buttons in the time widget~~
+- ~~Ideas for further widgets based on the existing TV program script~~
+- ~~Problem: endless scroll in firefox~~
+- ~~to be discussed: Datenpunkt, mit allen Aufnahmedaten, should be implementet at a videorecorder adapter or in a seperate script~~
+- ~~responsive design for detail view->no responsive design possible for jquery dialog, found another solution with fixed layouts for height>width~~
+- ~~Problem: small Pixel glitch if scroll pane is completle on the left side~~
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.1.3-alpha.1 (2024-06-04)
+### 2.0.2 (2024-11-17)
 
-* fix lint errors
+- fix jsonconfig
+- add node 22 to testing
 
-### 1.1.3-alpha.0 (2024-06-04)
+### 2.0.1 (2024-11-16)
 
-* align structures and files
+- fix lint errors
+
+### 2.0.0 (2024-11-16)
+
+- fix lint errors
+- align structures and files
+- switch to jsonconfig
+- config translations
+- make vis2 compatible (maybe some glitches included, please report)
 
 ### 1.1.1 (2021-08-10)
 
-* remove dead code / extend doku about the warnings in the iobroker log * change the method of setting for configuration data from widget to datapoint
+- remove dead code / extend doku about the warnings in the iobroker log \* change the method of setting for configuration data from widget to datapoint
 
 ### 1.1.0 (2021-05-06)
 
-* tooltips for the buttons in the time widget / search through the whole text to also find directors and actors / add showpictures option in time,control and search widget / improve documentation
+- tooltips for the buttons in the time widget / search through the whole text to also find directors and actors / add showpictures option in time,control and search widget / improve documentation
 
 ### 1.0.0
 
-* (oweitman) stable version
+- (oweitman) stable version
 
 ## License
 

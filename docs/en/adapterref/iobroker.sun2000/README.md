@@ -34,6 +34,15 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* isConnected if inverter in standby
+
+### 0.17.0 (2024-11-05)
+* adjust for Responsive Design #134
+* migrate to ESLint 9.x
+* node >= v18.18.0
+* modbus-proxy: enabled reading data via input register
+
 ### 0.16.0 (2024-11-01)
 * dependency and configuration updates
 * read additional register data of Huawei Emma

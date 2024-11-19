@@ -30,8 +30,9 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
 
 ### **WORK IN PROGRESS**
 
--   (ciddi89) Fixed [#362](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/362): Ecovacs Deebot use connectionUptime dp as timeselector
-
+- (ciddi89) Fixed [#362](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/362): Ecovacs Deebot use connectionUptime dp as timeselector
+- (mcm1957) Dependencies have been updated
+  
 ### 2.12.1 (2024-05-09)
 
 -   (ciddi89) Added: [#341](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/341) Support for Zigbee battery_state datapoint

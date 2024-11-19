@@ -28,7 +28,10 @@ For further information on the product range, please visit the official website:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.4 (2024-11-08)
+* (raschy) Deploy reactivated in the workflow
+
+### 0.1.3 (2024-11-08)
 * (raschy) updated to adapter-core 3.2.2
 * (raschy) responsive-design customized
 * (raschy) Translations revised

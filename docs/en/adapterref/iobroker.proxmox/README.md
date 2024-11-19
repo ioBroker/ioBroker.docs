@@ -27,6 +27,11 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (arteck) add new eslint file
+* (arteck) fix node message
+
 ### 2.3.0 (2024-04-26)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (jens-maus) fix ha and ceph object type

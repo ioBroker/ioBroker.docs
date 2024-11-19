@@ -129,6 +129,27 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.19.4 (2024-11-03)
+- copy & paste events
+
+### 1.19.3 (2024-11-03)
+- support null value
+
+### 1.19.2 (2024-11-03)
+- use name in classlist
+
+### 1.19.1 (2024-11-02)
+- copy path for screens/controls
+
+### 1.19.0 (2024-11-02)
+- fix error in script system
+
+### 1.18.5 (2024-11-02)
+- compile fix
+
+### 1.18.4 (2024-11-02)
+- fix wrong shadow root used
+
 ### 1.18.3 (2024-11-01)
 - small typo fix
 

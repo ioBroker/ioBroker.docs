@@ -71,8 +71,10 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (simatec) Admin-UI has been adapted for small displays.
+### 4.1.0 (2024-11-15)
+
+* (@klein0r) Added estimated energy: now until end of day
+* (@simatec) Admin-UI has been adapted for small displays
 
 ### 4.0.1 (2024-10-22)
 
@@ -91,10 +93,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 
 ### 2.9.1 (2023-12-18)
 * (klein0r) Avoid logging of api key
-
-### 2.9.0 (2023-10-28)
-* (klein0r) Updated conversion for Solcast
-* (klein0r) Store JSON state values in prettified format
 
 ## License
 MIT License

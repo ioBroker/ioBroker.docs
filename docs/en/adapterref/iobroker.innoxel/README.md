@@ -19,42 +19,44 @@ Adapter for Innoxel Master 3 (https://innoxel.ch)
 
 ## Requirements
 
--   NodeJS >= 18.x
--   ioBroker >= 4.x, with admin >= 5.x
--   Innoxel Master 3 Smart Home system
+- NodeJS >= 20.x
+- ioBroker >= 6.0.11, with admin >= 6.x
+- Innoxel Master 3 Smart Home system
 
 ## Installation
 
 Until the adapter is part of the stable repository, you can install the latest version by enabling expert mode in ioBroker and install the adapter from npm. Don't install it directly from Github, this will lead to an error on adapter start ("cannot find start file").
 
-After installation, create a new instance and configure the settings:
+The adapter can be installed straigt from the stable/beta repositories. After installation, create a new instance and configure the settings:
 
--   Connection Settings for accessing innoxel master
-    -   ip address
-    -   port
-    -   username
-    -   password
--   Polling intervals for different areas
-    -   state changes (i.e. switches, dimmer)
-    -   room climate / thermostats
-    -   weather
-    -   innoxel master device details (requires admin privileges for the user connecting to innoxel master)
+- Connection Settings for accessing innoxel master
+  - ip address
+  - port
+  - username
+  - password
+- Polling intervals for different areas
+  - state changes (i.e. switches, dimmer)
+  - room climate / thermostats
+  - weather
+  - innoxel master device details (requires admin privileges for the user connecting to innoxel master)
+
+Please note: Don't install the adapter directly from Github, this will lead to an error on adapter start ("cannot find start file").
 
 ## Supported Modules and Firmware
 
 A pre-release version of this adapter has been working for more than 2 years with firmware 1.4.1.0 and then 1.5.1.0.
 
-This initially released version has been tested with firmware 1.6.0.0.
+The initially released version has been tested with firmware 1.6.0.0.
 
 The following modules have been tested/are supported:
 
--   Innoxel Master 3
--   Switch 8 G1
--   Motor 4 x 230 VAC G1
--   Dim 4 x 600 VA
--   Taster RGB
--   Thermo
--   Wetterstation P03/3-RS485-CET
+- Innoxel Master 3
+- Switch 8 G1
+- Motor 4 x 230 VAC G1
+- Dim 4 x 600 VA
+- Taster RGB
+- Thermo
+- Wetterstation P03/3-RS485-CET
 
 If it works for you with different modules, or you have other modules that don't work, please feel free to open an issue.
 
@@ -72,52 +74,62 @@ sendTo("innoxel.0", "triggerInModule", "<moduleId>:<channelId>", callback);
 // i.e. to trigger button 1 on "Taster" with id/address 20
 sendTo("innoxel.0", "triggerInModule", "20:1");
 sendTo("innoxel.0", "triggerInModule", "20:1", () => {
-    // do something after the button press has been executed
+  // do something after the button press has been executed
 });
 ```
 
--   <code>moduleId</code> is the id/address of the "Taster"
--   <code>channelId</code> is the index of the button on the "Taster"
--   <code>callback</code> (optional) callback function to call when action has been performed
+- <code>moduleId</code> is the id/address of the "Taster"
+- <code>channelId</code> is the index of the button on the "Taster"
+- <code>callback</code> (optional) callback function to call when action has been performed
 
 ### setDimValue
 
 Simulate pressing of a button on a "Taster".
 
 ```ts
-sendTo("innoxel.0", "setDimValue", "<moduleId>:<channelId>:<dimValue>:<dimSpeed>", callback);
+sendTo(
+  "innoxel.0",
+  "setDimValue",
+  "<moduleId>:<channelId>:<dimValue>:<dimSpeed>",
+  callback
+);
 
 // i.e. to set the value of channel 7 on dim module 1 to 80%
 sendTo("innoxel.0", "setDimValue", "1:7:80");
 sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
-    // do something after value has been set
+  // do something after value has been set
 });
 ```
 
--   <code>moduleId</code> is the id/address of the dimmer module
--   <code>channelId</code> is channel of the dimmer on the module
--   <code>dimValue</code> is the value in percent to set (0-100)
--   <code>dimSpeed</code> (optional) is the dimming speed to use (0-15)
--   <code>callback</code> (optional) callback function to call when action has been performed
+- <code>moduleId</code> is the id/address of the dimmer module
+- <code>channelId</code> is channel of the dimmer on the module
+- <code>dimValue</code> is the value in percent to set (0-100)
+- <code>dimSpeed</code> (optional) is the dimming speed to use (0-15)
+- <code>callback</code> (optional) callback function to call when action has been performed
 
 ### setTemperature
 
 Set heating or cooling temperature.
 
 ```ts
-sendTo("innoxel.0", "setTemperature", "<moduleId>:<temperatureType>:<temperature>", callback);
+sendTo(
+  "innoxel.0",
+  "setTemperature",
+  "<moduleId>:<temperatureType>:<temperature>",
+  callback
+);
 
 // i.e. to set setTemperatureHeating to 20° on room climate module 0
 sendTo("innoxel.0", "setTemperature", "1:setTemperature:20");
 sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
-    // do something after the button press has been executed
+  // do something after the button press has been executed
 });
 ```
 
--   <code>moduleId</code> is the id/address room climate module
--   <code>temperatureType</code> is the temperature type to set (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
--   <code>temperature</code> temperature to set, in 0.5° steps. There's also a min/max value depending on type
--   <code>callback</code> (optional) callback function to call when action has been performed
+- <code>moduleId</code> is the id/address room climate module
+- <code>temperatureType</code> is the temperature type to set (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
+- <code>temperature</code> temperature to set, in 0.5° steps. There's also a min/max value depending on type
+- <code>callback</code> (optional) callback function to call when action has been performed
 
 ## Changelog
 
@@ -125,64 +137,71 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2024-11-17)
+
+- (matthsc) drop support for Node 18
+- (matthsc) switch admin to json config
+- (matthsc) prepare for future controller versions (fix deprecation warnings)
+- (matthsc & dependabot) dependency updates
+
 ### 0.4.2 (2024-08-11)
 
--   (matthsc & dependabot) dependency updates
+- (matthsc & dependabot) dependency updates
 
 ### 0.4.1 (2024-03-23)
 
--   (matthsc) log soap messages in log level silly
--   (matthsc) fix another potential error when updating modules
--   (matthsc & dependabot) dependency updates
+- (matthsc) log soap messages in log level silly
+- (matthsc) fix another potential error when updating modules
+- (matthsc & dependabot) dependency updates
 
 ### 0.4.0 (2024-03-20)
 
--   (matthsc) fix potential error when processing identities
--   (matthsc) drop support for Node 16
+- (matthsc) fix potential error when processing identities
+- (matthsc) drop support for Node 16
 
 ### 0.3.1 (2023-05-23)
 
--   (matthsc) change actual value from temperature sensor if it doesn't provide values
--   (matthsc & dependabot) dependency updates
+- (matthsc) change actual value from temperature sensor if it doesn't provide values
+- (matthsc & dependabot) dependency updates
 
 ### 0.3.0 (2023-04-22)
 
--   (matthsc) allow to set heating/cooling temperatures
--   (matthsc & dependabot) dependency updates
+- (matthsc) allow to set heating/cooling temperatures
+- (matthsc & dependabot) dependency updates
 
 ### 0.2.0 (2022-09-28)
 
--   (matthsc) drop support for Node 12 and js-controller 3
--   (matthsc) implement migrations from create-adapter
--   (matthsc & dependabot) dependency updates
+- (matthsc) drop support for Node 12 and js-controller 3
+- (matthsc) implement migrations from create-adapter
+- (matthsc & dependabot) dependency updates
 
 ### 0.1.5 (2022-02-12)
 
--   (matthsc) don't always terminate adapter on errors while updating identities
--   (matthsc) improve error messages
+- (matthsc) don't always terminate adapter on errors while updating identities
+- (matthsc) improve error messages
 
 ### 0.1.4 (2022-01-25)
 
--   (matthsc) fix double decryption issues with password in adapter admin
--   (matthsc) change input field types in adapter admin
+- (matthsc) fix double decryption issues with password in adapter admin
+- (matthsc) change input field types in adapter admin
 
 ### 0.1.3 (2022-01-16)
 
--   (matthsc) improve error messages
+- (matthsc) improve error messages
 
 ### 0.1.2 (2022-01-07)
 
--   (matthsc) catch authentication errors
--   (matthsc) fix authentication
--   (matthsc) remove build folders from git
+- (matthsc) catch authentication errors
+- (matthsc) fix authentication
+- (matthsc) remove build folders from git
 
 ### 0.1.1 (2022-01-01)
 
--   (matthsc) implement adapter review feedback
+- (matthsc) implement adapter review feedback
 
 ### 0.1.0 (2021-12-30)
 
--   (matthsc) initial release
+- (matthsc) initial release
 
 ## License
 

@@ -32,6 +32,10 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.3.4 (2024-11-10)
+
+- update Tapo local lib
+
 ### 0.3.3 (2024-06-17)
 
 - ignore ssl legacy error

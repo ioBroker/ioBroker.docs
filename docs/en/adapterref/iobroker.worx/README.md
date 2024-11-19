@@ -782,11 +782,11 @@ Default without zone:
 ![img/array_nok.png](img/array_nok.png)
 
 ## Changelog
-
-**WORK IN PROGRESS**
+### 3.1.1 (2024-11-04)
 
 -   (Lucky-ESA) Added JS-Controller Notification
 -   (Lucky-ESA) Dependencies updated
+-   (Lucky-ESA) New design for settings page added
 
 ### 3.1.0 (2024-09-10)
 

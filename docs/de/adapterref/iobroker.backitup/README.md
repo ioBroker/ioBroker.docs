@@ -712,8 +712,9 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.27 (2024-11-12)
 * (simatec) dependencies updated
+* (simatec) Design Fix
 
 ### 3.0.26 (2024-10-16)
 * (simatec) Fix FTP Connections

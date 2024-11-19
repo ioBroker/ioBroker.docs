@@ -30,7 +30,7 @@
 
 **!!! THIS ADAPTER IS STILL REPRESENTING AN DEVELOPMENT STATE !!!**
 
-Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV surplus energy. 
+Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV surplus energy.
 
 ## Settings
 
@@ -48,6 +48,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 0.12.3 (2024-11-18)
+
+-   (HombachC) fix bug in state subscription
+-   (HombachC) harmonize project tools
+-   (HombachC) bump dependencies
 
 ### 0.12.2 (2024-10-27)
 
@@ -71,7 +77,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.11.0 (2024-08-29)
 
--   (HombachC) implement variable wallbox amount 
+-   (HombachC) implement variable wallbox amount
 -   (HombachC) fix errors in wallbox control
 -   (HombachC) complete rework of configuration screen
 -   (HombachC) move utils to extra class
@@ -137,11 +143,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.7.2 (2023-06-19)
 
--   (HombachC) Removed Travis 
+-   (HombachC) Removed Travis
 
 ### 0.7.1 (2023-06-13)
 
--   (HombachC) Fixed typo in docu, added translations 
+-   (HombachC) Fixed typo in docu, added translations
 
 ### 0.7.0 (2023-06-11)
 
@@ -152,9 +158,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## Tested with
-- 3x go-E Charger & Kostal PikoBA
+
+-   3x go-E Charger & Kostal PikoBA
 
 ## License
+
 MIT License
 
 Copyright (c) 2021-2024 Christian Hombach

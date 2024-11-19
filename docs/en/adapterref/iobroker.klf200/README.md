@@ -260,6 +260,10 @@ The values of the state provide multiple manipulation modes:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
+### __WORK IN PROGRESS__
+
+-   (Michael Schroeder) [#259](https://github.com/MiSchroe/ioBroker.klf200/issues/259) Fixed issues found by the adapter checker.
+
 ### 1.3.3 (2024-11-01)
 
 -   (Michael Schroeder) [#250](https://github.com/MiSchroe/ioBroker.klf200/issues/250) Fixed an issue that the adapter didn't start when the product nodes weren't numbered from 0 onwards.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.remeha-home/README.md
 title: ioBroker.remeha-首页
-hash: +tjDsVcl86WlfF4DROO9e5GUtL207JhERDKPShWou9g=
+hash: h7B+U7cHISwvuhDJZo34TBYv/XKw8GdpgWJU4L7b93M=
 ---
 ![标识](../../../en/adapterref/iobroker.remeha-home/admin/remeha-home.png)
 
@@ -51,6 +51,8 @@ ioBroker.remeha-home 适配器可通过 [Remeha Home平台](https://www.remeha.d
 
 ### **正在进行中**
 *（simatec）依赖项已更新
+*（simatec）修复 jsonConfig
+*（simatec）已添加问题操作
 
 ## Changelog
 ### 0.2.4 (2024-09-28)

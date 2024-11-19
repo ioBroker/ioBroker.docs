@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jarvis/README.md
 title: ioBroker.jarvis
-hash: KSvW8ve4ZT7Jk52w78rJmlfhmgzdUxEPaSPja/wZZsA=
+hash: 7dGnIcESzpt2hq2CRF8X0hdehc4Sx3hFqFZfOmFh0Ic=
 ---
 ![Логотип](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
 
@@ -17,7 +17,7 @@ hash: KSvW8ve4ZT7Jk52w78rJmlfhmgzdUxEPaSPja/wZZsA=
 ![в стадии тестирования или ожидания обратной связи](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%2C%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=in%20testing%20or%20waiting%20for%20feedback&color=green)
 
 # IoBroker.jarvis jarvis - просто еще один замечательный vis
-[![npm публикация](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/publish-npm.yml/badge.svg)](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/publish-npm.yml)
+[![Тестирование и выпуск](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml)
 
 ## Anleitung / Установка / Hilfe
 Сиехе [Коллекция ссылок в Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki).

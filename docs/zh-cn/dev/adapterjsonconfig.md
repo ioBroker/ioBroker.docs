@@ -2,40 +2,193 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
-title: ioBroker JSON 配置
-hash: selFI/h/82dTNnFQIjRwfWcPY1bQ/0yfhIDXpb/O0sY=
+title: ioBroker JSON 配置：初学者指南
+hash: sNHHRwZotqRPWrZB9jQoZsQEkIQl+beO9deC3JQcWiI=
 ---
-# IoBroker JSON 配置
-Admin（从版本 6 开始）支持适配器的 JSON 配置。
-可以在 JSON 文件中定义配置，然后在 Admin 中使用它。
+# IoBroker JSON 配置：初学者指南
+本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。此方法提供了一种更加用户友好且灵活的方式，可在 ioBroker Admin 界面中管理适配器设置。
 
-具有多个选项卡的`jsonConfig.json`文件示例可在此处找到：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 只有一个面板的示例可在此处找到：https://github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
+你需要准备什么
+- ioBroker Admin 版本 6（或更新版本）
+- 对 JSON 语法有基本的了解
 
-您可以用 JSON 或 JSON5 格式定义设置。JSON5 更易于阅读，并支持注释。
+JSON 配置的好处
+- 改善了配置适配器的用户体验
+- 更容易集成复杂的配置选项
+- 适配器代码和配置之间明确分离
 
-此外，对于 JSON 文件，您必须在 `common` 部分的 `io-package.json` 中定义：
+＃＃ 入门
+1. **定义配置文件：**
+
+- 在适配器的管理目录中创建一个名为“jsonConfig.json”或“jsonConfig.json5”的文件。
+- JSON5 是 JSON 的超集，允许注释，使配置文件更具可读性。
+
+2. **启用 JSON 配置：**
+
+- 在适配器的 `io-package.json` 文件中，在 `common` 部分下添加以下行：
 
 ```json
-{
-    "common": {
-        "adminUI": {
-            "config": "json"
-        }
+"common": {
+    "adminUI": {
+        "config": "json"
     }
 }
 ```
 
-说明适配器支持 JSON 配置。
+3. **配置文件的结构：**
 
-如果您测试此适配器，则可以看到几乎所有组件都在运行：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
-您可以通过管理员中的 GitHub 图标在 npm 选项卡上输入`iobroker.jsonconfig-demo` 来安装它。
+配置文件定义了选项卡、面板和控制元素的层次结构。\ 每个元素都有特定的属性，决定了它在管理界面中的行为和外观。
 
-JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapter-react-v5/blob/main/schemas/jsonConfig.json
+jsonConfig 自动确保将收集的数据记录为适配器的配置数据并在内部存储，以便可以在适配器中检索和进一步处理。
 
-所有标签、文本、帮助文本都可以是多种语言或仅为字符串。
+以下示例将创建以下配置对象：
 
-如果属性名称以“\_”开头，则它将不会保存在对象中。
+```json5
+{
+  options1: {
+    myPort: 1234,
+    options: {
+      myType: 1,
+    },
+    myBool: false,
+  },
+}
+```
 
+如果属性名称以“\_”开头，则不会保存在对象中。
+
+## 具有多个选项卡的 jsonConfig 示例
+```json5
+{
+    "type": "tabs",
+    "items": {
+        "options1": {
+            "type": "panel",
+            "label": "Tab1",
+            "icon": "base64 svg", // optional
+            "items": {
+                myPort: {
+                    "type": "number",
+                    "min": 1,
+                    "max": 65565,
+                    "label": "Number",
+                    "sm": 6, // 1 - 12
+                    "validator": "!!data.name", // else error
+                    "hidden": "data.myType === 1", // hidden if myType is 1
+                    "disabled": "data.myType === 2" // disabled if myType is 2
+                },
+                "options.myType": { // name could support more than one level
+                    "newLine": true, // must start from new row
+                    "type": "select",
+                    "label": "Type",
+                    "sm": 6, // 1 - 12
+                    "options": [
+                        {"label": "option 1", "value": 1},
+                        {"label": "option 2", "value": 2}
+                    ]
+                },
+                "myBool": {
+                    "type": "checkbox",
+                    "label": "My checkbox",
+                },
+                "_notSaved":"abc"
+            }
+        },
+        "tab2": {
+            "label": "Tab2",
+            "type": "panel",
+            "disabled": "data.myType === 1",
+            "hidden": "data.myType === 2",
+        }
+    },
+}
+```
+
+在 GitHub 上的相应管理目录中的许多其他适配器中可以找到更多示例。
+
+## 支持开发工具
+### VS 代码
+为了在 VS 代码中启用 jsonConfig 的验证，必须将以下部分添加到文件“.vscode/settings.json”。
+
+```json5
+    "json.schemas": [
+        {
+            "fileMatch": ["admin/jsonConfig.json", "admin/jsonCustom.json", "admin/jsonTab.json"],
+            "url": "https://raw.githubusercontent.com/ioBroker/adapter-react-v5/main/schemas/jsonConfig.json"
+        }
+    ]
+```
+
+## 常见控制元素
+jsonConfig 由多个按层次结构排列的元素组成。\ 每个元素都可以是下列类型之一。\ 某些元素可以包含其他子元素。
+
+如果您测试此适配器，则可以看到几乎所有组件都在运行：[jsonconfig-演示](https://github.com/mcm4iob/ioBroker.jsonconfig-demo)。\您可以在 npm 选项卡上输入`iobroker.jsonconfig-demo`，通过管理员中的 GitHub 图标进行安装。
+
+- [**`accordion`:**](#accordion) 用于可折叠内容的手风琴元素（Admin 6.6.0 或更新版本）
+- [**`alive`:**](#alive) 显示实例是否正在运行（只读）
+- [**`autocomplete`:**](#autocomplete) 带有自动完成建议的输入字段
+- [**`autocompleteSendTo`:**](#autocompletesendto) 使用实例值自动完成控件来发送数据
+- [**`certificate`:**](#certificate) 管理安全连接的证书
+- [**`certificateCollection`:**](#certificatecollection) 选择 Let's Encrypt 证书的集合
+- [**`certificates`:**](#certificates) 用于管理不同证书类型的通用类型（从 Admin 6.4.0 开始）
+- [**`checkbox`:**](#checkbox) 布尔值的复选框
+- [**`checkLicense`:**](#checklicense) 非常特殊的组件，用于在线检查许可证
+- [**`chips`:**](#chips) 用户可以输入单词并添加到数组中
+- [**`color`:**](#color) 颜色选择器
+- [**`cron`:**](#cron) 配置 cron 表达式来安排任务
+- [**`custom`:**](#custom) 集成自定义组件以实现特定功能（仅限 Admin 6）
+- [**`datePicker`:**](#datepicker) 允许用户选择日期
+- [**`deviceManager`:**](#devicemanager) 显示设备管理器
+- [**`divider`:**](#divider) 创建水平线分隔符
+- [**`file`:**](#file) 带有文件选择和可选上传/下载功能的输入字段（仅限 Admin 6）
+- [**`fileSelector`:**](#fileselector) 允许用户从系统中选择文件（仅限 Admin6）
+- [**`func`:**](#func) 从 enum.func 列表中选择一个函数（仅限 Admin 6）
+- [**`header`:**](#header) 创建具有不同大小的标题 (h1-h5)
+- [**`image`:**](#image) 上传或显示图片
+- [**`imageSendTo`:**](#imagesendto) 显示从后端接收的图像并根据命令发送数据
+- [**`instance`:**](#instance) 选择一个适配器实例
+- [**`interface`:**](#interface) 选择实例运行的主机的接口
+- [**`ip`:**](#ip) 具有高级选项的 IP 地址输入字段
+- [**`jsonEditor`:**](#jsoneditor) 用于复杂配置数据的 JSON 编辑器
+- [**`language`:**](#language) 选择用户界面语言
+- [**`license`:**](#license) 如果尚未接受，则显示许可证信息。
+- [**`number`:**](#number) 具有最小/最大值和步长的数字输入字段
+- [**`objectId`:**](#objectid) 选择带有名称、颜色和图标的对象 ID
+- [**`panel`:**](#panel) 带项目的标签
+- [**`password`:**](#password) 密码输入字段
+- [**`pattern`:**](#pattern) 显示模式的只读字段（例如 URL）
+- [**`port`:**](#port) 端口的特殊输入
+- [**`qrCode`:**](#qrcode) 将数据显示为二维码（Admin 7.0.18 或更新版本）
+- [**`room`:**](#room) 从 `enum.room` 列表中选择一个房间 (仅限 Admin 6)
+- [**`select`:**](#select) 带有预定义选项的下拉菜单
+- [**`selectSendTo`:**](#selectsendto) 带有用于发送数据的实例值的下拉菜单
+- [**`sendTo`:**](#sendto) 向实例发送请求的按钮
+- [**`setState`:**](#setstate) 设置实例状态的按钮
+- [**`slider`:**](#slider) 用于选择范围内的值的滑块（仅限 Admin 6）
+- [**`state`:**](#state) (admin >= 7.1.0) 显示来自状态的控制或信息
+- [**`staticImage`:**](#staticimage) 显示静态图像
+- [**`staticLink`:**](#staticlink) 创建静态链接
+- [**`staticText`:**](#statictext) 显示静态文本（例如描述）
+- [**`坐标`:**](#坐标) 确定当前位置，如果无法以“纬度，经度”形式使用 `system.config` 坐标
+- [**`table`:**](#table) 可以添加、删除或重新排序行的表
+- [**`tabs`:**](#tabs) 带有项目的标签
+- [**`text`:**](#text) 单行或多行文本输入字段
+- [**`textSendTo`:**](#textsendto) 使用给定的实例值显示只读控件。
+- [**`timePicker`:**](#timepicker) 允许用户选择时间
+- [**`user`:**](#user) 从 `system.user` 列表中选择一个用户
+- [**`uuid`:**](#uuid) 显示 iobroker UUID
+
+通过利用 JSON 配置，您可以为 ioBroker 适配器创建用户友好且适应性强的配置体验。
+
+## 示例项目
+| 类型 | 链接 |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 多个标签：| [`ioBroker.admin`](https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5) |
+| 自定义组件：| [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) 或在 [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) |
+| 自定义组件： | [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) 或 [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) |
+| 验证：| |
+
+## 大型配置的分离
 包括
 需要管理员 6.17.1 或更新版本。
 
@@ -44,101 +197,268 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
 
 ```json5
 {
-    tabs: {
-        tab1: {
-            type: 'panel', // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
-            '#include': 'tab1.json',
-        },
+  tabs: {
+    tab1: {
+      type: "panel", // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
+      "#include": "tab1.json",
     },
+  },
 }
 ```
 
-## 可能的控制类型
-可能的类型：
+## I18n——国际化
+提供翻译的选项有多种。只有第一个与我们的社区翻译工具 Weblate 兼容，因此它应该比其他的更受欢迎！
 
-- `tabs` - 带有项目的标签
-- `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
-- `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有 `icon` 属性的面板。默认值：`start`
-- `tabsStyle` - Mui-Tabs 组件的 React 格式的 CSS 样式（`marginLeft` 而不是 `margin-left`）
+要启用翻译功能，您需要在 JSON 配置对象的顶层提供并启用 i18n 属性。
 
-- `panel` - 带有项目的标签
-- `icon` - 选项卡可以有图标（base64 如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
-- `label` - 标签的标签
-- `items` - 对象 `{"attr1": {}, "attr2": {}}...`
-- `collapsable` - 仅可能不属于 tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
-- `color` - 可折叠标题的颜色 `primary` 或 `secondary` 或者无
-- `innerStyle` - Panel 组件的 React 格式（`marginLeft` 而非 `margin-left`）内层 div 的 CSS 样式。不适用于可折叠面板。
+```json5
+{
+  i18n: true,
+}
+```
 
-- `text` - 文本组件
-- `maxLength` - 字段中文本的最大长度
-- `readOnly` - 只读字段
-- `trim` - 默认为 true。如果不需要修剪，请将此属性设置为 `false`。
-- `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更大。
-- `maxRows` - 文本区域的最大行数。仅当 `minRows` > 1 时使用。
-- `noClearButton` - 如果为真，则不会显示清除按钮（admin >= 6.17.13）
-- `validateJson` - 如果为 true，文本将被验证为 JSON
-- `allowEmpty` - 如果为 true，则仅当值不为空时才会验证 JSON
-- `time` - 值是毫秒或字符串的时间。仅与 readOnly 标志一起使用
+### 分离文件翻译：兼容 weblate
+默认情况下，文件必须位于以下目录中：
 
-- `数字`
-- `min` - 最小值
-- `max` - 最大值
-- `步骤` - 步骤
+```text
+admin/i18n/de/translations.json
+admin/i18n/en/translations.json
+```
 
-- `color` - 颜色选择器
-- `noClearButton` - 如果为真，则不会显示清除按钮（admin >= 6.17.13）
+或者
 
-- `checkbox` - 显示复选框
+```text
+admin/i18n/de.json
+admin/i18n/en.json
+```
 
-- `slider` - 显示滑块 (仅限 Admin6)
-- `min` - （默认 0）
-- `max` - （默认 100）
-- `step` - （默认 `(max - min) / 100`）
-- `unit` - 滑块的单位
+此外，用户可以提供`i18n`文件、`i18n`：`customI18n`的路径，并在管理员中提供文件：
 
-- `qrCode` - 在二维码中显示数据（管理员 >= 7.0.18）
-- `data` - 要在二维码中编码的数据
-- `size` - QR 码的大小
-- `fgColor` - 前景色
-- `bgColor` - 背景颜色
-- `level` - QR 码级别（`L` `M` `Q` `H`）
+```json5
+  i18n: "customI18n",
+```
 
-- `ip` - 绑定地址
-- `listenOnAllPorts` - 将 0.0.0.0 添加到选项
-- `onlyIp4` - 仅显示 IP4 地址
-- `onlyIp6` - 仅显示 IP6 地址
-- `noInternal` - 不显示内部 IP 地址
+```text
+admin/customI18n/de/translations.json
+admin/customI18n/en/translations.json
+```
 
-- `user` - 从 system.user 中选择用户。（带颜色和图标）
-- `简短` - 没有 system.user。
+或者
 
-- `room` - 从 `enum.room` 中选择房间（带颜色和图标）-（仅限 Admin6）
-- `short` - 没有 `enum.rooms.`
-- `allowDeactivate` - 允许让房间空置
+```text
+admin/customI18n/de.json
+admin/customI18n/en.json
+```
 
-- `func` - 从 `enum.func` 中选择函数（带颜色和图标）-（仅限 Admin6）
-- `short` - 没有 `enum.func.`
-- `allowDeactivate` - 允许将功能留空
+文件的结构对应以下结构
 
--`选择`
-- `options` - `[{label: {en: "option 1"}, value: 1}, ...]` 或
+**en.json:**
 
-`[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
+```json5
+{
+  i18nText1: "Open",
+  i18nText2: "Close",
+  "This is a Text": "This is a Text",
+}
+```
 
--`自动完成`
-- `options` - `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1"}, "value2", ...]` （键必须是唯一的）
-- `freeSolo` - 将`freeSolo`设置为`true`，这样文本框就可以包含任意值。
+**de.json：**
 
-- `image` - 将图像保存为 `adapter.X` 对象的文件或属性中的 base64
-- `filename` - 文件的名称是结构名称。在下面的例子中，`login-bg.png` 是 `writeFile("myAdapter.INSTANCE", "login-bg.png")` 的文件名
-- `accept` - html 接受属性，如 `{'image/**': [], 'application/pdf': ['.pdf'] }`，默认 `{'image/*': [] }`
-- `maxSize` - 上传文件的最大大小
-- `base64` - 如果为 true，图像将作为 data-url 保存在属性中，否则作为二进制文件保存在文件存储中
-- `crop` - 如果为 true，则允许用户裁剪图像
--`!最大宽度`
-- `!最大高度`
-- `!square` - 宽度必须等于高度，或者裁剪必须只允许正方形作为形状
+```json5
+{
+  i18nText1: "Öffnen",
+  i18nText2: "Schließen",
+  "This is a Text": "Dies ist ein Text",
+}
+```
 
+搜索翻译时，特定字段中的信息用于查找文件中包含文本的属性。如果未找到该属性，则保留该字段中的信息。建议以英文输入文本。
+
+### 直接在字段中提供翻译
+可以在所有可包含文本的字段中指定翻译。字段示例包括标签、标题、工具提示、文本等。
+
+```json5
+   "type": "text",
+   "label: {
+        "en": "house",
+        "de": "Haus"
+    }
+}
+```
+
+### 直接在 i18n 中提供翻译
+翻译也可以直接作为`jsonConfig` 对象顶层的`i18n` 属性中的对象提供。
+
+搜索翻译时，特定字段中的信息用于查找 i18n 对象中文本的属性。
+如果未找到该属性，则保留字段中的信息。
+建议以英文输入文本。
+
+元素类型
+每个元素可以具有[公共属性](#common-attributes-of-controls)以及属于相应类型的特殊属性，如下所示
+
+###`tabs`
+带有项目的标签
+
+| 属性 | 描述 |
+|-----------------|------------------------------------------------------------------------------------------------|
+| `items` | 带面板的物体`{"tab1": {}, "tab2": {}...}` |
+| `tabsStyle` | Mui-Tabs 组件的 React 格式的 CSS 样式（`marginLeft` 而不是 `margin-left`）|
+| `tabsStyle` | Mui-Tabs 组件的 React 格式的 CSS 样式（`marginLeft` 而不是 `margin-left`）|
+
+###`panel`
+带项目的标签
+
+| 属性 | 描述 |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `icon` | 标签可以有图标（base64 如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）|
+| `items` | 对象`{"attr1": {}, "attr2": {}}...` |
+| `collapsable` | 仅可能不属于标签[json配置.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) |
+| `color` | 可折叠标题的颜色`primary` 或`secondary` 或无 |
+| `innerStyle` | Panel 组件的 React 格式（`marginLeft` 而非 `margin-left`）内部 div 的 CSS 样式。不用于可折叠面板。|
+| `innerStyle` | Panel 组件的 React 格式（`marginLeft` 而非 `margin-left`）内部 div 的 CSS 样式。不用于可折叠面板。|
+
+###`text`
+文本组件
+
+| 属性 | 描述 |
+|-------------------|--------------------------------------------------------------------------------------------------------|
+| `maxLength` | 字段中文本的最大长度 |
+| `copyToClipboard` | 显示“复制到剪贴板”按钮，但前提是禁用或只读为真 |
+| `trim` | 默认为 true。如果不需要修剪，请将此属性设置为 `false`。|
+| `minRows` | 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更高。|
+| `maxRows` | 文本区域的最大行数。仅当 `minRows` > 1 时使用。|
+| `noClearButton` | 如果为真，则不会显示清除按钮（admin >= 6.17.13）|
+| `validateJson` | 如果为真，文本将被验证为 JSON |
+| `allowEmpty` | 如果为真，则仅当值不为空时才会验证 JSON |
+| `time` | 该值是毫秒时间或字符串。仅与 readOnly 标志一起使用 |
+| `time` | 值是毫秒时间或字符串。仅与 readOnly 标志一起使用 |
+
+###`number`
+| 属性 | 描述 |
+|----------|---------------|
+| `min` | 最小值 |
+| `step` | 步骤 |
+| `步骤` | 步骤 |
+
+###`color`
+颜色选择器
+
+| 属性 | 描述 |
+|-----------------|----------------------------------------------------------------|
+| `noClearButton` | 如果为真，则不会显示清除按钮（admin >= 6.17.13）|
+
+###`checkbox`
+显示复选框
+
+###`slider`
+显示滑块（仅限 Admin6）
+
+| 属性 | 描述 |
+| -------- | ----------------------------- |
+| `min` | （默认 0）|
+| `step` | （默认`(max - min) / 100`）|
+| `unit` | 滑块单位 |
+| `unit` | 滑块单位 |
+
+###`qrCode`
+在二维码中显示数据（管理员 >= 7.0.18）
+
+| 属性 | 描述 |
+| --------- | ------------------------------------- |
+| `data` | 要在二维码中编码的数据 |
+| `fgColor` | 前景色 |
+| `bgColor` | 背景颜色 |
+| `level` | QR 码级别（`L` `M` `Q` `H`）|
+| `level` | QR 码级别 (`L` `M` `Q` `H`) |
+
+###`ip`
+绑定地址
+
+| 属性 | 描述 |
+|--------------------|-----------------------------------|
+| `listenOnAllPorts` | 将 0.0.0.0 添加到选项 |
+| `onlyIp6` | 仅显示 IP6 地址 |
+| `noInternal` | 不显示内部 IP 地址 |
+| `noInternal` | 不显示内部 IP 地址 |
+
+###`user`
+从 system.user 中选择用户。（带颜色和图标）
+
+| 属性 | 描述 |
+|----------|-----------------|
+| `short` | 没有 system.user。|
+
+###`room`
+从`enum.room`中选择房间（带颜色和图标）-（仅限 Admin6）
+
+| 属性 | 描述 |
+|-------------------|--------------------------|
+| `short` | 没有`enum.rooms.` |
+| `allowDeactivate` | 允许让房间空置 |
+
+###`func`
+从`enum.func`中选择功能（带颜色和图标）-（仅限 Admin6）
+
+| 属性 | 描述 |
+|-------------------|-----------------------------------|
+| `short` | 没有`enum.func.` |
+| `allowDeactivate` | 允许让功能为空 |
+
+###`select`
+| 属性 | 描述 |
+|-----------|-------------------------------------------------------------------------|
+| `options` | 带有标签、可选翻译、可选分组和值的对象 |
+
+#### `select options` 的示例
+```json
+[
+  {"label": {"en": "option 1"}, "value": 1}, ...
+]
+```
+
+或者
+
+```json
+[
+   {
+      "items": [
+         {"label": "Val1", "value": 1},
+         {"label": "Val2", "value": 2}
+         ],
+      "name": "group1"
+   },
+   {
+      "items": [
+         {"label": "Val3", "value": 3},
+         {"label": "Val4", "value": 4}
+      ],
+      "name": "group2"
+   },
+   {"label": "Val5", "value": 5}
+]
+```
+
+###`autocomplete`
+| 属性 | 描述 |
+|------------|---------------------------------------------------------------------------------------------------------------|
+| `options` | `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1"}, "value2", ...]` （键必须是唯一的）|
+| `freeSolo` | 将 `freeSolo` 设置为 `true`，这样文本框就可以包含任意值。|
+
+###`image`
+将图像保存为 `adapter.X` 对象的文件或属性中的 base64
+
+| 属性 | 描述 |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `filename` | 文件名为结构名称。在下面的例子中，`login-bg.png` 是 `writeFile("myAdapter.INSTANCE", "login-bg.png")` 的文件名 |
+| `maxSize` | 要上传的文件的最大大小 |
+| `base64` | 如果为真，图像将保存为属性中的 data-url，否则以二进制形式保存在文件存储中 |
+| `crop` | 如果为真，则允许用户裁剪图像 |
+| `!maxWidth` |                                                                                                                                        |
+| `!maxHeight` |                                                                                                                                        |
+| `!square` | 宽度必须等于高度，或者裁剪必须只允许正方形作为形状 |
+| `!square` | 宽度必须等于高度，或者裁剪必须只允许正方形作为形状 |
+
+#### `image` 的示例
 ```json
   "login-bg.png": {
        "type": "image",
@@ -160,380 +480,574 @@ JSON 配置文件的模式在此处定义：https：//github.com/ioBroker/adapte
   }
 ```
 
-- `objectId` - 对象 ID：用名称、颜色和图标显示它
-- `types` - 所需类型：`channel`、`device`、...（默认情况下只有 `state`）。它是复数，因为 `type` 已被占用。
-- `root` - [可选] 仅显示此根对象及其子对象
-- `customFilter` - [可选] 不能与 `type` 设置一起使用。它是一个对象，而不是 JSON 字符串。示例
-- `{common: {custom: true}}` - 仅显示具有一些自定义设置的对象
-- `{common: {custom: 'sql.0'}}` - 仅显示具有 sql.0 自定义设置的对象（仅限特定实例）
-- `{common: {custom: '_dataSources'}}` - 仅显示适配器 `influxdb` 或 `sql` 或 `history` 的对象
-- `{common: {custom: 'adapterName.'}}` - 仅显示特定适配器的自定义设置的对象（所有实例）
-- `{type: 'channel'}` - 仅显示频道
-- `{type: ['channel', 'device']}` - 仅显示频道和设备
-- `{common: {type: 'number'}` - 仅显示数字类型的状态
-- `{common: {type: ['number', 'string']}` - 仅显示数字和字符串类型的状态
-- `{common: {role: 'switch'}` - 仅显示角色从 switch 开始的状态
-- `{common: {role: ['switch', 'button']}` - 仅显示角色以 `switch` 和 `button` 开头的状态
-- `filterFunc` - [可选] 不能与 `type` 设置一起使用。它是一个将为每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'`
+###`objectId`
+对象 ID：用名称、颜色和图标显示。
 
-- `password` - 密码字段
+| 属性 | 描述 |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `types` | 所需类型：`channel`、`device`、...（默认只有`state`）。它是复数，因为`type` 已被占用。|
+| `customFilter` | [可选] 不能与 `type` 设置一起使用。它是一个对象，而不是 JSON 字符串。|
+| `filterFunc` | [可选] 不能与 `type` 设置一起使用。这是一个将为每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
+| `filterFunc` | [可选] 不能与 `type` 设置一起使用。它是一个将为每个对象调用的函数，必须返回 true 或 false。示例：`obj.common.type === 'number'` |
 
-此字段类型仅在 UI 中产生影响。
+#### `customFilter` 的示例
+##### 仅显示具有一些自定义设置的对象
+`{common: {custom: true}}`
+
+##### 仅显示具有 sql.0 自定义设置的对象（仅限特定实例）
+`{common: {custom: 'sql.0'}}`
+
+##### 仅显示适配器`influxdb`、`sql` 或`history` 的对象
+`{common: {custom: '_dataSources'}}`
+
+##### 仅显示特定适配器的自定义设置对象（所有实例）
+`{common: {custom: 'adapterName.'}}`
+
+##### 仅显示频道
+`{type: 'channel'}`
+
+##### 仅显示频道和设备
+`{type: ['channel', 'device']}`
+
+##### 仅显示“数字”类型的状态
+`{common: {type: 'number'}`
+
+##### 仅显示“数字”和“字符串”类型的状态
+`{common: {type: ['number', 'string']}`
+
+##### 仅显示角色从 switch 开始的状态
+`{common: {role: 'switch'}`
+
+##### 仅显示角色从 `switch` 和 `button` 开头的状态
+`{common: {role: ['switch', 'button']}`
+
+###`password`
+此字段类型仅对 UI 有影响。
 密码和其他敏感数据应加密存储！为此，必须在 [本机加密](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) 下的 io-package.json 中提供密钥。
 此外，您可以通过将此属性添加到 `io-package.json` 文件中的 `protectedNative` 来保护此属性不被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
-- `repeat` - 重复密码必须与密码进行比较
-- `visible` - 如果允许通过切换查看按钮查看密码则为 true（仅适用于输入新密码时）
-- `readOnly` - 只读标志。如果 readOnly 为真，则 Visible 自动为真
-- `maxLength` - 字段中文本的最大长度
+| 属性 | 描述 |
+|-------------|---------------------------------------------------------------------------------------------------------|
+| `repeat` | 重复密码必须与密码进行比较 |
+| `readOnly` | 只读标志。如果 readOnly 为真，则 Visible 自动为真 |
+| `maxLength` | 字段中文本的最大长度 |
+| `maxLength` | 字段中文本的最大长度 |
 
--`实例`
-- `adapter` - 适配器的名称。使用特殊名称 `_dataSources`，您可以获取带有标志 `common.getHistory` 的所有适配器。
-- `adapters` - 应显示的可选适配器列表。如果未定义，则将显示所有适配器。仅当未定义 `adapter` 属性时才有效。
-- `allowDeactivate` - 如果为真。显示附加选项“deactivate”
-- `onlyEnabled` - 如果为 true。仅显示已启用的实例
-- `long` - 值看起来像 `system.adapter.ADAPTER.0` 而不是 `ADAPTER.0`
-- `short` - 值看起来像 `0`，而不是 `ADAPTER.0`
-- `all` - 向选项“all”添加值为 `*`
+###`instance`
+| 属性 | 描述 |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `adapter` | 适配器的名称。使用特殊名称`_dataSources`，您可以获取所有带有标志`common.getHistory`的适配器。|
+| `allowDeactivate` | 如果为真。显示附加选项“停用”|
+| `onlyEnabled` | 如果为真。仅显示已启用的实例 |
+| `long` | 值看起来像`system.adapter.ADAPTER.0`而不是`ADAPTER.0` |
+| `short` | 值看起来像`0`而不是`ADAPTER.0` |
+| `all` | 将选项“全部”选项添加到值为`*` |
+| `all` | 将值 `*` 添加到选项“all”选项 |
 
-- `chips` - 用户可以输入单词，然后它将被添加（参见云 => 服务 => 白名单）。如果没有定义 `delimiter`，则输出为数组。
-- `delimiter` - 如果已定义，则选项将存储为带分隔符的字符串，而不是数组。例如，通过 `delimiter=;`，您将获得 `a;b;c`，而不是 `['a', 'b', 'c']`
+###`chips`
+用户可以输入单词，它将被添加（参见云 => 服务 => 白名单）。如果没有定义`delimiter`，则输出是一个数组。
 
-- `alive` - 仅指示实例是否处于活动状态，并且可以在“隐藏”和“禁用”状态下使用（不会保存在配置中）
+| 属性 | 描述 |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `delimiter` | 如果已定义，则选项将存储为带分隔符的字符串，而不是数组。例如，通过 `delimiter=;` 您将获得 `a;b;c` 而不是 `['a', 'b', 'c']` |
+
+###`alive`
+仅指示实例是否处于活动状态，并且可以在“隐藏”和“禁用”状态下使用（不会保存在配置中）
 
 仅文本：实例正在运行，实例未运行
 
-- `instance` - 检查实例是否处于活动状态。如果未定义，则将使用当前实例。您可以在文本中使用 `${data.number}` 模式。
-- `textAlive` - 默认文本为 `Instance %s is alive`，其中 %s 将被 `ADAPTER.0` 替换。翻译必须存在于 i18n 文件中
-- `textNotAlive` - 默认文本为“实例 %s 未激活”，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中
+| 属性 | 描述 |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `instance` | 检查实例是否处于活动状态。如果未定义，则将使用当前实例。您可以在文本中使用`${data.number}`模式。|
+| `textNotAlive` | 默认文本为 `Instance %s is not alive`，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中 |
+| `textNotAlive` | 默认文本为 `Instance %s is not alive`，其中 %s 将被 `ADAPTER.0` 替换。翻译必须存在于 i18n 文件中 |
 
-- `pattern` - 具有类似 'https://${data.ip}:${data.port}' 模式的只读字段（不会保存在配置中）
+###`pattern`
+具有类似“https://${data.ip}:${data.port}”模式的只读字段（不会保存在配置中）具有只读标志的文本输入，显示模式。
 
-带有只读标志的文本输入，显示一种模式。
+| 属性 | 描述 |
+|-------------------|-----------------------|
+| `copyToClipboard` | 如果为真 - 显示按钮 |
+| `模式` | 我的模式 |
 
-- `copyToClipboard` - 如果为 true - 显示按钮
-- `pattern` - 我的图案
+###`sendTo`
+向实例发送请求的按钮（<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>）
 
-- `sendto` - 向实例发送请求的按钮（https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128）
-- `命令` - （默认`发送`）
-- `jsonData` - 字符串 - `"{\"subject1\": \"${data.subject}\", \"options1\": {\"host\": \"${data.host}\"}}"`。您可以使用特殊变量 `data._origin` 和 `data._originIp` 向实例发送调用者 URL，例如 `http://127.0.0.1:8081/admin`。
-- `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定两者。
-    - `结果` - `{结果1: {en: 'A'}, 结果2: {en: 'B'}}`
-    - `错误` - `{error1: {en: 'E'}, error2: {en: 'E2'}}`
-- `variant` - `contained`, `outlined` 或者什么都没有
-- `openUrl` - 如果为 true - 在新选项卡中打开 URL，如果响应包含属性 `openUrl`，例如 `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果 `saveConfig` 为 true，则将请求用户保存配置。
-- `reloadBrowser` - 如果为 true - 重新加载当前浏览器窗口，如果响应包含属性 `reloadBrowser`，如 `{"reloadBrowser": true}`。
-- `window` - 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以覆盖。
+| 属性 | 描述 |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command` | （默认`send`）|
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或数据，但不能同时指定两者。|
+| `result` | `{result1: {en: 'A'}, result2: {en: 'B'}}` |
+| `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
+| `variant` | `contained`、`outlined` 或无 |
+| `openUrl` | 如果为真 - 在新选项卡中打开 URL，如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果`saveConfig`为真，则将要求用户保存配置。|
+| `reloadBrowser` | 如果为真 - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
+| `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
+| `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用`base64` 图标（如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
+| `useNative` | 如果适配器返回的结果具有 `native` 属性，则将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。|
+| `showProcess` | 请求正在进行时显示旋转器 |
+| `timeout` | 请求超时（毫秒）。默认值：无。|
+| `onLoaded` | 最初执行一次按钮逻辑 |
+| `onLoaded` | 最初执行一次按钮逻辑 |
 
-`this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
+###`setState`
+设置实例状态的按钮
 
-- `icon` - 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用 `base64` 图标（如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）。（如果您需要更多图标，请通过问题请求）
-- `useNative` - 如果适配器返回的结果带有 `native` 属性，则将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。
-- `showProcess` - 请求进行时显示微调器
-- `timeout` - 请求超时（毫秒）。默认值：无。
-- `onLoaded` - 最初执行一次按钮逻辑
+| 属性 | 描述 |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `id` | `system.adapter.myAdapter.%INSTANCE%.test`，您可以使用占位符`%INSTANCE%`将其替换为当前实例名称 |
+| `val` | `${data.myText}\_test` 或数字。将自动从状态类型中检测类型并完成转换 |
+| `okText` | 按下按钮后将显示警报 |
+| `variant` | `contained`、`outlined`、'' |
+| `变体` | `包含`, `概述`, ''|
 
-- `setState` - 设置实例状态的按钮
-- `id` - `system.adapter.myAdapter.%INSTANCE%.test`，可以使用占位符 `%INSTANCE%` 替换为当前实例名称
-- `ack` - false （默认 false）
-- `val` - '${data.myText}\_test' 或数字。类型将自动从状态类型中检测并完成转换
-- `okText` - 按下按钮时显示的警报
-- `变体` - `包含`, `概述`, ''
+###`staticText`
+静态文本（如描述）
 
-- `staticText` - 类似描述的静态文本
-- `label` - 多语言文本
-- `text` - 与标签相同
+| 属性 | 描述 |
+|----------|---------------------|
+| `label` | 多语言文本 |
+| `text` | 与标签相同 |
 
-- `staticLink` - 静态链接
-- `label` - 多语言文本
-- `href` - 链接。链接可以是动态的，例如 `#tab-objects/customs/${data.parentId}`
-- `target` - `_blank` 或 `_self` 或窗口名称
-- `close` - 如果为真，GUI 将被关闭（不是用于管理中的 JsonConfig，而是用于动态 GUI）
-- `按钮` - 将链接显示为按钮
-- `variant` - 按钮类型（`outlined`, `contained`, `text`）
-- `color` - 按钮颜色（例如 `primary`）
-- `icon` - 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图像（以 `.png` 结尾）。（如果您需要更多图标，请通过问题请求）
+###`staticLink`
+| 属性 | 描述 |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `label` | 多语言文本 |
+| `target` | `_blank` 或 `_self` 或窗口名称 |
+| `close` | 如果为真，则 GUI 将被关闭（不是用于管理员中的 JsonConfig，而是用于动态 GUI）|
+| `button` | 将链接显示为按钮 |
+| `variant` | 按钮类型（`outlined`、`contained`、`text`）|
+| `color` | 按钮颜色（例如`primary`）|
+| `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用`base64` 图标（以`data:image/svg+xml;base64,...` 开头）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
+| `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload`。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图像（以 `.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
 
-- `staticImage` - 静态图像
-- `href` - 可选的 HTTP 链接
-- `src` - 图片名称（来自管理目录）
+###`staticImage`
+| 属性 | 描述 |
+|----------|----------------------------------------|
+| `href` | 可选 HTTP 链接 |
+| `src` | 图片名称（来自管理目录）|
 
-- `table` - 包含可以删除、添加、上移、下移的项目的表格
-- `items` - `[{"type": 见上文, "width": px 或 %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]`
-- `noDelete` - 布尔值，表示删除或添加被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
-- `objKeyName` - （旧设置，请勿使用！） - `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中密钥的名称
-- `objValueName` - （旧设置，请勿使用！） - `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` 中的值的名称
-- `allowAddByFilter` - 即使设置了过滤器，也允许添加
-- `showSecondAddAt` - 表格底部显示第二个添加按钮的行数。默认 5
-- `showFirstAddOnTop` - 在第一列的顶部而不是左侧显示第一个加号按钮。
-- `clone` - [可选] - 是否应显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。
-- `export` - [可选] - 是否显示导出按钮。导出为 csv 文件。
-- `import` - [可选] - 是否显示导入按钮。从 csv 文件导入。
-- `uniqueColumns` - [可选] - 指定列数组，这些列需要具有唯一的条目
-- `encryptedAttributes` - [可选] - 指定需要加密的列数组
-- `compact` - [可选] - 如果为 true，表格将以紧凑模式显示。
+###`table`
+包含可删除、添加、上移、下移项目的表格
 
-- `accordion` - 可以删除、添加、上移、下移项目的手风琴（Admin 6.6.0 及更新版本）
-- `items` - `[{"type": 见上文, "attr": "name", "default": ""}]` - 项目可以像在 `panel` 上一样放置（xs、sm、md、lg 和 newLine）
-- `titleAttr` - 项目列表的键，应用于名称
-- `noDelete` - 布尔值，表示删除或添加是否被禁用，如果 `noDelete` 为 false，则添加、删除和上/下移动应该可以工作
-- `clone` - [可选] - 是否应显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。
+| 属性 | 描述 |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `items` | `[{"type": see above, "width": px or %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]` |
+| `objKeyName` | （旧设置，请勿使用！）- `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` 中密钥的名称 |
+| `objValueName` | （旧设置，请勿使用！）- `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` 中的值的名称 |
+| `allowAddByFilter` | 如果即使设置了过滤器也允许添加 |
+| `showSecondAddAt` | 表格底部第二个添加按钮显示的行数。默认 5 |
+| `showFirstAddOnTop` | 在第一列顶部显示第一个加号按钮，而不是在左侧。|
+| `clone` | [可选] - 是否应显示克隆按钮。如果为真，则将显示克隆按钮。如果为属性名称，则此名称将是唯一的。|
+| `export` | [可选] - 是否显示导出按钮。导出为 csv 文件。|
+| `import` | [可选] - 是否显示导入按钮。从 csv 文件导入。|
+| `uniqueColumns` | [可选] - 指定列数组，这些列需要具有唯一的条目 |
+| `encryptedAttributes` | [可选] - 指定应加密的列数组 |
+| `compact` | [可选] - 如果为真，表格将以紧凑模式显示 |
+| `compact` | [可选] - 如果为真，表格将以紧凑模式显示 |
 
-- `jsonEditor` - json 编辑器
-- `validateJson` - 如果为 false，则文本将不会被验证为 JSON
-- `allowEmpty` - 如果为 true，则仅当值不为空时才会验证 JSON
+###`accordion`
+可删除、添加、上移、下移项目的手风琴（Admin 6.6.0 及更新版本）
 
-- `语言` - 选择语言
-- `system` - 允许默认使用 `system.config` 中的系统语言（如果选择，则将有一个空字符串值）
+| 属性 | 描述 |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `items` | `[{"type": see above, "attr": "name", "default": ""}]` 项目可以像在 `panel` 上放置（xs、sm、md、lg 和 newLine）|
+| `noDelete` | 布尔值，表示删除或添加是否禁用，如果`noDelete` 为假，则添加、删除和上/下移动应该可以工作 |
+| `clone` | [可选] - 是否应显示克隆按钮。如果为真，则将显示克隆按钮。如果为属性名称，则此名称将是唯一的。|
+| `clone` | [可选] - 是否显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。|
 
--`证书`
-- `certType` - 可选：`public`、`private`、`chained`。但从 6.4.0 开始，您可以使用 `certificates` 类型。
+###`jsonEditor`
+| 属性 | 描述 |
+|----------------|--------------------------------------------------------------------|
+| `validateJson` | 如果为假，则文本将不会被验证为 JSON |
+| `allowEmpty` | 如果为 true，则仅当值不为空时才会验证 JSON |
 
-- `certificates` - 它是一种通用类型，可为您管理 `certPublic`、`certPrivate`、`certChained` 和 `leCollection` 属性。
+###`language`
+选择语言
 
-    例子：
+| 属性 | 描述 |
+|----------|----------------------------------------------------------------------------------------------------------------------|
+| `system` | 允许使用来自 `system.config` 的系统语言作为默认语言（如果选择则将具有空字符串值）|
+
+###`certificate`
+| 属性 | 描述 |
+|------------|----------------------------------------------------------------------------------------|
+| `certType` | 属于：`public`、`private`、`chained`。但从 6.4.0 开始，您可以使用 `certificates` 类型。|
+
+###`certificates`
+它是一种通用类型，可为您管理`certPublic`、`certPrivate`、`certChained` 和 `leCollection` 属性。
+示例：
 
 ```json
 {
-    "_certs": {
-        "type": "certificates",
-        "newLine": true,
-        "hidden": "!data.secure",
-        "sm": 12
-    }
+  "_certs": {
+    "type": "certificates",
+    "newLine": true,
+    "hidden": "!data.secure",
+    "sm": 12
+  }
 }
 ```
 
-- `certCollection` - 选择证书集合或仅使用所有集合或根本不使用加密。
-- `leCollectionName` - 证书集合的名称
+###`certificateCollection`
+选择证书集合或仅使用所有集合或者根本不使用加密。
 
-- `自定义` (仅限 Admin6)
-- `name` - 将通过 props 提供的组件名称，例如 ComponentInstancesEditor
-- `url` - 组件的位置
+| 属性 | 描述 |
+|--------------------|------------------------------------|
+| `leCollectionName` | 证书集合的名称 |
+
+###`custom`
+仅限管理员6
+
+| 属性 | 描述 |
+|----------|--------------------------------------------------------------------------------------------------------------------------------|
+| `name` | 将通过 props 提供的组件名称，如 `ComponentInstancesEditor` |
+| `i18n` | 如果 `i18n/xx.json` 文件与组件或翻译对象位于同一目录中，则为 true `{"text1": {"en": Text1"}}` |
+| `i18n` | 如果 `i18n/xx.json` 文件与组件或翻译对象 `{"text1": {"en": Text1"}}` 位于同一目录中，则为 true |
+
+#### URL 示例
 - `custom/customComponents.js`：在这种情况下，文件将从 `/adapter/ADAPTER_NAME/custom/customComponents.js` 加载
 - `https://URL/myComponent`：直接从 URL
-- `./adapter/ADAPTER_NAME/custom/customComponent.js`：在这种情况下，文件将从 `/adapter/ADAPTER_NAME/custom/customComponents.js` 加载
-- `i18n` - 如果 `i18n/xx.json` 文件与组件或翻译对象 `{"text1": {"en": Text1"}}` 位于同一目录中，则为 true
+- `./adapter/ADAPTER_NAME/custom/customComponent.js`: 在这种情况下，文件将从 `/adapter/ADAPTER_NAME/custom/customComponents.js` 加载
 
-- `datePicker` - 允许用户选择日期输入，UI 格式来自用户安装中配置的 `dateFormat`。
+###`datePicker`
+允许用户选择日期输入，UI 格式来自配置
 
-组件返回可解析的日期字符串。
+###`timePicker`
+允许用户选择日期输入，返回的字符串是可解析的日期字符串或格式`HH:mm:ss`
 
-- `timePicker` - 允许用户选择日期输入，返回的字符串是可解析的日期字符串或格式为 `HH:mm:ss`
-- `format` - 传递给日期选择器的格式默认为 `HH:mm:ss`
-- `views` - 配置应向用户显示哪些视图。默认为 `['hours', 'minutes', 'seconds']`
-- `timeSteps` - 表示每个视图可用的时间步长。默认为 `{ 小时：1， 分钟：5， 秒：5 }`
-- `returnFormat` - `fullDate` 或 `HH:mm:ss`。出于向后兼容的原因，默认为完整日期。
+| 属性 | 描述 |
+|----------------|------------------------------------------------------------------------------------------------------|
+| `format` | 传递给日期选择器的格式默认为 `HH:mm:ss` |
+| `timeSteps` | 表示每个视图可用的时间步长。默认为`{ hours: 1, minutes: 5, seconds: 5 }` |
+| `returnFormat` | `fullDate` 或 `HH:mm:ss`。出于向后兼容的原因，默认为完整日期。|
+| `returnFormat` | `fullDate` 或 `HH:mm:ss`。出于向后兼容的原因，默认为完整日期。|
 
-- `分隔线` - 水平线
-- `height` - 可选高度
-- `color` - 可选分隔线颜色或 `primary`、`secondary`
+###`divider`
+水平线
 
--`标题`
--`文本`
-- `尺寸` - 1-5 => h1-h5
+| 属性 | 描述 |
+|----------|--------------------------------------------------|
+| `height` | 可选高度 |
+| `color` | 可选分隔线颜色或 `primary`、`secondary` |
 
--`cron`
-- `复杂` - 用“分钟”、“秒”等显示 CRON
-- `simple` - 显示简单的 CRON 设置
+###`header`
+| 属性 | 描述 |
+|----------|--------------|
+| `text` |              |
+| `尺寸` | 1-5 => h1-h5 |
 
-- `fileSelector`（仅限 Admin6）
-- `pattern` - 文件扩展名模式。允许 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹 `folderName` 中的所有文件。默认为 `**/*.*`。
-- `fileTypes` - [可选] 文件类型：`audio`, `image`, `text`
-- `objectID` - `meta` 类型的对象 ID。您可以使用特殊占位符 `%INSTANCE%`：例如 `myAdapter.%INSTANCE%.files`
-- `upload` - 路径，上传的文件将存储于此。类似 `folderName`。如果未定义，则不会显示上传字段。若要在根目录中上传，请将此字段设置为 `/`。
-- `refresh` - 在选择附近显示刷新按钮。
-- `maxSize` - 最大文件大小（默认 2MB）
-- `withFolder` - 即使所有文件都在同一个文件夹中，也显示文件夹名称
-- `delete` - 允许删除文件
-- `noNone` - 不显示 `none` 选项
-- `noSize` - 不显示文件大小
+###`cron`
+| 属性 | 描述 |
+|-----------|-----------------------------------------------|
+| `complex` | 以“分钟”、“秒”等格式显示 CRON |
+| `简单` | 显示简单的 CRON 设置 |
 
-- `file` - （仅限 Admin6）带文件选择器的输入字段
-- `disableEdit` - 如果用户可以手动输入文件名，而不仅仅是通过选择对话框
-- `limitPath` - 将选择限制为一个特定类型的 `meta` 对象并遵循路径（非强制性）
-- `filterFiles` - 如 `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
-- `allowUpload` - 允许上传文件
-- `allowDownload` - 允许下载文件（默认 true）
-- `allowCreateFolder` - 允许创建文件夹
-- `allowView` - 允许平铺视图（默认为 true）
-- `showToolbar` - 显示工具栏（默认 true）
-- `selectOnlyFolders` - 用户只能选择文件夹（例如上传路径）
-- `trim` - 修剪文件名
+###`fileSelector`
+仅限管理员6
 
-- `imageSendTo` - 显示从后端接收的以 base64 字符串形式呈现的图像
-- `width` - QR 码的宽度（单位：px）
-- `height` - QR 码的高度（单位：px）
-- `command` - sendTo 命令
-- `jsonData` - 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. 此数据将发送到后端
-- `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。
+| 属性 | 描述 |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹中的所有文件 `folderName`。默认 `**/*.*`。|
+| `objectID` | 对象 ID 类型为 `meta`。您可以使用特殊占位符 `%INSTANCE%`：如 `myAdapter.%INSTANCE%.files` |
+| `upload` | 路径，上传的文件将存储于此。例如 `folderName`。如果未定义，则不会显示上传字段。要在根目录中上传，请将此字段设置为 `/`。|
+| `refresh` | 在选择附近显示刷新按钮。|
+| `maxSize` | 最大文件大小（默认 2MB）|
+| `withFolder` | 即使所有文件都在同一个文件夹中，也显示文件夹名称 |
+| `delete` | 允许删除文件 |
+| `noNone` | 不显示`none`选项|
+| `noSize` | 不显示文件大小 |
+| `noSize` | 不显示文件大小 |
 
-后端代码示例：
+###`file`
+仅限 Admin6。
+带文件选择器的输入字段
 
-```
-adapter.on('message', obj => {
-    if (obj.command === 'send') {
-        const QRCode = require('qrcode');
-        QRCode.toDataURL('3ca4234a-fd81-fdb8-5584-08c732f70e4d', (err, url) =>
-            obj.callback && adapter.sendTo(obj.from, obj.command, url, obj.callback));
-    }
-});
-```
+| 属性 | 描述 |
+|---------------------|------------------------------------------------------------------------------------------|
+| `disableEdit` | 如果用户可以手动输入文件名，而不仅仅是通过选择对话框 |
+| `filterFiles` | 喜欢 `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']` |
+| `allowUpload` | 允许上传文件 |
+| `allowDownload` | 允许下载文件（默认为 true）|
+| `allowCreateFolder` | 允许创建文件夹 |
+| `allowView` | 允许平铺视图（默认为 true）|
+| `showToolbar` | 显示工具栏（默认为 true）|
+| `selectOnlyFolders` | 用户只能选择文件夹（例如上传路径）|
+| `trim` | 修剪文件名 |
+| `trim` | 修剪文件名 |
 
-- `selectSendTo` - 显示根据实例值给出的下拉菜单。
-- `command` - sendTo 命令
-- `jsonData` - 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端
-- `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。
-- `manual` - 允许手动编辑。无下拉菜单（如果实例处于离线状态）。默认为 `true`。
-- `multiple` - 多选选择
-- `showAllValues` - 即使未找到标签（多个），也显示项目，默认值为 `true`
-- `noTranslation` - 不翻译选择的标签
+###`imageSendTo`
+显示从后端接收的以 base64 字符串形式显示的图像
 
-要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是`[{"value": 1, "label": "one"}, ...]` 形式的数组
+| 属性 | 描述 |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `width` | QR 码的宽度（单位：px）|
+| `command` | sendTo 命令 |
+| `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送至后端 |
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或数据，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
+| `data` | object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
 
-- `alsoDependsOn` - 通过改变哪些属性，必须重新发送命令
-
+#### `imageSendTo` 后端代码示例
 ```js
-adapter.on('message', obj => {
-   if (obj) {
-       switch (obj.command) {
-           case 'command':
-               if (obj.callback) {
-                   try {
-                       const { SerialPort } = require('serialport');
-                       if (SerialPort) {
-                           // read all found serial ports
-                           SerialPort.list()
-                               .then(ports => {
-                                   adapter.log.info(`List of port: ${JSON.stringify(ports)}`);
-                                   adapter.sendTo(obj.from, obj.command, ports.map(item => ({label: item.path, value: item.path})), obj.callback);
-                               })
-                               .catch(e => {
-                                   adapter.sendTo(obj.from, obj.command, [], obj.callback);
-                                   adapter.log.error(e)
-                               });
-                       } else {
-                           adapter.log.warn('Module serialport is not available');
-                           adapter.sendTo(obj.from, obj.command, [{label: 'Not available', value: ''}], obj.callback);
-                       }
-                   } catch (e) {
-                       adapter.sendTo(obj.from, obj.command, [{label: 'Not available', value: ''}], obj.callback);
-                   }
-               }
-
-               break;
-       }
-   }
+adapter.on("message", (obj) => {
+  if (obj.command === "send") {
+    const QRCode = require("qrcode");
+    QRCode.toDataURL(
+      "3ca4234a-fd81-fdb8-5584-08c732f70e4d",
+      (err, url) =>
+        obj.callback && adapter.sendTo(obj.from, obj.command, url, obj.callback)
+    );
+  }
 });
 ```
 
-- `autocompleteSendTo`
+###`selectSendTo`
+显示根据实例值给定的下拉菜单。
 
+| 属性 | 描述 |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command` | sendTo 命令 |
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或数据，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
+| `manual` | 允许手动编辑。无下拉菜单（如果实例处于离线状态）。默认`true`。|
+| `multiple` | 多选选择 |
+| `showAllValues` | 即使未找到标签也显示项目（多个），默认=`true` |
+| `noTranslation` | 不翻译选择的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是形式为 `[{"value": 1, "label": "one"}, ...]` | 的数组 |
+| `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
+| `alsoDependsOn` | 通过改变哪些属性，必须重新发送命令 |
+
+#### `selectSendTo` 后端代码示例
+```js
+adapter.on("message", (obj) => {
+  if (obj) {
+    switch (obj.command) {
+      case "command":
+        if (obj.callback) {
+          try {
+            const { SerialPort } = require("serialport");
+            if (SerialPort) {
+              // read all found serial ports
+              SerialPort.list()
+                .then((ports) => {
+                  adapter.log.info(`List of port: ${JSON.stringify(ports)}`);
+                  adapter.sendTo(
+                    obj.from,
+                    obj.command,
+                    ports.map((item) => ({
+                      label: item.path,
+                      value: item.path,
+                    })),
+                    obj.callback
+                  );
+                })
+                .catch((e) => {
+                  adapter.sendTo(obj.from, obj.command, [], obj.callback);
+                  adapter.log.error(e);
+                });
+            } else {
+              adapter.log.warn("Module serialport is not available");
+              adapter.sendTo(
+                obj.from,
+                obj.command,
+                [{ label: "Not available", value: "" }],
+                obj.callback
+              );
+            }
+          } catch (e) {
+            adapter.sendTo(
+              obj.from,
+              obj.command,
+              [{ label: "Not available", value: "" }],
+              obj.callback
+            );
+          }
+        }
+
+        break;
+    }
+  }
+});
+```
+
+###`autocompleteSendTo`
 显示根据实例值给定的自动完成控制。
 
-- `command` - sendTo 命令
-- `jsonData` - 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端
-- `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。
-- `freeSolo` - 将`freeSolo`设置为`true`，这样文本框就可以包含任意值。
-- `alsoDependsOn` - 通过改变哪些属性，必须重新发送命令
-- `maxLength` - 字段中文本的最大长度
+| 属性 | 描述 |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `command` | sendTo 命令 |
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或数据，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
+| `freeSolo` | 将`freeSolo` 设置为`true`，这样文本框可以包含任意值。|
+| `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
+| `maxLength` | 字段中文本的最大长度 |
+| `maxLength` | 字段中文本的最大长度 |
 
-要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是形式为`["value1", {"value": "value2", "label": "Value2"}, ...]`的数组（键必须是唯一的）请参阅`selectSendTo`了解处理程序示例
+要使用此选项，您的适配器必须实现消息处理程序：
 
--`textSendTo`
+命令的结果必须是形式为`["value1", {"value": "value2", "label": "Value2"}, ...]`的数组（键必须是唯一的）请参阅`selectSendTo`了解处理程序示例
 
+###`textSendTo`
 显示根据实例值给定的只读控制。
 
-- `容器` - div，文本，html
-- `copyToClipboard` - 如果为 true - 显示按钮
-- `alsoDependsOn` - 通过改变哪些属性，必须重新发送命令
-- `command` - sendTo 命令
-- `jsonData` - 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端
-- `data` - object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。
+| 属性 | 描述 |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `container` | div，文本，html |
+| `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
+| `command` | sendTo 命令 |
+| `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将被发送到后端 |
+| `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或数据，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
+| `data` | object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
 
 要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是具有以下参数的字符串或对象：
 
 ```json5
 {
-    text: 'text to show',  // mandatory
-    style: { color: 'red' }, // optional
-    icon: 'search',        // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
-                           // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, puase, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
-    iconStyle: {width: 30} // optional
+  text: "text to show", // mandatory
+  style: { color: "red" }, // optional
+  icon: "search", // optional. It could be base64 or link to image in the same folder as jsonConfig.json file
+  // possible predefined names: edit, rename, delete, refresh, add, search, unpair, pair, identify, play, stop, pause, forward, backward, next, previous, lamp, backlight, dimmer, socket, settings, group, user, qrcode, connection, no-connection, visible
+  iconStyle: { width: 30 }, // optional
 }
 ```
 
-例子：
-
+#### `textSendTo` 的示例
 ```js
-adapter.on('message', obj => {
-    if (obj) {
-      switch (obj.command) {
-        case 'command':
-          obj.callback && adapter.sendTo(obj.from, obj.command, 'Received ' + JSON.stringify(obj.message), obj.callback);
-          // or with style
-          obj.callback && adapter.sendTo(obj.from, obj.command, { text: 'Received ' + JSON.stringify(obj.message), style: { color: 'red' }, icon: 'search', iconStyle: { width: 30 }}, obj.callback);
-          // or as html
-          obj.callback && adapter.sendTo(obj.from, obj.command, `<div style="color: green">${JSON.stringify(obj.message)}</div>`, obj.callback);
-          break;
-      }
+adapter.on("message", (obj) => {
+  if (obj) {
+    switch (obj.command) {
+      case "command":
+        obj.callback &&
+          adapter.sendTo(
+            obj.from,
+            obj.command,
+            "Received " + JSON.stringify(obj.message),
+            obj.callback
+          );
+        // or with style
+        obj.callback &&
+          adapter.sendTo(
+            obj.from,
+            obj.command,
+            {
+              text: "Received " + JSON.stringify(obj.message),
+              style: { color: "red" },
+              icon: "search",
+              iconStyle: { width: 30 },
+            },
+            obj.callback
+          );
+        // or as html
+        obj.callback &&
+          adapter.sendTo(
+            obj.from,
+            obj.command,
+            `<div style="color: green">${JSON.stringify(obj.message)}</div>`,
+            obj.callback
+          );
+        break;
     }
+  }
 });
 ```
 
--`坐标`
-
+###`coordinates`
 确定当前位置，如果无法以“纬度，经度”形式显示，则使用`system.config`坐标
 
-- `divider` - 纬度和经度之间的分隔符。默认为“，”（如果未定义 longitudeName 和 latitudeName，则使用）
-- `autoInit` - 如果为空，则使用当前坐标初始化字段
-- `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
-- `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
-- `useSystemName` - 如果已定义，则会显示带有“使用系统设置”的复选框，并从 `system.config` 中读取纬度、经度，并将布尔值保存到给定的名称
+| 属性 | 描述 |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `divider` | 纬度和经度之间的分隔符。默认为“，”（如果未定义 longitudeName 和 latitudeName 则使用）|
+| `longitudeName` | 如果定义，经度将存储在此属性中，分隔符将被忽略 |
+| `latitudeName` | 如果定义，纬度将存储在此属性中，分隔符将被忽略 |
+| `useSystemName` | 如果定义了，则会显示带有“使用系统设置”的复选框，并从`system.config` 读取纬度、经度，并将布尔值保存到给定名称|
+| `useSystemName` | 如果定义了，则会显示带有“使用系统设置”的复选框，并从`system.config`中读取纬度，经度，布尔值将保存到给定的名称|
 
--`界面`
-
+###`interface`
 选择实例运行的主机的接口
 
-- `ignoreLoopback` - 不显示环回接口（127.0.0.1）
-- `ignoreInternal` - 不显示内部接口（通常也是 127.0.0.1）
+| 属性 | 描述 |
+|------------------|----------------------------------------------------------------|
+| `ignoreLoopback` | 不显示环回接口（127.0.0.1）|
+| `ignoreInternal` | 不显示内部接口（通常也是 127.0.0.1）|
 
-- `license` - 如果尚未接受，则显示许可证信息。必须定义属性 `texts` 或 `licenseUrl` 之一。当许可证被接受时，定义的配置属性将设置为 `true`。
-- `texts` - 包含文本的段落数组，每个段落将显示为单独的段落
-- `licenseUrl` - 许可证文件的 URL（例如 https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE）
-- `title` - 许可证对话框的标题
-- `agreeText` - 同意按钮的文本
-- `checkBox` - 如果定义，则显示具有给定名称的复选框。如果选中，则将启用同意按钮。
+###`license`
+如果尚未接受，则显示许可证信息。必须定义属性`texts` 或 `licenseUrl` 之一。当许可证被接受时，定义的配置属性将设置为`true`。
 
-- `checkLicense` - 非常特殊的组件，用于在线检查许可证。它需要本机中的 `license` 和 `useLicenseManager` 属性。
-- `uuid` - 检查 UUID
-- `version` - 检查版本
+| 属性 | 描述 |
+|--------------|------------------------------------------------------------------------------------------------------------|
+| `texts` | 包含文本的段落数组，每个段落将显示为单独的段落 |
+| `title` | 许可证对话框的标题 |
+| `agreeText` | 同意按钮的文字 |
+| `checkBox` | 如果已定义，则将显示具有给定名称的复选框。如果已选中，则将启用同意按钮。|
+| `checkBox` | 如果定义，则显示指定名称的复选框。如果选中，则启用同意按钮。|
 
-- `uuid` - 显示 iobroker UUID
+###`checkLicense`
+非常特殊的组件，用于在线检查许可证。本机中确实需要`license` 和`useLicenseManager` 属性。
 
-- `port` - 端口的特殊输入。它会自动检查端口是否被其他实例使用并显示警告。
-- `min` - 允许的最小端口号。它可以是 0。如果值为零，则不会检查端口是否被占用。
+| 属性 | 描述 |
+|-----------|---------------|
+| `uuid` | 检查 UUID |
+| `version` | 检查版本 |
 
-- `state` - (admin >= 7.1.0) 显示来自状态的控制或信息
-- `oid` - 应采用哪个对象 ID 进行控制。该 ID 不带“adapter.X.”前缀
-- `system` - 如果为真，状态将从 system.adapter.XX.I. 获取，而不是从 XX.I 获取
-- `control` - 如何显示状态值：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number`
-- `controlled` - 如果为 true，状态将显示为开关、选择、按钮、滑块或文本输入。仅在未定义控制属性时使用
-- `unit` - 将单位添加到值中
-- `trueText` - 如果值为真，则显示此文本
-- `trueTextStyle` - 如果值为 true，则为文本样式
-- `falseText` - 如果值为 false 或者控件是“按钮”，则显示此文本
-- `falseTextStyle` - 如果值为 false 或者控件是“按钮”，则为文本的样式
-- `trueImage` - 如果值为 true，则显示此图像
-- `falseImage` - 如果值为 false 或者控件是“按钮”，则显示此图像
-- `min` - 控制类型滑块或数字的最小值
-- `max` - 控制类型滑块或数字的最大值
-- `step` - 控制类型滑块或数字的步长值
-- `controlDelay` - 滑块或数字的延迟（以毫秒为单位）
-- `variant` - 按钮的变体：`contained`, `outlined`, `text`
-- `readOnly` - 定义控件是否为只读
+###`uuid`
+显示 iobroker UUID
 
-- `deviceManager` - 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
+###`port`
+端口的特殊输入。它会自动检查端口是否被其他实例使用，并显示警告
+
+| 属性 | 描述 |
+|----------|-------------------------------------------------------------------------------------------------------------------------------|
+| `min` | 允许的最小端口号。可以是 0。如果值为零，则不会检查端口是否被占用。|
+
+###`state`
+（admin >= 7.1.0）显示来自国家/地区的控制或信息
+
+| 属性 | 描述 |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `oid` | 应采用哪个对象 ID 进行控制。该 ID 没有 `adapter.X.` 前缀 |
+| `foreign` | `oid` 是绝对的，无需将 `adapter.X` 或 `system.adapter.X.` 添加到 oid |
+| `control` | 应如何显示状态值：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number` |
+| `controlled` | 如果为真，状态将显示为开关、选择、按钮、滑块或文本输入。仅在未定义控制属性时使用 |
+| `unit` | 将单位添加到值 |
+| `trueText` | 如果值为真，则会显示此文本 |
+| `trueTextStyle` | 如果值为真，则文本的样式 |
+| `falseText` | 如果值为 false 或者控件是“按钮”，则显示此文本 |
+| `falseTextStyle` | 如果值为 false 或者控件是“按钮”，则文本的样式 |
+| `trueImage` | 如果值为真，则会显示此图像 |
+| `falseImage` | 如果值为 false 或者控件是“按钮”，则会显示此图像 |
+| `min` | 控制类型滑块或数字的最小值 |
+| `max` | 控制类型滑块或数字的最大值 |
+| `step` | 控制类型滑块或数字的步长值 |
+| `controlDelay` | 滑块或数字的延迟（以毫秒为单位）|
+| `variant` | 按钮变体：`contained`、`outlined`、`text` |
+| `readOnly` | 定义控件是否为只读 |
+| `narrow` | 通常，标题和值显示在行的左侧和右侧。使用此标志，值将出现在标签之后 |
+| `blinkOnUpdate` | 更新时值应闪烁（真实或彩色）|
+| `size` | 字体大小：小、正常、大或数字 |
+| `addColon` | 如果标签中不存在冒号，则在标签末尾添加冒号 |
+| `labelIcon` | 标签的 Base64 图标 |
+| `labelIcon` | 标签的 Base64 图标 |
+
+###`staticInfo`
+（管理员 >= 7.3.3）以预格式化的形式显示静态信息，如“标题：值单位”此控件主要用于动态表单
+
+| 属性 | 描述 |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `data` | 要显示的值 |
+| `unit` | （可选）单位（可以是多种语言）|
+| `narrow` | （可选）通常标题和值显示在行的左侧和右侧。使用此标志，值将出现在标签之后 |
+| `addColon` | （可选）如果标签中不存在冒号，则在末尾添加标签 |
+| `blinkOnUpdate` | （可选）更新时值应闪烁（真实或彩色）|
+| `blink` | （可选）值应持续闪烁（真或彩色）|
+| `styleLabel` | （可选）React CSS 样式 |
+| `styleValue` | （可选）React CSS 样式 |
+| `styleUnit` | （可选）React CSS 样式 |
+| `copyToClipboard` | （可选）显示复制到剪贴板按钮以获取值 |
+| `labelIcon` | （可选）标签的 base64 图标 |
+| `size` | （可选）字体大小：小、正常、大或数字 |
+| `highlight` | （可选）鼠标悬停时突出显示线条 |
+| `booleanAsCheckbox` | （可选）将布尔值显示为复选框 |
+| `booleanAsCheckbox` | （可选）将布尔值显示为复选框 |
+
+###`deviceManager`
+显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
 
 以下是如何在选项卡中显示设备管理器的示例：
 
@@ -566,29 +1080,76 @@ adapter.on('message', obj => {
 ```
 
 ## 控件的常用属性
-所有类型都可以有：
+### 布局选项`xl`、`lg`、`md`、`sm`、`xs`
+这些选项用于定义不同屏幕尺寸上元素的宽度，确保在各种设备上具有响应性和适应性的布局。
 
-- `xl` - 超大屏幕上 1/12 的屏幕宽度（1536px < 宽度）
-- `lg` - 大屏幕上的 1/12 宽度（1200px <= width < 1536px）
-- `md` - 中间屏幕的宽度为屏幕的 1/12（900px <= width < 1200px）
-- `sm` - 小屏幕上宽度为屏幕的 1/12（600px <= 宽度 < 900px）
-- `xs` - 小屏幕上的宽度为屏幕的 1/12（宽度 < 600px）
-- `newLine` - 应从新行开始显示
-- `label` - 字符串或对象，如 {en: 'Name', ru: 'Имя'}
-- `hidden` - 可以使用 `native.attribute` 进行计算的 JS 函数
-- `hideOnlyControl` - 如果隐藏，则会显示该位置，但没有控件
-- `disabled` - 可以使用 `native.attribute` 进行计算的 JS 函数
-- `help` - 帮助文本（多语言）
-- `helpLink` - 帮助 href（只能与 `help` 一起使用）
-- `style` - ReactJS 符号中的 CSS 样式：`radiusBorder` 而不是 `radius-border`。
-- `darkStyle` - 暗黑模式的 CSS 样式
-- `validator` - JS 函数：true 无错误，false - 错误
-- `validatorErrorText` - 验证器失败时显示的文本
-- `validatorNoSaveOnError` - 如果出现错误则禁用保存按钮
-- `tooltip` - 可选的工具提示
-- `default` - 默认值
-- `defaultFunc` - 用于计算默认值的 JS 函数
-- `defaultSendTo` - 从运行实例请求初始值的命令，例如：“myInstance”：{“type”：“text”，“defaultSendTo”：“fill”}`
+有效数字为 1 至 12。
+
+如果您指定一个数字，例如 6，则元素的宽度将为屏幕宽度的 6/12（50%），或者例如 3，则元素的宽度将为屏幕宽度的 3/12（25%）。
+为不同的布局选项分配数字可指定元素在不同屏幕尺寸下的宽度。
+
+| 选项 | 描述 |
+|--------|------------------------------------------|
+| `xl` | 超大屏幕（1536px >= 宽度）|
+| `md` | 中间屏幕（900px <= 宽度 < 1200px）|
+| `sm` | 小屏幕（600px <= 宽度 < 900px）|
+| `xs` | 小屏幕（宽度 < 600px）|
+| `xs` | 小屏幕 (宽度 < 600px) |
+
+以下选项是适合大多数情况的推荐预设
+
+```json
+"xs": 12,
+"sm": 12,
+"md": 6,
+"lg": 4,
+"xl": 4,
+```
+
+#### 建议检查布局
+应该检查每个适配器的相应布局，以查看该布局是否可以在所有分辨率下显示和使用。
+
+例如，可以使用内置于每个基于 Chromium 的浏览器的 Web 开发人员工具进行测试。
+
+步骤 1：使用 F12 打开 Web 开发人员工具
+
+步骤 2：打开设备工具栏（1）
+
+步骤3：选择不同的设备（2）
+
+![图像](../../en/dev/img/webdevtools.png)
+
+在 Web 开发人员工具的设置中，您可以根据需要创建具有精确宽度的自己的设备。
+
+### 更多选项
+| 选项 | 描述 |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type` | 如果元素没有属性`type`，则假定其具有默认类型“面板”。元素的类型。有关当前可用的选项，请参阅[常见控制元素：](#common-control-elements) |
+| `label` | 字符串或对象，如 {en: 'Name', ru: 'Имя'} |
+| `hidden` | 可以使用`native.attribute`进行计算的 JS 函数 |
+| `hideOnlyControl` | 如果隐藏，该位置将显示，但没有控制|
+| `disabled` | 可以使用`native.attribute`进行计算的 JS 函数 |
+| `help` | 帮助文本（多语言）|
+| `helpLink` | href 帮助（只能与`help`一起使用）|
+| `style` | ReactJS 符号中的 CSS 样式：`radiusBorder` 而不是`radius-border`。|
+| `darkStyle` | 暗黑模式的 CSS 样式 |
+| `validator` | JS 函数：true 无错误，false - 错误 |
+| `validatorErrorText` | 验证器失败时显示的文本 |
+| `validatorNoSaveOnError` | 如有错误则禁用保存按钮 |
+| `tooltip` | 可选工具提示 |
+| `default` | 默认值 |
+| `defaultFunc` | JS 函数计算默认值 |
+| `placeholder` | 占位符（用于文本控制）|
+| `noTranslation` | 不翻译选择或其他选项（不用于帮助、标签或占位符）|
+| `onChange` | 形式为`{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` 的结构 |
+| `doNotSave` | 请勿保存此属性，因为仅用于内部计算 |
+| `noMultiEdit` | 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。|
+| `noMultiEdit` | 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。|
+
+### 详细配置选项
+#### `defaultSendTo`
+从运行实例请求初始值的命令，例如：`"myInstance": {"type": "text", "defaultSendTo": "fill"}`
+
 - `data` - 静态数据
 - `jsonData` - 静态数据
 - 如果没有定义 `data` 和 `jsonData`，则将发送以下信息 `{"attr": "<属性名称>", "value": "<当前值>"}`
@@ -596,12 +1157,8 @@ adapter.on('message', obj => {
 - `buttonTooltip` - 按钮工具提示（默认：`按实例请求数据`）
 - `buttonTooltipNoTranslation` - 不翻译按钮工具提示
 - `allowSaveWithError` - 即使实例处于离线状态也允许保存配置
-- `placeholder` - 占位符（用于文本控制）
-- `noTranslation` - 不翻译选择或其他选项（不用于帮助、标签或占位符）
-- `onChange` - 结构形式为 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
-- `doNotSave` - 不保存此属性，因为仅用于内部计算
-- `noMultiEdit` - 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。
--`确认`
+
+#### `confirm`
 - `condition` - JS 函数：true 显示确认对话框
 - `text` - 确认对话框的文本
 - `title` - 确认对话框的标题
@@ -610,56 +1167,13 @@ adapter.on('message', obj => {
 - `type` - 以下之一：`info`, `warning`, `error`, `none`
 - `alsoDependsOn` - 带有属性的数组，也用于通过这些属性检查条件
 
-```json5
-{
-    "type": "tabs",
-    "items": {
-        "options1": {
-            "type": "panel",
-            "label": "Tab1",
-            "icon": "base64 svg", // optional
-            "items": {
-                myPort: {
-                    "type": "number",
-                    "min": 1,
-                    "max": 65565,
-                    "label": "Number",
-                    "sm": 6, // 1 - 12
-                    "validator": "'"!!data.name"'", // else error
-                    "hidden": "data.myType === 1", // hidden if myType is 1
-                    "disabled": "data.myType === 2" // disabled if myType is 2
-                },
-                "options.myType": { // name could support more than one levelhelperText
-                    "newLine": true, // must start from new row
-                    "type": "select",
-                    "label": "Type",
-                    "sm": 6, // 1 - 12
-                    "options": [
-                        {"label": "option 1", "value": 1},
-                        {"label": "option 2", "value": 2}
-                    ]
-                },
-                "myBool": {
-                    "type": "checkbox",
-                    "label": "My checkbox",
-                }
-            }
-        },
-        "tab2": {
-            "label": "Tab2",
-            "disabled": "data.myType === 1",
-            "hidden": "data.myType === 2",
-        }
-    },
-}
-```
-
+自动完成
 `Number`、`text`、`checkbox`、`select` 支持自动完成功能，以便在用作自定义设置时选择选项。
 在这种情况下，该值将作为所有可能值的数组提供。
 
 例子：
 
-```json
+```json5
 // ...
    "timeout": {
       "type": "number",
@@ -679,13 +1193,17 @@ data: {
 
 对于未改变的`__different__`必须返回不同的值：
 
-```
-Input:
+输入：
+
+```json
 data: {
    timeout: [1000, 2000, 3000]
 }
+```
 
-Output if timeout was not changed:
+如果超时未改变，则输出：
+
+```json
 newData: {
    timeout: "__different__"
 }
@@ -716,91 +1234,11 @@ newData: {
 - 名称 `port` => 数字，最小值=1，最大值=0xFFFF
 - 名称 `timeout` => 数字，帮助="ms"
 
-如果元素没有属性`type`，则假定它具有默认类型“面板”。
+待办事项
+以下章节取自原版SCHEMA.MD。
+内容理解不够详细，需要bluefox改进。
 
-## 面板样式
-您也可以为面板提供样式。以下是带有面板背景的示例：
-
-```json
-{
-    "i18n": true,
-    "type": "panel",
-    "style": {
-        "backgroundImage": "url(adapter/mpd/background.png)",
-        "backgroundPosition": "top",
-        "backgroundRepeat": "no-repeat",
-        "backgroundSize": "cover"
-    },
-    "items": {
-        "...": {}
-    }
-}
-```
-
-国际化
-提供翻译的选项有多种。
-只有第一个与我们的社区翻译工具 Weblate 兼容，因此它应该比其他的更受青睐！
-
-1.用户可以提供文件中的文本。
-
-在结构的顶层设置`i18n: true`并在管理中提供文件：
-
--`admin/i18n/de/translations.json`
--`admin/i18n/en/translations.json`
--   ...
-
-或者
-
--`admin/i18n/de.json`
--`admin/i18n/en.json`
--   ...
-
-此外，用户可以提供 i18n 文件的路径，`i18n: "customI18n"`并在管理员中提供文件：
-
--`admin/customI18n/de/translations.json`
--`admin/customI18n/en/translations.json`
--   ...
-
-或者
-
--`admin/customI18n/de.json`
--`admin/customI18n/en.json`
--   ...
-
-2. 用户可以直接在标签中提供翻译，例如：
-
-```json
-{
-   "type": "text",
-   "label: {
-        "en": "Label",
-        "de": "Taxt"
-    }
-}
-```
-
-3. 用户可以在 i18n 属性中提供翻译：
-
-```json
-{
-    "18n": {
-        "My Text: {
-            "en": "My Text",
-            "de": "Mein Text"
-        },
-        "My Text2: {
-            "en": "My Text2",
-            "de": "Mein Text2"
-        },
-    },
-    "type": "panel",
-    ...
-}
-```
-
-我们建议尽可能使用变体 1，因为它可以使用 Weblate 处理文本。
-
-JS 函数
+## JS 函数
 ### 配置对话框
 JS 函数为：
 
@@ -818,11 +1256,10 @@ const func = new Function(
   '_instance',     // instance number
   'arrayIndex',    // filled only by table and represents the row index
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
-  '_changed'       // indicator if some data was changed and must be saved
+  '_changed',      // indicator if some data was changed and must be saved
   myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
 
 const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, this.props.socket);
-
 ```
 
 如果`alive`状态发生变化，则所有字段都必须重新更新、验证、禁用和隐藏。
@@ -842,19 +1279,28 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 JS 函数为：
 
 ```js
-const myValidator = "customObj.common.type === 'boolean' && data.options.myType == 2";
+const myValidator =
+  "customObj.common.type === 'boolean' && data.options.myType == 2";
 
 const func = new Function(
-  'data',
-  'originalData',
-  '_system',
-  'instanceObj',
-  'customObj',
-  '_socket',
+  "data",
+  "originalData",
+  "_system",
+  "instanceObj",
+  "customObj",
+  "_socket",
   arrayIndex,
-  myValidator.includes('return') ? myValidator : 'return ' + myValidator); // e.g. "_alive === true"
+  myValidator.includes("return") ? myValidator : "return " + myValidator
+); // e.g. "_alive === true"
 
-const isValid = func(data || this.props.data, this.props.originalData, this.props.systemConfig, instanceObj, customObj, this.props.socket);
+const isValid = func(
+  data || this.props.data,
+  this.props.originalData,
+  this.props.systemConfig,
+  instanceObj,
+  customObj,
+  this.props.socket
+);
 ```
 
 自定义设置中的 JS 函数中可以使用以下变量：
@@ -871,7 +1317,7 @@ const isValid = func(data || this.props.data, this.props.originalData, this.prop
 ## 自定义组件
 ```jsx
 <CustomInstancesEditor
-    common={common data}
+    common={common.data}
     alive={isInstanceAlive}
     data={data}
     socket={this.props.socket}
@@ -886,5 +1332,5 @@ const isValid = func(data || this.props.data, this.props.originalData, this.prop
 
 您可以在[`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) 或在 [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) 适配器中找到示例。
 
-## 架构
-架构为[这里](https://github.com/ioBroker/adapter-react-v5/tree/master/schemas)
+## 对于维护者
+要更新 JsonConfig 模式的位置，请对此文件创建拉取请求：https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json

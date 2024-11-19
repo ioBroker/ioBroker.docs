@@ -32,8 +32,8 @@ Most Homematic IP devices are already working with the latest adapter version.
 I will improve it constantly, but it will take time. Any help from the community through e.g. Pull Request would be highly appreciated.
 
 For not working HmIP devices, please create an issue with this info (please one per device and if possible, the technical name in the subject).
-Switch adapter logging in ioBroker to silly mode and add the json of the device, which is printed to the log in the issue.
-I may also need a json of a state change.
+Switch adapter logging in ioBroker to silly mode and add the JSON of the device, which is printed to the log in the issue.
+I may also need a JSON of a state change.
 
 Thank you!
 
@@ -66,6 +66,11 @@ https://github.com/ioBroker/AdapterRequests/issues/62
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.25.0 (2024-11-08)
+* (bluefox) Updated packages
+* (bluefox) User prettier for code
+* (bluefox) Added GUI test for the admin component
+
 ### 1.24.3 (2024-09-02)
 * (bluefox) GUI was migrated for Admin 7
 * (bluefox) Removed gulp

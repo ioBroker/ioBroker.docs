@@ -1402,6 +1402,10 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.5.2 (2024-11-16)
+
+* (crycode-de) Added missing sizes to jsonConfig
+
 ### 2.5.1 (2024-10-23)
 
 * (crycode-de) Small style fixes for jsonConfig

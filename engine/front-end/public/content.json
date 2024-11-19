@@ -697,9 +697,9 @@
         "JSON config": {
           "title": {
             "en": "JSON config",
-            "de": "ioBroker JSON-Konfiguration",
-            "ru": "Конфигурация JSON ioBroker",
-            "zh-cn": "ioBroker JSON 配置"
+            "de": "ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger",
+            "ru": "Конфигурация ioBroker JSON: руководство для начинающих",
+            "zh-cn": "ioBroker JSON 配置：初学者指南"
           },
           "content": "dev/adapterjsonconfig.md"
         },

@@ -49,6 +49,10 @@ A derived version of this adapter supporting control of VBus devices is availabl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (simatec) Responsive Design added
+
 ### 0.4.0 (2024-08-13) - 2024H2 maintenance release
 
 * (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
