@@ -50,7 +50,12 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### **WORK IN PROGRESS**
+### 3.1.0 (2024-11-18)
+
+* (@simatec) Added responsive jsonConfig
+* (@klein0r) Copy unit of source state to all statistic states
+
+### 3.0.0 (2024-11-15)
 NodeJS >= 18.x and js-controller >= 5 is required
 
 ### 2.4.0 (2023-11-03)
@@ -74,12 +79,6 @@ NodeJS 14.5.0 is required
 * (klein0r) Delete states when option in unchecked
 * (klein0r) Removed dayMin and dayMax from avg (use minmax for that case!)
 * (klein0r) Fix: Calculation of avg when no change of value
-
-### 2.2.0 (2022-07-07)
-* (klein0r) Added absolute min and max values
-
-### 2.1.1 (2022-06-16)
-* (klein0r) Fixed usage of default values for groups
 
 ## License
 

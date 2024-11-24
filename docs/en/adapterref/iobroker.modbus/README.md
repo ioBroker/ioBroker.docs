@@ -307,6 +307,10 @@ There are some programs in folder `test` to test the TCP communication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 6.4.0 (2024-11-22)
+* (bluefox) Moved GUI compilation to vite
+* (bluefox) Added error message if the response length is invalid
+
 ### 6.3.2 (2024-08-29)
 * (bluefox) Corrected the error with alignment of addresses
 
@@ -329,7 +333,7 @@ There are some programs in folder `test` to test the TCP communication:
 ### 6.2.0 (2024-04-12)
 * (PLCHome) String based on 16-bit values big endian as well as little endian
 * (PLCHome) Raw data as a hex string
-* (PLCHome) Fix issue stringle was always converted to number for slave
+* (PLCHome) Fix issue `stringle` was always converted to number for slave
 * (PLCHome) Enable formula for strings and hex strings
 
 ### 6.1.0 (2023-12-14)

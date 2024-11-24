@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: 6kBlzH6zxfy578l1FZq6McfUTKvGCnx0zZu0mOuGsNA=
+hash: bFO4J2oEmtx4GO7FlT9xZuyTC9CdV29rY+k1Hy8OIqQ=
 ---
 # IoBroker.nibeuplink
 
@@ -16,43 +16,60 @@ hash: 6kBlzH6zxfy578l1FZq6McfUTKvGCnx0zZu0mOuGsNA=
 [![Build-Status](https://github.com/sebilm/ioBroker.nibeuplink/workflows/Test%20and%20Release/badge.svg)](https://github.com/sebilm/ioBroker.nibeuplink/actions/workflows/test-and-release.yml)
 
 ## Nibeuplink-Adapter für ioBroker
-Dieser ioBroker-Adapter empfängt Daten von einer Nibe-Wärmepumpe von Nibe Uplink.
-Dieser Adapter funktioniert NICHT mit Nibe myUplink! Es funktioniert daher NICHT mit Wärmepumpen der S-Serie wie Nibe VVM S320.
+**Die nibeuplink API wurde offiziell eingestellt! Aus diesem Grund wird dieser ioBroker-Adapter nicht weiter entwickelt! Bitte verwenden Sie den myUplink-Adapter!**
 
-## Mit diesem Adapter
-1. Sie brauchen eine Nibe-Wärmepumpe - kaufen Sie eine, wenn Sie keine haben ;-)
+Dieser ioBroker-Adapter empfängt Daten von einer Nibe-Wärmepumpe über Nibe Uplink.
+Dieser Adapter funktioniert NICHT mit Nibe myUplink! Er funktioniert daher NICHT mit Wärmepumpen der S-Serie wie Nibe VVM S320.
+
+## Verwendung dieses Adapters
+1. Sie benötigen eine Nibe-Wärmepumpe – kaufen Sie eine, wenn Sie keine haben ;-)
 2. Sie benötigen ein Konto bei Nibe Uplink: https://www.nibeuplink.com/
 3. Nach dem Einloggen haben Sie eine URL in dieser Form: https://www.nibeuplink.com/System/XXXXX/Status/Overview
-4. Anstelle von XXXXX steht eine Zahl. Dies ist Ihre System-ID. Wir brauchen diesen Ausweis.
+4. Statt XXXXX steht hier eine Zahl. Das ist Ihre System-ID. Diese ID benötigen wir.
 5. Gehen Sie zu Nibe Uplink Api: https://api.nibeuplink.com/Account/LogIn und melden Sie sich an
-6. Klicken Sie auf „MEINE ANWENDUNGEN“ und dann auf „Bewerbung erstellen“
-7. Ausfüllen: Name und Beschreibung können alles sein, z. ioBroker
-8. Die Callback-URL ist wichtig. Sie können https://sebilm.github.io/ioBroker.nibeuplink/nibe.html verwenden
-9. Akzeptieren Sie den Servicevertrag für die NIBE Uplink API und klicken Sie auf „Anwendung erstellen“.
-10. Dann erhalten Sie einen Identifier und ein Secret - wir brauchen sie
+6. Klicken Sie auf „MEINE BEWERBUNGEN“ und dann auf „Bewerbung erstellen“
+7. Ausfüllen: Name und Beschreibung können beliebig sein, z.B. ioBroker
+8. Die Callback-URL ist wichtig. Sie können https://sebilm.github.io/ioBroker.nibeuplink/nibe.html verwenden.
+9. Akzeptieren Sie die NIBE Uplink API Services-Vereinbarung und klicken Sie auf „Anwendung erstellen“
+10. Dann erhalten Sie eine Kennung und ein Geheimnis - wir brauchen sie
 11. Installieren Sie diesen Adapter in ioBroker
-12. Geben Sie auf der Seite mit den Adaptereinstellungen die Kennung und das Geheimnis ein.
-13. Klicken Sie auf den Link „Klicken Sie hier, um den Auth-Code auf NIBE Uplink zu generieren“.
-14. Befolgen Sie die Anweisungen. Am Ende erhalten Sie Ihren Nibe-Fetcher-Code
-15. Kopieren Sie diesen Code und fügen Sie ihn in den Adaptereinstellungen unter „Auth Code“ ein.
-16. Geben Sie Ihre System-ID von der Nibe-Uplink-URL ein.
+12. Geben Sie auf der Adaptereinstellungsseite die Kennung und das Geheimnis ein.
+13. Klicken Sie auf den Link „Klicken Sie hier, um den Authentifizierungscode für NIBE Uplink zu generieren.“
+14. Folgen Sie den Anweisungen. Am Ende erhalten Sie Ihren Nibe-Fetcher-Code
+15. Kopiere diesen Code und füge ihn in den Adaptereinstellungen bei „Auth Code“ ein.
+16. Geben Sie Ihre System-ID aus der Nibe-Uplink-URL ein.
 17. Wählen Sie Ihre Sprache.
-18. Klicken Sie auf Speichern und schließen
+18. Klicken Sie auf Speichern und Schließen
 
-Wenn Sie (später) einen "400 Bad Request"-Fehler im Protokoll erhalten, müssen Sie einen neuen Auth-Code erhalten - ebenso die Nummern 13 bis 15 und 18.
+Wenn Sie (später) einen „400 Bad Request“-Fehler im Protokoll erhalten, müssen Sie einen neuen Authentifizierungscode anfordern – dies gilt auch für die Nummern 13 bis 15 und 18.
 
-## Unterstützung für Verwaltung/Schreiben
+## Unterstützung verwalten/schreiben
 Anscheinend können Sie nur die auf der folgenden Webseite aufgeführten Parameter ändern:
 
-https://api.nibeuplink.com/docs/v1/Parameters (Abschnitt Einstellungen)
+https://api.nibeuplink.com/docs/v1/Parameters (Abschnitt „Einstellungen“)
 
 Der Parameter „hot_water_boost“ hat die Parameter-ID 48132.
 
-Sie können andere Werte lesen, aber ich denke, Sie können keine anderen Werte schreiben. Andere Werte sind hier aufgelistet:
+Man kann andere Werte lesen, aber ich glaube nicht, dass man andere Werte schreiben kann. Andere Werte sind hier aufgelistet:
 
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.3.2 (2024-11-10)
+- The nibeuplink API has been officially discontinued! For this reason, this ioBroker adapter will not be developed any further! Please use the myUplink adapter!
+- Dependencies have been updated
+
+### 1.3.1 (2023-12-23)
+- Bump dependencies
+
+### 1.3.0 (2023-08-27)
+- Remove NodeJS 14 support
+- Support strings as parameters in the management #241
+- Bump dependencies
+
+### 1.2.2 (2023-04-07)
+- Bump dependencies
+
 ### 1.2.1 (2022-10-03)
 - Fix getting data directory
 
@@ -170,7 +187,7 @@ https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 MIT License
 
-Copyright (c) 2022 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2024 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

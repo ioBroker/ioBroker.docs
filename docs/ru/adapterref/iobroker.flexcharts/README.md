@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: HkappwCbGmLaXInEwFRFzBYV9Kx9Tctl60Noxmd77YM=
+hash: bg7vZAhUrEEfOHPWcLi2QWejGsWx19+UsdyyKnWX0u4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -20,7 +20,7 @@ hash: HkappwCbGmLaXInEwFRFzBYV9Kx9Tctl60Noxmd77YM=
 # Основная концепция
 Для просмотра диаграмм в ioBroker доступно несколько адаптеров. Насколько мне известно, все они используют пользовательский интерфейс для настройки содержимого и параметров диаграмм. Обычно не все функции используемой графической подсистемы могут быть использованы таким образом. Например, невозможно просматривать полнофункциональные стековые диаграммы с помощью eChart-Adapter.
 
-Этот адаптер использует другой подход. Он приносит полный набор функций [Apache ECharts](https://echarts.apache.org/en/index.html) для ioBroker. Посмотрите [демонстрационные графики](https://echarts.apache.org/examples/en/index.html).
+Этот адаптер использует другой подход. Он приносит почти полный набор функций [Apache ECharts](https://echarts.apache.org/en/index.html) в ioBroker. Взгляните на [демонстрационные графики](https://echarts.apache.org/examples/en/index.html).
 
 Примечание: Адаптер пока не тестировался на MacOS.
 
@@ -47,20 +47,22 @@ hash: HkappwCbGmLaXInEwFRFzBYV9Kx9Tctl60Noxmd77YM=
 }
 ```
 
-Адаптер flexchart затем покажет эту диаграмму: ![flexcharts_stacked1](https://github.com/user-attachments/assets/7cf6dfab-ddad-4b2f-a1e1-20fa4b876b4c)
+Адаптер flexchart затем отобразит следующую диаграмму:
+
+![flexcharts_stacked1](https://github.com/user-attachments/assets/7cf6dfab-ddad-4b2f-a1e1-20fa4b876b4c)
 
 Обычно для создания и обновления контента этого состояния используется Blockly или JavaScript.
 
 Есть еще одна возможность напрямую передавать данные eCharts через функцию обратного вызова в javascript. Подробности см. ниже.
 
 Для ясности: этот подход не предназначен для быстрого создания простой диаграммы.
-Но если у вас есть очень конкретная идея для более сложной диаграммы, flexcharts предлагает возможность реализовать ее.
+Но если у вас есть конкретная идея для более сложной диаграммы, flexcharts предлагает возможность ее реализовать.
 
 # Начиная
 ### Использование адаптера
-Этот адаптер предоставляет свою функциональность в качестве веб-расширения. Поэтому обязательно иметь установленный и работающий [веб-адаптер](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`). Предполагается, что вы используете стандартный порт 8082 для веб-адаптера.
+Этот адаптер предоставляет свою функциональность в качестве веб-расширения. Поэтому обязательно иметь установленный и работающий [веб-адаптер](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`). В этом файле readme предполагается, что вы используете стандартный порт 8082 для веб-адаптера.
 
-Когда адаптер flexcharts активен, вы можете получить к нему доступ по адресу http://localhost:8082/flexcharts/echarts.html (замените `localhost` на адрес вашего сервера ioBroker).
+Когда адаптер flexcharts активен, вы можете получить к нему доступ через http://localhost:8082/flexcharts/echarts.html (замените `localhost` на адрес вашего сервера ioBroker).
 
 Вы можете использовать этот адрес в виджетах iFrame vis или jarvis или других визуализациях. Конечно, вы также можете использовать его непосредственно во вкладке браузера.
 
@@ -69,27 +71,27 @@ hash: HkappwCbGmLaXInEwFRFzBYV9Kx9Tctl60Noxmd77YM=
 * `source=state` => Вы предоставляете данные диаграммы в состоянии ioBroker (json)
 * `source=script` => Вы предоставляете данные диаграммы через скрипт (javascript или блочный)
 
-Доступна встроенная демонстрационная диаграмма: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
+Доступны дополнительные опции, пожалуйста, обратитесь к [справочный раздел](#reference)
 
-Чтобы использовать темный режим ECharts, добавьте `&darkmode`, например http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&darkmode
+Для проверки правильности установки адаптера используйте встроенную демонстрационную диаграмму: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
 
-Чтобы включить регулярное обновление графика, используйте параметр `&refresh`, например, http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&refresh=15 для обновления графика каждые 15 секунд. Минимальное значение — 5 секунд. По умолчанию — 60 секунд.
-
-### Использовать состояние ioBroker как источник для диаграммы
+### Использовать состояние ioBroker как источник для eChart
 Пример: `http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userdata.0.echarts.chart1`
 
 <!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
 
 Flexcharts оценит состояние `0_userdata.0.echarts.chart1` как данные для eChart. Попробуйте: создайте такое состояние и скопируйте данные json из примера, показанного выше (`{ "tooltip": { ...`) как содержимое состояния, затем получите доступ к указанному адресу с помощью браузера.
 
-### Используйте JavaScript в качестве источника для диаграммы
-Это немного сложнее, но гораздо эффективнее. Вы предоставляете данные диаграмм напрямую вашим скриптом JS, который динамически вызывается адаптером flexcharts.
+### Используйте JavaScript в качестве источника для eChart
+Это немного сложнее, но гораздо эффективнее и гибче. Вы предоставляете данные диаграмм напрямую вашим скриптом JS, который динамически вызывается адаптером flexcharts. Вы можете передать дополнительные параметры вашему скрипту, добавив параметры к http-адресу, например, `&chart=chart1`. Все http-параметры доступны внутри скрипта в объекте `httpParams` (см. пример ниже).
 
 Опять же, лучше всего объяснить на примере. Создайте скрипт с этим содержимым (поддерживается только первый экземпляр JS (**javascript.0**), имя скрипта не имеет значения):
 
 ```
-onMessage('flexcharts', (data, callback) => {
-    console.log(`data = ${JSON.stringify(data)}`);
+onMessage('flexcharts', (httpParams, callback) => {
+    const myJsonParams  = (httpParams.myjsonparams ? JSON.parse(httpParams.myjsonparams) : {} );
+    console.log(`httpParams = ${JSON.stringify(httpParams)}`);
+    console.log(`myJsonParams = ${JSON.stringify(myJsonParams)}`);
     chart1(result => callback(result));
 });
 
@@ -123,21 +125,56 @@ function chart1(callback) {
 
 Должна появиться та же диаграмма, что и в предыдущем примере.
 
+Вы должны получить две записи в журнале примера скрипта:
+
+```
+httpParams = {"message":"mylinechart","source":"script"}
+myJsonParams = {}
+```
+
+Дополнительные параметры могут быть переданы в скрипт и будут доступны в скрипте в переменной `httpParams`. Попробуйте следующую команду: `http://localhost:8082/flexcharts/echarts.html?source=script&chart=chart1&myjsonparams={"period":"daily"}`
+
+Записи журнала теперь должны выглядеть так:
+
+```
+httpParams = {"source":"script","chart":"chart1","myjsonparams":"{\"period\":\"daily\"}"}`
+myJsonParams = {"period":"daily"}
+```
+
 Пожалуйста, обратите внимание, **вам необходимо использовать функциональность `onMessage()` для получения триггера от адаптера**. Значение по умолчанию для сообщения — `flexcharts`, как показано в примере выше. Вы можете использовать другие сообщения, указав дополнительный параметр, например, чтобы использовать сообщение `mycharts`, добавьте `&message=mycharts` к http-адресу: `http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
 
-Дополнительные параметры могут быть переданы в скрипт и будут доступны в скрипте в переменной `data`. Попробуйте следующую команду: `http://localhost:8082/flexcharts/echarts.html?source=script&chart=chart1&params={"period":"daily"}`
+## Шаблоны
+Шаблоны Javascript доступны для некоторых вариантов использования:
 
-Это должно дать запись журнала в примере скрипта: `data = {"source":"script","chart":"chart1","params":"{\"period\":\"daily\"}"}`
+* диаграмма с использованием данных из адаптера истории: [template1](templates/flexchartsTemplate1.js)
+* простая диаграмма для тепловой кривой: [template2](templates/flexchartsTemplate2.js)
+* Для устройств Viessmann серии E3 доступен очень специфический вариант использования, например, тепловой насос Vitocal 250. См. https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
-Я работаю над более сложными шаблонами javascript для упрощения использования адаптера. Доступен [первый шаблон](templates/flexchartsTemplate1.js), см. шаблоны папок.
-Для устройств Viessmann серии E3 доступен очень специфический вариант использования, например, тепловой насос Vitocal 250. См. https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35. Дальше больше. Оставайтесь с нами.
+## Ссылка
+Использовать **состояние ioBroker** в качестве источника данных: `http://localhost:8082/flexcharts/echarts.html?source=state&id=my_state_id`
+
+Использовать **javascript** в качестве источника данных: `http://localhost:8082/flexcharts/echarts.html?source=script`
+
+### Необязательные аргументы
+* `&message=my_message` - отправляет "my_message" в javascript. Используйте `onMessage('my_message', (httpParams, callback) => { callback(mychart); })` для предоставления данных диаграммы. По умолчанию `flexcharts`.
+* `&darkmode` - активирует темный режим визуализации ECharts.
+* `&refresh=number` - обновлять график каждые "number" секунд. По умолчанию 60 секунд. Минимально допустимое значение 5 секунд.
+* `&user_defined_arguments` - Добавьте больше параметров по мере необходимости. Все аргументы доступны в функции `onMessage()` в объекте `httpParams`. См. примеры выше и шаблоны для получения более подробной информации.
+
+### Встроенная демонстрационная диаграмма
+Доступна встроенная демонстрационная диаграмма: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
+
+Это должно открыть демонстрационную диаграмму при запуске flexcharts- и web-адаптера.
+
+**Примечание:** Замените `localhost` на адрес вашего сервера ioBroker. Замените `8082` на номер порта, используемый вашим веб-адаптером.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.0 (2024-11-06)
+* (MyHomeMyData) Updated readme. Added sections Templates and Reference.
 * (MyHomeMyData) Fix for issue #41 (findings of repository checker)
 * (MyHomeMyData) Updated ECharts to version 5.5.1, see issue #40
 * (MyHomeMyData) Fix for issue #39 (html warnings)

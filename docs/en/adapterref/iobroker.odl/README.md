@@ -38,6 +38,10 @@ When the adapter is started for the first time, the time for retrieving the data
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.0.2 (2024-11-16)
+
+* (crycode-de) Added missing sizes to jsonConfig
+
 ### 4.0.1 (2024-10-23)
 
 * (crycode-de) Added support for tiny screens to jsonConfig
@@ -149,7 +153,7 @@ When the adapter is started for the first time, the time for retrieving the data
 
 Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
 
-Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
+Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 
 ### MIT License
 

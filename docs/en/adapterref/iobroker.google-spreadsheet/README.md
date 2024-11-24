@@ -105,6 +105,9 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0
+* (Thomas Pohl) Minimum node.js version is now 20
+* (Thomas Pohl) Display connection state
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
@@ -116,7 +119,6 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 * (Thomas Pohl) Documentation for all features
 ### 0.2.0
 * (Thomas Pohl) Parsing of private keys is now more robust
-
 ### 0.1.0
 * (Thomas Pohl) Preparation for first stable release
 * (Thomas Pohl) Improve logging + Code cleanup

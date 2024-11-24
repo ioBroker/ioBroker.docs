@@ -25,6 +25,17 @@ bmw.0.VIN.properties
 bmw.0.VIN.remotev2
 
 ## Changelog
+
+### 2.8.4 (2024-11-21)
+
+- improved charging session parsing
+- added remote to fetch charging session from a specific month
+- added raw JSON of charging session for export
+
+### 2.8.3 (2024-11-18)
+
+- login fixed
+
 ### 2.8.2 (2024-10-05)
 
 - fix error getvehicles v2 failed

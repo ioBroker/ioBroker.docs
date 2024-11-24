@@ -42,26 +42,22 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.5 (2024-11-22)
+* Add native entries to io-package
+
+### 5.0.4 (2024-11-12)
+* add missing size attributes for config
+* dependabot updates
+
+### 5.0.3 (2024-11-11)
+* add missing size attributes for config
+
+### 5.0.2 (2024-11-02)
+* check on ems-esp api errors for ../api/system..
+
 ### 5.0.1 (2024-11-01)
 * update dependencies
 * new log entry for private password (km200) since enryption is changed
-
-### 5.0.0 (2024-10-27)
-* change encryption for private passwort (km200) - needs to be re-entered
-
-### 4.9.2 (2024-10-27)
-* update translations
-* responsive design added
-
-### 4.9.1 (2024-10-01)
-* update dependencies
-* update translations
-
-### 4.9.0 (2024-09-26)
-* ems-esp: improve reading for temperatureSensors
-* support small screens
-* update dependencies
-* update translations
 
 ## License
 MIT License

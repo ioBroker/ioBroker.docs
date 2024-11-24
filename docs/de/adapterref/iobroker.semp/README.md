@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: dC7K359kH1AF9pJs23+dFLjAfoVtQD6sxsg/LNj7xgY=
+hash: 3eKCgekKBWAZFRi0xTm5M+gZjWwArpIfn2sr5r8I5gY=
 ---
 ![Logo](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -15,15 +15,15 @@ hash: dC7K359kH1AF9pJs23+dFLjAfoVtQD6sxsg/LNj7xgY=
 ![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 # IoBroker.semp
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
@@ -32,21 +32,21 @@ hash: dC7K359kH1AF9pJs23+dFLjAfoVtQD6sxsg/LNj7xgY=
 ## SMA SEMP-Adapter für ioBroker
 Schnittstelle zum SMA SunnyPortal über SunnyHomeManager und SEMP
 
-Fügen Sie Ihre Geräte von ioBroker im SunnyPortal hinzu.
-SunnyPortal kann dann Ihren Energieverbrauch besser einschätzen und so bessere Vorhersagen und Empfehlungen treffen. Sie können Ihre Geräte aber auch über SunnyPortal steuern lassen. Wenn genügend Solarenergie vorhanden ist, kann das SunnyPortal Ihre Geräte einschalten oder, wenn nicht genügend Solarenergie vorhanden ist, diese wieder ausschalten. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter kann jedes Gerät des ioBrokers in das SunnyPortal integriert werden.
-Es ist nicht einmal notwendig, den Verbrauch eines einzelnen Geräts zu messen. Auch Schätzwerte reichen aus.
+Fügen Sie Ihre Geräte aus dem ioBroker in SunnyPortal hinzu.
+SunnyPortal kann dann Ihren Energieverbrauch besser einschätzen und so bessere Vorhersagen und Empfehlungen treffen. Sie können Ihre Geräte aber auch von SunnyPortal steuern lassen. Bei ausreichender Solarenergie kann das SunnyPortal Ihre Geräte einschalten oder bei zu geringer Solarenergie wieder ausschalten. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter lässt sich jedes beliebige Gerät aus dem ioBroker in das SunnyPortal integrieren.
+Es ist nicht einmal notwendig, dass der Verbrauch eines einzelnen Gerätes gemessen wird. Schon geschätzte Werte reichen aus.
 
 ## Benutzerdokumentation
-siehe [Doku](docu/docu_en.md)
+siehe [Doku](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
 
-Einzelheiten zum Protokoll und zur Verwendung finden Sie unter [SMA-Doku](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
+Einzelheiten zu Protokoll und Verwendung finden Sie unter [SMA Doku](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
-Eine Beschreibung zur allgemeinen Nutzung von Energieanfragen finden Sie in [SMA-Doku](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (nur deutsch)
+Eine Beschreibung zur generellen Verwendung von Energieanfragen finden Sie unter [SMA Doku](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf).
 
 ## Merkmale
-* Geräte von ioBroker im SunnyPortal über SMA SEMP hinzufügen
+* Geräte vom ioBroker über SMA SEMP in SunnyPortal hinzufügen
 * informiert das SunnyPortal über den aktuellen Verbrauch
-* Lassen Sie SunnyPortal diese Geräte steuern (einschalten, wenn genügend PV-Leistung vorhanden ist, und ausschalten, wenn nicht genügend Solarenergie vorhanden ist)
+* diese Geräte über SunnyPortal steuern lassen (einschalten bei ausreichender PV-Leistung und ausschalten bei zu wenig Solarenergie)
 
 ## Anforderungen
 ## Bekannte Probleme
@@ -58,6 +58,46 @@ Eine Beschreibung zur allgemeinen Nutzung von Energieanfragen finden Sie in [SMA
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.8 (2024-11-20)
+* (René) update dependencies
+* (René) issue #317: test with nodejs@22
+* (René) issue #329: links to docu updated
+
+### 1.4.7 (2024-09-13)
+* (René) see issue #314: bug fix to use express@5.0.0
+
+### 1.4.6 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 1.4.5 (2024-05-29)
+* (René) see issue #250: no Power to be send for devices without measurement in off-status
+
+### 1.4.4 (2024-05-28)
+* (René) change of dependencies
+* (René) wallbox: check and log wrong value for Wallbox3phaseSwitchDelay only if enabled
+
+### 1.4.3 (2024-02-20)
+* (René) wallbox: unnecessary warn messages deactivated
+* (René) dependencies updated
+
+### 1.4.2 (2024-02-16)
+* (René) bug fix in create timeframes
+
+### 1.4.1 (2024-02-12)
+* (René) minor bug fix
+
+### 1.4.0 (2024-02-12)
+* (René) bug fix: see issue #206 - wallbox OID's selectable
+* (René) bug fix: see issue #207 - wallbox maximum charge time adjustable 
+* (René) see issue #208: timeframe can be disabled by user (optionally)
+
+### 1.3.15 (2024-02-03)
+* (René) bug fix: wallbox counter and status are not handled
+
+### 1.3.14 (2024-01-12)
+* (René) dependencies updated
+
 ### 1.3.13 (2023-11-19)
 * (René) dependencies updated
 * (René) fix exceptions reported by sentry
@@ -167,7 +207,7 @@ Eine Beschreibung zur allgemeinen Nutzung von Energieanfragen finden Sie in [SMA
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

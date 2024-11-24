@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.jarvis/README.md
 title: ioBroker.jarvis
-hash: KSvW8ve4ZT7Jk52w78rJmlfhmgzdUxEPaSPja/wZZsA=
+hash: 7dGnIcESzpt2hq2CRF8X0hdehc4Sx3hFqFZfOmFh0Ic=
 ---
 ![标识](../../../en/adapterref/iobroker.jarvis/admin/jarvis.png)
 
@@ -17,7 +17,7 @@ hash: KSvW8ve4ZT7Jk52w78rJmlfhmgzdUxEPaSPja/wZZsA=
 ![正在测试或等待反馈](https://img.shields.io/github/issues-search/Zefau/ioBroker.jarvis?query=is%3Aissue%20is%3Aopen%20label%3A%22%23status%3A%20ready-to-test%20%3Aheavy_check_mark%3A%22%2C%22%23status%3A%20waiting-for-feedback%20%3Ahourglass%3A%22%20&label=in%20testing%20or%20waiting%20for%20feedback&color=green)
 
 # IoBroker.jarvis jarvis - 又一个非凡的 vis
-[![npm 发布]（https://github.com/Zefau/ioBroker.jarvis/actions/workflows/publish-npm.yml/badge.svg）](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/publish-npm.yml)
+[![测试与发布](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Zefau/ioBroker.jarvis/actions/workflows/test-and-release.yml)
 
 ## Anleitung / 安装 / Hilfe
 瞧[Wiki 中的链接汇总](https://github.com/Zefau/ioBroker.jarvis/wiki)。

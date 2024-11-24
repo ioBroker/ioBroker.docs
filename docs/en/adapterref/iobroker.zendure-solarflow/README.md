@@ -24,7 +24,7 @@ You can read more about the API here: https://github.com/Zendure/developer-devic
 - Stop input if one battery drops into low voltage (battery protect). Works only when setting the output limit via the adapter
 - Control more than one Solarflow at the same time!
 - Get more precise calculations!
-- Works with all Zendure SolarFlow devices: HUB1200 (tested), HUB2000 and AIO (both untested)!
+- Works with all Zendure SolarFlow devices: HUB1200, Hyper2000, HUB2000 and AIO! I can test only on HUB1200 as I don't own the other devices...
 
 ## Notes
 
@@ -33,6 +33,8 @@ You can read more about the API here: https://github.com/Zendure/developer-devic
    ![Solarflow Settings Window](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
 2. You will be logged out of the official iOS or Android App after logging in with the ioBroker adapter. This is a normal behavior. As a workaround you can create an second Zendure account with another e-mail and grant access to your Solarflow HUB to this account. Then use the second account for ioBroker / the Zendure Solarflow adapter.
+
+3. The Adapter will show a +10W use on battery if no solar input and device is online. This will reflect the "stand-by" usage of the device.
 
 ## Credits
 
@@ -46,6 +48,23 @@ If you find the adapter useful for you and want to support my work, feel free to
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.9.3 (2024-11-22)
+
+- Fix for Low Voltage Block not deactivated.
+
+### 1.9.2 (2024-11-21)
+
+- Fix some state definitions
+
+### 1.9.1 (2024-11-21)
+
+- Improvement for 'Low Voltage Block'.
+- Changed the state "hubState" a an option value.
+
+### 1.9.0 (2024-11-20)
+
+- New option to force Solarflow device to go offline when "Low Voltage Block"-option is used.
+
 ### 1.8.8 (2024-09-20)
 
 - Improve connection retry, expand the time with every retry attempt.

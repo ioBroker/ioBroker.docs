@@ -25,12 +25,22 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 * [English description](./docs/en/README.md)
 * [Deutsche Beschreibung](./docs/de/README.md)
 * [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
+* [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1-alpha.11 (2024-11-12)
+- ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Overrides were not correctly applied (#272)
+- ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Timestamp of the last change was timestamp of the last update (#279)
+- ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Font-size could not be changed
+- ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Improved UI
+- ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Information Icon on the live-view, to inform the user about any errors that have occured
+- ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Responsive Design for Adapter-Admin area added to meet new requirements
+- ![](https://placehold.co/15x15/00B5DD/00B5DD.png) Added: Added: last change timestamp to datasource elements. Corresponds to fix (#279)
+
 ### 0.5.1-alpha.10 (2024-10-24)
 - ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Applied fill color of element could not be removed or set to transparent
 - ![](https://placehold.co/15x15/A1D343/A1D343.png) FIX: Own Styles could not be modified, if they were empty or not set

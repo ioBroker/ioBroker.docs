@@ -46,6 +46,13 @@ Examples:
 
 ## Changelog
 
+### 1.7.0 (2024-11-22)
+(mattreim) Hide virtual sensors function
+(mattreim) Hide switch groups function
+(mattreim) Update dependencies
+(mattreim) Updated/added some translations
+(mattreim) Some bug fixes and more
+
 ### 1.6.4 (2024-10-06)
 * (mattreim) Add "protectedNative" and "encryptedNative"
 * (mattreim) Fix websocket connection

@@ -77,6 +77,15 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.1.1 (2024-11-12)
+
+* (@klein0r) Added video list (yesterday)
+
+### 5.1.0 (2024-11-11)
+
+* (klein0r) Added groups
+* (klein0r) Added icons of channels to object list
+
 ### 5.0.0 (2024-04-03)
 
 NodeJS >= 18.x and js-controller >= 5 is required
@@ -92,16 +101,6 @@ NodeJS 16.x is required
 ### 4.3.0 (2023-08-28)
 
 * (klein0r) Added customUrl to JSON summary
-
-### 4.2.1 (2023-03-13)
-
-* (klein0r) Video data as JSON
-
-### 4.2.0 (2023-02-03)
-
-* (klein0r) Allow alias or custom url in configuration
-* (klein0r) Added request success indicators
-* (klein0r) Added Ukrainian language
 
 ## License
 

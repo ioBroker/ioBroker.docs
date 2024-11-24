@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint Adapter
-hash: ekRq8vpH7VxIxoTyjOdTaF1cYe0ObcYxRySl20Iw8Ek=
+hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -70,8 +70,14 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ### **IN ARBEIT** -->
 
 ## Changelog
-### 1.24.1 (2024-08-06)
+### 1.25.0 (2024-11-08)
+* (bluefox) Updated packages
+* (bluefox) User prettier for code
+* (bluefox) Added GUI test for the admin component
+
+### 1.24.3 (2024-09-02)
 * (bluefox) GUI was migrated for Admin 7
+* (bluefox) Removed gulp
 
 ### 1.23.4 (2024-07-07)
 * (Apollon77) previousShutterLevel and hardwareColorTemperatureColdWhite datatype corrected

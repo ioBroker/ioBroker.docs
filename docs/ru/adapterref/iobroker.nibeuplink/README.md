@@ -1,58 +1,75 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: 6kBlzH6zxfy578l1FZq6McfUTKvGCnx0zZu0mOuGsNA=
+hash: bFO4J2oEmtx4GO7FlT9xZuyTC9CdV29rY+k1Hy8OIqQ=
 ---
 # IoBroker.nibeuplink
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.nibeuplink.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.nibeuplink.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/nibeuplink-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.nibeuplink.svg)
 ![Количество установок](https://iobroker.live/badges/nibeuplink-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.nibeuplink.png?downloads=true)
 
-[![Статус сборки] (https://github.com/sebilm/ioBroker.nibeuplink/workflows/Test%20and%20Release/badge.svg)](https://github.com/sebilm/ioBroker.nibeuplink/actions/workflows/test-and-release.yml)
+[![Статус сборки](https://github.com/sebilm/ioBroker.nibeuplink/workflows/Test%20and%20Release/badge.svg)](https://github.com/sebilm/ioBroker.nibeuplink/actions/workflows/test-and-release.yml)
 
 ## Адаптер nibeuplink для ioBroker
-Этот адаптер ioBroker получает данные от теплового насоса Nibe от Nibe Uplink.
+**API nibeuplink официально прекращено! По этой причине этот адаптер ioBroker больше не будет разрабатываться! Пожалуйста, используйте адаптер myUplink!**
+
+Этот адаптер ioBroker получает данные от теплового насоса Nibe через Nibe Uplink.
 Этот адаптер НЕ работает с Nibe myUplink! Поэтому он НЕ работает с тепловыми насосами серии S, такими как Nibe VVM S320.
 
 ## Использование этого адаптера
 1. Вам нужен тепловой насос Nibe — купите его, если у вас его нет ;-)
-2. Вам нужна учетная запись на Nibe Uplink: https://www.nibeuplink.com/
-3. После входа в систему у вас есть URL-адрес в следующем виде: https://www.nibeuplink.com/System/XXXXX/Status/Overview.
-4. Вместо ХХХХХ стоит число. Это ваш идентификатор системы. Нам нужен этот идентификатор.
-5. Перейдите в Nibe Uplink Api: https://api.nibeuplink.com/Account/LogIn и войдите в систему.
-6. Нажмите «МОИ ПРИЛОЖЕНИЯ», а затем «Создать приложение».
-7. Заполните: Имя и Описание могут быть любыми, например. ioBroker
-8. URL-адрес обратного вызова важен. Вы можете использовать https://sebilm.github.io/ioBroker.nibeuplink/nibe.html
-9. Примите Соглашение об услугах NIBE Uplink API и нажмите «Создать приложение».
-10. Далее вы получаете Идентификатор и Секрет - они нам нужны
+2. Вам нужна учетная запись в Nibe Uplink: https://www.nibeuplink.com/
+3. После входа в систему у вас будет URL-адрес в следующем виде: https://www.nibeuplink.com/System/XXXXX/Status/Overview
+4. Вместо XXXXX стоит цифра. Это ваш системный ID. Нам нужен этот ID.
+5. Перейдите в Nibe Uplink API: https://api.nibeuplink.com/Account/LogIn и войдите в систему.
+6. Нажмите «МОИ ЗАЯВКИ», а затем «Создать заявку».
+7. Заполните: Имя и Описание могут быть любыми, например, ioBroker
+8. URL обратного вызова важен. Вы можете использовать https://sebilm.github.io/ioBroker.nibeuplink/nibe.html
+9. Примите Соглашение об услугах API Uplink NIBE и нажмите «Создать заявку».
+10. Затем вы получаете Идентификатор и Секрет — они нам нужны.
 11. Установите этот адаптер в ioBroker
-12. На странице настройки адаптера заполните Идентификатор и Секрет.
-13. Щелкните ссылку «Щелкните здесь, чтобы сгенерировать код авторизации на восходящем канале NIBE».
+12. На странице настроек адаптера заполните Идентификатор и Секрет.
+13. Щелкните ссылку «Щелкните здесь, чтобы сгенерировать код аутентификации на NIBE Uplink».
 14. Следуйте инструкциям. В конце вы получите свой код nibe-fetcher
-15. Скопируйте этот код и вставьте его в настройках адаптера в «Код авторизации».
-16. Введите свой системный идентификатор из URL-адреса Nibe Uplink.
-17. Выберите свой язык.
-18. Нажмите «Сохранить и закрыть».
+15. Скопируйте этот код и вставьте его в настройки адаптера в поле «Код авторизации».
+16. Введите идентификатор вашей системы из URL-адреса Nibe Uplink.
+17. Выберите язык.
+18. Нажмите «Сохранить» и «Закрыть».
 
-Если вы (позже) получите в журнале ошибку «400 неверный запрос», вы должны получить новый код авторизации — так же, как и номера с 13 по 15 и 18.
+Если (позже) в журнале появится сообщение об ошибке «400 bad request», вам необходимо будет получить новый код аутентификации — то же самое касается пунктов с 13 по 15 и 18.
 
-## Управление/Написать поддержку
-Кажется, вы можете изменить список параметров только на следующей веб-странице:
+## Поддержка управления/записи
+Похоже, изменить список параметров можно только на следующей веб-странице:
 
 https://api.nibeuplink.com/docs/v1/Parameters (раздел настроек)
 
-Параметр «hot_water_boost» — это параметр ID 48132.
+Параметр «hot_water_boost» имеет идентификатор 48132.
 
-Вы можете читать другие значения, но я думаю, что вы не можете писать другие значения. Здесь перечислены другие значения:
+Вы можете читать другие значения, но я думаю, что вы не можете записывать другие значения. Другие значения перечислены здесь:
 
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.3.2 (2024-11-10)
+- The nibeuplink API has been officially discontinued! For this reason, this ioBroker adapter will not be developed any further! Please use the myUplink adapter!
+- Dependencies have been updated
+
+### 1.3.1 (2023-12-23)
+- Bump dependencies
+
+### 1.3.0 (2023-08-27)
+- Remove NodeJS 14 support
+- Support strings as parameters in the management #241
+- Bump dependencies
+
+### 1.2.2 (2023-04-07)
+- Bump dependencies
+
 ### 1.2.1 (2022-10-03)
 - Fix getting data directory
 
@@ -170,7 +187,7 @@ https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 MIT License
 
-Copyright (c) 2022 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2024 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

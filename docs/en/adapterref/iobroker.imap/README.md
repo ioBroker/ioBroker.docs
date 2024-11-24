@@ -241,17 +241,24 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 [Summary](#summary)
 
-| Object                          | Description                                                                                                                                      |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| imap.0.xxx.remote.apply_html    | Apply change in imap.0.xxx.remote.html.                                                                                                          |
-| imap.0.xxx.remote.change_folder | Instance settings: Change post folder to be monitored and displayed. Will only be reset after a reboot.                                          |
-| imap.0.xxx.remote.criteria      | Instance settings: Change search. Will only be reset after a reboot.                                                                             |
-| imap.0.xxx.remote.reload_emails | Reload emails.                                                                                                                                   |
-| imap.0.xxx.remote.search_start  | Apply changes from change_folder, criteria and show_mails                                                                                        |
-| imap.0.xxx.remote.show_mails    | Instance settings: Number of emails (max. HTML) to be loaded. Will only be reset after a reboot. Should of course be greater than the value max. |
-| imap.0.xxx.remote.vis_command   | Command from the VIS to move mails from the selection boxes. Only used by VIS.                                                                   |
+| Object                                       | Description                                                                                                                                      |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| imap.0.xxx.remote.apply_html                 | Apply change in imap.0.xxx.remote.html.                                                                                                          |
+| imap.0.xxx.remote.change_folder              | Instance settings: Change post folder to be monitored and displayed. Will only be reset after a reboot.                                          |
+| imap.0.xxx.remote.criteria                   | Instance settings: Change search. Will only be reset after a reboot.                                                                             |
+| imap.0.xxx.remote.mailbox_folder_change_name | Change name of mailbox folder Example ["INBOX.imap", "INBOX.newimap"] [see](#folder-name)                                                        |
+| imap.0.xxx.remote.mailbox_folder_create      | Create mailbox folder                                                                                                                            |
+| imap.0.xxx.remote.mailbox_folder_delete      | Delete mailbox folder                                                                                                                            |
+| imap.0.xxx.remote.reload_emails              | Reload emails.                                                                                                                                   |
+| imap.0.xxx.remote.search_start               | Apply changes from change_folder, criteria and show_mails                                                                                        |
+| imap.0.xxx.remote.show_mails                 | Instance settings: Number of emails (max. HTML) to be loaded. Will only be reset after a reboot. Should of course be greater than the value max. |
+| imap.0.xxx.remote.vis_command                | Command from the VIS to move mails from the selection boxes. Only used by VIS.                                                                   |
 
 ![imap_overview_remote.png](img/imap_overview_remote.png)
+
+### Folder name
+
+Old folder names can be viewed in the imap.0.xxx.remote.change_folder object
 
 ### Data point `imap.0.username.remote.copy`
 
@@ -601,6 +608,19 @@ UNSEEN - Messages that do not have the Seen flag set.
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Mailbox folder delete added
+-   (Lucky-ESA) Mailbox folder create added
+-   (Lucky-ESA) Change Mailbox Folder name added
+-   (Lucky-ESA) IMAP package changed
+
+### 0.2.2 (2024-11-07)
+
+-   (Lucky-ESA) New design for settings page added
+-   (Lucky-ESA) Crash if uid is empty for new emails
+
 ### 0.2.1 (2024-09-16)
 
 -   (Lucky-ESA) Update dependencies

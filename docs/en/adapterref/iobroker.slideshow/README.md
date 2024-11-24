@@ -132,7 +132,7 @@ Also configurable is how often the list of images should be updated. The setting
 
 When source "File system" is selected, the path can be entered and the format (landscape or portrait) of the pictures to be shown. Also the order can be configured.
 
-When source "Synology PhotoStation" is selected, the Synology DSM version, the IP address or hostname and an username with password has to be configured. Download of pictures has to be enabled in PhotoStation settings.
+When source "Synology PhotoStation" is selected, the Synology DSM version, the IP address or hostname and an username with password has to be configured.
 
 Attention:  After changes (Adding or Deleting) a restart of the adapter is required.
 
@@ -174,30 +174,21 @@ Can network drives be integrated?
 
 Yes, but not directly through the adapter. ioBroker now supports a large number of operating systems. Accessing and connecting network shares is completely different depending on the operating system. In some cases, additional components such as Samba for Linux are also required. The connection of the network drive (mapping or mount) can  be done directly by the operating system. Under Linux, the mount takes place in a specified directory, e.g. / mnt / pictures. This directory can then be used in the adapter configuration.
 
-**Source Synology**
-
-Can additional settings like album selection be integrated for Synology PhotoStation?
-Can DSM 7 (Synology Photos) be supported?
-
-Synology PhotoStation will end with DSM 6. The successor, Synology Photos, appears with DSM 7. DSM 7 is currently still beta, the final version will probably appear in summer 2021. Presumably the developer interface will also change. So I won't invest any more effort in the previous version. As soon as DSM 7 is officially released, I will check the integration. Unfortunately, there was no official Synology documentation for the previous version.
-However, access to certain photo albums or folders can easily be implemented in the current version of PhotoStation. To do this, create a user for slideshow under DSM and only give this user permissions to the desired photo albums or folders in the PhotoStation.
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.2.1 (2024-11-18)
+* (Gaudes) Update in package.json for VIS
 
-### __WORK IN PROGRESS__
-* (Scrounger) image location infos added
-* (Scrounger) reading gps data
-* (Scrounger) Exif data fallback method added
+### 0.2.0 (2024-11-13)
 * (Gaudes) Include support for Synology DSM 7
-* (Gaudes) Remove support for Node 10 and 12 (dependency)
+* (Gaudes) Add controls for start/stop
+* (Gaudes) Remove support for older Node versions
 * (Gaudes) Update to newest Adapter creator for internal dependencies
 * (Gaudes) Include adapter-dev
 * (Gaudes) Include Dependabot updates
-* (Gaudes) Remove su
 
 ### 0.1.4 (2021-04-18)
 * (Gaudes) Configurable order for Filesystem (Git #37)
@@ -255,7 +246,7 @@ However, access to certain photo albums or folders can easily be implemented in 
 ## License
 MIT License
 
-Copyright (c) 2022 Gaudes <ralf@gaudes.net>
+Copyright (c) 2024 Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

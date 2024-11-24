@@ -32,10 +32,18 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.6 (2024-11-01)
-- (bolliy) dependency and configuration updates
 
-### 0.1.5 (2024-11-01)
+### 0.1.13 (2024-11-22)
+
+- battery status v2 moved to to batter-statusv2 object folder
+
+### 0.1.7 (2024-11-11)
+
+- battery status fixed
+
+### 0.1.6 (2024-11-01)
+
+- (bolliy) dependency and configuration updates
 - (bolliy) Requirements from ioBroker Check and Service Bot
 - (bolliy) dependency and configuration updates
 

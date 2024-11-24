@@ -156,6 +156,9 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 2.2.2 (2024-11-02)
+* (simatec) responsive design for settings page added
+
 ### 2.2.1 (2024-10-15)
 * (Garfonso) temperature has now proper role and type.
 
@@ -167,9 +170,6 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 
 ### 2.1.1 (2024-10-13)
 * (Garfonso) fix gpio undefined errors.
-
-### 2.1.0 (2024-10-13)
-* (jangatzke) add support for gpios on Raspberry Zero.
 
 ## License
 MIT License

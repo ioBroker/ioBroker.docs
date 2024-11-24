@@ -115,3 +115,54 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 	- Weil der Stadt
 	- Weil im Schönbuch
 	- Weissach
+
+## Awido.de
+
+- LK Aichach Friedberg
+- LK Altenkirchen
+- LK Ansbach
+- LK Aschaffenburg
+- LK Bad Dürkheim
+- LK Bad Tölz - Wolfratshausen
+- LK Berchtesgadener Land
+- Burbach
+- LK Coburg
+- LK Dachau
+- LK Erding
+- Fulda
+- LK Fulda
+- LK Fürstenfeldbruck
+- LK Gießen
+- LK Gotha
+- LK Günzburg
+- LK Haßberge
+- LK Hersfeld Rotenburg
+- Kaufbeuren
+- LK Kelheim
+- LK Kulmbach
+- LK Kronach
+- LK Lahn Dill
+- Memmingen
+- LK Mühldorf am Inn
+- München Südost
+- LK Neuburg Schrobenhausen
+- LK Neustadt a.d. Waldnaab
+- Nordschwaben
+- Pullach
+- Regensburg
+- LK Regensburg
+- LK Rems-Murr AöR
+- LK Rosenheim
+- LK Roth
+- LK Rottal-Inn und Dingolfing-Landau
+- LK Saale-Orla und Saalfeld-Rudolstadt
+- LK Schweinfurt
+- LK Südliche Weinstrasse
+- LK Tirschenreuth
+- LK Tübingen
+- Unterhaching
+- Unterschleißheim
+- Allmannshofen [Kein Müll]
+- Heretsried [Kein Müll]
+- Tae Kwon Do Bruderschule Hyeonsil [Kein Müll]
+- VDI Mittelrheinischer Bezirksverein [Kein Müll]

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: 6kBlzH6zxfy578l1FZq6McfUTKvGCnx0zZu0mOuGsNA=
+hash: bFO4J2oEmtx4GO7FlT9xZuyTC9CdV29rY+k1Hy8OIqQ=
 ---
 # IoBroker.nibeuplink
 
@@ -11,48 +11,65 @@ hash: 6kBlzH6zxfy578l1FZq6McfUTKvGCnx0zZu0mOuGsNA=
 ![稳定存储库中的当前版本](https://iobroker.live/badges/nibeuplink-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.nibeuplink.svg)
 ![安装数量](https://iobroker.live/badges/nibeuplink-installed.svg)
-![NPM](https://nodei.co/npm/iobroker.nibeuplink.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.nibeuplink.png?downloads=true)
 
-[![构建状态](https://github.com/sebilm/ioBroker.nibeuplink/workflows/Test%20and%20Release/badge.svg)](https://github.com/sebilm/ioBroker.nibeuplink/actions/workflows/test-and-release.yml)
+[![构建状态]（https://github.com/sebilm/ioBroker.nibeuplink/workflows/Test%20and%20Release/badge.svg）](https://github.com/sebilm/ioBroker.nibeuplink/actions/workflows/test-and-release.yml)
 
-## IoBroker 的 nibeuplink 适配器
+## Nibeuplink 适配器用于 ioBroker
+**nibeuplink API 已正式停用！因此，此 ioBroker 适配器将不再进一步开发！请使用 myUplink 适配器！**
+
 此 ioBroker 适配器从 Nibe Uplink 的 Nibe 热泵接收数据。
 此适配器不适用于 Nibe myUplink！因此，它不适用于 S 系列热泵，例如 Nibe VVM S320。
 
-## 使用这个适配器
-1. 你需要一个 Nibe 热泵 - 如果没有就买一个 ;-)
-2. 你需要一个Nibe Uplink的账号：https://www.nibeuplink.com/
+## 使用此适配器
+1. 您需要一个 Nibe 热泵 - 如果没有，请购买一个 ;-)
+2. 您需要在 Nibe Uplink 拥有一个账户：https://www.nibeuplink.com/
 3. 登录后，您将获得以下形式的 URL：https://www.nibeuplink.com/System/XXXXX/Status/Overview
-4. 代替 XXXXX 的是一个数字。这是您的系统 ID。我们需要这个 ID。
-5.进入Nibe Uplink Api：https://api.nibeuplink.com/Account/LogIn并登录
-6. 点击“我的申请”，然后点击“创建申请”
-7. 填写：Name and Description 什么都可以，e.g. io经纪人
-8.回调URL很重要。您可以使用 https://sebilm.github.io/ioBroker.nibeuplink/nibe.html
+4. XXXXX 后面有一个数字。这是您的系统 ID。我们需要这个 ID。
+5. 前往 Nibe Uplink Api：https://api.nibeuplink.com/Account/LogIn 并登录
+6. 点击“我的应用程序”，然后点击“创建应用程序”
+7. 填写：名称和描述可以是任意内容，例如 ioBroker
+8.回调URL很重要。您可以使用https://sebilm.github.io/ioBroker.nibeuplink/nibe.html
 9.接受NIBE Uplink API服务协议，点击“创建应用”
-10. 然后你得到一个标识符和一个秘密——我们需要它们
+10.然后你会得到一个标识符和一个秘密——我们需要它们
 11. 在 ioBroker 中安装此适配器
-12. 在适配器设置页面填写Identifier 和Secret。
-13. 单击链接“单击此处在 NIBE 上行链路上生成授权码”。
-14. 按照说明进行操作。最后你得到你的 nibe-fetcher 代码
-15. 复制此代码并将其粘贴到“授权代码”处的适配器设置中。
+12. 在适配器设置页面填写标识符和密钥。
+13. 点击链接“单击此处在 NIBE Uplink 上生成授权码”。
+14. 按照说明操作。最后您将获得 nibe-fetcher 代码
+15. 复制此代码并将其粘贴到适配器设置的“Auth Code”中。
 16. 从 Nibe Uplink URL 中填写您的系统 ID。
 17. 选择您的语言。
-18. 单击保存并关闭
+18.单击保存并关闭
 
-如果您（稍后）在日志中收到“400 错误请求”错误，则您必须获取新的授权码 - 数字 13 至 15 和 18 也是如此。
+如果您（稍后）在日志中收到“400 错误请求”错误，则必须获取新的 Auth Code - 数字 13 至 15 和 18 也是如此。
 
 ## 管理/编写支持
-看来您只能在以下网页上更改参数列表：
+似乎您只能更改以下网页上列出的参数：
 
 https://api.nibeuplink.com/docs/v1/Parameters（设置部分）
 
 参数“hot_water_boost”是参数 ID 48132。
 
-您可以读取其他值，但我认为您不能写其他值。此处列出了其他值：
+您可以读取其他值，但我认为您不能写入其他值。其他值列在这里：
 
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.3.2 (2024-11-10)
+- The nibeuplink API has been officially discontinued! For this reason, this ioBroker adapter will not be developed any further! Please use the myUplink adapter!
+- Dependencies have been updated
+
+### 1.3.1 (2023-12-23)
+- Bump dependencies
+
+### 1.3.0 (2023-08-27)
+- Remove NodeJS 14 support
+- Support strings as parameters in the management #241
+- Bump dependencies
+
+### 1.2.2 (2023-04-07)
+- Bump dependencies
+
 ### 1.2.1 (2022-10-03)
 - Fix getting data directory
 
@@ -170,7 +187,7 @@ https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 MIT License
 
-Copyright (c) 2022 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2024 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

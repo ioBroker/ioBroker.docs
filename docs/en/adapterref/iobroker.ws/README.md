@@ -31,7 +31,7 @@ Object is meta information that describes data point and could content: max/min 
 
 ### State
 State is the actual value of the data point and presented by javascript object: 
-```
+```js
 {
     val: VALUE, 
     ack: ACKNOWLEDGED, 
@@ -69,6 +69,9 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 2.7.0 (2024-11-17)
+* (bluefox) Update ws-server library
+
 ### 2.6.2 (2024-06-26)
 * (bluefox) Corrected call of getObjectView with null parameter
 

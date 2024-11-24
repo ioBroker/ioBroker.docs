@@ -27,8 +27,12 @@ Use id.remote.\* to control the mower
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2024-11-12)
+
 - (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+- (mcm1957) Issues reported by adapter checker have been fixed.
+- (mcm1957) Dependencies have been updated.
 
 ### 1.2.2 (2024-10-18)
 

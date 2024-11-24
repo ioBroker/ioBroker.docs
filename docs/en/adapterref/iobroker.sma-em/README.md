@@ -58,6 +58,11 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+
+- (simatec) Responsive Design added
+
 ### 1.1.0 (2024-08-15) - 2024H2 maintenance release
 
 - (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required

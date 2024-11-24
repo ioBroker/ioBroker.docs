@@ -56,7 +56,8 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
 -->
 ### **WORK IN PROGRESS**
 * (René) see issue #284: test with nodejs@22
-* 
+* (René) update dependencies
+
 ### 0.2.16 (2024-08-24)
 * (René) update dependencies
 * (René) bug fixes based on adapter checker recommendation

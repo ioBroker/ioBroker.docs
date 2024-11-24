@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gsmsms/README.md
 title: ioBroker.gsmsms
-hash: dunlSMGPp9mJWEwiLsW+jZKUNdPBGcuyXoTQ6r32bAY=
+hash: 4OePWk7/C7Efli5jytPaWhasTCdJuILxZpyKT1Jicr0=
 ---
 ![Logo](../../../en/adapterref/iobroker.gsmsms/admin/gsmsms.png)
 
@@ -13,136 +13,139 @@ hash: dunlSMGPp9mJWEwiLsW+jZKUNdPBGcuyXoTQ6r32bAY=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.gsmsms.svg)
 
 # IoBroker.gsmsms
-![Test und Freigabe](https://github.com/forelleblau/ioBroker.gsmsms/workflows/Test%20and%20Release/badge.svg)
+![Testen und Freigeben](https://github.com/forelleblau/ioBroker.gsmsms/workflows/Test%20and%20Release/badge.svg)
 
-## GSMSMS-Adapter für ioBroker
-Senden und empfangen Sie SMS mit GSM-Hardware.
+## GSMSMs-Adapter für ioBroker
+Senden und Empfangen von SMS mit GSM-Hardware.
 
 ## Hardware
-Jegliche GSM-Hardware (z. B. Shield, Surfstick), die an einen seriellen Port Ihres ioBroker-Geräts angeschlossen ist.
-GSM-Module/Sticks benötigen viel Strom. Bitte achten Sie auf eine ausreichende Stromversorgung.
+Jede GSM-Hardware (Shield, Surfstick etc.) wird an einen seriellen Port Ihres ioBroker-Gerätes angeschlossen.
+GSM-Module/Sticks benötigen viel Strom. Bitte sorgen Sie für eine ausreichende Stromversorgung.
 
-Einige Geräte müssen für die serielle Kommunikation auf den richtigen Modus eingestellt werden (siehe „usb_modeswitch“).
+Bei manchen Geräten muss der richtige Modus für die serielle Kommunikation eingestellt werden (siehe „usb_modeswitch“).
 
 ## Einstellungen
-### Port- und Verbindungseinstellung
+### Port- und Verbindungseinstellungen
 #### Pfad zum seriellen Port – erforderlich.
-z.B. `/dev/ttyUSB0` oder `/dev/serial/by-id/xxxxxxxxxxx` (by-id ist stabiler, ttyUSBx kann sich bei einem Neustart ändern)
+zB `/dev/ttyUSB0` oder `/dev/serial/by-id/xxxxxxxxxxx` (by-id ist stabiler, ttyUSBx kann sich bei einem Neustart ändern)
 
-Einige Geräte verfügen über mehrere USB-Anschlüsse, daher kann es sein, dass Sie es ausprobieren müssen. Höchstwahrscheinlich funktioniert der „erste“ Anschluss, liefert aber möglicherweise keine „Benachrichtigungen über eingehende Nachrichten“. Dann können Sie den anderen ausprobieren und eine SMS einsenden und sehen, ob sie einige Sekunden später empfangen wird (auf einem Huawai ist dies der dritte Anschluss). zum Beispiel).
+Einige Geräte verfügen über mehrere USB-Anschlüsse, daher müssen Sie möglicherweise einige ausprobieren. Höchstwahrscheinlich funktioniert der „erste“ Anschluss, liefert aber möglicherweise keine „Benachrichtigungen über eingehende Nachrichten“. Dann können Sie den anderen ausprobieren und eine SMS senden und sehen, ob sie einige Sekunden später empfangen wird (bei einem Huawei ist dies beispielsweise der dritte Anschluss).
 
 #### Ihre SIM-PIN
-Wenn Ihre SIM-Karte durch eine PIN geschützt ist, geben Sie die PIN ein und sie wird zum Entsperren der SIM-Karte während der Initialisierung verwendet (leer bedeutet „keine PIN auf der SIM-Karte vorhanden“).
+Wenn Ihre SIM-Karte durch eine PIN geschützt ist, geben Sie die PIN ein und sie wird zum Entsperren der SIM-Karte bei der Initialisierung verwendet (leer, bedeutet „keine PIN auf der SIM-Karte vorhanden“).
 
 <!--
 
 #### Verbindungsmodus
-##### Immer offen
-Öffnet eine Modemverbindung, sobald der Adapter gestartet wird. Eingehende und ausgehende SMS werden sofort zugestellt. SMS, die während des Ausfalls des Adapters eingehen, werden vom nächsten Adapter zugestellt – beim Start (je nach Kapazität Ihrer SIM-Karte).
+##### Immer geöffnet
+Öffnet eine Modemverbindung, sobald der Adapter gestartet wird. Eingehende und ausgehende SMS werden sofort zugestellt. SMS, die bei ausgeschaltetem Adapter eingehen, werden vom nächsten Adapter-Start zugestellt (je nach Kapazität Ihrer SIM).
 
 ##### Abrufintervall
-Ausgehende SMS werden sofort versendet. Eingehende SMS werden periodisch im angegebenen Intervall abgerufen. Eine Modemverbindung wird nur zum Senden und Empfangen von SMS geöffnet.
+Ausgehende SMS werden sofort versendet. Eingehende SMS werden periodisch im angegebenen Intervall abgerufen. Eine Modemverbindung wird nur zum Senden und Abrufen von SMS geöffnet.
 
 ##### Nur senden
-Der Adapter dient ausschließlich zum Versenden von SMS. Alle eingehenden SMS werden ignoriert (möglicherweise auf der SIM-Karte gespeichert, aber nicht auf den Adapter abgerufen).
-->
+Der Adapter dient nur zum Versenden von SMS. Alle eingehenden SMS werden ignoriert (ggf. auf der SIM gespeichert, aber nicht vom Adapter abgerufen).
+-->
 
 ### GSM-Einstellungen
-Um den SIM-Speicher nicht zu erschöpfen, werden alle SMS nach der Zustellung/Lesung von der SIM-Karte gelöscht. Verwenden Sie z.B. der „Verlauf“-Adapter zum Speichern Ihrer Nachrichten oder jede andere praktische Lösung.
+Damit der SIM-Speicher nicht erschöpft wird, werden alle SMS nach der Zustellung/dem Lesen von der SIM-Karte gelöscht. Verwenden Sie beispielsweise den „Verlauf“-Adapter zum Speichern Ihrer Nachrichten oder eine andere praktische Lösung.
 
-| Name | Geben Sie | ein Standard | Beschreibung |
+| Name | Typ | Standard | Beschreibung |
 | --------------------------- | ------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Anzeige eingehender SMS | boolescher Wert | wahr | Ermöglicht dem Modem, den Empfang einer neuen SMS-Nachricht zu benachrichtigen. |
-| Verkettung aktivieren | boolescher Wert | wahr | Empfangen Sie verkettete Nachrichten als eine. |
-| Benutzerdefinierter Iinit-Befehl | Zeichenfolge | | Wenn Ihr Gerät einen benutzerdefinierten Initialisierungsbefehl benötigt, kann dieser bereitgestellt werden und wird nach der PIN-Prüfung verwendet. d. h. einige Geräte benötigen „AT+CPMS="SM", „SM“, „SM““, um den richtigen Speichersatz zu erhalten. Es wird erwartet, dass der Befehl `'OK'` zurückgibt (leer, bedeutet „kein benutzerdefinierter Befehl für init“). Bitte beachten Sie die technischen Daten Ihres GSM-Geräts. |
-| CNMI, wenn Modem offen/geschlossen ist | Zeichenfolge | '2,1,0,2,0' / '2,0,2,2,1' | Legt fest, ob Nachrichten auf der SIM-Karte gespeichert oder sofort zugestellt werden. Bitte beachten Sie die technischen Daten Ihres GSM-Geräts. |
+| Anzeige eingehender SMS | Boolean | True | Ermöglicht dem Modem, zu melden, dass eine neue SMS-Nachricht empfangen wurde. |
+| Verkettung aktivieren | Boolesch | True | Verkettete Nachrichten als eine empfangen. |
+| Benutzerdefinierter Iinit-Befehl | Zeichenfolge | | Wenn Ihr Gerät einen benutzerdefinierten Initialisierungsbefehl benötigt, kann dieser bereitgestellt werden und wird nach der PIN-Prüfung verwendet. Einige Geräte benötigen beispielsweise „AT+CPMS="SM","SM","SM"", um den richtigen Speichersatz zu erhalten. Der Befehl soll `'OK'` zurückgeben (leer, bedeutet „kein benutzerdefinierter Befehl für Initialisierung“). Bitte beachten Sie die Spezifikationen Ihres GSM-Geräts. |
+| CNMI wenn Modem geöffnet/geschlossen ist | Zeichenfolge | „2,1,0,2,0“ / „2,0,2,2,1“ | Definiert, ob Nachrichten auf der SIM-Karte gespeichert oder sofort zugestellt werden. Bitte beachten Sie die Spezifikationen Ihres GSM-Geräts. |
 
-<!--| Anzeige eingehender Anrufe | boolescher Wert | falsch | Empfangen Sie das Ereignis `'onNewIncomingCall'` beim Empfang von Anrufen. |-->
+<!--| Anzeige eingehender Anrufe | boolean | false | Beim Empfangen von Anrufen das Ereignis `'onNewIncomingCall'` erhalten. |-->
 
 ### SerialPort-Einstellungen
-Bitte beachten Sie die technischen Daten Ihres GMS-Geräts (Google hilft in den meisten Fällen weiter)
+Bitte beachten Sie die Spezifikationen Ihres GMS-Geräts (Google wird in den meisten Fällen helfen)
 
-| Name | Geben Sie | ein Standard | Beschreibung |
+| Name | Typ | Standard | Beschreibung |
 | -------- | ------- | ------- | ------------------------------------------------------- |
-| Baudrate | Nummer | 19200 | Die Baudrate des Ports. |
-| DatenBits | Nummer | 8 | Muss einer von 8, 7, 6 oder 5 sein. |
-| stopBits | Nummer | 1 | Muss einer von 1 oder 2 sein. |
-| Parität | Zeichenfolge | "Keine"  | Muss einer der folgenden Werte sein: „none“, „even“, „mark“, „odd“, „space“. |
-| rtscts | boolescher Wert | falsch | Flusskontrolleinstellung |
-| xon | boolescher Wert | falsch | Flusskontrolleinstellung |
-| xoff | boolescher Wert | falsch | Flusskontrolleinstellung |
-| xany | boolescher Wert | falsch | Flusskontrolleinstellungen |
+| BaudRate | Zahl | 19200 | Die Baudrate des Ports. |
+| DatenBits | Zahl | 8 | Muss einer der folgenden Werte sein: 8, 7, 6 oder 5. |
+| StopBits | Zahl | 1 | Muss eines der folgenden sein: 1 oder 2. |
+| Parität | Zeichenfolge | „keine“ | Muss eines der folgenden sein: ,keine‘, ,gerade‘, ,Markierung‘, ,ungerade‘, ,Leerzeichen‘. |
+| rtscts | boolean | false | Flusssteuerungseinstellung |
+| xon | boolean | false | Flusssteuerungseinstellung |
+| xoff | boolean | false | Flusssteuerungseinstellung |
+| xany | boolean | false | Flusssteuerungseinstellungen |
 
 ### Weitere Einstellungen und Empfehlungen
-#### Als Adapter anzugeben - Objekte (`admin.x`)
-- Ihr Name (Standard ist „ownNumber“), maximale Länge beträgt 16 Zeichen.
--   deine Telefonnummer.
-- SMS-Betriebsmodus („PDU“ oder „SMS“, „PDU“ ist Standard und wird empfohlen).
+#### Zu spezifizieren als Adapter - Objekte (`admin.x`)
+- Ihr Name (Standard ist „ownNumber“), die maximale Länge beträgt 16 Zeichen.
+- Ihre Telefonnummer.
+- SMS-Betriebsmodus („PDU“ oder „SMS“, „PDU“ ist Standard und empfohlen).
 
 Alle Eingaben müssen mit ack=false erfolgen!
 
 #### Posteingang/Postausgang – Verlauf
-Durch die Aktivierung des History-Adapters für das `inbox.messageRaw` - Objekt und das `sendSMS.messageRaw` - Objekt erhalten Sie einen vollständigen In- und Outbox Ihres SMS-Verkehrs.
+Durch die Aktivierung des History-Adapters für das `inbox.messageRaw` - Objekt und das `sendSMS.messageRaw` - Objekt erhalten Sie einen kompletten Ein- und Ausgang Ihres SMS-Verkehrs.
 
 <!--
 
 #### SMS - Fehler
-Wenn Fehler zurückgegeben werden und der Fehler vom Gerät stammt (der Austausch mit dem Gerät war also technisch erfolgreich), dann sollte in der Fehlermeldung ein Fehlercode aufgeführt sein, z. B. „+CMS-FEHLER: 500“. Die Fehlermeldung wird im Protokoll auf der Ebene „warn“ angezeigt und im Objekt `info.error` gespeichert.
-Eine (unvollständige) Liste möglicher Fehlercodes und deren Bedeutung finden Sie z.B. unter <https://www.activexperts.com/sms-component/gsm-error-codes/>.
-->
+Wenn Fehler zurückgegeben werden und der Fehler vom Gerät herrührt (der Austausch mit dem Gerät also technisch erfolgreich war), dann sollte in der Fehlermeldung ein Fehlercode aufgeführt werden, z. B. „+CMS ERROR: 500“. Die Fehlermeldung wird im Protokoll auf der Warnebene angezeigt und im Objekt `info.error` gespeichert.
+Eine (unvollständige) Liste möglicher Fehlercodes und ihrer Bedeutungen finden Sie z. B. unter <https://www.activexperts.com/sms-component/gsm-error-codes/>.
+-->
 
 ## Funktionalitäten
 ### SMS empfangen
-Eingehende SMS werden in die `inbox.*` - Objekte geschrieben. `inbox.messageRaw` kann als Auslöser für weitere Vorgänge verwendet werden (z. B. eingehende SMS per E-Mail-Adapter weiterleiten).
+Eingehende SMS werden in die `inbox.*` - Objekte geschrieben. `inbox.messageRaw` kann als Auslöser für weitere Aktionen verwendet werden (z.B. Weiterleitung eingehender SMS per E-Mail-Adapter).
 
 ### SMS senden
-Um eine SMS zu senden, geben Sie `sendSMS.recipient, sendSMS.message` und optional `sendSMS.alert` ein und drücken Sie die `sendSMS.send` - Taste. Oder setzen Sie das `sendSMS.messageRaw` - Objekt mit einer Zeichenfolge in der folgenden Form und ack=false: `{"recipient": "Number", "message":"Yourtext", "alert":"false"}`.
+Um eine SMS zu senden, füllen Sie `sendSMS.recipient, sendSMS.message` und optional `sendSMS.alert` aus und drücken Sie die `sendSMS.send` - Schaltfläche. Oder setzen Sie das `sendSMS.messageRaw` - Objekt mit einem String in der folgenden Form und ack=false: `{"recipient": "Number", "message":"Yourtext", "alert":"false"}`.
 
-Dieser Adapter stellt auch einen Kommunikationsblock für Blockly- und SendTo-Funktionen für andere Skripte bereit (sendTo("gsmsms._InstanceNo_", "send", {text: '_yourText_',recipient: '_phonenumber_', warning: '_false/true_'} );).
+Dieser Adapter bietet auch einen Kommunikationsblock für Blockly und SendTo-Funktionen für andere Skripte (sendTo("gsmsms._InstanceNo_", "send", {text: '_yourText_',recipient: '_phonenumber_', alert: '_false/true_'});).
 
 ### AT+-Befehle ausführen
-! Bitte stellen Sie sicher, dass Sie wissen, was Sie tun, wenn Sie AT+-Befehle festlegen. Es handelt sich um Ihre SIM-Karte/Ihr Gerät.
+! Bitte achten Sie darauf, was Sie tun, wenn Sie AT+-Befehle festlegen, es geht um Ihre SIM-Karte/Ihr Gerät.
 
-AT+Befehle werden mit der Einstellung `admin.atCommandSLR` im Format `AT+XXXXy` gesendet.
-Senden Sie einen beliebigen Befehl, beachten Sie jedoch, dass Sie nur die letzte Zeile der Antwort sehen.
+AT+-Befehle werden durch die Einstellung `admin.atCommandSLR` im Format `AT+XXXXy` gesendet.
+Senden Sie einen beliebigen Befehl, aber beachten Sie, dass Sie nur die letzte Zeile der Antwort sehen.
 
-## Serialport-gsm
-Dieser Adapter basiert auf den [SerialPort-GSM-Plugin](https://github.com/zabsalahid/serialport-gsm) zur Kommunikation mit GSM-Modems, hauptsächlich für SMS.
+## Serieller Port-GSM
+Dieser Adapter basiert auf dem [SerialPort-GSM-Plugin](https://github.com/zabsalahid/serialport-gsm) für die Kommunikation mit GSM-Modems, hauptsächlich für SMS.
+
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von @forelleblau (https://github.com/forelleblau) nicht möglich gewesen, der frühere Versionen dieses Adapters entwickelt hat.
 
 ## Entwicklerhandbuch
-Dieser Abschnitt richtet sich an den Entwickler. Es kann später gelöscht werden
+Dieser Abschnitt ist für den Entwickler bestimmt. Er kann später gelöscht werden
 
 ### Erste Schritte
-Sie sind fast fertig, es sind nur noch ein paar Schritte übrig:
+Sie sind fast fertig, es fehlen nur noch wenige Schritte:
 
 1. Gehen Sie zu [main.js](main.js) und beginnen Sie mit dem Programmieren!
 
-### Empfohlene Vorgehensweise
-Wir haben einige [empfohlene Vorgehensweise](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) zur ioBroker-Entwicklung und Codierung im Allgemeinen zusammengestellt. Wenn Sie neu bei ioBroker oder Node.js sind, sollten Sie sie ausprobieren. Wenn Sie bereits erfahren sind, sollten Sie auch einen Blick darauf werfen – vielleicht lernen Sie etwas Neues :)
+### Bewährte Vorgehensweisen
+Wir haben einige [bewährte Methoden](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) zur ioBroker-Entwicklung und zum Programmieren im Allgemeinen zusammengestellt. Wenn Sie neu bei ioBroker oder Node.js sind, sollten Sie sich diese ansehen. Wenn Sie bereits Erfahrung haben, sollten Sie sich diese ebenfalls ansehen – vielleicht lernen Sie etwas Neues :)
 
 ### Skripte in `package.json`
-Zu Ihrer Bequemlichkeit sind mehrere NPM-Skripte vordefiniert. Sie können sie mit `npm run <scriptname>` ausführen.
+Zu Ihrer Bequemlichkeit sind mehrere npm-Skripte vordefiniert. Sie können sie mit `npm run <scriptname>` ausführen.
 
 | Skriptname | Beschreibung |
 \|-------------\|-------------\|
 \| `test:js` | Führt die Tests aus, die Sie in den `*.test.js`-Dateien definiert haben. |
 \| `test:package` | Stellt sicher, dass Ihre `package.json` und `io-package.json` gültig sind. |
-\| `test:unit` | Testet den Adapterstart mit Unit-Tests (schnell, erfordert aber möglicherweise Modul-Mocks, um zu funktionieren). |
+\| `test:unit` | Testet den Adapterstart mit Unittests (schnell, erfordert aber möglicherweise Modul-Mockups). |
 \| `test:integration` | Testet den Adapterstart mit einer tatsächlichen Instanz von ioBroker. |
 \| `test` | Führt einen minimalen Testlauf für Paketdateien und Ihre Tests durch. |
 \| `check` | Führt eine Typprüfung Ihres Codes durch (ohne etwas zu kompilieren). |
-\| `lint` | Führt `ESLint` aus, um Ihren Code auf Formatierungsfehler und potenzielle Fehler zu überprüfen. |
-\| `release` | Erstellt eine neue Version, siehe [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) für weitere Details. |
+\| `lint` | Führt `ESLint` aus, um Ihren Code auf Formatierungsfehler und mögliche Bugs zu prüfen. |
+\| `release` | Erstellt eine neue Version, weitere Einzelheiten finden Sie unter [`@alcalzone/Release-Skript`](https://github.com/AlCalzone/release-script#usage). |
 
 ### Tests schreiben
-Wenn es richtig gemacht wird, ist das Testen von Code von unschätzbarem Wert, denn es gibt Ihnen die Sicherheit, Ihren Code zu ändern und gleichzeitig genau zu wissen, ob und wann etwas kaputt geht. Eine gute Lektüre zum Thema testgetriebene Entwicklung ist <https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92>.
-Obwohl das Schreiben von Tests vor dem Code auf den ersten Blick seltsam erscheinen mag, hat es ganz klare Vorteile.
+Wenn es richtig gemacht wird, ist das Testen von Code von unschätzbarem Wert, denn es gibt Ihnen die Sicherheit, Ihren Code zu ändern, während Sie genau wissen, ob und wann etwas kaputt geht. Eine gute Lektüre zum Thema testgetriebene Entwicklung ist <https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92>.
+Obwohl das Schreiben von Tests vor dem Code zunächst seltsam erscheinen mag, hat es ganz klare Vorteile.
 
-Die Vorlage bietet Ihnen grundlegende Tests für die Adapter-Start- und Paketdateien.
-Es wird empfohlen, dem Mix eigene Tests hinzuzufügen.
+Die Vorlage bietet Ihnen grundlegende Tests für den Adapterstart und die Paketdateien.
+Es wird empfohlen, dass Sie Ihre eigenen Tests hinzufügen.
 
 ### Veröffentlichen des Adapters
-Mithilfe von GitHub-Aktionen können Sie automatische Veröffentlichungen auf npm aktivieren, wenn Sie ein neues Git-Tag pushen, das der Form `v<major>.<minor>.<patch>` entspricht. Wir empfehlen Ihnen dringend, dies zu tun. Die notwendigen Schritte sind in `.github/workflows/test-and-release.yml` beschrieben.
+Mit GitHub Actions können Sie automatische Releases auf npm aktivieren, wenn Sie einen neuen Git-Tag pushen, der der Form `v<major>.<minor>.<patch>` entspricht. Wir **empfehlen** Ihnen, dies zu tun. Die erforderlichen Schritte sind in `.github/workflows/test-and-release.yml` beschrieben.
 
 Da Sie das Release-Skript installiert haben, können Sie ein neues Release erstellen, indem Sie einfach Folgendes aufrufen:
 
@@ -150,22 +153,22 @@ Da Sie das Release-Skript installiert haben, können Sie ein neues Release erste
 npm run release
 ```
 
-Zusätzliche Befehlszeilenoptionen für das Release-Skript werden in der [Release-Script-Dokumentation](<https://github.com/AlCalzone/release-script#command-line> ) erläutert.
+Zusätzliche Befehlszeilenoptionen für das Release-Skript werden in der [Release-Skript-Dokumentation](<https://github.com/AlCalzone/release-script#command-line> ) erläutert.
 
 Um Ihren Adapter in ioBroker freizugeben, lesen Sie bitte die Dokumentation von [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
 
-### Testen Sie den Adapter manuell mit Dev-Server
-Da Sie `dev-server` eingerichtet haben, können Sie damit Ihren Adapter ausführen, testen und debuggen.
+### Testen Sie den Adapter manuell mit dem Dev-Server
+Da Sie `dev-server` eingerichtet haben, können Sie es zum Ausführen, Testen und Debuggen Ihres Adapters verwenden.
 
-Sie können `dev-server` starten, indem Sie von Ihrem Entwicklerverzeichnis aus aufrufen:
+Sie können `dev-server` starten, indem Sie aus Ihrem Entwicklungsverzeichnis aufrufen:
 
 ```bash
 dev-server watch
 ```
 
-Die ioBroker.admin-Schnittstelle ist dann unter <http://localhost:8081/> verfügbar
+Die ioBroker.admin-Schnittstelle ist dann unter <http://localhost:8081/> verfügbar.
 
-Weitere Einzelheiten finden Sie in den [Dokumentation zum „Dev-Server“.](https://github.com/ioBroker/dev-server#command-line).
+Weitere Einzelheiten finden Sie unter [`dev-server`-Dokumentation](https://github.com/ioBroker/dev-server#command-line).
 
 ## Changelog
 
@@ -173,33 +176,36 @@ Weitere Einzelheiten finden Sie in den [Dokumentation zum „Dev-Server“.](htt
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2024-11-23)
+- (mcm1957) Adapter requires node.js 20 now.
+- (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+- (mcm1957) Adapter has been moved to iobroker-community-adapters organization
+- (mcm1957) Some issues reported by adapter checker have been fixed.
+- (mcm1957) Dependencies have been update
 
-### **WORK IN PROGRESS**
+### 0.0.6
+- (forelleblau) jsonConfig.json, notifications-manager
 
 ### 0.0.5
-
--   (forelleblau) bug fixed (adapter set "undefined" into state values)
+- (forelleblau) bug fixed (adapter set "undefined" into state values)
 
 ### 0.0.4
-
--   (Apollon77) Optimizations, brush up to comply with ioBroker.repositories requirements
+- (Apollon77) Optimizations, brush up to comply with ioBroker.repositories requirements
 
 ### 0.0.3
-
--   (forelleblau) dependencies updated, bugs fixed
+- (forelleblau) dependencies updated, bugs fixed
 
 ### 0.0.2
-
--   (forelleblau) first published version
+- (forelleblau) first published version
 
 ### 0.0.1
-
--   (forelleblau) initial release
+- (forelleblau) initial release
 
 ## License
 
 MIT License
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022-2023 forelleblau <mailto:marceladam@gmx.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

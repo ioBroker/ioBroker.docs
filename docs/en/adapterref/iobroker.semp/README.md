@@ -43,11 +43,11 @@ It is not even necessary for the consumption of a single device to be measured. 
 
 ## user documentation
 
-see [docu](docu/docu_en.md)
+see [docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
 
-For details about protocol and usage check [SMA docu](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
+For details about protocol and usage check [SMA docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
-An description about general usage of energy requests see [SMA docu](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (german only)
+An description about general usage of energy requests see [SMA docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (german only)
 
 ## Features
 * add devices from ioBroker in SunnyPortal via SMA SEMP
@@ -66,11 +66,10 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.4.8 (2024-11-20)
 * (René) update dependencies
 * (René) issue #317: test with nodejs@22
-
+* (René) issue #329: links to docu updated
 
 ### 1.4.7 (2024-09-13)
 * (René) see issue #314: bug fix to use express@5.0.0

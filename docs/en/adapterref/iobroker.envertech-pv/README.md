@@ -44,6 +44,11 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2024-11-14)
+-   (mcm1957) Adapter has been changes to meet Responsive Design Rules.
+-   (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+-   (mcm1957) Dependencies have been updated.
+
 ### 1.3.2 (2024-03-28)
 -   (mcm1957) Adapter supports multiple pages returned from Envertech now. This will allow more than 20 inverters per station.
 -   (mcm1957) Adapter requires js-controller >= 5 now.

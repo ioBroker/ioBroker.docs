@@ -40,6 +40,9 @@ The storage of sensitive data in the instance config has been changed.
 You need to re-enter your password in the instance settings if you already used an older version < 0.0.5
 
 ## Changelog
+### 0.1.4 (2024-11-06)
+* Updated dependencies
+
 ### 0.1.3 (2024-01-31)
 * Catch EAI_AGAIN
 * Automatic refresh of session-id

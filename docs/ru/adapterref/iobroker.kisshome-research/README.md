@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kisshome-research/README.md
 title: ioBroker KISSHome исследование
-hash: fAGv4G+hivk/fDF9RiPUhvcTaET15Nf61udWouped1E=
+hash: 1XWos8WsmSfOwyeFOimaVrYdFl5uCky6s/FppPchK7Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kisshome-research/admin/kisshome-research.png)
 
@@ -26,72 +26,101 @@ hash: fAGv4G+hivk/fDF9RiPUhvcTaET15Nf61udWouped1E=
 - Маршрутизатор Fritz!Box. Без `Fritz!Box` адаптер работать не будет.
 - iobroker должен работать на Debian/Raspbian (или, по крайней мере, на Linux, где доступны следующие команды: `which`, `rsync`)
 
-## То, что нужно сделать
-Определить IP-адреса из:
+## Деинсталляция
+Открытый ключ, необходимый для связи, хранится в `0_userdata.0.kisshomeResearchPublicKey`.
+После удаления адаптера ключ необходимо удалить вручную.
 
-- [ ] хоумконнект,
+Это было необходимо для того, чтобы можно было без проблем удалить и установить адаптер снова.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.2.4 (2024-11-19)
+
+-   Empty MAC addresses will be ignored
+
+### 1.2.3 (2024-11-15)
+
+-   (@GermanBluefox) Do not start recording if no one MAC address was provided
+-   (@GermanBluefox) The keys are stored in `0_userdata.0.kisshomeResearchPublicKey` to make it possible to uninstall and install the adapter again without any problems
+-   (@GermanBluefox) Corrected problem with PCAP files without the META-description
+
+### 1.1.2 (2024-11-12)
+
+-   (@GermanBluefox) Corrected the input of IP addresses in the configuration
+
+### 1.1.1 (2024-10-30)
+
+-   (@GermanBluefox) Removed unused code
+-   (@GermanBluefox) Creation of META file if not exists
+-   (@GermanBluefox) Description for address must be longer than three characters
+-   (@GermanBluefox) Added adapter version to the meta file name
+
+### 1.0.13 (2024-10-17)
+
+-   (gsenkowski) Used actual IP and TCP header length for the PCAP file
+
 ### 1.0.11 (2024-09-26)
--   (bluefox) Trying to fix CI
--   (bluefox) Do not allow the traffic recording of FritzBox 
--   (bluefox) Do not allow recording the traffic if no any MAC provided
--   (bluefox) Corrected links to web page
+
+-   (@GermanBluefox) Trying to fix CI
+-   (@GermanBluefox) Do not allow the traffic recording of FritzBox
+-   (@GermanBluefox) Do not allow recording the traffic if no any MAC provided
+-   (@GermanBluefox) Corrected links to web page
 
 ### 1.0.7 (2024-09-21)
--   (bluefox) Corrected the error if MAC address cannot be determined
+
+-   (@GermanBluefox) Corrected the error if MAC address cannot be determined
 
 ### 1.0.6 (2024-09-21)
+
 -   (ChrisDietrich) Corrected the link in readme.md
--   (bluefox) Corrected the Big-Endian PCAP format
--   (bluefox) the Fixed build pipeline
+-   (@GermanBluefox) Corrected the Big-Endian PCAP format
+-   (@GermanBluefox) the Fixed build pipeline
 
 ### 1.0.4 (2024-09-19)
 
--   (bluefox) Corrected GUI
--   (bluefox) Filter out not used interfaces
--   (bluefox) Added notification to admin if public key not accepted
--   (bluefox) Try to detect zero bytes interfaces
+-   (@GermanBluefox) Corrected GUI
+-   (@GermanBluefox) Filter out not used interfaces
+-   (@GermanBluefox) Added notification to admin if public key not accepted
+-   (@GermanBluefox) Try to detect zero bytes interfaces
 
 ### 1.0.2 (2024-09-15)
 
--   (bluefox) Added error logging
+-   (@GermanBluefox) Added error logging
 
 ### 1.0.1 (2024-09-14)
 
--   (bluefox) Implemented the support for the big endian format of a PCAP file
+-   (@GermanBluefox) Implemented the support for the big endian format of a PCAP file
 
 ### 1.0.0 (2024-09-06)
 
--   (bluefox) Corrected configuration page
+-   (@GermanBluefox) Corrected configuration page
 
 ### 0.3.1 (2024-08-31)
 
--   (bluefox) Added detection of some IPs
+-   (@GermanBluefox) Added detection of some IPs
 
 ### 0.2.1 (2024-08-28)
 
--   (bluefox) used valid URL address
+-   (@GermanBluefox) used valid URL address
 
 ### 0.1.1 (2024-08-20)
 
--   (bluefox) Used MD5 for the file consistency check
+-   (@GermanBluefox) Used MD5 for the file consistency check
 
 ### 0.1.0 (2024-08-19)
 
--   (bluefox) File upload was implemented
+-   (@GermanBluefox) File upload was implemented
 
 ### 0.0.3 (2024-08-14)
 
--   (bluefox) Added the recording enabled option
+-   (@GermanBluefox) Added the recording enabled option
 
 ### 0.0.2 (2024-07-22)
 
--   (bluefox) Initial commit
+-   (@GermanBluefox) Initial commit
 
 ## License
 

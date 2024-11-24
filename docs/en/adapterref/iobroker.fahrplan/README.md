@@ -223,6 +223,10 @@ With +-Button new entries can be added to the table.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.3.0 (2024-11-18)
+* (simatec) Responsive Design added
+* (Gaudes) Upgrades
+
 ### 1.2.3 (2023-04-07)
 * (Gaudes) Upgrade hafas-client (fix for error)
 * (Gaudes) Upgrade dependency
@@ -243,14 +247,10 @@ With +-Button new entries can be added to the table.
 * (Gaudes) Update to newest Adapter creator for internal dependencies
 * (Gaudes) Include Dependabot updates
 
-### 1.1.1 (2021-06-22)
-* (Gaudes) Advanced error reporting for HAFAS errors
-* (Gaudes) Include Dependabot updates
-
 ## License
 MIT License
 
-Copyright (c) 2023 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2024 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: bTuT2dMq1fYAl56LTKtWGcR+jaXJU2IaMDUOJQ5p+oI=
+hash: 2EbVwumyVSdhYHp9OXAmESj0vVZpYWXZ3072v6R8Lt4=
 ---
 ![Logo](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
@@ -49,9 +49,35 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.12.3 (2024-11-18)
+
+-   (HombachC) fix bug in state subscription
+-   (HombachC) harmonize project tools
+-   (HombachC) bump dependencies
+
+### 0.12.2 (2024-10-27)
+
+-   (HombachC) migrate eslint to >9.x
+-   (HombachC) bumped dependencies
+
+### 0.12.1 (2024-10-22)
+
+-   (HombachC) fix error in jsonConfig.json
+
+### 0.12.0 (2024-10-22)
+
+-   (HombachC) BREAKING: dropped support for admin < 7 (#544)
+-   (HombachC) optimized responsive design (#544)
+-   (HombachC) optimized translation handling
+
+### 0.11.1 (2024-09-16)
+
+-   (HombachC) add node.js 22 to the adapter testing matrix (#523)
+-   (HombachC) Bump @iobroker/testing to 5.0.0
+
 ### 0.11.0 (2024-08-29)
 
--   (HombachC) implement variable wallbox amount 
+-   (HombachC) implement variable wallbox amount
 -   (HombachC) fix errors in wallbox control
 -   (HombachC) complete rework of configuration screen
 -   (HombachC) move utils to extra class
@@ -117,11 +143,11 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 
 ### 0.7.2 (2023-06-19)
 
--   (HombachC) Removed Travis 
+-   (HombachC) Removed Travis
 
 ### 0.7.1 (2023-06-13)
 
--   (HombachC) Fixed typo in docu, added translations 
+-   (HombachC) Fixed typo in docu, added translations
 
 ### 0.7.0 (2023-06-11)
 
@@ -132,6 +158,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
+
 MIT License
 
 Copyright (c) 2021-2024 Christian Hombach

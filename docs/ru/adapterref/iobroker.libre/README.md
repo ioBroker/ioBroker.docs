@@ -1,45 +1,55 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.libre/README.md
 title: ioBroker.libre
-hash: QtphTuSjYnDaRYvGnj0sSh4zJGwX4OdPanA4RN5P9cs=
+hash: 04ToZkj7gRRYLr77st19b2kTTOVGNspsAhOwI2zrLe0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.libre/admin/libre.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.libre.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.libre.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.libre.svg)
-![Количество установок (последние)](https://iobroker.live/badges/libre-installed.svg)
+![Количество установок (последнее)](https://iobroker.live/badges/libre-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/libre-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.libre.svg)
 ![НПМ](https://nodei.co/npm/iobroker.libre.png?downloads=true)
 
 # IoBroker.libre
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.libre/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/TA2k/ioBroker.libre/workflows/Test%20and%20Release/badge.svg)
 
-## Бесплатный адаптер для ioBroker
+## Свободный адаптер для ioBroker
 Адаптер для Libre через LibreLinkUp
 
-## Войти
-Für LibreLinkUp добавлен. В Freestyle Libre App с LibreLinkUp добавлена и установлена LibreLinkUp Zugangsdaten в собственном адаптере.
+## Логинаблауф
+Для перехода к бесплатной ссылке. В бесплатном приложении Freestyle с LibreLinkUp используется и LibreLinkUp устанавливается в адаптер.
 
-## Штойерн и Верте
-Актуальный Бесплатный.0.id.graph.connection.GlucoseMeasurement.Value Graph Бесплатный.0.id.graph.graphData01.Value
+## Штейерн и Верте
+Aktueller Wert libre.0.id.graph.connection. глюкозыMeasurement.Value Graph Werte libre.0.id.graph.graphData01.Value
 
-libre.0.vin.remote.refresh вручную Обновить
+libre.0.vin.remote.refresh мануал Обновить
 
-## Обсуждение и обсуждение
+## Обсуждение и Фрагменты
 <https://forum.iobroker.net/topic/55443/test-freestyle-libre-librelinkup>
 
 ## Changelog
 
+### 0.1.3 (2024-11-15)
+
+- login fixed
+
+### 0.0.3
+
+- (TA2k) fix login
+
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

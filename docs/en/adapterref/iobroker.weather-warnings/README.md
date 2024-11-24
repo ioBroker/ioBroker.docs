@@ -146,6 +146,16 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.10 (2024-11-11)
+* (ticaki) fixed: warntype filter 
+* (ticaki) fixed: if every provider except zamg is deactivated in the notifications - no message went out
+* (ticaki) fixed: downgrade a dependency for compatibility with node 18
+
+### 0.6.9 (2024-11-10)
+* (ticaki) added missing text (settings - alexa - soundtable)
+* (ticaki) fixed alerts start/end datapoints. (string -> number)
+* (ticaki) dependencies up to date
+
 ### 0.6.7 (2024-02-19)
 * (ticaki) Reduce history data to 80 entries around 4000 lines, because of jerks in the admin
 
