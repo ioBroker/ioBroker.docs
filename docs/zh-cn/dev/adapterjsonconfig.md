@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: sNHHRwZotqRPWrZB9jQoZsQEkIQl+beO9deC3JQcWiI=
+hash: 0+vcILNwunjmaoGO6kZVRE4N3k4LfLysxnL3sxxjB/Y=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。此方法提供了一种更加用户友好且灵活的方式，可在 ioBroker Admin 界面中管理适配器设置。
@@ -165,8 +165,9 @@ jsonConfig 由多个按层次结构排列的元素组成。\ 每个元素都可�
 - [**`sendTo`:**](#sendto) 向实例发送请求的按钮
 - [**`setState`:**](#setstate) 设置实例状态的按钮
 - [**`slider`:**](#slider) 用于选择范围内的值的滑块（仅限 Admin 6）
-- [**`state`:**](#state) (admin >= 7.1.0) 显示来自状态的控制或信息
+- [**`state`:**](#state) 显示来自状态的控制或信息 (admin >= 7.1.0)
 - [**`staticImage`:**](#staticimage) 显示静态图像
+- [**`staticInfo`:**](#staticinfo) 以预格式化的形式显示静态信息，如“标题：值单位”（admin >= 7.3.3）
 - [**`staticLink`:**](#staticlink) 创建静态链接
 - [**`staticText`:**](#statictext) 显示静态文本（例如描述）
 - [**`坐标`:**](#坐标) 确定当前位置，如果无法以“纬度，经度”形式使用 `system.config` 坐标
@@ -545,7 +546,7 @@ admin/customI18n/en.json
 | `all` | 将值 `*` 添加到选项“all”选项 |
 
 ###`chips`
-用户可以输入单词，它将被添加（参见云 => 服务 => 白名单）。如果没有定义`delimiter`，则输出是一个数组。
+用户可以输入单词，然后它将被添加（参见云 => 服务 => 白名单）。如果没有定义`delimiter`，则输出是一个数组。
 
 | 属性 | 描述 |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -580,9 +581,9 @@ admin/customI18n/en.json
 | `result` | `{result1: {en: 'A'}, result2: {en: 'B'}}` |
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`、`outlined` 或无 |
-| `openUrl` | 如果为真 - 在新选项卡中打开 URL，如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果`saveConfig`为真，则将要求用户保存配置。|
+| `openUrl` | 如果为真 - 如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`，则在新选项卡中打开 URL。如果`saveConfig`为真，则将要求用户保存配置。|
 | `reloadBrowser` | 如果为真 - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
-| `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
+| `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以被覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用`base64` 图标（如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
 | `useNative` | 如果适配器返回的结果具有 `native` 属性，则将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。|
 | `showProcess` | 请求正在进行时显示旋转器 |
@@ -811,7 +812,7 @@ adapter.on("message", (obj) => {
 | `manual` | 允许手动编辑。无下拉菜单（如果实例处于离线状态）。默认`true`。|
 | `multiple` | 多选选择 |
 | `showAllValues` | 即使未找到标签也显示项目（多个），默认=`true` |
-| `noTranslation` | 不翻译选择的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是形式为 `[{"value": 1, "label": "one"}, ...]` | 的数组 |
+| `noTranslation` | 不翻译选择的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是形式为 `[{"value": 1, "label": "one"}, ...]` 的数组 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `alsoDependsOn` | 通过改变哪些属性，必须重新发送命令 |
 
@@ -1085,7 +1086,7 @@ adapter.on("message", (obj) => {
 
 有效数字为 1 至 12。
 
-如果您指定一个数字，例如 6，则元素的宽度将为屏幕宽度的 6/12（50%），或者例如 3，则元素的宽度将为屏幕宽度的 3/12（25%）。
+如果指定一个数字，例如 6，则元素的宽度将为屏幕宽度的 6/12（50%），或者例如 3，则元素的宽度将为屏幕宽度的 3/12（25%）。
 为不同的布局选项分配数字可指定元素在不同屏幕尺寸下的宽度。
 
 | 选项 | 描述 |

@@ -473,6 +473,9 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 4.1.11 (2024-11-20)
+* (Garfonso) convert string state values to numbers, where necessary.
+
 ### 4.1.10 (2024-05-23)
 * (Garfonso) device icons work again.
 * (Garfonso) default user sometimes was not found in system.
@@ -489,9 +492,6 @@ After that checkout modified version in `./build` folder. Then.
 ### 4.1.6 (2024-03-07)
 * (Garfonso) remove exessive logging
 * (Garfonso) improve fix for crash again.
-
-### 4.1.5 (2024-03-05)
-* (Garfonso) fixed: possible crashes during startup
 
 ## License
 

@@ -21,7 +21,7 @@ Das Video wie man die Widgets benutzt kann man [hier](https://youtu.be/Rplr2Ba-G
 ![Actual news ](img/news.png)
 
 To use this widget, you need to create a small script in Javascript adapter:
-```
+```js
 const axios = require('axios');
 
 function readRss() {
@@ -42,6 +42,9 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.3.2 (2024-11-22)
+* (bluefox) Corrected "close on click" option for shutter and dimmer
+
 ### 1.3.1 (2024-09-23)
 * (bluefox) Removed gulp from a build process
 * (bluefox) Added the possibility to select camera from the "cameras" adapter

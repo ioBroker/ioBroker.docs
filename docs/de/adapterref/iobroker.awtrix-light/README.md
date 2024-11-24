@@ -199,7 +199,11 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.4.1 (2024-11-20)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+### 1.4.0 (2024-11-20)
 
 * (@klein0r) Added support for notification manager
 
@@ -216,14 +220,6 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
 
 * (klein0r) Fixed wrong translations ins expert apps (duration)
 * (klein0r) Added progress bar for expert apps
-
-### 1.1.0 (2024-05-11)
-
-* (klein0r) Sync app activations (if enabled)
-
-### 1.0.1 (2024-04-28)
-
-* (klein0r) Keep text case of expert apps (ignore system settings)
 
 ## License
 MIT License

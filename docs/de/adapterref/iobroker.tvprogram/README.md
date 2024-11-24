@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvProgramm
-hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
+hash: D6PEjRUhQ+htZHtYMcpl5ZpppPpnCvz/5zs4H8lC7dc=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -26,7 +26,7 @@ Aufgrund der Größe werden die Daten nicht in Datenpunkten, sondern in Dateien 
 
 In der Konfiguration muss das Widget dann nur noch mit einem beliebigen Datenpunkt des Adapters befüllt werden (z.B.cmd).
 
-Alle restlichen Datenpunkte sucht das Widget automatisch.
+Alle restlichen Datenpunkte sucht das Widget automatisch heraus.
 
 ## Installation
 Der Adapter kann über die stabile Version oder zum Testen über das Beta-/Neueste-Repository installiert werden.
@@ -83,7 +83,7 @@ So ändern Sie die Formatierung der Dialoge
 }
 ```
 
-Wenn Sie einige zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die TV-Programmdialoge festlegen.
+Wenn Sie zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die TV-Programmdialoge festlegen.
 Möglicherweise müssen Sie eine höhere Zahl als 300 festlegen. Dies hängt von Einstellungen in anderen Dialogen ab, die die TV-Programmdialoge (Sendeinformationen und Kanalauswahl) überlappen oder verbergen.
 
 ```css
@@ -300,7 +300,7 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 Fordern Sie von jetzt an alle Lieblingssendungen an, bis das gespeicherte Datenvolumen aufgebraucht ist.
 
 ##### Gültige Parameter sind
@@ -313,7 +313,7 @@ Fordern Sie von jetzt an alle Lieblingssendungen an, bis das gespeicherte Datenv
 **Beispiel:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -337,7 +337,7 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 ```
 
 #### `getServerBroadcastDate`
-Fordert alle Sendungen an, die zu einem bestimmten Zeitpunkt laufen
+Fordert alle Übertragungen an, die zu einem bestimmten Zeitpunkt ausgeführt werden
 
 ##### Gültige Parameter sind
 Array von Kanal-IDs Ihrer Lieblingskanäle datetime
@@ -677,6 +677,11 @@ Widget TV-Programm:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

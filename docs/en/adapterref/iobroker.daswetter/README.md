@@ -74,6 +74,7 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 
 ### **WORK IN PROGRESS**
 * (René) see issue #406: test with nodejs@22
+* (René) update dependencies
 
 ### 3.1.16 (2024-08-18)
 * (René) update dependencies

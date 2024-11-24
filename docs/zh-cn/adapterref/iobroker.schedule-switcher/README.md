@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.调度切换器
-hash: 7dLF9k6bLYDm9S9zLJojBMxsd/GQbE7QnTjkbIp0xiQ=
+hash: fi6Uhp2cse08EWXr9Kaa/dBSRb+eH/2zLtWX0NRl0zA=
 ---
 ![标识](../../../de/admin/schedule-switcher.png)
 
@@ -37,6 +37,8 @@ hash: 7dLF9k6bLYDm9S9zLJojBMxsd/GQbE7QnTjkbIp0xiQ=
 - [创建触发器](#trigger)
 - [创建 Astrotrigger](#astro-trigger)
 - [创建一次性触发器](#one-time-trigger)
+- [HTML 设置](#html-for-vis-and-vis-2)
+- [HTML 函数仅限 VIS-2](#function-only-for-vis-2)
 - [CSS](#css)
 
 ### 实例设置schedule-switcher
@@ -49,9 +51,10 @@ hash: 7dLF9k6bLYDm9S9zLJojBMxsd/GQbE7QnTjkbIp0xiQ=
 - `活跃`：活跃
 - `删除`：删除日程
 - `2 个切换过程之间的延迟（以毫秒为单位）`：防止同时设置状态
-- `历史记录切换为 JSON（最大 100/0 表示关闭）` 历史记录最大存储量
+- `历史记录切换为 JSON（最大 100/0 关闭）` 历史记录最大存储量
+- `为 VIS 和 VIS-2 创建 HTML（VIS-2 请参阅说明）` 激活 HTML 概述
 
-    ![实例设置.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings.png)
+![实例设置.png](img/instance_settings.png)</br> ![实例设置_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings_1.png)
 
 ###州
 [概括](#zusammenfassung)
@@ -474,6 +477,181 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_onetime_date_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_done.png)
 
+### VIS 和 VIS-2 的 HTML
+[概括](#zusammenfassung)
+
+- `html.background_color_body` 正文的背景颜色。配有 VIS 且仅带有 VIS-2 的小部件 - 标准 #000000
+- `html.background_color_even` 背景颜色触发偶数 - 默认 #1E1E1E
+- `html.background_color_odd` 背景颜色触发奇数 - 默认 #18171C
+- `html.background_color_trigger` 背景颜色触发对象 - 默认 #000000
+- `html.background_color_weekdays_hover` 悬停在一周中的几天时的背景颜色 - 单击以激活/停用 - 默认蓝色
+- `html.column_align_01` 标题文本对齐列 1 - 默认居中
+- `html.column_align_02` 标题文本对齐列 2 - 默认居中
+- `html.column_align_03` 标题文本对齐列 3 - 默认居中
+- `html.column_align_04` 标题文本对齐列 4 - 默认居中
+- `html.column_align_05` 标题文本对齐列 5 - 默认居中
+- `html.column_align_06` 标题文本对齐列 6 - 默认居中
+- `html.column_align_07` 标题文本对齐列 7 - 默认居中
+- `html.column_align_08` 标题文本对齐列 8 - 默认居中
+- `html.column_align_09` 标题文本对齐列 9 - 默认居中
+- `html.column_align_10` 标题文本对齐列 10 - 默认居中
+- `html.column_text_01` 标题文本列 1 - 标准明细表
+- `html.column_text_02` 标题文本列 2 - 标准设备
+- `html.column_text_03` 标题文本列 3 - 标准开关
+- `html.column_text_04` 标题文本列 4 - 默认周一
+- `html.column_text_05` 标题文本第 5 列 - 默认 Tu
+- `html.column_text_06` 标题文本列 6 - 默认我们
+- `html.column_text_07` 标题文本列 7 - 默认 Th
+- `html.column_text_08` 标题文本列 8 - 默认 Fr
+- `html.column_text_09` 标题文本第 9 列 - 标准周六
+- `html.column_text_10` 标题文本列 10 - 默认 Su
+- `html.column_width_01` 第 1 列的宽度 - 默认自动
+- `html.column_width_02` 第 2 列的宽度 - 默认自动
+- `html.column_width_03` 第 3 列的宽度 - 默认自动
+- `html.column_width_04` 第 4 列的宽度 - 默认自动
+- `html.column_width_05` 第 5 列的宽度 - 默认自动
+- `html.column_width_06` 第 6 列的宽度 - 默认自动
+- `html.column_width_07` 第 7 列的宽度 - 默认自动
+- `html.column_width_08` 第 8 列的宽度 - 默认自动
+- `html.column_width_09` 第 9 列的宽度 - 默认自动
+- `html.column_width_70` 第 10 列的宽度 - 默认自动
+- `html.font_color_text_disabled` 禁用对象的文本颜色 - 默认红色
+- `html.font_color_text_enabled` 激活对象的文本颜色 - 默认黄色
+- `html.font_color_weekdays_disabled` 禁用工作日的文本颜色 - 默认红色
+- `html.font_color_weekdays_enabled` 启用工作日的文本颜色 - 默认黄色
+- `html.header_border` 头部边距（以像素为单位） - 默认 2
+- `html.header_font_family` 标题字体系列 - 标准 Helvetica
+- `html.header_font_size` 头部字体大小 - 默认 15
+- `html.header_linear_color_1` 头部背景图片：线性渐变 1 - 默认#BDBDBD
+- `html.header_linear_color_2` 头部背景图像：线性渐变 2 - 默认#BDBDBD
+- `html.header_tag_border_color` 标题 HTML 标签`<td> ` 边框颜色 - 默认 #424242
+- `html.header_width` 头部标签`<table> ` 尺寸标准汽车
+- `html.column_align_row_01` 第 1 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_02` 第 2 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_03` 第 3 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_04` 第 4 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_05` 第 5 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_06` 第 6 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_07` 第 7 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_08` 第 8 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_09` 第 9 列中行的文本对齐方式 - 默认左对齐
+- `html.column_align_row_10` 第 10 列中行的文本对齐方式 - 默认左对齐
+- `html.headline_color` 头部字体颜色（时间表、设备...） - 默认 #ffffff
+- `html.headline_font_size` 头部字体大小（以像素为单位） - 默认 16
+- `html.headline_height` 标题行高度（以像素为单位） - 默认 35
+- `html.headline_underlined` 头部边距底部（以像素为单位） - 默认 3
+- `html.headline_underlined_color` 头部底部边框颜色 - 默认#ffffff
+- `html.headline_weight` 头部字体粗细 - 默认正常
+- `html.html_code` 用于 VIS、VIS-2、Jarvis、IQontrol 等的 HTML 代码。
+- `html.icon_false` 图标切换状态关闭 - 标准 ⚪
+- `html.icon_switch_symbol` 用于激活/停用计时器的图标开关 - 默认 ⏱
+- `html.icon_true` 图标切换状态 - 标准 🟡
+- `html.jarvis` 与 Jarvis 兼容 - 默认 false
+- `html.p_tag_text_algin` HTML `<p> ` 文本对齐方式（上次更新和页脚）- 默认居中
+- `html.table_tag_border_color` 来自标签的边框颜色`<table> ` - 默认#424242
+- `html.table_tag_cell` 限制与 TAG 的距离`<table> ` 以像素为单位 - 默认 6
+- `html.table_tag_text_align` 标签中的文本对齐方式`<table> ` - 默认中心
+- `html.table_tag_width` 标签的大小`<table> ` - 默认自动
+- `html.td_tag_border_bottom` 标签的下边框`<td> ` 以像素为单位 - 默认 1
+- `html.td_tag_border_color` 标签的底部边框颜色`<td> ` - 默认#424242
+- `html.td_tag_border_right` 标签右侧的边框`<td> ` 以像素为单位 - 默认 1
+- 标签文本周围的“html.td_tag_cell”空间<td>` 以像素为单位（填充） - 默认 6
+- `html.top_font_family` 页眉和页脚字体系列 - 标准 Helvetica
+- 页眉和页脚的 `html.top_font_size` 字体大小（以像素为单位） - 默认 20
+- 页眉和页脚的`html.top_font_weight`字体粗细 - 默认正常”
+- `html.top_text` 自己的标题文本 - 默认您的文本
+- 页眉和页脚的 `html.top_text_color` 字体颜色 - 默认 #ffffff
+- `html.update` 开始手动更新
+
+![vis_object_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
+
+- 单击“上次更新”文本进行手动更新
+- 单击图标激活/停用小部件
+- 要删除触发器，您首先必须勾选它，然后按“删除”按钮
+- 更改时间/Astro 并按“保存”按钮应用更改
+- 单击一周中的某一天来激活/停用它
+
+![vis_view_1.png](img/vis_view_1.png)</br> ![vis_view_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_view_2.png)
+
+### 功能仅适用于 VIS-2！
+[概括](#zusammenfassung)
+
+不幸的是，只有使用 VIS-2，下面列出的功能才必须手动插入（参见图片）
+
+![vis2_object.png](img/vis2_object.png)</br> ![vis2_script.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis2_script.png)
+
+```java
+function deleteTrigger(stateId, command, id, dataid, count) {
+    var check = document.getElementById('delete' + count).checked;
+    if (ckeck) {
+        var data = {
+			"command": command,
+			"message": {
+				"triggerid": id,
+				"dataId": dataid,
+			}
+		};
+		vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+	}
+}
+function changeweekdays(stateId, command, dataid, id, changeid, type) {
+    if (type === "OneTimeTrigger") return;
+    var data = {
+		"command": command,
+		"message": {
+			"changeid": changeid,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function updateTrigger(stateId) {
+	vis.conn.setState(stateId + '.html.update', { val: true, ack: false });
+}
+function setState(stateId, value) {
+	vis.conn.setState(stateId, { val: value == 'false' ? false : true, ack: false });
+}
+function sendToAstro(stateId, command, dataid, id, count) {
+    var timeselect = document.getElementById('timeselect' + count).value;
+    var shift = document.getElementById('shift' + count).value;
+    var data = {
+		"command": command,
+		"message": {
+			"astrotime": timeselect,
+			"shift": shift,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function sendToDateTime(stateId, command, id, dataid, count) {
+    var value = document.getElementById('datetime' + count).value;
+    var data = {
+		"command": command,
+		"message": {
+			"time": value,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function sendToTime(stateId, command, id, dataid, count) {
+    var value = document.getElementById('nexttime' + count).value;
+    var data = {
+		"command": command,
+		"message": {
+			"time": value,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+```
+
 ### CSS
 [概括](#zusammenfassung)
 
@@ -570,6 +748,11 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (Lucky_ESA) HTML overview added
+
 ### 0.0.6 (2024-11-16)
 
 -   (Lucky_ESA) Put value of state correctly

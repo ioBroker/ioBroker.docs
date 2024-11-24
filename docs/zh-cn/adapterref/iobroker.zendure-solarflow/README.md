@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
+hash: AVn5YzHd9CTBo8vIgT61hMQK4ryROLtKMXW09AeSWz4=
 ---
 ![标识](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -23,12 +23,12 @@ hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
 
 ＃＃ 特征
 - 获取 Solarflow 设备的所有遥测数据，包括官方应用程序中不可见的数据 - 例如电池电压
-- 像在官方应用程序中一样控制您的 Solarflow HUB。大多数设置均可用。
+- 像在官方应用程序中一样控制您的 Solarflow HUB。大多数设置都可用。
 - 控制输出限制 - 您不仅限于使用 Shelly Pro EM 来实现零馈入。您还可以通过 ioBroker 中的脚本或 blockly 设计更复杂的场景。
 - 如果一块电池电压过低（电池保护），则停止输入。仅当通过适配器设置输出限制时才有效
 - 同时控制多个 Solarflow！
 - 获得更精确的计算！
-- 适用于所有 Zendure SolarFlow 设备：HUB1200（已测试）、HUB2000 和 AIO（均未经测试）！
+- 适用于所有 Zendure SolarFlow 设备：HUB1200、Hyper2000、HUB2000 和 AIO！我只能在 HUB1200 上进行测试，因为我没有其他设备……
 
 注释
 1. 请停用/取消选中 Zendure App 中的所有模式，否则无法设置输出限制！
@@ -37,6 +37,8 @@ hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
 
 2. 使用 ioBroker 适配器登录后，您将退出官方 iOS 或 Android 应用程序。这是正常现象。作为解决方法，您可以使用另一个电子邮件创建第二个 Zendure 帐户，并向该帐户授予对 Solarflow HUB 的访问权限。然后使用第二个帐户访问 ioBroker/Zendure Solarflow 适配器。
 
+3. 如果没有太阳能输入且设备在线，适配器将显示电池使用量 +10W。这将反映设备的“待机”使用情况。
+
 ## 致谢
 感谢 https://github.com/reinhard-brandstaedter/solarflow，它对 Zendure 的 MQTT 服务器知识帮助很大！谢谢！
 
@@ -44,6 +46,133 @@ hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
 如果您发现该适配器对您有用并且想要支持我的工作，请随时通过 Paypal 捐款。谢谢！（这是 Nograx 的个人捐款链接，与 ioBroker 项目无关！）<br />
 
 ## Changelog
+### 1.9.3 (2024-11-22)
+
+- Fix for Low Voltage Block not deactivated.
+
+### 1.9.2 (2024-11-21)
+
+- Fix some state definitions
+
+### 1.9.1 (2024-11-21)
+
+- Improvement for 'Low Voltage Block'.
+- Changed the state "hubState" a an option value.
+
+### 1.9.0 (2024-11-20)
+
+- New option to force Solarflow device to go offline when "Low Voltage Block"-option is used.
+
+### 1.8.8 (2024-09-20)
+
+- Improve connection retry, expand the time with every retry attempt.
+- Start "restart adapter job" regardless of connection.
+- Fix Hyper setInputLimit with step
+
+### 1.8.7 (2024-09-09)
+
+- Fix missing control states for AIO
+
+### 1.8.6 (2024-09-06)
+
+- Change login method: Added a retry loop for connecting to Zendure Cloud, if the Cloud Service "hangs" or is not available it will retry the connection 3 times.
+
+### 1.8.5 (2024-08-26)
+
+- Fix missing states for new HUB Firmware when connected to ACE
+- Fix correct max value for AIO
+
+### 1.8.4 (2024-08-16)
+
+- Add support for Smart Plug, but only Power is available at the moment - unstable as often data is not updated by MQTT
+- Some code improvements
+
+### 1.8.3 (2024-08-12)
+
+- Fix SOC and energyWhMax Value (counted by type of attached batteries)
+- Add Calculation for Grid Input (only for Ace 1500 and Hyper 2000)
+- Fix suggestions by ioBroker repository checker
+
+### 1.7.7 (2024-08-02)
+
+- Fix Input and Output limit for Hyper 2000
+
+### 1.7.6 (2024-08-01)
+
+- Fix support for 'Hyper_Test' devices
+- Improved code for state creation
+
+### 1.7.5 (2024-07-31)
+
+- Fix controlling AC mode for Hyper 2000 (set acMode to 1: Charge by AC, 2: Output to AC)
+- Show product name in channel name
+- Show battery type as state in packData
+- Show Hyper Temperature in States
+
+### 1.7.4 (2024-07-31)
+
+- Set max value and step for setInputLimit
+
+### 1.7.3 (2024-07-30)
+
+- Fix AC input value for Hyper to max. 1200W
+- Fix dcSwitch and acSwitch value
+
+### 1.7.2 (2024-07-29)
+
+- Fix acSwitch for ACE and Hyper
+
+### 1.7.1 (2024-07-29)
+
+- Fix missing ACE 1500 when connected with HUB1200 / HUB2000
+- Fix some missing states
+
+### 1.7.0 (2024-07-26)
+
+- Add support for Hyper 2000 and ACE 1500. Maybe not all states and control parameter are available. Still need to do some investigation.
+- Some minor bugfixes.
+
+### 1.6.7 (2024-06-23)
+
+- Fix reconnect again. Adapter will now restart every 3 hours to cleanup fully.
+
+### 1.6.6 (2024-06-21)
+
+- Tweaked recurring refresh of access token.
+
+### 1.6.5 (2024-06-20)
+
+- Fix reconnect issue. Adapter will now restart if connection semms to be broken.
+
+### 1.6.4 (2024-06-03)
+
+- Fix services
+
+### 1.6.3 (2024-06-03)
+
+- Fixed reconnect when connection seems to be dead.
+
+### 1.6.2 (2024-05-21)
+
+- Changed standby usage to 10W
+
+### 1.6.1 (2024-05-13)
+
+- Fix issue that sometime data is not updated
+- Add standby usage of HUB (20W) when solarinput is low
+
+### 1.5.3 (2024-04-19)
+
+- Fix autoRecover datatype issue
+
+### 1.5.2 (2024-04-17)
+
+- Minor bugfixes and improvements
+
+### 1.5.0 (2024-04-12)
+
+- Add the possibility to connect to the 'Fallback' MQTT server known as 'Developer MQTT'. This server is read-only - so no control is possible!
+
 ### 1.4.0 (2024-04-03)
 
 - Add calculation states for solar input 1 & 2
@@ -179,7 +308,7 @@ hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
 ### 1.0.1 (2023-11-03)
 
 - Fix translationscd so
-- Use 'extendObjectAsync' instead of 'setObjectNotExistsAsync'
+- Use 'extendObject' instead of 'setObjectNotExistsAsync'
 - First official release version
 
 ### 0.1.0-alpha.2 (2023-10-27)

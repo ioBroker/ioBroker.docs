@@ -218,6 +218,10 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
+### 1.2.8 (2024-11-20)
+* (afuerhoff) bugfix configuration
+* (afuerhoff) dependencies updated
+
 ### 1.2.7 (2024-11-18)
 * (afuerhoff) bugfix [#319](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/319)
 
@@ -236,12 +240,6 @@ Here you will find information about the history of the current day.
 ### 1.2.4 (2024-02-09)
 * (afuerhoff) test code deleted [#257](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/257)
 * (afuerhoff) dependencies updated
-
-### 1.2.3 (2024-01-18)
-* (afuerhoff) Readme updated
-* (afuerhoff) function jsontables optimized
-* (afuerhoff) non existent members set to false [#253](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/253)
-* (afuerhoff) optimization of log message [#240](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/240)
 
 ## License
 MIT License

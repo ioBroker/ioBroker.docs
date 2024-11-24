@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tv节目
-hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
+hash: D6PEjRUhQ+htZHtYMcpl5ZpppPpnCvz/5zs4H8lC7dc=
 ---
 ![标识](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -132,7 +132,7 @@ vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint�
 此小部件显示所有实际广播。您可以点击频道徽标来切换频道。
 您可以点击广播来获取有关该广播的详细信息。
 
-vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint。
+vis 中可以配置以下属性，最低配置是将数据点设置为 cmd-datapoint。
 
 | 属性 | 示例 | 说明 |
 | ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
@@ -256,7 +256,7 @@ sendTo("tvprogram.0", "getServerData", "categories", (data) =>
 #### `getServerTVProgram`
 从适配器请求程序数据。
 
-##### 有效参数为
+##### 有效参数是
 以下格式的日期字符串：`yyyy-mm-dd`
 
 **返回：**
@@ -292,10 +292,10 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 从现在开始直到数据保存结束为止请求所有喜欢的广播。
 
-##### 有效参数是
+##### 有效参数为
 `Array` 的收藏
 
 **返回：**
@@ -305,7 +305,7 @@ sendTo(
 **例子：**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -313,7 +313,7 @@ sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
 #### `getServerBroadcastNow`
 请求当前正在运行的所有广播
 
-##### 有效参数是
+##### 有效参数为
 您喜欢的频道的 channelID 数组
 
 **返回：**
@@ -331,7 +331,7 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 #### `getServerBroadcastDate`
 请求在某个日期时间运行的所有广播
 
-##### 有效参数为
+##### 有效参数是
 您最喜欢的频道的 channelID 数组 datetime
 
 **返回：**
@@ -666,6 +666,11 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

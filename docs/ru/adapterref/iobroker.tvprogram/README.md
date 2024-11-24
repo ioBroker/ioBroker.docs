@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvпрограмма
-hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
+hash: D6PEjRUhQ+htZHtYMcpl5ZpppPpnCvz/5zs4H8lC7dc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -45,7 +45,7 @@ hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
 
 iobroker загрузить все
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных на cmd-datapoint.
+Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ----------------------- | --------------------- | ----------------------------------------------------- |
@@ -115,9 +115,9 @@ iobroker загрузить все
 ```
 
 #### Избранное
-Этот виджет показывает список избранного, отсортированный по дате и времени.
+Этот виджет отображает список избранного, отсортированный по дате и времени.
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных на cmd-datapoint.
+Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ---------------- | ---------------------- | ----------------------------------------------------- |
@@ -291,7 +291,7 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 Запросить все избранные трансляции с текущего момента до окончания сохраненных данных.
 
 ##### Допустимые параметры:
@@ -304,7 +304,7 @@ sendTo(
 **Пример:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -640,7 +640,7 @@ var timer = setInterval(function () {
 - скопировать текст из Detailview
 - положение маркера настраивается
 - ширина и высота диалогового окна настраиваются
-- Запись Datenpunkt, которую нужно выпить с Knopf mit Aufnahmedaten gefüllt wird
+- Datenpunkt Record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird.
 - Виджет для избранного
 - скрыть неизбранное
 
@@ -655,7 +655,7 @@ var timer = setInterval(function () {
 - ~~подсказки для кнопок в виджете времени~~
 - ~~Идеи для дальнейших виджетов на основе существующего сценария телепрограммы~~
 - ~~Проблема: бесконечная прокрутка в Firefox~~
-- ~~обсуждается: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
+- ~~на обсуждение: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
 - ~~адаптивный дизайн для подробного представления->адаптивный дизайн для диалогового окна jquery невозможен, нашел другое решение с фиксированными макетами для высоты>ширины~~
 - ~~Проблема: небольшая ошибка пикселей, если панель прокрутки полностью прокручена с левой стороны~~
 
@@ -665,6 +665,11 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

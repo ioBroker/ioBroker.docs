@@ -52,12 +52,13 @@ You must enter these in the configuration of the adapter.
 
 ---
 <!-- ### **WORK IN PROGRESS** -->
+## Changelog
 ### **WORK IN PROGRESS**
 * (simatec) Dependencies updated
 * (simatec) Fix jsonConfig
 * (simatec) Issue Action added
+* (simatec) eslint-config added
 
-## Changelog
 ### 0.2.4 (2024-09-28)
 * (simatec) Fix request error
 * (simatec) Dependencies updated

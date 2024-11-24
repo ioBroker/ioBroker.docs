@@ -27,6 +27,9 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2024-11-21)
+* Add more smoothtime values
+
 ### 1.1.0 (2024-08-13)
 * (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
   Check your System before installing new Version

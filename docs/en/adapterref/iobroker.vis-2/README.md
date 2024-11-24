@@ -294,6 +294,9 @@ npm run start
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.10.8 (2024-11-22)
+* (bluefox) Added new option for view: "Limit only for instances"
+
 ### 2.10.7 (2024-07-23)
 * (bluefox) Optimization of the module federation
 

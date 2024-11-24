@@ -35,6 +35,10 @@ This was required to make it possible to uninstall and install the adapter again
 -->
 
 ## Changelog
+### 1.2.5 (2024-11-20)
+
+-   (@GermanBluefox) Added the trigger to resolve the MAC address before MAC resolution
+
 ### 1.2.4 (2024-11-19)
 
 -   Empty MAC addresses will be ignored

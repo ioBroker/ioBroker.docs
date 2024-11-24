@@ -35,6 +35,8 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 -   [Trigger anlegen](#trigger)
 -   [Astrotrigger anlegen](#astro-trigger)
 -   [Einmaltrigger anlegen](#one-time-trigger)
+-   [HTML Einstellung](#html-für-vis-und-vis-2)
+-   [HTML Funktion NUR VIS-2](#function-nur-für-vis-2)
 -   [CSS](#css)
 
 ### Instanz Einstellung schedule-switcher
@@ -49,8 +51,10 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 -   `Löschen`: Zeitplan löschen
 -   `Verzögerung zwischen 2 Schaltvorgängen in ms`: Verhindert zeitgleiches setzen von States
 -   `Historie Umschaltung als JSON (max. 100/0 für Aus)` Max. Speicherung der Historie
+-   `HTML für VIS und VIS-2 erstellen (VIS-2 siehe Beschreibung)` Aktivierung HTML Übersicht
 
-    ![instance_settings.png](img/instance_settings.png)
+    ![instance_settings.png](img/instance_settings.png)</br>
+    ![instance_settings_1.png](img/instance_settings_1.png)
 
 ### States
 
@@ -497,6 +501,185 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_onetime_date_done.png](img/create_widget_select_onetime_date_done.png)
 
+### HTML für VIS und VIS-2
+
+[Zusammenfassung](#zusammenfassung)
+
+-   `html.background_color_body` Hintergrundfarbe vom Body. Bei VIS komplett und bei VIS-2 nur das Widget - Standard #000000
+-   `html.background_color_even` Hintergrundfarbe Trigger gerade Zahl - Standard #1E1E1E
+-   `html.background_color_odd` Hintergrundfarbe Trigger ungerade Zahl - Standard #18171C
+-   `html.background_color_trigger` Hintergrundfarbe Trigger Objekt - Standard #000000
+-   `html.background_color_weekdays_hover` Hintergrundfarbe bei Mouseover der Wochentage - Klick für aktivieren/deaktivieren - Standard blue
+-   `html.column_align_01` Kopftextausrichtung Spalte 1 - Standard center
+-   `html.column_align_02` Kopftextausrichtung Spalte 2 - Standard center
+-   `html.column_align_03` Kopftextausrichtung Spalte 3 - Standard center
+-   `html.column_align_04` Kopftextausrichtung Spalte 4 - Standard center
+-   `html.column_align_05` Kopftextausrichtung Spalte 5 - Standard center
+-   `html.column_align_06` Kopftextausrichtung Spalte 6 - Standard center
+-   `html.column_align_07` Kopftextausrichtung Spalte 7 - Standard center
+-   `html.column_align_08` Kopftextausrichtung Spalte 8 - Standard center
+-   `html.column_align_09` Kopftextausrichtung Spalte 9 - Standard center
+-   `html.column_align_10` Kopftextausrichtung Spalte 10 - Standard center
+-   `html.column_text_01` Kopftext Spalte 1 - Standard Schedule
+-   `html.column_text_02` Kopftext Spalte 2 - Standard Devices
+-   `html.column_text_03` Kopftext Spalte 3 - Standard Switch
+-   `html.column_text_04` Kopftext Spalte 4 - Standard Mo
+-   `html.column_text_05` Kopftext Spalte 5 - Standard Tu
+-   `html.column_text_06` Kopftext Spalte 6 - Standard We
+-   `html.column_text_07` Kopftext Spalte 7 - Standard Th
+-   `html.column_text_08` Kopftext Spalte 8 - Standard Fr
+-   `html.column_text_09` Kopftext Spalte 9 - Standard Sa
+-   `html.column_text_10` Kopftext Spalte 10 - Standard Su
+-   `html.column_width_01` Breite der Spalte 1 - Standard auto
+-   `html.column_width_02` Breite der Spalte 2 - Standard auto
+-   `html.column_width_03` Breite der Spalte 3 - Standard auto
+-   `html.column_width_04` Breite der Spalte 4 - Standard auto
+-   `html.column_width_05` Breite der Spalte 5 - Standard auto
+-   `html.column_width_06` Breite der Spalte 6 - Standard auto
+-   `html.column_width_07` Breite der Spalte 7 - Standard auto
+-   `html.column_width_08` Breite der Spalte 8 - Standard auto
+-   `html.column_width_09` Breite der Spalte 9 - Standard auto
+-   `html.column_width_70` Breite der Spalte 10 - Standard auto
+-   `html.font_color_text_disabled` Textfarbe vom deaktivierten Objekt - Standard red
+-   `html.font_color_text_enabled` Textfarbe vom aktivierten Objekt - Standard yellow
+-   `html.font_color_weekdays_disabled` Textfarbe von deaktivierten Wochentagen - Standard red
+-   `html.font_color_weekdays_enabled` Textfarbe von aktivierten Wochentagen - Standard yellow
+-   `html.header_border` Kopfrand in Pixel - Standard 2
+-   `html.header_font_family` Kopf Schriftfamilie - Standard Helvetica
+-   `html.header_font_size` Kopf Schriftgöße - Standard 15
+-   `html.header_linear_color_1` Kopf Hintergrundbild: linearer Farbverlauf 1 - Standard #BDBDBD
+-   `html.header_linear_color_2` Kopf Hintergrundbild: linearer Farbverlauf 2 - Standard #BDBDBD
+-   `html.header_tag_border_color` Kopf HTML TAG `<td>` Randfarbe - Standard #424242
+-   `html.header_width` Kopf TAG `<table>` Größe Standard auto
+-   `html.column_align_row_01` Textausrichtung der Zeilen in Spalte 1 - Standard left
+-   `html.column_align_row_02` Textausrichtung der Zeilen in Spalte 2 - Standard left
+-   `html.column_align_row_03` Textausrichtung der Zeilen in Spalte 3 - Standard left
+-   `html.column_align_row_04` Textausrichtung der Zeilen in Spalte 4 - Standard left
+-   `html.column_align_row_05` Textausrichtung der Zeilen in Spalte 5 - Standard left
+-   `html.column_align_row_06` Textausrichtung der Zeilen in Spalte 6 - Standard left
+-   `html.column_align_row_07` Textausrichtung der Zeilen in Spalte 7 - Standard left
+-   `html.column_align_row_08` Textausrichtung der Zeilen in Spalte 8 - Standard left
+-   `html.column_align_row_09` Textausrichtung der Zeilen in Spalte 9 - Standard left
+-   `html.column_align_row_10` Textausrichtung der Zeilen in Spalte 10 - Standard left
+-   `html.headline_color` Kopf Schriftfarbe (schedule, device ...) - Standard #ffffff
+-   `html.headline_font_size` Kopf Schriftgröße in Pixel - Standard 16
+-   `html.headline_height` Kopf Zeilenhöhe in Pixel - Standard 35
+-   `html.headline_underlined` Kopf Rand unten in Pixel - Standard 3
+-   `html.headline_underlined_color` Kopf Randfarbe unten - Standard #ffffff
+-   `html.headline_weight` Kopf Schriftstärke - Standard normal
+-   `html.html_code` HTML Code für VIS, VIS-2, Jarvis, IQontrol usw.
+-   `html.icon_false` Icon Schaltzustand aus - Standard ⚪
+-   `html.icon_switch_symbol` Icon Schalter um die Zeitschaltuhr zu aktivieren/deaktivieren - Standard ⏱
+-   `html.icon_true` Icon Schaltzustand an - Standard 🟡
+-   `html.jarvis` Kompatibel für Jarvis - Standard false
+-   `html.p_tag_text_algin` HTML `<p>` Textausrichtung (Letzte Aktualisierung und Fußzeile) - Standard center
+-   `html.table_tag_border_color` Randfarbe vom TAG `<table>` - Standard #424242
+-   `html.table_tag_cell` Grenzabstand vom TAG `<table>` in Pixel - Standard 6
+-   `html.table_tag_text_align` Textausrichtung vom TAG `<table>` - Standard center
+-   `html.table_tag_width` Größe vom TAG `<table>` - Standard auto
+-   `html.td_tag_border_bottom` Rand unten vom TAG `<td>` in Pixel - Standard 1
+-   `html.td_tag_border_color` Randfarbe unten vom TAG `<td>` - Standard #424242
+-   `html.td_tag_border_right` Rand rechts vom TAG `<td>` in Pixel - Standard 1
+-   `html.td_tag_cell` Platz um den Text vom TAG `<td>` in Pixel (padding) - Standard 6
+-   `html.top_font_family` Schriftfamilie von Kopfzeile und Fußzeile - Standard Helvetica
+-   `html.top_font_size` Schriftgröße von Kopfzeile und Fußzeile in Pixel - Standard 20
+-   `html.top_font_weight` Schriftstärke von Kopfzeile und Fußzeile - Standard normal"
+-   `html.top_text` Eigener Text für die Kopfzeile - Standard your text
+-   `html.top_text_color` Schriftfarbe von Kopfzeile und Fußzeile - Standard #ffffff
+-   `html.update` Manuelles Update starten
+
+![vis_object_1.png](img/vis_object_1.png)
+
+-   Klick auf den Schriftzug `Letzte Aktualisierung` um ein manuelles Update durchzuführen
+-   Icon anklicken um das Widget zu aktivieren/deaktivieren
+-   Um ein Auslöser zu löschen muss man erst einen Haken setzen und dann den Button `delete` drücken
+-   Zeiten/Astro ändern und den Button `save` drücken um die Änderungen zu übernehmen
+-   Wochentag anklicken um diesen zu aktivieren/deaktivieren
+
+![vis_view_1.png](img/vis_view_1.png)</br>
+![vis_view_2.png](img/vis_view_2.png)
+
+### Function NUR für VIS-2!!!
+
+[Zusammenfassung](#zusammenfassung)
+
+NUR bei VIS-2 müssen leider die unten aufgeführten Funktionen manuell eingefügt werden (siehe Bilder)
+
+![vis2_object.png](img/vis2_object.png)</br>
+![vis2_script.png](img/vis2_script.png)
+
+```java
+function deleteTrigger(stateId, command, id, dataid, count) {
+    var check = document.getElementById('delete' + count).checked;
+    if (ckeck) {
+        var data = {
+			"command": command,
+			"message": {
+				"triggerid": id,
+				"dataId": dataid,
+			}
+		};
+		vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+	}
+}
+function changeweekdays(stateId, command, dataid, id, changeid, type) {
+    if (type === "OneTimeTrigger") return;
+    var data = {
+		"command": command,
+		"message": {
+			"changeid": changeid,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function updateTrigger(stateId) {
+	vis.conn.setState(stateId + '.html.update', { val: true, ack: false });
+}
+function setState(stateId, value) {
+	vis.conn.setState(stateId, { val: value == 'false' ? false : true, ack: false });
+}
+function sendToAstro(stateId, command, dataid, id, count) {
+    var timeselect = document.getElementById('timeselect' + count).value;
+    var shift = document.getElementById('shift' + count).value;
+    var data = {
+		"command": command,
+		"message": {
+			"astrotime": timeselect,
+			"shift": shift,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function sendToDateTime(stateId, command, id, dataid, count) {
+    var value = document.getElementById('datetime' + count).value;
+    var data = {
+		"command": command,
+		"message": {
+			"time": value,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function sendToTime(stateId, command, id, dataid, count) {
+    var value = document.getElementById('nexttime' + count).value;
+    var data = {
+		"command": command,
+		"message": {
+			"time": value,
+			"triggerid": id,
+			"dataid": dataid
+		}
+    };
+	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+```
+
 ### CSS
 
 [Zusammenfassung](#zusammenfassung)
@@ -594,6 +777,11 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (Lucky_ESA) HTML overview added
+
 ### 0.0.6 (2024-11-16)
 
 -   (Lucky_ESA) Put value of state correctly

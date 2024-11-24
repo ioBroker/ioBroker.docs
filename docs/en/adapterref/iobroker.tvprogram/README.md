@@ -319,7 +319,7 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 
 Request all favorite broadcast from now till end of saved data.
 
@@ -334,7 +334,7 @@ Request all favorite broadcast from now till end of saved data.
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -719,6 +719,11 @@ widget tvprogram:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

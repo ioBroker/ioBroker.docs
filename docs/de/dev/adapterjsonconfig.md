@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: sNHHRwZotqRPWrZB9jQoZsQEkIQl+beO9deC3JQcWiI=
+hash: 0+vcILNwunjmaoGO6kZVRE4N3k4LfLysxnL3sxxjB/Y=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -151,7 +151,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`ip`:**](#ip) Eingabefeld für IP-Adressen mit erweiterten Optionen
 - [**`jsonEditor`:**](#jsoneditor) JSON-Editor für komplexe Konfigurationsdaten
 - [**`language`:**](#language) Wählt die Sprache der Benutzeroberfläche aus
-- [**`Lizenz`:**](#Lizenz) zeigt die Lizenzinformationen an, sofern sie nicht bereits akzeptiert wurden.
+- [**`license`:**](#license) zeigt die Lizenzinformationen an, sofern sie nicht bereits akzeptiert wurden.
 - [**`number`:**](#number) Numerisches Eingabefeld mit Min-/Max-Werten und Schrittweite
 - [**`objectId`:**](#objectid) Wählt eine Objekt-ID mit Name, Farbe und Symbol aus
 - [**`panel`:**](#panel) Registerkarte mit Elementen
@@ -165,8 +165,9 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`sendTo`:**](#sendto) Button, der eine Anfrage an eine Instanz sendet
 - [**`setState`:**](#setstate) Button, der den Status einer Instanz festlegt
 - [**`slider`:**](#slider) Schieberegler zum Auswählen eines Wertes innerhalb eines Bereichs (nur Admin 6)
-- [**`state`:**](#state) (admin >= 7.1.0) Kontroll- oder Informationsfenster des Staates anzeigen
+- [**`state`:**](#state) Steuerung oder Informationen vom Status anzeigen (admin >= 7.1.0)
 - [**`staticImage`:**](#staticimage) Zeigt ein statisches Bild an
+- [**`staticInfo`:**](#staticinfo) Zeigt statische Informationen in vorformatierter Form an, wie „Titel: Werteinheit“ (admin >= 7.3.3)
 - [**`staticLink`:**](#staticlink) Erstellt einen statischen Link
 - [**`staticText`:**](#statictext) Zeigt statischen Text an (z. B. Beschreibung)
 - [**`Koordinaten`:**](#Koordinaten) Ermittelt den aktuellen Standort und verwendet die `system.config`-Koordinaten, falls dies nicht in der Form "Breitengrad,Längengrad" möglich ist
@@ -189,7 +190,7 @@ Durch die Nutzung der JSON-Konfiguration können Sie eine benutzerfreundliche un
 | Validierung: | |
 
 ## Trennung der großen Konfigurationen
-## Beinhaltet
+## Enthält
 Erfordert Admin 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
@@ -312,7 +313,7 @@ Registerkarte mit Elementen
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | `icon` | Registerkarte kann Symbole (Base64 wie `data:image/svg+xml;base64,...`) oder `jpg/png` Bilder haben (endet mit `.png`) |
 | `items` | Objekt `{"attr1": {}, "attr2": {}}...` |
-| `collapsable` | nur möglich als Nicht-Bestandteil von Tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) |
+| `collapsable` | nur möglich, da nicht Bestandteil von Tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) |
 | `color` | Farbe der einklappbaren Kopfzeile `primary` oder `secondary` oder nichts |
 | `innerStyle` | CSS-Stile für innere Divs im React-Format (`marginLeft` und nicht `margin-left`) für die Panel-Komponente. Wird nicht für einklappbare Panels verwendet. |
 | `innerStyle` | CSS-Stile für innere Divs im React-Format (`marginLeft` und nicht `margin-left`) für die Panel-Komponente. Wird nicht für einklappbare Panels verwendet. |
@@ -524,7 +525,7 @@ Objekt-ID: mit Name, Farbe und Symbol anzeigen
 ### `password`
 Dieser Feldtyp hat nur Auswirkungen auf die Benutzeroberfläche.
 Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden! Dazu muss der Schlüssel im io-package.json unter [nativeVerschlüsselung](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) bereitgestellt werden.
-Zusätzlich können Sie diese Eigenschaft davor schützen, an andere Adapter als `admin` und `cloud` übermittelt zu werden, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
+Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapter als `admin` und `cloud` schützen, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
 
 | Immobilie | Beschreibung |
 |-------------|---------------------------------------------------------------------------------------------------------|
@@ -770,7 +771,7 @@ Eingabefeld mit Dateiauswahl
 | `allowUpload` | Erlaubtes Hochladen von Dateien |
 | `allowDownload` | Erlaubter Download von Dateien (Standard: True) |
 | `allowCreateFolder` | Erstellen von Ordnern erlaubt |
-| `allowView` | Kachel-Ansicht erlaubt (Standard: true) |
+| `allowView` | erlaubte Kachel-Ansicht (Standard: true) |
 | `showToolbar` | Symbolleiste anzeigen (Standard: true) |
 | `selectOnlyFolders` | Benutzer kann nur Ordner auswählen (z. B. für den Upload-Pfad) |
 | `trim` | Dateinamen kürzen |
@@ -1189,7 +1190,7 @@ data: {
 In diesem Fall muss die Eingabe Text sein, wobei `__different__` angezeigt wird, mit der Autovervollständigungsoption von drei möglichen Werten.
 Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
 
-Boolesche Werte müssen unbestimmt sein, wenn der Wert [false, true] ist.
+Boolesche Werte müssen Unbestimmtheit unterstützen, wenn der Wert [false, true] ist.
 
 Für unveränderte `__different__` muss der Wert different zurückgegeben werden:
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.remeha-home/README.md
 title: ioBroker.remeha-home
-hash: h7B+U7cHISwvuhDJZo34TBYv/XKw8GdpgWJU4L7b93M=
+hash: uRi77+bePrsWGCD5xccnBWjbelxfrurWjfa1VJBWsxM=
 ---
 ![Logo](../../../en/adapterref/iobroker.remeha-home/admin/remeha-home.png)
 
@@ -49,12 +49,13 @@ Diese müssen Sie in der Konfiguration des Adapters eintragen.
 
 --- <!-- ### **IN ARBEIT** -->
 
-### **IN ARBEIT**
-* (simatec) Abhängigkeiten aktualisiert
-* (simatec) JsonConfig reparieren
-* (simatec) Issue-Aktion hinzugefügt
-
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) Dependencies updated
+* (simatec) Fix jsonConfig
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
 ### 0.2.4 (2024-09-28)
 * (simatec) Fix request error
 * (simatec) Dependencies updated

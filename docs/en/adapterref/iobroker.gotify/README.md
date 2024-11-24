@@ -17,6 +17,11 @@ Send push notifications from [ioBroker](https://iobroker.net/) to [Gotify](https
 
 ## Changelog
 
+### 0.4.0
+
+-   (Thomas Pohl) Support for notification-manager was added
+-   (Thomas Pohl) Blockly can now send messages with priority 10
+
 ### 0.3.0
 
 -   (Thomas Pohl) The token is stored now encrypted

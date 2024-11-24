@@ -796,6 +796,7 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 <!-- ### __WORK IN PROGRESS__ -->
 ### __WORK IN PROGRESS__
 * (simatec) Bugfix Brightness down
+* (simatec) eslint-config added
 
 ### 1.8.4 (2024-11-07)
 * (simatec) Issue Info added

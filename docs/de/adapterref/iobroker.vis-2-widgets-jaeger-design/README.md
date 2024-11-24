@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-hash: 5lVnGUkghKSehN1aDAMXEmrP6XnAxenBvUzyN+8W8ko=
+hash: KRfOLZ4R4Szd49jBaBhDpNY2gI8fC0T5/XIDnd5MNn0=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -28,7 +28,7 @@ Das Video wie man die Widgets benutzt kann man [hier](https://youtu.be/Rplr2Ba-G
 
 Um dieses Widget zu verwenden, müssen Sie ein kleines Skript im Javascript-Adapter erstellen:
 
-```
+```js
 const axios = require('axios');
 
 function readRss() {
@@ -49,6 +49,9 @@ Und verwenden Sie dann das Objekt `javascript.0.rss` in diesem Widget.
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.3.2 (2024-11-22)
+* (bluefox) Corrected "close on click" option for shutter and dimmer
+
 ### 1.3.1 (2024-09-23)
 * (bluefox) Removed gulp from a build process
 * (bluefox) Added the possibility to select camera from the "cameras" adapter

@@ -33,6 +33,10 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.4 (2024-11-23)
+
+-	FIX: #203 Scrolling in table
+
 ### 2.1.3 (2024-10-21)
 
 -	FIX: User checkbox error message
