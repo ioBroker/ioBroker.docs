@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvProgramm
-hash: D6PEjRUhQ+htZHtYMcpl5ZpppPpnCvz/5zs4H8lC7dc=
+hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -26,7 +26,7 @@ Aufgrund der Größe werden die Daten nicht in Datenpunkten, sondern in Dateien 
 
 In der Konfiguration muss das Widget dann nur noch mit einem beliebigen Datenpunkt des Adapters befüllt werden (z.B.cmd).
 
-Alle restlichen Datenpunkte sucht das Widget automatisch heraus.
+Alle restlichen Datenpunkte sucht das Widget automatisch.
 
 ## Installation
 Der Adapter kann über die stabile Version oder zum Testen über das Beta-/Neueste-Repository installiert werden.
@@ -144,7 +144,7 @@ Die folgenden Attribute stehen zur Konfiguration in vis zur Verfügung. Die Mind
 | `oid` | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram`-Adapters. |
 | `time` | 20:15 | wenn Uhrzeit nur die Sendung zu dieser Uhrzeit für 120 Minuten gezeigt werden soll, dann wird die Sendung vom nächsten Tag gezeigt |
 | `time` | 20:15/200 | wenn Uhrzeit mit Dauer angegeben wird, würde die Sendung zu dieser Uhrzeit 200 Minuten lang gezeigt werden |
-| `time` | 2021-02-15T20:15:00.000Z | Wenn es sich um eine gültige Datumszeichenfolge handelt, wird die Sendung zu diesem Zeitpunkt angezeigt. Denken Sie an die Zeitzonen |
+| `time` | 2021-02-15T20:15:00.000Z | Wenn der UTC-Datumsstring gültig ist, wird die Sendung zu dieser Zeit angezeigt. Zeitzonen beachten |
 | `heightRow` | 35 | Höhe für jede angezeigte Zeile |
 | `showpictures` | x | Bilder anzeigen, falls verfügbar |
 | `broadcastfontpercent` | 75 | Zeichengröße in Prozent für die Sendungen |
@@ -337,7 +337,7 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 ```
 
 #### `getServerBroadcastDate`
-Fordert alle Übertragungen an, die zu einem bestimmten Zeitpunkt ausgeführt werden
+Fordert alle Sendungen an, die zu einem bestimmten Zeitpunkt laufen
 
 ##### Gültige Parameter sind
 Array von Kanal-IDs Ihrer Lieblingskanäle datetime
@@ -677,10 +677,11 @@ Widget TV-Programm:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.1.0 (2024-11-24)
 
 - Change sento command from getFavoritesDatax to getFavoritesData
+- switch to eslint
+- complete rework of tvprogram to switch from callback to await
 
 ### 2.0.2 (2024-11-17)
 

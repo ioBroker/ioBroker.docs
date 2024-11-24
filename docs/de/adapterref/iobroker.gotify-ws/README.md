@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: oXPHjuHMHoLLlEzMSLVDiPX/+sdFb6o14PVXKItzbxo=
+hash: kZxbSMpDx4oArfnMLcAoyoLeqBJx6Fhx4A5vSU4nlw4=
 ---
 ![Logo](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -66,50 +66,50 @@ Zur Weiterleitung können Sie anschließend einen Benachrichtigungsdienst Ihrer 
 
 --- <!-- ### **IN ARBEIT** -->
 
-### **IN ARBEIT**
+### 0.1.10 (24.11.2024)
 * (simatec) Abhängigkeiten aktualisiert
 * (simatec) Fehlerbehebung für responsives Design
 * (simatec) Issue-Aktion hinzugefügt
+* (simatec) eslint-config hinzugefügt
 
-## Changelog
-### 0.1.9 (2024-09-26)
-* (simatec) Fix for admin 7.1.5
+### 0.1.9 (26.09.2024)
+* (simatec) Fix für Admin 7.1.5
 
-### 0.1.8 (2024-09-24)
-* (simatec) Responsive Design fix
-* (simatec) Cleaned code
+### 0.1.8 (24.09.2024)
+* (simatec) Fehlerbehebung für responsives Design
+* (simatec) Code bereinigt
 
-### 0.1.7 (2024-09-16)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
+### 0.1.7 (16.09.2024)
+* (simatec) Abhängigkeiten aktualisiert
+* (simatec) Fehlerbehebung für responsives Design
 
-### 0.1.6 (2024-09-10)
-* (simatec) Fix Adapter Check
-* (simatec) Dependencies updated
-* (simatec) Responsive Design added
+### 0.1.6 (10.09.2024)
+* (simatec) Adapterprüfung beheben
+* (simatec) Abhängigkeiten aktualisiert
+* (simatec) Responsive Design hinzugefügt
 
-### 0.1.5 (2024-07-22)
-* (simatec) small fix
+### 0.1.5 (22.07.2024)
+* (simatec) kleine Fehlerbehebung
 
-### 0.1.4 (2024-07-19)
-* (simatec) Dependencies updated
+### 0.1.4 (19.07.2024)
+* (simatec) Abhängigkeiten aktualisiert
 
-### 0.1.3 (2024-07-17)
+### 0.1.3 (17.07.2024)
 * (simatec) Fix Test & Release
-* (simatec) Fix Timeout
+* (simatec) Timeout beheben
 
-### 0.1.2 (2024-06-26)
-* (simatec) Fix io-package
-* (simatec) Notification-Manager added
+### 0.1.2 (26.06.2024)
+* (simatec) IO-Paket reparieren
+* (simatec) Notification-Manager hinzugefügt
 
-### 0.1.1 (2024-06-19)
-* (simatec) Fix Branch
+### 0.1.1 (19.06.2024)
+* (simatec) Zweigstelle reparieren
 
-### 0.1.0 (2024-06-19)
-* (simatec) First Release
+### 0.1.0 (19.06.2024)
+* (simatec) Erste Veröffentlichung
 
-### 0.0.1 (2024-03-15)
-* (simatec) initial release
+### 0.0.1 (15.03.2024)
+* (simatec) Erstveröffentlichung
 
 ---
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvпрограмма
-hash: D6PEjRUhQ+htZHtYMcpl5ZpppPpnCvz/5zs4H8lC7dc=
+hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -138,7 +138,7 @@ iobroker загрузить все
 | `oid` | `tvprogram.0.tv1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
 | `time` | 20:15 | если бы время только трансляция в это время показывалась в течение 120 минут, то показывался бы следующий день |
 | `time` | 20:15/200 | если время с продолжительностью, то трансляция в это время будет показана в течение 200 минут |
-| `time` | 2021-02-15T20:15:00.000Z | Если допустимая Datestring, то будет показана трансляция в это время. Запомните часовые пояса |
+| `time` | 2021-02-15T20:15:00.000Z | Если действительная строка UTC-Datestring, то будет показана трансляция в это время. Запомните часовые пояса |
 | `heightRow` | 35 | Высота для каждой отображаемой строки |
 | `showpictures` | x | Показать фотографии, если они есть |
 | `broadcastfontpercent` | 75 | Размер символа в процентах для трансляций |
@@ -655,7 +655,7 @@ var timer = setInterval(function () {
 - ~~подсказки для кнопок в виджете времени~~
 - ~~Идеи для дальнейших виджетов на основе существующего сценария телепрограммы~~
 - ~~Проблема: бесконечная прокрутка в Firefox~~
-- ~~на обсуждение: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
+- ~~обсуждается: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
 - ~~адаптивный дизайн для подробного представления->адаптивный дизайн для диалогового окна jquery невозможен, нашел другое решение с фиксированными макетами для высоты>ширины~~
 - ~~Проблема: небольшая ошибка пикселей, если панель прокрутки полностью прокручена с левой стороны~~
 
@@ -665,10 +665,11 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.1.0 (2024-11-24)
 
 - Change sento command from getFavoritesDatax to getFavoritesData
+- switch to eslint
+- complete rework of tvprogram to switch from callback to await
 
 ### 2.0.2 (2024-11-17)
 

@@ -590,6 +590,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![vis_object_1.png](img/vis_object_1.png)
 
+-   Ein HTML Widget anlegen und unter HTML das Objekt eintragen `{schedule-switcher.0.html.html_code}`
 -   Klick auf den Schriftzug `Letzte Aktualisierung` um ein manuelles Update durchzuführen
 -   Icon anklicken um das Widget zu aktivieren/deaktivieren
 -   Um ein Auslöser zu löschen muss man erst einen Haken setzen und dann den Button `delete` drücken
@@ -610,12 +611,12 @@ NUR bei VIS-2 müssen leider die unten aufgeführten Funktionen manuell eingefü
 
 ```java
 function deleteTrigger(stateId, command, id, dataid, count) {
-    var check = document.getElementById('delete' + count).checked;
-    if (ckeck) {
+    var checked = document.getElementById('delete' + count).checked;
+    if (checked) {
         var data = {
 			"command": command,
 			"message": {
-				"triggerid": id,
+				"triggerId": id,
 				"dataId": dataid,
 			}
 		};

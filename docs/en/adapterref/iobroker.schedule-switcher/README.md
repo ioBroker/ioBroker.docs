@@ -591,6 +591,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 ![vis_object_1.png](img/vis_object_1.png)
 
+-   Create an HTML widget and enter the object under HTML `{schedule-switcher.0.html.html_code}`
 -   Click on the text “Last updated” to manual update
 -   Click on the icon to activate/deactivate the widget
 -   To delete a trigger you first have to tick the checkbox and then press the 'delete' button
@@ -611,12 +612,12 @@ Unfortunately, ONLY with VIS-2 the functions listed below have to be inserted ma
 
 ```java
 function deleteTrigger(stateId, command, id, dataid, count) {
-    var check = document.getElementById('delete' + count).checked;
-    if (ckeck) {
+    var checked = document.getElementById('delete' + count).checked;
+    if (checked) {
         var data = {
             "command": command,
             "message": {
-                "triggerid": id,
+                "triggerId": id,
                 "dataId": dataid,
             }
         };

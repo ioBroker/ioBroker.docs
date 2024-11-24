@@ -64,12 +64,12 @@ You can then configure a notification service of your choice for forwarding.
 
 ---
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 0.1.10 (2024-11-24)
 * (simatec) Dependencies updated
 * (simatec) Responsive Design fix
 * (simatec) Issue Action added
+* (simatec) eslint-config added
 
-## Changelog
 ### 0.1.9 (2024-09-26)
 * (simatec) Fix for admin 7.1.5
 

@@ -60,6 +60,12 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 8.5.0 (2024-11-24)
+
+* (@klein0r) Added Shelly Plug S Gen3
+* (@klein0r) Added Shelly BLU Gateway Gen3
+* (@klein0r) Added Shelly I4 / I4DC Gen3
+
 ### 8.4.0 (2024-10-20)
 
 * (@klein0r) Added AddOn support for Gen3 devices
@@ -78,10 +84,6 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 * (@Scrounger) Added Shelly BLU Wall Switch 4 & Shelly BLU RC Button 4
 * (@Paradoxa) Added Shelly Plus RGBW PM
 * (simatec) Responsive Design added
-
-### 8.1.1 (2024-08-27)
-
-* (@klein0r) Fixed lint issues and Shelly Gen 3 import
 
 ## License
 

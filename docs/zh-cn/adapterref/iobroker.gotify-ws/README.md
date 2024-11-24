@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: oXPHjuHMHoLLlEzMSLVDiPX/+sdFb6o14PVXKItzbxo=
+hash: kZxbSMpDx4oArfnMLcAoyoLeqBJx6Fhx4A5vSU4nlw4=
 ---
 ![标识](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -56,7 +56,7 @@ Spotify-WS 目前支持以下通知服务
 ## 适配器配置
 适配器的配置非常简单。
 
-您在 Gotify 服务器上创建一个新客户端，并复制客户端生成的令牌。
+您在 Gotify 服务器上创建一个新客户端并复制客户端生成的令牌。
 您在 Gotify-WS 适配器配置中输入此令牌。
 Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
@@ -66,50 +66,50 @@ Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
 --- <!-- ### **正在进行中** -->
 
-### **正在进行中**
+### 0.1.10 (2024-11-24)
 *（simatec）依赖项已更新
 *（simatec）响应式设计修复
 *（simatec）已添加问题操作
+*（simatec）添加了 eslint-config
 
-## Changelog
 ### 0.1.9 (2024-09-26)
-* (simatec) Fix for admin 7.1.5
+*（simatec）修复管理员 7.1.5
 
 ### 0.1.8 (2024-09-24)
-* (simatec) Responsive Design fix
-* (simatec) Cleaned code
+*（simatec）响应式设计修复
+*（simatec）清理代码
 
 ### 0.1.7 (2024-09-16)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
+*（simatec）依赖项已更新
+*（simatec）响应式设计修复
 
 ### 0.1.6 (2024-09-10)
-* (simatec) Fix Adapter Check
-* (simatec) Dependencies updated
-* (simatec) Responsive Design added
+*（simatec）修复适配器检查
+*（simatec）依赖项已更新
+* (simatec) 添加了响应式设计
 
-### 0.1.5 (2024-07-22)
-* (simatec) small fix
+### 0.1.5（2024-07-22）
+*（simatec）小修复
 
-### 0.1.4 (2024-07-19)
-* (simatec) Dependencies updated
+### 0.1.4（2024-07-19）
+*（simatec）依赖项已更新
 
 ### 0.1.3 (2024-07-17)
-* (simatec) Fix Test & Release
-* (simatec) Fix Timeout
+* (simatec) 修复测试并发布
+*（simatec）修复超时
 
 ### 0.1.2 (2024-06-26)
-* (simatec) Fix io-package
-* (simatec) Notification-Manager added
+*（simatec）修复 io 包
+*（simatec）已添加通知管理器
 
-### 0.1.1 (2024-06-19)
-* (simatec) Fix Branch
+### 0.1.1（2024-06-19）
+*（simatec）修复分支
 
-### 0.1.0 (2024-06-19)
-* (simatec) First Release
+### 0.1.0（2024-06-19）
+*（simatec）首次发布
 
-### 0.0.1 (2024-03-15)
-* (simatec) initial release
+### 0.0.1（2024-03-15）
+*（simatec）初始版本
 
 ---
 
