@@ -3,10 +3,10 @@
     "2024_11_23": {
       "date": "2024.11.23",
       "title": {
-        "de": "Rückblick auf das Community-Treffen",
-        "en": "Review of the community meeting",
-        "ru": "Обзор собрания сообщества",
-        "zh-cn": "社区会议回顾"
+        "de": "Rückblick auf das Community-Treffen zum 10-jährigen ioBroker Jubiläum",
+        "en": "Review of the community meeting for the 10th ioBroker anniversary",
+        "ru": "Обзор встречи сообщества к 10-летию ioBroker",
+        "zh-cn": "ioBroker十周年社区会议回顾"
       },
       "logo": "de/blog/images/2024_11_23.png",
       "type": "news",
