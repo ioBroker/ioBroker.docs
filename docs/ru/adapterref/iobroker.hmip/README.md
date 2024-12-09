@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: Адаптер точки доступа ioBroker HomeMatic IP Cloud
-hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
+hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -25,8 +25,6 @@ hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 **Важное примечание:** Пожалуйста, ограничьте запросы на управление до минимума, поскольку EQ-3 начал блокировать IP-адреса, когда вы делали это слишком часто!
 
 ## Установка
-Для этого адаптера требуется node-js версии >= 16.0
-
 Вот пошаговое видео по установке на YouTube https://youtu.be/kXWfJRUYJIA
 
 ## Информация
@@ -43,7 +41,7 @@ hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 Если вы ищете информацию, если настройки сигнализации активны, вам нужно проверить активное состояние групп INTERNAL и EXTERNAL, они представляют собой комбинацию трех состояний тревоги. INTERNAL и EXTERNAL активны означают «Отсутствие», активен только EXTERNAL, означает активен только Perimeter.
 
 ## Важная информация о том, что можно сделать с помощью этого адаптера
-!!! С помощью этого адаптера вы можете запускать только те события, которые можно запускать через оригинальное приложение Homematic IP.
+!!! С помощью этого адаптера вы можете запускать только те события, которые можно запустить через оригинальное приложение Homematic IP.
 Например, прямые соединения между устройствами не имеют событий в приложении и также не могут быть запущены через этот адаптер!!!
 
 ## Настройки
@@ -54,20 +52,29 @@ hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 Если вы назначили PIN-код для замка в приложении HmIP (Настройки / Разрешения на доступ - немецкий: "Zutrittsberechtigungen"), то PIN-код необходимо установить в состоянии PIN-кода объектов устройства. Это НЕ ваш системный PIN-код!! если вы не установили PIN-код в настройках, вы также можете оставить пустым состояние PIN-кода.
 Кроме того, добавьте клиента "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
 
+## Домашний блок управления (HCU)
+Изменился рабочий процесс с HCU
+
+Нажмите кнопку один раз перед началом создания токена. Это позволяет получить удаленный доступ на 5 минут. Затем нажмите кнопку еще раз, когда вас попросят это сделать во время процесса сопряжения.
+
+Большое спасибо @dietzm за добавление поддержки HCU в этот адаптер.
+
 ## Спасибо
 * @coreGreenberet за его библиотеку Python (https://github.com/coreGreenberet/homematicip-rest-api)
 
 ## Обсуждение на форуме ioBroker
 https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 
-## Запрос адаптера на GitHub
-https://github.com/ioBroker/AdapterRequests/issues/62
-
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.26.1-alpha.1 (2024-12-09)
+* (mcm1957) Adapter requires node.js 20 now
+* (dietzm) Added support for Home Control Unit
+* (GermanBluefox) Corrected the admin GUI
+
 ### 1.25.0 (2024-11-08)
 * (bluefox) Updated packages
 * (bluefox) User prettier for code

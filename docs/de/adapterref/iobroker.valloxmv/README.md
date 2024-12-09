@@ -2,59 +2,88 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.valloxmv/README.md
-title: kein Titel
-hash: 9+D1nDxrjxwZ+6QuEl1exDVHwGwbhvKsybw56c5Vj/g=
+title: ohne Titel
+hash: 3D+3x+HEJph1NJ57fT3+09oimGIcDc6gwEzlgDEdlDI=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.valloxmv.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.valloxmv.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/hacki11/iobroker.valloxmv.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/hacki11/ioBroker.valloxmv/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/hacki11/ioBroker.valloxmv/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.valloxmv.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/hacki11/ioBroker.valloxmv/master.svg)
 
-<h1><img src="admin/valloxmv.png" width="64"/> ioBroker.valloxmv </h1>
+<h1><img src="admin/valloxmv.png" width="64"/>ioBroker.valloxmv</h1>
 
 ## ValloxMV-Adapter für ioBroker
 Verbindet Ihr Vallox Air Ventilation-System mit Ihrer ioBroker-Hausautomation.
 
-## Verwendungszweck
+## Verwendung
 * Adapter installieren
-* Konfigurieren Sie die Geräteadresse und das Abfrageintervall (mindestens 60).
-* Lese und schreibe Zustände wie gewohnt
+* Geräteadresse und Abfrageintervall konfigurieren (60 ist Minimum)
+* Zustände wie gewohnt lesen und schreiben
 
-## Changelog
+## In Arbeit
+* Aktualisierte Abhängigkeiten (iobroker-core & node)
+* Benutzeroberfläche in jsconConfig ändern und vom Repository-Checker erkannte Probleme beheben
+
+### 1.2.0
+* NodeJS 10.x-Unterstützung entfernen
+* Upgrade auf js-controller 3.3 und Admin 5
+
+### 1.1.3
+* Falscher Datentyp (Zahl statt Boolescher Wert) in Profil-Einträgen *_ENABLED behoben [#33](https://github.com/hacki11/ioBroker.valloxmv/issues/33).
+* Festlegen der Verbindungsinformationen ohne Bestätigungswert behoben.
+
+### 1.1.2
+* Falscher Datentyp (String) in Temperaturzuständen anstelle von Zahlen behoben
+
+### 1.1.1
+* Probleme mit dem Adapter-Checker beheben
+
+### 1.1.0
+* A_CYC_BYPASS_LOCKED hinzugefügt
+* A_CYC_SUPP_FAN_BALANCE_BASE hinzugefügt
+* A_CYC_EXTR_FAN_BALANCE_BASE hinzugefügt
+* A_CYC_IP_ADDRESS hinzugefügt
+* A_CYC_CELL_STATE auf schreibgeschützt geändert
+
+### 1.0.3
+* Probleme mit dem Adapter-Checker beheben
+
+### 1.0.2
+* Abonnements eigener Objekte hinzugefügt, um das Schreiben von Werten zu ermöglichen
+
+### 1.0.1
+* Das Zurücksetzen der benutzerdefinierten Konfiguration von Objekten wurde behoben
+* Abonnement eigener Objekte entfernt
+
+### 1.0.0
+* Leere Zustände behoben
+* Bool-Zustände für Schalter geändert
+
+### 0.1.3
+* Experteneinstellungen hinzugefügt (@williandalton, @hliebscher)
+* A_CYC_RH_BASIC_LEVEL
+* A_CYC_CO2_SCHWELLE
+* A_CYC_RH_LEVEL_MODE
+* A_CYC_SUPPLY_HEATING_ADJUST_MODE
+* A_CYC_OPT_TEMP_SENSOR_MODE
 
 ### 0.1.2
-* add State 'NORMAL' to A_CYC_MODE (@williandalton)
+* füge den Status „NORMAL“ zu A_CYC_MODE hinzu (@williandalton)
 
 ### 0.1.1
-* fix io-package.json version number
+* io-package.json-Versionsnummer korrigieren
 
 ### 0.1.0
-* added profile switch and editing
+* Profilwechsel und -bearbeitung hinzugefügt
 
 ### 0.0.1
-* (hacki11) initial release
+* (hacki11) Erstveröffentlichung
+
+## Changelog
 
 ## License
 MIT License
 
-Copyright (c) 2019 hacki11
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2022 hacki11

@@ -104,9 +104,14 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 ### __WORK IN PROGRESS__
+* (simatec) eslint-config fix
+* (simatec) Code fix
+
+### 0.9.13 (2024-11-27)
 * (simatec) Dependencies updated
 * (simatec) small Design fix
 * (simatec) Issue Action added
+* (simatec) eslint-config added
 
 ### 0.9.12 (2024-09-26)
 * (simatec) Fix for Admin 7.1.5

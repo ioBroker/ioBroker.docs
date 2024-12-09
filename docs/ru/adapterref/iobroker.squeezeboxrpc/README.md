@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.squeezeboxrpc/README.md
 title: Адаптер ioBroker Logitech Squeezebox через протокол JSON/RPC
-hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
+hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -61,7 +61,7 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 
 выполнить следующую команду, если возникли проблемы в vis-1
 
-`iobroker upload squeezeboxpc`
+`iobroker upload squeezeboxrpc`
 
 ## Предоставленные состояния
 ### Сервер
@@ -382,6 +382,115 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 | Запятая как разделитель | Расширенные настройки | Запятая используется для разделения десятичных знаков. |
 | Разделитель тысяч | Расширенные настройки | Для больших чисел разделитель вставляется через каждые 3 знака. |
 
+### Плейлист
+![Число](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playlist.png)
+
+Отобразить плейлист с сервера. Если нажать на запись, плейлист загрузится и запустится проигрыватель.
+Виджет не обновляется автоматически, нужно нажать кнопку обновления.
+
+#### Атрибуты для плейлиста
+| Группа | Атрибут | Описание |
+| --------------------- | ----------------- | ----------------------------------------------------------------- |
+| Виджет плеера | Общая группа | Выбор виджета плеера. |
+
+Сам виджет имеет очень мало форматирования.
+Для самостоятельного форматирования есть несколько предопределенных css-классов:
+
+| CSS-класс | описание |
+| ---------- | ----------------------------------------- |
+| plcontainer| Имя класса, назначенное ul-тегу |
+| plentry | Имя класса, назначенное li-tag |
+| plrefresh | Имя класса, назначенное тегу refresh-li |
+| pltext | Имя класса, назначенное имени плейлиста |
+
+Следующий CSS для вкладки vis-css может служить примером:
+
+Темный режим
+
+```css
+.plentry {
+    border: 1px #505050 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#202020;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#404040;
+}
+.plrefresh svg {
+    color:#cccccc;
+}
+.plrefresh svg:hover {
+    color:#ffffff;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+Световой режим
+
+```css
+.plentry {
+    border: 1px #b0b0b0 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#c0c0c0;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#e0e0e0;
+}
+.plrefresh svg {
+    color:#444444;
+}
+.plrefresh svg:hover {
+    color:#000000;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+## SendTo-Befehle
+### CmdGeneral
+Эту команду можно использовать для отправки любой команды на сервер LMS для получения ответа.
+
+Пример:
+
+**Все плейлисты:**
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["playlists", "0", "999", "tags:us"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+**Все избранные:**
+
+Эта команда используется адаптером для загрузки избранного.
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["favorites", "items", "0", "999", "want_url:1", "item_id:"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+Дополнительные параметры и подробные описания параметров содержатся в следующей документации CLI:
+
+[CLI-документация](#further-api-documentation)
+
 ## То, что нужно сделать
 - больше тестирования/исправления
 - уменьшить зависимости от других пакетов (squeezenode)
@@ -415,19 +524,37 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
    ### **WORK IN PROGRESS**
 
 -->
-### 1.4.0-alpha.2 (2024-11-01)
+### **WORK IN PROGRESS**
 
-- improve handlying for artwork_url
+- fix spelling of iobroker upload squeezeboxrpc in readme
 
-### 1.4.0-alpha.1 (2024-10-27)
+### 1.5.1 (2024-11-29)
 
+- improve documentation
+- remove margin from plcontainer
+- improve textoverflow with ellipsis
+- adjust initial widgetsize of playlist widget
+- repair attributes for playlist widget
+- add light mode css for playlist widget
+
+### 1.5.0 (2024-11-28)
+
+- Switch to iobroker/eslint
+- New widget playlist
+
+### 1.4.0 (2024-11-27)
+
+- fix some missing objects errors
+- sanitize more playernames in syncgroups
+- add sendTo Command "cmdGeneral"
+- sanitize more the playername
+- improve translation
+- if trackartist is avail then write to artist if empty
+- improve handling for artwork_url
 - move widget documentation from html to markdown
 - adjust responsive tab style
 - improve attribute widgets
 - change TPE2 handling once more
-
-### 1.4.0-alpha.0 (2024-10-24)
-
 - jsonConfig add sizing options for differenz screen sizes
 - test implementation of TPE2 handling. switch in settings
 - add datapoints album_artist, track_artist, artistOriginal

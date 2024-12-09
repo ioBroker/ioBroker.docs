@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.调度切换器
-hash: hTMhI+nuAqAchPX1J2nKlcMjbVOggmKJV7EXnURridM=
+hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
 ---
 ![标识](../../../de/admin/schedule-switcher.png)
 
@@ -51,7 +51,7 @@ hash: hTMhI+nuAqAchPX1J2nKlcMjbVOggmKJV7EXnURridM=
 - `活跃`：活跃
 - `删除`：删除日程
 - `2 个切换过程之间的延迟（以毫秒为单位）`：防止同时设置状态
-- `历史记录切换为 JSON（最大 100/0 表示关闭）` 历史记录最大存储量
+- `历史记录切换为 JSON（最大 100/0 关闭）` 历史记录最大存储量
 - `为 VIS 和 VIS-2 创建 HTML（VIS-2 请参阅说明）` 激活 HTML 概述
 
 ![实例设置.png](img/instance_settings.png)</br> ![实例设置_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings_1.png)
@@ -320,7 +320,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 ]
 ```
 
-# Widget 视图 JSON 示例
+# 小部件视图 JSON 示例
 [概括](#zusammenfassung)
 
 ```json
@@ -484,7 +484,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - `html.background_color_even` 背景颜色触发偶数 - 默认 #1E1E1E
 - `html.background_color_odd` 背景颜色触发奇数 - 默认 #18171C
 - `html.background_color_trigger` 背景颜色触发对象 - 默认 #000000
-- `html.background_color_weekdays_hover` 悬停在一周中的几天时的背景颜色 - 单击以激活/停用 - 默认蓝色
+- 当鼠标悬停在一周中的几天时`html.background_color_weekdays_hover`背景颜色 - 单击以激活/停用 - 默认蓝色
 - `html.column_align_01` 标题文本对齐列 1 - 默认居中
 - `html.column_align_02` 标题文本对齐列 2 - 默认居中
 - `html.column_align_03` 标题文本对齐列 3 - 默认居中
@@ -566,18 +566,19 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 ![vis_object_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
 
 - 创建一个 HTML 小部件并在 HTML 下输入对象 `{schedule-switcher.0.html.html_code}`
-- 单击“上次更新”文本进行手动更新
+- 单击文本“上次更新”以进行手动更新
 - 单击图标激活/停用小部件
 - 要删除触发器，您首先必须勾选它，然后按“删除”按钮
 - 更改时间/Astro 并按“保存”按钮应用更改
 - 单击一周中的某一天来激活/停用它
+- 在触发器名称行中，下一个事件开/关显示在星期几下
 
 ![vis_view_1.png](img/vis_view_1.png)</br> ![vis_view_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_view_2.png)
 
-### 功能仅适用于 VIS-2！！！
+### 功能仅适用于 VIS-2！
 [概括](#zusammenfassung)
 
-不幸的是，只有使用 VIS-2，下面列出的功能才必须手动插入（参见图片）
+不幸的是，只有 VIS-2 才必须手动插入下面列出的功能（参见图片）
 
 ![vis2_object.png](img/vis2_object.png)</br> ![vis2_script.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis2_script.png)
 
@@ -749,49 +750,53 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.8 (2024-12-07)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Migration to ESLint9
+- (Lucky-ESA) Bugfixes
 
--   (Lucky_ESA) HTML overview added
+### 0.0.7 (2024-11-26)
+
+- (Lucky_ESA) HTML overview added
 
 ### 0.0.6 (2024-11-16)
 
--   (Lucky_ESA) Put value of state correctly
--   (Lucky_ESA) Added next triggers as JSON
--   (Lucky_ESA) Added counter trigger
--   (Lucky_ESA) Updating astro time fixed
+- (Lucky_ESA) Put value of state correctly
+- (Lucky_ESA) Added next triggers as JSON
+- (Lucky_ESA) Added counter trigger
+- (Lucky_ESA) Updating astro time fixed
 
 ### 0.0.5 (2024-11-06)
 
--   (Lucky_ESA) Crash when updating astro time fixed
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Crash when updating astro time fixed
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.4 (2024-11-04)
 
--   (Lucky_ESA) Temporary function removed
--   (Lucky_ESA) Creation of objects adjusted
--   (Lucky_ESA) Validation check of the states
--   (Lucky_ESA) Validation check for 2 widgets with one object
+- (Lucky_ESA) Temporary function removed
+- (Lucky_ESA) Creation of objects adjusted
+- (Lucky_ESA) Validation check of the states
+- (Lucky_ESA) Validation check for 2 widgets with one object
 
 ### 0.0.3 (2024-10-30)
 
--   (Lucky_ESA) Fixed VIS translate
--   (Lucky_ESA) Added astro time in trigger
--   (Lucky_ESA) Fixed OneTimeTrigger
--   (Lucky_ESA) Added date for OneTimeTrigger
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Fixed VIS translate
+- (Lucky_ESA) Added astro time in trigger
+- (Lucky_ESA) Fixed OneTimeTrigger
+- (Lucky_ESA) Added date for OneTimeTrigger
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.2 (2024-10-22)
 
--   (Lucky_ESA) Fix translate
--   (Lucky_ESA) Fix background color disable Weekdays
--   (Lucky_ESA) Fix sendTo
--   (Lucky_ESA) Added jsonConfig
--   (Lucky_ESA) Added history
+- (Lucky_ESA) Fix translate
+- (Lucky_ESA) Fix background color disable Weekdays
+- (Lucky_ESA) Fix sendTo
+- (Lucky_ESA) Added jsonConfig
+- (Lucky_ESA) Added history
 
 ### 0.0.1 (2024-10-19)
 
--   (Lucky_ESA) initial release
+- (Lucky_ESA) initial release
 
 ## License
 

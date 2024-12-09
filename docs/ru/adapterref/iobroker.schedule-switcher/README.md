@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schedule-switcher/README.md
 title: Переключатель ioBroker.schedule
-hash: hTMhI+nuAqAchPX1J2nKlcMjbVOggmKJV7EXnURridM=
+hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
 ---
 ![логотип](../../../de/admin/schedule-switcher.png)
 
@@ -26,7 +26,7 @@ hash: hTMhI+nuAqAchPX1J2nKlcMjbVOggmKJV7EXnURridM=
 - [Объекты](#состояния)
 - [Пример триггерных событий в формате JSON](#example-triggerevents-json)
 - [Пример триггера в формате JSON](#example-trigger-json)
-- [Пример sendTo запускает только экспертов](#example-trigger-with-sendto-create-or-edit-experts)
+- [Пример sendTo активирует только экспертов](#example-trigger-with-sendto-create-or-edit-experts)
 - [Пример виджета в формате JSON](#example-widgets-json)
 - [Пример истории в формате JSON](#example-history-json)
 - [Создать виджет](#создать виджет)
@@ -425,7 +425,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_time_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_done.png)
 
-### Астротриггеры
+### Астро-триггер
 [Краткое содержание](#zusammenfassung)
 
 - Нажмите на ручку, чтобы выбрать астрономическое время, или нажмите на мусорную корзину, чтобы удалить триггер.
@@ -486,7 +486,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - Объект триггера цвета фона `html.background_color_trigger` — по умолчанию #000000
 - Цвет фона `html.background_color_weekdays_hover` при наведении курсора на дни недели – нажмите, чтобы активировать/деактивировать – по умолчанию синий
 - `html.column_align_01` Столбец выравнивания текста заголовка 1 – по центру по умолчанию.
-- `html.column_align_02` Столбец выравнивания текста заголовка 2 — по центру по умолчанию.
+- `html.column_align_02` Столбец выравнивания текста заголовка 2 – по центру по умолчанию.
 - `html.column_align_03` Столбец выравнивания текста заголовка 3 – по центру по умолчанию.
 - `html.column_align_04` Столбец выравнивания текста заголовка 4 – по центру по умолчанию.
 - `html.column_align_05` Столбец выравнивания текста заголовка 5 – по центру по умолчанию.
@@ -496,9 +496,9 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - `html.column_align_09` Столбец выравнивания текста заголовка 9 – по центру по умолчанию.
 - `html.column_align_10` Столбец выравнивания текста заголовка 10 – по центру по умолчанию.
 - `html.column_text_01` Столбец текста заголовка 1 – стандартное расписание.
-- `html.column_text_02` Столбец текста заголовка 2 — Стандартные устройства
+- `html.column_text_02` Столбец текста заголовка 2 – Стандартные устройства
 - `html.column_text_03` текстовый столбец заголовка 3 - стандартный переключатель
-- `html.column_text_04` текстовый столбец заголовка 4 - по умолчанию понедельник
+- `html.column_text_04` текстовый столбец заголовка 4 - по умолчанию Пн.
 - `html.column_text_05` текстовый столбец заголовка 5 - по умолчанию Tu
 - `html.column_text_06` Столбец текста заголовка 6 – по умолчанию We
 - `html.column_text_07` Столбец текста заголовка 7 – значение по умолчанию
@@ -515,9 +515,9 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - `html.column_width_08` ширина столбца 8 – по умолчанию автоматически
 - `html.column_width_09` ширина столбца 9 – по умолчанию автоматически
 - `html.column_width_70` ширина столбца 10 – по умолчанию автоматически
-- `html.font_color_text_disabled` Цвет текста отключенного объекта – по умолчанию красный.
-- `html.font_color_text_enabled` Цвет текста активированного объекта — желтый по умолчанию.
-- `html.font_color_weekdays_disabled` Цвет текста отключенных дней недели — по умолчанию красный.
+- `html.font_color_text_disabled` Цвет текста отключенного объекта — по умолчанию красный.
+- `html.font_color_text_enabled` Цвет текста активированного объекта – желтый по умолчанию.
+- `html.font_color_weekdays_disabled` Цвет текста отключенных дней недели — красный по умолчанию
 - `html.font_color_weekdays_enabled` Цвет текста включенных дней недели — желтый по умолчанию
 - поле заголовка `html.header_border` в пикселях – по умолчанию 2
 - `html.header_font_family` Семейство шрифтов заголовка – стандартный Helvetica
@@ -526,16 +526,16 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - `html.header_linear_color_2` фоновое изображение головы: линейный градиент 2 — по умолчанию #BDBDBD
 - `html.header_tag_border_color` HTML-тег заголовка`<td> `Цвет границы — по умолчанию #424242.
 - ТЕГ заголовка `html.header_width`<table> ` Стандартный размер авто
-- `html.column_align_row_01` Выравнивание текста строк в столбце 1 — по умолчанию слева
+- `html.column_align_row_01` Выравнивание текста строк в столбце 1 – по умолчанию слева
 - `html.column_align_row_02` Выравнивание текста строк в столбце 2 — по умолчанию слева
 - `html.column_align_row_03` Выравнивание текста строк в столбце 3 – по умолчанию слева
-- `html.column_align_row_04` Выравнивание текста строк в столбце 4 — по умолчанию слева
-- `html.column_align_row_05` Выравнивание текста строк в столбце 5 – по умолчанию слева
+- `html.column_align_row_04` Выравнивание текста строк в столбце 4 – по умолчанию по левому краю.
+- `html.column_align_row_05` Выравнивание текста строк в столбце 5 — по умолчанию слева
 - `html.column_align_row_06` Выравнивание текста строк в столбце 6 – по умолчанию по левому краю.
 - `html.column_align_row_07` Выравнивание текста строк в столбце 7 – по умолчанию по левому краю.
-- `html.column_align_row_08` Выравнивание текста строк в столбце 8 – по умолчанию слева
+- `html.column_align_row_08` Выравнивание текста строк в столбце 8 — по умолчанию слева
 - `html.column_align_row_09` Выравнивание текста строк в столбце 9 — по умолчанию слева
-- `html.column_align_row_10` Выравнивание текста строк в столбце 10 – по умолчанию по левому краю.
+- `html.column_align_row_10` Выравнивание текста строк в столбце 10 — по умолчанию слева
 - Цвет шрифта заголовка `html.headline_color` (расписание, устройство...) - по умолчанию #ffffff
 - Размер шрифта заголовка `html.headline_font_size` в пикселях – по умолчанию 16
 - Высота строки заголовка `html.headline_height` в пикселях – по умолчанию 35
@@ -554,23 +554,24 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - `html.table_tag_width` Размер тега `<table> ` - Авто по умолчанию
 - `html.td_tag_border_bottom` Нижняя граница TAG `<td> ` в пикселях — по умолчанию 1
 - `html.td_tag_border_color` Цвет нижней границы TAG `<td> ` - № по умолчанию 424242
-- `html.td_tag_border_right` Граница справа от TAG `<td> ` в пикселях — по умолчанию 1
-- `html.td_tag_cell` пространство вокруг текста TAG `<td> `в пикселях (отступы) – по умолчанию 6
+- `html.td_tag_border_right` Граница справа от TAG `<td> `в пикселях — по умолчанию 1
+- `html.td_tag_cell` пространство вокруг текста TAG `<td> `в пикселях (отступы) — по умолчанию 6
 - Семейство шрифтов верхнего и нижнего колонтитула `html.top_font_family` — стандартный Helvetica
 - Размер шрифта верхнего и нижнего колонтитула `html.top_font_size` в пикселях – по умолчанию 20
 - `html.top_font_weight` толщина шрифта верхнего и нижнего колонтитула - по умолчанию нормальная"
 - `html.top_text` Собственный текст для заголовка. Ваш текст по умолчанию.
 - Цвет шрифта верхнего и нижнего колонтитула `html.top_text_color` — по умолчанию #ffffff.
-- `html.update` Запустить обновление вручную.
+- `html.update` Запуск обновления вручную.
 
 ![vis_object_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
 
 – Создайте виджет HTML и введите объект `{schedule-switcher.0.html.html_code}` в разделе HTML.
 - Нажмите на текст «Последнее обновление», чтобы выполнить обновление вручную.
-- Нажмите на иконку, чтобы активировать/деактивировать виджет
+- Нажмите на значок, чтобы активировать/деактивировать виджет.
 - Чтобы удалить триггер, сначала необходимо отметить его галочкой, а затем нажать кнопку «Удалить».
 - Измените время/Астрономию и нажмите кнопку «Сохранить», чтобы применить изменения.
 - Нажмите на день недели, чтобы активировать/деактивировать его.
+- В строке названия триггера следующее включение/выключение события отображается под днями недели.
 
 ![vis_view_1.png](img/vis_view_1.png)</br> ![vis_view_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_view_2.png)
 
@@ -749,49 +750,53 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.8 (2024-12-07)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Migration to ESLint9
+- (Lucky-ESA) Bugfixes
 
--   (Lucky_ESA) HTML overview added
+### 0.0.7 (2024-11-26)
+
+- (Lucky_ESA) HTML overview added
 
 ### 0.0.6 (2024-11-16)
 
--   (Lucky_ESA) Put value of state correctly
--   (Lucky_ESA) Added next triggers as JSON
--   (Lucky_ESA) Added counter trigger
--   (Lucky_ESA) Updating astro time fixed
+- (Lucky_ESA) Put value of state correctly
+- (Lucky_ESA) Added next triggers as JSON
+- (Lucky_ESA) Added counter trigger
+- (Lucky_ESA) Updating astro time fixed
 
 ### 0.0.5 (2024-11-06)
 
--   (Lucky_ESA) Crash when updating astro time fixed
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Crash when updating astro time fixed
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.4 (2024-11-04)
 
--   (Lucky_ESA) Temporary function removed
--   (Lucky_ESA) Creation of objects adjusted
--   (Lucky_ESA) Validation check of the states
--   (Lucky_ESA) Validation check for 2 widgets with one object
+- (Lucky_ESA) Temporary function removed
+- (Lucky_ESA) Creation of objects adjusted
+- (Lucky_ESA) Validation check of the states
+- (Lucky_ESA) Validation check for 2 widgets with one object
 
 ### 0.0.3 (2024-10-30)
 
--   (Lucky_ESA) Fixed VIS translate
--   (Lucky_ESA) Added astro time in trigger
--   (Lucky_ESA) Fixed OneTimeTrigger
--   (Lucky_ESA) Added date for OneTimeTrigger
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Fixed VIS translate
+- (Lucky_ESA) Added astro time in trigger
+- (Lucky_ESA) Fixed OneTimeTrigger
+- (Lucky_ESA) Added date for OneTimeTrigger
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.2 (2024-10-22)
 
--   (Lucky_ESA) Fix translate
--   (Lucky_ESA) Fix background color disable Weekdays
--   (Lucky_ESA) Fix sendTo
--   (Lucky_ESA) Added jsonConfig
--   (Lucky_ESA) Added history
+- (Lucky_ESA) Fix translate
+- (Lucky_ESA) Fix background color disable Weekdays
+- (Lucky_ESA) Fix sendTo
+- (Lucky_ESA) Added jsonConfig
+- (Lucky_ESA) Added history
 
 ### 0.0.1 (2024-10-19)
 
--   (Lucky_ESA) initial release
+- (Lucky_ESA) initial release
 
 ## License
 

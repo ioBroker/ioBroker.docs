@@ -3,16 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.minuaru/README.md
 title: ioBroker.minuaru
-hash: Y8P8DmEv8GI8h1IIllNtUvdR6tbzuWAA3Y/P2JvlavI=
+hash: V2vH7QJArTkThTgfrZTERi5mG6lqmvW1RWVMmfG2ZtQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.minuaru/admin/minuaru.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.minuaru.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.minuaru.svg)
-![NPM](https://nodei.co/npm/iobroker.minuaru.png?downloads=true)
 
 # IoBroker.minuaru
-[!Anzahl der Installationen](https://iobroker.live/badges/minuaru-installed.svg) [!Aktuelle Version im stabilen Repository](https://iobroker.live/badges/minuaru-stable.svg)
+[!Anzahl der Installationen](https://iobroker.live/badges/minuaru-installe.svg) [!Aktuelle Version im stabilen Repository](https://iobroker.live/badges/minuaru-stable.svg)
 
 ## Minuaru-Adapter für ioBroker
 Alarmsystem für ioBroker und minuvis
@@ -67,8 +66,15 @@ Alarmsystem für ioBroker und minuvis
 ![andereObjekte](https://user-images.githubusercontent.com/20790635/151259992-61758c9c-e102-4f38-ae0e-931721d04a17.png)
 
 ## Changelog
-### 2.0.0-beta (2024-10-11)
+### 2.0.2 (2024-12-03)
+* (svallant) update jsonConfig for responsive design
+
+### 2.0.1 (2024-11-29)
+* (svallant) minor changes
+
+### 2.0.0 (2024-11-15)
 * BREAKING CHANGE: Existings alarms of version 1.x will be deleted
+* (svallant) release of version 2
 * (svallant) fixing issues detected by repository checker
 * (svallant) switch to duckdb
 

@@ -64,6 +64,8 @@ Der Adapter erstellt alle Datenpunkte mit dem Template aus dem Datenpunkt `model
 -   `Land`: Land eingeben - Standard DE
 -   `Sprache`: Sprache eingeben - Standard de_DE
 -   `Plattform`: Plattform eingeben - Standard LGThinQ
+-   `Registrierungsmethode auswählen` Zwischen altem Drittanbieter- oder APP-Login wechseln (man erhält eine Mail)
+-   `Sitzungsdaten löschen`: Gibt es Probleme mit dem Login dann bitte die Sitzungsdaten löschen (lg-thinq.0.session wird geleert)
 
     ![instance_config_1.png](img/instance_config_1.png)
     ![instance_config_2.png](img/instance_config_2.png)
@@ -91,6 +93,8 @@ Der Adapter erstellt alle Datenpunkte mit dem Template aus dem Datenpunkt `model
     ![interval.png](img/interval.png)
 
 # Datenpunkte
+
+![states.png](img/states.png)
 
 ### Gerät 101 Kühlschrank/Eisschrank thinq1 & thinq2
 
@@ -754,8 +758,26 @@ lg-thinq.0.xxx.area muss gefüllt sein!
     ![weather.png](img/weather.png)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.7 (2024-12-08)
 
+-   (Lucky-ESA) Fixed: Connection status does not turn green
+-   (Lucky-ESA) Changed: Checkbox to dropdown for login procedure
+
+### 1.0.6 (2024-12-07)
+
+-   (Lucky-ESA) Save session data (prevents the login email)
+-   (Lucky-ESA) Fixed invalid jsonConfig
+-   (Lucky-ESA) Added choice between old and new login
+-   (Lucky-ESA) Bugfixe
+
+### 1.0.5 (2024-12-02)
+
+-   (Lucky-ESA) Migration to ESLint9
+-   (Lucky-ESA) Bugfixe
+
+### 1.0.4 (2024-12-01)
+
+-   (TA2k) Login fixed
 -   (Lucky-ESA) Added hotwater for device 406 & 401
 -   (Lucky-ESA) Dependencies updated
 
@@ -764,40 +786,6 @@ lg-thinq.0.xxx.area muss gefüllt sein!
 -   (Lucky-ESA) Dependencies updated
 -   (Lucky-ESA) Changed autoDryRemainTime max value
 -   (Lucky-ESA) Added own request for 401 thinq1
-
-### 1.0.1 (2024-05-21)
-
--   (Lucky-ESA) Fixed Mqtt wakeup for device 406 only
--   (Lucky-ESA) Fixed TypeError
-
-### 1.0.0 (2024-05-20)
-
--   (Lucky-ESA) Changed airState.quality.odor max value
--   (Lucky-ESA) Fixed sentry messages
--   (Lucky-ESA) Added jet & airclean for device 401
--   (Lucky-ESA) Added Mqtt wakeup for device 406
--   (Lucky-ESA) Node 18 required
--   (Lucky-ESA) JS-Controller >= 5.0.19 required
--   (Lucky-ESA) Admin >=6.13.16 required
-
-### 0.3.3 (2024-01-14)
-
--   (Lucky-ESA) Fixed thinq1 crash
--   (Lucky-ESA) Fixed crash when internet fails (refreshToken)
--   (Lucky-ESA) Added weather request
--   (Lucky-ESA) Bugfixe
-
-### 0.3.2 (2024-01-08)
-
--   (Lucky-ESA) Added data point interval.status_devices
--   (Lucky-ESA) Fixed missing value for fridge
--   (Lucky-ESA) Fixed thinq1 crash
--   (Lucky-ESA) Added save modelJSON local
--   (mcm1957) Node 16 checked
-
-### 0.3.1 (2023-12-20)
-
--   (Lucky-ESA) Fixed crash thinq1 interval
 
 ## License
 

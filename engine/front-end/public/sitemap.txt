@@ -764,6 +764,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ble/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.blebox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.bluelink/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.bluesound/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.bmw/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.boschindego/README.md
@@ -790,6 +791,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.contactid/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.countdown/README.md
@@ -1015,6 +1017,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.megad/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.megadd/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.megaesp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.melcloud/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.mempool-space/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.mercedesme/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.meross/README.md
@@ -1052,6 +1055,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.mystrom/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.mytime/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.myuplink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.myvbus/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.mywallbox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nanoleaf-lightpanels/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.net-tools/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.netatmo/README.md
@@ -1443,6 +1447,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ble/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.blebox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.bluelink/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.bluesound/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.bmw/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.boschindego/README.md
@@ -1469,6 +1474,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.contactid/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.countdown/README.md
@@ -1694,6 +1700,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.megad/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.megadd/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.megaesp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.melcloud/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.mempool-space/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.mercedesme/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.meross/README.md
@@ -1731,6 +1738,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.mystrom/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.mytime/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.myuplink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.myvbus/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.mywallbox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nanoleaf-lightpanels/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.net-tools/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.netatmo/README.md
@@ -2122,6 +2130,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ble/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.blebox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.bluelink/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.bluesound/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.bmw/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.boschindego/README.md
@@ -2148,6 +2157,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.contactid/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.countdown/README.md
@@ -2373,6 +2383,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.megad/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.megadd/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.megaesp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.melcloud/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mempool-space/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mercedesme/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.meross/README.md
@@ -2410,6 +2421,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mystrom/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mytime/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.myuplink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.myvbus/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mywallbox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nanoleaf-lightpanels/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.net-tools/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.netatmo/README.md
@@ -2801,6 +2813,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ble/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.blebox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bluelink/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bluesound/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bmw/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.boschindego/README.md
@@ -2827,6 +2840,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.comfoair/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.contactid/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.controme/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.coronavirus-statistics/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.corrently/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.countdown/README.md
@@ -3052,6 +3066,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.megad/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.megadd/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.megaesp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.melcloud/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mempool-space/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mercedesme/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.meross/README.md
@@ -3089,6 +3104,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mystrom/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mytime/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.myuplink/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.myvbus/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mywallbox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nanoleaf-lightpanels/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.net-tools/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.netatmo/README.md

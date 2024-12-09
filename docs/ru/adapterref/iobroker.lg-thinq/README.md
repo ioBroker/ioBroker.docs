@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
+hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 ---
 ![Логотип](../../../en/admin/lg-thinq.png)
 
@@ -22,31 +22,31 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 - [Настройки экземпляра](#instance-settings)
 - [Настройка LG-Thinq](#instance-setting-lg-thinq)
 - [Интервал Thinq1](#interval-thinq1-lg-thinq)
-- [Точки данных](#точки данных)
-- [Datapoint Device 101 Холодильник/Морозильник](#device-101-refrigeratorfreezer-thinq1--thinq2)
+- [Штаты](#штаты)
+- [Состояние устройства 101 Холодильник/Морозильник](#device-101-refrigeratorfreezer-thinq1--thinq2)
 - [Удаленная статистика](#101-remote-statistic-thinq2)
 - [Базовые команды дистанционного управления](#101-remote-control-thinq1--thinq2)
 - [Снимок](#101-snapshot-thinq1--thinq2)
-- [Подпись устройства Datapoint 201](#device-201-washer-signature-thinq2)
+- [Сигнатура государственного устройства 201](#device-201-washer-signature-thinq2)
 - [Базовые команды дистанционного управления](#201-remote-control-signature-thinq2)
-- [Datapoint Device 201 Washer](#device-201-washer-thinq1--thinq2)
+- [Устройство состояния 201 Стиральная машина](#device-201-washer-thinq1--thinq2)
 - [Удаленная статистика](#201-remote-statistic-thinq2)
 - [Базовые команды дистанционного управления](#201-remote-control-thinq1--thinq2)
 - [Снимок](#201-snapshot-thinq1--thinq2)
-- [Datapoint Device 202 Сушилка](#device-202-dryer-thinq1--thinq2)
+- [Состояние устройства 202 Сушилка](#device-202-dryer-thinq1--thinq2)
 - [Удаленная статистика](#202-remote-statistic-thinq2)
 - [Базовые команды дистанционного управления](#202-remote-control-thinq1--thinq2)
 - [Снимок](#202-snapshot-thinq1--thinq2)
-- [Datapoint Device 401 кондиционер thinq2](#device-401-air-conditioner-thinq2)
+- [Устройство состояния 401 кондиционер thinq2](#device-401-air-conditioner-thinq2)
 - [Удаленная статистика](#401-remote-statistic-thinq2)
 - [Базовые команды дистанционного управления](#401-remote-control-thinq2)
 - [Удаленный отпуск](#401-remote-holiday-thinq2)
 - [Снимок](#401-snapshot-thinq2)
-- [Datapoint Device 401 кондиционер thinq1](#device-401-air-conditioner-thinq1)
+- [Устройство состояния 401 кондиционер thinq1](#device-401-air-conditioner-thinq1)
 - [Удаленная статистика](#401-remote-statistic-thinq1)
 - [Базовые команды дистанционного управления](#401-remote-control-thinq1)
 - [Снимок](#401-snapshot-thinq1)
-- [Datapoint Device 406 Напорный насос](#device-406-heat-pump-thinq2)
+- [Устройство состояния 406 Напорный насос](#device-406-heat-pump-thinq2)
 - [Удаленная статистика](#406-remote-statistic-thinq2)
 - [Базовые команды удаленного управления](#406-remote-basicctrl-thinq2)
 - [Настройки удаленного расписания](#406-remote-reservationctrl-thinq2)
@@ -64,6 +64,8 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 - `Страна`: Введите страну - по умолчанию DE
 - `Язык`: Введите язык - по умолчанию de_DE
 - `Платформа`: Введите платформу - по умолчанию LGThinQ
+- `Выбор метода регистрации` Переключение между старым сторонним входом или входом через приложение (вы получите электронное письмо)
+- `Удалить данные сеанса`: Если возникли проблемы со входом в систему, удалите данные сеанса (lg-thinq.0.session wird geleert)
 
 ![экземпляр_config_1.png](img/instance_config_1.png) ![экземпляр_config_2.png](../../../en/adapterref/iobroker.lg-thinq/img/instance_config_2.png)
 
@@ -88,7 +90,9 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 
     ![интервал.png](../../../en/adapterref/iobroker.lg-thinq/img/interval.png)
 
-# Точки данных
+# Штаты
+![состояния.png](../../../en/adapterref/iobroker.lg-thinq/img/states.png)
+
 ### Устройство 101 Холодильник/Морозильник thinq1 и thinq2
 [Краткое содержание](#summary)
 
@@ -189,7 +193,7 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 ### 101 Пульт дистанционного управления thinq1 и thinq2
 [Краткое содержание](#summary)
 
-- `remote.expressMode` Экспресс-режим вкл/выкл/быстрое включение -> thinq1 Datapoint snapshot.IcePlus
+- `remote.expressMode` Экспресс-режим вкл/выкл/быстрое включение -> снимок состояния thinq1.IcePlus
 - `remote.freezerTemp` Изменить температуру морозильной камеры (только по Цельсию)
 - `remote.fridgeTemp` Изменить температуру холодильника (только по Цельсию)
 
@@ -504,7 +508,7 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 
 - почасовая
 - `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -697,8 +701,26 @@ lg-thinq.0.xxx.area должен быть заполнен!
     ![погода.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.7 (2024-12-08)
 
+-   (Lucky-ESA) Fixed: Connection status does not turn green
+-   (Lucky-ESA) Changed: Checkbox to dropdown for login procedure
+
+### 1.0.6 (2024-12-07)
+
+-   (Lucky-ESA) Save session data (prevents the login email)
+-   (Lucky-ESA) Fixed invalid jsonConfig
+-   (Lucky-ESA) Added choice between old and new login
+-   (Lucky-ESA) Bugfixe
+
+### 1.0.5 (2024-12-02)
+
+-   (Lucky-ESA) Migration to ESLint9
+-   (Lucky-ESA) Bugfixe
+
+### 1.0.4 (2024-12-01)
+
+-   (TA2k) Login fixed
 -   (Lucky-ESA) Added hotwater for device 406 & 401
 -   (Lucky-ESA) Dependencies updated
 
@@ -707,40 +729,6 @@ lg-thinq.0.xxx.area должен быть заполнен!
 -   (Lucky-ESA) Dependencies updated
 -   (Lucky-ESA) Changed autoDryRemainTime max value
 -   (Lucky-ESA) Added own request for 401 thinq1
-
-### 1.0.1 (2024-05-21)
-
--   (Lucky-ESA) Fixed Mqtt wakeup for device 406 only
--   (Lucky-ESA) Fixed TypeError
-
-### 1.0.0 (2024-05-20)
-
--   (Lucky-ESA) Changed airState.quality.odor max value
--   (Lucky-ESA) Fixed sentry messages
--   (Lucky-ESA) Added jet & airclean for device 401
--   (Lucky-ESA) Added Mqtt wakeup for device 406
--   (Lucky-ESA) Node 18 required
--   (Lucky-ESA) JS-Controller >= 5.0.19 required
--   (Lucky-ESA) Admin >=6.13.16 required
-
-### 0.3.3 (2024-01-14)
-
--   (Lucky-ESA) Fixed thinq1 crash
--   (Lucky-ESA) Fixed crash when internet fails (refreshToken)
--   (Lucky-ESA) Added weather request
--   (Lucky-ESA) Bugfixe
-
-### 0.3.2 (2024-01-08)
-
--   (Lucky-ESA) Added data point interval.status_devices
--   (Lucky-ESA) Fixed missing value for fridge
--   (Lucky-ESA) Fixed thinq1 crash
--   (Lucky-ESA) Added save modelJSON local
--   (mcm1957) Node 16 checked
-
-### 0.3.1 (2023-12-20)
-
--   (Lucky-ESA) Fixed crash thinq1 interval
 
 ## License
 

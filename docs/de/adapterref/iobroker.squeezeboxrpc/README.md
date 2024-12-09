@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.squeezeboxrpc/README.md
 title: ioBroker Logitech Squeezebox Adapter über JSON/RPC-Protokoll
-hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
+hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ---
 ![Logo](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -61,7 +61,7 @@ und den Port (normalerweise 9000)
 
 um den folgenden Befehl auszuführen, wenn Probleme in vis-1 aufgetreten sind
 
-`iobroker upload squeezeboxpc`
+`iobroker upload squeezeboxrpc`
 
 ## Bereitgestellte Staaten
 ### Server
@@ -129,7 +129,7 @@ für jeden Spieler Der Modus zeigt an, ob du den Wert ändern kannst. Die ausgef
 | `SyncMaster` | R/- | ID/MAC von Syncmaster |
 | `SyncSlaves` | R/- | ID/Mac von Spielern in der Sync-Gruppe |
 | `Time` | R/- | verstrichene Songzeit |
-| `Title` | R/- | Songtitel |
+| `Title` | R/- | Liedtitel |
 | `Type` | R/- | Medientyp (zB MP3-Radio) |
 | `Url` | R/- | URL des Titels/Streams |
 | `Volume` | R/W | Lautstärke des Players abrufen/einstellen (0-100) |
@@ -193,7 +193,7 @@ Weitere Informationen finden Sie in der CLI-Dokumentation:
 | ----------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SqueezeboxRPC-Instanz | Allgemeine Gruppe | Wählen Sie eine Instanz des SqueezeboxRPC-Adapters aus. Nur diese werden hier als gültig erkannt. |
 | Widgetformat | Allgemeine Gruppe | Hier kann der Widgettyp ausgewählt werden. Der Typ „formatbutton“ verfügt über den vollen Funktionsumfang und funktioniert auch mit dem SyncGroup-Widget. Der Typ „formatselect“ ist eine einfache Auswahlbox. Als Name wird der Spielername oder ein individueller Text verwendet. |
-| Index anzeigen | Gruppe Allgemein | Einzelne Schaltflächen können ausgeblendet oder in anderer Reihenfolge angezeigt werden, indem der Index der Schaltfläche gelöscht wird. Zum Ausblenden löscht man einfach die jeweilige Indexstelle inklusive Komma. Indexnummern werden im Editiermodus auf der jeweiligen Schaltfläche angezeigt, wenn die Editiermodus-Hilfe aktiviert ist. |
+| Index anzeigen | Gruppe Allgemein | Einzelne Schaltflächen können ausgeblendet oder in anderer Reihenfolge angezeigt werden, indem der Index der Schaltfläche gelöscht wird. Zum Ausblenden wird einfach die jeweilige Indexposition inklusive Komma gelöscht. Indexnummern werden im Editiermodus auf der jeweiligen Schaltfläche angezeigt, wenn die Editiermodus-Hilfe aktiviert ist. |
 | Zeilenumbruch in CamelCase | Gruppe Allgemein | Wenn der Spielername in CamelCase geschrieben ist, kann hier ein Zeilenumbruch aktiviert werden, damit der Spielername größer auf dem Button erscheint. |
 | Hilfe zum Editiermodus | Gruppe „Allgemein“ | Ist diese Hilfe aktiviert, werden Indexnummern auf dem jeweiligen Button angezeigt und die Einstellung „Transparenz“ in den Buttoneinstellungen hat keinen Einfluss. |
 | Bildbreite | Button-Einstellungen | Bildbreite eines Buttons |
@@ -382,6 +382,115 @@ Anzeige von Zahlen mit zusätzlichen Formatierungsoptionen. Zur Vorbereitung mü
 | Komma als Trennzeichen | Erweiterte Einstellungen | Die Nachkommastellen werden durch ein Komma getrennt. |
 | Tausendertrennzeichen | Erweiterte Einstellungen | Bei großen Zahlen wird alle 3 Stellen ein Trennzeichen eingefügt. |
 
+### Wiedergabeliste
+![Nummer](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playlist.png)
+
+Zeigt die Playlist vom Server an. Klickt man auf einen Eintrag, wird die Playlist geladen und der Player gestartet.
+Das Widget aktualisiert sich nicht automatisch, man muss den Refresh-Button drücken.
+
+#### Attribute für Playlist
+| Gruppe | Attribut | Beschreibung |
+| --------------------- | ----------------- | ----------------------------------------------------------------- |
+| Spieler-Widget | Allgemeine Gruppe | Auswahl des Spieler-Widgets. |
+
+Das Widget selbst hat nur sehr wenig Formatierung.
+Für die Selbstformatierung gibt es einige vordefinierte CSS-Klassen:
+
+| CSS-Klasse | Beschreibung |
+| ---------- | ----------------------------------------- |
+| plcontainer| Dem ul-Tag zugewiesener Klassenname |
+| plentry | Dem Li-Tag zugewiesener Klassenname |
+| plrefresh | Dem Refresh-li-Tag zugewiesener Klassenname |
+| pltext | Dem Playlist-Namen zugewiesener Klassenname |
+
+Als Beispiel kann folgendes CSS für den Reiter vis-css dienen:
+
+Dunkelmodus
+
+```css
+.plentry {
+    border: 1px #505050 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#202020;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#404040;
+}
+.plrefresh svg {
+    color:#cccccc;
+}
+.plrefresh svg:hover {
+    color:#ffffff;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+Lichtmodus
+
+```css
+.plentry {
+    border: 1px #b0b0b0 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#c0c0c0;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#e0e0e0;
+}
+.plrefresh svg {
+    color:#444444;
+}
+.plrefresh svg:hover {
+    color:#000000;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+## SendTo-Befehle
+### CmdGeneral
+Mit diesem Befehl können Sie einen beliebigen Befehl an den LMS-Server senden, um eine Antwort zu erhalten.
+
+Beispiel:
+
+**Alle Playlists:**
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["playlists", "0", "999", "tags:us"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+**Alle Favoriten:**
+
+Dieser Befehl wird intern vom Adapter verwendet um die Favoriten zu laden.
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["favorites", "items", "0", "999", "want_url:1", "item_id:"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der folgenden CLI-Dokumentation:
+
+[CLI-Dokumentation](#further-api-documentation)
+
 ## Aufgaben
 - mehr Tests/Korrekturen
 - Abhängigkeiten zu anderen Paketen reduzieren (Squeezenode)
@@ -415,19 +524,37 @@ zu einer Zeitposition im Lied springen, Lied wiederholen, Lied zufällig auswäh
    ### **WORK IN PROGRESS**
 
 -->
-### 1.4.0-alpha.2 (2024-11-01)
+### **WORK IN PROGRESS**
 
-- improve handlying for artwork_url
+- fix spelling of iobroker upload squeezeboxrpc in readme
 
-### 1.4.0-alpha.1 (2024-10-27)
+### 1.5.1 (2024-11-29)
 
+- improve documentation
+- remove margin from plcontainer
+- improve textoverflow with ellipsis
+- adjust initial widgetsize of playlist widget
+- repair attributes for playlist widget
+- add light mode css for playlist widget
+
+### 1.5.0 (2024-11-28)
+
+- Switch to iobroker/eslint
+- New widget playlist
+
+### 1.4.0 (2024-11-27)
+
+- fix some missing objects errors
+- sanitize more playernames in syncgroups
+- add sendTo Command "cmdGeneral"
+- sanitize more the playername
+- improve translation
+- if trackartist is avail then write to artist if empty
+- improve handling for artwork_url
 - move widget documentation from html to markdown
 - adjust responsive tab style
 - improve attribute widgets
 - change TPE2 handling once more
-
-### 1.4.0-alpha.0 (2024-10-24)
-
 - jsonConfig add sizing options for differenz screen sizes
 - test implementation of TPE2 handling. switch in settings
 - add datapoints album_artist, track_artist, artistOriginal

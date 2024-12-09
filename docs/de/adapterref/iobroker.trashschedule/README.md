@@ -80,6 +80,10 @@ ttd:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Improved logging
+
 ### 3.4.1 (2024-11-24)
 
 * (@Sickboy78) Awido: Increased number of fetched pickups per type (1 month)

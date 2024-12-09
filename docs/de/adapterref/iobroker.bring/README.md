@@ -213,6 +213,10 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.9.0 (2024-11-27)
+* (@foxriver76) updated `bring-shopping` module (get rid of deprecated `request` module)
+* (@foxriver76) dropped support for Node.js 16 (it is EOL)
+
 ### 1.8.4 (2023-09-25)
 * (foxriver76) fixed setting `undefined` state when no name specified
 

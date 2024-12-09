@@ -23,6 +23,15 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.0 (2024-12-05)
+* (BenAhrdt) update eslint
+
+### 1.5.7 (2024-11-26)
+* (BenAhrdt) change header responsive
+
+### 1.5.6 (2024-11-26)
+* (BenAhrdt) add folder "uplink.remaining.version_ids" to writecommands
+
 ### 1.5.5 (2024-11-23)
 * (BenAhrdt) add CRC-8
 

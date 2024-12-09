@@ -73,6 +73,9 @@ This app allows you to control your ioBroker Smarthome system via the hiob app. 
 -->
 ### **WORK IN PROGRESS**
 - Updated packages
+- Refactor API between App and Adapater
+- Integrating new workflow
+
 ### 0.1.6 (2024-08-17)
 - Updated Packages
 - Prepared lates release
@@ -160,6 +163,12 @@ This app allows you to control your ioBroker Smarthome system via the hiob app. 
 ### 0.0.1 (2023-03-26)
 
 -   (moba15) initial release
+
+## 🎉 Hall of Fame 🎉
+A heartfelt thank you to everyone who has contributed to this project! Whether through code, bug reports, feature suggestions, or spreading the word, your support helps make this project better for everyone. 
+### Special thanks goes to:
+- @Lucky-ESA
+- @ManniBac
 
 ## License
 

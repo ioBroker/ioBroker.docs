@@ -782,41 +782,46 @@ Standard ohne Zonen:
 ![img/array_nok.png](../en/img/array_nok.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Migration to ESLint9
+
 ### 3.1.1 (2024-11-04)
 
--   (Lucky-ESA) Added JS-Controller Notification
--   (Lucky-ESA) Dependencies updated
--   (Lucky-ESA) New design for settings page added
+- (Lucky-ESA) Added JS-Controller Notification
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) New design for settings page added
 
 ### 3.1.0 (2024-09-10)
 
--   (Lucky-ESA) Added Landroid IP
--   (Lucky-ESA) Fixed interval
--   (Lucky-ESA) Fixed Vision Edgecut
+- (Lucky-ESA) Added Landroid IP
+- (Lucky-ESA) Fixed interval
+- (Lucky-ESA) Fixed Vision Edgecut
 
 ### 3.0.2 (2024-05-12)
 
--   (Lucky-ESA) mowTimeExtend restricted input
--   (Lucky-ESA) Fixed TypeError
+- (Lucky-ESA) mowTimeExtend restricted input
+- (Lucky-ESA) Fixed TypeError
 
 ### 3.0.1 (2024-05-08)
 
--   (Lucky-ESA) Preperation mission Kress new API
--   (Lucky-ESA) Fixed TypeError
--   (Lucky-ESA) Fixed missing activity states
--   (Lucky-ESA) Added update interval in instance setting
--   (Lucky-ESA) Added last update
+- (Lucky-ESA) Preperation mission Kress new API
+- (Lucky-ESA) Fixed TypeError
+- (Lucky-ESA) Fixed missing activity states
+- (Lucky-ESA) Added update interval in instance setting
+- (Lucky-ESA) Added last update
 
 ### 3.0.0 (2024-04-25)
 
--   (Lucky-ESA) Fixed Sentry messages
--   (Lucky-ESA) Catch publish crash
--   (Lucky-ESA) Added Vision completely
--   (Lucky-ESA) Node 18 required
--   (Lucky-ESA) JS-Controller >= 5.0.19 required
--   (Lucky-ESA) Admin >=6.13.16 required
--   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Delete ping
+- (Lucky-ESA) Fixed Sentry messages
+- (Lucky-ESA) Catch publish crash
+- (Lucky-ESA) Added Vision completely
+- (Lucky-ESA) Node 18 required
+- (Lucky-ESA) JS-Controller >= 5.0.19 required
+- (Lucky-ESA) Admin >=6.13.16 required
+- (Lucky-ESA) Catch aws_cer error and use old mqtt connection
+- (Lucky-ESA) Delete ping
 
 ## License
 

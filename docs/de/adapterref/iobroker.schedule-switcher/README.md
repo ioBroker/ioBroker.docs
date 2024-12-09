@@ -596,6 +596,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 -   Um ein Auslöser zu löschen muss man erst einen Haken setzen und dann den Button `delete` drücken
 -   Zeiten/Astro ändern und den Button `save` drücken um die Änderungen zu übernehmen
 -   Wochentag anklicken um diesen zu aktivieren/deaktivieren
+-   Zeile Triggername wird unter Wochentage der nächste Event on/off angezeigt
 
 ![vis_view_1.png](img/vis_view_1.png)</br>
 ![vis_view_2.png](img/vis_view_2.png)
@@ -778,49 +779,53 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.8 (2024-12-07)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Migration to ESLint9
+- (Lucky-ESA) Bugfixes
 
--   (Lucky_ESA) HTML overview added
+### 0.0.7 (2024-11-26)
+
+- (Lucky_ESA) HTML overview added
 
 ### 0.0.6 (2024-11-16)
 
--   (Lucky_ESA) Put value of state correctly
--   (Lucky_ESA) Added next triggers as JSON
--   (Lucky_ESA) Added counter trigger
--   (Lucky_ESA) Updating astro time fixed
+- (Lucky_ESA) Put value of state correctly
+- (Lucky_ESA) Added next triggers as JSON
+- (Lucky_ESA) Added counter trigger
+- (Lucky_ESA) Updating astro time fixed
 
 ### 0.0.5 (2024-11-06)
 
--   (Lucky_ESA) Crash when updating astro time fixed
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Crash when updating astro time fixed
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.4 (2024-11-04)
 
--   (Lucky_ESA) Temporary function removed
--   (Lucky_ESA) Creation of objects adjusted
--   (Lucky_ESA) Validation check of the states
--   (Lucky_ESA) Validation check for 2 widgets with one object
+- (Lucky_ESA) Temporary function removed
+- (Lucky_ESA) Creation of objects adjusted
+- (Lucky_ESA) Validation check of the states
+- (Lucky_ESA) Validation check for 2 widgets with one object
 
 ### 0.0.3 (2024-10-30)
 
--   (Lucky_ESA) Fixed VIS translate
--   (Lucky_ESA) Added astro time in trigger
--   (Lucky_ESA) Fixed OneTimeTrigger
--   (Lucky_ESA) Added date for OneTimeTrigger
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Fixed VIS translate
+- (Lucky_ESA) Added astro time in trigger
+- (Lucky_ESA) Fixed OneTimeTrigger
+- (Lucky_ESA) Added date for OneTimeTrigger
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.2 (2024-10-22)
 
--   (Lucky_ESA) Fix translate
--   (Lucky_ESA) Fix background color disable Weekdays
--   (Lucky_ESA) Fix sendTo
--   (Lucky_ESA) Added jsonConfig
--   (Lucky_ESA) Added history
+- (Lucky_ESA) Fix translate
+- (Lucky_ESA) Fix background color disable Weekdays
+- (Lucky_ESA) Fix sendTo
+- (Lucky_ESA) Added jsonConfig
+- (Lucky_ESA) Added history
 
 ### 0.0.1 (2024-10-19)
 
--   (Lucky_ESA) initial release
+- (Lucky_ESA) initial release
 
 ## License
 

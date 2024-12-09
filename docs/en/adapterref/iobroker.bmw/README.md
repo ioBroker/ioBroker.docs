@@ -25,6 +25,10 @@ bmw.0.VIN.properties
 bmw.0.VIN.remotev2
 
 ## Changelog
+### 2.9.0 (2024-11-28)
+
+- added new remotes as switch and updated values
+- added retry logice for remotes
 
 ### 2.8.4 (2024-11-21)
 

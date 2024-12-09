@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.squeezeboxrpc/README.md
 title: 通过 JSON/RPC 协议的 ioBroker Logitech Squeezebox 适配器
-hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
+hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ---
 ![标识](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -34,7 +34,7 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 
 ＃＃ 特征
 - `LMS` 服务提供的大部分 [数据](#server) 均可在适配器中使用
-- 有关播放器状态、歌曲标题、艺术家、
+- 有关播放器状态、歌曲标题、艺术家的详细信息，
 
 专辑、艺术作品、播放列表
 
@@ -42,7 +42,7 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 
 倒带、重复、随机播放、播放收藏夹、跳至时间\（绝对和相对）、跳至播放列表索引（绝对和相对）、\ 电源开/关和预设按钮
 
-- 服务器中的所有 [收藏夹](#favorites) 和所有子级别
+- 来自服务器的所有 [收藏夹](#favorites) 和所有子级别
 - iobroker-vis 组件的许多 [widget](#widgets) 都包含在\
 
 创建自己的控制用户界面（选择播放器、选择收藏夹、管理同步组、播放/暂停按钮、前进、后退、重复模式和随机播放模式选择）
@@ -61,9 +61,9 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 
 如果 vis-1 中出现问题，请执行以下命令
 
-`iobroker upload squeezeboxpc`
+`iobroker upload squeezeboxrpc`
 
-## 提供的状态
+## 提供状态
 ＃＃＃ 服务器
 | 状态 | 描述 |
 | ------------------ | ----------------------------- |
@@ -199,9 +199,9 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 | 图片宽度 | 按钮设置 | 按钮的图片宽度 |
 | 图片高度 | 按钮设置 | 按钮的图片高度 |
 | 透明度 | 按钮设置 | 如果按钮未激活，它将隐藏在背景中。0 = 不可见，1 = 完全可见 |
-| 边框宽度 | 按钮设置 | 按钮周围边框宽度（以像素为单位）|
+| 边框宽度 | 按钮设置 | 按钮周围边框的宽度（以像素为单位）|
 | 边框显示 | 按钮设置 | 边框显示类型，如实线、虚线。|
-| 正常边框颜色 | 按钮设置 | 若按钮未激活，则以此颜色显示。|
+| 正常边框颜色 | 按钮设置 | 如果按钮未激活，则以此颜色显示。|
 | 边框颜色活动 | 按钮设置 | 如果按钮被激活，则以此颜色显示。|
 | 边框半径 | 按钮设置 | 可以在此处输入弯曲边框角的半径（以像素为单位）。|
 | 背景颜色 | 按钮设置 | 文本背景颜色 |
@@ -222,7 +222,7 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 | 图片宽度 | 按钮设置 | 按钮的图片宽度 |
 | 图片高度 | 按钮设置 | 按钮的图片高度 |
 | 透明度 | 按钮设置 | 如果按钮未激活，它将隐藏在背景中。0 = 不可见，1 = 完全可见 |
-| 边框宽度 | 按钮设置 | 按钮周围边框宽度（以像素为单位）|
+| 边框宽度 | 按钮设置 | 按钮周围边框的宽度（以像素为单位）|
 | 边框显示 | 按钮设置 | 边框显示类型，如实线、虚线。|
 | 正常边框颜色 | 按钮设置 | 若按钮未激活，则以此颜色显示。|
 | 边框颜色活动 | 按钮设置 | 如果按钮被激活，则以此颜色显示。|
@@ -242,7 +242,7 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 | 播放器小部件 | 常规组 | 播放器小部件的选择。|
 | 暂停图片 | 普通组 | 暂停图片 |
 | 游戏图像 | 普通组 | 游戏图像 |
-| 停止图像 | 普通组 | 停止图像 |
+| 停止图像 | 常规组 | 停止图像 |
 | 填充颜色 | SVG 设置组 | 按钮的填充颜色 |
 | strokecolor | SVG 设置组 | 边框颜色 |
 | strokewidth | SVG 设置组 | 边框宽度（以像素为单位）|
@@ -382,6 +382,115 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
 | 逗号作为分隔符 | 高级设置 | 逗号用于分隔小数位。|
 | 千位分隔符 | 高级设置 | 对于大数字，每 3 位插入一个分隔符。|
 
+### 播放列表
+![数字](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playlist.png)
+
+显示来自服务器的播放列表。如果您单击某个条目，播放列表就会加载，播放器就会启动。
+窗口小部件不会自动刷新，您必须按刷新按钮。
+
+#### 播放列表的属性
+| 组 | 属性 | 描述 |
+| --------------------- | ----------------- | ----------------------------------------------------------------- |
+| 播放器小部件 | 常规组 | 播放器小部件的选择。|
+
+小部件本身的格式很少。
+对于自我格式化，有一些预定义的 css 类：
+
+| CSS 类 | 描述 |
+| ---------- | ----------------------------------------- |
+| plcontainer| 分配给 ul 标签的类名 |
+| plentry | 分配给 li-tag 的类名 |
+| plrefresh | 分配给 refresh-li 标签的类名 |
+| pltext | 分配给播放列表名称的类名 |
+
+vis-css 选项卡的以下 CSS 可以作为示例：
+
+暗黑模式
+
+```css
+.plentry {
+    border: 1px #505050 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#202020;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#404040;
+}
+.plrefresh svg {
+    color:#cccccc;
+}
+.plrefresh svg:hover {
+    color:#ffffff;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+灯光模式
+
+```css
+.plentry {
+    border: 1px #b0b0b0 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#c0c0c0;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#e0e0e0;
+}
+.plrefresh svg {
+    color:#444444;
+}
+.plrefresh svg:hover {
+    color:#000000;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+## SendTo 条件
+### 命令常规
+该命令可用于向 LMS 服务器发送任何命令以接收响应。
+
+例子：
+
+**所有播放列表：**
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["playlists", "0", "999", "tags:us"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+**全部收藏：**
+
+该命令由适配器内部使用，用于加载收藏夹。
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["favorites", "items", "0", "999", "want_url:1", "item_id:"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+以下 CLI 文档包含更多选项和参数的详细描述：
+
+[CLI 文档](#further-api-documentation)
+
 待办事项
 - 更多测试/修复
 - 减少对其他包的依赖（squeezenode）
@@ -415,19 +524,37 @@ hash: FPL6oV6OBRhqXce5ZLEBB78NlX1F55gupQacUnCmIW8=
    ### **WORK IN PROGRESS**
 
 -->
-### 1.4.0-alpha.2 (2024-11-01)
+### **WORK IN PROGRESS**
 
-- improve handlying for artwork_url
+- fix spelling of iobroker upload squeezeboxrpc in readme
 
-### 1.4.0-alpha.1 (2024-10-27)
+### 1.5.1 (2024-11-29)
 
+- improve documentation
+- remove margin from plcontainer
+- improve textoverflow with ellipsis
+- adjust initial widgetsize of playlist widget
+- repair attributes for playlist widget
+- add light mode css for playlist widget
+
+### 1.5.0 (2024-11-28)
+
+- Switch to iobroker/eslint
+- New widget playlist
+
+### 1.4.0 (2024-11-27)
+
+- fix some missing objects errors
+- sanitize more playernames in syncgroups
+- add sendTo Command "cmdGeneral"
+- sanitize more the playername
+- improve translation
+- if trackartist is avail then write to artist if empty
+- improve handling for artwork_url
 - move widget documentation from html to markdown
 - adjust responsive tab style
 - improve attribute widgets
 - change TPE2 handling once more
-
-### 1.4.0-alpha.0 (2024-10-24)
-
 - jsonConfig add sizing options for differenz screen sizes
 - test implementation of TPE2 handling. switch in settings
 - add datapoints album_artist, track_artist, artistOriginal

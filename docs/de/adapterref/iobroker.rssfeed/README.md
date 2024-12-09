@@ -3,8 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/README.md
 title: ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-hash: cgrRJ6hN8UqN8R8K0u94eIkpdr3Iuapk+WEuW0s4aIM=
+hash: has9xS5uJI8QfTDwC7Q+OTCPNtY8AVMvFoIMJCYS1Rk=
 ---
+# IoBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
 ![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rssfeed.svg)
@@ -13,7 +14,6 @@ hash: cgrRJ6hN8UqN8R8K0u94eIkpdr3Iuapk+WEuW0s4aIM=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/rssfeed-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
 
-# IoBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
 **Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
 ## Übersicht
@@ -23,7 +23,7 @@ Die Ausgabe des Feeds können Sie über ein Vorlagensystem individuell anpassen.
 Wichtig: Aufgrund von Fehlern bei automatischen Übersetzungen in andere Sprachen durch iobroker ist nur die englische Übersetzung gültig.
 
 ## Installation
-Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository. Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Weitere Funktionen und Neuigkeiten finden Sie im Test- und Support-Thread für diesen Adapter im iobroker-Forum.
+Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository. Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Informationen zu Funktionen und Neuigkeiten finden Sie im Test- und Support-Thread für diesen Adapter im iobroker-Forum.
 
 Nach der Installation sollte der Adapter dann im Adapterbereich im iobroker angezeigt werden.
 
@@ -40,7 +40,7 @@ Die Konfiguration ist einfach. Es gibt nur wenige Felder
 
 | Einstellung | Beschreibung |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Default Refresh (min) | ist die allgemeine Angabe in Minuten wie oft der Feed erneut aufgerufen werden soll. Der Standardwert liegt bei 60 Minuten |
+| Standardmäßig wird die Aktualisierung (min) | ist die allgemeine Angabe in Minuten, wie oft der Feed erneut aufgerufen werden soll. Der Standardwert liegt bei 60 Minuten |
 | Max Artikel (Standard) | Die Gesamtmenge der zu verarbeitenden Daten kann hier begrenzt werden. |
 
 Dann für jeden neuen Feed:
@@ -137,7 +137,7 @@ Mit diesem Widget können die Artikelattribute eines bestimmten Feeds angezeigt 
 | rss_article | Mit diesem Attribut kann zwischen den verschiedenen vorhandenen Artikeln im RSS-Feed gewechselt werden. |
 
 ### RSS-Feed-Titel-Laufschrift 3
-Mit diesem Widget werden alle Titelattribute als Lauftext angezeigt. Im Zuge der Umstellung von Laufschrift-Widget 2 auf 3 ist dieses Widget nun ein Multi-Widget, in dem mehrere RSS-Feeds zusammengefasst werden können.
+Bei diesem Widget werden alle Titelattribute als Lauftext angezeigt. Im Zuge der Umstellung von Laufschrift-Widget 2 auf 3 ist dieses Widget nun ein Multi-Widget, in dem mehrere RSS-Feeds zusammengefasst werden können.
 
 | Einstellung | Gruppe | Beschreibung |
 | ---------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -153,7 +153,7 @@ Mit diesem Widget werden alle Titelattribute als Lauftext angezeigt. Im Zuge der
 
 ### JSON-Vorlage2
 Mit diesem Widget können beliebige Datenpunkte mit JSON-Daten nach Wunsch angezeigt werden.
-Die Anzeige erfolgt über ein Vorlagenformat, das man sich als kombinierte Form von HTML-Code + JavaScript + speziellen Tags vorstellen kann, die die Anzeige der JSON-Attribute steuern.
+Die Anzeige erfolgt über ein Vorlagenformat, das man sich als eine kombinierte Form aus HTML-Code + JavaScript + speziellen Tags vorstellen kann, die die Anzeige der JSON-Attribute steuern.
 
 | Einstellung | Beschreibung |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -207,7 +207,7 @@ Die verwendeten Tags bedeuten Folgendes
 | <%= | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird maskiert. |
 | <%- | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird nicht maskiert. |
 | <% | Keine Ausgabe, wird für eingeschlossene Javascript-Anweisungen verwendet |
-| %> | ist im Allgemeinen ein schließender Tag, der einen der vorherigen vervollständigt |
+| %> | ist im Allgemeinen ein schließendes Tag, um eines der vorherigen zu vervollständigen |
 
 Alles was außerhalb dieser Tags steht wird genauso angezeigt wie es ist oder als HTML interpretiert.
 Innerhalb der Vorlage stehen dir 2 vordefinierte Variablen zur Verfügung
@@ -349,7 +349,7 @@ Die Verwendung in der Vorlage finden Sie unter **Vorlage basierend auf Beispiel*
 
 ### `rss.articles or articles`
 Ist ein Array mit einzelnen Elementen (Javascript-Array). Jedes Element hat folgende Eigenschaften.
-Damit es passt, mache ich z.B. noch das Präfix item davor. Aber wer will kann das ja auch selbst wählen. Es muss nur in der Schleife entsprechend benannt werden (forEach). Auch hier sind die Bezeichner selbsterklärend. Nicht in jedem Feed sind alle Attribute ausgefüllt. Die wichtigsten sind im Template oben schon enthalten.
+Damit es passt, werde ich z.B. das Präfix item davor setzen. Aber wer möchte kann das auch selbst wählen. Es muss nur in der Schleife entsprechend benannt werden (forEach). Auch hier sind die Bezeichner selbsterklärend. Nicht in jedem Feed sind alle Attribute ausgefüllt. Die wichtigsten sind im Template oben schon enthalten.
 
 Die Artikel sind als rss.articles im RSS-Feed-Widget 2 und als Artikel im RSS-Feed-Multi-Widget 3 verfügbar.
 
@@ -429,11 +429,11 @@ Bitte beachten Sie kleine Unterschiede in der Verwendung der Variablen. Es wurde
     all variables are read only
     -->
 <style>
-  #<%- widgetid % > img {
+  #<%- widgetid %> img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
   }
-  #<%- widgetid % > img.rssfeed {
+  #<%- widgetid %> img.rssfeed {
     width: auto;
     height: auto;
   }
@@ -459,11 +459,11 @@ Bitte beachten Sie kleine Unterschiede in der Verwendung der Variablen. Es wurde
 -->
 
 <style>
-  #<%- widgetid % > img {
+  #<%- widgetid %> img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
   }
-  #<%- widgetid % > img.rssfeed {
+  #<%- widgetid %> img.rssfeed {
     width: auto;
     height: auto;
   }
@@ -551,7 +551,7 @@ Bitte beachten Sie kleine Unterschiede in der Verwendung der Variablen. Es wurde
 
 Kurzbeschreibung was in den einzelnen Zeilen passiert Z1: Die Ausgabe des Feedtitels Z2: Ohne Ausgabe. Javascriptbefehl zum Loopen über alle Artikel, bei jedem Turn wird das aktuelle Element der Variable item zugewiesen.
 Z3: Ausgabe von Datum und Uhrzeit. Wird mit einem p/small-Tag zur Formatierung umschlossen. Zur Formatierung wird die vis-eigene Datumsformatfunktion verwendet. Beschreibung findet sich im Adapter vis.
-Z4: Die Ausgabe des Artikeltitels. Wird mit einem Header3-Tag zur Formatierung verwendet.
+Z4: Die Ausgabe des Artikeltitels. Zur Formatierung wird ein Header3-Tag verwendet.
 Z5: Ausgabe des Inhalts des Artikels. Wird mit einem p-Tag umschlossen. Hier wird, zumindest in den beiden Beispielen, HTML-Code eingebunden, der meist mit Bild und Beschreibungstext daherkommt Z6: Ausgabe eines div-Tags, der spezielle Formatierungen im Feed-html aufhebt (in beiden Beispielen für tagesschau und bild wird das benötigt. Andere Feeds brauchen das vielleicht nicht.
 Z7: Ohne Ausgabe. Mit dieser Zeile wird die Javascript-Schleife geschlossen. Alles was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
 
@@ -569,10 +569,12 @@ Z7: Ohne Ausgabe. Mit dieser Zeile wird die Javascript-Schleife geschlossen. All
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.2.0 (2024-11-27)
 
 - update jsonconfig responsive
+- switch to iobroker/eslint
+- improver adapter code
+- improve widget code
 
 ### 3.1.0 (2024-08-11)
 

@@ -129,6 +129,9 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.3 (2024-11-26)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20241125
+
 ### 0.10.2 (2024-11-16)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20241115
 * (MyHomeMyData) Fixes for issue #81 (added missing size attributes)

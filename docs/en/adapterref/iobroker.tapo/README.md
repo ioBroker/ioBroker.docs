@@ -32,6 +32,14 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.4.2-beta.8 (2024-12-09)
+
+- improve handshake for old devices
+
+### 0.4.1 (2024-11-29)
+
+- fixed Get Device Info failed error
+
 ### 0.3.4 (2024-11-10)
 
 - update Tapo local lib

@@ -60,6 +60,13 @@ UL3, IL3 = mains voltage, mains power phase 3
 TKK= Temperature inverter
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (afuerhoff) dependencies updated
+* (afuerhoff) Migration to ESLint 9 and @iobroker/eslint-config - issue [#189]
+* (afuerhoff) eslint: code optimized
+* (afuerhoff) fixing chksum message if inverter 2 - 4 is not available  
+* (afuerhoff) logging optimized
+
 ### 1.1.4 (2024-10-17)
 * (afuerhoff) dependencies updated
 * (afuerhoff) Fixes [#182](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/182)

@@ -35,6 +35,12 @@ For help use issue or if u understand german https://forum.iobroker.net/topic/71
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.6 (2024-11-29)
+* (ticaki) repository checker problems fixed
+
+### 0.4.5 (2024-11-29)
+* (ticaki) dependencies updated
+
 ### 0.4.4 (2024-01-18)
 * (ticaki) The time period over which incoming Mqtt messages are collected can be configured. min. 1 sec max. (2^31-1) / 1000 sec
 

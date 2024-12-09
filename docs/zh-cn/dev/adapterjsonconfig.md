@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: 0+vcILNwunjmaoGO6kZVRE4N3k4LfLysxnL3sxxjB/Y=
+hash: ZgACrIEmwFvBLGSfjqXHYZ6Ghrvr2gaFcRdTzFfGiOg=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。此方法提供了一种更加用户友好且灵活的方式，可在 ioBroker Admin 界面中管理适配器设置。
@@ -253,7 +253,7 @@ admin/customI18n/en.json
 
 文件的结构对应以下结构
 
-**en.json:**
+**en.json：**
 
 ```json5
 {
@@ -546,7 +546,7 @@ admin/customI18n/en.json
 | `all` | 将值 `*` 添加到选项“all”选项 |
 
 ###`chips`
-用户可以输入单词，然后它将被添加（参见云 => 服务 => 白名单）。如果没有定义`delimiter`，则输出是一个数组。
+用户可以输入单词，它将被添加（参见云 => 服务 => 白名单）。如果没有定义`delimiter`，则输出是一个数组。
 
 | 属性 | 描述 |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -581,7 +581,7 @@ admin/customI18n/en.json
 | `result` | `{result1: {en: 'A'}, result2: {en: 'B'}}` |
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`、`outlined` 或无 |
-| `openUrl` | 如果为真 - 如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`，则在新选项卡中打开 URL。如果`saveConfig`为真，则将要求用户保存配置。|
+| `openUrl` | 如果为真 - 在新选项卡中打开 URL，如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果`saveConfig`为真，则将要求用户保存配置。|
 | `reloadBrowser` | 如果为真 - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
 | `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以被覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用`base64` 图标（如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
@@ -749,7 +749,7 @@ admin/customI18n/en.json
 
 | 属性 | 描述 |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹中的所有文件 `folderName`。默认 `**/*.*`。|
+| `pattern` | 文件扩展名模式。允许`**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或`folderName/*.ext` 显示子文件夹中的所有文件`folderName`。默认`**/*.*`。|
 | `objectID` | 对象 ID 类型为 `meta`。您可以使用特殊占位符 `%INSTANCE%`：如 `myAdapter.%INSTANCE%.files` |
 | `upload` | 路径，上传的文件将存储于此。例如 `folderName`。如果未定义，则不会显示上传字段。要在根目录中上传，请将此字段设置为 `/`。|
 | `refresh` | 在选择附近显示刷新按钮。|
@@ -1086,7 +1086,7 @@ adapter.on("message", (obj) => {
 
 有效数字为 1 至 12。
 
-如果指定一个数字，例如 6，则元素的宽度将为屏幕宽度的 6/12（50%），或者例如 3，则元素的宽度将为屏幕宽度的 3/12（25%）。
+如果您指定一个数字，例如 6，则元素的宽度将为屏幕宽度的 6/12（50%），或者例如 3，则元素的宽度将为屏幕宽度的 3/12（25%）。
 为不同的布局选项分配数字可指定元素在不同屏幕尺寸下的宽度。
 
 | 选项 | 描述 |
@@ -1145,7 +1145,8 @@ adapter.on("message", (obj) => {
 | `onChange` | 形式为`{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` 的结构 |
 | `doNotSave` | 请勿保存此属性，因为仅用于内部计算 |
 | `noMultiEdit` | 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。|
-| `noMultiEdit` | 如果此标志设置为 true，则当用户选择多个对象进行编辑时，此字段将不会显示。|
+| `expertMode` | 如果此标志设置为 true，则仅当专家模式为 true 时才会显示此字段 |
+| `expertMode` | 如果此标志设置为 true，则仅当专家模式为 true 时才会显示此字段 |
 
 ### 详细配置选项
 #### `defaultSendTo`
@@ -1182,8 +1183,8 @@ adapter.on("message", (obj) => {
    }
 // ...
 
-data: {
-   timeout: [1000, 2000, 3000]
+"data": {
+   "timeout": [1000, 2000, 3000]
 }
 ```
 
@@ -1197,16 +1198,16 @@ data: {
 输入：
 
 ```json
-data: {
-   timeout: [1000, 2000, 3000]
+"data": {
+   "timeout": [1000, 2000, 3000]
 }
 ```
 
 如果超时未改变，则输出：
 
 ```json
-newData: {
-   timeout: "__different__"
+"newData": {
+   "timeout": "__different__"
 }
 ```
 

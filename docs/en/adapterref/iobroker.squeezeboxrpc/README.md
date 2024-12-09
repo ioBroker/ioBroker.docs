@@ -58,7 +58,7 @@ all needed informations or send commands to the server/players.
 - After installation or update, it may sometimes be necessary\
    to execute the following command if problems have arisen in vis-1
 
-`iobroker upload squeezeboxpc`
+`iobroker upload squeezeboxrpc`
 
 ## Provided states
 
@@ -438,6 +438,121 @@ you must connect the button to the player widget.
 | Comma as separator    | Advanced settings | A comma is used to separate the decimal places.                   |
 | Thousands separator   | Advanced settings | For large numbers, a separator is inserted every 3 places.        |
 
+### Playlist
+
+![Number](/widgets/squeezeboxrpc/img/playlist.png)
+
+Display the playlist from the server. If you click on an entry the playlist
+is loaded and the player starts.
+The widged dosent refresh automaticly, you have to press the refreshh button.
+
+#### Attributes for Playlist
+
+| Group                 | Attribute         | Description                                                       |
+| --------------------- | ----------------- | ----------------------------------------------------------------- |
+| Player widget         | General group     | Selection of the player widget.                                   |
+
+The widget itself has very little formatting.
+For self formating there are some predefined css-classes:
+
+| CSS-class  | description                               |
+| ---------- | ----------------------------------------- |
+| plcontainer| Class name assigned to the ul-tag         |
+| plentry    | Class name assigned to the li-tag         |
+| plrefresh  | Class name assigned to the refresh-li tag |
+| pltext     | Class name assigned to the playlist name  |
+
+The following CSS for the vis-css tab can serve as an example:
+
+Dark-mode
+
+```css
+.plentry {
+    border: 1px #505050 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#202020;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#404040;
+}
+.plrefresh svg {
+    color:#cccccc;
+}
+.plrefresh svg:hover {
+    color:#ffffff;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+Light-mode
+
+```css
+.plentry {
+    border: 1px #b0b0b0 groove;
+    margin:1px 0px;
+    padding:5px;
+    background-color:#c0c0c0;
+}
+.plrefresh {
+    padding:5px;
+}
+.plentry:hover {
+    background-color:#e0e0e0;
+}
+.plrefresh svg {
+    color:#444444;
+}
+.plrefresh svg:hover {
+    color:#000000;
+    filter: drop-shadow(0px 0px 1px #87ceeb);
+}
+```
+
+## SendTo-Befehle
+
+### cmdGeneral
+
+This command can be used to send any command to the LMS server to receive a response.
+
+Example:
+
+**All Playlists:**
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["playlists", "0", "999", "tags:us"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+**All Favorites:**
+
+This command is used internally by the adapter to load the favorites.
+
+```js
+async function main() {
+  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
+    playerid: "",
+    cmdArray: ["favorites", "items", "0", "999", "want_url:1", "item_id:"],
+  });
+  console.log(JSON.stringify(data));
+}
+main();
+```
+
+Further options and detailed descriptions of the parameters
+are contained in the following CLI documentation:
+
+[CLI-Documentation](#further-api-documentation)
+
 ## Todo
 
 - more testing/fixing
@@ -466,19 +581,37 @@ you must connect the button to the player widget.
    ### **WORK IN PROGRESS**
 
 -->
-### 1.4.0-alpha.2 (2024-11-01)
+### **WORK IN PROGRESS**
 
-- improve handlying for artwork_url
+- fix spelling of iobroker upload squeezeboxrpc in readme
 
-### 1.4.0-alpha.1 (2024-10-27)
+### 1.5.1 (2024-11-29)
 
+- improve documentation
+- remove margin from plcontainer
+- improve textoverflow with ellipsis
+- adjust initial widgetsize of playlist widget
+- repair attributes for playlist widget
+- add light mode css for playlist widget
+
+### 1.5.0 (2024-11-28)
+
+- Switch to iobroker/eslint
+- New widget playlist
+
+### 1.4.0 (2024-11-27)
+
+- fix some missing objects errors
+- sanitize more playernames in syncgroups
+- add sendTo Command "cmdGeneral"
+- sanitize more the playername
+- improve translation
+- if trackartist is avail then write to artist if empty
+- improve handling for artwork_url
 - move widget documentation from html to markdown
 - adjust responsive tab style
 - improve attribute widgets
 - change TPE2 handling once more
-
-### 1.4.0-alpha.0 (2024-10-24)
-
 - jsonConfig add sizing options for differenz screen sizes
 - test implementation of TPE2 handling. switch in settings
 - add datapoints album_artist, track_artist, artistOriginal

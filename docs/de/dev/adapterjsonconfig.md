@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: 0+vcILNwunjmaoGO6kZVRE4N3k4LfLysxnL3sxxjB/Y=
+hash: ZgACrIEmwFvBLGSfjqXHYZ6Ghrvr2gaFcRdTzFfGiOg=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -712,7 +712,7 @@ nur Admin6
 - `./adapter/ADAPTER_NAME/custom/customComponent.js`: in diesem Fall werden die Dateien von `/adapter/ADAPTER_NAME/custom/customComponents.js` geladen.
 
 ### `datePicker`
-ermöglichen dem Benutzer die Auswahl einer Datumseingabe das UI-Format stammt aus der konfigurierten
+ermöglichen dem Benutzer die Auswahl einer Datumseingabe das UI-Format kommt aus der konfigurierten
 
 ### `timePicker`
 Erlaubt dem Benutzer, eine Datumseingabe auszuwählen. Die zurückgegebene Zeichenfolge ist eine analysierbare Datumszeichenfolge oder hat das Format `HH:mm:ss`
@@ -769,7 +769,7 @@ Eingabefeld mit Dateiauswahl
 | `disableEdit` | wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog |
 | `filterFiles` | wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']` |
 | `allowUpload` | Erlaubtes Hochladen von Dateien |
-| `allowDownload` | Erlaubter Download von Dateien (Standard: True) |
+| `allowDownload` | Erlaubter Download von Dateien (Standard: „true“) |
 | `allowCreateFolder` | Erstellen von Ordnern erlaubt |
 | `allowView` | erlaubte Kachel-Ansicht (Standard: true) |
 | `showToolbar` | Symbolleiste anzeigen (Standard: true) |
@@ -1145,7 +1145,8 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `onChange` | Struktur in der Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` |
 | `doNotSave` | Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird |
 | `noMultiEdit` | Wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zum Bearbeiten ausgewählt hat. |
-| `noMultiEdit` | Wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zum Bearbeiten ausgewählt hat. |
+| `expertMode` | Wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nur angezeigt, wenn der Expertenmodus „true“ ist. |
+| `expertMode` | wenn dieses Flag auf true gesetzt ist, wird dieses Feld nur angezeigt, wenn der Expertenmodus true ist |
 
 ### Optionen mit detaillierter Konfiguration
 #### `defaultSendTo`
@@ -1182,8 +1183,8 @@ Beispiel:
    }
 // ...
 
-data: {
-   timeout: [1000, 2000, 3000]
+"data": {
+   "timeout": [1000, 2000, 3000]
 }
 ```
 
@@ -1197,16 +1198,16 @@ Für unveränderte `__different__` muss der Wert different zurückgegeben werden
 Eingang:
 
 ```json
-data: {
-   timeout: [1000, 2000, 3000]
+"data": {
+   "timeout": [1000, 2000, 3000]
 }
 ```
 
 Ausgabe, wenn das Timeout nicht geändert wurde:
 
 ```json
-newData: {
-   timeout: "__different__"
+"newData": {
+   "timeout": "__different__"
 }
 ```
 

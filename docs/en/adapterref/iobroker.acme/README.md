@@ -1,4 +1,5 @@
 ![Logo](admin/acme.png)
+
 # ioBroker.acme
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.acme.svg)](https://www.npmjs.com/package/iobroker.acme)
@@ -46,6 +47,7 @@ Example scenarios:
 1. The IoB host on which ACME is running is behind a router and that router has a publicly reachable IP address:
 
     Solution:
+
     - Configure ACME to run on any free port: Eg: 8092.
     - Configure the router to forward connections to port 80 of it's public address to port 8092 of the IoB host.
     - Configure the DNS name of the desired certificate common name to resolve to the public address of the router.
@@ -53,32 +55,32 @@ Example scenarios:
 2. The IoB host on which ACME is running has a direct internet connection with a publicly reachable IP address:
 
     Solution:
-     - Configure ACME adapter to liston on port 80.
-     - Configure the DNS name of the desired certificate common name to resolve to the public address of the IoB host.
+
+    - Configure ACME adapter to liston on port 80.
+    - Configure the DNS name of the desired certificate common name to resolve to the public address of the IoB host.
 
 3. Scenario 1 & 2 are impossible because another service is running on port 80 of the publicly reachable IP address.
 
     Possible solutions:
 
     1. If the other service is an IoB adapter following port configuration naming standards ACME will stop it before attempting to order a certificate, use port 80 for the HTTP-01 challenge server, and restart any stopped adapter when done.
-    
-       Obviously this causes a short outage for the other adapter which may not be desirable.
+
+        Obviously this causes a short outage for the other adapter which may not be desirable.
 
     2. Use a DNS-01 challenge.
-   
     3. Setup a named virtual host HTTP proxy on port 80 of the router or publicly reachable IoB host.
 
-       - Give the existing service a different hostname to the one a certificate is required for and configure that hostname to resolve to the same address.
-       - Configure the proxy to forward requests to either the existing service or ACME adapter based on the name used.
+        - Give the existing service a different hostname to the one a certificate is required for and configure that hostname to resolve to the same address.
+        - Configure the proxy to forward requests to either the existing service or ACME adapter based on the name used.
 
     4. Run ACME manually only when required port access is available. **Not recommended**, but should work:
 
         - Disable (stop) the ACME adapter after installation.
         - Shortly before certificate order or renewal is required (renewal will occur up to 7 days before expiry) manually perform the following steps:
-          - Setup any firewall/port forwarding/other maintenance required to allow ACME to run on the configured port, and for that port to be accessible from the public internet.
-          - Start ACME manually from the IoB Admin Instances page.
-          - Wait for ACME to complete any certificate orders.
-          - Stop ACME manually from the IoB Admin Instances page.
+            - Setup any firewall/port forwarding/other maintenance required to allow ACME to run on the configured port, and for that port to be accessible from the public internet.
+            - Start ACME manually from the IoB Admin Instances page.
+            - Wait for ACME to complete any certificate orders.
+            - Stop ACME manually from the IoB Admin Instances page.
         - These steps will be required every time a certificate order/renewal is required and as such this method is **not recommended**. ACME is designed to facilitate a fully automated process.
 
 #### DNS-01
@@ -86,35 +88,41 @@ Example scenarios:
 Various DNS-01 challenge plugins are implemented for popular domain hosting platforms.
 
 #### References
+
 See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.5 (2024-12-08)
+
+- (@GermanBluefox) Corrected error with admin 7.4.3
+
+### 1.0.3 (2024-11-27)
+
+- (@GermanBluefox) Migrated GUI for admin 7 (one more time)
+
 ### 1.0.1 (2024-07-06)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
-* (bluefox) Prepared for admin v7
+
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+- (bluefox) Prepared for admin v7
 
 ### 0.1.2 (2023-11-15)
- * (mcm1957) Issues reported by adapter checker have been fixed.
- * (mcm1957) Release 0.1.1 has been released again due to error during deploy.
+
+- (mcm1957) Issues reported by adapter checker have been fixed.
+- (mcm1957) Release 0.1.1 has been released again due to error during deploy.
 
 ### 0.1.1 (2023-11-15)
- * (raintonr) Various improvements in start/stop of other adapters using HTTP challenge server port fixing restart loop (#43).
- * (raintonr) Fixed ACME notify messages (#64).
 
-### 0.1.0 (2023-08-01)
-* (raintonr) Use @iobroker/webserver (#10).
-* (bluefox) Corrected detection of instances on the same port
-* (bluefox) Implemented the monitoring of the collection's status
-
-### 0.0.2 (2023-03-01)
-* (bluefox) Now all running on the same port adapters will be stopped before update.
+- (raintonr) Various improvements in start/stop of other adapters using HTTP challenge server port fixing restart loop (#43).
+- (raintonr) Fixed ACME notify messages (#64).
 
 ## License
+
 MIT License
 
 Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  

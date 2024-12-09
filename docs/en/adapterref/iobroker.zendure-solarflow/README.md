@@ -48,9 +48,14 @@ If you find the adapter useful for you and want to support my work, feel free to
 [![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.10.0 (2024-12-02)
+
+- Add setting to perform a full charge if SOC from Zendure is greater than 50% when on low voltage
+- Bugfixes
+
 ### 1.9.3 (2024-11-22)
 
-- Fix for Low Voltage Block not deactivated.
+- Fix for Low Voltage Block not deactivated
 
 ### 1.9.2 (2024-11-21)
 

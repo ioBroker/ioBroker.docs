@@ -3,8 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rssfeed/README.md
 title: ioBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
-hash: cgrRJ6hN8UqN8R8K0u94eIkpdr3Iuapk+WEuW0s4aIM=
+hash: has9xS5uJI8QfTDwC7Q+OTCPNtY8AVMvFoIMJCYS1Rk=
 ---
+# IoBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
 ![标识](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.rssfeed.svg)
@@ -13,7 +14,6 @@ hash: cgrRJ6hN8UqN8R8K0u94eIkpdr3Iuapk+WEuW0s4aIM=
 ![稳定存储库中的当前版本](https://iobroker.live/badges/rssfeed-stable.svg)
 ![新平台](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
 
-# IoBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
 **测试：**![测试与发布](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
 ＃＃ 概述
@@ -65,7 +65,7 @@ iobroker upload rssfeed
 - [`RSS Feed Title marquee 3`](#rss-feed-title-marquee-3) - 一个用于将 Feed 的标题显示为字幕的小部件
 - [`JSON 模板`(#json-template)] - 一个与 RSS 提要无关的小部件，但使用相同的技术，您可以定义自定义模板以在 vis 中显示任何 JSON 数据。
 
-### RSS 提要小部件 2
+### RSS 源小部件 2
 此小部件可用于在适配器的配置对话框中显示订阅的 RSS 源。
 使用模板系统，可以根据需要自定义输出。已经提供了一个简单的标准模板。
 可以在以下页面中找到格式和语法的描述。
@@ -75,7 +75,7 @@ iobroker upload rssfeed
 | rss_oid | 选择具有相应 RSS 提要的数据点。|
 | rss_template | 模板决定了 RSS 源的外观。模板中可以使用所有有效的 HTML 标签（包括 style 标签中的 CSS 属性）。此外，还有一些特殊标签，其中显示源数据并可执行 JavaScript 指令。为了更好地识别数据和使用的属性名称，有两个小部件，rssfeed Meta helper 和 rssfeed Article helper。|
 | rss_maxarticles | 从 RSS 源显示的单个文章的最大数量 |
-| rss_filter | 对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。搜索将搜索以下文章属性：标题、描述、类别。仅显示包含其中一个术语的文章。|
+| rss_filter | 对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。搜索时会搜索以下文章属性：标题、描述、类别。仅显示包含其中一个术语的文章。|
 
 **变量的可用性：**
 
@@ -144,8 +144,8 @@ iobroker upload rssfeed
 | rss_link | 常规组 | 如果启用此选项，标题将显示为链接。如果您单击或触摸标题，则文章的链接将在新窗口或选项卡中打开。|
 | rss_withtime | 常规组 | 如果打开此选项，则会在相应标题前显示时间。 属性 rss_withdate - 常规组 如果启用此选项，则会在相应标题前显示不带年份的日期和时间。|
 | rss_withyear | 常规组 | 如果启用此选项，则会在相应的标题前显示带有年份的日期和时间。|
-| rss_oid | Feeds[number] 组 | 选择具有相应 RSS 提要的数据点。|
-| rss_maxarticles | Feeds[number] group | 从 RSS feed 显示的单个文章的最大数量 |
+| rss_oid | Feeds[number] 组 | 选择具有相应 RSS feed 的数据点。|
+| rss_maxarticles | Feeds[number] group | 从 RSS feed 中显示的最大单独文章数量 |
 | rss_filter | Feeds[number] group | 对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。搜索时会搜索以下文章属性：标题、描述、类别。仅显示包含其中一个术语的文章。|
 
 ### JSON 模板2
@@ -201,7 +201,7 @@ JSON 数据以前缀 data 的形式传递给模板。此外，当前 widgetID �
 
 | `tag` | 描述 |
 | ----- | ------------------------------------------------------------------- |
-| <%= | 所包含的表达式/变量的内容将被转义。|
+| <%= | 包含的表达式/变量的内容将被转义。|
 | <%- | 所包含的表达式/变量的内容未转义。|
 | <% | 无输出，用于封闭的 javascript 指令 |
 | %> | 通常是一个结束标签，用于完成前面的一个标签 |
@@ -426,11 +426,11 @@ data.oneobject[prop] %> <% } %>
     all variables are read only
     -->
 <style>
-  #<%- widgetid % > img {
+  #<%- widgetid %> img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
   }
-  #<%- widgetid % > img.rssfeed {
+  #<%- widgetid %> img.rssfeed {
     width: auto;
     height: auto;
   }
@@ -456,11 +456,11 @@ data.oneobject[prop] %> <% } %>
 -->
 
 <style>
-  #<%- widgetid % > img {
+  #<%- widgetid %> img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
   }
-  #<%- widgetid % > img.rssfeed {
+  #<%- widgetid %> img.rssfeed {
     width: auto;
     height: auto;
   }
@@ -566,10 +566,12 @@ Z7：无输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定义�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.2.0 (2024-11-27)
 
 - update jsonconfig responsive
+- switch to iobroker/eslint
+- improver adapter code
+- improve widget code
 
 ### 3.1.0 (2024-08-11)
 

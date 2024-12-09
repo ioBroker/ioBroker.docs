@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: kZxbSMpDx4oArfnMLcAoyoLeqBJx6Fhx4A5vSU4nlw4=
+hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
 ---
 ![标识](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -64,52 +64,59 @@ Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
 然后，您可以配置您选择的通知服务进行转发。
 
---- <!-- ### **正在进行中** -->
+---
+
+## Changelog
+<!-- ### **WORK IN PROGRESS** -->
+
+### **WORK IN PROGRESS**
+* (simatec) eslint-config fix
+* (simatec) Code fix
 
 ### 0.1.10 (2024-11-24)
-*（simatec）依赖项已更新
-*（simatec）响应式设计修复
-*（simatec）已添加问题操作
-*（simatec）添加了 eslint-config
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
 
 ### 0.1.9 (2024-09-26)
-*（simatec）修复管理员 7.1.5
+* (simatec) Fix for admin 7.1.5
 
 ### 0.1.8 (2024-09-24)
-*（simatec）响应式设计修复
-*（simatec）清理代码
+* (simatec) Responsive Design fix
+* (simatec) Cleaned code
 
 ### 0.1.7 (2024-09-16)
-*（simatec）依赖项已更新
-*（simatec）响应式设计修复
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
 
 ### 0.1.6 (2024-09-10)
-*（simatec）修复适配器检查
-*（simatec）依赖项已更新
-* (simatec) 添加了响应式设计
+* (simatec) Fix Adapter Check
+* (simatec) Dependencies updated
+* (simatec) Responsive Design added
 
-### 0.1.5（2024-07-22）
-*（simatec）小修复
+### 0.1.5 (2024-07-22)
+* (simatec) small fix
 
-### 0.1.4（2024-07-19）
-*（simatec）依赖项已更新
+### 0.1.4 (2024-07-19)
+* (simatec) Dependencies updated
 
 ### 0.1.3 (2024-07-17)
-* (simatec) 修复测试并发布
-*（simatec）修复超时
+* (simatec) Fix Test & Release
+* (simatec) Fix Timeout
 
 ### 0.1.2 (2024-06-26)
-*（simatec）修复 io 包
-*（simatec）已添加通知管理器
+* (simatec) Fix io-package
+* (simatec) Notification-Manager added
 
-### 0.1.1（2024-06-19）
-*（simatec）修复分支
+### 0.1.1 (2024-06-19)
+* (simatec) Fix Branch
 
-### 0.1.0（2024-06-19）
-*（simatec）首次发布
+### 0.1.0 (2024-06-19)
+* (simatec) First Release
 
-### 0.0.1（2024-03-15）
-*（simatec）初始版本
+### 0.0.1 (2024-03-15)
+* (simatec) initial release
 
 ---
 

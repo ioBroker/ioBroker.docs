@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация следующего поколения для ioBroker: vis-2
-hash: RttxszkZBkPktx1h3S4c1CTM4MNtGAultzO499yhV3k=
+hash: S3jREg07ZFLV+uTkWNlRet6V9ix/5Bd7NsgLwQzQ/BE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -42,7 +42,7 @@ WEB-визуализация для платформы ioBroker.
 
 `{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(h*h + w*w))}` будет интерпретироваться как функция:
 
-```
+```js
 value = await (async function () {
     var h = (await getState('javascript.0.myCustom.height')).val;
     var w = (await getState('javascript.0.myCustom.width')).val;
@@ -60,14 +60,14 @@ value = await (async function () {
 
 Таким образом, наш расчет гипотенузы будет следующим:
 
-```
+```js
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
 ### Устаревший формат
 Паттен имеет следующий формат:
 
-```
+```js
 {objectID;operation1;operation2;...}
 ```
 
@@ -97,7 +97,7 @@ value = await (async function () {
 - `formatValue(decimals)` - форматировать значение в соответствии с настройками системы и использовать десятичные знаки
 - `date(format)` - форматировать значение как дату. Формат такой: "YYYY-MM-DD hh:mm:ss.sss"
 - `momentDate(format, useTodayOrYesterday)` - форматировать значение как дату с помощью Moment.js. [Утвержденные форматы должны быть введены в соответствии с библиотекой moment.js](https://momentjs.com/docs/#/displaying/format/). При использовании `useTodayOrYesterday=true` формат `moment.js` `ddd`/`dddd` перезаписывается на сегодня / вчера
-- `array(element1,element2[,element3,element4])` - возвращает элемент индекса. например: `{id.ack;array(ack is false,ack is true)}`
+- `array(element1,element2[,element3,element4])` - возвращает элемент индекса. Например: `{id.ack;array(ack is false,ack is true)}`
 
 Вы можете использовать этот шаблон в любом тексте, например
 
@@ -126,7 +126,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 * `widget` - это объект со всеми данными виджета. Может использоваться только в части JS, как `{a:a;widget.data.name}`
 * `widgetOid` - используйте OID виджета для назначения значения виджета в разделе назначения, например `{t:widgetOid.val;t}`
 * `wid` - имя фактического виджета
-* `language` - может быть `de`, `en` или `ru`.
+* `язык` - может быть `de`, `en` или `ru`.
 * `instance` - экземпляр браузера
 * `login` - требуется ли вход в систему или нет (например, чтобы показать/скрыть кнопку выхода)
 * `local_*` - если имя состояния начинается с `local_`, оно не будет передано в ioBroker, но обновит все виджеты, зависящие от этого состояния. (Локальная переменная для текущего сеанса браузера)
@@ -157,7 +157,7 @@ Vis создает 3 переменные:
 
 Команды:
 
-* `alert` - показать окно оповещения в vis-2. "control.data" имеет следующий формат "message;title;jquery-icon". Title и jquery-icon необязательны. Имена иконок можно найти [здесь](http://jqueryui.com/themeroller/). Чтобы показать иконку "ui-icon-info", напишите `Message;;info`.
+* `alert` - показать окно оповещения в vis-2. "control.data" имеет следующий формат "message;title;jquery-icon". Title и jquery-icon являются необязательными. Имена иконок можно найти [здесь](http://jqueryui.com/themeroller/). Чтобы показать иконку "ui-icon-info", напишите `Message;;info`.
 * `changeView` - переключиться на желаемый вид. "control.data" должен иметь имя вида. Вы также можете указать имя проекта как `project/view`. Проект по умолчанию - `main`.
 * `refresh` - перезагрузка vis-2, например, после изменения проекта для перезагрузки во всех браузерах.
 * `reload` - то же, что и refresh.
@@ -230,7 +230,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 Существует правило, что после некоторого периода отключения вся страница VIS будет перезагружена для синхронизации проекта. Вы можете настроить это в меню «Настройки...». Если вы установите интервал на «никогда», то страница никогда не будет перезагружена.
 
 ### Интервал повторного подключения
-Установите интервал между попытками подключения в случае отключения. Если вы установите 2 секунды, он будет пытаться установить соединение каждые 2 секунды.
+Установите интервал между попытками подключения в случае отключения. Если установить 2 секунды, то попытки установить соединение будут каждые 2 секунды.
 
 ### Темный экран повторного подключения
 Иногда (ночью) требуется тёмный экран загрузки. С помощью этой опции вы можете это настроить.
@@ -260,7 +260,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 
 2. клонируйте репозиторий в каталог. скопируйте URL-адрес из вашего репозитория GitHub. Команда выглядит так:
 
-```
+```shell
 git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 ```
 
@@ -268,7 +268,7 @@ git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 
 4. Чтобы установить и загрузить все необходимые библиотеки, выполните следующую команду в терминале в корневом каталоге репозитория
 
-```
+```shell
 npm run install-monorepo
 ```
 
@@ -276,7 +276,7 @@ npm run install-monorepo
 
 Отдельно запущенный экземпляр сервера iobroker должен быть доступен на порту 8082.
 
-```
+```shell
 npm run start
 ```
 
@@ -289,6 +289,15 @@ npm run start
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 2.11.1 (2024-12-02)
+* (@GermanBluefox) Corrected navigation menu
+* (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
+* (@GermanBluefox) Added the HTML rebuild button to settings
+* (@GermanBluefox) Backend was migrated to TypeScript
+
+### 2.10.8 (2024-11-22)
+* (bluefox) Added new option for view: "Limit only for instances"
+
 ### 2.10.7 (2024-07-23)
 * (bluefox) Optimization of the module federation
 

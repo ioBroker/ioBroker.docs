@@ -1,6 +1,6 @@
-![Logo](admin/rssfeed.png)
-
 # ioBroker Adapter to request and show RSS Feeds of different standards (Atom, RSS, RDF)
+
+![Logo](admin/rssfeed.png)
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.rssfeed.svg)](https://www.npmjs.com/package/iobroker.rssfeed)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.rssfeed.svg)](https://www.npmjs.com/package/iobroker.rssfeed)
@@ -442,11 +442,11 @@ It has been tested with the following feeds
     all variables are read only
     -->
 <style>
-  #<%- widgetid % > img {
+  #<%- widgetid %> img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
   }
-  #<%- widgetid % > img.rssfeed {
+  #<%- widgetid %> img.rssfeed {
     width: auto;
     height: auto;
   }
@@ -473,11 +473,11 @@ It has been tested with the following feeds
 -->
 
 <style>
-  #<%- widgetid % > img {
+  #<%- widgetid %> img {
     width: calc(<%- style.width || "230px" %> - 15px);
     height: auto;
   }
-  #<%- widgetid % > img.rssfeed {
+  #<%- widgetid %> img.rssfeed {
     width: auto;
     height: auto;
   }
@@ -588,10 +588,12 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.2.0 (2024-11-27)
 
 - update jsonconfig responsive
+- switch to iobroker/eslint
+- improver adapter code
+- improve widget code
 
 ### 3.1.0 (2024-08-11)
 

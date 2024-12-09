@@ -3,18 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-Tabelle
-hash: zy+ofgh7dMJwoc0bOUlmGuQN5HzfEYHW+pBRxXwNzMg=
+hash: yoyuekYJi0ukMjQSCfcXiwUeUlNXwnHrjmD10whffSg=
 ---
 ![Logo](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
-![NPM-Version](https://img.shields.io/npm/v/iobroker.google-spreadsheet.svg)
+![GitHub-Lizenz](https://img.shields.io/github/license/ThomasPohl/ioBroker.google-spreadsheet)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.google-spreadsheet.svg)
-![Anzahl der Installationen](https://iobroker.live/badges/google-spreadsheet-installed.svg)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/ThomasPohl/ioBroker.google-spreadsheet/latest)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub-Probleme](https://img.shields.io/github/issues/ThomasPohl/ioBroker.google-spreadsheet)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.google-spreadsheet.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/google-spreadsheet-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.google-spreadsheet.png?downloads=true)
+![Anzahl der Installationen](https://iobroker.live/badges/google-spreadsheet-installed.svg)
 
 # IoBroker.google-Tabelle
-**Tests:** ![Testen und Freigeben](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/workflows/Test%20and%20Release/badge.svg)
+</br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml)
 
 ## Google-Spreadsheet-Adapter für ioBroker
 Mit diesem Adapter kann automatisch mit Google Spreadsheets interagiert werden.
@@ -100,6 +105,9 @@ Stellen Sie sicher, dass das Dienstkonto über die erforderlichen Berechtigungen
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0
+* (Thomas Pohl) Minimum node.js version is now 20
+* (Thomas Pohl) Display connection state
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
@@ -111,7 +119,6 @@ Stellen Sie sicher, dass das Dienstkonto über die erforderlichen Berechtigungen
 * (Thomas Pohl) Documentation for all features
 ### 0.2.0
 * (Thomas Pohl) Parsing of private keys is now more robust
-
 ### 0.1.0
 * (Thomas Pohl) Preparation for first stable release
 * (Thomas Pohl) Improve logging + Code cleanup

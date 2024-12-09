@@ -21,8 +21,6 @@ This adapter allows communication with a HomematicIP CloudAccessPoint via the Re
 **Important note:** Please limit control requests to the bare minimum because EQ-3 started to block IPs when you do too much!
 
 ## Installation
-This Adapter needs node-js in version >= 16.0
-
 Here is a Step-by-Step Installation Video on YouTube 
 https://youtu.be/kXWfJRUYJIA
 
@@ -52,20 +50,30 @@ For example, direct connections between devices have no events in the app and ca
 If you have assigned a PIN to the lock in HmIP app (Settings / Access authorizations - German: "Zutrittsberechtigungen") then the PIN needs to be set in the pin state of the device's objects. It is NOT your system PIN!! if you have not set a PIN in settings, you can also leave empty in the pin state.
 Additionally, please add "iobroker" client to the list of access control clients in HmIP app settings!
 
+## Home Control Unit (HCU)
+There is a changed workflow with HCU
+
+Press the button once before starting the token creation. It enables remote access for 5 minutes.
+Then press button once again when asked for it during pairing process.
+
+Many thanks to @dietzm for adding support of HCU to this adapter.
+
 ## Thanks
 * to @coreGreenberet for his python lib (https://github.com/coreGreenberet/homematicip-rest-api)
 
 ## Diskussion in ioBroker Forum
 https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 
-## Adapter Request auf GitHub
-https://github.com/ioBroker/AdapterRequests/issues/62
-
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.26.1-alpha.1 (2024-12-09)
+* (mcm1957) Adapter requires node.js 20 now
+* (dietzm) Added support for Home Control Unit
+* (GermanBluefox) Corrected the admin GUI
+
 ### 1.25.0 (2024-11-08)
 * (bluefox) Updated packages
 * (bluefox) User prettier for code

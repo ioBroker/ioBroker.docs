@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: RttxszkZBkPktx1h3S4c1CTM4MNtGAultzO499yhV3k=
+hash: S3jREg07ZFLV+uTkWNlRet6V9ix/5Bd7NsgLwQzQ/BE=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -42,7 +42,7 @@ ioBroker 平台的 WEB 可视化。
 
 `{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(h*h + w*w))}` 将被解释为函数：
 
-```
+```js
 value = await (async function () {
     var h = (await getState('javascript.0.myCustom.height')).val;
     var w = (await getState('javascript.0.myCustom.width')).val;
@@ -60,14 +60,14 @@ value = await (async function () {
 
 因此我们的斜边计算如下：
 
-```
+```js
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
 ### 弃用的格式
 Patten 的格式如下：
 
-```
+```js
 {objectID;operation1;operation2;...}
 ```
 
@@ -92,7 +92,7 @@ Patten 的格式如下：
 - `pow` - 2 的幂。
 - `floor` - Math.floor
 - `ceil` - Math.ceil
-- `json` - 用于获取 json 或对象属性的操作。例如，`{id;json(common.name.en)}`
+- `json` - 获取 json 或对象属性的操作。例如，`{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R，如果没有参数则仅使用 Math.random()
 - `formatValue(decimals)` - 根据系统设置格式化值并使用小数
 - `date(format)` - 将值格式化为日期。格式如下：“YYYY-MM-DD hh:mm:ss.sss”
@@ -126,7 +126,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 * `widget` - 是包含所有 widget 数据的对象。只能在 JS 部分使用，例如 `{a:a;widget.data.name}`
 * `widgetOid` - 使用小部件的 OID 在分配部分分配小部件的值，例如 `{t:widgetOid.val;t}`
 * `wid` - 实际小部件的名称
-* `language` — 可以是 `de`、`en` 或 `ru`。
+* `language` - 可以是 `de`、`en` 或 `ru`。
 * `instance` - 浏览器实例
 * `login` - 是否需要登录（例如，显示/隐藏注销按钮）
 * `local_*` - 如果状态名称从 `local_` 开始，则不会报告给 ioBroker，但会更新所有依赖于此状态的小部件。（当前浏览器会话的局部变量）
@@ -177,7 +177,7 @@ Vis 创建了 3 个变量：
 * `playSound` - 播放声音文件。文件链接在 `control.data` 中指定，例如 http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3。
 
 您可以在 vis-2 中上传自己的文件并让其播放，例如 `/vis-2.0/main/img/myFile.mp3`。
-**重要** 浏览器无法播放音频，除非用户至少点击过页面一次。这是浏览器安全策略。[这里](https://github.com/Hugo22O/chrome-autoplay) 您可以阅读更多内容。
+**重要** 浏览器无法播放音频，除非用户至少点击过一次页面。这是浏览器安全策略。[这里](https://github.com/Hugo22O/chrome-autoplay) 您可以阅读更多内容。
 
 如果用户在开始时更改视图，则变量将由 vis-2 填充
 
@@ -255,7 +255,7 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ```
 
 在这种情况下，如果 SVG 采用父元素的颜色。
-例如，如果它在菜单中使用并且菜单是红色的，那么圆圈将是红色的。
+例如，如果它在菜单中使用并且菜单是红色的，则圆圈将是红色的。
 
 ## 开发和调试
 为了对 vis-2 编辑器本身进行调整、搜索错误和调试，必须执行以下步骤。
@@ -264,7 +264,7 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 
 2. 将存储库克隆到目录中。从 GitHub 存储库复制 URL。命令如下
 
-```
+```shell
 git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 ```
 
@@ -272,7 +272,7 @@ git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 
 4. 要安装和下载所有必要的库，请在存储库根目录中的终端中运行以下命令
 
-```
+```shell
 npm run install-monorepo
 ```
 
@@ -280,7 +280,7 @@ npm run install-monorepo
 
 端口 8082 上必须有一个单独运行的 iobroker 服务器实例。
 
-```
+```shell
 npm run start
 ```
 
@@ -293,6 +293,15 @@ npm run start
 ### **正在进行中** -->
 
 ## Changelog
+### 2.11.1 (2024-12-02)
+* (@GermanBluefox) Corrected navigation menu
+* (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
+* (@GermanBluefox) Added the HTML rebuild button to settings
+* (@GermanBluefox) Backend was migrated to TypeScript
+
+### 2.10.8 (2024-11-22)
+* (bluefox) Added new option for view: "Limit only for instances"
+
 ### 2.10.7 (2024-07-23)
 * (bluefox) Optimization of the module federation
 

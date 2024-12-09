@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
+hash: b8YIDN5UrVOEjnNuFYJ5RH86vGY42dQtaDnYBja3ul4=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -19,8 +19,10 @@ hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
 [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Testen und Freigeben](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## Apg-info-Adapter für ioBroker
-Dieser Adapter liefert die Spitzenzeiten für das österreichische Stromnetz, in denen Stromverbrauch vermieden werden soll. Zusätzlich liefert der Adapter die PHELIX Day-Ahead (EPEX Spot) Preise für Österreich, die Schweiz und Deutschland (Konfiguration in den Adaptereinstellungen). Anbietergebühren, Steuern und Netzkosten können optional in der Konfiguration hinzugefügt werden (Registerkarte Berechnung).
+Dieser Adapter liefert die Spitzenzeiten für das österreichische Stromnetz (nur österreichische Werte!), in denen Stromverbrauch vermieden werden soll. Zusätzlich liefert der Adapter die PHELIX Day-Ahead (EPEX Spot) Preise für Österreich, die Schweiz und Deutschland (Konfiguration in den Adaptereinstellungen). Anbietergebühren, Steuern und Netzkosten können optional in der Konfiguration hinzugefügt werden (Registerkarte Berechnung).
+
 `[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
+
 Mit der Standardkonfiguration läuft der Adapter um 00:00, 13:00 und 15:00 Uhr. Es wird dringend empfohlen, den Lauf um 00:00 Uhr nicht zu entfernen, da sonst der Tageswechsel (morgen --> heute) nicht richtig funktioniert.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
@@ -37,6 +39,13 @@ Für den Schweizer Markt wird ein Token von entsoe.eu benötigt. Bitte fügen Si
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.11 (2024-10-20)
+* (HGlab01) improve UI config (#296)
+
+### 0.1.10 (2024-10-04)
+* (HGlab01) fix issue #290
+* (HGlab01) bump axios to 1.7.7
+
 ### 0.1.9 (2024-08-21)
 * (HGlab01) Support eslint9
 
@@ -47,13 +56,6 @@ Für den Schweizer Markt wird ein Token von entsoe.eu benötigt. Bitte fügen Si
 ### 0.1.7 (2024-05-27)
 * (HGlab01) Add date to today and tomorrow to make the date of today and tomorrow clear
 * (HGlab01) bump axios to 1.7.2
-
-### 0.1.6 (2024-03-17)
-* (HGlab01) fix issue in debug-mode: Cannot read properties of null (reading 'data')
-* (HGlab01) bump axios to 1.6.8
-
-### 0.1.5 (2024-01-20)
-* (HGlab01) Add fee, grid costs and tax calculation
 
 ## License
 MIT License

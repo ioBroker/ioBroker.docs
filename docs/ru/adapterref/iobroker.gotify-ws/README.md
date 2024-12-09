@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: kZxbSMpDx4oArfnMLcAoyoLeqBJx6Fhx4A5vSU4nlw4=
+hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -64,52 +64,59 @@ Gotify-WS также требуется IP-адрес или домен и по�
 
 Затем вы можете настроить службу уведомлений по вашему выбору для пересылки.
 
---- <!-- ### **РАБОТА В ХОДЕ** -->
+---
+
+## Changelog
+<!-- ### **WORK IN PROGRESS** -->
+
+### **WORK IN PROGRESS**
+* (simatec) eslint-config fix
+* (simatec) Code fix
 
 ### 0.1.10 (2024-11-24)
-* (simatec) Зависимости обновлены
-* (simatec) Исправление адаптивного дизайна
-* (simatec) Добавлено действие по проблеме
-* (simatec) добавлен eslint-config
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
 
 ### 0.1.9 (2024-09-26)
-* (simatec) Исправление для администратора 7.1.5
+* (simatec) Fix for admin 7.1.5
 
 ### 0.1.8 (2024-09-24)
-* (simatec) Исправление адаптивного дизайна
-* (simatec) Очищенный код
+* (simatec) Responsive Design fix
+* (simatec) Cleaned code
 
 ### 0.1.7 (2024-09-16)
-* (simatec) Зависимости обновлены
-* (simatec) Исправление адаптивного дизайна
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
 
 ### 0.1.6 (2024-09-10)
-* (simatec) Исправлена проверка адаптера
-* (simatec) Зависимости обновлены
-* (simatec) Добавлен адаптивный дизайн
+* (simatec) Fix Adapter Check
+* (simatec) Dependencies updated
+* (simatec) Responsive Design added
 
 ### 0.1.5 (2024-07-22)
-* (simatec) небольшое исправление
+* (simatec) small fix
 
 ### 0.1.4 (2024-07-19)
-* (simatec) Зависимости обновлены
+* (simatec) Dependencies updated
 
 ### 0.1.3 (2024-07-17)
-* (simatec) Исправление теста и выпуск
-* (simatec) Исправление тайм-аута
+* (simatec) Fix Test & Release
+* (simatec) Fix Timeout
 
 ### 0.1.2 (2024-06-26)
-* (simatec) Исправление io-пакета
-* (simatec) Добавлен менеджер уведомлений
+* (simatec) Fix io-package
+* (simatec) Notification-Manager added
 
 ### 0.1.1 (2024-06-19)
-* (simatec) Исправление ветки
+* (simatec) Fix Branch
 
 ### 0.1.0 (2024-06-19)
-* (simatec) Первый выпуск
+* (simatec) First Release
 
 ### 0.0.1 (2024-03-15)
-* (simatec) начальный выпуск
+* (simatec) initial release
 
 ---
 

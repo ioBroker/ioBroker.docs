@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hiob/README.md
 title: ioBroker.hiob
-hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
+hash: uE55HMwGmVz8nMpwDW1Vemvc3X3jbN3AGbFc+crsK7c=
 ---
 ![Logo](../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -12,7 +12,7 @@ hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hiob.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/hiob-installed.svg)
 ![GitHub-Commits seit der letzten Veröffentlichung](https://img.shields.io/github/commits-since/moba15/ioBroker.hiob/latest)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/moba15/ioBroker.hiob)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/moba15/ioBroker.hiob)
 ![Beta](https://img.shields.io/npm/v/iobroker.hiob.svg?color=red&label=beta)
 ![NPM](https://nodei.co/npm/iobroker.hiop.png?downloads=true)
 
@@ -28,7 +28,7 @@ Mit dieser App können Sie Ihr ioBroker Smarthome-System über die hiob-App steu
 
 ## Anforderungen
 - Knoten >= 18
--   Android Telefon
+Android-Telefon
 
 ## Getestet mit
 - Samsung Android-Telefone
@@ -60,7 +60,14 @@ Android 10/11/13
 - Erlaube Designregeln für jedes Widget
 - Diagramme für Verlaufsdaten hinzufügen [0 %]
 - Vereinfachen Sie den Prozess des Hinzufügens von Geräten, indem Sie alle auflisten [0 %]
-- Widgets automatisch basierend auf dem ausgewählten Gerät erstellen [0 %]
+- Automatisches Erstellen von Widgets basierend auf dem ausgewählten Gerät [0 %]
+
+## 🎉 Ruhmeshalle 🎉
+Ein herzliches Dankeschön an alle, die zu diesem Projekt beigetragen haben! Ob durch Code, Fehlerberichte, Funktionsvorschläge oder Weitersagen – Ihre Unterstützung trägt dazu bei, dieses Projekt für alle zu verbessern.
+
+### Besonderer Dank geht an:
+- @Lucky-ESA
+- @ManniBac
 
 ## Changelog
 
@@ -68,6 +75,20 @@ Android 10/11/13
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Updated packages
+- Refactor API between App and Adapater
+- Integrating new workflow
+
+### 0.1.6 (2024-08-17)
+- Updated Packages
+- Prepared lates release
+
+### 0.1.5 (2024-06-23)
+- Removed blockly
+- Fixed some bugs 
+- Updated dependencies
+
 ### 0.1.4 (2024-04-24)
 - (Lucky-Esa) added docs and more examples
 - (moba15) Implement suggestions for latest release

@@ -3,11 +3,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.minuaru.svg)](https://www.npmjs.com/package/iobroker.minuaru)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.minuaru.svg)](https://www.npmjs.com/package/iobroker.minuaru)
-[!Number of Installations](https://iobroker.live/badges/minuaru-installed.svg)
+[!Number of Installations](https://iobroker.live/badges/minuaru-installe.svg)
 [!Current version in stable repository](https://iobroker.live/badges/minuaru-stable.svg)
-
-[![NPM](https://nodei.co/npm/iobroker.minuaru.png?downloads=true)](https://nodei.co/npm/iobroker.minuaru/)
-
 
 ## minuaru adapter for ioBroker
 
@@ -56,8 +53,15 @@ alarmsystem for ioBroker and minuvis
 
 
 ## Changelog
-### 2.0.0-beta (2024-10-11)
+### 2.0.2 (2024-12-03)
+* (svallant) update jsonConfig for responsive design
+
+### 2.0.1 (2024-11-29)
+* (svallant) minor changes
+
+### 2.0.0 (2024-11-15)
 * BREAKING CHANGE: Existings alarms of version 1.x will be deleted
+* (svallant) release of version 2
 * (svallant) fixing issues detected by repository checker
 * (svallant) switch to duckdb
 
