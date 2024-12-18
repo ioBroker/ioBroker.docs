@@ -170,8 +170,9 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`sendTo`:**](#sendto) Button that sends a request to an instance
 - [**`setState`:**](#setstate) Button that sets an instance's state
 - [**`slider`:**](#slider) Slider for selecting a value within a range (Admin 6 only)
-- [**`state`:**](#state) (admin >= 7.1.0) Show control or information from the state
+- [**`state`:**](#state) Show control or information from the state (admin >= 7.1.0)
 - [**`staticImage`:**](#staticimage) Displays a static image
+- [**`staticInfo`:**](#staticinfo) Shows static information in preformatted form, like "Title: value unit" (admin >= 7.3.3)
 - [**`staticLink`:**](#staticlink) Creates a static link
 - [**`staticText`:**](#statictext) Displays static text (e.g., description)
 - [**`coordinates`:**](#coordinates) Determines current location and used `system.config` coordinates if not possible in form "latitude,longitude"
@@ -1237,6 +1238,7 @@ In the Settings of the Web developer tools, you can create your own devices with
 | `onChange`               | Structure in form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`                                                      |
 | `doNotSave`              | Do not save this attribute as used only for internal calculations                                                                                                                    |
 | `noMultiEdit`            | if this flag set to true, this field will not be shown if user selected more than one object for edit.                                                                               |
+| `expertMode`             | if this flag set to true, this field will be shown only if the expert mode is true                                                                                                   |
 
 ### Options with detailed configuration
 
@@ -1277,8 +1279,8 @@ Example:
    }
 // ...
 
-data: {
-   timeout: [1000, 2000, 3000]
+"data": {
+   "timeout": [1000, 2000, 3000]
 }
 ```
 
@@ -1291,15 +1293,15 @@ For non changed `__different__` the value different must be returned:
 
 Input:
 ```json
-data: {
-   timeout: [1000, 2000, 3000]
+"data": {
+   "timeout": [1000, 2000, 3000]
 }
 ```
 
 Output if timeout was not changed:
 ```json
-newData: {
-   timeout: "__different__"
+"newData": {
+   "timeout": "__different__"
 }
 ```
 

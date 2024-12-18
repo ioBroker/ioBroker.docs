@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 4EcdORqXmStPGuUzEL7+axxfag4wJxbPWyv9qkCC9UQ=
+hash: Ff+4/QE2aO2Qymthj8NuuO0bWCbgDO0A6d0fcBFG3p0=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -238,7 +238,7 @@ Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, biet
 Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche bereitzustellen.
 
 ## Vis (06.11.2023) - neue Funktion
-Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
+Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
 Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
@@ -262,7 +262,7 @@ https://github.com/ticaki/ioBroker.weather-warnings
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
-Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Staaten erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
+Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Zustände erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
 
 ## Tractive-gps (06.12.2023) - neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
@@ -376,7 +376,7 @@ https://github.com/bolliy/ioBroker.sun2000
 Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
 
 ## Opcua (21.2.2024) – neue Funktion
-Der Adapter verfügt jetzt über eine kostenlose Lizenz.
+Der Adapter hat jetzt eine kostenlose Lizenz.
 
 ## Senec (25.2.2024) – neuer Adapter
 https://github.com/nobl/ioBroker.senec
@@ -407,7 +407,7 @@ https://github.com/Standarduser/ioBroker.vis-homekittiles
 
 <img src="https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png" width="100" height="100" />
 
-Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert. Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles über CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei /widgets/homekittiles/css/style.css als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Es ist auch möglich, über den VIS-Editor im Bereich „Allgemein“ der Widgets eigene CSS-Klassen hinzuzufügen.
+Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert. Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles über CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei /widgets/homekittiles/css/style.css als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
@@ -478,7 +478,7 @@ https://github.com/CorantGmbH/ioBroker.air-q
 
 <img src="https://raw.githubusercontent.com/CorantGmbH/ioBroker.air-q/main/admin/air-q.png" width="100" height="100" />
 
-Dieser ioBroker Adapter kommt in Verbindung mit unserem air-Q Gerät zum Einsatz. Er fragt die Werte unserer Sensoren ab und stellt sie für Sie in der ioBroker Umgebung dar.
+Dieser ioBroker Adapter wird in Verbindung mit unserem air-Q Gerät verwendet. Er fragt die Werte unserer Sensoren ab und zeigt sie für Sie in der ioBroker Umgebung an.
 
 ## Boschindego (4.5.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.boschindego
@@ -559,7 +559,7 @@ Adapter für Klimaanlagen von Gree und C&H.
 ## Admin (10.6.2024) – neue Funktion
 - Die Registerkarte „Protokoll“ wurde verbessert. (Vor allem Layout und GUI)
 - Unterstützung für die automatische Update-Option des Adapters hinzugefügt. Neue Version des JS-Controllers erforderlich.
-- Es werden nur die installierten Adapter im Adapter-Tab oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
+- Es werden nur die im Adapter-Tab installierten Adapter oder die ersten 100 Adapter angezeigt. Um weitere Adapter anzuzeigen, muss der Benutzer einen Filter eingeben.
 
 ## Opcua (13.6.2024) – neuer Adapter im stabilen
 https://github.com/ioBroker/ioBroker.opcua
@@ -677,3 +677,31 @@ https://github.com/simatec/ioBroker.remeha-home
 <img src="https://github.com/simatec/ioBroker.remeha-home/blob/master/admin/remeha-home.png" width="100" height="100" />
 
 Der Adapter ioBroker.remeha-home ermöglicht die Integration und Steuerung von Remeha-Heizungssystemen über die Remeha Home-Plattform. Der Adapter verbindet sich kontinuierlich mit der Remeha Home-API und ruft aktuelle Daten ab, um diese im ioBroker-System bereitzustellen. So kann die Heizungsanlage optimal überwacht und gesteuert werden.
+
+## Vis-2-widgets-ovarious (12.11.2024) – neuer Adapter im stabilen
+https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious
+
+<img src="https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious/blob/main/admin/vis-2-widgets-ovarious.png" width="100" height="100" />
+
+Dieser Adapter enthält verschiedene Vis-2-Widgets. Ok, eigentlich gibt es nur ein Vis-2-Widget, aber es sind noch weitere in Planung.
+
+## Gotify (16.11.2024) – neuer Adapter bei stabil
+https://github.com/ThomasPohl/ioBroker.gotify
+
+<img src="https://github.com/ThomasPohl/ioBroker.gotify/blob/main/admin/gotify.png" width="100" height="100" />
+
+Senden Sie Push-Benachrichtigungen von ioBroker an Gotify.
+
+## Google-spreadsheet (3.12.2024) – neuer Adapter bei stabil
+https://github.com/ThomasPohl/ioBroker.google-spreadsheet
+
+<img src="https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
+
+Mit diesem Adapter kann automatisch mit Google Spreadsheets interagiert werden.
+
+## Minuaru (3.12.2024) – neuer Adapter bei Stable
+https://github.com/minukodu/ioBroker.minuaru
+
+<img src="hhttps://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
+
+Alarmsystem für ioBroker und minuvis

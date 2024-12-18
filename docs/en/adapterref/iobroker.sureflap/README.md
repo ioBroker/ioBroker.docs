@@ -172,6 +172,11 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 2.3.2 (2024-12-07)
+
+* (Sickboy78) quick fix for surepet api changes
+* (Sickboy78) dependency updates
+
 ### 2.3.1 (2024-10-18)
 
 * (Sickboy78) improved responsive design for admin page

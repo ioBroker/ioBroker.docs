@@ -36,6 +36,8 @@ It is possible to configure at which time and on which weekdays the trigger shou
 -   [Create trigger](#trigger)
 -   [create astro trigger](#astro-trigger)
 -   [Create one time trigger](#one-time-trigger)
+-   [HTML settings](#html-for-vis-and-vis-2)
+-   [HTML Funktion for VIS-2 only](#function-for-vis-2-only)
 -   [CSS](#css)
 
 ### Instance settings schedule-switcher
@@ -50,8 +52,10 @@ It is possible to configure at which time and on which weekdays the trigger shou
 -   `Status`: Status enabled/disabled
 -   `Delay between 2 switching operations in ms`: Prevents states from being set at the same time
 -   `History switching as JSON (max 100/0 for off)` Max. history json
+-   `Create HTML for VIS and VIS-2 (VIS-2 see description)` HTML overview enabled
 
-    ![instance_settings.png](img/instance_settings.png)
+    ![instance_settings.png](img/instance_settings.png)</br>
+    ![instance_settings_1.png](img/instance_settings_1.png)
 
 ### States
 
@@ -498,6 +502,187 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 ![create_widget_select_onetime_date_done.png](img/create_widget_select_onetime_date_done.png)
 
+### HTML for VIS and VIS-2
+
+[Summary](#summary)
+
+-   `html.background_color_body` Background color of the body. Complete with VIS and only the widget with VIS-2 - default #000000
+-   `html.background_color_even` background color trigger even number - default #1E1E1E
+-   `html.background_color_odd` background color trigger odd number - default #18171C
+-   `html.background_color_trigger` background color trigger object - default #000000
+-   `html.background_color_weekdays_hover` background color when hovering over the days of the week - click to activate/deactivate - default blue
+-   `html.column_align_01` Header text alignment column 1 - default center
+-   `html.column_align_02` Header text alignment column 2 - default center
+-   `html.column_align_03` Header text alignment column 3 - default center
+-   `html.column_align_04` Header text alignment column 4 - default center
+-   `html.column_align_05` Header text alignment column 5 - default center
+-   `html.column_align_06` Header text alignment column 6 - default center
+-   `html.column_align_07` Header text alignment column 7 - default center
+-   `html.column_align_08` Header text alignment column 8 - default center
+-   `html.column_align_09` Header text alignment column 9 - default center
+-   `html.column_align_10` Header text alignment column 10 - default center
+-   `html.column_text_01` Header text column 1 - default Schedule
+-   `html.column_text_02` Header text column 2 - default Devices
+-   `html.column_text_03` header text column 3 - default switch
+-   `html.column_text_04` header text column 4 - default Mon
+-   `html.column_text_05` header text column 5 - default Tu
+-   `html.column_text_06` Header text column 6 - default We
+-   `html.column_text_07` Header text column 7 - default Th
+-   `html.column_text_08` header text column 8 - default Fr
+-   `html.column_text_09` header text column 9 - default Sa
+-   `html.column_text_10` Header text column 10 - default Su
+-   `html.column_width_01` width of column 1 - default auto
+-   `html.column_width_02` width of column 2 - default auto
+-   `html.column_width_03` Width of column 3 - default auto
+-   `html.column_width_04` Width of column 4 - default auto
+-   `html.column_width_05` Width of column 5 - default auto
+-   `html.column_width_06` Width of column 6 - default auto
+-   `html.column_width_07` Width of column 7 - default auto
+-   `html.column_width_08` Width of column 8 - default auto
+-   `html.column_width_09` Width of column 9 - default auto
+-   `html.column_width_70` Width of column 10 - default auto
+-   `html.font_color_text_disabled` Text color from disabled object - default red
+-   `html.font_color_text_enabled` Text color of the activated object - default yellow
+-   `html.font_color_weekdays_disabled` Text color of disabled weekdays - default red
+-   `html.font_color_weekdays_enabled` Text color of enabled weekdays - default yellow
+-   `html.header_border` head margin in px - default 2
+-   `html.header_font_family` head font family - default Helvetica
+-   `html.header_font_size` head font size - default 15
+-   `html.header_linear_color_1` head background image: linear gradient 1 - default #BDBDBD
+-   `html.header_linear_color_2` head background image: linear gradient 2 - default #BDBDBD
+-   `html.header_tag_border_color` Head HTML TAG `<td>` border color - default #424242
+-   `html.header_width` head TAG `<table>` size default auto
+-   `html.column_align_row_01` Text alignment of the rows in column 1 - default left
+-   `html.column_align_row_02` Text alignment of the rows in column 2 - default left
+-   `html.column_align_row_03` Text alignment of the rows in column 3 - default left
+-   `html.column_align_row_04` Text alignment of the rows in column 4 - default left
+-   `html.column_align_row_05` Text alignment of the rows in column 5 - default left
+-   `html.column_align_row_06` Text alignment of the rows in column 6 - default left
+-   `html.column_align_row_07` Text alignment of the rows in column 7 - default left
+-   `html.column_align_row_08` Text alignment of the rows in column 8 - default left
+-   `html.column_align_row_09` Text alignment of the rows in column 9 - default left
+-   `html.column_align_row_10` Text alignment of the rows in column 10 - default left
+-   `html.headline_color` Header font color (schedule, device ...) - default #ffffff
+-   `html.headline_font_size` Header font size in px - default 16
+-   `html.headline_height` Header height in px - default 35
+-   `html.headline_underlined` Header underline in px - default 3
+-   `html.headline_underlined_color` Header underline color - default #ffffff
+-   `html.headline_weight` Header text weight - default normal
+-   `html.html_code` HTML Code for VIS, VIS-2, Jarvis, IQontrol etc
+-   `html.icon_false` Icon Trigger off - default ⚪
+-   `html.icon_switch_symbol` Icon switch to activate/deactivate the timer - default ⏱
+-   `html.icon_true` Icon Trigger on - default 🟡
+-   `html.jarvis` Compatible with Jarvis - default false
+-   `html.p_tag_text_algin` HTML `<p>` Text align (Last Update and Footer) - default center
+-   `html.table_tag_border_color` Border color for `<table>` - default #424242
+-   `html.table_tag_cell` border-spacing for `<table>` in px - default 6
+-   `html.table_tag_text_align` Text algin for `<table>` - default center
+-   `html.table_tag_width` Width for `<table>` - default auto
+-   `html.td_tag_border_bottom` Border bottom for `<td>` in px - default 1
+-   `html.td_tag_border_color` Border color for `<td>` - default #424242
+-   `html.td_tag_border_right` Border right for `<td>` in px - default 1
+-   `html.td_tag_cell` Padding text for `<td>` in px - default 6
+-   `html.top_font_family` Font family for header and footer - default Helvetica
+-   `html.top_font_size` Font size for header and footer in px - default 20
+-   `html.top_font_weight` Font weight for header and footer - default normal"
+-   `html.top_text` Own text for header - default your text
+-   `html.top_text_color` Text color for header and footer - default #ffffff
+-   `html.update` Start manual update
+
+![vis_object_1.png](img/vis_object_1.png)
+
+-   Create an HTML widget and enter the object under HTML `{schedule-switcher.0.html.html_code}`
+-   Click on the text “Last updated” to manual update
+-   Click on the icon to activate/deactivate the widget
+-   To delete a trigger you first have to tick the checkbox and then press the 'delete' button
+-   Change times/Astro and press the 'save' button to apply the changes
+-   Click on the day of the week to activate/deactivate it
+-   In the trigger name line, the next event on/off is displayed under days of the week
+
+![vis_view_1.png](img/vis_view_1.png)</br>
+![vis_view_2.png](img/vis_view_2.png)
+
+### Function for VIS-2 ONLY!!!
+
+[Summary](#summary)
+
+Unfortunately, ONLY with VIS-2 the functions listed below have to be inserted manually (see pictures)
+
+![vis2_object.png](img/vis2_object.png)</br>
+![vis2_script.png](img/vis2_script.png)
+
+```java
+function deleteTrigger(stateId, command, id, dataid, count) {
+    var checked = document.getElementById('delete' + count).checked;
+    if (checked) {
+        var data = {
+            "command": command,
+            "message": {
+                "triggerId": id,
+                "dataId": dataid,
+            }
+        };
+        vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+    }
+}
+function changeweekdays(stateId, command, dataid, id, changeid, type) {
+    if (type === "OneTimeTrigger") return;
+    var data = {
+        "command": command,
+        "message": {
+            "changeid": changeid,
+            "triggerid": id,
+            "dataid": dataid
+        }
+    };
+    vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function updateTrigger(stateId) {
+    vis.conn.setState(stateId + '.html.update', { val: true, ack: false });
+}
+function setState(stateId, value) {
+    vis.conn.setState(stateId, { val: value == 'false' ? false : true, ack: false });
+}
+function sendToAstro(stateId, command, dataid, id, count) {
+    var timeselect = document.getElementById('timeselect' + count).value;
+    var shift = document.getElementById('shift' + count).value;
+    var data = {
+        "command": command,
+        "message": {
+            "astrotime": timeselect,
+            "shift": shift,
+            "triggerid": id,
+            "dataid": dataid
+        }
+    };
+    vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function sendToDateTime(stateId, command, id, dataid, count) {
+    var value = document.getElementById('datetime' + count).value;
+    var data = {
+        "command": command,
+        "message": {
+            "time": value,
+            "triggerid": id,
+            "dataid": dataid
+        }
+    };
+    vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function sendToTime(stateId, command, id, dataid, count) {
+    var value = document.getElementById('nexttime' + count).value;
+    var data = {
+        "command": command,
+        "message": {
+            "time": value,
+            "triggerid": id,
+            "dataid": dataid
+        }
+    };
+    vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+```
+
 ### CSS
 
 [Summary](#summary)
@@ -595,44 +780,53 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.8 (2024-12-07)
+
+- (Lucky-ESA) Migration to ESLint9
+- (Lucky-ESA) Bugfixes
+
+### 0.0.7 (2024-11-26)
+
+- (Lucky_ESA) HTML overview added
+
 ### 0.0.6 (2024-11-16)
 
--   (Lucky_ESA) Put value of state correctly
--   (Lucky_ESA) Added next triggers as JSON
--   (Lucky_ESA) Added counter trigger
--   (Lucky_ESA) Updating astro time fixed
+- (Lucky_ESA) Put value of state correctly
+- (Lucky_ESA) Added next triggers as JSON
+- (Lucky_ESA) Added counter trigger
+- (Lucky_ESA) Updating astro time fixed
 
 ### 0.0.5 (2024-11-06)
 
--   (Lucky_ESA) Crash when updating astro time fixed
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Crash when updating astro time fixed
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.4 (2024-11-04)
 
--   (Lucky_ESA) Temporary function removed
--   (Lucky_ESA) Creation of objects adjusted
--   (Lucky_ESA) Validation check of the states
--   (Lucky_ESA) Validation check for 2 widgets with one object
+- (Lucky_ESA) Temporary function removed
+- (Lucky_ESA) Creation of objects adjusted
+- (Lucky_ESA) Validation check of the states
+- (Lucky_ESA) Validation check for 2 widgets with one object
 
 ### 0.0.3 (2024-10-30)
 
--   (Lucky_ESA) Fixed VIS translate
--   (Lucky_ESA) Added astro time in trigger
--   (Lucky_ESA) Fixed OneTimeTrigger
--   (Lucky_ESA) Added date for OneTimeTrigger
--   (Lucky_ESA) Fixed some bugs
+- (Lucky_ESA) Fixed VIS translate
+- (Lucky_ESA) Added astro time in trigger
+- (Lucky_ESA) Fixed OneTimeTrigger
+- (Lucky_ESA) Added date for OneTimeTrigger
+- (Lucky_ESA) Fixed some bugs
 
 ### 0.0.2 (2024-10-22)
 
--   (Lucky_ESA) Fix translate
--   (Lucky_ESA) Fix background color disable Weekdays
--   (Lucky_ESA) Fix sendTo
--   (Lucky_ESA) Added jsonConfig
--   (Lucky_ESA) Added history
+- (Lucky_ESA) Fix translate
+- (Lucky_ESA) Fix background color disable Weekdays
+- (Lucky_ESA) Fix sendTo
+- (Lucky_ESA) Added jsonConfig
+- (Lucky_ESA) Added history
 
 ### 0.0.1 (2024-10-19)
 
--   (Lucky_ESA) initial release
+- (Lucky_ESA) initial release
 
 ## License
 

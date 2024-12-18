@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.роборок
-hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
+hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -23,6 +23,7 @@ hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
+### Этот адаптер не может работать на MacOS
 ## Поддерживаемые роботы:
 - Роборок S4
 - Роборок S4 Макс
@@ -60,6 +61,17 @@ hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.18 (2024-12-11)
+ * (copystring) Add cleaned_area to S8
+ * (copystring) Bugfixes for Qrevo Curve
+ * (copystring) Fix reset of consumables
+ * (copystring) Fix io-package.json
+ * (copystring) Add Roborock Qrevo Master
+ * (copystring) Refactor login api and renew login every 3 hours
+ * (fL4sH3r) Fix unit of clean_percent
+ * (copystring) Add water box support to S6
+ * (copystring) Many small fixed I can't be bothered to list 😅
+
 ### 0.6.17 (2024-10-14)
  * (copystring) Add some missing attributes
  * (copystring) Change min of update interval to 60s to prevent issues

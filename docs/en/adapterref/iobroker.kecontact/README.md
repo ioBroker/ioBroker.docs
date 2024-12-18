@@ -110,7 +110,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.3.0 (2024-11-29)
 * (Sneak-L8) new option to limit charging station according to german §14a EnWG
 * (Sneak-L8) enable currTime for manual use and X2 even in passive mode
 * (Sneak-L8) minimum verison für js-controller now 5.0.19
@@ -138,9 +138,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (chrisko) added minimum timer to switch between phases if 1p/3p charging is used.
 * (Sneak-L8) disable firmware check for c-series due to changes on webpage of Keba
 * (Sneak-L8) sometimes 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
-
-### 2.0.1 (2023-07-10)
-* (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
 
 ## Legal
 

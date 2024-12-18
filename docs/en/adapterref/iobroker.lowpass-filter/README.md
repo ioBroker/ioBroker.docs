@@ -19,6 +19,12 @@ e.g. you can filter power values to cut power peeks.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2024-12-04)
+* (BenAhrdt) Changed ESLint
+
+### 2.3.1 (2024-11-26)
+* (BenAhrdt) Changed Schema and responsive tags
+
 ### 2.3.0 (2024-08-13)
 * (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
   Check your System before installing new Version

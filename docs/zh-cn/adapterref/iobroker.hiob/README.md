@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hiob/README.md
 title: ioBroker.hiob
-hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
+hash: uE55HMwGmVz8nMpwDW1Vemvc3X3jbN3AGbFc+crsK7c=
 ---
 ![标识](../../../en/adapterref/iobroker.hiob/admin/hiob.png)
 
@@ -37,19 +37,19 @@ hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
 - 小米手机
 - Android 10/11/13
 
-## 应用代码
+## 应用程序代码
 [APP 代码](https://github.com/moba15/hiob_app)
 
 ＃＃ 描述
 🇬🇧[描述](/docs/en/README.md)</br>🇩🇪[文档](/docs/de/README.md)
 
-＃＃ 例子
-🇬🇧[例子](/docs/en/example.md)</br>🇩🇪[示例](/docs/de/example.md)
+## 示例
+🇬🇧[示例](/docs/en/example.md)</br>🇩🇪[示例](/docs/de/example.md)
 
 ＃＃ 问题
 🇩🇪 [问题](https://forum.iobroker.net/topic/55250/neuer-adapter-hiob-handy-app)
 
-＃＃ 已知的问题
+## 已知问题
 - 0.1.4：blockly 元素不应该出现在这个版本中。它目前不起作用
 
 路线图
@@ -62,12 +62,33 @@ hash: ZAUHoLUHwmCSyGcFaP6CG8qJddcpRtu1wKRIoRc/tUs=
 - 通过列出所有 [0%] 简化添加设备的过程
 - 根据选定的设备自动创建小部件 [0%]
 
+## 🎉名人堂🎉
+衷心感谢为该项目做出贡献的所有人！无论是通过代码、错误报告、功能建议还是传播信息，您的支持都有助于让这个项目更好地服务于每个人。
+
+### 特别感谢：
+-@Lucky-ESA
+-@ManniBac
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Updated packages
+- Refactor API between App and Adapater
+- Integrating new workflow
+
+### 0.1.6 (2024-08-17)
+- Updated Packages
+- Prepared lates release
+
+### 0.1.5 (2024-06-23)
+- Removed blockly
+- Fixed some bugs 
+- Updated dependencies
+
 ### 0.1.4 (2024-04-24)
 - (Lucky-Esa) added docs and more examples
 - (moba15) Implement suggestions for latest release

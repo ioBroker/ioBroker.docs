@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: RttxszkZBkPktx1h3S4c1CTM4MNtGAultzO499yhV3k=
+hash: S3jREg07ZFLV+uTkWNlRet6V9ix/5Bd7NsgLwQzQ/BE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -27,7 +27,7 @@ WEB-Visualisierung für die ioBroker-Plattform.
 - [SVG und aktuelle Farbe](#svg-and-currentcolor)
 
 ## Installation und Dokumentation
-![Demo-Schnittstelle](packages/iobroker.vis-2/img/user0.png) ![Demo-Schnittstelle](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
+![Demo-Oberfläche](packages/iobroker.vis-2/img/user0.png) ![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
 [Online Demos](https://iobroker.click/)
 
@@ -42,7 +42,7 @@ So berechnen Sie beispielsweise die Hypothenuse eines Dreiecks:
 
 `{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(h*h + w*w))}` wird als Funktion interpretiert:
 
-```
+```js
 value = await (async function () {
     var h = (await getState('javascript.0.myCustom.height')).val;
     var w = (await getState('javascript.0.myCustom.width')).val;
@@ -54,20 +54,20 @@ oder
 
 `{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;h*w}` multipliziert einfach Höhe mit Breite.
 
-Sie können *beliebige* JavaScript-Funktionen (Browserfunktionen) verwenden. Argumente müssen mit ':' definiert werden, andernfalls werden sie als Formel interpretiert.
+Sie können *alle* JavaScript-Funktionen (Browserfunktionen) verwenden. Argumente müssen mit ':' definiert werden, andernfalls werden sie als Formel interpretiert.
 
 Achten Sie auf die Typen. Alle sind als Zeichenfolgen definiert. Um sicherzugehen, dass der Wert als Zahl behandelt wird, verwenden Sie die Funktion parseFloat.
 
 Unsere Hypothenuse-Berechnung sieht also wie folgt aus:
 
-```
+```js
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
 ### Veraltetes Format
 Patten hat das folgende Format:
 
-```
+```js
 {objectID;operation1;operation2;...}
 ```
 
@@ -131,7 +131,7 @@ Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Information
 * „Anmelden“ – ob eine Anmeldung erforderlich ist oder nicht (z. B. um die Schaltfläche zum Abmelden anzuzeigen/auszublenden)
 * `local_*` – wenn der Statusname von `local_` aus gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für die aktuelle Browsersitzung)
 
-Hinweis: Um in Berechnungen (z. B. in Zeichenfolgenformeln) ein „::“ zu verwenden, verwenden Sie stattdessen „::“.
+Hinweis: Um in Berechnungen (z. B. in Zeichenfolgenformeln) ein „:“ zu verwenden, verwenden Sie stattdessen „::“.
 
 **Denken Sie daran**, dass Stildefinitionen als Bindungen interpretiert werden. Verwenden Sie daher `{{style: value}}` oder einfach
 
@@ -193,7 +193,7 @@ Beispiel für Javascript-Adapter:
 setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
 
-Wenn Sie das JSON als String schreiben, achten Sie auf die Analysierbarkeit, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie das `"`.
+Wenn Sie das JSON als Zeichenfolge schreiben, stellen Sie sicher, dass es analysierbar ist, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie das `"`.
 
 ## Standardansicht
 Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü=>Tools=>Auflösung).
@@ -245,7 +245,7 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 ## SVG und currentColor
 Mit dem Schlüsselwort currentColor in CSS können Elemente die aktuelle Textfarbe von ihrem übergeordneten Element übernehmen.
 
-Es kann insbesondere bei SVGs (Scalable Vector Graphics) nützlich sein, da es eine dynamischere Gestaltung und eine einfachere Integration mit HTML-Inhalten ermöglicht.
+Besonders nützlich kann dies bei SVGs (Scalable Vector Graphics) sein, da es eine dynamischere Gestaltung und eine einfachere Integration mit HTML-Inhalten ermöglicht.
 
 Sie können das Schlüsselwort currentColor anstelle eines bestimmten Farbwerts für jede Eigenschaft innerhalb des SVG verwenden, die einen Farbwert akzeptiert.
 Hier ist ein einfaches Beispiel mit einem Kreis in einem SVG:
@@ -266,7 +266,7 @@ Um Anpassungen am vis-2 Editor selbst vorzunehmen, Fehler zu suchen und zu debug
 
 2. Klonen Sie das Repository in ein Verzeichnis. Kopieren Sie die URL aus Ihrem GitHub-Repository. Der Befehl sieht so aus
 
-```
+```shell
 git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 ```
 
@@ -274,7 +274,7 @@ git clone https://github.com/<your profile name>/ioBroker.vis-2.git
 
 4. Um alle notwendigen Bibliotheken zu installieren und herunterzuladen, führen Sie den folgenden Befehl in einem Terminal im Stammverzeichnis des Repositorys aus
 
-```
+```shell
 npm run install-monorepo
 ```
 
@@ -282,7 +282,7 @@ npm run install-monorepo
 
 Eine bereits separat laufende iobroker Serverinstanz muss auf Port 8082 verfügbar sein.
 
-```
+```shell
 npm run start
 ```
 
@@ -295,6 +295,15 @@ npm run start
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 2.11.1 (2024-12-02)
+* (@GermanBluefox) Corrected navigation menu
+* (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
+* (@GermanBluefox) Added the HTML rebuild button to settings
+* (@GermanBluefox) Backend was migrated to TypeScript
+
+### 2.10.8 (2024-11-22)
+* (bluefox) Added new option for view: "Limit only for instances"
+
 ### 2.10.7 (2024-07-23)
 * (bluefox) Optimization of the module federation
 

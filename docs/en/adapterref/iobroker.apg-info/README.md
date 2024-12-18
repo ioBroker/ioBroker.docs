@@ -13,7 +13,7 @@
 [![NPM](https://nodei.co/npm/iobroker.apg-info.png?downloads=true)](https://nodei.co/npm/iobroker.apg-info/)
 
 ## apg-info adapter for ioBroker
-This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria, Swiss and Germany (configure in Adapter settngs). Provider fee, tax, grid costs can be added optionally in the config (tab Calculation). 
+This adapter provides the peak-times for the Austrian Power Grid (Austrian values only!), where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria, Swiss and Germany (configure in Adapter settngs). Provider fee, tax, grid costs can be added optionally in the config (tab Calculation). 
 `[..].marketprice.today.jsonChart` and `[..].marketprice.tomorrow.jsonChart` can be used with https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.  
 With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clock. It's highly recommended not to remove the run at 00:00, otherwise the day-change (tomorrow --> today) will nit work propperly.
 

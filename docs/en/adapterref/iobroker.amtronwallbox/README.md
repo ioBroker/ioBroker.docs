@@ -54,9 +54,11 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.0 (2024-12-17)
 * (René) see issue #284: test with nodejs@22
-* 
+* (René) update dependencies
+* (René) migration to jsonConfig
+
 ### 0.2.16 (2024-08-24)
 * (René) update dependencies
 * (René) bug fixes based on adapter checker recommendation

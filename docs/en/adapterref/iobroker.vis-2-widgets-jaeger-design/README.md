@@ -4,44 +4,80 @@
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-jaeger-design-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-jaeger-design-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-jaeger-design)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-jaeger-design)
 
-[![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design/)
-
-![youtube](img/youtube.png)
+![youtube](img/youtube.jpg)
 
 You can find the video how to use the widgets [here](https://www.youtube.com/watch?v=4bctUvfpPuQ) (in german).
 
-Das Video wie man die Widgets benutzt kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
+Das Video wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
 
-Das Video wie man die Widgets benutzt kann man [hier](https://youtu.be/Rplr2Ba-G7o) (in German) (TEIL2)
+Das Video wie die Widgets benutzt werden können, kann man [hier](https://youtu.be/Rplr2Ba-G7o) (in German) (TEIL2)
 
-## Widgets
-### Buttons and switches
+## Übersicht zur Erstellung einer Smart Home Oberfläche mit dem "VIS-2 JAEGER Design Adapter"
+### Voraussetzungen
+- Ein ioBroker System
+- Der Jäger Design Adapter (ca. 50€)
+- Grundkenntnisse im Umgang mit ioBroker
 
-### Actual news
-![Actual news ](img/news.png)
+### Einführung
+Der Jäger Design Adapter basiert auf dem vis-2 Adapter und ermöglicht es, eine Oberfläche per Click and Drop zu gestalten. Verschiedene Widgets können hinzugefügt und angepasst werden, um Smart Home Geräte zu steuern.
 
-To use this widget, you need to create a small script in Javascript adapter:
-```
-const axios = require('axios');
+### Grundaufbau der Oberfläche
+Die Oberfläche besteht aus mehreren Bereichen:
+- **Hauptmenü**: Links befindet sich eine Spalte mit den Hauptmenüpunkten, die einfach angelegt werden können.
+- **Statusleiste**: Oben können verschiedene wichtige Statusanzeigen hinzugefügt werden.
+- **Mittlerer Bereich**: Hier können Szenen, Aktionen und Hinweise angezeigt werden. Die rechte Seite ist frei gestaltbar und kann Informationen wie Sicherheit, Wetter, Hausgeräte und Energieverbrauch anzeigen.
+![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
 
-function readRss() {
-    axios('https://www.n-tv.de/rss')
-        .then(resp => setState('javascript.0.rss', resp.data.toString(), true));
-}
+### Beleuchtung
+Im Hauptmenü können verschiedene Stockwerke ausgewählt werden. Der Grundriss des Erdgeschosses zeigt alle Lichter, die durch Icons dargestellt werden. Einige Icons können nur an- oder ausgeschaltet werden, während andere dimmbar sind. Durch längeres Drücken auf ein Icon öffnet sich ein Pop-up-Fenster mit einem Slider zur Einstellung der Helligkeit.
+![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707)
+Beleuchtungsszenen auf der rechten Seite können einfach abgerufen und auch Lichteinstellungen gespeichert werden:
+![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
 
-createState('javascript.0.rss', {type: 'string'}, () => {
-    setInterval(() => readRss(), 60000 * 60 * 2); // update rss every 2 hours
-    readRss();
-});
-```
+### Rolladen
+Im Menü "Rolladen" kann der Zustand der Beschattung gesehen werden. Icons zeigen die Höhe der Rolladen an, und durch Klicken auf ein Icon öffnet sich ein Pop-up-Fenster zur Einstellung der Höhe und Lamellenneigung.
+![Beschattung-iobroker-smarthome](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
-And then use `javascript.0.rss` object in this widget.
+### Energie
+Im Menü "Energie" können die Raumtemperaturen in den einzelnen Räumen gesehen werden. Icons zeigen die Ist- und Solltemperaturen sowie den Zustand der Heizung und Fenster an. Durch Klicken auf ein Icon öffnet sich ein Pop-up-Fenster zur Änderung der Solltemperaturen und zur Steuerung weiterer Aktionen wie Klimaanlage oder Warmluftanlage.
+![iobroker-jaeger-design-raumtemperatur_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
+
+![iobroker-jaeger-design-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
+
+### Sicherheit
+Im Menü "Sicherheit" kann der Zustand der Fenster gesehen werden. Geöffnete Fenster werden rot dargestellt.
+![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
+
+### Weitere Funktionen
+Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbrauchsdarstellung des Adapters "consumption" oder die Darstellung von Nightscout für Diabetes. Im Menü "Settings" können diverse Einstellungen vorgenommen werden.
+![iobroker-jaeger-design-energieueberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
+
+![iobroker-jaeger-design-diabetes](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
+
+![iobroker-jaeger-design-einstellungen](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
+
+### YouTube Tutorials
+Für detaillierte Anleitungen und weitere Informationen wird empfohlen, die verlinkten YouTube Tutorials anzuschauen.
+
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.3.9 (2024-12-05)
+* (bluefox) Corrected confirmation dialog. Close now works
+* (bluefox) Caught the possible error in thermostat
+
+### 1.3.6 (2024-12-04)
+* (bluefox) Corrected the icon dialog
+* (bluefox) Corrected the ID select dialog
+* (bluefox) Corrected the scene buttons
+
+### 1.3.3 (2024-11-25)
+* (bluefox) Corrected "close on click" option for shutter and dimmer
+* (bluefox) Improved the build pipeline
+
 ### 1.3.1 (2024-09-23)
 * (bluefox) Removed gulp from a build process
 * (bluefox) Added the possibility to select camera from the "cameras" adapter

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-информация
-hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
+hash: b8YIDN5UrVOEjnNuFYJ5RH86vGY42dQtaDnYBja3ul4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -19,7 +19,7 @@ hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
 [![Статус FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Тест и выпуск](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## Apg-info адаптер для ioBroker
-Этот адаптер обеспечивает пиковые часы для австрийской электросети, когда потребление электроэнергии следует избегать. Кроме того, адаптер обеспечивает цены PHELIX Day-Ahead (EPEX Spot) для Австрии, Швейцарии и Германии (настраиваются в настройках адаптера). Плата поставщика, налоги, расходы на сеть могут быть добавлены по желанию в конфигурации (вкладка Расчет).
+Этот адаптер предоставляет пиковые часы для австрийской электросети (только австрийские значения!), когда потребление электроэнергии следует избегать. Кроме того, адаптер предоставляет цены PHELIX Day-Ahead (EPEX Spot) для Австрии, Швейцарии и Германии (настраиваются в настройках адаптера). Плата поставщика, налоги, расходы на сеть могут быть добавлены по желанию в конфигурации (вкладка Расчет).
 `[..].marketprice.today.jsonChart` и `[..].marketprice.tomorrow.jsonChart` можно использовать с https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.
 Со стандартной конфигурацией адаптер работает в 00:00, 13:00 и 15.00 часов. Настоятельно рекомендуется не удалять запуск в 00:00, иначе смена дня (завтра --> сегодня) не будет работать должным образом.
 
@@ -30,13 +30,20 @@ hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
 * ioBroker хост (js-контроллер) 5.0 или выше
 
 ## Швейцарский рынок
-Для швейцарского рынка необходим токен от entsoe.eu. Пожалуйста, добавьте свой токен в конфигурацию адаптера на вкладке &quot;ENTSOE TOKEN&quot;. Зарегистрируйтесь на странице https://transparency.entsoe.eu/ и затем отправьте письмо на адрес transparent@entsoe.eu с просьбой предоставить доступ к RESTFUL API для зарегистрированного вами адреса электронной почты.<br> Более подробную информацию можно найти на сайте https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
+Для швейцарского рынка необходим токен от entsoe.eu. Пожалуйста, добавьте свой токен в конфигурацию адаптера на вкладке &quot;ENTSOE TOKEN&quot;. Зарегистрируйтесь на странице https://transparency.entsoe.eu/ и затем отправьте письмо на адрес transparent@entsoe.eu с просьбой о доступе к RESTFUL API для зарегистрированного вами адреса электронной почты.<br> Более подробную информацию можно найти на сайте https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.11 (2024-10-20)
+* (HGlab01) improve UI config (#296)
+
+### 0.1.10 (2024-10-04)
+* (HGlab01) fix issue #290
+* (HGlab01) bump axios to 1.7.7
+
 ### 0.1.9 (2024-08-21)
 * (HGlab01) Support eslint9
 
@@ -47,13 +54,6 @@ hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
 ### 0.1.7 (2024-05-27)
 * (HGlab01) Add date to today and tomorrow to make the date of today and tomorrow clear
 * (HGlab01) bump axios to 1.7.2
-
-### 0.1.6 (2024-03-17)
-* (HGlab01) fix issue in debug-mode: Cannot read properties of null (reading 'data')
-* (HGlab01) bump axios to 1.6.8
-
-### 0.1.5 (2024-01-20)
-* (HGlab01) Add fee, grid costs and tax calculation
 
 ## License
 MIT License

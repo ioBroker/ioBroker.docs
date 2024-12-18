@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvProgramm
-hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
+hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -83,7 +83,7 @@ So ändern Sie die Formatierung der Dialoge
 }
 ```
 
-Wenn Sie einige zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die TV-Programmdialoge festlegen.
+Wenn Sie zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die TV-Programmdialoge festlegen.
 Möglicherweise müssen Sie eine höhere Zahl als 300 festlegen. Dies hängt von Einstellungen in anderen Dialogen ab, die die TV-Programmdialoge (Sendeinformationen und Kanalauswahl) überlappen oder verbergen.
 
 ```css
@@ -144,7 +144,7 @@ Die folgenden Attribute stehen zur Konfiguration in vis zur Verfügung. Die Mind
 | `oid` | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram`-Adapters. |
 | `time` | 20:15 | wenn Uhrzeit nur die Sendung zu dieser Uhrzeit für 120 Minuten gezeigt werden soll, dann wird die Sendung vom nächsten Tag gezeigt |
 | `time` | 20:15/200 | wenn Uhrzeit mit Dauer angegeben wird, würde die Sendung zu dieser Uhrzeit 200 Minuten lang gezeigt werden |
-| `time` | 2021-02-15T20:15:00.000Z | Wenn es sich um eine gültige Datumszeichenfolge handelt, wird die Sendung zu diesem Zeitpunkt angezeigt. Denken Sie an die Zeitzonen |
+| `time` | 2021-02-15T20:15:00.000Z | Wenn der UTC-Datumsstring gültig ist, wird die Sendung zu dieser Zeit angezeigt. Zeitzonen beachten |
 | `heightRow` | 35 | Höhe für jede angezeigte Zeile |
 | `showpictures` | x | Bilder anzeigen, falls verfügbar |
 | `broadcastfontpercent` | 75 | Zeichengröße in Prozent für die Sendungen |
@@ -300,7 +300,7 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 Fordern Sie von jetzt an alle Lieblingssendungen an, bis das gespeicherte Datenvolumen aufgebraucht ist.
 
 ##### Gültige Parameter sind
@@ -313,7 +313,7 @@ Fordern Sie von jetzt an alle Lieblingssendungen an, bis das gespeicherte Datenv
 **Beispiel:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -677,6 +677,12 @@ Widget TV-Programm:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2024-11-24)
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+- switch to eslint
+- complete rework of tvprogram to switch from callback to await
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

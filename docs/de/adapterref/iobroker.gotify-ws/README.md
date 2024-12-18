@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: oXPHjuHMHoLLlEzMSLVDiPX/+sdFb6o14PVXKItzbxo=
+hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
 ---
 ![Logo](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -64,14 +64,21 @@ Dadurch wird eine Verbindung hergestellt und der Adapter kann alle eingehenden N
 
 Zur Weiterleitung können Sie anschließend einen Benachrichtigungsdienst Ihrer Wahl konfigurieren.
 
---- <!-- ### **IN ARBEIT** -->
-
-### **IN ARBEIT**
-* (simatec) Abhängigkeiten aktualisiert
-* (simatec) Fehlerbehebung für responsives Design
-* (simatec) Issue-Aktion hinzugefügt
+---
 
 ## Changelog
+<!-- ### **WORK IN PROGRESS** -->
+
+### **WORK IN PROGRESS**
+* (simatec) eslint-config fix
+* (simatec) Code fix
+
+### 0.1.10 (2024-11-24)
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
 ### 0.1.9 (2024-09-26)
 * (simatec) Fix for admin 7.1.5
 

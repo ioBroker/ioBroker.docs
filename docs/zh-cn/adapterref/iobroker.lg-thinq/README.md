@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
+hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 ---
 ![标识](../../../en/admin/lg-thinq.png)
 
@@ -22,31 +22,31 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 - [实例设置](#instance-settings)
 - [设置 LG-Thinq](#instance-setting-lg-thinq)
 - [Thinq1 间隔](#interval-thinq1-lg-thinq)
-- [数据点](#数据点)
-- [Datapoint Device 101 冰箱/冷冻柜](#device-101-refrigeratorfreezer-thinq1--thinq2)
+- [州](#states)
+- [状态设备 101 冰箱/冷冻柜](#device-101-refrigeratorfreezer-thinq1--thinq2)
 - [远程统计](#101-remote-statistic-thinq2)
 - [远程基本命令](#101-remote-control-thinq1--thinq2)
 - [快照](#101-快照-thinq1--thinq2)
-- [Datapoint 设备 201 签名](#device-201-washer-signature-thinq2)
+- [状态设备 201 签名](#device-201-washer-signature-thinq2)
 - [远程基本命令](#201-remote-control-signature-thinq2)
-- [Datapoint Device 201 洗衣机](#device-201-washer-thinq1--thinq2)
+- [状态设备 201 洗衣机](#device-201-washer-thinq1--thinq2)
 - [远程统计](#201-remote-statistic-thinq2)
 - [远程基本命令](#201-remote-control-thinq1--thinq2)
 - [快照](#201-快照-thinq1--thinq2)
-- [Datapoint Device 202 烘干机](#device-202-dryer-thinq1--thinq2)
+- [状态设备 202 烘干机](#device-202-dryer-thinq1--thinq2)
 - [远程统计](#202-remote-statistic-thinq2)
 - [远程基本命令](#202-remote-control-thinq1--thinq2)
 - [快照](#202-快照-thinq1--thinq2)
-- [Datapoint Device 401 空调 Thinq2](#device-401-air-conditioner-thinq2)
+- [状态设备 401 空调 Thinq2](#device-401-air-conditioner-thinq2)
 - [远程统计](#401-remote-statistic-thinq2)
 - [远程基本命令](#401-remote-control-thinq2)
 - [远程假期](#401-remote-holiday-thinq2)
 - [快照](#401-快照-thinq2)
-- [Datapoint Device 401 空调 Thinq1](#device-401-air-conditioner-thinq1)
+- [状态设备 401 空调 Thinq1](#device-401-air-conditioner-thinq1)
 - [远程统计](#401-remote-statistic-thinq1)
 - [远程基本命令](#401-remote-control-thinq1)
 - [快照](#401-snapshot-thinq1)
-- [Datapoint Device 406 头部泵](#device-406-heat-pump-thinq2)
+- [状态设备 406 头泵](#device-406-heat-pump-thinq2)
 - [远程统计](#406-remote-statistic-thinq2)
 - [远程基本命令](#406-remote-basicctrl-thinq2)
 - [远程计划设置](#406-remote-reservationctrl-thinq2)
@@ -64,6 +64,8 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 - `国家`：输入国家 - 默认为 DE
 - `语言`：输入语言 - 默认 de_DE
 - `平台`: 输入平台 - 默认 LGThinQ
+- `注册方式选择` 在旧的第三方或APP登录之间切换（您会收到一封电子邮件）
+- `删除会话数据`：如果登录时出现问题，请删除会话数据（将 lg-thinq.0.session 删除）
 
 ![实例配置1.png](img/instance_config_1.png)![实例配置2.png](../../../en/adapterref/iobroker.lg-thinq/img/instance_config_2.png)
 
@@ -88,7 +90,9 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 
     ![间隔.png](../../../en/adapterref/iobroker.lg-thinq/img/interval.png)
 
-# 数据点
+# 州
+![州.png](../../../en/adapterref/iobroker.lg-thinq/img/states.png)
+
 ### 设备 101 冰箱/冰柜 Thinq1 和 Thinq2
 [概括](#summary)
 
@@ -189,7 +193,7 @@ hash: sVDy2p7w9yFYK+1exh7PMwLJoQBTEOq5yDA7YIdMOLk=
 ### 101 远程控制 Thinq1 和 Thinq2
 [概括](#summary)
 
-- `remote.expressMode` 快速模式开/关/快速开启 -> thinq1 数据点快照.IcePlus
+- `remote.expressMode` 快速模式开/关/快速开启 -> thinq1 状态快照.IcePlus
 - `remote.freezerTemp` 改变冰箱的温度（仅限摄氏度）
 - `remote.fridgeTemp` 改变冰箱的温度（仅摄氏度）
 
@@ -688,7 +692,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 
 lg-thinq.0.xxx.area必须填写！
 
-- `weather.device` 选择区域。如果所有设备的区域相同，则只显示一个设备。
+- `weather.device` 选择区域。如果所有设备的区域相同，则仅显示一个设备。
 - `weather.hydrity` 湿度
 - `weather.temperature` 温度
 - `weather.unit` 选择摄氏度或华氏度
@@ -697,8 +701,26 @@ lg-thinq.0.xxx.area必须填写！
     ![天气.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.7 (2024-12-08)
 
+-   (Lucky-ESA) Fixed: Connection status does not turn green
+-   (Lucky-ESA) Changed: Checkbox to dropdown for login procedure
+
+### 1.0.6 (2024-12-07)
+
+-   (Lucky-ESA) Save session data (prevents the login email)
+-   (Lucky-ESA) Fixed invalid jsonConfig
+-   (Lucky-ESA) Added choice between old and new login
+-   (Lucky-ESA) Bugfixe
+
+### 1.0.5 (2024-12-02)
+
+-   (Lucky-ESA) Migration to ESLint9
+-   (Lucky-ESA) Bugfixe
+
+### 1.0.4 (2024-12-01)
+
+-   (TA2k) Login fixed
 -   (Lucky-ESA) Added hotwater for device 406 & 401
 -   (Lucky-ESA) Dependencies updated
 
@@ -707,40 +729,6 @@ lg-thinq.0.xxx.area必须填写！
 -   (Lucky-ESA) Dependencies updated
 -   (Lucky-ESA) Changed autoDryRemainTime max value
 -   (Lucky-ESA) Added own request for 401 thinq1
-
-### 1.0.1 (2024-05-21)
-
--   (Lucky-ESA) Fixed Mqtt wakeup for device 406 only
--   (Lucky-ESA) Fixed TypeError
-
-### 1.0.0 (2024-05-20)
-
--   (Lucky-ESA) Changed airState.quality.odor max value
--   (Lucky-ESA) Fixed sentry messages
--   (Lucky-ESA) Added jet & airclean for device 401
--   (Lucky-ESA) Added Mqtt wakeup for device 406
--   (Lucky-ESA) Node 18 required
--   (Lucky-ESA) JS-Controller >= 5.0.19 required
--   (Lucky-ESA) Admin >=6.13.16 required
-
-### 0.3.3 (2024-01-14)
-
--   (Lucky-ESA) Fixed thinq1 crash
--   (Lucky-ESA) Fixed crash when internet fails (refreshToken)
--   (Lucky-ESA) Added weather request
--   (Lucky-ESA) Bugfixe
-
-### 0.3.2 (2024-01-08)
-
--   (Lucky-ESA) Added data point interval.status_devices
--   (Lucky-ESA) Fixed missing value for fridge
--   (Lucky-ESA) Fixed thinq1 crash
--   (Lucky-ESA) Added save modelJSON local
--   (mcm1957) Node 16 checked
-
-### 0.3.1 (2023-12-20)
-
--   (Lucky-ESA) Fixed crash thinq1 interval
 
 ## License
 

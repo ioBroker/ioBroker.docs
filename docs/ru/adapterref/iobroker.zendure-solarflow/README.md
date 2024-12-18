@@ -1,49 +1,178 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
-title: ioBroker.zendure-солнечный поток
-hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
+title: ioBroker.zendure-solarflow
+hash: AVn5YzHd9CTBo8vIgT61hMQK4ryROLtKMXW09AeSWz4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.zendure-solarflow.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.zendure-solarflow.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zendure-solarflow.svg)
 ![Количество установок](https://iobroker.live/badges/zendure-solarflow-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/zendure-solarflow-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/zendure-solarflow-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zendure-solarflow.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
 # IoBroker.zendure-solarflow
-**Тесты:** ![Тестирование и выпуск](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Zendure Solarflow для ioBroker
-Этот проект представляет собой адаптер ioBroker для чтения данных из Zendure Solarflow Cloud API. Он использует официальный API, предоставленный Zendure.
-Подробнее об API можно прочитать здесь: https://github.com/Zendure/developer-device-data-report.
+Этот проект представляет собой адаптер ioBroker для чтения данных из API Zendure Solarflow Cloud. Он использует официальный API, предоставленный Zendure.
+Подробнее об API можно прочитать здесь: https://github.com/Zendure/developer-device-data-report
 
 ## Функции
-- Получите все данные телеметрии с ваших устройств Solarflow, в том числе те, которые не отображаются в официальном приложении, например напряжение батареи.
-- Управляйте своим Solarflow HUB, как в официальном приложении. Доступна большая часть настроек.
-- Контролируйте предел выходной мощности — вы не ограничены в использовании Shelly Pro EM для реализации нулевой подачи. Вы также можете разрабатывать более сложные сценарии с помощью скрипта или блочно в ioBroker.
-- Прекратите подачу питания, если напряжение одной батареи упадет до низкого напряжения (защита батареи). Работает только при установке лимита вывода через адаптер
-- Управляйте более чем одним Solarflow одновременно!
+- Получайте все телеметрические данные с ваших устройств Solarflow, включая те, которые не отображаются в официальном приложении, например, напряжение батареи.
+- Управляйте Solarflow HUB как в официальном приложении. Большинство настроек доступны.
+- Управляйте пределом выхода - вы не ограничены использованием Shelly Pro EM для реализации нулевой подачи. Вы также можете разрабатывать более сложные сценарии через скрипт или блок в ioBroker.
+- Остановка входа, если напряжение одной батареи падает до низкого уровня (защита батареи). Работает только при установке выходного предела через адаптер
+- Управляйте несколькими Solarflow одновременно!
 - Получите более точные расчеты!
-- Работает со всеми устройствами Zendure SolarFlow: HUB1200 (проверено), HUB2000 и AIO (оба не тестировались)!
+- Работает со всеми устройствами Zendure SolarFlow: HUB1200, Hyper2000, HUB2000 и AIO! Я могу протестировать только на HUB1200, так как у меня нет других устройств...
 
 ## Примечания
-1. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, иначе невозможно будет установить предел вывода!
+1. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, в противном случае невозможно будет установить предел выходной мощности!
 
    ![Окно настроек Solarflow](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
-2. После входа в систему с помощью адаптера ioBroker вы выйдете из официального приложения iOS или Android. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить этой учетной записи доступ к вашему Solarflow HUB. Затем используйте вторую учетную запись для ioBroker/адаптера Zendure Solarflow.
+2. Вы выйдете из официального приложения iOS или Android после входа с помощью адаптера ioBroker. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить доступ к Solarflow HUB этой учетной записи. Затем используйте вторую учетную запись для ioBroker / адаптера Zendure Solarflow.
+
+3. Адаптер покажет использование +10 Вт от батареи, если нет солнечного входа и устройство находится в сети. Это будет отражать «резервное» использование устройства.
 
 ## Кредиты
-Благодарность передается по адресу https://github.com/reinhard-brandstaedter/solarflow, который очень помог мне получить знания о сервере MQTT от Zendure! Спасибо!
+Благодарность за это выражается https://github.com/reinhard-brandstaedter/solarflow, который очень помог со знаниями о сервере MQTT от Zendure! Спасибо!
 
 ## Пожертвовать
-Если вы считаете адаптер полезным для себя и хотите поддержать мою работу, сделайте пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая отношения к проекту ioBroker!)<br />
+Если вы найдете этот адаптер полезным для себя и захотите поддержать мою работу, не стесняйтесь сделать пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая никакого отношения к проекту ioBroker!)<br />
 
 ## Changelog
+### 1.9.3 (2024-11-22)
+
+- Fix for Low Voltage Block not deactivated.
+
+### 1.9.2 (2024-11-21)
+
+- Fix some state definitions
+
+### 1.9.1 (2024-11-21)
+
+- Improvement for 'Low Voltage Block'.
+- Changed the state "hubState" a an option value.
+
+### 1.9.0 (2024-11-20)
+
+- New option to force Solarflow device to go offline when "Low Voltage Block"-option is used.
+
+### 1.8.8 (2024-09-20)
+
+- Improve connection retry, expand the time with every retry attempt.
+- Start "restart adapter job" regardless of connection.
+- Fix Hyper setInputLimit with step
+
+### 1.8.7 (2024-09-09)
+
+- Fix missing control states for AIO
+
+### 1.8.6 (2024-09-06)
+
+- Change login method: Added a retry loop for connecting to Zendure Cloud, if the Cloud Service "hangs" or is not available it will retry the connection 3 times.
+
+### 1.8.5 (2024-08-26)
+
+- Fix missing states for new HUB Firmware when connected to ACE
+- Fix correct max value for AIO
+
+### 1.8.4 (2024-08-16)
+
+- Add support for Smart Plug, but only Power is available at the moment - unstable as often data is not updated by MQTT
+- Some code improvements
+
+### 1.8.3 (2024-08-12)
+
+- Fix SOC and energyWhMax Value (counted by type of attached batteries)
+- Add Calculation for Grid Input (only for Ace 1500 and Hyper 2000)
+- Fix suggestions by ioBroker repository checker
+
+### 1.7.7 (2024-08-02)
+
+- Fix Input and Output limit for Hyper 2000
+
+### 1.7.6 (2024-08-01)
+
+- Fix support for 'Hyper_Test' devices
+- Improved code for state creation
+
+### 1.7.5 (2024-07-31)
+
+- Fix controlling AC mode for Hyper 2000 (set acMode to 1: Charge by AC, 2: Output to AC)
+- Show product name in channel name
+- Show battery type as state in packData
+- Show Hyper Temperature in States
+
+### 1.7.4 (2024-07-31)
+
+- Set max value and step for setInputLimit
+
+### 1.7.3 (2024-07-30)
+
+- Fix AC input value for Hyper to max. 1200W
+- Fix dcSwitch and acSwitch value
+
+### 1.7.2 (2024-07-29)
+
+- Fix acSwitch for ACE and Hyper
+
+### 1.7.1 (2024-07-29)
+
+- Fix missing ACE 1500 when connected with HUB1200 / HUB2000
+- Fix some missing states
+
+### 1.7.0 (2024-07-26)
+
+- Add support for Hyper 2000 and ACE 1500. Maybe not all states and control parameter are available. Still need to do some investigation.
+- Some minor bugfixes.
+
+### 1.6.7 (2024-06-23)
+
+- Fix reconnect again. Adapter will now restart every 3 hours to cleanup fully.
+
+### 1.6.6 (2024-06-21)
+
+- Tweaked recurring refresh of access token.
+
+### 1.6.5 (2024-06-20)
+
+- Fix reconnect issue. Adapter will now restart if connection semms to be broken.
+
+### 1.6.4 (2024-06-03)
+
+- Fix services
+
+### 1.6.3 (2024-06-03)
+
+- Fixed reconnect when connection seems to be dead.
+
+### 1.6.2 (2024-05-21)
+
+- Changed standby usage to 10W
+
+### 1.6.1 (2024-05-13)
+
+- Fix issue that sometime data is not updated
+- Add standby usage of HUB (20W) when solarinput is low
+
+### 1.5.3 (2024-04-19)
+
+- Fix autoRecover datatype issue
+
+### 1.5.2 (2024-04-17)
+
+- Minor bugfixes and improvements
+
+### 1.5.0 (2024-04-12)
+
+- Add the possibility to connect to the 'Fallback' MQTT server known as 'Developer MQTT'. This server is read-only - so no control is possible!
+
 ### 1.4.0 (2024-04-03)
 
 - Add calculation states for solar input 1 & 2
@@ -179,7 +308,7 @@ hash: NVvuNG/1GXEw/ohtnb5LWEtYsvkNdkchQH2aE8Wxjp8=
 ### 1.0.1 (2023-11-03)
 
 - Fix translationscd so
-- Use 'extendObjectAsync' instead of 'setObjectNotExistsAsync'
+- Use 'extendObject' instead of 'setObjectNotExistsAsync'
 - First official release version
 
 ### 0.1.0-alpha.2 (2023-10-27)

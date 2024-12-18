@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP 云接入点适配器
-hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
+hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 ---
 ![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -25,8 +25,6 @@ hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 **重要提示**：请将控制请求限制在最低限度，因为当您做得太多时，EQ-3 会开始阻止 IP！
 
 ＃＃ 安装
-此适配器需要 node-js 版本 >= 16.0
-
 这是 YouTube 上的分步安装视频 https://youtu.be/kXWfJRUYJIA
 
 ## 信息
@@ -54,20 +52,30 @@ hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
 如果您已在 HmIP 应用程序中为锁分配了 PIN（设置/访问权限 - 德语：“Zutrittsberechtigungen”），则需要在设备对象的 PIN 状态中设置 PIN。这不是您的系统 PIN！！如果您未在设置中设置 PIN，您也可以在 PIN 状态中留空。
 此外，请将“iobroker”客户端添加到 HmIP 应用程序设置中的访问控制客户端列表中！
 
+## 家庭控制单元（HCU）
+HCU 的工作流程发生了变化
+
+在开始创建令牌之前按下按钮一次。它将启用 5 分钟的远程访问。
+然后在配对过程中要求时再次按下按钮。
+
+非常感谢@dietzm 为该适配器添加了对 HCU 的支持。
+
 ＃＃ 谢谢
 * 感谢 @coreGreenberet 提供的 python 库（https://github.com/coreGreenberet/homematicip-rest-api）
 
 ## IoBroker 论坛中的讨论
 https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 
-## GitHub 上的适配器请求
-https://github.com/ioBroker/AdapterRequests/issues/62
-
 <!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.26.1-alpha.1 (2024-12-09)
+* (mcm1957) Adapter requires node.js 20 now
+* (dietzm) Added support for Home Control Unit
+* (GermanBluefox) Corrected the admin GUI
+
 ### 1.25.0 (2024-11-08)
 * (bluefox) Updated packages
 * (bluefox) User prettier for code

@@ -110,7 +110,7 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### __WORK IN PROGRESS__
+### 0.5.11 (2024-10-31)
 * (Apollon77) Stability and compatibility improvements for BLE
 
 ### 0.5.10 (2024-01-26)

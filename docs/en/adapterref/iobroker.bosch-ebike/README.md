@@ -29,6 +29,9 @@ bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog
+### 0.1.9 (2024-11-25)
+
+- fix for login
 
 ### 0.1.5
 
@@ -42,7 +45,7 @@ bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -146,7 +146,7 @@ Minimum configuration is to set the datapoint to the cmd-datapoint.
 | `time`                 |                          | If empty then the actual broadcasts would be shown                                                 |
 | `time`                 | 20:15                    | if time only the broadcast at this time would be shown for 120 minutes, then the next day is shown |
 | `time`                 | 20:15/200                | if time with duration the broadcast at this time would be shown for 200 minutes                    |
-| `time`                 | 2021-02-15T20:15:00.000Z | If valid Datestring, then the broadcast at this tim would be shown. Remember the timezones         |
+| `time`                 | 2021-02-15T20:15:00.000Z | If valid UTC-Datestring, then the broadcast at this time would be shown. Remember the timezones         |
 | `heightRow`            | 35                       | Height for each displayed line                                                                     |
 | `showpictures`         | x                        | Show pictures if available                                                                         |
 | `broadcastfontpercent` | 75                       | Character size in percent for the broadcasts                                                       |
@@ -319,7 +319,7 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 
 Request all favorite broadcast from now till end of saved data.
 
@@ -334,7 +334,7 @@ Request all favorite broadcast from now till end of saved data.
 **Example:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -719,6 +719,23 @@ widget tvprogram:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2024-12-16)
+
+- remove jquery-ui dependency
+- fix dialog is visible on view switch, now it's modal
+- fix adapter icon
+- fix eslint errors
+- switch some callbacks to promises
+- remove unused code
+
+### 2.1.0 (2024-11-24)
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+- switch to eslint
+- complete rework of tvprogram to switch from callback to await
+- the widgets are now compatible with vis-2 (minimum vis-2 version ist 2.10)
+- due to datapoint management, all datapoints should be deleted.
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

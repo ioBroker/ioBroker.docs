@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: oXPHjuHMHoLLlEzMSLVDiPX/+sdFb6o14PVXKItzbxo=
+hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -64,14 +64,21 @@ Gotify-WS также требуется IP-адрес или домен и по�
 
 Затем вы можете настроить службу уведомлений по вашему выбору для пересылки.
 
---- <!-- ### **РАБОТА В ХОДЕ** -->
-
-### **РАБОТА В ХОДЕ**
-* (simatec) Зависимости обновлены
-* (simatec) Исправление адаптивного дизайна
-* (simatec) Добавлено действие по проблеме
+---
 
 ## Changelog
+<!-- ### **WORK IN PROGRESS** -->
+
+### **WORK IN PROGRESS**
+* (simatec) eslint-config fix
+* (simatec) Code fix
+
+### 0.1.10 (2024-11-24)
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
 ### 0.1.9 (2024-09-26)
 * (simatec) Fix for admin 7.1.5
 

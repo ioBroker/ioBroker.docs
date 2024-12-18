@@ -69,7 +69,16 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.4.0 (2024-12-10)
+* (René) migration to jsonConfig
+* (René) see issue #383: add optionally parameters to HTTP call
+
+### 3.3.8 (2024-11-24)
+* (René) update dependencies
+* (René) issue  #381: install widgets again
+
+### 3.3.7 (2024-11-20)
+* (René) see issue #380: support of ebusd 24.1, ATTENTION: ebusd creates datapoints with changed names, folders or in different locations
 * (René) see issue #371: test with nodejs@22
 
 ### 3.3.6 (2024-08-25)

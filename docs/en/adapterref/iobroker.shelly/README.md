@@ -60,6 +60,17 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 8.5.1 (2024-12-02)
+
+* (@klein0r) Fixed digest auth for Shelly Wall Display
+* (@klein0r) Added LED control for Shelly Plus Plug S
+
+### 8.5.0 (2024-11-24)
+
+* (@klein0r) Added Shelly Plug S Gen3
+* (@klein0r) Added Shelly BLU Gateway Gen3
+* (@klein0r) Added Shelly I4 / I4DC Gen3
+
 ### 8.4.0 (2024-10-20)
 
 * (@klein0r) Added AddOn support for Gen3 devices
@@ -72,16 +83,6 @@ Questions? Check the [FAQ](faq.md) section first!
 
 * (@Matze2010) Added datapoint for cover target position
 * (@klein0r) Fixed integration of Shelly 1 PM Gen 3
-
-### 8.2.0 (2024-09-19)
-
-* (@Scrounger) Added Shelly BLU Wall Switch 4 & Shelly BLU RC Button 4
-* (@Paradoxa) Added Shelly Plus RGBW PM
-* (simatec) Responsive Design added
-
-### 8.1.1 (2024-08-27)
-
-* (@klein0r) Fixed lint issues and Shelly Gen 3 import
 
 ## License
 

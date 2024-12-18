@@ -33,6 +33,10 @@ Discussion:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 2.0.5 (2024-12-11)
+
+- (Black-Thunder) Report data for ATW devices was fixed
+
 ### 2.0.4 (2024-11-04)
 
 - (Black-Thunder) Responsive design for settings dialog was added

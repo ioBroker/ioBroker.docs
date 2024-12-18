@@ -46,6 +46,16 @@ This adapter would not have been possible without the great work of Marius Burka
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2024-12-15)
+* (Feuersturm) Some minor corrections to installations news and some internal changes at pacakging have been applied.
+
+### 2.0.0 (2024-12-13)
+* (Feuersturm) BREAKING: The password is stored encrypted now. Please reenter you password at configuration page. This is required only once after migration from release < 2.0.0 to release 2.0.0 or newer.
+* (mcm1957) Adapter requires node.js 20 now
+* (mcm1957) Adapter requires js-controller 5 and admin 6  now
+* (Feuersturm) switch adapter config to jsonconfig
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2024-06-06)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Adapter has been move to iobroker-community-adapters organization
@@ -59,16 +69,6 @@ This adapter would not have been possible without the great work of Marius Burka
 ### 0.2.2
 
 -   Added fixes for adapter crashes on failed connection to controller
-
-### 0.2.1
-
--   Added support for run times on different controller model
--   Less polling for some states to reduce requests to controller
-
-### 0.2.0
-
--   Added remaining irrigation time of zone
--   Fixed bug in decoding responses
 
 ## License
 

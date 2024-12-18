@@ -34,8 +34,13 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* isConnected if inverter in standby
+### 0.18.0 (2024-12-11)
+* dependency and configuration updates
+* modbus-proxy: the modbus ID 250 is mapped to ID 0
+
+### 0.17.1 (2024-11-21)
+* during the device status "Standby: detecting irradiation" (0x0002) register data is now also read from the inverter
+* The reading order of the battery data has been adjusted
 
 ### 0.17.0 (2024-11-05)
 * adjust for Responsive Design #134

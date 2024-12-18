@@ -307,8 +307,9 @@ If activated, this separately adjustable backup is created with every ioBroker b
 > In order to be able to create a Grafana backup, the Grafana username (Admin) and password are required.
 > Furthermore, an API key or service token must be created in the Grafana web interface to get access to the dashboards.
 
+Up to Grafana version 8.x, the API key can be created under ***"Configuration → API Keys or Service Token"*** and must have full admin permissions.
 
-The API key can be created under ***"Configuration → API Keys or Service Token"*** and must have full admin permissions.
+From version 9.0, a service account is first created under ***"Configuration → Administration Users and access → Service accounts"***. Once the account has been created, a token can be added with ***"Add service account token"***.
 
 ### Yahka backup
 If activated, this separately adjustable backup is created with every ioBroker backup and is also deleted after the specified retention period has expired. FTP or CIFS are also valid for this backup if the other ioBroker backup types are set. 
@@ -674,6 +675,21 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 3.0.31 (2024-11-30)
+* (simatec) Fix Tab Menu
+
+### 3.0.30 (2024-11-29)
+* (simatec) Fix Tab Menu
+
+### 3.0.29 (2024-11-29)
+* (simatec) Fix Tab Menu
+
+### 3.0.28 (2024-11-27)
+* (simatec) Dependencies updated
+* (simatec) eslint-config added
+* (bluefox) Allow to store files for up to ca 3 years
+* (Marc-Berg) Grafana Docu updated
+
 ### 3.0.27 (2024-11-12)
 * (simatec) dependencies updated
 * (simatec) Design Fix

@@ -29,6 +29,12 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2024-12-05)
+* (BenAhrdt) update eslint
+
+### 2.2.1 (2024-11-26)
+* (BenAhrdt) changed schema and responsive tags
+
 ### 2.2.0 (2024-08-13)
 * (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
   Check your System before installing new Version

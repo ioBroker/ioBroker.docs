@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tv节目
-hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
+hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
 ---
 ![标识](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -139,7 +139,7 @@ vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint�
 | `oid` | `tvprogram.0.tv1.cmd` | `tvprogram` 适配器实例的数据点。|
 | `time` | 20:15 | 如果时间只显示此时的广播 120 分钟，则显示第二天的广播 |
 | `time` | 20:15/200 | 如果时间有持续时间，则此时的广播将播放 200 分钟 |
-| `time` | 2021-02-15T20:15:00.000Z | 如果日期字符串有效，则将显示此时的广播。记住时区 |
+| `time` | 2021-02-15T20:15:00.000Z | 如果 UTC-Datestring 有效，则将显示此时的广播。记住时区 |
 | `heightRow` | 35 | 每行显示的高度 |
 | `showpictures` | x | 如果有图片则显示 |
 | `broadcastfontpercent` | 75 | 广播的字符大小百分比 |
@@ -256,7 +256,7 @@ sendTo("tvprogram.0", "getServerData", "categories", (data) =>
 #### `getServerTVProgram`
 从适配器请求程序数据。
 
-##### 有效参数为
+##### 有效参数是
 以下格式的日期字符串：`yyyy-mm-dd`
 
 **返回：**
@@ -292,7 +292,7 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 从现在开始直到数据保存结束为止请求所有喜欢的广播。
 
 ##### 有效参数是
@@ -305,7 +305,7 @@ sendTo(
 **例子：**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -331,7 +331,7 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 #### `getServerBroadcastDate`
 请求在某个日期时间运行的所有广播
 
-##### 有效参数为
+##### 有效参数是
 您最喜欢的频道的 channelID 数组 datetime
 
 **返回：**
@@ -380,7 +380,7 @@ sendTo(
 #### `getServerInfo`
 请求适配器内存中可用的广播日期
 
-##### 有效参数是
+##### 有效参数为
 空对象
 
 **返回：**
@@ -632,7 +632,7 @@ var timer = setInterval(function () {
 - 配置显示的电视频道和顺序，可以通过拖放重新排序。
 - 点击徽标后通过数据点切换命令
 - 放大/缩小
-- 导航接下来和之前的日子
+- 导航下一天和前一天
 - 播放按钮切换频道数据点
 - 中心放大未来几天
 - 回到今天
@@ -666,6 +666,12 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2024-11-24)
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+- switch to eslint
+- complete rework of tvprogram to switch from callback to await
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

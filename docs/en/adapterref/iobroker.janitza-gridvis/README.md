@@ -32,6 +32,15 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.4.0 (2024-12-05)
+* (BenAhrdt) update eslint
+
+### 3.3.2 (2024-11-26)
+* (BenAhrdt) Schemas updated
+
+### 3.3.1 (2024-11-26)
+* (BenAhrdt) update admin dependecies and responsive tags and deviceicons for UMG806_LP and UMG800
+
 ### 3.3.0 (2024-08-13)
 * (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
   Check your System before installing new Version

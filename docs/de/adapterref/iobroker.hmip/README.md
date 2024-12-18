@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint Adapter
-hash: AOqSLzDU2l/8FlOM/hk1/fp2CdmE5Fex9L7VLEpjPUM=
+hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -25,8 +25,6 @@ Dieser Adapter ermöglicht die Kommunikation mit einem HomematicIP CloudAccessPo
 **Wichtiger Hinweis:** Bitte beschränken Sie Steuerungsanfragen auf das absolute Minimum, da EQ-3 beginnt, IPs zu blockieren, wenn Sie zu viel tun!
 
 ## Installation
-Dieser Adapter benötigt node-js in Version >= 16.0
-
 Hier ist ein Schritt-für-Schritt-Installationsvideo auf YouTube https://youtu.be/kXWfJRUYJIA
 
 ## Die Info
@@ -56,20 +54,30 @@ Wenn du dem Schloss in der HmIP-App (Einstellungen / Zugangsberechtigungen) eine
 
 Füge außerdem den Client „iobroker“ zur Liste der Zutrittskontroll-Clients in den HmIP-App-Einstellungen hinzu!
 
+## Haussteuerungseinheit (HCU)
+Es gibt einen geänderten Workflow mit HCU
+
+Drücken Sie die Taste einmal, bevor Sie mit der Token-Erstellung beginnen. Dadurch wird der Fernzugriff für 5 Minuten aktiviert.
+Drücken Sie die Taste dann erneut, wenn Sie während des Pairing-Vorgangs dazu aufgefordert werden.
+
+Vielen Dank an @dietzm für das Hinzufügen der HCU-Unterstützung zu diesem Adapter.
+
 ## Danke
 * an @coreGreenberet für seine Python-Bibliothek (https://github.com/coreGreenberet/homematicip-rest-api)
 
 ## Diskussion im ioBroker-Forum
 https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 
-## Adapter Request auf GitHub
-https://github.com/ioBroker/AdapterRequests/issues/62
-
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.26.1-alpha.1 (2024-12-09)
+* (mcm1957) Adapter requires node.js 20 now
+* (dietzm) Added support for Home Control Unit
+* (GermanBluefox) Corrected the admin GUI
+
 ### 1.25.0 (2024-11-08)
 * (bluefox) Updated packages
 * (bluefox) User prettier for code

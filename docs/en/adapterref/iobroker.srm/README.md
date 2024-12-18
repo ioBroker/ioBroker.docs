@@ -1,23 +1,18 @@
-![](admin/synology.png)
+![Logo](admin/synology.png)
 
-## Table of Contents
+# ioBroker Synology Router Manager Adapter
 
--   [Introduction](#Introduction)
--   [Usage](#Usage)
--   [Revision History](#Revision-History)
+![Number of Installations](http://iobroker.live/badges/srm.svg)
+![Number of Installations](http://iobroker.live/badges/srm.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.srm.svg)](https://www.npmjs.com/package/iobroker.srm)
 
-<a name="Introduction"></a>
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.srm/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/srm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.srm.svg)](https://www.npmjs.com/package/iobroker.srm)
 
-## Introduction
+## Description
 
 This is an iobroker adapter to connect to [Synology](https://www.synology.com/) routers. The adapter uses the Synology API to get the data. The adapter is tested with the SRM version 1.3.1. and router model RT6600 but should work with other models as well.
-
-Thanks to 
-
-* [Nocilas](https://github.com/nioc) who provider the connector for the Synology API.
-* The countless iobroker adapters that I used as a template, especially [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt).
-
-<a name="Requirements"></a>
 
 ## Usage
 
@@ -27,13 +22,13 @@ Create a new instance of the adapter and enter the IP address of your router. Th
 ### Objects
 The adapter creates the following objects:
 
-## router
+#### router
 * IPV4_IP: IP4 address of the router
 * IPV4_status: Status of the IPV4 connection
 * IPV6_IP: IP6 address of the router
 * IPV6_status: Status of the IPV4 connection
 
-## devices
+#### devices
 JSON table for the following device states:
 
 * all: All known devices
@@ -62,10 +57,10 @@ Each JSON table has the following objects for each device:
 * mesh_node_id: ID of the mesh node
 * mesh_node_name: Name of the mesh node
 
-## info
+#### info
 * connection: Status of the connection to the router
 
-## mesh
+#### mesh
 List of mesh nodes. Each mesh nodes has the following objects:
 
 * band: Uplink band
@@ -79,7 +74,7 @@ List of mesh nodes. Each mesh nodes has the following objects:
 * parent_node_id: ID of the parent node
 * signal_strength: Signal strength
 
-## wifi
+#### wifi
 List of wifi networks and settings. Wifi settings can only be changed every 3s to avoid conflicting changes. Each mesh nodes has the following objects:
 
 * enable: Enable the wifi network (read/write)
@@ -88,15 +83,27 @@ List of wifi networks and settings. Wifi settings can only be changed every 3s t
 * mac_filter: Enable MAC filter (read)
 * schedule_enable: Enable schedule for network (read/write)
 
-### Sentry
 
-What is Sentry.io and what is reported to the servers of that company? `Sentry.io` is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
+## Credits
 
-When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. 
+This adapter would not have been possible without the great work of @stephan1827 (https://github.com/stephan18277), who developed the original releases of this adapter.  
 
-<a name="Revision-History"></a>
+Thanks to 
 
+* [Nocilas](https://github.com/nioc) who provider the connector for the Synology API.
+* The countless iobroker adapters that I used as a template, especially [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt).
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 ## Changelog
+### 1.0.0 (2024-12-12)
+- (mcm1957) Adapter has been moved into iobroker-community-adapters organization
+- (mcm1957) Adapter requires node.js 20 now.
+- (mcm1957) Adapter requires js-controller 5 and admin 6 now.
+- (mcm1957) Dependencies have been updated.
+
 ### 0.2.0 (2023-12-27)
 - Added new section for WIFI settings. Some settings can be changed via the adapter.
 - Account for different API versions

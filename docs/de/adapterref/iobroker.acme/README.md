@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.acme/README.md
 title: ioBroker.acme
-hash: EI7PWt7/bcUS9IgzLxwMsZr18fEf5I+fxtYWcKdl2kE=
+hash: FmXLZhYoeZJF9Hzf1mENOYBQDeUW9LAHIcg1cFlwv/M=
 ---
 ![Logo](../../../en/adapterref/iobroker.acme/admin/acme.png)
 
@@ -14,102 +14,117 @@ hash: EI7PWt7/bcUS9IgzLxwMsZr18fEf5I+fxtYWcKdl2kE=
 ![NPM](https://nodei.co/npm/iobroker.acme.png?downloads=true)
 
 # IoBroker.acme
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.acme/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.acme/workflows/Test%20and%20Release/badge.svg)
 
 ## ACME-Adapter für ioBroker
 Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 
 ## Verwendung
-Der Adapter startet regelmäßig (standardmäßig um Mitternacht) und nach Konfigurationsaktualisierungen, um alle erforderlichen Zertifikate (neue oder bald ablaufende) zu generieren.
+Der Adapter wird regelmäßig (standardmäßig um Mitternacht) und nach Konfigurationsaktualisierungen gestartet, um alle erforderlichen Zertifikate (neue oder bald ablaufende) zu generieren.
 
-Derzeit werden Bestellungen mit der Zertifizierungsstelle Let's Encrypt abgewickelt und sind somit kostenlos.
+Aktuell werden Bestellungen über die Zertifizierungsstelle Let’s Encrypt abgewickelt und sind somit kostenfrei.
 
-Zertifikatsdetails werden in einem „Zertifikatssammlungs“-Objekt gespeichert, das andere relevante Details wie Ablaufdatum, zu sichernde Domains und private Schlüssel enthält.
-Auf diese Objekte wird durch ihre Sammlungs-ID verwiesen.
+Zertifikatsdetails werden in einem Objekt „Zertifikatssammlung“ gespeichert, das weitere relevante Details wie Ablaufdatum, zu sichernde Domänen und privaten Schlüssel enthält.
+Auf diese Objekte wird über ihre Sammlungs-ID verwiesen.
 
-Adapter, die Zertifikate benötigen, um ihre Kommunikation zu sichern (z. B. [Webadapter](https://www.npmjs.com/package/iobroker.web)), können Zertifikatssammlungen laden und verwenden.
+Adapter, die zur Sicherung ihrer Kommunikation Zertifikate benötigen (z. B. [Webadapter](https://www.npmjs.com/package/iobroker.web)), können Zertifikatssammlungen laden und verwenden.
 
-Die Speicherung und Nutzung erfolgt über eine im [Core ioBroker-Controller](https://www.npmjs.com/package/iobroker.js-controller) enthaltene Schnittstelle.
+Die Speicherung und Nutzung erfolgt über eine in [Kern-ioBroker-Controller](https://www.npmjs.com/package/iobroker.js-controller) enthaltene Schnittstelle.
 
 ### ACME-Herausforderungen
-Es sind zwei Methoden der Challenge-Überprüfung implementiert und mindestens eine sollte auf der Konfigurationsseite aktiviert werden.
+Es sind zwei Methoden zur Challenge-Verifizierung implementiert und mindestens eine sollte auf der Konfigurationsseite aktiviert werden.
 
 Beachten Sie, dass Wildcard-Zertifikatsbestellungen nur mit der DNS-01-Challenge validiert werden können.
 
 #### HTTP-01
 Der Adapter startet seinen eigenen HTTP-01-Challenge-Server auf dem konfigurierten Port und der konfigurierten Adresse.
 
-Damit eine HTTP-01-Challenge erfolgreich ist, **muss** der Port/die Adresse des Challenge-Servers als Port 80 des FQDN öffentlich erreichbar sein, der in einer Sammlung allgemeiner/alternativer Namen aus dem offenen Internet angegeben ist.
+Damit eine HTTP-01-Challenge erfolgreich ist, **muss** der Port/die Adresse des Challenge-Servers öffentlich als Port 80 des FQDN erreichbar sein, der in einer Sammlung allgemeiner/alternativer Namen aus dem offenen Internet angegeben ist.
 
-Konfigurieren Sie Ihre Firewall, Ihren Reverse-Proxy usw. entsprechend.
+Konfigurieren Sie Ihre Firewall, Ihren Reverseproxy usw. entsprechend.
 
 Beispielszenarien:
 
-1. Der IoB-Host, auf dem ACME ausgeführt wird, befindet sich hinter einem Router und dieser Router hat eine öffentlich erreichbare IP-Adresse:
+1. Der IoB-Host, auf dem ACME läuft, befindet sich hinter einem Router und dieser Router hat eine öffentlich erreichbare IP-Adresse:
 
     Lösung:
 
-    - Konfigurieren Sie ACME so, dass es auf jedem freien Port läuft: zB: 8092.
-    - Konfigurieren Sie den Router so, dass Verbindungen an Port 80 seiner öffentlichen Adresse an Port 8092 des IoB-Hosts weitergeleitet werden.
-    - Konfigurieren Sie den DNS-Namen des gewünschten allgemeinen Namens des Zertifikats, um ihn in die öffentliche Adresse des Routers aufzulösen.
+- Konfigurieren Sie ACME so, dass es auf jedem freien Port ausgeführt wird: Z. B.: 8092.
+– Konfigurieren Sie den Router so, dass Verbindungen von Port 80 seiner öffentlichen Adresse an Port 8092 des IoB-Hosts weitergeleitet werden.
+- Konfigurieren Sie den DNS-Namen des gewünschten allgemeinen Zertifikatsnamens so, dass er in die öffentliche Adresse des Routers aufgelöst wird.
 
-2. Der IoB-Host, auf dem ACME läuft, hat eine direkte Internetverbindung mit einer öffentlich erreichbaren IP-Adresse:
+2. Der IoB-Host, auf dem ACME läuft, verfügt über eine direkte Internetverbindung mit einer öffentlich erreichbaren IP-Adresse:
 
     Lösung:
 
-     - Konfigurieren Sie den ACME-Adapter so, dass er auf Port 80 auflistet.
-     - Konfigurieren Sie den DNS-Namen des gewünschten allgemeinen Namens des Zertifikats, um ihn in die öffentliche Adresse des IoB-Hosts aufzulösen.
+- Konfigurieren Sie den ACME-Adapter so, dass er auf Port 80 lauscht.
+- Konfigurieren Sie den DNS-Namen des gewünschten allgemeinen Zertifikatsnamens so, dass er in die öffentliche Adresse des IoB-Hosts aufgelöst wird.
 
-3. Szenario 1 & 2 sind unmöglich, da ein anderer Dienst auf Port 80 der öffentlich erreichbaren IP-Adresse läuft.
+3. Szenario 1 und 2 sind unmöglich, da auf Port 80 der öffentlich erreichbaren IP-Adresse ein anderer Dienst ausgeführt wird.
 
-    Mögliche Lösungen:
+Mögliche Lösungen:
 
-    1. Wenn der andere Dienst ein IoB-Adapter ist, der den Namensstandards für Portkonfigurationen folgt, stoppt ACME ihn, bevor er versucht, ein Zertifikat anzufordern, verwendet Port 80 für den HTTP-01-Challenge-Server und startet jeden beendeten Adapter neu, wenn er fertig ist.
+1. Wenn es sich bei dem anderen Dienst um einen IoB-Adapter handelt, der den Benennungsstandards für Portkonfigurationen folgt, wird ACME ihn stoppen, bevor versucht wird, ein Zertifikat anzufordern, Port 80 für den HTTP-01-Challenge-Server verwenden und alle gestoppten Adapter nach Abschluss neu starten.
 
-       Offensichtlich verursacht dies einen kurzen Ausfall für den anderen Adapter, was möglicherweise nicht erwünscht ist.
+Dies führt offensichtlich zu einem kurzen Ausfall des anderen Adapters, was möglicherweise nicht erwünscht ist.
 
-    2. Verwenden Sie eine DNS-01-Challenge.
+2. Verwenden Sie eine DNS-01-Herausforderung.
+3. Richten Sie einen benannten virtuellen Host-HTTP-Proxy auf Port 80 des Routers oder einem öffentlich erreichbaren IoB-Host ein.
 
-    3. Richten Sie einen benannten virtuellen Host-HTTP-Proxy auf Port 80 des Routers oder öffentlich erreichbaren IoB-Hosts ein.
+- Geben Sie dem vorhandenen Dienst einen anderen Hostnamen als den, für den ein Zertifikat erforderlich ist, und konfigurieren Sie diesen Hostnamen so, dass er in dieselbe Adresse aufgelöst wird.
+- Konfigurieren Sie den Proxy so, dass Anfragen basierend auf dem verwendeten Namen entweder an den vorhandenen Dienst oder an den ACME-Adapter weitergeleitet werden.
 
-       - Geben Sie dem vorhandenen Dienst einen anderen Hostnamen als dem, für den ein Zertifikat erforderlich ist, und konfigurieren Sie diesen Hostnamen so, dass er in dieselbe Adresse aufgelöst wird.
-       - Konfigurieren Sie den Proxy so, dass Anforderungen basierend auf dem verwendeten Namen entweder an den vorhandenen Dienst oder den ACME-Adapter weitergeleitet werden.
+4. Führen Sie ACME nur manuell aus, wenn der erforderliche Portzugriff verfügbar ist. **Nicht empfohlen**, sollte aber funktionieren:
 
-    4. Führen Sie ACME nur dann manuell aus, wenn der erforderliche Portzugriff verfügbar ist. **Nicht empfohlen**, sollte aber funktionieren:
-
-        - Deaktivieren (stoppen) Sie den ACME-Adapter nach der Installation.
-        - Kurz bevor eine Zertifikatsbestellung oder -erneuerung erforderlich ist (Erneuerung erfolgt bis zu 7 Tage vor Ablauf), führen Sie die folgenden Schritte manuell durch:
-          - Richten Sie Firewalls/Portweiterleitungen/andere Wartungsarbeiten ein, die erforderlich sind, damit ACME auf dem konfigurierten Port ausgeführt werden kann und damit dieser Port über das öffentliche Internet zugänglich ist.
-          – Starten Sie ACME manuell von der Seite „IoB-Verwaltungsinstanzen“.
-          - Warten Sie, bis ACME alle Zertifikatsbestellungen abgeschlossen hat.
-          – Stoppen Sie ACME manuell auf der Seite „IoB-Verwaltungsinstanzen“.
-        - Diese Schritte sind jedes Mal erforderlich, wenn eine Zertifikatsbestellung/-erneuerung erforderlich ist, und daher wird diese Methode **nicht empfohlen**. ACME wurde entwickelt, um einen vollständig automatisierten Prozess zu ermöglichen.
+– Deaktivieren (stoppen) Sie den ACME-Adapter nach der Installation.
+- Kurz bevor die Zertifikatsbestellung bzw. -erneuerung erforderlich ist (die Erneuerung erfolgt bis zu 7 Tage vor Ablauf), führen Sie manuell die folgenden Schritte aus:
+- Richten Sie die Firewall/Portweiterleitung/andere erforderliche Wartungsmaßnahmen ein, damit ACME auf dem konfigurierten Port ausgeführt werden kann und dieser Port vom öffentlichen Internet aus zugänglich ist.
+– Starten Sie ACME manuell von der IoB-Admin-Instanzen-Seite.
+- Warten Sie, bis ACME alle Zertifikatsbestellungen abgeschlossen hat.
+- Stoppen Sie ACME manuell von der IoB-Admin-Instances-Seite aus.
+- Diese Schritte sind bei jeder erforderlichen Zertifikatsbestellung/-erneuerung erforderlich und daher wird diese Methode **nicht empfohlen**. ACME ist darauf ausgelegt, einen vollständig automatisierten Prozess zu ermöglichen.
 
 #### DNS-01
 Für beliebte Domain-Hosting-Plattformen sind verschiedene DNS-01-Challenge-Plugins implementiert.
 
-#### Verweise
-Siehe [AMCS.js](https://www.npmjs.com/package/acme) für weitere Einzelheiten.
+#### Referenzen
+Weitere Einzelheiten finden Sie unter [AMCS.js](https://www.npmjs.com/package/acme).
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.5 (2024-12-08)
 
-### **WORK IN PROGRESS**
-* (raintonr) Use @iobroker/webserver (#10).
-* (bluefox) Corrected detection of instances on the same port.
+- (@GermanBluefox) Corrected error with admin 7.4.3
 
-### 0.0.2 (2023-03-01)
-* (bluefox) Now all running on the same port adapters will be stopped before update.
+### 1.0.3 (2024-11-27)
 
-### 0.0.1 (2023-01-29)
-* (Robin Rainton) Initial release.
+- (@GermanBluefox) Migrated GUI for admin 7 (one more time)
+
+### 1.0.1 (2024-07-06)
+
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+- (bluefox) Prepared for admin v7
+
+### 0.1.2 (2023-11-15)
+
+- (mcm1957) Issues reported by adapter checker have been fixed.
+- (mcm1957) Release 0.1.1 has been released again due to error during deploy.
+
+### 0.1.1 (2023-11-15)
+
+- (raintonr) Various improvements in start/stop of other adapters using HTTP challenge server port fixing restart loop (#43).
+- (raintonr) Fixed ACME notify messages (#64).
 
 ## License
+
 MIT License
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Robin Rainton <robin@rainton.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

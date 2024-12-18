@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-信息
-hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
+hash: b8YIDN5UrVOEjnNuFYJ5RH86vGY42dQtaDnYBja3ul4=
 ---
 ![标识](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -19,7 +19,7 @@ hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
 [![FOSSA 状态]（https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield）](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield)![测试与发布](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 apg-info 适配器
-此适配器提供奥地利电网的高峰时段，避免用电。此外，适配器还提供奥地利、瑞士和德国的 PHELIX 日前 (EPEX 现货) 价格（在适配器设置中配置）。供应商费用、税费、电网成本可在配置（计算选项卡）中随意添加。
+此适配器提供奥地利电网的高峰时段（仅限奥地利值！），应避免在此时段用电。此外，适配器还提供奥地利、瑞士和德国的 PHELIX 日前（EPEX 现货）价格（在适配器设置中配置）。供应商费用、税费、电网成本可在配置（计算选项卡）中随意添加。
 `[..].marketprice.today.jsonChart` 和 `[..].marketprice.tomorrow.jsonChart` 可与 https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart 一起使用。
 在标准配置下，适配器在 00:00、13:00 和 15:00 运行。强烈建议不要删除 00:00 的运行，否则日期更改（明天 --> 今天）将无法正常工作。
 
@@ -37,6 +37,13 @@ hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.11 (2024-10-20)
+* (HGlab01) improve UI config (#296)
+
+### 0.1.10 (2024-10-04)
+* (HGlab01) fix issue #290
+* (HGlab01) bump axios to 1.7.7
+
 ### 0.1.9 (2024-08-21)
 * (HGlab01) Support eslint9
 
@@ -47,13 +54,6 @@ hash: mc94541S9Ji4p2IqRn+ZcB1O2XVctgr7y/uTsLdWwLM=
 ### 0.1.7 (2024-05-27)
 * (HGlab01) Add date to today and tomorrow to make the date of today and tomorrow clear
 * (HGlab01) bump axios to 1.7.2
-
-### 0.1.6 (2024-03-17)
-* (HGlab01) fix issue in debug-mode: Cannot read properties of null (reading 'data')
-* (HGlab01) bump axios to 1.6.8
-
-### 0.1.5 (2024-01-20)
-* (HGlab01) Add fee, grid costs and tax calculation
 
 ## License
 MIT License

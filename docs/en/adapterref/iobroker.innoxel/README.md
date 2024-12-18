@@ -137,6 +137,10 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2024-12-09)
+- (matthsc) implement adapter checker feedback
+- (matthsc) cleanup changelog
+
 ### 1.0.0 (2024-11-17)
 
 - (matthsc) drop support for Node 18

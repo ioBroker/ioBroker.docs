@@ -35,40 +35,40 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
 
 ## Standard Configuration
 
--   Begin by creating a new instance of the adapter.
--   You'll also require an API token from Tibber, which you can obtain here: [Tibber Developer API](https://developer.tibber.com).
--   Enter your Tibber API token in the standard settings and configure at least one line for live feed settings (select "None available").
--   Save the settings and exit the configuration to restart the adapter; this step allows your home(s) to be queried the first time from the Tibber server.
--   Return to the configuration screen and select the homes from which you wish to fetch real-time data using your Tibber Pulse. You can also select homes and disable the feed (Note: This works only if the hardware is installed and the Tibber server has verified the connection to Pulse).
--   Note: If you have more than one home actively in your Tibber account you have to add all of them to get rid of error message caused by potentially not needed homes. Add them all and disable the options.
--   You have the option to deactivate the retrieval of price data for today and tomorrow, for instance, if you only intend to utilize Pulse live feeds
--   Optionally, you can enable the retrieval of historical consumption data. Please specify the number of datasets for hours, days, weeks, months, and years. You can use "0" to disable one or more of these intervals based on your preferences.
--   Note: It's essential to be mindful of the dataset size, as excessively large requests may result in a lack of response from the Tibber Server. We recommend experimenting with the dataset size to ensure optimal functionality. Adjusting the intervals and dataset numbers can help strike the right balance between obtaining insightful data and maintaining server responsiveness. E.g. 48 is a quite good amount for hours.
--   Save the settings.
+- Begin by creating a new instance of the adapter.
+- You'll also require an API token from Tibber, which you can obtain here: [Tibber Developer API](https://developer.tibber.com).
+- Enter your Tibber API token in the standard settings and configure at least one line for live feed settings (select "None available").
+- Save the settings and exit the configuration to restart the adapter; this step allows your home(s) to be queried the first time from the Tibber server.
+- Return to the configuration screen and select the homes from which you wish to fetch real-time data using your Tibber Pulse. You can also select homes and disable the feed (Note: This works only if the hardware is installed and the Tibber server has verified the connection to Pulse).
+- Note: If you have more than one home actively in your Tibber account you have to add all of them to get rid of error message caused by potentially not needed homes. Add them all and disable the options.
+- You have the option to deactivate the retrieval of price data for today and tomorrow, for instance, if you only intend to utilize Pulse live feeds
+- Optionally, you can enable the retrieval of historical consumption data. Please specify the number of datasets for hours, days, weeks, months, and years. You can use "0" to disable one or more of these intervals based on your preferences.
+- Note: It's essential to be mindful of the dataset size, as excessively large requests may result in a lack of response from the Tibber Server. We recommend experimenting with the dataset size to ensure optimal functionality. Adjusting the intervals and dataset numbers can help strike the right balance between obtaining insightful data and maintaining server responsiveness. E.g. 48 is a quite good amount for hours.
+- Save the settings.
 
 ## Calculator Configuration
 
--   Now that the Tibber connection is up and running, you can also leverage the Calculator to incorporate additional automation features into the TibberLink adapter.
--   The Calculator operates using channels, with each channel linked to a selected home.
--   These channels can be activated or deactivated based on corresponding states.
--   These states are designed to serve as external, dynamic inputs for TibberLink, allowing you to, for example, adjust the marginal cost ("TriggerPrice") from an external source or disable the calculator channel ("Active").
--   The states of a calculator channel are positioned adjacent to the home states and named according to the channel number. Hereby the channelname choosen in admin screen is shown here to better identify your configurations.  
-    ![Calculator States](docu/calculatorStates.png)
--   The behavior of each channel is determined by its type: "best cost (LTF)", "best single hours (LTF)", "best hours block (LTF)" or "smart battery buffer".
--   Each channel populates one or two external states as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writeable external state.
--   If no external output state is selected, an internal state within the channel's range will be created.
--   The values to be written to the output state can be defined in "value YES" and "value NO," e.g., "true" for boolean states or a number or text to be written.
--   Outputs:
-    -   "Best cost": Utilizes the "TriggerPrice" state as input, producing a "YES" output every hour when the current Tibber energy cost is below the trigger price.
-    -   "Best single hours": Generates a "YES" output during the least expensive hours, with the number defined in the "AmountHours" state.
-    -   "Best hours block": Outputs "YES" during the most cost-effective block of hours, with the number of hours specified in the "AmountHours" state.  
-        Additionally, the average total cost in the determined block is written to a state "AverageTotalCost" nearby the input states of this channel. Also start and end hour of the block is written to "BlockStartFullHour" and "BlockEndFullHour" as a result of the calculation.
-    -   "Best cost LTF": "Best cost" within a Limited Time Frame (LTF).
-    -   "Best single hours LTF": "Best single hours" within a Limited Time Frame (LTF).
-    -   "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
-    -   "Smart Battery Buffer": Utilize the "EfficiencyLoss" parameter to specify the efficiency loss of the battery system. The "EfficiencyLoss" parameter can range from 0 to 1, where 0 represents no efficiency loss and 1 represents complete efficiency loss. For example, a value of 0.25 indicates a 25% efficiency loss for a charge/discharge cycle.  
-        Use the "AmountHours" parameter to input the desired number of hours for battery charging. The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest hours. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during hours with the highest cost, provided the cost is higher than the highest total price among the cheap hours. In the remaining normal hours where energy buffering by the battery is not economically viable, both outputs will be switched off.
--   LTF channels: Function similarly to standard channels but only operate within a time frame defined by the "StartTime" and "StopTime" state objects. After "StopTime," the channel deactivates itself. "StartTime" and "StopTime" may span over several days. The states must be filled with a date-time string in ISO-8601 format with a timezone offset, such as: "2024-01-17T21:00:00.000+01:00". Additionally, the channels have a new state parameter called "RepeatDays," which is set to 0 by default. If "RepeatDays" is set to a positive integer value, the channel will repeat its cycle by increasing both StartTime and StopTime by the number of days specified in "RepeatDays", once StopTime is reached. E.g. For daily repetition, set "RepeatDays" to 1."
+- Now that the Tibber connection is up and running, you can also leverage the Calculator to incorporate additional automation features into the TibberLink adapter.
+- The Calculator operates using channels, with each channel linked to a selected home.
+- These channels can be activated or deactivated based on corresponding states.
+- These states are designed to serve as external, dynamic inputs for TibberLink, allowing you to, for example, adjust the marginal cost ("TriggerPrice") from an external source or disable the calculator channel ("Active").
+- The states of a calculator channel are positioned adjacent to the home states and named according to the channel number. Hereby the channelname choosen in admin screen is shown here to better identify your configurations.  
+  ![Calculator States](docu/calculatorStates.png)
+- The behavior of each channel is determined by its type: "best cost (LTF)", "best single hours (LTF)", "best hours block (LTF)" or "smart battery buffer".
+- Each channel populates one or two external states as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writeable external state.
+- If no external output state is selected, an internal state within the channel's range will be created.
+- The values to be written to the output state can be defined in "value YES" and "value NO," e.g., "true" for boolean states or a number or text to be written.
+- Outputs:
+    - "Best cost": Utilizes the "TriggerPrice" state as input, producing a "YES" output every hour when the current Tibber energy cost is below the trigger price.
+    - "Best single hours": Generates a "YES" output during the least expensive hours, with the number defined in the "AmountHours" state.
+    - "Best hours block": Outputs "YES" during the most cost-effective block of hours, with the number of hours specified in the "AmountHours" state.  
+      Additionally, the average total cost in the determined block is written to a state "AverageTotalCost" nearby the input states of this channel. Also start and end hour of the block is written to "BlockStartFullHour" and "BlockEndFullHour" as a result of the calculation.
+    - "Best cost LTF": "Best cost" within a Limited Time Frame (LTF).
+    - "Best single hours LTF": "Best single hours" within a Limited Time Frame (LTF).
+    - "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
+    - "Smart Battery Buffer": Utilize the "EfficiencyLoss" parameter to specify the efficiency loss of the battery system. The "EfficiencyLoss" parameter can range from 0 to 1, where 0 represents no efficiency loss and 1 represents complete efficiency loss. For example, a value of 0.25 indicates a 25% efficiency loss for a charge/discharge cycle.  
+      Use the "AmountHours" parameter to input the desired number of hours for battery charging. The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest hours. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during hours with the highest cost, provided the cost is higher than the highest total price among the cheap hours. In the remaining normal hours where energy buffering by the battery is not economically viable, both outputs will be switched off.
+- LTF channels: These operate similarly to standard channels but are active only within a time frame defined by the 'StartTime' and 'StopTime' state objects. After 'StopTime,' the channel automatically deactivates. 'StartTime' and 'StopTime' can span two calendar days, as Tibber does not provide data beyond a 48-hour window. Both states require a date-time string in ISO-8601 format with a timezone offset, e.g., '2024-12-24T18:00:00.000+01:00'." Additionally, the LTF channels feature a new state parameter called 'RepeatDays,' which defaults to 0. When 'RepeatDays' is set to a positive integer, the channel will repeat its cycle by incrementing both 'StartTime' and 'StopTime' by the specified number of days after 'StopTime' is reached. For example, set 'RepeatDays' to 1 for daily repetition.
 
 ### Hints
 
@@ -106,284 +106,194 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 3.5.3 (2024-11-xx) - WiP
+### 4.1.0 (2024-12-15)
 
--   (HombachC) update deprecated state calls
--   (HombachC) add await to delObjectAsync
--   (HombachC) harmonize project tools
--   (HombachC) dependency updates
+- (HombachC) enable local poll also without Token (#613)
+- (HombachC) split jsonConfig.json to multiple files
+- (HombachC) fix typo in translation handling
+- (HombachC) bump cron
+
+### 4.0.0 (2024-12-08)
+
+- (HombachC) BREAKING: dropped support for ioBroker.admin < 7.0.0 because of ioBroker Responsive Design Initiative (#544)
+- (HombachC) redesigned admin tab for calculator
+- (HombachC) optimize translations, added more tooltips
+- (HombachC) fix repeated calculation of LTF channels (#593)
+- (HombachC) added BlockStart / BlockEnd as date string (#516)
+- (HombachC) throttle sentry messaging
+- (HombachC) add prices yesterday (#600)
+
+### 3.5.4 (2024-12-01)
+
+- (HombachC) add warning when LTF stop time isn't same or next day and provide docu
+- (HombachC) fix error in calculator channel 'best single hours' (#594)
+- (HombachC) intruduce 'iobroker/eslint-config' (#591)
+- (HombachC) performance optimizations
+- (HombachC) dependency updates
+
+### 3.5.3 (2024-11-23)
+
+- (HombachC) fix edge case in output state setup and usage
+- (HombachC) optimzed state subscription
+- (HombachC) update deprecated state calls
+- (HombachC) add await to delObjectAsync
+- (HombachC) harmonize project tools
+- (HombachC) dependency updates
 
 ### 3.5.2 (2024-10-30)
 
--   (HombachC) add verification for YES/NO 2 values in calculator (#547)
--   (HombachC) optimized responsive design (#544)
--   (HombachC) migrate eslint to >9.x
--   (HombachC) switch to ES2022 code
--   (HombachC) adapted to new API constraints (#546)
--   (HombachC) replace deprecated setStateAsync by setState
+- (HombachC) add verification for YES/NO 2 values in calculator (#547)
+- (HombachC) optimized responsive design (#544)
+- (HombachC) migrate eslint to >9.x
+- (HombachC) switch to ES2022 code
+- (HombachC) adapted to new API constraints (#546)
+- (HombachC) replace deprecated setStateAsync by setState
 
 ### 3.5.1 (2024-10-05)
 
--   (HombachC) changed to less feed disconnection warnings in log (#445)
--   (HombachC) fix error in output2 of smart battery buffer (#538)
--   (HombachC) update deprecated state calls
--   (HombachC) dependency updates
+- (HombachC) changed to less feed disconnection warnings in log (#445)
+- (HombachC) fix error in output2 of smart battery buffer (#538)
+- (HombachC) update deprecated state calls
+- (HombachC) dependency updates
 
 ### 3.5.0 (2024-10-02)
 
--   (HombachC) update adapter core
--   (HombachC) fix error in SML decoder
--   (HombachC) add 2 new SML scale factor codes (#535)
--   (HombachC) dependency updates
+- (HombachC) update adapter core
+- (HombachC) fix error in SML decoder
+- (HombachC) add 2 new SML scale factor codes (#535)
+- (HombachC) dependency updates
 
 ### 3.4.10 (2024-09-16)
 
--   (HombachC) add verification of poll interval (#518)
--   (HombachC) bumb date-fns to 4.0.0
+- (HombachC) add verification of poll interval (#518)
+- (HombachC) bumb date-fns to 4.0.0
 
 ### 3.4.9 (2024-09-15)
 
--   (HombachC) add adjustable Bridge poll intervall (#518)
--   (HombachC) add node.js 22 to the adapter testing (#519)
--   (HombachC) add docu link to config screen (#504)
--   (HombachC) repository cleanup
--   (HombachC) dependency updates
+- (HombachC) add adjustable Bridge poll intervall (#518)
+- (HombachC) add node.js 22 to the adapter testing (#519)
+- (HombachC) add docu link to config screen (#504)
+- (HombachC) repository cleanup
+- (HombachC) dependency updates
 
 ### 3.4.8 (2024-08-16)
 
--   (HombachC) updated axios because of vulnerability
--   (HombachC) added tests for Node.js 22
+- (HombachC) updated axios because of vulnerability
+- (HombachC) added tests for Node.js 22
 
 ### 3.4.7 (2024-08-10)
 
--   (HombachC) adapter checker detected optimizations (#493)
--   (HombachC) improved error message (#490)
+- (HombachC) adapter checker detected optimizations (#493)
+- (HombachC) improved error message (#490)
 
 ### 3.4.6 (2024-08-07)
 
--   (HombachC) Catch wrong OBIS Codes, probably caused by Pulse communication errors
--   (HombachC) code cleanup
+- (HombachC) Catch wrong OBIS Codes, probably caused by Pulse communication errors
+- (HombachC) code cleanup
 
 ### 3.4.5 (2024-07-31)
 
--   (HombachC) decode meter mode 4 for local Tipper Pulse poll (#477)
--   (HombachC) decode meter mode 1 for local Tipper Pulse poll (#478)
--   (HombachC) fixed wrong Pulse local status names (voltage)
--   (HombachC) add docu on local Pulse poll config screen (#479)
--   (HombachC) code cleanup
--   (HombachC) bump dependencies
+- (HombachC) decode meter mode 4 for local Tipper Pulse poll (#477)
+- (HombachC) decode meter mode 1 for local Tipper Pulse poll (#478)
+- (HombachC) fixed wrong Pulse local status names (voltage)
+- (HombachC) add docu on local Pulse poll config screen (#479)
+- (HombachC) code cleanup
+- (HombachC) bump dependencies
 
 ### 3.4.4 (2024-07-28)
 
--   (HombachC) local poll of data - change units Wh to kWh and round to 0,1kWh (#469)
+- (HombachC) local poll of data - change units Wh to kWh and round to 0,1kWh (#469)
 
 ### 3.4.3 (2024-07-14)
 
--   (HombachC) added unit to Pulse temperature and round to 0,1°C
--   (HombachC) added unit to Pulse battery voltage and round to 100mV
--   (HombachC) added unit to Pulse uptime
--   (HombachC) added state with Pulse uptime as human readable string
--   (HombachC) reinitialize some TibberLocal states upon adapter startup
--   (HombachC) code optimisation
--   (HombachC) bump dependencies
+- (HombachC) added unit to Pulse temperature and round to 0,1°C
+- (HombachC) added unit to Pulse battery voltage and round to 100mV
+- (HombachC) added unit to Pulse uptime
+- (HombachC) added state with Pulse uptime as human readable string
+- (HombachC) reinitialize some TibberLocal states upon adapter startup
+- (HombachC) code optimisation
+- (HombachC) bump dependencies
 
 ### 3.4.2 (2024-07-13)
 
--   (HombachC) fix typos in units
--   (HombachC) fix type mismatch for state objects (#455)
--   (HombachC) code optimisation
+- (HombachC) fix typos in units
+- (HombachC) fix type mismatch for state objects (#455)
+- (HombachC) code optimisation
 
 ### 3.4.1 (2024-07-13)
 
--   (HombachC) fix logging error
--   (HombachC) bump dependencies
+- (HombachC) fix logging error
+- (HombachC) bump dependencies
 
 ### 3.4.0 (2024-07-12)
 
--   (HombachC) add mode for local poll of Pulse data (#201)
+- (HombachC) add mode for local poll of Pulse data (#201)
 
 ### 3.3.3 (2024-07-04)
 
--   (HombachC) fix sentry notified possible error
--   (HombachC) try to fix startup error (#444)
+- (HombachC) fix sentry notified possible error
+- (HombachC) try to fix startup error (#444)
 
 ### 3.3.2 (2024-06-21)
 
--   (HombachC) fix 2 security issues in dependencies
--   (HombachC) fix sentry notified possible error
+- (HombachC) fix 2 security issues in dependencies
+- (HombachC) fix sentry notified possible error
 
 ### 3.3.1 (2024-06-13)
 
--   (HombachC) fix small sentry discovered error (#418)
--   (HombachC) added note for multihomes to documentation (#422)
+- (HombachC) fix small sentry discovered error (#418)
+- (HombachC) added note for multihomes to documentation (#422)
 
 ### 3.3.0 (2024-06-05)
 
--   (HombachC) implements optional, obsolete api call for total historical cost, incl. grid fees (#405)
--   (HombachC) Updates @iobroker/adapter-core from 3.1.6
--   (HombachC) Updates @iobroker/types from 5.0.19 to 6.0.0
+- (HombachC) implements optional, obsolete api call for total historical cost, incl. grid fees (#405)
+- (HombachC) Updates @iobroker/adapter-core from 3.1.6
+- (HombachC) Updates @iobroker/types from 5.0.19 to 6.0.0
 
 ### 3.2.1 (2024-06-03)
 
--   (HombachC) added unique endpoint string
+- (HombachC) added unique endpoint string
 
 ### 3.2.0 (2024-06-03)
 
--   (HombachC) IMPORTANT: adapter components had been blocked by Tibber - you have to update!
--   (HombachC) bump base dependencies
--   (HombachC) adapter will use internal output states for calculator if none defined in configuration (#325)
--   (HombachC) implement first run mode in calculator to reduce system load
--   (HombachC) internal optimisations
+- (HombachC) IMPORTANT: adapter components had been blocked by Tibber - you have to update!
+- (HombachC) bump base dependencies
+- (HombachC) adapter will use internal output states for calculator if none defined in configuration (#325)
+- (HombachC) implement first run mode in calculator to reduce system load
+- (HombachC) internal optimisations
 
 ### 3.1.2 (2024-05-20)
 
--   (HombachC) deleting unused temp home objects after adapter config (#393)
--   (HombachC) bump dependencies
+- (HombachC) deleting unused temp home objects after adapter config (#393)
+- (HombachC) bump dependencies
 
 ### 3.1.1 (2024-05-16)
 
--   (HombachC) throttle down reconnection speed
--   (HombachC) logging optimizations (#396; #217)
--   (HombachC) adaptations to newer environment (#394; #395)
+- (HombachC) throttle down reconnection speed
+- (HombachC) logging optimizations (#396; #217)
+- (HombachC) adaptations to newer environment (#394; #395)
 
 ### 3.1.0 (2024-05-07)
 
--   (HombachC) enable manual control of configured outputs when automation is deactivated (#334)
--   (HombachC) fix not working LTF Channel when using too short LTF (#383)
--   (HombachC) code optimisations
--   (HombachC) update adapter-core to 3.1.4
--   (HombachC) bump dependencies
+- (HombachC) enable manual control of configured outputs when automation is deactivated (#334)
+- (HombachC) fix not working LTF Channel when using too short LTF (#383)
+- (HombachC) code optimisations
+- (HombachC) update adapter-core to 3.1.4
+- (HombachC) bump dependencies
 
 ### 3.0.1 (2024-04-20)
 
--   (HombachC) updated adapter testing
--   (HombachC) bump dependencies
+- (HombachC) updated adapter testing
+- (HombachC) bump dependencies
 
 ### 3.0.0 (2024-04-15)
 
--   (HombachC) BREAKING: dropped support for node.js 16 (#368)
--   (HombachC) BREAKING: js-controller >= 5 is required
--   (HombachC) changed to tier 2 as data provider
--   (HombachC) corrected io-package.json according to new schema (#368)
--   (HombachC) update typescript to 5.4.5
--   (HombachC) update adapter-core to 3.0.6
-
-### 2.3.2 (2024-03-17)
-
--   (HombachC) code optimizations
--   (HombachC) fix undefined force mode (#349)
--   (HombachC) fix poll of not existing current price state (#348)
--   (HombachC) fix current price poll when configured as not to poll (#350)
--   (HombachC) bump dependencies
-
-### 2.3.1 (2024-03-10)
-
--   (HombachC) BREAKING: Calculator channels of type 'smart battery buffer' will now switch outputs to 'OFF' only once, directly after setting the channel to Active=false (#332)
--   (HombachC) Fixed error in jsonConfig.json (#329)
--   (HombachC) deleted feed disconnect debug-message, cause warn message already exists
--   (HombachC) bump typescript-eslint to gen 7
--   (HombachC) bump dependencies
-
-### 2.2.2 (2024-02-19)
-
--   (HombachC) simplify internal state handling
--   (HombachC) shorten home string in Calculator screen (#317)
--   (HombachC) fix feedback loop trap (#321)
--   (HombachC) add some tooltips to config screen (#317)
-
-### 2.2.1 (2024-02-08)
-
--   (HombachC) fix edge case problems with defect feed data from Tibber server (#312)
--   (HombachC) bump dependencies
-
-### 2.2.0 (2024-02-04)
-
--   (HombachC) add data points for BestHoursBlock results - period and average cost (#240)
--   (HombachC) fixed wrong error message texts
--   (HombachC) fix some possible edge cases in internal support functions
--   (HombachC) internal code docu optimization
--   (HombachC) bump dependencies
-
-### 2.1.1 (2024-01-27)
-
--   (HombachC) fix reconnect error for Pulse feed (#300)
--   (HombachC) new error message handler
--   (HombachC) internal code docu optimization
-
-### 2.1.0 (2024-01-21)
-
--   (HombachC) add repeatablity for LTF channels (#289)
--   (HombachC) tweak Smart Battery Buffer documentation
-
-### 2.0.1 (2024-01-15)
-
--   (HombachC) modify timing in Tibber Pulse feed connect (#271)
--   (HombachC) bump dependencies
-
-### 2.0.0 (2023-12-23)
-
--   (HombachC) BREAKING: dropped support for js-controller 3.x (#247)
--   (HombachC) diversificate Tibber server polls to prevent potential DDoS reactions (#252)
--   (HombachC) add data point for averageRemaining of todays prices (#254)
--   (HombachC) add 2 data points for last successfull update of today and tomorrow prices (#261)
--   (HombachC) year 2024 changes
--   (HombachC) fix small error in dynamic feed timing
--   (HombachC) bump dependencies
-
-### 1.8.1 (2023-12-16)
-
--   (HombachC) add notice about changes in configuration
-
-### 1.8.0 (2023-12-14)
-
--   (HombachC) implement optional disable of price pull (#232)
--   (HombachC) implement price categorization algorithm for battery buffer applications (#193)
--   (HombachC) Fix 2 errors in pull of prices tomorrow (#235, #232)
--   (HombachC) changed Tibber link in config
-
-### 1.7.2 (2023-12-07)
-
--   (HombachC) implemented dynamic raise of feed reconnect (#225)
--   (HombachC) small bugfix in pricecalls
--   (HombachC) first changes for "smart battery buffer" (#193)
--   (HombachC) update typescript to 5.3.3
-
-### 1.7.1 (2023-12-04)
-
--   (HombachC) added hint for consumption data in documentation (#223)
--   (HombachC) mitigate error handling (#217)
--   (HombachC) added description to object Features/RealTimeConsumptionEnabled (#224)
--   (HombachC) bump dependencies
-
-### 1.7.0 (2023-11-30)
-
--   (HombachC) implement getting historical consumption data from Tibber Server (#163)
--   (HombachC) fix error in adapter unload
--   (HombachC) some code optimisations
-
-### 1.6.1 (2023-11-26)
-
--   (HombachC) cleanup in documentation and translation handling
-
-### 1.6.0 (2023-11-26)
-
--   (HombachC) fixed major bug in 1.5.0, not working calculator channels (#212)
--   (HombachC) implement limit calculations to a time frame (#153)
--   (HombachC) fix error of missing price data upon not working tibber server connect at adapter start (#204)
--   (HombachC) fixed possible error with wrong price date in multi home systems
--   (HombachC) fixed possible type error, notified by Sentry
--   (HombachC) added some documentation for inverse use of channels (#202)
--   (HombachC) added Sentry statistics
--   (HombachC) optimize translation handling
--   (HombachC) bump dependencies
-
-### 1.5.0 (2023-11-13)
-
--   (HombachC) implement calculator channel names (#186)
--   (HombachC) fix error in cron jobs (#190)
--   (HombachC) remove not used calculator channel state objects (#188)
--   (HombachC) code optimizations
--   (HombachC) optimize translation handling
+- (HombachC) BREAKING: dropped support for node.js 16 (#368)
+- (HombachC) BREAKING: js-controller >= 5 is required
+- (HombachC) changed to tier 2 as data provider
+- (HombachC) corrected io-package.json according to new schema (#368)
+- (HombachC) update typescript to 5.4.5
+- (HombachC) update adapter-core to 3.0.6
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

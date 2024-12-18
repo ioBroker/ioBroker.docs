@@ -3,52 +3,88 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-hash: 5lVnGUkghKSehN1aDAMXEmrP6XnAxenBvUzyN+8W8ko=
+hash: C4rl3bXQrmgGF+0eIr5/8HlxNQ8nID2RmybFX4Boyb4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-2-widgets-jaeger-design-stable.svg)
 ![версия НПМ](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
-![НПМ](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
 # Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-![ютуб](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.png)
+![ютуб](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.jpg)
 
 Видеоролик об использовании виджетов можно найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ) (на немецком языке).
 
-Видео с виджетами можно найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ).
+Если вы хотите использовать виджеты для видео, вы можете найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ).
 
-Das Video wie man die Widgets benutzt kann man [здесь](https://youtu.be/Rplr2Ba-G7o) (на немецком языке) (TEIL2)
+Das Video wie die Widgets benutzt werden können, kann man [здесь](https://youtu.be/Rplr2Ba-G7o) (на немецком языке) (TEIL2)
 
-## Виджеты
-### Кнопки и переключатели
-### Актуальные новости
-![Актуальные новости](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/news.png)
+## Übersicht zur Erstellung einer Smart Home Oberfläche mit dem «VIS-2 JAEGER Design Adaptor»
+### Предварительные настройки
+- Система Ein ioBroker
+- Адаптер Der Jäger Design (около 50 евро)
+- Grundkenntnisse im Umgang mit ioBroker
 
-Для использования этого виджета вам необходимо создать небольшой скрипт в адаптере Javascript:
+### Введение
+Адаптер Jäger Design лежит в основе адаптера vis-2 и является удобным для использования, если вы хотите установить его с помощью щелчка и падения. Дополнительные виджеты можно использовать и использовать для создания умного дома.
 
-```
-const axios = require('axios');
+### Грундауфбау дер Оберфлече
+Die Oberfläche besteht aus mehreren Bereichen:
 
-function readRss() {
-    axios('https://www.n-tv.de/rss')
-        .then(resp => setState('javascript.0.rss', resp.data.toString(), true));
-}
+- **Hauptmenü**: Ссылки находятся ниже, чем в Hauptmenüpunkten, где einfach angelegt werden können.
+- **Statusleiste**: Oben können verschiedene wichtige Statusanzeigen hinzugefügt werden.
+- **Mittlerer Bereich**: Hier können Szenen, Aktionen und Hinweise angezeigt werden. Die rechte Seite - это свободный гештальтбар и канн Informationen wie Sicherheit, Wetter, Hausgeräte und Energieverbrauch anzeigen.
 
-createState('javascript.0.rss', {type: 'string'}, () => {
-    setInterval(() => readRss(), 60000 * 60 * 2); // update rss every 2 hours
-    readRss();
-});
-```
+![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
 
-А затем используйте объект `javascript.0.rss` в этом виджете.
+### Белеухтунг
+Im Hauptmenü können verschiedene Stockwerke ausgewählt werden. Der Grundriss des Erdgeschosses zeigt alle Lichter, die durch Icons dargestellt werden. Некоторые значки могут отображаться только в том случае, если они используются, где и когда они затемнены. Нажмите на значок, чтобы открыть всплывающее окно с слайдером для выбора цвета.
+![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Beleuchtungsszenen auf der rechten Seite können einfach abgerufen und auch Lichteinstellungen Gespeichert werden: ![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
+
+### Ролладен
+В меню «Rolladen» можно включить функцию Beschattung gesehen werden. Значки отображаются в высоком разрешении и при нажатии на значок открывается всплывающее окно для изменения высоты и рамок.
+![Beschattung-iobroker-умный дом](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
+
+### Энергия
+В меню «Энергия» указана температура в помещении, где температура нагревается. Значки Zeigen die Ist- und Solltemperaturen sowie den Zustand der Heizung und Fenster an. Нажмите на значок, чтобы открыть всплывающее окно для изменения температуры и настройки температуры, чтобы активировать климатические условия или теплые условия.
+![iobroker-jaeger-design-raumtemperatur_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
+
+![iobroker-jaeger-design-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
+
+### Безопасность
+В меню «Sicherheit» можно нажать кнопку «Зустанд дер Фенстер». Geöffnete Fenster werden rot dargestellt.
+![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
+
+### Дополнительные функции
+Es können auch frei definierte Oberflächen erstellt werden, wie z.B. Информация об адаптерах «потребление» или информация о Nightscout для диабетиков. В меню «Настройки» можно увидеть различные варианты выбора.
+![iobroker-jaeger-design-energieueberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
+
+![iobroker-jaeger-design-диабет](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
+
+![iobroker-jaeger-design-einstellungen](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
+
+### Обучающие материалы на YouTube
+Для получения подробной информации и получения дополнительной информации см. ссылки на обучающие материалы YouTube.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.3.9 (2024-12-05)
+* (bluefox) Corrected confirmation dialog. Close now works
+* (bluefox) Caught the possible error in thermostat
+
+### 1.3.6 (2024-12-04)
+* (bluefox) Corrected the icon dialog
+* (bluefox) Corrected the ID select dialog
+* (bluefox) Corrected the scene buttons
+
+### 1.3.3 (2024-11-25)
+* (bluefox) Corrected "close on click" option for shutter and dimmer
+* (bluefox) Improved the build pipeline
+
 ### 1.3.1 (2024-09-23)
 * (bluefox) Removed gulp from a build process
 * (bluefox) Added the possibility to select camera from the "cameras" adapter

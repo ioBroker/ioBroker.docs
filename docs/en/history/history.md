@@ -663,3 +663,32 @@ https://github.com/simatec/ioBroker.remeha-home
 
 The ioBroker.remeha-home adapter enables the integration and control of Remeha heating systems via the Remeha Home platform. The adapter continuously connects to the Remeha Home API and retrieves current data to make it available in the ioBroker system. This allows the heating system to be optimally monitored and controlled.
 
+
+## vis-2-widgets-ovarious (12.11.2024) – new adapter at stable
+https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious
+
+<img src="https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious/blob/main/admin/vis-2-widgets-ovarious.png" width="100" height="100" />
+
+This adapter contains various vis-2 widgets. Ok, actually, there is only one vis-2 widget, but some more are on the roadmap.
+
+## gotify (16.11.2024) – new adapter at stable
+https://github.com/ThomasPohl/ioBroker.gotify
+
+<img src="https://github.com/ThomasPohl/ioBroker.gotify/blob/main/admin/gotify.png" width="100" height="100" />
+
+Send push notifications from ioBroker to Gotify.
+
+## google-spreadsheet (3.12.2024) – new adapter at stable
+https://github.com/ThomasPohl/ioBroker.google-spreadsheet
+
+<img src="https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
+
+This adapter can be used to automatically interact with google spreadsheets.
+
+## minuaru (3.12.2024) – new adapter at stable
+https://github.com/minukodu/ioBroker.minuaru
+
+<img src="hhttps://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
+
+alarmsystem for ioBroker and minuvis
+

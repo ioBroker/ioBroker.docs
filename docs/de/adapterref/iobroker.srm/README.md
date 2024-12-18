@@ -2,53 +2,46 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.srm/README.md
-title: kein Titel
-hash: pLlh+ui3ZfivVM1E7leCbSJ2rIsCIuyRLCK5yZuStuk=
+title: ioBroker Synology Router Manager Adapter
+hash: YFS3n/Q8ayDhk8BKLmS4F+wW3GgcS/oBIPlGbrPADXQ=
 ---
-![](../../../en/adapterref/iobroker.srm/admin/synology.png)
+![Logo](../../../en/adapterref/iobroker.srm/admin/synology.png)
 
-## Inhaltsverzeichnis
-- [Einführung](#Einführung)
-- [Nutzung](#Nutzung)
-- [Revisionsverlauf](#Revision-History)
+![Anzahl der Installationen](http://iobroker.live/badges/srm.svg)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.srm.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.srm.svg)
 
-<a name="Introduction"></a>
+# IoBroker Synology Router Manager Adapter
+![Testen und Freigeben](https://github.com/iobroker-community-adapters/iobroker.srm/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/srm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Einführung
-Dies ist ein iobroker-Adapter zur Verbindung mit [Synologie](https://www.synology.com/) Routern. Der Adapter nutzt die Synology API, um die Daten abzurufen. Der Adapter wurde mit der SRM-Version 1.3.1 getestet. und Router-Modell RT6600, sollte aber auch mit anderen Modellen funktionieren.
-
-Dank an
-
-* [Nocilas](https://github.com/nioc), der den Connector für die Synology API bereitstellt.
-* Die unzähligen iobroker-Adapter, die ich als Vorlage verwendet habe, insbesondere [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt).
-
-<a name="Requirements"></a>
+## Beschreibung
+Dies ist ein iobroker-Adapter zum Verbinden mit [Synology](https://www.synology.com/)-Routern. Der Adapter verwendet die Synology-API, um die Daten abzurufen. Der Adapter wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
 
 ## Verwendung
 ### Installation
-Erstellen Sie eine neue Instanz des Adapters und geben Sie die IP-Adresse Ihres Routers ein. Der Port ist standardmäßig 8001. Geben Sie den Benutzernamen und das Passwort Ihres Routers ein. Stellen Sie sicher, dass der Benutzer nicht 2FA verwendet.
+Erstellen Sie eine neue Instanz des Adapters und geben Sie die IP-Adresse Ihres Routers ein. Der Port ist standardmäßig 8001. Geben Sie den Benutzernamen und das Passwort Ihres Routers ein. Stellen Sie sicher, dass der Benutzer keine 2FA verwendet.
 
 ### Objekte
 Der Adapter erstellt die folgenden Objekte:
 
-## Router
+#### Router
 * IPV4_IP: IP4-Adresse des Routers
 * IPV4_status: Status der IPV4-Verbindung
 * IPV6_IP: IP6-Adresse des Routers
 * IPV6_status: Status der IPV4-Verbindung
 
-## Geräte
-JSON-Tabelle für die folgenden Gerätezustände:
+#### Geräte
+JSON-Tabelle für folgende Gerätezustände:
 
-* alle: Alle bekannten Geräte
+* all: Alle bekannten Geräte
 * Mesh: Alle Mesh-Geräte
 * online: Alle Online-Geräte
 * online_ethernet: Alle über Ethernet verbundenen Online-Geräte
-* Online-WLAN: Alle Online-Geräte, die über WLAN verbunden sind
+* Online-WLAN: Alle Online-Geräte sind über WLAN verbunden
 
-Jede JSON-Tabelle enthält die folgenden Objekte für jedes Gerät:
+Jede JSON-Tabelle enthält für jedes Gerät die folgenden Objekte:
 
-* Verbindung: Verbindungstyp (Eternet, WLAN)
+* Verbindung: Verbindungstyp (Ethernet, WLAN)
 * dev_type: Gerätetyp (Computer, Mobilgerät usw.)
 * Hostname: Hostname des Geräts
 * ip6_addr: IP6-Adresse des Geräts
@@ -61,16 +54,16 @@ Jede JSON-Tabelle enthält die folgenden Objekte für jedes Gerät:
 * is_manual_hostname: Ist der Hostname manuell festgelegt
 * is_online: Ist das Gerät online
 * is_qos_on: Ist QOS aktiviert
-* is_wireless: Ist das Gerät über WLAN verbunden?
+* is_wireless: Ist das Gerät über WLAN verbunden
 * mac: MAC-Adresse des Geräts
 * mesh_node_id: ID des Mesh-Knotens
 * mesh_node_name: Name des Mesh-Knotens
 
-## Die Info
+#### Informationen
 * Verbindung: Status der Verbindung zum Router
 
-## Gittergewebe
-Liste der Mesh-Knoten. Jeder Mesh-Knoten verfügt über die folgenden Objekte:
+#### Masche
+Liste der Mesh-Knoten. Jeder Mesh-Knoten hat die folgenden Objekte:
 
 * Band: Uplink-Band
 * connected_devices: Anzahl der verbundenen Geräte
@@ -83,23 +76,34 @@ Liste der Mesh-Knoten. Jeder Mesh-Knoten verfügt über die folgenden Objekte:
 * parent_node_id: ID des übergeordneten Knotens
 * signal_strength: Signalstärke
 
-## W-lan
-Liste der WLAN-Netzwerke und -Einstellungen. Die WLAN-Einstellungen können nur alle 3 Sekunden geändert werden, um widersprüchliche Änderungen zu vermeiden. Jeder Mesh-Knoten verfügt über die folgenden Objekte:
+#### W-lan
+Liste der WLAN-Netzwerke und -Einstellungen. WLAN-Einstellungen können nur alle 3 Sekunden geändert werden, um widersprüchliche Änderungen zu vermeiden. Jeder Mesh-Knoten hat die folgenden Objekte:
 
-* aktivieren: WLAN-Netzwerk aktivieren (Lesen/Schreiben)
-* enable_client_isolation: Client-Isolation aktivieren (Lesen/Schreiben)
-* hide_ssid: WLAN-SSID ausblenden (Lesen/Schreiben)
+* enable: WLAN-Netzwerk aktivieren (Lesen/Schreiben)
+* enable_client_isolation: Client-Isolierung aktivieren (Lesen/Schreiben)
+* hide_ssid: Verbergen der WLAN-SSID (lesen/schreiben)
 * mac_filter: MAC-Filter aktivieren (lesen)
-* Schedule_enable: Zeitplan für Netzwerk aktivieren (Lesen/Schreiben)
+* schedule_enable: Zeitplan für Netzwerk aktivieren (lesen/schreiben)
 
-### Wachposten
-Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet? `Sentry.io` ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter umgesetzt.
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von @stephan1827 (https://github.com/stephan18277) nicht möglich gewesen, der die Originalversionen dieses Adapters entwickelt hat.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
+Dank an
 
-<a name="Revision-History"></a>
+* [Nocilas](https://github.com/nioc), Anbieter des Connectors für die Synology-API.
+* Die unzähligen Iobroker-Adapter, die ich als Vorlage verwendet habe, insbesondere [asuswrt](https://github.com/mcdhrts/ioBroker.asuswrt).
+
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.0.0 (2024-12-12)
+- (mcm1957) Adapter has been moved into iobroker-community-adapters organization
+- (mcm1957) Adapter requires node.js 20 now.
+- (mcm1957) Adapter requires js-controller 5 and admin 6 now.
+- (mcm1957) Dependencies have been updated.
+
 ### 0.2.0 (2023-12-27)
 - Added new section for WIFI settings. Some settings can be changed via the adapter.
 - Account for different API versions
@@ -131,7 +135,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2023 stephan stricker <stephan.stricker@outlook.com>
+Copyright (c) 2024 stephan stricker <stephan.stricker@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

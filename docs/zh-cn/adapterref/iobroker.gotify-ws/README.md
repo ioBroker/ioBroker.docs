@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: oXPHjuHMHoLLlEzMSLVDiPX/+sdFb6o14PVXKItzbxo=
+hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
 ---
 ![标识](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -56,7 +56,7 @@ Spotify-WS 目前支持以下通知服务
 ## 适配器配置
 适配器的配置非常简单。
 
-您在 Gotify 服务器上创建一个新客户端，并复制客户端生成的令牌。
+您在 Gotify 服务器上创建一个新客户端并复制客户端生成的令牌。
 您在 Gotify-WS 适配器配置中输入此令牌。
 Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
@@ -64,14 +64,21 @@ Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
 然后，您可以配置您选择的通知服务进行转发。
 
---- <!-- ### **正在进行中** -->
-
-### **正在进行中**
-*（simatec）依赖项已更新
-*（simatec）响应式设计修复
-*（simatec）已添加问题操作
+---
 
 ## Changelog
+<!-- ### **WORK IN PROGRESS** -->
+
+### **WORK IN PROGRESS**
+* (simatec) eslint-config fix
+* (simatec) Code fix
+
+### 0.1.10 (2024-11-24)
+* (simatec) Dependencies updated
+* (simatec) Responsive Design fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
 ### 0.1.9 (2024-09-26)
 * (simatec) Fix for admin 7.1.5
 

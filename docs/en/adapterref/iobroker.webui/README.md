@@ -129,6 +129,15 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.20.1 (2024-12-03)
+- fix in designer with svgs
+
+### 1.20.0 (2024-12-03)
+- add a few packages
+- run simple script cmd and update get parent screen
+- update packages, downgrade monaco
+- fix backup
+
 ### 1.19.4 (2024-11-03)
 - copy & paste events
 

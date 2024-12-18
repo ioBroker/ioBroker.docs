@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.net/#ru/blog</link>
-        <lastBuildDate>Tue, 01 Oct 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 23 Nov 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Обзор встречи сообщества к 10-летию ioBroker]]></title>
+            <description><![CDATA[
+                <p>9 ноября 2024 года время наконец пришло: первая большая встреча сообщества ioBroker состоялась в «Gläserne Workshop» в Золингене. Несколько месяцев интенсивного планирования и организации принесли свои плоды – мероприятие увенчалось полным успехом.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#ru/blog/2024_11_23</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2024_11_23</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 23 Nov 2024 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Новости ioBroker – август и сентябрь 2024 г.]]></title>
             <description><![CDATA[

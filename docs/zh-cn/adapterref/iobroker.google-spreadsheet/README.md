@@ -3,24 +3,29 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-电子表格
-hash: zy+ofgh7dMJwoc0bOUlmGuQN5HzfEYHW+pBRxXwNzMg=
+hash: yoyuekYJi0ukMjQSCfcXiwUeUlNXwnHrjmD10whffSg=
 ---
 ![标识](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.google-spreadsheet.svg)
+![GitHub 许可证](https://img.shields.io/github/license/ThomasPohl/ioBroker.google-spreadsheet)
 ![下载](https://img.shields.io/npm/dm/iobroker.google-spreadsheet.svg)
-![安装数量](https://iobroker.live/badges/google-spreadsheet-installed.svg)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub 自最新版本以来的提交情况（按日期）](https://img.shields.io/github/commits-since/ThomasPohl/ioBroker.google-spreadsheet/latest)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub 问题](https://img.shields.io/github/issues/ThomasPohl/ioBroker.google-spreadsheet)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.google-spreadsheet.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/google-spreadsheet-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.google-spreadsheet.png?downloads=true)
+![安装数量](https://iobroker.live/badges/google-spreadsheet-installed.svg)
 
 #ioBroker.google-电子表格
-**测试：**![测试与发布](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/workflows/Test%20and%20Release/badge.svg)
+**版本：** </br> </br> **测试：** </br> [![测试和发布]（https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg）](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml)
 
 ## IoBroker 的 google-spreadsheet 适配器
 该适配器可用于自动与谷歌电子表格交互。
 
 ＃＃ 特征
-* [将数据附加到电子表格]（features/append.md）
+* [将数据附加到电子表格](features/append.md)
 * [从电子表格中删除行](features/delete-rows.md)
 * [创建工作表](features/create-sheet.md)
 * [删除工作表](features/delete-sheet.md)
@@ -100,6 +105,9 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0
+* (Thomas Pohl) Minimum node.js version is now 20
+* (Thomas Pohl) Display connection state
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
@@ -111,7 +119,6 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 * (Thomas Pohl) Documentation for all features
 ### 0.2.0
 * (Thomas Pohl) Parsing of private keys is now more robust
-
 ### 0.1.0
 * (Thomas Pohl) Preparation for first stable release
 * (Thomas Pohl) Improve logging + Code cleanup

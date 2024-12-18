@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvпрограмма
-hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
+hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -45,7 +45,7 @@ hash: 2Iwm9tBRPU0AOSgknrgcWJJWVYPaXkPiX2lOH9fY+Sc=
 
 iobroker загрузить все
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных на cmd-datapoint.
+Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ----------------------- | --------------------- | ----------------------------------------------------- |
@@ -115,9 +115,9 @@ iobroker загрузить все
 ```
 
 #### Избранное
-Этот виджет показывает список избранного, отсортированный по дате и времени.
+Этот виджет отображает список избранного, отсортированный по дате и времени.
 
-Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных на cmd-datapoint.
+Для настройки в vis доступны следующие атрибуты. Минимальная настройка — установить точку данных в cmd-datapoint.
 
 | Атрибут | Пример | Описание |
 | ---------------- | ---------------------- | ----------------------------------------------------- |
@@ -138,7 +138,7 @@ iobroker загрузить все
 | `oid` | `tvprogram.0.tv1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
 | `time` | 20:15 | если бы время только трансляция в это время показывалась в течение 120 минут, то показывался бы следующий день |
 | `time` | 20:15/200 | если время с продолжительностью, то трансляция в это время будет показана в течение 200 минут |
-| `time` | 2021-02-15T20:15:00.000Z | Если допустимая Datestring, то будет показана трансляция в это время. Запомните часовые пояса |
+| `time` | 2021-02-15T20:15:00.000Z | Если действительная строка UTC-Datestring, то будет показана трансляция в это время. Запомните часовые пояса |
 | `heightRow` | 35 | Высота для каждой отображаемой строки |
 | `showpictures` | x | Показать фотографии, если они есть |
 | `broadcastfontpercent` | 75 | Размер символа в процентах для трансляций |
@@ -291,7 +291,7 @@ sendTo(
 );
 ```
 
-#### `getFavoritesDatax`
+#### `getFavoritesData`
 Запросить все избранные трансляции с текущего момента до окончания сохраненных данных.
 
 ##### Допустимые параметры:
@@ -304,7 +304,7 @@ sendTo(
 **Пример:**
 
 ```javascript
-sendTo("tvprogram.0", "getFavoritesDatax", ["heute", "Tagesschau"], (data) =>
+sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
   console.log(data),
 );
 ```
@@ -640,7 +640,7 @@ var timer = setInterval(function () {
 - скопировать текст из Detailview
 - положение маркера настраивается
 - ширина и высота диалогового окна настраиваются
-- Запись Datenpunkt, которую нужно выпить с Knopf mit Aufnahmedaten gefüllt wird
+- Datenpunkt Record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird.
 - Виджет для избранного
 - скрыть неизбранное
 
@@ -665,6 +665,12 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2024-11-24)
+
+- Change sento command from getFavoritesDatax to getFavoritesData
+- switch to eslint
+- complete rework of tvprogram to switch from callback to await
+
 ### 2.0.2 (2024-11-17)
 
 - fix jsonconfig

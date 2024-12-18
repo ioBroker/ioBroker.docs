@@ -1,14 +1,21 @@
 ![Logo](admin/google-spreadsheet.png)
 # ioBroker.google-spreadsheet
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.google-spreadsheet.svg)](https://www.npmjs.com/package/iobroker.google-spreadsheet)
+[![GitHub license](https://img.shields.io/github/license/ThomasPohl/ioBroker.google-spreadsheet)](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.google-spreadsheet.svg)](https://www.npmjs.com/package/iobroker.google-spreadsheet)
-![Number of Installations](https://iobroker.live/badges/google-spreadsheet-installed.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/ThomasPohl/ioBroker.google-spreadsheet/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/ThomasPohl/ioBroker.google-spreadsheet)
+![GitHub issues](https://img.shields.io/github/issues/ThomasPohl/ioBroker.google-spreadsheet)
+</br>
+**Version:** </br>
+[![NPM version](https://img.shields.io/npm/v/iobroker.google-spreadsheet.svg)](https://www.npmjs.com/package/iobroker.google-spreadsheet)
 ![Current version in stable repository](https://iobroker.live/badges/google-spreadsheet-stable.svg)
-
-[![NPM](https://nodei.co/npm/iobroker.google-spreadsheet.png?downloads=true)](https://nodei.co/npm/iobroker.google-spreadsheet/)
-
-**Tests:** ![Test and Release](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/workflows/Test%20and%20Release/badge.svg)
+![Number of Installations](https://iobroker.live/badges/google-spreadsheet-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ThomasPohl/ioBroker.google-spreadsheet/actions/workflows/test-and-release.yml)
 
 ## google-spreadsheet adapter for ioBroker
 
@@ -105,6 +112,9 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0
+* (Thomas Pohl) Minimum node.js version is now 20
+* (Thomas Pohl) Display connection state
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
@@ -116,7 +126,6 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 * (Thomas Pohl) Documentation for all features
 ### 0.2.0
 * (Thomas Pohl) Parsing of private keys is now more robust
-
 ### 0.1.0
 * (Thomas Pohl) Preparation for first stable release
 * (Thomas Pohl) Improve logging + Code cleanup

@@ -3,16 +3,15 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.minuaru/README.md
 title: ioBroker.minuaru
-hash: Y8P8DmEv8GI8h1IIllNtUvdR6tbzuWAA3Y/P2JvlavI=
+hash: V2vH7QJArTkThTgfrZTERi5mG6lqmvW1RWVMmfG2ZtQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.minuaru/admin/minuaru.png)
 
 ![версия НПМ](https://img.shields.io/npm/v/iobroker.minuaru.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.minuaru.svg)
-![НПМ](https://nodei.co/npm/iobroker.minuaru.png?downloads=true)
 
 # IoBroker.minuaru
-[!Количество установок](https://iobroker.live/badges/minuaru-installed.svg) [!Текущая версия в стабильном репозитории](https://iobroker.live/badges/minuaru-stable.svg)
+[!Количество установок](https://iobroker.live/badges/minuaru-installe.svg) [!Текущая версия в стабильном репозитории](https://iobroker.live/badges/minuaru-stable.svg)
 
 ## Адаптер minuaru для ioBroker
 система сигнализации для ioBroker и minuvis
@@ -54,7 +53,7 @@ hash: Y8P8DmEv8GI8h1IIllNtUvdR6tbzuWAA3Y/P2JvlavI=
 
 ![активироватьAlarmpage](https://user-images.githubusercontent.com/20790635/151258040-6bb074e3-bd35-45b5-9888-5e826a7d3edc.png)
 
-- номер в заголовке minuvis ссылается на страницу тревоги
+- число в заголовке minuvis ссылается на страницу тревоги
 
 ![использоватьNewAlarmPage](https://user-images.githubusercontent.com/20790635/151259455-c8d5a676-027a-4651-813b-211ca2083fd9.png)
 
@@ -67,8 +66,15 @@ hash: Y8P8DmEv8GI8h1IIllNtUvdR6tbzuWAA3Y/P2JvlavI=
 ![другиеОбъекты](https://user-images.githubusercontent.com/20790635/151259992-61758c9c-e102-4f38-ae0e-931721d04a17.png)
 
 ## Changelog
-### 2.0.0-beta (2024-10-11)
+### 2.0.2 (2024-12-03)
+* (svallant) update jsonConfig for responsive design
+
+### 2.0.1 (2024-11-29)
+* (svallant) minor changes
+
+### 2.0.0 (2024-11-15)
 * BREAKING CHANGE: Existings alarms of version 1.x will be deleted
+* (svallant) release of version 2
 * (svallant) fixing issues detected by repository checker
 * (svallant) switch to duckdb
 

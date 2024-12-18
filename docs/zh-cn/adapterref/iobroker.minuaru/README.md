@@ -3,16 +3,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.minuaru/README.md
 title: ioBroker.minuaru
-hash: Y8P8DmEv8GI8h1IIllNtUvdR6tbzuWAA3Y/P2JvlavI=
+hash: V2vH7QJArTkThTgfrZTERi5mG6lqmvW1RWVMmfG2ZtQ=
 ---
 ![标识](../../../en/adapterref/iobroker.minuaru/admin/minuaru.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.minuaru.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.minuaru.svg)
-![新平台](https://nodei.co/npm/iobroker.minuaru.png?downloads=true)
 
 # IoBroker.minuaru
-[!安装数量](https://iobroker.live/badges/minuaru-installed.svg)[!稳定存储库中的当前版本](https://iobroker.live/badges/minuaru-stable.svg)
+[!安装数量](https://iobroker.live/badges/minuaru-installe.svg)[!稳定存储库中的当前版本](https://iobroker.live/badges/minuaru-stable.svg)
 
 ## IoBroker 的 minuaru 适配器
 ioBroker 和 minuvis 的警报系统
@@ -67,8 +66,15 @@ ioBroker 和 minuvis 的警报系统
 ![其他对象](https://user-images.githubusercontent.com/20790635/151259992-61758c9c-e102-4f38-ae0e-931721d04a17.png)
 
 ## Changelog
-### 2.0.0-beta (2024-10-11)
+### 2.0.2 (2024-12-03)
+* (svallant) update jsonConfig for responsive design
+
+### 2.0.1 (2024-11-29)
+* (svallant) minor changes
+
+### 2.0.0 (2024-11-15)
 * BREAKING CHANGE: Existings alarms of version 1.x will be deleted
+* (svallant) release of version 2
 * (svallant) fixing issues detected by repository checker
 * (svallant) switch to duckdb
 

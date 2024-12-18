@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
+hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -23,6 +23,7 @@ Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Zustände und
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
+### Dieser Adapter funktioniert nicht unter MacOS
 ## Die unterstützten Roboter sind:
 - Roborock S4
 - Roborock S4 Max
@@ -60,6 +61,17 @@ Zeichnen Sie Ihr zu reinigendes Quadrat. Roborock unterstützt bis zu 4 Reinigun
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.18 (2024-12-11)
+ * (copystring) Add cleaned_area to S8
+ * (copystring) Bugfixes for Qrevo Curve
+ * (copystring) Fix reset of consumables
+ * (copystring) Fix io-package.json
+ * (copystring) Add Roborock Qrevo Master
+ * (copystring) Refactor login api and renew login every 3 hours
+ * (fL4sH3r) Fix unit of clean_percent
+ * (copystring) Add water box support to S6
+ * (copystring) Many small fixed I can't be bothered to list 😅
+
 ### 0.6.17 (2024-10-14)
  * (copystring) Add some missing attributes
  * (copystring) Change min of update interval to 60s to prevent issues
