@@ -1,7 +1,7 @@
 # How to add messages
 
 ## Adding messages
-New news-messages must be added to the file `news.json` located at https://github.com/ioBroker/ioBroker.docs/blob/master/info/news.json`. After testing the modified file, 
+New news-messages must be added to the file `news.json` located at https://github.com/ioBroker/ioBroker.docs/blob/master/info/news.json. After testing the modified file, 
 create a PR for the news to be published.
 
 ## Required infos 
