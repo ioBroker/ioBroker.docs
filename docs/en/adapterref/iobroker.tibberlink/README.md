@@ -106,6 +106,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 4.1.0 (2024-12-15)
+
+- (HombachC) enable local poll also without Token (#613)
+- (HombachC) split jsonConfig.json to multiple files
+- (HombachC) fix typo in translation handling
+- (HombachC) bump cron
+
 ### 4.0.0 (2024-12-08)
 
 - (HombachC) BREAKING: dropped support for ioBroker.admin < 7.0.0 because of ioBroker Responsive Design Initiative (#544)

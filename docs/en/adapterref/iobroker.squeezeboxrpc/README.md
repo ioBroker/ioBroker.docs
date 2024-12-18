@@ -581,9 +581,10 @@ are contained in the following CLI documentation:
    ### **WORK IN PROGRESS**
 
 -->
-### **WORK IN PROGRESS**
+### 1.5.2 (2024-12-16)
 
 - fix spelling of iobroker upload squeezeboxrpc in readme
+- fix playtime bar
 
 ### 1.5.1 (2024-11-29)
 

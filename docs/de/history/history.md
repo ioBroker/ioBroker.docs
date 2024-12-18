@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: nLCxaRMruXW+zd1irstNtqwX1ydU9EQZUVEDZ4j+SAU=
+hash: Ff+4/QE2aO2Qymthj8NuuO0bWCbgDO0A6d0fcBFG3p0=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
 - Bitte definieren Sie den Header als
 
 ## AdapterName (JJJJ-MM-TT) - [Kurzbeschreibung]
-- Die Aufnahmebeschreibung könnte lauten:
+- Die Beschreibung der Aufnahme könnte lauten:
 - neuer Adapter
 - stabile Version
 - neue Funktion
@@ -238,7 +238,7 @@ Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, biet
 Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche bereitzustellen.
 
 ## Vis (06.11.2023) - neue Funktion
-Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
+Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
 Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
@@ -302,7 +302,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-## Energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -685,9 +685,23 @@ https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious
 
 Dieser Adapter enthält verschiedene Vis-2-Widgets. Ok, eigentlich gibt es nur ein Vis-2-Widget, aber es sind noch weitere in Planung.
 
-## IoBroker.gotify (16.11.2024) – neuer Adapter im stabilen
+## Gotify (16.11.2024) – neuer Adapter bei stabil
 https://github.com/ThomasPohl/ioBroker.gotify
 
 <img src="https://github.com/ThomasPohl/ioBroker.gotify/blob/main/admin/gotify.png" width="100" height="100" />
 
 Senden Sie Push-Benachrichtigungen von ioBroker an Gotify.
+
+## Google-spreadsheet (3.12.2024) – neuer Adapter bei stabil
+https://github.com/ThomasPohl/ioBroker.google-spreadsheet
+
+<img src="https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
+
+Mit diesem Adapter kann automatisch mit Google Spreadsheets interagiert werden.
+
+## Minuaru (3.12.2024) – neuer Adapter bei Stable
+https://github.com/minukodu/ioBroker.minuaru
+
+<img src="hhttps://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
+
+Alarmsystem für ioBroker und minuvis

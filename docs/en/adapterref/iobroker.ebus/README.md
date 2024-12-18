@@ -69,8 +69,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.4.0 (2024-12-10)
 * (René) migration to jsonConfig
 * (René) see issue #383: add optionally parameters to HTTP call
 

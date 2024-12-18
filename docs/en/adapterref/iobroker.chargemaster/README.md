@@ -49,121 +49,127 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.12.5 (2024-12-12)
+
+- (HombachC) switch to i18n translation (#572)
+- (HombachC) implement ioBroker.eslint-config (#580)
+- (HombachC) bump dependencies
+
 ### 0.12.4 (2024-11-23)
 
--   (HombachC) implement better state change error handling
+- (HombachC) implement better state change error handling
 
 ### 0.12.3 (2024-11-18)
 
--   (HombachC) fix bug in state subscription
--   (HombachC) harmonize project tools
--   (HombachC) bump dependencies
+- (HombachC) fix bug in state subscription
+- (HombachC) harmonize project tools
+- (HombachC) bump dependencies
 
 ### 0.12.2 (2024-10-27)
 
--   (HombachC) migrate eslint to >9.x
--   (HombachC) bumped dependencies
+- (HombachC) migrate eslint to >9.x
+- (HombachC) bumped dependencies
 
 ### 0.12.1 (2024-10-22)
 
--   (HombachC) fix error in jsonConfig.json
+- (HombachC) fix error in jsonConfig.json
 
 ### 0.12.0 (2024-10-22)
 
--   (HombachC) BREAKING: dropped support for admin < 7 (#544)
--   (HombachC) optimized responsive design (#544)
--   (HombachC) optimized translation handling
+- (HombachC) BREAKING: dropped support for admin < 7 (#544)
+- (HombachC) optimized responsive design (#544)
+- (HombachC) optimized translation handling
 
 ### 0.11.1 (2024-09-16)
 
--   (HombachC) add node.js 22 to the adapter testing matrix (#523)
--   (HombachC) Bump @iobroker/testing to 5.0.0
+- (HombachC) add node.js 22 to the adapter testing matrix (#523)
+- (HombachC) Bump @iobroker/testing to 5.0.0
 
 ### 0.11.0 (2024-08-29)
 
--   (HombachC) implement variable wallbox amount
--   (HombachC) fix errors in wallbox control
--   (HombachC) complete rework of configuration screen
--   (HombachC) move utils to extra class
--   (HombachC) switch to ECMA 2022 code
--   (HombachC) bumped dependencies
+- (HombachC) implement variable wallbox amount
+- (HombachC) fix errors in wallbox control
+- (HombachC) complete rework of configuration screen
+- (HombachC) move utils to extra class
+- (HombachC) switch to ECMA 2022 code
+- (HombachC) bumped dependencies
 
 ### 0.10.0 (2024-08-18)
 
--   (HombachC) switch to Typescript
--   (HombachC) change adapter type to "energy"
--   (HombachC) replace deprecated setStateAsync
+- (HombachC) switch to Typescript
+- (HombachC) change adapter type to "energy"
+- (HombachC) replace deprecated setStateAsync
 
 ### 0.9.3 (2024-08-18)
 
--   (HombachC) change translation handling
--   (HombachC) code and repository cleanup
--   (HombachC) prepare switch to Typescript
+- (HombachC) change translation handling
+- (HombachC) code and repository cleanup
+- (HombachC) prepare switch to Typescript
 
 ### 0.9.2 (2024-08-16)
 
--   (HombachC) fixed vulnerability in dependency
--   (HombachC) added tests for node 22
+- (HombachC) fixed vulnerability in dependency
+- (HombachC) added tests for node 22
 
 ### 0.9.1 (2024-08-06)
 
--   (HombachC) fixed issues detected by repository checker (#494)
--   (HombachC) code cleanups
+- (HombachC) fixed issues detected by repository checker (#494)
+- (HombachC) code cleanups
 
 ### 0.9.0 (2024-04-20)
 
--   (HombachC) BREAKING: dropped support for node.js 16 (#455)
--   (HombachC) BREAKING: js-controller >= 5 is required (#456)
+- (HombachC) BREAKING: dropped support for node.js 16 (#455)
+- (HombachC) BREAKING: js-controller >= 5 is required (#456)
 
 ### 0.8.5 (2024-03-27)
 
--   (HombachC) updated CI definitions, switched to node 20 as main test scenario
--   (HombachC) corrected io-package.json according to new schema
--   (HombachC) bumped dependencies
+- (HombachC) updated CI definitions, switched to node 20 as main test scenario
+- (HombachC) corrected io-package.json according to new schema
+- (HombachC) bumped dependencies
 
 ### 0.8.4 (2023-12-29)
 
--   (HombachC) BREAKING: dropped support for js-controller 3.x
--   (HombachC) Year 2024 changes
--   (HombachC) Bump axios to 1.6.3 because of vulnerability
+- (HombachC) BREAKING: dropped support for js-controller 3.x
+- (HombachC) Year 2024 changes
+- (HombachC) Bump axios to 1.6.3 because of vulnerability
 
 ### 0.8.3 (2023-10-29)
 
--   (HombachC) Bumb adapter core to 3.x
--   (HombachC) Bump axios to 1.6.0 because of vulnerability
+- (HombachC) Bumb adapter core to 3.x
+- (HombachC) Bump axios to 1.6.0 because of vulnerability
 
 ### 0.8.2 (2023-10-01)
 
--   (HombachC) Several dependency updates
--   (HombachC) Fixed acknowledging of state changes (#339)
+- (HombachC) Several dependency updates
+- (HombachC) Fixed acknowledging of state changes (#339)
 
 ### 0.8.1 (2023-08-29)
 
--   (HombachC) bumped dependencies, added min/max to settings state defaults
+- (HombachC) bumped dependencies, added min/max to settings state defaults
 
 ### 0.8.0 (2023-06-23)
 
--   (HombachC) changed config screen to admin 5 solution
+- (HombachC) changed config screen to admin 5 solution
 
 ### 0.7.2 (2023-06-19)
 
--   (HombachC) Removed Travis
+- (HombachC) Removed Travis
 
 ### 0.7.1 (2023-06-13)
 
--   (HombachC) Fixed typo in docu, added translations
+- (HombachC) Fixed typo in docu, added translations
 
 ### 0.7.0 (2023-06-11)
 
--   (HombachC) BREAKING: dropped node.js 14 support
--   (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
--   (HombachC) BREAKING: dropped ioBroker.admin 4 support
+- (HombachC) BREAKING: dropped node.js 14 support
+- (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
+- (HombachC) BREAKING: dropped ioBroker.admin 4 support
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## Tested with
 
--   3x go-E Charger & Kostal PikoBA
+- 3x go-E Charger & Kostal PikoBA
 
 ## License
 

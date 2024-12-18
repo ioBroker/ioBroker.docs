@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
+hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -23,6 +23,7 @@ hash: v+W4uECAfrQAz1MTnXWIh8gD3YdWeihsR6VQ3fSJ1Ds=
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
+### 此适配器无法在 MacOS 上运行
 ## 支持的机器人有：
 -石头扫地机器人 S4
 -Roborock S4 Max
@@ -37,8 +38,8 @@ Roborock S6 Pure
 Roborock S7 Pro Ultra
 -Roborock S7 Max Ultra
 -石头扫地机器人 S8
--Roborock S8 Pro Ultra
--Roborock Q Revo
+Roborock S8 Pro Ultra
+Roborock Q Revo
 -Roborock Q8 Max
 Roborock Q5 Pro
 Roborock Q Revo Pro
@@ -60,6 +61,17 @@ Roborock Qrevo Curve
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.18 (2024-12-11)
+ * (copystring) Add cleaned_area to S8
+ * (copystring) Bugfixes for Qrevo Curve
+ * (copystring) Fix reset of consumables
+ * (copystring) Fix io-package.json
+ * (copystring) Add Roborock Qrevo Master
+ * (copystring) Refactor login api and renew login every 3 hours
+ * (fL4sH3r) Fix unit of clean_percent
+ * (copystring) Add water box support to S6
+ * (copystring) Many small fixed I can't be bothered to list 😅
+
 ### 0.6.17 (2024-10-14)
  * (copystring) Add some missing attributes
  * (copystring) Change min of update interval to 60s to prevent issues

@@ -61,6 +61,9 @@ Beispiel mit valuetrackerovertime:
 -->
 ## Changelog
 
+### 1.5.0 (2024-12-16)
+* (Omega236) Update Dependencies
+
 ### 1.4.6 (2022-02-14)
 * (Omega236) Update Dependencies
 
@@ -144,7 +147,7 @@ Beispiel mit valuetrackerovertime:
 ## License
 MIT License
 
-Copyright (c) 2022 Omega236 general.of.omega@googlemail.com
+Copyright (c) 2024 Omega236 general.of.omega@googlemail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

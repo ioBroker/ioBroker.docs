@@ -85,6 +85,7 @@ On configuration page you can select following modules:
 <!-- ### __WORK IN PROGRESS__ -->
 ### __WORK IN PROGRESS__
 * (simatec) eslint-config fix
+* (simatec) Dependencies updated
 
 ### 1.3.5 (2024-11-27)
 * (simatec) Dependencies updated

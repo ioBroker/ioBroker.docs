@@ -56,6 +56,8 @@ In the picture there are three examples given. Since the screenshot was taken on
 * The energy consumtion however will show you that the current day for the computer is set to 0.351kWh, the week is set to 1.909 kWh and the year is set to 1.393 kWh (which is because today is Sunday and the week is already 7 days old, but it is also the 3rd of January which makes the year only three days old).
 
 ## Changelog
+### 1.1.0 (15.12.2024)
+* (Omega236) Bugfix Quarter
 ### 1.0.1 (02.03.2023)
 * (Omega236) add work setting
 * (Omega236) remove Pre Admin 5 support
@@ -98,7 +100,7 @@ In the picture there are three examples given. Since the screenshot was taken on
 ## License
 MIT License
 
-Copyright (c) 2023 Omega236 <general.of.omega@googlemail.com>
+Copyright (c) 2024 Omega236 <general.of.omega@googlemail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

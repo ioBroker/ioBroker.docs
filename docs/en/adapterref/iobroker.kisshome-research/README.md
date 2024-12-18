@@ -35,6 +35,10 @@ This was required to make it possible to uninstall and install the adapter again
 -->
 
 ## Changelog
+### 1.2.6 (2024-12-16)
+
+-   (@GermanBluefox) Check if the file exists before sending it
+
 ### 1.2.5 (2024-11-20)
 
 -   (@GermanBluefox) Added the trigger to resolve the MAC address before MAC resolution

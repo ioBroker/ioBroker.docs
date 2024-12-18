@@ -32,6 +32,9 @@ For more details and for information how to disable the error reporting see [Sen
 
 This adapter reads weather forecast data from DasWetter.com.
 
+**ATTENTION: At the moment, new registrations at DasWetter are apparently not possible. Please do not open any tickets here in the adapter, as we have no influence on the data provider. As soon as we have new information, we will publish it here.**
+
+
 You need an account on DasWetter.com. Register at https://www.daswetter.com/api/#/login
 The account is for free under certain conditions.
 
@@ -71,8 +74,13 @@ Now we have implemented a "auto-repair" which changes to structure to documented
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.2 (2024-12-15)
+* (René) translations
+*
+
 ### 3.2.1 (2024-12-06)
 * (René) see issue #411: jsonConfig fixed
+* (René) see issue #408: hint regarding user registration limitation added
 
 ### 3.2.0 (2024-12-04)
 * (René) see issue #406: test with nodejs@22

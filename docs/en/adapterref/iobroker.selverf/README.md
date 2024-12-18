@@ -6,7 +6,6 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/selverf-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/selverf-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.selverf.png?downloads=true)](https://nodei.co/npm/iobroker.selverf/)
 
 **Tests:** ![Test and Release](https://github.com/Rintrium/ioBroker.selverf/workflows/Test%20and%20Release/badge.svg)
 
@@ -19,6 +18,12 @@ Connection with Selve actuators, sensors and senders through USB-Gateway
 This project is not affiliated with Selve. It is a personal project.
 
 ## Changelog
+### 0.7.0 (2024-12-15)
+* Updated dependencies
+* General maintenance
+* Switch to jsonConfig.json adminUI with responsive design
+* Updated translations
+
 ### 0.6.3 (2023-01-08)
 * Update dependencies
 
@@ -106,7 +111,7 @@ This project is not affiliated with Selve. It is a personal project.
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Rintrium <main@rintrium.de>
+Copyright (c) 2021-2024 Rintrium <main@rintrium.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

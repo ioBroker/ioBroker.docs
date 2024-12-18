@@ -794,7 +794,7 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 <!-- ### __WORK IN PROGRESS__ -->
 ### __WORK IN PROGRESS__
 * (simatec) eslint-config fix
-* (simatec) Fix Tab Menu
+* (simatec) Dependencies updated
 
 ### 1.8.5 (2024-11-27)
 * (simatec) Bugfix Brightness down

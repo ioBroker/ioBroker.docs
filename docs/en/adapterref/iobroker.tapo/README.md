@@ -27,14 +27,27 @@ Wenn die IP nicht gefunden wird muss sie manuell unter tapo.0.id.ip gesetzt werd
 
 tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl wird lokal an das Gerät gesendet.
 
+## Kamerasteuerung aktivieren
+
+![alt text](./img/tpcamera01.jpeg "TP Labor")
+![alt text](./img/tpcamera02.jpeg "TP Labor")
+
 ## Diskussion und Fragen
 
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
-### 0.4.2-beta.8 (2024-12-09)
+### 0.4.5 (2024-12-16)
 
-- improve handshake for old devices
+- fix camera remotes
+
+### 0.4.4 (2024-12-12)
+
+- improve handshake if e-mail is not entered in lowercase
+
+### 0.4.3 (2024-12-09)
+
+- fix handshake for device with HW v1.20
 
 ### 0.4.1 (2024-11-29)
 
