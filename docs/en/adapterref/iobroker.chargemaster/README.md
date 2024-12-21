@@ -49,6 +49,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.12.6 (2024-12-21)
+
+- (HombachC) fix chai-as-promised
+- (HombachC) bump dependencies
+
 ### 0.12.5 (2024-12-12)
 
 - (HombachC) switch to i18n translation (#572)

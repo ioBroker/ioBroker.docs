@@ -20,39 +20,39 @@ It is possible to configure at which time and on which weekdays the trigger shou
 
 # Summary
 
--   [Instance Settings](#instance-settings-schedule-switcher)
--   [Objecte](#states)
--   [Example trigger evenst as JSON](#example-trigger-events-json)
--   [Example trigger as JSON](#example-trigger-json)
--   [Example sendTo Trigger (Experts only)](#example-of-creating-or-editing-triggers-with-sendto-experts)
--   [Example widget as JSON](#example-widgets-json)
--   [Example history as JSON](#example-history-json)
--   [Example widget view as JSON](#example-widget-view-json)
--   [Create widget](#create-widget)
--   [Change name](#change-name)
--   [Create condition](#create-condition)
--   [Change text](#change-text)
--   [Use css](#use-css-description-see-css)
--   [Create trigger](#trigger)
--   [create astro trigger](#astro-trigger)
--   [Create one time trigger](#one-time-trigger)
--   [HTML settings](#html-for-vis-and-vis-2)
--   [HTML Funktion for VIS-2 only](#function-for-vis-2-only)
--   [CSS](#css)
+- [Instance Settings](#instance-settings-schedule-switcher)
+- [Objecte](#states)
+- [Example trigger evenst as JSON](#example-trigger-events-json)
+- [Example trigger as JSON](#example-trigger-json)
+- [Example sendTo Trigger (Experts only)](#example-of-creating-or-editing-triggers-with-sendto-experts)
+- [Example widget as JSON](#example-widgets-json)
+- [Example history as JSON](#example-history-json)
+- [Example widget view as JSON](#example-widget-view-json)
+- [Create widget](#create-widget)
+- [Change name](#change-name)
+- [Create condition](#create-condition)
+- [Change text](#change-text)
+- [Use css](#use-css-description-see-css)
+- [Create trigger](#trigger)
+- [create astro trigger](#astro-trigger)
+- [Create one time trigger](#one-time-trigger)
+- [HTML settings](#html-for-vis-and-vis-2)
+- [HTML Funktion for VIS-2 only](#function-for-vis-2-only)
+- [CSS](#css)
 
 ### Instance settings schedule-switcher
 
 [Summary](#summary)
 
--   `+ icon`: Add new schedule
--   `ID`: object channel id
--   `Object id`: object
--   `Object name`: Name of the widget
--   `Trigger count`: Number of triggers
--   `Status`: Status enabled/disabled
--   `Delay between 2 switching operations in ms`: Prevents states from being set at the same time
--   `History switching as JSON (max 100/0 for off)` Max. history json
--   `Create HTML for VIS and VIS-2 (VIS-2 see description)` HTML overview enabled
+- `+ icon`: Add new schedule
+- `ID`: object channel id
+- `Object id`: object
+- `Object name`: Name of the widget
+- `Trigger count`: Number of triggers
+- `Status`: Status enabled/disabled
+- `Delay between 2 switching operations in ms`: Prevents states from being set at the same time
+- `History switching as JSON (max 100/0 for off)` Max. history json
+- `Create HTML for VIS and VIS-2 (VIS-2 see description)` HTML overview enabled
 
     ![instance_settings.png](img/instance_settings.png)</br>
     ![instance_settings_1.png](img/instance_settings_1.png)
@@ -61,15 +61,15 @@ It is possible to configure at which time and on which weekdays the trigger shou
 
 [Summary](#summary)
 
--   onoff
--   `schedule-switcher.0.onoff.6.data` All triggers as JSON
--   `schedule-switcher.0.onoff.6.enabled` Active or Inactive
--   `schedule-switcher.0.onoff.6.views` Where widgets were created for the objects
--   Status
--   `schedule-switcher.0.counterTrigger` Number of triggers (active and inactive)
--   `schedule-switcher.0.history` History from schedules switching
--   `schedule-switcher.0.nextEvents` Next switching operations as JSON Table
--   `schedule-switcher.0.sendto` With VIS-2, changes are passed to the adapter via this object
+- onoff
+- `schedule-switcher.0.onoff.6.data` All triggers as JSON
+- `schedule-switcher.0.onoff.6.enabled` Active or Inactive
+- `schedule-switcher.0.onoff.6.views` Where widgets were created for the objects
+- Status
+- `schedule-switcher.0.counterTrigger` Number of triggers (active and inactive)
+- `schedule-switcher.0.history` History from schedules switching
+- `schedule-switcher.0.nextEvents` Next switching operations as JSON Table
+- `schedule-switcher.0.sendto` With VIS-2, changes are passed to the adapter via this object
 
 ![101_remote.png](img/view_states.png)
 
@@ -104,6 +104,7 @@ It is possible to configure at which time and on which weekdays the trigger shou
 {
     "type": "OnOffSchedule",
     "name": "Rolllade Wohn", // Name of the last widget created
+    "active": false, // Every 24 hours a check is made to see if there is a widget. If none is found, the schedule is deactivated. If TRUE, it is not deactivated.
     "onAction": {
         // Action for On
         "type": "OnOffStateAction",
@@ -269,6 +270,16 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
     "dataId":"schedule-switcher.0.onoff.6.data",
     "triggerId":"0"
 });
+
+sendTo("schedule-switcher.0", "change-active", { // Leave schedule active without widget (will be checked on restart or every 24 hours)
+    "dataId":"schedule-switcher.0.onoff.6.data",
+    "active":false, // false: Automatic deactivation if no widget is available
+});
+
+sendTo("schedule-switcher.0", "change-active", { // Leave schedule active without widget (will be checked on restart or every 24 hours)
+    "dataId":"schedule-switcher.0.onoff.6.data",
+    "active":true, // true: Schedule will not be deactivated if no widget is present
+});
 ```
 
 # Example history JSON
@@ -362,21 +373,21 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   Insert a widget in a view
+- Insert a widget in a view
 
 ![create_widget.png](img/create_widget.png)
 
--   Select ID for schematic data
--   Select Schedule Activation ID
--   Select ID of the switched state (max. 10 possible)
+- Select ID for schematic data
+- Select Schedule Activation ID
+- Select ID of the switched state (max. 10 possible)
 
 ![create_widget_stateid.png](img/create_widget_stateid.png)
 
--   Define value type and the values ​​that should be set
+- Define value type and the values ​​that should be set
 
 ![create_widget_stateid_1.png](img/create_widget_stateid_1.png)
 
--   Create on time schedule
+- Create on time schedule
 
 ![create_widget_select.png](img/create_widget_select.png)
 
@@ -384,7 +395,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   Change names - objects are customized
+- Change names - objects are customized
 
 ![create_widget_name.png](img/create_widget_name.png)
 
@@ -392,7 +403,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   Create a condition.
+- Create a condition.
 
 ![create_widget_select_condition.png](img/create_widget_select_condition.png)
 
@@ -400,7 +411,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   Change text on/off and all on/all off
+- Change text on/off and all on/all off
 
 ![create_widget_rename_1.png](img/create_widget_rename_1.png)
 ![create_widget_rename_2.png](img/create_widget_rename_2.png)
@@ -409,28 +420,28 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   Use Enable CSS to customize the style</br>
-    ![create_widget_css.png](img/create_widget_css.png)</br>
-    ![create_widget_css_1.png](img/create_widget_css_1.png)</br>
-    ![create_widget_css_2.png](img/create_widget_css_2.png)</br>
-    ![create_widget_css_3.png](img/create_widget_css_3.png)
-    ![widget_switched.png](img/widget_switched.png)</br>
-    ![widget_manual.png](img/widget_manual.png)</br>
-    ![widget_astro_icon.png](img/widget_astro_icon.pngg)</br>
-    ![widget_condition_1.png](img/widget_condition_1.png)</br>
-    ![widget_condition_2.png](img/widget_condition_2.png)
+- Use Enable CSS to customize the style</br>
+  ![create_widget_css.png](img/create_widget_css.png)</br>
+  ![create_widget_css_1.png](img/create_widget_css_1.png)</br>
+  ![create_widget_css_2.png](img/create_widget_css_2.png)</br>
+  ![create_widget_css_3.png](img/create_widget_css_3.png)
+  ![widget_switched.png](img/widget_switched.png)</br>
+  ![widget_manual.png](img/widget_manual.png)</br>
+  ![widget_astro_icon.png](img/widget_astro_icon.pngg)</br>
+  ![widget_condition_1.png](img/widget_condition_1.png)</br>
+  ![widget_condition_2.png](img/widget_condition_2.png)
 
 ### Trigger
 
 [Summary](#summary)
 
--   Click on the pen to enter the time or click on the trash can to delete the trigger
+- Click on the pen to enter the time or click on the trash can to delete the trigger
 
 ![create_widget_select_time.png](img/create_widget_select_time.png)
 
--   Select switching state
--   Select a condition (optional)
--   Enter time (hh:mm)
+- Select switching state
+- Select a condition (optional)
+- Enter time (hh:mm)
 
 ```:warning:
  ⚠ Does not show any time field in Firefox.
@@ -438,12 +449,12 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 ![create_widget_select_time_add_1.png](img/create_widget_select_time_add_1.png)
 
--   Select day of the week
--   Click save at the top right
+- Select day of the week
+- Click save at the top right
 
 ![create_widget_select_time_add_2.png](img/create_widget_select_time_add_2.png)
 
--   Done
+- Done
 
 ![create_widget_select_time_done.png](img/create_widget_select_time_done.png)
 
@@ -451,23 +462,23 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   Click on the pen to select the astro time or click on the trash can to delete the trigger
+- Click on the pen to select the astro time or click on the trash can to delete the trigger
 
 ![create_widget_select_astro.png](img/create_widget_select_astro.png)
 
--   Select switching state
--   Select a condition (optional)
--   Select astro time (Sunrise, Sunset or Noon)
+- Select switching state
+- Select a condition (optional)
+- Select astro time (Sunrise, Sunset or Noon)
 
 ![create_widget_select_astro_add_1.png](img/create_widget_select_astro_add_1.png)
 
--   Enter offset in minutes (optional)
--   Select day of the week
--   Click save at the top right
+- Enter offset in minutes (optional)
+- Select day of the week
+- Click save at the top right
 
 ![create_widget_select_astro_add_2.png](img/create_widget_select_astro_add_2.png)
 
--   Done
+- Done
 
 ![create_widget_select_astro_done.png](img/create_widget_select_astro_done.png)
 
@@ -475,21 +486,21 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   Select switching state
--   Select a condition (optional)
--   Enter time (hh:mm:ss)
--   Click save at the top right
+- Select switching state
+- Select a condition (optional)
+- Enter time (hh:mm:ss)
+- Click save at the top right
 
 ![create_widget_select_onetime.png](img/create_widget_select_onetime.png)
 
--   Done
+- Done
 
 ![create_widget_select_onetime_done.png](img/create_widget_select_onetime_done.png)
 
--   Select switching state
--   Select a condition (optional)
--   Enter or select time/date (dd.mm.yyyy hh:mm:ss)
--   Click save at the top right
+- Select switching state
+- Select a condition (optional)
+- Enter or select time/date (dd.mm.yyyy hh:mm:ss)
+- Click save at the top right
 
 ```:warning:
  ⚠ Does not show any time field in Firefox.
@@ -498,7 +509,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 ![create_widget_select_onetime_date.png](img/create_widget_select_onetime_date.png)</br>
 ![create_widget_select_onetime_date_calendar.png](img/create_widget_select_onetime_date_calendar.png)
 
--   Done
+- Done
 
 ![create_widget_select_onetime_date_done.png](img/create_widget_select_onetime_date_done.png)
 
@@ -506,98 +517,98 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Delete trigger with known I
 
 [Summary](#summary)
 
--   `html.background_color_body` Background color of the body. Complete with VIS and only the widget with VIS-2 - default #000000
--   `html.background_color_even` background color trigger even number - default #1E1E1E
--   `html.background_color_odd` background color trigger odd number - default #18171C
--   `html.background_color_trigger` background color trigger object - default #000000
--   `html.background_color_weekdays_hover` background color when hovering over the days of the week - click to activate/deactivate - default blue
--   `html.column_align_01` Header text alignment column 1 - default center
--   `html.column_align_02` Header text alignment column 2 - default center
--   `html.column_align_03` Header text alignment column 3 - default center
--   `html.column_align_04` Header text alignment column 4 - default center
--   `html.column_align_05` Header text alignment column 5 - default center
--   `html.column_align_06` Header text alignment column 6 - default center
--   `html.column_align_07` Header text alignment column 7 - default center
--   `html.column_align_08` Header text alignment column 8 - default center
--   `html.column_align_09` Header text alignment column 9 - default center
--   `html.column_align_10` Header text alignment column 10 - default center
--   `html.column_text_01` Header text column 1 - default Schedule
--   `html.column_text_02` Header text column 2 - default Devices
--   `html.column_text_03` header text column 3 - default switch
--   `html.column_text_04` header text column 4 - default Mon
--   `html.column_text_05` header text column 5 - default Tu
--   `html.column_text_06` Header text column 6 - default We
--   `html.column_text_07` Header text column 7 - default Th
--   `html.column_text_08` header text column 8 - default Fr
--   `html.column_text_09` header text column 9 - default Sa
--   `html.column_text_10` Header text column 10 - default Su
--   `html.column_width_01` width of column 1 - default auto
--   `html.column_width_02` width of column 2 - default auto
--   `html.column_width_03` Width of column 3 - default auto
--   `html.column_width_04` Width of column 4 - default auto
--   `html.column_width_05` Width of column 5 - default auto
--   `html.column_width_06` Width of column 6 - default auto
--   `html.column_width_07` Width of column 7 - default auto
--   `html.column_width_08` Width of column 8 - default auto
--   `html.column_width_09` Width of column 9 - default auto
--   `html.column_width_70` Width of column 10 - default auto
--   `html.font_color_text_disabled` Text color from disabled object - default red
--   `html.font_color_text_enabled` Text color of the activated object - default yellow
--   `html.font_color_weekdays_disabled` Text color of disabled weekdays - default red
--   `html.font_color_weekdays_enabled` Text color of enabled weekdays - default yellow
--   `html.header_border` head margin in px - default 2
--   `html.header_font_family` head font family - default Helvetica
--   `html.header_font_size` head font size - default 15
--   `html.header_linear_color_1` head background image: linear gradient 1 - default #BDBDBD
--   `html.header_linear_color_2` head background image: linear gradient 2 - default #BDBDBD
--   `html.header_tag_border_color` Head HTML TAG `<td>` border color - default #424242
--   `html.header_width` head TAG `<table>` size default auto
--   `html.column_align_row_01` Text alignment of the rows in column 1 - default left
--   `html.column_align_row_02` Text alignment of the rows in column 2 - default left
--   `html.column_align_row_03` Text alignment of the rows in column 3 - default left
--   `html.column_align_row_04` Text alignment of the rows in column 4 - default left
--   `html.column_align_row_05` Text alignment of the rows in column 5 - default left
--   `html.column_align_row_06` Text alignment of the rows in column 6 - default left
--   `html.column_align_row_07` Text alignment of the rows in column 7 - default left
--   `html.column_align_row_08` Text alignment of the rows in column 8 - default left
--   `html.column_align_row_09` Text alignment of the rows in column 9 - default left
--   `html.column_align_row_10` Text alignment of the rows in column 10 - default left
--   `html.headline_color` Header font color (schedule, device ...) - default #ffffff
--   `html.headline_font_size` Header font size in px - default 16
--   `html.headline_height` Header height in px - default 35
--   `html.headline_underlined` Header underline in px - default 3
--   `html.headline_underlined_color` Header underline color - default #ffffff
--   `html.headline_weight` Header text weight - default normal
--   `html.html_code` HTML Code for VIS, VIS-2, Jarvis, IQontrol etc
--   `html.icon_false` Icon Trigger off - default ⚪
--   `html.icon_switch_symbol` Icon switch to activate/deactivate the timer - default ⏱
--   `html.icon_true` Icon Trigger on - default 🟡
--   `html.jarvis` Compatible with Jarvis - default false
--   `html.p_tag_text_algin` HTML `<p>` Text align (Last Update and Footer) - default center
--   `html.table_tag_border_color` Border color for `<table>` - default #424242
--   `html.table_tag_cell` border-spacing for `<table>` in px - default 6
--   `html.table_tag_text_align` Text algin for `<table>` - default center
--   `html.table_tag_width` Width for `<table>` - default auto
--   `html.td_tag_border_bottom` Border bottom for `<td>` in px - default 1
--   `html.td_tag_border_color` Border color for `<td>` - default #424242
--   `html.td_tag_border_right` Border right for `<td>` in px - default 1
--   `html.td_tag_cell` Padding text for `<td>` in px - default 6
--   `html.top_font_family` Font family for header and footer - default Helvetica
--   `html.top_font_size` Font size for header and footer in px - default 20
--   `html.top_font_weight` Font weight for header and footer - default normal"
--   `html.top_text` Own text for header - default your text
--   `html.top_text_color` Text color for header and footer - default #ffffff
--   `html.update` Start manual update
+- `html.background_color_body` Background color of the body. Complete with VIS and only the widget with VIS-2 - default #000000
+- `html.background_color_even` background color trigger even number - default #1E1E1E
+- `html.background_color_odd` background color trigger odd number - default #18171C
+- `html.background_color_trigger` background color trigger object - default #000000
+- `html.background_color_weekdays_hover` background color when hovering over the days of the week - click to activate/deactivate - default blue
+- `html.column_align_01` Header text alignment column 1 - default center
+- `html.column_align_02` Header text alignment column 2 - default center
+- `html.column_align_03` Header text alignment column 3 - default center
+- `html.column_align_04` Header text alignment column 4 - default center
+- `html.column_align_05` Header text alignment column 5 - default center
+- `html.column_align_06` Header text alignment column 6 - default center
+- `html.column_align_07` Header text alignment column 7 - default center
+- `html.column_align_08` Header text alignment column 8 - default center
+- `html.column_align_09` Header text alignment column 9 - default center
+- `html.column_align_10` Header text alignment column 10 - default center
+- `html.column_text_01` Header text column 1 - default Schedule
+- `html.column_text_02` Header text column 2 - default Devices
+- `html.column_text_03` header text column 3 - default switch
+- `html.column_text_04` header text column 4 - default Mon
+- `html.column_text_05` header text column 5 - default Tu
+- `html.column_text_06` Header text column 6 - default We
+- `html.column_text_07` Header text column 7 - default Th
+- `html.column_text_08` header text column 8 - default Fr
+- `html.column_text_09` header text column 9 - default Sa
+- `html.column_text_10` Header text column 10 - default Su
+- `html.column_width_01` width of column 1 - default auto
+- `html.column_width_02` width of column 2 - default auto
+- `html.column_width_03` Width of column 3 - default auto
+- `html.column_width_04` Width of column 4 - default auto
+- `html.column_width_05` Width of column 5 - default auto
+- `html.column_width_06` Width of column 6 - default auto
+- `html.column_width_07` Width of column 7 - default auto
+- `html.column_width_08` Width of column 8 - default auto
+- `html.column_width_09` Width of column 9 - default auto
+- `html.column_width_70` Width of column 10 - default auto
+- `html.font_color_text_disabled` Text color from disabled object - default red
+- `html.font_color_text_enabled` Text color of the activated object - default yellow
+- `html.font_color_weekdays_disabled` Text color of disabled weekdays - default red
+- `html.font_color_weekdays_enabled` Text color of enabled weekdays - default yellow
+- `html.header_border` head margin in px - default 2
+- `html.header_font_family` head font family - default Helvetica
+- `html.header_font_size` head font size - default 15
+- `html.header_linear_color_1` head background image: linear gradient 1 - default #BDBDBD
+- `html.header_linear_color_2` head background image: linear gradient 2 - default #BDBDBD
+- `html.header_tag_border_color` Head HTML TAG `<td>` border color - default #424242
+- `html.header_width` head TAG `<table>` size default auto
+- `html.column_align_row_01` Text alignment of the rows in column 1 - default left
+- `html.column_align_row_02` Text alignment of the rows in column 2 - default left
+- `html.column_align_row_03` Text alignment of the rows in column 3 - default left
+- `html.column_align_row_04` Text alignment of the rows in column 4 - default left
+- `html.column_align_row_05` Text alignment of the rows in column 5 - default left
+- `html.column_align_row_06` Text alignment of the rows in column 6 - default left
+- `html.column_align_row_07` Text alignment of the rows in column 7 - default left
+- `html.column_align_row_08` Text alignment of the rows in column 8 - default left
+- `html.column_align_row_09` Text alignment of the rows in column 9 - default left
+- `html.column_align_row_10` Text alignment of the rows in column 10 - default left
+- `html.headline_color` Header font color (schedule, device ...) - default #ffffff
+- `html.headline_font_size` Header font size in px - default 16
+- `html.headline_height` Header height in px - default 35
+- `html.headline_underlined` Header underline in px - default 3
+- `html.headline_underlined_color` Header underline color - default #ffffff
+- `html.headline_weight` Header text weight - default normal
+- `html.html_code` HTML Code for VIS, VIS-2, Jarvis, IQontrol etc
+- `html.icon_false` Icon Trigger off - default ⚪
+- `html.icon_switch_symbol` Icon switch to activate/deactivate the timer - default ⏱
+- `html.icon_true` Icon Trigger on - default 🟡
+- `html.jarvis` Compatible with Jarvis - default false
+- `html.p_tag_text_algin` HTML `<p>` Text align (Last Update and Footer) - default center
+- `html.table_tag_border_color` Border color for `<table>` - default #424242
+- `html.table_tag_cell` border-spacing for `<table>` in px - default 6
+- `html.table_tag_text_align` Text algin for `<table>` - default center
+- `html.table_tag_width` Width for `<table>` - default auto
+- `html.td_tag_border_bottom` Border bottom for `<td>` in px - default 1
+- `html.td_tag_border_color` Border color for `<td>` - default #424242
+- `html.td_tag_border_right` Border right for `<td>` in px - default 1
+- `html.td_tag_cell` Padding text for `<td>` in px - default 6
+- `html.top_font_family` Font family for header and footer - default Helvetica
+- `html.top_font_size` Font size for header and footer in px - default 20
+- `html.top_font_weight` Font weight for header and footer - default normal"
+- `html.top_text` Own text for header - default your text
+- `html.top_text_color` Text color for header and footer - default #ffffff
+- `html.update` Start manual update
 
 ![vis_object_1.png](img/vis_object_1.png)
 
--   Create an HTML widget and enter the object under HTML `{schedule-switcher.0.html.html_code}`
--   Click on the text “Last updated” to manual update
--   Click on the icon to activate/deactivate the widget
--   To delete a trigger you first have to tick the checkbox and then press the 'delete' button
--   Change times/Astro and press the 'save' button to apply the changes
--   Click on the day of the week to activate/deactivate it
--   In the trigger name line, the next event on/off is displayed under days of the week
+- Create an HTML widget and enter the object under HTML `{schedule-switcher.0.html.html_code}`
+- Click on the text “Last updated” to manual update
+- Click on the icon to activate/deactivate the widget
+- To delete a trigger you first have to tick the checkbox and then press the 'delete' button
+- Change times/Astro and press the 'save' button to apply the changes
+- Click on the day of the week to activate/deactivate it
+- In the trigger name line, the next event on/off is displayed under days of the week
 
 ![vis_view_1.png](img/vis_view_1.png)</br>
 ![vis_view_2.png](img/vis_view_2.png)
@@ -780,6 +791,13 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.9 (2024-12-20)
+
+- (Lucky-ESA) Fixed: Reading files from Redis database
+- (Lucky-ESA) Added: Automatic deactivation control
+- (Lucky-ESA) Fixed: Visibility
+- (Lucky-ESA) Fixed: Bug in type check
+
 ### 0.0.8 (2024-12-07)
 
 - (Lucky-ESA) Migration to ESLint9

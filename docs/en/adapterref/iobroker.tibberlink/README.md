@@ -68,6 +68,8 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
     - "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
     - "Smart Battery Buffer": Utilize the "EfficiencyLoss" parameter to specify the efficiency loss of the battery system. The "EfficiencyLoss" parameter can range from 0 to 1, where 0 represents no efficiency loss and 1 represents complete efficiency loss. For example, a value of 0.25 indicates a 25% efficiency loss for a charge/discharge cycle.  
       Use the "AmountHours" parameter to input the desired number of hours for battery charging. The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest hours. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during hours with the highest cost, provided the cost is higher than the highest total price among the cheap hours. In the remaining normal hours where energy buffering by the battery is not economically viable, both outputs will be switched off.
+    - "Best percentage": Outputs "YES" during the least expensive hour and any other hours where the price falls within the percentage range specified in the "Percentage" settings state.
+    - "Best percentage LTF": "Best percentage" within a Limited Time Frame (LTF).
 - LTF channels: These operate similarly to standard channels but are active only within a time frame defined by the 'StartTime' and 'StopTime' state objects. After 'StopTime,' the channel automatically deactivates. 'StartTime' and 'StopTime' can span two calendar days, as Tibber does not provide data beyond a 48-hour window. Both states require a date-time string in ISO-8601 format with a timezone offset, e.g., '2024-12-24T18:00:00.000+01:00'." Additionally, the LTF channels feature a new state parameter called 'RepeatDays,' which defaults to 0. When 'RepeatDays' is set to a positive integer, the channel will repeat its cycle by incrementing both 'StartTime' and 'StopTime' by the specified number of days after 'StopTime' is reached. For example, set 'RepeatDays' to 1 for daily repetition.
 
 ### Hints
@@ -105,6 +107,16 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
+
+### 4.2.0 (2024-12-xx)
+
+- (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
+
+### 4.1.1 (2024-12-21)
+
+- (HombachC) code cleanup
+- (HombachC) fix translations
+- (HombachC) fix chai-as-promised
 
 ### 4.1.0 (2024-12-15)
 

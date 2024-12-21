@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: +oDno0wPp+H7Rp+Vk/PZvLP1z9ZGbWAKq0BBQPpV7Cg=
+hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -14,7 +14,7 @@ hash: +oDno0wPp+H7Rp+Vk/PZvLP1z9ZGbWAKq0BBQPpV7Cg=
 ![GitHub](https://img.shields.io/github/license/hombach/iobroker.tibberlink?style=flat-square)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/hombach/iobroker.tibberlink?logo=github&style=flat-square)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=master&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)
@@ -50,7 +50,7 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn S
 – Da die Tibber-Verbindung nun besteht, können Sie den Rechner auch nutzen, um zusätzliche Automatisierungsfunktionen in den TibberLink-Adapter zu integrieren.
 - Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Zuhause verknüpft ist.
 - Diese Kanäle können basierend auf entsprechenden Zuständen aktiviert oder deaktiviert werden.
-– Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
+- Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
 - Die Zustände eines Rechnerkanals werden neben den Home-Zuständen platziert und nach der Kanalnummer benannt. Dabei wird der im Admin-Bildschirm gewählte Kanalname hier angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
 
   ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
@@ -73,6 +73,8 @@ Zusätzlich werden die durchschnittlichen Gesamtkosten im ermittelten Block in e
 
 Geben Sie mit dem Parameter „AmountHours“ die gewünschte Stundenzahl für die Batterieladung ein. Der Rechner wird während der angegebenen „AmountHours“-Preisgünstigsten Stunden die Batterieladung aktivieren („Wert JA“) und die Batteriespeisung deaktivieren („Wert 2 NEIN“). Umgekehrt wird er während der Stunden mit den höchsten Kosten die Batterieladung deaktivieren („Wert NEIN“) und die Batteriespeisung aktivieren („Wert 2 JA“), sofern diese Kosten höher sind als der höchste Gesamtpreis der Preisgünstigen Stunden. In den übrigen Normalstunden, in denen eine Energiepufferung durch die Batterie nicht wirtschaftlich ist, werden beide Ausgänge abgeschaltet.
 
+- „Bester Prozentsatz“: Gibt „JA“ während der günstigsten Stunde und aller anderen Stunden aus, in denen der Preis innerhalb des im Einstellungsstatus „Prozentsatz“ angegebenen Prozentbereichs liegt.
+- „Bester Prozentsatz LTF“: „Bester Prozentsatz“ innerhalb eines begrenzten Zeitrahmens (LTF).
 - LTF-Kanäle: Diese funktionieren ähnlich wie Standardkanäle, sind jedoch nur innerhalb eines Zeitrahmens aktiv, der durch die Statusobjekte „StartTime“ und „StopTime“ definiert ist. Nach „StopTime“ wird der Kanal automatisch deaktiviert. „StartTime“ und „StopTime“ können sich über zwei Kalendertage erstrecken, da Tibber keine Daten über ein 48-Stunden-Fenster hinaus bereitstellt. Beide Zustände erfordern eine Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit einem Zeitzonenoffset, z. B. „2024-12-24T18:00:00.000+01:00“. Darüber hinaus verfügen die LTF-Kanäle über einen neuen Statusparameter namens „RepeatDays“, der standardmäßig auf 0 gesetzt ist. Wenn „RepeatDays“ auf eine positive Ganzzahl gesetzt ist, wiederholt der Kanal seinen Zyklus, indem er sowohl „StartTime“ als auch „StopTime“ um die angegebene Anzahl von Tagen erhöht, nachdem „StopTime“ erreicht wurde. Setzen Sie „RepeatDays“ beispielsweise für eine tägliche Wiederholung auf 1.
 
 ### Hinweise
@@ -101,6 +103,23 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 <a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, denken Sie darüber nach, mir ein Bier auszugeben. Prost! :Bier:
 
 ## Changelog
+
+### 4.2.0 (2024-12-xx)
+
+- (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
+
+### 4.1.1 (2024-12-21)
+
+- (HombachC) code cleanup
+- (HombachC) fix translations
+- (HombachC) fix chai-as-promised
+
+### 4.1.0 (2024-12-15)
+
+- (HombachC) enable local poll also without Token (#613)
+- (HombachC) split jsonConfig.json to multiple files
+- (HombachC) fix typo in translation handling
+- (HombachC) bump cron
 
 ### 4.0.0 (2024-12-08)
 

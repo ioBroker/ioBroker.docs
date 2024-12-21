@@ -20,38 +20,38 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 
 # Zusammenfassung
 
--   [Instanz Einstellungen](#instanz-einstellung-schedule-switcher)
--   [Objekte](#states)
--   [Beispiel Trigger Events als JSON](#beispiel-triggerevents-json)
--   [Beispiel Trigger als JSON](#beispiel-auslöser-json)
--   [Beispiel sendTo Trigger nur Experten](#beispiel-auslöser-mit-sendto-anlegen-oder-editieren-experten)
--   [Beispiel Widget als JSON](#beispiel-widgets-json)
--   [Beispiel Historie als JSON](#beispiel-historie-json)
--   [Widget anlegen](#widget-anlegen)
--   [Namen ändern](#namen-ändern)
--   [Bedingungen hinzufügen](#bedingung-hinzufügen)
--   [Text ersetzen](#text-ersetzen)
--   [CSS Einstellungen](#css-anwenden-beschreibung-siehe-css)
--   [Trigger anlegen](#trigger)
--   [Astrotrigger anlegen](#astro-trigger)
--   [Einmaltrigger anlegen](#one-time-trigger)
--   [HTML Einstellung](#html-für-vis-und-vis-2)
--   [HTML Funktion NUR VIS-2](#function-nur-für-vis-2)
--   [CSS](#css)
+- [Instanz Einstellungen](#instanz-einstellung-schedule-switcher)
+- [Objekte](#states)
+- [Beispiel Trigger Events als JSON](#beispiel-triggerevents-json)
+- [Beispiel Trigger als JSON](#beispiel-auslöser-json)
+- [Beispiel sendTo Trigger nur Experten](#beispiel-auslöser-mit-sendto-anlegen-oder-editieren-experten)
+- [Beispiel Widget als JSON](#beispiel-widgets-json)
+- [Beispiel Historie als JSON](#beispiel-historie-json)
+- [Widget anlegen](#widget-anlegen)
+- [Namen ändern](#namen-ändern)
+- [Bedingungen hinzufügen](#bedingung-hinzufügen)
+- [Text ersetzen](#text-ersetzen)
+- [CSS Einstellungen](#css-anwenden-beschreibung-siehe-css)
+- [Trigger anlegen](#trigger)
+- [Astrotrigger anlegen](#astro-trigger)
+- [Einmaltrigger anlegen](#one-time-trigger)
+- [HTML Einstellung](#html-für-vis-und-vis-2)
+- [HTML Funktion NUR VIS-2](#function-nur-für-vis-2)
+- [CSS](#css)
 
 ### Instanz Einstellung schedule-switcher
 
 [Zusammenfassung](#zusammenfassung)
 
--   `+ Zeichen`: Neuen Zeitplan hinzufügen
--   `Schaltplandaten Id`: Erstellte Objekte
--   `Name`: Name vom Widget
--   `Anzahl Auslöser`: Anzahl der Auslöser
--   `Aktiv`: Aktiv
--   `Löschen`: Zeitplan löschen
--   `Verzögerung zwischen 2 Schaltvorgängen in ms`: Verhindert zeitgleiches setzen von States
--   `Historie Umschaltung als JSON (max. 100/0 für Aus)` Max. Speicherung der Historie
--   `HTML für VIS und VIS-2 erstellen (VIS-2 siehe Beschreibung)` Aktivierung HTML Übersicht
+- `+ Zeichen`: Neuen Zeitplan hinzufügen
+- `Schaltplandaten Id`: Erstellte Objekte
+- `Name`: Name vom Widget
+- `Anzahl Auslöser`: Anzahl der Auslöser
+- `Aktiv`: Aktiv
+- `Löschen`: Zeitplan löschen
+- `Verzögerung zwischen 2 Schaltvorgängen in ms`: Verhindert zeitgleiches setzen von States
+- `Historie Umschaltung als JSON (max. 100/0 für Aus)` Max. Speicherung der Historie
+- `HTML für VIS und VIS-2 erstellen (VIS-2 siehe Beschreibung)` Aktivierung HTML Übersicht
 
     ![instance_settings.png](img/instance_settings.png)</br>
     ![instance_settings_1.png](img/instance_settings_1.png)
@@ -60,15 +60,15 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 
 [Zusammenfassung](#zusammenfassung)
 
--   onoff
--   `schedule-switcher.0.onoff.6.data` Alle Auslöser als JSON
--   `schedule-switcher.0.onoff.6.enabled` Aktiv oder Inaktiv
--   `schedule-switcher.0.onoff.6.views` Wo wurden Widgets für die Objekte angelegt
--   Status
--   `schedule-switcher.0.counterTrigger` Anzahl Trigger (aktive und inaktive)
--   `schedule-switcher.0.history` Histerie der Schaltungen
--   `schedule-switcher.0.nextEvents` Nächste Schaltvorgänge als JSON Table
--   `schedule-switcher.0.sendto` Bei VIS-2 werden Änderungen über dieses Objekt an den Adapter übergeben
+- onoff
+- `schedule-switcher.0.onoff.6.data` Alle Auslöser als JSON
+- `schedule-switcher.0.onoff.6.enabled` Aktiv oder Inaktiv
+- `schedule-switcher.0.onoff.6.views` Wo wurden Widgets für die Objekte angelegt
+- Status
+- `schedule-switcher.0.counterTrigger` Anzahl Trigger (aktive und inaktive)
+- `schedule-switcher.0.history` Histerie der Schaltungen
+- `schedule-switcher.0.nextEvents` Nächste Schaltvorgänge als JSON Table
+- `schedule-switcher.0.sendto` Bei VIS-2 werden Änderungen über dieses Objekt an den Adapter übergeben
 
 ![101_remote.png](img/view_states.png)
 
@@ -103,6 +103,7 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
 {
     "type": "OnOffSchedule",
     "name": "Rolllade Wohn", // Name vom letzten erstellte Widget
+    "active": false, // Alle 24h wird geprüft, ob es ein Widget gibt. Wird keins gefunden wird der Zeitplan deaktiviert. Mit TRUE wird nicht deaktiviert.
     "onAction": {
         // Action für On
         "type": "OnOffStateAction",
@@ -268,6 +269,16 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
     "dataId":"schedule-switcher.0.onoff.6.data",
     "triggerId":"0"
 });
+
+sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv lassen (wird bei restart oder alle 24h geprüft)
+    "dataId":"schedule-switcher.0.onoff.6.data",
+    "active":false, // false: Automatische Deaktivierung wenn kein Widget vorhanden ist
+});
+
+sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv lassen (wird bei restart oder alle 24h geprüft)
+    "dataId":"schedule-switcher.0.onoff.6.data",
+    "active":true, // true: Zeitplan wird nicht deaktiviert wenn kein Widget vorhanden ist
+});
 ```
 
 # Beispiel Historie JSON
@@ -361,21 +372,21 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   Widget in einer View einfügen
+- Widget in einer View einfügen
 
 ![create_widget.png](img/create_widget.png)
 
--   ID für Schaltplandaten auswählen
--   Zeitplan Aktivierungs ID auswählen
--   ID vom geschaltenen State auswählen (max. 10 möglich)
+- ID für Schaltplandaten auswählen
+- Zeitplan Aktivierungs ID auswählen
+- ID vom geschaltenen State auswählen (max. 10 möglich)
 
 ![create_widget_stateid.png](img/create_widget_stateid.png)
 
--   Wertetype festlegen und die Werte die gesetzt werden sollen
+- Wertetype festlegen und die Werte die gesetzt werden sollen
 
 ![create_widget_stateid_1.png](img/create_widget_stateid_1.png)
 
--   Nun einen Schaltplan erstellen
+- Nun einen Schaltplan erstellen
 
 ![create_widget_select.png](img/create_widget_select.png)
 
@@ -383,7 +394,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   Namen ändern - Wird in den Objekten auch übernommen
+- Namen ändern - Wird in den Objekten auch übernommen
 
 ![create_widget_name.png](img/create_widget_name.png)
 
@@ -391,7 +402,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   Eine Bedingung festellen.
+- Eine Bedingung festellen.
 
 ![create_widget_select_condition.png](img/create_widget_select_condition.png)
 
@@ -399,7 +410,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   Text an/aus und alles an/alles aus ändern
+- Text an/aus und alles an/alles aus ändern
 
 ![create_widget_rename_1.png](img/create_widget_rename_1.png)
 ![create_widget_rename_2.png](img/create_widget_rename_2.png)
@@ -408,28 +419,28 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   Verwende CSS aktivieren um den Style anzupassen</br>
-    ![create_widget_css.png](img/create_widget_css.png)</br>
-    ![create_widget_css_1.png](img/create_widget_css_1.png)</br>
-    ![create_widget_css_2.png](img/create_widget_css_2.png)</br>
-    ![create_widget_css_3.png](img/create_widget_css_3.png)</br>
-    ![widget_switched.png](img/widget_switched.png)</br>
-    ![widget_manual.png](img/widget_manual.png)</br>
-    ![widget_astro_icon.png](img/widget_astro_icon.pngg)</br>
-    ![widget_condition_1.png](img/widget_condition_1.png)</br>
-    ![widget_condition_2.png](img/widget_condition_2.png)
+- Verwende CSS aktivieren um den Style anzupassen</br>
+  ![create_widget_css.png](img/create_widget_css.png)</br>
+  ![create_widget_css_1.png](img/create_widget_css_1.png)</br>
+  ![create_widget_css_2.png](img/create_widget_css_2.png)</br>
+  ![create_widget_css_3.png](img/create_widget_css_3.png)</br>
+  ![widget_switched.png](img/widget_switched.png)</br>
+  ![widget_manual.png](img/widget_manual.png)</br>
+  ![widget_astro_icon.png](img/widget_astro_icon.pngg)</br>
+  ![widget_condition_1.png](img/widget_condition_1.png)</br>
+  ![widget_condition_2.png](img/widget_condition_2.png)
 
 ### Trigger
 
 [Zusammenfassung](#zusammenfassung)
 
--   Den Stift anklicken um die Zeit einzutragen oder die Mülltonne um den Trigger zu löschen
+- Den Stift anklicken um die Zeit einzutragen oder die Mülltonne um den Trigger zu löschen
 
 ![create_widget_select_time.png](img/create_widget_select_time.png)
 
--   Schaltzustand auswählen
--   Eine Bedingung auswählen (optional)
--   Zeit eintragen (hh:mm)
+- Schaltzustand auswählen
+- Eine Bedingung auswählen (optional)
+- Zeit eintragen (hh:mm)
 
 ```:warning:
  ⚠ Zeigt in Firefox kein Uhrzeit-Feld an!
@@ -437,12 +448,12 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_time_add_1.png](img/create_widget_select_time_add_1.png)
 
--   Wochentag auswählen
--   Oben rechts speichern anklicken
+- Wochentag auswählen
+- Oben rechts speichern anklicken
 
 ![create_widget_select_time_add_2.png](img/create_widget_select_time_add_2.png)
 
--   Fertig
+- Fertig
 
 ![create_widget_select_time_done.png](img/create_widget_select_time_done.png)
 
@@ -450,23 +461,23 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   Den Stift anklicken um die Astrozeit auszuwählen oder die Mülltonne um den Trigger zu löschen
+- Den Stift anklicken um die Astrozeit auszuwählen oder die Mülltonne um den Trigger zu löschen
 
 ![create_widget_select_astro.png](img/create_widget_select_astro.png)
 
--   Schaltzustand auswählen
--   Eine Bedingung auswählen (optional)
--   Astrozeit auswählen (Sonnenaufgang, Sonnenuntergang oder Mittag)
+- Schaltzustand auswählen
+- Eine Bedingung auswählen (optional)
+- Astrozeit auswählen (Sonnenaufgang, Sonnenuntergang oder Mittag)
 
 ![create_widget_select_astro_add_1.png](img/create_widget_select_astro_add_1.png)
 
--   Offset in Minuten eintragen (optional)
--   Wochentag auswählen
--   Oben rechts speichern anklicken
+- Offset in Minuten eintragen (optional)
+- Wochentag auswählen
+- Oben rechts speichern anklicken
 
 ![create_widget_select_astro_add_2.png](img/create_widget_select_astro_add_2.png)
 
--   Fertig
+- Fertig
 
 ![create_widget_select_astro_done.png](img/create_widget_select_astro_done.png)
 
@@ -474,21 +485,21 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   Schaltzustand auswählen
--   Eine Bedingung auswählen (optional)
--   Zeit eintragen (hh:mm:ss)
--   Oben rechts speichern anklicken
+- Schaltzustand auswählen
+- Eine Bedingung auswählen (optional)
+- Zeit eintragen (hh:mm:ss)
+- Oben rechts speichern anklicken
 
 ![create_widget_select_onetime.png](img/create_widget_select_onetime.png)
 
--   Fertig
+- Fertig
 
 ![create_widget_select_onetime_done.png](img/create_widget_select_onetime_done.png)
 
--   Schaltzustand auswählen
--   Eine Bedingung auswählen (optional)
--   Zeit eintragen/auswählen (dd.mm.yyyy hh:mm:ss)
--   Oben rechts speichern anklicken
+- Schaltzustand auswählen
+- Eine Bedingung auswählen (optional)
+- Zeit eintragen/auswählen (dd.mm.yyyy hh:mm:ss)
+- Oben rechts speichern anklicken
 
 ```:warning:
  ⚠ Zeigt in Firefox kein Uhrzeit-Feld an!
@@ -497,7 +508,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 ![create_widget_select_onetime_date.png](img/create_widget_select_onetime_date.png)</br>
 ![create_widget_select_onetime_date_calendar.png](img/create_widget_select_onetime_date_calendar.png)
 
--   Fertig
+- Fertig
 
 ![create_widget_select_onetime_date_done.png](img/create_widget_select_onetime_date_done.png)
 
@@ -505,98 +516,98 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 [Zusammenfassung](#zusammenfassung)
 
--   `html.background_color_body` Hintergrundfarbe vom Body. Bei VIS komplett und bei VIS-2 nur das Widget - Standard #000000
--   `html.background_color_even` Hintergrundfarbe Trigger gerade Zahl - Standard #1E1E1E
--   `html.background_color_odd` Hintergrundfarbe Trigger ungerade Zahl - Standard #18171C
--   `html.background_color_trigger` Hintergrundfarbe Trigger Objekt - Standard #000000
--   `html.background_color_weekdays_hover` Hintergrundfarbe bei Mouseover der Wochentage - Klick für aktivieren/deaktivieren - Standard blue
--   `html.column_align_01` Kopftextausrichtung Spalte 1 - Standard center
--   `html.column_align_02` Kopftextausrichtung Spalte 2 - Standard center
--   `html.column_align_03` Kopftextausrichtung Spalte 3 - Standard center
--   `html.column_align_04` Kopftextausrichtung Spalte 4 - Standard center
--   `html.column_align_05` Kopftextausrichtung Spalte 5 - Standard center
--   `html.column_align_06` Kopftextausrichtung Spalte 6 - Standard center
--   `html.column_align_07` Kopftextausrichtung Spalte 7 - Standard center
--   `html.column_align_08` Kopftextausrichtung Spalte 8 - Standard center
--   `html.column_align_09` Kopftextausrichtung Spalte 9 - Standard center
--   `html.column_align_10` Kopftextausrichtung Spalte 10 - Standard center
--   `html.column_text_01` Kopftext Spalte 1 - Standard Schedule
--   `html.column_text_02` Kopftext Spalte 2 - Standard Devices
--   `html.column_text_03` Kopftext Spalte 3 - Standard Switch
--   `html.column_text_04` Kopftext Spalte 4 - Standard Mo
--   `html.column_text_05` Kopftext Spalte 5 - Standard Tu
--   `html.column_text_06` Kopftext Spalte 6 - Standard We
--   `html.column_text_07` Kopftext Spalte 7 - Standard Th
--   `html.column_text_08` Kopftext Spalte 8 - Standard Fr
--   `html.column_text_09` Kopftext Spalte 9 - Standard Sa
--   `html.column_text_10` Kopftext Spalte 10 - Standard Su
--   `html.column_width_01` Breite der Spalte 1 - Standard auto
--   `html.column_width_02` Breite der Spalte 2 - Standard auto
--   `html.column_width_03` Breite der Spalte 3 - Standard auto
--   `html.column_width_04` Breite der Spalte 4 - Standard auto
--   `html.column_width_05` Breite der Spalte 5 - Standard auto
--   `html.column_width_06` Breite der Spalte 6 - Standard auto
--   `html.column_width_07` Breite der Spalte 7 - Standard auto
--   `html.column_width_08` Breite der Spalte 8 - Standard auto
--   `html.column_width_09` Breite der Spalte 9 - Standard auto
--   `html.column_width_70` Breite der Spalte 10 - Standard auto
--   `html.font_color_text_disabled` Textfarbe vom deaktivierten Objekt - Standard red
--   `html.font_color_text_enabled` Textfarbe vom aktivierten Objekt - Standard yellow
--   `html.font_color_weekdays_disabled` Textfarbe von deaktivierten Wochentagen - Standard red
--   `html.font_color_weekdays_enabled` Textfarbe von aktivierten Wochentagen - Standard yellow
--   `html.header_border` Kopfrand in Pixel - Standard 2
--   `html.header_font_family` Kopf Schriftfamilie - Standard Helvetica
--   `html.header_font_size` Kopf Schriftgöße - Standard 15
--   `html.header_linear_color_1` Kopf Hintergrundbild: linearer Farbverlauf 1 - Standard #BDBDBD
--   `html.header_linear_color_2` Kopf Hintergrundbild: linearer Farbverlauf 2 - Standard #BDBDBD
--   `html.header_tag_border_color` Kopf HTML TAG `<td>` Randfarbe - Standard #424242
--   `html.header_width` Kopf TAG `<table>` Größe Standard auto
--   `html.column_align_row_01` Textausrichtung der Zeilen in Spalte 1 - Standard left
--   `html.column_align_row_02` Textausrichtung der Zeilen in Spalte 2 - Standard left
--   `html.column_align_row_03` Textausrichtung der Zeilen in Spalte 3 - Standard left
--   `html.column_align_row_04` Textausrichtung der Zeilen in Spalte 4 - Standard left
--   `html.column_align_row_05` Textausrichtung der Zeilen in Spalte 5 - Standard left
--   `html.column_align_row_06` Textausrichtung der Zeilen in Spalte 6 - Standard left
--   `html.column_align_row_07` Textausrichtung der Zeilen in Spalte 7 - Standard left
--   `html.column_align_row_08` Textausrichtung der Zeilen in Spalte 8 - Standard left
--   `html.column_align_row_09` Textausrichtung der Zeilen in Spalte 9 - Standard left
--   `html.column_align_row_10` Textausrichtung der Zeilen in Spalte 10 - Standard left
--   `html.headline_color` Kopf Schriftfarbe (schedule, device ...) - Standard #ffffff
--   `html.headline_font_size` Kopf Schriftgröße in Pixel - Standard 16
--   `html.headline_height` Kopf Zeilenhöhe in Pixel - Standard 35
--   `html.headline_underlined` Kopf Rand unten in Pixel - Standard 3
--   `html.headline_underlined_color` Kopf Randfarbe unten - Standard #ffffff
--   `html.headline_weight` Kopf Schriftstärke - Standard normal
--   `html.html_code` HTML Code für VIS, VIS-2, Jarvis, IQontrol usw.
--   `html.icon_false` Icon Schaltzustand aus - Standard ⚪
--   `html.icon_switch_symbol` Icon Schalter um die Zeitschaltuhr zu aktivieren/deaktivieren - Standard ⏱
--   `html.icon_true` Icon Schaltzustand an - Standard 🟡
--   `html.jarvis` Kompatibel für Jarvis - Standard false
--   `html.p_tag_text_algin` HTML `<p>` Textausrichtung (Letzte Aktualisierung und Fußzeile) - Standard center
--   `html.table_tag_border_color` Randfarbe vom TAG `<table>` - Standard #424242
--   `html.table_tag_cell` Grenzabstand vom TAG `<table>` in Pixel - Standard 6
--   `html.table_tag_text_align` Textausrichtung vom TAG `<table>` - Standard center
--   `html.table_tag_width` Größe vom TAG `<table>` - Standard auto
--   `html.td_tag_border_bottom` Rand unten vom TAG `<td>` in Pixel - Standard 1
--   `html.td_tag_border_color` Randfarbe unten vom TAG `<td>` - Standard #424242
--   `html.td_tag_border_right` Rand rechts vom TAG `<td>` in Pixel - Standard 1
--   `html.td_tag_cell` Platz um den Text vom TAG `<td>` in Pixel (padding) - Standard 6
--   `html.top_font_family` Schriftfamilie von Kopfzeile und Fußzeile - Standard Helvetica
--   `html.top_font_size` Schriftgröße von Kopfzeile und Fußzeile in Pixel - Standard 20
--   `html.top_font_weight` Schriftstärke von Kopfzeile und Fußzeile - Standard normal"
--   `html.top_text` Eigener Text für die Kopfzeile - Standard your text
--   `html.top_text_color` Schriftfarbe von Kopfzeile und Fußzeile - Standard #ffffff
--   `html.update` Manuelles Update starten
+- `html.background_color_body` Hintergrundfarbe vom Body. Bei VIS komplett und bei VIS-2 nur das Widget - Standard #000000
+- `html.background_color_even` Hintergrundfarbe Trigger gerade Zahl - Standard #1E1E1E
+- `html.background_color_odd` Hintergrundfarbe Trigger ungerade Zahl - Standard #18171C
+- `html.background_color_trigger` Hintergrundfarbe Trigger Objekt - Standard #000000
+- `html.background_color_weekdays_hover` Hintergrundfarbe bei Mouseover der Wochentage - Klick für aktivieren/deaktivieren - Standard blue
+- `html.column_align_01` Kopftextausrichtung Spalte 1 - Standard center
+- `html.column_align_02` Kopftextausrichtung Spalte 2 - Standard center
+- `html.column_align_03` Kopftextausrichtung Spalte 3 - Standard center
+- `html.column_align_04` Kopftextausrichtung Spalte 4 - Standard center
+- `html.column_align_05` Kopftextausrichtung Spalte 5 - Standard center
+- `html.column_align_06` Kopftextausrichtung Spalte 6 - Standard center
+- `html.column_align_07` Kopftextausrichtung Spalte 7 - Standard center
+- `html.column_align_08` Kopftextausrichtung Spalte 8 - Standard center
+- `html.column_align_09` Kopftextausrichtung Spalte 9 - Standard center
+- `html.column_align_10` Kopftextausrichtung Spalte 10 - Standard center
+- `html.column_text_01` Kopftext Spalte 1 - Standard Schedule
+- `html.column_text_02` Kopftext Spalte 2 - Standard Devices
+- `html.column_text_03` Kopftext Spalte 3 - Standard Switch
+- `html.column_text_04` Kopftext Spalte 4 - Standard Mo
+- `html.column_text_05` Kopftext Spalte 5 - Standard Tu
+- `html.column_text_06` Kopftext Spalte 6 - Standard We
+- `html.column_text_07` Kopftext Spalte 7 - Standard Th
+- `html.column_text_08` Kopftext Spalte 8 - Standard Fr
+- `html.column_text_09` Kopftext Spalte 9 - Standard Sa
+- `html.column_text_10` Kopftext Spalte 10 - Standard Su
+- `html.column_width_01` Breite der Spalte 1 - Standard auto
+- `html.column_width_02` Breite der Spalte 2 - Standard auto
+- `html.column_width_03` Breite der Spalte 3 - Standard auto
+- `html.column_width_04` Breite der Spalte 4 - Standard auto
+- `html.column_width_05` Breite der Spalte 5 - Standard auto
+- `html.column_width_06` Breite der Spalte 6 - Standard auto
+- `html.column_width_07` Breite der Spalte 7 - Standard auto
+- `html.column_width_08` Breite der Spalte 8 - Standard auto
+- `html.column_width_09` Breite der Spalte 9 - Standard auto
+- `html.column_width_70` Breite der Spalte 10 - Standard auto
+- `html.font_color_text_disabled` Textfarbe vom deaktivierten Objekt - Standard red
+- `html.font_color_text_enabled` Textfarbe vom aktivierten Objekt - Standard yellow
+- `html.font_color_weekdays_disabled` Textfarbe von deaktivierten Wochentagen - Standard red
+- `html.font_color_weekdays_enabled` Textfarbe von aktivierten Wochentagen - Standard yellow
+- `html.header_border` Kopfrand in Pixel - Standard 2
+- `html.header_font_family` Kopf Schriftfamilie - Standard Helvetica
+- `html.header_font_size` Kopf Schriftgöße - Standard 15
+- `html.header_linear_color_1` Kopf Hintergrundbild: linearer Farbverlauf 1 - Standard #BDBDBD
+- `html.header_linear_color_2` Kopf Hintergrundbild: linearer Farbverlauf 2 - Standard #BDBDBD
+- `html.header_tag_border_color` Kopf HTML TAG `<td>` Randfarbe - Standard #424242
+- `html.header_width` Kopf TAG `<table>` Größe Standard auto
+- `html.column_align_row_01` Textausrichtung der Zeilen in Spalte 1 - Standard left
+- `html.column_align_row_02` Textausrichtung der Zeilen in Spalte 2 - Standard left
+- `html.column_align_row_03` Textausrichtung der Zeilen in Spalte 3 - Standard left
+- `html.column_align_row_04` Textausrichtung der Zeilen in Spalte 4 - Standard left
+- `html.column_align_row_05` Textausrichtung der Zeilen in Spalte 5 - Standard left
+- `html.column_align_row_06` Textausrichtung der Zeilen in Spalte 6 - Standard left
+- `html.column_align_row_07` Textausrichtung der Zeilen in Spalte 7 - Standard left
+- `html.column_align_row_08` Textausrichtung der Zeilen in Spalte 8 - Standard left
+- `html.column_align_row_09` Textausrichtung der Zeilen in Spalte 9 - Standard left
+- `html.column_align_row_10` Textausrichtung der Zeilen in Spalte 10 - Standard left
+- `html.headline_color` Kopf Schriftfarbe (schedule, device ...) - Standard #ffffff
+- `html.headline_font_size` Kopf Schriftgröße in Pixel - Standard 16
+- `html.headline_height` Kopf Zeilenhöhe in Pixel - Standard 35
+- `html.headline_underlined` Kopf Rand unten in Pixel - Standard 3
+- `html.headline_underlined_color` Kopf Randfarbe unten - Standard #ffffff
+- `html.headline_weight` Kopf Schriftstärke - Standard normal
+- `html.html_code` HTML Code für VIS, VIS-2, Jarvis, IQontrol usw.
+- `html.icon_false` Icon Schaltzustand aus - Standard ⚪
+- `html.icon_switch_symbol` Icon Schalter um die Zeitschaltuhr zu aktivieren/deaktivieren - Standard ⏱
+- `html.icon_true` Icon Schaltzustand an - Standard 🟡
+- `html.jarvis` Kompatibel für Jarvis - Standard false
+- `html.p_tag_text_algin` HTML `<p>` Textausrichtung (Letzte Aktualisierung und Fußzeile) - Standard center
+- `html.table_tag_border_color` Randfarbe vom TAG `<table>` - Standard #424242
+- `html.table_tag_cell` Grenzabstand vom TAG `<table>` in Pixel - Standard 6
+- `html.table_tag_text_align` Textausrichtung vom TAG `<table>` - Standard center
+- `html.table_tag_width` Größe vom TAG `<table>` - Standard auto
+- `html.td_tag_border_bottom` Rand unten vom TAG `<td>` in Pixel - Standard 1
+- `html.td_tag_border_color` Randfarbe unten vom TAG `<td>` - Standard #424242
+- `html.td_tag_border_right` Rand rechts vom TAG `<td>` in Pixel - Standard 1
+- `html.td_tag_cell` Platz um den Text vom TAG `<td>` in Pixel (padding) - Standard 6
+- `html.top_font_family` Schriftfamilie von Kopfzeile und Fußzeile - Standard Helvetica
+- `html.top_font_size` Schriftgröße von Kopfzeile und Fußzeile in Pixel - Standard 20
+- `html.top_font_weight` Schriftstärke von Kopfzeile und Fußzeile - Standard normal"
+- `html.top_text` Eigener Text für die Kopfzeile - Standard your text
+- `html.top_text_color` Schriftfarbe von Kopfzeile und Fußzeile - Standard #ffffff
+- `html.update` Manuelles Update starten
 
 ![vis_object_1.png](img/vis_object_1.png)
 
--   Ein HTML Widget anlegen und unter HTML das Objekt eintragen `{schedule-switcher.0.html.html_code}`
--   Klick auf den Schriftzug `Letzte Aktualisierung` um ein manuelles Update durchzuführen
--   Icon anklicken um das Widget zu aktivieren/deaktivieren
--   Um ein Auslöser zu löschen muss man erst einen Haken setzen und dann den Button `delete` drücken
--   Zeiten/Astro ändern und den Button `save` drücken um die Änderungen zu übernehmen
--   Wochentag anklicken um diesen zu aktivieren/deaktivieren
--   Zeile Triggername wird unter Wochentage der nächste Event on/off angezeigt
+- Ein HTML Widget anlegen und unter HTML das Objekt eintragen `{schedule-switcher.0.html.html_code}`
+- Klick auf den Schriftzug `Letzte Aktualisierung` um ein manuelles Update durchzuführen
+- Icon anklicken um das Widget zu aktivieren/deaktivieren
+- Um ein Auslöser zu löschen muss man erst einen Haken setzen und dann den Button `delete` drücken
+- Zeiten/Astro ändern und den Button `save` drücken um die Änderungen zu übernehmen
+- Wochentag anklicken um diesen zu aktivieren/deaktivieren
+- Zeile Triggername wird unter Wochentage der nächste Event on/off angezeigt
 
 ![vis_view_1.png](img/vis_view_1.png)</br>
 ![vis_view_2.png](img/vis_view_2.png)
@@ -779,6 +790,13 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.9 (2024-12-20)
+
+- (Lucky-ESA) Fixed: Reading files from Redis database
+- (Lucky-ESA) Added: Automatic deactivation control
+- (Lucky-ESA) Fixed: Visibility
+- (Lucky-ESA) Fixed: Bug in type check
+
 ### 0.0.8 (2024-12-07)
 
 - (Lucky-ESA) Migration to ESLint9

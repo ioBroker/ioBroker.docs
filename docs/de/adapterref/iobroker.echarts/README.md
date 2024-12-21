@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
+hash: DbJ1PJ9sroa6cOoaybcuQ/HO8xh1HBJBWG6M2Jsqkic=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -12,28 +12,28 @@ hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
+![Testen und Freigeben](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Echarts-Adapter für ioBroker
 Erstellen Sie nützliche Diagramme in ioBroker:
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
+![Screenshot](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
 
-![Riegel](../../../en/adapterref/iobroker.echarts/img/bars.png)
+![Barren](../../../en/adapterref/iobroker.echarts/img/bars.png)
 
-![Radar](../../../en/adapterref/iobroker.echarts/img/radar.png) Verwenden Sie die Aggregation „Tatsächlicher Wert“ für das vorhergesagte Ergebnis.
+![Radar](../../../en/adapterref/iobroker.echarts/img/radar.png) Verwenden Sie die Aggregation „Tatsächlicher Wert“ für das prognostizierte Ergebnis.
 
 ## Verwendung
-Nach dem Neustart den Tab im Admin hinzufügen: ![Administrator](../../../en/adapterref/iobroker.echarts/img/admin.png)
+Füge nach dem Neustart den Reiter im Admin hinzu: ![Verwaltung](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
 Auf die erstellte Voreinstellung kann auch im Webadapter zugegriffen werden. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
 Für `vis` gibt es ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
 
 ### Tooltip
-Der Kleinbuchstabe `i` gibt an, dass der Wert aus den 2-Nachbarwerten interpoliert wurde und zu diesem Zeitstempel nicht existiert.
+Kleingeschriebene `i` zeigen an, dass der Wert aus den beiden Nachbarwerten interpoliert wurde und zu diesem Zeitstempel nicht existiert.
 
 ![Tooltip](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
@@ -48,17 +48,17 @@ Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie eine
 ]
 ```
 
-Alternative folgende Attributnamen werden für `val` unterstützt: `value`, `v`, `data`, `y`.
-Und Folgendes für `ts`: `time`, `t`, `date`.
+Für `val` werden folgende alternative Attributnamen unterstützt: `value`, `v`, `data`, `y`.
+Und für `ts`: `time`, `t`, `date`.
 
-Sie können Start und Start nicht in den Echarts-Einstellungen definieren. Start und Ende werden automatisch aus den Daten berechnet.
+In den eCharts-Einstellungen können Sie Start und Ende nicht definieren. Start und Ende werden automatisch aus den Daten berechnet.
 Auch eine Aggregation ist nicht möglich. Alle Manipulationen müssen durch Schreiben der JSON-Daten erfolgen.
-Das Diagramm wird jedes Mal automatisch aktualisiert, wenn sich der Wert ändert.
+Das Diagramm wird bei jeder Wertänderung automatisch aktualisiert.
 
 ### Serverseitiges Rendering
-Sie können die Voreinstellungen auf dem Server rendern und als Base64-URL abrufen oder auf der Festplatte in der ioBroker-Datenbank speichern:
+Sie können die Voreinstellungen auf dem Server rendern und sie als Base64-URL abrufen oder auf der Festplatte in der ioBroker-Datenbank speichern:
 
-```
+```js
 sendTo('echarts.0', {
     preset:   'echarts.0.myPreset', // the only mandatory attribute
 
@@ -94,20 +94,33 @@ sendTo('echarts.0', {
 
 Sie können Ansichtsdiagramme lokal debuggen mit:
 
-- CD iobroker.echarts/src-chart
-- NPM-Laufstart
+- cd iobroker.echarts/src-chart
+- npm-Ausführung starten
 - Browser: http://localhost:8081/adapter/echarts/tab.html?dev=true
 
-## Machen
-- Widget für Vis (Button)
-- Enum-Symbole in Ordnern oder in deren Nähe anzeigen
+## Aufgaben
+- Widget für Vis (Schaltfläche)
+- Enumerationssymbole auf Ordnern oder in deren Nähe anzeigen
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.9.5 (2024-12-20)
+* (bluefox) Convert actual values with provided "convert" function too
+
+### 1.9.2 (2024-09-10)
+* (bluefox) Fixed polar and bar charts
+
+### 1.9.0 (2024-08-06)
+* (bluefox) upgraded packages
+* (bluefox) removed `withStyles`
+
+### 1.8.4 (2024-06-21)
+* (foxriver76) upgraded dependencies
+
+### 1.8.0 (2024-02-03)
 * (bluefox) Added the radar (polar) chart type
 
 ### 1.7.2 (2023-11-20)
@@ -307,10 +320,10 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 ## License
 ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2024 bluefox <dogafox@gmail.com>
 
 Apache ECharts
-Copyright (c) 2017-2023 The Apache Software Foundation
+Copyright (c) 2017-2024 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).

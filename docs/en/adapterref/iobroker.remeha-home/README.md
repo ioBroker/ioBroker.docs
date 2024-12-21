@@ -56,6 +56,7 @@ You must enter these in the configuration of the adapter.
 
 ### **WORK IN PROGRESS**
 * (simatec) eslint-config fix
+* (simatec) Dependencies updated
 
 ### 0.2.5 (2024-11-27)
 * (simatec) Dependencies updated

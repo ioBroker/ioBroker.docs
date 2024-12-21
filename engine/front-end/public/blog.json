@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2024_12_21": {
+      "date": "2024.12.21",
+      "title": {
+        "de": "ioBroker Monatsupdate - Dezember 2024 🎄",
+        "en": "ioBroker Monthly Update - December 2024 🎄",
+        "ru": "Ежемесячное обновление ioBroker — декабрь 2024 г. 🎄",
+        "zh-cn": "ioBroker 每月更新 - 2024 年 12 月 🎄"
+      },
+      "logo": "de/blog/images/2024_12_21.png",
+      "type": "news",
+      "originalName": "2024_12_21.md",
+      "desc": {
+        "de": "Herzlich willkommen zu unserer letzten Ausgabe des Jahres 2024!\\nWir bedanken uns bei allen Entwicklern, Testern und Nutzern, die das Projekt in diesem Jahr weitergebracht haben. ",
+        "en": "# IoBroker Monthly Update: December 2024 🎄\\nWelcome to our last issue of 2024! We would like to thank all developers, testers and users who have helped move the project forward this year.",
+        "ru": "Ежемесячное обновление # ioBroker: декабрь 2024 г. 🎄\\nДобро пожаловать в наш последний выпуск 2024 года! Мы хотели бы поблагодарить всех разработчиков, тестировщиков и пользователей, которые продвинули проект в этом году.",
+        "zh-cn": "# IoBroker 每月更新：2024 年 12 月 🎄\\n欢迎来到 2024 年最后一期！我们要感谢今年推动该项目前进的所有开发人员、测试人员和用户。"
+      }
+    },
     "2024_11_23": {
       "date": "2024.11.23",
       "title": {

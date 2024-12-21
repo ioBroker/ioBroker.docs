@@ -27,8 +27,11 @@
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+
 -->
+### 3.6.7 (2024-12-18)
+* (misanorot) ESlint 9  #267
+
 ### 3.6.5 (2024-12-15)
 * (misanorot) fixed Firefox scrolling issue #266
 
@@ -41,9 +44,6 @@
 
 ### 3.6.1 (2024-06-19)
 * (misanorot) fixed presence at burgle
-
-### 3.6.0 (2024-01-06)
-* (misanorot) added new zone functions ON/OFF /  Please check the readme
 
 ## License
 MIT License

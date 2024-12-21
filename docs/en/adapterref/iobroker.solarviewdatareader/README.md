@@ -60,7 +60,7 @@ UL3, IL3 = mains voltage, mains power phase 3
 TKK= Temperature inverter
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.2.0 (2024-12-20)
 * (afuerhoff) dependencies updated
 * (afuerhoff) Migration to ESLint 9 and @iobroker/eslint-config - issue [#189]
 * (afuerhoff) eslint: code optimized
@@ -86,13 +86,6 @@ TKK= Temperature inverter
 * (afuerhoff) dependencies updated
 * (afuerhoff) bugfix CCU variable
 * (afuerhoff) documentation changed
-
-### 1.1.0 (2024-05-29)
-* (afuerhoff) code optimizations
-* (afuerhoff) jsonConfig added
-* (afuerhoff) dependencies updated
-* (afuerhoff) node >= 18, js-controller >= 5.0.19
-* (afuerhoff) admin >= 6.17.13 due to timePicker failure
 
 ## License
 MIT License

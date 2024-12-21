@@ -156,6 +156,9 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) correct interpretation of start value setting.
+
 ### 2.2.2 (2024-11-02)
 * (simatec) responsive design for settings page added
 

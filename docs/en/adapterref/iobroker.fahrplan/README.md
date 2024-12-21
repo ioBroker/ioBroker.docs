@@ -223,6 +223,10 @@ With +-Button new entries can be added to the table.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (Gaudes) Include platform in line
+* (Gaudes) Updates
+
 ### 1.4.0 (2024-12-13)
 * (Gaudes) Migrate to ESM
 * (Gaudes) Upgrade HAFAS to version 6.x

@@ -81,6 +81,7 @@ When the adapter crashes or an other Code error happens, this error message that
 <!--### __WORK IN PROGRESS__-->
 ### __WORK IN PROGRESS__
 * (simatec) eslint-config fix
+* (simatec) Dependencies updated
 
 ### 1.1.6 (2024-11-25)
 * (simatec) Dependencies updated

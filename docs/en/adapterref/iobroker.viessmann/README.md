@@ -32,6 +32,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.5.3 (2024-12-19)
+* (misanorot) fixed issue #245 ESlint
+
 ### 1.5.0 (2024-10-21)
 * (misanorot) fixed issue #235 Responsive
 
@@ -44,9 +47,6 @@
 
 ### 1.4.7 (2024-01-13)
 * (misanorot) fixed issue #164
-
-### 1.4.6 (2023-10-31)
-* (misanorot) fixed open connection after unload
 
 ### License
 

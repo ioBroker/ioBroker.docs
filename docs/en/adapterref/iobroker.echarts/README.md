@@ -52,7 +52,7 @@ The chart will be automatically updated every time the value changes.
 ### Server side rendering
 You can render the presets on the server and get it as base64 URL or save it on disk on in ioBroker DB:
 
-```
+```js
 sendTo('echarts.0', {
     preset:   'echarts.0.myPreset', // the only mandatory attribute
 
@@ -100,6 +100,9 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.9.5 (2024-12-20)
+* (bluefox) Convert actual values with provided "convert" function too
+
 ### 1.9.2 (2024-09-10)
 * (bluefox) Fixed polar and bar charts
 

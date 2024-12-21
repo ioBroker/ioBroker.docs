@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.teslafi/README.md
 title: ioBroker.teslafi
-hash: aOJVq2DRk8fHc1q6SsgNIao3TYVynVj0L55dZtq1kWA=
+hash: MFeotZ8hkjwmdHiXxk+qNPxZ3kM1dwoMGTw2Ef24lLw=
 ---
 ![标识](../../../en/adapterref/iobroker.teslafi/admin/teslafi.png)
 
@@ -28,11 +28,36 @@ hash: aOJVq2DRk8fHc1q6SsgNIao3TYVynVj0L55dZtq1kWA=
 [![CodeQL]（https://github.com/hombach/ioBroker.teslafi/actions/workflows/codeql-analysis.yml/badge.svg）](https://github.com/hombach/ioBroker.teslafi/actions/workflows/codeql-analysis.yml)
 
 ## 版本
-## 用于从你的汽车轮询 TeslaFi 数据的适配器
-该适配器可以集成您的 TeslaFi 帐户 API 中的数据以供 ioBroker 内使用。
+# IoBroker TeslaFi 适配器 – 为您的智能家居无缝集成特斯拉数据
+TeslaFi 适配器可轻松将 TeslaFi 帐户中的车辆数据集成到 ioBroker 系统中。利用这些数据来增强您的 Tesla 体验并优化家庭自动化工作流程。
+
+## 为什么选择这个适配器？
+该适配器的主要目的是将特斯拉数据集成到 ioBroker 中，而无需直接查询车辆系统。通过利用 TeslaFi 现有的数据轮询，该适配器可避免向车辆发出额外请求，从而延长电池寿命并确保高效的数据访问。
+
+＃＃ 特征
+该适配器连接到 TeslaFi API 以检索有关您的特斯拉车辆的全面详细信息，并使这些数据可在 ioBroker 中访问。TeslaFi 支持的所有特斯拉车型都完全兼容。目前，可用的数据类别如下：
+
+- **热状态**：了解热管理系统和温度。
+- **电池状态**：有关电池状态、电量和续航里程的信息。
+- **车辆状态**：车辆的一般状态，包括位置和整体状况。
+- **车辆数据**：车辆具体细节，如名称和 VIN。
+
+典型用例
+- **自动化**：根据特斯拉的实时状态触发智能家居操作。例如，当车辆到达时自动调节家庭气候控制。
+- **能源管理**：通过安排车辆充电时间和直接从 ioBroker 监控电池状态来优化能源消耗。
+- **通知和报告**：为特定车辆状况设置警报，例如电池电量低、充电完成或可用更新。
 
 ＃＃ 配置
-在配置屏幕上的指定字段中输入您的 TeslaFi API 密钥。您还可以调整轮询间隔以满足您的要求。
+配置适配器很简单：
+
+1. 在适配器的配置屏幕中输入您的 TeslaFi API 密钥。
+2. 设置所需的轮询间隔以定制数据更新的频率。
+
+＃＃ 兼容性
+该适配器与 TeslaFi 支持的所有特斯拉车型兼容。需要具有 API 访问权限的有效 TeslaFi 帐户。
+
+## 积极开发和用户贡献
+TeslaFi 适配器得到积极维护，并且可以根据用户请求添加其他功能或数据类别。欢迎随时提交您的想法并帮助整个社区改进适配器！
 
 哨兵
 此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告从 js-controller 3.0 开始启动。
@@ -41,6 +66,11 @@ hash: aOJVq2DRk8fHc1q6SsgNIao3TYVynVj0L55dZtq1kWA=
 <a href="https://www.paypal.com/donate/?hosted_button_id=6EE4YUJRK7UWC"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！:beers:
 
 ## Changelog
+
+### 0.4.6 (2024-12-21)
+
+- (hombach) fix chai-as-promised
+- (hombach) enrich documentation
 
 ### 0.4.5 (2024-12-11)
 

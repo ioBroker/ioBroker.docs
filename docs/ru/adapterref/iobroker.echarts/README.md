@@ -1,20 +1,20 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
+hash: DbJ1PJ9sroa6cOoaybcuQ/HO8xh1HBJBWG6M2Jsqkic=
 ---
 ![Логотип](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
 ![Количество установок](http://iobroker.live/badges/echarts-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.echarts.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
+![Тест и выпуск](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Адаптер echarts для ioBroker
 Создавайте полезные диаграммы в ioBroker:
@@ -26,19 +26,19 @@ hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ![Радар](../../../en/adapterref/iobroker.echarts/img/radar.png) Используйте агрегацию «Фактическое значение» для прогнозируемого результата.
 
 ## Использование
-Добавляем после перезагрузки вкладку в админке: ![Админ](../../../en/adapterref/iobroker.echarts/img/admin.png)
+Добавьте после перезапуска вкладку в админке: ![Админ](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
-Доступ к созданному пресету также можно получить в веб-адаптере. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
+Созданный пресет также доступен в веб-адаптере. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
 Для `vis` есть специальный виджет с удобным выбором пресетов.
 
 ### Подсказка
-Нижний регистр `i` указывает, что значение было интерполировано из значений двух соседей и не существует на данной отметке времени.
+Строчная последовательность `i` указывает на то, что значение было интерполировано из значений двух соседних элементов и на данный момент времени не существует.
 
 ![Подсказка](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
 ### Данные из JSON
-Вы можете определить источник данных из JSON. В этом случае вы можете создать собственное состояние типа `json` и сохранить значение следующим образом:
+Вы можете определить источник данных из JSON. В этом случае вы можете создать некоторое пользовательское состояние типа `json` и сохранить значение следующим образом:
 
 ```
 [
@@ -48,17 +48,17 @@ hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ]
 ```
 
-Для `val` поддерживаются следующие альтернативные имена атрибутов: `value`, `v`, `data`, `y`.
-А для `ts`: `time`, `t`, `date`.
+Альтернативные следующие имена атрибутов поддерживаются для `val`: `value`, `v`, `data`, `y`.
+И следующие для `ts`: `time`, `t`, `date`.
 
-Вы не можете определить старт и старт в настройках echarts. Начало и конец будут рассчитаны автоматически на основе данных.
-Агрегация также невозможна. Все манипуляции необходимо производить путем записи данных в формате JSON.
+Вы не можете определить начало и начало в настройках echarts. Начало и конец будут автоматически рассчитаны из данных.
+Агрегация также невозможна. Все манипуляции должны выполняться путем записи данных JSON.
 Диаграмма будет автоматически обновляться каждый раз при изменении значения.
 
 ### Рендеринг на стороне сервера
-Вы можете отобразить пресеты на сервере и получить их как URL-адрес base64 или сохранить на диске в базе данных ioBroker:
+Вы можете отрендерить пресеты на сервере и получить их как URL-адрес base64 или сохранить на диске в базе данных ioBroker:
 
-```
+```js
 sendTo('echarts.0', {
     preset:   'echarts.0.myPreset', // the only mandatory attribute
 
@@ -90,24 +90,37 @@ sendTo('echarts.0', {
 **Внимание: вы не можете включать/отключать линии в легенде на сенсорных устройствах с включенным масштабированием**
 
 ## Руководство разработчика
-**Для неразработчиков эта ссылка не работает!**
+**Для не-разработчиков эта ссылка не работает!**
 
-Вы можете отладить диаграммы просмотра локально с помощью:
+Вы можете отлаживать просмотр диаграмм локально с помощью:
 
-- cd iobroker.ecarts/src-chart
-- запуск запуска npm
-- Браузер: http://localhost:8081/adapter/echarts/tab.html?dev=true.
+- cd iobroker.echarts/src-chart
+- npm запустить запуск
+- Браузер: http://localhost:8081/adapter/echarts/tab.html?dev=true
 
-## Делать
-- виджет для вис (кнопка)
-- показывать значки перечислений в папках или рядом с ними
+## То, что нужно сделать
+- виджет для vis (кнопка)
+- показывать значки перечислений на папках или рядом с ними
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.9.5 (2024-12-20)
+* (bluefox) Convert actual values with provided "convert" function too
+
+### 1.9.2 (2024-09-10)
+* (bluefox) Fixed polar and bar charts
+
+### 1.9.0 (2024-08-06)
+* (bluefox) upgraded packages
+* (bluefox) removed `withStyles`
+
+### 1.8.4 (2024-06-21)
+* (foxriver76) upgraded dependencies
+
+### 1.8.0 (2024-02-03)
 * (bluefox) Added the radar (polar) chart type
 
 ### 1.7.2 (2023-11-20)
@@ -307,10 +320,10 @@ sendTo('echarts.0', {
 ## License
 ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2024 bluefox <dogafox@gmail.com>
 
 Apache ECharts
-Copyright (c) 2017-2023 The Apache Software Foundation
+Copyright (c) 2017-2024 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).

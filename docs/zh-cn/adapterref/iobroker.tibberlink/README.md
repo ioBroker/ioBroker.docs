@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: +oDno0wPp+H7Rp+Vk/PZvLP1z9ZGbWAKq0BBQPpV7Cg=
+hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -29,8 +29,8 @@ hash: +oDno0wPp+H7Rp+Vk/PZvLP1z9ZGbWAKq0BBQPpV7Cg=
 
 ## 版本
 ## 在 ioBroker 中使用 TIBBER 能源数据的适配器
-此适配器有助于将您 Tibber 帐户 API 中的数据连接到 ioBroker 中以供使用，无论是用于单个家庭还是多个住宅。
-新功能：该适配器现在支持通过您的家庭网络直接本地读取 Tibber 脉冲传感器，从而无需完全依赖云 API 即可进行实时监控和数据收集。
+此适配器有助于将 Tibber 帐户 API 中的数据连接到 ioBroker 中以供使用，无论是用于单个家庭还是多个住宅。
+新功能：适配器现在支持通过家庭网络直接本地读取 Tibber 脉冲传感器，从而无需完全依赖云 API 即可进行实时监控和数据收集。
 
 如果您目前不是 Tibber 用户，我将非常感激如果您可以使用我的推荐链接：[Tibber 推荐链接](https://invite.tibber.com/mu8c82n5)。
 
@@ -43,7 +43,7 @@ hash: +oDno0wPp+H7Rp+Vk/PZvLP1z9ZGbWAKq0BBQPpV7Cg=
 - 注意：如果您的 Tibber 帐户中有多个活跃的主页，则必须添加所有主页，以消除可能不需要的主页导致的错误消息。添加所有主页并禁用选项。
 - 如果您只想使用 Pulse 实时信息，您可以选择停用今天和明天的价格数据检索
 - 您也可以选择启用历史消费数据检索。请指定小时、天、周、月和年的数据集数量。您可以根据自己的偏好使用“0”来禁用其中一个或多个间隔。
-- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器响应不足。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
+- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器没有响应。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
 - 保存设置。
 
 ## 计算器配置
@@ -73,13 +73,15 @@ hash: +oDno0wPp+H7Rp+Vk/PZvLP1z9ZGbWAKq0BBQPpV7Cg=
 
 使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜的时段内激活电池充电（“值 YES”）并停用电池供电（“值 2 NO”）。相反，它将在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于最便宜时段中的最高总价。在剩余的正常时段，如果电池的能量缓冲在经济上不可行，则两个输出都将关闭。
 
-- LTF 通道：这些通道的操作与标准通道类似，但仅在由“StartTime”和“StopTime”状态对象定义的时间范围内处于活动状态。在“StopTime”之后，通道将自动停用。“StartTime”和“StopTime”可以跨越两个日历日，因为 Tibber 不提供超过 48 小时窗口的数据。两种状态都需要带有时区偏移的 ISO-8601 格式的日期时间字符串，例如“2024-12-24T18:00:00.000+01:00”。此外，LTF 通道还具有一个名为“RepeatDays”的新状态参数，默认为 0。当“RepeatDays”设置为正整数时，通道将在达到“StopTime”后通过将“StartTime”和“StopTime”增加指定的天数来重复其周期。例如，将“RepeatDays”设置为 1 表示每日重复。
+- “最佳百分比”：在最便宜的时段以及价格落在“百分比”设置状态中指定的百分比范围内的任何其他时段输出“是”。
+- “最佳百分比 LTF”：有限时间框架 (LTF) 内的“最佳百分比”。
+- LTF 通道：这些通道的操作与标准通道类似，但仅在由“StartTime”和“StopTime”状态对象定义的时间范围内处于活动状态。在“StopTime”之后，通道将自动停用。“StartTime”和“StopTime”可以跨越两个日历日，因为 Tibber 不提供超过 48 小时窗口的数据。两种状态都需要带有时区偏移的 ISO-8601 格式的日期时间字符串，例如“2024-12-24T18:00:00.000+01:00”。此外，LTF 通道还具有一个名为“RepeatDays”的新状态参数，默认为 0。当“RepeatDays”设置为正整数时，通道将在达到“StopTime”后通过将“StartTime”和“StopTime”增加指定的天数来重复其循环。例如，将“RepeatDays”设置为 1 以实现每日重复。
 
 ### 提示
 逆向使用
 例如，要获得高峰时段而不是最佳时段，只需反转使用情况和参数：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png)通过交换 true <-> false，您将在第一行收到低成本的 true，在第二行收到高成本的 true（频道名称不是触发器，仍然可以自由选择）。
 
-注意：对于高峰单小时，如示例中，您还需要调整小时数。 原来：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
+注意：对于高峰单小时，如示例中，您还需要调整小时数。 原值：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
 
 #### LTF 频道
 计算针对的是“多日”数据。由于我们只有“今天”和“明天”（大约 13:00 后可用）的信息，因此时间范围实际上被限制为最多 35 小时。但是，务必注意这种行为，因为计算结果可能会/将在 13:00 左右发生变化，届时明天的价格新数据将可用。
@@ -101,6 +103,23 @@ https://github.com/marq24/ha-tibber-pulse-local
 <a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！:beers:
 
 ## Changelog
+
+### 4.2.0 (2024-12-xx)
+
+- (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
+
+### 4.1.1 (2024-12-21)
+
+- (HombachC) code cleanup
+- (HombachC) fix translations
+- (HombachC) fix chai-as-promised
+
+### 4.1.0 (2024-12-15)
+
+- (HombachC) enable local poll also without Token (#613)
+- (HombachC) split jsonConfig.json to multiple files
+- (HombachC) fix typo in translation handling
+- (HombachC) bump cron
 
 ### 4.0.0 (2024-12-08)
 

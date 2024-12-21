@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
+hash: GKXAtfEgdkEZjXGgDvjjHzar4it/zsG6+FRjmKL4FmA=
 ---
 ![Logo](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -14,19 +14,34 @@ hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
 
 # IoBroker.blebox
 ## Blebox-Adapter für ioBroker
-Adapter zur Steuerung der Smarthome-Geräte des Herstellers [blebox](https://blebox.eu/). Die API-Beschreibung finden Sie [hier](https://technical.blebox.eu/). Die Umsetzung erfolgte ohne Unterstützung des Herstellers.
+Adapter zur Steuerung der Smarthome Geräte des Herstellers [blebox](https://blebox.eu/). Die API-Beschreibung finden Sie [hier](https://technical.blebox.eu/). Die Implementierung erfolgte ohne Unterstützung des Herstellers.
 
 Eine unvollständige und veraltete API-Simulation kann heruntergeladen werden [Hier](https://github.com/blebox/blebox-virtual-devices).
 
-Folgende Geräte werden derzeit unterstützt:
+Die folgenden Geräte werden derzeit unterstützt:
 
-* Verschlusskasten
-* Schaltkasten
-* Saunabox
-* Temperatursensor
-* Gatebox
-* Fernsehlift
-* Multisensor – nicht mit echter Hardware getestet, bis zu 4 Sensoren werden unterstützt
+| Gerät | API-Typ | Status |
+|----------------------|---------------------|-----------------------------------------|
+| Gatebox | Gatebox | ✅ Getestet |
+| Multisensor | Multisensor | bis zu 4 Sensoren pro Gerät werden unterstützt |
+| tempSensor PRO | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| tempSensorAC | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| Feuchtigkeitssensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| WindSensor PRO | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| FloodSensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| Regensensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| Saunabox | Saunabox | ❓ Beta, nicht mit echter Hardware getestet |
+| shutterbox | shutterbox | ✅ Getestet |
+| shutterBoxDC | shutterBox | ❓ Beta, nicht mit echter Hardware getestet |
+| shutterBoxDIN | shutterBox | ❓ Beta, nicht mit echter Hardware getestet |
+| Schaltkasten | Schaltbox | ✅ Geprüft |
+| switchBoxD | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBoxDC | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBox DIN | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBoxD DIN | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBoxT PRO | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
+| Tempsensor | Tempsensor | ❓ Beta, nicht mit echter Hardware getestet |
+| tvlift | tvlift | ❓ Beta, nicht mit echter Hardware getestet |
 
 ## Changelog
 
@@ -34,6 +49,10 @@ Folgende Geräte werden derzeit unterstützt:
     Placeholder for the next version:
     ### **WORK IN PROGRESS**
 -->
+
+### 2.2.0 (2023-10-13)
+
+* (Kai van Nuis) Support for multi-device APIs
 
 ### 2.1.0 (2023-10-13)
 
@@ -61,7 +80,7 @@ Folgende Geräte werden derzeit unterstützt:
 ## License
 MIT License
 
-Copyright (c) 2023 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2024 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

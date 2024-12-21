@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
+hash: DbJ1PJ9sroa6cOoaybcuQ/HO8xh1HBJBWG6M2Jsqkic=
 ---
 ![标识](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
 ![安装数量](http://iobroker.live/badges/echarts-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.echarts.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
 ![测试与发布](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
 
 ## IoBroker 的 echarts 适配器
 在 ioBroker 中构建有用的图表：
@@ -26,19 +26,19 @@ hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ![雷达](../../../en/adapterref/iobroker.echarts/img/radar.png) 使用“实际值”聚合来预测结果。
 
 ＃＃ 用法
-重新启动后在管理选项卡中添加：![行政](../../../en/adapterref/iobroker.echarts/img/admin.png)
+重启后在管理面板中添加：![行政](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
-创建的预设也可以在 Web 适配器中访问。网址：`http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`。
+创建的预设也可以在网络适配器中访问。网址：`http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`。
 
 对于`vis`，有一个特殊的小部件可以轻松选择预设。
 
 ### 工具提示
-小写的 `i` 表示该值是从 2 个邻居值插值得到的，并且在该时间戳处不存在。
+小写`i` 表示该值是从 2 个邻近值插入的，并且在该时间戳不存在。
 
 ![工具提示](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
-### 来自 JSON 的数据
-您可以从 JSON 定义数据源。在这种情况下，您可以创建一些类型为 `json` 的自定义状态并存储如下值：
+### JSON 数据
+您可以从 JSON 定义数据源。在这种情况下，您可以创建一些类型为 `json` 的自定义状态并像这样存储值：
 
 ```
 [
@@ -48,17 +48,17 @@ hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ]
 ```
 
-`val` 支持以下替代属性名称：`value`、`v`、`data`、`y`。
-对于 `ts`，如下：`time`、`t`、`date`。
+对于 `val`，支持以下备选属性名称：`value`、`v`、`data`、`y`。
+对于 `ts`，支持以下备选属性名称：`time`、`t`、`date`。
 
-无法在echarts设置中定义start和start。开始和结束将根据数据自动计算。
-聚合也是不可能的。所有操作都必须通过写入 JSON 数据来完成。
+您无法在 echarts 设置中定义开始和结束。开始和结束将根据数据自动计算。
+也无法进行聚合。所有操作都必须通过写入 JSON 数据来完成。
 每次值发生变化时，图表都会自动更新。
 
-### 服务端渲染
-您可以在服务器上呈现预设并将其作为 base64 URL 获取或将其保存在 ioBroker DB 的磁盘上：
+### 服务器端渲染
+您可以在服务器上呈现预设并将其作为 base64 URL 获取或将其保存在 ioBroker DB 中的磁盘上：
 
-```
+```js
 sendTo('echarts.0', {
     preset:   'echarts.0.myPreset', // the only mandatory attribute
 
@@ -87,27 +87,40 @@ sendTo('echarts.0', {
 });
 ```
 
-**注意：您无法在启用缩放的触摸设备上启用/禁用图例中的线条**
+**注意：您无法在启用缩放功能的触摸设备上启用/禁用图例中的线条**
 
 ## 开发者手册
-**对于非开发者，此链接不起作用！**
+**对于非开发人员，此链接无效！**
 
-您可以使用以下命令在本地调试视图图表：
+您可以使用以下方式在本地调试视图图表：
 
-- cd iobroker.echarts/src-chart
-- npm 运行启动
+-cd iobroker.echarts/src-chart
+-npm运行开始
 - 浏览器：http://localhost:8081/adapter/echarts/tab.html?dev=true
 
-＃＃ 去做
+待办事项
 - vis 小部件（按钮）
-- 在文件夹或附近显示枚举图标
+- 在文件夹上或附近显示枚举图标
 
-<!-- 下一个版本的占位符（在行的开头）：
+<!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.9.5 (2024-12-20)
+* (bluefox) Convert actual values with provided "convert" function too
+
+### 1.9.2 (2024-09-10)
+* (bluefox) Fixed polar and bar charts
+
+### 1.9.0 (2024-08-06)
+* (bluefox) upgraded packages
+* (bluefox) removed `withStyles`
+
+### 1.8.4 (2024-06-21)
+* (foxriver76) upgraded dependencies
+
+### 1.8.0 (2024-02-03)
 * (bluefox) Added the radar (polar) chart type
 
 ### 1.7.2 (2023-11-20)
@@ -307,10 +320,10 @@ sendTo('echarts.0', {
 ## License
 ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2024 bluefox <dogafox@gmail.com>
 
 Apache ECharts
-Copyright (c) 2017-2023 The Apache Software Foundation
+Copyright (c) 2017-2024 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).

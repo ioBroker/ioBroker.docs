@@ -26,13 +26,43 @@
 
 [![NPM](https://nodei.co/npm/iobroker.teslafi.png?downloads=true)](https://nodei.co/npm/iobroker.teslafi/)
 
-## Adapter for Polling TeslaFi Data from Your Car
+# ioBroker TeslaFi Adapter – Seamless Tesla Data Integration for Your Smart Home
 
-This adapter enables the integration of data from your TeslaFi account API for use within ioBroker.
+The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
+
+## Why This Adapter?
+
+The main purpose of this adapter is to integrate Tesla data into ioBroker without directly querying the vehicle's systems. By utilizing TeslaFi’s existing data polling, the adapter avoids additional requests to the vehicle, preserving battery life and ensuring efficient data access.
+
+## Features
+
+The adapter connects to the TeslaFi API to retrieve comprehensive details about your Tesla vehicle and makes this data accessible within ioBroker. All Tesla models supported by TeslaFi are fully compatible. Currently, the following data categories are available:
+
+- **Thermal State**: Insights into the thermal management system and temperatures.
+- **Battery State**: Information on battery status, charge level, and range.
+- **Vehicle State**: General vehicle status, including position and overall condition.
+- **Vehicle Data**: Vehicle-specific details such as name, and VIN.
+
+## Typical Use Cases
+
+- **Automation**: Trigger smart home actions based on the real-time status of your Tesla. For instance, automatically adjust home climate control when the vehicle arrives.
+- **Energy Management**: Optimize energy consumption by scheduling vehicle charging times and monitoring battery status directly from ioBroker.
+- **Notifications and Reporting**: Set up alerts for specific vehicle conditions, such as low battery level, completed charging sessions or available updates.
 
 ## Configuration
 
-Enter your TeslaFi API key in the designated field on the configuration screen. You can also adjust the polling interval to suit your requirements.
+Configuring the adapter is straightforward:
+
+1. Enter your TeslaFi API key in the adapter's configuration screen.
+2. Set the desired polling interval to customize how frequently data is updated.
+
+## Compatibility
+
+The adapter is compatible with all Tesla models supported by TeslaFi. A valid TeslaFi account with API access is required.
+
+## Active Development and User Contributions
+
+The TeslaFi adapter is actively maintained, and additional features or data categories can be added based on user requests. Feel free to submit your ideas and help improve the adapter for the entire community!
 
 ## Sentry
 
@@ -44,6 +74,11 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
+
+### 0.4.6 (2024-12-21)
+
+- (hombach) fix chai-as-promised
+- (hombach) enrich documentation
 
 ### 0.4.5 (2024-12-11)
 

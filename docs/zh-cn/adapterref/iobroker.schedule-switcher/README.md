@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.调度切换器
-hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
+hash: VmK+5OwFRwujB1nzpmN4l9FsTP6YqgQX1A5TtXjyAtc=
 ---
 ![标识](../../../de/admin/schedule-switcher.png)
 
@@ -19,7 +19,7 @@ hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
 该适配器允许用户使用时间表或 100/0 打开/关闭设备。
 时间表可以通过 Vis 或 Vis 2 小部件完全配置。
 调度会更改一个或多个 ioBroker 状态，并由一个或多个触发器组成，这些触发器定义何时以及如何更改状态。
-可以配置在一周中的哪一天和什么时间触发触发器。还可以创建 Astro 触发器或倒计时。
+可以配置在一周中的什么时间和哪几天触发触发器。还可以创建 Astro 触发器或倒计时。
 
 ＃ 概括
 - [实例设置](#instance-setting-schedule-switcher)
@@ -38,7 +38,7 @@ hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
 - [创建 Astrotrigger](#astro-trigger)
 - [创建一次性触发器](#one-time-trigger)
 - [HTML 设置](#html-for-vis-and-vis-2)
-- [HTML 函数仅适用于 VIS-2](#function-only-for-vis-2)
+- [HTML 函数仅限 VIS-2](#function-only-for-vis-2)
 - [CSS](#css)
 
 ### 实例设置schedule-switcher
@@ -51,7 +51,7 @@ hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
 - `活跃`：活跃
 - `删除`：删除日程
 - `2 个切换过程之间的延迟（以毫秒为单位）`：防止同时设置状态
-- `历史记录切换为 JSON（最大 100/0 关闭）` 历史记录最大存储量
+- `历史记录切换为 JSON（最大 100/0 表示关闭）` 历史记录最大存储量
 - `为 VIS 和 VIS-2 创建 HTML（VIS-2 请参阅说明）` 激活 HTML 概述
 
 ![实例设置.png](img/instance_settings.png)</br> ![实例设置_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/instance_settings_1.png)
@@ -60,7 +60,7 @@ hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
 [概括](#zusammenfassung)
 
 - 开关
-- `schedule-switcher.0.onoff.6.data` 所有触发器均采用 JSON 格式
+- `schedule-switcher.0.onoff.6.data` 所有触发器均为 JSON
 - `schedule-switcher.0.onoff.6.enabled` 活动或非活动
 - `schedule-switcher.0.onoff.6.views` 为对象创建小部件的位置
 - 地位
@@ -100,6 +100,7 @@ hash: xn3G711//Li9ebgjzuJBIve6nOOwP7JnKPapzd0Pnj0=
 {
     "type": "OnOffSchedule",
     "name": "Rolllade Wohn", // Name vom letzten erstellte Widget
+    "active": false, // Alle 24h wird geprüft, ob es ein Widget gibt. Wird keins gefunden wird der Zeitplan deaktiviert. Mit TRUE wird nicht deaktiviert.
     "onAction": {
         // Action für On
         "type": "OnOffStateAction",
@@ -263,6 +264,16 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
     "dataId":"schedule-switcher.0.onoff.6.data",
     "triggerId":"0"
 });
+
+sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv lassen (wird bei restart oder alle 24h geprüft)
+    "dataId":"schedule-switcher.0.onoff.6.data",
+    "active":false, // false: Automatische Deaktivierung wenn kein Widget vorhanden ist
+});
+
+sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv lassen (wird bei restart oder alle 24h geprüft)
+    "dataId":"schedule-switcher.0.onoff.6.data",
+    "active":true, // true: Zeitplan wird nicht deaktiviert wenn kein Widget vorhanden ist
+});
 ```
 
 # 历史 JSON 示例
@@ -320,7 +331,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 ]
 ```
 
-# 小部件视图 JSON 示例
+# Widget 视图 JSON 示例
 [概括](#zusammenfassung)
 
 ```json
@@ -421,7 +432,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_time_add_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_add_2.png)
 
--   完全的
+- 完全的
 
 ![create_widget_select_time_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_time_done.png)
 
@@ -444,7 +455,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_astro_add_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_add_2.png)
 
--   完全的
+- 完全的
 
 ![create_widget_select_astro_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_astro_done.png)
 
@@ -458,7 +469,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_onetime.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime.png)
 
--   完全的
+- 完全的
 
 ![create_widget_select_onetime_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_done.png)
 
@@ -473,7 +484,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 
 ![create_widget_select_onetime_date.png](img/create_widget_select_onetime_date.png)</br> ![create_widget_select_onetime_date_calendar.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_calendar.png)
 
--   完全的
+- 完全的
 
 ![create_widget_select_onetime_date_done.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_onetime_date_done.png)
 
@@ -484,7 +495,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - `html.background_color_even` 背景颜色触发偶数 - 默认 #1E1E1E
 - `html.background_color_odd` 背景颜色触发奇数 - 默认 #18171C
 - `html.background_color_trigger` 背景颜色触发对象 - 默认 #000000
-- 当鼠标悬停在一周中的几天时`html.background_color_weekdays_hover`背景颜色 - 单击以激活/停用 - 默认蓝色
+- `html.background_color_weekdays_hover` 悬停在一周中的几天时的背景颜色 - 单击以激活/停用 - 默认蓝色
 - `html.column_align_01` 标题文本对齐列 1 - 默认居中
 - `html.column_align_02` 标题文本对齐列 2 - 默认居中
 - `html.column_align_03` 标题文本对齐列 3 - 默认居中
@@ -560,13 +571,13 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 - 页眉和页脚的 `html.top_font_size` 字体大小（以像素为单位） - 默认 20
 - 页眉和页脚的`html.top_font_weight`字体粗细 - 默认正常”
 - `html.top_text` 自己的标题文本 - 默认您的文本
-- 页眉和页脚的`html.top_text_color`字体颜色 - 默认#ffffff
+- 页眉和页脚的 `html.top_text_color` 字体颜色 - 默认 #ffffff
 - `html.update` 开始手动更新
 
 ![vis_object_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
 
 - 创建一个 HTML 小部件并在 HTML 下输入对象 `{schedule-switcher.0.html.html_code}`
-- 单击文本“上次更新”以进行手动更新
+- 单击“上次更新”文本进行手动更新
 - 单击图标激活/停用小部件
 - 要删除触发器，您首先必须勾选它，然后按“删除”按钮
 - 更改时间/Astro 并按“保存”按钮应用更改
@@ -578,7 +589,7 @@ sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID 
 ### 功能仅适用于 VIS-2！
 [概括](#zusammenfassung)
 
-不幸的是，只有 VIS-2 才必须手动插入下面列出的功能（参见图片）
+不幸的是，只有使用 VIS-2，下面列出的功能才必须手动插入（参见图片）
 
 ![vis2_object.png](img/vis2_object.png)</br> ![vis2_script.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis2_script.png)
 
@@ -750,6 +761,13 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.9 (2024-12-20)
+
+- (Lucky-ESA) Fixed: Reading files from Redis database
+- (Lucky-ESA) Added: Automatic deactivation control
+- (Lucky-ESA) Fixed: Visibility
+- (Lucky-ESA) Fixed: Bug in type check
+
 ### 0.0.8 (2024-12-07)
 
 - (Lucky-ESA) Migration to ESLint9

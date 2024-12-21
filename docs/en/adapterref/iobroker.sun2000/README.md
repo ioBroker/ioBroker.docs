@@ -29,11 +29,13 @@ The development of this adapter was inspired by discussions from the forum threa
 Work in progress
 
 ## Changelog
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** 
+* control: if the battery is not running, events related to the battery are discarded
+
 ### 0.18.0 (2024-12-11)
 * dependency and configuration updates
 * modbus-proxy: the modbus ID 250 is mapped to ID 0
