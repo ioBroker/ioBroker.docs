@@ -9,6 +9,8 @@
 
 ## blebox adapter for ioBroker
 
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
+
 Adapter for controlling the Smarthome devices of the manufacturer [blebox](https://blebox.eu/). The API description can be found [here](https://technical.blebox.eu/). The implementation has taken place without the support of the manufacturer.
 
 An incomplete and outdated API simulation can be downloaded [here](https://github.com/blebox/blebox-virtual-devices).

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: GKXAtfEgdkEZjXGgDvjjHzar4it/zsG6+FRjmKL4FmA=
+hash: F4iK92WooFlY6oJSJboNwsGSa9nlQq+NDFZi9d7rDgQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -14,6 +14,8 @@ hash: GKXAtfEgdkEZjXGgDvjjHzar4it/zsG6+FRjmKL4FmA=
 
 # IoBroker.blebox
 ## Адаптер blebox для ioBroker
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
+
 Адаптер для управления устройствами Smarthome производителя [blebox](https://blebox.eu/). Описание API можно найти [здесь](https://technical.blebox.eu/). Реализация произошла без поддержки производителя.
 
 Неполную и устаревшую симуляцию API можно загрузить [здесь](https://github.com/blebox/blebox-virtual-devices).

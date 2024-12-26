@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Sat, 21 Dec 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Dec 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Jahresrückblick 2024]]></title>
+            <description><![CDATA[
+                <p>Liebe ioBroker-Community,</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2024_12_22</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2024_12_22</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 22 Dec 2024 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker Monatsupdate - Dezember 2024 🎄]]></title>
             <description><![CDATA[

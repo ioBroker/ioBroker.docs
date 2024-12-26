@@ -75,6 +75,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 1.0.0 (2024-12-25)
+
+- (hombach) set version to 1.0 for stable release
+- (hombach) add newVersionStatus (#80)
+- (hombach) add configurable poll timeout
+
 ### 0.4.6 (2024-12-21)
 
 - (hombach) fix chai-as-promised

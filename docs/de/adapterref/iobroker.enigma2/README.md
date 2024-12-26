@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enigma2/README.md
 title: ioBroker enigma2
-hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
+hash: fdyOycvPFspaROEIv+ZQbVNsc4JE0rZ4YKX5UIsZP80=
 ---
 ![Logo](../../../en/adapterref/iobroker.enigma2/admin/enigma2.png)
 
@@ -18,10 +18,7 @@ hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
 - (Adapter läuft nur auf einem Host! Bei einer Client-Installation gibt es aktuell noch Probleme.)
 
 - (DE) Adapter für ioBroker um Informationen von einem enigma2 Receiver abzufragen und Befehle zu senden
-– (DE)(Adapter läuft nur auf einem Host! Bei einer Client-Installation gibt es aktuell noch Probleme.)
-
-## Forum
-[![ioBroker](https://forum.iobroker.net/assets/uploads/system/site-logo.png)](https://forum.iobroker.net/topic/25112/enigma2-adapter-ab-v1-2-3)
+- (DE)(Adapter läuft nur auf einem Host! bei einer Client-Installation gib's aktuell noch probleme.)
 
 ----
 
@@ -31,7 +28,7 @@ hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
 - CHANNEL_SERVICEREFERENCE
 - CHANNEL_SERVICEREFERENCE_NAME
 - KANAL
-- EVENTBESCHREIBUNG
+- VERANSTALTUNGSBESCHREIBUNG
 - VERANSTALTUNGSDAUER
 - EVENTDURATION_MIN
 - VERBLEIBENDE VERANSTALTUNG
@@ -40,7 +37,7 @@ hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
 - EVENT_TIME_START
 - EVENT_TIME_END
 - EVENT_TIME_PASSED
-Festplattenkapazität
+HDD_CAPACITY (Festplattenkapazität)
 HDD_FREI
 - MESSAGE_ANSWER
 - MODELL
@@ -104,7 +101,7 @@ HDD_FREI
 
 ### Nachricht
 - Message.Text = Text der Nachricht (Eingabe -> Senden)
-- Message.Type = Zahl von 0 bis 3 (0= Ja/Nein ; 1= Info ; 2=Nachricht ; 3=Achtung)
+- Message.Type = Zahl von 0 bis 3 (0=Ja/Nein; 1=Info; 2=Nachricht; 3=Achtung)
 - Message.Timeout = Timeout der Nachricht in Sek. Kann leer sein oder die Anzahl der Sekunden angeben, nach denen die Nachricht verschwinden soll.
 
 ----
@@ -140,25 +137,26 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.3 (2024-12-22)
+* (mcm1957) Adapter has been moigrated to @iobroker/eslint-config. [#266]
+
+### 2.2.2 (2024-12-22)
+* (mcm1957) States 'message.*' are writeable again now. [#273]
+* (mcm1957) Dependencies have been updated.
+
+### 2.2.1 (2024-11-13)
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+* (mcm1957) Message states have been added. [#229]
+* (simatec) Adapter changed to meet Responsive Design rules.
+* (mcm1957) Several issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated.
+
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
 ### 2.1.0 (2024-04-11)
 * (mcm1957) Adapter requires node.js >=18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
-
-### 2.0.5 (2023-09-18)
-* (mcm1957) A problem causing missing descriptions for timer entryies and warnings has been fixed. #119 
-* (mcm1957) Dependencies have been updated.
-
-### 2.0.3 (2023-09-06)
-* (TDCroPower) fixed the problem that no objects are updated
-
-### 2.0.2 (2023-08-17)
-* (Lucky-ESA) Bugfixes: [#61](https://github.com/Matten-Matten/ioBroker.enigma2/issues/61)
-* (Lucky-ESA) Bugfixes: undefined e2eventlist
-* (bluefox) Added json config
-* (mcm1957) Adapter now requires node 16
 
 ## License
 MIT License

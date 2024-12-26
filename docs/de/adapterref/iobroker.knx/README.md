@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: VSB8r4x8eNQs/mNUHr3bfNEfbBG6wh6ID2/aE1DlHOs=
+hash: IX8wwEGhFukRuRh2V5wWig9ootgfbrqj/qqw9DojjmE=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -13,234 +13,279 @@ hash: VSB8r4x8eNQs/mNUHr3bfNEfbBG6wh6ID2/aE1DlHOs=
 
 # IoBroker.knx
 #### Inhaltsverzeichnis
-* [Beschreibung](#Beschreibung)
+* [Beschreibung](#description)
 * [Anforderungen](#Anforderungen)
 * [Funktionen](#Funktionen)
-* [Installation](#Installation)
+* [Installation](#installation)
 * [Adapterkonfiguration](#adapter-configuration)
-    * [Lizenz installieren](#install-the-license)
-    * [Konfigurationsschnittstelle](#configuration-interface)
-    * [Objekte](#Objekte)
-    * [Nutzung](#Nutzung)
-    * [Datenpunkttypen (DPT)](#data-point-types-dpt)
-    * [Wie der Import funktioniert](#wie-der-Import-funktioniert)
-    * [Vermeidung von Problemen](#Vermeidung-von-Problemen)
-* [GA-Tool](#ga-Tool)
-    * [Direct Link non-KNX state to KNX vice-verse](#direct-link-non-knx-state-to-knx-vice-verse)
+* [Installieren Sie die Lizenz](#install-the-license)
+* [Konfigurationsschnittstelle](#configuration-interface)
+* [Objekte](#Objekte)
+* [Verwendung](#Verwendung)
+* [Datenpunkttypen (DPT)](#data-point-types-dpt)
+* [So funktioniert der Import](#so-funktioniert-der-import)
+* [Vermeidung von Problemen](#avoidance-of-problems)
+* [GA-Tool](#ga-tool)
+* [Direkte Verbindung vom Nicht-KNX-Zustand zum KNX-Zustand und umgekehrt](#direct-link-non-knx-state-to-knx-vice-verse)
 * [Geplante Funktionen](#planned-features)
-* [Änderungsprotokoll](#Änderungsprotokoll)
+* [Änderungsprotokoll](#changelog)
 
 ## Beschreibung
-de: Dieser Adapter ermöglicht den Import von knxproj-Dateien aus ETS. Es erstellt die Übersetzung zwischen KNX-Gruppenadressen und ioBroker und platziert die Geräte in Räumen (insbesondere für MobileUI).
+en: Dieser Adapter ermöglicht den Import von `knxproj` Dateien aus der ETS. Er führt die Übersetzung zwischen KNX-Gruppenadressen und ioBroker durch und ordnet die Geräte den Räumen zu (insbesondere für MobileUI).
 
 ru: [Установка и базовая настройка адаптера](docs/ru/README.md)
 
-Es verbindet sich mit Standard-KNX/LAN-Gateways.
+Es lässt sich mit Standard-KNX/LAN-Gateways verbinden.
 
-**Achtung: Mit dem Wechsel auf die KNX-Adapter Version 2.x hat sich die Lizenzierung geändert. Eine neue Lizenz erhalten Sie bei [https://iobroker.net](https://iobroker.net/)**
+**Achtung: mit dem Wechsel auf KNX-Adapter Version 2.x hat sich die Lizenzierung geändert. Eine neue Lizenz erhalten Sie unter [https://iobroker.net](https://iobroker.net/)**
 
-**Sie sollten auch iobroker js-controller UND admin auf die neueste Version aktualisieren.**
+**Sie sollten außerdem den iobroker js-controller UND den Admin auf die neueste Version aktualisieren.**
 
-Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
+Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt festgelegt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert sein.
 
 ## Anforderungen
 * Knotenversion >= 14.15.4
 * Admin-Version >= 5.2.0
 * js-controller Version >=3.3.20
 
-Ohne diese Voraussetzungen kann der Adapter nicht installiert werden oder funktioniert nicht richtig.
+Ohne diese Voraussetzung lässt sich der Adapter nicht installieren oder funktioniert nicht ordnungsgemäß.
 
 ## Merkmale
-* Importieren der `knxproj`-Datei
-* Erzeugen einer ETS-ähnlichen Objektstruktur
-* Act-Channel und State-Channel finden und kombinieren (Heuristik)
-* Aktualisieren aller Zustände beim Start
-* Keine Cloud oder Internet erforderlich
-* Senden eines READ auf den KNX-Bus, während auf das State-Objekt geschrieben wird
-* GA-Objekte mit GA-Tools bearbeiten und modifizieren
-* Zustand-Akt-Beziehungen mit GA-Tools bearbeiten und modifizieren
-* NEU: Nicht-KNX-State-Direktverbindung zulassen (umgekehrt)
-* NEU: Adapterantworten auf GroupValueRead an ein mit DirectLink verbundenes Objekt
-* NEU: Import passwortgeschützter Projektdateien (Dank an aKzenT)
+* `knxproj`-Datei importieren
+* Generieren einer ETS-ähnlichen Objektstruktur
+* Finden und Kombinieren von Akt-Kanal und Zustands-Kanal (Heuristik)
+* Aktualisierung aller Zustände beim Start
+* keine Cloud oder Internet erforderlich
+* Ausgeben eines READ auf den KNX-Bus, während auf das Statusobjekt geschrieben wird
+* GA-Objekte mit GA-Tools bearbeiten und ändern
+* Zustands-Gesetzes-Beziehungen mit GA-Tools bearbeiten und ändern
+* NEU: Erlaubt eine direkte Verbindung zu Nicht-KNX-Zuständen (und umgekehrt)
+* NEU: Adapterantworten auf GroupValueRead an ein per DirectLink verbundenes Objekt
+* NEU: Import von passwortgeschützten Projektdateien (danke an aKzenT)
 
 ###Installation
-Dieser Adapter kann nur mit npm installiert werden. Die Installation über github funktioniert **nicht**.
+Dieser Adapter kann nur mit npm installiert werden. Die Installation über GitHub funktioniert **nicht**.
 
 ##Adapterkonfiguration
 Öffnen Sie nach der Installation dieses Adapters die Adapterkonfiguration.
 
 ###Installieren Sie die Lizenz
-Der erste Schritt besteht darin, die Lizenz zu beantragen. Wenn Sie keine Lizenz installiert haben, werden 500 Datenpunkte angewendet.
+Der erste Schritt besteht darin, die Lizenz anzuwenden. Wenn Sie keine Lizenz installiert haben, werden 500 Datenpunkte angewendet.
 
-* (1) zeigt Ihre System-ID, Sie benötigen diese, um eine Lizenz zu erhalten
-* (2) Klicken Sie hier, um Ihre Lizenz zu beantragen
+* (1) zeigt Ihre System-ID, diese benötigen Sie zum Erwerb einer Lizenz
+* (2) Klicken Sie hier, um Ihre Lizenz anzuwenden
 
-![knxV2-Erststart-Mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
+![knxV2-erster-Start-Mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
 
-Wenn Sie unter [https://iobroker.net](https://iobroker.net/) bereits eine neue Lizenz erstellt haben, können Sie diese in (2) einfügen, ODER Sie können diese direkt online erwerben, indem Sie auf (1) klicken.
+Wenn Sie bereits eine neue Lizenz unter [https://iobroker.net](https://iobroker.net/) erstellt haben, können Sie diese in (2) einfügen, ODER Sie können sie direkt online erwerben, indem Sie auf (1) klicken.
 
-![knxV2-2-1-Installieren-Lizenz-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-1-Install-License-mod.jpg)
+![knxV2-2-1-Install-Lizenz-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-1-Install-License-mod.jpg)
 
 Wenn Sie auf (1) geklickt haben, geben Sie Ihren iobroker.net-Konto-Login ein.
 
-![knxV2-2-2-Installieren-Lizenz-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-2-Install-License-online-mod.jpg)
+![knxV2-2-2-Lizenz-Online-Mod installieren](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-2-Install-License-online-mod.jpg)
 
-Wenn Ihre Daten korrekt sind, sehen Sie alle Ihre Lizenzen, die Sie erhalten haben. Wählen Sie diejenige aus, die Sie verwenden möchten.
+Wenn Ihre Angaben korrekt sind, werden Ihnen alle Lizenzen angezeigt, die Sie erhalten haben. Wählen Sie die Lizenz aus, die Sie verwenden möchten.
 
-![knxV2-2-3-Installieren-Lizenz-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
+![knxV2-2-3-Lizenz-Online-Mod installieren](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
 
 Wenn dies erfolgreich war, speichern Sie es.
 
-![knxV2-2-4-Installieren-Lizenz-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-4-Install-License-online-mod.jpg)
+![knxV2-2-4-Lizenz-Online-Mod installieren](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-4-Install-License-online-mod.jpg)
 
 Das ist alles. Klicken Sie unten auf dieser Seite auf die Schaltfläche zum Speichern.
 
 ### Konfigurationsschnittstelle
-![knxV2-2-5-Installieren-Lizenz-online-angewendet-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
+![knxV2-2-5-Lizenz installieren-online-angewendet-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
 
-1. KNX-Gateway IP: IPv4 des KNX-LAN Gateway.
+1. KNX-Gateway IP: IPv4 des KNX-LAN Gateways.
 2. KNX-Gateway-Port: Standard ist Port 3671.
-3. Physikalische Adresse: Physikalische Adresse der iobroker knx-Instanz **! wichtig: das ist nicht die phys. Adresse des LAN-Gateways !** und Darf nicht auf 0 enden
-4. KNX-Pakete pro Sekunde: Dies begrenzt die Paketrate. Wenn sich das KNX Lan Gateway zu oft neu verbindet oder vorübergehend nicht erreichbar ist, reduzieren Sie diese Rate.
-5. Local iobroker IP: Wählen Sie die IP / Schnittstelle aus, an die der Adapter gebunden werden soll
-6. Loglevel: Normalerweise ist Level "Info", zum Debuggen Level erhöhen.
-7. Nur neue Datenpunkte importieren: Dies ist standardmäßig aktiviert. Im Falle einer Deaktivierung werden neue GAs generiert UND bestehende GAs werden neu erstellt.
-8. Schaltfläche Datei hochladen: Drag'n Drop ist hier verfügbar oder klicken Sie auf den Dateiauswahldialog. Hier können Sie Ihren ETS-Export im `knxproj`-Format hochladen.
+3. Physikalische Adresse: Physikalische Adresse der iobroker knx-Instanz. **Wichtig: Dies ist nicht die physikalische Adresse des LAN-Gateways!** und darf nicht mit 0 enden.
+4. KNX-Pakete pro Sekunde: Dies begrenzt die Paketrate. Wenn das KNX Lan Gateway zu oft erneut eine Verbindung herstellt oder vorübergehend nicht erreichbar ist, reduzieren Sie diese Rate.
+5. lokale iobroker IP: Wählen Sie die IP / Schnittstelle aus, an die der Adapter gebunden wird
+6. Loglevel: Normalerweise ist dies die Ebene „Info“, zum Debuggen erhöhen Sie die Ebene.
+7. Nur neue Datenpunkte importieren: Dies ist standardmäßig aktiviert. Bei Deaktivierung werden neue GAs generiert UND vorhandene GAs neu erstellt.
+8. Schaltfläche „Datei hochladen“: Drag-and-Drop ist hier verfügbar oder per Klick auf den Dateiauswahldialog. Hier können Sie Ihren ETS-Export im Format „knxproj“ hochladen.
 
-Nach erfolgreichem Import zeigt ein Dialog die Anzahl der importierten Objekte an. Drücken Sie nun "Speichern & Schließen" und der Adapter sollte starten.
-Beim Start liest der Adapter alle Gruppenadressen mit Read-Flag und Write-Flag. Dies kann einige Zeit dauern und Ihren KNX-Bus stark belasten. Aber die Werte in Ihrem Vis werden nach dem Start aktualisiert.
-Das Hochladen einer passwortgeschützten Datei ist noch nicht verfügbar.
+Nach erfolgreichem Import zeigt ein Dialog die Anzahl der importierten Objekte an. Drücken Sie nun auf „Speichern & Schließen“ und der Adapter sollte starten.
+Während des Starts liest der Adapter alle Gruppenadressen mit Lese-Flag und Schreib-Flag. Dies kann eine Weile dauern und zu einer hohen Belastung Ihres KNX-Busses führen. Die Werte in Ihrer Vis werden jedoch nach dem Start aktualisiert.
+Das Hochladen einer passwortgeschützten Datei ist derzeit nicht verfügbar.
 
-9. Host-ID: Dies ist eine spezielle ID des iobroker-Hosts. Diese ID wird zum Generieren und Validieren der Lizenz benötigt
-10. GA-Tools: Toolbox zum schnellen Wechseln von GA's
+9. Host-ID: Dies ist eine spezielle ID des iobroker-Hosts. Diese ID ist für die Generierung und Validierung der Lizenz erforderlich
+10. GA-Tools: Werkzeugkasten für schnell wechselnde GAs
 
 ### Objekte
-Hier befindet sich unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt. Verwenden Sie zum Ändern der Eigenschaften das GA-Tool.
+Hier ist unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt. Verwenden Sie zum Ändern der Eigenschaften das GA-Tool.
 
 ### Verwendung
-Wenn der Adapter erfolgreich startet, stehen Ihnen Ihre Datenpunkte für alles zur Verfügung, was Sie gerne tun.
+Wenn der Adapter erfolgreich startet, stehen Ihnen Ihre Datenpunkte für alles zur Verfügung, was Sie tun möchten.
 
 ### Datenpunkttypen (DPT)
-Alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association sind verfügbar. Das heißt, es gibt 2 Arten von Informationen, die Sie erhalten können: 1) ein Wert oder eine Zeichenfolge 2) kommagetrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, was der bessere Weg ist)
+Alle DPTs gemäß „Systemspezifikationen, Interworking, Datenpunkttypen“ der KNX Association sind verfügbar. Das bedeutet, dass Sie zwei Arten von Informationen erhalten können: 1) einen Wert oder eine Zeichenfolge 2) durch Kommas getrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, was der bessere Weg ist, damit umzugehen)
 
-Beispielsweise wird ein DPT5.001 als unsigned Integer mit 8-Bit kodiert. Dies ergibt einen einzigen Wert. Der DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) kodiert.
-Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "Verringern" und "5" die Anzahl der Intervalle bedeutet.
+Beispielsweise wird ein DPT5.001 als vorzeichenloser Integer mit 8 Bit kodiert. Dies ergibt einen einzelnen Wert. Der DPT3.007 (Control Dimming) wird als 1Bit(Boolean)+3Bit(unsigned Int) kodiert.
+
+Dies ergibt beispielsweise einen Wert wie „0,5“, wobei „0“ „Verringerung“ und „5“ die Anzahl der Intervalle bedeutet.
 
 ### So funktioniert der Import
-1. Auslesen aller Kommunikationsobjektreferenzen (COR):
+1. Lesen aller Kommunikationsobjektreferenzen (COR):
 
-    Kombinieren der Gruppenadressreferenz ID'd mit DPT der entsprechenden COR (falls vorhanden).
+Kombination der Gruppenadressreferenz-ID mit dem DPT des entsprechenden COR (sofern vorhanden).
 
 2. Generierung der Gruppenadressstruktur (GAS):
 
-    Generieren des GAS basierend auf GAR-IDs und Setzen von DPT (falls noch nicht geschehen)
+Generieren des GAS basierend auf GAR-IDs und Festlegen des DPT (falls noch nicht geschehen)
 
-3. Suche nach staatlichen Adressen:
+3. Feststellung des Staates, in dem ein Gesetz behandelt wird:
 
-in ets-exports sind keine informationen über state und act-adressen enthalten. Der adapter parst alle GA's von "status" oder "state". Wenn es 2 GAs mit einer Ähnlichkeit von mehr als 90 % gibt, dann ist eine Adresse der Akt und die andere der Zustand. Es wird auch geprüft, ob die DPT's ähnlich sind. Deshalb ist es nicht einfach, einen Peer zu finden, wenn die GA-Namensgebung nicht konsistent ist.
+in ets-Exporten gibt es keine Informationen über Status- und Aktadressen. Der Adapter analysiert alle GAs von „Status“ oder „State“. Wenn es 2 GAs mit einer Ähnlichkeit von mehr als 90 % gibt, dann ist eine Adresse Akteur und die andere der Status. Es wird auch geprüft, ob die DPTs ähnlich sind. Deshalb ist es nicht einfach, ein Paar zu finden, wenn die GA-Benennung nicht konsistent ist.
 
-4. Flagcheck in der Gerätekonfiguration:
+4. Flag-Check in der Gerätekonfiguration:
 
-   Die Flags werden wie folgt behandelt:
+Die Flags werden wie folgt behandelt:
 
-    | KNX | | | iobroker | | |
-    |-------|-----------|------------|----------|----------|-------------------------------------------------|
-    | Lesen Sie | Schreiben Sie | Übertragen | Lesen Sie | Schreiben Sie | Erklärung |
-    | - | - | - | - | - | der Wert wird durch GroupValueRead| aktualisiert |
-    | x | - | - | x | x | Das Senden eines beliebigen Werts in diesem Zustand löst ein GroupValueRead| aus |
-    | - | x | - | - | x | mit GroupValueWrite| den Wert auf KNX schreiben |
-    | - | - | x | x | - | der Zustandswert wird durch GroupValueResponse | aktualisiert |
-    | x | - | x | x | x | Das Senden eines beliebigen Werts in diesem Zustand löst ein GroupValueRead| aus |
+| KNX | KNX | KNX | ioBroker | ioBroker | |
+    |-------|-------|----------|----------|----------|----------------------------------------------------------|
+| Lesen | Schreiben | Übertragen | Lesen | Schreiben | Erklärung |
+| - | - | - | - | - | der Wert wird durch GroupValueRead aktualisiert |
+| x | - | - | x | x | Das Senden eines beliebigen Werts in diesem Status löst einen GroupValueRead aus |
+| - | x | - | - | x | Schreibe den Wert mit GroupValueWrite auf KNX |
+| - | - | x | x | - | der Statuswert wird von GroupValueResponse aktualisiert |
+| x | - | x | x | x | Das Senden eines beliebigen Werts in diesem Status löst einen GroupValueRead aus |
 
-6. Erstellung von Datenpunkt-Peers (DPP):
+6. Erstellen von Datapoint-Peers (DPP):
 
 Ein DPP wird erstellt, wenn GA, GAR und DPT gültig sind. Dies sind die DPP, mit denen der Adapter arbeitet.
-Wenn DPT in einem GA fehlt, weil es nicht gefunden werden konnte, wird das DPP nicht erstellt. Dies kann mit GA-Tool durchgeführt werden.
+Wenn DPT in einem GA fehlt, weil es nicht gefunden werden konnte, wird das DPP nicht erstellt. Dies kann mit dem GA-Tool durchgeführt werden.
 
-7. beim Adapterstart:
+7. Beim Adapterstart:
 
-Alle mit "Read" Flag markierten GAs werden beim Start geprüft. Dies kann sich auf einen höheren Busverkehr auswirken. Am Ende sind alle Zustände aktuell.
+Alle mit "Read" Flag markierten GA's werden beim Start überprüft. Dies kann sich auf den höheren Busverkehr auswirken. Am Ende sind alle Zustände aktuell.
 
-###Vermeidung von Problemen
-* saubere ETS-Programmierung und vor allem saubere ETS-Programmierung und vor allem saubere ETS-Programmierung
+### Vermeidung von Problemen
+* saubere ETS-Programmierung und noch wichtiger saubere ETS-Programmierung und am wichtigsten saubere ETS-Programmierung
 * Weisen Sie die DPTs zu!!
-* einheitliche Kennzeichnung der GA-Bezeichnungen (z. B. „EG Wohnen Decke Licht schalten“ und „EG Wohnen Decke Licht schalten Status“ )
-* Vermeidung von Sonderzeichen ",./;&%$§[]" (kann Probleme bei der Gaserzeugung verursachen)
-* Überprüfen Sie, ob das KNX/LAN GW erreichbar ist. Ist dies nicht der Fall, versucht der Adapter ständig, eine Verbindung herzustellen.
-* Physikalische Adresse richtig wählen ( wichtig bei Verwendung von Linienkopplern ). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN Gateways und darf nicht auf 0 enden !!!
-* Der Port der LAN-Schnittstelle ist normalerweise 3671
-* Aufgrund der Möglichkeit der Statusabfrage ist eines zu beachten: Es muss sichergestellt werden, dass nicht mehr als 40 Anfragen pro Sekunde durch den ioBroker generiert werden, da diese dann physikalisch generiert werden können
+* einheitliche Kennzeichnung der GA-Bezeichnungen (z. B. „EG Wohnen Decke Licht schalten“ und „EG Wohnen Decke Licht schalten Status“)
+* Vermeidung von Sonderzeichen ",./;&%$§[]" (kann zu Problemen bei der Gaserzeugung führen)
+* Prüfen Sie, ob das KNX/LAN GW erreichbar ist. Ist dies nicht der Fall, versucht der Adapter fortlaufend eine Verbindung herzustellen.
+* Physikalische Adresse korrekt wählen (wichtig beim Einsatz von Linienkopplern). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN-Gateways und darf nicht auf 0 enden!!!
+* Der Port der LAN-Schnittstelle ist in der Regel 3671
+* Aufgrund der Möglichkeit der Statusabfrage muss eines beachtet werden: Es muss sichergestellt werden, dass nicht mehr als 40 Anfragen pro Sekunde vom ioBroker generiert werden, da diese dann physikalisch
 
-  kann vom Adapter nicht mehr an das Gateway weitergegeben werden.
+können vom Adapter nicht mehr an das Gateway weitergegeben werden.
 
-## GA-Tool
-Das GA-Tool macht es einfach, Eigenschaften von GA's zu ändern.
+## GA-Werkzeug
+Das GA-Tool erleichtert das Ändern der Eigenschaften von GAs.
 
 ![knxV2-3-6-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-6-GATools-mod.jpg)
 
-1. zeigt den GA-Baum und den ausgewählten GA
-2. im Eigenschaftenbereich der Name des ausgewählten GA
-3. iobroker-Flags setzen
+1. zeigt den GA-Baum und ausgewählte GA
+2. im Eigenschaftsbereich der Name des ausgewählten GA
+3. ioBroker-Flags setzen
 4. GA DPT einstellen
-5. Anerkannte Rechtsakte GA
+5. anerkannte Handlung GA
 6. anerkannter Staat GA
 
 ![knxV2-3-2-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
-1. Zeigen Sie die Beziehung zwischen Staat und Handlung
+1. Zeigen Sie die Zustands-Akt-Beziehung
 2. Wenn eine Beziehung besteht, kann sie entfernt werden
 
-Wenn noch keine Relation existiert, kann durch Klicken auf (2) für den ausgewählten GA (1) eine neue erstellt werden.
+Wenn keine Relation existiert, kann durch Klicken auf (2) für die ausgewählte GA (1) eine neue erstellt werden.
+
 Im Dialog (3) kann der Peer ausgewählt werden
 
 ![knxV2-3-5-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-5-GATools-mod.jpg)
 
-Wenn es mehr GAs zum Ändern von Eigenschaften gibt, verwenden Sie die Mehrfachauswahl. Diese Funktion funktioniert nur für GAs ohne Beziehung.
+Wenn mehrere GAs vorhanden sind, deren Eigenschaften geändert werden sollen, verwenden Sie die Mehrfachauswahl. Diese Funktion funktioniert nur für GAs ohne Beziehung.
 
 ![knxV2-3-4-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-4-GATools-mod.jpg)
 
 1. ausgewählte GAs
-2. zu ändernde Eigenschaften
-3. Es ist keine Änderung möglich
+2. Zu ändernde Eigenschaften
+3. Es ist keine Veränderung möglich
 
-### Direct Link Nicht-KNX-Zustand zu KNX umgekehrt
-Seit Adapter Version 2.0.6 ist es möglich, einen Nicht-KNX ioBroker Zustand direkt mit einem GA zu verknüpfen. Damit können Uhrzeit, Datum, beliebige Zustände oder Infos auf KNX übernommen werden. (ein kleiner Tipp: Sie können jede Ihrer IOT-Komponenten direkt mit einem GA in KNX verknüpfen (z. B. einen Homematic-Taster mit einem KNX-GA verknüpfen oder einen KNX-Tastensensor mit Ihrem Sonosplayer verknüpfen)). Die Zustände können mit einem GroupValueRead ausgelesen werden und wenn sich die Zustände ändern, werden sie automatisch auf KNX aktualisiert. Auch wenn Sie auf KNX wechseln, wird das verknüpfte Nicht-KNX-IOT-Gerät aktualisiert.
+### Direkte Verbindung vom Nicht-KNX-Zustand zum KNX-Zustand und umgekehrt
+Seit Adapterversion 2.0.6 ist es möglich, einen Nicht-KNX-ioBroker-Status direkt mit einem GA zu verknüpfen. Dies kann verwendet werden, um Zeit, Datum, beliebige Status oder Informationen auf KNX anzuwenden. (ein kleiner Hinweis: Sie können jede Ihrer IOT-Komponenten direkt mit einem GA in KNX verknüpfen (z. B. einen Homematic-Button mit einem KNX-GA verknüpfen oder einen KNX-Tastensensor mit Ihrem Sonos-Player verknüpfen)). Die Status können mit einem GroupValueRead gelesen werden, und wenn sich der Status ändert, wird er automatisch auf KNX aktualisiert. Wenn Sie den Status auf KNX ändern, wird auch das verknüpfte Nicht-KNX-IoT-Gerät aktualisiert.
 
 ![knxV2-3-7-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
 
-1. Wählen Sie den GA aus, zu dem eine Verbindung hergestellt werden soll
-2. den ausgewählten GA anzeigen
-3. Dieses GA muss das Attribut **write** haben
+1. Wählen Sie das GA aus, mit dem Sie sich verbinden möchten
+2. zeige das ausgewählte GA
+3. Dieser GA muss das Attribut **write** haben
 4. Wählen Sie einen gültigen Datenpunkttyp (wenn sie nicht übereinstimmen, funktioniert es nicht)
-5. Es ist nicht erlaubt, eine Act-State-Beziehung zu haben
-6. Schaltfläche zur Auswahl eines Nicht-KNX-Objekts zur Verknüpfung
+5. Es ist keine Akt-Zustand-Beziehung erlaubt
+6. Schaltfläche zum Auswählen eines Nicht-KNX-Objekts zur Verknüpfung mit
 
 ![knxV2-3-8-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
 
 1. Wählen Sie das Nicht-KNX-Objekt aus, das Sie verknüpfen möchten
-2. Klicken Sie auf OK, wenn Sie fertig sind
+2. Klicken Sie auf „OK“, wenn Sie fertig sind
 
 ![knxV2-3-9-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
 
-Jetzt ist KNX-GA **(1)** direkt mit Nicht-KNX-iobroker **(2)** verknüpft. Mit **(3)** können Sie diese Verknüpfung löschen.
+Nun ist KNX-GA **(1)** direkt mit dem Nicht-KNX-Iobroker **(2)** verknüpft. Mit **(3)** können Sie diese Verbindung löschen.
 
 ## Geplante Funktionen
-* esf-Import
-* GA-Mon-Busüberwachungstool
+* esf-import
+* GA-Mon Busüberwachungstool
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 ## Ausnahmen und Fehler
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Der Entwickler kann keine weiteren speziellen Informationen über das System/config/user/enviroment erhalten. Falls keine Lizenz gefunden wird, werden auch die Adapterversion und die Host-ID gemeldet.
+Der Entwickler kann keine weiteren speziellen Informationen über das System/die Konfiguration/den Benutzer/die Umgebung abrufen. Falls keine Lizenz gefunden wird, werden auch die Adapterversion und die Host-ID gemeldet.
 
 ## Vielen Dank für die Unterstützung und Hilfe
-* blauer Fuchs
-* Foxriver76
+* Blaufuchs
+* foxriver76
 
 ## Changelog
+### 2.0.30 (22.12.2024)
+* fixed GUI errors, starting redesign GA-Tools
+
+### 2.0.29 (11.12.2024)
+* updated the adapter import schema for ETS 6.3.0
+* nodejs >= 20 is required 
+
+### 2.0.28
+* Update license related data and fix package version
+
+### 2.0.27 (02.05.2024)
+* updated the adapter import schema for ETS 6.2.2
+* fixed UTF-8 error
+
+### 2.0.26 (28.03.2024)
+* updated the adapter import schema for ETS 6.2.1
+* nodejs >= 18 is required
+
+### 2.0.25 (03.03.2024)
+* updated the adapter import schema for ETS 6.2.0
+* small bug-fixes
+
+### 2.0.24 (24.11.2023)
+* updated the adapter import schema for ETS 6.1.1
+
+### 2.0.23 (11.10.2023)
+* corrected wrong GW Port after adapter upgrade
+* allow self-defined values for min and max
+* some small other fixes
+
+### 2.0.22 (04.07.2023)
+* added import specification, solved problems in GaTools
+    
+### 2.0.21 (17.06.2023)
+* fixed license handling
+
+### 2.0.20 (16.06.2023)
+* fixed license handling with js-controller Version > 5
+
+### 2.0.19 (29.05.2023)
+* added ETS V6.1.0 import
+* required node version >= 16.13.1
+
 ### 2.0.18 (08.04.2023)
 * fixed send-delay
 * small changes
@@ -268,7 +313,7 @@ Der Entwickler kann keine weiteren speziellen Informationen über das System/con
 
 ### 2.0.12 (25.02.2022)
 * fixed handling of undefined DP
-* updated datapointtypes
+* updated the data point types
 * fix warning with incompatible DPT in future
 * the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
 * can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
@@ -509,7 +554,7 @@ Der Entwickler kann keine weiteren speziellen Informationen über das System/con
 * removed "Delay Slider" because of the new knx-stack
 * many other small changes
 * fixed post-comma values to scale-value of DPT
-* implemented "add" mode for knxproject upload (existing Objects stay as they are, only new Objects where added)
+* implemented "add" mode for knx project upload (existing Objects stay as they are, only new Objects where added)
 
 ### 0.8.6 (2017-06-17)
 
@@ -573,18 +618,19 @@ Der Entwickler kann keine weiteren speziellen Informationen über das System/con
 
 ## License
 
-For <500 datapoints there is no need of registration or adding a license key. If you have more then 500 datapoints you need a license. You can choose  
-between yearly and permanent licence.
+For less than 500 data points, there is no need for registration or adding a license key.
+If you have more than 500 data points, you need a license.
+You can choose between yearly and permanent license.
 
-To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
+To use this adapter in ioBroker, you need to accept the source code license of the adapter.
+The source code of this adapter is available under the CC-NC-BY license.
 
-Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
-
+Additionally, you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 ## License
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2023 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2024 K.Ringmann <info@punktnetzwerk.net>
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

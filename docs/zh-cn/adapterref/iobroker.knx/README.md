@@ -2,46 +2,46 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
-title: ioBroker.knx 文件
-hash: VSB8r4x8eNQs/mNUHr3bfNEfbBG6wh6ID2/aE1DlHOs=
+title: ioBroker.knx
+hash: IX8wwEGhFukRuRh2V5wWig9ootgfbrqj/qqw9DojjmE=
 ---
 ![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.knx.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.knx.svg)
-![NPM](https://nodei.co/npm/iobroker.knx.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.knx.png?downloads=true)
 
-#ioBroker.knx
-＃＃＃＃ 表中的内容
-* [描述](#description)
+# IoBroker.knx
+#### 目录
+* [说明](#description)
 * [要求](#requirements)
 * [功能](#features)
 * [安装](#安装)
 * [适配器配置](#adapter-configuration)
-    * [安装许可证](#install-the-license)
-    * [配置界面](#configuration-interface)
-    * [对象](#objects)
-    * [用法](#用法)
-    * [数据点类型 (DPT)](#data-point-types-dpt)
-    * [导入如何工作](#how-the-import-works)
-    * [避免问题](#avoidance-of-problems)
+* [安装许可证]（#install-the-license）
+* [配置接口](#configuration-interface)
+* [对象](#对象)
+* [用法](#用法)
+* [数据点类型 (DPT)](#data-point-types-dpt)
+* [导入的工作原理](#how-the-import-works)
+* [避免问题](#avoidance-of-problems)
 * [GA-工具](#ga-tool)
-    * [将非 KNX 状态直接链接到 KNX 反义词](#direct-link-non-knx-state-to-knx-vice-verse)
-* [计划的功能](#planned-features)
-* [更新日志](#changelog)
+* [将非 KNX 状态直接链接到 KNX 状态，反之亦然](#direct-link-non-knx-state-to-knx-vice-verse)
+* [计划中的功能](#planned-features)
+* [变更日志](#changelog)
 
 ＃＃ 描述
-zh：此适配器允许从 ETS 导入 knxproj 文件。它生成 KNX 组地址和 ioBroker 之间的转换，并将设备放入房间（尤其是 MobileUI）。
+en：此适配器允许从 ETS 导入 `knxproj` 文件。它生成 KNX 组地址和 ioBroker 之间的转换，并将设备放入房间（尤其是 MobileUI）。
 
-ru: [Установка и базовая настройка адаптера](docs/ru/README.md)
+ru：[Установка и базовая настройка адаптера](docs/ru/README.md)
 
 它连接到标准 KNX/LAN 网关。
 
-**注意：更改为 KNX-Adapter 版本 2.x 后，许可已更改。您可以从 §§LLLLL_0 获得新的许可证§§**
+**注意：随着 KNX-Adapter 版本 2.x 的变更，许可也发生了变化。您可以从 [https://iobroker.net](https://iobroker.net/) 获取新许可**
 
 **您还应该将 iobroker js-controller 和 admin 更新到最新版本。**
 
-开始之前：com.Objects 的每个 DPT 都应该在您的 ETS 项目中设置。每个设备都应该分类到您的设施结构中。
+开始之前：应在您的 ETS 项目中设置 com.Objects 的每个 DPT。应将每个设备分类到您的设施结构中。
 
 ＃＃ 要求
 * 节点版本 >= 14.15.4
@@ -54,193 +54,236 @@ ru: [Установка и базовая настройка адаптера](d
 * 导入 `knxproj` 文件
 * 生成类似 ETS 的对象结构
 * 寻找并结合行为通道和状态通道（启发式）
-* 在开始时更新所有状态
+* 开始时更新所有状态
 * 无需云或互联网
-* 向 KNX 总线发送 READ，同时写入状态对象
+* 在状态对象上写入时，向 KNX 总线发出读取操作
 * 使用 GA-Tools 编辑和修改 GA 对象
 * 使用 GA-Tools 编辑和修改状态-行为关系
-* 新：允许非 KNX 状态直接链接（反之亦然）
-* 新：适配器响应 GroupValueRead 到 directLink 连接的对象
-* 新：导入受密码保护的项目文件（感谢 aKzenT）
+* 新功能：允许非 KNX 状态直接链接（反之亦然）
+* 新功能：适配器对 GroupValueRead 的响应与 directLink 连接的对象
+* 新功能：导入受密码保护的项目文件（感谢 aKzenT）
 
 ＃＃＃安装
-此适配器只能使用 npm 安装。通过 github 安装不**不**工作。
+此适配器仅可通过 npm 安装。通过 GitHub 安装**不起作用**。
 
-##适配器配置
+适配器配置
 安装此适配器后，打开适配器配置。
 
-###安装许可证
-第一步是申请许可证。如果您尚未安装许可证，则应用 500 个数据点。
+安装许可证
+第一步是应用许可证。如果您尚未安装许可证，则将应用 500 个数据点。
 
-* (1) 显示您的系统 ID，您需要它才能获得许可证
+* (1) 显示您的系统 ID，您需要此 ID 才能获取许可证
 * (2) 单击此处申请您的许可证
 
-![knxV2-first-start-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
+![knxV2-首次启动模式](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
 
-如果您已经根据 [https://iobroker.net](https://iobroker.net/) 创建了新许可证，则可以将其粘贴到 (2)，或者您可以通过单击 (1) 直接在线获取
+如果您已经根据[https://iobroker.net](https://iobroker.net/)创建了新许可证，则可以将其粘贴在（2）中，或者您可以通过点击（1）直接在线获取
 
-![knxV2-2-1-Install-License-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-1-Install-License-mod.jpg)
+![knxV2-2-1-安装-许可证-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-1-Install-License-mod.jpg)
 
-如果您点击 (1)，请输入您的 iobroker.net 帐户登录。
+如果您点击了（1），请输入您的 iobroker.net 账户登录信息。
 
-![knxV2-2-2-Install-License-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-2-Install-License-online-mod.jpg)
+![knxV2-2-2-安装-许可证-在线修改](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-2-Install-License-online-mod.jpg)
 
-如果您的数据正确，您将看到您获得的所有许可证。选择您要使用的那个。
+如果您的数据正确，您将看到您获得的所有许可证。选择您想要使用的许可证。
 
-![knxV2-2-3-Install-License-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
+![knxV2-2-3-安装-许可证-在线修改](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
 
-如果成功，保存它。
+如果成功，请保存。
 
-![knxV2-2-4-Install-License-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-4-Install-License-online-mod.jpg)
+![knxV2-2-4-安装-许可证-在线修改](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-4-Install-License-online-mod.jpg)
 
-就这样。单击此页面底部的按钮以保存。
+就这样。点击本页底部的保存按钮。
 
-### 配置界面
-![knxV2-2-5-Install-License-online-applied-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
+### 配置接口
+![knxV2-2-5-安装-许可证-在线应用-模式](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
 
-1. KNX-Gateway IP：KNX-LAN网关的IPv4。
-2. KNX-Gateway端口：默认为3671端口。
-3.物理地址：iobroker knx实例的物理地址**！重要：这不是 phys。 LAN 网关的地址！** 并且不能以 0 结尾
-4. KNX packages per second：这限制了包率。如果 KNX Lan 网关重新连接太多或暂时无法访问，则降低此速率。
+1. KNX-网关 IP：KNX-LAN 网关的 IPv4。
+2. KNX-Gateway 端口：默认为端口 3671。
+3. 物理地址：iobroker knx 实例的物理地址。**重要：这不是 LAN 网关的物理地址！** 并且不能以 0 结尾
+4. 每秒 KNX 数据包数：限制数据包速率。如果 KNX Lan Gateway 重新连接次数过多或暂时无法访问，则降低此速率。
 5. 本地 iobroker IP：选择适配器将绑定的 IP/接口
-6. loglevel：通常是“Info”级别，为了调试提高级别。
-7. 仅导入新数据点：默认启用。如果禁用新的 GA，将生成新的 GA，并且将重新创建现有的 GA。
-8. 按钮上传文件：可在此处拖放或单击文件选择器对话框。您可以在此处上传 `knxproj` 格式的 ETS 导出文件。
+6.loglevel：通常为“Info”级别，为了调试可以增加该级别。
+7. 仅导入新数据点：默认启用。如果禁用，将生成新的 GA 并重新创建现有的 GA。
+8. 按钮上传文件：可在此处进行拖放，或单击文件选择器对话框。在这里，您可以以“knxproj”格式上传 ETS 导出文件。
 
-成功导入后，对话框会显示导入对象的数量。现在按“保存并关闭”，适配器应该启动。
-启动时，适配器会读取所有带有读标志和写标志的组地址。这可能需要一段时间，并且会在您的 KNX 总线上产生高负载。但是您的 vis 中的值会在启动后更新。
-上传受密码保护的文件尚不可用。
+成功导入后，对话框会显示导入对象的数量。现在按“保存并关闭”，适配器应启动。
+启动时，适配器会读取所有具有读取标志和写入标志的组地址。这可能需要一段时间，并且可能会对您的 KNX 总线产生高负载。但启动后，vis 中的值会更新。
+尚无法上传密码保护的文件。
 
-9. Host-ID：这是iobroker主机的一个特殊ID。此 ID 是生成和验证许可证所必需的
-10. GA-Tools：快速改变 GA 的工具箱
+9. Host-ID：这是 iobroker 主机的特殊 ID。此 ID 是生成和验证许可证所必需的
+10. GA-Tools：快速变化的 GA 工具箱
 
 ### 对象
-这是 knx.0 下的组地址树，就像您的 ETS 项目中一样。要修改属性，请使用 GA-Tool。
+这是 knx.0 下的组地址树，类似于您的 ETS 项目中的组地址树。要修改属性，请使用 GA-Tool。
 
 ＃＃＃ 用法
-如果适配器成功启动，您的数据点将可用于您喜欢做的所有事情。
+如果适配器成功启动，您的数据点将可用于您喜欢做的一切。
 
 ### 数据点类型（DPT）
-所有符合 KNX 协会“系统规范、互通、数据点类型”的 DPT 均可用。这意味着您可以获得两种类型的信息：1) 值或字符串 2) 逗号分隔值或值数组（目前我不知道什么是更好的处理方式）
+根据 KNX 协会的“系统规范、互通、数据点类型”，所有 DPT 均可用。这意味着您可以获得两种类型的信息：1) 值或字符串 2) 逗号分隔的值或值数组（目前我不知道哪种处理方式更好）
 
-例如，DPT5.001 被编码为 8 位无符号整数。这给出了一个单一的价值。 DPT3.007（控制调光）编码为 1Bit(Boolean)+3Bit(unsigned Int)。
-这导致例如在像“0,5”这样的值中，其中“0”表示“减少”，“5”表示间隔数。
+例如，DPT5.001 编码为 8 位无符号整数。这给出了一个值。DPT3.007（控制调光）编码为 1 位（布尔值）+3 位（无符号整数）。
+例如，这些结果为“0,5”这样的值，其中“0”表示“减少”，“5”表示间隔数。
 
-### 导入是如何工作的
-1.读取所有通信对象引用（COR）：
+### 导入的工作原理
+1. 读取所有通信对象引用（COR）：
 
-    将 groupadresreference ID' 与相应 COR（如果存在）的 DPT 相结合。
+将 groupadressreference ID 与相应 COR 的 DPT 相结合（如果存在）。
 
 2.组地址结构（GAS）的生成：
 
-    根据 GAR ID 生成 GAS 并设置 DPT（如果尚未完成）
+根据 GAR ID 生成 GAS 并设置 DPT（如果尚未完成）
 
-3. 认定国家法案涉及：
+3. 认定某项行为涉及：
 
-在 ets-exports 中没有关于状态和行为地址的信息。适配器解析所有 GA 的“状态”或“状态”。如果有 2 个 GA 的相似度超过 90%，那么一个地址将是 act，另一个是 state。还检查 DPT 是否相似。如果 GA 命名不一致，这就是为什么不容易找到同行的原因。
+ets-exports 中没有关于 state 和 act 地址的信息。适配器解析所有“status”或“state”的 GA。如果有 2 个 GA 的相似度超过 90%，则一个地址将是 actor，另一个地址将是 state。还会检查 DPT 是否相似。这就是为什么如果 GA 命名不一致，就很难找到一对。
 
-4. 设备配置中的标志检查：
+4.设备配置中的标志检查：
 
-   标志的处理如下：
+标志处理如下：
 
-    | KNX | | |经纪人 | | |
-    |-------|-----------|------------|----------|----------|-------------------------------------------------|
-    |阅读 |写|传输 |阅读 |写|说明 |
-    | - | - | - | - | - |该值将由 GroupValueRead| 更新 |
-    | × | - | - | × | × |在此状态上发送任何值都会触发 GroupValueRead|
-    | - | × | - | - | × |使用 GroupValueWrite| 将值写入 KNX|
-    | - | - | × | × | - |状态值将由 GroupValueResponse | 更新 |
-    | × | - | × | × | × |在此状态上发送任何值都会触发 GroupValueRead|
+| KNX | KNX | KNX | ioBroker | ioBroker | |
+    |-------|-------|----------|----------|----------|----------------------------------------------------------|
+| 读 | 写 | 传输 | 读 | 写 | 解释 |
+| - | - | - | - | - | 该值将由 GroupValueRead 更新 |
+| x | - | - | x | x | 在此状态下发送任何值都会触发 GroupValueRead |
+| - | x | - | - | x | 使用 GroupValueWrite 将值写入 KNX |
+| - | - | x | x | - | 状态值将由 GroupValueResponse 更新 |
+| x | - | x | x | x | 在此状态下发送任何值都会触发 GroupValueRead |
 
-6.创建数据点对等体（DPP）：
+6. 创建数据点对等体（DPP）：
 
-如果 GA、GAR 和 DPT 有效，将创建 DPP。这是适配器正在使用的 DPP。
-如果 GA 中缺少 DPT，因为无法找到它，则不会创建 DPP。可以使用 GA-Tool 来完成。
+如果 GA、GAR 和 DPT 有效，则会创建 DPP。这些是适配器正在使用的 DPP。
+如果 GA 中缺少 DPT（因为无法找到），则不会创建 DPP。可以使用 GA-Tool 完成。
 
-7. 在适配器启动时：
+7. 适配器启动时：
 
-所有标有“已读”标志的 GA 在开始时都会被检查。这会影响更高的总线流量。最后所有状态都是最新的。
+所有标有“已读”标志的 GA 都会在启动时进行检查。这可能会影响更高的总线流量。最后，所有状态都是最新的。
 
-###避免问题
-* 清洁 ETS 编程和更重要的清洁 ETS 编程和最重要的清洁 ETS 编程
-* 分配 DPT！
-* GA 名称的统一标签（e.B“EG Wohnen Decke Licht schalten”和“EG Wohnen Decke Licht schalten status”）
-* 避免使用特殊字符“,./;&%$§[]”（可能会导致产生气体的问题）
-* 检查 KNX/LAN GW 是否可达。如果不是，适配器将尝试连续连接。
-* 正确选择物理地址（使用线路耦合器时很重要）。 ！！！注意：此处输入的物理地址不是 LAN 网关的地址，不能以 0 结尾！！！
+### 避免问题
+* 清理 ETS 编程，更重要的是清理 ETS 编程，最重要的是清理 ETS 编程
+* 分配 DPT！！
+* GA 名称的统一标签（例如“EG Wohnen Decke Licht schalten”和“EG Wohnen Decke Licht schalten status”）
+* 避免使用特殊字符“,./;&%$§[]”（可能会导致气体产生问题）
+* 检查 KNX/LAN GW 是否可访问。如果不可访问，适配器将尝试持续连接。
+* 正确选择物理地址（使用线路耦合器时很重要）。!!! 注意：此处输入的物理地址不是 LAN 网关的地址，并且不能以 0 结尾 !!!
 * LAN接口的端口通常为3671
-* 由于状态查询的可能性，必须注意一件事：必须确保 ioBroker 每秒生成不超过 40 个请求，因为这些请求随后可以物理生成
+* 由于存在状态查询的可能性，必须注意一件事：必须确保 ioBroker 每秒生成的请求不超过 40 个，因为这些请求随后可能会在物理上生成
 
-  不能再由适配器传递到网关。
+无法再通过适配器传递给网关。
 
 ## GA 工具
-GA-Tool 可以轻松更改 GA 的属性。
+GA-Tool 可以轻松改变 GA 的属性。
 
-![knxV2-3-6-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-6-GATools-mod.jpg)
+![knxV2-3-6-GA工具-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-6-GATools-mod.jpg)
 
-1.显示GA树和选择的GA
-2.在属性部分选择GA的名称
+1. 显示 GA 树和选定的 GA
+2. 在属性部分中，选定 GA 的名称
 3. 设置 iobroker 标志
-4.设置GA DPT
-5.公认的行为GA
-6.公认状态GA
+4. 设置 GA DPT
+5. 认可法案 GA
+6. 认可的州 GA
 
 ![knxV2-3-2-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
-1.显示状态-行为关系
-2.如果关系存在那么它可以被删除
+1. 展示状态-行为关系
+2. 如果关系存在，则可以将其删除
 
-如果不存在关系，则可以通过单击 (2) 为选定的 GA (1) 创建一个新关系。
-在对话框（3）中可以选择对等点
+如果不存在关系，则可以通过单击 (2) 为所选 GA (1) 创建新关系。
+在对话框 (3) 中，可以选择对等体
 
 ![knxV2-3-5-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-5-GATools-mod.jpg)
 
-如果有更多的 GA 要更改属性，请使用多选。此功能仅适用于没有关系的 GA。
+如果有多个 GA 需要更改属性，请使用多选。此功能仅适用于没有关系的 GA。
 
 ![knxV2-3-4-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-4-GATools-mod.jpg)
 
 1. 选定的 GA
-2.属性改变
-3.不可能改变
+2. 要更改的属性
+3. 不可能改变
 
-### 将非 KNX 状态直接链接到 KNX 反之亦然
-从适配器版本 2.0.6 开始，可以将非 KNX ioBroker 状态直接链接到 GA。这可用于将时间、日期、任何状态或信息应用到 KNX。 （一个小提示：您可以将任何 IOT 组件直接链接到 KNX 中的 GA（例如，将 homematic 按钮链接到 KNX GA 或将 KNX 按钮传感器链接到您的 sonosplayer））。可以使用 GroupValueRead 读取状态，如果状态发生变化，它将在 KNX 上自动更新。此外，如果您在 KNX 上进行更改，它将更新链接的非 KNX 物联网设备。
+### 将非 KNX 状态直接链接到 KNX 状态，反之亦然
+自适配器版本 2.0.6 起，可以将非 KNX ioBroker 状态直接链接到 GA。这可用于将时间、日期、任何状态或信息应用于 KNX。（小提示：您可以将任何 IOT 组件直接链接到 KNX 中的 GA（例如，将 homematic 按钮链接到 KNX GA 或将 KNX 按钮传感器链接到您的 sonos 播放器））。可以使用 GroupValueRead 读取状态，如果状态发生变化，它将在 KNX 上自动更新。此外，如果您在 KNX 上进行更改，它将更新链接的非 KNX 物联网设备。
 
 ![knxV2-3-7-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
 
-1.选择要连接的GA
-2.显示选中的GA
-3.这个GA必须要有**write**属性
-4.选择一个有效的数据点类型（如果它们不匹配，它将不起作用）
-5.不允许有act-state关系
-6. 用于选择要链接的非 KNX 对象的按钮
+1. 选择要连接的 GA
+2. 显示选定的 GA
+3. 此 GA 必须具有 **write** 属性
+4.选择一个有效的数据点类型（如果不匹配，则不起作用）
+5. 不允许有行为-状态关系
+6. 按钮选择要链接的非 KNX 对象
 
 ![knxV2-3-8-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
 
-1.选择要链接的非KNX对象
-2.点击确定，如果你完成了
+1. 选择要链接的非 KNX 对象
+2.完成后点击确定
 
 ![knxV2-3-9-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
 
 现在 KNX-GA **(1)** 直接与非 KNX iobroker **(2)** 链接。使用 **(3)** 您可以删除此关系。
 
-## 计划的功能
-* esf 导入
+## 计划中的功能
+* esf-导入
 * GA-Mon 总线监控工具
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 ## 异常和错误
-**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
-开发人员无法获得有关系统/配置/用户/环境的任何进一步特殊信息。如果未找到许可证，还会报告适配器版本和主机 ID。
+开发人员无法获取有关系统/配置/用户/环境的任何进一步特殊信息。如果未找到许可证，还会报告适配器版本和主机 ID。
 
-## 非常感谢支持和帮助
-*蓝狐
-* 狐狸河76
+##非常感谢您的支持和帮助
+* 蓝狐
+* foxriver76
 
 ## Changelog
+### 2.0.30 (22.12.2024)
+* fixed GUI errors, starting redesign GA-Tools
+
+### 2.0.29 (11.12.2024)
+* updated the adapter import schema for ETS 6.3.0
+* nodejs >= 20 is required 
+
+### 2.0.28
+* Update license related data and fix package version
+
+### 2.0.27 (02.05.2024)
+* updated the adapter import schema for ETS 6.2.2
+* fixed UTF-8 error
+
+### 2.0.26 (28.03.2024)
+* updated the adapter import schema for ETS 6.2.1
+* nodejs >= 18 is required
+
+### 2.0.25 (03.03.2024)
+* updated the adapter import schema for ETS 6.2.0
+* small bug-fixes
+
+### 2.0.24 (24.11.2023)
+* updated the adapter import schema for ETS 6.1.1
+
+### 2.0.23 (11.10.2023)
+* corrected wrong GW Port after adapter upgrade
+* allow self-defined values for min and max
+* some small other fixes
+
+### 2.0.22 (04.07.2023)
+* added import specification, solved problems in GaTools
+    
+### 2.0.21 (17.06.2023)
+* fixed license handling
+
+### 2.0.20 (16.06.2023)
+* fixed license handling with js-controller Version > 5
+
+### 2.0.19 (29.05.2023)
+* added ETS V6.1.0 import
+* required node version >= 16.13.1
+
 ### 2.0.18 (08.04.2023)
 * fixed send-delay
 * small changes
@@ -268,7 +311,7 @@ GA-Tool 可以轻松更改 GA 的属性。
 
 ### 2.0.12 (25.02.2022)
 * fixed handling of undefined DP
-* updated datapointtypes
+* updated the data point types
 * fix warning with incompatible DPT in future
 * the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
 * can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
@@ -509,7 +552,7 @@ GA-Tool 可以轻松更改 GA 的属性。
 * removed "Delay Slider" because of the new knx-stack
 * many other small changes
 * fixed post-comma values to scale-value of DPT
-* implemented "add" mode for knxproject upload (existing Objects stay as they are, only new Objects where added)
+* implemented "add" mode for knx project upload (existing Objects stay as they are, only new Objects where added)
 
 ### 0.8.6 (2017-06-17)
 
@@ -573,18 +616,19 @@ GA-Tool 可以轻松更改 GA 的属性。
 
 ## License
 
-For <500 datapoints there is no need of registration or adding a license key. If you have more then 500 datapoints you need a license. You can choose  
-between yearly and permanent licence.
+For less than 500 data points, there is no need for registration or adding a license key.
+If you have more than 500 data points, you need a license.
+You can choose between yearly and permanent license.
 
-To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
+To use this adapter in ioBroker, you need to accept the source code license of the adapter.
+The source code of this adapter is available under the CC-NC-BY license.
 
-Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
-
+Additionally, you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 ## License
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2023 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2024 K.Ringmann <info@punktnetzwerk.net>
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

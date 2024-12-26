@@ -48,92 +48,92 @@ The adapter also has no influence on which parameters are sent by myUplink.
 
 ## Changelog
 
-**WORK IN PROGRESS**
+### 0.8.4 (2024-12-25)
 
--   xl attributes have been added to the jsonConfig #77
--   Dependencies have been updated
+- xl attributes have been added to the jsonConfig #77
+- Dependencies have been updated
 
 ### 0.8.3 (2024-10-20)
 
--   TabsStyle was added to jsonConfig #71
--   Dependencies have been updated
+- TabsStyle was added to jsonConfig #71
+- Dependencies have been updated
 
 ### 0.8.2 (2024-09-14)
 
--   Changes due to API changes #60
--   Dependencies have been updated
+- Changes due to API changes #60
+- Dependencies have been updated
 
 ### 0.8.1 (2024-08-18)
 
--   Existing incorrect minimum and maximum values are now deleted #39
--   Minimum and maximum values of the API are not adopted if the current value is outside minimum and maximum #39
--   Instructions for German and English have been moved to separate files #47
--   Dependencies have been updated
+- Existing incorrect minimum and maximum values are now deleted #39
+- Minimum and maximum values of the API are not adopted if the current value is outside minimum and maximum #39
+- Instructions for German and English have been moved to separate files #47
+- Dependencies have been updated
 
 ### 0.8.0 (2024-07-14)
 
--   No empty objects are sent (setData)
--   Incorrect minimum and maximum values of the API are not adopted #39
--   The initial refresh interval was set to 5 minutes
--   The code has been restructured internally
--   At least Node.js 18 is required!
--   Unit tests have been added
--   Dependencies have been updated
+- No empty objects are sent (setData)
+- Incorrect minimum and maximum values of the API are not adopted #39
+- The initial refresh interval was set to 5 minutes
+- The code has been restructured internally
+- At least Node.js 18 is required!
+- Unit tests have been added
+- Dependencies have been updated
 
 ### 0.7.1 (2024-02-10)
 
--   Crash after 'unhandled promise rejection' fixed #15
+- Crash after 'unhandled promise rejection' fixed #15
 
 ### 0.7.0 (2024-02-04)
 
--   Forbidden characters are removed from the category
--   An error when setting data has been fixed
--   Performance has been improved
+- Forbidden characters are removed from the category
+- An error when setting data has been fixed
+- Performance has been improved
 
 ### 0.6.1 (2024-02-03)
 
--   Performance has been improved
--   Dependencies have been updated
+- Performance has been improved
+- Dependencies have been updated
 
 ### 0.6.0 (2024-01-28)
 
--   The setData object has been added
+- The setData object has been added
 
 ### 0.5.0 (2024-01-14)
 
--   Parameter IDs and categories have been added for a few heat pumps
+- Parameter IDs and categories have been added for a few heat pumps
 
 ### 0.4.1 (2024-01-13)
 
--   In object IDs, all characters that are not officially supported are now replaced by an underscore
--   The roles of the data objects have been improved
--   The logging of token data (in log level silly) has been removed
--   Dependencies have been updated
+- In object IDs, all characters that are not officially supported are now replaced by an underscore
+- The roles of the data objects have been improved
+- The logging of token data (in log level silly) has been removed
+- Dependencies have been updated
 
 ### 0.4.0 (2023-12-31)
 
--   New options for renaming IDs have been added #5
--   Options are deactivated if checkboxes are not checked
+- New options for renaming IDs have been added #5
+- Options are deactivated if checkboxes are not checked
 
 ### 0.3.0 (2023-12-29)
 
--   Support for setting parameter values has been added (must be paid for at myuplink.com) #4
--   Authorization Code Grant Flow settings have been moved to new Extended tab
--   Password control will be used for Secret and Auth Code
+- Support for setting parameter values has been added (must be paid for at myuplink.com) #4
+- Authorization Code Grant Flow settings have been moved to new Extended tab
+- Password control will be used for Secret and Auth Code
 
 ### 0.2.1 (2023-12-28)
 
--   All responsive sizes have been added to jsonConfig
--   More error logging have been added
+- All responsive sizes have been added to jsonConfig
+- More error logging have been added
 
 ### 0.2.0 (2023-12-28)
 
--   Settings page have been changed from materialize to jsonConfig
--   Dependencies have been updated
+- Settings page have been changed from materialize to jsonConfig
+- Dependencies have been updated
 
 ### 0.1.0 (2023-12-25)
 
--   Initial release
+- Initial release
 
 ## License
 

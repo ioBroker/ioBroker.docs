@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enigma2/README.md
 title: ioBroker enigma2
-hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
+hash: fdyOycvPFspaROEIv+ZQbVNsc4JE0rZ4YKX5UIsZP80=
 ---
 ![标识](../../../en/adapterref/iobroker.enigma2/admin/enigma2.png)
 
@@ -17,11 +17,8 @@ hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
 - ioBroker 适配器用于从 enigma2 接收器检索信息并发送命令
 -（适配器仅在一台主机上运行！客户端安装目前仍然存在问题。）
 
-- (DE) ioBroker 适配器，用于接收来自 enigma2 的信息并发送请求
-- (DE)（适配器只在主机上使用！在客户端安装时会出现当前问题。）
-
-## 论坛
-[![ioBroker]（https://forum.iobroker.net/assets/uploads/system/site-logo.png）](https://forum.iobroker.net/topic/25112/enigma2-adapter-ab-v1-2-3)
+- (DE) 适配器用于 ioBroker um Informationen von einem enigma2 Receiver abzufragen und Befehle zu senden
+- (DE)（适配器 läuft nur auf einem Host！bei einer 客户端安装 gib 的 aktuell noch 问题。）
 
 ----
 
@@ -75,8 +72,8 @@ hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
 - 命令.LEFT
 - 命令.菜单
 - 命令.MUTE_TOGGLE
-- 命令.确定
-- 命令.PAUSE
+- 命令。确定
+- 命令暂停
 - 命令.PLAY
 - 命令.RADIO
 - 命令.REC
@@ -104,7 +101,7 @@ hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
 
 ＃＃＃ 信息
 - Message.Text = 消息文本（输入 -> 发送）
-- Message.Type = 从 0 到 3 的数字（0=是/否；1=信息；2=消息；3=注意）
+- Message.Type = 从 0 到 3 的数字（0= 是/否；1= 信息；2=消息；3=注意）
 - Message.Timeout = 消息超时时间（秒）。可以为空，也可以为消息应在多少秒后消失。
 
 ----
@@ -115,7 +112,7 @@ hash: WZfonWlqEmvTcgfdLvPJ8wK+96I2Yvv4xtYCHi/9rdI=
 
 ----
 
-＃＃＃ 发给
+### 发送至
 在 Blockly 中
 - message = 消息文本
 - msgType = 从 0 到 3 的数字（0= 是/否；1= 信息；2=消息；3=注意）
@@ -140,25 +137,26 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.3 (2024-12-22)
+* (mcm1957) Adapter has been moigrated to @iobroker/eslint-config. [#266]
+
+### 2.2.2 (2024-12-22)
+* (mcm1957) States 'message.*' are writeable again now. [#273]
+* (mcm1957) Dependencies have been updated.
+
+### 2.2.1 (2024-11-13)
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+* (mcm1957) Message states have been added. [#229]
+* (simatec) Adapter changed to meet Responsive Design rules.
+* (mcm1957) Several issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated.
+
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
 ### 2.1.0 (2024-04-11)
 * (mcm1957) Adapter requires node.js >=18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
-
-### 2.0.5 (2023-09-18)
-* (mcm1957) A problem causing missing descriptions for timer entryies and warnings has been fixed. #119 
-* (mcm1957) Dependencies have been updated.
-
-### 2.0.3 (2023-09-06)
-* (TDCroPower) fixed the problem that no objects are updated
-
-### 2.0.2 (2023-08-17)
-* (Lucky-ESA) Bugfixes: [#61](https://github.com/Matten-Matten/ioBroker.enigma2/issues/61)
-* (Lucky-ESA) Bugfixes: undefined e2eventlist
-* (bluefox) Added json config
-* (mcm1957) Adapter now requires node 16
 
 ## License
 MIT License

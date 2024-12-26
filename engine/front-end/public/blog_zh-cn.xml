@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Sat, 21 Dec 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 22 Dec 2024 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[2024年年度回顾]]></title>
+            <description><![CDATA[
+                <p>#2024年年度回顾\n亲爱的 ioBroker 社区，</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2024_12_22</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_12_22</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 22 Dec 2024 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker 每月更新 - 2024 年 12 月 🎄]]></title>
             <description><![CDATA[
@@ -96,9 +106,9 @@
             <pubDate>Sun, 21 Apr 2024 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[]]></title>
+            <title><![CDATA[来自 ioBroker 的新闻（2023 年 8 月至 9 月）]]></title>
             <description><![CDATA[
-                <p># 来自 ioBroker 的新闻（2023 年 8 月至 9 月）\n在这篇博文中，我们将了解 2023 年 8 月和 9 月为 ioBroker 发布的一些新适配器和新功能。</p>
+                <p>在这篇博文中，我们将了解 2023 年 8 月和 9 月为 ioBroker 发布的一些新适配器和新功能。</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2023_09_16</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2023_09_16</guid>

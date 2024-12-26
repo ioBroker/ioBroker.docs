@@ -44,9 +44,14 @@ This should give you the password and a status in return.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.1 (2024-12-23)
+* (Morluktom) Bugfix lg-ess-home.0.user.essinfo.common not updated
+* (Morluktom) Responsive Design added
+
+### 0.4.0 (2024-12-23)
 * (Morluktom) Bugfix: State value to set for "lg-ess-home.0.user.essinfo.home.statistics.bat_status" has to be type "number" but received type "string"
 * LG ESS HOME 15 Plus added
+* Switch AutoCharge and backup soc writeable
 
 ### 0.3.0 (2024-08-10)
 * (Morluktom) Fixed warnings found by adapter checker

@@ -111,6 +111,10 @@ Stop:
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog
+### 0.0.9 (2024-12-21)
+
+- fix login
+
 ### 0.0.8 (2024-10-26)
 
 - fix login

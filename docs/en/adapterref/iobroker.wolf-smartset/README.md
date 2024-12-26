@@ -24,6 +24,14 @@ To login you only need your username and password from your smartset-app. After 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.4 (2024-12-22)
+- (flingo64) Bugfix for issues #281, #329, #365, #406: ioBroker object limits min/max use Wolf Smartset Min/MaxValueCondition if available, otherwise use Min/MaxValue now.
+- (flingo64) Added some comments on Wolf Smartset ControlTypes
+- (flingo64) Modified misspelled variable name to 'SubMenuEntry'
+- (flingo64) Add NamePrefix, if exists, to object names (e.g. 'A1: ', 'WP001: ') for better parameter identification
+- (mcm1957) Adapter has been adapted to @iobroker/eslint-config and eslint 9.x.
+- (mcm1957) Dependencies have been updated
+
 ### 1.2.3 (2024-04-29)
 - (mcm1957) Dependencies have been updated
 

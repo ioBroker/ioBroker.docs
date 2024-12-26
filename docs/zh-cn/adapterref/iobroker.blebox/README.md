@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: GKXAtfEgdkEZjXGgDvjjHzar4it/zsG6+FRjmKL4FmA=
+hash: F4iK92WooFlY6oJSJboNwsGSa9nlQq+NDFZi9d7rDgQ=
 ---
 ![标识](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -14,6 +14,8 @@ hash: GKXAtfEgdkEZjXGgDvjjHzar4it/zsG6+FRjmKL4FmA=
 
 # IoBroker.blebox
 ## IoBroker 的 blebox 适配器
+[![贝宝]（https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
+
 用于控制制造商 [blebox](https://blebox.eu/)。API 描述可在此处找到](https://technical.blebox.eu/) 的智能家居设备的适配器。该实现无需制造商的支持。
 
 可以下载不完整且过时的 API 模拟[这里](https://github.com/blebox/blebox-virtual-devices)。

@@ -179,7 +179,7 @@ is true when TV is on and false if TV is off
 -->
 ### 2.3.2 (2024-12-21)
 
-* (mcm1957) Health-interval limited to 5s minimum.
+* (mcm1957) Poll-interval limited to 5s minimum.
 * (mcm1957) Compact mode has been disabled due to outdated timer handling.
 * (mcm1957) Dependencies have been updated
 

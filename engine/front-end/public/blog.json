@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2024_12_22": {
+      "date": "2024.12.22",
+      "title": {
+        "de": "Jahresrückblick 2024",
+        "en": "annual review 2024",
+        "ru": "Годовой обзор 2024 г.",
+        "zh-cn": "2024年年度回顾"
+      },
+      "logo": "de/blog/images/2024_12_22.jpg",
+      "type": "news",
+      "originalName": "2024_12_22.md",
+      "desc": {
+        "de": "Liebe ioBroker-Community,",
+        "en": "Dear ioBroker community,",
+        "ru": "Уважаемое сообщество ioBroker,",
+        "zh-cn": "#2024年年度回顾\\n亲爱的 ioBroker 社区，"
+      }
+    },
     "2024_12_21": {
       "date": "2024.12.21",
       "title": {
@@ -167,8 +185,8 @@
       "title": {
         "de": "Neuigkeiten von ioBroker (August-September 2023)",
         "en": "News from ioBroker (August-September 2023)",
-        "ru": "",
-        "zh-cn": ""
+        "ru": "Новости от ioBroker (август-сентябрь 2023 г.)",
+        "zh-cn": "来自 ioBroker 的新闻（2023 年 8 月至 9 月）"
       },
       "logo": "",
       "type": "news",
@@ -176,8 +194,8 @@
       "desc": {
         "de": "In diesem Blog-Beitrag werfen wir einen Blick auf einige der neuen Adapter und neuen Funktionen, die im August und September 2023 für ioBroker veröffentlicht wurden.",
         "en": "In this blog post, we'll take a look at some of the new adapters and new features that have been released for ioBroker in August and September 2023.",
-        "ru": "# Новости от ioBroker (август-сентябрь 2023 г.)\\nВ этом сообщении блога мы рассмотрим некоторые новые адаптеры и новые функции, выпущенные для ioBroker в августе и сентябре 2023 года.",
-        "zh-cn": "# 来自 ioBroker 的新闻（2023 年 8 月至 9 月）\\n在这篇博文中，我们将了解 2023 年 8 月和 9 月为 ioBroker 发布的一些新适配器和新功能。"
+        "ru": "В этом сообщении блога мы рассмотрим некоторые новые адаптеры и новые функции, выпущенные для ioBroker в августе и сентябре 2023 года.",
+        "zh-cn": "在这篇博文中，我们将了解 2023 年 8 月和 9 月为 ioBroker 发布的一些新适配器和新功能。"
       }
     },
     "2023_02_15": {

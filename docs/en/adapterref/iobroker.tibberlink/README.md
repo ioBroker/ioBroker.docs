@@ -111,6 +111,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 4.2.0 (2024-12-xx)
 
 - (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
+- (HombachC) WIP add outputJSON for 'BestSingleHours' and 'BestSingleHoursLTF' (#592)
+- (HombachC) code optimization
 
 ### 4.1.1 (2024-12-21)
 
