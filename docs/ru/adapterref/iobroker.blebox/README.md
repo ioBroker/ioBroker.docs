@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: F4iK92WooFlY6oJSJboNwsGSa9nlQq+NDFZi9d7rDgQ=
+hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -25,9 +25,9 @@ hash: F4iK92WooFlY6oJSJboNwsGSa9nlQq+NDFZi9d7rDgQ=
 | Герэт | Тип API | Статус |
 |----------------------|---------------------|-----------------------------------------|
 | gatebox | gatebox | ✅ Протестировано |
-| мультисенсор | мультисенсор | поддерживается до 4 датчиков на устройство |
+| мультисенсор | мультисенсор | поддерживается до 8 датчиков на устройство |
 | tempSensor PRO | multisensor | ❓ beta, не тестировалось на реальном оборудовании |
-| tempSensorAC | multisensor | ❓ beta, не тестировалось на реальном оборудовании |
+| tempSensorAC | multisensor | ❓ beta, не тестировалось с реальным оборудованием |
 | Датчик влажности | мультисенсор | ❓ бета, не тестировалось с реальным оборудованием |
 | windSensor PRO | мультисенсор | ❓ бета, не тестировалось на реальном оборудовании |
 | floodSensor | multisensor | ❓ beta, не тестировалось на реальном оборудовании |

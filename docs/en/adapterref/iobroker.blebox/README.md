@@ -22,7 +22,7 @@ The following devices are currently supported:
 | Gerät                | API-Type            | Status                                   |
 |----------------------|---------------------|-----------------------------------------|
 | gatebox              | gatebox             | ✅ Tested                                |
-| multisensor          | multisensor         | up to 4 sensors per device are supported |
+| multisensor          | multisensor         | up to 8 sensors per device are supported |
 | tempSensor PRO       | multisensor         | ❓ beta, not tested with real Hardware   |
 | tempSensorAC         | multisensor         | ❓ beta, not tested with real Hardware   |
 | humiditySensor       | multisensor         | ❓ beta, not tested with real Hardware   |

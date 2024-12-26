@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: F4iK92WooFlY6oJSJboNwsGSa9nlQq+NDFZi9d7rDgQ=
+hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 ---
 ![标识](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -25,11 +25,11 @@ hash: F4iK92WooFlY6oJSJboNwsGSa9nlQq+NDFZi9d7rDgQ=
 |盖拉特 | API 类型 |状态 |
 |----------------------|---------------------|-----------------------------------------|
 | gatebox | gatebox | ✅ 已测试 |
-| 多传感器 | 多传感器 | 每个设备最多支持 4 个传感器 |
+| 多传感器 | 多传感器 | 每个设备最多支持 8 个传感器 |
 | tempSensor PRO | 多传感器 | ❓ 测试版，未经真实硬件测试 |
 | tempSensorAC | 多传感器 | ❓ 测试版，未经真实硬件测试 |
 | 湿度传感器 | 多传感器 | ❓ 测试版，未经真实硬件测试 |
-| windSensor PRO | 多传感器 | ❓ 测试版，未使用真实硬件测试 |
+| windSensor PRO | 多传感器 | ❓ 测试版，未经真实硬件测试 |
 | floodSensor | multisensor | ❓ beta，未经真实硬件测试 |
 | rainSensor | 多传感器 | ❓ 测试版，未经真实硬件测试 |
 | saunabox | saunabox | ❓ 测试版，未经真实硬件测试 |

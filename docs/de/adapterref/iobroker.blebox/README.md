@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: F4iK92WooFlY6oJSJboNwsGSa9nlQq+NDFZi9d7rDgQ=
+hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 ---
 ![Logo](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -25,7 +25,7 @@ Die folgenden Geräte werden derzeit unterstützt:
 | Gerät | API-Typ | Status |
 |----------------------|---------------------|-----------------------------------------|
 | Gatebox | Gatebox | ✅ Getestet |
-| Multisensor | Multisensor | bis zu 4 Sensoren pro Gerät werden unterstützt |
+| Multisensor | Multisensor | bis zu 8 Sensoren pro Gerät werden unterstützt |
 | tempSensor PRO | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
 | tempSensorAC | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
 | Feuchtigkeitssensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
