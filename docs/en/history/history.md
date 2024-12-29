@@ -692,3 +692,9 @@ https://github.com/minukodu/ioBroker.minuaru
 
 alarmsystem for ioBroker and minuvis
 
+## vis-2-widgets-weather-and-heating (29.12.2024) – new adapter at stable
+https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
+
+<img src="https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
+
+This vis-2-widget shows weather forecast data from DasWetter.com or weatherunderground. You need DasWetter-Adapter or weatherunderground-Adapter running on your system.
