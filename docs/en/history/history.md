@@ -692,3 +692,9 @@ https://github.com/minukodu/ioBroker.minuaru
 
 alarmsystem for ioBroker and minuvis
 
+## mywallbox (29.12.2024) – new adapter at stable
+https://github.com/SKB-CGN/ioBroker.mywallbox
+
+<img src="https://github.com/SKB-CGN/ioBroker.mywallbox/blob/main/admin/wallbox.png" width="100" height="100" />
+
+Connect your My-Wallbox (e.g. Pulsar Plus) with ioBroker via the Cloud-Service of My Wallbox
