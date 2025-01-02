@@ -698,3 +698,10 @@ https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
 <img src="https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
 
 This vis-2-widget shows weather forecast data from DasWetter.com or weatherunderground. You need DasWetter-Adapter or weatherunderground-Adapter running on your system.
+
+## mywallbox (29.12.2024) – new adapter at stable
+https://github.com/SKB-CGN/ioBroker.mywallbox
+
+<img src="https://github.com/SKB-CGN/ioBroker.mywallbox/blob/main/admin/wallbox.png" width="100" height="100" />
+
+Connect your My-Wallbox (e.g. Pulsar Plus) with ioBroker via the Cloud-Service of My Wallbox
