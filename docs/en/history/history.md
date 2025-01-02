@@ -688,9 +688,16 @@ This adapter can be used to automatically interact with google spreadsheets.
 ## minuaru (3.12.2024) – new adapter at stable
 https://github.com/minukodu/ioBroker.minuaru
 
-<img src="hhttps://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
+<img src="https://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
 
 alarmsystem for ioBroker and minuvis
+
+## mytime (29.12.2024) – new adapter at stable
+https://github.com/oweitman/ioBroker.mytime
+
+<img src="https://github.com/oweitman/ioBroker.mytime/blob/main/admin/mytime.png" width="100" height="100" />
+
+This adapter handles Time (eg: countdown,etc.). The countdown functionality provides datapoints that you can use to manage a countdown (e.g. in a script). The adapter also includes several widgets to visualize these countdowns. Time series can be used to create complex time series at which the data points are triggered.s
 
 ## vis-2-widgets-weather-and-heating (29.12.2024) – new adapter at stable
 https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
