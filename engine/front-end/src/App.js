@@ -219,7 +219,6 @@ const PAGES = {
         menu: [
             { link: 'https://iobroker.net', name: 'Free (.net)', target: 'this' },
             { link: 'https://iobroker.pro', name: 'Pro (.pro)', target: 'this' },
-            { link: 'https://iobroker.link', name: 'VPN', target: 'this' },
         ],
     },
     intro:         { component: PageIntro, name: 'intro' },
