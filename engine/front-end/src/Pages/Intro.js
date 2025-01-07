@@ -215,7 +215,7 @@ class Intro extends Component {
         };
 
         const d = new Date();
-        this.action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 8);
+        this.action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 6);
     }
 
     renderCloud() {
