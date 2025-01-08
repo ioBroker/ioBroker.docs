@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: hHIZNEpqahzbPHmd5jNTEvsyMnBQA3XJMv/XzPDzXXo=
+hash: icwayNN6/KClreJsKpqYDJCW9+30cUUxFZyP3ZIqmvk=
 ---
 # IoBroker.webui
 
@@ -25,14 +25,14 @@ https://www.youtube.com/@jogibear9988
 
 它具有如下功能：
 
-- 拥有简单的脚本语言
+- 简单的脚本语言
 - 绑定到 ioBroker 对象，包括转换器和 javascript 表达式
 - 从剪贴板粘贴图像
 - 拖放外部图像
 - 拖放 ioBroker 对象以自动创建绑定
 - 将 ioBroker 对象拖放到属性中以创建绑定
-- 屏幕中 ioBroker 对象的相对信号路径（完整路径可以从外部传递到屏幕）
-- html 代码的分割视图编辑
+- 屏幕中 ioBroker 对象的相对信号路径（完整路径可以从外部传递到屏幕中）
+- 布局和 HTML 代码的分割视图编辑
 - 全局样式表支持
 - 使用包含 webcomponents 的 npm 包
 - 屏幕内的屏幕
@@ -40,22 +40,26 @@ https://www.youtube.com/@jogibear9988
 - 使用来自 ioBroker 的图表
 - 使用组合信号对象 ID，例如“webui.0.test3.{webui.0.test3.select}”-> 这将使用 webui.0.test3.select 中的值作为信号名称
 
+[维基百科](https://github.com/iobroker-community-adapters/ioBroker.webui/wiki) 中有更多关于特定主题的信息（德语部分比英语部分多了一些文章）。
+
 ＃＃ 安装
 ### 依赖项
 - 您需要安装 Web 适配器。它使用以下设置：![image](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/web.png)
 
 ## 概念
 ＃＃＃ 描述
-设计器使用 Webcomponents，因此您设计的 HTML 位于 Webcomponent 的 Shdowroot 内。这意味着您无法设置样式<body>或者<html>样式表内部。要设置外部布局的样式，请使用“:host”选择器。这也意味着，您不能使用“on...”事件处理程序。请使用“@...”事件分配。
+Designer 使用 Web Components，因此您设计的 HTML 位于 Webcomponent 的 Shadowroot 内。这意味着您无法设置样式，<body>或者<html>样式表内部。要设置外部布局的样式，请使用“:host”选择器。这也意味着，您不能使用“on...”事件处理程序。请使用“@...”事件分配。
 
 ### WebUI 中的自定义控件
-您可以在 WebUI 中创建自己的可重复使用的 CustomControls。这可以具有单独的 Javascript、属性和模板。
+您可以在 WebUI 中创建自己的可重复使用的 CustomControls，每个 CustomControls 可以有自己的 Javascript、属性和模板。
 
 您可以使用“BaseCustomWebcomponent”的双括号语法和双花括号语法来创建从模板到设计器中定义的属性的绑定。花括号创建双向绑定。
 如果您使用绑定对话框，则可以使用 ??Propertyname 绑定到属性，并通过 ?Propertyname 绑定到属性中的 ioBroker 对象。
 在脚本中，您还可以写入自定义属性中定义的信号。
 
-您还可以在 CustomControl 或 Screen 中包含 Javascript。您还可以使用导出函数“init(instance)”，该函数将在 CustomControl 实例化时调用。（也可以使用连接和断开连接函数）
+您可以在 CustomControl 或 Screen 中包含 Javascript。
+此外，您可以导出函数 `init(instance)`，该函数将在实例化 CustomControl 时调用。
+最后，可以定义 `connected()` 和 `disconnected()` 函数，以便在以下情况下调用...
 
 ## 赞助
 如果您想帮助开发，请赞助该项目 https://github.com/sponsors/jogibear9988
@@ -132,6 +136,116 @@ https://www.youtube.com/@jogibear9988
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.21.0 (2024-12-28)
+- fix scripts with empty names on css
+- css props with only bindings are not shown
+- remove of css prop should remove binding?
+- Open Screen in sub screen command
+
+### 1.20.1 (2024-12-03)
+- fix in designer with svgs
+
+### 1.20.0 (2024-12-03)
+- add a few packages
+- run simple script cmd and update get parent screen
+- update packages, downgrade monaco
+- fix backup
+
+### 1.19.4 (2024-11-03)
+- copy & paste events
+
+### 1.19.3 (2024-11-03)
+- support null value
+
+### 1.19.2 (2024-11-03)
+- use name in classlist
+
+### 1.19.1 (2024-11-02)
+- copy path for screens/controls
+
+### 1.19.0 (2024-11-02)
+- fix error in script system
+
+### 1.18.5 (2024-11-02)
+- compile fix
+
+### 1.18.4 (2024-11-02)
+- fix wrong shadow root used
+
+### 1.18.3 (2024-11-01)
+- small typo fix
+
+### 1.18.2 (2024-11-01)
+- better refcatoring
+
+### 1.18.1 (2024-11-01)
+- fix screen settings
+
+### 1.18.0 (2024-11-01)
+- screens are now ex- & imported as xml
+
+### 1.17.3 (2024-11-01)
+- fix compilation
+
+### 1.17.2 (2024-11-01)
+- switch combo in complex prop editor
+
+### 1.17.1 (2024-11-01)
+- selector for properties
+
+### 1.17.0 (2024-11-01)
+- internal control properties
+- internal screen properties
+
+### 1.16.3 (2024-10-31)
+- raise errors on unimplemented commands
+- wrong script upgrade
+
+### 1.16.2 (2024-10-31)
+- wrong default in script
+
+### 1.16.1 (2024-10-31)
+- fix base custom webcomp bindings
+
+### 1.16.0 (2024-10-30)
+- fix errors with script system, wrong parent used
+
+### 1.15.1 (2024-10-08)
+- fix typo in screenviewer
+
+### 1.15.0 (2024-10-08)
+- fixes in margin & padding
+- work on simpleScripts, add conditions
+- fix _getDomElements in screen viewer
+
+### 1.14.0 (2024-09-18)
+- update npm packages
+
+### 1.13.2 (2024-08-21)
+- designer updates
+- add find methods
+
+### 1.13.1 (2024-08-18)
+- small designer tweaks
+
+### 1.13.0 (2024-08-18)
+- update designer
+
+### 1.12.4 (2024-07-25)
+- one more designer update
+
+### 1.12.3 (2024-07-25)
+- update designer
+
+### 1.12.2 (2024-07-24)
+- fix offset finding in box drawing
+
+### 1.12.1 (2024-07-24)
+- update edit text in designer
+
+### 1.12.0 (2024-07-24)
+- update designer
+
 ### 1.11.3 (2024-06-02)
 - fix load subfolders
 

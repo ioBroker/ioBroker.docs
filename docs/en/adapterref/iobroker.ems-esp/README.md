@@ -22,7 +22,7 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 
 * ems-esp gateway (https://github.com/emsesp/EMS-ESP32) with the ESP32 chip. 
   The old ESP8266 gateways with API V2 are not supported anymore !!
-  The adapter is tested for the ems-esp gateway with latest stable firmware version (V3.6.5)
+  The adapter is tested for the ems-esp gateway with latest stable firmware version (V3.7.1)
   Latest dev versions of firmware might not work stable with the ioBroker adapter. Use is on own risk.
 
 * New Bosch-Group Cloud-Gateways (MX300 / EasyControl ...) are not supported since they do not support LAN API !
@@ -33,7 +33,9 @@ All changed states from own scripts or the object browser does have to set ackno
 
 
 German  documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
+
 English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
+
 German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 
@@ -42,6 +44,16 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* dependabot updates
+
+### 5.1.2 (2024-12-31)
+* ems-esp: fix enum errors for setting "Value" 
+* dependabot updates
+
+### 5.1.1 (2024-12-26)
+* correct statistics on adapter start-up
+
 ### 5.1.0 (2024-12-25)
 * error correction on enabling statistics
 
@@ -52,17 +64,10 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 ### 5.0.5 (2024-11-22)
 * Add native entries to io-package
 
-### 5.0.4 (2024-11-12)
-* add missing size attributes for config
-* dependabot updates
-
-### 5.0.3 (2024-11-11)
-* add missing size attributes for config
-
 ## License
 MIT License
 
-Copyright (c) 2024 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -4,28 +4,28 @@ lastChanged: 03.12.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/restore.md
-hash: 9SyQw5gWCDpvFS0ksEa7NULgmuancyWYV7tkASkVhpg=
+hash: 6M6JLNd7LLD21j0ulNOqyghHCguiQLMi21AkSJnTYyY=
 ---
 # Basics
-What is the correct way to restore the ioBroker installation on a Linux system?
+How do you correctly restore the ioBroker installation on a Linux system?
 
 ### Foreword:
-Since some users find it very difficult to restore, here are step-by-step instructions for restoring after a crash, or after a hardware change, system change or other.
+Since some users have a lot of trouble with a restore, this is a step-by-step guide for restoring after a crash, or after a hardware change, system change or something else.
 
-Basically, one thing can be said in advance: a restore is done in a few minutes if done correctly and nobody needs to be afraid of it.
+Basically, one thing can be said in advance: if done correctly, a restore can be completed in just a few minutes and no one needs to be afraid of it.
 
-At the end, all data is available again and a new system was set up.
+At the end, all data is available again and a new system has been set up.
 
 ### Preparation:
-An operable ioBroker installation is absolutely necessary for the preparation.
+For preparation, a working ioBroker installation is mandatory.
 
-There are 2 ways to achieve this.
-Either take a finished image from [download area](https://www.iobroker.net/#de/download), set up your own Linux OS and install ioBroker after this [Instructions](https://www.iobroker.net/#de/documentation/install/linux.md).
+There are two ways to achieve this.
+Either take a finished image from [download area](https://www.iobroker.net/#de/download), set up your own Linux OS and install ioBroker according to this [Instructions](https://www.iobroker.net/#de/documentation/install/linux.md).
 
-### Next Step
-If the old system stored the states and/or objects in Redis, the new system must first be equipped with the Redis server.
+### Next step
+If the old system had stored the states and/or objects in Redis, the new system must first be equipped with the Redis server.
 
-If you are not sure whether Redis was used and you still have access to the old system, then use the `iobroker status` command to call up the required information". When using Redis, the output looks as follows:
+If you are not sure whether Redis was used and you still have access to the old system, use the command `iobroker status` to retrieve the required information. The output looks like this when using Redis:
 
 ```
 iobroker is running on this host.
@@ -36,13 +36,13 @@ Objects type: redis
 States  type: redis
 ```
 
-If the Objects type and/or States type says "redis", you must install the Redis server on the new system.
-If it says "file" for both types, the Redis server is not required.
+If Objects type and/or States type is "redis", you must install the Redis server on the new system.
+If both types are "file", the Redis server is not required.
 
-If you no longer have access to the old system and you don't know exactly what was previously configured, then definitely install the Redis server in advance.
+If you no longer have access to the old system and you don't know what exactly was configured before, then be sure to install the Redis server beforehand.
 
 #### Redis installed:
-Go to the terminal with Putty and run the following commands:
+To do this, go to the terminal using Putty and execute the following commands:
 
 ```
 sudo apt-get update
@@ -51,15 +51,15 @@ sudo usermod -a -G redis iobroker
 sudo reboot now
 ```
 
-Next, you should run the Installer Fix if all the rights on the system do not fit somewhere.
-This step is only a recommendation and is not mandatory.
+Next, you should run the installer fix in case all the rights on the system are not correct.
+This step is only a recommendation and is not absolutely necessary.
 
 ```
 curl -sL https://iobroker.net/fix.sh | bash –
 ```
 
-With the small tool "htop" you can see all running processes very well, which is not only interesting for the restore but can be very useful in general.
-this is installed as follows:
+With the small tool "htop" you can easily see all running processes, which is not only interesting for the restore but can be very useful in general.
+This is installed as follows:
 
 Run the following command in the console:
 
@@ -67,80 +67,80 @@ Run the following command in the console:
 sudo apt-get install htop
 ```
 
-After this has been done, the actual restore can take place.
+Once this has been done, the actual restore can begin.
 
 ### Restore:
 There are also 2 options here:
 
-#### **1. Automatic restore with Backup**
-Since no Linux knowledge is required here, and the whole thing is done via the web interface of Iobroker, the variant of the automatic restore is carried out first using [backup](https://github.com/simatec/ioBroker.backitup/blob/master/README.md) .
+#### **1. Automatic restore with Backitup**
+Since no Linux knowledge is required here and the whole thing is done via the Iobroker web interface, the automatic restore variant is first used using [Backitup](https://github.com/simatec/ioBroker.backitup/blob/master/README.md) .
 
-To do this, the adapter backup must be installed.
+To do this, the Backitup adapter must be installed.
 This is done via the "Adapter" tab. Search for Backitup there and install an instance using the (+).
 
-Once the installation is complete, you store your "ioBroker Backup" previously created from the old system on your new system with an sftp program such as FileZilla or WinSCP in the path /opt/iobroker/backups.
+Once the installation is complete, save the “ioBroker backup” you created previously from the old system to your new system using an sftp program such as FileZilla or WinSCP in the path /opt/iobroker/backups.
 
-Backitup can also perform a restore from NAS, Dropbox, or Google Drive, but the local variant has the least potential for problems.
+Backitup can also restore from NAS, Dropbox or Google Drive, but the local option has the least chance of problems.
 
-If you already have experience with mounting from the NAS, this can also be used, especially since you can then access the existing directory of the old installation directly.
-However, this tutorial refers to a locally stored backup.
+If you already have experience with mounting the NAS, you can also use this, especially since you can then directly access the existing directory of the old installation.
+This tutorial, however, refers to a locally stored backup.
 
-If ioBroker Backup was successfully stored, Backitup will now open and the Restore tab will open.
-Set the "Backup source" to local and then save.
+If ioBroker backup was saved successfully, Backitup will now open and the “Restore” tab will open.
+There, set the “Backup source” to Local and then save.
 
-![restore tab](../../de/tutorial/media/restore/1575301096581-restoretab.jpg)
+![Restore Tab](../../de/tutorial/media/restore/1575301096581-restoretab.jpg)
 
-If ALL instances are to start automatically after the restore, the option "Start all adapters after the restore" must be activated and then saved.
-If the backup is to be restored on a different host, this option should not be used, as the IP addresses may have to be adjusted before the individual instances are started.
+If ALL instances are to start automatically after the restore, the option “Start all adapters after the restore” must be activated and then saved.
+If the backup is to be restored on a different host, this option should not be used, as the IP addresses may need to be adjusted before the individual instances start.
 
-After saving, the existing backups can be called up on the local path using the "Retrieve backups" button.
+After saving, the existing backups on the local path can be retrieved using the “Retrieve Backups” button.
 
-The backup you just FTPed should appear in the list under iobroker.
+The backup you just copied via FTP should appear in the list under “iobroker”.
 Now select this.
 
-![Backup selection](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
+![selection backups](../../de/tutorial/media/restore/1575301146928-restoreliste.jpg)
 
-After the selection, there is a note that iobroker will be stopped for the restore and then restarted.
+After the selection, there is a message that iobroker will be stopped for the restore and then started again.
 
-![Start restore](../../de/tutorial/media/restore/1575301175231-restorestart.jpg)
+![Start Restore](../../de/tutorial/media/restore/1575301175231-restorestart.jpg)
 
 Here you have started the actual recovery process.
 
-![Restore running](../../de/tutorial/media/restore/1575301208033-restore.jpg)
+![Restore is running](../../de/tutorial/media/restore/1575301208033-restore.jpg)
 
-Another tab will open in your browser where you can follow the restore process like on the console in Backitup's WebUI.
+Another tab will now open in your browser where you can follow the recovery process just like on the console in the Backitup WebUI.
 
 ![restoreWebUI.JPG](../../de/tutorial/media/restore/restoreWebUI.JPG)
 
-After the restoration has been successfully completed, you will also receive the message in the restore's WebUI.
+After the restore has been successfully completed, you will also receive the message in the restore web UI.
 
 ![restoreWebUI_finish.JPG](../../de/tutorial/media/restore/restoreWebUI_finish.JPG)
 
-Depending on the performance of the system and the size of the old ioBroker installation, the restoration may take some time.
-Normally, the restore should be completed after about 10-15 minutes and ioBroker should be started again automatically.
+The restoration may take some time depending on the performance of the system and the size of the old ioBroker installation.
+Normally, the restore should be completed after about 10-15 minutes and ioBroker should be restarted automatically.
 
-![Restore complete](../../de/tutorial/media/restore/1575301228008-restorefinish.jpg)
+![Restore finished](../../de/tutorial/media/restore/1575301228008-restorefinish.jpg)
 
-In very rare cases it happens that ioBroker does not start automatically after restore.
-If this is the case, you can start the iobroker manually with the following command via the console.
+In very rare cases, ioBroker does not start automatically after a restore.
+If this is the case, you can start iobroker manually using the following command via the console.
 
 ```
 iobroker start
 ```
 
-Now ioBroker should start again and in the "Log" tab you can see that all adapters that were installed on the old system are currently being reinstalled by npm.
+Now ioBroker should start again and in the “Log” tab you can see that all adapters that were installed on the old system are currently being reinstalled by npm.
 
-A little patience has to be applied here and just let iobroker do it.
-In the instances you can see which adapters are installed one by one.
-All adapters that are still being installed or are in the queue do not yet have an icon in the instances.
-Please do not restart ioBroker, at most refresh the view with F5 from time to time until all instances are provided with an icon.
+You have to be a little patient here and just let iobroker do its thing.
+In the instances you can see which adapters are gradually being installed.
+All adapters that are still being installed or are in the waiting loop do not yet have an icon in the instances.
+Please do not restart ioBroker, at most refresh the view with F5 from time to time until all instances have an icon.
 
 Depending on the size of the installation and the speed of your computer and internet connection, this can easily take 2-3 hours.
 
-Congratulations, now the newly installed system is complete with all settings, scripts, visualizations, etc.
+Congratulations, the newly installed system with all settings, scripts, visualizations, etc. is now ready.
 
-With Backitup, there is now the option of restoring additional data if it was previously backed up on the old system.
-You can restore the Redis database, Zigbee database, mySql database and your history data with the same steps as above.
+With Backitup it is now possible to restore further data if it was previously backed up on the old system.
+You can restore the Redis database, the Zigbee database, the mySql database and your history data using the same steps as described above.
 
 The list of retrieved backups would then look like this example.
 
@@ -149,7 +149,7 @@ The list of retrieved backups would then look like this example.
 *****************************************************************************************************************************************
 
 #### **2. manual restore with the terminal commands**
-First, a few commands must be issued using Putty or something similar.
+First, a few commands have to be issued via Putty or similar.
 
 First, a backup folder must be created:
 
@@ -157,11 +157,10 @@ First, a backup folder must be created:
 sudo mkdir /opt/iobroker/backups
 ```
 
-Here, too, the backup created on the old system and, if necessary, Redis Backup, zigbee backup, etc.
-placed in the /opt/iobroker/backups folder.
+Here too, the backup created on the old system and, if applicable, Redis backup, zigbee backup, etc. are then saved in the /opt/iobroker/backups folder using an sftp program such as FileZilla or WinSCP.
 
-If states and objects were saved in the Redis DB, the saved Redis database should be restored here first.
-If only the states ran under Redis, this does not necessarily have to be in advance.
+If states and objects were stored in the Redis DB, the backed up Redis database should be restored here first.
+If only the states were running under Redis, this does not necessarily have to be done in advance.
 
 Once this is done, stop your ioBroker as follows:
 
@@ -169,39 +168,39 @@ Once this is done, stop your ioBroker as follows:
 iobroker stop
 ```
 
-Then please check whether everything is stopped with the following commands:
+Afterwards please check if everything is stopped with the following commands:
 
 ```
 iobroker status
 ```
 
-If all outputs are correct and iobroker has been stopped, the restore can now be executed via the console with the following commands:
+If all outputs are correct and iobroker has been stopped, the restore can now be performed via the console using the following commands:
 
 ```
 cd /opt/iobroker
 iobroker restore <Dateiname eures Backups>
 ```
 
-!> **It is very important that only an ioBroker backup can be restored with this method.
-A Redis backup, Zigbee backup, mySql backup, or the history data cannot be created with this command**.
+!> **It is very important to note that only an ioBroker backup can be restored using this method.
+A Redis backup, Zigbee backup, mySql backup, or the history data cannot be restored using this command**.
 
-Backitup is required for this, as these were specially created with Backitup.
+Backitup is required for this because these were specifically created with Backitup.
 
-Depending on the system, this can now take a few minutes. The progress is shown in the terminal.
-When the restore is complete, start ioBroker again with the following command:
+This may take a few minutes depending on your system. The progress is displayed in the terminal.
+When the restore is complete, restart ioBroker with the following command:
 
 ```
 iobroker start
 ```
 
-Again, all adapters are now individually reinstalled by ioBroker via npm.
-This may take a while depending on the size of your installation, internet speed and system performance.
-The current status can be followed in the "Log" tab.
+Here, too, all adapters are now reinstalled individually by ioBroker via npm.
+This can take a while depending on the size of your installation, the internet speed and the performance of the system.
+The current status can be tracked in the “Log” tab.
 
-It is now done and the system is reinstalled and all settings, scripts, visualizations, etc. restored.
+That's it, the system is now reinstalled and all settings, scripts, visualizations, etc. are restored.
 
 ### Conclusion:
-In principle, both variants lead to the same result.
-If you have little experience with terminal commands and feel insecure, you are on the safe side with Backitup.
+Basically, both variants lead to the same result.
+If you have little experience with terminal commands and feel unsure, you are on the safe side with Backitup.
 
-However, if you want to see exactly what is happening on your system, you should choose the manual version via the console. Here you can see each individual process in detail in the terminal.
+However, if you want to see exactly what is happening on your system, you should choose the manual option via the console. Here you can see every single process in detail in the terminal.

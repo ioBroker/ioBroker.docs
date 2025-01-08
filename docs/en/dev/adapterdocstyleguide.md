@@ -1,122 +1,122 @@
 ---
-title: Documentation style guide
+title: documentation style guide
 lastChanged: 06.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdocstyleguide.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: KNaN4V9UbZzyglcLi3e59mWopbv6OYPmg0lWHg4svgU=
+hash: dIrekLO+dxHSnEzRlai44ZY5jFzOWB7cjj8YT8I1hxg=
 ---
-# Style guide for creating an adapter documentation
-* Documentation is created using the Markdown language.
+# Style guide for creating adapter documentation
+* The documentation is created using the language "Markdown".
 * The file storage for the adapter documentation is regulated as follows:
-  * There is a folder in each adapter project
+* In each adapter project there is a folder
 
-    `/doc`.
+`/doc`.
 
-  * If the documentation is in German, it will be in the subfolder
+* If the documentation is available in German, it will be stored in the subfolder
 
-`de` saved. Currently supported languages and thus folder names are: `en, de, ru, pt, nl, fr, it, es, pl`.
+`de`. Currently supported languages and therefore folder names are: `en, de, ru, pt, nl, fr, it, es, pl`.
 
-  * The actual adapter documentation is in the `README.md` file,
+* The actual adapter documentation is in the file `README.md`,
 
-    which is located directly in the respective language folder.
+which is located directly in the respective language folder.
 
-  * Media is placed in the `media` subfolder, which is also in the
+* Media is stored in the subfolder `media`, which is also located in the
 
-    language folder is located.
+languages folder.
 
-  * Except for README.md, file and folder names are in lower case.
+* Except for README.md, file and folder names are lowercase.
 
 The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are permitted.
 
 * Documents should have a line break at 80 characters.
-* Preferably, the text formatting is done as in the `.editorconfig` file
+* Preferably, text formatting is done as in the file `.editorconfig`
 
-  described.
+described.
 
-  * A [plugin][] to automatically apply these rules is available for
+* A [plugin][] to automatically apply these rules is available for
 
-    different editors available.
+various editors available.
 
-* For German texts, compliance with the new German orthography
+* For German texts, compliance with the new German orthography is
 
-  prefers.
+  preferred.
 
 * In reference documentation, the use of personal pronouns (e.g.
 
-  "I", "you", "we") to avoid.
+"I", "you", "we").
 
-  * Use gender-neutral pronouns and multiple nouns.
-    * Alright: "they (several)", "your (possession)", "persons",
+* Use gender-neutral pronouns and plural nouns.
+* OK: "they (several)", "their (possession)", "persons",
 
-      "people", "developers"
+"people", "developers"
 
-    * Out of order: "his", "her", "he", "she (woman)", "boys", "gals"
+* Not OK: "his", "her", "he", "she (woman)", "boys", "girls"
 * If bracket elements are used (all bracket shapes and
 
-  quotation marks), punctuation marks are set as follows:
+quotation marks), punctuation is placed as follows:
 
-  * Inside the bracket if the bracket element has a complete
+* Inside the bracket, if the bracket element has a complete
 
-    Sentence contains (subject, predicate, object).
+Sentence contains (subject, predicate, object).
 
-  * Outside the parenthesis if the parenthesis element is only a sub-sentence
+* Outside the brackets, if the bracket element only contains a partial sentence
 
-    contains.
+contains.
 
-* Documents always begin with a heading at level H1.
+* Documents always start with a heading at level H1.
 * Links are not placed inline (e.g. with `[a link](http://example.com)`),
 
-but placed at the end of the document using inline `[a link][]` and `[a link]: https://a.link/to/know`.
+but is placed at the end of the document using inline `[a link][]` and `[a link]: https://a.link/to/know`.
 
-* When dashes are used, the short notation is used
+* When em dashes are used, the short form is used
 
-  with the minus sign and not "—" or `Option+Shift+"-"` in OSX.
+with the minus sign and not "—" or `Option+Shift+"-"` in OSX.
 
 * Additional content:
-  * Documents such as binary files, images, video or audio recordings
+* Documents such as binary files, images, video or audio recordings are
 
-    stored in the `media` folder.
+stored in the folder `media`.
 
-  * The integration of the media in the text is done for general files
+* The integration of media into the text is done for general files
 
-using `§§LLLLL_0§§` and for images using `![media term](../../de/dev/media/{dateiname})`.
+using `§§LLLLL_0§§` and for images using `![media concept](../../de/dev/media/{dateiname})`.
 
-  * Images are preferably stored in SVG format. If SVG
+* Images are preferably saved in SVG format. If SVG
 
-is not possible, then as a PNG file. Please keep an eye on the file size.
+If this is not possible, then as a PNG file. Please keep an eye on the file size.
 
-  * Short videos can be embedded as a GIF file.
-  * Below each image is a brief description of the content in italics
+* Short videos can be embedded as GIF files.
+* Below each picture is a short description of the content in italics
 
-    to specify.
+to be specified.
 
 * The following applies to source code sections:
-  * Depending on the source code language, an appropriate markup must be selected. For the
+* Depending on the source code language, an appropriate markup must be selected.
 
-    Example `\`\`\`` for JavaScript.
+Example `\`\`\`` for JavaScript.
 
-  * A source text can, but does not have to be complete. code blocks
+* A source text can, but does not have to, be complete. Source text blocks
 
-represent examples to clarify the point of view just described by jewels. It is therefore not necessary to supply fully executable programs. However, if a fully executable program is to be made available, this is done as a media file in the `media/{code_beispieldatei}` folder with a corresponding link in the documentation.
+are examples to illustrate the point just described. It is not necessary to provide fully executable programs. If a fully executable program is to be provided, this is done as a media file in the folder `media/{code_beispieldatei}` with a corresponding link in the documentation.
 
-* If underscores, inverted commas, asterisks or backslashes are used
+* If underscores, apostrophes, asterisks or backslashes are used
 
-the correct escape characters must be set: `\_`, `\*`, `\\` and ``\` `` anstelle von `_`, `*§§ SSSSS_6§§\` und `` ` ``.
+the correct escape characters must be set: `\_`, `\*`, `\\` and ``\` `` anstelle von `_`, `*`, `\` und `` ` ``.
 
-* In order to emphasize a note, the following are guidelines
+* To emphasize a note, the following guidelines are
 
-  to note:
+to note:
 
-  * The "Note:" identifier must be set in italic, ie as `*Note*:`.
-  * After the "Hint:" identifier, proceed with a capital letter.
-  * The reference should be placed at the beginning of a new paragraph so that it
+* The "Note:" identifier must be set in italic, i.e. as `*Note*:`.
+* After the "Note:" identifier, continue with a capital letter.
+* The note should be placed at the beginning of a new paragraph so that it
 
-    is more visible.
+is more visible.
 
-* There is a [template][] for the adapter documentation. The relevant ones
+* There is a [template][] for the adapter documentation. The relevant
 
-  Template sections are to be used in the specified order and form.
+Template sections must be used in the order and form provided.
 
 [Plugin]: http://editorconfig.org/#download
 

@@ -60,6 +60,11 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 ### ioBroker sendTo
 
 ## Changelog
+### 6.0.5 (2024-12-30)
+
+-   (@GermanBluefox) Restart node-red if admin settings changed
+-   (@GermanBluefox) Node-red updated to 4.0.8
+
 ### 6.0.1 (2024-09-30)
 
 -   (@GermanBluefox) Corrected the case if `envVars` settings is undefined
@@ -79,10 +84,6 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 
 -   (klein0r) Allow custom themes
 -   (klein0r) Fixed scoped node-red packages
-
-### 5.0.2 (2023-12-14)
-
--   (TheRealArthurDent) Fixed a fatal error when getting a non-existent value
 
 ## License
 

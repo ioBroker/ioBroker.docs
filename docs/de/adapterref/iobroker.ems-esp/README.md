@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
+hash: v9Sk35pDDGYxQreQjc1ZPCzaXZYh2SrKbaBwzPFZ0qw=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -25,15 +25,19 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 
 * ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit dem ESP32-Chip.
 
-Die alten ESP8266-Gateways mit API V2 werden nicht mehr unterstützt!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version (V3.6.5) getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
+Die alten ESP8266-Gateways mit API V2 werden nicht mehr unterstützt!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version (V3.7.1) getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
 
 * Neue Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
 
 Der ioBroker ems-esp Adapter kann Daten von beiden Gateways lesen und schreiben, um alle Heizkomponenten zu steuern.
 Er kann entweder für die originalen Bosch-Group Gateways oder das ems-esp oder beide parallel verwendet werden.
-Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen auf acknowledged = false gesetzt werden!!!
+Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen acknowledged = false gesetzt werden!!!
 
-Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf Englische Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
+Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
+
+Englische Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
+
+Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 # Iobroker.ems-esp
 
@@ -43,30 +47,29 @@ Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* km200: change encryption for private password - pw has to be re-entered 
-* support small screens
-* update dependencies
+* dependabot updates
 
-### 4.8.0 (2024-08-27)
-* ems-esp: disabled parameter to search for extended EMS+ entities due to memory limitations in gateway
+### 5.1.2 (2024-12-31)
+* ems-esp: fix enum errors for setting "Value" 
+* dependabot updates
 
-### 4.7.2 (2024-08-17)
-* ems-esp: enable writing on custom entities
+### 5.1.1 (2024-12-26)
+* correct statistics on adapter start-up
 
-### 4.7.1 (2024-08-17)
-* ems-esp: custom entities are now under object structure "custom"
+### 5.1.0 (2024-12-25)
+* error correction on enabling statistics
 
-### 4.7.0 (2024-08-16)
-* ems-esp: do not allow more then one thermostat for extended own entities
-* ems-esp: error correction for holidayModes custom entities
+### 5.0.6 (2024-12-03)
+* dependabot updates
+* ems-esp: send switchprog updates 3 times (test)
 
-### 4.6.4 (2024-08-14)
-* ems-esp: error correction on polling for 3.6.5
+### 5.0.5 (2024-11-22)
+* Add native entries to io-package
 
 ## License
 MIT License
 
-Copyright (c) 2024 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/centos.md
 title: 在 CentOS 上安装
-hash: NNHd5PMz5EEH2++Yd5IKcnE5qyP9RhewUgl2YZil5Co=
+hash: se2U2FhT82/g/VF79qgLX17rU0BBl3AysNdvpbxmDGs=
 ---
 # 在 CentOS 上安装
-##自动安装
-请确保已安装 `curl` 或使用以下命令安装：
+## 自动安装
+确保已安装`curl`，或者使用以下命令安装：
 
 `sudo yum install -y curl`
 
@@ -17,9 +17,9 @@ hash: NNHd5PMz5EEH2++Yd5IKcnE5qyP9RhewUgl2YZil5Co=
 
 如果自动安装不起作用，您仍然可以使用手动安装。
 
-##手动安装
-### 安装node.js
-如果没有安装：
+## 手动安装
+### 安装 node.js
+如果未安装：
 
 ```
 sudo yum install -y gcc-c++ make build-essential
@@ -41,7 +41,7 @@ npm i iobroker.admin --production
 npm i iobroker.js-controller@stable --production
 ```
 
-### 可选安装redis
+### 可选安装 redis
 ```
 sudo yum install -y epel-release nano
 sudo yum update
@@ -51,7 +51,7 @@ sudo systemctl enable redis
 sudo nano /etc/redis.conf
 ```
 
-#### 将redis设置为状态数据库
+#### 将 redis 设置为状态数据库
 ```
 ./iobroker setup custom
 ```
@@ -70,8 +70,8 @@ sudo nano /etc/redis.conf
 # creating conf/iobroker.json
 ```
 
-#### 仅 Redis+Multihost 可选
-将绑定 127.0.0.1 更改为绑定 0.0.0.0
+#### 仅适用于 Redis+Multihost
+将 bind 127.0.0.1 更改为 bind 0.0.0.0
 
 ```
 sudo systemctl restart redis
@@ -84,7 +84,7 @@ sudo chmod 744 * -R
 sudo chown iobroker:iobroker * -R
 ```
 
-＃＃＃ 自动启动
+### 自动启动
 ```
 sudo nano /lib/systemd/system/iobroker.service
 ```
@@ -108,7 +108,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-### 启动iobroker
+### 启动 iobroker
 ```
 sudo chown root:root /lib/systemd/system/iobroker.service
 sudo chmod 755 /lib/systemd/system/iobroker.service

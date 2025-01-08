@@ -23,6 +23,9 @@ Settings available:
 
 
 ## Changelog
+### 1.1.2 (2025-01-04)
+* (arteck) corr some errors
+
 ### 1.1.1 (2024-09-26)
 * (arteck) corr cloud connection
 
@@ -65,7 +68,7 @@ Settings available:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2025Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

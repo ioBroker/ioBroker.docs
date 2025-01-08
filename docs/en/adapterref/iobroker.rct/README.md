@@ -62,6 +62,10 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.17 (2025-01-01)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) update copyright
+
 ### 1.2.16 (2024-12-16)
 * (NCIceWolf) Changed admin to type "panel"
 
@@ -217,4 +221,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2025 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

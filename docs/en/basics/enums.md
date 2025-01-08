@@ -2,8 +2,8 @@
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/enums.md
-title: Categories/Lists
-hash: dRtaZaSersmPe015O54LIxsy7mWuVT4pyEN1yf2HifE=
+title: categories/lists
+hash: BCWfsVMoRR8b/TownmKnahfAFrlWyXYLOYlWO/V82aY=
 ---
 # Categories/Lists
 Category definitions play an important role in ioBroker.

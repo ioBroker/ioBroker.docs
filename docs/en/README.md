@@ -1,10 +1,10 @@
 ---
-title: ioBroker Documentation
+title: ioBroker documentation
 lastChanged: 29.02.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: WWTt2d6oRczIfqwVnp6kXk77YQF1UxohHL8GkwChkIM=
+hash: i7YMBYgv5nTiTN+rLSicRVtH0PE2wRob7Qd/1ArHxWM=
 ---
 ## Make your life easier: Smart Home
 Wouldn't it be practical to be able to read temperatures, consumption values or switching states of devices from different manufacturers centrally in one place? Wouldn't it be necessary to remember to switch devices on or off when certain conditions or states are reached?
@@ -49,19 +49,19 @@ In this way, the ioBroker software can retrieve status information or carry out 
 ### Application example presence simulation
 This application example shows how the two independent smart home systems Philipps Hue and Homematic IP are combined using ioBroker to realize a presence simulation.
 
-By connecting the two smart home systems to the ioBroker software, ioBroker is able to change the status of the Hue lamps (on/off) and the shutters (up/down). The vacation time is recognized by connecting the calendar in ioBroker.
+By connecting the two smart home systems to the ioBroker software, ioBroker is able to change the status of the Hue lamps (on/off) and the roller shutters (up/down). The vacation time is recognized by connecting the calendar in ioBroker.
 
 By using the logic blocks (adapter logic programming) in ioBroker, the user can now implement the following process in just a few steps:
 
 - If the calendar is set to "holiday", all HUE lamps will be switched on at 6 p.m.
-- At 10 p.m. all shutters are closed and all Hue lamps are switched off.
+- At 10:00 p.m. all shutters are closed and all Hue lamps are switched off.
 - At 8:00 a.m. all shutters will be raised again.
 
 Using the available visualization adapters, users can create individual status and control pages for their Hue lamps and roller shutters, which can be accessed using mobile devices from home or on vacation (e.g. using ioBroker Cloud Services or VPN).
 
 ## Strengths of ioBroker
 ### Platform independent
-ioBroker can be installed on almost all hardware platforms that run Linux, OSX, Windows or Docker as the operating system. This includes single-board computers (such as the Raspberry Pi), servers, NAS or servers with virtualization environments (such as Proxmox, desktop computers, etc.).
+ioBroker can be installed on almost all hardware platforms that run **Linux, OSX, Windows or Docker** as the operating system. This means that single-board computers (such as the Raspberry Pi), servers, NAS or servers with virtualization environments (such as Proxmox, desktop computers, etc.) are possible.
 
 A simple one-line installer enables user-friendly installation under Linux and OSX and thus a quick start to ioBroker.
 
@@ -84,25 +84,25 @@ These individual visualizations can then be displayed and operated on a tablet, 
 Below we briefly introduce some visualization adapters and their main features.
 
 ### VIS
-[Adapter side vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
+[adapter side vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
 
 With the VIS (visualization) adapter, ioBroker provides a powerful tool for creating individual visualizations. Current values from sensors can be displayed graphically, just like historical trends. Live images from surveillance cameras, the implementation of an alarm system, heating systems and air conditioning technology - almost everything that is imaginable can be implemented.
 
-By using VIS, the user has maximum design freedom during implementation. Prefabricated modules for easy use help the user to put together the UI. But it is not just possible to display information. Devices can also be controlled quickly using the visualization interface. The operation of the interface can be adapted to a wide range of end devices - from smartphones to wall tablets with touch functions to PCs - everything can be implemented using simple drag and drop.
+By using VIS, the user has maximum design freedom when implementing the system. Prefabricated building blocks for easy use help the user to put together the UI. But it is not just possible to display information. Devices can also be controlled quickly using the visualization interface. The interface can be adapted to a wide range of end devices - from smartphones to wall tablets with touch functions to PCs - everything can be implemented using simple drag and drop.
 
 ![](../de/media/iobroker-visualisation-vis.png)
 
 ![VIS](media/vis2.png) ![](../de/media/iobroker-visualisation-vis-wetter.png)
 
-### MaterialUI
+### Material UI
 React and Material UI interface.
 
-[Adapter side material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
+[adapter side material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
 
 ![](../de/media/iobroker-visualisation-material.png)
 
 ### Jarvis
-[Adapter page Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
+[adapter side Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
 
 Jarvis is a material design visualization based on Material UI. Jarvis provides a structure and modules that are used for visualization, but can be configured very flexibly.
 
@@ -115,7 +115,7 @@ The layout is flexibly configurable. The layout can be divided into any number o
 ### IQontrol
 Reach your destination quickly - but still flexible, that's what sets iQontrol apart:
 
-- Create the Vis once and use it everywhere: From PC to tablet to mobile phone, iQontrol runs on all devices - either in the browser or as a web app (can be saved on the home screen and then feels like an app)
+- Create the Vis once and use it anywhere: From PC to tablet to mobile phone, iQontrol runs on all devices - either in the browser or as a web app (can be saved on the home screen and then feels like an app)
 - iQontrol adapts dynamically to all resolutions (responsive design)
 - Super fast loading time
 - With the standard settings you can quickly reach your goal
@@ -125,8 +125,8 @@ Video [iQontrol Demo Video][]
 
 <img src="media/iobroker-visualisation-iqontrol.png" width="200"> <img src="media/iobroker-visualisation-iqontrol2.png" width="200"> <img src="media/iobroker-visualisation-iqontrol3.png" width="200"> <img src="media/iobroker-visualisation-iqontrol4.png" width="200"> <img src="media/iobroker-visualisation-iqontrol5.png" width="200">
 
-###Lovelace
-[Adapter page lovelace](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
+### Lovelace
+[adapter page lovelace](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
 
 With the Lovelace adapter, the HomeAssistant UI Lovelace can be used for ioBroker. Lovelace has a responsive design and therefore automatically adapts to the layout of the PC, tablet or smartphone screen.
 
@@ -146,7 +146,7 @@ ioBroker follows a decentralized approach in which each adapter is maintained in
 The respective adapter developer makes decisions about his adapter largely independently.
 Requests for functionality extensions or external feature extensions as a "pull request" are of course taken into account.
 
-Some developers have also joined forces in the ioBroker adapter community to ensure that even if individual developers no longer have time for their adapters, they can still be maintained.
+Some developers have also joined forces in the ioBroker adapter community to ensure that even if individual developers no longer have time for their adapters, they can continue to be maintained.
 
 There is no contractual support from the open source community, but together we have solved every problem so far!
 
@@ -168,7 +168,7 @@ Sometimes, however, licenses such as GPL, CC BY-NC or others are used, which mus
 
 In very rare cases (<5 adapters currently) a license (sometimes for a fee) is required to use an adapter.
 For the "VIS" adapter, for example, ioBroker GmbH provides a free license for private use - however, a paid license is required for commercial use.
-An overview and ordering of the license for these adapters can be found on this page [iobrokerPrices](https://iobroker.net/www/pricing).
+An overview and ordering of the license for these adapters can be found on this page [iobroker prices](https://iobroker.net/www/pricing).
 The costs for commercial use of these adapters are also listed there.
 
 ### How does ioBroker finance itself?

@@ -4,48 +4,48 @@ lastChanged: 13.06.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/install_fixer.md
-hash: vuNKANk55QX5AJTCYrnPDujE/RNVWMlxzXnLfRIHcSI=
+hash: tHDEojwxIw6xJmU1S4wqOljPM1nQ4+ZV1CNRLe9Mxqc=
 ---
 # Fix problems with user rights of the ioBroker installation
-The Installation Fixer solves problems with the user rights of the ioBroker installation.
-At the end of 2018 and especially in January 2019, @AlCalzone completely revised the ioBroker installer and thus all rights problems are a thing of the past in the current version from the beginning of February 2019. ioBroker no longer runs as "root" but under a separate user who is allowed to do everything he needs to be able to do for the current ioBroker adapter.
+The installation fixer solves problems with the user rights of the ioBroker installation.
+At the end of 2018 and especially in January 2019, @AlCalzone completely revised the ioBroker installer and in the current version from the beginning of February 2019, all rights problems are now a thing of the past. ioBroker no longer runs as "root" but under its own user who can do everything it needs to be able to do for the current ioBroker adapter.
 So everything is fine for all new installations.
 
-But what if someone installed ioBroker earlier? He still runs as root? Or in the first days of the new installation routine? **Thanks to @AlCalzone we now have a solution for that as well: the Installation Fixer**
+But what if someone installed ioBroker earlier? It is still running as root? Or in the first few days of the new installation routine? **Thanks to @AlCalzone we now have a solution for this too: the Installation Fixer**
 
-Using a command, an existing installation in /opt/iobroker is brought up to the same level as a current new installation. The script can also be used again and again in the future to update the installation in this regard.
-Important: This script does not update nodejs, npm, js-controller or any adapter. Only the system rights etc. are edited.
+Using a command, an existing installation in /opt/iobroker is brought up to the same level as a current new installation. The script can be used again and again in the future to update the installation in this regard.
+Important: This script does not update nodejs, npm, js-controller or any adapter. Only the system rights, etc. are edited.
 Try it and give feedback in [discussion thread](https://forum.iobroker.net/topic/20212/diskussion-zum-neuen-installation-fixer)
 
-!> [Please note]: Application under Docker should not be necessary because everything runs as root anyway and we currently advise against an application due to a lack of clear experience and feedback. If anyone wants to try it and give feedback: Use entirely at your own risk. Be sure to make a backup beforehand and know what you're doing!
+!> [Please note]: Application under Docker should not be necessary, as everything runs as root anyway, and we currently advise against using it due to a lack of clear experience and feedback. If someone wants to try it and give feedback: use it entirely at your own risk. Make sure you make a backup beforehand and know what you are doing!
 
 Please note the FAQ post in this thread!
 
-As with the installer, the script to be executed is loaded from GitHub and is therefore always up to date. The command is:
+The script to be executed is, as with the installer, loaded from GitHub and is therefore always up to date. The command is:
 
 ```
 curl -sL https://iobroker.net/fix.sh | bash -
 ```
 
-##FAQ
-**Do you have to use the fixer?** We recommend updating the installation and therefore using the fixer. This gives you an installation that we can also support if there are problems. With npm 5 and higher there were more and more problems when working with root or sudo and the new installer and thus the fixer for Linux-based systems take this into account and try to prevent these problems. And the safety aspects should not be neglected either.
+## FAQ
+**Do you have to use the fixer?** We recommend updating the installation and therefore using the fixer. This means you have an installation that we can also support if there are any problems. With npm 5 and higher there were more and more problems when working with root or sudo and the new installer and therefore the fixer for Linux-based systems take this into account and try to prevent these problems. And the security aspects should not be neglected either.
 
-**Where can I see what the fixer is doing?** We try to keep the installer and fixer up to date.
+**Where can I see what the fixer does?** We try to keep the installer and fixer up to date.
 Both also have a changelog.
-[installers](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_INSTALLER_LINUX.md) [fixer](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_FIXER_LINUX.md) Otherwise watch the script directly if you know something about shell programming :-)
+[installer](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_INSTALLER_LINUX.md) [Fixer](https://github.com/ioBroker/ioBroker/blob/master/CHANGELOG_FIXER_LINUX.md) Otherwise, look at the script directly if you know anything about shell programming :-)
 
-**What is the best user to run the fixer as?** It doesn't really matter. It is best to run it as a normal user, then you can work with it afterwards.
+**Which user is best to run the fixer as?** It doesn't really matter. It's best to run it as a normal user, then you can work with it afterwards.
 
-**What's the best directory to run the fixer in?** It doesn't matter either. The current fixer (2019-02-21) expects to be installed in /opt/iobroker
+**In which directory is it best to run the fixer?** It doesn't matter. The current fixer (2019-02-21) expects installation in /opt/iobroker
 
-**For which operating systems does the fixer apply?** For all Linux-based systems. Windows is not covered here.
+**Which operating systems does the fixer apply to?** All Linux-based systems. Windows is not covered here.
 
-**What exactly does the fixer do?** The fixer creates an ioBroker user, sets file and directory rights correctly for this user and also some sudo rights and everything that is needed to work with ioBroker and npm without root.
+**What exactly does the fixer do?** The fixer creates an ioBroker user, sets file and directory permissions correctly for this user and also some sudo rights and everything that is needed to be able to work with ioBroker and npm without root.
 
-**Can the fixer be run multiple times if there are updates?** Yes, and this is explicitly intended to keep the installer up-to-date as the installer evolves.
+**Can the fixer be run multiple times if there are updates?** Yes, and this is explicitly intended to ensure that the installer remains up to date as it is further developed.
 
-**Are there special situations where the fixer should be run additionally?** The fixer also handles special privileges when using redis and backitup. If Redis is already installed in the application, everything is automatically set correctly. If Redis is installed later, the fixer sets everything correctly.
+**Are there special situations where the fixer should be run additionally?** The fixer also handles special permissions when redis and backitup are used. If Redis is already installed in the application, everything is automatically set correctly. If Redis is installed later, the fixer also sets everything correctly.
 
-**Can the installation fixer also be used under Docker?** There is currently little experience and the results are very mixed. We therefore currently advise against using it, also because everything in the container usually runs as root and is therefore irrelevant anyway. If you still like it and want to give feedback: use Docker at your own risk and NEVER without a backup and knowledge of what you are doing!
+**Can the installation fixer also be used under Docker?** Currently, there is little experience and the results are very mixed. We therefore advise against using it at the moment, also because everything in the container usually runs as root and is therefore not relevant anyway. If you still like it and want to give feedback: use it in Docker at your own risk and NEVER without a backup and knowing what you are doing!
 
-**What can I do if I'm not sure what's going wrong?** You can simply copy the ioBroker directory beforehand, and nothing will be changed except for permissions.
+**What can I do if I'm not sure what's going wrong?** You can simply copy the ioBroker directory beforehand, but nothing will be changed except for the permissions.

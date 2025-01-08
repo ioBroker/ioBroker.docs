@@ -56,9 +56,9 @@
             <pubDate>Sun, 30 Jun 2024 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[ioBroker JavaScript Adapter - Improvements April-May 2024]]></title>
+            <title><![CDATA[TR: ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024]]></title>
             <description><![CDATA[
-                <p>This summary contains the most important changes to the JavaScript adapter starting with version 8.0.0.</p>
+                <p>TR: # ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024\nTR: Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.</p>
             ]]></description>
             <link>https://www.iobroker.net/#en/blog/2024_06_04</link>
             <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2024_06_04</guid>

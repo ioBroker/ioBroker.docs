@@ -4,7 +4,7 @@ lastChanged: 24.08.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/architecture.md
-hash: vBEG8SwAdJ1ULLJu/Eq+5PRrcbkBGoZgL1ipJRVa8UA=
+hash: fBfqIkwe2R088CwuRMCh53RGxixMmytK+tGKMdHsiV0=
 ---
 # System structure
 ## Architecture
@@ -40,7 +40,7 @@ In a multi-host system, multiple ioBroker servers can be connected to each other
 
 Communication between servers takes place via TCP/IP connections, and data exchange can be in plain text or encrypted, depending on the settings. Multihost systems offer a robust and scalable solution for large installations with many devices and services.
 
-## Security and updates
+## Security and Updates
 Security and regular updates are important aspects when using ioBroker. Node.js, the underlying runtime environment, is evolving rapidly and receives regular updates that improve stability and security. It is important to use the LTS versions of Node.js as these are maintained over a longer period of time and receive security updates.
 
 ioBroker and its adapters use many modules and extensions from the JavaScript open source community. It is important to update these modules regularly to benefit from the latest security and stability improvements. The Node Package Manager (npm) makes it easy to manage and update these modules.

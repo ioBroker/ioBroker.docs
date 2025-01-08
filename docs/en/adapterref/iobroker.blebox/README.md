@@ -51,7 +51,11 @@ The following devices are currently supported:
     ### **WORK IN PROGRESS**
 -->
 
-### 2.2.0 (2023-10-13)
+### 2.2.1 (2024-12-26)
+
+* (Kai van Nuis) Support for multi-device APIs
+  
+* ### 2.2.0 (2024-12-21)
 
 * (Kai van Nuis) Support for multi-device APIs
 

@@ -68,11 +68,11 @@ hash: UK0rDDy+fjpro8mYDetaov7yQYXMGOmdZb5XkbGVoO8=
 
 это также будет отображаться в объектах.
 ![экземпляры-tractive-gps-allDevices-table.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Finstances-tractive-gps-allDevices-table.png) чтобы изменить имя, нажмите на значок карандаша и введите новое имя.
-![экземпляры-тяговой-gps-allDevices-модальный.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Finstances-tractive-gps-allDevices-modal.png)
+![экземпляры-tractive-gps-allDevices-modal.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Finstances-tractive-gps-allDevices-modal.png)
 
 ### Вкладка
 На вкладке отображаются все найденные устройства с картой и некоторой информацией об устройстве.
-![tab-tractive-gps.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Ftab-tractive-gps.png) Изображение также можно заменить на собственное изображение животного.
+![вкладка-тяговой-gps.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Ftab-tractive-gps.png) Изображение также можно заменить на собственное изображение животного.
 Для этого необходимо поместить PNG-файл с названием трекера (например, ZSDLINVD.png) в папку **iobroker-data/files/tractive-gps**.
 Или вы можете использовать вкладку **files** для загрузки файла. (см. изображение ниже) **Рекомендуемый размер изображения — 1920x1080 пикселей.** ![файлы-tractive-gps.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Ffiles-tractive-gps.png)
 
@@ -81,6 +81,13 @@ hash: UK0rDDy+fjpro8mYDetaov7yQYXMGOmdZb5XkbGVoO8=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2024-11-12)
+* (mcm1957) Adapter requires node 20 now.
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+* (simatec) Adapter changed to meet Responsive Design rules.
+* (mcm1957) An error at jsonConfig invalidating reauthorization command has been corrected.
+* (mcm1957) Dependencies have been updated.
+
 ### 2.0.1 (2024-08-20)
 * (bluefox) Fixing encryption of the access token
 
@@ -97,10 +104,6 @@ hash: UK0rDDy+fjpro8mYDetaov7yQYXMGOmdZb5XkbGVoO8=
 * (Scrounger) Bugfix: objects will be created only if necessary
 * (Scrounger) Bugfix for excessive number of warnings has been added
 * (Scrounger) Distance calculation between ioBroker and tracker has been added
-
-### 1.0.0 (2023-11-04)
-* (mcm1957) Adapter has been moved into iobroker-community-adapters organisation
-* (mcm1957) Dependencies have been updated
 
 ## License
 MIT License

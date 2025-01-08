@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ta-blnet/README.md
 title: ioBroker.ta-blnet
-hash: 42EjQKvl9sevoJDw5biXwkiSILnOYNyqkN08paCvFsY=
+hash: toqB4XA2zoRCMjH4AFYkafT1vyKsl+cT7eN9urhOvf4=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.ta-blnet.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.ta-blnet.svg)
@@ -50,6 +50,10 @@ iobroker url iobroker.ta-blnet@latest
 <!--
 Placeholder for next version:  ### **WORK IN PROGRESS**
 -->
+### 1.0.36 (2025-01-04)
+
+- added CMI support to adapters summary description
+
 ### 1.0.35 (2024-12-22)
 
 - port number is taken from config for communication with CMI
@@ -211,7 +215,7 @@ Placeholder for next version:  ### **WORK IN PROGRESS**
 
 MIT License
 
-Copyright (c) 2024 Klaus Weber <klausatweberesprit@gmail.com>
+Copyright (c) 2025 Klaus Weber <klausatweberesprit@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

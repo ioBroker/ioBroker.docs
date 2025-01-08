@@ -1,14 +1,14 @@
 ---
-title: Definitions
+title: definitions
 lastChanged: 28.10.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
-hash: eov4yiwNIBfe3XacYZfmX/KricUnf16hBIHHqQq/ohA=
+hash: JnivtZyRdEJ0E0HkDbRXmChDkytvfguiAW5fiVp6ki0=
 ---
 To make getting started easier and further help more understandable, the most important terms that appear in and around ioBroker are explained here.
 
-* **Adapters**
+* **Adapter**
 
 A module or driver for a device, service or for providing data.
 Due to the very modular structure of ioBroker, practically everything is an adapter: admin interface, visualization, scripting, ...
@@ -42,9 +42,9 @@ Homematic devices are available in wireless and wired versions (wired bus).
 
 Cascading Style Sheets. CSS can be used to describe the display of web pages independently of the content. As a supplement to the page structure defined in HTML, CSS defines how the page is displayed.
 
-* **Cubietruck/Cubiboard 3**
+* **Cubietruck/Cubieboard 3**
 
-Single board computer similar to Raspberry PI/Odroid, but with SATA interface and 2GB RAM
+Single-board computer similar to Raspberry PI/Odroid, but with SATA interface and 2GB RAM
 
 * **Device**
 
@@ -66,7 +66,7 @@ In multihost mode there are several hosts, one of which is the master, the other
 
 Hypertext Markup Language. A page description language (the basis of the WWW) that is used to display content (text, links, graphics, videos, etc.) in web browsers.
 
-* **Instance**
+* **instance**
 
 Each adapter has at least one instance (but there can be several).
 There are different reasons why multiple instances are used.
@@ -88,19 +88,19 @@ It also provides access to the central object and state databases, coordinates a
 
 A channel groups thematically related states and is normally located under a device. There can be several channels per device.
 
-* **Masters**
+* **Master**
 
-The master is the host that is centrally responsible for managing all instances (including the slave instances!). When the master is terminated, the slave instances are also terminated. The master provides all slaves with the central object and status databases to which all slaves connect.
+The master is the host that is centrally responsible for managing all instances (including the slave instances!). When the master is terminated, the slave instances are also terminated. The master provides the central object and status databases for all slaves, to which all slaves connect.
 
 * **Multihost mode**
 
 The multihost mode of ioBroker can be used to distribute the control tasks across multiple computers if they require special interfaces (e.g. reading electricity meters in the basement). Furthermore, multiple hosts can be used to evenly distribute the load or memory usage. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of instances across the slaves.
 
-* **Node Red**
+* **Node-Red**
 
 Graphical programming interface in which finished modules (nodes) can be linked to complex programs by simple chaining (flow).
 
-* **Objects and states**
+* **Objects and States**
 
 Basic definitions can be found [here]
 
@@ -116,7 +116,7 @@ Single-board computer similar to a Raspberry PI. There are several versions with
 
 * **Parser adapter**
 
-An adapter that cuts out parts of texts, regardless of their origin, by specifying so-called regular expressions, which can then be written into states. These values can then be further processed in scripts etc.
+An adapter that cuts out parts of texts, regardless of their origin, by specifying so-called regular expressions, which can then be written into states. These values can then be further processed in scripts, etc.
 
 * **Raspberry PI**
 
@@ -132,13 +132,13 @@ see condition or objects
 
 * **vis**
 
-The VIS adapter allows you to create your own operating and visualization interfaces for ioBroker and display them on different devices. The interfaces are put together from customizable widgets and your own HTML code and their appearance can be changed using CSS.
+The VIS adapter allows you to create your own user and visualization interfaces for ioBroker and display them on different devices. The interfaces are put together from customizable widgets and your own HTML code and their appearance can be changed using CSS.
 
-* **Widgets**
+* **Widget**
 
 A control element in Vis. Widgets are used to display or control states; for example, turning a lamp on and off using a button that changes its appearance depending on the switching state.
 
-* **State**
+* **condition or state**
 
 A state contains the current value of a data point in ioBroker.
 It also describes the timestamp, the time of the last change and the confirmation by the sender or receiver.

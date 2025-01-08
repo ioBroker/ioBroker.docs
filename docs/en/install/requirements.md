@@ -4,7 +4,7 @@ lastChanged: 29.05.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/requirements.md
-hash: X22bBu43pqfZwrvZovBHeyNVpAJVgBOkqUya6MoCvu8=
+hash: HYGYFDXyh3VUuWCaHunNw9O/MK74H6CZJqQPqqYQ7Wg=
 ---
 ## System requirements
 | Operating system | Variants | Hardware environments (e.g.) | Minimum requirements for ioBroker | Recommended resources for ioBroker (2)

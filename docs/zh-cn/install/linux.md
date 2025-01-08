@@ -4,7 +4,7 @@ lastChanged: 23.10.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/linux.md
-hash: INgimHYt+dgON9a05AHCKC6PlrCewIMCP83w/bz6CxQ=
+hash: aiCatYZKkq2LrcihIs3YAZEkYTwN9cfz6NNxqxF4odE=
 ---
 # Linux 下和 Raspberry Pi 上的 ioBroker 安装
 ioBroker 使用脚本进行安装，该脚本执行必要的安装步骤并重新加载可能需要的任何软件包。
@@ -26,7 +26,7 @@ ioBroker 使用脚本进行安装，该脚本执行必要的安装步骤并重�
 ## Linux
 * 根据所使用的硬件安装所需的当前基本操作系统（Debian、Ubuntu 等）。
 
-  各个版本的帮助和说明可在相应的支持页面、YouTube 等上找到。
+  相应版本的帮助和说明可在相应的支持页面、YouTube 等上找到。
 
 * 通过控制台执行系统更新，具体取决于使用``sudo apt update && sudo apt full-upgrade`` 的操作系统。
 

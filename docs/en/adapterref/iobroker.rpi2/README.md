@@ -156,6 +156,9 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 2.3.1 (2025-01-06)
+* (Garfonso) fixed: GPIO library failed to load after recent dependency update.
+
 ### 2.3.0 (2024-12-23)
 * (Garfonso) correct interpretation of start value setting. Output with initial value 0/1 will set GPIO accordingly during startup. Output without an initial state will not set GPIO at all.
 
@@ -168,13 +171,10 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 ### 2.2.0 (2024-10-15)
 * (Garfonso) rebuild config in JSONConfig.
 
-### 2.1.2 (2024-10-13)
-* (Garfonso) transmit all GPIO changes to iobroker states.
-
 ## License
 MIT License
 
-Copyright (c) 2024 Garfonso <garfonso@mobo.info>
+Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -4,7 +4,7 @@ lastChanged: 26.10.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/docker.md
-hash: 0ytAvqJ8u2sLePPL01DfwmIpeTsFiKp56auXbjJ+HSc=
+hash: Hd57hfRJAy0O5mr+Hn9f45646oV66sky8o/12OU4fkI=
 ---
 # Docker下ioBroker安装
 ## 检查要求

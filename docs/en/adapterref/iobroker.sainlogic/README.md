@@ -58,6 +58,8 @@ In the instance configuration choose the tab 'Listener' and set the following:
 - Path: Enter the same path as in the WS View app
 - Forward URL: If you want to forward the received data to another consumer you can specify an additional adress. E.g. you may receive data in WU format and still want to forward this to WeatherUnderground.
 
+*Note*: The forwarding URL needs to end with a trailing question mark (?). Example: https://weatherstation.wunderground.com/weatherstation/updateweatherstation.php?
+
 Save.
 The listener will start and wait on incoming connections. Based on your interval you should see in the log a message ' Listener received update: ...' with the data.
 
@@ -74,6 +76,8 @@ In the instance configuration choose the tab 'Scheduler' and set the following:
 Save.
 
 The schheduler will start and connect to the weather station after the first interval time. You should see message in the log like 'Scheduler pulling for new data'. If you set the log mode to debug you will also see the data strings received.
+
+
 
 ## Station specific infos
 
@@ -93,6 +97,8 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 ## Changelog
 
 Latest version
+
+#### 0.11.5 ECOWITT forwarding fixed
 
 #### 0.11.4 Fix yearlyrain max value and mapping for CO2 sensors
 

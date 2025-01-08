@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: m2PwMh6l9hfRq9laJ0nw9MD8VoT3HEmzp+Rv9Dd1w+c=
+hash: m3JjXJahrOEW1FXN3nPibRenu7eycbyipNtOMVluzZE=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -205,7 +205,7 @@ HA端修改：
 * 如果设备可访问，则可用性将显示在设备连接中，这将继承到“子设备”（不可用性以相同的方式处理）
 
 ### 功能注释
-* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其来回切换直至其保持不动。
+* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其在保持之前来回切换的过程。
 * iobroker 可能无法正确识别 HA 的重启，因此需要手动重启适配器（WIP）
 
 ## 使用数据点实现设备和结构
@@ -215,7 +215,7 @@ HA端修改：
 * 级别 -> 具有数值的可调整数据点，有时也具有数字表示的选择
 * 开关 -> 可调整数据点布尔值
 * 诊断 -> 布尔或多状态数据点转换为文本
-* 字符串 -> 数据点仅作为文本
+* 字符串 -> 数据点仅为文本
 * 数组 -> 带有数组的数据点
 * 值到文本的转换可能会使用未经验证的文本（欢迎反馈），这在文本末尾以“？”表示
 
@@ -278,6 +278,12 @@ HA端修改：
 ### 冰川冰箱
 [冰川](./doc/devices/glacier.md)
 
+### 交流发电机
+[交流发电机](./doc/devices/alternator.md)
+
+### 不支持的设备
+为了调试目的，创建了此部分，请选择设备（delta pro3、delta3、delta3 plus）并将序列号放在添加的行中，预计未知设备正在使用 protobuf，它会在日志中创建 [PROTOBUF unknown] 消息，它们包含原始十六进制电报
+
 待办事项
 * 检查命令中被遗忘的边界条件（抑制命令，或者附加值）
 * 如果需要倒车，请检查蜂鸣命令
@@ -289,6 +295,19 @@ HA端修改：
 使用该软件的风险由您自行承担，对于使用该软件可能产生的任何潜在损害或问题，我不承担任何责任。重要的是要注意，使用此开源软件不会得到 Ecoflow 公司的直接支持或保证。
 
 ## Changelog
+
+### 1.1.1
+* (foxthefox) changed code structure
+* (foxthefox) initial population of BPInfo2/3 to HA
+
+### 1.1.0 (npm)
+* (foxthefox) added a preliminary version of alternator (no cmd, non final state names)
+* (foxthefox) added a config possibility for unsupported devices for capturing the transmitted telegrams
+* (foxthefox) #168 changed SHP2 masterIncreInfo.gridSta '0': 'Grid volt. not detected', '1': 'Grid OK'
+* (foxthefox) #173 DPU added additional battery selection
+* (foxthefox) #174 SHP2 added in ProtoTime the wattInfoChWatt, wattInfoAllHallWatt
+* (foxthefox) #174 SHP2 added channel values of power and current in loadPower/loadCurrent including the sum of the values
+* (foxthefox) #167 DELTA2/2Max pd.dsgPowerAC and pd.dsgPowerDC (type from 'power' to 'energy')
 
 ### 1.0.5 (npm)
 * (foxthefox) mppt.outWatts 500 -> 600; inverter_heartbeat.invOutputWatts 800 -> 810
@@ -304,7 +323,6 @@ HA端修改：
 * (foxthefox) watth16/17/18 upper range 10kWh
 * (foxthefox) 'Backup reserve' option added for D2M #137
 * (foxthefox) preparations for DeltaPro3 decode
-
 
 ### 1.0.2 (npm)
 * (foxthefox) correction of SHP commands (#130)
@@ -553,7 +571,7 @@ HA端修改：
 ## License
 MIT License
 
-Copyright (c) 2023-2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2023-2025 foxthefox <foxthefox@wysiwis.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

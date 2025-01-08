@@ -668,6 +668,11 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (Dirk-Peter-md) eslint-config added
+* (Dirk-Peter-md) Dependencies updated
+
 ### 0.2.13 (2022-09-06)
 * (Dirk-Peter-md) various bugs fixed
 * (Dirk-Peter-md) Preparing the stable release
@@ -745,7 +750,7 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ## License
 MIT License
 
-Copyright (c) 2024 Dirk Peter <dirk.peter@freenet.de>
+Copyright (c) 2020 - 2025     Dirk Peter     <dirk.peter@freenet.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

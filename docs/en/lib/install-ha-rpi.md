@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/lib/install-ha-rpi.md
 title: passwd hacluster
-hash: /vstRhgCT9bo7qG0EOjpSOU5Tqq3WZU5vac3deOOXtQ=
+hash: MjjI23qSH6M8YRKL+JWxHZIbxco0oSiyyyai+mUP1wY=
 ---
 #
 ##
@@ -15,13 +15,13 @@ https://www.raspberrypi.org/downloads/raspbian/ https://downloads.raspberrypi.or
 ### Etcher
 https://etcher.io/
 
-Create the file `ssh` in on the partition `boot`.
+Create file `ssh` on partition `boot`.
 
 ### Putty
 https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.70-installer.msi
 
 ## Connect
-Call Putty User : pi paswoort raspberry raspberrypi in putty
+Call Putty User: pi paswoort raspberry raspberrypi in putty
 
 sudo passwd root sudo nano /etc/ssh/sshd_config Search for PermitRootLogin and change it to yes, remove # You can undo logging in as root again using this command sudo passwd -l root su
 
@@ -31,24 +31,24 @@ raspi-config
 
 2 Network options hostname wifi country set to de Enter SSID Enter password
 
-4 I1 Change locale de_DE.UTF-8 UTF-8 Empty bar to select
+4 I1 Change locale de_DE.UTF-8 UTF-8 space bar to select
 
 7 Advanced options A1 Expand Filesystem
 
 reboot Welcome to fdisk (util-linux 2.29.2).
-Changes will remain in memory only, until you decide to write them.
+Changes will remain in memory only until you decide to write them.
 Be careful before using the write command.
 
-Command (m for help): Disk /dev/mmcblk0: 14.9 GiB, 15931539456 bytes, 31116288 sectors Units: sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum /optimal): 512 bytes / 512 bytes Disk label type: dos Disk identifier: 0x8e9e2675
+Command (m for help): Disk /dev/mmcblk0: 14.9 GiB, 15931539456 bytes, 31116288 sectors Units: sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum /optimal): 512 bytes / 512 bytes disk label type: dos Disk identifier: 0x8e9e2675
 
 Device Boot Start End Sectors Size Id Type /dev/mmcblk0p1 8192 96663 88472 43.2M c W95 FAT32 (LBA) /dev/mmcblk0p2 98304 31116287 31017984 14.8G 83 Linux
 
 Command (m for help): Partition number (1,2, default 2): Partition 2 has been deleted.
 
-Command (m for help): Partition type p primary (1 primary, 0 extended, 3 free) e extended (container for logical partitions) Select (default p): Partition number (2-4, default 2): First sector (2048 -31116287, default 2048): Last sector, +sectors or +size{K,M,G,T,P} (98304-31116287, default 31116287): Created a new partition 2 of type 'Linux' and of size 14.8 GiB .
+Command (m for help): Partition type p primary (1 primary, 0 extended, 3 free) e extended (container for logical partitions) Select (default p): Partition number (2-4, default 2): First sector (2048 -31116287, default 2048): Last sector, +sectors or +size{K,M,G,T,P} (98304-31116287, default 31116287): Created a new partition 2 of type 'Linux' and of size 14.8 GiB.
 Partition #2 contains an ext4 signature.
 
-Command (m for help): Disk /dev/mmcblk0: 14.9 GiB, 15931539456 bytes, 31116288 sectors Units: sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum /optimal): 512 bytes / 512 bytes Disk label type: dos Disk identifier: 0x8e9e2675
+Command (m for help): Disk /dev/mmcblk0: 14.9 GiB, 15931539456 bytes, 31116288 sectors Units: sectors of 1 * 512 = 512 bytes Sector size (logical/physical): 512 bytes / 512 bytes I/O size (minimum /optimal): 512 bytes / 512 bytes disk label type: dos Disk identifier: 0x8e9e2675
 
 Device Boot Start End Sectors Size Id Type /dev/mmcblk0p1 8192 96663 88472 43.2M c W95 FAT32 (LBA) /dev/mmcblk0p2 98304 31116287 31017984 14.8G 83 Linux
 
@@ -111,7 +111,7 @@ iob2: Success iob1: Success
 iob2: Starting Cluster...
 
 [root@iob1 ~]# corosync-cfgtool -s Printing ring status.
-Local node ID 1 RING ID 0 id = 192.168.179.54 status = ring 0 active with no faults [root@iob1 ~]# corosync-cmapctl | grep members runtime.totem.pg.mrp.srp.members.1.config_version (u64) = 0 runtime.totem.pg.mrp.srp.members.1.ip (str) = r(0) ip(192.168.179.54 ) runtime.totem.pg.mrp.srp.members.1.join_count (u32) = 1 runtime.totem.pg.mrp.srp.members.1.status (str) = joined runtime.totem.pg.mrp.srp .members.2.config_version (u64) = 0 runtime.totem.pg.mrp.srp.members.2.ip (str) = r(0) ip(192.168.179.63) runtime.totem.pg.mrp.srp. members.2.join_count (u32) = 1 runtime.totem.pg.mrp.srp.members.2.status (str) = joined [root@iob1 ~]# pcs status corosync
+Local node ID 1 RING ID 0 id = 192.168.179.54 status = ring 0 active with no faults [root@iob1 ~]# corosync-cmapctl | grep members runtime.totem.pg.mrp.srp.members.1.config_version (u64) = 0 runtime.totem.pg.mrp.srp.members.1.ip (str) = r(0) ip(192.168.179.54 ) runtime.totem.pg.mrp.srp.members.1.join_count (u32) = 1 runtime.totem.pg.mrp.srp.members.1.status (str) = joined runtime.totem.pg.mrp.srp.members.2.config_version (u64) = 0 runtime.totem.pg.mrp. srp.members.2.ip (str) = r(0) ip(192.168.179.63) runtime.totem.pg.mrp.srp.members.2.join_count (u32) = 1 runtime.totem.pg.mrp.srp.members.2.status (str) = joined [root@iob1 ~]# pcs status corosync
 
 Membership information ---------------------- Nodeid Votes Name 1 1 iob1 (local) 2 1 iob2
 
@@ -169,14 +169,14 @@ EOF
 
 [root@iob1 npm]# node -v v6.14.3 [root@iob1 npm]# npm -v 3.10.10
 
-https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux [root@iob1 dev]# yum install parted Loaded plugins: fastestmirror Loading mirror speeds from cached hostfile package parted-3.1-29.el7.armv7hl is already installed in the latest version.
-Nothing to do [root@iob1 dev]# parted -l | grep Error [root@iob1 dev]# parted /dev/sda mklabel gpt Warning: The existing partition table and all data on /dev/sda will be deleted. Would you like to continue? Yes/No/No? Yes Information: You may need to adjust /etc/fstab.
+https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux [root@iob1 dev]# yum install parted Loaded plugins: fastestmirror Loading mirror speeds from cached hostfile Package parted-3.1-29.el7.armv7hl is already installed in the latest version.
+Nothing to do [root@iob1 dev]# parted -l | grep Error [root@iob1 dev]# parted /dev/sda mklabel gpt Warning: The existing partition table and all data on /dev/sda will be deleted. Do you want to continue? Yes/No? Yes Information: You may need to adjust /etc/fstab.
 
-[root@iob1 dev]# parted -a opt /dev/sda mkpart primary ext4 0% 100% Info: You may need to adjust /etc/fstab.
+[root@iob1 dev]# parted -a opt /dev/sda mkpart primary ext4 0% 100% Information: You may need to adjust /etc/fstab.
 
-[root@iob1 dev]# lsblk NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT sda 8:0 1 1,9G 0 disk └─sda1 8:1 1 1,9G 0 part mmcblk0 179:0 0 14,8G 0 disk ├ ─mmcblk0p2 179:2 0 488M 0 part [SWAP] ├─mmcblk0p3 179:3 0 13.7G 0 part / └─mmcblk0p1 179:1 0 668M 0 part /boot [root@iob1 dev]# mkfs.ext4 -L iob1d /dev/sda1 mke2fs 1.42.9 (28-Dec-2013) Filesystem-Label=iob1d OS-Type: Linux Blocksize=4096 (log=2) Fragmentsize=4096 (log=2) Stride=0 blocks, Stripewidth=0 blocks 122400 inodes, 488704 blocks 24435 blocks (5.00%) reserved for superuser First data block=0 Maximum filesystem blocks=501219328 15 block groups 32768 blocks per group, 32768 fragments per group 8160 inodes per group Superblock backup copies stored in blocks: 32768, 98304, 163840, 229376, 294912
+[root@iob1 dev]# lsblk NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT sda 8:0 1 1.9G 0 disk └─sda1 8:1 1 1.9G 0 part mmcblk0 179:0 0 14.8G 0 disk ├ ─mmcblk0p2 179:2 0 488M 0 part [SWAP] ├─mmcblk0p3 179:3 0 13.7G 0 part / └─mmcblk0p1 179:1 0 668M 0 part /boot [root@iob1 dev]# mkfs.ext4 -L iob1d /dev/sda1 mke2fs 1.42 .9 (28-Dec-2013) Filesystem label=iob1d OS type: Linux Block size=4096 (log=2) Fragment size=4096 (log=2) Stride=0 blocks, Stripe width=0 blocks 122400 inodes, 488704 blocks 24435 blocks (5.00%) reserved for the superuser First data block=0 Maximum file system blocks=501219328 15 block groups 32768 blocks per group, 32768 fragments per group 8160 inodes per group Superblock backups stored in blocks: 32768, 98304, 163840, 229376, 294912
 
-Requesting space for group tables: done Writing inode tables: done Creating journal (8192 blocks): done Writing superblocks and filesystem accounting information: done
+Requesting space for group tables: done Writing inode tables: done Creating journal (8192 blocks): done Writing superblocks and file system accounting information: done
 
 https://www.howtoforge.com/tutorial/how-to-install-and-setup-drbd-on-centos-6/ yum -y install gcc make automake autoconf libxslt libxslt-devel flex rpm-build kernel-devel
 
@@ -186,7 +186,7 @@ yum install -y wget
 
 wget http://oss.linbit.com/drbd/utils/drbd-utils-9.5.0.tar.gz http://oss.linbit.com/drbd/9.0/drbd-9.0.15-1.tar. gz
 
-wget http://www.linbit.com/downloads/drbd/8.4/drbd-8.4.11-1.tar.gz tar -zxvf drbd-8.4.11-1.tar.gz cd drbd-8.4.11-1 make km-rpm
+wget http://www.linbit.com/downloads/drbd/8.4/drbd-8.4.11-1.tar.gz tar -zxvf drbd-8.4.11-1.tar.gz cd drbd-8.4.11-1 make km rpm
 
 tar -zxvf drbd-9.0.15-1.tar.gz tar -zxvf drbd-utils-9.5.0.tar.gz
 

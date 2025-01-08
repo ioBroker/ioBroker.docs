@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: hHIZNEpqahzbPHmd5jNTEvsyMnBQA3XJMv/XzPDzXXo=
+hash: icwayNN6/KClreJsKpqYDJCW9+30cUUxFZyP3ZIqmvk=
 ---
 # IoBroker.webui
 
 ![Anzahl der Installationen](https://iobroker.live/badges/webui-installed.svg)
-![stabile Version](https://iobroker.live/badges/webui-stable.svg)
+![Stabile Version](https://iobroker.live/badges/webui-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.webui.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.webui.svg)
 ![NPM](https://nodei.co/npm/iobroker.webui.png?downloads=true)
@@ -25,14 +25,14 @@ Dies ist ein vollständiges Visualisierungssystem für ioBroker.
 
 Es umfasst Funktionen wie:
 
-- eigene einfache Skriptsprache
+- einfache Skriptsprache
 - Bindung an ioBroker-Objekte einschließlich Konvertern und Javascript-Ausdrücken
 - Einfügen von Bildern aus der Zwischenablage
-- Drag & Drop von externen Bildern
-- Drag & Drop von ioBroker-Objekten zum automatischen Erstellen von Bindungen
-- Ziehen Sie ioBroker-Objekte per Drag & Drop auf die Eigenschaften, um Bindungen zu ihnen zu erstellen
-- relative Signalpfade zu ioBroker-Objekten in Bildschirmen (der vollständige Pfad kann von außen an den Bildschirm übergeben werden)
-- geteilte Ansicht zum Bearbeiten des HTML-Codes
+- Drag&Drop von externen Bildern
+- Drag&Drop von ioBroker-Objekten zum automatischen Erstellen von Bindungen
+- Drag&Drop von ioBroker-Objekten auf Eigenschaften, um Bindungen zu ihnen zu erstellen
+- relative Signalpfade zu ioBroker-Objekten in Bildschirmen (der vollständige Pfad kann von außen in den Bildschirm übergeben werden)
+- Split-View-Bearbeitung von Layout und HTML-Code
 - globale Stylesheet-Unterstützung
 - Verwendung von NPM-Paketen, die Webkomponenten enthalten
 - Bildschirme innerhalb von Bildschirmen
@@ -40,22 +40,26 @@ Es umfasst Funktionen wie:
 - Verwenden Sie Diagramme von ioBroker
 - Verwenden Sie kombinierte Signalobjekt-IDs, z. B. „webui.0.test3.{webui.0.test3.select}“ -> dadurch wird der Wert von webui.0.test3.select für den Signalnamen verwendet
 
+Weitere Informationen zu spezifischen Themen finden Sie im [Wiki](https://github.com/iobroker-community-adapters/ioBroker.webui/wiki) (der deutsche Teil hat ein paar mehr Artikel als der englische).
+
 ## Installation
 ### Abhängigkeiten
 - Sie müssen den Web Adapter installiert haben. Er funktioniert mit den folgenden Einstellungen: ![image](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/web.png)
 
 ## Konzepte
 ### Beschreibung
-Der Designer verwendet Webkomponenten, sodass sich das HTML, das Sie entwerfen, innerhalb eines Shdowroots einer Webkomponente befindet. Dies bedeutet, dass Sie nicht stylen können<body> oder<html> innerhalb des Stylesheets. Um das äußere Layout zu gestalten, verwenden Sie den Selektor „:host“. Das bedeutet auch, dass Sie keine „on...“-Eventhandler verwenden können. Verwenden Sie die „@...“-Eventzuweisung.
+Der Designer verwendet Webkomponenten, sodass sich das HTML, das Sie entwerfen, innerhalb eines Shadowroots einer Webkomponente befindet. Das bedeutet, dass Sie nicht stylen können<body> oder<html> innerhalb des Stylesheets. Um das äußere Layout zu gestalten, verwenden Sie den Selektor „:host“. Das bedeutet auch, dass Sie keine „on...“-Eventhandler verwenden können. Verwenden Sie die „@...“-Eventzuweisung.
 
 ### Benutzerdefinierte Steuerelemente in der WebUI
-Sie können in der WebUI eigene wiederverwendbare CustomControls erstellen. Diese können individuelles Javascript, Eigenschaften und eine Vorlage enthalten.
+Sie können in der WebUI Ihre eigenen wiederverwendbaren CustomControls erstellen, von denen jedes über eigenes Javascript, eigene Eigenschaften und eine eigene Vorlage verfügen kann.
 
-Sie können die Syntax mit doppelten Klammern und die Syntax mit doppelten geschweiften Klammern von „BaseCustomWebcomponent“ verwenden, um Bindungen von der Vorlage zu den im Designer definierten Eigenschaften zu erstellen. Geschweifte Klammern erstellen bidirektionale Bindungen.
-Wenn Sie den Bindungsdialog verwenden, können Sie mit ??Eigenschaftsname an eine Eigenschaft und über ?Eigenschaftsname an ein ioBroker-Objekt in der Eigenschaft binden.
+Sie können die Syntax mit doppelten und geschweiften Klammern der „BaseCustomWebcomponent“ verwenden, um Bindungen von der Vorlage zu den im Designer definierten Eigenschaften zu erstellen. Geschweifte Klammern erstellen bidirektionale Bindungen.
+Wenn Sie den Bindungsdialog verwenden, können Sie mit ??Propertyname an eine Eigenschaft und über ?Propertyname an ein ioBroker-Objekt in der Eigenschaft binden.
 In Skripten können Sie auch in Signale schreiben, die in benutzerdefinierten Eigenschaften definiert sind.
 
-Sie können auch Javascript in Ihr CustomControl oder Ihren Bildschirm einbinden. Sie können auch eine Funktion „init(instance)“ exportieren, die aufgerufen wird, wenn Ihr CustomControl instanziiert wird. (Und auch die verbundenen und getrennten Funktionen können verwendet werden)
+Sie können Javascript in Ihr CustomControl oder Ihren Bildschirm einbinden.
+Außerdem können Sie eine Funktion `init(instance)` exportieren, die aufgerufen wird, wenn Ihr CustomControl instanziiert wird.
+Schließlich können die Funktionen `connected()` und `disconnected()` so definiert werden, dass sie aufgerufen werden, wenn ...
 
 ## Sponsoring
 Wenn Sie die Entwicklung unterstützen möchten, sponsern Sie dieses Projekt unter https://github.com/sponsors/jogibear9988
@@ -126,13 +130,123 @@ Bearbeiten Sie vorher unbedingt „CHANGELOG.md“, der Text in „## **WORK IN 
 ## Informationen zum Adapter.
 Der Adapter basiert auf der folgenden Designer-Komponente: https://github.com/node-projects/web-component-designer
 
-Sie müssen einen „Start“-Bildschirm erstellen. Dies ist der erste, der aufgerufen wird, wenn Sie runtime.html öffnen. Sie können dies jedoch über den Abfrageparameter ändern: runtime.html?screenName=screen2
+Sie müssen einen Bildschirm „Start“ erstellen. Dies ist der erste, der aufgerufen wird, wenn Sie runtime.html öffnen. Sie können dies jedoch über den Abfrageparameter ändern: runtime.html?screenName=screen2
 
 ## Changelog
 <!--
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.21.0 (2024-12-28)
+- fix scripts with empty names on css
+- css props with only bindings are not shown
+- remove of css prop should remove binding?
+- Open Screen in sub screen command
+
+### 1.20.1 (2024-12-03)
+- fix in designer with svgs
+
+### 1.20.0 (2024-12-03)
+- add a few packages
+- run simple script cmd and update get parent screen
+- update packages, downgrade monaco
+- fix backup
+
+### 1.19.4 (2024-11-03)
+- copy & paste events
+
+### 1.19.3 (2024-11-03)
+- support null value
+
+### 1.19.2 (2024-11-03)
+- use name in classlist
+
+### 1.19.1 (2024-11-02)
+- copy path for screens/controls
+
+### 1.19.0 (2024-11-02)
+- fix error in script system
+
+### 1.18.5 (2024-11-02)
+- compile fix
+
+### 1.18.4 (2024-11-02)
+- fix wrong shadow root used
+
+### 1.18.3 (2024-11-01)
+- small typo fix
+
+### 1.18.2 (2024-11-01)
+- better refcatoring
+
+### 1.18.1 (2024-11-01)
+- fix screen settings
+
+### 1.18.0 (2024-11-01)
+- screens are now ex- & imported as xml
+
+### 1.17.3 (2024-11-01)
+- fix compilation
+
+### 1.17.2 (2024-11-01)
+- switch combo in complex prop editor
+
+### 1.17.1 (2024-11-01)
+- selector for properties
+
+### 1.17.0 (2024-11-01)
+- internal control properties
+- internal screen properties
+
+### 1.16.3 (2024-10-31)
+- raise errors on unimplemented commands
+- wrong script upgrade
+
+### 1.16.2 (2024-10-31)
+- wrong default in script
+
+### 1.16.1 (2024-10-31)
+- fix base custom webcomp bindings
+
+### 1.16.0 (2024-10-30)
+- fix errors with script system, wrong parent used
+
+### 1.15.1 (2024-10-08)
+- fix typo in screenviewer
+
+### 1.15.0 (2024-10-08)
+- fixes in margin & padding
+- work on simpleScripts, add conditions
+- fix _getDomElements in screen viewer
+
+### 1.14.0 (2024-09-18)
+- update npm packages
+
+### 1.13.2 (2024-08-21)
+- designer updates
+- add find methods
+
+### 1.13.1 (2024-08-18)
+- small designer tweaks
+
+### 1.13.0 (2024-08-18)
+- update designer
+
+### 1.12.4 (2024-07-25)
+- one more designer update
+
+### 1.12.3 (2024-07-25)
+- update designer
+
+### 1.12.2 (2024-07-24)
+- fix offset finding in box drawing
+
+### 1.12.1 (2024-07-24)
+- update edit text in designer
+
+### 1.12.0 (2024-07-24)
+- update designer
+
 ### 1.11.3 (2024-06-02)
 - fix load subfolders
 

@@ -389,6 +389,16 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.2 (2025-01-04)
+- *[@phoeluga]* Fixed issue with 5 digit port number when using a IP for property Synology URL/IP - #20
+- *[@phoeluga]* Addressed W[171],W[105],W[109] - #18
+- *[@phoeluga]* Updated admin style.css and classes to support scrolling on mobile device view - #24
+- *[@phoeluga]* Updated several dependencies to met the current overall config - #21
+- *[@phoeluga]* Update test-workflow to be prepared for Node.js v22 - #22
+- *[@phoeluga]* Bumped min. Node.js version to v18 - #22
+- *[@phoeluga]* Bumped @iobroker/adapter-core to version >= 3.x.x - #23
+- *[@phoeluga]* Updated ESLint usage and config - Migration to ESLint 9 - #25 
+
 ### 1.3.1 (2023-08-13)
 - *[@phoeluga]* Fixed TypeError issue with empty initial value of outgoing channels - #13
 - *[@phoeluga]* Updated information about handling of outgoing channels - #14
@@ -450,7 +460,7 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
 
 This code is licensed under 'The MIT License (MIT)' license specified in the [LICENSE](./LICENSE) file.
 
-Copyright (c) 2023 phoeluga <phoeluga@gmail.com>
+Copyright (c) 2025 phoeluga <phoeluga@gmail.com>
 
 
 ## Other disclosures

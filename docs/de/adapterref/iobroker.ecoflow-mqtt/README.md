@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: m2PwMh6l9hfRq9laJ0nw9MD8VoT3HEmzp+Rv9Dd1w+c=
+hash: m3JjXJahrOEW1FXN3nPibRenu7eycbyipNtOMVluzZE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -25,7 +25,7 @@ Eine falsche Kommunikation oder das Einstellen falscher Werte kann die Funktiona
 
 Der Adapter basiert auf der Arbeit von:
 
-* meine eigene Auswertung und Recherche
+* meine eigene Bewertung und Recherche
 * https://github.com/tolwi/hassio-ecoflow-cloud
 * https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html
 * https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
@@ -278,6 +278,12 @@ Wave ist nicht verfügbar, könnte implementiert werden, wenn Daten verfügbar s
 ### Gletscherkühlschrank
 [Gletscher](./doc/devices/glacier.md)
 
+### Lichtmaschine
+[Generator](./doc/devices/alternator.md)
+
+### Nicht unterstützte Geräte
+Dieser Abschnitt wurde für Debugging-Zwecke erstellt. Wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und geben Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird davon ausgegangen, dass das unbekannte Gerät Protobuf verwendet. Es erstellt [PROTOBUF unbekannt]-Meldungen im Protokoll, die das rohe Hexadezimaltelegramm enthalten.
+
 ## Aufgaben
 * vergessene Randbedingungen für Befehle prüfen (Befehl unterdrücken, oder zusätzlichen Wert hinzufügen)
 * Überprüfen Sie den Pieptonbefehl, wenn eine Rückwärtsfahrt erforderlich ist
@@ -289,6 +295,19 @@ Diese Open-Source-Software ist in keiner Weise mit der Firma Ecoflow verbunden o
 Die Nutzung der Software erfolgt auf Ihr eigenes Risiko und nach eigenem Ermessen und ich übernehme keine Haftung für mögliche Schäden oder Probleme, die durch die Nutzung der Software entstehen können. Es ist wichtig zu wissen, dass die Nutzung dieser Open-Source-Software ohne direkte Unterstützung oder Garantien der Firma Ecoflow erfolgt.
 
 ## Changelog
+
+### 1.1.1
+* (foxthefox) changed code structure
+* (foxthefox) initial population of BPInfo2/3 to HA
+
+### 1.1.0 (npm)
+* (foxthefox) added a preliminary version of alternator (no cmd, non final state names)
+* (foxthefox) added a config possibility for unsupported devices for capturing the transmitted telegrams
+* (foxthefox) #168 changed SHP2 masterIncreInfo.gridSta '0': 'Grid volt. not detected', '1': 'Grid OK'
+* (foxthefox) #173 DPU added additional battery selection
+* (foxthefox) #174 SHP2 added in ProtoTime the wattInfoChWatt, wattInfoAllHallWatt
+* (foxthefox) #174 SHP2 added channel values of power and current in loadPower/loadCurrent including the sum of the values
+* (foxthefox) #167 DELTA2/2Max pd.dsgPowerAC and pd.dsgPowerDC (type from 'power' to 'energy')
 
 ### 1.0.5 (npm)
 * (foxthefox) mppt.outWatts 500 -> 600; inverter_heartbeat.invOutputWatts 800 -> 810
@@ -304,7 +323,6 @@ Die Nutzung der Software erfolgt auf Ihr eigenes Risiko und nach eigenem Ermesse
 * (foxthefox) watth16/17/18 upper range 10kWh
 * (foxthefox) 'Backup reserve' option added for D2M #137
 * (foxthefox) preparations for DeltaPro3 decode
-
 
 ### 1.0.2 (npm)
 * (foxthefox) correction of SHP commands (#130)
@@ -553,7 +571,7 @@ Die Nutzung der Software erfolgt auf Ihr eigenes Risiko und nach eigenem Ermesse
 ## License
 MIT License
 
-Copyright (c) 2023-2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2023-2025 foxthefox <foxthefox@wysiwis.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

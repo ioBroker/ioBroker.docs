@@ -15,7 +15,7 @@ hash: nbnCeatkP5YX4f21mweyh2a/mosv3Qal1E5BFx02vvI=
 # Iobroker.gree-hvac
 **Tests:** [![Testen und Freigeben](https://github.com/xhunter74/ioBroker.gree-hvac/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/xhunter74/ioBroker.gree-hvac/actions/workflows/test-and-release.yml)
 
-Adapter für Gree- und C&H-Conditioner
+Adapter für Klimaanlagen von Gree und C&H
 
 ## Unterstützte Geräte
 Alle Geräte, die über die EWPE Smart App gesteuert werden können, sollten unterstützt werden, darunter:
@@ -36,6 +36,9 @@ Alle Geräte, die über die EWPE Smart App gesteuert werden können, sollten unt
 - [cont1nuity] zum Hinzufügen der AES-GCM-Verschlüsselung
 
 ## Changelog
+### 1.1.2 (2024-10-16)
+ - Updated dependencies
+ - Adjusted admin layout
 ### 1.1.0 (2024-08-13)
  - Added the AES-GCM encryption which is needed for some devices with newer firmware versions (e.g. gree model 32776, v1.23)
 ### 1.0.7 (2024-07-03)
@@ -48,8 +51,6 @@ Alle Geräte, die über die EWPE Smart App gesteuert werden können, sollten unt
  - Code optimization. Bug fixes.
 ### 1.0.3 (2024-06-12)
  - Added refresh devices button on tab page.
-### 1.0.2 (2024-06-11)
- - Added support of Fhareinheit degrees.
 
 ## License
 MIT License

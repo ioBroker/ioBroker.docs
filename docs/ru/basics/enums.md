@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/enums.md
 title: Категории/списки
-hash: dRtaZaSersmPe015O54LIxsy7mWuVT4pyEN1yf2HifE=
+hash: BCWfsVMoRR8b/TownmKnahfAFrlWyXYLOYlWO/V82aY=
 ---
 # Категории/списки
 Определения категорий играют важную роль в ioBroker.

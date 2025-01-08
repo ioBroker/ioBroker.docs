@@ -25,7 +25,7 @@ The widget searches for all remaining data points automatically.
 
 The adapter can be installed via the stable or for testing verions via beta/latest repository.
 
-### Adapter Configuration
+## Adapter Configuration
 
 You can configure how much different TVs, or at least different configurations you will have.
 
@@ -247,6 +247,28 @@ this datapoint contains the status of whether only favorites or everything shoul
 #### `config`
 
 this datapoint is deprecated and will be removed in the next versions
+
+#### `optchnlogopath`
+
+Data point to a folder in which alternative channel logos can be saved. The path must be accessible via the browser.
+
+The complete path starting with http, including the trailing slash, must be entered in the data point.
+
+**Example:**
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+ is then accessible via
+
+ ```text
+http://localhost:8082/vis.0/icons/tvlogos/
+```
+
+All icons should be uploaded via the iobroker file dialog.
+
+For an example see Chapter [Example for Alternative Logos](#alternative-channel-logos-by-tino-0)
 
 ### Provided `Sendto`-Commands
 
@@ -552,6 +574,99 @@ on(idKanalWahl, function (obj) {
 });
 ```
 
+#### Alternative channel logos by Tino 0
+
+Forumlink with examples screenshots
+<https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
+
+**Download Channel Logos:**
+
+You have to register to download the logos with following size 400x160
+
+<https://vuplus-support.org/wbb4/index.php?thread/64098-mirror-glass-3d-huminator-design-by-stefanbenno6/>
+
+**Rename the Logos:**
+
+start the follwing commands in the downloaded and unziped folder
+
+<details>
+  <summary>Details</summary>
+  <pre><code>
+copy 1_0_19_283D_3FB_1_C00000_0_0_0.png ard.png
+copy 1_0_19_2B66_3F3_1_C00000_0_0_0.png zdf.png
+copy 1_0_19_EF10_421_1_C00000_0_0_0.png rtl.png
+copy 1_0_19_EF15_421_1_C00000_0_0_0.png rtl2.png
+copy 1_0_19_2E9B_411_1_C00000_0_0_0.png srtl.png
+copy 1_0_19_2EAF_411_1_C00000_0_0_0.png nitro.png
+copy 1_0_19_EF74_3F9_1_C00000_0_0_0.png sat1.png
+copy 1_0_19_EF75_3F9_1_C00000_0_0_0.png pro7.png
+copy 1_0_19_EF78_3F9_1_C00000_0_0_0.png pro7maxx.png
+copy 1_0_19_EF76_3F9_1_C00000_0_0_0.png kaka.png
+copy 1_0_19_EF77_3F9_1_C00000_0_0_0.png sixx.png
+copy 1_0_19_EF11_421_1_C00000_0_0_0.png vox.png
+copy 1_0_19_1519_455_1_C00000_0_0_0.png tele5.png
+copy 1_0_19_2B7A_3F3_1_C00000_0_0_0.png zdfneo.png
+copy 1_0_19_2B98_3F2_1_C00000_0_0_0.png kika.png
+copy 1_0_19_2B8E_3F2_1_C00000_0_0_0.png 3sat.png
+copy 1_0_19_285B_401_1_C00000_0_0_0.png phoenix.png
+copy 1_0_19_157C_41F_1_C00000_0_0_0.png disney.png
+copy 1_0_19_2871_425_1_C00000_0_0_0.png mdr.png
+copy 1_0_19_286F_425_1_C00000_0_0_0.png rbb.png
+copy 1_0_19_283F_3FB_1_C00000_0_0_0.png sw3.png
+copy 1_0_19_1581_41F_1_C00000_0_0_0.png sport1de.png
+copy 1_0_19_283E_3FB_1_C00000_0_0_0.png arte.png
+copy 1_0_19_526C_41D_1_C00000_0_0_0.png anixehd.png
+copy 1_0_19_151A_455_1_C00000_0_0_0.png dmax.png
+copy 1_0_19_2855_401_1_C00000_0_0_0.png bayern3.png
+copy 1_0_19_2873_425_1_C00000_0_0_0.png hessen3.png
+copy 1_0_1_6EE1_4B1_1_C00000_0_0_0.png radiobremen.png
+copy 1_0_19_2858_401_1_C00000_0_0_0.png nord3.png
+copy 1_0_19_2BA2_3F2_1_C00000_0_0_0.png info.png
+copy 1_0_19_132F_3EF_1_C00000_0_0_0.png orf1.png
+copy 1_0_19_1330_3EF_1_C00000_0_0_0.png orf2.png
+copy 1_0_19_2777_409_1_C00000_0_0_0.png mtv.png
+copy 1_0_19_288A_40F_1_C00000_0_0_0.png sw3.sr.png
+copy 1_0_1_6F76_457_1_C00000_0_0_0.png west3.png
+copy 1_0_19_2887_40F_1_C00000_0_0_0.png tagesschau24.png
+COPY 1_0_16_2EB9_411_1_C00000_0_0_0.png ntv.png
+copy 1_0_19_2888_40F_1_C00000_0_0_0.png one.png
+copy 1_0_19_2889_40F_1_C00000_0_0_0.png alpha.png
+copy 1_0_1_445F_453_1_C00000_0_0_0.png welt.png
+copy 1_0_1_772D_416_1_C00000_0_0_0.png eurosp.png
+copy 1_0_1_76C8_40E_1_C00000_0_0_0.png comedycentral.png  
+copy 1_0_1_2F1D_441_1_C00000_0_0_0.png rtlnitro.png  
+  </code></pre>
+</details>
+
+**Create new Folder in the vis:**
+
+Open in vis the File Manager dialog.
+
+Check if the following path exists or create the path in the dialog.
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+**Enter path in datapoint:**
+
+Enter the following path in to the datapoint `optchnlogopath` of your tv.
+Replace 192.1.2.3 with the ip address of your iobroker installation.
+
+```text
+http://192.1.2.3:8082/vis.0/icons/tvlogos/
+```
+
+**Adjust Icon width with a css command:**
+
+Since the width of the icons should be limited to 100px, the following command must be added to the css tab in vis.
+
+```css
+.channel {
+    width: 100px !important;
+}
+```
+
 ### functions not implemented in the Adapter, but provides as scripts for the javascript-adapter
 
 #### `Recordlist`
@@ -719,6 +834,33 @@ widget tvprogram:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2025-01-03)
+
+- fix datapoint creation and overwriting states
+
+### 3.0.2 (2025-01-02)
+
+- improve debug messages
+
+### 3.0.1 (2025-01-02)
+
+- fix channel select dialog
+- fix css classes
+
+### 3.0.0 (2025-01-02)
+
+- TVs as a device, this is a major change because all data points have to be deleted manually by the user
+- improve datapoint creation
+
+### 2.3.1 (2025-01-02)
+
+- little docu fixes
+
+### 2.3.0 (2025-01-02)
+
+- add datapoint for optional channel icons
+- add logic in the widgets
+
 ### 2.2.0 (2024-12-16)
 
 - remove jquery-ui dependency
@@ -787,4 +929,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2025 oweitman <oweitman@gmx.de>

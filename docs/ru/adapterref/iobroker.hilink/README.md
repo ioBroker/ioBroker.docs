@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hilink/README.md
 title: ioBroker.hilink
-hash: bFBKIrlMwYsfNrWvnVd5ncl4dlJeIU7Y/5KlhfMWeYM=
+hash: zbN8N2aPAc+ULr/C6cpbWjv2a1jhhd9OK0iBvHByapI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hilink/admin/hilink.png)
 

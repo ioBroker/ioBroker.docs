@@ -16,49 +16,56 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.proxmox/README.md
 title: ioBroker.proxmox
-hash: L2mnlxx3dkyTPLjb3eeZAR7O8Wlw9kFtWG84EewUPx4=
+hash: eXTRR0LOf/IObKwtsAmgujgj2d+sdzrAf2KH6YqiwRM=
 ---
 ![标识](../../../en/admin/proxmox.png)
 
 # IoBroker.proxmox
-## 解释
-- Node.js 16（或更高版本）
-- js-controller 3.3.22（或更高版本）
-- 管理适配器 6.0.0（或更高版本）
+## 注意事项
+- Node.js 18（或更高版本）
+- js-controller 5.0.19 (或更高版本)
+- 管理适配器 6.13.16（或更高版本）
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.1.0 (2023-09-25)
-* (klein0r) Improved error handling
-* (arteck) Added cluster adaptation
 
-### 2.0.2 (2023-09-08)
-* (klein0r) Added option for disk information
-* (klein0r) Check a type of disk wear out
-* (klein0r) Catch exception when requesting disk information
+### **WORK IN PROGRESS**
+* (arteck) add new eslint file
+* (arteck) fix node message
 
-### 2.0.1 (2023-09-07)
-* (klein0r) Added node disks (heals, wearout)
+### 2.3.0 (2024-04-26)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (jens-maus) fix ha and ceph object type
+* (mcm1957) Dependencies have been updated
 
-### 2.0.0 (2023-09-07)
+### 2.2.3 (2024-02-01)
+* (arteck) add icon status available for lxc and vm
+* (arteck) settings adjustment
 
-* (klein0r) Updated admin instance configuration
-* (klein0r) Refactoring of adapter
-* (klein0r) Allow dots in resource names
+### 2.2.2 (2023-11-06)
+* (arteck) storage message corr
 
-__Requires js-controller >= 3.3.22__
-__Requires admin >= 6.0.0__
+### 2.2.1 (2023-10-28)
+* (arteck) machines delete after restart corr
+* (arteck) vmid type corr
+* (arteck) corstorage error message
 
-### 1.3.5 (2022-08-11)
-* (foxriver76) fixed warning if `max_cpu` is not in response
+### 2.2.0 (2023-10-21)
+* (arteck) new Object tree structure (selectable)
+* (arteck) added HA Information
+* (arteck) Storage info is selectable
+* (arteck) Backup info are under Storage info as Object backupJson
+* (arteck) corr info for offline container
+* (arteck) axios timout is now 5 sec.
 
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -3,8 +3,8 @@ lastChanged: 25.08.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/states.md
-title: States and data points
-hash: 190MIPX6wgLnFl6yKQR3EpEWnybrYzc4cf2YD6kb+rE=
+title: states and data points
+hash: YhGzxu5h8tG54E4wLlrlkwYe9yGh8rPylLjo4462bp0=
 ---
 # States and data points
 A **data point** consists of a static object of type `state` and a dynamic state.
@@ -30,7 +30,7 @@ Attributes of the static object are id, type = 'state', common, native. The foll
 * `common.unit` (optional, string)
 * `common.def` (optional - the default value)
 * `common.defAck` (optional - if common.def is set, this value is used as ack flag, js-controller 2.0.0+)
-* `common.desc` (optional, string or object) - description, object for multilingual description
+* `common.desc` (optional, string or object) - Description, object for multilingual description
 * `common.read` (bool, mandatory) - true if the data point is readable
 * `common.write` (bool, mandatory) - true if the data point is writable
 * `common.role` (string, mandatory) - Role of the data point (used in user interfaces to specify which widget to select. [Look here](../dev/stateroles.md)

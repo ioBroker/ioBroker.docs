@@ -790,6 +790,11 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Dependencies updated
+
 ### 0.0.9 (2024-12-20)
 
 - (Lucky-ESA) Fixed: Reading files from Redis database
@@ -849,7 +854,7 @@ app-on-off-schedules-widget {
 
 MIT License
 
-Copyright (c) 2024 Lucky_ESA <github@luckyskills.de>
+Copyright (c) 2024-2025 Lucky_ESA <github@luckyskills.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

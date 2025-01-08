@@ -14,7 +14,7 @@
             "en": "Introduction",
             "de": "Aufbau der Dokumentation",
             "ru": "Структура документации",
-            "zh-cn": "文档的结构"
+            "zh-cn": "文档结构"
           },
           "content": "intro/README.md"
         }
@@ -168,7 +168,7 @@
               "title": {
                 "en": "Node.js",
                 "de": "Node.js und npm",
-                "ru": "Node.js и нпм",
+                "ru": "Node.js и npm",
                 "zh-cn": "Node.js 和 npm"
               },
               "content": "install/nodejs.md"
@@ -195,7 +195,7 @@
               "title": {
                 "en": "Adapter",
                 "de": "Adapter updaten",
-                "ru": "Обновление адаптеров",
+                "ru": "Обновить адаптер",
                 "zh-cn": "更新适配器"
               },
               "content": "install/updateadapter.md"
@@ -280,7 +280,7 @@
           "title": {
             "en": "Log",
             "de": "Log",
-            "ru": "Журнал",
+            "ru": "Бревно",
             "zh-cn": "日志"
           },
           "content": "admin/log.md"
@@ -327,7 +327,7 @@
             "en": "Vis",
             "de": "VIS",
             "ru": "ВИС",
-            "zh-cn": "可见光"
+            "zh-cn": "视觉系统"
           },
           "content": "viz/vis.md",
           "pages": {
@@ -531,7 +531,7 @@
           "title": {
             "en": "Installation Fixer",
             "de": "ioBroker Installation Fixer",
-            "ru": "Исправление установки ioBroker",
+            "ru": "Средство исправления установки ioBroker",
             "zh-cn": "ioBroker 安装修复程序"
           },
           "content": "trouble/install_fixer.md"
@@ -622,8 +622,8 @@
               "title": {
                 "en": "Style Guide Documentation",
                 "de": "Styleguide Dokumentation",
-                "ru": "Документация по руководству по стилю",
-                "zh-cn": "样式指南文档"
+                "ru": "Документация руководства по стилю",
+                "zh-cn": "风格指南文档"
               },
               "content": "community/styleguidedoc.md"
             },
@@ -669,7 +669,7 @@
               "title": {
                 "en": "WebStorm",
                 "de": "WebStorm",
-                "ru": "Вебсторм",
+                "ru": "Веб-Шторм",
                 "zh-cn": "网络风暴"
               },
               "content": "dev/webstorm.md"
@@ -689,7 +689,7 @@
           "title": {
             "en": "Adapter reference",
             "de": "Adapterreferenz",
-            "ru": "Ссылка на адаптер",
+            "ru": "Справочник адаптера",
             "zh-cn": "适配器参考"
           },
           "content": "dev/adapterref.md"
@@ -780,7 +780,7 @@
             "en": "Add new device",
             "de": "Gerät zu Sprachassistenten hinzufügen",
             "ru": "Как добавить устройство в Alexa или Google Home",
-            "zh-cn": "如何将设备添加到 alexa 或 google home"
+            "zh-cn": "如何将设备添加到 Alexa 或 Google Home"
           },
           "content": "dev/adddevice.md"
         }

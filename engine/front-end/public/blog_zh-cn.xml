@@ -46,9 +46,9 @@
             <pubDate>Tue, 01 Oct 2024 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[2024 年 6 月综述。新的月份，新的 ioBroker 功能！]]></title>
+            <title><![CDATA[TR: RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!]]></title>
             <description><![CDATA[
-                <p>在这篇博文中，我们将了解 2024 年 6 月有关 ioBroker 的创新、更新和新闻：测试版 js-controller 6.0、新小部件、admin 7.0 中的更改、新适配器（waterkotte-easycon、hiob、notificationforandroidtv、gree-hvac） ）、新应用、新 YouTube 视频。</p>
+                <p>TR: #  RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!\nTR: In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2024_06_30</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_06_30</guid>
@@ -56,9 +56,9 @@
             <pubDate>Sun, 30 Jun 2024 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[ioBroker JavaScript 适配器 - 改进 2024 年 4 月至 5 月]]></title>
+            <title><![CDATA[TR: ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024]]></title>
             <description><![CDATA[
-                <p>此摘要包含 JavaScript 适配器自版本 8.0.0 以来最重要的更改。</p>
+                <p>TR: # ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024\nTR: Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2024_06_04</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_06_04</guid>
@@ -66,9 +66,9 @@
             <pubDate>Tue, 04 Jun 2024 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[2024 年 5 月更新 - ioBroker 的最新新闻和动态]]></title>
+            <title><![CDATA[TR: May 2024 Update - Latest News and Developments in ioBroker]]></title>
             <description><![CDATA[
-                <p>您好，ioBroker 社区！</p>
+                <p>TR: # May 2024 Update: Latest News and Developments in ioBroker\nTR: Hello, ioBroker community!</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2024_06_02</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_06_02</guid>
@@ -76,9 +76,9 @@
             <pubDate>Sun, 02 Jun 2024 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[综述第 2 部分 - 2023 年 12 月至 2024 年 2 月]]></title>
+            <title><![CDATA[TR: A Roundup Part 2 - from December 2023 to February 2024]]></title>
             <description><![CDATA[
-                <p>*ioBroker 中新适配器和功能的概述*。\n进一步探索：本博客重点介绍了在此期间发布的其他适配器和功能。</p>
+                <p>TR: # A Roundup Part 2: from December 2023 to February 2024\nTR: *An overview of new adapters, and features in ioBroker*.\nExploring Further: This blog highlights additional adapters and features released during this period.</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2024_05_12</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_05_12</guid>
@@ -86,9 +86,9 @@
             <pubDate>Sun, 12 May 2024 06:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[综述第 1 部分 - 2023 年 10 月至 2023 年 11 月]]></title>
+            <title><![CDATA[TR: A Roundup Part 1 - from October 2023 to November 2023]]></title>
             <description><![CDATA[
-                <p>*对 ioBroker 新闻、适配器和功能的“迟做总比不做好”评论*。\n在不断发展的家庭自动化世界中，ioBroker 将继续存在，并在 2023 年 10 月至 2024 年 2 月期间进行一系列更新和添加。\n让我们仔细看看这段时间引入的一些进展，尽管这篇博文有点晚了。</p>
+                <p>TR: # A Roundup Part 1: from October 2023 to November 2023\nTR: *A "better late than never" review of the ioBroker news, adapters, and features*.\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late.</p>
             ]]></description>
             <link>https://www.iobroker.net/#zh-cn/blog/2024_04_23</link>
             <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2024_04_23</guid>

@@ -15,7 +15,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.imap/README.md
 title: ioBroker.imap
-hash: BE8xTSdendU5kOGm3Qc7OzvaA15xSrafXCkQWeHNWpQ=
+hash: pSyObz0wCAvNSsWkV6Fp6Bbneohu2H1Jz0X4/X3mNQM=
 ---
 ![логотип](../../../de/admin/imap.png)
 
@@ -31,17 +31,18 @@ hash: BE8xTSdendU5kOGm3Qc7OzvaA15xSrafXCkQWeHNWpQ=
 - [Настройки экземпляра](#instance-settings)
     - [TAB Настройки IMAP](#instance-configuration-tab-imap-create)
     - [Настройки значков TAB](#instance-configuration-tab-icons-create)
+    - [Вкладка «Настройки» Oauth2] (#instance-configuration-tab-oauth2-create)
     - [TAB Mailparser Settings](#create-instance-configuration-tab-mailparser-options)
-- [точки данных](#точки данных)
-    - [точки данных imap.0](#точки данных-imap0)
-    - [datapoints imap.0.username](#datapoints-imap0username)
-    - [Точки данных imap.0.username.email.emails_xx](#data Points-imap0usernameemailemail_xx)
-    - [точки данных imap.0.username.infos](#data Points-imap0usernameinfos)
-    - [точки данных imap.0.username.remote](#datapoints-imap0usernameremote)
-    - [точки данных imap.0.username.remote.copy](#datapoints-imap0usernameremotecopy)
-    - [datapoints imap.0.username.remote.flag](#datapoints-imap0usernameremoteflag)
-    - [точки данных imap.0.username.remote.html](#datapoints-imap0usernameremotehtml)
-    - [точки данных imap.0.username.remote.move](#datapoints-imap0usernameremotemove)
+- [точки данных](#состояния-объекты)
+    - [точки данных imap.0](#states-imap0)
+    - [точки данных imap.0.имя_пользователя](#states-imap0username)
+    - [точки данных imap.0.username.email.emails_xx](#states-imap0usernameemailemail_xx)
+    - [Точки данных imap.0.username.infos](#states-imap0usernameinfos)
+    - [точки данных imap.0.username.remote](#states-imap0usernameremote)
+    - [точки данных imap.0.username.remote.copy](#states-imap0usernameremotecopy)
+    - [точки данных imap.0.username.remote.flag](#states-imap0usernameremoteflag)
+    - [точки данных imap.0.username.remote.html](#states-imap0usernameremotehtml)
+    - [точки данных imap.0.username.remote.move](#states-imap0usernameremotemove)
 - [Блоклис](#blocklys)
     - [Изменить настройки экземпляра Blockly](#blockly-imap-query-with-instance-settings)
     - [Создайте свой собственный запрос](#blockly-imap-query-change)
@@ -66,14 +67,14 @@ hash: BE8xTSdendU5kOGm3Qc7OzvaA15xSrafXCkQWeHNWpQ=
 
 - «Активно»: активировать соединение IMAP.
 - `Хост`: например. Например, imap.gmail.com
-- `Входящие`: стандартные INBOX - Ящик, который следует отслеживать - Возможный выбор см. imap.0.xxx.remote.change_folder
+- `Входящие`: стандартный INBOX - Ящик, который следует отслеживать - Возможный выбор см. imap.0.xxx.remote.change_folder
 - «Порт»: по умолчанию 993.
 - `Username`: Имя пользователя - Экземпляр должен быть активирован!!!
-- `Пароль`: Пароль - экземпляр должен быть активирован!!! - [вход в Gmail](https://support.google.com/mail/answer/185833?hl=de) - [двухкратная аутентификация Outlook](https://mcuiobroker.gitbook.io/jarvis-infos/советы /general/microsoft-windows/двойная аутентификация)
+- `Пароль`: Пароль - экземпляр должен быть активирован!!! - [вход в Gmail](https://support.google.com/mail/answer/185833?hl=de) - [аутентификация Outlook Oauth2](https://learn.microsoft.com/en-us/entra/identity -platform/quickstart-register-app?tabs=certificate)
 
-    ![imap_create_1.png](../../../de/adapterref/iobroker.imap/img/imap_create_1.png)
+  ![imap_create_1.png](../../../de/adapterref/iobroker.imap/img/imap_create_1.png)
 
-- `max.`: максимальная система в виде точек данных email_01...email_02... (1-99)
+- `макс.`: максимальная система в виде точек данных email_01...email_02... (1-99)
 - `макс. HTML`: Максимальное количество писем в формате HTML. Должно быть больше макс. точек данных (1–99).
 - `TLS`: использовать соединение TLS - по умолчанию установлено значение true.
 - `Флаги`: флаг для запроса IMAP. Возможные флаги:
@@ -102,21 +103,22 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 - `tls-option`: по умолчанию {"rejectUnauthorized": false}
 - «Авто-TLS»: возможные варианты выбора: «всегда», «обязательно» и «никогда». По умолчанию никогда
 
-    **Для получения дополнительной информации прочтите [здесь](https://www.npmjs.com/package/node-imap).**
+  **Для получения дополнительной информации прочтите [здесь](https://www.npmjs.com/package/node-imap).**
 
 ![imap_create_2.png](../../../de/adapterref/iobroker.imap/img/imap_create_2.png)
 
 - `Атт.`: чтобы заполнить поле HTML, необходимо загрузить вложения. Это использует много оперативной памяти!!! Следовательно, значение по умолчанию «false»
 - `Опция Mailparser`: опция Mailparser (создается только на ВКЛАДКЕ `MAILPARSER OPTIONS`)
+- `Token`: токен [сначала создайте здесь](#instance-configuration-tab-oauth2-create)
 
 ![imap_create_3.png](../../../de/adapterref/iobroker.imap/img/imap_create_3.png)
 
 - `макс. Ограничение MEMRSS: С момента, когда, среди прочего, действие срабатывает.
-- `Перезапуск:` Если предел MEMRSS достигнут, адаптер будет перезапущен. Однако проверка осуществляется только каждые 24 часа.
+- `Перезапуск:` Если достигнут предел MEMRSS, адаптер будет перезапущен. Однако проверка осуществляется только каждые 24 часа.
 
 ![imap_create_restart.png](../../../de/adapterref/iobroker.imap/img/imap_create_restart.png)
 
-- `Точка данных:` Если достигнут предел MEMRSS, выбранной точке данных присваивается значение `истина`. Это необходимо сбросить вручную. Однако проверка осуществляется только каждые 24 часа.
+- `Идентификатор объекта:` Если достигнут предел MEMRSS, выбранной точке данных присваивается значение `истина`. Это необходимо сбросить вручную. Однако проверка осуществляется только каждые 24 часа.
 
 ![imap_create_datapoint.png](../../../de/adapterref/iobroker.imap/img/imap_create_datapoint.png)
 
@@ -134,6 +136,16 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_create_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_symbol.png)
 
+### Создание конфигурации экземпляра TAB oauth2
+[Краткое содержание](#zusammenfassung)
+
+- `Имя` Имя
+- Идентификатор клиента `Идентификатор клиента`
+- токен `Токен`
+- `Идентификатор клиента` Идентификатор клиента
+
+![imap_create_oauth2.png](img/imap_create_oauth2.png)</br> ![token_id.png](img/token_id.png)</br> ![client_id.png](img/client_id.png)</br> ![client_id.png](../../../de/adapterref/iobroker.imap/img/mandant_id.png)
+
 ### Создание конфигурации экземпляра Параметры анализатора почты TAB
 [Краткое содержание](#zusammenfassung)
 
@@ -146,8 +158,8 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_create_mailparser.png](../../../de/adapterref/iobroker.imap/img/imap_create_mailparser.png)
 
-# Точки данных
-### Точки данных `imap.0`
+# Состояний (объектов)
+### Состояния `imap.0`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -159,7 +171,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_total_overview.png](../../../de/adapterref/iobroker.imap/img/imap_total_overview.png)
 
-### Точки данных `imap.0.benutzername`
+### Состояния `imap.0.benutzername`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -179,7 +191,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_1.png)
 
-### Точки данных `imap.0.benutzername.email.email_xx`
+### Состояния `imap.0.benutzername.email.email_xx`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -199,7 +211,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_email_single.png](img/imap_overview_email_single.png) ![imap_overview_email.png](../../../de/adapterref/iobroker.imap/img/imap_overview_email.png)
 
-### Точки данных `imap.0.benutzername.infos`
+### Состояния `imap.0.benutzername.infos`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -228,7 +240,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_capability.png](img/imap_overview_capability.png) ![imap_overview_capability_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_capability_1.png)
 
-### Точки данных `imap.0.benutzername.remote`
+### Состояния `imap.0.benutzername.remote`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -249,7 +261,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ### Имя папки
 Старые имена папок можно просмотреть в объекте imap.0.xxx.remote.change_folder.
 
-### Точки данных `imap.0.benutzername.remote.copy`
+### Состояния `imap.0.benutzername.remote.copy`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -260,7 +272,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_remote_copy.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_copy.png)
 
-### Точки данных `imap.0.benutzername.remote.flag`
+### Состояния `imap.0.benutzername.remote.flag`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -272,7 +284,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_remote_flag.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_flag.png)
 
-### Точки данных `imap.0.benutzername.remote.html`
+### Состояния `imap.0.benutzername.remote.html`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -287,14 +299,14 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.header_tag_border_color | Заголовок цвета границы — по умолчанию # 424242 — Все возможно |
 | imap.0.xxx.remote.html.header_text_color | Цвет текста заголовка — по умолчанию #BDBDBD |
 | imap.0.xxx.remote.html.header_width | Ширина заголовка — по умолчанию авто — возможно в пикселях или % |
-| imap.0.xxx.remote.html.headline_align_column_1 | Столбец заголовка 1 для выравнивания текста — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
+| imap.0.xxx.remote.html.headline_align_column_1 | Выравнивание текста. Столбец 1 заголовка — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
 
 ![imap_overview_remote_html_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_1.png)
 
 | Объект | Описание |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | imap.0.xxx.remote.html.headline_align_column_2 | Столбец заголовка 2 для выравнивания текста — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
-| imap.0.xxx.remote.html.headline_align_column_3 | Столбец заголовка 3 для выравнивания текста — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
+| imap.0.xxx.remote.html.headline_align_column_3 | Выравнивание текста. Столбец 3 заголовка — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
 | imap.0.xxx.remote.html.headline_align_column_4 | Столбец заголовка 4 для выравнивания текста — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
 | imap.0.xxx.remote.html.headline_align_column_5 | Столбец заголовка 5 для выравнивания текста — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
 | imap.0.xxx.remote.html.headline_align_column_6 | Столбец 6 заголовка выравнивания текста — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
@@ -320,7 +332,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.headline_column_width_9 | Ширина столбца, столбец 9 — по умолчанию авто — возможные пиксели или % |
 | imap.0.xxx.remote.html.headline_font_size | Размер текста в строках — по умолчанию 16 пикселей |
 | imap.0.xxx.remote.html.headline_height | Высота ячейки — по умолчанию 35 пикселей |
-| imap.0.xxx.remote.html.headline_style | Стиль ячеек — Нормальный по умолчанию — Возможен обычный или полужирный |
+| imap.0.xxx.remote.html.headline_style | Стиль ячеек – Нормальный по умолчанию – Возможен обычный или полужирный |
 
 ![imap_overview_remote_html_3.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_3.png)
 
@@ -333,9 +345,9 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.mails_nextday_color_even | Цвет фона строк для прямых идентификаторов вчера — стандартный #F7FFE0 |
 | imap.0.xxx.remote.html.mails_nextday_color_odd | Цвет фона строк для нечетных идентификаторов вчера — по умолчанию #F7FFE0 |
 | imap.0.xxx.remote.html.mails_odd_color | Цвет фона линии для нечетных идентификаторов — по умолчанию #FFE32E |
-| imap.0.xxx.remote.html.mails_today_color | Цвет фона строк для прямых идентификаторов текущего дня — по умолчанию #ffffff |
+| imap.0.xxx.remote.html.mails_today_color | Цвет фона строк для текущего дня прямого идентификатора — по умолчанию #ffffff |
 | imap.0.xxx.remote.html.mails_today_color_odd | Цвет фона строк для нечетных идентификаторов текущего дня — по умолчанию #ffffff |
-| imap.0.xxx.remote.html.p_tag_text_align | Выравнивание текста верхнего и нижнего колонтитула — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
+| imap.0.xxx.remote.html.p_tag_text_align | Выравнивание текста в верхнем и нижнем колонтитулах — по умолчанию по центру </br> Возможно по центру, слева, справа и автоматически |
 | imap.0.xxx.remote.html.short_content | Ограничение по содержанию букв - стандарт 35 |
 | imap.0.xxx.remote.html.short_subject | Ограничение количества писем в теме - по умолчанию 35 |
 | imap.0.xxx.remote.html.table_tag_border_color | Цвет границы таблицы — по умолчанию # 424242 |
@@ -368,7 +380,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.text_select_delflag | Начальный текст в поле выбора флага — по умолчанию delFlags — |
 | imap.0.xxx.remote.html.text_select_move | Начало текста в поле выбора копии — перемещение по умолчанию |
 | imap.0.xxx.remote.html.text_select_setflag | Начальный текст в поле выбора флага — по умолчанию setFlags — |
-| imap.0.xxx.remote.html.text_seq | Столбец текста заголовка 6 – стандартный SEQ |
+| imap.0.xxx.remote.html.text_seq | Столбец 6 текста заголовка — стандартный SEQ |
 | imap.0.xxx.remote.html.text_setflag | Столбец текста заголовка 10 — Стандартное действие флага |
 | imap.0.xxx.remote.html.text_subject | Столбец текста заголовка 3 — Тема по умолчанию |
 | imap.0.xxx.remote.html.text_uid | Столбец текста заголовка 8 — UID по умолчанию |
@@ -385,7 +397,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_remote_html_7.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_7.png)
 
-### Точки данных `imap.0.benutzername.remote.move`
+### Состояния `imap.0.benutzername.remote.move`
 [Краткое содержание](#zusammenfassung)
 
 | Объект | Описание |
@@ -400,7 +412,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ### Изменение блочного запроса IMAP
 [Краткое содержание](#zusammenfassung)
 
-- Это позволяет вам установить эти [точки данных](#datapoints-imap0usernameremote).
+- Это позволяет вам установить эти [точки данных](#states-imap0usernameremote).
 - Возможные флаги можно найти [в конфигурации экземпляра] (#instance-configuration-tab-imap-create).
 - Выбор соединения IMAP возможен или применяется ко всем.
 - Разрешено максимум 100 писем.
@@ -410,7 +422,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ### Собственный запрос Blockly IMAP
 [Краткое содержание](#zusammenfassung)
 
--   ОПАСНОСТЬ! Все данные, такие как: Например, вложения. Этот запрос может довести ОЗУ или ЦП до предела. Если будет создан неправильный критерий, это может привести к сбою iobroker!!!
+- ОПАСНОСТЬ! Все данные, такие как: Например, вложения. Этот запрос может довести ОЗУ или ЦП до предела. Если будет создан неправильный критерий, это может привести к сбою iobroker!!!
 - Затем данные доставляются в формате JSON.
 - При выводе журнала файл журнала становится очень большим. Поэтому позже удалите вывод журнала еще раз.
 - Необходимо создать переменную с именем result.
@@ -423,7 +435,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 [Краткое содержание](#zusammenfassung)
 
 - Загрузите все данные из соединения IMAP и обработайте их самостоятельно. Настройка экземпляра используется в качестве критерия поиска.
--   ОПАСНОСТЬ! Высокое потребление оперативной памяти
+- ОПАСНОСТЬ! Высокое потребление оперативной памяти
 - Затем данные доставляются в формате JSON.
 - При выводе журнала файл журнала становится очень большим. Поэтому позже удалите вывод журнала еще раз.
 - Необходимо создать переменную с именем result.
@@ -582,109 +594,114 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ### **WORK IN PROGRESS**
 
--   (Lucky-ESA) Mailbox folder delete added
--   (Lucky-ESA) Mailbox folder create added
--   (Lucky-ESA) Change Mailbox Folder name added
--   (Lucky-ESA) IMAP package changed
+- (Lucky-ESA) Description revised
+
+### 0.3.0 (2024-12-07)
+
+- (Lucky-ESA) Mailbox folder delete added
+- (Lucky-ESA) Mailbox folder create added
+- (Lucky-ESA) Change Mailbox Folder name added
+- (Lucky-ESA) IMAP package changed
+- (Lucky-ESA) Migration to ESLint9
 
 ### 0.2.2 (2024-11-07)
 
--   (Lucky-ESA) New design for settings page added
--   (Lucky-ESA) Crash if uid is empty for new emails
+- (Lucky-ESA) New design for settings page added
+- (Lucky-ESA) Crash if uid is empty for new emails
 
 ### 0.2.1 (2024-09-16)
 
--   (Lucky-ESA) Update dependencies
--   (Lucky-ESA) Changed Log info to debug
--   (Lucky-ESA) Fixed blockly setFlag crash
+- (Lucky-ESA) Update dependencies
+- (Lucky-ESA) Changed Log info to debug
+- (Lucky-ESA) Fixed blockly setFlag crash
 
 ### 0.2.0 (2024-06-15)
 
--   (Lucky-ESA) Updated Blockly definitions
--   (Lucky-ESA) JS-Controller >= 5.0.19 required
--   (Lucky-ESA) Admin >=6.13.16 required
+- (Lucky-ESA) Updated Blockly definitions
+- (Lucky-ESA) JS-Controller >= 5.0.19 required
+- (Lucky-ESA) Admin >=6.13.16 required
 
 ### 0.1.3 (2024-03-06)
 
--   (Lucky-ESA) Fixed setFlag
--   (Lucky-ESA) Fixed sendTo error during instance deletion ([#57](https://github.com/Lucky-ESA/ioBroker.imap/issues/57))
--   (Lucky-ESA) Mass email shift intercepted
+- (Lucky-ESA) Fixed setFlag
+- (Lucky-ESA) Fixed sendTo error during instance deletion ([#57](https://github.com/Lucky-ESA/ioBroker.imap/issues/57))
+- (Lucky-ESA) Mass email shift intercepted
 
 ### 0.1.2 (2024-01-24)
 
--   (Lucky-ESA) Added missing translate
--   (Lucky-ESA) Updated package
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added missing translate
+- (Lucky-ESA) Updated package
+- (Lucky-ESA) Bug fixes
 
 ### 0.1.1 (2023-09-11)
 
--   (Lucky-ESA) Delete wrong error parse message
+- (Lucky-ESA) Delete wrong error parse message
 
 ### 0.1.0 (2023-09-06)
 
--   (Lucky-ESA) Added RAM consumption - Instance Settings
--   (Lucky-ESA) Added german documention
--   (Lucky-ESA) Added Mailparser options
--   (Lucky-ESA) Added counter history
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added RAM consumption - Instance Settings
+- (Lucky-ESA) Added german documention
+- (Lucky-ESA) Added Mailparser options
+- (Lucky-ESA) Added counter history
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.9 (2023-07-26)
 
--   (Lucky-ESA) Fixed RAM consumption of new emails
--   (Lucky-ESA) Added counter attachments in JSON
+- (Lucky-ESA) Fixed RAM consumption of new emails
+- (Lucky-ESA) Added counter attachments in JSON
 
 ### 0.0.8 (2023-07-13)
 
--   (Lucky-ESA) Fix refresh crash
--   (Lucky-ESA) Added MB threshold
+- (Lucky-ESA) Fix refresh crash
+- (Lucky-ESA) Added MB threshold
 
 ### 0.0.7 (2023-04-25)
 
--   (Lucky-ESA) Fix correct counter for seen and unseen
--   (Lucky-ESA) Added capabilities
--   (Lucky-ESA) Criteria change without restart
--   (Lucky-ESA) Added outlook.office365.com oauth2 login
--   (Lucky-ESA) Added Connection.js from Module to Adapter
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Fix correct counter for seen and unseen
+- (Lucky-ESA) Added capabilities
+- (Lucky-ESA) Criteria change without restart
+- (Lucky-ESA) Added outlook.office365.com oauth2 login
+- (Lucky-ESA) Added Connection.js from Module to Adapter
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.6 (2023-03-17)
 
--   (Lucky-ESA) Added trigger move or copy emails
--   (Lucky-ESA) Added JSON for multiple IMAP accounts
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added trigger move or copy emails
+- (Lucky-ESA) Added JSON for multiple IMAP accounts
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.5 (2023-03-15)
 
--   (Lucky-ESA) Added: Limited reconnected (5 max)
--   (Lucky-ESA) Added: into datapoints
--   (Lucky-ESA) Added: Password entry not possible without an active instance
--   (Lucky-ESA) Added: Added description to readme
--   (Lucky-ESA) Added: Added move or copy
--   (Lucky-ESA) Added: Set flag with datapoints
--   (Lucky-ESA) Fix: debug output without attachments
--   (Lucky-ESA) Fix: wrong json_table
--   (Lucky-ESA) Fix: value null
--   (Lucky-ESA) Change: Reconnected change info level to debug level
--   (Lucky-ESA) Change: correct dp roles
--   (Lucky-ESA) Change: delete attachments (too much RAM usage)
+- (Lucky-ESA) Added: Limited reconnected (5 max)
+- (Lucky-ESA) Added: into datapoints
+- (Lucky-ESA) Added: Password entry not possible without an active instance
+- (Lucky-ESA) Added: Added description to readme
+- (Lucky-ESA) Added: Added move or copy
+- (Lucky-ESA) Added: Set flag with datapoints
+- (Lucky-ESA) Fix: debug output without attachments
+- (Lucky-ESA) Fix: wrong json_table
+- (Lucky-ESA) Fix: value null
+- (Lucky-ESA) Change: Reconnected change info level to debug level
+- (Lucky-ESA) Change: correct dp roles
+- (Lucky-ESA) Change: delete attachments (too much RAM usage)
 
 ### 0.0.4 (2023-03-03)
 
--   (Lucky-ESA) Fix json_table
+- (Lucky-ESA) Fix json_table
 
 ### 0.0.3 (2023-03-03)
 
--   (Lucky-ESA) Beta release
+- (Lucky-ESA) Beta release
 
 ### 0.0.2 (2023-03-03)
 
--   (Lucky-ESA) initial release
+- (Lucky-ESA) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2023-2024 Lucky-ESA <github@luckyskills.de>
+Copyright (c) 2023-2025 Lucky-ESA <github@luckyskills.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

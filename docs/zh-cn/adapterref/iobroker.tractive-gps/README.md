@@ -81,6 +81,13 @@ hash: UK0rDDy+fjpro8mYDetaov7yQYXMGOmdZb5XkbGVoO8=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2024-11-12)
+* (mcm1957) Adapter requires node 20 now.
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+* (simatec) Adapter changed to meet Responsive Design rules.
+* (mcm1957) An error at jsonConfig invalidating reauthorization command has been corrected.
+* (mcm1957) Dependencies have been updated.
+
 ### 2.0.1 (2024-08-20)
 * (bluefox) Fixing encryption of the access token
 
@@ -97,10 +104,6 @@ hash: UK0rDDy+fjpro8mYDetaov7yQYXMGOmdZb5XkbGVoO8=
 * (Scrounger) Bugfix: objects will be created only if necessary
 * (Scrounger) Bugfix for excessive number of warnings has been added
 * (Scrounger) Distance calculation between ioBroker and tracker has been added
-
-### 1.0.0 (2023-11-04)
-* (mcm1957) Adapter has been moved into iobroker-community-adapters organisation
-* (mcm1957) Dependencies have been updated
 
 ## License
 MIT License

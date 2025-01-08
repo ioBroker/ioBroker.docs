@@ -95,9 +95,10 @@ NodeJS >= 18.x and js-controller >= 5 is required
 * (klein0r) Avoid logging of api key
 
 ## License
+
 MIT License
 
-Copyright (c) 2021-2024 Patrick-Walther
+Copyright (c) 2021-2025 Patrick-Walther
                         Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

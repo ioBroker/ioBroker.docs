@@ -15,7 +15,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.imap/README.md
 title: ioBroker.imap
-hash: BE8xTSdendU5kOGm3Qc7OzvaA15xSrafXCkQWeHNWpQ=
+hash: pSyObz0wCAvNSsWkV6Fp6Bbneohu2H1Jz0X4/X3mNQM=
 ---
 ![标识](../../../de/admin/imap.png)
 
@@ -31,24 +31,25 @@ hash: BE8xTSdendU5kOGm3Qc7OzvaA15xSrafXCkQWeHNWpQ=
 - [实例设置](#instance-settings)
     - [TAB IMAP 设置](#instance-configuration-tab-imap-create)
     - [选项卡图标设置](#instance-configuration-tab-icons-create)
+    - [设置选项卡 Oauth2](#instance-configuration-tab-oauth2-create)
     - [TAB 邮件解析器设置](#create-instance-configuration-tab-mailparser-options)
-- [数据点](#数据点)
-    - [数据点 imap.0](#数据点-imap0)
-    - [数据点 imap.0.用户名](#datapoints-imap0用户名)
-    - [数据点 imap.0.username.email.emails_xx](#data 点-imap0usernameemailemail_xx)
-    - [数据点 imap.0.username.infos](#datapoints-imap0usernameinfos)
-    - [数据点 imap.0.username.remote](#数据点-imap0usernameremote)
-    - [数据点 imap.0.username.remote.copy](#数据点-imap0usernameremotecopy)
-    - [数据点 imap.0.username.remote.flag](#datapoints-imap0usernameremoteflag)
-    - [数据点 imap.0.username.remote.html](#数据点-imap0usernameremotehtml)
-    - [数据点 imap.0.username.remote.move](#数据点-imap0usernameremotemove)
+- [数据点](#states-objects)
+    - [数据点 imap.0](#states-imap0)
+    - [数据点 imap.0.用户名](#states-imap0用户名)
+    - [数据点 imap.0.username.email.emails_xx](#states-imap0usernameemailemail_xx)
+    - [数据点 imap.0.username.infos](#states-imap0usernameinfos)
+    - [数据点 imap.0.username.remote](#states-imap0usernameremote)
+    - [数据点 imap.0.username.remote.copy](#states-imap0usernameremotecopy)
+    - [数据点 imap.0.username.remote.flag](#states-imap0usernameremoteflag)
+    - [数据点 imap.0.username.remote.html](#states-imap0usernameremotehtml)
+    - [数据点 imap.0.username.remote.move](#states-imap0usernameremotemove)
 - [Blocklys](#blocklys)
     - [更改 Blockly 实例设置](#blockly-imap-query-with-instance-settings)
     - [创建您自己的查询](#blockly-imap-query-change)
     - [使用实例设置查询](#blockly-imap-own-query)
     - [设置标志](#blockly-imap-flags-set)
 - [数组 JSON](#array-json)
-    - [imap.0.xxx.email.email_xx.attach_json](#array-json-imap0xxxemail_xxattach_json)
+    - [imap.0.xxx.email.email_xx.attach_json](#array-json-imap0xxxemailemail_xxattach_json)
     - [imap.0.xxx.json](#array-json-imap0xxxjson)
     - [imap.0.xxx.last_activity_json](#json-imap0xxxlast_activity_json)
     - [imap.0.xxx.quality](#json-imap0xxxquality)
@@ -69,9 +70,9 @@ hash: BE8xTSdendU5kOGm3Qc7OzvaA15xSrafXCkQWeHNWpQ=
 - `收件箱`：标准收件箱 - 应监控的收件箱 - 可能的选择请参阅 imap.0.xxx.remote.change_folder
 - `端口`：默认 993
 - `用户名`：用户名 - 实例必须激活！！！
-- `密码`：密码 - 实例必须激活！！！ - [gmail 登录](https://support.google.com/mail/answer/185833?hl=de) - [outlook 2重身份验证](https://mcuiobroker.gitbook.io/jarvis-infos/ Tips /general/microsoft-windows/双重身份验证）
+- `密码`：密码 - 实例必须激活！！！ - [gmail 登录](https://support.google.com/mail/answer/185833?hl=de) - [outlook Oauth2 身份验证](https://learn.microsoft.com/en-us/entra/identity -platform/quickstart-register-app?tabs=证书）
 
-    ![imap_create_1.png](../../../de/adapterref/iobroker.imap/img/imap_create_1.png)
+  ![imap_create_1.png](../../../de/adapterref/iobroker.imap/img/imap_create_1.png)
 
 - `max.`：最大系统数据点 email_01...email_02... (1-99)
 - `最大。 HTML`：HTML 格式的电子邮件的最大数量。必须大于最大数据点 (1-99)
@@ -102,12 +103,13 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 - `tls-option`：默认为 {"rejectUnauthorized": false}
 - “自动 TLS”：可能的选择是“始终”、“必需”和“从不”。默认是从不
 
-    **如需了解更多信息，请阅读[这里](https://www.npmjs.com/package/node-imap).**
+  **如需了解更多信息，请阅读[这里](https://www.npmjs.com/package/node-imap).**
 
 ![imap_create_2.png](../../../de/adapterref/iobroker.imap/img/imap_create_2.png)
 
 - `Att.`：为了填写 HTML 字段，必须加载附件。这会占用大量内存！因此默认为“false”
 - `Mailparser option`：Mailparser选项（仅在选项卡`MAILPARSER OPTIONS`下创建）
+- `Token`：令牌[首先在此处创建](#instance-configuration-tab-oauth2-create)
 
 ![imap_create_3.png](../../../de/adapterref/iobroker.imap/img/imap_create_3.png)
 
@@ -116,7 +118,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_create_restart.png](../../../de/adapterref/iobroker.imap/img/imap_create_restart.png)
 
-- `数据点：` 如果达到 MEMRSS 限制，则所选数据点将设置为 `true`。这必须手动重置。但是，仅每 24 小时检查一次。
+- `对象 ID：` 如果达到 MEMRSS 限制，则所选数据点将设置为 `true`。这必须手动重置。但是，仅每 24 小时检查一次。
 
 ![imap_create_datapoint.png](../../../de/adapterref/iobroker.imap/img/imap_create_datapoint.png)
 
@@ -134,6 +136,16 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_create_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_symbol.png)
 
+### 创建实例配置选项卡oauth2
+[概括](#zusammenfassung)
+
+- `姓名` 姓名
+- `客户 ID` 客户 ID
+-`令牌`令牌
+- `客户端 ID` 客户端 ID
+
+![imap_create_oauth2.png](img/imap_create_oauth2.png)</br> ![token_id.png](img/token_id.png)</br> ![client_id.png](img/client_id.png)</br> ![client_id.png](../../../de/adapterref/iobroker.imap/img/mandant_id.png)
+
 ### 创建实例配置选项卡邮件解析器选项
 [概括](#zusammenfassung)
 
@@ -146,8 +158,8 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_create_mailparser.png](../../../de/adapterref/iobroker.imap/img/imap_create_mailparser.png)
 
-# 数据点
-### 数据点`imap.0`
+# 状态（对象）
+### 州 `imap.0`
 [概括](#zusammenfassung)
 
 |对象|描述 |
@@ -159,7 +171,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_total_overview.png](../../../de/adapterref/iobroker.imap/img/imap_total_overview.png)
 
-### 数据点`imap.0.benutzername`
+### 州 `imap.0.benutzername`
 [概括](#zusammenfassung)
 
 |对象|描述 |
@@ -172,14 +184,14 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.last_activity_json | imap.0.xxx.last_activity_json |哪个活动作为数组 JSON - [示例](#json-imap0xxxlast_activity_json) |
 | imap.0.xxx.last_activity_timestamp | imap.0.xxx.last_activity_timestamp |上次活动时间戳 |
 | imap.0.xxx.quality |所有数据点的质量（JSON 格式）。每 24 小时更新一次 - [例子](#json-imap0xxxquality) |
-| imap.0.xxx.status |有关 JSON 格式的 IMAP 连接的信息 - [例子](#json-imap0xxxstatus) |
+| imap.0.xxx.status | imap.0.xxx.status | imap.0.xxx.status有关 JSON 格式的 IMAP 连接的信息 - [例子](#json-imap0xxxstatus) |
 | imap.0.xxx.status |有关 JSON 格式的 IMAP 连接的信息 - [示例](#json-imap0xxxstatus) |
 | imap.0.xxx.总计 |活动收件箱中的电子邮件数量 |
 | imap.0.xxx.total_unread | imap.0.xxx.total_unread |活动收件箱中未读电子邮件的数量 |
 
 ![imap_overview_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_1.png)
 
-### 数据点`imap.0.benutzername.email.email_xx`
+### 州 `imap.0.benutzername.email.email_xx`
 [概括](#zusammenfassung)
 
 |对象|描述 |
@@ -192,14 +204,14 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.email.email_01.receive | imap.0.xxx.email.email_01.receive |收到日期 |
 | imap.0.xxx.email.email_01.seq |序列号 |
 | imap.0.xxx.email.email_01.size | imap.0.xxx.email.email_01.size电子邮件的大小（以字节为单位）|
-| imap.0.xxx.email.email_01.subject | imap.0.xxx.email.email_01.subject | imap.0.xxx.email.email_01.subject电子邮件主题 |
+| imap.0.xxx.email.email_01.subject | imap.0.xxx.email.email_01.subject电子邮件主题 |
 | imap.0.xxx.email.email_01.texthtml |内容为 HTML |
 | imap.0.xxx.email.email_01.to | imap.0.xxx.email.email_01.to |接收器作为数组 |
 | imap.0.xxx.email.email_01.uid |唯一的UID |
 
 ![imap_overview_email_single.png](img/imap_overview_email_single.png)![imap_overview_email.png](../../../de/adapterref/iobroker.imap/img/imap_overview_email.png)
 
-### 数据点`imap.0.benutzername.infos`
+### 州 `imap.0.benutzername.infos`
 [概括](#zusammenfassung)
 
 |对象|描述 |
@@ -212,8 +224,8 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.infos.id | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
 | imap.0.xxx.infos.idle | imap.0.xxx.infos.idle | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
 | imap.0.xxx.infos.literal\* | imap.0.xxx.infos.literal\* | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.logindisabled | imap.0.xxx.infos.logindisabled | imap.0.xxx.infos.logindisabled [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.move | imap.0.xxx.infos.move |电子邮件可以移动。 [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
+| imap.0.xxx.infos.logindisabled | imap.0.xxx.infos.logindisabled | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
+| imap.0.xxx.infos.move |电子邮件可以移动。 [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
 | imap.0.xxx.infos.命名空间 | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
 | imap.0.xxx.infos.quota | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
 | imap.0.xxx.infos.sasl-ir | imap.0.xxx.infos.sasl-ir | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
@@ -224,11 +236,11 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.infos.thread_references | imap.0.xxx.infos.thread_references [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
 | imap.0.xxx.infos.unselect | imap.0.xxx.infos.unselect | [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
 | imap.0.xxx.infos.x-gm-ext-1 | imap.0.xxx.infos.x-gm-ext-1 | imap.0.xxx.infos.x-gm-ext-1 [看](https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml) |
-| imap.0.xxx.infos.x-gm-ext-1 | imap.0.xxx.infos.x-gm-ext-1 | [参见](https://www.iana.org/assignments/imap-capability/imap-capability.xhtml) |
+| imap.0.xxx.infos.x-gm-ext-1 | imap.0.xxx.infos.x-gm-ext-1 | imap.0.xxx.infos.x-gm-ext-1 [参见](https://www.iana.org/assignments/imap-capability/imap-capability.xhtml) |
 
 ![imap_overview_capability.png](img/imap_overview_capability.png)![imap_overview_capability_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_capability_1.png)
 
-### 数据点`imap.0.benutzername.remote`
+### 州 `imap.0.benutzername.remote`
 [概括](#zusammenfassung)
 
 |对象|描述 |
@@ -237,9 +249,9 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.change_folder | imap.0.xxx.remote.change_folder | imap.0.xxx.remote.change_folder |实例配置：更改应监视和显示的邮件文件夹。仅在重新启动后才会重置。                                            |
 | imap.0.xxx.remote.criteria | imap.0.xxx.remote.criteria |实例配置：更改搜索。仅在重新启动后才会重置。                                                                                           |
 | imap.0.xxx.remote.mailbox_folder_change_name | imap.0.xxx.remote.mailbox_folder_change_name |更改邮箱文件夹名称示例[“INBOX.imap”、“INBOX.newimap”] [参见](#ordnername) |
-| imap.0.xxx.remote.mailbox_folder_create | imap.0.xxx.remote.mailbox_folder_create |创建邮箱文件夹 |
+| imap.0.xxx.remote.mailbox_folder_create | imap.0.xxx.remote.mailbox_folder_create |创建邮箱文件夹|
 | imap.0.xxx.remote.mailbox_folder_delete | imap.0.xxx.remote.mailbox_folder_delete |删除包含内容的邮箱文件夹 |
-| imap.0.xxx.remote.reload_emails | imap.0.xxx.remote.reload_emails重新加载电子邮件。                                                                                                                                                    |
+| imap.0.xxx.remote.reload_emails | imap.0.xxx.remote.reload_emails | imap.0.xxx.remote.reload_emails重新加载电子邮件。                                                                                                                                                    |
 | imap.0.xxx.remote.search_start | imap.0.xxx.remote.search_start | imap.0.xxx.remote.search_start | imap.0.xxx.remote.search_start将更改应用于change_folder、条件和show_mails |
 | imap.0.xxx.remote.show_mails | imap.0.xxx.remote.show_mails实例配置：要加载的电子邮件数量（最大 HTML）。仅在重新启动后才会重置。当然它应该大于值 max | 。 |
 | imap.0.xxx.remote.vis_command | imap.0.xxx.remote.vis_command | imap.0.xxx.remote.vis_command来自 VIS 的命令从选择框中移动电子邮件。仅由 VIS 使用。                                                                          |
@@ -249,7 +261,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ### 文件夹名称
 旧文件夹名称可以在 imap.0.xxx.remote.change_folder 对象中查看
 
-### 数据点`imap.0.benutzername.remote.copy`
+### 州 `imap.0.benutzername.remote.copy`
 [概括](#zusammenfassung)
 
 |对象|描述 |
@@ -260,19 +272,19 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_remote_copy.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_copy.png)
 
-### 数据点`imap.0.benutzername.remote.flag`
+### 州 `imap.0.benutzername.remote.flag`
 [概括](#zusammenfassung)
 
 |对象|描述 |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | imap.0.xxx.remote.flag.apply_flag | imap.0.xxx.remote.flag.apply_flag |应用设置、类型和 uid 更改。                                                                                  |
-| imap.0.xxx.remote.flag.set | imap.0.xxx.remote.flag.set选择setFlag用于设置标志，addFlag用于添加标志，delFlag用于删除标志|
+| imap.0.xxx.remote.flag.set | imap.0.xxx.remote.flag.set | imap.0.xxx.remote.flag.set选择setFlag用于设置标志，addFlag用于添加标志，delFlag用于删除标志|
 | imap.0.xxx.remote.flag.type | imap.0.xxx.remote.flag.type |选择要添加、设置或删除的标志 |
 | imap.0.xxx.remote.flag.uid | imap.0.xxx.remote.flag.uid |应对其进行标志更改的 UID。 UID 可以在 imap.0.xxx.json 或电子邮件文件夹中找到 |
 
 ![imap_overview_remote_flag.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_flag.png)
 
-### 数据点`imap.0.benutzername.remote.html`
+### 州 `imap.0.benutzername.remote.html`
 [概括](#zusammenfassung)
 
 |对象|描述 |
@@ -287,7 +299,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.header_tag_border_color | imap.0.xxx.remote.html.header_tag_border_color |边框颜色标题 - 默认 #424242 - 一切皆有可能 |
 | imap.0.xxx.remote.html.header_text_color | imap.0.xxx.remote.html.header_text_color |标题文本颜色 - 默认#BDBDBD |
 | imap.0.xxx.remote.html.header_width | imap.0.xxx.remote.html.header_width | imap.0.xxx.remote.html.header_width标题宽度 - 默认自动 - 可能是 px 或 % |
-| imap.0.xxx.remote.html.headline_align_column_1 | imap.0.xxx.remote.html.headline_align_column_1 |文本对齐标题列 1 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
+| imap.0.xxx.remote.html.headline_align_column_1 |文本对齐标题列 1 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
 
 ![imap_overview_remote_html_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_1.png)
 
@@ -298,9 +310,9 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.headline_align_column_4 |文本对齐标题列 4 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
 | imap.0.xxx.remote.html.headline_align_column_5 | imap.0.xxx.remote.html.headline_align_column_5文本对齐标题栏 5 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
 | imap.0.xxx.remote.html.headline_align_column_6 |文本对齐标题列 6 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
-| imap.0.xxx.remote.html.headline_align_column_7 | imap.0.xxx.remote.html.headline_align_column_7文本对齐标题列 7 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
+| imap.0.xxx.remote.html.headline_align_column_7 | imap.0.xxx.remote.html.headline_align_column_7 |文本对齐标题列 7 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
 | imap.0.xxx.remote.html.headline_align_column_8 | imap.0.xxx.remote.html.headline_align_column_8文本对齐标题列 8 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
-| imap.0.xxx.remote.html.headline_align_column_9 | imap.0.xxx.remote.html.headline_align_column_9文本对齐标题列 9 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
+| imap.0.xxx.remote.html.headline_align_column_9 | imap.0.xxx.remote.html.headline_align_column_9文本对齐标题栏 9 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
 | imap.0.xxx.remote.html.headline_align_column_10 | imap.0.xxx.remote.html.headline_align_column_10文本对齐标题列 10 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
 | imap.0.xxx.remote.html.headline_color | imap.0.xxx.remote.html.headline_color |边框颜色主体 - 标准 #BD5A3C |
 | imap.0.xxx.remote.html.headline_column_width_1 | imap.0.xxx.remote.html.headline_column_width_1 |列宽第 1 列 - 默认自动 - 可能为 px 或 % |
@@ -310,14 +322,14 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 |对象|描述 |
 | ---------------------------------------------- | ------------------------------------------------------------- |
-| imap.0.xxx.remote.html.headline_column_width_2 | imap.0.xxx.remote.html.headline_column_width_2 |列宽 第 2 列 - 默认自动 - 可能为 px 或 % |
+| imap.0.xxx.remote.html.headline_column_width_2 |列宽第 2 列 - 默认自动 - 可能为 px 或 % |
 | imap.0.xxx.remote.html.headline_column_width_3 | imap.0.xxx.remote.html.headline_column_width_3 |列宽第 3 列 - 默认自动 - 可能为 px 或 % |
 | imap.0.xxx.remote.html.headline_column_width_4 |列宽第 4 列 - 默认自动 - 可能为 px 或 % |
 | imap.0.xxx.remote.html.headline_column_width_5 | imap.0.xxx.remote.html.headline_column_width_5 |列宽第 5 列 - 默认自动 - 可能为 px 或 % |
 | imap.0.xxx.remote.html.headline_column_width_6 |列宽第 6 列 - 默认自动 - 可能为 px 或 % |
 | imap.0.xxx.remote.html.headline_column_width_7 | imap.0.xxx.remote.html.headline_column_width_7 |列宽第 7 列 - 默认自动 - 可能为 px 或 % |
-| imap.0.xxx.remote.html.headline_column_width_8 |列宽第 8 列 - 默认自动 - 可能为 px 或 % |
-| imap.0.xxx.remote.html.headline_column_width_9 | imap.0.xxx.remote.html.headline_column_width_9 |列宽第 9 列 - 默认自动 - 可能为 px 或 % |
+| imap.0.xxx.remote.html.headline_column_width_8 |列宽 第 8 列 - 默认自动 - 可能为 px 或 % |
+| imap.0.xxx.remote.html.headline_column_width_9 | imap.0.xxx.remote.html.headline_column_width_9 | imap.0.xxx.remote.html.headline_column_width_9列宽第 9 列 - 默认自动 - 可能为 px 或 % |
 | imap.0.xxx.remote.html.headline_font_size | imap.0.xxx.remote.html.headline_font_size | imap.0.xxx.remote.html.headline_font_size行中的文本大小 - 默认 16 px |
 | imap.0.xxx.remote.html.headline_height | imap.0.xxx.remote.html.headline_height | imap.0.xxx.remote.html.headline_height单元格高度 - 默认 35 px |
 | imap.0.xxx.remote.html.headline_style | imap.0.xxx.remote.html.headline_style |单元格样式 - 默认正常 - 可能正常或粗体 |
@@ -333,7 +345,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.mails_nextday_color_even | imap.0.xxx.remote.html.mails_nextday_color_even |昨天直接 ID 的行背景颜色 - 标准 #F7FFE0 |
 | imap.0.xxx.remote.html.mails_nextday_color_odd | imap.0.xxx.remote.html.mails_nextday_color_odd |昨天奇数 ID 的行背景颜色 - 默认 #F7FFE0 |
 | imap.0.xxx.remote.html.mails_odd_color | imap.0.xxx.remote.html.mails_odd_color |奇数 ID 的线条背景颜色 - 默认 #FFE32E |
-| imap.0.xxx.remote.html.mails_today_color | imap.0.xxx.remote.html.mails_today_color |直接 ID 当前日期的行背景颜色 - 默认 #ffffff |
+| imap.0.xxx.remote.html.mails_today_color | imap.0.xxx.remote.html.mails_today_color |当天直接 ID 的行背景颜色 - 默认 #ffffff |
 | imap.0.xxx.remote.html.mails_today_color_odd | imap.0.xxx.remote.html.mails_today_color_odd |当天奇数 ID 的行背景颜色 - 默认 #ffffff |
 | imap.0.xxx.remote.html.p_tag_text_align | imap.0.xxx.remote.html.p_tag_text_align |文本对齐页眉和页脚 - 默认居中 </br> 可能居中、左对齐、右对齐和自动 |
 | imap.0.xxx.remote.html.short_content | imap.0.xxx.remote.html.short_content |内容字母限制 - 标准 35 |
@@ -354,7 +366,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.td_tag_cell | imap.0.xxx.remote.html.td_tag_cell |行中的单元格间距 - 默认 6 px |
 | imap.0.xxx.remote.html.text_content | imap.0.xxx.remote.html.text_content |标题文本第 5 列 - 标准内容 |
 | imap.0.xxx.remote.html.text_date | imap.0.xxx.remote.html.text_date |标题文本第 4 列 - 默认日期 |
-| imap.0.xxx.remote.html.text_flag | imap.0.xxx.remote.html.text_flag | imap.0.xxx.remote.html.text_flag标题文本列 7 - 标准标志 |
+| imap.0.xxx.remote.html.text_flag | imap.0.xxx.remote.html.text_flag |标题文本列 7 - 标准标志 |
 | imap.0.xxx.remote.html.text_from | imap.0.xxx.remote.html.text_from标题文本列 2 - 默认来自 |
 
 ![imap_overview_remote_html_5.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_5.png)
@@ -364,14 +376,14 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 | imap.0.xxx.remote.html.text_id | imap.0.xxx.remote.html.text_id |标题文本列 1 - 默认 ID |
 | imap.0.xxx.remote.html.text_move_or_copy | imap.0.xxx.remote.html.text_move_or_copy |标题文本第 9 列 - 标准复制/粘贴 |
 | imap.0.xxx.remote.html.text_select_addflag | imap.0.xxx.remote.html.text_select_addflag在标志选择框中开始文本 - 默认 addFlags - |
-| imap.0.xxx.remote.html.text_select_copy | imap.0.xxx.remote.html.text_select_copy |在副本选择框中开始文本 - 标准副本|
+| imap.0.xxx.remote.html.text_select_copy | imap.0.xxx.remote.html.text_select_copy | imap.0.xxx.remote.html.text_select_copy在副本选择框中开始文本 - 标准副本|
 | imap.0.xxx.remote.html.text_select_delflag | imap.0.xxx.remote.html.text_select_delflag在标志选择框中开始文本 - 默认 delFlags - |
 | imap.0.xxx.remote.html.text_select_move | imap.0.xxx.remote.html.text_select_move |在复制选择框中开始文本 - 默认移动 |
 | imap.0.xxx.remote.html.text_select_setflag | imap.0.xxx.remote.html.text_select_setflag标志选择框中的起始文本 - 默认 setFlags - |
 | imap.0.xxx.remote.html.text_seq | imap.0.xxx.remote.html.text_seq |标题文本第 6 列 - 标准 SEQ |
-| imap.0.xxx.remote.html.text_setflag | imap.0.xxx.remote.html.text_setflag |标题文本第 10 列 - 标准标记操作 |
-| imap.0.xxx.remote.html.text_subject | imap.0.xxx.remote.html.text_subject | imap.0.xxx.remote.html.text_subject标题文本列 3 - 默认主题 |
-| imap.0.xxx.remote.html.text_uid | imap.0.xxx.remote.html.text_uid |标题文本列 8 - 默认 UID |
+| imap.0.xxx.remote.html.text_setflag | imap.0.xxx.remote.html.text_setflag |标题文本列 10 - 标准标记操作 |
+| imap.0.xxx.remote.html.text_subject | imap.0.xxx.remote.html.text_subject |标题文本列 3 - 默认主题 |
+| imap.0.xxx.remote.html.text_uid | imap.0.xxx.remote.html.text_uid | imap.0.xxx.remote.html.text_uid标题文本列 8 - 默认 UID |
 | imap.0.xxx.remote.html.top_font | imap.0.xxx.remote.html.top_font字体页眉和页脚 - 标准 Helvetica |
 
 ![imap_overview_remote_html_6.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_6.png)
@@ -385,14 +397,14 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_remote_html_7.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_7.png)
 
-### 数据点`imap.0.benutzername.remote.move`
+### 州 `imap.0.benutzername.remote.move`
 [概括](#zusammenfassung)
 
 |对象|描述 |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | imap.0.xxx.remote.move.apply_move | imap.0.xxx.remote.move.apply_move |应用文件夹和 uid 更改。                                                                                        |
 | imap.0.xxx.remote.move.folder | imap.0.xxx.remote.move.folder | imap.0.xxx.remote.move.folder选择应将所选电子邮件移动到的文件夹。                                                          |
-| imap.0.xxx.remote.move.uid | imap.0.xxx.remote.move.uid |在此处输入应移动的电子邮件的 UID。您可以在 imap.0.xxx.json 或电子邮件文件夹中找到 UID |
+| imap.0.xxx.remote.move.uid | imap.0.xxx.remote.move.uid | imap.0.xxx.remote.move.uid在此处输入应移动的电子邮件的 UID。您可以在 imap.0.xxx.json 或电子邮件文件夹中找到 UID |
 
 ![imap_overview_remote_move.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_move.png)
 
@@ -400,7 +412,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ### 更改 Blockly IMAP 查询
 [概括](#zusammenfassung)
 
-- 这允许您设置这些[数据点](#datapoints-imap0usernameremote)。
+- 这允许您设置这些[数据点](#states-imap0usernameremote)。
 - 可以在[实例配置中]找到可能的标志(#instance-configuration-tab-imap-create)。
 - 可以选择 IMAP 连接或适用于所有连接。
 - 最多允许 100 封电子邮件。
@@ -410,7 +422,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ### Blockly IMAP 自己的查询
 [概括](#zusammenfassung)
 
--   危险！所有数据，例如：例如附件。此查询可能会将 RAM 或 CPU 推至极限。如果创建了不正确的标准，这可能会导致 iobroker 崩溃！
+- 危险！所有数据，例如：例如附件。此查询可能会将 RAM 或 CPU 推至极限。如果创建了不正确的标准，这可能会导致 iobroker 崩溃！
 - 然后数据以 JSON 形式传送。
 - 随着日志输出，日志文件变得非常大。因此稍后再次删除日志输出。
 - 需要创建一个名为“result”的变量。
@@ -423,8 +435,8 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 [概括](#zusammenfassung)
 
 - 从 IMAP 连接加载所有数据并自行处理。实例设置用作搜索条件。
--   危险！ RAM消耗高
-- 然后数据以 JSON 形式传递。
+- 危险！ RAM消耗高
+- 然后数据以 JSON 形式传送。
 - 随着日志输出，日志文件变得非常大。因此稍后再次删除日志输出。
 - 需要创建一个名为“result”的变量。
 - [示例](/docs/de/EXAMPLE.md)
@@ -582,109 +594,114 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ### **WORK IN PROGRESS**
 
--   (Lucky-ESA) Mailbox folder delete added
--   (Lucky-ESA) Mailbox folder create added
--   (Lucky-ESA) Change Mailbox Folder name added
--   (Lucky-ESA) IMAP package changed
+- (Lucky-ESA) Description revised
+
+### 0.3.0 (2024-12-07)
+
+- (Lucky-ESA) Mailbox folder delete added
+- (Lucky-ESA) Mailbox folder create added
+- (Lucky-ESA) Change Mailbox Folder name added
+- (Lucky-ESA) IMAP package changed
+- (Lucky-ESA) Migration to ESLint9
 
 ### 0.2.2 (2024-11-07)
 
--   (Lucky-ESA) New design for settings page added
--   (Lucky-ESA) Crash if uid is empty for new emails
+- (Lucky-ESA) New design for settings page added
+- (Lucky-ESA) Crash if uid is empty for new emails
 
 ### 0.2.1 (2024-09-16)
 
--   (Lucky-ESA) Update dependencies
--   (Lucky-ESA) Changed Log info to debug
--   (Lucky-ESA) Fixed blockly setFlag crash
+- (Lucky-ESA) Update dependencies
+- (Lucky-ESA) Changed Log info to debug
+- (Lucky-ESA) Fixed blockly setFlag crash
 
 ### 0.2.0 (2024-06-15)
 
--   (Lucky-ESA) Updated Blockly definitions
--   (Lucky-ESA) JS-Controller >= 5.0.19 required
--   (Lucky-ESA) Admin >=6.13.16 required
+- (Lucky-ESA) Updated Blockly definitions
+- (Lucky-ESA) JS-Controller >= 5.0.19 required
+- (Lucky-ESA) Admin >=6.13.16 required
 
 ### 0.1.3 (2024-03-06)
 
--   (Lucky-ESA) Fixed setFlag
--   (Lucky-ESA) Fixed sendTo error during instance deletion ([#57](https://github.com/Lucky-ESA/ioBroker.imap/issues/57))
--   (Lucky-ESA) Mass email shift intercepted
+- (Lucky-ESA) Fixed setFlag
+- (Lucky-ESA) Fixed sendTo error during instance deletion ([#57](https://github.com/Lucky-ESA/ioBroker.imap/issues/57))
+- (Lucky-ESA) Mass email shift intercepted
 
 ### 0.1.2 (2024-01-24)
 
--   (Lucky-ESA) Added missing translate
--   (Lucky-ESA) Updated package
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added missing translate
+- (Lucky-ESA) Updated package
+- (Lucky-ESA) Bug fixes
 
 ### 0.1.1 (2023-09-11)
 
--   (Lucky-ESA) Delete wrong error parse message
+- (Lucky-ESA) Delete wrong error parse message
 
 ### 0.1.0 (2023-09-06)
 
--   (Lucky-ESA) Added RAM consumption - Instance Settings
--   (Lucky-ESA) Added german documention
--   (Lucky-ESA) Added Mailparser options
--   (Lucky-ESA) Added counter history
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added RAM consumption - Instance Settings
+- (Lucky-ESA) Added german documention
+- (Lucky-ESA) Added Mailparser options
+- (Lucky-ESA) Added counter history
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.9 (2023-07-26)
 
--   (Lucky-ESA) Fixed RAM consumption of new emails
--   (Lucky-ESA) Added counter attachments in JSON
+- (Lucky-ESA) Fixed RAM consumption of new emails
+- (Lucky-ESA) Added counter attachments in JSON
 
 ### 0.0.8 (2023-07-13)
 
--   (Lucky-ESA) Fix refresh crash
--   (Lucky-ESA) Added MB threshold
+- (Lucky-ESA) Fix refresh crash
+- (Lucky-ESA) Added MB threshold
 
 ### 0.0.7 (2023-04-25)
 
--   (Lucky-ESA) Fix correct counter for seen and unseen
--   (Lucky-ESA) Added capabilities
--   (Lucky-ESA) Criteria change without restart
--   (Lucky-ESA) Added outlook.office365.com oauth2 login
--   (Lucky-ESA) Added Connection.js from Module to Adapter
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Fix correct counter for seen and unseen
+- (Lucky-ESA) Added capabilities
+- (Lucky-ESA) Criteria change without restart
+- (Lucky-ESA) Added outlook.office365.com oauth2 login
+- (Lucky-ESA) Added Connection.js from Module to Adapter
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.6 (2023-03-17)
 
--   (Lucky-ESA) Added trigger move or copy emails
--   (Lucky-ESA) Added JSON for multiple IMAP accounts
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added trigger move or copy emails
+- (Lucky-ESA) Added JSON for multiple IMAP accounts
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.5 (2023-03-15)
 
--   (Lucky-ESA) Added: Limited reconnected (5 max)
--   (Lucky-ESA) Added: into datapoints
--   (Lucky-ESA) Added: Password entry not possible without an active instance
--   (Lucky-ESA) Added: Added description to readme
--   (Lucky-ESA) Added: Added move or copy
--   (Lucky-ESA) Added: Set flag with datapoints
--   (Lucky-ESA) Fix: debug output without attachments
--   (Lucky-ESA) Fix: wrong json_table
--   (Lucky-ESA) Fix: value null
--   (Lucky-ESA) Change: Reconnected change info level to debug level
--   (Lucky-ESA) Change: correct dp roles
--   (Lucky-ESA) Change: delete attachments (too much RAM usage)
+- (Lucky-ESA) Added: Limited reconnected (5 max)
+- (Lucky-ESA) Added: into datapoints
+- (Lucky-ESA) Added: Password entry not possible without an active instance
+- (Lucky-ESA) Added: Added description to readme
+- (Lucky-ESA) Added: Added move or copy
+- (Lucky-ESA) Added: Set flag with datapoints
+- (Lucky-ESA) Fix: debug output without attachments
+- (Lucky-ESA) Fix: wrong json_table
+- (Lucky-ESA) Fix: value null
+- (Lucky-ESA) Change: Reconnected change info level to debug level
+- (Lucky-ESA) Change: correct dp roles
+- (Lucky-ESA) Change: delete attachments (too much RAM usage)
 
 ### 0.0.4 (2023-03-03)
 
--   (Lucky-ESA) Fix json_table
+- (Lucky-ESA) Fix json_table
 
 ### 0.0.3 (2023-03-03)
 
--   (Lucky-ESA) Beta release
+- (Lucky-ESA) Beta release
 
 ### 0.0.2 (2023-03-03)
 
--   (Lucky-ESA) initial release
+- (Lucky-ESA) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2023-2024 Lucky-ESA <github@luckyskills.de>
+Copyright (c) 2023-2025 Lucky-ESA <github@luckyskills.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

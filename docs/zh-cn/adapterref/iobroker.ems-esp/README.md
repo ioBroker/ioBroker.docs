@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
+hash: v9Sk35pDDGYxQreQjc1ZPCzaXZYh2SrKbaBwzPFZ0qw=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -25,7 +25,7 @@ hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
 
 * 带有 ESP32 芯片的 ems-esp 网关（https://github.com/emsesp/EMS-ESP32）。
 
-不再支持带有 API V2 的旧 ESP8266 网关！！该适配器针对 ems-esp 网关进行了测试，固件版本最新稳定版本 (V3.6.5) 可能无法与 ioBroker 适配器稳定配合使用。使用风险自负。
+不再支持带有 API V2 的旧 ESP8266 网关！！该适配器针对 ems-esp 网关进行了测试，固件版本最新稳定版本 (V3.7.1) 可能无法与 ioBroker 适配器稳定配合使用。使用风险自负。
 
 * 不支持新的博世集团云网关（MX300 / EasyControl...），因为它们不支持 LAN API！
 
@@ -33,7 +33,11 @@ ioBroker ems-esp 适配器可以读取和写入两个网关的数据以控制所
 它既可以用于原始 Bosch-Group 网关，也可以用于 ems-esp，或者同时用于两者。
 所有来自自身脚本或对象浏览器的更改状态都必须设置 acknowledged = false !!!
 
-德语文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf 英文文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf 德语 ioBroker 论坛：https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
+德语文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
+
+英文文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
+
+德国 ioBroker 论坛：https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 # Iobroker.ems-esp
 
@@ -43,30 +47,29 @@ ioBroker ems-esp 适配器可以读取和写入两个网关的数据以控制所
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* km200: change encryption for private password - pw has to be re-entered 
-* support small screens
-* update dependencies
+* dependabot updates
 
-### 4.8.0 (2024-08-27)
-* ems-esp: disabled parameter to search for extended EMS+ entities due to memory limitations in gateway
+### 5.1.2 (2024-12-31)
+* ems-esp: fix enum errors for setting "Value" 
+* dependabot updates
 
-### 4.7.2 (2024-08-17)
-* ems-esp: enable writing on custom entities
+### 5.1.1 (2024-12-26)
+* correct statistics on adapter start-up
 
-### 4.7.1 (2024-08-17)
-* ems-esp: custom entities are now under object structure "custom"
+### 5.1.0 (2024-12-25)
+* error correction on enabling statistics
 
-### 4.7.0 (2024-08-16)
-* ems-esp: do not allow more then one thermostat for extended own entities
-* ems-esp: error correction for holidayModes custom entities
+### 5.0.6 (2024-12-03)
+* dependabot updates
+* ems-esp: send switchprog updates 3 times (test)
 
-### 4.6.4 (2024-08-14)
-* ems-esp: error correction on polling for 3.6.5
+### 5.0.5 (2024-11-22)
+* Add native entries to io-package
 
 ## License
 MIT License
 
-Copyright (c) 2024 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

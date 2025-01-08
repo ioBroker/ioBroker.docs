@@ -131,7 +131,9 @@ There is [another](https://www.zigbee2mqtt.io/) with the same functions and the 
 Other topics related to this adapter are also documented in the associated wiki.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.10.14 (2025-01-01)
+* (arteck) Herdsman 2.1.9, Converters 20.58.0
+* (asgothian) Fix: Aqara T1M (CL-L02D) 
 * (arteck) deleteDeviceStates change to deleteObj
 
 ### 1.10.13 (2024-11-10)
@@ -200,12 +202,13 @@ Other topics related to this adapter are also documented in the associated wiki.
 * Some design update
 * Binding
 
+
 ------------------------------------------------------------------------------
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2025 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

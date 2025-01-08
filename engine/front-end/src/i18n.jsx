@@ -15,18 +15,17 @@
  *
  * */
 
+import en from './i18n/en.json';
+import de from './i18n/de.json';
+import ru from './i18n/ru.json';
+import zhCN from './i18n/zh-cn.json';
+
 class I18n {
     static translations = {
-        en: require('./i18n/en'),
-        ru: require('./i18n/ru'),
-        de: require('./i18n/de'),
-        es: require('./i18n/es'),
-        fr: require('./i18n/fr'),
-        it: require('./i18n/it'),
-        pl: require('./i18n/pl'),
-        nl: require('./i18n/nl'),
-        pt: require('./i18n/pt'),
-        'zh-cn': require('./i18n/zh-cn'),
+        en,
+        ru,
+        de,
+        'zh-cn': zhCN
     };
 
     static lang = window.sysLang || 'en';

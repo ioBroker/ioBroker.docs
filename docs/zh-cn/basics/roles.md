@@ -4,16 +4,16 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/roles.md
 title: 滚动数据点
-hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
+hash: P9fMNtraDsN408rMatVAgEME/i2cWWKuxVubLP3+9HI=
 ---
 # 滚动数据点
 对于类型 `state` 的对象，属性 `common.role` 必须设置为下面列表中定义的角色之一。
-角色信息是非常重要的信息，它允许可视化和智能助理适配器识别对象的功能以及它们如何/是否与同一通道、设备或文件夹中的其他对象相关。
+角色信息是非常重要的信息，允许可视化和智能助理适配器识别对象的功能以及它们如何/是否与同一通道、设备或文件夹中的其他对象相关。
 
 示例：RGB 灯可以具有以下三个（或更多）具有不同角色的对象：
 
 * `开关` - （开/关）
-* `level.color.rgb` 带有灯的 #RRGGBB 颜色代码
+* `level.color.rgb` 带有 #RRGGBB 灯的颜色代码
 * `level.brightness` 为亮度值
 
 用于检测必需和可选对象及其角色的各种设备模板可以在[类型检测器存储库](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md)中找到。
@@ -88,7 +88,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * ~~value.date (common.type=string) - 格式为 2015.01.01 的日期（不含时间）~~
 * ~~value.datetime (common.type=string) - 系统格式的日期和时间~~
 * `value.gps.longitude` - GPS经度坐标
-* `value.gps.latitude` - GPS纬度
+* `value.gps.latitude` - GPS 纬度
 * `value.gps.elevation` - GPS海拔
 * `value.gps` - 经度和纬度一起，如 '5.56;43.45'
 * `value.gps.accuracy` - 当前 GPS 测量的精度
@@ -168,7 +168,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 
 `common.type=boolean, common.write=true`
 
-* `开关`
+*`开关`
 * `switch.lock` - 锁定（`true - 打开锁定， false - 关闭锁定`）
 * `switch.lock.door` - 门锁
 * `switch.lock.window` - 窗口锁
@@ -205,8 +205,8 @@ TODO：考虑电离和振荡。
 * `indicator.maintenance.waste` - 垃圾桶很愚蠢。
 * `value.state` - `家庭、清洁、暂停`等。
 
-除了这些状态之外，通常还需要 `switch.power` 来关联真空吸尘器。在本例中，`switch.power` 的作用为：`true` - 清洁，`false` - 返回家园。
-可选`value.battery` 和
+除了这些状态之外，通常还需要 `switch.power` 来关联真空吸尘器。在本例中，`switch.power` 的作用为：`true` - 干净，`false` - 返回家园。
+可选`value.battery`和
 
 ＃＃ 目标
 * `switch.gate` - 关闭（false）或打开（true）门（必需）
@@ -227,7 +227,7 @@ TODO：考虑电离和振荡。
 * `按钮.反转`
 * `按钮.快进`
 * `按钮.fastreverse`
-* `按钮.音量.调高`
+* `按钮.音量.增大`
 * `按钮.音量.减小`
 * `media.seek` - (`common.type=number`) %
 * `media.mode.shuffle` - (`common.type=number`) 0 - 无，1 - 全部，2 - 一个
@@ -328,7 +328,7 @@ TODO：考虑电离和振荡。
 * `value.direction.wind` - 当前或平均风向（以度为单位）
 * `value.direction.max.wind` - 当前风向（以度为单位）
 * `value.direction.min.wind` - 当前风向（以度为单位）
-* `weather.direction.wind` - 当前或平均风向文本，例如 NNW
+* `weather.direction.wind` - 当前或平均风向为文本，例如 NNW
 * `date` - 当前日期或上次读取信息的日期
 * `date.sunrise` - 今天的日出
 * `date.sunset` - 今天的日落
@@ -352,7 +352,7 @@ TODO：考虑电离和振荡。
 * `value.snow` - 过去24小时内的实际雪量
 * `value.snow.hour` - 过去一小时的实际雪量
 * `value.snow.today` - 今天的当前降雪高度（直到 0:00）
-* `value.snowline` - 实际雪线（米）
+* `value.snowline` - 实际雪线（以米为单位）
 * `weather.chart.url` - 天气历史图表的 URL
 * `weather.chart.url.forecast` - 天气预报图表的 URL
 * `weather.html` - 带有天气描述的 HTML 对象
@@ -367,19 +367,19 @@ TODO：考虑电离和振荡。
 * `value.Pressure.forecast.0` - 今天的压力预测
 * `value.Temperature.min.forecast.0` - 今天的最低气温预测
 * `value.Temperature.max.forecast.0` - 今天的最高气温预测
-* `value.precipitation.forecast.0` - (`类型：数字，单位：%`) 今天降水量的预测概率
-* `value.prepitation.forecast.0` - (`类型：数字，单位：毫米`) 今天降水量的预测
+* `value.precipitation.forecast.0` - (`类型：数字，单位：%`) 今天的降水概率预测
+* `value.prepitation.forecast.0` - (`类型：数字，单位：毫米`) 今日降水量预测
 * `weather.title.forecast.0` - 对明天的非常简短的描述
 * `value.precipitation.day.forecast.0` - 当天的降水量预报
 * `value.precipitation.night.forecast.0` - 夜间降水预报
 
-* `date.forecast.1` - 明天日期
+* `date.forecast.1` - 明天的日期
 * `weather.icon.forecast.1` - 明天的图标
 * `weather.state.forecast.1` - 明天的天气状态
 * `值.温度.最低.预测.1`
 * `值.温度.最低.预测.1`
 * `value.prepitation.forecast.1` - (`类型：数字，单位：%`) 明天降水概率的预测
-* `value.prepitation.forecast.1` - (`类型：数字，单位：毫米`) 明天降水量预测水平
+* `value.prepitation.forecast.1` - (`类型：数字，单位：毫米`) 明天降水量预测
 * `值.方向.风.预测.1`
 * `值.速度.风.预测.1`
 * `值.压力.预测.1`

@@ -333,7 +333,12 @@ The supported commands are:
     ### **WORK IN PROGRESS**
     * () 
 -->
-### **WORK IN PROGRESS**
+### 5.0.0 (2025-01-04)
+* (deher) token from config now encrypted, user has to re-choose device in settings
+* (deher) some fixes in UI Setting
+
+### 4.3.0 (2025-01-02) rejected
+* (JimmyBondi) added dreame error messages
 * (simatec) responsive design added
 * (deher) update dependecies and linting
 
@@ -637,7 +642,7 @@ The supported commands are:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker community developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 iobroker community developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

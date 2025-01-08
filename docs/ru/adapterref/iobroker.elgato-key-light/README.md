@@ -1,99 +1,103 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.elgato-key-light/README.md
-title: ioBroker.elgato-key-light
+title: ioBroker.elgato-ключ-свет
 hash: 1sJXajz4QdmDmjNSwZtWe8Vq1C3LNTao4eYtTfiUE4Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.elgato-key-light/admin/elgato-key-light.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.elgato-key-light.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.elgato-key-light.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.elgato-key-light.svg)
 ![Количество установок](https://iobroker.live/badges/elgato-key-light-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/elgato-key-light-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/elgato-key-light-stable.svg)
 
-# IoBroker.elgato-key-light
-**Тесты:** ![Тестирование и выпуск](https://github.com/xXBJXx/ioBroker.elgato-key-light/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.elgato-ключ-свет
+**Тесты:** ![Тест и выпуск](https://github.com/xXBJXx/ioBroker.elgato-key-light/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер elgato-key-light для ioBroker
 ### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
-Все названия и логотипы продуктов и компаний являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения со стороны них или связанных с ними аффилированных лиц! Этот личный проект реализуется в развлекательных целях и не преследует никаких деловых целей. **Elgato** является товарным знаком **Corsair GmbH**.
+Все названия продуктов и компаний или логотипы являются товарными знаками Trademarks™ или Registered® товарными знаками их соответствующих владельцев. Их использование не подразумевает какой-либо аффилированности или одобрения ими или связанными с ними аффилированными лицами! Этот личный проект осуществляется на развлекательной основе и не имеет никаких коммерческих целей. **Elgato** является товарным знаком **Corsair GmbH**.
 
 ### Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.**\ Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см.
-[Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с версии js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.**\ Для получения дополнительных сведений и информации о том, как отключить отчеты об ошибках, см.
+[Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ### Кредиты
-Этот адаптер был бы невозможен без великой работы @xXBJXx (https://github.com/xXBJXx), который создал этот адаптер и, надеюсь, будет поддерживать его в будущем.
+Этот адаптер был бы невозможен без огромной работы @xXBJXx (https://github.com/xXBJXx), который создал этот адаптер и, надеюсь, будет поддерживать его в будущем.
 
 ### Описание
-Этот адаптер позволяет управлять [Ключевые светильники Эльгато](https://www.elgato.com/de/key-light) через ioBroker.\ Адаптер поддерживает следующие функции:
+Этот адаптер позволяет управлять [Elgato Key Lights](https://www.elgato.com/de/key-light) через ioBroker.\ Адаптер поддерживает следующие функции:
 
 * Включение/выключение питания.
-* Яркость ⇨ (доступно для всех основных источников света).
-* Цветовая температура ⇨ (доступно только с [Elgato Key Light](https://www.elgato.com/de/key-light), [Elgato Key Light Air](https://www.elgato.com/de/ ключ-свет-воздух),
+* Яркость ⇨ (доступно для всех основных фонарей).
+* Цветовая температура ⇨ (доступно только с [Elgato Key Light](https://www.elgato.com/de/key-light), [Elgato Key Light Air](https://www.elgato.com/de/key-light-air),
 
-[Кольцевой светильник Эльгато](https://www.elgato.com/de/ring-light) и [Elgato Key Light мини](https://www.elgato.com/de/key-light-mini) доступны)
+[Кольцевой свет Elgato](https://www.elgato.com/de/ring-light) и [Elgato Key Light мини](https://www.elgato.com/de/key-light-mini) доступны)
 
 * Цвет ⇨ (доступно только с [Elgato Light Strip](https://www.elgato.com/de/light-strip))
 
-### Пользовательский интерфейс адаптера
-Классического пользовательского интерфейса адаптера в экземплярах не существует.\ ![Пользовательский интерфейс адаптера](admin/media/instances.png) ![Пользовательский интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/elgato-key-light_UI.png)
+### Интерфейс адаптера
+Классический интерфейс адаптера для экземпляров не существует.\ ![Интерфейс адаптера](admin/media/instances.png) ![Интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/elgato-key-light_UI.png)
 
 Что можно сделать в пользовательском интерфейсе?
 
-* №1 задает интервал опроса адаптера (по умолчанию: 60 секунд).
+* № 1 устанавливает интервал опроса адаптера (по умолчанию: 60 секунд).
 
-  после изменения интервала адаптер необходимо перезагрузить, это делается с помощью кнопки Сохранить.
+После изменения интервала необходимо перезапустить адаптер, это делается с помощью кнопки Сохранить.
 
-* №2 добавить к адаптеру новое устройство.
-* № 3 устанавливает цветовую температуру для всех основных источников света (от 2900К до 7000К).
-* № 4 устанавливает яркость для всех основных источников света (от 0% до 100%).
-* № 5 устанавливает цвет световых полосок\
+* № 2 добавить новое устройство к адаптеру.
+* № 3 устанавливает цветовую температуру для всех основных источников света (от 2900К до 7000К)
+* № 4 устанавливает яркость для всех основных источников света (от 0% до 100%)
+* № 5 установите цвет для световых полос\
 
-  ![Пользовательский интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/ColorPicker.png)
+  ![Интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/ColorPicker.png)
 
-* № 6 включает и выключает свет
+* № 6 включить и выключить свет
 
-**при изменении №3, №4 и №5 изменение будет выполнено через 1,5 секунды.**
+**при изменении № 3, № 4 и № 5 изменение будет выполнено через 1,5 секунды.**
 
 ### Предупреждение
-**Не обращайтесь к точкам данных слишком часто, иначе устройства будут недоступны в течение нескольких секунд.**
+**Пожалуйста, не обращайтесь к точкам данных слишком часто, в противном случае устройства будут недоступны в течение нескольких секунд.**
 
 ### Точки данных
 Точки данных создаются автоматически при обнаружении нового устройства.
 
-#### Точки данных для всех основных источников света/световых полос
-![Пользовательский интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/ObjectsMain.png)\ Точки данных делятся на:
+#### Точки данных для всех основных огней / световых полос
+![Интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/ObjectsMain.png)\ Точки данных делятся на:
 
 * **info** ⇨ Информация об устройстве\.
 
-  ![Пользовательский интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_Info.png)
+  ![Интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_Info.png)
 
-* **свет** ⇨ Точки данных для управления устройством. Здесь есть два разных типа точек данных:
-  * для управления яркостью и цветовой температурой.
+* **свет** ⇨ Точки данных для управления устройством, здесь есть два разных типа точек данных:
+* для управления яркостью и цветовой температурой.
 
-    ![Пользовательский интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_light_colorTemp.png)
+    ![Интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_light_colorTemp.png)
 
-  * для управления цветом
+* для управления цветом
 
-    ![Пользовательский интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_light_color.png)
+    ![Интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_light_color.png)
 
-* **Настройки** ⇨ точки данных для информации из настроек устройства
+* **настройки** ⇨ точки данных для информации из настроек устройства
 
-  ![Пользовательский интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_settings.png)
+  ![Интерфейс адаптера](../../../en/adapterref/iobroker.elgato-key-light/admin/media/objects_settings.png)
 
 ### Примечания
 * Данные по цвету доступны только для световых полос.
-* Данные о цветовой температуре доступны только для основных источников света.
+* Данные по цветовой температуре доступны только для основных источников света.
 * Данные по яркости доступны для всех основных светильников и световых полос.
-* Сцены из Light Strips не поддерживаются. Так как они недоступны через API.
+* Сцены из Light Strips не поддерживаются. Так как они не доступны через API.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-04-14)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2024-01-18)
 * (mcm1957) Writing states now requires ack flag to be false.
 * (mcm1957) Small adaptions to solve review issues have been applied.
@@ -112,9 +116,6 @@ hash: 1sJXajz4QdmDmjNSwZtWe8Vq1C3LNTao4eYtTfiUE4Q=
 * (xXBJXx) Adding a delete function for devices
 * (xXBJXx) Dependency updates
 * (xXBJXx) feature request [#2](https://github.com/xXBJXx/ioBroker.elgato-key-light/issues/2) added
-
-### 0.0.3 (2023-01-22)
-* (xXBJXx) changed all images to png
 
 ## License
 MIT License

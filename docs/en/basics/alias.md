@@ -3,9 +3,9 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/a
 title: Alias
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: QwIPQTgQXD25NUUWMGQmkjrFfy7z1Q/QBg/phOj2ik0=
+hash: 601FYs0WU9ijf6uK8pNQgaPBF9xejojMW/A7WJ0fvVo=
 ---
-# Aliases
+# Alias
 Alias (pseudonym) is a virtual data point that is linked to a real data point.
 
 ## Use cases
@@ -55,7 +55,7 @@ Alias converts the value automatically if Min/Max settings are defined for both 
 
 For example, if the alias is `min=0,max=100` and the destination is `min=0,max=255`, when reading, the value 10 from the destination state will be converted to 3.9215686274509802 and the value written to the alias 10 will be converted to 25.5.
 
-The types are also converted automatically: from string to number, from number to boolean and so on. It depends on the alias and target types.
+The types are also automatically converted: from string to number, from number to boolean and so on. It depends on the alias and target types.
 
 Additionally, write and read functions can be defined in `common.alias`:
 

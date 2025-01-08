@@ -71,6 +71,9 @@ Add Fully Browser device(s), i.e. the tablets running Fully Browser, accordingly
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.0.13 (2025-01-05)
+* (arteck) add setBooleanSetting
+
 ### 3.0.12 (2024-03-05)
 * (arteck) set batteryLevel to 0 if tablet is offline is configurable
 
@@ -142,7 +145,7 @@ Add Fully Browser device(s), i.e. the tablets running Fully Browser, accordingly
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 Arthur Rupp arteck@outlook.com
+Copyright (c) 2014-2025 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

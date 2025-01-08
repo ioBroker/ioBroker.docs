@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvпрограмма
-hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
+hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -27,7 +27,7 @@ hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
 ## Установка
 Адаптер можно установить через стабильную версию или для тестирования через бета-/последнюю версию репозитория.
 
-### Конфигурация адаптера
+## Конфигурация адаптера
 Вы можете настроить, сколько разных телевизоров или, по крайней мере, разных конфигураций у вас будет.
 
 ### Виджеты
@@ -124,7 +124,7 @@ iobroker загрузить все
 | `oid` | `tvprogram.0.tv 1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
 | `showweekday` | `yes` | Показать будний день |
 | `maxfavorites` | 10 | Максимальное количество избранных для показа |
-| `highlightcolor` | `yellow` | цвет для избранного |
+| `highlightcolor` | `yellow` | цвет для избранных |
 | `highlightcolor` | `yellow` | цвет для избранного |
 
 #### Контроль
@@ -228,6 +228,27 @@ iobroker загрузить все
 
 #### `config`
 эта точка данных устарела и будет удалена в следующих версиях
+
+#### `optchnlogopath`
+Данные указывают на папку, в которой могут быть сохранены альтернативные логотипы каналов. Путь должен быть доступен через браузер.
+
+В точке данных необходимо ввести полный путь, начинающийся с http, включая завершающий слеш.
+
+**Пример:**
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+затем доступен через
+
+```text
+ttp://localhost:8082/vis.0/icons/tvlogos/
+``
+
+Все иконки следует загружать через диалоговое окно файла iobroker.
+
+Для примера см. Главу [Пример альтернативных логотипов](#alternative-channel-logos-by-tino-0)
 
 ### Предоставленные `Sendto`-Команды
 Все данные можно запросить у адаптера с помощью команд sendto. Это можно использовать для разработки индивидуальных функций.
@@ -505,6 +526,50 @@ on(idKanalWahl, function (obj) {
 });
 ```
 
+#### Альтернативные логотипы каналов от Tino 0
+Ссылка на форум с примерами скриншотов <https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
+
+**Загрузить логотипы каналов:**
+
+Вам необходимо зарегистрироваться, чтобы загрузить логотипы размером 400x160.
+
+<https://vuplus-support.org/wbb4/index.php?thread/64098-mirror-glass-3d-huminator-design-by-stefanbenno6/>
+
+**Переименовать логотипы:**
+
+запустите следующие команды в загруженной и распакованной папке
+
+<details><summary>Подробности</summary><pre><code> copy 1_0_19_283D_3FB_1_C00000_0_0_0.png ard.png copy 1_0_19_2B66_3F3_1_C00000_0_0_0.png zdf.png copy 1_0_19_EF10_421_1_C00000_0_0_0.png rtl.png copy 1_0_19_EF15_421_1_C00000_0_0_0.png rtl2.png copy 1_0_19_2E9B_411_1_C00000_0_0_0.png srtl.png copy 1_0_19_2EAF_411_1_C00000_0_0_0.png nitro.png copy 1_0_19_EF74_3F9_1_C00000_0_0_0.png sat1.png copy 1_0_19_EF75_3F9_1_C00000_0_0_0.png pro7.png copy 1_0_19_EF78_3F9_1_C00000_0_0_0.png pro7maxx.png copy 1_0_19_EF76_3F9_1_C00000_0_0_0.png kaka.png copy 1_0_19_EF77_3F9_1_C00000_0_0_0.png sixx.png copy 1_0_19_EF11_421_1_C00000_0_0_0.png vox.png copy 1_0_19_1519_455_1_C00000_0_0_0.png tele5.png copy 1_0_19_2B7A_3F3_1_C00000_0_0_0.png zdfneo.png copy 1_0_19_2B98_3F2_1_C00000_0_0_0.png kika.png copy 1_0_19_2B8E_3F2_1_C00000_0_0_0.png 3sat.png copy 1_0_19_285B_401_1_C00000_0_0_0.png phoenix.png copy 1_0_19_157C_41F_1_C00000_0_0_0.png disney.png copy 1_0_19_2871_425_1_C00000_0_0_0.png mdr.png copy 1_0_19_286F_425_1_C00000_0_0_0.png rbb.png copy 1_0_19_283F_3FB_1_C00000_0_0_0.png sw3.png copy 1_0_19_1581_41F_1_C00000_0_0_0.png sport1de.png copy 1_0_19_283E_3FB_1_C00000_0_0_0.png arte.png copy 1_0_19_526C_41D_1_C00000_0_0_0.png anixehd.png copy 1_0_19_151A_455_1_C00000_0_0_0.png dmax.png copy 1_0_19_2855_401_1_C00000_0_0_0.png bayern3.png copy 1_0_19_2873_425_1_C00000_0_0_0.png hessen3.png copy 1_0_1_6EE1_4B1_1_C00000_0_0_0.png radiobremen.png copy 1_0_19_2858_401_1_C00000_0_0_0.png nord3.png copy 1_0_19_2BA2_3F2_1_C00000_0_0_0.png info.png copy 1_0_19_132F_3EF_1_C00000_0_0_0.png orf1.png copy 1_0_19_1330_3EF_1_C00000_0_0_0.png orf2.png copy 1_0_19_2777_409_1_C00000_0_0_0.png mtv.png copy 1_0_19_288A_40F_1_C00000_0_0_0.png sw3.sr.png copy 1_0_1_6F76_457_1_C00000_0_0_0.png west3.png copy 1_0_19_2887_40F_1_C00000_0_0_0.png tagesschau24.png COPY 1_0_16_2EB9_411_1_C00000_0_0_0.png ntv.png copy 1_0_19_2888_40F_1_C00000_0_0_0.png one.png copy 1_0_19_2889_40F_1_C00000_0_0_0.png alpha.png copy 1_0_1_445F_453_1_C00000_0_0_0.png welt.png copy 1_0_1_772D_416_1_C00000_0_0_0.png eurosp.png copy 1_0_1_76C8_40E_1_C00000_0_0_0.png comedycentral.png copy 1_0_1_2F1D_441_1_C00000_0_0_0.png rtlnitro.png</code></pre></details>
+
+**Создать новую папку в vis:**
+
+Откройте диалоговое окно «Диспетчер файлов».
+
+Проверьте, существует ли следующий путь, или создайте путь в диалоговом окне.
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+**Введите путь в точку данных:**
+
+Введите следующий путь в точку данных `optchnlogopath` вашего телевизора.
+Замените 192.1.2.3 на IP-адрес вашей установки iobroker.
+
+```text
+http://192.1.2.3:8082/vis.0/icons/tvlogos/
+```
+
+**Отрегулируйте ширину значка с помощью команды css:**
+
+Поскольку ширина иконок должна быть ограничена 100 пикселями, необходимо добавить следующую команду на вкладку css в vis.
+
+```css
+.channel {
+    width: 100px !important;
+}
+```
+
 ### Функции не реализованы в адаптере, но предоставляются в виде скриптов для javascript-adapter
 #### `Recordlist`
 Список всех текущих времен записи, записанных точкой данных записи и обновляемых каждую минуту.
@@ -640,7 +705,7 @@ var timer = setInterval(function () {
 - скопировать текст из Detailview
 - положение маркера настраивается
 - ширина и высота диалогового окна настраиваются
-- Datenpunkt Record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird.
+- Запись Datenpunkt, которую нужно выпить с Knopf mit Aufnahmedaten gefüllt wird
 - Виджет для избранного
 - скрыть неизбранное
 
@@ -665,11 +730,49 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2025-01-03)
+
+- fix datapoint creation and overwriting states
+
+### 3.0.2 (2025-01-02)
+
+- improve debug messages
+
+### 3.0.1 (2025-01-02)
+
+- fix channel select dialog
+- fix css classes
+
+### 3.0.0 (2025-01-02)
+
+- TVs as a device, this is a major change because all data points have to be deleted manually by the user
+- improve datapoint creation
+
+### 2.3.1 (2025-01-02)
+
+- little docu fixes
+
+### 2.3.0 (2025-01-02)
+
+- add datapoint for optional channel icons
+- add logic in the widgets
+
+### 2.2.0 (2024-12-16)
+
+- remove jquery-ui dependency
+- fix dialog is visible on view switch, now it's modal
+- fix adapter icon
+- fix eslint errors
+- switch some callbacks to promises
+- remove unused code
+
 ### 2.1.0 (2024-11-24)
 
 - Change sento command from getFavoritesDatax to getFavoritesData
 - switch to eslint
 - complete rework of tvprogram to switch from callback to await
+- the widgets are now compatible with vis-2 (minimum vis-2 version ist 2.10)
+- due to datapoint management, all datapoints should be deleted.
 
 ### 2.0.2 (2024-11-17)
 
@@ -722,4 +825,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2025 oweitman <oweitman@gmx.de>

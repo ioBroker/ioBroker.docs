@@ -4,61 +4,61 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: rN4KkHkTgQi739/0GZDQZ274L23nvqhd+4OxJHA44Ww=
+hash: D59HzSVYkdStJaSDx6e91FA6u2/6TTOD7QeUisJd0X0=
 ---
 ![Logo](../../../en/adapterref/iobroker.tr-064/media/tr-064.png)
 
 # IoBroker.tr-064
 ### Die Info
 Dieser Adapter liest wichtige Informationen aus der AVM Fritz!Box, wie Anrufliste oder Anzahl der Nachrichten auf dem Anrufbeantworter.
-Auf dieser Grundlage [AVM-Dokumentationen](https://avm.de/service/schnittstellen/)
+Basierend auf diesem [AVM Dokumentationen](https://avm.de/service/schnittstellen/)
 
 ### Einfache Zustände und Funktionen
 - WLAN für 2,4 GHz und 5 GHz ein-/ausschalten,
-- Gast-WLAN ein-/ausschalten,
-- Fritz!Box neustarten,
+- WLAN für Gäste ein-/ausschalten,
+- Fritz!Box neu starten,
 - WPS-Prozess starten,
-- Internet wieder verbinden
+- Internet erneut verbinden
 - externe IP-Adresse
 
-### Klingeln (Nummer wählen)
-- Wenn Sie eine interne Nummer (wie **610) verwenden, lässt der Klingelstatus dieses interne Telefon klingeln.
+### Klingeln (eine Nummer wählen)
+- Wenn Sie eine interne Nummer (wie **610) verwenden, lässt der Klingelstatus das interne Telefon klingeln.
 
-Bsp.: **610[,timeout]
+zB: **610[,timeout]
 
-- Wenn Sie eine externe Nummer verwenden, verbindet Sie der Klingelstatus mit der externen Nummer.
+- Wenn Sie eine externe Nummer verwenden, werden Sie über den Klingelzustand mit der externen Nummer verbunden.
 
-Die FritzBox ruft die externe Nummer an und Ihr Standardtelefon klingelt, wenn das angerufene Telefon abgenommen wird.
-Das Standardtelefon kann in der FritsBox konfiguriert werden unter: Telefonie/Anrufe/[Tab]Wahlhilfe/Wählhilfe verwenden
+Die FritzBox ruft die externe Nummer an und Ihr Standardtelefon klingelt, wenn der Anruf entgegengenommen wird.
+Das Standardtelefon kann in der FritzBox unter: Telefonie/Anrufe/[Tab]Wahlhilfe/Wählhilfe verwenden konfiguriert werden.
 
 ### ToPauseState
-- Werte: klingeln, verbinden, beenden
+- Werte: Klingeln, Verbinden, Ende
 - Kann verwendet werden, um einen Videoplayer bei einem eingehenden Anruf (Klingeln) oder beim Abheben des Telefons (Verbinden) anzuhalten.
-- Fortsetzen kann auf dem Endwert erfolgen.
+- Die Wiederaufnahme kann auf der Grundlage des Endwerts erfolgen.
 
 ### Präsenz
-Sie können eine Liste von Geräten konfigurieren, auf die Sie hören möchten.
-Kann durch mDNS getriggert werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
+Sie können eine Liste der abzuhörenden Geräte konfigurieren.
+Kann durch mDNS ausgelöst werden. Bei Verwendung von MDNS ist kein Polling erforderlich und es ist schneller
 
-### AB - Anrufbeantworter (Anrufbeantworter)
+### AB – Anrufbeantworter
 Kann ein-/ausgeschaltet werden.
-Der Status cbIndex kann auf die Adresse # des Anrufbeantworters gesetzt werden.
+Der Status cbIndex kann auf die Adresse des Anrufbeantworters gesetzt werden.
 
-### Anrufüberwachung
-Der Anrufmonitor erstellt für jeden eingehenden und ausgehenden Anruf Echtzeitzustände.
-Wenn das Telefonbuch aktiviert ist (Standardeinstellung), werden Nummern in Namen aufgelöst. Es gibt auch einen Status, der ein klingelndes Telefon anzeigt.
+### Anrufmonitor
+Der Callmonitor erstellt Echtzeitzustände für jeden eingehenden und ausgehenden Anruf.
+Wenn das Telefonbuch aktiviert ist (Standard), werden Nummern in Namen aufgelöst. Es gibt auch einen Zustand, der ein klingelndes Telefon anzeigt.
 
 ### Telefonbuch
-- Das Telefonbuch, falls aktiviert, wird verwendet, um den Namen der Telefonnummer des Anrufers zu erhalten.
-- Weiterhin gibt es drei Zustände um eine Nummer oder einen Namen aufzulösen. Falls vorhanden, erhalten Sie auch die Bild-URL des Kontakts.
+- Wenn das Telefonbuch aktiviert ist, wird es verwendet, um den Namen und die Telefonnummer des Anrufers abzurufen.
+- Weiterhin gibt es drei Zustände um eine Nummer oder einen Namen aufzulösen. Falls verfügbar wird auch die Bild-URL des Kontakts angezeigt.
 
-  z.B.: wenn Sie den Zustand phonebook.number einstellen, werden alle 3 Zustände, Name, Nummer und Bild auf den gefundenen Kontakt gesetzt. Beachten Sie, dass Suchen nach Namen zuerst den vollständigen Namen vergleichen, wenn er nicht gefunden wird, wird ein Teil davon verwendet.
+Beispiel: Wenn Sie den Status „phonebook.number“ festlegen, werden alle 3 Status, Name, Nummer und Bild für den gefundenen Kontakt festgelegt. Beachten Sie, dass bei der Suche nach Namen zuerst der vollständige Name verglichen wird. Wenn dieser nicht gefunden wird, wird ein Teil davon verwendet.
 
 ### Anruflisten
 Ausgabeformate:
 
 - json
-- Html
+- html
 
 Anruflisten sind:
 
@@ -67,12 +67,12 @@ Anruflisten sind:
 - eingehende Anrufe
 - ausgehende Anrufe
 
-Anrufzähler: Der Anrufzähler kann auf 0 gesetzt werden. Der nächste Anruf wird um 1 erhöht.
+Anrufzähler: Der Anrufzähler kann auf 0 gesetzt werden. Beim nächsten Anruf wird er um 1 erhöht.
 
-Die HTML-Ausgabe kann durch ein Template konfiguriert werden
+Die HTML-Ausgabe kann über eine Vorlage konfiguriert werden
 
-### Befehl & BefehlErgebnisstatus
-Mit dem Befehlsstatus können Sie jeden tr-064-Befehl von diesem [Dokumentation](https://avm.de/service/schnittstellen/) aufrufen.
+### Befehl & Befehlsergebnisstatus
+Mit dem Befehl state können Sie von diesem [Dokumentation](https://avm.de/service/schnittstellen/) aus jeden tr-064-Befehl aufrufen.
 z.B.
 
 ```
@@ -86,15 +86,15 @@ command = {
 };
 ```
 
-Der Befehlsstatus sollte auf ein JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne command = und Zeilenumbrüche) Der Callback des Aufrufs setzt den Zustand commandResult.
+Der Befehlsstatus sollte auf ein JSON der obigen Zeilen gesetzt werden. Also { ... } (ohne command = und Zeilenumbrüche). Der Rückruf des Aufrufs setzt den Befehlsstatus „commandResult“.
 
-### Anrufüberwachung aktivieren
-Um die Anrufüberwachungsfunktion nutzen zu können, muss diese zunächst in der AVM Fritz!Box aktiviert werden.
-Um den Anrufmonitor zu aktivieren, wählen Sie ```#96*5*``` und der TCP/IP-Port 1012 wird geöffnet. Um den Port zu schließen, wählen Sie ```#96*4*```.
+### Anrufmonitor aktivieren
+Um die Anrufüberwachungsfunktion nutzen zu können, muss sie zunächst in der AVM Fritz!Box aktiviert werden.
+Um die Anrufüberwachung zu aktivieren, wählen Sie ```#96*5*``` und der TCP/IP-Port 1012 wird geöffnet. Um den Port zu schließen, wählen Sie ```#96*4*```.
 
 ### Vorabversionen
 Vorabversionen sind bei npm mit dem Tag dev verfügbar.
-Sie können sie aus dem ioBroker-Stammverzeichnis installieren mit:
+Sie können sie aus dem ioBroker-Stammverzeichnis mit folgendem Befehl installieren:
 
 ```
 npm install iobroker.tr-064@dev

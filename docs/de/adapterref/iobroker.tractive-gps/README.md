@@ -69,7 +69,7 @@ In der Adapterkonfiguration gibt es zwei Einstellungsmöglichkeiten:
 * **Alle Geräte** - Hier wird eine Liste aller vom Adapter gefundenen Geräte angezeigt. Sie können den Namen des Gerätes in der Liste ändern.
 
 dieser wird dann auch in den Objekten angezeigt.
-![Instanzen-tractive-gps-allDevices-table.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Finstances-tractive-gps-allDevices-table.png) Um den Namen zu ändern, klicke auf das Bleistiftsymbol und gib den neuen Namen ein.
+![Instanzen-tractive-gps-allDevices-table.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Finstances-tractive-gps-allDevices-table.png) Um den Namen zu ändern, klicke auf das Bleistift-Symbol und gib den neuen Namen ein.
 ![Instanzen-tractive-gps-allDevices-modal.png](../../../en/adapterref/iobroker.tractive-gps/admin%2Fimages%2Finstances-tractive-gps-allDevices-modal.png)
 
 ### Registerkarte
@@ -83,6 +83,13 @@ Oder du nutzt den Tab **files** um die Datei hochzuladen. (siehe Bild unten) **D
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2024-11-12)
+* (mcm1957) Adapter requires node 20 now.
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now.
+* (simatec) Adapter changed to meet Responsive Design rules.
+* (mcm1957) An error at jsonConfig invalidating reauthorization command has been corrected.
+* (mcm1957) Dependencies have been updated.
+
 ### 2.0.1 (2024-08-20)
 * (bluefox) Fixing encryption of the access token
 
@@ -99,10 +106,6 @@ Oder du nutzt den Tab **files** um die Datei hochzuladen. (siehe Bild unten) **D
 * (Scrounger) Bugfix: objects will be created only if necessary
 * (Scrounger) Bugfix for excessive number of warnings has been added
 * (Scrounger) Distance calculation between ioBroker and tracker has been added
-
-### 1.0.0 (2023-11-04)
-* (mcm1957) Adapter has been moved into iobroker-community-adapters organisation
-* (mcm1957) Dependencies have been updated
 
 ## License
 MIT License

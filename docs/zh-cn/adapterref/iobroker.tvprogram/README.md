@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tv节目
-hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
+hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
 ---
 ![标识](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -28,7 +28,7 @@ hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
 ＃＃ 安装
 该适配器可以通过稳定版本安装，也可以通过 beta/latest 存储库安装测试版本。
 
-### 适配器配置
+## 适配器配置
 您可以配置多少台不同的电视，或者至少是您将拥有的不同配置。
 
 ### 小部件
@@ -179,7 +179,7 @@ vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint�
 | `highlightcolor` | `yellow` | 收藏颜色 |
 | `dialogwidthpercent` | 90 | 对话框的大小占小部件的百分比 |
 | `dialogheightpercent` | 90 | 对话框的大小占小部件的百分比 |
-| `dialogheightpercent` | 90 | 对话框大小占小部件的百分比 |
+| `dialogheightpercent` | 90 | 对话框占小部件的百分比大小 |
 
 CSS 类
 请将`w00001`更改为您的小部件ID
@@ -230,13 +230,34 @@ CSS 类
 #### `config`
 此数据点已弃用，将在下一版本中删除
 
+#### `optchnlogopath`
+数据指向一个可以保存备选频道徽标的文件夹。该路径必须可通过浏览器访问。
+
+必须在数据点中输入以 http 开头的完整路径，包括尾随斜杠。
+
+**例子：**
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+然后可以通过
+
+```text
+ttp://localhost:8082/vis.0/icons/tvlogos/
+``
+
+所有图标都应通过 iobroker 文件对话框上传。
+
+示例请参阅第 [替代徽标示例](#alternative-channel-logos-by-tino-0) 章
+
 ### 提供`Sendto` 命令
 可以通过 sendto 命令从适配器请求所有数据。这可用于开发单独的功能
 
 #### `getServerData`
 从适配器请求基础数据。
 
-##### 有效参数为
+##### 有效参数是
 - `类别`
 - `类型`
 - `频道`
@@ -380,7 +401,7 @@ sendTo(
 #### `getServerInfo`
 请求适配器内存中可用的广播日期
 
-##### 有效参数为
+##### 有效参数是
 空对象
 
 **返回：**
@@ -504,6 +525,50 @@ on(idKanalWahl, function (obj) {
   );
   selectChannel(channelList[obj.state.val]);
 });
+```
+
+#### 由 Tino 0 提供的替代频道徽标
+带有示例截图的论坛链接<https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
+
+**下载频道徽标：**
+
+您必须注册才能下载以下尺寸的徽标 400x160
+
+<https://vuplus-support.org/wbb4/index.php?thread/64098-mirror-glass-3d-huminator-design-by-stefanbenno6/>
+
+**重命名徽标：**
+
+在下载并解压的文件夹中启动以下命令
+
+<details><summary>细节</summary><pre><code> copy 1_0_19_283D_3FB_1_C00000_0_0_0.png ard.png copy 1_0_19_2B66_3F3_1_C00000_0_0_0.png zdf.png copy 1_0_19_EF10_421_1_C00000_0_0_0.png rtl.png copy 1_0_19_EF15_421_1_C00000_0_0_0.png rtl2.png copy 1_0_19_2E9B_411_1_C00000_0_0_0.png srtl.png copy 1_0_19_2EAF_411_1_C00000_0_0_0.png nitro.png copy 1_0_19_EF74_3F9_1_C00000_0_0_0.png sat1.png copy 1_0_19_EF75_3F9_1_C00000_0_0_0.png pro7.png copy 1_0_19_EF78_3F9_1_C00000_0_0_0.png pro7maxx.png copy 1_0_19_EF76_3F9_1_C00000_0_0_0.png kaka.png copy 1_0_19_EF77_3F9_1_C00000_0_0_0.png sixx.png copy 1_0_19_EF11_421_1_C00000_0_0_0.png vox.png copy 1_0_19_1519_455_1_C00000_0_0_0.png tele5.png copy 1_0_19_2B7A_3F3_1_C00000_0_0_0.png zdfneo.png copy 1_0_19_2B98_3F2_1_C00000_0_0_0.png kika.png copy 1_0_19_2B8E_3F2_1_C00000_0_0_0.png 3sat.png copy 1_0_19_285B_401_1_C00000_0_0_0.png phoenix.png copy 1_0_19_157C_41F_1_C00000_0_0_0.png disney.png copy 1_0_19_2871_425_1_C00000_0_0_0.png mdr.png copy 1_0_19_286F_425_1_C00000_0_0_0.png rbb.png copy 1_0_19_283F_3FB_1_C00000_0_0_0.png sw3.png copy 1_0_19_1581_41F_1_C00000_0_0_0.png sport1de.png copy 1_0_19_283E_3FB_1_C00000_0_0_0.png arte.png copy 1_0_19_526C_41D_1_C00000_0_0_0.png anixehd.png copy 1_0_19_151A_455_1_C00000_0_0_0.png dmax.png copy 1_0_19_2855_401_1_C00000_0_0_0.png bayern3.png copy 1_0_19_2873_425_1_C00000_0_0_0.png hessen3.png copy 1_0_1_6EE1_4B1_1_C00000_0_0_0.png radiobremen.png copy 1_0_19_2858_401_1_C00000_0_0_0.png nord3.png copy 1_0_19_2BA2_3F2_1_C00000_0_0_0.png info.png copy 1_0_19_132F_3EF_1_C00000_0_0_0.png orf1.png copy 1_0_19_1330_3EF_1_C00000_0_0_0.png orf2.png copy 1_0_19_2777_409_1_C00000_0_0_0.png mtv.png copy 1_0_19_288A_40F_1_C00000_0_0_0.png sw3.sr.png copy 1_0_1_6F76_457_1_C00000_0_0_0.png west3.png copy 1_0_19_2887_40F_1_C00000_0_0_0.png tagesschau24.png COPY 1_0_16_2EB9_411_1_C00000_0_0_0.png ntv.png copy 1_0_19_2888_40F_1_C00000_0_0_0.png one.png copy 1_0_19_2889_40F_1_C00000_0_0_0.png alpha.png copy 1_0_1_445F_453_1_C00000_0_0_0.png welt.png copy 1_0_1_772D_416_1_C00000_0_0_0.png eurosp.png copy 1_0_1_76C8_40E_1_C00000_0_0_0.png comedycentral.png copy 1_0_1_2F1D_441_1_C00000_0_0_0.png rtlnitro.png</code></pre></details>
+
+**在 vis 中创建新文件夹：**
+
+在文件管理器对话框中打开。
+
+检查以下路径是否存在或在对话框中创建路径。
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+**输入数据点的路径：**
+
+在电视的数据点 `optchnlogopath` 中输入以下路径。
+将 192.1.2.3 替换为 iobroker 安装的 IP 地址。
+
+```text
+http://192.1.2.3:8082/vis.0/icons/tvlogos/
+```
+
+**使用 css 命令调整图标宽度：**
+
+由于图标的宽度应限制为 100px，因此必须在 vis 中的 css 选项卡中添加以下命令。
+
+```css
+.channel {
+    width: 100px !important;
+}
 ```
 
 ### 适配器中未实现的功能，但作为 javascript 适配器的脚本提供
@@ -632,7 +697,7 @@ var timer = setInterval(function () {
 - 配置显示的电视频道和顺序，可以通过拖放重新排序。
 - 点击徽标后通过数据点切换命令
 - 放大/缩小
-- 导航下一天和前一天
+- 导航接下来和之前的日子
 - 播放按钮切换频道数据点
 - 中心放大未来几天
 - 回到今天
@@ -666,11 +731,49 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2025-01-03)
+
+- fix datapoint creation and overwriting states
+
+### 3.0.2 (2025-01-02)
+
+- improve debug messages
+
+### 3.0.1 (2025-01-02)
+
+- fix channel select dialog
+- fix css classes
+
+### 3.0.0 (2025-01-02)
+
+- TVs as a device, this is a major change because all data points have to be deleted manually by the user
+- improve datapoint creation
+
+### 2.3.1 (2025-01-02)
+
+- little docu fixes
+
+### 2.3.0 (2025-01-02)
+
+- add datapoint for optional channel icons
+- add logic in the widgets
+
+### 2.2.0 (2024-12-16)
+
+- remove jquery-ui dependency
+- fix dialog is visible on view switch, now it's modal
+- fix adapter icon
+- fix eslint errors
+- switch some callbacks to promises
+- remove unused code
+
 ### 2.1.0 (2024-11-24)
 
 - Change sento command from getFavoritesDatax to getFavoritesData
 - switch to eslint
 - complete rework of tvprogram to switch from callback to await
+- the widgets are now compatible with vis-2 (minimum vis-2 version ist 2.10)
+- due to datapoint management, all datapoints should be deleted.
 
 ### 2.0.2 (2024-11-17)
 
@@ -723,4 +826,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2025 oweitman <oweitman@gmx.de>

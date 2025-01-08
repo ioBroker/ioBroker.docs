@@ -45,6 +45,9 @@ Client id und Client Secret eintragen
 <https://forum.iobroker.net/topic/51104/test-withings-v0-0-x>
 
 ## Changelog
+### 0.0.16 (2024-12-27)
+
+- add night events
 
 ### 0.0.8
 

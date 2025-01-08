@@ -2,16 +2,14 @@
 
 const axios = require('axios');
 const fs = require('node:fs');
-let lastRequest = null;
 const { Translate } = require('@google-cloud/translate').v2;
 // Your Google Cloud Platform project ID
 const projectId = 'web-site-1377';
 process.env.GOOGLE_APPLICATION_CREDENTIALS = `${__dirname}/../google-keys.json`;
 
+const key = fs.existsSync(`${__dirname}/../../api-key.json`) ? require('../../api-key.json').key : '';
 // Instantiates a client
-const translate = new Translate({ projectId });
-
-const TRANSLATE_DELAY = 5000;
+const translate = key ? new Translate({ key }) : new Translate({ projectId  });
 
 /**
  * Choose the right translation API
@@ -66,11 +64,11 @@ const countGoogle = {
 };
 
 function translateGoogleSync(text, targetLang, sourceLang, cb) {
-    if (process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON) {
+    if (!key && process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON) {
         fs.writeFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
     }
 
-    if (fs.existsSync(process.env.GOOGLE_APPLICATION_CREDENTIALS)) {
+    if (key || fs.existsSync(process.env.GOOGLE_APPLICATION_CREDENTIALS)) {
         // we may not send more than 100.000 chars per minute, so we must calculate it: https://cloud.google.com/translate/quotas
         if (countGoogle.start && countGoogle.count + text.length >= 99999) {
             // Wait max one minute and reset stats
@@ -88,38 +86,7 @@ function translateGoogleSync(text, targetLang, sourceLang, cb) {
             .then(results => cb(null, results[0]))
             .catch(err => cb(err));
     } else {
-        return cb(null, `TR: ${text}`);
-        if (lastRequest && Date.now() - lastRequest < TRANSLATE_DELAY) {
-            return setTimeout(() => translateGoogleSync(text, targetLang, sourceLang, cb), TRANSLATE_DELAY - Date.now() + lastRequest);
-        }
-
-        lastRequest = Date.now();
-
-        const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang || 'en'}&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}&ie=UTF-8&oe=UTF-8`;
-
-        console.log(`Translate ${sourceLang} => ${targetLang} : ${text}`);
-
-        axios(url, {validateStatus: status => status === 200})
-            .then(result => {
-                try {
-                    const json = result.data;
-                    if (json instanceof Array) {
-                        // we got a valid response
-                        cb(null, json[0][0][0]);
-                    } else {
-                        cb(`Invalid answer: ${result.data}`);
-                    }
-                } catch (e) {
-                    cb(`Cannot parse answer: ${result.data}`);
-                }
-            })
-            .catch(error => {
-                if (error.response.status === 429) {
-                    cb(null, `TR: ${text}`);
-                } else {
-                    cb(error.response.data || error.response.status);
-                }
-            });
+        throw new Error('Cannot find any google keys!');
     }
 }
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: ZgACrIEmwFvBLGSfjqXHYZ6Ghrvr2gaFcRdTzFfGiOg=
+hash: 58896wn7SCp5CIYwuJjSiflscY/mhseioypkwO/+BzA=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -25,7 +25,7 @@ In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren i
 
 2. **JSON-Konfiguration aktivieren:**
 
-– Fügen Sie in der Datei „io-package.json“ Ihres Adapters unter dem Abschnitt „common“ die folgende Zeile hinzu:
+– Fügen Sie in der Datei „io-package.json“ Ihres Adapters im Abschnitt „common“ die folgende Zeile hinzu:
 
 ```json
 "common": {
@@ -37,7 +37,7 @@ In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren i
 
 3. **Struktur der Konfigurationsdatei:**
 
-Die Konfigurationsdatei definiert eine hierarchische Struktur aus Registerkarten, Bedienfeldern und Steuerelementen. \ Jedes Element verfügt über bestimmte Attribute, die sein Verhalten und Erscheinungsbild in der Administratoroberfläche bestimmen.
+Die Konfigurationsdatei definiert eine hierarchische Struktur aus Registerkarten, Bedienfeldern und Steuerelementen. \ Jedes Element verfügt über bestimmte Attribute, die sein Verhalten und seine Darstellung in der Administratoroberfläche bestimmen.
 
 jsonConfig sorgt automatisch dafür, dass die gesammelten Daten als Konfigurationsdaten für den Adapter erfasst und intern gespeichert werden, um sie im Adapter abrufen und weiterverarbeiten zu können.
 
@@ -190,7 +190,7 @@ Durch die Nutzung der JSON-Konfiguration können Sie eine benutzerfreundliche un
 | Validierung: | |
 
 ## Trennung der großen Konfigurationen
-## Enthält
+## Beinhaltet
 Erfordert Admin 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
@@ -335,11 +335,12 @@ Textkomponente
 | `Zeit` | der Wert ist die Zeit in ms oder eine Zeichenfolge. Wird nur mit dem Flag readOnly verwendet |
 
 ### `number`
-| Immobilie | Beschreibung |
-|----------|---------------|
-| `min` | Minimalwert |
-| `step` | Schritt |
-| `Schritt` | Schritt |
+| Eigenschaft | Beschreibung | Bemerkung |
+|----------|---------------|----------------|
+| `min` | Minimalwert | |
+| `step` | Schritt | |
+| `unit` | Einheit | Admin >= 7.4.9 |
+| `Einheit` | Einheit | admin >= 7.4.9 |
 
 ### `color`
 Farbwähler
@@ -525,7 +526,7 @@ Objekt-ID: mit Name, Farbe und Symbol anzeigen
 ### `password`
 Dieser Feldtyp hat nur Auswirkungen auf die Benutzeroberfläche.
 Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden! Dazu muss der Schlüssel im io-package.json unter [nativeVerschlüsselung](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) bereitgestellt werden.
-Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapter als `admin` und `cloud` schützen, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
+Zusätzlich können Sie diese Eigenschaft davor schützen, an andere Adapter als `admin` und `cloud` übermittelt zu werden, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
 
 | Immobilie | Beschreibung |
 |-------------|---------------------------------------------------------------------------------------------------------|
@@ -635,7 +636,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `items` | `[{"type": see above, "width": px or %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]` |
 | `objKeyName` | (alte Einstellung, nicht verwenden!) – Name des Schlüssels in `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` |
-| `objValueName` | (alte Einstellung, nicht verwenden!) – Name des Werts in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
+| `objValueName` | (alte Einstellung, nicht verwenden!) – Name des Wertes in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | wenn Hinzufügen erlaubt ist, auch wenn Filter gesetzt ist |
 | `showSecondAddAt` | Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am unteren Ende der Tabelle angezeigt wird. Standard 5 |
 | `showFirstAddOnTop` | Erste Plus-Schaltfläche oben in der ersten Spalte anzeigen und nicht links. |
@@ -648,7 +649,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | `compact` | [optional] – wenn wahr, wird die Tabelle im kompakten Modus angezeigt |
 
 ### `accordion`
-Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben und nach unten verschoben werden können (Admin 6.6.0 und neuer)
+Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können (Admin 6.6.0 und neuer)
 
 | Immobilie | Beschreibung |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -707,12 +708,12 @@ nur Admin6
 | `i18n` | wahr, wenn sich `i18n/xx.json`-Dateien im selben Verzeichnis wie die Komponente oder das Übersetzungsobjekt `{"text1": {"en": Text1"}}` befinden |
 
 #### Beispiel für URL
-- „custom/customComponents.js“: in diesem Fall werden die Dateien von „/adapter/ADAPTER_NAME/custom/customComponents.js“ geladen.
+- „custom/customComponents.js“: In diesem Fall werden die Dateien von „/adapter/ADAPTER_NAME/custom/customComponents.js“ geladen.
 - `https://URL/myComponent`: direkt von der URL
 - `./adapter/ADAPTER_NAME/custom/customComponent.js`: in diesem Fall werden die Dateien von `/adapter/ADAPTER_NAME/custom/customComponents.js` geladen.
 
 ### `datePicker`
-ermöglichen dem Benutzer die Auswahl einer Datumseingabe das UI-Format kommt aus der konfigurierten
+ermöglichen dem Benutzer die Auswahl einer Datumseingabe das UI-Format stammt aus der konfigurierten
 
 ### `timePicker`
 Erlaubt dem Benutzer, eine Datumseingabe auszuwählen. Die zurückgegebene Zeichenfolge ist eine analysierbare Datumszeichenfolge oder hat das Format `HH:mm:ss`
@@ -769,7 +770,7 @@ Eingabefeld mit Dateiauswahl
 | `disableEdit` | wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog |
 | `filterFiles` | wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']` |
 | `allowUpload` | Erlaubtes Hochladen von Dateien |
-| `allowDownload` | Erlaubter Download von Dateien (Standard: „true“) |
+| `allowDownload` | Erlaubter Download von Dateien (Standard: True) |
 | `allowCreateFolder` | Erstellen von Ordnern erlaubt |
 | `allowView` | erlaubte Kachel-Ansicht (Standard: true) |
 | `showToolbar` | Symbolleiste anzeigen (Standard: true) |
@@ -811,7 +812,7 @@ Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn „jsonData“ nicht definiert ist. |
 | `manual` | manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn Instanz offline ist). Standard `true`. |
 | `multiple` | Mehrfachauswahl |
-| `showAllValues` | Element anzeigen, auch wenn kein Label dafür gefunden wurde (mehrfach), Standard=`true` |
+| `showAllValues` | Element anzeigen, auch wenn kein Label dafür gefunden wurde (bei mehreren), Standard=`true` |
 | `noTranslation` | Bezeichnung der Auswahlen nicht übersetzen. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array in der Form `[{"value": 1, "label": "one"}, ...]` | sein. |
 | `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
 | `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
@@ -1002,7 +1003,7 @@ Spezieller Eingang für Ports. Es wird automatisch geprüft, ob der Port von and
 
 | Immobilie | Beschreibung |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `oid` | Welche Objekt-ID soll zur Steuerung verwendet werden? Die ID ist ohne Präfix `adapter.X.` |
+| `oid` | Welche Objekt-ID soll zur Steuerung verwendet werden? Die ID ist ohne `adapter.X.`-Präfix |
 | `foreign` | `oid` ist absolut und es ist nicht erforderlich, `adapter.X` oder `system.adapter.X.` zu oid hinzuzufügen |
 | `control` | Wie der Wert des Status angezeigt werden soll: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number` |
 | `controlled` | Wenn wahr, wird der Status als Schalter, Auswahl, Schaltfläche, Schieberegler oder Texteingabe angezeigt. Wird nur verwendet, wenn keine Steuerungseigenschaft definiert ist |
@@ -1027,7 +1028,7 @@ Spezieller Eingang für Ports. Es wird automatisch geprüft, ob der Port von and
 | `labelIcon` | Base64-Symbol für Etikett |
 
 ### `staticInfo`
-(admin >= 7.3.3) Zeigt statische Informationen in vorformatierter Form an, wie z. B. „Titel: Werteinheit“. Dieses Steuerelement wird hauptsächlich in dynamischen Formularen verwendet.
+Zeigt statische Informationen in vorformatierter Form an, z. B. „Titel: Werteinheit“ (admin >= 7.3.3). Dieses Steuerelement wird hauptsächlich in dynamischen Formularen verwendet.
 
 | Immobilie | Beschreibung |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1110,7 +1111,7 @@ Die folgenden Optionen sind die empfohlenen Voreinstellungen, die in den meisten
 #### Es wird empfohlen, das Layout zu überprüfen
 Das jeweilige Layout sollte bei jedem Adapter geprüft werden, ob das Layout in allen Auflösungen dargestellt und genutzt werden kann.
 
-Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jedem Chromium-basierten Browser integriert sind.
+Testen lässt sich dies beispielsweise mit den Web Developer Tools, die in jedem Chromium-basierten Browser integriert sind.
 
 Schritt 1: Öffnen Sie die Web Developer Tools mit F12
 

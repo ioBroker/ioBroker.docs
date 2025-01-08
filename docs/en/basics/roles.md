@@ -3,8 +3,8 @@ lastChanged: 24.01.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/roles.md
-title: Roles of data points
-hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
+title: roles of data points
+hash: P9fMNtraDsN408rMatVAgEME/i2cWWKuxVubLP3+9HI=
 ---
 # Roles of data points
 For objects of type `state`, the property `common.role` must be set to one of the roles defined in the list below.
@@ -16,7 +16,7 @@ Example: An RGB lamp can have the following three objects (or more) with differe
 * `level.color.rgb` with #RRGGBB color code of the lamp
 * `level.brightness` with the brightness value
 
-Various device templates used for detection with required and optional objects and their roles can be found in [Type Detector Repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
+Various device templates used for detection with required and optional objects and their roles can be found in [type detector repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
 ## Generally
 * `state` - very general purpose, to use when it is not known what role the data point has.
@@ -35,9 +35,9 @@ Various device templates used for detection with required and optional objects a
 * `sensor.door` - door opened-`true` or closed-`false`
 * `sensor.alarm` - some general alarms
 * `sensor.alarm.flood` - water leak
-* `sensor.alarm.fire` - Fire sensor
+* `sensor.alarm.fire` - fire sensor
 * `sensor.alarm.secure` - Door opened, window opened or motion detected during alarm is ON.
-* `sensor.alarm.power` - No power (`voltage = 0`)
+* `sensor.alarm.power` - No power (`Voltage = 0`)
 * `sensor.light` - feedback from the lamp that it is switched on
 * `sensor.lock` - current position of the lock
 * `sensor.motion` - motion sensor
@@ -110,7 +110,7 @@ Various device templates used for detection with required and optional objects a
 * `value.sun.elevation` - Sun position in °
 * `value.sun.azimuth` - Sun azimuth in °
 * `value.voltage` - Voltage in volts, `unit=V`
-* `value.current` - Current in amps, `unit=A`
+* `value.current` - current in amps, `unit=A`
 * `value.fill` - fill level, `unit=l,ml,m3,%`
 * `value.blood.sugar` - Blood sugar value, `unit=mmol,mgdl`
 
@@ -122,7 +122,7 @@ So the indicator cannot be alone in the channel. It must be another main status 
 
 * `indicator`
 * `indicator.working` - indicates that the target system is doing something, such as adjusting blinds or opening locks.
-* `indicator.reachable` - When the device is online
+* `indicator.reachable` - If the device is online
 * `indicator.connected` - used only for instances. Use `indicator.reachable` for devices
 * `indicator.maintenance` - displays system warnings/errors, alarms, service messages, battery empty or similar
 * `indicator.maintenance.lowbat`
@@ -152,11 +152,11 @@ With **Levels** you can control or set a numerical value.
 * `level.color.white` - rgbW
 * `level.color.hue` - Color in ° `0-360; 0=red, 120=green, 240=blue, 360=red(cyclic)`
 * `level.color.saturation`
-* `level.color.rgb` - Hex color like `#rrggbb`
+* `level.color.rgb` - hex color like `#rrggbb`
 * `level.color.luminance`
 * `level.color.temperature` - Color temperature in K° `2200 warm white, 6500° cold white`
 * `level.timer`
-* `level.timer.sleep` - sleep timer. 0 - off, or in minutes
+* `level.timer.sleep` - Sleep timer. 0 - off, or in minutes
 * ...
 * `level.volume` - (`min=0, max=100`) - Volume, but min, max may differ. min < max
 * `level.volume.group` - (`min=0, max=100`) - Volume for the device group
@@ -190,7 +190,7 @@ Switch controls Boolean device (`true = ON, false = OFF`)
 ## Air conditioning or thermostat
 * `level.mode.fan` - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing` - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
-* `level.mode.airconditioner` - air conditioning: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`,
+* `level.mode.airconditioner` - Air conditioning: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, Heating thermostat: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`,
 
 In addition to these states, `level.temperature` and `switch.power` are usually required to map the air conditioning system.
@@ -205,17 +205,17 @@ TODO: Think about ionization and oscillation.
 * `indicator.maintenance.waste` - Trash is stupid.
 * `value.state` - `HOME, CLEANING, PAUSE` and so on.
 
-In addition to these states, the `switch.power` are usually required to assign the vacuum cleaner. `switch.power` works in this case as: `true` - clean, `false` - back home.
+In addition to these states, the `switch.power` are usually required to assign the vacuum cleaner. `switch.power` works in this case as: `true` - clean, `false` - return home.
 Optional `value.battery` and
 
 ## Goal
 * `switch.gate` - closes(false) or opens(true) the gate (required)
 * `value.position` - position of the gate in percent (100% open, 0% - closed)
 * `value.gate` - same as `value.position`
-* `button.stop` - stop gate movement
+* `button.stop` - stop door movement
 
 ## Media
-Special roles for media players
+special roles for media players
 
 * `button.stop`
 * `button.play`
@@ -233,12 +233,12 @@ Special roles for media players
 * `media.mode.shuffle` - (`common.type=number`) 0 - none, 1 - all, 2 - one
 * `media.mode.repeat` - (`common.type=boolean`)
 * `media.state` - ['play','stop','pause'] or [0 - pause, 1 - play, 2 - stop] or [true - play/false - pause]
-* `media.artist`
+* `medien.artist`
 * `media.album`
 * `media.title`
 * `media.title.next`
 * `media.cover` - cover URL
-* `media.cover.big` - big cover URL
+* `media.cover.big` - large cover URL
 * `media.cover.small` - tiny cover URL
 * `media.duration.text` - e.g. "2:35"
 * `media.duration` - (`common.type=number`) seconds
@@ -251,7 +251,7 @@ Special roles for media players
 * `media.mute.group` - (`common.type=boolean`) Mute the device group
 * `media.tts` - Text-to-Speech
 * `media.bitrate` - kbps
-* `media.genre` - Genre song
+* `media.genre` - genre song
 * `media.date` - annual song
 * `media.track` - (`common.type=string`) current play track ID [0 - ~] (important that the type is really `string` to be able to indicate the absence of the track with ""
 * `media.playid` - Media player track ID
@@ -260,7 +260,7 @@ Special roles for media players
 * `media.playlist` - json array like
 * `media.url` - URL to play or current URL
 * `media.url.announcement` - URL to play the announcement
-* `media.jump` - number of items to jump into the playlist (can be negative)
+* `media.jump` - number of elements to jump into the playlist (can be negative)
 * `media.content` - type of media played such as audio/mp3
 * `media.link` - state with the current file
 * `media.input` - number or string of the input (AUX, AV, TV, SAT, ...)
@@ -313,23 +313,23 @@ Special roles for media players
 
 ## Weather
 * `value.temperature` - Current temperature
-* `value.temperature.windchill` - Actual windchill
+* `value.temperature.windchill` - Actual wind chill
 * `value.temperature.dewpoint` - Current dew point
 * `value.temperature.feelslike` - Actual temperature "feels like"
 * `value.temperature.min` - Minimum temperature in the last 24h
-* `value.temperature.max` - Maximum temperature in the last 24h
+* `value.temperature.max` - Maximum temperature in the last 24 hours
 * `value.humidity` - actual or average humidity
 * `value.humidity.min` - actual humidity
 * `value.humidity.max` - actual humidity
 * `value.speed.wind` - current or average wind speed
-* `value.speed.max.wind` - maximum wind speed in the last 24h
-* `value.speed.min.wind` - minimum wind speed in the last 24h
+* `value.speed.max.wind` - maximum wind speed in the last 24 hours
+* `value.speed.min.wind` - minimum wind speed in the last 24 hours
 * `value.speed.wind.gust` - actual wind gust speed
 * `value.direction.wind` - current or average wind direction in degrees
 * `value.direction.max.wind` - current wind direction in degrees
 * `value.direction.min.wind` - current wind direction in degrees
 * `weather.direction.wind` - current or average wind direction as text, e.g. NNW
-* `date` - current date or date of last read information
+* `date` - current date or date of the last read information
 * `date.sunrise` - Sunrise for today
 * `date.sunset` - sunset for today
 * `dayofweek` - weekday as text
@@ -363,7 +363,7 @@ Special roles for media players
 * `value.speed.wind.forecast.0` - Wind speed forecast for today
 * `weather.state.forecast.0` - Weather description for today
 * `value.direction.wind.forecast.0` - Wind direction forecast for today in degrees
-* `weather.direction.wind.forecast.0` - wind direction forecast for today as text
+* `weather.direction.wind.forecast.0` - Wind direction forecast for today as text
 * `value.pressure.forecast.0` - Pressure forecast for today
 * `value.temperature.min.forecast.0` - Min. temperature forecast for today
 * `value.temperature.max.forecast.0` - Max. temperature forecast for today
@@ -375,7 +375,7 @@ Special roles for media players
 
 * `date.forecast.1` - tomorrow's date
 * `weather.icon.forecast.1` - icon for tomorrow
-* `weather.state.forecast.1` - Tomorrow's weather condition
+* `weather.state.forecast.1` - tomorrow's weather condition
 * `value.temperature.min.forecast.1`
 * `value.temperature.min.forecast.1`
 * `value.prepitation.forecast.1` - (`type: number, unit: %`) Precipitation probability forecast for tomorrow
@@ -384,7 +384,7 @@ Special roles for media players
 * `value.speed.wind.forecast.1`
 * `value.pressure.forecast.1`
 
-## The information
+## The info
 * `info.ip` - IP of the device
 * `info.mac` - Mac of the device
 * `info.name` - Name of the device
@@ -403,17 +403,17 @@ Special roles for media players
 `common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat` - Body fat index in %
-* `value.health.weight` - body weight in kg, lbs
+* `value.health.weight` - Body weight in kg, lbs
 * `value.health.bmi` - bmi index
 * `value.health.calories` - calories burned
 * `value.health.steps` - steps completed
 * `value.health.bpm` - heartbeats per minute
 
-## Other
+## Others
 * `url`
-* `url.icon` - icon (additionally, every object can have `common.icon`)
+* `url.icon` - icon (additionally, each object can have `common.icon`)
 * `url.cam` - webcam URL
 * `url.blank` - open URL in new window
-* `url.same` - open URL in this window
+* `url.same` - Open URL in this window
 * `url.audio` - URL for audio file
 * `text.phone` - phone number

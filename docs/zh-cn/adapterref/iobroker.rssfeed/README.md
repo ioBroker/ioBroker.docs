@@ -75,7 +75,7 @@ iobroker upload rssfeed
 | rss_oid | 选择具有相应 RSS 提要的数据点。|
 | rss_template | 模板决定了 RSS 源的外观。模板中可以使用所有有效的 HTML 标签（包括 style 标签中的 CSS 属性）。此外，还有一些特殊标签，其中显示源数据并可执行 JavaScript 指令。为了更好地识别数据和使用的属性名称，有两个小部件，rssfeed Meta helper 和 rssfeed Article helper。|
 | rss_maxarticles | 从 RSS 源显示的单个文章的最大数量 |
-| rss_filter | 对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。搜索时会搜索以下文章属性：标题、描述、类别。仅显示包含其中一个术语的文章。|
+| rss_filter | 对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。搜索将搜索以下文章属性：标题、描述、类别。仅显示包含其中一个术语的文章。|
 
 **变量的可用性：**
 
@@ -144,7 +144,7 @@ iobroker upload rssfeed
 | rss_link | 常规组 | 如果启用此选项，标题将显示为链接。如果您单击或触摸标题，则文章的链接将在新窗口或选项卡中打开。|
 | rss_withtime | 常规组 | 如果打开此选项，则会在相应标题前显示时间。 属性 rss_withdate - 常规组 如果启用此选项，则会在相应标题前显示不带年份的日期和时间。|
 | rss_withyear | 常规组 | 如果启用此选项，则会在相应的标题前显示带有年份的日期和时间。|
-| rss_oid | Feeds[number] 组 | 选择具有相应 RSS feed 的数据点。|
+| rss_oid | Feeds[number] 组 | 选择具有相应 RSS 提要的数据点。|
 | rss_maxarticles | Feeds[number] group | 从 RSS feed 中显示的最大单独文章数量 |
 | rss_filter | Feeds[number] group | 对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。搜索时会搜索以下文章属性：标题、描述、类别。仅显示包含其中一个术语的文章。|
 

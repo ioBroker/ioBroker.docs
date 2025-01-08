@@ -4,7 +4,7 @@ lastChanged: 23.11.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/repositories.md
-hash: loQy7Zx+KU7njZGtwbuYteL6VGoKZj20Dxg/Emlf8KU=
+hash: IzW9bZryoELmq+VV6xs1s9c+RUIKf/FwJo2BN75kEvg=
 ---
 A repository is a central storage location for software programs.
 
@@ -33,7 +33,7 @@ In the system settings, use the wrench to open the basic settings:
 
 The default paths of the stable and beta repositories are:
 
-- stable - Link to repository http://download.iobroker.net/sources-dist.json
+- stable - Link to the repository http://download.iobroker.net/sources-dist.json
 - beta - Link to repository http://download.iobroker.net/sources-dist-latest.json
 
 If the beta repository has been selected, a corresponding warning appears in the adapter overview:
@@ -41,11 +41,11 @@ If the beta repository has been selected, a corresponding warning appears in the
 ![](../../de/basics/media/Repository_AdapterRepInfo.png)
 
 ## What should I do if I need an adapter from the beta repository?
-In the past, this meant changing the ioBroker repository from stable to beta, installing one adapter and then changing back again. The latter was usually left behind.
+In the past, this meant changing the repository in ioBroker from stable to beta, installing one adapter and then changing back again. The latter was usually left behind.
 
 Since Admin 5, this has become much more convenient WITHOUT having to change the repository!
 
-- Activate expert mode
+- Activate the expert mode
 - In the "Adapter" menu, click on the "Install from own URL" (GitHub) button and switch to the first tab "From NPM"
 - In the "Select adapter" field you can now enter / select the adapter you want to install
 

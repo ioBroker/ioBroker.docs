@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: X0FH0AAyrKizVzTfpVwNLsTbw4D1qeGSFk0nawRnlys=
+hash: gybFiczCfUc6ooEmGRGnlHpNr6wkKau+THWKNpuvHKM=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -26,11 +26,11 @@ hash: X0FH0AAyrKizVzTfpVwNLsTbw4D1qeGSFk0nawRnlys=
 -nodejs 18（或更高版本）
 - js-controller 5.0.0（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
-- 固件版本为 _0.96_（或更高版本）的 _Awtrix 3_ 设备 - 例如 Ulanzi TC001
+- 固件版本为 _0.97_（或更高版本）的 _Awtrix 3_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
-＃＃ 第一步
+## 第一步
 1. 将固件刷新到设备并通过 WiFi 将其添加到本地网络 - 请参阅[文档](https://blueforcer.github.io/awtrix3/#/quickstart)
 2. 在ioBroker中安装awtrix-light适配器（并创建一个新实例）
 3.打开实例配置并存储设备在本地网络中的IP地址
@@ -46,11 +46,11 @@ hash: X0FH0AAyrKizVzTfpVwNLsTbw4D1qeGSFk0nawRnlys=
 
 **如何切换到最新固件版本？**
 
-只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络闪光器（除非固件更新明确要求这样做）。
+只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 即可导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络闪烁器（除非固件更新明确要求这样做）。
 
 **充电时设备会变热。**
 
-不幸的是，硬件设计并不是最佳的。建议使用尽可能弱的电源，最大可提供 1A 的电流。
+不幸的是，硬件设计并不是最佳的。建议使用可提供最大 1A 电流的最弱电源。
 
 **您可以从设备中取出电池吗？**
 
@@ -78,14 +78,14 @@ hash: X0FH0AAyrKizVzTfpVwNLsTbw4D1qeGSFk0nawRnlys=
 
 **通知的保留选项如何工作？**
 
-当使用 `hold: true` 选项发送通知时，显示屏上的文本将一直保留，直到通知被确认为止。这可以通过使用设备上的中间按钮或通过将状态`notification.dismiss`设置为`true`来实现。
+当使用 `hold: true` 选项发送通知时，显示屏上的文本将一直保留，直到通知被确认为止。这可以通过使用设备上的中间按钮或将状态`notification.dismiss`设置为`true`来实现。
 
 **某些状态更改不会立即显示。**
 
 如果状态更改非常频繁（例如每秒），则某些更改将被忽略并且不会传输，以保持设备上的负载较低。每个应用程序都有自己的“阻止时间”，可以在实例设置中全局配置。默认时间为 3 秒。不建议设置小于3的值。
 
 ## 多个设备上的相同应用程序
-如果要使用相同的应用程序控制多个 awtrix-light 设备，**必须为每个设备创建一个单独的实例。**但是，您可以在其他设备的实例设置中指定应接管应用程序来自另一个实例。
+如果要使用相同的应用程序控制多个 awtrix-light 设备，**必须为每个设备创建一个单独的实例。**但是，您可以在其他设备的实例设置中指定应接管这些应用程序来自另一个实例。
 
 例子
 
@@ -141,7 +141,7 @@ sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 });
 ```
 
-＃＃应用
+##应用程序
 **应用程序名称只能包含小写字母 (a-z) 并且必须是唯一的。没有数字，没有特殊字符，没有空格。**
 
 以下应用程序名称由内部应用程序保留，无法使用：`Time`、`Date`、`Temperature`、`Humidity`、`Battery`。
@@ -168,7 +168,7 @@ sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 - 未选择对象 ID，但文本中使用了“%s”
 
 ### 历史应用程序/图表
-去做
+待办事项
 
 **图表中仅显示确认值。带有`ack: false`的税值将被过滤并忽略！**
 
@@ -191,36 +191,34 @@ sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.1.0 (2024-05-11)
+### 1.5.0 (2025-01-07)
 
-* (klein0r) Sync app activations (if enabled)
+Updated recommended firmware version to 0.97
 
-### 1.0.1 (2024-04-28)
+* (@klein0r) Updated dependencies
 
-* (klein0r) Keep text case of expert apps (ignore system settings)
+### 1.4.1 (2024-11-20)
 
-### 1.0.0 (2024-04-04)
+NodeJS >= 20.x and js-controller >= 6 is required
 
-NodeJS >= 18.x and js-controller >= 5 is required
+### 1.4.0 (2024-11-20)
 
-Updated recommended firmware version to 0.96
+* (@klein0r) Added support for notification manager
 
-### 0.16.0 (2024-03-12)
+### 1.3.0 (2024-08-01)
 
-Updated recommended firmware version to 0.95
+* (@klein0r) Added sentry plugin for error reporting
 
-* (klein0r) Added notification for firmware update
-* (klein0r) Added setting state for volume
-* (klein0r) Rebranding Awtrix Light to Awtrix 3
+### 1.2.1 (2024-06-07)
 
-### 0.15.1 (2024-03-12)
-
-* (klein0r) Fixed default values of color states
+* (klein0r) Fixed Blockly definitions (removed warnings)
+* (klein0r) Updated dependencies
 
 ## License
+
 MIT License
 
-Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

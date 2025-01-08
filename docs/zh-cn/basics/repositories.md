@@ -4,7 +4,7 @@ lastChanged: 23.11.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/repositories.md
-hash: loQy7Zx+KU7njZGtwbuYteL6VGoKZj20Dxg/Emlf8KU=
+hash: IzW9bZryoELmq+VV6xs1s9c+RUIKf/FwJo2BN75kEvg=
 ---
 存储库是软件程序的中央存储位置。
 
@@ -29,7 +29,7 @@ ioBroker 中有两个可用的存储库：
 
 (2) 使用 按钮，标准存储库 stable 和 beta 的路径将重置为标准路径。注意：此按钮还会删除手动添加的存储库
 
-(3) 在“稳定”列中，如果首次读取后存储库被识别为“稳定”存储库，则自动激活该复选框
+(3) 在“稳定”列中，如果存储库在第一次读取后被识别为“稳定”存储库，则自动激活该复选框
 
 稳定版和测试版存储库的默认路径是：
 
@@ -46,7 +46,7 @@ ioBroker 中有两个可用的存储库：
 从 Admin 5 开始，这更加方便，无需更改存储库！
 
 - 激活专家模式
-- 在“适配器”菜单中，转到“从自己的 URL 安装”(GitHub) 按钮，然后切换到第一个选项卡“从 NPM”。
+- 在“适配器”菜单中，单击“从自己的 URL 安装”(GitHub) 按钮，然后切换到第一个选项卡“从 NPM”。
 - 在“选择适配器”字段中，您现在可以输入/选择应安装的所需适配器
 
 这样您就可以安装最新的测试版，而无需更改存储库。

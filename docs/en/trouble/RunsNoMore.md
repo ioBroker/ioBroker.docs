@@ -4,16 +4,16 @@ lastChanged: 06.06.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/RunsNoMore.md
-hash: +IimqxVNeVMpPXhNnAWhm8X76aM2a2RJemrZvve2pNs=
+hash: Ga+TPCA7P3xhbRocb1+yR2lK4xmO52LrGRtPR4FOCqs=
 ---
 # IoBroker is no longer running
-It often comes up in the forum that ioBroker is no longer running. But that is a statement that carries just as much information as: my car is not driving.
+It often comes up in the forum that ioBroker is no longer working. But that is a statement that contains just as much information as: my car doesn't run.
 
-You don't think that there can be 1000 reasons why a car doesn't drive: no fuel, dead battery, flat tires and, and, and...
+You don't think that there can be 1000 reasons why a car doesn't run: no fuel, battery empty, flat tires and, and, and...
 
-ioBroker is very modular and you can fix each part pretty easily. The configuration files are taken out of the directory with Node.js packages and as long as this configuration directory is still intact, nothing serious happened to the ioBroker installation.
+ioBroker is very modular and you can fix any part pretty easily. The configuration files are taken out of the directory with Node.js packages and as long as this configuration directory is still intact, nothing serious has happened to the ioBroker installation.
 
-The first thing you notice is that ioBroker doesn't run if "admin" isn't running. But there is more or less clear algorithm how to check what is broken.
+The first thing you notice is that ioBroker is not running if “admin” is not running. But there is a more or less clear algorithm for checking what is broken.
 Check if js-controller is running:
 
 **Linux:**
@@ -26,14 +26,14 @@ Linux: ps -A | grep iobroker
 
 Check if node.exe process is there in Process Explorer (show all processes)
 
-Under linux something like this must be visible:
+Under Linux something like this should be visible:
 
 ```
 pi@pi:~$ ps -A | grep iobroker
 1807 ? 13:59:22 iobroker.js-con
 ```
 
-If it's not running, then try to start ioBroker with
+If it doesn’t work, try starting ioBroker with
 
 **Linux:**
 
@@ -49,16 +49,16 @@ cd C:\ioBroker
 iobroker start
 ```
 
-If it still doesn't work or error messages appear, you can try to start the js-controller manually.
+If it still doesn't work or you get error messages, you can try starting the js-controller manually.
 
 ```
 cd /opt/iobroker
 node node_modules/iobroker.js-controller/controller.js --logs
 ```
 
-If error messages appear, you can try to update “js-controller”.
+If you get error messages, you can try updating “js-controller”.
 
-If the js-controller is running, the TCP ports 9000 and 9001 must be occupied. This can be checked with the command:
+If the js-controller is running, then TCP ports 9000 and 9001 must be occupied. You can check this with the command:
 
 ```
 netstat -n -a -p TCP
@@ -78,10 +78,10 @@ TCP 0.0.0.0:6379 0.0.0.0:0 LISTENING
 TCP 0.0.0.0:9001 0.0.0.0:0 LISTENING
 ```
 
-If nothing is visible (or only one), then the ports are probably occupied by other programs. You can change the ports in */opt/iobroker/iobroker-data/iobroker.json*. Or reconfigure another program.
+If you don't see anything (or only one), then the ports are probably being used by other programs. You can change the ports in */opt/iobroker/iobroker-data/iobroker.json*. Or reconfigure another program.
 
 ## Reinstall an adapter or js-controller
-If an adapter or js-controller was running and not after the update, then most likely something went wrong with the update. But you can easily install an adapter again. All you have to do is write in the console:
+If an adapter or js-controller was running and then stopped after the update, then something probably went wrong with the update. But you can easily reinstall an adapter. All you have to do is type in the console:
 
 ```
 cd /opt/iobroker
@@ -91,7 +91,7 @@ iobroker upload adapterName
 iobroker start adapterName
 ```
 
-Or for the js controller:
+Or for the js-controller:
 
 ```
 cd /opt/iobroker
@@ -100,27 +100,27 @@ npm install iobroker.js-controller
 iobroker start
 ```
 
-## Check or node.js and npm are installed correctly
-If js-controller is not running, it could also be that node.js is not installed at all.
+## Check if node.js and npm are installed correctly
+If js-controller is not running, it could be that node.js is not installed.
 It is recommended to use a 14.x version of node.js.
 
-The Node.js version 16.x has been tested as far as possible (as of May 5th, 2022), with 18.x there is no guarantee that it will work.
+Node.js version 16.x has been largely tested (as of May 5, 2022), but there is no guarantee that 18.x will work.
 
-The commands
+The orders
 
 ```
 node -v
 npm -v
 ```
 
-must show the same version number. If it is not, then you should uninstall and reinstall node.js. Or check the search path.
+must show the same version number. If this is not the case, then you should uninstall node.js and reinstall it. Or check the search path.
 
 The uninstallation and installation of Node.js is analogous to the manual ioBroker installation (on Raspberry and other Linux systems).
 
 The necessary steps are described in detail HERE.
 
 And here you can find information about other systems..
-Check if admin adapter is running
+Check whether the admin adapter is running
 
 First check if admin is activated:
 
@@ -135,13 +135,13 @@ you should see a line like this:
 system.adapter.admin.0 : admin - enabled, port: 8081, bind: 0.0.0.0, run as: admin
 ```
 
-If it says "disabled" instead of "enabled", you can enable adapters like this:
+If it says “disabled” instead of “enabled”, you can enable the adapter like this:
 
 ```
 iobroker start admin
 ```
 
-If the IP address is not correct, then write:
+If IP address is incorrect, then write:
 
 ```
 iobroker set admin.0 --bind 0.0.0.0
@@ -155,13 +155,13 @@ You can also change port:
 iobroker set admin.0 --port 8081
 ```
 
-or turn off SSL:
+or disable SSL:
 
 ```
 iobroker set admin.0 --secure false
 ```
 
-Then the instance must be visible at the port (default 8081).
+Then the instance must be visible on the port (default 8081).
 
 With
 
@@ -175,48 +175,48 @@ you can check whether the line can be found:
 TCP 0.0.0.0:8081 0.0.0.0:0 LISTENING
 ```
 
-If it's still not running then you can start it manually and see if there are any errors: cd /opt/iobroker node node_modules/iobroker.admin/admin.js --logs
+If it still doesn't work, you can start it manually and see if there are any errors: cd /opt/iobroker node node_modules/iobroker.admin/admin.js --logs
 
-It could also be something in the log. The log file can be found at ***/opt/iobroker/log/iobroker.YYYY-MM-DD.log***.
+There may also be something in the log. The log file can be found at ***/opt/iobroker/log/iobroker.YYYY-MM-DD.log***.
 
-You can with the command
+You can use the command
 
 ```
 cd /opt/iobroker
 cat log/iobroker.JJJJ-MM-TT.log
 ```
 
-view the file. Of course, YYYY-MM-DD must be replaced with the current date. (“cat” is only possible under Linux)
+display the file. Of course, YYYY-MM-DD must be replaced with the current date. (“cat” is only possible under Linux)
 
-## Install another instance from admin
-If the settings in the admin console have been changed and you can no longer access the admin page, there is still the option of installing a second admin instance.
+## Install another instance from the admin
+If the settings of the admin console have been changed and you can no longer access the admin page, there is still the possibility of installing a second admin instance.
 
-Therefore:
+For that:
 
 ```
 iobroker add admin --port 8089
 ```
 
-To run.
+carry out.
 
-Here 8089 is a port that is certainly free. Then you can reach admin at http://ip:8089.
+Here, 8089 is a port that is definitely free. You can then reach the admin at http://ip:8089.
 
 After the settings are correct again, you should uninstall the new (second on port 8089) instance to save resources.
 
 ## Npm has disappeared
->! This is currently happening with Debian (Raspbian) Buster
+>! Something like this is currently happening with Debian (Raspbian) Buster
 
-Due to a problem with npm, it can happen that after an upgrade from Linux, in which nodejs is usually also upgraded within a main version (6.x; 8.x, 10.x), suddenly nothing works anymore.
+Due to a problem with npm, it can happen that after an upgrade of Linux, which usually also includes an upgrade of nodejs within a main version (6.x; 8.x, 10.x), suddenly nothing works anymore.
 
-For example, adapters can no longer be installed, the error message is ***npm not found***
+For example, adapters can no longer be installed and the error message is ***npm not found***
 
-In the cases please check in the console:
+In these cases please check in the console:
 
 node -v npm -v
 
-Usually now (as of July 30th, 2019) the node version is 8.15.0 and npm is not found.
+Usually (as of July 30, 2019) the node version is 8.15.0 and npm is not found.
 
-The normal procedure of upgrading npm does not work because npm is not there. Therefore you have to uninstall node first and then reinstall it:
+The normal procedure to upgrade npm does not work because npm is not there. Therefore you have to uninstall node first and then reinstall it:
 
 ```
 sudo apt-get --purge remove node
@@ -228,9 +228,9 @@ node -v
 npm -v
 ```
 
-Normally npm 6.x should now be installed.
+By now you should have npm 6.x installed.
 
-If another main version (not 10.x) of Node was previously installed, the packages on node 10 still have to be compiled
+If another main version (not 10.x) of Node was previously installed, the packages still need to be compiled on node 10
 
 ```
 cd /opt/iobroker

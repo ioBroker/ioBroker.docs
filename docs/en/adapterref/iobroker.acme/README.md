@@ -97,6 +97,11 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.6 (2024-12-27)
+
+- (mcm1957) Missing size attributes for jsonCOnfig have been added.
+- (mcm1957) Dependencies have been updated
+
 ### 1.0.5 (2024-12-08)
 
 - (@GermanBluefox) Corrected error with admin 7.4.3
@@ -115,11 +120,6 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 
 - (mcm1957) Issues reported by adapter checker have been fixed.
 - (mcm1957) Release 0.1.1 has been released again due to error during deploy.
-
-### 0.1.1 (2023-11-15)
-
-- (raintonr) Various improvements in start/stop of other adapters using HTTP challenge server port fixing restart loop (#43).
-- (raintonr) Fixed ACME notify messages (#64).
 
 ## License
 

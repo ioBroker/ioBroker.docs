@@ -4,7 +4,7 @@ lastChanged: 24.08.2024
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: MXTgEqstM92RN3uaLS8jZhn4QQRPF+WUr/K7ibC/BO0=
+hash: 5wxuyky5vspeQkc94/LiK5OVQbxsmSHDzwO2rtoQh+c=
 ---
 ioBroker is a pure software solution for connecting different IoT systems to form an overall system.
 Accordingly, each system still requires a central unit (gateway/interface) in order to be able to integrate its devices.
@@ -20,7 +20,7 @@ This saves storage space and computing power.
 
 So-called ***instances*** are created for each adapter.
 These are the "working versions" of the adapter.
-Depending on the adapter, any number of instances can be created in order to separate different subsystems or different task areas from one another.
+Depending on the adapter, any number of instances can be created in order to separate different subsystems or different areas of responsibility from one another.
 
 The corresponding configuration takes place in these instances.
 
@@ -38,7 +38,7 @@ The only requirement is that there is a current version of [nodejs](https://node
 
 For a larger installation, a RAM of at least 2 GB, preferably 4 GB, is recommended. For testing, a Raspberry Pi 2/3 with 1 GB RAM is sufficient; even smaller computers are sufficient as a slave for a few adapters in a multi-host environment.
 
-###Softwares
+### Software
 ioBroker manages the data in a database. The structure of the data is organized accordingly.
 
 For each adapter there is a so-called namespace that contains all the data for an instance of the adapter.
@@ -46,7 +46,7 @@ Accordingly, the name of the namespace is, for example: ***AdapterName.0***
 
 Within this area, ioBroker creates the devices, their channels and their data points with their values (states).
 
-![Object structure](../../de/admin/media/ADMIN_Objekte_status_tree.png)
+![object structure](../../de/admin/media/ADMIN_Objekte_status_tree.png)
 
 In this example, it is a self-created namespace for your own measured values.
 

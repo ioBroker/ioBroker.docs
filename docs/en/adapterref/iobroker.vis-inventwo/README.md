@@ -510,8 +510,6 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## License
 
-Copyright (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
 MIT License (nur in englisch / englisch only)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -536,6 +534,6 @@ SOFTWARE.
 
 Icons from Icons8 https://icons8.com/
 
----
+Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
-Copyright (c) 2020-2023 jkvarel jkvarel@inventwo.com
+

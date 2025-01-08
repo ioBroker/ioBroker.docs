@@ -172,6 +172,10 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 2.3.3 (2024-12-30)
+
+* (Sickboy78) fixed a bug when feeder does not have bowls data
+
 ### 2.3.2 (2024-12-07)
 
 * (Sickboy78) quick fix for surepet api changes

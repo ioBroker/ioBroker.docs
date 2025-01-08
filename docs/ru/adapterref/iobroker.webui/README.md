@@ -1,85 +1,89 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: hHIZNEpqahzbPHmd5jNTEvsyMnBQA3XJMv/XzPDzXXo=
+hash: icwayNN6/KClreJsKpqYDJCW9+30cUUxFZyP3ZIqmvk=
 ---
 # IoBroker.webui
 
 ![Количество установок](https://iobroker.live/badges/webui-installed.svg)
 ![Стабильная версия](https://iobroker.live/badges/webui-stable.svg)
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.webui.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.webui.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.webui.svg)
 ![НПМ](https://nodei.co/npm/iobroker.webui.png?downloads=true)
 
-вебуи для ioBroker
+веб-интерфейс для ioBroker
 
 ![изображение](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
 
-## Обучающие видео (атм. только на немецком языке)
+## Обучающие видео (только на немецком языке)
 https://www.youtube.com/@jogibear9988
 
 ## Описание
-Это полноценная система визуализации для ioBroker.
+Это полная система визуализации для ioBroker.
 
 Он включает в себя такие функции, как:
 
-  - собственный простой язык сценариев
-  - привязка к объектам ioBroker, включая конвертеры и выражения JavaScript.
-  - вставка изображений из буфера обмена
-  - перетаскивание внешних изображений
-  - перетащите объекты ioBroker для автоматического создания привязок
-  - перетащите объекты ioBroker в Свойства, чтобы создать к ним привязки.
-  - относительные пути сигналов к объектам ioBroker на экранах (полный путь можно передать снаружи на экран)
-  - редактирование HTML-кода в разделенном режиме
-  - глобальная поддержка таблиц стилей
-  - использование пакетов npm, содержащих веб-компоненты
-  - экраны внутри экранов
-  - используйте все пакеты значков от ioBroker
-  - используйте графики от ioBroker
-  - использовать идентификаторы объектов комбинированных сигналов, например. "webui.0.test3.{webui.0.test3.select}" -> в качестве имени сигнала будет использоваться значение из webui.0.test3.select.
+- простой язык сценариев
+- привязка к объектам ioBroker, включая конвертеры и выражения JavaScript
+- вставка изображений из буфера обмена
+- перетаскивание внешних изображений
+- перетаскивание объектов ioBroker для автоматического создания привязок
+- перетаскивание объектов ioBroker в Свойства для создания привязок к ним
+- относительные пути сигналов к объектам ioBroker на экранах (полный путь может быть передан извне на экран)
+- редактирование макета и HTML-кода в режиме разделенного просмотра
+- глобальная поддержка таблиц стилей
+- использование пакетов npm, содержащих веб-компоненты
+- экраны внутри экранов
+- использовать все пакеты иконок от ioBroker
+- используйте графики от ioBroker
+- используйте комбинированные идентификаторы объектов сигналов, например, "webui.0.test3.{webui.0.test3.select}" -> это будет использовать значение из webui.0.test3.select для имени сигнала
 
-## Монтаж
+Более подробную информацию по конкретным темам можно найти в разделе [вики](https://github.com/iobroker-community-adapters/ioBroker.webui/wiki) (в немецком разделе статей на несколько статей больше, чем в английском).
+
+## Установка
 ### Зависимости
-  - Вам необходимо установить веб-адаптер. Он работает со следующими настройками: ![image](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/web.png)
+- Вам необходимо установить Web Adapter. Он работает со следующими настройками: ![image](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/web.png)
 
 ## Концепции
 ### Описание
-Конструктор использует веб-компоненты, поэтому разрабатываемый вами HTML-код находится внутри Shdowroot веб-компонента. Это мужские вещи, ты не можешь их стилизовать<body> или<html> внутри таблицы стилей. Чтобы стилизовать внешний макет, используйте селектор «:host». Это также означает, что вы не можете использовать обработчики событий «on...». Используйте назначение события «@...».
+Дизайнер использует веб-компоненты, поэтому HTML, который вы проектируете, находится внутри Shadowroot веб-компонента. Это означает, что вы не можете стилизовать<body> или<html> внутри таблицы стилей. Для стилизации внешнего макета используйте селектор &quot;:host&quot;. Это также означает, что вы не можете использовать обработчики событий &quot;on...&quot;. Используйте назначение события &quot;@...&quot;.
 
 ### Пользовательские элементы управления в WebUI
-Вы можете создавать собственные повторно используемые элементы управления CustomControl в WebUI. Он может иметь отдельный Javascript, свойства и шаблон.
+Вы можете создавать собственные многократно используемые элементы управления CustomControls в WebUI, каждый из которых может иметь свой собственный Javascript, свойства и шаблон.
 
-Вы можете использовать синтаксис двойных скобок и синтаксис двойных фигурных скобок «BaseCustomWebcomComponent» для создания привязок из шаблона к свойствам, определенным в конструкторе. Curylbrackets создают двусторонние привязки.
-Если вы используете диалоговое окно «Привязки», вы можете привязаться к свойству с помощью ??Propertyname и к объекту ioBroker в свойстве через ?Propertyname.
-В сценариях вы также можете писать сигналы, определенные в пользовательских свойствах.
+Вы можете использовать синтаксис двойных квадратных скобок и синтаксис двойных фигурных скобок "BaseCustomWebcomponent" для создания привязок из шаблона к свойствам, определенным в конструкторе. Фигурные скобки создают двусторонние привязки.
+Если вы используете диалоговое окно привязок, вы можете привязаться к свойству с помощью ??Propertyname и к объекту ioBroker в свойстве через ?Propertyname.
+В скриптах вы также можете писать в сигналы, определенные в пользовательских свойствах.
 
-Вы также можете включить Javascript в свой CustomControl или Screen. Также вы можете использовать экспорт функции «init(instance)», которая будет вызываться при создании экземпляра вашего CustomControl. (а также можно использовать подключенные и отключенные функции)
+Вы можете включить Javascript в свой CustomControl или Screen.
+Кроме того, вы можете экспортировать функцию `init(instance)`, которая будет вызвана при создании экземпляра вашего CustomControl.
+Наконец, функции `connected()` и `disconnected()` можно определить для вызова при ...
 
 ## Спонсорство
-Если вы хотите помочь развитию, спонсируйте этот проект по адресу https://github.com/sponsors/jogibear9988.
+Если вы хотите помочь разработке, поддержите этот проект по ссылке https://github.com/sponsors/jogibear9988
 
 ## Разработка
-  * Установите репозиторий как адаптер в IOBroker.
-  * Загрузите репозиторий в дополнительный каталог «dev», не разрабатывайте его внутри каталога ioBroker Node_modules.
-  * Выполните следующие шаги внутри каталога «dev».
+* Установить репозиторий как адаптер в IOBroker
+* Загрузите репозиторий в дополнительный каталог «dev», не разрабатывайте внутри каталога ioBroker Node_modules.
+* Выполните следующие действия внутри каталога «dev».
 
-  * Установить зависимости
+* Установка зависимостей
 
 ```
   $ npm install
 ```
 
-  * Скомпилируйте Typescript после внесения изменений (или нажмите Ctrl + Shift + B в VsCode и выберите «tsc watch»)
+* Скомпилируйте Typescript после внесения изменений (или нажмите Ctrl + Shift + B в VsCode и выберите «tsc watch»)
 
 ```
   $ npm run tsc
 ```
 
-  * Настройте файл config.js, чтобы он соответствовал вашему IP-адресу и порту вашего iobroker.
+* Настройте «config.js» так, чтобы он соответствовал вашему IP-адресу и порту для вашего iobroker
 
-   (При запуске npm build файл config.js в корне репозитория будет заменен файлом в «/config»).
+(Файл config.js в корне репозитория будет заменен файлом в '/config' при запуске 'npm build')
 
 ```
     window.iobrokerHost = '192.168.1.2';
@@ -87,13 +91,13 @@ https://www.youtube.com/@jogibear9988
     window.iobrokerSocketScriptUrl = 'http://' + window.iobrokerHost + ':' + window.iobrokerPort + '/lib/js/socket.io.js';
 ```
 
-  * Запустите приложение на локальном сервере.
+* Запустите приложение на локальном сервере
 
 ```
   $ npm start
 ```
 
-  * Перейдите в Chrome к [localhost:8000](), чтобы увидеть приложение.
+* Перейдите в Chrome по адресу [localhost:8000](), чтобы увидеть приложение.
 
 ### Подробнее о разработке
   - Бегать
@@ -102,7 +106,7 @@ https://www.youtube.com/@jogibear9988
   $ npm run reflection
 ```
 
-   воссоздать файлы отражений для сценариев, которые используются для сетки свойств.
+для повторного создания файлов отражения для скриптов, которые используются для сетки свойств
 
   - Бегать
 
@@ -110,7 +114,7 @@ https://www.youtube.com/@jogibear9988
   $ npm run build
 ```
 
-   скопировать скомпилированные файлы и node_modules в папку www, чтобы адаптер можно было установить через github
+скопировать скомпилированные файлы и node_modules в папку www, чтобы адаптер можно было установить через github
 
   - Бегать
 
@@ -119,19 +123,129 @@ https://www.youtube.com/@jogibear9988
   $ npm publish
 ```
 
-чтобы создать правильную фиксацию выпуска для iobroker. Будьте осторожны, это также нажимает на git-репо.
-Обязательно отредактируйте «CHANGELOG.md» перед этим, текст «## **РАБОТА В ПРОЦЕССЕ**» в README.Md будет использоваться для информации о версии.
+чтобы создать правильный коммит релиза для iobroker, будьте осторожны, это также отправляет в репозиторий git.
+Обязательно отредактируйте "CHANGELOG.md" перед этим, текст в "## **WORK IN PROGRESS**" в README.Md будет использоваться для информации о версии
 
 ## Информация об адаптере.
-Адаптер основан на следующем компоненте Designer: https://github.com/node-projects/web-comComponent-designer.
+Адаптер основан на следующем компоненте Designer: https://github.com/node-projects/web-component-designer
 
-Вам нужно создать экран «Пуск», это первый экран, который вызывается при открытии runtime.html, но вы можете изменить его с помощью параметра запроса: runtime.html?screenName=screen2
+Вам необходимо создать экран «start», он будет первым, который вызывается при открытии runtime.html, но вы можете изменить это с помощью параметра запроса: runtime.html?screenName=screen2
 
 ## Changelog
 <!--
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.21.0 (2024-12-28)
+- fix scripts with empty names on css
+- css props with only bindings are not shown
+- remove of css prop should remove binding?
+- Open Screen in sub screen command
+
+### 1.20.1 (2024-12-03)
+- fix in designer with svgs
+
+### 1.20.0 (2024-12-03)
+- add a few packages
+- run simple script cmd and update get parent screen
+- update packages, downgrade monaco
+- fix backup
+
+### 1.19.4 (2024-11-03)
+- copy & paste events
+
+### 1.19.3 (2024-11-03)
+- support null value
+
+### 1.19.2 (2024-11-03)
+- use name in classlist
+
+### 1.19.1 (2024-11-02)
+- copy path for screens/controls
+
+### 1.19.0 (2024-11-02)
+- fix error in script system
+
+### 1.18.5 (2024-11-02)
+- compile fix
+
+### 1.18.4 (2024-11-02)
+- fix wrong shadow root used
+
+### 1.18.3 (2024-11-01)
+- small typo fix
+
+### 1.18.2 (2024-11-01)
+- better refcatoring
+
+### 1.18.1 (2024-11-01)
+- fix screen settings
+
+### 1.18.0 (2024-11-01)
+- screens are now ex- & imported as xml
+
+### 1.17.3 (2024-11-01)
+- fix compilation
+
+### 1.17.2 (2024-11-01)
+- switch combo in complex prop editor
+
+### 1.17.1 (2024-11-01)
+- selector for properties
+
+### 1.17.0 (2024-11-01)
+- internal control properties
+- internal screen properties
+
+### 1.16.3 (2024-10-31)
+- raise errors on unimplemented commands
+- wrong script upgrade
+
+### 1.16.2 (2024-10-31)
+- wrong default in script
+
+### 1.16.1 (2024-10-31)
+- fix base custom webcomp bindings
+
+### 1.16.0 (2024-10-30)
+- fix errors with script system, wrong parent used
+
+### 1.15.1 (2024-10-08)
+- fix typo in screenviewer
+
+### 1.15.0 (2024-10-08)
+- fixes in margin & padding
+- work on simpleScripts, add conditions
+- fix _getDomElements in screen viewer
+
+### 1.14.0 (2024-09-18)
+- update npm packages
+
+### 1.13.2 (2024-08-21)
+- designer updates
+- add find methods
+
+### 1.13.1 (2024-08-18)
+- small designer tweaks
+
+### 1.13.0 (2024-08-18)
+- update designer
+
+### 1.12.4 (2024-07-25)
+- one more designer update
+
+### 1.12.3 (2024-07-25)
+- update designer
+
+### 1.12.2 (2024-07-24)
+- fix offset finding in box drawing
+
+### 1.12.1 (2024-07-24)
+- update edit text in designer
+
+### 1.12.0 (2024-07-24)
+- update designer
+
 ### 1.11.3 (2024-06-02)
 - fix load subfolders
 

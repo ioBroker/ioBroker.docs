@@ -169,12 +169,18 @@ This project uses the following components:
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+  * ()
+-->
+### 1.3.13 (2025-01-03)
+* (dirkhe) use internally node20
 
+### 1.3.12 (2025-01-03)
+* (dirkhe) fixing pagacke with missing admin folder
 
--->	
-### **WORK IN PROGRESS**
+### 1.3.11 (2025-01-02)
   * (dirkhe) update dependecies
-  
+
 ### 1.3.10 (2024-10-09)
 * (dirkhe) update dependecies
 * (dirkhe) fix calendar test functionality
@@ -270,7 +276,7 @@ This project uses the following components:
 ## License
 MIT License
 
-Copyright (c) 2024 dirkhe 
+Copyright (c) 2025 dirkhe 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

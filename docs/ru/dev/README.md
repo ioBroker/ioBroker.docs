@@ -1,26 +1,26 @@
 ---
-title: разработка
+title: Разработка
 lastChanged: 21.21.2019
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/README.md
-hash: pb6bx/2ae0DzT4mCTOwzIWW8ZxZh1RvojNggXy9OWxI=
+hash: Kx17URyXBkdLC6E3X5WTP2fuyYAltLWfm1Tmurl+85E=
 ---
 # Разработка адаптера
-?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы упростить принятие изменений.
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы облегчить применение изменений.
 
 ## Полезные ссылки
 ### Помощь в переводе
-[https://translator.iobroker.in/](https://translator.iobroker.in/) — с этим вы можете переводить тексты на 9 языков, а результат можно использовать непосредственно в Words.js
+[https://translator.iobroker.in/](https://translator.iobroker.in/) — это позволяет переводить тексты на 9 языков и результат можно использовать непосредственно в word.js
 
 изображение
 
 ### Проверка адаптера
-[https://адаптер-check.iobroker.in/](https://adapter-check.iobroker.in/)
+[https://adapter-check.iobroker.in/](https://adapter-check.iobroker.in/)
 
 изображение
 
 ### Создатель адаптера
-[https://адаптер-создатель.iobroker.in/](https://adapter-creator.iobroker.in/)
+[https://adapter-creator.iobroker.in/](https://adapter-creator.iobroker.in/)
 
 изображение

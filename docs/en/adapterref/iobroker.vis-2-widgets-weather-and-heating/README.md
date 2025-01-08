@@ -93,6 +93,12 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 
 
 ## Changelog
+### 0.8.1 (2024-12-27)
+ * (René) update dependencies
+ * (René) see issue #66: Heating Time Schedule widget - uses minimum temperature from adapter for input value range
+ * (René) see issue #66: Heating Time Schedule widget - step width for temperature adjustable (1°C or 0.5°C)
+ * (René) translations
+
 ### 0.8.0 (2024-11-24)
  * (René) see issue #60: add missing module
 

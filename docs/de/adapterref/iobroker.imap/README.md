@@ -25,33 +25,34 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap
 
 # Zusammenfassung
 
--   [Instanz Einstellungen](#instanz-einstellungen)
-    -   [Einstellungen TAB IMAP](#instanz-konfiguration-tab-imap-erstellen)
-    -   [Einstellungen TAB Symbole](#instanz-konfiguration-tab-symbole-erstellen)
-    -   [Einstellungen TAB Mailparser](#instanz-konfiguration-tab-mailparser-optionen-erstellen)
--   [Datenpunkte](#datenpunkte)
-    -   [Datenpunkte imap.0](#datenpunkte-imap0)
-    -   [Datenpunkte imap.0.benutzername](#datenpunkte-imap0benutzername)
-    -   [Datenpunkte imap.0.benutzername.email.emails_xx](#datenpunkte-imap0benutzernameemailemail_xx)
-    -   [Datenpunkte imap.0.benutzername.infos](#datenpunkte-imap0benutzernameinfos)
-    -   [Datenpunkte imap.0.benutzername.remote](#datenpunkte-imap0benutzernameremote)
-    -   [Datenpunkte imap.0.benutzername.remote.copy](#datenpunkte-imap0benutzernameremotecopy)
-    -   [Datenpunkte imap.0.benutzername.remote.flag](#datenpunkte-imap0benutzernameremoteflag)
-    -   [Datenpunkte imap.0.benutzername.remote.html](#datenpunkte-imap0benutzernameremotehtml)
-    -   [Datenpunkte imap.0.benutzername.remote.move](#datenpunkte-imap0benutzernameremotemove)
--   [Blocklys](#blocklys)
-    -   [Blockly Instanzeinstellungen ändern](#blockly-imap-abfrage-mit-instanz-einstellungen)
-    -   [Eigene Abfrage erstellen](#blockly-imap-abfrage-ändern)
-    -   [Abfrage mit Instanzeinstellungen](#blockly-imap-eigene-abfrage)
-    -   [Flags setzen](#blockly-imap-flags-setzen)
--   [Array JSON](#array-json)
-    -   [imap.0.xxx.email.email_xx.attach_json](#array-json-imap0xxxemailemail_xxattach_json)
-    -   [imap.0.xxx.json](#array-json-imap0xxxjson)
-    -   [imap.0.xxx.last_activity_json](#json-imap0xxxlast_activity_json)
-    -   [imap.0.xxx.quality](#json-imap0xxxquality)
-    -   [imap.0.xxx.status](#json-imap0xxxstatus)
-    -   [imap.0.online_history](#array-json-imap0online_history)
--   [Beispiel Javascripte und Blocklys](/docs/de/EXAMPLE.md)
+- [Instanz Einstellungen](#instanz-einstellungen)
+    - [Einstellungen TAB IMAP](#instanz-konfiguration-tab-imap-erstellen)
+    - [Einstellungen TAB Symbole](#instanz-konfiguration-tab-symbole-erstellen)
+    - [Einstellungen TAB Oauth2](#instanz-konfiguration-tab-oauth2-erstellen)
+    - [Einstellungen TAB Mailparser](#instanz-konfiguration-tab-mailparser-optionen-erstellen)
+- [Datenpunkte](#zustände-objekte)
+    - [Datenpunkte imap.0](#zustände-imap0)
+    - [Datenpunkte imap.0.benutzername](#zustände-imap0benutzername)
+    - [Datenpunkte imap.0.benutzername.email.emails_xx](#zustände-imap0benutzernameemailemail_xx)
+    - [Datenpunkte imap.0.benutzername.infos](#zustände-imap0benutzernameinfos)
+    - [Datenpunkte imap.0.benutzername.remote](#zustände-imap0benutzernameremote)
+    - [Datenpunkte imap.0.benutzername.remote.copy](#zustände-imap0benutzernameremotecopy)
+    - [Datenpunkte imap.0.benutzername.remote.flag](#zustände-imap0benutzernameremoteflag)
+    - [Datenpunkte imap.0.benutzername.remote.html](#zustände-imap0benutzernameremotehtml)
+    - [Datenpunkte imap.0.benutzername.remote.move](#zustände-imap0benutzernameremotemove)
+- [Blocklys](#blocklys)
+    - [Blockly Instanzeinstellungen ändern](#blockly-imap-abfrage-mit-instanz-einstellungen)
+    - [Eigene Abfrage erstellen](#blockly-imap-abfrage-ändern)
+    - [Abfrage mit Instanzeinstellungen](#blockly-imap-eigene-abfrage)
+    - [Flags setzen](#blockly-imap-flags-setzen)
+- [Array JSON](#array-json)
+    - [imap.0.xxx.email.email_xx.attach_json](#array-json-imap0xxxemailemail_xxattach_json)
+    - [imap.0.xxx.json](#array-json-imap0xxxjson)
+    - [imap.0.xxx.last_activity_json](#json-imap0xxxlast_activity_json)
+    - [imap.0.xxx.quality](#json-imap0xxxquality)
+    - [imap.0.xxx.status](#json-imap0xxxstatus)
+    - [imap.0.online_history](#array-json-imap0online_history)
+- [Beispiel Javascripte und Blocklys](/docs/de/EXAMPLE.md)
 
 # Instanz Einstellungen
 
@@ -63,18 +64,18 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap
  ⚠ Die Instanz muss aktiviert sein!!!!
 ```
 
--   `Aktiv`: IMAP Verbindung aktivieren
--   `Host`: z. Bsp. imap.gmail.com
--   `Posteingang`: Standard INBOX - Box die Überwacht werden soll - Mögliche Auswahl siehe imap.0.xxx.remote.change_folder
--   `Port`: Standard 993
--   `Nutzername`: Benutzername - Instanz muss aktiviert sein!!!
--   `Passwort`: Passwort - Instanz muss aktiviert sein!!! - [gmail login](https://support.google.com/mail/answer/185833?hl=de) - [outlook 2-Fach-Authentifizierung](https://mcuiobroker.gitbook.io/jarvis-infos/tipps/allgemein/microsoft-windows/2-fach-authentifizierung)
-    ![imap_create_1.png](img/imap_create_1.png)
+- `Aktiv`: IMAP Verbindung aktivieren
+- `Host`: z. Bsp. imap.gmail.com
+- `Posteingang`: Standard INBOX - Box die Überwacht werden soll - Mögliche Auswahl siehe imap.0.xxx.remote.change_folder
+- `Port`: Standard 993
+- `Nutzername`: Benutzername - Instanz muss aktiviert sein!!!
+- `Passwort`: Passwort - Instanz muss aktiviert sein!!! - [gmail login](https://support.google.com/mail/answer/185833?hl=de) - [outlook Oauth2-Authentifizierung](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)
+  ![imap_create_1.png](img/imap_create_1.png)
 
--   `max.`: Maximale Anlage als Datenpunkte email_01...email_02... (1-99)
--   `max. HTML`: Maximale Anzahl von eMails als HTML. Muss größer sein als max. Datenpunkte (1-99)
--   `TLS`: TLS-Verbindung verwenden - Standard ist true
--   `Flaggen`: Flag für die IMAP Abfrage. Mögliche Flags:
+- `max.`: Maximale Anlage als Datenpunkte email_01...email_02... (1-99)
+- `max. HTML`: Maximale Anzahl von eMails als HTML. Muss größer sein als max. Datenpunkte (1-99)
+- `TLS`: TLS-Verbindung verwenden - Standard ist true
+- `Flaggen`: Flag für die IMAP Abfrage. Mögliche Flags:
 
 ```
 ALL - alle – Alle Nachrichten.
@@ -93,33 +94,34 @@ UNFLAGGED - ungekennzeichnet – Nachrichten, für die das Flag „Markiert“ n
 UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht gesetzt ist.
 ```
 
--   `Symbol auswählen`: Symbol für den Ordner (unter TAB `Symbole erstellen` hochladen)
+- `Symbol auswählen`: Symbol für den Ordner (unter TAB `Symbole erstellen` hochladen)
 
 ![imap_create_icon.png](img/imap_create_icon.png)
 
--   `tls-Option`: Standard ist {"rejectUnauthorized": false}
--   `Auto-TLS`: Mögliche Auswahl ist `always`, `required` and `never`. Standard ist never
-    **Für mehr Informationen bitte [hier](https://www.npmjs.com/package/node-imap) lesen.**
+- `tls-Option`: Standard ist {"rejectUnauthorized": false}
+- `Auto-TLS`: Mögliche Auswahl ist `always`, `required` and `never`. Standard ist never
+  **Für mehr Informationen bitte [hier](https://www.npmjs.com/package/node-imap) lesen.**
 
 ![imap_create_2.png](img/imap_create_2.png)
 
--   `Att.`: Um das Feld HTML zu füllen müssen Anhänge mit geladen werden. Das verbraucht sehr viel RAM!!! Daher Standard `false`
--   `Mailparser-Option`: Mailparser-Option (erst unter TAB `MAILPARSER-OPTIONEN` erstellen)
+- `Att.`: Um das Feld HTML zu füllen müssen Anhänge mit geladen werden. Das verbraucht sehr viel RAM!!! Daher Standard `false`
+- `Mailparser-Option`: Mailparser-Option (erst unter TAB `MAILPARSER-OPTIONEN` erstellen)
+- `Token`: Token [hier erst anlegen](#instanz-konfiguration-tab-oauth2-erstellen)
 
 ![imap_create_3.png](img/imap_create_3.png)
 
--   `max. MEMRSS-Limit:` Ab wann die u. a. Aktion ausgelöst wird.
--   `Neu starten:` Ist das MEMRSS Limit erreicht wird der Adapter neu gestartet. Es wird allerdings nur alle 24h geprüft.
+- `max. MEMRSS-Limit:` Ab wann die u. a. Aktion ausgelöst wird.
+- `Neu starten:` Ist das MEMRSS Limit erreicht wird der Adapter neu gestartet. Es wird allerdings nur alle 24h geprüft.
 
 ![imap_create_restart.png](img/imap_create_restart.png)
 
--   `Datenpunkt:` Ist das MEMRSS Limit erreicht wird der ausgewählt Datenpunkt auf `true` gesetzt. Dieser muss manuell zurückgesetzt werden. Es wird allerdings nur alle 24h geprüft.
+- `Objekt-ID:` Ist das MEMRSS Limit erreicht wird der ausgewählt Datenpunkt auf `true` gesetzt. Dieser muss manuell zurückgesetzt werden. Es wird allerdings nur alle 24h geprüft.
 
 ![imap_create_datapoint.png](img/imap_create_datapoint.png)
 
--   `Senden:` Ist das MEMRSS Limit erreicht wird eine Nachricht versendet. Es wird dann bei jeder Aktualisierung von `MEMRSS` eine Nachricht versendet.
-    -   `Instanzen:` Beispiel: telegram.0,telegram.1,pushover.0
-    -   `Instanzen Benutzer:` Beispiel: Peter,Olaf,Thomas
+- `Senden:` Ist das MEMRSS Limit erreicht wird eine Nachricht versendet. Es wird dann bei jeder Aktualisierung von `MEMRSS` eine Nachricht versendet.
+    - `Instanzen:` Beispiel: telegram.0,telegram.1,pushover.0
+    - `Instanzen Benutzer:` Beispiel: Peter,Olaf,Thomas
 
 ![imap_create_send.png](img/imap_create_send.png)
 
@@ -127,27 +129,41 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 [Zusammenfassung](#zusammenfassung)
 
--   `Symbolname:` Name für das Symbol. Bitte keine doppelten Namen verwenden. Es wird dann bei Adapterstart ein Error im Logeintrag generiert.
--   `Upload:` Das Icon hochladen.
+- `Symbolname:` Name für das Symbol. Bitte keine doppelten Namen verwenden. Es wird dann bei Adapterstart ein Error im Logeintrag generiert.
+- `Upload:` Das Icon hochladen.
 
 ![imap_create_icon.png](img/imap_create_symbol.png)
+
+### Instanz Konfiguration TAB oauth2 erstellen
+
+[Zusammenfassung](#zusammenfassung)
+
+- `Name` Name
+- `Kunden ID` Client-ID
+- `Token` Token
+- `Mandanten-ID` Mandaten-ID
+
+![imap_create_oauth2.png](img/imap_create_oauth2.png)</br>
+![token_id.png](img/token_id.png)</br>
+![client_id.png](img/client_id.png)</br>
+![mandant_id.png](img/mandant_id.png)
 
 ### Instanz Konfiguration TAB Mailparser Optionen erstellen
 
 [Zusammenfassung](#zusammenfassung)
 
--   `Name:` Name vom Mailparser. Bitte keine doppelten Namen verwenden. Es wird dann bei Adapterstart ein Error im Logeintrag generiert. Genaue Beschreibung kann [hier](https://nodemailer.com/extras/mailparser/) gelesen werden.
--   `HTML in Text überspringen:` Generiert keinen Klartext aus HTML
--   `Maximale HTML-Länge zum Parsen:` Die maximale Menge an zu analysierendem HTML in Bytes. Wird diese überschritten werden nur Header Daten generiert.
--   `Bildlinks überspringen:` Überspringt die Konvertierung von CID-Anhängen in Daten-URL-Bilder. Bilder werden nicht als base64 konvertiert was `enormen RAM Verbrauch` einspart.
--   `Text in HTML überspringen:` Generiert kein HTML aus Klartextnachrichten
--   `Textlinks überspringen:` Verlink keine Links in Klartextinhalten
+- `Name:` Name vom Mailparser. Bitte keine doppelten Namen verwenden. Es wird dann bei Adapterstart ein Error im Logeintrag generiert. Genaue Beschreibung kann [hier](https://nodemailer.com/extras/mailparser/) gelesen werden.
+- `HTML in Text überspringen:` Generiert keinen Klartext aus HTML
+- `Maximale HTML-Länge zum Parsen:` Die maximale Menge an zu analysierendem HTML in Bytes. Wird diese überschritten werden nur Header Daten generiert.
+- `Bildlinks überspringen:` Überspringt die Konvertierung von CID-Anhängen in Daten-URL-Bilder. Bilder werden nicht als base64 konvertiert was `enormen RAM Verbrauch` einspart.
+- `Text in HTML überspringen:` Generiert kein HTML aus Klartextnachrichten
+- `Textlinks überspringen:` Verlink keine Links in Klartextinhalten
 
 ![imap_create_mailparser.png](img/imap_create_mailparser.png)
 
-# Datenpunkte
+# Zustände (Objekte)
 
-### Datenpunkte `imap.0`
+### Zustände `imap.0`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -160,7 +176,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_total_overview.png](img/imap_total_overview.png)
 
-### Datenpunkte `imap.0.benutzername`
+### Zustände `imap.0.benutzername`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -181,7 +197,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap_overview_1.png](img/imap_overview_1.png)
 
-### Datenpunkte `imap.0.benutzername.email.email_xx`
+### Zustände `imap.0.benutzername.email.email_xx`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -203,7 +219,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ![imap_overview_email_single.png](img/imap_overview_email_single.png)
 ![imap_overview_email.png](img/imap_overview_email.png)
 
-### Datenpunkte `imap.0.benutzername.infos`
+### Zustände `imap.0.benutzername.infos`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -234,7 +250,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 ![imap_overview_capability.png](img/imap_overview_capability.png)
 ![imap_overview_capability_1.png](img/imap_overview_capability_1.png)
 
-### Datenpunkte `imap.0.benutzername.remote`
+### Zustände `imap.0.benutzername.remote`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -257,7 +273,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen werden
 
-### Datenpunkte `imap.0.benutzername.remote.copy`
+### Zustände `imap.0.benutzername.remote.copy`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -269,7 +285,7 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 ![imap_overview_remote_copy.png](img/imap_overview_remote_copy.png)
 
-### Datenpunkte `imap.0.benutzername.remote.flag`
+### Zustände `imap.0.benutzername.remote.flag`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -282,7 +298,7 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 ![imap_overview_remote_flag.png](img/imap_overview_remote_flag.png)
 
-### Datenpunkte `imap.0.benutzername.remote.html`
+### Zustände `imap.0.benutzername.remote.html`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -396,7 +412,7 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 ![imap_overview_remote_html_7.png](img/imap_overview_remote_html_7.png)
 
-### Datenpunkte `imap.0.benutzername.remote.move`
+### Zustände `imap.0.benutzername.remote.move`
 
 [Zusammenfassung](#zusammenfassung)
 
@@ -414,10 +430,10 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 [Zusammenfassung](#zusammenfassung)
 
--   Hiermit kann man diese [Datenpunkte](#datenpunkte-imap0benutzernameremote) setzen.
--   Mögliche Flags findet man [in der Instanz Konfig](#instanz-konfiguration-tab-imap-erstellen).
--   Auswahl der IMAP Verbindung möglich oder für alle anwenden.
--   Max. 100 Emails erlaubt.
+- Hiermit kann man diese [Datenpunkte](#zustände-imap0benutzernameremote) setzen.
+- Mögliche Flags findet man [in der Instanz Konfig](#instanz-konfiguration-tab-imap-erstellen).
+- Auswahl der IMAP Verbindung möglich oder für alle anwenden.
+- Max. 100 Emails erlaubt.
 
 ![blockly_imap_1.png](img/blockly_imap_1.png)
 ![blockly_imap_2.png](img/blockly_imap_2.png)
@@ -426,12 +442,12 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 [Zusammenfassung](#zusammenfassung)
 
--   ACHTUNG! Hier kommen alle Daten wie z. Bsp. Anhänge. Diese Abfrage kann den RAM oder CPU ans Limit bringen. Wird ein fehlerhaftes Kriterium erstellt, kann dieses zum iobroker Absturtz führen!!!
--   Die Daten werden dann als JSON geliefert.
--   Bei Logausgaben wird das Logfile sehr groß. Daher später die Logausgaben wieder löschen.
--   Es muss eine Variable mit dem Namen `result` erstellt werden.
--   Max. 100 Emails erlaubt.
--   [Beispiele](/docs/de/EXAMPLE.md)
+- ACHTUNG! Hier kommen alle Daten wie z. Bsp. Anhänge. Diese Abfrage kann den RAM oder CPU ans Limit bringen. Wird ein fehlerhaftes Kriterium erstellt, kann dieses zum iobroker Absturtz führen!!!
+- Die Daten werden dann als JSON geliefert.
+- Bei Logausgaben wird das Logfile sehr groß. Daher später die Logausgaben wieder löschen.
+- Es muss eine Variable mit dem Namen `result` erstellt werden.
+- Max. 100 Emails erlaubt.
+- [Beispiele](/docs/de/EXAMPLE.md)
 
 ![blockly_imap_request.png](img/blockly_imap_request.png)
 
@@ -439,12 +455,12 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 [Zusammenfassung](#zusammenfassung)
 
--   Alle Daten von der IMAP Verbindung laden und selber verarbeiten. Als Suchkriterium wird die Instanz Einstellung verwendet.
--   ACHTUNG! Hoher RAM Verbrauch
--   Die Daten werden dann als JSON geliefert.
--   Bei Logausgaben wird das Logfile sehr groß. Daher später die Logausgaben wieder löschen.
--   Es muss eine Variable mit dem Namen `result` erstellt werden.
--   [Beispiele](/docs/de/EXAMPLE.md)
+- Alle Daten von der IMAP Verbindung laden und selber verarbeiten. Als Suchkriterium wird die Instanz Einstellung verwendet.
+- ACHTUNG! Hoher RAM Verbrauch
+- Die Daten werden dann als JSON geliefert.
+- Bei Logausgaben wird das Logfile sehr groß. Daher später die Logausgaben wieder löschen.
+- Es muss eine Variable mit dem Namen `result` erstellt werden.
+- [Beispiele](/docs/de/EXAMPLE.md)
 
 ![blockly_imap_current.png](img/blockly_imap_current.png)
 
@@ -452,11 +468,11 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 [Zusammenfassung](#zusammenfassung)
 
--   Bei einer eMail ein Flag setFlag=setzen, addFlag=hinzufügen oder delFlag=löschen.
--   Postfach auswählen.
--   Auswählen setFlag=setzen, addFlag=hinzufügen oder delFlag=löschen.
--   Flag auswählen.
--   [Mögliche Flags siehe imap.0.xxx.status](#json-imap0xxxstatus)
+- Bei einer eMail ein Flag setFlag=setzen, addFlag=hinzufügen oder delFlag=löschen.
+- Postfach auswählen.
+- Auswählen setFlag=setzen, addFlag=hinzufügen oder delFlag=löschen.
+- Flag auswählen.
+- [Mögliche Flags siehe imap.0.xxx.status](#json-imap0xxxstatus)
 
 ![blockly_imap_flag.png](img/blockly_imap_flag.png)
 
@@ -605,6 +621,11 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Description revised
+
 ### 0.3.0 (2024-12-07)
 
 - (Lucky-ESA) Mailbox folder delete added
@@ -710,7 +731,7 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 MIT License
 
-Copyright (c) 2023-2024 Lucky-ESA <github@luckyskills.de>
+Copyright (c) 2023-2025 Lucky-ESA <github@luckyskills.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -53,6 +53,11 @@ adaptations of the api, as far as they exist, have not been made.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.3 (2025-01-02)
+
+* (raschy) Design edited
+* (raschy) Migration from ESLint 8.x to 9.x
+
 ### 0.6.2 (2024-11-08)
 * (raschy) responsive-design customized
 * (raschy) updated to adapter-core 3.2.2
@@ -174,7 +179,7 @@ adaptations of the api, as far as they exist, have not been made.
 ## License
 MIT License
 
-Copyright (c) 2024 raschy <raschy@gmx.de>
+Copyright (c) 2022-2025 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

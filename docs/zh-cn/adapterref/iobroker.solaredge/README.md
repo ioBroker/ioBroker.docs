@@ -9,41 +9,55 @@ hash: Uv/BNDX4bW4701AQMXPQLGoV5zYgoXQHED+G7shQuY0=
 
 ![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.solaredge)
 ![下载](https://img.shields.io/npm/dm/iobroker.solaredge.svg)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.solaredge)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.solaredge)
 ![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.solaredge)
-![GitHub 自最新版本以来提交的内容（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.solaredge/latest)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.solaredge)
+![GitHub 自最新版本以来的提交情况（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.solaredge/latest)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.solaredge)
 ![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.solaredge)
-![NPM版本](http://img.shields.io/npm/v/iobroker.solaredge.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.solaredge.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/solaredge-stable.svg)
 ![安装数量](https://iobroker.live/badges/solaredge-installed.svg)
 
 # IoBroker.solaredge
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/solaredge/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/solaredge/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试与发布]（https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml/badge.svg）](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml/badge.svg）](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml)
 
 <!--
 
-## Sentry **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+## Sentry **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 -->
 ## 适用于 ioBroker 的 Solaredge 适配器
-从 Solaredge 监控门户获取数据。
-目前，仅 /overview 数据点用于获取当前功率和日/月/年/生命周期能量读数。
+从 solaredge 监控门户获取数据。
+目前，仅使用 /overview 数据点来获取当前功率和日/月/年/终身能量读数。
 
-如果 Solaredge 设备较新，您还可以在 Solaredge 设备上启用 modbus 并直接读取数据。
+如果您的 solaredge 设备较新，您还可以在其上启用 modbus 并直接读取数据。
 
-您需要站点 ID 和 API 密钥才能使用此适配器。要获取这些信息，请访问 https://monitoring.solaredge.com
+您需要您的站点 ID 和 API 密钥才能使用此适配器。要获取这些，请访问 https://monitoring.solaredge.com
 
-- site id：登录，site id为右侧的“ID”，例如12345。
-- api 密钥：登录，转到管理设置并在那里启用 api 访问。如果您没有看到管理员设置，请发送邮件至 Solaredge 为您的帐户启用管理员。
+- 站点id：登录，站点id就是右边的“ID”，例如12345。
+- api 密钥：登录，转到管理员设置并在那里启用 api 访问。如果您没有看到管理员设置，请发送邮件至 solaredge 为您的帐户启用管理员。
 
-## 学分
-如果没有 @92lleo (https://github.com/92lleo) 的伟大工作，这个适配器是不可能实现的，他编写了初始版本的代码并将其发布到 ioborker-community-adapters。
+## 致谢
+如果没有@92lleo (https://github.com/92lleo) 的出色工作，这个适配器就不可能实现，他编写了初始版本的代码并将其发布到 ioborker-community-adapters。
 
 <!--
 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.4.1 (2024-04-28)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.3.0 (2024-02-15)
+* (mcm1957) BREAKING: adapter requires node.js 18 or newer now.
+* (mcm1957) Adapter translations have been linked to weblate.
+* (mcm1957) Dependencies have been updated.
+
+### 1.2.2 (2023-12-14)
+* (bluefox) Added random seconds to the schedule
+* (bluefox) Updated packages
+* (bluefox) Allowed adapter execution by restart
+
 ### 1.2.0 (2023-12-06)
 * (mcm1957) Adapter did not terminate in case of an exception. This has been fixed.
 * (mcm1957) A response timeout has been added to network calls.
@@ -80,7 +94,7 @@ hash: Uv/BNDX4bW4701AQMXPQLGoV5zYgoXQHED+G7shQuY0=
 ## License
 MIT License
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2023 Leonhard Kuenzler <leonhard@kuenzler.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/install/centos.md
-title: Installieren Sie auf CentOS
-hash: NNHd5PMz5EEH2++Yd5IKcnE5qyP9RhewUgl2YZil5Co=
+title: Installation unter CentOS
+hash: se2U2FhT82/g/VF79qgLX17rU0BBl3AysNdvpbxmDGs=
 ---
 # Auf CentOS installieren
 ## Automatische Installation
@@ -11,14 +11,14 @@ Stellen Sie sicher, dass `curl` installiert ist oder installieren Sie es mit:
 
 `sudo yum install -y curl`
 
-Und dann das Installationsskript verwenden:
+Und verwenden Sie dann das Installationsskript:
 
 `curl -sL https://iobroker.net/install.sh | bash -`
 
 Wenn die automatische Installation nicht funktioniert, können Sie immer noch die manuelle Installation verwenden.
 
 ## Manuelle Installation
-### Node.js installieren
+### Installieren Sie node.js
 Falls nicht installiert:
 
 ```
@@ -41,7 +41,7 @@ npm i iobroker.admin --production
 npm i iobroker.js-controller@stable --production
 ```
 
-### Optional install redis
+### Optionale Installation von Redis
 ```
 sudo yum install -y epel-release nano
 sudo yum update
@@ -51,12 +51,12 @@ sudo systemctl enable redis
 sudo nano /etc/redis.conf
 ```
 
-#### Redis als Status-DB setzen
+#### Redis als Status-DB festlegen
 ```
 ./iobroker setup custom
 ```
 
-Ausgänge:
+Ausgaben:
 
 ```
 # Type of objects DB [(f)ile, (c)ouch, (r)edis], default [file]: <ENTER>
@@ -71,20 +71,20 @@ Ausgänge:
 ```
 
 #### Optional nur für Redis+Multihost
-Ändern Sie Bindung 127.0.0.1 in Bindung 0.0.0.0
+Ändern Sie Bind 127.0.0.1 in Bind 0.0.0.0
 
 ```
 sudo systemctl restart redis
 ```
 
-### Benutzer zu "iobroker" ändern
+### Benutzer in „iobroker“ ändern
 ```
 cd /opt/iobroker/
 sudo chmod 744 * -R
 sudo chown iobroker:iobroker * -R
 ```
 
-### Auto-Start
+### Autostart
 ```
 sudo nano /lib/systemd/system/iobroker.service
 ```
@@ -108,7 +108,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-### Iobroker starten
+### Starten Sie iobroker
 ```
 sudo chown root:root /lib/systemd/system/iobroker.service
 sudo chmod 755 /lib/systemd/system/iobroker.service

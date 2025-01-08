@@ -17,7 +17,7 @@ BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 
 # ioBroker.octoprint
 
-**Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.2**
+**Getestet mit [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.3**
 
 ## Features
 
@@ -69,11 +69,11 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.0.0 (2025-01-07)
 
-NodeJS >= 18.x and js-controller >= 5 is required
+NodeJS >= 20.x and js-controller >= 6 is required
 
-Tested with OctoPrint 1.10.2
+Tested with OctoPrint 1.10.3
 
 ### 5.1.0 (2023-10-25)
 
@@ -102,17 +102,11 @@ Tested with OctoPrint 1.8.6
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
 
-### 4.0.1 (2022-10-14)
-
-Tested with OctoPrint 1.8.4
-
-* (klein0r) Just download every thumbnail once (requires plugin Slicer Thumbnails)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

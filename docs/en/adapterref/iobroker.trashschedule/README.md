@@ -27,8 +27,8 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 ## Requirements
 
-1. nodejs 18.0 (or later)
-2. js-controller 5.0.0 (or later)
+1. nodejs 20.0 (or later)
+2. js-controller 6.0.0 (or later)
 3. Admin Adapter 6.0.0 (or later)
 4. iCal Adapter 1.12.1 (or later) - *optional*
 
@@ -66,8 +66,12 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.0.0 (2025-01-05)
 
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@klein0r) Fixed deletion of api cache files
+* (@klein0r) Added additional JSON state for each type
 * (@klein0r) Improved logging
 
 ### 3.4.1 (2024-11-24)
@@ -91,17 +95,11 @@ NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Added more providers
 
-### 3.1.3 (2023-12-24)
-
-* (klein0r) fixed configuration validation
-* (klein0r) enhanced error logging
-* (klein0r) some cities have no streets (API)
-
 ## License
 
 MIT License
 
-Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

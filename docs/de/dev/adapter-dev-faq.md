@@ -3,82 +3,83 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapter-dev-faq.md
 title: Häufig gestellte Fragen zur Adapterentwicklung
-hash: eYLJSbvcCz8wYyj3Pa+wrDSZhMY78b6yn9YUWmOxv0E=
+hash: xBifYSMkiSeEcOHVKuK3c1SR01Qr030mxrhtOv9htBA=
 ---
 # Häufig gestellte Fragen zur Adapterentwicklung
 ## Einführung
 Die Idee dieser Seite ist es, häufig gestellte Fragen zur Entwicklung von ioBroker-Adaptern zu sammeln.
-Geboren wurde diese Idee von Ralf im ioBroker #adapter Discord Channel am 24.11.2020 bei einer Diskussion mit einer Frage von Mic.
 
-## Bitte tragen Sie bei (es ist wirklich einfach!)
-Fühlen Sie sich frei, Fragen und entsprechende Antworten zu dieser Seite hinzuzufügen. Die einzige Einschränkung ist: Stellen Sie sicher, dass Sie der Antwort ein Datum hinzufügen. Perfektionismus ist nicht nötig, poste einfach, was dir bei der Adapterentwicklung geholfen hat. Links zu Adaptern, in denen die Frage implementiert ist, sind ebenfalls sehr willkommen. Wir Entwickler freuen uns über Umsetzungsbeispiele :-)
+Diese Idee wurde von Ralf am 24. November 2020 im ioBroker #adapter Discord-Kanal während einer Diskussion mit einer Frage von Mic geboren.
 
-*Hinweis:* Dies wird keine offizielle Dokumentation sein. Alle Hinweise, Problemumgehungen, Links zu noch älteren Forenbeiträgen usw. sind willkommen. Die Absicht ist, Entwickler schnell zu unterstützen und ihnen bei häufig gestellten Entwicklerfragen zu helfen. Wenn Sie hier Probleme beim Schreiben auf Englisch haben, verwenden Sie bitte Ihre Landessprache wie Deutsch, Russisch usw. Wir helfen Ihnen gerne und übersetzen später.
+## Bitte leisten Sie einen Beitrag (es ist ganz einfach!)
+Sie können gerne Fragen und die dazugehörigen Antworten auf dieser Seite hinzufügen. Die einzige Einschränkung ist: Achten Sie darauf, der Antwort ein Datum hinzuzufügen. Perfektionismus ist nicht erforderlich. Schreiben Sie einfach, was Ihnen bei der Adapterentwicklung geholfen hat. Links zu Adaptern, in denen die Frage implementiert ist, sind ebenfalls sehr willkommen. Wir Entwickler lieben Implementierungsbeispiele :-)
 
-Zur Aktualisierung des Inhaltsverzeichnisses können Sie einen TOC-Generator verwenden, z. [luciopaiva.com/markdown-toc](https://luciopaiva.com/markdown-toc/)
+*Hinweis:* Dies wird keine offizielle Dokumentation. Hinweise, Workarounds, Links zu noch älteren Forenbeiträgen usw. sind willkommen. Ziel ist es, Entwicklern bei häufig gestellten Entwicklerfragen schnell zu helfen und sie zu unterstützen. Wenn Sie Probleme haben, hier auf Englisch zu schreiben, verwenden Sie bitte Ihre Landessprache wie Deutsch, Russisch usw. Wir helfen Ihnen gerne und übersetzen später.
+
+Zur Aktualisierung des Inhaltsverzeichnisses können Sie einen Inhaltsverzeichnisgenerator verwenden, z.B. [luciopaiva.com/markdown-toc](https://luciopaiva.com/markdown-toc/)
 
 # Inhaltsverzeichnis
 - [Adapter-Updates](#adapter-updates)
-  - [Veröffentlichen von Adapteraktualisierungen](#publishing-adapter-updates)
-- [Adaptertest und Fehlerberichterstattung](#adapter-testing-and-error-reporting)
-  - [Kompaktmodus](#compact-mode)
-  - [Wache](#Wache)
-- [Benutzeroberfläche der Adapterkonfiguration (admin/index_m.html)](#adapter-configuration-ui-adminindexmhtml)
-  - [Eingabevalidierung](#input-validation)
-- [Adapterfunktionen](#adapter-funktionen)
-  - [Dateien schreiben](#writing-files)
+- [Updates des Veröffentlichungsadapters](#publishing-adapter-updates)
+- [Adaptertests und Fehlerberichte](#adapter-testing-and-error-reporting)
+- [Kompaktmodus](#compact-mode)
+- [Wachposten](#Wachposten)
+- [Adapterkonfigurations-Benutzeroberfläche (admin/index_m.html)](#adapter-configuration-ui-adminindexmhtml)
+- [Eingabevalidierung](#input-validation)
+- [Adapterfunktionen](#adapter-functions)
+- [Dateien schreiben](#writing-files)
 
 ---
 
 ### Adapter-Updates
-#### Adapteraktualisierungen veröffentlichen
+#### Adapter-Updates veröffentlichen
 **Frage:** In welchen Dateien muss ich die Versionsnummer ändern?
 
 **Antwort:** Grundsätzlich müssen Sie 3 Dateien berühren:
 
- * `io-package.json`: Versionsnummer ändern und das letzte Änderungsprotokoll hinzufügen
- * `package.json`: nur Versionsnummer ändern
- * `README.md`: Neue Versionsnummer und Änderungsprotokoll hinzufügen
+* `io-package.json`: Versionsnummer ändern und das aktuelle Änderungsprotokoll hinzufügen
+* `package.json`: nur Versionsnummer ändern
+* `README.md`: neue Versionsnummer und das Änderungsprotokoll hinzufügen
 
-Bitte beachten Sie, dass die Verwendung von [Semantische Versionierung] (https://semver.org/), siehe [Versionierung](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#versioning) erforderlich ist.<br> (25.11.2020)
+Bitte beachten Sie, dass die Verwendung von [Semantische Versionierung](https://semver.org/), siehe [Versionierung](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#versioning) erforderlich ist.<br> (25. November 2020)
 
 **Frage:** Mein Adapter befindet sich im neuesten Repository. Ich habe den Adapter auf Github aktualisiert und auch auf NPM veröffentlicht. Wann sehen die Benutzer die neue Version im Admin?
 
-**Antwort:** ioBroker scannt zweimal täglich nach Versionsänderungen.<br> (25. Nov. 2020)
+**Antwort:** ioBroker sucht zweimal täglich nach Versionsänderungen.<br> (25. November 2020)
 
-**Frage:** Wie kann ich einen neuen Adapter zum neuesten Repository hinzufügen?
+**Frage:** Wie kann ich dem neuesten Repository einen neuen Adapter hinzufügen?
 
-**Antwort:** Siehe [Fügen Sie dem neuesten Repository einen neuen Adapter hinzu](https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-latest-repository)<br> (25.11.2020)
+**Antwort:** Siehe [Einen neuen Adapter zum neuesten Repository hinzufügen](https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-latest-repository)<br> (25. November 2020)
 
 ### Adaptertests und Fehlerberichte
 #### Kompaktmodus
 **Frage:** Wie kann ich den Kompaktmodus testen?
 
-**Antwort:** Siehe [Kompaktmodus testen](https://forum.iobroker.net/topic/32789/anleitung-f%C3%BCr-adapter-entwickler-compact-mode-testen)<br> (25. Nov. 2020)
+**Antwort:** Siehe [Kompaktmodus testen](https://forum.iobroker.net/topic/32789/anleitung-f%C3%BCr-adapter-entwickler-compact-mode-testen)<br> (25. November 2020)
 
 #### Wachposten
 **Frage:** Wie kann ich Sentry zu meinem Adapter hinzufügen?
 
-**Antwort:** Siehe [Sentry Read.me](https://github.com/ioBroker/plugin-sentry#readme)<br> (25. Nov. 2020)
+**Antwort:** Siehe [Sentry Read.me](https://github.com/ioBroker/plugin-sentry#readme)<br> (25. November 2020)
 
-### Benutzeroberfläche für die Adapterkonfiguration (admin/index_m.html)
+### Adapterkonfigurations-Benutzeroberfläche (admin/index_m.html)
 #### Eingabevalidierung
-**Frage:** Ich möchte Felder der Adapterkonfiguration validieren, indem ich Kernadaptermethoden sowie Klassen/Methoden des node.js-Adaptercodes verwende. Die Validierung sollte stattfinden, sobald ein Benutzer in der Adapterkonfiguration auf „Speichern“ klickt, was dann `save()` von `admin/index_m.html` aufruft.
+**Frage:** Ich möchte Felder der Adapterkonfiguration validieren, indem ich Kernadaptermethoden sowie Klassen/Methoden des Adaptercodes von node.js verwende. Die Validierung soll erfolgen, sobald ein Benutzer in der Adapterkonfiguration auf „Speichern“ klickt, woraufhin `save()` von `admin/index_m.html` aufgerufen wird.
 
-**Antwort:** Sie können die Methode `sendTo()` verwenden, um die Variable `obj` von `admin/index_m.html` an den Adaptercode zu senden, den Inhalt dort zu validieren und das Ergebnis dann per Rückruf an bereitzustellen `sendTo()` von `admin/index_m.html`.<br> Beispiel: Dies ist im Adapter [Fahrplan](https://github.com/gaudes/ioBroker.fahrplan) implementiert.<br> HINWEIS: Möglicherweise müssen Sie Ihre `io-package.json` ändern, siehe z. B. [ioBroker-Forum: sendTo() funktioniert nicht](https://forum.iobroker.net/topic/5205/gel%C3%B6st-sendto-in-eigenem-adapter-funktioniert-nicht/)<br> (24.11.2020)
+**Antwort:** Mit der Methode `sendTo()` können Sie die Variable `obj` von `admin/index_m.html` an den Adaptercode senden, dort den Inhalt validieren und das Ergebnis anschließend per Callback an `sendTo()` von `admin/index_m.html` zurückgeben.<br> Beispiel: Dies ist im Adapter [Fahrplan](https://github.com/gaudes/ioBroker.fahrplan) implementiert.<br> HINWEIS: Möglicherweise müssen Sie Ihre `io-package.json` ändern, siehe beispielsweise [ioBroker-Forum: sendTo() funktioniert nicht](https://forum.iobroker.net/topic/5205/gel%C3%B6st-sendto-in-eigenem-adapter-funktioniert-nicht/)<br> (24. November 2020)
 
 ### Adapterfunktionen
-#### Dateien schreiben
-**Frage:** Adapter sollte eine Datei mit Axios herunterladen und in der Lage sein, sie in iobroker-data/files/<adapter> zu schreiben
+#### Schreiben von Dateien
+**Frage:** Der Adapter sollte eine Datei mit Axios herunterladen und in der Lage sein, sie in iobroker-data/files/<adapter> zu schreiben.
 
-**Antwort:** Hier ist ein kleines Code-Snippet für diese Aktion:
+**Antwort:** Hier ist ein kleiner Codeausschnitt für diese Aktion:
 
 ```
 const WebCall = await axios.get(url,{responseType: "arraybuffer"});
 await Helper.Adapter.writeFileAsync(Helper.Adapter.namespace, `picture.jpg`, WebCall.data)
 ```
 
-Danach kam eine Warnung im ioBroker Log:<br> `writeFile will not write this file (picture.jpg) in future versions: <adapter> is not an object of type "meta"`<br> In io-package.json muss ein meta.user-Objekt in instanceObjects eingebunden werden:<br>
+Anschließend gab es eine Warnung im ioBroker-Protokoll:<br> `writeFile will not write this file (picture.jpg) in future versions: <adapter> is not an object of type "meta"`<br> In io-package.json muss ein meta.user-Objekt in instanceObjects eingebunden werden:<br>
 
 ```
 "instanceObjects": [
@@ -94,4 +95,4 @@ Danach kam eine Warnung im ioBroker Log:<br> `writeFile will not write this file
 ]
 ```
 
-(09.12.2020)
+(09. Dezember 2020)

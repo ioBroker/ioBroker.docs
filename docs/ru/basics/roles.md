@@ -1,10 +1,10 @@
 ---
 lastChanged: 24.01.2022
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/roles.md
 title: Скользящие точки данных
-hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
+hash: P9fMNtraDsN408rMatVAgEME/i2cWWKuxVubLP3+9HI=
 ---
 # Скользящие точки данных
 Для объектов типа `state` свойству `common.role` должна быть присвоена одна из ролей, определенных в списке ниже.
@@ -24,7 +24,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `text.url` `common.type = string` val содержит URL-адрес для использования в привязке, iframe или img.
 * `html` `common.type = строка`
 * `json` `common.type = строка`
-* `list` `common.type = массив`
+* `list` `common.type = array`
 * `date` `common.type = string` - анализируется строкой `new Date(ddd)`
 * `date` `common.type = число` - `эпоха секунд * 1000`
 
@@ -85,7 +85,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `value.valve` - уровень клапана
 * `value.time` — getTime() объекта Date()
 * `value.interval` (common.unit='sec') — интервал в секундах (может быть 0,1 или меньше)
-* ~~value.date (common.type=string) — дата в виде 2015.01.01 (без времени)~~
+* ~~value.date (common.type=string) - дата в виде 2015.01.01 (без времени)~~
 * ~~value.datetime (common.type=string) — дата и время в системном формате~~
 * `value.gps.longitude` — координаты долготы GPS
 * `value.gps.latitude` - широта GPS
@@ -103,14 +103,14 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `value.lock` - текущая позиция замка
 * `value.speed` - Скорость ветра
 * `value.pressure` - (Единица измерения: мбар)
-* `значение.дистанция`
+* `value.distance`
 * `value.distance.visibility`
 * `value.severity` - определенная серьезность (можно указать условия), чем выше, тем важнее
 * `value.warning` - некоторые предупреждения (можно указать состояния), чем выше, тем важнее
 * `value.sun.elevation` - Положение Солнца в °
 * `value.sun.azimuth` - Азимут Солнца в °
 * `value.voltage` - Напряжение в вольтах, `unit=V`
-* `value.current` - ток в амперах, `unit=A`
+* `value.current` - Ток в амперах, `unit=A`
 * `value.fill` - Уровень заполнения, `unit=l,ml,m3,%`
 * `value.blood.sugar` - Уровень сахара в крови, `unit=ммоль,мгдл`
 
@@ -129,7 +129,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `indicator.maintenance.unreach`
 * `indicator.maintenance.alarm`
 * `indicator.lowbat` — true, если батарея разряжена
-* `indicator.alarm` — то же, что и индикатор.maintenance.alarm.
+* `indicator.alarm` — то же, что и Indicator.maintenance.alarm.
 * `indicator.alarm.fire` - Обнаружен пожар
 * `indicator.alarm.flood` — обнаружен наводнение
 * `indicator.alarm.secure` — Дверь или окно открыты.
@@ -150,7 +150,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `level.color.green`
 * `level.color.blue`
 * `level.color.white` — rgbW
-* `level.color.hue` — цвет в ° `0-360; 0=красный, 120=зеленый, 240=синий, 360=красный (циклический)`
+* `level.color.hue` — цвет в °`0-360; 0=красный, 120=зеленый, 240=синий, 360=красный (циклический)`
 * `level.color.saturation`
 * `level.color.rgb` — шестнадцатеричный цвет, например `#rrggbb`
 * `level.color.luminance`
@@ -180,7 +180,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `switch.enable`
 * `switch.power` - Включение/выключение питания.
 * `switch.mode`*
-* `switch.mode.auto` - автоматический режим вкл/выкл
+* `switch.mode.auto` - автоматический режим вкл./выкл.
 * `switch.mode.manual` - включение/выключение ручного режима
 * `switch.mode.silent` - Беззвучный режим вкл./выкл.
 * `switch.mode.moonlight` - режим лунного света вкл/выкл
@@ -198,12 +198,12 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 ЗАДАЧА: Подумайте об ионизации и колебаниях.
 
 ## Пылесос
-* `level.mode.cleanup` — перечисление `AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
+* `level.mode.cleanup` — перечисление `АВТО, ЭКО, ЭКСПРЕСС, НОРМАЛЬНЫЙ, ТИХИЙ`. Требуются только «АВТО» и «НОРМАЛЬНЫЙ».
 * `level.mode.work` — перечисление `AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное условие.
 * `value.water` - уровень воды 0-100%.
 * `value.waste` - уровень мусорного бака 0-100%. (0% — пусто, 100% — полно)
-* `indicator.maintenance.waste` — Мусорная корзина — это тупо.
-* `value.state` - `ДОМ, УБОРКА, ПАУЗА` и так далее.
+* `indicator.maintenance.waste` — Мусорная корзина — это глупо.
+* `value.state` — `ДОМ, УБОРКА, ПАУЗА` и так далее.
 
 В дополнение к этим состояниям для подключения пылесоса обычно требуется `switch.power`. `switch.power` в данном случае работает как: `true` - очистить, `false` - вернуться домой.
 Необязательные `value.battery` и
@@ -217,7 +217,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 ## СМИ
 Особые роли для медиаплееров
 
-* `button.stop`
+* `кнопка.стоп`
 * `button.play`
 * `button.next`
 * `button.prev`
@@ -245,7 +245,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `media.elapsed.text` — например, «1:30»
 * `media.elapsed` - (`common.type=number`) секунд
 * `media.broadcastDate` - (`common.type=string`) дата трансляции
-* `media.mute` - (`common.type=boolean`) true означает отключение звука
+* `media.mute` - (`common.type=boolean`) true — без звука
 * `media. Season` - (`common.type=string`) номер сезона (важно, чтобы тип действительно был "строковым", чтобы можно было указать отсутствие сезона с помощью "")
 * `media.episode` - (`common.type=string`) номер эпизода (важно, чтобы тип действительно был "строковым", чтобы можно было указать отсутствие эпизода с помощью "")
 * `media.mute.group` - (`common.type=boolean`) Группа устройств для отключения звука
@@ -255,17 +255,17 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `media.date` — ежегодная песня
 * `media.track` — (`common.type=string`) идентификатор текущего воспроизводимого трека [0 - ~] (важно, чтобы тип действительно был `string`, чтобы можно было указать отсутствие трека с помощью "".
 * `media.playid` — идентификатор трека медиаплеера.
-* `media.add` - добавить текущий плейлист
+* `media.add` — добавить текущий плейлист
 * `media.clear` — очистить текущий плейлист (только запись)
 * `media.playlist` — массив json, например
 * `media.url` — URL-адрес для воспроизведения или текущий URL-адрес.
 * `media.url.announcement` — URL-адрес для воспроизведения объявления.
-* `media.jump` - Количество элементов для перехода в список воспроизведения (может быть отрицательным)
+* `media.jump` - Количество элементов для перехода в плейлист (может быть отрицательным)
 * `media.content` — тип воспроизводимого мультимедиа, например аудио/mp3.
 * `media.link` — состояние текущего файла
 * `media.input` - номер или строка входа (AUX, AV, TV, SAT,...)
 * `level.bass` - уровень басов
-* `level.treble` - Уровень высоких частот
+* `level.treble` — уровень высоких частот.
 * `switch.power.zone` - зона мощности
 
 ```
@@ -318,7 +318,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `value.temperature.feelslike` — Фактическая температура «по ощущениям»
 * `value.temperature.min` — Минимальная температура за последние 24 часа.
 * `value.temperature.max` — Максимальная температура за последние 24 часа.
-* `value.humidity` - фактическая или средняя влажность
+* `value.humidity` — фактическая или средняя влажность
 * `value.humidity.min` — фактическая влажность
 * `value.humidity.max` — фактическая влажность
 * `value.speed.wind` - текущая или средняя скорость ветра
@@ -328,22 +328,22 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `value.direction.wind` — текущее или среднее направление ветра в градусах.
 * `value.direction.max.wind` - текущее направление ветра в градусах
 * `value.direction.min.wind` - текущее направление ветра в градусах
-* `weather.direction.wind` — текущее или среднее направление ветра в виде текста, например NNW.
+* `weather.direction.wind` — текущее или среднее направление ветра в виде текста, например, NNW.
 * `date` - текущая дата или дата последнего прочтения информации
 * `date.sunrise` — восход солнца на сегодняшний день.
 * `date.sunset` - Закат на сегодня
 * `dayofweek` — день недели в виде текста
 * `location` — текстовое описание местоположения (например, адрес)
-* `weather.icon` — URL-адрес значка текущего статуса на данный момент.
+* `weather.icon` — URL значка текущего статуса на данный момент.
 * `weather.icon.wind` — URL-адрес текущего значка ветра на данный момент.
 * `weather.icon.name` — Текущее имя значка статуса.
 * `weather.state` — описание текущей погоды.
-* `value.precipitation` - (`тип: число, единица: мм`) Осадки в виде дождя/снег за последние 24 часа (осадки в виде снега или дождя сегодня)
+* `value.precipitation` - (`type: число, единица измерения: мм`) Осадки в виде дождя/снег за последние 24 часа (осадки в виде снега или дождя сегодня)
 * `value.precipitation.hour` — фактическое количество осадков за последний час.
 * `value.precipitation.today` - Текущее количество осадков за сегодня (до 0:00)
 * `value.precipitation.chance` - Фактическая вероятность осадков на сегодня.
 * `value.precipitation.type` — Текущий тип осадков на сегодняшний день. («Тип: Число») Состояния: 0 — НЕТ, 1 — ДОЖДЬ, 2 — СНЕГ, 3 — ГРАД
-* `value.radiation` - Фактическая солнечная радиация
+* `value.radiation` - Фактическое солнечное излучение
 * `value.uv` — фактическое значение UV.
 * `value.clouds` - Облака на небе. 0% — облаков нет, 100% — много облаков.
 * `value.rain` — фактическое количество дождя за последние 24 часа.
@@ -356,7 +356,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `weather.chart.url` — URL-адрес диаграммы истории погоды.
 * `weather.chart.url.forecast` — URL-адрес диаграммы прогноза погоды.
 * `weather.html` — HTML-объект с описанием погоды.
-* `waether.title` — Очень краткое описание.
+* `waether.title` — очень краткое описание.
 * `weather.title.short` — Очень, очень короткое описание (Одно слово)
 * `weather.type` — Тип информации о погоде.
 * `weather.json` — объект JSON с конкретными данными
@@ -366,9 +366,9 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `weather.direction.wind.forecast.0` — Прогноз направления ветра на сегодня в текстовом виде.
 * `value.pressure.forecast.0` - Прогноз давления на сегодня
 * `value.temperature.min.forecast.0` — прогноз минимальной температуры на сегодня.
-* `value.temperature.max.forecast.0` — прогноз максимальной температуры на сегодня.
+* `value.temperature.max.forecast.0` - прогноз максимальной температуры на сегодня
 * `value.precipitation.forecast.0` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на сегодня
-* `value.prepitation.forecast.0` - (`тип: число, единица измерения: мм`) Прогноз уровня осадков на сегодня
+* `value.prepitation.forecast.0` - (`Тип: Число, Единица: мм`) Прогноз уровня осадков на сегодня
 * `weather.title.forecast.0` — Очень краткое описание на завтра.
 * `value.precipitation.day.forecast.0` - Прогноз осадков на день
 * `value.precipitation.night.forecast.0` - Прогноз осадков на ночь
@@ -379,7 +379,7 @@ hash: VpeRGEGN/hE2uKbhNCl43FaSqZoQ69UIxWld/aRyCSU=
 * `value.temperature.min.forecast.1`
 * `value.temperature.min.forecast.1`
 * `value.prepitation.forecast.1` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на завтра
-* `value.prepitation.forecast.1` - (`тип: число, единица: мм`) Прогноз уровня осадков на завтра
+* `value.prepitation.forecast.1` - (`тип: число, единица измерения: мм`) Прогноз уровня осадков на завтра
 * `value.direction.wind.forecast.1`
 * `value.speed.wind.forecast.1`
 * `value.pressure.forecast.1`

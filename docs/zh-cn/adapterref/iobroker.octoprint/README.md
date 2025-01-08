@@ -16,12 +16,12 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: GH+E+8OyTXQ2YFvkzh2jHBge9KVA/XgDTnrst6g7WTI=
+hash: H4qRBSp+mVOtQTbgU7iPXEaZb0UlHE+fz4+92pDc2MM=
 ---
 ![标识](../../../en/admin/octoprint.png)
 
 # IoBroker.octoprint
-**已使用 [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.2 进行测试**
+**已使用 [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.10.3 进行测试**
 
 ＃＃ 特征
 ＃＃＃ 信息
@@ -67,11 +67,11 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.0.0 (2025-01-07)
 
-NodeJS >= 18.x and js-controller >= 5 is required
+NodeJS >= 20.x and js-controller >= 6 is required
 
-Tested with OctoPrint 1.10.2
+Tested with OctoPrint 1.10.3
 
 ### 5.1.0 (2023-10-25)
 
@@ -100,17 +100,11 @@ Tested with OctoPrint 1.8.6
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
 
-### 4.0.1 (2022-10-14)
-
-Tested with OctoPrint 1.8.4
-
-* (klein0r) Just download every thumbnail once (requires plugin Slicer Thumbnails)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

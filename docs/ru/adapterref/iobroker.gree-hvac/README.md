@@ -32,10 +32,13 @@ hash: nbnCeatkP5YX4f21mweyh2a/mosv3Qal1E5BFx02vvI=
 ## Благодарности
 - [tomikaa87](https://github.com/tomikaa87) за обратную разработку протокола Gree
 - [stas-demydiuk](https://github.com/stas-demydiuk) для кода DeviceManager
-- Сизенко Александр за шрифты Digital-7
+- Сизенко Александр для шрифтов Digital-7
 - [cont1nuity] для добавления шифрования AES-GCM
 
 ## Changelog
+### 1.1.2 (2024-10-16)
+ - Updated dependencies
+ - Adjusted admin layout
 ### 1.1.0 (2024-08-13)
  - Added the AES-GCM encryption which is needed for some devices with newer firmware versions (e.g. gree model 32776, v1.23)
 ### 1.0.7 (2024-07-03)
@@ -48,8 +51,6 @@ hash: nbnCeatkP5YX4f21mweyh2a/mosv3Qal1E5BFx02vvI=
  - Code optimization. Bug fixes.
 ### 1.0.3 (2024-06-12)
  - Added refresh devices button on tab page.
-### 1.0.2 (2024-06-11)
- - Added support of Fhareinheit degrees.
 
 ## License
 MIT License

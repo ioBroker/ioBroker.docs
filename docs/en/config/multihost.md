@@ -4,7 +4,7 @@ lastChanged: 13.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/multihost.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: KNwtUz95PfkVuqZM+ktV3pg/Qlb70Y12Xez8KmwMYjY=
+hash: BmBgpKyFgjB7a9BIsAtjjo4dLKC+U95LHDR9PME3eT4=
 ---
 # Multihost operation
 ioBroker is able to have the tasks performed by multiple servers. This allows the computing load to be distributed across multiple hosts.
@@ -107,7 +107,7 @@ nano /etc/redis/redis.conf
 
 The line `bind 127.0.0.1` must be supplemented with the IP of the network adapter so that the Redis server allows external connects.
 
-So e.g.
+For example
 
 ```
 bind 127.0.0.1 192.168.1.10
@@ -153,15 +153,15 @@ Then add the instance there by clicking on the (+) in the right column.
 * If you have already installed many adapters on a host, you can subsequently change the assignment of the already installed instances in the Instances tab.
 
 ## Delete host
-To delete a host, activate the expert mode in the Objects admin tab of the master and activate the host option in the Type column. Then delete the desired host.
+To delete a host, activate the expert mode in the master's Objects admin tab and select host in the Type column. Then delete the desired host.
 
 ## Possible problems
 Sometimes a message appears similar to:
 
 `> ... bytes ... in strict mode`
 
-Then please edit the file in which this occurs with the nano editor. Right at the beginning is `'use strict';`, comment out this line with // and save.
+Then please edit the file in which this occurs with the nano editor. Right at the beginning there is `'use strict';`, comment out this line with // and save.
 
 `> IP Address of the host is 127.0.0.1. It accepts no connections. Please change.`
 
-if you haven't done ``` setup custom ``` on the master system.
+if you have not done ``` setup custom ``` on the master system.

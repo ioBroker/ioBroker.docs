@@ -4,54 +4,54 @@ lastChanged: 27.02.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/config/redis.md
-hash: iS5fXBj9lEj5zQk1a5bbY7utI+8y43A3Sw9PKYfM8jw=
+hash: Ev82te52KWYL/zhocAzZRad8qAof0Www9GazSsCX4aI=
 ---
-Redis 是一个开源的内存数据库。
+Redis 是一个开源内存数据库。
 更多信息可以在 https://redis.io/ 找到
 
-Redis 的一大优势：
+Redis的一大优势：
 
-与内部的ioBroker数据库相比，Redis主要在数据访问速度、文件系统IO管理、CPU资源利用率等方面具有优势。
-js 控制器已卸载。以前缓慢的系统可以再次变得更快。
-但是，有足够的可用 RAM 很重要，因为 Redis 将所有数据保存在 RAM 中。根据具体存储在 Redis 中的内容，RAM 要求的范围从几 MB（例如，如果 Redis 中只有状态）到超过 200 MB（例如，对象和文件也存储在那里）。
+与内部的ioBroker数据库相比，Redis主要在数据访问速度、文件系统的IO管理以及更好地利用CPU资源等方面具有优势。
+js控制器松了口气。以前缓慢的系统可以再次变得更快。
+但是，有足够的可用 RAM 非常重要，因为 Redis 将所有数据保存在 RAM 中。根据 Redis 中具体存储的内容，RAM 要求范围从几 MB（例如，如果 Redis 中只有状态）到超过 200 MB（例如，如果对象和文件也存储在其中）。
 
-## Redis 常见问题
+## Redis 常见问题解答
 1. 我的 ioBroker 是否需要 Redis？
 
-ioBroker 自己的数据库通常足以满足所有标准安装！只有当 js-controller 永久需要 50-70% 或更多的 CPU 并且同时感觉系统运行缓慢时，处理 Redis 的话题才有意义。
-或者，如果您的目标是高度可用的 ioBroker 系统，则它变得很有必要，但为此还需要做一些其他的事情。
+对于所有常见的安装，ioBroker 自己的数据库通常就足够了！只有当 js 控制器不断需要 50-70% 或更多 CPU 并且系统同时感觉缓慢时，处理 Redis 的话题才有意义。
+或者，如果您想要一个高度可用的 ioBroker 系统，那么它就变得必要，但还需要一些东西。
 
-2. 我如何知道我是否在使用 Redis？
+2. 如何知道我是否在使用Redis？
 
-由于 ioBroker 自己的数据库也使用 Redis 协议进行通信，因此当您在日志中阅读有关 Redis 的内容时，有时会感到困惑。只要提到端口9000/9001，这表示内部数据库，与外部Redis数据库无关。
-对 `iobroker status` 的调用显示了用于状态和对象数据库的数据库类型。
-“文件”表示使用 ioBroker 自己的数据库。 “redis”表示一个 Redis 正在使用中。
+由于ioBroker自己的数据库也使用Redis协议进行通信，因此当您在日志中阅读有关Redis的内容时有时会感到困惑。只要提到9000/9001端口，就表示内部数据库，与外部Redis数据库无关。
+对`iobroker status`的调用显示了状态和对象数据库使用的数据库类型。
+“文件”表示使用ioBroker自己的数据库。 “redis”表示正在使用Redis。
 
-有关 Redis 主题的详细说明以及更多信息，请参见 [论坛](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
+Redis 主题的详细解释以及更多信息可以在 [论坛](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick) 中找到
 
-## Redis 持久化
-通常，Redis 是一个“内存数据库”。因此数据存储在 RAM 中。当 Redis 退出时，它们就消失了。
-但为了启用更新，Redis 支持在硬盘上存储两种类型的数据。
-RDB 和 AOF 持久化。
+## Redis持久化
+通常Redis是一个“内存数据库”。数据存储在 RAM 中。当 Redis 停止时，这些就消失了。
+为了也能够进行更新，Redis 在硬盘驱动器上支持两种类型的数据存储。
+RDB和AOF持久化。
 
-**RDB** 默认激活，此方法将所有内容保存到 RDB 文件中。存储间隔可以配置，应该根据自己的需要进行调整！配置这个应该是数据安全性（你可以应对在崩溃中丢失多少数据）和存储介质的写入负载的混合，因为整个内容总是被写入（如果 Redis 中有对象，这可能是几百个）兆！）。
+**RDB** 默认处于活动状态，此方法将所有内容保存到 RDB 文件中。存储间隔可以配置，并应根据您自己的需要进行调整！配置这个应该是数据安全性（崩溃时你能容忍丢失多少数据）和存储介质的写入负载的混合，因为整个内容总是被写入（即使Redis中有对象，这可能是几百个） MB！）。
 
-但是，**AOF** 确保数据是完全最新的。
-为此，不断写入一个所谓的 AOF 文件，其中始终附加所有更改。然后，该文件会定期合并，从而再次变小。最终的写入负载究竟如何，以及整个事情是否适合 SD 卡，取决于存储的数据。如果对象和文件也在 Redis 中，那么附加和合并稀有的可能比定期保存大量数据更“经济”。
-如上所述，这需要更多 RAM。如果此 RAM 不可用，根据设置，一切都会继续运行而不会出现任何问题。
-然后不会创建数据备份！相应的消息仅在日志文件中。
+但是，**AOF** 确保数据完全是最新的。
+为此，会连续写入所谓的 AOF 文件，其中始终附加所有更改。然后，该文件会定期合并，从而再次变小。最终的写入负载到底是多少以及整个过程对 SD 卡是否有利取决于保存的数据。如果对象和文件也在 Redis 中，则附加和不频繁的合并可能比定期保存大量数据更“经济”。
+如上所述，这需要更多的 RAM。如果此 RAM 不可用，一切都会继续运行，不会出现任何问题 - 取决于设置。
+但是，不会创建数据备份！相应的消息仅存在于日志文件中。
 
 有关持久性的更多详细信息，请访问 https://redis.io/topics/persistence
 
-**Redis Slaves**，即第二个 Redis 服务器，是始终将当前数据作为备份的另一种可能性。
-如果主 Redis 的计算机出现故障，数据仍然几乎实时存在于从属上。
-您可以使用它来创建转储以再次设置主服务器，或者作为一种快速解决方案，您可以使从服务器成为主服务器并更改 ioBroker 中的数据库 IP，然后您几乎再次在线。这也可以在 [论坛](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick) 或 https://raw.githubusercontent.com/antirez/redis/5.0/redis.conf 中找到更详细的信息
+**Redis Slaves**，即第二个 Redis 服务器，是始终将当前数据作为备份的另一种选择。
+如果主Redis的计算机出现故障，数据仍然几乎实时地存在于从服务器上。
+您可以使用它来创建转储以再次设置主服务器，或者作为一种快速解决方案，您可以将从服务器设为主服务器并更改 ioBroker 中的数据库 IP，并且几乎可以再次上线。还可以在 [论坛](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick) 或 https://raw.githubusercontent.com/antirez/redis/5.0/redis.conf 中找到更多详细信息
 
-**但是，从站不能防止意外删除数据，因为这些数据也会在从站上立即删除。只有备份可以提供帮助。**
+**但是，从属设备无法防止数据意外删除，因为这些数据也会在从属设备上立即被删除。只有备份可以提供帮助。**
 
 ## 安装 Redis
-Redis 必须安装并配置为单独的服务，备份时也应考虑数据。
-持久化的数据库以 JSON 文件的形式保存在“iobroker-data”文件夹中。
+Redis 必须作为单独的服务安装和配置，并且备份时也应考虑数据。
+持久数据库以 JSON 文件的形式存储在“iobroker-data”文件夹中。
 安装在命令行上进行
 
 **Debian**
@@ -69,27 +69,27 @@ sudo apt-get update
 sudo apt-get install redis-server
 ```
 
-**注意**：没有适用于 Windows 的官方 Redis 构建。
+**注意**：没有适用于 Windows 的官方 Redis 版本。
 
 ## 设置 Redis
-您可以查看`sudo systemctl status redis-server`。
-如果重启后它没有自动启动，`sudo systemctl enable redis-server`会有所帮助。
-Redis 默认使用 6379 端口，并且还附带了一个用于访问数据库的命令行工具：`redis-cli`打开一个 shell。
-`info`命令显示一些关于系统、内存使用和保存的数据（“keyspace”）的信息，当然这些信息目前是空的。
+您可以使用`sudo systemctl status redis-server`进行检查。
+如果重新启动后没有自动启动，`sudo systemctl enable redis-server` 会有所帮助。
+Redis 默认使用端口 6379，还包含用于访问数据库的命令行工具：`redis-cli` 打开 shell。
+命令`info`显示一些有关系统、内存使用情况和存储数据（“密钥空间”）的信息，当然这些信息当前是空的。
 
-如果您运行单主机系统或在同一主机上运行 ioBroker，那么就是这样。
+如果您运行单主机系统或在同一主机上运行 ioBroker，那就这样了。
 
-如果其他主机也应该能够访问这个 Redis 服务器（从属服务器或其他东西），那么这仍然必须被允许。
-为此，必须编辑 /etc/redis/redis.conf 并将 **bind 127.0.0.1** 行更改为 **bind 0.0.0.0** 并将 **protected_mode** 设置为 **no**正下方会。
+如果其他主机也应该访问此 Redis 服务器（从属服务器或类似的服务器），则仍然必须允许这样做。
+为此，必须编辑 /etc/redis/redis.conf，并将行 **bind 127.0.0.1** 更改为 **bind 0.0.0.0** 并将 **protected_mode** 正下方设置为 **no ** 变得。
 
-之后，`sudo systemctl restart redis-server`使用更新的配置重新启动服务器。
+然后，`sudo systemctl restart redis-server` 使用更新后的配置重新启动服务器。
 
 有关更多详细信息，请参阅[多主机](https://www.iobroker.net/#de/documentation/config/multihost.md)
 
-## 将 ioBroker 数据库切换到 Redis
-大多数更改和数据查询都发生在 States 数据库中。所有数据更改都到达这里，然后在适配器注册特定数据后分发回给适配器。
-将状态更改为 Redis 具有迄今为止最大和最明显的性能影响。
-如果您只更改状态数据库，理想情况下，您应该将 Redis 服务器安装在与 ioBroker 主服务器相同的主机上。
+## 将ioBroker数据库切换到Redis
+大多数更改和数据查询都发生在 States 数据库中。所有数据更改都会到达此处，然后在适配器注册特定数据后分发回适配器。
+将状态更改为 Redis 迄今为止具有最大且最显着的性能影响。
+如果您只转换 states 数据库，那么理想情况下您应该将 Redis 服务器安装在与 ioBroker master 相同的主机上。
 
 然后通过以下方式更改“状态”：
 
@@ -98,25 +98,25 @@ iobroker stop
 iobroker setup custom
 ```
 
-确认“对象”的当前设置（“文件”作为类型、IP、端口 9001）和“状态”现在作为类型“redis”，即 Redis 主机服务器的 IP（如果在同一主机上，则为 127.0.01 ) 并将 6379 设置为端口。
-为了不丢失所有状态数据，建议迁移数据，下一个问题在配置期间提出。
-迁移后，可以使用 **iobroker start** 重新启动 ioBroker。如果您还使用从属系统，则必须通过 **iobroker setup custom** 进行相同的设置。
-然而，移民问题必须得到否定的回答！
+对于“对象”，确认当前设置（“文件”作为类型，IP，端口 9001），对于“状态”，现在作为类型“redis”，Redis 主机服务器的 IP（如果在同一主机上，则为 127.0.01） ）并将 6379 设置为端口。
+为了不丢失所有状态数据，最好迁移数据，这就是配置过程中接下来的问题。
+迁移后，可以使用 **iobroker start** 重新启动 ioBroker。如果您还使用从属系统，则必须通过**iobroker setup custom**在任何地方进行相同的设置。
+然而，关于移民的问题必须得到否定的回答！
 
-如果您还想更改“对象”，请执行相同操作并选择“redis”类型，输入 Redis 主机的 IP 和端口，并根据需要迁移数据，这可能需要一段时间，具体取决于大小。
+如果您还想更改“对象”，请执行此操作并选择类型“redis”，输入 Redis 主机的 IP 和端口，并在必要时迁移数据，这可能需要相当长的时间，具体取决于大小。
 
-**相同或不同 Redis 进程中的状态和对象？**
+**同一或单独的 Redis 进程中的状态和对象？**
 
-当然，最简单的方法是将状态和对象一起存储在一个 Redis 进程中。
-但是，这也意味着所有数据只能一起备份。
-使用 ioBroker File-DB，状态、对象和文件被分离，因此可以有选择地备份。
+最简单的方法当然是将状态和对象一起存储在 Redis 进程中。
+不过，这也意味着所有数据只能一起备份。
+使用 ioBroker File-DB，状态、对象和文件被分开，因此可以有选择地备份。
 当所有内容都存储在 Redis 中时，写入负载也会更高，因为数据库更大。
-为了通过 Redis 设置分离经常更改的状态和不经常更改的对象和文件，您可以简单地在每个主机上使用两个 Redis 进程。
-例如，在 https://gist.github.com/inecmc/f40ca0ee622e86999d9aa016c1b15e8c 上有相关说明。
+为了通过 Redis 设置将频繁更改的状态与不经常更改的对象和文件分开，您只需在每个主机上使用两个 Redis 进程即可。
+例如，可以在 https://gist.github.com/inecmc/f40ca0ee622e86999d9aa016c1b15e8c 上找到相关说明。
 
-使用`iobroker setup custom`，可以简单地指定状态或对象/文件的各个不同端口。
+使用`iobroker setup custom`，可以简单地指定状态或对象/文件的不同端口。
 
-对于状态，建议使用 RDB 持久性，然后根据更改的数量每 5-15 分钟保存一次数据。对于对象/文件，AOF 持久化更适合最小化写入负载。
+对于状态，建议使用 RDB 持久化，然后根据更改数量每 5-15 分钟备份一次数据。对于对象/文件来说，AOF持久化更适合最小化写入负载。
 
-##备份
-Redis 通常将其文件存储在 /var/lib/redis 下。可以保存位于那里的 dump.rdb 或 appendonly.aof（取决于所选的持久性）。您也可以在备份之前直接创建一个带有`redis-cli BGSAVE`的dump.rdb，然后将其保存起来。
+## 备份
+Redis 通常将其文件存储在 /var/lib/redis 下。可以保存位于此处的 dump.rdb 或appendonly.aof（取决于所选的持久性）。您还可以使用`redis-cli BGSAVE` 在备份之前直接创建 dump.rdb，然后将其保存。

@@ -5,7 +5,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/objects.md
 title: 信息是如何存储的？
-hash: UMZ5MjtHFzmp9CoaXDjxA+wnbo3DGk8W3UH/qf+0HLI=
+hash: 1esXUxnW4ODED5oca7t4iOPzFYH7TNdyhjh2/64jlUk=
 ---
 # 信息是如何存储的？
 ioBroker 中有两种类型的信息：
@@ -20,7 +20,7 @@ ioBroker 中有两种类型的信息：
 - `user`：有关用户的信息：密码、图片、名称、颜色。可以存在多个用户。
 - `group`：有关包含多个用户的组的信息。
 - `script`：有关脚本的信息：源代码、名称、描述。
-- `design`：包含有关控制器如何搜索特定类型对象的说明。
+- `design`：包含有关控制器应如何搜索特定类型的 vpm 对象的说明。
 - `适配器`：适配器是执行特定任务的软件模块，例如从设备读取数据或控制设备。
 - `instance`：实例是在主机上运行的适配器的副本。一个实例有一个索引。
 - “设备”：设备是属于物理设备的一组通道，例如电灯开关。

@@ -209,6 +209,10 @@ otherwise it is more complex and individually to be parametrized.
 
 ## Changelog
 
+### 2.5.12 (npm)
+* skipping devices with empty identified (#598, #599), transmitted in FW8.01
+* update responsive settings
+
 ### 2.5.11 (npm)
 * upadate devDeps, linting error corrections
 * iob checker corrections
@@ -543,6 +547,6 @@ otherwise it is more complex and individually to be parametrized.
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2025 foxthefox <foxthefox@wysiwis.net>
 
-Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

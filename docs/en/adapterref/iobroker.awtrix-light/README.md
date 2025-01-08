@@ -23,7 +23,7 @@ chapters: {"pages":{"en/adapterref/iobroker.awtrix-light/README.md":{"title":{"e
 - nodejs 18 (or later)
 - js-controller 5.0.0 (or later)
 - Admin Adapter 6.6.0 (or later)
-- _Awtrix 3_ device with firmware _0.96_ (or later) - e.g. Ulanzi TC001
+- _Awtrix 3_ device with firmware _0.97_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -199,6 +199,12 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.5.0 (2025-01-07)
+
+Updated recommended firmware version to 0.97
+
+* (@klein0r) Updated dependencies
+
 ### 1.4.1 (2024-11-20)
 
 NodeJS >= 20.x and js-controller >= 6 is required
@@ -216,15 +222,11 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (klein0r) Fixed Blockly definitions (removed warnings)
 * (klein0r) Updated dependencies
 
-### 1.2.0 (2024-05-16)
-
-* (klein0r) Fixed wrong translations ins expert apps (duration)
-* (klein0r) Added progress bar for expert apps
-
 ## License
+
 MIT License
 
-Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

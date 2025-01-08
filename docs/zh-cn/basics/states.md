@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/states.md
 title: 状态和数据点
-hash: 190MIPX6wgLnFl6yKQR3EpEWnybrYzc4cf2YD6kb+rE=
+hash: YhGzxu5h8tG54E4wLlrlkwYe9yGh8rPylLjo4462bp0=
 ---
 # 状态和数据点
 **数据点**由类型为`state`的静态对象和动态状态组成。

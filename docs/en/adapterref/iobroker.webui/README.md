@@ -21,20 +21,22 @@ This is a complete visualization system for ioBroker.
 
 It includes features like:
 
-  - own simple scripting language
+  - simple scripting language
   - binding to ioBroker objects including converters & javascript expressions
-  - paste of images from clipboard
-  - drag drop of external images
-  - drag drop of ioBroker objects to automaticy create bindings
-  - drag drop of ioBroker objects to Properties to create Bindings to them
-  - relative signal paths to ioBroker objects in screens (the full path can be hand over from outside to screen)
-  - split view edit of html code
+  - pasting of images from clipboard
+  - drag&drop of external images
+  - drag&drop of ioBroker objects to automaticy create bindings
+  - drag&drop of ioBroker objects to Properties to create Bindings to them
+  - relative signal paths to ioBroker objects in screens (the full path can be handed over from outside into the screen)
+  - split view editing of layout and html code
   - global stylesheet support
   - usage of npm packages containing webcomponents
   - screens inside of screens
   - use all icon packages from ioBroker
   - use charts from ioBroker
   - use combined signals object id's  e.g. "webui.0.test3.{webui.0.test3.select}" -> this will use the value from webui.0.test3.select for the signal name
+
+There is more information about specific topics in the [wiki](https://github.com/iobroker-community-adapters/ioBroker.webui/wiki) (the German section has a few more articles than the English one).
 
 ## Installation
 
@@ -46,18 +48,20 @@ It includes features like:
 
 ### Description
 
-The Designer uses Webcomponents, so the HTML you Design is inside of a Shdowroot of a Webcomponent. This mens, you cannot style <body> or <html> inside of the Stylesheet. To style the outer Layout, use the ":host" selector.
+The Designer uses Web Components, so the HTML you design is inside of a Shadowroot of a Webcomponent. This means, you cannot style <body> or <html> inside of the Stylesheet. To style the outer Layout, use the ":host" selector.
 This also means, you cannot use "on..." eventhandlers. Use the "@..." event assignment.
 
 ### Custom Controls in WebUI
 
-You can create own reusable CustomControls in WebUI. This can have individual Javascript, Properties and a template.
+You can create your own reusable CustomControls in WebUI, each of which can have its own Javascript, Properties and a template.
 
-You can use Double-Bracket Syntax and Double-Curly-Braket Syntax of "BaseCustomWebcomponent" to create bindings from the Template to the properties defined in the Designer. Curylbrackets create two way Bindings.
+You can use Double-Bracket Syntax and Double-Curly-Bracket Syntax of the "BaseCustomWebcomponent" to create bindings from the Template to the properties defined in the Designer. Curylbrackets create two way Bindings.
 If you use the Bindings Dialog, you can Bind to a Property with ??Propertyname and to IoBroker Object in the Property via ?Propertyname.
 In Scripts you can also write to Signals defined in Custom Properties.
 
-You could also include Javascript in your CustomControl or Screen. Also you could use export a function "init(instance)" wich will be called when your CustomControl will be instanciated. (and also the connected and disconnected functions could be used)
+You can include Javascript in your CustomControl or Screen.
+In addition, you can export a function `init(instance)` wich will be called when your CustomControl will be instantiated.
+Finally, `connected()` and `disconnected()` functions can be defined to be called when ...
 
 ## Sponsoring
 
@@ -129,6 +133,12 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.21.0 (2024-12-28)
+- fix scripts with empty names on css
+- css props with only bindings are not shown
+- remove of css prop should remove binding?
+- Open Screen in sub screen command
+
 ### 1.20.1 (2024-12-03)
 - fix in designer with svgs
 

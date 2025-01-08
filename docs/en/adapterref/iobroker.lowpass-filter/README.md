@@ -19,6 +19,9 @@ e.g. you can filter power values to cut power peeks.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.4.1 (2025-01-05)
+* (BenAhrdt) copyrigth changed to 2025
+
 ### 2.4.0 (2024-12-04)
 * (BenAhrdt) Changed ESLint
 
@@ -86,7 +89,7 @@ e.g. you can filter power values to cut power peeks.
 ## License
 MIT License
 
-Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

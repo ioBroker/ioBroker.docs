@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hilink/README.md
 title: ioBroker.hilink
-hash: bFBKIrlMwYsfNrWvnVd5ncl4dlJeIU7Y/5KlhfMWeYM=
+hash: zbN8N2aPAc+ULr/C6cpbWjv2a1jhhd9OK0iBvHByapI=
 ---
 ![标识](../../../en/adapterref/iobroker.hilink/admin/hilink.png)
 
@@ -25,7 +25,7 @@ hash: bFBKIrlMwYsfNrWvnVd5ncl4dlJeIU7Y/5KlhfMWeYM=
 - 阅读收到和发送的消息。
 - 发送消息。
 - 发送 ussd 请求。
-- 获取调制解调器的基本参数、流量信息。
+- 获取调制解调器的基本参数、有关流量的信息。
 
 ```javascript
 

@@ -46,6 +46,10 @@ This adapter would not have been possible without the great work of Marius Burka
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2024-12-27)
+* (Feuersturm) @strathcole/iob-lib has been migrated to local repository (#27)
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.1 (2024-12-15)
 * (Feuersturm) Some minor corrections to installations news and some internal changes at pacakging have been applied.
 
@@ -65,10 +69,6 @@ This adapter would not have been possible without the great work of Marius Burka
 ### 0.2.3
 -   Fixed problem with sensor data
 -   Added seasonal water budget adjust information
-
-### 0.2.2
-
--   Added fixes for adapter crashes on failed connection to controller
 
 ## License
 

@@ -4,30 +4,30 @@ lastChanged: 21.01.2020
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterpublish.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: YpNSzRL3HYx2hWdzZmSbfQwlt4jfy74+sB2elXA8sTU=
+hash: G9Qg1a+J3PRWRwDWflz0rxRNU5K80XmOyeE6fJZlKLI=
 ---
-# Publish an adapter
-Before you think about publishing an adapter, it should be offered for testing in [Forum testing thread](https://forum.iobroker.net/category/91/tester).
-If the tests are successful and the adapter runs stably, it should be included in the latest repository for the time being.
+# Publishing an adapter
+Before you think about publishing an adapter, you should offer it for testing in [Forum Test Thread](https://forum.iobroker.net/category/91/tester).
+If the tests are successful and the adapter runs stably, it should be included in the Latest repository for the time being.
 
-If the adapter runs stable on a specific version number, you are welcome to transfer it to the stable repository. This requires the developer's own assessment in conjunction with user feedback.
+If the adapter runs stably on a certain version number, it can be transferred to the stable repository. This requires the developer's own assessment in conjunction with user feedback.
 
-***See other current requirements here:*** https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md
+***For more current requirements, see here:*** https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md
 
 ## Requirements for the Latest Repository
 0. Use [https://adapter-check.iobroker.in/](https://adapter-check.iobroker.in/) to test adapter repo.
 
-1. The adapter's GitHub repository should have a capital B in ioBroker, while in the package.json it must be lowercase because ``npm`` doesn't allow uppercase letters.
+1. The adapter's GitHub repository should have a capital B in ioBroker, while in the package.json it must be lowercase because ``npm`` does not allow uppercase letters.
 
-2. The title in the io-package.json should not contain the word ``ioBroker`` or the word ``Adapter``.
+2. The title in the io-package.json should not contain the word ``ioBroker`` and not the word ``Adapter``.
 
-3. The ``title`` attribute in the io-package.json (common) is the short name of the adapter in English. While ``titleLang`` contain the translations of the ``title`` attribute. (the Lang extension stands for languages)
+3. The ``title`` attribute in the io-package.json (common) is the short name of the adapter in English. While ``titleLang`` contains the translations of the ``title`` attribute. (The extension Lang stands for languages)
 
-4. The adapter should include instructions in the form of a README.md file. This should be available at least in English. Other languages are also welcome. This [example](https://github.com/foxriver76/ioBroker.denon) can serve as a suggestion.
+4. The adapter should contain instructions in the form of a README.md file. This should be available in at least English. Other languages are also welcome. This [example](https://github.com/foxriver76/ioBroker.denon) can serve as a suggestion.
 
 5. The adapter requires a license. Both in the io-package.json and a separate [file](https://github.com/foxriver76/ioBroker.denon/blob/master/LICENSE) in the Github repository.
 
-   Sample io-package.json:
+Example for io-package.json:
 
 ```json
 {
@@ -39,11 +39,11 @@ If the adapter runs stable on a specific version number, you are welcome to tran
 
 6. The `www` directory and the `widget` directory should be deleted if not used.
 
-7. In the io-package.json a `type` attribute should be created under common. For this purpose, the best matching category should be specified from this [list](#adapter categories).
+7. In the io-package.json a `type` attribute should be created under common. For this purpose the best matching category should be specified from this [list](#Adapter categories).
 
-8. In the io-package.json the `connectionType` and `dataSource` attributes should be created under common. For this purpose, the most suitable connection category should be specified from this [list](#adapter connection type).
+8. In the io-package.json the `connectionType` and `dataSource` attributes should be created under common. To do this, the best matching connection category should be specified from this [list](#Adapter connection type).
 
-9. The states created by the adapter should have valid specifications for their `role` under common .
+9. The states created by the adapter should have valid information for their [roles](https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md#state-roles) `role` under common.
 
 The use of the role `state` should be avoided.
 
@@ -51,38 +51,38 @@ The use of the role `state` should be avoided.
 
 These two continuous integration tools have proven to be suitable for the ioBroker project and are free for public Github repositories.
 
-The test scope can be extended by the developer.
+The scope of testing can be expanded by the developer.
 
-11. In the io-package.json, at least one entry must be made under common for the `authors` attribute.
+11. In the io-package.json at least one entry must be made under common for the attribute `authors`.
 
-The attribute `author` in the package.json must also be filled out.
-Optionally, multiple authors can also be stored for npm by using the `contributors` attribute in the package.json.
+The attribute `author` must also be filled in in the package.json.
+Optionally, multiple authors can also be stored for npm by using the attribute `contributors` in the package.json.
 
 12. The adapter must be available as an npm package. More information can be found [here](https://github.com/ioBroker/ioBroker.repositories#how-to-publish-on-npm).
 
-13. The ioBroker organization needs to be added on npm. This is necessary to allow long-term maintenance of the package, even if the developer is no longer able to maintain the package due to time or other reasons.
+13. The ioBroker organization must be added to npm. This is necessary to enable long-term maintenance of the package, even if the developer is no longer able to maintain the package due to time constraints or other reasons.
 
-More information can be found in [here](https://github.com/ioBroker/ioBroker.repositories#add-owner-to-packet).
+Further information can be found in [here](https://github.com/ioBroker/ioBroker.repositories#add-owner-to-packet).
 
-## Stable repository requirements
-1. The adapter has been successfully added to the Latest Repository
-2. There is a [Forum Test Thread](https://forum.iobroker.net/viewforum.php?f=36) for the adapter in which user feedback has already been given.
-3. A discovery function should be implemented. This is a feature in the [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery),
+## Requirements for the stable repository
+1. The adapter was successfully added to the Latest Repository
+2. There is a [Forum Test Thread](https://forum.iobroker.net/viewforum.php?f=36) for the adapter, in which user feedback has already been given.
+3. A discovery function should be implemented. This is a function in the [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery),
 
 to automatically detect whether the user can use an instance of the adapter.
-To do this, a pull request must be submitted to the [Discovery adapters](https://github.com/ioBroker/ioBroker.discovery) repository.
+To do this, a pull request must be made to the [Discovery Adapters](https://github.com/ioBroker/ioBroker.discovery) repository.
 
 ## Adding the adapter to the official repository
-1. The [official Github repository](https://github.com/ioBroker/ioBroker.repositories) should be visited and a pull request made with the following content, depending on the repository.
+1. Visit the [official Github repository](https://github.com/ioBroker/ioBroker.repositories) and submit a pull request with the following content, depending on the repository.
 
 2. Please arrange the adapter alphabetically correctly between the existing adapters.
 
-3. When included in the stable repository, a version number must be declared. This must be updated when the adapter is developed further.
+3. When adding the adapter to the stable repository, a version number must be declared. This must be updated as the adapter is further developed.
 
-4. The adapter should set a list attribute `docs` in the io-package.json indicating where to find instructions in the respective language.
+4. The adapter should set a list attribute `docs` in the io-package.json, specifying where to find instructions in the respective language.
 
-The language is specified as the key and the path to the markdown file as the value.
-An English manual is mandatory (in an emergency, reference can be made to the standard README). German instructions are also desirable, since the majority of users speak German, but this is optional.
+The language is specified as the key and the path to the Markdown file as the value.
+English instructions are mandatory (in an emergency, reference can be made to the standard README). German instructions are also desirable, as the majority of users speak German, but this is optional.
 Detailed instructions can save the developer a lot of time in the forum.
 An example can be found in [here](https://github.com/foxriver76/ioBroker.denon/blob/master/docs/de/README.md).
 
@@ -112,7 +112,7 @@ Example:
   }
 ```
 
-The `published` date represents the date of the first publication and should not be changed.
+The `published` date represents the date of first publication and should not be changed.
 
 ### Stable
 The file `sources-dist-stable.json` must be edited:
@@ -129,27 +129,27 @@ Example:
   }
 ```
 
-The `published` date represents the date of the first publication and should not be changed.
+The `published` date represents the date of first publication and should not be changed.
 
-## Management of adapter versions
+## Managing adapter versions
 The current version number of the adapter is specified in both the io-package.json and the package.json.
-The two details must match. The version number is separated into three parts by two dots.
+The two pieces of information must match. The version number is separated into three parts by two dots.
 
 ```json
 "version": "1.7.6"
 ```
 
-The first part (from left to right) represents the `Major Part`, the second part the `minor` part and the last part the `micro` part.
+Where the first part (from left to right) represents the `Major Part`, the second part the `minor` part and the last part the `micro` part.
 The version numbers should be incremented according to the following list:
 
-- **micro**: Only bugs fixed
-- **minor**: Features have been added, however the version is compatible with previous versions
-- **major**: Major changes, which mean that backwards compatibility with the old version is no longer given
+- **micro**: Only bugs were fixed
+- **minor**: Features have been added, but the version is compatible with previous versions
+- **major**: Major changes that mean that backwards compatibility with old versions is no longer possible
 
 The `news` attribute should also be maintained in the io-package.json.
-This allows users to install any version listed (assuming it has been published to npm) from the admin interface.
+This allows users to install any listed version (assuming it has been published on npm) via the admin interface.
 The version number and the changes should be stored here.
-The changes can be documented for each supported language, whereby these should be specified at least in English.
+The changes can be documented for each supported language, but they should be specified at least in English.
 
 Example:
 
@@ -183,41 +183,41 @@ Example:
 ## Adapter categories
 - `alarm` - security systems
 - `climate-control` - air conditioners, air filters, heaters and more
-- `communication` - data provision for other adapters, e.g. B. via REST
+- `communication` - data provision for other adapters, e.g. via REST
 - `date-and-time` - e.g. B. Calendar
-- `energy` - current monitoring, solar systems, inverters and much more.
-- `metering` - other measuring systems (e.g. water, gas, oil)
-- `garden` - e.g. B. lawn mowers, sprinkler systems
-- `general` - General adapters like Admin, Web, Discovery
+- `energy` - power monitoring, solar systems, inverters and much more.
+- `metering` - Other measuring systems (e.g. water, gas, oil)
+- `garden` - e.g. lawn mowers, sprinkler systems
+- `general` - General adapters such as Admin, Web, Discovery
 - `geoposition` - Geolocation of objects or people
-- `hardware` - Different multifunction hardware like Arduino, ESP, Bluetooth, ...
+- `hardware` - Various multifunctional hardware such as Arduino, ESP, Bluetooth, ...
 - `health` - blood pressure, heart rate, body weight, ...
 - `household` - kitchen appliances, vacuum cleaners, etc.
-- `infrastructure` - network, NAS, printers, phones
-- `iot-systems` - Other smart home systems (hardware & software)
+- `infrastructure` - network, NAS, printers, telephones
+- `iot-systems` - Other Smart Home Systems (Hardware & Software)
 - `lighting` - lighting
 - `logic` - rules, scripts, parsers, etc.
-- `messaging` - adapter for sending and receiving messages e.g. E.g. via e-mail, telegram, ...
-- `misc-data` - export and import of data, currency converter, etc.
-- `multimedia` - TV, AVR, boxes, voice assistants, etc.
+- `messaging` - Adapter for sending and receiving messages e.g. via email, Telegram, ...
+- `misc-data` - Export and import of data, currency converter, etc.
+- `multimedia` - TV, AVR, speakers, voice assistants, etc.
 - `network` - ping, network discovery, UPnP, ...
-- `protocols` - communication protocols, e.g. B.MQTT
-- `storage` - logging, data management e.g. B. relational databases, ...
-- `utility` - Supporting adapters such as B. Backup
+- `protocols` - communication protocols, e.g. MQTT
+- `storage` - logging, data storage e.g. relational databases, ...
+- `utility` - Supporting adapters such as backup
 - `vehicle` - cars
 - `visualization` - visualization adapters, like vis etc.
 - `visualization-icons` - Icons for visualizations
 - `visualization-widgets` - iobroker.vis Widgets
-- `weather` - weather information, air quality, environment information
+- `weather` - weather information, air quality, environmental information
 
 ## Adapter connection type
-Define `connectionType` in the `common` part of `io-package.json` as:
+Define `connectionType` in `common` part of `io-package.json` as:
 
 - `local` - Provides direct communication with the device or hub.
-- `cloud` - This device integrates via the cloud and requires an active internet connection
+- `cloud` - The integration of this device is done via the cloud and requires an active internet connection
 
 Define `dataSource` in `common` as:
 
-- `poll` - Polling the status means an update may be noticed later.
+- `poll` - Polling the status means that an update may be noticed later.
 - `push` - ioBroker will be notified as soon as a new status is available.
-- `assumption` - The status of the device cannot be determined. ioBroker takes status based on last ioBroker command.
+- `assumption` - The status of the device cannot be determined. ioBroker assumes the status based on the last ioBroker command.

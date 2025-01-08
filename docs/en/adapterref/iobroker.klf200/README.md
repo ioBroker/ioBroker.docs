@@ -260,6 +260,10 @@ The values of the state provide multiple manipulation modes:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
+### __WORK IN PROGRESS__
+
+-   (Michael Schroeder) [#130](https://github.com/MiSchroe/ioBroker.klf200/issues/130) Added a connection test button to help identify connection problems.
+
 ### 1.3.5 (2024-11-20)
 
 -   (Michael Schroeder) [#264](https://github.com/MiSchroe/ioBroker.klf200/issues/264) Fixed an issue during startup of the adapter if more than 20 nodes are present.
@@ -381,3 +385,4 @@ THE SOFTWARE.
 ---
 
 VELUX and the VELUX logo are registered trademarks of VKR Holding A/S.
+

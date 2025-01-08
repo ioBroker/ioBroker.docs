@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
+hash: v9Sk35pDDGYxQreQjc1ZPCzaXZYh2SrKbaBwzPFZ0qw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -25,7 +25,7 @@ hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
 
 * шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с чипом ESP32.
 
-Старые шлюзы ESP8266 с API V2 больше не поддерживаются!! Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки (V3.6.5) Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Используйте на свой страх и риск.
+Старые шлюзы ESP8266 с API V2 больше не поддерживаются!! Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки (V3.7.1) Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Используйте на свой страх и риск.
 
 * Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, поскольку они не поддерживают LAN API!
 
@@ -33,7 +33,11 @@ hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
 Его можно использовать как для исходных шлюзов Bosch-Group, так и для ems-esp или для обоих параллельно.
 Все измененные состояния из собственных скриптов или браузера объектов должны устанавливать acknowledged = false !!!
 
-Немецкая документация: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf Английская документация: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf Немецкий форум ioBroker: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
+Немецкая документация: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
+
+Документация на английском языке: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
+
+Немецкий форум ioBroker: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 # Iobroker.ems-esp
 
@@ -43,30 +47,29 @@ hash: HEaRZzQc6wNQ/gINhEUWWmGifrnXGHopg2J4xZx63uQ=
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* km200: change encryption for private password - pw has to be re-entered 
-* support small screens
-* update dependencies
+* dependabot updates
 
-### 4.8.0 (2024-08-27)
-* ems-esp: disabled parameter to search for extended EMS+ entities due to memory limitations in gateway
+### 5.1.2 (2024-12-31)
+* ems-esp: fix enum errors for setting "Value" 
+* dependabot updates
 
-### 4.7.2 (2024-08-17)
-* ems-esp: enable writing on custom entities
+### 5.1.1 (2024-12-26)
+* correct statistics on adapter start-up
 
-### 4.7.1 (2024-08-17)
-* ems-esp: custom entities are now under object structure "custom"
+### 5.1.0 (2024-12-25)
+* error correction on enabling statistics
 
-### 4.7.0 (2024-08-16)
-* ems-esp: do not allow more then one thermostat for extended own entities
-* ems-esp: error correction for holidayModes custom entities
+### 5.0.6 (2024-12-03)
+* dependabot updates
+* ems-esp: send switchprog updates 3 times (test)
 
-### 4.6.4 (2024-08-14)
-* ems-esp: error correction on polling for 3.6.5
+### 5.0.5 (2024-11-22)
+* Add native entries to io-package
 
 ## License
 MIT License
 
-Copyright (c) 2024 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

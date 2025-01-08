@@ -30,6 +30,10 @@ The adapter starts daily at midnight. Due to the nature of the subject, no highe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.1 (2025-01-04)
+* (Diginix) 2.1. has been incorrectly considered to be an holiday. This has been fixed. [#289, #132]
+* (mcm1957) Dependencies have been updated
+
 ### 1.2.0 (2024-04-05)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -191,7 +195,7 @@ The adapter starts daily at midnight. Due to the nature of the subject, no highe
 
 ## License
 
-Copyright (c) 2016-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2016-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 
 The MIT License (MIT)
 

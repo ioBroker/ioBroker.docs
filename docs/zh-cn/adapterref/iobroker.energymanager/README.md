@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.energymanager/README.md
 title: ioBroker.energymanager
-hash: F6uWAkQzsOIi2v2dx3ldpYwd4mTuBVMr3kycbc13d5Y=
+hash: WTqq0e1QzSRYhsNLC5/e2Ce7fWnER5M+2ZIGv9gQuQk=
 ---
 ![标识](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
 
@@ -11,20 +11,20 @@ hash: F6uWAkQzsOIi2v2dx3ldpYwd4mTuBVMr3kycbc13d5Y=
 ![构建状态](https://api.travis-ci.org/unltdnetworx/ioBroker.energymanager.svg?branch=master)
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.energymanager.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.energymanager.svg)
-![新PM](https://nodei.co/npm/iobroker.energymanager.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.energymanager.png?downloads=true)
 
 # IoBroker.energymanager
-该适配器用于从由 kiwigrid 网络（如 E.ON Energymanager）驱动的设备读取值到 ioBroker。 Solarwatt 经理也得到确认。可能有其他设备在使用此适配器，可能是 innogy 或 enviam。
+此适配器用于将由 kiwigrid 网络供电的设备（如 E.ON Energymanager）的值读取到 ioBroker 中。Solarwatt 管理器也已确认。可能还有其他设备与此适配器配合使用，可能是 innogy 或 enviam。
 
 欢迎提供帮助或提示。
 
-＃＃ 脚步
+步骤
 1.安装适配器
 
-2. 从你的energymanger.[x]-object 中获取值。
+2. 从 energymanger.[x]-object 中获取值。
 
 ＃＃ 要求
-* E.ON Aura 能源管理器、Solarwatt MyReserve 能源管理器或其他奇异电网供电设备
+* E.ON Aura energymanger、Solarwatt MyReserve energymanger 或其他 kiwigrid 供电设备
 
 ## Changelog
 

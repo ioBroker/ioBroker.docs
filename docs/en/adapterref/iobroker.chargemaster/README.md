@@ -49,6 +49,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.12.7 (2025-01-01)
+
+- (HombachC) year 2025 changes
+- (HombachC) code optimisations
+
 ### 0.12.6 (2024-12-21)
 
 - (HombachC) fix chai-as-promised
@@ -180,7 +185,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 MIT License
 
-Copyright (c) 2021-2024 Christian Hombach
+Copyright (c) 2021-2025 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

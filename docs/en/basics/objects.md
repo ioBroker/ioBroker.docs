@@ -5,7 +5,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/objects.md
 title: How is the information stored?
-hash: UMZ5MjtHFzmp9CoaXDjxA+wnbo3DGk8W3UH/qf+0HLI=
+hash: 1esXUxnW4ODED5oca7t4iOPzFYH7TNdyhjh2/64jlUk=
 ---
 # How is the information stored?
 In ioBroker there are two types of information:

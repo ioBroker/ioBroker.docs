@@ -7,7 +7,7 @@ function Logger(options) {
     }
 
     options = options || {};
-    options.prefix = options.prefix ? options.prefix + '_' : '';
+    options.prefix = options.prefix ? `${options.prefix}_` : '';
 
     // create log directory
     /*try {

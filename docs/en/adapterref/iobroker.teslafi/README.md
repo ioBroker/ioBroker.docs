@@ -75,6 +75,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### 1.0.1 (2025-01-xx) Work in Progress
+
+- (hombach) year 2025 changes
+- (hombach) code optimizations
+
 ### 1.0.0 (2024-12-25)
 
 - (hombach) set version to 1.0 for stable release
@@ -174,7 +179,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 MIT License
 
-Copyright (c) 2024 C.Hombach <TeslaFi@homba.ch>
+Copyright (c) 2024-2025 C.Hombach <TeslaFi@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

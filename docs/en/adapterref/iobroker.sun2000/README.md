@@ -34,7 +34,9 @@ Work in progress
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS** 
+* dependency and configuration updates
 * control: if the battery is not running, events related to the battery are discarded
+* modbus-proxy: adjusted advanced logging
 
 ### 0.18.0 (2024-12-11)
 * dependency and configuration updates

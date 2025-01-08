@@ -64,6 +64,7 @@ to make them visible in the Vis. So you have a better overview if you have sever
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### 2.0.8 (2024-12-04)
 
 - CHORE: Update dependencies
@@ -212,7 +213,7 @@ to make them visible in the Vis. So you have a better overview if you have sever
 
 ## License
 
-Copyright (c) 2021-2024 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2025 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 

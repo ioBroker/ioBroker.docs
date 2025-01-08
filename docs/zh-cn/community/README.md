@@ -5,7 +5,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/commu
 template: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: 7dqijPs1lKw2lmWlJVNifVxFP1feANqsjof/SJH/OFY=
+hash: iVFf60cR1k7XFaqVXEccoSPdhLYuoa8SqGbqGapE1xQ=
 ---
 ＃ 支持
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更轻松地应用更改。

@@ -38,7 +38,7 @@ To do this, set the polling interval (in minutes) in the settings with the varia
 - `preview`: 7 # means that appointments will display 7 days in advance
 - `runEveryMinutes`: 30 # means the adapter automatically revisits the calendar every 30 minutes. If 0, it will not read automatically.
 - `colorize`: true # Today's appointments and appointments  currently running will be colored red, with tomorrow's appointments  orange. This option overrides the option everyCalOneColor
-- `debug`: false # if true, extended output writes to the CCU.IO log
+- `debug`: false # if true, extended output writes to the ioBroker log
 - `defColor`:` white` # sets the default color of the calendar entries
 - `fulltime`: ` ` # determines which string will replace 00:00 for all-day appointments. For spaces (between the quotes), the time will omit for all-day appointments.
 - `replaceDates`: true # If true, today's date is replaced by the string todayString (for example, today). Tomorrow's appointments through the string tomorrowString

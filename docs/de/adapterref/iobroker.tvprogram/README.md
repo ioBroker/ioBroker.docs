@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvProgramm
-hash: vje6in4u5OygjTcNliVGc3zKYI2ic6UbpGGEur3JWQY=
+hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -26,12 +26,12 @@ Aufgrund der Größe werden die Daten nicht in Datenpunkten, sondern in Dateien 
 
 In der Konfiguration muss das Widget dann nur noch mit einem beliebigen Datenpunkt des Adapters befüllt werden (z.B.cmd).
 
-Alle restlichen Datenpunkte sucht das Widget automatisch.
+Alle restlichen Datenpunkte sucht das Widget automatisch heraus.
 
 ## Installation
 Der Adapter kann über die stabile Version oder zum Testen über das Beta-/Neueste-Repository installiert werden.
 
-### Adapterkonfiguration
+## Adapterkonfiguration
 Sie können konfigurieren, wie viele verschiedene Fernseher oder zumindest verschiedene Konfigurationen Sie haben möchten.
 
 ### Widgets
@@ -83,7 +83,7 @@ So ändern Sie die Formatierung der Dialoge
 }
 ```
 
-Wenn Sie zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die TV-Programmdialoge festlegen.
+Wenn Sie einige zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die TV-Programmdialoge festlegen.
 Möglicherweise müssen Sie eine höhere Zahl als 300 festlegen. Dies hängt von Einstellungen in anderen Dialogen ab, die die TV-Programmdialoge (Sendeinformationen und Kanalauswahl) überlappen oder verbergen.
 
 ```css
@@ -142,7 +142,7 @@ Die folgenden Attribute stehen zur Konfiguration in vis zur Verfügung. Die Mind
 | Attribut | Beispiel | Beschreibung |
 | ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
 | `oid` | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram`-Adapters. |
-| `time` | 20:15 | wenn Uhrzeit nur die Sendung zu dieser Uhrzeit für 120 Minuten gezeigt werden soll, dann wird die Sendung vom nächsten Tag gezeigt |
+| `time` | 20:15 | wenn Uhrzeit nur die Sendung zu dieser Uhrzeit für 120 Minuten gezeigt werden soll, dann wird der nächste Tag gezeigt |
 | `time` | 20:15/200 | wenn Uhrzeit mit Dauer angegeben wird, würde die Sendung zu dieser Uhrzeit 200 Minuten lang gezeigt werden |
 | `time` | 2021-02-15T20:15:00.000Z | Wenn der UTC-Datumsstring gültig ist, wird die Sendung zu dieser Zeit angezeigt. Zeitzonen beachten |
 | `heightRow` | 35 | Höhe für jede angezeigte Zeile |
@@ -237,6 +237,27 @@ Dieser Datenpunkt enthält den Status, ob nur Favoriten oder alles im Widget TV-
 
 #### `config`
 dieser Datenpunkt ist veraltet und wird in den nächsten Versionen entfernt
+
+#### `optchnlogopath`
+Die Daten verweisen auf einen Ordner, in dem alternative Senderlogos gespeichert werden können. Der Pfad muss über den Browser erreichbar sein.
+
+Im Datenpunkt muss der komplette Pfad beginnend mit http inklusive abschließendem Schrägstrich eingetragen werden.
+
+**Beispiel:**
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+ist dann erreichbar über
+
+```text
+ttp://localhost:8082/vis.0/icons/tvlogos/
+``
+
+Alle Symbole sollten über den Iobroker-Dateidialog hochgeladen werden.
+
+Ein Beispiel finden Sie im Kapitel [Beispiel für alternative Logos](#alternative-channel-logos-by-tino-0)
 
 ### Bereitgestellte `Sendto`-Befehle
 Alle Daten können über Sendto-Befehle vom Adapter abgefragt werden. Dies kann zur Entwicklung individueller Funktionalitäten genutzt werden
@@ -337,7 +358,7 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 ```
 
 #### `getServerBroadcastDate`
-Fordert alle Sendungen an, die zu einem bestimmten Zeitpunkt laufen
+Fordert alle Übertragungen an, die zu einem bestimmten Zeitpunkt ausgeführt werden
 
 ##### Gültige Parameter sind
 Array von Kanal-IDs Ihrer Lieblingskanäle datetime
@@ -514,6 +535,50 @@ on(idKanalWahl, function (obj) {
 });
 ```
 
+#### Alternative Kanallogos von Tino 0
+Forumlink mit Beispiel-Screenshots <https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
+
+**Kanallogos herunterladen:**
+
+Sie müssen sich registrieren, um die Logos in der Größe 400x160 herunterzuladen
+
+<https://vuplus-support.org/wbb4/index.php?thread/64098-mirror-glass-3d-huminator-design-by-stefanbenno6/>
+
+**Logos umbenennen:**
+
+Starten Sie die folgenden Befehle im heruntergeladenen und entpackten Ordner
+
+<details><summary>Details</summary><pre><code> copy 1_0_19_283D_3FB_1_C00000_0_0_0.png ard.png copy 1_0_19_2B66_3F3_1_C00000_0_0_0.png zdf.png copy 1_0_19_EF10_421_1_C00000_0_0_0.png rtl.png copy 1_0_19_EF15_421_1_C00000_0_0_0.png rtl2.png copy 1_0_19_2E9B_411_1_C00000_0_0_0.png srtl.png copy 1_0_19_2EAF_411_1_C00000_0_0_0.png nitro.png copy 1_0_19_EF74_3F9_1_C00000_0_0_0.png sat1.png copy 1_0_19_EF75_3F9_1_C00000_0_0_0.png pro7.png copy 1_0_19_EF78_3F9_1_C00000_0_0_0.png pro7maxx.png copy 1_0_19_EF76_3F9_1_C00000_0_0_0.png kaka.png copy 1_0_19_EF77_3F9_1_C00000_0_0_0.png sixx.png copy 1_0_19_EF11_421_1_C00000_0_0_0.png vox.png copy 1_0_19_1519_455_1_C00000_0_0_0.png tele5.png copy 1_0_19_2B7A_3F3_1_C00000_0_0_0.png zdfneo.png copy 1_0_19_2B98_3F2_1_C00000_0_0_0.png kika.png copy 1_0_19_2B8E_3F2_1_C00000_0_0_0.png 3sat.png copy 1_0_19_285B_401_1_C00000_0_0_0.png phoenix.png copy 1_0_19_157C_41F_1_C00000_0_0_0.png disney.png copy 1_0_19_2871_425_1_C00000_0_0_0.png mdr.png copy 1_0_19_286F_425_1_C00000_0_0_0.png rbb.png copy 1_0_19_283F_3FB_1_C00000_0_0_0.png sw3.png copy 1_0_19_1581_41F_1_C00000_0_0_0.png sport1de.png copy 1_0_19_283E_3FB_1_C00000_0_0_0.png arte.png copy 1_0_19_526C_41D_1_C00000_0_0_0.png anixehd.png copy 1_0_19_151A_455_1_C00000_0_0_0.png dmax.png copy 1_0_19_2855_401_1_C00000_0_0_0.png bayern3.png copy 1_0_19_2873_425_1_C00000_0_0_0.png hessen3.png copy 1_0_1_6EE1_4B1_1_C00000_0_0_0.png radiobremen.png copy 1_0_19_2858_401_1_C00000_0_0_0.png nord3.png copy 1_0_19_2BA2_3F2_1_C00000_0_0_0.png info.png copy 1_0_19_132F_3EF_1_C00000_0_0_0.png orf1.png copy 1_0_19_1330_3EF_1_C00000_0_0_0.png orf2.png copy 1_0_19_2777_409_1_C00000_0_0_0.png mtv.png copy 1_0_19_288A_40F_1_C00000_0_0_0.png sw3.sr.png copy 1_0_1_6F76_457_1_C00000_0_0_0.png west3.png copy 1_0_19_2887_40F_1_C00000_0_0_0.png tagesschau24.png COPY 1_0_16_2EB9_411_1_C00000_0_0_0.png ntv.png copy 1_0_19_2888_40F_1_C00000_0_0_0.png one.png copy 1_0_19_2889_40F_1_C00000_0_0_0.png alpha.png copy 1_0_1_445F_453_1_C00000_0_0_0.png welt.png copy 1_0_1_772D_416_1_C00000_0_0_0.png eurosp.png copy 1_0_1_76C8_40E_1_C00000_0_0_0.png comedycentral.png copy 1_0_1_2F1D_441_1_C00000_0_0_0.png rtlnitro.png</code></pre></details>
+
+**Neuen Ordner im vis erstellen:**
+
+Öffnen Sie es im Dateimanager-Dialogfeld.
+
+Prüfen Sie, ob der folgende Pfad existiert oder erstellen Sie den Pfad im Dialog.
+
+```text
+/vis.0/icons/tvlogos/
+```
+
+**Pfad im Datenpunkt eingeben:**
+
+Geben Sie den folgenden Pfad in den Datenpunkt `optchnlogopath` Ihres Fernsehers ein.
+Ersetzen Sie 192.1.2.3 durch die IP-Adresse Ihrer iobroker-Installation.
+
+```text
+http://192.1.2.3:8082/vis.0/icons/tvlogos/
+```
+
+**Passen Sie die Symbolbreite mit einem CSS-Befehl an:**
+
+Da die Breite der Icons auf 100px begrenzt werden soll, muss im CSS-Tab in Vis folgender Befehl eingefügt werden.
+
+```css
+.channel {
+    width: 100px !important;
+}
+```
+
 ### Funktionen sind nicht im Adapter implementiert, werden aber als Skripte für den JavaScript-Adapter bereitgestellt
 #### `Recordlist`
 Liste aller aktuellen Aufnahmezeiten, die vom Aufnahmedatenpunkt erfasst und minütlich aktualisiert werden.
@@ -677,11 +742,49 @@ Widget TV-Programm:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2025-01-03)
+
+- fix datapoint creation and overwriting states
+
+### 3.0.2 (2025-01-02)
+
+- improve debug messages
+
+### 3.0.1 (2025-01-02)
+
+- fix channel select dialog
+- fix css classes
+
+### 3.0.0 (2025-01-02)
+
+- TVs as a device, this is a major change because all data points have to be deleted manually by the user
+- improve datapoint creation
+
+### 2.3.1 (2025-01-02)
+
+- little docu fixes
+
+### 2.3.0 (2025-01-02)
+
+- add datapoint for optional channel icons
+- add logic in the widgets
+
+### 2.2.0 (2024-12-16)
+
+- remove jquery-ui dependency
+- fix dialog is visible on view switch, now it's modal
+- fix adapter icon
+- fix eslint errors
+- switch some callbacks to promises
+- remove unused code
+
 ### 2.1.0 (2024-11-24)
 
 - Change sento command from getFavoritesDatax to getFavoritesData
 - switch to eslint
 - complete rework of tvprogram to switch from callback to await
+- the widgets are now compatible with vis-2 (minimum vis-2 version ist 2.10)
+- due to datapoint management, all datapoints should be deleted.
 
 ### 2.0.2 (2024-11-17)
 
@@ -734,4 +837,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2025 oweitman <oweitman@gmx.de>

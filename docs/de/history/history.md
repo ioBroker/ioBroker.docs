@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: Ff+4/QE2aO2Qymthj8NuuO0bWCbgDO0A6d0fcBFG3p0=
+hash: 073fODmS25uqfEFJ8mTAprqfumjQ0n21LfbPB8cLQlc=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
 - Bitte definieren Sie den Header als
 
 ## AdapterName (JJJJ-MM-TT) - [Kurzbeschreibung]
-- Die Beschreibung der Aufnahme könnte lauten:
+- Die Aufnahmebeschreibung könnte lauten:
 - neuer Adapter
 - stabile Version
 - neue Funktion
@@ -238,10 +238,10 @@ Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, biet
 Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robuste Kommunikationskanäle für die Smart-Home-Branche bereitzustellen.
 
 ## Vis (06.11.2023) - neue Funktion
-Die Lizenz von vis wurde auf MIT geändert. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten verwenden können und keine Lizenz erforderlich ist.
+Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
-Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
+Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Aktivität geprüft.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
 
@@ -376,7 +376,7 @@ https://github.com/bolliy/ioBroker.sun2000
 Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
 
 ## Opcua (21.2.2024) – neue Funktion
-Der Adapter hat jetzt eine kostenlose Lizenz.
+Der Adapter verfügt jetzt über eine kostenlose Lizenz.
 
 ## Senec (25.2.2024) – neuer Adapter
 https://github.com/nobl/ioBroker.senec
@@ -702,6 +702,27 @@ Mit diesem Adapter kann automatisch mit Google Spreadsheets interagiert werden.
 ## Minuaru (3.12.2024) – neuer Adapter bei Stable
 https://github.com/minukodu/ioBroker.minuaru
 
-<img src="hhttps://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
+<img src="https://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
 
 Alarmsystem für ioBroker und minuvis
+
+## Mytime (29.12.2024) – neuer Adapter bei stabil
+https://github.com/oweitman/ioBroker.mytime
+
+<img src="https://github.com/oweitman/ioBroker.mytime/blob/main/admin/mytime.png" width="100" height="100" />
+
+Dieser Adapter verarbeitet Zeit (z. B. Countdown usw.). Die Countdown-Funktionalität bietet Datenpunkte, die Sie zum Verwalten eines Countdowns verwenden können (z. B. in einem Skript). Der Adapter enthält auch mehrere Widgets zum Visualisieren dieser Countdowns. Zeitreihen können zum Erstellen komplexer Zeitreihen verwendet werden, bei denen die Datenpunkte ausgelöst werden.
+
+## Vis-2-widgets-weather-and-heating (29.12.2024) – neuer Adapter bei stabil
+https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
+
+<img src="https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
+
+Dieses Vis-2-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground. Sie benötigen dafür den DasWetter-Adapter oder weatherunderground-Adapter auf Ihrem System.
+
+## Mywallbox (29.12.2024) – neuer Adapter am stabilen
+https://github.com/SKB-CGN/ioBroker.mywallbox
+
+<img src="https://github.com/SKB-CGN/ioBroker.mywallbox/blob/main/admin/wallbox.png" width="100" height="100" />
+
+Verbinde deine My-Wallbox (z.B. Pulsar Plus) mit ioBroker über den Cloud-Service von My Wallbox

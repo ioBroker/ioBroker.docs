@@ -55,9 +55,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 5.0.2 (2024-12-xx)
+### 5.0.2 (2025-01-01)
 
 - (HombachC) fix chai-as-promised
+- (HombachC) year 2025 changes
 
 ### 5.0.1 (2024-12-09)
 
@@ -140,7 +141,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 MIT License
 
-Copyright (c) 2020-2024 C.Hombach <Kostal-Piko-BA@homba.ch>
+Copyright (c) 2020-2025 C.Hombach <Kostal-Piko-BA@homba.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

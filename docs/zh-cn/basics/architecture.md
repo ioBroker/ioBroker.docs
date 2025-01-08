@@ -4,14 +4,14 @@ lastChanged: 24.08.2024
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/architecture.md
-hash: vBEG8SwAdJ1ULLJu/Eq+5PRrcbkBGoZgL1ipJRVa8UA=
+hash: fBfqIkwe2R088CwuRMCh53RGxixMmytK+tGKMdHsiV0=
 ---
 # 系统搭建
 ＃＃ 建筑学
 ioBroker 是模块化的，即由许多单独的组件组成。每个模块都有特定的任务。为了保持概览，ioBroker 因此为其所有模块都有一个中央协调器。该协调员是在后台工作的`js-controller`。他负责中央数据存储以及所有模块之间的管理和通信。这些模块本身称为`Adapter`。
 适配器仅在必要时由用户安装。基于 Web 的管理界面`admin` 本身也是一个适配器。管理适配器或简称“Admin”是ioBroker系统的管理界面。 [Admin](https://www.iobroker.net/#de/documentation/admin/README.md)通常使用地址[http://localhost:8081](http://localhost:8081) 被调用。
 
-当使用 Admin 安装新适配器时，首先从 Internet 下载适配器文件并将其写入服务器硬盘驱动器。如果要启动适配器，则首先创建适配器的`Instanz`。每个适配器实例都可以单独配置，并由管理员独立停止和启动。这就是为什么每个实例都在自己的进程中运行，并在后台与 ioBroker js 控制器进行通信。
+当使用 Admin 安装新适配器时，首先从 Internet 下载适配器文件并将其写入服务器硬盘驱动器。如果要启动适配器，则首先创建该适配器的`Instanz`。每个适配器实例都可以由管理员单独配置、停止和启动。这就是为什么每个实例都在自己的进程中运行，该进程在后台与 ioBroker js 控制器进行通信。
 
 在具有多个 ioBroker 服务器的`Multihost`系统中，适配器的实例也可以分布在不同的服务器上。这允许分布负载或直接在现场连接附加硬件（例如 IO 端口、USB）。
 
@@ -28,7 +28,7 @@ ioBroker 和适配器主要用 JavaScript 编程语言编写。要执行 JavaScr
 
 与此同时，早期的 LTS 版本已达到生命周期结束 (EOL)。 Node.js 10 于 2021 年 4 月收到 EOL 状态，因此将不再接收更新，Nodejs 12.x 将于 2022 年 4 月结束其生命周期。所以不会有更多的安全更新！
 
-ioBroker 使用 JavaScript 开源场景中的许多模块和扩展，经常发生 EOL 版本不久后就不再受支持的情况。这在第一步中没有真正的影响，但从中期来看，将会出现适配器，稍后还会出现不再支持 Node.js EOL 版本的 js 控制器。
+ioBroker 使用 JavaScript 开源场景中的许多模块和扩展，经常发生 EOL 版本很快就不再受支持的情况。这在第一步中没有真正的影响，但从中期来看，将会出现适配器，稍后还会出现不再支持 Node.js EOL 版本的 js 控制器。
 
 ## 适配器和实例
 适配器是将各种设备、服务或协议集成到ioBroker系统中的特殊模块。它们充当 ioBroker 与您控制或收集数据的外部系统之间的接口。适配器可以分为不同的类别，例如设备适配器、协议适配器、服务适配器、数据库适配器、可视化适配器、脚本适配器和特殊适配器。
@@ -36,7 +36,7 @@ ioBroker 使用 JavaScript 开源场景中的许多模块和扩展，经常发�
 每个适配器实例都可以单独配置，并由管理员独立停止和启动。这使得各种设备和服务能够灵活且可扩展地集成到 ioBroker 系统中。适配器实例在自己的进程中运行，并在后台与 js 控制器通信。
 
 ## 多主机系统
-在多主机系统中，多个 ioBroker 服务器可以相互连接以分配负载或连接现场的其他硬件。这使得 ioBroker 系统具有更好的可扩展性和灵活性。适配器实例可以分布在不同的服务器上，以充分利用系统资源。
+在多主机系统中，多个 ioBroker 服务器可以相互连接以分配负载或连接现场其他硬件。这使得 ioBroker 系统具有更好的可扩展性和灵活性。适配器实例可以分布在不同的服务器上，以充分利用系统资源。
 
 服务器之间的通信通过 TCP/IP 连接进行，数据交换可以是纯文本形式，也可以是加密形式，具体取决于设置。多主机系统为具有许多设备和服务的大型安装提供了强大且可扩展的解决方案。
 

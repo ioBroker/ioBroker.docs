@@ -36,6 +36,10 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 
 ## Changelog
+### 3.1.1 (2025-01-07)
+* (arteck) monthlyReport for phev/hev
+* (arteck) trip corr for ev cars
+
 ### 3.1.0 (2024-10-05)
 * (arteck) SOC corr 
 * (arteck) dependency update
@@ -151,7 +155,7 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 ## License
 MIT License
 
-Copyright (c) 2024 Newan <info@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
