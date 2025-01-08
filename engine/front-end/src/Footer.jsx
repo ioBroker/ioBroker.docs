@@ -55,41 +55,78 @@ const styles = {
 
 class Footer extends React.Component {
     render() {
-        return <Box sx={styles.footer}>
-            <div title="Repository" style={styles.footerIconDiv}>
-                <IconGithub
-                    style={styles.footerIcon}
-                    onClick={() => Utils.openLink('https://github.com/ioBroker')}
-                />
-            </div>
-            <div title="Community adapters repository" style={styles.footerIconDiv}>
-                <IconGithub
-                    style={styles.footerIcon}
-                    onClick={() => Utils.openLink('https://github.com/iobroker-community-adapters')}
-                />
-                <div style={styles.footerIconText}>Community</div>
-            </div>
-            <div title="Unofficial Facebook group" style={styles.footerIconDiv}>
-                <IconFacebook
-                    style={styles.footerIcon}
-                    onClick={() => Utils.openLink('https://www.facebook.com/groups/440499112958264')}
-                />
-            </div>
-            <div title="Discord Server" style={styles.footerIconDiv}>
-                <IconDiscord
-                    style={{ ...styles.footerIcon, height: 50 }}
-                    onClick={() => Utils.openLink('https://discord.gg/HwUCwsH')}
-                />
-            </div>
-            <br />
+        return (
+            <Box sx={styles.footer}>
+                <div
+                    title="Repository"
+                    style={styles.footerIconDiv}
+                >
+                    <IconGithub
+                        style={styles.footerIcon}
+                        onClick={() => Utils.openLink('https://github.com/ioBroker')}
+                    />
+                </div>
+                <div
+                    title="Community adapters repository"
+                    style={styles.footerIconDiv}
+                >
+                    <IconGithub
+                        style={styles.footerIcon}
+                        onClick={() => Utils.openLink('https://github.com/iobroker-community-adapters')}
+                    />
+                    <div style={styles.footerIconText}>Community</div>
+                </div>
+                <div
+                    title="Unofficial Facebook group"
+                    style={styles.footerIconDiv}
+                >
+                    <IconFacebook
+                        style={styles.footerIcon}
+                        onClick={() => Utils.openLink('https://www.facebook.com/groups/440499112958264')}
+                    />
+                </div>
+                <div
+                    title="Discord Server"
+                    style={styles.footerIconDiv}
+                >
+                    <IconDiscord
+                        style={{ ...styles.footerIcon, height: 50 }}
+                        onClick={() => Utils.openLink('https://discord.gg/HwUCwsH')}
+                    />
+                </div>
+                <br />
 
-            <div style={styles.footerLink} onClick={() => this.props.onNavigate(null, 'imprint')}>{I18n.t('Imprint')}</div>
-            <div style={{ ...styles.footerLink, cursor: 'inherit' }}> | </div>
-            <div style={styles.footerLink} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
+                <div
+                    style={styles.footerLink}
+                    onClick={() => this.props.onNavigate(null, 'imprint')}
+                >
+                    {I18n.t('Imprint')}
+                </div>
+                <div style={{ ...styles.footerLink, cursor: 'inherit' }}> |</div>
+                <div
+                    style={styles.footerLink}
+                    onClick={() => this.props.onNavigate(null, 'privacy')}
+                >
+                    {I18n.t('Privacy policy')}
+                </div>
+                <div style={{ ...styles.footerLink, cursor: 'inherit' }}> |</div>
+                <div
+                    style={styles.footerLink}
+                    onClick={() => this.props.onNavigate(null, 'statistics')}
+                >
+                    {I18n.t('Statistics')}
+                </div>
 
-            <p style={styles.footerCopyright}>Copyright © 2014-2024 by the ioBroker Community and the ioBroker GmbH.</p>
-            <img src={LogoIoBroker} style={styles.footerLogo} alt="logo" />
-        </Box>;
+                <p style={styles.footerCopyright}>
+                    Copyright © 2014-2024 by the ioBroker Community and the ioBroker GmbH.
+                </p>
+                <img
+                    src={LogoIoBroker}
+                    style={styles.footerLogo}
+                    alt="logo"
+                />
+            </Box>
+        );
     }
 }
 

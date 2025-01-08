@@ -15,18 +15,29 @@ import {
     ListItemIcon,
     Input,
     Popper,
-    Paper, Box, ListItemButton,
+    Paper,
+    Box,
+    ListItemButton,
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    DialogActions,
+    Button,
+    DialogContentText,
 } from '@mui/material';
 
 import {
-    MdLanguage as IconLanguage,
-    MdMenu as IconMenu,
-    MdSearch as IconSearch,
-} from 'react-icons/md';
+    Info,
+    Search as IconSearch,
+    Menu as IconMenu,
+    Language as IconLanguage,
+    Public,
+    Close,
+} from '@mui/icons-material';
 
 import { Theme } from '@iobroker/adapter-react-v5';
 
-import themeExtend, { APP_BAR_HEIGHT }from './createTheme';
+import themeExtend, { APP_BAR_HEIGHT } from './createTheme';
 
 import DialogError from './Dialogs/Error';
 import MDPage from './MDPage';
@@ -75,7 +86,7 @@ const styles = {
     tabsNoTabs: {
         paddingLeft: 0,
     },
-    tab:  {
+    tab: {
         minWidth: 'inherit',
     },
     tabAction: theme => ({
@@ -125,10 +136,10 @@ const styles = {
         border: 0,
         marginLeft: '10px',
         borderRadius: '3px',
-        '&:after' : {
+        '&:after': {
             border: 0,
         },
-        '&:before' : {
+        '&:before': {
             border: 0,
         },
     },
@@ -171,6 +182,14 @@ const styles = {
         display: 'inline-block',
         padding: '2px 5px',
     },
+    infoNet: {
+        color: '#2978d0',
+        marginLeft: 4,
+    },
+    infoPro: {
+        color: '#164477',
+        marginLeft: 4,
+    },
 };
 
 const LANGUAGES = {
@@ -182,16 +201,26 @@ const LANGUAGES = {
 
 const PAGES = {
     blog: {
-        tabIndex: 1, component: Blog, icon: null, name: 'Blog',
+        tabIndex: 1,
+        component: Blog,
+        icon: null,
+        name: 'Blog',
     },
     download: {
-        tabIndex: 2, component: Downloads, icon: null, name: 'Download',
+        tabIndex: 2,
+        component: Downloads,
+        icon: null,
+        name: 'Download',
     },
     documentation: {
-        tabIndex: 3, name: 'Documentation', content: 'content.json',
+        tabIndex: 3,
+        name: 'Documentation',
+        content: 'content.json',
     },
     adapters: {
-        tabIndex: 4, name: 'Adapters', content: 'adapters.json',
+        tabIndex: 4,
+        name: 'Adapters',
+        content: 'adapters.json',
     },
     forum: {
         tabIndex: 5,
@@ -205,26 +234,18 @@ const PAGES = {
         },
         target: '_self',
     },
-    about: {
-        tabIndex: 6,
-        name: 'About',
-        menu: [
-            { tab: 'statistics', name: 'Statistics', icon: null },
-            { tab: 'imprint', name: 'Imprint', icon: null },
-        ],
-    },
     cloud: {
-        tabIndex: 7,
+        tabIndex: 6,
         name: 'Cloud',
         menu: [
-            { link: 'https://iobroker.net', name: 'Free (.net)', target: 'this' },
-            { link: 'https://iobroker.pro', name: 'Pro (.pro)', target: 'this' },
+            { link: 'https://iobroker.net', name: 'Free (.net)', target: 'this', info: true },
+            { link: 'https://iobroker.pro', name: 'Pro (.pro)', target: 'this', info: true },
         ],
     },
-    intro:         { component: PageIntro, name: 'intro' },
-    imprint:       { name: 'imprint', md: 'imprint.md' },
-    privacy:       { name: 'privacy', md: 'privacy.md' },
-    statistics:    { component: Statistics },
+    intro: { component: PageIntro, name: 'intro' },
+    imprint: { name: 'imprint', md: 'imprint.md' },
+    privacy: { name: 'privacy', md: 'privacy.md' },
+    statistics: { component: Statistics },
 };
 
 const MOBILE_WIDTH = 650;
@@ -271,7 +292,9 @@ class App extends Router {
             search: '',
             searchResults: null,
             searchFocus: false,
-            lastSeenBlog: window.localStorage.getItem('iobroker.net.lastSeenBlog') ? new Date(window.localStorage.getItem('iobroker.net.lastSeenBlog')).getTime() : 0,
+            lastSeenBlog: window.localStorage.getItem('iobroker.net.lastSeenBlog')
+                ? new Date(window.localStorage.getItem('iobroker.net.lastSeenBlog')).getTime()
+                : 0,
         };
 
         // init Google Analytics
@@ -287,11 +310,12 @@ class App extends Router {
 
         this.contentRef = React.createRef();
         this.updateWindowDimensionsBound = this.updateWindowDimensions.bind(this);
-        Blog.fetchData()
-            .then(json => {
-                const data = Object.keys(json.pages).sort().pop().split('_');
-                this.setState({ latestBlog: new Date(parseInt(data[0], 10), parseInt(data[1], 10) - 1, parseInt(data[2], 10)).getTime() });
+        Blog.fetchData().then(json => {
+            const data = Object.keys(json.pages).sort().pop().split('_');
+            this.setState({
+                latestBlog: new Date(parseInt(data[0], 10), parseInt(data[1], 10) - 1, parseInt(data[2], 10)).getTime(),
             });
+        });
     }
 
     componentDidMount() {
@@ -339,20 +363,97 @@ class App extends Router {
             return null;
         }
 
-        return <DialogError text={this.state.text} onClose={() => this.setState({ errorText: '' })} />;
+        return (
+            <DialogError
+                text={this.state.text}
+                onClose={() => this.setState({ errorText: '' })}
+            />
+        );
     }
 
     tabName2index(name) {
-        return Object.keys(PAGES).filter(page => PAGES[page].tabIndex).indexOf(name || this.state.selectedPage);
+        return Object.keys(PAGES)
+            .filter(page => PAGES[page].tabIndex)
+            .indexOf(name || this.state.selectedPage);
     }
 
     renderLogo() {
-        return <img
-            src={this.state.mobile ? this.logoSmall : this.logo}
-            alt="logo"
-            style={this.state.mobile ? styles.logoSmall : styles.logoBig}
-            onClick={() => this.onNavigate(this.state.language, 'intro')}
-        />;
+        return (
+            <img
+                src={this.state.mobile ? this.logoSmall : this.logo}
+                alt="logo"
+                style={this.state.mobile ? styles.logoSmall : styles.logoBig}
+                onClick={() => this.onNavigate(this.state.language, 'intro')}
+            />
+        );
+    }
+
+    renderInfoDialog() {
+        if (!this.state.info) {
+            return null;
+        }
+
+        /*
+         ioBroker cloud services are required for:
+         - Manage adapter licenses (ioBroker.net)
+         - Manage Remote or Assistant abonnements (ioBroker.pro)
+         - Access your ioBroker.vis(2) runtime remotely (ioBroker.net)
+         - Access your ioBroker.vis(2) runtime and editor remotely via high-performance network (ioBroker.pro)
+         - Access your ioBroker.admin remotely (ioBroker.pro)
+         */
+
+        return (
+            <Dialog
+                open={!0}
+                onClose={() => this.setState({ info: null })}
+                maxWidth="md"
+                fullWidth
+            >
+                <DialogTitle>{I18n.t('Explanation')}</DialogTitle>
+                <DialogContent>
+                    <MenuItem onClick={() => Utils.openLink('https://iobroker.net/www/account/licenses', 'this')}>- {I18n.t('Manage adapter licenses')}<Box component="span" style={styles.infoNet}>(ioBroker.net)</Box></MenuItem>
+                    <MenuItem onClick={() => Utils.openLink('https://iobroker.pro/www/account/subscriptions', 'this')}>- {I18n.t('Manage Remote or Assistant abonnements')}<Box component="span" style={styles.infoPro}>(ioBroker.pro)</Box></MenuItem>
+                    <MenuItem onClick={() => Utils.openLink('https://iobroker.net', 'this')}>- {I18n.t('Access your ioBroker.vis(2) runtime remotely')}<Box component="span" style={styles.infoNet}>(ioBroker.net)</Box></MenuItem>
+                    <MenuItem onClick={() => Utils.openLink('https://iobroker.pro', 'this')}>- {I18n.t('Access your ioBroker.vis(2) runtime and editor remotely')}<Box component="span" style={styles.infoPro}>(ioBroker.pro)</Box></MenuItem>
+                    <MenuItem onClick={() => Utils.openLink('https://iobroker.pro', 'this')}>- {I18n.t('Access your ioBroker.admin remotely')}<Box component="span" style={styles.infoPro}>(ioBroker.pro)</Box></MenuItem>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        variant="contained"
+                        onClick={() => {
+                            const item = this.state.info;
+                            this.setState({ info: null }, () =>
+                                Utils.openLink('https://iobroke.net', 'this'),
+                            );
+                        }}
+                        startIcon={<Public />}
+                        sx={{ color: 'white', backgroundColor: this.state.theme.palette.secondary.main }}
+                    >
+                        {I18n.t('Go to ioBroker.net')}
+                    </Button>
+                    <Button
+                        variant="contained"
+                        onClick={() => {
+                            const item = this.state.info;
+                            this.setState({ info: null }, () =>
+                                Utils.openLink('https://iobroke.pro', 'this'),
+                            );
+                        }}
+                        startIcon={<Public />}
+                        sx={{ color: 'white', backgroundColor: this.state.theme.palette.primary.main }}
+                    >
+                        {I18n.t('Go to ioBroker.pro')}
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() => this.setState({ info: null })}
+                        startIcon={<Close />}
+                    >
+                        {I18n.t('Close')}
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        );
     }
 
     renderLanguage() {
@@ -365,34 +466,41 @@ class App extends Router {
                 <IconLanguage style={styles.languageButton} />
                 <span style={styles.languageText}>{LANGUAGES[this.state.language].short}</span>
             </Box>,
-            this.state.languageMenu ? <Menu
-                key="langMenu"
-                id="language-menu"
-                transitionDuration={0}
-                anchorEl={this.state.anchorMenu}
-                open
-                onClose={() => this.setState({ languageMenu: false, anchorMenu: null })}
-            >
-                {Object.keys(LANGUAGES).map(lang => (
-                    <MenuItem
-                        key={lang}
-                        selected={this.state.language === lang}
-                        onClick={() => this.setState({ languageMenu: false, anchorMenu: null }, () => {
-                            window.localStorage.setItem('iobroker.net.language', lang);
-                            const location = Router.getLocation();
-                            this.onNavigate(lang, location.tab || 'intro', location.page, location.chapter);
-                        })}
-                    >
-                        {LANGUAGES[lang].full}
-                    </MenuItem>
-                ))}
-            </Menu> : null,
+            this.state.languageMenu ? (
+                <Menu
+                    key="langMenu"
+                    id="language-menu"
+                    transitionDuration={0}
+                    anchorEl={this.state.anchorMenu}
+                    open
+                    onClose={() => this.setState({ languageMenu: false, anchorMenu: null })}
+                >
+                    {Object.keys(LANGUAGES).map(lang => (
+                        <MenuItem
+                            key={lang}
+                            selected={this.state.language === lang}
+                            onClick={() =>
+                                this.setState({ languageMenu: false, anchorMenu: null }, () => {
+                                    window.localStorage.setItem('iobroker.net.language', lang);
+                                    const location = Router.getLocation();
+                                    this.onNavigate(lang, location.tab || 'intro', location.page, location.chapter);
+                                })
+                            }
+                        >
+                            {LANGUAGES[lang].full}
+                        </MenuItem>
+                    ))}
+                </Menu>
+            ) : null,
         ];
     }
 
     onSearch() {
         if (this.state.search || this.searchValue) {
-            window.fetch(`search?ln=${this.state.language}&q=${encodeURIComponent(this.state.search || this.searchValue)}`)
+            window
+                .fetch(
+                    `search?ln=${this.state.language}&q=${encodeURIComponent(this.state.search || this.searchValue)}`,
+                )
                 .then(data => data.json())
                 .then(searchResults => this.setState({ searchResults }));
         } else {
@@ -401,83 +509,94 @@ class App extends Router {
     }
 
     renderSearch() {
-        return <div style={styles.searchDiv}>
-            <Input
-                sx={{
-                    ...styles.search,
-                    '&.MuiInput-input': styles.searchInput,
-                }}
-                style={this.state.searchFocus ? styles.searchFocus : undefined}
-                // value={this.state.search}
-                placeholder={I18n.t('Search...')}
-                onFocus={() => this.setState({ searchFocus: true })}
-                onBlur={() => setTimeout(() => this.setState({ searchFocus: false }), 100)}
-                onChange={e => {
-                    this.searchAnchor = this.searchAnchor || e.target;
-                    this.searchValue = e.target.value;
+        return (
+            <div style={styles.searchDiv}>
+                <Input
+                    sx={{
+                        ...styles.search,
+                        '&.MuiInput-input': styles.searchInput,
+                    }}
+                    style={this.state.searchFocus ? styles.searchFocus : undefined}
+                    // value={this.state.search}
+                    placeholder={I18n.t('Search...')}
+                    onFocus={() => this.setState({ searchFocus: true })}
+                    onBlur={() => setTimeout(() => this.setState({ searchFocus: false }), 100)}
+                    onChange={e => {
+                        this.searchAnchor = this.searchAnchor || e.target;
+                        this.searchValue = e.target.value;
 
-                    // this.setState({search: e.target.value});
-                    this.searchTimeout && clearTimeout(this.searchTimeout);
-                    this.searchTimeout = setTimeout(() => {
-                        this.searchTimeout = null;
-                        this.onSearch();
-                    }, 300);
-                }}
-                onKeyUp={e => {
-                    if (e.key === 'Enter') {
+                        // this.setState({search: e.target.value});
                         this.searchTimeout && clearTimeout(this.searchTimeout);
-                        this.searchTimeout = null;
-                        this.onSearch();
-                    }
-                }}
-            />
-            <IconSearch style={styles.searchButton} />
-        </div>;
+                        this.searchTimeout = setTimeout(() => {
+                            this.searchTimeout = null;
+                            this.onSearch();
+                        }, 300);
+                    }}
+                    onKeyUp={e => {
+                        if (e.key === 'Enter') {
+                            this.searchTimeout && clearTimeout(this.searchTimeout);
+                            this.searchTimeout = null;
+                            this.onSearch();
+                        }
+                    }}
+                />
+                <IconSearch style={styles.searchButton} />
+            </div>
+        );
     }
 
     renderSearchResult(result, last) {
         const type = result.id.split('/').shift();
-        const tab = type === '...' ? type : (type === 'adapterref' ? 'adapters' : 'documentation');
-        return <div
-            style={{ ...styles.sRdiv, ...(!last ? styles.sRdivNotLast : undefined) }}
-            onClick={e => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.setState({ searchResults: null });
-                this.onNavigate(null, tab, result.id);
-            }}
-        >
-            <div style={styles.sRdivType}>{I18n.t(tab)}</div>
-            <div style={styles.sRdivText}>{type === '...' ? I18n.t('More %s results', result.title) : result.title}</div>
-        </div>;
+        const tab = type === '...' ? type : type === 'adapterref' ? 'adapters' : 'documentation';
+        return (
+            <div
+                style={{ ...styles.sRdiv, ...(!last ? styles.sRdivNotLast : undefined) }}
+                onClick={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.setState({ searchResults: null });
+                    this.onNavigate(null, tab, result.id);
+                }}
+            >
+                <div style={styles.sRdivType}>{I18n.t(tab)}</div>
+                <div style={styles.sRdivText}>
+                    {type === '...' ? I18n.t('More %s results', result.title) : result.title}
+                </div>
+            </div>
+        );
     }
 
     renderSearchResults() {
         const len = this.state.searchResults && this.state.searchResults.length;
-        return <Popper
-            placement="bottom"
-            disablePortal={false}
-            anchorEl={this.searchAnchor}
-            open={!!this.state.searchResults && this.state.searchFocus}
-            modifiers={[
-                {
-                    name: 'flip',
-                    enabled: true,
-                },
-                {
-                    name: 'arrow',
-                    enabled: true,
-                    options: {
-                        element: this.searchAnchor,
+        return (
+            <Popper
+                placement="bottom"
+                disablePortal={false}
+                anchorEl={this.searchAnchor}
+                open={!!this.state.searchResults && this.state.searchFocus}
+                modifiers={[
+                    {
+                        name: 'flip',
+                        enabled: true,
                     },
-                },
-            ]}
-        >
-            {this.state.searchResults && this.state.searchResults.length ?
-                <Paper style={styles.searchResultsDiv}>{this.state.searchResults.map((link, i) => this.renderSearchResult(link, len - 1 === i))}</Paper>
-                :
-                <Paper style={styles.searchResultsDiv}>{I18n.t('No results found')}</Paper>}
-        </Popper>;
+                    {
+                        name: 'arrow',
+                        enabled: true,
+                        options: {
+                            element: this.searchAnchor,
+                        },
+                    },
+                ]}
+            >
+                {this.state.searchResults && this.state.searchResults.length ? (
+                    <Paper style={styles.searchResultsDiv}>
+                        {this.state.searchResults.map((link, i) => this.renderSearchResult(link, len - 1 === i))}
+                    </Paper>
+                ) : (
+                    <Paper style={styles.searchResultsDiv}>{I18n.t('No results found')}</Paper>
+                )}
+            </Popper>
+        );
     }
 
     onNavigate = (language, tab, page, chapter) => {
@@ -489,28 +608,13 @@ class App extends Router {
 
     renderMenu(name) {
         if (this.state.menuOpened.includes(name)) {
-            return <Menu
-                id="simple-menu"
-                transitionDuration={0}
-                anchorEl={this.state.anchorMenu}
-                open
-                onClose={() => {
-                    const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                    const pos = menuOpened.indexOf(name);
-                    if (pos !== -1) {
-                        menuOpened.splice(pos, 1);
-                        this.setState({ menuOpened, anchorMenu: null });
-                    }
-                }}
-            >
-                {PAGES[name].menu.map(item => <MenuItem
-                    key={item.name}
-                    onClick={() => {
-                        if (item.link) {
-                            Utils.openLink(item.link, item.target);
-                        } else if (item.tab) {
-                            this.onNavigate(null, item.tab);
-                        }
+            return (
+                <Menu
+                    id="simple-menu"
+                    transitionDuration={0}
+                    anchorEl={this.state.anchorMenu}
+                    open
+                    onClose={() => {
                         const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
                         const pos = menuOpened.indexOf(name);
                         if (pos !== -1) {
@@ -519,11 +623,44 @@ class App extends Router {
                         }
                     }}
                 >
-                    {item.icon || ''}
-                    {I18n.t(item.name)}
-                    {this.state.last}
-                </MenuItem>)}
-            </Menu>;
+                    {PAGES[name].menu.map(item => (
+                        <MenuItem
+                            key={item.name}
+                            onClick={() => {
+                                if (item.link) {
+                                    Utils.openLink(item.link, item.target);
+                                } else if (item.tab) {
+                                    this.onNavigate(null, item.tab);
+                                }
+                                const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                                const pos = menuOpened.indexOf(name);
+                                if (pos !== -1) {
+                                    menuOpened.splice(pos, 1);
+                                    this.setState({ menuOpened, anchorMenu: null });
+                                }
+                            }}
+                        >
+                            {item.icon || ''}
+                            {I18n.t(item.name)}
+                            {item.info ? (
+                                <>
+                                    <div style={{ flex: 1 }} />
+                                    <IconButton
+                                        onClick={e => {
+                                            e.stopPropagation();
+                                            e.preventDefault();
+                                            this.setState({ info: item });
+                                        }}
+                                    >
+                                        <Info />
+                                    </IconButton>
+                                </>
+                            ) : null}
+                            {this.state.last}
+                        </MenuItem>
+                    ))}
+                </Menu>
+            );
         }
 
         return null;
@@ -535,67 +672,35 @@ class App extends Router {
             selected = false;
         }
 
-        return <Tabs
-            sx={styles.tabs}
-            value={selected}
-            variant="standard"
-            onChange={(e, value) => {
-                const selectedPage = Object.keys(PAGES)[value];
-                if (selectedPage === 'blog') {
-                    window.localStorage.setItem('iobroker.net.lastSeenBlog', new Date().toISOString());
-                    this.setState({ lastSeenBlog: Date.now() });
-                }
-                if (PAGES[selectedPage].links) {
-                    Utils.openLink(PAGES[selectedPage].links[this.state.language] || PAGES[selectedPage].links.en, PAGES[selectedPage].target);
-                } else if (PAGES[selectedPage].link) {
-                    Utils.openLink(PAGES[selectedPage].link, PAGES[selectedPage].target);
-                } else if (PAGES[selectedPage].menu) {
-                    const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                    if (menuOpened.indexOf(selectedPage) === -1) {
-                        menuOpened.push(selectedPage);
+        return (
+            <Tabs
+                sx={styles.tabs}
+                value={selected}
+                variant="standard"
+                onChange={(e, value) => {
+                    const selectedPage = Object.keys(PAGES)[value];
+                    if (selectedPage === 'blog') {
+                        window.localStorage.setItem('iobroker.net.lastSeenBlog', new Date().toISOString());
+                        this.setState({ lastSeenBlog: Date.now() });
                     }
-                    this.setState({ menuOpened, anchorMenu: e.target });
-                } else {
-                    this.onNavigate(this.state.language, selectedPage);
-                }
-            }}
-        >
-            {Object.keys(PAGES).map(tab => {
-                if (!PAGES[tab].tabIndex) {
-                    return null;
-                }
-
-                if (PAGES[tab].menu) {
-                    return [
-                        <Tab
-                            style={styles.tab}
-                            key={tab}
-                            fullWidth={false}
-                            label={PAGES[tab].icon ? [<span key="text">{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
-                        />,
-                        this.renderMenu(tab),
-                    ];
-                }
-                let star = false;
-                if (tab === 'blog') {
-                    if (this.state.latestBlog > this.state.lastSeenBlog) {
-                        star = true;
+                    if (PAGES[selectedPage].links) {
+                        Utils.openLink(
+                            PAGES[selectedPage].links[this.state.language] || PAGES[selectedPage].links.en,
+                            PAGES[selectedPage].target,
+                        );
+                    } else if (PAGES[selectedPage].link) {
+                        Utils.openLink(PAGES[selectedPage].link, PAGES[selectedPage].target);
+                    } else if (PAGES[selectedPage].menu) {
+                        const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                        if (menuOpened.indexOf(selectedPage) === -1) {
+                            menuOpened.push(selectedPage);
+                        }
+                        this.setState({ menuOpened, anchorMenu: e.target });
+                    } else {
+                        this.onNavigate(this.state.language, selectedPage);
                     }
-                }
-                return <Tab
-                    key={tab}
-                    style={styles.tab}
-                    sx={star ? styles.tabAction : undefined}
-                    fullWidth={false}
-                    label={PAGES[tab].icon ? [(<span key="text">{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
-                />;
-            })}
-        </Tabs>;
-    }
-
-    renderPagesMenu() {
-        return <Drawer key="drawer" open={this.state.showTabMenu} anchor="right" onClose={() => this.setState({ showTabMenu: false })}>
-            <List>
+                }}
+            >
                 {Object.keys(PAGES).map(tab => {
                     if (!PAGES[tab].tabIndex) {
                         return null;
@@ -603,142 +708,235 @@ class App extends Router {
 
                     if (PAGES[tab].menu) {
                         return [
+                            <Tab
+                                style={styles.tab}
+                                key={tab}
+                                fullWidth={false}
+                                label={
+                                    PAGES[tab].icon
+                                        ? [<span key="text">{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon]
+                                        : I18n.t(PAGES[tab].name)
+                                }
+                            />,
+                            this.renderMenu(tab),
+                        ];
+                    }
+                    let star = false;
+                    if (tab === 'blog') {
+                        if (this.state.latestBlog > this.state.lastSeenBlog) {
+                            star = true;
+                        }
+                    }
+                    return (
+                        <Tab
+                            key={tab}
+                            style={styles.tab}
+                            sx={star ? styles.tabAction : undefined}
+                            fullWidth={false}
+                            label={
+                                PAGES[tab].icon
+                                    ? [<span key="text">{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon]
+                                    : I18n.t(PAGES[tab].name)
+                            }
+                        />
+                    );
+                })}
+            </Tabs>
+        );
+    }
+
+    renderPagesMenu() {
+        return (
+            <Drawer
+                key="drawer"
+                open={this.state.showTabMenu}
+                anchor="right"
+                onClose={() => this.setState({ showTabMenu: false })}
+            >
+                <List>
+                    {Object.keys(PAGES).map(tab => {
+                        if (!PAGES[tab].tabIndex) {
+                            return null;
+                        }
+
+                        if (PAGES[tab].menu) {
+                            return [
+                                <ListItemButton
+                                    key={tab}
+                                    onClick={() => {
+                                        const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                                        const pos = menuOpened.indexOf(tab);
+                                        if (pos === -1) {
+                                            menuOpened.push(tab);
+                                        } else {
+                                            menuOpened.splice(pos, 1);
+                                        }
+                                        this.setState({ menuOpened });
+                                    }}
+                                >
+                                    {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
+                                    <ListItemText primary={I18n.t(PAGES[tab].name)} />
+                                </ListItemButton>,
+
+                                this.state.menuOpened.includes(tab) ? (
+                                    <List
+                                        key="list"
+                                        style={styles.subMenu}
+                                    >
+                                        {PAGES[tab].menu.map(item => (
+                                            <ListItemButton
+                                                style={styles.subMenuItem}
+                                                selected={this.state.selectedPage === tab}
+                                                key={item}
+                                                onClick={() => {
+                                                    if (item.links) {
+                                                        Utils.openLink(
+                                                            item.links[this.state.language] || item.links.en,
+                                                            item.target,
+                                                        );
+                                                    } else if (item.link) {
+                                                        Utils.openLink(item.link, item.target);
+                                                    } else if (item.tab) {
+                                                        this.onNavigate(null, item.tab);
+                                                    }
+                                                    this.setState({ showTabMenu: false });
+                                                }}
+                                            >
+                                                {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
+                                                <ListItemText
+                                                    sx={{ '&.MuiListItemText-primary': styles.subMenuItemText }}
+                                                    primary={item.name}
+                                                />
+                                            </ListItemButton>
+                                        ))}
+                                    </List>
+                                ) : null,
+                            ];
+                        }
+                        return (
                             <ListItemButton
+                                selected={this.state.selectedPage === tab}
                                 key={tab}
                                 onClick={() => {
-                                    const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                                    const pos = menuOpened.indexOf(tab);
-                                    if (pos === -1) {
-                                        menuOpened.push(tab);
-                                    } else {
-                                        menuOpened.splice(pos, 1);
-                                    }
-                                    this.setState({ menuOpened });
+                                    this.setState({ showTabMenu: false }, () => {
+                                        if (PAGES[tab].links) {
+                                            Utils.openLink(
+                                                PAGES[tab].links[this.state.language] || PAGES[tab].links.en,
+                                                PAGES[tab].target,
+                                            );
+                                        } else if (PAGES[tab].link) {
+                                            Utils.openLink(PAGES[tab].link, PAGES[tab].target);
+                                        } else {
+                                            this.onNavigate(null, tab);
+                                        }
+                                        this.setState({ showTabMenu: false });
+                                    });
                                 }}
                             >
                                 {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
                                 <ListItemText primary={I18n.t(PAGES[tab].name)} />
-                            </ListItemButton>,
-
-                            this.state.menuOpened.includes(tab) ? <List key="list" style={styles.subMenu}>
-                                {PAGES[tab].menu.map(item => <ListItemButton
-                                    style={styles.subMenuItem}
-                                    selected={this.state.selectedPage === tab}
-                                    key={item}
-                                    onClick={() => {
-                                        if (item.links) {
-                                            Utils.openLink(item.links[this.state.language] || item.links.en, item.target);
-                                        } else if (item.link) {
-                                            Utils.openLink(item.link, item.target);
-                                        } else if (item.tab) {
-                                            this.onNavigate(null, item.tab);
-                                        }
-                                        this.setState({ showTabMenu: false });
-                                    }}
-                                >
-                                    {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
-                                    <ListItemText sx={{ '&.MuiListItemText-primary': styles.subMenuItemText }} primary={item.name} />
-                                </ListItemButton>)}
-                            </List> : null,
-                        ];
-                    }
-                    return <ListItemButton
-                        selected={this.state.selectedPage === tab}
-                        key={tab}
-                        onClick={() => {
-                            this.setState({ showTabMenu: false }, () => {
-                                if (PAGES[tab].links) {
-                                    Utils.openLink(PAGES[tab].links[this.state.language] || PAGES[tab].links.en, PAGES[tab].target);
-                                } else if (PAGES[tab].link) {
-                                    Utils.openLink(PAGES[tab].link, PAGES[tab].target);
-                                } else {
-                                    this.onNavigate(null, tab);
-                                }
-                                this.setState({ showTabMenu: false });
-                            });
-                        }}
-                    >
-                        {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
-                        <ListItemText primary={I18n.t(PAGES[tab].name)} />
-                    </ListItemButton>;
-                })}
-            </List>
-        </Drawer>;
+                            </ListItemButton>
+                        );
+                    })}
+                </List>
+            </Drawer>
+        );
     }
 
     renderAppBar() {
         const noTabs = this.state.width <= TABS_WIDTH;
 
-        return <Toolbar
-            position="static"
-            variant="dense"
-            sx={styles.tabs}
-            style={noTabs ? styles.tabsNoTabs : undefined}
-        >
-            {this.renderLogo()}
-            {this.renderLanguage()}
-            {this.renderSearch()}
-            <div style={{ flex: 1 }}/>
-            {noTabs ? <IconButton key="menuButton" onClick={() => this.setState({ showTabMenu: true })}>
-                <IconMenu />
-            </IconButton> : null}
-            {noTabs ? this.renderPagesMenu() : this.renderTabs()}
-        </Toolbar>;
+        return (
+            <Toolbar
+                position="static"
+                variant="dense"
+                sx={styles.tabs}
+                style={noTabs ? styles.tabsNoTabs : undefined}
+            >
+                {this.renderLogo()}
+                {this.renderLanguage()}
+                {this.renderSearch()}
+                <div style={{ flex: 1 }} />
+                {noTabs ? (
+                    <IconButton
+                        key="menuButton"
+                        onClick={() => this.setState({ showTabMenu: true })}
+                    >
+                        <IconMenu />
+                    </IconButton>
+                ) : null}
+                {noTabs ? this.renderPagesMenu() : this.renderTabs()}
+            </Toolbar>
+        );
     }
 
     render() {
         if (!this.state.loaded) {
-            return <StyledEngineProvider injectFirst>
-                <ThemeProvider theme={this.state.theme}>
-                    <Loader theme={this.state.themeType} />
-                </ThemeProvider>
-            </StyledEngineProvider>;
+            return (
+                <StyledEngineProvider injectFirst>
+                    <ThemeProvider theme={this.state.theme}>
+                        <Loader theme={this.state.themeType} />
+                    </ThemeProvider>
+                </StyledEngineProvider>
+            );
         }
 
         const selectedPage = this.state.selectedPage || 'intro';
         const PageComponent = PAGES[selectedPage] && PAGES[selectedPage].component;
 
-        return <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={this.state.theme}>
-                <div className="App">
-                    {this.renderAppBar()}
-                    <div style={styles.tabContent} ref={this.contentRef}>
-                        {PageComponent ? <PageComponent
+        return (
+            <StyledEngineProvider injectFirst>
+                <ThemeProvider theme={this.state.theme}>
+                    <div className="App">
+                        {this.renderAppBar()}
+                        <div
+                            style={styles.tabContent}
+                            ref={this.contentRef}
+                        >
+                            {PageComponent ? (
+                                <PageComponent
+                                    theme={this.state.themeType}
+                                    mobile={this.state.mobile}
+                                    onNavigate={this.onNavigate}
+                                    language={this.state.language}
+                                    contentWidth={this.state.width}
+                                />
+                            ) : null}
+                            {PAGES[selectedPage] && PAGES[selectedPage].md ? (
+                                <MDPage
+                                    path={PAGES[selectedPage].md}
+                                    theme={this.state.themeType}
+                                    mobile={this.state.mobile}
+                                    onNavigate={this.onNavigate}
+                                    contentWidth={this.state.width}
+                                    language={this.state.language}
+                                />
+                            ) : null}
+                            {PAGES[selectedPage] && PAGES[selectedPage].content ? (
+                                <TreePage
+                                    contentPath={PAGES[selectedPage].content}
+                                    theme={this.state.themeType}
+                                    mobile={this.state.mobile}
+                                    onNavigate={this.onNavigate}
+                                    contentWidth={this.state.width}
+                                    language={this.state.language}
+                                />
+                            ) : null}
+                        </div>
+                        {this.renderInfoDialog()}
+                        {this.renderError()}
+                        {this.renderSearchResults()}
+                        <Cookies
                             theme={this.state.themeType}
                             mobile={this.state.mobile}
                             onNavigate={this.onNavigate}
                             language={this.state.language}
                             contentWidth={this.state.width}
-                        /> : null}
-                        {PAGES[selectedPage] && PAGES[selectedPage].md ? <MDPage
-                            path={PAGES[selectedPage].md}
-                            theme={this.state.themeType}
-                            mobile={this.state.mobile}
-                            onNavigate={this.onNavigate}
-                            contentWidth={this.state.width}
-                            language={this.state.language}
-                        /> : null}
-                        {PAGES[selectedPage] && PAGES[selectedPage].content ? <TreePage
-                            contentPath={PAGES[selectedPage].content}
-                            theme={this.state.themeType}
-                            mobile={this.state.mobile}
-                            onNavigate={this.onNavigate}
-                            contentWidth={this.state.width}
-                            language={this.state.language}
-                        /> : null}
+                        />
                     </div>
-                    {this.renderError()}
-                    {this.renderSearchResults()}
-                    <Cookies
-                        theme={this.state.themeType}
-                        mobile={this.state.mobile}
-                        onNavigate={this.onNavigate}
-                        language={this.state.language}
-                        contentWidth={this.state.width}
-                    />
-                </div>
-            </ThemeProvider>
-        </StyledEngineProvider>;
+                </ThemeProvider>
+            </StyledEngineProvider>
+        );
     }
 }
 
