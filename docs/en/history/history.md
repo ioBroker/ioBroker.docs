@@ -712,3 +712,30 @@ https://github.com/SKB-CGN/ioBroker.mywallbox
 <img src="https://github.com/SKB-CGN/ioBroker.mywallbox/blob/main/admin/wallbox.png" width="100" height="100" />
 
 Connect your My-Wallbox (e.g. Pulsar Plus) with ioBroker via the Cloud-Service of My Wallbox
+
+## bluesound (11.1.2025) – new adapter at stable
+https://github.com/Uwe1958/ioBroker.bluesound
+
+<img src="https://github.com/Uwe1958/ioBroker.bluesound/blob/main/admin/bluesound.png" width="100" height="100" />
+
+Adapter to control Bluesound devices
+
+## ta-blnet (11.1.2025) – new adapter at stable
+https://github.com/weberk/ioBroker.ta-blnet
+
+<img src="https://github.com/weberk/ioBroker.ta-blnet/blob/main/admin/ta-blnet.png" width="100" height="100" />
+
+An ioBroker adapter for reading data from one or up to eight climate controllers by Technische Alternative using BL-NET. Or an infinite number of climate controllers connected to CMI.
+
+## teslafi (11.1.2025) – new adapter at stable
+https://github.com/hombach/ioBroker.teslafi
+
+<img src="[teslafi](https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png)" width="100" height="100" />
+
+The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
+
+
+
+
+
+
