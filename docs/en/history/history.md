@@ -16,6 +16,12 @@
    
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
+## bluesound (2025-01-11) - new adapter
+https://github.com/Uwe1958/ioBroker.bluesound
+
+<img src="https://raw.githubusercontent.com/Uwe1958/ioBroker.bluesound/main/admin/bluesound.png" width="100" height="100" />
+
+ioBroker adapter to control Bluesound devices such as Pulse or Node. Some NAD components use the same API interface and can also be controlled.
 
 ## ecoflow-mqtt (2024-10-14) - new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
