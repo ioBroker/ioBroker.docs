@@ -5,7 +5,7 @@ The Role information is a very important information and allows Visualization- a
 to detect the function of the object and also how/if they relate to other objects in the same channel, device or folder.
 
 Example:
-A RGB Lamp can have thw following three objects (or more) with different roles that belong together:
+A RGB Lamp can have the following three objects (or more) with different roles that belong together:
 * `switch` - (On/Off)
 * `level.color.rgb` with #RRGGBB color code of the lamp
 * `level.brightness` with the brightness value
@@ -77,7 +77,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.humidity`
 * `value.co2`             - CO2 (unit: ppm)
-* `value.brightness`      - luminance level (unit: lux, )
+* `value.brightness`      - luminance level (unit: lux)
 * `value.min`
 * `value.max`
 * `value.default`
@@ -105,9 +105,9 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.power.reactive`  - reactive power (unit=var, kVar)
 * `value.power.consumed`  - power consumed (unit=W or kW)
 * `value.power.produced`  - power produced (unit=W or kW)
-* `value.direction`       - (common.type=number ~~or string~~, indicates up/down, left/right, 4-way switches, wind-direction, ... )
+* `value.direction`       - (common.type=number, indicates up/down, left/right, 4-way switches, wind-direction, ... 0 - nothig, 1 - up/opening, 2 - down/closing, 3 - undefined)
 * `value.curtain`         - actual position of curtain
-* `value.blind`           - actual position of blind (`max = fully open, min = fully closed`)
+* `value.blind`           - actual position of the blind (`max = fully open, min = fully closed`)
 * `value.tilt`            - actual tilt position (`max = fully open, min = fully closed`)
 * `value.lock`            - actual position of lock
 * `value.speed`           - wind speed
@@ -128,12 +128,13 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 `common.type=boolean, common.write=false`
 
 The difference of *Indicators* from *Sensors* is that indicators will be shown as small icon. Sensors as a real value.
-So the indicator may not be alone in the channel. It must be some other main state inside channel.
+So the indicator may not be alone in the channel. It must be some other main state inside a channel.
 
 * `indicator`
-* `indicator.working`     - indicates that the target systems is executing something, like blinds or lock opening.
-* `indicator.reachable`   - If device is online
+* `indicator.working`     - indicates that the target system is executing something, like blinds or lock opening.
+* `indicator.reachable`   - If a device is online
 * `indicator.connected`   - used only for instances. Use `indicator.reachable` for devices
+* `indicator.direction`   - `true` - up/open, `false` - down/close. Use better `value.direction`
 * `indicator.maintenance` - indicates system warnings/errors, alarms, service messages, battery empty or stuff like that
 * `indicator.maintenance.lowbat`
 * `indicator.maintenance.unreach`
@@ -151,7 +152,7 @@ With **levels**, you can control or set some number value.
 `common.type=number, common.write=true`
 
 * `level`
-* `level.humidity`        - humidity as a setpoint, i.e. for humifiers / climatecontrols
+* `level.humidity`        - humidity as a setpoint, i.e., for humidifiers / climate controls
 * `level.battery`         - battery target voltage / capacity i.e.for loading
 * `level.battery.min`     - battery minimum voltage / capacity
 * `level.battery.max`     - battery maximum voltage / capacity
@@ -162,19 +163,19 @@ With **levels**, you can control or set some number value.
 * `level.voltage`         - target voltage for generators
 * `level.voltage.min`     - minimum voltage for generators
 * `level.voltage.max`     - maximum voltage for generators
-* `level.current`         - target current for i.e. loading battery devices
-* `level.current.min`     - minimum current for i.e. loading battery devices
-* `level.current.max`     - maximum current for i.e. loading battery devices 
+* `level.current`         - target current for i.e., loading battery devices
+* `level.current.min`     - minimum current for i.e., loading battery devices
+* `level.current.max`     - maximum current for i.e., loading battery devices 
 * `level.frequency`       - target frequency for generators
 * `level.frequency.min`   - minimum frequency for generators or for power grid alarms
 * `level.frequency.max`   - maximum frequency for generators or for power grid alarms
 * `level.fill`            - setpoint for any container fill level states 
-* `level.brightness`      - luminance level (unit: lux, )
+* `level.brightness`      - luminance level (unit: lux)
 * `level.min`             - minimum level allowed  
 * `level.max`             - maximum level allowed
 * `level.default`         - default level
 * `level.dimmer`          - brightness is dimmer too
-* `level.blind`           - set blind position (max = fully open, min = fully closed)
+* `level.blind`           - set blind position (max = fully opened, min = fully closed)
 * `level.temperature`     - set desired temperature
 * `level.valve`           - set point for valve position
 * `level.color.red`
@@ -194,11 +195,11 @@ With **levels**, you can control or set some number value.
 * `level.volume`         - (`min=0, max=100`) - sound volume, but min, max can differ. min < max
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
 * `level.curtain`        - set the curtain position
-* `level.tilt`           - set the tilt position of blinds (max = fully open, min = fully closed)
+* `level.tilt`           - set the tilt position of blinds (max = fully opened, min = fully closed)
 * `level.speed`          - speed eg. fan, ventilator, ..
 
 ## Switches (booleans, read-write)
-Switch controls boolean device (`true = ON, false = OFF`)
+Switch controls a boolean device (`true = ON, false = OFF`)
 
 `common.type=boolean, common.write=true`
 
@@ -227,7 +228,7 @@ Switch controls boolean device (`true = ON, false = OFF`)
 * `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`, 
  Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
 
-TODO: Think about ionization`and oscillation. 
+TODO: Think about ionization` and oscillation. 
 
 ## Vacuum cleaner
 * `level.mode.cleanup`    - Enumeration of `AUTO, ECO, EXPRESS, NORMAL, QUIET`. Only `AUTO` and `NORMAL` are required. 
@@ -244,7 +245,7 @@ Optionally `value.battery` and
 * `switch.gate`           - closes(false) or opens(true) the gate (required)
 * `value.position`        - position of the gate in percent (100% opened, 0% - closed)
 * `value.gate`            - same as `value.position`
-* `button.stop`           - stop motion of gate
+* `button.stop`           - stop the motion of the gate
 
 ## Media
 Special roles for media players
@@ -280,7 +281,7 @@ Special roles for media players
 * `media.mute`            - (`common.type=boolean`) true is muted
 * `media.season`          - (`common.type=string`) season number (important the type is really "string" to be able to indicate absence of season with "")
 * `media.episode`         - (`common.type=string`) episode number (important the type is really "string" to be able to indicate absence of episode with "")
-* `media.mute.group`      - (`common.type=boolean`) mute of group of devices
+* `media.mute.group`      - (`common.type=boolean`) mute of a group of devices
 * `media.tts`             - text to speech
 * `media.bitrate`         - kbps
 * `media.genre`           - genre song
@@ -291,7 +292,7 @@ Special roles for media players
 * `media.clear`           - clear current playlist (write-only)
 * `media.playlist`        - json array like
 * `media.url`             - url to play or current url
-* `media.url.announcement` - URL to play announcement
+* `media.url.announcement` - URL to play an announcement
 * `media.jump`            - Number of items to jump in the playlist (it can be negative)
 * `media.content`         - Type of media being played such as audio/mp3
 * `media.link`            - State with the current file
@@ -300,7 +301,7 @@ Special roles for media players
 * `level.treble`          - Treble level
 * `switch.power.zone`     - power zone
 
-```
+```json
 [
     {
         "artist": "",
@@ -319,14 +320,13 @@ Special roles for media players
 
 * `media.browser`         - json array like "files"
 
-```
+```json5
 [
     {
         "fanart": "",
-        "file": "",//smb://192.168.1.10/music/AtlantidaProject/
-        "filetype": "", //directory
+        "file": "", // smb://192.168.1.10/music/AtlantidaProject/
+        "filetype": "", // directory
         "label": "",
-        "lastmodified": "",
         "mimetype": "",
         "size": 0,
         "thumbnail": "",
@@ -360,12 +360,12 @@ Special roles for media players
 * `value.direction.wind`        - actual or average wind direction in degrees
 * `value.direction.max.wind`    - actual wind direction in degrees
 * `value.direction.min.wind`    - actual wind direction in degrees
-* `weather.direction.wind`      - actual or average wind direction as text, e.g. NNW
-* `date`                        - actual date or date of last read information
+* `weather.direction.wind`      - actual or average wind direction as text, e.g., NNW
+* `date`                        - actual date or date of last-read information
 * `date.sunrise`                - Sunrise for today
 * `date.sunset`                 - Sunset for today
 * `dayofweek`                   - day of week as text
-* `location`                    - Text description of location (e.g. address)
+* `location`                    - Text description of location (e.g., address)
 * `weather.icon`                - Actual state icon URL for now
 * `weather.icon.wind`           - Actual wind icon URL for now
 * `weather.icon.name`           - Actual state icon name for now
@@ -417,16 +417,16 @@ Special roles for media players
 * `value.pressure.forecast.1`
 
 ## Info
-* `info.ip`        - ip of device
-* `info.mac`       - mac of device
-* `info.name`      - name of device
-* `info.address`   - some other address (e.g. KNX)
+* `info.ip`        - IP of a device
+* `info.mac`       - MAC address of a device
+* `info.name`      - name of a device
+* `info.address`   - some other address (e.g., KNX)
 * `info.serial`    - serial number
 * `info.firmware`  - firmware version
 * `info.hardware`  - hardware version
 * `info.port`      - tcp port
 * `info.standby`   - true if device in standby mode
-* `info.status`    - status of device
+* `info.status`    - status of a device
 * `info.display`   - information shown on device display
 * `date.start`     - string or number
 * `date.end`       - string or number
@@ -445,11 +445,11 @@ Special roles for media players
 * `url`
 * `url.icon`               - icon (additionally every object can have `common.icon`)
 * `url.cam`                - web camera url
-* `url.blank`              - open URL in new window
+* `url.blank`              - open URL in a new window
 * `url.same`               - open URL in this window
-* `url.audio`              - URL for audio file
+* `url.audio`              - URL for an audio file
 * `text.phone`             - phone number
-* `time.span`              - time difference in ms (common.type=number), i.e. time since last update, duration of operation, time until next try, ...
+* `time.span`              - time difference in ms (common.type=number), i.e., time since last update, duration of operation, time until next try, ...
 * `time.interval`          - intervall value in ms (common.type=number), i.e. some polling interval
 * `time.timeout`           - timeout value in ms (common.type=number), i.e. timeouts for communication requests
 * `chart`                  - JSON array with chart data, like `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
