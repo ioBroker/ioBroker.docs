@@ -17,6 +17,13 @@
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
+## flexcharts (2025-01-15) - new adapter
+https://github.com/MyHomeMyData/ioBroker.flexcharts
+   
+<img src="https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/admin/flexcharts-icon-small.png" width="100" height="100" />
+
+This adapter brings almost the complete feature set of [Apache ECharts](https://echarts.apache.org/en/index.html) to ioBroker. This adapter is not intended to be used to quickly create a simple chart. But if you have a specific idea in mind for a more complex chart, flexcharts offers the possibility to implement it.
+
 ## ecoflow-mqtt (2024-10-14) - new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
@@ -730,19 +737,9 @@ An ioBroker adapter for reading data from one or up to eight climate controllers
 ## teslafi (11.1.2025) – new adapter at stable
 https://github.com/hombach/ioBroker.teslafi
 
-<img src="https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png" width="100" height="100" />
+<img src="[teslafi](https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png)" width="100" height="100" />
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
-
-
-## flexcharts (15.1.2025) – new adapter at stable
-https://github.com/MyHomeMyData/ioBroker.flexcharts
-
-<img src="https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/admin/flexcharts-icon.png" width="100" height="100" />
-
-There are several adapters available to view charts within ioBroker. Typically not all features of the used graphical sub system could be used in this way. E.g. it's not possible to view fully featured stacked charts with eChart-Adapter.
-
-This adapter uses a different approach. It brings almost the complete feature set of Apache ECharts to ioBroker.
 
 
 
