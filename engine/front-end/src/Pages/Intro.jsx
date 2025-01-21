@@ -26,12 +26,11 @@ import Adapters from '../Components/Adapters';
 import SupportUs from '../Components/SupportUs';
 import About from '../Components/About';
 import Screenshots from '../Components/Screenshots';
-import Query from '../Components/Query';
 
 import BackImage from '../assets/background.jpg';
 import LinusShell from '../Components/LinusShell';
 import I18n from '../i18n';
-import userTreffen from '../assets/2024_05_01_usertreffen_long.jpg';
+// import userTreffen from '../assets/2024_05_01_usertreffen_long.jpg';
 
 const styles = {
     content: theme => theme.content,
@@ -385,8 +384,7 @@ class Intro extends Component {
                     gap: 10,
                 }}
             >
-                {!userMeeting ? <Query key="query" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} /> : null}
-                <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} noColoring={userMeeting} />
+                <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />
             </div>,
             <ForumInfo key="forum" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
             <About key="about" backStyle={(i++ % 2) ? styles.darkPart : styles.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
