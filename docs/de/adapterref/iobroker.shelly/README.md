@@ -31,9 +31,9 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 
 ## Anforderungen
 
-1. Node.js 18 (oder neuer)
-2. js-controller 5.0.19 (oder neuer)
-3. Admin Adapter 6.0.0 (oder neuer)
+1. Node.js 20 (oder neuer)
+2. js-controller 6.0.0 (oder neuer)
+3. Admin Adapter 6.6.0 (oder neuer)
 
 ## Geräte-Generationen
 
@@ -60,6 +60,12 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@Zefau) add Source and MinBrightness to Shelly Dimmer
+
 ### 8.5.1 (2024-12-02)
 
 * (@klein0r) Fixed digest auth for Shelly Wall Display

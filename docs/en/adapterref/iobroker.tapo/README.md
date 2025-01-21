@@ -37,6 +37,15 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.4.7 (2025-01-14)
+
+- disable battery devices
+- improved wrong formatted mail adresses
+
+### 0.4.6 (2025-01-10)
+
+- add checks for battery devices
+
 ### 0.4.5 (2024-12-16)
 
 - fix camera remotes
@@ -78,7 +87,7 @@ update onvif lib to fix issues with newer cameras
 
 MIT License
 
-Copyright (c) 2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

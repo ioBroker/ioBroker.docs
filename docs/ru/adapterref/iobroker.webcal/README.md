@@ -1,51 +1,51 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webcal/README.md
 title: ioBroker.webcal
-hash: RZ40auTf1roYKNB6E86KIvIf9W3rgwD9SiU2ktMSmKg=
+hash: x7IdZjWzNXOuXgsbADUbQ831huXVNg0dCPb5APqoAIM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.webcal/admin/webcal.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.webcal.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.webcal.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.webcal.svg)
 ![Количество установок](https://iobroker.live/badges/webcal-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/webcal-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/webcal-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.webcal.png?downloads=true)
 
 # IoBroker.webcal
-**Тесты:** ![Тестирование и выпуск](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
 
-## Веб-адаптер для ioBroker
-с помощью этого адаптера ioBroker вы можете
+## Адаптер webcal для ioBroker
+с этим адаптером ioBroker вы можете
 
-- получать события из WEBDAV, CALDAV, CARDDAV или Календаря Google.
+- извлечение событий из WEBDAV, CALDAV, CARDDAV или Google Calendar.
 - добавлять новые элементы календаря на основе событий
 
-### Календарные аккаунты
-**Nextcloud** используйте базовую аутентификацию и следующий URL-адрес (вы можете получить его по общей ссылке)
+### Календарные счета
+**Nextcloud** использует базовую аутентификацию и следующий URL (его можно получить по общей ссылке)
 
 `https://<domain>/<optional basePath>/remote.php/dav/calendars/<username>/<optional displaName>`
 
-**Google** см. [с помощью Google API](doc/google.md).
+**Google** см. [с использованием API Google](doc/google.md)
 
 - Используйте следующие настройки в ioBroker
-    - name = внутреннее имя, если оно соответствует названию календаря Google, оно будет использоваться
-- авторизация Methold = Google
+- имя = внутреннее имя, если оно совпадает с именем google-calendar, оно будет использовано
+- Метод аутентификации = google
 - Секрет = Секрет клиента
 - токен обновления = который вы получаете сверху
 - идентификатор клиента = ваш идентификатор клиента
 
-**Скачать iCal** вы можете скачать цифровой календарь для календаря, который не поддерживает dav. Но это не только для чтения, что означает, что элементы календаря не могут быть добавлены.
+**Загрузить iCal** вы можете загрузить календарь ical для календаря, который не поддерживает dav. Но это только для чтения, значит, элементы календаря не могут быть добавлены
 
 ### Точки данных
 **добавить новое событие**
 
-вы можете добавить новую запись календаря на основе события. Пожалуйста, используйте следующий синтаксис:
+Вы можете добавить новую запись календаря на основе события. Используйте следующий синтаксис:
 
 `relDays[@calendar] | date|datetime[ - date|datetime][@calendar]`
 
-relDays — количество дней, начиная с сегодняшнего дня, или дата/дата-время как анализируемая дата или дата-время. @calendar — необязательное имя календаря, по умолчанию сначала определяется календарь.
+relDays - количество дней от сегодняшнего дня или дата/дата-время как анализируемая дата или дата-время @calendar - необязательное имя календаря, по умолчанию - первый определенный календарь
 
 также возможно через скрипт:
 
@@ -54,13 +54,16 @@ sendTo("webcal.0", "addEvents", {
     calendar: "smarthome",
     events: [
       {
-        summary: "test",
-        start: "9.8.23 23:00",
-        end: "10.08.2023 14:00"
-      },
+        summary: "test2",
+        description: "test add Event",
+        location: "ort",
+        color: "red",
+        organizer: "ich",
+        start: "12.1.25 23:00"
+      }
       {
         summary: "failed test",
-		description: "long description",
+		    description: "long description",
         start: "9.8"
       }
     ]
@@ -74,7 +77,7 @@ sendTo("webcal.0", "addEvents", {
   })
 ```
 
-вывод из журнала будет:
+Вывод из журнала будет следующим:
 
 ```
 [
@@ -122,7 +125,7 @@ sendTo("webcal.0", "addEvents", {
 
 если `calendar` не указан, будет использоваться defaultCalender
 
-в `event` поля `end` и `description` являются необязательными.
+в `event` поле `end` и `description` является необязательным
 
 **удалить событие** можно с помощью скрипта:
 
@@ -146,7 +149,7 @@ sendTo("webcal.0", "deleteEvents", {
   })
 ```
 
-вывод из журнала будет:
+Вывод из журнала будет следующим:
 
 ```
 [
@@ -162,10 +165,10 @@ sendTo("webcal.0", "deleteEvents", {
 ```
 
 ### Визуализация
-если вы хотите использовать скрипт iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), вы можете использовать [это](doc/vis-material-design.js)
+если вы хотите использовать скрипт iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), вы можете использовать [этот](doc/vis-material-design.js)
 
 ### Известные ошибки
-нарушение (исключение) серия событий будет проигнорирована
+нарушение (исключение) ряда событий будет проигнорировано
 
 ### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ В этом проекте используются следующие компоненты:
 - [tsDav](https://github.com/natelindev/tsdav)
@@ -175,9 +178,53 @@ sendTo("webcal.0", "deleteEvents", {
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**	* ()
-
+  ### **WORK IN PROGRESS**
+  * ()
 -->
+### 1.4.0 (2025-01-12)
+* (dirkhe) add color,location and organizer for craeting Event
+* (dirkhe) add fix for invalid apple calender data
+
+### 1.3.13 (2025-01-03)
+* (dirkhe) use internally node20
+
+### 1.3.12 (2025-01-03)
+* (dirkhe) fixing pagacke with missing admin folder
+
+### 1.3.11 (2025-01-02)
+  * (dirkhe) update dependecies
+
+### 1.3.10 (2024-10-09)
+* (dirkhe) update dependecies
+* (dirkhe) fix calendar test functionality
+
+### 1.3.8 (2024-07-02)
+  * (dirkhe) update dependecies
+  * (dirkhe) allow download calendar without passwort
+  * (dirkhe) fix missing monthly/yearly recurring
+
+### 1.3.7 (2024-05-20)
+  * (dirkhe) improve logging
+  * (dirkhe) fix passort was not stored
+
+### 1.3.6 (2024-05-18)
+  * (dirkhe) fix bug in repeated events
+
+### 1.3.5 (2024-05-05)
+* (dirkhe) increase dependecy adapter-core
+* (dirkhe) fix json config
+* (dirkhe) update dependecies
+
+### 1.3.3 (2024-04-07)	
+* (dirkhe) fix config validation
+* (dirkhe) update dependecies
+* (dirkhe) update year for copyright #56
+* (dirkhe) increase to node 18 for CI Pipeline
+
+### 1.3.2 (2024-02-23)
+* (dirkhe) update dependecies
+* (dirkhe) linting
+
 ### 1.3.0 (2023-10-31)	
 * (dirkhe) add choose calendar for events
 * (dirkhe) add example script for vis-material-designmaterial
@@ -242,7 +289,7 @@ sendTo("webcal.0", "deleteEvents", {
 ## License
 MIT License
 
-Copyright (c) 2023 dirkhe 
+Copyright (c) 2025 dirkhe 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

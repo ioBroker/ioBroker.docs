@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webcal/README.md
 title: ioBroker.webcal
-hash: RZ40auTf1roYKNB6E86KIvIf9W3rgwD9SiU2ktMSmKg=
+hash: x7IdZjWzNXOuXgsbADUbQ831huXVNg0dCPb5APqoAIM=
 ---
 ![Logo](../../../en/adapterref/iobroker.webcal/admin/webcal.png)
 
@@ -14,38 +14,38 @@ hash: RZ40auTf1roYKNB6E86KIvIf9W3rgwD9SiU2ktMSmKg=
 ![NPM](https://nodei.co/npm/iobroker.webcal.png?downloads=true)
 
 # IoBroker.webcal
-**Tests:** ![Test und Freigabe](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
 
-## Webcal-Adapter für ioBroker
-Mit diesem ioBroker-Adapter ist das möglich
+## WebCal-Adapter für ioBroker
+Mit diesem ioBroker-Adapter können Sie
 
-- Holen Sie sich Ereignisse von WEBDAV, CALDAV, CARDDAV oder Google Kalender.
-- Fügen Sie neue Kalenderelemente basierend auf Ereignissen hinzu
+- Ereignisse von WEBDAV, CALDAV, CARDDAV oder Google Kalender abrufen.
+- neue Kalenderelemente basierend auf Ereignissen hinzufügen
 
 ### Kalenderkonten
 **Nextcloud** verwendet die Basisauthentifizierung und die folgende URL (Sie können sie über einen freigegebenen Link erhalten)
 
 `https://<domain>/<optional basePath>/remote.php/dav/calendars/<username>/<optional displaName>`
 
-**Google** siehe [mithilfe der Google-API](doc/google.md)
+**Google** siehe [mithilfe der Google API](doc/google.md)
 
 - Verwenden Sie die folgenden Einstellungen in ioBroker
-    - Name = interner Name. Wenn dieser mit dem Namen des Google-Kalenders übereinstimmt, wird dieser verwendet
-- auth Methold = google
-- Secret = Client-Geheimnis
-- Aktualisierungstoken = welches Sie von oben erhalten
-- Kunden-ID = Ihre Kunden-ID
+- Name = interner Name, wenn dieser mit dem Namen des Google-Kalenders übereinstimmt, wird dieser verwendet
+- Authentifizierungsmethode = Google
+- Geheimnis = Client-Geheimnis
+- Refresh-Token = welches du von oben bekommst
+- Client-ID = Ihre Client-ID
 
-**Laden Sie iCal herunter** Sie können einen ical-Kalender für Kalender herunterladen, die DAV nicht unterstützen. Dies ist jedoch schreibgeschützt, was bedeutet, dass keine Kalenderelemente hinzugefügt werden konnten
+**Download iCal** Sie können einen iCal-Kalender für Kalender herunterladen, die DAV nicht unterstützen. Dieser ist jedoch schreibgeschützt, d. h. es können keine Kalenderelemente hinzugefügt werden
 
 ### Datenpunkte
-**Neues Ereignis hinzufügen**
+**neues Ereignis hinzufügen**
 
 Sie können einen neuen Kalendereintrag basierend auf dem Ereignis hinzufügen. Bitte verwenden Sie die folgende Syntax:
 
 `relDays[@calendar] | date|datetime[ - date|datetime][@calendar]`
 
-relDays – Anzahl der Tage ab heute oder Datum/Datum/Uhrzeit als analysierbares Datum oder Datum/Uhrzeit. @calendar ist optional der Name des Kalenders, Standard ist der zuerst definierte Kalender
+relDays - Anzahl der Tage ab heute oder Datum/Datum/Uhrzeit als analysierbares Datum oder Datum/Uhrzeit @calendar ist optional der Name des Kalenders, Standard ist der erste definierte Kalender
 
 auch per Script möglich:
 
@@ -54,13 +54,16 @@ sendTo("webcal.0", "addEvents", {
     calendar: "smarthome",
     events: [
       {
-        summary: "test",
-        start: "9.8.23 23:00",
-        end: "10.08.2023 14:00"
-      },
+        summary: "test2",
+        description: "test add Event",
+        location: "ort",
+        color: "red",
+        organizer: "ich",
+        start: "12.1.25 23:00"
+      }
       {
         summary: "failed test",
-		description: "long description",
+		    description: "long description",
         start: "9.8"
       }
     ]
@@ -74,7 +77,7 @@ sendTo("webcal.0", "addEvents", {
   })
 ```
 
-Die Ausgabe des Protokolls lautet:
+Die Ausgabe aus dem Protokoll lautet:
 
 ```
 [
@@ -120,7 +123,7 @@ Die Ausgabe des Protokolls lautet:
 ]
 ```
 
-Wenn `calendar` nicht angegeben ist, wird defaultCalender verwendet
+wenn `calendar` nicht angegeben ist, wird defaultCalender verwendet
 
 auf `event` Feld `end` und `description` ist optional
 
@@ -146,7 +149,7 @@ sendTo("webcal.0", "deleteEvents", {
   })
 ```
 
-Die Ausgabe des Protokolls lautet:
+Die Ausgabe aus dem Protokoll lautet:
 
 ```
 [
@@ -162,10 +165,10 @@ Die Ausgabe des Protokolls lautet:
 ```
 
 ### Visualisierung
-wenn Sie das iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), Sie können [dieses verwenden](doc/vis-material-design.js)-Skript verwenden möchten
+wenn Sie das iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), können Sie [dieses](doc/vis-material-design.js) Skript verwenden möchten
 
 ### Bekannte Fehler
-Das Brechen (Ausnahme) einer Reihe von Ereignissen wird ignoriert
+Unterbrechung (Ausnahme) einer Reihe von Ereignissen wird ignoriert
 
 ### HAFTUNGSAUSSCHLUSS Dieses Projekt verwendet die folgenden Komponenten:
 - [tsDav](https://github.com/natelindev/tsdav)
@@ -175,9 +178,53 @@ Das Brechen (Ausnahme) einer Reihe von Ereignissen wird ignoriert
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**	* ()
-
+  ### **WORK IN PROGRESS**
+  * ()
 -->
+### 1.4.0 (2025-01-12)
+* (dirkhe) add color,location and organizer for craeting Event
+* (dirkhe) add fix for invalid apple calender data
+
+### 1.3.13 (2025-01-03)
+* (dirkhe) use internally node20
+
+### 1.3.12 (2025-01-03)
+* (dirkhe) fixing pagacke with missing admin folder
+
+### 1.3.11 (2025-01-02)
+  * (dirkhe) update dependecies
+
+### 1.3.10 (2024-10-09)
+* (dirkhe) update dependecies
+* (dirkhe) fix calendar test functionality
+
+### 1.3.8 (2024-07-02)
+  * (dirkhe) update dependecies
+  * (dirkhe) allow download calendar without passwort
+  * (dirkhe) fix missing monthly/yearly recurring
+
+### 1.3.7 (2024-05-20)
+  * (dirkhe) improve logging
+  * (dirkhe) fix passort was not stored
+
+### 1.3.6 (2024-05-18)
+  * (dirkhe) fix bug in repeated events
+
+### 1.3.5 (2024-05-05)
+* (dirkhe) increase dependecy adapter-core
+* (dirkhe) fix json config
+* (dirkhe) update dependecies
+
+### 1.3.3 (2024-04-07)	
+* (dirkhe) fix config validation
+* (dirkhe) update dependecies
+* (dirkhe) update year for copyright #56
+* (dirkhe) increase to node 18 for CI Pipeline
+
+### 1.3.2 (2024-02-23)
+* (dirkhe) update dependecies
+* (dirkhe) linting
+
 ### 1.3.0 (2023-10-31)	
 * (dirkhe) add choose calendar for events
 * (dirkhe) add example script for vis-material-designmaterial
@@ -242,7 +289,7 @@ Das Brechen (Ausnahme) einer Reihe von Ereignissen wird ignoriert
 ## License
 MIT License
 
-Copyright (c) 2023 dirkhe 
+Copyright (c) 2025 dirkhe 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

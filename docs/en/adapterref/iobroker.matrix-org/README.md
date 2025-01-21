@@ -6,8 +6,6 @@
 ![Number of Installations](https://iobroker.live/badges/matrix-org-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/matrix-org-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.matrix-org.png?downloads=true)](https://nodei.co/npm/iobroker.matrix-org/)
-
 **Tests:** ![Test and Release](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
 
 ## matrix-org adapter for ioBroker

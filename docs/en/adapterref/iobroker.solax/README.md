@@ -100,10 +100,11 @@ If you would like to have other inverters integrated, you should make the data e
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 0.9.14 (2025-01-08)
 * (simatec) eslint-config fix
 * (simatec) Code fix
 * (simatec) Dependencies updated
+* (simatec) License updated
 
 ### 0.9.13 (2024-11-27)
 * (simatec) Dependencies updated
@@ -315,7 +316,7 @@ If you would like to have other inverters integrated, you should make the data e
 ## License
 MIT License
 
-Copyright (c) 2021 - 2024 simatec
+Copyright (c) 2021 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

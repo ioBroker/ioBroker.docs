@@ -1,13 +1,13 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ikettle2/README.md
 title: ioBroker.ikettle2
-hash: wEF/M5ePNGzhc8BjCcmBgAGYj+onZzFTGBl0QaEWKA4=
+hash: cMO+RpaDdkvLmHNr84/MJCvLPK2UqsoTCBY2kHS/22s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ikettle2/admin/ikettle2.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.ikettle2.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.ikettle2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ikettle2.svg)
 ![Количество установок (последнее)](https://iobroker.live/badges/ikettle2-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/ikettle2-stable.svg)
@@ -15,52 +15,61 @@ hash: wEF/M5ePNGzhc8BjCcmBgAGYj+onZzFTGBl0QaEWKA4=
 ![НПМ](https://nodei.co/npm/iobroker.ikettle2.png?downloads=true)
 
 # IoBroker.ikettle2
-** Тесты: ** ![Тестирование и выпуск](https://github.com/jey-cee/ioBroker.ikettle2/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/jey-cee/ioBroker.ikettle2/workflows/Test%20and%20Release/badge.svg)
 
-## Ikettle2 адаптер для ioBroker
+##адаптер ikettle2 для ioBroker
 Управляйте своим Smarter iKettle 2.0 с помощью ioBroker.
 
-## Присоединяйтесь к серверу Discord, чтобы обсудить все о ioBroker!
+## Присоединяйтесь к серверу Discord, чтобы обсудить все, что касается ioBroker!
 <a href="https://discord.gg/HwUCwsH"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Спонсоры](./SPONSORS.md)
-Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвования для Jey Cee, не имеющая отношения к проекту ioBroker!) [![Пожертвовать] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
+Если вам понравилась моя работа, пожалуйста, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвований для Jey Cee, никакого отношения к проекту ioBroker не имеет!) [![Пожертвовать](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
 ---
 
-## Руководство по эксплуатации
-### Описание объекта **вкл** - Включает чайник. set_temperature необходимо установить раньше.
-** on_formula ** - включает чайник, нагревает и поддерживает температуру formula_time в течение времени warming_time.
-Формула_температура и время нагрева должны быть установлены раньше.
+## Руководство
+### Описание объекта **on** - Включает чайник. Перед этим необходимо установить set_temperature.
+**on_formula** - Включает чайник, нагревает и поддерживает температуру_формулы в течение времени_подогрева.
+температура_формулы и время_подогрева должны быть установлены заранее.
 
-** calibrate ** - начать базовую калибровку.
+**калибровать** - начать базовую калибровку.
 
-** on_plate ** - указывает, стоит ли чайник на опорной плите.
+**on_plate** — указывает, находится ли чайник на подставке.
 
-** set_temperature ** - Целевая температура нагрева воды.
+**set_temperature** - Целевая температура для нагрева воды.
 
-** formula_temperature ** - Целевая температура после нагрева воды до заданной_температуры.
+**formula_temperature** - Целевая температура после нагрева воды до заданной температуры.
 
-** water_temperature ** - Фактическая температура воды.
+**температура_воды** - Фактическая температура воды.
 
-** water_level ** - Фактическое количество воды в чайнике. Примечание. Точность не так хороша и может быть совершенно ложной, поэтому убедитесь, что в чайнике есть вода, глазами.
+**water_level** - Фактическое количество воды в чайнике. Примечание: точность не очень высокая и может быть полностью ложной, поэтому проверяйте наличие воды в чайнике глазами.
 
-** warming_time ** - время, в течение которого чайник будет поддерживать воду при температуре формулы перед выключением.
-Примечание: 0 = не используется, минимальное время - 5 минут, максимальное - 30 минут.
+**warming_time** — время, в течение которого чайник будет поддерживать температуру воды, заданную формулой, перед выключением.
+Примечание: 0 = не используется, минимальное время — 5 минут, максимальное — 30 минут.
 
-** get_preset ** - считывать предустановленные значения для ручного управления (без приложения) из чайника.
+**get_preset** - Считывание предустановленных значений для ручного управления (без приложения) с чайника.
 
-** set_preset ** - Установите предварительно заданные значения на чайнике для ручного управления (без приложения).
-Формула_температура, температура и время нагрева в предварительно заданной папке должны быть установлены раньше.
+**set_preset** - Установите предустановленные значения на чайнике для ручного управления (без приложения).
+Formula_temperature, температура и warming_time в папке preset должны быть установлены заранее.
 
 ---
 
-### Calibrate Возьмите чайник с подставки и установите для объекта значение true.
-После звукового сигнала с базы вы можете снова поставить чайник на базу и использовать его.
+### Калибровка Снимите чайник с базы, затем установите калибровку объекта на значение true.
+После звукового сигнала от базы вы можете вернуть чайник на базу и использовать его.
 ---
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* (Jey Cee) Correct size of ip input on xl displays
+
+### 1.0.2
+* (Jey Cee) Add watchdog for connection to prevent adapter freeze
+* (Jey Cee) Migrate config to JSON Config
+* (Jey Cee) Update dependencies 
+* (Jey Cee) Fix issues found by adapter checker
+
+### 1.0.1
 * (Jey Cee) fixes for Beta release
 
 ### 1.0.0
@@ -69,7 +78,7 @@ hash: wEF/M5ePNGzhc8BjCcmBgAGYj+onZzFTGBl0QaEWKA4=
 ## License
 MIT License
 
-Copyright (c) 2021 Jey Cee <jey-cee@live.com>
+Copyright (c) 2021-2025 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

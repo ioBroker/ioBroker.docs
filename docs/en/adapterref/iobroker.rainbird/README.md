@@ -74,7 +74,7 @@ This adapter would not have been possible without the great work of Marius Burka
 
 The MIT License (MIT)
 
-Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -94,7 +94,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
-## Donate
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFLJ8HCW9T698&source=url)

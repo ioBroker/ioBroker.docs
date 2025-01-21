@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.squeezeboxrpc/README.md
-title: Адаптер ioBroker Logitech Squeezebox через протокол JSON/RPC
-hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
+title: Адаптер ioBroker Logitech/Lyrion Squeezebox через протокол JSON/RPC
+hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -13,24 +13,20 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/squeezeboxrpc-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.squeezeboxrpc.png?downloads=true)
 
-# Адаптер ioBroker Logitech Squeezebox через протокол JSON/RPC
+# Адаптер ioBroker Logitech/Lyrion Squeezebox через протокол JSON/RPC
 **Тесты:** ![Тест и выпуск](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
-Это альтернативный адаптер, который использует протокол `JSON/RPC` для получения данных и отправки команд на Logitech Media Server ([СУО](https://de.wikipedia.org/wiki/Logitech_Media_Server)) для управления подключенными устройствами, такими как
+Это альтернативный адаптер, который использует протокол `JSON/RPC` для получения данных и отправки команд на Logitech Media Server/Lyrion Media Server ([СУО](https://de.wikipedia.org/wiki/Lyrion_Music_Server)) для управления подключенными устройствами, такими как
 
 - родной [squeezebox](https://de.wikipedia.org/wiki/Squeezebox),
 - Raspberry Pi с дополнительным аудиомодулем и небольшими прошивками на базе Linux
 
 как [picoreplayer](https://picoreplayer.org/) или [max2play](https://www.max2play.com).
 
+- WiiM Multiroom Audio ([может взаимодействовать с сервером LMS/Lyrion](https://faq.wiimhome.com/en/support/solutions/articles/72000610226-how-to-stream-music-from-lms-to-your-wiim-device-with-squeezelite))
 - с плагинами chromecast, airplay или `UPnP/DLNA`-устройствами
 
 Сервер `LMS` может управлять/предоставлять очень большие музыкальные коллекции на жестких дисках или `NAS`, подключаться к различным потоковым провайдерам, таким как `Spotify`, `Deezer`, `Soundcloud`, `shoutcast`, `tunein`, `napster`, `pandora`, `tidal` и другим.
-
-Зачем нужен еще один адаптер `Squeezebox`?
-
-Существующий адаптер использует `telnet` для доступа к `LMS`. У telnet есть некоторые недостатки.
-Фактический основной веб-интерфейс `LMS` также использует rpc/json-протокол для получения всей необходимой информации или отправки команд серверу/плеерам.
 
 ## Функции
 - большая часть [данных](#server), которые предоставляет `LMS`-Service, доступна в адаптере
@@ -50,7 +46,7 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ## Установка
 - Установить пакет
 - Создать экземпляр
-- Настройте экземпляр с IP-адресом медиасервера Logitech.
+- Настройте экземпляр с IP-адресом медиасервера logitech/Lyrion.
 
 и порт (обычно 9000)
 
@@ -186,7 +182,7 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ### Панель кнопок проигрывателя
 ![Панель кнопок проигрывателя](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/players.png)
 
-Все проигрыватели, интегрированные в ваш Logitech Media Server, можно выбрать с помощью этого виджета. После выбора экземпляра `squeezerpc.?` доступные проигрыватели отображаются в виджете.
+Все проигрыватели, интегрированные в ваш Logitech/Lyrion Media Server, можно выбрать с помощью этого виджета. После выбора экземпляра `squeezerpc.?` доступные проигрыватели отображаются в виджете.
 
 #### Атрибуты
 | Группа | Атрибут | Описание |
@@ -211,8 +207,8 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ### Панель кнопок избранного
 ![Панель кнопок «Избранное»](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/favorites.png)
 
-Вы можете использовать этот виджет для выбора всех избранных, которые были\созданы на вашем Logitech Media Server.
-После выбора виджета Player доступные избранные отображаются в виджете.
+Вы можете использовать этот виджет для выбора всех избранных, которые были\созданы на вашем Logitech/Lyrion Media Server.
+После выбора виджета проигрывателя доступные избранные отображаются в виджете.
 
 | Группа | Атрибут | Описание |
 | ------------------- | --------------- | ----------------------------------------------------------------------------------------------------- |
@@ -340,7 +336,7 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ### Игровая панель
 ![Бар для игр](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playtime.png)
 
-Полоса времени воспроизведения визуально отображает ход воспроизведения песни, которая в данный момент воспроизводится,\ при условии, что сервер предоставляет общее время воспроизведения (продолжительность).\ Обычно это не относится к онлайн-трансляциям. Ширина полосы\ соответствует 100% времени воспроизведения песни. Нажав на точку на полосе, вы можете перейти к нужному моменту в песне.\ Для подготовки необходимо подключить кнопку к виджету плеера.
+Полоса времени воспроизведения визуально отображает ход воспроизведения песни, которая в данный момент проигрывается,\ при условии, что сервер предоставляет общее время воспроизведения (продолжительность).\ Обычно это не относится к онлайн-трансляциям. Ширина полосы\ соответствует 100% времени воспроизведения песни. Нажав на точку на полосе, вы можете перейти к нужному моменту в песне.\ Для подготовки необходимо подключить кнопку к виджету плеера.
 
 #### Атрибуты для панели времени воспроизведения
 | Группа | Атрибут | Описание |
@@ -526,7 +522,12 @@ main();
 -->
 ### **WORK IN PROGRESS**
 
+- upgrade dependency js-controller
+
+### 1.5.2 (2024-12-16)
+
 - fix spelling of iobroker upload squeezeboxrpc in readme
+- fix playtime bar
 
 ### 1.5.1 (2024-11-29)
 

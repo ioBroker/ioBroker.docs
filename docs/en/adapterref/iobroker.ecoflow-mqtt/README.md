@@ -52,6 +52,8 @@ There are 3 possibilities:
 
 The mqqt Broker settings are default and usually need no modification.
 
+!!! In cases where the mqtt-server refuses the connection it might be helpfull to check with option #2 the output of that website, in some cases it will return a different mqtt-broker address !!!
+
 ## Device setup and Configuration
 
 Use the tab "Device(s) Configuration" for adding your equipment.
@@ -157,6 +159,16 @@ Use the tab "Device(s) Configuration" for adding your equipment.
 * set the deviceID of Smart Plug as shown in the app, something like "BX11ZCB..."
 * give it a name
 * set the type to "Glacier"
+
+</p></details>
+
+<details><summary><i>Parametrizing the Alternator</i></summary>
+<p>
+
+* add a new row
+* set the deviceID of Smart Plug as shown in the app, something like "F371ZE..."
+* give it a name
+* set the type to "Alternator 800W"
 
 </p></details>
 
@@ -311,9 +323,28 @@ it creates [PROTOBUF unknown] messages in th log, they contain the raw hex teleg
 
 ## Changelog
 
-### 1.1.1
+### 1.2.1 (npm)
+* (foxthefox) corrections for pstream objects, some changed from string to number
+* (foxthefox) new SHP time task config values
+
+### 1.2.0 (npm)
+* (foxthefox) new values powerocean
+* (foxthefox) new values powerstream
+* (foxthefox) new values plug
+* (foxthefox) enhancements on values for SHP2,DPU,alternator
+
+### 1.1.3 (npm)
+* (foxthefox) enhancements to alternator values
+* (foxthefox) refactoring of protobuf handling/structure/component data
+
+### 1.1.2 (npm)
+* (bh1cqx) handle HA restart #PR193
+* (foxthefox) initial state population of BPInfo2/3 to HA
+* (foxthefox) jsonConfig enhancements
+
+### 1.1.1 (npm)
 * (foxthefox) changed code structure
-* (foxthefox) initial population of BPInfo2/3 to HA
+* (foxthefox) initial state creation of BPInfo2/3 to HA
 
 ### 1.1.0 (npm)
 * (foxthefox) added a preliminary version of alternator (no cmd, non final state names)

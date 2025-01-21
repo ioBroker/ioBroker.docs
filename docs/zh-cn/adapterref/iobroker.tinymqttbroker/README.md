@@ -3,29 +3,29 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: 3KGsvglliyDCZlZEmVvH1fclVvMOAYpPGEsuoPJmfZQ=
+hash: +4BEYBju93eii2cAjZxbr+S6XLLuzNLxSM8pDCE4O68=
 ---
 ![标识](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
 ![稳定存储库中的当前版本](https://iobroker.live/badges/tinymqttbroker-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)
 ![安装数量](https://iobroker.live/badges/tinymqttbroker-installed.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA 状态](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
+![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA 状态]（https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license）](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
-## IoBroker 的tinymqttbroker 适配器
-这是一个非常小的 MQTT 代理，它不管理 iobroker 中的任何对象/状态，但提供一个中央 MQTT 代理实例来作为 MQTT 客户端发布订阅主题。让多个设备与一个代理通信并使用 MQTT 客户端 JavaScript 在 iobroker 上进行交互非常有帮助。
+## 用于 ioBroker 的 tinymqttbroker 适配器
+这是非常小的 MQTT 代理，它不管理 iobroker 中的任何对象/状态，但提供了一个中央 MQTT 代理实例，以 MQTT 客户端的身份发布订阅主题。非常有助于让多个设备与一个代理对话，并通过 MQTT 客户端 javascript 在 iobroker 上进行交互。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
 
 ## 需要
-* Node.js 18 或更高版本
-* ioBroker 主机（js-controller）5.0 或更高版本
+* Node.js 20 或更高版本
+* ioBroker 主机 (js-controller) 5.0 或更高版本
 
-＃＃ 如何使用它
+如何使用
 MQTT 客户端可能看起来像
 
 ```
@@ -64,8 +64,8 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-为了发布消息，我使用一个 ioBroker 状态来侦听任何更改并将其推送到代理。
-状态需要一个包含“主题”和“消息”的 JSON。
+为了发布消息，我使用一个 ioBroker 状态来监听任何更改并将其推送到代理。
+状态需要包含“主题”和“消息”的 JSON。
 
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
@@ -77,7 +77,7 @@ on({ id: stateMqttIn, change: 'any' }, function (obj) {
 });
 ```
 
-重要的！如果您在 ioBroker javascript 中创建自己的 MQTT 客户端，请不要忘记使用以下命令在 scipt 中关闭客户端
+重要提示！如果您在 ioBroker javascript 中创建自己的 MQTT 客户端，请不要忘记使用以下命令在脚本中关闭客户端
 
 ```
 onStop(function (callback) {
@@ -96,6 +96,12 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.3 (2024-10-19)
+* (HGlab01) Improve port scan for available ports
+* (HGlab01) Improve UI config
+* (HGlab01) Bump json-explorer to 0.1.16
+* (HGlab01) Bump aedes to 0.51.3
+
 ### 0.1.1 (2024-02-01)
 * (HGlab01) Bump json-explorer to 0.1.15
 * (HGlab01) Bump aedes to 0.51.0
@@ -124,7 +130,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2024 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

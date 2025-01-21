@@ -32,6 +32,15 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.4.3 (2025-01-15)
+* (BenAhrdt) bugfix reading id of device
+
+### 3.4.2 (2025-01-15)
+* (BenAhrdt) remove wrong errorlogging
+
+### 3.4.1 (2025-01-15)
+* (BenAhrdt) set the \" in jsonconfig and parse the message.device (bugfix for valueconfig)
+
 ### 3.4.0 (2024-12-05)
 * (BenAhrdt) update eslint
 
@@ -289,7 +298,7 @@ Implemented are the following times:
 ## License
 MIT License
 
-Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

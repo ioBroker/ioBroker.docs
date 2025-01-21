@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: v9Sk35pDDGYxQreQjc1ZPCzaXZYh2SrKbaBwzPFZ0qw=
+hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -18,14 +18,14 @@ hash: v9Sk35pDDGYxQreQjc1ZPCzaXZYh2SrKbaBwzPFZ0qw=
 
 ## Системы отопления Bosch / Buderus с интерфейсом km200 / IP-inside и/или ems-esp
 Адаптер поддерживает интерфейс с системами отопления от Bosch Group с использованием шины EMS или EMS+.
-(Buderus / Junkers / Netfit и т. д.).
+(Bosch / Buderus / Junkers / Netfit и т. д.).
 
 ## Адаптер может взаимодействовать с системой отопления с помощью вызовов API. Поддерживаемые шлюзы:
 * km200, km200 hrv, km100, km50, HMC300 или IP-inside (от Bosch Group)
 
 * шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с чипом ESP32.
 
-Старые шлюзы ESP8266 с API V2 больше не поддерживаются!! Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки (V3.7.1) Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Используйте на свой страх и риск.
+Старые шлюзы ESP8266 с API V2 больше не поддерживаются!! Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки. Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Используйте на свой страх и риск.
 
 * Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, поскольку они не поддерживают LAN API!
 

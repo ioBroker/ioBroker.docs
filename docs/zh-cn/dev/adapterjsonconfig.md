@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: 58896wn7SCp5CIYwuJjSiflscY/mhseioypkwO/+BzA=
+hash: Xc+YrZnmi1mYWiUlwueSm0wlq0IGSe5whY3wgjEn/AA=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。此方法提供了一种更加用户友好且灵活的方式，可在 ioBroker Admin 界面中管理适配器设置。
@@ -253,7 +253,7 @@ admin/customI18n/en.json
 
 文件的结构对应以下结构
 
-**en.json:**
+**en.json：**
 
 ```json5
 {
@@ -547,7 +547,7 @@ admin/customI18n/en.json
 | `all` | 将值 `*` 添加到选项“all”选项 |
 
 ###`chips`
-用户可以输入单词，然后它将被添加（参见云 => 服务 => 白名单）。如果没有定义`delimiter`，则输出是一个数组。
+用户可以输入单词，它将被添加（参见云 => 服务 => 白名单）。如果没有定义`delimiter`，则输出是一个数组。
 
 | 属性 | 描述 |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -583,7 +583,7 @@ admin/customI18n/en.json
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`、`outlined` 或无 |
 | `openUrl` | 如果为真 - 在新选项卡中打开 URL，如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果`saveConfig`为真，则将要求用户保存配置。|
-| `reloadBrowser` | 如果为真 - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
+| `reloadBrowser` | 如果为 true - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
 | `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以被覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用`base64` 图标（如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
 | `useNative` | 如果适配器返回的结果具有 `native` 属性，则将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。|
@@ -750,7 +750,7 @@ admin/customI18n/en.json
 
 | 属性 | 描述 |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹中的所有文件 `folderName`。默认 `**/*.*`。|
+| `pattern` | 文件扩展名模式。允许`**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或`folderName/*.ext` 显示子文件夹中的所有文件`folderName`。默认`**/*.*`。|
 | `objectID` | 对象 ID 类型为 `meta`。您可以使用特殊占位符 `%INSTANCE%`：如 `myAdapter.%INSTANCE%.files` |
 | `upload` | 路径，上传的文件将存储于此。例如 `folderName`。如果未定义，则不会显示上传字段。要在根目录中上传，请将此字段设置为 `/`。|
 | `refresh` | 在选择附近显示刷新按钮。|
@@ -1334,6 +1334,9 @@ const isValid = func(
 ```
 
 您可以在[`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) 或在 [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) 适配器中找到示例。
+
+## 报告架构错误
+在此处创建问题：https：//github.com/ioBroker/adapter-react-v5/issues
 
 ## 对于维护者
 要更新 JsonConfig 模式的位置，请对此文件创建拉取请求：https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json

@@ -51,13 +51,16 @@ sendTo("webcal.0", "addEvents", {
     calendar: "smarthome",
     events: [
       {
-        summary: "test",
-        start: "9.8.23 23:00",
-        end: "10.08.2023 14:00"
-      },	  
+        summary: "test2",
+        description: "test add Event",
+        location: "ort",
+        color: "red",
+        organizer: "ich",
+        start: "12.1.25 23:00"
+      }
       {
         summary: "failed test",
-		description: "long description",
+		    description: "long description",
         start: "9.8"
       }
     ]
@@ -172,6 +175,10 @@ This project uses the following components:
   ### **WORK IN PROGRESS**
   * ()
 -->
+### 1.4.0 (2025-01-12)
+* (dirkhe) add color,location and organizer for craeting Event
+* (dirkhe) add fix for invalid apple calender data
+
 ### 1.3.13 (2025-01-03)
 * (dirkhe) use internally node20
 

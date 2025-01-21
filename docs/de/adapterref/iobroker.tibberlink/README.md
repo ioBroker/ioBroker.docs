@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
+hash: ScdfSSJgy0U6nhEZLlwLWz0oddDMt+SOYLD+ScIS6cc=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -50,13 +50,13 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn S
 – Da die Tibber-Verbindung nun besteht, können Sie den Rechner auch nutzen, um zusätzliche Automatisierungsfunktionen in den TibberLink-Adapter zu integrieren.
 - Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Zuhause verknüpft ist.
 - Diese Kanäle können basierend auf entsprechenden Zuständen aktiviert oder deaktiviert werden.
-- Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
+– Diese Zustände sind als externe, dynamische Eingaben für TibberLink konzipiert und ermöglichen Ihnen beispielsweise, die Grenzkosten („TriggerPrice“) von einer externen Quelle aus anzupassen oder den Rechnerkanal („Active“) zu deaktivieren.
 - Die Zustände eines Rechnerkanals werden neben den Home-Zuständen platziert und nach der Kanalnummer benannt. Dabei wird der im Admin-Bildschirm gewählte Kanalname hier angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
 
   ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
 
 - Das Verhalten jedes Kanals wird durch seinen Typ bestimmt: „Beste Kosten (LTF)“, „Beste Einzelstunden (LTF)“, „Bester Stundenblock (LTF)“ oder „Smart Battery Buffer“.
-- Jeder Kanal füllt einen oder zwei externe Zustände als Ausgabe aus, die auf der Registerkarte „Einstellungen“ ausgewählt werden müssen. Dieser Zustand könnte beispielsweise „0_userdata.0.example_state“ oder ein beliebiger anderer beschreibbarer externer Zustand sein.
+- Jeder Kanal füllt einen oder zwei externe Zustände als Ausgabe aus, die auf der Registerkarte „Einstellungen“ ausgewählt werden müssen. Dieser Zustand könnte beispielsweise „0_userdata.0.example_state“ oder ein anderer beschreibbarer externer Zustand sein.
 - Wenn kein externer Ausgabezustand ausgewählt ist, wird ein interner Zustand innerhalb des Bereichs des Kanals erstellt.
 - Die in den Ausgangszustand zu schreibenden Werte können in „Wert JA“ und „Wert NEIN“ definiert werden, z.B. „true“ für boolesche Zustände oder eine zu schreibende Zahl bzw. ein zu schreibender Text.
 - Ausgänge:
@@ -66,16 +66,16 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich es sehr schätzen, wenn S
 
 Zusätzlich werden die durchschnittlichen Gesamtkosten im ermittelten Block in einen Status „AverageTotalCost“ in der Nähe der Eingangszustände dieses Kanals geschrieben. Außerdem werden Start- und Endstunde des Blocks als Ergebnis der Berechnung in „BlockStartFullHour“ und „BlockEndFullHour“ geschrieben.
 
+- „Bester Prozentsatz“: Gibt „JA“ während der günstigsten Stunde und aller anderen Stunden aus, in denen der Preis innerhalb des im Einstellungsstatus „Prozentsatz“ angegebenen Prozentbereichs liegt.
 - „Best cost LTF“: „Beste Kosten“ innerhalb eines begrenzten Zeitrahmens (LTF).
 - „Beste Einzelstunden LTF“: „Beste Einzelstunden“ innerhalb eines begrenzten Zeitrahmens (LTF).
 - „Beststundenblock LTF“: „Beststundenblock“ innerhalb eines begrenzten Zeitrahmens (LTF).
+- „Bester Prozentsatz LTF“: „Bester Prozentsatz“ innerhalb eines begrenzten Zeitrahmens (LTF).
 - „Smart Battery Buffer“: Verwenden Sie den Parameter „EfficiencyLoss“, um den Effizienzverlust des Batteriesystems anzugeben. Der Parameter „EfficiencyLoss“ kann zwischen 0 und 1 liegen, wobei 0 keinen Effizienzverlust und 1 einen vollständigen Effizienzverlust darstellt. Ein Wert von 0,25 bedeutet beispielsweise einen Effizienzverlust von 25 % für einen Lade-/Entladezyklus.
 
 Geben Sie mit dem Parameter „AmountHours“ die gewünschte Stundenzahl für die Batterieladung ein. Der Rechner wird während der angegebenen „AmountHours“-Preisgünstigsten Stunden die Batterieladung aktivieren („Wert JA“) und die Batteriespeisung deaktivieren („Wert 2 NEIN“). Umgekehrt wird er während der Stunden mit den höchsten Kosten die Batterieladung deaktivieren („Wert NEIN“) und die Batteriespeisung aktivieren („Wert 2 JA“), sofern diese Kosten höher sind als der höchste Gesamtpreis der Preisgünstigen Stunden. In den übrigen Normalstunden, in denen eine Energiepufferung durch die Batterie nicht wirtschaftlich ist, werden beide Ausgänge abgeschaltet.
 
-- „Bester Prozentsatz“: Gibt „JA“ während der günstigsten Stunde und aller anderen Stunden aus, in denen der Preis innerhalb des im Einstellungsstatus „Prozentsatz“ angegebenen Prozentbereichs liegt.
-- „Bester Prozentsatz LTF“: „Bester Prozentsatz“ innerhalb eines begrenzten Zeitrahmens (LTF).
-- LTF-Kanäle: Diese funktionieren ähnlich wie Standardkanäle, sind jedoch nur innerhalb eines Zeitrahmens aktiv, der durch die Statusobjekte „StartTime“ und „StopTime“ definiert ist. Nach „StopTime“ wird der Kanal automatisch deaktiviert. „StartTime“ und „StopTime“ können sich über zwei Kalendertage erstrecken, da Tibber keine Daten über ein 48-Stunden-Fenster hinaus bereitstellt. Beide Zustände erfordern eine Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit einem Zeitzonenoffset, z. B. „2024-12-24T18:00:00.000+01:00“. Darüber hinaus verfügen die LTF-Kanäle über einen neuen Statusparameter namens „RepeatDays“, der standardmäßig auf 0 gesetzt ist. Wenn „RepeatDays“ auf eine positive Ganzzahl gesetzt ist, wiederholt der Kanal seinen Zyklus, indem er sowohl „StartTime“ als auch „StopTime“ um die angegebene Anzahl von Tagen erhöht, nachdem „StopTime“ erreicht wurde. Setzen Sie „RepeatDays“ beispielsweise für eine tägliche Wiederholung auf 1.
+- LTF-Kanäle: Diese funktionieren ähnlich wie Standardkanäle, sind aber nur innerhalb eines Zeitrahmens aktiv, der durch die Statusobjekte „StartTime“ und „StopTime“ definiert ist. Nach „StopTime“ wird der Kanal automatisch deaktiviert. „StartTime“ und „StopTime“ können zwei Kalendertage umfassen, da Tibber keine Daten über ein 48-Stunden-Fenster hinaus bereitstellt. Beide Zustände erfordern eine Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit einem Zeitzonenoffset, z. B. „2024-12-24T18:00:00.000+01:00“. Darüber hinaus verfügen die LTF-Kanäle über einen neuen Statusparameter namens „RepeatDays“, der standardmäßig auf 0 gesetzt ist. Wenn „RepeatDays“ auf eine positive Ganzzahl gesetzt ist, wiederholt der Kanal seinen Zyklus, indem er sowohl „StartTime“ als auch „StopTime“ um die angegebene Anzahl von Tagen erhöht, nachdem „StopTime“ erreicht ist. Setzen Sie „RepeatDays“ beispielsweise für eine tägliche Wiederholung auf 1.
 
 ### Hinweise
 #### Inverse Verwendung
@@ -104,9 +104,34 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 
 ## Changelog
 
-### 4.2.0 (2024-12-xx)
+### 4.3.0 (2025-01-xx) WORK in PROGRESS
 
+- (HombachC) WiP add Graph-JSON
+- (HombachC) Update tibber-api to 5.2.1 - handle obsolete data as default, remove option
+- (HombachC) Calculate outputJSON prior to time frame for channels of type 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
+- (HombachC) add outputJSON and outputJSON2 for 'SmartBatteryBuffer' channels (#592)
+- (HombachC) calculator code optimizations
+
+### 4.2.3 (2025-01-14)
+
+- (HombachC) bump cron to 3.5
+
+### 4.2.2 (2025-01-14)
+
+- (HombachC) max API-Token lenght now 80 to meet newest Tibber accounts (#627)
+
+### 4.2.1 (2025-01-08)
+
+- (HombachC) fix missing translation
+
+### 4.2.0 (2025-01-08)
+
+- (HombachC) fix error in BestHoursBlock LTF intruduced in 4.x (#618)
 - (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
+- (HombachC) add outputJSON for 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
+- (HombachC) fixed some i18n translations
+- (HombachC) year 2025 changes
+- (HombachC) code optimization
 
 ### 4.1.1 (2024-12-21)
 
@@ -309,4 +334,4 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Aus
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023-2024 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2025 C.Hombach <TibberLink@homba.ch>

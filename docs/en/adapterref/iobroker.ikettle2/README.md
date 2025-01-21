@@ -19,7 +19,6 @@ Control your Smarter iKettle 2.0 with ioBroker.
 
 <a href="https://discord.gg/HwUCwsH"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Sponsors](./SPONSORS.md)
 If you like my work, please feel free to provide a personal donation  
 (this is an personal Donate link for Jey Cee, no relation to the ioBroker Project !)  
 [![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
@@ -61,6 +60,9 @@ After the beep from base you can turn the kettle back on base and use it.
 ---
 ## Changelog
 
+### **WORK IN PROGRESS**
+* (Jey Cee) Correct size of ip input on xl displays
+
 ### 1.0.2
 * (Jey Cee) Add watchdog for connection to prevent adapter freeze
 * (Jey Cee) Migrate config to JSON Config
@@ -76,7 +78,7 @@ After the beep from base you can turn the kettle back on base and use it.
 ## License
 MIT License
 
-Copyright (c) 2021-2024 Jey Cee <jey-cee@live.com>
+Copyright (c) 2021-2025 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

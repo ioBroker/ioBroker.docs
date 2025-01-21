@@ -588,6 +588,11 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.3.0 (2025-01-21)
+
+- upgrade version js-controller
+- switch from request to axios
+
 ### 3.2.0 (2024-11-27)
 
 - update jsonconfig responsive
@@ -850,7 +855,7 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
 
 MIT License
 
-Copyright (c) 2021-2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2021-2025 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

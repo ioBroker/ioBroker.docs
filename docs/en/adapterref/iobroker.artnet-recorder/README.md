@@ -29,6 +29,10 @@ The interval or the stepping to send the data ist set by the configuartion.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated dependencies and scripts
+* (Bannsaenger) tested with node v22.13.0
+
 ### 0.0.5 (2023-12-25)
 * (Bannsaenger) added releaseconfig
 

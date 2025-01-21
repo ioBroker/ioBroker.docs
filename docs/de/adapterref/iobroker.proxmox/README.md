@@ -27,7 +27,7 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 ![Option](../pictures/option.png)  
   
 ### IP Adresse 
-Die IP Adresse des Proxmox Server bzw. der Servername.  
+Die IP Adresse des Proxmox Servers bzw. der Servername. Bei mehreren Servern, werden die IP`s mit Komma getrennt hier eingetragen. 
   
 ### Port  
 Standard ist der Port 8006, wenn bei der Installation ein anderer Port eingestell wurde, muss dieser hier auch geändert.  
@@ -117,6 +117,7 @@ zum Beispiel
 ### **WORK IN PROGRESS**
 * (arteck) add new eslint file
 * (arteck) fix node message
+* (arteck) refactor
 
 ### 2.3.0 (2024-04-26)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now

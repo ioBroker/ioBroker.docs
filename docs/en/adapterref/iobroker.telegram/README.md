@@ -752,8 +752,12 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.0.0 (2025-01-13)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
 * (simatec) Responsive Design added
+* (klein0r) Allow async function calls in ask callback function
 
 ### 3.9.0 (2024-07-22)
 * (klein0r) Added option to send venue (with title and address)
@@ -767,15 +771,11 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 ### 3.7.1 (2024-07-03)
 * (klein0r) Restored translations for messages
 
-### 3.7.0 (2024-07-03)
-* (klein0r) Removed default / shadow fiel from Blockly block ask
-* (klein0r) Added state to answer last request (same chat)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

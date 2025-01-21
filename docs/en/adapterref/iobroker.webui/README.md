@@ -133,6 +133,39 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.24.4 (2025-01-20)
+- switch again to old module shims (error in new one)
+
+### 1.24.3 (2025-01-20)
+- first load of css bindings
+- fix get box quads with slots
+- fix es module shims
+
+### 1.24.2 (2025-01-19)
+- revert back es module shims, leads to errors
+
+### 1.24.1 (2025-01-19)
+- hopefully fix package upload by changed name
+
+### 1.24.0 (2025-01-19)
+- cleanup www dir
+
+### 1.23.2 (2025-01-19)
+- one more fix in gulpfile
+
+### 1.23.1 (2025-01-19)
+- fix gulp should work again
+
+### 1.23.0 (2025-01-19)
+- fix paste in events assignment
+- iobroker Signal Selector
+- binding to width and height in custom controls
+
+### 1.22.0 (2025-01-15)
+- local signals browser
+- style completition fixes
+- special bindings for "ring" cameras
+
 ### 1.21.0 (2024-12-28)
 - fix scripts with empty names on css
 - css props with only bindings are not shown
@@ -1000,4 +1033,4 @@ runtime.html?screenName=screen2
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2025 jogibear9988 <jochen.kuehner@gmx.de>

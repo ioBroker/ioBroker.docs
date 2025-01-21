@@ -14,7 +14,7 @@
 ## Bosch / Buderus heating systems with km200 / IP-inside and/or ems-esp interface 
 
 The adapter supports an interface towards the heating systems from Bosch Group using EMS or EMS+ bus. 
-(Buderus / Junkers / Netfit etc). 
+(Bosch / Buderus / Junkers / Netfit etc). 
 
 ## The adapter can interface towards the heating system using API calls. Supported gateways are:
 
@@ -22,7 +22,7 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 
 * ems-esp gateway (https://github.com/emsesp/EMS-ESP32) with the ESP32 chip. 
   The old ESP8266 gateways with API V2 are not supported anymore !!
-  The adapter is tested for the ems-esp gateway with latest stable firmware version (V3.7.1)
+  The adapter is tested for the ems-esp gateway with latest stable firmware version
   Latest dev versions of firmware might not work stable with the ioBroker adapter. Use is on own risk.
 
 * New Bosch-Group Cloud-Gateways (MX300 / EasyControl ...) are not supported since they do not support LAN API !

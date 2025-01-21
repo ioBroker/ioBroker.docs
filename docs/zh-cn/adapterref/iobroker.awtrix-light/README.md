@@ -17,16 +17,16 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: gybFiczCfUc6ooEmGRGnlHpNr6wkKau+THWKNpuvHKM=
+hash: 3ckMlpAm6URDFDKCersPZmMvwuMO5G8byd1+gNTNMkw=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
 # IoBroker.awtrix-light
 ＃＃ 要求
 -nodejs 18（或更高版本）
-- js-controller 5.0.0（或更高版本）
+- js-controller 6.0.0（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
-- 固件版本为 _0.97_（或更高版本）的 _Awtrix 3_ 设备 - 例如 Ulanzi TC001
+- 固件版本为 _0.98_（或更高版本）的 _Awtrix 3_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
@@ -46,7 +46,7 @@ hash: gybFiczCfUc6ooEmGRGnlHpNr6wkKau+THWKNpuvHKM=
 
 **如何切换到最新固件版本？**
 
-只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 即可导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络闪烁器（除非固件更新明确要求这样做）。
+只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络闪烁器（除非固件更新明确要求这样做）。
 
 **充电时设备会变热。**
 
@@ -78,14 +78,14 @@ hash: gybFiczCfUc6ooEmGRGnlHpNr6wkKau+THWKNpuvHKM=
 
 **通知的保留选项如何工作？**
 
-当使用 `hold: true` 选项发送通知时，显示屏上的文本将一直保留，直到通知被确认为止。这可以通过使用设备上的中间按钮或将状态`notification.dismiss`设置为`true`来实现。
+当使用 `hold: true` 选项发送通知时，显示屏上的文本将一直保留，直到通知被确认为止。这可以通过使用设备上的中间按钮或通过将状态`notification.dismiss`设置为`true`来实现。
 
 **某些状态更改不会立即显示。**
 
 如果状态更改非常频繁（例如每秒），则某些更改将被忽略并且不会传输，以保持设备上的负载较低。每个应用程序都有自己的“阻止时间”，可以在实例设置中全局配置。默认时间为 3 秒。不建议设置小于3的值。
 
 ## 多个设备上的相同应用程序
-如果要使用相同的应用程序控制多个 awtrix-light 设备，**必须为每个设备创建一个单独的实例。**但是，您可以在其他设备的实例设置中指定应接管这些应用程序来自另一个实例。
+如果要使用相同的应用程序控制多个 awtrix-light 设备，**必须为每个设备创建一个单独的实例。**但是，您可以在其他设备的实例设置中指定应接管应用程序来自另一个实例。
 
 例子
 
@@ -191,6 +191,10 @@ sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+Updated recommended firmware version to 0.98
+
 ### 1.5.0 (2025-01-07)
 
 Updated recommended firmware version to 0.97

@@ -51,6 +51,12 @@ The installation can be done via:
 <!--
 Placeholder for next version:  ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- [W034] @iobroker/adapter-core 3.2.2 specified. 3.2.3 is recommended. Dependency updated
+- merge dependabot pull requests on several libs
+
 ### 1.0.36 (2025-01-04)
 
 - added CMI support to adapters summary description

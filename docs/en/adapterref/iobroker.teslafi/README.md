@@ -75,10 +75,16 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 1.0.1 (2025-01-xx) Work in Progress
+### 1.1.0 (2025-01-xx) WORK in PROGRESS
+
+- (hombach) deprecated object calls removed
+- (hombach) WiP - add start HVAC command and commands tab (#36)
+
+### 1.0.1 (2025-01-11)
 
 - (hombach) year 2025 changes
 - (hombach) code optimizations
+- (hombach) bump typescript
 
 ### 1.0.0 (2024-12-25)
 

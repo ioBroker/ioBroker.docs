@@ -1,6 +1,6 @@
 ![Logo](admin/squeezeboxrpc.png)
 
-# ioBroker Logitech Squeezebox Adapter over JSON/RPC-Protocol
+# ioBroker Logitech/Lyrion Squeezebox Adapter over JSON/RPC-Protocol
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.squeezeboxrpc.svg)](https://www.npmjs.com/package/iobroker.squeezeboxrpc)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.squeezeboxrpc.svg)](https://www.npmjs.com/package/iobroker.squeezeboxrpc)
@@ -12,23 +12,18 @@
 **Tests:** ![Test and Release](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
 This is an alternative Adapter that uses the `JSON/RPC`-protocol to get data
-and send commands to the Logitech Media Server ([LMS](https://de.wikipedia.org/wiki/Logitech_Media_Server))
+and send commands to the Logitech Media Server/Lyrion Media Server ([LMS](https://de.wikipedia.org/wiki/Lyrion_Music_Server))
 for controlling connected devices like
 
 - native [squeezebox](https://de.wikipedia.org/wiki/Squeezebox),
 - raspberry pi with additional audio module and small linux based firmwares
   like [picoreplayer](https://picoreplayer.org/) or [max2play](https://www.max2play.com).
+- WiiM Multiroom Audio ([can talk to an LMS/Lyrion server](https://faq.wiimhome.com/en/support/solutions/articles/72000610226-how-to-stream-music-from-lms-to-your-wiim-device-with-squeezelite))
 - with plugins chromecast, airplay or `UPnP/DLNA`-Devices
 
 The `LMS`-Server can manage/provide very big music collections on harddrives
 or `NAS`, connect to different streaming providers like `Spotify`, `Deezer`,
 `Soundcloud`, `shoutcast`, `tunein`, `napster`, `pandora`, `tidal` and more
-
-Why another `Squeezebox` adapter?
-
-The existing adapter use `telnet` to access the `LMS`. The telnet has some disadvantages.
-The actual main web interface of the `LMS` also uses the rpc/json-protocol to get
-all needed informations or send commands to the server/players.
 
 ## Features
 
@@ -49,7 +44,7 @@ all needed informations or send commands to the server/players.
 
 - Install the package
 - Create an instance
-- Configure the Instance with the IP of the logitech media server
+- Configure the Instance with the IP of the logitech/Lyrion media server
   and the port (normaly 9000)
 - start/restart the instance
 
@@ -197,7 +192,7 @@ For more information visit the CLI-documentation:
 
 ![Player button bar](/widgets/squeezeboxrpc/img/players.png)
 
-All players that are integrated into your Logitech Media Server can be selected\
+All players that are integrated into your Logitech/Lyrion Media Server can be selected\
 using this widget. After selecting a `squeezerpc.?` instance, the available\
 players are displayed in the widget.
 
@@ -227,7 +222,7 @@ players are displayed in the widget.
 ![Favorites button bar](/widgets/squeezeboxrpc/img/favorites.png)
 
 You can use this widget to select all of the favorites that have been\
-created in your Logitech Media Server.
+created in your Logitech/Lyrion Media Server.
 After selecting the Player widget, the available favorites are displayed in the widget.
 
 | Group               | Attribute       | Description                                                                                           |
@@ -581,6 +576,10 @@ are contained in the following CLI documentation:
    ### **WORK IN PROGRESS**
 
 -->
+### **WORK IN PROGRESS**
+
+- upgrade dependency js-controller
+
 ### 1.5.2 (2024-12-16)
 
 - fix spelling of iobroker upload squeezeboxrpc in readme

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: m3JjXJahrOEW1FXN3nPibRenu7eycbyipNtOMVluzZE=
+hash: SNPrdh8WAkHEVeAyNXK+NxV8WSRXsT9DOLSoblhSQm4=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -54,6 +54,8 @@ Es gibt 3 Möglichkeiten:
 3. durch den Adapter-eigenen Algorithmus (durch Drücken der Taste), hierfür sind der Ecoflow-Benutzername und das Passwort erforderlich.
 
 Die MQQT-Broker-Einstellungen sind Standardeinstellungen und müssen normalerweise nicht geändert werden.
+
+!!! In Fällen, in denen der MQTT-Server die Verbindung ablehnt, kann es hilfreich sein, mit Option Nr. 2 die Ausgabe dieser Website zu überprüfen. In einigen Fällen wird eine andere MQTT-Broker-Adresse zurückgegeben!!!
 
 ## Geräteeinrichtung und -konfiguration
 Verwenden Sie die Registerkarte „Gerätekonfiguration“, um Ihre Ausrüstung hinzuzufügen.
@@ -151,6 +153,15 @@ Verwenden Sie die Registerkarte „Gerätekonfiguration“, um Ihre Ausrüstung 
 
 </p></details>
 
+<details><summary><i>Parametrierung des Generators</i></summary><p>
+
+* eine neue Zeile hinzufügen
+* Stellen Sie die Geräte-ID des Smart Plug so ein, wie in der App angezeigt, etwa „F371ZE...“
+* Gib ihm einen Namen
+* den Typ auf „Lichtmaschine 800W“ einstellen
+
+</p></details>
+
 Verwenden Sie die Registerkarte „Homeassistant“ zum Einrichten der MQTT-Verbindung zu HA
 
 <details><summary><i>Parametrisieren des Homeassistant-Connectors</i></summary><p>
@@ -168,7 +179,7 @@ Verwenden Sie die Registerkarte „Homeassistant“ zum Einrichten der MQTT-Verb
 </p></details>
 
 ## Aktualisieren des Adapters
-Normalerweise reicht es aus, die nächste Version über die alte zu installieren. In manchen Fällen (z. B. 1.0.0) kann es erforderlich sein, den gesamten Objektbaum zu löschen.
+Normalerweise reicht es aus, die nächste Version über die alte zu installieren. In einigen Fällen (z. B. 1.0.0) kann es erforderlich sein, den gesamten Objektbaum zu löschen.
 Wenn datenpunktbezogene Werte geändert werden, wie z. B. das Minimum oder Maximum des Bereichs, müssen Sie Folgendes tun:
 
 - Stoppen Sie den Adapter
@@ -282,7 +293,7 @@ Wave ist nicht verfügbar, könnte implementiert werden, wenn Daten verfügbar s
 [Generator](./doc/devices/alternator.md)
 
 ### Nicht unterstützte Geräte
-Dieser Abschnitt wurde für Debugging-Zwecke erstellt. Wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und geben Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird davon ausgegangen, dass das unbekannte Gerät Protobuf verwendet. Es erstellt [PROTOBUF unbekannt]-Meldungen im Protokoll, die das rohe Hexadezimaltelegramm enthalten.
+Dieser Abschnitt wurde für Debugging-Zwecke erstellt. Wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und geben Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird davon ausgegangen, dass das unbekannte Gerät Protobuf verwendet. Es erstellt [PROTOBUF unbekannt]-Meldungen im Protokoll, die das Roh-Hexadezimaltelegramm enthalten.
 
 ## Aufgaben
 * vergessene Randbedingungen für Befehle prüfen (Befehl unterdrücken, oder zusätzlichen Wert hinzufügen)
@@ -296,9 +307,28 @@ Die Nutzung der Software erfolgt auf Ihr eigenes Risiko und nach eigenem Ermesse
 
 ## Changelog
 
-### 1.1.1
+### 1.2.1 (npm)
+* (foxthefox) corrections for pstream objects, some changed from string to number
+* (foxthefox) new SHP time task config values
+
+### 1.2.0 (npm)
+* (foxthefox) new values powerocean
+* (foxthefox) new values powerstream
+* (foxthefox) new values plug
+* (foxthefox) enhancements on values for SHP2,DPU,alternator
+
+### 1.1.3 (npm)
+* (foxthefox) enhancements to alternator values
+* (foxthefox) refactoring of protobuf handling/structure/component data
+
+### 1.1.2 (npm)
+* (bh1cqx) handle HA restart #PR193
+* (foxthefox) initial state population of BPInfo2/3 to HA
+* (foxthefox) jsonConfig enhancements
+
+### 1.1.1 (npm)
 * (foxthefox) changed code structure
-* (foxthefox) initial population of BPInfo2/3 to HA
+* (foxthefox) initial state creation of BPInfo2/3 to HA
 
 ### 1.1.0 (npm)
 * (foxthefox) added a preliminary version of alternator (no cmd, non final state names)

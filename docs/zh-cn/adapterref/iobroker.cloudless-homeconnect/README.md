@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cloudless-homeconnect/README.md
 title: ioBroker.cloudless-homeconnect
-hash: Jg4oioGeertbryhpacD5b0c/6gfrbrOE4+hHXwH3fsc=
+hash: VCrHEmZaNGBNOmnXrOW10ErIPpDxPSjcOVygXj9Mq20=
 ---
 ![标识](../../../de/admin/cloudless-homeconnect-880x800.png)
 
@@ -20,9 +20,9 @@ hash: Jg4oioGeertbryhpacD5b0c/6gfrbrOE4+hHXwH3fsc=
 适用于无云通信的 Homeconnect 设备的适配器
 
 ## 没有云访问的 Homeconnect 适配器
-该适配器不需要 Homeconnect (https://api-docs.home-connect.com/) API，该 API 需要设备连接到互联网。在此适配器中，设备的通信和控制在创建一次性配置后在本地进行。因此，设备在 Homeconnect 应用程序中注册后可以完全与互联网分离。为了加载正确的配置，必须有互联网连接。
+该适配器不需要 Homeconnect (https://api-docs.home-connect.com/) API，该 API 需要设备连接到互联网。在此适配器中，一旦创建配置，设备的通信和控制就在本地进行。因此，设备在 Homeconnect 应用程序中注册后可以完全与互联网分离。为了加载正确的配置，必须建立互联网连接。
 
-该适配器的基本思想来自 https://github.com/osresearch/hcpy。此处的 Python 代码已移植到 JavaScript 并适用于 ioBroker。
+该适配器的基本思想来自https://github.com/osresearch/hcpy。此处的 Python 代码已移植到 JavaScript 并适用于 ioBroker。
 
 ## 安装前的先决条件
 必须至少安装 Node.js **版本 18**。
@@ -31,17 +31,36 @@ hash: Jg4oioGeertbryhpacD5b0c/6gfrbrOE4+hHXwH3fsc=
 
 必须在本地网络中的设备上启用端口 443。
 
-加载配置后可能会出现设备无法寻址的情况。那么本地网络中就没有该设备域的 DNS 条目。除了在网络中进行此设置之外，您还可以在 `host` 的数据点 `info.config` 中输入设备的本地 IP。
+加载配置后可能会出现设备无法寻址的情况。那么本地网络中就没有该设备域的 DNS 条目。除了在网络中进行此设置之外，您还可以在 `host` 处的数据点 `info.config` 中输入设备的本地 IP。
+
+## 第一步
+通常建议使用 [适配器启动时，将从 Homeconnect 服务器检索已注册设备的适配器配置] (#configuration) 配置文件。某些服务器上的登录过程已更改，因此配置文件的自动下载不再有效，需要手动下载。外部工具 **[Homeconnect 配置文件下载器](https://github.com/bruestel/homeconnect-profile-downloader/tags)**。
+
+因此，如果无法自动检索，ioBroker 日志中将出现 **警告**，**_如果没有出现并且适配器正常启动，则无需采取进一步操作，并且可以忽略后续步骤！_**
+
+```
+warn: Login not successful. Please put the zip from homeconnect-profile-downloader as described in docs manually into path <<Pfad zum Ablageort heruntergeladener Geräteprofile>> and restart adapter. See https://github.com/bruestel/homeconnect-profile-downloader also.
+```
+
+如果发出警告，则必须在本地安装 **Homeconnect 配置文件下载程序**。为此，请点击链接，下载适合您的操作系统的最新版本和[安装](https://github.com/bruestel/homeconnect-profile-downloader?tab=readme-ov-file#run-it)：![Homeconnect 配置文件下载器的版本](../../../de/adapterref/profile_git.png)
+
+然后启动安装的应用程序并在主页上选择区域：![Homeconnect 配置文件下载器的主页](../../../de/adapterref/profile_start.png)
+
+单击 `FETCH APPLIANCE PROFILE DATA`，您将被重定向到 Homeconnect 登录页面，您必须使用 Homeconnect 应用程序的访问数据登录：![登录 Homeconnect](../../../de/adapterref/profile_login.png)
+
+如果成功，将显示通过 Homeconnect 应用程序注册的每个设备的 zip 文件概述。现在必须下载 zip 文件并按原样移动到 ioBroker 日志中警告中显示的文件夹。
+
+然后必须重新启动适配器。现在，适配器的配置是根据这些文件创建的。
 
 ＃＃ 配置
 必须在适配器配置中输入 Homeconnect 应用程序用户名和密码。
 
-解析的配置保存在数据点`info.config`中。这不应该改变。如果在网络中添加或删除设备，则必须通过 Homeconnect 应用程序注册它们，并且必须删除上述数据点的内容。然后适配器重新启动，连接到配置的帐户并再次读取配置。然后，与设备的通信再次纯粹在本地进行。
+解析的配置保存在数据点`info.config`中。这不应该改变。如果在网络中添加或删除设备，则必须通过 Homeconnect 应用程序注册它们，并删除上述数据点的内容。然后适配器重新启动，连接到配置的帐户并再次读取配置。然后，与设备的通信再次纯粹在本地进行。
 
-如果随着时间的推移出现连接错误，则会尝试与设备建立新的连接。默认情况下，此情况会发生 15 次，但可以针对实例进行设置。如果尝试永远不会中止，即如果您想继续尝试建立连接，则必须设置`0`。
+如果随着时间的推移出现连接错误，则会尝试与设备建立新的连接。默认情况下，此情况会发生 15 次，但可以针对实例进行设置。如果永远不应中止尝试，即您应始终尝试建立连接，则必须设置`0`。
 
 ## 数据点
-这里描述了最重要的数据点。相应设备知道并使用的 UID 存储在名称中。如果更改的值对于当时的设备来说不可信，则会在调试模式下写入日志条目。例如，如果 `AbortProgram` 发生更改，即使当前没有程序处于活动状态，也会发生这种情况。该结构的构造例如如下：
+这里描述了最重要的数据点。该名称包含相应设备知道并使用的 UID。如果更改的值对于当时的设备而言不可信，则会在调试模式下写入日志条目。例如，如果 `AbortProgram` 发生更改，即使当前没有程序处于活动状态，也会发生这种情况。该结构的构造例如如下：
 
 ```
 <cloudless-homeconnect.0>
@@ -94,10 +113,10 @@ hash: Jg4oioGeertbryhpacD5b0c/6gfrbrOE4+hHXwH3fsc=
 数据点包含当前正在运行的程序的 UID 作为值。 `ActiveProgram` 是 `readonly`。
 
 ＃＃＃ 观察
-使用数据点`observe`，当更改为`false`时，可以排除设备对适配器的监控。例如，在发生错误的情况下，可以设置适配器仅考虑一个设备，并且不与其他设备“交互”。
+使用数据点`observe`，当更改为`false`时，可以排除设备对适配器的监控。例如，在发生错误的情况下，可以设置适配器仅考虑一个设备，而不“中介”其他设备。
 
 ＃＃＃命令
-来自角色 `button` 的数据点在 `Command` 下收集，设备可将其用于远程控制。仅当命令合理时才能预期另一方的反应：仅当程序也处于活动状态时才会执行`AbortProgram`。
+来自角色`button`的数据点在`Command`下收集，设备可将其用于远程控制。仅当命令合理时才能预期另一方的反应：仅当程序也处于活动状态时才会执行`AbortProgram`。
 
 ＃＃＃ 事件
 如果发生诸如“程序完成”之类的特定事件，则触发`Event`文件夹中的相应数据点。
@@ -114,7 +133,7 @@ hash: Jg4oioGeertbryhpacD5b0c/6gfrbrOE4+hHXwH3fsc=
 可以在此处进行设备的常规设置。例如，设置`Light_Cavity_001_Power`可用于打开或关闭烤箱的灯。 `Status` 下的数据点`InteriorIlluminationActive` 只能读取，并且仅显示照明状态。
 
 ＃＃＃地位
-`Status` 包含设备状态的概述。这些只是可读的。
+`Status`包含设备状态的概述。这些只是可读的。
 
 ## Changelog
 
@@ -122,100 +141,108 @@ hash: Jg4oioGeertbryhpacD5b0c/6gfrbrOE4+hHXwH3fsc=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.1 (2025-01-16)
+
+- (eifel-tech) Creating instance directory if absent
+
+### 1.4.0 (2025-01-15)
+
+- (eifel-tech) Dependency updates
+- (eifel-tech) Changed login process for getting device information by homeconnect (Issue #170)
 
 ### 1.3.0 (2024-12-02)
 
--   (eifel-tech) Dependency updates
--   (eifel-tech) common.min is only set if it is also present in the config (Issue #149)
--   (eifel-tech) Password in admin will be stored encrypted natively
+- (eifel-tech) Dependency updates
+- (eifel-tech) common.min is only set if it is also present in the config (Issue #149)
+- (eifel-tech) Password in admin will be stored encrypted natively
     > [!CAUTION]
     > You have to reenter your password in admin config!
 
 ### 1.2.10 (2024-11-20)
 
--   (eifel-tech) Handle missing enums during parsing (Issue #148)
+- (eifel-tech) Handle missing enums during parsing (Issue #148)
 
 ### 1.2.9 (2024-11-14)
 
--   (eifel-tech) Bugfix while reading program options (Issue #143)
+- (eifel-tech) Bugfix while reading program options (Issue #143)
 
 ### 1.2.8 (2024-11-05)
 
--   (eifel-tech) Prevent forbidden signs
--   (eifel-tech) More resolutions considered in instance settings
--   (eifel-tech) Number of connection attempts configurable (Issue #135)
+- (eifel-tech) Prevent forbidden signs
+- (eifel-tech) More resolutions considered in instance settings
+- (eifel-tech) Number of connection attempts configurable (Issue #135)
 
 ### 1.2.7 (2024-10-24)
 
--   (eifel-tech) Notes from adapter checker
+- (eifel-tech) Notes from adapter checker
 
 ### 1.2.6 (2024-10-24)
 
--   (eifel-tech) Added translations
+- (eifel-tech) Added translations
 
 ### 1.2.5 (2024-10-23)
 
--   (eifel-tech) Instance remains yellow when first started (Issue #129)
+- (eifel-tech) Instance remains yellow when first started (Issue #129)
 
 ### 1.2.4 (2024-10-23)
 
--   (eifel-tech) Prevent message `undefined` from being sent
+- (eifel-tech) Prevent message `undefined` from being sent
 
 ### 1.2.3
 
--   (eifel-tech) Added datapoint to indicate whether a socket connection exists
+- (eifel-tech) Added datapoint to indicate whether a socket connection exists
 
 ### 1.2.2
 
--   (eifel-tech) Using a persistent websocket connection
+- (eifel-tech) Using a persistent websocket connection
 
 ### 1.2.1
 
--   (eifel-tech) Abort the connection if errors occur in the socket connection to the device
+- (eifel-tech) Abort the connection if errors occur in the socket connection to the device
 
 ### 1.2.0
 
--   (eifel-tech) Ability to exclude individual devices from control (Issue #117)
+- (eifel-tech) Ability to exclude individual devices from control (Issue #117)
     > [!CAUTION]
     > The configuration had to be expanded for this, so the contents of the `info.config` data point have to be deleted and the adapter has to be restarted. Also delete the `General` object tree.
 
 ### 1.1.2
 
--   (eifel-tech) Washing machine: Program options are sent separately and not including the program to be started
+- (eifel-tech) Washing machine: Program options are sent separately and not including the program to be started
 
 ### 1.1.1
 
--   (eifel-tech) Parsing the configuration simplified
+- (eifel-tech) Parsing the configuration simplified
 
 ### 1.1.0
 
--   (eifel-tech) Parsing of configuration for multiple devices revised
+- (eifel-tech) Parsing of configuration for multiple devices revised
 
 ### 1.0.4
 
--   (eifel-tech) Dishwasher support
+- (eifel-tech) Dishwasher support
 
 ### 1.0.3
 
--   (eifel-tech) New socket connection after timeout
+- (eifel-tech) New socket connection after timeout
 
 ### 1.0.2
 
--   (eifel-tech) If a new program is started, any program that may be running will first be terminated
+- (eifel-tech) If a new program is started, any program that may be running will first be terminated
 
 ### 1.0.1
 
--   (eifel-tech) Increasing security with TLS
+- (eifel-tech) Increasing security with TLS
 
 ### 1.0.0
 
--   (eifel-tech) initial release
+- (eifel-tech) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 eifel-tech <hikaso@gmx.net>
+Copyright (c) 2025 eifel-tech <hikaso@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

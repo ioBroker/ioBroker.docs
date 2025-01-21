@@ -66,11 +66,11 @@ You can then configure a notification service of your choice for forwarding.
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-
-### **WORK IN PROGRESS**
+### 0.1.11 (2025-01-09)
 * (simatec) eslint-config fix
 * (simatec) Code fix
 * (simatec) Dependencies updated
+* (simatec) Update License
 
 ### 0.1.10 (2024-11-24)
 * (simatec) Dependencies updated
@@ -123,7 +123,7 @@ You can then configure a notification service of your choice for forwarding.
 
 MIT License
 
-Copyright (c) 2024 simatec
+Copyright (c) 2024 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

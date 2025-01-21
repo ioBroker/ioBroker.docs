@@ -36,9 +36,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
-### __WORK IN PROGRESS__
+### 1.3.7 (2025-01-09)
 * (simatec) eslint-config fix
 * (simatec) Dependencies updated
+* (simatec) Update License
 
 ### 1.3.6 (2024-11-25)
 * (simatec) Dependencies updated
@@ -169,7 +170,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2020 - 2024 simatec
+Copyright (c) 2020 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -17,12 +17,12 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: Uz3Ry8D/plZQTN+bQwUultYzPjqhk5vWw1PXNE8Owxw=
+hash: xjWAz+/VB/eyyIYdkPUidWv84DiCjfryiQ8WfTmqPJY=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-这是德语文档 - [🇺🇸 德语版](../en/README.md)
+这是德语文档 - [🇺🇸英文版](../en/README.md)
 
 ＃＃ 目录
 - [MQTT协议](protocol-mqtt.md)
@@ -33,9 +33,9 @@ hash: Uz3Ry8D/plZQTN+bQwUultYzPjqhk5vWw1PXNE8Owxw=
 - [常见问题解答](faq.md)
 
 ＃＃ 要求
-1.Node.js 18（或更高版本）
-2.js-controller 5.0.19（或更高版本）
-3.管理适配器6.0.0（或更高版本）
+1.Node.js 20（或更高版本）
+2.js-controller 6.0.0（或更高版本）
+3.管理适配器6.6.0（或更高版本）
 
 ## 设备代数
 有关更多信息，请参阅*支持的设备*。
@@ -60,40 +60,41 @@ hash: Uz3Ry8D/plZQTN+bQwUultYzPjqhk5vWw1PXNE8Owxw=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@Zefau) add Source and MinBrightness to Shelly Dimmer
+
+### 8.5.1 (2024-12-02)
+
+* (@klein0r) Fixed digest auth for Shelly Wall Display
+* (@klein0r) Added LED control for Shelly Plus Plug S
+
+### 8.5.0 (2024-11-24)
+
+* (@klein0r) Added Shelly Plug S Gen3
+* (@klein0r) Added Shelly BLU Gateway Gen3
+* (@klein0r) Added Shelly I4 / I4DC Gen3
+
+### 8.4.0 (2024-10-20)
+
+* (@klein0r) Added AddOn support for Gen3 devices
+* (@kalledausb) Added Shelly 0/1-10V PM Gen3 Integration
+
+### 8.3.0 (2024-10-10)
+* (@rockflopp) Added Shelly 2 PM gen 3 Integration
+
 ### 8.2.1 (2024-09-23)
 
 * (@Matze2010) Added datapoint for cover target position
 * (@klein0r) Fixed integration of Shelly 1 PM Gen 3
 
-### 8.2.0 (2024-09-19)
-
-* (@Scrounger) Added Shelly BLU Wall Switch 4 & Shelly BLU RC Button 4
-* (@Paradoxa) Added Shelly Plus RGBW PM
-* (simatec) Responsive Design added
-
-### 8.1.1 (2024-08-27)
-
-* (@klein0r) Fixed lint issues and Shelly Gen 3 import
-
-### 8.1.0 (2024-08-25)
-
-* (esusxunil) Added Shelly Pro EM 2x50A
-
-### 8.0.0 (2024-08-25)
-
-* (imperial929) Added Shelly 1 PM Gen3
-* (imperial929) Added Shelly 1 Gen3
-* (klein0r) Breaking change: Renamed input states (now digital/analog) of Shelly Plus Addon (Ext)
-* (klein0r) Added Shelly Plus Uni
-* (klein0r) Added Shelly H&T (Gen3)
-* (klein0r) Improved structure of ble events (receivedBy) - see documentation for details
-* (bluefox) Improved the color of icons in the admin interface
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 Thorsten Stueben <thorsten@stueben.de>,
+Copyright (c) 2018-2025 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

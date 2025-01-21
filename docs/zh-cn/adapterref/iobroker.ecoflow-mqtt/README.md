@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: m3JjXJahrOEW1FXN3nPibRenu7eycbyipNtOMVluzZE=
+hash: SNPrdh8WAkHEVeAyNXK+NxV8WSRXsT9DOLSoblhSQm4=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -54,6 +54,8 @@ hash: m3JjXJahrOEW1FXN3nPibRenu7eycbyipNtOMVluzZE=
 3. 通过适配器自己的算法（按下按钮），为此需要 ecoflow 用户名和密码。
 
 mqqt Broker 设置是默认的，通常不需要修改。
+
+!!! 如果 mqtt 服务器拒绝连接，使用选项 #2 检查该网站的输出可能会有所帮助，在某些情况下它会返回不同的 mqtt-broker 地址 !!!
 
 ## 设备设置和配置
 使用“设备配置”选项卡添加您的设备。
@@ -151,6 +153,15 @@ mqqt Broker 设置是默认的，通常不需要修改。
 
 </p></详情>
 
+<details><summary><i>交流发电机参数化</i></summary><p>
+
+* 添加新行
+* 设置智能插头的设备 ID，如应用程序中所示，例如“F371ZE...”
+* 给它一个名字
+* 将类型设置为“交流发电机 800W”
+
+</p></详情>
+
 使用“Homeassistant”选项卡设置与 HA 的 MQTT 连接
 
 <details><summary><i>参数化 Homeassistant 连接器</i></summary><p>
@@ -181,7 +192,7 @@ HA端修改：
 * 定义的设备通过 mqtt 连接到适配器
 * 适配器过滤设备的传入消息。只有改变的值才会被内部存储
 * 如果应用程序在某种条件下阻止调整，则在已知的情况下会复制（例如，当电池电量低于最低值时，逆变器会打开，您可以在日志中看到警告）
-* 并非所有事情都是已知的，因此状态解释的信息可能不确定，这主要用尾随的“？”标记。
+* 并非所有事情都已知，因此状态解释的信息可能不确定，这主要用尾随的“？”标记。
 
 ### 数据点设置更新备注（最小值、最大值、单位……）
 如果在新版本的适配器中更改了数据点的设置（例如名称、单位、最大值），则更改只有在您执行以下操作后才会生效：
@@ -205,7 +216,7 @@ HA端修改：
 * 如果设备可访问，则可用性将显示在设备连接中，这将继承到“子设备”（不可用性以相同的方式处理）
 
 ### 功能注释
-* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其在保持之前来回切换的过程。
+* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其来回切换直至其保持不动。
 * iobroker 可能无法正确识别 HA 的重启，因此需要手动重启适配器（WIP）
 
 ## 使用数据点实现设备和结构
@@ -296,9 +307,28 @@ HA端修改：
 
 ## Changelog
 
-### 1.1.1
+### 1.2.1 (npm)
+* (foxthefox) corrections for pstream objects, some changed from string to number
+* (foxthefox) new SHP time task config values
+
+### 1.2.0 (npm)
+* (foxthefox) new values powerocean
+* (foxthefox) new values powerstream
+* (foxthefox) new values plug
+* (foxthefox) enhancements on values for SHP2,DPU,alternator
+
+### 1.1.3 (npm)
+* (foxthefox) enhancements to alternator values
+* (foxthefox) refactoring of protobuf handling/structure/component data
+
+### 1.1.2 (npm)
+* (bh1cqx) handle HA restart #PR193
+* (foxthefox) initial state population of BPInfo2/3 to HA
+* (foxthefox) jsonConfig enhancements
+
+### 1.1.1 (npm)
 * (foxthefox) changed code structure
-* (foxthefox) initial population of BPInfo2/3 to HA
+* (foxthefox) initial state creation of BPInfo2/3 to HA
 
 ### 1.1.0 (npm)
 * (foxthefox) added a preliminary version of alternator (no cmd, non final state names)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rainbird/README.md
 title: ioBroker.rainbird
-hash: /YJXlyBSaILis+KUmtEyaDLpid6UsaLyP988L8RtQrQ=
+hash: +qMuoJ9cJl8fernes/WFBPpFPj1qQ90BKryXso+Tzjs=
 ---
 ![Logo](../../../en/adapterref/iobroker.rainbird/admin/rainbird.png)
 
@@ -20,7 +20,7 @@ Ein ioBroker-Adapter für Rain Bird mit LNK-WiFi-Adapter. Dieses Projekt hat kei
 
 Basierend auf der Python-Bibliothek „pyrainbird“ von https://github.com/jbarrancos/pyrainbird und vollständig auf NodeJS portiert. Der Adapter stellt über eine WLAN-Verbindung eine direkte Verbindung zum Gerät her und verwendet nicht den Rain Bird-Cloud-Dienst.
 
-## Zustände
+## Staaten
 `rainbird.X.device.commands.advanceZone` - Wenn das aktuelle Programm läuft, gehe zur nächsten Bewässerungszone und stoppe die aktuelle.
 `rainbird.X.device.commands.runProgram` - Führe das angegebene Programm manuell aus (1 bis X), wie zuvor im Gerät konfiguriert.
 `rainbird.X.device.commands.stopIrrigation` - Stoppe die Bewässerung in allen Zonen sofort.
@@ -41,14 +41,25 @@ Basierend auf der Python-Bibliothek „pyrainbird“ von https://github.com/jbar
 ## Credits
 Dieser Adapter wäre ohne die großartige Arbeit von Marius Burkard <m.burkard@pixcept.de>, der frühere Versionen dieses Adapters entwickelt hat, nicht möglich gewesen.
 
-## Spenden
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFLJ8HCW9T698&source=url)
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2024-12-27)
+* (Feuersturm) @strathcole/iob-lib has been migrated to local repository (#27)
+* (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2024-12-15)
+* (Feuersturm) Some minor corrections to installations news and some internal changes at pacakging have been applied.
+
+### 2.0.0 (2024-12-13)
+* (Feuersturm) BREAKING: The password is stored encrypted now. Please reenter you password at configuration page. This is required only once after migration from release < 2.0.0 to release 2.0.0 or newer.
+* (mcm1957) Adapter requires node.js 20 now
+* (mcm1957) Adapter requires js-controller 5 and admin 6  now
+* (Feuersturm) switch adapter config to jsonconfig
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2024-06-06)
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
 * (mcm1957) Adapter has been move to iobroker-community-adapters organization
@@ -59,25 +70,11 @@ Dieser Adapter wäre ohne die großartige Arbeit von Marius Burkard <m.burkard@p
 -   Fixed problem with sensor data
 -   Added seasonal water budget adjust information
 
-### 0.2.2
-
--   Added fixes for adapter crashes on failed connection to controller
-
-### 0.2.1
-
--   Added support for run times on different controller model
--   Less polling for some states to reduce requests to controller
-
-### 0.2.0
-
--   Added remaining irrigation time of zone
--   Fixed bug in decoding responses
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

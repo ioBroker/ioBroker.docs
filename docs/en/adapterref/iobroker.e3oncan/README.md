@@ -129,6 +129,9 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.4 (2025-01-15)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20250114
+
 ### 0.10.3 (2024-11-26)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20241125
 
@@ -246,7 +249,7 @@ Yes, that is possible under certain conditions:
 ## License
 MIT License
 
-Copyright (c) 2024 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

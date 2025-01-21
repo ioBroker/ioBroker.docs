@@ -144,10 +144,28 @@ myJsonParams = {"period":"daily"}
 
 Pls. note, **you have to use the `onMessage()` functionality to receive the trigger from the adapter**. Default vaule for the message is `flexcharts` as shown in example above. You may use different messages by providing an additional parameter, e.g. to use message `mycharts` add `&message=mycharts` to http address: `http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
 
+### Using functions within definition of chart
+Unfortunately function definitions within chart definition will typically not work because it's filtered when using `JSON.stringify(option)` or `callback(option)`.
+
+However, since V0.3.0 of flexcharts it's possible to bring it to work. A bit more effort is needed:
+* Add npm module `javascript-stringify` to instance 0 of javascript adapter. To do so, add `javascript-stringify` to "Additional npm modules" in configuration of adapter:
+![add npm modules](add_npm_modules.png)
+* In your script add `var strify = require('javascript-stringify');` at the beginning
+* When using script as data source: Within your `onMessage()` functionality replace `callback(option);` by `callback(strify.stringify(option));` (assuming `option` contains your chart definition).
+* Then using a state as data source: When creating the state replace `setState('my_chart_id', JSON.stringify(option), true);` by `setState('my_chart_id', strify.stringify(option), true);`
+* That's it. Now functions within chart definitions will be correctly forwarded to flexcharts.
+
+Just try it using [template3](templates/flexchartsTemplate3.js). A function is used to show data of tooltip with 2 decimals: `tooltip: {trigger: "axis", valueFormatter: (value) => '$' + value.toFixed(2)}`.
+
+An example using chart definition via state is given in `flexcharts.0.info.chart2`. This will show same chart as template3.
+
+Remark: When npm module `javascript-stringify` is installed, it's functionality could also be used by malicious code (Cross-Site-Scripting). Therefore, ioBroker should not be accessible from the Internet when using this module.
+
 ## Templates
 Javascript templates are available for some uses cases:
 * chart using data from history adapter: [template1](templates/flexchartsTemplate1.js)
 * simple chart for a heat curve: [template2](templates/flexchartsTemplate2.js)
+* simple stacked bar chart using function within chart definition: [template3](templates/flexchartsTemplate3.js)
 * a very specific use case is available for Viessmann devices of E3 series, e.g. heat pump Vitocal 250. Refer to https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ## Reference
@@ -162,6 +180,9 @@ Use **javascript** as data source: `http://localhost:8082/flexcharts/echarts.htm
 * `&refresh=number` - do a refresh of chart ervery "number" seconds. Defaults to 60 seconds. Minimum allowed value is 5 seconds.
 * `&user_defined_arguments` - Add more parameters as per your need. All arguments are available within function `onMessage()` in object `httpParams`. See examples above and templates for more details.
 
+### Using functions within definition of charts
+Available with version 0.3.0 or newer. Pls. refer previous [chapter](#using-functions-within-definition-of-chart)
+
 ### Built-in demo chart
 There is a built-in demo chart available: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
 
@@ -174,6 +195,10 @@ This should bring up a demo chart, when flexcharts- and web-adapter are running.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2025-01-08)
+* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
+* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
+
 ### 0.2.0 (2024-11-06)
 * (MyHomeMyData) Updated readme. Added sections Templates and Reference.
 * (MyHomeMyData) Fix for issue #41 (findings of repository checker)
@@ -219,7 +244,7 @@ This should bring up a demo chart, when flexcharts- and web-adapter are running.
 ## License
 MIT License
 
-Copyright (c) 2024 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

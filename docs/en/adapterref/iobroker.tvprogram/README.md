@@ -834,6 +834,14 @@ widget tvprogram:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.5 (2025-01-20)
+
+- upgrade jscontroller dependency
+
+### 3.0.4 (2025-01-20)
+
+- remove check for certifates in axios due to expired certificate of data provider
+
 ### 3.0.3 (2025-01-03)
 
 - fix datapoint creation and overwriting states

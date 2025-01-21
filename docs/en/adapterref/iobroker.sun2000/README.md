@@ -33,7 +33,7 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS** 
+### 0.18.1 (2025-01-08) 
 * dependency and configuration updates
 * control: if the battery is not running, events related to the battery are discarded
 * modbus-proxy: adjusted advanced logging
@@ -198,7 +198,7 @@ initial release
 ## License
 MIT License
 
-Copyright (c) 2024 bolliy <stephan@mante.info>
+Copyright (c) 2025 bolliy <stephan@mante.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

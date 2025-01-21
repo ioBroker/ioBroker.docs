@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: bg7vZAhUrEEfOHPWcLi2QWejGsWx19+UsdyyKnWX0u4=
+hash: mJ2FClZO2G/KuGclhJkGf7D9M9RO3qbL1GzB/mhIDhs=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -143,11 +143,32 @@ myJsonParams = {"period":"daily"}
 
 请注意，**您必须使用 `onMessage()` 功能从适配器接收触发器**。如上例所示，消息的默认值为 `flexcharts`。您可以通过提供附加参数来使用不同的消息，例如，要使用消息 `mycharts`，请将 `&message=mycharts` 添加到 http 地址：`http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
 
+### 在图表定义中使用函数
+不幸的是，图表定义中的函数定义通常不起作用，因为它在使用`JSON.stringify(option)` 或`callback(option)` 时被过滤。
+
+但是，从 flexcharts V0.3.0 开始，就可以使用它了。需要付出更多努力：
+
+* 将 npm 模块 `javascript-stringify` 添加到 javascript 适配器的实例 0。为此，请将 `javascript-stringify` 添加到适配器配置中的“附加 npm 模块”：
+
+![添加 npm 模块](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
+
+* 在脚本开头添加 `var strify = require('javascript-stringify');`
+* 当使用脚本作为数据源时：在您的`onMessage()`功能中，将`callback(option);`替换为`callback(strify.stringify(option));`（假设`option`包含您的图表定义）。
+* 然后使用状态作为数据源：创建状态时，将 `setState('my_chart_id', JSON.stringify(option), true);` 替换为 `setState('my_chart_id', strify.stringify(option), true);`
+* 就是这样。现在图表定义中的函数将正确转发到 flexcharts。
+
+只需使用[模板3](templates/flexchartsTemplate3.js) 尝试一下。有一个函数用于显示带有 2 个小数的工具提示数据：`tooltip: {trigger: "axis", valueFormatter: (value) => '。 + value.toFixed(2)}`。
+
+`flexcharts.0.info.chart2` 中给出了一个通过状态使用图表定义的示例。这将显示与模板 3 相同的图表。
+
+备注：安装 npm 模块 `javascript-stringify` 后，其功能也可能被恶意代码（跨站点脚本）利用。因此，使用此模块时，ioBroker 不应通过互联网访问。
+
 ## 模板
 Javascript 模板可用于以下几种用例：
 
 * 使用历史适配器数据的图表：[template1](templates/flexchartsTemplate1.js)
 * 热曲线的简单图表：[template2](templates/flexchartsTemplate2.js)
+* 使用图表定义中的函数创建简单的堆积条形图：[template3](templates/flexchartsTemplate3.js)
 * Viessmann E3 系列设备有一个非常具体的用例，例如热泵 Vitocal 250。请参阅 https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ＃＃ 参考
@@ -161,6 +182,9 @@ Javascript 模板可用于以下几种用例：
 * `&refresh=number` - 每“number”秒刷新一次图表。默认为 60 秒。允许的最小值为 5 秒。
 * `&user_defined_arguments` - 根据需要添加更多参数。所有参数均可在对象 `httpParams` 中的函数 `onMessage()` 中使用。有关更多详细信息，请参阅上述示例和模板。
 
+### 在图表定义中使用函数
+适用于 0.3.0 或更新版本。请参阅上一个[章](#using-functions-within-definition-of-chart)
+
 ### 内置演示图表
 有一个内置的演示图表可用：http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
 
@@ -173,6 +197,10 @@ Javascript 模板可用于以下几种用例：
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2025-01-08)
+* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
+* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
+
 ### 0.2.0 (2024-11-06)
 * (MyHomeMyData) Updated readme. Added sections Templates and Reference.
 * (MyHomeMyData) Fix for issue #41 (findings of repository checker)
@@ -218,7 +246,7 @@ Javascript 模板可用于以下几种用例：
 ## License
 MIT License
 
-Copyright (c) 2024 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

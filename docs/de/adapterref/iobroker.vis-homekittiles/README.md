@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
+hash: /X3s0IvNZdNrT/NMxCAvFmje1BgCVt+giQKZUZrUyso=
 ---
 # IoBroker.vis-homekittiles
 
@@ -19,7 +19,7 @@ hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
 
 ## HomeKit-Kacheln für ioBroker-VIS
 Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert.
-Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Das Design wird durch Veränderung des CSS-Codes angepasst. Hierzu kann der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` als Vorlage verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
+Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Die Anpassung des Designs erfolgt durch Veränderung des CSS-Codes. Als Vorlage kann hierfür der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
@@ -35,7 +35,6 @@ Die Widgets sind für VIS 1.x konzipiert.
 * Select-Kachel erstellen
 * Kontrollkästchen für Sonos-Gruppe erstellen
 * Datumsauswahl: dynamische Tag-/Monatssymbole
-* neues Widget: Pinpad (IN ARBEIT)
 * Kacheln: Schaltfläche für Dialog hinzufügen
 
 ## Changelog
@@ -45,8 +44,32 @@ Die Widgets sind für VIS 1.x konzipiert.
 -->
 ### **WORK IN PROGRESS**
 
+* All tiles: added icon for state off
+* Optimized CSS for indicator
+
+### 0.4.0 (2025-01-14)
+
+* Added Pinpad-Dialog
+* Added HTML-Dialog
+* Added hkt-Config-Modal (experimental): changes the styles of modal to blur instead of background color and transparency (modal darkens the background when a dialog window is open). For this config-item you need ipadOS 18.x to work with Safari or ioBroker Visu App. Simply place the config item somewhere in your VIS where it is always called (e.g. in the menu) and configure it as desired. It is not visible at runtime.
+* Made "modal" to default setting
+* Section 'dialog' splitted into 'dialog settings' and 'dialog content'
+* Made values of SwitchBool customizable and renamed 'SwitchBool' to 'Switch'
+* Repaired notification widget
+* Added Apple standard font 'SanFrancisco' to fonts (needed to be installed separatly)
+
+### 0.3.3 (2025-01-03)
+
+* Added new style "text only" to switch and view-in-widget-dialog tiles
+* Fixed some issues from adapter checker
+* Fixed some styles of view-in-widget-swipe
+* Added arrow indicators to view-in-widget-swipe
+
+### 0.3.2 (2024-12-03)
+
 * Added option to show icons colored on tiles and radio
 * Added new styles "big", "small" and "only icon" for all tiles
+* JSON Table: set no fixed height (min-hight is now 32px)
 
 ### 0.3.1 (2024-07-12)
 
@@ -155,7 +178,7 @@ Die Widgets sind für VIS 1.x konzipiert.
 
 MIT License
 
-Copyright (c) 2024 Standarduser
+Copyright (c) 2025 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -74,6 +74,9 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.14.0 (2025-01-08)
+* (@foxriver76) added dynamic scenes (Note: new states are added by UUID)
+
 ### 3.13.1 (2024-10-16)
 * (@foxriver76) correct min color temperature to 2000 (valid for color lights) instead of 2200
 
@@ -515,5 +518,5 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 Apache 2.0
 
-Copyright (c) 2017-2024 Bluefox <dogafox@gmail.com>  
+Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  
 Copyright (c) 2014-2016 hobbyquaker

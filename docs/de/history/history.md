@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 073fODmS25uqfEFJ8mTAprqfumjQ0n21LfbPB8cLQlc=
+hash: JVo0qkUBWbkv27yWx70FnY9rsgbI7Ehkj5IKoV9KgDM=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -25,6 +25,13 @@ hash: 073fODmS25uqfEFJ8mTAprqfumjQ0n21LfbPB8cLQlc=
 
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
+
+## Flexcharts (15.01.2025) - neuer Adapter
+https://github.com/MyHomeMyData/ioBroker.flexcharts
+
+<img src="https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/admin/flexcharts-icon-small.png" width="100" height="100" />
+
+Dieser Adapter bringt fast den kompletten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) zu ioBroker. Dieser Adapter ist nicht dafür gedacht, schnell ein einfaches Diagramm zu erstellen. Wenn Sie jedoch eine konkrete Idee für ein komplexeres Diagramm im Kopf haben, bietet Flexcharts die Möglichkeit, diese umzusetzen.
 
 ## Ecoflow-mqtt (2024-10-14) - neuer Adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
@@ -262,7 +269,7 @@ https://github.com/ticaki/ioBroker.weather-warnings
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
-Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Zustände erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
+Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Staaten erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
 
 ## Tractive-gps (06.12.2023) - neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
@@ -302,7 +309,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-##energiefluss (25.01.2024) – neuer Adapter
+## Energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -376,7 +383,7 @@ https://github.com/bolliy/ioBroker.sun2000
 Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
 
 ## Opcua (21.2.2024) – neue Funktion
-Der Adapter verfügt jetzt über eine kostenlose Lizenz.
+Der Adapter hat jetzt eine kostenlose Lizenz.
 
 ## Senec (25.2.2024) – neuer Adapter
 https://github.com/nobl/ioBroker.senec
@@ -500,7 +507,7 @@ https://github.com/Steiger04/ioBroker.radar-trap
 
 Adapter zur Erkennung von Radarfallen und Hindernissen.
 
-## Waterkotte-easycon (12.4.2024) – spätestens mit neuem Adapter
+## Waterkotte-easycon (12.4.2024) – spätestens neuer Adapter
 https://github.com/theknut/ioBroker.waterkotte-easycon
 
 <img src="https://raw.githubusercontent.com/theknut/ioBroker.waterkotte-easycon/main/admin/waterkotte-easycon.png" width="100" height="100" />
@@ -726,3 +733,24 @@ https://github.com/SKB-CGN/ioBroker.mywallbox
 <img src="https://github.com/SKB-CGN/ioBroker.mywallbox/blob/main/admin/wallbox.png" width="100" height="100" />
 
 Verbinde deine My-Wallbox (z.B. Pulsar Plus) mit ioBroker über den Cloud-Service von My Wallbox
+
+## Bluesound (11.1.2025) – neuer Adapter bei stabil
+https://github.com/Uwe1958/ioBroker.bluesound
+
+<img src="https://github.com/Uwe1958/ioBroker.bluesound/blob/main/admin/bluesound.png" width="100" height="100" />
+
+Adapter zur Steuerung von Bluesound-Geräten
+
+## Ta-blnet (11.1.2025) – neuer Adapter bei stabil
+https://github.com/weberk/ioBroker.ta-blnet
+
+<img src="https://github.com/weberk/ioBroker.ta-blnet/blob/main/admin/ta-blnet.png" width="100" height="100" />
+
+Ein ioBroker-Adapter zum Auslesen der Daten von einem oder bis zu acht Klimareglern von Technische Alternative über BL-NET. Oder eine unbegrenzte Anzahl an Klimareglern, die an CMI angeschlossen sind.
+
+##teslafi (11.1.2025) – neuer Adapter bei stabil
+https://github.com/hombach/ioBroker.teslafi
+
+<img src="[Abonnieren](https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png)" width="100" height="100" />
+
+Der TeslaFi-Adapter ermöglicht die mühelose Integration von Fahrzeugdaten aus Ihrem TeslaFi-Konto in das ioBroker-System. Nutzen Sie diese Daten, um Ihr Tesla-Erlebnis zu verbessern und die Arbeitsabläufe der Heimautomatisierung zu optimieren.

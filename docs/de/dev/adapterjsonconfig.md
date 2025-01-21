@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: 58896wn7SCp5CIYwuJjSiflscY/mhseioypkwO/+BzA=
+hash: Xc+YrZnmi1mYWiUlwueSm0wlq0IGSe5whY3wgjEn/AA=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -25,7 +25,7 @@ In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren i
 
 2. **JSON-Konfiguration aktivieren:**
 
-– Fügen Sie in der Datei „io-package.json“ Ihres Adapters im Abschnitt „common“ die folgende Zeile hinzu:
+– Fügen Sie in der Datei „io-package.json“ Ihres Adapters unter dem Abschnitt „common“ die folgende Zeile hinzu:
 
 ```json
 "common": {
@@ -37,7 +37,7 @@ In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren i
 
 3. **Struktur der Konfigurationsdatei:**
 
-Die Konfigurationsdatei definiert eine hierarchische Struktur aus Registerkarten, Bedienfeldern und Steuerelementen. \ Jedes Element verfügt über bestimmte Attribute, die sein Verhalten und seine Darstellung in der Administratoroberfläche bestimmen.
+Die Konfigurationsdatei definiert eine hierarchische Struktur aus Registerkarten, Bedienfeldern und Steuerelementen. \ Jedes Element verfügt über bestimmte Attribute, die sein Verhalten und Erscheinungsbild in der Administratoroberfläche bestimmen.
 
 jsonConfig sorgt automatisch dafür, dass die gesammelten Daten als Konfigurationsdaten für den Adapter erfasst und intern gespeichert werden, um sie im Adapter abrufen und weiterverarbeiten zu können.
 
@@ -190,7 +190,7 @@ Durch die Nutzung der JSON-Konfiguration können Sie eine benutzerfreundliche un
 | Validierung: | |
 
 ## Trennung der großen Konfigurationen
-## Beinhaltet
+## Enthält
 Erfordert Admin 6.17.1 oder neuer.
 
 Um komplexe JSON-Dateien zu schreiben, können Sie andere JSON-Dateien einbinden.
@@ -526,7 +526,7 @@ Objekt-ID: mit Name, Farbe und Symbol anzeigen
 ### `password`
 Dieser Feldtyp hat nur Auswirkungen auf die Benutzeroberfläche.
 Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden! Dazu muss der Schlüssel im io-package.json unter [nativeVerschlüsselung](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) bereitgestellt werden.
-Zusätzlich können Sie diese Eigenschaft davor schützen, an andere Adapter als `admin` und `cloud` übermittelt zu werden, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
+Zusätzlich können Sie diese Eigenschaft vor der Bereitstellung an andere Adapter als `admin` und `cloud` schützen, indem Sie sie in der Datei `io-package.json` zu `protectedNative` hinzufügen.
 
 | Immobilie | Beschreibung |
 |-------------|---------------------------------------------------------------------------------------------------------|
@@ -636,7 +636,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `items` | `[{"type": see above, "width": px or %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]` |
 | `objKeyName` | (alte Einstellung, nicht verwenden!) – Name des Schlüssels in `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` |
-| `objValueName` | (alte Einstellung, nicht verwenden!) – Name des Wertes in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
+| `objValueName` | (alte Einstellung, nicht verwenden!) – Name des Werts in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | wenn Hinzufügen erlaubt ist, auch wenn Filter gesetzt ist |
 | `showSecondAddAt` | Anzahl der Zeilen, ab denen der zweite Hinzufügen-Button am unteren Ende der Tabelle angezeigt wird. Standard 5 |
 | `showFirstAddOnTop` | Erste Plus-Schaltfläche oben in der ersten Spalte anzeigen und nicht links. |
@@ -649,7 +649,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | `compact` | [optional] – wenn wahr, wird die Tabelle im kompakten Modus angezeigt |
 
 ### `accordion`
-Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können (Admin 6.6.0 und neuer)
+Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben und nach unten verschoben werden können (Admin 6.6.0 und neuer)
 
 | Immobilie | Beschreibung |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -812,7 +812,7 @@ Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn „jsonData“ nicht definiert ist. |
 | `manual` | manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn Instanz offline ist). Standard `true`. |
 | `multiple` | Mehrfachauswahl |
-| `showAllValues` | Element anzeigen, auch wenn kein Label dafür gefunden wurde (bei mehreren), Standard=`true` |
+| `showAllValues` | Element anzeigen, auch wenn kein Label dafür gefunden wurde (mehrfach), Standard=`true` |
 | `noTranslation` | Bezeichnung der Auswahlen nicht übersetzen. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array in der Form `[{"value": 1, "label": "one"}, ...]` | sein. |
 | `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
 | `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
@@ -1003,7 +1003,7 @@ Spezieller Eingang für Ports. Es wird automatisch geprüft, ob der Port von and
 
 | Immobilie | Beschreibung |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `oid` | Welche Objekt-ID soll zur Steuerung verwendet werden? Die ID ist ohne `adapter.X.`-Präfix |
+| `oid` | Welche Objekt-ID soll zur Steuerung verwendet werden? Die ID ist ohne Präfix `adapter.X.` |
 | `foreign` | `oid` ist absolut und es ist nicht erforderlich, `adapter.X` oder `system.adapter.X.` zu oid hinzuzufügen |
 | `control` | Wie der Wert des Status angezeigt werden soll: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number` |
 | `controlled` | Wenn wahr, wird der Status als Schalter, Auswahl, Schaltfläche, Schieberegler oder Texteingabe angezeigt. Wird nur verwendet, wenn keine Steuerungseigenschaft definiert ist |
@@ -1111,7 +1111,7 @@ Die folgenden Optionen sind die empfohlenen Voreinstellungen, die in den meisten
 #### Es wird empfohlen, das Layout zu überprüfen
 Das jeweilige Layout sollte bei jedem Adapter geprüft werden, ob das Layout in allen Auflösungen dargestellt und genutzt werden kann.
 
-Testen lässt sich dies beispielsweise mit den Web Developer Tools, die in jedem Chromium-basierten Browser integriert sind.
+Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jedem Chromium-basierten Browser integriert sind.
 
 Schritt 1: Öffnen Sie die Web Developer Tools mit F12
 
@@ -1334,6 +1334,9 @@ Die folgenden Variablen sind in der JS-Funktion in benutzerdefinierten Einstellu
 ```
 
 Beispiele finden Sie im Adapter [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) oder in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin).
+
+## Einen Schemafehler melden
+Erstellen Sie hier ein Problem: https://github.com/ioBroker/adapter-react-v5/issues
 
 ## Für Betreuer
 Um den Speicherort des JsonConfig-Schemas zu aktualisieren, erstellen Sie eine Pull-Anfrage für diese Datei: https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
+hash: kRlj7Slv3jZyVSdfbdrinMJsFm7VzfyYy1BGtvBO2Jc=
 ---
 ![标识](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -11,21 +11,20 @@ hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
 ![下载](https://img.shields.io/npm/dm/iobroker.matrix-org.svg)
 ![安装数量](https://iobroker.live/badges/matrix-org-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/matrix-org-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.matrix-org.png?downloads=true)
 
 # IoBroker.matrix-org
-**测试：** ![测试和发布](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的矩阵组织适配器
-矩阵推送消息的适配器非常感谢创建矩阵（https://matrix.org/）创建一个完整的免费通信基础
+## IoBroker 的 matrix-org 适配器
+矩阵推送消息适配器 非常感谢创建矩阵（https://matrix.org/）以创建一个完全免费的通信基础
 
 ＃＃＃ 配置
-最佳：在您的服务器上运行您自己的客户端！
+最好：在您的服务器上运行您自己的客户端！
 
-使用密码创建自己的用户作为您的 BOT。为所有需要机器人消息的成员创建一个房间。将您的 BOT 添加到此房间（如果自动加入处于活动状态则不需要）。将所有成员添加到此房间。将所有数据放入配置中。 (BOT名称、密码、房间名称)
+创建一个自己的用户作为您的 BOT，并设置密码。为所有想要接收机器人消息的成员创建一个房间。将您的 BOT 添加到此房间（如果自动加入处于活动状态，则不需要）。将所有成员添加到此房间。将所有数据放入配置中。（BOT 名称、密码、房间名称）
 
 ＃＃＃ 用法
-根据需要添加任意数量的实例。按照你喜欢的方式为matrix-org.0.sendMessage添加一个值，用js 如果你设置“image”为matrix.0.sendMessage，它会发送矩阵标志到你的频道。
+添加所需的任意数量的实例。使用 js 以您喜欢的方式向 matrix-org.0.sendMessage 添加值 如果您将“image”设置为 matrix.0.sendMessage，它会将矩阵徽标发送到您的频道。
 或者在 js 中使用：
 
 ```
@@ -34,25 +33,25 @@ sendTo("matrix-org.0", "Hello World!");
 
 或者使用 Sendto 中的块状符号。
 
-对于来自本地文件系统 (Linux) 的图像：
+对于来自本地文件系统（Linux）的图像：
 
 ```
 sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
 ```
 
-对于来自本地文件系统 (Windows) 的图像：
+对于来自本地文件系统（Windows）的图像：
 
 ``` 
 sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
 ```
 
-图片供参考：
+供参考图片：
 
 ```
 sendTo("matrix-org.0",{file: "https://www.abcd/images/test.png"});
 ```
 
-对于 base64 中的图像：
+对于 base64 格式的图像：
 
 ```
 sendTo("matrix-org.0",{file:{type:"image/png",base64:"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZdhCoAgDEZnd9D737T8xJkNNY1Ef+yB2LTcC1qWOT20kCBgjIkh0WwfmeuIxyGYnRzIPElgFSqgAvsKOOdCzeZ1y7EcZzDG16HvwtckihLdA4xxk3HeGGttc17Cc+lN6Ds/dlO6w6/ItQHn7H4GcDK3Em/zNboE5KKjcQstQxVQARVYLlDdC2YzvBfMQgVUYB8BlMWfn2E1ZJ7Fv+dEF0UZoNhXp9NnAAAAAElFTkSuQmCC"}});
@@ -76,20 +75,20 @@ sendTo("matrix-org.0",{html: "<h1>Hello World!</h1>", text: "Hello World!"});
 sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td><td>b</td></tr><table>", text: "Your client can not show html!"});
 ```
 
-如果您的客户无法解码 html，您将获得文本。
+如果您的客户端无法解码 html，您将获得文本。
 如果您的客户端不支持表格，它要么显示文本，要么只显示 12ab。
 
-### 测试你的配置使用 sendMessage
-只需打开对象并更改一个 matrix-org 实例的字符串 大多数端口是 443，如果你有一个像 matrix.org 这样的公共系统 端口有时是 8448，当你有一个没有代理的自托管系统时，但是你知道它。
+### 使用 sendMessage 测试你的配置
+只需打开对象并更改一个 matrix-org 实例的字符串。如果您有一个像 matrix.org 这样的公共系统，则端口通常是 443。当您有一个没有代理的自托管系统时，端口有时是 8448，但您知道它。
 
-如果您想测试它： 服务器：matrix.org 端口：443 房间：#test-ioBroker-adapter:matrix.org 加入这个房间并使用您自己的凭据进行尝试
+如果您想测试它：服务器：matrix.org 端口：443 房间：#test-ioBroker-adapter:matrix.org 加入此房间并使用您自己的凭据尝试一下
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2024-11-23)
 * upgrade matrix-js-sdk
 * auto join added (default false)
 
@@ -167,7 +166,7 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
 ## License
 MIT License
 
-Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
+Copyright (c) 2024 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

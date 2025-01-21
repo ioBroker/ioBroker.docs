@@ -83,9 +83,10 @@ On configuration page you can select following modules:
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.3.6 (2025-01-11)
 * (simatec) eslint-config fix
 * (simatec) Dependencies updated
+* (simatec) Update License
 
 ### 1.3.5 (2024-11-27)
 * (simatec) Dependencies updated
@@ -156,7 +157,7 @@ On configuration page you can select following modules:
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 simatec
+Copyright (c) 2018-2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

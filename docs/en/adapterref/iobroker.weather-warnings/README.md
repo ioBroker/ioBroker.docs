@@ -146,6 +146,16 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.3 (2025-01-16)
+- (ticaki) fix typo
+
+### 0.7.2 (2025-01-13)
+* (ticaki) Replacing „ and “ in the json template before parsing with "
+* (ticaki) Fixing activeWarning_json (adapter.0.provider.activeWarning_json)
+
+### 0.7.1 (2025-01-10)
+* (CrEaK) Fixing send to chatId in telegram
+
 ### 0.7.0 (2025-01-03)
 * (ticaki) added gotify (notificationservice)
 

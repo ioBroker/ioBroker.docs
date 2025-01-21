@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: rSqt+4ME/KdGYXT7BTGsggsZ6MB8OeKxyqAwxVq0y3I=
+hash: wBA7Lh1dURbNHjUPUe1qYcbJeiBGlea3exh4+qJRqdo=
 ---
 ![Stabile Version](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -20,9 +20,10 @@ hash: rSqt+4ME/KdGYXT7BTGsggsZ6MB8OeKxyqAwxVq0y3I=
 <p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
 ## Konfiguration
-Fügen Sie auf der Adapterkonfigurationsseite Benutzernamen und Passwort von Ihrem Sure Petcare®-Konto hinzu.
+Erforderlich: Fügen Sie auf der Adapterkonfigurationsseite Benutzernamen und Passwort von Ihrem Sure Petcare®-Konto hinzu.
 
-Auch die Grenzwerte für Batterie voll und leer können hier bei Verwendung von Akkus angepasst werden. Dies wirkt sich auf die Batterieprozentwerte aus.
+Optional: Aktivieren oder deaktivieren Sie den JSON-Ereignisverlauf und konfigurieren Sie die Anzahl der Elemente.
+Optional: Legen Sie Schwellenwerte für volle und leere Akkus fest, wenn Sie wiederaufladbare Akkus verwenden. Dies wirkt sich auf die Prozentwerte des Akkus aus.
 
 ## Beschreibung
 Der Adapter liefert Informationen über die Einstellungen und den Status Ihrer Tierklappe, Katzenklappe, Ihres Futter- oder Wasserautomaten.
@@ -42,14 +43,14 @@ Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wir
 | household_name.hub_name.flap_name.control.curfew_enabled | aktiviert oder deaktiviert die konfigurierte Ausgangssperre | **true** oder **false** |
 | Haushaltsname.Hubname.Klappenname.Control.current_Curfew | legt die aktuelle Ausgangssperre fest,<br> unterstützt 1 (Haustierklappe) oder bis zu 4 (Katzenklappe) Sperrzeiten | **[{&quot;enabled&quot;:true\|false, &quot;lock_time&quot;:&quot;xx:xx&quot;, &quot;unlock_time&quot;:&quot;xx:xx&quot;}, ...]** |
 | Haushaltsname.Hubname.Klappenname.control.lockmode | setzt den Sperrmodus | **0** - öffnen<br> **1** - einsperren<br> **2** - Aussperren<br> **3** - geschlossen (Ein- und Aussperren) |
-| Haushaltsname.Hubname.Klappenname.Zugeordnete Haustiere.Haustiername.Kontrolltyp | Legt den Haustiertyp für das zugewiesene Haustier und die Klappe fest | **2** - Haustier im Freien<br> **3** - Haustier |
+| Haushaltsname.Hubname.Klappenname.Zugeordnete Haustiere.Haustiername.Kontrolltyp | Legt den Haustiertyp für das zugewiesene Haustier und die Klappe fest | **2** - Haustier für draußen<br> **3** - Haustier |
 | Haushaltsname.Hubname.Feedername.Control.close_delay | Legt die Schließverzögerung des Feederdeckels fest | **0** - schnell<br> **4** - normal<br> **20** - langsam |
 | household_name.pets.pet_name.inside | legt fest, ob Ihr Haustier drinnen ist | **true** oder **false** |
 
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ Haushaltsname<br> │ ├ Hub-Name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Signal<br> │ │ │ ├ Gerät_RSSI<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Kontrolle<br> │ │ │ └ LED-Modus<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ Gerät_RSSI<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ └ Wasser<br> │ │ │ ├ Prozent_Füllung<br> │ │ │ ├ zuletzt ausgefüllt am<br> │ │ │ └ Gewicht<br> │ │ ├ Feedername<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ Gerät_RSSI<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ Prozent_Füllung<br> │ │ │ │ ├ Nahrungsmittelart<br> │ │ │ │ ├ zuletzt ausgefüllt am<br> │ │ │ │ ├ Letztes_Nullsetzen_am<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ Verzögerung schließen<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Ausgangssperre aktiv<br> │ │ ├ letzte_aktivierte_Ausgangssperre<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre aktiviert<br> │ │ │ ├ aktuelle_Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Signal<br> │ │ │ ├ Gerät_RSSI<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ Haustiername<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ json<br> │ │ └ 0..24<br> │ └ Haustiere<br> │ └ Haustiername<br> │ ├ innen<br> │ ├ Name (Bezeichnung)<br> │ ├ seit<br> │ ├ Essen<br> │ │ ├ zuletzt gegessen<br> │ │ ├ aufgewendete Zeit<br> │ │ ├ mal gegessen<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ ├ Bewegung<br> │ │ ├ letzte_Richtung<br> │ │ ├ letzte_Klappe<br> │ │ ├ letzte_Klappen-ID<br> │ │ ├ letzte_Zeit<br> │ │ ├ Zeit_draußen_ verbracht<br> │ │ └ mal_draußen<br> │ └ Wasser<br> │ ├ letztes Mal betrunken<br> │ ├ aufgewendete Zeit<br> │ ├ mal betrunken<br> │ └ Gewicht<br> └ Infos<br> ├ alle_Geräte_online<br> ├ Verbindung<br> ├ letztes_Update<br> └ Version<br>
+Adapter<br> ├ Haushaltsname<br> │ ├ Hub-Name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Signal<br> │ │ │ ├ Gerät_RSSI<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Kontrolle<br> │ │ │ └ LED-Modus<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ Gerät_RSSI<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ └ Wasser<br> │ │ │ ├ Prozent_Füllung<br> │ │ │ ├ zuletzt ausgefüllt am<br> │ │ │ └ Gewicht<br> │ │ ├ Feedername<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ Gerät_RSSI<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ Prozent_Füllung<br> │ │ │ │ ├ Nahrungsmittelart<br> │ │ │ │ ├ zuletzt ausgefüllt am<br> │ │ │ │ ├ Letztes_Nullsetzen_am<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ Schließverzögerung<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Ausgangssperre aktiv<br> │ │ ├ letzte_aktivierte_Ausgangssperre<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre aktiviert<br> │ │ │ ├ aktuelle_Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Signal<br> │ │ │ ├ Gerät_RSSI<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ Haustiername<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ json<br> │ │ └ 0..24<br> │ └ Haustiere<br> │ └ Haustiername<br> │ ├ innen<br> │ ├ Name (Bezeichnung)<br> │ ├ seit<br> │ ├ Essen<br> │ │ ├ zuletzt gegessen<br> │ │ ├ aufgewendete Zeit<br> │ │ ├ mal gegessen<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ ├ Bewegung<br> │ │ ├ letzte_Richtung<br> │ │ ├ letzte_Klappe<br> │ │ ├ letzte_Klappen-ID<br> │ │ ├ letzte_Zeit<br> │ │ ├ Zeit_draußen_ verbracht<br> │ │ └ mal_draußen<br> │ └ Wasser<br> │ ├ letztes Mal betrunken<br> │ ├ aufgewendete Zeit<br> │ ├ mal betrunken<br> │ └ Gewicht<br> └ Infos<br> ├ alle_Geräte_online<br> ├ Verbindung<br> ├ letztes_Update<br> ├ Offline-Geräte<br> └ Version<br>
 
 ## Hinweise
 SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap Ltd.](https://www.surepetcare.com/)
@@ -57,6 +58,36 @@ SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap 
 Die Bilder der SureFlap®-Geräte werden von [Sure Petcare®](https://www.surepetcare.com/en-us/press) zur freien Verwendung bereitgestellt.
 
 ## Changelog
+
+### 3.0.0 (work in progress)
+
+* (Sickboy78) complete refactoring of surepet API
+* (Sickboy78) complete refactoring of internal data structure
+* (Sickboy78) added list of offline devices
+* (Sickboy78) switched to jsonConfig
+* (Sickboy78) dependency updates
+
+### 2.3.3 (2024-12-30)
+
+* (Sickboy78) fixed a bug when feeder does not have bowls data
+
+### 2.3.2 (2024-12-07)
+
+* (Sickboy78) quick fix for surepet API changes
+* (Sickboy78) dependency updates
+
+### 2.3.1 (2024-10-18)
+
+* (Sickboy78) improved responsive design for admin page
+* (Sickboy78) added nodejs 22 to test matrix
+* (Sickboy78) dependency updates
+
+### 2.3.0 (2024-09-14)
+
+* (Sickboy78) improved handling of missing, invalid or incomplete data from API
+* (Sickboy78) improved error handling for pets
+* (Sickboy78) fixed no battery data error
+* (Sickboy78) dependency updates
 
 ### 2.2.1 (2024-08-11)
 

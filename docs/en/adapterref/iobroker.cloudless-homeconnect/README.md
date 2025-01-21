@@ -31,6 +31,29 @@ Port 443 must be enabled on the device in the local network.
 
 It may happen that the device cannot be addressed after loading the configuration. Then there is no DNS entry for the device's domain in the local network. In addition to setting this up in the network, you can simply enter the local IP of the device in the `info.config` data point at `host`.
 
+## First steps
+
+Normally, profiles of the registered devices are retrieved from Homeconnect servers after [adapter configuration](#configuration) when the adapter starts. This login process has been changed on some servers so that automatic downloading of the profiles no longer works and manual downloading is necessary. The external tool **[Homeconnect Profile Downloader](https://github.com/bruestel/homeconnect-profile-downloader/tags)** is recommended.
+
+So if automatic retrieval is not possible, a **warning** will appear in the ioBroker log, **_if none appears and the adapter starts normally, no further action is necessary and the next steps can be ignored!_**
+
+```
+warn: Login not successful. Please put the zip from homeconnect-profile-downloader as described in docs manually into path <<Path to the storage location of downloaded device profiles>> and restart adapter. See https://github.com/bruestel/homeconnect-profile-downloader also.
+```
+
+If the warning is issued, the **Homeconnect Profile Downloader** must be installed locally. To do this, follow the link, download the latest version for your operating system and [install](https://github.com/bruestel/homeconnect-profile-downloader?tab=readme-ov-file#run-it):
+![Versions of Homeconnect Profile Downloader](../profile_git.png)
+
+Then start the installed application and select the region on the homepage:
+![Homeconnect Profile Downloader homepage](../profile_start.png)
+
+By clicking on 'FETCH APPLIANCE PROFILE DATA' you will be redirected to the Homeconnect login page, where you must log in using the access data from the Homeconnect app:
+![Login to Homeconnect](../profile_login.png)
+
+If this was successful, an overview of zip files will appear for each device registered via the Homeconnect app. The zip files must now be downloaded and moved **as is** to the folder shown in the warning in the ioBroker log.
+
+The adapter must then be restarted. The configuration for the adapter is now created from these files.
+
 ## Configuration
 
 The Homeconnect app user name and password must be entered in the adapter config.
@@ -132,100 +155,108 @@ General settings for the device can be made here. For example, the light of an o
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.1 (2025-01-16)
+
+- (eifel-tech) Creating instance directory if absent
+
+### 1.4.0 (2025-01-15)
+
+- (eifel-tech) Dependency updates
+- (eifel-tech) Changed login process for getting device information by homeconnect (Issue #170)
 
 ### 1.3.0 (2024-12-02)
 
--   (eifel-tech) Dependency updates
--   (eifel-tech) common.min is only set if it is also present in the config (Issue #149)
--   (eifel-tech) Password in admin will be stored encrypted natively
+- (eifel-tech) Dependency updates
+- (eifel-tech) common.min is only set if it is also present in the config (Issue #149)
+- (eifel-tech) Password in admin will be stored encrypted natively
     > [!CAUTION]
     > You have to reenter your password in admin config!
 
 ### 1.2.10 (2024-11-20)
 
--   (eifel-tech) Handle missing enums during parsing (Issue #148)
+- (eifel-tech) Handle missing enums during parsing (Issue #148)
 
 ### 1.2.9 (2024-11-14)
 
--   (eifel-tech) Bugfix while reading program options (Issue #143)
+- (eifel-tech) Bugfix while reading program options (Issue #143)
 
 ### 1.2.8 (2024-11-05)
 
--   (eifel-tech) Prevent forbidden signs
--   (eifel-tech) More resolutions considered in instance settings
--   (eifel-tech) Number of connection attempts configurable (Issue #135)
+- (eifel-tech) Prevent forbidden signs
+- (eifel-tech) More resolutions considered in instance settings
+- (eifel-tech) Number of connection attempts configurable (Issue #135)
 
 ### 1.2.7 (2024-10-24)
 
--   (eifel-tech) Notes from adapter checker
+- (eifel-tech) Notes from adapter checker
 
 ### 1.2.6 (2024-10-24)
 
--   (eifel-tech) Added translations
+- (eifel-tech) Added translations
 
 ### 1.2.5 (2024-10-23)
 
--   (eifel-tech) Instance remains yellow when first started (Issue #129)
+- (eifel-tech) Instance remains yellow when first started (Issue #129)
 
 ### 1.2.4 (2024-10-23)
 
--   (eifel-tech) Prevent message `undefined` from being sent
+- (eifel-tech) Prevent message `undefined` from being sent
 
 ### 1.2.3
 
--   (eifel-tech) Added datapoint to indicate whether a socket connection exists
+- (eifel-tech) Added datapoint to indicate whether a socket connection exists
 
 ### 1.2.2
 
--   (eifel-tech) Using a persistent websocket connection
+- (eifel-tech) Using a persistent websocket connection
 
 ### 1.2.1
 
--   (eifel-tech) Abort the connection if errors occur in the socket connection to the device
+- (eifel-tech) Abort the connection if errors occur in the socket connection to the device
 
 ### 1.2.0
 
--   (eifel-tech) Ability to exclude individual devices from control (Issue #117)
+- (eifel-tech) Ability to exclude individual devices from control (Issue #117)
     > [!CAUTION]
     > The configuration had to be expanded for this, so the contents of the `info.config` data point have to be deleted and the adapter has to be restarted. Also delete the `General` object tree.
 
 ### 1.1.2
 
--   (eifel-tech) Washing machine: Program options are sent separately and not including the program to be started
+- (eifel-tech) Washing machine: Program options are sent separately and not including the program to be started
 
 ### 1.1.1
 
--   (eifel-tech) Parsing the configuration simplified
+- (eifel-tech) Parsing the configuration simplified
 
 ### 1.1.0
 
--   (eifel-tech) Parsing of configuration for multiple devices revised
+- (eifel-tech) Parsing of configuration for multiple devices revised
 
 ### 1.0.4
 
--   (eifel-tech) Dishwasher support
+- (eifel-tech) Dishwasher support
 
 ### 1.0.3
 
--   (eifel-tech) New socket connection after timeout
+- (eifel-tech) New socket connection after timeout
 
 ### 1.0.2
 
--   (eifel-tech) If a new program is started, any program that may be running will first be terminated
+- (eifel-tech) If a new program is started, any program that may be running will first be terminated
 
 ### 1.0.1
 
--   (eifel-tech) Increasing security with TLS
+- (eifel-tech) Increasing security with TLS
 
 ### 1.0.0
 
--   (eifel-tech) initial release
+- (eifel-tech) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 eifel-tech <hikaso@gmx.net>
+Copyright (c) 2025 eifel-tech <hikaso@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

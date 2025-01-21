@@ -733,6 +733,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.aio/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.airconwithme/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.airquality/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.alarm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.alexa-shoppinglist/README.md
@@ -1109,6 +1110,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.owntracks/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.palazzetti/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.paperless-ngx/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.parcel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.parser/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.paw/README.md
@@ -1419,6 +1421,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.aio/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.airconwithme/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.airquality/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.alarm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.alexa-shoppinglist/README.md
@@ -1795,6 +1798,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.owntracks/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.palazzetti/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.paperless-ngx/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.parcel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.parser/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.paw/README.md
@@ -2105,6 +2109,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.aio/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.airconwithme/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.airquality/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.alarm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.alexa-shoppinglist/README.md
@@ -2481,6 +2486,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.owntracks/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.palazzetti/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.paperless-ngx/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.parcel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.parser/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.paw/README.md
@@ -2791,6 +2797,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.aio/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.airconwithme/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.airquality/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alarm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alexa-shoppinglist/README.md
@@ -3167,6 +3174,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.owntracks/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.palazzetti/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.panasonic-comfort-cloud/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.panasonic-viera/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.paperless-ngx/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.parcel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.parser/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.paw/README.md

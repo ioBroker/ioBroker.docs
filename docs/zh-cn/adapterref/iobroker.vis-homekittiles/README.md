@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
+hash: /X3s0IvNZdNrT/NMxCAvFmje1BgCVt+giQKZUZrUyso=
 ---
 # IoBroker.vis-homekittiles
 
@@ -18,8 +18,8 @@ hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
 **测试：**![测试与发布](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker-VIS 的 HomeKit-Tiles
-Homekit Tiles 是基于 Apple HomeKit 设计的一组小部件。
-小部件的特殊之处在于它们不包含任何固定的样式元素，而是使用 CSS 格式化所有内容。因此，VIS 编辑器中没有针对图标、标签等的位置和/或大小的单独设置。通过更改 CSS 代码来调整设计。为此，可以使用文件 `/widgets/homekittiles/css/style.css` 中的 CSS 代码作为模板。代码插入到 VIS 编辑器中的 CSS 选项卡中，可以根据需要进行自定义。还可以通过 VIS 编辑器在小部件的“常规”部分中添加自己的 CSS 类。
+Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
+小部件的特殊之处在于它们不包含任何固定样式元素，而是使用 CSS 格式化所有内容。因此，VIS 编辑器中没有针对图标、标签等的位置和/或大小的单独设置。通过更改 CSS 代码来调整设计。为此，可以使用文件 `/widgets/homekittiles/css/style.css` 中的 CSS 代码作为模板。代码插入到 VIS 编辑器中的 CSS 选项卡中，可以根据需要进行自定义。还可以通过小部件的“常规”部分中的 VIS 编辑器添加您自己的 CSS 类。
 
 这些小部件是为 VIS 1.x 设计的。
 
@@ -35,7 +35,6 @@ Homekit Tiles 是基于 Apple HomeKit 设计的一组小部件。
 * 创建选择图块
 * 为 Sonos Group 创建复选框
 * 日期选择器：动态日/月图标
-* 新小部件：pinpad（正在进行中）
 * Tiles：添加对话框按钮
 
 ## Changelog
@@ -45,8 +44,32 @@ Homekit Tiles 是基于 Apple HomeKit 设计的一组小部件。
 -->
 ### **WORK IN PROGRESS**
 
+* All tiles: added icon for state off
+* Optimized CSS for indicator
+
+### 0.4.0 (2025-01-14)
+
+* Added Pinpad-Dialog
+* Added HTML-Dialog
+* Added hkt-Config-Modal (experimental): changes the styles of modal to blur instead of background color and transparency (modal darkens the background when a dialog window is open). For this config-item you need ipadOS 18.x to work with Safari or ioBroker Visu App. Simply place the config item somewhere in your VIS where it is always called (e.g. in the menu) and configure it as desired. It is not visible at runtime.
+* Made "modal" to default setting
+* Section 'dialog' splitted into 'dialog settings' and 'dialog content'
+* Made values of SwitchBool customizable and renamed 'SwitchBool' to 'Switch'
+* Repaired notification widget
+* Added Apple standard font 'SanFrancisco' to fonts (needed to be installed separatly)
+
+### 0.3.3 (2025-01-03)
+
+* Added new style "text only" to switch and view-in-widget-dialog tiles
+* Fixed some issues from adapter checker
+* Fixed some styles of view-in-widget-swipe
+* Added arrow indicators to view-in-widget-swipe
+
+### 0.3.2 (2024-12-03)
+
 * Added option to show icons colored on tiles and radio
 * Added new styles "big", "small" and "only icon" for all tiles
+* JSON Table: set no fixed height (min-hight is now 32px)
 
 ### 0.3.1 (2024-07-12)
 
@@ -155,7 +178,7 @@ Homekit Tiles 是基于 Apple HomeKit 设计的一组小部件。
 
 MIT License
 
-Copyright (c) 2024 Standarduser
+Copyright (c) 2025 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

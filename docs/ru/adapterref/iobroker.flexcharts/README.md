@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: bg7vZAhUrEEfOHPWcLi2QWejGsWx19+UsdyyKnWX0u4=
+hash: mJ2FClZO2G/KuGclhJkGf7D9M9RO3qbL1GzB/mhIDhs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -143,11 +143,32 @@ myJsonParams = {"period":"daily"}
 
 Пожалуйста, обратите внимание, **вам необходимо использовать функциональность `onMessage()` для получения триггера от адаптера**. Значение по умолчанию для сообщения — `flexcharts`, как показано в примере выше. Вы можете использовать другие сообщения, указав дополнительный параметр, например, чтобы использовать сообщение `mycharts`, добавьте `&message=mycharts` к http-адресу: `http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
 
+### Использование функций в определении диаграммы
+К сожалению, определения функций в определении диаграммы обычно не работают, поскольку они фильтруются при использовании `JSON.stringify(option)` или `callback(option)`.
+
+Однако, начиная с версии flexcharts V0.3.0, это стало возможным. Нужно приложить немного больше усилий:
+
+* Добавьте модуль npm `javascript-stringify` в экземпляр 0 адаптера javascript. Для этого добавьте `javascript-stringify` в "Дополнительные модули npm" в конфигурации адаптера:
+
+![добавить модули npm](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
+
+* В вашем скрипте добавьте `var strify = require('javascript-stringify');` в начале
+* При использовании скрипта в качестве источника данных: в функциональности `onMessage()` замените `callback(option);` на `callback(strify.stringify(option));` (предполагается, что `option` содержит определение вашей диаграммы).
+* Затем используйте состояние в качестве источника данных: при создании состояния замените `setState('my_chart_id', JSON.stringify(option), true);` на `setState('my_chart_id', strify.stringify(option), true);`
+* Вот и все. Теперь функции в определениях диаграмм будут корректно перенаправляться в flexcharts.
+
+Просто попробуйте использовать [шаблон3](templates/flexchartsTemplate3.js). Функция используется для отображения данных подсказки с 2 десятичными знаками: `tooltip: {trigger: "axis", valueFormatter: (value) => '. + value.toFixed(2)}`.
+
+Пример использования определения диаграммы через состояние приведен в `flexcharts.0.info.chart2`. Это покажет ту же диаграмму, что и template3.
+
+Примечание: Если установлен модуль npm `javascript-stringify`, его функциональность может также использоваться вредоносным кодом (Cross-Site-Scripting). Поэтому ioBroker не должен быть доступен из Интернета при использовании этого модуля.
+
 ## Шаблоны
 Шаблоны Javascript доступны для некоторых вариантов использования:
 
 * диаграмма с использованием данных из адаптера истории: [template1](templates/flexchartsTemplate1.js)
 * простая диаграмма для тепловой кривой: [template2](templates/flexchartsTemplate2.js)
+* простая столбчатая диаграмма с накоплением, использующая функцию в определении диаграммы: [template3](templates/flexchartsTemplate3.js)
 * Для устройств Viessmann серии E3 доступен очень специфический вариант использования, например, тепловой насос Vitocal 250. См. https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ## Ссылка
@@ -161,6 +182,9 @@ myJsonParams = {"period":"daily"}
 * `&refresh=number` - обновлять график каждые "number" секунд. По умолчанию 60 секунд. Минимально допустимое значение 5 секунд.
 * `&user_defined_arguments` - Добавьте больше параметров по мере необходимости. Все аргументы доступны в функции `onMessage()` в объекте `httpParams`. См. примеры выше и шаблоны для получения более подробной информации.
 
+### Использование функций в определении диаграмм
+Доступно с версии 0.3.0 или новее. Пожалуйста, обратитесь к предыдущему [глава](#using-functions-within-definition-of-chart)
+
 ### Встроенная демонстрационная диаграмма
 Доступна встроенная демонстрационная диаграмма: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
 
@@ -173,6 +197,10 @@ myJsonParams = {"period":"daily"}
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2025-01-08)
+* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
+* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
+
 ### 0.2.0 (2024-11-06)
 * (MyHomeMyData) Updated readme. Added sections Templates and Reference.
 * (MyHomeMyData) Fix for issue #41 (findings of repository checker)
@@ -218,7 +246,7 @@ myJsonParams = {"period":"daily"}
 ## License
 MIT License
 
-Copyright (c) 2024 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

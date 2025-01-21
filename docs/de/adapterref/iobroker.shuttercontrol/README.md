@@ -792,9 +792,14 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.8.7 (2025-01-20)
+* (simatec) Design Fix
+
+### 1.8.6 (2025-01-11)
 * (simatec) eslint-config fix
 * (simatec) Dependencies updated
+* (simatec) Update License
+* (simatec) Fix Frost Alarm
 
 ### 1.8.5 (2024-11-27)
 * (simatec) Bugfix Brightness down
@@ -1369,7 +1374,7 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 ## License
 MIT License
 
-Copyright (c) 2019 - 2024 simatec
+Copyright (c) 2019 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

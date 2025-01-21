@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.squeezeboxrpc/README.md
-title: 通过 JSON/RPC 协议的 ioBroker Logitech Squeezebox 适配器
-hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
+title: 通过 JSON/RPC 协议的 ioBroker Logitech/Lyrion Squeezebox 适配器
+hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
 ---
 ![标识](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -13,24 +13,20 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ![稳定存储库中的当前版本](https://iobroker.live/badges/squeezeboxrpc-stable.svg)
 ![新平台](https://nodei.co/npm/iobroker.squeezeboxrpc.png?downloads=true)
 
-# IoBroker Logitech Squeezebox 适配器通过 JSON/RPC 协议
+# IoBroker Logitech/Lyrion Squeezebox 适配器通过 JSON/RPC 协议
 **测试：**![测试与发布](https://github.com/oweitman/ioBroker.squeezeboxrpc/workflows/Test%20and%20Release/badge.svg)
 
-这是一个替代适配器，它使用`JSON/RPC`协议获取数据并向 Logitech 媒体服务器 ([语言管理系统](https://de.wikipedia.org/wiki/Logitech_Media_Server)) 发送命令，以控制连接的设备，例如
+这是一个替代适配器，它使用`JSON/RPC`协议获取数据并向 Logitech Media Server/Lyrion Media Server ([语言管理系统](https://de.wikipedia.org/wiki/Lyrion_Music_Server)) 发送命令，以控制连接的设备，例如
 
 - 原生[squeezebox](https://de.wikipedia.org/wiki/Squeezebox),
 - 带有附加音频模块和基于小型 Linux 固件的树莓派
 
 像[picoreplayer](https://picoreplayer.org/) 或 [max2play](https://www.max2play.com)。
 
+- WiiM 多房间音频（[可以与 LMS/Lyrion 服务器对话]（https://faq.wiimhome.com/en/support/solutions/articles/72000610226-how-to-stream-music-from-lms-to-your-wiim-device-with-squeezelite））
 - 带有插件 chromecast、airplay 或 `UPnP/DLNA` 设备
 
 `LMS` 服务器可以管理/提供硬盘或`NAS` 上的非常大的音乐收藏，并连接到不同的流媒体提供商，如`Spotify`、`Deezer`、`Soundcloud`、`shoutcast`、`tunein`、`napster`、`pandora`、`tidal` 等
-
-为什么需要另一个`Squeezebox`适配器？
-
-现有适配器使用`telnet` 访问`LMS`。telnet 有一些缺点。
-`LMS` 的实际主 Web 界面也使用 rpc/json 协议来获取所有需要的信息或向服务器/播放器发送命令。
 
 ＃＃ 特征
 - `LMS` 服务提供的大部分 [数据](#server) 均可在适配器中使用
@@ -50,7 +46,7 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ＃＃ 安装
 - 安装软件包
 - 创建一个实例
-- 使用罗技媒体服务器的 IP 配置实例
+- 使用 logitech/Lyrion 媒体服务器的 IP 配置实例
 
 和端口（通常为 9000）
 
@@ -63,7 +59,7 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 
 `iobroker upload squeezeboxrpc`
 
-## 提供状态
+## 提供的状态
 ＃＃＃ 服务器
 | 状态 | 描述 |
 | ------------------ | ----------------------------- |
@@ -186,14 +182,14 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 ### 播放器按钮栏
 ![播放器按钮栏](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/players.png)
 
-使用此小部件可以选择所有集成到 Logitech Media Server 的播放器。选择 `squeezerpc.?` 实例后，小部件中将显示可用的播放器。
+使用此小部件可以选择所有集成到 Logitech/Lyrion Media Server 的播放器。选择 `squeezerpc.?` 实例后，小部件中将显示可用的播放器。
 
 ＃＃＃＃ 属性
 | 组 | 属性 | 描述 |
 | ----------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SqueezeboxRPC 实例 | 常规组 | 选择 squeezeboxrpc 适配器的一个实例。只有这些实例才被识别为有效。|
 | 小部件格式 | 常规组 | 可以在此处选择小部件类型。“formatbutton”类型具有全部功能，并且还适用于 SyncGroup 小部件。“formatselect”类型是一个简单的选择框。使用玩家名称或单个文本作为名称。|
-| 显示索引 | 常规组 | 通过删除按钮的索引，可以隐藏或以不同的顺序显示单个按钮。要隐藏它们，只需删除相应的索引位置（包括逗号）。如果启用了编辑模式帮助，索引号将在编辑模式下显示在相应的按钮上。|
+| 显示索引 | 常规组 | 可以通过删除按钮索引来隐藏或以不同顺序显示单个按钮。要隐藏它们，只需删除相应的索引位置（包括逗号）。如果启用了编辑模式帮助，索引号将在编辑模式下显示在相应的按钮上。|
 | CamelCase 中的换行符 | 常规组 | 如果玩家名称以 CamelCase 书写，则可以在此处激活换行符，以便玩家名称在按钮上显示得更大。|
 | 编辑模式帮助 | 常规组 | 如果激活此帮助，则索引号将显示在相应的按钮上，并且按钮设置中的“透明度”设置不起作用。|
 | 图片宽度 | 按钮设置 | 按钮的图片宽度 |
@@ -205,13 +201,13 @@ hash: yYP7kkQ5eC1GRy8+PXU3HzdiQxP8jzIIUBtsIQx8cIw=
 | 边框颜色活动 | 按钮设置 | 如果按钮被激活，则以此颜色显示。|
 | 边框半径 | 按钮设置 | 可以在此处输入弯曲边框角的半径（以像素为单位）。|
 | 背景颜色 | 按钮设置 | 文本背景颜色 |
-| 图片 | 按钮[x] | 可以在此单独定义图片。图片优先于文本。|
+| 图片 | button[x] | 可以在此单独定义图片。图片优先于文本。|
 | 文本 | button[x] | 可以在此单独定义文本。图像优先于文本。|
 
 ### 收藏按钮栏
 ![收藏夹按钮栏](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/favorites.png)
 
-您可以使用此小部件选择 Logitech Media Server 中创建的所有收藏夹。
+您可以使用此小部件选择 Logitech/Lyrion 媒体服务器中创建的所有收藏夹。
 选择播放器小部件后，可用的收藏夹将显示在小部件中。
 
 | 组 | 属性 | 描述 |
@@ -526,7 +522,12 @@ main();
 -->
 ### **WORK IN PROGRESS**
 
+- upgrade dependency js-controller
+
+### 1.5.2 (2024-12-16)
+
 - fix spelling of iobroker upload squeezeboxrpc in readme
+- fix playtime bar
 
 ### 1.5.1 (2024-11-29)
 

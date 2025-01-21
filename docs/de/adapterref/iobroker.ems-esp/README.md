@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: v9Sk35pDDGYxQreQjc1ZPCzaXZYh2SrKbaBwzPFZ0qw=
+hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -18,14 +18,14 @@ hash: v9Sk35pDDGYxQreQjc1ZPCzaXZYh2SrKbaBwzPFZ0qw=
 
 ## Bosch / Buderus Heizsysteme mit km200 / IP-inside und/oder ems-esp Schnittstelle
 Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe über EMS- oder EMS+-Bus.
-(Buderus / Junkers / Netfit usw.).
+(Bosch / Buderus / Junkers / Netfit usw.).
 
 ## Der Adapter kann über API-Aufrufe mit dem Heizsystem kommunizieren. Unterstützte Gateways sind:
 * km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von der Bosch-Gruppe)
 
 * ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit dem ESP32-Chip.
 
-Die alten ESP8266-Gateways mit API V2 werden nicht mehr unterstützt!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version (V3.7.1) getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
+Die alten ESP8266-Gateways mit API V2 werden nicht mehr unterstützt!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
 
 * Neue Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
 

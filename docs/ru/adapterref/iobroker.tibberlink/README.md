@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
+hash: ScdfSSJgy0U6nhEZLlwLWz0oddDMt+SOYLD+ScIS6cc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -66,15 +66,15 @@ hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
 
 Дополнительно, средняя общая стоимость в определенном блоке записывается в состояние "AverageTotalCost" рядом с входными состояниями этого канала. Также начальный и конечный час блока записывается в "BlockStartFullHour" и "BlockEndFullHour" как результат расчета.
 
+- «Лучший процент»: выводит «ДА» в течение наименее дорогого часа и любых других часов, когда цена попадает в процентный диапазон, указанный в настройках «Процент».
 - «Лучшая стоимость LTF»: «Лучшая стоимость» в течение ограниченного периода времени (LTF).
 - «Лучшие отдельные часы LTF»: «Лучшие отдельные часы» в течение ограниченного периода времени (LTF).
 - «Блок лучших часов LTF»: «Блок лучших часов» в течение ограниченного периода времени (LTF).
+- «Лучший процент LTF»: «Лучший процент» в течение ограниченного периода времени (LTF).
 - "Smart Battery Buffer": используйте параметр "EfficiencyLoss", чтобы указать потерю эффективности аккумуляторной системы. Параметр "EfficiencyLoss" может иметь значение от 0 до 1, где 0 означает отсутствие потери эффективности, а 1 означает полную потерю эффективности. Например, значение 0,25 указывает на потерю эффективности 25% для цикла заряда/разряда.
 
 Используйте параметр "AmountHours" для ввода желаемого количества часов для зарядки аккумулятора. Калькулятор активирует зарядку аккумулятора ("значение ДА") и деактивирует питание аккумулятора ("значение 2 НЕТ") в течение указанных "AmountHours" самых дешевых часов. И наоборот, он деактивирует зарядку аккумулятора ("значение НЕТ") и активирует питание аккумулятора ("значение 2 ДА") в часы с самой высокой стоимостью, при условии, что стоимость выше самой высокой общей цены среди дешевых часов. В оставшиеся обычные часы, когда буферизация энергии аккумулятором экономически нецелесообразна, оба выхода будут отключены.
 
-- «Лучший процент»: выводит «ДА» в течение наименее дорогого часа и любых других часов, когда цена попадает в процентный диапазон, указанный в настройках «Процент».
-- «Лучший процент LTF»: «Лучший процент» в течение ограниченного периода времени (LTF).
 - Каналы LTF: они работают аналогично стандартным каналам, но активны только в течение временного интервала, определяемого объектами состояния «StartTime» и «StopTime». После «StopTime» канал автоматически деактивируется. «StartTime» и «StopTime» могут охватывать два календарных дня, так как Tibber не предоставляет данные за пределами 48-часового окна. Для обоих состояний требуется строка даты и времени в формате ISO-8601 со смещением часового пояса, например, «2024-12-24T18:00:00.000+01:00». Кроме того, каналы LTF имеют новый параметр состояния, называемый «RepeatDays», который по умолчанию равен 0. Если для «RepeatDays» задано положительное целое число, канал будет повторять свой цикл, увеличивая «StartTime» и «StopTime» на указанное количество дней после достижения «StopTime». Например, установите «RepeatDays» на 1 для ежедневного повторения.
 
 ### Подсказки
@@ -90,7 +90,7 @@ hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
 
 ## Прямой локальный опрос данных Pulse
 Чтобы это заработало, вам нужно изменить веб-интерфейс Bridge, чтобы он оставался постоянно включенным.
-marq24 описал, как это сделать превосходно для его интеграции с HomeAssistant здесь:
+marq24 описал, как это сделать превосходно для своей интеграции HomeAssistant здесь:
 
 https://github.com/marq24/ha-tibber-pulse-local
 
@@ -104,9 +104,34 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 ## Changelog
 
-### 4.2.0 (2024-12-xx)
+### 4.3.0 (2025-01-xx) WORK in PROGRESS
 
+- (HombachC) WiP add Graph-JSON
+- (HombachC) Update tibber-api to 5.2.1 - handle obsolete data as default, remove option
+- (HombachC) Calculate outputJSON prior to time frame for channels of type 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
+- (HombachC) add outputJSON and outputJSON2 for 'SmartBatteryBuffer' channels (#592)
+- (HombachC) calculator code optimizations
+
+### 4.2.3 (2025-01-14)
+
+- (HombachC) bump cron to 3.5
+
+### 4.2.2 (2025-01-14)
+
+- (HombachC) max API-Token lenght now 80 to meet newest Tibber accounts (#627)
+
+### 4.2.1 (2025-01-08)
+
+- (HombachC) fix missing translation
+
+### 4.2.0 (2025-01-08)
+
+- (HombachC) fix error in BestHoursBlock LTF intruduced in 4.x (#618)
 - (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
+- (HombachC) add outputJSON for 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
+- (HombachC) fixed some i18n translations
+- (HombachC) year 2025 changes
+- (HombachC) code optimization
 
 ### 4.1.1 (2024-12-21)
 
@@ -309,4 +334,4 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023-2024 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2025 C.Hombach <TibberLink@homba.ch>

@@ -18,6 +18,9 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Migrated GUI to Typescript
+
 ### 8.8.3 (2024-09-05)
 * (bluefox) Fixed object selector in rules
 

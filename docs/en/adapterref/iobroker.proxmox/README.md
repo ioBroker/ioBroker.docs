@@ -31,6 +31,7 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 ### **WORK IN PROGRESS**
 * (arteck) add new eslint file
 * (arteck) fix node message
+* (arteck) refactor
 
 ### 2.3.0 (2024-04-26)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now

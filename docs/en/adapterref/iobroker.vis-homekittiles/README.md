@@ -32,7 +32,6 @@ The widgets are designed for VIS 1.x.
 * create Select-tile
 * create Checkbox for Sonos Group
 * Datepicker: dynamic day/month icons
-* new widget: pinpad (WORK IN PROGRESS)
 * Tiles: add button for dialog
 
 ## Changelog
@@ -42,17 +41,19 @@ The widgets are designed for VIS 1.x.
 -->
 ### **WORK IN PROGRESS**
 
-Introducing CONFIG-ITEMS (experimental):
-These can be used for manupulating styles, which are fixed in VIS, e.g. modal style of dialog windows.
-Just put the config item somewhere in your VIS and configure as you want.
-* Added hkt-Config-Modal: changes the styles of modal to blur instead of background color and transparency (modal darkens the background when a dialog window is open). For this config-item you need ipadOS 18.x to work with Safari or ioBroker Visu App
+* All tiles: added icon for state off
+* Optimized CSS for indicator
 
-Other changes:
+### 0.4.0 (2025-01-14)
+
+* Added Pinpad-Dialog
 * Added HTML-Dialog
+* Added hkt-Config-Modal (experimental): changes the styles of modal to blur instead of background color and transparency (modal darkens the background when a dialog window is open). For this config-item you need ipadOS 18.x to work with Safari or ioBroker Visu App. Simply place the config item somewhere in your VIS where it is always called (e.g. in the menu) and configure it as desired. It is not visible at runtime.
 * Made "modal" to default setting
 * Section 'dialog' splitted into 'dialog settings' and 'dialog content'
 * Made values of SwitchBool customizable and renamed 'SwitchBool' to 'Switch'
 * Repaired notification widget
+* Added Apple standard font 'SanFrancisco' to fonts (needed to be installed separatly)
 
 ### 0.3.3 (2025-01-03)
 

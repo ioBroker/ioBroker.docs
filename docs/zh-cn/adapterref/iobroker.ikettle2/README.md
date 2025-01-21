@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ikettle2/README.md
 title: ioBroker.ikettle2
-hash: wEF/M5ePNGzhc8BjCcmBgAGYj+onZzFTGBl0QaEWKA4=
+hash: cMO+RpaDdkvLmHNr84/MJCvLPK2UqsoTCBY2kHS/22s=
 ---
 ![标识](../../../en/adapterref/iobroker.ikettle2/admin/ikettle2.png)
 
@@ -12,55 +12,64 @@ hash: wEF/M5ePNGzhc8BjCcmBgAGYj+onZzFTGBl0QaEWKA4=
 ![安装数量（最新）](https://iobroker.live/badges/ikettle2-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/ikettle2-stable.svg)
 ![依赖状态](https://img.shields.io/david/jey-cee/iobroker.ikettle2.svg)
-![新产品管理](https://nodei.co/npm/iobroker.ikettle2.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.ikettle2.png?downloads=true)
 
 # IoBroker.ikettle2
-**测试：** ![测试和发布](https://github.com/jey-cee/ioBroker.ikettle2/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/jey-cee/ioBroker.ikettle2/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker ikettle2 适配器
+## IoBroker 的 ikettle2 适配器
 使用 ioBroker 控制您的 Smarter iKettle 2.0。
 
-## 加入 Discord 服务器，讨论关于 ioBroker 的一切！
+## 加入 Discord 服务器讨论有关 ioBroker 的一切！
 <a href="https://discord.gg/HwUCwsH"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [赞助商](./SPONSORS.md)
-如果您喜欢我的作品，请随时提供个人捐赠（这是 Jey Cee 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
+如果您喜欢我的作品，请随时提供个人捐赠（这是 Jey Cee 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠]（https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
 ---
 
 ＃＃ 手动的
-### 对象描述 **on** - 打开水壶。 set_temperature 必须先设置。
-**on_formula** - 打开水壶，加热并保持公式_温度以供预热时间。
-必须先设置公式_温度和加温时间。
+### 对象描述 **on** - 打开水壶。必须先设置 set_temperature。
+**on_formula** - 打开水壶，加热并在 warming_time 内保持 formula_temperature。
+formula_temperature 和 warming_time 必须提前设置。
 
-**校准** - 开始基础校准。
+**校准**——开始基础校准。
 
-**on_plate** - 指示水壶是否在底板上。
+**on_plate** - 指示水壶是否位于底板上。
 
-**set_temperature** - 加热水的目标温度。
+**set_temperature**——加热水的目标温度。
 
-**formula_temperature** - 将水加热到设定温度后的目标温度。
+**formula_temperature** - 将水加热到 set_temperature 后的目标温度。
 
-**water_temperature** - 水的实际温度。
+**water_temperature**——水的实际温度。
 
-**water_level** - 水壶中的实际水量。注意：准确度不是那么好，可能完全是错误的，所以请用眼睛检查水壶里是否有水。
+**water_level** - 水壶中的实际水量。注意：准确度不是很好，可能完全错误，因此请用眼睛检查水壶中是否有水。
 
-**warming_time** - 水壶在关闭前将水保持在配方奶温度的时间。
-注：0 = 未使用，最短时间为 5 分钟，最长为 30 分钟。
+**warming_time** - 水壶在关闭前将水保持在配方温度的时间。
+注意：0 = 未使用，最短时间为 5 分钟，最长时间为 30 分钟。
 
-**get_preset** - 从水壶中读取手动控制（无 APP）的预设值。
+**get_preset** - 从水壶读取手动控制（无需 APP）的预设值。
 
-**set_preset** - 在水壶上设置手动控制的预设值（无 APP）。
-必须事先设置预设文件夹中的公式温度、温度和升温时间。
+**set_preset** - 设置水壶上的预设值，以便手动控制（无需 APP）。
+预设文件夹中的 formula_temperature、temperature 和 warming_time 必须事先设置。
 
 ---
 
-### Calibrate 从底座取出水壶，然后将对象校准为 true。
-底座发出哔哔声后，您可以将水壶放回底座并使用。
+### 校准 从底座上取下水壶，然后将对象校准设置为真。
+底座发出哔声后，您可以将水壶放回底座上并使用它。
 ---
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* (Jey Cee) Correct size of ip input on xl displays
+
+### 1.0.2
+* (Jey Cee) Add watchdog for connection to prevent adapter freeze
+* (Jey Cee) Migrate config to JSON Config
+* (Jey Cee) Update dependencies 
+* (Jey Cee) Fix issues found by adapter checker
+
+### 1.0.1
 * (Jey Cee) fixes for Beta release
 
 ### 1.0.0
@@ -69,7 +78,7 @@ hash: wEF/M5ePNGzhc8BjCcmBgAGYj+onZzFTGBl0QaEWKA4=
 ## License
 MIT License
 
-Copyright (c) 2021 Jey Cee <jey-cee@live.com>
+Copyright (c) 2021-2025 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

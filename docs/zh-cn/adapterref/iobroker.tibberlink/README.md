@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
+hash: ScdfSSJgy0U6nhEZLlwLWz0oddDMt+SOYLD+ScIS6cc=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -29,8 +29,8 @@ hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
 
 ## 版本
 ## 在 ioBroker 中使用 TIBBER 能源数据的适配器
-此适配器有助于将 Tibber 帐户 API 中的数据连接到 ioBroker 中以供使用，无论是用于单个家庭还是多个住宅。
-新功能：适配器现在支持通过家庭网络直接本地读取 Tibber 脉冲传感器，从而无需完全依赖云 API 即可进行实时监控和数据收集。
+此适配器有助于将您 Tibber 帐户 API 中的数据连接到 ioBroker 中以供使用，无论是用于单个家庭还是多个住宅。
+新功能：该适配器现在支持通过您的家庭网络直接本地读取 Tibber 脉冲传感器，从而无需完全依赖云 API 即可进行实时监控和数据收集。
 
 如果您目前不是 Tibber 用户，我将非常感激如果您可以使用我的推荐链接：[Tibber 推荐链接](https://invite.tibber.com/mu8c82n5)。
 
@@ -43,7 +43,7 @@ hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
 - 注意：如果您的 Tibber 帐户中有多个活跃的主页，则必须添加所有主页，以消除可能不需要的主页导致的错误消息。添加所有主页并禁用选项。
 - 如果您只想使用 Pulse 实时信息，您可以选择停用今天和明天的价格数据检索
 - 您也可以选择启用历史消费数据检索。请指定小时、天、周、月和年的数据集数量。您可以根据自己的偏好使用“0”来禁用其中一个或多个间隔。
-- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器没有响应。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
+- 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器响应不足。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
 - 保存设置。
 
 ## 计算器配置
@@ -66,16 +66,16 @@ hash: AWM/s63PesA/QWA1r+Oz8kXoEgKnxqblSeNcRzEARBU=
 
 此外，确定的区块中的平均总成本被写入该通道输入状态附近的状态“AverageTotalCost”。此外，区块的开始和结束时间也作为计算结果写入“BlockStartFullHour”和“BlockEndFullHour”。
 
+- “最佳百分比”：在最便宜的时段以及价格落在“百分比”设置状态中指定的百分比范围内的任何其他时段输出“是”。
 - “最佳成本 LTF”：有限时间框架 (LTF) 内的“最佳成本”。
 - “最佳单小时 LTF”：有限时间框架 (LTF) 内的“最佳单小时”。
 - “最佳时段区块 LTF”：在有限时间框架 (LTF) 内的“最佳时段区块”。
+- “最佳百分比 LTF”：有限时间框架 (LTF) 内的“最佳百分比”。
 - “智能电池缓冲器”：利用“EfficiencyLoss”参数指定电池系统的效率损失。“EfficiencyLoss”参数的范围可以从 0 到 1，其中 0 表示没有效率损失，1 表示完全效率损失。例如，值为 0.25 表示充电/放电周期的效率损失为 25%。
 
 使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜的时段内激活电池充电（“值 YES”）并停用电池供电（“值 2 NO”）。相反，它将在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于最便宜时段中的最高总价。在剩余的正常时段，如果电池的能量缓冲在经济上不可行，则两个输出都将关闭。
 
-- “最佳百分比”：在最便宜的时段以及价格落在“百分比”设置状态中指定的百分比范围内的任何其他时段输出“是”。
-- “最佳百分比 LTF”：有限时间框架 (LTF) 内的“最佳百分比”。
-- LTF 通道：这些通道的操作与标准通道类似，但仅在由“StartTime”和“StopTime”状态对象定义的时间范围内处于活动状态。在“StopTime”之后，通道将自动停用。“StartTime”和“StopTime”可以跨越两个日历日，因为 Tibber 不提供超过 48 小时窗口的数据。两种状态都需要带有时区偏移的 ISO-8601 格式的日期时间字符串，例如“2024-12-24T18:00:00.000+01:00”。此外，LTF 通道还具有一个名为“RepeatDays”的新状态参数，默认为 0。当“RepeatDays”设置为正整数时，通道将在达到“StopTime”后通过将“StartTime”和“StopTime”增加指定的天数来重复其循环。例如，将“RepeatDays”设置为 1 以实现每日重复。
+- LTF 通道：这些通道的操作与标准通道类似，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内处于活动状态。在“StopTime”之后，通道会自动停用。“StartTime”和“StopTime”可以跨越两个日历日，因为 Tibber 不提供超过 48 小时窗口的数据。两种状态都需要带有时区偏移的 ISO-8601 格式的日期时间字符串，例如“2024-12-24T18:00:00.000+01:00”。此外，LTF 通道还具有一个名为“RepeatDays”的新状态参数，默认为 0。当“RepeatDays”设置为正整数时，通道将在达到“StopTime”后通过将“StartTime”和“StopTime”增加指定的天数来重复其周期。例如，将“RepeatDays”设置为 1 表示每日重复。
 
 ### 提示
 逆向使用
@@ -104,9 +104,34 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 ## Changelog
 
-### 4.2.0 (2024-12-xx)
+### 4.3.0 (2025-01-xx) WORK in PROGRESS
 
+- (HombachC) WiP add Graph-JSON
+- (HombachC) Update tibber-api to 5.2.1 - handle obsolete data as default, remove option
+- (HombachC) Calculate outputJSON prior to time frame for channels of type 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
+- (HombachC) add outputJSON and outputJSON2 for 'SmartBatteryBuffer' channels (#592)
+- (HombachC) calculator code optimizations
+
+### 4.2.3 (2025-01-14)
+
+- (HombachC) bump cron to 3.5
+
+### 4.2.2 (2025-01-14)
+
+- (HombachC) max API-Token lenght now 80 to meet newest Tibber accounts (#627)
+
+### 4.2.1 (2025-01-08)
+
+- (HombachC) fix missing translation
+
+### 4.2.0 (2025-01-08)
+
+- (HombachC) fix error in BestHoursBlock LTF intruduced in 4.x (#618)
 - (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
+- (HombachC) add outputJSON for 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
+- (HombachC) fixed some i18n translations
+- (HombachC) year 2025 changes
+- (HombachC) code optimization
 
 ### 4.1.1 (2024-12-21)
 
@@ -309,4 +334,4 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023-2024 C.Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2025 C.Hombach <TibberLink@homba.ch>

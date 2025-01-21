@@ -8,6 +8,7 @@ This adapter allows to receive wireless M-Bus data from supported receivers. The
 * Embit WMB modules
 * Amber Wireless AMB8465 (**Beware:** Command mode (UART_CMD_Out_Enable) is enabled!)
 * IMST iM871A
+* IMST iU891A-XL
 * CUL
 
 The WMBUS stack has been "re-ported" from FHEM project and was extensively fixed and refactored. Testing was done with raw data picked up on the internet, OMS sample data and some test data from the jmbus library. Some edge cases are still untested.
@@ -39,7 +40,7 @@ The initial setup requires to configure the basics (hardware connection to the w
 
 ### Basic setup
 
-This requires to select the appropriate USB device and the correct baud rate (**usually** for IMST: 57600 baud; Amber: 9600 baud; Embit: 9600 baud, CUL: 38400 or 9600 baud). Most **meters** will send in "T Mode".
+This requires to select the appropriate USB device and the correct baud rate (**usually** for IMST iM871A: 57600 baud; IMST iU891A-XL: 115200 baud; Amber: 9600 baud; Embit: 9600 baud, CUL: 38400 or 9600 baud). Most **meters** will send in "T Mode".
 
 From version 0.9.0 on, the adapter also supports to connect to serial devices reachable via a TCP socket. However, the admin interface does not really reflect that (for now) and you have to select "custom port" and enter the host as `tcp://host:port`.
 
@@ -72,6 +73,9 @@ Afterwards, when you delete the device from the object tree, the adapter will no
 * handling meters with "multiple telegrams"
 
 ## Changelog
+
+### 0.10.0
+* (ChL) Add support for IMST iU891A-XL receiver
 
 ### 0.9.4
 * (ChL) Upgrade dependencies and general package stuff
@@ -209,6 +213,6 @@ Afterwards, when you delete the device from the object tree, the adapter will no
 ## License
 
 Copyright (c) 2019 ISFH - Institute for Solar Energy Research www.isfh.de
-Copyright (c) 2021 - 2024 Christian Landvogt
+Copyright (c) 2021 - 2025 Christian Landvogt
 
 Licensed under GPLv2. See [LICENSE](LICENSE) and [NOTICE](NOTICE)

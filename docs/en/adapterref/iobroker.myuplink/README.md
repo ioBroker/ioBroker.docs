@@ -139,7 +139,7 @@ The adapter also has no influence on which parameters are sent by myUplink.
 
 MIT License
 
-Copyright (c) 2024 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2025 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

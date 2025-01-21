@@ -36,6 +36,9 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 
 ## Changelog
+### 3.1.2 (2025-01-11)
+* (arteck) error on create dp fix
+
 ### 3.1.1 (2025-01-07)
 * (arteck) monthlyReport for phev/hev
 * (arteck) trip corr for ev cars

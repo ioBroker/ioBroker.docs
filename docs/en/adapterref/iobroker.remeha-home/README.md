@@ -53,10 +53,13 @@ You must enter these in the configuration of the adapter.
 ---
 <!-- ### **WORK IN PROGRESS** -->
 ## Changelog
+### 0.2.7 (2025-01-09)
+* (simatec) Fix Update Intervall
 
-### **WORK IN PROGRESS**
+### 0.2.6 (2025-01-09)
 * (simatec) eslint-config fix
 * (simatec) Dependencies updated
+* (simatec) Update License
 
 ### 0.2.5 (2024-11-27)
 * (simatec) Dependencies updated
@@ -106,7 +109,7 @@ You must enter these in the configuration of the adapter.
 
 MIT License
 
-Copyright (c) 2024 simatec
+Copyright (c) 2024 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

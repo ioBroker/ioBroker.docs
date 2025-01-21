@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: bg7vZAhUrEEfOHPWcLi2QWejGsWx19+UsdyyKnWX0u4=
+hash: mJ2FClZO2G/KuGclhJkGf7D9M9RO3qbL1GzB/mhIDhs=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -143,11 +143,32 @@ myJsonParams = {"period":"daily"}
 
 Bitte beachten Sie, dass Sie die Funktion `onMessage()` verwenden müssen, um den Trigger vom Adapter zu empfangen. Der Standardwert für die Nachricht ist `flexcharts`, wie im obigen Beispiel gezeigt. Sie können verschiedene Nachrichten verwenden, indem Sie einen zusätzlichen Parameter angeben. Um beispielsweise die Nachricht `mycharts` zu verwenden, fügen Sie der HTTP-Adresse `&message=mycharts` hinzu: `http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
 
+### Verwenden von Funktionen innerhalb der Diagrammdefinition
+Leider funktionieren Funktionsdefinitionen innerhalb der Diagrammdefinition normalerweise nicht, da sie bei Verwendung von `JSON.stringify(option)` oder `callback(option)` gefiltert werden.
+
+Seit V0.3.0 von Flexcharts ist es jedoch möglich, es zum Laufen zu bringen. Es ist jedoch ein wenig mehr Aufwand erforderlich:
+
+* Fügen Sie das NPM-Modul „javascript-stringify“ zur Instanz 0 des JavaScript-Adapters hinzu. Fügen Sie dazu „javascript-stringify“ zu „Zusätzliche NPM-Module“ in der Konfiguration des Adapters hinzu:
+
+![npm-Module hinzufügen](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
+
+* Fügen Sie in Ihrem Skript am Anfang `var strify = require('javascript-stringify');` hinzu.
+* Wenn Sie ein Skript als Datenquelle verwenden: Ersetzen Sie in Ihrer `onMessage()`-Funktionalität `callback(option);` durch `callback(strify.stringify(option));` (vorausgesetzt, `option` enthält Ihre Diagrammdefinition).
+* Dann verwenden Sie einen Status als Datenquelle: Ersetzen Sie beim Erstellen des Status `setState('my_chart_id', JSON.stringify(option), true);` durch `setState('my_chart_id', strify.stringify(option), true);`
+* Das war's. Jetzt werden Funktionen innerhalb von Diagrammdefinitionen korrekt an Flexcharts weitergeleitet.
+
+Probieren Sie es einfach mit [Vorlage3](templates/flexchartsTemplate3.js). Um Tooltip-Daten mit 2 Dezimalstellen anzuzeigen, wird eine Funktion verwendet: `tooltip: {trigger: "axis", valueFormatter: (value) => '. + value.toFixed(2)}`.
+
+Ein Beispiel für die Verwendung der Diagrammdefinition über den Status finden Sie in `flexcharts.0.info.chart2`. Dies zeigt dasselbe Diagramm wie Vorlage3.
+
+Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, könnte seine Funktionalität auch von Schadcode ausgenutzt werden (Cross-Site-Scripting). Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
+
 ## Vorlagen
 Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 
 * Diagramm mit Daten vom Verlaufsadapter: [template1](templates/flexchartsTemplate1.js)
 * einfaches Diagramm für eine Wärmekurve: [template2](templates/flexchartsTemplate2.js)
+* einfaches gestapeltes Balkendiagramm mit Funktion innerhalb der Diagrammdefinition: [template3](templates/flexchartsTemplate3.js)
 * Für Viessmann-Geräte der E3-Serie ist ein sehr spezifischer Anwendungsfall verfügbar, z. B. Wärmepumpe Vitocal 250. Siehe https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ## Referenz
@@ -161,6 +182,9 @@ Verwenden Sie **Javascript** als Datenquelle: `http://localhost:8082/flexcharts/
 * `&refresh=number` – aktualisiert das Diagramm alle "number" Sekunden. Der Standardwert beträgt 60 Sekunden. Der minimal zulässige Wert beträgt 5 Sekunden.
 * `&user_defined_arguments` – Fügen Sie je nach Bedarf weitere Parameter hinzu. Alle Argumente sind in der Funktion `onMessage()` im Objekt `httpParams` verfügbar. Weitere Einzelheiten finden Sie in den obigen Beispielen und Vorlagen.
 
+### Verwenden von Funktionen innerhalb der Diagrammdefinition
+Verfügbar ab Version 0.3.0. Siehe vorherige [Kapitel](#using-functions-within-definition-of-chart)
+
 ### Integriertes Demodiagramm
 Es ist ein integriertes Demodiagramm verfügbar: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
 
@@ -173,6 +197,10 @@ Dies sollte ein Demodiagramm aufrufen, wenn Flexcharts und Webadapter ausgeführ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2025-01-08)
+* (MyHomeMyData) Enhancement for usage of functions within echart definitions.
+* (MyHomeMyData) Fix for issue #56 (findings of repository checker)
+
 ### 0.2.0 (2024-11-06)
 * (MyHomeMyData) Updated readme. Added sections Templates and Reference.
 * (MyHomeMyData) Fix for issue #41 (findings of repository checker)
@@ -218,7 +246,7 @@ Dies sollte ein Demodiagramm aufrufen, wenn Flexcharts und Webadapter ausgeführ
 ## License
 MIT License
 
-Copyright (c) 2024 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

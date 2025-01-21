@@ -24,9 +24,14 @@
 
 ## Configuration
 
+Required:
 Add username and password from your Sure Petcare® account on the adapter configuration page.
 
-Also battery full and empty thresholds can be adapted here when using accus. This affects the battery percentage values.
+Optional:
+Enable or disable JSON event history and configure number of items.
+Optional:
+Set battery full and empty thresholds when using rechargeable batteries. This affects the battery
+percentage values.
 
 ## Description
 
@@ -161,6 +166,7 @@ adapter<br>
 &nbsp;&nbsp;&nbsp; ├ all_devices_online<br>
 &nbsp;&nbsp;&nbsp; ├ connection<br>
 &nbsp;&nbsp;&nbsp; ├ last_update<br>
+&nbsp;&nbsp;&nbsp; ├ offline_devices<br>
 &nbsp;&nbsp;&nbsp; └ version<br>
 
 ## Notes
@@ -172,13 +178,21 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 3.0.0 (work in progress)
+
+* (Sickboy78) complete refactoring of surepet API
+* (Sickboy78) complete refactoring of internal data structure
+* (Sickboy78) added list of offline devices
+* (Sickboy78) switched to jsonConfig
+* (Sickboy78) dependency updates
+
 ### 2.3.3 (2024-12-30)
 
 * (Sickboy78) fixed a bug when feeder does not have bowls data
 
 ### 2.3.2 (2024-12-07)
 
-* (Sickboy78) quick fix for surepet api changes
+* (Sickboy78) quick fix for surepet API changes
 * (Sickboy78) dependency updates
 
 ### 2.3.1 (2024-10-18)

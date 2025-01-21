@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: fJIjdt/wr8vFhhwFuJOLv5/3Zr5jevRq07RH7Nbrz9I=
+hash: /X3s0IvNZdNrT/NMxCAvFmje1BgCVt+giQKZUZrUyso=
 ---
 # IoBroker.vis-homekittiles
 
@@ -35,7 +35,6 @@ Homekit Tiles — это набор виджетов, основанный на 
 * создать Select-плитку
 * создать флажок для Sonos Group
 * Выбор даты: динамические значки дня/месяца
-* новый виджет: пинпад (РАБОТА В ПРОЦЕССЕ)
 * Плитки: добавить кнопку для диалога
 
 ## Changelog
@@ -45,8 +44,32 @@ Homekit Tiles — это набор виджетов, основанный на 
 -->
 ### **WORK IN PROGRESS**
 
+* All tiles: added icon for state off
+* Optimized CSS for indicator
+
+### 0.4.0 (2025-01-14)
+
+* Added Pinpad-Dialog
+* Added HTML-Dialog
+* Added hkt-Config-Modal (experimental): changes the styles of modal to blur instead of background color and transparency (modal darkens the background when a dialog window is open). For this config-item you need ipadOS 18.x to work with Safari or ioBroker Visu App. Simply place the config item somewhere in your VIS where it is always called (e.g. in the menu) and configure it as desired. It is not visible at runtime.
+* Made "modal" to default setting
+* Section 'dialog' splitted into 'dialog settings' and 'dialog content'
+* Made values of SwitchBool customizable and renamed 'SwitchBool' to 'Switch'
+* Repaired notification widget
+* Added Apple standard font 'SanFrancisco' to fonts (needed to be installed separatly)
+
+### 0.3.3 (2025-01-03)
+
+* Added new style "text only" to switch and view-in-widget-dialog tiles
+* Fixed some issues from adapter checker
+* Fixed some styles of view-in-widget-swipe
+* Added arrow indicators to view-in-widget-swipe
+
+### 0.3.2 (2024-12-03)
+
 * Added option to show icons colored on tiles and radio
 * Added new styles "big", "small" and "only icon" for all tiles
+* JSON Table: set no fixed height (min-hight is now 32px)
 
 ### 0.3.1 (2024-07-12)
 
@@ -155,7 +178,7 @@ Homekit Tiles — это набор виджетов, основанный на 
 
 MIT License
 
-Copyright (c) 2024 Standarduser
+Copyright (c) 2025 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
