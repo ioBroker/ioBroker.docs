@@ -15,7 +15,6 @@ import {
     MdClose as IconClose,
 } from 'react-icons/md';
 import ServerImg from '../assets/iob-server.png';
-import HausAutomatisierungImg from '../assets/haus_automatisierung.png';
 import ChristmasSale from '../assets/christmas.svg';
 import SaleImage from '../assets/sale.svg';
 
@@ -304,7 +303,7 @@ class Intro extends Component {
         </div>;
     }
 
-    renderUserMeeting() {
+    /*renderUserMeeting() {
         return <div
             style={{
                 marginTop: this.props.mobile ? 20 : 10,
@@ -330,28 +329,7 @@ class Intro extends Component {
                 />
             </div>
         </div>;
-    }
-
-    renderHausAutomatisierung() {
-        return <div
-            style={{
-                ...styles.serverButton,
-                marginTop: this.props.mobile ? 20 : 10,
-                width: this.props.mobile ? '100%' : 550,
-                marginLeft: this.props.mobile ? undefined : 'calc(50% - 275px)',
-                background: '#144578',
-            }}
-            onClick={() => {
-                const win = window.open('https://shop.haus-automatisierung.com/iobroker-master-kurs.html?refid=iobroker', '_blank');
-                win.focus();
-            }}
-        >
-            <img style={styles.hausButtonImage} src={HausAutomatisierungImg} alt="server" />
-            <div
-                style={{ ...styles.serverButtonText, fontSize: this.props.mobile ? 10 : 20 }}
-            >{I18n.t('Video course from our partner')}</div>
-        </div>;
-    }
+    }*/
 
     // What differs ioBroker from other open source automation platforms?
     //
@@ -373,33 +351,11 @@ class Intro extends Component {
     render() {
         let i = 0;
 
-        let link = new Date().getMinutes() % 2;
-
-        if (I18n.getLanguage() !== 'de') {
-            link = 0;
-        }
         let middleButton;
-        let userMeeting = false;
-        if (window.location.hash === '#usertreffen') {
-            middleButton = this.renderUserMeeting();
-            userMeeting = true;
-        } else if (this.action) {
+        if (this.action) {
             middleButton = this.renderAction();
         } else {
-            switch (link) {
-                case 1:
-                    middleButton = this.renderCloud();
-                    break;
-                case 2:
-                    userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderCloud();
-                    break;
-                case 0:
-                default:
-                    userMeeting = I18n.getLanguage() === 'de';
-                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderCloud();
-                    break;
-            }
+            middleButton = this.renderCloud();
         }
 
         return [
