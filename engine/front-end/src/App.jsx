@@ -423,7 +423,7 @@ class App extends Router {
                         onClick={() => {
                             const item = this.state.info;
                             this.setState({ info: null }, () =>
-                                Utils.openLink('https://iobroke.net', 'this'),
+                                Utils.openLink('https://iobroker.net', 'this'),
                             );
                         }}
                         startIcon={<Public />}
@@ -436,7 +436,7 @@ class App extends Router {
                         onClick={() => {
                             const item = this.state.info;
                             this.setState({ info: null }, () =>
-                                Utils.openLink('https://iobroke.pro', 'this'),
+                                Utils.openLink('https://iobroker.pro', 'this'),
                             );
                         }}
                         startIcon={<Public />}
