@@ -737,9 +737,17 @@ An ioBroker adapter for reading data from one or up to eight climate controllers
 ## teslafi (11.1.2025) – new adapter at stable
 https://github.com/hombach/ioBroker.teslafi
 
-<img src="[teslafi](https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png)" width="100" height="100" />
+<img src="https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png" width="100" height="100" />
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
+
+## paperless-ngx (27.1.2025) – new adapter at stable
+https://github.com/BenAhrdt/ioBroker.paperless-ngx
+
+<img src="https://github.com/BenAhrdt/ioBroker.paperless-ngx/blob/main/admin/paperless-ngx.png" width="100" height="100" />
+
+paperless-ngx API to get information of running instances from paperless-ngx. For instance, you can read the tags, documents, document-types, user or correspondents of the paperless instance.
+
 
 
 
