@@ -6,7 +6,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/a
 
 # Der Alexa Custom-Skill
 
-## Was ist der ioBroker Alexa Custom Skill? ##
+## Was ist der ioBroker Alexa Custom Skill?
 
 Der ioBroker Alexa Custom Skill ermöglicht eine **erweiterte Sprachsteuerung** für dein Smart Home mit individuellen Befehlen. 
 Im Gegensatz zum ioBroker.iot Skill, der Standard-Smart-Home-Befehle nutzt, erlaubt der Custom Skill **komplexe Interaktionen** wie Statusabfragen, 
@@ -14,13 +14,13 @@ individuelle Routinen oder das Starten von Automationen.
 
 Durch den Invocation Name `i o Broker` kannst du Alexa anweisen, bestimmte Aufgaben auszuführen oder Informationen aus deinem ioBroker-System abzurufen.
 
-### Funktionen und Möglichkeiten ###
+### Funktionen und Möglichkeiten
 Der `ioBroker Custom` Alexa Skill ermöglicht individuelle Sprachbefehle für das Smart Home, Statusabfragen für Sensorwerte wie Temperatur oder Fensterstatus, die Steuerung von komplexen Szenen und Routinen sowie die Integration mit externen Diensten über ioBroker-Skripte. Er kann parallel mit dem `ioBroker.iot` Skill verwendet werden.
 
-### Einrichtung des ioBroker Custom Alexa Skills ###
+### Einrichtung des ioBroker Custom Alexa Skills
 ioBroker.iot Adapter installieren: Der Custom Skill funktioniert nur mit dem ioBroker.iot Adapter. Falls dieser noch nicht installiert ist, kann er über den ioBroker-Adminbereich unter Adapter → ioBroker.iot Adapter installiert werden.
 
-### Alexa Custom Skill aktivieren ###
+### Alexa Custom Skill aktivieren
 
 Öffne die Amazon Alexa App oder rufe die Alexa-Skills-Seite auf.
 
@@ -64,7 +64,7 @@ Der Adapter stellt die Details in zwei States mit unterschiedlichem Detaillierun
 Weitere Details zur Erkennung von Wörtern und den verschiedenen Anfrage-Typen des Alexa Custom Skills sind unter folgendem Link verfügbar:
 [ioBroker Forum](https://forum.iobroker.net/viewtopic.php?f=37&t=17452)
 
-### Antwort über `smart.lastResponse` State zurückgeben
+### Antwort über smart.lastResponse State zurückgeben
 Die Antwort muss innerhalb von 200ms in den State smart.lastResponse geschrieben werden. Sie kann entweder ein einfacher Textstring oder ein JSON-Objekt sein.
 
 - Falls es sich um einen Textstring handelt, wird dieser als Antwort an den Skill zurückgesendet.
@@ -126,7 +126,7 @@ on({ id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any' }, obj => {
 
 - „Alexa, sage ioBroker, dass ich schlafen gehe.“
 
-## Vorteile des ioBroker Alexa Custom Skills ##
+## Vorteile des ioBroker Alexa Custom Skills
 
 Der ioBroker Custom Skill bietet eine hohe Flexibilität durch individuelle Sprachbefehle. 
 Er ergänzt den IoT-Skill um eine umfassendere Sprachsteuerung, ermöglicht Statusabfragen für Sensorwerte und Systeminformationen und erlaubt die Integration von Automatisierungen und Skripten. Der Custom Skill bietet eine anpassbare und leistungsstarke Möglichkeit, das Smart Home über Alexa zu steuern.
