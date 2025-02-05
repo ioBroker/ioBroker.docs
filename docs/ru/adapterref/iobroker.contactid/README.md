@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.contactid/README.md
 title: ioBroker.контактид
-hash: ef7bEhZLeiDsv/qf+MW61JRKcB4Wxlzl17KVOfvq2jE=
+hash: S07MW5c8PDaN9uaElOPFwo63BajDrHBj3G2mwmlQ8R0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.contactid/admin/contactid.png)
 
@@ -73,9 +73,25 @@ Example: [test 18160201010B]
 
 Теперь вы можете увидеть сообщение в объектах ioBroker
 
-## Changelog
+5. Проблемы/вопросы
 
-### **WORK IN PROGRESS**
+Если у вас возникли проблемы с обработкой сообщений ContactID, пожалуйста, создайте issue.
+В issue мне нужна следующая информация:
+
+1. Производитель и тип охранной системы
+2. Сообщение ContactID как файл. Вы можете создать файл, если активируете его в конфигурации экземпляра.
+3. Отладочный вывод ioBroker при обработке сообщения
+4. Подробное описание ошибки
+
+Вы можете проверить сохраненное сообщение ContactID с помощью следующей команды:
+
+```
+# cat fileanme_of_cid_message | nc ip_address_of_iobroker cid_port
+cat /tmp/cid/cid_msg_fa165cc0-8e3a-faa1-eb5c-fd3e47479044.txt | nc localhost 55000
+```
+
+## Changelog
+### 2.0.1 (2025-02-01)
 
 - (Stübi) Fixed Notification from ioBroker Check and Service Bot (Issue #46)
 

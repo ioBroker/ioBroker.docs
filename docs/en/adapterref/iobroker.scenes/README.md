@@ -120,9 +120,9 @@ sendTo(
 );
 ```
 The adapter will read all actual values for IDs defined in this scene and save it as configured ones.
-## Disable or enable scene via message
+## Disable or enable a scene via a message
 To disable or enable some scene, you can send a message to the adapter:
-```
+```js
 // enable
 sendTo(
     'scenes.0', 
@@ -152,6 +152,14 @@ sendTo(
 -->
 
 ## Changelog
+### 4.0.1 (2025-01-23)
+* (bluefox) Adapter was migrated to TypeScript
+* (bluefox) Corrected error with the Select ID dialog
+
+### 3.2.4 (2025-01-22)
+* (bluefox) Migrated to vite
+* (bluefox) Packages updated
+
 ### 3.2.3 (2024-08-26)
 * (bluefox) Packages updated
 
@@ -311,7 +319,7 @@ sendTo(
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2025, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

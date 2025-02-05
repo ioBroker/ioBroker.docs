@@ -51,8 +51,9 @@ For example, `red = 0`, blue and green will stay unchanged.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.0.2 (2024-09-09)
+### 2.0.3 (2025-01-29)
 * (bluefox) Trying to reconnect after the EHOSTUNREACH error code
+* (mcm1957) Dependencies have been updated
 
 ### 2.0.1 (2024-09-06)
 * (bluefox) Corrected error with array comparison
@@ -108,7 +109,7 @@ For example, `red = 0`, blue and green will stay unchanged.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

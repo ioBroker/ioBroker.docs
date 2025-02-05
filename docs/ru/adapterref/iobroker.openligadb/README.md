@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openligadb/README.md
 title: Адаптер ioBroker для получения результатов футбольных матчей из OpenLigaDB
-hash: DB+jiEnmIjsdyzVLRF6oEEU3UF6WtWK0uJuomZNrzJM=
+hash: hg3XI6pnogJ4TCFV92FGjS6mePxT99QxVlLybvBM2JU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
@@ -44,17 +44,17 @@ Das ist die klassische Tabellenansicht.\ Die Tabelle enthält verschiedene Spalt
 | Атрибут | Группа | Бесшрайбунг |
 | ----------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | все совпадения |                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches (Achtung im alten widget musste hier noch table ausgewählt werden) ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, падает с конца Angaben gültig sind. Der Datenpunkt включает все матчи каждой лиги/сезона в формате JSON. Aus diesen Daten wird dann auf Basis des Modus die Tabellen die verschiedenen Modis berechnet. |
-| текущий день |                          | Это действительно Datenpunk цу Wählen, der mit Currgameday benannt ist. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, падает с конца Angaben gültig sind. Der Wert wird im Adaptor auf Basis des actuallen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spiel des vorherigen Spieltags und dem ersten Spiel des folgenden Spieltages.                           |
-| режим |                          | Listenauswahl в welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt (всего 1), Хайм (2 дома) или Аусвартс (3 на выезде), Хинрунде (4 раунда 1) или Рюкрунде (5 раунда 2).                                                                                                                                                                                                                                                        |
-| режим_привязки |                          | Этот атрибут используется в режиме атрибута. Это недопустимо, поэтому модус таблицы может оказаться недопустимым для Binding gesteuert werden kann. В текстовых полях вы можете увидеть, как работает этот режим. Когда этот корректор будет выбран, если атрибуты не будут использоваться в режиме атрибутов. Ein Normalanwender sollte er nichts eintragen.                                       |
+| текущий день |                          | Это действительно Datenpunk цу Wählen, der mit Currgameday benannt is. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, падает с конца Angaben gültig sind. Der Wert wird im Adaptor auf Basis des actuallen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spiel des vorherigen Spieltags und dem ersten Spiel des folgenden Spieltages.                           |
+| режим |                          | Listenauswahl в welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt (всего 1), Хайм (2дома) или Аусвартс (3на выезде), Хинрунде (4раунд1) или Рюкрунде (5раунд2).                                                                                                                                                                                                                                                        |
+| режим_привязки |                          | Этот атрибут используется в режиме атрибута. Это недопустимо, поэтому модус таблицы может оказаться недопустимым для Binding gesteuert werden kann. В текстовых полях вы можете увидеть, как работает этот режим. Если это ваш корректор, который есть, то атрибуты должны быть изменены для режима атрибутов. Ein Normalanwender sollte er nichts eintragen.                                       |
 | максикон |                          | Maximale Größe des Manschaftsicons в x или y-Richtung.                                                                                                                                                                                                                                                                                                                                                                                   |
 | короткое имя |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, падает в vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                           |
 | тренд |                          | Auswahl, если Trendicons angezeigt werden sollen. Der Trend wird im Vergleich zum vorherigen Spieltag berechnet.                                                                                                                                                                                                                                                                                                                           |
-| выделить |                          | Hier können ein oder mehrere Begriffe mit Semicolon (;) getrennt eingegeben werden die hervorgehoben werden sollen. Dieuche erfolgt nur in den Mannschaftsnamen. Имя ювелирного изделия можно использовать с HTML-тегами `<b>`. Подробное форматирование может быть выполнено в стиле CSS-класса «любимый». Вы можете выделить свой индивидуальный CSS-класс. Вгл. Глава дела |
+| выделить |                          | Hier können ein oder mehrere Begriffe mit Semicolon (;) getrennt eingegeben werden die hervorgehoben werden sollen. Dieuche erfolgt nur in den Mannschaftsnamen. Ювелирное имя будет доступно с HTML-тегами `<b>`. Детальное форматирование может быть выполнено в стиле CSS-класса «любимый». Вы можете выделить свой индивидуальный CSS-класс. Вгл. Глава дела |
 | фильтр |                          | Hier können ein oder mehrere Begriffe mit с точкой с запятой (;) getrennt eingegeben werden anhand deren die Tabelle gefiltert dargestellt wird.                                                                                                                                                                                                                                                                                                    |
 | iconup,icond,iconst | Иконки атрибутной группы | Hier können eigene Trendicons определенно верден.                                                                                                                                                                                                                                                                                                                                                                                            |
 | showgameday в Attributgruppe | Erweiterte Einstellungen | Hier kann ein vom aktuellen Spieltag abweichender Tag zur Berechnung der Tablele eingegeben werden |
-| число последних игр в группе атрибутов | Erweiterte Einstellungen | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (в Abhängigkeit von currgameday und showgameday) berechnet Beispiel: Eingabe bei showgameday = 10 und Bei Lastgamecount=5: Die Tabelle wird nur für die Шпильтаж 6-10 бережнет (5 Шпилтаж) |
+| число последних игр в группе атрибутов | Erweiterte Einstellungen | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (в Abhängigkeit von currgameday und showgameday) berechnet Beispiel: Eingabe bei showgameday = 10 und Bei Lastgamecount=5: Die Tabelle wird nur für умереть Spieltage 6-10 Беречнет (5 Spieltage) |
 
 ### Игры Gameday v2
 ![Виджет Gameday](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/gameday.png)
@@ -107,15 +107,15 @@ Darüber hinaus kann auch die Menge der angezeigten Spieltage festgelegt werden.
 | максикон |                          | Maximale Größe des Manschaftsicons в x или y-Richtung.                                                                                                                                                                                                                                                                                                                                                                               |
 | короткое имя |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, падает в vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                       |
 | шоуголы |                          | Информация о Торшютцене всегда актуальна.                                                                                                                                                                                                                                                                                                                                                                                       |
-| выделить |                          | Hier können ein oder mehrere Begriffe mit с точкой с запятой (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Dieuche erfolgt nur in den Mannschaftsnamen. Ювелирное имя будет доступно с HTML-тегами `<b>` eingefasst. Детальное форматирование может быть выполнено в стиле CSS-класса «любимый». Вы можете выделить свой индивидуальный CSS-класс. Вгл. Глава дела |
-| шоу-день | Erweiterte Einstellungen | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt.Trägt man eine позитивный Zahl ein, dann wird, Falls vorhanden, der ausgewählte Spieltag angezeigt.Trägt man eine negatial Zahl ein, dann wird relativ vom aktuellen Spieltag dieser angezeigt (bspw -1 entspricht dem vorherigen Spieltag) |
+| выделить |                          | Hier können ein oder mehrere Begriffe mit с точкой с запятой (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Dieuche erfolgt nur in den Mannschaftsnamen. Ювелирное имя будет доступно с HTML-тегами `<b>`. Подробное форматирование может быть выполнено в стиле CSS-класса «любимый». Вы можете выделить свой индивидуальный CSS-класс. Вгл. Глава дела |
+| шоу-день | Erweiterte Einstellungen | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt.Trägt man eine Positive Zahl ein, dann wird, Falls vorhanden, der ausgewählte Spieltag angezeigt.Trägt man eine negatial Zahl ein, dann wird relativ vom aktuellen Spieltag dieser angezeigt. (bspw -1 entspricht dem vorherigen Spieltag) |
 | показатьgamedaycount | Erweiterte Einstellungen | Üblicherweise bleibt dieses Feld leer orer enthält 1. Dadurch wird genau ein Spieltag angezeigt. Wird hier eine andere Zahl eingegeben, dann wird diese Anzahl von Spieltagen, ausgehend von der 'Einstellung в showgameday angezeigt.                                                                                                                                                                                                |
 | шоу-будний день | Erweiterte Einstellungen | Zeigt vor dem Datum wahlweise den Wochentag an.                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ##### Примеры
 ###### Добавление привязки в атрибуте showgameday
 ггфс. kann dieses Feld auch über vis-binding berechnet und gefüllt werden.
-Описание для относительных брехнетов Spieltag: |
+Текст для относительных брехнетов Spieltag: |
 
 ```text
     Vorheriger Spieltag
@@ -124,7 +124,7 @@ Darüber hinaus kann auch die Menge der angezeigten Spieltage festgelegt werden.
     {a:openligadb.0.bl1.2019.currgameday;a+1}
 ```
 
-Если привязка не отображается в режиме редактирования, вы можете получить Verwendung von Binding в режиме редактирования в реальном времени.
+Если привязка не отображается в режиме редактирования, вы можете использовать функцию привязки в режиме редактирования в реальном времени.
 
 ### Игры любимых клубов 2
 ![Любимые игры](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) Diese Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus ein oder mehrerer Ligen an. Во время Auswahl der Anzahl der anzuzeigenden Ligen, для каждой лиги есть отдельная группа конфигураций, в der die folgenden Einstellungen vorgenommen werden können.
@@ -147,11 +147,11 @@ Darüber hinaus kann auch die Menge der angezeigten Spieltage festgelegt werden.
 | Анзал Лига | Всеобщий | Hier kann die Anzahl der abzufragenden Ligen eingetragen werden. Для игры в Лиге используется отдельная группа конфигураций.                                                                                                                                                                                                                                                                                           |
 | максикон | Всеобщие | Maximale Größe des Manschaftsicons в x или y-Richtung.                                                                                                                                                                                                                                                                                                                                                                   |
 | шоурезультат | Всеобщий | Auswahl, ob die Spielergebnisse, sofern bekannt, angezeigt werden sollen |
-| показатьаббревиатура | Всеобщий | Um die Spiele der einzelnen Ligen unterscheiden zu können, kann man eine eigene Kürzung in der Jeweiligen Konfiguration eintragen. Hier kann ausgewählt werden, ob diese angezeigt werden soll.                                                                                                                                                                                                                            |
+| показатьаббревиатура | Всеобщий | Um die Spiele der einzelnen Ligen unterscheiden zu können, cann man eine eigene Kürzung in der Jeweiligen Konfiguration eintragen. Hier kann ausgewählt werden, ob diese angezeigt werden soll.                                                                                                                                                                                                                            |
 | шоу-будний день | Всеобщий | Zeigt vor dem Datum wahlweise den Wochentag an. Folgenden Attribute в Группе Лиги может быть использован в Abhängigkeit der Eingabe в **Anzahl Liga** mehrfach wiederholen.                                                                                                                                                                                                                                               |
 | все совпадения | Лига | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, падает с конца Angaben gültig sind. Der Datenpunkt enthält alle Spiele und Ergebnisse einer Liga/Season in JSON-Format |
 | текущий день | Лига | Hier muss ein Datenpunkt mit der Bezeichnung currgameday ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, падает с конца Angaben gültig sind. Der Wert wird im Adaptor auf Basis des actuallen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spielt der vorherigen Spieltags und dem ersten Spiel des folgenden Spieltages. |
-| шоу-день | Лига | Когда он умирает, он смотрит на него, и он погружается в актуальную историю. Если вы считаете, что это позитивный шаг, то, возможно, вы упадете перед тем, как сделать это, чтобы получить дополнительную информацию. Если вы считаете, что это отрицательный результат, это может быть связано с актуальными событиями (bspw -1 entspricht dem vorherigen Spieltag) |
+| шоу-день | Лига | Когда он умирает, он смотрит на него, и он погружается в актуальную историю. Если вы считаете, что это позитивный шаг, то, возможно, вы упадете, чтобы получить возможность использовать Spieltag ausgegangen. Если вы считаете, что это отрицательный результат, это может быть связано с актуальными событиями (bspw -1 entspricht dem vorherigen Spieltag) |
 | показатьgamedaycount | Лига | Hier kann angegeben werden für wie viele Spieltage die Spiele angezeigt werden sollen. Когда вы просматриваете все остальные игры (макс. 9999 игр), вы можете увидеть все, что вам нужно, чтобы увидеть все игры, сделанные для игры в жанре Spieltagen, ausgehend von der 'Einstellung в showgameday angezeigt.                                                                             |
 | короткое имя | Лига | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, падает в vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                           |
 | аббревиатура | Лига | Abkürzung die für diese Liga angezeigt werden soll, sofern showabreviation ausgewählt wurde.                                                                                                                                                                                                                                                                                                                              |
@@ -169,17 +169,17 @@ Beispiele für einen relativ berechneten Spieltag:
     {a:openligadb.0.bl1.2019.currgameday;a+1}
 ```
 
-Если привязка не отображается в режиме редактирования, вы можете использовать функцию привязки в режиме редактирования в реальном времени.
+Если привязка не отображается в режиме редактирования, вы можете получить Verwendung von Binding в режиме редактирования в реальном времени.
 
 ### Сводная таблица 2
-Этот виджет будет использоваться для всех игр и приложений в качестве Pivottabelle и
+Этот виджет будет использоваться для всех игр и приложений в качестве сводной таблицы.
 
 | CSS-класс | Форматирование элементов обработки элементов | Бейшпиль |
 | ---------- | ---------------------------------------------- | -------- |
 | любимый | Для того, чтобы подчеркнуть особое название Mannschaftsnamen |          |
 
 #### Пример сводной таблицы
-##### Для ярких моментов в Mannschaftsnamen
+##### Лучшее для ярких моментов в Mannschaftsnamen
 ```css
 .oldb-tt .favorite {
   color: yellow;
@@ -206,7 +206,7 @@ Beispiele für einen relativ berechneten Spieltag:
 | вратари | Всеобщий | Hier muss ein Datenpunkt mit der Bezeichnung ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration erzeugt, падает с конца Angaben gültig sind. Der Datenpunkt включает в себя все события актуального сезона.                                             |
 | максимум Анзал |           | Nur die angegebene Anzahl an Torjäger wird angezeigt.                                                                                                                                                                                                                                                   |
 | сортировка |           | Auswahl der Sortierreihenfolge.                                                                                                                                                                                                                                                                         |
-| Нур Основные моменты |           | Фильтр Einträge zum Higlightfilter всегда открыт.                                                                                                                                                                                                                                                   |
+| Нур Основные моменты |           | Фильтр Einträge zum Higlightfilter должен быть открыт.                                                                                                                                                                                                                                                   |
 | выделить |           | Hier können ein oder mehrere Begriffe mit с точкой с запятой (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Dieuche erfolgt nur in den Spielernamen. Ювелирное имя будет доступно с HTML-тегами `<b>` eingefasst. Детальное форматирование может быть выполнено в стиле CSS-класса «любимый». |
 
 ## Rezepte zur Wiederverwendung
@@ -224,7 +224,7 @@ Beispiele für einen relativ berechneten Spieltag:
 
 Bedingung dann bei jedem der 3 Widgets jeweils nur einen der folgenden Werte eintragen total,home,away
 
-5. Дайте новый виджет: Список значений радиокнопок (находится в
+5. Дайте новый виджет: список значений радиокнопок (находится в
 
    Стандартная установка von vis schon enthalten
 
@@ -281,7 +281,7 @@ Danke an bommel_030 Die 4 Steuerelemente zum importieren findet ihr здесь:
 ```
 
 ### Anzeige von bestimmten Eigenschaften, Falls eine der Lieblingsmannschaften am heutigen Tag spielen
-**Beipiel 1** HTML-виджет может быть использован для установки в Hintergrund, если Bayern Heute Spielt.
+**Beipiel 1** HTML-Виджет поможет вам получить больше удовольствия от игры, если Bayern Heute Spielt.
 Der Bindungsausdruck будет использоваться в фоновом цвете поля в Reiter CSS Hintergrund Gesetzt.
 
 ```text
@@ -300,7 +300,7 @@ Der Bindungsausdruck будет использоваться в фоновом �
 
 `javascript.0.tabellemodus`
 
-Это также привязка в атрибуте mode_binding в виджете таблицы, который может быть подсказан:
+Это также привязка в атрибуте mode_binding в виджете таблицы, который может быть скрыт:
 
 ```text
     {javascript.0.tabellemodus}
@@ -382,7 +382,7 @@ sendTo(
 - ~~адаптер документации/виджет~~
 - ~~исправить проблему с динамикой колонки клуба~~
 - ~~новый виджет: следующие x игр клуба~~
-- ~~настройка игрового дня для начального игрового дня и его продолжительность (-1,3 = показать предыдущий
+- ~~настройка игрового дня виджета для начала игрового дня и его длины (-1,3 = показать предыдущий
 
 игровой день и 3 игровых дня после него)~~
 
@@ -396,6 +396,9 @@ sendTo(
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.8.1 (2025-01-23)
+
+- adjust breakpoints in jsonConfig as a workaround for the new table/card-elements
 
 ### 1.8.0 (2024-10-27)
 
@@ -656,7 +659,7 @@ sendTo(
 
 MIT License
 
-Copyright (c) 2024 oweitman
+Copyright (c) 2025 oweitman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

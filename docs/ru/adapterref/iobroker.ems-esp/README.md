@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
+hash: ooJmhSMkua3PN8tCtVIMiQ3wVQeMeCr+Ua3v+9cSD38=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -25,7 +25,7 @@ hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
 
 * шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с чипом ESP32.
 
-Старые шлюзы ESP8266 с API V2 больше не поддерживаются!! Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки. Последние версии прошивки для разработчиков могут работать нестабильно с адаптером ioBroker. Используйте на свой страх и риск.
+Адаптер протестирован для шлюза ems-esp с последней стабильной версией прошивки. Последние версии прошивки dev могут работать нестабильно с адаптером ioBroker. Используйте на свой страх и риск.
 
 * Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, поскольку они не поддерживают LAN API!
 
@@ -69,7 +69,7 @@ hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
 ## License
 MIT License
 
-Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick (tp1de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

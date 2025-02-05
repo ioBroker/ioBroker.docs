@@ -133,6 +133,13 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.25.1 (2025-01-24)
+- escape xml
+- switch to official selector package
+
+### 1.25.0 (2025-01-21)
+- fix bindings in custom controls
+
 ### 1.24.4 (2025-01-20)
 - switch again to old module shims (error in new one)
 

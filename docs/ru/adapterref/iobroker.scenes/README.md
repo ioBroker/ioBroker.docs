@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scenes/README.md
 title: Адаптер сцен ioBroker
-hash: FR+CyK5Winwdr8oIsq6WZoOBdSghf+pQvTJGhAHNMXE=
+hash: Io2jtg2yoSH0XtMVQvpAhtXEtvJa+v5uqUhWKn5UbdE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -54,7 +54,7 @@ _Адаптер сцен_ может создавать сцены и выпол
 Состояния с задержкой не участвуют в расчетах.
 
 Вы можете протестировать сцену с помощью кнопки «воспроизведение».
-Кроме того, вы можете связать эту **сцену** напрямую с другим идентификатором сцены. Например, если у вас есть датчик на двери, вы можете выбрать его в качестве триггера:
+Кроме того, вы можете напрямую связать эту **сцену** с другим идентификатором сцены. Например, если у вас есть датчик на двери, вы можете выбрать его в качестве триггера:
 
 ```
   trigger
@@ -131,7 +131,7 @@ sendTo(
 Адаптер считывает все фактические значения идентификаторов, определенных в этой сцене, и сохраняет их как настроенные.
 
 ## Отключение или включение сцены с помощью сообщения Чтобы отключить или включить какую-либо сцену, вы можете отправить сообщение адаптеру:
-```
+```js
 // enable
 sendTo(
     'scenes.0',
@@ -160,6 +160,14 @@ sendTo(
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 4.0.1 (2025-01-23)
+* (bluefox) Adapter was migrated to TypeScript
+* (bluefox) Corrected error with the Select ID dialog
+
+### 3.2.4 (2025-01-22)
+* (bluefox) Migrated to vite
+* (bluefox) Packages updated
+
 ### 3.2.3 (2024-08-26)
 * (bluefox) Packages updated
 
@@ -319,7 +327,7 @@ sendTo(
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2025, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

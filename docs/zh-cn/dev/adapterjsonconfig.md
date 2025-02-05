@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: Xc+YrZnmi1mYWiUlwueSm0wlq0IGSe5whY3wgjEn/AA=
+hash: qv5gBLc3/6yUdIC4AWjkSdAk6o4ls+yLynScoTV+rAc=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。此方法提供了一种更加用户友好且灵活的方式，可在 ioBroker Admin 界面中管理适配器设置。
@@ -253,7 +253,7 @@ admin/customI18n/en.json
 
 文件的结构对应以下结构
 
-**en.json：**
+**en.json:**
 
 ```json5
 {
@@ -582,9 +582,9 @@ admin/customI18n/en.json
 | `result` | `{result1: {en: 'A'}, result2: {en: 'B'}}` |
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`、`outlined` 或无 |
-| `openUrl` | 如果为真 - 在新选项卡中打开 URL，如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果`saveConfig`为真，则将要求用户保存配置。|
-| `reloadBrowser` | 如果为 true - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
-| `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以被覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
+| `openUrl` | 如果为真 - 如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`，则在新选项卡中打开 URL。如果`saveConfig`为真，则将要求用户保存配置。|
+| `reloadBrowser` | 如果为真 - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
+| `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用`base64` 图标（如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
 | `useNative` | 如果适配器返回的结果具有 `native` 属性，则将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。|
 | `showProcess` | 请求正在进行时显示旋转器 |
@@ -746,6 +746,8 @@ admin/customI18n/en.json
 | `简单` | 显示简单的 CRON 设置 |
 
 ###`fileSelector`
+从下拉菜单中的一个文件夹中选择一个文件。如果您愿意，您可以将新文件上传到此文件夹。
+
 仅限管理员6
 
 | 属性 | 描述 |
@@ -762,8 +764,8 @@ admin/customI18n/en.json
 | `noSize` | 不显示文件大小 |
 
 ###`file`
+带有文件选择器的输入字段。它将显示为一个文本字段，旁边有一个按钮用于打开对话框。
 仅限 Admin6。
-带文件选择器的输入字段
 
 | 属性 | 描述 |
 |---------------------|------------------------------------------------------------------------------------------|

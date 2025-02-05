@@ -213,6 +213,9 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.9.1 (2025-01-21)
+* (@foxriver76) fixed issue on token expiration
+
 ### 1.9.0 (2024-11-27)
 * (@foxriver76) updated `bring-shopping` module (get rid of deprecated `request` module)
 * (@foxriver76) dropped support for Node.js 16 (it is EOL)
@@ -365,7 +368,7 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2019-2025 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

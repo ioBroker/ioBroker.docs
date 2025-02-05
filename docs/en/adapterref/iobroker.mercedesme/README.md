@@ -18,6 +18,10 @@ Unter commands das commando auf klappen und den button neben start drücken wenn
 Remote sind vorgefertige Remote Befehle
 
 ## Changelog
+### 0.3.5 (2025-01-31)
+
+- fix new login flow
+
 ### 0.3.4 (2024-12-08)
 
 - added config parameter for reconnect delay
@@ -211,7 +215,7 @@ Remote sind vorgefertige Remote Befehle
 
 MIT License
 
-Copyright (c) 2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
+hash: ooJmhSMkua3PN8tCtVIMiQ3wVQeMeCr+Ua3v+9cSD38=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -25,7 +25,7 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 
 * ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit dem ESP32-Chip.
 
-Die alten ESP8266-Gateways mit API V2 werden nicht mehr unterstützt!! Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
+Der Adapter wurde für das ems-esp-Gateway mit der neuesten stabilen Firmware-Version getestet. Die neuesten Entwicklerversionen der Firmware funktionieren möglicherweise nicht stabil mit dem ioBroker-Adapter. Die Verwendung erfolgt auf eigenes Risiko.
 
 * Neue Cloud-Gateways der Bosch-Gruppe (MX300 / EasyControl ...) werden nicht unterstützt, da sie keine LAN-API unterstützen!
 
@@ -69,7 +69,7 @@ Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-e
 ## License
 MIT License
 
-Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick (tp1de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

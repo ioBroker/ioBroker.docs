@@ -525,6 +525,12 @@ Existiert nicht mehr
 
 ## Changelog
 
+### 1.6.17
+* License update
+
+### 1.6.16
+* Moved Dashboard to ApiV2. This invalidates existing datapoints under /Dashboard/ and introduces "Dashboard/currently" and "Dashboard/today" due to changes in the API.
+
 ### 1.6.15
 * Maintenance update (dependencies, ...)
 
@@ -558,7 +564,7 @@ Existiert nicht mehr
 ## License
 MIT License
 
-Copyright (c) 2024 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2025 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -225,6 +225,7 @@ With +-Button new entries can be added to the table.
 -->
 ### __WORK IN PROGRESS__
 * (Gaudes) Include platform in line
+* (Gaudes) Fix product regionalExpress
 * (Gaudes) Updates
 
 ### 1.4.0 (2024-12-13)

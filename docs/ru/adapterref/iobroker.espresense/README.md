@@ -1,35 +1,40 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.espresense/README.md
 title: ioBroker.espresense
-hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
+hash: 0wzSfVa/bvhNaLkZ3xPJ7rDX952BFJup94I9Ha/CZ9Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.espresense/admin/espresense.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.espresense.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.espresense.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.espresense.svg)
 ![Количество установок](https://iobroker.live/badges/espresense-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/espresense-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/espresense-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.espresense.png?downloads=true)
 
 # IoBroker.espresense
-**Тесты:** ![Тестирование и выпуск](https://github.com/ticaki/ioBroker.espresense/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/ticaki/ioBroker.espresense/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер espresense для ioBroker
-Подключиться к [ESPresense](https://espresense.com)
+Подключиться к [ESPressense](https://espresense.com)
 
-- Сервер MQTT и клиентский модуль
-- `Запустить собственный сервер mqtt` активировать режим сервера
-- `Server ip` используется только для внешнего сервера mqtt.
-- «Порт, имя пользователя и пароль» внутреннего или внешнего сервера mqtt.
+- MQTT-сервер и клиентский модуль
+- «Запустить собственный сервер mqtt» активировать режим сервера
+- `Server IP` использовать только для внешнего сервера MQTT
+- `Порт, имя пользователя и пароль` внутреннего или внешнего сервера mqtt
 
-- Если в конфигурацию были добавлены устройства, в объектах будут отображаться только они.
-- Два времени настройки связаны, проверка присутствия всегда выполняется вместе с обработкой сообщений MQTT.
+- Если в конфигурацию добавлены устройства, в объектах будут отображаться только они.
+- Два момента настройки связаны, проверка присутствия всегда выполняется вместе с обработкой сообщений MQTT.
 
-Рекомендация: соедините устройства, которые будут отслеживаться, с espresense и отфильтруйте выходные данные, чтобы избежать ненужного сетевого трафика.
+Лучшая практика: соедините контролируемые устройства с Espresense и отфильтруйте выходные данные, чтобы избежать ненужного сетевого трафика.
 
-Для помощи используйте вопрос или если вы понимаете немецкий https://forum.iobroker.net/topic/71189/test-adapter-espresense
+#### Max_distance_iobroker
+Новые добавленные точки данных используются для достижения обнаружения по комнатам в адаптере. При использовании max_distance в esp32 адаптер не получает уведомление, когда устройство покидает область. Однако при использовании max_distance_iobroker он получает.
+Если используется max_distance_iobroker, две точки данных присутствия контролируются им, в противном случае они ведут себя как и раньше.
+Присутствие под устройством истинно, если одна из точек данных в комнатах ниже истинна.
+
+Для получения помощи используйте issue или, если вы понимаете немецкий, https://forum.iobroker.net/topic/71189/test-adapter-espresense
 
 * Используемый mqtt-сервер является полностью совместимым сервером MQTT 3.1 и 3.1.1, но адаптер отвечает только на тему espresense/#
 
@@ -38,6 +43,25 @@ hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2025-01-28)
+* (ticaki) Simple room detection integrated
+* (ticaki) Friendly room name added to devices
+* (ticaki) global commands now work.
+* (ticaki) Data point var added.
+
+### 0.4.8 (2025-01-18)
+* (ticaki) Devices can be renamed in the configuration.
+* (ticaki) Removing devices works now!.
+
+### 0.4.7 (2025-01-17)
+* (ticaki) Removing devices now works.
+
+### 0.4.6 (2024-11-29)
+* (ticaki) repository checker problems fixed
+
+### 0.4.5 (2024-11-29)
+* (ticaki) dependencies updated
+
 ### 0.4.4 (2024-01-18)
 * (ticaki) The time period over which incoming Mqtt messages are collected can be configured. min. 1 sec max. (2^31-1) / 1000 sec
 
@@ -84,7 +108,7 @@ hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
 ## License
 MIT License
 
-Copyright (c) 2024 ticaki <github@renopoint.de>
+Copyright (c) 2024-2025 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

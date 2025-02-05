@@ -26,6 +26,11 @@ Manage and create devices for using it in other adapters like material, iot,...
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Used vite
+* (@GermanBluefox) Used eslint-config of ioBroker
+
 ### 1.1.5 (2023-06-06)
 * (Garfonso) fixed: problem with editing imported states
 * (Garfonso) fixed: warning
@@ -132,7 +137,7 @@ Manage and create devices for using it in other adapters like material, iot,...
 ## License
 MIT License
 
-Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

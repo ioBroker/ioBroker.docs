@@ -98,6 +98,8 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Latest version
 
+#### 0.11.6 Adapater checker related updates
+
 #### 0.11.5 ECOWITT forwarding fixed
 
 #### 0.11.4 Fix yearlyrain max value and mapping for CO2 sensors

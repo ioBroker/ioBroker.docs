@@ -58,9 +58,9 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+### 1.2.0 (2025-01-31) - 2025H1 maintenance release
 
-### __WORK IN PROGRESS__
-
+- (pdbjjens) Change: Migration to ESLint 9
 - (simatec) Responsive Design added
 
 ### 1.1.0 (2024-08-15) - 2024H2 maintenance release
@@ -90,16 +90,11 @@ From this, the object names are put together, e.g.
 - (pdbjjens) New: Configurable data point update intervals to reduce system load
 - (pdbjjens) New: Use JSON config
 
-### 0.6.6 (2023-02-28)  2023 maintenance release
-
-- (pdbjjens) Updated dependencies
-- (pdbjjens) New: Use adapter-dev instead of gulp translate
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 IoBroker-Community
+Copyright (c) 2025 IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

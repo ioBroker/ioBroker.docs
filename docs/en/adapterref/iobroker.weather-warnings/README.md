@@ -146,6 +146,9 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.4 (2025-02-03)
+- (ticaki) change sendTo for whatsapp
+
 ### 0.7.3 (2025-01-16)
 - (ticaki) fix typo
 

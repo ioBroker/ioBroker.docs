@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: SNPrdh8WAkHEVeAyNXK+NxV8WSRXsT9DOLSoblhSQm4=
+hash: 14kvDKkWjRg8LV1UokzDyR4INivV/jQKThUt9uXBkwU=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -25,7 +25,7 @@ Eine falsche Kommunikation oder das Einstellen falscher Werte kann die Funktiona
 
 Der Adapter basiert auf der Arbeit von:
 
-* meine eigene Bewertung und Recherche
+* meine eigene Auswertung und Recherche
 * https://github.com/tolwi/hassio-ecoflow-cloud
 * https://haus-automatisierung.com/hardware/2023/02/13/ecoflow-river-2-usv-batteriespeicher.html
 * https://forum.iobroker.net/topic/66743/ecoflow-connector-script-zur-dynamischen-leistungsanpassung
@@ -167,7 +167,7 @@ Verwenden Sie die Registerkarte „Homeassistant“ zum Einrichten der MQTT-Verb
 <details><summary><i>Parametrisieren des Homeassistant-Connectors</i></summary><p>
 
 * den Dienst aktivieren
-* die Benutzereinstellungen des MQTT-Brokers von HA festlegen
+* die Benutzereinstellungen des MQTT Brokers von HA festlegen
 * Setzen Sie die Verbindungsparameter des MQTT-Brokers von HA
 * Wählen Sie bei Bedarf Debug-Einstellungen
 
@@ -214,6 +214,8 @@ Dies ist nicht unbedingt ein Fehler oder ein Hinweis auf einen nicht funktionier
 * Der iobroker-Adapter filtert die eingehenden Nachrichten der Geräte. Nur geänderte Werte werden intern gespeichert und an HA übertragen.
 * Wenn ein Wert nicht durch die Gerätedatenaktualisierung festgelegt wird, wird er in HA als unbekannt angezeigt
 * wenn das Gerät erreichbar ist, wird die Verfügbarkeit in der Gerätekonnektivität angezeigt, diese wird an die „Untergeräte“ vererbt (Nichtverfügbarkeit wird auf die gleiche Weise verarbeitet)
+
+[einige_Hinweise_für HA](./doc/en/IOB_HA/navi.md)
 
 ### Anmerkungen zur Funktionalität
 * Aufgrund der Asynchronität von Informationsaktualisierungen und Befehlsübertragungen können manchmal Race Conditions sichtbar werden. So kann beispielsweise ein Wechsel gesteuert werden und sein Hin- und Herschalten, bevor er stehen bleibt, beobachtet werden.
@@ -293,7 +295,7 @@ Wave ist nicht verfügbar, könnte implementiert werden, wenn Daten verfügbar s
 [Generator](./doc/devices/alternator.md)
 
 ### Nicht unterstützte Geräte
-Dieser Abschnitt wurde für Debugging-Zwecke erstellt. Wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und geben Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird davon ausgegangen, dass das unbekannte Gerät Protobuf verwendet. Es erstellt [PROTOBUF unbekannt]-Meldungen im Protokoll, die das Roh-Hexadezimaltelegramm enthalten.
+Dieser Abschnitt wurde für Debugging-Zwecke erstellt. Wählen Sie das Gerät (Delta Pro3, Delta3, Delta3 Plus) aus und geben Sie die Seriennummer in die hinzugefügte Zeile ein. Es wird davon ausgegangen, dass das unbekannte Gerät Protobuf verwendet. Es erstellt [PROTOBUF unbekannt]-Meldungen im Protokoll, die das rohe Hexadezimaltelegramm enthalten.
 
 ## Aufgaben
 * vergessene Randbedingungen für Befehle prüfen (Befehl unterdrücken, oder zusätzlichen Wert hinzufügen)
@@ -306,6 +308,13 @@ Diese Open-Source-Software ist in keiner Weise mit der Firma Ecoflow verbunden o
 Die Nutzung der Software erfolgt auf Ihr eigenes Risiko und nach eigenem Ermessen und ich übernehme keine Haftung für mögliche Schäden oder Probleme, die durch die Nutzung der Software entstehen können. Es ist wichtig zu wissen, dass die Nutzung dieser Open-Source-Software ohne direkte Unterstützung oder Garantien der Firma Ecoflow erfolgt.
 
 ## Changelog
+
+### 1.2.2 (npm)
+* (foxthefox) some documentation for HA users
+* (foxthefox) corrections in SHP2 protobuf definition
+* (foxthefox) new datapoints in SHP2 ProtoTime, new telegram ProtoTimeStat mapped to ProtoTime
+* (foxthefox) corrections to alternator (objects 268,269), power,wifiRssi setting, 
+* (foxthefox) DeltaPro mpptTemp, outAmp new max value
 
 ### 1.2.1 (npm)
 * (foxthefox) corrections for pstream objects, some changed from string to number

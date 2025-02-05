@@ -27,8 +27,12 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2025-01-27)
+* (mcm1957) BREAKING: you must enter your configuration data again at the config page.
 
-### **WORK IN PROGRESS**
+### 2.3.1 (2025-01-26)
+* (arteck) new settings structure
+* (arteck) fix storage request
 * (arteck) add new eslint file
 * (arteck) fix node message
 * (arteck) refactor
@@ -45,24 +49,11 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 ### 2.2.2 (2023-11-06)
 * (arteck) storage message corr
 
-### 2.2.1 (2023-10-28)
-* (arteck) machines delete after restart corr
-* (arteck) vmid type corr
-* (arteck) corstorage error message
-
-### 2.2.0 (2023-10-21)
-* (arteck) new Object tree structure (selectable)
-* (arteck) added HA Information
-* (arteck) Storage info is selectable
-* (arteck) Backup info are under Storage info as Object backupJson
-* (arteck) corr info for offline container
-* (arteck) axios timout is now 5 sec.
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

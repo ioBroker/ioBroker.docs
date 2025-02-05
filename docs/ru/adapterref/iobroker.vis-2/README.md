@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация следующего поколения для ioBroker: vis-2
-hash: S3jREg07ZFLV+uTkWNlRet6V9ix/5Bd7NsgLwQzQ/BE=
+hash: l5+h7Jw12bkVoe/zM8dbDaeUBOsa9RDwqCxiRwIma+Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -60,14 +60,14 @@ value = await (async function () {
 
 Таким образом, наш расчет гипотенузы будет следующим:
 
-```js
+```
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
 ### Устаревший формат
 Паттен имеет следующий формат:
 
-```js
+```
 {objectID;operation1;operation2;...}
 ```
 
@@ -289,6 +289,9 @@ npm run start
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 2.11.2 (2025-01-23)
+* (@GermanBluefox) Do not load vis-1 widgets if vis-2 widgets provided
+
 ### 2.11.1 (2024-12-02)
 * (@GermanBluefox) Corrected navigation menu
 * (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
@@ -667,7 +670,7 @@ Additionally, you need a license to use the adapter. The following license editi
 * **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
 
 ## License
- Copyright (c) 2021-2024 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2021-2025 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
   
  Creative Common Attribution-NonCommercial (CC BY-NC)
 

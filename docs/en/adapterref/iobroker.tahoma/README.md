@@ -102,11 +102,30 @@ These states contain current status of the devices as follows. Some of the state
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).
 
+<!--
+	Placeholder for the next version (add instead of version-number-headline below):
+	## __WORK IN PROGRESS__
+-->
+### 0.10.4 (2024-04-28)
+- Fixed: Warning resolved about invalid element in jsonConfig
+
+### 0.10.3 (2024-01-29)
+- Fixed: Some crashed caused by event-updates were fixed with a workaround.
+
+### 0.10.2 (2023-03-25)
+- Fixed: Improved core:MovingState. Should reflect moving blinds correctly now.
+
+### 0.10.1 (2023-01-23)
+- Fixed: Clear bearer token, if connection to local API fails, so new one can be fetched.
+
+### 0.10.0 (2023-01-03)
+- Fixed warnings about _Failed getting execution state_ when using the local API.
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020-2023 Marius Burkard & Excodibur
+Copyright (c) 2020-2025 Marius Burkard & Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

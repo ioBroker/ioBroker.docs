@@ -1,53 +1,52 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: nCZZ/tiSV0rJFdTKBfL+MhLVzVYnIIHqOk4a61i472Q=
+hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
 ![Количество установок](http://iobroker.live/badges/web-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.web.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.web.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.web.svg)
 
 # IoBroker.web
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тест и выпуск](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Веб-сервер на базе Node.js и экспресс для чтения файлов из БД ioBroker.
+Веб-сервер на базе Node.js и Express для чтения файлов из базы данных ioBroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Настройка веб-сокетов
-На некоторых клиентах веб-сокетов возникают проблемы с производительностью связи.
-Иногда эта проблема возникает из-за отказа связи сокета.io в механизме длинного опроса.
-Вы можете установить параметр *Force Web-Sockets*, чтобы принудительно использовать только транспорт веб-сокетов.
+На некоторых клиентах веб-сокетов возникает проблема производительности связи.
+Иногда эта проблема возникает из-за отката связи socket.io на механизме длительного опроса.
+Вы можете установить опцию *Force Web-Sockets* для принудительного использования только транспорта веб-сокетов.
 
 ## Давайте зашифруем сертификаты
-Прочтите [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+Читать [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Расширения
 Веб-драйвер поддерживает расширения.
-Расширение представляет собой обработчик URL-адресов, который будет вызываться при появлении такого URL-запроса.
-Расширения выглядят как обычный адаптер, но у них нет запущенных процессов, и они будут вызываться веб-сервером.
+Расширение — это обработчик URL, который будет вызван, если появится такой запрос URL.
+Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызываться веб-сервером.
 
 Например, пользователь может активировать специальный прокси-адаптер и получить доступ к другим устройствам (например, веб-камерам) на том же веб-сервере.
 Необходимо, чтобы все сервисы были доступны на одном веб-сервере.
 
-Веб-расширение может и должно поддерживать функцию `unload`, которая может возвращать `promise`, если действие выгрузки займет некоторое время.
+Веб-расширение может и должно поддерживать функцию `unload`, которая могла бы возвращать `promise`, если действие выгрузки займет некоторое время.
 
 Подробнее о веб-расширениях можно прочитать [здесь](WEB-EXTENSIONS-HOWTO.md).
 
 ## Защита от грубой силы
-Если аутентификация включена и пользователь вводит неверный пароль 5 раз в течение одной минуты, ему придется подождать не менее одной минуты до следующей попытки.
-После 15-й неверной попытки пользователь должен подождать 1 час.
+Если включена аутентификация и пользователь вводит неверный пароль 5 раз в течение одной минуты, он должен подождать не менее одной минуты до следующей попытки. После 15-й неправильной попытки пользователь должен ждать 1 час.
 
 ## Опция «Оставаться в системе»
-Если выбран этот параметр, пользователь остается в системе в течение одного месяца.
-В противном случае пользователь останется в системе в течение настроенного «тайм-аута входа».
+Если выбран этот параметр, пользователь останется в системе в течение одного месяца.
+Если нет, пользователь останется в системе в течение настроенного «тайм-аута входа».
 
 ## Доступ к значениям состояния
-Вы можете получить доступ к значениям нормального и двоичного состояния через HTTP-запрос на получение.
+Доступ к значениям нормального и двоичного состояния можно получить с помощью HTTP-запроса get.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
@@ -61,34 +60,63 @@ http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-Изображение должно быть записано в адаптере javascript, например:
+Изображение должно быть написано в адаптере JavaScript следующим образом:
 
-```
+```js
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
     setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
 });
 ```
 
-## Опция «Базовая аутентификация»
-Разрешает вход через базовую аутентификацию, отправляя `401` Неавторизованный с заголовком `WWW-Authenticate`.
-Это можно использовать для таких приложений, как *FullyBrowser*. Если вы введете неправильные учетные данные один раз, вы будете перенаправлены на страницу входа.
+## Вариант «Базовая аутентификация»
+Позволяет входить в систему через базовую аутентификацию, отправляя `401` Unauthorized с заголовком `WWW-Authenticate`. Это можно использовать для таких приложений, как *FullyBrowser*. При вводе неправильных учетных данных один раз вы будете перенаправлены на страницу входа.
 
 ## Список пользователей
 Вы можете определить список пользователей, которые могут получить доступ к веб-серверу. Вы можете изменить права доступа для вошедшего в систему пользователя.
 
 Если пользователя нет в списке, он не сможет получить доступ к веб-серверу.
 
-Проще задать для каждого объекта и каждого состояния права доступа конкретного пользователя.
+Проще всего установить для каждого объекта и каждого состояния права доступа для конкретного пользователя.
 
-## Расширенные настройки
+## Расширенные параметры
 ### Перенаправление по умолчанию
-Если при открытии веб-порта в браузере не должен отображаться выбор приложения, а только какое-то конкретное приложение, здесь можно указать путь (например, `/vis/`), чтобы этот путь был открыт автоматически.
+Если при открытии веб-порта в браузере не должен отображаться выбор приложения, а должно отображаться какое-то конкретное приложение, путь можно указать здесь (например, `/vis/`), и этот путь будет открыт автоматически.
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) updated packages
+* (@GermanBluefox) removed gulp in a build process
+* (@GermanBluefox) Migrated GUI ti vite
+
+### 6.3.1 (2024-09-23)
+* (@foxriver76) added new admin icon (svg)
+
+### 6.3.0 (2024-06-27)
+* (bluefox) Corrected call of getObjectView with null parameter
+* (bluefox) updated packages
+* (bluefox) GUI was migrated to a non-style framework
+
+### 6.2.6 (2024-05-25)
+* (bluefox) Preparations for a custom loading background
+* (bluefox) updated packages
+
+### 6.2.5 (2024-02-22)
+* (bluefox) Just some packages were updates
+
+### 6.2.4 (2024-02-17)
+* (klein0r) Extensions may block the web instance
+* (klein0r) Fixed directory listing
+
+### 6.2.3 (2023-12-18)
+* (foxriver76) updated the websocket library to increase the maximum file size from 100 MB to 500 MB
+
+### 6.2.2 (2023-12-14)
+* (joltcoke) Corrected the crash if authentication is enabled
+
 ### 6.2.1 (2023-12-04)
 * (bluefox) Added the user access list option
 
@@ -103,7 +131,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (bluefox) Corrected socket.io connection
 
 ### 6.1.4 (2023-10-08)
-* (foxriver76) upgrade socketio and ws dependencies to fix vis subscribe problem
+* (foxriver76) upgrade socketio and ws dependencies to fix a vis subscribe problem
 
 ### 6.1.3 (2023-09-28)
 * (bluefox) upgraded socketio and ws dependencies to correct the error by unsubscribing on client disconnect
@@ -148,7 +176,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

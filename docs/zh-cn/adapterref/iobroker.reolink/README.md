@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: kU3wT/Hp6fLzWrtzLnmeYP3CMJbYa0jykAN+mOPR91M=
+hash: /bm8PbcKUsNovM9dM+o7AdtO37eijmF0pbO4vbW2PaU=
 ---
 ![标识](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
@@ -22,12 +22,14 @@ ioBroker 平台适配器用于获取[Reolink 相机](https://reolink.com/) 信�
 
 一般而言，所有较新的 Reolink 相机都支持 API 命令。它们只是支持的命令有所不同。
 
+提醒一下密码。如果只有一个特殊字符，请尝试使用或不使用 URI 编码。最好不使用特殊字符，而使用更长的密码以获得相同的安全性。
+
 如果您希望包含任何特定的 API 命令...请现在告诉我。
 
 ## 实现的功能
 ＃＃＃ 放
 - PTZ 控制 / PTZ 防护
- - 推送通知
+- 推送通知
 - 设置自动对焦
 
 值： 0,1
@@ -47,15 +49,15 @@ ioBroker 平台适配器用于获取[Reolink 相机](https://reolink.com/) 信�
 可以通过改变 reolink.<Instanze>.settings 状态来触发功能。
 
  ＃＃＃ 得到
- - 设备信息
+- 设备信息
 - 云台信息
 - 驱动器信息
 - 网络信息
- - 运动检测
+- 运动检测
 - 自动对焦
 - 快照
 红外灯
- - LED灯
+LED灯
 - 邮件通知
 
 ### 获取图像的示例用法：
@@ -65,7 +67,7 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 });
 ```
 
-// **result** 的内容是 JSON：
+// **result** 的内容是 JSON ：
 
 ```
 {type:"image/png",base64:"iVBORw....askldfj"}
@@ -85,10 +87,26 @@ RLC-823A 型
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (oelison) update disk info
+* (oelison) uri enconding is switchable (helps sometimes by one special char)
+* (oelison) #28 PTZ check added
+
+### 1.1.2 (2024-09-14)
+* (oelison) [#22](https://github.com/aendue/ioBroker.reolink/issues/22) password with some more special chars works now
+* (oelison) adapter warnings resolved
+
+### 1.1.1 (2024-08-03)
+* (oelison) removed warnings from adapter check
+* (olli) added ftp support
+* (oelison) channel now distinguishing most requests
+* (oelison) [#79](https://github.com/aendue/ioBroker.reolink/issues/79) error messages with more info where
+
+### 1.1.0 (2024-05-16)
 * (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
 * (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
 * (Nibbels) added setWhiteLedMode function
 * (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
+* (oelison) removed node 16
 
 ### 1.0.3 (2024-01-21)
 * (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
@@ -158,7 +176,7 @@ RLC-823A 型
 ## License
 MIT License
 
-Copyright (c) 2024 Andy Grundt <andygrundt@gmail.com>
+Copyright (c) 2025 Andy Grundt <andygrundt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

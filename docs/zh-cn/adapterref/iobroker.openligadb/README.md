@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openligadb/README.md
 title: ioBroker 适配器从 OpenLigaDB 获取足球比赛结果
-hash: DB+jiEnmIjsdyzVLRF6oEEU3UF6WtWK0uJuomZNrzJM=
+hash: hg3XI6pnogJ4TCFV92FGjS6mePxT99QxVlLybvBM2JU=
 ---
 ![标识](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
@@ -45,16 +45,16 @@ Das ist die klassische Tabellenansicht.\ Die Tabelle enthält verschiedene Spalt
 | ----------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |百搭|                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches (Achtung im alten widget musste hier noch table ausgewählt werden) ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。 Der Datenpunkt enthält alle Spieldaten einer Liga/Season im JSON 格式。我们的日期是根据该方式的基础而制定的。 |
 |当前游戏日 |                          | Hier ist ein Datenpunk zu wählen, der mit curgameday benannt ist.联赛/赛季配置中的数据点，落入了安加本的罪孽之中。适配器是当前基准数据的基础。游戏标签将在未来游戏标签的游戏时间和未来游戏标签的时间间隔内进行。                           |
-|模式 |                          | Listenauswahl 在 welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt (1total)、Heim (2home) 或 Auswärts (3away)、Hinrunde (4round1) 或 Rückrunde (5round2)。                                                                                                                                                                                                                                                        |
+|模式 |                          | Listenauswahl 在 welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt(1total)、Heim (2home) 或 Auswärts (3away)、Hinrunde (4round1) 或 Rückrunde (5round2)。                                                                                                                                                                                                                                                        |
 |模式绑定 |                          |属性在属性模式下有效。 Es wurde ergänzend eingeführ, so das der Tabellenmodus ebenfalls per Binding gesteuert werden kann.在 Textfeld 中，我们将使用该模式。当您使用属性模式时，该属性将被更改为属性模式。 Ein Normalanwender sollte er nichts eintragen。                                       |
 |马克西康 |                          | Maxmale Größe des Manschaftsicons in x oder y-Richtung。                                                                                                                                                                                                                                                                                                                                                                                   |
 |简称 |                          | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                                           |
 |索特伦德 |                          | Auswahl，wenn Trendicons angezeigt werden solen。 Der Trend wird im Vergleich zum vorherigen Spieltag berechnet。                                                                                                                                                                                                                                                                                                                           |
-|突出|                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden die hervorgehoben werden sollen。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细格式可以参见 css-Klasse“最喜欢的”erfolgen。 Ausserdem 可以突出显示单个 CSS-Klasse angegeben werden。 Vgl。卡皮特尔待办事项 |
+|突出|                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden die hervorgehoben werden sollen。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细格式可以参见 css-Klasse“最喜欢的”erfolgen。 Ausserdem 可以突出显示单个 CSS-Klasse angegeben werden。 Vgl。待办事项 |
 |过滤器|                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden and deren die Tabelle gefiltert dargestellt wird。                                                                                                                                                                                                                                                                                                    |
 | iconup、icondn、iconst |属性组图标| Trendicons 定义了我们的特征。                                                                                                                                                                                                                                                                                                                                                                                            |
-| showgameday 在 der Attributgruppe |警告 |您可以查看游戏中的游戏标签 | 游戏标签 |
-|属性组中的lastgamecount |警告 | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (in Abhängigkeit von currgameday und showgameday) berechnet Beispiel: Eingabe bei showgameday = 10 und bei lastgamecount=5: Die Tabelle wird nur für die Spieltage 6-10 berechnet (5 Spieltage) | 游戏 |
+| Showgameday 在 der Attributgruppe |警告 |您可以查看游戏中的游戏标签 | 游戏标签 |
+|属性组中的lastgamecount |警告 | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (in Abhängigkeit von currgameday und showgameday) berechnet Beispiel: Eingabe bei showgameday = 10 und bei lastgamecount=5: Die Tabelle wird nur für die Spieltage 6-10 berechnet (5 Spieltage) | für die Spieltage 6-10 berechnet (5 Spieltage) |
 
 ### Gameday v2 的游戏
 ![小部件比赛日](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/gameday.png)
@@ -63,10 +63,10 @@ Dieses Widget zeigt den Spieltag 和。我无法理解当前的情况，相对�
 游戏中的游戏元素非常丰富。
 Bestimmte Elemente der Anzeige wurden mit **CSS-Klassen** versehen，für die dann beliebig eine bestimmte Formatierung festgelegt werden kann：
 
-| CSS 类 |元素的格式|安梅尔宫 |
+| CSS 类 |元素的格式 |安梅尔宫 |
 | --------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |最喜欢 | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Hier kann Datum und Uhrzeit formatiert werden, wenn die Lieblingsmannschaft am Spieltag spielt. ggfs。可以看到CSS-Klasse“todaygameheader”的含义。 |
-|最喜欢 |曼斯查夫特斯名称 | Hier kann der Mannschaftsname entprechend formatiert werden。                                                                                                             |
+|最喜欢 |曼斯查夫特斯名称 | Hier kann der Mannschaftsname entsprechend formatiert werden。                                                                                                             |
 |今日游戏 |游戏的完整内容 | Wird markiert，wenn das Spiel am heutigen Tag statt findet。                                                                                                               |
 |今日游戏标题 | im Anzeigekopf eines Spieltages (Datum/Uhrzeit) | Wird markiert，wenn das Spieltagsdatum am heutigen 标签 ist |
 
@@ -107,8 +107,8 @@ Bestimmte Elemente der Anzeige wurden mit **CSS-Klassen** versehen，für die da
 |马克西康 |                          | Maxmale Größe des Manschaftsicons in x oder y-Richtung。                                                                                                                                                                                                                                                                                                                                                                               |
 |简称 |                          | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                                       |
 |展示目标 |                          |有关 Torschützen 的信息。                                                                                                                                                                                                                                                                                                                                                                                       |
-|突出|                          |您可以使用分号 (;) 来表示所有内容，然后使用分号 (;) 来表示。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细格式可以参见 css-Klasse“最喜欢的”erfolgen。 Ausserdem 可以突出显示单个 CSS-Klasse angegeben werden。 Vgl。卡皮特尔待办事项 |
-|秀游戏日 |警告 | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt.Trägt man eine Positive Zahl ein, dann wird, Falls vorhanden, der ausgewählte Spieltag angezeigt.Trägt man eine negative Zahl ein, dann wird relativ aktuellen Spieltag dieser angezeigt (bspw -1 entpricht dem vorherigen Spieltag) |
+|突出|                          |您可以使用分号 (;) 来表示所有内容，然后使用分号 (;) 来表示。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细的格式可以参考 css-Klasse“最喜欢的”erfolgen。 Ausserdem 可以突出显示单个 CSS-Klasse angegeben werden。 Vgl。卡皮特尔待办事项 |
+|秀游戏日 |警告 | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt.Trägt man eine Positive Zahl ein, dann wird, Falls vorhanden, der ausgewählte Spieltag angezeigt.Trägt man eine negative Zahl ein, dann wird relativ aktuellen Spieltag dieser angezeigt (bspw -1 entspricht dem vorherigen Spieltag) | (bspw -1 entspricht dem vorherigen Spieltag) |
 |显示游戏天数 |警告 | 1. 游戏中的游戏内容。一切都已经结束，但安扎尔·冯·斯皮尔塔根 (Anzahl von Spieltagen)，在 showgameday 的比赛中也将出现。                                                                                                                                                                                                |
 |每周演出 |警告 | Zeigt vor dem Datum wahlweise den Wochentag 和。                                                                                                                                                                                                                                                                                                                                                                                        |
 
@@ -127,7 +127,7 @@ ggfs。可以将其视为 vis-bound rechnet 和 gefüllt werden。
 绑定不是在编辑模式下进行的，绑定在编辑模式中是在当前的游戏标签中进行的。
 
 ### 最喜爱的俱乐部的比赛 2
-![最喜欢的游戏](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) Diese Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus ein oder mehrerer Ligen and.在 Auswahl der Anzahl der anzuzeigenden Ligen 中，我们将 Liga 与单独的配置组管理一起，在 der die folgenden Einstellungen vorgenommen werden können 中。
+![最喜欢的游戏](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) Diese Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus ein oder mehrerer Ligen and.在 Ligen 的 Auswahl der Anzahl der anzuzeigenden Ligen 中，我们将 Liga 与单独的配置组管理，以在 der die folgenden Einstellungen vorgenommen werden können 中进行。
 Wenn das Spiel am heutigen Tag statt findet，dann wird das jeweilige Spiel (todaygame) mit CSS-Klassen versehen。
 
 #### 示例
@@ -149,17 +149,17 @@ Wenn das Spiel am heutigen Tag statt findet，dann wird das jeweilige Spiel (tod
 |显示结果 |概要 | Auswahl，ob die Spielergebnisse，sofern bekannt，angezeigt werden sollen |
 |显示缩写 |概要 | Um die Spiele der einzelnen Ligen unterscheiden zu können, kann man eine eigene Kürzung in der jeweiligen Configuration eintragen.您可以将其打开，然后将其打开。                                                                                                                                                                                                                            |
 |每周演出 |概要 | Zeigt vor dem Datum wahlweise den Wochentag 和。 Die folgenden der Gruppe Liga können sich in Abhängigkeit der Eingabe bei **Anzahl Liga** mehrfach wiederholen。                                                                                                                                                                                                                                               |
-|百搭|联赛| Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。以 JSON 格式查看联赛/赛季的所有比赛和比赛 |
+|百搭|联赛 | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。以 JSON 格式查看联赛/赛季的所有比赛和比赛 |
 |当前游戏日 |联赛 |今日游戏当天请注意以下事项。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。适配器是当前基准数据的基础。游戏标签是指在游戏中的游戏标签和未来的游戏标签之间的时间间隔。 |
-|秀游戏日 |联赛 |温恩 (Wenn) 看着镜头，立即沉浸在游戏中。 Trägt man eine Positive Zahl ein，dann wird，falls vorhanden，vom ausgewählte Spieltag ausgegangen。 Trägt man eine negative Zahl ein，dann wird relativ aktuellen spieltag ausgegangen (bspw -1 entspricht dem vorherigen Spieltag) |
-|显示游戏天数 |联赛|您可以在此处查看旧游戏中的游戏内容。请注意，请在所有剩余的 Spieltage 操作（最大 9999 Spieltage）中进行操作，然后在所有 Spiele 中进行 Anzahl von Spieltagen，然后在 showgameday 操作中进行操作。                                                                             |
-|简称 |联赛| Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                           |
-|缩写|联赛| Abkürzung die für diese Liga angezeigt werden soll, sofern showabbreviation ausgewählt wurde。                                                                                                                                                                                                                                                                                                                              |
+|秀游戏日 |联赛|温恩 (Wenn) 看着镜头，立即沉浸在游戏中。 Trägt man eine Positive Zahl ein，dann wird，falls vorhanden，vom ausgewählte Spieltag ausgegangen。 Trägt man eine negative Zahl ein，dann wird relativ aktuellen spieltag ausgegangen (bspw -1 entspricht dem vorherigen Spieltag) |
+|显示游戏天数 |联赛 |您可以在索伦的游戏中进行游戏。请注意，请在所有剩余的 Spieltage 操作（最大 9999 Spieltage）中进行操作，然后在所有 Spiele 中进行 Anzahl von Spieltagen，然后在 showgameday 操作中进行操作。                                                                             |
+|简称 |联赛 | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                           |
+|缩写|联赛| Abkürzung die für diese Liga angezeigt werden soll, sofern showabbreviation ausgewählt wurde.                                                                                                                                                                                                                                                                                                                              |
 |突出|联赛 | Hier können ein oder mehrere Begriffe mit mit Colon (;) getrennt eingegeben werden, um die Lieblingsmanschaften zu finden。 Die Suche erfolgt nur in den Mannschaftsnamen。您可以在其他小部件中找到它。                                                                                                                                                                      |
 
 #### Beispiele 最喜爱俱乐部游戏
 ##### Beispiele für das Binding im Attribut showgameday 最喜欢的俱乐部游戏
-ggfs。可以看到与绑定的 berechnet 和 gefüllt werden 相关的字段。
+ggfs。可以将其视为 vis-bound rechnet 和 gefüllt werden。
 相关游戏标签：
 
 ```css
@@ -174,7 +174,7 @@ ggfs。可以看到与绑定的 berechnet 和 gefüllt werden 相关的字段。
 ### 数据透视表 2
 Diese Widget zeigt die alle Spiele 和 Ergebnisse als Pivottabelle 和
 
-| CSS 类 |元素的格式 |贝斯皮尔 |
+| CSS 类 |元素的格式|贝斯皮尔 |
 | ---------- | ---------------------------------------------- | -------- |
 |最喜欢 |曼斯查夫特名称 | 亮点 |          |
 
@@ -187,14 +187,14 @@ Diese Widget zeigt die alle Spiele 和 Ergebnisse als Pivottabelle 和
 ```
 
 #### 属性数据透视表
-|属性 |集团 |说明 |
+|属性|集团 |说明 |
 | ------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |百搭|概要 | Hier muss ein Datenpunkt mit der Bezeichnung allmatches ausgewählt werden。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。以 JSON 格式查看联赛/赛季的所有比赛和比赛 |
 |当前游戏日 |概要 |今日游戏当天请注意以下事项。联赛/赛季配置中的数据点，落入了安加本的罪孽之中。适配器是当前基准数据的基础。游戏标签是指在游戏中的游戏标签和未来的游戏标签之间的时间间隔。 |
 |马克西康 |           | Maxmale Größe des Manschaftsicons in x oder y-Richtung。                                                                                                                                                                                                                                                                                                                                                                   |
 |排序4e |           | Einstellung nachdem sortiert werden soll。                                                                                                                                                                                                                                                                                                                                                                                  |
 |简称 |           | Anstatt des Manschaftsnamens wrd der Kurzname angezeigt，落在 den vorliegenden Daten gepflegt wurde 中。                                                                                                                                                                                                                                                                                                           |
-|亮点是安芳|           |这是突出显示的 Anfang der Tabelle angezeigt。                                                                                                                                                                                                                                                                                                                                                                        |
+|亮点是安芳|           |这是突出显示的Anfang der Tabelle angezeigt。                                                                                                                                                                                                                                                                                                                                                                        |
 |突出|           |您可以使用分号 (;) 来表示所有内容，然后使用分号 (;) 来表示。 Die Suche erfolgt nur in den Mannschaftsnamen。带有 HTML 标签的珠宝名称`<b>` 是最伟大的。详细格式可以参见 css-Klasse“最喜欢的”erfolgen。                                                                                                                |
 
 ### 进球者 2
@@ -234,7 +234,7 @@ Bedingung dann bei jedem der 3 Widgets jeweils nur einen der folgenden Werte ein
    du unter sichtbarkeit bei den widgets eingetragen hast zusammenpassen
 
 8. Bei Texte das folgende eintragen: Gesamt;Heim;Auswärts
-9. Dann in den vis 运行时 gehen und ausprobieren
+9. Dann in den vis running gehen und ausprobieren
 10. Wenn alles funktioniert zum Schluss noch die widgets exakt übereinander
 
     传奇，所以是澳大利亚人
@@ -396,6 +396,9 @@ sendTo(
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.8.1 (2025-01-23)
+
+- adjust breakpoints in jsonConfig as a workaround for the new table/card-elements
 
 ### 1.8.0 (2024-10-27)
 
@@ -656,7 +659,7 @@ sendTo(
 
 MIT License
 
-Copyright (c) 2024 oweitman
+Copyright (c) 2025 oweitman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

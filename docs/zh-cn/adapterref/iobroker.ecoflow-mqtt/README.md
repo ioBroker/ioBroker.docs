@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: SNPrdh8WAkHEVeAyNXK+NxV8WSRXsT9DOLSoblhSQm4=
+hash: 14kvDKkWjRg8LV1UokzDyR4INivV/jQKThUt9uXBkwU=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -69,7 +69,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 
 </p></详情>
 
-<details><summary><i>参数化 Powerstation</i></summary><p>
+<details><summary><i>Powerstation 参数化</i></summary><p>
 
 * 添加新行
 * 设置 Powerstation 的设备 ID，如应用程序中所示，字符串因设备类型而异
@@ -167,7 +167,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 <details><summary><i>参数化 Homeassistant 连接器</i></summary><p>
 
 * 启用服务
-* 设置 HA 的 MQTT Broker 的用户设置
+* 设置 HA 的 MQTT Broker 用户设置
 * 设置HA的MQTT Broker连接参数
 * 如果需要，选择调试设置
 
@@ -180,7 +180,7 @@ HA端修改：
 
 ## 更新适配器
 通常，在旧版本之上安装下一个版本就足够了。在某些情况下（例如 1.0.0），可能需要清除整个对象树。
-如果数据点相关值发生变化，例如范围的最小值或最大值，则必须：
+如果数据点相关值发生更改，例如范围的最小值或最大值，则必须：
 
 - 停止适配器
 - 删除了相关数据点
@@ -192,7 +192,7 @@ HA端修改：
 * 定义的设备通过 mqtt 连接到适配器
 * 适配器过滤设备的传入消息。只有改变的值才会被内部存储
 * 如果应用程序在某种条件下阻止调整，则在已知的情况下会复制（例如，当电池电量低于最低值时，逆变器会打开，您可以在日志中看到警告）
-* 并非所有事情都已知，因此状态解释的信息可能不确定，这主要用尾随的“？”标记。
+* 并非所有事情都是已知的，因此状态解释的信息可能不确定，这主要用尾随的“？”标记。
 
 ### 数据点设置更新备注（最小值、最大值、单位……）
 如果在新版本的适配器中更改了数据点的设置（例如名称、单位、最大值），则更改只有在您执行以下操作后才会生效：
@@ -215,8 +215,10 @@ HA端修改：
 * 如果设备数据更新未设置某个值，则该值将在 HA 中显示为未知
 * 如果设备可访问，则可用性将显示在设备连接中，这将继承到“子设备”（不可用性以相同的方式处理）
 
+[一些提示](./doc/en/IOB_HA/navi.md)
+
 ### 功能注释
-* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其来回切换直至其保持不动。
+* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其在保持之前来回切换的过程。
 * iobroker 可能无法正确识别 HA 的重启，因此需要手动重启适配器（WIP）
 
 ## 使用数据点实现设备和结构
@@ -226,7 +228,7 @@ HA端修改：
 * 级别 -> 具有数值的可调整数据点，有时也具有数字表示的选择
 * 开关 -> 可调整数据点布尔值
 * 诊断 -> 布尔或多状态数据点转换为文本
-* 字符串 -> 数据点仅为文本
+* 字符串 -> 数据点仅作为文本
 * 数组 -> 带有数组的数据点
 * 值到文本的转换可能会使用未经验证的文本（欢迎反馈），这在文本末尾以“？”表示
 
@@ -306,6 +308,13 @@ HA端修改：
 使用该软件的风险由您自行承担，对于使用该软件可能产生的任何潜在损害或问题，我不承担任何责任。重要的是要注意，使用此开源软件不会得到 Ecoflow 公司的直接支持或保证。
 
 ## Changelog
+
+### 1.2.2 (npm)
+* (foxthefox) some documentation for HA users
+* (foxthefox) corrections in SHP2 protobuf definition
+* (foxthefox) new datapoints in SHP2 ProtoTime, new telegram ProtoTimeStat mapped to ProtoTime
+* (foxthefox) corrections to alternator (objects 268,269), power,wifiRssi setting, 
+* (foxthefox) DeltaPro mpptTemp, outAmp new max value
 
 ### 1.2.1 (npm)
 * (foxthefox) corrections for pstream objects, some changed from string to number

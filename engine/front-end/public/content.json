@@ -435,6 +435,15 @@
           },
           "content": "cloud/editor.md"
         },
+        "Alexa Custom-Skill": {
+          "title": {
+            "en": "Alexa Custom-Skill",
+            "de": "Alexa Custom-Skill",
+            "ru": "Пользовательский навык Alexa",
+            "zh-cn": "Alexa 自定义技能"
+          },
+          "content": "cloud/alexacustom.md"
+        },
         "App": {
           "title": {
             "en": "App",

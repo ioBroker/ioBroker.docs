@@ -25,6 +25,11 @@ bmw.0.VIN.properties
 bmw.0.VIN.remotev2
 
 ## Changelog
+### 2.9.3 (2025-01-29)
+
+- fix Remote Controls
+- add Mitbenutzer Login for remote controls
+
 ### 2.9.0 (2024-11-28)
 
 - added new remotes as switch and updated values
@@ -80,7 +85,7 @@ bmw.0.VIN.remotev2
 
 MIT License
 
-Copyright (c) 2021-2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

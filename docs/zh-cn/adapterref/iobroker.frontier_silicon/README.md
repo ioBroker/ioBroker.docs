@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
+hash: e46NQwGm0A6H6DLEh2j3dMlfHDZ+B+Vj32SykrxO1Z8=
 ---
 # IoBroker.frontier_silicon
 ![标识](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
@@ -22,7 +22,15 @@ hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 
 注意：此适配器已转移至 iobroker-community-adapters 进行维护。因此，计划中的功能（见下文）将不会实现。未来只会发布重要的错误修复和依赖项更新。但是，我们始终欢迎包含错误修复或功能增强的 PR。
 
-发行说明：版本 0.3.x 包括一些重大变化：
+发行说明：
+
+版本 0.4.x 包含一项重大变更：
+
+- “frontier_silicon.X.media.state”的类型从“数字”更改为“字符串”并且只读
+
+如果您从以前的版本更新此适配器而不是从新安装，您可能会在 ioBroker 日志中发现类似这样的警告：`State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"` 为了防止这种情况发生，最简单的解决方案是在 ioBroker 的实例选项卡中停止适配器，完全删除对象选项卡中的对象树，然后重新启动适配器。当然，这在更新后只需要一次，如果您进行全新安装，则不需要。
+
+版本 0.3.x 包括一些重大变化：
 
 - 需要 node>=18、js-contoller>=5 和 admin>=6
 
@@ -42,7 +50,7 @@ hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 
 - 循环重试连接而不是禁用适配器
 
-以前，当设备因路由器重启、LAN 或 WiFi 中断等长期网络问题而无法连接时，适配器会在 10 次会话连接尝试后终止。现在，适配器将在每个会话刷新间隔后重试，直到设备再次可连接。如果您想避免有关这些重试的日志条目，您必须手动停止适配器。如果您的网络问题在重试期间仍在进行时得到解决，只需重新启动适配器即可。
+以前，当设备因路由器重启、LAN 或 WiFi 中断等长期网络问题而无法连接时，适配器会在 10 次会话连接尝试后终止。现在，适配器将在每个会话刷新间隔后重试，直到设备再次可连接。如果您想避免有关这些重试的日志条目，您必须手动停止适配器。如果在重试期间网络问题得到解决，只需重新启动适配器即可。
 
 ＃＃ 特征
 ### 已实现的功能
@@ -69,7 +77,7 @@ hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 - 由于 FSAPI 协议的限制，与 UNDOK App 的并行操作不可靠，因此不支持。使用时风险自负。
 - 由于 FSAPI 协议的限制，DAB+ 模式下不提供电台图标。
 
-## 文档
+文档
 此适配器可让您控制基于 Frontier Silicon 芯片组的互联网广播和媒体播放器。许多设备都可以通过 [UNDOK](https://support.undok.net) 应该可以工作。测试的设备来自 [Revo](https://revo.co.uk/de/products/)、[Sangean](https://www.sangean.eu/products/all_product.asp)、[Hama](https://de.hama.com/produkte/audio-hifi/digitalradio) 和 [SilverCrest](https://www.lidl.de) 进行控制，其他设备也应该可以正常工作。
 
 安装后，必须在配置对话框中输入设备的 IP 和 PIN。如果收音机在通过 UNDOK 应用程序或此适配器打开后不播放 DAB，请启用“DAB 无声启动”后重试。
@@ -92,7 +100,7 @@ hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 
 -volume（`number，rw`）
   - 控制
-- 音量减小和音量增大
+- 降低音量和提高音量
 
 调低/或音量减小 1
 
@@ -170,7 +178,7 @@ API地址
 
 - 选定（`字符串，ro`）
 
-表示所选模式的标签。
+指示所选模式的标签。
 
 - `{number}`
 
@@ -190,7 +198,7 @@ API地址
 
 仅出现在支持多房间的设备上。`true` 如果此模式可用作多个多房间设备的源。
 
-- switchTo (`布尔值，wo`)
+- switchTo（`布尔值，wo`）
 
 选择该模式。
 
@@ -230,14 +238,14 @@ Frontier、Frontier Silicon、SmartRadio、UNDOK 和相关徽标是 Frontier Sma
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS** - 2025H1 maintenance release
+### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
 - (pdbjjens) Change: media state changed from number to string and readonly (#241)
 - (pdbjjens) New: Added media control function "stop" (#241)
 - (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Change: Migration to ESLint 9 (#253)
 - (pdbjjens) Fix: Added button state acknowledgement
 - (pdbjjens) Fix: Prevent warning on adapter stop
-- (pdbjjens) New: Updated dependencies
 
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
@@ -265,14 +273,6 @@ Frontier、Frontier Silicon、SmartRadio、UNDOK 和相关徽标是 Frontier Sma
 - (pdbjjens) Change: Validity check of all parameters in config UI
 - (pdbjjens) Change: Re-establish session if network connection is lost
 - (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
-
-### 0.1.0 (2023-07-15)
-
-- (pdbjjens) Breaking Changes: node>=14, js-contoller>=4 and admin>=5 required
-- (pdbjjens) New: json config UI
-- (pdbjjens) New: Re-establish session if network connection is lost
-- (pdbjjens) New: Remove obsolete unit testing
-- (pdbjjens) Fix: Prevent crashes if radio device is not reachable
 
 ## License
 

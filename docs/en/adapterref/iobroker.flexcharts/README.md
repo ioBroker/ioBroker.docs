@@ -82,6 +82,8 @@ Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-c
 
 Flexcharts will evaluate state `0_userdata.0.echarts.chart1` as data for eChart. Try it: Create such a state and copy json data of example shown above (`{ "tooltip": { ...`) as state content, then access given address with a browser.
 
+It's not allowed to use following characters in the state id: `: / ? # [ ] @ ! $ & ' ( ) * + , ; = %` 
+
 ### Use javascript as source for an eChart
 
 This is a bit more complicated but much more efficient and flexible. You provide the charts data directly by your JS script which is dynamically called by flexcharts adapter. You can pass additional parameters to your script by adding parameters to the http-address, e.g. `&chart=chart1`. All http-parameters are availabe within script in the object `httpParams` (see example below).
@@ -166,6 +168,7 @@ Javascript templates are available for some uses cases:
 * chart using data from history adapter: [template1](templates/flexchartsTemplate1.js)
 * simple chart for a heat curve: [template2](templates/flexchartsTemplate2.js)
 * simple stacked bar chart using function within chart definition: [template3](templates/flexchartsTemplate3.js)
+* chart for data of **tibberLink adapter**: see discussions [here](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) and [here](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * a very specific use case is available for Viessmann devices of E3 series, e.g. heat pump Vitocal 250. Refer to https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ## Reference
@@ -190,11 +193,21 @@ This should bring up a demo chart, when flexcharts- and web-adapter are running.
 
 **Note:** Replace `localhost` by address of your ioBroker server. Replace `8082` by port number used by your Web-Adapter.
 
+## Donate
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a>  
+If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2025-02-02)
+* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
+* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
+* (MyHomeMyData) Added templates for tibberLink Adapter
+
 ### 0.3.0 (2025-01-08)
 * (MyHomeMyData) Enhancement for usage of functions within echart definitions.
 * (MyHomeMyData) Fix for issue #56 (findings of repository checker)

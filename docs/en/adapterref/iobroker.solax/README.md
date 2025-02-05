@@ -100,6 +100,11 @@ If you would like to have other inverters integrated, you should make the data e
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.9.15 (2025-01-23)
+* (simatec) Fix Request
+* (simatec) Code Fix
+* (simatec) Dependencies updated
+
 ### 0.9.14 (2025-01-08)
 * (simatec) eslint-config fix
 * (simatec) Code fix

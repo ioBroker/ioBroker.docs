@@ -47,6 +47,11 @@ The following functions are implemented:
 
 ### **WORK IN PROGRESS**
 
+- (Uwe Nagel) Fixing test action problems
+- (Uwe Nagel) Bump mocha from 11.0.1 to 11.1.0
+- (Uwe Nagel) Bump eslint-config-prettier from 9.1.0 to 10.0.1
+- (Uwe Nagel) Bump chai and @types/chai
+- (Uwe Nagel) Bump eslint from 9.16.0 to 9.19.0
 - (Uwe Nagel) Corrected translations (de,pl)
 - (Uwe Nagel) Update @iobroker/adapter-core to 3.2.3
 - (Uwe Nagel) Update @iobroker/testing to 5.0.0

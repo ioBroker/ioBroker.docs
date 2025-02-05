@@ -201,7 +201,13 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) Improved error handling when adapter is not ready (starting)
+
+### 1.6.0 (2025-01-27)
+
 Updated recommended firmware version to 0.98
+
+* (@klein0r) Updated dependencies
 
 ### 1.5.0 (2025-01-07)
 
@@ -220,11 +226,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 ### 1.3.0 (2024-08-01)
 
 * (@klein0r) Added sentry plugin for error reporting
-
-### 1.2.1 (2024-06-07)
-
-* (klein0r) Fixed Blockly definitions (removed warnings)
-* (klein0r) Updated dependencies
 
 ## License
 

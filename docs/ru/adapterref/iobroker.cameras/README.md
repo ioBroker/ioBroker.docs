@@ -1,32 +1,32 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cameras/README.md
-title: ioBroker.cameras
-hash: NPJWIxTiBGQ6PHXsp4RvPCmVXZFyLGCAGL6gB0i0zwo=
+title: ioBroker.камеры
+hash: dZX3hFUGrq1Y8V1kpiebGfWcc/EzvTPUzfh6XSKvtmM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.cameras.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.cameras.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cameras.svg)
 ![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.cameras.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
 
-# IoBroker.cameras
-##Адаптер IP-камер для ioBroker
-Вы можете интегрировать свои веб-/ip-камеры в системы визуализации и другие системы визуализации.
-Если вы настроите камеру с именем `cam1`, она будет доступна на веб-сервере в разделе `http(s)://iobroker-IP:8082/cameras.0/cam1`.
+# IoBroker.камеры
+## Адаптер IP-камер для ioBroker
+Вы можете интегрировать свои веб-/IP-камеры в vis и другие визуализации.
+Если вы настроите камеру с именем `cam1`, она будет доступна на веб-сервере под именем `http(s)://iobroker-IP:8082/cameras.0/cam1`.
 
-Дополнительно изображение можно запросить через сообщение:
+Кроме того, изображение можно запросить с помощью сообщения:
 
-```
+```js
 sendTo('cameras.0', 'image', {
     name: 'cam1',
     width: 100, // optional
     height: 50, // optional
-    angle: 90   // optional
+    angle: 90,   // optional
     noCache: true // optional, if you want to get the image not from cache
 }, result => {
     const img = 'data:' + result.contentType + ';base64,' + result.data;
@@ -38,48 +38,84 @@ sendTo('cameras.0', 'image', {
 
 Поддерживаемые камеры:
 
-- Reolink E1 Pro через RTSP (важно, без `Pro` работать не будет)
-- Eufy через адаптер Eusec
-- [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2-generation-via-onvif-f%C3%BCr-s6-q8-a7 -2-поколение-) второго и третьего поколения через ONVIF (для S6, Q8, A7 2. поколения), A7 Pro, A9
+- `Reolink E1 Pro` через RTSP (важно, без `Pro` работать не будет)
+- `Eufy` через адаптер Eusec
+- [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2-generation-via-onvif-f%C3%BCr-s6-q8-a7-2-generation-) второго и третьего поколения через ONVIF (для S6, Q8, A7 2. Generation), A7 Pro, A9
 - [WIWICam M1 через адаптер HiKam](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
-- RTSP Native – если ваша камера поддерживает протокол RTSP.
-- Скриншоты через URL-адрес HTTP — если вы можете получить снимок с камеры через URL-адрес.
+- RTSP Native - если ваша камера поддерживает протокол RTSP
+- Скриншоты через HTTP URL - если вы можете получить снимок с вашей камеры через URL
 
-### URL-изображение
-Это обычный URL-запрос, в котором все параметры указаны в URL-адресе. Нравится `http://mycam/snapshot.jpg`
+### URL-адрес изображения
+Это обычный URL-запрос, где все параметры находятся в URL. Например, `http://mycam/snapshot.jpg`
 
-### URL-изображение с базовой аутентификацией
-Это URL-запрос изображения, где все параметры указаны в URL-адресе, но вы можете предоставить учетные данные для базовой аутентификации. Нравится `http://mycam/snapshot.jpg`
+### URL-адрес изображения с базовой аутентификацией
+Это URL-запрос для изображения, где все параметры находятся в URL, но вы можете предоставить учетные данные для базовой аутентификации. Например, `http://mycam/snapshot.jpg`
 
 ### FFmpeg
 Если вы хотите получить доступ к снимкам на камерах RTSP, вы можете использовать ffmpeg. Вам необходимо установить ffmpeg в вашей системе:
 
-- В Windows предварительно скомпилирован ffmpeg и ничего скачивать не нужно. (Версия для Windows взята отсюда: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z)
+- В Windows уже есть скомпилированный ffmpeg, и нет необходимости ничего скачивать. (Версия для Windows взята отсюда: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)
 - Linux: `sudo apt-get install ffmpeg -y`
+
+Как обновить версию Windows `ffmpeg`:
+
+- Скачать файл https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z
+- Извлечь `bin/ffmpeg.exe`
+- Переименуйте `ffmpeg.exe` в `win-ffmpeg.exe`
+- Заархивируйте `win-ffmpeg.exe` в `win-ffmpeg.zip`
+- Поместите `win-ffmpeg.zip` в корень этого репозитория.
+- Выполните `win-ffmpeg.exe --version`, чтобы получить версию и сохранить ее в `main.ts` константа `WIN_FFMPEG_VERSION` (например, `2025-02-02-git-957eb2323a-full_build-www.gyan.dev`)
 
 Вот пример того, как добавить Reolink E1:
 
-![rtsp](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
+![ртсп](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
 
-## Как добавить новую камеру (Для разработчиков)
+### Ezviz - Как повторно включить RTSP для камер EZVIZ
+По какой-то причине EZVIZ решили отключить RTSP для своих камер:
+
+- Откройте приложение EZVIZ и перейдите в раздел: Профиль / Настройки / Просмотр в реальном времени по локальной сети.
+- Начните сканирование, а затем выберите камеру:
+- Войдите в систему, используя пароль вашей камеры (пароль по умолчанию указан на наклейке камеры)
+- Нажмите значок «Настройки» и выберите «Настройки локальной службы».
+- Включить RTSP
+
+## Как добавить новую камеру (для разработчиков)
 Чтобы добавить новую камеру, необходимо создать запрос на извлечение на GitHub со следующими изменениями:
 
-- Добавьте новый файл в папку «камеры». Это серверная часть для чтения одного изображения с камеры.
-- Добавьте файл графического интерфейса в папку `src/src/Types/`. Это диалог настройки камеры.
-- Добавьте этот диалог в файл `src/src/Tabs/Cameras.js` аналогично добавлению других камер. Следует добавить всего две строки:
-  - Импортируйте новое диалоговое окно конфигурации, например `import RTSPMyCamConfig from '../Types/RTSPMyCam';`
-  - Расширьте структуру `TYPES` с помощью новой камеры, например `mycam: { Config: RTSPMyCamConfig, name: 'MyCam' },`
+- Добавьте новый файл в папку `cameras`. Это бэкэнд для чтения одного изображения с камеры.
+- Добавьте файл GUI в папку `src/src/Types/`. Это диалоговое окно настройки камеры
+- Добавьте этот диалог в файл `src/src/Tabs/Cameras.js` аналогично добавлению других камер. Нужно добавить только две строки:
+- Импорт нового диалогового окна конфигурации, например `import RTSPMyCamConfig from '../Types/RTSPMyCam';`
+- Расширьте структуру `TYPES` с помощью новой камеры, например `mycam: { Config: RTSPMyCamConfig, name: 'MyCam' },`
 
-    Имя атрибута должно совпадать с именем файла в папке `cameras`.
+Имя атрибута должно совпадать с именем файла в папке `cameras`.
 
-## Делать
-- [ ] Отправлять новые запросы на подписку для RTSP-камер, если диалоговое окно открыто или закрыто.
+## То, что нужно сделать
+- [ ] Отправлять новые запросы на подписку для RTSP-камер, если диалоговое окно открыто или закрыто
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Completely rewritten in TypeScript
+* (@GermanBluefox) Added Ezviz cameras
+
+### 2.1.2 (2024-07-15)
+* (bluefox) Updated packages
+
+### 2.1.1 (2024-07-07)
+* (bluefox) Removed withStyles package
+
+### 2.0.8 (2024-06-09)
+* (bluefox) Packages updated
+* (bluefox) Allowed selecting another source (with bigger resolution) for URL cameras
+
+### 2.0.5 (2023-12-19)
+* (bluefox) Minimal supported Node.js version is 18
+* (bluefox) Corrected widgets
+
 ### 1.4.0 (2023-12-04)
 * (bluefox) Changed widget set name
 * (bluefox) Added the caching of images with time, size and rotation
@@ -135,7 +171,7 @@ sendTo('cameras.0', 'image', {
 ## License
 MIT License
 
-Copyright (c) 2020-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

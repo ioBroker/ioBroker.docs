@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: mJ2FClZO2G/KuGclhJkGf7D9M9RO3qbL1GzB/mhIDhs=
+hash: QS5E626cO05p6/jS6+3yipodDprkwuyZDgu9lrpokfc=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -60,7 +60,7 @@ Wenn Sie jedoch eine konkrete Idee für ein komplexeres Diagramm im Kopf haben, 
 
 # Erste Schritte
 ### Verwenden des Adapters
-Dieser Adapter bietet die Funktionalität einer Web-Erweiterung. Daher ist es zwingend erforderlich, dass [Webadapter](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`) installiert und ausgeführt wird. In dieser Readme-Datei wird davon ausgegangen, dass Sie den Standardport 8082 für den Web-Adapter verwenden.
+Dieser Adapter bietet seine Funktionalität als Web-Erweiterung. Daher ist es zwingend erforderlich, dass [Webadapter](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`) installiert und ausgeführt wird. In dieser Readme-Datei wird davon ausgegangen, dass Sie den Standardport 8082 für den Web-Adapter verwenden.
 
 Wenn der Flexcharts-Adapter aktiv ist, können Sie über http://localhost:8082/flexcharts/echarts.html darauf zugreifen (ersetzen Sie `localhost` durch die Adresse Ihres ioBroker-Servers).
 
@@ -81,6 +81,8 @@ Beispiel: `http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userd
 <!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
 
 Flexcharts wertet den Status `0_userdata.0.echarts.chart1` als Daten für eChart aus. Probieren Sie es aus: Erstellen Sie einen solchen Status und kopieren Sie die JSON-Daten des oben gezeigten Beispiels (`{ "tooltip": { ...`) als Statusinhalt. Greifen Sie dann mit einem Browser auf die angegebene Adresse zu.
+
+Die folgenden Zeichen dürfen in der Status-ID nicht verwendet werden: `: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
 
 ### Verwenden Sie Javascript als Quelle für ein eChart
 Dies ist etwas komplizierter, aber wesentlich effizienter und flexibler. Sie stellen die Diagrammdaten direkt über Ihr JS-Skript bereit, das dynamisch vom Flexcharts-Adapter aufgerufen wird. Sie können Ihrem Skript zusätzliche Parameter übergeben, indem Sie der HTTP-Adresse Parameter hinzufügen, z. B. `&chart=chart1`. Alle HTTP-Parameter sind im Skript im Objekt `httpParams` verfügbar (siehe Beispiel unten).
@@ -169,6 +171,7 @@ Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 * Diagramm mit Daten vom Verlaufsadapter: [template1](templates/flexchartsTemplate1.js)
 * einfaches Diagramm für eine Wärmekurve: [template2](templates/flexchartsTemplate2.js)
 * einfaches gestapeltes Balkendiagramm mit Funktion innerhalb der Diagrammdefinition: [template3](templates/flexchartsTemplate3.js)
+* Diagramm für Daten des **TibberLink-Adapters**: siehe Diskussionen [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) und [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * Für Viessmann-Geräte der E3-Serie ist ein sehr spezifischer Anwendungsfall verfügbar, z. B. Wärmepumpe Vitocal 250. Siehe https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ## Referenz
@@ -192,11 +195,19 @@ Dies sollte ein Demodiagramm aufrufen, wenn Flexcharts und Webadapter ausgeführ
 
 **Hinweis:** Ersetzen Sie `localhost` durch die Adresse Ihres ioBroker-Servers. Ersetzen Sie `8082` durch die von Ihrem Web-Adapter verwendete Portnummer.
 
+## Spenden
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, denken Sie darüber nach, mir ein Bier auszugeben. Prost! :Bier:
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2025-02-02)
+* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
+* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
+* (MyHomeMyData) Added templates for tibberLink Adapter
+
 ### 0.3.0 (2025-01-08)
 * (MyHomeMyData) Enhancement for usage of functions within echart definitions.
 * (MyHomeMyData) Fix for issue #56 (findings of repository checker)

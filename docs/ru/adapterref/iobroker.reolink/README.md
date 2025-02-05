@@ -1,62 +1,64 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: kU3wT/Hp6fLzWrtzLnmeYP3CMJbYa0jykAN+mOPR91M=
+hash: /bm8PbcKUsNovM9dM+o7AdtO37eijmF0pbO4vbW2PaU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.reolink.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.reolink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.reolink.svg)
 ![Количество установок](https://iobroker.live/badges/reolink-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/reolink-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/reolink-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/aendue/iobroker.reolink.svg)
 ![НПМ](https://nodei.co/npm/iobroker.reolink.png?downloads=true)
 
 # IoBroker.reolink
-**Тесты:** ![Тестирование и выпуск](https://github.com/aendue/ioBroker.reolink/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/aendue/ioBroker.reolink/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер reolink для ioBroker
-Адаптер для платформы ioBroker для получения информации [Реолинк камера](https://reolink.com/).
+Адаптер для платформы ioBroker для получения информации [Переподключение камеры](https://reolink.com/).
 
 В целом все новые камеры Reolink поддерживают команды API. Они просто отличаются поддерживаемыми командами.
+
+Одно напоминание о пароле. Попробуйте с кодировкой URI или без нее, когда у вас есть только один специальный символ. Лучше не использовать специальный символ и просто использовать более длинный пароль для той же безопасности.
 
 Если вы хотите включить какую-либо конкретную команду API... просто дайте мне знать.
 
 ## Реализованные функции
 ### НАБОР
- - Управление PTZ / Защита PTZ
- - Отправить уведомление
- - Установить автофокус
+- Управление PTZ / Охрана PTZ
+- Push-уведомление
+- Установить автофокус
 
-        значения: 0,1
+значения: 0,1
 
- - Установить ИК-подсветку
+- Установить ИК-подсветку
 
-        значения: Авто, Выкл.
+значения: Авто, Выкл.
 
- - Установить светодиодный свет
- - Установить почтовое уведомление
+- Установить светодиодную подсветку
+- Установить почтовое уведомление
 
-        значения: 0, 1
+значения: 0, 1
 
- - Воспроизвести звуковой сигнал
- - Зум Фокус
+- Воспроизвести звуковой сигнал будильника
+- Увеличение фокуса
 
- Функции можно запускать путем изменения состояний reolink.<Instanze>.settings.
+Функции можно запускать, изменяя состояния reolink.<Instanze>.settings.
 
  ### ПОЛУЧАТЬ
- - Информация об устройстве
- - Информация о PTZ
- - Информация о диске
- - Информация о сети
- - Обнаружение движения
- - Автофокус
- - Снимок
- - ИК-свет
- - Светодиодный
- - Уведомление по почте
+- Информация об устройстве
+- Информация о PTZ
+- Информация о диске
+- Информация о сети
+- Обнаружение движения
+- Автофокус
+- Снимок
+- ИК-свет
+- Светодиодный свет
+- Уведомление по почте
 
 ### Пример использования get image:
 ```
@@ -65,15 +67,15 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 });
 ```
 
-// содержимое **result** — JSON:
+// содержимое **результата** — JSON:
 
 ```
 {type:"image/png",base64:"iVBORw....askldfj"}
 ```
 
-##Известные рабочие камеры (прошивка 2023 года выпуска)
+## Известные рабочие камеры (прошивки не старше 2023 года)
 - РЛК-420-5МП
-- E1 Открытый
+- E1 Наружный
 - РЛК-522
 - РЛК-810А
 - РЛК-823А
@@ -85,10 +87,26 @@ sendTo("reolink.0",{action: "snap"}, function(result){
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (oelison) update disk info
+* (oelison) uri enconding is switchable (helps sometimes by one special char)
+* (oelison) #28 PTZ check added
+
+### 1.1.2 (2024-09-14)
+* (oelison) [#22](https://github.com/aendue/ioBroker.reolink/issues/22) password with some more special chars works now
+* (oelison) adapter warnings resolved
+
+### 1.1.1 (2024-08-03)
+* (oelison) removed warnings from adapter check
+* (olli) added ftp support
+* (oelison) channel now distinguishing most requests
+* (oelison) [#79](https://github.com/aendue/ioBroker.reolink/issues/79) error messages with more info where
+
+### 1.1.0 (2024-05-16)
 * (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
 * (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
 * (Nibbels) added setWhiteLedMode function
 * (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
+* (oelison) removed node 16
 
 ### 1.0.3 (2024-01-21)
 * (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
@@ -158,7 +176,7 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 ## License
 MIT License
 
-Copyright (c) 2024 Andy Grundt <andygrundt@gmail.com>
+Copyright (c) 2025 Andy Grundt <andygrundt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

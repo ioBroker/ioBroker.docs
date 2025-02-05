@@ -19,7 +19,16 @@ Provides support for media players, internet radios and SmartRadios equipped wit
 
 NOTE: This adapter has been transferred to iobroker-community-adapters for maintenance. Thus planned features (see below) will not be implemented. Only important bug fixes and dependency updates will be released in the future. However PRs with bug fixes or feature enhancements are always welcome.
 
-RELEASE NOTES: Version 0.3.x includes some Breaking Changes:
+RELEASE NOTES:
+
+Version 0.4.x includes a Breaking Change:
+
+- The type of "frontier_silicon.X.media.state" changed from "number" to "string" and readonly  
+If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:
+`State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"`
+To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
+
+Version 0.3.x includes some Breaking Changes:
 
 - node>=18, js-contoller>=5 and admin>=6 required  
 Upgrade your ioBroker to at least this software level, if you want to use this adapter
@@ -222,14 +231,14 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS** - 2025H1 maintenance release
+### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
 - (pdbjjens) Change: media state changed from number to string and readonly (#241)
 - (pdbjjens) New: Added media control function "stop" (#241)
 - (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Change: Migration to ESLint 9 (#253)
 - (pdbjjens) Fix: Added button state acknowledgement
 - (pdbjjens) Fix: Prevent warning on adapter stop
-- (pdbjjens) New: Updated dependencies
 
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
@@ -257,14 +266,6 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 - (pdbjjens) Change: Validity check of all parameters in config UI
 - (pdbjjens) Change: Re-establish session if network connection is lost
 - (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
-
-### 0.1.0 (2023-07-15)
-
-- (pdbjjens) Breaking Changes: node>=14, js-contoller>=4 and admin>=5 required
-- (pdbjjens) New: json config UI
-- (pdbjjens) New: Re-establish session if network connection is lost
-- (pdbjjens) New: Remove obsolete unit testing
-- (pdbjjens) Fix: Prevent crashes if radio device is not reachable
 
 ## Legal Notices
 

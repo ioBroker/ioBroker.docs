@@ -112,6 +112,11 @@ Please refer to the general Miele API documentation (below) for more information
 If you like to get a deeper understanding or need a raw-value translation please refer to [this documentation.](machine_states.md)
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Added screen size settings in Admin-UI for responsive design
+- (grizzelbee) Fix: Fixed sentry MIELECLOUDSERVICE-5V
+
 ### 6.5.7 (2024-10-01)
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Fix: Fixed some minor issues found by adapter-checker
@@ -214,4 +219,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Copyright
-Copyright (c) 2024 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2025 grizzelbee <open.source@hingsen.de>

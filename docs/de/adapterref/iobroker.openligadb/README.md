@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openligadb/README.md
 title: ioBroker-Adapter zum Abrufen von Fußballspielergebnissen von OpenLigaDB
-hash: DB+jiEnmIjsdyzVLRF6oEEU3UF6WtWK0uJuomZNrzJM=
+hash: hg3XI6pnogJ4TCFV92FGjS6mePxT99QxVlLybvBM2JU=
 ---
 ![Logo](../../../en/adapterref/iobroker.openligadb/admin/openligadb_n.png)
 
@@ -46,7 +46,7 @@ Das ist die klassische Tabellenansicht.\ Die Tabelle enthält verschiedene Spalt
 | alle Übereinstimmungen |                          | Hier muss ein Datenpunkt mit der Bezeichnung allmatches (Achtung im alten Widget musste hier noch Tabelle ausgewählt werden) ausgewählt werden. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Datenpunkt enthält alle Spieldaten einer Liga/Saison im JSON-Format. Aus diesen Daten werden dann auf Basis des Modus die Tabellen die verschiedenen Modi berechnet. |
 | aktueller Spieltag |                          | Hier ist ein Datenpunk zu wählen, der mit currgameday benannt ist. Dieser Datenpunkt wird nach dem Anlegen der Liga/Season in der Konfiguration generiert, falls die Angaben gültig sind. Der Wert wird im Adapter auf Basis des aktuellen Datums berechnet. Der aktuelle Spieltag wechselt zur Hälfte der Zeit zwischen dem letzten Spiel des offiziellen Spieltags und dem ersten Spiel des folgenden Spieltages.                           |
 | Modus |                          | Listenauswahl in welchem Modus die Tabelle angezeigt werden soll zur Auswahl steht Gesamt(1total), Heim (2home) oder Auswärts (3away), Hinrunde (4round1) oder Rückrunde (5round2).                                                                                                                                                                                                                                                        |
-| mode_binding |                          | Dieses Attribut entspricht im Wesentlichen dem Attributmodus. Es wurde ergänzt, sodass der Tabellenmodus ebenfalls per Bindung gesteuert werden kann. In diesem Textfeld können genau die gleichen Werte wie beim Modus eingetragen werden. Wenn hier ein korrekter Wert eingetragen ist, dann hat dieses Attribut vorrang vor dem Attributmodus. Ein Normalanwender sollte er nichts eintragen.                                       |
+| mode_binding |                          | Dieses Attribut entspricht im Wesentlichen dem Attributmodus. Es wurde ergänzt, so dass der Tabellenmodus ebenfalls per Bindung gesteuert werden kann. In diesem Textfeld können genau die gleichen Werte wie beim Modus eingetragen werden. Wenn hier ein korrekter Wert eingetragen ist, dann hat dieses Attribut vorrang vor dem Attributmodus. Ein Normalanwender sollte er nichts eintragen.                                       |
 | maxicon |                          | Maximale Größe des Manschaftsicons in x- oder y-Richtung.                                                                                                                                                                                                                                                                                                                                                                                   |
 | Kurzname |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                           |
 | Sautrend |                          | Auswahl, wenn Trendicons angezeigt werden sollen. Der Trend wird im Vergleich zum offiziellen Spieltag berechnet.                                                                                                                                                                                                                                                                                                                           |
@@ -54,7 +54,7 @@ Das ist die klassische Tabellenansicht.\ Die Tabelle enthält verschiedene Spalt
 | Filter |                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, anhand deren die Tabelle gefiltert dargestellt wird.                                                                                                                                                                                                                                                                                                    |
 | iconup,icondn,iconst | Attributgruppe Icons | Hier können eigene Trendicons definiert werden.                                                                                                                                                                                                                                                                                                                                                                                            |
 | showgameday in der Attributgruppe | Erweiterte Einstellungen | Hier kann ein vom aktuellen Spieltag abweichender Tag zur Berechnung der Tabelle eingegeben werden |
-| lastgamecount in der Attributgruppe | Erweiterte Einstellungen | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag (in Abhängigkeit von currgameday und showgameday) Beispiel berechnet: Eingabe bei showgameday = 10 und bei lastgamecount=5: Die Tabelle wird nur für die Spieltage 6-10 berechnet (5 Spieltage) |
+| lastgamecount in der Attributgruppe | Erweiterte Einstellungen | Wenn hier eine Zahl eingegeben wird, dann wird die Tabelle nur für die Anzahl von Spieltagen bis zum aktuell angezeigten Spieltag berechnet (in Abhängigkeit von currgameday und showgameday) Beispiel berechnet: Eingabe bei showgameday = 10 und bei lastgamecount=5: Die Tabelle wird nur für die Spieltage 6-10 berechnet (5 Spieltage) |
 
 ### Spiele des Spieltags v2
 ![Widget Spieltag](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/gameday.png)
@@ -108,8 +108,8 @@ Bestimmte Elemente der Anzeige wurden mit **CSS-Klassen** versehen, für die dan
 | Kurzname |                          | Anstatt des Manschaftsnamens wird der Kurzname angezeigt, falls dieser in den vorliegenden Daten gepflegt wurde.                                                                                                                                                                                                                                                                                                                       |
 | Showziele |                          | Es werden Informationen zu den Torschützen angezeigt.                                                                                                                                                                                                                                                                                                                                                                                       |
 | hervorheben |                          | Hier können ein oder mehrere Begriffe mit Semikolon (;) getrennt eingegeben werden, die hervorgehoben werden sollen. Die Suche erfolgt nur in den Mannschaftsnamen. Der jeweilige Name wird mit HTML-Tags `<b>` eingefasst. Eine detaillierte Formatierung kann über die CSS-Klasse „favorite“ erfolgen. Ausserdem kann je Highlight eine individuelle CSS-Klasse angegeben werden. Vgl. Kapitel todo |
-| Showspieltag | Erweiterte Einstellungen | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt. Trägt man eine positive Zahl ein, dann wird, falls vorhanden, der ausgewählte Spieltag angezeigt. Trägt man eine negative Zahl ein, dann wird relativ vom aktuellen Spieltag dieser angezeigt (bspw -1 entspricht dem offiziellen Spieltag) |
-| showgamedaycount | Erweiterte Einstellungen | Üblicherweise bleibt dieses Feld leer oder enthält 1. Dadurch wird genau ein Spieltag angezeigt. Wird hier eine andere Zahl eingegeben, dann wird diese Anzahl von Spieltagen, ab der 'Einstellung in showgameday' angezeigt.                                                                                                                                                                                                |
+| Showspieltag | Erweiterte Einstellungen | Wenn dieses Feld leer bleibt, wird immer der aktuelle Spieltag angezeigt.Trägt man eine positive Zahl ein, dann wird, falls vorhanden, der ausgewählte Spieltag angezeigt.Trägt man eine negative Zahl ein, dann wird relativ vom aktuellen Spieltag dieser angezeigt (bspw -1 entspricht dem offiziellen Spieltag) |
+| showgamedaycount | Erweiterte Einstellungen | Üblicherweise bleibt dieses Feld leer oder enthält 1. Dadurch wird genau ein Spieltag angezeigt. Wird hier eine andere Zahl eingegeben, dann wird diese Anzahl von Spieltagen, ausgehend von der 'Einstellung in showgameday' angezeigt.                                                                                                                                                                                                |
 | Showwochentag | Erweiterte Einstellungen | Zeigt vor dem Datum wahlweise den Wochentag an.                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ##### Beispiele
@@ -127,7 +127,7 @@ Beispiele für relativ berechneten Spieltag: |
 Da das Binding nicht im vis editmode berechnet wird, wird bei Verwendung von Binding im editmode immer der aktuelle Spieltag angezeigt.
 
 ### Spiele der Lieblingsclubs 2
-![Lieblingsspiele](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) Dieses Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus einem oder mehreren Ligen an. Durch die Auswahl der Anzahl der verfügbaren Ligen wird für jede Liga eine separate Konfigurationsgruppe angezeigt, in der die folgenden Einstellungen vorgenommen werden können.
+![Lieblingsspiele](../../../en/adapterref/iobroker.openligadb/widgets/openligadb/img/favgames.png) Dieses Widget zeigt die nächsten Spiele deiner Lieblingsmannschaften aus einem oder mehreren Ligen an. Durch die Auswahl der Anzahl der angezeigten Ligen wird für jede Liga eine separate Konfigurationsgruppe angezeigt, in der die folgenden Einstellungen vorgenommen werden können.
 Wenn das Spiel am heutigen Tag statt findet, dann wird das jeweilige Spiel (todaygame) mit CSS-Klassen versehen.
 
 #### Beispiel
@@ -375,13 +375,13 @@ sendTo(
 - ~~Dokumentation für neue Widgets „PivotTable“ und „Goalgetters“~~
 - ~~Tabellenmodi um 1. Runde und 2. Runde erweitern~~
 - ~~neue Widget-Pivot-Tabelle der gespielten Spiele~~
-- ~~neues Widget für Zielerreichungsranking mit Sortierfunktion~~
+- ~~neues Widget „Zielerreicher-Ranking“ mit Sortierfunktion~~
 - ~~Tabelle mit Trendzeichen erweitern (Pfeil hoch/runter, Punkt für keine Veränderung)~~
 - ~~Tabelle erweitern um mit den letzten x Spielen zu rechnen~~
 - ~~Tabelle erweitern um Rangliste für einen bestimmten Spieltag zu berechnen~~
 - ~~Dokumentationsadapter/Widget~~
 - ~~Problem mit der dynamischen Spalte „Club“ behoben~~
-- ~~Neues Widget: Nächste x Spiele des Clubs~~
+- ~~Neues Widget: Nächste x Clubspiele~~
 - ~~Widget Spieltag Einstellung für Start Spieltag und Länge (-1,3 = vorherige anzeigen
 
 Spieltag und 3 Spieltage danach)~~
@@ -396,6 +396,9 @@ Spieltag und 3 Spieltage danach)~~
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.8.1 (2025-01-23)
+
+- adjust breakpoints in jsonConfig as a workaround for the new table/card-elements
 
 ### 1.8.0 (2024-10-27)
 
@@ -656,7 +659,7 @@ Spieltag und 3 Spieltage danach)~~
 
 MIT License
 
-Copyright (c) 2024 oweitman
+Copyright (c) 2025 oweitman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

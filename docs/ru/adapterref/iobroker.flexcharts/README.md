@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: mJ2FClZO2G/KuGclhJkGf7D9M9RO3qbL1GzB/mhIDhs=
+hash: QS5E626cO05p6/jS6+3yipodDprkwuyZDgu9lrpokfc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -81,6 +81,8 @@ hash: mJ2FClZO2G/KuGclhJkGf7D9M9RO3qbL1GzB/mhIDhs=
 <!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
 
 Flexcharts оценит состояние `0_userdata.0.echarts.chart1` как данные для eChart. Попробуйте: создайте такое состояние и скопируйте данные json из примера, показанного выше (`{ "tooltip": { ...`) как содержимое состояния, затем получите доступ к указанному адресу с помощью браузера.
+
+В идентификаторе штата не допускается использование следующих символов: `: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
 
 ### Используйте JavaScript в качестве источника для eChart
 Это немного сложнее, но гораздо эффективнее и гибче. Вы предоставляете данные диаграмм напрямую вашим скриптом JS, который динамически вызывается адаптером flexcharts. Вы можете передать дополнительные параметры вашему скрипту, добавив параметры к http-адресу, например, `&chart=chart1`. Все http-параметры доступны внутри скрипта в объекте `httpParams` (см. пример ниже).
@@ -169,6 +171,7 @@ myJsonParams = {"period":"daily"}
 * диаграмма с использованием данных из адаптера истории: [template1](templates/flexchartsTemplate1.js)
 * простая диаграмма для тепловой кривой: [template2](templates/flexchartsTemplate2.js)
 * простая столбчатая диаграмма с накоплением, использующая функцию в определении диаграммы: [template3](templates/flexchartsTemplate3.js)
+* диаграмма для данных **адаптера tibberLink**: см. обсуждения [здесь](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) и [здесь](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * Для устройств Viessmann серии E3 доступен очень специфический вариант использования, например, тепловой насос Vitocal 250. См. https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ## Ссылка
@@ -192,11 +195,19 @@ myJsonParams = {"period":"daily"}
 
 **Примечание:** Замените `localhost` на адрес вашего сервера ioBroker. Замените `8082` на номер порта, используемый вашим веб-адаптером.
 
+## Пожертвовать
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете щедрость, подумайте о том, чтобы угостить меня пивом. Ура! :beers:
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2025-02-02)
+* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
+* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
+* (MyHomeMyData) Added templates for tibberLink Adapter
+
 ### 0.3.0 (2025-01-08)
 * (MyHomeMyData) Enhancement for usage of functions within echart definitions.
 * (MyHomeMyData) Fix for issue #56 (findings of repository checker)

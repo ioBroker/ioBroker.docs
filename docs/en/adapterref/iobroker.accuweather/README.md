@@ -41,11 +41,7 @@ For better view a custom lovelace card is created - see https://github.com/algar
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (ticaki) Missing Http error handling added
-* (ticaki) For error codes from the 400 series, do not attempt any unscheduled reconnections. 
-
-### 2.1.0-alpha.0 (2025-01-19)
+### 2.1.0 (2025-01-22)
 * (ticaki) Change: min. js-controller to 6.0.11
 * (ticaki) Change: Outdated data is updated at startup.
 * (ticaki) New: Photo link added in current weather
@@ -53,6 +49,7 @@ For better view a custom lovelace card is created - see https://github.com/algar
 * (ticaki) New: In the event of a data retrieval error, an attempt is made again after 10 minute
 * (ticaki) Remove admin option (restart blocking)
 * (ticaki) Rewritten in Typescript
+* (ticaki) For error codes from the 400 series, do not attempt any unscheduled reconnections.
 
 ### 2.0.1 (2025-01-18)
 * (ticaki) BREAKING: Requires Nodejs 20 or higher

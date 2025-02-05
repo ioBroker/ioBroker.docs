@@ -446,6 +446,9 @@ sendTo(
   Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+### 1.8.1 (2025-01-23)
+
+- adjust breakpoints in jsonConfig as a workaround for the new table/card-elements
 
 ### 1.8.0 (2024-10-27)
 
@@ -706,7 +709,7 @@ sendTo(
 
 MIT License
 
-Copyright (c) 2024 oweitman
+Copyright (c) 2025 oweitman
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

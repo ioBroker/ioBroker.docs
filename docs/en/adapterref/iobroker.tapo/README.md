@@ -37,6 +37,10 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.4.8 (2025-02-04)
+
+- disable sentry to prevent crashes
+
 ### 0.4.7 (2025-01-14)
 
 - disable battery devices

@@ -69,6 +69,13 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.5.1 (2025-02-01)
+* (René) translations
+
+### 3.5.0 (2025-01-27)
+* (René) catch exceptions reportet by sentry
+* (René) option to disable check of last update time (see issue #391)
+
 ### 3.4.0 (2024-12-10)
 * (René) migration to jsonConfig
 * (René) see issue #383: add optionally parameters to HTTP call
@@ -231,7 +238,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 ## License
 MIT License
 
-Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

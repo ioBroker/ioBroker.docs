@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: JVo0qkUBWbkv27yWx70FnY9rsgbI7Ehkj5IKoV9KgDM=
+hash: PquGi8kS5JegYNvplo3dvlJQyUGaagAw9EeOf8660fs=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -248,7 +248,7 @@ Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robus
 Die Lizenz von vis wurde auf MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos verwenden können und keine Lizenz erforderlich ist.
 
 ## Willkommen (07.11.2023) - neue Funktion
-Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Aktivität geprüft.
+Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden auf ihre Funktionsfähigkeit überprüft.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
 
@@ -269,7 +269,7 @@ https://github.com/ticaki/ioBroker.weather-warnings
 
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
-Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Staaten erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
+Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachricht aus. Zusätzlich werden nach Typ gruppierte Zustände erstellt, mit deren Hilfe auf aktuelle Warnungen reagiert werden kann.
 
 ## Tractive-gps (06.12.2023) - neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
@@ -309,7 +309,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-## Energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -507,7 +507,7 @@ https://github.com/Steiger04/ioBroker.radar-trap
 
 Adapter zur Erkennung von Radarfallen und Hindernissen.
 
-## Waterkotte-easycon (12.4.2024) – spätestens neuer Adapter
+## Waterkotte-easycon (12.4.2024) – spätestens mit neuem Adapter
 https://github.com/theknut/ioBroker.waterkotte-easycon
 
 <img src="https://raw.githubusercontent.com/theknut/ioBroker.waterkotte-easycon/main/admin/waterkotte-easycon.png" width="100" height="100" />
@@ -751,6 +751,13 @@ Ein ioBroker-Adapter zum Auslesen der Daten von einem oder bis zu acht Klimaregl
 ##teslafi (11.1.2025) – neuer Adapter bei stabil
 https://github.com/hombach/ioBroker.teslafi
 
-<img src="[Abonnieren](https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png)" width="100" height="100" />
+<img src="https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png" width="100" height="100" />
 
 Der TeslaFi-Adapter ermöglicht die mühelose Integration von Fahrzeugdaten aus Ihrem TeslaFi-Konto in das ioBroker-System. Nutzen Sie diese Daten, um Ihr Tesla-Erlebnis zu verbessern und die Arbeitsabläufe der Heimautomatisierung zu optimieren.
+
+## Paperless-ngx (27.1.2025) – neuer Adapter im stabilen
+https://github.com/BenAhrdt/ioBroker.paperless-ngx
+
+<img src="https://github.com/BenAhrdt/ioBroker.paperless-ngx/blob/main/admin/paperless-ngx.png" width="100" height="100" />
+
+paperless-ngx API zum Abrufen von Informationen zu laufenden Instanzen von paperless-ngx. Sie können beispielsweise die Tags, Dokumente, Dokumenttypen, Benutzer oder Korrespondenten der Paperless-Instanz lesen.

@@ -44,7 +44,11 @@ Allows access to all serial port connected VBus devices. Default is "vbus".
 
 - channel: The vbus channel to which the serial port is assigned.  
 If you only want to connect to a single serial port it is recommended to configure that to use channel 0, since most applications will by default try and connect that channel 0.
-- path: The path to the serial port like '/dev/tty.usbmodem141301' or 'COM5'
+- path: The path to the serial port like  
+'/dev/ttyUSB0' or  
+'/dev/serial/by-id/usb-Silicon_Labs_USB-Modul_UO2102_TDEB6I8DAVDLGAGC-if00-port0' or  
+'/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1:1.0-port0' or  
+'COM5'
 - baudrate: The baudrate of the serial port. Default is 9600, which normally does not need to be changed.
 
 ## Known issues
@@ -59,6 +63,12 @@ If you only want to connect to a single serial port it is recommended to configu
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2025-01-29) - 2025H1 maintenance release
+
+- (pdbjjens) Change: Migration to ESLint 9
+- (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
+- (pdbjjens) Change: Responsive Design optimizations
+
 ### 0.1.0 (2024-08-13) - 2024H2 maintenance release
 
 - (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
@@ -81,16 +91,10 @@ If you only want to connect to a single serial port it is recommended to configu
 - (pdbjjens) New: Configurable password for the VBus gateway
 - (pdbjjens) Fix: Channel forwarding to the requesting connections only
 
-### 0.0.4 (2023-10-03)
-
-- (pdbjjens) New: Selectable discovery port
-- (pdbjjens) New: Check for default password
-- (pdbjjens) New: support for up to 3 serial ports
-
 ## License
 
 MIT License  
-Copyright (c) 2024 Jens-Peter Jensen <jjensen@t-online.de>  
+Copyright (c) 2025 Jens-Peter Jensen <jjensen@t-online.de>  
 Copyright (c) 2013-present, Daniel Wippermann.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

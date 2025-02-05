@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: nCZZ/tiSV0rJFdTKBfL+MhLVzVYnIIHqOk4a61i472Q=
+hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -12,42 +12,42 @@ hash: nCZZ/tiSV0rJFdTKBfL+MhLVzVYnIIHqOk4a61i472Q=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
 # IoBroker.web
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus der ioBroker-Datenbank.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-## Optimierung von Web-Sockets
-Bei einigen Web-Sockets-Clients gibt es ein Leistungsproblem bei der Kommunikation.
-Manchmal ist dieses Problem darauf zurückzuführen, dass die Kommunikation von socket.io auf einen langen Abfragemechanismus zurückgreift.
-Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur die Verwendung von Web-Sockets-Transport erzwungen wird.
+## Web-Sockets optimieren
+Bei einigen Web-Socket-Clients gibt es ein Leistungsproblem bei der Kommunikation.
+Manchmal liegt dieses Problem daran, dass die Socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückgreift.
+Sie können die Option *Web-Sockets erzwingen* festlegen, um die ausschließliche Verwendung von Web-Sockets-Transport zu erzwingen.
 
 ## Lassen Sie uns Zertifikate verschlüsseln
-Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+Lesen [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
 Der Webtreiber unterstützt Erweiterungen.
-Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine solche URL-Anfrage erscheint.
+Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine solche URL-Anforderung auftritt.
 Die Erweiterungen sehen aus wie der normale Adapter, haben aber keinen laufenden Prozess und werden vom Webserver aufgerufen.
 
-Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und andere Geräte (z. B. Webcams) auf demselben Webserver erreichen.
-Es ist erforderlich, dass alle Dienste unter einem Webserver verfügbar sind.
+Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) auf demselben Webserver erreichen.
+Dies ist erforderlich, damit alle Dienste unter einem Webserver verfügbar sind.
 
-Die Web-Erweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit dauert.
+Die Weberweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
 Weitere Informationen zu Web-Erweiterungen finden Sie unter [Hier](WEB-EXTENSIONS-HOWTO.md).
 
 ## Brute-Force-Schutz
-Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein ungültiges Passwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
-Nach dem 15. Fehlversuch muss der Nutzer 1 Stunde warten.
+Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute fünfmal ein falsches Passwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
+Nach dem 15. falschen Versuch muss der Benutzer eine Stunde warten.
 
-## Option „Angemeldet bleiben“.
+## Option „Angemeldet bleiben“
 Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet.
-Andernfalls bleibt der Benutzer für die konfigurierte „Anmeldezeitüberschreitung“ angemeldet.
+Wenn nicht, bleibt der Benutzer für die konfigurierte „Anmeldezeitüberschreitung“ angemeldet.
 
-## Zugriff auf die Werte des Status
-Sie können über die HTTP-Get-Anfrage auf die normalen und binären Zustandswerte zugreifen.
+## Zugriffsstatuswerte
+Auf die normalen und binären Zustandswerte kann über die HTTP-Get-Anfrage zugegriffen werden.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
@@ -63,32 +63,62 @@ http://IP:8082/state/javascript.picture.png =>
 
 Das Bild muss im Javascript-Adapter wie folgt geschrieben werden:
 
-```
+```js
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
     setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
 });
 ```
 
-## Option „Basisauthentifizierung“.
-Ermöglicht die Anmeldung über die Standardauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
-Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Anmeldeinformationen eingeben, werden Sie zur Anmeldeseite weitergeleitet.
+## Option „Einfache Authentifizierung“
+Ermöglicht die Anmeldung per Basisauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
+Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Anmeldedaten eingeben, werden Sie zur Anmeldeseite weitergeleitet.
 
 ## Benutzerliste
-Sie können die Liste der Benutzer definieren, die auf den Webserver zugreifen können. Sie können das Zugriffsrecht für angemeldete Benutzer ändern.
+Sie können die Liste der Benutzer definieren, die auf den Webserver zugreifen können. Sie können die Zugriffsrechte für angemeldete Benutzer ändern.
 
-Ist der Benutzer nicht in der Liste, kann er nicht auf den Webserver zugreifen.
+Wenn der Benutzer nicht in der Liste ist, kann er nicht auf den Webserver zugreifen.
 
-Einfacher ist es, für jedes Objekt und jeden Zustand die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
+Einfacher ist es, für jedes Objekt und jeden Status die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
 
 ## Erweiterte Optionen
-### Standardweiterleitung
-Wenn beim Öffnen des Webports im Browser keine APP-Auswahl, sondern eine bestimmte Anwendung angezeigt werden soll, kann hier der Pfad angegeben werden (z. B. `/vis/`), sodass dieser Pfad automatisch geöffnet wird.
+### Standardumleitung
+Wenn beim Öffnen des Webports im Browser keine APP-Auswahl, sondern eine bestimmte Anwendung angezeigt werden soll, kann hier der Pfad angegeben werden (z.B. `/vis/`), damit dieser Pfad automatisch geöffnet wird.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) updated packages
+* (@GermanBluefox) removed gulp in a build process
+* (@GermanBluefox) Migrated GUI ti vite
+
+### 6.3.1 (2024-09-23)
+* (@foxriver76) added new admin icon (svg)
+
+### 6.3.0 (2024-06-27)
+* (bluefox) Corrected call of getObjectView with null parameter
+* (bluefox) updated packages
+* (bluefox) GUI was migrated to a non-style framework
+
+### 6.2.6 (2024-05-25)
+* (bluefox) Preparations for a custom loading background
+* (bluefox) updated packages
+
+### 6.2.5 (2024-02-22)
+* (bluefox) Just some packages were updates
+
+### 6.2.4 (2024-02-17)
+* (klein0r) Extensions may block the web instance
+* (klein0r) Fixed directory listing
+
+### 6.2.3 (2023-12-18)
+* (foxriver76) updated the websocket library to increase the maximum file size from 100 MB to 500 MB
+
+### 6.2.2 (2023-12-14)
+* (joltcoke) Corrected the crash if authentication is enabled
+
 ### 6.2.1 (2023-12-04)
 * (bluefox) Added the user access list option
 
@@ -103,7 +133,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl, sondern eine bestim
 * (bluefox) Corrected socket.io connection
 
 ### 6.1.4 (2023-10-08)
-* (foxriver76) upgrade socketio and ws dependencies to fix vis subscribe problem
+* (foxriver76) upgrade socketio and ws dependencies to fix a vis subscribe problem
 
 ### 6.1.3 (2023-09-28)
 * (bluefox) upgraded socketio and ws dependencies to correct the error by unsubscribing on client disconnect
@@ -148,7 +178,7 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl, sondern eine bestim
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

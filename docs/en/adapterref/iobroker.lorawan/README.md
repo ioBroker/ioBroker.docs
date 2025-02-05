@@ -23,6 +23,15 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.6 (2025-01-27)
+* (BenAhrdt) start with known profiles
+
+### 1.6.5 (2025-01-26)
+* (BenAhrdt) export and import downlinkconmfigs with filemanager
+
+### 1.6.4 (2025-01-21)
+* (BenAhrdt) Set decoded Structure in deviceInfos (with Merge)
+
 ### 1.6.3 (2025-01-20)
 * (BenAhrdt) Names of states changed (Downlink Raw)
 * (BenAhrdt) Change setObjectNotExistsAsync to extendObjectAsync for Raw Data

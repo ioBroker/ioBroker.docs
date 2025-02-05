@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: mJ2FClZO2G/KuGclhJkGf7D9M9RO3qbL1GzB/mhIDhs=
+hash: QS5E626cO05p6/jS6+3yipodDprkwuyZDgu9lrpokfc=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -81,6 +81,8 @@ flexchart 适配器将显示此图表：
 <!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
 
 Flexcharts 会将状态 `0_userdata.0.echarts.chart1` 评估为 eChart 的数据。尝试一下：创建这样的状态并复制上面示例的 json 数据（`{ "tooltip": { ...`）作为状态内容，然后使用浏览器访问给定的地址。
+
+不允许在州 ID 中使用以下字符：`: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
 
 ### 使用 javascript 作为 eChart 的源代码
 这有点复杂，但效率更高，也更灵活。您可以直接通过 JS 脚本提供图表数据，该脚本由 flexcharts 适配器动态调用。您可以通过向 http 地址添加参数来将其他参数传递给脚本，例如 `&chart=chart1`。所有 http 参数都可以在脚本中的对象 `httpParams` 中使用（见下面的示例）。
@@ -169,6 +171,7 @@ Javascript 模板可用于以下几种用例：
 * 使用历史适配器数据的图表：[template1](templates/flexchartsTemplate1.js)
 * 热曲线的简单图表：[template2](templates/flexchartsTemplate2.js)
 * 使用图表定义中的函数创建简单的堆积条形图：[template3](templates/flexchartsTemplate3.js)
+* **tibberLink 适配器** 的数据图表：请参阅 [此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) 和 [此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66) 的讨论
 * Viessmann E3 系列设备有一个非常具体的用例，例如热泵 Vitocal 250。请参阅 https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 
 ＃＃ 参考
@@ -192,11 +195,19 @@ Javascript 模板可用于以下几种用例：
 
 **注意：**将`localhost`替换为您的ioBroker服务器的地址。将`8082`替换为您的Web适配器使用的端口号。
 
+## 捐赠
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！:beers:
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2025-02-02)
+* (MyHomeMyData) Updated Apache ECharts to version 5.6.0
+* (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68
+* (MyHomeMyData) Added templates for tibberLink Adapter
+
 ### 0.3.0 (2025-01-08)
 * (MyHomeMyData) Enhancement for usage of functions within echart definitions.
 * (MyHomeMyData) Fix for issue #56 (findings of repository checker)

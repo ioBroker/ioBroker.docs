@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.scenes/README.md
 title: ioBroker 场景适配器
-hash: FR+CyK5Winwdr8oIsq6WZoOBdSghf+pQvTJGhAHNMXE=
+hash: Io2jtg2yoSH0XtMVQvpAhtXEtvJa+v5uqUhWKn5UbdE=
 ---
 ![标识](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -128,10 +128,10 @@ sendTo(
 );
 ```
 
-适配器将读取此场景中定义的所有 ID 的实际值并将其保存为配置值。
+适配器将读取此场景中定义的所有 ID 的实际值并将其保存为配置的值。
 
 ## 通过消息禁用或启用场景 要禁用或启用某些场景，您可以向适配器发送消息：
-```
+```js
 // enable
 sendTo(
     'scenes.0',
@@ -160,6 +160,14 @@ sendTo(
 ### **正在进行中** -->
 
 ## Changelog
+### 4.0.1 (2025-01-23)
+* (bluefox) Adapter was migrated to TypeScript
+* (bluefox) Corrected error with the Select ID dialog
+
+### 3.2.4 (2025-01-22)
+* (bluefox) Migrated to vite
+* (bluefox) Packages updated
+
 ### 3.2.3 (2024-08-26)
 * (bluefox) Packages updated
 
@@ -319,7 +327,7 @@ sendTo(
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2025, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

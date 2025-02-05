@@ -29,9 +29,13 @@ The interval or the stepping to send the data ist set by the configuartion.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Bannsaenger) updated dependencies and scripts
+### 0.1.1 (2025-01-21)
+* (Bannsaenger) removed script build on deploy
+
+### 0.1.0 (2025-01-21)
+* (Bannsaenger) updated dependencies, scripts, eslint 9
 * (Bannsaenger) tested with node v22.13.0
+* (Bannsaenger) jsonConfig tested for responsive design
 
 ### 0.0.5 (2023-12-25)
 * (Bannsaenger) added releaseconfig
@@ -44,16 +48,10 @@ The interval or the stepping to send the data ist set by the configuartion.
 ### 0.0.3
 * (Bannsaenger) fixed comments from code review
 
-### 0.0.2
-* (Bannsaenger) added engine and prepared for review
-
-### 0.0.1
-* (Bannsaenger) initial release
-
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2025 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

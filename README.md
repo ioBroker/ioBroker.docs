@@ -26,6 +26,8 @@ Project content:
 
 ## TODO
 - [ ] Do not translate development documentation. By some flag or path
+- [ ] Create the index file for meilisearch
+- [ ] Use https://www.meilisearch.com/docs/learn/self_hosted/getting_started_with_self_hosted_meilisearch for search
 
 ## How to create the documentation
 See [how to participate](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)
@@ -37,5 +39,5 @@ Read the change log [here](CHANGELOG.md).
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>  
+Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>  
 Copyright (c) 2014      hobbyquaker

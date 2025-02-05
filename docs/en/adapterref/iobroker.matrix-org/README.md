@@ -77,6 +77,11 @@ Join this room and try it out with your own credentials
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* upgrade matrix-js-sdk to 36.0.0
+* switch to ESM
+* eslint 9 (what a messi commit)
+
 ### 1.1.0 (2024-11-23)
 * upgrade matrix-js-sdk
 * auto join added (default false)

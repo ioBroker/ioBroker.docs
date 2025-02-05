@@ -139,6 +139,9 @@ CCU / Homematic поддерживает различные типы устро�
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (bluefox) Updated packages and used `@iobroker/eslint-config`
+
 ### 2.0.2 (2024-08-26)
 * (bluefox) Updated packages
 
@@ -164,7 +167,7 @@ CCU / Homematic поддерживает различные типы устро�
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

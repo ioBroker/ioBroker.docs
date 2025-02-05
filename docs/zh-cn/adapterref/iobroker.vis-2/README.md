@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: S3jREg07ZFLV+uTkWNlRet6V9ix/5Bd7NsgLwQzQ/BE=
+hash: l5+h7Jw12bkVoe/zM8dbDaeUBOsa9RDwqCxiRwIma+Y=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -60,14 +60,14 @@ value = await (async function () {
 
 因此我们的斜边计算如下：
 
-```js
+```
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
 ### 弃用的格式
 Patten 的格式如下：
 
-```js
+```
 {objectID;operation1;operation2;...}
 ```
 
@@ -293,6 +293,9 @@ npm run start
 ### **正在进行中** -->
 
 ## Changelog
+### 2.11.2 (2025-01-23)
+* (@GermanBluefox) Do not load vis-1 widgets if vis-2 widgets provided
+
 ### 2.11.1 (2024-12-02)
 * (@GermanBluefox) Corrected navigation menu
 * (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
@@ -671,7 +674,7 @@ Additionally, you need a license to use the adapter. The following license editi
 * **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
 
 ## License
- Copyright (c) 2021-2024 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2021-2025 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
   
  Creative Common Attribution-NonCommercial (CC BY-NC)
 

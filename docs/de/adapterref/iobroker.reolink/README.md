@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: kU3wT/Hp6fLzWrtzLnmeYP3CMJbYa0jykAN+mOPR91M=
+hash: /bm8PbcKUsNovM9dM+o7AdtO37eijmF0pbO4vbW2PaU=
 ---
 ![Logo](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
@@ -22,12 +22,14 @@ Adapter für die ioBroker-Plattform zum Abrufen von [Reolink Kamera](https://reo
 
 Generell unterstützen alle neueren Reolink-Kameras API-Befehle. Sie unterscheiden sich lediglich in den unterstützten Befehlen.
 
+Eine Erinnerung an das Passwort. Versuchen Sie es mit oder ohne URI-Kodierung, wenn Sie nur ein Sonderzeichen haben. Verwenden Sie für die gleiche Sicherheit besser kein Sonderzeichen und einfach ein längeres Passwort.
+
 Wenn Sie einen bestimmten API-Befehl einbinden möchten, lassen Sie es mich einfach wissen.
 
 ## Implementierte Funktionen
 ### SATZ
 PTZ-Steuerung / PTZ-Schutz
- - Push-Benachrichtigung
+- Push-Benachrichtigung
 - Autofokus einstellen
 
 Werte: 0,1
@@ -47,15 +49,15 @@ Zoom-Fokus
 Funktionen können durch Ändern des Zustands von reolink.<Instanze>.settings ausgelöst werden.
 
  ### ERHALTEN
- - Geräteinformationen
+Geräteinfo
 - PTZ-Informationen
 - Laufwerksinformationen
- - Netzwerk information
- - Bewegungserkennung
+- Netzwerkinfo
+Bewegungserkennung
 Autofokus
 Schnappschuss
 IR-Licht
- - LED-Licht
+LED-Licht
 - Mail-Benachrichtigung
 
 ### Beispielverwendung von „Bild abrufen“:
@@ -85,10 +87,26 @@ Duo 3 PoE
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (oelison) update disk info
+* (oelison) uri enconding is switchable (helps sometimes by one special char)
+* (oelison) #28 PTZ check added
+
+### 1.1.2 (2024-09-14)
+* (oelison) [#22](https://github.com/aendue/ioBroker.reolink/issues/22) password with some more special chars works now
+* (oelison) adapter warnings resolved
+
+### 1.1.1 (2024-08-03)
+* (oelison) removed warnings from adapter check
+* (olli) added ftp support
+* (oelison) channel now distinguishing most requests
+* (oelison) [#79](https://github.com/aendue/ioBroker.reolink/issues/79) error messages with more info where
+
+### 1.1.0 (2024-05-16)
 * (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
 * (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
 * (Nibbels) added setWhiteLedMode function
 * (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
+* (oelison) removed node 16
 
 ### 1.0.3 (2024-01-21)
 * (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
@@ -158,7 +176,7 @@ Duo 3 PoE
 ## License
 MIT License
 
-Copyright (c) 2024 Andy Grundt <andygrundt@gmail.com>
+Copyright (c) 2025 Andy Grundt <andygrundt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

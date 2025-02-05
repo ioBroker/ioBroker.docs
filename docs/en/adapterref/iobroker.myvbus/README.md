@@ -30,12 +30,20 @@ A derived version of this adapter supporting control of VBus devices is availabl
 
 ## Configuration hints
 
-* The connection device type e.g. VBus/LAN or DL2 must be explicitly selected, otherwise no connection will be established.
-* TCP connection port: The default setting 7053 should not be changed
+* The connection device type e.g. VBus/LAN or DL2. Must be explicitly selected, otherwise no connection will be established.
+* TCP connection port: Only relevant or LAN-based access. The default setting 7053 should not be changed
 * Device password: The password which you have set in your connection device (default: vbus)
 * DL3 channel: Only relevant for DL3/DL2Plus - leave at "None" for all other connection devices.  
 (allowed values: 1-6, channel 0 cannot be read out)
+* Via Tag: Only relevant for DL3, DL2, KM2 access via VBus.net - leave blank for all other connection devices.
 * Update interval: The time between updates of the measured values (default 30s)
+* The correct settings for direct serial interface access for VBus/USB are:
+  * Connection Device: VBus/USB
+  * Device Address: The path to the serial port to which the serial interface adapter is connected like  
+  '/dev/ttyUSB0' or  
+  '/dev/serial/by-id/usb-Silicon_Labs_USB-Modul_UO2102_TDEB6I8DAVDLGAGC-if00-port0' or  
+  '/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1:1.0-port0' for Linux or  
+  'COM5' for Windows-based ioBroker platforms
 * The correct settings for direct LAN access for VBus/LAN, DL3, DL2, KM2 are:
   * Connection Device: VBus/LAN or KM2/DL2 or DL3/DL2Plus
   * Device Address: IP address (e.g. 192.168.178.188) or FullyQualifiedHostName (e.g. myKM2.fritz.box)
@@ -49,8 +57,10 @@ A derived version of this adapter supporting control of VBus devices is availabl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.0 (2025-01-30) - 2025H1 maintenance release
 
+* (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
+* (pdbjjens) Change: Migration to ESLint 9
 * (simatec) Responsive Design added
 
 ### 0.4.0 (2024-08-13) - 2024H2 maintenance release
@@ -76,12 +86,6 @@ A derived version of this adapter supporting control of VBus devices is availabl
 
 * (pdbjjens) Fix password check
 
-### 0.2.3 (2023-02-27) - 2023 maintenance release
-
-* (pdbjjens) Updated dependencies
-* (pdbjjens) New: Use adapter-dev instead of gulp translate
-* (pdbjjens) Fix: error handling for serial connections
-
 ## Legal Notices
 
 RESOL, VBus, VBus.net, DeltaSol and others are trademarks or registered trademarks of RESOL - Elektronische Regelungen GmbH
@@ -94,7 +98,7 @@ The authors are in no way endorsed by or affiliated with RESOL GmbH, or any asso
 
 MIT License
 
-Copyright (c) 2024 Jens-Peter Jensen <jjensen@t-online.de>
+Copyright (c) 2025 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

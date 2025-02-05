@@ -17,8 +17,14 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (@GermanBluefox) Migrated GUI to Typescript
+### 8.9.1 (2025-01-26)
+
+* (@GermanBluefox) Corrected blockly function editor
+* (@GermanBluefox) Corrected creation of folders
+
+### 8.9.0 (2025-01-22)
+* (@GermanBluefox) Migrated GUI to TypeScript
+* (@klein0r) Added count attribute to getHistory in blockly
 
 ### 8.8.3 (2024-09-05)
 * (bluefox) Fixed object selector in rules
@@ -30,17 +36,10 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 * (@klein0r) Added option to register notifications via scripts
 * (@klein0r) Fixed sendTo block with an empty name list
 
-### 8.7.7 (2024-08-04)
-* (@klein0r) Fixed import scripts dialog
-* (@klein0r) Allowed removing all custom packages (empty list)
-
-### 8.7.6 (2024-07-28)
-* (foxriver76) fix error with subpath imports in scripts
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014      hobbyquaker
 

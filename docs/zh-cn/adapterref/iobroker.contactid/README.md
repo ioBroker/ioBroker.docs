@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.contactid/README.md
 title: ioBroker.contactid
-hash: ef7bEhZLeiDsv/qf+MW61JRKcB4Wxlzl17KVOfvq2jE=
+hash: S07MW5c8PDaN9uaElOPFwo63BajDrHBj3G2mwmlQ8R0=
 ---
 ![标识](../../../en/adapterref/iobroker.contactid/admin/contactid.png)
 
@@ -73,9 +73,25 @@ Example: [test 18160201010B]
 
 现在您可以在 ioBroker 对象中看到该消息
 
-## Changelog
+5. 问题/争议
 
-### **WORK IN PROGRESS**
+如果您在处理 ContactID 消息时遇到问题，请创建问题。
+在问题中我需要以下信息：
+
+1. 报警系统制造商和类型
+2. ContactID 消息作为文件。如果您在实例配置中激活它，则可以创建一个文件。
+3. ioBroker 处理消息时的调试输出
+4. Bug 的详细描述
+
+您可以使用以下命令测试已保存的 ContactID 消息
+
+```
+# cat fileanme_of_cid_message | nc ip_address_of_iobroker cid_port
+cat /tmp/cid/cid_msg_fa165cc0-8e3a-faa1-eb5c-fd3e47479044.txt | nc localhost 55000
+```
+
+## Changelog
+### 2.0.1 (2025-02-01)
 
 - (Stübi) Fixed Notification from ioBroker Check and Service Bot (Issue #46)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
+hash: ooJmhSMkua3PN8tCtVIMiQ3wVQeMeCr+Ua3v+9cSD38=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -25,7 +25,7 @@ hash: 9hBDNYzVDZZYL38ZbRpOkFVFWncEVg88mGYU/94TEVg=
 
 * 带有 ESP32 芯片的 ems-esp 网关（https://github.com/emsesp/EMS-ESP32）。
 
-不再支持带有 API V2 的旧 ESP8266 网关！！该适配器已针对具有最新稳定固件版本的 ems-esp 网关进行了测试。最新开发版本的固件可能无法与 ioBroker 适配器稳定配合使用。使用风险自负。
+该适配器已针对 ems-esp 网关进行了测试，固件的最新开发版本可能无法与 ioBroker 适配器稳定配合使用。使用风险自负。
 
 * 不支持新的博世集团云网关（MX300 / EasyControl...），因为它们不支持 LAN API！
 
@@ -69,7 +69,7 @@ ioBroker ems-esp 适配器可以读取和写入两个网关的数据以控制所
 ## License
 MIT License
 
-Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick (tp1de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

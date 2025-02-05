@@ -13,14 +13,14 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Settings
 ### APP-KEY
-To use cloud adapter you should first get the APP-Key on [https://iobroker.net](https://iobroker.net).
+To use cloud adapter, you should first get the APP-Key on [https://iobroker.net](https://iobroker.net).
 
 This is application key that the user can get on [https://iobroker.net](https://iobroker.net) site. Please get the key there and enter it here.
 
 ![Intro](img/intro.png)
 
 ### Instance
-All requests from cloud adapter will be routed to specific WEB Instance. User must specify here the WEB instance, that will be showed to user, when he logs in https://iobroker.net site.
+All requests from cloud adapter will be routed to specific WEB Instance. User must specify here the WEB instance; that will be shown to user, when he logs in https://iobroker.net site.
 
 ### Allow self-signed certificates
 If you use standard iobroker.net cloud, you can deactivate it. This option is only important if own cloud used.
@@ -35,7 +35,7 @@ If you use standard iobroker.net cloud, you can deactivate it. This option is on
 There is a possibility to send messages to cloud adapter.
 If you call `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und value as payload.
 
-```
+```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
@@ -101,7 +101,7 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 * (bluefox) Corrected error with iobroker.pro and delete object
 
 ### 4.2.2 (2022-08-24)
-* (bluefox) Corrected error with services list and admin6
+* (bluefox) Corrected error with service's list and admin6
 
 ### 4.2.1 (2022-07-20)
 * (bluefox) Used a new version of a socket library.
@@ -136,7 +136,7 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 * (bluefox) Fixed error with the admin
 
 ### 4.0.8 (2021-01-31)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-CLOUD-S)
 * (bluefox) fix usage of credentials
 
 ### 4.0.7 (2021-01-30)
@@ -339,7 +339,7 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

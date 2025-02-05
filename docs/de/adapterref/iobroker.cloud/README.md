@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/README.md
-title: ioBroker-Cloud-Adapter
-hash: /+c4C10rh/C8HukkAjpKMXE4p7em4UOfSyN6rvIGt64=
+title: ioBroker Cloud-Adapter
+hash: cVelMNaufGdss9w/JB0Gp8QrW6YDEflROWuonzeJH14=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -12,21 +12,21 @@ hash: /+c4C10rh/C8HukkAjpKMXE4p7em4UOfSyN6rvIGt64=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cloud.svg)
 ![NPM](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
-# IoBroker-Cloud-Adapter
-Dieser Adapter ermöglicht die Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
+# IoBroker Cloud-Adapter
+Dieser Adapter ermöglicht eine Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 ### APP-SCHLÜSSEL
-Um den Cloud-Adapter nutzen zu können, sollten Sie zunächst den APP-Key auf [https://iobroker.net](https://iobroker.net) erhalten.
+Um den Cloud-Adapter zu verwenden, sollten Sie zuerst den APP-Schlüssel auf [https://iobroker.net](https://iobroker.net) erhalten.
 
-Dies ist ein Anwendungsschlüssel, den der Benutzer auf der [https://iobroker.net](https://iobroker.net)-Site erhalten kann. Bitte holen Sie sich dort den Schlüssel und geben Sie ihn hier ein.
+Dies ist der Anwendungsschlüssel, den der Benutzer auf der Site [https://iobroker.net](https://iobroker.net) erhalten kann. Bitte holen Sie sich den Schlüssel dort und geben Sie ihn hier ein.
 
-![Einführung](../../../en/adapterref/iobroker.cloud/img/intro.png)
+![Einleitung](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Instanz
-Alle Anfragen vom Cloud-Adapter werden an eine bestimmte WEB-Instanz weitergeleitet. Der Benutzer muss hier die WEB-Instanz angeben, die dem Benutzer angezeigt wird, wenn er sich auf der Website https://iobroker.net anmeldet.
+Alle Anfragen vom Cloud-Adapter werden an eine bestimmte WEB-Instanz weitergeleitet. Der Benutzer muss hier die WEB-Instanz angeben; diese wird dem Benutzer angezeigt, wenn er sich bei der Site https://iobroker.net anmeldet.
 
 ### Selbstsignierte Zertifikate zulassen
 Wenn Sie die Standard-Cloud von iobroker.net verwenden, können Sie diese deaktivieren. Diese Option ist nur wichtig, wenn eine eigene Cloud verwendet wird.
@@ -39,48 +39,52 @@ Wenn Sie die Standard-Cloud von iobroker.net verwenden, können Sie diese deakti
 
 ## Dienstleistungen
 Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden.
-Wenn Sie `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und Wert als Payload aufrufen.
+Wenn Sie `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` aufrufen und einen Wert als Nutzlast angeben.
 
-```
+```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* festlegen und mit „custom_test“ als Dienstnamen aufrufen, wird der Status `cloud.0.services.custom_test` auf `myString` gesetzt.
+Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* einstellen, und mit „custom_test“ als Dienstnamen aufrufen, wird der Status `cloud.0.services.custom_test` auf `myString` gesetzt.
 
-Sie können „*“ in die Whitelist schreiben und alle Dienste werden zugelassen.
+Sie können "*" in die Whitelist schreiben und alle Dienste werden zugelassen.
 
-Ab Version 2.0.5 können Sie die GET-Anfrage im Formular `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` verwenden, um die `\<data\>` in `cloud.0.services.custom_\<NAME\>` zu platzieren.
+Ab Version 2.0.5 können Sie GET-Anfragen in der Form `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` verwenden, um `\<data\>` in `cloud.0.services.custom_\<NAME\>` einzufügen.
 
-Hier finden Sie eine Anleitung zur Nutzung mit [Tasker](doc/tasker.md).
+Hier finden Sie eine Anleitung zur Nutzung mit [Aufgabensteller](doc/tasker.md).
 
 Der IFTTT-Dienst ist nur zulässig, wenn der IFTTT-Schlüssel festgelegt ist.
 
 Reservierte Namen sind „ifttt“, „text2command“, „simpleApi“, „swagger“. Diese müssen ohne das Präfix `"custom_"` verwendet werden.
 
 ### Text2command
-Sie können `text2command` in die Whitelist schreiben, Sie können eine POST-Anfrage an `https://iobroker.net/service/text2command/<user-app-key>` senden, um Daten in die Variable `text2command.X.text` zu schreiben.
+Sie können `text2command` in die Whitelist schreiben und eine POST-Anfrage an `https://iobroker.net/service/text2command/<user-app-key>` senden, um Daten in die Variable `text2command.X.text` zu schreiben.
 
-„X“ kann in den Einstellungen durch die Option „Text2command-Instanz verwenden“ definiert werden.
+„X“ kann in den Einstellungen durch die Option „text2command-Instanz verwenden“ definiert werden.
 
-### SimpleApi
-Sie können die folgenden Befehle verwenden (nur Pro):
+### EinfacheApi
+Sie können folgende Befehle verwenden (nur Pro):
 
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` – zum Lesen des Statuswerts => `{"val":103.516,"ack":true, „ts“:1604132484682, „q“:0, „from“: „system.adapter.admin.0“, „lc“:1604132469672, „result“: „OK“}`
-- „[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID“ – zum Lesen des Statuswerts => „103.641“.
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` – um den Statuswert festzulegen => `{"result":"OK"} `
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - um den Statuswert zu lesen => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Statuswert zu lesen => `103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert festzulegen => `{"result":"OK"}`
 
-**Vergessen Sie nicht, `simpleApi` zu den erlaubten Diensten in der Konfiguration hinzuzufügen.**
+**Vergessen Sie nicht, in der Konfiguration `simpleApi` zu den zulässigen Diensten hinzuzufügen.**
 
 ### Einschränkungen
 Wenn HTTPs (Sicherheit) oder Authentifizierung auf der definierten Webinstanz aktiviert ist, funktioniert es nicht.
 
-Sie können HTTPS und die Authentifizierung auf dieser Webinstanz deaktivieren. Besser ist es jedoch, eine neue Webinstanz zu erstellen, die an `localhost` gebunden ist, und diese Instanz in den Cloud-Einstellungen auszuwählen.
+Sie können HTTPS und die Authentifizierung für diese Webinstanz deaktivieren. Besser ist es jedoch, eine neue Webinstanz zu erstellen, die an `localhost` gebunden ist, und diese Instanz in den Cloud-Einstellungen auszuwählen.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) updated socket classes
+* (bluefox) minimum required node.js version is 18
+
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
 * (bluefox) minimum required node.js version is 16
@@ -103,7 +107,7 @@ Sie können HTTPS und die Authentifizierung auf dieser Webinstanz deaktivieren. 
 * (bluefox) Corrected error with iobroker.pro and delete object
 
 ### 4.2.2 (2022-08-24)
-* (bluefox) Corrected error with services list and admin6
+* (bluefox) Corrected error with service's list and admin6
 
 ### 4.2.1 (2022-07-20)
 * (bluefox) Used a new version of a socket library.
@@ -138,7 +142,7 @@ Sie können HTTPS und die Authentifizierung auf dieser Webinstanz deaktivieren. 
 * (bluefox) Fixed error with the admin
 
 ### 4.0.8 (2021-01-31)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-CLOUD-S)
 * (bluefox) fix usage of credentials
 
 ### 4.0.7 (2021-01-30)
@@ -341,7 +345,7 @@ Sie können HTTPS und die Authentifizierung auf dieser Webinstanz deaktivieren. 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

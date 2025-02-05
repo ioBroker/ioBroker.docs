@@ -759,6 +759,11 @@ lg-thinq.0.xxx.area must be filled!
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) max target changed from 30 to 40 degrees
+- (Lucky-ESA) Dependencies updated
+
 ### 1.0.7 (2024-12-08)
 
 - (Lucky-ESA) Fixed: Connection status does not turn green

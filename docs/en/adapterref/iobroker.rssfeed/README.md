@@ -588,6 +588,10 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.3.1 (2025-01-23)
+
+- add an accept request header, because axios send only application/json
+
 ### 3.3.0 (2025-01-21)
 
 - upgrade version js-controller

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.contactid/README.md
 title: ioBroker.contactid
-hash: ef7bEhZLeiDsv/qf+MW61JRKcB4Wxlzl17KVOfvq2jE=
+hash: S07MW5c8PDaN9uaElOPFwo63BajDrHBj3G2mwmlQ8R0=
 ---
 ![Logo](../../../en/adapterref/iobroker.contactid/admin/contactid.png)
 
@@ -73,9 +73,25 @@ Example: [test 18160201010B]
 
 Jetzt können Sie die Nachricht in den ioBroker-Objekten sehen
 
-## Changelog
+5. Probleme / Fragen
 
-### **WORK IN PROGRESS**
+Wenn Sie Probleme bei der Verarbeitung von ContactID-Nachrichten haben, erstellen Sie bitte ein Problem.
+In dem Problem benötige ich die folgenden Informationen:
+
+1. Hersteller und Typ der Alarmanlage
+2. Die ContactID-Nachricht als Datei. Sie können eine Datei erstellen, wenn Sie dies in der Instanzkonfiguration aktivieren.
+3. Die Debug-Ausgabe von ioBroker bei der Verarbeitung der Nachricht
+4. Detaillierte Beschreibung des Fehlers
+
+Sie können die gespeicherte ContactID-Nachricht mit dem folgenden Befehl testen
+
+```
+# cat fileanme_of_cid_message | nc ip_address_of_iobroker cid_port
+cat /tmp/cid/cid_msg_fa165cc0-8e3a-faa1-eb5c-fd3e47479044.txt | nc localhost 55000
+```
+
+## Changelog
+### 2.0.1 (2025-02-01)
 
 - (Stübi) Fixed Notification from ioBroker Check and Service Bot (Issue #46)
 

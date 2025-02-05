@@ -178,7 +178,12 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
-### 3.0.0 (work in progress)
+### 3.0.1 (2025-01-28)
+
+* (Sickboy78) fix for curfew not being 24-hour format
+* (Sickboy78) fix typos in warnings
+
+### 3.0.0 (2025-01-23)
 
 * (Sickboy78) complete refactoring of surepet API
 * (Sickboy78) complete refactoring of internal data structure
@@ -386,4 +391,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2025 Sickboy78 <asmoday_666@gmx.de>

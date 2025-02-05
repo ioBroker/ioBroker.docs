@@ -33,6 +33,9 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* Interval time of the slave inverter increased slightly
+
 ### 0.18.1 (2025-01-08) 
 * dependency and configuration updates
 * control: if the battery is not running, events related to the battery are discarded

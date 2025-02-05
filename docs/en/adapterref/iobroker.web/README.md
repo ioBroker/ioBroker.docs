@@ -16,7 +16,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Tuning Web-Sockets
 On some web-sockets clients, there is a performance problem with communication. 
-Sometimes this issue is due to the fallback of socket.io communication on long polling mechanism.
+Sometimes this issue is due to the fallback of socket.io communication on a long polling mechanism.
 You can set the option *Force Web-Sockets* to force using only web-sockets transport.
 
 ## Let's Encrypt Certificates
@@ -60,7 +60,7 @@ http://IP:8082/state/javascript.picture.png =>
 
 The image must be written in the javascript adapter like:
 
-```
+```js
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
     setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
 });
@@ -89,6 +89,11 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) updated packages
+* (@GermanBluefox) removed gulp in a build process
+* (@GermanBluefox) Migrated GUI ti vite
+
 ### 6.3.1 (2024-09-23)
 * (@foxriver76) added new admin icon (svg)
 
@@ -173,7 +178,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

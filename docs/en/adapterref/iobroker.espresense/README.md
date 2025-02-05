@@ -24,6 +24,11 @@ Connect to [ESPresense](https://espresense.com)
 
 Best practice: Pair the devices to be monitored with espresense and filter the output to avoid unnecessary network traffic.
 
+#### max_distance_iobroker
+The newly added data points are used to achieve per-room detection in the adapter. When using max_distance in esp32, the adapter does not receive a notification when the device leaves the area. When using max_distance_iobroker, however, it does. 
+If max_distance_iobroker is used, the two presense data points are controlled by it, otherwise they behave as before.
+Presense under the device is true if one of the data points in the rooms below is true.
+
 For help use issue or if u understand german https://forum.iobroker.net/topic/71189/test-adapter-espresense
 
 
@@ -35,6 +40,12 @@ For help use issue or if u understand german https://forum.iobroker.net/topic/71
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2025-01-28)
+* (ticaki) Simple room detection integrated
+* (ticaki) Friendly room name added to devices
+* (ticaki) global commands now work.
+* (ticaki) Data point var added.
+
 ### 0.4.8 (2025-01-18)
 * (ticaki) Devices can be renamed in the configuration.
 * (ticaki) Removing devices works now!.

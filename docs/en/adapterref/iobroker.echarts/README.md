@@ -115,9 +115,13 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.0.6 (2025-02-02)
 
 - (@GermanBluefox) Validate configuration at start
+- (@GermanBluefox) Corrected zoom&pan of charts with mouse
+- (@GermanBluefox) Added the possibility to change a legend background
+- (@GermanBluefox) Show color of lines in legend if it is a dialog
+- (@GermanBluefox) Show echarts card in on the admin intro page
 
 ### 2.0.4 (2025-01-13)
 

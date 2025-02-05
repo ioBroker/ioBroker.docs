@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.espresense/README.md
 title: ioBroker.espresense
-hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
+hash: 0wzSfVa/bvhNaLkZ3xPJ7rDX952BFJup94I9Ha/CZ9Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.espresense/admin/espresense.png)
 
@@ -14,30 +14,54 @@ hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
 ![NPM](https://nodei.co/npm/iobroker.espresense.png?downloads=true)
 
 # IoBroker.espresense
-**Tests:** ![Test und Freigabe](https://github.com/ticaki/ioBroker.espresense/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/ticaki/ioBroker.espresense/workflows/Test%20and%20Release/badge.svg)
 
-## Espresso-Adapter für ioBroker
-Mit [ESPresense](https://espresense.com) verbinden
+## Espresense-Adapter für ioBroker
+Verbinden mit [ESPresense](https://espresense.com)
 
 - MQTT-Server und Clientmodul
-- `Eigenen MQTT-Server starten` aktiviert den Servermodus
-- „Server-IP“ nur für externe MQTT-Server verwenden
-- „Port, Benutzername und Passwort“ des internen oder externen mqtt-Servers
+- `Starte own mqtt server` aktiviere den Servermodus
+- `Server-IP` nur für externe MQTT-Server verwenden
+- „Port, Benutzername und Passwort“ des internen oder externen MQTT-Servers
 
-- Wenn der Konfiguration Geräte hinzugefügt wurden, werden nur diese in den Objekten angezeigt.
-- Die beiden Konfigurationszeitpunkte sind verknüpft, die Anwesenheitsprüfung läuft immer mit der Verarbeitung der MQTT-Nachrichten.
+- Wenn der Konfiguration Geräte hinzugefügt wurden, werden in den Objekten nur diese angezeigt.
+- Die beiden Konfigurationszeitpunkte sind miteinander verknüpft, die Anwesenheitsprüfung läuft immer mit der Verarbeitung der MQTT-Nachrichten.
 
 Best Practice: Koppeln Sie die zu überwachenden Geräte mit espresense und filtern Sie die Ausgabe, um unnötigen Netzwerkverkehr zu vermeiden.
 
-Für Hilfe verwenden Sie „Problem“ oder wenn Sie Deutsch verstehen: https://forum.iobroker.net/topic/71189/test-adapter-espresense
+#### Max_distance_iobroker
+Die neu hinzugefügten Datenpunkte werden verwendet, um eine raumweise Erkennung im Adapter zu erreichen. Bei Verwendung von max_distance in esp32 erhält der Adapter keine Benachrichtigung, wenn das Gerät den Bereich verlässt. Bei Verwendung von max_distance_iobroker jedoch schon.
+Wenn max_distance_iobroker verwendet wird, werden die beiden Presense-Datenpunkte davon gesteuert, ansonsten verhalten sie sich wie zuvor.
+Presense unter dem Gerät ist wahr, wenn einer der Datenpunkte in den darunterliegenden Räumen wahr ist.
 
-* Der verwendete MQTT-Server ist ein vollständig kompatibler MQTT 3.1- und 3.1.1-Server, der Adapter reagiert jedoch nur auf das Thema espresense/#
+Für Hilfe verwenden Sie das Problem oder wenn Sie Deutsch verstehen: https://forum.iobroker.net/topic/71189/test-adapter-espresense
+
+* Der verwendete MQTT-Server ist ein vollkompatibler MQTT 3.1 und 3.1.1 Server, der Adapter antwortet jedoch nur auf das Topic espresense/#
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2025-01-28)
+* (ticaki) Simple room detection integrated
+* (ticaki) Friendly room name added to devices
+* (ticaki) global commands now work.
+* (ticaki) Data point var added.
+
+### 0.4.8 (2025-01-18)
+* (ticaki) Devices can be renamed in the configuration.
+* (ticaki) Removing devices works now!.
+
+### 0.4.7 (2025-01-17)
+* (ticaki) Removing devices now works.
+
+### 0.4.6 (2024-11-29)
+* (ticaki) repository checker problems fixed
+
+### 0.4.5 (2024-11-29)
+* (ticaki) dependencies updated
+
 ### 0.4.4 (2024-01-18)
 * (ticaki) The time period over which incoming Mqtt messages are collected can be configured. min. 1 sec max. (2^31-1) / 1000 sec
 
@@ -84,7 +108,7 @@ Für Hilfe verwenden Sie „Problem“ oder wenn Sie Deutsch verstehen: https://
 ## License
 MIT License
 
-Copyright (c) 2024 ticaki <github@renopoint.de>
+Copyright (c) 2024-2025 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

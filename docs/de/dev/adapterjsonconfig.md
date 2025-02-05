@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: Xc+YrZnmi1mYWiUlwueSm0wlq0IGSe5whY3wgjEn/AA=
+hash: qv5gBLc3/6yUdIC4AWjkSdAk6o4ls+yLynScoTV+rAc=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 In dieser Anleitung wird erläutert, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -649,7 +649,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | `compact` | [optional] – wenn wahr, wird die Tabelle im kompakten Modus angezeigt |
 
 ### `accordion`
-Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben und nach unten verschoben werden können (Admin 6.6.0 und neuer)
+Akkordeon mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten verschoben werden können (Admin 6.6.0 und neuer)
 
 | Immobilie | Beschreibung |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -708,7 +708,7 @@ nur Admin6
 | `i18n` | wahr, wenn sich `i18n/xx.json`-Dateien im selben Verzeichnis wie die Komponente oder das Übersetzungsobjekt `{"text1": {"en": Text1"}}` befinden |
 
 #### Beispiel für URL
-- „custom/customComponents.js“: In diesem Fall werden die Dateien von „/adapter/ADAPTER_NAME/custom/customComponents.js“ geladen.
+- „custom/customComponents.js“: in diesem Fall werden die Dateien von „/adapter/ADAPTER_NAME/custom/customComponents.js“ geladen.
 - `https://URL/myComponent`: direkt von der URL
 - `./adapter/ADAPTER_NAME/custom/customComponent.js`: in diesem Fall werden die Dateien von `/adapter/ADAPTER_NAME/custom/customComponents.js` geladen.
 
@@ -746,6 +746,8 @@ horizontale Linie
 | `simple` | einfache CRON-Einstellungen anzeigen |
 
 ### `fileSelector`
+Wählen Sie über das Dropdown-Menü eine Datei aus einem Ordner aus. Und wenn Sie möchten, können Sie eine neue Datei in diesen Ordner hochladen.
+
 nur Admin6
 
 | Immobilie | Beschreibung |
@@ -762,8 +764,8 @@ nur Admin6
 | `noSize` | Dateigröße nicht anzeigen |
 
 ### `file`
+Eingabefeld mit Dateiauswahl. Es wird als Textfeld mit einer Schaltfläche daneben angezeigt, um den Dialog zu öffnen.
 nur Admin6.
-Eingabefeld mit Dateiauswahl
 
 | Immobilie | Beschreibung |
 |---------------------|------------------------------------------------------------------------------------------|

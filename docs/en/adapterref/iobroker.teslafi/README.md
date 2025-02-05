@@ -75,10 +75,14 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### 1.1.0 (2025-01-xx) WORK in PROGRESS
+### 1.1.1 (2025-02-01)
+
+- (hombach) fix deletion of newversion (#93)
+
+### 1.1.0 (2025-01-23)
 
 - (hombach) deprecated object calls removed
-- (hombach) WiP - add start HVAC command and commands tab (#36)
+- (hombach) add start HVAC command and commands tab (#36)
 
 ### 1.0.1 (2025-01-11)
 

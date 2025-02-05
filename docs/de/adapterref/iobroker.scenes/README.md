@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scenes/README.md
 title: ioBroker Szenenadapter
-hash: FR+CyK5Winwdr8oIsq6WZoOBdSghf+pQvTJGhAHNMXE=
+hash: Io2jtg2yoSH0XtMVQvpAhtXEtvJa+v5uqUhWKn5UbdE=
 ---
 ![Logo](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -25,7 +25,7 @@ Dieser Adapter kann drei Arten von Szenen erstellen:
 - **virtuelle Gruppen**
 
 ## Szenen
-**Szenen** werden erstellt, wenn die Einstellung „auf false setzen“ nicht verwendet wird.
+**Szenen** werden erstellt, wenn die Einstellung „auf „false“ gesetzt“ nicht verwendet wird.
 Jede Szene kann einzeln konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Adapterinstanz haben können.
 Die **Szene** ist nur eine Liste von Zustands-IDs und -Werten, die diese Zustände bei Aktivierung der Szene haben müssen. Beispielsweise haben wir in der Szene `scene.allLightInBath` Folgendes erstellt:
 
@@ -130,8 +130,8 @@ sendTo(
 
 Der Adapter liest alle aktuellen Werte für die in dieser Szene definierten IDs und speichert sie als konfigurierte Werte.
 
-## Szene per Nachricht deaktivieren oder aktivieren Um eine Szene zu deaktivieren oder zu aktivieren, können Sie eine Nachricht an den Adapter senden:
-```
+## Deaktivieren oder Aktivieren einer Szene über eine Nachricht Um eine Szene zu deaktivieren oder zu aktivieren, können Sie eine Nachricht an den Adapter senden:
+```js
 // enable
 sendTo(
     'scenes.0',
@@ -160,6 +160,14 @@ sendTo(
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 4.0.1 (2025-01-23)
+* (bluefox) Adapter was migrated to TypeScript
+* (bluefox) Corrected error with the Select ID dialog
+
+### 3.2.4 (2025-01-22)
+* (bluefox) Migrated to vite
+* (bluefox) Packages updated
+
 ### 3.2.3 (2024-08-26)
 * (bluefox) Packages updated
 
@@ -319,7 +327,7 @@ sendTo(
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2025, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

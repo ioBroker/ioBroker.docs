@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
+hash: e46NQwGm0A6H6DLEh2j3dMlfHDZ+B+Vj32SykrxO1Z8=
 ---
 # IoBroker.frontier_silicon
 ![Логотип](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
@@ -22,7 +22,15 @@ hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
 
 ПРИМЕЧАНИЕ: Этот адаптер был передан в iobroker-community-adapters для обслуживания. Таким образом, запланированные функции (см. ниже) не будут реализованы. В будущем будут выпущены только важные исправления ошибок и обновления зависимостей. Однако PR с исправлениями ошибок или улучшениями функций всегда приветствуются.
 
-ЗАМЕТКИ К ВЫПУСКУ: Версия 0.3.x включает в себя некоторые критические изменения:
+ПРИМЕЧАНИЯ К ВЫПУСКУ:
+
+Версия 0.4.x включает в себя критическое изменение:
+
+- Тип «frontier_silicon.X.media.state» изменен с «number» на «string» и доступен только для чтения.
+
+Если вы обновите этот адаптер с предыдущей версии вместо новой установки, вы можете обнаружить предупреждения в журнале ioBroker, например: `State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"` Чтобы этого не произошло, самое простое решение — остановить адаптер на вкладке экземпляров ioBroker, полностью удалить дерево объектов на вкладке объектов и затем перезапустить адаптер. Конечно, это необходимо только один раз после обновления и не требуется, если вы делаете чистую новую установку.
+
+Версия 0.3.x включает в себя некоторые критические изменения:
 
 - требуется node>=18, js-contoller>=5 и admin>=6
 
@@ -230,14 +238,14 @@ Frontier, Frontier Silicon, SmartRadio, UNDOK и связанные с ними 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS** - 2025H1 maintenance release
+### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
 - (pdbjjens) Change: media state changed from number to string and readonly (#241)
 - (pdbjjens) New: Added media control function "stop" (#241)
 - (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Change: Migration to ESLint 9 (#253)
 - (pdbjjens) Fix: Added button state acknowledgement
 - (pdbjjens) Fix: Prevent warning on adapter stop
-- (pdbjjens) New: Updated dependencies
 
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
@@ -265,14 +273,6 @@ Frontier, Frontier Silicon, SmartRadio, UNDOK и связанные с ними 
 - (pdbjjens) Change: Validity check of all parameters in config UI
 - (pdbjjens) Change: Re-establish session if network connection is lost
 - (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
-
-### 0.1.0 (2023-07-15)
-
-- (pdbjjens) Breaking Changes: node>=14, js-contoller>=4 and admin>=5 required
-- (pdbjjens) New: json config UI
-- (pdbjjens) New: Re-establish session if network connection is lost
-- (pdbjjens) New: Remove obsolete unit testing
-- (pdbjjens) Fix: Prevent crashes if radio device is not reachable
 
 ## License
 

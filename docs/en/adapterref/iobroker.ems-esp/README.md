@@ -21,7 +21,6 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 * km200, km200 hrv, km100, km50, HMC300 or IP-inside (from Bosch Group) 
 
 * ems-esp gateway (https://github.com/emsesp/EMS-ESP32) with the ESP32 chip. 
-  The old ESP8266 gateways with API V2 are not supported anymore !!
   The adapter is tested for the ems-esp gateway with latest stable firmware version
   Latest dev versions of firmware might not work stable with the ioBroker adapter. Use is on own risk.
 
@@ -67,7 +66,7 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 ## License
 MIT License
 
-Copyright (c) 2025 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2025 Thomas Petrick (tp1de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

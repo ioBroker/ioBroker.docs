@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: 0wTEkS6zBxsc0VhWN+oDP4lBzjAXNXn4XHnoAaxzoz4=
+hash: e46NQwGm0A6H6DLEh2j3dMlfHDZ+B+Vj32SykrxO1Z8=
 ---
 # IoBroker.frontier_silicon
 ![Logo](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
@@ -22,7 +22,15 @@ Bietet Unterstützung für Mediaplayer, Internetradios und SmartRadios, die mit 
 
 HINWEIS: Dieser Adapter wurde zur Wartung auf iobroker-community-adapters übertragen. Daher werden geplante Funktionen (siehe unten) nicht implementiert. In Zukunft werden nur wichtige Fehlerbehebungen und Abhängigkeitsaktualisierungen veröffentlicht. PRs mit Fehlerbehebungen oder Funktionserweiterungen sind jedoch immer willkommen.
 
-VERSIONSHINWEISE: Version 0.3.x enthält einige wichtige Änderungen:
+VERSIONSHINWEISE:
+
+Version 0.4.x enthält eine wichtige Änderung:
+
+- Der Typ von „frontier_silicon.X.media.state“ wurde von „number“ in „string“ und schreibgeschützt geändert
+
+Wenn Sie diesen Adapter von einer früheren Version aktualisieren, anstatt ihn neu zu installieren, finden Sie möglicherweise Warnungen im ioBroker-Protokoll wie: `State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"` Um dies zu verhindern, besteht die einfachste Lösung darin, den Adapter im Instanzen-Tab von ioBroker zu stoppen, den Objektbaum im Objekt-Tab vollständig zu löschen und den Adapter dann neu zu starten. Dies ist natürlich nur einmal nach dem Update erforderlich und nicht erforderlich, wenn Sie eine saubere Neuinstallation durchführen.
+
+Version 0.3.x enthält einige wichtige Änderungen:
 
 - node>=18, js-controller>=5 und admin>=6 erforderlich
 
@@ -51,7 +59,7 @@ Leistungsregelung
 - Voreinstellungsauswahl
 - Benachrichtigungen für mehrere Staaten
 Lautstärkeregelung
-- Benachrichtigungen
+Benachrichtigungen
 Automatische Erkennung
 
 ### Geplante Funktionen
@@ -150,7 +158,7 @@ Nehmen Sie die folgenden Namen nicht zu ernst. Das Radio verwendet sie in versch
 Verwenden Sie diese URL, um ein Albumcover oder das Logo eines Senders zu erhalten.
 
 - Name (`Zeichenfolge, ro`)
-- Zeichenfolge (`Zeichenfolge, ro`)
+- Zeichenfolge (`string, ro`)
 - Titel (`string, ro`)
 
 - Modi
@@ -230,14 +238,14 @@ Die Autoren werden in keiner Weise von Frontier Smart Technologies Limited oder 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS** - 2025H1 maintenance release
+### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
 - (pdbjjens) Change: media state changed from number to string and readonly (#241)
 - (pdbjjens) New: Added media control function "stop" (#241)
 - (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Change: Migration to ESLint 9 (#253)
 - (pdbjjens) Fix: Added button state acknowledgement
 - (pdbjjens) Fix: Prevent warning on adapter stop
-- (pdbjjens) New: Updated dependencies
 
 ### 0.3.0 (2024-08-27) - 2024H2 maintenance release
 
@@ -265,14 +273,6 @@ Die Autoren werden in keiner Weise von Frontier Smart Technologies Limited oder 
 - (pdbjjens) Change: Validity check of all parameters in config UI
 - (pdbjjens) Change: Re-establish session if network connection is lost
 - (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
-
-### 0.1.0 (2023-07-15)
-
-- (pdbjjens) Breaking Changes: node>=14, js-contoller>=4 and admin>=5 required
-- (pdbjjens) New: json config UI
-- (pdbjjens) New: Re-establish session if network connection is lost
-- (pdbjjens) New: Remove obsolete unit testing
-- (pdbjjens) Fix: Prevent crashes if radio device is not reachable
 
 ## License
 
