@@ -748,6 +748,14 @@ https://github.com/BenAhrdt/ioBroker.paperless-ngx
 
 paperless-ngx API to get information of running instances from paperless-ngx. For instance, you can read the tags, documents, document-types, user or correspondents of the paperless instance.
 
+## ioBroker.asterisk (12.2.2025) – adapter READDED to stable
+https://github.com/schmupu/ioBroker.asterisk
+
+<img src="https://github.com/schmupu/ioBroker.asterisk/blob/master/admin/asterisk.png" width="100" height="100" />
+
+The Asterisk adapter converts text messages to audio files and calls then over Asterisk by VoIP any telephone number you want and plays the audio message.
+
+
 
 
 
