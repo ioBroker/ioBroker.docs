@@ -755,10 +755,17 @@ https://github.com/schmupu/ioBroker.asterisk
 
 The Asterisk adapter converts text messages to audio files and calls then over Asterisk by VoIP any telephone number you want and plays the audio message.
 
+## ioBroker.tagesschau (15.2.2025) – new adapter at stable
+https://github.com/ticaki/ioBroker.tagesschau
 
+<img src="https://github.com/ticaki/ioBroker.tagesschau/blob/main/admin/tagesschau.png" width="100" height="100" />
 
+Retrieves news and video links from Tagesschau.
 
+## maxxi-charge (15.2.2025) – new adapter at stable
+https://github.com/blabond/ioBroker.maxxi-charge
 
+<img src="https://github.com/blabond/ioBroker.maxxi-charge/blob/main/admin/maxxi-charge.png" width="100" height="100" />
 
-
+ioBroker.MaxxiCharge is an adapter for the ioBroker system that enables the integration and control of MaxxiCharge CCU devices. The adapter provides a range of features, including reading device data, adjusting configurations, and sending control commands.
 
