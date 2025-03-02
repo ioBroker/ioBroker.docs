@@ -622,14 +622,14 @@ https://github.com/iobroker-community-adapters/ioBroker.rainbird
 
 An ioBroker adapter for Rain Bird with LNK WiFi adapter. This project has no affiliation with Rain Bird.
 
-## vis-2-widgets-rssfeed (18.9.2024) – new adapter at stable
+## vis-2-widgets-rssfeed (18.9.2024) – new adapter
 https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-rssfeed/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
 
 This adapter contains only the vis-2 widgets for the adapter rssfeed. For a detailed description of the widgets and functionality see Adapter rssfeed.
 
-## kisshome-research (19.9.2024) – new adapter at stable
+## kisshome-research (19.9.2024) – new adapter
 https://github.com/ioBroker/ioBroker.kisshome-research
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
@@ -656,14 +656,14 @@ It requires running admin instance on the same host.
 
 Node-red package version was increased from 3 to 4.0.3
 
-## ecoflow-mqtt (14.10.2024) – new adapter at stable
+## ecoflow-mqtt (14.10.2024) – new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
 <img src="https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/admin/ecoflow-mqtt.png" width="100" height="100" />
 
 This adapter connects to products of Ecoflow ([https://www.ecoflow.com])
 
-## remeha-home (28.10.2024) – new adapter at stable
+## remeha-home (28.10.2024) – new adapter
 https://github.com/simatec/ioBroker.remeha-home
 
 <img src="https://github.com/simatec/ioBroker.remeha-home/blob/master/admin/remeha-home.png" width="100" height="100" />
@@ -671,101 +671,109 @@ https://github.com/simatec/ioBroker.remeha-home
 The ioBroker.remeha-home adapter enables the integration and control of Remeha heating systems via the Remeha Home platform. The adapter continuously connects to the Remeha Home API and retrieves current data to make it available in the ioBroker system. This allows the heating system to be optimally monitored and controlled.
 
 
-## vis-2-widgets-ovarious (12.11.2024) – new adapter at stable
+## vis-2-widgets-ovarious (12.11.2024) – new adapter
 https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious
 
 <img src="https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious/blob/main/admin/vis-2-widgets-ovarious.png" width="100" height="100" />
 
 This adapter contains various vis-2 widgets. Ok, actually, there is only one vis-2 widget, but some more are on the roadmap.
 
-## gotify (16.11.2024) – new adapter at stable
+## gotify (16.11.2024) – new adapter
 https://github.com/ThomasPohl/ioBroker.gotify
 
 <img src="https://github.com/ThomasPohl/ioBroker.gotify/blob/main/admin/gotify.png" width="100" height="100" />
 
 Send push notifications from ioBroker to Gotify.
 
-## google-spreadsheet (3.12.2024) – new adapter at stable
+## google-spreadsheet (3.12.2024) – new adapter
 https://github.com/ThomasPohl/ioBroker.google-spreadsheet
 
 <img src="https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
 
 This adapter can be used to automatically interact with google spreadsheets.
 
-## minuaru (3.12.2024) – new adapter at stable
+## minuaru (3.12.2024) – new adapter
 https://github.com/minukodu/ioBroker.minuaru
 
 <img src="https://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
 
 alarmsystem for ioBroker and minuvis
 
-## mytime (29.12.2024) – new adapter at stable
+## mytime (29.12.2024) – new adapter
 https://github.com/oweitman/ioBroker.mytime
 
 <img src="https://github.com/oweitman/ioBroker.mytime/blob/main/admin/mytime.png" width="100" height="100" />
 
-This adapter handles Time (eg: countdown,etc.). The countdown functionality provides datapoints that you can use to manage a countdown (e.g. in a script). The adapter also includes several widgets to visualize these countdowns. Time series can be used to create complex time series at which the data points are triggered.s
+This adapter handles Time (e.g.: countdown, etc.). The countdown functionality provides data points that you can use to manage a countdown (e.g., in a script). The adapter also includes several widgets to visualize these countdowns. Time series can be used to create complex time series at which the data points are triggered.s
 
-## vis-2-widgets-weather-and-heating (29.12.2024) – new adapter at stable
+## vis-2-widgets-weather-and-heating (29.12.2024) – new adapter
 https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
 
 <img src="https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
 
-This vis-2-widget shows weather forecast data from DasWetter.com or weatherunderground. You need DasWetter-Adapter or weatherunderground-Adapter running on your system.
+This vis-2-widget shows weather forecast data from `DasWetter.com` or `weatherunderground`. You need DasWetter-Adapter or `weatherunderground`-Adapter running on your system.
 
-## mywallbox (29.12.2024) – new adapter at stable
+## mywallbox (29.12.2024) – new adapter
 https://github.com/SKB-CGN/ioBroker.mywallbox
 
 <img src="https://github.com/SKB-CGN/ioBroker.mywallbox/blob/main/admin/wallbox.png" width="100" height="100" />
 
 Connect your My-Wallbox (e.g. Pulsar Plus) with ioBroker via the Cloud-Service of My Wallbox
 
-## bluesound (11.1.2025) – new adapter at stable
+## bluesound (11.1.2025) – new adapter
 https://github.com/Uwe1958/ioBroker.bluesound
 
 <img src="https://github.com/Uwe1958/ioBroker.bluesound/blob/main/admin/bluesound.png" width="100" height="100" />
 
 Adapter to control Bluesound devices
 
-## ta-blnet (11.1.2025) – new adapter at stable
+## ta-blnet (11.1.2025) – new adapter
 https://github.com/weberk/ioBroker.ta-blnet
 
 <img src="https://github.com/weberk/ioBroker.ta-blnet/blob/main/admin/ta-blnet.png" width="100" height="100" />
 
 An ioBroker adapter for reading data from one or up to eight climate controllers by Technische Alternative using BL-NET. Or an infinite number of climate controllers connected to CMI.
 
-## teslafi (11.1.2025) – new adapter at stable
+## teslafi (11.1.2025) – new adapter
 https://github.com/hombach/ioBroker.teslafi
 
 <img src="https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png" width="100" height="100" />
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
 
-## paperless-ngx (27.1.2025) – new adapter at stable
+## paperless-ngx (27.1.2025) – new adapter
 https://github.com/BenAhrdt/ioBroker.paperless-ngx
 
 <img src="https://github.com/BenAhrdt/ioBroker.paperless-ngx/blob/main/admin/paperless-ngx.png" width="100" height="100" />
 
 paperless-ngx API to get information of running instances from paperless-ngx. For instance, you can read the tags, documents, document-types, user or correspondents of the paperless instance.
 
-## ioBroker.asterisk (12.2.2025) – adapter READDED to stable
+## asterisk (12.2.2025) – new adapter
 https://github.com/schmupu/ioBroker.asterisk
 
 <img src="https://github.com/schmupu/ioBroker.asterisk/blob/master/admin/asterisk.png" width="100" height="100" />
 
 The Asterisk adapter converts text messages to audio files and calls then over Asterisk by VoIP any telephone number you want and plays the audio message.
 
-## ioBroker.tagesschau (15.2.2025) – new adapter at stable
+## tagesschau (15.2.2025) – new adapter
 https://github.com/ticaki/ioBroker.tagesschau
 
 <img src="https://github.com/ticaki/ioBroker.tagesschau/blob/main/admin/tagesschau.png" width="100" height="100" />
 
 Retrieves news and video links from Tagesschau.
 
-## maxxi-charge (15.2.2025) – new adapter at stable
+## maxxi-charge (15.2.2025) – new adapter
 https://github.com/blabond/ioBroker.maxxi-charge
 
 <img src="https://github.com/blabond/ioBroker.maxxi-charge/blob/main/admin/maxxi-charge.png" width="100" height="100" />
 
 ioBroker.MaxxiCharge is an adapter for the ioBroker system that enables the integration and control of MaxxiCharge CCU devices. The adapter provides a range of features, including reading device data, adjusting configurations, and sending control commands.
 
+## admin (02.3.2025) - new feature
+Admin version 7.5.0 has new important and useful features:
+- OAuth2 authentication.
+- Rename/Copy of the objects
+
+The authentication process was completely rewritten, and now the logged-in session will be kept properly.
+
+User can rename, move or create a copy of the objects via context menu.
