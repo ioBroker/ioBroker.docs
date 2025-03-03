@@ -769,7 +769,7 @@ https://github.com/blabond/ioBroker.maxxi-charge
 
 ioBroker.MaxxiCharge is an adapter for the ioBroker system that enables the integration and control of MaxxiCharge CCU devices. The adapter provides a range of features, including reading device data, adjusting configurations, and sending control commands.
 
-## admin (02.3.2025) - new feature
+## admin (2.3.2025) - new feature
 Admin version 7.5.0 has new important and useful features:
 - OAuth2 authentication.
 - Rename/Copy of the objects
@@ -777,3 +777,11 @@ Admin version 7.5.0 has new important and useful features:
 The authentication process was completely rewritten, and now the logged-in session will be kept properly.
 
 User can rename, move or create a copy of the objects via context menu.
+
+## airquality (3.3.2025) – new adapter
+https://github.com/raschy/ioBroker.airquality
+
+<img src="airquality" width="100" height="100" />
+
+Fetch data from German UBA.
+
