@@ -225,7 +225,8 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing`      - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
-* `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`, 
+* `level.mode.thermostat` - thermostat: `AUTO, MANUAL, VACATION`,
+* `value.mode.airconditioner` - current device state: `IDLE`, `HEAT, `COOL`  (0,1,2 in apple home) 
  Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
 
 TODO: Think about ionization` and oscillation. 
