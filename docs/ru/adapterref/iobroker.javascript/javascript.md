@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.javascript/javascript.md
 title: нет названия
-hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
+hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
 ---
 ## Содержание
 - [Примечание](#примечание)
@@ -33,7 +33,7 @@ hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 - [сравнитьВремя](#сравнитьвремя)
 - [установитьСостояние](#установитьСостояние)
     - [setStateAsync](#setstateasync)
-- [setStateDelayed](#setstatedelayed)
+    - [setStateDelayed](#setstatedelayed)
 - [clearStateDelayed](#clearstatedelayed)
 - [getStateDelayed](#getstatedelayed)
 - [получитьСостояние](#получитьСостояние)
@@ -81,7 +81,7 @@ hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 - [стопСкрипт](#стопСкрипт)
 - [stopScriptAsync](#stopScriptAsync)
 - [isScriptActive](#isscriptactive)
-- [имя](#имя)
+- [имя](#scriptName)
 - [экземпляр](#экземпляр)
 - [сообщениеКому](#сообщениеКому)
 - [сообщениеВАсинхронизацию](#сообщениеВАсинхронизацию)
@@ -261,7 +261,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 |             |            |                                                                                                                                                     |
 | oldTs | string | Предыдущая метка времени должна быть равна указанной (oldState.ts == ts) |
 | oldTsGt | string | Предыдущая метка времени не должна быть равна указанной (oldState.ts != ts) |
-| oldTsGe | string | Предыдущая метка времени должна быть больше указанного значения (oldState.ts > ts) |
+| oldTsGe | string | Предыдущая метка времени должна быть больше заданного значения (oldState.ts > ts) |
 | oldTsLt | string | Предыдущая метка времени должна быть больше или равна указанной (oldState.ts >= ts) |
 | oldTsLe | string | Предыдущая метка времени должна быть меньше указанной (oldState.ts < ts) |
 |             |            |                                                                                                                                                     |
@@ -273,7 +273,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 |             |            |                                                                                                                                                     |
 | oldLc | string | Предыдущая метка времени последнего изменения должна быть равна указанной (oldState.lc == lc) |
 | oldLcGt | string | Предыдущая метка времени последнего изменения не должна быть равна указанной (oldState.lc != lc) |
-| oldLcGe | string | Предыдущая метка времени последнего изменения должна быть больше указанного значения (oldState.lc > lc) |
+| oldLcGe | string | Предыдущая метка времени последнего изменения должна быть больше заданного значения (oldState.lc > lc) |
 | oldLcLt | string | Предыдущая метка времени последнего изменения должна быть больше или равна указанной (oldState.lc >= lc) |
 | oldLcLe | string | Предыдущая метка времени последнего изменения должна быть меньше указанной (oldState.lc < lc) |
 |             |            |                                                                                                                                                     |
@@ -360,7 +360,7 @@ setState('stateId1', 'new value');
 
 *Примечание:* По умолчанию в функцию обратного вызова будут переданы только состояния с качеством 0x00. Если вы хотите получить все события, добавьте `{q: '*'}` в структуру шаблона.
 
-*Примечание:* Обратите внимание, что по умолчанию "change" равно "any", за исключением случаев, когда задан только идентификатор в виде строки (например, `on('id', () => {});`). В последнем случае change будет установлено на "ne".
+*Примечание:* Обратите внимание, что по умолчанию "change" равно "any", за исключением случаев, когда задан только id в виде строки (например, `on('id', () => {});`). В последнем случае change будет установлено на "ne".
 
 *Примечание:* Если вы также хотите получить удаления/истечения состояний в качестве триггера, вам необходимо использовать change с `ne` или `any` И q с `*` в качестве фильтра!
 
@@ -560,7 +560,7 @@ schedule({ astro: 'sunset', shift: 10 }, () => {
 - `"dawn"`: рассвет (утренние навигационные сумерки заканчиваются, утренние гражданские сумерки начинаются)
 - `"надир"`: надир (самый темный момент ночи, солнце находится в самом низком положении)
 
-**Примечание:** для использования функции «astro» в настройках адаптера JavaScript должны быть определены «широта» и «долгота».
+**Примечание:** для использования функции «astro» необходимо определить «широту» и «долготу» в настройках адаптера JavaScript.
 
 **Примечание:** в некоторых местах иногда может быть так, что night/nightEnd не существует. Пожалуйста, прочтите [здесь](https://github.com/mourner/suncalc/issues/70) об этом.
 
@@ -713,7 +713,7 @@ compareTime(startTime, endTime, operation, timeToCompare);
 
 Вы можете использовать астроимена для определения времени. Все 3 параметра могут быть установлены как астровремя.
 Возможны следующие значения: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
-Подробнее см. в [Астро](#astro--function).
+Подробнее см. [Астро](#astro--function).
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -1046,7 +1046,7 @@ createState(name, initialValue, forceCreation, common, native, callback);
 !! Предпочитаю создавать собственные точки данных с полным идентификатором `0_userdata.0.mystate` !!!
 
 #### Параметры:
-- `name`: имя штата без пространства имен, например `mystate`
+- `name`: имя состояния без пространства имен, например `mystate`
 - `initialValue`: переменная может быть инициализирована после создания. Значение "undefined" означает, что значение не инициализируется.
 - `forceCreation`: создать/перезаписать состояние независимо от того, существует ли состояние или нет.
 - `common`: общее описание объекта, см. описание [здесь](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)
@@ -1291,8 +1291,8 @@ formatDate(millisecondsOrDate, format);
 - `millisecondsOrDate`: количество миллисекунд из state.ts или state.lc (количество миллисекунд из 1970.01.01 00:00:00) или объект javascript *new Date()* или количество миллисекунд из *(new Date().getTime())*
 - `format`: может быть `null`, поэтому будет использоваться системный формат времени, в противном случае
 
-* YYYY, JJJJ, ГГГГ - полный год, например 2015
-* YY, JJ, ГГ - сокращенный год, например 15
+* ГГГГ, JJJJ, ГГГГ — полный год, например 2015.
+* YY, JJ, ГГ – короткий год, например 15
 * ММ, ММ(кириллица) - полный месяц, например 01
 * M, М(кириллица) - сокращенный месяц, например, 1
 * DD, TT, ДД - полный день, например 02
@@ -1354,7 +1354,7 @@ formatTimeDiff(diff, 'hh'); // "51"
 formatTimeDiff(diff, 'mm'); // "3069"
 ```
 
-### ПолучитьДатаОбъект
+### ПолучитьОбъектДаты
 ```js
 getDateObject(stringOrNumber);
 ```
@@ -1396,11 +1396,16 @@ adapterUnsubscribe(id);
 
 ### $ - Селектор
 ```js
-$(selector).on(function(obj) {});
-$(selector).toArray(); // Requires version >= 8.2.0
-$(selector).each(function(id, i) {});
-$(selector).setState(value, ack);
-$(selector).getState();
+$(selector).on((obj) => {}); // Register a subscription for each matching state
+$(selector).toArray(); // Get all matching object IDs of the selector expression (requires version >= 8.2.0)
+$(selector).each((id, i) => {}); // iterate over all matching states
+$(selector).setState(value, ack, callback); // set state value of all matching object IDs (callback is optional)
+$(selector).setStateAsync(value, ack); // set state value of all matching object IDs - returns a promise
+$(selector).setStateChanged(value, ack, callback); // set state value of all matching object IDs if value has changed (callback is optional)
+$(selector).setStateChangedAsync(value, ack, callback); // set state value of all matching object IDs if value has changed - returns a promise
+$(selector).setStateDelayed(state, isAck, delay, clearRunning, callback); // // set state value of all matching object IDs with a given delay
+$(selector).getState(); // get all states
+$(selector).getStateAsync(); // get all states - returns a promise
 ```
 
 Формат селектора:
@@ -1427,7 +1432,7 @@ $(selector).getState();
 - `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - вывести все состояния перечисления "windows" в журнал
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` - вывести все расписания с 65 в конце
 - `$('.switch §"Гостиная")` - Принять состояния со всеми переключателями в "Гостиной" ***(не реализовано - следует обсудить)***
-- `$('channel .switch §"Гостиная")` - Принять состояния со всеми переключателями в 'Гостиная' ***(не реализовано - следует обсудить)***
+- `$('channel .switch §"Гостиная")` - Принять состояния со всеми переключателями в "Гостиной" ***(не реализовано - следует обсудить)***
 
 ***Объяснение*** Давайте рассмотрим:
 
@@ -1438,7 +1443,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
 ```
 
 Этот код ищет в каналах.
-Найдите все каналы с `common.role="switch"` и принадлежащие `enum.rooms.Wohnzimmer`.
+Найдите все каналы с `common.role="switch"` и принадлежит `enum.rooms.Wohnzimmer`.
 Возьмите все их состояния, где идентификатор заканчивается на `".STATE"`, и подпишитесь на все эти состояния.
 Если некоторые из этих состояний изменятся, будет вызван обратный вызов, как для функции "on".
 
@@ -1540,11 +1545,11 @@ delFile(adapter, fileName, (error) => {});
 renameFile(adapter, oldName, newName, (error) => {});
 ```
 
-Переименовать файл или каталог. oldName — это имя файла или каталога в БД, которое переименовывается в newName.
+Переименовать файл или каталог. oldName — имя файла или каталога в БД, которое переименовывается в newName.
 
 Альтернативное название этого метода — `rename`
 
-### ВФайле
+### НаФайле
 ```js
 onFile(id, fileName, withFile, (id, fileName, size, fileData, mimeType) => {});
 // or
@@ -1756,7 +1761,7 @@ isScriptActive('scriptName');
 
 Это не функция. Это переменная с экземпляром javascript, которая видна в области действия скрипта.
 
-### ВInt
+### ToInt
 ### ToFloat
 ### ToBoolean
 ### JsonataВыражение
@@ -2106,15 +2111,13 @@ if (verbose) {
 ## Опция - "Не подписываться на все штаты при запуске"
 Существует два способа подписки на состояния:
 
-- Адаптер подписывается на все изменения при запуске и получает все изменения всех состояний (легко использовать getStates(id), но требует больше ресурсов ЦП и ОЗУ):
+1. Адаптер подписывается на все состояния при запуске и получает все изменения всех состояний (легко использовать getState(id), но требуется больше ресурсов ЦП и ОЗУ):
 
 ```js
 log(getState('someID').val);
 ```
 
-- Адаптер подписывается каждый раз на указанный ID, если вызывается "on/subscribe". В этом режиме адаптер получает только обновления для желаемых состояний.
-
-Он очень производительный и эффективный в плане оперативной памяти, но вы не можете получить доступ к состояниям напрямую в getState. Вы должны использовать обратный вызов, чтобы получить результат состояния:
+2. Адаптер подписывается каждый раз на указанный идентификатор при вызове `on/subscribe`. В этом режиме адаптер получает только обновления для желаемых состояний. Этот вариант требует меньше оперативной памяти и более эффективен, но вы не можете получить доступ к состояниям синхронно через getState. **Вы должны использовать обратные вызовы или обещания для доступа к состояниям**:
 
 ```js
 getState('someID', (error, state) => {
@@ -2122,7 +2125,7 @@ getState('someID', (error, state) => {
 });
 ```
 
-Это происходит потому, что адаптер не имеет значения состояния в оперативной памяти и должен запрашивать это значение у центральной базы данных.
+Причина: Адаптер не имеет значения состояния в оперативной памяти и должен запросить его из центральной базы данных состояний.
 
 ## Активность скриптов
 Существует возможность включать и отключать скрипты через состояния. Для каждого скрипта будет создано состояние с именем `javascript.INSTANCE.scriptEnabled.SCRIPT_NAME`.

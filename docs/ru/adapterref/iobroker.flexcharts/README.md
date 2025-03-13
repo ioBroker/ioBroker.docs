@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: QS5E626cO05p6/jS6+3yipodDprkwuyZDgu9lrpokfc=
+hash: 2LBfixSvSCkyVG94QWAOMrwzR0WZOl4Sq6qt3IOsjxw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -24,7 +24,7 @@ hash: QS5E626cO05p6/jS6+3yipodDprkwuyZDgu9lrpokfc=
 
 Примечание: Адаптер пока не тестировался на MacOS.
 
-**Нет пользовательского интерфейса для настройки любой диаграммы.** Вам нужно определить диаграмму самостоятельно, адаптер позаботится о визуализации. Вам нужно предоставить определение и содержимое диаграммы, предоставив содержимое как json-объект - в примерах eCharts это соответствует содержимому переменной `option`. Вот пример, чтобы было понятнее. Чтобы создать стековую диаграмму, вы сохраняете ее определение в состоянии ioBroker (формат json):
+**Нет пользовательского интерфейса для настройки любой диаграммы.** Вам нужно определить диаграмму самостоятельно, адаптер позаботится о визуализации. Вам нужно предоставить определение и содержимое диаграммы, предоставив содержимое как json-объект - в примерах eCharts это соответствует содержимому переменной `option`. Вот пример, чтобы было понятнее. Чтобы создать диаграмму с накоплением, вы сохраняете ее определение в состоянии ioBroker (формат json):
 
 ```
 { "tooltip": {"trigger": "axis","axisPointer": {"type": "shadow"}},
@@ -136,7 +136,7 @@ myJsonParams = {}
 
 Дополнительные параметры могут быть переданы в скрипт и будут доступны в скрипте в переменной `httpParams`. Попробуйте следующую команду: `http://localhost:8082/flexcharts/echarts.html?source=script&chart=chart1&myjsonparams={"period":"daily"}`
 
-Записи журнала теперь должны выглядеть так:
+Теперь записи журнала должны выглядеть так:
 
 ```
 httpParams = {"source":"script","chart":"chart1","myjsonparams":"{\"period\":\"daily\"}"}`
@@ -173,6 +173,7 @@ myJsonParams = {"period":"daily"}
 * простая столбчатая диаграмма с накоплением, использующая функцию в определении диаграммы: [template3](templates/flexchartsTemplate3.js)
 * диаграмма для данных **адаптера tibberLink**: см. обсуждения [здесь](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) и [здесь](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * Для устройств Viessmann серии E3 доступен очень специфический вариант использования, например, тепловой насос Vitocal 250. См. https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
+* адаптер [tibberLink](https://github.com/hombach/ioBroker.tibberlink) использует flexcharts как вариант для графической обработки данных. В настоящее время доступен в бета-репозитории ioBroker. Ознакомьтесь с [документацией](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
 
 ## Ссылка
 Использовать **состояние ioBroker** в качестве источника данных: `http://localhost:8082/flexcharts/echarts.html?source=state&id=my_state_id`
@@ -203,6 +204,9 @@ myJsonParams = {"period":"daily"}
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2 (2025-02-09)
+* (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
+
 ### 0.3.1 (2025-02-02)
 * (MyHomeMyData) Updated Apache ECharts to version 5.6.0
 * (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68

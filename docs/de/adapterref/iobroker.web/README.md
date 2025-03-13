@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
+hash: 5tn98OjELn7lq9d0K9WQAgr8fnJMj7kVxeNvrcY/ig8=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -19,20 +19,22 @@ Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus der ioBrok
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Web-Sockets optimieren
-Bei einigen Web-Socket-Clients gibt es ein Leistungsproblem bei der Kommunikation.
-Manchmal liegt dieses Problem daran, dass die Socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückgreift.
-Sie können die Option *Web-Sockets erzwingen* festlegen, um die ausschließliche Verwendung von Web-Sockets-Transport zu erzwingen.
+Bei einigen Web-Sockets-Clients kommt es zu Leistungsproblemen bei der Kommunikation.
+
+Manchmal liegt dieses Problem daran, dass die socket.io-Kommunikation auf einen langen Polling-Mechanismus zurückgreift.
+
+Sie können die Option „Web-Sockets erzwingen“ aktivieren, um die ausschließliche Verwendung von Web-Sockets-Transport zu erzwingen.
 
 ## Lassen Sie uns Zertifikate verschlüsseln
 Lesen [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
 ## Erweiterungen
 Der Webtreiber unterstützt Erweiterungen.
-Die Erweiterung ist ein URL-Handler, der aufgerufen wird, wenn eine solche URL-Anforderung auftritt.
-Die Erweiterungen sehen aus wie der normale Adapter, haben aber keinen laufenden Prozess und werden vom Webserver aufgerufen.
+Die Erweiterung ist ein URL-Handler, der bei einer solchen URL-Anfrage aufgerufen wird.
+Die Erweiterungen ähneln dem normalen Adapter, haben jedoch keinen laufenden Prozess und werden vom Webserver aufgerufen.
 
 Beispielsweise kann der Benutzer einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) auf demselben Webserver erreichen.
-Dies ist erforderlich, damit alle Dienste unter einem Webserver verfügbar sind.
+Es ist erforderlich, dass alle Dienste auf einem Webserver verfügbar sind.
 
 Die Weberweiterung könnte und sollte die Funktion `unload` unterstützen, die `promise` zurückgeben könnte, wenn der Entladevorgang einige Zeit in Anspruch nimmt.
 
@@ -43,56 +45,87 @@ Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute
 Nach dem 15. falschen Versuch muss der Benutzer eine Stunde warten.
 
 ## Option „Angemeldet bleiben“
-Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet.
-Wenn nicht, bleibt der Benutzer für die konfigurierte „Anmeldezeitüberschreitung“ angemeldet.
+Wenn diese Option aktiviert ist, bleibt der Benutzer einen Monat lang angemeldet. Andernfalls bleibt der Benutzer für die konfigurierte Anmeldezeitüberschreitung angemeldet.
 
 ## Zugriffsstatuswerte
-Auf die normalen und binären Zustandswerte kann über die HTTP-Get-Anfrage zugegriffen werden.
+Auf die normalen Zustandswerte können Sie über die HTTP-Get-Anfrage zugreifen.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-oder
+oder greifen Sie auf Dateien wie diese zu:
 
 ```
-http://IP:8082/state/javascript.picture.png =>
+http://IP:8082/vis-2.0/javascript.picture.png =>
 [IMAGE]
 ```
 
-Das Bild muss im Javascript-Adapter wie folgt geschrieben werden:
-
-```js
-createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
-    setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
-});
-```
-
-## Option „Einfache Authentifizierung“
-Ermöglicht die Anmeldung per Basisauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
-Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Anmeldedaten eingeben, werden Sie zur Anmeldeseite weitergeleitet.
+## Option "Basisauthentifizierung"
+Ermöglicht die Anmeldung per Standardauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
+Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Bei einmaliger Eingabe falscher Anmeldedaten werden Sie zur Anmeldeseite weitergeleitet.
 
 ## Benutzerliste
 Sie können die Liste der Benutzer definieren, die auf den Webserver zugreifen können. Sie können die Zugriffsrechte für angemeldete Benutzer ändern.
 
 Wenn der Benutzer nicht in der Liste ist, kann er nicht auf den Webserver zugreifen.
 
-Einfacher ist es, für jedes Objekt und jeden Status die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
+Es ist einfacher, für jedes Objekt und jeden Status die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
 
 ## Erweiterte Optionen
-### Standardumleitung
-Wenn beim Öffnen des Webports im Browser keine APP-Auswahl, sondern eine bestimmte Anwendung angezeigt werden soll, kann hier der Pfad angegeben werden (z.B. `/vis/`), damit dieser Pfad automatisch geöffnet wird.
+### Standardweiterleitung
+Wenn beim Öffnen des Webports im Browser keine APP-Auswahl angezeigt werden soll, sondern eine bestimmte Anwendung, kann hier der Pfad angegeben werden (z.B. `/vis/`), damit dieser Pfad automatisch geöffnet wird.
+
+## OAuth2-Authentifizierung
+Der Webadapter unterstützt die OAuth2-Authentifizierung.
+
+Um die Tokens zu erhalten, muss der Benutzer die URL aufrufen:
+
+```
+http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker&stayloggedin=<false/true>
+```
+
+`stayloggedin=true` bedeutet, dass das Token im Browser gespeichert und für die nächsten Anfragen verwendet wird und ist optional.
+
+Die Antwort lautet:
+
+```json
+{
+    "access_token": "21f89e3eee32d3af08a71c1cc44ec72e0e3014a9",
+    "expires_in": "2025-02-23T11:39:32.208Z",
+    "refresh_token": "66d35faa5d53ca8242cfe57367210e76b7ffded7",
+    "refresh_token_expires_in": "2025-03-25T10:39:32.208Z",
+    "token_type": "Bearer"
+}
+```
+
+Weitere Informationen finden Sie hier: https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.6 (2025-03-09)
+* (@GermanBluefox) Corrected the login for iobroker.visu app
+* (@GermanBluefox) Corrected load of TypeScript Web extensions
+
+### 7.0.4 (2025-03-04)
+* (@GermanBluefox) Corrected the login page
+* (@GermanBluefox) Removed the frequent debug output
+
+### 7.0.3 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 7.0.1 (2025-03-02)
+* (@GermanBluefox) [Breaking change] Removed simple-api as it could be connected as web-extension
 * (@GermanBluefox) updated packages
 * (@GermanBluefox) removed gulp in a build process
-* (@GermanBluefox) Migrated GUI ti vite
+* (@GermanBluefox) Migrated GUI to vite
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Added OAuth2 support
+* (@GermanBluefox) Added new 404 and the directory list pages
 
 ### 6.3.1 (2024-09-23)
 * (@foxriver76) added new admin icon (svg)

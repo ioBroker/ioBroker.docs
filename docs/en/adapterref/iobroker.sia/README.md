@@ -43,6 +43,9 @@ You can use ioBroker with this adapter as central station. For example. you can 
     Register account number. If you are using AES you have to enter a password (key). The key should be 16, 24 or 32 characters (byte) long.
     If the checkbox "AES password in Hex format" is active, the password length must be 32, 48 or 64 character (byte) long.
     In the field ACK timeout, you define how old the message can be in sec. If you define 0 sec., no timeout validation will be done.
+    With the checkobx "Connection close by SIA Server", you can decide if the alarmsystem has to close the connection after it received the ACK message.
+    If the checkbox "Connection close by SIA Server" ist disabled, the SIA server (ioBroker) waits 30 seconds for closing the connection by the alarmsystem.
+    After this 30 seconds the SIA server (ioBroker) will close the connection.
 
     ![sia_adapter2](admin/sia_adapter2.png)
 
@@ -142,6 +145,20 @@ You can use ioBroker with this adapter as central station. For example. you can 
     ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #48)
+- (Stübi) Fixing dependency (Issue #49)
+
+### 2.0.4 (2025-02-06)
+
+- (Stübi) Fixed Issue Required SIA fields Missing (Issue #19)
+- (Stübi) Fixed an error by reading the length of the message
+- (Stübi) Fixed Issue Socket not kept connected (Issue #20)
+- (Stübi) the crc and length will be shown as HEX ASCII (4 characters) in the object crc and len
+- (Stübi) timestamp will be shown in format hh:mm:ss,MM-DD-YYYY (GMT time) in the object ts
+
 ### 2.0.3 (2025-02-01)
 
 - (Stübi) add error envent if connction close

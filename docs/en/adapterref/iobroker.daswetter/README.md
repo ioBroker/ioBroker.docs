@@ -74,13 +74,16 @@ Now we have implemented a "auto-repair" which changes to structure to documented
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.3 (2025-02-26)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
 ### 3.2.2 (2024-12-15)
 * (René) translations
-*
+* (René) see issue #408: hint regarding user registration limitation added
 
 ### 3.2.1 (2024-12-06)
 * (René) see issue #411: jsonConfig fixed
-* (René) see issue #408: hint regarding user registration limitation added
 
 ### 3.2.0 (2024-12-04)
 * (René) see issue #406: test with nodejs@22
@@ -234,7 +237,7 @@ needs also 2.x of vis-weather-widget
 
 MIT License
 
-Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -202,6 +202,7 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
 ### **WORK IN PROGRESS**
 
 * (@klein0r) Improved error handling when adapter is not ready (starting)
+* (@klein0r) Added scroll speed to expert apps
 
 ### 1.6.0 (2025-01-27)
 

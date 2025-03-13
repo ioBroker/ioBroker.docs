@@ -3,21 +3,20 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
+hash: IurXXZFpApnw/7kcC37hdhaX1EpVU7Q3wNVI4Q9YwPI=
 ---
 ![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
-![安装数量（最新）](https://iobroker.live/badges/kecontact-installed.svg)
-![安装数量（稳定）](https://iobroker.live/badges/kecontact-stable.svg)
-![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)
+![安装数量](https://iobroker.live/badges/kecontact-installed.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/kecontact-stable.svg)
 ![新平台](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
 # IoBroker.kecontact
 [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**测试：**![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker 适配器适用于 KEBA KeContact P20 或 P30 和 BMW i 壁挂盒
 使用 UDP 协议控制您的充电站并使用自动调节，例如通过光伏剩余电量和电池存储为您的车辆充电。
@@ -57,18 +56,18 @@ hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
 为了根据剩余电量为您的车辆充电（例如通过光伏），您还可以定义代表剩余电量和主电源的状态。这些值用于计算可用于充电的安培数。通过其他值，您可以定义
 
 * 切换充电相 1p/3p 或使用 Keba Kecontact 的 X2 端口的状态（使用 Keba KeContact S10 或任何其他接触器）
-* 电池存储当前电量的状态，因此光伏自动装置将额外使用它为您的车辆充电
+* 电池存储当前电力的状态，因此光伏自动装置将额外使用它为您的车辆充电
 * 可选择限制电池存储功率，以最低功率进行充电
 * 如果您想使用充电站的 X1 输入来控制是否全功率充电或光伏自动充电，请切换 X1 选项
 * 与默认的 6 A 不同的最小安培数（仅适用于 Renault Zoe）
 * 可用于开始充电的功率值（这意味着即使没有足够的剩余电量也会开始充电 - 建议 1 相充电为 0 W，3 相充电为 500 W 至 2000 W）
 * 电流增量（建议 500 mA）
 * 可以暂时用来维持充电会话的关注值（这意味着即使不再有足够的剩余，充电也会稍后停止 - 将添加起始关注值 - 建议 500 W）
-* 充电时间最短（即使剩余电量不再充足，一次充电也会至少持续这一次 - 建议 300 秒）
+* 充电时间最短（即使剩余电量不再充足，一次充电也会至少持续这段时间 - 建议 300 秒）
 * 每次剩余时间不再充足时继续充电（弥补阴天的时间）
 
 ### 1p/3p 充电
-如果您有一个安装接触器来连接（断开）充电站的第 2 相和第 3 相，并且此开关可以由状态触发，则此适配器能够以单相开始充电，并在剩余电量足够的情况下切换到 3 相充电。
+如果您有一个安装接触器来（断开）连接充电站的第 2 相和第 3 相，并且此开关可以由状态触发，则此适配器能够以单相开始充电，并在剩余电量足够的情况下切换到 3 相充电。
 在这种情况下，请输入安装接触器的状态，以及它是 NO（常开）还是 NC（常闭）
 
 ### 电池存储
@@ -83,10 +82,13 @@ hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
 最多可以指定三种能量计状态进行限制。所有值都将相加以计算当前消耗。
 一个额外的复选框用于指定是否包含壁挂式电箱功率（在这种情况下，壁挂式电箱功率将从状态值中减去）。
 
+另一个选项让您可以不限制功率而是限制电流。使用此选项，充电站的电流将减少到不超过每个相位的最大电流。
+因此，您需要指定电能表每个相位的电流状态。请确保充电站和电能表的相位具有相同的编号。
+
 ### 动态选项
 此外，还有一些状态可以自动影响光伏电池的行为，例如通过您自己的脚本根据您的需要更新这些值）
 
-* kecontact.n.automatic.photovoltaics - 设置为 false 时，激活光伏自动 (true) 或以最大功率为车辆充电
+* kecontact.n.automatic.photovoltaics - 设置为 false 时，激活光伏自动（true）或以最大功率为车辆充电
 * kecontact.n.automatic.calcPhases - 定义当前用于充电计算的相数。这是 Keba Deutschland 版本所必需的，可用于所有充电站的初始充电会话
 * kecontact.n.automatic.addPower - 定义允许为您的车辆充电的瓦特数（与选项相同）
 * kecontact.n.automatic.pauseWallbox - 只要设置为 true，立即停止每次充电
@@ -102,16 +104,28 @@ hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
 KeConnect 是 KEBA AG 的注册商标。
 
 ## Changelog
-
 <!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2025-03-10)
+* (Sneak-L8) rebase adapter on newest version of adapter creator
+* (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
+* (Sneak-L8) new option to limit amperage of charging station to maximum value for amperage of whole mains circuit
+* (Sneak-L8) immediately reduce charging power when over max amperage or max power limits
+* (Sneak-L8) fix one time attempt for recharging vehicle in state 5
+* (Sneak-L8) reduced info logs for max power adjustment when no vehicle is plugged (log as debug in that case)
+* (Sneak-L8) pay attention to minimum time for phase switch by x2 when vehicle is plugged/unplugged
+* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
+* (Sneak-L8) migrate from request to axios
+* (Sneak-L8) migrate from ESlint v8 to v9
+
+### 2.3.0 (2024-11-29)
 * (Sneak-L8) new option to limit charging station according to german §14a EnWG
 * (Sneak-L8) enable currTime for manual use and X2 even in passive mode
 * (Sneak-L8) minimum verison für js-controller now 5.0.19
 * (Sneak-L8) set currTimer timeout default value from 0 to 1
+* (Sneak-L8) support new option "setBoot" of c-series stating firmware 3.10.57
 
 ### 2.2.0 (2024-06-23)
 * (mcm1957) Adapter requires nodejs >= 18 and js-controller >= 5 now.
@@ -127,16 +141,6 @@ KeConnect 是 KEBA AG 的注册商标。
 * (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
 * (Sneak-L8) don't try to charge when state is 5 (auth req, car not ready, ...)
 * (Sneak-L8) new state to dynamically set SoC above which battery storage may be used for charging vehicle
-
-### 2.0.2 (2023-10-10)
-* (Sneak-L8) default value for minimum regard time (180 seconds)
-* (Sneak-L8) fix calculation of phases for reduced charging
-* (chrisko) added minimum timer to switch between phases if 1p/3p charging is used.
-* (Sneak-L8) disable firmware check for c-series due to changes on webpage of Keba
-* (Sneak-L8) sometimes 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
-
-### 2.0.1 (2023-07-10)
-* (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
 
 ## License
                                  Apache License
@@ -327,7 +331,7 @@ KeConnect 是 KEBA AG 的注册商标。
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2024 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2025 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

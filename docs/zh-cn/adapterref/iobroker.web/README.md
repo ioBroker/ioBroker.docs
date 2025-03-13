@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
+hash: 5tn98OjELn7lq9d0K9WQAgr8fnJMj7kVxeNvrcY/ig8=
 ---
 ![标识](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -19,9 +19,9 @@ hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 调整 Web-Sockets
-在某些 Web 套接字客户端上，通信存在性能问题。
+在某些 web-sockets 客户端上，通信存在性能问题。
 有时，此问题是由于长轮询机制上 socket.io 通信的回退造成的。
-您可以设置选项 *强制 Web 套接字* 以强制仅使用 Web 套接字传输。
+您可以设置选项 *强制 Web-Sockets* 以强制仅使用 web-sockets 传输。
 
 ## 让我们加密证书
 阅读[这里](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
@@ -47,26 +47,18 @@ Web 扩展可以并且应该支持`unload`函数，如果卸载操作需要一�
 如果没有，用户将在配置的“登录超时”内保持登录状态。
 
 ## 访问状态的值
-您可以通过 HTTP get 请求访问正常和二进制状态值。
+您可以通过 HTTP get 请求访问正常状态值。
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-或者
+或访问如下文件：
 
 ```
-http://IP:8082/state/javascript.picture.png =>
+http://IP:8082/vis-2.0/javascript.picture.png =>
 [IMAGE]
-```
-
-图像必须在 javascript 适配器中像这样写入：
-
-```js
-createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
-    setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
-});
 ```
 
 ## “基本身份验证”选项
@@ -84,15 +76,55 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ### 默认重定向
 如果通过打开 Web 端口 im 浏览器，不应显示 APP 选择，而是显示某些特定应用程序，则可以在此处提供路径（例如 `/vis/`），以便自动打开该路径。
 
+## OAuth2 身份验证
+Web 适配器支持 OAuth2 身份验证。
+
+要获取令牌，用户必须调用以下 URL：
+
+```
+http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker&stayloggedin=<false/true>
+```
+
+`stayloggedin=true` 表示该令牌将存储在浏览器中，并将用于下一次请求，并且是可选的。
+
+答案是这样的：
+
+```json
+{
+    "access_token": "21f89e3eee32d3af08a71c1cc44ec72e0e3014a9",
+    "expires_in": "2025-02-23T11:39:32.208Z",
+    "refresh_token": "66d35faa5d53ca8242cfe57367210e76b7ffded7",
+    "refresh_token_expires_in": "2025-03-25T10:39:32.208Z",
+    "token_type": "Bearer"
+}
+```
+
+更多信息可以在这里找到：https：//github.com/ioBroker/webserver？tab=readme-ov-file#oauth2-support
+
 <!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.6 (2025-03-09)
+* (@GermanBluefox) Corrected the login for iobroker.visu app
+* (@GermanBluefox) Corrected load of TypeScript Web extensions
+
+### 7.0.4 (2025-03-04)
+* (@GermanBluefox) Corrected the login page
+* (@GermanBluefox) Removed the frequent debug output
+
+### 7.0.3 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 7.0.1 (2025-03-02)
+* (@GermanBluefox) [Breaking change] Removed simple-api as it could be connected as web-extension
 * (@GermanBluefox) updated packages
 * (@GermanBluefox) removed gulp in a build process
-* (@GermanBluefox) Migrated GUI ti vite
+* (@GermanBluefox) Migrated GUI to vite
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Added OAuth2 support
+* (@GermanBluefox) Added new 404 and the directory list pages
 
 ### 6.3.1 (2024-09-23)
 * (@foxriver76) added new admin icon (svg)

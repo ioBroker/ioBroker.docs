@@ -136,7 +136,7 @@ This widget can be used to display the article attributes of a specific feed. It
 | rss_prefix  | To make it easier to use the attribute names via copy/paste, the variable name used in the template for an article can be specified here. |
 | rss_article | This attribute can be used to switch between the various existing articles in the RSS feed.                                               |
 
-### RSS Feed Title marquee 3
+### RSS Feed Title marquee 4 (deprecated)
 
 With this widget, all title attributes will be displayed as a scrolling text. As part of the change from marquee widget 2 to 3, this widget is now a multi widget in which you can aggregate more than one RSS feed.
 
@@ -146,6 +146,22 @@ With this widget, all title attributes will be displayed as a scrolling text. As
 | rss_speed        | General group       | The scrolling speed of the scrolling text Attribute rss_divider - General group Here you can enter the characters used to separate the headlines. The default value is +++.                                                                                               |
 | rss_pauseonhover | General group       | If this option is switched on, the scrolling text stops as soon as you hover the mouse over the text.                                                                                                                                                                     |
 | rss_link         | General group       | If this option is switched on, the headlines are displayed as a link. If you click or touch a headline, the link to the article opens in a new window or tab.                                                                                                             |
+| rss_withtime     | General group       | If this option is switched on, the time is displayed before the respective headline. Attribute rss_withdate - General group If this option is enabled, the date without the year and the time are displayed before the respective headline.                               |
+| rss_withyear     | General group       | If this option is enabled, the date with the year and the time are displayed before the respective headline.                                                                                                                                                              |
+| rss_oid          | Feeds[number] group | Select the data point with the corresponding RSS feed.                                                                                                                                                                                                                    |
+| rss_maxarticles  | Feeds[number] group | The maximum number of individual articles displayed from the RSS feed                                                                                                                                                                                                     |
+| rss_filter       | Feeds[number] group | For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;). The following article attributes are searched for the search: title, description, categories. Only articles that contain one of these terms are displayed. |
+
+### RSS Feed Title marquee 5
+
+With this widget, all title attributes will be displayed as a scrolling text. As part of the change from marquee widget 2 to 3, this widget is now a multi widget in which you can aggregate more than one RSS feed.
+
+| Setting          | group               | description                                                                                                                                                                                                                                                               |
+| ---------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_feedCount    | General group       | Here you can set the number of feeds to be configured. A separate group is created in vis for each feed to be configured.                                                                                                                                                 |
+| rss_speed        | General group       | The scrolling speed of the scrolling text Attribute rss_divider - General group Here you can enter the characters used to separate the headlines. The default value is +++.                                                                                               |
+| rss_pauseonhover | General group       | If this option is switched on, the scrolling text stops as soon as you hover the mouse over the text.                                                                                                                                                                     |
+| rss_opentype     | General group       | Selection of how the link is opened: none, link, popup                                                                                                                                                                                                                    |
 | rss_withtime     | General group       | If this option is switched on, the time is displayed before the respective headline. Attribute rss_withdate - General group If this option is enabled, the date without the year and the time are displayed before the respective headline.                               |
 | rss_withyear     | General group       | If this option is enabled, the date with the year and the time are displayed before the respective headline.                                                                                                                                                              |
 | rss_oid          | Feeds[number] group | Select the data point with the corresponding RSS feed.                                                                                                                                                                                                                    |
@@ -588,6 +604,14 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.4.1 (2025-02-18)
+
+- fix eslint
+
+### 3.4.0 (2025-02-18)
+
+- introducing a new attribute opentype to open the links in the marquee widget
+
 ### 3.3.1 (2025-01-23)
 
 - add an accept request header, because axios send only application/json

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
-title: ioBroker E-Mail
-hash: lNw4hH7NA9g/td26lkvPQi8jRYt19m78JwKOpr5qD6c=
+title: ioBroker-E-Mail
+hash: ypVBzSrm5mbo+TfW0HK5vnJMZibj1ActmAB2k7PbHKA=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -14,16 +14,13 @@ hash: lNw4hH7NA9g/td26lkvPQi8jRYt19m78JwKOpr5qD6c=
 # IoBroker-E-Mail
 ![Testen und Freigeben](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Senden Sie E-Mails von ioBroker.
-
-| :exclamation: Dieser Adapter unterstützt derzeit keine Microsoft-Mailserver (Hotmail, Live.com, Office365 und Web-Outlook). |
-|-----------------------------------------|
+Senden Sie E-Mails von ioBroker. Sie können mit diesem Adapter keine E-Mails abrufen, sondern nur senden.
 
 Der Adapter verwendet [Knotenmailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Um Gmail zu verwenden, müssen Sie möglicherweise „Weniger sichere Apps zulassen“ in Ihrem Gmail-Konto konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssten Sie ein anwendungsspezifisches Passwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit „Zugriff auf Ihr Google-Konto zulassen“ entsperren, um SMTP verwenden zu können.
+Um Gmail nutzen zu können, müssen Sie möglicherweise „Weniger sichere Apps zulassen“ in Ihrem Gmail-Konto konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssten Sie ein anwendungsspezifisches Passwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit „Zugriff auf Ihr Google-Konto zulassen“ entsperren, um SMTP nutzen zu können.
 
 ## Verwendung
 Um eine E-Mail von ScriptEngine zu senden, schreiben Sie einfach:
@@ -68,7 +65,7 @@ sendTo('email', {
 });
 ```
 
-Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion **adapter.sendTo**.
+Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion `adapter.sendTo`.
 
 ## Unterstützte Dienste
 - 1und1 / ionos
@@ -77,24 +74,24 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie die Funktion **ada
 - DynectEmail
 - FastMail
 - GandiMail
-- Google Mail
+Google Mail
 - GoDaddy
 - GodaddyAsia
-- GodaddyEuropa
-- heiß.ee
-- Heiße Mail
+- GodaddyEurope
+- hot.ee
+- Hotmail
 iCloud
-- icht
+- mit
 - mail.ee
 - Mail.ru
 - Mailgun
-- Mailjet
+Mailjet
 - Mandrill
-- Navigation
+- Naver
 Office365
 - OpenMailBox
 - Poststempel
-- Frage
+- QQ
 - QQex
 - SendCloud
 - SendGrid
@@ -115,6 +112,22 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Renamed `dist` folder to `build`
+
+### 2.0.0 (2025-03-11)
+* (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
+* (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
+* (mcm1957) EsLint uses @iobroker/linter-config now
+* (mcm1957) Dependencies have been updated
+* (@GermanBluefox) Migrated to TypeScript
+* (@GermanBluefox) Added "Ignore SSL errors" option
+
+### 1.4.0 (2024-11-17)
+* (simatec) Responsive Design added
+* (Jey-Cee) Admin-UI has been migrated to jsonConfig
+
 ### 1.3.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
@@ -125,17 +138,11 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
 ### 1.2.2 (2023-12-25)
 * (foxriver76) trim host messages from notification-manager correctly
 
-### 1.2.1 (2023-12-08)
- * (foxriver76) send the actual message too via notification-manager
-
-### 1.2.0 (2023-06-02)
-* (foxriver76) support [Notification Manager](https://github.com/foxriver76/ioBroker.notification-manager)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox
+Copyright (c) 2014-2025 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

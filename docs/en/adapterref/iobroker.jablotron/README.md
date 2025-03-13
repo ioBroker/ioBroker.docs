@@ -40,6 +40,9 @@ The storage of sensitive data in the instance config has been changed.
 You need to re-enter your password in the instance settings if you already used an older version < 0.0.5
 
 ## Changelog
+### 0.1.6 (2025-03-10)
+* Dependencies updated
+
 ### 0.1.5 (2024-12-04)
 * Update to ESlint 9
 
@@ -86,7 +89,7 @@ You need to re-enter your password in the instance settings if you already used 
 ## License
 MIT License
 
-Copyright (c) 2024 DEV2DEV-DE
+Copyright (c) 2025 DEV2DEV-DE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

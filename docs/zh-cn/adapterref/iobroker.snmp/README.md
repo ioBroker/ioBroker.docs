@@ -3,201 +3,210 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: 5fWBjXvIrO/ZnPzJQv6aytMx8BLt5umK8be2edSHF7M=
+hash: vkgm5Ynx1MTjhReaeMxL8uU/IPPqweYbUDRdTNpodRM=
 ---
 ![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.snmp)
 ![下载](https://img.shields.io/npm/dm/iobroker.snmp.svg)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
 ![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
-![GitHub 自最新版本以来提交的内容（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
+![GitHub 自最新版本以来的提交情况（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
 ![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
-![NPM版本](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.snmp.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/snmp-stable.svg)
 ![安装数量](https://iobroker.live/badges/snmp-installed.svg)
 
 # IoBroker.snmp
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg）](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
 
-## 哨兵
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 信息
-该适配器可用于使用 SNMP 协议从打印机、网络设备等设备轮询信息。
+该适配器可用于使用 SNMP 协议轮询来自打印机、网络设备等设备的信息。
 
 ## 适配器配置
-适配器查询指定的 oid，这些 oid 被分组在 oid 组中，而 oid 组又被分配给设备。配置数据在多个选项卡中输入。该适配器支持 IPv4 和 IPv6 连接。
+适配器查询指定的 OID，这些 OID 分组在 oid 组中，然后分配给设备。
+配置数据在多个选项卡中输入。适配器支持 IPv4 和 IPv6 连接。
 
-有关详细信息，请参阅下面引用的文档。
+有关详细信息，请参阅下面参考的文档。
 
 ## 文档
-[英文文档](docs/en/snmp.md)<br> [德语文献](docs/de/snmp.md)<br> [俄语文档](docs/ru/snmp.md)
-
-＃＃ __工作正在进行中__
--->
-
-### 2.4.11 (2023-07-13)
-* (McM1957) Node-net-snmp 已更新以改进 uint32 处理 (#282)
-* (McM1957) 其他几个依赖项已更新
-
-### 2.4.10 (2023-07-08)
-* (McM1957) 错误输出中的另一个拼写错误已修复
-
-### 2.4.9 (2023-07-05)
-* (McM1957) 添加了在出现错误时禁止关闭阅读器会话的选项。
-* (McM1957) 启用调试日志后，错误情况下的日志记录已得到增强。
-
-### 2.4.8 (2023-07-04)
-* (McM1957) 修复：UDP 端口在错误处理期间丢失 (#282)
-* (McM1957) 修复：不正确的 toString() 语法导致多个问题，即丢失错误输出 (#283)
-* (McM1957) 依赖项已更新
-
-### 2.4.7 (2023-04-12)
-* (McM1957) 更改：包括 net-snmp 在内的多个外部模块已更新
-
-### 2.4.6 (2023-03-26)
-* (McM1957) 修复：SNMP 设置对于数值 0 不起作用 (#240)
-
-### 2.4.5 (2023-03-20)
-* (McM1957) 修复：使用 SHA 身份验证时 SNMPv3 崩溃 (#236)
-
-### 2.4.4 (2023-03-03)
-* (McM1957) 修复：哨兵报告的崩溃 (#235)
-
-### 2.4.3 (2023-03-01)
-* (McM1957) 翻译和依赖项已更新。
-
-### 2.4.2 (2023-02-25)
-* (McM1957) 哨兵报告的问题已修复。 （＃230）
-
-### 2.4.1 (2023-02-22)
-* (McM1957) 配置页面的错误已得到纠正。 （＃228）
-
-### 2.4.0 (2023-02-21)
-* (McM1957) 支持将数据写入oids 已实现。 （＃150）
-* (McM1957) 大部分代码已被重写，因此支持 oid 编写。
-* (McM1957) 现在可以禁用包含类型信息的状态。 （＃218）
-* (McM1957) 添加了指示设备在线和错误状态的状态。 “在线”状态已移至文件夹信息。
-* (McM1957) 设备状态现在使用颜色和图标显示在对象视图中。
-* (McM1957) 数据类型“自动”已添加到 oid 状态数据类型选择器中。
-* (McM1957) 哨兵报告的问题已修复。 (#224)
-* (McM1957) 确认标志的错误设置已得到纠正。 （＃225）
-* (McM1957) 添加了对 sha224、sha256、sha384 和 sha512 消息身份验证的支持 (#210)
-
-### 2.3.0 (2022-12-13)
-* (McM1957) 添加对使用状态的本机数据类型的支持。 （＃143）
-* (McM1957) 添加了将二进制 oid 数据存储为 json 的支持。 （＃188）
-* (McM1957) 写入模式的错误设置已得到修复。 （＃191）
-* (McM1957) 德语文档中的表格已修复。 （＃192）
-* (McM1957) 使用保留名称“online”命名 oid 已被阻止。 （＃203）
-* (McM1957) 一些与代码质量相关的更改已经实施。 （＃201，＃190）
-
-### 2.2.1 (2022-10-18)
-* (McM1957) 修复了 io-package.json 中的错误。
-* (McM1957) 添加了乌克兰语翻译。
-
-### 2.2.0 (2022-10-18)
-* (McM1957) 兼容性标志现已弃用，并将在未来版本中删除。如果需要，请调整配置。
-* (McM1957) 已添加 SNMP V3 支持 (#71)
-* (McM1957) 添加了对 IPv6 的支持 (#138)
-* (McM1957) 代码已按照 eslint 的建议进行清理
-* (McM1957) 基本模块已升级至当前版本
-* (McM1957) 文档已更新（en、de、ru）
-
-### 2.1.10 (2022-09-22)
-* (McM1957) OID 和设备名称的验证已增强，哨兵报告了崩溃 (#169)
-
-### 2.1.9 (2022-09-13)
-* (McM1957) 已添加对 (IPv4) 域名的支持 (#165)
-* (McM1957) 没有任何活动 oid 的设备不再导致致命错误，而只记录警告 (#155)
-* (McM1957) 现在更严格地验证计时器值 (#156, #164)
-* (McM1957) 哨兵报告的一些崩溃已修复 (#167)
-* (McM1957) 外部包已由dependabot更新
-
-### 2.1.8 (2022-09-08)
-* (McM1957) HOTFIX：从以前的版本更新到版本 v2.x.x 时，参数“community”尚未迁移。 （＃163）
-
-### 2.1.7 (2022-08-27)
-* (McM1957) README.md 中的文档已更新 (#133)
-
-### 2.1.6 (2022-08-19)
-* (McM1957) 哨兵报告的一些问题已修复 (#151, #152)
-
-### 2.1.5 (2022-08-11)
-* (McM1957) 选项“可选”的功能已恢复。 (#147)
-
-### 2.1.4 (2022-08-08)
-* (McM1957) HOTFIX - SNMP v1 错误导致的系统崩溃已修复 (#145)
-
-### 2.1.3 (2022-08-07)
-* (McM1957) 添加了一个新选项来控制单个请求中的 OID 数量，以避免 TOOBIG 错误 (#72)
-
-### 2.1.2 (2022-08-02)
-* (McM1957) 浮点值的转换已得到纠正 (#16)
-
-### 2.1.1 (2022-08-01)
-* (McM1957) 一些外部包已更新
-
-### 2.1.0 (2022-07-30)
-* (McM1957) net-snmp 已升级至版本 3.8.2
-* (McM1957) 添加了对 SNMP v2c 的支持 (#116)
-* (McM1957) 状态对象的质量标记将在错误或超时的情况下使用
-* (McM1957) OID 标记“可选”已实施。该标记可以抑制并不总是可用的 OID 的错误。 （＃116）
-* (McM1957) 添加了对 Counter64 OID 的支持。 (#57)
-* (McM1957) 现在将更详细地记录 snmp 通信返回的数据。
-* (McM1957) 紧凑模式已启用。 (#20)
-* (McM1957) 已知限制：当前仅支持 SNMP V1 和 SNMP V2c。
-* (McM1957) 已知限制：OID 属性可写尚未实现。
-
-### 2.0.1 (2022-07-22)
-* (McM1957) 兼容模式标志的错误处理已得到纠正 (#135)
-* (McM1957) 更正了无效 OID 的错误记录 (#134)
-
-### 2.0.0 (2022-07-21)
-* 重要提示：此版本将更改配置结构！
-
-请在开始安装之前备份您的配置。
-安装将尝试转换旧配置 - 但不保证在所有情况下都能成功。
-
-* (McM1957) 代码的许多部分已被重写
-* (McM1957) 适配器现在使用 admin5 接口
-* (McM1957) 现在可以为每个设备设置不同的计时器值 (#105)
-* (McM1957) 更改配置条目的顺序不再破坏数据 (#15)
-* (McM1957) 现在可以命名设备的状态对象。旧行为可作为一个选项提供。
-* (McM1957) 已知限制：当前仅支持 SNMP V1。
-* (McM1957) 已知限制：OID 属性可选和可写尚未实现。
-
-### 1.0.0 (2022-03-21)
-* 重要提示：此版本将更改对象结构！
-* (McM1957) info.connection 更新的延迟已减少
-* (McM1957) 如果目标无法访问则过多的错误日志已被优化
-* (McM1957) 在 ip 基础上添加了额外的在线对象，以指示目标可达
-* (McM1957) 如果 OID 为一台设备指定不同的社区，则会输出警告
-* (Apollon77) 添加了用于崩溃报告的哨兵
-
-### 0.5.0
-* (Marcolotti) 添加文档 (de,en,ru)
-* (Marcolotti) 添加语言 (de,en,ru)
-
-### 0.0.3
-* (Apollon77) 修复对象类型
-
-### 0.0.2
-* (Bluefox) 修复
-
-### 0.0.1
-*（Bluefox）重构
-* (Marcolotti) 初始版本
+[英文文件](docs/en/snmp.md)<br> [德国文献](docs/de/snmp.md)<br> [俄语文献](docs/ru/snmp.md)
 
 ## Changelog
 
 <!--
+   ### **WORK IN PROGRESS**
+-->
+### 3.2.0 (2024-03-29)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 3.1.0 (2023-10-13)
+* (mcm1957) Requirements have been updated. Adapter requires node.js 18 or newer now
+* (mcm1957) Packages have been update to cleanup open dependabot PRs
+
+### 3.0.0 (2023-10-12)
+* (bluefox) updated packages. Minimal node.js version is 16
+
+### 2.4.11 (2023-07-13)
+* (McM1957) Node-net-snmp has been updated to improve uint32 handling (#282)
+* (McM1957) Several other dependencies have been updated
+
+### 2.4.10 (2023-07-08)
+* (McM1957) Another typo at error output has been fixed
+
+### 2.4.9 (2023-07-05)
+* (McM1957) An option to disable closing of reader session in case of an error has been added.
+* (McM1957) Logging in case of errors hase been enhanced when debug log enabled.
+
+### 2.4.8 (2023-07-04)
+* (McM1957) fixed: UDP ports got lost during error handling (#282)
+* (McM1957) fixed: Incorrect toString() syntax caused several issues, i.e. missing error output (#283)
+* (McM1957) Dependencies have been updated
+
+### 2.4.7 (2023-04-12)
+* (McM1957) changed: several externalmodules including net-snmp have been updated
+
+### 2.4.6 (2023-03-26)
+* (McM1957) Fixed: SNMP set did not work for numeric value 0 (#240)
+
+### 2.4.5 (2023-03-20)
+* (McM1957) Fixed: SNMPv3 crash when using SHA authentication (#236)
+
+### 2.4.4 (2023-03-03)
+* (McM1957) Fixed: crash reported by sentry (#235)
+
+### 2.4.3 (2023-03-01)
+* (McM1957) Translations and dependencies have been updated.
+
+### 2.4.2 (2023-02-25)
+* (McM1957) A problem reported by sentry has been fixed. (#230)
+
+### 2.4.1 (2023-02-22)
+* (McM1957) An error at configuration pages has been corrected. (#228)
+
+### 2.4.0 (2023-02-21)
+* (McM1957) Support to write data to oids has been implemented. (#150)
+* (McM1957) Major parts of code have been rewritten so support oid writing.
+* (McM1957) States containing type information can be disabled now. (#218)
+* (McM1957) States indicating online and error status of devices have been added. State 'online' has been moved to folder info.
+* (McM1957) Devicestatus is now displayed at object view using colour and icons.
+* (McM1957) Data type 'automatic' has been added to oid states datatype selector.
+* (McM1957) A problem reported by sentry has been fixed. (#224)
+* (McM1957) An incorrect setting of ack flags has been corrected. (#225)
+* (McM1957) Support for sha224, sha256, sha384 and sha512 message authentication has been added (#210)
+
+### 2.3.0 (2022-12-13)
+* (McM1957) Add support for using native datatypes for states. (#143)
+* (McM1957) Support has been added to store binary oid data as json. (#188)
+* (McM1957) Incorrect setting of write mode has been fixed. (#191)
+* (McM1957) Tables within german documentation have been fixed. (#192)
+* (McM1957) Naming an oid with the reserved name 'online' has been blocked. (#203)
+* (McM1957) Some changes related to code quality have been implemented. (#201, #190)
+
+### 2.2.1 (2022-10-18)
+* (McM1957) Fixed an error within io-package.json.
+* (McM1957) Ukrainian translations have been added.
+
+### 2.2.0 (2022-10-18)
+* (McM1957) The compatibility flag is now deprecated and will be removed in future releases. Please adapt config if required.
+* (McM1957) SNMP V3 support has been added (#71)
+* (McM1957) Support for IPv6 has been added (#138)
+* (McM1957) Code has been cleaned as suggested by eslint 
+* (McM1957) Base modules have been upgraded to current versions
+* (McM1957) Documentaion  has been updates (en, de, ru)
+
+### 2.1.10 (2022-09-22)
+* (McM1957) Validation of OID and device names has been enhanced, crash was reported by sentry (#169)
+
+### 2.1.9 (2022-09-13)
+* (McM1957) Support for (IPv4) domainnames has been readded (#165)
+* (McM1957) Devices without any active oid do no longer cause an fatal error but only log a warning (#155)
+* (McM1957) Timervalues are now validated more strictly (#156, #164)
+* (McM1957) Some crashes reported by sentry have been fixed (#167)
+* (McM1957) external packages have been updated by dependabot
+
+### 2.1.8 (2022-09-08)
+* (McM1957) HOTFIX: Parameter "community" has not been migrated when updating to version v2.x.x from previous releases. (#163)
+
+### 2.1.7 (2022-08-27)
+* (McM1957) Documentation within README.md has been updated (#133)
+
+### 2.1.6 (2022-08-19)
+* (McM1957) Some issues reported by sentry have been fixed (#151, #152)
+
+### 2.1.5 (2022-08-11)
+* (McM1957) The functionality of option "optional" has been restored. (#147)
+
+### 2.1.4 (2022-08-08)
+* (McM1957) HOTFIX - A system crash at SNMP v1 errors has been fixed (#145)
+
+### 2.1.3 (2022-08-07)
+* (McM1957) A new option to control the number of OIDs within a single request has been added to avoid TOOBIG errors (#72)
+
+### 2.1.2 (2022-08-02)
+* (McM1957) conversion of floatingpoint values has been corrected (#16)
+
+### 2.1.1 (2022-08-01)
+* (McM1957) some external packages have been updated
+
+### 2.1.0 (2022-07-30)
+* (McM1957) net-snmp has been upgraded to version 3.8.2
+* (McM1957) Support for SNMP v2c has been added (#116)
+* (McM1957) The quality marker of stateobjects will be used in case of error or timeout
+* (McM1957) The OID marker 'Optional' has been implemented. This marker suppresses errors for OIDs which are not always available. (#116)
+* (McM1957) Support for Counter64 OIDs has been added. (#57)
+* (McM1957) The data returned by snmp communication  will be logged with more details now.
+* (McM1957) Compact mode has been enabled. (#20)
+* (McM1957) Known restriction: currently only SNMP V1 and SNMP V2c are supported.
+* (McM1957) Known restriction: OID attribute writeable is not yet implemented.
+
+### 2.0.1 (2022-07-22)
+* (McM1957) Faulty handling of compatibility mode flag has been corrected (#135)
+* (McM1957) Logging of errors for invalid OIDs corrected (#134)
+
+### 2.0.0 (2022-07-21)
+* IMPORTANT: This release will change the configuration structures!
+  Please backup your configuration before starting the installation.
+  The Installation will try to convert the old configuration - but it is not guaranteed to succeed in all cases. 
+* (McM1957) Many parts of the code have been rewriten
+* (McM1957) The adapter now uses the admin5 interface
+* (McM1957) Timer values can now be set differently per device (#105)
+* (McM1957) Changing the order of configuration entries does no longer destroy data (#15)
+* (McM1957) Stateobjects for devices can now be named. The old behavior is available as an option.
+* (McM1957) Known restriction: currently only SNMP V1 is supported.
+* (McM1957) Known restriction: OID attributes optional and writeable are not yet implemented.
+
+### 1.0.0 (2022-03-21)
+* IMPORTANT: This release will change the object structures!
+* (McM1957) latency for update of info.connection has been reduced 
+* (McM1957) excessive error logging if target is unreachable hab been optimzed
+* (McM1957) additional online object at ip base to indicate target is reachable has been added
+* (McM1957) if OIDs specify different communities for one device a warning will be output
+* (Apollon77) Sentry for crash reporting has been added
+
+### 0.5.0
+* (Marcolotti) Add documentation (de,en,ru)
+* (Marcolotti) Add languages (de,en,ru)
+
+### 0.0.3
+* (Apollon77)  Fix Object Type
+
+### 0.0.2
+* (Bluefox)    Fixes
+
+### 0.0.1
+* (Bluefox)    refactoring
+* (Marcolotti) initial release
 
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

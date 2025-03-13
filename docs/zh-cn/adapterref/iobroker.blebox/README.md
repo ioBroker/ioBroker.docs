@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
+hash: 8oNPKG+hEgovErukFkieAYGOQYu1hwgt3nGJXZYLh58=
 ---
 ![标识](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -24,6 +24,7 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 
 |盖拉特 | API 类型 |状态 |
 |----------------------|---------------------|-----------------------------------------|
+| airsensor | airsensor | ❓ alpha，未使用真实硬件或 API 模拟进行测试 |
 | gatebox | gatebox | ✅ 已测试 |
 | 多传感器 | 多传感器 | 每个设备最多支持 8 个传感器 |
 | tempSensor PRO | 多传感器 | ❓ 测试版，未经真实硬件测试 |
@@ -37,11 +38,11 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 | shutterBoxDC | shutterBox | ❓ 测试版，未经真实硬件测试 |
 | shutterBoxDIN | shutterBox | ❓ 测试版，未经真实硬件测试 |
 | 开关盒 | 开关盒 | ✅ 已测试 |
-| switchBoxD | switchBox | ❓ 测试版，未经真实硬件测试 |
-| switchBoxDC | switchBox | ❓ 测试版，未经真实硬件测试 |
+| switchBoxD | switchBoxD | ❓ 测试版，未经真实硬件测试 |
+| switchBoxDC | switchBoxD | ❓ 测试版，未经真实硬件测试 |
 | switchBox DIN | switchBox | ❓ 测试版，未经真实硬件测试 |
-| switchBoxD DIN | switchBox | ❓ 测试版，未经真实硬件测试 |
-| switchBoxT PRO | switchBox | ❓ 测试版，未经真实硬件测试 |
+| switchBoxD DIN | switchBoxD | ❓ 测试版，未经真实硬件测试 |
+| switchBoxT PRO | switchBoxD | ❓ 测试版，未经真实硬件测试 |
 | tempsensor | tempsensor | ❓ 测试版，未经真实硬件测试 |
 | tvlift | tvlift | ❓ 测试版，未经真实硬件测试 |
 
@@ -52,7 +53,16 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
     ### **WORK IN PROGRESS**
 -->
 
-### 2.2.0 (2023-10-13)
+### 2.2.3 (2025-02-13)
+
+* (Kai van Nuis) Support for airsensor, alpha, neither tested with real Hardware nor an API-Simulation
+* (Kai van Nuis) Support both relay on switchBoxD
+
+### 2.2.1 (2024-12-26)
+
+* (Kai van Nuis) Support for multi-device APIs
+  
+* ### 2.2.0 (2024-12-21)
 
 * (Kai van Nuis) Support for multi-device APIs
 
@@ -82,7 +92,7 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 ## License
 MIT License
 
-Copyright (c) 2024 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2025 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

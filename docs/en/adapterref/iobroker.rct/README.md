@@ -7,7 +7,7 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/rct-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/rct-stable.svg)
 
-[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/release/npm/ioBroker.rct)](https://img.shields.io/librariesio/release/npm/ioBroker.rct)
+[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
 
 [![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)](https://nodei.co/npm/iobroker.rct/)
 
@@ -62,6 +62,10 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.18 (2025-02-24)
+* (NCIceWolf) Debug mode in Admin added
+* (NCIceWolf) update dependencies
+
 ### 1.2.17 (2025-01-01)
 * (Andreas Ruttkamp) update deps
 * (Andreas Ruttkamp) update copyright

@@ -70,16 +70,24 @@ Here is what to configure when creating a new instance of the adapter. Settings 
   </tr>
   <tr>
     <td>Tuple sending delay [sec]</td>
-    <td>Define how long ioBroker will wait before writing idle period or data history changes to E3/DC. Purpose is to merge several subsequent changes into one single call. A dedicated timeout is set/reset upon every change concerning the values within one idle period or one data history scale, resepectively; changes are only transmitted after the timeout is   <tr>
+    <td>Define how long ioBroker will wait before writing idle period or data history changes to E3/DC. Purpose is to merge several subsequent changes into one single call. A dedicated timeout is set/reset upon every change concerning the values within one idle period or one data history scale, resepectively; changes are only transmitted after the timeout is over. This applies to EMS.IDLE_PERIODS_* and DB.HISTORY_DATA_*</td>
+  <tr>
   <tr>
     <td>Checkbox for each E3/DC namespace</td>
     <td>Data will be requested only for checked namespaces.</td>
   </tr>
+  <tr>
+    <td>Max. index for initialisation of components</td>
+    <td>Adjust max. index as needed, e.g. if you have more batteries. This is used for initial detection of components. Exception: the PERIOD2 count says how many version 2 PERIOD objects will be created at least. NOTE that index starts with 0,1,..., i.e. if you have four batteries, max. index 3 is appropriate.</td>
+  </tr>
     <td>Checkbox for Lazy SetState()</td>
     <td>If checked (default), the adapter will write to ioBroker States only when values have changed - this reduces workload, better for smaller hardware. Uncheck this option and the adapter will call setState() after every polling iterval, also for unchanged values - better if you have an application depending on regular State.ts updates. </td>
   </tr>
-over. This applies to EMS.IDLE_PERIODS_* and DB.HISTORY_DATA_*</td>
   </tr>
+    <td>Checkboxes for Idle Periods V1 and V2</td>
+    <td>In 2024, E3/DC introduced version 2 of idle periods, which can handle more than one period on the same day. The old E3/DC portal showed V1 periods, the new on shows V2 periods. I did not drop V1 completely, so you still can use them for downwards compatibility. If you decide to go with V2, I recommend to switch off V1. Both versions interfere in a non-trivial way, so be careful.</td>
+  </tr>
+
 
 </table>
 
@@ -311,31 +319,61 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
     <td>EMS (1)</td>
     <td>IDLE_PERIOD_ACTIVE</td>
     <td>boolean</td>
-    <td>(de-)activate idle period (2).</td>
+    <td>(de-)activate idle period.</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>START_HOUR</td>
     <td>number</td>
-    <td>Start hour of idle period (2).</td>
+    <td>Start hour of idle period.</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>START_MINUTE</td>
     <td>number</td>
-    <td>Start minute of idle period (2).</td>
+    <td>Start minute of idle period.</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>END_HOUR</td>
     <td>number</td>
-    <td>End hour of idle period (2).</td>
+    <td>End hour of idle period.</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>END_MINUTE</td>
     <td>number</td>
-    <td>End minute of idle period (2).</td>
+    <td>End minute of idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>IDLE_PERIOD_TYPE</td>
+    <td>number</td>
+    <td>(V2) 0 = pause charging, 1 = pause discharging.</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_ACTIVE</td>
+    <td>boolean</td>
+    <td>(V2) (de-)activate idle period.</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_START</td>
+    <td>string</td>
+    <td>(V2) idle period begins at time-of-day like "12:30:00".</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_STOP</td>
+    <td>string</td>
+    <td>(V2) idle period ends at time-of-day like "21:00:00".</td>
+  </tr>
+  <tr>
+    <td>EMS (2)</td>
+    <td>PERIOD_WEEKDAYS</td>
+    <td>string</td>
+    <td>(V2) idle period is enabled on weekdays like "135" where 1 = Monday, 2 = Tuesday, ... 7 = Sunday.</td>
   </tr>
   <tr>
     <td>EP</td>
@@ -405,9 +443,9 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   </tr>
 </table> 
 
-Note (1): Full path is EMS.IDLE_PERIODS_(DIS)CHARGE.&lt;day-of-week&gt; - e.g. "EMS.IDLE_PERIODS_CHARGE.00-Monday". Changes are only sent "tuple sendig delay" after the last change. 
+Note (1): Full path is EMS.IDLE_PERIODS_(DIS)CHARGE.&lt;day-of-week&gt; - e.g. "EMS.IDLE_PERIODS_CHARGE.00-Monday". Changes are only sent "tuple sending delay" after the last change. 
 
-Note (2): Note that all IDLE_PERIOD tags are written only after the SET_IDLE_PERIOD delay, as defined in the configuration. The delay is restarted upon every change within one IDLE_PERIOD day. 
+Note (2): Full path is EMS.IDLE_PERIODS_2.&lt;counter&gt; - e.g. "EMS.IDLE_PERIODS_2.07.PERIOD_START". Changes are only sent "tuple sending delay" after the last change. (V2) means this is a tag introduced in 2024 for the new PERIODS_2 feature. E3/DC copies (V1) and (V2) periods in both directions, but with more than one interval on the same weekday, (V1) will only have one of them. **Caution**: if you modify (V1) periods, extra (V2) intervals will be removed by E3/DC! So, best practice is to consistently use only (V1) or only (V2).
 
 Note (3): Full path is DB.HISTORY_DATA_{DAY,WEEK,MONTH,YEAR} - e.g. "DB.HISTORY_DATA_DAY". Changes are only sent "tuple sendig delay" after the last change.
 
@@ -462,10 +500,37 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
-### 1.3.2
+
+### 1.4.2
+
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[E160\]\[E190\] "peerDependencies.iobroker.admin"  in package.json
+  * \[605\] updated (c) 2025.
+  * \[254\] removed v1.3.2 which was never released.
+
+### 1.4.1
+
+MODIFIED ADAPTER SETTINGS - see [Reuse of adapter configuration](https://github.com/git-kick/ioBroker.e3dc-rscp/tree/master?tab=readme-ov-file#reuse-of-adapter-configuration)
  
 (git-kick)
-* Fixed [Issue #241](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/241) - modified PM index detection so that discountinuous index sets are handled correctly, like ( 0, 1, 3, 6 )
+* fixed error in weekdayStringToBitmask() - thanks to @SurfGargano for testing.
+* idle periods v1 or v2 can now be switched off in the adapter config - recommendation is to use only one of both.
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[E186\] "common.globalDependencies" must be an array at io-package.json
+  * \[E190\] admin dependency missing. Please add to dependencies at io-package.json.
+* New RscpTags.json: added new tags from 01-2024 tag list. 
+**But keep** ...EMERGENCY_POWER_TEST... naming despite it changed to ...EMERGENCYPOWER_TEST... in the new tag-list (this affects four tags).
+* Fixed [Issue #236](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/236) - added handling for version 2 PERIODs. 
+* New instance settings for max. number of BAT/PVI/PM/PERIOD - so everybody who has e.g. 6 batteries or 3 power inverters can now adjust the detection range for his own setup. This fixes [Issue #249](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/249)
+* Fixed [Issue #241](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/241) - modified PM index detection so that discountinuous index sets are handled correctly, like ( 0, 1, 3, 6 ).
+* Fixed E524, E525, S526 dev dependencies.
+* Enhanced max. index handling to produce less debug log messages. (Introduced notIndexIds for non-index counts.)
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[E186\] "common.globalDependencies" must be an array at io-package.json
+  * \[E190\] admin dependency missing. Please add to dependencies at io-package.json.
+  * \[W050\] Package 'axios' listed as devDependency at package.json might be obsolete if using '@iobroker/adapter-dev'.
+
+### 1.4.0   - Deprecated - Do not install -
 
 ### 1.3.1
 
@@ -475,14 +540,14 @@ MODIFIED ADAPTER SETTINGS - see [Reuse of adapter configuration](https://github.
 * Fixed [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - added PM (power meter) namespace. **Only reading values, no SET tags.**
 * Fixed two newly reported "undefined" occurences in main.js.
 * Fixed errors listed in [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - reported by the ioBroker Check and Service Bot.
-  * \[E162\]: js-controller dependency updated to >= 5.0.19
-  * \[E204\]: "remove news version 1.3.0" considered a false finding; in v1.2.6, io-package.json does not contain common.news "1.3.0"
-  * \[E605\]: updated copyright to 2024 in README.md
-  * \[E605\]: removed .npmignore from project directory
-  * \[W040\]: added keyword "ioBroker" in package.json
-  * \[W130\]: deleted all but some recent common.news in io-package.json 
-  * \[W184\]: removed "common.materialize" from io-package.json 
-  * \[S522\]: migrated to admin5 UI (jsonConfig.json5)
+  * \[E162\] js-controller dependency updated to >= 5.0.19
+  * \[E204\] "remove news version 1.3.0" considered a false finding; in v1.2.6, io-package.json does not contain common.news "1.3.0"
+  * \[E605\] updated copyright to 2024 in README.md
+  * \[E605\] removed .npmignore from project directory
+  * \[W040\] added keyword "ioBroker" in package.json
+  * \[W130\] deleted all but some recent common.news in io-package.json 
+  * \[W184\] removed "common.materialize" from io-package.json 
+  * \[S522\] migrated to admin5 UI (jsonConfig.json5)
 
 ### 1.3.0  - Deprecated - Do not install -
 
@@ -635,7 +700,7 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 <a name="lic"></a>
 ## License
 
-Copyright (c) 2024 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2025 Ulrich Kick <iobroker@kick-web.de>
 
 ```
 					GNU GENERAL PUBLIC LICENSE

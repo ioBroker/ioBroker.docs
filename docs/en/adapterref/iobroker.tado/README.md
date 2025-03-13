@@ -10,6 +10,9 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)](https://nodei.co/npm/iobroker.tado/)
 
+## Login no longer working?
+Due to a new authorization method from Tado, which is mandatory by March 21st (see https://github.com/DrozmotiX/ioBroker.tado/issues/954), the authentification method was switched from UserId and Password to Token. Therefore you have to upgrade to version 0.7.1 or later! After the update go to the adapter's config page and follow the process with the Buttons "Step 1" and "Step 2".
+
 ## tado adapter for ioBroker
 Tado° (https://www.tado.com) is the expert in smart heating and energy management for your home, designed and developed in Germany. Save energy and cut costs for good with us – enjoy a cosy and sustainable home.
 
@@ -65,6 +68,15 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.7.2 (2025-03-12)
+* (HGlab01) improve sentry logs
+
+### 0.7.1 (2025-03-09)
+* (HGlab01) !!!BREAKING CHANGE!!! new Authentification method (https://github.com/DrozmotiX/ioBroker.tado/issues/954)
+* (HGlab01) Bump axios to 1.8.2
+* (HGlab01) Improve error messages for Sentry
+* (HGlab01) Add attributes 'tariffLowPriceAlert' and 'tariffHighPriceAlert'
+
 ### 0.6.1 (2024-11-04)
 * (HGlab01) Add attributes 'expiryInSeconds' and 'activated'
 * (HGlab01) Extend timeout back to 20s
@@ -75,19 +87,6 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 
 ### 0.5.9 (2024-10-16)
 * (HGlab01) Improve axios promise handling
-
-### 0.5.7 (2024-09-30)
-* (HGlab01) Change of attribute "light" supported
-* (HGlab01) Add attribute 'connection'
-* (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'
-* (HGlab01) Bump axios to 1.7.7
-* (HGlab01) EnergyIQ meter-readings can be uploaded
-
-### 0.5.6 (2024-08-06)
-* (HGlab01) Improve AccessToken Management
-* (HGlab01) Bump axios to 1.7.3
-* (HGlab01) Add attribute 'language'
-* (HGlab01) Add attribute 'isHeatPumpInstalled'
 
 ## License
 MIT License

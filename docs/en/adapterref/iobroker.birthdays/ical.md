@@ -36,3 +36,9 @@ Go to [Google Calendar](http://calendar.google.com/) and create a new calendar. 
 ![iCal New Event Synology](./img/ical-synology-new-r.png)
 
 ![iCal URL Synology](./img/ical-synology-url.png)
+
+### Apple iCloud Clendar
+
+![iCal New Event iCloud](./img/ical-icloud-new.png)
+
+![iCal Settings iCloud](./img/ical-icloud-url.png)

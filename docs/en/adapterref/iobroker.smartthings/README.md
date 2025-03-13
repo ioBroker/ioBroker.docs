@@ -18,13 +18,10 @@ Adapter for Samsung Smartthings
 
 ## Login process:
 
-Visit the link. https://account.smartthings.com/tokens
-Log in with your Samsung account to go to the \"Personal Access Tokens\" page.
-Tap the \"Generate New Token\" button to go to the \"New Access Token\" page.
-Provide a name for the new token. In the \"Authorized Scopes\" section, select any functionality you want to authorize for the token.
-Tap the \"Generate Token\" button when you are done and you will be returned to the \"Personal Access Tokens\" page. Copy the newly generated token and keep it in a safe place. This is your only way to retrieve the newly generated token value.
+Open the link in the adapter settings and login until you see a white Screen.
+Open the Developer Console F12 or Option + Command + I and copy the blue samsungconnect:// url and paste it in the settings.
 
-## Steer
+## Controling
 
 smartthings.0.id.capabilities either set to true or set a predefined value
 
@@ -33,6 +30,10 @@ smartthings.0.id.capabilities either set to true or set a predefined value
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
+### 0.2.2 (2025-02-11)
+
+- add new login process
+
 ### 0.1.2 (2024-05-19)
 
 - Update Dependencies

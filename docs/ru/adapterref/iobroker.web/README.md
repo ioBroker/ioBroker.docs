@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
+hash: 5tn98OjELn7lq9d0K9WQAgr8fnJMj7kVxeNvrcY/ig8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -16,11 +16,11 @@ hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
 
 Веб-сервер на базе Node.js и Express для чтения файлов из базы данных ioBroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Настройка веб-сокетов
 На некоторых клиентах веб-сокетов возникает проблема производительности связи.
-Иногда эта проблема возникает из-за отката связи socket.io на механизме длительного опроса.
+Иногда эта проблема возникает из-за отката связи socket.io на механизме длинного опроса.
 Вы можете установить опцию *Force Web-Sockets* для принудительного использования только транспорта веб-сокетов.
 
 ## Давайте зашифруем сертификаты
@@ -29,14 +29,14 @@ hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
 ## Расширения
 Веб-драйвер поддерживает расширения.
 Расширение — это обработчик URL, который будет вызван, если появится такой запрос URL.
-Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызываться веб-сервером.
+Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызваны веб-сервером.
 
 Например, пользователь может активировать специальный прокси-адаптер и получить доступ к другим устройствам (например, веб-камерам) на том же веб-сервере.
 Необходимо, чтобы все сервисы были доступны на одном веб-сервере.
 
 Веб-расширение может и должно поддерживать функцию `unload`, которая могла бы возвращать `promise`, если действие выгрузки займет некоторое время.
 
-Подробнее о веб-расширениях можно прочитать [здесь](WEB-EXTENSIONS-HOWTO.md).
+Подробнее о веб-расширениях можно прочитать здесь [здесь](WEB-EXTENSIONS-HOWTO.md).
 
 ## Защита от грубой силы
 Если включена аутентификация и пользователь вводит неверный пароль 5 раз в течение одной минуты, он должен подождать не менее одной минуты до следующей попытки. После 15-й неправильной попытки пользователь должен ждать 1 час.
@@ -46,26 +46,18 @@ hash: 6NowZOFEYYXknCOlU02YrWap+8V3bm+CRGEhcgozaWg=
 Если нет, пользователь останется в системе в течение настроенного «тайм-аута входа».
 
 ## Доступ к значениям состояния
-Доступ к значениям нормального и двоичного состояния можно получить с помощью HTTP-запроса get.
+Доступ к значениям нормального состояния можно получить с помощью HTTP-запроса get.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-или
+или получить доступ к таким файлам, как:
 
 ```
-http://IP:8082/state/javascript.picture.png =>
+http://IP:8082/vis-2.0/javascript.picture.png =>
 [IMAGE]
-```
-
-Изображение должно быть написано в адаптере JavaScript следующим образом:
-
-```js
-createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
-    setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
-});
 ```
 
 ## Вариант «Базовая аутентификация»
@@ -82,15 +74,55 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ### Перенаправление по умолчанию
 Если при открытии веб-порта в браузере не должен отображаться выбор приложения, а должно отображаться какое-то конкретное приложение, путь можно указать здесь (например, `/vis/`), и этот путь будет открыт автоматически.
 
+## Аутентификация OAuth2
+Веб-адаптер поддерживает аутентификацию OAuth2.
+
+Чтобы получить токены, пользователь должен вызвать URL:
+
+```
+http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker&stayloggedin=<false/true>
+```
+
+`stayloggedin=true` означает, что токен будет сохранен в браузере и будет использоваться для следующих запросов, и является необязательным.
+
+Ответ такой:
+
+```json
+{
+    "access_token": "21f89e3eee32d3af08a71c1cc44ec72e0e3014a9",
+    "expires_in": "2025-02-23T11:39:32.208Z",
+    "refresh_token": "66d35faa5d53ca8242cfe57367210e76b7ffded7",
+    "refresh_token_expires_in": "2025-03-25T10:39:32.208Z",
+    "token_type": "Bearer"
+}
+```
+
+Более подробную информацию можно найти здесь: https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.6 (2025-03-09)
+* (@GermanBluefox) Corrected the login for iobroker.visu app
+* (@GermanBluefox) Corrected load of TypeScript Web extensions
+
+### 7.0.4 (2025-03-04)
+* (@GermanBluefox) Corrected the login page
+* (@GermanBluefox) Removed the frequent debug output
+
+### 7.0.3 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 7.0.1 (2025-03-02)
+* (@GermanBluefox) [Breaking change] Removed simple-api as it could be connected as web-extension
 * (@GermanBluefox) updated packages
 * (@GermanBluefox) removed gulp in a build process
-* (@GermanBluefox) Migrated GUI ti vite
+* (@GermanBluefox) Migrated GUI to vite
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Added OAuth2 support
+* (@GermanBluefox) Added new 404 and the directory list pages
 
 ### 6.3.1 (2024-09-23)
 * (@foxriver76) added new admin icon (svg)

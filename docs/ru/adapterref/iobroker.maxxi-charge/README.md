@@ -1,9 +1,18 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.maxxi-charge.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.maxxi-charge.svg
+BADGE-Number of Installations: https://iobroker.live/badges/maxxi-charge-installed.svg
+BADGE-GitHub: https://img.shields.io/github/license/blabond/iobroker.maxxi-charge?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.maxxi-charge/README.md
-title: ioBroker.Maxxi-Зарядка
-hash: dJ40gCWSLrlioJWXO9KMIqQrO0Gk7VpDkUqt5quNjEk=
+title: ioBroker.Maxxi-Заряд
+hash: jZ2ev72VNPO8u1sVXU6iG2xvUyZuOce9t/G1GljuTlQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.maxxi-charge/admin/ms_logo_black_green.webp)
 
@@ -29,12 +38,24 @@ http://www.maxxisun.de
 
 [🇩🇪 Документация](./docs/de/README.md)
 
+## Совместимость версий
+| Версия | CCU V1 Локальная | CCU V1 Облако | CCU V2 Локальная | CCU V2 Облако |
+|---------|--------------|--------------|--------------|--------------|
+| 0,36 | ❌ | ✅ |              |              |
+| 0,38 | ❌ | ✅ |              |              |
+| 0,40 | ❌ | ✅ |              |              |
+| 0,41 | ✅ | ✅ |              |              |
+| 0,44 | ✅ | ✅ |              |              |
+| 0,45 | ❓ | ❓ | ❓ | ❓ |
+
+🔹 **Легенда**: ✅ - Совместимо ❌ - Несовместимо ❓ - Неизвестно
+
 ## Changelog
 
-### 1.4.8 (2025-01-28)
+### 1.4.9 (2025-02-08)
 
+- Bugfix on Battery Calibration.
 - Fixes for stable release on ioBroker adapter.
-- Fixes for Deinstallation
 - Feedback update
 
 ### 1.4.1 (2025-01-12)

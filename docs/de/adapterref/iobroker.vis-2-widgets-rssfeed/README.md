@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 title: Vis 2 RSS-Feed-Widgets
-hash: ErMD6x59cwdqkbwLVYUsR8GHNYdPgIHmHAi5lW7uc98=
+hash: +yjjHHRqJ/PCFnzNOb7mLmosEVYrzBWKdURpn/sC1ac=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-rssfeed/admin/vis-2-widgets-rssfeed.png)
 
@@ -13,9 +13,9 @@ hash: ErMD6x59cwdqkbwLVYUsR8GHNYdPgIHmHAi5lW7uc98=
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-rssfeed.png?downloads=true)
 
 # Vis 2 RSS-Feed-Widgets
-dieser Adapter enthält nur die Vis-2-Widgets für den Adapter-RSSfeed.
+dieser Adapter enthält nur die Vis-2-Widgets für den Adapter-RSS-Feed.
 
-Eine detaillierte Beschreibung der Widgets und Funktionalität finden Sie unter Adapter RSS-Feed.
+Eine detaillierte Beschreibung der Widgets und Funktionen finden Sie unter Adapter-RSS-Feed.
 
 ## Changelog
 
@@ -23,6 +23,19 @@ Eine detaillierte Beschreibung der Widgets und Funktionalität finden Sie unter 
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.0.1 (2025-03-10)
+
+- try to fix marque v5 widget
+
+### 1.0.0 (2025-02-19)
+
+- remove common.noConfig from io-package.json
+- add popup as opening type for marquee widget
+
+### 0.3.6 (2024-09-18)
+
+- remove 0.3.4 from io-package.json
+
 ### 0.3.5 (2024-08-09)
 
 - improve link styling in the marquee widget
@@ -92,7 +105,7 @@ Eine detaillierte Beschreibung der Widgets und Funktionalität finden Sie unter 
 
 The MIT License (MIT)
 
-Copyright (c) 2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2025 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

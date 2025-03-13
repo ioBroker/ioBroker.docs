@@ -628,6 +628,9 @@ Old folder names can be viewed in the imap.0.xxx.remote.change_folder object
 ### **WORK IN PROGRESS**
 
 - (Lucky-ESA) Description revised
+- (Lucky-ESA) Admin 7.4.10 required
+- (Lucky-ESA) JS-Controller 6.0.11 required
+- (Lucky-ESA) Added meta object for attachments
 
 ### 0.3.0 (2024-12-07)
 

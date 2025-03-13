@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-collection/README.md
 title: ioBroker.vis 2.0 的小部件集合
-hash: LxwFps6ypPgRycUmrKQm7BECCR9Qpw6WGe6SH1A0W0A=
+hash: OkJgfxAHLnPcOeIlU9eGzJZ2UE5VRnl4YZX1GVm1xGE=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-collection/admin/vis-2-widgets-collection.png)
 
@@ -28,11 +28,63 @@ hash: LxwFps6ypPgRycUmrKQm7BECCR9Qpw6WGe6SH1A0W0A=
 ＃＃＃ 转变
 <img src="/img/collection-switch.png" height="150">
 
+### 复选框
+<img src="/img/collection-checkbox.png" height="150">
+
+### 对话框
+<img src="/img/collection-dialog.png" height="150">
+
+＃＃＃ 选择
+<img src="/img/collection-select.png" height="150">
+
+### 广播组
+<img src="/img/collection-radio-group.png" height="150">
+
 --- <!-- 下一版本的占位符：
 
 ### __正在进行中__ -->
 
 ## Changelog
+### 1.6.0 (2025-03-13)
+- (steiger04) Radio group added
+
+### 1.5.2 (2025-03-05)
+- (steiger04) Widget optimizations
+
+### 1.5.1 (2025-03-03)
+- (steiger04) Select bug fixed
+
+### 1.5.0 (2025-03-02)
+- (steiger04) Select added
+
+### 1.4.0 (2025-02-27)
+
+- (steiger04) Dialog added
+
+### 1.3.0 (2025-02-20)
+
+- (steiger04) Button functionality for State and Button group
+
+### 1.2.0 (2025-02-16)
+
+- (steiger04) Checkbox added and widget optimizations
+
+### 1.1.19 (2025-02-08)
+
+- (steiger04) Button group optimized
+
+### 1.1.18 (2025-02-08)
+
+- (steiger04) State optimized
+
+### 1.1.17 (2025-02-05)
+
+- (steiger04) bugfixing header / footer
+
+### 1.1.16 (2025-02-05)
+
+- (steiger04) only valid oid's allowed
+
 ### 1.1.15 (2025-02-05)
 
 - (steiger04) bugfixing Slider

@@ -93,15 +93,11 @@ On configuration page you can select following modules:
 - Uptime
 - WLAN
 
-## Logfiles / Configuration Settings
-
-## Features
-
-## Todo
-
-## Tested Hardware
- - Odroid C1
- - Raspberry Pi 1
+### NVME temperature
+Since adapter version 2.3.2 you can read NVMe temperature. To do this, you need to install `nvme-cli` package on your system. 
+You can do this with the following command: `sudo apt-get install nvme-cli`. You will also need to add the command to the ioBroker
+sudoers file `/etc/sudoers.d/iobroker`. Open it with an editor, for example nano: `sudo nano /etc/sudoers.d/iobroker` and add the following line:
+`nvme smart-log /dev/nvme0` to the bottom.
 
 ## GPIOs
 You can read and control GPIOs too.
@@ -156,6 +152,17 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2025-03-06)
+* (Garfonso) read the current state of GPIO outputs during adapter startup.
+* (Garfonso) re-read GPIO input, if set by the user (with ack=false).
+* (Garfonso) add an option to invert true/false mapping to 1/0.
+* (Garfonso) Allow multiple instances of this adapter per host.
+* (Garfonso) tried to improve initialization of GPIO inputs.
+
+### 2.3.2 (2025-02-06)
+* (asgothian) added support for NVMe temperature (needs additional configuration, see README)
+* (Garfonso) fixed inital values for outputs.
+
 ### 2.3.1 (2025-01-06)
 * (Garfonso) fixed: GPIO library failed to load after recent dependency update.
 
@@ -164,12 +171,6 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 
 ### 2.2.2 (2024-11-02)
 * (simatec) responsive design for settings page added
-
-### 2.2.1 (2024-10-15)
-* (Garfonso) temperature has now proper role and type.
-
-### 2.2.0 (2024-10-15)
-* (Garfonso) rebuild config in JSONConfig.
 
 ## License
 MIT License

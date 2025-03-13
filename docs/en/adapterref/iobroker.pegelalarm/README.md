@@ -36,6 +36,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### 1.3.8 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
 ### 1.3.7 (2025-01-09)
 * (simatec) eslint-config fix
 * (simatec) Dependencies updated

@@ -74,6 +74,15 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.16.1 (2025-03-07)
+* (@foxriver76) fix if no tamper report is present on state creation
+
+### 3.16.0 (2025-03-07)
+* (@foxriver76) added tamper states for contact sensors
+
+### 3.15.0 (2025-03-06)
+* (@foxriver76) added support for contact sensors
+
 ### 3.14.1 (2025-02-01)
 * (@foxriver76) improved error handling for smart scenes
 

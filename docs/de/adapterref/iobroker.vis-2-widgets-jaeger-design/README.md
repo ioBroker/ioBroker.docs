@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-hash: C4rl3bXQrmgGF+0eIr5/8HlxNQ8nID2RmybFX4Boyb4=
+hash: j2ftcLh111BOKbGdcJpUmHw7ob1JlsRvl5Ev5owqDC4=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -12,13 +12,11 @@ hash: C4rl3bXQrmgGF+0eIr5/8HlxNQ8nID2RmybFX4Boyb4=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
 
 # Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-![youtube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.jpg)
+![YouTube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.jpg)
 
-Das Video zur Verwendung der Widgets finden Sie unter [Hier](https://www.youtube.com/watch?v=4bctUvfpPuQ).
+Hier finden Sie Videos zur Verwendung der Widgets [Hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) (auf Deutsch).
 
-Das Video wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
-
-Das Video wie die Widgets benutzt werden können, kann man [hier](https://youtu.be/Rplr2Ba-G7o) (auf Deutsch) (TEIL2)
+Videos wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
 ## Übersicht zur Erstellung einer Smart Home Oberfläche mit dem „VIS-2 JAEGER Design Adapter“
 ### Voraussetzungen
@@ -53,11 +51,11 @@ Im Menü „Energie“ können die Raumtemperaturen in den einzelnen Räumen ges
 ![iobroker-jaeger-design-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
 
 ### Sicherheit
-Im Menü „Sicherheit“ kann der Zustand des Fensters gesehen werden. Geöffnete Fenster werden rot dargestellt.
+Im Menü „Sicherheit“ kann der Zustand des Fensters angezeigt werden. Geöffnete Fenster werden rot dargestellt.
 ![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
 
 ### Weitere Funktionen
-Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbrauchsdarstellung des Adapters „consumption“ oder die Darstellung von Nightscout für Diabetes. Im Menü „Einstellungen“ können diverse Einstellungen vorgenommen werden.
+Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbrauchsdarstellung des Adapters "consumption" oder die Darstellung von Nightscout für Diabetes. Im Menü „Einstellungen“ können diverse Einstellungen vorgenommen werden.
 ![iobroker-jaeger-design-energieüberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
 
 ![iobroker-jaeger-design-diabetes](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)

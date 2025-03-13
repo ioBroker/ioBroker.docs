@@ -28,9 +28,10 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.1.0 (2025-02-26)
 
 -   (@GermanBluefox) Adapter was migrated to TypeScript and vite
+-   (@GermanBluefox) Added support for websites with custom certificates
 
 ### 1.0.2 (2024-10-03)
 
@@ -66,7 +67,7 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 Denis Haev <dogafox@gmail.com>
+Copyright (c) 2023-2025 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

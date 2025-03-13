@@ -580,19 +580,19 @@ Additionally, you can protect this property from being served to other adapters 
 
 ### `instance`
 
-| Property          | Description                                                                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `adapter`         | name of adapter. With special name `_dataSources` you can get all adapters with flag `common.getHistory`.                                       |
-| `adapters`        | optional list of adapters, that should be shown. If not defined, all adapters will be shown. Only active if `adapter` attribute is not defined. |
-| `allowDeactivate` | if true. Additional option "deactivate" is shown                                                                                                |
-| `onlyEnabled`     | if true. Only enabled instances will be shown                                                                                                   |
-| `long`            | value will look like `system.adapter.ADAPTER.0` and not `ADAPTER.0`                                                                             |
-| `short`           | value will look like `0` and not `ADAPTER.0`                                                                                                    |
-| `all`             | Add to the options "all" option with value `*`                                                                                                  |
+| Property          | Description                                                                                                                                                         |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `adapter`         | name of adapter. With special name `_dataSources` you can get all adapters with flag `common.getHistory`.                                                           |
+| `adapters`        | optional list of adapters as array of strings, that should be shown. If not defined, all adapters will be shown. Only active if `adapter` attribute is not defined. |
+| `allowDeactivate` | if true. Additional option "deactivate" is shown                                                                                                                    |
+| `onlyEnabled`     | if true. Only enabled instances will be shown                                                                                                                       |
+| `long`            | value will look like `system.adapter.ADAPTER.0` and not `ADAPTER.0`                                                                                                 |
+| `short`           | value will look like `0` and not `ADAPTER.0`                                                                                                                        |
+| `all`             | Add to the options "all" option with value `*`                                                                                                                      |
 
 ### `chips`
 
-User can enter the word, and it will be added (see cloud => services => White list). Output is an array if no `delimiter` defined.
+User can enter the word, and it will be added (see cloud => services => Whitelist). Output is an array if no `delimiter` defined.
 
 | Property    | Description                                                                                                                                                           |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -715,10 +715,14 @@ accordion with items that could be deleted, added, moved up, moved down (Admin 6
 
 ### `jsonEditor`
 
-| Property       | Description                                                        |
-|----------------|--------------------------------------------------------------------|
-| `validateJson` | if false, the text will be not validated as JSON                   |
-| `allowEmpty`   | if true, the JSON will be validated only if the value is not empty |
+Button to open a JSON(5) editor. JSON5 is supported from admin version 5.7.3
+
+| Property               | Description                                                           |
+|------------------------|-----------------------------------------------------------------------|
+| `validateJson`         | if false, the text will be not validated as JSON                      |
+| `allowEmpty`           | if true, the JSON will be validated only if the value is not empty    |
+| `json5`                | if JSON5 format allowed (From 7.5.3)                                  |
+| `doNotApplyWithError`  | Do not allow to save the value if error in JSON or JSON5 (From 7.5.3) |
 
 ### `language`
 
@@ -752,7 +756,7 @@ Example:
 
 ### `certificateCollection`
 
-select certificate collection or just use all collections or don't use let's encrypt at all.
+select a certificate collection or just use all collections or don't use let's encrypt at all.
 
 | Property           | Description                        |
 |--------------------|------------------------------------|
@@ -762,11 +766,12 @@ select certificate collection or just use all collections or don't use let's enc
 
 only Admin6
 
-| Property | Description                                                                                                                    |
-|----------|--------------------------------------------------------------------------------------------------------------------------------|
-| `name`   | Component name that will be provided via props, like `ComponentInstancesEditor`                                                |
-| `url`    | Location of the component                                                                                                      |
-| `i18n`   | true if `i18n/xx.json` files are located in the same directory as component, or translation object `{"text1": {"en": Text1"}}` |
+| Property      | Description                                                                                                                    |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `name`        | Component name that will be provided via props, like `ComponentInstancesEditor`                                                |
+| `url`         | Location of the component                                                                                                      |
+| `i18n`        | true if `i18n/xx.json` files are located in the same directory as component, or translation object `{"text1": {"en": Text1"}}` |
+| `bundlerType` | If module written with TypeScript, set it to `module`. From Admin 7.5.x                                                        |
 
 #### Example for url
 
@@ -1111,6 +1116,7 @@ Special input for ports. It checks automatically if port is used by other instan
 | `size`           | Font size: small, normal, large or number                                                                                            |
 | `addColon`       | Add to label the colon at the end if not exist in label                                                                              |
 | `labelIcon`      | Base64 icon for label                                                                                                                |
+| `buttonValue`    | Optional value, that will be sent for button                                                                                         |
 
 ### `staticInfo`
 
@@ -1239,7 +1245,7 @@ In the Settings of the Web developer tools, you can create your own devices with
 | `onChange`               | Structure in form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`                                                      |
 | `doNotSave`              | Do not save this attribute as used only for internal calculations                                                                                                                    |
 | `noMultiEdit`            | if this flag set to true, this field will not be shown if user selected more than one object for edit.                                                                               |
-| `expertMode`             | if this flag set to true, this field will be shown only if the expert mode is true                                                                                                   |
+| `expertMode`             | if this flag set to true, this field will be shown only if the expert mode is true  (from Admin 7.4.3)                                                                                                 |
 
 ### Options with detailed configuration
 
@@ -1434,8 +1440,83 @@ The following variables are available in JS function in custom settings:
 
 You can find examples in [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) or in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) adapter.
 
+## JSON Tab in admin
+From admin version 7.6.x you can define the tab (like `backitup` or `matter`) via JSON config.
+
+For that you must define in `io-package.json` in `common` part following:
+```json5
+{
+   "common": {
+      // ....
+      "adminTab": {
+         "link": "jsonTab.json", // the name could be any, but only ends with `.json` or `.json5`
+         // all following parameters are optional
+         "icon": "AABBCC", // base64 icon. If not provided, the adapter icon will be taken
+         "name": "TabName", // String or multi-language object for menu label 
+         "singleton": true, // Tab will not have an instance number and for all instances will exist only one menu item. 
+         "order": 10, // Order in admin tab (0 is disabled, 1 - first after static menu items, 200 is last) 
+      },
+      // ....
+   }
+}
+```
+
+The file `jsonTab.json5` could look like:
+```json5 
+{
+   "i18n": "tabI18n", // folder name in admin, where the translations are stored (relative to "admin" folder)
+   "command": "tab", // If defined, the tab will send a message by initializing to backend with command "tab" (string contained in "sendTo")
+   "items": {
+      "memHeapTotal": {
+         // This will show "system.adapter.admin.0.memHeapTotal" value 
+         "type": "state",
+         "label": "Memory",
+         "sm": 12,
+         "system": true,
+         "oid": "memHeapTotal"
+      },
+      "infoConnected": {
+         // This will show "admin.0.info.connected" value
+         "newLine": true,
+         "type": "state",
+         "label": "Info about connected socket clients",
+         "sm": 12,
+         "oid": "info.connected"
+      },
+      "dayTime": {
+         // This will show "javascript.0.variables.dayTime" value
+         "newLine": true,
+         "type": "state",
+         "label": "Aktuelle Zeit",
+         "sm": 12,
+         "foreign": true,
+         "oid": "javascript.0.variables.dayTime"
+      },
+      "value": {
+         // This will show "data.value" value from "sendTo" answer
+         "newLine": true,
+         "type": "text",
+         "readOnly": "true",
+         "label": "Value from sendTo answer",
+         "sm": 12,
+      }
+   }
+}
+```
+
+If `sendTo` is provided, the instance will receive a message (`common.messagebox` must be true in `io-package.json`) with the command `tab` or with a value stored in `sendTo` if it is a string.
+The instance must answer with the structure like: 
+```typescript
+onMessage = (obj: ioBroker.Message): void => {
+    if (obj?.command === 'tab' && obj.callback) {
+        // if not instance message
+        this.sendTo(obj.from, obj.command, { data: { value: 5 } }, obj.callback);
+    }
+};
+```
+
 ## Report a schema error
 Create an issue here: https://github.com/ioBroker/adapter-react-v5/issues
 
 ## For maintainer
-To update location of JsonConfig schema, create pull request to this file: https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json
+To update the location of JsonConfig schema, create pull request to this file: https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json

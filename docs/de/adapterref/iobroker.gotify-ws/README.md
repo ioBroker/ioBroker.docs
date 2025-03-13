@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
+hash: chdrpAwDn/DcvlzGgYAS7WY2BLJkxQaZoJrzaaoxNj8=
 ---
 ![Logo](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/gotify-ws-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.gotify-ws.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.gotify-ws.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.gotify-ws/badge.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/simatec/ioBroker.gotify-ws/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.gotify-ws?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
@@ -18,7 +18,7 @@ hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
 # IoBroker.gotify-ws
 ![Testen und Freigeben](https://github.com/simatec/ioBroker.gotify-ws/workflows/Test%20and%20Release/badge.svg)
 
-Dieser Adapter verwendet den Dienst `Sentry.io`, um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden. Weitere Details siehe unten!
+Dieser Adapter nutzt den Dienst `Sentry.io`, um mir als Entwickler automatisch Ausnahmen, Codefehler und neue Geräteschemata zu melden. Weitere Details siehe unten!
 
 ---
 
@@ -33,90 +33,110 @@ Dieser Adapter verwendet den Dienst `Sentry.io`, um mir als Entwickler automatis
 Gotify-WS ist ein Adapter, der eine WebSocket-Verbindung zu einem Gotify-Server aufbaut und somit alle Nachrichten vom Server empfangen und verarbeiten kann.
 
 Hintergrund war für mich eine fehlende Anbindung an alle gängigen Systeme.
-Beispielsweise gibt es keine richtige App für IOS.
+Beispielsweise gibt es keine passende App für iOS.
 
-Da Gotify jedoch immer beliebter wird und mittlerweile auch in vielen Systemen wie beispielsweise Proxmox als Benachrichtigungsdienst Einzug gehalten hat, brauchte ich eine Lösung.
+Da Gotify jedoch immer beliebter wird und mittlerweile auch in vielen Systemen wie Proxmox als Benachrichtigungsdienst Einzug gehalten hat, brauchte ich eine Lösung.
 
 Hier kommt Gotify-WS ins Spiel.
-Gotify-WS empfängt Nachrichten und leitet diese an einen von ioBroker unterstützten Benachrichtigungsdienst weiter. So können Nachrichten beispielsweise an Telegram weitergeleitet werden.
+Gotify-WS empfängt Nachrichten und leitet sie an einen von ioBroker unterstützten Benachrichtigungsdienst weiter. So können Nachrichten beispielsweise an Telegram weitergeleitet werden.
 
 Spotify-WS unterstützt derzeit die folgenden Benachrichtigungsdienste
 
-* E-Mail
-* Matrix
-* Benachrichtigungs-Manager
-* Schwächling
-* Zwietracht
-* Signal
-* Telegram
-* WhatsApp
+- E-Mail
+- Matrix
+- Benachrichtigungs-Manager
+- Schwächling
+- Zwietracht
+Signal
+- Telegram
+- WhatsApp
 
 ---
 
 ## Adapterkonfiguration
 Die Konfiguration des Adapters ist sehr einfach.
 
-Du erstellst einen neuen Client auf deinem Gotify-Server und kopierst den generierten Token des Clients.
-Diesen trägst du in die Gotify-WS-Adapterkonfiguration ein.
-Gotify-WS benötigt außerdem die IP-Adresse bzw. Domain und den Port des Gotify-Servers.
+Du erstellst einen neuen Client auf deinem Gotify-Server und kopierst das generierte Token des Clients.
+Dieses trägst du in die Gotify-WS-Adapterkonfiguration ein.
+Gotify-WS benötigt außerdem die IP-Adresse oder Domäne und den Port des Gotify-Servers.
 
 Dadurch wird eine Verbindung hergestellt und der Adapter kann alle eingehenden Nachrichten vom Gotify-Server empfangen.
 
-Zur Weiterleitung können Sie anschließend einen Benachrichtigungsdienst Ihrer Wahl konfigurieren.
+Anschließend können Sie einen Benachrichtigungsdienst Ihrer Wahl zur Weiterleitung konfigurieren.
 
 ---
 
 ## Changelog
-<!-- ### **WORK IN PROGRESS** -->
 
-### **WORK IN PROGRESS**
-* (simatec) eslint-config fix
-* (simatec) Code fix
+<!-- ### **WORK IN PROGRESS** -->
+### 0.1.12 (2025-02-22)
+
+-   (simatec) Dependencies updated
+-   (simatec) small fix
+
+### 0.1.11 (2025-01-09)
+
+-   (simatec) eslint-config fix
+-   (simatec) Code fix
+-   (simatec) Dependencies updated
+-   (simatec) Update License
 
 ### 0.1.10 (2024-11-24)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
-* (simatec) Issue Action added
-* (simatec) eslint-config added
+
+-   (simatec) Dependencies updated
+-   (simatec) Responsive Design fix
+-   (simatec) Issue Action added
+-   (simatec) eslint-config added
 
 ### 0.1.9 (2024-09-26)
-* (simatec) Fix for admin 7.1.5
+
+-   (simatec) Fix for admin 7.1.5
 
 ### 0.1.8 (2024-09-24)
-* (simatec) Responsive Design fix
-* (simatec) Cleaned code
+
+-   (simatec) Responsive Design fix
+-   (simatec) Cleaned code
 
 ### 0.1.7 (2024-09-16)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
+
+-   (simatec) Dependencies updated
+-   (simatec) Responsive Design fix
 
 ### 0.1.6 (2024-09-10)
-* (simatec) Fix Adapter Check
-* (simatec) Dependencies updated
-* (simatec) Responsive Design added
+
+-   (simatec) Fix Adapter Check
+-   (simatec) Dependencies updated
+-   (simatec) Responsive Design added
 
 ### 0.1.5 (2024-07-22)
-* (simatec) small fix
+
+-   (simatec) small fix
 
 ### 0.1.4 (2024-07-19)
-* (simatec) Dependencies updated
+
+-   (simatec) Dependencies updated
 
 ### 0.1.3 (2024-07-17)
-* (simatec) Fix Test & Release
-* (simatec) Fix Timeout
+
+-   (simatec) Fix Test & Release
+-   (simatec) Fix Timeout
 
 ### 0.1.2 (2024-06-26)
-* (simatec) Fix io-package
-* (simatec) Notification-Manager added
+
+-   (simatec) Fix io-package
+-   (simatec) Notification-Manager added
 
 ### 0.1.1 (2024-06-19)
-* (simatec) Fix Branch
+
+-   (simatec) Fix Branch
 
 ### 0.1.0 (2024-06-19)
-* (simatec) First Release
+
+-   (simatec) First Release
 
 ### 0.0.1 (2024-03-15)
-* (simatec) initial release
+
+-   (simatec) initial release
 
 ---
 
@@ -124,7 +144,7 @@ Zur Weiterleitung können Sie anschließend einen Benachrichtigungsdienst Ihrer 
 
 MIT License
 
-Copyright (c) 2024 simatec
+Copyright (c) 2024 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

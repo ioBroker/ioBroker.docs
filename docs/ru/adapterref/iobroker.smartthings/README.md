@@ -1,38 +1,40 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: Q47BVVpyPnZejeYC0pAFCqs/NiNWvj6Zwvwp8fmtZpE=
+hash: XBvyRjf/p/zeYV++qQGa6dPPtS7TDAsmW5b3pumv92I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.smartthings.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.smartthings.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.smartthings.svg)
 ![Количество установок](https://iobroker.live/badges/smartthings-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/smartthings-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/smartthings-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.smartthings.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smartthings.png?downloads=true)
 
 # IoBroker.smartthings
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер smartthings для ioBroker
 Адаптер для Samsung Smartthings
 
 ## Процесс входа:
-Посетите ссылку. https://account.smartthings.com/tokens Войдите в свою учетную запись Samsung, чтобы перейти на страницу «Токены личного доступа».
-Нажмите кнопку «Создать новый токен», чтобы перейти на страницу «Новый токен доступа».
-Укажите имя для нового токена. В разделе «Авторизованные области» выберите любую функциональность, которую вы хотите авторизовать для токена.
-Когда закончите, нажмите кнопку «Создать токен», и вы вернетесь на страницу «Токены личного доступа». Скопируйте вновь сгенерированный токен и сохраните его в надежном месте. Это ваш единственный способ получить вновь сгенерированное значение токена.
+Откройте ссылку в настройках адаптера и войдите в систему, пока не увидите белый экран.
+Откройте консоль разработчика F12 или Option + Command + I и скопируйте синий URL-адрес samsungconnect:// и вставьте его в настройки.
 
-## Руль
-smartthings.0.id.capabilities либо устанавливается в значение true, либо устанавливает предопределенное значение.
+## Контроль
+smartthings.0.id.capabilities либо установить значение true, либо установить предопределенное значение
 
 ## Обсуждение и вопросы:
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
+### 0.2.2 (2025-02-11)
+
+- add new login process
+
 ### 0.1.2 (2024-05-19)
 
 - Update Dependencies

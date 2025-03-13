@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webcal/README.md
 title: ioBroker.webcal
-hash: x7IdZjWzNXOuXgsbADUbQ831huXVNg0dCPb5APqoAIM=
+hash: 11ZkajCy0V3Jw/zyphm7tXRb5J4S+nfXg0D4rvVPDqU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.webcal/admin/webcal.png)
 
@@ -60,7 +60,7 @@ sendTo("webcal.0", "addEvents", {
         color: "red",
         organizer: "ich",
         start: "12.1.25 23:00"
-      }
+      },
       {
         summary: "failed test",
 		    description: "long description",
@@ -82,6 +82,7 @@ sendTo("webcal.0", "addEvents", {
 ```
 [
   {
+    "id": "iob_676956946",
     "summary": "test",
     "start": "9.8.23 23:00",
     "end": "10.08.2023 14:00",
@@ -125,7 +126,34 @@ sendTo("webcal.0", "addEvents", {
 
 если `calendar` не указан, будет использоваться defaultCalender
 
-в `event` поле `end` и `description` является необязательным
+только поля `start` и ,`summary` являются обязательными
+
+**обновление события** возможно через скрипт:
+
+```
+sendTo("webcal.0", "updateEvents", {
+    calendar: "smarthome",
+    events: [
+      {
+        summary: "test2",
+        description: "test add Event",
+        location: "ort",
+        color: "red",
+        organizer: "ich",
+        start: "12.1.25 23:00"
+      }
+    ]
+  },function(events){
+    /* callback function
+	   object events will be repeat from input,
+	   with additional status or error field,
+	   also startDate and endDate are provided as Object data
+	*/
+	log(events);
+  })
+```
+
+только поля `start` и ,`summary` являются обязательными
 
 **удалить событие** можно с помощью скрипта:
 
@@ -181,6 +209,9 @@ sendTo("webcal.0", "deleteEvents", {
   ### **WORK IN PROGRESS**
   * ()
 -->
+### **WORK IN PROGRESS**
+* (dirkhe) add event-update function for JS
+
 ### 1.4.0 (2025-01-12)
 * (dirkhe) add color,location and organizer for craeting Event
 * (dirkhe) add fix for invalid apple calender data

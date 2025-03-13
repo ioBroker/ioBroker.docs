@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pjlink/README.md
 title: ioBroker.pjlink
-hash: fRFyqywoqjqqH5xW0ND8o/PnzeQLT9fhEDVWAGrmvi8=
+hash: nkmGmjt70xaRl8i7F74+GYPsaaiq/NlgGtOsXAg7dRA=
 ---
 ![Logo](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
 
@@ -14,70 +14,77 @@ hash: fRFyqywoqjqqH5xW0ND8o/PnzeQLT9fhEDVWAGrmvi8=
 ![NPM](https://nodei.co/npm/iobroker.pjlink.png?downloads=true)
 
 # IoBroker.pjlink
-![Testen und freigeben](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
+![Testen und Freigeben](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
 
 ## Pjlink-Adapter für ioBroker
-PJLink-Projektorsteuerung
+PJLink Projektorsteuerung
 
-**!! Derzeit wird nur das Klasse-1-Protokoll unterstützt**
+**!! Derzeit wird nur das Protokoll der Klasse 1 unterstützt**
 
 ## Über PJLink
-> PJLink ist ein einheitlicher Standard für den Betrieb und die Steuerung von Datenprojektoren.
-PJLink ermöglicht die zentrale Steuerung von Projektoren verschiedener Hersteller und Projektoren können von einem Controller aus bedient werden.
-PJLink-konforme Geräte können unabhängig vom Hersteller jederzeit und überall verwaltet und gesteuert werden.
-PJLink ist ein neuer Standard, der entwickelt wurde, um Kommunikationsschnittstellen und Kommunikationsprotokolle, die sich von einem Projektorhersteller zum anderen unterscheiden, einheitlich und gemeinsam zu machen.
+PJLink ist ein einheitlicher Standard für die Bedienung und Steuerung von Datenprojektoren.
+PJLink ermöglicht die zentrale Steuerung von Projektoren verschiedener Hersteller. Die Projektoren können über einen Controller gesteuert werden.
+PJLink-kompatible Geräte können jederzeit, überall und herstellerunabhängig verwaltet und gesteuert werden.
+PJLink ist ein neuer Standard, der Kommunikationsschnittstellen und -protokolle, die sich je nach Projektorhersteller unterscheiden, vereinheitlicht und einheitlich gestaltet.
 
-> PJLink-konforme Geräte zeichnen sich durch eine hohe Interkonnektivität zwischen verschiedenen Modellen und Herstellern aus und ermöglichen den einfachen Aufbau von Umgebungen, die mit verschiedenen Modellen und Systemen gemischt sind, und den einfachen Austausch bereits vorhandener Systeme.
+> PJLink-kompatible Geräte zeichnen sich durch eine hohe Interkonnektivität zwischen verschiedenen Modellen und Herstellern aus, sodass sich Umgebungen mit unterschiedlichen Modellen und Systemen problemlos aufbauen und bereits vorhandene Systeme problemlos austauschen lassen.
 
-* [Übernommen von der PJLink Homepage](https://pjlink.jbmia.or.jp/english/)
+* [Von der PJLink-Homepage übernommen](https://pjlink.jbmia.or.jp/english/)
 
 ## Credits
-Das Protokoll ist eine Marke von: **Copyrights © Japan Business Machine and Information System Industries Association. Alle Rechte vorbehalten,** [PJLink-Homepage](https://pjlink.jbmia.or.jp/english/)
+Das Protokoll ist ein Warenzeichen von: **Copyrights © Japan Business Machine and Information System Industries Association. Alle Rechte vorbehalten,** [PJLink Homepage](https://pjlink.jbmia.or.jp/english/)
 
-Diese Arbeit basiert auf dem nodejs-Modul mit pjlink-Implementierung von **sy1vain**: [https://github.com/sy1vain/node-pjlink](https://github.com/sy1vain/node-pjlink)
+Diese Arbeit basiert auf dem Node.js-Modul mit pjlink-Implementierung von **sy1vain**: [https://github.com/sy1vain/node-pjlink](https://github.com/sy1vain/node-pjlink)
 
-## Machen
-* Unterstützung des node-pjlink-Projekts zur Implementierung von Klasse 2
-* Gehen Sie zurück zur pjlink-Bibliothek auf github. Aufgrund eines Fehlers im Testskript wird die Bibliothek vorerst lokal gehalten
+## Aufgaben
+* Unterstützung des Node-PJLink-Projekts zur Implementierung von Klasse 2
+* Gehen Sie zurück zur pjlink-Bibliothek auf GitHub. Aufgrund eines Fehlers im Testskript wird die Bibliothek derzeit lokal gespeichert.
 
-## Funktionsweise des Adapters
-Derzeit wird nur Klasse 1 unterstützt. Das heißt, der Adapter kann nur den Status abfragen.
-Das aktive Senden von Statusinformationen vom Gerät zum Adapter kann hinzugefügt werden, sobald Klasse 2 unterstützt wird.
+## So funktioniert der Adapter
+Derzeit wird nur Klasse 1 unterstützt. Das bedeutet, dass der Adapter nur den Status abfragen kann.
+Das aktive Senden von Statusinformationen vom Gerät an den Adapter ist möglich, sobald Klasse 2 unterstützt wird.
 
-#### PJLink-Eingänge der Klasse 1
-* Die Eingaben müssen als 2-stellige Zahlen erfolgen. Die erste Ziffer beschreibt den Eingangstyp
+#### PJLink Klasse 1 Eingänge
+* Die Eingänge müssen als 2-stellige Zahlen angegeben werden. Die erste Ziffer beschreibt den Eingangstyp
 
-| Geben Sie | ein Nummer | mögliche Eingänge |
+| Typ | Anzahl | mögliche Eingaben |
 | ------- | ------ | --------------- |
 | RGB | 1 | 1 - 9 |
-| VIDEOS | 2 | 1 - 9 |
+| VIDEO | 2 | 1 - 9 |
 | DIGITAL | 3 | 1 - 9 |
 | LAGERUNG | 4 | 1 - 9 |
 | NETZWERK | 5 | 1 - 9 |
 
-Die möglichen Eingänge sind nach dem Start des Adapters in der Datenbank unter > pjlink.\<instance\>.deviceInfo.availableInputs zu finden
+Die möglichen Eingaben finden Sie nach dem Start des Adapters in der Datenbank unter > pjlink.\<instance\>.deviceInfo.availableInputs
 
-Sie können das Eingangsobjekt in der Instanzkonfiguration bearbeiten. Dort können Sie die Namen der Eingaben bearbeiten und das Datenbankobjekt Ihre Eingaben validieren lassen.
+Sie können das Eingabeobjekt in der Instanzkonfiguration bearbeiten. Dort können Sie die Namen der Eingaben bearbeiten und die Eingaben vom Datenbankobjekt validieren lassen.
 
-### Stromschalter
+### Netzschalter
 Mit dem Status (auf **true** gesetzt)
 
 > pjlink.\<Instanz\>.power
 
-Der Projektor kann je nach aktuellem Energiezustand ein- und ausgeschaltet werden.
+Der Projektor kann je nach aktuellem Stromzustand ein- **und** ausgeschaltet werden.
 
 > pjlink.\<Instanz\>.powerStatus
 
 Der Netzschalter wird automatisch auf **false** zurückgesetzt.
 
 #### Lampenstatus
-In der Datenbank ist nur eine Lampe vordefiniert. Wenn die Lampenabfrage mehr als eine Lampe zurückgibt, werden die anderen Lampen dynamisch hinzugefügt.
+In der Datenbank ist nur eine Lampe vordefiniert. Ergibt die Lampenabfrage mehrere Lampen, werden die weiteren Lampen dynamisch hinzugefügt.
+
+#### Ping-Funktion
+Ist der Projektor längere Zeit nicht erreichbar, kann der Adapter auf ICMP-Ping umschalten, um die Erreichbarkeit zu prüfen, z. B. nach drei fehlgeschlagenen Verbindungsversuchen. Wird ein Ping beantwortet, versucht der Adapter erneut, die Verbindung wiederherzustellen, vgl. [https://github.com/Bannsaenger/ioBroker.pjlink/issues/59](https://github.com/Bannsaenger/ioBroker.pjlink/issues/59)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated dependencies
+* (Bannsaenger) added ping feature
+
 ### 0.1.1 (2023-01-24)
 * (Bannsaenger) temporarily fix the test script error with local libraries
 
@@ -101,7 +108,7 @@ In der Datenbank ist nur eine Lampe vordefiniert. Wenn die Lampenabfrage mehr al
 ## License
 MIT License
 
-Copyright (c) 2022-2023 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2022-2025 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

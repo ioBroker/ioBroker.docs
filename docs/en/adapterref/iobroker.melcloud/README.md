@@ -33,6 +33,9 @@ Discussion:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+- (Black-Thunder) Admin version >= 7.4.10 is now required
+
 ### 2.0.5 (2024-12-11)
 
 - (Black-Thunder) Report data for ATW devices was fixed

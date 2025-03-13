@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: nTPtVkzKPbkqwG4ZqyA5Utge6xM5EauqFIYXv23k87Q=
+hash: INr2VSqFnWRZnzK+Xx/sJoaU6kMSZ9W3PQSbEEvxeGQ=
 ---
 ![标识](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -34,19 +34,19 @@ hash: nTPtVkzKPbkqwG4ZqyA5Utge6xM5EauqFIYXv23k87Q=
 ＃＃＃ 目的
 对象是数据点或组的描述。组可以包含其他数据点，在这种情况下称为通道。如果组由其他通道组成，在这种情况下称为设备。
 
-对象是描述数据点的元信息，可以包含以下内容：最大/最小值、单位、名称、默认值、值的类型、通信适配器的信息（如 IP 地址）等等。
+对象是描述数据点的元信息，可以包含以下内容：最大/最小值、单位、名称、默认值、值的类型、通信适配器的信息（如IP地址）等等。
 
 ＃＃＃ 状态
-状态是数据点的实际值，以 javascript 对象的形式呈现：
+状态是数据点的实际值，以 JavaScript 对象呈现：
 
-```js
+```json
 {
-    val: VALUE,
-    ack: ACKNOWLEDGED,
-    ts: TIMESTAMP, // could be converted into time with "new Date(state.ts)" (In older version of js-controller - "new Date(state.ts * 1000)")
-    lc: TIMESTAMP of last change,
-    from: ADAPTER_NAME,
-    q: QUALITY
+    "val": VALUE,
+    "ack": ACKNOWLEDGED,
+    "ts": TIMESTAMP, // could be converted into time with "new Date(state.ts)" (In older version of js-controller - "new Date(state.ts * 1000)")
+    "lc": TIMESTAMP of last change,
+    "from": ADAPTER_NAME,
+    "q": QUALITY
 }
 ```
 
@@ -58,7 +58,7 @@ hash: nTPtVkzKPbkqwG4ZqyA5Utge6xM5EauqFIYXv23k87Q=
 - 如果 ack=false，则意味着其他适配器想要控制（写入）该变量，以便执行该命令（例如，灯将被打开）。
 - 如果 ack=true，则表示设备通知新值。（例如，手动打开灯或检测到运动）
 
-**示例**：我们有一些家庭自动化适配器（HAA），其地址为`haa.0.lamp1`，连接有一盏灯。
+**示例**：我们有一些家庭自动化适配器（HAA），其在地址`haa.0.lamp1`下连接了一盏灯。
 
 - 可以使用物理开关手动打开灯，也可以在 HAA 的帮助下通过 Wi-Fi 打开灯。
 - 如果 vis 想要通过 Wi-Fi 打开灯，它应该用 `{value: true, ack: false}` 设置新值。
@@ -78,11 +78,27 @@ hash: nTPtVkzKPbkqwG4ZqyA5Utge6xM5EauqFIYXv23k87Q=
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.19 (2025-03-04)
+* (@GermanBluefox) Removed the frequent debug output
+
+### 3.0.18 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 3.0.17 (2025-02-28)
+* (@GermanBluefox) Added OAuth2 authentication
+
+### 3.0.5 (2025-02-11)
+* (@GermanBluefox) Corrected address detection
+* (@GermanBluefox) Corrected language settings
+
+### 3.0.4 (2025-02-11)
+* (@GermanBluefox) Adapter was rewritten in TypeScript
+
 ### 2.7.0 (2024-11-17)
-* (bluefox) Update ws-server library
+* (@GermanBluefox) Update ws-server library
 
 ### 2.6.2 (2024-06-26)
-* (bluefox) Corrected call of getObjectView with null parameter
+* (@GermanBluefox) Corrected call of getObjectView with null parameter
 
 ### 2.6.1 (2024-04-22)
 * (foxriver76) fixed require of webserver
@@ -91,7 +107,7 @@ hash: nTPtVkzKPbkqwG4ZqyA5Utge6xM5EauqFIYXv23k87Q=
 * (foxriver76) use `@iobroker/webserver`
 
 ### 2.5.11 (2024-02-22)
-* (bluefox) Some packages were updated
+* (@GermanBluefox) Some packages were updated
 
 ### 2.5.10 (2023-12-17)
 * (foxriver76) updated ws-server to increase the file limit to 500 MB
@@ -100,13 +116,13 @@ hash: nTPtVkzKPbkqwG4ZqyA5Utge6xM5EauqFIYXv23k87Q=
 * (joltcoke) Corrected the crash if authentication is enabled
 
 ### 2.5.8 (2023-10-11)
-* (bluefox) Corrected adapter termination if the alias has no target
+* (@GermanBluefox) Corrected adapter termination if the alias has no target
 
 ### 2.5.7 (2023-10-07)
 * (foxriver76) upgraded socket-classes to fix vis problems
 
 ### 2.5.6 (2023-09-28)
-* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+* (@GermanBluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
 
 ### 2.5.5 (2023-09-14)
 * (foxriver76) upgraded socket-classes to fix crash cases
@@ -115,27 +131,27 @@ hash: nTPtVkzKPbkqwG4ZqyA5Utge6xM5EauqFIYXv23k87Q=
 * (mcm1957) added missing node16 requirement
 
 ### 2.5.3 (2023-08-01)
-* (bluefox) Added the subscribing on the specific instance messages
+* (@GermanBluefox) Added the subscribing on the specific instance messages
 
 ### 2.4.0 (2023-07-07)
-* (bluefox) extended the getObjects function with the possibility to read the list of IDs
+* (@GermanBluefox) extended the getObjects function with the possibility to read the list of IDs
 
 ### 2.3.6 (2023-03-03)
-* (bluefox) Allowed deletion of fullcalendar objects
+* (@GermanBluefox) Allowed deletion of fullcalendar objects
 
 ### 2.3.5 (2023-01-29)
-* (bluefox) added `publishFileAll` method (for future use)
+* (@GermanBluefox) added `publishFileAll` method (for future use)
 
 ### 2.3.4 (2022-12-27)
-* (bluefox) corrected connection string
+* (@GermanBluefox) corrected connection string
 
 ### 2.3.3 (2022-12-22)
-* (bluefox) used new socket-classes
+* (@GermanBluefox) used new socket-classes
 
 ### 2.3.1 (2022-11-27)
-* (bluefox) Added `fileChange` event
+* (@GermanBluefox) Added `fileChange` event
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 @GermanBluefox <dogafox@gmail.com>

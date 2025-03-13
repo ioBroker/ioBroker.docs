@@ -31,6 +31,12 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2025-03-06)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@klein0r) Replace webcal url with http (for iCloud)
+
 ### 3.1.0 (2024-11-19)
 
 * (@simatec) Responsive Design added
@@ -49,12 +55,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 ### 2.4.1 (2023-10-30)
 
 * (klein0r) Added warnings if birthday event is not recurring
-
-### 2.4.0 (2023-10-25)
-
-NodeJS 16.x is required
-
-* (klein0r) Added icons in admin tabs
 
 ## License
 

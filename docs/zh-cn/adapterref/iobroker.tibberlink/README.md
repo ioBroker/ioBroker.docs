@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: ScdfSSJgy0U6nhEZLlwLWz0oddDMt+SOYLD+ScIS6cc=
+hash: ucsrbboNZlZMjao+AU+r2J/q5iskGTbXVBZHtcnYax4=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -41,7 +41,7 @@ hash: ScdfSSJgy0U6nhEZLlwLWz0oddDMt+SOYLD+ScIS6cc=
 - 保存设置并退出配置以重新启动适配器；此步骤允许从 Tibber 服务器第一次查询您的主页。
 - 返回配置屏幕并选择您希望使用 Tibber Pulse 从中获取实时数据的家庭。您还可以选择家庭并禁用馈送（注意：这仅在安装了硬件并且 Tibber 服务器已验证与 Pulse 的连接时才有效）。
 - 注意：如果您的 Tibber 帐户中有多个活跃的主页，则必须添加所有主页，以消除可能不需要的主页导致的错误消息。添加所有主页并禁用选项。
-- 如果您只想使用 Pulse 实时信息，您可以选择停用今天和明天的价格数据检索
+- 您可以选择停用今天和明天的价格数据检索，例如，如果您只想使用 Pulse 实时信息
 - 您也可以选择启用历史消费数据检索。请指定小时、天、周、月和年的数据集数量。您可以根据自己的偏好使用“0”来禁用其中一个或多个间隔。
 - 注意：务必注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器响应不足。我们建议尝试不同的数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如，48 是几个小时内相当不错的数量。
 - 保存设置。
@@ -49,8 +49,8 @@ hash: ScdfSSJgy0U6nhEZLlwLWz0oddDMt+SOYLD+ScIS6cc=
 ## 计算器配置
 - 现在 Tibber 连接已启动并运行，您还可以利用计算器将其他自动化功能合并到 TibberLink 适配器中。
 - 计算器通过频道进行操作，每个频道链接到一个选定的家庭。
-- 这些通道可以根据相应的状态被激活或停用。
-- 这些状态旨在作为 TibberLink 的外部动态输入，允许您例如从外部来源调整边际成本（“TriggerPrice”）或禁用计算器通道（“Active”）。
+- 这些状态旨在作为 TibberLink 的外部动态输入，允许您例如从外部来源调整边际成本（“TriggerPrice”）或启用计算器通道（“Active”）。
+- 这些通道必须根据相应的状态激活或停用。
 - 计算器通道的状态位于主状态旁边，并根据通道号命名。因此，管理屏幕中选择的通道名称会显示在此处，以便更好地识别您的配置。
 
   ![计算器状态](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
@@ -75,15 +75,67 @@ hash: ScdfSSJgy0U6nhEZLlwLWz0oddDMt+SOYLD+ScIS6cc=
 
 使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜的时段内激活电池充电（“值 YES”）并停用电池供电（“值 2 NO”）。相反，它将在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于最便宜时段中的最高总价。在剩余的正常时段，如果电池的能量缓冲在经济上不可行，则两个输出都将关闭。
 
-- LTF 通道：这些通道的操作与标准通道类似，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内处于活动状态。在“StopTime”之后，通道会自动停用。“StartTime”和“StopTime”可以跨越两个日历日，因为 Tibber 不提供超过 48 小时窗口的数据。两种状态都需要带有时区偏移的 ISO-8601 格式的日期时间字符串，例如“2024-12-24T18:00:00.000+01:00”。此外，LTF 通道还具有一个名为“RepeatDays”的新状态参数，默认为 0。当“RepeatDays”设置为正整数时，通道将在达到“StopTime”后通过将“StartTime”和“StopTime”增加指定的天数来重复其周期。例如，将“RepeatDays”设置为 1 表示每日重复。
+- LTF 通道：这些通道的操作与标准通道类似，但仅在由“StartTime”和“StopTime”状态对象定义的时间范围内处于活动状态。在“StopTime”之后，通道将自动停用。“StartTime”和“StopTime”可以跨越两个日历日，因为 Tibber 不提供超过 48 小时窗口的数据。两种状态都需要带有时区偏移的 ISO-8601 格式的日期时间字符串，例如“2024-12-24T18:00:00.000+01:00”。此外，LTF 通道还具有一个名为“RepeatDays”的新状态参数，默认为 0。当“RepeatDays”设置为正整数时，通道将在达到“StopTime”后通过将“StartTime”和“StopTime”增加指定的天数来重复其循环。例如，将“RepeatDays”设置为 1 以实现每日重复。
 
-### 提示
-逆向使用
+## 图形输出配置
+该适配器有助于可视化价格趋势和计算器结果。它提供三个复杂程度，每个级别都提供不同的选项。
+这三种方法提供了可视化价格趋势和计算器结果的各种选项。根据您的要求，您可以从简单的基于 JSON 的方法到完全定制的 JavaScript 解决方案中进行选择。
+
+### 1.**（正在开发中）使用“E-Charts”适配器进行可视化**
+此方法需要单独安装“E-Charts”适配器。
+
+- 可以使用 JSON 数据，在计算器状态部分生成为“Output-E-Charts”。
+- 功能受到 E-Charts 适配器的限制。
+
+### 2. **使用带有 JSON 的“FlexCharts”（或“全功能 eCharts”）适配器**
+此方法需要单独安装“FlexCharts”适配器。
+
+- TibberLink 适配器创建一个名为“jsonFlexCharts”的状态。
+
+    ![jsonFlexChartsState 示例](../../../en/adapterref/iobroker.tibberlink/docu/jsonFlexChartsState.png)
+
+- FlexCharts 适配器通过以下 URL 呈现此状态：
+
+```
+http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts
+```
+
+- 有关更多详细信息，请参阅 [FlexCharts 适配器文档](https://github.com/MyHomeMyData/ioBroker.flexcharts)。
+
+#### **JSON 模板使用**
+- `jsonFlexCharts` 状态是基于适配器设置中通过 JSON 编辑器配置的模板生成的。
+- **重要：**ioBroker.Admin 中的内置 JSON 编辑器不支持 JSON5，这可能会导致错误的错误消息。
+- 示例模板可从以下位置下载：[TemplateFlexChart01.md](docu/TemplateFlexChart01.md)。
+- 将模板复制并粘贴到 JSON 编辑器中。
+- 模板包含占位符：
+- `%%xAxisData%%` 和 `%%yAxisData%%`（在运行时填充价格信息）。
+- `%%CalcChannelsData%%`（填充了选定的计算器通道数据）。
+- 模板的其余部分遵循 Apache ECharts 配置。有关参考，请参阅 [Apache ECharts 示例](https://echarts.apache.org/examples/en/index.html)。
+- **建议**：使用默认字符串测试没有真实模板的 TibberLink 适配器：
+
+```
+%%xAxisData%%\n\n%%yAxisData%%\n\n%%CalcChannelsData%%
+```
+
+这有助于理解其功能。
+
+- 可以使用“Output-E-Charts”状态数据在 Apache ECharts 示例页面上测试模板调整。
+- 好的模板将在 TibberLink 适配器社区内共享。
+
+### 3. **使用自定义 JavaScript 代码的“FlexCharts”**
+为了实现最大的灵活性和定制化，FlexCharts 适配器可以与自定义 JavaScript 一起使用。
+
+- “FlexCharts”和“JavaScript”适配器都需要单独安装。
+- 这种方法允许创建多个自定义图表。
+- 有关更多详细信息，请参阅 [FlexCharts 适配器讨论](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67)。
+
+## 提示
+### 反向使用
 例如，要获得高峰时段而不是最佳时段，只需反转使用情况和参数：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png)通过交换 true <-> false，您将在第一行收到低成本的 true，在第二行收到高成本的 true（频道名称不是触发器，仍然可以自由选择）。
 
-注意：对于高峰单小时，如示例中，您还需要调整小时数。 原值：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
+注意：对于高峰单小时，如示例中，您还需要调整小时数。 原来：5 -> 逆 (24-5) = 19 -> 您将在 5 个高峰时段获得真实结果。
 
-#### LTF 频道
+### LTF 通道
 计算针对的是“多日”数据。由于我们只有“今天”和“明天”（大约 13:00 后可用）的信息，因此时间范围实际上被限制为最多 35 小时。但是，务必注意这种行为，因为计算结果可能会/将在 13:00 左右发生变化，届时明天的价格新数据将可用。
 
 要观察标准频道时间范围的动态变化，您可以选择跨越数年的有限时间范围 (LTF)。这对于“最佳单小时 LTF”场景特别有用。
@@ -104,229 +156,46 @@ https://github.com/marq24/ha-tibber-pulse-local
 
 ## Changelog
 
-### 4.3.0 (2025-01-xx) WORK in PROGRESS
+### **WORK IN PROGRESS**
 
-- (HombachC) WiP add Graph-JSON
+- (HombachC) enable JSON5 parsing starting with admin 7.5.3
+- (HombachC) fix vulnerability in axios <1.8.2 (#673)
+
+### 4.5.0 (2025-03-05)
+
+- (HombachC) add calculator channel 'smart battery buffer LTF' (#668)
+- (HombachC) rearrange calculator channels in configuration
+- (HombachC) improve debugging messages, code optimisations
+- (HombachC) fix 2 errors in enable/disable FlexCharts
+
+### 4.4.0 (2025-03-01)
+
+- (HombachC) add generation time cutoffs for graph outputs (#643)
+- (HombachC) set admin to minimum 7.4.10 as recommended by ioBroker (#651)
+- (HombachC) Code optimisations, preparations to switch to ESM module
+- (HombachC) bump cron to 4.x.x (#648)
+- (HombachC) bump axios from 1.8.x (#664)
+
+### 4.3.1 (2025-02-23)
+
+- (HombachC) Bump "@iobroker/adapter-dev" to 1.4.0 (#653)
+- (HombachC) start using "@alcalzone/release-script" (#650)
+- (HombachC) add option to enable/disable FlexCharts-JSON for each channel (#642)
+- (HombachC) fix logging for multiple homes (#647)
+- (HombachC) fix encrypted element "tibberBridgePassword" (#652)
+
+### 4.3.0 (2025-02-09)
+
+- (HombachC) added ioBroker.FlexCharts - JSON
 - (HombachC) Update tibber-api to 5.2.1 - handle obsolete data as default, remove option
 - (HombachC) Calculate outputJSON prior to time frame for channels of type 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
 - (HombachC) add outputJSON and outputJSON2 for 'SmartBatteryBuffer' channels (#592)
-- (HombachC) calculator code optimizations
+- (HombachC) calculator and projectUtils code optimizations
+- (HombachC) correct role of stats states to json
 
 ### 4.2.3 (2025-01-14)
 
 - (HombachC) bump cron to 3.5
-
-### 4.2.2 (2025-01-14)
-
-- (HombachC) max API-Token lenght now 80 to meet newest Tibber accounts (#627)
-
-### 4.2.1 (2025-01-08)
-
-- (HombachC) fix missing translation
-
-### 4.2.0 (2025-01-08)
-
-- (HombachC) fix error in BestHoursBlock LTF intruduced in 4.x (#618)
-- (HombachC) add new calculator channels 'BestPercentage' and 'BestPercentageLTF' (#616)
-- (HombachC) add outputJSON for 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
-- (HombachC) fixed some i18n translations
-- (HombachC) year 2025 changes
-- (HombachC) code optimization
-
-### 4.1.1 (2024-12-21)
-
-- (HombachC) code cleanup
-- (HombachC) fix translations
-- (HombachC) fix chai-as-promised
-
-### 4.1.0 (2024-12-15)
-
-- (HombachC) enable local poll also without Token (#613)
-- (HombachC) split jsonConfig.json to multiple files
-- (HombachC) fix typo in translation handling
-- (HombachC) bump cron
-
-### 4.0.0 (2024-12-08)
-
-- (HombachC) BREAKING: dropped support for ioBroker.admin < 7.0.0 because of ioBroker Responsive Design Initiative (#544)
-- (HombachC) redesigned admin tab for calculator
-- (HombachC) optimize translations, added more tooltips
-- (HombachC) fix repeated calculation of LTF channels (#593)
-- (HombachC) added BlockStart / BlockEnd as date string (#516)
-- (HombachC) throttle sentry messaging
-- (HombachC) add prices yesterday (#600)
-
-### 3.5.4 (2024-12-01)
-
-- (HombachC) add warning when LTF stop time isn't same or next day and provide docu
-- (HombachC) fix error in calculator channel 'best single hours' (#594)
-- (HombachC) intruduce 'iobroker/eslint-config' (#591)
-- (HombachC) performance optimizations
-- (HombachC) dependency updates
-
-### 3.5.3 (2024-11-23)
-
-- (HombachC) fix edge case in output state setup and usage
-- (HombachC) optimzed state subscription
-- (HombachC) update deprecated state calls
-- (HombachC) add await to delObjectAsync
-- (HombachC) harmonize project tools
-- (HombachC) dependency updates
-
-### 3.5.2 (2024-10-30)
-
-- (HombachC) add verification for YES/NO 2 values in calculator (#547)
-- (HombachC) optimized responsive design (#544)
-- (HombachC) migrate eslint to >9.x
-- (HombachC) switch to ES2022 code
-- (HombachC) adapted to new API constraints (#546)
-- (HombachC) replace deprecated setStateAsync by setState
-
-### 3.5.1 (2024-10-05)
-
-- (HombachC) changed to less feed disconnection warnings in log (#445)
-- (HombachC) fix error in output2 of smart battery buffer (#538)
-- (HombachC) update deprecated state calls
-- (HombachC) dependency updates
-
-### 3.5.0 (2024-10-02)
-
-- (HombachC) update adapter core
-- (HombachC) fix error in SML decoder
-- (HombachC) add 2 new SML scale factor codes (#535)
-- (HombachC) dependency updates
-
-### 3.4.10 (2024-09-16)
-
-- (HombachC) add verification of poll interval (#518)
-- (HombachC) bumb date-fns to 4.0.0
-
-### 3.4.9 (2024-09-15)
-
-- (HombachC) add adjustable Bridge poll intervall (#518)
-- (HombachC) add node.js 22 to the adapter testing (#519)
-- (HombachC) add docu link to config screen (#504)
-- (HombachC) repository cleanup
-- (HombachC) dependency updates
-
-### 3.4.8 (2024-08-16)
-
-- (HombachC) updated axios because of vulnerability
-- (HombachC) added tests for Node.js 22
-
-### 3.4.7 (2024-08-10)
-
-- (HombachC) adapter checker detected optimizations (#493)
-- (HombachC) improved error message (#490)
-
-### 3.4.6 (2024-08-07)
-
-- (HombachC) Catch wrong OBIS Codes, probably caused by Pulse communication errors
-- (HombachC) code cleanup
-
-### 3.4.5 (2024-07-31)
-
-- (HombachC) decode meter mode 4 for local Tipper Pulse poll (#477)
-- (HombachC) decode meter mode 1 for local Tipper Pulse poll (#478)
-- (HombachC) fixed wrong Pulse local status names (voltage)
-- (HombachC) add docu on local Pulse poll config screen (#479)
-- (HombachC) code cleanup
-- (HombachC) bump dependencies
-
-### 3.4.4 (2024-07-28)
-
-- (HombachC) local poll of data - change units Wh to kWh and round to 0,1kWh (#469)
-
-### 3.4.3 (2024-07-14)
-
-- (HombachC) added unit to Pulse temperature and round to 0,1°C
-- (HombachC) added unit to Pulse battery voltage and round to 100mV
-- (HombachC) added unit to Pulse uptime
-- (HombachC) added state with Pulse uptime as human readable string
-- (HombachC) reinitialize some TibberLocal states upon adapter startup
-- (HombachC) code optimisation
-- (HombachC) bump dependencies
-
-### 3.4.2 (2024-07-13)
-
-- (HombachC) fix typos in units
-- (HombachC) fix type mismatch for state objects (#455)
-- (HombachC) code optimisation
-
-### 3.4.1 (2024-07-13)
-
-- (HombachC) fix logging error
-- (HombachC) bump dependencies
-
-### 3.4.0 (2024-07-12)
-
-- (HombachC) add mode for local poll of Pulse data (#201)
-
-### 3.3.3 (2024-07-04)
-
-- (HombachC) fix sentry notified possible error
-- (HombachC) try to fix startup error (#444)
-
-### 3.3.2 (2024-06-21)
-
-- (HombachC) fix 2 security issues in dependencies
-- (HombachC) fix sentry notified possible error
-
-### 3.3.1 (2024-06-13)
-
-- (HombachC) fix small sentry discovered error (#418)
-- (HombachC) added note for multihomes to documentation (#422)
-
-### 3.3.0 (2024-06-05)
-
-- (HombachC) implements optional, obsolete api call for total historical cost, incl. grid fees (#405)
-- (HombachC) Updates @iobroker/adapter-core from 3.1.6
-- (HombachC) Updates @iobroker/types from 5.0.19 to 6.0.0
-
-### 3.2.1 (2024-06-03)
-
-- (HombachC) added unique endpoint string
-
-### 3.2.0 (2024-06-03)
-
-- (HombachC) IMPORTANT: adapter components had been blocked by Tibber - you have to update!
-- (HombachC) bump base dependencies
-- (HombachC) adapter will use internal output states for calculator if none defined in configuration (#325)
-- (HombachC) implement first run mode in calculator to reduce system load
-- (HombachC) internal optimisations
-
-### 3.1.2 (2024-05-20)
-
-- (HombachC) deleting unused temp home objects after adapter config (#393)
-- (HombachC) bump dependencies
-
-### 3.1.1 (2024-05-16)
-
-- (HombachC) throttle down reconnection speed
-- (HombachC) logging optimizations (#396; #217)
-- (HombachC) adaptations to newer environment (#394; #395)
-
-### 3.1.0 (2024-05-07)
-
-- (HombachC) enable manual control of configured outputs when automation is deactivated (#334)
-- (HombachC) fix not working LTF Channel when using too short LTF (#383)
-- (HombachC) code optimisations
-- (HombachC) update adapter-core to 3.1.4
-- (HombachC) bump dependencies
-
-### 3.0.1 (2024-04-20)
-
-- (HombachC) updated adapter testing
-- (HombachC) bump dependencies
-
-### 3.0.0 (2024-04-15)
-
-- (HombachC) BREAKING: dropped support for node.js 16 (#368)
-- (HombachC) BREAKING: js-controller >= 5 is required
-- (HombachC) changed to tier 2 as data provider
-- (HombachC) corrected io-package.json according to new schema (#368)
-- (HombachC) update typescript to 5.4.5
-- (HombachC) update adapter-core to 3.0.6
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

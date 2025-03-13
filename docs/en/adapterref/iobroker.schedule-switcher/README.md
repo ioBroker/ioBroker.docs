@@ -794,6 +794,10 @@ app-on-off-schedules-widget {
 
 ### **WORK IN PROGRESS**
 
+- (Lucky-ESA) Admin 7.4.10 required
+
+### 0.0.10 (2025-02-11)
+
 - (Lucky-ESA) Dependencies updated
 - (Lucky-ESA) Fixed: In the HTML overview, enabled / disabled does not work
 - (Lucky-ESA) Fixed: Astrotime incorrectly

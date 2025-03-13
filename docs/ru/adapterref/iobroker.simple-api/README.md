@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.simple-api/README.md
 title: Simple-api
-hash: uZ6qv91MUDsp64vaDdJZv17hn5SFo1Qn8zeHBd097Ec=
+hash: msMBIksOps5bO+J7WBGAU3LJ+eoMlYsdIxIm1sXO+Gk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -16,12 +16,14 @@ hash: uZ6qv91MUDsp64vaDdJZv17hn5SFo1Qn8zeHBd097Ec=
 
 Это интерфейс RESTFul для чтения объектов и состояний из ioBroker, а также для записи/управления состояниями с помощью HTTP-запросов Get/Post.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
+**Используйте лучше [`ioBroker.rest-api`](https://github.com/ioBroker/ioBroker.rest-api) вместо этого адаптера.**
 
 ## Использование
 Вызовите в браузере `http://ipaddress:8087/help`, чтобы получить справку об API. Результат:
 
-```
+```json
 {
   "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID",
   "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID?json",
@@ -79,7 +81,7 @@ hash: uZ6qv91MUDsp64vaDdJZv17hn5SFo1Qn8zeHBd097Ec=
 
 Результат:
 
-```
+```json
 {"val":true,"ack":true,"ts":1442432193,"from":"system.adapter.admin.0","lc":1442431190,"expire":23437,"_id":"system.adapter.admin.0.alive","type":"state","common":{"name":"admin.0.alive","type":"boolean","role":"indicator.state"},"native":{}}
 ```
 
@@ -91,7 +93,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 Результат:
 
-```
+```json
 {
   "val": true,
   "ack": true,
@@ -114,27 +116,19 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 Получить множество состояний одним запросом, возвращенным в виде массива объектов в порядке списка в запросе и id/val/ts в качестве подобъекта
 
 ### Набор
-Позвоните, например:
-
-```
-http://ipaddress:8087/set/javascript.0.test?value=1
-```
+Вызов, например: `http://ipaddress:8087/set/javascript.0.test?value=1`
 
 Результат:
 
-```
+```json
 {"id":"javascript.0.test","value":1}
 ```
 
-или позвоните, например:
-
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint
-```
+или позвоните, например: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
 
 Результат:
 
-```
+```json
 {
   "id": "javascript.0.test",
   "value": 1
@@ -143,17 +137,9 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint
 
 Конечно, точка данных `javascript.0.test` должна существовать.
 
-Кроме того, можно определить тип значения:
+Кроме того, можно определить тип значения: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
 
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string
-```
-
-и флаг ack также может быть определен:
-
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
-```
+и флаг подтверждения также может быть определен: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
 
 ### Переключать
 Переключает значение:
@@ -166,7 +152,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 Установить несколько состояний одним запросом. Этот запрос также поддерживает метод POST, поскольку данные POST должны быть в теле, а не в URL.
 
 ### SetValueFromBody
-Позволяет задать значение данного состояния, заданное содержимым тела POST.
+Эта команда позволяет задать значение заданного состояния, устанавливаемого содержимым тела POST.
 
 Например, вызовите: `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` с телом `hello`, где `0_userdata.0.example_state` — это идентификатор состояния.
 
@@ -190,7 +176,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 Эта команда необходима для плагина Grafana JSON / SimpleJSON.
 
 ### Помощь
-Возвращает [этот](#usage) вывод обратно
+Возвращает вывод [этот](#usage)
 
 ## Использование
 Предположим, у нас нет защиты и сервер работает на порту по умолчанию 8087.
@@ -204,13 +190,9 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ### ПолучитьОбычноеЗначение
 Прочитать значение состояния как текст. Вы можете указать больше идентификаторов, разделенных точкой с запятой
 
-```http://ip:8087/getPlainValue/admin.0.memHeapTotal```
+`http://ip:8087/getPlainValue/admin.0.memHeapTotal` => `31.19`
 
-```
-  31.19
-```
-
-```http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed```
+`http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed` =>
 
 ```
   31.19
@@ -218,12 +200,12 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ```
 
 ### Получать
-Прочитать состояние и данные объекта состояния как json. Вы можете указать больше идентификаторов, разделенных точкой с запятой.
+Прочитать состояние и данные объекта состояния как JSON. Вы можете указать больше идентификаторов, разделенных точкой с запятой.
 Если запрошено более одного идентификатора, будет возвращен массив JSON.
 
-```http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint```
+`http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint` =>
 
-```
+```json
   {
     "val": 31.19,
     "ack": true,
@@ -250,9 +232,9 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
   }
 ```
 
-```http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
+`http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint` =>
 
-```
+```json
   [
     {
       "val": 31.19,
@@ -309,9 +291,9 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 Прочитайте состояния большего количества идентификаторов с временной меткой. Вы можете указать больше идентификаторов, разделив их точкой с запятой.
 Массив JSON будет возвращаться всегда.
 
-```http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
+`http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint` =>
 
-```
+```json
   {
       "admin.0.memHeapTotal": {
           "val": 31.19,
@@ -327,17 +309,19 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ### Набор
 Запишите состояния с указанными идентификаторами. Вы можете указать опцию *wait* в миллисекундах, чтобы дождаться ответа от водителя.
 
-```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint```
+`http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint` =>
 
-```{
+```json
+{
        "id": "hm-rpc.0.IEQ12345.LEVEL",
        "value": 1
      }
 ```
 
-```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint```
+`http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint` =>
 
-```{
+```json
+{
        "val": 1,
        "ack": true,
        "ts": 1423155399,
@@ -346,15 +330,15 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
      }
 ```
 
-Если в указанное время ответ не будет получен, будет возвращено значение `null`.
+Если в указанное время ответ не получен, будет возвращено значение `null`.
 В первом случае ответ будет возвращен немедленно, а `ack` — ложь. Во втором случае `ack` — истина. Это означает, что это был ответ от водителя.
 
 ### SetBulk
-- запись большого количества идентификаторов в одном запросе.
+- записать большую часть идентификаторов в один запрос.
 
-```http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint```
+`http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint` =>
 
-```
+```json
   [
     {
       "id": "hm-rpc.0.FEQ1234567:1.LEVEL",
@@ -369,11 +353,11 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 Вы также можете отправить этот запрос методом POST.
 
 ### Объекты
-Получить список всех объектов для шаблона. Если шаблон не указан, будут возвращены все объекты как массив JSON.
+Получить список всех объектов для шаблона. Если шаблон не указан, будут возвращены все объекты в виде массива JSON.
 
-```http://ip:8087/objects?prettyPrint```
+`http://ip:8087/objects?prettyPrint` =>
 
-```
+```json
   {
   "system.adapter.admin.0.uptime": {
     "_id": "system.adapter.admin.0.uptime",
@@ -409,11 +393,9 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
   ...
 ```
 
-Получить все объекты управления адаптера system.adapter.admin.0:
+Получить все объекты управления адаптера system.adapter.admin.0: `http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
 
-```http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint```
-
-```
+```json
     {
     "system.adapter.admin.0.uptime": {
       "_id": "system.adapter.admin.0.uptime",
@@ -431,11 +413,11 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ```
 
 ### Штаты
-Получить список всех состояний для шаблона. Если шаблон не указан, будут возвращены все состояния как массив JSON.
+Получить список всех состояний для шаблона. Если шаблон не указан, будут возвращены все состояния в виде массива JSON.
 
-```http://ip:8087/states?prettyPrint```
+`http://ip:8087/states?prettyPrint` =>
 
-```
+```json
   {
     "system.adapter.admin.0.uptime": {
       "val": 32176,
@@ -463,9 +445,9 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 
 Получить все объекты управления адаптера system.adapter.admin.0:
 
-```http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint```
+`http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint` =>
 
-```
+```json
     {
       "system.adapter.admin.0.uptime": {
         "val": 32161,
@@ -517,11 +499,9 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ### Поиск
 Если в конфигурации задан источник данных (История, SQL), то будут перечислены только точки данных, известные источнику данных. Если активирована опция «Список всех точек данных» или не указан источник данных, будут перечислены все точки данных.
 
-```
-http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
-```
+`http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint` =>
 
-```
+```json
   {
     "system.adapter.admin.0.outputCount",
     "system.adapter.admin.0.inputCount",
@@ -539,9 +519,9 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ### Запрос
 Если указан источник данных (История, SQL), то данные из указанных точек данных считываются за указанный период.
 
-```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
+`http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
 
-```
+```json
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -582,9 +562,9 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 
 Если источник данных не указан или передан параметр noHistory, то считывается только текущее значение точки данных.
 
-```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true```
+`http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true` =>
 
-```
+```json
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -612,8 +592,11 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.0 (2025-03-09)
 * (bluefox) Updated packages
+* (bluefox) Migrated to TypeScript
+* (bluefox) If State/Object not found, the response will be 404 (and not 500)
+* (bluefox) If a user has no permission, the response will be 403 (and not 401)
 
 ### 2.8.0 (2024-05-23)
 * (foxriver76) ported to `@iobroker/webserver`
@@ -627,10 +610,10 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 
 ### 2.7.0 (2022-05-31)
 * (crycode-de) Allow use of ack flag for setBulk post requests
-* (Apollon77) Return ack flag too on getBulk
+* (Apollon77) Return an ack flag too on getBulk
 
 ### 2.6.5 (2022-04-14)
-* Added support aggregate and count for queries
+* Added support for aggregate and count for queries
 
 ### 2.6.4 (2022-03-17)
 * (Apollon77) Optimize performance, especially when using names instead of object ids
@@ -662,10 +645,10 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 * (Apollon77) check that targets are an array for "query" requests (Sentry IOBROKER-SIMPLE-API-F)
 
 ### 2.4.6 (2020-06-11)
-* (Apollon77) Make sure adapter is showing correct error when webserver can not be initialized (Sentry IOBROKER-SIMPLE-API-7)
+* (Apollon77) Make sure that the adapter is showing the correct error when webserver cannot be initialized (Sentry IOBROKER-SIMPLE-API-7)
 
 ### 2.4.5 (2020-05-04)
-* (Apollon77) webserver initialization optimized again to prevent errors with imvalid certificates
+* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
 
 ### 2.4.4 (2020-05-02)
 * (Apollon77) Make sure Permission errors do not crash adapter (Sentry IOBROKER-SIMPLE-API-3)
@@ -777,7 +760,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

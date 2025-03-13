@@ -3,16 +3,20 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.valloxmv/README.md
 title: 无标题
-hash: 3D+3x+HEJph1NJ57fT3+09oimGIcDc6gwEzlgDEdlDI=
+hash: /KlW44vUuW6HwukABQM0FnDr1Hfo0C9q6ARHvBvzjzk=
 ---
+![稳定存储库中的当前版本](https://iobroker.live/badges/valloxmv-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.valloxmv.svg)
+![安装数量](https://iobroker.live/badges/valloxmv-installed.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.valloxmv.svg)
-![依赖状态](https://img.shields.io/david/hacki11/iobroker.valloxmv.svg)
 ![已知漏洞](https://snyk.io/test/github/hacki11/ioBroker.valloxmv/badge.svg)
+![依赖状态](https://img.shields.io/david/hacki11/iobroker.valloxmv.svg)
 ![新平台](https://nodei.co/npm/iobroker.valloxmv.png?downloads=true)
 ![特拉维斯-CI](http://img.shields.io/travis/hacki11/ioBroker.valloxmv/master.svg)
 
 <h1><img src="admin/valloxmv.png" width="64"/>ioBroker.valloxmv</h1>
+
+![测试与发布](https://github.com/hacki11/ioBroker.valloxmv/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 ValloxMV 适配器
 将您的 Vallox 空气通风系统连接到您的 ioBroker 家庭自动化。
@@ -22,9 +26,16 @@ hash: 3D+3x+HEJph1NJ57fT3+09oimGIcDc6gwEzlgDEdlDI=
 * 配置设备地址和轮询间隔（最小60）
 * 像平常一样读写状态
 
-正在进行中
+## 1.4.0
+* 维护版本
+* 将引擎升级至 NodeJS 20 作为最低版本
+
+## 1.3.0
+* 维护版本
 * 更新依赖项（iobroker-core 和 node）
 * 将 UI 更改为 jsconConfig 并修复存储库检查器检测到的问题
+* 通过 iobroker/adapter-dev 使用 i18n 更新翻译
+* 更新许可证和自述文件中的年份
 
 ### 1.2.0
 * 删除 NodeJS 10.x 支持
@@ -86,4 +97,4 @@ hash: 3D+3x+HEJph1NJ57fT3+09oimGIcDc6gwEzlgDEdlDI=
 ## License
 MIT License
 
-Copyright (c) 2022 hacki11
+Copyright (c) 2025 hacki11

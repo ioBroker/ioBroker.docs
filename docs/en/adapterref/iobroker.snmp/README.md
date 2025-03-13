@@ -27,9 +27,10 @@ For more details and for information how to disable the error reporting see [Sen
 This adapter can be used to poll information from devices like printers, network devices, etc. using SNMP protocol.
 
 ## Adapter-Configuration
-The adapter queries specified oids which are grouped within oid groups which in turn are assigned to devices. The configuration data is entered at several tabs. The adapter supports IPv4 adn IPv6 connections.
+The adapter queries specified OIDs which are grouped within oid groups which in turn are assigned to devices.
+The configuration data is entered at several tabs. The adapter supports IPv4 adn IPv6 connections.
 
-For destails see documentation referenced below.
+For details see documentation referenced below.
 
 ## Documentation
 
@@ -40,8 +41,19 @@ For destails see documentation referenced below.
 ## Changelog
 
 <!--
-## __WORK IN PROGRESS__
+   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2024-03-29)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 3.1.0 (2023-10-13)
+* (mcm1957) Requirements have been updated. Adapter requires node.js 18 or newer now
+* (mcm1957) Packages have been update to cleanup open dependabot PRs
+
+### 3.0.0 (2023-10-12)
+* (bluefox) updated packages. Minimal node.js version is 16
+
 ### 2.4.11 (2023-07-13)
 * (McM1957) Node-net-snmp has been updated to improve uint32 handling (#282)
 * (McM1957) Several other dependencies have been updated
@@ -196,6 +208,7 @@ For destails see documentation referenced below.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

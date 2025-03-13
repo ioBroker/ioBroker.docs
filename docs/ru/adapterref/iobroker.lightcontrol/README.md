@@ -1,50 +1,50 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lightcontrol/README.md
-title: ioBroker.lightcontrol
-hash: 2C8lox7QJJk3YWndhJjKQTbbN03SjxFzwB2yH3gvwgI=
+title: ioBroker.контроль света
+hash: m3NWqQj1pYY8F65fMOr+iFCErlFj3TL6bgzpWhoQFJI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lightcontrol/admin/lightcontrol.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.lightcontrol.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.lightcontrol.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lightcontrol.svg)
 ![узел-lts](https://img.shields.io/node/v-lts/iobroker.lightcontrol?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/schmakus/iobroker.lightcontrol?style=flat-square)
 ![Размер репозитория GitHub](https://img.shields.io/github/repo-size/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![Последний коммит GitHub](https://img.shields.io/github/last-commit/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![НПМ](https://nodei.co/npm/iobroker.lightcontrol.png?downloads=true)
 ![Бета](https://img.shields.io/npm/v/iobroker.lightcontrol.svg?color=red&label=beta)
 ![Стабильный](http://iobroker.live/badges/lightcontrol-stable.svg)
-![Установлен](http://iobroker.live/badges/lightcontrol-installed.svg)
+![Установлено](http://iobroker.live/badges/lightcontrol-installed.svg)
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
 
 # IoBroker.lightcontrol
 [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![Тестирование и выпуск](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
+![Тест и выпуск](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
 
 ## Версии
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-## Если вам нравится моя работа:
-## Монтаж
-Пожалуйста, используйте «список адаптеров» и стабильный репозиторий в ioBroker, чтобы установить версию этого адаптера. Вы также можете использовать CLI для установки этого адаптера:
+## Если вам понравилась моя работа:
+## Установка
+Пожалуйста, используйте "список адаптеров" и стабильный репозиторий в ioBroker для установки версии этого адаптера. Вы также можете использовать CLI для установки этого адаптера:
 
 ```
 iobroker add lightcontrol
 ```
 
 ## Документация
-[🇺🇸 Документация](./en/lightcontrol.md)
+[🇺🇸 Документация](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/en/lightcontrol.md)
 
-[🇩🇪 Документация](./docs/de/lightcontrol.md)
+[🇩🇪 Документация](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/de/lightcontrol.md)
 
-## Делать
-- Выберите более одной LightGroup для одного идентификатора объекта (ошибка с jsonCustom Select multible)
-- Доступность уведомления с более низкой яркостью и определенными секундами до автоматического выключения.
+## Задача
+- Выберите более одной LightGroup для одного Object-ID (ошибка с jsonCustom Select multiple)
+- Возможность уведомления с более низкой яркостью и заданным количеством секунд до автоматического выключения
 
 ## Changelog
 
@@ -53,43 +53,40 @@ iobroker add lightcontrol
 	### **WORK IN PROGRESS**
 -->
 
-### 0.5.0 (2024-03-01)
+### **WORK IN PROGRESS**
+
+-   (Schmakus) fix responsive issues
+
+### 2.0.0 (2025-03-06)
 
 -   (Schmakus) update dependencies
--   (Schmakus) update license year
--   (Schmakus) fixed AutoOnLux (Cannot read properties of undefined (reading 'minLux'))
+-   (Schmakus) Admin 7.4.10 required
+-   (Schmakus) Node 20 required
+-   (Schmakus) fix responive issues
 
-### 0.4.0 (2023-08-16)
+### 1.0.1 (2024-09-02)
 
--   (Schmakus) Node >=16 and NPM >=7 necessary!
--   (Schmakus) fixed rampOff.time
 -   (Schmakus) update dependencies
 
-### 0.3.0 (2023-07-17)
+### 1.0.0 (2024-09-02)
 
--   (Schmakus) (thoml95) Changed conversion of color-temperature (edit of ct-states required)
--   (Schmakus) (thoml95) fixed some bugs related to powerCleaningLight
--   (Schmakus) Some code improvements
--   (Schmakus) Update Docu
+-   (Schmakus) update dependencies
 
-### 0.2.18 (2023-07-08)
+### 0.8.0 (2024-08-16)
 
--   (Schmakus) Fixed CtReverse [#149]
--   (Schmakus) Fixed translation for light [#136]
--   (Schmakus) Fixed warning min/max of ct-state [#148]
--   (Schmakus) Fixed Set Color-Temperature (set null value)
+-   (Schmakus) Adapter requires node.js >= 18 and Admin >=6 now
+-   (Schmakus) Dependencies have been updated
+-   (Schmakus) Fixed repo checker issues
 
-### 0.2.17 (2023-05-17)
+### 0.7.0 (2024-07-02)
 
--   (Schmakus) Fix error by init of customConfig, if no light description is available
--   (Schmakus) Fix error by set Ct, Color,... if no lights or groups defined
--   (Schmakus) Some code improvements
+-   (Schmakus) Dependencies have been updated
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 Schmakus <schmakus@gmail.com>
+Copyright (c) 2025 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -55,6 +55,15 @@ All product and company names or logos are trademarks™ or registered® tradema
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (raschy) The auxiliary functions chai and chai-as-promised have been tacked onto the executable version.
+
+### 0.2.0 (2025-02-06)
+
+- (raschy) Dependabot run tracked manually
+
 ### 0.1.4 (2025-01-11)
 
 - (raschy) Error message corrected

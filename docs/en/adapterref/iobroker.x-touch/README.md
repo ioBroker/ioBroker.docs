@@ -29,10 +29,16 @@ There a two acepted commands:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.1 (2025-02-25)
+* (Bannsaenger) updated admin dependency
+
+### 0.7.0 (2025-02-17)
 * (Bannsaenger) fixed some minor typos
-* (Bannsaenger) updated dependencies
-* (Bannsaenger) 
+* (Bannsaenger) updated to node 18.x - 22.x
+* (Bannsaenger) updated dependencies, node 22 compatibility, workflow
+* (Bannsaenger) added possibility to lock the desk
+* (Bannsaenger) resend data on group membership change
+* (Bannsaenger) removed createBanks from config dialog (too dangerous, delete by hand if neccessary)
 
 ### 0.6.5 (2023-12-30)
 * (Bannsaenger) add CHANGELOG_OLD.md
@@ -47,16 +53,10 @@ There a two acepted commands:
 * (Bannsaenger) updated dependencies
 * (Bannsaenger) fixed bank and channel switching
 
-### 0.6.2 (2022-10-07)
-* (Bannsaenger) test-and-release without build
-
-### 0.6.1 (2022-10-07)
-* (Bannsaenger) confusion with the release script
-
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2025 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: JuvG0mDiM8nB+9E4FTL4MJgYdkQSlYOUQEYUWl4/VJQ=
+hash: UFdW49RaHlrnZCQD/4v5Uo1McZUa0/12UbqQv244GN4=
 ---
 # IoBroker.tado
 
@@ -18,10 +18,13 @@ hash: JuvG0mDiM8nB+9E4FTL4MJgYdkQSlYOUQEYUWl4/VJQ=
 
 [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Тест и выпуск](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
+## Вход больше не работает?
+Из-за нового метода авторизации от Tado, который является обязательным с 21 марта (см. https://github.com/DrozmotiX/ioBroker.tado/issues/954), метод аутентификации был изменен с UserId и Password на Token. Поэтому вам необходимо обновиться до версии 0.7.1 или более поздней! После обновления перейдите на страницу конфигурации адаптера и следуйте процессу с помощью кнопок «Шаг 1» и «Шаг 2».
+
 ## Адаптер tado для ioBroker
 Tado° (https://www.tado.com) — эксперт в области интеллектуального отопления и управления энергией для вашего дома, разработанный и созданный в Германии. Экономьте энергию и сокращайте расходы навсегда вместе с нами — наслаждайтесь уютным и устойчивым домом.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Тадо° X
 Доступна базовая поддержка Tado° X.
@@ -73,32 +76,30 @@ Tado° (https://www.tado.com) — эксперт в области интелл�
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.7.2 (2025-03-12)
+* (HGlab01) improve sentry logs
+
+### 0.7.1 (2025-03-09)
+* (HGlab01) !!!BREAKING CHANGE!!! new Authentification method (https://github.com/DrozmotiX/ioBroker.tado/issues/954)
+* (HGlab01) Bump axios to 1.8.2
+* (HGlab01) Improve error messages for Sentry
+* (HGlab01) Add attributes 'tariffLowPriceAlert' and 'tariffHighPriceAlert'
+
+### 0.6.1 (2024-11-04)
+* (HGlab01) Add attributes 'expiryInSeconds' and 'activated'
+* (HGlab01) Extend timeout back to 20s
+* (HGlab01) Tado° X improvements
+
 ### 0.6.0 (2024-10-23)
 * (HGlab01) Start supporting Tado° X
 
 ### 0.5.9 (2024-10-16)
 * (HGlab01) Improve axios promise handling
 
-### 0.5.7 (2024-09-30)
-* (HGlab01) Change of attribute "light" supported
-* (HGlab01) Add attribute 'connection'
-* (HGlab01) Add attribute 'supportsFlowTemperatureOptimization'
-* (HGlab01) Bump axios to 1.7.7
-* (HGlab01) EnergyIQ meter-readings can be uploaded
-
-### 0.5.6 (2024-08-06)
-* (HGlab01) Improve AccessToken Management
-* (HGlab01) Bump axios to 1.7.3
-* (HGlab01) Add attribute 'language'
-* (HGlab01) Add attribute 'isHeatPumpInstalled'
-
-### 0.5.5 (2024-06-25)
-* (HGlab01) Bump axios to 1.7.2
-
 ## License
 MIT License
 
-Copyright (c) 2024 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

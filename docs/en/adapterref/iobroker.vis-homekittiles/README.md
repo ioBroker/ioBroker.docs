@@ -33,16 +33,33 @@ The widgets are designed for VIS 1.x.
 * create Checkbox for Sonos Group
 * Datepicker: dynamic day/month icons
 * Tiles: add button for dialog
+* optimize function 'infoText'
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.6 (2025-03-04)
+
+* Depencies updated
+
+### 0.4.5 (2025-02-14)
+
+* hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget
+
+### 0.4.2 (2025-02-09)
+
+* hkt-settings-value: added format options for decimals
+* Thermostat dialog: prevent select menu inside of dialogs from open when dialog window opens
+* View in widget dialog: prevent select menu inside of dialogs from open when dialog window opens
+
+### 0.4.1 (2025-02-08)
 
 * All tiles: added icon for state off
 * Optimized CSS for indicator
+* Removed forced font-size of widgets in View-In-Widget-Swipe
+* Removed forced font-size of widgets in View-In-Widget-Dialog
 
 ### 0.4.0 (2025-01-14)
 

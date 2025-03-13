@@ -24,8 +24,8 @@ RELEASE NOTES:
 Version 0.4.x includes a Breaking Change:
 
 - The type of "frontier_silicon.X.media.state" changed from "number" to "string" and readonly  
-If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:
-`State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"`
+If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:  
+`State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"`  
 To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
 
 Version 0.3.x includes some Breaking Changes:
@@ -37,8 +37,8 @@ Upgrade your ioBroker to at least this software level, if you want to use this a
 If you update this adapter from a previous version instead of a new installation, the adapter will not start, even if your PIN in your config is correct and has not been changed. To fix this, simply enter the same previous PIN once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
 
 - The type of "frontier_silicon.X.modes.selectPreset" changed from "string" to "number"  
-If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:
-`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"`
+If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:  
+`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"`  
 To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
 
 - Synchronization of power, volume and mute states with the UNDOK App  
@@ -231,6 +231,10 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+
 ### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
 - (pdbjjens) Change: media state changed from number to string and readonly (#241)

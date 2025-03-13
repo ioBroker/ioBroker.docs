@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rpi2/README.md
 title: 无标题
-hash: eqFbMVAtc2KJ4WQOBCX2RsFccxIp6aRsiZMzepwkGJw=
+hash: cWeo+oq08XAAh++hWgPAHjLTCo8IlnCkgOpYAAeWOEM=
 ---
 ![标识](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) ioBroker RPI 监控适配器
 
@@ -94,12 +94,9 @@ sudo apt-get install -y libgpiod-dev
 - 正常运行时间
 无线局域网
 
-## 日志文件/配置设置
-＃＃ 特征
-待办事项
-## 经过测试的硬件
--Odroid C1
-树莓派 1
+### NVME 温度
+从适配器版本 2.3.2 开始，您可以读取 NVMe 温度。为此，您需要在系统上安装 `nvme-cli` 包。
+您可以使用以下命令执行此操作：`sudo apt-get install nvme-cli`。您还需要将该命令添加到 ioBroker sudoers 文件 `/etc/sudoers.d/iobroker`。使用编辑器打开它，例如 nano：`sudo nano /etc/sudoers.d/iobroker` 并在底部添加以下行：`nvme smart-log /dev/nvme0`。
 
 GPIO
 您也可以读取和控制 GPIO。
@@ -154,85 +151,30 @@ GPIO
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### 2.0.0-alpha.3 (2024-05-24)
-* (Garfonso) fix crash
+### 2.4.0 (2025-03-06)
+* (Garfonso) read the current state of GPIO outputs during adapter startup.
+* (Garfonso) re-read GPIO input, if set by the user (with ack=false).
+* (Garfonso) add an option to invert true/false mapping to 1/0.
+* (Garfonso) Allow multiple instances of this adapter per host.
+* (Garfonso) tried to improve initialization of GPIO inputs.
 
-### 2.0.0-alpha.2 (2024-05-24)
-* (Garfonso) get rid of old sync-exec.
+### 2.3.2 (2025-02-06)
+* (asgothian) added support for NVMe temperature (needs additional configuration, see README)
+* (Garfonso) fixed inital values for outputs.
 
-### 2.0.0-alpha.1 (2024-05-23)
-* (Garfonso) Fix stuff.
+### 2.3.1 (2025-01-06)
+* (Garfonso) fixed: GPIO library failed to load after recent dependency update.
 
-### 2.0.0-alpha.0 (2024-05-23)
-* (Garfonso) Get stuff up to date...
+### 2.3.0 (2024-12-23)
+* (Garfonso) correct interpretation of start value setting. Output with initial value 0/1 will set GPIO accordingly during startup. Output without an initial state will not set GPIO at all.
 
-### 1.3.2 (2022-02-17)
-* Important: This version requires at leas js-controller 3.3
-* (Apollon77) Stop the adapter when GPIO module is configured but not working due to a needed rebuild that js-controller can pick up
-
-### 1.3.1 (2021-07-16)
-* (Apollon77) Prevent js-controller 3.3 warnings
-
-### 1.3.0 (2021-07-16)
-* (asgothian) Fix to get CPU frequencies also on Raspi 4
-* (raintor) Add support for DHTxx/AM23xx Sensors
-* (raintor) Configure internal Pull UP/Down Resistor
-* (raintor) Add port 'label'/'friendly name' to GPIO config
-
-### 1.2.0 (2020-01-17)
-- (janfromberlin) GPIO configuration as output with defined initial value
-- (foxriver76) No longer use adapter.objects
-- (Apollon77) Adjust gpio errors
-
-### 1.1.1
-- (Apollon77) Error messages for not existing values are logged only once
-
-### 1.1.0
- - (Apollon77) Nodejs 10 support
-
-### 1.0.0 (2018-08-20)
- - (bluefox) Admin3 support
-
-### 0.3.2 (2017-11-29)
- - (Homoran) fixed Mem available readings on Stretch
-
-### 0.3.1 (2017-01-11)
- - (olifre) Fixup swap_used calculation.
-
-### 0.2.2 (2016-12-01)
- - (bluefox) Add GPIO direction indication
-
-### 0.2.2 (2016-11-22)
- - (bluefox) Use BCM enumeration
-
-### 0.2.1 (2016-10-29)
- - (bluefox) fix start of adapter
-
-### 0.2.0 (2016-10-23)
- - (bluefox) just version change
-
-### 0.1.1 (2016-10-13)
- - (bluefox) implement GPIOs control
-
-### 0.0.4 (2016-03-25)
- - (bluefox) Try catch by eval
-   (bluefox) do not process if exec fails
-
-### 0.0.3 (2015-12-28)
- - (husky-koglhof) Fixed value calc.
-   Set Value to 2 digits
-
-### 0.0.2 (2015-12-26)
- - (husky-koglhof) Workaround for node 0.10.x
- - (bluefox) Some Fixes
-
-### 0.0.1 (2015-12-23)
- - Initial commit. Alpha Version.
+### 2.2.2 (2024-11-02)
+* (simatec) responsive design for settings page added
 
 ## License
 MIT License
 
-Copyright (c) 2024 Garfonso <garfonso@mobo.info>
+Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

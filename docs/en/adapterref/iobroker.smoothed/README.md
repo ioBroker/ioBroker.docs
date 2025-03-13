@@ -27,6 +27,15 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2025-02-22)
+* (BenAhrdt) update admin and js-controller dependecies
+
+### 1.2.2 (2025-02-06)
+* (BenAhrdt) add debuglogging at statechange
+
+### 1.2.1 (2025-02-06)
+* (BenAhrdt) add logging to function in cyclic output
+
 ### 1.2.0 (2024-12-04)
 * (BenAhrdt) eslint updated
 
@@ -94,7 +103,7 @@ Or ignore values with a high standard deviation.
 ## License
 MIT License
 
-Copyright (c) 2024 Ben1983 <bsahrdt@gmail.com>
+Copyright (c) 2025 Ben1983 <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

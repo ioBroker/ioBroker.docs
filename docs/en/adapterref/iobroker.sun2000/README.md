@@ -33,8 +33,27 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* new state [usableSurplusPower](https://github.com/bolliy/ioBroker.sun2000/wiki/%C3%9Cberschuss-(surplus))
+* control: checking and rounding integer numbers
+* better solution for math rounding
+
+### 1.0.1 (2025-03-01)
+* updated further case sensitivity of the object status name
+* require ioBroker admin 7.4.10 or higher #154
+
+### 1.0.0 (2025-02-10)
+* dependency and configuration updates
+* updated case sensitivity of the object status name
 * Interval time of the slave inverter increased slightly
+* Register data is not read in "Standby: detecting irradiation" (0x0002) of the slave inverter
+* Control: battery.maximumDischargePower is deprecated use "maximumDischargingPower" instead
+* Control: battery.maximumChargePower is deprecated use "maximumChargingPower" instead
+* breaking changes
+	- Node.js 20 or higher required
+	- ioBroker host (js-controller) 6.0.1 or higher
+	- ioBroker admin 6.13.16 or higher
 
 ### 0.18.1 (2025-01-08) 
 * dependency and configuration updates

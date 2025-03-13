@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: /X3s0IvNZdNrT/NMxCAvFmje1BgCVt+giQKZUZrUyso=
+hash: BjT9FQxITbDD3xY9orHVvbnqrpt7q4Gp/EVxos9Mz6w=
 ---
 # IoBroker.vis-homekittiles
 
@@ -18,8 +18,8 @@ hash: /X3s0IvNZdNrT/NMxCAvFmje1BgCVt+giQKZUZrUyso=
 **Tests:** ![Testen und Freigeben](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
 ## HomeKit-Kacheln für ioBroker-VIS
-Homekit Tiles ist ein Widget-Set, das sich am Design von Apple HomeKit orientiert.
-Das Besondere an den Widgets ist, dass diese keine festen Style-Elemente enthalten, sondern alles per CSS formatiert ist. Dadurch gibt es im VIS-Editor keine eigenen Einstellungen für die Position und/oder Größe der Icons, Labels etc. Die Anpassung des Designs erfolgt durch Veränderung des CSS-Codes. Als Vorlage kann hierfür der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` verwendet werden. Der Code wird im VIS-Editor in den Reiter CSS eingefügt und kann beliebig angepasst werden. Auch das Hinzufügen eigener CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets ist möglich.
+Homekit Tiles ist ein Widget-Set, das auf dem Design von Apple HomeKit basiert.
+Die Besonderheit der Widgets besteht darin, dass sie keine festen Stilelemente enthalten, sondern alles per CSS formatiert ist. Daher gibt es im VIS-Editor keine separaten Einstellungen für Position und/oder Größe der Icons, Labels etc. Das Design wird durch Änderung des CSS-Codes angepasst. Hierfür kann der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` als Vorlage verwendet werden. Der Code wird im VIS-Editor im Reiter „CSS“ eingefügt und kann beliebig angepasst werden. Es ist auch möglich, über den VIS-Editor im Bereich „Allgemein“ der Widgets eigene CSS-Klassen hinzuzufügen.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
@@ -30,22 +30,39 @@ Die Widgets sind für VIS 1.x konzipiert.
 
 [🇩🇪 Dokumentation](doc/homekittiles-de.md) [🇺🇸 Dokumentation](doc/homekittiles-en.md)
 
-## Dinge die zu tun sind
+## Dinge zu tun
 * Mini-Mediaplayer erstellen
 * Select-Kachel erstellen
 * Kontrollkästchen für Sonos-Gruppe erstellen
 * Datumsauswahl: dynamische Tag-/Monatssymbole
 * Kacheln: Schaltfläche für Dialog hinzufügen
+* Funktion „infoText“ optimieren
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.6 (2025-03-04)
+
+* Depencies updated
+
+### 0.4.5 (2025-02-14)
+
+* hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget
+
+### 0.4.2 (2025-02-09)
+
+* hkt-settings-value: added format options for decimals
+* Thermostat dialog: prevent select menu inside of dialogs from open when dialog window opens
+* View in widget dialog: prevent select menu inside of dialogs from open when dialog window opens
+
+### 0.4.1 (2025-02-08)
 
 * All tiles: added icon for state off
 * Optimized CSS for indicator
+* Removed forced font-size of widgets in View-In-Widget-Swipe
+* Removed forced font-size of widgets in View-In-Widget-Dialog
 
 ### 0.4.0 (2025-01-14)
 

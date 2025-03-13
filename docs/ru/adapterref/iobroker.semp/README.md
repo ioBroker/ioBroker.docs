@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: 3eKCgekKBWAZFRi0xTm5M+gZjWwArpIfn2sr5r8I5gY=
+hash: BUgLuC9jDs8kdU4y1KOh9Tf+1PG+mYBTncPgwWPEebk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -23,7 +23,7 @@ hash: 3eKCgekKBWAZFRi0xTm5M+gZjWwArpIfn2sr5r8I5gY=
 # IoBroker.semp
 ![Действия GitHub](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 **Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
 
@@ -46,9 +46,15 @@ SunnyPortal может лучше оценить ваше потребление
 ## Функции
 * добавить устройства из ioBroker в SunnyPortal через SMA SEMP
 * информирует SunnyPortal о текущем потреблении
-* позвольте SunnyPortal управлять этими устройствами (включать, когда достаточно мощности фотоэлектрических систем, и выключать, когда солнечной энергии недостаточно)
+* разрешить SunnyPortal управлять этими устройствами (включать, когда достаточно мощности фотоэлектрических систем, и выключать, когда солнечной энергии недостаточно)
 
 ## Требования
+## Режим посудомоечной машины
+Адаптер можно использовать для управления посудомоечной машиной. Посудомоечная машина включается, когда достаточно солнечной энергии.
+Подробности реализации можно найти в выпуске №333.
+
+![Блок-схема](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
+
 ## Известные проблемы
 * пожалуйста, создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.semp/issues), если вы нашли ошибки или хотите новые функции
 
@@ -58,6 +64,12 @@ SunnyPortal может лучше оценить ваше потребление
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* René) see issue #333: new sequence to handle devices with quiescent current
+* (René) changes requested by adapter checker
+* (René) dependencies updated 
+
 ### 1.4.8 (2024-11-20)
 * (René) update dependencies
 * (René) issue #317: test with nodejs@22

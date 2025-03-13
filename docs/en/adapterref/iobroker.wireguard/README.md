@@ -104,15 +104,19 @@ Basically there are three ways to execute the command:
 * none
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (grizzelbee) Upd: minor fixes for adapter checker
+### 1.8.0 (2025-02-15)
+- (grizzelbee) Upd: [#137](https://github.com/Grizzelbee/ioBroker.wireguard/issues/137)minor fixes for adapter checker
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: Removed snyk
+- (grizzelbee) Fix: [#138](https://github.com/Grizzelbee/ioBroker.wireguard/issues/138) moved  to eslint 9 and fixed new lint errors
+- (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.wireguard/issues/119) Fixed log warning "invalid JsonConfig"
 
 ### 1.7.0 (2024-10-01)
-* (grizzelbee) Upd: Dependencies got updated
-* (grizzelbee) Fix: [#120](https://github.com/Grizzelbee/ioBroker.wireguard/issues/120) Fixed some issues mentioned by adapter-checker
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: [#120](https://github.com/Grizzelbee/ioBroker.wireguard/issues/120) Fixed some issues mentioned by adapter-checker
 
 ### 1.6.4 (2024-05-08)
-* (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: Dependencies got updated
 
 ### 1.6.3 (2024-04-16)
 * (grizzelbee) Upd: Dependencies got updated
@@ -282,4 +286,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Copyright
-Copyright (c) 2024 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2025 grizzelbee <open.source@hingsen.de>

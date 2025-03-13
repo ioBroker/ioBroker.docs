@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sia/README.md
 title: ioBroker.sia
-hash: UJIqFmNZCAoAKezO4sHZ5mA7QbhOAyE0neR4o0HS6ac=
+hash: GBpo+kdEerXIJ2oh5kHZ8uQNkP7cK6v6P0FKe4PAjX0=
 ---
 ![Logo](../../../en/adapterref/iobroker.sia/admin/sia.png)
 
-![Travis CI-Build-Status](https://travis-ci.org/schmupu/ioBroker.sia.svg?branch=master)
-![AppVeyor-Build-Status](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.sia?branch=master&svg=true)
+![Travis CI Build-Status](https://travis-ci.org/schmupu/ioBroker.sia.svg?branch=master)
+![AppVeyor Build-Status](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.sia?branch=master&svg=true)
 ![Anzahl der Installationen](http://iobroker.live/badges/sia-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sia.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sia.svg)
@@ -19,20 +19,20 @@ hash: UJIqFmNZCAoAKezO4sHZ5mA7QbhOAyE0neR4o0HS6ac=
 
 Erfordert node.js 20.0 oder höher und Admin v5!
 
-Das Protokoll SIA DC-09 wird von Alarmsystemen zur Kommunikation mit den Zentralstationen per SIA-DCS, *SIA-DCS, ADM-CID und *ADM-CID verwendet.
+Das Protokoll SIA DC-09 wird von Alarmsystemen zur Kommunikation mit den Zentralen per SIA-DCS, *SIA-DCS, ADM-CID und *ADM-CID verwendet.
 
-Dieser Adapter ist ein SIA-Server. Wenn ein Alarmereignis ausgelöst wird, sendet das Alarmsystem über IP (TCP oder UDP) die SIA-Nachricht an die Zentralstation.
-Die folgenden ID-Token werden unterstützt:
+Dieser Adapter ist ein SIA-Server. Bei einem Alarm sendet das Alarmsystem die SIA-Nachricht über IP (TCP oder UDP) an die Zentrale.
+Folgende ID-Token werden unterstützt:
 
 - SIA-DCS (SIA DCS),
 - \*SIA DCS (SIA DCS verschlüsselt),
 - ADM-CID (Ademco-Kontakt-ID),
 - \*ADM-CID (Ademco Contact ID verschlüsselt)
 
-Wenn Sie *SIA DCS (SIA DCS verschlüsselt) oder *ADM-CID (Ademco Contact ID verschlüsselt) verwenden, müssen Sie die AES-Verschlüsselung aktivieren und ein AES-Passwort im HEX-Format eingeben. Das AES-Passwort muss für AES-128 = 32 HEX-Zeichen, für AES-192 = 48 HEX-Zeichen und für AES-256 müssen Sie 64 HEX-Zeichen eingeben.
+Bei Verwendung von *SIA DCS (SIA DCS verschlüsselt) oder *ADM-CID (Ademco Contact ID verschlüsselt) müssen Sie die AES-Verschlüsselung aktivieren und ein AES-Passwort im HEX-Format eingeben. Das AES-Passwort muss für AES-128 = 32 HEX-Zeichen, für AES-192 = 48 HEX-Zeichen und für AES-256 = 64 HEX-Zeichen lang sein.
 Ein Beispielpasswort für AES-128 wäre: 3A1F6B8C9D4E7F20123456789ABCDEF0.
 
-Mit diesem Adapter können Sie ioBroker als Zentrale verwenden. So können Sie beispielsweise per ioBroker eine Telegrammnachricht versenden, wenn Sie eine Alarm-SIA-Nachricht erhalten.
+Mit diesem Adapter können Sie den ioBroker als Zentrale nutzen. So können Sie beispielsweise bei einem SIA-Alarm eine Telegrammnachricht über den ioBroker versenden.
 
 [SIA DC-09-Protokoll](https://www.yumpu.com/en/document/view/47594214/dc-09-preparing-for-ansi-public-review-security-industry-)
 
@@ -40,18 +40,19 @@ Mit diesem Adapter können Sie ioBroker als Zentrale verwenden. So können Sie b
 1. Installieren Sie den Adapter
 2. Konfiguration des Adapters:
 
-Wählen Sie die IP-Adresse und den Port zum Abhören von SIA-Anfragen.
+Wählen Sie die IP-Adresse und den Port für die Überwachung von SIA-Anfragen.
 ![sia_adapter1](../../../en/adapterref/iobroker.sia/admin/sia_adapter1.png)
 
-Kontonummer registrieren. Wenn Sie AES verwenden, müssen Sie ein Passwort (Schlüssel) eingeben. Der Schlüssel sollte 16, 24 oder 32 Zeichen (Byte) lang sein.
-
-Wenn das Kontrollkästchen „AES-Passwort im Hex-Format“ aktiviert ist, muss die Passwortlänge 32, 48 oder 64 Zeichen (Byte) lang sein.
-
-Im Feld ACK-Timeout definieren Sie, wie alt die Nachricht in Sekunden sein darf. Wenn Sie 0 Sekunden definieren, wird keine Timeout-Validierung durchgeführt.
+Registrieren Sie die Kontonummer. Bei Verwendung von AES müssen Sie ein Passwort (Schlüssel) eingeben. Der Schlüssel sollte 16, 24 oder 32 Zeichen (Byte) lang sein.
+Ist die Checkbox „AES-Passwort im Hex-Format“ aktiviert, muss die Passwortlänge 32, 48 oder 64 Zeichen (Byte) betragen.
+Im Feld „ACK-Timeout“ legen Sie fest, wie alt die Nachricht in Sekunden sein darf. Bei 0 Sekunden erfolgt keine Timeout-Validierung.
+Mit der Checkbox „Verbindungsschließung durch SIA-Server“ können Sie festlegen, ob das Alarmsystem die Verbindung nach Erhalt der ACK-Nachricht schließen soll.
+Ist die Checkbox „Verbindungsschließung durch SIA-Server“ deaktiviert, wartet der SIA-Server (ioBroker) 30 Sekunden, bis die Verbindung durch das Alarmsystem geschlossen wird.
+Nach diesen 30 Sekunden schließt der SIA-Server (ioBroker) die Verbindung.
 
     ![sia_adapter2](../../../en/adapterref/iobroker.sia/admin/sia_adapter2.png)
 
-3. Konfigurieren Sie Ihr Einbruchmeldesystem zum Senden von SIA-Nachrichten
+3. Konfigurieren Sie Ihr Einbruchmeldesystem für den Versand von SIA-Nachrichten
 
     ![sia_lupusec1](../../../en/adapterref/iobroker.sia/admin/sia_lupusec1.png)
 
@@ -95,7 +96,7 @@ Sie sehen für jedes Konto folgendes Objekt:
 | Sequenz | Sequenznummer |
 | ts | Zeitstempel (nur in verschlüsselten Nachrichten enthalten) |
 
-Interessant ist das Objekt: msgdata (message data). Hier sieht man das ausgelöste Ereignis des Alarmsystems. Wie das Ereignis zu interpretieren ist, muss man bei dem Hersteller des Alarmsystems erfragen.
+Interessant ist das Objekt: msgdata (Nachrichtendaten). Hier sehen Sie das ausgelöste Ereignis der Alarmanlage. Wie das Ereignis zu interpretieren ist, müssen Sie Ihren Alarmanlagenhersteller fragen.
 
 Ein Beispiel für Javascript in ioBroker, um ein Ereignis abzurufen:
 
@@ -124,17 +125,16 @@ Ereignis 401 bedeutet „Fernaktivierung/-deaktivierung, wenn das System per SMS
 
 5. Fehler / Probleme
 
-Wenn Sie Probleme bei der Verarbeitung von SIA-Nachrichten haben oder einen Fehler gefunden haben, erstellen Sie bitte ein Problem.
-Das Problem sollte folgende Informationen enthalten:
+Wenn Sie Probleme bei der Verarbeitung von SIA-Nachrichten haben oder einen Fehler gefunden haben, erstellen Sie bitte ein Problem. Das Problem sollte folgende Informationen enthalten:
 
 1. Hersteller und Typ der Alarmanlage
 2. Die SIA-Nachricht als Datei. Sie können eine Datei erstellen, wenn Sie dies in der Instanzkonfiguration aktivieren.
-3. Wenn Sie eine Verschlüsselung (AES) verwenden, dann benötige ich den Schlüssel zum Entschlüsseln der Nachricht zum Testen.
+3. Wenn Sie eine Verschlüsselung (AES) verwenden, benötige ich den Schlüssel zum Entschlüsseln der Nachricht zum Testen.
 4. Die Debug-Ausgabe von ioBroker bei der Verarbeitung der Nachricht
 5. Detaillierte Beschreibung des Fehlers
 
 Nachdem Sie die Punkte 2 und 3 abgeschlossen haben, ändern Sie bitte den AES-Schlüssel.
-Sie können die gespeicherte SIA-Nachricht mit dem folgenden Befehl testen
+Sie können die gespeicherte SIA-Nachricht mit dem folgenden Befehl testen:
 
 ```
 # cat fileanme_of_sia_message | nc ip_address_of_iobroker sia_port
@@ -142,6 +142,20 @@ cat /tmp/sia/sia_msg_20250201_202457309.txt | nc localhost 55001
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #48)
+- (Stübi) Fixing dependency (Issue #49)
+
+### 2.0.4 (2025-02-06)
+
+- (Stübi) Fixed Issue Required SIA fields Missing (Issue #19)
+- (Stübi) Fixed an error by reading the length of the message
+- (Stübi) Fixed Issue Socket not kept connected (Issue #20)
+- (Stübi) the crc and length will be shown as HEX ASCII (4 characters) in the object crc and len
+- (Stübi) timestamp will be shown in format hh:mm:ss,MM-DD-YYYY (GMT time) in the object ts
+
 ### 2.0.3 (2025-02-01)
 
 - (Stübi) add error envent if connction close

@@ -124,13 +124,30 @@ Yes, that is possible under certain conditions:
 * If you only use data collecting here, you can use open3e with no limitiations.
 * If you use UDSonCAN here, it's important not to do this for the same devices as open3e does. If you would do so, you will have sporadic communications errors.
 
+## Donate
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/bluePayPal.svg" height="40"></a>  
+If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (MyHomeMyData) Updated dependencies according to issue #101
+### 0.10.8 (2025-03-07)
+* (MyHomeMyData) Bugfix for issue #117
+* (MyHomeMyData) Updated data point 381, refer to discussion https://github.com/open3e/open3e/discussions/212
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20250307
+
+### 0.10.7 (2025-02-26)
+* (MyHomeMyData) Updated dependencies according to issue #111
+
+### 0.10.6 (2025-02-19)
+* (MyHomeMyData) Added missing enum info for data point 2850
+
+### 0.10.5 (2025-02-18)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20250217
+* (MyHomeMyData) Updated dependencies according to issues #101 and #108
 
 ### 0.10.4 (2025-01-15)
 * (MyHomeMyData) Update of list of data points for E3 devices to version 20250114

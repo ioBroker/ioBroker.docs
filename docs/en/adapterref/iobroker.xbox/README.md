@@ -328,6 +328,9 @@ For every friend a channel will be created. Under this channel you will find sev
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.1.2 (2025-02-06)
+* (@foxriver76) upgrade lib to fix most of the commands
+
 ### 1.1.0 (2023-09-04)
 * (foxriver76) allow to send web API commands even if Xbox is locally not connected
 

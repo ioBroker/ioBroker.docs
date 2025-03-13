@@ -272,6 +272,9 @@ AC Heizen
 <https://forum.iobroker.net/topic/55667/test-adapter-hoover-hon>
 
 ## Changelog
+### 0.1.4 (2025-02-09)
+
+- disable certificate check
 
 ### 0.1.3 (2024-10-21)
 

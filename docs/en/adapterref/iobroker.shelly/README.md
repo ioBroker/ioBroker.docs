@@ -60,11 +60,25 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 9.2.0 (2025-03-13)
+
+* (@fLaSk1n) Added Shelly Dimmer Gen3
+* (@lennycb) Added Shelly 3EM63 Gen3
+* (@mcm1957) Translations for Gen2 devices have been added
+* (@mcm1957) State roles for Gen2 devices have been adapted
+* (@tclas) Added handling of Total Active Energy
+
+### 9.1.0 (2025-02-27)
+
+* (@Joylancer) Added Shelly Pro 3 EM 63
+* (@klein0r) Updated BLE script version to 0.5
+
+### 9.0.0 (2025-02-11)
 
 NodeJS >= 20.x and js-controller >= 6 is required
 
 * (@Zefau) add Source and MinBrightness to Shelly Dimmer
+* (@klein0r) Improved log messages
 
 ### 8.5.1 (2024-12-02)
 
@@ -76,19 +90,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (@klein0r) Added Shelly Plug S Gen3
 * (@klein0r) Added Shelly BLU Gateway Gen3
 * (@klein0r) Added Shelly I4 / I4DC Gen3
-
-### 8.4.0 (2024-10-20)
-
-* (@klein0r) Added AddOn support for Gen3 devices
-* (@kalledausb) Added Shelly 0/1-10V PM Gen3 Integration
-
-### 8.3.0 (2024-10-10)
-* (@rockflopp) Added Shelly 2 PM gen 3 Integration
-
-### 8.2.1 (2024-09-23)
-
-* (@Matze2010) Added datapoint for cover target position
-* (@klein0r) Fixed integration of Shelly 1 PM Gen 3
 
 ## License
 

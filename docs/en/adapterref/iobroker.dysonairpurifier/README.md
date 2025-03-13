@@ -187,6 +187,10 @@ This is nice to know because the devices usually send (at least mine do) their s
   - In other cases it has been an IP/DNS issue. Resetting the DHCP/DNS server (router) solved the issue.
 
 ## Changelog
+### 3.2.7 (2025-02-13)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: Moved to eslint 9 and fixed new lint issues
+
 ### 3.2.6 (2024-11-13)
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Fix: Fixed issues mentioned by adapter checker regarding responsive design
@@ -758,4 +762,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 Hanjo Hingsen <open-source@hingsen.de>
+Copyright (c) 2025 Hanjo Hingsen <open-source@hingsen.de>

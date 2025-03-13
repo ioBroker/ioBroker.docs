@@ -625,6 +625,9 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 ### **WORK IN PROGRESS**
 
 - (Lucky-ESA) Description revised
+- (Lucky-ESA) Admin 7.4.10 required
+- (Lucky-ESA) JS-Controller 6.0.11 required
+- (Lucky-ESA) Added meta object for attachments
 
 ### 0.3.0 (2024-12-07)
 

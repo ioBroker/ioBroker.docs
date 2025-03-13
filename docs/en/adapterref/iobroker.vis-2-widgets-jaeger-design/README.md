@@ -6,11 +6,9 @@
 
 ![youtube](img/youtube.jpg)
 
-You can find the video how to use the widgets [here](https://www.youtube.com/watch?v=4bctUvfpPuQ) (in german).
+You can find videos how to use the widgets [here](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) (in german).
 
-Das Video wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
-
-Das Video wie die Widgets benutzt werden können, kann man [hier](https://youtu.be/Rplr2Ba-G7o) (in German) (TEIL2)
+Videos wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
 ## Übersicht zur Erstellung einer Smart Home Oberfläche mit dem "VIS-2 JAEGER Design Adapter"
 ### Voraussetzungen

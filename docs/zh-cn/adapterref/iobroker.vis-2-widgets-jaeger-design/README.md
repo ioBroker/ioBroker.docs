@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: ioBroker.vis 2.0 的特殊 Jaeger Design 小部件
-hash: C4rl3bXQrmgGF+0eIr5/8HlxNQ8nID2RmybFX4Boyb4=
+hash: j2ftcLh111BOKbGdcJpUmHw7ob1JlsRvl5Ev5owqDC4=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -14,11 +14,9 @@ hash: C4rl3bXQrmgGF+0eIr5/8HlxNQ8nID2RmybFX4Boyb4=
 # IoBroker.vis 2.0 的特殊 Jaeger Design 小部件
 ![YouTube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.jpg)
 
-您可以找到如何使用小部件[这里](https://www.youtube.com/watch?v=4bctUvfpPuQ)（德语）的视频。
+您可以找到有关如何使用小部件[这里](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe)（德语）的视频。
 
-Das Video wie die Widgets benutzt werden können, kann man [耶尔](https://www.youtube.com/watch?v=4bctUvfpPuQ) finden.
-
-Das Video wie die Widgets benutzt werden können, kann man [耶尔](https://youtu.be/Rplr2Ba-G7o)（德语）(TEIL2)
+视频 wie die Widgets benutzt werden können，kann man [耶尔](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden。
 
 ## 使用“VIS-2 JAEGER 设计适配器”的智能家居 Oberfläche 概要
 ### 先行者
@@ -39,11 +37,11 @@ Die Oberfläche besteht aus mehreren Bereichen：
 ![iobroker 付款方式1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
 
 ### 声明
-我的主菜单是位于 werden 的 Stockwerke ausgewählt werden。 Der Grundriss des Erdgeschosses zeigt alle Lichter，die durch Icons dargestellt werden。 Einige Icons 可以在任何地方使用，并且可以在任何地方使用。图标上的图标是带有一个滑块的弹出式窗口。
+我的主菜单是位于 werden 的 Stockwerke ausgewählt werden。 Der Grundriss des Erdgeschosses zeigt alle Lichter，die durch Icons dargestellt werden。 Einige Icons 可以在任何地方使用、使用和照明。图标上的图标是带有弹出窗口和滑块的图标。
 ![iobroker-jaeger-设计-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) 法律上的法律约束：![iobroker-jaeger-设计-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
 
 ### 罗拉登
-我的菜单“Rolladen”可以查看有关的说明。图标位于 Rolladen 的 Höhe 和 Lamellenneigung 的弹出窗口中，并单击图标。
+我的菜单“Rolladen”可以查看有关的说明。图标位于 Rolladen 的 Höhe 和 Lamellenneigung 的弹出窗口中，并且单击图标。
 ![智能家居经纪商介绍](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
 ### 能源

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: XG9aqNYiLAXjuzqtVwldNW7MPodBNOol063vD8Jug5E=
+hash: Jlghr+gNACm+PPoFxlgOpj+XfCjqgLA3P2T+i8aIt5Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
@@ -36,7 +36,7 @@ DoorBird — это дверной домофон, который выполня
 
 Просто попробуйте запустить адаптер с этим портом. Если порт недоступен, вы получите ошибку при запуске адаптера. Затем просто вернитесь сюда и измените порт.
 
-3. Введите IP вашего устройства Doorbird. Вы можете нажать на значок «поиск» слева от поля ввода. После того, как вы нажмете на значок, в верхней части экрана конфигурации появится сообщение. Теперь у вас есть 60 секунд, чтобы нажать кнопку звонка на вашем устройстве Doorbird. Адаптер попытается определить IP и заполнить все поля для вас.
+3. Введите IP вашего устройства Doorbird. Вы можете нажать на значок «поиск» слева от поля ввода. После нажатия на значок в верхней части экрана конфигурации появится сообщение. Теперь у вас есть 60 секунд, чтобы нажать кнопку звонка на вашем устройстве Doorbird. Адаптер пытается определить IP и заполнить все поля для вас.
 4. Идентификатор устройства (НЕ IP!) вашего Doorbird.
 5. Имя пользователя, которому необходимо иметь разрешения **API-Operator** и **Watch always** на устройстве Doorbird.
 6. Пароль для имени пользователя, введенного в поле 5.
@@ -53,24 +53,22 @@ http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
 http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
 ```
 
-или
+или (когда Redis не используется)
 
 ```
-/opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg'
+/opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg
 ```
 
 #### Пример:
-```
-http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
-```
+`http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg`
 
 ### Отправить снимок через Telegram
 #### Пример
 необходим js-controller 5
 
-```
+```js
 setState('doorbird.0.TakeSnapshot', true);
-onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, fileData, mimeType) {
+onFile('doorbird.0', 'TakeSnapshot_1.jpg', true, (id, fileName, size, fileData, mimeType) => {
     sendTo('telegram.0', {
         text: fileData,
         type: 'photo'
@@ -86,6 +84,7 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
 | Видеодомофон DoorBird D21x | 1.00 и выше | 000108 и выше |
 | BirdGuard B10x | 1.00 и выше | 000099 и выше |
 | Видеодомофон DoorBird D11x | 1.00 и выше | 000130 и выше |
+| Мини-купольная камера DoorBird A1131 | 1.00 и выше | 000148 и выше |
 
 ## Changelog
 
@@ -93,32 +92,35 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2025-03-03)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+- (@klein0r) Migrated to json config
+- (@klein0r) Updated documentation and dependencies
+
 ### 2.0.0 (2024-09-02)
 
--   (Schmakus) update dependencies
+- (Schmakus) update dependencies
 
 ### 1.7.0 (2024-08-23)
 
--   (Schmakus) Dependencies have been updated
+- (Schmakus) Dependencies have been updated
 
 ### 1.6.0 (2024-07-02)
 
--   (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
--   (mcm1957) Dependencies have been updated
+- (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.5.0 (2024-03-01)
 
--   (Schmakus) update dependencies
-
-### 1.4.1 (2024-02-22)
-
--   (Schmakus) Creation of favorites and schedules only once after starting the adapter and successfully connecting to DoorBird. (Another step to solve "Maximum call stack size exceeded" problem.)
+- (Schmakus) update dependencies
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <>
+Copyright (c) 2025 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

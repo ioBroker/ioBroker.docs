@@ -83,6 +83,10 @@ On configuration page you can select following modules:
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.3.7 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
 ### 1.3.6 (2025-01-11)
 * (simatec) eslint-config fix
 * (simatec) Dependencies updated

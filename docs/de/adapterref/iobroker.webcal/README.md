@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webcal/README.md
 title: ioBroker.webcal
-hash: x7IdZjWzNXOuXgsbADUbQ831huXVNg0dCPb5APqoAIM=
+hash: 11ZkajCy0V3Jw/zyphm7tXRb5J4S+nfXg0D4rvVPDqU=
 ---
 ![Logo](../../../en/adapterref/iobroker.webcal/admin/webcal.png)
 
@@ -27,25 +27,25 @@ Mit diesem ioBroker-Adapter können Sie
 
 `https://<domain>/<optional basePath>/remote.php/dav/calendars/<username>/<optional displaName>`
 
-**Google** siehe [mithilfe der Google API](doc/google.md)
+**Google** siehe [mithilfe der Google-API](doc/google.md)
 
 - Verwenden Sie die folgenden Einstellungen in ioBroker
-- Name = interner Name, wenn dieser mit dem Namen des Google-Kalenders übereinstimmt, wird dieser verwendet
+- Name = interner Name. Wenn dieser mit dem Google-Kalender-Namen übereinstimmt, wird dieser verwendet.
 - Authentifizierungsmethode = Google
 - Geheimnis = Client-Geheimnis
-- Refresh-Token = welches du von oben bekommst
+- Aktualisierungstoken = das Sie von oben erhalten
 - Client-ID = Ihre Client-ID
 
-**Download iCal** Sie können einen iCal-Kalender für Kalender herunterladen, die DAV nicht unterstützen. Dieser ist jedoch schreibgeschützt, d. h. es können keine Kalenderelemente hinzugefügt werden
+**iCal herunterladen** Sie können einen iCal-Kalender für Kalender herunterladen, die DAV nicht unterstützen. Dieser ist jedoch schreibgeschützt, d. h. es können keine Kalendereinträge hinzugefügt werden.
 
 ### Datenpunkte
-**neues Ereignis hinzufügen**
+**Neues Ereignis hinzufügen**
 
 Sie können einen neuen Kalendereintrag basierend auf dem Ereignis hinzufügen. Bitte verwenden Sie die folgende Syntax:
 
 `relDays[@calendar] | date|datetime[ - date|datetime][@calendar]`
 
-relDays - Anzahl der Tage ab heute oder Datum/Datum/Uhrzeit als analysierbares Datum oder Datum/Uhrzeit @calendar ist optional der Name des Kalenders, Standard ist der erste definierte Kalender
+relDays - Anzahl der Tage ab heute oder Datum/Datumszeit als analysierbares Datum oder Datumszeit. @calendar ist optional der Name des Kalenders, Standard ist der erste definierte Kalender.
 
 auch per Script möglich:
 
@@ -60,7 +60,7 @@ sendTo("webcal.0", "addEvents", {
         color: "red",
         organizer: "ich",
         start: "12.1.25 23:00"
-      }
+      },
       {
         summary: "failed test",
 		    description: "long description",
@@ -77,11 +77,12 @@ sendTo("webcal.0", "addEvents", {
   })
 ```
 
-Die Ausgabe aus dem Protokoll lautet:
+Die Ausgabe des Protokolls lautet:
 
 ```
 [
   {
+    "id": "iob_676956946",
     "summary": "test",
     "start": "9.8.23 23:00",
     "end": "10.08.2023 14:00",
@@ -125,9 +126,36 @@ Die Ausgabe aus dem Protokoll lautet:
 
 wenn `calendar` nicht angegeben ist, wird defaultCalender verwendet
 
-auf `event` Feld `end` und `description` ist optional
+nur die Felder `start` und `summary` sind obligatorisch
 
-**Event löschen** per Script möglich:
+**Update-Event** per Script möglich:
+
+```
+sendTo("webcal.0", "updateEvents", {
+    calendar: "smarthome",
+    events: [
+      {
+        summary: "test2",
+        description: "test add Event",
+        location: "ort",
+        color: "red",
+        organizer: "ich",
+        start: "12.1.25 23:00"
+      }
+    ]
+  },function(events){
+    /* callback function
+	   object events will be repeat from input,
+	   with additional status or error field,
+	   also startDate and endDate are provided as Object data
+	*/
+	log(events);
+  })
+```
+
+nur die Felder `start` und `summary` sind obligatorisch
+
+**Ereignis löschen** per Script möglich:
 
 ```
 sendTo("webcal.0", "deleteEvents", {
@@ -149,7 +177,7 @@ sendTo("webcal.0", "deleteEvents", {
   })
 ```
 
-Die Ausgabe aus dem Protokoll lautet:
+Die Ausgabe des Protokolls lautet:
 
 ```
 [
@@ -165,7 +193,7 @@ Die Ausgabe aus dem Protokoll lautet:
 ```
 
 ### Visualisierung
-wenn Sie das iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), können Sie [dieses](doc/vis-material-design.js) Skript verwenden möchten
+wenn Sie das iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), können Sie [dieses](doc/vis-material-design.js)-Skript verwenden möchten
 
 ### Bekannte Fehler
 Unterbrechung (Ausnahme) einer Reihe von Ereignissen wird ignoriert
@@ -181,6 +209,9 @@ Unterbrechung (Ausnahme) einer Reihe von Ereignissen wird ignoriert
   ### **WORK IN PROGRESS**
   * ()
 -->
+### **WORK IN PROGRESS**
+* (dirkhe) add event-update function for JS
+
 ### 1.4.0 (2025-01-12)
 * (dirkhe) add color,location and organizer for craeting Event
 * (dirkhe) add fix for invalid apple calender data

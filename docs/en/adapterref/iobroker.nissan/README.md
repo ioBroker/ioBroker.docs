@@ -32,6 +32,10 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.15 (2025-02-22)
+- (bolliy) dependency and configuration updates
+- (bolliy) ConnectEV: Unset user-agent
+
 ### 0.1.14 (2025-01-16)
 
 - fix for nissan ev login
@@ -78,7 +82,7 @@ Feel free to follow the discussions in the german [iobroker forum](https://forum
 
 MIT License
 
-Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

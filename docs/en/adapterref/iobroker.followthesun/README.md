@@ -30,6 +30,9 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.2 (2025-03-12)
+* (HGlab01) Bump axios to 1.8.3
+
 ### 0.5.1 (2024-08-21)
 * (HGlab01) Fixing repository checker issues
 
@@ -45,13 +48,6 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 ### 0.4.1 (2023-02-05)
 * (HGlab01) Improve error log if coordinates are not set
-
-### 0.4.0 (2022-11-19)
-* (Jey-Cee) Updated object definitions: use of roles, multilanguage names
-* (Jey-Cee) Added missing objects for folders
-* (HGlab01) !Breaking change! NodeJS 14.16 or higher required
-* (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
-* (HGlab01) Update libs
 
 ## License
 MIT License

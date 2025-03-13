@@ -11,20 +11,53 @@
 
 This is a RESTFul interface to read the objects and states from ioBroker and to write/control the states over HTTP Get/Post requests.
 
-The purpose of this adapter is similar to simple-api. But this adapter supports long-polling and URL hooks for subscribes.
+The purpose of this adapter is similar to simple-api. But this adapter supports long-polling and URL hooks for subscribing.
 
 It has a beneficial web interface to play with the requests:
 
 ![Screenshot](img/screen.png)
 
 ## Usage
-Call in browser ```http://ipaddress:8093/``` and use Swagger UI to request and modify the states and objects.
+Call in browser `http://ipaddress:8093/` and use Swagger UI to request and modify the states and objects.
 
 Some request examples:
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - read state as JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - read state as string (only value)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - write state with GET (only for back compatibility with simple-api)
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - send a message to javascript.0 in script `scriptName`
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - send a message to `javascript.0` in script `scriptName`
+
+### Authentication
+To enable the authentication, you must set the `Authentication` option in the configuration dialog.
+
+There are three types of authentication supported:
+- Credentials in query
+- Basic authentication
+- OAuth2 (Bearer)
+
+For authentication in query, you must set `user` and `pass` in query like:
+```http
+http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
+```
+
+For basic authentication, you must set the `Authorization` header with the value `Basic base64(user:pass)`.
+
+For Oauth2 authentication, you must set the `Authorization` header with the value `Bearer <AccessToken>`.
+
+The access token could vbe retirved with HTTP request like:
+```http
+http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker
+```
+
+The answer is like:
+```json
+{
+    "access_token": "21f89e3eee32d3af08a71c1cc44ec72e0e3014a9",
+    "expires_in": "2025-02-23T11:39:32.208Z",
+    "refresh_token": "66d35faa5d53ca8242cfe57367210e76b7ffded7",
+    "refresh_token_expires_in": "2025-03-25T10:39:32.208Z",
+    "token_type": "Bearer"
+}
+```         
 
 ## Subscribe to the state's or object's changes
 Your application could get notifications by every change of the state or object.
@@ -39,7 +72,7 @@ This adapter supports a subscribing on data changes via long polling.
 Example for browser could be found here: [demoNodeClient.js](examples/demoBrowserClient.html)  
 
 ## Web extension
-This adapter can run as a web extension. In this case, the path is available under http://iipaddress:8082/rest
+This adapter can run as a web extension. In this case, the path is available under `http://ipaddress:8082/rest`
 
 ## Notice
 - `POST` is always for creating a resource (does not matter if it was duplicated)
@@ -129,6 +162,7 @@ You cannot send POST request to commands via GUI.
 - `delObjects(id, options)` - delete objects by pattern
 
 ### Others
+- `updateTokenExpiration(accessToken)`
 - `log(text, level[info])` - no answer - add log entry to ioBroker log
 - `checkFeatureSupported(feature)` - check if feature is supported by js-controller.
 - `getHistory(id, options)` - read history. See for options: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
@@ -149,6 +183,11 @@ You cannot send POST request to commands via GUI.
 -->
 
 ## Changelog
+### 2.1.0 (2025-02-27)
+* (@GermanBluefox) Added OAuth2 support
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Replaced icons with SVG
+
 ### 2.0.3 (2024-07-13)
 * (jkuenemund) Changed response for the endpoint get states to the dictionary in swagger
 
@@ -203,4 +242,4 @@ You cannot send POST request to commands via GUI.
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2025 bluefox <dogafox@gmail.com>

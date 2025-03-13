@@ -3,14 +3,18 @@
     ioBroker.valloxmv
 </h1>
 
+![Current version in stable repository](https://iobroker.live/badges/valloxmv-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.valloxmv.svg)](https://www.npmjs.com/package/iobroker.valloxmv)
+![Number of Installations](https://iobroker.live/badges/valloxmv-installed.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.valloxmv.svg)](https://www.npmjs.com/package/iobroker.valloxmv)
-[![Dependency Status](https://img.shields.io/david/hacki11/iobroker.valloxmv.svg)](https://david-dm.org/hacki11/iobroker.valloxmv)
+
+![Test and Release](https://github.com/hacki11/ioBroker.valloxmv/workflows/Test%20and%20Release/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/hacki11/ioBroker.valloxmv/badge.svg)](https://snyk.io/test/github/hacki11/ioBroker.valloxmv)
 
+[![Dependency Status](https://img.shields.io/david/hacki11/iobroker.valloxmv.svg)](https://david-dm.org/hacki11/iobroker.valloxmv)
 [![NPM](https://nodei.co/npm/iobroker.valloxmv.png?downloads=true)](https://nodei.co/npm/iobroker.valloxmv/)
-
 [![Travis-CI](http://img.shields.io/travis/hacki11/ioBroker.valloxmv/master.svg)](https://travis-ci.org/hacki11/ioBroker.valloxmv)
+
 
 ## ValloxMV adapter for ioBroker
 
@@ -23,9 +27,16 @@ Connects your Vallox Air Ventilation system into your ioBroker home automation.
 
 ## Changelog
 
-## Work in progress
+## 1.4.0
+* Maintenance Release
+* Bump engines to NodeJS 20 as minimum version
+
+## 1.3.0
+* Maintenance Release
 * Updated dependencies (iobroker-core & node)
 * Change UI to jsconConfig and fixing issues detected by repository checker
+* Update translation using i18n by iobroker/adapter-dev
+* Update year in license and readme
 
 ### 1.2.0
 * Remove NodeJS 10.x support
@@ -85,4 +96,4 @@ Connects your Vallox Air Ventilation system into your ioBroker home automation.
 ## License
 MIT License
 
-Copyright (c) 2022 hacki11
+Copyright (c) 2025 hacki11

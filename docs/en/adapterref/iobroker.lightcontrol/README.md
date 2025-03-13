@@ -39,9 +39,9 @@ iobroker add lightcontrol
 
 ## Documentation
 
-[🇺🇸 Documentation](./en/lightcontrol.md)
+[🇺🇸 Documentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/en/lightcontrol.md)
 
-[🇩🇪 Dokumentation](./docs/de/lightcontrol.md)
+[🇩🇪 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/de/lightcontrol.md)
 
 ## ToDo
 
@@ -54,6 +54,18 @@ iobroker add lightcontrol
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (Schmakus) fix responsive issues
+
+### 2.0.0 (2025-03-06)
+
+-   (Schmakus) update dependencies
+-   (Schmakus) Admin 7.4.10 required
+-   (Schmakus) Node 20 required
+-   (Schmakus) fix responive issues
+
 ### 1.0.1 (2024-09-02)
 
 -   (Schmakus) update dependencies
@@ -72,16 +84,11 @@ iobroker add lightcontrol
 
 -   (Schmakus) Dependencies have been updated
 
-### 0.6.0 (2024-07-02)
-
--   (Schmakus) Adapter requires node.js >= 18 and Admin >=6 now
--   (Schmakus) Dependencies have been updated
-
 ## License
 
 MIT License
 
-Copyright (c) 2024 Schmakus <schmakus@gmail.com>
+Copyright (c) 2025 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -19,6 +19,9 @@ To reset the counted operating hours just write one numeric state to 0.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2025-02-22)
+* (BenAhrdt) update copyright and dependencies
+
 ### 1.2.0 (2024-12-04)
 * (BenAhrdt) update eslint
 
@@ -115,7 +118,7 @@ To reset the counted operating hours just write one numeric state to 0.
 ## License
 MIT License
 
-Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,14 +3,13 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact)
-![Number of Installations (latest)](https://iobroker.live/badges/kecontact-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/kecontact-stable.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.kecontact)
-
-[![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)](https://nodei.co/npm/iobroker.kecontact/)
+![Number of Installations](https://iobroker.live/badges/kecontact-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/kecontact-stable.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
+[![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)](https://nodei.co/npm/iobroker.kecontact/)
+
+**Tests:** ![Test and Release](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
 
@@ -89,6 +88,9 @@ If you enter a value, your wallbox will be limited continously to not pass your 
 Up to three states of energy meters can be specified for limitation. All values will be added to calculate current consumption.
 An extra checkbox is used to specified whether wallbox power is included (in this case wallbox power will be subtracted from the state values).
 
+An other option gives you the possibility not to limit power but amperage. With this options amperage of charging station will be reduced to not pass a maximum amperage of each phase.
+Therefore you need to specify the amperage states of each phase of your enegy meter. Please ensure, that phases of charging station and energy meter have the same numbering.
+
 ### dynamic options
 
 Additionally there are some states to influence behaviour of photovoltaics automatic on the fly, e.g. by a script of your own updating these values according to your needs)
@@ -105,14 +107,21 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 
 
 ## Changelog
-
 <!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2025-03-10)
+* (Sneak-L8) rebase adapter on newest version of adapter creator
+* (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
+* (Sneak-L8) new option to limit amperage of charging station to maximum value for amperage of whole mains circuit
+* (Sneak-L8) immediately reduce charging power when over max amperage or max power limits
+* (Sneak-L8) fix one time attempt for recharging vehicle in state 5
+* (Sneak-L8) reduced info logs for max power adjustment when no vehicle is plugged (log as debug in that case)
+* (Sneak-L8) pay attention to minimum time for phase switch by x2 when vehicle is plugged/unplugged
 * (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
-* (sneak-L8) migrate from request to axios
+* (Sneak-L8) migrate from request to axios
+* (Sneak-L8) migrate from ESlint v8 to v9
 
 ### 2.3.0 (2024-11-29)
 * (Sneak-L8) new option to limit charging station according to german §14a EnWG
@@ -135,13 +144,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
 * (Sneak-L8) don't try to charge when state is 5 (auth req, car not ready, ...)
 * (Sneak-L8) new state to dynamically set SoC above which battery storage may be used for charging vehicle
-
-### 2.0.2 (2023-10-10)
-* (Sneak-L8) default value for minimum regard time (180 seconds)
-* (Sneak-L8) fix calculation of phases for reduced charging
-* (chrisko) added minimum timer to switch between phases if 1p/3p charging is used.
-* (Sneak-L8) disable firmware check for c-series due to changes on webpage of Keba
-* (Sneak-L8) sometimes 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
 
 ## Legal
 
@@ -338,7 +340,7 @@ KeConnect is a registered trademark of KEBA AG.
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2024 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2025 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

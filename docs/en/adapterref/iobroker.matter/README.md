@@ -78,6 +78,17 @@ With the ioBroker Matter Adapter, it is possible to map the following use cases:
 -->
 
 ## Changelog
+### 0.4.15 (2025-02-25)
+* (@GermanBluefox) Added Button display and control in the UI
+* (@Apollon77) Updates matter.js to optimize and add persisted subscriptions
+* (@Apollon77) Fixed states-list initializations for controller states
+* (@Apollon77) Fixed initialization issue when initial device connection for controller was not finished
+* (@Apollon77) Adjusted connection display when reconnecting to a node to red in UI
+
+### 0.4.14 (2025-02-08)
+* (@Apollon77) Improved stability and connection reliability (matter.js updated)
+* (@Apollon77) Sort enum entries to improve detection quality when adding new devices
+
 ### 0.4.13 (2025-02-01)
 * (@Apollon77) Added support for Door state feature for Devices and Controllers
 * (@Apollon77) Fixed Thermostat creation with Boost state

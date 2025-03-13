@@ -3,21 +3,20 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
+hash: IurXXZFpApnw/7kcC37hdhaX1EpVU7Q3wNVI4Q9YwPI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![версия НПМ](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/kecontact-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/kecontact-stable.svg)
-![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)
+![Количество установок](https://iobroker.live/badges/kecontact-installed.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/kecontact-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
 # IoBroker.kecontact
 [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Тесты:** ![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # Адаптер ioBroker для KEBA KeContact P20 или P30 и BMW i Wallbox
 Управляйте своей зарядной станцией с помощью протокола UDP и используйте автоматическое регулирование, например, для зарядки вашего автомобиля за счет излишков фотоэлектрической энергии и аккумуляторной батареи.
@@ -54,16 +53,16 @@ hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
 Значение по умолчанию составляет 10 минут, что является хорошим балансом между нагрузкой на KeConnect и актуальностью информации в ioBroker.
 
 ### Автоматика для фотоэлектрических систем
-Чтобы зарядить ваш автомобиль в соответствии с избытком (например, фотоэлектрическими устройствами), вы также можете определить состояния, которые представляют избыток и отношение к основной мощности. Эти значения используются для расчета силы тока, которая может быть использована для зарядки. С помощью дополнительных значений вы можете определить
+Чтобы зарядить ваш автомобиль в соответствии с избытком (например, фотоэлектрическими элементами), вы также можете определить состояния, которые представляют избыток и отношение к основной мощности. Эти значения используются для расчета силы тока, которая может быть использована для зарядки. С помощью дополнительных значений вы можете определить
 
-* состояние для переключения фаз зарядки 1п/3п или с использованием порта X2 Keba Kecontact (с Keba KeContact S10 или любым другим контактором)
+* состояние переключения фаз зарядки 1п/3п или с использованием порта X2 Keba Kecontact (с Keba KeContact S10 или любым другим контактором)
 * состояние текущей мощности аккумуляторной батареи, поэтому автоматика фотоэлектрических систем будет использовать ее дополнительно для зарядки вашего автомобиля
 * возможность ограничить мощность аккумуляторной батареи, чтобы она просто поддерживала зарядку с минимальной мощностью
 * включите опцию X1, если вы хотите использовать вход X1 от зарядной станции для управления зарядкой на полной мощности или с помощью фотоэлектрического автоматического управления
 * иная минимальная сила тока, чем 6 А по умолчанию (требуется только, например, для Renault Zoe)
 * значение мощности, которое может быть использовано для начала зарядки (это означает, что зарядка начнется даже при недостаточном избытке — рекомендуется 0 Вт для 1-фазной зарядки, от 500 Вт до 2000 Вт для 3-фазной зарядки)
 * увеличение силы тока (рекомендуется 500 мА)
-* значение отношения, которое может временно использоваться для поддержания сеанса зарядки (это означает, что зарядка прекратится позже, даже если достаточного излишка больше не будет - начальное отношение будет добавлено - рекомендуемое значение 500 Вт)
+* значение отношения, которое может временно использоваться для поддержания сеанса зарядки (это означает, что зарядка прекратится позже, даже если достаточного излишка больше не будет - начальное отношение будет добавлено - рекомендуемое 500 Вт)
 * минимальная продолжительность сеанса зарядки (даже если излишков больше нет, сеанс зарядки будет длиться по крайней мере это время - рекомендуемые 300 сек)
 * время для продолжения сеанса зарядки каждый раз, когда излишек больше недостаточен (чтобы сократить время в пасмурные дни)
 
@@ -72,7 +71,7 @@ hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
 В этом случае, пожалуйста, введите состояние для вашего контактора установки и является ли он нормально разомкнутым (NO) или нормально замкнутым (NC)
 
 ### Аккумуляторная батарея
-Если у вас есть аккумуляторная батарея, пожалуйста, заполните параметры здесь. Указывая состояния излишков и отношение к вашей аккумуляторной батарее, этот адаптер может контролировать, следует ли использовать аккумуляторную батарею для зарядки вашего автомобиля или нет, в зависимости от стратегии, указанной в параметрах.
+Если у вас есть аккумуляторное хранилище, пожалуйста, заполните параметры здесь. Указывая состояния для излишков и относительно вашего аккумуляторного хранилища, этот адаптер может контролировать, следует ли использовать аккумуляторное хранилище для зарядки вашего автомобиля или нет, в зависимости от стратегии, указанной в параметрах.
 
 ### Немецкий §14a EnWG ограничение мощности
 В соответствии с немецким законом §14a EnWG существует возможность ограничить зарядную станцию макс. фиксированным значением 6 А или динамическим значением 3x6 А (4,140 Вт)
@@ -83,11 +82,14 @@ hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
 Для ограничения можно указать до трех состояний счетчиков энергии. Все значения будут добавлены для расчета текущего потребления.
 Дополнительный флажок используется для указания того, включена ли мощность настенного блока (в этом случае мощность настенного блока будет вычтена из значений состояния).
 
+Другая опция дает вам возможность не ограничивать мощность, а силу тока. С этой опцией сила тока зарядной станции будет снижена, чтобы не проходить максимальную силу тока каждой фазы.
+Поэтому вам необходимо указать состояния силы тока каждой фазы вашего счетчика энергии. Пожалуйста, убедитесь, что фазы зарядной станции и счетчика энергии имеют одинаковую нумерацию.
+
 ### Динамические параметры
 Кроме того, существуют некоторые состояния, которые позволяют автоматически влиять на поведение фотоэлектрических систем «на лету», например, с помощью вашего собственного сценария обновления этих значений в соответствии с вашими потребностями.
 
 * kecontact.n.automatic.photovoltaics - активирует фотоэлектрические элементы автоматически (true) или будет заряжать автомобиль с максимальной мощностью, если установлено значение false
-* kecontact.n.automatic.calcPhases - определяет текущее количество фаз, которые будут использоваться для расчета зарядки. Это необходимо для версии Keba Deutschland и может использоваться для начального сеанса зарядки для всех зарядных станций
+* kecontact.n.automatic.calcPhases - определяет текущее количество фаз, которые будут использоваться для расчета зарядки. Это необходимо для версии Keba Deutschland и может использоваться для начальной сессии зарядки для всех зарядных станций
 * kecontact.n.automatic.addPower - определяет количество ватт мощности, разрешенное для зарядки вашего автомобиля (то же самое, что и в опциях)
 * kecontact.n.automatic.pauseWallbox — немедленно останавливает каждый сеанс зарядки, если установлено значение true
 * kecontact.n.automatic.limitCurrent — ограничивает зарядку указанным током в мА (0 = без ограничений)
@@ -102,16 +104,28 @@ hash: 3QHyVqiZjfLgnQkZ8ZhUM6HuhmxbrSS6fRqH+mXLgG8=
 KeConnect является зарегистрированной торговой маркой KEBA AG.
 
 ## Changelog
-
 <!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2025-03-10)
+* (Sneak-L8) rebase adapter on newest version of adapter creator
+* (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
+* (Sneak-L8) new option to limit amperage of charging station to maximum value for amperage of whole mains circuit
+* (Sneak-L8) immediately reduce charging power when over max amperage or max power limits
+* (Sneak-L8) fix one time attempt for recharging vehicle in state 5
+* (Sneak-L8) reduced info logs for max power adjustment when no vehicle is plugged (log as debug in that case)
+* (Sneak-L8) pay attention to minimum time for phase switch by x2 when vehicle is plugged/unplugged
+* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
+* (Sneak-L8) migrate from request to axios
+* (Sneak-L8) migrate from ESlint v8 to v9
+
+### 2.3.0 (2024-11-29)
 * (Sneak-L8) new option to limit charging station according to german §14a EnWG
 * (Sneak-L8) enable currTime for manual use and X2 even in passive mode
 * (Sneak-L8) minimum verison für js-controller now 5.0.19
 * (Sneak-L8) set currTimer timeout default value from 0 to 1
+* (Sneak-L8) support new option "setBoot" of c-series stating firmware 3.10.57
 
 ### 2.2.0 (2024-06-23)
 * (mcm1957) Adapter requires nodejs >= 18 and js-controller >= 5 now.
@@ -127,16 +141,6 @@ KeConnect является зарегистрированной торговой
 * (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
 * (Sneak-L8) don't try to charge when state is 5 (auth req, car not ready, ...)
 * (Sneak-L8) new state to dynamically set SoC above which battery storage may be used for charging vehicle
-
-### 2.0.2 (2023-10-10)
-* (Sneak-L8) default value for minimum regard time (180 seconds)
-* (Sneak-L8) fix calculation of phases for reduced charging
-* (chrisko) added minimum timer to switch between phases if 1p/3p charging is used.
-* (Sneak-L8) disable firmware check for c-series due to changes on webpage of Keba
-* (Sneak-L8) sometimes 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
-
-### 2.0.1 (2023-07-10)
-* (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
 
 ## License
                                  Apache License
@@ -327,7 +331,7 @@ KeConnect является зарегистрированной торговой
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2024 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2025 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

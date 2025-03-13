@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.webcal/README.md
 title: ioBroker.webcal
-hash: x7IdZjWzNXOuXgsbADUbQ831huXVNg0dCPb5APqoAIM=
+hash: 11ZkajCy0V3Jw/zyphm7tXRb5J4S+nfXg0D4rvVPDqU=
 ---
 ![标识](../../../en/adapterref/iobroker.webcal/admin/webcal.png)
 
@@ -23,7 +23,7 @@ hash: x7IdZjWzNXOuXgsbADUbQ831huXVNg0dCPb5APqoAIM=
 - 根据事件添加新的日历项目
 
 ### 日历帐户
-**Nextcloud** 使用基本身份验证和以下网址（您可以通过共享链接获取它）
+**Nextcloud** 使用基本身份验证并跟踪 URL（您可以通过共享链接获取它）
 
 `https://<domain>/<optional basePath>/remote.php/dav/calendars/<username>/<optional displaName>`
 
@@ -32,7 +32,7 @@ hash: x7IdZjWzNXOuXgsbADUbQ831huXVNg0dCPb5APqoAIM=
 - 在 ioBroker 中使用以下设置
 - name = 内部名称，如果与 google-calendar 名称匹配，则将使用
 - 身份验证方法 = google
-- 秘密 = 客户秘密
+- 秘密 = 客户端秘密
 - 刷新令牌 = 您从上面获得的
 - 客户 ID = 您的客户 ID
 
@@ -60,7 +60,7 @@ sendTo("webcal.0", "addEvents", {
         color: "red",
         organizer: "ich",
         start: "12.1.25 23:00"
-      }
+      },
       {
         summary: "failed test",
 		    description: "long description",
@@ -82,6 +82,7 @@ sendTo("webcal.0", "addEvents", {
 ```
 [
   {
+    "id": "iob_676956946",
     "summary": "test",
     "start": "9.8.23 23:00",
     "end": "10.08.2023 14:00",
@@ -125,7 +126,34 @@ sendTo("webcal.0", "addEvents", {
 
 如果没有指定`calendar`，则将使用 defaultCalender
 
-在`event`字段`end`和`description`上是可选的
+只有字段`start` 和 `summary` 是必填的
+
+可以通过脚本更新事件：
+
+```
+sendTo("webcal.0", "updateEvents", {
+    calendar: "smarthome",
+    events: [
+      {
+        summary: "test2",
+        description: "test add Event",
+        location: "ort",
+        color: "red",
+        organizer: "ich",
+        start: "12.1.25 23:00"
+      }
+    ]
+  },function(events){
+    /* callback function
+	   object events will be repeat from input,
+	   with additional status or error field,
+	   also startDate and endDate are provided as Object data
+	*/
+	log(events);
+  })
+```
+
+只有字段`start` 和 `summary` 是必填的
 
 可以通过脚本删除事件：
 
@@ -181,6 +209,9 @@ sendTo("webcal.0", "deleteEvents", {
   ### **WORK IN PROGRESS**
   * ()
 -->
+### **WORK IN PROGRESS**
+* (dirkhe) add event-update function for JS
+
 ### 1.4.0 (2025-01-12)
 * (dirkhe) add color,location and organizer for craeting Event
 * (dirkhe) add fix for invalid apple calender data

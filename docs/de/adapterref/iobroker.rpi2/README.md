@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
-title: ohne Titel
-hash: eqFbMVAtc2KJ4WQOBCX2RsFccxIp6aRsiZMzepwkGJw=
+title: kein Titel
+hash: cWeo+oq08XAAh++hWgPAHjLTCo8IlnCkgOpYAAeWOEM=
 ---
 ![Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) ioBroker RPI-Monitor-Adapter
 
@@ -15,17 +15,17 @@ hash: eqFbMVAtc2KJ4WQOBCX2RsFccxIp6aRsiZMzepwkGJw=
 
 ==============
 
-**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) RPI-Monitor-Implementierung zur Integration in ioBroker. Es ist die gleiche Implementierung wie für iobroker.rpi, aber mit GPIOs.
+**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die gleiche Implementierung wie für iobroker.rpi, jedoch mit GPIOs.
 
 ## Wichtige Informationen
 Funktioniert nur mit Knoten >= 18
 
 **ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Bei den meisten Linux-Distributionen kann dies erreicht werden, indem der ioBroker-Benutzer zur Gruppe `gpio` hinzugefügt wird (empfohlen) oder ioBroker unter `root` ausgeführt wird (weniger sicher).
 
-Damit gpio funktioniert, müssen Sie libgpiod **vor** der Installation des Adapters installieren, und zwar wie folgt: `sudo apt-get install -y libgpiod-dev`
+Damit GPIO funktioniert, müssen Sie libgpiod **vor** der Installation des Adapters installieren, und zwar wie folgt: `sudo apt-get install -y libgpiod-dev`
 
 ## Installation
-Nach der Installation müssen Sie alle benötigten Module über die Administrationsseite konfigurieren.
+Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
 
 Nach dem Start von iobroker.rpi generieren alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname>, z. B. rpi.0.cpu
 
@@ -50,7 +50,7 @@ Folgende Objekte stehen nach der Auswahl zur Verfügung:
 #### **Raspberry (vcgencmd ist erforderlich)**
 - CPU-Spannung
 - mem_arm
-- mem_gpu
+mem_gpu
 
 #### **Erinnerung**
 - verfügbarer Speicher
@@ -58,24 +58,24 @@ Folgende Objekte stehen nach der Auswahl zur Verfügung:
 - Gesamtspeicher
 
 #### **Netzwerk (eth0)**
-- netto_empfangen
+- net_received
 - net_send
 
 #### **SD-Karte**
-sdcard_boot_total
+- sdcard_boot_total
 - sdcard_boot_used
 - sdcard_root_total
-- SD-Karten-Root_verwendet
+- sdcard_root_used
 
 #### **Tauschen**
-- Swap_Total
-- verwendeter Tausch
+- swap_total
+- swap_used
 
 #### **Temperatur**
 - soc_temp
 
 #### **Betriebszeit**
-- Verfügbarkeit
+- Betriebszeit
 
 #### **WLAN**
 - WLAN empfangen
@@ -91,18 +91,15 @@ Netzwerk
 SD-Karte
 - Tauschen
 - Temperatur
-Betriebszeit
+- Betriebszeit
 WLAN
 
-## Logdateien / Konfigurationseinstellungen
-## Merkmale
-## Aufgaben
-## Getestete Hardware
-- Odroid C1
-Himbeer-Pi 1
+### NVME-Temperatur
+Seit Adapterversion 2.3.2 können Sie die NVMe-Temperatur ablesen. Dazu müssen Sie das Paket `nvme-cli` auf Ihrem System installieren.
+Sie können dies mit dem folgenden Befehl tun: `sudo apt-get install nvme-cli`. Sie müssen den Befehl außerdem zur ioBroker-Sudoers-Datei `/etc/sudoers.d/iobroker` hinzufügen. Öffnen Sie diese mit einem Editor, zum Beispiel nano: `sudo nano /etc/sudoers.d/iobroker`, und fügen Sie am Ende die folgende Zeile hinzu: `nvme smart-log /dev/nvme0`.
 
 ## GPIOs
-Sie können GPIOs auch lesen und steuern.
+Sie können auch GPIOs lesen und steuern.
 Sie müssen lediglich in den Einstellungen die GPIO-Optionen konfigurieren (zusätzliche Registerkarte).
 
 ![GPIOs](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
@@ -112,7 +109,7 @@ Nachdem einige Ports aktiviert wurden, werden im Objektbaum folgende Zustände a
 - rpi.0.gpio.PORT.state
 
 Die Nummerierung der Ports erfolgt in BCM (BroadComm Pins on Chip). Die Nummerierung erhalten Sie mit ```gpio readall```.
-Zum Beispiel PI2:
+Beispiel: PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -144,9 +141,9 @@ Zum Beispiel PI2:
 ```
 
 ## DHTxx/AM23xx-Sensoren
-Sie können die Temperatur-/Feuchtigkeitssensoren DHT11, DHT22 und AM2302 auslesen.
+Sie können von den Temperatur-/Feuchtigkeitssensoren DHT11, DHT22 und AM2302 lesen.
 
-Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite [Knoten-DHT-Sensor](https://www.npmjs.com/package/node-dht-sensor) beschrieben. Mehrere Sensoren können wie besprochen an *mehrere* Pins angeschlossen werden (dies ist *kein* Bussystem).
+Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite [Knoten-DHT-Sensor](https://www.npmjs.com/package/node-dht-sensor) beschrieben. Mehrere Sensoren können wie beschrieben an *mehrere* Pins angeschlossen werden (dies ist *kein* Bussystem).
 
 ## Changelog
 
@@ -154,85 +151,30 @@ Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### 2.0.0-alpha.3 (2024-05-24)
-* (Garfonso) fix crash
+### 2.4.0 (2025-03-06)
+* (Garfonso) read the current state of GPIO outputs during adapter startup.
+* (Garfonso) re-read GPIO input, if set by the user (with ack=false).
+* (Garfonso) add an option to invert true/false mapping to 1/0.
+* (Garfonso) Allow multiple instances of this adapter per host.
+* (Garfonso) tried to improve initialization of GPIO inputs.
 
-### 2.0.0-alpha.2 (2024-05-24)
-* (Garfonso) get rid of old sync-exec.
+### 2.3.2 (2025-02-06)
+* (asgothian) added support for NVMe temperature (needs additional configuration, see README)
+* (Garfonso) fixed inital values for outputs.
 
-### 2.0.0-alpha.1 (2024-05-23)
-* (Garfonso) Fix stuff.
+### 2.3.1 (2025-01-06)
+* (Garfonso) fixed: GPIO library failed to load after recent dependency update.
 
-### 2.0.0-alpha.0 (2024-05-23)
-* (Garfonso) Get stuff up to date...
+### 2.3.0 (2024-12-23)
+* (Garfonso) correct interpretation of start value setting. Output with initial value 0/1 will set GPIO accordingly during startup. Output without an initial state will not set GPIO at all.
 
-### 1.3.2 (2022-02-17)
-* Important: This version requires at leas js-controller 3.3
-* (Apollon77) Stop the adapter when GPIO module is configured but not working due to a needed rebuild that js-controller can pick up
-
-### 1.3.1 (2021-07-16)
-* (Apollon77) Prevent js-controller 3.3 warnings
-
-### 1.3.0 (2021-07-16)
-* (asgothian) Fix to get CPU frequencies also on Raspi 4
-* (raintor) Add support for DHTxx/AM23xx Sensors
-* (raintor) Configure internal Pull UP/Down Resistor
-* (raintor) Add port 'label'/'friendly name' to GPIO config
-
-### 1.2.0 (2020-01-17)
-- (janfromberlin) GPIO configuration as output with defined initial value
-- (foxriver76) No longer use adapter.objects
-- (Apollon77) Adjust gpio errors
-
-### 1.1.1
-- (Apollon77) Error messages for not existing values are logged only once
-
-### 1.1.0
- - (Apollon77) Nodejs 10 support
-
-### 1.0.0 (2018-08-20)
- - (bluefox) Admin3 support
-
-### 0.3.2 (2017-11-29)
- - (Homoran) fixed Mem available readings on Stretch
-
-### 0.3.1 (2017-01-11)
- - (olifre) Fixup swap_used calculation.
-
-### 0.2.2 (2016-12-01)
- - (bluefox) Add GPIO direction indication
-
-### 0.2.2 (2016-11-22)
- - (bluefox) Use BCM enumeration
-
-### 0.2.1 (2016-10-29)
- - (bluefox) fix start of adapter
-
-### 0.2.0 (2016-10-23)
- - (bluefox) just version change
-
-### 0.1.1 (2016-10-13)
- - (bluefox) implement GPIOs control
-
-### 0.0.4 (2016-03-25)
- - (bluefox) Try catch by eval
-   (bluefox) do not process if exec fails
-
-### 0.0.3 (2015-12-28)
- - (husky-koglhof) Fixed value calc.
-   Set Value to 2 digits
-
-### 0.0.2 (2015-12-26)
- - (husky-koglhof) Workaround for node 0.10.x
- - (bluefox) Some Fixes
-
-### 0.0.1 (2015-12-23)
- - Initial commit. Alpha Version.
+### 2.2.2 (2024-11-02)
+* (simatec) responsive design for settings page added
 
 ## License
 MIT License
 
-Copyright (c) 2024 Garfonso <garfonso@mobo.info>
+Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

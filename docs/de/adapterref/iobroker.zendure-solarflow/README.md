@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: AVn5YzHd9CTBo8vIgT61hMQK4ryROLtKMXW09AeSWz4=
+hash: T49vEcmQISVK+BvOU3ThTW3C1kObMjLxFZWsgokGN/o=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -21,31 +21,50 @@ hash: AVn5YzHd9CTBo8vIgT61hMQK4ryROLtKMXW09AeSWz4=
 Dieses Projekt ist ein ioBroker-Adapter zum Lesen von Daten aus der Zendure Solarflow Cloud API. Es verwendet die offizielle API von Zendure.
 Weitere Informationen zur API finden Sie hier: https://github.com/Zendure/developer-device-data-report
 
+## Spenden
+Wenn Sie den Adapter nützlich finden und meine Arbeit unterstützen möchten, können Sie gerne per Paypal spenden. Vielen Dank! (Dies ist ein persönlicher Spendenlink für Nograx und steht in keiner Verbindung zum ioBroker-Projekt!)<br />
+
 ## Merkmale
-- Erhalten Sie alle Telemetriedaten von Ihren Solarflow-Geräten, auch die, die in der offiziellen App nicht sichtbar sind - wie z. B. die Batteriespannung
+- Erhalten Sie alle Telemetriedaten von Ihren Solarflow-Geräten, auch diejenigen, die in der offiziellen App nicht sichtbar sind – wie die Batteriespannung
 - Steuern Sie Ihren Solarflow HUB wie in der offiziellen App. Die meisten Einstellungen sind verfügbar.
-- Kontrollieren Sie die Leistungsbegrenzung - Sie sind nicht darauf beschränkt, einen Shelly Pro EM zu verwenden, um eine Nulleinspeisung zu realisieren. Sie können auch komplexere Szenarien per Skript oder Blockly in ioBroker entwerfen.
-- Stoppen Sie die Eingabe, wenn eine Batterie auf Unterspannung fällt (Batterieschutz). Funktioniert nur, wenn die Ausgangsgrenze über den Adapter eingestellt wird
+- Steuern Sie die Leistungsbegrenzung – Sie sind nicht auf die Verwendung eines Shelly Pro EM beschränkt, um eine Nulleinspeisung zu realisieren. Sie können auch komplexere Szenarien per Skript oder Blockly in ioBroker entwerfen.
+- Stoppen Sie den Eingang, wenn eine Batterie unter Spannung fällt (Batterieschutz). Funktioniert nur, wenn die Ausgangsbegrenzung über den Adapter eingestellt wird.
 - Steuern Sie mehr als einen Solarflow gleichzeitig!
 - Erhalten Sie präzisere Berechnungen!
 - Funktioniert mit allen Zendure SolarFlow-Geräten: HUB1200, Hyper2000, HUB2000 und AIO! Ich kann nur auf HUB1200 testen, da ich die anderen Geräte nicht besitze ...
 
 ## Hinweise
-1. Bitte deaktiviere/entferne alle Häkchen in der Zendure App, sonst ist das Einstellen der Leistungsbegrenzung nicht möglich!
+1. Bitte deaktivieren/entfernen Sie alle Modi in der Zendure App, da sonst die Einstellung der Leistungsbegrenzung nicht möglich ist!
 
    ![Solarflow-Einstellungsfenster](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
-2. Sie werden aus der offiziellen iOS- oder Android-App abgemeldet, nachdem Sie sich mit dem ioBroker-Adapter angemeldet haben. Dies ist ein normales Verhalten. Als Workaround können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Verwenden Sie dann das zweite Konto für ioBroker / den Zendure Solarflow-Adapter.
+2. Sie werden nach der Anmeldung mit dem ioBroker-Adapter von der offiziellen iOS- oder Android-App abgemeldet. Dies ist normal. Um dieses Problem zu umgehen, können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Verwenden Sie dann das zweite Konto für ioBroker / den Zendure Solarflow-Adapter.
 
-3. Der Adapter zeigt eine Batterienutzung von +10 W an, wenn kein Solareingang vorhanden ist und das Gerät online ist. Dies spiegelt die Standby-Nutzung des Geräts wider.
+3. Der Adapter zeigt einen Batterieverbrauch von +10 W an, wenn kein Solareingang vorhanden ist und das Gerät online ist. Dies entspricht dem Standby-Verbrauch des Geräts.
 
 ## Credits
-Credits gehen an https://github.com/reinhard-brandstaedter/solarflow, das mit dem Wissen über den MQTT-Server von Zendure sehr geholfen hat! Danke!
-
-## Spenden
-Wenn Sie den Adapter für sich nützlich finden und meine Arbeit unterstützen möchten, können Sie gerne per Paypal spenden. Vielen Dank! (Dies ist ein persönlicher Spendenlink für Nograx und steht in keinem Zusammenhang mit dem ioBroker-Projekt!)<br />
+Dank geht an https://github.com/reinhard-brandstaedter/solarflow, das mir mit seinem Wissen über den MQTT-Server von Zendure sehr geholfen hat! Danke!
 
 ## Changelog
+### 1.11.0 (2025-02-11)
+
+- Drop Standby usage to 7W and 14W if HUB connected with ACE as it is more accurate
+- Added heatState and autoModel (system operation mode) state
+- Added possibility to set the operation mode (autoModel)
+- Fix gridPower state
+
+### 1.10.7 (2025-01-21)
+
+- Fix reset calculation values of ACE if connected to HUB
+
+### 1.10.6 (2025-01-16)
+
+- Fix start of calculation if HUB is connected with Ace
+
+### 1.10.4 (2025-01-14)
+
+- Fix "Grid Input Power" state if connected with Ace
+
 ### 1.10.1 (2025-01-06)
 
 - Fix input limit when hub is bundled with ace

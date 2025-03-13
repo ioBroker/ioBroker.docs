@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lightcontrol/README.md
-title: ioBroker.lightcontrol
-hash: 2C8lox7QJJk3YWndhJjKQTbbN03SjxFzwB2yH3gvwgI=
+title: ioBroker.Lichtsteuerung
+hash: m3NWqQj1pYY8F65fMOr+iFCErlFj3TL6bgzpWhoQFJI=
 ---
 ![Logo](../../../en/adapterref/iobroker.lightcontrol/admin/lightcontrol.png)
 
@@ -13,38 +13,38 @@ hash: 2C8lox7QJJk3YWndhJjKQTbbN03SjxFzwB2yH3gvwgI=
 ![GitHub](https://img.shields.io/github/license/schmakus/iobroker.lightcontrol?style=flat-square)
 ![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![NPM](https://nodei.co/npm/iobroker.lightcontrol.png?downloads=true)
 ![Beta](https://img.shields.io/npm/v/iobroker.lightcontrol.svg?color=red&label=beta)
 ![Stabil](http://iobroker.live/badges/lightcontrol-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/lightcontrol-installed.svg)
+![Installiert](http://iobroker.live/badges/lightcontrol-installed.svg)
 ![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
 
 # IoBroker.lightcontrol
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![Test und Freigabe](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
+![Testen und Freigeben](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
 
 ## Versionen
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Wenn Ihnen meine Arbeit gefällt:
 ## Installation
-Bitte verwenden Sie die „Adapterliste“ und das Stable Repository in ioBroker, um eine Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+Bitte verwenden Sie die Adapterliste und das stabile Repository in ioBroker, um eine Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
 
 ```
 iobroker add lightcontrol
 ```
 
 ## Dokumentation
-[🇺🇸 Dokumentation](./en/lightcontrol.md)
+[🇺🇸 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/en/lightcontrol.md)
 
-[🇩🇪 Dokumentation](./docs/de/lightcontrol.md)
+[🇩🇪 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/de/lightcontrol.md)
 
-## Machen
-- Wählen Sie mehr als eine LightGroup für eine Objekt-ID (Fehler bei jsonCustom Select multible)
-- Verfügbarkeit für Benachrichtigungen mit geringerer Helligkeit und definierten Sekunden vor AutoOff
+## Aufgaben
+- Mehr als eine Lichtgruppe für eine Objekt-ID auswählen (Fehler mit jsonCustom Select multible)
+- Verfügbarkeit für Hinweise mit geringerer Helligkeit und definierten Sekunden vor AutoOff
 
 ## Changelog
 
@@ -53,43 +53,40 @@ iobroker add lightcontrol
 	### **WORK IN PROGRESS**
 -->
 
-### 0.5.0 (2024-03-01)
+### **WORK IN PROGRESS**
+
+-   (Schmakus) fix responsive issues
+
+### 2.0.0 (2025-03-06)
 
 -   (Schmakus) update dependencies
--   (Schmakus) update license year
--   (Schmakus) fixed AutoOnLux (Cannot read properties of undefined (reading 'minLux'))
+-   (Schmakus) Admin 7.4.10 required
+-   (Schmakus) Node 20 required
+-   (Schmakus) fix responive issues
 
-### 0.4.0 (2023-08-16)
+### 1.0.1 (2024-09-02)
 
--   (Schmakus) Node >=16 and NPM >=7 necessary!
--   (Schmakus) fixed rampOff.time
 -   (Schmakus) update dependencies
 
-### 0.3.0 (2023-07-17)
+### 1.0.0 (2024-09-02)
 
--   (Schmakus) (thoml95) Changed conversion of color-temperature (edit of ct-states required)
--   (Schmakus) (thoml95) fixed some bugs related to powerCleaningLight
--   (Schmakus) Some code improvements
--   (Schmakus) Update Docu
+-   (Schmakus) update dependencies
 
-### 0.2.18 (2023-07-08)
+### 0.8.0 (2024-08-16)
 
--   (Schmakus) Fixed CtReverse [#149]
--   (Schmakus) Fixed translation for light [#136]
--   (Schmakus) Fixed warning min/max of ct-state [#148]
--   (Schmakus) Fixed Set Color-Temperature (set null value)
+-   (Schmakus) Adapter requires node.js >= 18 and Admin >=6 now
+-   (Schmakus) Dependencies have been updated
+-   (Schmakus) Fixed repo checker issues
 
-### 0.2.17 (2023-05-17)
+### 0.7.0 (2024-07-02)
 
--   (Schmakus) Fix error by init of customConfig, if no light description is available
--   (Schmakus) Fix error by set Ct, Color,... if no lights or groups defined
--   (Schmakus) Some code improvements
+-   (Schmakus) Dependencies have been updated
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 Schmakus <schmakus@gmail.com>
+Copyright (c) 2025 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

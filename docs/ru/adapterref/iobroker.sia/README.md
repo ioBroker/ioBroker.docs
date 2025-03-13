@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sia/README.md
 title: ioBroker.sia
-hash: UJIqFmNZCAoAKezO4sHZ5mA7QbhOAyE0neR4o0HS6ac=
+hash: GBpo+kdEerXIJ2oh5kHZ8uQNkP7cK6v6P0FKe4PAjX0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sia/admin/sia.png)
 
@@ -42,9 +42,12 @@ hash: UJIqFmNZCAoAKezO4sHZ5mA7QbhOAyE0neR4o0HS6ac=
 Выберите IP-адрес и порт для прослушивания запросов SIA.
 ![sia_adapter1](../../../en/adapterref/iobroker.sia/admin/sia_adapter1.png)
 
-Зарегистрируйте номер учетной записи. Если вы используете AES, вам необходимо ввести пароль (ключ). Ключ должен быть длиной 16, 24 или 32 символа (байта).
+Зарегистрируйте номер учетной записи. Если вы используете AES, вам необходимо ввести пароль (ключ). Длина ключа должна быть 16, 24 или 32 символа (байта).
 Если флажок «Пароль AES в шестнадцатеричном формате» активен, длина пароля должна быть 32, 48 или 64 символа (байта).
-В поле ACK timeout вы определяете, сколько времени может быть у сообщения в секундах. Если вы укажете 0 секунд, проверка тайм-аута не будет выполняться.
+В поле «Время ожидания ACK» вы определяете, как долго может быть сообщение в секундах. Если вы укажете 0 секунд, проверка времени ожидания не будет выполняться.
+С помощью флажка «Закрытие соединения сервером SIA» вы можете решить, должна ли система сигнализации закрывать соединение после получения сообщения ACK.
+Если флажок «Закрытие соединения сервером SIA» отключен, сервер SIA (ioBroker) ждет 30 секунд, пока система сигнализации закроет соединение.
+По истечении этих 30 секунд сервер SIA (ioBroker) закроет соединение.
 
     ![sia_adapter2](../../../en/adapterref/iobroker.sia/admin/sia_adapter2.png)
 
@@ -139,6 +142,20 @@ cat /tmp/sia/sia_msg_20250201_202457309.txt | nc localhost 55001
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #48)
+- (Stübi) Fixing dependency (Issue #49)
+
+### 2.0.4 (2025-02-06)
+
+- (Stübi) Fixed Issue Required SIA fields Missing (Issue #19)
+- (Stübi) Fixed an error by reading the length of the message
+- (Stübi) Fixed Issue Socket not kept connected (Issue #20)
+- (Stübi) the crc and length will be shown as HEX ASCII (4 characters) in the object crc and len
+- (Stübi) timestamp will be shown in format hh:mm:ss,MM-DD-YYYY (GMT time) in the object ts
+
 ### 2.0.3 (2025-02-01)
 
 - (Stübi) add error envent if connction close

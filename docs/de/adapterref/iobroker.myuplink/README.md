@@ -48,6 +48,10 @@ Der Adapter hat auch keinen Einfluss darauf, welche Parameter von myUplink gesen
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- Dependencies have been updated
+
 ### 0.8.4 (2024-12-25)
 
 - xl attributes have been added to the jsonConfig #77

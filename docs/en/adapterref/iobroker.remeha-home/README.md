@@ -51,8 +51,31 @@ Only the user name (e-mail address) and password of the Remeha Home account are 
 You must enter these in the configuration of the adapter.
 
 ---
-<!-- ### **WORK IN PROGRESS** -->
+
 ## Changelog
+<!-- ### **WORK IN PROGRESS** -->
+### 1.0.4 (2025-03-07)
+* (simatec) Fix Post Update
+
+### 1.0.3 (2025-03-07)
+* (simatec) Fix Post Update
+
+### 1.0.2 (2025-03-06)
+* (simatec) Code Fix
+* (simatec) eslint Fix
+
+### 1.0.1 (2025-03-04)
+* (simatec) Code clean
+* (simatec) Dependencies updated
+
+### 1.0.0 (2025-03-02)
+* (simatec) Fix Update Settings
+* (simatec) Rewrite in Typescript
+
+### 0.2.8 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
 ### 0.2.7 (2025-01-09)
 * (simatec) Fix Update Intervall
 

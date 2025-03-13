@@ -74,6 +74,12 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.1.1 (2025-02-19)
+* (arteck) typo
+
+### 3.1.0 (2025-02-16)
+* (arteck) add new command takePicture, check new settings
+
 ### 3.0.13 (2025-01-05)
 * (arteck) add setBooleanSetting
 

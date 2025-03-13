@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.controme/README.md
 title: ioBroker.controme
-hash: su6wsdirQYbXW/MbQUqjSe1Bz2Tgm5e/AxHIq7hnC/o=
+hash: xmYok2X8iUdUdS8sgIwcr1Pp5ueo2SW3ybxGWddh3Ls=
 ---
 ![标识](../../../en/adapterref/iobroker.controme/admin/controme.png)
 
@@ -30,7 +30,7 @@ Controme 是一种供暖控制系统，您可以使用它来控制地板供暖�
 | 对象 | 类型 | 描述 | 读/写 |
 | --- | --- | --- | --- |
 | 房间ID | 设备 | 每个房间都以其 Controme 房间 ID 和房间名称作为设备名称表示。| |
-| roomID.actualTemperature | state | 房间的实际温度，角色为 level.temperature。此状态为只读。如果没有定义特定房间的室温传感器，则 Controme mini 服务器返回的实际温度为空。| read |
+| roomID.actualTemperature | state | 房间的实际温度，角色为 level.temperature。此状态为只读。如果没有定义特定房间的室温传感器，则从 Controme mini 服务器返回的实际温度为空。| read |
 | roomID.hydrity | state | 房间湿度，作用为 level.hydrity。此状态为只读。如果房间的传感器未检测到湿度，则此状态为空。| read |
 | roomID.setpointTemperature | state | 房间的目标/设定点温度，具有 value.temperature 的角色。| 读/写 |
 | roomID.setpointTemperaturePerm | state | 房间的永久目标/设定点温度，具有 value.temperature 的作用。| 读/写 |
@@ -41,7 +41,7 @@ Controme 是一种供暖控制系统，您可以使用它来控制地板供暖�
 | roomID.temporary_mode_remaining | state | 当房间的临时模式处于活动状态时，此状态表示临时状态处于活动的剩余秒数。如果没有临时状态处于活动状态，则此状态为空。对此状态的更改将反映回 Controme，并将更改临时模式的剩余时间，其中设定点温度在状态 setpointTemperate 中定义。| 读/写 |
 | roomID.offsets | channel | 偏移量是从设定点室温中添加或减去的。此通道将属于相应房间的所有偏移量分组。| |
 | roomID.offsets.[OFFSET-GROUP] | channel | 每个偏移源都由偏移所属房间的偏移通道内的专用通道表示。| |
-| roomID.offsets.[OFFSET-GROUP].[OFFSET] | state | 各个偏移状态代表 Controme 迷你服务器所做的不同调整。| read |
+| roomID.offsets.[OFFSET-GROUP].[OFFSET] | 状态 | 各个偏移状态代表 Controme 迷你服务器所做的不同调整。| 阅读 |
 | roomID.offsets.api | channel | 这个偏移组很特殊，因为它的状态可以被写入并可以用来操纵实际的房间偏移。| |
 | roomID.offsets.api.api | state | 此偏移状态由适配器默认创建。您可以使用它来操作实际的房间偏移。服务器每 10 分钟重置一次偏移值。| 读/写 |
 | roomID.sensors | channel | 传感器提供与房间相关的实际测量值。此通道将分配给相应房间的所有传感器分组。| |
@@ -76,15 +76,11 @@ Controme 是一种供暖控制系统，您可以使用它来控制地板供暖�
 | gatewayOutputs | table | 适配器应轮询数据的所有网关的所有输出都必须配置三个值：|
 | gatewayOutputs.gatewayMAC | 字符串 | 单个网关的 MAC 地址。这必须与网关表中配置的网关 MAC 值之一匹配。请注意，目前，适配器不会验证网关 MAC 地址是否与网关表中配置的 MAC 地址匹配。因此，请注意网关 MAC 地址在两个表中都匹配。|
 | gatewayOutputs.outputID | number | 应轮询的相应网关的输出 ID。对于小型网关，此数字必须是 1 到 8，对于其他网关，可以是 1 到 15。|
-| gatewayOutputs.outputName | 字符串 | 网关相应输出的名称。|
+| gatewayOutputs.outputName | 字符串 | 网关各自输出的名称。|
 
 ## 待办事项
-1.（正在进行）发布适配器：）
-2. 向配置字段添加数据验证
-3.（完成）扩展从 Controme 微型服务器接收的数据字段（例如湿度）
-4.（完成）为每个传感器和房间添加传感器数据
-5.（完成，等待测试）在设定温度旁边实施临时模式（临时更改为房间所需温度）
-6.（完成）添加选项来设置虚拟传感器的值
+1.（进行中）测试，测试，测试
+2. 经过全面测试后将适配器发布到稳定版
 
 ## 了解 Bug
 1. ...
@@ -94,6 +90,20 @@ Controme 是一种供暖控制系统，您可以使用它来控制地板供暖�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.5.7 (2025-02-22)
+* (MadErstam) Made adapter safe to handle different versions of API
+* (MadErstam) Switched from got to axios for future compatibility
+
+### 0.5.6 (2025-02-21)
+* (MadErstam) Bugfixing regarding invalid API responses or invalid sensor values
+
+### 0.5.5 (2025-02-20)
+* (MadErstam) Bugfixing regarding async and promise
+
+### 0.5.4 (2025-02-15)
+* (MadErstam) Made sensor names safe
+* (MadErstam) Bugfixing in getOutputs
+
 ### 0.5.3 (2024-11-27)
 * (MadErstam) Various smaller bugfixes and improvements
 
@@ -181,6 +191,8 @@ Controme 是一种供暖控制系统，您可以使用它来控制地板供暖�
 * (MadErstam) initial release
 
 ## License
+Copyright (c) 2025 MadErstam <erstam@gmx.de>
+
 MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -200,5 +212,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Copyright (c) 2024 MadErstam <erstam@gmx.de>

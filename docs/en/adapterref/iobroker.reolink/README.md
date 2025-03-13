@@ -67,10 +67,15 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 
 - RLC-420-5MP
 - E1 Outdoor
+- E1 Zoom
 - RLC-522
 - RLC-810A
 - RLC-823A
 - Duo 3 PoE
+
+## Known *NOT* working cameras
+
+- E1 Pro
 
 ## Changelog
 <!--
@@ -78,6 +83,12 @@ sendTo("reolink.0",{action: "snap"}, function(result){
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (oelison) update readme #141
+
+### 1.2.1 (2025-02-09)
+* (oelison) set some errors to debug logs
+
+### 1.2.0 (2025-02-07)
 * (oelison) update disk info
 * (oelison) uri enconding is switchable (helps sometimes by one special char)
 * (oelison) #28 PTZ check added
@@ -113,56 +124,6 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 * (oelison) resolve review for latest adapter addition
 * (oelison) maybe the last node 16 version
 * (oelison) booleans are now false/true and not 0/1
-
-### 0.1.2 (2023-11-03)
-* (oelison) ptz patrol added
-* (oelison) node 12 tests removed
-* (aendue) added getAiState
-
-### 0.1.1 (2022-11-03)
-* (aendue) ssl validation included
-* (aendue) fixed issue with ack-flag not set
-* (aendue) changed datatypes of disk.free and RAW.Email
-* (aendue) enabled getAutoFocus again
-* (aendue) name change on state EmailNotification (state gets created dynamically now)
-
-### 0.1.0 (2022-10-25)
-* (aendue) fixed asynchron functions (Axios Errors)
-* (aendue) added getAutoFocus funktion
-* (aendue) added getIrLight funktion
-* (aendue) added getWhiteLED function
-* (aendue) added getMailNotification function
-* (aendue) added setMailNotification function
-* (aendue) cleanup code
-
-### 0.0.5 (2022-09-28)
-
-* (oelison) guard point (new info)
-
-### 0.0.4 (2022-09-27)
-
-* (oelison) ptz preset tested
-* (oelison) change protocol (http/https) possible
-* (oelison) led on/off and brightness
-* (oelison) push on/off
-* (oelison) auto focus on/off
-* (oelison) set zoom
-* (oelison) play alarm (n times)
-* (oelison) motion detection enabled again
-
-### 0.0.3 (2022-09-05)
-
-* (aendue) npm release prepare
-* (oelison) ptz preset (untested, missing ptz cam)
-
-### 0.0.2 (2022-09-05)
-
-* (aendue) added languages
-* (oelison) added get image function (snap)
-
-### 0.0.1 (2022-07-05)
-
-* (aendue) initial release
 
 ## License
 MIT License

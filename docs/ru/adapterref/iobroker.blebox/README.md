@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
+hash: 8oNPKG+hEgovErukFkieAYGOQYu1hwgt3nGJXZYLh58=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -24,6 +24,7 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 
 | Герэт | Тип API | Статус |
 |----------------------|---------------------|-----------------------------------------|
+| airsensor | airsensor | ❓ альфа, не тестировалось ни с реальным оборудованием, ни с API-симуляцией |
 | gatebox | gatebox | ✅ Протестировано |
 | мультисенсор | мультисенсор | поддерживается до 8 датчиков на устройство |
 | tempSensor PRO | multisensor | ❓ beta, не тестировалось на реальном оборудовании |
@@ -37,11 +38,11 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 | shutterBoxDC | shutterBox | ❓ beta, не тестировалось на реальном оборудовании |
 | shutterBoxDIN | shutterBox | ❓ beta, не тестировалось на реальном оборудовании |
 | распределительная коробка | распределительная коробка | ✅ Протестировано |
-| switchBoxD | switchBox | ❓ beta, не тестировалось на реальном оборудовании |
-| switchBoxDC | switchBox | ❓ beta, не тестировалось на реальном оборудовании |
+| switchBoxD | switchBoxD | ❓ beta, не тестировалось на реальном оборудовании |
+| switchBoxDC | switchBoxD | ❓ beta, не тестировалось на реальном оборудовании |
 | switchBox DIN | switchBox | ❓ beta, не тестировалось с реальным оборудованием |
-| switchBoxD DIN | switchBox | ❓ beta, не тестировалось с реальным оборудованием |
-| switchBoxT PRO | switchBox | ❓ beta, не тестировалось на реальном оборудовании |
+| switchBoxD DIN | switchBoxD | ❓ beta, не тестировалось с реальным оборудованием |
+| switchBoxT PRO | switchBoxD | ❓ beta, не тестировалось на реальном оборудовании |
 | tempsensor | tempsensor | ❓ beta, не тестировалось на реальном оборудовании |
 | tvlift | tvlift | ❓ beta, не тестировалось на реальном оборудовании |
 
@@ -52,7 +53,16 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
     ### **WORK IN PROGRESS**
 -->
 
-### 2.2.0 (2023-10-13)
+### 2.2.3 (2025-02-13)
+
+* (Kai van Nuis) Support for airsensor, alpha, neither tested with real Hardware nor an API-Simulation
+* (Kai van Nuis) Support both relay on switchBoxD
+
+### 2.2.1 (2024-12-26)
+
+* (Kai van Nuis) Support for multi-device APIs
+  
+* ### 2.2.0 (2024-12-21)
 
 * (Kai van Nuis) Support for multi-device APIs
 
@@ -82,7 +92,7 @@ hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
 ## License
 MIT License
 
-Copyright (c) 2024 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2025 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

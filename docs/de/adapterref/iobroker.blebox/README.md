@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: H5QE8rnAxkqTH+8M9rsElAFLi0W690GnR8KC86WzS3M=
+hash: 8oNPKG+hEgovErukFkieAYGOQYu1hwgt3nGJXZYLh58=
 ---
 ![Logo](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.blebox.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.blebox.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
 
 # IoBroker.blebox
 ## Blebox-Adapter für ioBroker
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
 
-Adapter zur Steuerung der Smarthome Geräte des Herstellers [blebox](https://blebox.eu/). Die API-Beschreibung finden Sie [hier](https://technical.blebox.eu/). Die Implementierung erfolgte ohne Unterstützung des Herstellers.
+Adapter zur Steuerung der Smarthome-Geräte des Herstellers [blebox](https://blebox.eu/). Die API-Beschreibung finden Sie [hier](https://technical.blebox.eu/). Die Implementierung erfolgte ohne Unterstützung des Herstellers.
 
 Eine unvollständige und veraltete API-Simulation kann heruntergeladen werden [Hier](https://github.com/blebox/blebox-virtual-devices).
 
@@ -24,24 +24,25 @@ Die folgenden Geräte werden derzeit unterstützt:
 
 | Gerät | API-Typ | Status |
 |----------------------|---------------------|-----------------------------------------|
+| airsensor | airsensor | ❓ Alpha, weder mit echter Hardware noch einer API-Simulation getestet |
 | Gatebox | Gatebox | ✅ Getestet |
 | Multisensor | Multisensor | bis zu 8 Sensoren pro Gerät werden unterstützt |
-| tempSensor PRO | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| TempSensor PRO | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
 | tempSensorAC | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
 | Feuchtigkeitssensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
 | WindSensor PRO | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
-| FloodSensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
+| Hochwassersensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
 | Regensensor | Multisensor | ❓ Beta, nicht mit echter Hardware getestet |
 | Saunabox | Saunabox | ❓ Beta, nicht mit echter Hardware getestet |
-| shutterbox | shutterbox | ✅ Getestet |
+| shutterbox | shutterbox | ✅ Geprüft |
 | shutterBoxDC | shutterBox | ❓ Beta, nicht mit echter Hardware getestet |
 | shutterBoxDIN | shutterBox | ❓ Beta, nicht mit echter Hardware getestet |
 | Schaltkasten | Schaltbox | ✅ Geprüft |
-| switchBoxD | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
-| switchBoxDC | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBoxD | switchBoxD | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBoxDC | switchBoxD | ❓ Beta, nicht mit echter Hardware getestet |
 | switchBox DIN | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
-| switchBoxD DIN | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
-| switchBoxT PRO | switchBox | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBoxD DIN | switchBoxD | ❓ Beta, nicht mit echter Hardware getestet |
+| switchBoxT PRO | switchBoxD | ❓ Beta, nicht mit echter Hardware getestet |
 | Tempsensor | Tempsensor | ❓ Beta, nicht mit echter Hardware getestet |
 | tvlift | tvlift | ❓ Beta, nicht mit echter Hardware getestet |
 
@@ -52,7 +53,16 @@ Die folgenden Geräte werden derzeit unterstützt:
     ### **WORK IN PROGRESS**
 -->
 
-### 2.2.0 (2023-10-13)
+### 2.2.3 (2025-02-13)
+
+* (Kai van Nuis) Support for airsensor, alpha, neither tested with real Hardware nor an API-Simulation
+* (Kai van Nuis) Support both relay on switchBoxD
+
+### 2.2.1 (2024-12-26)
+
+* (Kai van Nuis) Support for multi-device APIs
+  
+* ### 2.2.0 (2024-12-21)
 
 * (Kai van Nuis) Support for multi-device APIs
 
@@ -82,7 +92,7 @@ Die folgenden Geräte werden derzeit unterstützt:
 ## License
 MIT License
 
-Copyright (c) 2024 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2025 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

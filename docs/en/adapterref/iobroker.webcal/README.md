@@ -57,7 +57,7 @@ sendTo("webcal.0", "addEvents", {
         color: "red",
         organizer: "ich",
         start: "12.1.25 23:00"
-      }
+      },
       {
         summary: "failed test",
 		    description: "long description",
@@ -77,6 +77,7 @@ output from log will be:
 ```
 [
   {
+    "id": "iob_676956946",
     "summary": "test",
     "start": "9.8.23 23:00",
     "end": "10.08.2023 14:00",
@@ -120,7 +121,33 @@ output from log will be:
 
 if `calendar` not given, defaultCalender will used
 
-on `event` field `end` and `description` is optional 
+only fields `start` and ,`summary` are mandatory 
+
+**update Event**
+possible via Script:
+```
+sendTo("webcal.0", "updateEvents", {
+    calendar: "smarthome",
+    events: [
+      {
+        summary: "test2",
+        description: "test add Event",
+        location: "ort",
+        color: "red",
+        organizer: "ich",
+        start: "12.1.25 23:00"
+      }
+    ]
+  },function(events){
+    /* callback function 
+	   object events will be repeat from input, 
+	   with additional status or error field, 
+	   also startDate and endDate are provided as Object data   
+	*/
+	log(events);	
+  })
+```
+only fields `start` and ,`summary` are mandatory 
 
 **delete Event**
 possible via Script:
@@ -175,6 +202,9 @@ This project uses the following components:
   ### **WORK IN PROGRESS**
   * ()
 -->
+### **WORK IN PROGRESS**
+* (dirkhe) add event-update function for JS
+
 ### 1.4.0 (2025-01-12)
 * (dirkhe) add color,location and organizer for craeting Event
 * (dirkhe) add fix for invalid apple calender data

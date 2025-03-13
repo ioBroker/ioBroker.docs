@@ -218,6 +218,16 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
+### 1.3.1 (2025-03-02)
+* (afuerhoff) dependencies updated
+* (afuerhoff) bug fixed [#333](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/333)
+* (afuerhoff) bug fixed [#305](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/305)
+
+### 1.3.0 (2025-02-14)
+* (afuerhoff) dependencies updated
+* (afuerhoff) eslint setup changed
+* (afuerhoff) ipv6 ip-address and prefix added
+
 ### 1.2.8 (2024-11-20)
 * (afuerhoff) bugfix configuration
 * (afuerhoff) dependencies updated
@@ -229,22 +239,10 @@ Here you will find information about the history of the current day.
 * (afuerhoff) dependencies updated
 * (afuerhoff) DisAllowWanAccess optimized
 
-### 1.2.5 (2024-09-18)
-* (afuerhoff) new filter function implemented (experimental)
-* (afuerhoff) node >=18
-* (afuerhoff) dependencies updated
-* (afuerhoff) repository checker issues fixed
-* (afuerhoff) issue fixed [#294](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/294)
-* (afuerhoff) 'devicename' as state added [#299](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/299)
-
-### 1.2.4 (2024-02-09)
-* (afuerhoff) test code deleted [#257](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/257)
-* (afuerhoff) dependencies updated
-
 ## License
 MIT License
 
-Copyright (c) 2019-2024 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2025 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

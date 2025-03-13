@@ -105,6 +105,7 @@ The most important data points are described here. The UID that the respective d
 │       |       └── ...
 |       └── ActiveProgram
 |       └── SelectedProgram
+|       └── sendOptionsSeperately
 ```
 
 ### info.connection
@@ -122,6 +123,14 @@ The data points contain the UID of the program that is currently running as a va
 ### observe
 
 With the data point `observe`, devices can be excluded from monitoring the adapter when changed to `false`. For example, in the event of an error, it can be set that only one device is taken into account by the adapter and no other device "intermediates".
+
+### sendOptionsSeperately
+
+Normally, to start a program, the necessary options are sent to the device as a whole. However, on some devices it is expected that these options are not transmitted as a block but individually.
+
+> [!NOTE]
+>
+> If starting a program doesn't work as desired or if the debug log says something like `resource":"/ro/activeProgram","version":1,"action":"RESPONSE","code":400}`, this data point can be changed to `true` before trying to start a program again.
 
 ### Command
 
@@ -155,6 +164,28 @@ General settings for the device can be made here. For example, the light of an o
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.6.0 (2025-02-27)
+
+- (eifel-tech) Datapoint to send program options seperately (Issue #208)
+
+> [!CAUTION]
+>
+> See [english](./docs/en/README.md#sendoptionsseperately) or [german docu](./docs/de/README.md#sendoptionsseperately)
+
+### 1.5.0 (2025-02-24)
+
+- (eifel-tech) Admin-Version >= 7.4.10
+- (eifel-tech) Handling to start program for dishwasher S255HVX15E (Issue #201)
+
+### 1.4.3 (2025-02-18)
+
+- (eifel-tech) Handling to start program for dishwasher SN53ES02CE (Issue #194)
+
+### 1.4.2 (2025-02-13)
+
+- (eifel-tech) Error message after sending to /ro/selectedProgram on hood devices (Issue #193)
+
 ### 1.4.1 (2025-01-16)
 
 - (eifel-tech) Creating instance directory if absent
@@ -169,8 +200,10 @@ General settings for the device can be made here. For example, the light of an o
 - (eifel-tech) Dependency updates
 - (eifel-tech) common.min is only set if it is also present in the config (Issue #149)
 - (eifel-tech) Password in admin will be stored encrypted natively
-    > [!CAUTION]
-    > You have to reenter your password in admin config!
+
+> [!CAUTION]
+>
+> You have to reenter your password in admin config!
 
 ### 1.2.10 (2024-11-20)
 
@@ -217,8 +250,10 @@ General settings for the device can be made here. For example, the light of an o
 ### 1.2.0
 
 - (eifel-tech) Ability to exclude individual devices from control (Issue #117)
-    > [!CAUTION]
-    > The configuration had to be expanded for this, so the contents of the `info.config` data point have to be deleted and the adapter has to be restarted. Also delete the `General` object tree.
+
+> [!CAUTION]
+>
+> The configuration had to be expanded for this, so the contents of the `info.config` data point have to be deleted and the adapter has to be restarted. Also delete the `General` object tree.
 
 ### 1.1.2
 

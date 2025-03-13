@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/javascript.md
 title: 无标题
-hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
+hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
 ---
 ＃＃ 内容
 - [注意](#note)
@@ -33,7 +33,7 @@ hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 - [比较时间](#比较时间)
 - [设置状态](#设置状态)
     - [setStateAsync](#setstateasync)
-- [setStateDelayed](#setstatedelayed)
+    - [setStateDelayed](#setstatedelayed)
 - [clearStateDelayed](#clearstatedelayed)
 - [getStateDelayed](#getstatedelayed)
 - [获取状态](#获取状态)
@@ -81,7 +81,7 @@ hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 - [stopScript](#stopscript)
 - [stopScriptAsync](#stopScriptAsync)
 - [isScriptActive](#isscriptactive)
-- [名称](#名称)
+- [名称](#脚本名称)
 - [实例](#实例)
 - [消息收件人](#消息收件人)
 - [messageToAsync](#messagetoasync)
@@ -265,7 +265,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 | oldTsLt | 字符串 | 前一个时间戳必须大于或等于给定的时间戳 (oldState.ts >= ts) |
 | oldTsLe | 字符串 | 前一个时间戳必须小于给定的时间戳 (oldState.ts < ts) |
 |             |            |                                                                                                                                                     |
-| lc | 字符串 | 最后更改时间戳必须等于给定的时间戳 (state.lc == lc) |
+| lc | 字符串 | 上次更改时间戳必须等于给定的时间戳 (state.lc == lc) |
 | lcGt | 字符串 | 上次更改时间戳必须不等于给定的时间戳 (state.lc != lc) |
 | lcGe | 字符串 | 最后更改时间戳必须大于给定值 (state.lc > lc) |
 | lcLt | 字符串 | 上次更改时间戳必须大于或等于给定的时间戳 (state.lc >= lc) |
@@ -347,7 +347,7 @@ on('stateId1', 'stateId2');
 
 *stateId1*的所有改变都会写入*stateId2*。
 
-如果将`value`参数与状态 ID 结合设置为第二个参数，则在任何更改时，状态都将填充`value`。
+如果将`value`参数与状态 id 结合设置为第二个参数，则在任何更改时，状态都将填充`value`。
 
 ```js
 on('stateId1', 'stateId2', 'triggered');
@@ -362,7 +362,7 @@ setState('stateId1', 'new value');
 
 *注意：*请注意，默认情况下“change”等于“any”，除非仅将 id 设置为字符串（如`on('id', () => {});`）。在最后一种情况下，change 将设置为“ne”。
 
-*注意：*如果您还想获得状态删除/过期作为触发器，则需要使用更改与`ne`或`any`以及q与`*`作为过滤器！
+*注意：*如果您还想获得状态删除/过期作为触发器，则需要使用更改`ne`或`any`以及q`*`作为过滤器！
 
 *注意：*从 4.3.2 开始，可以将触发器类型写为第二个参数：`on('my.id.0', 'any', obj => log(obj.state.val));`
 
@@ -446,10 +446,10 @@ on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
 schedule(pattern, callback);
 ```
 
-具有天文功能的时间调度程序。
+具有天文功能的时间表。
 
 #### 时间表
-模式可以是带有[Cron 语法](http://en.wikipedia.org/wiki/Cron)的字符串，由 5 位（不包含秒数）或 6 位（包含秒数）数字组成：
+模式可以是带有[Cron语法](http://en.wikipedia.org/wiki/Cron)的字符串，由 5 位（不包含秒数）或 6 位（包含秒数）数字组成：
 
 ```
 * * * * * *
@@ -506,7 +506,7 @@ schedule({ hour: 12, minute: 30 }, () => {
 -`规则`
 
 start 和 end 定义一个 Date 对象、一个 DateString 或自 1970 年 1 月 1 日 00:00:00 UTC 以来的毫秒数。
-规则是一个带有 [Cron 语法](http://en.wikipedia.org/wiki/Cron) 的计划字符串或一个对象：
+规则是一个带有 [Cron语法](http://en.wikipedia.org/wiki/Cron) 的计划字符串或一个对象：
 
 ```js
 let startTime = new Date(Date.now() + 5000);
@@ -911,7 +911,7 @@ getObject(id, enumName);
 getObject('adapter.N.objectName', 'rooms');
 ```
 
-在 enumIds 中返回请求对象是其成员的所有房间。您可以将 enumName 定义为“true”以返回 *所有* 枚举。
+在 enumIds 中返回请求的对象是其成员的所有房间。您可以将 enumName 定义为“true”以返回 *所有* 枚举。
 
 ### 设置对象
 ```js
@@ -1122,14 +1122,14 @@ createAlias(name, alias, forceCreation, common, native, callback);
 通用定义取自读取别名 ID 对象，但提供的通用定义优先。
 
 ＃＃＃＃ 参数：
-- `name`：新别名状态的 id（可能没有别名命名空间），例如 `test.mystate`（将添加命名空间 `alias.0.` = `alias.0.test.mystate`）
+- `name`：新别名状态的 ID（可能没有别名命名空间），例如 `test.mystate`（将添加命名空间 `alias.0.` = `alias.0.test.mystate`）
 - `alias`：可以是字符串形式的现有状态 ID，也可以是具有完整别名定义的对象，包括读/写 ID 和读/写函数。注意：别名定义不能设置为通用参数的一部分！
 - `forceCreation`：无论状态是否存在，都创建/覆盖别名。
 - `common`：别名对象的通用描述，请参阅[此处](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state) 的描述。此处提供的值将优先于读取别名 id 对象的通用定义。注意：别名定义不能作为此通用参数的一部分进行设置，请参阅别名参数！
 - `native`：对象的原生描述。任何特定信息。
 - `callback`：在状态创建并初始化后调用。
 
-可以使用简短的 createAlias 类型：
+可以使用简短类型的 createAlias：
 
 - `createAlias('myAlias', 'myDatapoint')` - 如果不存在，则简单地创建引用 javascript.X.myDatapoint 的 alias.0.myAlias
 - `createAlias('myAlias', { id: { read: 'myReadDatapoint', write: 'myWriteDatapoint' }})` - 创建别名并引用不同的读/写状态
@@ -1205,7 +1205,7 @@ sendToHost(hostName, command, message, callback);
 -`‘获取存储库’`
 -`'获取安装'`
 -`'获取版本'`
-- `'获取诊断数据'`
+- `‘获取诊断数据’`
 - `‘getLocationOnDisk’`
 - `'获取DevList'`
 -`'获取日志'`
@@ -1220,13 +1220,13 @@ sendToHost(hostName, command, message, callback);
 - `'getInterfaces'` - 开始适配器上传
 -`'rebuildAdapter'`
 - `'读取基本设置'`
--`'writeBaseSettings'`
+- `'writeBaseSettings'`
 - `'添加通知'`
 - `'清除通知'`
 - `'获取通知'`
 - `'updateLicenses'` - 从 iobroker.net 读取许可证
 - `'upgradeOsPackages'`
-- `'重启控制器'`
+-`'重新启动控制器'`
 
 它是相当具体的命令并且并不经常需要。
 
@@ -1291,7 +1291,7 @@ formatDate(millisecondsOrDate, format);
 - `millisecondsOrDate`：来自 state.ts 或 state.lc 的毫秒数（从 1970.01.01 00:00:00 开始的毫秒数）或 javascript *new Date()* 对象或来自 *(new Date().getTime())* 的毫秒数
 - `format`：可以为 `null`，则使用系统时间格式，否则
 
-* YYYY、JJJJ、ГГГГ - 全年，例如 2015
+* YYYY、JJJJ、ГГГГ - 全年，例如 2015 年
 * YY、JJ、ГГ - 短年份，例如 15
 * MM、MM（西里尔文）- 完整月份，例如 01
 * M, М（西里尔文）- 短月份，例如 1
@@ -1396,11 +1396,16 @@ adapterUnsubscribe(id);
 
 ### $ - 选择器
 ```js
-$(selector).on(function(obj) {});
-$(selector).toArray(); // Requires version >= 8.2.0
-$(selector).each(function(id, i) {});
-$(selector).setState(value, ack);
-$(selector).getState();
+$(selector).on((obj) => {}); // Register a subscription for each matching state
+$(selector).toArray(); // Get all matching object IDs of the selector expression (requires version >= 8.2.0)
+$(selector).each((id, i) => {}); // iterate over all matching states
+$(selector).setState(value, ack, callback); // set state value of all matching object IDs (callback is optional)
+$(selector).setStateAsync(value, ack); // set state value of all matching object IDs - returns a promise
+$(selector).setStateChanged(value, ack, callback); // set state value of all matching object IDs if value has changed (callback is optional)
+$(selector).setStateChangedAsync(value, ack, callback); // set state value of all matching object IDs if value has changed - returns a promise
+$(selector).setStateDelayed(state, isAck, delay, clearRunning, callback); // // set state value of all matching object IDs with a given delay
+$(selector).getState(); // get all states
+$(selector).getStateAsync(); // get all states - returns a promise
 ```
 
 选择器的格式：
@@ -2106,15 +2111,13 @@ if (verbose) {
 ## 选项 - “启动时不订阅所有状态”
 订阅状态有两种模式：
 
-- 适配器在启动时订阅所有更改并接收所有状态的所有更改（使用 getStates(id) 很容易，但需要更多的 CPU 和 RAM）：
+1. 适配器在启动时订阅所有状态，并接收所有状态的所有变化（使用 getState(id) 很容易，但需要更多的 CPU 和 RAM）：
 
 ```js
 log(getState('someID').val);
 ```
 
-- 如果调用“on/subscribe”，适配器每次都会订阅指定 ID。在此模式下，适配器仅接收所需状态的更新。
-
-它的性能和 RAM 效率都很高，但是您无法直接在 getState 中访问状态。您必须使用回调来获取状态的结果：
+2. 适配器每次在调用“on/subscribe”时都会订阅指定的 ID。在此模式下，适配器仅接收所需状态的更新。此选项需要的 RAM 更少且效率更高，但您无法通过 getState 同步访问状态。**您必须使用回调或承诺来访问状态**：
 
 ```js
 getState('someID', (error, state) => {
@@ -2122,7 +2125,7 @@ getState('someID', (error, state) => {
 });
 ```
 
-这是因为适配器在 RAM 中没有状态值，必须向中央 DB 询问该值。
+原因：适配器在 RAM 中没有状态值，必须从中央状态数据库请求该值。
 
 ## 脚本活动
 可以通过状态启用和禁用脚本。对于每个脚本，将创建名为`javascript.INSTANCE.scriptEnabled.SCRIPT_NAME`的状态。

@@ -42,6 +42,9 @@ If you have any device transmitting specially encoded information via advertisem
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 0.14.1 (2025-02-09)
+* Fixed compatibility issues with newer OS and Node.js versions (#874)
+
 ### 0.14.0 (2023-12-11)
 * **BREAKING:** Dropped support for Node.js 16 and below
 * Add support for the BTHome v2 protocol (unencrypted packets only)
@@ -209,7 +212,7 @@ If you have any device transmitting specially encoded information via advertisem
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 AlCalzone <d.griesel@gmx.net>
+Copyright (c) 2017-2025 AlCalzone <d.griesel@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

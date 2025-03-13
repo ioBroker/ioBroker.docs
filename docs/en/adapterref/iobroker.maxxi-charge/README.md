@@ -1,3 +1,14 @@
+---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.maxxi-charge.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.maxxi-charge.svg
+BADGE-Number of Installations: https://iobroker.live/badges/maxxi-charge-installed.svg
+BADGE-GitHub: https://img.shields.io/github/license/blabond/iobroker.maxxi-charge?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
+---
 ![Logo](admin/ms_logo_black_green.webp)
 
 # ioBroker.Maxxi-Charge
@@ -26,12 +37,28 @@ http://www.maxxisun.de
 
 [🇩🇪 Dokumentation](./docs/de/README.md)
 
+## Version Compatibility
+
+| Version | CCU V1 Local | CCU V1 Cloud | CCU V2 Local | CCU V2 Cloud |
+|---------|--------------|--------------|--------------|--------------|
+| 0.36    | ❌           | ✅           |              |              |
+| 0.38    | ❌           | ✅           |              |              |
+| 0.40    | ❌           | ✅           |              |              |
+| 0.41    | ✅           | ✅           |              |              |
+| 0.44    | ✅           | ✅           |              |              |
+| 0.45    | ❓           | ❓           | ❓           | ❓           |
+
+🔹 **Legend**:  
+✅ - Compatible  
+❌ - Not compatible  
+❓ - Unknown
+
 ## Changelog
 
-### 1.4.8 (2025-01-28)
+### 1.4.9 (2025-02-08)
 
+- Bugfix on Battery Calibration.
 - Fixes for stable release on ioBroker adapter.
-- Fixes for Deinstallation
 - Feedback update
 
 ### 1.4.1 (2025-01-12)

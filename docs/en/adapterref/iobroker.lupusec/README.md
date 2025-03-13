@@ -148,6 +148,18 @@ sudo chmod u+s `which ping`
 ```
 
 ## Changelog
+### 2.0.7 (2025-02-23)
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #115)
+- (Stübi) Fixiing problem, that state value jumps back to old value (Issue #116)
+- (Stübi) Delete status switch and add 3 butteons (shutter_up, shutter_down, shutter_stop) for shutter (Issue #116)
+- (Stübi) Fixing dependency (Issue #117)
+
+### 2.0.6 (2025-02-10)
+
+- (Stübi) Minus temperature degrees will be shown now (Issue #113)
+- (Stübi) Deletes unnecessary device objects (Issue #114)
+
 ### 2.0.5 (2025-02-01)
 
 - (Stübi) Adjust datapoints hue, sat with step 1

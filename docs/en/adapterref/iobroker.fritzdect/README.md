@@ -20,6 +20,8 @@ The devices are detected automatically during startup of fritzdect instance. If 
 
 Several permissions have to be set in the fritzbox in order to interact with the adapter!
 
+If the polling interval is set to 0 in the adapter configuration, automatic cyclic polling is disabled and updates are performed only on demand (via the `update` command).
+
 A german explanatory doc is available here: [install_de](./docs/de/install.md)
 
 The widget requires that also vis-metro and vis-jqui-mfd are installed
@@ -182,6 +184,23 @@ Furthermore for energy the array values are summed up for:
 |--------|-------|:-:|--------|
 |active|boolean|x|toggle switch for routine activation|
 
+## Manual Update
+It is possible to trigger a manual update, for example between polling intervals or when polling is disabled.
+To do this, send a message with the text "update" and no parameters to the adapter instance.
+The optional callback will be executed once the update is complete.
+
+Below is an example demonstrating how to trigger the manual update:
+```javascript
+sendTo('fritzdect.0', 'update', null,
+    (e) => {
+        if (e["result"]) {
+            // update successful
+        } else {
+            console.log(e["error"]);
+        }
+    }
+);
+```
 
 ## API limitations
 * Boost and WindowOpen can only be set for the next 24h. time=0 is cancelling the command
@@ -198,16 +217,32 @@ If it is activated, a different feedback must be present to the actual state. In
 - values scaled to 100 are transmitted in steps of 1, so a threshold of 1% is capturing the same steps
 otherwise it is more complex and individually to be parametrized.
 
+## 3rd party devices (HAN-FUN, ZigBee)
+These devices are split into a device and an unit (the function itself). The device has usually no interactions and therefore is not created in the adapter. The information portion and datapoints (i.e. battery status) of the device is merged into the unit. The id shown in the adapter belongs to the unit (which is not shown in the FB-App).
+
 ## Known Adapter Limitations:
 * Not all FW-versions of fritz.box support all objects.
 * use exclude possibility in adapter config, to disable communication related to newer functions
+* some datapoints are unavailable in newer FB-FW-versions (i.e. buttons of DECT440)
 
 ## TODO:
 * map of data input from user to valid predefined colors (nearest match)
 * blind alert state -> decode bit array
-* DECT 350 (batterylow, battery)
 
 ## Changelog
+
+### 2.6.1 (npm)
+* log FW version of FB
+* DECT350 now with battery data (issue #513)
+* merge etsi devices into etsiunits (issue #597)
+
+### 2.6.0 (npm)
+* (khnz) PR#618 support on-demand updates
+* change temperature checking < 28°C extended to < 35°C (issue #619)
+* change dependencies
+
+### 2.5.13 (npm)
+* same as 2.5.12 with corrected IOB checker issues
 
 ### 2.5.12 (npm)
 * skipping devices with empty identified (#598, #599), transmitted in FW8.01

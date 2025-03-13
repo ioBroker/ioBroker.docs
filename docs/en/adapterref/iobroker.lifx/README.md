@@ -51,6 +51,9 @@ Lifx adapter for ioBroker
 
 ## Changelog:
 
+### 1.0.8
+* update dependencies
+
 ### 1.0.7
 * (Jarves020) Reactivated Cyclic Updates (brackets were missing at function call)
 * (Jarves020) reenabled Settings for lifx Cyclic Update Intervall
@@ -120,5 +123,5 @@ Lifx adapter for ioBroker
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2024 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

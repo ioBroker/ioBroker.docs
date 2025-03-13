@@ -113,6 +113,10 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.9.1 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
 ### 1.9.0 (2024-12-15)
 * (René) see issue #289: test with nodejs@22
 * (René) update dependencies
@@ -193,7 +197,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 ## License
 MIT License
 
-Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2022-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -21,6 +21,9 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2025-03-10)
+* (arteck) generate status folder
+
 ### 0.1.1 (2024-01-07)
 * (Newan) add batteriemangement
 * (Newan) add Soc limit to loadpoint
@@ -56,7 +59,7 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
 ## License
 MIT License
 
-Copyright (c) 2024 Newan <info@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and asSociated documentation files (the "Software"), to deal

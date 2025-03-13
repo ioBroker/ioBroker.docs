@@ -3,18 +3,18 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
-title: ohne Titel
-hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
+title: kein Titel
+hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
 ---
 ## Inhalt
-- [Anmerkung](#Anmerkung)
-- [Globale Funktionen](#globale-funktionen)
-- [Bewährte Vorgehensweise](#best-practice)
+- [Hinweis](#Hinweis)
+- [Globale Funktionen](#global-functions)
+- [Beste Praxis](#best-practice)
 
 - [Funktionen](#folgende-Funktionen-können-in-Skripten-verwendet-werden)
-- [erforderlich - ein Modul laden](#erforderlich---ein-Modul-laden)
+- [erfordert - lade ein Modul](#erfordert---lade-ein-Modul)
 - [Konsole – Gibt die Nachricht ins Protokoll aus](#Konsole---gibt-die-Nachricht-in-das-Protokoll-aus)
-- [exec - führe einen Betriebssystembefehl aus, etwa „cp file1 file2“](#exec---execute-some-os-command-like-cp-file1-file2)
+- [exec - führe einen Betriebssystembefehl aus, z. B. „cp file1 file2“](#exec---execute-some-os-command-like-cp-file1-file2)
 - [on - Abonnieren Sie Änderungen oder Aktualisierungen eines bestimmten Status](#on---subscribe-on-changes-or-updates-of-some-state)
 - [einmal](#einmal)
 - [abonnieren - dasselbe wie am](#abonnieren---selbe-wie-am)
@@ -23,71 +23,71 @@ hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 - [getFileSubscriptions](#getfilesubscriptions)
 - [Zeitplan](#Zeitplan)
 - [Zeitplan](#time-schedule)
-- [Astro-Funktion](#Astro-Funktion)
+- [Astro-Funktion](#astro-function)
 - [scheduleById](#schedulebyid)
 - [getSchedules](#getschedules)
 - [Zeitplan löschen](#Zeitplan löschen)
 - [getAttr](#getattr)
 - [getAstroDate](#getastrodate)
-- [istAstroDay](#istastroday)
+- [istAstroTag](#istastrotag)
 - [Vergleichszeit](#Vergleichszeit)
-- [Zustand festlegen](#Zustand festlegen)
+- [setState](#setstate)
     - [setStateAsync](#setstateasync)
-- [setStateDelayed](#setstatedelayed)
+    - [setStateDelayed](#setstatedelayed)
 - [clearStateDelayed](#clearstatedelayed)
 - [getStateDelayed](#getstatedelayed)
 - [getState](#getstate)
 - [getStateAsync](#getstateasync)
-- [existiertZustand](#existiertZustand)
+- [existsState](#existsState)
 - [Objekt abrufen](#Objekt abrufen)
 - [Objekt festlegen](#Objekt festlegen)
-- [existiertes Objekt](#existiertes Objekt)
+- [existiertObjekt](#existiertObjekt)
 - [Objekt erweitern](#Objekt erweitern)
 - [Objekt löschen](#Objekt löschen)
 - [getIdByName](#getidbyname)
 - [getEnums](#getenums)
-- [Zustand erstellen](#Zustand erstellen)
+- [createState](#createstate)
 - [createStateAsync](#createstateasync)
-- [Status löschen](#Status löschen)
+- [deleteState](#deletestate)
 - [deleteStateAsync](#deletestateasync)
-- [sendenAn](#sendenan)
+- [sendTo](#sendto)
 - [sendToAsync](#sendtoasync)
-- [an Host senden](#an Host senden)
+- [sendToHost](#sendtohost)
 - [sendToHostAsync](#sendtohostasync)
-- [Intervall festlegen](#Intervall festlegen)
-- [Löschintervall](#Löschintervall)
-- [Zeitlimit festlegen](#Zeitlimit festlegen)
-- [Zeitüberschreitung löschen](#Zeitüberschreitung löschen)
-- [Sofort festlegen](#Sofort festlegen)
+- [setInterval](#setinterval)
+- [clearInterval](#clearinterval)
+- [Zeitüberschreitung festlegen](#Zeitüberschreitung festlegen)
+- [clearTimeout](#cleartimeout)
+- [sofort festlegen](#sofort festlegen)
 - [formatDate](#formatdate)
-– [formatTimeDiff](#formattimediff)
+- [formatTimeDiff](#formattimediff)
 - [getDateObject](#getDateObject)
 – [Formatwert](#Formatwert)
-- [adapterAbonnieren](#adaptersubscribe)
+- [adapterSubscribe](#adaptersubscribe)
 - [adapterUnsubscribe](#adapterunsubscribe)
 - [$ - Selektor](#---Selektor)
 - [Datei lesen](#Datei lesen)
-- [Datei schreiben](#Datei schreiben)
-- [Datei löschen](#Datei löschen)
+- [writeFile](#writefile)
+- [delFile](#delFile)
 - [Datei umbenennen](#Datei umbenennen)
 - [inDatei](#inDatei)
-- [ausDatei](#ausDatei)
-- [beiStopp](#beiStopp)
-- [History abrufen](#gehistory)
+- [offFile](#offFile)
+- [onStop](#onstop)
+- [getHistory](#gethistory)
 - [Skript ausführen](#Skript ausführen)
 - [runScriptAsync](#runScriptAsync)
 - [Startskript](#Startskript)
-– [startScriptAsync](#startscriptasync)
+- [startScriptAsync](#startscriptasync)
 - [Stoppskript](#Stoppskript)
 - [stopScriptAsync](#stopScriptAsync)
-- [istScriptActive](#isscriptactive)
-- [Name](#Name)
+- [isScriptActive](#isscriptactive)
+- [Name](#Skriptname)
 - [Instanz](#Instanz)
 - [Nachricht an](#Nachricht an)
-- [Nachricht an Async](#Nachricht an Async)
+- [messageToAsync](#messagetoasync)
 - [beiNachricht](#beiNachricht)
-- [beiNachrichtenabmeldung](#beiNachrichtenabmeldung)
-- [beimLog](#beimLog)
+- [onMessageUnregister](#onmessageunregister)
+- [onLog](#onlog)
     - [onLogUnregister](#onlogunregister)
 - [warten](#warten)
 - [schlafen](#schlafen)
@@ -101,10 +101,10 @@ hash: 02J3I4rKtBxMLvgLRn/No3jdEJgG32AMlWq+oNrz0Og=
 
 ## Globale Funktionen
 Sie können die globalen Skripte im Ordner `global` definieren.
-Alle globalen Skripte sind auf allen Instanzen verfügbar. Wenn ein globales Skript deaktiviert ist, wird es nicht verwendet.
-Globale Skripte werden einfach dem normalen Skript vorangestellt und kompiliert, sodass Sie keine Daten zwischen Skripten über globale Skripte austauschen können. Verwenden Sie dafür Zustände.
+Alle globalen Skripte sind auf allen Instanzen verfügbar. Ist ein globales Skript deaktiviert, wird es nicht verwendet.
+Globale Skripte werden dem normalen Skript einfach vorangestellt und kompiliert. Sie können daher keine Daten zwischen Skripten über globale Skripte austauschen. Verwenden Sie hierfür Status.
 
-Um globale Funktionen in TypeScript zu verwenden, müssen Sie diese zuerst `declare`, damit der Compiler über die globalen Funktionen informiert ist. Beispiel:
+Um globale Funktionen in TypeScript zu verwenden, müssen Sie diese zunächst `declare`, damit der Compiler über die globalen Funktionen informiert ist. Beispiel:
 
 ```typescript
 // global script:
@@ -121,8 +121,8 @@ globalFn('test');
 ```
 
 #### Bewährte Methode:
-Erstellen Sie zwei Instanzen des JavaScript-Adapters: eine „Test“- und eine „Produktions“-Instanz.
-Nachdem das Skript in der „Test“-Instanz getestet wurde, kann es in die „Produktion“ verschoben werden. Dadurch können Sie die „Test“-Instanz nach Belieben neu starten.
+Erstellen Sie zwei Instanzen des JavaScript-Adapters: eine Test- und eine Produktionsinstanz.
+Nachdem das Skript in der Testinstanz getestet wurde, kann es in die Produktionsinstanz verschoben werden. Anschließend können Sie die Testinstanz nach Belieben neu starten.
 
 ## Die folgenden Funktionen können in Skripten verwendet werden:
 ### Erfordern - einige Module laden
@@ -137,7 +137,7 @@ Um andere Module zu verwenden, geben Sie den Namen (und die Version) des Moduls 
 ### Konsole - Gibt die Nachricht ins Protokoll aus
 Die Verwendung ist die gleiche wie in `javascript`
 
-### Exec – führe einen Betriebssystembefehl aus, etwa `cp file1 file2`
+### Exec – führe einen Betriebssystembefehl aus, z.`cp file1 file2`
 ```js
 exec(cmd, [options], callback);
 ```
@@ -151,12 +151,12 @@ exec('ls /var/log', (error, stdout, stderr) => {
 });
 ```
 
-Node.js verwendet /bin/sh, um Befehle auszuführen. Wenn Sie eine andere Shell verwenden möchten, können Sie das Optionsobjekt wie in [Node.js-Dokumentation](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) für child_process.exec beschrieben verwenden.
+Node.js verwendet /bin/sh zur Ausführung von Befehlen. Wenn Sie eine andere Shell verwenden möchten, können Sie das Optionsobjekt wie in [Node.js-Dokumentation](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) für child_process.exec beschrieben verwenden.
 Es empfiehlt sich, immer vollständige Pfadnamen für Befehle zu verwenden, um sicherzustellen, dass der richtige Befehl ausgeführt wird.
 
-**Hinweis:** Sie müssen die Option *Befehl „setObject“ aktivieren* aktivieren, um ihn aufzurufen.
+**Hinweis:** Sie müssen die Option *Befehl „setObject“ aktivieren* aktivieren, um es aufzurufen.
 
-### On - Abonnieren Sie Änderungen oder Aktualisierungen eines Status
+### On - Abonnieren Sie Änderungen oder Aktualisierungen eines bestimmten Status
 ```js
 on(pattern, callbackOrId, value);
 ```
@@ -183,7 +183,7 @@ Die Callback-Funktion gibt das Objekt als Parameter mit folgendem Inhalt zurück
 }
 ```
 
-**Hinweis:** `state` hieß früher `newState`. Das funktioniert immer noch.
+**Hinweis:** `state` hieß zuvor `newState`. Das funktioniert immer noch.
 
 Beispiel:
 
@@ -210,96 +210,96 @@ on('adapter.0.device.channel.sensor', (data) => {
 });
 ```
 
-Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
+Zur Festlegung des Auslösers können Sie folgende Parameter verwenden:
 
 | Parameter | Typ/Wert | Beschreibung |
 |-------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Logik | Zeichenfolge | „und“ oder „oder“-Logik zum Kombinieren der Bedingungen \(Standard: „und“\) |
+| Logik | Zeichenfolge | "und"- oder "oder"-Logik zum Kombinieren der Bedingungen \(Standard: "und"\) |
 |             |            |                                                                                                                                                     |
 | ID | Zeichenfolge | ID ist gleich der angegebenen |
 | | RegExp | ID mit regulärem Ausdruck abgeglichen |
-| | Array | ID wurde mit einer Liste zulässiger IDs abgeglichen |
+| | Array | ID mit einer Liste zulässiger IDs abgeglichen |
 |             |            |                                                                                                                                                     |
 | Name | Zeichenfolge | Name ist gleich dem angegebenen |
-| | RegExp | Name stimmt mit regulärem Ausdruck überein |
+| | RegExp | Name passt zum regulären Ausdruck |
 | | Array | Name, der mit einer Liste zulässiger Namen übereinstimmt |
 |             |            |                                                                                                                                                     |
 | ändern | Zeichenfolge | "eq", "ne", "gt", "ge", "lt", "le", "any" |
 | | "eq" | (gleich) Der neue Wert muss dem alten entsprechen (state.val == oldState.val) |
-| | "ne" | (ungleich) Der neue Wert darf nicht mit dem alten identisch sein (state.val != oldState.val) **Wenn das Muster eine ID-Zeichenfolge ist, wird standardmäßig dieser Wert verwendet** |
+| | "ne" | (ungleich) Der neue Wert muss ungleich dem alten sein (state.val != oldState.val) **Wenn das Muster eine ID-Zeichenfolge ist, wird standardmäßig dieser Wert verwendet** |
 | | "gt" | (größer) Der neue Wert muss größer sein als der alte Wert (state.val > oldState.val) |
 | | "ge" | (größer oder gleich) Der neue Wert muss größer oder gleich dem alten sein (state.val >= oldState.val) |
 | | "lt" | (kleiner) Der neue Wert muss kleiner sein als der alte (state.val < oldState.val) |
 | | "le" | (kleiner oder gleich) Der neue Wert muss kleiner oder gleich dem alten Wert sein (state.val <= oldState.val) |
-| | "any" | Trigger wird ausgelöst, wenn gerade der neue Wert kommt |
+| | "any" | Trigger wird ausgelöst, wenn nur der neue Wert kommt |
 |             |            |                                                                                                                                                     |
-| val | gemischt | Neuer Wert muss gleich dem angegebenen sein |
-| valNe | gemischt | Neuer Wert darf nicht gleich dem angegebenen sein |
-| valGt | gemischt | Neuer Wert muss größer als vorgegeben sein |
+| val | gemischt | Der neue Wert muss dem angegebenen entsprechen |
+| valNe | gemischt | Neuer Wert muss ungleich dem angegebenen sein |
+| valGt | gemischt | Neuer Wert muss größer als der angegebene sein |
 | valGe | gemischt | Der neue Wert muss größer oder gleich dem angegebenen sein |
-| valLt | gemischt | Neuer Wert muss kleiner als vorgegeben sein |
+| valLt | gemischt | Neuer Wert muss kleiner sein als der angegebene |
 | valLe | gemischt | Der neue Wert muss kleiner oder gleich dem angegebenen sein |
 |             |            |                                                                                                                                                     |
-| ack | boolean | Bestätigter Status des neuen Werts ist gleich dem angegebenen |
-| q | Zahl | Der Qualitätscodestatus des neuen Werts ist gleich dem angegebenen. Sie können '*' zum Zuordnen zu jedem Code verwenden. **Wenn nicht angegeben, wird q = 0 als Muster festgelegt!** |
+| ack | Boolean | Bestätigter Status des neuen Werts ist gleich dem angegebenen |
+| q | Zahl | Der Qualitätscodestatus des neuen Werts entspricht dem angegebenen. Sie können '*' für die Zuordnung zu jedem Code verwenden. **Falls nicht angegeben, wird q = 0 als Muster festgelegt!** |
 |             |            |                                                                                                                                                     |
-| oldVal | gemischt | Der vorherige Wert muss mit dem angegebenen übereinstimmen |
-| oldValNe | gemischt | Vorheriger Wert darf nicht mit dem angegebenen identisch sein |
-| oldValGt | gemischt | Vorheriger Wert muss größer als der angegebene sein |
+| oldVal | gemischt | Der vorherige Wert muss dem angegebenen entsprechen |
+| oldValNe | gemischt | Vorheriger Wert muss ungleich dem angegebenen sein |
+| oldValGt | gemischt | Der vorherige Wert muss größer als der angegebene sein |
 | oldValGe | gemischt | Der vorherige Wert muss größer oder gleich dem angegebenen sein |
-| oldValLt | gemischt | Vorheriger Wert muss kleiner als der angegebene sein |
-| oldValLe | gemischt | Vorheriger Wert muss kleiner oder gleich dem angegebenen sein |
+| oldValLt | gemischt | Der vorherige Wert muss kleiner sein als der angegebene |
+| oldValLe | gemischt | Der vorherige Wert muss kleiner oder gleich dem angegebenen sein |
 |             |            |                                                                                                                                                     |
 | oldAck | bool | Der bestätigte Status des vorherigen Werts ist gleich dem angegebenen |
-| oldQ | Nummer | Der Qualitätscodestatus des vorherigen Wertes ist gleich dem angegebenen. Sie können '*' für die Übereinstimmung mit jedem Code verwenden |
+| oldQ | Nummer | Der Qualitätscodestatus des vorherigen Werts entspricht dem angegebenen. Sie können '*' für die Zuordnung zu jedem Code verwenden |
 |             |            |                                                                                                                                                     |
-| ts | Zeichenfolge | Der Zeitstempel des neuen Werts muss mit dem angegebenen übereinstimmen (state.ts == ts) |
-| tsGt | Zeichenfolge | Der Zeitstempel des neuen Werts darf nicht mit dem angegebenen übereinstimmen (state.ts != ts) |
+| ts | Zeichenfolge | Der Zeitstempel des neuen Werts muss dem angegebenen entsprechen (state.ts == ts) |
+| tsGt | Zeichenfolge | Der Zeitstempel des neuen Werts muss ungleich dem angegebenen sein (state.ts != ts) |
 | tsGe | Zeichenfolge | Der Zeitstempel des neuen Werts muss größer sein als der angegebene Wert (state.ts > ts) |
 | tsLt | Zeichenfolge | Der Zeitstempel des neuen Werts muss größer oder gleich dem angegebenen sein (state.ts >= ts) |
-| tsLe | Zeichenfolge | Der Zeitstempel des neuen Werts muss kleiner als der angegebene sein (state.ts < ts) |
+| tsLe | Zeichenfolge | Der Zeitstempel des neuen Werts muss kleiner sein als der angegebene (state.ts < ts) |
 |             |            |                                                                                                                                                     |
 | oldTs | Zeichenfolge | Vorheriger Zeitstempel muss mit dem angegebenen übereinstimmen (oldState.ts == ts) |
 | oldTsGt | Zeichenfolge | Vorheriger Zeitstempel darf nicht mit dem angegebenen übereinstimmen (oldState.ts != ts) |
-| oldTsGe | Zeichenfolge | Vorheriger Zeitstempel muss größer als angegebener Wert sein (oldState.ts > ts) |
+| oldTsGe | Zeichenfolge | Vorheriger Zeitstempel muss größer als der angegebene Wert sein (oldState.ts > ts) |
 | oldTsLt | Zeichenfolge | Vorheriger Zeitstempel muss größer oder gleich dem angegebenen sein (oldState.ts >= ts) |
-| oldTsLe | Zeichenfolge | Vorheriger Zeitstempel muss kleiner als der angegebene sein (oldState.ts < ts) |
+| oldTsLe | Zeichenfolge | Vorheriger Zeitstempel muss kleiner sein als der angegebene (oldState.ts < ts) |
 |             |            |                                                                                                                                                     |
-| lc | Zeichenfolge | Der Zeitstempel der letzten Änderung muss dem angegebenen Wert entsprechen (state.lc == lc) |
+| lc | Zeichenfolge | Der Zeitstempel der letzten Änderung muss dem angegebenen entsprechen (state.lc == lc) |
 | lcGt | Zeichenfolge | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (state.lc != lc) |
-| lcGe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer sein als der angegebene Wert (state.lc > lc) |
+| lcGe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer als der angegebene Wert sein (state.lc > lc) |
 | lcLt | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer oder gleich dem angegebenen sein (state.lc >= lc) |
 | lcLe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss kleiner als der angegebene sein (state.lc < lc) |
 |             |            |                                                                                                                                                     |
-| oldLc | Zeichenfolge | Der Zeitstempel der letzten Änderung muss mit dem angegebenen übereinstimmen (oldState.lc == lc) |
+| oldLc | Zeichenfolge | Der Zeitstempel der letzten Änderung muss dem angegebenen entsprechen (oldState.lc == lc) |
 | oldLcGt | Zeichenfolge | Der Zeitstempel der letzten Änderung darf nicht mit dem angegebenen übereinstimmen (oldState.lc != lc) |
 | oldLcGe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer sein als der angegebene Wert (oldState.lc > lc) |
 | oldLcLt | Zeichenfolge | Der Zeitstempel der letzten Änderung muss größer oder gleich dem angegebenen sein (oldState.lc >= lc) |
 | oldLcLe | Zeichenfolge | Der Zeitstempel der letzten Änderung muss kleiner sein als der angegebene (oldState.lc < lc) |
 |             |            |                                                                                                                                                     |
-| channelId | Zeichenfolge | Die Kanal-ID muss mit der angegebenen übereinstimmen |
+| channelId | Zeichenfolge | Die Kanal-ID muss der angegebenen entsprechen |
 | | RegExp | Kanal-ID stimmt mit regulärem Ausdruck überein |
-| | Array | Kanal-ID stimmt mit einer Liste zulässiger Kanal-IDs überein |
+| | Array | Kanal-ID, die mit einer Liste zulässiger Kanal-IDs übereinstimmt |
 |             |            |                                                                                                                                                     |
 | Kanalname | Zeichenfolge | Der Kanalname muss dem angegebenen entsprechen |
 | | RegExp | Kanalname stimmt mit regulärem Ausdruck überein |
 | | Array | Kanalname stimmt mit einer Liste zulässiger Kanalnamen überein |
 |             |            |                                                                                                                                                     |
 | Geräte-ID | Zeichenfolge | Die Geräte-ID muss mit der angegebenen übereinstimmen |
-| | RegExp | Geräte-ID mit regulärem Ausdruck abgeglichen |
+| | RegExp | Geräte-ID stimmt mit regulärem Ausdruck überein |
 | | Array | Geräte-ID mit einer Liste zulässiger Geräte-IDs abgeglichen |
 |             |            |                                                                                                                                                     |
-| Gerätename | Zeichenfolge | Der Gerätename muss mit dem angegebenen übereinstimmen |
+| Gerätename | Zeichenfolge | Der Gerätename muss dem angegebenen entsprechen |
 | | RegExp | Gerätename stimmt mit regulärem Ausdruck überein |
 | | Array | Gerätename stimmt mit einer Liste zulässiger Gerätenamen überein |
 |             |            |                                                                                                                                                     |
-| enumId | string | Status gehört zum angegebenen Enum |
+| enumId | Zeichenfolge | Der Status gehört zur angegebenen Aufzählung |
 | | RegExp | Eine Enumerations-ID des Staates erfüllt den angegebenen regulären Ausdruck |
-| | Array | Eine Enumerations-ID des Staates befindet sich in der angegebenen Liste von Enumerations-IDs |
+| | Array | Eine Enumerations-ID des Staates ist in der angegebenen Liste von Enumerations-IDs |
 |             |            |                                                                                                                                                     |
 | Enumerationsname | Zeichenfolge | Der Status gehört zur angegebenen Enumeration |
-| | RegExp | Ein Enumerationsname des Staates erfüllt den angegebenen regulären Ausdruck |
-| | Array | Ein Enumerationsname des Staates ist in der angegebenen Liste von Enumerationsnamen |
+| | RegExp | Ein Enumerationsname des Status erfüllt den angegebenen regulären Ausdruck |
+| | Array | Ein Enumerationsname des Staates ist in der angegebenen Liste der Enumerationsnamen enthalten |
 |             |            |                                                                                                                                                     |
 | von | Zeichenfolge | Neuer Wert stammt vom definierten Adapter |
 | | RegExp | Der neue Wert stammt von einem Adapter, der dem regulären Ausdruck entspricht |
@@ -310,14 +310,14 @@ Um den Auslöser festzulegen, können Sie folgende Parameter verwenden:
 | | Array | Der neue Wert stammt nicht von einem Adapter, der in der angegebenen Liste verbotener Adapter erscheint |
 |             |            |                                                                                                                                                     |
 | oldFrom | Zeichenfolge | Der alte Wert stammt vom definierten Adapter |
-| | RegExp | Der alte Wert stammt von einem Adapter, der dem regulären Ausdruck entspricht |
+| | RegExp | Der alte Wert stammt von einem Adapter, der mit dem regulären Ausdruck übereinstimmt |
 | | Array | Der alte Wert stammt von einem Adapter, der in der angegebenen Liste zulässiger Adapter erscheint |
 |             |            |                                                                                                                                                     |
 | oldFromNe | Zeichenfolge | Alter Wert stammt nicht vom definierten Adapter |
-| | RegExp | Der alte Wert stammt nicht von einem Adapter, der dem regulären Ausdruck entspricht |
+| | RegExp | Alter Wert stammt nicht von einem Adapter, der dem regulären Ausdruck entspricht |
 | | Array | Der alte Wert stammt nicht von einem Adapter, der in der angegebenen Liste verbotener Adapter erscheint |
 
-Beispiele: Triggern auf alle Zustände mit der ID `'*.STATE'`, wenn diese bestätigt sind und den neuen Wert `true` haben.
+Beispiele: Trigger auf alle Zustände mit der ID `'*.STATE'`, wenn diese bestätigt werden und den neuen Wert `true` haben.
 
 ```js
 {
@@ -339,7 +339,7 @@ on({id: /^system\.adapter\..*\.\d+\.memRss$/, change: "ne"}, function (obj) {
 });
 ```
 
-Um zwei Zustände einfach miteinander zu verbinden, schreibt man:
+Um zwei Zustände einfach miteinander zu verbinden, schreiben Sie:
 
 ```js
 on('stateId1', 'stateId2');
@@ -356,24 +356,24 @@ setState('stateId1', 'new value');
 // stateId2 will be set to 'triggered'.
 ```
 
-Die Funktion `on` gibt den Handler zurück. Dieser Handler kann durch Abbestellen verwendet werden.
+Die Funktion `on` gibt den Handler zurück. Dieser Handler kann durch Abmeldung verwendet werden.
 
-*Hinweis:* Standardmäßig werden nur Zustände mit der Qualität 0x00 an die Callback-Funktion übergeben. Wenn Sie alle Ereignisse erhalten möchten, fügen Sie der Musterstruktur `{q: '*'}` hinzu.
+*Hinweis:* Standardmäßig werden nur Zustände mit der Qualität 0x00 an die Rückruffunktion übergeben. Wenn Sie alle Ereignisse erhalten möchten, fügen Sie der Musterstruktur `{q: '*'}` hinzu.
 
-*Hinweis:* Bitte beachten Sie, dass „change“ standardmäßig gleich „any“ ist, außer wenn nur die ID als Zeichenfolge festgelegt ist (wie `on('id', () => {});`). In letzterem Fall wird „change“ auf „ne“ festgelegt.
+*Hinweis:* Bitte beachten Sie, dass "change" standardmäßig "any" ist, außer wenn nur die ID als String gesetzt ist (z. B. `on('id', () => {});`). In diesem Fall wird "change" auf "ne" gesetzt.
 
 *Hinweis:* Wenn Sie auch Statuslöschungen/-abläufe als Auslöser erhalten möchten, müssen Sie „change“ mit `ne` oder `any` UND q mit `*` als Filter verwenden!
 
-*Hinweis:* Ab 4.3.2 ist es möglich, einen Triggertyp als zweiten Parameter anzugeben: `on('my.id.0', 'any', obj => log(obj.state.val));`
+*Hinweis:* Ab 4.3.2 ist es möglich, einen Triggertyp als zweiten Parameter zu schreiben: `on('my.id.0', 'any', obj => log(obj.state.val));`
 
 ### Einmal
-Registriert ein einmaliges Abonnement, welches nach dem ersten Aufruf automatisch gekündigt wird. Wie [An](#on---subscribe-on-changes-or-updates-of-some-state), wird aber nur einmal ausgeführt.
+Registriert ein einmaliges Abonnement, das nach dem ersten Aufruf automatisch abbestellt wird. Wie [An](#on---subscribe-on-changes-or-updates-of-some-state), wird aber nur einmal ausgeführt.
 
 ```js
 once(pattern, callback);
 ```
 
-### Abonnieren – dasselbe wie **[An](#on---subscribe-on-changes-or-updates-of-some-state)**
+### Abonnieren - dasselbe wie **[An](#on---subscribe-on-changes-or-updates-of-some-state)**
 ### Abbestellen
 ```js
 unsubscribe(id);
@@ -381,7 +381,7 @@ unsubscribe(id);
 unsubscribe(handler);
 ```
 
-Entfernt alle Abonnements für die angegebene Objekt-ID oder den angegebenen Handler.
+Entfernen Sie alle Abonnements für die angegebene Objekt-ID oder den angegebenen Handler.
 
 ```js
 // By handler
@@ -479,7 +479,7 @@ Das Muster kann auch ein Objekt sein, es wird insbesondere dann verwendet, wenn 
 
 Das Objekt könnte folgende Eigenschaften haben:
 
-- `zweite`
+- `Sekunde`
 - `Minute`
 - `Stunde`
 - `Datum`
@@ -499,13 +499,13 @@ schedule({ hour: 12, minute: 30 }, () => {
 
 Das Muster kann ein Javascript-Datumsobjekt (ein bestimmter Zeitpunkt) sein – in diesem Fall wird es nur einmal ausgelöst.
 
-Wenn Start- oder Endzeiten für einen Zeitplan benötigt werden, kann dies auch mithilfe eines Objekts umgesetzt werden. In diesem Szenario hat das Objekt die Eigenschaften:
+Wenn Start- oder Endzeiten für einen Zeitplan benötigt werden, kann dies ebenfalls mithilfe eines Objekts umgesetzt werden. In diesem Szenario verfügt das Objekt über die folgenden Eigenschaften:
 
 - `Start`
 - `Ende`
 - `Regel`
 
-Start und Ende definieren ein Datumsobjekt, einen Datumsstring oder eine Anzahl von Millisekunden seit dem 01. Januar 1970 00:00:00 UTC.
+Start und Ende definieren ein Datumsobjekt, einen Datumsstring oder eine Anzahl von Millisekunden seit dem 1. Januar 1970, 00:00:00 UTC.
 Regel ist eine Zeitplanzeichenfolge mit [Cron-Syntax](http://en.wikipedia.org/wiki/Cron) oder ein Objekt:
 
 ```js
@@ -529,7 +529,7 @@ schedule({ start: startTime, end: endTime, rule: ruleData }, () => {
 ```
 
 #### Astro-Funktion
-Astro-Funktion kann über das Attribut „Astro“ genutzt werden:
+Astro-Funktion kann über das Attribut „astro“ genutzt werden:
 
 ```js
 schedule({ astro: 'sunrise' }, () => {
@@ -541,28 +541,28 @@ schedule({ astro: 'sunset', shift: 10 }, () => {
 });
 ```
 
-Das Attribut „shift“ ist der Versatz in Minuten. Es kann auch negativ sein, um die Zeit vor einem Astroereignis zu definieren.
+Das Attribut "shift" gibt den Versatz in Minuten an. Es kann auch negativ sein, um die Zeit vor dem Astro-Ereignis zu definieren.
 
 Die folgenden Werte können als Attribut in der Astrofunktion verwendet werden:
 
 - „Sonnenaufgang“: Sonnenaufgang (Oberkante der Sonne erscheint am Horizont)
 - „sunriseEnd“: Sonnenaufgang endet (Unterkante der Sonne berührt den Horizont)
-- „goldenHourEnd“: die goldene Stunde am Morgen (weiches Licht, die beste Zeit zum Fotografieren) endet
-- „solarNoon“: Sonnenmittag (Sonne steht am höchsten)
-- „goldenHour“: Beginn der goldenen Stunde am Abend
+- „goldenHourEnd“: Die goldene Stunde am Morgen (weiches Licht, die beste Zeit zum Fotografieren) endet
+- `"solarNoon"`: Sonnenmittag (Sonne steht am höchsten)
+- `"goldenHour"`: Beginn der goldenen Abendstunde
 - „sunsetStart“: Sonnenuntergang beginnt (Unterkante der Sonne berührt den Horizont)
-- „Sonnenuntergang“: Sonnenuntergang (die Sonne verschwindet unter dem Horizont, die bürgerliche Abenddämmerung beginnt)
+- „Sonnenuntergang“: Sonnenuntergang (die Sonne verschwindet hinter dem Horizont, die bürgerliche Abenddämmerung beginnt)
 - „Dusk“: Dämmerung (Beginn der abendlichen nautischen Dämmerung)
 - „nauticalDusk“: nautische Dämmerung (Beginn der abendlichen astronomischen Dämmerung)
-- „Nacht“: die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
-- „nightEnd“: die Nacht endet (die astronomische Morgendämmerung beginnt)
-- „nauticalDawn“: nautische Morgendämmerung (Beginn der morgendlichen nautischen Dämmerung)
-- „Dawn“: Morgendämmerung (die nautische Morgendämmerung endet, die bürgerliche Morgendämmerung beginnt)
+- „Nacht“: Die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
+- „nightEnd“: Die Nacht endet (die astronomische Morgendämmerung beginnt)
+- `"nauticalDawn"`: nautische Morgendämmerung (Beginn der morgendlichen nautischen Dämmerung)
+- „Morgendämmerung“: Morgendämmerung (die morgendliche nautische Dämmerung endet, die morgendliche bürgerliche Dämmerung beginnt)
 - „Nadir“: Nadir (der dunkelste Moment der Nacht, die Sonne steht am tiefsten)
 
 **Hinweis:** Um die „Astro“-Funktion zu verwenden, müssen „Breitengrad“ und „Längengrad“ in den Einstellungen des JavaScript-Adapters definiert werden.
 
-**Hinweis:** An manchen Stellen kann es vorkommen, dass keine Nacht/NachtEnde vorhanden ist. Bitte lesen Sie dazu [Hier](https://github.com/mourner/suncalc/issues/70).
+**Hinweis:** An manchen Stellen kann es vorkommen, dass die Option „night/nightEnd“ nicht vorhanden ist. Bitte lesen Sie dazu [Hier](https://github.com/mourner/suncalc/issues/70).
 
 **Hinweis:** Sie können die Funktion „Ein“ mit kleinen Änderungen für den Zeitplan verwenden:
 
@@ -580,17 +580,17 @@ on({ astro: 'sunset', shift: 10 }, () => {
 });
 ```
 
-## ZeitplanById
+## ScheduleById
 ```js
 scheduleById(id, callback);
 scheduleById(id, ack, callback);
 ```
 
-Ermöglicht das Erstellen eines Zeitplans basierend auf einem Statuswert. Wenn sich der Statuswert ändert, wird der alte Zeitplan gelöscht und automatisch ein neuer Zeitplan erstellt.
+Ermöglicht die Erstellung eines Zeitplans basierend auf einem Statuswert. Ändert sich der Statuswert, wird der alte Zeitplan gelöscht und automatisch ein neuer Zeitplan erstellt.
 
 Unterstützte Formate:
 
-- `[h]h:[m]m:ss` (z. B. `12:42:15`, `15:3:12`, `3:10:25`)
+- `[h]h:[m]m:ss` (z. B. `12:42:15`, `15:3:12`, `3:10:25`)
 - `[h]h:[m]m` (z. B. `13:37`, `9:40`)
 
 ```js
@@ -599,7 +599,7 @@ scheduleById('0_userdata.0.configurableTimeFormat', () => {
 });
 ```
 
-Beispiel: Status erstellen und Zeitplan für Änderungen registrieren:
+Beispiel: Status erstellen und Zeitplan bei Änderungen registrieren:
 
 ```js
 createState(
@@ -623,8 +623,8 @@ createState(
 const list = getSchedules(true);
 ```
 
-Gibt die Liste aller CRON-Jobs und -Zeitpläne zurück (außer Astro).
-Das Argument muss `true` sein, wenn Sie die Liste für **jedes laufende Skript** erhalten möchten. Andernfalls werden nur Zeitpläne im aktuellen Skript zurückgegeben.
+Gibt die Liste aller CRON-Jobs und Zeitpläne (außer Astro) zurück.
+Das Argument muss `true` sein, wenn Sie die Liste für **jedes laufende Skript** erhalten möchten. Andernfalls werden nur die Zeitpläne im aktuellen Skript zurückgegeben.
 
 ```js
 const list = getSchedules(true);
@@ -641,8 +641,8 @@ Beispielausgabe:
 2020-11-01 20:15:19.931  - {"type":"schedule","schedule":"{"period":{}}","scriptName":"script.js.Heizung","id":"schedule_19576"}
 ```
 
-### Zeitplan löschen
-Wenn **keine** "Astro"-Funktion verwendet wird, kann der Zeitplan nachträglich abgebrochen werden. Hierzu muss das Zeitplanobjekt gespeichert werden:
+### ClearSchedule
+Wenn **keine** Astrofunktion verwendet wird, kann der Zeitplan später abgebrochen werden. Dazu muss das Zeitplanobjekt gespeichert werden:
 
 ```js
 let sch = schedule('*/2 * * * *', () => { /* ... */ });
@@ -665,9 +665,9 @@ Wenn das erste Attribut eine Zeichenfolge ist, versucht die Funktion, die Zeiche
 getAstroDate(pattern, date, offsetMinutes);
 ```
 
-Gibt ein JavaScript-Datumsobjekt für den angegebenen Astronamen zurück (z. B. `"sunrise"` oder `"sunriseEnd"`). Gültige Werte finden Sie in der Liste der zulässigen Werte im Abschnitt [Astro](#astro--function) in der Funktion *Schedule*.
+Gibt ein JavaScript-Datumsobjekt für den angegebenen Astronamen zurück (z. B. `"sunrise"` oder `"sunriseEnd"`). Gültige Werte finden Sie in der Liste der zulässigen Werte im Abschnitt [Astro](#astro--function) der Funktion *schedule*.
 
-Das zurückgegebene Date-Objekt wird für das übergebene *Datum* berechnet. Wenn kein Datum angegeben ist, wird das aktuelle Datum verwendet.
+Das zurückgegebene Date-Objekt wird für das übergebene *Datum* berechnet. Wenn kein Datum angegeben ist, wird der aktuelle Tag verwendet.
 
 ```js
 let sunriseEnd = getAstroDate('sunriseEnd');
@@ -678,7 +678,7 @@ let tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() +
 let tomorrowNight = getAstroDate('night', tomorrow);
 ```
 
-**Hinweis: Abhängig von Ihrem geografischen Standort kann es Fälle geben, in denen z. B. „Nacht“/„Nachtende“ zu bestimmten Zeitpunkten nicht existieren (z. B. Standorte im Norden jedes Jahr im Mai/Juni!**
+**Hinweis: Abhängig von Ihrem geografischen Standort kann es Fälle geben, in denen z. B. „Nacht“/„Nachtende“ zu bestimmten Zeitpunkten nicht existieren (z. B. Standorte im Norden jedes Jahres im Mai/Juni!**
 
 Sie können Webseiten wie [suncalc.net](http://suncalc.net) verwenden, um zu überprüfen, ob die Zeitpunkte korrekt sind.
 
@@ -696,24 +696,24 @@ compareTime(startTime, endTime, operation, timeToCompare);
 
 Vergleichen Sie die vorgegebene Zeit mit den Grenzwerten.
 
-Wenn `timeToCompare` nicht angegeben ist, wird die tatsächliche Uhrzeit verwendet.
+Wenn `timeToCompare` nicht angegeben ist, wird die tatsächliche Zeit verwendet.
 
 Folgende Operationen sind möglich:
 
 - `">"` - wenn die angegebene Zeit größer als `startTime` ist
 - `">="` - wenn die angegebene Zeit größer oder gleich `startTime` ist
-- `"<"` - wenn die angegebene Zeit kleiner ist als `startTime`
+- `"<"` – wenn die angegebene Zeit kleiner als `startTime` ist
 - `"<="` - wenn die angegebene Zeit kleiner oder gleich `startTime` ist
 - `"=="` - wenn die angegebene Zeit gleich `startTime` ist
-- `"<>"` - wenn die angegebene Zeit ungleich `startTime` ist
-- „between“ – wenn die angegebene Zeit zwischen „startTime“ und „endTime“ liegt.
-- „nicht zwischen“ – wenn die angegebene Zeit nicht zwischen „Startzeit“ und „Endzeit“ liegt.
+- `"<>"` – wenn die angegebene Zeit nicht gleich `startTime` ist
+- „zwischen“ – wenn die angegebene Zeit zwischen „Startzeit“ und „Endzeit“ liegt
+- „nicht zwischen“ – wenn die angegebene Zeit nicht zwischen „Startzeit“ und „Endzeit“ liegt
 
-Die Zeit kann ein Datumsobjekt oder ein Datum mit Zeit oder nur die Zeit sein.
+Bei der Zeit kann es sich um ein Datumsobjekt, ein Datum mit Zeit oder nur um die Zeit handeln.
 
-Für die Zeitdefinition können Astronamen verwendet werden. Alle 3 Parameter können als Astrozeit eingestellt werden.
+Sie können Astronamen für die Zeitdefinition verwenden. Alle drei Parameter können als Astrozeit festgelegt werden.
 Folgende Werte sind möglich: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
-Siehe [Astro](#astro--function) für Details.
+Weitere Informationen finden Sie unter [Astro](#astro--function).
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -735,7 +735,7 @@ Aufbau eines Astroobjekts.
 }
 ```
 
-### SetzeStatus
+### SetState
 ```js
 setState(id, state, ack, callback);
 ```
@@ -749,10 +749,10 @@ setState('myState', 1);
 ```
 
 Informationen zur Verwendung von `ack` finden Sie unter https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses.
-Kurz:
+Kurzfassung:
 
 - `ack` = `false` : Das Skript möchte einen Befehl senden, der vom Zielgerät/Adapter ausgeführt werden soll
-- „ack“ = „true“: Der Befehl wurde erfolgreich ausgeführt und der Status wird als positives Ergebnis aktualisiert.
+- `ack` = `true`: Befehl wurde erfolgreich ausgeführt und der Status wird als positives Ergebnis aktualisiert
 
 ### SetStateAsync
 ```js
@@ -766,7 +766,7 @@ Wie setState, aber mit `promise`.
 setStateDelayed(id, state, isAck, delay, clearRunning, callback);
 ```
 
-Dasselbe wie setState, aber mit Verzögerung in Millisekunden. Sie können alle laufenden Verzögerungen für diese ID löschen (standardmäßig). Z. B.
+Wie setState, jedoch mit einer Verzögerung in Millisekunden. Sie können alle laufenden Verzögerungen für diese ID löschen (standardmäßig). Beispiel:
 
 ```js
 // Switch ON the light in the kitchen in one second
@@ -785,7 +785,7 @@ Diese Funktion gibt den Handler des Timers zurück, und dieser Timer kann einzel
 await setStateChanged(id, state, ack);
 ```
 
-Wie setState, aber Wert nur setzen, wenn sich der Wert wirklich geändert hat.
+Dasselbe wie setState, aber der Wert wird nur gesetzt, wenn er wirklich geändert wird.
 
 ### SetStateChangedAsync
 ```js
@@ -813,9 +813,9 @@ clearStateDelayed('Kitchen.Light.Lamp'); // Clear all running delayed tasks for 
 getStateDelayed(id);
 ```
 
-Dies ist ein synchroner Aufruf und Sie erhalten die Liste aller laufenden Timer (setStateDelayed) für diese ID.
-Sie können diese Funktion ohne ID aufrufen und Timer für alle IDs abrufen.
-Falls Sie diese Funktion für eine bestimmte Objekt-ID aufrufen, erhalten Sie die folgende Antwort:
+Dies ist ein synchroner Aufruf. Sie erhalten die Liste aller laufenden Timer (setStateDelayed) für diese ID.
+Sie können diese Funktion auch ohne ID aufrufen und erhalten Timer für alle IDs.
+Wenn Sie diese Funktion für eine bestimmte Objekt-ID aufrufen, erhalten Sie folgende Antwort:
 
 ```js
 getStateDelayed('hm-rpc.0.LQE91119.1.STATE');
@@ -847,7 +847,7 @@ getStateDelayed();
 - `left` ist die verbleibende Zeit in Millisekunden
 - `delay` ist der anfängliche Verzögerungswert in Millisekunden
 
-Sie können direkt nach TimerId fragen. In diesem Fall lautet die Antwort:
+Sie können direkt nach der Timer-ID fragen. In diesem Fall lautet die Antwort:
 
 ```js
 getStateDelayed(3);
@@ -856,7 +856,7 @@ getStateDelayed(3);
 { id: 'hm-rpc.0.LQE91119.2.LEVEL', left: 5679, delay: 10000, val: 100, ack: false }
 ```
 
-### Status abrufen
+### GetState
 ```js
 getState(id);
 ```
@@ -873,8 +873,8 @@ Gibt den Status mit der angegebenen ID in der folgenden Form zurück:
 }
 ```
 
-Wenn der Status nicht vorhanden ist, wird eine Warnung in die Protokolle gedruckt und das Objekt `{ val: null, notExist: true }` zurückgegeben.
-Um die Warnung zu unterdrücken, prüfen Sie, ob der Status vorhanden ist, bevor Sie getState aufrufen (siehe [existiertZustand](#existsState)).
+Wenn der Status nicht vorhanden ist, wird eine Warnung in den Protokollen ausgegeben und das Objekt `{ val: null, notExist: true }` zurückgegeben.
+Um die Warnung zu unterdrücken, prüfen Sie vor dem Aufruf von getState, ob der Status vorhanden ist (siehe [ExistiertZustand](#existsState)).
 
 ### GetStateAsync
 ```js
@@ -883,12 +883,12 @@ const stateObject = await getStateAsync(id);
 
 Wie getState, aber mit `promise`.
 
-### ExistiertZustand
+### ExistiertStatus
 ```js
 existsState(id, (err, isExists) => {});
 ```
 
-Wenn die Option „Beim Start nicht alle Zustände abonnieren“ deaktiviert ist, kann man einen einfacheren Aufruf verwenden:
+Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist, können Sie einen einfacheren Aufruf verwenden:
 
 ```js
 existsState(id)
@@ -903,15 +903,15 @@ die Funktion gibt in diesem Fall true oder false zurück.
 getObject(id, enumName);
 ```
 
-Beschreibung der Objekt-ID abrufen, wie sie in einem System gespeichert ist.
-Sie können den Enumerationsnamen angeben. Wenn dieser definiert ist, werden dem Ergebnis zwei zusätzliche Attribute hinzugefügt: enumIds und enumNames.
-Diese Arrays enthalten alle Enumerationen, bei denen die ID ein Mitglied ist. Beispiel:
+Ruft die Beschreibung der im System gespeicherten Objekt-ID ab.
+Sie können den Enumerationsnamen angeben. Ist dieser definiert, werden dem Ergebnis zwei zusätzliche Attribute hinzugefügt: enumIds und enumNames.
+Diese Arrays enthalten alle Enumerationen, zu denen die ID gehört. Beispiel:
 
 ```js
 getObject('adapter.N.objectName', 'rooms');
 ```
 
-gibt in enumIds alle Räume zurück, in denen das angeforderte Objekt Mitglied ist. Sie können "true" als enumName definieren, um *alle* Enumerationen zurück zu erhalten.
+Gibt in EnumIds alle Räume zurück, in denen das angeforderte Objekt Mitglied ist. Sie können "true" als EnumName definieren, um *alle* Enumerationen zurückzugeben.
 
 ### Objekt festlegen
 ```js
@@ -920,7 +920,7 @@ setObject(id, obj, callback);
 
 Schreibt ein Objekt in die Datenbank. Dieser Befehl kann in den Adaptereinstellungen deaktiviert werden. Verwenden Sie diese Funktion mit Vorsicht, da die globalen Einstellungen beschädigt werden können.
 
-Sie sollten es verwenden, um ein vorhandenes Objekt zu **ändern**, das Sie zuvor gelesen haben, zB:
+Sie sollten es verwenden, um ein vorhandenes Objekt zu **ändern**, das Sie zuvor gelesen haben, z. B.:
 
 ```js
 const obj = getObject('adapter.N.objectName');
@@ -935,7 +935,7 @@ setObject('adapter.N.objectName', obj, (err) => {
 existsObject(id, function (err, isExists) {});
 ```
 
-Wenn die Option „Beim Start nicht alle Zustände abonnieren“ deaktiviert ist, kann man auch einen einfacheren Aufruf verwenden:
+Wenn die Option „Nicht alle Zustände beim Start abonnieren“ deaktiviert ist, können Sie einen einfacheren Aufruf verwenden:
 
 ```js
 existsObject(id)
@@ -950,7 +950,7 @@ die Funktion gibt in diesem Fall true oder false zurück.
 extendObject(id, obj, callback);
 ```
 
-Es ist fast dasselbe wie `setObject`, aber zuerst liest es das Objekt und versucht, alle Einstellungen zusammenzuführen.
+Es ist fast dasselbe wie `setObject`, liest aber zuerst das Objekt und versucht, alle Einstellungen zusammenzuführen.
 
 Verwenden Sie es wie folgt:
 
@@ -964,9 +964,9 @@ extendObject('system.adapter.sayit.0', {common: {enabled: false}});
 deleteObject(id, isRecursive, callback);
 ```
 
-Löscht ein Objekt anhand der ID aus der Datenbank. Wenn das Objekt den Typ `state` hat, wird auch der Statuswert gelöscht.
+Löscht ein Objekt anhand der ID aus der Datenbank. Wenn das Objekt vom Typ `state` ist, wird auch der Statuswert gelöscht.
 
-Der zusätzliche Parameter `isRecursive` könnte angegeben werden, sodass alle untergeordneten Elemente der angegebenen ID gelöscht werden. Sehr gefährlich!
+Der zusätzliche Parameter `isRecursive` kann angegeben werden, sodass alle untergeordneten Elemente der angegebenen ID gelöscht werden. Sehr gefährlich!
 
 Verwenden Sie es wie folgt:
 
@@ -983,15 +983,15 @@ getIdByName(name, alwaysArray);
 ```
 
 Gibt die ID des Objekts mit dem angegebenen Namen zurück.
-Wenn es mehr als ein Objekt mit diesem Namen gibt, ist das Ergebnis ein Array.
-Wenn das Flag `alwaysArray` gesetzt ist, ist das Ergebnis immer ein Array, wenn eine ID gefunden wird.
+Gibt es mehrere Objekte mit diesem Namen, ist das Ergebnis ein Array.
+Ist das Flag `alwaysArray` gesetzt, ist das Ergebnis immer ein Array, wenn eine ID gefunden wurde.
 
 ### GetEnums
 ```js
 getEnums(enumName);
 ```
 
-Holen Sie sich die Liste der vorhandenen Aufzählungen mit Mitgliedern, wie:
+Rufen Sie die Liste der vorhandenen Aufzählungen mit Mitgliedern ab, wie:
 
 ```js
 getEnums('rooms');
@@ -1046,10 +1046,10 @@ Erstellen Sie Status und Objekt im JavaScript-Bereich, falls diese nicht vorhand
 !! Eigene Datenpunkte bevorzugt mit der vollständigen ID `0_userdata.0.mystate` anlegen!!!
 
 #### Parameter:
-- „name“: Name des Status ohne Namespace, zB „mystate“
-- `initialValue`: Variable kann nach Erstellung initialisiert werden. Wert „undefined“ bedeutet, Wert nicht initialisieren.
-- „forceCreation“: Status erstellen/überschreiben, unabhängig davon, ob der Status bereits existiert oder nicht.
-- „common“: allgemeine Beschreibung des Objekts, siehe Beschreibung [hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)
+- `name`: Name des Status ohne Namespace, zB `mystate`
+- `initialValue`: Variable kann nach der Erstellung initialisiert werden. Der Wert „undefined“ bedeutet, dass der Wert nicht initialisiert wird.
+- „forceCreation“: Status erstellen/überschreiben, unabhängig davon, ob der Status bereits vorhanden ist oder nicht.
+- `common`: allgemeine Beschreibung des Objekts, siehe Beschreibung [hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)
 - „native“: native Beschreibung eines Objekts. Alle spezifischen Informationen.
 - „Callback“: wird aufgerufen, nachdem der Status erstellt und initialisiert wurde.
 
@@ -1078,27 +1078,27 @@ common => {
 }
 ```
 
-Es ist ein Kurztyp von createState möglich:
+Es ist ein kurzer Typ von createState möglich:
 
-- `createState('myDatapoint')` - erstellt einfach einen Datenpunkt, wenn er nicht existiert
-- `createState('myDatapoint', 1)` - Datenpunkt erstellen, wenn er nicht existiert und mit dem Wert 1 initialisieren
+- `createState('myDatapoint')` - einfach Datenpunkt erstellen, wenn er nicht existiert
+- `createState('myDatapoint', 1)` - Datenpunkt erstellen, falls er nicht existiert und mit dem Wert 1 initialisieren
 - `createState('myDatapoint', { type: 'string', role: 'json', read: true, write: false }, () => { log('created'); });` – mit allgemeinen Definitionen wie Typ, Lesen, Schreiben und Rolle
-- `createState('myDatapoint', { name: 'Mein eigener Datenpunkt', unit: '°C' }, () => { log('erstellt'); });`
-- `createState('myDatapoint', 1, { name: 'Mein eigener Datenpunkt', unit: '°C' })` - Datenpunkt erstellen, wenn er nicht mit spezifischem Namen und Einheiten existiert
+- `createState('myDatapoint', { name: 'Mein eigener Datenpunkt', unit: '°C' }, () => { log('created'); });`
+- `createState('myDatapoint', 1, { name: 'Mein eigener Datenpunkt', unit: '°C' })` – Datenpunkt erstellen, wenn er nicht mit spezifischem Namen und Einheiten existiert
 
 ### CreateStateAsync
 ```js
 await createStateAsync(name, initialValue, forceCreation, common, native);
 ```
 
-Wie `createState`, aber das Versprechen wird zurückgegeben.
+Dasselbe wie `createState`, aber das Versprechen wird zurückgegeben.
 
-### Status löschen
+### DeleteState
 ```js
 deleteState(name, callback);
 ```
 
-Status und Objekt im Javascript-Bereich löschen, z.B. `javascript.0.mystate`. Status von anderen Adaptern können nicht gelöscht werden.
+Löschen Sie Status und Objekt im JavaScript-Bereich, z. B. `javascript.0.mystate`. Status von anderen Adaptern können nicht gelöscht werden.
 
 ```js
 deleteState('myDatapoint')
@@ -1111,37 +1111,37 @@ Löschen Sie einfach den Datenpunkt, falls vorhanden.
 await deleteStateAsync(name);
 ```
 
-Wie `deleteState`, aber das Versprechen wird zurückgegeben.
+Dasselbe wie `deleteState`, aber das Versprechen wird zurückgegeben.
 
 ### Alias erstellen
 ```js
 createAlias(name, alias, forceCreation, common, native, callback);
 ```
 
-Erstellen Sie einen Alias im Bereich `alias.0`, falls dieser nicht existiert, z. B. `javascript.0.myalias`, und verweisen Sie auf einen Status oder Lese-/Schreibstatus.
-Die gemeinsame Definition wird aus dem gelesenen Alias-ID-Objekt übernommen, aber eine bereitgestellte gemeinsame Definition hat Vorrang.
+Erstellen Sie einen Alias im Bereich `alias.0`, falls dieser nicht existiert, z. B. `javascript.0.myalias`, und verweisen Sie auf einen Status oder Lese-/Schreibstatus.
+Die gemeinsame Definition wird aus dem gelesenen Alias-ID-Objekt übernommen, ein bereitgestellter gemeinsamer Name hat jedoch Vorrang.
 
 #### Parameter:
 - `name`: ID des neuen Alias-Status (möglich ohne Alias-Namespace), zB `test.mystate` (Namespace `alias.0.` wird hinzugefügt = `alias.0.test.mystate`)
-- `alias`: kann entweder eine vorhandene Status-ID als Zeichenfolge oder ein Objekt mit vollständiger Alias-Definition einschließlich Lese-/Schreib-IDs und Lese-/Schreibfunktionen sein. Hinweis: Alias-Definitionen können nicht als Teil des gemeinsamen Parameters festgelegt werden!
-- „forceCreation“: Alias erstellen/überschreiben, unabhängig davon, ob der Status bereits existiert oder nicht.
-- `common`: allgemeine Beschreibung des Alias-Objekts, siehe Beschreibung [hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state). Die hier angegebenen Werte haben Vorrang vor der allgemeinen Definition des gelesenen Alias-ID-Objekts. Hinweis: Alias-Definitionen können nicht als Teil dieses allgemeinen Parameters festgelegt werden, siehe Alias-Parameter!
+- `alias`: Kann entweder eine vorhandene Status-ID als Zeichenfolge oder ein Objekt mit vollständiger Alias-Definition inklusive Lese-/Schreib-IDs und Lese-/Schreibfunktionen sein. Hinweis: Alias-Definitionen können nicht als Teil des gemeinsamen Parameters festgelegt werden!
+- „forceCreation“: Alias erstellen/überschreiben, unabhängig davon, ob der Status bereits vorhanden ist oder nicht.
+- `common`: Allgemeine Beschreibung des Alias-Objekts, siehe Beschreibung [hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state). Die hier angegebenen Werte haben Vorrang vor der allgemeinen Definition des gelesenen Alias-ID-Objekts. Hinweis: Alias-Definitionen können nicht als Teil dieses allgemeinen Parameters gesetzt werden, siehe Alias-Parameter!
 - „native“: native Beschreibung eines Objekts. Alle spezifischen Informationen.
 - „Callback“: wird aufgerufen, nachdem der Status erstellt und initialisiert wurde.
 
 Es ist eine Kurzform von createAlias möglich:
 
-- `createAlias('myAlias', 'myDatapoint')` - erstellt einfach alias.0.myAlias, das auf javascript.X.myDatapoint verweist, wenn es nicht existiert
-- `createAlias('myAlias', { id: { read: 'myReadDatapoint', write: 'myWriteDatapoint' }})` - erstellt Alias und Referenz für verschiedene Lese-/Schreibzustände
+- `createAlias('myAlias', 'myDatapoint')` - erstellen Sie einfach alias.0.myAlias, das auf javascript.X.myDatapoint verweist, falls es nicht existiert
+- `createAlias('myAlias', { id: { read: 'myReadDatapoint', write: 'myWriteDatapoint' }})` – erstellt Alias und Referenz auf verschiedene Lese-/Schreibzustände
 
-Weitere Einzelheiten finden Sie unter „createState“, es ist ähnlich.
+Weitere Einzelheiten finden Sie unter createState, es ist ähnlich.
 
 ### CreateAliasAsync
 ```js
 await createAliasAsync(name, alias, forceCreation, common, native);
 ```
 
-Wie `createAlias`, aber das Versprechen wird zurückgegeben.
+Dasselbe wie `createAlias`, aber das Versprechen wird zurückgegeben.
 
 ### Senden an
 ```js
@@ -1192,19 +1192,19 @@ const res = await sendToAsync('sql.0', 'getEnabledDPs', {});
 log(JSON.stringify(res));
 ```
 
-### SendeAnHost
+### SendToHost
 ```js
 sendToHost(hostName, command, message, callback);
 ```
 
-Senden Sie eine Nachricht an die Controllerinstanz.
+Senden Sie eine Nachricht an die Controller-Instanz.
 
 Die folgenden Befehle werden unterstützt:
 
 - `'cmdExec'`
 - `'getRepository'`
 - `'getInstalled'`
-- `'Version abrufen'`
+- `'getVersion'`
 - `'getDiagData'`
 - `'getLocationOnDisk'`
 - `'getDevList'`
@@ -1214,21 +1214,21 @@ Die folgenden Befehle werden unterstützt:
 - `'delLogs'`
 - `'getHostInfo'`
 - `'getHostInfoShort'`
-- `'Multihost aktualisieren'`
-- „upgradeController“ – JS-Controller auf die neueste Version aktualisieren
+- `'updateMultihost'`
+- `'upgradeController'` - Aktualisieren Sie den JS-Controller auf die neueste Version
 - `'getInterfaces'` - Gibt alle verfügbaren Netzwerkschnittstellen des Systems zurück
 - `'getInterfaces'` - Startet einen Adapter-Upload
 - `'Adapter neu erstellen'`
-- `'BaseSettings lesen'`
+- `'readBaseSettings'`
 - `'writeBaseSettings'`
 - `'Benachrichtigung hinzufügen'`
-- `'Benachrichtigungen löschen'`
+- `'clearNotifications'`
 - `'Benachrichtigungen erhalten'`
-- „updateLicenses“ – Lizenzen von iobroker.net lesen
+- `'updateLicenses'` - Lizenzen von iobroker.net lesen
 - `'upgradeOsPackages'`
-- `'Controller neu starten'`
+- `'restartController'`
 
-Es handelt sich eher um spezifische Befehle, die nicht oft benötigt werden.
+Es handelt sich eher um spezifische Befehle und diese werden nicht oft benötigt.
 
 Beispiel:
 
@@ -1238,14 +1238,14 @@ sendToHost('myComputer', 'cmdExec', { data: 'ls /' }, (res) => {
 });
 ```
 
-**Hinweis:** Sie müssen die Option *Befehl „setObject“ aktivieren* aktivieren, um ihn aufzurufen.
+**Hinweis:** Sie müssen die Option *Befehl „setObject“ aktivieren* aktivieren, um es aufzurufen.
 
 ### SendToHostAsync
 ```js
 await sendToHostAsync(hostName, command, message);
 ```
 
-Wie sendToHost, aber mit `promise`.
+Dasselbe wie sendToHost, aber mit `promise`.
 
 ### Intervall festlegen
 ```js
@@ -1254,14 +1254,14 @@ setInterval(callback, ms, arg1, arg2, arg3, arg4);
 
 Gleich wie Javascript `setInterval`.
 
-### Intervall löschen
+### ClearInterval
 ```js
 clearInterval(id);
 ```
 
 Gleich wie Javascript `clearInterval`.
 
-### Zeitüberschreitung festlegen
+### SetTimeout
 ```js
 setTimeout(callback, ms, arg1, arg2, arg3, arg4);
 ```
@@ -1275,7 +1275,7 @@ clearTimeout(id);
 
 Gleich wie Javascript `clearTimeout`.
 
-### Sofort festlegen
+### SetImmediate
 ```js
 setImmediate(callback, arg1, arg2, arg3, arg4);
 ```
@@ -1288,26 +1288,26 @@ formatDate(millisecondsOrDate, format);
 ```
 
 #### Parameter:
-- `millisecondsOrDate`: Anzahl der Millisekunden aus state.ts oder state.lc (Anzahl der Millisekunden vom 01.01.1970 00:00:00) oder Javascript *new Date()*-Objekt oder Anzahl der Millisekunden aus *(new Date().getTime())*
+- `millisecondsOrDate`: Anzahl der Millisekunden aus state.ts oder state.lc (Anzahl der Millisekunden seit 01.01.1970 00:00:00) oder Javascript *new Date()*-Objekt oder Anzahl der Millisekunden aus *(new Date().getTime())*
 - `format`: Kann `null` sein, dann wird das Systemzeitformat verwendet, andernfalls
 
-* YYYY, JJJJ, ГГГГ - vollständiges Jahr, z. B. 2015
-* YY, JJ, ГГ - kurzes Jahr, zB 15
+* JJJJ, JJJJ, ГГГГ – ganzes Jahr, z. B. 2015
+* YY, JJ, ГГ – kurzes Jahr, z. B. 15
 * MM, ММ (kyrillisch) – vollständiger Monat, z. B. 01
-* M, М (kyrillisch) - kurzer Monat, z. B. 1
-* TT, TT, ДД - ganzer Tag, zB 02
-* D, T, Ä - kurzer Tag, z. B. 2
+* M, М (kyrillisch) – kurzer Monat, z. B. 1
+* TT, TT, DD - ganzer Tag, zB 02
+* D, T, Д - kurzer Tag, z. B. 2
 * hh, SS, чч – volle Stunden, zB 03
-* h, S, ч - kurze Stunden, zB 3
-* mm, мм(kyrillisch) – volle Minuten, zB 04
+* h, S, ч – kurze Stunden, zB 3
+* mm, мм (kyrillisch) – volle Minuten, zB 04
 * m, м (kyrillisch) – kurze Minuten, z. B. 4
 * ss, сс (kyrillisch) – volle Sekunden, zB 05
 * s, с (kyrillisch) – kurze Sekunden, z. B. 5
 * sss, ссс(kyrillisch) - Millisekunden
-* WW, НН (kyrillisch) - vollständiger Wochentag als Text
+* WW, НН (kyrillisch) - ganzer Wochentag als Text
 * W, Н (kyrillisch) - kurzer Wochentag als Text
 * OO, ОО (kyrillisch) – vollständiger Monat als Text
-* OOO, ООО (kyrillisch) - ganzer Monat als Text im Genitiv
+* OOO, ООО (kyrillisch) – ganzer Monat als Text im Genitiv
 * O, О (kyrillisch) - kurzer Monat als Text
 
 #### Beispiel
@@ -1326,14 +1326,14 @@ formatTimeDiff(milliseconds, format);
 ```
 
 #### Parameter:
-- „Millisekunden“: Differenz in Millisekunden*
+- `Millisekunden`: Differenz in Millisekunden*
 - `format`: Kann `null` sein, daher wird das Format `hh:mm:ss` verwendet, andernfalls
 
 * TT, TT, ДД – ganzer Tag, zB „02“
 * D, T, Д - kurzer Tag, z. B. „2“
 * hh, SS, чч – volle Stunden, zB „03“
 * h, S, ч – kurze Stunden, zB „3“
-* mm, мм(kyrillisch) – volle Minuten, zB „04“
+* mm, мм (kyrillisch) – volle Minuten, zB „04“
 * m, м (kyrillisch) – kurze Minuten, z. B. „4“
 * ss, сс (kyrillisch) – volle Sekunden, zB „05“
 * s, с (kyrillisch) – kurze Sekunden, z. B. „5“
@@ -1359,22 +1359,22 @@ formatTimeDiff(diff, 'mm'); // "3069"
 getDateObject(stringOrNumber);
 ```
 
-Wandelt eine Zeichenfolge oder Zahl in ein Datumsobjekt um.
-Wenn nur Stunden angegeben sind, wird das aktuelle Datum hinzugefügt und eine Konvertierung versucht.
+Konvertiert eine Zeichenfolge oder Zahl in ein Datumsobjekt.
+Wenn nur Stunden angegeben sind, wird das aktuelle Datum hinzugefügt und die Konvertierung versucht.
 
 ```js
 getDateObject('20:00'); // 2024-05-18T18:00:00.000Z
 getDateObject('2024-01-01'); // 2024-01-01T00:00:00.000Z
 ```
 
-### Formatwert
+### FormatValue
 ```js
 formatValue(value, decimals, format);
 ```
 
-Formatiert jeden Wert (auch Zeichenfolgen) in eine Zahl. Ersetzt Punkt durch Komma, wenn im System konfiguriert.
-Dezimalstellen geben Ziffern nach dem Komma an. Der Standardwert ist 2.
-Format ist optional:
+Formatiert beliebige Werte (auch Zeichenfolgen) in Zahlen. Ersetzt Punkt durch Komma, sofern im System konfiguriert.
+Dezimalstellen geben die Ziffern nach dem Komma an. Der Standardwert ist 2.
+Das Format ist optional:
 
 - '.,': 1234.567 => 1.234,56
 - ',.': 1234.567 => 1,234.56
@@ -1385,22 +1385,27 @@ Format ist optional:
 adapterSubscribe(id);
 ```
 
-Senden Sie an einen Adapter die Nachricht „subscribe“, um den Adapter zu informieren. Wenn der Adapter das allgemeine Flag „subscribeable“ hat, wird diese Funktion bei der Funktion „subscribe“ automatisch aufgerufen.
+Senden Sie die Nachricht "subscribe" an einen Adapter, um diesen zu informieren. Wenn der Adapter bei der Funktion "subscribe" das allgemeine Flag "subscribeable" hat, wird diese Funktion automatisch aufgerufen.
 
 ### AdapterAbmelden
 ```js
 adapterUnsubscribe(id);
 ```
 
-Sendet an einen Adapter die Nachricht `unsubscribe`, um den Adapter mitzuteilen, dass die Werte nicht abgefragt werden sollen.
+Sendet an einen Adapter die Nachricht `unsubscribe`, um den Adapter anzuweisen, die Werte nicht abzufragen.
 
 ### $ - Selektor
 ```js
-$(selector).on(function(obj) {});
-$(selector).toArray(); // Requires version >= 8.2.0
-$(selector).each(function(id, i) {});
-$(selector).setState(value, ack);
-$(selector).getState();
+$(selector).on((obj) => {}); // Register a subscription for each matching state
+$(selector).toArray(); // Get all matching object IDs of the selector expression (requires version >= 8.2.0)
+$(selector).each((id, i) => {}); // iterate over all matching states
+$(selector).setState(value, ack, callback); // set state value of all matching object IDs (callback is optional)
+$(selector).setStateAsync(value, ack); // set state value of all matching object IDs - returns a promise
+$(selector).setStateChanged(value, ack, callback); // set state value of all matching object IDs if value has changed (callback is optional)
+$(selector).setStateChangedAsync(value, ack, callback); // set state value of all matching object IDs if value has changed - returns a promise
+$(selector).setStateDelayed(state, isAck, delay, clearRunning, callback); // // set state value of all matching object IDs with a given delay
+$(selector).getState(); // get all states
+$(selector).getStateAsync(); // get all states - returns a promise
 ```
 
 Format des Selektors:
@@ -1419,15 +1424,15 @@ Präfixe ***(nicht implementiert – sollte besprochen werden)*** :
 
 ***Beispiel***:
 
-- „$('state[id=*.STATE]')“ oder „$('state[state.id=*.STATE]')“ oder „$('*.STATE')“ – wählt alle Staaten aus, deren ID mit „.STATE“ endet.
-- `$('state[id='hm-rpc.0.*]')` oder `$('hm-rpc.0.*')` - gibt alle Zustände der Adapterinstanz hm-rpc.0 zurück
+- `$('state[id=*.STATE]')` oder `$('state[state.id=*.STATE]')` oder `$('*.STATE')` – wählt alle Staaten aus, deren ID mit „.STATE“ endet.
+- `$('state[id='hm-rpc.0.*]')` oder `$('hm-rpc.0.*')` – gibt alle Zustände der Adapterinstanz hm-rpc.0 zurück
 - `$('channel(rooms=Wohnzimmer)')` - alle Zustände im Raum "Wohnzimmer"
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Alle Rollläden von Homematic abrufen
-- `$('channel[role=switch](rooms=Wohnzimmer)[state.id=*.STATE]').setState(false)` - Alle Zustände mit .STATE von Kanälen mit der Rolle „switch“ im „Wohnzimmer“ auf „false“ umschalten
-- `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - alle Zustände der Aufzählung „Windows“ im Protokoll ausgeben
-- `$('schedule[id=*65]').each(function (id, i) {log(id);});` – druckt alle Zeitpläne mit 65 am Ende
+- `$('channel[role=switch](rooms=Wohnzimmer)[state.id=*.STATE]').setState(false)` - Alle Zustände mit .STATE von Kanälen mit der Rolle "switch" im "Wohnzimmer" auf "false" umschalten
+- `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - druckt alle Zustände der Aufzählung "windows" im Protokoll
+- `$('schedule[id=*65]').each(function (id, i) {log(id);});` - druckt alle Zeitpläne mit 65 am Ende
 - `$('.switch §"Wohnzimmer")` - Zustände mit allen Schaltern im 'Wohnzimmer' übernehmen ***(nicht implementiert – sollte besprochen werden)***
-- `$('channel .switch §"Wohnzimmer")` - Zustände mit allen Schaltern im 'Wohnzimmer' annehmen ***(nicht implementiert – sollte besprochen werden)***
+- `$('channel .switch §"Wohnzimmer")` - Zustände mit allen Schaltern im 'Wohnzimmer' übernehmen ***(nicht implementiert – sollte besprochen werden)***
 
 ***Erklärung*** Werfen wir einen Blick auf:
 
@@ -1437,10 +1442,10 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
 });
 ```
 
-Dieser Code sucht in Kanälen.
-Finden Sie alle Kanäle mit `common.role="switch"` und gehören zu `enum.rooms.Wohnzimmer`.
-Nehmen Sie alle ihre Zustände, deren ID mit `".STATE"` endet, und abonnieren Sie alle diese Zustände.
-Wenn sich einige dieser Zustände ändern, wird der Rückruf wie bei der Funktion „on“ aufgerufen.
+Dieser Code durchsucht Kanäle.
+Findet alle Kanäle mit `common.role="switch"` und gehört zu `enum.rooms.Wohnzimmer`.
+Übernimmt alle Zustände, deren ID auf `".STATE"` endet, und abonniert alle diese Zustände.
+Ändert sich einer dieser Zustände, wird der Callback wie bei der Funktion „Ein“ aufgerufen.
 
 Folgende Funktionen sind möglich: setState, getState (nur vom ersten), on, each, toArray
 
@@ -1474,7 +1479,7 @@ readFile(adapter, fileName, (error, bytes) => {});
 ```
 
 Das Ergebnis wird im Rückruf zurückgegeben.
-Datei aus DB aus Ordner `javascript.0` lesen.
+Datei aus der Datenbank aus dem Ordner `javascript.0` lesen.
 
 Das Argument *Adapter* kann weggelassen werden.
 
@@ -1497,11 +1502,11 @@ Standardmäßig ist das Arbeitsverzeichnis/der Adapter `javascript.0`.
 writeFile(adapter, fileName, bytes, (error) => {});
 ```
 
-Der optionale Fehlercode wird im Rückruf zurückgegeben. Das Argument *Adapter* kann weggelassen werden.
+Der optionale Fehlercode wird im Callback ausgegeben. Das Argument *adapter* kann weggelassen werden.
 fileName ist der Name der Datei in der Datenbank. Alle Dateien werden im Ordner „javascript“ gespeichert.
-Wenn Sie in andere Ordner schreiben möchten, z. B. in „/vis.0/“, verwenden Sie dazu setFile.
+Wenn Sie in andere Ordner schreiben möchten, z. B. nach „/vis.0/“, verwenden Sie dazu setFile.
 
-Die Datei, die wie `'/subfolder/file.txt'` aussieht, wird unter `"/javascript/subfolder/file.txt"` gespeichert und kann über den Webserver mit `"http://ip:8082/javascript/subfolder/file.txt"` abgerufen werden.
+Die Datei, die wie `'/subfolder/file.txt'` aussieht, wird unter `"/javascript/subfolder/file.txt"` gespeichert und kann über den Webserver mit `"http://ip:8082/javascript/subfolder/file.txt"` abgerufen werden
 
 ```js
 // store screenshot in DB
@@ -1526,12 +1531,12 @@ writeFile('vis.0', '/screenshots/1.png', data, (error) => {
 });
 ```
 
-### Datei löschen
+### DelFile
 ```js
 delFile(adapter, fileName, (error) => {});
 ```
 
-Datei oder Verzeichnis löschen. Dateiname ist der Name der Datei oder des Verzeichnisses in der Datenbank.
+Datei oder Verzeichnis löschen. fileName ist der Name der Datei oder des Verzeichnisses in der Datenbank.
 
 Der alternative Name dieser Methode ist `unlink`
 
@@ -1553,33 +1558,33 @@ onFile(id, fileName, (id, fileName, size) => {});
 
 Dateiänderungen abonnieren:
 
-- „id“ ist die ID eines Objekts vom Typ „Meta“, beispielsweise „vis.0“
+- „id“ ist die ID eines Objekts vom Typ „Meta“, wie „vis.0“
 - „fileName“ ist ein Dateiname oder ein Muster, wie „main/*“ oder „main/vis-view.json“.
-- „withFile“, ob der Inhalt der Datei im Rückruf übermittelt werden soll oder nicht. Die Übermittlung von Dateiinhalten kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie „withFile“ auf „false“.
+- „withFile“, ob der Inhalt der Datei im Rückruf übermittelt werden soll oder nicht. Die Übermittlung des Dateiinhalts kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie „withFile“ auf „false“.
 
 Argumente im Rückruf:
 
-- „id“ – ID des „Meta“-Objekts;
-- „fileName“ – Dateiname (nicht Muster);
+- `id` – ID des `Meta`-Objekts;
+- `fileName` – Dateiname (kein Muster);
 - „Größe“ – neue Dateigröße;
-- „fileData“ – Dateiinhalt vom Typ „Buffer“, wenn die Datei binär (anhand der Erweiterung erkannt) oder „String“ ist. Wird nur geliefert, wenn „withFile“;
+- `fileData` – Dateiinhalt vom Typ `Buffer`, wenn die Datei binär (anhand der Erweiterung erkannt) oder `string` ist. Wird nur übermittelt, wenn `withFile`;
 - `mimeType` – MIME-Typ der Datei, z. B. `image/jpeg`. Wird nur übermittelt, wenn `withFile`;
 
-**Wichtig**: Diese Funktion ist nur mit js-controller@4.1.x oder neuer verfügbar.
+**Wichtig**: Diese Funktionalität ist nur mit js-controller@4.1.x oder neuer verfügbar.
 
-### AusDatei
+### OffFile
 ```js
 offFile(id, fileName);
 // or
 onFile(id, fileName);
 ```
 
-Abbestellen von Dateiänderungen:
+Abmeldung von Dateiänderungen:
 
-- „id“ ist die ID eines Objekts vom Typ „Meta“, wie „vis.0“
+- `id` ist die ID eines Objekts vom Typ `meta`, wie `vis.0`
 - „fileName“ ist ein Dateiname oder ein Muster, wie „main/*“ oder „main/vis-view.json“.
 
-**Wichtig**: Diese Funktion ist nur mit js-controller@4.1.x oder neuer verfügbar.
+**Wichtig**: Diese Funktionalität ist nur mit js-controller@4.1.x oder neuer verfügbar.
 
 ### Bei Stopp
 ```js
@@ -1603,14 +1608,14 @@ onStop((callback) => {
 }, 2000 /*ms*/);
 ```
 
-`timeout` beträgt standardmäßig 1000 ms.
+`timeout` beträgt standardmäßig 1000 ms.
 
 ### GetHistory
 ```js
 getHistory(instance, options, (error, result, options, instance) => {});
 ```
 
-Verlauf aus angegebener Instanz lesen. Wenn keine Instanz angegeben ist, wird die standardmäßige Verlaufsinstanz des Systems verwendet.
+Liest den Verlauf aus der angegebenen Instanz. Wenn keine Instanz angegeben ist, wird die Standard-Verlaufsinstanz des Systems verwendet.
 
 ```js
 // Read history of 'system.adapter.admin.0.memRss' from sql driver
@@ -1635,9 +1640,9 @@ getHistory(
 );
 ```
 
-Mögliche Optionen finden Sie [Hier](https://github.com/ioBroker/ioBroker.history#access-values-from-javascript-adapter).
+Mögliche Optionen finden Sie unter [Hier](https://github.com/ioBroker/ioBroker.history#access-values-from-javascript-adapter).
 
-Zusätzlich zu diesen Parametern müssen Sie „id“ angeben und Sie können ein Timeout angeben (Standard: 20000 ms).
+Zusätzlich zu diesen Parametern müssen Sie „id“ angeben und Sie können ein Timeout angeben (Standard: 20000 ms).
 
 Noch ein Beispiel:
 
@@ -1657,7 +1662,7 @@ getHistory({
     });
 ```
 
-**Hinweis: ** Natürlich muss der Verlauf zuerst für die ausgewählte ID im Administrator aktiviert werden.
+**Hinweis:** Natürlich muss der Verlauf zuerst für die ausgewählte ID im Administrator aktiviert werden.
 
 ### Skript ausführen
 ```js
@@ -1667,7 +1672,7 @@ runScript('scriptName', () => {
 });
 ```
 
-Startet andere Skripte (und auch sich selbst) oder startet sie neu, und zwar anhand des Namens.
+Startet oder startet andere Skripte (und auch sich selbst) nach Namen neu.
 
 ```js
 // restart script
@@ -1687,12 +1692,12 @@ await runScriptAsync('scriptName');
 log(`Script was restarted`);
 ```
 
-### StartSkript
+### Startskript
 ```js
 startScript('scriptName', ignoreIfStarted, callback);
 ```
 
-Startet das Skript. Wenn ignoreIfStarted auf true gesetzt ist, wird nichts unternommen, wenn ein Skript bereits ausgeführt wird. Andernfalls wird das Skript neu gestartet.
+Startet das Skript. Wenn ignoreIfStarted auf true gesetzt ist, wird nichts unternommen, wenn ein Skript bereits läuft. Andernfalls wird das Skript neu gestartet.
 
 ```js
 startScript('scriptName', true); // start script if not started
@@ -1711,7 +1716,7 @@ const started = await startScriptAsync('scriptName', ignoreIfStarted);
 log(`Script was ${started ? 'started' : 'already started'}`);
 ```
 
-Startet das Skript. Wenn ignoreIfStarted auf true gesetzt ist, wird nichts unternommen, wenn ein Skript bereits ausgeführt wird. Andernfalls wird das Skript neu gestartet.
+Startet das Skript. Wenn ignoreIfStarted auf true gesetzt ist, wird nichts unternommen, wenn ein Skript bereits läuft. Andernfalls wird das Skript neu gestartet.
 
 ```js
 startScript('scriptName', true); // start script if not started
@@ -1729,7 +1734,7 @@ stopScript();
 ```
 
 ### StopScriptAsync
-Wie stopScript, aber mit `promise`:
+Wie StopScript, aber mit `promise`:
 
 ```js
 stopScriptAsync('scriptName')
@@ -1746,30 +1751,30 @@ Wenn stopScript ohne Argumente aufgerufen wird, stoppt es sich selbst:
 stopScript();
 ```
 
-### IstScriptActive
+### IstSkriptaktiv
 ```js
 isScriptActive('scriptName');
 ```
 
-Gibt zurück, ob ein Skript aktiviert oder deaktiviert ist. Bitte beachten Sie, dass dies keine Auskunft darüber gibt, ob das Skript gerade ausgeführt wird oder nicht.
+Gibt an, ob ein Skript aktiviert oder deaktiviert ist. Beachten Sie, dass dies keine Rückschlüsse darauf zulässt, ob das Skript gerade ausgeführt wird oder nicht.
 Das Skript kann beendet, aber dennoch aktiviert sein.
 
 Es handelt sich nicht um eine Funktion. Es handelt sich um eine Variable mit einer JavaScript-Instanz, die im Gültigkeitsbereich des Skripts sichtbar ist.
 
 ### ZuInt
 ### ZuFloat
-### ZuBoolean
-### JsonataAusdruck
+### ToBoolean
+### JsonataExpression
 ### Warten
-Unterbrechen Sie einfach die Ausführung des Skripts.
-Achtung, diese Funktion ist `promise` und muss wie folgt aufgerufen werden:
+Pausieren Sie einfach die Ausführung des Skripts.
+Warnung: Diese Funktion ist `promise` und muss wie folgt aufgerufen werden:
 
 ```js
 await wait(1000);
 ```
 
 ### Schlafen
-Das Gleiche wie [Warten](#wait)
+Gleich wie [Warten](#wait)
 
 ### Nachricht an
 ```js
@@ -1795,7 +1800,7 @@ Rückruf und Optionen sind optional und das Timeout beträgt standardmäßig 500
 messageTo('messageName', dataWithNoResponse);
 ```
 
-### Nachricht an Async
+### MessageToAsync
 ```js
 onMessage('myTopic', async (data, callback) => {
     log(data);
@@ -1827,8 +1832,8 @@ onMessage('messageName', (data, callback) => {
 });
 ```
 
-Abonniert den Message Bus des JavaScript-Adapters und liefert die Antwort per Rückruf.
-Die Antwort des Skripts, das als erstes eine Antwort sendet, wird als Antwort akzeptiert, alle anderen Antworten werden ignoriert.
+Abonniert den Message Bus des JavaScript-Adapters und liefert die Antwort per Callback.
+Die Antwort des Skripts, das zuerst eine Antwort sendet, wird als Antwort akzeptiert, alle anderen Antworten werden ignoriert.
 
 Um eine Nachricht an ein JavaScript-Skript zu senden, die dann von diesem Handler empfangen wird, verwenden Sie [Nachricht an](#messageTo).
 
@@ -1844,7 +1849,7 @@ adapter.sendTo('javascript.0', 'toScript', {
 });
 ```
 
-Um eine Nachricht über die CLI zu senden, verwenden Sie
+um eine Nachricht von der CLI zu senden, verwenden Sie
 
 ```bash
 iob message javascript.0 toScript '{"script": "script.js.messagetest", "message": "messageName", "data": { "flag": true }}'
@@ -1863,9 +1868,9 @@ onMessageUnregister(id);
 onMessageUnregister('messageName');
 ```
 
-Hiermit kündigen Sie das Abonnement für diese Nachricht.
+Beendet das Abonnement dieser Nachricht.
 
-### Beim Anmelden
+### OnLog
 ```js
 onLog('error', data => {
     sendTo('telegram.0', { user: 'UserName', text: data.message });
@@ -1875,9 +1880,9 @@ onLog('error', data => {
 
 Abonnieren Sie Protokolle mit angegebenem Schweregrad.
 
-*Wichtig:* Um Endlosschleifen zu vermeiden, können Sie Protokolle nicht mit derselben Schwere im Handler ausgeben.
+*Wichtig:* Sie können im Handler keine Protokolle mit derselben Schwere ausgeben, um Endlosschleifen zu vermeiden.
 
-Dies führt beispielsweise dazu, dass keine Protokolle erstellt werden:
+Dies erzeugt beispielsweise keine Protokolle:
 
 ```js
 onLog('error', data => {
@@ -1885,7 +1890,7 @@ onLog('error', data => {
 });
 ```
 
-Um alle Logs zu empfangen, kann `*` verwendet werden. In diesem Fall wird die Logausgabe im Handler komplett deaktiviert.
+Um alle Logs zu empfangen, kann der Wert `*` verwendet werden. In diesem Fall wird die Logausgabe im Handler komplett deaktiviert.
 
 ```js
 onLog('*', data => {
@@ -1926,12 +1931,12 @@ httpGet('http://jsonplaceholder.typicode.com/posts', (err, response) => {
 
 Der zweite Parameter kann ein Objekt mit weiteren Optionen sein (optional). Alle Optionen sind optional. Unterstützte Flags:
 
-- „timeout“ (Zahl) – Zeitüberschreitung in Millisekunden
+- `timeout` (Zahl) – Timeout in Millisekunden
 - `responseType` (Zeichenfolge) - Unterstützte Werte sind `text` (Standard) oder `arraybuffer` für Binärdaten in der Antwort
-- „basicAuth“ (Objekt) – Grundlegende HTTP-Authentifizierungsdaten. z. B. „{ Benutzer: „admin“, Passwort: „iobroker“ }“
+- `basicAuth` (Objekt) – Anmeldeinformationen für die grundlegende HTTP-Authentifizierung. z. B. `{ Benutzer: 'admin', Passwort: 'iobroker' }`
 - `bearerAuth` (Zeichenfolge) – Token für die Trägerauthentifizierung
-- „headers“ (Objekt) – Zusätzliche benutzerdefinierte HTTP-Header, z. B. „{ „Accept-Language“: „en-GB,en;q=0.9“ }“
-- `validateCertificate` (Boolesch) - Lässt selbstsignierte Zertifikate zu, wenn `false`
+- `headers` (Objekt) – Zusätzliche benutzerdefinierte HTTP-Header, z. B. `{ 'Accept-Language': 'en-GB,en;q=0.9' }`
+- `validateCertificate` (Boolesch) – Lässt selbstsignierte Zertifikate zu, wenn `false`
 
 ```js
 httpGet('http://jsonplaceholder.typicode.com/posts', { timeout: 1000 }, (err, response) => {
@@ -1960,7 +1965,7 @@ httpGet('http://1.2.3.4/image.jpg', { responseType: 'arraybuffer' }, async (err,
 });
 ```
 
-Zertifikatsüberprüfung deaktivieren - *Erfordert Version >= 8.4.0*
+Zertifikatsvalidierung deaktivieren – *Erfordert Version >= 8.4.0*
 
 ```js
 httpGet('http://jsonplaceholder.typicode.com/posts', { validateCertificate: false }, (err, response) => {
@@ -2084,8 +2089,8 @@ log(`Script ${scriptName} started!`);
 log(`Script ${scriptName} started started by ${instance}`);
 ```
 
-### Standarddatenverzeichnis
-`defaultDataDir` – Absoluter Pfad zu den Iobroker-Daten.
+### DefaultDataDir
+`defaultDataDir` – Absoluter Pfad zu den iobroker-Daten.
 
 ```js
 log(`Data dir: ${defaultDataDir}`);
@@ -2103,18 +2108,16 @@ if (verbose) {
 }
 ```
 
-## Option - „Beim Start nicht alle Zustände abonnieren“
-Es gibt zwei Arten, Zustände zu abonnieren:
+## Option - "Beim Start nicht alle Zustände abonnieren"
+Es gibt zwei Möglichkeiten, Zustände zu abonnieren:
 
-- Der Adapter abonniert alle Änderungen beim Start und empfängt alle Änderungen aller Zustände (es ist einfach, getStates(id) zu verwenden, erfordert aber mehr CPU und RAM):
+1. Der Adapter abonniert beim Start alle Zustände und empfängt alle Änderungen aller Zustände (die Verwendung von getState(id) ist einfacher, erfordert aber mehr CPU und RAM):
 
 ```js
 log(getState('someID').val);
 ```
 
-- Der Adapter abonniert jedes Mal die angegebene ID, wenn "on/subscribe" aufgerufen wird. In diesem Modus empfängt der Adapter nur Updates für gewünschte Zustände.
-
-Es ist sehr leistungsstark und RAM-effizient, aber Sie können in getState nicht direkt auf Zustände zugreifen. Sie müssen Callback verwenden, um das Ergebnis des Zustands abzurufen:
+2. Der Adapter abonniert jedes Mal die angegebene ID, wenn „on/subscribe“ aufgerufen wird. In diesem Modus erhält der Adapter nur Updates für gewünschte Zustände. Diese Option benötigt weniger RAM und ist effizienter, allerdings ist der synchrone Zugriff auf Zustände über getState nicht möglich. **Sie müssen Callbacks oder Promises verwenden, um auf die Zustände zuzugreifen**:
 
 ```js
 getState('someID', (error, state) => {
@@ -2122,8 +2125,8 @@ getState('someID', (error, state) => {
 });
 ```
 
-Dies liegt daran, dass der Adapter den Statuswert nicht im RAM hat und die zentrale Datenbank nach dem Wert fragen muss.
+Grund: Der Adapter hat den Statuswert nicht im RAM und muss ihn aus der zentralen Statusdatenbank anfordern.
 
 ## Skriptaktivität
-Es besteht die Möglichkeit, Skripte über Zustände zu aktivieren und zu deaktivieren. Für jedes Skript wird ein Zustand mit dem Namen `javascript.INSTANCE.scriptEnabled.SCRIPT_NAME` angelegt.
+Es besteht die Möglichkeit, Skripte über Zustände zu aktivieren und zu deaktivieren. Für jedes Skript wird der Zustand mit dem Namen `javascript.INSTANCE.scriptEnabled.SCRIPT_NAME` angelegt.
 Skripte können aktiviert und deaktiviert werden, indem dieser Zustand mit `ack=false` gesteuert wird.

@@ -36,6 +36,10 @@ use of the adapter. You find a link at the top.
 
 ## Changelog
 
+### 0.5.0
+
+* (holomekc) Minor cleanup
+
 ### 0.4.2
 
 * (holomekc) Fixed undefined object issue
@@ -64,10 +68,6 @@ use of the adapter. You find a link at the top.
 ### 0.2.7
 
 * (holomekc) Update dependencies and fix rate limiting
-
-### 0.2.6
-
-* (holomekc) Support for user defined states
 
 ### Older entries
 

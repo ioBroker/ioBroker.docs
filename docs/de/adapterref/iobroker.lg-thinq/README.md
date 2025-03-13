@@ -763,6 +763,7 @@ lg-thinq.0.xxx.area muss gefüllt sein!
 
 - (Lucky-ESA) max target changed from 30 to 40 degrees
 - (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Admin 7.4.10 required
 
 ### 1.0.7 (2024-12-08)
 

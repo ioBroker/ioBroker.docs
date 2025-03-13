@@ -44,26 +44,18 @@ If this options is selected, the user stays logged in for one month.
 If not, the user will stay logged in for the configured "login timeout".
 
 ## Access state's values
-You can access the normal and binary state values via the HTTP get request.
+You can access the normal state values via the HTTP get request.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-or
+or access files like:
 
 ```
-http://IP:8082/state/javascript.picture.png =>
+http://IP:8082/vis-2.0/javascript.picture.png =>
 [IMAGE]
-```
-
-The image must be written in the javascript adapter like:
-
-```js
-createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
-    setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
-});
 ```
 
 ## "Basic Authentication" option
@@ -83,16 +75,54 @@ It is simpler as to set for every object and every state the access rights for t
 If by opening of web port im browser no APP selection should be shown, but some specific application, 
 the path could be provided here (e.g. `/vis/`) so this path will be opened automatically.
 
+## OAuth2 authentication
+The web adapter supports OAuth2 authentication.
+
+To get the tokens, the user must call the URL:
+
+```
+http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker&stayloggedin=<false/true>
+```
+
+`stayloggedin=true` means that the token will be stored in the browser and will be used for the next requests and is optional.
+
+The answer is like:
+```json
+{
+    "access_token": "21f89e3eee32d3af08a71c1cc44ec72e0e3014a9",
+    "expires_in": "2025-02-23T11:39:32.208Z",
+    "refresh_token": "66d35faa5d53ca8242cfe57367210e76b7ffded7",
+    "refresh_token_expires_in": "2025-03-25T10:39:32.208Z",
+    "token_type": "Bearer"
+}
+```         
+More info could be found here: https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.6 (2025-03-09)
+* (@GermanBluefox) Corrected the login for iobroker.visu app
+* (@GermanBluefox) Corrected load of TypeScript Web extensions
+
+### 7.0.4 (2025-03-04)
+* (@GermanBluefox) Corrected the login page
+* (@GermanBluefox) Removed the frequent debug output
+
+### 7.0.3 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 7.0.1 (2025-03-02)
+* (@GermanBluefox) [Breaking change] Removed simple-api as it could be connected as web-extension
 * (@GermanBluefox) updated packages
 * (@GermanBluefox) removed gulp in a build process
-* (@GermanBluefox) Migrated GUI ti vite
+* (@GermanBluefox) Migrated GUI to vite
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Added OAuth2 support
+* (@GermanBluefox) Added new 404 and the directory list pages
 
 ### 6.3.1 (2024-09-23)
 * (@foxriver76) added new admin icon (svg)

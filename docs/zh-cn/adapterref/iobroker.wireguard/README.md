@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: qzKZPX9Ht7Wbi3ls/shTj3Gu3kXoErGSeNknoa233rY=
+hash: YEcQxVexD5uD4OXqwolElUBJr0C6hZh4+cNzoTGAFF4=
 ---
 ![标识](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -16,7 +16,7 @@ hash: qzKZPX9Ht7Wbi3ls/shTj3Gu3kXoErGSeNknoa233rY=
 # IoBroker.wireguard
 ![标识](../../../en/adapterref/iobroker.wireguard/admin/wireguard.svg)
 
-![测试与发布](https://github.com/grizzelbee/ioBroker.wireguard/workflows/Test%20and%20Release/badge.svg) ![代码QL](https://github.com/Grizzelbee/ioBroker.wireguard/actions/workflows/codeQL.yml/badge.svg)
+![测试与发布](https://github.com/grizzelbee/ioBroker.wireguard/workflows/Test%20and%20Release/badge.svg)![代码QL](https://github.com/Grizzelbee/ioBroker.wireguard/actions/workflows/codeQL.yml/badge.svg)
 
 ## IoBroker 的 wireguard 适配器
 连接到 WireGuard 主机并获取对等端的连接信息。此适配器旨在作为 WireGuard 主机的监控实例。它还支持普通安装和 docker。
@@ -45,7 +45,7 @@ hash: qzKZPX9Ht7Wbi3ls/shTj3Gu3kXoErGSeNknoa233rY=
 - 用户：在主机上执行脚本的用户（将加密存储）
 - 密码：此用户的密码（将以加密形式存储）
 - sudo：是否应使用 sudo 执行 wg 命令（需要有效的 sudoers 配置！-> 参见[安全提示]）
-- Docker：执行“docker exec”命令以访问 docker 容器内的 wireguard 服务器。请检查它是否符合您的需求，或者您是否可以切换到受支持的容器。
+- Docker：执行 `docker exec` 命令以访问 docker 容器内的 wireguard 服务器。请检查它是否符合您的需求，或者您是否可以切换到受支持的容器。
 - 轮询间隔：每次轮询之间暂停几秒（也会延迟适配器启动后的第一次运行）
 - 容器：docker 容器的名称。通常为“wireguard”，但在单个服务器上运行多个容器时可能会有所不同
 * 翻译页面
@@ -78,7 +78,7 @@ hash: qzKZPX9Ht7Wbi3ls/shTj3Gu3kXoErGSeNknoa233rY=
 此适配器需要您的 WireGuard 容器的名称 `wireguard` 和容器内 `/usr/bin/` 中的 `wg` 命令。
 这些值目前无法自定义。
 
-＃＃ 怎么运行的
+工作原理
 * 适配器的 info.connection 用于指示至少一个 WireGuard 接口处于在线状态，并由 `wg show all` 报告。如果没有 Wireguard 接口处于在线状态 - 则不会报告任何内容。在这种情况下，会记录错误，并且适配器的交通灯变为黄色。
 * 此适配器在每个配置的主机上打开一个 ssh shell，执行“wg show all dump”命令，删除 shell 并解析结果。
 * 由于每个公钥都是唯一的，适配器使用它们将公钥转换为用户友好、可读和可识别的名称。
@@ -95,9 +95,9 @@ hash: qzKZPX9Ht7Wbi3ls/shTj3Gu3kXoErGSeNknoa233rY=
 
 基本上，执行命令有三种方法：
 
-* 使用管理员用户（root 或类似用户）。这可以工作，但万一凭证丢失或被盗，整个服务器就会暴露。
+* 使用管理员用户（root 或类似用户）。这种方法可行，但万一凭证丢失或被盗，整个服务器就会暴露。
 * 使用 SetUID-Bit：通过设置此位（据我所知），每个用户都可以使用管理员权限执行标记文件，而无需任何密码。**这包括黑客**。因此，在 wg 命令上设置此位会暴露整个 wg 命令及其所有功能。如果您愿意，请以管理员身份执行“chmod u+s /usr/bin/wg”。
-* 使用 sudoers：从我的角度来看，最安全的方法是设置一个具有基本权限的新简单用户，并在 sudoers 文件中添加一行简单的内容，允许该用户无需输入密码即可执行所需的命令 - 并且只能执行此命令。请参阅您的发行版的文档，以获取有关编辑 sudoers 文件和使用 visudo 的正确信息。下面的屏幕截图显示了需要添加到文件的内容。`wireguard-monitoring-user` 是您选择的用户。其余的需要与您看到的完全一样。
+* 使用 sudoers：从我的角度来看，最安全的方法是设置一个具有基本权限的新简单用户，并在 sudoers 文件中添加一行简单的内容，允许该用户无需输入密码即可执行所需的命令 - 并且只能执行此命令。请参阅发行版的文档以获取有关编辑 sudoers 文件和使用 visudo 的正确信息。下面的屏幕截图显示了需要添加到文件的内容。`wireguard-monitoring-user` 是您选择的用户。其余的需要与您看到的完全一样。
 
 ```
 #iobroker.wireguard adapter
@@ -110,7 +110,7 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
 此设置允许 `ALL` 主机上的 `<wireguard-monitoring-user>` 从目录 `/usr/bin/`（可能需要在您的发行版上进行更改）执行 `wg show all dump` 命令，而无需密码（`NOPASSWD`）。
 ![图像](../../../en/adapterref/iobroker.wireguard/admin/sudoers_config.png)
 
-＃＃ 已知的问题
+## 已知问题
 * 没有任何
 
 ## Sentry.io
@@ -121,10 +121,27 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
 该项目与 WireGuard 没有任何关系。WireGuard 名称和 WireGuard 徽标仅用于指代该项目，且属于其所有者的财产。它们不属于该项目的一部分。
 
 ## 版权
-版权所有 (c) 2024 grizzelbee <open.source@hingsen.de>
+版权所有 (c) 2025 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.8.0 (2025-02-15)
+- (grizzelbee) Upd: [#137](https://github.com/Grizzelbee/ioBroker.wireguard/issues/137)minor fixes for adapter checker
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: Removed snyk
+- (grizzelbee) Fix: [#138](https://github.com/Grizzelbee/ioBroker.wireguard/issues/138) moved  to eslint 9 and fixed new lint errors
+- (grizzelbee) Fix: [#119](https://github.com/Grizzelbee/ioBroker.wireguard/issues/119) Fixed log warning "invalid JsonConfig"
+
+### 1.7.0 (2024-10-01)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: [#120](https://github.com/Grizzelbee/ioBroker.wireguard/issues/120) Fixed some issues mentioned by adapter-checker
+
+### 1.6.4 (2024-05-08)
+- (grizzelbee) Upd: Dependencies got updated
+
+### 1.6.3 (2024-04-16)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Fix: Removed annoying warning when setting null or undefined values (introduced in v1.6.2)
+* (grizzelbee) Upd: Requiring at least admin v6.13.16
 
 ### 1.6.2 (2024-03-26)
 * (grizzelbee) Upd: Dependencies got updated
@@ -147,7 +164,7 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
 * (grizzelbee) New: Added an icon to peers, users, peer and user
 
 ### 1.5.8 (2023-08-11)
-* (grizzelbee) Fix: Interface is now correctly set to offline if host is not reachable. 
+* (grizzelbee) Fix: Interface is now correctly set to offline if host is not reachable.
 
 ### 1.5.7 (2023-08-10)
 * (grizzelbee) Fix: Added missing icon file
@@ -182,7 +199,7 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
 * (grizzelbee) Chg: Moved over to new jsonConfig Admin UI
 
 ### 1.3.2 (2022-09-07)
-* (grizzelbee) New: [#38](https://github.com/Grizzelbee/ioBroker.wireguard/issues/38) Fixed "Adapter doesn't come online" bug caused by pseudo-tty settings 
+* (grizzelbee) New: [#38](https://github.com/Grizzelbee/ioBroker.wireguard/issues/38) Fixed "Adapter doesn't come online" bug caused by pseudo-tty settings
 
 ### 1.3.1 (2022-06-26)
 * (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added button to resume a single peer

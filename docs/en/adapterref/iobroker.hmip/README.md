@@ -69,6 +69,9 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (@mcm1957) Admin requirment has been increased.
+
 ### 1.26.5 (2025-01-27)
 * (@Apollon77) Fixed Websocket disconnect cases
 

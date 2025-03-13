@@ -76,12 +76,8 @@ To start the adapter, the following data need to be provided in the admin settin
 
 ## To Dos
 
-1. (in progress) Publish the adapter :)
-2. Add data validation to config fields
-3. (done) Extend data fields received from Controme mini server (e.g. humidity)
-4. (done) Add sensor data for each sensor and room
-5. (done, testing pending) Implement temporary mode (temporary changes to desired temperature for room) next to setpoint temperature
-6. (done) Add option to set value for virtual sensors
+1. (in progress) Testing, testing, testing
+2. Release adapter to stable after thorough testing
 
 ## Know Bugs
 
@@ -92,6 +88,20 @@ To start the adapter, the following data need to be provided in the admin settin
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.5.7 (2025-02-22)
+* (MadErstam) Made adapter safe to handle different versions of API
+* (MadErstam) Switched from got to axios for future compatibility
+
+### 0.5.6 (2025-02-21)
+* (MadErstam) Bugfixing regarding invalid API responses or invalid sensor values
+
+### 0.5.5 (2025-02-20)
+* (MadErstam) Bugfixing regarding async and promise
+
+### 0.5.4 (2025-02-15)
+* (MadErstam) Made sensor names safe
+* (MadErstam) Bugfixing in getOutputs
+
 ### 0.5.3 (2024-11-27)
 * (MadErstam) Various smaller bugfixes and improvements
 
@@ -179,6 +189,8 @@ To start the adapter, the following data need to be provided in the admin settin
 * (MadErstam) initial release
 
 ## License
+Copyright (c) 2025 MadErstam <erstam@gmx.de>
+
 MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -198,5 +210,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Copyright (c) 2024 MadErstam <erstam@gmx.de>

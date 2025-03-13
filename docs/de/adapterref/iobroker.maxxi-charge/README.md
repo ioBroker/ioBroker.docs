@@ -1,40 +1,127 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.maxxi-charge/README.md
-title: ioBroker.Maxxi-Aufladung
-hash: dJ40gCWSLrlioJWXO9KMIqQrO0Gk7VpDkUqt5quNjEk=
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.maxxi-charge.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.maxxi-charge.svg
+BADGE-Number of Installations: https://iobroker.live/badges/maxxi-charge-installed.svg
+BADGE-GitHub: https://img.shields.io/github/license/blabond/iobroker.maxxi-charge?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 ---
-![Logo](../../../en/adapterref/iobroker.maxxi-charge/admin/ms_logo_black_green.webp)
+# ioBroker.Maxxi-Charge
 
-![NPM-Version](https://img.shields.io/npm/v/iobroker.maxxi-charge.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.maxxi-charge.svg)
-![Anzahl der Installationen](https://iobroker.live/badges/maxxi-charge-installed.svg)
-![GitHub](https://img.shields.io/github/license/blabond/iobroker.maxxi-charge?style=flat-square)
-![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/blabond/iobroker.maxxi-charge?logo=github&style=flat-square)
-![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square)
-![GitHub-Probleme](https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square)
-![Spende](https://img.shields.io/badge/Paypal-Donate-blue?style=flat)
+**ioBroker.MaxxiCharge** ist ein Adapter für das ioBroker-System, der die Integration und Steuerung von MaxxiCharge CCU-Geräten ermöglicht. Der Adapter bietet eine Vielzahl von Funktionen, darunter das Lesen von Gerätedaten, die Anpassung von Konfigurationen und das Senden von Steuerbefehlen.
 
-# IoBroker.Maxxi-Charge
-![Testen und Freigeben](https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg)
+## Funktionen
 
-**ioBroker.MaxxiCharge** ist ein Adapter für das ioBroker-System, der die Integration und Steuerung von MaxxiCharge CCU-Geräten ermöglicht. Der Adapter bietet eine Reihe von Funktionen, darunter das Lesen von Gerätedaten, das Anpassen von Konfigurationen und das Senden von Steuerbefehlen.
+- **Datenabfrage**:
+    - Liest Informationen wie IP-Adresse, Status oder Leistung der CCU.
+    - Automatische Erstellung dynamischer Datenpunkte für Gerätedaten.
+- **Konfiguration**:
+    - Anpassung von Parametern wie maximaler Ausgangsleistung, Schwellenwerten oder Ladeverhalten.
+    - **Sommer/Winter-Betrieb**: Dynamische Anpassung der Ladeparameter basierend auf der Jahreszeit.
+    - **Batteriekalibrierung**: Unterstützt einen automatisierten Kalibrierungsprozess für die Batterie.
+    - **Einspeisungssteuerung**: Konfiguration der maximalen Ladung zur Aktivierung oder Deaktivierung der Einspeisung.
+- **Steuerbefehle**:
+    - Dynamische Datenpunkte (`<deviceId>.sendcommand`) zum Senden von Befehlen an die CCU.
+- **Flexibles Abfrageintervall (Cloud-Modus)**:
+    - Der Nutzer kann das Abfrageintervall der CCU-Daten zwischen 10 und 90 Sekunden anpassen.
 
-http://www.maxxisun.de
+## Anforderungen
 
-## Dokumentation
-[🇺🇸 Dokumentation](./docs/en/README.md)
+| Komponente                  | Beschreibung                                                 |
+|-----------------------------|--------------------------------------------------------------|
+| **MaxxiCharge CCU**         | Unterstütztes Gerät mit Netzwerkverbindung.                  |
+| **ioBroker**                | Installierte ioBroker-Instanz.                               |
+| **Node.js**                 | Aktuelle Version von Node.js (siehe ioBroker-Anforderungen). |
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+## Installation
+
+1. **Adapter konfigurieren**:
+    - API-Modus auswählen (Cloud oder Local).
+      - **Cloud:** Den Namen der CCU (`maxxi-XXXXXX-YYY`) eintragen.
+      - **Local:** Adresse von ioBroker auf der MaxxiCharge-Webseite (`maxxi.local`) unter `Api-Route` eintragen: `http://"ioBroker IP":"PORT"`.
+2. **Wichtiger Hinweis beim Update**:
+    - Löschen Sie den Ordner `.sendcommand` und starten Sie den Adapter neu, wenn Sie von einer früheren Version aktualisieren. (< 1.4.0)
+
+## Konfigurationsmöglichkeiten
+
+| Einstellung                  | Beschreibung                                                                     |
+|------------------------------|----------------------------------------------------------------------------------|
+| **Maxxi CCU Name**           | Name oder IP-Adresse der Maxxi CCU.                                              |
+| **CCU Abfrageintervall**     | Intervall (10-90 Sekunden) für die Abfrage der CCU-Daten im Cloud-Modus.         |
+| **Sommer/Winter-Betrieb**    | Automatische Anpassung der Ladeparameter basierend auf definierten Winter-Daten. |
+| **Port für Local-API**       | Definiert den Port, auf dem die Local-API lauscht.                               |
+| **Einspeisungssteuerung**    | Konfiguration zur Aktivierung oder Deaktivierung der Einspeisung.                |
+| **Batteriekalibrierung**     | Startet den automatisierten Kalibrierungsprozess für die Batterie.               |
+
+## Sommer / Winter-Betrieb
+
+Der Sommer/Winter-Betrieb bietet eine dynamische Anpassung der Ladeparameter:
+
+- **Wintermodus**:
+    - Mindestladung wird morgens um 8 Uhr auf 60% gesetzt.
+    - Falls der SOC (State of Charge) ≥ 55% beträgt, wird die Mindestladung auf 40% reduziert.
+- **Sommermodus**:
+    - Mindestladung wird auf 10% gesetzt.
+    - Maximale Ladung wird auf 97% begrenzt.
+- Die Aktivierung erfolgt durch eine Checkbox in den Adapter-Einstellungen, die Zeiträume werden durch Winter-Start- und -Enddatum festgelegt.
+
+## Batteriekalibrierung
+
+Die Batteriekalibrierung umfasst einen automatisierten Prozess:
+
+1. **Start**:
+    - Der Adapter senkt die `minSOC`-Einstellung auf 1%, um die Batterie zu entladen.
+2. **Aufladen**:
+    - Nach Erreichen von <1% SOC wird die `minSOC`-Einstellung auf 99% erhöht.
+3. **Abschluss**:
+    - Nach Erreichen von 99% SOC wechselt der Adapter zurück in den Regelbetrieb.
+
+Die Kalibrierung kann in den Experteneinstellungen aktiviert werden.
+
+## Einspeisungssteuerung
+
+Die Einspeisungssteuerung ermöglicht es, die maximale Ladung (`maxSOC`) so zu konfigurieren, dass überschüssiger Strom ins Netz eingespeist wird oder nicht:
+
+- **90% / 97% (Einspeisung aktiv)**:
+    - Überschüssiger Strom wird ins Netz eingespeist, wenn die Batterie mehr als 97% SOC hat.
+- **100% (Einspeisung deaktiviert)**:
+    - Es wird kein überschüssiger Strom ins Netz eingespeist.
+
+## Datenpunkte
+
+Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurückgegebenen Informationen. Hier ein kleiner Teilausschnitt des Datenpunktstrukturaufbaus:
+
+| Datenpunkt                    | Beschreibung                                 |
+|-------------------------------|----------------------------------------------|
+| `<deviceId>.SOC`              | Batterie Ladezustand.                        |
+| `<deviceId>.PV_power_total`   | PV-Leistung gesamt.                          |
+| `<deviceId>.batteriesInfo.*`  | Batterieinformationen.                       |
+| `<deviceId>.convertersInfo.*` | Converter Status.                            |
+| `<deviceId>.settings.*`       | Gerätespezifische Einstellungen. (Nur Cloud) |
+| `<deviceId>.sendcommand.*`    | Steuerbefehle für die CCU.                   |
+
+## Hinweise
+
+- Änderungen an Datenpunkten im Bereich `<deviceId>.sendcommand` werden automatisch erkannt und an die CCU gesendet.
+- Bei Problemen mit fehlenden Datenpunkten oder unerwartetem Verhalten: Adapter neu starten.
+
+## Fehler
+
+- **Fehler beim Verarbeiten der Daten**:
+    - `deviceId` nicht vorhanden → Adapter neu starten, nachdem die CCU-Info eingegeben wurde. 
+
+- **Eingaben auf der APP-Webseite(Online) werden zurückgesetzt**:
+    - Verwende ausschließlich die Webseite `maxxi.local` oder die IP-Addresse der CCU, um manuelle Eingaben vorzunehmen. Bei der Nutzung von sendCommand-Steuerbefehlen werden die Online-Eingaben überschrieben.
 
 ## Changelog
 
-### 1.4.8 (2025-01-28)
+### 1.4.9 (2025-02-08)
 
+- Bugfix on Battery Calibration.
 - Fixes for stable release on ioBroker adapter.
-- Fixes for Deinstallation
 - Feedback update
 
 ### 1.4.1 (2025-01-12)

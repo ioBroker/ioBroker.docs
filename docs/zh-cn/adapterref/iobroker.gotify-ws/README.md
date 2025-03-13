@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gotify-ws/README.md
 title: ioBroker.gotify-ws
-hash: iq5EFeYVkol8NjjSP4jELPyVF45maWu/vZtMN7Qby8s=
+hash: chdrpAwDn/DcvlzGgYAS7WY2BLJkxQaZoJrzaaoxNj8=
 ---
 ![标识](../../../en/adapterref/iobroker.gotify-ws/admin/gotify-ws.png)
 
@@ -42,21 +42,21 @@ Gotify-WS 接收消息并将其转发到 ioBroker 支持的通知服务。这意
 
 Spotify-WS 目前支持以下通知服务
 
-* 电子邮件
-* 矩阵
-* 通知管理器
-* 容易被打败
-* 不和谐
-* 信号
-* 电报
-* WhatsApp
+-   电子邮件
+-   矩阵
+- 通知管理器
+- 推倒
+- 不和谐
+-   信号
+- 电报
+- WhatsApp
 
 ---
 
 ## 适配器配置
 适配器的配置非常简单。
 
-您在 Gotify 服务器上创建一个新客户端并复制客户端生成的令牌。
+您在 Gotify 服务器上创建一个新客户端，并复制客户端生成的令牌。
 您在 Gotify-WS 适配器配置中输入此令牌。
 Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
@@ -67,56 +67,76 @@ Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 ---
 
 ## Changelog
-<!-- ### **WORK IN PROGRESS** -->
 
-### **WORK IN PROGRESS**
-* (simatec) eslint-config fix
-* (simatec) Code fix
+<!-- ### **WORK IN PROGRESS** -->
+### 0.1.12 (2025-02-22)
+
+-   (simatec) Dependencies updated
+-   (simatec) small fix
+
+### 0.1.11 (2025-01-09)
+
+-   (simatec) eslint-config fix
+-   (simatec) Code fix
+-   (simatec) Dependencies updated
+-   (simatec) Update License
 
 ### 0.1.10 (2024-11-24)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
-* (simatec) Issue Action added
-* (simatec) eslint-config added
+
+-   (simatec) Dependencies updated
+-   (simatec) Responsive Design fix
+-   (simatec) Issue Action added
+-   (simatec) eslint-config added
 
 ### 0.1.9 (2024-09-26)
-* (simatec) Fix for admin 7.1.5
+
+-   (simatec) Fix for admin 7.1.5
 
 ### 0.1.8 (2024-09-24)
-* (simatec) Responsive Design fix
-* (simatec) Cleaned code
+
+-   (simatec) Responsive Design fix
+-   (simatec) Cleaned code
 
 ### 0.1.7 (2024-09-16)
-* (simatec) Dependencies updated
-* (simatec) Responsive Design fix
+
+-   (simatec) Dependencies updated
+-   (simatec) Responsive Design fix
 
 ### 0.1.6 (2024-09-10)
-* (simatec) Fix Adapter Check
-* (simatec) Dependencies updated
-* (simatec) Responsive Design added
+
+-   (simatec) Fix Adapter Check
+-   (simatec) Dependencies updated
+-   (simatec) Responsive Design added
 
 ### 0.1.5 (2024-07-22)
-* (simatec) small fix
+
+-   (simatec) small fix
 
 ### 0.1.4 (2024-07-19)
-* (simatec) Dependencies updated
+
+-   (simatec) Dependencies updated
 
 ### 0.1.3 (2024-07-17)
-* (simatec) Fix Test & Release
-* (simatec) Fix Timeout
+
+-   (simatec) Fix Test & Release
+-   (simatec) Fix Timeout
 
 ### 0.1.2 (2024-06-26)
-* (simatec) Fix io-package
-* (simatec) Notification-Manager added
+
+-   (simatec) Fix io-package
+-   (simatec) Notification-Manager added
 
 ### 0.1.1 (2024-06-19)
-* (simatec) Fix Branch
+
+-   (simatec) Fix Branch
 
 ### 0.1.0 (2024-06-19)
-* (simatec) First Release
+
+-   (simatec) First Release
 
 ### 0.0.1 (2024-03-15)
-* (simatec) initial release
+
+-   (simatec) initial release
 
 ---
 
@@ -124,7 +144,7 @@ Gotify-WS 还需要 Gotify 服务器的 IP 地址或域和端口。
 
 MIT License
 
-Copyright (c) 2024 simatec
+Copyright (c) 2024 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.remeha-home/README.md
 title: ioBroker.remeha-home
-hash: uRi77+bePrsWGCD5xccnBWjbelxfrurWjfa1VJBWsxM=
+hash: yRxbFwyeNohf5COQOHuVehlHQWjT6q4kachmpUbjgco=
 ---
 ![Логотип](../../../en/adapterref/iobroker.remeha-home/admin/remeha-home.png)
 
@@ -18,7 +18,7 @@ hash: uRi77+bePrsWGCD5xccnBWjbelxfrurWjfa1VJBWsxM=
 # IoBroker.remeha-home
 ![Тест и выпуск](https://github.com/simatec/ioBroker.remeha-home/workflows/Test%20and%20Release/badge.svg)
 
-Этот адаптер использует службу `Sentry.io` для автоматического сообщения мне как разработчику об исключениях и ошибках кода, а также о новых схемах устройств. Подробнее см. ниже!
+Этот адаптер использует службу `Sentry.io` для автоматического сообщения мне как разработчику об исключениях, ошибках кода и новых схемах устройств. Подробнее см. ниже!
 
 ---
 
@@ -47,10 +47,41 @@ hash: uRi77+bePrsWGCD5xccnBWjbelxfrurWjfa1VJBWsxM=
 
 Их необходимо ввести в конфигурацию адаптера.
 
---- <!-- ### **РАБОТА В ХОДЕ** -->
+---
 
 ## Changelog
-### **WORK IN PROGRESS**
+<!-- ### **WORK IN PROGRESS** -->
+### 1.0.4 (2025-03-07)
+* (simatec) Fix Post Update
+
+### 1.0.3 (2025-03-07)
+* (simatec) Fix Post Update
+
+### 1.0.2 (2025-03-06)
+* (simatec) Code Fix
+* (simatec) eslint Fix
+
+### 1.0.1 (2025-03-04)
+* (simatec) Code clean
+* (simatec) Dependencies updated
+
+### 1.0.0 (2025-03-02)
+* (simatec) Fix Update Settings
+* (simatec) Rewrite in Typescript
+
+### 0.2.8 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
+### 0.2.7 (2025-01-09)
+* (simatec) Fix Update Intervall
+
+### 0.2.6 (2025-01-09)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 0.2.5 (2024-11-27)
 * (simatec) Dependencies updated
 * (simatec) Fix jsonConfig
 * (simatec) Issue Action added
@@ -98,7 +129,7 @@ hash: uRi77+bePrsWGCD5xccnBWjbelxfrurWjfa1VJBWsxM=
 
 MIT License
 
-Copyright (c) 2024 simatec
+Copyright (c) 2024 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

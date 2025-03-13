@@ -98,6 +98,8 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Latest version
 
+### 0.12.1 Added Laser Distance Sensor (LSD) states
+
 #### 0.11.6 Adapater checker related updates
 
 #### 0.11.5 ECOWITT forwarding fixed

@@ -78,6 +78,7 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 ### **WORK IN PROGRESS**
 * (bluefox) updated socket classes
 * (bluefox) minimum required node.js version is 18
+* (bluefox) used `@iobroker/eslint-config`
 
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
@@ -318,7 +319,7 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 ### 0.3.3 (2017-01-02)
 * (bluefox) Fix error with smartNames
 * (bluefox) Take the superset of actions for group and not the last one
-* (bluefox) if group has switches and dimmers, turn devices OFF if the percent level is less than 30%
+* (bluefox) if a group has switches and dimmers, turn devices OFF if the percent level is less than 30%
 * (bluefox) Remember ON level for dimmers to switch it later ON
 
 ### 0.3.0 (2016-12-29)

@@ -67,7 +67,7 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 
 ## Tuning Web-Sockets
 On some web-sockets clients, there is a performance problem with communication.
-Sometimes this issue is due to the fallback of socket.io communication on long polling mechanism.
+Sometimes this issue is due to the fallback of socket.io communication on a long polling mechanism.
 You can set the option *Force Web-Sockets* to force using only web-sockets transport.
 
 <!--
@@ -76,23 +76,35 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 -->
 
 ## Changelog
+### 7.0.8 (2025-03-04)
+* (@GermanBluefox) Removed the frequent debug output
+
+### 7.0.7 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 7.0.6 (2025-02-28)
+* (@GermanBluefox) Added OAuth2 support
+
+### 7.0.1 (2025-02-11)
+* (@GermanBluefox) Adapter was rewritten in TypeScript
+
 ### 6.7.1 (2024-06-26)
-* (bluefox) Corrected call of getObjectView with null parameter
+* (@GermanBluefox) Corrected call of getObjectView with null parameter
 
 ### 6.7.0 (2024-04-27)
 * (foxriver76) ported to webserver
 
 ### 6.6.1 (2024-02-22)
-* (bluefox) Just some packages were updated
+* (@GermanBluefox) Just some packages were updated
 
 ### 6.6.0 (2023-10-13)
-* (bluefox) Corrected adapter termination if the alias has no target
+* (@GermanBluefox) Corrected adapter termination if the alias has no target
 
 ### 6.5.7 (2023-10-08)
 * (foxriver76) upgrade socket-classes to fix error with vis subscriptions
 
 ### 6.5.6 (2023-09-28)
-* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+* (@GermanBluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
 
 ### 6.5.5 (2023-09-14)
 * (foxriver76) upgrade socket-classes to fix crash cases
@@ -101,35 +113,35 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 * (mcm1957) added missing node16 requirement
 
 ### 6.5.2 (2023-08-01)
-* (bluefox) Added the subscribing on the specific instance messages
+* (@GermanBluefox) Added the subscribing on the specific instance messages
 
 ### 6.4.0 (2023-07-07)
-(bluefox) extended the getObjects function with the possibility to read the list of IDs
+(@GermanBluefox) extended the getObjects function with the possibility to read the list of IDs
 
 ### 6.3.5 (2023-03-17)
-* (bluefox) Increased the max size of the message to 200MB
+* (@GermanBluefox) Increased the max size of the message to 200MB
 
 ### 6.3.4 (2023-03-03)
-* (bluefox) Allowed deletion of fullcalendar objects
+* (@GermanBluefox) Allowed deletion of fullcalendar objects
 
 ### 6.3.3 (2022-12-22)
-* (bluefox) used new socket-classes
+* (@GermanBluefox) used new socket-classes
 
 ### 6.3.1 (2022-11-27)
-* (bluefox) Added `fileChange` event
+* (@GermanBluefox) Added `fileChange` event
 
 ### 6.2.0 (2022-11-08)
 * (Apollon77) Prepare for future js-controller versions
-* (bluefox) Function `getObjects` for web was extended by devices, channels and enums
+* (@GermanBluefox) Function `getObjects` for web was extended by devices, channels and enums
 
 ### 6.1.10 (2022-08-24)
-* (bluefox) Caught error by subscribing
+* (@GermanBluefox) Caught error by subscribing
 
 ### 6.1.8 (2022-07-08)
-* (bluefox) Corrected getAdapterInstances method
+* (@GermanBluefox) Corrected getAdapterInstances method
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 @GermanBluefox <dogafox@gmail.com>

@@ -27,6 +27,15 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.1 (2025-03-03)
+* (BenAhrdt) Search logic for and / or improoved
+
+### 0.4.0 (2025-03-03)
+* (BenAhrdt) Implement Token
+
+### 0.3.0 (2025-02-22)
+* (BenAhrdt) update admin and js-controller depencies
+
 ### 0.2.1 (2024-12-20)
 * (BenAhrdt) replace forbidden chars with "_" and add timeout 3000ms to axios
 
@@ -93,7 +102,7 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 ## License
 MIT License
 
-Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: XG9aqNYiLAXjuzqtVwldNW7MPodBNOol063vD8Jug5E=
+hash: Jlghr+gNACm+PPoFxlgOpj+XfCjqgLA3P2T+i8aIt5Y=
 ---
 ![标识](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
@@ -54,24 +54,22 @@ http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
 http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
 ```
 
-或者
+或（当不使用 Redis 时）
 
 ```
-/opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg'
+/opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg
 ```
 
 ＃＃＃＃ 例子：
-```
-http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
-```
+`http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg`
 
 ### 通过电报发送快照
 ＃＃＃＃ 例子
 js-controller 5 必备
 
-```
+```js
 setState('doorbird.0.TakeSnapshot', true);
-onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, fileData, mimeType) {
+onFile('doorbird.0', 'TakeSnapshot_1.jpg', true, (id, fileName, size, fileData, mimeType) => {
     sendTo('telegram.0', {
         text: fileData,
         type: 'photo'
@@ -87,6 +85,7 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
 | DoorBird 视频门站 D21x | 1.00 及以上版本 | 000108 及以上版本 |
 | BirdGuard B10x | 1.00 及以上 | 000099 及以上 |
 | DoorBird 视频门站 D11x | 1.00 及以上 | 000130 及以上 |
+| DoorBird 迷你半球摄像机 A1131 | 1.00 及以上 | 000148 及以上 |
 
 ## Changelog
 
@@ -94,32 +93,35 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2025-03-03)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+- (@klein0r) Migrated to json config
+- (@klein0r) Updated documentation and dependencies
+
 ### 2.0.0 (2024-09-02)
 
--   (Schmakus) update dependencies
+- (Schmakus) update dependencies
 
 ### 1.7.0 (2024-08-23)
 
--   (Schmakus) Dependencies have been updated
+- (Schmakus) Dependencies have been updated
 
 ### 1.6.0 (2024-07-02)
 
--   (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
--   (mcm1957) Dependencies have been updated
+- (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
+- (mcm1957) Dependencies have been updated
 
 ### 1.5.0 (2024-03-01)
 
--   (Schmakus) update dependencies
-
-### 1.4.1 (2024-02-22)
-
--   (Schmakus) Creation of favorites and schedules only once after starting the adapter and successfully connecting to DoorBird. (Another step to solve "Maximum call stack size exceeded" problem.)
+- (Schmakus) update dependencies
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <>
+Copyright (c) 2025 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

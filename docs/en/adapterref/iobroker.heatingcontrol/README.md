@@ -284,6 +284,11 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.12.14 (2025-02-27)
+* (René) see issue #635: initial values (-99) not to write to object 
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
 ### 2.12.13 (2024-11-20)
 * (René) see issue #607: minimum length of telegram user reduced to one char
 
@@ -743,7 +748,7 @@ Attention: some changes in datapoints!!
 ## License
 MIT License
 
-Copyright (c) 2019-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2019-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

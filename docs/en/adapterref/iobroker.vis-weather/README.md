@@ -54,6 +54,10 @@ You might need to enable "NextDaysDetailed".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.5.11 (2025-02-28)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
 ### 2.5.10 (2024-05-28)
 * (René) suggested changes by adapter checker
 
@@ -167,7 +171,7 @@ You might need to enable "NextDaysDetailed".
 ## License
 MIT License
 
-Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

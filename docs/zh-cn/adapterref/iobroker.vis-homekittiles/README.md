@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: /X3s0IvNZdNrT/NMxCAvFmje1BgCVt+giQKZUZrUyso=
+hash: BjT9FQxITbDD3xY9orHVvbnqrpt7q4Gp/EVxos9Mz6w=
 ---
 # IoBroker.vis-homekittiles
 
@@ -36,16 +36,33 @@ Homekit Tiles 是基于 Apple HomeKit 设计的小部件集。
 * 为 Sonos Group 创建复选框
 * 日期选择器：动态日/月图标
 * Tiles：添加对话框按钮
+* 优化 'infoText' 函数
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.6 (2025-03-04)
+
+* Depencies updated
+
+### 0.4.5 (2025-02-14)
+
+* hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget
+
+### 0.4.2 (2025-02-09)
+
+* hkt-settings-value: added format options for decimals
+* Thermostat dialog: prevent select menu inside of dialogs from open when dialog window opens
+* View in widget dialog: prevent select menu inside of dialogs from open when dialog window opens
+
+### 0.4.1 (2025-02-08)
 
 * All tiles: added icon for state off
 * Optimized CSS for indicator
+* Removed forced font-size of widgets in View-In-Widget-Swipe
+* Removed forced font-size of widgets in View-In-Widget-Dialog
 
 ### 0.4.0 (2025-01-14)
 

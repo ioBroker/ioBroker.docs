@@ -16,6 +16,13 @@
 This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API. It uses the official API provided by Zendure.
 You can read more about the API here: https://github.com/Zendure/developer-device-data-report
 
+## Donate
+
+If you find the adapter useful for you and want to support my work, feel free to donate by Paypal. Thank You!
+(this is an personal Donate link for Nograx, in no relation to the ioBroker Project!)<br />
+
+[![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
+
 ## Features
 
 - Get all telemetry data from your Solarflow devices, also those not visible in the offical app - like battery voltage
@@ -40,14 +47,14 @@ You can read more about the API here: https://github.com/Zendure/developer-devic
 
 Credits goes to https://github.com/reinhard-brandstaedter/solarflow which helped a lot with the knowledge about the MQTT server from Zendure! Thanks!
 
-## Donate
-
-If you find the adapter useful for you and want to support my work, feel free to donate by Paypal. Thank You!
-(this is an personal Donate link for Nograx, in no relation to the ioBroker Project!)<br />
-
-[![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
-
 ## Changelog
+### 1.11.0 (2025-02-11)
+
+- Drop Standby usage to 7W and 14W if HUB connected with ACE as it is more accurate
+- Added heatState and autoModel (system operation mode) state
+- Added possibility to set the operation mode (autoModel)
+- Fix gridPower state
+
 ### 1.10.7 (2025-01-21)
 
 - Fix reset calculation values of ACE if connected to HUB
@@ -59,11 +66,6 @@ If you find the adapter useful for you and want to support my work, feel free to
 ### 1.10.4 (2025-01-14)
 
 - Fix "Grid Input Power" state if connected with Ace
-
-### 1.10.2 (2025-01-14)
-
-- Fix calculation of grid input power on ace
-- Correct standby usage of battery if conncted with ace (add additional 10W)
 
 ### 1.10.1 (2025-01-06)
 

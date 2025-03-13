@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-weather-and-heating/README.md
 title: ioBroker.vis-2-виджеты-погода-и-отопление
-hash: jTbIyjESGtEJg9X0ohG32ma7olcf9PANkH9rRCB95A8=
+hash: Gu+zeoDKQ3bLXGhjMaP9S/jnBFBqTXboaPR5uLV/coc=
 ---
 ![Количество установок](http://iobroker.live/badges/vis-2-widgets-weather-and-heating-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-weather-and-heating.svg)
@@ -42,6 +42,14 @@ hash: jTbIyjESGtEJg9X0ohG32ma7olcf9PANkH9rRCB95A8=
 
 * OID устанавливаются автоматически на основе общих настроек
 * наборы иконок можно менять
+
+### Метеорологический виджет погоды
+для получения дополнительной информации см. [МЕТЕОРЕД](https://www.daswetter.com/users/widget).
+
+Вам необходимо создать свой виджет на METEORED и получить идентификатор для виджета. Этот идентификатор должен быть установлен в настройках виджета здесь.
+Не забудьте добавить свой домен в белый список в настройках METEORED. В моем случае мне пришлось добавить в белый список `https://192.168.xxx.xxx:8082`, чтобы запустить виджет.
+
+![vis-виджет-METEORED.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-Meteored.png)
 
 ## Общая диаграмма
 ![виджет_общая_диаграмма.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/widget_general_chart.png)
@@ -82,35 +90,77 @@ hash: jTbIyjESGtEJg9X0ohG32ma7olcf9PANkH9rRCB95A8=
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 0.10.0 (2025-03-02)
+* (René) widget from Meteored (DasWetter.com) added, no further adapter needed, but only display of data from Meteored possible
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 0.9.1 (2025-01-12)
+* (René) bug fix: support darkmode for time picker
+
+### 0.9.0 (2025-01-11)
+* (René) see issue #66: Heating Time Schedule and Profile Params widget - option to use select box for temperature adjustment like Pittini vis
+* (René) see issue #66: Heating Time Schedule and Profile Paramswidget - option to use time picker for time adjustments
+
+### 0.8.1 (2024-12-27)
+* (René) update dependencies
+* (René) see issue #66: Heating Time Schedule widget - uses minimum temperature from adapter for input value range
+* (René) see issue #66: Heating Time Schedule widget - step width for temperature adjustable (1°C or 0.5°C)
+* (René) translations
+
+### 0.8.0 (2024-11-24)
+* (René) see issue #60: add missing module
+
+### 0.7.7 (2024-10-27)
+* (René) show absolute / relative as info in Heating Room Profile Params widget
+* (René) Heating Time Schedule: copy periods added
+
+### 0.7.6 (2024-10-20)
+* (René) added missing svg's
+* (René) see issue #55 and #50: in some widgets color configuration added (text and background)
+* (René) see issue #55: bug fix to show icon in Heating Window Status widget
+* (René) see issue #55: in weather widget position of y axis (left or right) adjustable
+
+### 0.7.4 (2024-10-11)
+* (René) see issue #51: weather widget: title not shown at all, if no string available or no OID set
+* (René) see issue #51: weather widget: color for title and axis lables adjustable
+* (René) see issue #53: wrong icon (weather and wind) shown in WeatherDayWidget fixed
+
+### 0.7.3 (2024-09-28)
+* (René) add missing translations
+
+### 0.7.2 (2024-09-15)
+* (René) bug fix to show widgets in runtime too
+
 ### 0.7.0 (2024-08-23)
- * (René) bug fix images
- * (René) Icons and translations
- * (René) Heating General Parameter: show paramter only if OID is set
- * (René) Heating Room Profile Parameter: show paramter only if OID is set
- * (Bluefox) Typos, Refactoring, Formating
+* (René) bug fix images
+* (René) Icons and translations
+* (René) Heating General Parameter: show paramter only if OID is set
+* (René) Heating Room Profile Parameter: show paramter only if OID is set
+* (Bluefox) Typos, Refactoring, Formating
 
 ### 0.6.0 (2024-08-18)
- * (René) widget set renamed again because adapter checker doesn't accept the name
- * (René) Icons and translations
- * (René) readme update
- * (René) heating time schedule widget overworked
+* (René) widget set renamed again because adapter checker doesn't accept the name
+* (René) Icons and translations
+* (René) readme update
+* (René) heating time schedule widget overworked
 
 ### 0.5.0 (2024-08-08)
- * (René) widget Heating Room Status overview overworked (works only with HeatingControl@1.12.9)
- * (René) show number of open windows in Heating Window Status Overview
- * (René) widget Heating Room overworked
+* (René) widget Heating Room Status overview overworked (works only with HeatingControl@1.12.9)
+* (René) show number of open windows in Heating Window Status Overview
+* (René) widget Heating Room overworked
 
 ### 0.4.0 (2024-07-27)
- * (René) widget set renamed to weather and heating, because two widget sets are available
- * (René) bug fix icon in weather day widget
- * (René) heating and weather widgets sets are separeted
- * (René) Heating General Params Widget get and set values fixed
- * (René) Heating Room Profile Params Widget get and set values fixed
+* (René) widget set renamed to weather and heating, because two widget sets are available
+* (René) bug fix icon in weather day widget
+* (René) heating and weather widgets sets are separeted
+* (René) Heating General Params Widget get and set values fixed
+* (René) Heating Room Profile Params Widget get and set values fixed
 
 ### 0.3.3 (2024-07-12)
- * (René) Heating Rooms Overview widget completed
- * (René) Heating Windows Status Overview widget completed
- * (René) Heating Room widget completed
+* (René) Heating Rooms Overview widget completed
+* (René) Heating Windows Status Overview widget completed
+* (René) Heating Room widget completed
 
 ### 0.3.2 (2024-06-30)
 * (René) Heating General Params widget added
@@ -154,7 +204,7 @@ hash: jTbIyjESGtEJg9X0ohG32ma7olcf9PANkH9rRCB95A8=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 rg-engineering <info@rg-engineering.eu>
+Copyright (c) 2024 - 2025 rg-engineering <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

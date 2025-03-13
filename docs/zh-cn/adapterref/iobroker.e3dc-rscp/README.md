@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: o0QL1qBuV6SFC+toSa16QCoTaMc3gM7mFeOBGkHON80=
+hash: TSYCciPALhyUVOVkv4kkmgxG+PRzVzhLoXivGVNzybY=
 ---
 ![标识](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -15,7 +15,7 @@ hash: o0QL1qBuV6SFC+toSa16QCoTaMc3gM7mFeOBGkHON80=
 ![捐](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 ![新平台](https://nodei.co/npm/iobroker.e3dc-rscp.png?downloads=true)
 
-#ioBroker.e3dc-rscp
+# IoBroker.e3dc-rscp
 **测试：**![测试与发布](https://github.com/git-kick/ioBroker.e3dc-rscp/workflows/Test%20and%20Release/badge.svg)
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
@@ -36,7 +36,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 <a name="toc"></a>
 
 ## 适配器配置 这是创建适配器新实例时需要配置的内容。设置按选项卡组织。
-### “选项”标签<table><tr><th>输入字段</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户</a>上的用户名。E3/DC 会在授予 RSCP 访问权限之前检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户</a>的密码。</td></tr><tr><td> E3/DC IP 地址</td><td>本地网络中的地址，例如 192.168.178.107<br> <code>ioBroker.discovery</code> （从 2.8.0 开始）能够使用 uPnP 检测 E3/DC 设备。<br>您还可以在 E3/DC 屏幕上检查 IP，它被称为“系统 IP”：<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC 端口</td><td>E3/DC 的 RSCP 端口，通常为 5033<br>注意：这与 Modbus 端口不同。</td></tr><tr><td> RSCP 密码</td><td>RSCP 密码，在您的 E3/DC 站本地输入：<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER 重新发送间隔 [秒]</td><td>定义 ioBroker 向 E3/DC 请求状态更新的频率。实验表明，当此间隔超过 10 秒时，SET_POWER 可能会振荡，尽管官方 E3/DC 标签列表中的注释说每 30 秒设置一次就足够了。如果设置为 0（零），则不会发生重新发送，即您必须从外部触发重新发送，否则 E3/DC 将在大约 10 秒后恢复正常。</td></tr><tr><td>元组发送延迟[秒]</td><td>定义 ioBroker 在将空闲周期或数据历史更改写入 E3/DC 之前将等待多长时间。目的是将多个后续更改合并到一个调用中。每次更改一个空闲周期或一个数据历史范围内的值时，都会分别设置/重置专用超时；只有在超时后才会传输更改<tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>仅针对已检查的命名空间请求数据。</td></tr><td>惰性 SetState() 复选框</td><td>如果选中（默认），适配器将仅在值发生变化时写入 ioBroker States - 这样可以减少工作量，更适合较小的硬件。取消选中此选项，适配器将在每个轮询间隔后调用 setState()，对于未改变的值也是如此 - 如果您的应用程序依赖于定期的 State.ts 更新，则效果会更好。</td></tr>以上。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td></tr>
+### “选项”标签<table><tr><th>输入字段</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户</a>上的用户名。E3/DC 会在授予 RSCP 访问权限之前检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户的</a>密码。</td></tr><tr><td> E3/DC IP 地址</td><td>本地网络中的地址，例如 192.168.178.107<br> <code>ioBroker.discovery</code> （从 2.8.0 开始）能够使用 uPnP 检测 E3/DC 设备。<br>您还可以在 E3/DC 屏幕上检查 IP，它被称为“系统 IP”：<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC 端口</td><td>E3/DC 的 RSCP 端口，通常为 5033<br>注意：这与 Modbus 端口不同。</td></tr><tr><td> RSCP 密码</td><td>RSCP 密码，在您的 E3/DC 站本地输入：<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER 重新发送间隔 [秒]</td><td>定义 ioBroker 向 E3/DC 请求状态更新的频率。实验表明，当此间隔超过 10 秒时，SET_POWER 可能会振荡，尽管官方 E3/DC 标签列表中的注释说每 30 秒设置一次就足够了。如果设置为 0（零），则不会发生重新发送，即您必须从外部触发重新发送，否则 E3/DC 将在大约 10 秒后恢复正常。</td></tr><tr><td>元组发送延迟[秒]</td><td>定义 ioBroker 在将空闲期或数据历史更改写入 E3/DC 之前等待的时间。目的是将多个后续更改合并为一个调用。每次更改一个空闲期或一个数据历史范围内的值时，都会分别设置/重置专用超时；只有在超时结束后才会传输更改。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td><tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>仅针对已检查的命名空间请求数据。</td></tr><tr><td>组件初始化的最大索引</td><td>根据需要调整最大索引，例如，如果您有更多电池。这用于组件的初始检测。例外：PERIOD2 计数表示至少将创建多少个版本 2 PERIOD 对象。请注意，索引以 0、1、... 开头，即，如果您有四节电池，则最大索引 3 是合适的。</td></tr><td>惰性 SetState() 复选框</td><td>如果选中（默认），适配器将仅在值发生变化时写入 ioBroker States - 这样可以减少工作量，更适合较小的硬件。取消选中此选项，适配器将在每个轮询间隔后调用 setState()，对于未改变的值也是如此 - 如果您的应用程序依赖于定期的 State.ts 更新，则更适合。</td></tr></tr><td>空闲时间段 V1 和 V2 的复选框</td><td>2024 年，E3/DC 推出了空闲时段第 2 版，可以处理同一天的多个时段。旧版 E3/DC 门户显示 V1 时段，新版显示 V2 时段。我没有完全放弃 V1，因此您仍然可以使用它们来实现向下兼容。如果您决定使用 V2，我建议关闭 V1。两个版本都会以非平凡的方式相互干扰，因此请小心。</td></tr>
 </table>
 
 ### 标签“轮询间隔”
@@ -56,11 +56,11 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 RSCP 协议将*标签*（即状态或值）分组到*命名空间*（即标签组）中。<table><tr><th>命名空间</th><th>代表</th><th>适配器支持</th></tr><tr><td>放射科协会</td><td>Remote-Storage-Control-Protocol（即协议级标签）</td><td>部分支持</td></tr><tr><td>紧急医疗服务</td><td>能源管理系统</td><td>部分支持</td></tr><tr><td>聚乙烯醇</td><td>光伏逆变器</td><td>支持</td></tr><tr><td>蝙蝠</td><td>电池</td><td>支持</td></tr><tr><td>直流直流</td><td>电池DCDC</td><td>尚不支持</td></tr><tr><td>下午</td><td>功率计</td><td>部分支持（REQ 标签可以，SET 标签尚未实现）</td></tr><tr><td>数据库</td><td>数据库</td><td>实验性的（参见 README-dev.md）</td></tr><tr><td>柔性制造系统</td><td>（车队管理系统？）</td><td>没有定义标签</td></tr><tr><td>服务车辆</td><td>服务器在线/用户管理</td><td>尚不支持</td></tr><tr><td>哈</td><td>家庭自动化</td><td>尚不支持</td></tr><tr><td>信息</td><td>信息</td><td>部分支持（REQ 标签可以，SET 标签尚未实现）</td></tr><tr><td> EP</td><td>应急电源</td><td>支持</td></tr><tr><td>系统</td><td>系统重启/启动</td><td>支持</td></tr><tr><td>密歇根大学</td><td>更新管理</td><td>尚不支持</td></tr><tr><td>世界银行</td><td>壁挂式安装盒</td><td>支持</td></tr></table>
 
 ### 可写的 RSCP 标签
-<table><tr><th>命名空间</th><th>标签</th><th>类型</th><th>内容</th></tr><tr><td>紧急医疗服务</td><td>最大充电功率</td><td>数字</td><td>充电限制（单位：[W]）——注意：除非 POWER_LIMITS_USED 为“真”，否则无效。</td></tr><tr><td>紧急医疗服务</td><td>最大放电功率</td><td>数字</td><td>放电限制（单位：[W]）- 注意：除非 POWER_LIMITS_USED 为“真”，否则无效。</td></tr><tr><td>紧急医疗服务</td><td>放电开始功率</td><td>数字</td><td>最小电池放电功率（单位：[W]） - 注意：除非 POWER_LIMITS_USED 为“真”，否则无效。</td></tr><tr><td>紧急医疗服务</td><td>省电模式已启用</td><td>布尔值</td><td>省电模式已启用。</td></tr><tr><td>紧急医疗服务</td><td>已使用的功率限制</td><td>布尔值</td><td>使用功率限制。</td></tr><tr><td>紧急医疗服务</td><td>已启用天气调节充电</td><td>布尔值</td><td>已启用天气调节充电。</td></tr><tr><td>紧急医疗服务</td><td>设置电源模式</td><td>州</td><td>充电模式；通常传播到 MODE。</td></tr><tr><td>紧急医疗服务</td><td>设置电源值</td><td>数字</td><td>充电功率[W]；通常会传递到 SET_POWER。</td></tr><tr><td>紧急医疗服务</td><td>手动充电能量</td><td>数字</td><td>手动充电能量[Wh]；设置此值将启动手动充电。</td></tr><tr><td>紧急医疗服务</td><td>汽车模式前的电池</td><td>布尔值</td><td>在壁挂式充电盒前对电池进行充电。</td></tr><tr><td>紧急医疗服务</td><td>电池到汽车模式</td><td>布尔值</td><td>在太阳能模式下通过壁挂盒给电池放电。</td></tr><tr><td>紧急医疗服务</td><td>直到放电</td><td>数字</td><td>壁挂盒可将电池放电至的百分比。</td></tr><tr><td>紧急医疗服务</td><td>WB_强制_电源_分配</td><td>布尔值</td><td>防止混合模式下通过壁挂式充电盒放电，true=禁止，false=允许</td></tr><tr><td>紧急医疗服务</td><td>覆盖可用功率</td><td>数字</td><td>E3/DC 将会把这个值 [W] 发送给 wallvox 作为可用的太阳能。</td></tr><tr><td>紧急医疗服务</td><td>紧急电源</td><td>州</td><td>应急电源模式。**实验性**</td></tr><tr><td>紧急医疗服务</td><td>开始紧急电源测试</td><td>布尔值</td><td>设置此值将把 E3/DC 切换到孤岛模式。**实验性**</td></tr><tr><td>紧急医疗服务 (1)</td><td>空闲_周期_活动</td><td>布尔值</td><td>（停用）空闲期（2）。</td></tr><tr><td>紧急医疗服务 (1)</td><td>开始时间</td><td>数字</td><td>空闲时间段的开始小时 (2)。</td></tr><tr><td>紧急医疗服务 (1)</td><td>开始分钟</td><td>数字</td><td>空闲周期的起始分钟 (2)。</td></tr><tr><td>紧急医疗服务 (1)</td><td>结束时间</td><td>数字</td><td>空闲时间段的结束时间 (2)。</td></tr><tr><td>紧急医疗服务 (1)</td><td>分钟结束</td><td>数字</td><td>空闲周期的结束分钟 (2)。</td></tr><tr><td> EP</td><td>参数_EP_RESERVE</td><td>数字</td><td>应急电源的目标储备；电池容量的百分比。与 PARAM_EP_RESERVE_ENERGY 相关。</td></tr><tr><td> EP</td><td> PARAM_EP_RESERVE_ENERGY</td><td>数字</td><td>应急电源的目标储备；能量单位为 [Wh]。与 PARAM_EP_RESERVE 相关。</td></tr><tr><td>数据库 (3)</td><td> TIME_START</td><td>细绳</td><td>请求数据的时间范围的开始。</td></tr><tr><td>数据库 (3)</td><td>时间跨度</td><td>细绳</td><td>请求数据的时间范围长度（秒）。</td></tr><tr><td>数据库 (3)</td><td>时间间隔</td><td>细绳</td><td>数据点之间的间隔。</td></tr><tr><td>系统</td><td>系统重启</td><td>数字</td><td>将值更改为 1 将重新启动 E3/DC 系统。</td></tr><tr><td>系统</td><td>重启应用程序</td><td>布尔值</td><td>将值更改为 true 将重新启动 E3/DC 应用程序。</td></tr><tr><td>世界银行</td><td>外部数据_SUN</td><td>布尔值</td><td>设置 Sun 模式或混合模式。</td></tr><tr><td>世界银行</td><td>外部数据网络</td><td>数字</td><td>设置壁挂箱电网电源。</td></tr><tr><td>世界银行</td><td>外部数据_全部</td><td>数字</td><td>设置壁挂盒总功率。</td></tr><tr><td>世界银行</td><td>外部数据应用层</td><td>字节数组</td><td>设置壁挂盒模式，取消充电，2 型插头锁定，功率限制。</td></tr></table>
+<table><tr><th>命名空间</th><th>标签</th><th>类型</th><th>内容</th></tr><tr><td>紧急医疗服务</td><td>最大充电功率</td><td>数字</td><td>充电限制（单位：[W]）——注意：除非 POWER_LIMITS_USED 为“真”，否则无效。</td></tr><tr><td>紧急医疗服务</td><td>最大放电功率</td><td>数字</td><td>放电限制（单位：[W]）- 注意：除非 POWER_LIMITS_USED 为“真”，否则无效。</td></tr><tr><td>紧急医疗服务</td><td>放电开始功率</td><td>数字</td><td>最小电池放电功率（单位：[W]） - 注意：除非 POWER_LIMITS_USED 为“真”，否则无效。</td></tr><tr><td>紧急医疗服务</td><td>省电模式已启用</td><td>布尔值</td><td>省电模式已启用。</td></tr><tr><td>紧急医疗服务</td><td>已使用的功率限制</td><td>布尔值</td><td>使用功率限制。</td></tr><tr><td>紧急医疗服务</td><td>已启用天气调节充电</td><td>布尔值</td><td>已启用天气调节充电。</td></tr><tr><td>紧急医疗服务</td><td>设置电源模式</td><td>州</td><td>充电模式；通常传播到 MODE。</td></tr><tr><td>紧急医疗服务</td><td>设置电源值</td><td>数字</td><td>充电功率[W]；通常会传递到 SET_POWER。</td></tr><tr><td>紧急医疗服务</td><td>手动充电能量</td><td>数字</td><td>手动充电能量[Wh]；设置此值将启动手动充电。</td></tr><tr><td>紧急医疗服务</td><td>汽车模式前的电池</td><td>布尔值</td><td>在壁挂式充电盒前对电池进行充电。</td></tr><tr><td>紧急医疗服务</td><td>电池到汽车模式</td><td>布尔值</td><td>在太阳能模式下通过壁挂盒给电池放电。</td></tr><tr><td>紧急医疗服务</td><td>直到放电</td><td>数字</td><td>壁挂盒可将电池放电至的百分比。</td></tr><tr><td>紧急医疗服务</td><td>WB_强制_电源_分配</td><td>布尔值</td><td>防止混合模式下通过壁挂式充电盒放电，true=禁止，false=允许</td></tr><tr><td>紧急医疗服务</td><td>覆盖可用功率</td><td>数字</td><td>E3/DC 将会把这个值 [W] 发送给 wallvox 作为可用的太阳能。</td></tr><tr><td>紧急医疗服务</td><td>紧急电源</td><td>州</td><td>应急电源模式。**实验性**</td></tr><tr><td>紧急医疗服务</td><td>开始紧急电源测试</td><td>布尔值</td><td>设置此值将把 E3/DC 切换到孤岛模式。**实验性**</td></tr><tr><td>紧急医疗服务 (1)</td><td>空闲_周期_活动</td><td>布尔值</td><td>（停用）空闲期。</td></tr><tr><td>紧急医疗服务 (1)</td><td>开始时间</td><td>数字</td><td>空闲周期的开始小时。</td></tr><tr><td>紧急医疗服务 (1)</td><td>开始分钟</td><td>数字</td><td>空闲周期的开始分钟数。</td></tr><tr><td>紧急医疗服务 (1)</td><td>结束时间</td><td>数字</td><td>空闲周期的结束时间。</td></tr><tr><td>紧急医疗服务 (1)</td><td>分钟结束</td><td>数字</td><td>空闲周期的结束分钟数。</td></tr><tr><td>紧急医疗服务 (2)</td><td>空闲_周期_类型</td><td>数字</td><td>（V2）0 = 暂停充电，1 = 暂停放电。</td></tr><tr><td>紧急医疗服务 (2)</td><td>期间活动</td><td>布尔值</td><td>（V2）（停用）空闲期。</td></tr><tr><td>紧急医疗服务 (2)</td><td> PERIOD_START</td><td>细绳</td><td>（V2）空闲期从一天中的时间开始，例如“12:30:00”。</td></tr><tr><td>紧急医疗服务 (2)</td><td>期间停止</td><td>细绳</td><td>（V2）空闲期在一天中的时间结束，例如“21:00:00”。</td></tr><tr><td>紧急医疗服务 (2)</td><td> PERIOD_WEEKDAYS</td><td>细绳</td><td>（V2）空闲期在工作日启用，例如“135”，其中 1 = 星期一，2 = 星期二，...，7 = 星期日。</td></tr><tr><td> EP</td><td>参数_EP_RESERVE</td><td>数字</td><td>应急电源的目标储备；电池容量的百分比。与 PARAM_EP_RESERVE_ENERGY 相关。</td></tr><tr><td> EP</td><td> PARAM_EP_RESERVE_ENERGY</td><td>数字</td><td>应急电源的目标储备；能量单位为 [Wh]。与 PARAM_EP_RESERVE 相关。</td></tr><tr><td>数据库 (3)</td><td> TIME_START</td><td>细绳</td><td>请求数据的时间范围的开始。</td></tr><tr><td>数据库 (3)</td><td>时间跨度</td><td>细绳</td><td>请求数据的时间范围长度（秒）。</td></tr><tr><td>数据库 (3)</td><td>时间间隔</td><td>细绳</td><td>数据点之间的间隔。</td></tr><tr><td>系统</td><td>系统重启</td><td>数字</td><td>将值更改为 1 将重新启动 E3/DC 系统。</td></tr><tr><td>系统</td><td>重启应用程序</td><td>布尔值</td><td>将值更改为 true 将重新启动 E3/DC 应用程序。</td></tr><tr><td>世界银行</td><td>外部数据_SUN</td><td>布尔值</td><td>设置 Sun 模式或混合模式。</td></tr><tr><td>世界银行</td><td>外部数据网络</td><td>数字</td><td>设置壁挂箱电网电源。</td></tr><tr><td>世界银行</td><td>外部数据_全部</td><td>数字</td><td>设置壁挂箱总功率。</td></tr><tr><td>世界银行</td><td>外部数据应用层</td><td>字节数组</td><td>设置壁挂盒模式，取消充电，2 型插头锁定，功率限制。</td></tr></table>
 
-注意 (1)：完整路径为 EMS.IDLE_PERIODS_(DIS)CHARGE.&lt;day-of-week&gt; - 例如“EMS.IDLE_PERIODS_CHARGE.00-Monday”。更改仅在最后一次更改后以“tuple sendig delay”的形式发送。
+注 (1)：完整路径为 EMS.IDLE_PERIODS_(DIS)CHARGE.&lt;day-of-week&gt; - 例如“EMS.IDLE_PERIODS_CHARGE.00-Monday”。更改仅在最后一次更改后发送“元组发送延迟”。
 
-注 (2)：请注意，所有 IDLE_PERIOD 标签仅在配置中定义的 SET_IDLE_PERIOD 延迟后写入。在一个 IDLE_PERIOD 天内每次发生更改时，延迟都会重新开始。
+注意 (2)：完整路径为 EMS.IDLE_PERIODS_2.&lt;counter&gt; - 例如“EMS.IDLE_PERIODS_2.07.PERIOD_START”。更改仅在最后一次更改后以“元组发送延迟”发送。 (V2) 表示这是 2024 年为新 PERIODS_2 功能引入的标签。E3/DC 在两个方向上复制 (V1) 和 (V2) 周期，但在同一工作日有多个间隔，(V1) 将只有其中一个。**注意**：如果您修改 (V1) 周期，E3/DC 将删除额外的 (V2) 间隔！因此，最佳做法是始终只使用 (V1) 或 (V2)。
 
 注 (3)：完整路径为 DB.HISTORY_DATA_{DAY,WEEK,MONTH,YEAR} - 例如“DB.HISTORY_DATA_DAY”。更改仅在最后一次更改后以“元组发送延迟”的方式发送。
 
@@ -105,6 +105,38 @@ RSCP 协议将*标签*（即状态或值）分组到*命名空间*（即标签�
 // 触发器：达到降额功率，即电网功率将受到限制 // 操作：将电池充电功率限制重置为最大值，如 SYS_SPECS 下所指定 on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe: -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;触发器：电网功率处于降额阈值 - 重置充电功率限制&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
+
+### 1.4.2
+
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[E160\]\[E190\] "peerDependencies.iobroker.admin"  in package.json
+  * \[605\] updated (c) 2025.
+  * \[254\] removed v1.3.2 which was never released.
+
+### 1.4.1
+
+MODIFIED ADAPTER SETTINGS - see [Reuse of adapter configuration](https://github.com/git-kick/ioBroker.e3dc-rscp/tree/master?tab=readme-ov-file#reuse-of-adapter-configuration)
+ 
+(git-kick)
+* fixed error in weekdayStringToBitmask() - thanks to @SurfGargano for testing.
+* idle periods v1 or v2 can now be switched off in the adapter config - recommendation is to use only one of both.
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[E186\] "common.globalDependencies" must be an array at io-package.json
+  * \[E190\] admin dependency missing. Please add to dependencies at io-package.json.
+* New RscpTags.json: added new tags from 01-2024 tag list. 
+**But keep** ...EMERGENCY_POWER_TEST... naming despite it changed to ...EMERGENCYPOWER_TEST... in the new tag-list (this affects four tags).
+* Fixed [Issue #236](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/236) - added handling for version 2 PERIODs. 
+* New instance settings for max. number of BAT/PVI/PM/PERIOD - so everybody who has e.g. 6 batteries or 3 power inverters can now adjust the detection range for his own setup. This fixes [Issue #249](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/249)
+* Fixed [Issue #241](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/241) - modified PM index detection so that discountinuous index sets are handled correctly, like ( 0, 1, 3, 6 ).
+* Fixed E524, E525, S526 dev dependencies.
+* Enhanced max. index handling to produce less debug log messages. (Introduced notIndexIds for non-index counts.)
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[E186\] "common.globalDependencies" must be an array at io-package.json
+  * \[E190\] admin dependency missing. Please add to dependencies at io-package.json.
+  * \[W050\] Package 'axios' listed as devDependency at package.json might be obsolete if using '@iobroker/adapter-dev'.
+
+### 1.4.0   - Deprecated - Do not install -
+
 ### 1.3.1
 
 MODIFIED ADAPTER SETTINGS - see [Reuse of adapter configuration](https://github.com/git-kick/ioBroker.e3dc-rscp/tree/master?tab=readme-ov-file#reuse-of-adapter-configuration)
@@ -113,14 +145,14 @@ MODIFIED ADAPTER SETTINGS - see [Reuse of adapter configuration](https://github.
 * Fixed [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - added PM (power meter) namespace. **Only reading values, no SET tags.**
 * Fixed two newly reported "undefined" occurences in main.js.
 * Fixed errors listed in [Issue #217](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/217) - reported by the ioBroker Check and Service Bot.
-  * \[E162\]: js-controller dependency updated to >= 5.0.19
-  * \[E204\]: "remove news version 1.3.0" considered a false finding; in v1.2.6, io-package.json does not contain common.news "1.3.0"
-  * \[E605\]: updated copyright to 2024 in README.md
-  * \[E605\]: removed .npmignore from project directory
-  * \[W040\]: added keyword "ioBroker" in package.json
-  * \[W130\]: deleted all but some recent common.news in io-package.json 
-  * \[W184\]: removed "common.materialize" from io-package.json 
-  * \[S522\]: migrated to admin5 UI (jsonConfig.json5)
+  * \[E162\] js-controller dependency updated to >= 5.0.19
+  * \[E204\] "remove news version 1.3.0" considered a false finding; in v1.2.6, io-package.json does not contain common.news "1.3.0"
+  * \[E605\] updated copyright to 2024 in README.md
+  * \[E605\] removed .npmignore from project directory
+  * \[W040\] added keyword "ioBroker" in package.json
+  * \[W130\] deleted all but some recent common.news in io-package.json 
+  * \[W184\] removed "common.materialize" from io-package.json 
+  * \[S522\] migrated to admin5 UI (jsonConfig.json5)
 
 ### 1.3.0  - Deprecated - Do not install -
 
@@ -274,7 +306,7 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 
 ## License
 
-Copyright (c) 2024 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2025 Ulrich Kick <iobroker@kick-web.de>
 
 ```
 					GNU GENERAL PUBLIC LICENSE

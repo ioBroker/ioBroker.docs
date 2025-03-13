@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: e46NQwGm0A6H6DLEh2j3dMlfHDZ+B+Vj32SykrxO1Z8=
+hash: GbG1WVFNmnP20NTYgjhmSR+JAg31mLSSXtia+8Ho7ic=
 ---
 # IoBroker.frontier_silicon
 ![Логотип](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
@@ -24,7 +24,7 @@ hash: e46NQwGm0A6H6DLEh2j3dMlfHDZ+B+Vj32SykrxO1Z8=
 
 ПРИМЕЧАНИЯ К ВЫПУСКУ:
 
-Версия 0.4.x включает в себя критическое изменение:
+Версия 0.4.x включает в себя критические изменения:
 
 - Тип «frontier_silicon.X.media.state» изменен с «number» на «string» и доступен только для чтения.
 
@@ -198,7 +198,7 @@ hash: e46NQwGm0A6H6DLEh2j3dMlfHDZ+B+Vj32SykrxO1Z8=
 
 Присутствует только на устройствах с поддержкой многокомнатных устройств. `true`, если этот режим можно использовать в качестве источника для нескольких многокомнатных устройств.
 
-- switchTo (`логическое значение, wo`)
+- switchTo (`логическое, wo`)
 
 Выбирает этот режим.
 
@@ -238,6 +238,10 @@ Frontier, Frontier Silicon, SmartRadio, UNDOK и связанные с ними 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+
 ### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
 - (pdbjjens) Change: media state changed from number to string and readonly (#241)

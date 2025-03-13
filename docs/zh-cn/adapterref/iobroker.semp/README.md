@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: 3eKCgekKBWAZFRi0xTm5M+gZjWwArpIfn2sr5r8I5gY=
+hash: BUgLuC9jDs8kdU4y1KOh9Tf+1PG+mYBTncPgwWPEebk=
 ---
 ![标识](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -41,7 +41,7 @@ SunnyPortal 可以更好地估算您的能源消耗，从而做出更好的预�
 
 有关协议和使用的详细信息，请查看[SMA 文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf)。
 
-关于能源请求的一般用法的描述，请参阅[SMA 文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf)。（仅限德语）
+关于能源请求的一般用途的描述，请参阅[SMA 文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf)。（仅限德语）
 
 ＃＃ 特征
 * 通过 SMA SEMP 从 SunnyPortal 中的 ioBroker 添加设备
@@ -49,8 +49,14 @@ SunnyPortal 可以更好地估算您的能源消耗，从而做出更好的预�
 * 让 SunnyPortal 控制这些设备（当有足够的光伏电力时打开，当没有足够的太阳能时关闭）
 
 ＃＃ 要求
+## 洗碗机模式
+该适配器可用于控制洗碗机。当太阳能充足时，洗碗机就会开启。
+实施细节可在问题 #333 中找到。
+
+![流程图](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
+
 ## 已知问题
-* 如果您发现错误或者需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.semp/issues) 上创建问题
+* 如果您发现错误或者需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.semp/issues) 创建问题
 
 ## Changelog
 
@@ -58,6 +64,12 @@ SunnyPortal 可以更好地估算您的能源消耗，从而做出更好的预�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* René) see issue #333: new sequence to handle devices with quiescent current
+* (René) changes requested by adapter checker
+* (René) dependencies updated 
+
 ### 1.4.8 (2024-11-20)
 * (René) update dependencies
 * (René) issue #317: test with nodejs@22

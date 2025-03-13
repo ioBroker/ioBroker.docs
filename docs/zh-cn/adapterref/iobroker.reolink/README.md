@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: /bm8PbcKUsNovM9dM+o7AdtO37eijmF0pbO4vbW2PaU=
+hash: RotdyiL8Uu3EFd4EQDhi/2GDpnEOHQo6tMqrv/ZOieY=
 ---
 ![标识](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
@@ -76,10 +76,14 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 ## 已知可工作的相机（2023 年以前的固件）
 产品编号：RLC-420-5MP
 - E1户外
+E1变焦
 RLC-522 型
 RLC-810A 型
 RLC-823A 型
 - 双 3 PoE
+
+## 已知无法正常工作的摄像头
+E1专业版
 
 ## Changelog
 <!--
@@ -87,6 +91,12 @@ RLC-823A 型
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (oelison) update readme #141
+
+### 1.2.1 (2025-02-09)
+* (oelison) set some errors to debug logs
+
+### 1.2.0 (2025-02-07)
 * (oelison) update disk info
 * (oelison) uri enconding is switchable (helps sometimes by one special char)
 * (oelison) #28 PTZ check added
@@ -122,56 +132,6 @@ RLC-823A 型
 * (oelison) resolve review for latest adapter addition
 * (oelison) maybe the last node 16 version
 * (oelison) booleans are now false/true and not 0/1
-
-### 0.1.2 (2023-11-03)
-* (oelison) ptz patrol added
-* (oelison) node 12 tests removed
-* (aendue) added getAiState
-
-### 0.1.1 (2022-11-03)
-* (aendue) ssl validation included
-* (aendue) fixed issue with ack-flag not set
-* (aendue) changed datatypes of disk.free and RAW.Email
-* (aendue) enabled getAutoFocus again
-* (aendue) name change on state EmailNotification (state gets created dynamically now)
-
-### 0.1.0 (2022-10-25)
-* (aendue) fixed asynchron functions (Axios Errors)
-* (aendue) added getAutoFocus funktion
-* (aendue) added getIrLight funktion
-* (aendue) added getWhiteLED function
-* (aendue) added getMailNotification function
-* (aendue) added setMailNotification function
-* (aendue) cleanup code
-
-### 0.0.5 (2022-09-28)
-
-* (oelison) guard point (new info)
-
-### 0.0.4 (2022-09-27)
-
-* (oelison) ptz preset tested
-* (oelison) change protocol (http/https) possible
-* (oelison) led on/off and brightness
-* (oelison) push on/off
-* (oelison) auto focus on/off
-* (oelison) set zoom
-* (oelison) play alarm (n times)
-* (oelison) motion detection enabled again
-
-### 0.0.3 (2022-09-05)
-
-* (aendue) npm release prepare
-* (oelison) ptz preset (untested, missing ptz cam)
-
-### 0.0.2 (2022-09-05)
-
-* (aendue) added languages
-* (oelison) added get image function (snap)
-
-### 0.0.1 (2022-07-05)
-
-* (aendue) initial release
 
 ## License
 MIT License

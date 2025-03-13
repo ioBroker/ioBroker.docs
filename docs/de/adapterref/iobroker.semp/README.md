@@ -3,21 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: 3eKCgekKBWAZFRi0xTm5M+gZjWwArpIfn2sr5r8I5gY=
+hash: BUgLuC9jDs8kdU4y1KOh9Tf+1PG+mYBTncPgwWPEebk=
 ---
 ![Logo](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/semp-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.semp.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.semp.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.semp.png?downloads=true)
 ![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
-![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 # IoBroker.semp
@@ -32,23 +32,29 @@ hash: 3eKCgekKBWAZFRi0xTm5M+gZjWwArpIfn2sr5r8I5gY=
 ## SMA SEMP-Adapter für ioBroker
 Schnittstelle zum SMA SunnyPortal über SunnyHomeManager und SEMP
 
-Fügen Sie Ihre Geräte aus dem ioBroker in SunnyPortal hinzu.
-SunnyPortal kann dann Ihren Energieverbrauch besser einschätzen und so bessere Vorhersagen und Empfehlungen treffen. Sie können Ihre Geräte aber auch von SunnyPortal steuern lassen. Bei ausreichender Solarenergie kann das SunnyPortal Ihre Geräte einschalten oder bei zu geringer Solarenergie wieder ausschalten. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter lässt sich jedes beliebige Gerät aus dem ioBroker in das SunnyPortal integrieren.
-Es ist nicht einmal notwendig, dass der Verbrauch eines einzelnen Gerätes gemessen wird. Schon geschätzte Werte reichen aus.
+Fügen Sie Ihre Geräte aus dem ioBroker in SunnyPortal ein.
+SunnyPortal kann Ihren Energieverbrauch so besser einschätzen und Ihnen bessere Prognosen und Empfehlungen geben. Sie können Ihre Geräte aber auch von SunnyPortal steuern lassen. Bei ausreichender Solarenergie schaltet SunnyPortal Ihre Geräte ein oder bei zu geringer Solarenergie wieder aus. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter lässt sich jedes Gerät aus dem ioBroker in SunnyPortal integrieren.
+Es ist nicht einmal notwendig, den Verbrauch eines einzelnen Geräts zu messen. Schon geschätzte Werte reichen aus.
 
 ## Benutzerdokumentation
 siehe [Doku](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
 
-Einzelheiten zu Protokoll und Verwendung finden Sie unter [SMA Doku](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
+Einzelheiten zu Protokoll und Verwendung finden Sie unter [SMA-Dokumentation](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
-Eine Beschreibung zur generellen Verwendung von Energieanfragen finden Sie unter [SMA Doku](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf).
+Eine Beschreibung zur allgemeinen Verwendung von Energieanforderungen finden Sie unter [SMA-Dokumentation](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf).
 
 ## Merkmale
 * Geräte vom ioBroker über SMA SEMP in SunnyPortal hinzufügen
 * informiert das SunnyPortal über den aktuellen Verbrauch
-* diese Geräte über SunnyPortal steuern lassen (einschalten bei ausreichender PV-Leistung und ausschalten bei zu wenig Solarenergie)
+* diese Geräte über SunnyPortal steuern lassen (Einschalten bei ausreichender PV-Leistung und Ausschalten bei zu geringer Solarenergie)
 
 ## Anforderungen
+## Geschirrspülermodus
+Der Adapter kann zur Steuerung eines Geschirrspülers verwendet werden. Der Geschirrspüler wird eingeschaltet, wenn genügend Solarenergie vorhanden ist.
+Details zur Implementierung finden Sie in Ausgabe Nr. 333.
+
+![Flussdiagramm](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
+
 ## Bekannte Probleme
 * Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.semp/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
@@ -58,6 +64,12 @@ Eine Beschreibung zur generellen Verwendung von Energieanfragen finden Sie unter
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* René) see issue #333: new sequence to handle devices with quiescent current
+* (René) changes requested by adapter checker
+* (René) dependencies updated 
+
 ### 1.4.8 (2024-11-20)
 * (René) update dependencies
 * (René) issue #317: test with nodejs@22

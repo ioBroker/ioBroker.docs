@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
-hash: C4rl3bXQrmgGF+0eIr5/8HlxNQ8nID2RmybFX4Boyb4=
+hash: j2ftcLh111BOKbGdcJpUmHw7ob1JlsRvl5Ev5owqDC4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -14,11 +14,9 @@ hash: C4rl3bXQrmgGF+0eIr5/8HlxNQ8nID2RmybFX4Boyb4=
 # Специальные виджеты Jaeger Design для ioBroker.vis 2.0
 ![ютуб](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.jpg)
 
-Видеоролик об использовании виджетов можно найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ) (на немецком языке).
+Видеоролики по использованию виджетов можно найти [здесь](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) (на немецком языке).
 
-Если вы хотите использовать виджеты для видео, вы можете найти [здесь](https://www.youtube.com/watch?v=4bctUvfpPuQ).
-
-Das Video wie die Widgets benutzt werden können, kann man [здесь](https://youtu.be/Rplr2Ba-G7o) (на немецком языке) (TEIL2)
+Видео wie die Widgets benutzt werden können, kann man [здесь](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
 ## Übersicht zur Erstellung einer Smart Home Oberfläche mit dem «VIS-2 JAEGER Design Adaptor»
 ### Предварительные настройки
@@ -43,7 +41,7 @@ Im Hauptmenü können verschiedene Stockwerke ausgewählt werden. Der Grundriss 
 ![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Beleuchtungsszenen auf der rechten Seite können einfach abgerufen und auch Lichteinstellungen Gespeichert werden: ![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
 
 ### Ролладен
-В меню «Rolladen» можно включить функцию Beschattung gesehen werden. Значки отображаются в высоком разрешении и при нажатии на значок открывается всплывающее окно для изменения высоты и рамок.
+В меню «Rolladen» можно включить функцию Beschattung gesehen werden. Значки отображаются в высоком положении и при нажатии на значок открываются всплывающие окна для изменения высоты и рамок.
 ![Beschattung-iobroker-умный дом](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
 ### Энергия
@@ -65,7 +63,7 @@ Es können auch frei definierte Oberflächen erstellt werden, wie z.B. Инфо�
 ![iobroker-jaeger-design-einstellungen](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
 
 ### Обучающие материалы на YouTube
-Для получения подробной информации и получения дополнительной информации см. ссылки на обучающие материалы YouTube.
+Для получения подробной информации и получения дополнительной информации, пожалуйста, прочитайте обучающие материалы YouTube и ознакомьтесь с ними.
 
 <!-- Заполнитель для следующей версии (в начале строки):
 

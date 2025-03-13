@@ -794,6 +794,10 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+* (simatec) jsonTab added
+
 ### 1.8.8 (2025-01-26)
 * (simatec) Design Fix
 * (simatec) Fix dialog-select-member

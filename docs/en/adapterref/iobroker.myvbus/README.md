@@ -57,6 +57,14 @@ A derived version of this adapter supporting control of VBus devices is availabl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+
+### 0.5.1 (2025-02-15)
+
+* (pdbjjens) Fix: Removed attribute "contributor" from package.json (#718)
+
 ### 0.5.0 (2025-01-30) - 2025H1 maintenance release
 
 * (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
@@ -65,7 +73,7 @@ A derived version of this adapter supporting control of VBus devices is availabl
 
 ### 0.4.0 (2024-08-13) - 2024H2 maintenance release
 
-* (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
+* (pdbjjens) Change: node>=18, js-controller>=5 and admin>=6 required
 * (pdbjjens) Change: Removed .npmignore
 * (pdbjjens) New: Updated dependencies
 
@@ -81,10 +89,6 @@ A derived version of this adapter supporting control of VBus devices is availabl
 
 * (pdbjjens) Updated dependencies
 * (pdbjjens) Fix: reconnect handling for serial connections
-
-### 0.2.4 (2023-03-01)
-
-* (pdbjjens) Fix password check
 
 ## Legal Notices
 

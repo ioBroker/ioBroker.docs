@@ -9,88 +9,136 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 # ioBroker.worx Adapter
 
+## Wichtige Info
+
+🟢 1,1 Sekunde Pause zwischen 2 Aktive Schaltvorgänge</br>
+🔴 Keine Pause und der nächste aktive auch ohne Pause
+
+Falsch</br>
+🟢🟢🟢
+
+Richtig</br>
+🟢1,1🟢1,1🟢
+
+Falsch</br>
+🔴🔴🟢🟢
+
+Richtig</br>
+🔴🔴🟢1,1🟢
+
+Falsch</br>
+🔴🟢🔴🟢
+
+Richtig</br>
+🔴🟢1,1🔴🟢
+
 ## Beschreibung
 
 ### Instanzeinstellungen
 
--   `App-Benutzername`: APP Benutzername (eMail)
--   `App-Passwort`: APP Passwort
--   `App Name`: Geräte auswählen
--   `Aktualisierungsintervall in Minuten` Intervall um alle Daten zu aktualisieren (Bereich von 10 bis 1440 möglich)
--   `Verzögerung für Kantenschnitt`: Wann soll EdgeCut nach dem Losfahren starten (Beispiel nach 5 Sekunden bis zum Rasen)
--   `Entfernung und Zeit in Minuten und Metern`: Einheit für Laufzeit und Arbeitszeit in Min./Std. und Meter/KM
--   `Aktualisieren der MQTT-Daten nach der Token-Aktualisierung.`: Nach der Erneuerung vom Token (jede Stunde) die Mqtt Daten neu laden.
+- `App-Benutzername`: APP Benutzername (eMail)
+- `App-Passwort`: APP Passwort
+- `App Name`: Geräte auswählen
+- `Aktualisierungsintervall in Minuten` Intervall um alle Daten zu aktualisieren (Bereich von 10 bis 1440 möglich)
+- `Verzögerung für Kantenschnitt`: Wann soll EdgeCut nach dem Losfahren starten (Beispiel nach 5 Sekunden bis zum Rasen)
+- `Entfernung und Zeit in Minuten und Metern`: Einheit für Laufzeit und Arbeitszeit in Min./Std. und Meter/KM
+- `Aktualisieren der MQTT-Daten nach der Token-Aktualisierung.`: Nach der Erneuerung vom Token (jede Stunde) die Mqtt Daten neu laden.
+- `Sitzungsdaten löschen` Bei Login Probleme die aktuelle Session löschen
+- `Login-Zähler zurücksetzen` Login-Zähler zurücksetzen
 
-![Instance Settings img/instance.png](img/instance.png)
+![Instance Settings img/instance.png](img/instance.png)</br>
+![Instance Settings img/instance_1.png](img/instance_1.png)
+
+### Login Infos `worx.0.loginInfo`
+
+```json
+{
+    "loginCounter": 1, // Zähler der Logins (reset via instance setting)
+    "loginDiff": [1741458177709], // Zeitliche Differenz der letzten 10 Logins
+    "lastLoginTimestamp": 1741458177709, // Letzte Login als Zeitstempel
+    "lastLoginDate": "2025-03-08T18:22:57.710Z", // Letzte Login als ISO String OHNE Zeitzone
+    "refreshCounter": 1, // Zähler für refreshToken (wird bei Neustart zurückgesetzt)
+    "refreshHistory": [1741516809807], // Historie refreshToken als Zeitstempel
+    "lastRefreshTimestamp": 1741459690942, // Letzte refreshToken als Zeitstempel
+    "lastRefreshDate": "2025-03-08T18:48:10.942Z", // Letzte refreshToken als ISO String OHNE Zeitzone
+    "nextRefreshTimestamp": 1743548215943, // Nächste refreshToken als Zeitstempel
+    "nextRefreshDate": "2025-04-01T22:56:55.943Z", // Nächste refreshToken als ISO String OHNE Zeitzone
+    "lastError": "", // Letzte Fehlermeldung
+    "errorHistory": [], // Error Historie als Zeitstempel
+    "errorCounter": 0, // Zähler der Fehlermeldungen (wird bei Neustart zurückgesetzt)
+    "lastErrorTimestamp": 0, // Letzte Fehlermeldung als Zeitstempel
+    "lastErrorDate": "" // Letzte Fehlermeldung als ISO String OHNE Zeitzone
+}
+```
 
 ### Ordner
 
--   `activityLog`: Aktivitätenprotokoll (Draht & Vision / Kontrolle möglich)
--   `areas`: Zonen (Draht / Kontrolle möglich)
--   `multiZones`: Multizonen (Vision / Kontrolle möglich)
--   `calendar`: Mähplan (Draht & Vision / Kontrolle möglich)
--   `Modules`: Verfügbare Module (Draht & Vision / Kontrolle möglich)
--   `mower`: Mäher (Draht & Vision / Kontrolle möglich)
--   `product`: Alle Eigenschaften vom Gerät (Draht & Vision / Nur lesen)
--   `rawMqtt`: Alle Daten von der Cloud (Draht & Vision / Nur lesen)
+- `activityLog`: Aktivitätenprotokoll (Draht & Vision / Kontrolle möglich)
+- `areas`: Zonen (Draht / Kontrolle möglich)
+- `multiZones`: Multizonen (Vision / Kontrolle möglich)
+- `calendar`: Mähplan (Draht & Vision / Kontrolle möglich)
+- `Modules`: Verfügbare Module (Draht & Vision / Kontrolle möglich)
+- `mower`: Mäher (Draht & Vision / Kontrolle möglich)
+- `product`: Alle Eigenschaften vom Gerät (Draht & Vision / Nur lesen)
+- `rawMqtt`: Alle Daten von der Cloud (Draht & Vision / Nur lesen)
 
 ![Folder img/all_folders.png](../en/img/all_folders.png)
 
 ### activityLog (Draht und Vision)
 
--   `last_update`: Letzte Update als Zeitstempel (nur lesen)
--   `manuell_update`: Lädt das aktuelle Aktivitätenprotokoll (automatisch nach Statusänderungen - Draht & Vision / Kontrolle möglich)
--   `payload`: Protokoll als JSON (für VIS oder Blockly) (nur lesen)
+- `last_update`: Letzte Update als Zeitstempel (nur lesen)
+- `manuell_update`: Lädt das aktuelle Aktivitätenprotokoll (automatisch nach Statusänderungen - Draht & Vision / Kontrolle möglich) 🟢
+- `payload`: Protokoll als JSON (für VIS oder Blockly) (nur lesen)
 
 ![Activity img/activity.png](../en/img/activity.png)
 
 ### areas (Nur Draht)
 
--   `actualArea`: Aktuelle Zone (nur lesen)
--   `actualAreaIndicator`: Nächste Zonenanfahrt im Array. Bsp. 0 - [`2`,2,2,2,2,2,2,2,2,2] (nur lesen)
--   `area_0`: Start Zone 1 in Meter (array=0) (änderbar)
--   `area_1`: Start Zone 2 in Meter (array=1) (änderbar)
--   `area_2`: Start Zone 3 in Meter (array=2) (änderbar)
--   `area_3`: Start Zone 4 in Meter (array=3) (änderbar)
--   `startSequence`: Zonenstart Array (0-9 Ereignisse) Bsp.: Nur Zone 3 anfahren [2,2,2,2,2,2,2,2,2,2] (änderbar)
--   `zoneKeeper`: Verhindert Zonendurchbrüche (Zonen müssen erstellt sein) (ab Firmware 3.30) (änderbar)
+- `actualArea`: Aktuelle Zone (nur lesen)
+- `actualAreaIndicator`: Nächste Zonenanfahrt im Array. Bsp. 0 - [`2`,2,2,2,2,2,2,2,2,2] (nur lesen)
+- `area_0`: Start Zone 1 in Meter (array=0) (änderbar) 🟢
+- `area_1`: Start Zone 2 in Meter (array=1) (änderbar) 🟢
+- `area_2`: Start Zone 3 in Meter (array=2) (änderbar) 🟢
+- `area_3`: Start Zone 4 in Meter (array=3) (änderbar) 🟢
+- `startSequence`: Zonenstart Array (0-9 Ereignisse) Bsp.: Nur Zone 3 anfahren [2,2,2,2,2,2,2,2,2,2] (änderbar) 🟢
+- `zoneKeeper`: Verhindert Zonendurchbrüche (Zonen müssen erstellt sein) (ab Firmware 3.30) (änderbar) 🟢
 
 ![Area img/areas.png](../en/img/areas.png)
 
 ### calendar (Draht)
 
--   Beispiel Zeiteinstellung Mittwoch
+- Beispiel Zeiteinstellung Mittwoch
 
-    -   `wednesday.borderCut`: Mit oder ohne Kantenschnitt (ohne Verzögerung setzen) (änderbar)
-    -   `wednesday.startTime`: Startzeit als Format hh:mm (0-23/0-59) Bsp.: 09:00 (ohne Verzögerung setzen) (änderbar)
-    -   `wednesday.workTime`: Arbeitszeit in Minuten (180 min = 3h) Bsp.: 30 = Endzeit 09:30 (ohne Verzögerung setzen) (änderbar)
-    -   `calJson_sendto`: Sind alle Datenpunkte gesetzt dann diesen Button auf true setzen (mit einer Verzögerung von 1,1). Der Mäher mäht nun für 30 Minuten! (änderbar)
-    -   `calJson_tosend`: Dieser JSON wird automatisch gefüllt und dann an Mqtt versendet. Kann natürlich auch selber erstellt werden. (änderbar)
-    -   `calendar.calJson`: Array für den Wochenmähplan 1 (wird automatisch gesetzt - nur Draht) (änderbar)
-    -   `calendar.calJson2`: Array für den Wochenmähplan 2 (wird automatisch gesetzt - nur Draht) (änderbar)
+    - `wednesday.borderCut`: Mit oder ohne Kantenschnitt (ohne Verzögerung setzen) (änderbar) 🔴
+    - `wednesday.startTime`: Startzeit als Format hh:mm (0-23/0-59) Bsp.: 09:00 (ohne Verzögerung setzen) (änderbar) 🔴
+    - `wednesday.workTime`: Arbeitszeit in Minuten (180 min = 3h) Bsp.: 30 = Endzeit 09:30 (ohne Verzögerung setzen) (änderbar) 🔴
+    - `calJson_sendto`: Sind alle Datenpunkte gesetzt dann diesen Button auf true setzen. Der Mäher mäht nun für 30 Minuten! (änderbar) 🟢
+    - `calJson_tosend`: Dieser JSON wird automatisch gefüllt und dann an Mqtt versendet. Kann natürlich auch selber erstellt werden. (änderbar) 🟢
+    - `calendar.calJson`: Array für den Wochenmähplan 1 (wird automatisch gesetzt - nur Draht) (änderbar) 🔴
+    - `calendar.calJson2`: Array für den Wochenmähplan 2 (wird automatisch gesetzt - nur Draht) (änderbar) 🔴
 
 ![Folder img/calendar.png](../en/img/calendar.png)
 
 ### calendar (Vision)
 
--   Beispiel Zeiteinstellung Freitag
--   Als Standard werden 2 Timeslots angelegt. Werden 3 Slots in der APP angelegt werden auch 3 in ioBroker erstellt. Wird wieder auf 2 reduziert, dann wird in ioBroker diese Slots gelöscht. Der Tag mit den meisten Slots wird als Referenz für alle Tage verwendet.
+- Beispiel Zeiteinstellung Freitag
+- Als Standard werden 2 Timeslots angelegt. Werden 3 Slots in der APP angelegt werden auch 3 in ioBroker erstellt. Wird wieder auf 2 reduziert, dann wird in ioBroker diese Slots gelöscht. Der Tag mit den meisten Slots wird als Referenz für alle Tage verwendet.
 
-    -   `friday.time_0.borderCut`: Mit oder ohne Kantenschnitt (ohne Verzögerung setzen) (änderbar)
-    -   `friday.time_0.startTime`: Startzeit als Format hh:mm (0-23/0-59) Bsp.: 09:00 (ohne Verzögerung setzen) (änderbar)
-    -   `friday.time_0.workTime`: Arbeitszeit in Minuten (180 min = 3h) Bsp.: 30 = Endzeit 09:30 (ohne Verzögerung setzen) (änderbar)
-    -   `friday.time_0.enabled_time`: Zeit aktivieren oder deaktivieren. (ohne Verzögerung setzen) (änderbar)
-    -   `friday.time_0.zones`: Welche Zonen sollen angefahren werden z. Bsp. [1,2,3] (ohne Verzögerung setzen) (änderbar)
-    -   `calJson_sendto`: Sind alle Datenpunkte gesetzt dann diesen Button auf true setzen (mit einer Verzögerung von 1,1). Der Mäher mäht nun für 30 Minuten! (änderbar)
-    -   `calJson_tosend`: Dieser JSON wird automatisch gefüllt und dann an Mqtt versendet. Kann natürlich auch selber erstellt werden. (änderbar)
-    -   `add_timeslot`: Es wird ein zusätzlicher Timeslot hinzugefügt. Nicht genutzte Timeslots werden nach einem Neustart entfernt. (änderbar)
+    - `friday.time_0.borderCut`: Mit oder ohne Kantenschnitt (ohne Verzögerung setzen) (änderbar) 🔴
+    - `friday.time_0.startTime`: Startzeit als Format hh:mm (0-23/0-59) Bsp.: 09:00 (ohne Verzögerung setzen) (änderbar) 🔴
+    - `friday.time_0.workTime`: Arbeitszeit in Minuten (180 min = 3h) Bsp.: 30 = Endzeit 09:30 (ohne Verzögerung setzen) (änderbar) 🔴
+    - `friday.time_0.enabled_time`: Zeit aktivieren oder deaktivieren. (ohne Verzögerung setzen) (änderbar) 🔴
+    - `friday.time_0.zones`: Welche Zonen sollen angefahren werden z. Bsp. [1,2,3] (ohne Verzögerung setzen) (änderbar) 🔴
+    - `calJson_sendto`: Sind alle Datenpunkte gesetzt dann diesen Button auf true setzen. Der Mäher mäht nun für 30 Minuten! (änderbar) 🟢
+    - `calJson_tosend`: Dieser JSON wird automatisch gefüllt und dann an Mqtt versendet. Kann natürlich auch selber erstellt werden. (änderbar) 🔴
+    - `add_timeslot`: Es wird ein zusätzlicher Timeslot hinzugefügt. Nicht genutzte Timeslots werden nach einem Neustart entfernt. (änderbar) 🔴
 
 ![Folder img/calendar.png](img/calendar_vision.png)
 ![Folder img/calendar.png](img/calendar_slot_vision.png)
 
 ### Beispiel Timeslot (Vision)
 
--   `calJson_tosend` Dieser JSON würde 1 Zeit am Sonntag eintragen und alle anderen Tage löschen. Es muss immer die gesamte Woche übermittelt werden.
+- `calJson_tosend` Dieser JSON würde 1 Zeit am Sonntag eintragen und alle anderen Tage löschen. Es muss immer die gesamte Woche übermittelt werden. 🔴
 
 ```json
 [
@@ -111,24 +159,24 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### modules (Draht und Vision)
 
--   Off Limit Modul (Draht und Vision)
+- Off Limit Modul (Draht und Vision)
 
-    -   `DF.OLMSwitch_Cutting`: Verhindert das überfahren vom Magnetband - true-an/false-aus
-    -   `DF.OLMSwitch_FastHoming`: Verwendet erstellte Abkürzungen mit Magnetband - mithilfe von Abkürzungen aus Magnetstreifen - true-an/false-aus
+    - `DF.OLMSwitch_Cutting`: Verhindert das überfahren vom Magnetband - true-an/false-aus 🟢
+    - `DF.OLMSwitch_FastHoming`: Verwendet erstellte Abkürzungen mit Magnetband - mithilfe von Abkürzungen aus Magnetstreifen - true-an/false-aus 🟢
 
--   ACS Modul (nur Draht)
+- ACS Modul (nur Draht)
 
-    -   `US.ACS`: ACS aktivieren oder deaktivieren - 1-on/0-off
-    -   `US.ACS_Status`: Status vom ACS Modul
+    - `US.ACS`: ACS aktivieren oder deaktivieren - 1-on/0-off 🟢
+    - `US.ACS_Status`: Status vom ACS Modul (nur lesen)
 
--   EA Modul (nur Vision)
+- EA Modul (nur Vision)
 
-    -   `EA.height`: Höheneinstellung Mähwerk von 30-60 in 5mm Schritte
+    - `EA.height`: Höheneinstellung Mähwerk von 30-60 in 5mm Schritte 🟢
 
--   HL Modul (nur Vision)
-    -   `HL.status`: Status Scheinwerfer
-    -   `HL.enabled`: Scheinwerfer installiert ja = 1/nein = 0
-    -   `HL.on`: Tageslicht = 0/Dunkelheit = 1
+- HL Modul (nur Vision)
+    - `HL.status`: Status Scheinwerfer (nur lesen)
+    - `HL.enabled`: Scheinwerfer installiert ja = 1/nein = 0 🟢
+    - `HL.on`: Tageslicht = 0/Dunkelheit = 1 🟢
 
 ![Module img/module.png](../en/img/module.png)
 ![Module img/module_ea.png](../en/img/module_ea.png)
@@ -136,19 +184,19 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### mower (Draht und Vision)
 
--   `AutoLock`: automatische Verriegelung true-an/false-aus (Draht & Vision/änderbar)
--   `AutoLockTimer`: Timer für automatische Verriegelung max. 10 Minuten in 30 Sekunden Schritte (Draht & Vision/änderbar)
--   `batteryChargeCycle`: Batterieladezyklus (Draht & Vision/nur lesen)
--   `batteryCharging`: Batterieladung false->nein/true->ja (Draht & Vision/nur lesen)
--   `batteryState`: Batteriestatus in % (Draht & Vision/nur lesen)
--   `batteryTemperature`: Batterietemperatur in Celsius (Draht & Vision/nur lesen)
--   `batteryVoltage`: Batteriespannung in Volt (Draht & Vision/nur lesen)
--   `cameraStatus`: Status Camera 0=OK/1=Error (Vision/nur lesen)
--   `cameraError`: Camera error 0=OK/1=Error (Vision/nur lesen)
--   `cutOverSlabs`: Über Platten mähen an = true / aus = false (Vision/änderbar)
--   `direction`: Richtung in Grad (Draht & Vision/nur lesen)
--   `edgecut`: Start EdgeCut (Draht & Vision/änderbar)
--   `error`: Errormeldung vom Mäher (Draht & Vision/nur lesen)
+- `AutoLock`: automatische Verriegelung true-an/false-aus (Draht & Vision/änderbar) 🟢
+- `AutoLockTimer`: Timer für automatische Verriegelung max. 10 Minuten in 30 Sekunden Schritte (Draht & Vision/änderbar) 🟢
+- `batteryChargeCycle`: Batterieladezyklus (Draht & Vision/nur lesen)
+- `batteryCharging`: Batterieladung false->nein/true->ja (Draht & Vision/nur lesen)
+- `batteryState`: Batteriestatus in % (Draht & Vision/nur lesen)
+- `batteryTemperature`: Batterietemperatur in Celsius (Draht & Vision/nur lesen)
+- `batteryVoltage`: Batteriespannung in Volt (Draht & Vision/nur lesen)
+- `cameraStatus`: Status Camera 0=OK/1=Error (Vision/nur lesen)
+- `cameraError`: Camera error 0=OK/1=Error (Vision/nur lesen)
+- `cutOverSlabs`: Über Platten mähen an = true / aus = false (Vision/änderbar) 🟢
+- `direction`: Richtung in Grad (Draht & Vision/nur lesen)
+- `edgecut`: Start EdgeCut (Draht & Vision/änderbar) 🟢
+- `error`: Errormeldung vom Mäher (Draht & Vision/nur lesen)
 
 ```json
 {
@@ -201,9 +249,9 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ![Mower img/mower_1.png](img/mower_1.png)
 
--   `firmware`: Installierte Firmware (Draht & Vision/nur lesen)
--   `firmware_available`: Verfügbare Firmware (Draht & Vision/nur lesen)
--   `firmware_available_all`: Letzte verfügbare Firmware als JSON - Dieses JSON wird aktualisiert, wenn ein neues Update zur Verfügung steht (Draht & Vision/nur lesen)
+- `firmware`: Installierte Firmware (Draht & Vision/nur lesen)
+- `firmware_available`: Verfügbare Firmware (Draht & Vision/nur lesen)
+- `firmware_available_all`: Letzte verfügbare Firmware als JSON - Dieses JSON wird aktualisiert, wenn ein neues Update zur Verfügung steht (Draht & Vision/nur lesen)
 
 ```json
 {
@@ -217,26 +265,26 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 }
 ```
 
--   `firmware_available_date`: Datum verfügbaren Firmware - Dummy 1970-01-01 wenn der Adapter neu installiert wird und es kein Update zur Verfügung steht (Draht & Vision/nur lesen)
--   `firmware_body` Inhalt von dat.fw (Vision/nur lesen)
--   `firmware_head` Inhalt dat.head.fw (Vision/nur lesen)
--   `firmware_update_start`: Start Update in 2 Schritten - siehe `firmware_update_start_approved` (Draht & Vision/änderbar)
--   `firmware_update_start_approved`: Aktualisierung der Firmware starten - `firmware_update_start` muss auf true gesetzt sein (Draht & Vision/änderbar)
--   `gradient`: Gefälle oder Anstieg in Grad (Draht & Vision/nur lesen)
--   `inclination`: Neigung in Grad (Draht & Vision/nur lesen)
--   `last_command`: Letzter Befehl von iobroker oder der APP als JSON Table (Draht & Vision/nur lesen)
--   `last_update` Letzte Update (wire & Vision/nur lesen)
--   `last_update_connection` Von welcher Verbindung (Mqtt oder Cloud / wire & Vision/nur lesen)
--   `mowTimeExtend`: Mähzeitverlängerung-/Verkürzung in % Bereich: -100%->100% (Draht/änderbar)
--   `mowerActive`: Pause Mähplan (Draht/änderbar)
--   `mqtt_update`: Update Mqtt Daten vom Mäher - max. 150/Tag (Draht & Vision/änderbar)
--   `mqtt_update_count`: Counter von Update Mqtt Daten (Draht & Vision/nur lesen)
--   `notification`: Benachrichtigung über JS-Controller aktivieren oder deaktivieren. Es wird Offline und Fehlermeldungen ausgegeben. (Draht & Vision/änderbar)
+- `firmware_available_date`: Datum verfügbaren Firmware - Dummy 1970-01-01 wenn der Adapter neu installiert wird und es kein Update zur Verfügung steht (Draht & Vision/nur lesen)
+- `firmware_body` Inhalt von dat.fw (Vision/nur lesen)
+- `firmware_head` Inhalt dat.head.fw (Vision/nur lesen)
+- `firmware_update_start`: Start Update in 2 Schritten - siehe `firmware_update_start_approved` (Draht & Vision/änderbar) 🔴
+- `firmware_update_start_approved`: Aktualisierung der Firmware starten - `firmware_update_start` muss auf true gesetzt sein (Draht & Vision/änderbar) 🟢
+- `gradient`: Gefälle oder Anstieg in Grad (Draht & Vision/nur lesen)
+- `inclination`: Neigung in Grad (Draht & Vision/nur lesen)
+- `last_command`: Letzter Befehl von iobroker oder der APP als JSON Table (Draht & Vision/nur lesen)
+- `last_update` Letzte Update (wire & Vision/nur lesen)
+- `last_update_connection` Von welcher Verbindung (Mqtt oder Cloud / wire & Vision/nur lesen)
+- `mowTimeExtend`: Mähzeitverlängerung-/Verkürzung in % Bereich: -100%->100% (Draht/änderbar) 🟢
+- `mowerActive`: false für Pause Mähplan für 60 Minuten und true für Stop Mähpause und Party-Modus (Draht/änderbar) 🟢
+- `mqtt_update`: Update Mqtt Daten vom Mäher - max. 150/Tag (Draht & Vision/änderbar) 🟢
+- `mqtt_update_count`: Counter von Update Mqtt Daten (Draht & Vision/nur lesen)
+- `notification`: Benachrichtigung über JS-Controller aktivieren oder deaktivieren. Es wird Offline und Fehlermeldungen ausgegeben. (Draht & Vision/änderbar) 🔴
 
 ![Mower img/mower_2.png](img/mower_2.png)</br>
 ![Mower img/info_connection.png](img/info_connection.png)
 
--   `oneTimeJson`: einmaliges Mähen als JSON (Draht & Vision/änderbar)
+- `oneTimeJson`: einmaliges Mähen als JSON (Draht & Vision/änderbar)
 
 ```json
 {
@@ -245,22 +293,23 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 }
 ```
 
--   `oneTimeStart`: einmaliges Mähen start "Erst oneTimeWithBorder, oneTimeWorkTime und beim Vision noch oneTimeZones setzen" - mit einer Verzögerung von 1,1 Sekunde (Draht & Vision/änderbar)
--   `oneTimeWithBorder`: Mit Kantenschnitt - Wert ohne Verzögerung setzen (Draht & Vision/änderbar)
--   `oneTimeWorkTime`: Mähzeit max. 8h in 30 Minuten Schritte - Wert ohne Verzögerung setzen (Draht & Vision/änderbar)
--   `oneTimeZones`: Zonen setzen [1,2,4] (Vision/änderbar)
--   `online`: Mäher Online (Draht & Vision/nur lesen)
--   `partyModus`: Party-Modus schalten an/aus (Draht & Vision/änderbar)
--   `pause`: Mähpause schalten an/aus (Draht & Vision/änderbar)
--   `reset_battery_time`: Batterieladungen in 2 Schritten zurücksetzen (Draht & Vision/änderbar)
--   `reset_battery_time_approved`: Batterieladungen zurücksetzen bestätigen - `reset_battery_time` muss auf true gesetzt sein (Draht & Vision/änderbar)
--   `reset_blade_time`: Klingenarbeitszeit in 2 Schritten zurücksetzen (Draht & Vision/änderbar)
--   `reset_blade_time_approved`: Klingenarbeitszeit zurücksetzen bestätigen - `reset_battery_time` muss auf true gesetzt sein (Draht & Vision/änderbar)
+- `oneTimeStart`: einmaliges Mähen start "Erst oneTimeWithBorder, oneTimeWorkTime und beim Vision noch oneTimeZones setzen" - mit einer Verzögerung von 1,1 Sekunde (Draht & Vision/änderbar) 🟢
+- `oneTimeWithBorder`: Mit Kantenschnitt - Wert ohne Verzögerung setzen (Draht & Vision/änderbar) 🔴
+- `oneTimeWorkTime`: Mähzeit max. 8h in 30 Minuten Schritte - Wert ohne Verzögerung setzen (Draht & Vision/änderbar) 🔴
+- `oneTimeZones`: Zonen setzen [1,2,4] (Vision/änderbar) 🔴
+- `online`: Mäher Online (Draht & Vision/nur lesen)
+- `partyModus`: Party-Modus schalten an/aus (Draht & Vision/änderbar) 🟢
+- `partyModusTimer`: Party-Modus zeitlich limitieren. Möglich 1 - 1440 Minuten - Mit `partyModus` auf "false" setzen wieder deaktivieren. Der Partymodus wird in der APP nicht angezeigt aber der Timer wird runtergezählt. (Draht/änderbar) 🟢
+- `pause`: Mähpause schalten an/aus (Draht & Vision/änderbar) 🟢
+- `reset_battery_time`: Batterieladungen in 2 Schritten zurücksetzen (Draht & Vision/änderbar) 🔴
+- `reset_battery_time_approved`: Batterieladungen zurücksetzen bestätigen - `reset_battery_time` muss auf true gesetzt sein (Draht & Vision/änderbar) 🔴
+- `reset_blade_time`: Klingenarbeitszeit in 2 Schritten zurücksetzen (Draht & Vision/änderbar) 🔴
+- `reset_blade_time_approved`: Klingenarbeitszeit zurücksetzen bestätigen - `reset_battery_time` muss auf true gesetzt sein (Draht & Vision/änderbar) 🔴
 
 ![Mower img/mower_3.png](img/mower_3.png)
 
--   `rfidStatus`: Status RF Sensor 0=OK/1=Fehler (Vision/nur lesen)
--   `sendCommand`: Ein Befehl versenden (Draht & Vision/änderbar)
+- `rfidStatus`: Status RF Sensor 0=OK/1=Fehler (Vision/nur lesen)
+- `sendCommand`: Ein Befehl versenden (Draht & Vision/änderbar) 🟢
 
 ```json
 {
@@ -284,8 +333,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 }
 ```
 
--   `state`: True für Mähvorgang starten und False für Mähvorgang beenden (Draht & Vision/änderbar)
--   `status`: Status vom Mäher (Draht & Vision & RTK/nur lesen)
+- `state`: True für Mähvorgang starten und False für Mähvorgang beenden (Draht & Vision/änderbar) 🟢
+- `status`: Status vom Mäher (Draht & Vision & RTK/nur lesen)
 
 ```json
 {
@@ -329,14 +378,14 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 }
 ```
 
--   `torque`: Raddrehmoment Bereich -50->50 (Draht & Vision/änderbar)
--   `totalBladeTime`: Gesamte Klingen-Arbeitszeit (Draht & Vision/nur lesen)
--   `totalDistance`: Gesamte Entfernung (Draht & Vision/nur lesen)
--   `totalTime`: Gesamte Rasenmäher-Arbeitszeit (Draht & Vision/nur lesen)
--   `waitRain`: Regenverzögerung max. 12h in 30 Minuten Schritte und 0 für aus (Draht & Vision/änderbar)
--   `waitRainCountdown` Countdown wenn der Sensor wechselt von nass zu trocken (Draht & Vision/nur lesen) (derzeit deaktiviert)
--   `waitRainSensor` Status 0 für trocken und 1 für feucht (Draht & Vision/nur lesen)
--   `wifiQuality`: Wifi Qualität (Draht & Vision/nur lesen)
+- `torque`: Raddrehmoment Bereich -50->50 (Draht & Vision/änderbar) 🟢
+- `totalBladeTime`: Gesamte Klingen-Arbeitszeit (Draht & Vision/nur lesen)
+- `totalDistance`: Gesamte Entfernung (Draht & Vision/nur lesen)
+- `totalTime`: Gesamte Rasenmäher-Arbeitszeit (Draht & Vision/nur lesen)
+- `waitRain`: Regenverzögerung max. 12h in 30 Minuten Schritte und 0 für aus (Draht & Vision/änderbar) 🟢
+- `waitRainCountdown` Countdown wenn der Sensor wechselt von nass zu trocken (Draht/nur lesen) (Vision deaktiviert)
+- `waitRainSensor` Status 0 für trocken und 1 für feucht (Draht/nur lesen) (Vision deaktiviert)
+- `wifiQuality`: Wifi Qualität (Draht & Vision/nur lesen)
 
 ```json
 {
@@ -351,17 +400,17 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### Zusätzlich Vision Infos
 
--   multiZones
-    -   `multiZones.zones.zone_1.borderDistance`: Beim Kantenschnitt der Abstand zur Kante in mm - erlaubt 50mm, 100mm, 150mm und 200mm - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
-    -   `multiZones.zones.zone_1.chargingStation`: 1 Wenn sich die Ladestation in dieser Zone befindet. 0 für keine Ladestation - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
-    -   `multiZones.zones.zone_1.cutOverBorder`: 1 zum Überfahren von Platten, wenn diese erkannt werden, ansonsten 0. Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
-    -   `multiZones.zones.zone_1.zone_id`: Nummerierung - Start mit 1 (Vision/nur lesen)
-    -   `multiZones.passages.passage_01.tagIdFrom`: RFID id von zoneIdFrom - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
-    -   `multiZones.passages.passage_01.tagIdTo`: RFID id von zoneIdTo - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
-    -   `multiZones.passages.passage_01.zoneIdFrom`: Zone von (muss zoneIdFrom < zoneIdTo) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
-    -   `multiZones.passages.passage_01.zoneIdTo`: Zone zu (muss zoneIdTo > zoneIdFrom) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar)
-    -   `multiZones.multiZones`: multiZones JSON (Vision/änderbar) [Beispiel](#beispiel-blockly-sendMultiZonesJson-vision)
-    -   `multiZones.sendMultiZonesJson`: Änderungen an Worx senden mit mit einer Verzögerung von 1,1 Sekunden (Vision/änderbar)
+- multiZones
+    - `multiZones.zones.zone_1.borderDistance`: Beim Kantenschnitt der Abstand zur Kante in mm - erlaubt 50mm, 100mm, 150mm und 200mm - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar) 🔴
+    - `multiZones.zones.zone_1.chargingStation`: 1 Wenn sich die Ladestation in dieser Zone befindet. 0 für keine Ladestation - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar) 🔴
+    - `multiZones.zones.zone_1.cutOverBorder`: 1 zum Überfahren von Platten, wenn diese erkannt werden, ansonsten 0. Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar) 🔴
+    - `multiZones.zones.zone_1.zone_id`: Nummerierung - Start mit 1 (Vision/nur lesen)
+    - `multiZones.passages.passage_01.tagIdFrom`: RFID id von zoneIdFrom - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar) 🔴
+    - `multiZones.passages.passage_01.tagIdTo`: RFID id von zoneIdTo - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar) 🔴
+    - `multiZones.passages.passage_01.zoneIdFrom`: Zone von (muss zoneIdFrom < zoneIdTo) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar) 🔴
+    - `multiZones.passages.passage_01.zoneIdTo`: Zone zu (muss zoneIdTo > zoneIdFrom) - Mit Blockly ohne Verzögerung setzen - Änderung wird in `multiZones.multiZones` geschrieben (Vision/änderbar) 🔴
+    - `multiZones.multiZones`: multiZones JSON (Vision/änderbar) [Beispiel](#beispiel-blockly-sendMultiZonesJson-vision) 🔴
+    - `multiZones.sendMultiZonesJson`: Änderungen an Worx senden mit mit einer Verzögerung von 1,1 Sekunden (Vision/änderbar) 🟢
 
 Beispiel:
 
@@ -428,26 +477,26 @@ Standard ohne Zonen:
 
 ![Vision img/areas_vision.png](img/areas_vision.png)
 
--   Mower
-    -   `log_improvement`: Protokoll zur Verbesserung an Worx senden de-/aktivieren (änderbar)
-    -   `log_troubleshooting`: Fehlerbericht an Worx senden de-/aktivieren (änderbar)
+- Mower
+    - `log_improvement`: Protokoll zur Verbesserung an Worx senden de-/aktivieren (änderbar) 🟢
+    - `log_troubleshooting`: Fehlerbericht an Worx senden de-/aktivieren (änderbar) 🟢
 
 ![Vision img/logs_vision.png](../en/img/logs_vision.png)
 
--   Mower
-    -   `paused`: Mähstartverzögerung (änderbar)
+- Mower
+    - `paused`: Mähstartverzögerung (änderbar) 🟢
 
 ![Vision img/paused_vision.png](../en/img/paused_vision.png)
 
 ### info_mqtt (Draht und Vision)
 
--   `incompleteOperationCount`: Gesamtzahl der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht quitierte Operationen sind eine Teilmenge davon.
--   `incompleteOperationSize`: Gesamtpaketgröße der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht quitierte Operationen sind eine Teilmenge davon.
--   `unackedOperationCount`: Gesamtzahl der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
--   `unackedOperationSize`: Gesamtpaketgröße der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
--   `last_update`: Letzte Aktualisierung vom Token
--   `next_update`: Nächste Aktualisierung vom Token
--   `online`: Status MQTT Verbindung (false=offline/true=online)
+- `incompleteOperationCount`: Gesamtzahl der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht quitierte Operationen sind eine Teilmenge davon.
+- `incompleteOperationSize`: Gesamtpaketgröße der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht quitierte Operationen sind eine Teilmenge davon.
+- `unackedOperationCount`: Gesamtzahl der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
+- `unackedOperationSize`: Gesamtpaketgröße der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
+- `last_update`: Letzte Aktualisierung vom Token
+- `next_update`: Nächste Aktualisierung vom Token
+- `online`: Status MQTT Verbindung (false=offline/true=online)
 
 ![Vision img/mqtt_info.png](../en/img/mqtt_info.png)
 
@@ -787,6 +836,8 @@ Standard ohne Zonen:
 
 - (Lucky-ESA) Migration to ESLint9
 - (Lucky-ESA) Node 20 required
+- (Lucky-ESA) Admin 7.4.10 required
+- (Lucky-ESA) Added Party Modus Timer (wire only)
 
 ### 3.1.1 (2024-11-04)
 

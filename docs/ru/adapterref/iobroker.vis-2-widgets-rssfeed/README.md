@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 title: Виджеты RSS-канала Vis 2
-hash: ErMD6x59cwdqkbwLVYUsR8GHNYdPgIHmHAi5lW7uc98=
+hash: +yjjHHRqJ/PCFnzNOb7mLmosEVYrzBWKdURpn/sC1ac=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-rssfeed/admin/vis-2-widgets-rssfeed.png)
 
@@ -23,6 +23,19 @@ hash: ErMD6x59cwdqkbwLVYUsR8GHNYdPgIHmHAi5lW7uc98=
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.0.1 (2025-03-10)
+
+- try to fix marque v5 widget
+
+### 1.0.0 (2025-02-19)
+
+- remove common.noConfig from io-package.json
+- add popup as opening type for marquee widget
+
+### 0.3.6 (2024-09-18)
+
+- remove 0.3.4 from io-package.json
+
 ### 0.3.5 (2024-08-09)
 
 - improve link styling in the marquee widget
@@ -92,7 +105,7 @@ hash: ErMD6x59cwdqkbwLVYUsR8GHNYdPgIHmHAi5lW7uc98=
 
 The MIT License (MIT)
 
-Copyright (c) 2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2025 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

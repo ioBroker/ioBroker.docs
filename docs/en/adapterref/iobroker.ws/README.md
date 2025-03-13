@@ -27,18 +27,18 @@ It is useful to read about the [structure of the objects](https://github.com/ioB
 ### Object
 Object is description of data point or group. The group could content other data points in this case it called channel. If a group consists of other channels, in this case it is called device. 
 
-Object is meta information that describes data point and could content: max/min value, unit, name, default value, type of value, information for adapter for communication (e.g., ip address) and so on.
+Object is meta information that describes data point and could content: max/min value, unit, name, default value, type of value, information for adapter for communication (e.g., IP address) and so on.
 
 ### State
-State is the actual value of the data point and presented by javascript object: 
-```js
+State is the actual value of the data point and presented by JavaScript object: 
+```json
 {
-    val: VALUE, 
-    ack: ACKNOWLEDGED, 
-    ts: TIMESTAMP, // could be converted into time with "new Date(state.ts)" (In older version of js-controller - "new Date(state.ts * 1000)")
-    lc: TIMESTAMP of last change, 
-    from: ADAPTER_NAME, 
-    q: QUALITY
+    "val": VALUE, 
+    "ack": ACKNOWLEDGED, 
+    "ts": TIMESTAMP, // could be converted into time with "new Date(state.ts)" (In older version of js-controller - "new Date(state.ts * 1000)")
+    "lc": TIMESTAMP of last change, 
+    "from": ADAPTER_NAME, 
+    "q": QUALITY
 }
 ```
 
@@ -69,11 +69,27 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 3.0.19 (2025-03-04)
+* (@GermanBluefox) Removed the frequent debug output
+
+### 3.0.18 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 3.0.17 (2025-02-28)
+* (@GermanBluefox) Added OAuth2 authentication
+
+### 3.0.5 (2025-02-11)
+* (@GermanBluefox) Corrected address detection
+* (@GermanBluefox) Corrected language settings
+
+### 3.0.4 (2025-02-11)
+* (@GermanBluefox) Adapter was rewritten in TypeScript
+
 ### 2.7.0 (2024-11-17)
-* (bluefox) Update ws-server library
+* (@GermanBluefox) Update ws-server library
 
 ### 2.6.2 (2024-06-26)
-* (bluefox) Corrected call of getObjectView with null parameter
+* (@GermanBluefox) Corrected call of getObjectView with null parameter
 
 ### 2.6.1 (2024-04-22)
 * (foxriver76) fixed require of webserver
@@ -82,7 +98,7 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 * (foxriver76) use `@iobroker/webserver`
 
 ### 2.5.11 (2024-02-22)
-* (bluefox) Some packages were updated
+* (@GermanBluefox) Some packages were updated
 
 ### 2.5.10 (2023-12-17)
 * (foxriver76) updated ws-server to increase the file limit to 500 MB
@@ -91,13 +107,13 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 * (joltcoke) Corrected the crash if authentication is enabled
 
 ### 2.5.8 (2023-10-11)
-* (bluefox) Corrected adapter termination if the alias has no target
+* (@GermanBluefox) Corrected adapter termination if the alias has no target
 
 ### 2.5.7 (2023-10-07)
 * (foxriver76) upgraded socket-classes to fix vis problems
 
 ### 2.5.6 (2023-09-28)
-* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+* (@GermanBluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
 
 ### 2.5.5 (2023-09-14)
 * (foxriver76) upgraded socket-classes to fix crash cases
@@ -106,27 +122,27 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 * (mcm1957) added missing node16 requirement
 
 ### 2.5.3 (2023-08-01)
-* (bluefox) Added the subscribing on the specific instance messages
+* (@GermanBluefox) Added the subscribing on the specific instance messages
 
 ### 2.4.0 (2023-07-07)
-* (bluefox) extended the getObjects function with the possibility to read the list of IDs
+* (@GermanBluefox) extended the getObjects function with the possibility to read the list of IDs
 
 ### 2.3.6 (2023-03-03)
-* (bluefox) Allowed deletion of fullcalendar objects
+* (@GermanBluefox) Allowed deletion of fullcalendar objects
 
 ### 2.3.5 (2023-01-29)
-* (bluefox) added `publishFileAll` method (for future use)
+* (@GermanBluefox) added `publishFileAll` method (for future use)
 
 ### 2.3.4 (2022-12-27)
-* (bluefox) corrected connection string
+* (@GermanBluefox) corrected connection string
 
 ### 2.3.3 (2022-12-22)
-* (bluefox) used new socket-classes
+* (@GermanBluefox) used new socket-classes
 
 ### 2.3.1 (2022-11-27)
-* (bluefox) Added `fileChange` event
+* (@GermanBluefox) Added `fileChange` event
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 @GermanBluefox <dogafox@gmail.com>

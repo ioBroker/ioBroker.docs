@@ -23,6 +23,7 @@ Falls es Probleme gibt, dann eventuell erstmal ein kürzeres und einfaches PW ne
 
 * IP mit vorangestellten "http://" eingeben
 * Polling Intervall kann beliebig gewählt werden (Voreinstellung 5min=300sec). Dies ist notwendig um Bedienung ausserhalb von ioBroker nachzuführen, da die FritzBox keine automatischen Updates liefert.
+* Wird das Polling Intervall auf 0 gesetzt, werden keine zyklischen Abfragen durchgeführt. Updates erfolgen dann ausschließlich auf Abruf (siehe Manuelles Update).
 
 
 ## Adapter Start
@@ -57,11 +58,44 @@ Es besteht die Möglichkeit die gemessene Temperatur in der FritzBox zu korrigie
 Die intern im Heizkörperregler benutzte Ist-Temperatur (actualtemp), wird durch den Offset auch verändert. D.h. der HKR regelt intern auf den korrigierten Wert.
 Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 
+## Manuelles Update
+
+Es ist möglich, ein manuelles Update anzustoßen, zum Beispiel zwischen den Polling-Intervallen oder wenn das Polling deaktiviert ist.
+Dazu senden Sie eine Nachricht mit dem Text "update" und ohne Parameter an die Adapter-Instanz.
+Der optionale Callback wird aufgerufen, wenn das Update abgeschlossen ist.
+
+Unten finden Sie ein Beispiel, das zeigt, wie das manuelle Update ausgelöst wird:
+
+```javascript
+sendTo('fritzdect.0', 'update', null,
+    (e) => {
+        if (e["result"]) {
+            // Update erfolgreich
+        } else {
+            console.log(e["error"]);
+        }
+    }
+);
+```
+
 ## Troubleshooting
 
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+
+### 2.6.1 (npm)
+* log FW version of FB
+* DECT350 now with battery data (issue #513)
+* merge etsi devices into etsiunits (issue #597)
+
+### 2.6.0 (npm)
+* (khnz) PR#618 support on-demand updates
+* change temperature checking < 28°C extended to < 35°C (issue #619)
+* change dependencies
+
+### 2.5.13 (npm)
+* same as 2.5.12 with corrected IOB checker issues
 
 ### 2.5.12 (npm)
 * skipping devices with empty identified (#598, #599), transmitted in FW8.01

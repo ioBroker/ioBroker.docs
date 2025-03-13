@@ -58,6 +58,11 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+
 ### 1.2.0 (2025-01-31) - 2025H1 maintenance release
 
 - (pdbjjens) Change: Migration to ESLint 9

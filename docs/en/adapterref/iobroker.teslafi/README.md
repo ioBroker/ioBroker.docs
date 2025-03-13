@@ -74,6 +74,25 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
+### 1.2.2 (2025-03-11)
+
+- (hombach) fix "Invalid time value" error (#115)
+- (hombach) fix vulnerability in axios <1.8.2
+
+### 1.2.1 (2025-03-06)
+
+- (hombach) bump dependencies
+
+### 1.2.0 (2025-02-23)
+
+- (hombach) change to admin 7.4.10 as recommended by ioBroker (#102)
+
+### 1.1.2 (2025-02-22)
+
+- (hombach) added @alcalzone/release-script (#97)
+- (hombach) bump @iobroker/adapter-dev to 1.4.0 (#104)
+- (hombach) bump dependencies
+- (hombach) fix error in config (#106)
 
 ### 1.1.1 (2025-02-01)
 

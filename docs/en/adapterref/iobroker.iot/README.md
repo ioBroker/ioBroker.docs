@@ -341,6 +341,9 @@ setState('iot.0.app.message', JSON.stringify({
 -->
 
 ## Changelog
+### 3.5.0 (2025-02-24)
+-   (@foxriver76) added notification manager support (notifications will be sent as push notifications to the Visu App)
+
 ### 3.4.5 (2024-12-29)
 
 -   (@GermanBluefox) Checked the max length of discovered devices for Alexa
@@ -855,7 +858,7 @@ setState('iot.0.app.message', JSON.stringify({
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

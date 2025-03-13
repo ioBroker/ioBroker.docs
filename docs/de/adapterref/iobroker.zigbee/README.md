@@ -131,9 +131,59 @@ There is [another](https://www.zigbee2mqtt.io/) with the same functions and the 
 Other topics related to this adapter are also documented in the associated wiki.
 
 ## Changelog
+### 2.0.4 (2025-03-09)
+* back to 2.0.2
+
+### 2.0.3 (2025-03-07)
+* fix configured info
+* fix battery voltage (V -> mV)
+* enable debug interface v1.0
+* Push Zigbee-Herdsman to 3.5.7
+* Push Zigbee-Herdsman-Converters to 23.1.1
+* fix configure on message
+* remove extra warning messages
+* fix Adapter-Checker notes
+* improve base64 image detection
+* removed unused adaptert objects (info.groups, excludes) from adapter config
+*
+
+### 2.0.2 (2025-03-02)
+* fix expose generation with expose function requiring a device. (Issue #1842)
+* fix failure to configure for devices needing multiple configurations (Issue #2375)
+* fix hold/release and press/release action handling (Issue #2387)
+* fix lib/legacy requirement for external converters (Issue #2376)
+* improved external converter handling
+* fix OTA bug
+* improved message handling for devices which report values outside their defined ranges
+* preparation for ZHC 22.x (model definition loaded on demand
+* fix legacy definition for devices
+* added action state for remotes.
+*
+
+### 2.0.1 (2025-02-25)
+* BREAKING CHANGES
+*
+* switch to converters 21 changes the exposes for a large numbern of devices (mostly remotes)
+* new method for controlling color based on subchannels for rgb, hs and xy
+* Exposes as default for ALL devices. Use of old definition as option only
+* Requires Node 20.x or newer
+*
+* (asgothian) Fix Pairing
+* (asgothian) change ping
+* (asgothian) delay map generation until refresh is activated, map messages after generation
+* (asgothian) remove bindings tab from zigbee tab
+* (asgothian) reorder tabs in configuration
+* (asgothian) remove binding tab from configuration
+* (asgothian) remove map from configuration
+* (asgothian) add debug to zigbee tab
+* (asgothian) Herdsman 3.2.5, Converters 21.30.0
+* (asgothian) Exposes as default, use of old device definitions as legacy optional
+* (asgothian) User specific images (model based, device based)
+* (asgothian) Improved group editing - remove members from group card
+
 ### 1.10.14 (2025-01-01)
 * (arteck) Herdsman 2.1.9, Converters 20.58.0
-* (asgothian) Fix: Aqara T1M (CL-L02D) 
+* (asgothian) Fix: Aqara T1M (CL-L02D)
 * (arteck) deleteDeviceStates change to deleteObj
 
 ### 1.10.13 (2024-11-10)
@@ -144,10 +194,10 @@ Other topics related to this adapter are also documented in the associated wiki.
 
 ### 1.10.11 (2024-11-02)
 * BREAKING CHANGE
-* 
+*
 *  bugs : ChannelScan is currently not available
-* 
-* 
+*
+*
 * (lebrinkma) fix linter errors
 * (asgothian) disable map display for deactivated devices
 * (asgothian) new option on map: disable physics interaction
@@ -166,7 +216,7 @@ Other topics related to this adapter are also documented in the associated wiki.
 * (arteck) add new eslint version
 
 ### 1.10.7 (2024-09-05)
-* (arteck) add flow control option 
+* (arteck) add flow control option
 * (asgothian) add new NewHerdsman
 * (arteck) add new ezsp coordinator Firmware (7.4.1.0)
 

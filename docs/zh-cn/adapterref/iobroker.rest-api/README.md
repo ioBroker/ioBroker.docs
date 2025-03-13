@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rest-api/README.md
 title: REST-API 适配器
-hash: vqjhnkoZ5i0c09TWI75srUhzFN6OBFj8q9V+++8IKTg=
+hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
 ---
 ![标识](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -25,14 +25,51 @@ hash: vqjhnkoZ5i0c09TWI75srUhzFN6OBFj8q9V+++8IKTg=
 ![截屏](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
 ＃＃ 用法
-在浏览器中调用```http://ipaddress:8093/```并使用 Swagger UI 请求和修改状态和对象。
+在浏览器中调用`http://ipaddress:8093/`并使用 Swagger UI 请求和修改状态和对象。
 
 一些请求示例：
 
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - 以 JSON 格式读取状态
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - 以字符串形式读取状态（仅值）
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - 使用 GET 写入状态（仅用于与 simple-api 的向后兼容）
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - 向脚本 `scriptName` 中的 javascript.0 发送消息
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - 向脚本 `scriptName` 中的 `javascript.0` 发送一条消息
+
+＃＃＃ 验证
+要启用身份验证，您必须在配置对话框中设置`Authentication`选项。
+
+支持三种类型的身份验证：
+
+- 查询中的凭证
+- 基本身份验证
+- OAuth2（承载者）
+
+为了在查询中进行身份验证，您必须在查询中设置`user` 和`pass`，如下所示：
+
+```http
+http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
+```
+
+对于基本身份验证，您必须将`Authorization` 标头设置为值`Basic base64(user:pass)`。
+
+对于 Oauth2 身份验证，您必须将 `Authorization` 标头设置为值 `Bearer <AccessToken>`。
+
+访问令牌可以通过 HTTP 请求重新获得，例如：
+
+```http
+http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker
+```
+
+答案是这样的：
+
+```json
+{
+    "access_token": "21f89e3eee32d3af08a71c1cc44ec72e0e3014a9",
+    "expires_in": "2025-02-23T11:39:32.208Z",
+    "refresh_token": "66d35faa5d53ca8242cfe57367210e76b7ffded7",
+    "refresh_token_expires_in": "2025-03-25T10:39:32.208Z",
+    "token_type": "Bearer"
+}
+```
 
 ## 订阅状态或者对象的变化
 您的应用程序可以通过状态或对象的每次改变获得通知。
@@ -47,7 +84,7 @@ node.js 中的示例请参见此处[demoNodeClient.js](examples/demoNodeClient.j
 浏览器示例可在此处找到：[demoNodeClient.js](examples/demoBrowserClient.html)
 
 ## Web 扩展
-此适配器可以作为 Web 扩展运行。在这种情况下，路径位于 http://iipaddress:8082/rest 下。
+此适配器可以作为 Web 扩展程序运行。在这种情况下，路径位于 `http://ipaddress:8082/rest` 下
 
 ＃＃ 注意
 - `POST` 总是用于创建资源（无论是否重复）
@@ -82,7 +119,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 <!-- 开始 -->
 
-＃＃＃ 状态
+### 州
 - `getStates(pattern)` - 获取模式的状态列表（例如 system.adapter.admin.0.*）。GUI 可能会因答案的可视化而出现问题。
 - `getForeignStates(pattern)` - 与 getStates 相同
 - `getState(id)` - 通过 ID 获取状态值
@@ -140,6 +177,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `delObjects(id, options)` - 根据模式删除对象
 
 ＃＃＃ 其他的
+-`updateTokenExpiration（accessToken）`
 - `log(text, level[info])` - 无答案 - 将日志条目添加到 ioBroker 日志
 - `checkFeatureSupported(feature)` - 检查 js-controller 是否支持该功能。
 - `getHistory(id, options)` - 读取历史记录。有关选项，请参阅：https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
@@ -159,7 +197,16 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ### **正在进行中** -->
 
 ## Changelog
-### 2.0.0 (2024-04-09)
+### 2.1.0 (2025-02-27)
+* (@GermanBluefox) Added OAuth2 support
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Replaced icons with SVG
+
+### 2.0.3 (2024-07-13)
+* (jkuenemund) Changed response for the endpoint get states to the dictionary in swagger
+
+### 2.0.1 (2024-05-23)
+* (foxriver76) ported to `@iobroker/webserver`
 * (theshengfui) Fixed history requests
 * (bluefox) Minimum required node.js version is 16
 
@@ -209,4 +256,4 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2025 bluefox <dogafox@gmail.com>

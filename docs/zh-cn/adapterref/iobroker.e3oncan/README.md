@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: E9v7po0F21TRSjvzpQdzvtcX4qUmRfH7zSOopGLuJIA=
+hash: vEBrkfqHrqBSbeIUwbEUTd8tq02mqKlDEBKtSa2iXyc=
 ---
 ![标识](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -22,7 +22,7 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 
 该适配器可以监听此通信并提取许多有用信息。还支持电表 E380CA 和 E3100CB。这种操作模式称为**收集**。
 
-同时支持**读取和写入数据点**。可以主动请求通过监听无法获得的信息。通过写入数据点，可以更改设定点、计划等。甚至可以添加新的计划，例如用于家用热水循环泵。这种操作模式称为**UDSonCAN**。其他设备（例如著名的 WAGO 网关）也使用 UDSonCAN 协议（基于 CAN 总线的通用诊断服务）。
+同时支持**读取和写入数据点**。可以主动请求通过监听无法获得的信息。通过写入数据点，可以更改设定点、计划等。甚至可以添加新的计划，例如用于家用热水循环泵。这种操作模式称为**UDSonCAN**。其他设备（例如著名的 WAGO 网关）也使用 UDSonCAN 协议（基于 CAN 总线的**通用**诊断**服务）。
 
 数据写入通过存储相应状态（`Acknowledged` 未选中（ack=false））来触发 - 是的，就这么简单！写入后 2.5 秒，数据点将再次从设备读取并存储在该状态中。如果状态未得到确认，请查看日志。
 
@@ -74,7 +74,7 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 * 就是这样。按“保存并关闭”按钮并检查对象树中收集的数据。
 
 # E380 数据和单位
-最多支持两个 E380 能量计。数据点的 ID 取决于设备 CAN 地址：
+最多支持两个 E380 电能表。数据点的 ID 取决于设备 CAN 地址：
 
 CAN-address=97：偶数 ID 的数据点
 
@@ -90,7 +90,7 @@ CAN-address=98：具有奇数 ID 的数据点
 | 602,603 | 总有功功率，总无功功率 | W, var |
 | 604,605 | 累计进口量 | 千瓦时 |
 
-# E3100CB 数据和单位
+#E3100CB 数据和单位
 | ID | 数据| 单位|
 | ------|:--- |------|
 | 1385_01 | 累计进口量 | kWh |
@@ -132,11 +132,39 @@ CAN-address=98：具有奇数 ID 的数据点
 * 如果您在这里只使用数据收集，那么您可以无限制地使用 open3e。
 * 如果您在此处使用 UDSonCAN，请务必不要对与 open3e 相同的设备执行此操作。如果您这样做，您将遇到偶尔的通信错误。
 
+## 捐赠
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/bluePayPal.svg" height="40"></a>如果你喜欢这个项目 — — 或者只是觉得慷慨，可以考虑给我买杯啤酒。干杯！:beers:
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.8 (2025-03-07)
+* (MyHomeMyData) Bugfix for issue #117
+* (MyHomeMyData) Updated data point 381, refer to discussion https://github.com/open3e/open3e/discussions/212
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20250307
+
+### 0.10.7 (2025-02-26)
+* (MyHomeMyData) Updated dependencies according to issue #111
+
+### 0.10.6 (2025-02-19)
+* (MyHomeMyData) Added missing enum info for data point 2850
+
+### 0.10.5 (2025-02-18)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20250217
+* (MyHomeMyData) Updated dependencies according to issues #101 and #108
+
+### 0.10.4 (2025-01-15)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20250114
+
+### 0.10.3 (2024-11-26)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20241125
+
+### 0.10.2 (2024-11-16)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20241115
+* (MyHomeMyData) Fixes for issue #81 (added missing size attributes)
+
 ### 0.10.1 (2024-10-20)
 * (MyHomeMyData) Fixes for issue #79 (improvements for usability on mobile devices)
 
@@ -247,7 +275,7 @@ CAN-address=98：具有奇数 ID 的数据点
 ## License
 MIT License
 
-Copyright (c) 2024 MyHomeMyData <juergen.bonfert@gmail.com>
+Copyright (c) 2025 MyHomeMyData <juergen.bonfert@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

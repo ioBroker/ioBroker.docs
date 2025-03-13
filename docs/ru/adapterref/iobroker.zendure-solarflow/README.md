@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: AVn5YzHd9CTBo8vIgT61hMQK4ryROLtKMXW09AeSWz4=
+hash: T49vEcmQISVK+BvOU3ThTW3C1kObMjLxFZWsgokGN/o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -21,6 +21,9 @@ hash: AVn5YzHd9CTBo8vIgT61hMQK4ryROLtKMXW09AeSWz4=
 Этот проект представляет собой адаптер ioBroker для чтения данных из API Zendure Solarflow Cloud. Он использует официальный API, предоставленный Zendure.
 Подробнее об API можно прочитать здесь: https://github.com/Zendure/developer-device-data-report
 
+## Пожертвовать
+Если вы найдете этот адаптер полезным для себя и захотите поддержать мою работу, не стесняйтесь сделать пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая никакого отношения к проекту ioBroker!)<br />
+
 ## Функции
 - Получайте все телеметрические данные с ваших устройств Solarflow, включая те, которые не отображаются в официальном приложении, например, напряжение батареи.
 - Управляйте Solarflow HUB как в официальном приложении. Большинство настроек доступны.
@@ -37,15 +40,31 @@ hash: AVn5YzHd9CTBo8vIgT61hMQK4ryROLtKMXW09AeSWz4=
 
 2. Вы выйдете из официального приложения iOS или Android после входа с помощью адаптера ioBroker. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить доступ к Solarflow HUB этой учетной записи. Затем используйте вторую учетную запись для ioBroker / адаптера Zendure Solarflow.
 
-3. Адаптер покажет использование +10 Вт от батареи, если нет солнечного входа и устройство находится в сети. Это будет отражать «резервное» использование устройства.
+3. Адаптер покажет использование +10 Вт от батареи, если нет солнечного входа и устройство находится в режиме онлайн. Это будет отражать «резервное» использование устройства.
 
 ## Кредиты
 Благодарность за это выражается https://github.com/reinhard-brandstaedter/solarflow, который очень помог со знаниями о сервере MQTT от Zendure! Спасибо!
 
-## Пожертвовать
-Если вы найдете этот адаптер полезным для себя и захотите поддержать мою работу, не стесняйтесь сделать пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая никакого отношения к проекту ioBroker!)<br />
-
 ## Changelog
+### 1.11.0 (2025-02-11)
+
+- Drop Standby usage to 7W and 14W if HUB connected with ACE as it is more accurate
+- Added heatState and autoModel (system operation mode) state
+- Added possibility to set the operation mode (autoModel)
+- Fix gridPower state
+
+### 1.10.7 (2025-01-21)
+
+- Fix reset calculation values of ACE if connected to HUB
+
+### 1.10.6 (2025-01-16)
+
+- Fix start of calculation if HUB is connected with Ace
+
+### 1.10.4 (2025-01-14)
+
+- Fix "Grid Input Power" state if connected with Ace
+
 ### 1.10.1 (2025-01-06)
 
 - Fix input limit when hub is bundled with ace

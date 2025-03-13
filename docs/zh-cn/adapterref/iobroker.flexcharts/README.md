@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: QS5E626cO05p6/jS6+3yipodDprkwuyZDgu9lrpokfc=
+hash: 2LBfixSvSCkyVG94QWAOMrwzR0WZOl4Sq6qt3IOsjxw=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -24,7 +24,7 @@ ioBroker 中有多种适配器可用于查看图表。据我所知，它们都�
 
 备注：适配器尚未在 MacOS 上测试。
 
-**没有 UI 可以配置任何图表。**您必须自己定义图表，适配器负责可视化。您必须通过提供内容作为 json 对象来提供图表的定义和内容 - 在 eCharts 示例中，它对应于变量 `option` 的内容。下面是一个例子来说明。要创建堆叠图表，请将其定义存储在 ioBroker 状态（json 格式）中：
+**没有 UI 可以配置任何图表。**您必须自己定义图表，适配器负责可视化。您必须通过提供内容作为 json 对象来提供图表的定义和内容 - 在 eCharts 示例中，它对应于变量 `option` 的内容。这里有一个例子来说明。要创建堆叠图表，请将其定义存储在 ioBroker 状态（json 格式）中：
 
 ```
 { "tooltip": {"trigger": "axis","axisPointer": {"type": "shadow"}},
@@ -161,7 +161,7 @@ myJsonParams = {"period":"daily"}
 
 只需使用[模板3](templates/flexchartsTemplate3.js) 尝试一下。有一个函数用于显示带有 2 个小数的工具提示数据：`tooltip: {trigger: "axis", valueFormatter: (value) => '。 + value.toFixed(2)}`。
 
-`flexcharts.0.info.chart2` 中给出了一个通过状态使用图表定义的示例。这将显示与模板 3 相同的图表。
+`flexcharts.0.info.chart2` 中给出了通过状态使用图表定义的示例。这将显示与模板 3 相同的图表。
 
 备注：安装 npm 模块 `javascript-stringify` 后，其功能也可能被恶意代码（跨站点脚本）利用。因此，使用此模块时，ioBroker 不应通过互联网访问。
 
@@ -173,6 +173,7 @@ Javascript 模板可用于以下几种用例：
 * 使用图表定义中的函数创建简单的堆积条形图：[template3](templates/flexchartsTemplate3.js)
 * **tibberLink 适配器** 的数据图表：请参阅 [此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) 和 [此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66) 的讨论
 * Viessmann E3 系列设备有一个非常具体的用例，例如热泵 Vitocal 250。请参阅 https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
+* 适配器 [tibberLink](https://github.com/hombach/ioBroker.tibberlink) 使用 flexcharts 作为数据图形处理选项。目前可在 ioBroker 的 Beta Repo 中使用。请查看 [文档](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json)。
 
 ＃＃ 参考
 使用**ioBroker 状态**作为数据源：`http://localhost:8082/flexcharts/echarts.html?source=state&id=my_state_id`
@@ -203,6 +204,9 @@ Javascript 模板可用于以下几种用例：
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2 (2025-02-09)
+* (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
+
 ### 0.3.1 (2025-02-02)
 * (MyHomeMyData) Updated Apache ECharts to version 5.6.0
 * (MyHomeMyData) Added support for 3D charts using extension echarts-gl, see issue #68

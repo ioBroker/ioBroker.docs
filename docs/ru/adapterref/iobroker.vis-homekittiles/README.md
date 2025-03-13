@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: /X3s0IvNZdNrT/NMxCAvFmje1BgCVt+giQKZUZrUyso=
+hash: BjT9FQxITbDD3xY9orHVvbnqrpt7q4Gp/EVxos9Mz6w=
 ---
 # IoBroker.vis-homekittiles
 
@@ -36,16 +36,33 @@ Homekit Tiles — это набор виджетов, основанный на 
 * создать флажок для Sonos Group
 * Выбор даты: динамические значки дня/месяца
 * Плитки: добавить кнопку для диалога
+* оптимизируйте функцию 'infoText'
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.6 (2025-03-04)
+
+* Depencies updated
+
+### 0.4.5 (2025-02-14)
+
+* hkt-Button-Set-Navigation-Submenu: added (optional) strokes to use with main menu widget
+
+### 0.4.2 (2025-02-09)
+
+* hkt-settings-value: added format options for decimals
+* Thermostat dialog: prevent select menu inside of dialogs from open when dialog window opens
+* View in widget dialog: prevent select menu inside of dialogs from open when dialog window opens
+
+### 0.4.1 (2025-02-08)
 
 * All tiles: added icon for state off
 * Optimized CSS for indicator
+* Removed forced font-size of widgets in View-In-Widget-Swipe
+* Removed forced font-size of widgets in View-In-Widget-Dialog
 
 ### 0.4.0 (2025-01-14)
 

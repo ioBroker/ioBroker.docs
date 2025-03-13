@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: 14kvDKkWjRg8LV1UokzDyR4INivV/jQKThUt9uXBkwU=
+hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -109,7 +109,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 <details><summary><i>智能家居面板参数化</i></summary><p>
 
 * 添加新行
-* 设置发电机的设备 ID，如应用程序中所示，例如“SP10....”
+* 设置发电机的设备 ID 如应用程序中所示，例如“SP10....”
 * 给它一个名字
 * 将类型设置为“SHP”或“SHP2”
 
@@ -153,7 +153,7 @@ mqqt Broker 设置是默认的，通常不需要修改。
 
 </p></详情>
 
-<details><summary><i>交流发电机参数化</i></summary><p>
+<details><summary><i>参数化交流发电机</i></summary><p>
 
 * 添加新行
 * 设置智能插头的设备 ID，如应用程序中所示，例如“F371ZE...”
@@ -180,7 +180,7 @@ HA端修改：
 
 ## 更新适配器
 通常，在旧版本之上安装下一个版本就足够了。在某些情况下（例如 1.0.0），可能需要清除整个对象树。
-如果数据点相关值发生更改，例如范围的最小值或最大值，则必须：
+如果数据点相关值发生变化，例如范围的最小值或最大值，则必须：
 
 - 停止适配器
 - 删除了相关数据点
@@ -228,7 +228,7 @@ HA端修改：
 * 级别 -> 具有数值的可调整数据点，有时也具有数字表示的选择
 * 开关 -> 可调整数据点布尔值
 * 诊断 -> 布尔或多状态数据点转换为文本
-* 字符串 -> 数据点仅作为文本
+* 字符串 -> 数据点仅为文本
 * 数组 -> 带有数组的数据点
 * 值到文本的转换可能会使用未经验证的文本（欢迎反馈），这在文本末尾以“？”表示
 
@@ -243,7 +243,7 @@ HA端修改：
 
 [达美航空](./doc/devices/deltamax.md)
 
-[達達貿易](./doc/devices/deltapro.md)
+[達爾塔](./doc/devices/deltapro.md)
 
 [河流 2 最大](./doc/devices/river2max.md)
 
@@ -254,6 +254,8 @@ HA端修改：
 [达美航空 2 Max](./doc/devices/delta2max.md)
 
 [德尔塔专业版](./doc/devices/deltaproultra.md)
+
+[德尔塔 Pro 3](./doc/devices/deltapro3.md)
 
 ### 智能家居面板
 [智能家居面板](./doc/devices/panel.md)
@@ -298,7 +300,7 @@ HA端修改：
 为了调试目的，创建了此部分，请选择设备（delta pro3、delta3、delta3 plus）并将序列号放在添加的行中，预计未知设备正在使用 protobuf，它会在日志中创建 [PROTOBUF unknown] 消息，它们包含原始十六进制电报
 
 待办事项
-* 检查命令中被遗忘的边界条件（抑制命令，或者附加值）
+* 检查命令中被遗忘的边界条件（抑制命令，或附加值）
 * 如果需要倒车，请检查蜂鸣命令
 * SlaveBattery DM，输出功率乘以 10
 * 更多 SHP 值的 getCmds
@@ -308,6 +310,14 @@ HA端修改：
 使用该软件的风险由您自行承担，对于使用该软件可能产生的任何潜在损害或问题，我不承担任何责任。重要的是要注意，使用此开源软件不会得到 Ecoflow 公司的直接支持或保证。
 
 ## Changelog
+
+### 1.3.0 (npm)
+* (foxthefox) correction for PStream energy
+* (foxthefox) new DeltaPro 3 implementation
+* (foxthefox, radeonorama) enhancements alternator
+* (foxthefox) major refactoring
+* (foxthefox) new items to PowerOcean and HeatingRod
+
 
 ### 1.2.2 (npm)
 * (foxthefox) some documentation for HA users

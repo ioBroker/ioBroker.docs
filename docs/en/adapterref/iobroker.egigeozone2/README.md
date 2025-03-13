@@ -38,6 +38,9 @@ protocol://address:port/person
 
 ## Changelog
 
+### 1.0.8
+* (obakuhl) Updating dependencies
+
 ### 1.0.7
 * (obakuhl) Fully implemented responsive design
 * (obakuhl) Minor adjustments

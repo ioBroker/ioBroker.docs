@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.remeha-home/README.md
 title: ioBroker.remeha-首页
-hash: uRi77+bePrsWGCD5xccnBWjbelxfrurWjfa1VJBWsxM=
+hash: yRxbFwyeNohf5COQOHuVehlHQWjT6q4kachmpUbjgco=
 ---
 ![标识](../../../en/adapterref/iobroker.remeha-home/admin/remeha-home.png)
 
@@ -47,10 +47,41 @@ ioBroker.remeha-home 适配器可通过 [Remeha Home平台](https://www.remeha.d
 
 您必须在适配器的配置中输入这些内容。
 
---- <!-- ### **正在进行中** -->
+---
 
 ## Changelog
-### **WORK IN PROGRESS**
+<!-- ### **WORK IN PROGRESS** -->
+### 1.0.4 (2025-03-07)
+* (simatec) Fix Post Update
+
+### 1.0.3 (2025-03-07)
+* (simatec) Fix Post Update
+
+### 1.0.2 (2025-03-06)
+* (simatec) Code Fix
+* (simatec) eslint Fix
+
+### 1.0.1 (2025-03-04)
+* (simatec) Code clean
+* (simatec) Dependencies updated
+
+### 1.0.0 (2025-03-02)
+* (simatec) Fix Update Settings
+* (simatec) Rewrite in Typescript
+
+### 0.2.8 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
+### 0.2.7 (2025-01-09)
+* (simatec) Fix Update Intervall
+
+### 0.2.6 (2025-01-09)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 0.2.5 (2024-11-27)
 * (simatec) Dependencies updated
 * (simatec) Fix jsonConfig
 * (simatec) Issue Action added
@@ -98,7 +129,7 @@ ioBroker.remeha-home 适配器可通过 [Remeha Home平台](https://www.remeha.d
 
 MIT License
 
-Copyright (c) 2024 simatec
+Copyright (c) 2024 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

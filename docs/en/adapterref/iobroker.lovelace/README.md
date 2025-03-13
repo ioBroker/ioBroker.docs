@@ -473,6 +473,15 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 4.1.15 (2025-03-10)
+* (Garfonso) repaired image loading, again.
+
+### 4.1.14 (2025-03-10)
+* (Garfonso) repaired image loading. Fixes #577
+
+### 4.1.13 (2025-03-06)
+* (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also weather images are transfered from our server, so no access to admin is needed anymore.
+
 ### 4.1.11 (2024-11-20)
 * (Garfonso) convert string state values to numbers, where necessary.
 
@@ -480,22 +489,9 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso) device icons work again.
 * (Garfonso) default user sometimes was not found in system.
 
-### 4.1.9 (2024-04-26)
-* (Garfonso) add support for new service call structure.
-* (Garfonso) add support for delivering files from other adapters, for example, local cover images.
-* (Garfonso) cleaned up service descriptions.
-
-### 4.1.8 (2024-03-11)
-* (Garfonso) prevent even more possible crashes
-* (smarthomejoey) fixed: tilt level and inversion
-
-### 4.1.6 (2024-03-07)
-* (Garfonso) remove exessive logging
-* (Garfonso) improve fix for crash again.
-
 ## License
 
-Copyright 2019-2024, bluefox <dogafox@gmail.com>
+Copyright 2019-2025, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -105,6 +105,7 @@ Hier werden die wichtigsten Datenpunkte beschrieben. Im Namen ist die UID hinter
 │       |       └── ...
 |       └── ActiveProgram
 |       └── SelectedProgram
+|       └── sendOptionsSeperately
 ```
 
 ### info.connection
@@ -122,6 +123,14 @@ Die Datenpunkte enthalten als Wert die UID des Programms, das gerade läuft. `Ac
 ### observe
 
 Mit dem Datenpunkt `observe` können bei Änderung auf `false` Geräte von der Überwachung des Adapters ausgeschlossen werden. So kann bspw. im Fehlerfall eingestellt werdne, dass nur ein Gerät vom Adapter beachtet wird und kein anderes "dazwischen funkt".
+
+### sendOptionsSeperately
+
+Normalerweise werden zum Starten eines Programms die nötigen Optionen als Ganzes an das Gerät gesendet. Bei manchen Geräten wrid aber erwartet, dass diese Optionen nicht als Block sondern einzeln übertragen werden.
+
+> [!NOTE]
+>
+> Funktioniert das Starten eines Programms also nicht wie gewünscht bzw. steht im Debug-Log sowas wie `resource":"/ro/activeProgram","version":1,"action":"RESPONSE","code":400}`, kann dieser Datenpunkt auf `true` geändert werden, bevor erneut versucht werden kann, ein Programm zu starten.
 
 ### Command
 
@@ -155,6 +164,28 @@ Hier können allgemeine Einstellungen des Geräts vorgenommen werden. Beispielsw
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 1.6.0 (2025-02-27)
+
+- (eifel-tech) Datapoint to send program options seperately (Issue #208)
+
+> [!CAUTION]
+>
+> See [english](./docs/en/README.md#sendoptionsseperately) or [german docu](./docs/de/README.md#sendoptionsseperately)
+
+### 1.5.0 (2025-02-24)
+
+- (eifel-tech) Admin-Version >= 7.4.10
+- (eifel-tech) Handling to start program for dishwasher S255HVX15E (Issue #201)
+
+### 1.4.3 (2025-02-18)
+
+- (eifel-tech) Handling to start program for dishwasher SN53ES02CE (Issue #194)
+
+### 1.4.2 (2025-02-13)
+
+- (eifel-tech) Error message after sending to /ro/selectedProgram on hood devices (Issue #193)
+
 ### 1.4.1 (2025-01-16)
 
 - (eifel-tech) Creating instance directory if absent
@@ -169,8 +200,10 @@ Hier können allgemeine Einstellungen des Geräts vorgenommen werden. Beispielsw
 - (eifel-tech) Dependency updates
 - (eifel-tech) common.min is only set if it is also present in the config (Issue #149)
 - (eifel-tech) Password in admin will be stored encrypted natively
-    > [!CAUTION]
-    > You have to reenter your password in admin config!
+
+> [!CAUTION]
+>
+> You have to reenter your password in admin config!
 
 ### 1.2.10 (2024-11-20)
 
@@ -217,8 +250,10 @@ Hier können allgemeine Einstellungen des Geräts vorgenommen werden. Beispielsw
 ### 1.2.0
 
 - (eifel-tech) Ability to exclude individual devices from control (Issue #117)
-    > [!CAUTION]
-    > The configuration had to be expanded for this, so the contents of the `info.config` data point have to be deleted and the adapter has to be restarted. Also delete the `General` object tree.
+
+> [!CAUTION]
+>
+> The configuration had to be expanded for this, so the contents of the `info.config` data point have to be deleted and the adapter has to be restarted. Also delete the `General` object tree.
 
 ### 1.1.2
 

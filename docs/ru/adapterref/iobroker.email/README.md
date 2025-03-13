@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.email/README.md
 title: ioBroker электронная почта
-hash: lNw4hH7NA9g/td26lkvPQi8jRYt19m78JwKOpr5qD6c=
+hash: ypVBzSrm5mbo+TfW0HK5vnJMZibj1ActmAB2k7PbHKA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -14,14 +14,11 @@ hash: lNw4hH7NA9g/td26lkvPQi8jRYt19m78JwKOpr5qD6c=
 # IoBroker электронная почта
 ![Тест и выпуск](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Отправляйте электронные письма из ioBroker.
-
-| :exclamation: В настоящее время этот адаптер не поддерживает почтовые серверы Microsoft (Hotmail, Live.com, Office365 и Web-Outlook). |
-|-----------------------------------------|
+Отправка писем из ioBroker. С помощью этого адаптера вы не можете проверять письма, только отправлять их.
 
 Адаптер использует [nodemailer](https://github.com/nodemailer/nodemailer) для обеспечения функциональности.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 Для использования Gmail вам может потребоваться настроить «Разрешить менее безопасные приложения» в вашей учетной записи Gmail, если вы не используете 2FA, в этом случае вам придется создать пароль для конкретного приложения. Вам также может потребоваться разблокировать свою учетную запись с помощью «Разрешить доступ к вашей учетной записи Google» для использования SMTP.
 
@@ -68,7 +65,7 @@ sendTo('email', {
 });
 ```
 
-Для отправки электронной почты с другого адаптера используйте функцию **adapter.sendTo**.
+Чтобы отправить электронное письмо с другого адаптера, используйте функцию `adapter.sendTo`.
 
 ## Поддерживаемые услуги
 - 1und1 / ионос
@@ -115,6 +112,22 @@ sendTo('email', {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Renamed `dist` folder to `build`
+
+### 2.0.0 (2025-03-11)
+* (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
+* (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
+* (mcm1957) EsLint uses @iobroker/linter-config now
+* (mcm1957) Dependencies have been updated
+* (@GermanBluefox) Migrated to TypeScript
+* (@GermanBluefox) Added "Ignore SSL errors" option
+
+### 1.4.0 (2024-11-17)
+* (simatec) Responsive Design added
+* (Jey-Cee) Admin-UI has been migrated to jsonConfig
+
 ### 1.3.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
 
@@ -125,17 +138,11 @@ sendTo('email', {
 ### 1.2.2 (2023-12-25)
 * (foxriver76) trim host messages from notification-manager correctly
 
-### 1.2.1 (2023-12-08)
- * (foxriver76) send the actual message too via notification-manager
-
-### 1.2.0 (2023-06-02)
-* (foxriver76) support [Notification Manager](https://github.com/foxriver76/ioBroker.notification-manager)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox
+Copyright (c) 2014-2025 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

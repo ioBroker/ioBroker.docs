@@ -8,11 +8,26 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
+hash: Lje38OWALXKFyl/EeX8Kwlrr4L3sr0JdUEq14CjrvFM=
 ---
 ![标识](../../../en/admin/worx.png)
 
 # IoBroker.worx 适配器
+## 重要信息
+🟢 两次主动切换操作之间有 1.1 秒的暂停</br> 🔴 无延迟，且下一次主动切换也无延迟
+
+无效</br> 🟢🟢🟢
+
+有效</br> 🟢1,1🟢1,1🟢
+
+无效</br> 🔴🔴🟢🟢
+
+有效</br> 🔴🔴🟢1,1🟢
+
+无效</br> 🔴🟢🔴🟢
+
+有效</br> 🔴🟢1,1🔴🟢
+
 ＃＃ 描述
 ### 实例设置
 - `App Email`：您的 APP 用户名（电子邮件）
@@ -22,8 +37,31 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 - `EdgeCut 延迟`：EdgeCut 何时启动（例如 5 秒后开始修剪草坪）
 - `距离和时间（以分钟和米为单位）`：默认小时和公里
 - `在令牌更新后更新 MQTT 数据。`：在刷新令牌后加载 Worx 数据。
+- `删除会话数据` 如果您在登录时遇到问题，请删除当前会话
+- `重置登录计数器` 重置登录计数器
 
-![实例设置 img/instance.png](../../../en/adapterref/iobroker.worx/img/instance.png)
+![实例设置 img/instance.png](img/instance.png)</br> ![实例设置 img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
+
+### 登录信息`worx.0.loginInfo`
+```json
+{
+    "loginCounter": 1, // Login counter
+    "loginDiff": [1741458177709], // Time difference of the last 10 logins
+    "lastLoginTimestamp": 1741458177709, // Last login as timestamp
+    "lastLoginDate": "2025-03-08T18:22:57.710Z", // Last login as ISO string WITHOUT time zone
+    "refreshCounter": 1, // Counter for refreshToken (reset on restart)
+    "refreshHistory": [1741516809807], // History refreshToken as timestamp
+    "lastRefreshTimestamp": 1741459690942, // Last refreshToken as timestamp
+    "lastRefreshDate": "2025-03-08T18:48:10.942Z", // Last refreshToken as ISO String WITHOUT time zone
+    "nextRefreshTimestamp": 1743548215943, // Next refreshToken as timestamp
+    "nextRefreshDate": "2025-04-01T22:56:55.943Z", // Next refreshToken as ISO String WITHOUT time zone
+    "lastError": "", // Last error message
+    "errorHistory": [], // History errors as timestamp
+    "errorCounter": 0, // Counter of error messages (reset on restart)
+    "lastErrorTimestamp": 0, // Last error message as timestamp
+    "lastErrorDate": "" // Last error message as ISO string WITHOUT time zone
+}
+```
 
 ＃＃＃ 文件夹
 - `activityLog`：您的活动日志（可能为有线和视觉/控制）
@@ -47,25 +85,25 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 ### 区域（线路）
 - `actualArea`：当前
 - `actualAreaIndicator`: 下一个数组区域开始
-- `area_0`: 区域 1 的起始位置（以米为单位）（数组=0）（可更改）
-- `area_1`: 区域 2 的起点，单位为米（数组=1）（可更改）
-- `area_2`: 区域 3 的起点，单位为米（数组=2）（可更改）
-- `area_3`: 区域 4 的起点，单位为米（数组=3）（可更改）
-- `startSequence`：数组区域开始（0-9 个事件）例如仅在区域 3 中开始 [2,2,2,2,2,2,2,2,2,2]（可更改）
-- `zoneKeeper`：在狭窄区域交叉口安全驾驶（必须创建区域）（从固件 3.30 开始）（可更改）
+- `area_0`：区域 1 的起始位置（以米为单位）（数组 = 0）（可更改）🟢
+- `area_1`：区域 2 的起点，以米为单位（数组=1）（可更改）🟢
+- `area_2`：区域 3 的起点，以米为单位（数组=2）（可更改）🟢
+- `area_3`：区域 4 的起始位置，单位为米（数组 = 3）（可更改）🟢
+- `startSequence`：数组区域开始（0-9 个事件）例如仅在区域 3 中开始 [2,2,2,2,2,2,2,2,2,2]（可更改）🟢
+- `zoneKeeper`：在狭窄区域交叉口安全驾驶（必须创建区域）（从固件 3.30 开始）（可更改）🟢
 
 ![区域 img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
 ### 日历（电报）
-- 例如，时间设置为星期三
+- 例如，周三的时间设置
 
-- `wednesday.borderCut`：有或无bordercut（立即更改值）（可更改）
-- `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（无延迟更改值）（可更改）
-- `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）
-- `calJson_sendto`：如果所有状态都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）
-- `calJson_tosend`：此数据将发送到 Mqtt（割草计划/自动设置）。您也可以自己创建此 JSON。（可更改）
-- `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 1/自动设置 - 仅适用于电线）（可更改）
-- `calendar.calJson2`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 2/自动设置 - 仅适用于电线）（可更改）
+- `wednesday.borderCut`：有或无bordercut（立即更改值）（可更改）🔴
+- `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（无延迟更改值）（可更改）🔴
+- `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）🔴
+- `calJson_sendto`：如果所有状态都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）🟢
+- `calJson_tosend`：此数据将发送到 Mqtt（割草计划/自动设置）。您也可以自己创建此 JSON。（可更改）🟢
+- `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 1/自动设置 - 仅适用于电线）（可更改）🔴
+- `calendar.calJson2`：每周割草计划的数组。您也可以自己创建此数组。（割草计划 2/自动设置 - 仅适用于电线）（可更改）🔴
 
 ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
 
@@ -73,19 +111,19 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 - 例如，时间设置为星期五
 - 标准情况下，会创建 2 个时间段。如果在 APP 中创建了 3 个时间段，ioBroker 中也会创建 3 个时间段。如果再次减少到 2 个时间段，ioBroker 中会删除这些时间段。时间段最多的一天将作为所有日期的参考。
 
-- `friday.time_0.borderCut`：有无边框（立即更改值）（可更改）
-- `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（立即更改值）（可更改）
-- `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）
-- `friday.time_0.enabled_time`：激活或停用时间。（无延迟设置）（可以更改）
-- `friday.time_0.zones`：应接近哪些区域，例如示例 [1,2,3]（无延迟设置）（可以更改）
-- `calJson_sendto`：如果所有状态都已设置，则将此按钮设置为 true（延迟 1.1）。割草机现在将割草 30 分钟！（可更改）
-- `calJson_tosend`: 这个 JSON 是自动填充然后发送给 Mqtt 的。当然你也可以自己创建。(可更改)
-- `add_timeslot`：添加额外的时间段。重启后，未使用的时间段将被删除。（可更改）
+- `friday.time_0.borderCut`：有或无bordercut（立即更改值）（可更改）🔴
+- `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（立即更改值）（可更改）🔴
+- `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）🔴
+- `friday.time_0.enabled_time`：激活或停用时间。（无延迟设置）（可以更改）🔴
+- `friday.time_0.zones`：应接近哪些区域，例如示例 [1,2,3]（无延迟设置）（可以更改）🔴
+- `calJson_sendto`：如果所有状态都已设置，则将此按钮设置为 true。割草机现在将割草 30 分钟！（可更改）🟢
+- `calJson_tosend`: 这个 JSON 是自动填充的，然后发送给 Mqtt。当然你也可以自己创建。(可更改) 🔴
+- `add_timeslot`：添加额外的时间段。重启后，未使用的时间段将被删除。（可更改）🔴
 
 ![文件夹 img/calendar.png](img/calendar_vision.png)![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
 
 ### 示例时间段（愿景）
-- `calJson_tosend` 此 JSON 将在周日输入 1 次，并删除所有其他日期。整个星期必须始终提交。
+- `calJson_tosend` 此 JSON 将在周日输入 1 次并删除所有其他日期。整个星期必须始终提交。🔴
 
 ```json
 [
@@ -112,23 +150,23 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 
 - ACS 模块（仅限有线）
 
-- `US.ACS`: 启用或禁用 ACS - 1-开/0-关
-- `US.ACS_Status`: 来自 ACS 模块的状态
+- `US.ACS`: 启用或禁用 ACS - 1-开/0-关 🟢
+- `US.ACS_Status`：来自 ACS 模块的状态（只读）
 
 - EA 模块（仅限视觉）
 
-- `EA.height`：割草机甲板高度调节范围为 30-60，增量为 5 毫米
+- `EA.height`：割草机甲板的高度调节范围为 30-60，增量为 5 毫米🟢
 
 - HL 模块（仅限视觉）
-- `HL.status`：状态头灯
-- `HL.enabled`: 前照灯安装是 = 1/否 = 0
-- `HL.on`: 日光 = 0/黑暗 = 1
+- `HL.status`：状态头灯（只读）
+- `HL.enabled`: 前照灯安装是 = 1/否 = 0 🟢
+- `HL.on`: 日光 = 0/黑暗 = 1 🟢
 
 ![模块 img/module.png](img/module.png) ![模块 img/module_ea.png](img/module_ea.png) ![模块 img/module_hl.png](../../../en/adapterref/iobroker.worx/img/module_hl.png)
 
 ### 割草机（Wire and Vision）
-- `AutoLock`：自动锁定真开/假关（有线和视觉/可更改）
-- `AutoLockTimer`：定时器自动锁定，最长 10 分钟，每步 30 秒（有线和视觉/可更改）
+- `AutoLock`：自动锁定真开/假关（有线和视觉/可更改）🟢
+- `AutoLockTimer`：定时器自动锁定，最长 10 分钟，每步 30 秒（有线和视觉/可更改）🟢
 - `batteryChargeCycle`：电池充电周期（电线和视觉/只读）
 - `batteryCharging`：电池充电 false->no/true->yes （电线和视觉/只读）
 - `batteryState`：电池状态（％）（电线和视觉/只读）
@@ -136,9 +174,9 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 - `batteryVoltage`：电池电压（伏特）（电线和视觉/只读）
 - `cameraStatus`：相机状态 0=OK/1=Error (Vision/readonly)
 - `cameraError`: 相机错误 0=OK/1=Error (Vision/readonly)
-- `cutOverSlabs`: 切换板开启 = true / 关闭 = false （视觉/可更改）
+- `cutOverSlabs`: 切换板开启 = true / 关闭 = false （视觉/可更改）🟢
 - `direction`：以度为单位的方向（wire & Vision/readonly）
-- `edgecut`: 启动 EdgeCut (线材 & 视觉/可更改)
+- `edgecut`: 启动 EdgeCut (线和视觉/可更改) 🟢
 - `error`：来自割草机的错误消息（wire & Vision/readonly）
 
 ```json
@@ -211,18 +249,18 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 - `firmware_available_date`：固件可用日期 - 当适配器重新安装且无可用更新时，为虚拟 1970-01-01（wire & Vision/readonly）
 - 来自 dat.fw 的 `firmware_body` 值 (Vision/readonly)
 - 来自 dat.head.fw 的 `firmware_head` 值 (Vision/readonly)
-- `firmware_update_start`：分 2 步启动固件更新 - 请参阅下文 `firmware_update_start_approved`（有线和视觉/可更改）
-- `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true (wire & Vision/changeable)
+- `firmware_update_start`：分 2 步启动固件更新 - 请参阅下文 `firmware_update_start_approved` (wire & Vision/changeable) 🔴
+- `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true (wire & Vision/changeable) 🟢
 - `gradient`：梯度（线和视觉/只读）
 - `inclination`：倾斜度（线和视觉/只读）
 - `last_command`: 来自 iobroker 或 APP 的最后一个请求，以 JSON 表形式 (wire & Vision/readonly)
 - `last_update` 最后更新 (wire & Vision/readonly)
 - `last_update_connection` 哪个连接（Mqtt 或 Cloud / wire & Vision/readonly）
-- `mowTimeExtend`：割草时间延长百分比范围：-100%->100%（有线/可变）
-- `mowerActive`：暂停割草计划（有线/可更改）
-- `mqtt_update`: 每天最多更新 150 条 Mqtt 数据（有线和视觉/可更改）
+- `mowTimeExtend`：割草时间延长百分比范围：-100%->100%（有线/可变）🟢
+- `mowerActive`：false 表示暂停割草计划 60 分钟，true 表示停止割草暂停并进入派对模式（有线/可更改）🟢
+- `mqtt_update`：每天最多更新 150 条 Mqtt 数据（有线和视觉/可更改）🟢
 - `mqtt_update_count`：计数器更新 Mqtt 数据（有线和视觉/只读）
-- `notification`：通过 JS 控制器启用或禁用通知。输出离线和错误消息。（设计与愿景/可更改）
+- `notification`：通过 JS 控制器启用或禁用通知。输出离线和错误消息。（设计与愿景/可更改）🔴
 
 ![割草机 img/mower_2.png](img/mower_2.png)</br> ![割草机 img/info_connection.png](../../../en/adapterref/iobroker.worx/img/info_connection.png)
 
@@ -235,22 +273,23 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 }
 ```
 
-- `oneTimeStart`：一次性割草开始“首先为 Vision 设置 oneTimeWithBorder、oneTimeWorkTime 和 oneTimeZones” - 延迟 1.1 秒（线路和 Vision/可更改）
-- `oneTimeWithBorder`: 带 bordercut - 无延迟更改值（线和视觉/可更改）
-- `oneTimeWorkTime`：工作时间最长为 8 小时，每 30 分钟为一个步骤 - 无延迟更改值（线路和视觉/可更改）
-- `oneTimeZones`: 设置区域 [1,2,4] (视觉/可更改)
+- `oneTimeStart`：一次性割草开始“首先为 Vision 设置 oneTimeWithBorder、oneTimeWorkTime 和 oneTimeZones” - 延迟 1.1 秒（线路和 Vision/可更改）🟢
+- `oneTimeWithBorder`: 带 bordercut - 无延迟更改值 (wire & Vision/changeable) 🔴
+- `oneTimeWorkTime`：工作时间最长为 8 小时，每 30 分钟为一个步骤 - 无延迟更改值（线路和视觉/可更改）🔴
+- `oneTimeZones`：设置区域 [1,2,4]（视觉/可更改）🔴
 - `online`：割草机在线（有线和视觉/只读）
-- `partyModus`：Partymodus 开启/关闭（线路与视觉/可更改）
-- `暂停`：割草机断电开启/关闭（电线和视觉/可更改）
-- `reset_battery_time`：分两步重置电池电量（线路和视觉/可更改）
-- `reset_battery_time_approved`：确认重置电池电量 - `reset_battery_time` 必须设置为 true （线路和视觉/可修改）
-- `reset_blade_time`：分两步重置刀片工作时间（电线和视觉/可更改）
-- `reset_blade_time_approved`：确认重置刀片工作时间 - `reset_battery_time` 必须设置为 true （电线和视觉/可更改）
+- `partyModus`：Partymodus 开启/关闭（线路 & 视觉/可更改）🟢
+- `partyModeTimer`：将派对模式限制在一定时间内。可能为 1 - 1440 分钟 - 通过将 `partyMode` 设置为“false”再次停用。派对模式不会显示在应用程序中，但计时器会倒计时。（有线/可更改）🟢
+- `暂停`：割草机断电开启/关闭（电线和视觉/可更改）🟢
+- `reset_battery_time`：分两步重置电池电量（线路和视觉/可更改）🔴
+- `reset_battery_time_approved`：确认重置电池电量 - `reset_battery_time` 必须设置为 true（线路和视觉/可修改）🔴
+- `reset_blade_time`：分 2 步重置刀片工作时间（电线和视觉/可更改）🔴
+- `reset_blade_time_approved`：确认重置刀片工作时间 - `reset_battery_time` 必须设置为 true（电线和视觉/可更改）🔴
 
 ![割草机 img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
 
 - `rfidStatus`：状态 RF 传感器 0=OK/1=Error（视觉/只读）
-- `sendCommand`: 发送 cmd 命令 (wire & Vision/changeable)
+- `sendCommand`: 发送 cmd 命令 (wire & Vision/changeable) 🟢
 
 ```json
 {
@@ -319,13 +358,13 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 }
 ```
 
-- `torque`：车轮扭矩范围 -50->50（线和视觉/可变）
+- `torque`：车轮扭矩范围 -50->50（线控和视觉/可变）🟢
 - `totalBladeTime`: 刀片总时间（电线和视觉/只读）
 - `totalDistance`：总距离（电线和视觉/只读）
 - `totalTime`: 总工作时间 (wire & Vision/readonly)
-- `waitRain`：降雨延迟最大为 12 小时，步长为 30 分钟，0 为关闭（有线和视觉/可更改）
-- `waitRainCountdown` 当传感器从湿变干时开始倒计时（电线和视觉/只读）（当前已禁用）
-- `waitRainSensor` 状态 0 表示干燥，1 表示潮湿（电线和视觉/只读）
+- `waitRain`：降雨延迟最大为 12 小时，步长为 30 分钟，0 为关闭（有线和视觉/可更改）🟢
+- `waitRainCountdown` 当传感器从湿变干时开始倒计时（wire/readonly）（视觉已禁用）
+- `waitRainSensor` 状态 0 表示干燥，1 表示潮湿（线/只读）（视觉已禁用）
 - `wifiQuality`：WiFi 质量（有线和视觉/只读）
 
 ```json
@@ -341,16 +380,16 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 
 ### 另外对于视觉
 - 多区域
-- `multiZones.zones.zone_1.borderDistance`: 切割边框时，到边缘的距离（以毫米为单位） - 允许 50 毫米、100 毫米、150 毫米和 200 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（视觉/可更改）
-- `multiZones.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
-- `multiZones.zones.zone_1.cutOverBorder`：如果检测到平板则为 1，否则为 0。使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（视觉/可更改）
-- `multiZones.zones.zone_1.zone_id`: 编号 - 从 1 开始 - （vision/readonly）
-- `multiZones.passages.passage_01.tagIdFrom`: zoneIdFrom 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
-- `multiZones.passages.passage_01.tagIdTo`: zoneIdTo 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
-- `multiZones.passages.passage_01.zoneIdFrom`：区域来自（必须 zoneIdFrom < zoneIdTo） - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（vision/changeable）
-- `multiZones.passages.passage_01.zoneIdTo`: 区域关闭 (必须 zoneIdTo > zoneIdFrom) - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable)
-- `multiZones.multiZones`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-sendMultiZonesJson-vision)
-- `multiZones.sendMultiZonesJson`：延迟 1.1 秒将更改发送到 Worx（视觉/可更改）
+- `multiZones.zones.zone_1.borderDistance`: 切割边框时，到边缘的距离（以毫米为单位） - 允许 50 毫米、100 毫米、150 毫米和 200 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable) 🔴
+- `multiZones.zones.zone_1.chargingStation`: 如果在此区域找到充电站，则为 1。0 表示没有充电站 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable) 🔴
+- `multiZones.zones.zone_1.cutOverBorder`: 如果检测到平板则为 1，否则为 0。使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (Vision /changeable) 🔴
+- `multiZones.zones.zone_1.zone_id`: 编号 - 从 1 开始 - (vision/readonly) 🔴
+- `multiZones.passages.passage_01.tagIdFrom`: zoneIdFrom 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable) 🔴
+- `multiZones.passages.passage_01.tagIdTo`: zoneIdTo 的 RFID id - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable) 🔴
+- `multiZones.passages.passage_01.zoneIdFrom`：区域来自（必须 zoneIdFrom < zoneIdTo） - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable) 🔴
+- `multiZones.passages.passage_01.zoneIdTo`: 区域已关闭（必须 zoneIdTo > zoneIdFrom） - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones` (vision/changeable) 🔴
+- `multiZones.multiZones`: 多区域 JSON (Vision/changeable) [示例](#example-blockly-sendMultiZonesJson-vision) 🔴
+- `multiZones.sendMultiZonesJson`：将更改发送到 Worx，延迟 1.1 秒（视觉/可更改）🟢
 
 例子：
 
@@ -418,13 +457,13 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 ![视觉 img/areas_vision.png](../../../en/adapterref/iobroker.worx/img/areas_vision.png)
 
 - 割草机
-- `log_improvement`：发送改进日志至 worx 禁用/启用（可更改）
-- `log_troubleshooting`：将故障排除日志发送到 worx 禁用/启用（可更改）
+- `log_improvement`：发送改进日志至 worx 禁用/启用（可更改）🟢
+- `log_troubleshooting`：将故障排除日志发送到 worx 禁用/启用（可更改）🟢
 
 ![愿景 img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
 
 - 割草机
-- `paused`：暂停计划（分钟）（可更改）
+- `paused`：暂停时间表（分钟数）（可更改）🟢
 
 ![视觉 img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
@@ -766,236 +805,54 @@ hash: Lcfi4FixZmeZGqn0Sya96Ceb5RGF+fddy2D/Ryg9eIk=
 
 ## Changelog
 
-**WORK IN PROGRESS**
+### **WORK IN PROGRESS**
 
--   (Lucky-ESA) Added JS-Controller Notification
+- (Lucky-ESA) Migration to ESLint9
+- (Lucky-ESA) Node 20 required
+- (Lucky-ESA) Admin 7.4.10 required
+- (Lucky-ESA) Added Party Modus Timer (wire only)
+
+### 3.1.1 (2024-11-04)
+
+- (Lucky-ESA) Added JS-Controller Notification
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) New design for settings page added
 
 ### 3.1.0 (2024-09-10)
 
--   (Lucky-ESA) Added Landroid IP
--   (Lucky-ESA) Fixed interval
--   (Lucky-ESA) Fixed Vision Edgecut
+- (Lucky-ESA) Added Landroid IP
+- (Lucky-ESA) Fixed interval
+- (Lucky-ESA) Fixed Vision Edgecut
 
 ### 3.0.2 (2024-05-12)
 
--   (Lucky-ESA) mowTimeExtend restricted input
--   (Lucky-ESA) Fixed TypeError
+- (Lucky-ESA) mowTimeExtend restricted input
+- (Lucky-ESA) Fixed TypeError
 
 ### 3.0.1 (2024-05-08)
 
--   (Lucky-ESA) Preperation mission Kress new API
--   (Lucky-ESA) Fixed TypeError
--   (Lucky-ESA) Fixed missing activity states
--   (Lucky-ESA) Added update interval in instance setting
--   (Lucky-ESA) Added last update
+- (Lucky-ESA) Preperation mission Kress new API
+- (Lucky-ESA) Fixed TypeError
+- (Lucky-ESA) Fixed missing activity states
+- (Lucky-ESA) Added update interval in instance setting
+- (Lucky-ESA) Added last update
 
 ### 3.0.0 (2024-04-25)
 
--   (Lucky-ESA) Fixed Sentry messages
--   (Lucky-ESA) Catch publish crash
--   (Lucky-ESA) Added Vision completely
--   (Lucky-ESA) Node 18 required
--   (Lucky-ESA) JS-Controller >= 5.0.19 required
--   (Lucky-ESA) Admin >=6.13.16 required
--   (Lucky-ESA) Catch aws_cer error and use old mqtt connection
--   (Lucky-ESA) Delete ping
-
-### 2.3.4 (2023-10-19)
-
--   (Lucky-ESA) Fixed folder without raw
--   (Lucky-ESA) Changed Loglevel at refresh token
--   (Lucky-ESA) Fixed restriction vision bordercut
--   (Lucky-ESA) Fixed check json vision startsequence
-
-### 2.3.3 (2023-09-25)
-
--   (Lucky-ESA) Added cmd wifi lock for Vision
--   (Lucky-ESA) Fixed [#761](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/761)
--   (Lucky-ESA) Added sequence for Vision
--   (Lucky-ESA) Checking working hours and locktime
--   (Lucky-ESA) Fixed incorrect log message for firmware update
-
-### 2.3.2 (2023-07-21)
-
--   (Lucky-ESA) Wrong folder for areas
--   (Lucky-ESA) New data points can only be read
-
-### 2.3.1 (2023-07-20)
-
--   (Lucky-ESA) Added Firmware Update
--   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
--   (Lucky-ESA) Added reset blade time and battery time
--   (Lucky-ESA) Added ping after refresh token
--   (Lucky-ESA) Added german description
--   (TA2k) Changed firmware request
--   (Lucky-ESA) Changed auth-endpoint
--   (Lucky-ESA) Some bug fixes
--   (Lucky-ESA) Fix unique mqtt clientid
--   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
--   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
--   (Lucky-ESA) New Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
-
-### 2.2.0 (2023-06-27)
-
--   (Lucky-ESA) Removed mowerActive for Vision
--   (Lucky-ESA) Add Vision paused schedule
--   (Lucky-ESA) Add Vision partyModus
--   (Lucky-ESA) Fix ping request Vision
--   (Lucky-ESA) Fix send message inheritance
--   (Lucky-ESA) Fix [#684](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/684)
--   (Lucky-ESA) Fix deviceArray inheritance
--   (Lucky-ESA) Add Vision mowers w/o Status & Error message
--   (Lucky-ESA) Add ZoneKeeper for previous mowers
-
-### 2.1.3
-
--   (TA2k) Add ping option in the instance settings
-
-### 2.1.2
-
--   (TA2k) Improve reconnection for multiple mower
-
-### 2.1.1
-
--   (TA2k) Change reconnection times
-
-### 2.1.0
-
--   (TA2k) Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
-
-### 2.0.3
-
--   (TA2k) Add manual refresh. Fix empty status and firmware format. Reduce info logs.
-
-### 2.0.1
-
--   (TA2k) Adapter rewritten. Added product info and activity log. rawMqtt values improved and compatible with Node v18.
-
-### 1.7.0 (2022-09-28)
-
--   (TA2k) fix login
-
-### 1.6.6 (2022-06-25)
-
--   (MeisterTR) fix edgecut
-
-### 1.6.5 (2022-06-19)
-
--   (Apollon77) Remove logic to set a 0/0/0 nutrition level when deactivated again as it was in pre 1.6 versions also on second place
-
-### 1.6.4 (2022-06-18)
-
--   (Apollon77) Remove logic to set a 0/0/0 nutrition level when deactivated again as it was in pre 1.6 versions
--   (Apollon77) fix error cases reported by Sentry
-
-### 1.6.3 (2022-06-17)
-
--   (Apollon77) fix some error cases reported by Sentry
-
-### 1.6.2 (2022-06-17)
-
--   (TA2k) fix issues introduced in 1.6.0
-
-### 1.6.1 (2022-06-17)
-
--   (Apollon77) fix some error cases reported by Sentry
-
-### 1.6.0 (2022-06-16)
-
--   (Apollon77) fix some error cases reported by Sentry
-
-### 1.5.5 (2021-09-29)
-
--   (MeisterTR) fix error
-
-### 1.5.0 (2021-09-26)
-
--   (MeisterTR) many fixes
--   (MeisterTR) add torque control
--   (MeisterTR) fixed States
-
-### 1.4.3 (2021-07-25)
-
--   (MeisterTR) fix Partymode detection
-
-### 1.4.2 (2021-07-24)
-
--   (MeisterTR) fix bug with OLMSwitch_Cutting
--   (MeisterTR) fix bug with PartyMode
--   (TA2k) fix error with wrong serialnumber (please delete all objects manually)
--   (MeisterTR) fix bug in autolock function
-
-### 1.4.1 (2021-07-06)
-
--   (MeisterTR) fix bug in sendCommand (please remove state manually)
-
-### 1.4.0 (2021-07-05)
-
--   (TA2k) update testing
--   (TA2k) add gps coordinates
--   (TA2k) add new status states
--   (TA2k) add new Autolock states
--   (TA2k) add new OffLinits states
-
-### 1.3.7 (03.06.2021)
-
--   (TA2k) type fixes
-
-### 1.3.6 (27.05.2021)
-
--   (MeisterTR) bugfixes
--   (MeisterTR) better errorhandling
-
-### 1.2.9 (02.12.2020)
-
--   (MeisterTR) add sentry
--   (MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
-
-### 1.2.4 (15.11.2020)
-
--   (MeisterTR) Bugfix (error type of sc...)
--   (MeisterTR) change Testing to git
-
-### 1.2.3 (29.08.2020)
-
--   (MeisterTR) add option to crate a Json Obj to set mowtime with scripts
--   (MeisterTR) add option to disable weather
--   (MeisterTR) add double Shedule, oneTimeShedule, PartyMode
--   (MeisterTR) fix setIntervall => setTimeout
--   (MeisterTR) fix error with Meter and Min. in Config
--   (MeisterTR) add Kress and Landxcape
-
-### 1.0.0 (03.12.2019)
-
--   (MeisterTR) bump Version
--   (MeisterTR) transfer to community
-
-### 0.4.0 (03.08.2019)
-
--   (MeisterTR) fix multimower
--   (MeisterTR) change loglevel
--   (MeisterTR) fix online Status
-
-### 0.3.1 (12.06.2019)
-
--   (MeisterTR) add delay for edgecut in config
--   (MeisterTR) fix mowtime error
-
-### 0.2.0 (01.06.2019)
-
--   (MeisterTR) add border
--   (MeisterTR) fix small errors
--   (MeisterTR) code cleanup
-
-### 0.0.1
-
--   (MeisterTR) initial release
+- (Lucky-ESA) Fixed Sentry messages
+- (Lucky-ESA) Catch publish crash
+- (Lucky-ESA) Added Vision completely
+- (Lucky-ESA) Node 18 required
+- (Lucky-ESA) JS-Controller >= 5.0.19 required
+- (Lucky-ESA) Admin >=6.13.16 required
+- (Lucky-ESA) Catch aws_cer error and use old mqtt connection
+- (Lucky-ESA) Delete ping
 
 ## License
 
 MIT License
 
-Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

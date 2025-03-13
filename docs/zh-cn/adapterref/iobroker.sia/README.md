@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sia/README.md
 title: ioBroker.sia
-hash: UJIqFmNZCAoAKezO4sHZ5mA7QbhOAyE0neR4o0HS6ac=
+hash: GBpo+kdEerXIJ2oh5kHZ8uQNkP7cK6v6P0FKe4PAjX0=
 ---
 ![标识](../../../en/adapterref/iobroker.sia/admin/sia.png)
 
@@ -44,8 +44,11 @@ AES-128 的示例密码为：3A1F6B8C9D4E7F20123456789ABCDEF0。
 ![sia_adapter1](../../../en/adapterref/iobroker.sia/admin/sia_adapter1.png)
 
 注册帐号。如果您使用 AES，则必须输入密码（密钥）。密钥长度应为 16、24 或 32 个字符（字节）。
-如果选中“十六进制格式的 AES 密码”复选框，则密码长度必须为 32、48 或 64 个字符（字节）。
-在 ACK 超时字段中，您可以定义消息的时长（以秒为单位）。如果您定义 0 秒，则不会进行超时验证。
+如果“十六进制格式的 AES 密码”复选框处于活动状态，则密码长度必须为 32、48 或 64 个字符（字节）。
+在 ACK 超时字段中，您可以定义消息的持续时间（以秒为单位）。如果您定义 0 秒，则不会进行超时验证。
+通过复选框“SIA 服务器关闭连接”，您可以决定报警系统在收到 ACK 消息后是否必须关闭连接。
+如果禁用复选框“SIA 服务器关闭连接”，则 SIA 服务器（ioBroker）将等待 30 秒，以便报警系统关闭连接。
+30 秒后，SIA 服务器（ioBroker）将关闭连接。
 
     ![sia_adapter2](../../../en/adapterref/iobroker.sia/admin/sia_adapter2.png)
 
@@ -59,7 +62,7 @@ AES-128 的示例密码为：3A1F6B8C9D4E7F20123456789ABCDEF0。
 
 - Lupusec XT1+/XT2/XT2+/XT3/XT4 (\*SIA-DCS) 加密：
 
-设置 -> 联系人 ID：ip://subcriber@ip-address-iobroker:port/SIA/KEY/（十六进制的 128,196 或 256 位密钥）示例：ip://A222F@192.168.20.55:55001/SIA/KEY/3A1F6B8C9D4E7F20123456789ABCDEF0
+设置 -> 联系人 ID：ip://subcriber@ip-address-iobroker:port/SIA/KEY/（十六进制的 128,196 或 256 位密钥） 例如：ip://A222F@192.168.20.55:55001/SIA/KEY/3A1F6B8C9D4E7F20123456789ABCDEF0
 
 - Lupusec XT1+/XT2/XT2+/XT3/XT4 (ADM-CID):
 
@@ -126,7 +129,7 @@ Event: 401 for accountnumber A444F
 问题应包含以下信息：
 
 1. 报警系统制造商和类型
-2. SIA 消息作为文件。如果您在实例配置中激活它，则可以创建文件。
+2. SIA 消息作为文件。如果您在实例配置中激活它，则可以创建一个文件。
 3. 如果使用加密（AES），那么我需要密钥来解密消息进行测试。
 4. ioBroker 处理消息时的调试输出
 5. Bug 的详细描述
@@ -140,6 +143,20 @@ cat /tmp/sia/sia_msg_20250201_202457309.txt | nc localhost 55001
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #48)
+- (Stübi) Fixing dependency (Issue #49)
+
+### 2.0.4 (2025-02-06)
+
+- (Stübi) Fixed Issue Required SIA fields Missing (Issue #19)
+- (Stübi) Fixed an error by reading the length of the message
+- (Stübi) Fixed Issue Socket not kept connected (Issue #20)
+- (Stübi) the crc and length will be shown as HEX ASCII (4 characters) in the object crc and len
+- (Stübi) timestamp will be shown in format hh:mm:ss,MM-DD-YYYY (GMT time) in the object ts
+
 ### 2.0.3 (2025-02-01)
 
 - (Stübi) add error envent if connction close

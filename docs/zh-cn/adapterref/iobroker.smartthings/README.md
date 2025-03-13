@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: Q47BVVpyPnZejeYC0pAFCqs/NiNWvj6Zwvwp8fmtZpE=
+hash: XBvyRjf/p/zeYV++qQGa6dPPtS7TDAsmW5b3pumv92I=
 ---
 ![标识](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
@@ -21,18 +21,20 @@ hash: Q47BVVpyPnZejeYC0pAFCqs/NiNWvj6Zwvwp8fmtZpE=
 三星智能设备适配器
 
 ## 登录流程：
-访问链接。https://account.smartthings.com/tokens 使用您的三星帐户登录，转到“个人访问令牌”页面。
-点击“生成新令牌”按钮，转到“新访问令牌”页面。
-为新令牌提供名称。在“授权范围”部分，选择您要为令牌授权的任何功能。
-完成后，点击“生成令牌”按钮，您将返回到“个人访问令牌”页面。复制新生成的令牌并将其保存在安全的地方。这是您检索新生成的令牌值的唯一方法。
+打开适配器设置中的链接并登录，直到看到白屏。
+打开开发者控制台 F12 或 Option + Command + I，复制蓝色的 samsungconnect:// url 并将其粘贴到设置中。
 
-## 转向
+控制
 smartthings.0.id.capabilities 设置为 true 或设置预定义值
 
 ## 讨论和问题：
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
+### 0.2.2 (2025-02-11)
+
+- add new login process
+
 ### 0.1.2 (2024-05-19)
 
 - Update Dependencies
