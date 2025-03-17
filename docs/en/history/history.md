@@ -781,7 +781,14 @@ User can rename, move or create a copy of the objects via context menu.
 ## airquality (3.3.2025) – new adapter
 https://github.com/raschy/ioBroker.airquality
 
-<img src="airquality" width="100" height="100" />
+<img src="https://github.com/raschy/ioBroker.airquality/blob/main/admin/airquality.png" width="100" height="100" />
 
 Fetch data from German UBA.
+
+## oxxify-fan-control (17.3.2025) – new adapter
+https://github.com/N-b-dy/ioBroker.oxxify-fan-control
+
+<img src="https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/admin/oxxify-fan-control.png" width="100" height="100" />
+
+Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described here. As other manufacturers are using the same protocol (e.g. Blauberg vents), it is pretty likely, that they will work as well.
 
