@@ -33,9 +33,9 @@ http://www.maxxisun.de
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 
 ## Version Compatibility
 
