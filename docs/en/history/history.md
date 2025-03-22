@@ -792,3 +792,10 @@ https://github.com/N-b-dy/ioBroker.oxxify-fan-control
 
 Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described here. As other manufacturers are using the same protocol (e.g. Blauberg vents), it is pretty likely, that they will work as well.
 
+## seplos-v3-sniffer (12.3.2025) – new adapter
+https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
+
+<img src="https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/blob/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
+
+This adapter was developed to read the Seplos V3 BMS in a multipack configuration. In the V3 generation, the first BMS acts as the Modbus master, while all other BMS act as slaves. In this configuration, it is no longer possible to access the BMS via Modbus from a third device, since two master devices cannot exist in an RS-485 Modbus system. The adapter passively detects the communication between the devices, which means that the communication of the individual BMS is not disrupted. It can communicate either via a local interface (e.g. /dec/ttyS0) or via Ser2Net (tcp://ip:2001).
+
