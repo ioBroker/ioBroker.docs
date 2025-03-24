@@ -659,14 +659,14 @@ Node-red package version was increased from 3 to 4.0.3
 ## ecoflow-mqtt (14.10.2024) – new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
-<img src="https://github.com/foxthefox/ioBroker.ecoflow-mqtt/blob/main/admin/ecoflow-mqtt.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
 
 This adapter connects to products of Ecoflow ([https://www.ecoflow.com])
 
 ## remeha-home (28.10.2024) – new adapter
 https://github.com/simatec/ioBroker.remeha-home
 
-<img src="https://github.com/simatec/ioBroker.remeha-home/blob/master/admin/remeha-home.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.remeha-home/master/admin/remeha-home.png" width="100" height="100" />
 
 The ioBroker.remeha-home adapter enables the integration and control of Remeha heating systems via the Remeha Home platform. The adapter continuously connects to the Remeha Home API and retrieves current data to make it available in the ioBroker system. This allows the heating system to be optimally monitored and controlled.
 
@@ -674,98 +674,98 @@ The ioBroker.remeha-home adapter enables the integration and control of Remeha h
 ## vis-2-widgets-ovarious (12.11.2024) – new adapter
 https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious
 
-<img src="https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious/blob/main/admin/vis-2-widgets-ovarious.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-ovarious/main/admin/vis-2-widgets-ovarious.png" width="100" height="100" />
 
 This adapter contains various vis-2 widgets. Ok, actually, there is only one vis-2 widget, but some more are on the roadmap.
 
 ## gotify (16.11.2024) – new adapter
 https://github.com/ThomasPohl/ioBroker.gotify
 
-<img src="https://github.com/ThomasPohl/ioBroker.gotify/blob/main/admin/gotify.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.gotify/main/admin/gotify.png" width="100" height="100" />
 
 Send push notifications from ioBroker to Gotify.
 
 ## google-spreadsheet (3.12.2024) – new adapter
 https://github.com/ThomasPohl/ioBroker.google-spreadsheet
 
-<img src="https://github.com/ThomasPohl/ioBroker.google-spreadsheet/blob/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.google-spreadsheet/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
 
 This adapter can be used to automatically interact with google spreadsheets.
 
 ## minuaru (3.12.2024) – new adapter
 https://github.com/minukodu/ioBroker.minuaru
 
-<img src="https://github.com/minukodu/ioBroker.minuaru/blob/main/admin/minuaru.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/minukodu/ioBroker.minuaru/main/admin/minuaru.png" width="100" height="100" />
 
 alarmsystem for ioBroker and minuvis
 
 ## mytime (29.12.2024) – new adapter
 https://github.com/oweitman/ioBroker.mytime
 
-<img src="https://github.com/oweitman/ioBroker.mytime/blob/main/admin/mytime.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.mytime/main/admin/mytime.png" width="100" height="100" />
 
 This adapter handles Time (e.g.: countdown, etc.). The countdown functionality provides data points that you can use to manage a countdown (e.g., in a script). The adapter also includes several widgets to visualize these countdowns. Time series can be used to create complex time series at which the data points are triggered.s
 
 ## vis-2-widgets-weather-and-heating (29.12.2024) – new adapter
 https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
 
-<img src="https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/blob/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
 
 This vis-2-widget shows weather forecast data from `DasWetter.com` or `weatherunderground`. You need DasWetter-Adapter or `weatherunderground`-Adapter running on your system.
 
 ## mywallbox (29.12.2024) – new adapter
 https://github.com/SKB-CGN/ioBroker.mywallbox
 
-<img src="https://github.com/SKB-CGN/ioBroker.mywallbox/blob/main/admin/wallbox.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.mywallbox/main/admin/wallbox.png" width="100" height="100" />
 
 Connect your My-Wallbox (e.g. Pulsar Plus) with ioBroker via the Cloud-Service of My Wallbox
 
 ## bluesound (11.1.2025) – new adapter
 https://github.com/Uwe1958/ioBroker.bluesound
 
-<img src="https://github.com/Uwe1958/ioBroker.bluesound/blob/main/admin/bluesound.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Uwe1958/ioBroker.bluesound/main/admin/bluesound.png" width="100" height="100" />
 
 Adapter to control Bluesound devices
 
 ## ta-blnet (11.1.2025) – new adapter
 https://github.com/weberk/ioBroker.ta-blnet
 
-<img src="https://github.com/weberk/ioBroker.ta-blnet/blob/main/admin/ta-blnet.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/weberk/ioBroker.ta-blnet/main/admin/ta-blnet.png" width="100" height="100" />
 
 An ioBroker adapter for reading data from one or up to eight climate controllers by Technische Alternative using BL-NET. Or an infinite number of climate controllers connected to CMI.
 
 ## teslafi (11.1.2025) – new adapter
 https://github.com/hombach/ioBroker.teslafi
 
-<img src="https://github.com/hombach/ioBroker.teslafi/blob/master/admin/teslafi.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.teslafi/master/admin/teslafi.png" width="100" height="100" />
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
 
 ## paperless-ngx (27.1.2025) – new adapter
 https://github.com/BenAhrdt/ioBroker.paperless-ngx
 
-<img src="https://github.com/BenAhrdt/ioBroker.paperless-ngx/blob/main/admin/paperless-ngx.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.paperless-ngx/main/admin/paperless-ngx.png" width="100" height="100" />
 
 paperless-ngx API to get information of running instances from paperless-ngx. For instance, you can read the tags, documents, document-types, user or correspondents of the paperless instance.
 
 ## asterisk (12.2.2025) – new adapter
 https://github.com/schmupu/ioBroker.asterisk
 
-<img src="https://github.com/schmupu/ioBroker.asterisk/blob/master/admin/asterisk.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/schmupu/ioBroker.asterisk/master/admin/asterisk.png" width="100" height="100" />
 
 The Asterisk adapter converts text messages to audio files and calls then over Asterisk by VoIP any telephone number you want and plays the audio message.
 
 ## tagesschau (15.2.2025) – new adapter
 https://github.com/ticaki/ioBroker.tagesschau
 
-<img src="https://github.com/ticaki/ioBroker.tagesschau/blob/main/admin/tagesschau.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.tagesschau/main/admin/tagesschau.png" width="100" height="100" />
 
 Retrieves news and video links from Tagesschau.
 
 ## maxxi-charge (15.2.2025) – new adapter
 https://github.com/blabond/ioBroker.maxxi-charge
 
-<img src="https://github.com/blabond/ioBroker.maxxi-charge/blob/main/admin/maxxi-charge.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/blabond/ioBroker.maxxi-charge/main/admin/maxxi-charge.png" width="100" height="100" />
 
 ioBroker.MaxxiCharge is an adapter for the ioBroker system that enables the integration and control of MaxxiCharge CCU devices. The adapter provides a range of features, including reading device data, adjusting configurations, and sending control commands.
 
@@ -781,21 +781,27 @@ User can rename, move or create a copy of the objects via context menu.
 ## airquality (3.3.2025) – new adapter
 https://github.com/raschy/ioBroker.airquality
 
-<img src="https://github.com/raschy/ioBroker.airquality/blob/main/admin/airquality.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/raschy/ioBroker.airquality/main/admin/airquality.png" width="100" height="100" />
 
 Fetch data from German UBA.
 
 ## oxxify-fan-control (17.3.2025) – new adapter
 https://github.com/N-b-dy/ioBroker.oxxify-fan-control
 
-<img src="https://github.com/N-b-dy/ioBroker.oxxify-fan-control/blob/main/admin/oxxify-fan-control.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/N-b-dy/ioBroker.oxxify-fan-control/main/admin/oxxify-fan-control.png" width="100" height="100" />
 
 Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described here. As other manufacturers are using the same protocol (e.g. Blauberg vents), it is pretty likely, that they will work as well.
 
 ## seplos-v3-sniffer (12.3.2025) – new adapter
 https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
 
-<img src="https://github.com/DpunktS/ioBroker.seplos-v3-sniffer/blob/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/DpunktS/ioBroker.seplos-v3-sniffer/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
 
 This adapter was developed to read the Seplos V3 BMS in a multipack configuration. In the V3 generation, the first BMS acts as the Modbus master, while all other BMS act as slaves. In this configuration, it is no longer possible to access the BMS via Modbus from a third device, since two master devices cannot exist in an RS-485 Modbus system. The adapter passively detects the communication between the devices, which means that the communication of the individual BMS is not disrupted. It can communicate either via a local interface (e.g. /dec/ttyS0) or via Ser2Net (tcp://ip:2001).
 
+## lcn (12.3.2025) – new feature
+https://github.com/ioBroker/ioBroker.lcn
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.lcn/master/admin/lcn.png" width="100" height="100" />
+
+LCN adapter is free now. Everyone can use it without any restrictions.
