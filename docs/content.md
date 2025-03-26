@@ -1,5 +1,4 @@
 * [Welcome](README)
-  * [Introduction](intro/README)
 
 * en:Fundamentals;de:Grundlagen;ru:Основы;zh-cn:基础概念
   * [Introduction](basics/README)
