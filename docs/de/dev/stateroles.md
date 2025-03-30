@@ -394,6 +394,7 @@ Sonderrollen für Mediaplayer
 * `info.standby` - wahr, wenn sich das Gerät im Standby-Modus befindet
 * `info.status` - Gerätestatus
 * `info.display` - Informationen, die auf dem Gerätedisplay angezeigt werden
+* `info.model` - Modellbezeichnung des Geräts
 * `date.start` - Zeichenfolge oder Zahl
 * `date.end` - Zeichenfolge oder Zahl
 
