@@ -4,11 +4,11 @@
       "date": "2025.03.29",
       "title": {
         "de": "ioBroker Neuigkeiten – Frühjahr 2025 🌼",
-        "en": "IoBroker News – Spring 2025 🌼",
-        "ru": "IoBroker News – Весна 2025 🌼",
-        "zh-cn": "IoBroker 新闻 – 2025 年春季 🌼"
+        "en": "ioBroker News – Spring 2025 🌼",
+        "ru": "Новости ioBroker – весна 2025 🌼",
+        "zh-cn": "ioBroker 新闻 – 2025 年春季 🌼"
       },
-      "logo": "",
+      "logo": "de/blog/images/2025_03_29.jpg",
       "type": "news",
       "originalName": "2025_03_29.md",
       "desc": {
