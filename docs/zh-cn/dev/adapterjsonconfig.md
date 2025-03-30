@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: xL7q6XcyWeDcHMJ0bSGlZNdYikKq3qweBUMNycFZWQA=
+hash: 6uTfuvgFajoBnNjjSf9xzK2KRpWcbYsj1RE59xOM3XA=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。此方法提供了一种更加用户友好且灵活的方式，可在 ioBroker Admin 界面中管理适配器设置。
@@ -114,7 +114,7 @@ jsonConfig 自动确保将收集的数据记录为适配器的配置数据并在
     "json.schemas": [
         {
             "fileMatch": ["admin/jsonConfig.json", "admin/jsonCustom.json", "admin/jsonTab.json"],
-            "url": "https://raw.githubusercontent.com/ioBroker/adapter-react-v5/main/schemas/jsonConfig.json"
+            "url": "https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/packages/jsonConfig/schemas/jsonConfig.json"
         }
     ]
 ```
@@ -332,7 +332,7 @@ admin/customI18n/en.json
 | `validateJson` | 如果为真，则文本将被验证为 JSON |
 | `allowEmpty` | 如果为真，则仅当值不为空时才会验证 JSON |
 | `time` | 该值是毫秒时间或字符串。仅与 readOnly 标志一起使用 |
-| `time` | 值是毫秒时间或字符串。仅与 readOnly 标志一起使用 |
+| `time` | 值是毫秒或字符串的时间。仅与 readOnly 标志一起使用 |
 
 ###`number`
 | 物业 | 描述 | 备注 |
@@ -586,7 +586,7 @@ admin/customI18n/en.json
 | `reloadBrowser` | 如果为 true - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
 | `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以被覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用`base64` 图标（如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
-| `useNative` | 如果适配器返回的结果具有 `native` 属性，则它将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。|
+| `useNative` | 如果适配器返回的结果具有 `native` 属性，则将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。|
 | `showProcess` | 请求正在进行时显示旋转器 |
 | `timeout` | 请求超时（毫秒）。默认值：无。|
 | `onLoaded` | 最初执行一次按钮逻辑 |
@@ -654,7 +654,7 @@ admin/customI18n/en.json
 | 属性 | 描述 |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `items` | `[{"type": see above, "attr": "name", "default": ""}]` 项目可以像在 `panel` 上放置（xs、sm、md、lg 和 newLine）|
-| `noDelete` | 布尔值是否禁用删除或添加，如果`noDelete`为假，则添加、删除和上/下移动应该可以工作 |
+| `noDelete` | 布尔值，表示删除或添加被禁用，如果`noDelete` 为假，则添加、删除和上/下移动应该可以工作 |
 | `clone` | [可选] - 是否应显示克隆按钮。如果为真，则将显示克隆按钮。如果为属性名称，则此名称将是唯一的。|
 | `clone` | [可选] - 是否显示克隆按钮。如果为 true，则显示克隆按钮。如果是属性名称，则此名称是唯一的。|
 
@@ -757,7 +757,7 @@ admin/customI18n/en.json
 
 | 属性 | 描述 |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pattern` | 文件扩展名模式。允许使用 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹中的所有文件 `folderName`。默认 `**/*.*`。|
+| `pattern` | 文件扩展名模式。允许 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹中的所有文件 `folderName`。默认 `**/*.*`。|
 | `objectID` | 对象 ID 类型为 `meta`。您可以使用特殊占位符 `%INSTANCE%`：如 `myAdapter.%INSTANCE%.files` |
 | `upload` | 路径，上传的文件将存储于此。例如 `folderName`。如果未定义，则不会显示上传字段。要在根目录中上传，请将此字段设置为 `/`。|
 | `refresh` | 在选择附近显示刷新按钮。|
@@ -1422,7 +1422,7 @@ onMessage = (obj: ioBroker.Message): void => {
 ```
 
 ## 报告架构错误
-在此处创建问题：https：//github.com/ioBroker/adapter-react-v5/issues
+在此处创建问题：https://github.com/ioBroker/ioBroker.admin/issues
 
 ## 对于维护者
-要更新 JsonConfig 架构的位置，请对此文件创建拉取请求：https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json
+要更新 JsonConfig 模式的位置，请对此文件创建拉取请求：https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/schemas/jsonConfig.json

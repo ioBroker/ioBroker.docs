@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: Адаптер точки доступа ioBroker HomeMatic IP Cloud
-hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
+hash: +ZcisHPvpDDut0pIyLFip51XW4bcc0RHOew6SclJL94=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -14,7 +14,7 @@ hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 # Адаптер точки доступа IP Cloud ioBroker HomeMatic
 ![Тест и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Отказ от ответственности
 **Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками их соответствующих владельцев. Их использование не подразумевает какой-либо связи или одобрения ими или любыми связанными дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет бизнес-целей.** **HomeMatic является товарным знаком ELV Elektronik AG**
@@ -32,7 +32,7 @@ hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 
 Я буду постоянно улучшать его, но это займет время. Любая помощь от сообщества, например, через Pull Request, будет высоко оценена.
 
-Для неработающих устройств HmIP создайте проблему с этой информацией (по одной на устройство и, если возможно, укажите техническое имя в теме).
+Для неработающих устройств HmIP создайте проблему с этой информацией (по одной на устройство и, если возможно, техническое имя в теме).
 Переключите ведение журнала адаптера в ioBroker в режим Silly и добавьте JSON устройства, который выводится в журнал в проблеме.
 Мне также может понадобиться JSON изменения состояния.
 
@@ -41,7 +41,7 @@ hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 Если вы ищете информацию, если настройки сигнализации активны, вам нужно проверить активное состояние групп INTERNAL и EXTERNAL, они представляют собой комбинацию трех состояний тревоги. INTERNAL и EXTERNAL активны означают «Отсутствие», активен только EXTERNAL, означает активен только Perimeter.
 
 ## Важная информация о том, что можно сделать с помощью этого адаптера
-!!! С помощью этого адаптера вы можете запускать только те события, которые можно запустить через оригинальное приложение Homematic IP.
+!!! С помощью этого адаптера вы можете запускать только те события, которые можно запускать через оригинальное приложение Homematic IP.
 Например, прямые соединения между устройствами не имеют событий в приложении и также не могут быть запущены через этот адаптер!!!
 
 ## Настройки
@@ -55,7 +55,7 @@ hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 ## Домашний блок управления (HCU)
 Изменился рабочий процесс с HCU
 
-Нажмите кнопку один раз перед началом создания токена. Это позволяет получить удаленный доступ на 5 минут. Затем нажмите кнопку еще раз, когда вас попросят это сделать во время процесса сопряжения.
+Нажмите кнопку один раз перед началом создания токена. Это позволяет получить удаленный доступ на 5 минут. Затем нажмите кнопку еще раз, когда вас попросят сделать это во время процесса сопряжения.
 
 Большое спасибо @dietzm за добавление поддержки HCU в этот адаптер.
 
@@ -70,10 +70,26 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### 1.26.1-alpha.1 (2024-12-09)
-* (mcm1957) Adapter requires node.js 20 now
-* (dietzm) Added support for Home Control Unit
-* (GermanBluefox) Corrected the admin GUI
+### 1.27.0 (2025-03-24)
+* (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
+* (@GermanBluefox) GUI was migrated to TypeScript (Admin 7.6)
+* (SliX185) Support to control opticalSignalBehaviour for HMIP-BSL has been added.
+* (SliX185) Logging of PIN has been removed
+* (mcm1957) Dependencies have been updated.
+
+### 1.26.5 (2025-01-27)
+* (@Apollon77) Fixed Websocket disconnect cases
+
+### 1.26.4 (2025-01-03)
+* (@Apollon77) Optimized Websocket disconnect cases
+
+### 1.26.3 (2024-12-29)
+* (@GermanBluefox) Updated packages
+
+### 1.26.2 (2024-12-10)
+* (@mcm1957) Adapter requires node.js 20 now
+* (@dietzm) Added support for Home Control Unit
+* (@GermanBluefox) Corrected the admin GUI
 
 ### 1.25.0 (2024-11-08)
 * (bluefox) Updated packages
@@ -342,7 +358,7 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

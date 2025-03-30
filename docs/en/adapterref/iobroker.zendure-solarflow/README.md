@@ -13,8 +13,7 @@
 
 ## Zendure Solarflow adapter for ioBroker
 
-This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API. It uses the official API provided by Zendure.
-You can read more about the API here: https://github.com/Zendure/developer-device-data-report
+This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API.
 
 ## Donate
 
@@ -31,7 +30,17 @@ If you find the adapter useful for you and want to support my work, feel free to
 - Stop input if one battery drops into low voltage (battery protect). Works only when setting the output limit via the adapter
 - Control more than one Solarflow at the same time!
 - Get more precise calculations!
-- Works with all Zendure SolarFlow devices: HUB1200, Hyper2000, HUB2000 and AIO! I can test only on HUB1200 as I don't own the other devices...
+- Works with all Zendure SolarFlow devices: HUB1200, Hyper2000, HUB2000 and AIO!
+
+## Offline-Mode (Disconnect from Zendure Cloud)
+
+As a new feature you can disconnect the Zendure device from the Cloud. You can either use the [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) from Reinhard Brandstätter or my own Windows Tool [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector) to disconnect the device from the cloud. It's also possible to redirect DNS requests with your router from "mq.zen-iot.com" to your own MQTT server!
+
+Both tools connect to the Zendure device via bluetooth and simply sets the internal MQTT url to a new url/ip you have to provide. Currently you are forced to use the default MQTT port 1883 on your server. You are also forced to deactivate authentication on the MQTT server as the Zendure device use a hardcoded password.
+
+If the Zendure device communicates with your MQTT server, you can connect this ioBroker adapter to the same MQTT instance. You have to provide the device model and the device key (which is shown in the Zendure Cloud Disconnector app).
+
+You can still do firmware updates with the official Zendure app via bluetooth and use both bluetooth tools to reconnect the device to the cloud!
 
 ## Notes
 
@@ -41,13 +50,50 @@ If you find the adapter useful for you and want to support my work, feel free to
 
 2. You will be logged out of the official iOS or Android App after logging in with the ioBroker adapter. This is a normal behavior. As a workaround you can create an second Zendure account with another e-mail and grant access to your Solarflow HUB to this account. Then use the second account for ioBroker / the Zendure Solarflow adapter.
 
-3. The Adapter will show a +10W use on battery if no solar input and device is online. This will reflect the "stand-by" usage of the device.
+3. The Adapter will show a +7W use on battery if no solar input and device is online. This will reflect the "stand-by" usage of the device.
 
 ## Credits
 
 Credits goes to https://github.com/reinhard-brandstaedter/solarflow which helped a lot with the knowledge about the MQTT server from Zendure! Thanks!
 
 ## Changelog
+### 1.12.7 (2025-03-24)
+
+- Add productKey "gDa3tb" for Hyper 2000
+
+### 1.12.6 (2025-03-21)
+
+- Fix onMessage Debug message
+
+### 1.12.5 (2025-03-21)
+
+- Add Debug messages on log level debug
+- Add schedule for adapter refresh on local mode
+- Fix Change of Discharge limit to 0
+
+### 1.12.4 (2025-03-19)
+
+- Fix calculation of SOC if "local" mode is used
+
+### 1.12.3 (2025-03-19)
+
+- Add 2 more devices if "local" mode is used
+- Fix mqtt subscription of 2. device in "local" mode
+
+### 1.12.2 (2025-03-18)
+
+- Fix reset of calculation values on "local" mode
+
+### 1.12.1 (2025-03-17)
+
+- Fix IOT subscription
+
+### 1.12.0 (2025-03-17)
+
+- Added possibility to use "local" mode. You have to either route dns request to your own MQTT server or use a tool to modify the Zendure device
+- Some improvements on value calculation
+- Some improvements on AIO 2400 device
+
 ### 1.11.0 (2025-02-11)
 
 - Drop Standby usage to 7W and 14W if HUB connected with ACE as it is more accurate

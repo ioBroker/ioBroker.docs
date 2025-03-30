@@ -792,7 +792,11 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 2.0.1 (2025-03-24)
+* (simatec) Fix Translations
+* (simatec) Tab Icons added
+
+### 2.0.0 (2025-03-23)
 * (simatec) Dependencies updated
 * (simatec) jsonTab added
 

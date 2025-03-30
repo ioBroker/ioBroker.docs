@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: 2LBfixSvSCkyVG94QWAOMrwzR0WZOl4Sq6qt3IOsjxw=
+hash: ePObUsirC8yjBbABKE6Su2y/+eZvkZmFMQDFlxOkew8=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -165,6 +165,30 @@ Ein Beispiel für die Verwendung der Diagrammdefinition über den Status finden 
 
 Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, könnte dessen Funktionalität auch von Schadcode (Cross-Site-Scripting) ausgenutzt werden. Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
 
+### Verwenden ereignisgesteuerter Funktionen zum Erstellen dynamischer Diagramme
+Apache ECharts unterstützt dynamisch anpassbare Diagramme. Sehen Sie sich das hier an: [Beispiel](https://echarts.apache.org/examples/en/editor.html?c=dataset-link). Wenn die Maus über einen Datenpunkt des Liniendiagramms bewegt wird, wird das Kreisdiagramm entsprechend aktualisiert.
+Hier ist eine Bildschirmaufnahme dieses von Flexcharts gesteuerten Diagramms: [dynamisch änderndes Diagramm](dynamic_charts_with_flexcharts.mkv)
+
+Um diese Funktion für eigene Diagramme zu nutzen, empfehle ich die Verwendung eines **Skripts als Quelle**. [Vorlage 4](templates/flexchartsTemplate4.js) demonstriert die Implementierung. Bitte beachten Sie Folgendes:
+
+* Um das Diagramm dynamisch zu gestalten, müssen wir Funktionen zur Verarbeitung von Ereignissen innerhalb des Diagramms definieren. Dies geschieht durch die Definition von Funktionen wie `myChart.on("event",function(e){ ... });`
+* Es ist zwingend erforderlich, jede dieser Funktionen mit `myChart.on` zu benennen
+* Um die Funktionsdefinition an Flexcharts zu übergeben, muss sie in einen **Javascript-String** konvertiert werden. Dies kann durch konsequentes Setzen von Anführungszeichen (`"`) innerhalb der Funktion und anschließendes Einschließen in Apostrophe (`'`) erfolgen – oder umgekehrt. Sie können einen Kompaktor, z. B. [diesen](https://www.toptal.com/developers/javascript-minifier), verwenden, um den benötigten Platz zu reduzieren.
+* Abschließend müssen Sie beide Teile, die Diagrammdefinition und die Definition der Ereignisfunktion(en), als **Array von Javascript-Strings** über den Callback bereitstellen. In Vorlage 4 erfolgt dies als `callback([strify.stringify(option), onEvent]);`, wobei `option` die Diagrammdefinition und `onEvent` die Definition der Ereignisfunktion als Javascript-String enthält. Wenn Sie mehr als eine Funktion definieren, müssen alle Funktionen auf den String `onEvent` verweisen.
+* Um die Definition des Diagramms in eine Zeichenfolge umzuwandeln („Option“), müssen Sie „javascript-stringify“ verwenden, wie im vorherigen Kapitel beschrieben.
+
+Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, könnte dessen Funktionalität auch von Schadcode (Cross-Site-Scripting) ausgenutzt werden. Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
+
+Es ist auch möglich, diese Funktion mit einem **Bundesland als Datenquelle** zu verwenden. Allerdings ist es noch schwieriger:
+
+* Der Status muss als **Array von JSON-Strings** erstellt werden. Die beiden Elemente des Arrays bestehen aus der Diagrammdefinition und der Definition der Ereignisfunktion(en).
+* Nun müssen beide Strings gültige **JSON-Strings** sein. Dies unterscheidet sich von Javascript-Strings und bringt zusätzliche Einschränkungen mit sich:
+* Um einen String einzuschließen, müssen Anführungszeichen verwendet werden. Daher sind innerhalb des Strings nur Apostrophe oder maskierte Anführungszeichen (`\"`) zulässig.
+* Innerhalb eines Strings ist keine neue Zeile zulässig.
+* Es ist eine gute Idee, die Gültigkeit des Arrays mithilfe eines JSON-Validators sicherzustellen, z. B. [diesen hier](https://jsonformatter.curiousconcept.com/#).
+* Natürlich möchten Sie die Daten des Diagramms bearbeiten. Die Daten sind jedoch Teil der Diagrammdefinition. Daher müssen Sie das Array der JSON-Strings mit Javascript lesen und schreiben. Daher empfehle ich, wie oben beschrieben ein Skript als Datenquelle zu verwenden.
+* Ein Beispiel ist jedoch im Infobereich von Flexcharts verfügbar: `flexcharts.0.info.chart3`. Zur Anzeige im Browser verwenden Sie `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
+
 ## Vorlagen
 Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 
@@ -173,6 +197,7 @@ Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 * einfaches gestapeltes Balkendiagramm mithilfe der Funktion innerhalb der Diagrammdefinition: [template3](templates/flexchartsTemplate3.js)
 * Diagramm für Daten des **TibberLink-Adapters**: siehe Diskussionen [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) und [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * Für Viessmann-Geräte der E3-Serie, z. B. die Wärmepumpe Vitocal 250, ist ein sehr spezifischer Anwendungsfall verfügbar. Siehe https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
+* Implementierung dynamisch wechselnder Diagramme: [template4](templates/flexchartsTemplate4.js)
 * Der Adapter [tibberLink](https://github.com/hombach/ioBroker.tibberlink) nutzt Flexcharts als Option zur grafischen Aufbereitung der Daten. Derzeit im Beta-Repo von ioBroker verfügbar. Siehe die [Dokumentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
 
 ## Referenz
@@ -204,6 +229,11 @@ Dies sollte ein Demodiagramm aufrufen, wenn Flexcharts und Webadapter ausgeführ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2025-03-24)
+* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
+* (MyHomeMyData) Added timeout for script as source
+* (MyHomeMyData) Added test cases for integration testing
+
 ### 0.3.2 (2025-02-09)
 * (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
 

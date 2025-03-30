@@ -104,6 +104,17 @@ More info could be found here: https://github.com/ioBroker/webserver?tab=readme-
 -->
 
 ## Changelog
+### 7.0.9 (2025-03-28)
+* (@GermanBluefox) Corrected the loading of the material adapter
+
+### 7.0.8 (2025-03-18)
+* (@GermanBluefox) Added settings for custom CORS headers
+* (@GermanBluefox) Added the possibility to show admin instances on the web welcome page
+* (@GermanBluefox) Implemented the new index page
+
+### 7.0.7 (2025-03-15)
+* (@GermanBluefox) Trying to catch an error by the web extension
+
 ### 7.0.6 (2025-03-09)
 * (@GermanBluefox) Corrected the login for iobroker.visu app
 * (@GermanBluefox) Corrected load of TypeScript Web extensions

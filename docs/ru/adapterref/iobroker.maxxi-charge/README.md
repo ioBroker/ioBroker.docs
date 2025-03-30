@@ -12,7 +12,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.maxxi-charge/README.md
 title: ioBroker.Maxxi-Заряд
-hash: jZ2ev72VNPO8u1sVXU6iG2xvUyZuOce9t/G1GljuTlQ=
+hash: DJRI8Yt7iMPxIAEOZOgF4IrvtZRgQWz9AbkVSxfZGv0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.maxxi-charge/admin/ms_logo_black_green.webp)
 
@@ -34,23 +34,33 @@ hash: jZ2ev72VNPO8u1sVXU6iG2xvUyZuOce9t/G1GljuTlQ=
 http://www.maxxisun.de
 
 ## Документация
-[🇺🇸 Документация](./docs/en/README.md)
+[🇺🇸 Документация](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/en/README.md)
 
-[🇩🇪 Документация](./docs/de/README.md)
+[🇩🇪 Документация](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 
 ## Совместимость версий
 | Версия | CCU V1 Локальная | CCU V1 Облако | CCU V2 Локальная | CCU V2 Облако |
-|---------|--------------|--------------|--------------|--------------|
-| 0,36 | ❌ | ✅ |              |              |
-| 0,38 | ❌ | ✅ |              |              |
-| 0,40 | ❌ | ✅ |              |              |
-| 0,41 | ✅ | ✅ |              |              |
-| 0,44 | ✅ | ✅ |              |              |
-| 0,45 | ❓ | ❓ | ❓ | ❓ |
+|---------|------------|-------------|-------------|--------------|
+| 0,36 | ❌ | ✅ |             |              |
+| 0,38 | ❌ | ✅ |             |              |
+| 0,40 | ❌ | ✅ |             |              |
+| 0,41 | ✅ | ✅ |             |              |
+| 0,44 | ✅ | ✅ |             |              |
+| 0,46 | ✅ | ✅ | ❓ | ❓ |
 
 🔹 **Легенда**: ✅ - Совместимо ❌ - Несовместимо ❓ - Неизвестно
 
 ## Changelog
+
+### 1.4.31 (2025-03-29)
+- New cloud method – Backup mode Server 2 (check config)
+  > Note: Cloud Server 1 provides more datapoints but may be less stable.  
+  > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.
+- Adds dynamic firmware version management with categorized release listings.
+
+### 1.4.11 (2025-03-17)
+- CloudApi: Request times no longer aligned to second 0 on all adapters, improving load distribution.
+- Updated dependencies.
 
 ### 1.4.9 (2025-02-08)
 
@@ -74,9 +84,6 @@ http://www.maxxisun.de
   - Dynamic adjustment of charging parameters based on seasons.
   - Configurable with start and end dates.
 - **Cloud API query interval**: Interval for CCU queries in cloud mode is now configurable via a slider between 10 and 60 seconds.
-
-### 1.2.191 (2024-12-08)
-- Release
 
 ## License
 MIT License

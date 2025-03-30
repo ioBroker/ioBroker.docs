@@ -43,12 +43,38 @@
 
 <img src="/img/collection-radio-group.png" height="150">
 
+### Gauge
+
+<img src="/img/collection-gauge.png" height="150">
+
 ---
 <!--
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.7.5 (2025-03-23)
+- (steiger04) Dialog bug fixed
+
+### 1.7.4 (2025-03-22)
+- (steiger04) Header as title for Dialog
+- (steiger04) Gauge bug fixed
+
+### 1.7.3 (2025-03-21)
+- (steiger04) Gauge bug fixed
+
+### 1.7.2 (2025-03-21)
+- (steiger04) Gauge optimized
+
+### 1.7.1 (2025-03-21)
+- (steiger04) Gauge bug fixed
+
+### 1.7.0 (2025-03-19)
+- (steiger04) Gauge added
+
+### 1.6.1 (2025-03-15)
+- (steiger04) Radio group optimizations
+
 ### 1.6.0 (2025-03-13)
 - (steiger04) Radio group added
 

@@ -74,6 +74,11 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (hombach)
+
 ### 1.2.2 (2025-03-11)
 
 - (hombach) fix "Invalid time value" error (#115)

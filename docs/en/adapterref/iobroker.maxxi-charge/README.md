@@ -33,20 +33,20 @@ http://www.maxxisun.de
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 
 ## Version Compatibility
 
 | Version | CCU V1 Local | CCU V1 Cloud | CCU V2 Local | CCU V2 Cloud |
-|---------|--------------|--------------|--------------|--------------|
-| 0.36    | ❌           | ✅           |              |              |
-| 0.38    | ❌           | ✅           |              |              |
-| 0.40    | ❌           | ✅           |              |              |
-| 0.41    | ✅           | ✅           |              |              |
-| 0.44    | ✅           | ✅           |              |              |
-| 0.45    | ❓           | ❓           | ❓           | ❓           |
+|---------|------------|-------------|-------------|--------------|
+| 0.36    | ❌          | ✅           |             |              |
+| 0.38    | ❌          | ✅           |             |              |
+| 0.40    | ❌          | ✅           |             |              |
+| 0.41    | ✅          | ✅           |             |              |
+| 0.44    | ✅          | ✅           |             |              |
+| 0.46    | ✅          | ✅           | ❓           | ❓           |
 
 🔹 **Legend**:  
 ✅ - Compatible  
@@ -54,6 +54,16 @@ http://www.maxxisun.de
 ❓ - Unknown
 
 ## Changelog
+
+### 1.4.31 (2025-03-29)
+- New cloud method – Backup mode Server 2 (check config)
+  > Note: Cloud Server 1 provides more datapoints but may be less stable.  
+  > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.
+- Adds dynamic firmware version management with categorized release listings.
+
+### 1.4.11 (2025-03-17)
+- CloudApi: Request times no longer aligned to second 0 on all adapters, improving load distribution.
+- Updated dependencies.
 
 ### 1.4.9 (2025-02-08)
 
@@ -77,9 +87,6 @@ http://www.maxxisun.de
   - Dynamic adjustment of charging parameters based on seasons.
   - Configurable with start and end dates.
 - **Cloud API query interval**: Interval for CCU queries in cloud mode is now configurable via a slider between 10 and 60 seconds.
-
-### 1.2.191 (2024-12-08)
-- Release
 
 ## License
 MIT License

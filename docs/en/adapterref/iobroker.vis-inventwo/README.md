@@ -21,8 +21,7 @@ Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen gan
 
 ### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
 Der Adapter ist für VIS 1 entwickelt und getestet. In Vis 2 können Fehler auftreten die die Nutzung deiner Visualisierung nicht ermöglichen. 
-Eine nahtlose kompatibitlität wird nicht möglich sein. Ob und wann ein neuer Adapter für Vis 2 kommen wird kann nicht gesagt werden.
-Bei neuen Infos werden wir euch informieren.
+Eine nahtlose Kompatibilität wird nicht möglich sein. Ein neuer Adapter für Vis 2 findest du hier: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
 ## Inhalt des Adapters
 

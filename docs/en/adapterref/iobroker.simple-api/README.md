@@ -140,12 +140,16 @@ Toggles value:
 ### setBulk
 Set many states with one request. This request supports POST method too, for POST data should be in body and not URL.
 
+Please use content type `text/plain` for that.
+
 ### setValueFromBody
 This command allows setting the value of a given state to be set by the POST body content.
 
 Call e.g.:
 `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state`
 with body `hello` where `0_userdata.0.example_state` is the ID of the state.
+
+Please use content type `text/plain` for that.
 
 ### objects
 Read objects of a defined type from DB.
@@ -342,7 +346,7 @@ In the first case the answer will be returned immediately and `ack` is false. In
     }
   ]
 ```
-You can send this request as POST too.
+You can send this request as POST too. Please use content type `text/plain` and put the data in the body.
 
 ### objects
 Get the list of all objects for pattern. If no pattern is specified, all objects as JSON array will be returned.
@@ -511,7 +515,7 @@ If the option 'List all data points' has been activated or no data source has be
 ```
 
 ### query
-If a data source (History, SQL) has been specified, the data from the specified data points are read out for the specified period.
+If a data source (History, SQL) is specified, data from the specified data points will be retrieved for the given period.
 
 `http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
 
@@ -580,11 +584,62 @@ If no data source was specified or the noHistory parameter is passed, then only 
     }
   ]
 ```
+
+You can use relative time in the query. For example, `dateFrom=-1h` or `dateTo=today`.
+
+The following relative patterns are supported:
+- `hour` or `thisHour` or `this hour` - start of the current hour
+- `last hour` or `lastHour` - start of the previous hour
+- `today` - start of the current day
+- `yesterday` - start of the previous day
+- `week` or `thisWeek` or `this week` - start of the current week
+- `lastWeek` or `last week` - start of the previous week
+- `month` or `thisMonth` or `this month` - start of the current month
+- `lastMonth` or `last month` - start of the previous month
+- `year` or `thisYear` or `this year` - start of the current year
+- `lastYear` or `last year` - start of the previous year
+- `-Nd` - N days ago
+- `-NM` - N months ago
+- `-Ny` - N years ago
+- `-Nh` - N hours ago
+- `-Nm` - N minutes ago
+- `-Ns` - N seconds ago
+
+## CORS
+With option "Allow origin (CORS)" you can set the `Access-Control-Allow-Origin` header to allow requests from other domains.
+
+If you leave it blank, the header will not be set.
+
+## Modifiers
+You can use some options to modify the answer:
+- `prettyPrint` - to get the output in human-readable form
+- `json` - to force the parsing of the value in the `getPlainValue` command
+- `timeRFC3339` - to get the time of timestamps (`ts` and `lc`) in RFC3339 format, like `2019-06-08T01:00:00.000Z`
+- `callback` - response with JSONP format. In `callback=<CALLBACK>` the `CALLBACK` is the name of the callback function
+
+## Authentication
+This adapter supports the following types of authentication:
+- Query parameter `user` and `pass`
+- Basic authentication
+- Oauth2 Bearer token in the header. Read more in the web adapter about how to get tokens.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.6 (2025-03-15)
+* (bluefox) Added support for 'Access-Control-Allow-Origin'
+* (bluefox) Removed letsencrypt information
+* (bluefox) Added basic and OAuth2 authentication
+* (bluefox) Implemented JSONP response
+* (bluefox) Implemented relative times for query
+
+### 3.0.5 (2025-03-13)
+* (bluefox) Corrected the indication of running mode in admin
+* (bluefox) Corrected the writing of numeric values
+* (bluefox) Clear cache after 10 minutes
+
 ### 3.0.0 (2025-03-09)
 * (bluefox) Updated packages
 * (bluefox) Migrated to TypeScript

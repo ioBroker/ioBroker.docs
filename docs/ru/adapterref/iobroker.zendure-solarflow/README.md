@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: T49vEcmQISVK+BvOU3ThTW3C1kObMjLxFZWsgokGN/o=
+hash: ZaI98Yxp8NiVcO5OwHOuC6Ynvrv3E/0D/eli8t9RiZ8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -18,8 +18,7 @@ hash: T49vEcmQISVK+BvOU3ThTW3C1kObMjLxFZWsgokGN/o=
 **Тесты:** ![Тест и выпуск](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Zendure Solarflow для ioBroker
-Этот проект представляет собой адаптер ioBroker для чтения данных из API Zendure Solarflow Cloud. Он использует официальный API, предоставленный Zendure.
-Подробнее об API можно прочитать здесь: https://github.com/Zendure/developer-device-data-report
+Этот проект представляет собой адаптер ioBroker для чтения данных из API Zendure Solarflow Cloud.
 
 ## Пожертвовать
 Если вы найдете этот адаптер полезным для себя и захотите поддержать мою работу, не стесняйтесь сделать пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая никакого отношения к проекту ioBroker!)<br />
@@ -31,7 +30,16 @@ hash: T49vEcmQISVK+BvOU3ThTW3C1kObMjLxFZWsgokGN/o=
 - Остановка входа, если напряжение одной батареи падает до низкого уровня (защита батареи). Работает только при установке выходного предела через адаптер
 - Управляйте несколькими Solarflow одновременно!
 - Получите более точные расчеты!
-- Работает со всеми устройствами Zendure SolarFlow: HUB1200, Hyper2000, HUB2000 и AIO! Я могу протестировать только на HUB1200, так как у меня нет других устройств...
+- Работает со всеми устройствами Zendure SolarFlow: HUB1200, Hyper2000, HUB2000 и AIO!
+
+## Офлайн-режим (отключение от Zendure Cloud)
+В качестве новой функции вы можете отключить устройство Zendure от облака. Вы можете использовать [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) от Райнхарда Брандштеттера или мой собственный инструмент для Windows [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector), чтобы отключить устройство от облака. Также возможно перенаправлять DNS-запросы с вашего маршрутизатора с "mq.zen-iot.com" на ваш собственный сервер MQTT!
+
+Оба инструмента подключаются к устройству Zendure через Bluetooth и просто задают внутренний URL-адрес MQTT на новый URL-адрес/IP-адрес, который вы должны предоставить. В настоящее время вы вынуждены использовать порт MQTT по умолчанию 1883 на вашем сервере. Вы также вынуждены деактивировать аутентификацию на сервере MQTT, поскольку устройство Zendure использует жестко закодированный пароль.
+
+Если устройство Zendure взаимодействует с вашим сервером MQTT, вы можете подключить этот адаптер ioBroker к тому же экземпляру MQTT. Вам необходимо указать модель устройства и ключ устройства (который отображается в приложении Zendure Cloud Disconnector).
+
+Вы по-прежнему можете обновлять прошивку с помощью официального приложения Zendure через Bluetooth и использовать оба инструмента Bluetooth для повторного подключения устройства к облаку!
 
 ## Примечания
 1. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, в противном случае невозможно будет установить предел выходной мощности!
@@ -40,12 +48,49 @@ hash: T49vEcmQISVK+BvOU3ThTW3C1kObMjLxFZWsgokGN/o=
 
 2. Вы выйдете из официального приложения iOS или Android после входа с помощью адаптера ioBroker. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить доступ к Solarflow HUB этой учетной записи. Затем используйте вторую учетную запись для ioBroker / адаптера Zendure Solarflow.
 
-3. Адаптер покажет использование +10 Вт от батареи, если нет солнечного входа и устройство находится в режиме онлайн. Это будет отражать «резервное» использование устройства.
+3. Адаптер покажет использование +7 Вт от батареи, если нет солнечного входа и устройство находится в режиме онлайн. Это будет отражать «резервное» использование устройства.
 
 ## Кредиты
 Благодарность за это выражается https://github.com/reinhard-brandstaedter/solarflow, который очень помог со знаниями о сервере MQTT от Zendure! Спасибо!
 
 ## Changelog
+### 1.12.7 (2025-03-24)
+
+- Add productKey "gDa3tb" for Hyper 2000
+
+### 1.12.6 (2025-03-21)
+
+- Fix onMessage Debug message
+
+### 1.12.5 (2025-03-21)
+
+- Add Debug messages on log level debug
+- Add schedule for adapter refresh on local mode
+- Fix Change of Discharge limit to 0
+
+### 1.12.4 (2025-03-19)
+
+- Fix calculation of SOC if "local" mode is used
+
+### 1.12.3 (2025-03-19)
+
+- Add 2 more devices if "local" mode is used
+- Fix mqtt subscription of 2. device in "local" mode
+
+### 1.12.2 (2025-03-18)
+
+- Fix reset of calculation values on "local" mode
+
+### 1.12.1 (2025-03-17)
+
+- Fix IOT subscription
+
+### 1.12.0 (2025-03-17)
+
+- Added possibility to use "local" mode. You have to either route dns request to your own MQTT server or use a tool to modify the Zendure device
+- Some improvements on value calculation
+- Some improvements on AIO 2400 device
+
 ### 1.11.0 (2025-02-11)
 
 - Drop Standby usage to 7W and 14W if HUB connected with ACE as it is more accurate

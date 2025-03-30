@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.simple-api/README.md
 title: 简单 API
-hash: msMBIksOps5bO+J7WBGAU3LJ+eoMlYsdIxIm1sXO+Gk=
+hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 ---
 ![标识](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -151,10 +151,14 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ### 设置批量
 用一个请求设置多个状态。此请求也支持 POST 方法，因为 POST 数据应该在正文中而不是 URL 中。
 
+请使用内容类型`text/plain`。
+
 ### 设置Body的值
 此命令允许设置由 POST 主体内容设置的给定状态的值。
 
 调用例如：`http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` 和主体`hello`，其中`0_userdata.0.example_state` 是状态的 ID。
+
+请使用内容类型`text/plain`。
 
 ### 对象
 从数据库读取定义类型的对象。
@@ -176,7 +180,7 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 Grafana JSON / SimpleJSON 插件需要此命令。
 
 ＃＃＃ 帮助
-返回 [这](#usage) 输出
+返回[这](#usage)输出
 
 ＃＃ 用法
 假设我们没有安全性并且服务器在默认端口 8087 上运行。
@@ -350,7 +354,7 @@ Grafana JSON / SimpleJSON 插件需要此命令。
   ]
 ```
 
-您也可以以 POST 形式发送该请求。
+您也可以以 POST 形式发送此请求。请使用内容类型`text/plain`并将数据放入正文中。
 
 ### 对象
 获取模式的所有对象列表。如果未指定模式，则将返回所有对象作为 JSON 数组。
@@ -518,7 +522,7 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 ```
 
 ＃＃＃ 询问
-如果指定了数据源（历史记录、SQL），则会读取指定时间段内指定数据点的数据。
+如果指定了数据源（历史记录、SQL），则将检索给定时间段内指定数据点的数据。
 
 `http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
 
@@ -588,11 +592,64 @@ Grafana JSON / SimpleJSON 插件需要此命令。
   ]
 ```
 
+您可以在查询中使用相对时间。例如，`dateFrom=-1h` 或 `dateTo=today`。
+
+支持以下相对模式：
+
+- `hour` 或 `thisHour` 或 `this hour` - 当前小时的开始
+- `last hour` 或 `lastHour` - 前一小时的开始时间
+- `today` - 当前日期的开始
+- `yesterday` - 前一天的开始
+- `week` 或 `thisWeek` 或 `this week` - 当前周的开始
+- `lastWeek` 或 `last week` - 上周的开始
+- `month` 或 `thisMonth` 或 `this month` - 当前月份的开始
+- `lastMonth` 或 `last month` - 上个月的开始
+- `year` 或 `thisYear` 或 `this year` - 当前年份的开始
+- `lastYear` 或 `last year` - 上一年的开始
+- `-Nd` - N 天前
+- `-NM` - N 个月前
+-`-Ny` - N 年前
+- `-Nh` - N 小时前
+- `-Nm` - N 分钟前
+- `-Ns` - N 秒前
+
+CORS
+使用选项“允许来源（CORS）”，您可以设置`Access-Control-Allow-Origin` 标头以允许来自其他域的请求。
+
+如果将其留空，则不会设置标题。
+
+## 修饰符
+您可以使用一些选项来修改答案：
+
+- `prettyPrint` - 以人类可读的形式获取输出
+- `json` - 强制解析 `getPlainValue` 命令中的值
+- `timeRFC3339` - 获取 RFC3339 格式的时间戳（“ts”和“lc”）的时间，例如“2019-06-08T01：00：00.000Z”
+- `callback` - JSONP 格式的响应。在 `callback=<CALLBACK>` 中，`CALLBACK` 是回调函数的名称
+
+＃＃ 验证
+此适配器支持以下类型的身份验证：
+
+- 查询参数 `user` 和 `pass`
+- 基本身份验证
+- 标头中的 Oauth2 Bearer 令牌。在 Web 适配器中阅读更多有关如何获取令牌的信息。
+
 <!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.6 (2025-03-15)
+* (bluefox) Added support for 'Access-Control-Allow-Origin'
+* (bluefox) Removed letsencrypt information
+* (bluefox) Added basic and OAuth2 authentication
+* (bluefox) Implemented JSONP response
+* (bluefox) Implemented relative times for query
+
+### 3.0.5 (2025-03-13)
+* (bluefox) Corrected the indication of running mode in admin
+* (bluefox) Corrected the writing of numeric values
+* (bluefox) Clear cache after 10 minutes
+
 ### 3.0.0 (2025-03-09)
 * (bluefox) Updated packages
 * (bluefox) Migrated to TypeScript

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: IurXXZFpApnw/7kcC37hdhaX1EpVU7Q3wNVI4Q9YwPI=
+hash: 1tGrT22/RTxdH2GFG+CDenXCYYznjEmDV6ctZf3pUWU=
 ---
 ![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -53,16 +53,16 @@ hash: IurXXZFpApnw/7kcC37hdhaX1EpVU7Q3wNVI4Q9YwPI=
 默认值为 10 分钟，这在 KeConnect 的负载和 ioBroker 中的最新信息之间取得了良好的平衡。
 
 ### PV 自动装置
-为了根据剩余电量为您的车辆充电（例如通过光伏），您还可以定义代表剩余电量和主电源的状态。这些值用于计算可用于充电的安培数。通过其他值，您可以定义
+为了根据剩余电量为您的车辆充电（例如通过光伏），您还可以定义代表主电源剩余电量和电网消耗的状态。这些值用于计算可用于充电的电流。通过其他值，您可以定义
 
 * 切换充电相 1p/3p 或使用 Keba Kecontact 的 X2 端口的状态（使用 Keba KeContact S10 或任何其他接触器）
 * 电池存储当前电力的状态，因此光伏自动装置将额外使用它为您的车辆充电
 * 可选择限制电池存储功率，以最低功率进行充电
 * 如果您想使用充电站的 X1 输入来控制是否全功率充电或光伏自动充电，请切换 X1 选项
 * 与默认的 6 A 不同的最小安培数（仅适用于 Renault Zoe）
-* 可用于开始充电的功率值（这意味着即使没有足够的剩余电量也会开始充电 - 建议 1 相充电为 0 W，3 相充电为 500 W 至 2000 W）
+* 可用于启动充电的电网消耗功率值（这意味着即使没有足够的剩余电量，充电也会开始 - 建议 1 相充电为 0 W，3 相充电为 500 W 至 2000 W）
 * 电流增量（建议 500 mA）
-* 可以暂时用来维持充电会话的关注值（这意味着即使不再有足够的剩余，充电也会稍后停止 - 将添加起始关注值 - 建议 500 W）
+* 可暂时用于维持充电会话的电网消耗值（这意味着即使不再有足够的剩余电量，充电也会在稍后停止 - 将添加启动电网消耗 - 建议 500 W）
 * 充电时间最短（即使剩余电量不再充足，一次充电也会至少持续这段时间 - 建议 300 秒）
 * 每次剩余时间不再充足时继续充电（弥补阴天的时间）
 
@@ -71,10 +71,10 @@ hash: IurXXZFpApnw/7kcC37hdhaX1EpVU7Q3wNVI4Q9YwPI=
 在这种情况下，请输入安装接触器的状态，以及它是 NO（常开）还是 NC（常闭）
 
 ### 电池存储
-如果您拥有电池存储，请在此处填写选项。通过指定电池存储的剩余状态和考虑，此适配器可以控制是否应使用电池存储为您的车辆充电，具体取决于选项中预设的策略。
+如果您拥有电池存储，请在此处填写选项。通过指定电池存储的剩余电量和电网消耗状态，此适配器可以控制是否使用电池存储为您的车辆充电，具体取决于选项中预设的策略。
 
 ### 德国 §14a EnWG 权力限制
-根据德国 §14a EnWG，可以选择将充电站限制为最大 6A 固定电流或动态限制为 3x6A（4.140 瓦）
+根据德国 §14a EnWG，可以选择将充电站限制为最大 6A 固定电流或动态限制为 3x6A（4.140 瓦）的电网消耗
 
 ### 功率限制
 您还可以限制壁挂式电箱的最大功率以限制主电源。例如，当运行夜间储热加热器时，您可能必须遵守最大功率限制。
@@ -90,13 +90,13 @@ hash: IurXXZFpApnw/7kcC37hdhaX1EpVU7Q3wNVI4Q9YwPI=
 
 * kecontact.n.automatic.photovoltaics - 设置为 false 时，激活光伏自动（true）或以最大功率为车辆充电
 * kecontact.n.automatic.calcPhases - 定义当前用于充电计算的相数。这是 Keba Deutschland 版本所必需的，可用于所有充电站的初始充电会话
-* kecontact.n.automatic.addPower - 定义允许为您的车辆充电的瓦特数（与选项相同）
+* kecontact.n.automatic.addPower - 定义允许为您的车辆充电的电网消耗瓦数（与选项相同）
 * kecontact.n.automatic.pauseWallbox - 只要设置为 true，立即停止每次充电
 * kecontact.n.automatic.limitCurrent - 将充电限制为指定的 mA 电流值（0 = 无限制）
 * kecontact.n.automatic.batteryStorageStrategy - 您的电池存储是否以及如何为您的车辆充电的策略
 * kecontact.n.automatic.batterySoCForCharging - 通过指定 SoC 来限制车辆电池存储的使用，低于该 SoC 则禁止充电
 
-示例：要以恒定 6A 电流为您的车辆充电（无论是否有剩余），请将光伏设置为 false 并将限制电流设置为 6000。
+示例：要以恒定 6A 电流为您的车辆充电（无论是否有剩余电流），请将光伏设置为 false 并将限制电流设置为 6000。
 
 ＃＃ 合法的
 该项目与 KEBA AG 公司无直接或间接关联。
@@ -108,6 +108,21 @@ KeConnect 是 KEBA AG 的注册商标。
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Sneak-L8) optimized strategy for battery charging
+
+### 3.1.0 (2025-03-20)
+* (Sneak-L8) new option to reduce log entries on info level (write them with debug level)
+* (Sneak-L8) fix wording error ("regard" changed to grid consumption)
+* (Sneak-L8) fixed some english translations
+* (Sneak-L8) renamed state "regardTimestamp" to "consumptionTimestamp" - please delete old state
+
+### 3.0.1 (2025-03-15)
+* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-29 an IOBROKER-KECONTACT-2A
+* (Sneak-L8) minimum js-controller now >= 7 due to I18n
+* (Sneak-L8) fix roles of states in io-package.json
+* (Sneak-L8) log of config on level debug instead of info
+
 ### 3.0.0 (2025-03-10)
 * (Sneak-L8) rebase adapter on newest version of adapter creator
 * (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
@@ -132,15 +147,6 @@ KeConnect 是 KEBA AG 的注册商标。
 * (mcm1957) Dependencies have been updated.
 * (Sneak-L8) fix url for download page at Keba website
 * (Sneak-L8) fix lint problems by replacing double by single quotes
-
-### 2.1.1 (2024-03-16)
-* (fischmi) fix error when chanigig dynamic SoC parameter
-
-### 2.1.0 (2024-01-06)
-* (Sneak-L8) multiple options for battery storage strategy
-* (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
-* (Sneak-L8) don't try to charge when state is 5 (auth req, car not ready, ...)
-* (Sneak-L8) new state to dynamically set SoC above which battery storage may be used for charging vehicle
 
 ## License
                                  Apache License

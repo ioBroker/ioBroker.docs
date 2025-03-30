@@ -3,8 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 title: Виджеты RSS-канала Vis 2
-hash: +yjjHHRqJ/PCFnzNOb7mLmosEVYrzBWKdURpn/sC1ac=
+hash: +CKA/ibJKtKZYGLgyscff6eN6F7hF2IP1unJdlDY0D4=
 ---
+# Виджеты RSS-каналов Vis 2
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-rssfeed/admin/vis-2-widgets-rssfeed.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-2-widgets-rssfeed-stable.svg)
@@ -12,7 +13,6 @@ hash: +yjjHHRqJ/PCFnzNOb7mLmosEVYrzBWKdURpn/sC1ac=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-rssfeed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-2-widgets-rssfeed.png?downloads=true)
 
-# Виджеты RSS-каналов Vis 2
 этот адаптер содержит только виджеты vis-2 для адаптера rssfeed.
 
 Подробное описание виджетов и функционала смотрите в разделе Адаптер RSS-канала.
@@ -23,9 +23,14 @@ hash: +yjjHHRqJ/PCFnzNOb7mLmosEVYrzBWKdURpn/sC1ac=
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### 1.0.1 (2025-03-10)
+### 1.1.2 (2025-03-20)
 
-- try to fix marque v5 widget
+- add missing build file
+
+### 1.1.1 (2025-03-20)
+
+- fix marqueeV5 widget
+- fix build process
 
 ### 1.0.0 (2025-02-19)
 

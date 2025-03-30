@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.simple-api/README.md
 title: Simple-api
-hash: msMBIksOps5bO+J7WBGAU3LJ+eoMlYsdIxIm1sXO+Gk=
+hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -151,10 +151,14 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ### SetBulk
 Установить несколько состояний одним запросом. Этот запрос также поддерживает метод POST, поскольку данные POST должны быть в теле, а не в URL.
 
+Для этого используйте тип контента `text/plain`.
+
 ### SetValueFromBody
 Эта команда позволяет задать значение заданного состояния, устанавливаемого содержимым тела POST.
 
 Например, вызовите: `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` с телом `hello`, где `0_userdata.0.example_state` — это идентификатор состояния.
+
+Для этого используйте тип контента `text/plain`.
 
 ### Объекты
 Чтение объектов определенного типа из БД.
@@ -350,7 +354,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ]
 ```
 
-Вы также можете отправить этот запрос методом POST.
+Вы также можете отправить этот запрос как POST. Пожалуйста, используйте тип контента `text/plain` и поместите данные в тело.
 
 ### Объекты
 Получить список всех объектов для шаблона. Если шаблон не указан, будут возвращены все объекты в виде массива JSON.
@@ -517,7 +521,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ```
 
 ### Запрос
-Если указан источник данных (История, SQL), то данные из указанных точек данных считываются за указанный период.
+Если указан источник данных (История, SQL), то будут извлечены данные из указанных точек данных за указанный период.
 
 `http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
 
@@ -587,11 +591,64 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ]
 ```
 
+В запросе можно использовать относительное время. Например, `dateFrom=-1h` или `dateTo=today`.
+
+Поддерживаются следующие относительные шаблоны:
+
+- `hour` или `thisHour` или `this hour` - начало текущего часа
+- `last hour` или `lastHour` - начало предыдущего часа
+- `today` - начало текущего дня
+- `вчера` - начало предыдущего дня
+- `week` или `thisWeek` или `this week` - начало текущей недели
+- `lastWeek` или `last week` - начало предыдущей недели
+- `month` или `thisMonth` или `this month` - начало текущего месяца
+- `lastMonth` или `last month` - начало предыдущего месяца
+- `year` или `thisYear` или `this year` - начало текущего года
+- `lastYear` или `last year` - начало предыдущего года
+- `-Nd` - N дней назад
+- `-NM` - N месяцев назад
+- `-Ny` - N лет назад
+- `-Nh` - N часов назад
+- `-Nm` - N минут назад
+- `-Ns` - N секунд назад
+
+## КОРС
+С помощью опции «Разрешить источник (CORS)» вы можете установить заголовок `Access-Control-Allow-Origin`, чтобы разрешить запросы из других доменов.
+
+Если оставить поле пустым, заголовок не будет установлен.
+
+## Модификаторы
+Вы можете использовать некоторые варианты для изменения ответа:
+
+- `prettyPrint` - для получения вывода в удобной для восприятия форме
+- `json` - для принудительного анализа значения в команде `getPlainValue`
+- `timeRFC3339` - для получения времени временных меток (`ts` и `lc`) в формате RFC3339, например `2019-06-08T01:00:00.000Z`
+- `callback` - ответ в формате JSONP. В `callback=<CALLBACK>` `CALLBACK` - это имя функции обратного вызова
+
+## Аутентификация
+Данный адаптер поддерживает следующие типы аутентификации:
+
+- Параметры запроса `user` и `pass`
+- Базовая аутентификация
+- Oauth2 Bearer token в заголовке. Подробнее о том, как получить токены, читайте в веб-адаптере.
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 3.0.6 (2025-03-15)
+* (bluefox) Added support for 'Access-Control-Allow-Origin'
+* (bluefox) Removed letsencrypt information
+* (bluefox) Added basic and OAuth2 authentication
+* (bluefox) Implemented JSONP response
+* (bluefox) Implemented relative times for query
+
+### 3.0.5 (2025-03-13)
+* (bluefox) Corrected the indication of running mode in admin
+* (bluefox) Corrected the writing of numeric values
+* (bluefox) Clear cache after 10 minutes
+
 ### 3.0.0 (2025-03-09)
 * (bluefox) Updated packages
 * (bluefox) Migrated to TypeScript

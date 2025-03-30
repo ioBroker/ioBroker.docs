@@ -12,7 +12,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.maxxi-charge/README.md
 title: ioBroker.Maxxi-Charge
-hash: jZ2ev72VNPO8u1sVXU6iG2xvUyZuOce9t/G1GljuTlQ=
+hash: DJRI8Yt7iMPxIAEOZOgF4IrvtZRgQWz9AbkVSxfZGv0=
 ---
 ![标识](../../../en/adapterref/iobroker.maxxi-charge/admin/ms_logo_black_green.webp)
 
@@ -34,23 +34,33 @@ hash: jZ2ev72VNPO8u1sVXU6iG2xvUyZuOce9t/G1GljuTlQ=
 http://www.maxxisun.de
 
 ## 文档
-[🇺🇸 文档](./docs/en/README.md)
+[🇺🇸 文档](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/en/README.md)
 
-[🇩🇪 文档](./docs/de/README.md)
+[🇩🇪 文档](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 
 ## 版本兼容性
 | 版本 | CCU V1 本地 | CCU V1 云端 | CCU V2 本地 | CCU V2 云端 |
-|---------|--------------|--------------|--------------|--------------|
-| 0.36 | 0.36 ❌ | ✅ |              |              |
-| 0.38 | 0.38 ❌ | ✅ |              |              |
-| 0.40 | 0.40 ❌ | ✅ |              |              |
-| 0.41 | 0.41 ✅ | ✅ |              |              |
-| 0.44 | 0.44 ✅ | ✅ |              |              |
-| 0.45 | 0.45 ❓ | ❓ | ❓ | ❓ |
+|---------|------------|-------------|-------------|--------------|
+| 0.36 | 0.36 ❌ | ✅ |             |              |
+| 0.38 | 0.38 ❌ | ✅ |             |              |
+| 0.40 | 0.40 ❌ | ✅ |             |              |
+| 0.41 | 0.41 ✅ | ✅ |             |              |
+| 0.44 | 0.44 ✅ | ✅ |             |              |
+| 0.46 | 0.46 ✅ | ✅ | ❓ | ❓ |
 
 🔹 **图例**：✅ - 兼容 ❌ - 不兼容 ❓ - 未知
 
 ## Changelog
+
+### 1.4.31 (2025-03-29)
+- New cloud method – Backup mode Server 2 (check config)
+  > Note: Cloud Server 1 provides more datapoints but may be less stable.  
+  > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.
+- Adds dynamic firmware version management with categorized release listings.
+
+### 1.4.11 (2025-03-17)
+- CloudApi: Request times no longer aligned to second 0 on all adapters, improving load distribution.
+- Updated dependencies.
 
 ### 1.4.9 (2025-02-08)
 
@@ -74,9 +84,6 @@ http://www.maxxisun.de
   - Dynamic adjustment of charging parameters based on seasons.
   - Configurable with start and end dates.
 - **Cloud API query interval**: Interval for CCU queries in cloud mode is now configurable via a slider between 10 and 60 seconds.
-
-### 1.2.191 (2024-12-08)
-- Release
 
 ## License
 MIT License

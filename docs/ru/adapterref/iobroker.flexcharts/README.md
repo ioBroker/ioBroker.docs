@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: 2LBfixSvSCkyVG94QWAOMrwzR0WZOl4Sq6qt3IOsjxw=
+hash: ePObUsirC8yjBbABKE6Su2y/+eZvkZmFMQDFlxOkew8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -165,6 +165,30 @@ myJsonParams = {"period":"daily"}
 
 Примечание: Если установлен модуль npm `javascript-stringify`, его функциональность может также использоваться вредоносным кодом (Cross-Site-Scripting). Поэтому ioBroker не должен быть доступен из Интернета при использовании этого модуля.
 
+### Использование событийно-управляемых функций для создания динамически изменяющихся диаграмм
+Apache ECharts поддерживает динамически изменяющиеся диаграммы. Взгляните на это [пример](https://echarts.apache.org/examples/en/editor.html?c=dataset-link). Когда мышь перемещается на точку данных линейной диаграммы, круговая диаграмма обновляется соответствующим образом.
+Вот запись экрана этой диаграммы, управляемой flexcharts: [динамически меняющаяся диаграмма](dynamic_charts_with_flexcharts.mkv)
+
+Чтобы использовать эту функцию для собственных диаграмм, я рекомендую использовать **скрипт в качестве источника**. [Шаблон 4](templates/flexchartsTemplate4.js) демонстрирует реализацию. Пожалуйста, обратите внимание на следующее:
+
+* Чтобы сделать диаграмму динамической, нам нужно определить функционал для обработки событий внутри диаграммы. Это делается с помощью определения функций типа `myChart.on("event",function(e){ ... });`
+* Каждую из этих функций обязательно нужно назвать `myChart.on`
+* Для передачи определения функций в flexcharts его необходимо преобразовать в **Javascript String**. Это можно сделать, последовательно используя кавычки (`"`) внутри функции, а затем заключив ее в апострофы (`'`) - или наоборот. Вы можете использовать компактор, например [этот](https://www.toptal.com/developers/javascript-minifier), чтобы уменьшить необходимое пространство.
+* Наконец, вам необходимо предоставить обе части, определение диаграммы и определение функции(й) события, как **массив строк Javascript** через обратный вызов. В шаблоне 4 это делается как `callback([strify.stringify(option), onEvent]);`, где `option` содержит определение диаграммы, а `onEvent` содержит определение функции события как строку Javascript. Если вы определяете более одной функции, все функции должны перейти к строке `onEvent`.
+* Чтобы преобразовать определение диаграммы в строку (`option`), необходимо использовать `javascript-stringify`, как описано в предыдущей главе.
+
+Примечание: Если установлен модуль npm `javascript-stringify`, его функциональность может также использоваться вредоносным кодом (Cross-Site-Scripting). Поэтому ioBroker не должен быть доступен из Интернета при использовании этого модуля.
+
+Эту функцию также можно использовать с **государством как источником** данных. Однако это еще сложнее:
+
+* Состояние должно быть создано как **массив строк JSON**. Два элемента массива состоят из определения диаграммы и определения функции(й) события.
+* Но теперь обе строки должны быть допустимыми **JSON-строками**. Это отличается от строк Javascript и накладывает дополнительные ограничения:
+* Для заключения строки необходимо использовать кавычки. Поэтому внутри строки допускаются только апострофы или экранированные кавычки (`\"`).
+* В пределах строки новая строка не допускается.
+* Рекомендуется убедиться в валидности массива с помощью валидатора JSON, например [этого](https://jsonformatter.curiousconcept.com/#).
+* Конечно, вы хотите манипулировать данными диаграммы. Но данные являются частью определения диаграммы. Поэтому вам придется читать и записывать массив строк JSON с помощью Javascript. Поэтому я рекомендую использовать скрипт в качестве источника данных, как описано выше.
+* Однако, пример доступен в информационной части flexcharts: `flexcharts.0.info.chart3`. Для просмотра в браузере используйте `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
+
 ## Шаблоны
 Шаблоны Javascript доступны для некоторых вариантов использования:
 
@@ -173,6 +197,7 @@ myJsonParams = {"period":"daily"}
 * простая столбчатая диаграмма с накоплением, использующая функцию в определении диаграммы: [template3](templates/flexchartsTemplate3.js)
 * диаграмма для данных **адаптера tibberLink**: см. обсуждения [здесь](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) и [здесь](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * Для устройств Viessmann серии E3 доступен очень специфический вариант использования, например, тепловой насос Vitocal 250. См. https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
+* реализация динамически изменяющихся диаграмм: [template4](templates/flexchartsTemplate4.js)
 * адаптер [tibberLink](https://github.com/hombach/ioBroker.tibberlink) использует flexcharts как вариант для графической обработки данных. В настоящее время доступен в бета-репозитории ioBroker. Ознакомьтесь с [документацией](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
 
 ## Ссылка
@@ -204,6 +229,11 @@ myJsonParams = {"period":"daily"}
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2025-03-24)
+* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
+* (MyHomeMyData) Added timeout for script as source
+* (MyHomeMyData) Added test cases for integration testing
+
 ### 0.3.2 (2025-02-09)
 * (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
 

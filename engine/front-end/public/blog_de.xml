@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Sun, 22 Dec 2024 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 29 Mar 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker Neuigkeiten – Frühjahr 2025 🌼]]></title>
+            <description><![CDATA[
+                <p>Willkommen zum ioBroker-Update für das Frühjahr 2025! In den letzten Wochen hat sich wieder einiges in der ioBroker-Welt getan.\nNeue Adapter erweitern die Plattform um spannende Integrationen,\nbestehende Komponenten wurden mit hilfreichen Funktionen verbessert – und auch die Community bleibt weiterhin aktiv und kreativ.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_03_29</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_03_29</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 29 Mar 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Jahresrückblick 2024 ❄]]></title>
             <description><![CDATA[

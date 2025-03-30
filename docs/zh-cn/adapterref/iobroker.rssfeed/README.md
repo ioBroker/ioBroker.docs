@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rssfeed/README.md
 title: ioBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
-hash: A1fyp+jFlaVA/hCTtLgGhzLIUemtb91kh89+ViO0Wsk=
+hash: KWXSnbkoZOLx7c0Aii1gWEokXl/zIqP4sCpzuFpTpVo=
 ---
 # IoBroker 适配器用于请求和显示不同标准的 RSS 提要（Atom、RSS、RDF）
 ![标识](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
@@ -62,10 +62,11 @@ iobroker upload rssfeed
 - [`RSS Feed Multi widget 3`](#rss-feed-multi-widget-3) - 在一个小部件中显示多个聚合的 feed。
 - [`RSS Feed Meta Helper`](#rss-feed-meta-helper) - 用于检查 feed 元数据的辅助小部件
 - [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - 用于检查 feed 文章数据的辅助小部件
-- [`RSS Feed Title marquee 3`](#rss-feed-title-marquee-3) - 一个用于将 Feed 的标题显示为字幕的小部件
-- [`JSON 模板`(#json-template)] - 一个与 RSS 提要无关的小部件，但使用相同的技术，您可以定义自定义模板以在 vis 中显示任何 JSON 数据。
+- [`RSS Feed Title marquee 4（已弃用）`](#rss-feed-title-marquee-4-deprecated) - 一个用于将 Feed 的标题显示为字幕的小部件
+- [`RSS Feed Title marquee 5`](#rss-feed-title-marquee-5) - 一个用于将 Feed 的标题显示为字幕的小部件
+- [`JSON 模板 3`](#json-template3) - 一个与 RSS 源无关的小部件，但使用相同的技术，您可以定义自定义模板以在 vis 中显示任何 JSON 数据。
 
-### RSS 提要小部件 2
+### RSS 源小部件 2
 此小部件可用于在适配器的配置对话框中显示订阅的 RSS 源。
 使用模板系统，可以根据需要自定义输出。已经提供了一个简单的标准模板。
 可以在以下页面中找到格式和语法的描述。
@@ -81,7 +82,7 @@ iobroker upload rssfeed
 
 - rss.meta：feed 的元信息
 - rss.articles：所有文章的数组
-- widgetid: 小部件的 widgetID
+- widgetid：小部件的 widgetID
 - style：如果你配置了附加样式信息，则为样式对象
 
 有关这些变量的更多详细信息，请参阅章节**可用变量**
@@ -113,7 +114,7 @@ iobroker upload rssfeed
 - 文章中提供了项目元信息的子集，形式为 **meta_name**、**meta_title** 和 **meta_description**
 
 - dp[] 作为数组，如果你配置额外的数据点
-- widgetid：小部件的 widgetID
+- widgetid: 小部件的 widgetID
 - style：如果你配置了附加样式信息，则为样式对象
 
 ### RSS 源元助手
@@ -156,16 +157,17 @@ iobroker upload rssfeed
 | rss_feedCount | 常规组 | 您可以在此处设置要配置的 feed 数量。在 vis 中为每个要配置的 feed 创建一个单独的组。|
 | rss_speed | 常规组 | 滚动文本的滚动速度 属性 rss_divider - 常规组 您可以在此处输入用于分隔标题的字符。默认值为+++。|
 | rss_pauseonhover | 常规组 | 如果打开此选项，则只要将鼠标悬停在文本上，滚动文本就会停止。|
-| rss_opentype | 一般组 | 选择链接的打开方式：无，链接，弹出 |
+| rss_opentype | 一般组 | 选择链接的打开方式：`none`、`link`、`popup` |
 | rss_withtime | 常规组 | 如果打开此选项，则会在相应标题前显示时间。 属性 rss_withdate - 常规组 如果启用此选项，则会在相应标题前显示不带年份的日期和时间。|
 | rss_withyear | 常规组 | 如果启用此选项，则会在相应的标题前显示带有年份的日期和时间。|
 | rss_oid | Feeds[number] 组 | 选择具有相应 RSS 提要的数据点。|
 | rss_maxarticles | Feeds[number] group | 从 RSS feed 中显示的最大单独文章数量 |
 | rss_filter | Feeds[number] group | 对于过滤功能，可以在字段中输入一个或多个过滤条件，以分号 (;) 分隔。搜索时会搜索以下文章属性：标题、描述、类别。仅显示包含其中一个术语的文章。|
 
-### JSON 模板2
+### JSON 模板3
 使用此小部件，可以根据需要显示任何具有 JSON 数据的数据点。
 显示使用模板格式完成，可以将其视为 HTML 代码 + JavaScript + 控制 JSON 属性显示的特殊标签的组合形式。
+JSON Template3 现在支持使用 await 的异步调用。JSON Template 2 将来将被弃用。
 
 | 设置 | 描述 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -176,8 +178,7 @@ iobroker upload rssfeed
 
 JSON 数据以前缀 data 的形式传递给模板。此外，当前 widgetID 也可用作变量，以便在单独的 CSS 指令中指定。
 
-**高级用例：**
-
+#### 高级用例
 上面的示例中仅涵盖了纯输出。现在还可以使用 HTML 标签丰富模板，以实现特定布局。以下是示例：
 
 ```html
@@ -208,6 +209,199 @@ JSON 数据以前缀 data 的形式传递给模板。此外，当前 widgetID �
 ```
 
 （在 Markdown 中颜色不可见）
+
+#### 异步调用的用例
+**区块 1：**
+
+使用 await 调用 sendToAsync 函数。此示例调用管理适配器中的测试函数。
+
+**区块 2：**
+
+将结果字符串化并输出为 html
+
+**区块 3：**
+
+sendToAsync 函数的定义
+
+```html
+<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
+<%- JSON.stringify(req) %>
+<%
+async function sendToAsync(instance, command, sendData) {
+    console.log(`sendToAsync ${command} ${sendData}`);
+    return new Promise((resolve, reject) => {
+        try {
+            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
+                resolve(receiveData);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+%>
+```
+
+**结果：**
+
+```text
+[{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
+```
+
+#### 数据库支持的任务列表用例
+＃＃＃＃＃ **介绍**
+此用例描述了如何使用 `>=rssfeed 3.5.0` 适配器可视化并以交互方式修改 `ioBroker` 中 MySQL 数据库中的待办事项列表。重点是通过单击按钮实现简单的状态更改。此概念可用作**概念验证 (PoC)**，并可包含在未来的文档中。
+
+---
+
+##### **数据库结构（MySQL）**
+首先，创建一个名为`test`的 MySQL 数据库。它包含一个表`test`，其中包含以下字段：
+
+- `id`: 每个条目的唯一ID
+- `todo`: 待办事项的标题
+- `action`：条目的状态（0 = 进行中，1 = 已完成）
+
+###### **创建表的 SQL 代码**
+<details><summary>细节</summary><pre><code>
+
+```sql
+
+CREATE TABLE `test` (
+`id` int(11) NOT NULL,
+`todo` varchar(100) NOT NULL,
+`action` int(11) NOT NULL
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+SERT INTO `test` (`id`, `todo`, `action`) VALUES
+, 'Todo 1', 0),
+, 'Todo 2', 1),
+, 'Todo 3', 1),
+, 'Todo 4', 0);
+
+TER TABLE `test`
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `id` (`id`),
+ADD KEY `idx` (`id`);
+
+TER TABLE `test`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MMIT;
+
+`
+
+</代码> </pre> </详细信息>
+
+---
+
+##### **集成到 ioBroker**
+###### **SQL 适配器**
+要与数据库交互，需要 `ioBroker.sql` 适配器。
+它经过相应配置，可连接到 MySQL 数据库 `test`。
+请注意，`ioBroker` 会自动在数据库中创建自己的结构来存储历史数据点。
+
+###### **RSSFeed 适配器和 JSONTemplate 小部件**
+为了实现可视化，我们使用`JSONTemplate` 小部件。
+
+**重要提示：**
+
+- 在“vis 2”中，小部件包含在“vis-2-widget-ovarious”适配器中。
+- 将来，一旦“bluefox”稳定了构建链，计划将此小部件集成到“ioBroker.jsontemplate”中。
+
+##### **集成到 VIS**
+我们放置`JSONTemplate`小部件并填写以下字段：
+
+###### **模板代码**
+<details><summary>细节</summary><pre><code>
+
+```html
+
+tyle>
+  .btn {
+      width: 100%;
+  }
+style>
+able>
+  <tr>
+      <th>ID</th>
+      <th>Todo</th>
+      <th>Action</th>
+  </tr>
+
+t todos = await getTodo();
+r (let i = 0; i < todos.length; i++) {
+  let todo = todos[i];
+
+  <tr>
+      <td><%- todo.id %></td>
+      <td><%- todo.todo %></td>
+      <td><%- getButton(todo.id, todo.action) %></td>
+  </tr>
+ } %>
+table>
+
+cript>
+ndow.jsontemplate = { clicktodo: clicktodo };
+
+nction getButton(id, action) {
+  let text = action === 0 ? "In Progress" : "Completed";
+  return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
+
+
+nction clicktodo(el) {
+  let id = el.dataset.id;
+  let action = el.dataset.action;
+  let nextAction = action == 0 ? 1 : 0;
+  setAction(id, nextAction);
+
+
+ync function getTodo() {
+  let req = await sendToAsync("sql.0", "query", "SELECT * FROM test.test");
+  return req.result;
+
+
+ync function setAction(id, action) {
+  await sendToAsync("sql.0", "query", `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
+  vis.setValue("local_trigger", Math.random());
+
+
+ync function sendToAsync(instance, command, sendData) {
+  return new Promise((resolve, reject) => {
+      try {
+          vis.conn.sendTo(instance, command, sendData, (receiveData) => resolve(receiveData));
+      } catch (error) {
+          reject(error);
+      }
+  });
+
+script>
+
+`
+
+</代码> </pre> </详细信息>
+
+###### **刷新内容的数据点**
+为了确保状态改变后反映更新，我们添加了以下本地数据点：
+
+```text
+local_trigger
+```
+
+此数据点**不需要明确创建**，因为`local_?`数据点在 VIS 内部处理（参见`vis`文档）。
+
+**代码解释**
+###### **模板结构**
+| 行 | 内容 |
+|-------|--------|
+| 1-5 | 按钮外观的 CSS 样式 |
+| 6-11 | 表头包含 ID、Todo、Action 列 |
+| 12-16 | 使用 `getTodo()` 从 MySQL 数据库获取数据 |
+| 23-28 | `clicktodo()` 函数的全局引用 |
+| 30-37 | `getButton()` 函数创建一个具有当前状态的按钮 |
+| 38-44 | `clicktodo()` 通过按钮点击改变状态的函数 |
+| 45-48 | `getTodo()` 函数通过 SQL 适配器获取数据 |
+| 49-52 | `setAction()` 函数更新数据库条目 |
+| 53-58 | `sendToAsync()` 函数将 `async/await` 与 `vis.conn.sendTo()` 结合使用 |
+| 53-58 | `sendToAsync()` 函数将 `async/await` 与 `vis.conn.sendTo()` 结合使用 |
 
 ## 模板系统
 ## 标签
@@ -350,14 +544,14 @@ data.oneobject[prop] %> <% } %>
 - `meta.link`
 -`meta.xmlurl`
 -`meta.date`
-- `meta.pubdate`
+-`meta.pubdate`
 -`meta.author`
 -`meta.language`
 -`meta.image`
 - `meta.favicon`
 - `meta.copyright`
 -`meta.generator`
--`meta.categories`
+- `meta.categories`
 
 ###`rss.articles or articles`
 是一个包含单个元素的数组（javascript 数组）。每个元素都具有以下属性。
@@ -581,12 +775,21 @@ Z7：没有输出。此行关闭了 javascript 循环。在 Z2 和 Z7 之间定�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.5.2 (2025-03-20)
+
+- improve build
+
+### 3.5.1 (2025-03-20)
+
+- improve build
+
+### 3.5.0 (2025-03-18)
+
+- make async function calls available in templates
+
 ### 3.4.1 (2025-02-18)
 
 - fix eslint
-
-### 3.4.0 (2025-02-18)
-
 - introducing a new attribute opentype to open the links in the marquee widget
 
 ### 3.3.1 (2025-01-23)

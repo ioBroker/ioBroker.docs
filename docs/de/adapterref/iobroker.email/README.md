@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
 title: ioBroker-E-Mail
-hash: ypVBzSrm5mbo+TfW0HK5vnJMZibj1ActmAB2k7PbHKA=
+hash: 1nWsbCPsKJ2MiNpR/LrE3yONC8jDi4xNoRO2r8O4p8E=
 ---
 ![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
@@ -99,6 +99,7 @@ Office365
 - SES-US-EAST-1
 - SES-US-WEST-2
 - SES-EU-WEST-1
+- t-online.de
 - Sparkpost
 - Yahoo
 - Yandex
@@ -112,8 +113,12 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.0.3 (2025-03-24)
+* (@GermanBluefox) Added t-online.de to the list of supported services
+
+### 2.0.2 (2025-03-14)
 * (@GermanBluefox) Renamed `dist` folder to `build`
+* (@GermanBluefox) Fixing pass decoding
 
 ### 2.0.0 (2025-03-11)
 * (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
@@ -134,9 +139,6 @@ Weitere Dienste finden Sie in der Dokumentation von **Nodemailer**: `§§LLLLL_0
 ### 1.3.0 (2024-04-29)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
-
-### 1.2.2 (2023-12-25)
-* (foxriver76) trim host messages from notification-manager correctly
 
 ## License
 

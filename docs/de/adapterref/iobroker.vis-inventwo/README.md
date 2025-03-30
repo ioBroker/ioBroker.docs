@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: GIOEhJx6TMLw6RXYVLPB4mlJQ+38O0AUalEWlro85Y8=
+hash: FejhTHt7SeJtoyLXEqzNx7P4XuBqvAJoQR1jlw80lyE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/vis-inventwo-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vis-inventwo-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
 ![Build-Status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
@@ -23,8 +23,7 @@ Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br> Mit
 
 ### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
 Der Adapter ist für VIS 1 entwickelt und getestet. In Vis 2 können Fehler auftreten, die die Nutzung Ihrer Visualisierung nicht ermöglichen.
-Eine nahtlose Kompatibilität wird nicht möglich sein. Ob und wann ein neuer Adapter für Vis 2 kommen wird kann nicht gesagt werden.
-Bei neuen Infos werden wir euch informieren.
+Eine nahtlose Kompatibilität wird nicht möglich sein. Einen neuen Adapter für Vis 2 findest du hier: https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
 ## Inhalt des Adapters
 Verschiedene Widgets zum schalten, handhaben und mehr.
@@ -37,16 +36,16 @@ Analoge Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-i
 
 Digitale Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Digitale Uhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
+![Vorschau Digitaluhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
 
-Farbauswahl [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
+Farbwähler [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Vorschau Farbauswahl](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
+![Vorschau Colorpicker](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
 
 Für weitere Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) um.
 
 ###### Alle Widgets ab Version 2.0.0
-<table><tr><td><center><b>Universal<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Multi<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Bild<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Tisch<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Aufführen<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Festzelt<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Radio knopf<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Schieberegler<br> Vertikale</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Schieberegler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Farbschieber<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Farbschieber<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Kippschalter<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Basisschalter<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Kontrollkästchen/<br> Radio knopf</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center> <b>Farbwähler<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
+<table><tr><td><center><b>Universal<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Multi<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Bild<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Tisch<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Liste<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Festzelt<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Optionsfeld<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Schieberegler<br> Vertikale</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Schieberegler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Farbregler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Farbregler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Kippschalter<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Basisschalter<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Kontrollkästchen/<br> Optionsfeld</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center> <b>Farbwähler<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
 
 Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. Zusätzlich installiert werden.
 
@@ -479,8 +478,6 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## License
 
-Copyright (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
 MIT License (nur in englisch / englisch only)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -505,6 +502,4 @@ SOFTWARE.
 
 Icons from Icons8 https://icons8.com/
 
----
-
-Copyright (c) 2020-2023 jkvarel jkvarel@inventwo.com
+Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)

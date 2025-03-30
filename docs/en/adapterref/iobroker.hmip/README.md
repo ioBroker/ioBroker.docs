@@ -54,7 +54,7 @@ Additionally, please add "iobroker" client to the list of access control clients
 There is a changed workflow with HCU
 
 Press the button once before starting the token creation. It enables remote access for 5 minutes.
-Then press button once again when asked for it during pairing process.
+Then press the button once again when asked for it during a pairing process.
 
 Many thanks to @dietzm for adding support of HCU to this adapter.
 
@@ -69,8 +69,12 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
-* (@mcm1957) Admin requirment has been increased.
+### 1.27.0 (2025-03-24)
+* (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
+* (@GermanBluefox) GUI was migrated to TypeScript (Admin 7.6)
+* (SliX185) Support to control opticalSignalBehaviour for HMIP-BSL has been added.
+* (SliX185) Logging of PIN has been removed
+* (mcm1957) Dependencies have been updated.
 
 ### 1.26.5 (2025-01-27)
 * (@Apollon77) Fixed Websocket disconnect cases

@@ -72,7 +72,7 @@ protocol://address:port/person
 ## License
 This adapter is licensed under the [MIT license](../blob/master/LICENSE) which is part of this repository.
 
-Copyright (c) 2024 obakuhl <hello@obakuhl.com>
+Copyright (c) 2025 obakuhl <hello@obakuhl.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

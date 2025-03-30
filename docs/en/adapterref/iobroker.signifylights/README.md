@@ -24,6 +24,11 @@ Reference to a company or a product name does not imply approval or recommendati
 that company or product to the exclusion of others.
 
 ## Changelog
+### 0.4.3 (2025-03-25)
+* added ESP25_MHORGB_01
+* added ESP24_SHRGB_01
+* fix hex color
+
 ### 0.4.2 (2024-11-06)
 * implement responsive design in config page (thx simatec)
 
@@ -59,7 +64,7 @@ that company or product to the exclusion of others.
 ## License
 MIT License
 
-Copyright (c) 2024 disaster123 <stefan-iobroker@prie.be>
+Copyright (c) 2025 disaster123 <stefan-iobroker@prie.be>
 
 originally developed by Copyright (c) 2022 nxtstep <privat@konzeptplus.net>
 

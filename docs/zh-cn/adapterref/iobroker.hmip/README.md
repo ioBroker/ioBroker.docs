@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP 云接入点适配器
-hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
+hash: +ZcisHPvpDDut0pIyLFip51XW4bcc0RHOew6SclJL94=
 ---
 ![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -33,7 +33,7 @@ hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 我会不断改进它，但这需要时间。如果社区能通过 Pull Request 等方式提供帮助，我将不胜感激。
 
 对于无法正常工作的 HmIP 设备，请使用此信息创建一个问题（每个设备一个，如果可能，请在主题中写上技术名称）。
-将 ioBroker 中的适配器日志切换到傻瓜模式，并添加设备的 JSON，该 JSON 会打印到问题日志中。
+将 ioBroker 中的适配器日志切换到傻瓜模式，并添加设备的 JSON，该 JSON 将打印到问题日志中。
 我可能还需要状态更改的 JSON。
 
 谢谢你！
@@ -56,7 +56,7 @@ hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 HCU 的工作流程发生了变化
 
 在开始创建令牌之前按下按钮一次。它将启用 5 分钟的远程访问。
-然后在配对过程中要求时再次按下按钮。
+然后在配对过程中需要时再次按下按钮。
 
 非常感谢@dietzm 为该适配器添加了对 HCU 的支持。
 
@@ -71,10 +71,26 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ### **正在进行中** -->
 
 ## Changelog
-### 1.26.1-alpha.1 (2024-12-09)
-* (mcm1957) Adapter requires node.js 20 now
-* (dietzm) Added support for Home Control Unit
-* (GermanBluefox) Corrected the admin GUI
+### 1.27.0 (2025-03-24)
+* (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
+* (@GermanBluefox) GUI was migrated to TypeScript (Admin 7.6)
+* (SliX185) Support to control opticalSignalBehaviour for HMIP-BSL has been added.
+* (SliX185) Logging of PIN has been removed
+* (mcm1957) Dependencies have been updated.
+
+### 1.26.5 (2025-01-27)
+* (@Apollon77) Fixed Websocket disconnect cases
+
+### 1.26.4 (2025-01-03)
+* (@Apollon77) Optimized Websocket disconnect cases
+
+### 1.26.3 (2024-12-29)
+* (@GermanBluefox) Updated packages
+
+### 1.26.2 (2024-12-10)
+* (@mcm1957) Adapter requires node.js 20 now
+* (@dietzm) Added support for Home Control Unit
+* (@GermanBluefox) Corrected the admin GUI
 
 ### 1.25.0 (2024-11-08)
 * (bluefox) Updated packages
@@ -343,7 +359,7 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

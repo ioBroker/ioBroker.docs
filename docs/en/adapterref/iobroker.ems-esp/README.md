@@ -44,7 +44,7 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* encrypt ems token - needs to be re-entered
+* encrypt ems token - token needs to be re-entered
 * dependabot updates
 
 ### 5.1.2 (2024-12-31)

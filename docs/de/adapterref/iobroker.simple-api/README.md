@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.simple-api/README.md
 title: Simple-API
-hash: msMBIksOps5bO+J7WBGAU3LJ+eoMlYsdIxIm1sXO+Gk=
+hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 ---
 ![Logo](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -151,10 +151,14 @@ Schaltet den Wert um:
 ### SetBulk
 Legen Sie mit einer Anfrage mehrere Status fest. Diese Anfrage unterstützt auch die POST-Methode, da POST-Daten im Text und nicht in der URL enthalten sein sollten.
 
+Bitte verwenden Sie hierfür den Inhaltstyp `text/plain`.
+
 ### SetValueFromBody
 Mit diesem Befehl kann der Wert eines bestimmten Status festgelegt werden, der durch den POST-Textinhalt festgelegt werden soll.
 
 Rufen Sie z. B. auf: `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` mit Text `hello`, wobei `0_userdata.0.example_state` die ID des Staates ist.
+
+Bitte verwenden Sie hierfür den Inhaltstyp `text/plain`.
 
 ### Objekte
 Lesen Sie Objekte eines definierten Typs aus der Datenbank.
@@ -352,7 +356,7 @@ Im ersten Fall wird die Antwort sofort zurückgegeben und `ack` ist falsch. Im z
   ]
 ```
 
-Sie können diese Anfrage auch als POST senden.
+Sie können diese Anfrage auch als POST senden. Verwenden Sie dazu den Inhaltstyp `text/plain` und fügen Sie die Daten in den Text ein.
 
 ### Objekte
 Ruft die Liste aller Objekte für das Muster ab. Wenn kein Muster angegeben ist, werden alle Objekte als JSON-Array zurückgegeben.
@@ -521,7 +525,7 @@ Ist die Option „Alle Datenpunkte auflisten“ aktiviert oder keine Datenquelle
 ```
 
 ### Abfrage
-Wenn eine Datenquelle (History, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen.
+Wenn eine Datenquelle (Verlauf, SQL) angegeben ist, werden Daten aus den angegebenen Datenpunkten für den angegebenen Zeitraum abgerufen.
 
 `http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
 
@@ -591,11 +595,64 @@ Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, wird 
   ]
 ```
 
+Sie können in der Abfrage relative Zeitangaben verwenden. Beispiel: `dateFrom=-1h` oder `dateTo=today`.
+
+Die folgenden relativen Muster werden unterstützt:
+
+- `hour` oder `thisHour` oder `this hour` - Beginn der aktuellen Stunde
+- `last hour` oder `lastHour` - Beginn der vorherigen Stunde
+- `today` - Beginn des aktuellen Tages
+- `yesterday` - Beginn des Vortages
+- `week` oder `thisWeek` oder `this week` - Beginn der aktuellen Woche
+- `lastWeek` oder `last week` - Beginn der Vorwoche
+- `month` oder `thisMonth` oder `this month` - Beginn des aktuellen Monats
+- `lastMonth` oder `last month` - Beginn des Vormonats
+- `year` oder `thisYear` oder `this year` - Beginn des aktuellen Jahres
+- `lastYear` oder `last year` - Beginn des Vorjahres
+- `-Nd` - vor N Tagen
+- `-NM` - vor N Monaten
+- `-Ny` - vor N Jahren
+- `-Nh` - vor N Stunden
+- `-Nm` - vor N Minuten
+- `-Ns` - vor N Sekunden
+
+## CORS
+Mit der Option „Ursprung zulassen (CORS)“ können Sie den Header `Access-Control-Allow-Origin` setzen, um Anfragen von anderen Domänen zuzulassen.
+
+Wenn Sie es leer lassen, wird die Kopfzeile nicht festgelegt.
+
+## Modifikatoren
+Sie können einige Optionen verwenden, um die Antwort zu ändern:
+
+- `prettyPrint` - um die Ausgabe in einer für Menschen lesbaren Form zu erhalten
+- `json` - um die Analyse des Wertes im Befehl `getPlainValue` zu erzwingen
+- `timeRFC3339` – um die Zeit der Zeitstempel (`ts` und `lc`) im RFC3339-Format zu erhalten, wie `2019-06-08T01:00:00.000Z`
+- `callback` - Antwort im JSONP-Format. In `callback=<CALLBACK>` ist `CALLBACK` der Name der Callback-Funktion
+
+## Authentifizierung
+Dieser Adapter unterstützt die folgenden Authentifizierungsarten:
+
+- Abfrageparameter „Benutzer“ und „Passwort“
+- Grundlegende Authentifizierung
+- Oauth2-Bearer-Token im Header. Weitere Informationen zum Abrufen von Token finden Sie im Webadapter.
+
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.0.6 (2025-03-15)
+* (bluefox) Added support for 'Access-Control-Allow-Origin'
+* (bluefox) Removed letsencrypt information
+* (bluefox) Added basic and OAuth2 authentication
+* (bluefox) Implemented JSONP response
+* (bluefox) Implemented relative times for query
+
+### 3.0.5 (2025-03-13)
+* (bluefox) Corrected the indication of running mode in admin
+* (bluefox) Corrected the writing of numeric values
+* (bluefox) Clear cache after 10 minutes
+
 ### 3.0.0 (2025-03-09)
 * (bluefox) Updated packages
 * (bluefox) Migrated to TypeScript

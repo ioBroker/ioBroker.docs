@@ -7,18 +7,7 @@
         "ru": "Документация ioBroker",
         "zh-cn": "欢迎"
       },
-      "content": "README.md",
-      "pages": {
-        "Introduction": {
-          "title": {
-            "en": "Introduction",
-            "de": "Aufbau der Dokumentation",
-            "ru": "Структура документации",
-            "zh-cn": "文档结构"
-          },
-          "content": "intro/README.md"
-        }
-      }
+      "content": "README.md"
     },
     "Fundamentals": {
       "title": {

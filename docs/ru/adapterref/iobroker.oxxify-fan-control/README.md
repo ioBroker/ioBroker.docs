@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.oxxify-fan-control/README.md
-title: ioBroker.oxxify-вентилятор-контроль
-hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
+title: ioBroker.oxxify-управление вентилятором
+hash: DNu+6Wzxb0lqxbKo9ktggF/NVrn1b0oB7dW3GBFE+qk=
 ---
 ![версия НПМ](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.oxxify-fan-control.svg)
@@ -51,8 +51,6 @@ hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
 ![изображение](../../../en/adapterref/iobroker.oxxify-fan-control/doc/screenshots/system-data.png)
 
 ## Задачи
-- Выпуск стабильной версии на npm
-- Добавление адаптера в репозиторий ioBroker
 - Реализация большего количества тестов
 - Улучшение документации
 - Реализовать недостающие точки данных (например, расписание, запись сетевых данных и управление облаком)
@@ -62,6 +60,11 @@ hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+
+### 0.0.5 (2025-03-21)
+
+- Added automatic write retry mechanism for writing values within the fan, as writing with UDP is not very reliable in connection with poor network conditions
+- Adapter checker issues fixed
 
 ### 0.0.4 (2025-01-31)
 

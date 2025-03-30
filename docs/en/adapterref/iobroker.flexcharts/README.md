@@ -163,6 +163,29 @@ An example using chart definition via state is given in `flexcharts.0.info.chart
 
 Remark: When npm module `javascript-stringify` is installed, it's functionality could also be used by malicious code (Cross-Site-Scripting). Therefore, ioBroker should not be accessible from the Internet when using this module.
 
+### Using event driven functions to create dynamically changing charts
+Apache ECharts supports dynamically changing charts. Take a look at this [example](https://echarts.apache.org/examples/en/editor.html?c=dataset-link). When the mouse is moved to a data point of the line chart, the pie chart gets updated accordingly.
+Here's a screen recording of this chart operated by flexcharts:
+[dynamically changing chart](dynamic_charts_with_flexcharts.mkv)
+
+To use this feature for your own charts I recommend to use a **script as source**. [Template 4](templates/flexchartsTemplate4.js) demonstrates the implementation. Please take care about following:
+* To make the chart dynamic we need to define functionality to handle events within the chart. This is done via definition of functions like `myChart.on("event",function(e){ ... });`
+* It's mandatory to name each of those functions with `myChart.on`
+* For handing over the functions definition to flexcharts it has to be converted to a **Javascript String**. This could be done by consequently using quotation marks (`"`) inside the function and then enclosing it in apostrophes (`'`) - or the other way round. You may use an compactor, e.g. [this one](https://www.toptal.com/developers/javascript-minifier), to reduce the needed space.
+* Finally, you have to provide both parts, definition of chart and definition of event function(s), as an **array of Javascript Strings** via the callback. In template 4 it's done as `callback([strify.stringify(option), onEvent]);` where `option` contains the chart definition and `onEvent` contains the definition of event function as a Javascript String. If you define more than one function all functions have to go to the String `onEvent`.
+* To stringify the definition of the chart (`option`) you have to use `javascript-stringify` as described in previous chapter.
+
+Remark: When npm module `javascript-stringify` is installed, it's functionality could also be used by malicious code (Cross-Site-Scripting). Therefore, ioBroker should not be accessible from the Internet when using this module.
+
+It's also possible to use this feature with a **state as source** of data. However, it's even more tricky:
+* The state has to be made up as an **array of JSON Strings**. The two elements of the array consists of the definition of chart and the definition of event function(s).
+* But now, both Strings has to be valid **JSON Strings**. This is different from Javascript Strings and brings additional restrictions:
+   * To enclose a String quotation marks have to be used. Therefore within the String only apostrophes or escaped quotation marks (`\"`) are allowed.
+   * Within a String no new line is allowed.
+* It's a good idea to make sure about validity of the array by using a JSON validator, e.g. [this one](https://jsonformatter.curiousconcept.com/#).
+* Of course you want to manipulate the data of the chart. But the data is part of the definition of the chart. So you have to read and write the array of JSON Strings using Javascript. Therefore I recomment to use a script as source of data as described above.
+* However, an example is available within info part of flexcharts: `flexcharts.0.info.chart3`. To view in a browser use `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
+
 ## Templates
 Javascript templates are available for some uses cases:
 * chart using data from history adapter: [template1](templates/flexchartsTemplate1.js)
@@ -170,6 +193,7 @@ Javascript templates are available for some uses cases:
 * simple stacked bar chart using function within chart definition: [template3](templates/flexchartsTemplate3.js)
 * chart for data of **tibberLink adapter**: see discussions [here](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) and [here](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * a very specific use case is available for Viessmann devices of E3 series, e.g. heat pump Vitocal 250. Refer to https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
+* implementing dynamically changing charts: [template4](templates/flexchartsTemplate4.js)
 * adapter [tibberLink](https://github.com/hombach/ioBroker.tibberlink) uses flexcharts as an option for graphical processing of the data. Presently available in Beta Repo of ioBroker. Take a look to the [documentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
 
 ## Reference
@@ -204,6 +228,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2025-03-24)
+* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
+* (MyHomeMyData) Added timeout for script as source
+* (MyHomeMyData) Added test cases for integration testing
+
 ### 0.3.2 (2025-02-09)
 * (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
 

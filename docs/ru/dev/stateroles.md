@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
+hash: WQgzwC+Uf4bSzq6WHHPAlQpS1gLKTgPFimGHLE1NQ34=
 ---
 # Государственные роли
 Объектам типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
@@ -11,7 +11,7 @@ hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
 
 Пример: RGB-лампа может иметь следующие три объекта (или более) с различными ролями, которые связаны друг с другом:
 
-* `переключатель` - (Вкл/Выкл)
+* `переключатель` - (Вкл./Выкл.)
 * `level.color.rgb` с цветовым кодом лампы #RRGGBB
 * `level.brightness` со значением яркости
 
@@ -25,7 +25,7 @@ hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
 * `json` `common.type = string`
 * `список` `общий.тип = массив`
 * `date` `common.type = string` - анализируется по строке `new Date(ddd)`
-* `дата` `common.type = число` - `секунды эпохи * 1000`
+* `дата` `общий.тип = число` - `секунды эпохи * 1000`
 
 ## Датчик (логические значения, только для чтения)
 `common.type=boolean, common.write=false`
@@ -53,7 +53,7 @@ hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
 * `button.long`
 * `button.stop` - например, остановка ролика,
 * `кнопка.стоп.наклон`
-* `button.start`
+* `кнопка.старт`
 * `button.resume`
 * `кнопка.открыть.дверь`
 * `кнопка.открыть.окно`
@@ -181,7 +181,7 @@ hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
 * `level.dimmer` - яркость тоже ниже
 * `level.blind` - установить положение жалюзи (макс = полностью открыто, мин = полностью закрыто)
 * `level.temperature` - установить желаемую температуру
-* `level.valve` - уставка положения клапана
+* `level.valve` - заданное значение положения клапана
 * `уровень.цвет.красный`
 * `уровень.цвет.зеленый`
 * `уровень.цвет.синий`
@@ -221,7 +221,7 @@ hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
 * `switch.mode.auto` - включение/выключение автоматического режима
 * `switch.mode.manual` - включение/выключение ручного режима
 * `switch.mode.silent` - включение/выключение бесшумного режима
-* `switch.mode.moonlight` - включение/выключение режима лунного света
+* `switch.mode.moonlight` - вкл/выкл режим лунного света
 * `switch.mode.color` - включение/выключение цветового режима
 * `switch.gate` - закрывает(false) или открывает(true) ворота
 
@@ -230,6 +230,7 @@ hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
 * `level.mode.swing` - `АВТО, ГОРИЗОНТАЛЬНЫЙ, СТАЦИОНАРНЫЙ, ВЕРТИКАЛЬНЫЙ`
 * `level.mode.airconditioner` - кондиционер: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, термостат отопления: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - термостат: `АВТО, РУЧНОЙ, ОТПУСК`,
+* `value.mode.airconditioner` - текущее состояние устройства: `IDLE`, `HEAT, `COOL` (0,1,2 в Apple Home)
 
 В дополнение к этим состояниям обычно требуются `level.temperature` и `switch.power` для отображения кондиционера.
 
@@ -402,17 +403,17 @@ hash: X9xRxkg6ZuPt2ZJo9Uag38jioxXenV3CX+1FFDaFT2U=
 * `value.direction.wind.forecast.0` - прогноз направления ветра на сегодня в градусах
 * `weather.direction.wind.forecast.0` - прогноз направления ветра на сегодня в текстовом виде
 * `value.pressure.forecast.0` - прогноз давления на сегодня
-* `value.temperature.min.forecast.0` - Минимальный прогноз температуры на сегодня
+* `value.temperature.min.forecast.0` - Мин. прогноз температуры на сегодня
 * `value.temperature.max.forecast.0` - Прогноз максимальной температуры на сегодня
 * `value.precipitation.forecast.0` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на сегодня
 * `value.precipitation.forecast.0` - (`тип: число, единица: мм`) Прогноз уровня осадков на сегодня
 * `weather.title.forecast.0` - Очень краткое описание завтрашнего дня
 * `value.precipitation.day.forecast.0` - Прогноз осадков на дневное время
-* `value.precipitation.night.forecast.0` - Прогноз осадков на ночное время
+* `value.precipitation.night.forecast.0` - Прогноз осадков на ночь
 
 * `date.forecast.1` - завтрашняя дата
 * `weather.icon.forecast.1` - значок завтрашнего дня
-* `weather.state.forecast.1` - состояние погоды на завтра
+* `weather.state.forecast.1` - прогноз погоды на завтра
 * `значение.температуры.мин.прогноз.1`
 * `значение.температуры.макс.прогноз.1`
 * `value.precipitation.forecast.1` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на завтра

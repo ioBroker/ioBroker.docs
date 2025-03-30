@@ -88,6 +88,7 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 * log FW version of FB
 * DECT350 now with battery data (issue #513)
 * merge etsi devices into etsiunits (issue #597)
+* Support of DECT250, change power (max 40kW)
 
 ### 2.6.0 (npm)
 * (khnz) PR#618 support on-demand updates

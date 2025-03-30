@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.oxxify-fan-control/README.md
 title: ioBroker.oxxify-风扇控制
-hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
+hash: DNu+6Wzxb0lqxbKo9ktggF/NVrn1b0oB7dW3GBFE+qk=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.oxxify-fan-control.svg)
@@ -20,15 +20,15 @@ hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
 **测试：**![测试与发布](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 oxxify-fan-control 适配器
-将 Oxxify 风扇集成到您的智能家居中。所有提供的 ioBroker 数据点均基于[这里](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) 所述的通信协议。由于其他制造商也在使用相同的协议（例如 Blauberg 通风口），因此它们也很可能同样有效。
+将 Oxxify 风扇集成到您的智能家居中。所有提供的 ioBroker 数据点均基于[这里](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) 中所述的通信协议。由于其他制造商也在使用相同的协议（例如 Blauberg 通风口），因此它们也很有可能能够正常工作。
 
 ## 工作设备
-- Oxxify smart 50（由我测试过）
+- Oxxify smart 50（由我方测试）
 - 任何其他具有 WiFi 的 Oxxify 设备
 - Blauberg Vents（应该是，但尚未测试）
 
 ### 对象树描述
-对象树包含名为“设备”的文件夹，该文件夹为每个配置的风扇创建一个条目。下面的通道使用制造商提供的唯一风扇 ID 创建。在列 _name_ 中，使用来自配置的条目来更好地区分风扇。在每个风扇下方创建四个通道，以对每个风扇提供的数据进行分组。它们的解释如下：
+对象树包含名为“设备”的文件夹，该文件夹为每个配置的风扇创建一个条目。下面的通道使用制造商提供的唯一风扇 ID 创建。在列 _name_ 中，使用来自配置的条目，以便更好地区分风扇。在每个风扇下方创建四个通道，以对每个风扇提供的数据进行分组。它们的解释如下：
 
 #### 粉丝数据
 该通道包含任何与风扇相关的数据，如计时器、风扇速度、开/关状态以及有关过滤器清洁/更换间隔的信息。风扇操作模式包含来自通信协议的数值以及语音字符串状态。值只能用数字来写（例如，1 表示加热恢复）。计时器模式和风扇速度模式也是如此，它们接受 1、2、3 和 255 进行手动速度设置。风扇 2 的风扇速度在我的设备（Oxxify pro 50）上不可用，并且在关闭状态下保持 0 rpm，在任何运行状态下保持 1500。其他值根据速度而变化。
@@ -51,8 +51,6 @@ hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
 ![图像](../../../en/adapterref/iobroker.oxxify-fan-control/doc/screenshots/system-data.png)
 
 ## 待办事项
-- 在 npm 上发布稳定版本
-- 将适配器添加到 ioBroker repo
 - 实施更多测试
 - 改进文档
 - 实现缺失的数据点（如时间表、网络数据写入和云控制）
@@ -62,6 +60,11 @@ hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
 ### **正在进行中** -->
 
 ## Changelog
+
+### 0.0.5 (2025-03-21)
+
+- Added automatic write retry mechanism for writing values within the fan, as writing with UDP is not very reliable in connection with poor network conditions
+- Adapter checker issues fixed
 
 ### 0.0.4 (2025-01-31)
 

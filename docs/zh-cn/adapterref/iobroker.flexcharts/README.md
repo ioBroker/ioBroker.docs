@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: 2LBfixSvSCkyVG94QWAOMrwzR0WZOl4Sq6qt3IOsjxw=
+hash: ePObUsirC8yjBbABKE6Su2y/+eZvkZmFMQDFlxOkew8=
 ---
 ![标识](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -80,7 +80,7 @@ flexchart 适配器将显示此图表：
 
 <!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
 
-Flexcharts 会将状态 `0_userdata.0.echarts.chart1` 评估为 eChart 的数据。尝试一下：创建这样的状态并复制上面示例的 json 数据（`{ "tooltip": { ...`）作为状态内容，然后使用浏览器访问给定的地址。
+Flexcharts 会将状态 `0_userdata.0.echarts.chart1` 评估为 eChart 的数据。尝试一下：创建这样的状态，并将上面示例的 json 数据（`{ "tooltip": { ...`）复制为状态内容，然后使用浏览器访问给定的地址。
 
 不允许在州 ID 中使用以下字符：`: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
 
@@ -165,6 +165,30 @@ myJsonParams = {"period":"daily"}
 
 备注：安装 npm 模块 `javascript-stringify` 后，其功能也可能被恶意代码（跨站点脚本）利用。因此，使用此模块时，ioBroker 不应通过互联网访问。
 
+### 使用事件驱动函数创建动态变化的图表
+Apache ECharts 支持动态变化的图表。看看这个[例子](https://echarts.apache.org/examples/en/editor.html?c=dataset-link)。当鼠标移动到折线图的数据点时，饼图会相应更新。
+以下是 flexcharts 操作此图表的屏幕录制：[动态变化的图表](dynamic_charts_with_flexcharts.mkv)
+
+要将此功能用于您自己的图表，我建议使用**脚本作为源**。[模板 4](templates/flexchartsTemplate4.js) 演示了实现。请注意以下事项：
+
+* 为了使图表动态化，我们需要定义功能来处理图表内的事件。这可以通过定义诸如“myChart.on("event",function(e){ ... });”之类的函数来实现
+* 必须将每个函数命名为“myChart.on”
+* 为了将函数定义移交给 flexcharts，必须将其转换为 **Javascript 字符串**。这可以通过在函数内部使用引号 (`"`) 然后用撇号 (`'`) 括起来来完成 - 或反过来。您可以使用压缩器（例如 [这个](https://www.toptal.com/developers/javascript-minifier)）来减少所需的空间。
+* 最后，您必须通过回调提供图表定义和事件函数定义这两个部分，作为 **Javascript 字符串数组**。在模板 4 中，它以 `callback([strify.stringify(option), onEvent]);` 的形式完成，其中 `option` 包含图表定义，`onEvent` 包含事件函数作为 Javascript 字符串的定义。如果您定义多个函数，则所有函数都必须转到字符串 `onEvent`。
+* 要将图表的定义（“选项”）字符串化，您必须使用上一章中描述的“javascript-stringify”。
+
+备注：安装 npm 模块 `javascript-stringify` 后，其功能也可能被恶意代码（跨站点脚本）利用。因此，使用此模块时，ioBroker 不应从互联网访问。
+
+也可以将此功能与**状态作为数据源**一起使用。然而，这更加棘手：
+
+* 状态必须由**JSON 字符串数组**组成。数组的两个元素由图表的定义和事件函数的定义组成。
+* 但现在，两个字符串都必须是有效的 **JSON 字符串**。这与 Javascript 字符串不同，并带来了额外的限制：
+* 必须使用引号将字符串括起来。因此，字符串中只允许使用撇号或转义引号 (`\"`)。
+* 字符串内不允许有新行。
+* 最好使用 JSON 验证器来确保数组的有效性，例如[这个](https://jsonformatter.curiousconcept.com/#)。
+* 当然，您想操纵图表的数据。但数据是图表定义的一部分。因此，您必须使用 Javascript 读取和写入 JSON 字符串数组。因此，我建议使用脚本作为数据源，如上所述。
+* 但是，flexcharts 的信息部分中有一个示例：`flexcharts.0.info.chart3`。要在浏览器中查看，请使用`http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
+
 ## 模板
 Javascript 模板可用于以下几种用例：
 
@@ -173,6 +197,7 @@ Javascript 模板可用于以下几种用例：
 * 使用图表定义中的函数创建简单的堆积条形图：[template3](templates/flexchartsTemplate3.js)
 * **tibberLink 适配器** 的数据图表：请参阅 [此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) 和 [此处](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66) 的讨论
 * Viessmann E3 系列设备有一个非常具体的用例，例如热泵 Vitocal 250。请参阅 https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
+* 实现动态变化的图表：[template4](templates/flexchartsTemplate4.js)
 * 适配器 [tibberLink](https://github.com/hombach/ioBroker.tibberlink) 使用 flexcharts 作为数据图形处理选项。目前可在 ioBroker 的 Beta Repo 中使用。请查看 [文档](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json)。
 
 ＃＃ 参考
@@ -204,6 +229,11 @@ Javascript 模板可用于以下几种用例：
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2025-03-24)
+* (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
+* (MyHomeMyData) Added timeout for script as source
+* (MyHomeMyData) Added test cases for integration testing
+
 ### 0.3.2 (2025-02-09)
 * (MyHomeMyData) Added hint for use of flexcharts by adapter tibberLink
 

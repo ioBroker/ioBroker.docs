@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/README.md
 title: ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-hash: A1fyp+jFlaVA/hCTtLgGhzLIUemtb91kh89+ViO0Wsk=
+hash: KWXSnbkoZOLx7c0Aii1gWEokXl/zIqP4sCpzuFpTpVo=
 ---
 # IoBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
 ![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
@@ -62,8 +62,9 @@ Folgende Widgets gibt es aktuell
 - [`RSS Feed Multi widget 3`](#rss-feed-multi-widget-3) – um mehrere aggregierte Feeds in einem Widget anzuzeigen.
 - [`RSS Feed Meta Helper`](#rss-feed-meta-helper) - ein Hilfs-Widget zum Überprüfen der Metadaten eines Feeds
 - [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - ein Hilfs-Widget zum Überprüfen der Artikeldaten eines Feeds
-- [`RSS Feed Title marquee 3`](#rss-feed-title-marquee-3) - ein Widget, um die Überschriften eines Feeds als Laufschrift anzuzeigen
-- [`JSON-Vorlage`(#json-template)] – ein Widget, das nichts mit RSS-Feeds zu tun hat, aber dieselbe Technologie verwendet, und Sie können eine benutzerdefinierte Vorlage definieren, um beliebige JSON-Daten in vis anzuzeigen.
+- [`RSS Feed Title marquee 4 (veraltet)`](#rss-feed-title-marquee-4-deprecated) - ein Widget, um die Überschriften eines Feeds als Laufschrift anzuzeigen
+- [`RSS Feed Title marquee 5`](#rss-feed-title-marquee-5) - ein Widget, um die Überschriften eines Feeds als Laufschrift anzuzeigen
+- [`JSON-Vorlage 3`](#json-template3) – ein Widget, das nichts mit RSS-Feeds zu tun hat, aber dieselbe Technologie verwendet, und Sie können eine benutzerdefinierte Vorlage definieren, um beliebige JSON-Daten in vis anzuzeigen.
 
 ### RSS-Feed-Widget 2
 Mit diesem Widget können die abonnierten RSS-Feeds im Konfigurationsdialog des Adapters angezeigt werden.
@@ -92,7 +93,7 @@ Details zum Vorlagensystem finden Sie im Kapitel Vorlage anhand von Beispielen
 Mit diesem Widget können mehrere Feeds in einem Feed zusammengefasst werden.
 Aufgrund der mehreren Feeds gibt es einige Unterschiede in der Datenverfügbarkeit im Template im Vergleich zum normalen RSS-Feed-Widget.
 Die Meta-Variable ist im Template nicht verfügbar. Allerdings stehen in jedem einzelnen Artikel drei Meta-Attribute – Titel und Beschreibung – unter den Namen meta_title und meta_description zur Verfügung.
-Zusätzlich kann jedem Feed in den Einstellungen ein allgemeiner Name zugewiesen werden, der im Template unter meta_name in jedem Artikel verfügbar ist, sodass die Herkunft eines Artikels identifiziert werden kann.
+Zusätzlich kann jedem Feed in den Einstellungen ein allgemeiner Name zugewiesen werden, der im Template unter dem Namen meta_name in jedem Artikel verfügbar ist, sodass die Herkunft eines Artikels identifiziert werden kann.
 Ansonsten gelten für das Template die gleichen Regeln wie für das RSS-Feed-Widget.
 
 | Einstellung | Gruppe | Beschreibung |
@@ -156,16 +157,17 @@ Mit diesem Widget werden alle Titelattribute als Lauftext angezeigt. Im Zuge der
 | rss_feedCount | Allgemeine Gruppe | Hier können Sie die Anzahl der zu konfigurierenden Feeds einstellen. Für jeden zu konfigurierenden Feed wird in vis eine eigene Gruppe angelegt. |
 | rss_speed | Gruppe allgemein | Die Scrollgeschwindigkeit des Lauftextes. Attribut rss_divider - Gruppe allgemein. Hier können Sie die Zeichen eingeben, die zur Trennung der Überschriften verwendet werden. Der Standardwert ist +++. |
 | rss_pauseonhover | Gruppe Allgemein | Ist diese Option eingeschaltet, stoppt der Lauftext, sobald Sie mit der Maus über den Text fahren. |
-| rss_opentype | Gruppe „Allgemein“ | Auswahl, wie der Link geöffnet wird: keine, Link, Popup |
+| rss_opentype | Gruppe allgemein | Auswahl, wie der Link geöffnet wird: `none`, `link`, `popup` |
 | rss_withtime | Gruppe allgemein | Ist diese Option eingeschaltet, wird vor der jeweiligen Überschrift die Uhrzeit angezeigt. Attribut rss_withdate - Gruppe allgemein Ist diese Option aktiviert, wird vor der jeweiligen Überschrift das Datum ohne Jahresangabe und die Uhrzeit angezeigt. |
 | rss_withyear | Gruppe Allgemein | Ist diese Option aktiviert, wird vor der jeweiligen Überschrift das Datum mit Jahreszahl und Uhrzeit angezeigt. |
 | rss_oid | Feeds[Nummer]-Gruppe | Wählen Sie den Datenpunkt mit dem entsprechenden RSS-Feed aus. |
 | rss_maxarticles | Feeds[Anzahl]-Gruppe | Die maximale Anzahl der angezeigten Einzelartikel aus dem RSS-Feed |
 | rss_filter | Feeds[Nummer] Gruppe | Für die Filterfunktion können in das Feld ein oder mehrere Filterkriterien, getrennt durch Semikolon (;), eingegeben werden. Bei der Suche werden folgende Artikelattribute durchsucht: Titel, Beschreibung, Kategorien. Es werden nur Artikel angezeigt, die einen dieser Begriffe enthalten. |
 
-### JSON-Vorlage2
+### JSON-Vorlage3
 Mit diesem Widget können beliebige Datenpunkte mit JSON-Daten nach Wunsch angezeigt werden.
-Die Anzeige erfolgt über ein Vorlagenformat, das als Kombination aus HTML-Code, JavaScript und speziellen Tags zur Steuerung der Anzeige der JSON-Attribute betrachtet werden kann.
+Die Anzeige erfolgt über ein Vorlagenformat, das sich als Kombination aus HTML-Code, JavaScript und speziellen Tags zur Steuerung der JSON-Attribute darstellt.
+JSON-Vorlage 3 unterstützt nun asynchrone Aufrufe mit „await“. JSON-Vorlage 2 wird zukünftig nicht mehr unterstützt.
 
 | Einstellung | Beschreibung |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -176,8 +178,7 @@ Details zum Vorlagensystem finden Sie im Kapitel Vorlage anhand von Beispielen
 
 Die JSON-Daten werden mit dem Präfix data an das Template übergeben. Zusätzlich steht die aktuelle WidgetID auch als Variable zur Verfügung, um diese in einzelnen CSS-Anweisungen angeben zu können.
 
-**Erweiterter Anwendungsfall:**
-
+#### Erweiterter Anwendungsfall
 In den obigen Beispielen wurde lediglich die reine Ausgabe behandelt. Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein spezifisches Layout zu erreichen. Hier ein Beispiel:
 
 ```html
@@ -208,6 +209,199 @@ In den obigen Beispielen wurde lediglich die reine Ausgabe behandelt. Die Vorlag
 ```
 
 (In Markdown sind Farben nicht sichtbar)
+
+#### Anwendungsfall für asynchrone Aufrufe
+**Block 1:**
+
+Rufen Sie die Funktion sendToAsync mit await auf. Dieses Beispiel ruft eine Testfunktion im Admin-Adapter auf.
+
+**Block 2:**
+
+Stringifizieren Sie das Ergebnis und geben Sie es in HTML aus
+
+**Block 3:**
+
+Definition der sendToAsync-Funktion
+
+```html
+<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
+<%- JSON.stringify(req) %>
+<%
+async function sendToAsync(instance, command, sendData) {
+    console.log(`sendToAsync ${command} ${sendData}`);
+    return new Promise((resolve, reject) => {
+        try {
+            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
+                resolve(receiveData);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+%>
+```
+
+**Ergebnis:**
+
+```text
+[{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
+```
+
+#### Anwendungsfall für eine datenbankgestützte Aufgabenliste
+##### **Einführung**
+Dieser Anwendungsfall beschreibt die Visualisierung und interaktive Bearbeitung einer To-Do-Liste aus einer MySQL-Datenbank in `ioBroker` mithilfe des `>=rssfeed 3.5.0`-Adapters. Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Button-Klick. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen integriert werden.
+
+---
+
+##### **Datenbankstruktur (MySQL)**
+Zunächst wird eine MySQL-Datenbank mit dem Namen `test` angelegt. Sie enthält eine Tabelle `test` mit den folgenden Feldern:
+
+- `id`: Eindeutige ID für jeden Eintrag
+- `todo`: Titel des To-Do-Eintrags
+- `action`: Status des Eintrags (0 = in Bearbeitung, 1 = abgeschlossen)
+
+###### **SQL-Code zur Tabellenerstellung**
+<details><summary>Details</summary><pre><code>
+
+```sql
+
+CREATE TABLE `test` (
+`id` int(11) NOT NULL,
+`todo` varchar(100) NOT NULL,
+`action` int(11) NOT NULL
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+SERT INTO `test` (`id`, `todo`, `action`) VALUES
+, 'Todo 1', 0),
+, 'Todo 2', 1),
+, 'Todo 3', 1),
+, 'Todo 4', 0);
+
+TER TABLE `test`
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `id` (`id`),
+ADD KEY `idx` (`id`);
+
+TER TABLE `test`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MMIT;
+
+`
+
+</code></pre> </details>
+
+---
+
+##### **Integration in ioBroker**
+###### **SQL-Adapter**
+Für die Interaktion mit der Datenbank wird der Adapter `ioBroker.sql` benötigt.
+Er ist entsprechend konfiguriert, um eine Verbindung zur MySQL-Datenbank `test` herzustellen.
+Beachten Sie, dass `ioBroker` automatisch eigene Strukturen in der Datenbank erstellt, um Verlaufsdatenpunkte zu speichern.
+
+###### **RSSFeed-Adapter und JSONTemplate-Widget**
+Zur Visualisierung verwenden wir das Widget `JSONTemplate`.
+
+**Wichtige Hinweise:**
+
+- In „vis 2“ ist das Widget im Adapter „vis-2-widget-ovarious“ enthalten.
+- In Zukunft soll dieses Widget in „ioBroker.jsontemplate“ integriert werden, sobald „bluefox“ die Build-Kette stabilisiert.
+
+##### **Integration in VIS**
+Wir platzieren das Widget `JSONTemplate` und füllen folgende Felder aus:
+
+###### **Vorlagencode**
+<details><summary>Details</summary><pre><code>
+
+```html
+
+tyle>
+  .btn {
+      width: 100%;
+  }
+style>
+able>
+  <tr>
+      <th>ID</th>
+      <th>Todo</th>
+      <th>Action</th>
+  </tr>
+
+t todos = await getTodo();
+r (let i = 0; i < todos.length; i++) {
+  let todo = todos[i];
+
+  <tr>
+      <td><%- todo.id %></td>
+      <td><%- todo.todo %></td>
+      <td><%- getButton(todo.id, todo.action) %></td>
+  </tr>
+ } %>
+table>
+
+cript>
+ndow.jsontemplate = { clicktodo: clicktodo };
+
+nction getButton(id, action) {
+  let text = action === 0 ? "In Progress" : "Completed";
+  return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
+
+
+nction clicktodo(el) {
+  let id = el.dataset.id;
+  let action = el.dataset.action;
+  let nextAction = action == 0 ? 1 : 0;
+  setAction(id, nextAction);
+
+
+ync function getTodo() {
+  let req = await sendToAsync("sql.0", "query", "SELECT * FROM test.test");
+  return req.result;
+
+
+ync function setAction(id, action) {
+  await sendToAsync("sql.0", "query", `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
+  vis.setValue("local_trigger", Math.random());
+
+
+ync function sendToAsync(instance, command, sendData) {
+  return new Promise((resolve, reject) => {
+      try {
+          vis.conn.sendTo(instance, command, sendData, (receiveData) => resolve(receiveData));
+      } catch (error) {
+          reject(error);
+      }
+  });
+
+script>
+
+`
+
+</code></pre> </details>
+
+###### **Datenpunkt zum Aktualisieren von Inhalten**
+Um sicherzustellen, dass Aktualisierungen nach einer Statusänderung berücksichtigt werden, fügen wir den folgenden lokalen Datenpunkt hinzu:
+
+```text
+local_trigger
+```
+
+Dieser Datenpunkt **muss nicht explizit erstellt werden**, da `local_?`-Datenpunkte intern innerhalb von VIS verarbeitet werden (siehe `vis`-Dokumentation).
+
+##### **Code-Erklärung**
+###### **Vorlagenstruktur**
+| Zeile | Inhalt |
+|-------|--------|
+| 1-5 | CSS-Stile für das Erscheinungsbild von Schaltflächen |
+| 6-11 | Tabellenkopf mit Spalten ID, Todo, Action |
+| 12-16 | Daten aus der MySQL-Datenbank mit `getTodo()` abrufen |
+| 23-28 | Globale Referenz der Funktion `clicktodo()` |
+| 30-37 | `getButton()` Funktion zum Erstellen einer Schaltfläche mit dem aktuellen Status |
+| 38-44 | `clicktodo()` Funktion zum Ändern des Status per Button-Klick |
+| 45-48 | `getTodo()` Funktion zum Abrufen von Daten über den SQL-Adapter |
+| 49-52 | `setAction()` Funktion zum Aktualisieren des Datenbankeintrags |
+| 53-58 | `sendToAsync()`-Funktion zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
+| 53-58 | Funktion „sendToAsync()“ zur Verwendung von „async/await“ mit „vis.conn.sendTo()“ |
 
 ## Vorlagensystem
 ## Tags
@@ -581,12 +775,21 @@ Z7: Ohne Ausgabe. Diese Zeile schließt die Javascript-Schleife. Alles, was zwis
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.5.2 (2025-03-20)
+
+- improve build
+
+### 3.5.1 (2025-03-20)
+
+- improve build
+
+### 3.5.0 (2025-03-18)
+
+- make async function calls available in templates
+
 ### 3.4.1 (2025-02-18)
 
 - fix eslint
-
-### 3.4.0 (2025-02-18)
-
 - introducing a new attribute opentype to open the links in the marquee widget
 
 ### 3.3.1 (2025-01-23)

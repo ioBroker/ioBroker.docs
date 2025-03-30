@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: xL7q6XcyWeDcHMJ0bSGlZNdYikKq3qweBUMNycFZWQA=
+hash: 6uTfuvgFajoBnNjjSf9xzK2KRpWcbYsj1RE59xOM3XA=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -39,7 +39,7 @@ Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Ada
 
 Die Konfigurationsdatei definiert eine hierarchische Struktur aus Registerkarten, Bedienfeldern und Steuerelementen. \ Jedes Element verfügt über bestimmte Attribute, die sein Verhalten und seine Darstellung in der Administratoroberfläche bestimmen.
 
-jsonConfig sorgt automatisch dafür, dass die gesammelten Daten als Konfigurationsdaten für den Adapter erfasst und intern gespeichert werden, um sie dort abrufen und weiterverarbeiten zu können.
+jsonConfig sorgt automatisch dafür, dass die gesammelten Daten als Konfigurationsdaten für den Adapter erfasst und intern gespeichert werden, um sie im Adapter abrufen und weiterverarbeiten zu können.
 
 Das folgende Beispiel würde das folgende Konfigurationsobjekt erstellen:
 
@@ -107,14 +107,14 @@ _Wenn der Attributname mit "\_" beginnt, wird er nicht im Objekt gespeichert._
 Weitere Beispiele finden sich in vielen weiteren Adaptern auf GitHub im jeweiligen Admin-Verzeichnis.
 
 ## Unterstützung bei der Entwicklung von Tools
-### VS Code
+### VS-Code
 Um die Validierung der jsonConfig in VS Code zu ermöglichen, muss der Datei „.vscode/settings.json“ folgender Abschnitt hinzugefügt werden.
 
 ```json5
     "json.schemas": [
         {
             "fileMatch": ["admin/jsonConfig.json", "admin/jsonCustom.json", "admin/jsonTab.json"],
-            "url": "https://raw.githubusercontent.com/ioBroker/adapter-react-v5/main/schemas/jsonConfig.json"
+            "url": "https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/packages/jsonConfig/schemas/jsonConfig.json"
         }
     ]
 ```
@@ -587,7 +587,7 @@ Schaltfläche, die eine Anfrage an die Instanz sendet (<https://github.com/iobro
 | `openUrl` | wenn wahr – URL in neuem Tab öffnen, wenn die Antwort das Attribut `openUrl` enthält, wie `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `reloadBrowser` | wenn wahr – aktuelles Browserfenster neu laden, wenn die Antwort das Attribut `reloadBrowser` enthält, wie `{"reloadBrowser": true}`. |
 | `window` | wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort aus dem Attribut `window` besteht. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Symbole (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Bei Bedarf weitere Symbole per Problem anfordern.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Symbole (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie weitere Symbole benötigen, wenden Sie sich bitte per Problem an.) |
 | `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `showProcess` | Spinner anzeigen, während die Anfrage läuft |
 | `timeout` | Timeout für Anfrage in ms. Standard: keine. |
@@ -781,7 +781,7 @@ Nur Admin6.
 | `allowUpload` | Erlaubtes Hochladen von Dateien |
 | `allowDownload` | Erlaubter Download von Dateien (Standard: „true“) |
 | `allowCreateFolder` | erlaubte Erstellung von Ordnern |
-| `allowView` | erlaubte Kachel-Ansicht (Standard: true) |
+| `allowView` | Kachelansicht erlaubt (Standard: true) |
 | `showToolbar` | Symbolleiste anzeigen (Standard: „true“) |
 | `selectOnlyFolders` | Benutzer kann nur Ordner auswählen (z. B. für den Upload-Pfad) |
 | `trim` | Dateinamen kürzen |
@@ -1025,7 +1025,7 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `falseImage` | Dieses Bild wird angezeigt, wenn der Wert „false“ ist oder wenn es sich bei dem Steuerelement um eine „Schaltfläche“ handelt. |
 | `min` | Mindestwert für Steuerelementtyp „Schieberegler“ oder „Zahl“ |
 | `max` | Maximalwert für Steuerelementtyp „Schieberegler“ oder „Zahl“ |
-| `step` | Schrittwert für Steuerelementtyp Schieberegler oder Zahl |
+| `step` | Schrittwert für Steuerelementtyp „Schieberegler“ oder „Zahl“ |
 | `controlDelay` | Verzögerung in ms für Schieberegler oder Zahl |
 | `variant` | Schaltflächenvariante: `contained`, `outlined`, `text` |
 | `readOnly` | Definiert, ob das Steuerelement schreibgeschützt ist |
@@ -1245,7 +1245,7 @@ Wenn kein Schema bereitgestellt wird, muss das Schema automatisch aus Daten erst
 - `number` => Nummer
 - Name `bind` => IP
 - Name „Port“ => Nummer, min=1, max=0xFFFF
-- Name `timeout` => Zahl, Hilfe="ms"
+- Name `timeout` => Nummer, Hilfe="ms"
 
 ## Aufgaben
 Die folgenden Kapitel stammen aus der ursprünglichen SCHEMA.MD.
@@ -1424,7 +1424,7 @@ onMessage = (obj: ioBroker.Message): void => {
 ```
 
 ## Einen Schemafehler melden
-Erstellen Sie hier ein Problem: https://github.com/ioBroker/adapter-react-v5/issues
+Erstellen Sie hier ein Problem: https://github.com/ioBroker/ioBroker.admin/issues
 
 ## Für Betreuer
-Um den Speicherort des JsonConfig-Schemas zu aktualisieren, erstellen Sie eine Pull-Anfrage für diese Datei: https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json
+Um den Speicherort des JsonConfig-Schemas zu aktualisieren, erstellen Sie eine Pull-Anfrage für diese Datei: https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/schemas/jsonConfig.json

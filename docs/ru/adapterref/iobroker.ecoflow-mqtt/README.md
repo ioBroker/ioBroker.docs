@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
+hash: WfcLVym732qAh1afIgZhieVEXWo4hQCltjkfrSn3hpc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -40,7 +40,7 @@ hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
 ![еще немного подробностей](../../../en/adapterref/iobroker.ecoflow-mqtt/doc/en/installation.md)
 
 ## Учетные данные EF
-На странице администрирования (первая вкладка) необходимо вставить учетные данные mqqt для брокера mqqt.
+На странице администратора (первая вкладка) необходимо вставить учетные данные mqqt для брокера mqqt.
 
 * Имя пользователя — что-то вроде «app-....»
 * UserID — 19-значный номер.
@@ -49,7 +49,7 @@ hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
 
 Есть 3 возможности:
 
-1. через скрипт https://github.com/mmiller7/ecoflow-withoutflow/blob/main/cloud-mqtt/ecoflow_get_mqtt_login.sh
+1. с помощью скрипта https://github.com/mmiller7/ecoflow-withoutflow/blob/main/cloud-mqtt/ecoflow_get_mqtt_login.sh
 2. через сайт https://energychain.github.io/site_ecoflow_mqtt_credentials/
 3. по собственному алгоритму адаптера (нажатие кнопки), для этого необходимы имя пользователя и пароль ecoflow.
 
@@ -153,7 +153,7 @@ hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
 
 </p></подробности>
 
-<details><summary><i>Параметризация генератора</i></summary><p>
+<details><summary><i>Параметризация генератора переменного тока</i></summary><p>
 
 * добавить новую строку
 * установите идентификатор устройства Smart Plug, как показано в приложении, например, «F371ZE...»
@@ -248,13 +248,17 @@ hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
 
 [Ривер 2 Про](./doc/devices/river2pro.md)
 
+[Река 3 Плюс](./doc/devices/river3plus.md)
+
 [Дельта 2](./doc/devices/delta2.md)
 
 [Дельта 2 Макс](./doc/devices/delta2max.md)
 
-[Дельта Про Ультра](./doc/devices/deltaproultra.md)
+[Дельта 3 Плюс](./doc/devices/delta3plus.md)
 
 [Дельта Про 3](./doc/devices/deltapro3.md)
+
+[Дельта Про Ультра](./doc/devices/deltaproultra.md)
 
 ### Панель Умного Дома
 [Панель Умного Дома](./doc/devices/panel.md)
@@ -289,7 +293,7 @@ hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
 
 Wave недоступен, может быть реализован при наличии данных.
 
-### Ледниковый холодильник
+### Холодильник-ледник
 [Ледник](./doc/devices/glacier.md)
 
 ### Генератор
@@ -312,7 +316,9 @@ Wave недоступен, может быть реализован при на�
 
 ### 1.3.0 (npm)
 * (foxthefox) correction for PStream energy
-* (foxthefox) new DeltaPro 3 implementation
+* (foxthefox) new Delta Pro 3 implementation
+* (foxthefox) new Delta 3 Plus implementation
+* (foxthefox) new River 3 Plus implementation
 * (foxthefox, radeonorama) enhancements alternator
 * (foxthefox) major refactoring
 * (foxthefox) new items to PowerOcean and HeatingRod

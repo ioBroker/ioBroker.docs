@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
+hash: WfcLVym732qAh1afIgZhieVEXWo4hQCltjkfrSn3hpc=
 ---
 ![标识](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -218,7 +218,7 @@ HA端修改：
 [一些提示](./doc/en/IOB_HA/navi.md)
 
 ### 功能注释
-* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其在保持之前来回切换的过程。
+* 由于信息更新和命令传输的异步性，有时可能会出现竞争条件。因此，可以观察到命令开关及其来回切换直至其保持不动。
 * iobroker 可能无法正确识别 HA 的重启，因此需要手动重启适配器（WIP）
 
 ## 使用数据点实现设备和结构
@@ -228,12 +228,12 @@ HA端修改：
 * 级别 -> 具有数值的可调整数据点，有时也具有数字表示的选择
 * 开关 -> 可调整数据点布尔值
 * 诊断 -> 布尔或多状态数据点转换为文本
-* 字符串 -> 数据点仅为文本
+* 字符串 -> 数据点仅作为文本
 * 数组 -> 带有数组的数据点
 * 值到文本的转换可能会使用未经验证的文本（欢迎反馈），这在文本末尾以“？”表示
 
 ### 发电站
-[里弗马克斯](./doc/devices/rivermax.md)
+[里弗·马克斯](./doc/devices/rivermax.md)
 
 [河专业](./doc/devices/riverpro.md)
 
@@ -249,13 +249,17 @@ HA端修改：
 
 [河流 2 临](./doc/devices/river2pro.md)
 
+[河 3 Plus](./doc/devices/river3plus.md)
+
 [達美航空 2](./doc/devices/delta2.md)
 
 [达美航空 2 Max](./doc/devices/delta2max.md)
 
-[德尔塔专业版](./doc/devices/deltaproultra.md)
+[達美 3 加](./doc/devices/delta3plus.md)
 
 [德尔塔 Pro 3](./doc/devices/deltapro3.md)
+
+[德尔塔专业版](./doc/devices/deltaproultra.md)
 
 ### 智能家居面板
 [智能家居面板](./doc/devices/panel.md)
@@ -313,7 +317,9 @@ HA端修改：
 
 ### 1.3.0 (npm)
 * (foxthefox) correction for PStream energy
-* (foxthefox) new DeltaPro 3 implementation
+* (foxthefox) new Delta Pro 3 implementation
+* (foxthefox) new Delta 3 Plus implementation
+* (foxthefox) new River 3 Plus implementation
 * (foxthefox, radeonorama) enhancements alternator
 * (foxthefox) major refactoring
 * (foxthefox) new items to PowerOcean and HeatingRod

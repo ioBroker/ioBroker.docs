@@ -25,8 +25,13 @@ BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
     - **Einspeisungssteuerung**: Konfiguration der maximalen Ladung zur Aktivierung oder Deaktivierung der Einspeisung.
 - **Steuerbefehle**:
     - Dynamische Datenpunkte (`<deviceId>.sendcommand`) zum Senden von Befehlen an die CCU.
+    - Der Ordner `<deviceId>.VersionControl` dient zur Änderung der aktuell installierten CCU-Version.
+    - Der Ordner `<deviceId>.VersionControl.Experimentell not for Use` enthält experimentelle Versionen und sollte **nur auf eigene Gefahr** verwendet werden.
 - **Flexibles Abfrageintervall (Cloud-Modus)**:
     - Der Nutzer kann das Abfrageintervall der CCU-Daten zwischen 10 und 90 Sekunden anpassen.
+- **Firmware-Versionsteuerung**:
+    - Automatischer Abruf und Kategorisierung verfügbarer Firmware-Versionen in „Releases“ und „Experimentell“.
+    - Ermöglicht sicheres Umschalten der Firmware über einen Umschalt-Datenpunkt unter `VersionControl.Releases`.
 
 ## Anforderungen
 
@@ -39,11 +44,16 @@ BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 ## Installation
 
 1. **Adapter konfigurieren**:
-    - API-Modus auswählen (Cloud oder Local).
-      - **Cloud:** Den Namen der CCU (`maxxi-XXXXXX-YYY`) eintragen.
+    - API-Modus auswählen (**Cloud - Server 1**, **Cloud - Server 2** oder **Local**).
+        - **Cloud S1 / Cloud S2**:
+            - Tragen Sie den **CCU-Namen** ein (z. B. `maxxi-XXXXXX-YYY`).
+            - Tragen Sie die **E-Mail-Adresse** des Maxxisun-Kontos ein.
+            - Tragen Sie die **lokale IP-Adresse** Ihres MaxxiCharge Speichers ein (z. B. `192.168.1.123`).
       - **Local:** Adresse von ioBroker auf der MaxxiCharge-Webseite (`maxxi.local`) unter `Api-Route` eintragen: `http://"ioBroker IP":"PORT"`.
 2. **Wichtiger Hinweis beim Update**:
     - Löschen Sie den Ordner `.sendcommand` und starten Sie den Adapter neu, wenn Sie von einer früheren Version aktualisieren. (< 1.4.0)
+
+**Hinweis:** Cloud Server 1 liefert mehr Datenpunkte als Cloud Server 2.
 
 ## Konfigurationsmöglichkeiten
 
@@ -94,14 +104,15 @@ Die Einspeisungssteuerung ermöglicht es, die maximale Ladung (`maxSOC`) so zu k
 
 Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurückgegebenen Informationen. Hier ein kleiner Teilausschnitt des Datenpunktstrukturaufbaus:
 
-| Datenpunkt                    | Beschreibung                                 |
-|-------------------------------|----------------------------------------------|
-| `<deviceId>.SOC`              | Batterie Ladezustand.                        |
-| `<deviceId>.PV_power_total`   | PV-Leistung gesamt.                          |
-| `<deviceId>.batteriesInfo.*`  | Batterieinformationen.                       |
-| `<deviceId>.convertersInfo.*` | Converter Status.                            |
-| `<deviceId>.settings.*`       | Gerätespezifische Einstellungen. (Nur Cloud) |
-| `<deviceId>.sendcommand.*`    | Steuerbefehle für die CCU.                   |
+| Datenpunkt                    | Beschreibung                                               |
+|-------------------------------|------------------------------------------------------------|
+| `<deviceId>.SOC`              | Batterie Ladezustand.                                      |
+| `<deviceId>.PV_power_total`   | PV-Leistung gesamt.                                        |
+| `<deviceId>.batteriesInfo.*`  | Batterieinformationen.                                     |
+| `<deviceId>.convertersInfo.*` | Converter Status.                                          |
+| `<deviceId>.settings.*`       | Gerätespezifische Einstellungen. (Nur Cloud)               |
+| `<deviceId>.sendcommand.*`    | Steuerbefehle für die CCU.                                 |
+| `<deviceId>.VersionControl.*` | Werkzeuge zum Ändern der CCU-Version. (nur im Cloud-Modus) |
 
 ## Hinweise
 
@@ -117,6 +128,16 @@ Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurück
     - Verwende ausschließlich die Webseite `maxxi.local` oder die IP-Addresse der CCU, um manuelle Eingaben vorzunehmen. Bei der Nutzung von sendCommand-Steuerbefehlen werden die Online-Eingaben überschrieben.
 
 ## Changelog
+
+### 1.4.31 (2025-03-29)
+- New cloud method – Backup mode Server 2 (check config)
+  > Note: Cloud Server 1 provides more datapoints but may be less stable.  
+  > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.
+- Adds dynamic firmware version management with categorized release listings.
+
+### 1.4.11 (2025-03-17)
+- CloudApi: Request times no longer aligned to second 0 on all adapters, improving load distribution.
+- Updated dependencies.
 
 ### 1.4.9 (2025-02-08)
 
@@ -140,9 +161,6 @@ Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurück
   - Dynamic adjustment of charging parameters based on seasons.
   - Configurable with start and end dates.
 - **Cloud API query interval**: Interval for CCU queries in cloud mode is now configurable via a slider between 10 and 60 seconds.
-
-### 1.2.191 (2024-12-08)
-- Release
 
 ## License
 MIT License

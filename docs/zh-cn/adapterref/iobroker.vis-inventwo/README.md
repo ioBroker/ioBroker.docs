@@ -3,64 +3,63 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: GIOEhJx6TMLw6RXYVLPB4mlJQ+38O0AUalEWlro85Y8=
+hash: FejhTHt7SeJtoyLXEqzNx7P4XuBqvAJoQR1jlw80lyE=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/vis-inventwo-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
 ![安装数量（最新）](http://iobroker.live/badges/vis-inventwo-installed.svg)
 ![已知漏洞](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
 ![构建状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
+![Paypal 捐款](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
+![新平台](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
 
 # IoBroker.vis-inventwo
 ## IoBroker.vis 适配器的小部件
-Schalter、Slider、Tabellen、Regler、Checkboxen、Radiobuttons 等...<br> Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach for dein Smart-Home zu erstellen.
+Schalter、Slider、Tabellen、Regler、Checkboxen、Radiobuttons 等...<br> Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfür dein Smart-Home zu erstellen.
 
 ### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
-适配器适用于 VIS 1 的安装和测试。 In Vis 2 können Fehler auftreten die die die die diener Visualisierung nicht ermöglichen。
-Eine nahtlose kompatibitlität wird nicht möglich sein。 Ob und wann ein neuer Adapter for Vis 2 kommen wird kann nicht gesagt werden。
-我们将提供更多信息。
+适配器适用于 VIS 1 的安装和测试。 In Vis 2 können Fehler auftreten die die die die die diener Visualisierung nicht ermöglichen。
+Eine nahtlose Kompatibilität wrd nicht möglich sein。 Vis 2 的新适配器：https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 
-## 吸入适配器
-Verschiedene Widgets zum schalten、navigieren 和 mehr。
+## 适配器内容
+Verschiedene 小部件 zum schalten、navigieren 和 mehr。
 
 ![Vorschau 通用和多功能小部件](../../../en/adapterref/iobroker.vis-inventwo/img/preview_universal_widget.png)
 
-模拟乌伦[维特雷信息中心](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+指针式钟表[更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau 模拟乌伦](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clocks.png)
+![预览 模拟手表](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clocks.png)
 
-数字乌伦[维特雷信息中心](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
+数字钟表[更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau 数字乌伦](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
+![预览 数字钟表](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
 
-颜色选择器[维特雷信息中心](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
+颜色选择器[更多信息](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Vorschau 颜色选择器](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
+![预览 颜色选择器](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
 
 Für mehr Infos schaue dich im [维基百科](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) um。
 
 ###### 所有小部件 ab 版本 2.0.0
-<table><tr><td><center><b>普遍的<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子<br></b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>跑马灯<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>滑块<br>垂直的</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关<br></b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>基本开关<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center><b>复选框/<br>单选按钮</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center><b>选色器<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
+<table><tr><td><center><b>普遍的<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子<br></b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>跑马灯<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>滑块<br>垂直的</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>颜色滑块<br>水平的</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关<br></b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>基本开关<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center><b>复选框/<br>单选按钮</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center><b>颜色选择器<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
 
 Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen。 Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben)。 Uhr und Wetter stammen aus anderen Adaptern und müssen ggf。 zusätzlich installiert werden。
 
-![贝斯皮尔](../../../en/adapterref/iobroker.vis-inventwo/img/Preview.png)
+![示例](../../../en/adapterref/iobroker.vis-inventwo/img/Preview.png)
 
-![贝斯皮尔](../../../en/adapterref/iobroker.vis-inventwo/img/Preview2.png)
+![示例](../../../en/adapterref/iobroker.vis-inventwo/img/Preview2.png)
 ---
 
-## 下图
+## 服务
 瀑布Dir unsere Arbeit gefällt und Du uns unterstützen möchtest，wir freuen uns über jede Spende。
 
 （Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker）
 
-[![花费](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![斯彭德](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
@@ -479,8 +478,6 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 ## License
 
-Copyright (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
 MIT License (nur in englisch / englisch only)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -505,6 +502,4 @@ SOFTWARE.
 
 Icons from Icons8 https://icons8.com/
 
----
-
-Copyright (c) 2020-2023 jkvarel jkvarel@inventwo.com
+Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)

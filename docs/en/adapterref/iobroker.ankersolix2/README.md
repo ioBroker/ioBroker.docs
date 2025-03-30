@@ -52,6 +52,10 @@ If you have erros again and cant login, stop the adapter and delete the session.
     ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (ronny130286) reorganized analysis option (now selectable in adminconsole)
+
 ### 2.0.0 (2025-03-09)
 
 - (ronny130286) update packages

@@ -55,8 +55,6 @@ This channel contains system data about the hardware and firmware as well as run
 
 ## ToDos
 
-- Releasing a stable version on npm
-- Adding the adapter to the ioBroker repo
 - Implementing more tests
 - Improve documentation
 - Implement missing data points (like time schedule, writing of network data & cloud control)
@@ -67,6 +65,11 @@ This channel contains system data about the hardware and firmware as well as run
 -->
 
 ## Changelog
+
+### 0.0.5 (2025-03-21)
+
+- Added automatic write retry mechanism for writing values within the fan, as writing with UDP is not very reliable in connection with poor network conditions
+- Adapter checker issues fixed
 
 ### 0.0.4 (2025-01-31)
 

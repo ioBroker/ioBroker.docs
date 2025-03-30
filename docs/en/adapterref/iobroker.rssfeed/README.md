@@ -61,8 +61,9 @@ The following widgets actually exists
 - [`RSS Feed Multi widget 3`](#rss-feed-multi-widget-3) - to show several aggregated feeds in one widget.
 - [`RSS Feed Meta Helper`](#rss-feed-meta-helper) - a helper widget to inspect the metadata of a feed
 - [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - a helper widget to inspect the article data of a feed
-- [`RSS Feed Title marquee 3`](#rss-feed-title-marquee-3) - a widget to show the Headlines of a feed as a marquee
-- [`JSON Template`(#json-template)] - a widget that have nothing todo with RSS Feeds, but uses the same technology, and you can define a custom template to show any JSON-Data in vis.
+- [`RSS Feed Title marquee 4 (deprecated)`](#rss-feed-title-marquee-4-deprecated) - a widget to show the Headlines of a feed as a marquee
+- [`RSS Feed Title marquee 5`](#rss-feed-title-marquee-5) - a widget to show the Headlines of a feed as a marquee
+- [`JSON Template 3`](#json-template3) - a widget that have nothing todo with RSS Feeds, but uses the same technology, and you can define a custom template to show any JSON-Data in vis.
 
 ### RSS Feed widget 2
 
@@ -161,17 +162,18 @@ With this widget, all title attributes will be displayed as a scrolling text. As
 | rss_feedCount    | General group       | Here you can set the number of feeds to be configured. A separate group is created in vis for each feed to be configured.                                                                                                                                                 |
 | rss_speed        | General group       | The scrolling speed of the scrolling text Attribute rss_divider - General group Here you can enter the characters used to separate the headlines. The default value is +++.                                                                                               |
 | rss_pauseonhover | General group       | If this option is switched on, the scrolling text stops as soon as you hover the mouse over the text.                                                                                                                                                                     |
-| rss_opentype     | General group       | Selection of how the link is opened: none, link, popup                                                                                                                                                                                                                    |
+| rss_opentype     | General group       | Selection of how the link is opened: `none`, `link`, `popup`                                                                                                                                                                                                                    |
 | rss_withtime     | General group       | If this option is switched on, the time is displayed before the respective headline. Attribute rss_withdate - General group If this option is enabled, the date without the year and the time are displayed before the respective headline.                               |
 | rss_withyear     | General group       | If this option is enabled, the date with the year and the time are displayed before the respective headline.                                                                                                                                                              |
 | rss_oid          | Feeds[number] group | Select the data point with the corresponding RSS feed.                                                                                                                                                                                                                    |
 | rss_maxarticles  | Feeds[number] group | The maximum number of individual articles displayed from the RSS feed                                                                                                                                                                                                     |
 | rss_filter       | Feeds[number] group | For the filter function, one or more filter criteria can be entered in the field, separated by semicolons (;). The following article attributes are searched for the search: title, description, categories. Only articles that contain one of these terms are displayed. |
 
-### JSON Template2
+### JSON Template3
 
 Using this widget, any data point with JSON data can be displayed as desired.
 The display is done using a template format, which can be thought of as a combined form of HTML code + JavaScript + special tags that control the display of the JSON attributes.
+JSON Template3 now supports async calls with await. JSON Template 2 is going to be deprecated in the future.
 
 | Setting      | description                                                                                                                                                                                                                                                                       |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -182,7 +184,7 @@ For details on the template system, see chapter Template based on examples
 
 The JSON data is passed to the template with the prefix data. In addition, the current widgetID is also available as a variable so that it can be specified in individual CSS instructions.
 
-**Advanced use case:**
+#### Advanced use case
 
 In the examples above, only the pure output was covered. The template can now also be enriched with HTML tags to achieve a specific layout. Here is an example:
 
@@ -214,6 +216,224 @@ In the examples above, only the pure output was covered. The template can now al
 ```
 
 (In Markdown colors arent visible)
+
+#### Use case for async calls
+
+**Block 1:**
+
+call sendToAsync Function with await. This example calls a test function in the admin adapter.
+
+**Block 2:**
+
+stringify the result and output to html
+
+**Block 3:**
+
+definition of the sendToAsync function
+
+```html
+<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
+<%- JSON.stringify(req) %>
+<%
+async function sendToAsync(instance, command, sendData) {
+    console.log(`sendToAsync ${command} ${sendData}`);
+    return new Promise((resolve, reject) => {
+        try {
+            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
+                resolve(receiveData);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+%>  
+```
+
+**Result:**
+
+```text
+[{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
+```
+
+#### Use case for a database-supported task list
+
+##### **Introduction**
+
+This use case describes how to visualize and interactively modify
+a to-do list from a MySQL database in `ioBroker` using
+the `>=rssfeed 3.5.0` adapter. The focus is on implementing a simple
+status change via a button click. This concept serves as
+a **Proof of Concept (PoC)** and can be included in future documentation.
+
+---
+
+##### **Database Structure (MySQL)**
+
+First, a MySQL database named `test` is created. It contains a table `test` with the following fields:
+
+- `id`: Unique ID for each entry
+- `todo`: Title of the to-do entry
+- `action`: Status of the entry (0 = in progress, 1 = completed)
+
+###### **SQL Code for Table Creation**
+
+<details>
+  <summary>Details</summary>
+  <pre><code>
+
+  ```sql
+
+  CREATE TABLE `test` (
+  `id` int(11) NOT NULL,
+  `todo` varchar(100) NOT NULL,
+  `action` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `test` (`id`, `todo`, `action`) VALUES
+(1, 'Todo 1', 0),
+(2, 'Todo 2', 1),
+(3, 'Todo 3', 1),
+(4, 'Todo 4', 0);
+
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `idx` (`id`);
+
+ALTER TABLE `test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+```
+
+</code></pre>
+</details>
+
+---
+
+##### **Integration into ioBroker**
+
+###### **SQL Adapter**
+
+To interact with the database, the `ioBroker.sql` adapter is required.
+It is configured accordingly to connect to the MySQL database `test`.
+Note that `ioBroker` automatically creates its own structures in the
+database to store history data points.
+
+###### **RSSFeed Adapter & JSONTemplate Widget**
+
+For visualization, we use the `JSONTemplate` widget.
+
+**Important Notes:**
+
+- In `vis 2`, the widget is included in the `vis-2-widget-ovarious` adapter.
+- In the future, this widget is planned to be integrated into `ioBroker.jsontemplate` once `bluefox` stabilizes the build chain.
+
+##### **Integration into VIS**
+
+We place the `JSONTemplate` widget and fill in the following fields:
+
+###### **Template Code**
+
+<details>
+  <summary>Details</summary>
+  <pre><code>
+
+  ```html
+
+<style>
+    .btn {
+        width: 100%;
+    }
+</style>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Todo</th>
+        <th>Action</th>
+    </tr>
+<%
+let todos = await getTodo();
+for (let i = 0; i < todos.length; i++) {
+    let todo = todos[i];
+%>
+    <tr>
+        <td><%- todo.id %></td>
+        <td><%- todo.todo %></td>
+        <td><%- getButton(todo.id, todo.action) %></td>
+    </tr>
+<% } %>
+</table>
+
+<script>
+window.jsontemplate = { clicktodo: clicktodo };
+
+function getButton(id, action) {
+    let text = action === 0 ? "In Progress" : "Completed";
+    return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
+}
+
+function clicktodo(el) {
+    let id = el.dataset.id;
+    let action = el.dataset.action;
+    let nextAction = action == 0 ? 1 : 0;
+    setAction(id, nextAction);
+}
+
+async function getTodo() {
+    let req = await sendToAsync("sql.0", "query", "SELECT * FROM test.test");
+    return req.result;
+}
+
+async function setAction(id, action) {
+    await sendToAsync("sql.0", "query", `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
+    vis.setValue("local_trigger", Math.random());
+}
+
+async function sendToAsync(instance, command, sendData) {
+    return new Promise((resolve, reject) => {
+        try {
+            vis.conn.sendTo(instance, command, sendData, (receiveData) => resolve(receiveData));
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+</script>
+
+```
+
+  </code></pre>
+</details>
+
+###### **Data Point for Refreshing Content**
+
+To ensure updates are reflected after a status change,
+we add the following local data point:
+
+```text
+local_trigger
+```
+
+This data point **does not need to be explicitly created**, as `local_?` data points are processed internally within VIS (see `vis` documentation).
+
+##### **Code Explanation**
+
+###### **Template Structure**
+
+| Line | Content |
+|-------|--------|
+| 1-5 | CSS styles for button appearance |
+| 6-11 | Table header with columns ID, Todo, Action |
+| 12-16 | Fetching data from the MySQL database using `getTodo()` |
+| 17-21 | Loop to display to-do entries with buttons |
+| 23-28 | Global reference of the `clicktodo()` function |
+| 30-37 | `getButton()` function to create a button with the current status |
+| 38-44 | `clicktodo()` function to change the status via button click |
+| 45-48 | `getTodo()` function to fetch data via the SQL adapter |
+| 49-52 | `setAction()` function to update the database entry |
+| 53-58 | `sendToAsync()` function to use `async/await` with `vis.conn.sendTo()` |
 
 ## Templatesystem
 
@@ -604,12 +824,21 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.5.2 (2025-03-20)
+
+- improve build
+
+### 3.5.1 (2025-03-20)
+
+- improve build
+
+### 3.5.0 (2025-03-18)
+
+- make async function calls available in templates
+
 ### 3.4.1 (2025-02-18)
 
 - fix eslint
-
-### 3.4.0 (2025-02-18)
-
 - introducing a new attribute opentype to open the links in the marquee widget
 
 ### 3.3.1 (2025-01-23)

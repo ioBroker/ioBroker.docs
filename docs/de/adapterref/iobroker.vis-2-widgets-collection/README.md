@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-collection/README.md
 title: Sammlung von Widgets für ioBroker.vis 2.0
-hash: OkJgfxAHLnPcOeIlU9eGzJZ2UE5VRnl4YZX1GVm1xGE=
+hash: 5I2pTsQyZUWLk5ZntzFKs6q74UHP2jOus89BArfMSaI=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-collection/admin/vis-2-widgets-collection.png)
 
@@ -40,11 +40,36 @@ hash: OkJgfxAHLnPcOeIlU9eGzJZ2UE5VRnl4YZX1GVm1xGE=
 ### RadioGruppe
 <img src="/img/collection-radio-group.png" height="150">
 
+### Messgerät
+<img src="/img/collection-gauge.png" height="150">
+
 --- <!-- Platzhalter für nächste Versionen:
 
 ### __IN ARBEIT__ -->
 
 ## Changelog
+### 1.7.5 (2025-03-23)
+- (steiger04) Dialog bug fixed
+
+### 1.7.4 (2025-03-22)
+- (steiger04) Header as title for Dialog
+- (steiger04) Gauge bug fixed
+
+### 1.7.3 (2025-03-21)
+- (steiger04) Gauge bug fixed
+
+### 1.7.2 (2025-03-21)
+- (steiger04) Gauge optimized
+
+### 1.7.1 (2025-03-21)
+- (steiger04) Gauge bug fixed
+
+### 1.7.0 (2025-03-19)
+- (steiger04) Gauge added
+
+### 1.6.1 (2025-03-15)
+- (steiger04) Radio group optimizations
+
 ### 1.6.0 (2025-03-13)
 - (steiger04) Radio group added
 

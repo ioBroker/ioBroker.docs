@@ -1,6 +1,6 @@
-![Logo](admin/vis-2-widgets-rssfeed.png)
-
 # Vis 2 RSS Feed widgets
+
+![Logo](admin/vis-2-widgets-rssfeed.png)
 
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-rssfeed-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-rssfeed-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-rssfeed.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-rssfeed)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-rssfeed.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-rssfeed)
@@ -17,9 +17,14 @@ For a detailed description of the widgets and functionality see Adapter rssfeed.
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### 1.0.1 (2025-03-10)
+### 1.1.2 (2025-03-20)
 
-- try to fix marque v5 widget
+- add missing build file
+
+### 1.1.1 (2025-03-20)
+
+- fix marqueeV5 widget
+- fix build process
 
 ### 1.0.0 (2025-02-19)
 

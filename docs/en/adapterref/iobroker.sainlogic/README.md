@@ -98,7 +98,7 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Latest version
 
-### 0.12.1 Added Laser Distance Sensor (LSD) states
+#### 1.0.0 Support for WFC01 - Smart Water Timer
 
 #### 0.11.6 Adapater checker related updates
 

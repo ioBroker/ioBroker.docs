@@ -752,7 +752,7 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.0 (2025-03-19)
 * (bluefox) Admin component was migrated to TypeScript
 
 ### 4.0.0 (2025-01-13)
@@ -768,9 +768,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 
 ### 3.8.0 (2024-07-14)
 * (bluefox) Migrated GUI for Admin 7
-
-### 3.7.1 (2024-07-03)
-* (klein0r) Restored translations for messages
 
 ## License
 

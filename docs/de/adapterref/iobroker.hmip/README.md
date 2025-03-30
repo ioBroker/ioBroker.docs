@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint Adapter
-hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
+hash: +ZcisHPvpDDut0pIyLFip51XW4bcc0RHOew6SclJL94=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -17,23 +17,23 @@ hash: q0BxIQzgdNcUAUfmWZ6u6kHlYRW3VHZw6cCCZp2tgJE=
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.** **HomeMatic ist ein Warenzeichen der ELV Elektronik AG**
+**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Unterstützung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in meiner Freizeit gepflegt und verfolgt kein Geschäftsziel.** **HomeMatic ist eine Marke der ELV Elektronik AG**
 
 ## Beschreibung
 Dieser Adapter ermöglicht die Kommunikation mit einem HomematicIP CloudAccessPoint über die Rest API der Homematic IP Cloud
 
-**Wichtiger Hinweis:** Bitte beschränken Sie Steuerungsanfragen auf das absolute Minimum, da EQ-3 beginnt, IPs zu blockieren, wenn Sie zu viel tun!
+**Wichtiger Hinweis:** Bitte beschränken Sie Kontrollanfragen auf das absolute Minimum, da EQ-3 beginnt, IPs zu blockieren, wenn Sie zu viel tun!
 
 ## Installation
 Hier ist ein Schritt-für-Schritt-Installationsvideo auf YouTube https://youtu.be/kXWfJRUYJIA
 
-## Die Info
+## Info
 Die meisten Homematic IP Geräte funktionieren bereits mit der neusten Adapterversion.
 
-Ich werde es ständig verbessern, aber das wird einige Zeit dauern. Jede Hilfe aus der Community, z. B. über Pull Request, wäre sehr willkommen.
+Ich werde es ständig verbessern, aber das wird einige Zeit dauern. Jede Hilfe aus der Community, z. B. über Pull Requests, wäre sehr willkommen.
 
 Für nicht funktionierende HmIP-Geräte erstellen Sie bitte ein Problem mit diesen Informationen (bitte eines pro Gerät und wenn möglich den technischen Namen im Betreff).
-Schalten Sie die Adapterprotokollierung in ioBroker in den Silly-Modus und fügen Sie das JSON des Geräts hinzu, das im Problem in das Protokoll gedruckt wird.
+Schalten Sie die Adapterprotokollierung in ioBroker in den Silly-Modus und fügen Sie das JSON des Geräts hinzu, das im Problemprotokoll ausgegeben wird.
 Ich benötige möglicherweise auch ein JSON einer Statusänderung.
 
 Danke schön!
@@ -41,24 +41,23 @@ Danke schön!
 Wenn Sie die Information suchen, ob die Alarmeinstellungen aktiv sind, müssen Sie den aktiven Status der Gruppen INTERN und EXTERN prüfen, sie stellen in Kombination die drei Alarmzustände dar. INTERN und EXTERN aktiv bedeutet Abwesend, nur EXTERN aktiv bedeutet nur Perimeter aktiv.
 
 ## Wichtige Informationen, was mit diesem Adapter gemacht werden kann
-!!! Mit diesem Adapter können ausschließlich Events ausgelöst werden, die auch über die originale Homematic IP App ausgelöst werden können.
-
-Direkte Verbindungen zwischen Geräten haben beispielsweise keine Events in der App und können auch nicht über diesen Adapter ausgelöst werden!!!
+!!! Mit diesem Adapter können nur Ereignisse ausgelöst werden, die über die originale Homematic IP App ausgelöst werden können.
+So haben beispielsweise direkte Verbindungen zwischen Geräten keine Ereignisse in der App und können auch nicht über diesen Adapter ausgelöst werden!!!
 
 ## Einstellungen
-* Geben Sie Ihre SGTIN (Rückseite des Access Points) und die PIN (sofern bereits festgelegt) ein und bestätigen Sie die Daten durch Drücken der blauen LED-Taste. Dadurch wird ein Authentifizierungstoken erstellt.
+* Geben Sie Ihre SGTIN (Rückseite des Access Points) und die PIN (falls bereits festgelegt) ein und bestätigen Sie die Daten durch Drücken der blauen LED-Taste. Dadurch wird ein Authentifizierungstoken erstellt.
 
 ## Spezielle Einstellungen
 ### HMIP-DLD (Türschlossantrieb)
-Wenn du dem Schloss in der HmIP-App (Einstellungen / Zugangsberechtigungen) eine PIN zugewiesen hast, muss diese PIN im PIN-Status der Geräteobjekte eingetragen werden. Es ist NICHT deine System-PIN!! Wenn du in den Einstellungen keine PIN festgelegt hast, kannst du den PIN-Status auch leer lassen.
+Wenn Sie dem Schloss in der HmIP-App (Einstellungen / Zugangsberechtigungen) eine PIN zugewiesen haben, muss diese im PIN-Status der Geräteobjekte eingetragen werden. Es handelt sich NICHT um Ihre System-PIN! Falls Sie in den Einstellungen keine PIN festgelegt haben, können Sie den PIN-Status auch leer lassen.
 
-Füge außerdem den Client „iobroker“ zur Liste der Zutrittskontroll-Clients in den HmIP-App-Einstellungen hinzu!
+Fügen Sie zusätzlich den Client „iobroker“ zur Liste der Zutrittskontroll-Clients in den HmIP-App-Einstellungen hinzu!
 
 ## Haussteuerungseinheit (HCU)
 Es gibt einen geänderten Workflow mit HCU
 
 Drücken Sie die Taste einmal, bevor Sie mit der Token-Erstellung beginnen. Dadurch wird der Fernzugriff für 5 Minuten aktiviert.
-Drücken Sie die Taste dann erneut, wenn Sie während des Pairing-Vorgangs dazu aufgefordert werden.
+Drücken Sie die Taste anschließend erneut, wenn Sie während des Kopplungsvorgangs dazu aufgefordert werden.
 
 Vielen Dank an @dietzm für das Hinzufügen der HCU-Unterstützung zu diesem Adapter.
 
@@ -73,10 +72,26 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ### **IN ARBEIT** -->
 
 ## Changelog
-### 1.26.1-alpha.1 (2024-12-09)
-* (mcm1957) Adapter requires node.js 20 now
-* (dietzm) Added support for Home Control Unit
-* (GermanBluefox) Corrected the admin GUI
+### 1.27.0 (2025-03-24)
+* (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
+* (@GermanBluefox) GUI was migrated to TypeScript (Admin 7.6)
+* (SliX185) Support to control opticalSignalBehaviour for HMIP-BSL has been added.
+* (SliX185) Logging of PIN has been removed
+* (mcm1957) Dependencies have been updated.
+
+### 1.26.5 (2025-01-27)
+* (@Apollon77) Fixed Websocket disconnect cases
+
+### 1.26.4 (2025-01-03)
+* (@Apollon77) Optimized Websocket disconnect cases
+
+### 1.26.3 (2024-12-29)
+* (@GermanBluefox) Updated packages
+
+### 1.26.2 (2024-12-10)
+* (@mcm1957) Adapter requires node.js 20 now
+* (@dietzm) Added support for Home Control Unit
+* (@GermanBluefox) Corrected the admin GUI
 
 ### 1.25.0 (2024-11-08)
 * (bluefox) Updated packages
@@ -345,7 +360,7 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

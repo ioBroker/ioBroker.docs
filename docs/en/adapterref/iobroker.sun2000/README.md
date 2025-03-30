@@ -33,8 +33,12 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+* fix: Object state sDongle.OSVersion to short
+* control: set usableSurplus parameters
+
+### 1.1.0 (2025-03-19)
+* startupTime/shutdownTime are read from the inverter as local time and not as UTC - fixed times are saved in path `derived`
 * new state [usableSurplusPower](https://github.com/bolliy/ioBroker.sun2000/wiki/%C3%9Cberschuss-(surplus))
 * control: checking and rounding integer numbers
 * better solution for math rounding

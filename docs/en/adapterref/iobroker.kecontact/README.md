@@ -55,15 +55,15 @@ The default value is 10 minutes which is a good balance between the load for the
 
 ### PV automatics
 
-To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and regard of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
+To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and grid consumption of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
 * a state to switch charging phases 1p/3p or using X2 port of Keba Kecontact (with Keba KeContact S10 or any other contactor)
 * a state for current power of battery storage, so the photovoltaics automatics will use it additionally for charging your vehicle
 * an option to limit power of battery storage to just hold charging with minimum power
 * toggle X1 option if you want to use X1 input from charging station to control whether to charge with full power or by photovoltaic automatic
 * a different mimimum amperage than the default 6 A (only needed for e.g. Renault Zoe)
-* a value of regard power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
+* a value of grid consumption power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
 * an increment for amperage (suggested 500 mA)
-* a value of regard that may be temporarily used to uphold charging session (that means charging will stop later even if enough surplus is no longer available - starting regard will be added - suggested 500 W)
+* a value of grid consumption that may be temporarily used to uphold charging session (that means charging will stop later even if enough surplus is no longer available - starting grid consumption will be added - suggested 500 W)
 * minimum duration of charging session (even if surplus is no longer sufficient, a charging session will last at least this time - suggested 300 sec)
 * time to continue charging session each time surplus is no longer sufficient (to bridge the time on cloudy days)
 
@@ -74,12 +74,12 @@ In this case please enter the state for your installation contactor and whetheri
 
 ### batery storage
 
-If you own a battery storage please fill in the options here. By specifiying states for surplus and regard of your battery storage, this adapter can control whether
+If you own a battery storage please fill in the options here. By specifiying states for surplus and grid consumption of your battery storage, this adapter can control whether
 battery storage should be used for charging your vehicle or not, depenent from the strategy preficied in the options.
 
 ### german §14a EnWG power limitation
 
-Due to german §14a EnWG there's an option to limit charging station to max. 6A fix or dynamically to regard of 3x6A (4.140 watts)
+Due to german §14a EnWG there's an option to limit charging station to max. 6A fix or dynamically to grid consumption of 3x6A (4.140 watts)
 
 ### power limitation
 
@@ -96,7 +96,7 @@ Therefore you need to specify the amperage states of each phase of your enegy me
 Additionally there are some states to influence behaviour of photovoltaics automatic on the fly, e.g. by a script of your own updating these values according to your needs)
 * kecontact.n.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
 * kecontact.n.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
-* kecontact.n.automatic.addPower - defines an amount of watts of regard allowed to charge your vehicle (same as in options)
+* kecontact.n.automatic.addPower - defines an amount of watts of grid consumption allowed to charge your vehicle (same as in options)
 * kecontact.n.automatic.pauseWallbox - stops every charging session immediately as long a set to true
 * kecontact.n.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
 * kecontact.n.automatic.batteryStorageStrategy - strategy whether and how your battery storage should be using for charging your vehicle
@@ -111,6 +111,21 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Sneak-L8) optimized strategy for battery charging
+
+### 3.1.0 (2025-03-20)
+* (Sneak-L8) new option to reduce log entries on info level (write them with debug level)
+* (Sneak-L8) fix wording error ("regard" changed to grid consumption)
+* (Sneak-L8) fixed some english translations
+* (Sneak-L8) renamed state "regardTimestamp" to "consumptionTimestamp" - please delete old state
+
+### 3.0.1 (2025-03-15)
+* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-29 an IOBROKER-KECONTACT-2A
+* (Sneak-L8) minimum js-controller now >= 7 due to I18n
+* (Sneak-L8) fix roles of states in io-package.json
+* (Sneak-L8) log of config on level debug instead of info
+
 ### 3.0.0 (2025-03-10)
 * (Sneak-L8) rebase adapter on newest version of adapter creator
 * (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
@@ -135,15 +150,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (mcm1957) Dependencies have been updated.
 * (Sneak-L8) fix url for download page at Keba website
 * (Sneak-L8) fix lint problems by replacing double by single quotes
-
-### 2.1.1 (2024-03-16)
-* (fischmi) fix error when chanigig dynamic SoC parameter
-
-### 2.1.0 (2024-01-06)
-* (Sneak-L8) multiple options for battery storage strategy
-* (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
-* (Sneak-L8) don't try to charge when state is 5 (auth req, car not ready, ...)
-* (Sneak-L8) new state to dynamically set SoC above which battery storage may be used for charging vehicle
 
 ## Legal
 

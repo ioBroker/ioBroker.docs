@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2025_03_29": {
+      "date": "2025.03.29",
+      "title": {
+        "de": "ioBroker Neuigkeiten – Frühjahr 2025 🌼",
+        "en": "IoBroker News – Spring 2025 🌼",
+        "ru": "IoBroker News – Весна 2025 🌼",
+        "zh-cn": "IoBroker 新闻 – 2025 年春季 🌼"
+      },
+      "logo": "",
+      "type": "news",
+      "originalName": "2025_03_29.md",
+      "desc": {
+        "de": "Willkommen zum ioBroker-Update für das Frühjahr 2025! In den letzten Wochen hat sich wieder einiges in der ioBroker-Welt getan.\\nNeue Adapter erweitern die Plattform um spannende Integrationen,\\nbestehende Komponenten wurden mit hilfreichen Funktionen verbessert – und auch die Community bleibt weiterhin aktiv und kreativ.",
+        "en": "Welcome to the ioBroker Spring 2025 update! A lot has happened in the ioBroker world in recent weeks.\\nNew adapters expand the platform with exciting integrations, existing components have been enhanced with helpful features – and the community remains active and creative.",
+        "ru": "Добро пожаловать в весеннее обновление ioBroker 2025! За последние несколько недель в мире ioBroker произошло много событий.\\nНовые адаптеры расширяют платформу за счет интересных интеграций, существующие компоненты улучшены и дополнены полезными функциями, а сообщество остается активным и креативным.",
+        "zh-cn": "欢迎来到 ioBroker 2025 年春季更新！过去几周，ioBroker 领域发生了很多事情。\\n新的适配器通过令人兴奋的集成扩展了平台，现有组件已通过有用的功能得到改进 - 并且社区仍然活跃且富有创造力。"
+      }
+    },
     "2024_12_22": {
       "date": "2024.12.22",
       "title": {

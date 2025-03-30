@@ -173,10 +173,10 @@ data.oneobject.attribute1 = 1 data.oneobject.attribute2 = 2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.0 (2025-03-20)
 
 - add package @alcalzone/release-script-plugin-manual-review as requested
+- add async/await feature to the JSON template widget
 
 ### 0.1.9 (2024-09-09)
 
@@ -224,7 +224,7 @@ data.oneobject.attribute1 = 1 data.oneobject.attribute2 = 2
 
 The MIT License (MIT)
 
-Copyright (c) 2024 oweitman <oweitman@gmx.de>
+Copyright (c) 2025 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

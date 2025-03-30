@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.oxxify-fan-control/README.md
 title: ioBroker.oxxify-Lüftersteuerung
-hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
+hash: DNu+6Wzxb0lqxbKo9ktggF/NVrn1b0oB7dW3GBFE+qk=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.oxxify-fan-control.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.oxxify-fan-control.svg)
@@ -16,11 +16,11 @@ hash: oq5N579uZOxRokPPLSJhmBKEBhaE9V0YfAc9SK7y/Wg=
 
 <img src="admin/oxxify-fan-control.png" width="80">
 
-# IoBroker.oxxify-Fan-Steuerung
+# IoBroker.oxxify-fan-control
 **Tests:** ![Testen und Freigeben](https://github.com/N-b-dy/ioBroker.oxxify-fan-control/workflows/Test%20and%20Release/badge.svg)
 
 ## Oxxify-fan-control-Adapter für ioBroker
-Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem unter [Hier](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) beschriebenen Kommunikationsprotokoll. Da andere Hersteller dasselbe Protokoll verwenden (z. B. Blauberg-Ventile), ist es ziemlich wahrscheinlich, dass diese auch funktionieren.
+Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellten ioBroker-Datenpunkte basieren auf dem unter [Hier](./doc/BDA_Anschluss_SmartHome_RV_V2.pdf) beschriebenen Kommunikationsprotokoll. Da andere Hersteller dasselbe Protokoll verwenden (z. B. Blauberg-Ventile), ist es sehr wahrscheinlich, dass diese ebenfalls funktionieren.
 
 ## Funktionierende Geräte
 - Oxxify smart 50 (von mir getestet)
@@ -28,32 +28,30 @@ Integrieren Sie Ihre Oxxify-Ventilatoren in Ihr Smart Home. Alle bereitgestellte
 - Blauberg Vents (sollte vorhanden sein, noch nicht getestet)
 
 ### Objektbaumbeschreibung
-Im Objektbaum befindet sich der Ordner mit dem Namen „devices“, der für jeden konfigurierten Lüfter einen Eintrag erstellt. Die darunterliegenden Kanäle werden mit der eindeutigen Lüfter-ID erstellt, die vom Hersteller bereitgestellt wird. In der Spalte _name_ wird der Eintrag aus der Konfiguration verwendet, um die Lüfter besser unterscheiden zu können. Unter jedem Lüfter werden vier Kanäle erstellt, um die pro Lüfter bereitgestellten Daten zu gruppieren. Sie werden wie folgt erklärt:
+Der Objektbaum enthält den Ordner „devices“, der für jeden konfigurierten Lüfter einen Eintrag erstellt. Die darunterliegenden Kanäle werden mit der eindeutigen Lüfter-ID erstellt, die vom Hersteller vergeben wird. In der Spalte „Name“ wird der Eintrag aus der Konfiguration verwendet, um die Lüfter besser unterscheiden zu können. Unter jedem Lüfter werden vier Kanäle angelegt, um die pro Lüfter bereitgestellten Daten zu gruppieren. Diese werden wie folgt erklärt:
 
 #### Fandaten
-Dieser Kanal enthält alle lüfterbezogenen Daten wie Timer, Lüftergeschwindigkeit, Ein-/Aus-Zustand und Informationen zum Filterreinigungs-/Austauschintervall. Die Lüfterbetriebsarten enthalten den numerischen Wert aus dem Kommunikationsprotokoll sowie einen sprechenden String-Status. Die Werte können nur als Zahl geschrieben werden (z. B. eine 1 für die Wärmerückgewinnung). Gleiches gilt für den Timermodus und den Lüftergeschwindigkeitsmodus, der 1, 2, 3 und 255 für die manuelle Geschwindigkeitseinstellung akzeptiert. Die Lüftergeschwindigkeit für Lüfter 2 ist bei meinen Geräten (Oxxify pro 50) nicht verfügbar und bleibt entweder bei 0 U/min im Aus-Zustand oder bei 1500 in jedem Betriebszustand. Der andere Wert ändert sich je nach Geschwindigkeit.
+Dieser Kanal enthält alle lüfterbezogenen Daten wie Timer, Lüftergeschwindigkeit, Ein-/Aus-Zustand und Informationen zum Filterreinigungs-/-wechselintervall. Die Lüfterbetriebsarten enthalten den numerischen Wert aus dem Kommunikationsprotokoll sowie einen sprechenden String-Status. Die Werte können nur als Zahl angegeben werden (z. B. eine 1 für die Wärmerückgewinnung). Gleiches gilt für den Timer-Modus und den Lüftergeschwindigkeitsmodus, der die Werte 1, 2, 3 und 255 für die manuelle Geschwindigkeitseinstellung akzeptiert. Die Lüftergeschwindigkeit für Lüfter 2 ist bei meinen Geräten (Oxxify pro 50) nicht verfügbar und bleibt entweder bei 0 U/min im ausgeschalteten Zustand oder bei 1500 U/min in jedem Betriebszustand. Der andere Wert ändert sich je nach Geschwindigkeit.
 
 ![Bild](../../../en/adapterref/iobroker.oxxify-fan-control/doc/screenshots/fan-data.png)
 
 #### Netzwerkdaten
-Die Netzwerkdaten sind derzeit nur lesbar, das Schreiben/Ändern von Werten ist hier noch nicht implementiert und kann über die App des Herstellers erfolgen. Gleiches gilt für den Kontrollzustand des Cloud-Servers.
+Die Netzwerkdaten sind aktuell nur lesbar, das Schreiben/Ändern von Werten ist hier noch nicht implementiert und kann über die App des Herstellers erfolgen. Gleiches gilt für den Kontrollzustand des Cloud-Servers.
 
 ![Bild](../../../en/adapterref/iobroker.oxxify-fan-control/doc/screenshots/network-data.png)
 
 #### Sensordaten
-Die Dateneingaben für die Sensoren werden wie im Protokoll definiert umgesetzt. Die analogen Spannungswerte werden in % angegeben, wie im Protokoll definiert. An die Analog- und Relaissensoren habe ich nichts angeschlossen, daher kann ich nicht wirklich testen, was passiert, wenn man sie aktiviert.
+Die Dateneingabe für die Sensoren erfolgt wie im Protokoll definiert. Der analoge Spannungswert wird wie im Protokoll definiert in % angegeben. Da ich keine Anschlüsse an den Analog- und Relaissensor habe, kann ich nicht wirklich testen, was passiert, wenn man sie aktiviert.
 
 ![Bild](../../../en/adapterref/iobroker.oxxify-fan-control/doc/screenshots/sensors-data.png)
 
 #### Systemdaten
-Dieser Kanal enthält Systemdaten zur Hardware und Firmware sowie Laufzeit, RTC-Batteriespannung und Datum/Uhrzeit. Hier können Alarme zurückgesetzt und auch die RTC-Zeit basierend auf dem konfigurierten NTP-Server eingestellt werden. Aus meiner Erfahrung kann es manchmal vorkommen, dass nach einem RTC-Zeitsync die neuen (richtigen) Werte nicht sofort sichtbar sind und es bis zum nächsten Datenpolling dauert.
+Dieser Kanal enthält Systemdaten zur Hardware und Firmware sowie Laufzeit, RTC-Batteriespannung und Datum/Uhrzeit. Hier können Alarme zurückgesetzt und die RTC-Zeit basierend auf dem konfigurierten NTP-Server eingestellt werden. Meiner Erfahrung nach kann es vorkommen, dass nach einer RTC-Zeitsynchronisierung die neuen (richtigen) Werte nicht sofort sichtbar sind und es bis zur nächsten Datenabfrage dauert.
 
 ![Bild](../../../en/adapterref/iobroker.oxxify-fan-control/doc/screenshots/system-data.png)
 
 ## Aufgaben
-- Veröffentlichung einer stabilen Version auf npm
-- Hinzufügen des Adapters zum ioBroker-Repo
-- Durchführung weiterer Tests
+- Implementierung weiterer Tests
 - Dokumentation verbessern
 - Implementierung fehlender Datenpunkte (wie Zeitplan, Schreiben von Netzwerkdaten und Cloud-Steuerung)
 
@@ -62,6 +60,11 @@ Dieser Kanal enthält Systemdaten zur Hardware und Firmware sowie Laufzeit, RTC-
 ### **IN ARBEIT** -->
 
 ## Changelog
+
+### 0.0.5 (2025-03-21)
+
+- Added automatic write retry mechanism for writing values within the fan, as writing with UDP is not very reliable in connection with poor network conditions
+- Adapter checker issues fixed
 
 ### 0.0.4 (2025-01-31)
 

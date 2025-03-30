@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow-mqtt/README.md
 title: ioBroker.ecoflow-mqtt
-hash: zdBuHyh7oPomLQxc/HTGcC5V7o02xoWkXphF/hw2E+A=
+hash: WfcLVym732qAh1afIgZhieVEXWo4hQCltjkfrSn3hpc=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow-mqtt/admin/ecoflow-mqtt.png)
 
@@ -44,7 +44,7 @@ Auf der Admin-Seite (erste Registerkarte) müssen die MQQT-Anmeldeinformationen 
 
 * Benutzername – etwa „app-….“
 * Benutzer-ID - eine 19-stellige Nummer
-* UserPassword - ein alphanumerisches
+* Benutzerkennwort - ein alphanumerisches
 * ClientID – eine Zeichenfolge, die mit „ANDROID_…“ beginnt.
 
 Es gibt 3 Möglichkeiten:
@@ -249,13 +249,17 @@ einige Erläuterungen zu den Gerätedaten
 
 [River 2 Pro](./doc/devices/river2pro.md)
 
+[River 3 Plus](./doc/devices/river3plus.md)
+
 [Delta 2](./doc/devices/delta2.md)
 
 [Delta 2 Max](./doc/devices/delta2max.md)
 
-[Delta Pro Ultra](./doc/devices/deltaproultra.md)
+[Delta 3 Plus](./doc/devices/delta3plus.md)
 
 [Delta Pro 3](./doc/devices/deltapro3.md)
+
+[Delta Pro Ultra](./doc/devices/deltaproultra.md)
 
 ### Smart-Home-Panel
 [Smart Home-Panel](./doc/devices/panel.md)
@@ -306,14 +310,16 @@ Dieser Abschnitt wurde für Debugging-Zwecke erstellt. Wählen Sie das Gerät (D
 * mehr getCmds für SHP-Werte
 
 ## Haftungsausschluss
-Diese Open-Source-Software steht in keiner Verbindung zu Ecoflow und wird von diesem auch nicht unterstützt.
+Diese Open-Source-Software steht in keiner Verbindung zu Ecoflow und wird von Ecoflow auch nicht unterstützt.
 Die Nutzung der Software erfolgt auf eigene Gefahr und nach eigenem Ermessen. Ich übernehme keine Haftung für mögliche Schäden oder Probleme, die durch die Nutzung der Software entstehen können. Bitte beachten Sie, dass für die Nutzung dieser Open-Source-Software keine direkte Unterstützung oder Garantien durch Ecoflow gewährt werden.
 
 ## Changelog
 
 ### 1.3.0 (npm)
 * (foxthefox) correction for PStream energy
-* (foxthefox) new DeltaPro 3 implementation
+* (foxthefox) new Delta Pro 3 implementation
+* (foxthefox) new Delta 3 Plus implementation
+* (foxthefox) new River 3 Plus implementation
 * (foxthefox, radeonorama) enhancements alternator
 * (foxthefox) major refactoring
 * (foxthefox) new items to PowerOcean and HeatingRod
