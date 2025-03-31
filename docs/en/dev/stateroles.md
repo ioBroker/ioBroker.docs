@@ -429,6 +429,7 @@ Special roles for media players
 * `info.standby`   - true if device in standby mode
 * `info.status`    - status of a device
 * `info.display`   - information shown on device display
+* `info.model`     - device model
 * `date.start`     - string or number
 * `date.end`       - string or number
 

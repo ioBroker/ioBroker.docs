@@ -434,6 +434,7 @@ hash: WQgzwC+Uf4bSzq6WHHPAlQpS1gLKTgPFimGHLE1NQ34=
 * `info.standby` - true, если устройство находится в режиме ожидания
 * `info.status` - статус устройства
 * `info.display` - информация, отображаемая на дисплее устройства
+* `info.model` - модель устройства
 * `date.start` - строка или число
 * `date.end` - строка или число
 
