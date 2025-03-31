@@ -805,3 +805,11 @@ https://github.com/ioBroker/ioBroker.lcn
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.lcn/master/admin/lcn.png" width="100" height="100" />
 
 LCN adapter is free now. Everyone can use it without any restrictions.
+
+## bayernluft (29.3.2025) – new adapter
+https://github.com/iobroker-community-adapters/ioBroker.bayernluft
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.bayernluft/blob/main/admin/bayernluft.png" width="100" height="100" />
+
+Connects ventilation devices manufactured by BayernLuft to IoBroker systems.
+
