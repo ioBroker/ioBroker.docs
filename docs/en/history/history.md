@@ -813,3 +813,12 @@ https://github.com/iobroker-community-adapters/ioBroker.bayernluft
 
 Connects ventilation devices manufactured by BayernLuft to IoBroker systems.
 
+## controme (3.4.2025) – new adapter
+https://github.com/MadErstam/ioBroker.controme
+
+<img src="https://github.com/MadErstam/ioBroker.controme/blob/main/admin/controme.png" width="100" height="100" />
+
+Connect to local Controme mini server using the official API.
+
+Controme is a heating control system with which you can control your floor heating, central heating system, radiators or other forms of climate control. At the core of a Controme Smart-Heat-System is the Controme mini server, a local Raspberry Pi based system. For more information on the Controme Smart-Heat-System, see the Controme website.
+
