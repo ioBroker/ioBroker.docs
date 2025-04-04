@@ -830,3 +830,5 @@ https://github.com/bembelstemmer/ioBroker.batrium-bms
 An ioBroker Adapter to track Metrics of your Batrium BMS published via UDP.
 
 This Adapter is based on the official Batrium WatchMonUdpListener Implementation on: https://github.com/Batrium/WatchMonUdpListener
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
