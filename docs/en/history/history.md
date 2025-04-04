@@ -809,14 +809,14 @@ LCN adapter is free now. Everyone can use it without any restrictions.
 ## bayernluft (29.3.2025) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.bayernluft
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.bayernluft/blob/main/admin/bayernluft.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.bayernluft/main/admin/bayernluft.png" width="100" height="100" />
 
 Connects ventilation devices manufactured by BayernLuft to IoBroker systems.
 
 ## controme (3.4.2025) – new adapter
 https://github.com/MadErstam/ioBroker.controme
 
-<img src="https://github.com/MadErstam/ioBroker.controme/blob/main/admin/controme.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/MadErstam/ioBroker.controme/main/admin/controme.png" width="100" height="100" />
 
 Connect to local Controme mini server using the official API.
 
@@ -825,7 +825,7 @@ Controme is a heating control system with which you can control your floor heati
 ## batrium-bms (4.4.2025) – new adapter
 https://github.com/bembelstemmer/ioBroker.batrium-bms
 
-<img src="https://github.com/bembelstemmer/ioBroker.batrium-bms/blob/main/admin/batrium-bms.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png" width="100" height="100" />
 
 An ioBroker Adapter to track Metrics of your Batrium BMS published via UDP.
 
