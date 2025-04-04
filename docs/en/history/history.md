@@ -17,13 +17,6 @@
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
-## flexcharts (2025-01-15) - new adapter
-https://github.com/MyHomeMyData/ioBroker.flexcharts
-   
-<img src="https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/admin/flexcharts-icon-small.png" width="100" height="100" />
-
-This adapter brings almost the complete feature set of [Apache ECharts](https://echarts.apache.org/en/index.html) to ioBroker. This adapter is not intended to be used to quickly create a simple chart. But if you have a specific idea in mind for a more complex chart, flexcharts offers the possibility to implement it.
-
 ## ecoflow-mqtt (2024-10-14) - new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
@@ -740,6 +733,13 @@ https://github.com/hombach/ioBroker.teslafi
 <img src="https://raw.githubusercontent.com/hombach/ioBroker.teslafi/master/admin/teslafi.png" width="100" height="100" />
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
+
+## flexcharts (2025-01-15) - new adapter
+https://github.com/MyHomeMyData/ioBroker.flexcharts
+   
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/flexcharts-icon-small.png" width="100" height="100" />
+
+This adapter brings almost the complete feature set of [Apache ECharts](https://echarts.apache.org/en/index.html) to ioBroker. This adapter is not intended to be used to quickly create a simple chart. But if you have a specific idea in mind for a more complex chart, flexcharts offers the possibility to implement it.
 
 ## paperless-ngx (27.1.2025) – new adapter
 https://github.com/BenAhrdt/ioBroker.paperless-ngx
