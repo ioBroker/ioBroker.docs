@@ -17,13 +17,6 @@
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
-## flexcharts (2025-01-15) - new adapter
-https://github.com/MyHomeMyData/ioBroker.flexcharts
-   
-<img src="https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/admin/flexcharts-icon-small.png" width="100" height="100" />
-
-This adapter brings almost the complete feature set of [Apache ECharts](https://echarts.apache.org/en/index.html) to ioBroker. This adapter is not intended to be used to quickly create a simple chart. But if you have a specific idea in mind for a more complex chart, flexcharts offers the possibility to implement it.
-
 ## ecoflow-mqtt (2024-10-14) - new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
@@ -741,6 +734,13 @@ https://github.com/hombach/ioBroker.teslafi
 
 The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
 
+## flexcharts (2025-01-15) - new adapter
+https://github.com/MyHomeMyData/ioBroker.flexcharts
+   
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/flexcharts-icon-small.png" width="100" height="100" />
+
+This adapter brings almost the complete feature set of [Apache ECharts](https://echarts.apache.org/en/index.html) to ioBroker. This adapter is not intended to be used to quickly create a simple chart. But if you have a specific idea in mind for a more complex chart, flexcharts offers the possibility to implement it.
+
 ## paperless-ngx (27.1.2025) – new adapter
 https://github.com/BenAhrdt/ioBroker.paperless-ngx
 
@@ -809,16 +809,26 @@ LCN adapter is free now. Everyone can use it without any restrictions.
 ## bayernluft (29.3.2025) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.bayernluft
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.bayernluft/blob/main/admin/bayernluft.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.bayernluft/main/admin/bayernluft.png" width="100" height="100" />
 
 Connects ventilation devices manufactured by BayernLuft to IoBroker systems.
 
 ## controme (3.4.2025) – new adapter
 https://github.com/MadErstam/ioBroker.controme
 
-<img src="https://github.com/MadErstam/ioBroker.controme/blob/main/admin/controme.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/MadErstam/ioBroker.controme/main/admin/controme.png" width="100" height="100" />
 
 Connect to local Controme mini server using the official API.
 
 Controme is a heating control system with which you can control your floor heating, central heating system, radiators or other forms of climate control. At the core of a Controme Smart-Heat-System is the Controme mini server, a local Raspberry Pi based system. For more information on the Controme Smart-Heat-System, see the Controme website.
 
+## batrium-bms (4.4.2025) – new adapter
+https://github.com/bembelstemmer/ioBroker.batrium-bms
+
+<img src="https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png" width="100" height="100" />
+
+An ioBroker Adapter to track Metrics of your Batrium BMS published via UDP.
+
+This Adapter is based on the official Batrium WatchMonUdpListener Implementation on: https://github.com/Batrium/WatchMonUdpListener
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
