@@ -63,6 +63,7 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 ### **WORK IN PROGRESS**
 
 * (@mcm1957) Added Shelly Outdoor Plug S Gen3
+* (@mcm1957) Missing energy values for Swicthes (i.e. Shelly Outdoor Plug S Gen3) have been added
 * (@mcm1957) Missing energy values for pmminigen3 have been added
 
 ### 9.2.0 (2025-03-13)

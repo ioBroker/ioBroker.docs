@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: 5z/xxo7MdLkfdYiIUHp6Kt782i+8+qwlnxgq7AmmwEA=
+hash: oHusWnae3ROygjc/y6YEEP/LW8ZbCO2QY6Cc+3r9bYc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -216,6 +216,21 @@ vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost на зн
       }
     ]
   }
+}
+```
+
+```json
+{
+  "url": "cooling-for-days",
+  "data": {"value": 7},
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "cooling-for-days",
+  "method": "DELETE"
 }
 ```
 

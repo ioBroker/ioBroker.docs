@@ -23,6 +23,9 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.7.1 (2025-04-06)
+* (BenAhrdt) change timewriting in deviceinfos at chirpstack
+
 ### 1.7.0 (2025-02-18)
 * (BenAhrdt) add Volt to assignhandler with unit "V"
 * (BenAhrdt) update dependency for admin and js-controller

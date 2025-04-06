@@ -235,6 +235,21 @@ zone/2/xxxx
 }
 ```
 
+```json
+{
+  "url": "cooling-for-days",
+  "data": {"value": 7},
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "cooling-for-days",
+  "method": "DELETE"
+}
+```
+
 ## Changelog
 
 ### 0.7.3

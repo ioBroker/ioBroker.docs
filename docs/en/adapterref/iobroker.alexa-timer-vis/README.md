@@ -63,8 +63,7 @@ to make them visible in the Vis. So you have a better overview if you have sever
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.0.9 (2025-04-06)
 
 - FEAT: Add more config
 - CHORE: Update dependencies
