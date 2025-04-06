@@ -3,19 +3,19 @@
     "2025_04_04": {
       "date": "2025.04.04",
       "title": {
-        "de": "ioBroker unterstützt jetzt Matter!",
-        "en": "ioBroker now supports Matter!",
-        "ru": "ioBroker теперь поддерживает Matter!",
-        "zh-cn": "ioBroker 现在支持 Matter！"
+        "de": "Die nächste Stufe des Smart Homes - ioBroker unterstützt jetzt Matter!",
+        "en": "The next level of smart home - ioBroker now supports Matter!",
+        "ru": "Новый уровень умного дома — ioBroker теперь поддерживает Matter!",
+        "zh-cn": "智能家居的更高级别 - ioBroker 现在支持 Matter！"
       },
       "logo": "de/blog/images/2025_04_04.png",
       "type": "news",
       "originalName": "2025_04_04.md",
       "desc": {
-        "de": "Seit Anfang 2025 hebt ioBroker das Smart Home auf ein neues Level: \\n**Der neue Matter-Adapter ist da!** Nach über **zwei Jahren intensiver Entwicklungsarbeit** ist ioBroker nun bereit \\nfür den zukunftsweisenden Smart-Home-Standard **Matter** – ein Quantensprung für alle, die Geräte herstellerübergreifend und vor allem lokal vernetzen möchten.",
-        "en": "Since the beginning of 2025, ioBroker has been taking the smart home to a new level: **The new Matter adapter is here!** After more than **two years of intensive development work**, ioBroker is now ready for the future-oriented smart home standard **Matter** – a quantum leap for everyone who wants to network devices across manufacturers and, above all, locally.",
-        "ru": "С начала 2025 года ioBroker выводит умный дом на новый уровень: **Новый адаптер Matter уже здесь!** После более чем **двух лет интенсивной разработки** ioBroker теперь готов к ориентированному на будущее стандарту умного дома **Matter** — качественному скачку для всех, кто хочет объединить в сеть устройства разных производителей и, прежде всего, локально.",
-        "zh-cn": "自 2025 年初以来，ioBroker 一直致力于将智能家居提升到一个新的水平：**新的 Matter 适配器来了！**经过**两年多的密集开发工作**，ioBroker 现已为面向未来的智能家居标准 **Matter** 做好了准备——这对于每个想要跨制造商、尤其是在本地联网设备的人来说都是一个巨大的飞跃。"
+        "de": "Seit Anfang 2025 hebt ioBroker das Smart Home auf ein neues Level: \\nDer neue Matter-Adapter ist da! Nach über zwei Jahren intensiver Entwicklungsarbeit ist ioBroker nun bereit \\nfür den zukunftsweisenden Smart-Home-Standard **Matter** – ein Quantensprung für alle, die Geräte herstellerübergreifend und vor allem lokal vernetzen möchten.",
+        "en": "Since the beginning of 2025, ioBroker has been taking the smart home to a new level: The new Matter adapter is here! After more than two years of intensive development work, ioBroker is now ready for the pioneering smart home standard **Matter** – a quantum leap for anyone who wants to connect devices across manufacturers and, above all, locally.",
+        "ru": "С начала 2025 года ioBroker выводит умный дом на новый уровень: новый адаптер Matter уже здесь! После более чем двух лет интенсивной разработки ioBroker теперь готов к ориентированному на будущее стандарту умного дома **Matter** — качественному скачку для всех, кто хочет объединить в сеть устройства разных производителей и, прежде всего, локально.",
+        "zh-cn": "自 2025 年初以来，ioBroker 一直致力于将智能家居提升到一个新的水平：全新 Matter 适配器来了！经过两年多的密集开发工作，ioBroker 现已为面向未来的智能家居标准 **Matter** 做好了准备——这对于所有想要跨制造商、尤其是在本地联网设备的人来说都是一个巨大的飞跃。"
       }
     },
     "2025_03_29": {
