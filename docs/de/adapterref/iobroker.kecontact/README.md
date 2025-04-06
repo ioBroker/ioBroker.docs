@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: 1tGrT22/RTxdH2GFG+CDenXCYYznjEmDV6ctZf3pUWU=
+hash: gjIq7CnE26uX964IgZ62ULf8Dyy0VB1m8kjrJRsVuO4=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -50,7 +50,7 @@ ACHTUNG für Nutzer ab Version 1.1.1 und darunter: Aktivieren Sie diese Option, 
 ### Aktualisierungsintervall
 Dies ist das Intervall in Sekunden, wie oft die Wallbox nach neuen Ladewerten abgefragt werden soll.
 
-Der Standardwert beträgt 10 Minuten, was ein gutes Gleichgewicht zwischen der Belastung von KeConnect und der Aktualität der Informationen im ioBroker darstellt.
+Der Standardwert beträgt 10 Minuten, was einen guten Ausgleich zwischen der Belastung von KeConnect und der Aktualität der Informationen im ioBroker darstellt.
 
 ### PV-Automatik
 Um Ihr Fahrzeug entsprechend einem Überschuss (z. B. durch Photovoltaik) zu laden, können Sie zusätzlich Zustände definieren, die Überschuss und Netzbezug des Netzstroms darstellen. Diese Werte werden zur Berechnung der zum Laden verfügbaren Stromstärke verwendet. Mit zusätzlichen Werten können Sie definieren
@@ -65,10 +65,11 @@ Um Ihr Fahrzeug entsprechend einem Überschuss (z. B. durch Photovoltaik) zu lad
 * ein Wert des Netzverbrauchs, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (d. h. der Ladevorgang wird später beendet, auch wenn nicht mehr genügend Überschuss vorhanden ist – der anfängliche Netzverbrauch wird hinzugefügt – empfohlene 500 W)
 * Mindestdauer eines Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit – empfohlene 300 Sekunden)
 * Zeit, den Ladevorgang fortzusetzen, wenn der Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
+* Zeit, Ihr Fahrzeug immer aufzuladen, sobald das Fahrzeug angeschlossen ist und eine Autorisierung erforderlich ist (um einen Fehler zu verhindern, der dazu führt, dass ohne sofortiges Aufladen kein weiteres Aufladen möglich ist)
 
 ### 1p/3p-Aufladung
 Wenn Sie über einen Installationsschütz zum (Trennen) der Phasen 2 und 3 Ihrer Ladestation verfügen und dieser Schalter durch einen Zustand ausgelöst werden kann, kann dieser Adapter den Ladevorgang mit einer Phase starten und auf 3-Phasen-Laden umschalten, wenn Ihr Überschuss dafür ausreicht.
-In diesem Fall geben Sie bitte den Zustand Ihres Installationsschützes an und ob es sich um einen Schließer (NO) oder einen Öffner (NC) handelt.
+In diesem Fall geben Sie bitte den Zustand Ihres Installationsschützes an und ob es sich um einen Schließer (NO) oder Öffner (NC) handelt.
 
 ### Batteriespeicher
 Wenn Sie einen Batteriespeicher besitzen, füllen Sie bitte die Optionen hier aus. Durch die Angabe von Zuständen für Überschuss und Netzverbrauch Ihres Batteriespeichers kann dieser Adapter steuern, ob der Batteriespeicher zum Laden Ihres Fahrzeugs genutzt werden soll oder nicht, abhängig von der in den Optionen bevorzugten Strategie.
@@ -88,7 +89,7 @@ Dazu müssen Sie die Stromstärken jeder Phase Ihres Energiezählers angeben. Bi
 ### Dynamische Optionen
 Zusätzlich gibt es einige Zustände, um das Verhalten der Photovoltaik automatisch im laufenden Betrieb zu beeinflussen, z.B. durch ein eigenes Skript, das diese Werte entsprechend Ihren Anforderungen aktualisiert)
 
-* kecontact.n.automatic.photovoltaics - aktiviert die Photovoltaik automatisch (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn auf false gesetzt
+* kecontact.n.automatic.photovoltaics - aktiviert Photovoltaik automatisch (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn auf false gesetzt
 * kecontact.n.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden sollen. Dies wird für die Keba Deutschland Edition benötigt und kann für den ersten Ladevorgang an allen Ladestationen verwendet werden.
 * kecontact.n.automatic.addPower – definiert die zulässige Wattzahl des Netzverbrauchs zum Laden Ihres Fahrzeugs (wie in den Optionen)
 * kecontact.n.automatic.pauseWallbox - stoppt jeden Ladevorgang sofort, solange a auf true gesetzt ist
@@ -109,6 +110,7 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
 * (Sneak-L8) optimized strategy for battery charging
 
 ### 3.1.0 (2025-03-20)

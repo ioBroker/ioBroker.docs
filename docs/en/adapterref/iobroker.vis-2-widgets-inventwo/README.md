@@ -39,6 +39,12 @@ Switches
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.12 (2025-03-31)
+* Fixed view in dialog is not triggered on state change and state value is not set when opened (#30)
+* Added function to color images (#38)
+* Allow custom size for dialog by using binding (#39)
+* Fix dialog "close on click from outside" checkbox was inverted (#42)
+
 ### 0.1.11 (2024-07-18)
 * Fixed issues mentioned by eslint
 
@@ -112,7 +118,7 @@ Switches
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 jkvarel <jk@inventwo.com>
+Copyright (c) 2025 jkvarel <jk@inventwo.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

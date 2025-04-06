@@ -60,6 +60,11 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@mcm1957) Added Shelly Outdoor Plug S Gen3
+* (@mcm1957) Missing energy values for pmminigen3 have been added
+
 ### 9.2.0 (2025-03-13)
 
 * (@fLaSk1n) Added Shelly Dimmer Gen3

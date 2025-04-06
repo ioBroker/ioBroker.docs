@@ -55,7 +55,7 @@ http://www.maxxisun.de
 
 ## Changelog
 
-### 1.4.31 (2025-03-29)
+### 1.4.32 (2025-04-06)
 - New cloud method – Backup mode Server 2 (check config)
   > Note: Cloud Server 1 provides more datapoints but may be less stable.  
   > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.

@@ -68,8 +68,11 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.7.4 (2025-03-24)
-* (HGlab01) some refactorings
+### 0.7.6 (2025-04-02)
+* (HGlab01) optimize sentry usage
+
+### 0.7.5 (2025-03-31)
+* (HGlab01) some further refactorings
 * (HGlab01) Bump axios to 1.8.4
 
 ### 0.7.3 (2025-03-17)
@@ -84,11 +87,6 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) Bump axios to 1.8.2
 * (HGlab01) Improve error messages for Sentry
 * (HGlab01) Add attributes 'tariffLowPriceAlert' and 'tariffHighPriceAlert'
-
-### 0.6.1 (2024-11-04)
-* (HGlab01) Add attributes 'expiryInSeconds' and 'activated'
-* (HGlab01) Extend timeout back to 20s
-* (HGlab01) Tado° X improvements
 
 ## License
 MIT License

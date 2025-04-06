@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: 6uTfuvgFajoBnNjjSf9xzK2KRpWcbYsj1RE59xOM3XA=
+hash: P9iDHwiiz6N1fpH+adpU463y6gA5iLKFdjnaEA2fCD8=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -107,7 +107,7 @@ _Wenn der Attributname mit "\_" beginnt, wird er nicht im Objekt gespeichert._
 Weitere Beispiele finden sich in vielen weiteren Adaptern auf GitHub im jeweiligen Admin-Verzeichnis.
 
 ## Unterstützung bei der Entwicklung von Tools
-### VS-Code
+### VS Code
 Um die Validierung der jsonConfig in VS Code zu ermöglichen, muss der Datei „.vscode/settings.json“ folgender Abschnitt hinzugefügt werden.
 
 ```json5
@@ -313,7 +313,7 @@ Registerkarte mit Elementen
 
 | Immobilie | Beschreibung |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `icon` | Registerkarte kann Symbole (Base64 wie `data:image/svg+xml;base64,...`) oder `jpg/png` Bilder enthalten (endet mit `.png`) |
+| `icon` | Registerkarte kann ein Symbol (Base64 wie `data:image/svg+xml;base64,...`) oder `jpg/png` Bilder haben (endet mit `.png`) |
 | `items` | Objekt `{"attr1": {}, "attr2": {}}...` |
 | `collapsable` | nur möglich, da nicht Teil von Tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) |
 | `color` | Farbe der einklappbaren Kopfzeile `primary` oder `secondary` oder nichts |
@@ -491,7 +491,7 @@ Objekt-ID: mit Name, Farbe und Symbol anzeigen
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `types` | Gewünschter Typ: `channel`, `device`, ... (hat standardmäßig nur `state`). Es ist Plural, da `type` bereits belegt ist. |
 | `customFilter` | [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um einen JSON-String. |
-| `filterFunc` | [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und „true“ oder „false“ zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
+| `filterFunc` | [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und entweder „true“ oder „false“ zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
 | `filterFunc` | [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'` |
 
 #### Beispiele für `customFilter`
@@ -587,7 +587,7 @@ Schaltfläche, die eine Anfrage an die Instanz sendet (<https://github.com/iobro
 | `openUrl` | wenn wahr – URL in neuem Tab öffnen, wenn die Antwort das Attribut `openUrl` enthält, wie `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `reloadBrowser` | wenn wahr – aktuelles Browserfenster neu laden, wenn die Antwort das Attribut `reloadBrowser` enthält, wie `{"reloadBrowser": true}`. |
 | `window` | wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort aus dem Attribut `window` besteht. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Symbole (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Wenn Sie weitere Symbole benötigen, wenden Sie sich bitte per Problem an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können `base64`-Symbole (wie `data:image/svg+xml;base64,...`) oder `jpg/png`-Bilder (endet mit `.png`) verwenden. (Bei Bedarf weitere Symbole per Problem anfordern.) |
 | `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `showProcess` | Spinner anzeigen, während die Anfrage läuft |
 | `timeout` | Timeout für Anfrage in ms. Standard: keine. |
@@ -698,7 +698,7 @@ Beispiel:
 ```
 
 ### `certificateCollection`
-Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen oder verwenden Sie Let’s Encrypt überhaupt nicht.
+Wählen Sie eine Zertifikatssammlung aus oder verwenden Sie einfach alle Sammlungen oder verwenden Sie Let’s Encrypt überhaupt nicht.
 
 | Immobilie | Beschreibung |
 |--------------------|------------------------------------|
@@ -759,7 +759,7 @@ nur Admin6
 
 | Immobilie | Beschreibung |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pattern` | Dateierweiterungsmuster. Erlaubt `**/*.ext`, um auch alle Dateien aus Unterordnern anzuzeigen, `*.ext`, um aus dem Stammordner anzuzeigen, oder `folderName/*.ext`, um alle Dateien im Unterordner `folderName` anzuzeigen. Standard `**/*.*`. |
+| `pattern` | Dateierweiterungsmuster. Erlaubt `**/*.ext`, um auch alle Dateien aus Unterordnern anzuzeigen, `*.ext`, um vom Stammordner anzuzeigen, oder `folderName/*.ext`, um alle Dateien im Unterordner `folderName` anzuzeigen. Standard `**/*.*`. |
 | `objectID` | Objekt-ID vom Typ `meta`. Sie können den speziellen Platzhalter `%INSTANCE%` verwenden: wie `myAdapter.%INSTANCE%.files` |
 | `upload` | Pfad, in dem die hochgeladenen Dateien gespeichert werden. Wie `folderName`. Falls nicht definiert, wird kein Upload-Feld angezeigt. Um in das Stammverzeichnis hochzuladen, setzen Sie dieses Feld auf `/`. |
 | `refresh` | Schaltfläche „Aktualisieren“ neben der Auswahl anzeigen. |
@@ -990,7 +990,7 @@ Zeigt die Lizenzinformationen an, sofern diese noch nicht akzeptiert wurden. Ein
 | `checkBox` | Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert. |
 
 ### `checkLicense`
-Eine ganz spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die Eigenschaften `license` und `useLicenseManager` im nativen Zustand benötigt.
+Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die Eigenschaften `license` und `useLicenseManager` im nativen Zustand benötigt.
 
 | Immobilie | Beschreibung |
 |-----------|---------------|
@@ -1001,17 +1001,17 @@ Eine ganz spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden ge
 Iobroker-UUID anzeigen
 
 ### `port`
-Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Instanzen verwendet wird und zeigt eine Warnung an
+Spezielle Eingabe für Ports. Es wird automatisch geprüft, ob der Port von anderen Instanzen verwendet wird und eine Warnung angezeigt
 
 | Immobilie | Beschreibung |
 |----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `min` | minimal zulässige Portnummer. Sie könnte 0 sein. Wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt. |
 
 ### `state`
-(admin >= 7.1.0) Kontrolle oder Informationen vom Staat anzeigen
+(admin >= 7.1.0) Zeigt Kontrolle oder Informationen aus den Statusattributen (admin >= 7.6.4) `showEnterButton` und `setOnEnterKey` an
 
 | Immobilie | Beschreibung |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `oid` | Welche Objekt-ID soll zur Steuerung verwendet werden? Die ID ist ohne Präfix `adapter.X.` |
 | `foreign` | `oid` ist absolut und es ist nicht erforderlich, `adapter.X` oder `system.adapter.X.` zu oid hinzuzufügen |
 | `control` | Wie der Wert des Status angezeigt werden soll: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number` |
@@ -1035,7 +1035,9 @@ Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Ins
 | `addColon` | Fügen Sie der Bezeichnung am Ende den Doppelpunkt hinzu, wenn dieser in der Bezeichnung nicht vorhanden ist |
 | `labelIcon` | Base64-Symbol für Etikett |
 | `buttonValue` | Optionaler Wert, der für die Schaltfläche gesendet wird |
-| `buttonValue` | Optionaler Wert, der für die Schaltfläche gesendet wird |
+| `showEnterButton` | SET-Button anzeigen. Der Wert wird in diesem Fall nur gesendet, wenn der Button gedrückt wird. Sie können den Text des Buttons definieren. Der Standardtext ist "Set" (nur für "Eingabe", "Zahl" oder "Schieberegler"). |
+| `setOnEnterKey` | Der Wert wird in diesem Fall nur gesendet, wenn die Eingabetaste gedrückt wird. Er kann mit `showEnterButton` kombiniert werden. |
+| `setOnEnterKey` | Der Wert wird in diesem Fall nur gesendet, wenn die Eingabetaste gedrückt wird. Kann mit `showEnterButton` kombiniert werden. |
 
 ### `staticInfo`
 Zeigt statische Informationen in vorformatierter Form an, z. B. "Titel: Werteinheit" (Admin >= 7.3.3). Dieses Steuerelement wird hauptsächlich in dynamischen Formularen verwendet.

@@ -34,6 +34,12 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.14 (2025-03-30)
+* (HGlab01) Fix switch to summer time begin issue
+* (HGlab01) Bump axios to 1.8.4
+* (HGlab01) Fix warning "State attribute definition missing for 'item xx' 
+* (HGlab01) Fix provider-fee% calculation if base price is negative ([#354](https://github.com/HGlab01/ioBroker.apg-info/issues/354))
+
 ### 0.1.13 (2025-03-12)
 * (HGlab01) Bump axios to 1.8.3
 
@@ -48,9 +54,6 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 ### 0.1.10 (2024-10-04)
 * (HGlab01) fix issue #290
 * (HGlab01) bump axios to 1.7.7
-
-### 0.1.9 (2024-08-21)
-* (HGlab01) Support eslint9
 
 ## License
 MIT License

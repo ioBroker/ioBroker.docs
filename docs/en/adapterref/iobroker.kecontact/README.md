@@ -66,6 +66,7 @@ To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can 
 * a value of grid consumption that may be temporarily used to uphold charging session (that means charging will stop later even if enough surplus is no longer available - starting grid consumption will be added - suggested 500 W)
 * minimum duration of charging session (even if surplus is no longer sufficient, a charging session will last at least this time - suggested 300 sec)
 * time to continue charging session each time surplus is no longer sufficient (to bridge the time on cloudy days)
+* time to always charge your vehicle as soon as vehicle is plugged and authorization is required (to prevent bug that without charging at once nofurther charging is possible)
 
 ### 1p/3p charging
 
@@ -112,6 +113,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
 * (Sneak-L8) optimized strategy for battery charging
 
 ### 3.1.0 (2025-03-20)

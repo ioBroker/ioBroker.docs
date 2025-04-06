@@ -95,6 +95,12 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ---
 
 ## Changelog
+
+### 3.3.5
+- Fixed: [#688](https://github.com/inventwo/ioBroker.vis-inventwo/issues/688) Radiobutton kann kein boolean schreiben
+- Fixed: [#736](https://github.com/inventwo/ioBroker.vis-inventwo/issues/736) Fehler vom Adapter Checker in package.json und io-package.json behoben
+- Fixed: [#678](https://github.com/inventwo/ioBroker.vis-inventwo/issues/678) mode in io-package von daemon auf once umgestellt
+
 ### 3.3.4
 - Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color-Picker-Widget "verschwindet" bei Auswahl von CIE
 - Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple Slider Farbe der Schritte nicht änderbar

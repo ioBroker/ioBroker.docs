@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-таймер-vis
-hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
+hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -14,7 +14,7 @@ hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
 ![НПМ](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
 # IoBroker.alexa-таймер-vis
-**Тесты: ** ![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## Alexa-timer-vis адаптер для ioBroker
 Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчет об ошибках, см. документацию Sentry-Plugin! Отчеты Sentry используются, начиная с js-controller 3.0.
@@ -60,6 +60,12 @@ hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- FEAT: Add more config
+- CHORE: Update dependencies
+
 ### 2.0.8 (2024-12-04)
 
 - CHORE: Update dependencies
@@ -208,7 +214,7 @@ hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
 
 ## License
 
-Copyright (c) 2021-2024 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2025 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 

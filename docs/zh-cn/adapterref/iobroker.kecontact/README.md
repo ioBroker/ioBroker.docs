@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: 1tGrT22/RTxdH2GFG+CDenXCYYznjEmDV6ctZf3pUWU=
+hash: gjIq7CnE26uX964IgZ62ULf8Dyy0VB1m8kjrJRsVuO4=
 ---
 ![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -62,12 +62,13 @@ hash: 1tGrT22/RTxdH2GFG+CDenXCYYznjEmDV6ctZf3pUWU=
 * 与默认的 6 A 不同的最小安培数（仅适用于 Renault Zoe）
 * 可用于启动充电的电网消耗功率值（这意味着即使没有足够的剩余电量，充电也会开始 - 建议 1 相充电为 0 W，3 相充电为 500 W 至 2000 W）
 * 电流增量（建议 500 mA）
-* 可暂时用于维持充电会话的电网消耗值（这意味着即使不再有足够的剩余电量，充电也会在稍后停止 - 将添加启动电网消耗 - 建议 500 W）
-* 充电时间最短（即使剩余电量不再充足，一次充电也会至少持续这段时间 - 建议 300 秒）
+* 可以暂时用来维持充电过程的电网消耗值（这意味着即使不再有足够的剩余电量，充电也会在稍后停止 - 将增加启动电网消耗 - 建议 500 W）
+* 充电时间最短（即使剩余电量不再充足，一次充电也会至少持续这一次 - 建议 300 秒）
 * 每次剩余时间不再充足时继续充电（弥补阴天的时间）
+* 在车辆插上电源并需要授权后，务必立即对车辆进行充电（以防止出现未立即充电则无法进一步充电的情况）
 
 ### 1p/3p 充电
-如果您有一个安装接触器来（断开）连接充电站的第 2 相和第 3 相，并且此开关可以由状态触发，则此适配器能够以单相开始充电，并在剩余电量足够的情况下切换到 3 相充电。
+如果您有一个安装接触器来连接（断开）充电站的第 2 相和第 3 相，并且此开关可以由状态触发，则此适配器能够以单相开始充电，并在剩余电量足够的情况下切换到 3 相充电。
 在这种情况下，请输入安装接触器的状态，以及它是 NO（常开）还是 NC（常闭）
 
 ### 电池存储
@@ -88,7 +89,7 @@ hash: 1tGrT22/RTxdH2GFG+CDenXCYYznjEmDV6ctZf3pUWU=
 ### 动态选项
 此外，还有一些状态可以自动影响光伏电池的行为，例如通过您自己的脚本根据您的需要更新这些值）
 
-* kecontact.n.automatic.photovoltaics - 设置为 false 时，激活光伏自动（true）或以最大功率为车辆充电
+* kecontact.n.automatic.photovoltaics - 设置为 false 时，激活光伏自动 (true) 或以最大功率为车辆充电
 * kecontact.n.automatic.calcPhases - 定义当前用于充电计算的相数。这是 Keba Deutschland 版本所必需的，可用于所有充电站的初始充电会话
 * kecontact.n.automatic.addPower - 定义允许为您的车辆充电的电网消耗瓦数（与选项相同）
 * kecontact.n.automatic.pauseWallbox - 只要设置为 true，立即停止每次充电
@@ -96,7 +97,7 @@ hash: 1tGrT22/RTxdH2GFG+CDenXCYYznjEmDV6ctZf3pUWU=
 * kecontact.n.automatic.batteryStorageStrategy - 您的电池存储是否以及如何为您的车辆充电的策略
 * kecontact.n.automatic.batterySoCForCharging - 通过指定 SoC 来限制车辆电池存储的使用，低于该 SoC 则禁止充电
 
-示例：要以恒定 6A 电流为您的车辆充电（无论是否有剩余电流），请将光伏设置为 false 并将限制电流设置为 6000。
+示例：要以恒定 6A 电流为您的车辆充电（无论是否有剩余），请将光伏设置为 false 并将限制电流设置为 6000。
 
 ＃＃ 合法的
 该项目与 KEBA AG 公司无直接或间接关联。
@@ -109,6 +110,7 @@ KeConnect 是 KEBA AG 的注册商标。
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
 * (Sneak-L8) optimized strategy for battery charging
 
 ### 3.1.0 (2025-03-20)

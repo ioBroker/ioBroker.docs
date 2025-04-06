@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.asterisk/README.md
 title: ioBroker Asterisk VoIP 适配器
-hash: /epcTbsSNLXOiJlMxorB29LVQBYTZQcPGTFvmTa/gv0=
+hash: w6+gZownVvRYn+6/93/6nGk42ZMahVIJ7ZfDmtz++1o=
 ---
 ![标识](../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -181,13 +181,13 @@ sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, text:  msg},  
 
 // call telephone nummber 040 666-7766 and play mp3 audio file
 // mp3 file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.mp3'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.mp3'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
 // call telephone nummber 040 666-7766 and play gsm audio file
 // gsm file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.gsm'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.gsm'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
@@ -217,6 +217,14 @@ on({ id: 'asterisk.0.dialout.dtmf'/*DTMF Code*/ },  (obj) => {
 如果您在使用 asterisk 时遇到问题，您可以尝试在 /var/log/asterisk 下的日志文件中查找一些内容。启动 asterisk 后，您可以在命令 shell 上使用 asterisk -rvvvvvv 调用 asterisk 进行调试。启动 asterisk -rvvvvvv 后，您可以通过 iobroker 初始化调用并查看会发生什么。
 
 ## Changelog
+### 2.0.3 (2025-03-30)
+
+- (Stübi) Bugfixing in sendto function
+- (Stübi) Add Object repeat
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #57)
+- (Stübi) Fixing dependency (Issue #58)
+- (Stübi) Fixing issue with missing template directory (Issue #56 and #65)
+
 ### 2.0.2 (2025-02-01)
 
 - (Stübi) Add Create Directory

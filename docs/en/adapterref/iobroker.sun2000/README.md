@@ -33,9 +33,19 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2025-04-02)
+* usableSurplusPower: new control state `sun2000.0.control.usableSurplus.allowNegativeValue`
+
+### 1.2.2 (2025-04-01)
+* deploy 1.2
+
+### 1.2.1 (2025-04-01)
+* dependency update
+
+### 1.2.0 (2025-04-01)
+* dependency and configuration updates
 * fix: Object state sDongle.OSVersion to short
-* control: set usableSurplus parameters
+* new setting path for controlling the usableSurplusPower parameters `control.usableSurplus`
 
 ### 1.1.0 (2025-03-19)
 * startupTime/shutdownTime are read from the inverter as local time and not as UTC - fixed times are saved in path `derived`

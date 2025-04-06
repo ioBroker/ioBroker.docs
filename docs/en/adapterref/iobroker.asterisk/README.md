@@ -188,13 +188,13 @@ sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, text:  msg},  
 
 // call telephone nummber 040 666-7766 and play mp3 audio file
 // mp3 file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.mp3'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.mp3'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
 // call telephone nummber 040 666-7766 and play gsm audio file
 // gsm file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.gsm'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.gsm'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
@@ -234,13 +234,13 @@ on({ id: 'asterisk.0.dialout.dtmf'/*DTMF Code*/ },  (obj) => {
 If you have problems with asterisk, you can try to find something in the logfiles under /var/log/asterisk. After you started asterisk you can call asterisk with asterisk -rvvvvvv on the comand shell for debugging. After you started asterisk -rvvvvvv you can initialize a call by iobroker and see what happens.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 2.0.3 (2025-03-30)
 
 - (Stübi) Bugfixing in sendto function
 - (Stübi) Add Object repeat
 - (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #57)
 - (Stübi) Fixing dependency (Issue #58)
+- (Stübi) Fixing issue with missing template directory (Issue #56 and #65)
 
 ### 2.0.2 (2025-02-01)
 

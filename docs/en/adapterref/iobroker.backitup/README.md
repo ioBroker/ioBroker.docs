@@ -675,9 +675,11 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.2.0 (2025-04-04)
 * (Bluefox/DileSoft) json custom typescript added
 * (Bluefox/simatec) Dropbox OAuth updated
+* (simatec) Fix Webdav Certificates
+* (simatec) Dependencies updated
 
 ### 3.1.0 (2025-03-02)
 * (Bluefox) Dependencies updated

@@ -148,6 +148,11 @@ sudo chmod u+s `which ping`
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Performance optimization by pplling Lupusec alarm system (Issue #123)
+
 ### 2.0.7 (2025-02-23)
 
 - (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #115)

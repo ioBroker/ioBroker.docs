@@ -22,6 +22,18 @@ bulb LBxxx
 
 ------------------------------------------------------------------------------
 ## Changelog
+### 3.0.4 (2025-04-04)
+(arteck) add i18n language folder
+
+### 3.0.3 (2025-04-02)
+(arteck) correct translations
+
+### 3.0.2 (2025-04-01)
+(simatec) Responsive design
+
+### 3.0.1 (2025-04-01)
+* (arteck) add i18n folder
+
 ### 3.0.0 (2025-01-05)
 * (arteck) switch to jsonConfig
 

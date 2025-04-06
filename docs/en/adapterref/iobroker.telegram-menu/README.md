@@ -33,6 +33,10 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.3 (2025-04-05)
+
+- FIX: #279 Backslash is in the message when using newline
+
 ### 2.2.2 (2025-03-20)
 
 - FIX: Style and update dependencies

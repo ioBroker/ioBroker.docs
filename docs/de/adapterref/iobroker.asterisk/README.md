@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.asterisk/README.md
 title: ioBroker Asterisk VoIP-Adapter
-hash: /epcTbsSNLXOiJlMxorB29LVQBYTZQcPGTFvmTa/gv0=
+hash: w6+gZownVvRYn+6/93/6nGk42ZMahVIJ7ZfDmtz++1o=
 ---
 ![Logo](../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
-![Travis CI-Build-Status](https://travis-ci.org/schmupu/ioBroker.asterisk.svg?branch=master)
-![AppVeyor-Build-Status](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.asterisk?branch=master&svg=true)
+![Travis CI Build-Status](https://travis-ci.org/schmupu/ioBroker.asterisk.svg?branch=master)
+![AppVeyor Build-Status](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.asterisk?branch=master&svg=true)
 ![Anzahl der Installationen](http://iobroker.live/badges/asterisk-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.asterisk.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.asterisk.svg)
@@ -19,8 +19,8 @@ hash: /epcTbsSNLXOiJlMxorB29LVQBYTZQcPGTFvmTa/gv0=
 
 Der Asterisk-Adapter wandelt Textnachrichten in Audiodateien um und ruft dann über Asterisk per VoIP jede gewünschte Telefonnummer an und spielt die Audionachricht ab.
 
-## Installieren / Konfigurationen
-Asterisk muss für ausgehende Anrufe eine Verbindung zu Ihrem VoIP-Anbieter wie Telekom oder Vodfone oder zu Ihrer FritzBox herstellen! Folgen Sie dazu einer dieser Installationsanleitungen.
+## Installation / Konfigurationen
+Für ausgehende Anrufe muss Asterisk mit Ihrem VoIP-Anbieter wie Telekom oder Vodfone oder Ihrer FritzBox verbunden werden! Folgen Sie dazu einer dieser Installationsanleitungen.
 
 ### Linux-Pakete / ioBroker und Asterisk laufen auf demselben Server mit ffmpeg
 ```sh
@@ -30,7 +30,7 @@ sudo apt-get install asterisk
 ```
 
 ### Linux-Pakete / ioBroker und Asterisk laufen auf demselben Server mit Sox
-Falls du Probleme mit der Transkodierung mit ffmpeg hast, kannst du als Transkodierer Sox wählen. Dazu musst du folgende Pakete installieren und in der Adapterkonfiguration Sox wählen.
+Falls Probleme mit der Transkodierung mit ffmpeg auftreten, kann Sox als Transcoder verwendet werden. Dazu müssen folgende Pakete installiert und Sox in der Adapterkonfiguration ausgewählt werden.
 
 ```sh
 sudo apt-get install lame
@@ -55,7 +55,7 @@ sudo apt-get install openssh-server
 ```
 
 ### Linux-Pakete / ioBroker und Asterisk laufen auf verschiedenen Servern mit Sox
-Falls du Probleme mit der Transkodierung mit ffmpeg hast, kannst du als Transkodierer Sox wählen. Dazu musst du folgende Pakete installieren und in der Adapterkonfiguration Sox wählen.
+Falls Probleme mit der Transkodierung mit ffmpeg auftreten, kann Sox als Transcoder verwendet werden. Dazu müssen folgende Pakete installiert und Sox in der Adapterkonfiguration ausgewählt werden.
 
 ```sh
 sudo apt-get install lame
@@ -128,46 +128,46 @@ sudo asterisk -rvv
 ```
 
 ### Konfiguration von Asterisk
-Die folgenden Dokumente beschreiben detailliert, wie Asterisk konfiguriert wird.
+In den folgenden Dokumenten wird die Konfiguration von Asterisk detailliert beschrieben.
 
 - Konfiguration [Asterisk über SIP mit der FritzBox](docs/SIP_FRITZBOX.md) (der einfachste Weg)
-- Konfiguration [Asterisk über PJSIP mit der FriztBox](docs/PJSIP_FRITZBOX.md) (pjsip ist moderner als sip)
+- Konfiguration [Asterisk über PJSIP mit der FritzBox](docs/PJSIP_FRITZBOX.md) (pjsip ist moderner als sip)
 - Konfiguration [Asterisk über PJSIP mit Telekom als Provider](docs/PJSIP_TELEKOM.md)
 - Konfiguration [Asterisk über PJSIP mit Sipgate als Provider](docs/PJSIP_SIPGATE.md)
 
 ### Konfiguration mit SSH
-Wenn iobroker und Asterisk auf unterschiedlichen Benutzern installiert sind, benötigen Sie auf dem Asterisk-Server einen Benutzer mit Zugriff vom iobroker-Server, um sich per SSH anzumelden.
-Der Benutzer muss über Unix-Benutzerrechte verfügen, um Dateien zu schreiben, die von Asterisk gelesen werden können.
-Sie erstellen auf dem Asterisk-Server das Verzeichnis mit dem Namen, den Sie in der iobroker-Asterisk-Adapterkonfiguration konfiguriert haben, unter dem Namen _'Pfad für temporäre Audiodateien'_. Der Pfad muss für Asterisk und SSH zugänglich und autorisiert sein, da iobroker die generierte Audiodatei (Ihre Textnachricht) per SCP an den Asterisk-Server sendet und sie im 'Pfad für temporäre Audiodateien' speichert.
-Danach sendet ioBroker über die AMI-API eine Nachricht an Asterisk, um die generierte und im angegebenen Pfad gespeicherte Audiodatei anzurufen und abzuspielen.
+Wenn iobroker und Asterisk auf unterschiedlichen Servern installiert sind, benötigen Sie auf dem Asterisk-Server einen Benutzer mit Zugriff vom iobroker-Server, um sich per SSH anmelden zu können.
+Der Benutzer benötigt Unix-Benutzerrechte, um Dateien schreiben zu können, die von Asterisk gelesen werden können.
+Sie erstellen auf dem Asterisk-Server das Verzeichnis mit dem in der iobroker-Asterisk-Adapterkonfiguration konfigurierten Namen unter dem Namen „Pfad für temporäre Audiodateien“. Der Pfad muss für Asterisk und SSH zugänglich und autorisiert sein, da iobroker die generierte Audiodatei (Ihre Textnachricht) per SCP an den Asterisk-Server sendet und im „Pfad für temporäre Audiodateien“ speichert.
+Anschließend sendet ioBroker über die AMI-API eine Nachricht an Asterisk, um die im angegebenen Pfad gespeicherte generierte Audiodatei anzurufen und abzuspielen.
 
 ![ssh](../../../en/adapterref/iobroker.asterisk/docs/iobroker_ssh.png)
 
 ## Verwenden von Asterisk
-### Verwendung von Asterisk mit Objekten / Zuständen zum Hinauswählen
-Der einfachste Weg, Asterisk zu verwenden, ist über die ioBroker-Objektseite. Geben Sie dort unter dem Dialout-Parameter die folgenden Werte ein:
+### Verwendung von Asterisk mit Objekten/Zuständen zum Hinauswählen
+Am einfachsten lässt sich Asterisk über die ioBroker-Objektseite verwenden. Tragen Sie dort unter dem Parameter „Dialout“ folgende Werte ein:
 
 - Anruf: Drücken Sie die Taste, um einen Anruf einzuleiten
-- callerid: Telefonnummer die dem Angerufenen angezeigt wird
+- callerid: Telefonnummer, die dem Angerufenen angezeigt wird
 - DTMF: Der Angerufene drückte Zahlen auf der Tastatur
 - telnr: die zu wählende Nummer
 - Text: der Text, der dem Angerufenen vorgespielt wird
-- Sprache: Der Text wird in dieser Sprache in Audio umgewandelt
+- Sprache: Text wird in Audio in dieser Sprache umgewandelt
 
 ![iobroker_dialout](../../../en/adapterref/iobroker.asterisk/docs/iobroker_dialout.png)
 
-### Verwendung von Asterisk mit Objekten / Zuständen zur Einwahl
-Wenn Sie Ihren SIP-Provider (z.B. Fritzbox, Sipgate, ...) und die Asterisk-Konfiguration so konfiguriert haben, dass Dialin-Anrufe zugelassen werden, können Sie folgende Parameter setzen
+### Asterisk mit Objekten/Zuständen zur Einwahl verwenden
+Wenn Sie Ihren SIP-Provider (z.B. Fritzbox, Sipgate, ...) und die Asterisk-Konfiguration so konfiguriert haben, dass Einwahlanrufe möglich sind, können Sie folgende Parameter einstellen
 
-- callerid: Telefonnummer die Asteriks angerufen hat
-- DTMF: Anrufer drückten Zahlen auf der Tastatur
+- callerid: Telefonnummer, die Asteriks angerufen hat
+- DTMF: Anrufer drücken Zahlen auf der Tastatur
 - Text: der Text, der dem Anrufer vorgespielt wird
-- Sprache: Der Text wird in dieser Sprache in Audio umgewandelt
+- Sprache: Text wird in Audio in dieser Sprache umgewandelt
 
 ![iobroker_dialin](../../../en/adapterref/iobroker.asterisk/docs/iobroker_dialin.png)
 
-### Verwendung von Asterisk mit Javascript oder Blocky zum Hinauswählen
-Jetzt können Sie den Adapter in Ihren JavaScript- oder Blockprogrammen verwenden.
+### Verwenden von Asterisk mit Javascript oder Blocky zum Hinauswählen
+Jetzt können Sie den Adapter in Ihren Javascript- oder Blockprogrammen verwenden.
 
 ```sh
 const number   = '040 666-7766';
@@ -181,13 +181,13 @@ sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, text:  msg},  
 
 // call telephone nummber 040 666-7766 and play mp3 audio file
 // mp3 file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.mp3'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.mp3'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
 // call telephone nummber 040 666-7766 and play gsm audio file
 // gsm file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.gsm'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.gsm'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
@@ -210,13 +210,21 @@ on({ id: 'asterisk.0.dialout.dtmf'/*DTMF Code*/ },  (obj) => {
 
 ```
 
-> Sie können die folgenden Parameter in der sendTo-Wählanweisung verwenden: > > - **language:** Sprache für die Text-to-Speech-Funktion (tts). (erlaubte Werte: 'DE', 'EN', ... Standard ist die ioBroker-Systemsprache) > - **repeat:** wie oft soll die Audionachricht wiederholt werden (erlaubte Werte 1 bis n, Standard 5) > - **priority:** wenn Sie viele sendTo-Wählanweisungen parallel senden, werden die Nachrichten mit der niedrigsten Priorität zuerst gesendet (erlaubte Werte 1 bis n, Standard 1) > - **text:** Textnachricht, die als Audio gesendet wird > - **timeout:** Timeout in Millisekunden beim Warten auf den Verbindungsaufbau (Standard 60000 ms) > - **async:** Ermöglicht das Generieren mehrerer Anrufe, ohne auf eine Antwort zu warten (erlaubte Werte: false/true, Standard false) > - **audiofile:** wenn Sie den Textparameter verwenden. Der in Audio umgewandelte Text wird in einer Audiodatei gespeichert. Wenn die Audiodatei vorhanden ist, wird sie überschrieben. Wenn Sie den Parameter Text nicht verwenden, wird die Audiodatei abgespielt.
-> - **callerid:** Definiert die Kennung (Ihre Absenderrufnummer). Wenn die Callerid fehlt, wird die übertragene Rufnummer anonym sein. > - **telnr:** Zu wählende Rufnummer.
+> Sie können die folgenden Parameter in der sendTo-Wählanweisung verwenden: > > - **language:** Sprache für die Text-to-Speech-Funktion (tts). (Erlaubte Werte: ‚DE‘, ‚EN‘, …. Standard ist die ioBroker-Systemsprache.) > - **repeat:** Wie oft soll die Audionachricht wiederholt werden (Erlaubte Werte: 1 bis n, Standard 5). > - **priority:** Wenn Sie mehrere sendTo-Wählanweisungen parallel senden, werden die Nachrichten mit der niedrigsten Priorität zuerst gesendet (Erlaubte Werte: 1 bis n, Standard 1). > - **text:** Textnachricht, die als Audio gesendet wird. > - **timeout:** Zeitüberschreitung in Millisekunden beim Warten auf den Verbindungsaufbau (Standard 60000 ms). > - **async:** Ermöglicht das Generieren mehrerer Anrufe ohne auf eine Antwort zu warten (Erlaubte Werte: false/true, Standard false). > - **audiofile:** Wenn Sie den Textparameter verwenden. Der in Audio konvertierte Text wird in einer Audiodatei gespeichert. Falls die Audiodatei vorhanden ist, wird sie überschrieben. Wenn Sie den Parameter „text“ nicht verwenden, wird die Audiodatei abgespielt.
+> - **callerid:** Definiert die Kennung (Ihre Absender-Telefonnummer). Fehlt die Anrufer-ID, wird die übertragene Telefonnummer anonym übermittelt. > - **telnr:** Zu wählende Telefonnummer.
 
 ## Probleme lösen
-Wenn Sie Probleme mit Asterisk haben, können Sie versuchen, etwas in den Protokolldateien unter /var/log/asterisk zu finden. Nachdem Sie Asterisk gestartet haben, können Sie Asterisk mit asterisk -rvvvvvv auf der Kommandozeile zum Debuggen aufrufen. Nachdem Sie asterisk -rvvvvvv gestartet haben, können Sie einen Aufruf von iobroker initialisieren und sehen, was passiert.
+Bei Problemen mit Asterisk kannst du versuchen, in den Logdateien unter /var/log/asterisk nach etwas zu suchen. Nach dem Start von Asterisk kannst du Asterisk mit asterisk -rvvvvvv in der Kommandozeile zum Debuggen aufrufen. Anschließend kannst du einen Aufruf von iobroker initialisieren und beobachten, was passiert.
 
 ## Changelog
+### 2.0.3 (2025-03-30)
+
+- (Stübi) Bugfixing in sendto function
+- (Stübi) Add Object repeat
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #57)
+- (Stübi) Fixing dependency (Issue #58)
+- (Stübi) Fixing issue with missing template directory (Issue #56 and #65)
+
 ### 2.0.2 (2025-02-01)
 
 - (Stübi) Add Create Directory

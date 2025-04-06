@@ -113,6 +113,9 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.4.1 (2025-03-31)
+
+- Update to new viessmann api
 
 ### 2.3.2
 

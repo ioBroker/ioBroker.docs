@@ -27,6 +27,9 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.4.0 (2025-04-03)
+* (BenAhrdt) implement calculation type median
+
 ### 1.3.0 (2025-02-22)
 * (BenAhrdt) update admin and js-controller dependecies
 

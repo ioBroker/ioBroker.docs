@@ -187,6 +187,10 @@ This is nice to know because the devices usually send (at least mine do) their s
   - In other cases it has been an IP/DNS issue. Resetting the DHCP/DNS server (router) solved the issue.
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: [#338](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/338) Fixed Admin dependency
+
 ### 3.2.7 (2025-02-13)
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Upd: Moved to eslint 9 and fixed new lint issues

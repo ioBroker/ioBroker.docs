@@ -77,7 +77,7 @@ Details of implementation can be found in issue #333.
 -->
 
 ### **WORK IN PROGRESS**
-* René) see issue #333: new sequence to handle devices with quiescent current
+* René) see issue #333: new sequence to handle devices with quiescent current. ATTENTION: new dishwasher sequence is used for all dishwasher devices!
 * (René) changes requested by adapter checker
 * (René) dependencies updated 
 

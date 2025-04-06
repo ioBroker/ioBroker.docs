@@ -51,6 +51,7 @@ https://www.iobroker.net/#de/blog/2024_11_23
 https://www.iobroker.net/#de/blog/2024_12_21
 https://www.iobroker.net/#de/blog/2024_12_22
 https://www.iobroker.net/#de/blog/2025_03_29
+https://www.iobroker.net/#de/blog/2025_04_04
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -76,6 +77,7 @@ https://www.iobroker.net/#en/blog/2024_11_23
 https://www.iobroker.net/#en/blog/2024_12_21
 https://www.iobroker.net/#en/blog/2024_12_22
 https://www.iobroker.net/#en/blog/2025_03_29
+https://www.iobroker.net/#en/blog/2025_04_04
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -101,6 +103,7 @@ https://www.iobroker.net/#ru/blog/2024_11_23
 https://www.iobroker.net/#ru/blog/2024_12_21
 https://www.iobroker.net/#ru/blog/2024_12_22
 https://www.iobroker.net/#ru/blog/2025_03_29
+https://www.iobroker.net/#ru/blog/2025_04_04
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -126,6 +129,7 @@ https://www.iobroker.net/#zh-cn/blog/2024_11_23
 https://www.iobroker.net/#zh-cn/blog/2024_12_21
 https://www.iobroker.net/#zh-cn/blog/2024_12_22
 https://www.iobroker.net/#zh-cn/blog/2025_03_29
+https://www.iobroker.net/#zh-cn/blog/2025_04_04
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
@@ -1045,6 +1049,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.meteoalarm/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.midea/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.miele/README.md
@@ -1162,6 +1167,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.renault/README.md
@@ -1745,6 +1751,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.meteoalarm/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.midea/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.miele/README.md
@@ -1862,6 +1869,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.renault/README.md
@@ -2445,6 +2453,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.meteoalarm/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.midea/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.miele/README.md
@@ -2562,6 +2571,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.renault/README.md
@@ -3145,6 +3155,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mercury/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.meross/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.message-queue/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.meteoalarm/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mhi-wfrac/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.micronova/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.midea/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.miele/README.md
@@ -3262,6 +3273,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.refoss/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.remeha-home/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renault/README.md

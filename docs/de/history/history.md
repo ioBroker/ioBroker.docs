@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: la1YhxlAQx+EMHEz6Blp14dcAmMo5X3uT9zKQhLP3vg=
+hash: pU1YzytVVgyJGrgMykw8gkl4xkfxhyCc0t2qArxAJ1M=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -25,13 +25,6 @@ hash: la1YhxlAQx+EMHEz6Blp14dcAmMo5X3uT9zKQhLP3vg=
 
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
-
-## Flexcharts (15.01.2025) - neuer Adapter
-https://github.com/MyHomeMyData/ioBroker.flexcharts
-
-<img src="https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/admin/flexcharts-icon-small.png" width="100" height="100" />
-
-Dieser Adapter bringt fast den gesamten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) in ioBroker. Dieser Adapter ist nicht für die schnelle Erstellung eines einfachen Diagramms gedacht. Wenn Sie jedoch eine konkrete Idee für ein komplexeres Diagramm haben, bietet Flexcharts die Möglichkeit, diese umzusetzen.
 
 ## Ecoflow-mqtt (14.10.2024) - neuer Adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
@@ -94,7 +87,7 @@ https://github.com/iobroker-community-adapters/ioBroker.cec2
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.cec2/master/admin/cec2.png" width="100" height="100" />
 
-Adapter für HDMI CEC - Sie können Geräte mit HDMI CEC überwachen/steuern. Die meisten modernen Fernseher und Multimediageräte unterstützen CEC in gewissem Umfang.
+Adapter für HDMI CEC - Sie können Geräte mit HDMI CEC überwachen und steuern. Die meisten modernen Fernseher und Multimediageräte unterstützen CEC in gewissem Umfang.
 
 ## Alexa2 (09.09.2023)
 * (Apollon77) Aktualisieren Sie den Alexa2-Adapter, um ihn an das geänderte Push-Benachrichtigungssystem von Amazon anzupassen und so wieder den Abruf von Verlaufs- und Interaktionsinformationen zu ermöglichen
@@ -128,7 +121,7 @@ Einfaches Erstellen von Telegram-Menüs
   ![Bild1](../../en/history/media/2023_09_12_vis-2-menu.png)
 
 ## Echarts (12.09.2023)
-* (Bluefox) Möglichkeit zum Exportieren der Daten in eine JSON-Datei hinzugefügt
+* (bluefox) Möglichkeit zum Exportieren der Daten in eine JSON-Datei hinzugefügt
 
   ![Bild1](../../en/history/media/2023_09_12_echart-1.png)
 
@@ -247,7 +240,7 @@ Mit dieser Anerkennung bekräftigt ESPHome sein Engagement, effiziente und robus
 ## Vis (06.11.2023) - neue Funktion
 Die Lizenz von vis wurde auf MIT umgestellt. Das bedeutet, dass Sie vis kostenlos in kommerziellen Projekten nutzen können und keine Lizenz erforderlich ist.
 
-## Willkommen (07.11.2023) - neue Funktion
+## Willkommen (07.11.2023) - Neue Funktion
 Möglichkeit hinzugefügt, benutzerdefinierte Links zur Startseite hinzuzufügen. Die Seiten werden auf ihre Verfügbarkeit geprüft.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
@@ -359,7 +352,7 @@ https://github.com/iobroker-community-adapters/ioBroker.solaredge
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
 
-Daten vom SolarEdge-Überwachungsportal abrufen. Derzeit wird nur der Datenpunkt /overview verwendet, um die aktuelle Leistung sowie die Energiewerte für Tag, Monat, Jahr und Lebensdauer abzurufen.
+Daten vom SolarEdge-Überwachungsportal abrufen. Derzeit wird nur der Datenpunkt /overview verwendet, um die aktuelle Leistung und die Energiewerte für Tag, Monat, Jahr und Lebensdauer abzurufen.
 
 ## Elgato-key-light (18.2.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
@@ -556,7 +549,7 @@ Diese Benachrichtigungen gelten im globalen Bereich Ihres Android TV-Geräts und
 
 Wiki: https://github.com/peter9teufel/iobmobile-issues/wiki/IOB-Mobile-Quickstart
 
-## Gree-hvac (10.6.2024) – neuer Adapter im stabilen
+## Gree-hvac (10.6.2024) – neuer Adapter im Stall
 https://github.com/XHunter74/ioBroker.gree-hvac
 
 <img src="https://raw.githubusercontent.com/XHunter74/ioBroker.gree-hvac/master/admin/air-conditioner.png" width="100" height="100" />
@@ -589,7 +582,7 @@ https://github.com/obakuhl/ioBroker.egigeozone2
 
 <img src="https://raw.githubusercontent.com/obakuhl/ioBroker.egigeozone2/master/admin/egigeozone.png" width="100" height="100" />
 
-Dies ist ein ioBroker-Adapter für die Android-Geofencing-App "EgiGeoZone". Er kann Geofence-Ereignisse als HTTP-Anfragen empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
+Dies ist ein ioBroker-Adapter für die Android-Geofencing-App „EgiGeoZone“. Er kann Geofence-Ereignisse als HTTP-Anfragen empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
 
 ## Hiob (17.8.2024) – neuer Adapter im Stall
 https://github.com/moba15/ioBroker.hiob
@@ -649,7 +642,7 @@ https://github.com/ioBroker/ioBroker.kisshome-research
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
 
-Dieser spezielle Adapter wurde für das Forschungsprojekt KISSHome entwickelt. Er ist nicht für den allgemeinen Gebrauch bestimmt.
+Dieser Spezialadapter wurde für das Forschungsprojekt KISSHome entwickelt. Er ist nicht für den allgemeinen Gebrauch bestimmt.
 
 ## Admin (21.09.2024) - neue Funktion
 ![Passwort überprüfen](../../en/history/media/2024_10_01_admin_back_alias.gif)
@@ -659,7 +652,7 @@ Benutzer können vom Aliasziel zum Alias selbst springen.
 ## Admin (28.09.2024) - neue Funktion
 ![Passwort überprüfen](../../en/history/media/2024_09_28_admin_password.png)
 
-Der Administrator prüft jetzt auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort vorhanden ist, und fordert ihn auf, das Passwort zu ändern, wenn ein solcher Benutzer gefunden wurde.
+Der Administrator prüft jetzt auf Linux-Systemen, ob ein Systembenutzer mit einem bekannten Passwort vorhanden ist, und fordert zur Änderung auf, wenn ein solcher Benutzer gefunden wurde.
 
 Der Administrator unterstützt die GUI dynamischer Benachrichtigungen.
 
@@ -718,7 +711,7 @@ https://github.com/oweitman/ioBroker.mytime
 
 <img src="https://raw.githubusercontent.com/oweitman/ioBroker.mytime/main/admin/mytime.png" width="100" height="100" />
 
-Dieser Adapter verarbeitet Zeitdaten (z. B. Countdowns). Die Countdown-Funktionalität stellt Datenpunkte bereit, mit denen Sie einen Countdown verwalten können (z. B. in einem Skript). Der Adapter enthält außerdem verschiedene Widgets zur Visualisierung dieser Countdowns. Mit Zeitreihen können komplexe Zeitreihen erstellt werden, bei denen die Datenpunkte ausgelöst werden.
+Dieser Adapter verarbeitet Zeit (z. B. Countdowns). Die Countdown-Funktionalität stellt Datenpunkte bereit, mit denen Sie einen Countdown verwalten können (z. B. in einem Skript). Der Adapter enthält außerdem verschiedene Widgets zur Visualisierung dieser Countdowns. Mit Zeitreihen können komplexe Zeitreihen erstellt werden, bei denen die Datenpunkte ausgelöst werden.
 
 ## Vis-2-widgets-weather-and-heating (29.12.2024) – neuer Adapter
 https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
@@ -754,6 +747,13 @@ https://github.com/hombach/ioBroker.teslafi
 <img src="https://raw.githubusercontent.com/hombach/ioBroker.teslafi/master/admin/teslafi.png" width="100" height="100" />
 
 Der TeslaFi-Adapter ermöglicht die mühelose Integration von Fahrzeugdaten aus Ihrem TeslaFi-Konto in das ioBroker-System. Nutzen Sie diese Daten, um Ihr Tesla-Erlebnis zu verbessern und die Arbeitsabläufe der Hausautomation zu optimieren.
+
+## Flexcharts (15.01.2025) - neuer Adapter
+https://github.com/MyHomeMyData/ioBroker.flexcharts
+
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/flexcharts-icon-small.png" width="100" height="100" />
+
+Dieser Adapter bringt fast den gesamten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) in ioBroker. Dieser Adapter ist nicht für die schnelle Erstellung eines einfachen Diagramms gedacht. Wenn Sie jedoch eine konkrete Idee für ein komplexeres Diagramm haben, bietet Flexcharts die Möglichkeit, diese umzusetzen.
 
 ## Paperless-ngx (27.1.2025) – neuer Adapter
 https://github.com/BenAhrdt/ioBroker.paperless-ngx
@@ -820,3 +820,30 @@ https://github.com/ioBroker/ioBroker.lcn
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.lcn/master/admin/lcn.png" width="100" height="100" />
 
 Der LCN-Adapter ist jetzt kostenlos. Jeder kann ihn ohne Einschränkungen nutzen.
+
+##bayernluft (29.3.2025) – neuer Adapter
+https://github.com/iobroker-community-adapters/ioBroker.bayernluft
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.bayernluft/main/admin/bayernluft.png" width="100" height="100" />
+
+Verbindet Lüftungsgeräte der BayernLuft mit ioBroker-Systemen.
+
+## Controme (3.4.2025) – neuer Adapter
+https://github.com/MadErstam/ioBroker.controme
+
+<img src="https://raw.githubusercontent.com/MadErstam/ioBroker.controme/main/admin/controme.png" width="100" height="100" />
+
+Stellen Sie mithilfe der offiziellen API eine Verbindung zum lokalen Controme-Miniserver her.
+
+Controme ist ein Heizungssteuerungssystem, mit dem Sie Ihre Fußbodenheizung, Zentralheizung, Heizkörper oder andere Klimatisierungsgeräte steuern können. Herzstück des Controme Smart-Heat-Systems ist der Controme Mini-Server, ein lokales Raspberry-Pi-basiertes System. Weitere Informationen zum Controme Smart-Heat-System finden Sie auf der Controme-Website.
+
+## Batrium-bms (4.4.2025) – neuer Adapter
+https://github.com/bembelstemmer/ioBroker.batrium-bms
+
+<img src="https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png" width="100" height="100" />
+
+Ein ioBroker-Adapter zum Verfolgen der über UDP veröffentlichten Metriken Ihres Batrium BMS.
+
+Dieser Adapter basiert auf der offiziellen Batrium WatchMonUdpListener-Implementierung unter: https://github.com/Batrium/WatchMonUdpListener
+
+<!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole! -->

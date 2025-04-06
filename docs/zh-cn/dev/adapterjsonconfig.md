@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: 6uTfuvgFajoBnNjjSf9xzK2KRpWcbYsj1RE59xOM3XA=
+hash: P9iDHwiiz6N1fpH+adpU463y6gA5iLKFdjnaEA2fCD8=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。此方法提供了一种更加用户友好且灵活的方式，可在 ioBroker Admin 界面中管理适配器设置。
@@ -55,7 +55,7 @@ jsonConfig 自动确保将收集的数据记录为适配器的配置数据并在
 }
 ```
 
-如果属性名称以“\_”开头，则它将不会保存在对象中。
+如果属性名称以“\_”开头，则不会保存在对象中。
 
 ## 具有多个选项卡的 jsonConfig 示例
 ```json5
@@ -164,7 +164,7 @@ jsonConfig 由多个按层次结构排列的元素组成。\ 每个元素都可�
 - [**`selectSendTo`:**](#selectsendto) 带有用于发送数据的实例值的下拉菜单
 - [**`sendTo`:**](#sendto) 向实例发送请求的按钮
 - [**`setState`:**](#setstate) 设置实例状态的按钮
-- [**`slider`:**](#slider) 用于选择一定范围内的值的滑块（仅限 Admin 6）
+- [**`slider`:**](#slider) 用于选择范围内的值的滑块（仅限 Admin 6）
 - [**`state`:**](#state) 显示来自状态的控制或信息 (admin >= 7.1.0)
 - [**`staticImage`:**](#staticimage) 显示静态图像
 - [**`staticInfo`:**](#staticinfo) 以预格式化的形式显示静态信息，如“标题：值单位”（admin >= 7.3.3）
@@ -233,7 +233,7 @@ admin/i18n/de.json
 admin/i18n/en.json
 ```
 
-此外，用户可以提供 `i18n` 文件、`i18n`：`customI18n` 的路径，并在管理员中提供文件：
+此外，用户可以提供`i18n`文件、`i18n`：`customI18n`的路径，并在管理员中提供文件：
 
 ```json5
   i18n: "customI18n",
@@ -253,7 +253,7 @@ admin/customI18n/en.json
 
 文件的结构对应以下结构
 
-**en.json：**
+**en.json:**
 
 ```json5
 {
@@ -316,7 +316,7 @@ admin/customI18n/en.json
 | `collapsable` | 仅可能不属于标签[json配置.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json) |
 | `color` | 可折叠标题的颜色`primary` 或`secondary` 或无 |
 | `innerStyle` | Panel 组件的 React 格式（`marginLeft` 而非 `margin-left`）内部 div 的 CSS 样式。不用于可折叠面板。|
-| `innerStyle` | Panel 组件的 React 格式（`marginLeft` 而非 `margin-left`）内部 div 的 CSS 样式。不适用于可折叠面板。|
+| `innerStyle` | Panel 组件的 React 格式（`marginLeft` 而非 `margin-left`）内部 div 的 CSS 样式。不用于可折叠面板。|
 
 ###`text`
 文本组件
@@ -329,10 +329,10 @@ admin/customI18n/en.json
 | `minRows` | 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更高。|
 | `maxRows` | 文本区域的最大行数。仅当 `minRows` > 1 时使用。|
 | `noClearButton` | 如果为真，则不会显示清除按钮（admin >= 6.17.13）|
-| `validateJson` | 如果为真，则文本将被验证为 JSON |
+| `validateJson` | 如果为真，文本将被验证为 JSON |
 | `allowEmpty` | 如果为真，则仅当值不为空时才会验证 JSON |
 | `time` | 该值是毫秒时间或字符串。仅与 readOnly 标志一起使用 |
-| `time` | 值是毫秒或字符串的时间。仅与 readOnly 标志一起使用 |
+| `time` | 值是毫秒时间或字符串。仅与 readOnly 标志一起使用 |
 
 ###`number`
 | 物业 | 描述 | 备注 |
@@ -483,7 +483,7 @@ admin/customI18n/en.json
 ```
 
 ###`objectId`
-对象 ID：用名称、颜色和图标显示
+对象 ID：用名称、颜色和图标显示。
 
 | 属性 | 描述 |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -562,7 +562,7 @@ admin/customI18n/en.json
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `instance` | 检查实例是否处于活动状态。如果未定义，则将使用当前实例。您可以在文本中使用`${data.number}`模式。|
 | `textNotAlive` | 默认文本为 `Instance %s is not alive`，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中 |
-| `textNotAlive` | 默认文本为“实例 %s 未处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。翻译必须存在于 i18n 文件中 |
+| `textNotAlive` | 默认文本为 `Instance %s is not alive`，其中 %s 将被 `ADAPTER.0` 替换。翻译必须存在于 i18n 文件中 |
 
 ###`pattern`
 具有类似“https://${data.ip}:${data.port}”模式的只读字段（不会保存在配置中）具有只读标志的文本输入，显示模式。
@@ -582,8 +582,8 @@ admin/customI18n/en.json
 | `result` | `{result1: {en: 'A'}, result2: {en: 'B'}}` |
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`、`outlined` 或无 |
-| `openUrl` | 如果为真 - 如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`，则在新选项卡中打开 URL。如果`saveConfig`为真，则将要求用户保存配置。|
-| `reloadBrowser` | 如果为 true - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
+| `openUrl` | 如果为真 - 在新选项卡中打开 URL，如果响应包含属性`openUrl`，如`{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`。如果`saveConfig`为真，则将要求用户保存配置。|
+| `reloadBrowser` | 如果为真 - 重新加载当前浏览器窗口，如果响应包含属性`reloadBrowser`，如`{"reloadBrowser": true}`。|
 | `window` | 如果 `openUrl` 为真，则这是新窗口的名称。如果响应包含 `window` 属性，则可以被覆盖。`this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用`base64` 图标（如`data:image/svg+xml;base64,...`）或`jpg/png` 图像（以`.png` 结尾）。（如果您需要更多图标，请通过问题请求）|
 | `useNative` | 如果适配器返回的结果具有 `native` 属性，则将用于配置。如果 `saveConfig` 为真，则将请求用户保存配置。|
@@ -654,9 +654,9 @@ admin/customI18n/en.json
 | 属性 | 描述 |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `items` | `[{"type": see above, "attr": "name", "default": ""}]` 项目可以像在 `panel` 上放置（xs、sm、md、lg 和 newLine）|
-| `noDelete` | 布尔值，表示删除或添加被禁用，如果`noDelete` 为假，则添加、删除和上/下移动应该可以工作 |
+| `noDelete` | 布尔值，表示删除或添加是否禁用，如果`noDelete` 为假，则添加、删除和上/下移动应该可以工作 |
 | `clone` | [可选] - 是否应显示克隆按钮。如果为真，则将显示克隆按钮。如果为属性名称，则此名称将是唯一的。|
-| `clone` | [可选] - 是否显示克隆按钮。如果为 true，则显示克隆按钮。如果是属性名称，则此名称是唯一的。|
+| `clone` | [可选] - 是否显示克隆按钮。如果为 true，则将显示克隆按钮。如果是属性名称，则此名称将是唯一的。|
 
 ###`jsonEditor`
 打开 JSON(5) 编辑器的按钮。从管理员版本 5.7.3 开始支持 JSON5
@@ -715,7 +715,7 @@ admin/customI18n/en.json
 #### URL 示例
 - `custom/customComponents.js`：在这种情况下，文件将从 `/adapter/ADAPTER_NAME/custom/customComponents.js` 加载
 - `https://URL/myComponent`：直接从 URL
-- `./adapter/ADAPTER_NAME/custom/customComponent.js`：在这种情况下，文件将从 `/adapter/ADAPTER_NAME/custom/customComponents.js` 加载
+- `./adapter/ADAPTER_NAME/custom/customComponent.js`: 在这种情况下，文件将从 `/adapter/ADAPTER_NAME/custom/customComponents.js` 加载
 
 ###`datePicker`
 允许用户选择日期输入，UI 格式来自配置
@@ -757,7 +757,7 @@ admin/customI18n/en.json
 
 | 属性 | 描述 |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pattern` | 文件扩展名模式。允许 `**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或 `folderName/*.ext` 显示子文件夹中的所有文件 `folderName`。默认 `**/*.*`。|
+| `pattern` | 文件扩展名模式。允许`**/*.ext` 显示子文件夹中的所有文件、`*.ext` 显示根文件夹中的所有文件或`folderName/*.ext` 显示子文件夹中的所有文件`folderName`。默认`**/*.*`。|
 | `objectID` | 对象 ID 类型为 `meta`。您可以使用特殊占位符 `%INSTANCE%`：如 `myAdapter.%INSTANCE%.files` |
 | `upload` | 路径，上传的文件将存储于此。例如 `folderName`。如果未定义，则不会显示上传字段。要在根目录中上传，请将此字段设置为 `/`。|
 | `refresh` | 在选择附近显示刷新按钮。|
@@ -820,7 +820,7 @@ adapter.on("message", (obj) => {
 | `manual` | 允许手动编辑。无下拉菜单（如果实例处于离线状态）。默认`true`。|
 | `multiple` | 多选选择 |
 | `showAllValues` | 即使未找到标签也显示项目（多个），默认=`true` |
-| `noTranslation` | 不翻译选择的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是形式为 `[{"value": 1, "label": "one"}, ...]` | 的数组 |
+| `noTranslation` | 不翻译选择的标签。要使用此选项，您的适配器必须实现消息处理程序。命令的结果必须是形式为 `[{"value": 1, "label": "one"}, ...]` 的数组 |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `alsoDependsOn` | 通过改变哪些属性，必须重新发送命令 |
 
@@ -901,7 +901,7 @@ adapter.on("message", (obj) => {
 | `container` | div，文本，html |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `command` | sendTo 命令 |
-| `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
+| `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将被发送到后端 |
 | `data` | 对象 - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或数据，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
 | `data` | object - `{"subject1": 1, "data": "static"}`。您可以指定 jsonData 或 data，但不能同时指定。如果未定义 jsonData，则此数据将发送到后端。|
 
@@ -963,7 +963,7 @@ adapter.on("message", (obj) => {
 | 属性 | 描述 |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `divider` | 纬度和经度之间的分隔符。默认为“，”（如果未定义 longitudeName 和 latitudeName 则使用）|
-| `longitudeName` | 如果定义了，经度将存储在此属性中，分隔符将被忽略 |
+| `longitudeName` | 如果定义，经度将存储在此属性中，分隔符将被忽略 |
 | `latitudeName` | 如果定义，纬度将存储在此属性中，分隔符将被忽略 |
 | `useSystemName` | 如果定义了，则会显示带有“使用系统设置”的复选框，并从`system.config` 读取纬度、经度，并将布尔值保存到给定名称|
 | `useSystemName` | 如果定义了，则会显示带有“使用系统设置”的复选框，并从`system.config`中读取纬度，经度，布尔值将保存到给定的名称|
@@ -985,10 +985,10 @@ adapter.on("message", (obj) => {
 | `title` | 许可证对话框的标题 |
 | `agreeText` | 同意按钮的文字 |
 | `checkBox` | 如果已定义，则将显示具有给定名称的复选框。如果已选中，则将启用同意按钮。|
-| `checkBox` | 如果定义，则显示具有给定名称的复选框。如果选中，则启用同意按钮。|
+| `checkBox` | 如果定义，则显示指定名称的复选框。如果选中，则启用同意按钮。|
 
 ###`checkLicense`
-非常特殊的组件，用于在线检查许可证。本机中确实需要`license` 和 `useLicenseManager` 属性。
+非常特殊的组件，用于在线检查许可证。本机中确实需要`license` 和`useLicenseManager` 属性。
 
 | 属性 | 描述 |
 |-----------|---------------|
@@ -1006,10 +1006,10 @@ adapter.on("message", (obj) => {
 | `min` | 允许的最小端口号。可以是 0。如果值为零，则不会检查端口是否被占用。|
 
 ###`state`
-（admin >= 7.1.0）显示来自国家/地区的控制或信息
+（管理员 >= 7.1.0）显示来自状态（管理员 >= 7.6.4）属性`showEnterButton` 和`setOnEnterKey` 的控制或信息
 
 | 属性 | 描述 |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `oid` | 应采用哪个对象 ID 进行控制。该 ID 没有 `adapter.X.` 前缀 |
 | `foreign` | `oid` 是绝对的，无需将 `adapter.X` 或 `system.adapter.X.` 添加到 oid |
 | `control` | 应如何显示状态值：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number` |
@@ -1033,7 +1033,9 @@ adapter.on("message", (obj) => {
 | `addColon` | 如果标签中不存在冒号，则在标签末尾添加冒号 |
 | `labelIcon` | 标签的 Base64 图标 |
 | `buttonValue` | 可选值，将发送给按钮 |
-| `buttonValue` | 可选值，将发送给按钮 |
+| `showEnterButton` | 显示 SET 按钮。此情况下的值仅在按下按钮时发送。您可以定义按钮的文本。默认文本为“Set”（仅适用于“输入”、“数字”或“滑块”）|
+| `setOnEnterKey` | 仅当按下“Enter”按钮时，才会发送此情况下的值。它可以与 `showEnterButton` 结合使用 |
+| `setOnEnterKey` | 本例中的值仅在按下“Enter”按钮时才会发送。它可以与`showEnterButton`结合使用|
 
 ###`staticInfo`
 以预格式化的形式显示静态信息，如“标题：值单位”（admin >= 7.3.3）此控件主要用于动态表单
@@ -1249,7 +1251,7 @@ adapter.on("message", (obj) => {
 以下章节取自原版SCHEMA.MD。
 内容理解不够详细，需要bluefox改进。
 
-JS 函数
+## JS 函数
 ### 配置对话框
 JS 函数为：
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
+hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -14,7 +14,7 @@ hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
 ![新平台](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
 # IoBroker.alexa-timer-vis
-**测试：**![测试与发布](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 alexa-timer-vis 适配器
 此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及如何禁用错误报告的信息，请参阅 Sentry-Plugin 文档！从 js-controller 3.0 开始使用 Sentry 报告。
@@ -60,6 +60,12 @@ hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- FEAT: Add more config
+- CHORE: Update dependencies
+
 ### 2.0.8 (2024-12-04)
 
 - CHORE: Update dependencies
@@ -208,7 +214,7 @@ hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
 
 ## License
 
-Copyright (c) 2021-2024 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2025 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 

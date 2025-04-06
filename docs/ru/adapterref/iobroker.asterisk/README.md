@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.asterisk/README.md
 title: Адаптер VoIP Asterisk ioBroker
-hash: /epcTbsSNLXOiJlMxorB29LVQBYTZQcPGTFvmTa/gv0=
+hash: w6+gZownVvRYn+6/93/6nGk42ZMahVIJ7ZfDmtz++1o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.asterisk/admin/asterisk.png)
 
@@ -159,7 +159,7 @@ sudo asterisk -rvv
 ### Использование Asterisk с объектами/состояниями для дозвона
 Если вы настроили своего SIP-провайдера (например, Fritzbox, Sipgate, ...) и конфигурацию Asterisk для разрешения звонков по телефонной линии, вы можете установить следующий параметр
 
-- callerid: номер телефона, с которого звонили asteriks
+- callerid: номер телефона, с которого был совершен вызов asteriks
 - dtmf: звонящие нажимали цифры на клавиатуре
 - текст: текст, который будет воспроизведен вызывающему абоненту
 - язык: текст будет преобразован в аудио на этом языке
@@ -181,13 +181,13 @@ sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, text:  msg},  
 
 // call telephone nummber 040 666-7766 and play mp3 audio file
 // mp3 file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.mp3'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.mp3'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
 // call telephone nummber 040 666-7766 and play gsm audio file
 // gsm file has to exist on asterix server
-sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, aufiofile: '/tmp/audio.gsm'},  (res) => {
+sendTo('asterisk.0', 'dial', { telnr: number, callerid: callerid, audiofile: '/tmp/audio.gsm'},  (res) => {
       console.log(`Result: ${JSON.stringify(res)}`);
 });
 
@@ -217,6 +217,14 @@ on({ id: 'asterisk.0.dialout.dtmf'/*DTMF Code*/ },  (obj) => {
 Если у вас возникли проблемы с asterisk, вы можете попытаться найти что-нибудь в файлах журнала в /var/log/asterisk. После запуска asterisk вы можете вызвать asterisk с помощью asterisk -rvvvvvv в командной оболочке для отладки. После запуска asterisk -rvvvvvv вы можете инициализировать вызов с помощью iobroker и посмотреть, что произойдет.
 
 ## Changelog
+### 2.0.3 (2025-03-30)
+
+- (Stübi) Bugfixing in sendto function
+- (Stübi) Add Object repeat
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #57)
+- (Stübi) Fixing dependency (Issue #58)
+- (Stübi) Fixing issue with missing template directory (Issue #56 and #65)
+
 ### 2.0.2 (2025-02-01)
 
 - (Stübi) Add Create Directory

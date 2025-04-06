@@ -53,6 +53,19 @@
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.7.9 (2025-04-04)
+- (steiger04) Widget optimizations
+
+### 1.7.8 (2025-04-04)
+- (steiger04) Push button functionality for State widget added
+
+### 1.7.7 (2025-03-31)
+- (steiger04) Slider optimized
+
+### 1.7.6 (2025-03-31)
+- (steiger04) Dialog with width and height in pixel
+- (steiger04) Widget optimizations
+
 ### 1.7.5 (2025-03-23)
 - (steiger04) Dialog bug fixed
 

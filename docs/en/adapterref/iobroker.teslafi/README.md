@@ -74,10 +74,16 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
+### 1.4.0 (2025-03-31)
 
-### **WORK IN PROGRESS**
+- (hombach) add charge limit commands (#121)
+- (hombach) add statevalue range to projectUtils
 
-- (hombach)
+### 1.3.0 (2025-03-30)
+
+- (hombach) add stop HVAC command (#121)
+- (hombach) add start/stop charging command (#121)
+- (hombach) bump dependencies
 
 ### 1.2.2 (2025-03-11)
 

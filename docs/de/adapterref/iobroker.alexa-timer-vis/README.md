@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
+hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -14,10 +14,10 @@ hash: +phsT6UnSqZaibOikL3Ty7tE2efk+cNrV3aD/DNSxG8=
 ![NPM](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
 # IoBroker.alexa-timer-vis
-**Tests: ** ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## Alexa-Timer-Vis-Adapter für ioBroker
-Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der Sentry-Plugin-Dokumentation! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+Dieser Adapter verwendet Sentry-Bibliotheken, um Exceptions und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der Sentry-Plugin-Dokumentation! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Ausgabe des Alexa-Timers zur Anzeige im Vis
 
@@ -25,7 +25,7 @@ Ausgabe des Alexa-Timers zur Anzeige im Vis
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
-### Dies ist ein Beispiel für mein vis
+### Dies ist ein Beispiel für meinen Besuch
 ![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
 
 ## Funktionalität
@@ -33,11 +33,11 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 
 - ---- Alexa2-Adapter wird benötigt ----
 - Das Vis Widget ist noch nicht integriert
-- Jeder Timer hat eine Taste, um ihn zu stoppen. Stoppt den Timer in Alexa und im Adapter
+- Jeder Timer hat eine Taste zum Stoppen. Stoppt den Timer in Alexa und im Adapter
 - Mit Alexa können per Sprachbefehl unbegrenzt viele Timer erstellt werden.
 - Beim Start des Adapters werden 4 Ordner mit allen Zuständen erstellt.
-- Zusätzliche Ordner werden erstellt, sobald ein 5. und weitere Timer über die Spracheingabe von Alexa erstellt werden.
-- Es funktioniert mit deutschen Eingaben
+- Weitere Ordner werden erstellt, sobald ein 5. und mehr Timer über die Spracheingabe von Alexa erstellt werden.
+- Es funktioniert mit deutscher Eingabe
 
 ### Timer hinzufügen (Beispiele)
 - Alexa, Timer 5 Minuten
@@ -47,9 +47,9 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 - Alexa, Timer für 120 Minuten
 - Alexa, Timer 9 Minuten Spaghetti
 
-### Timer löschen ( Beispiele )
+### Timer löschen (Beispiele)
 - Alexa, lösche alle Timer
-- Alexa, lösche Pommes Timer
+- Alexa, lösche den Pommes-Timer
 - Alexa, lösche den 5-Minuten-Timer
 
 ### Wenn Sie Vorschläge zur Verbesserung oder zum Hinzufügen weiterer Funktionen haben, können Sie sich gerne an uns wenden
@@ -60,6 +60,12 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- FEAT: Add more config
+- CHORE: Update dependencies
+
 ### 2.0.8 (2024-12-04)
 
 - CHORE: Update dependencies
@@ -208,7 +214,7 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 
 ## License
 
-Copyright (c) 2021-2024 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2025 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 
