@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: l5+h7Jw12bkVoe/zM8dbDaeUBOsa9RDwqCxiRwIma+Y=
+hash: +gQBHhjWr1btYQuxCNfxzV+Ri9IifKMao92H+Op36D8=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -293,6 +293,9 @@ npm run start
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added new SVG icon as favicon.
+
 ### 2.11.2 (2025-01-23)
 * (@GermanBluefox) Do not load vis-1 widgets if vis-2 widgets provided
 

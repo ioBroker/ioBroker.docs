@@ -23,6 +23,9 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.8.1 (2025-04-06)
+* (BenAhrdt) chaned format time in device info
+
 ### 1.8.0 (2025-04-06)
 * (BenAhrdt) update dependencies and time / timestamp in deviceinfos
 

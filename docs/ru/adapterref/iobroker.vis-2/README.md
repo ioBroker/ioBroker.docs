@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация следующего поколения для ioBroker: vis-2
-hash: l5+h7Jw12bkVoe/zM8dbDaeUBOsa9RDwqCxiRwIma+Y=
+hash: +gQBHhjWr1btYQuxCNfxzV+Ri9IifKMao92H+Op36D8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -230,7 +230,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 Существует правило, что после некоторого периода отключения вся страница VIS будет перезагружена для синхронизации проекта. Вы можете настроить это в меню «Настройки...». Если вы установите интервал на «никогда», то страница никогда не будет перезагружена.
 
 ### Интервал повторного подключения
-Установите интервал между попытками подключения в случае отключения. Если установить 2 секунды, то попытки установить соединение будут каждые 2 секунды.
+Установите интервал между попытками подключения в случае отключения. Если вы установите 2 секунды, он будет пытаться установить соединение каждые 2 секунды.
 
 ### Темный экран повторного подключения
 Иногда (ночью) требуется тёмный экран загрузки. С помощью этой опции вы можете это настроить.
@@ -289,6 +289,9 @@ npm run start
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added new SVG icon as favicon.
+
 ### 2.11.2 (2025-01-23)
 * (@GermanBluefox) Do not load vis-1 widgets if vis-2 widgets provided
 
