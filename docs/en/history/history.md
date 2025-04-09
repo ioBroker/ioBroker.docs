@@ -831,4 +831,11 @@ An ioBroker Adapter to track Metrics of your Batrium BMS published via UDP.
 
 This Adapter is based on the official Batrium WatchMonUdpListener Implementation on: https://github.com/Batrium/WatchMonUdpListener
 
+## fyta (9.4.2025) – new adapter
+https://github.com/muffin142/ioBroker.fyta
+
+<img src="https://raw.githubusercontent.com/muffin142/ioBroker.fyta/main/admin/fyta.png" width="100" height="100" />
+
+Unofficial Adapter to connect ioBroker to FYTA plant sensors Sensors can be purchased an the FYTA Shop
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
