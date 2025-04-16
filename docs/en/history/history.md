@@ -838,4 +838,11 @@ https://github.com/muffin142/ioBroker.fyta
 
 Unofficial Adapter to connect ioBroker to FYTA plant sensors Sensors can be purchased an the FYTA Shop
 
+## shrdzm (16.4.2025) – new adapter
+https://github.com/mcm4iob/ioBroker.shrdzm
+
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.shrdzm/main/admin/shrdzm.png" width="100" height="100" />
+
+This adapter integrates the SHRDZM smartmeter interface available from SHRDZM IT Services e.U. into ioBroker. A description of the interface is available [here](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
