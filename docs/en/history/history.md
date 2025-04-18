@@ -845,4 +845,11 @@ https://github.com/mcm4iob/ioBroker.shrdzm
 
 This adapter integrates the SHRDZM smartmeter interface available from SHRDZM IT Services e.U. into ioBroker. A description of the interface is available [here](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
+## ankersolix2 (18.4.2025) – new adapter
+https://github.com/ronny130286/ioBroker.ankersolix2
+
+<img src="https://raw.githubusercontent.com/ronny130286/ioBroker.ankersolix2/main/admin/ankersolix2.png" width="100" height="100" />
+
+Integrate Anker Solix 2. This project is derived from https://github.com/tomquist/solix2mqtt and brings information from the anker api directly into ioBroker.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
