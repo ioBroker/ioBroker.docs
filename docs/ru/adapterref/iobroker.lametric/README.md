@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
+hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -25,14 +25,14 @@ hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
 ## Оглавление
 - [Приложения](apps.md)
 - [Блокли](blockly.md)
-- [Мои данные своими руками](my-data-diy.md)
+- [Мои данные DIY](my-data-diy.md)
 - [Уведомления](notifications.md)
 
 ## Требования
-- nodejs 18 (или более поздняя версия)
-- js-controller 5.0.19 (или более поздняя версия)
-- Административный адаптер 6.0.0 (или более поздней версии)
-- _LaMetric Time_ с прошивкой _3.1.2_ (или более поздней)
+- nodejs 20 (или более поздняя версия)
+- js-controller 6.0.0 (или более поздняя версия)
+- Административный адаптер 7.4.10 (или более поздней версии)
+- _LaMetric Time_ с прошивкой _3.1.4_ (или более поздней)
 - прошивка _2.3.9_ (или более поздняя) на старых моделях (выпущенных до 2022 года)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
@@ -41,7 +41,7 @@ hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
 1. Добавьте LaMetric Time в свою локальную сеть
 - Приложение LaMetric Time (2017–2021 гг.) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
 - Приложение LaMetric (с 2022 г. по настоящее время) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
-2. Скопируйте API-ключ устройства из приложения (только модели 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
+2. Скопируйте ключ API устройства из приложения (только модели 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
 
 Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
 
@@ -65,6 +65,16 @@ hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2025-04-08)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.4)
+
+### 3.4.1 (2024-10-29)
+
+* (@klein0r) Limit frame duration to 10 seconds (limited by LaMetric)
+
 ### 3.4.0 (2024-09-06)
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
@@ -80,20 +90,11 @@ hash: bK2DI1RuNXDJKg1O+RqbcejaRrvDrFYn5QN2Imq86tI=
 
 * (@klein0r) Fixed blockly definitions
 
-### 3.2.2 (2024-07-13)
-
-* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.1)
-
-### 3.2.1 (2024-06-12)
-
-* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.1.0)
-* (@klein0r) Updated dependencies
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

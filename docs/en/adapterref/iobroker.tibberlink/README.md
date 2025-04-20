@@ -160,7 +160,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 4.5.2 (2025-04-18)
 
 - (HombachC) fix jsonConfig error (#686)
 - (HombachC) bump dependencies
@@ -196,19 +196,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) add option to enable/disable FlexCharts-JSON for each channel (#642)
 - (HombachC) fix logging for multiple homes (#647)
 - (HombachC) fix encrypted element "tibberBridgePassword" (#652)
-
-### 4.3.0 (2025-02-09)
-
-- (HombachC) added ioBroker.FlexCharts - JSON
-- (HombachC) Update tibber-api to 5.2.1 - handle obsolete data as default, remove option
-- (HombachC) Calculate outputJSON prior to time frame for channels of type 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
-- (HombachC) add outputJSON and outputJSON2 for 'SmartBatteryBuffer' channels (#592)
-- (HombachC) calculator and projectUtils code optimizations
-- (HombachC) correct role of stats states to json
-
-### 4.2.3 (2025-01-14)
-
-- (HombachC) bump cron to 3.5
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

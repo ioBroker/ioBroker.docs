@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wolf-smartset/README.md
 title: ioBroker.wolf-smartset
-hash: /fAHrUoAIV+m6YdGp/L2QU9PWPyUeAI5pOafYsMDdcA=
+hash: sj4BZC0ul6/4YEKETMqfv+iDAETh/IioBU1GiVNKFFY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wolf-smartset/admin/wolf-smartset.png)
 
@@ -71,7 +71,7 @@ API Wolf Smartset требует, чтобы каждый запрос на оп
 - `BundleId для короткого цикла опроса`
 - `BundleId для длинного цикла опроса`
 
-#### Экспортировать вход
+#### Вход для экспертов
 API Wolf Smartset определяет два уровня доступа для параметров устройства: __User__ и __Expert__. Соответственно, в представлении __Object__ пользовательского интерфейса __ioBroker Admin__ вы найдете соответствующие два поддерева: __Benutzer__ и __Fachmann__. После первоначальной аутентификации адаптер находится в пользовательском режиме и получит все доступные значения параметров только один раз во время инициализации. После этого во время периодических опросов он будет получать только обновления для значений параметров уровня пользователя (т. е. значения в дереве __Benutzer__).
 
 Если вы проверите
@@ -129,6 +129,11 @@ __!!! Важное примечание по уровню эксперта: Ко
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2025-04-18)
+- (flingo64) Bugfix: fixed various typos in Readme and translations
+- (flingo64) Bugfix: Fixed an AdminUI issue (#450 - 'No device selected') when the device information contained line break (e.g. in ContactInformation, Description or Comment )
+- (flingo64) Enhancement for AdminUI: support for more than one device in list of devices returned from Wolf Smartset server
+
 ### 2.0.0 (2025-04-02)
 - (flingo64) BREAKING CHANGE: Please reenter your login credentials.
 - (mcm1957) Adapter requires node.js 20, js-controller 6 and admin 7 now.

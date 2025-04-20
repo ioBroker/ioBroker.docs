@@ -792,6 +792,9 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Fix Responsive Design for Tab Menu
+
 ### 2.0.1 (2025-03-24)
 * (simatec) Fix Translations
 * (simatec) Tab Icons added

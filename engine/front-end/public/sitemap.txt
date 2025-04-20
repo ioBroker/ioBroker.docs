@@ -809,6 +809,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.comfoair/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.contactid/README.md
@@ -894,6 +895,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.fronius/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fronius-solarweb/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fronius-wattpilot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.frontier_silicon/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.frontier_silicon/states.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fuelpricemonitor/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fullcalendar/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fullybrowser/README.md
@@ -1146,6 +1148,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.pjlink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.places/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.playstation/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.plenticore/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.plenticore-g3/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pollenflug/README.md
@@ -1513,6 +1516,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.comfoair/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.contactid/README.md
@@ -1598,6 +1602,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.fronius/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fronius-solarweb/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fronius-wattpilot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.frontier_silicon/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.frontier_silicon/states.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fuelpricemonitor/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fullcalendar/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fullybrowser/README.md
@@ -1850,6 +1855,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.pjlink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.places/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.playstation/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.plenticore/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.plenticore-g3/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pollenflug/README.md
@@ -2217,6 +2223,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.comfoair/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.contactid/README.md
@@ -2302,6 +2309,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fronius/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fronius-solarweb/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fronius-wattpilot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.frontier_silicon/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.frontier_silicon/states.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fuelpricemonitor/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fullcalendar/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fullybrowser/README.md
@@ -2554,6 +2562,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pjlink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.places/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.playstation/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.plenticore/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.plenticore-g3/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pollenflug/README.md
@@ -2921,6 +2930,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloud/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloudflare/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloudless-homeconnect/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.comfoair/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.comfoairq/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.consumption/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.contact/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.contactid/README.md
@@ -3006,6 +3016,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fronius/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fronius-solarweb/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fronius-wattpilot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.frontier_silicon/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.frontier_silicon/states.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fuelpricemonitor/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fullcalendar/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fullybrowser/README.md
@@ -3258,6 +3269,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pjlink/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.places/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.playstation/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.plenticore/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.plenticore-g3/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.plex/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.plexconnect/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pollenflug/README.md

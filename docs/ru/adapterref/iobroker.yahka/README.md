@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yahka/README.md
 title: iobroker.yahka
-hash: 5kS1aNzjVYFZ7GMXeZQp0GDoEU84l7z6x91GrxmtWbQ=
+hash: 85d9K6IiSUAK5rzrnWc+35RZMYX2Wb50TSQjeqS0h1s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
 
@@ -24,14 +24,14 @@ hash: 5kS1aNzjVYFZ7GMXeZQp0GDoEU84l7z6x91GrxmtWbQ=
 Просто нажмите кнопку «+» рядом с «Homekit yahka adapter» в панели администратора ioBroker на странице «Адаптер».
 
 ## Установите последнюю **Бета**
-Если вы хотите быть в курсе последних событий и протестировать последнюю бета-версию, вы можете установить адаптер через URL-адрес GitHub.
+Если вы хотите быть в курсе последних событий и протестировать последнюю бета-версию, вы можете установить адаптер через бета-репозиторий ioBroker.
 
 (Иногда требуется дополнительная загрузка (например, `iobroker upload yahka`) и перезапуск адаптера)
 
 ## Резервное копирование и восстановление
 Внимание: Чтобы иметь возможность восстановить `ioBroker.yahka` в другой системе, в дополнение к обычным `iobroker backup` и `iobroker restore`, папка `yahka.X.hapdata` в `/opt/iobroker/iobroker-data` также должна быть зарезервирована и, при необходимости, восстановлена. [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/ioBroker.yahka-auf-ein-anderes-System-umziehen) / [Проблема](https://github.com/jensweigele/ioBroker.yahka/issues/176)
 
-Другой вариант для резервного копирования и восстановления — адаптер [Резервное копирование](https://github.com/simatec/ioBroker.backitup/blob/master/README.md). Он автоматически создает резервную копию папки `yahka.X.hapdata`. Восстановление также возможно через графический интерфейс BackItUp.
+Другим вариантом для резервного копирования и восстановления является адаптер [Резервное копирование](https://github.com/simatec/ioBroker.backitup/blob/master/README.md). Он автоматически создает резервную копию папки `yahka.X.hapdata`. Восстановление также возможно через графический интерфейс BackItUp.
 
 Подробное описание вы можете найти [здесь](https://github.com/simatec/ioBroker.backitup/wiki/ioBroker.backitup-Wiki-Deutsch#yahka-backup).
 
@@ -85,7 +85,7 @@ enable-dbus=yes
 
 `sudo apt-get install pam-devel -y`
 
-### Отсутствует бонжур (окна)
+### Отсутствует bonjour (windows)
 - Скачать: `https://www.samuelattard.com/files/bonjourcore2.msi`
 - Выполнить: `msiexec /i bonjourcore2.msi /qn`
 - удалить: `del bonjourcore2.msi`
@@ -194,6 +194,12 @@ enable-dbus=yes
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 1.1.0 (2025-04-16)
+* (tarikweiss) Updated GitHub build file. Try testing a build-process with GitHub.
+* Updated design to be more responsive
+* Restructured code a bit
+* (@GermanBluefox) Updated packages
+
 ### 1.0.9 (2024-09-08)
 * Corrected Admin GUI
 
@@ -206,7 +212,7 @@ enable-dbus=yes
 
 ### 1.0.4 (2024-08-12)
 * (Apollon77) Important: js-controller 5.0 is required at least
-* (tarikweiss) Rewrote community types from submodule (js) to typescript
+* (tarikweiss) Rewrote community types from submodule (js) to TypeScript
 * (tarikweiss) Added the ability to set an ioBroker state for the availability indication in HomeKit
 
 ### 1.0.3 (2023-03-29)
@@ -337,7 +343,7 @@ enable-dbus=yes
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2024 Jens Weigele (iobroker.yahka@gmail.com)
+Copyright (c) 2016-2025 Jens Weigele (iobroker.yahka@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

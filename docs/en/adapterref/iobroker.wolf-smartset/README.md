@@ -63,7 +63,7 @@ The Wolf Smartset API requires each poll request to include - besides a list of 
 - `BundleId for Short Poll Cycle`
 - `BundleId for Long Poll Cycle` 
 
-#### Export Login
+#### Expert Login
 
 Wolf Smartset API defines two access levels for device parameters: __User__ and __Expert__. Accordingly, you will find in the __Object__ view of the __ioBroker Admin__ UI the corresponding two  subtrees: __Benutzer__ and __Fachmann__. Afer initial authentication the adapter is in User mode and will receive only once during initialization all available parameter values. After that, during periodic polls it will receive only updates for User level parameter values (i.e. value in the __Benutzer__ tree). 
 
@@ -120,6 +120,11 @@ API Profiling allows you to track the Wolf Smartset API usage of the adapter. if
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2025-04-18)
+- (flingo64) Bugfix: fixed various typos in Readme and translations
+- (flingo64) Bugfix: Fixed an AdminUI issue (#450 - 'No device selected') when the device information contained line break (e.g. in ContactInformation, Description or Comment )
+- (flingo64) Enhancement for AdminUI: support for more than one device in list of devices returned from Wolf Smartset server
+
 ### 2.0.0 (2025-04-02)
 - (flingo64) BREAKING CHANGE: Please reenter your login credentials.
 - (mcm1957) Adapter requires node.js 20, js-controller 6 and admin 7 now.

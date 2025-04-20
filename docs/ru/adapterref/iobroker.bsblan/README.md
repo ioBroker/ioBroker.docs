@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bsblan/README.md
 title: ioBroker.bsblan
-hash: aqqhGzhfFCM2Aptm7WyQ/ZDbNPadxuZkMPh5Dd1JyLU=
+hash: haHr0tg9u5OtGuZeXjL1ia46eC98hfCm7eWcwUdhShU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bsblan/admin/bsblan.png)
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.bsblan.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.bsblan.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bsblan.svg)
-![Статус зависимости](https://img.shields.io/david/hacki11/iobroker.bsblan.svg)
-![Известные уязвимости](https://snyk.io/test/github/hacki11/ioBroker.bsblan/badge.svg)
+![Количество установок](https://iobroker.live/badges/bsblan-installed.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/bsblan-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bsblan.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/hacki11/ioBroker.bsblan/master.svg)
+![Известные уязвимости](https://snyk.io/test/github/hacki11/ioBroker.bsblan/badge.svg)
 
 # IoBroker.bsblan
 ## Адаптер bsb_lan для ioBroker
@@ -47,8 +47,19 @@ hash: aqqhGzhfFCM2Aptm7WyQ/ZDbNPadxuZkMPh5Dd1JyLU=
 - Значок создан [Freepik](https://www.freepik.com/home) с сайта www.flaticon.com
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* Maintenance release
+* Setup Eslint 9, Prettier and Dev Container
+* Migrate to newest adapter-creator version
+
 ### 0.3.4
 * Fix order of individual destinations (They need to be queried sorted by destination, starting with default destination)
+
 ### 0.3.3
 * Support for individual destinations e.g. `710!7`
 ### 0.3.2
@@ -56,10 +67,10 @@ hash: aqqhGzhfFCM2Aptm7WyQ/ZDbNPadxuZkMPh5Dd1JyLU=
 
 ### 0.3.1
 * Code Quality Improvements
+
 ### 0.3.0
 * Add support for BSB_LAN 2.x
 * BREAKING: Names of 24h Average values changed (e.g. Außentemperatur_(8700) => 24h Durchschnittswert. Außentemperatur_(20050))
-
 
 ### 0.2.2
 * Replace invalid characters: https://github.com/ioBroker/ioBroker.js-controller/issues/198
@@ -91,7 +102,7 @@ hash: aqqhGzhfFCM2Aptm7WyQ/ZDbNPadxuZkMPh5Dd1JyLU=
 ## License
 MIT License
 
-Copyright (c) 2024 hacki11
+Copyright (c) 2025 hacki11
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

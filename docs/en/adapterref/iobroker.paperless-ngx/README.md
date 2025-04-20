@@ -27,6 +27,15 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2025-04-10)
+* (BenAhrdt) add timeout to config
+
+### 0.4.3 (2025-04-10)
+* (BenAhrdt) added more debug logging
+
+### 0.4.2 (2025-04-10)
+* (BenAhrdt) logging in case of no connection improoved
+
 ### 0.4.1 (2025-03-03)
 * (BenAhrdt) Search logic for and / or improoved
 

@@ -50,6 +50,9 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 4.0.0 (2025-04-16)
+NodeJS >= 20.x and js-controller >= 6 is required
+
 ### 3.1.0 (2024-11-18)
 
 * (@simatec) Added responsive jsonConfig
@@ -67,18 +70,6 @@ NodeJS 16.x is required
 
 ### 2.3.1 (2023-01-11)
 * (klein0r) Added Ukrainian language
-
-### 2.3.0 (2022-11-03)
-NodeJS 14.5.0 is required
-
-* (klein0r) Added hourly, weekly, monthly, ... averages
-* (klein0r) Added promises to avoid parallel execution of tasks (lead to incorrect calculations)
-* (klein0r) Fixed init values for save/temp
-* (klein0r) Added option to enable statistics for objects via sendTo
-* (klein0r) Allow sum delta to substract values (negative delta)
-* (klein0r) Delete states when option in unchecked
-* (klein0r) Removed dayMin and dayMax from avg (use minmax for that case!)
-* (klein0r) Fix: Calculation of avg when no change of value
 
 ## License
 

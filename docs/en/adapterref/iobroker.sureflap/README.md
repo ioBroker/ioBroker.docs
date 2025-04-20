@@ -178,6 +178,10 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 3.1.1 (2025-04-16)
+
+* (Sickboy78) prevent log spam from missing rssi
+
 ### 3.1.0 (2025-03-26)
 
 * (Sickboy78) improved handling of number of bowls

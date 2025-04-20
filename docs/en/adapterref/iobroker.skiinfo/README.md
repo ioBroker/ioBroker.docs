@@ -32,16 +32,20 @@ weitere Informationen
 
 ### Skiinfo browser
 
-The widget is used to browse through all available countries, regions and areas and set favorite areas.
-With the table head, you can toggle the sort mode for each column (default, descending, ascending).
-With the star icon you can toggle the favorite mode.
-As a datapoint please select the config datapoint.
+The widget allows you to browse all available countries, regions, and territories and set favorites.
+
+You can toggle the sorting for each column (default, descending, or ascending) using the table header.
+You can search using the search icon in the area column.
+You can toggle favorites mode using the star icon.
+
+Select the configuration data point as the data point.
 
 ### Skiinfo favorite
 
 The widget is used to show only the favorite ski areas.
 With the table head, you can toggle the sort mode for each column (default, descending, ascending).
 With the star icon you can remove the area from the favorite list.
+
 As a datapoint please select the config datapoint.
 
 ### CSS Classes
@@ -190,13 +194,17 @@ console.log(response);
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2025-04-16)
 
-### **WORK IN PROGRESS**
+- add search for regions in browser
+
+### 0.4.1 (2025-04-08)
 
 - fix url
 - fix classname of CountryList
 - improve icons with round corners
 - fix advices from code review
+- fix global dependency
 
 ### 0.4.0 (2025-03-05)
 

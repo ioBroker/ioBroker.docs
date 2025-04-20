@@ -103,10 +103,11 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 0.9.17 (2025-04-07)
 * (simatec) Dependencies updated
 * (simatec) Cleaned up code
- 
+* (simatec) migrated to json5
+
 ### 0.9.16 (2025-02-22)
 * (simatec) Dependencies updated
 * (simatec) small fix

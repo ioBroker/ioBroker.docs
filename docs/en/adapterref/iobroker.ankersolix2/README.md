@@ -51,10 +51,11 @@ If you have erros again and cant login, stop the adapter and delete the session.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.1.0 (2025-04-17)
 
 - (ronny130286) reorganized analysis option (now selectable in adminconsole)
+- (ronny130286) add battery energy to solix devices
+- (ronny130286) update packages
 
 ### 2.0.0 (2025-03-09)
 

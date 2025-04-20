@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: 9AY/wLITY5pqDIwSAGzussok/Igv+9FISL3AMBBNmjE=
+hash: E8CVANcq4KIUE18wXRqlxtXZp9tRdHWHrGhcVDJAK5E=
 ---
 ![Logo](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
@@ -24,7 +24,7 @@ hash: 9AY/wLITY5pqDIwSAGzussok/Igv+9FISL3AMBBNmjE=
 **************************************************************************************************************
 
 ## Shrdzm-Adapter für ioBroker
-Dieser Adapter integriert die SHRDZM-Smartmeter-Schnittstelle des Anbieters *SHRDZM IT Services e.U.* in ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+Dieser Adapter integriert die SHRDZM-Smartmeter-Schnittstelle des Anbieters *SHRDZM IT Services e.U.* in den ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
 Beachten Sie, dass dieser Adapter in keiner Weise mit dem oben genannten Unternehmen verbunden ist und keinerlei Geschäftsbeziehung besteht.
 

@@ -9,7 +9,7 @@
 This adapter allows connection from the internet through ioBroker cloud to local installation of ioBroker.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Settings
 ### APP-KEY
@@ -41,18 +41,18 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 If you set in the settings the field "White list for services" the name *custom_test*, and call with "custom_test" as the service name, the state `cloud.0.services.custom_test` will be set to `myString`.
 
-You may write "*" in white list and all services will be allowed.
+You may write "*" in whitelist and all services will be allowed.
 
 From version 2.0.5 you can use GET request in form `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` to place the `\<data\>` into `cloud.0.services.custom_\<NAME\>`.
 
 Here you can find instructions on how to use it with [tasker](doc/tasker.md).
 
-IFTTT service is allowed only if IFTTT key is set.
+IFTTT service is allowed only if an IFTTT key is set.
 
-Reserved names are "ifttt", "text2command", "simpleApi", "swagger". These must be used without the `"custom_"` prefix.
+Reserved names are `ifttt`, `text2command`, `simpleApi`, `swagger`. These must be used without the `"custom_"` prefix.
 
 ### text2command
-You may write `text2command` in white list, you can send POST request to `https://iobroker.net/service/text2command/<user-app-key>` to write data into `text2command.X.text` variable.
+You may write `text2command` in whitelist, you can send POST request to `https://iobroker.net/service/text2command/<user-app-key>` to write data into `text2command.X.text` variable.
 
 "X" can be defined in settings by the "Use text2command instance" option.
 
@@ -79,6 +79,7 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 * (bluefox) updated socket classes
 * (bluefox) minimum required node.js version is 18
 * (bluefox) used `@iobroker/eslint-config`
+* (bluefox) Rewritten with TypeScript
 
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud

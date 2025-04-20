@@ -27,10 +27,10 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 
 ## Anforderungen
 
-- nodejs 18 (oder neuer)
-- js-controller 5.0.19 (oder neuer)
-- Admin Adapter 6.0.0 (oder neuer)
-- _LaMetric Time_ mit Firmware _3.1.2_ (oder neuer)
+- nodejs 20 (oder neuer)
+- js-controller 6.0.0 (oder neuer)
+- Admin Adapter 7.4.10 (oder neuer)
+- _LaMetric Time_ mit Firmware _3.1.4_ (oder neuer)
     - Firmware _2.3.9_ (oder neuer) auf älteren Modellen (hergestellt vor dem Jahr 2022)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
@@ -65,6 +65,12 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2025-04-08)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.4)
+
 ### 3.4.1 (2024-10-29)
 
 * (@klein0r) Limit frame duration to 10 seconds (limited by LaMetric)
@@ -83,10 +89,6 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
 ### 3.2.3 (2024-07-21)
 
 * (@klein0r) Fixed blockly definitions
-
-### 3.2.2 (2024-07-13)
-
-* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.1)
 
 ## License
 

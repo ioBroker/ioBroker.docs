@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: pU1YzytVVgyJGrgMykw8gkl4xkfxhyCc0t2qArxAJ1M=
+hash: 06YOpl8WFLuNzb8W5oPlTVT2uTJkBy7zMPqmQzMk88A=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -19,7 +19,7 @@ hash: pU1YzytVVgyJGrgMykw8gkl4xkfxhyCc0t2qArxAJ1M=
 
   Beispiel:
 
-``` 
+```markdown
     ## frigate (2023-08-20) - new adapter
     https://github.com/Bettman66/ioBroker.frigate
 
@@ -302,7 +302,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-## Energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -846,4 +846,29 @@ Ein ioBroker-Adapter zum Verfolgen der über UDP veröffentlichten Metriken Ihre
 
 Dieser Adapter basiert auf der offiziellen Batrium WatchMonUdpListener-Implementierung unter: https://github.com/Batrium/WatchMonUdpListener
 
+## Fyta (9.4.2025) – neuer Adapter
+https://github.com/muffin142/ioBroker.fyta
+
+<img src="https://raw.githubusercontent.com/muffin142/ioBroker.fyta/main/admin/fyta.png" width="100" height="100" />
+
+Inoffizieller Adapter zum Verbinden von ioBroker mit FYTA-Anlagensensoren. Sensoren können im FYTA-Shop erworben werden.
+
+## Shrdzm (16.4.2025) – neuer Adapter
+https://github.com/mcm4iob/ioBroker.shrdzm
+
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.shrdzm/main/admin/shrdzm.png" width="100" height="100" />
+
+Dieser Adapter integriert die SHRDZM-Smartmeter-Schnittstelle der SHRDZM IT Services e.U. in den ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+
 <!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole! -->
+
+## Js-controller (16.4.2025) - neue Funktion
+Der js-controller 7.0.7 ist nun in der neuesten Version verfügbar. Er enthält Fehlerbehebungen und Verbesserungen. Die wichtigsten Änderungen sind:
+
+- Erweiterte „encryptedNative“ und „protectedNative“. Entwickler können nun „encryptedNative“ und „protectedNative“ in Strukturen und Arrays ansprechen.
+- Das Tippen wurde verbessert.
+
+## Geräte (20.4.2025) – neue Funktion
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
+
+Der `devices`-Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.

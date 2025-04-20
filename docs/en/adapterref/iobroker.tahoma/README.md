@@ -51,6 +51,7 @@ The following configuration parameters are supported by the adapter.
 | Password                                                | _`<Your Tahomalink password>`_ | Required to authenticate your Tahoma account. |
 | Polling interval                                        | `20000` | Time (in milliseconds) after which the adapter will try to get new data from Tahomalink. |
 | PIN of the Tahoma box | format similar to `1234-5678-9012` | __<sup>Only for LocalAPI</sup>__ Unique PIN of your Tahoma box provided by Somfy. More infos on how to activate/use it [here](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode) |
+| Local IP                                                | | Optional. Use only, if you want to connect to the local api of your Tahoma box via the specified IP, instead of using the default DNS-Record `gateway-<pin>`, which will work fine for most installation.
 | Use MDNS | `false` | __<sup>Only for LocalAPI</sup>__ If set to true will try to use mDNS to resolve local hostname of you Tahoma-Box. Might not be supported by all routers, hence it is deactivated by default. |
 | Login Attempts <sup>1</sup> <sup>2</sup>                | `3` | Amount of attempts to login again after login failure. |
 | Delay between login attempts <sup>1</sup> <sup>2</sup>  | `30` | Time (in seconds) to wait between login attempts. |
@@ -106,6 +107,9 @@ See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGEL
 	Placeholder for the next version (add instead of version-number-headline below):
 	## __WORK IN PROGRESS__
 -->
+### 0.11.0 (2025-04-15)
+- Feature: Added option to specify IP address for access to local API (https://github.com/Excodibur/ioBroker.tahoma/issues/424)
+
 ### 0.10.4 (2024-04-28)
 - Fixed: Warning resolved about invalid element in jsonConfig
 

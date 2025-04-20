@@ -53,6 +53,10 @@ adaptations of the api, as far as they exist, have not been made.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (raschy) NodeJS >= 20.x and js-controller >= 6 is required
+* (raschy) appid and appsecret is now encrypted
+
 ### 0.6.4 (2025-02-06)
 * (raschy) Developer system to nodejs 22.x updated
 

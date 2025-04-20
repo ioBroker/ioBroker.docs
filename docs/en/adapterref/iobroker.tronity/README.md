@@ -36,23 +36,31 @@ the adapter.
 	### **WORK IN PROGRESS**
 -->
 
+### 1.2.1 (2025-04-07)
+
+- small bugfixes
+
+### 1.2.0 (2025-04-07)
+
+- small bugfixes
+
 ### 1.1.1 (2022-05-20)
 
--   small bugfixes
+- small bugfixes
 
 ### 1.1.0 (2022-05-09)
 
--   small bugfixes
+- small bugfixes
 
 ### 1.0.0 (2022-05-09)
 
--   initial release
+- initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 TRONITY <support@tronity.io>
+Copyright (c) 2025 TRONITY <support@tronity.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

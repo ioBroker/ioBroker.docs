@@ -74,6 +74,9 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.16.2 (2025-04-12)
+* (@foxriver76) do not try to use v2 functionality on legacy Hue bridges (closes #720)
+
 ### 3.16.1 (2025-03-07)
 * (@foxriver76) fix if no tamper report is present on state creation
 

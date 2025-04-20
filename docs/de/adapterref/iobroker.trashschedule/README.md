@@ -80,6 +80,10 @@ ttd:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Updated dependencies
+
 ### 4.0.0 (2025-01-05)
 
 NodeJS >= 20.x and js-controller >= 6 is required

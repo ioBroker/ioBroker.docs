@@ -121,6 +121,9 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.11 (2025-04-10)
+- Fixes bug with totalMileage
+
 ### 0.2.10 (2024-10-27)
 - Fixes according to ioBroker-Bot notification
   

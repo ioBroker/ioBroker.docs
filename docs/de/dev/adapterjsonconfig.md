@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: P9iDHwiiz6N1fpH+adpU463y6gA5iLKFdjnaEA2fCD8=
+hash: WRpC//LRFk79oJlgfa7E8QhXu1pwpCQmmqXQYydsHsE=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -410,8 +410,10 @@ Funktion auswählen aus `enum.func` (Mit Farbe und Symbol) - (nur Admin6)
 
 ### `select`
 | Immobilie | Beschreibung |
-|-----------|-------------------------------------------------------------------------|
+|-----------------|---------------------------------------------------------------------------|
 | `options` | Objekt mit Beschriftungen, optionalen Übersetzungen, optionaler Gruppierung und Werten |
+| `showAllValues` | Element anzeigen, auch wenn kein Label dafür gefunden wurde (bei mehreren), Standard=`true` |
+| `showAllValues` | Element anzeigen, auch wenn kein Label dafür gefunden wurde (mehrfach), Standard=`true` |
 
 #### Beispiel für `select options`
 ```json
@@ -583,7 +585,7 @@ Schaltfläche, die eine Anfrage an die Instanz sendet (<https://github.com/iobro
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. |
 | `result` | `{result1: {en: 'A'}, result2: {en: 'B'}}` |
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
-| `variant` | `contained`, `outlined` oder nichts |
+| `variant` | `contained`, `outlined` oder nichts. Variante der Schaltfläche. |
 | `openUrl` | wenn wahr – URL in neuem Tab öffnen, wenn die Antwort das Attribut `openUrl` enthält, wie `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `reloadBrowser` | wenn wahr – aktuelles Browserfenster neu laden, wenn die Antwort das Attribut `reloadBrowser` enthält, wie `{"reloadBrowser": true}`. |
 | `window` | wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort aus dem Attribut `window` besteht. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
@@ -592,7 +594,8 @@ Schaltfläche, die eine Anfrage an die Instanz sendet (<https://github.com/iobro
 | `showProcess` | Spinner anzeigen, während die Anfrage läuft |
 | `timeout` | Timeout für Anfrage in ms. Standard: keine. |
 | `onLoaded` | führe die Schaltflächenlogik zunächst einmal aus |
-| `onLoaded` | führe die Schaltflächenlogik zunächst einmal aus |
+| `controlStyle` | Stile für die Schaltfläche. |
+| `controlStyle` | Stile für die Schaltfläche. |
 
 ### `setState`
 Schaltfläche zum Festlegen des Instanzstatus
@@ -612,6 +615,8 @@ statischer Text wie Beschreibung
 |----------|---------------------|
 | `label` | mehrsprachiger Text |
 | `Text` | dasselbe wie Bezeichnung |
+
+Es muss genau einer der Werte `label` oder `text` angegeben werden - nicht beide
 
 ### `staticLink`
 | Immobilie | Beschreibung |
@@ -747,6 +752,12 @@ horizontale Linie
 | `Größe` | 1-5 => h1-h5 |
 
 ### `cron`
+Zeigt die CRON-Einstellungen an. Sie haben drei Möglichkeiten:
+
+- `simple` - zeigt einfache CRON-Einstellungen
+- `complex` - zeigt CRON mit "Minuten", "Sekunden" usw.
+- weder „einfach“ noch „komplex“ - Der Benutzer kann im Dialog zwischen einfach und komplex wechseln
+
 | Immobilie | Beschreibung |
 |-----------|-----------------------------------------------|
 | `complex` | CRON mit „Minuten“, „Sekunden“ usw. anzeigen |
@@ -823,7 +834,7 @@ Zeigt das Dropdown-Menü mit den von der Instanz angegebenen Werten an.
 | `multiple` | Multiple-Choice-Auswahl |
 | `showAllValues` | Element anzeigen, auch wenn kein Label dafür gefunden wurde (bei mehreren), Standard=`true` |
 | `noTranslation` | Bezeichnung der Auswahl nicht übersetzen. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array in der Form `[{"value": 1, "label": "one"}, ...]` | sein. |
-| `alsoDependsOn` | bei Änderung welcher Attribute der Befehl erneut gesendet werden muss |
+| `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
 | `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
 
 #### Beispielcode im Backend für `selectSendTo`
@@ -900,7 +911,7 @@ Zeigt das schreibgeschützte Steuerelement mit den von der Instanz angegebenen W
 
 | Immobilie | Beschreibung |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `container` | div, Text, HTML |
+| `container` | `div`, `text`, `html` |
 | `alsoDependsOn` | bei Änderung welcher Attribute der Befehl erneut gesendet werden muss |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenfolge - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
@@ -960,7 +971,7 @@ adapter.on("message", (obj) => {
 ```
 
 ### `coordinates`
-Ermittelt den aktuellen Standort und verwendet `system.config` Koordinaten, falls dies nicht in der Form "Breitengrad,Längengrad" möglich ist
+Ermittelt den aktuellen Standort und verwendet `system.config`-Koordinaten, falls dies nicht in der Form "Breitengrad,Längengrad" möglich ist.
 
 | Immobilie | Beschreibung |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -1,20 +1,14 @@
-<h1>
-    <img src="admin/valloxmv.png" width="64"/>
-    ioBroker.valloxmv
-</h1>
+![Logo](admin/valloxmv.png)
+# ioBroker.valloxmv
 
-![Current version in stable repository](https://iobroker.live/badges/valloxmv-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.valloxmv.svg)](https://www.npmjs.com/package/iobroker.valloxmv)
-![Number of Installations](https://iobroker.live/badges/valloxmv-installed.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.valloxmv.svg)](https://www.npmjs.com/package/iobroker.valloxmv)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.valloxmv.svg)](https://www.npmjs.com/package/iobroker.valloxmv)
+![Number of Installations](https://iobroker.live/badges/valloxmv-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/valloxmv-stable.svg)
 
-![Test and Release](https://github.com/hacki11/ioBroker.valloxmv/workflows/Test%20and%20Release/badge.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/hacki11/ioBroker.valloxmv/badge.svg)](https://snyk.io/test/github/hacki11/ioBroker.valloxmv)
-
-[![Dependency Status](https://img.shields.io/david/hacki11/iobroker.valloxmv.svg)](https://david-dm.org/hacki11/iobroker.valloxmv)
 [![NPM](https://nodei.co/npm/iobroker.valloxmv.png?downloads=true)](https://nodei.co/npm/iobroker.valloxmv/)
-[![Travis-CI](http://img.shields.io/travis/hacki11/ioBroker.valloxmv/master.svg)](https://travis-ci.org/hacki11/ioBroker.valloxmv)
 
+**Tests:** ![Test and Release](https://github.com/hacki11/ioBroker.valloxmv/workflows/Test%20and%20Release/badge.svg)
 
 ## ValloxMV adapter for ioBroker
 
@@ -26,12 +20,21 @@ Connects your Vallox Air Ventilation system into your ioBroker home automation.
 * Read and write states as usual
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.4.1 (2025-04-14)
+* Maintenance Release
+* Add support for NodeJS 18 as long as iobroker supports
+* Add devcontainer for development
+* Add release script
 
-## 1.4.0
+### 1.4.0
 * Maintenance Release
 * Bump engines to NodeJS 20 as minimum version
 
-## 1.3.0
+### 1.3.0
 * Maintenance Release
 * Updated dependencies (iobroker-core & node)
 * Change UI to jsconConfig and fixing issues detected by repository checker

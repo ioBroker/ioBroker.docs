@@ -1,14 +1,13 @@
 ![Logo](admin/bsblan.png)
 # ioBroker.bsblan
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.bsblan.svg)](https://www.npmjs.com/package/iobroker.bsblan)
+[![NPM version](https://img.shields.io/npm/v/iobroker.bsblan.svg)](https://www.npmjs.com/package/iobroker.bsblan)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.bsblan.svg)](https://www.npmjs.com/package/iobroker.bsblan)
-[![Dependency Status](https://img.shields.io/david/hacki11/iobroker.bsblan.svg)](https://david-dm.org/hacki11/iobroker.bsblan)
-[![Known Vulnerabilities](https://snyk.io/test/github/hacki11/ioBroker.bsblan/badge.svg)](https://snyk.io/test/github/hacki11/ioBroker.bsblan)
+![Number of Installations](https://iobroker.live/badges/bsblan-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/bsblan-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.bsblan.png?downloads=true)](https://nodei.co/npm/iobroker.bsblan/)
-
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/hacki11/ioBroker.bsblan/master.svg)](https://travis-ci.org/hacki11/ioBroker.bsblan)
+[![Known Vulnerabilities](https://snyk.io/test/github/hacki11/ioBroker.bsblan/badge.svg)](https://snyk.io/test/github/hacki11/ioBroker.bsblan)
 
 ## bsb_lan adapter for ioBroker
 
@@ -40,8 +39,19 @@ The BSB_LAN Interface brings the BSB (Boiler System Bus) to LAN. This adapter co
 - Numbers, Enums and hr:min types are now writable (of course only writable IDs can be written)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* Maintenance release
+* Setup Eslint 9, Prettier and Dev Container
+* Migrate to newest adapter-creator version
+
 ### 0.3.4
 * Fix order of individual destinations (They need to be queried sorted by destination, starting with default destination)
+
 ### 0.3.3
 * Support for individual destinations e.g. `710!7`
 ### 0.3.2
@@ -49,10 +59,10 @@ The BSB_LAN Interface brings the BSB (Boiler System Bus) to LAN. This adapter co
 
 ### 0.3.1
 * Code Quality Improvements
+
 ### 0.3.0
 * Add support for BSB_LAN 2.x
 * BREAKING: Names of 24h Average values changed (e.g. Außentemperatur_(8700) => 24h Durchschnittswert. Außentemperatur_(20050))
-
 
 ### 0.2.2
 * Replace invalid characters: https://github.com/ioBroker/ioBroker.js-controller/issues/198
@@ -80,10 +90,11 @@ The BSB_LAN Interface brings the BSB (Boiler System Bus) to LAN. This adapter co
 
 ### 0.0.1
 * (hacki11) initial release
+
 ## License
 MIT License
 
-Copyright (c) 2024 hacki11
+Copyright (c) 2025 hacki11
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

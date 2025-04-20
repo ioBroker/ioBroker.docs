@@ -427,7 +427,7 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
   ![create_widget_css_3.png](img/create_widget_css_3.png)
   ![widget_switched.png](img/widget_switched.png)</br>
   ![widget_manual.png](img/widget_manual.png)</br>
-  ![widget_astro_icon.png](img/widget_astro_icon.pngg)</br>
+  ![widget_astro_icon.png](img/widget_astro_icon.png)</br>
   ![widget_condition_1.png](img/widget_condition_1.png)</br>
   ![widget_condition_2.png](img/widget_condition_2.png)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.лавелас
-hash: 16EtaJ6QGjpsxF5HWP1YHZW4JGZbcosL8CZ8I9E24RI=
+hash: EkS6tYdDVUz4DFUHQEDXz4s1r0+Z5TMQ2+jdr7o9vcA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -38,7 +38,7 @@ hash: 16EtaJ6QGjpsxF5HWP1YHZW4JGZbcosL8CZ8I9E24RI=
 Вы можете определить понятные имена, и они будут использоваться в сущностях.
 
 ### Руководство
-Объекты можно определить вручную в дереве объектов, например `sql` или `history`. Необходимо указать тип сущности и, по желанию, имя объекта. С помощью этого метода можно создать только простые сущности, например input_number, input_text или input_boolean. Он не может иметь более одного состояния или атрибута.
+Объекты можно определить вручную в дереве объектов, например `sql` или `history`. Необходимо указать тип сущности и, по желанию, имя объекта. С помощью этого метода можно создать только простые сущности, такие как input_number, input_text или input_boolean. Он не может иметь более одного состояния или атрибута.
 
 ## Панели
 ### Панель сигнализации
@@ -82,7 +82,7 @@ createState(
 ### Ввод числа
 Это можно сделать вручную, если в пользовательском диалоговом окне выбран тип сущности input_number.
 Для этого типа требуются значения `min` и `max` в `common` и можно добавить необязательные `step`.
-Если вы хотите видеть стрелки вверх и вниз, вам следует установить в пользовательском `mode` значение «число»:
+Если вы хотите видеть стрелки вверх и вниз, вам следует установить в пользовательском `mode` значение «number»:
 
 ```json5
 common: {
@@ -301,7 +301,7 @@ createState('location.latitude', 39.5681295, false, {
 - `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases (возьмем последний релиз)
 - `thermostat`: https://github.com/ciotlosm/custom-lovlace/tree/master/thermostat-card (требуются оба файла .js и .lib.js)
 
-Я нашел эту ссылку https://github.com/jimz011/homeassistant как интересный ресурс для создания индивидуальных открыток.
+Я нашел эту ссылку https://github.com/jimz011/homeassistant как интересный ресурс для создания индивидуальных карточек.
 
 Часто пользовательские карты хранятся на GitHub в виде исходников и должны быть скомпилированы перед использованием.
 Вам следует проверить меню `Releases` на GitHub и попытаться найти там скомпилированные файлы.
@@ -438,30 +438,29 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Разработка
 ### Версия
-Использованная версия home-assistant-frontend@20231208.2 Версия Browser Mod: 2.3.0
+Использованная версия home-assistant-frontend@20250306.0 Версия Browser Mod: 2.3.3
 
 ### Как создать новую версию Lovelace
 Прежде всего, фактический https://github.com/home-assistant/frontend (ветка dev) должен быть **вручную** объединен с https://github.com/GermanBluefox/home-assistant-polymer.git (ветка ***iob***!).
 
 Все изменения для ioBroker отмечены комментарием `// IoB`.
-На данный момент (20231208.2) были изменены следующие файлы:
+На данный момент (20250401.0) были изменены следующие файлы:
 
 - `build-scripts/gulp/app.js` - Добавить новую задачу gulp develop-iob
-- `build-scripts/gulp/webpack.js` - Добавить новую задачу gulp webpack-dev-app
+- `build-scripts/gulp/rspack.js` - Добавить новую задачу gulp rspack-dev-app
 - `src/data/weather.ts` - добавлена поддержка отображения значка погоды из URL.
 - `src/dialogs/more-info/const.ts` - удалить состояние погоды и историю
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - удалить кнопку и вкладку настроек сущности
 - `src/dialogs/more-info/ha-more-info-history.ts` - удалить ссылку `показать больше` в истории
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - удалить ссылку `показать больше` в журнале
 - `src/dialogs/more-info/controls/more-info-weather.ts` - добавлена поддержка отображения значка погоды из URL.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - отключить настройку голосовых помощников
-- `src/entrypoints/core.ts` - измененный процесс аутентификации
+- `src/entrypoints/core.ts` - добавить опцию без аутентификации
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - добавлена поддержка отображения значка погоды из URL.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - добавлена поддержка отображения значка погоды из URL с аутентификацией.
-- `src/panels/lovelace/hui-root.ts` - добавлены уведомления и голосовое управление
+- `src/panels/lovelace/hui-root.ts` - добавлена кнопка уведомления, отключена ссылка управления панелями мониторинга
 - `src/util/documentation-url.ts` - для ссылки на справку iobroker вместо домашнего помощника.
-- `.gitignore` - добавить `.idea` игнорировать
 - `.husky/pre-commit` - удалить хуки коммитов git.
-- `package.json` - удалить хук коммита husky
 
 После этого извлеките измененную версию в папке `./build`. Затем.
 
@@ -471,9 +470,9 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 4. `git checkout master`
 5. `установка пряжи`
 6. `gulp build-app` для релиза или `gulp develop-iob` для отладочной версии. Чтобы собрать веб после изменений, вы можете вызвать `webpack-dev-app` для более быстрой сборки, но вам в любом случае нужно вызвать `build-app` после того, как версия будет готова к использованию.
-7. скопируйте все файлы из `./build/home-assistant-polymer/hass_frontend` в `./hass_frontend` в этом репозитории
-8. Запустите задачу `gulp rename` несколько раз (пока не перестанут происходить изменения).
-9. Обновите версию в `README.md`, а также в `server.js` константу `VERSION`.
+7. запустите скрипт `hass_frontend/static_cards/newFrontend.sh` в репозитории адаптера, чтобы обновить фронтенд (предполагается, что два репозитория находятся рядом друг с другом в одной папке; если нет, пожалуйста, настройте скрипт, желательно с некоторой обработкой параметров, и создайте PR, спасибо :smile: )
+8. Запустите задачу `gulp rename`.
+9. Обновите версию в `README.md`
 
 ## Changelog
 
@@ -481,6 +480,17 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-04-10)
+* (Garfonso) Updated frontend to 20250401.0
+* (Garfonso) Updated browser_mod to 2.3.3
+* (Garfonso) Add statistics recorder
+* (Garfonso) Add entity registry, use it to solve id clashes. In the future, store entity settings here.
+* (Garfonso) Limit the number of stored browser instances
+* (Garfonso) Improved caching behavior. Might solve iobroker.pro issue... hopefully?
+* (Garfonso) Prevent crash with some edge cases with light entities
+* (Garfonso) experimental dashboard support.
+* (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
+
 ### 4.1.15 (2025-03-10)
 * (Garfonso) repaired image loading, again.
 
@@ -489,13 +499,6 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ### 4.1.13 (2025-03-06)
 * (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
-
-### 4.1.11 (2024-11-20)
-* (Garfonso) convert string state values to numbers, where necessary.
-
-### 4.1.10 (2024-05-23)
-* (Garfonso) device icons work again.
-* (Garfonso) default user sometimes was not found in a system.
 
 ## License
 

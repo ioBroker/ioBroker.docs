@@ -758,8 +758,7 @@ lg-thinq.0.xxx.area muss gefüllt sein!
     ![weather.png](img/weather.png)
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 1.1.0 (2025-04-08)
 
 - (Lucky-ESA) max target changed from 30 to 40 degrees
 - (Lucky-ESA) Dependencies updated
@@ -787,12 +786,6 @@ lg-thinq.0.xxx.area muss gefüllt sein!
 - (TA2k) Login fixed
 - (Lucky-ESA) Added hotwater for device 406 & 401
 - (Lucky-ESA) Dependencies updated
-
-### 1.0.2 (2024-09-10)
-
-- (Lucky-ESA) Dependencies updated
-- (Lucky-ESA) Changed autoDryRemainTime max value
-- (Lucky-ESA) Added own request for 401 thinq1
 
 ## License
 

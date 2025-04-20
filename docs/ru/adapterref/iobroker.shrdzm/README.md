@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: 9AY/wLITY5pqDIwSAGzussok/Igv+9FISL3AMBBNmjE=
+hash: E8CVANcq4KIUE18wXRqlxtXZp9tRdHWHrGhcVDJAK5E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
