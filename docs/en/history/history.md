@@ -10,7 +10,7 @@
   - new widget
 - if your news about the new adapter, please add a GitHub link and a logo of the adapter
   Example:
-``` 
+```markdown
     ## frigate (2023-08-20) - new adapter
     https://github.com/Bettman66/ioBroker.frigate
    
@@ -846,3 +846,14 @@ https://github.com/mcm4iob/ioBroker.shrdzm
 This adapter integrates the SHRDZM smartmeter interface available from SHRDZM IT Services e.U. into ioBroker. A description of the interface is available [here](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
+## js-controller (16.4.2025) - new feature
+The js-controller 7.0.7 is now available in the latest version. I
+It contains bugfixes and improvements. The most important changes are:
+- Extended `encryptedNative` and `protectedNative`. Developers can now address `encryptedNative` and `protectedNative` in structures and arrays.
+- Typing was improved.
+
+## devices (20.4.2025) - new feature
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
+
+The `devices` adapter was updated to version 1.2.0. It was completely rewritten with TypeScript and vite technologies. The new version is faster and more stable.
