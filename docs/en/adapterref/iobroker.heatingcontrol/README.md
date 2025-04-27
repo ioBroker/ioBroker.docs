@@ -284,6 +284,10 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) HmIP-eTRV-B-2 R4M added to autodetect
+
 ### 2.12.14 (2025-02-27)
 * (René) see issue #635: initial values (-99) not to write to object 
 * (René) changes requested by adapter checker

@@ -68,7 +68,8 @@ This channel contains system data about the hardware and firmware as well as run
 
 ### **WORK IN PROGRESS**
 
-- Dependencies updated via PRs
+- Some dependency work
+- Code documentation extended
 
 ### 0.0.6 (2025-04-17)
 

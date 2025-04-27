@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: jU9oLzDlmKeLxKpIYsRmcNrrbEgUVX5e7BQk7GH0E6U=
+hash: UrDkIXPAx9G5N4ogz6LNnhjSZ17KDCkY4mB+cokYESQ=
 ---
-![Logo](../../../en/adapterref/iobroker.devices/admin/devices.png)
+![Logo](../../../en/adapterref/iobroker.devices/admin/devices.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/devices-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.devices.svg)
@@ -30,6 +30,14 @@ Der Adapter `ioBroker.devices` ist eine Komponente der Smart-Home-Plattform ioBr
 Diese virtuellen Geräte bieten eine standardisierte Schnittstelle für physische Geräte und erleichtern so die Integration, Skripterstellung, Visualisierung und Steuerung von Geräten verschiedener Hersteller und Protokolle.
 
 Der Adapter gewährleistet Konsistenz bei der Benennung und Struktur von Datenpunkten, sodass bei Hardwareänderungen weniger Änderungen an Skripten oder Visualisierungen erforderlich sind.
+
+Es verpackt jede Sammlung von Zuständen in ioBroker (physisch **oder** virtuell) in wohlgeformte **Geräte** mit umfangreichen Informationen:
+
+* `Typ`, `Rolle`, `SmartName`, `Farbe`, `Raum`, `Funktion`, `Symbol`, `Einheit` und mehr
+
+Das Ergebnis wird von Dashboards (Material UI, VIS‑2), Sprachassistenten (Alexa/Google), Matter-Adapter, dem **IoT/Cloud**-Adapter und Skripten genutzt, wodurch Sie einen sauberen, zukunftssicheren Objektbaum erhalten.
+
+**Hinweis:** Der Adapter führt **keine** Abfrage der Hardware durch. Er wird als reine Tab-basierte „Web“-Instanz ausgeführt → kein CPU-/RAM-Bedarf.
 
 ### Zweck
 Der Adapter `ioBroker.devices` dient folgenden Zwecken:
@@ -99,7 +107,12 @@ Wenn Sie beispielsweise ein Temperaturgerät mit dem Namen `Temperature` erstell
 - `alias.0.Temperature.temperature` – Zustand mit der Einheit „°C“. Es sollte eine virtuelle Verknüpfung zu einem realen Zustand mit Temperatur vorhanden sein. Wenn Sie den Alias im Adapter `ioBroker.devices` entfernen, bleibt dieser Zustand ohne Verknüpfung.
 - `alias.0.Temperature.humidity` – Status mit der Einheit „%“. Dies hat eine virtuelle Verknüpfung zum tatsächlichen Status (z. B. zu `hm-rpc.0.JHAGHGJJJ.1.HUMIDITY`). Wenn Sie den Alias im Adapter `ioBroker.devices` entfernen, wird dieser Status gelöscht.
 
-Fast jeder Gerätetyp könnte zusätzliche Statusanzeigen (Indikatoren) für Akku, Konnektivität, Fehler und mehr haben. Diese sind optional, können aber von einigen Adaptern (z. B. Material oder Matter) interpretiert werden.
+Fast jeder Gerätetyp kann zusätzliche Statusanzeigen für Akku, Konnektivität, Fehler und mehr haben. Diese sind optional, können aber von einigen Adaptern (z. B. `material` oder `matter`) interpretiert werden.
+
+Für jeden Status können Sie alle Einstellungen vornehmen, die Aliase unterstützen:
+
+- Unterschiedliche Zustände für Lesen und Schreiben
+- Formel zum Lesen und Schreiben konvertieren
 
 #### Geräte verwalten
 Gerät bearbeiten: Klicken Sie auf der Registerkarte „Geräte“ auf das Stiftsymbol neben einem Gerät, um dessen Namen, Typ, Kategorie, Farbe, Namen, Symbol oder Datenpunktzuordnungen zu ändern.
@@ -116,6 +129,13 @@ Dieser Adapter wurde mit Hilfe von `type-detector` erstellt. Alle möglichen Ger
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2025-04-26)
+* (@GermanBluefox) Corrected many GUI issues
+
+### 1.2.1 (2025-04-22)
+* (@GermanBluefox) Updated logo
+* (@GermanBluefox) Updated type-detector
+
 ### 1.2.0 (2025-04-20)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Used vite

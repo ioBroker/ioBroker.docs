@@ -13,10 +13,10 @@ You can find more and detailed information about the device here: [Refoss](https
 ## Prerequisites
 
 - The device needs to be connected to the local network first. There are two ways to connect devices to the local network:
-  - Using the Refoss app (download and install the Refoss app on Google Play) to connect devices to the local network.
-  - Using the Web page to connect devices to the local network.
-    - The computer/mobile phone is connected to the device factory Wi-Fi.
-    - In the browser, access the address 10.10.10.1, then select the local Wi-Fi needed for device configuration.
+    - Using the Refoss app (download and install the Refoss app on Google Play) to connect devices to the local network.
+    - Using the Web page to connect devices to the local network.
+        - The computer/mobile phone is connected to the device factory Wi-Fi.
+        - In the browser, access the address 10.10.10.1, then select the local Wi-Fi needed for device configuration.
 - The integration will occupy port: 9989.
 
 ## Supported device models
@@ -27,7 +27,7 @@ You can find more and detailed information about the device here: [Refoss](https
 
 ## Changelog
 
-### 0.1.10 (2025-03-05)
+### 0.1.11 (2025-04-23)
 
 - (zhaochuanling) revise the feedback content
 
@@ -52,7 +52,7 @@ You can find more and detailed information about the device here: [Refoss](https
 MIT License
 
 Copyright (c) 2025 zhaochuanling zhaochuanling8@gmail.com,
-Bluefox dogafox@gmail.com and 
+Bluefox dogafox@gmail.com and
 Refoss support@refoss.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

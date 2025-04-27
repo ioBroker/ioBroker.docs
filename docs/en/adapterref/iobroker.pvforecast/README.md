@@ -70,6 +70,12 @@ If you want to take the json graph and table you can use this [example](./vis.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-04-23)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@klein0r) Minimum peak power is 0.1 kWp
+
 ### 4.1.0 (2024-11-15)
 
 * (@klein0r) Added estimated energy: now until end of day
@@ -89,9 +95,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 
 * (klein0r) Load system configuration via parameter
 * (coltc50) Added damping factor for forecast solar
-
-### 2.9.1 (2023-12-18)
-* (klein0r) Avoid logging of api key
 
 ## License
 

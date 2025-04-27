@@ -133,8 +133,16 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
+### 3.0.1 (2025-04-25)
+* (AlexHaxe)  Fix for Ikea SOMRIG configuration raising 'definition.endpoint is not a function' error.
+* (asgothian) Access to 'zigbee2mqtt options as settings in zigbee adapter (ALPHA Stage !)
+* (asgothian) Fix for 'error: zigbee.0 (1118300) zigbee.0 already running' at adapter start (Alpha Stage)
+* (asgothian) Updated hardware configuration panel - exchanged text buttons for buttons with icons.
+* (asgothian) Limited states on device tiles to states which are read only or which can be modified sensibly via the device tile.
+*
+
 ### 3.0.0 (2025-04-08)
-* (asgothian) Breaking change: Start of zigbee subsystem requires configuration entry !!!
+* (asgothian) Breaking change: Start of zigbee subsystem requires checking the 'start the Zigbee network automatically' checkbox. !!!
 * (asgothian) Hardware configuration panel
 * (asgothian) Update for external converter - detect /dist/ subfolder
 * (asgothian) Update device image: use of icons defined in external converter (beta)

@@ -831,6 +831,11 @@ Default without zone:
 ![img/array_nok.png](img/array_nok.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Fixed starting firmware update (did not work)
+
 ### 3.2.0 (2025-04-08)
 
 - (Lucky-ESA) Migration to ESLint9

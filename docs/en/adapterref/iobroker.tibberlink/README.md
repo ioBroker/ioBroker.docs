@@ -160,6 +160,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (HombachC) Update tibber-api
+
 ### 4.5.2 (2025-04-18)
 
 - (HombachC) fix jsonConfig error (#686)

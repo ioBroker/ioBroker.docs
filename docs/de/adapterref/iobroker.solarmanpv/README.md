@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarmanpv/README.md
 title: ioBroker.solarmanpv
-hash: xGaWyT+LnzOIpkTZva4OhcexR20xwo43b95y0yh++QY=
+hash: VhS3pTYYrpO3rIsPG7f3yUT7appDZmkozDHtisOm57U=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarmanpv/admin/solarmanpv.png)
 
@@ -15,33 +15,89 @@ hash: xGaWyT+LnzOIpkTZva4OhcexR20xwo43b95y0yh++QY=
 ![NPM](https://nodei.co/npm/iobroker.solarmanpv.png?downloads=true)
 
 # IoBroker.solarmanpv
-**Tests:** ![Testen und freigeben](https://github.com/raschy/ioBroker.solarmanpv/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/raschy/ioBroker.solarmanpv/workflows/Test%20and%20Release/badge.svg)
 
 ## Solarmanpv-Adapter für ioBroker
-Auslesen von Daten aus dem Balkonkraftwerk
+Datenauslesung Balkonkraftwerk
 
-### Einstieg
-Dieser Adapter dient dazu, Daten eines Balkonkraftwerks anzuzeigen, die von einem Wechselrichter „Bosswerk MI600“ in ioBroker bereitgestellt werden. Dieser Wechselrichter ist mit anderen in der Deye-Familie kompatibel.
+### Erste Schritte
+Dieser Adapter dient zur Anzeige der Daten eines Balkonkraftwerks, welches von einem Wechselrichter „Bosswerk MI600“ bereitgestellt wird, im ioBroker. Dieser Wechselrichter ist mit anderen Wechselrichtern der Deye-Familie kompatibel.
 
 Ich gehe davon aus, dass die Anlage bisher von der App „Solarman“ überwacht wird.
 Dieser Adapter bezieht die Daten aus dieser Cloud.
 
-Zuerst müssen Sie den Solarman-Support <service@solarmanpv.com> fragen, um die benötigten Zugangsdaten (app_id & app_secret) anzufordern.
-Es kann immer noch eine Abfrage des Typs „Ich muss fragen, welche Plattform Sie verwenden? Was ist Ihre Rolle? Sind Sie eine Einzelperson, O&M-Anbieter, Hersteller oder Händler? Können Sie mir Ihre E-Mail-Adresse für die API geben? ". In meinem Fall kam dann eine weitere Abfrage: „Warum bewirbst du dich für API?“. Auch diese Frage beantwortete ich höflich und bekam am nächsten Tag die nötigen Daten zugeschickt.
+Zuerst müssen Sie den Solarman-Support unter <service@solarmanpv.com> um die benötigten Anmeldeinformationen (App-ID und App-Geheimnis) bitten.
 
-Auf der Admin-Seite müssen die 4 Felder der Beschreibung entsprechen.
-Dieser Adapter wird als "geplanter" Adapter erstellt.
-Da die Daten in der Cloud nur etwa alle 6 Minuten aktualisiert werden, macht es keinen Sinn, den Adapter häufiger zu starten.
+Es kann noch eine Anfrage geben: „Welche Plattform verwenden Sie? Welche Rolle spielen Sie? Sind Sie Einzelperson, O&M-Anbieter, Hersteller oder Händler? Können Sie mir Ihre E-Mail-Adresse für die API geben?“ In meinem Fall folgte eine weitere Anfrage: „Warum beantragen Sie die API?“ Auch diese Frage beantwortete ich höflich und erhielt die benötigten Daten am nächsten Tag.
 
-Seit Version 0.3.0 wird im Gegensatz zu den Vorgängerversionen eine Blacklist ermöglicht. Das bedeutet, dass „alle“ von der Api gelieferten Werte eingelesen werden und der Nutzer die nicht benötigten Werte über die Blacklist herausfiltern kann. Die entsprechenden Datenpunkte können gelöscht werden, was die Anzahl der Objekte übersichtlicher macht.
+Auf der Administrationsseite müssen die vier Felder der Beschreibung entsprechen.
+Dieser Adapter ist als zeitgesteuerter Adapter angelegt.
+Da die Daten in der Cloud nur etwa alle 6 Minuten aktualisiert werden, ist ein häufigerer Start des Adapters nicht sinnvoll.
 
-Seit dem 16.04.2023 ist Solarman auf eine neue Plattform umgestiegen. Weitere Anpassungen der API, soweit vorhanden, wurden nicht vorgenommen.
+Seit der Version 0.3.0 wird im Gegensatz zu den Vorgängerversionen eine Blacklist ermöglicht. Das bedeutet, dass „alle“ von der API gelieferten Werte eingelesen werden und der Benutzer über die Blacklist die nicht benötigten Werte herausfiltern kann. Die entsprechenden Datenpunkte können gelöscht werden, wodurch die Anzahl der Objekte übersichtlicher wird.
+
+Seit dem 16.04.2023 ist Solarman auf eine neue Plattform umgestiegen – Version 0.4.0.
+Weitere Anpassungen der API, soweit vorhanden, wurden nicht vorgenommen.
+
+In den Versionen 0.5.2 bis 0.6.x wurden lediglich Entwickleranpassungen vorgenommen.
+
+In der Version 0.7.0 wurde das Node-JS auf die empfohlene Version 20.x angehoben und der JS-Controller >6 zur Voraussetzung gemacht. E-Mail und App-Secret sind verschlüsselt. Daher müssen beide Werte nach einem Update erneut eingetragen werden!
+
+In der Version 0.7.1 wurden lediglich kleinere Anpassungen an der Instanzansicht vorgenommen.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.1 (2025-04-25)
+* (raschy) jsonConfig customized
+
+### 0.7.0 (2025-04-23)
+* (raschy) NodeJS >= 20.x and js-controller >= 6 is required
+* (raschy) email and appsecret is now encrypted, please re-enter!
+
+### 0.6.4 (2025-02-06)
+* (raschy) Developer system to nodejs 22.x updated
+
+### 0.6.3 (2025-01-02)
+* (raschy) Design edited
+* (raschy) Migration from ESLint 8.x to 9.x
+
+### 0.6.2 (2024-11-08)
+* (raschy) responsive-design customized
+* (raschy) updated to adapter-core 3.2.2
+
+### 0.6.1 (2024-08-15)
+* (raschy)  renewed version without changes
+* (raschy) 	Dependencies require minor releases
+
+### 0.6.0 (2024-08-15)
+* (raschy) 	Dependencies require minor releases
+
+### 0.5.3 (2024-08-14)
+* (raschy) 	Warning in schema corrected
+
+### 0.5.2 (2024-08-10)
+* (raschy) 	updated dependencies
+* (raschy)  NodeJS >= 18.x and js-controller >= 5 is required
+
+### 0.5.1 (2023-09-04)
+* (raschy) Expanded number of modules
+
+### 0.5.0 (2023-06-16)
+* (raschy) Set selected values to zero
+
+### 0.4.3 (2023-06-12)
+* (raschy) Blacklist also deletes data points
+* (raschy) Fixed error with multiple inverters
+
+### 0.4.2 (2023-05-31)
+* (raschy) Module selection activated
+
+### 0.4.1 (2023-05-27)
+* (raschy) Do not display devices that are not required
+
 ### 0.4.0 (2023-04-16)
 * (raschy) Solarman has switched to a new platform
 
@@ -115,25 +171,21 @@ Seit dem 16.04.2023 ist Solarman auf eine neue Plattform umgestiegen. Weitere An
 * (raschy) Crypto version changed
 
 ### 0.0.4 (2022-06-19)
-
 * (raschy) Dependecies addet
 
 ### 0.0.3 (2022-06-19)
-
 * (raschy) ReadMe changed
 
 ### 0.0.2 (2022-06-19)
-
 * (raschy) changed to jsonConfig
 
-### 0.0.1 (2022-06-16
-
+### 0.0.1 (2022-06-16)
 * (raschy) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2023 raschy <raschy@gmx.de>
+Copyright (c) 2022-2025 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

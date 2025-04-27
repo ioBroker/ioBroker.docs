@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.лавелас
-hash: EkS6tYdDVUz4DFUHQEDXz4s1r0+Z5TMQ2+jdr7o9vcA=
+hash: CevnA7T7sHSamYWblZJOuDzy/NIuSAqwybgwIb9sCEI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -305,7 +305,7 @@ createState('location.latitude', 39.5681295, false, {
 
 Часто пользовательские карты хранятся на GitHub в виде исходников и должны быть скомпилированы перед использованием.
 Вам следует проверить меню `Releases` на GitHub и попытаться найти там скомпилированные файлы.
-Например, этот: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Найдите файл `mini-graph-card-bundle.js`)
+Например, этот: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (ищите файл `mini-graph-card-bundle.js`)
 
 ## Собственные изображения
 Пользовательские изображения (например, для фона) можно загрузить через тот же диалог конфигурации, что и пользовательские карты. И использовать его следующим образом:
@@ -448,6 +448,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 - `build-scripts/gulp/app.js` - Добавить новую задачу gulp develop-iob
 - `build-scripts/gulp/rspack.js` - Добавить новую задачу gulp rspack-dev-app
+- `src/data/icons.ts` - всегда использовать резерв для старых версий, где интерфейс решает, какой значок использовать для binary_sensors (если ничего не указано).
 - `src/data/weather.ts` - добавлена поддержка отображения значка погоды из URL.
 - `src/dialogs/more-info/const.ts` - удалить состояние погоды и историю
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - удалить кнопку и вкладку настроек сущности
@@ -480,6 +481,11 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) settings from entity registry are now loaded on startup
+* (Garfonso) logbook: prevent entries from the future
+* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+
 ### 5.0.0 (2025-04-10)
 * (Garfonso) Updated frontend to 20250401.0
 * (Garfonso) Updated browser_mod to 2.3.3

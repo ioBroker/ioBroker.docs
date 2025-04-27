@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: EkS6tYdDVUz4DFUHQEDXz4s1r0+Z5TMQ2+jdr7o9vcA=
+hash: CevnA7T7sHSamYWblZJOuDzy/NIuSAqwybgwIb9sCEI=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -39,7 +39,7 @@ Sie können benutzerfreundliche Namen definieren, die in Entitäten verwendet we
 
 ### Handbuch
 Die Objekte können manuell in einem Objektbaum wie `sql` oder `history` definiert werden. Der Entitätstyp und optional der Objektname müssen angegeben werden.
-Mit dieser Methode können nur einfache Entitäten wie input_number, input_text oder input_boolean erstellt werden. Es dürfen maximal ein Status oder Attribut vorhanden sein.
+Mit dieser Methode können nur einfache Entitäten wie input_number, input_text oder input_boolean erstellt werden. Es dürfen nicht mehr als ein Status oder Attribut vorhanden sein.
 
 ## Paneele
 ### Alarmzentrale
@@ -212,7 +212,7 @@ Getestet mit `yr` und `daswetter`. Für eines oder mehrere der folgenden Objekte
 - `yr.0.forecast`
 
 Getestet mit dem `AccuWeather`-Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
-Benutzerdefinierte Lovelace-Karte zur Unterstützung der AccuWeather-Vorhersage: https://github.com/algar42/IoB.lovelace.accuweather-card
+Benutzerdefinierte Lovelace-Karte zur Unterstützung der AccuWeather-Vorhersage erstellt – https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Einkaufsliste
 Einkaufsliste schreibt die Werte in Form:
@@ -452,6 +452,7 @@ Vorläufig (20250401.0) wurden folgende Dateien geändert:
 
 - `build-scripts/gulp/app.js` - Neue Gulp-Aufgabe „develop-iob“ hinzufügen
 - `build-scripts/gulp/rspack.js` - Neue Gulp-Aufgabe rspack-dev-app hinzufügen
+- `src/data/icons.ts` – verwenden Sie immer einen Fallback für alte Versionen, bei denen das Frontend entscheidet, welches Symbol für Binärsensoren verwendet werden soll (falls keines angegeben ist).
 - `src/data/weather.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/dialogs/more-info/const.ts` – Wetterstatus und -verlauf entfernen
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte „Entitätseinstellungen entfernen“
@@ -484,6 +485,11 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) settings from entity registry are now loaded on startup
+* (Garfonso) logbook: prevent entries from the future
+* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+
 ### 5.0.0 (2025-04-10)
 * (Garfonso) Updated frontend to 20250401.0
 * (Garfonso) Updated browser_mod to 2.3.3

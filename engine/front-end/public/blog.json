@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2025_04_26": {
+      "date": "2025.04.26",
+      "title": {
+        "de": "💻 ioBroker Monatsrückblick – April 2025",
+        "en": "💻 ioBroker Monthly Review – April 2025",
+        "ru": "💻 Ежемесячный обзор ioBroker – апрель 2025 г.",
+        "zh-cn": "💻 ioBroker 月度回顾 – 2025 年 4 月"
+      },
+      "logo": "de/blog/images/2025_04_26.png",
+      "type": "news",
+      "originalName": "2025_04_26.md",
+      "desc": {
+        "de": "Herzlich willkommen zum aktuellen Monatsrückblick! Auch im April 2025 hat sich in der ioBroker-Welt wieder einiges getan. \\nNeue Adapter sind erschienen, bestehende wurden verbessert und die Basis unseres Systems – der js-controller – hat ein Update erhalten. \\nWerfen wir einen detaillierten Blick auf alle Neuerungen.",
+        "en": "Welcome to the current monthly review! A lot has happened in the ioBroker world again in April 2025.\\nNew adapters have been released, existing ones have been improved, and the foundation of our system—the js controller—has received an update.\\nLet's take a detailed look at all the new features.",
+        "ru": "Добро пожаловать в текущий ежемесячный обзор! В апреле 2025 года в мире ioBroker снова произошло много событий.\\nБыли выпущены новые адаптеры, улучшены существующие, а также обновлена основа нашей системы — js-контроллер.\\nДавайте подробно рассмотрим все новые функции.",
+        "zh-cn": "欢迎阅读本期月度回顾！ 2025年4月，ioBroker世界又发生了很多事。\\n新的适配器已经发布，现有的适配器已经得到改进，并且我们系统的基础 - js-controller - 已经更新。\\n让我们详细了解一下所有新功能。"
+      }
+    },
     "2025_04_04": {
       "date": "2025.04.04",
       "title": {

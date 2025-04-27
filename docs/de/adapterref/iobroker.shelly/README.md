@@ -60,6 +60,17 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 9.5.0-alpha.0 (2025-04-26)
+* (@mcm1957) Added Shelly AZ Plug (shellyazplug).
+* (@mcm1957) Added Shelly EM Gen 3 (shellyemg3).
+* (@mcm1957) Added 'total returned energy' to Gen2+ EM devices.
+* (@mcm1957) Added 'Relay' to Shelly Pro EM 50 [#1038].
+* (@mcm1957) Added Ogemray 25A (ogemray25a).
+* (@mcm1957) Added energy states to Shelly Plus RBGW PM (shellyrgbwpm) [#1099].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 1 PM (shellyprodm1pm) [#1129].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 2 PM (shellyprodm2pm) [#1067, #1056, #1037].
+* (@mcm1957) Added energy states to Shelly Plus 0-10V Dimmer Gen 3 (shelly0110dimg3) [#1103].
+
 ### 9.4.1 (2025-04-17)
 
 * (@mcm1957) Minimum value for min_brightness fixed for dimmer1/2 [#1166]
@@ -82,11 +93,6 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 * (@mcm1957) Translations for Gen2 devices have been added
 * (@mcm1957) State roles for Gen2 devices have been adapted
 * (@tclas) Added handling of Total Active Energy
-
-### 9.1.0 (2025-02-27)
-
-* (@Joylancer) Added Shelly Pro 3 EM 63
-* (@klein0r) Updated BLE script version to 0.5
 
 ## License
 

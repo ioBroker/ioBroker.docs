@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
+hash: /x+PdsrJoxpoit6cC2A/HsY7OG19SgWis9sdVNgnJV0=
 ---
 ![Logo](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -78,7 +78,7 @@ Dazu muss Ihre Anwendung einen HTTP(S)-Endpunkt bereitstellen, um die Updates zu
 
 Beispiel in node.js siehe hier [demoNodeClient.js](examples/demoNodeClient.js)
 
-## Lange Abfragen
+## Lange Abfrage
 Dieser Adapter unterstützt das Abonnieren von Datenänderungen über Long Polling.
 
 Ein Beispiel für einen Browser finden Sie hier: [demoNodeClient.js](examples/demoBrowserClient.html)
@@ -124,12 +124,10 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 - `getForeignStates(pattern)` – dasselbe wie getStates
 - `getState(id)` – Statuswert nach ID abrufen
 - `setState(id, state)` – Statuswert mit JSON-Objekt festlegen (z. B. `{"val": 1, "ack": true}`)
-- `getBinaryState(id)` - Binärstatus nach ID abrufen
-- `setBinaryState(id, base64)` – Binärstatus nach ID festlegen
 
 ### Objekte
 - `getObject(id)` – Objekt nach ID abrufen
-- `getObjects(list)` - alle Zustände und Räume abrufen. Die GUI kann bei der Visualisierung der Antwort Probleme haben.
+- `getObjects(list)` - ruft alle Zustände und Räume ab. Die GUI kann bei der Visualisierung der Antwort Probleme haben.
 - `getObjectView(design, search, params)` - bestimmte Objekte abrufen, z. B. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
 - `setObject(id, obj)` – Objekt mit JSON-Objekt festlegen (z. B. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
 - `delObject(id, options)` – Objekt nach ID löschen
@@ -162,7 +160,7 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 - `getCompactInstances()` - Liste der Instanzen mit Kurzinformationen lesen
 - `getCompactAdapters()` - Liste der installierten Adapter mit Kurzinformationen lesen
 - `getCompactInstalled(host)` - kurze Informationen über installierte Adapter lesen
-- `getCompactSystemConfig()` – kurze Systemkonfiguration lesen
+- `getCompactSystemConfig()` - kurze Systemkonfiguration lesen
 - `getCompactSystemRepositories()`
 - `getCompactRepository(host)` - kurzes Repository lesen
 - `getCompactHosts()` - kurze Informationen über Hosts abrufen
@@ -197,6 +195,10 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 ### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Removed binary states
+
 ### 2.1.0 (2025-02-27)
 * (@GermanBluefox) Added OAuth2 support
 * (@GermanBluefox) Updated packages

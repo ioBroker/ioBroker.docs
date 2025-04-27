@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.solarmanpv/README.md
 title: ioBroker.solarmanpv
-hash: xGaWyT+LnzOIpkTZva4OhcexR20xwo43b95y0yh++QY=
+hash: VhS3pTYYrpO3rIsPG7f3yUT7appDZmkozDHtisOm57U=
 ---
 ![标识](../../../en/adapterref/iobroker.solarmanpv/admin/solarmanpv.png)
 
@@ -12,36 +12,91 @@ hash: xGaWyT+LnzOIpkTZva4OhcexR20xwo43b95y0yh++QY=
 ![安装数量](https://iobroker.live/badges/solarmanpv-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/solarmanpv-stable.svg)
 ![依赖状态](https://img.shields.io/david/raschy/iobroker.solarmanpv.svg)
-![NPM](https://nodei.co/npm/iobroker.solarmanpv.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.solarmanpv.png?downloads=true)
 
-#ioBroker.solarmanpv
-**测试：** ![测试和发布](https://github.com/raschy/ioBroker.solarmanpv/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.solarmanpv
+**测试：**![测试和发布](https://github.com/raschy/ioBroker.solarmanpv/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 solarmanpv 适配器
-读取阳台电站数据
+读取阳台发电厂数据
 
 ＃＃＃ 入门
-该适配器用于显示阳台发电厂的数据，该数据由 ioBroker 中的逆变器“Bosswerk MI600”提供。该逆变器与 Deye 系列中的其他逆变器兼容。
+该适配器用于在ioBroker中显示阳台电站的数据，该电站由“Bosswerk MI600”逆变器提供。该逆变器与Deye系列的其他产品兼容。
 
-我假设到目前为止，该工厂由应用程序“Solarman”监控。
-这个适配器从这个云中获取数据。
+我假设到目前为止，该工厂是由“Solarman”应用程序监控的。
+此适配器从该云获取数据。
 
-首先，您必须向 Solarman 支持部门 <service@solarmanpv.com> 询问所需的凭据（app_id 和 app_secret）。
-可能还会有这样的疑问，“我要问你用的是什么平台？你的角色是什么？你是个人、运维商、制造商还是分销商？能给我你的API邮箱吗？” ”。就我而言，另一个问题随之而来：“你为什么要申请 API？”。我也礼貌地回答了这个问题，并在第二天收到了必要的数据。
+首先，您需要联系 Solarman 支持团队 <service@solarmanpv.com> 获取所需的凭证（app_id 和 app_secret）。
+可能还会有人询问：“请问您使用的是什么平台？您的职位是什么？您是个人用户、运维服务商、制造商还是分销商？能否提供您的 API 邮箱地址？”。就我而言，接下来又有人询问：“您为什么要申请 API？”。我礼貌地回答了这个问题，第二天就收到了必要的数据。
 
-在管理页面上，4 个字段必须根据描述。
-此适配器创建为“预定”适配器。
-由于云中的数据大约每 6 分钟更新一次，因此不会更频繁地启动适配器。
+在管理页面上，这 4 个字段必须符合描述。
+此适配器创建为“计划”适配器。
+由于云端数据大约每 6 分钟更新一次，因此无需更频繁地启动适配器。
 
-从 0.3.0 版本开始，与之前的版本相比，黑名单成为可能。这意味着读入 Api 提供的“所有”值，用户可以通过黑名单过滤掉不需要的值。可以删除相应的数据点，使物体的数量更加清晰。
+自 0.3.0 版本起，与之前的版本相比，新增了黑名单功能。这意味着 API 提供的所有值都会被读取，用户可以通过黑名单过滤掉不需要的值。相应的数据点也可以删除，从而使对象数量更加清晰。
 
-自 16.04.2023 以来，Solarman 已切换到新平台。 api 的进一步改编，就其存在而言，尚未进行。
+自 2023 年 4 月 16 日起，Solarman 已切换到新平台 - 版本 0.4.0。
+API 的现有版本尚未进行进一步调整。
+
+在 0.5.2 到 0.6.x 版本中，仅进行了开发人员调整。
+
+在 0.7.0 版本中，node-js 被提升至推荐版本 20.x，并且 js-controller >6 成为必备条件。Email 和 app-secret 均已加密。因此，更新后必须重新输入这两个值！
+
+在0.7.1版本中，仅对实例视图进行了微小的调整。
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.1 (2025-04-25)
+* (raschy) jsonConfig customized
+
+### 0.7.0 (2025-04-23)
+* (raschy) NodeJS >= 20.x and js-controller >= 6 is required
+* (raschy) email and appsecret is now encrypted, please re-enter!
+
+### 0.6.4 (2025-02-06)
+* (raschy) Developer system to nodejs 22.x updated
+
+### 0.6.3 (2025-01-02)
+* (raschy) Design edited
+* (raschy) Migration from ESLint 8.x to 9.x
+
+### 0.6.2 (2024-11-08)
+* (raschy) responsive-design customized
+* (raschy) updated to adapter-core 3.2.2
+
+### 0.6.1 (2024-08-15)
+* (raschy)  renewed version without changes
+* (raschy) 	Dependencies require minor releases
+
+### 0.6.0 (2024-08-15)
+* (raschy) 	Dependencies require minor releases
+
+### 0.5.3 (2024-08-14)
+* (raschy) 	Warning in schema corrected
+
+### 0.5.2 (2024-08-10)
+* (raschy) 	updated dependencies
+* (raschy)  NodeJS >= 18.x and js-controller >= 5 is required
+
+### 0.5.1 (2023-09-04)
+* (raschy) Expanded number of modules
+
+### 0.5.0 (2023-06-16)
+* (raschy) Set selected values to zero
+
+### 0.4.3 (2023-06-12)
+* (raschy) Blacklist also deletes data points
+* (raschy) Fixed error with multiple inverters
+
+### 0.4.2 (2023-05-31)
+* (raschy) Module selection activated
+
+### 0.4.1 (2023-05-27)
+* (raschy) Do not display devices that are not required
+
 ### 0.4.0 (2023-04-16)
 * (raschy) Solarman has switched to a new platform
 
@@ -115,25 +170,21 @@ hash: xGaWyT+LnzOIpkTZva4OhcexR20xwo43b95y0yh++QY=
 * (raschy) Crypto version changed
 
 ### 0.0.4 (2022-06-19)
-
 * (raschy) Dependecies addet
 
 ### 0.0.3 (2022-06-19)
-
 * (raschy) ReadMe changed
 
 ### 0.0.2 (2022-06-19)
-
 * (raschy) changed to jsonConfig
 
-### 0.0.1 (2022-06-16
-
+### 0.0.1 (2022-06-16)
 * (raschy) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2023 raschy <raschy@gmx.de>
+Copyright (c) 2022-2025 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

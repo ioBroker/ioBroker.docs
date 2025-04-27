@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.devices/README.md
 title: ioBroker.设备
-hash: jU9oLzDlmKeLxKpIYsRmcNrrbEgUVX5e7BQk7GH0E6U=
+hash: UrDkIXPAx9G5N4ogz6LNnhjSZ17KDCkY4mB+cokYESQ=
 ---
-![标识](../../../en/adapterref/iobroker.devices/admin/devices.png)
+![标识](../../../en/adapterref/iobroker.devices/admin/devices.svg)
 
 ![安装数量](http://iobroker.live/badges/devices-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.devices.svg)
@@ -30,6 +30,14 @@ hash: jU9oLzDlmKeLxKpIYsRmcNrrbEgUVX5e7BQk7GH0E6U=
 这些虚拟设备为物理设备提供了标准化接口，使得跨不同制造商和协议的设备集成、脚本编写、可视化和控制变得更加容易。
 
 该适配器确保数据点命名和结构的一致性，减少了硬件发生变化时修改脚本或可视化的需要。
+
+它将 ioBroker 中的任何状态集合（物理的**或**虚拟的）包装到具有丰富信息的格式良好的**设备**中：
+
+* `类型`、`角色`、`智能名称`、`颜色`、`房间`、`功能`、`图标`、`单位` 等
+
+结果由仪表板（Material UI、VIS-2）、语音助手（Alexa/Google）、物质适配器、**iot/cloud** 适配器和脚本使用，为您提供干净、面向未来的对象树。
+
+**注意**：该适配器**不**轮询硬件。它以仅限标签页的“Web”实例运行，不占用任何 CPU/RAM。
 
 ＃＃＃ 目的
 `ioBroker.devices` 适配器具有以下用途：
@@ -99,7 +107,12 @@ hash: jU9oLzDlmKeLxKpIYsRmcNrrbEgUVX5e7BQk7GH0E6U=
 - `alias.0.Temperature.temp` - 单位为“°C”的状态。它应该与某个实际的温度状态建立虚拟链接。如果您在 `ioBroker.devices` 适配器中移除该别名，则此状态将保持无链接状态。
 - `alias.0.Temperature.humidity` - 单位为“%”的状态。这将与真实状态建立虚拟链接（例如，与 `hm-rpc.0.JHAGHGJJJ.1.HUMIDITY` 建立虚拟链接）。如果您在 `ioBroker.devices` 适配器中移除别名，此状态将被删除。
 
-几乎每种设备类型都可能具有电池、连接、错误等附加状态（指示器）。这些状态是可选的，但某些适配器（例如，材料或物质）可以对其进行解释。
+几乎每种设备类型都可能具有电池、连接、错误和其他一些附加状态（指示器）。这些状态是可选的，但某些适配器（例如 `material` 或 `matter`）可以解析它们。
+
+对于每个状态，您可以提供别名支持的所有设置：
+
+- 读写有不同的状态
+- 转换公式以供读写
 
 #### 管理设备
 编辑设备：在设备选项卡中，单击设备旁边的铅笔图标以修改其名称、类型、类别、颜色、名称、图标或数据点映射。
@@ -116,6 +129,13 @@ hash: jU9oLzDlmKeLxKpIYsRmcNrrbEgUVX5e7BQk7GH0E6U=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2025-04-26)
+* (@GermanBluefox) Corrected many GUI issues
+
+### 1.2.1 (2025-04-22)
+* (@GermanBluefox) Updated logo
+* (@GermanBluefox) Updated type-detector
+
 ### 1.2.0 (2025-04-20)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Used vite

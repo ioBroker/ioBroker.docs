@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.refoss/README.md
 title: ioBroker.refoss
-hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
+hash: bJHUyzWvYGUvEoA8KCdlzQnnSDmKX4H6CctgBOVIrf0=
 ---
 ![Logo](../../../en/adapterref/iobroker.refoss/admin/refoss.png)
 
@@ -31,7 +31,7 @@ Weitere und detaillierte Informationen zum Gerät finden Sie hier: [Refoss](http
 
 ## Changelog
 
-### 0.1.10 (2025-03-05)
+### 0.1.11 (2025-04-23)
 
 - (zhaochuanling) revise the feedback content
 
@@ -56,7 +56,7 @@ Weitere und detaillierte Informationen zum Gerät finden Sie hier: [Refoss](http
 MIT License
 
 Copyright (c) 2025 zhaochuanling zhaochuanling8@gmail.com,
-Bluefox dogafox@gmail.com and 
+Bluefox dogafox@gmail.com and
 Refoss support@refoss.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

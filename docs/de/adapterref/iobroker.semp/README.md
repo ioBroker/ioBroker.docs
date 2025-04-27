@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: BUgLuC9jDs8kdU4y1KOh9Tf+1PG+mYBTncPgwWPEebk=
+hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
 ---
 ![Logo](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -50,8 +50,15 @@ Eine Beschreibung zur allgemeinen Verwendung von Energieanforderungen finden Sie
 
 ## Anforderungen
 ## Geschirrspülermodus
-Der Adapter kann zur Steuerung eines Geschirrspülers verwendet werden. Der Geschirrspüler wird eingeschaltet, wenn genügend Solarenergie vorhanden ist.
-Details zur Implementierung finden Sie in Ausgabe Nr. 333.
+## Funktionalität des Adapters
+Mit dem Adapter können Sie einen Geschirrspüler oder andere Geräte steuern, die Standby-Strom verbrauchen. Das funktioniert folgendermaßen:
+
+- Der Benutzer schaltet das Gerät wie gewohnt manuell ein.
+- Anstatt sofort zu starten, bleibt das Gerät angehalten.
+- Sobald genügend Solarenergie zur Verfügung steht, startet das Gerät automatisch und läuft, bis das Programm abgeschlossen ist.
+- Eventuelle Empfehlungen des Smart Home Managers (SHM), das Gerät auszuschalten, werden bei diesem Vorgang ignoriert.
+
+> **Hinweis:** > Detaillierte Informationen zur technischen Umsetzung finden Sie in [Ausgabe Nr. 333](#) und im untenstehenden Flussdiagramm.
 
 ![Flussdiagramm](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
 
@@ -66,7 +73,7 @@ Details zur Implementierung finden Sie in Ausgabe Nr. 333.
 -->
 
 ### **WORK IN PROGRESS**
-* René) see issue #333: new sequence to handle devices with quiescent current
+* (René) see issue #333: new sequence to handle devices with quiescent current. ATTENTION: new dishwasher sequence is used for dishwasher devices optionally!
 * (René) changes requested by adapter checker
 * (René) dependencies updated 
 

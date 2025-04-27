@@ -52,6 +52,7 @@ https://www.iobroker.net/#de/blog/2024_12_21
 https://www.iobroker.net/#de/blog/2024_12_22
 https://www.iobroker.net/#de/blog/2025_03_29
 https://www.iobroker.net/#de/blog/2025_04_04
+https://www.iobroker.net/#de/blog/2025_04_26
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -78,6 +79,7 @@ https://www.iobroker.net/#en/blog/2024_12_21
 https://www.iobroker.net/#en/blog/2024_12_22
 https://www.iobroker.net/#en/blog/2025_03_29
 https://www.iobroker.net/#en/blog/2025_04_04
+https://www.iobroker.net/#en/blog/2025_04_26
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -104,6 +106,7 @@ https://www.iobroker.net/#ru/blog/2024_12_21
 https://www.iobroker.net/#ru/blog/2024_12_22
 https://www.iobroker.net/#ru/blog/2025_03_29
 https://www.iobroker.net/#ru/blog/2025_04_04
+https://www.iobroker.net/#ru/blog/2025_04_26
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -130,6 +133,7 @@ https://www.iobroker.net/#zh-cn/blog/2024_12_21
 https://www.iobroker.net/#zh-cn/blog/2024_12_22
 https://www.iobroker.net/#zh-cn/blog/2025_03_29
 https://www.iobroker.net/#zh-cn/blog/2025_04_04
+https://www.iobroker.net/#zh-cn/blog/2025_04_26
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
