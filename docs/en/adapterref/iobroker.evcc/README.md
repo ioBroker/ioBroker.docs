@@ -21,6 +21,9 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.2 (2025-04-27)
+* (arteck) corr dissolve folders
+
 ### 0.2.1 (2025-04-27)
 * (arteck) consolidate off, min, pv, now buttons to select object
 * (arteck) update dependencies

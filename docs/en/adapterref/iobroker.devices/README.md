@@ -128,7 +128,7 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.2.2 (2025-04-26)
+### 1.2.3 (2025-04-27)
 * (@GermanBluefox) Corrected many GUI issues
 
 ### 1.2.1 (2025-04-22)

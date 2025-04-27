@@ -34,31 +34,31 @@ With the ioBroker Matter Adapter, it is possible to map the following use cases:
 * Sync min/max from Matter into ioBroker objects
 * Cleanup objects when devices/states are removed
 * ioBroker device types
-  * (3+) vacuumCleaner
-  * (3) volume, volumeGroup
-  * (-3) airCondition
-  * (2+) fireAlarm
-  * (-2) mediaPlayer
+  * (6) vacuumCleaner
+  * (5+) volume, volumeGroup
+  * (5+/8) airCondition
+  * (7) fireAlarm
+  * (5) mediaPlayer
   * warning - how?
   * gate - aka blinds because matter has no other device type?
   * windowTilt - as discussed as composed device with two contact sensors ... one for open close and one for tilt
   * levelSlider - ideally as non-lighting dimmed socket?
 * Matter device types
-  * (7) Fan -> airCondition?
-  * (4+) Air Quality Sensor -> ???
-  * (4+) Air Purifier -> ???
-  * (4) Pump -> ???
-  * (4) Pressure Sensor -> ??? DEF
-  * (3+) Robot Vacuum cleaner -> vacuumCleaner
-  * (3) Flow Sensor -> ??? DEF
-  * (3) Room Air Conditioner -> airCondition
-  * (2+) Dishwasher-> ???
-  * (2) Basic Video Player -> mediaPlayer
-  * (2) Laundry Washer -> ???
-  * (2) Refrigerator -> ???
-  * (2) Temperature Controlled Cabinet -> ???
-  * (2) Water Freeze Detector -> warning?
-  * (2) Rain Sensor -> warning?
+  * (8) Fan -> airCondition?
+  * (7) Air Quality Sensor -> ???
+  * (7) Air Purifier -> ???
+  * (5) Pump -> ???
+  * (6) Pressure Sensor -> ??? DEF
+  * (6) Robot Vacuum cleaner -> vacuumCleaner
+  * (4) Flow Sensor -> ??? DEF
+  * (5+) Room Air Conditioner -> airCondition
+  * (5+) Dishwasher-> ???
+  * (4+) Basic Video Player -> mediaPlayer
+  * (4+) Laundry Washer -> ???
+  * (4) Refrigerator -> ???
+  * (4) Temperature Controlled Cabinet -> ???
+  * (2+) Water Freeze Detector -> warning?
+  * (2+) Rain Sensor -> warning?
   * (2) Water Valve -> ???
   * (2) Laundry Dryer -> ???
   * (2) Oven -> ???
@@ -66,11 +66,11 @@ With the ioBroker Matter Adapter, it is possible to map the following use cases:
   * (2) Cook Surface -> ???
   * (2) Extractor Hood -> ???
   * (2) Microwave Oven -> ???
-  * (1+) Electrical Vehicle Supply Equipment -> ???
-  * (0) Water Heater -> ???
-  * (0) Solar Power -> ???
-  * (0) Battery Storage -> ???
-  * (0) Heat Pump -> ???
+  * (2) Electrical Vehicle Supply Equipment -> ???
+  * (2) Water Heater -> ???
+  * (1+) Solar Power -> ???
+  * (1+) Battery Storage -> ???
+  * (1+) Heat Pump -> ???
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -81,6 +81,8 @@ With the ioBroker Matter Adapter, it is possible to map the following use cases:
 ### **WORK IN PROGRESS**
 * (@GermanBluefox) Added expert mode to GUI
 * (@GermanBluefox) GUI optimizations
+* (@Apollon77) Upgrade Matter support to 1.4
+* (@Apollon77) Upgrade type detector and usage for better automatic detection results
 
 ### 0.4.15 (2025-02-25)
 * (@GermanBluefox) Added Button display and control in the UI

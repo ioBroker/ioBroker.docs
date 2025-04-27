@@ -181,7 +181,7 @@ You cannot send POST request to commands via GUI.
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.0 (2025-04-27)
 * (@GermanBluefox) Rewritten in TypeScript
 * (@GermanBluefox) Removed binary states
 
