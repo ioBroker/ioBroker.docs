@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 16EtaJ6QGjpsxF5HWP1YHZW4JGZbcosL8CZ8I9E24RI=
+hash: CevnA7T7sHSamYWblZJOuDzy/NIuSAqwybgwIb9sCEI=
 ---
 ![标识](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -12,17 +12,17 @@ hash: 16EtaJ6QGjpsxF5HWP1YHZW4JGZbcosL8CZ8I9E24RI=
 ![下载](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
 
 # IoBroker.lovelace
-![测试与发布](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Lovelace 适配器用于 ioBroker
-通过此适配器，您可以使用 Home Assistant Lovelace UI 为 ioBroker 构建可视化。
+## IoBroker 的 lovelace 适配器
+使用此适配器，您可以使用 Home Assistant Lovelace UI 为 ioBroker 构建可视化。
 
 [德国文献](docs/de/README.md)
 
 ## 实例对象
-在文件夹实例中，有一些对象可用于控制 UI。对于每个浏览器，将创建一个具有随机 ID 的新子文件夹。此 ID 存储在客户端浏览器的 Web 存储中。如果删除 Web 存储，将创建一个新实例。如果您使用 Fully Kiosk Browser，请确保功能 `Delete webstorage on reload` 已**禁用**。
+文件夹实例中有一些对象可用于控制 UI。对于每个浏览器，系统都会创建一个带有随机 ID 的新子文件夹。此 ID 存储在客户端浏览器的 Web 存储中。如果您删除 Web 存储，则会创建一个新的实例。如果您使用 Fully Kiosk 浏览器，请确保 `Delete webstorage on reload` 功能已**禁用**。
 
-此功能使用由适配器安装和更新的 browser_mod。请勿将您自己的 browser_mod 版本添加为自定义卡。
+此功能使用 browser_mod，该模块由适配器安装和更新。请勿将您自己的 browser_mod 版本添加为自定义卡。
 
 ＃＃ 配置
 有两种方法可以配置实体：
@@ -31,15 +31,15 @@ hash: 16EtaJ6QGjpsxF5HWP1YHZW4JGZbcosL8CZ8I9E24RI=
 - 手动的
 
 ＃＃＃ 汽车
-在自动模式下，将应用类似的过程，如`google home` 或`material adapter`。
+在自动模式下，将应用类似的过程，如`google home`或`material adapter`。
 
 ***仅检测定义了`function`和`room`类别的对象和通道***
 
-您可以定义友好名称并将其用于实体中。
+您可以定义友好名称，并将其用于实体中。
 
 ＃＃＃ 手动的
-可以在对象树中手动定义对象，如`sql` 或 `history`。必须提供实体的类型，并可选地提供对象的名称。
-使用此方法只能创建简单实体，如 input_number、input_text 或 input_boolean。它可能没有多个状态或属性。
+对象可以在对象树中手动定义，例如`sql`或`history`。必须提供实体类型，并可选地提供对象名称。
+此方法只能创建简单实体，例如输入编号 (input_number)、输入文本 (input_text) 或输入布尔值 (input_boolean)。它不能具有多个状态或属性。
 
 ## 面板
 ### 报警面板
@@ -82,8 +82,8 @@ createState(
 
 ### 数字输入
 如果在自定义对话框中选择了 input_number 实体类型，则可以手动完成此操作。
-此类型需要 `min` 和 `max` 值（在 `common` 中），并且可以添加可选的 `step`。
-如果您想看到向上和向下箭头，您应该在自定义 `mode` 中设置为“number”：
+此类型需要`min`和`max`值（`common`），以及可选的`step`值。
+如果您想看到向上和向下箭头，则应在自定义`mode`中将其设置为“number”：
 
 ```json5
 common: {
@@ -99,8 +99,8 @@ common: {
 ```
 
 ### 选择输入
-如果在自定义对话框中选择了 `input_select` 实体类型，则可以手动完成此操作。
-应在标准 `common.states` 对象中提供可供选择的选项列表：
+如果在自定义对话框中选择了`input_select`实体类型，则可以手动完成此操作。
+可供选择的选项列表应在标准`common.states`对象中提供：
 
 ```json
 "common": {
@@ -211,11 +211,11 @@ createState(
 - `daswetter.0.NextDays.Location_1`
 -`yr.0.预测`
 
-已使用 `AccuWeather` 驱动程序 v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather 进行测试。
-为支持 accuweather 预报而创建的自定义 Lovelace 卡 - https://github.com/algar42/IoB.lovelace.accuweather-card
+已使用 `AccuWeather` 驱动程序 v1.1.0 进行测试，网址：https://github.com/iobroker-community-adapters/ioBroker.accuweather。
+为支持 accuweather 天气预报而创建的自定义 Lovelace 卡 - https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### 购物清单
-购物清单以以下形式写入价值：
+购物清单以以下形式写入值：
 
 ```json
 [
@@ -229,7 +229,7 @@ createState(
 您还可以通过创建类型为`todo`的手动实体来添加您自己的待办事项或购物清单。
 
 ＃＃＃ 地图
-这些物体必须看起来像这样：
+这些对象必须看起来像这样：
 
 ```js
 createState('location', '39.5681295;2.6432632', false, {
@@ -264,7 +264,7 @@ createState('location.latitude', 39.5681295, false, {
 ```
 
 ### 图片实体
-您可以使用静态图片或使用任何提供 URL 的状态作为状态。
+您可以使用静态图片，或使用任何提供 URL 的状态作为状态。
 例如：
 
 ```json
@@ -285,9 +285,9 @@ createState('location.latitude', 39.5681295, false, {
 或者只是手动将实体类型设置为`camera`并将 URL 写入其中。
 
 ### 降价
-您可以像在[iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects)中一样在 Markdown 中使用绑定。
+您可以在 Markdown 中使用绑定，就像在[iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects)中一样。
 
-例如，文本`Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` 将在 markdown 面板中生成文本`Admin adapter is alive`。
+例如，文本`Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.`将在markdown面板中生成文本`Admin adapter is alive`。
 
 ## 自定义卡片
 ### 上传自定义卡片
@@ -300,17 +300,17 @@ createState('location.latitude', 39.5681295, false, {
 以下定制卡可以成功测试：
 
 - `bignumber-card`: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-- `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases （使用最新版本）
-- `thermostat`: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card （需要 .js 和 .lib.js 文件）
+- `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases （获取最新版本）
+- `thermostat`: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (需要 .js 和 .lib.js 文件)
 
 我发现此链接 https://github.com/jimz011/homeassistant 是自定义卡片的有趣资源。
 
-自定义卡片通常作为源存储在 GitHub 上，必须在使用前进行编译。
-您应该检查 GitHub 上的 `Releases` 菜单，并尝试在那里找到编译后的文件。
-像这样：[https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases)（查找文件 `mini-graph-card-bundle.js`）
+自定义卡片通常作为源代码存储在 GitHub 上，使用前必须先编译。
+您应该查看 GitHub 上的 `Releases` 菜单，并尝试在其中找到已编译的文件。
+例如：[https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases)（查找文件 `mini-graph-card-bundle.js`）
 
-## 拥有图像
-自定义图像（例如，用于背景）可以通过与自定义卡片相同的配置对话框加载。并像这样使用它：
+## 自己的图像
+自定义图像（例如，用于背景）可以通过与自定义卡片相同的配置对话框加载。使用方法如下：
 
 `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
@@ -318,10 +318,10 @@ createState('location.latitude', 39.5681295, false, {
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-在 lovelace 配置文件中。阅读有关 lovelace 背景的更多信息[这里](https://www.home-assistant.io/lovelace/views/#background)。
+在 lovelace 配置文件中。更多关于 lovelace 的背景信息，请参阅[这里](https://www.home-assistant.io/lovelace/views/#background)。
 
 ## 主题
-主题可以在 ioBroker 的配置对话框中定义。
+您可以在 ioBroker 的配置对话框中定义主题。
 粘贴以下内容：
 
 ```yaml
@@ -395,7 +395,7 @@ midnight:
 取自[这里](https://community.home-assistant.io/t/midnight-theme/28598/2)。
 
 ## 图标
-使用`mdi:NAME`形式的图标，如`mdi:play-network`。名称可从此处获取：https://materialdesignicons.com/
+使用`mdi:NAME`格式的图标，例如`mdi:play-network`。名称可从此处获取：https://materialdesignicons.com/
 
 ## 通知
 您可以通过`sendTo`功能添加通知，或者将状态写入`lovelace.X.notifications.add`：
@@ -413,8 +413,8 @@ setState('lovelace.0.notifications.add', 'Message text'); // short version
 ```
 
 ## 语音控制
-来自 Web 界面的所有命令都将以 `ack=false` 写入 lovelace.X.conversation 状态。
-您可以编写一个脚本，该脚本将根据请求做出反应并回答：
+所有来自 Web 界面的命令都将以 `ack=false` 的形式写入 lovelace.X.conversation 状态。
+您可以编写一个脚本，用于响应请求并进行回复：
 
 ```js
 on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
@@ -427,55 +427,55 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 });
 ```
 
-故障排除
-如果您弄乱了 YAML 代码并看到空白页但仍有顶部菜单，您可以从菜单中启用编辑模式（如果尚未启用），然后再次打开菜单以访问“RAW Yaml 编辑器”，您可以在其中看到完整的 YAML 代码并可以清理它。
-如果这没有帮助，您可以在 ioBroker 的 raw-editor 中打开对象 `lovelace.*.configuration` 并在那里查看。
-您还可以从备份中恢复该对象。它包含可视化的完整配置。
+## 故障排除
+如果您弄乱了 YAML 代码，导致页面空白但顶部菜单仍然可见，您可以先在菜单中启用编辑模式（如果尚未启用），然后再次打开菜单访问“RAW Yaml 编辑器”，在其中您可以查看完整的 YAML 代码并进行清理。
+如果这没有帮助，您可以在 ioBroker 的 raw-editor 中打开对象 `lovelace.*.configuration` 进行查看。
+您也可以从备份中恢复该对象。它包含您可视化的完整配置。
 
 ## Lovelace 的原始来源
-使用来源在这里https://github.com/GermanBluefox/home-assistant-polymer。
+使用的来源在这里 https://github.com/GermanBluefox/home-assistant-polymer 。
 
-待办事项
+## 待办事项
 安全性必须从当前用户而不是默认用户那里获取
 
 ＃＃ 发展
 ＃＃＃ 版本
-使用版本 home-assistant-frontend@20231208.2 浏览器 Mod 版本：2.3.0
+使用 home-assistant-frontend@20250306.0 版本 浏览器模块版本：2.3.3
 
 ### 如何构建新的 Lovelace 版本
-首先，必须将实际的 https://github.com/home-assistant/frontend (dev 分支) **手动** 合并到 https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** 分支！)。
+首先，实际的 https://github.com/home-assistant/frontend (dev 分支) 必须**手动**合并到 https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** 分支！)。
 
-ioBroker 的所有更改都标有注释`// IoB`。
-目前（20231208.2）已修改以下文件：
+ioBroker 的所有更改均标有注释`// IoB`。
+目前（20250401.0）已修改以下文件：
 
 - `build-scripts/gulp/app.js` - 添加新的 gulp 任务develop-iob
-- `build-scripts/gulp/webpack.js` - 添加新的 gulp 任务 webpack-dev-app
+- `build-scripts/gulp/rspack.js` - 添加新的 gulp 任务 rspack-dev-app
+- `src/data/icons.ts` - 始终对旧版本使用后备，其中前端决定为 binary_sensors 使用哪个图标（如果没有提供）。
 - `src/data/weather.ts` - 添加从 url 显示天气图标的支持。
 - `src/dialogs/more-info/const.ts` - 删除天气状态和历史记录
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - 删除实体设置按钮和选项卡
 - `src/dialogs/more-info/ha-more-info-history.ts` - 删除历史记录中的“显示更多”链接
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - 删除日志中的“显示更多”链接
 - `src/dialogs/more-info/controls/more-info-weather.ts` - 添加从 url 显示天气图标的支持。
-- `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - 禁用语音助手的配置
-- `src/entrypoints/core.ts` - 修改了身份验证流程
+- `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - 禁用语音助手配置
+- `src/entrypoints/core.ts` - 添加无身份验证选项
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - 添加从 url 显示天气图标的支持。
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - 添加通过 auth 从 url 显示天气图标的支持。
-- `src/panels/lovelace/hui-root.ts` - 添加通知和语音控制
+- `src/panels/lovelace/hui-root.ts` - 添加通知按钮，禁用管理仪表板链接
 - `src/util/documentation-url.ts` - 用于链接到 iobroker 帮助而不是家庭助理。
-- `.gitignore` - 添加 `.idea` 忽略
 - `.husky/pre-commit` - 删除 git 提交钩子。
-- `package.json` - 删除 husky 提交钩子
 
-之后，在`./build`文件夹中签出修改后的版本。然后。
+之后，在`./build`文件夹中检出修改后的版本。然后。
 
-1. 转到 ./build 目录。
-2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` 它是 https://github.com/home-assistant/frontend.git 的一个 fork，但是有些内容被修改了（参见前面的文件列表）。
-3. `cd 家庭助理-聚合物`
+1. 转到./build 目录。
+2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` 它是 https://github.com/home-assistant/frontend.git 的一个 fork，但有些内容被修改了（请参阅前面的文件列表）。
+3. `cd home-assistant-polymer`
 4. `git checkout master`
 5. `yarn 安装`
-6. `gulp build-app` 用于发布版本，或 `gulp evolve-iob` 用于调试版本。若要在更改后构建 Web，您可以调用 `webpack-dev-app` 以加快构建速度，但在版本可供使用后，您仍需调用 `build-app`。
-7. 将 `./build/home-assistant-polymer/hass_frontend` 中的所有文件复制到此 repo 中的 `./hass_frontend`
-8. 多次运行“gulp rename”任务（直到没有发生变化）。
-9. 更新`README.md`中的版本，并更新`server.js`中的`VERSION`常量。
+6. 使用 `gulp build-app` 进行发布，或使用 `gulp develop-iob` 进行调试。修改后，如果需要构建 Web 应用，可以调用 `webpack-dev-app` 来加快构建速度，但版本可用后，仍然需要调用 `build-app`。
+7. 在适配器仓库中运行脚本“hass_frontend/static_cards/newFrontend.sh”来更新前端（假设两个仓库在同一个文件夹中彼此相邻，如果不是，请调整脚本，最好进行一些参数处理并进行 PR，谢谢 :smile: ）
+8.运行“gulp rename”任务。
+9. 更新 `README.md` 中的版本
 
 ## Changelog
 
@@ -483,6 +483,22 @@ ioBroker 的所有更改都标有注释`// IoB`。
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) settings from entity registry are now loaded on startup
+* (Garfonso) logbook: prevent entries from the future
+* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+
+### 5.0.0 (2025-04-10)
+* (Garfonso) Updated frontend to 20250401.0
+* (Garfonso) Updated browser_mod to 2.3.3
+* (Garfonso) Add statistics recorder
+* (Garfonso) Add entity registry, use it to solve id clashes. In the future, store entity settings here.
+* (Garfonso) Limit the number of stored browser instances
+* (Garfonso) Improved caching behavior. Might solve iobroker.pro issue... hopefully?
+* (Garfonso) Prevent crash with some edge cases with light entities
+* (Garfonso) experimental dashboard support.
+* (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
+
 ### 4.1.15 (2025-03-10)
 * (Garfonso) repaired image loading, again.
 
@@ -491,13 +507,6 @@ ioBroker 的所有更改都标有注释`// IoB`。
 
 ### 4.1.13 (2025-03-06)
 * (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
-
-### 4.1.11 (2024-11-20)
-* (Garfonso) convert string state values to numbers, where necessary.
-
-### 4.1.10 (2024-05-23)
-* (Garfonso) device icons work again.
-* (Garfonso) default user sometimes was not found in a system.
 
 ## License
 

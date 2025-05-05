@@ -32,6 +32,59 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: Only the first icon could be changed. After that, no icons were shown in the list
+- FIX: On first load, datasources are not inserted inn alphabetical order
+- FIX: If a copied element belongs to a group, the group will be removed from that element 
+
+### 0.7.2 (2025-04-25)
+- FIX: Object browser was not opening, if objects do not have proper language details
+- FIX: Datasources table actions column was misaligned
+- Added: Dependencies updated (Admin: >=7.4.10 is now required) (#344)
+- Added: Browser-Frame can now be an ioBroker state. This can be text, html, numbers or even a jsonTable, which will be displayed inside an overlay (new window or same window don't work for this)
+- Added: Some language corrections
+
+### 0.7.1 (2025-04-22)
+- FIX: If datasource element was modified, the current status was not fetched correctely
+- FIX: Overrides for elements were not applied correctly (#340)
+- FIX: Filter in selection gallery was not working
+- FIX: After tour has been visited, "End" didnt take the user to the overview
+- Added: If you use the internal Icon-Proxy, icons are now cached inside the browser for faster loading and flicker prevention, if you use them in overrides
+- Added: While sorting in Datasources table was set to descending, the new added datasource was sorted in wrongly
+- Added: Improved loading and filter time of the ioBroker object browser
+- Added: Object browser now supports smoother filtering including complete states (e.g. 0_userdata.0.example_state). Further it shows the current value of the state (mobile after touching the state)
+- Added: Some code optimizations under the hood for smoother runtime
+- Added: Better information, why an element could not be deleted (e.g. existing connection)
+- Added: Few language corrections
+
+### 0.7.0 (2025-04-09)
+- FIX: If a line reconnection is aborted, the initial selected line was unselected
+- FIX: Rotation for texts was not rotating around the own center
+- FIX: Help text for connecting lines was missing
+- FIX: Rightclick on a line, deletion was working, but element showed as inactive
+- FIX: When moving multiple elements, it may happen that if one element would leave the workspace and is stopped, the other element still moves on
+- FIX: Workspace could not be re-sized under some circumstances
+- FIX: Leaving workspace open, sometimes results in adding the same datasources again and again
+- FIX: If the used WebView on devices is too old, the live-view could not be displayed (#292, #324)
+- FIX: Overwrites with javascript functions could be falsy detected as datapoint {my.0.datapoint}
+- FIX: Gallery did not show the last uploaded image directly, if uploading several images at once
+- Added: Dependencies updated (Web-Adapter: 6.1.10 and Admin: 6.0.0 are now required) (#332)
+- Added: Inside the images select dialog uploads are possible
+- Added: Pictures can now be rotated
+- Added: If a value is set to be animated while changing the value, a visual effect is added to indicate the change
+- Added: Undo und Redo functions are now globally availabe
+- Added: If elements of the same type are selected, the user is able to perform modifications on them in one step (stack actions)
+- Added: Strg/Meta (Mac) + A now selects all elements except lines
+- Added: Copied elements can now be inserted at the current pointer position
+- Added: Holding down the Shift key enables 2 modes: 1. moving elements with the keyboard, 10 steps per key press are possible | 2. moving elements with the mouse, the element snaps in the next grid
+- Added: The live view and workspace now have toast messages on the top right corner to inform the user. For better usage, the user is also informed with tips which can be deactivated
+- Added: Datasources will not be deleted directly - they will be marked for deletion and will be deleted once the workspace is saved. Before, the user is able to restore them
+- Added: A workspace tour shows the user how to use the basic functions
+- Added: Password protection for workspace. Password can be set inside the adapter-settings!
+- Added: An URL parameter "lang=en" can now be attached to the URL, to display the live view and configuration workspace in the defined language
+- Added: New element: switch is now available
+- Added: UI optimizations
+
 ### 0.6.2 (2024-12-19)
 - FIX: Further fix for properties of elements, if their value is empty or zero - elements could not be handled anymore
 - FIX: While using installed browser application (PWA with https) or shortcuts on mobile devices, always instance 0 was fetched. Now each instance can be linked
@@ -414,7 +467,7 @@ described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#
 ## License
 MIT License
 
-Copyright (c) 2024 SKB <info@skb-web.de>
+Copyright (c) 2025 SKB <info@skb-web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 16EtaJ6QGjpsxF5HWP1YHZW4JGZbcosL8CZ8I9E24RI=
+hash: CevnA7T7sHSamYWblZJOuDzy/NIuSAqwybgwIb9sCEI=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -442,30 +442,30 @@ Die Sicherheit muss vom aktuellen Benutzer übernommen werden und nicht vom Stan
 
 ## Entwicklung
 ### Version
-Verwendete Version von home-assistant-frontend@20231208.2 Version des Browser-Mods: 2.3.0
+Verwendete Version von home-assistant-frontend@20250306.0 Version des Browser-Mods: 2.3.3
 
 ### So erstellen Sie die neue Lovelace-Version
-Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Entwicklungszweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (Zweig ***iob***!) integriert werden.
+Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Entwicklungszweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (***iob***-Zweig!) integriert werden.
 
 Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
-Vorläufig (20231208.2) wurden folgende Dateien geändert:
+Vorläufig (20250401.0) wurden folgende Dateien geändert:
 
 - `build-scripts/gulp/app.js` - Neue Gulp-Aufgabe „develop-iob“ hinzufügen
-- `build-scripts/gulp/webpack.js` - Neue Gulp-Aufgabe webpack-dev-app hinzufügen
+- `build-scripts/gulp/rspack.js` - Neue Gulp-Aufgabe rspack-dev-app hinzufügen
+- `src/data/icons.ts` – verwenden Sie immer einen Fallback für alte Versionen, bei denen das Frontend entscheidet, welches Symbol für Binärsensoren verwendet werden soll (falls keines angegeben ist).
 - `src/data/weather.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/dialogs/more-info/const.ts` – Wetterstatus und -verlauf entfernen
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte „Entitätseinstellungen entfernen“
-- `src/dialogs/more-info/ha-more-info-history.ts` – Link „Mehr anzeigen“ im Verlauf entfernen
+- `src/dialogs/more-info/ha-more-info-history.ts` - Link „Mehr anzeigen“ im Verlauf entfernen
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - Link „Mehr anzeigen“ im Logbuch entfernen
 - `src/dialogs/more-info/controls/more-info-weather.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` – Konfiguration von Sprachassistenten deaktivieren
-- `src/entrypoints/core.ts` - geänderter Authentifizierungsprozess
+- `src/entrypoints/core.ts` – keine Authentifizierungsoption hinzufügen
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` – Unterstützung für die Anzeige von Wettersymbolen von URLs mit Authentifizierung hinzufügen.
-- `src/panels/lovelace/hui-root.ts` – Benachrichtigungen und Sprachsteuerung hinzugefügt
+- `src/panels/lovelace/hui-root.ts` – Benachrichtigungsschaltfläche hinzugefügt, Link zur Dashboard-Verwaltung deaktiviert
 - `src/util/documentation-url.ts` – für den Link zur Iobroker-Hilfe anstelle des Home Assistant.
-- `.gitignore` - `.idea` ignorieren hinzufügen
 - `.husky/pre-commit` – Git-Commit-Hooks entfernen.
-- `package.json` – Husky-Commit-Hook entfernen
 
 Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 
@@ -473,11 +473,11 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` ist ein Fork von https://github.com/home-assistant/frontend.git, aber einige Dinge wurden geändert (siehe die Dateiliste weiter oben).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
-5. `Garn installieren`
+5. `yarn install`
 6. „gulp build-app“ für die Release-Version oder „gulp develop-iob“ für die Debug-Version. Um die Web-Version nach Änderungen zu erstellen, können Sie „webpack-dev-app“ für einen schnelleren Build aufrufen. Sobald die Version einsatzbereit ist, müssen Sie „build-app“ jedoch trotzdem aufrufen.
-7. Kopieren Sie alle Dateien von `./build/home-assistant-polymer/hass_frontend` nach `./hass_frontend` in diesem Repo
-8. Führen Sie die Aufgabe „gulp rename“ mehrmals aus (bis keine Änderungen mehr auftreten).
-9. Aktualisieren Sie die Version in „README.md“ und auch in „server.js“ die Konstante „VERSION“.
+7. Führen Sie das Skript „hass_frontend/static_cards/newFrontend.sh“ im Adapter-Repository aus, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositorys nebeneinander im selben Ordner befinden. Wenn nicht, passen Sie das Skript bitte an, vorzugsweise mit etwas Parameterbehandlung, und erstellen Sie einen PR, danke :smile:)
+8. Führen Sie die Aufgabe „gulp rename“ aus.
+9. Aktualisieren Sie die Version in „README.md“
 
 ## Changelog
 
@@ -485,6 +485,22 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) settings from entity registry are now loaded on startup
+* (Garfonso) logbook: prevent entries from the future
+* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+
+### 5.0.0 (2025-04-10)
+* (Garfonso) Updated frontend to 20250401.0
+* (Garfonso) Updated browser_mod to 2.3.3
+* (Garfonso) Add statistics recorder
+* (Garfonso) Add entity registry, use it to solve id clashes. In the future, store entity settings here.
+* (Garfonso) Limit the number of stored browser instances
+* (Garfonso) Improved caching behavior. Might solve iobroker.pro issue... hopefully?
+* (Garfonso) Prevent crash with some edge cases with light entities
+* (Garfonso) experimental dashboard support.
+* (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
+
 ### 4.1.15 (2025-03-10)
 * (Garfonso) repaired image loading, again.
 
@@ -493,13 +509,6 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 
 ### 4.1.13 (2025-03-06)
 * (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
-
-### 4.1.11 (2024-11-20)
-* (Garfonso) convert string state values to numbers, where necessary.
-
-### 4.1.10 (2024-05-23)
-* (Garfonso) device icons work again.
-* (Garfonso) default user sometimes was not found in a system.
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skiinfo/README.md
 title: ioBroker.skiinfo
-hash: ukR85pjwpp12fatOsK6ca8MCp6cNtAL1BmI+Nta4uT0=
+hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
 ---
 # IoBroker.skiinfo
 ![Logo](../../../en/adapterref/iobroker.skiinfo/admin/skiinfo.png)
@@ -35,20 +35,18 @@ weitere Informationen
 ### Skiinfo-Browser
 Mit dem Widget können Sie alle verfügbaren Länder, Regionen und Gebiete durchsuchen und Favoriten festlegen.
 
-Über die Tabellenüberschrift können Sie die Sortierung für jede Spalte (Standard, absteigend, aufsteigend) umschalten.
-
-Mit dem Sternsymbol können Sie den Favoritenmodus umschalten.
+Sie können die Sortierung für jede Spalte (Standard, absteigend oder aufsteigend) über die Tabellenüberschrift umschalten.
+Sie können über das Suchsymbol in der Bereichsspalte suchen.
+Sie können den Favoritenmodus über das Sternsymbol umschalten.
 
 Wählen Sie als Datenpunkt den Konfigurationsdatenpunkt aus.
 
 ### Skiinfo-Favorit
 Das Widget dient dazu, nur die bevorzugten Skigebiete anzuzeigen.
-
 Über den Tabellenkopf können Sie die Sortierung für jede Spalte (Standard, absteigend, aufsteigend) umschalten.
-
 Mit dem Sternsymbol können Sie das Gebiet aus der Favoritenliste entfernen.
 
-Als Datenpunkt wählen Sie bitte den Konfigurationsdatenpunkt.
+Als Datenpunkt wählen Sie bitte den Konfigurationsdatenpunkt aus.
 
 ### CSS-Klassen
 #### `widgetID` und `skiinfo`
@@ -168,13 +166,17 @@ console.log(response);
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2025-04-16)
 
-### **WORK IN PROGRESS**
+- add search for regions in browser
+
+### 0.4.1 (2025-04-08)
 
 - fix url
 - fix classname of CountryList
 - improve icons with round corners
 - fix advices from code review
+- fix global dependency
 
 ### 0.4.0 (2025-03-05)
 

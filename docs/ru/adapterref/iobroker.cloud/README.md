@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/README.md
 title: Облачный адаптер ioBroker
-hash: cVelMNaufGdss9w/JB0Gp8QrW6YDEflROWuonzeJH14=
+hash: HlxYFaKc41+tZeW6tBgPLNImJ3M6EjDblNj9COJVCzY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -26,7 +26,7 @@ hash: cVelMNaufGdss9w/JB0Gp8QrW6YDEflROWuonzeJH14=
 ![Вступление](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Пример
-Все запросы от облачного адаптера будут направлены на определенный экземпляр WEB. Пользователь должен указать здесь экземпляр WEB; который будет показан пользователю, когда он войдет на сайт https://iobroker.net.
+Все запросы от облачного адаптера будут направлены на определенный экземпляр WEB. Пользователь должен указать здесь экземпляр WEB; он будет показан пользователю, когда он войдет на сайт https://iobroker.net.
 
 ### Разрешить самоподписанные сертификаты
 Если вы используете стандартное облако iobroker.net, вы можете его деактивировать. Эта опция важна только при использовании собственного облака.
@@ -47,7 +47,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 Если в настройках поля «Белый список для сервисов» задать имя *custom_test*, а вызов выполнить с именем сервиса «custom_test», то состояние `cloud.0.services.custom_test` будет установлено в `myString`.
 
-Вы можете написать «*» в белом списке и все сервисы будут разрешены.
+Вы можете написать «*» в белом списке, и все сервисы будут разрешены.
 
 Начиная с версии 2.0.5 вы можете использовать запрос GET в форме `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` для помещения `\<data\>` в `cloud.0.services.custom_\<NAME\>`.
 
@@ -55,10 +55,10 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 Услуга IFTTT разрешена только в том случае, если установлен ключ IFTTT.
 
-Зарезервированные имена: "ifttt", "text2command", "simpleApi", "swagger". Их необходимо использовать без префикса `"custom_"`.
+Зарезервированные имена: `ifttt`, `text2command`, `simpleApi`, `swagger`. Их необходимо использовать без префикса `"custom_"`.
 
 ### Текст2команда
-Вы можете записать `text2command` в белый список, вы можете отправить POST-запрос на `https://iobroker.net/service/text2command/<user-app-key>`, чтобы записать данные в переменную `text2command.X.text`.
+Вы можете записать `text2command` в белый список, вы можете отправить POST-запрос к `https://iobroker.net/service/text2command/<user-app-key>`, чтобы записать данные в переменную `text2command.X.text`.
 
 «X» можно определить в настройках с помощью параметра «Использовать экземпляр text2command».
 
@@ -84,6 +84,8 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ### **WORK IN PROGRESS**
 * (bluefox) updated socket classes
 * (bluefox) minimum required node.js version is 18
+* (bluefox) used `@iobroker/eslint-config`
+* (bluefox) Rewritten with TypeScript
 
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
@@ -324,7 +326,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ### 0.3.3 (2017-01-02)
 * (bluefox) Fix error with smartNames
 * (bluefox) Take the superset of actions for group and not the last one
-* (bluefox) if group has switches and dimmers, turn devices OFF if the percent level is less than 30%
+* (bluefox) if a group has switches and dimmers, turn devices OFF if the percent level is less than 30%
 * (bluefox) Remember ON level for dimmers to switch it later ON
 
 ### 0.3.0 (2016-12-29)

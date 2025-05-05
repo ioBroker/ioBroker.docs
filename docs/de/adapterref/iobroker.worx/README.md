@@ -834,10 +834,16 @@ Standard ohne Zonen:
 
 ### **WORK IN PROGRESS**
 
+- (Lucky-ESA) Fixed starting firmware update (did not work)
+
+### 3.2.0 (2025-04-08)
+
 - (Lucky-ESA) Migration to ESLint9
 - (Lucky-ESA) Node 20 required
 - (Lucky-ESA) Admin 7.4.10 required
 - (Lucky-ESA) Added Party Modus Timer (wire only)
+- (Lucky-ESA) Save session infos
+- (Lucky-ESA) Added rain countdown (wire only)
 
 ### 3.1.1 (2024-11-04)
 
@@ -863,17 +869,6 @@ Standard ohne Zonen:
 - (Lucky-ESA) Fixed missing activity states
 - (Lucky-ESA) Added update interval in instance setting
 - (Lucky-ESA) Added last update
-
-### 3.0.0 (2024-04-25)
-
-- (Lucky-ESA) Fixed Sentry messages
-- (Lucky-ESA) Catch publish crash
-- (Lucky-ESA) Added Vision completely
-- (Lucky-ESA) Node 18 required
-- (Lucky-ESA) JS-Controller >= 5.0.19 required
-- (Lucky-ESA) Admin >=6.13.16 required
-- (Lucky-ESA) Catch aws_cer error and use old mqtt connection
-- (Lucky-ESA) Delete ping
 
 ## License
 

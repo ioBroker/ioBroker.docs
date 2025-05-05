@@ -199,10 +199,11 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.7.0 (2025-04-08)
 
 * (@klein0r) Improved error handling when adapter is not ready (starting)
 * (@klein0r) Added scroll speed to expert apps
+* (@klein0r) Added icons for custom apps in object tree
 
 ### 1.6.0 (2025-01-27)
 
@@ -223,10 +224,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 ### 1.4.0 (2024-11-20)
 
 * (@klein0r) Added support for notification manager
-
-### 1.3.0 (2024-08-01)
-
-* (@klein0r) Added sentry plugin for error reporting
 
 ## License
 

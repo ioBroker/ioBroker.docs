@@ -675,6 +675,10 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### 3.2.1 (2025-04-25)
+* (simatec) Fix Onedrive download
+* (simatec) Fix Onedrive Restore
+
 ### 3.2.0 (2025-04-04)
 * (Bluefox/DileSoft) json custom typescript added
 * (Bluefox/simatec) Dropbox OAuth updated

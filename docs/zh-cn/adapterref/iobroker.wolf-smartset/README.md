@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wolf-smartset/README.md
 title: ioBroker.wolf-smartset
-hash: /fAHrUoAIV+m6YdGp/L2QU9PWPyUeAI5pOafYsMDdcA=
+hash: sj4BZC0ul6/4YEKETMqfv+iDAETh/IioBU1GiVNKFFY=
 ---
 ![标识](../../../en/adapterref/iobroker.wolf-smartset/admin/wolf-smartset.png)
 
@@ -13,15 +13,15 @@ hash: /fAHrUoAIV+m6YdGp/L2QU9PWPyUeAI5pOafYsMDdcA=
 ![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.wolf-smartset.svg)
 ![已知漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.wolf-smartset/badge.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/wolf-smartset-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.wolf-smartset.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.wolf-smartset.png?downloads=true)
 
 # IoBroker.wolf-smartset
-![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.wolf-smartset/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.wolf-smartset/workflows/Test%20and%20Release/badge.svg)
 
-## Wolf-smartset 适配器用于 ioBroker
+## IoBroker 的 wolf-smartset 适配器
 将您的 Wolf Heating 连接到 iobroker。
 
-此适配器连接到 Wolf Smartset 服务器 (https://wolf-smartset.com) 以监控和管理您的 Wolf 加热设备。这不是本地连接。好处是您可以使用 Wolf Smartset 应用程序或 [Wolf Smartset 门户](https://wolf-smartset.com)，同时还可以在 ioBroker 中接收或设置参数值。
+此适配器连接到 Wolf Smartset 服务器 (https://wolf-smartset.com)，以监控和管理您的 Wolf 加热设备。这不是本地连接。其优势在于，您可以使用 Wolf Smartset 应用程序或[Wolf Smartset 门户](https://wolf-smartset.com)，同时在 ioBroker 中接收或设置参数值。
 
 ＃＃ 要求
 您需要一个配备 ISM7i WLAN/LAN 模块（又名 Link Home）的 Wolf 加热/气候设备，该设备连接到 Wolf Smartset 服务器，并且需要一个为您的设备授权的 Wolf Smartset 帐户。
@@ -32,14 +32,14 @@ hash: /fAHrUoAIV+m6YdGp/L2QU9PWPyUeAI5pOafYsMDdcA=
 要连接到 Wolf Smartset 服务器，您需要
 
 - `用户名` 和
--`密码`
+- `密码`
 
-您还可以使用它登录 Wolf Smartset 应用程序或[Wolf Smartset 门户](https://wolf-smartset.com)。
+您也可以使用它登录 Wolf Smartset 应用程序或[Wolf Smartset 门户](https://wolf-smartset.com)。
 
 #### 狼装置
-您的 Wolf 帐户与一个或多个 Wolf 设备相关联。每个设备都需要一个单独的 ioBroker 适配器实例。
+您的 Wolf 帐户已与一台或多台 Wolf 设备关联。每台设备都需要一个单独的 ioBroker 适配器实例。
 
-首次安装后，你必须选择一个特定的
+首次安装后，您必须选择一个特定的
 
 - 每个实例的“设备”。
 
@@ -49,53 +49,53 @@ hash: /fAHrUoAIV+m6YdGp/L2QU9PWPyUeAI5pOafYsMDdcA=
 
 从列表中选择设备后，点击
 
-- `使用此设备` 确认您的选择。
+- `使用此设备`确认您的选择。
 
 ### 标签：高级设置
-高级设置允许您根据需要调整适配器的操作。通常，您可以将所有高级设置保留为默认设置。
+高级设置允许您根据自身需求调整适配器的操作。通常，您可以将所有高级设置保留为默认设置。
 
 #### 轮询周期间隔和参数列表
-适配器在连接到 Wolf Smartset 服务器后，将定期从服务器轮询参数值。它支持两个具有不同周期间隔的独立轮询周期。
+连接到 Wolf Smartset 服务器后，适配器将定期从服务器轮询参数值。它支持两个独立的轮询周期，且周期间隔不同。
 
-- `短轮询周期间隔`：输入间隔（以秒为单位）。Wolf Smartset 服务器定义了绝对最小轮询间隔（当前为 60 秒），您不应低于该间隔。如果您配置的值低于此最小间隔，服务器将不会以预期的方式响应，甚至可能断开您的会话。适配器会定期向服务器请求当前最小轮询间隔。如果配置的轮询间隔低于服务器指示的最小轮询间隔，您将从适配器收到警告日志，并且您应该相应地调整轮询间隔。
+- “短轮询周期间隔”：输入间隔（以秒为单位）。Wolf Smartset 服务器定义了绝对最小轮询间隔（当前为 60 秒），您不应低于该间隔。如果您配置的值低于此最小间隔，服务器将无法按预期方式响应，甚至可能断开您的会话。适配器会定期向服务器请求当前的最小轮询间隔。如果配置的轮询间隔低于服务器指示的最小轮询间隔，您将收到适配器发出的警告日志，您应该相应地调整轮询间隔。
 - `长轮询周期间隔`：输入第二个轮询周期的间隔（分钟）。
 
-Wolf Smartset 服务器将各种设备参数分组到不同的包中，并通过数字 BundleId 进行标识。在 __ioBroker Admin__ UI 中，您将在通道级别的 __wolf-smartset__ 实例下方的 __Object__ 视图中找到不同参数组的 BundleId。
+Wolf Smartset 服务器将各种设备参数分组到不同的 bundles 中，并通过数字 BundleId 进行标识。在 __ioBroker Admin__ 界面中，您可以在通道级别的 __wolf-smartset__ 实例下方的 __Object__ 视图中找到不同参数组的 BundleId。
 
-- `Bundle 的参数`：在此表中，您可以定义应在哪个轮询周期轮询哪个参数值组。最好这样做：
+- `Bundle 参数`：在此表中，您可以定义在哪个轮询周期内轮询哪个参数值组。建议：
 - `在短轮询周期中包括所有快速变化的参数值（例如操作状态）以及
 - `包含在长轮询周期中`很少改变的参数值（例如设备配置参数）。
 
-Wolf Smartset API 要求每个轮询请求除了要轮询的参数列表外，还包含一个 BundleId。目前还不清楚 BundleId 与实际参数列表的关系，但在大多数情况下，“默认”应该是可以的：它映射到给定轮询周期的最大选定 BundleId。此处的任何其他设置仅供实验使用。将 BundleId 配置为：
+Wolf Smartset API 要求每个轮询请求除了包含要轮询的参数列表外，还必须包含一个 BundleId。目前尚不清楚 BundleId 与实际参数列表之间的关系，但大多数情况下，“默认”应该可以接受：它会映射到给定轮询周期内选定的最大 BundleId。此处的任何其他设置仅供实验使用。请将 BundleId 配置为：
 
 - `短轮询周期的 BundleId`
 - `长轮询周期的 BundleId`
 
-#### 导出登录
-Wolf Smartset API 为设备参数定义了两个访问级别：__User__ 和 __Expert__。因此，您将在 __ioBroker Admin__ UI 的 __Object__ 视图中找到相应的两个子树：__Benutzer__ 和 __Fachmann__。初始身份验证后，适配器处于用户模式，并且在初始化期间只会接收一次所有可用的参数值。此后，在定期轮询期间，它将仅接收用户级别参数值的更新（即 __Benutzer__ 树中的值）。
+#### 专家登录
+Wolf Smartset API 为设备参数定义了两种访问级别：__User__ 和 __Expert__。因此，您可以在 __ioBroker Admin__ UI 的 __Object__ 视图中找到相应的两个子树：__Benutzer__ 和 __Fachmann__。初始身份验证后，适配器处于用户模式，并且在初始化期间仅接收一次所有可用参数值。此后，在定期轮询期间，它将仅接收用户级别参数值的更新（即 __Benutzer__ 树中的值）。
 
 如果你检查
 
 - `进行专家登录`并输入正确的
 - `专家密码`,
 
-适配器将在初始化期间执行专家登录，并在与其关联的轮询周期内接收专家级参数值的定期更新（如__Fachmann__树中所示）。
+适配器将在初始化期间执行专家登录，并在与其关联的轮询周期内定期接收专家级参数值的更新（如__Fachmann__树中所示）。
 
 __!!! 专家级别重要提示：开始 !!!__
 
-专家级别似乎就像潘多拉魔盒一样！测试表明，一旦启用专家级别，就很难离开。虽然在禁用`Do Expert Login`设置并重新启动实例时，适配器将完全注销并删除所有本地缓存的身份验证数据（openId 令牌和会话 ID），但对于 Wolf Smartset 服务器来说，这似乎还不够好。
+专家级别似乎就像潘多拉魔盒一样！测试表明，一旦启用专家级别，就很难退出。虽然禁用`Do Expert Login`设置并重启实例后，适配器会完全注销并删除所有本地缓存的身份验证数据（openId 令牌和会话 ID），但这似乎对 Wolf Smartset 服务器来说不够好。
 
 ```
 In fact, only a change of the adapter's public IP address in combination with an adapter instance reload might get the adapter back to User level.
 ```
 
-虽然乍一看停留在专家模式似乎没有太大问题，但至少有一个副作用可能对您来说是一个真正的问题：
+虽然乍一看停留在专家模式似乎没有什么问题，但至少有一个副作用可能会对您造成真正的问题：
 
 ```
 In Expert mode some pre-period statistics might not be updated reliably from Wolf Smartset server!
 ```
 
-这尤其会影响以下 ParameterIds，也可能会影响其他参数：
+这尤其会影响以下 ParameterIds，也可能会影响其他 ParameterIds：
 
 ```
 - wolf-smartset.0.Benutzer.Heizung.212_Statistik_Wärmeerzeuger 1.27017500001
@@ -103,32 +103,37 @@ In Expert mode some pre-period statistics might not be updated reliably from Wol
 - wolf-smartset.0.Benutzer.Heizung.212_Statistik_Wärmeerzeuger 1.27017700001
 ```
 
-因此，如果您依赖于持续且精确地提供此类期前统计值，则应三思而后行，是否要检查`Do Expert Login`。不要抱怨，如果您无法返回到用户级别，我们已经警告过您了！
+因此，如果您依赖于持续且精确地提供此类周期前统计值，则应三思而后行，是否需要检查`Do Expert Login`。别抱怨，如果您无法返回用户级别，我们已经警告过您了！
 
 __!!! 专家级别重要提示：结束 !!!__
 
-#### 检查公网 IP 变化
-Wolf Smartset 服务器可以识别客户端 IP 地址。这意味着，它将一些应用程序状态信息与客户端应用程序的公共 IP 地址相关联。因此，如果您配置了 `Do Expert Login` 并且适配器的公共 IP 发生变化（例如，在路由器重新加载后），则适配器必须重新向 Wolf Smartset 服务器进行身份验证才能再次启用专家模式。由于适配器每小时仅进行一次重新身份验证，因此可能需要最多 __一个小时才能使适配器再次处于专家模式__。
+#### 检查公共 IP 变化
+Wolf Smartset 服务器能够感知客户端 IP 地址。这意味着，它会将一些应用程序状态信息与客户端应用程序的公网 IP 地址关联起来。因此，如果您配置了 `Do Expert Login`，并且适配器的公网 IP 发生变化（例如，路由器重新加载后），则适配器必须重新向 Wolf Smartset 服务器进行身份验证才能再次启用专家模式。由于适配器每小时仅进行一次重新身份验证，因此可能需要最多__一小时才能使其再次处于专家模式__。
 
-如果你觉得太长，可以查看
+如果这对你来说太长，你可以检查
 
-- `启用公共 IP 检查`：在这种情况下，适配器将通过 [ipify.org](https://ipify.org) __每 4 个短轮询周期__ 检查您的公共 IP 地址，并在更改时触发重新身份验证。这样，适配器将在 __最迟 4 个短轮询周期后__ 恢复到专家模式。
+- `启用公共 IP 检查`：在这种情况下，适配器将__每 4 个短轮询周期__通过 [ipify.org](https://ipify.org) 检查您的公共 IP 地址，并在 IP 地址更改时触发重新身份验证。这样，适配器将在__最迟 4 个短轮询周期后__恢复到专家模式。
 
 API 分析
 API 分析允许您跟踪适配器的 Wolf Smartset API 使用情况。如果您
 
-- `启用 API 分析`，适配器将针对每个轮询请求更新__适配器实例对象树__中的以下对象：
--信息API
-- poll_req_bundle_id: poll 请求中使用的 BundleId
+- `启用 API 分析`，适配器将针对每个轮询请求更新 __适配器实例对象树__ 中的以下对象：
+- 信息API
+- poll_req_bundle_id：轮询请求中使用的 BundleId
 - poll_req_num_params：适配器请求的参数数量
 - poll_resp_num_params：从服务器返回的参数数量
-- poll_resp_num_params：从服务器返回的参数值的数量（返回的参数可能有或可能没有关联值）
+- poll_resp_num_params：从服务器返回的参数值的数量（返回的参数可能有也可能没有关联值）
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2025-04-18)
+- (flingo64) Bugfix: fixed various typos in Readme and translations
+- (flingo64) Bugfix: Fixed an AdminUI issue (#450 - 'No device selected') when the device information contained line break (e.g. in ContactInformation, Description or Comment )
+- (flingo64) Enhancement for AdminUI: support for more than one device in list of devices returned from Wolf Smartset server
+
 ### 2.0.0 (2025-04-02)
 - (flingo64) BREAKING CHANGE: Please reenter your login credentials.
 - (mcm1957) Adapter requires node.js 20, js-controller 6 and admin 7 now.

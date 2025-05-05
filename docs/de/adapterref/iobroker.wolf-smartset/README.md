@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wolf-smartset/README.md
 title: ioBroker.wolf-smartset
-hash: /fAHrUoAIV+m6YdGp/L2QU9PWPyUeAI5pOafYsMDdcA=
+hash: sj4BZC0ul6/4YEKETMqfv+iDAETh/IioBU1GiVNKFFY=
 ---
 ![Logo](../../../en/adapterref/iobroker.wolf-smartset/admin/wolf-smartset.png)
 
@@ -71,7 +71,7 @@ Die Wolf Smartset API erfordert, dass jede Polling-Anfrage neben einer Liste der
 - `BundleId für kurzen Poll-Zyklus`
 - `BundleId für langen Poll-Zyklus`
 
-#### Login exportieren
+#### Experten-Login
 Die Wolf Smartset API definiert zwei Zugriffsebenen für Geräteparameter: __User__ und __Expert__. Dementsprechend finden Sie in der __Object__-Ansicht der __ioBroker Admin__-Benutzeroberfläche die beiden entsprechenden Unterbäume: __Benutzer__ und __Fachmann__. Nach der ersten Authentifizierung befindet sich der Adapter im Benutzermodus und empfängt während der Initialisierung nur einmal alle verfügbaren Parameterwerte. Danach empfängt er bei regelmäßigen Abfragen nur Aktualisierungen für Parameterwerte auf Benutzerebene (d. h. Werte im __Benutzer__-Baum).
 
 Wenn Sie
@@ -103,7 +103,7 @@ Dies betrifft insbesondere folgende ParameterIds und vermutlich auch weitere:
 - wolf-smartset.0.Benutzer.Heizung.212_Statistik_Wärmeerzeuger 1.27017700001
 ```
 
-Wenn Sie also auf eine konstante und präzise Bereitstellung solcher Vorperiodenstatistikwerte angewiesen sind, sollten Sie zweimal überlegen, ob Sie `Do Expert Login` aktivieren. Beschweren Sie sich nicht, wenn Sie Probleme haben, wieder auf die Benutzerebene zurückzukehren, Sie wurden gewarnt!
+Wenn Sie also auf eine konstante und präzise Bereitstellung solcher Vorperiodenstatistikwerte angewiesen sind, sollten Sie zweimal überlegen, ob Sie `Do Expert Login` aktivieren. Beschweren Sie sich nicht, wenn Sie Probleme haben, wieder auf die Benutzerebene zurückzukehren – Sie wurden gewarnt!
 
 __!!! Wichtiger Hinweis zum Expertenlevel: Ende !!!__
 
@@ -129,6 +129,11 @@ API-Profiling ermöglicht Ihnen die Verfolgung der Wolf Smartset API-Nutzung des
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2025-04-18)
+- (flingo64) Bugfix: fixed various typos in Readme and translations
+- (flingo64) Bugfix: Fixed an AdminUI issue (#450 - 'No device selected') when the device information contained line break (e.g. in ContactInformation, Description or Comment )
+- (flingo64) Enhancement for AdminUI: support for more than one device in list of devices returned from Wolf Smartset server
+
 ### 2.0.0 (2025-04-02)
 - (flingo64) BREAKING CHANGE: Please reenter your login credentials.
 - (mcm1957) Adapter requires node.js 20, js-controller 6 and admin 7 now.

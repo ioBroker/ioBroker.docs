@@ -20,7 +20,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## shrdzm adapter for ioBroker
 
-This adapter integrates the SHRDZM smartmeter interface available from *SHRDZM IT Services e.U.* into ioBroker. A descritpion of the interface is available [here](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+This adapter integrates the SHRDZM smartmeter interface available from *SHRDZM IT Services e.U.* into ioBroker. A description of the interface is available [here](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
 Note that this adapter is not related to the company mentioned above in any way and that no commercial relationship exists at all.
 

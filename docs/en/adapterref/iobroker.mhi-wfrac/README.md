@@ -29,6 +29,13 @@ Thank you very much for your work - It really helped me a lot.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.4 (2025-04-27)
+* (hacki11) Use sanitized ID to check if online state can be modified
+
+### 2.1.3 (2025-04-10)
+* (hacki11) Add Dev Container
+* (hacki11) Fix: Use only enabled devices for adapter connection indicator
+
 ### 2.1.2 (2025-03-31)
 * (hacki11) Fix review findings
 

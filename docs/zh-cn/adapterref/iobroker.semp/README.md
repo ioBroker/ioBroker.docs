@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: BUgLuC9jDs8kdU4y1KOh9Tf+1PG+mYBTncPgwWPEebk=
+hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
 ---
 ![标识](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -11,7 +11,7 @@ hash: BUgLuC9jDs8kdU4y1KOh9Tf+1PG+mYBTncPgwWPEebk=
 ![下载](https://img.shields.io/npm/dm/iobroker.semp.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.semp.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
-![新平台](https://nodei.co/npm/iobroker.semp.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.semp.png?downloads=true)
 ![节点](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
 ![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
@@ -21,27 +21,27 @@ hash: BUgLuC9jDs8kdU4y1KOh9Tf+1PG+mYBTncPgwWPEebk=
 ![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 # IoBroker.semp
-![GitHub 操作](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 **如果您喜欢它，请考虑捐赠：**
 
-[![贝宝]（https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## 适用于 ioBroker 的 SMA SEMP 适配器
 通过 SunnyHomeManager 和 SEMP 与 SMA SunnyPortal 接口
 
-在 SunnyPortal 中添加来自 ioBroker 的设备。
-SunnyPortal 可以更好地估算您的能源消耗，从而做出更好的预测和建议。但您也可以让 SunnyPortal 控制您的设备。如果太阳能充足，SunnyPortal 可以打开您的设备，如果太阳能不足，则再次关闭它们。通过这种方式，您可以优化自己的消耗，但您并不依赖于 SunnyPortal 支持的少数设备。使用适配器，ioBroker 中的任何设备都可以集成到 SunnyPortal 中。
-甚至不需要测量单个设备的消耗。即使是估计值也足够了。
+从 ioBroker 向 SunnyPortal 添加您的设备。
+这样，SunnyPortal 就能更好地估算您的能耗，从而做出更准确的预测和建议。此外，您还可以通过 SunnyPortal 控制您的设备。如果太阳能充足，SunnyPortal 可以开启您的设备；如果太阳能不足，SunnyPortal 则会关闭它们。这样，您就可以优化自身的能耗，而无需依赖 SunnyPortal 支持的少数设备。使用适配器，ioBroker 中的任何设备都可以集成到 SunnyPortal 中。
+甚至无需测量单个设备的能耗，即使是估算值也足够了。
 
 ## 用户文档
 参见[文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
 
-有关协议和使用的详细信息，请查看[SMA 文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf)。
+有关协议和使用的详细信息，请查看[SMA文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf)。
 
-关于能源请求的一般用途的描述，请参阅[SMA 文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf)。（仅限德语）
+关于能源请求的一般用途的描述，请参阅[SMA文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf)。（仅限德语）
 
 ＃＃ 特征
 * 通过 SMA SEMP 从 SunnyPortal 中的 ioBroker 添加设备
@@ -50,13 +50,20 @@ SunnyPortal 可以更好地估算您的能源消耗，从而做出更好的预�
 
 ＃＃ 要求
 ## 洗碗机模式
-该适配器可用于控制洗碗机。当太阳能充足时，洗碗机就会开启。
-实施细节可在问题 #333 中找到。
+## 适配器的功能
+该适配器可让您控制洗碗机或其他消耗待机功率的设备。其工作原理如下：
+
+- 用户像平常一样手动打开设备。
+- 设备不会立即启动，而是保持暂停状态。
+- 一旦有足够的太阳能，设备将自动启动并运行，直到程序完成。
+- 在此过程中，智能家居管理器 (SHM) 发出的任何关闭设备的建议都将被忽略。
+
+> **注意：** > 有关技术实施的详细信息，请参阅[问题 #333](#) 和下面的流程图。
 
 ![流程图](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
 
 ## 已知问题
-* 如果您发现错误或者需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.semp/issues) 创建问题
+* 如果您发现错误或需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.semp/issues) 创建问题
 
 ## Changelog
 
@@ -66,7 +73,7 @@ SunnyPortal 可以更好地估算您的能源消耗，从而做出更好的预�
 -->
 
 ### **WORK IN PROGRESS**
-* René) see issue #333: new sequence to handle devices with quiescent current
+* (René) see issue #333: new sequence to handle devices with quiescent current. ATTENTION: new dishwasher sequence is used for dishwasher devices optionally!
 * (René) changes requested by adapter checker
 * (René) dependencies updated 
 

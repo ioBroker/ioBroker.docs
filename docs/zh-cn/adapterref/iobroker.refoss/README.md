@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.refoss/README.md
 title: ioBroker.refoss
-hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
+hash: bJHUyzWvYGUvEoA8KCdlzQnnSDmKX4H6CctgBOVIrf0=
 ---
 ![标识](../../../en/adapterref/iobroker.refoss/admin/refoss.png)
 
@@ -17,10 +17,10 @@ hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
 您可以在此处找到有关该设备的更多详细信息：[雷福斯](https://www.amazon.de/dp/B0D3PY4RVZ)
 
 ## 先决条件
-- 设备需要先连接到本地网络，设备连接到本地网络有两种方式：
+- 设备需要先连接到本地网络。设备连接到本地网络有两种方式：
 - 使用 Refoss 应用程序（在 Google Play 上下载并安装 Refoss 应用程序）将设备连接到本地网络。
 - 使用网页将设备连接到本地网络。
-- 电脑/手机连接设备出厂Wi-Fi。
+- 电脑/手机已连接设备出厂Wi-Fi。
 - 在浏览器中访问地址10.10.10.1，选择设备配置所需的本地Wi-Fi。
 - 集成将占用端口：9989。
 
@@ -31,7 +31,7 @@ hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
 
 ## Changelog
 
-### 0.1.10 (2025-03-05)
+### 0.1.11 (2025-04-23)
 
 - (zhaochuanling) revise the feedback content
 
@@ -56,7 +56,7 @@ hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
 MIT License
 
 Copyright (c) 2025 zhaochuanling zhaochuanling8@gmail.com,
-Bluefox dogafox@gmail.com and 
+Bluefox dogafox@gmail.com and
 Refoss support@refoss.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

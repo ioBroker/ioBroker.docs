@@ -111,6 +111,10 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.4 (2025-04-15)
+* (@mcm1957) `From email address is not equal to the configured email address for authentication.` changed to debug level.
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.3 (2025-03-24)
 * (@GermanBluefox) Added t-online.de to the list of supported services
 
@@ -130,13 +134,6 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 ### 1.4.0 (2024-11-17)
 * (simatec) Responsive Design added
 * (Jey-Cee) Admin-UI has been migrated to jsonConfig
-
-### 1.3.1 (2024-06-09)
-* (klein0r) Updated Blockly definitions
-
-### 1.3.0 (2024-04-29)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
 
 ## License
 

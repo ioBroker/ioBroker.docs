@@ -10,7 +10,7 @@
   - new widget
 - if your news about the new adapter, please add a GitHub link and a logo of the adapter
   Example:
-``` 
+```markdown
     ## frigate (2023-08-20) - new adapter
     https://github.com/Bettman66/ioBroker.frigate
    
@@ -845,11 +845,30 @@ https://github.com/mcm4iob/ioBroker.shrdzm
 
 This adapter integrates the SHRDZM smartmeter interface available from SHRDZM IT Services e.U. into ioBroker. A description of the interface is available [here](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
+## js-controller (16.4.2025) - new feature
+The js-controller 7.0.7 is now available in the latest version. I
+It contains bugfixes and improvements. The most important changes are:
+- Extended `encryptedNative` and `protectedNative`. Developers can now address `encryptedNative` and `protectedNative` in structures and arrays.
+- Typing was improved.
+
 ## ankersolix2 (18.4.2025) – new adapter
 https://github.com/ronny130286/ioBroker.ankersolix2
 
 <img src="https://raw.githubusercontent.com/ronny130286/ioBroker.ankersolix2/main/admin/ankersolix2.png" width="100" height="100" />
 
 Integrate Anker Solix 2. This project is derived from https://github.com/tomquist/solix2mqtt and brings information from the anker api directly into ioBroker.
+
+## devices (20.4.2025) - new feature
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
+
+The `devices` adapter was updated to version 1.2.0. It was completely rewritten with TypeScript and vite technologies. The new version is faster and more stable.
+
+## mhi-wfrac (30.4.2025) – new adapter
+https://github.com/hacki11/ioBroker.mhi-wfrac
+
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.mhi-wfrac/main/admin/mhi-wfrac.png" width="100" height="100" />
+
+Mitsubishi Heavy Industries Air Conditioners with WLAN Adapter WF-RAC.
+This Adapter integrates WF-RAC (Wifi) equipped Mitsubishi Heavy Industries Air Conditioners in ioBroker.
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->

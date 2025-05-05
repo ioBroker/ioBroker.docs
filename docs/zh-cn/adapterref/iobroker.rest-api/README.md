@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rest-api/README.md
 title: REST-API 适配器
-hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
+hash: /x+PdsrJoxpoit6cC2A/HsY7OG19SgWis9sdVNgnJV0=
 ---
 ![标识](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -11,14 +11,14 @@ hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.rest-api.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rest-api.svg)
 ![测试](https://travis-ci.org/ioBroker/ioBroker.rest-api.svg?branch=master)
-![新平台](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
 
 # REST-API 适配器
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
-这是一个 RESTFul 接口，用于从 ioBroker 读取对象和状态并通过 HTTP Get/Post 请求写入/控制状态。
+这是一个 RESTFul 接口，用于从 ioBroker 读取对象和状态，并通过 HTTP Get/Post 请求写入/控制状态。
 
-此适配器的用途与 simple-api 类似。但此适配器支持长轮询和用于订阅的 URL 挂钩。
+此适配器的用途与 simple-api 类似。但此适配器支持长轮询和用于订阅的 URL 钩子。
 
 它有一个有用的 Web 界面来处理请求：
 
@@ -32,7 +32,7 @@ hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - 以 JSON 格式读取状态
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - 以字符串形式读取状态（仅值）
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - 使用 GET 写入状态（仅用于与 simple-api 的向后兼容）
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - 向脚本 `scriptName` 中的 `javascript.0` 发送一条消息
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - 向脚本 `scriptName` 中的 `javascript.0` 发送消息
 
 ＃＃＃ 验证
 要启用身份验证，您必须在配置对话框中设置`Authentication`选项。
@@ -43,7 +43,7 @@ hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
 - 基本身份验证
 - OAuth2（承载者）
 
-为了在查询中进行身份验证，您必须在查询中设置`user` 和`pass`，如下所示：
+对于查询中的身份验证，您必须在查询中设置`user`和`pass`，如下所示：
 
 ```http
 http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
@@ -53,7 +53,7 @@ http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin
 
 对于 Oauth2 身份验证，您必须将 `Authorization` 标头设置为值 `Bearer <AccessToken>`。
 
-访问令牌可以通过 HTTP 请求重新获得，例如：
+访问令牌可以通过 HTTP 请求重新获取，例如：
 
 ```http
 http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker
@@ -71,15 +71,15 @@ http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<
 }
 ```
 
-## 订阅状态或者对象的变化
-您的应用程序可以通过状态或对象的每次改变获得通知。
+## 订阅状态或对象的变化
+您的应用程序可以通过状态或对象的每次变化获得通知。
 
 为此，您的应用程序必须提供 HTTP(S) 端点来接受更新。
 
 node.js 中的示例请参见此处[demoNodeClient.js](examples/demoNodeClient.js)
 
 ## 长轮询
-该适配器支持通过长轮询订阅数据改变。
+该适配器支持通过长轮询订阅数据变化。
 
 浏览器示例可在此处找到：[demoNodeClient.js](examples/demoBrowserClient.html)
 
@@ -87,12 +87,12 @@ node.js 中的示例请参见此处[demoNodeClient.js](examples/demoNodeClient.j
 此适配器可以作为 Web 扩展程序运行。在这种情况下，路径位于 `http://ipaddress:8082/rest` 下
 
 ＃＃ 注意
-- `POST` 总是用于创建资源（无论是否重复）
+- `POST` 始终用于创建资源（无论是否重复）
 - `PUT` 用于检查资源是否存在则更新，否则创建新资源
 - `PATCH` 总是用于更新资源
 
-命令
-此外，您还可以通过特殊接口执行许多套接字命令：
+## 命令
+此外，您可以通过特殊接口执行许多套接字命令：
 
 `http://ipaddress:8093/v1/command/<commandName>?arg1=Value2&arg2=Value2`
 
@@ -115,55 +115,53 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 }'
 ```
 
-您无法通过 GUI 向命令发送 POST 请求。
+您不能通过 GUI 向命令发送 POST 请求。
 
 <!-- 开始 -->
 
 ### 州
-- `getStates(pattern)` - 获取模式的状态列表（例如 system.adapter.admin.0.*）。GUI 可能会因答案的可视化而出现问题。
+- `getStates(pattern)` - 获取模式的状态列表（例如，system.adapter.admin.0.*）。GUI 可能无法通过可视化答案解决问题。
 - `getForeignStates(pattern)` - 与 getStates 相同
 - `getState(id)` - 通过 ID 获取状态值
 - `setState(id, state)` - 使用 JSON 对象设置状态值（例如 `{"val": 1, "ack": true}`）
-- `getBinaryState(id)` - 通过 ID 获取二进制状态
-- `setBinaryState(id, base64)` - 通过 ID 设置二进制状态
 
 ### 对象
-- `getObject(id)` - 根据 ID 获取对象
-- `getObjects(list)` - 获取所有状态和房间。GUI 可能会因答案的可视化而出现问题。
+- `getObject(id)` - 通过 ID 获取对象
+- `getObjects(list)` - 获取所有状态和房间。GUI 可能无法通过可视化答案解决问题。
 - `getObjectView(design, search, params)` - 获取特定对象，例如 design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
 - `setObject(id, obj)` - 使用 JSON 对象设置对象（例如 `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`）
 - `delObject(id, options)` - 根据 ID 删除对象
 
 ### 文件
-- `readFile(adapter, fileName)` - 读取文件，例如 adapter=vis.0, fileName=main/vis-views.json。此外，您可以在查询 binary=true 中设置选项，以文件形式而不是 json 形式获取答案
-- `readFile64(adapter, fileName)` - 将文件读取为 base64 字符串，例如 adapter=vis.0, fileName=main/vis-views.json。此外，您可以在查询 binary=true 中设置选项，以文件形式而不是 json 形式获取答案
+- `readFile(adapter, fileName)` - 读取文件，例如 adapter=vis.0, fileName=main/vis-views.json。此外，您还可以设置查询中的选项 binary=true，以文件形式而非 JSON 形式获取答案。
+- `readFile64(adapter, fileName)` - 将文件读取为 base64 字符串，例如 adapter=vis.0, fileName=main/vis-views.json。此外，您还可以在查询中设置 binary=true 选项，以文件形式而非 JSON 形式获取答案。
 - `writeFile64(adapter, fileName, data64, options)` - 写入文件，例如 adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - 删除文件或文件夹
 - `deleteFile(adapter, name)` - 删除文件
 - `deleteFolder(adapter, name)` - 删除文件夹
 - `renameFile(adapter, oldName, newName)` - 重命名文件
 - `rename(adapter, oldName, newName)` - 重命名文件或文件夹
-- `mkdir(adapter，dirName)` - 创建文件夹
+- `mkdir(adapter, dirName)` - 创建文件夹
 - `readDir(adapter, dirName, options)` - 读取文件夹内容
-- `chmodFile(adapter, fileName, options)` - 更改文件模式。例如 adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
-- `chownFile(adapter, fileName, options)` - 更改文件所有者。例如 adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
+- `chmodFile(adapter, fileName, options)` - 更改文件模式。例如：adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
+- `chownFile(adapter, fileName, options)` - 更改文件所有者。例如：adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
 - `fileExists(adapter, fileName)` - 检查文件是否存在
 
 ### 管理员
 - `getHostByIp(ip)` - 通过 IP 读取主机信息。例如通过 localhost
-- `readLogs(host)` - 读取日志文件的文件名和大小。您可以使用 http://ipaddress:8093/<fileName> 读取它们
+- `readLogs(host)` - 读取日志文件的文件名和大小。您可以使用 http://ipaddress:8093/<fileName> 读取它们。
 - `delState(id)` - 删除状态和对象。与 delObject 相同
 - `getRatings(update)` - 读取适配器评级（与管理员相同）
 - `getCurrentInstance()` - 读取适配器命名空间（始终为 rest-api.0）
 - `decrypt(encryptedText)` - 使用系统机密解密字符串
 - `encrypt(plainText)` - 使用系统机密加密字符串
-- `getAdapters(adapterName)` - 获取“adapter”类型的对象。你可以随意定义 adapterName
+- `getAdapters(adapterName)` - 获取“适配器”类型的对象。你可以自定义适配器名称。
 - `updateLicenses(login, password)` - 从 ioBroker.net 门户读取许可证
-- `getCompactInstances()` - 读取带有简短信息的实例列表
-- `getCompactAdapters()` - 读取已安装适配器的列表及简短信息
+- `getCompactInstances()` - 读取包含简短信息的实例列表
+- `getCompactAdapters()` - 读取已安装适配器的列表及其简短信息
 - `getCompactInstalled(host)` - 读取已安装适配器的简短信息
 - `getCompactSystemConfig()` - 读取简短的系统配置
--`getCompactSystemRepositories（）`
+-`getCompactSystemRepositories()`
 - `getCompactRepository(host)` - 读取短存储库
 - `getCompactHosts()` - 获取主机的简短信息
 - `addUser(user, pass)` - 添加新用户
@@ -180,23 +178,27 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 -`updateTokenExpiration（accessToken）`
 - `log(text, level[info])` - 无答案 - 将日志条目添加到 ioBroker 日志
 - `checkFeatureSupported(feature)` - 检查 js-controller 是否支持该功能。
-- `getHistory(id, options)` - 读取历史记录。有关选项，请参阅：https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
+- `getHistory(id, options)` - 读取历史记录。更多选项请参见：https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
 - `httpGet(url)` - 从服务器读取 URL。您可以设置 binary=true 以文件形式获取答案。
-- `sendTo(adapterInstance, command, message)` - 向实例发送命令。例如 adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
+- `sendTo(adapterInstance, command, message)` - 向实例发送命令。例如：adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
 - `listPermissions()` - 读取具有函数权限的静态信息
 - `getUserPermissions()` - 读取具有用户权限的对象
 - `getVersion()` - 读取适配器名称和版本
 - `getAdapterName()` - 读取适配器名称（始终为 rest-api）
--`客户端订阅（目标实例，消息类型，数据）`
-- `getAdapterInstances(adapterName)` - 获取“实例”类型的对象。你可以随意定义 adapterName
+-`客户端订阅（目标实例、消息类型、数据）`
+- `getAdapterInstances(adapterName)` - 获取“实例”类型的对象。你可以自定义适配器名称
 
 <!-- 结束 -->
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
-### **正在进行中** -->
+### **工作正在进行** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Removed binary states
+
 ### 2.1.0 (2025-02-27)
 * (@GermanBluefox) Added OAuth2 support
 * (@GermanBluefox) Updated packages

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matter/README.md
-title: ioBroker Matter-Adapter
-hash: rNSq8nE/tAxBZxsAc3eGa9o8wAFf4LFXOgD6BOzPHyk=
+title: ioBroker Matter Adapter
+hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 ---
 ![Logo](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -11,14 +11,14 @@ hash: rNSq8nE/tAxBZxsAc3eGa9o8wAFf4LFXOgD6BOzPHyk=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.matter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
-# IoBroker Matter-Adapter
+# IoBroker Matter Adapter
 ![Testen und Freigeben](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einführung
-> [!Wichtig] > Der Adapter kann NICHT über GitHub installiert werden: Der Adapter muss über das ioBroker-Repository (stabil oder aktuell) installiert werden.
-> > Derzeit befindet sich der Adapter in der BETA-Phase und ist nur im neuesten Repository verfügbar. Bitte lesen Sie [iobroker-Dokumentation](https://www.iobroker.net/#de/documentation/basics/repositories.md), wie Sie einen Adapter aus dem neuesten Repository/npm installieren.
+> [!Wichtig] > Der Adapter kann NICHT über GitHub installiert werden: Er muss über das ioBroker-Repository (stabil oder aktuell) installiert werden.
+> > Der Adapter befindet sich derzeit in der BETA-Phase und ist nur im neuesten Repository verfügbar. Informationen zur Installation eines Adapters aus dem neuesten Repository/npm finden Sie unter [iobroker-Dokumentation](https://www.iobroker.net/#de/documentation/basics/repositories.md).
 > > Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in 🇩🇪 [deutsches Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) und 🇬🇧 [englisches Wiki](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
 > > Bitte lesen Sie [Wichtige Hinweise](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten), bevor Sie den Adapter verwenden.
 
@@ -27,38 +27,38 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 
 * Matter-basierte Geräte können direkt mit ioBroker verknüpft und somit eingelesen/gesteuert werden
 * Die Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind der einfachste Weg, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
-* ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten/ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (aktuell sind nur Bridges für Amazon Alexa möglich)
+* ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten/ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Bridges für Amazon Alexa möglich)
 
 ## Aufgaben
 * Texte sind teilweise in Englisch
 * Min/Max von Matter in ioBroker-Objekte synchronisieren
 * Objekte bereinigen, wenn Geräte/Zustände entfernt werden
 * ioBroker-Gerätetypen
-* (3+) Staubsauger
-* (3) Volumen, Volumengruppe
-* (-3) Klimaanlage
-* (2+) Feueralarm
-* (-2) Medienspieler
+* (6) Staubsauger
+* (5+) Lautstärke, Lautstärkegruppe
+* (5+/8) Klimaanlage
+* (7) Feueralarm
+* (5) MediaPlayer
 * Warnung - wie?
 * Tor – auch bekannt als Jalousien, weil Materie keinen anderen Gerätetyp hat?
-* windowTilt – wie besprochen als zusammengesetztes Gerät mit zwei Kontaktsensoren … einer zum Öffnen, einer zum Schließen und einer zum Neigen
-* LevelSlider – idealerweise als nicht beleuchtete gedimmte Steckdose?
+* windowTilt - wie besprochen als zusammengesetztes Gerät mit zwei Kontaktsensoren ... einer zum Öffnen und Schließen und einer zum Kippen
+* LevelSlider – idealerweise als nicht beleuchtete dimmbare Steckdose?
 * Matter-Gerätetypen
-* (7) Lüfter -> Klimaanlage?
-* (4+) Luftqualitätssensor -> ???
-* (4+) Luftreiniger -> ???
-* (4) Pumpe -> ???
-* (4) Drucksensor -> ??? DEF
-* (3+) Roboterstaubsauger -> Staubsauger
-* (3) Durchflusssensor -> ??? DEF
-* (3) Raumklimagerät -> airCondition
-* (2+) Geschirrspüler-> ???
-* (2) Einfacher Videoplayer -> mediaPlayer
-* (2) Waschmaschine -> ???
-* (2) Kühlschrank -> ???
-* (2) Temperaturgeregelter Schrank -> ???
-* (2) Wasserfrostmelder -> Warnung?
-* (2) Regensensor -> Warnung?
+* (8) Ventilator -> Klimaanlage?
+* (7) Luftqualitätssensor -> ???
+* (7) Luftreiniger -> ???
+* (5) Pumpe -> ???
+* (6) Drucksensor -> ??? DEF
+* (6) Roboterstaubsauger -> Staubsauger
+* (4) Durchflusssensor -> ??? DEF
+* (5+) Raumklimaanlage -> airCondition
+* (5+) Geschirrspüler-> ???
+* (4+) Einfacher Videoplayer -> MediaPlayer
+* (4+) Waschmaschine -> ???
+* (4) Kühlschrank -> ???
+* (4) Temperaturgeregelter Schrank -> ???
+* (2+) Wasserfrostmelder -> Warnung?
+* (2+) Regensensor -> Warnung?
 * (2) Wasserventil -> ???
 * (2) Wäschetrockner -> ???
 * (2) Backofen -> ???
@@ -66,17 +66,34 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (2) Kochfläche -> ???
 * (2) Dunstabzugshaube -> ???
 * (2) Mikrowellenherd -> ???
-* (1+) Bordnetz-Elektronik -> ???
-* (0) Warmwasserbereiter -> ???
-* (0) Solarenergie -> ???
-* (0) Batteriespeicher -> ???
-* (0) Wärmepumpe -> ???
+* (2) Elektrische Fahrzeugversorgungsgeräte -> ???
+* (2) Warmwasserbereiter -> ???
+* (1+) Solarenergie -> ???
+* (1+) Batteriespeicher -> ???
+* (1+) Wärmepumpe -> ???
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added expert mode to GUI
+* (@GermanBluefox) GUI optimizations
+* (@Apollon77) Upgrade Matter support to 1.4
+* (@Apollon77) Upgrade type detector and usage for better automatic detection results
+
+### 0.4.15 (2025-02-25)
+* (@GermanBluefox) Added Button display and control in the UI
+* (@Apollon77) Updates matter.js to optimize and add persisted subscriptions
+* (@Apollon77) Fixed states-list initializations for controller states
+* (@Apollon77) Fixed initialization issue when the initial device connection for controller was not finished
+* (@Apollon77) Adjusted connection display when reconnecting to a node to red in UI
+
+### 0.4.14 (2025-02-08)
+* (@Apollon77) Improved stability and connection reliability (matter.js updated)
+* (@Apollon77) Sort enum entries to improve detection quality when adding new devices
+
 ### 0.4.13 (2025-02-01)
 * (@Apollon77) Added support for Door state feature for Devices and Controllers
 * (@Apollon77) Fixed Thermostat creation with Boost state
@@ -84,10 +101,10 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 ### 0.4.12 (2025-02-01)
 * (@GermanBluefox) Added the "copy to clipboard" button in the debug dialog
 * (@Apollon77) Updated matter.js with performance and Memory usage optimizations (and Tasmota pairing workaround)
-* (@Apollon77) Reworked Type detection in Backend and for Channel/Device detection type in UI, now multiple devicetypes are offered with most complex one pre-selected
+* (@Apollon77) Reworked Type detection in Backend and for Channel/Device detection type in UI, now multiple device types are offered with the most complex one pre-selected
 * (@Apollon77) Handle Matter ColorTemperature Lights as a Color capable light to also allow CT-Lights with Hue support
 * (@Apollon77) Added BOOST endpoint as switch when exposing Thermostats with Boost state
-* (@Apollon77) Optimized some dimmer/level management for light devices without dimmer state
+* (@Apollon77) Optimized some dimmer/level management for light devices without a dimmer state
 
 ### 0.4.11 (2025-01-28)
 * (@Apollon77) Fixed caching issues in device type detection in backend
@@ -110,15 +127,15 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (@Apollon77) Fixed Thermostat setpoint logic
 
 ### 0.4.7 (2025-01-25)
-* (@Apollon77) Added debouncing when controllers change temperature value to makle sure not to overload the device
-* (@Apollon77) Added support for step and use 0.5 for Setpoint temperatures
-* (@Apollon77) Added support fur Hue lights without saturation state
+* (@Apollon77) Added debouncing when controllers change temperature value to make sure not to overload the device
+* (@Apollon77) Added support for a step and use 0.5 for Setpoint temperatures
+* (@Apollon77) Added support for fur Hue lights without saturation state
 
 ### 0.4.6 (2025-01-25)
 * (@GermanBluefox) Optimized UI
 * (@GermanBluefox) Added user feedback when device or bridged device is identified
 * (@Apollon77) Fixes Thermostat logic for devices
-* (@Apollon77) Ensures information are pushed to the UI when devices are in an error state
+* (@Apollon77) Ensures information is pushed to the UI when devices are in an error state
 
 ### 0.4.5 (2025-01-25)
 * (@Apollon77) Fixed Thermostat initialization logic and added more logging
@@ -150,9 +167,9 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (@Apollon77) "SET" states are no longer updated when Actual states are present and get updated!
 * (@Apollon77) Initializes states also with "ack=false" states because better than no initial values
 * (@Apollon77) Added Device support for Window Coverings (Blinds, Blindbuttons), Color Lights (Cie, Hie, Rgb, Rgbw, RgbSingle, RgbwSingle) and Thermostats
-* (@Apollon77) Makes sure to track state values also when disabled and update state to Matter when enabled again
-* (@Apollon77) Makes sure to also subscribe to write-only states for controller cases
-* (@Apollon77) Only exposes remaining battery percentage attribute when value is present
+* (@Apollon77) Made sure to track state values also when disabled and update state to Matter when enabled again
+* (@Apollon77) Made sure to also subscribe to write-only states for controller cases
+* (@Apollon77) Only exposes the remaining battery percentage attribute when value is present
 * (@Apollon77) Corrected error display and pushing to UI in case of initialization errors of bridged devices
 * (@Apollon77) Added RSSI value also for Thread devices
 * (@Apollon77) Optimized and fixed multiple things
@@ -167,7 +184,7 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 
 ### 0.3.6 (2025-01-13)
 * (@GermanBluefox) Fixed GUI errors
-* (@GermanBluefox/@Apollon77) Added possibility to enable/disable controlled nodes
+* (@GermanBluefox/@Apollon77) Added possibility to enable/disable the controlled nodes
 * (@Apollon77) Added Information on battery and rssi for DM tile
 * (@Apollon77) Added controller support for Color Lights, Speaker, Thermostats and Window coverings
 * (@Apollon77) Optimized and fixed multiple things
@@ -176,7 +193,7 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (@GermanBluefox) Fixed GUI errors
 * (@GermanBluefox) Added `Controller fabric label` to configuration
 * (@GermanBluefox) Added solution for QR-Code scanning on non HTTPS pages
-* (@Apollon77) Fixed Generic Switch Device type for controller
+* (@Apollon77) Fixed the Generic Switch Device type for controller
 * (@Apollon77) Fixed Controller BLE initialization and activation
 * (@Apollon77) Added serialNumber to all devices and bridges for better device re-detection by controllers
 
@@ -208,7 +225,7 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (@Apollon77) Optimizes device discovery and allows to stop it again
 
 ### 0.2.10 (2024-12-19)
-* (@GermanBluefox) Makes the Adapter UI also available as standalone tab
+* (@GermanBluefox) Made the Adapter UI also available as standalone tab
 * (@GermanBluefox) Added error details when adding the same state twice to a bridge or device
 * (@Apollon77) Fixes discovery start in UI
 
@@ -226,8 +243,8 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 ### 0.2.8 (2024-12-17)
 * (@GermanBluefox) Fixes progress dialog for DM - used when deleting a node
 * (@GermanBluefox) Synchronizes the "do not ask again on delete" time with admin and set to 5 minutes
-* (@GermanBluefox) Optimizes bridges display for different color schemes
-* (@GermanBluefox) Allows to collapse the information blocks at the top of the pages
+* (@GermanBluefox) Optimizes bridge's display for different color schemes
+* (@GermanBluefox) Allows collapsing the information blocks at the top of the pages
 * (@GermanBluefox) Adds an ioBroker Logo when display commissioned controllers
 * (@GermanBluefox/@apollon77) Adds additional details and error state also for devices and bridged devices
 * (@GermanBluefox/@apollon77) Always display QR code to allow additional pairing for device and bridges from adapter UI
@@ -241,7 +258,7 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (@Apollon77) Cleans up internal data structures when a node gets deleted for controller
 * (@Apollon77) Uses the configured device type when finding multiple types in the backend
 * (@Apollon77) Adjusts UI device type detection to differentiate between supported and other types
-* (@Apollon77) Makes sure that controller configuration changes are executed sequentially
+* (@Apollon77) Made sure that controller configuration changes are executed sequentially
 * (@Apollon77) Added Transition Time handling for Dimmer and Ct device types in both directions
 * (@Apollon77) Added Low-Battery and Battery-percent for all device types in both directions
 * (@Apollon77) Added Ethernet Network Commissioning Cluster to prevent issues with Tuya
@@ -259,7 +276,7 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (@Apollon77) Fixes UNREACH handling for devices
 * (@Apollon77) Fixes object change handling for controller
 * (@Apollon77) Allows Bridges to expose its name as a device name
-* (@Apollon77) Allows to rename controller nodes and devices
+* (@Apollon77) Allows renaming controller nodes and devices
 
 ### 0.2.4 (2024-12-04)
 * (@Apollon77) Shows a progress indicator when deleting controller nodes
@@ -271,14 +288,14 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (@Apollon77) Initializes Device objects more lazily
 
 ### 0.2.3 (2024-11-30)
-* (@Apollon77) Makes sure to delete all objects and stop device when a device is deleted in UI
-* (@Apollon77) When a devices/bridge object is deleted and adapter runs we try to detect this and stop the device/bridge
+* (@Apollon77) Made sure to delete all objects and stop device when a device is deleted in UI
+* (@Apollon77) When a device/bridge object is deleted and adapter runs we try to detect this and stop the device/bridge
 * (@Apollon77) Optimizes close handling of adapter
-* (@Apollon77) Uses adapter version as Software and Hardware versions in the exposed Matter devices
-* (@Apollon77) Fixes "auto" flags in backend when make no sense in objects
+* (@Apollon77) Uses an adapter version as Software and Hardware versions in the exposed Matter devices
+* (@Apollon77) Fixes "auto" flags in backend when it makes no sense in objects
 * (@Apollon77) Fixes "auto" flag in UI
 * (@Apollon77) Prevents cyclic state updates when a state is updated by the adapter to matter
-* (@Apollon77) Log warnings when device optional device states are not mapped
+* (@Apollon77) Log warnings when the optional device states are not mapped
 * (@Apollon77) Hides Product-ID and VendorId fields in UI when adding devices into a bridge
 
 ### 0.2.2 (2024-11-28)
@@ -294,8 +311,8 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 ### 0.2.0 (2024-11-26)
 * IMPORTANT: Breaking change!! Please decommission ALL devices and do a full factory reset of the adapter Matter storage before installing this version. Pair the devices new afterward. 
 * (@Apollon77) Finalizes Devices, Bridges and Controller functionality with a first set of 11 device types
-* (@Apollon77) Upgrades to new Matter.js version and API (breaks storage structure)
-* (@GermanBluefox) Moved build process of GUI to vite
+* (@Apollon77) Upgrades to a new Matter.js version and API (breaks storage structure)
+* (@GermanBluefox) Moved a build process of GUI to vite
 * (@GermanBluefox) Added possibility to group devices in the GUI
 
 ### 0.1.13 (2023-12-01)

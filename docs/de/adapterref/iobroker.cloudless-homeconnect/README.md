@@ -23,7 +23,7 @@ Die Grundidee zu diesem Adapter stammt von https://github.com/osresearch/hcpy. D
 
 ## Voraussetzungen vor der Installation
 
-Es muss mindestens Node.js **Version 18** installiert sein.
+Es muss mindestens Node.js **Version 20** installiert sein.
 
 Für den Adapter wird im Gegensatz zur Verwendung der offiziellen API <ins>keine</ins> ClientID benötigt, lediglich Benutzername und Passwort, welche in der Homeconnect-App verwendet wurden. Geräte müssen einmalig über die Homeconnect-App registriert werden.
 
@@ -164,6 +164,14 @@ Hier können allgemeine Einstellungen des Geräts vorgenommen werden. Beispielsw
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (eifel-tech) Dependency updates and node-version >= 20
+
+### 1.6.1 (2025-04-22)
+
+- (eifel-tech) Possibility to log communication errors as debug (Issue #242)
 
 ### 1.6.0 (2025-02-27)
 

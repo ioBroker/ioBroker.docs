@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rest-api/README.md
 title: Адаптер REST-API
-hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
+hash: /x+PdsrJoxpoit6cC2A/HsY7OG19SgWis9sdVNgnJV0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -14,7 +14,7 @@ hash: CHi4vCVjcVU6pwNRt95OrLh5lOMW0LYDff6R87+u8Zg=
 ![НПМ](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
 
 # Адаптер REST-API
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 Это интерфейс RESTFul для чтения объектов и состояний из ioBroker, а также для записи/управления состояниями с помощью HTTP-запросов Get/Post.
 
@@ -124,8 +124,6 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getForeignStates(pattern)` - то же, что и getStates
 - `getState(id)` - получить значение состояния по идентификатору
 - `setState(id, state)` - установить значение состояния с помощью объекта JSON (например, `{"val": 1, "ack": true}`)
-- `getBinaryState(id)` - получить двоичное состояние по ID
-- `setBinaryState(id, base64)` - установить двоичное состояние по идентификатору
 
 ### Объекты
 - `getObject(id)` - получить объект по ID
@@ -145,7 +143,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `rename(adapter, oldName, newName)` - переименовать файл или папку
 - `mkdir(adapter, dirName)` - создать папку
 - `readDir(adapter, dirName, options)` - прочитать содержимое папки
-- `chmodFile(adapter, fileName, options)` - изменить режим файла. Например, адаптер=vis.0, fileName=main/*, options = `{"mode": 0x644}`
+- `chmodFile(adapter, fileName, options)` - изменить режим файла. Например, adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
 - `chownFile(adapter, fileName, options)` - сменить владельца файла. Например, adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
 - `fileExists(adapter, fileName)` - проверка существования файла
 
@@ -157,7 +155,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getCurrentInstance()` - чтение пространства имен адаптера (всегда rest-api.0)
 - `decrypt(encryptedText)` - расшифровать строку с системным секретом
 - `encrypt(plainText)` - шифрует строку системным секретом
-- `getAdapters(adapterName)` - получить объекты типа "adapter". Можно определить опционально adapterName
+- `getAdapters(adapterName)` - получить объекты типа "adapter". Вы можете определить опционально adapterName
 - `updateLicenses(логин, пароль)` - чтение лицензий с портала ioBroker.net
 - `getCompactInstances()` - прочитать список экземпляров с краткой информацией
 - `getCompactAdapters()` - чтение списка установленных адаптеров с краткой информацией
@@ -167,7 +165,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getCompactRepository(host)` - прочитать краткий репозиторий
 - `getCompactHosts()` - получить краткую информацию о хостах
 - `addUser(user, pass)` - добавить нового пользователя
-- `delUser(user)` - удалить пользователя
+- `delUser(пользователь)` - удалить пользователя
 - `addGroup(group, desc, acl)` - создать новую группу
 - `delGroup(group)` - удалить группу
 - `changePassword(user, pass)` - изменить пароль пользователя
@@ -197,6 +195,10 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Removed binary states
+
 ### 2.1.0 (2025-02-27)
 * (@GermanBluefox) Added OAuth2 support
 * (@GermanBluefox) Updated packages

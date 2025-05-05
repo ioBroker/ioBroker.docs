@@ -32,7 +32,7 @@ See also the [Spotify Developer API Documentation](https://developer.spotify.com
 ### Setup / Authorization
 1. Sign in on https://developer.spotify.com/dashboard/
 2. Create an application, you get a Client ID and a Client Secret
-3. Set the redirect URIs to `http://localhost` in your app settings at your created spotify application
+3. Set the redirect URIs to `http://127.0.0.1` in your app settings at your created spotify application
 4. Put the Client ID and Client Secret in the fields down below
 5. Start the instance
 6. Switch to the objects tab and push the button getAuthorization at `spotify-premium.0.authorization`
@@ -100,6 +100,12 @@ Click for widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (aruttkamp) correct issues detected by repsoitory checker [#421]
+
+### 1.5.3 (2025-04-15)
+- (aruttkamp) redirect URI changed [#429]
+
 ### 1.5.2 (2024-12-16)
 - (aruttkamp) ESLint 9 implemented
 
@@ -118,13 +124,10 @@ Click for widget source.
 * (N1tR0) A problem has been fixed that did not correctly update the progress of playing media [#339]
 * (mcm1957) Dependencies have been updated0
 
-### 1.3.1 (2023-10-31)
--   (aruttkamp) A problem has been fixed which cause 'Error 400' with playUri errors [#259]
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2023 twonky4 <twonky4@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

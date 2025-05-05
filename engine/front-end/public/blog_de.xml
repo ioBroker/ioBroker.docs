@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Fri, 04 Apr 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 26 Apr 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[💻 ioBroker Monatsrückblick – April 2025]]></title>
+            <description><![CDATA[
+                <p>Herzlich willkommen zum aktuellen Monatsrückblick! Auch im April 2025 hat sich in der ioBroker-Welt wieder einiges getan. \nNeue Adapter sind erschienen, bestehende wurden verbessert und die Basis unseres Systems – der js-controller – hat ein Update erhalten. \nWerfen wir einen detaillierten Blick auf alle Neuerungen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_04_26</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_04_26</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 26 Apr 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Die nächste Stufe des Smart Homes - ioBroker unterstützt jetzt Matter!]]></title>
             <description><![CDATA[

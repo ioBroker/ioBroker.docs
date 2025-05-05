@@ -74,6 +74,14 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
 ## Changelog
+
+### 1.5.0 (2025-04-14)
+
+- (hombach) add set HVAC temperature (#121)
+- (hombach) acknowledge commands after sending to TeslaFi
+- (hombach) add commands count state (#127)
+- (hombach) add set seat heater commands (#121)
+
 ### 1.4.0 (2025-03-31)
 
 - (hombach) add charge limit commands (#121)

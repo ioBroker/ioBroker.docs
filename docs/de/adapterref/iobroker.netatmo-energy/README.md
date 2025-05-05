@@ -163,6 +163,10 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 
 [Older changes](CHANGELOG_OLD.md)
 <!-- ### **WORK IN PROGRESS** -->
+### 2.8.1 (2025-04-24)
+
+* (ioKlausi) Update dependencies
+
 ### 2.8.0 (2025-01-31)
 
 * (ioKlausi) Update dependencies
@@ -251,7 +255,7 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 
 MIT License
 
-Copyright (c) 2021-2024 ioKlausi <nii@gmx.at>
+Copyright (c) 2021-2025 ioKlausi <nii@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

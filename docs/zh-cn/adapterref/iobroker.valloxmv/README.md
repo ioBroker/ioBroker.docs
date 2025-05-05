@@ -2,97 +2,104 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.valloxmv/README.md
-title: 无标题
-hash: /KlW44vUuW6HwukABQM0FnDr1Hfo0C9q6ARHvBvzjzk=
+title: ioBroker.valloxmv
+hash: mrrcsVMaW9Hg/SlgVrYE+iSU8HcW8Jz3Zt/rgqC3x3c=
 ---
-![稳定存储库中的当前版本](https://iobroker.live/badges/valloxmv-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.valloxmv.svg)
-![安装数量](https://iobroker.live/badges/valloxmv-installed.svg)
+![标识](../../../en/adapterref/iobroker.valloxmv/admin/valloxmv.png)
+
+![NPM 版本](https://img.shields.io/npm/v/iobroker.valloxmv.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.valloxmv.svg)
-![已知漏洞](https://snyk.io/test/github/hacki11/ioBroker.valloxmv/badge.svg)
-![依赖状态](https://img.shields.io/david/hacki11/iobroker.valloxmv.svg)
-![新平台](https://nodei.co/npm/iobroker.valloxmv.png?downloads=true)
-![特拉维斯-CI](http://img.shields.io/travis/hacki11/ioBroker.valloxmv/master.svg)
+![安装数量](https://iobroker.live/badges/valloxmv-installed.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/valloxmv-stable.svg)
+![新公共管理](https://nodei.co/npm/iobroker.valloxmv.png?downloads=true)
 
-<h1><img src="admin/valloxmv.png" width="64"/>ioBroker.valloxmv</h1>
-
-![测试与发布](https://github.com/hacki11/ioBroker.valloxmv/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.valloxmv
+**测试：**![测试和发布](https://github.com/hacki11/ioBroker.valloxmv/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 ValloxMV 适配器
 将您的 Vallox 空气通风系统连接到您的 ioBroker 家庭自动化。
 
 ＃＃ 用法
 * 安装适配器
-* 配置设备地址和轮询间隔（最小60）
+* 配置设备地址和轮询间隔（最小 60）
 * 像平常一样读写状态
 
-## 1.4.0
-* 维护版本
-* 将引擎升级至 NodeJS 20 作为最低版本
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.4.1 (2025-04-14)
+* Maintenance Release
+* Add support for NodeJS 18 as long as iobroker supports
+* Add devcontainer for development
+* Add release script
 
-## 1.3.0
-* 维护版本
-* 更新依赖项（iobroker-core 和 node）
-* 将 UI 更改为 jsconConfig 并修复存储库检查器检测到的问题
-* 通过 iobroker/adapter-dev 使用 i18n 更新翻译
-* 更新许可证和自述文件中的年份
+### 1.4.0
+* Maintenance Release
+* Bump engines to NodeJS 20 as minimum version
+
+### 1.3.0
+* Maintenance Release
+* Updated dependencies (iobroker-core & node)
+* Change UI to jsconConfig and fixing issues detected by repository checker
+* Update translation using i18n by iobroker/adapter-dev
+* Update year in license and readme
 
 ### 1.2.0
-* 删除 NodeJS 10.x 支持
-* 升级到 js-controller 3.3 和 Admin 5
+* Remove NodeJS 10.x support
+* Upgrade to js-controller 3.3 and Admin 5
 
 ### 1.1.3
-* 修复了配置文件条目中的错误数据类型（数字而不是布尔值）*_ENABLED [#33](https://github.com/hacki11/ioBroker.valloxmv/issues/33)。
-* 修复了设置没有确认值的连接信息的问题。
+* Fixed wrong datatype (number instead of boolean) in profile entries *_ENABLED [#33](https://github.com/hacki11/ioBroker.valloxmv/issues/33).
+* Fixed setting connection info without ack value.
 
 ### 1.1.2
-* 修复了温度状态中错误的数据类型（字符串而不是数字）
+* Fixed wrong datatype (string) in temperature states instead of numbers
 
 ### 1.1.1
-* 修复适配器检查器问题
+* Fix adapter-checker issues
 
 ### 1.1.0
-* 添加了 A_CYC_BYPASS_LOCKED
-* 添加了 A_CYC_SUPP_FAN_BALANCE_BASE
-* 添加了 A_CYC_EXTR_FAN_BALANCE_BASE
-* 添加了 A_CYC_IP_ADDRESS
-* A_CYC_CELL_STATE 更改为只读
+* A_CYC_BYPASS_LOCKED added
+* A_CYC_SUPP_FAN_BALANCE_BASE added
+* A_CYC_EXTR_FAN_BALANCE_BASE added
+* A_CYC_IP_ADDRESS added
+* A_CYC_CELL_STATE changed to read only
 
 ### 1.0.3
-* 修复适配器检查器问题
+* Fix adapter-checker issues
 
 ### 1.0.2
-* 添加了自身对象的订阅以允许写入值
+* Added subscriptions of own objects to allow write values
 
-### 1.0.1
-* 修复了重置对象的自定义配置
-* 删除了自身对象的订阅
+### 1.0.1 
+* Fixed resetting custom configuration of objects
+* Removed subscription of own objects
 
 ### 1.0.0
-* 修复空状态
-* 将布尔状态更改为开关
+* Fixed empty states
+* Canged bool states to switches
 
 ### 0.1.3
-* 添加专家设置 (@williandalton, @hliebscher)
-* A_CYC_RH_BASIC_LEVEL
-* A_CYC_CO2_阈值
-* 循环相对湿度水平模式
-* 循环供给加热调节模式
-* 循环选项温度传感器模式
+* added expert settings (@williandalton, @hliebscher)
+  * A_CYC_RH_BASIC_LEVEL
+  * A_CYC_CO2_THRESHOLD
+  * A_CYC_RH_LEVEL_MODE
+  * A_CYC_SUPPLY_HEATING_ADJUST_MODE
+  * A_CYC_OPT_TEMP_SENSOR_MODE
 
 ### 0.1.2
-* 将状态“NORMAL”添加到 A_CYC_MODE (@williandalton)
+* add State 'NORMAL' to A_CYC_MODE (@williandalton)
 
 ### 0.1.1
-* 修复 io-package.json 版本号
+* fix io-package.json version number
 
 ### 0.1.0
-* 增加个人资料切换和编辑功能
+* added profile switch and editing
 
 ### 0.0.1
-*（hacki11）初始版本
-
-## Changelog
+* (hacki11) initial release
 
 ## License
 MIT License

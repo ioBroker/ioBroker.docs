@@ -430,30 +430,30 @@ Security must be taken from the current user and not from default_user
 
 ## Development
 ### Version
-Used version of home-assistant-frontend@20231208.2
-Version of Browser Mod: 2.3.0
+Used version of home-assistant-frontend@20250306.0
+Version of Browser Mod: 2.3.3
 
 ### How to build the new Lovelace version
 First of all, the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20231208.2) following files were modified:
+For now (20250401.0) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task develop-iob
-- `build-scripts/gulp/webpack.js` - Add new gulp task webpack-dev-app
+- `build-scripts/gulp/rspack.js` - Add new gulp task rspack-dev-app
+- `src/data/icons.ts` - always use fallback for old versions where frontend decides which icon to use for binary_sensors (if none supplied).
 - `src/data/weather.ts` - add support to display weather icon from url.
 - `src/dialogs/more-info/const.ts` - remove weather state & history
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and tab
 - `src/dialogs/more-info/ha-more-info-history.ts` - remove `show more` link in history
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - remove `show more` link in logbook
 - `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - disable configuration of voice assistants
-- `src/entrypoints/core.ts` - modified authentication process
+- `src/entrypoints/core.ts` - add no auth option
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - add support to display weather icon from url.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - add support to display weather icon from url with auth.
-- `src/panels/lovelace/hui-root.ts` - added notifications and voice control
+- `src/panels/lovelace/hui-root.ts` - added notification button, disable manage dashboards link
 - `src/util/documentation-url.ts` - for link to iobroker help instead of home assistant.
-- `.gitignore` - add `.idea` ignore
 - `.husky/pre-commit` - remove git commit hooks.
-- `package.json` - remove husky commit hook
 
 After that checkout modified version in `./build` folder. Then.
 
@@ -463,9 +463,9 @@ After that checkout modified version in `./build` folder. Then.
 4. `git checkout master`
 5. `yarn install`
 6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
-7. copy all files from `./build/home-assistant-polymer/hass_frontend` into `./hass_frontend` in this repo
-8. Run `gulp rename` task multiple times (until no changes happen).
-9. Update the version in `README.md` and also in `server.js` the `VERSION` constant.
+7. run script `hass_frontend/static_cards/newFrontend.sh` in adapter repo to update frontend (it assumes that the two repositories are next to each other in the same folder, if not, please adjust script, preferably with some parameter handling and make a PR, thanks :smile: ) 
+8. Run `gulp rename` task.
+9. Update the version in `README.md`
 
 ## Changelog
 
@@ -473,6 +473,22 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) settings from entity registry are now loaded on startup
+* (Garfonso) logbook: prevent entries from the future
+* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+
+### 5.0.0 (2025-04-10)
+* (Garfonso) Updated frontend to 20250401.0
+* (Garfonso) Updated browser_mod to 2.3.3
+* (Garfonso) Add statistics recorder
+* (Garfonso) Add entity registry, use it to solve id clashes. In the future, store entity settings here.
+* (Garfonso) Limit the number of stored browser instances
+* (Garfonso) Improved caching behavior. Might solve iobroker.pro issue... hopefully?
+* (Garfonso) Prevent crash with some edge cases with light entities
+* (Garfonso) experimental dashboard support.
+* (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
+
 ### 4.1.15 (2025-03-10)
 * (Garfonso) repaired image loading, again.
 
@@ -481,13 +497,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 4.1.13 (2025-03-06)
 * (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
-
-### 4.1.11 (2024-11-20)
-* (Garfonso) convert string state values to numbers, where necessary.
-
-### 4.1.10 (2024-05-23)
-* (Garfonso) device icons work again.
-* (Garfonso) default user sometimes was not found in a system.
 
 ## License
 

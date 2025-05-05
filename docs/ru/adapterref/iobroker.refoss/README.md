@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.refoss/README.md
 title: ioBroker.рефосс
-hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
+hash: bJHUyzWvYGUvEoA8KCdlzQnnSDmKX4H6CctgBOVIrf0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.refoss/admin/refoss.png)
 
@@ -31,7 +31,7 @@ hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
 
 ## Changelog
 
-### 0.1.10 (2025-03-05)
+### 0.1.11 (2025-04-23)
 
 - (zhaochuanling) revise the feedback content
 
@@ -56,7 +56,7 @@ hash: /S2YN18I7T+TALTNErqkZo7V6ebGG/sR9F+bakWj+KQ=
 MIT License
 
 Copyright (c) 2025 zhaochuanling zhaochuanling8@gmail.com,
-Bluefox dogafox@gmail.com and 
+Bluefox dogafox@gmail.com and
 Refoss support@refoss.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

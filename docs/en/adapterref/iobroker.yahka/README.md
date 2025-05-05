@@ -17,7 +17,7 @@ Before you can install the Adapter, you have to some packages (for Linux):
 Just hit the "+" button behind "Homekit yahka adapter" in the ioBroker Admin Panel on the "Adapter" page.
 
 ## Install the latest **Beta**
-If you want to be on the edge and test the latest beta, you could install the adapter via a GitHub url.
+If you want to be on the edge and test the latest beta, you could install the adapter via the ioBroker beta repository.
 
 (Sometimes an additional upload (e.g. `iobroker upload yahka`) and adapter restart is necessary)
 
@@ -84,7 +84,7 @@ You have to install the pam-devel package:
 - Remove: `del bonjoursdksetup.exe`
 - Set: `set BONJOUR_SDK_HOME=C:\Program Files\Bonjour SDK`
 
-And after that install yahka adapter.
+And after that, install yahka adapter.
 
 ## Some words about HomeKit
 The architecture of HomeKit is as follows:
@@ -186,6 +186,12 @@ This repo includes one submodule, so before building you need to also close/init
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.1 (2025-04-16)
+* (tarikweiss) Updated GitHub build file. Try testing a build-process with GitHub.
+* Updated design to be more responsive
+* Restructured code a bit
+* (@GermanBluefox) Updated packages
+
 ### 1.0.9 (2024-09-08)
 * Corrected Admin GUI
 
@@ -198,7 +204,7 @@ This repo includes one submodule, so before building you need to also close/init
 
 ### 1.0.4 (2024-08-12)
 * (Apollon77) Important: js-controller 5.0 is required at least
-* (tarikweiss) Rewrote community types from submodule (js) to typescript
+* (tarikweiss) Rewrote community types from submodule (js) to TypeScript
 * (tarikweiss) Added the ability to set an ioBroker state for the availability indication in HomeKit
 
 ### 1.0.3 (2023-03-29)
@@ -329,7 +335,7 @@ This repo includes one submodule, so before building you need to also close/init
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2024 Jens Weigele (iobroker.yahka@gmail.com)
+Copyright (c) 2016-2025 Jens Weigele (iobroker.yahka@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
