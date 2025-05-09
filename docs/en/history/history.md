@@ -871,4 +871,13 @@ https://github.com/hacki11/ioBroker.mhi-wfrac
 Mitsubishi Heavy Industries Air Conditioners with WLAN Adapter WF-RAC.
 This Adapter integrates WF-RAC (Wifi) equipped Mitsubishi Heavy Industries Air Conditioners in ioBroker.
 
+## plenticore-g3 (9.5.2025) – new adapter
+https://github.com/FernetMenta/ioBroker.plenticore-g3
+
+<img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.plenticore-g3/main/admin/plenticore-g3.png" width="100" height="100" />
+
+Adapter to communicate with a KOSTAL Plenticore plus via REST API. This API ist much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as 'processdata' and about 250 writable settings. This API is documented on this URL:
+
+http://<plenticore host>/api/v1
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
