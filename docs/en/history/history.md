@@ -871,6 +871,14 @@ https://github.com/hacki11/ioBroker.mhi-wfrac
 Mitsubishi Heavy Industries Air Conditioners with WLAN Adapter WF-RAC.
 This Adapter integrates WF-RAC (Wifi) equipped Mitsubishi Heavy Industries Air Conditioners in ioBroker.
 
+## refoss (7.5.2025) – new adapter
+https://github.com/Refoss/ioBroker.refoss
+
+<img src="https://raw.githubusercontent.com/Refoss/ioBroker.refoss/main/admin/refoss.png" width="100" height="100" />
+
+Integrate Refoss devices into ioBroker.  
+You can find more and detailed information about the device here: [Refoss](https://www.amazon.de/dp/B0D3PY4RVZ)
+
 ## plenticore-g3 (9.5.2025) – new adapter
 https://github.com/FernetMenta/ioBroker.plenticore-g3
 
