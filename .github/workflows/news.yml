@@ -1,6 +1,8 @@
 name: File Change Trigger
 
 on:
+  pull_request:
+    branches: [ "master" ]
   push:
     paths:
       - 'info/news.json'
