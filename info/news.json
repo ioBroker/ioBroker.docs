@@ -93,7 +93,7 @@
     "id": "Fitbit-API-deprecation",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2022-09-19T23:00:00.000Z",
+    "created": "2022-09-19T23:00:00.001Z",
     "conditions": {
       "fitbit-api": "installed"
     }
@@ -126,7 +126,7 @@
     "id": "Netatmo2-AuthChange",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2022-09-19T23:00:00.000Z",
+    "created": "2022-09-19T23:00:00.002Z",
     "conditions": {
       "netatmo": "smaller(2.0.0)"
     }
@@ -336,7 +336,7 @@
     "id": "iogopro-deprecation",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2023-07-10T020:00:00.000Z",
+    "created": "2023-07-10T020:00:00.001Z",
     "conditions": {
       "iogopro": "installed"
     }
@@ -371,7 +371,7 @@
     "id": "samsung_tyzen-deprecation",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2023-9-04T019:36:00.000Z",
+    "created": "2023-09-04T19:36:00.000Z",
     "conditions": {
       "samsung_tyzen": "installed"
     }
@@ -406,7 +406,7 @@
     "id": "recommend-objects-redis",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2023-9-04T019:36:00.000Z",
+    "created": "2023-09-04T19:36:00.002Z",
     "number-of-objects": ">30000",
     "objects-db-type": [
       "file",
@@ -656,7 +656,7 @@
     "id": "hyperion-deprecation",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2024-0407T00:00:00.000Z",
+    "created": "2024-04-07T00:00:00.000Z",
     "conditions": {
       "hyperion": "installed"
     }
