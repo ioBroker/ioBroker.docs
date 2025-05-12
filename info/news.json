@@ -371,7 +371,7 @@
     "id": "samsung_tyzen-deprecation",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2023-9-04T019:36:00.000Z",
+    "created": "2023-09-04T19:36:00.000Z",
     "conditions": {
       "samsung_tyzen": "installed"
     }
@@ -406,7 +406,7 @@
     "id": "recommend-objects-redis",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2023-9-04T019:36:00.000Z",
+    "created": "2023-09-04T19:36:00.000Z",
     "number-of-objects": ">30000",
     "objects-db-type": [
       "file",
@@ -656,7 +656,7 @@
     "id": "hyperion-deprecation",
     "class": "warning",
     "fa-icon": "exclamation-circle",
-    "created": "2024-0407T00:00:00.000Z",
+    "created": "2024-04-07T00:00:00.000Z",
     "conditions": {
       "hyperion": "installed"
     }
