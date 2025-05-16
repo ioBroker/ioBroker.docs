@@ -135,6 +135,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.reachable`   - If a device is online
 * `indicator.connected`   - used only for instances. Use `indicator.reachable` for devices
 * `indicator.direction`   - `true` - up/open, `false` - down/close. Use better `value.direction`
+* `indicator.error`       - true if any error condition exists
 * `indicator.maintenance` - indicates system warnings/errors, alarms, service messages, battery empty or stuff like that
 * `indicator.maintenance.lowbat`
 * `indicator.maintenance.unreach`
