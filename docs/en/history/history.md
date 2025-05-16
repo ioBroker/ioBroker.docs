@@ -888,4 +888,12 @@ Adapter to communicate with a KOSTAL Plenticore plus via REST API. This API ist 
 
 http://<plenticore host>/api/v1
 
+## skiinfo (16.5.2025) – new adapter
+https://github.com/oweitman/ioBroker.skiinfo
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.skiinfo/main/admin/skiinfo.png width="100" height="100" />
+
+With this adapter you can access the current snow depths for mountain, valley and fresh snow, as well as open lifts for various European locations.
+
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
