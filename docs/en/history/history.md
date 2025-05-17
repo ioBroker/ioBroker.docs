@@ -888,4 +888,11 @@ Adapter to communicate with a KOSTAL Plenticore plus via REST API. This API ist 
 
 http://<plenticore host>/api/v1
 
+## dnscope (17.5.2025) – new adapter
+https://github.com/simatec/ioBroker.dnscope
+
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.dnscope/main/admin/dnscope.png" width="100" height="100" />
+
+DNScope allows you to update your dynamic DNS account directly in ioBroker. It is possible to update your DNS account with the current IP address of your environment without any detours or additional hardware.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
