@@ -895,4 +895,12 @@ https://github.com/simatec/ioBroker.dnscope
 
 DNScope allows you to update your dynamic DNS account directly in ioBroker. It is possible to update your DNS account with the current IP address of your environment without any detours or additional hardware.
 
+## skiinfo (16.5.2025) – new adapter
+https://github.com/oweitman/ioBroker.skiinfo
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.skiinfo/main/admin/skiinfo.png width="100" height="100" />
+
+With this adapter you can access the current snow depths for mountain, valley and fresh snow, as well as open lifts for various European locations.
+
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
