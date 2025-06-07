@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.energiefluss-erweitert/README.md
 title: ioBroker.energiefluss-erweitert
-hash: mJxqeCxZtqg8Bh5Do1pfkS2JNCkUUQLE+t4vvf+epiw=
+hash: 3NcBZoArnjzTu+oLkisM5RSCg9wuaFBASe5YIYFh0yw=
 ---
 ![Logo](../../../en/adapterref/iobroker.energiefluss-erweitert/admin/energiefluss-erweitert.png)
 
@@ -11,9 +11,9 @@ hash: mJxqeCxZtqg8Bh5Do1pfkS2JNCkUUQLE+t4vvf+epiw=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.energiefluss-erweitert.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/energiefluss-erweitert-installed.svg)
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.energiefluss-erweitert?style=flat-square)
-![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
-![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/SKB-CGN/iobroker.energiefluss-erweitert?logo=github&style=flat-square)
 ![NPM](https://nodei.co/npm/iobroker.energiefluss-erweitert.png?downloads=true)
 
@@ -28,13 +28,95 @@ Es bietet einen animierten Energiefluss für alle Elemente, die Sie hinzufügen.
 * :gb: [Englische Beschreibung](./docs/en/README.md)
 * :de: [Deutsche Beschreibung](./docs/de/README.md)
 * :brillen: [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
-* :grey_question: [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki)
+* :grey_question: [Wiki](https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.6 (2025-06-05)
+- FIX: Removed instances from welcome screen, as this is confusing, if not using iobroker.pro
+
+### 0.7.5 (2025-06-04)
+- FIX: Override for bordercolor and borderfillcolor were not correctly applied on rect or circle
+- FIX: If user-defined iframe was too small, animation was not applied
+- FIX: Timer corrected for using "Line animation during startup" or "Show line between elements only"
+- Added: Reworked function, to better detect overrides for > (greater than) or < (smaller than) with negative values
+- Added: "default" option for override can now contain javascript function code and additional states to be fetched
+- Added: "Fill outline" and "Fill element" according to value now support value overrides
+- Added: Version check removed, as this is confusing, if user uses the default repository and Github has a new BETA version
+- Added: New line-end for filling outline according to value added. Can now be round, square and butt
+- Added: Few language corrections
+
+### 0.7.4 (2025-04-30)
+- FIX: Switching on/off on some designs did not work correctly
+- FIX: Calculation from W to kW was overwriting user defined unit
+- Added: New link to Wiki - now hosting on own server with translatable option
+- Added: Function to draw lines now supports better alignment, if source and destination element are on the same x/y-axis
+
+### 0.7.3 (2025-04-28)
+- FIX: Only the first icon could be changed. After that, no icons were shown in the list
+- FIX: On first load, datasources are not inserted in alphabetical order
+- FIX: If a copied element belongs to a group, the group was not removed from that element
+- FIX: Element positions (fore- and background) were not saved/displayed properly
+- FIX: If an element should open a frame/site, an error was shown that no datasource is assigned
+- Added: ACE SearchBox for Styles tab, output log and overrides (Strg + F)
+
+### 0.7.2 (2025-04-25)
+- FIX: Object browser was not opening, if objects do not have proper language details
+- FIX: Datasources table actions column was misaligned
+- Added: Dependencies updated (Admin: >=7.4.10 is now required) (#344)
+- Added: Browser-Frame can now be an ioBroker state. This can be text, html, numbers or even a jsonTable, which will be displayed inside an overlay (new window or same window don't work for this)
+- Added: Some language corrections
+
+### 0.7.1 (2025-04-22)
+- FIX: If datasource element was modified, the current status was not fetched correctely
+- FIX: Overrides for elements were not applied correctly (#340)
+- FIX: Filter in selection gallery was not working
+- FIX: After tour has been visited, "End" didnt take the user to the overview
+- Added: If you use the internal Icon-Proxy, icons are now cached inside the browser for faster loading and flicker prevention, if you use them in overrides
+- Added: While sorting in Datasources table was set to descending, the new added datasource was sorted in wrongly
+- Added: Improved loading and filter time of the ioBroker object browser
+- Added: Object browser now supports smoother filtering including complete states (e.g. 0_userdata.0.example_state). Further it shows the current value of the state (mobile after touching the state)
+- Added: Some code optimizations under the hood for smoother runtime
+- Added: Better information, why an element could not be deleted (e.g. existing connection)
+- Added: Few language corrections
+
+### 0.7.0 (2025-04-09)
+- FIX: If a line reconnection is aborted, the initial selected line was unselected
+- FIX: Rotation for texts was not rotating around the own center
+- FIX: Help text for connecting lines was missing
+- FIX: Rightclick on a line, deletion was working, but element showed as inactive
+- FIX: When moving multiple elements, it may happen that if one element would leave the workspace and is stopped, the other element still moves on
+- FIX: Workspace could not be re-sized under some circumstances
+- FIX: Leaving workspace open, sometimes results in adding the same datasources again and again
+- FIX: If the used WebView on devices is too old, the live-view could not be displayed (#292, #324)
+- FIX: Overwrites with javascript functions could be falsy detected as datapoint {my.0.datapoint}
+- FIX: Gallery did not show the last uploaded image directly, if uploading several images at once
+- Added: Dependencies updated (Web-Adapter: 6.1.10 and Admin: 6.0.0 are now required) (#332)
+- Added: Inside the images select dialog uploads are possible
+- Added: Pictures can now be rotated
+- Added: If a value is set to be animated while changing the value, a visual effect is added to indicate the change
+- Added: Undo und Redo functions are now globally availabe
+- Added: If elements of the same type are selected, the user is able to perform modifications on them in one step (stack actions)
+- Added: Strg/Meta (Mac) + A now selects all elements except lines
+- Added: Copied elements can now be inserted at the current pointer position
+- Added: Holding down the Shift key enables 2 modes: 1. moving elements with the keyboard, 10 steps per key press are possible | 2. moving elements with the mouse, the element snaps in the next grid
+- Added: The live view and workspace now have toast messages on the top right corner to inform the user. For better usage, the user is also informed with tips which can be deactivated
+- Added: Datasources will not be deleted directly - they will be marked for deletion and will be deleted once the workspace is saved. Before, the user is able to restore them
+- Added: A workspace tour shows the user how to use the basic functions
+- Added: Password protection for workspace. Password can be set inside the adapter-settings!
+- Added: An URL parameter "lang=en" can now be attached to the URL, to display the live view and configuration workspace in the defined language
+- Added: New element: switch is now available
+- Added: UI optimizations
+
+### 0.6.2 (2024-12-19)
+- FIX: Further fix for properties of elements, if their value is empty or zero - elements could not be handled anymore
+- FIX: While using installed browser application (PWA with https) or shortcuts on mobile devices, always instance 0 was fetched. Now each instance can be linked
+- FIX: The title bar of the configuration bar blocked access to the 'Basic' and 'Advanced' tabs (macOS only)
+- Added: Improved language detection
+
 ### 0.6.1 (2024-12-13)
 - Added: Linebreaks for states with numbers are also accepted
 - Added: Warning message during configuration, if element overrides can not be processed
@@ -153,7 +235,7 @@ Es bietet einen animierten Energiefluss für alle Elemente, die Sie hinzufügen.
 **!!! Please note, this currently an Alpha-Version, because many things are changed and needed to be tested!!!**  
 The core of the adapter keeps running on the same 0.4.1 version like before, but the configuration page has many improvements. See the list below! 
 
-Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it, it case needed or downgrading to the official version again! 
+Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it in case needed or downgrading to the official version again! 
 
 After downloading the BETA Version, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
 described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#uploadvonadapterdateien
@@ -411,7 +493,7 @@ described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#
 ## License
 MIT License
 
-Copyright (c) 2024 SKB <info@skb-web.de>
+Copyright (c) 2025 SKB <info@skb-web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

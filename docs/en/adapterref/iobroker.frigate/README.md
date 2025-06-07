@@ -120,9 +120,16 @@ Event with Person: frigate.0.events.after.label = person
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+- (mcm1957) Adapter requires admin 6.17.14 as minimum now.
+
+### 1.3.2 (2025-05-06)
+
+- (TA2k) remove path_data from v0.16
+- (TA2k) move clip url from mp4 to m3u8
 - (mcm1957) Adapter requires js-controller 5.0.19 as minimum now.
 - (mcm1957) Several issues reported by adapter chacker have been fixed.
-  
+
 ### 1.3.1 (2024-08-30)
 
 - fixed to much states
@@ -162,7 +169,7 @@ Event with Person: frigate.0.events.after.label = person
 
 MIT License
 
-Copyright (c) 2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

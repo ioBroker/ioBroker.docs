@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.ico-cloud.svg)](https://www.npmjs.com/package/iobroker.ico-cloud)
 ![Number of Installations](https://iobroker.live/badges/ico-cloud-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/ico-cloud-stable.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.ico-cloud.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.ico-cloud)
 
 [![NPM](https://nodei.co/npm/iobroker.ico-cloud.png?downloads=true)](https://nodei.co/npm/iobroker.ico-cloud/)
 
@@ -32,6 +31,22 @@ Icon and name of ICO and Ondilo are property of Ondilo.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.3 (2025-05-12)
+* (Garfonso) add json state for recommendations
+
+### 2.0.2 (2025-05-12)
+* (Garfonso) ignore done recommendations
+
+### 2.0.1 (2025-05-12)
+* (Garfonso) added support for recommendations
+* (Garfonso) store refreshed token properly, might solve issues with missed measurements.
+* (Garfonso) improved responsiveness of config UI
+
+### 2.0.0 (2025-05-08)
+* (Garfonso) rewrote config UI
+* (Garfonso) login works again
+* (Garfonso) breaking: needs node 20 or higher now.
+
 ### 1.1.0 (2023-06-20)
 * (Garfonso) changed adapter logic, so that known pools are updated even if the pool list update fails.
 
@@ -61,7 +76,7 @@ Icon and name of ICO and Ondilo are property of Ondilo.
 ## License
 MIT License
 
-Copyright (c) 2023 Garfonso <garfonso@mobo.info>
+Copyright (c) 2025 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

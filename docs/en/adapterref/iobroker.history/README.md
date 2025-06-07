@@ -292,27 +292,61 @@ The given ids are not checked against the ioBroker database and do not need to b
 
 The Message can have one of the following three formats:
 
-- one ID and one state object
-- one ID and array of state objects
-- array of multiple IDs with one state object each
+1. one ID and one state object
+2. one ID and array of state objects
+3. array of multiple IDs with one state object each
 
 ```javascript
-sendTo('history.0', 'storeState', [
+// 1.
+sendTo('history.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
-    state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
-], result => console.log('added'));
+    state: {
+        ts: 1589458809352,
+        val: 123,
+        ack: false,
+        from: 'system.adapter.whatever.0'
+    }
+}, result => console.log('added'));
 
+// 2.
 sendTo('history.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
     state: [
-      {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}, 
-      {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+        {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        },
+        {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
     ]
 }, result => console.log('added'));
 
+// 3.
 sendTo('history.0', 'storeState', [
-    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}, 
-    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}
+    {
+        id: 'mbus.0.counter.xxx',
+        state: {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    },
+    {
+        id: 'mbus.0.counter.yyy',
+        state: {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    }
 ], result => console.log('added'));
 ```
 

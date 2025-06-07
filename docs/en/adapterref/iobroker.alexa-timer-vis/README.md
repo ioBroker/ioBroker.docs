@@ -11,6 +11,11 @@
 
 ![Test and Release](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more
+details and instructions on disabling error reporting, please refer to
+the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Use of Sentry reporting
+starts with js-controller 3.0.
+
 ## alexa-timer-vis adapter for ioBroker
 
 This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more
@@ -63,6 +68,10 @@ to make them visible in the Vis. So you have a better overview if you have sever
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2025-04-28)
+
+- FEAT: #141 Activate sentry
+
 ### 2.0.9 (2025-04-06)
 
 - FEAT: Add more config

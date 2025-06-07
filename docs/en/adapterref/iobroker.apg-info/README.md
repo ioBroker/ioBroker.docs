@@ -20,7 +20,7 @@ With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clo
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* Node.js 18 or higher
+* Node.js 20 or higher
 * ioBroker host (js-controller) 5.0 or higher
 
 ## Swiss market
@@ -34,6 +34,14 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.17 (2025-06-03)
+* (HGlab01) Add retry mechanism for Entsoe
+
+### 0.1.16 (2025-05-18)
+* (HGlab01) Optimize Entsoe (Swiss market) requests
+* (HGlab01) Extend timeout for Api calls to 30 seconds 
+* (HGlab01) Bump axios to 1.9.0
+
 ### 0.1.15 (2025-04-17)
 * (HGlab01) fix 'Cannot read properties of undefined (reading 'price_amount')'
 
@@ -45,14 +53,6 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 
 ### 0.1.13 (2025-03-12)
 * (HGlab01) Bump axios to 1.8.3
-
-### 0.1.12 (2025-03-06)
-* (HGlab01) Fix warning definition missing for 'from_19_to_20'
-* (HGlab01) Fix warning definition missing for 'item xx'
-* (HGlab01) Bump axios to 1.8.1
-
-### 0.1.11 (2024-10-20)
-* (HGlab01) improve UI config (#296)
 
 ## License
 MIT License

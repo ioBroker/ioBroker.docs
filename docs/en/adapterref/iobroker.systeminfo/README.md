@@ -107,7 +107,14 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2025-05-27)
+
+* (lfischer85) Creation and update of states has been fixed. [#214, #139]
+* (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 6.17.14 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.2.0 (2024-04-28)
+
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
 
@@ -126,16 +133,11 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 
 -   Added save and load config in admin screen
 
-### 0.2.2
-
--   First public beta includes jsonParse and WebQuery parse, jsonParse syntax mistake corrected for selectors
--   New icon to separate it from info-Adapter
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2019, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

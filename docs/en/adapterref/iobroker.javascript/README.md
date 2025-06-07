@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
 chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en":"ioBroker.javascript"},"content":"en/adapterref/iobroker.javascript/README.md"},"en/adapterref/iobroker.javascript/blockly.md":{"title":{"en":"Contents"},"content":"en/adapterref/iobroker.javascript/blockly.md"},"en/adapterref/iobroker.javascript/javascript.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.javascript/javascript.md"},"en/adapterref/iobroker.javascript/upgrade-guide.md":{"title":{"en":"Upgrade guide"},"content":"en/adapterref/iobroker.javascript/upgrade-guide.md"}}}
 ---
-![Logo](../../admin/javascript.png)
+<img src="../../admin/javascript.svg" alt="ioBroker.javascript" width="100" />
 
 # ioBroker.javascript
 
@@ -18,7 +18,14 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 9.0.2 (2025-06-04)
+
+* (@klein0r) Added possibility to escape chars in formatTimeDiff
+* (@GermanBluefox) Back-end was migrated to TypeScript
+* (@GermanBluefox) Breaking change: removed "request" module
+* (@GermanBluefox) Added prettier for scripts
+
+### 8.9.2 (2025-04-27)
 
 * (@GermanBluefox) Updated packages for GUI
 * (@GermanBluefox) Used TypeScript for an admin component
@@ -34,13 +41,6 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
 
 ### 8.8.3 (2024-09-05)
 * (bluefox) Fixed object selector in rules
-
-### 8.8.2 (2024-08-07)
-* (bluefox) updated dependencies
-
-### 8.8.0 (2024-08-05)
-* (@klein0r) Added option to register notifications via scripts
-* (@klein0r) Fixed sendTo block with an empty name list
 
 ## License
 The MIT License (MIT)

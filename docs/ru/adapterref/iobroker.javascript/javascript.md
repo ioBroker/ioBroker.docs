@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.javascript/javascript.md
 title: нет названия
-hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
+hash: HzLmOKiKXfZj00tWYU8xM1qmDGSKsghUlH0q7WCVwkI=
 ---
 ## Содержание
 - [Примечание](#примечание)
@@ -152,7 +152,7 @@ exec('ls /var/log', (error, stdout, stderr) => {
 ```
 
 Node.js использует /bin/sh для выполнения команд. Если вы хотите использовать другую оболочку, вы можете использовать объект option, как описано в [Документация Node.js](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) для child_process.exec.
-Лучше всего всегда использовать имена путей для заполнения команд, чтобы убедиться, что выполняется правильная команда.
+Лучше всего всегда использовать имена путей заполнения к командам, чтобы убедиться, что выполняется правильная команда.
 
 **Примечание:** для его вызова необходимо включить опцию *Включить команду "setObject"*.
 
@@ -261,7 +261,7 @@ on('adapter.0.device.channel.sensor', (data) => {
 |             |            |                                                                                                                                                     |
 | oldTs | string | Предыдущая метка времени должна быть равна указанной (oldState.ts == ts) |
 | oldTsGt | string | Предыдущая метка времени не должна быть равна указанной (oldState.ts != ts) |
-| oldTsGe | string | Предыдущая метка времени должна быть больше заданного значения (oldState.ts > ts) |
+| oldTsGe | string | Предыдущая метка времени должна быть больше указанного значения (oldState.ts > ts) |
 | oldTsLt | string | Предыдущая метка времени должна быть больше или равна указанной (oldState.ts >= ts) |
 | oldTsLe | string | Предыдущая метка времени должна быть меньше указанной (oldState.ts < ts) |
 |             |            |                                                                                                                                                     |
@@ -360,7 +360,7 @@ setState('stateId1', 'new value');
 
 *Примечание:* По умолчанию в функцию обратного вызова будут переданы только состояния с качеством 0x00. Если вы хотите получить все события, добавьте `{q: '*'}` в структуру шаблона.
 
-*Примечание:* Обратите внимание, что по умолчанию "change" равно "any", за исключением случаев, когда задан только id в виде строки (например, `on('id', () => {});`). В последнем случае change будет установлено на "ne".
+*Примечание:* Обратите внимание, что по умолчанию "change" равно "any", за исключением случаев, когда задан только идентификатор в виде строки (например, `on('id', () => {});`). В последнем случае change будет установлено на "ne".
 
 *Примечание:* Если вы также хотите получить удаления/истечения состояний в качестве триггера, вам необходимо использовать change с `ne` или `any` И q с `*` в качестве фильтра!
 
@@ -560,7 +560,7 @@ schedule({ astro: 'sunset', shift: 10 }, () => {
 - `"dawn"`: рассвет (утренние навигационные сумерки заканчиваются, утренние гражданские сумерки начинаются)
 - `"надир"`: надир (самый темный момент ночи, солнце находится в самом низком положении)
 
-**Примечание:** для использования функции «astro» необходимо определить «широту» и «долготу» в настройках адаптера JavaScript.
+**Примечание:** для использования функции «astro» в настройках адаптера JavaScript должны быть определены «широта» и «долгота».
 
 **Примечание:** в некоторых местах иногда может быть так, что night/nightEnd не существует. Пожалуйста, прочтите [здесь](https://github.com/mourner/suncalc/issues/70) об этом.
 
@@ -586,7 +586,7 @@ scheduleById(id, callback);
 scheduleById(id, ack, callback);
 ```
 
-Позволяет создать расписание на основе значения состояния. Если значение состояния изменится, старое расписание будет удалено, а новое расписание будет создано автоматически.
+Позволяет создать расписание на основе значения состояния. Если значение состояния изменится, старое расписание будет удалено и автоматически создано новое расписание.
 
 Поддерживаемые форматы:
 
@@ -713,7 +713,7 @@ compareTime(startTime, endTime, operation, timeToCompare);
 
 Вы можете использовать астроимена для определения времени. Все 3 параметра могут быть установлены как астровремя.
 Возможны следующие значения: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
-Подробнее см. [Астро](#astro--function).
+Подробнее см. в [Астро](#astro--function).
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -920,7 +920,7 @@ setObject(id, obj, callback);
 
 Записать объект в БД. Эту команду можно отключить в настройках адаптера. Используйте эту функцию осторожно, так как глобальные настройки могут быть повреждены.
 
-Его следует использовать для **изменения** существующего объекта, который вы предварительно считываете, например:
+Его следует использовать для **изменения** существующего объекта, который вы предварительно прочитали, например:
 
 ```js
 const obj = getObject('adapter.N.objectName');
@@ -1046,7 +1046,7 @@ createState(name, initialValue, forceCreation, common, native, callback);
 !! Предпочитаю создавать собственные точки данных с полным идентификатором `0_userdata.0.mystate` !!!
 
 #### Параметры:
-- `name`: имя состояния без пространства имен, например `mystate`
+- `name`: имя штата без пространства имен, например `mystate`
 - `initialValue`: переменная может быть инициализирована после создания. Значение "undefined" означает, что значение не инициализируется.
 - `forceCreation`: создать/перезаписать состояние независимо от того, существует ли состояние или нет.
 - `common`: общее описание объекта, см. описание [здесь](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)
@@ -1056,7 +1056,7 @@ createState(name, initialValue, forceCreation, common, native, callback);
 Если вы установите в `common` флаг `alias` на `true`, то псевдоним будет создан с тем же именем (но в пространстве имен `alias.0`), что и состояние.
 Псевдоним создается только в том случае, если он еще не существует.
 
-Также действительны следующие настройки для псевдонимов:
+Также допустимы следующие настройки для псевдонимов:
 
 ```js
 common => {
@@ -1280,7 +1280,7 @@ clearTimeout(id);
 setImmediate(callback, arg1, arg2, arg3, arg4);
 ```
 
-То же, что и javascript `setImmediate` и почти то же, что и `setTimeout(callback, 0, arg1, arg2, arg3, arg4)`, но с более высоким приоритетом.
+То же самое, что и javascript `setImmediate` и почти то же самое, что и `setTimeout(callback, 0, arg1, arg2, arg3, arg4)`, но с более высоким приоритетом.
 
 ### ФорматДата
 ```js
@@ -1338,6 +1338,8 @@ formatTimeDiff(milliseconds, format);
 * сс, сс(кириллица) - полные секунды, например "05"
 * с, с(кириллица) - краткие секунды, например, "5"
 
+Вы можете использовать экранирующий символ `\`, чтобы избежать замены. Например, `DD \Day\s, h \hour\s, m \minute, ss \second\s`
+
 #### Пример
 ```js
 formatTimeDiff(60000, "mm:ss") // => "01:00"
@@ -1354,7 +1356,7 @@ formatTimeDiff(diff, 'hh'); // "51"
 formatTimeDiff(diff, 'mm'); // "3069"
 ```
 
-### ПолучитьОбъектДаты
+### ПолучитьДатаОбъект
 ```js
 getDateObject(stringOrNumber);
 ```
@@ -1432,7 +1434,7 @@ $(selector).getStateAsync(); // get all states - returns a promise
 - `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - вывести все состояния перечисления "windows" в журнал
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` - вывести все расписания с 65 в конце
 - `$('.switch §"Гостиная")` - Принять состояния со всеми переключателями в "Гостиной" ***(не реализовано - следует обсудить)***
-- `$('channel .switch §"Гостиная")` - Принять состояния со всеми переключателями в "Гостиной" ***(не реализовано - следует обсудить)***
+- `$('channel .switch §"Гостиная")` - Принять состояния со всеми переключателями в 'Гостиная' ***(не реализовано - следует обсудить)***
 
 ***Объяснение*** Давайте рассмотрим:
 
@@ -1549,7 +1551,7 @@ renameFile(adapter, oldName, newName, (error) => {});
 
 Альтернативное название этого метода — `rename`
 
-### НаФайле
+### ВФайле
 ```js
 onFile(id, fileName, withFile, (id, fileName, size, fileData, mimeType) => {});
 // or
@@ -1662,7 +1664,7 @@ getHistory({
     });
 ```
 
-**Примечание: **конечно, история должна быть сначала включена для выбранного идентификатора в администраторе.
+**Примечание: **конечно, сначала необходимо включить историю для выбранного идентификатора в админке.
 
 ### Запустить скрипт
 ```js
@@ -1761,7 +1763,7 @@ isScriptActive('scriptName');
 
 Это не функция. Это переменная с экземпляром javascript, которая видна в области действия скрипта.
 
-### ToInt
+### ВInt
 ### ToFloat
 ### ToBoolean
 ### JsonataВыражение
@@ -1778,7 +1780,7 @@ await wait(1000);
 
 ### СообщениеКому
 ```js
-messageTo({ instance: 'instance', script: 'script.js.common.scriptName', message: 'messageName' }, data, {timeout: 1000}, result =>
+messageTo({ instance: 'instance', script: 'script.js.common.scriptName', message: 'messageName' }, data, { timeout: 1000 }, result =>
     log(JSON.stringify(result)));
 ```
 
@@ -1789,7 +1791,7 @@ messageTo({ instance: 'instance', script: 'script.js.common.scriptName', message
 Цель может быть сокращена до:
 
 ```js
-messageTo('messageName', data, result => {
+messageTo('messageName', data, (result) => {
     log(JSON.stringify(result));
 });
 ```
@@ -1828,7 +1830,9 @@ onMessage('myTopic', async (data, callback) => {
 ### OnMessage
 ```js
 onMessage('messageName', (data, callback) => {
-    log(`Received data: ${data}`); callback({ result: Date.now() });
+    log(`Received data: ${data}`);
+
+    callback({ result: Date.now() });
 });
 ```
 
@@ -1859,7 +1863,7 @@ iob message javascript.0 toScript '{"script": "script.js.messagetest", "message"
 ```js
 const id = onMessage('messageName', (data, callback) => {
     log(data);
-    callback(Date.now());
+    callback({ result: Date.now() });
 });
 
 // unsubscribe specific handler
@@ -2029,11 +2033,11 @@ httpPost(
 *Требуется версия >= 8.3.0*
 
 ```js
-httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png', { responseType: 'arraybuffer' }, async (err, response) => {
+httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.svg', { responseType: 'arraybuffer' }, async (err, response) => {
     if (err) {
         console.error(err);
     } else {
-        const tempFilePath = createTempFile('javascript.png', response.data);
+        const tempFilePath = createTempFile('javascript.svg', response.data);
         console.log(`Saved to ${tempFilePath}`);
 
         // Use the new path in other scripts (e.g. sendTo)
@@ -2097,7 +2101,7 @@ log(`Data dir: ${defaultDataDir}`);
 ```
 
 ### Многословный
-`verbose` - Включен ли подробный режим?
+`verbose` - Подробный режим включен?
 
 ```js
 log(`Verbose mode: ${verbose ? 'enabled' : 'disabled'}`);
@@ -2111,7 +2115,7 @@ if (verbose) {
 ## Опция - "Не подписываться на все штаты при запуске"
 Существует два способа подписки на состояния:
 
-1. Адаптер подписывается на все состояния при запуске и получает все изменения всех состояний (легко использовать getState(id), но требуется больше ресурсов ЦП и ОЗУ):
+1. Адаптер подписывается на все состояния при запуске и получает все изменения всех состояний (легко использовать getState(id), но требует больше ресурсов ЦП и ОЗУ):
 
 ```js
 log(getState('someID').val);

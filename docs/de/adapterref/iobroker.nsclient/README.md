@@ -122,6 +122,11 @@ IoBroker-Zustandsobjekte werden nach erfolgreicher Abfrage des Zielgeräts erste
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2025-05-02) 
+* (mcm1957) Adapter requires node.js 20 or newer now
+* (mcm1957) Adapter requires js-controller 6.0.11 and admin 7.4.10 now
+* (mcm1957) Dependencies have been updated
+
 ### 0.2.3 (2024-03-12)
 * (mcm1957) Dependencies have been updated
 
@@ -147,7 +152,7 @@ IoBroker-Zustandsobjekte werden nach erfolgreicher Abfrage des Zielgeräts erste
 ## License
 MIT License
 
-Copyright (c) 2022-2024 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2022-2025 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

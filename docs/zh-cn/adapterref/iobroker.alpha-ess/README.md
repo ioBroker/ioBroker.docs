@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: MQlhZDufCij98ZD1mBBFOylZ/vD+HChaCplicsJj9ZI=
+hash: IeYCD+EVKLA4PUNjw8fCCyH2IsGI8QFHSDrr5Do4QuU=
 ---
 ![标识](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -22,44 +22,56 @@ https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
 
 ---
 
-### 由于当前情况，请注意！
-[接口限制公告](https://github.com/alphaess-developer/alphacloud_open_api/issues/54)
+此适配器登录[Alpha-ESS](https://www.alphaess.com/)的 Web API，并检索您的 Alpha-ESS 设备的信息。\ 根据您的 Alpha-ESS 产品，可以获取设备的实时数据和配置数据。API 返回哪些数据点取决于您的 Alpha-ESS 设备。
 
----
-
-此适配器登录到 [Alpha ESS 系统](https://www.alphaess.com/) 的 Web API 并检索您的 Alpha-ESS 设备的信息。\ 根据您的 Alpha-ESS 产品，可以获取设备的实时数据和配置数据。API 返回哪些数据点取决于您的 Alpha-ESS 设备。
-
-该适配器使用 Alpha-ESS Open API，这是 Alpha-ESS 设备的官方且有文档记录的 API。
+该适配器使用 Alpha-ESS Open API，这是 Alpha-ESS 设备的官方且有记录的 API。
 
 每个状态的质量属性根据其状态进行设置：
 
 | 品质 | 意义 |
 |:--------|:--------------------------------------------------|
-|0x00 |确定并且是最新的 |
-|0x01 |由于未知原因，值未更新，请参阅调试日志|
+|0x00 |正常且最新 |
+|0x01 |由于未知原因未更新值，请参阅调试日志|
 |0x02 |此数据点的在线连接存在问题|
-|0x12 |适配器已断开连接或停止 |
+|0x12 |适配器已断开连接或已停止 |
 |0x44 |API 返回错误或内部错误，请参阅调试日志 |
 
 ＃＃ 设置：
-为了能够使用 Alpha-ESS Open API，您必须在 https://open.alphaess.com 上注册您的 Alpha-ESS 设备。注册后，您将获得一个开发者 ID 和一个开发者密钥（称为“Secret”）。您需要这些才能访问 Open API。
-如何查找 SN 和检查注册代码在此处描述：https://github.com/alphaess-developer/alphacloud_open_api
+要使用 Alpha-ESS Open API，您必须在 https://open.alphaess.com 上注册您的 Alpha-ESS 设备。注册后，您将获得一个开发者 ID 和一个开发者密钥（称为“Secret”）。您需要这些信息才能访问 Open API。
+如何查找 SN 和注册验证码，请参见：https://github.com/alphaess-developer/alphacloud_open_api
 
-- **个人申请ID：**申请ID（见上文）
-- **个人申请秘诀**：申请秘诀（见上文）
-- **Alpha-ESS 系统 ID：** 您的 Alpha-ESS 设备的 S/N（序列号）
+- **个人应用程序 ID**：应用程序 ID（见上文）
+- **个人应用程序秘密**：应用程序秘密（见上文）
+- **Alpha-ESS 系统 ID**：您的 Alpha-ESS 设备的 S/N（序列号）
 - **读取实时数据的间隔**：单位：秒。
 - **读取能量数据的间隔**：单位：分钟。
-- **读取充电设置的间隔**：单位：分钟。
+- **读取充电设置的间隔：**单位：分钟。
 - **读取放电设置的间隔：**单位：分钟。
 - **读取摘要数据的间隔**：单位：分钟。
 - **读取 Wallbox 数据的间隔**：单位：分钟。注意：目前仅支持一个 Wallbox。
-- **更新不变的状态**：如果选中此选项，即使相应的值不变，状态也会改变。
+- **更新未改变的状态**：如果选中此选项，即使相应的值未改变，状态也会改变。
 
 ## 免责声明
-**所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何相关子公司有任何关联或认可！此个人项目是在业余时间维护的，没有商业目标。**
+**所有产品和公司名称或徽标均为其各自所有者的商标™或注册商标®。使用它们并不意味着与它们或其任何关联子公司有任何关联或认可！本个人项目由业余时间维护，不承担任何商业目的。**
 
 ## Changelog
+### 3.0.1 (2024-12-22)
+
+- (Gaspode) Optimizations of reading pseudo-realtime power data for slow systems
+
+### 3.0.0 (2024-12-21)
+
+- (Gaspode) **Breaking Change:** Renamed state "Charging_period 1_end" to "Charging_period_1_end"
+- (Gaspode) Optimizations in configuration dialog
+
+### 2.3.0 (2024-12-20)
+
+- (Gaspode) Provides the ability to read pseudo-realtime power data using the API function getTodayPowerBySn. This feature is useful for systems that lack "realtime data support." When activated, data is fetched every 5 minutes and stored in the "Recent" folder.
+
+### 2.2.0 (2024-12-16)
+
+- (Gaspode) Provide system information data (getEssList)
+
 ### 2.1.6 (2024-12-01)
 
 - (Gaspode) Migrated to ESLint 9

@@ -795,6 +795,7 @@ app-on-off-schedules-widget {
 ### **WORK IN PROGRESS**
 
 - (Lucky-ESA) Admin 7.4.10 required
+- (Lucky-ESA) Node 20 required
 
 ### 0.0.10 (2025-02-11)
 

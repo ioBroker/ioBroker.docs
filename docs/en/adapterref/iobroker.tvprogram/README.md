@@ -657,15 +657,9 @@ Replace 192.1.2.3 with the ip address of your iobroker installation.
 http://192.1.2.3:8082/vis.0/icons/tvlogos/
 ```
 
-**Adjust Icon width with a css command:**
+**Adjust Icon width:**
 
-Since the width of the icons should be limited to 100px, the following command must be added to the css tab in vis.
-
-```css
-.channel {
-    width: 100px !important;
-}
-```
+Each widget has an attribute "Width channel logo px". Please enter an approbiate width for the icon set.
 
 ### functions not implemented in the Adapter, but provides as scripts for the javascript-adapter
 
@@ -834,6 +828,11 @@ widget tvprogram:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- reduce requests to data provider
+- revert to node 18
+
 ### 4.0.0 (2025-01-21)
 
 - Breaking Change. fix marker position with flexible width of channel logos. In each widget the property "width channel logo px" have to be set to approbiate width.

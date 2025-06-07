@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/upgrade-guide.md
 title: Upgrade-Anleitung
-hash: +lmDvpRkMN/aKqmxGEl5xOSrI02XbHtP6/PB3GpLFDc=
+hash: 419X0Zch8gHqehaZE1IsqpfUeQSR8YCsQdZ4zzqWFaE=
 ---
 # Upgrade-Anleitung
-## Verbotene Verzeichnisse für Script Filesystem Mirroring
-**Seit v5.5.0 des JavaScript-Adapters** dürfen die folgenden Speicherorte (relativ zum ioBroker-Basisverzeichnis, normalerweise `/opt/iobroker`) nicht mehr verwendet werden:
+## Verbotene Verzeichnisse für die Skript-Dateisystemspiegelung
+**Seit v5.5.0 des JavaScript-Adapters** dürfen die folgenden Speicherorte (relativ zum ioBroker-Basisverzeichnis, normalerweise `/opt/iobroker`) nicht verwendet werden:
 
-* Das ioBroker-Basisverzeichnis selbst und alle Pfade darüber!
+* Das ioBroker-Basisverzeichnis selbst und alle darüber liegenden Pfade!
 * `./iobroker-data` selbst, benutzerdefiniertes Unterverzeichnis (wählen Sie einen Namen, der sich mit keinem Adapter überschneidet!)
 * `./iobroker-data/backup-objects` oder irgendetwas darunter
 * `./iobroker-data/files` oder irgendetwas darunter
@@ -19,13 +19,18 @@ hash: +lmDvpRkMN/aKqmxGEl5xOSrI02XbHtP6/PB3GpLFDc=
 * `./node_modules` oder irgendetwas darunter
 * `./log` oder irgendetwas darunter
 
-Die Skript-Dateisystemspiegelung speichert alle Quelldateien der Skripte in Ihrem Dateisystem und ermöglicht Ihnen, die Dateien in Ihrem bevorzugten Skripteditor neben dem Webeditor zu bearbeiten. Alle Änderungen werden in beide Richtungen synchronisiert.
+Die Skript-Dateisystemspiegelung speichert alle Quelldateien der Skripte in Ihrem Dateisystem und ermöglicht Ihnen die Bearbeitung der Dateien in Ihrem bevorzugten Skript-Editor neben dem Web-Editor. Alle Änderungen werden in beide Richtungen synchronisiert.
 
-Wenn Sie die Systemspiegelung von Skriptdateien aktivieren, achten Sie darauf, ein **dediziertes neues Verzeichnis** zu erstellen und **kein** vorhandenes Verzeichnis mit anderen Inhalten zu verwenden. Stellen Sie außerdem sicher, dass kein anderes Skript oder kein anderer Prozess Dateien im angegebenen Verzeichnis ändert, um Zugriffsprobleme zu vermeiden.
-Jeder Speicherort muss für den Benutzer „iobroker“ beschreibbar sein!
+Wenn Sie die Systemspiegelung für Skriptdateien aktivieren, erstellen Sie bitte ein **eigenes neues Verzeichnis** und verwenden Sie **kein** vorhandenes Verzeichnis mit anderen Inhalten.
+
+Stellen Sie außerdem sicher, dass keine anderen Skripte oder Prozesse Dateien im angegebenen Verzeichnis ändern, um Zugriffsprobleme zu vermeiden.
+
+Alle Speicherorte müssen für den Benutzer „iobroker“ beschreibbar sein!
 
 ## Anfrage an httpGet
-**Seit v8.0.0 des JavaScript-Adapters** ist das Paket `request` veraltet und die Verwendung in Ihren Skripten führt zu einer Warnung. Der JavaScript-Adapter muss das Paket irgendwann löschen. Um die Migration so einfach wie möglich zu gestalten, bietet die Sandbox eine neue Funktion zum Anfordern von HTTP-Ressourcen.
+**Seit Version 8.0.0 des JavaScript-Adapters** ist das Paket `request` veraltet. Die Verwendung in Ihren Skripten führt zu einer Warnung.
+Der JavaScript-Adapter muss das Paket irgendwann entfernen.
+Um die Migration so einfach wie möglich zu gestalten, bietet die Sandbox eine neue Funktion zum Anfordern von HTTP-Ressourcen.
 
 ### JavaScript
 Beispielcode:
@@ -69,6 +74,6 @@ schedule('*/30 * * * *', () => {
 
 ### Blockly
 - Der `request`-Block unterstützte nur HTTP GET (andere Methoden wurden nicht unterstützt) - ersetzen Sie den Block durch `http (GET)`
-- Um die Antwort verwenden zu können, musste eine benutzerdefinierte Variable mit dem Namen „Result“ erstellt werden. Dies ist nicht mehr erforderlich. Löschen Sie die Variable und verwenden Sie den dedizierten Block, um mit den Ergebnisparametern zu arbeiten (wie in Triggerblöcken).
+- Um die Antwort zu verwenden, musste eine benutzerdefinierte Variable namens „result“ erstellt werden. Dies ist nicht mehr erforderlich. Löschen Sie die Variable und verwenden Sie den dedizierten Block, um mit den Ergebnisparametern zu arbeiten (wie in Triggerblöcken).
 
 ![Blockly-Anfrage an httpGet](../../../en/adapterref/iobroker.javascript/img/upgrade-guide/request-httpGet.png)

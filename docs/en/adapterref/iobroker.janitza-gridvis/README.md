@@ -32,6 +32,10 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
 ### 3.5.2 (2025-03-15)
 * (BenAhrdt) Bugfix text
 

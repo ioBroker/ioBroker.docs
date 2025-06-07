@@ -12,7 +12,7 @@
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 This adapter connects to a Daikin Air Conditioner device and allows to control the device and to read values from it.
-The Daikin Device needs to be equipped with a Daikin Wifi controller. Normally all wifi controllers should be supportedthat are supported by the Daikin App.
+The Daikin Device needs to be equipped with a Daikin Wifi controller. Normally all wifi controllers should be supported that are supported by the Daikin App.
 
 According to Daikin Support Documents the following devices should be compatible (at least):
 
@@ -69,8 +69,12 @@ After the Adapter has connected to the Daikin Device a structure of objects are 
 * VIS widget
 
 ## Changelog
-### __WORK IN PROGRESS__
-* (Apollon77) Prevented some error logs and fix internal flow issues
+### 1.5.1 (2025-05-25)
+* (@Matze2) Handles potential error case when using demand control data
+
+### 1.5.0 (2025-05-24)
+* (@Matze2) Added states to set demand control percentage
+* (@Apollon77) Prevented some error logs and fix internal flow issues
 
 ### 1.4.2 (2022-07-25)
 * (Apollon77) Make sure polling still works after setting special mode states
@@ -146,7 +150,7 @@ After the Adapter has connected to the Daikin Device a structure of objects are 
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2025 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

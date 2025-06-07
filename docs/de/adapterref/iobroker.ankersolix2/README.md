@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ankersolix2/README.md
 title: ioBroker.ankersolix2
-hash: rRSfHrrOlDzK9QTnaYIIJW2Lap1bqlUAjx1nWjoC2k4=
+hash: qhJb5snKyeXmeGuaDtXiPccuV7/4t6IhdVnHEGdAlfw=
 ---
 ![Logo](../../../en/adapterref/iobroker.ankersolix2/admin/ankersolix2.png)
 
@@ -20,18 +20,18 @@ hash: rRSfHrrOlDzK9QTnaYIIJW2Lap1bqlUAjx1nWjoC2k4=
 Anker Solix 2 integrieren
 
 ## Beschreibung
-Dieses Projekt ist von https://github.com/tomquist/solix2mqtt abgeleitet und bringt Informationen von der Anker-API direkt in ioBroker.
+Dieses Projekt stammt von https://github.com/tomquist/solix2mqtt und bringt Informationen von der Anker-API direkt in ioBroker.
 
 ## Unterstützte Geräte
 Ich habe nicht alle [Anker-Hardware](https://www.ankersolix.com/) steht zum Testen zur Verfügung. Ich kann nur die Hardware auflisten, die ich getestet habe. Es ist möglich, dass alle anderen Anker-Hardware](https://www.ankersolix.com/) ist auch kompatibel
 
 | Gerät | Beschreibung |
-| ------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `Solarbank` | - A17C0: Solarbank E1600 (Gen 1)<br> - A17C1: Solarbank 2 E1600 Pro<br> - A17C3: Solarbank 2 E1600 Plus<br> |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Solarbank` | - A17C0: Solarbank E1600 (Gen 1)<br> - A17C1: Solarbank 2 E1600 Pro<br> - A17C3: Solarbank 2 E1600 Plus<br> A17C5: Solarbank 3 E2700 Plus<br> |
 | `Smartmeter` | - A17X7: Anker 3-Phasen-WLAN-Smartmeter<br> - SHEM3: Shelly 3EM Smart Meter<br> - SHEMP3: Shelly 3EM Pro Smart Meter |
 
 ## Wichtige Änderung
-Beim Update von v1.x auf 2.x ist eine erneute Passworteingabe erforderlich! Andernfalls wird Ihr Konto gesperrt!!!
+Beim Update von v1.x auf 2.x ist die erneute Passworteingabe erforderlich! Andernfalls wird Ihr Konto gesperrt!!!
 
 ## Konfiguration
 1. Erstelle ein Familienkonto in der Anker App und füge es deinem Hauptkonto hinzu
@@ -53,6 +53,19 @@ Wenn erneut Fehler auftreten und Sie sich nicht anmelden können, stoppen Sie de
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2025-05-28)
+
+- (ronny130286) fix for Solix 3
+
+### 2.1.1 (2025-05-15)
+
+- (ronny130286) bugfix
+
+### 2.1.0 (2025-04-17)
+
+- (ronny130286) reorganized analysis option (now selectable in adminconsole)
+- (ronny130286) add battery energy to solix devices
+- (ronny130286) update packages
 
 ### 2.0.0 (2025-03-09)
 

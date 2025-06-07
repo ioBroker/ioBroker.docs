@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер Интернета вещей ioBroker
-hash: xYoZavDQBapgTH7h8L59dJHYyDlHBTnwId/tEUu+sbA=
+hash: UxiXLPzaMP15shZ1BfLlXQJ+5BwSiw4RiIoxHO/hWEg=
 ---
-![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
-
 ![Количество установок](http://iobroker.live/badges/iot-stable.svg)
 ![версия НПМ](http://img.shields.io/npm/v/iobroker.iot.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.iot.svg)
+
+<img src="admin/iot.svg" style="width: 100px;"/>
 
 # Адаптер Интернета вещей ioBroker
 ![Тест и выпуск](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -69,7 +69,7 @@ hash: xYoZavDQBapgTH7h8L59dJHYyDlHBTnwId/tEUu+sbA=
 - `level.color.saturation` - требуется для определения канала,
 - `уровень.цвет.оттенок`,
 - `level.dimmer`,
-- `switch` - необязательно,
+- `переключатель` - необязательно,
 - `уровень.цвет.температура` (необязательно)
 
 ```
@@ -109,9 +109,9 @@ Alexa, lock the "lock name"
 
 Если состояние находится только в «функциях» и не находится ни в одной «комнате», будет использовано название состояния.
 
-Имена состояний будут сгенерированы из функции и комнаты. Например, все _светильники_ в _гостиной_ будут собраны в виртуальном устройстве _светильник_ в гостиной.
+Имена состояний будут сгенерированы из функции и комнаты. Например, все _светильники_ в _гостиной_ будут собраны в виртуальном устройстве _светильник_ гостиной.
 Пользователь не может изменить это имя, поскольку оно генерируется автоматически.
-Но если имя перечисления изменится, это имя также изменится. (например, функция "свет" изменится на "светильники", поэтому _светильник_ в гостиной будет изменен на _светильники_ в гостиной)
+Но если имя перечисления изменится, это имя также изменится. (например, функция "свет" изменится на "светильники", поэтому _светильник_ гостиной будет изменен на _светильники_ гостиной)
 
 Все правила будут проигнорированы, если состояние имеет common.smartName. В этом случае будет использоваться только смарт-имя.
 
@@ -160,7 +160,7 @@ Alexa v3 поддерживает режим переключения. Это о
 
 Если в настройках поля «Белый список для сервисов» задать имя `custom_test` и вызвать с именем сервиса «custom_test», то состояние **cloud.0.services.custom_test** будет установлено в _myString_.
 
-Вы можете написать «\*» в белом списке и все сервисы будут разрешены.
+Вы можете написать «\*» в белом списке, и все сервисы будут разрешены.
 
 Здесь вы можете найти инструкции по использованию с [таскер](doc/tasker.md).
 
@@ -294,7 +294,7 @@ sendTo('iot.0', 'private', { type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE }
 С версии 1.15.x вы можете отправлять сообщения в приложение `ioBroker.visu` (Android и iOS).
 Для этого вам нужно написать следующие состояния:
 
-```
+```js
 setState('iot.0.app.expire', 60); // optional. Time in seconds
 setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'normal'
 setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
@@ -319,6 +319,24 @@ setState('iot.0.app.message', JSON.stringify({
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 3.5.2 (2025-06-04)
+-   (@GermanBluefox) Corrected error in back-end
+
+### 3.5.1 (2025-05-31)
+-   (@GermanBluefox) Rewrite Rules with TypeScript
+-   (@GermanBluefox) Package updates. SVG logo
+
+### 3.5.0 (2025-02-24)
+-   (@foxriver76) added notification manager support (notifications will be sent as push notifications to the Visu App)
+
+### 3.4.5 (2024-12-29)
+
+-   (@GermanBluefox) Checked the max length of discovered devices for Alexa
+
+### 3.4.4 (2024-12-08)
+
+-   (@GermanBluefox) Corrected the name editing of the devices for Alexa 3
+
 ### 3.4.3 (2024-11-05)
 
 -   (@GermanBluefox) corrected the addition of the devices for Alexa
@@ -825,7 +843,7 @@ setState('iot.0.app.message', JSON.stringify({
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

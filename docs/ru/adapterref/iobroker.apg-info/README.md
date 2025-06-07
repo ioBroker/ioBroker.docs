@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-информация
-hash: b8YIDN5UrVOEjnNuFYJ5RH86vGY42dQtaDnYBja3ul4=
+hash: fFIEBJshLTild/XRsvL+mjDspkm5nmMAICvK5lMkaVE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -26,7 +26,7 @@ hash: b8YIDN5UrVOEjnNuFYJ5RH86vGY42dQtaDnYBja3ul4=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* Node.js 18 или выше
+* Node.js 20 или выше
 * ioBroker хост (js-контроллер) 5.0 или выше
 
 ## Швейцарский рынок
@@ -37,28 +37,30 @@ hash: b8YIDN5UrVOEjnNuFYJ5RH86vGY42dQtaDnYBja3ul4=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.11 (2024-10-20)
-* (HGlab01) improve UI config (#296)
+### 0.1.17 (2025-06-03)
+* (HGlab01) Add retry mechanism for Entsoe
 
-### 0.1.10 (2024-10-04)
-* (HGlab01) fix issue #290
-* (HGlab01) bump axios to 1.7.7
+### 0.1.16 (2025-05-18)
+* (HGlab01) Optimize Entsoe (Swiss market) requests
+* (HGlab01) Extend timeout for Api calls to 30 seconds 
+* (HGlab01) Bump axios to 1.9.0
 
-### 0.1.9 (2024-08-21)
-* (HGlab01) Support eslint9
+### 0.1.15 (2025-04-17)
+* (HGlab01) fix 'Cannot read properties of undefined (reading 'price_amount')'
 
-### 0.1.8 (2024-07-31)
-* (HGlab01) Swiss market support; Token needed! Check readme!
-* (HGlab01) Bump json-explorer to 0.1.16
+### 0.1.14 (2025-03-30)
+* (HGlab01) Fix switch to summer time begin issue
+* (HGlab01) Bump axios to 1.8.4
+* (HGlab01) Fix warning "State attribute definition missing for 'item xx' 
+* (HGlab01) Fix provider-fee% calculation if base price is negative ([#354](https://github.com/HGlab01/ioBroker.apg-info/issues/354))
 
-### 0.1.7 (2024-05-27)
-* (HGlab01) Add date to today and tomorrow to make the date of today and tomorrow clear
-* (HGlab01) bump axios to 1.7.2
+### 0.1.13 (2025-03-12)
+* (HGlab01) Bump axios to 1.8.3
 
 ## License
 MIT License
 
-Copyright (c) 2024 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

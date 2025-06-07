@@ -717,6 +717,17 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) Onedrive-API for Upload deleted
+* (simatec) dependencies updated
+* (simatec) z2m Remote Backup added
+
+### 3.2.2 (2025-05-16)
+* (simatec) Grafana Folder added to Restore
+* (simatec) Grafanfa Folder uid added
+* (simatec) dependencies updated
+* (simatec) Fix Mail Subject on Error
+
 ### 3.2.1 (2025-04-25)
 * (simatec) Fix Onedrive download
 * (simatec) Fix Onedrive Restore

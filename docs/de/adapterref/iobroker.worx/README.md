@@ -43,6 +43,7 @@ Richtig</br>
 - `Verzögerung für Kantenschnitt`: Wann soll EdgeCut nach dem Losfahren starten (Beispiel nach 5 Sekunden bis zum Rasen)
 - `Entfernung und Zeit in Minuten und Metern`: Einheit für Laufzeit und Arbeitszeit in Min./Std. und Meter/KM
 - `Aktualisieren der MQTT-Daten nach der Token-Aktualisierung.`: Nach der Erneuerung vom Token (jede Stunde) die Mqtt Daten neu laden.
+- `Fehler über Benachrichtigungen anzeigen (für alle Geräte)`: Benachrichtigung für alle Geräte ein/ausschalten (kann unter Objekte für jedes Greäte ein/ausgeschaltet werden)
 - `Sitzungsdaten löschen` Bei Login Probleme die aktuelle Session löschen
 - `Login-Zähler zurücksetzen` Login-Zähler zurücksetzen
 
@@ -198,6 +199,8 @@ Richtig</br>
 - `edgecut`: Start EdgeCut (Draht & Vision/änderbar) 🟢
 - `error`: Errormeldung vom Mäher (Draht & Vision/nur lesen)
 
+### Error ID`s
+
 ```json
 {
     "states": {
@@ -206,7 +209,7 @@ Richtig</br>
         "2": "Lifted", //(Draht & Vision & RTK-Body)
         "3": "Wire missing", //(Draht)
         "4": "Outside boundary", //(Draht & Vision & RTK-Body)
-        "5": "Raining", //(Draht & Vision & RTK-Body)
+        "5": "Rain delay", //(Draht & Vision & RTK-Body)
         "6": "Close door to cut grass", //(Draht)
         "7": "Close door to go home", //(Draht)
         "8": "Blade motor fault", //(Draht & Vision & RTK-Body)
@@ -280,6 +283,7 @@ Richtig</br>
 - `mqtt_update`: Update Mqtt Daten vom Mäher - max. 150/Tag (Draht & Vision/änderbar) 🟢
 - `mqtt_update_count`: Counter von Update Mqtt Daten (Draht & Vision/nur lesen)
 - `notification`: Benachrichtigung über JS-Controller aktivieren oder deaktivieren. Es wird Offline und Fehlermeldungen ausgegeben. (Draht & Vision/änderbar) 🔴
+- `notification_excluded`: Welche Fehler ID`s sollen nicht angezeigt werden (IDs mit Komma trennen [IDS](#error-ids))
 
 ![Mower img/mower_2.png](img/mower_2.png)</br>
 ![Mower img/info_connection.png](img/info_connection.png)
@@ -311,6 +315,8 @@ Richtig</br>
 - `rfidStatus`: Status RF Sensor 0=OK/1=Fehler (Vision/nur lesen)
 - `sendCommand`: Ein Befehl versenden (Draht & Vision/änderbar) 🟢
 
+### Send Commands
+
 ```json
 {
     "states": {
@@ -335,6 +341,8 @@ Richtig</br>
 
 - `state`: True für Mähvorgang starten und False für Mähvorgang beenden (Draht & Vision/änderbar) 🟢
 - `status`: Status vom Mäher (Draht & Vision & RTK/nur lesen)
+
+### Status ID`s
 
 ```json
 {
@@ -831,10 +839,22 @@ Standard ohne Zonen:
 ![img/array_nok.png](../en/img/array_nok.png)
 
 ## Changelog
+### 3.2.3 (2025-06-05)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) All Sentry issues fixed
+- (Lucky-ESA) Add new mowers without adapter restart
+
+### 3.2.2 (2025-05-29)
+
+- (Lucky-ESA) Fixed invalid object type
+- (Lucky-ESA) Error message it is raining changes to rain delay
+
+### 3.2.1 (2025-05-25)
 
 - (Lucky-ESA) Fixed starting firmware update (did not work)
+- (Lucky-ESA) Added confirm edgecut
+- (Lucky-ESA) Added notifications about instance settings toggle on/off
+- (Lucky-ESA) Small bugs fixed
 
 ### 3.2.0 (2025-04-08)
 
@@ -850,25 +870,6 @@ Standard ohne Zonen:
 - (Lucky-ESA) Added JS-Controller Notification
 - (Lucky-ESA) Dependencies updated
 - (Lucky-ESA) New design for settings page added
-
-### 3.1.0 (2024-09-10)
-
-- (Lucky-ESA) Added Landroid IP
-- (Lucky-ESA) Fixed interval
-- (Lucky-ESA) Fixed Vision Edgecut
-
-### 3.0.2 (2024-05-12)
-
-- (Lucky-ESA) mowTimeExtend restricted input
-- (Lucky-ESA) Fixed TypeError
-
-### 3.0.1 (2024-05-08)
-
-- (Lucky-ESA) Preperation mission Kress new API
-- (Lucky-ESA) Fixed TypeError
-- (Lucky-ESA) Fixed missing activity states
-- (Lucky-ESA) Added update interval in instance setting
-- (Lucky-ESA) Added last update
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: UFdW49RaHlrnZCQD/4v5Uo1McZUa0/12UbqQv244GN4=
+hash: cudsgO77sXpPgwId15gH8Ex4ig5OcbZp7Su9X66fyh4=
 ---
 # IoBroker.tado
 
@@ -18,13 +18,10 @@ hash: UFdW49RaHlrnZCQD/4v5Uo1McZUa0/12UbqQv244GN4=
 
 [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Тест и выпуск](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
-## Вход больше не работает?
-Из-за нового метода авторизации от Tado, который является обязательным с 21 марта (см. https://github.com/DrozmotiX/ioBroker.tado/issues/954), метод аутентификации был изменен с UserId и Password на Token. Поэтому вам необходимо обновиться до версии 0.7.1 или более поздней! После обновления перейдите на страницу конфигурации адаптера и следуйте процессу с помощью кнопок «Шаг 1» и «Шаг 2».
-
 ## Адаптер tado для ioBroker
 Tado° (https://www.tado.com) — эксперт в области интеллектуального отопления и управления энергией для вашего дома, разработанный и созданный в Германии. Экономьте энергию и сокращайте расходы навсегда вместе с нами — наслаждайтесь уютным и устойчивым домом.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Тадо° X
 Доступна базовая поддержка Tado° X.
@@ -68,7 +65,7 @@ Tado° (https://www.tado.com) — эксперт в области интелл�
 | tado.[x].[yyyyyy].meterReadings | JSON-объект с {"date":"YYYY-MM-DD","reading": 1234} можно использовать для загрузки показаний счетчиков в Energy IQ |
 
 ## Требует
-* Node.js 18 или выше
+* Node.js 20 или выше
 * ioBroker хост (js-контроллер) 5.0 или выше
 
 ## Changelog
@@ -76,25 +73,27 @@ Tado° (https://www.tado.com) — эксперт в области интелл�
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.7.2 (2025-03-12)
-* (HGlab01) improve sentry logs
+### __WORK IN PROGRESS__
+* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
+* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
+* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
 
-### 0.7.1 (2025-03-09)
-* (HGlab01) !!!BREAKING CHANGE!!! new Authentification method (https://github.com/DrozmotiX/ioBroker.tado/issues/954)
-* (HGlab01) Bump axios to 1.8.2
-* (HGlab01) Improve error messages for Sentry
-* (HGlab01) Add attributes 'tariffLowPriceAlert' and 'tariffHighPriceAlert'
+### 0.7.10 (2025-04-25)
+* (HGlab01) further token refresh optimizations
 
-### 0.6.1 (2024-11-04)
-* (HGlab01) Add attributes 'expiryInSeconds' and 'activated'
-* (HGlab01) Extend timeout back to 20s
-* (HGlab01) Tado° X improvements
+### 0.7.9 (2025-04-17)
+* (HGlab01) fix issue 'refreshToken() failed'
 
-### 0.6.0 (2024-10-23)
-* (HGlab01) Start supporting Tado° X
+### 0.7.8 (2025-04-10)
+* (HGlab01) fix issue 'definition missing for balanceControl' [TadoX]
 
-### 0.5.9 (2024-10-16)
-* (HGlab01) Improve axios promise handling
+### 0.7.7 (2025-04-08)
+* (HGlab01) optimize sentry usage
+* (HGlab01) improve retry-mechanism when it comes to erros
+
+### 0.7.5 (2025-03-31)
+* (HGlab01) some further refactorings
+* (HGlab01) Bump axios to 1.8.4
 
 ## License
 MIT License

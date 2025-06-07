@@ -57,14 +57,15 @@ BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 
 ## Konfigurationsmöglichkeiten
 
-| Einstellung                  | Beschreibung                                                                     |
-|------------------------------|----------------------------------------------------------------------------------|
-| **Maxxi CCU Name**           | Name oder IP-Adresse der Maxxi CCU.                                              |
-| **CCU Abfrageintervall**     | Intervall (10-90 Sekunden) für die Abfrage der CCU-Daten im Cloud-Modus.         |
-| **Sommer/Winter-Betrieb**    | Automatische Anpassung der Ladeparameter basierend auf definierten Winter-Daten. |
-| **Port für Local-API**       | Definiert den Port, auf dem die Local-API lauscht.                               |
-| **Einspeisungssteuerung**    | Konfiguration zur Aktivierung oder Deaktivierung der Einspeisung.                |
-| **Batteriekalibrierung**     | Startet den automatisierten Kalibrierungsprozess für die Batterie.               |
+| Einstellung               | Beschreibung                                                                                                                                                                                                                     |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Maxxi CCU Name**        | Name oder IP-Adresse der Maxxi CCU.                                                                                                                                                                                              |
+| **CCU Abfrageintervall**  | Intervall (10-90 Sekunden) für die Abfrage der CCU-Daten im Cloud-Modus.                                                                                                                                                         |
+| **Sommer/Winter-Betrieb** | Automatische Anpassung der Ladeparameter basierend auf definierten Winter-Daten.                                                                                                                                                 |
+| **Port für Local-API**    | Definiert den Port, auf dem die Local-API lauscht.                                                                                                                                                                               |
+| **Einspeisungssteuerung** | Konfiguration zur Aktivierung oder Deaktivierung der Einspeisung.                                                                                                                                                                |
+| **Batteriekalibrierung**  | Startet den automatisierten Kalibrierungsprozess für die Batterie.                                                                                                                                                               |
+| **BKW - Modus**           | Ab einem Akkustand von ≥ 97 % aktiviert das Skript den BKW-Modus, um zusätzlich zum Eigenverbrauch konstant 600–800 W ins öffentliche Netz einzuspeisen und ggf. eine Einspeisevergütung zu erhalten, sofern als BKW angemeldet. |
 
 ## Sommer / Winter-Betrieb
 
@@ -100,6 +101,18 @@ Die Einspeisungssteuerung ermöglicht es, die maximale Ladung (`maxSOC`) so zu k
 - **100% (Einspeisung deaktiviert)**:
     - Es wird kein überschüssiger Strom ins Netz eingespeist.
 
+## BKW - Mode
+
+Der BKW-Modus ermöglicht es, überschüssige Energie aus dem Batteriespeicher gezielt ins öffentliche Stromnetz einzuspeisen.
+Sobald der Ladezustand (SOC) des Akkus ≥ 97 % erreicht, aktiviert der Adapter automatisch den BKW-Modus.
+In diesem Modus wird zusätzlich zum Eigenbedarf eine feste Leistung (z. B. 600 oder 800 W) dauerhaft ins Netz eingespeist.
+Dies kann sinnvoll sein, wenn ein Balkonkraftwerk (BKW) ordnungsgemäß angemeldet ist und eine Einspeisevergütung für eingespeisten Strom möglich ist.
+
+Sinkt der Ladezustand des Akkus wieder unter 97 %, deaktiviert sich der BKW-Modus automatisch und die Einspeisung wird reduziert oder beendet.
+Der Prozess läuft vollständig automatisch und benötigt keine weitere Benutzerinteraktion.
+
+Hinweis: Die Aktivierung des BKW-Modus erfolgt nur, wenn in den Adaptereinstellungen BKW-Modus aktivieren gewählt und der Batteriekalibrierungsmodus (batterycalibration) deaktiviert ist.
+
 ## Datenpunkte
 
 Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurückgegebenen Informationen. Hier ein kleiner Teilausschnitt des Datenpunktstrukturaufbaus:
@@ -128,6 +141,10 @@ Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurück
     - Verwende ausschließlich die Webseite `maxxi.local` oder die IP-Addresse der CCU, um manuelle Eingaben vorzunehmen. Bei der Nutzung von sendCommand-Steuerbefehlen werden die Online-Eingaben überschrieben.
 
 ## Changelog
+
+### 1.4.40 (2025-05-13)
+- New Option Mode "BKW"
+> At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
 
 ### 1.4.32 (2025-04-06)
 - New cloud method – Backup mode Server 2 (check config)

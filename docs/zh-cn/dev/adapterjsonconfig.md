@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: WRpC//LRFk79oJlgfa7E8QhXu1pwpCQmmqXQYydsHsE=
+hash: cKAza368CjBQjzeBBEFQSj0TMNxPcQ4mCpItJ4NpZhA=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 格式定义 ioBroker 适配器的配置选项。这种方法提供了一种更方便用户且灵活的方式，可在 ioBroker 管理界面中管理适配器设置。
@@ -153,6 +153,7 @@ jsonConfig 由多个按层次结构排列的元素组成。\ 每个元素可以�
 - [**`language`:**](#language) 选择用户界面语言
 - [**`license`:**](#license) 如果尚未接受，则显示许可证信息。
 - [**`number`:**](#number) 具有最小/最大值和步长的数字输入字段
+- [**`oauth2`:**](#oauth2) 对适配器进行 OAuth2 身份验证（Admin 7.6.18 或更新版本）
 - [**`objectId`:**](#objectid) 选择带有名称、颜色和图标的对象 ID
 - [**`panel`:**](#panel) 带有项目的选项卡
 - [**`password`:**](#password) 密码输入字段
@@ -457,8 +458,8 @@ admin/customI18n/en.json
 | `maxSize` | 上传文件的最大大小 |
 | `base64` | 如果为真，图像将保存为属性中的 data-url，否则保存为文件存储中的二进制文件 |
 | `crop` | 如果为真，则允许用户裁剪图像 |
-| `!maxWidth` |                                                                                                                                        |
-| `!maxHeight` |                                                                                                                                        |
+|`!maxWidth`||
+|`!maxHeight`||
 | `!square` | 宽度必须等于高度，或者裁剪必须只允许正方形作为形状 |
 | `!square` | 宽度必须等于高度，或者裁剪必须只允许正方形作为形状 |
 
@@ -483,6 +484,33 @@ admin/customI18n/en.json
      }
   }
 ```
+
+###`oauth2`
+（管理员 >= 6.17.18）
+
+显示 OAuth2 身份验证按钮以获取适配器的刷新和访问令牌。
+
+要使用此功能，您必须首先向 ioBroker 维护团队提供 OAuth2 数据（客户端 ID、密钥等），以便他们将其添加到云端。
+
+| 属性 | 描述 |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `identifier` | Oauth2 标识符，如 `spotify`、`google`、`dropbox`、`microsoft` |
+| `scope` | 可选范围以空格分隔，例如 `user-read-private user-read-email` |
+| `refreshLabel` | 用于刷新令牌的可选按钮标签 |
+| `refreshLabel` | 用于刷新令牌的可选按钮标签 |
+
+#### `oauth2` 的示例
+```json
+  "_oauth2": {
+       "type": "oauth2",
+       "identifier": "spotify",
+       "label": "Get Spotify OAuth2 Token",
+       "label": "Refresh Spotify OAuth2 Token",
+       "icon": "data:image/svg+xml;base64,...",
+  }
+```
+
+另请参阅[OAUTH2.md](OAUTH2.md)以了解更多信息。
 
 ###`objectId`
 对象 ID：用名称、颜色和图标显示
@@ -603,7 +631,7 @@ admin/customI18n/en.json
 | `id` | `system.adapter.myAdapter.%INSTANCE%.test`，您可以使用占位符`%INSTANCE%`将其替换为当前实例名称 |
 | `val` | `${data.myText}\_test` 或数字。类型将根据状态类型自动检测并完成转换 |
 | `okText` | 按下按钮将显示警报 |
-| `variant` | `contained`、`outlined`、'' |
+| `variant` | `contained`, `outlined`, '' |
 | `变体` | `包含`, `概述`, '' |
 
 ###`staticText`
@@ -746,7 +774,7 @@ admin/customI18n/en.json
 ###`header`
 | 属性 | 描述 |
 |----------|--------------|
-| `text` |              |
+|`text`||
 | `尺寸` | 1-5 => h1-h5 |
 
 ###`cron`
@@ -909,7 +937,7 @@ adapter.on("message", (obj) => {
 
 | 属性 | 描述 |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `container` | `div`、`text`、`html` |
+| `container` | `div`, `text`, `html` |
 | `alsoDependsOn` | 通过更改哪些属性，必须重新发送命令 |
 | `command` | sendTo 命令 |
 | `jsonData` | 字符串 - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`。此数据将发送到后端 |
@@ -1045,7 +1073,7 @@ adapter.on("message", (obj) => {
 | `labelIcon` | 标签的 Base64 图标 |
 | `buttonValue` | 可选值，将发送给按钮 |
 | `showEnterButton` | 显示“设置”按钮。此情况下，仅当按下按钮时才会发送值。您可以定义按钮的文本。默认文本为“设置”（仅适用于“输入”、“数字”或“滑块”）|
-| `setOnEnterKey` | 此例中的值仅在按下“Enter”键时发送。它可以与`showEnterButton` | 结合使用。 |
+| `setOnEnterKey` | 此例中的值仅在按下“Enter”键时发送。它可以与 `showEnterButton` | 结合使用。 |
 | `setOnEnterKey` | 此例中的值仅在按下“Enter”键时发送。可与 `showEnterButton` 结合使用 |
 
 ###`staticInfo`
@@ -1056,7 +1084,7 @@ adapter.on("message", (obj) => {
 | `data` | 要显示的值 |
 | `unit` | （可选）单位（可以是多语言）|
 | `narrow` | （可选）通常，标题和值分别显示在行的左右两侧。使用此标志，值将紧跟在标签之后 |
-| `addColon` | （可选）如果标签中不存在冒号，则在标签末尾添加冒号 |
+| `addColon` | （可选）如果标签中不存在冒号，则在末尾添加标签 |
 | `blinkOnUpdate` | （可选）更新时值应闪烁（真实或彩色）|
 | `blink` | （可选）值应持续闪烁（真或彩色）|
 | `styleLabel` | （可选）React CSS 样式 |
@@ -1189,7 +1217,7 @@ adapter.on("message", (obj) => {
 - `ok` - 确定按钮的文本
 - `cancel` - 取消按钮的文本
 - `type` - 以下之一：`info`、`warning`、`error`、`none`
-- `alsoDependsOn` - 带有属性的数组，也通过这些属性检查条件
+- `alsoDependsOn` - 带有属性的数组，也用于通过这些属性检查条件
 
 自动完成
 `Number`、`text`、`checkbox`、`select` 支持自动完成功能，以便在用作自定义设置时选择选项。
@@ -1421,7 +1449,7 @@ const isValid = func(
 }
 ```
 
-如果提供了`sendTo`，实例将收到一条消息（`common.messagebox` 在`io-package.json` 中必须为 true），其中包含命令`tab`，或存储在`sendTo` 中的值（如果是字符串）。
+如果提供了`sendTo`，实例将收到一条消息（`common.messagebox` 在`io-package.json` 中必须为 true），其中包含命令`tab`，或存储在`sendTo` 中的值（如果该值是字符串）。
 实例必须使用如下结构进行回答：
 
 ```typescript

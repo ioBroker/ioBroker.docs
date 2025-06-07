@@ -128,7 +128,13 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.2.3 (2025-04-27)
+### 1.2.6 (2025-04-29)
+* (@GermanBluefox) Type-detector updated
+* (@GermanBluefox) Execute the conversion formula on current value
+* (@GermanBluefox) Better categories selector
+* (@GermanBluefox) Corrected device importer
+
+### 1.2.4 (2025-04-27)
 * (@GermanBluefox) Corrected many GUI issues
 
 ### 1.2.1 (2025-04-22)

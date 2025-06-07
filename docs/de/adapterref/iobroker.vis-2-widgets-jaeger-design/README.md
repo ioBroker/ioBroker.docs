@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-hash: j2ftcLh111BOKbGdcJpUmHw7ob1JlsRvl5Ev5owqDC4=
+hash: ww2pwFXi5G9qk35KbU8FU+RCGd8leK5XMwH7ajEJbwQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -18,44 +18,51 @@ Hier finden Sie Videos zur Verwendung der Widgets [Hier](https://www.youtube.com
 
 Videos wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
-## Übersicht zur Erstellung einer Smart Home Oberfläche mit dem „VIS-2 JAEGER Design Adapter“
-### Voraussetzungen
-- Ein ioBroker System
-- Der Jäger Design Adapter (ca. 50€)
-- Grundkenntnisse im Umgang mit ioBroker
+Für die deutsche Version siehe [hier](docs/README_de.md)
+
+## Kommerzielle Nutzung
+Bitte beachten Sie, dass es keine kostenlose Version dieses Adapters gibt. Für die Nutzung dieser Widgets ist eine Lizenz erforderlich (aktueller Preis: 50 € inkl. MwSt.).
+Sie können die Widgets jedoch kostenlos installieren und im Editor ausprobieren.
+
+## Übersicht zur Erstellung einer Smart Home Schnittstelle mit dem „VIS-2 JAEGER Design Adapter“
+### Anforderungen
+- Ein ioBroker-System
+- Der JAEGER Design Adapter (ca. 50 €)
+- Grundkenntnisse in der Verwendung von ioBroker
 
 ### Einführung
-Der Jäger Design Adapter basiert auf dem vis-2 Adapter und ermöglicht es, eine Oberfläche per Click and Drop zu gestalten. Verschiedene Widgets können hinzugefügt und angepasst werden, um Smart Home Geräte zu steuern.
+Der JAEGER Design Adapter basiert auf dem vis-2 Adapter und ermöglicht die Erstellung einer Oberfläche per Click & Drop. Verschiedene Widgets lassen sich hinzufügen und individuell anpassen, um Smart-Home-Geräte zu steuern.
 
-### Grundaufbau der Oberfläche
-Die Oberfläche besteht aus mehreren Bereichen:
+### Grundstruktur der Schnittstelle
+Die Schnittstelle besteht aus mehreren Bereichen:
 
-- **Hauptmenü**: Links befindet sich eine Spalte mit den Hauptmenüpunkten, die einfach angelegt werden können.
-- **Statusleiste**: Oben können verschiedene wichtige Statusanzeigen hinzugefügt werden.
-- **Mittlerer Bereich**: Hier können Szenen, Aktionen und Hinweise angezeigt werden. Die richtige Seite ist frei gestaltbar und kann Informationen wie Sicherheit, Wetter, Hausgeräte und Energieverbrauch anzeigen.
+- **Hauptmenü**: Auf der linken Seite befindet sich eine Spalte mit Hauptmenüpunkten, die einfach erstellt werden können.
+- **Statusleiste**: Oben können Sie verschiedene wichtige Statusanzeigen hinzufügen.
+- **Mittlerer Bereich**: Hier können Szenen, Aktionen und Benachrichtigungen angezeigt werden. Die rechte Seite ist frei konfigurierbar und kann Informationen wie Sicherheit, Wetter, Haushaltsgeräte und Energieverbrauch anzeigen.
 
-![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
+  ![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
 
 ### Beleuchtung
-Im Hauptmenü können verschiedene Stockwerke ausgewählt werden. Der Grundriss des Erdgeschosses zeigt alle Lichter, die durch Icons dargestellt werden. Einige Icons können nur ein- oder ausgeschaltet werden, während andere dimmbar sind. Durch längeres Drücken auf ein Icon öffnet sich ein Pop-up-Fenster mit einem Slider zur Einstellung der Helligkeit.
-![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Beleuchtungsszenen auf der rechten Seite können einfach abgerufen und auch Lichteinstellungen gespeichert werden: ![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
+Im Hauptmenü können verschiedene Etagen ausgewählt werden. Der Grundriss des Erdgeschosses zeigt alle Leuchten durch Symbole dargestellt. Einige Symbole lassen sich nur ein- oder ausschalten, andere sind dimmbar. Durch Drücken und Halten eines Symbols öffnet sich ein Popup-Fenster mit einem Schieberegler zur Helligkeitsanpassung.
 
-### Rolladen
-Im Menü „Rolladen“ kann der Zustand der Beschattung eingesehen werden. Icons zeigen die Höhe der Rolladen an, und durch Klicken auf ein Icon öffnet sich ein Pop-up-Fenster zur Einstellung der Höhe und Lamellenneigung.
+![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Auf der rechten Seite sind Lichtszenen leicht zugänglich und Lichteinstellungen können gespeichert werden: ![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
+
+### Jalousien
+Im Menü „Jalousie“ können Sie den Beschattungsstatus einsehen. Symbole zeigen die Position der Jalousie an. Ein Klick auf ein Symbol öffnet ein Popup-Fenster zur Anpassung von Höhe und Lamellenwinkel.
 ![Beschattung-iobroker-smarthome](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
 ### Energie
-Im Menü „Energie“ können die Raumtemperaturen in den einzelnen Räumen gesehen werden. Icons zeigen die Ist- und Solltemperaturen sowie den Zustand der Heizung und Fenster an. Durch Klicken auf ein Icon öffnet sich ein Pop-up-Fenster zur Änderung der Solltemperaturen und zur Steuerung weiterer Aktionen wie Klimaanlage oder Warmluftanlage.
+Im Menü „Energie“ können Sie die Raumtemperaturen in jedem Raum einsehen. Symbole zeigen die Ist- und Solltemperaturen sowie den Status von Heizung und Fenstern an. Durch Klicken auf ein Symbol öffnet sich ein Popup-Fenster, in dem Sie die Solltemperaturen ändern und weitere Aktionen wie Klimaanlagen oder Warmluftsysteme steuern können.
 ![iobroker-jaeger-design-raumtemperatur_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
 
 ![iobroker-jaeger-design-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
 
 ### Sicherheit
-Im Menü „Sicherheit“ kann der Zustand des Fensters angezeigt werden. Geöffnete Fenster werden rot dargestellt.
+Im Menü „Sicherheit“ kann der Status der Fenster eingesehen werden. Geöffnete Fenster werden rot angezeigt.
 ![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
 
-### Weitere Funktionen
-Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbrauchsdarstellung des Adapters "consumption" oder die Darstellung von Nightscout für Diabetes. Im Menü „Einstellungen“ können diverse Einstellungen vorgenommen werden.
+### Zusätzliche Funktionen
+Sie können auch frei definierte Schnittstellen erstellen, wie z. B. die Verbrauchsanzeige des Verbrauchsadapters oder die Anzeige von Nightscout für Diabetes. Im Menü „Einstellungen“ können verschiedene Einstellungen vorgenommen werden.
 ![iobroker-jaeger-design-energieüberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
 
 ![iobroker-jaeger-design-diabetes](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
@@ -63,13 +70,33 @@ Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbr
 ![iobroker-jaeger-design-einstellungen](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
 
 ### YouTube-Tutorials
-Für detaillierte Anleitungen und weitere Informationen wird empfohlen, die verlinkten YouTube-Tutorials anzuschauen.
+Für eine ausführliche Anleitung und weitere Informationen empfiehlt es sich, die verlinkten YouTube-Tutorials anzuschauen.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.4.3 (2025-05-31)
+* (bluefox) Implemented the full-screen mode for cameras
+* (bluefox) Added the possibility of disabling "swipe to open the menu" in the mobile view
+* (bluefox) Corrected issue with confirmation dialog for the state widget
+* (bluefox) Added settings for submenu width and gap between submenu items
+
+### 1.4.2 (2025-05-25)
+* (bluefox) Allowed setting ON value for dimmer
+* (bluefox) Allowed inverting values in the popup dialog for shutter and blinds control
+* (bluefox) Added the control dialog for state widget
+* (bluefox) Allowed setting up the title padding
+* (bluefox) Added possibility to show the last change time for scenes
+
+### 1.4.1 (2025-05-20)
+* (bluefox) Migrated to TypeScript and vite
+* (bluefox) Corrected error with license check
+
+### 1.3.12 (2025-04-29)
+* (bluefox) Corrected min/max by thermostat
+
 ### 1.3.9 (2024-12-05)
 * (bluefox) Corrected confirmation dialog. Close now works
 * (bluefox) Caught the possible error in thermostat
@@ -245,5 +272,5 @@ Für detaillierte Anleitungen und weitere Informationen wird empfohlen, die verl
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
 All rights reserved.

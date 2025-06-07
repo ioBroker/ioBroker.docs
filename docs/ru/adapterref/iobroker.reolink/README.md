@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: RotdyiL8Uu3EFd4EQDhi/2GDpnEOHQo6tMqrv/ZOieY=
+hash: bCECbY+7o5yZYlBaXtv4wK0ptJJLg07amF9aEUMVku8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
@@ -22,7 +22,7 @@ hash: RotdyiL8Uu3EFd4EQDhi/2GDpnEOHQo6tMqrv/ZOieY=
 
 В целом все новые камеры Reolink поддерживают команды API. Они просто отличаются поддерживаемыми командами.
 
-Одно напоминание о пароле. Попробуйте с кодировкой URI или без нее, когда у вас есть только один специальный символ. Лучше не использовать специальный символ и просто использовать более длинный пароль для той же безопасности.
+Одно напоминание о пароле. Попробуйте использовать или не использовать кодировку URI, если у вас есть только один специальный символ. Лучше не использовать специальный символ и просто использовать более длинный пароль для той же безопасности. Проверьте с помощью http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity, работают ли ваши учетные данные.
 
 Если вы хотите включить какую-либо конкретную команду API... просто дайте мне знать.
 
@@ -60,6 +60,15 @@ hash: RotdyiL8Uu3EFd4EQDhi/2GDpnEOHQo6tMqrv/ZOieY=
 - Светодиодный свет
 - Уведомление по почте
 
+### Настройки push-уведомлений
+Push-уведомления на телефон будут отправляться только при соблюдении следующих условий:
+
+- Переключатель Push-уведомлений в адаптере находится в положении ВКЛ.
+- Для сетевых видеорегистраторов глобальный и канальный переключатели находятся в положении «ВКЛ».
+- Push-уведомления в приложении Reolink на этом телефоне включены.
+
+Push-уведомление в приложении Reolink не зависит от настроек адаптера. Оно также не зависит от настроек на других телефонах, подключенных к той же камере. Reolink делает это, чтобы у вас был независимый способ отключения push-уведомлений для каждого телефона. Это означает, что отключение push в iobroker вообще не затрагивает кнопку переключения в приложении.
+
 ### Пример использования get image:
 ```
 sendTo("reolink.0",{action: "snap"}, function(result){
@@ -73,6 +82,19 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 {type:"image/png",base64:"iVBORw....askldfj"}
 ```
 
+для телеграма это работает
+
+```
+sendTo("reolink.0",{action: "snap"}, function(result){
+    const buffer =Buffer.from(result.base64, "base64");
+    sendTo('telegram.0', {
+        text: buffer,
+        type: "photo",
+        caption: 'the image'
+    });
+});
+```
+
 ## Известные рабочие камеры (прошивки не старше 2023 года)
 - РЛК-420-5МП
 - E1 Наружный
@@ -84,14 +106,16 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 
 ## Известные *НЕ* рабочие камеры
 - E1 Про
+- Argus 4 (возможно не все Argus работают)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (oelison) update readme #141
+### 1.2.2 (2025-05-01)
+* (oelison) update readme #141 #155
+* (oelison) supress errors with axios timeout #154
 
 ### 1.2.1 (2025-02-09)
 * (oelison) set some errors to debug logs

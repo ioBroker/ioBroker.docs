@@ -435,7 +435,7 @@ you must connect the button to the player widget.
 
 ### Playlist
 
-![Number](/widgets/squeezeboxrpc/img/playlist.png)
+![Playlist](/widgets/squeezeboxrpc/img/playlist.png)
 
 Display the playlist from the server. If you click on an entry the playlist
 is loaded and the player starts.
@@ -443,19 +443,19 @@ The widged dosent refresh automaticly, you have to press the refreshh button.
 
 #### Attributes for Playlist
 
-| Group                 | Attribute         | Description                                                       |
-| --------------------- | ----------------- | ----------------------------------------------------------------- |
-| Player widget         | General group     | Selection of the player widget.                                   |
+| Group         | Attribute     | Description                     |
+| ------------- | ------------- | ------------------------------- |
+| Player widget | General group | Selection of the player widget. |
 
 The widget itself has very little formatting.
 For self formating there are some predefined css-classes:
 
-| CSS-class  | description                               |
-| ---------- | ----------------------------------------- |
-| plcontainer| Class name assigned to the ul-tag         |
-| plentry    | Class name assigned to the li-tag         |
-| plrefresh  | Class name assigned to the refresh-li tag |
-| pltext     | Class name assigned to the playlist name  |
+| CSS-class   | description                               |
+| ----------- | ----------------------------------------- |
+| plcontainer | Class name assigned to the ul-tag         |
+| plentry     | Class name assigned to the li-tag         |
+| plrefresh   | Class name assigned to the refresh-li tag |
+| pltext      | Class name assigned to the playlist name  |
 
 The following CSS for the vis-css tab can serve as an example:
 
@@ -464,21 +464,21 @@ Dark-mode
 ```css
 .plentry {
     border: 1px #505050 groove;
-    margin:1px 0px;
-    padding:5px;
-    background-color:#202020;
+    margin: 1px 0px;
+    padding: 5px;
+    background-color: #202020;
 }
 .plrefresh {
-    padding:5px;
+    padding: 5px;
 }
 .plentry:hover {
-    background-color:#404040;
+    background-color: #404040;
 }
 .plrefresh svg {
-    color:#cccccc;
+    color: #cccccc;
 }
 .plrefresh svg:hover {
-    color:#ffffff;
+    color: #ffffff;
     filter: drop-shadow(0px 0px 1px #87ceeb);
 }
 ```
@@ -488,24 +488,78 @@ Light-mode
 ```css
 .plentry {
     border: 1px #b0b0b0 groove;
-    margin:1px 0px;
-    padding:5px;
-    background-color:#c0c0c0;
+    margin: 1px 0px;
+    padding: 5px;
+    background-color: #c0c0c0;
 }
 .plrefresh {
-    padding:5px;
+    padding: 5px;
 }
 .plentry:hover {
-    background-color:#e0e0e0;
+    background-color: #e0e0e0;
 }
 .plrefresh svg {
-    color:#444444;
+    color: #444444;
 }
 .plrefresh svg:hover {
-    color:#000000;
+    color: #000000;
     filter: drop-shadow(0px 0px 1px #87ceeb);
 }
 ```
+
+### Browser
+
+![Browser](/widgets/squeezeboxrpc/img/browser.png)
+
+Displays music, albums, artists, radio stations, apps, etc. from the server.
+Click on an item to navigate deeper into the hierarchy. The available commands
+are displayed with additional buttons.
+You can go up one level by clicking on the path displayed at the top.
+
+#### Attributes for Browser
+
+| Group                 | Attribute     | Description                                                         |
+| --------------------- | ------------- | ------------------------------------------------------------------- |
+| Player widget         | General group | Selection of the player widget.                                     |
+| debug                 | General group | Enable extra debugging (function reference) in the browser console. |
+| debugwithfetchresults | General group | Enable extra debugging (object reference) in the browser console.   |
+
+The widget itself has very some formatting.
+For self formating there are some predefined css-classes:
+
+| CSS-class                                  | description                           |
+| ------------------------------------------ | ------------------------------------- |
+| sqbrowser-list-container                   | container for the widget              |
+| sqbrowser-parent-directory                 | element to show the parent directory  |
+| sqbrowser-btn-svg                          | Class for all svg buttons             |
+| sqbrowser-btn-svg-menu                     | Class for svg menus                   |
+| sqbrowser-scrollable-area                  | Class for scroll container            |
+| sqbrowser-list-item                        | Class for single item                 |
+| sqbrowser-list-item-content                | Class for item title                  |
+| sqbrowser-button-group                     | Class for button group in a list item |
+| sqbrowser-btn-svg sqbrowser-btn-svg-action | Class for action button               |
+
+**Note about alpha state of this widget:**
+
+- Implementing LMS/Lyrion for browsing is hell.
+- The technical model for this widget is the "Material" theme plugin
+in the LMS/Lyrion server.
+- Not all features are currently implemented.
+  - All input field types are not yet available.
+  - Not all item types may have been implemented.
+- Optional, extensive debug output has been added for analysis (see also attributes).
+  - Output of the function reference: All function names are output in
+  order in the browser console.
+  - Output of the data reference: All data requested and returned
+  by the server is output.
+
+If testers encounter errors/problems or missing implementations,
+please provide as detailed a description as possible:
+
+- Where does the data come from in the LMS/Lyrion
+(already built-in service/additionally installed plugin)
+- What steps/clicks were performed to create the problem
+- What are the function references and data references?
 
 ## SendTo-Befehle
 
@@ -519,11 +573,11 @@ Example:
 
 ```js
 async function main() {
-  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
-    playerid: "",
-    cmdArray: ["playlists", "0", "999", "tags:us"],
-  });
-  console.log(JSON.stringify(data));
+    let data = await sendToAsync('squeezeboxrpc.0', 'cmdGeneral', {
+        playerid: '',
+        cmdArray: ['playlists', '0', '999', 'tags:us'],
+    });
+    console.log(JSON.stringify(data));
 }
 main();
 ```
@@ -534,11 +588,11 @@ This command is used internally by the adapter to load the favorites.
 
 ```js
 async function main() {
-  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
-    playerid: "",
-    cmdArray: ["favorites", "items", "0", "999", "want_url:1", "item_id:"],
-  });
-  console.log(JSON.stringify(data));
+    let data = await sendToAsync('squeezeboxrpc.0', 'cmdGeneral', {
+        playerid: '',
+        cmdArray: ['favorites', 'items', '0', '999', 'want_url:1', 'item_id:'],
+    });
+    console.log(JSON.stringify(data));
 }
 main();
 ```
@@ -578,7 +632,21 @@ are contained in the following CLI documentation:
 -->
 ### **WORK IN PROGRESS**
 
+- revert to node 18
+
+### 1.6.2 (2025-05-05)
+
+- fix node version in github workflow
+
+### 1.6.1 (2025-05-05)
+
+- Fix eslint
+
+### 1.6.0 (2025-05-05)
+
 - upgrade dependency js-controller
+- new widget, but only alpha version for testing and improvement
+- fix issues of adapter checker
 
 ### 1.5.2 (2024-12-16)
 
@@ -918,4 +986,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2019-2024 oweitman
+Copyright (c) 2019-2025 oweitman

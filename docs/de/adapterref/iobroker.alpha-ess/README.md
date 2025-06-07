@@ -3,15 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: MQlhZDufCij98ZD1mBBFOylZ/vD+HChaCplicsJj9ZI=
+hash: IeYCD+EVKLA4PUNjw8fCCyH2IsGI8QFHSDrr5Do4QuU=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/alpha-ess-installed.svg)
-![Anzahl Installationen (stabil)](http://iobroker.live/badges/alpha-ess-stable.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/alpha-ess-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.alpha-ess.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.alpha-ess.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/Gaspode69/ioBroker.alpha-ess/badge.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/Gaspode69/ioBroker.alpha-ess/badge.svg)
 
 # IoBroker.alpha-ess
 ## Alpha-ess-Adapter für ioBroker
@@ -22,12 +22,7 @@ https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
 
 ---
 
-### Aufgrund der aktuellen Umstände bitte beachten!
-[Ankündigung einer Schnittstellenbeschränkung](https://github.com/alphaess-developer/alphacloud_open_api/issues/54)
-
----
-
-Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen zu Ihrem Alpha-ESS-Gerät ab.\ Abhängig von Ihrem Alpha-ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten für Ihr Gerät abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrem Alpha-ESS-Gerät ab.
+Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen zu Ihrem Alpha-ESS-Gerät ab. Abhängig von Ihrem Alpha-ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten Ihres Geräts abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrem Alpha-ESS-Gerät ab.
 
 Dieser Adapter verwendet die Alpha-ESS Open API, eine offizielle und dokumentierte API für Alpha-ESS-Geräte.
 
@@ -42,11 +37,12 @@ Das Qualitätsattribut jedes Zustands wird entsprechend seinem Status festgelegt
 |0x44 |API hat einen Fehler oder einen internen Fehler zurückgegeben, siehe Debug-Protokoll |
 
 ## Einstellungen:
-Um die Alpha-ESS Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Diese benötigen Sie, um Zugriff auf die Open API zu haben.
-Wie Sie SN und Checkcode für die Registrierung finden, ist hier beschrieben: https://github.com/alphaess-developer/alphacloud_open_api
+Um die Alpha-ESS Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Diese benötigen Sie für den Zugriff auf die Open API.
 
-- **Persönliche Bewerbungs-ID:** Die Bewerbungs-ID (siehe oben)
-- **Persönliches Bewerbungsgeheimnis:** Das Bewerbungsgeheimnis (siehe oben)
+Wie Sie die SN und den Prüfcode für die Registrierung finden, erfahren Sie hier: https://github.com/alphaess-developer/alphacloud_open_api
+
+- **Persönliche Anwendungs-ID:** Die Anwendungs-ID (siehe oben)
+- **Persönliches Anwendungsgeheimnis:** Das Anwendungsgeheimnis (siehe oben)
 - **Alpha-ESS System-ID:** Die S/N (Seriennummer) Ihres Alpha-ESS-Geräts
 - **Intervall zum Lesen von Echtzeitdaten:** Einheit: Sekunden.
 - **Intervall zum Lesen der Energiedaten:** Einheit: Minuten.
@@ -57,9 +53,26 @@ Wie Sie SN und Checkcode für die Registrierung finden, ist hier beschrieben: ht
 - **Unveränderte Zustände aktualisieren:** Ist diese Option aktiviert, werden Zustände auch dann geändert, wenn der zugehörige Wert unverändert bleibt.
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.**
+**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in meiner Freizeit gepflegt und verfolgt kein Geschäftsziel.**
 
 ## Changelog
+### 3.0.1 (2024-12-22)
+
+- (Gaspode) Optimizations of reading pseudo-realtime power data for slow systems
+
+### 3.0.0 (2024-12-21)
+
+- (Gaspode) **Breaking Change:** Renamed state "Charging_period 1_end" to "Charging_period_1_end"
+- (Gaspode) Optimizations in configuration dialog
+
+### 2.3.0 (2024-12-20)
+
+- (Gaspode) Provides the ability to read pseudo-realtime power data using the API function getTodayPowerBySn. This feature is useful for systems that lack "realtime data support." When activated, data is fetched every 5 minutes and stored in the "Recent" folder.
+
+### 2.2.0 (2024-12-16)
+
+- (Gaspode) Provide system information data (getEssList)
+
 ### 2.1.6 (2024-12-01)
 
 - (Gaspode) Migrated to ESLint 9

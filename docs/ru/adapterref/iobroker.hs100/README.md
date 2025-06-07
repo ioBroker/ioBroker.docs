@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hs100/README.md
 title: ioBroker.hs100
-hash: CX9SLo9H+x5kT4N0HSz9xsy1+sHv4h3L8KcNv9oEy80=
+hash: TgawJlOaGLCKjed8TXDPOYUS0JGHiQQRrXcIb1mDoZ8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hs100/admin/hs100.png)
 
@@ -24,6 +24,21 @@ hash: CX9SLo9H+x5kT4N0HSz9xsy1+sHv4h3L8KcNv9oEy80=
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 3.0.5 (2025-05-16)
+* (arteck) dependency update
+
+### 3.0.4 (2025-04-04)
+(arteck) add i18n language folder
+
+### 3.0.3 (2025-04-02)
+(arteck) correct translations
+
+### 3.0.2 (2025-04-01)
+(simatec) Responsive design
+
+### 3.0.1 (2025-04-01)
+* (arteck) add i18n folder
+
 ### 3.0.0 (2025-01-05)
 * (arteck) switch to jsonConfig
 

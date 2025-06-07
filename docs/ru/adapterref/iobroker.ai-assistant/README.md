@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ai-assistant/README.md
 title: ioBroker.ai-помощник
-hash: 1WwgYlBlYiCCGclngXJYE3dBxwGnkfzPrlENgsR30RQ=
+hash: eLCRLymT6+1j/OAxF3jn8OqXnUitr9qaI0KB/YSlvXM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ai-assistant/admin/ai-assistant.png)
 
@@ -17,7 +17,10 @@ hash: 1WwgYlBlYiCCGclngXJYE3dBxwGnkfzPrlENgsR30RQ=
 **Тесты:** ![Тест и выпуск](https://github.com/ToGe3688/ioBroker.ai-assistant/workflows/Test%20and%20Release/badge.svg)
 
 ## Обзор
-Адаптер ioBroker AI Assistant запускает интеллектуального помощника в вашей системе ioBroker. Помощник может использоваться для взаимодействия с вашей системой ioBroker, установки инструкций на основе времени, инструкций на основе триггеров и вызова пользовательских функций. Помощник может быть настроен с использованием различных языковых моделей от разных поставщиков (например, OpenAI, Anthropic, Perplexity, OpenRouter) или пользовательских/самостоятельных моделей. Помощник может использоваться для автоматизации задач, управления вашим умным домом или предоставления информации.
+Адаптер ioBroker AI Assistant запускает интеллектуального помощника в вашей системе ioBroker.
+Помощник может использоваться для взаимодействия с вашей системой ioBroker, установки инструкций на основе времени, инструкций на основе триггеров и вызова пользовательских функций.
+Помощник может быть настроен с использованием различных языковых моделей от разных поставщиков (например, OpenAI, Anthropic, Perplexity, OpenRouter) или пользовательских/самостоятельных моделей.
+Помощник может использоваться для автоматизации задач, управления вашим умным домом или предоставления информации.
 
 ## Функции
 - Персонализируйте имя и личность вашего помощника
@@ -25,6 +28,7 @@ hash: 1WwgYlBlYiCCGclngXJYE3dBxwGnkfzPrlENgsR30RQ=
 - Установите тайм-ауты и задания cron для выполнения инструкций, зависящих от времени
 - Установите триггеры для состояний ioBroker с условиями, которые запускают инструкции при выполнении условий.
 - Определяйте пользовательские функции с вашими собственными данными и логикой
+- Используйте вкладку администратора для общения с вашим персональным помощником.
 
 ## Поддерживаемые поставщики
 - **Антропный**: [anthropic.com](https://anthropic.com)
@@ -42,7 +46,7 @@ hash: 1WwgYlBlYiCCGclngXJYE3dBxwGnkfzPrlENgsR30RQ=
 3. Настройте адаптер с помощью API-токена.
 4. Выберите модель, которую вы хотите использовать для помощника.
 5. Добавьте несколько состояний ioBroker на вкладке «Объекты», которые будут доступны помощнику.
-6. Начните общаться с помощником, отправляя текстовые запросы в состояние `text_request` помощника и получая ответы из состояния `text_response`.
+6. Начните общаться с помощником, отправляя текстовые запросы в состояние `text_request` помощника и получая ответы из состояния `text_response` или используйте пользовательскую вкладку администратора с надписью «Помощник».
 
 ---
 
@@ -201,6 +205,11 @@ hash: 1WwgYlBlYiCCGclngXJYE3dBxwGnkfzPrlENgsR30RQ=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.4 (2025-06-05)
+* (@ToGe3688) Added tab to interact with the assitant in the admin adapter
+* (@ToGe3688) Added a custom timeout parameter
+* (@GermanBluefox) Corrected using of the states with the multi-language names
+
 ### 0.1.3 (2025-29-01)
 * (@ToGe3688) Added support for Deepseek as api provider
 * (@ToGe3688) Better display of providers in model selection for admin config
@@ -237,7 +246,7 @@ hash: 1WwgYlBlYiCCGclngXJYE3dBxwGnkfzPrlENgsR30RQ=
 
 The MIT License (MIT)
 
-Copyright (c) 2025 ToGe3688 <toge3688@gmail.com>
+Copyright (c) 2024-2025 ToGe3688 <toge3688@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

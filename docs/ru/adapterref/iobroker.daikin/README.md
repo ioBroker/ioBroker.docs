@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daikin/README.md
 title: ioBroker.дайкин
-hash: rahmurR88ztHbCO4A+BiweKI9g5OdRl/0CcedaxccqU=
+hash: RhZwkRatGElEOeIGnsqYbOI4z4q4/Wq/JsbyYcG+We0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daikin/admin/daikin.jpg)
 
@@ -59,8 +59,12 @@ IP контроллера Wi-Fi с устройства
 * Виджет VIS
 
 ## Changelog
-### __WORK IN PROGRESS__
-* (Apollon77) Prevented some error logs and fix internal flow issues
+### 1.5.1 (2025-05-25)
+* (@Matze2) Handles potential error case when using demand control data
+
+### 1.5.0 (2025-05-24)
+* (@Matze2) Added states to set demand control percentage
+* (@Apollon77) Prevented some error logs and fix internal flow issues
 
 ### 1.4.2 (2022-07-25)
 * (Apollon77) Make sure polling still works after setting special mode states
@@ -136,7 +140,7 @@ IP контроллера Wi-Fi с устройства
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2025 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

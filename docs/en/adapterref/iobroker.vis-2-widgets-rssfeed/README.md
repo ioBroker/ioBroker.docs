@@ -9,7 +9,7 @@
 
 this adapter contains only the vis-2 widgets for the adapter rssfeed.
 
-For a detailed description of the widgets and functionality see Adapter rssfeed.
+For a detailed description of the widgets and functionality, see Adapter rssfeed.
 
 ## Changelog
 
@@ -17,9 +17,14 @@ For a detailed description of the widgets and functionality see Adapter rssfeed.
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.2.0 (2025-06-05)
+
+- switch build framework from CRA to vite
+- Remove deprecated RSSMarquee widget. RSSMarquee5 is already available
+
 ### 1.1.2 (2025-03-20)
 
-- add missing build file
+- add a missing build file
 
 ### 1.1.1 (2025-03-20)
 
@@ -39,7 +44,7 @@ For a detailed description of the widgets and functionality see Adapter rssfeed.
 
 - improve link styling in the marquee widget
 - fix key and group handling
-- fix issues from adapter checker
+- fix issues from an adapter checker
 
 ### 0.3.3 (2024-07-25)
 

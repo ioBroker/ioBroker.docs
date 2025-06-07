@@ -746,6 +746,14 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### 6.1.4 (2025-05-07)
+* (bluefox) Allowed disabling the client objects creation
+* (bluefox) Create client objects with timeout (1s) to prevent memory leaks
+
+### 6.1.3 (2025-05-04)
+* (Code-X77) Corrected TLS communication
+* (bluefox) Packages updated
+
 ### 6.1.2 (2024-09-04)
 * (bluefox) Corrected error if the client has no ID
 
@@ -755,19 +763,11 @@ void loop() {
 ### 6.0.2 (2024-08-13)
 * (bluefox) Added a space to the connection string for better readability
 
-### 6.0.1 (2024-08-06)
-* (foxriver76) remove binary state handling as these are no longer existing
-* (klein0r) handle the messages as a state object if properties are valid
-
-### 6.0.0 (2024-07-13)
-* Breaking Changes: NodeJS >= 18.x and js-controller >= 5 are required
-* (klein0r) Fixed blockly definitions
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

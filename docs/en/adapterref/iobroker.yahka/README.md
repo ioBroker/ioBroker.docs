@@ -186,6 +186,23 @@ This repo includes one submodule, so before building you need to also close/init
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### 1.1.4 (2025-05-07)
+* (tarikweiss) Improved design and order of elements, depending on screen size
+* Added search bar for a device list
+* Added expand/collapse buttons for a device list
+* Improved distinguishing of device and group in a device list
+
+### 1.1.3 (2025-05-03)
+* (tarikweiss) Fixed various translation issues
+* Fixed value saving for conversion of type "map"
+* Fixed error message, when a device has a duplicate name
+
+### 1.1.2 (2025-04-29)
+* (tarikweiss) Modalized views for adding/editing devices
+* Fixed issues with collapsible when closing modal
+* Fixed various adapter checker issues. Thanks to @mcm1957
+
 ### 1.1.1 (2025-04-16)
 * (tarikweiss) Updated GitHub build file. Try testing a build-process with GitHub.
 * Updated design to be more responsive

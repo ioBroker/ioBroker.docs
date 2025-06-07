@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
-title: Vis 2 RSS Feed 小部件
-hash: +CKA/ibJKtKZYGLgyscff6eN6F7hF2IP1unJdlDY0D4=
+title: 2 个 RSS Feed 小部件
+hash: Dl48aeWEN8jMoLFSy6F/bgqmi4HEeZPqWlI8lWJfxs0=
 ---
 # Vis 2 RSS Feed 小部件
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-rssfeed/admin/vis-2-widgets-rssfeed.png)
@@ -11,9 +11,9 @@ hash: +CKA/ibJKtKZYGLgyscff6eN6F7hF2IP1unJdlDY0D4=
 ![安装数量](http://iobroker.live/badges/vis-2-widgets-rssfeed-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-2-widgets-rssfeed.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-rssfeed.svg)
-![新平台](https://nodei.co/npm/iobroker.vis-2-widgets-rssfeed.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.vis-2-widgets-rssfeed.png?downloads=true)
 
-该适配器仅包含适配器 rssfeed 的 vis-2 小部件。
+此适配器仅包含适配器 rssfeed 的 vis-2 小部件。
 
 有关小部件和功能的详细描述，请参阅适配器 rssfeed。
 
@@ -23,9 +23,14 @@ hash: +CKA/ibJKtKZYGLgyscff6eN6F7hF2IP1unJdlDY0D4=
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.2.0 (2025-06-05)
+
+- switch build framework from CRA to vite
+- Remove deprecated RSSMarquee widget. RSSMarquee5 is already available
+
 ### 1.1.2 (2025-03-20)
 
-- add missing build file
+- add a missing build file
 
 ### 1.1.1 (2025-03-20)
 
@@ -45,7 +50,7 @@ hash: +CKA/ibJKtKZYGLgyscff6eN6F7hF2IP1unJdlDY0D4=
 
 - improve link styling in the marquee widget
 - fix key and group handling
-- fix issues from adapter checker
+- fix issues from an adapter checker
 
 ### 0.3.3 (2024-07-25)
 

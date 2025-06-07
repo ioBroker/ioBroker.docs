@@ -22,20 +22,12 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-
-    https://github.com/AlCalzone/release-script#usage
-    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
-    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
-    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
-    ### **WORK IN PROGRESS**
--->
-
-
 
 ## Changelog
+### 3.1.3 (2025-05-05)
+* (arteck) fix bug with day and time tag for EV 
+* (arteck) dependency update
+
 ### 3.1.2 (2025-01-11)
 * (arteck) error on create dp fix
 

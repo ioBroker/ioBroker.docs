@@ -1302,6 +1302,8 @@ formatTimeDiff(milliseconds, format);
 * ss, сс(cyrillic) - full seconds, e.g. "05"
 * s, с(cyrillic) - short seconds, e.g., "5"
 
+You can use escape charachter `\` to avoid the replacement. e.g. `DD \Day\s, h \hour\s, m \minute, ss \second\s`
+
 #### Example
 
 ```js
@@ -1730,7 +1732,7 @@ Same as [wait](#wait)
 
 ### messageTo
 ```js
-messageTo({ instance: 'instance', script: 'script.js.common.scriptName', message: 'messageName' }, data, {timeout: 1000}, result =>
+messageTo({ instance: 'instance', script: 'script.js.common.scriptName', message: 'messageName' }, data, { timeout: 1000 }, result =>
     log(JSON.stringify(result)));
 ```
 
@@ -1741,7 +1743,7 @@ Timeout for callback is 5 seconds by default.
 The target could be shorted to:
 
 ```js
-messageTo('messageName', data, result => {
+messageTo('messageName', data, (result) => {
     log(JSON.stringify(result));
 });
 ```
@@ -1780,7 +1782,9 @@ onMessage('myTopic', async (data, callback) => {
 ### onMessage
 ```js
 onMessage('messageName', (data, callback) => {
-    log(`Received data: ${data}`); callback({ result: Date.now() });
+    log(`Received data: ${data}`);
+
+    callback({ result: Date.now() });
 });
 ```
 
@@ -1811,7 +1815,7 @@ iob message javascript.0 toScript '{"script": "script.js.messagetest", "message"
 ```js
 const id = onMessage('messageName', (data, callback) => {
     log(data);
-    callback(Date.now());
+    callback({ result: Date.now() });
 });
 
 // unsubscribe specific handler
@@ -1983,11 +1987,11 @@ httpPost(
 *Requires version >= 8.3.0*
 
 ```js
-httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png', { responseType: 'arraybuffer' }, async (err, response) => {
+httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.svg', { responseType: 'arraybuffer' }, async (err, response) => {
     if (err) {
         console.error(err);
     } else {
-        const tempFilePath = createTempFile('javascript.png', response.data);
+        const tempFilePath = createTempFile('javascript.svg', response.data);
         console.log(`Saved to ${tempFilePath}`);
 
         // Use the new path in other scripts (e.g. sendTo)

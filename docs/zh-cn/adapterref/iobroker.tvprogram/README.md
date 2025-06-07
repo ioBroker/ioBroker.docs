@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tv节目
-hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
+hash: CGeWMiuk9CXldmTdWi1G2dQmGb8zqr43jwW2KGXzHqk=
 ---
 ![标识](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -11,52 +11,52 @@ hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
 ![下载](https://img.shields.io/npm/dm/iobroker.tvprogram.svg)
 ![安装数量](https://iobroker.live/badges/tvprogram-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/tvprogram-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.tvprogram.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.tvprogram.png?downloads=true)
 
 # IoBroker.tvprogram
-**测试：**![测试与发布](https://github.com/oweitman/ioBroker.tvprogram/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试和发布](https://github.com/oweitman/ioBroker.tvprogram/workflows/Test%20and%20Release/badge.svg)
 
 ## `tvprogram` ioBroker 适配器
-该适配器定期轮询有关电视节目的信息。
-数据可显示在各种小部件中。
+该适配器会定期轮询电视节目的相关信息。
+数据可以显示在各种小部件中。
 
-要进行设置，适配器必须已经访问并填充了必要的数据。
-由于其大小，数据不是存储在数据点中，而是存储在文件（Linux 路径：/opt/iobroker/data-files/tvprogram）和适配器的内存中。
-在配置中，小部件只需要填充适配器的任何数据点（例如 cmd）。
+要进行设置，适配器必须已访问并填充必要的数据。
+由于数据大小限制，数据并非存储在数据点中，而是存储在文件（Linux 路径：/opt/iobroker/data-files/tvprogram）和适配器内存中。
+在配置过程中，只需使用适配器的任意数据点（例如 cmd）填充小部件即可。
 小部件会自动搜索所有剩余的数据点。
 
 ＃＃ 安装
 该适配器可以通过稳定版本安装，也可以通过 beta/latest 存储库安装测试版本。
 
 ## 适配器配置
-您可以配置多少台不同的电视，或者至少是您将拥有的不同配置。
+您可以配置多少台不同的电视，或者至少配置不同的电视。
 
 ### 小部件
-小部件仅受现代浏览器（Google Chrome、Mozilla Firefox、Opera、Safari）支持。
+小部件仅支持现代浏览器（Google Chrome、Mozilla Firefox、Opera、Safari）。
 不支持不带 Chromium 的 Internet Explorer 或 Microsoft Edge（版本 <79）。
 
 ＃＃＃＃ 时间
-此小部件按电视频道在时间线上显示当前电视节目。
+该小部件按电视频道在时间线上显示当前电视节目。
 
-如果频道徽标后面的文本显示出来，则必须在小部件中选择背景颜色。
-通常，为视图或至少为小部件选择明确的前景色和背景色是一种好方法。
+如果频道徽标后面的文字显示出来，则必须在小部件中选择背景颜色。
+通常，为视图（或至少为小部件）选择明确的前景色和背景色是一个好方法。
 标记位置每 15 秒更新一次。
 
-如果安装后出现问题并且小部件无法正确显示，请尝试从 shell 中执行以下命令：
+如果安装后出现问题并且小部件无法正确显示，请尝试从 shell 执行以下命令：
 
 iobroker 上传全部
 
-vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint。
+vis 中可以配置以下属性最低配置是将数据点设置为 cmd-datapoint。
 
-| 属性 | 示例 | 说明 |
+| 属性 | 示例 | 描述 |
 | ----------------------- | --------------------- | ----------------------------------------------------- |
 | `tvprogram_oid` | `tvprogram.0.tv1.cmd` | `tvprogram` 适配器实例的数据点。|
 | `heightRow` | 35 | 每行显示的高度 |
-| `showpictures` | x | 如有图片，在时间线上显示 |
+| `showpictures` | x | 如有图片，请在时间轴中显示 |
 | `headerfontpercent` | 125 | 标题（时间）的字符大小百分比 |
 | `broadcastfontpercent` | 75 | 广播的字符大小百分比 |
-| `highlightcolor` | 黄色 | 收藏颜色 |
-| `markerpositionpercent` | 25 | 标记相对于小部件宽度的百分比位置 |
+| `highlightcolor` | 黄色 | 收藏夹颜色 |
+| `markerpositionpercent` | 25 | 标记位置占小部件宽度的百分比 |
 | `dialogwidthpercent` | 90 | 对话框的大小占小部件的百分比 |
 | `dialogheightpercent` | 90 | 对话框的大小占小部件的百分比 |
 | `dialogheightpercent` | 90 | 对话框大小占小部件的百分比 |
@@ -79,7 +79,7 @@ CSS 类
 ```
 
 如果您使用一些带有其他 z-index 设置的额外对话框，则可以为电视节目对话框设置更高的 z-index。
-也许您必须设置一个高于 300 的数字。这取决于重叠或隐藏电视节目（广播信息和频道选择）对话框的其他对话框中的设置
+您可能需要设置一个大于 300 的数字。这取决于其他对话框中与电视节目（广播信息和频道选择）对话框重叠或隐藏的设置。
 
 ```css
 .ui-dialog.w00001 {
@@ -115,35 +115,34 @@ CSS 类
 }
 ```
 
-#### 收藏
+#### 收藏夹
 此小部件显示所选收藏夹的列表，按日期和时间排序。
 
-vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint。
+vis 中可以配置以下属性最低配置是将数据点设置为 cmd-datapoint。
 
-| 属性 | 示例 | 说明 |
+| 属性 | 示例 | 描述 |
 | ---------------- | ---------------------- | ----------------------------------------------------- |
 | `oid` | `tvprogram.0.tv 1.cmd` | `tvprogram` 适配器实例的数据点。|
 | `showweekday` | `yes` | 显示工作日 |
 | `maxfavorites` | 10 | 最多可显示收藏数 |
-| `highlightcolor` | `yellow` | 收藏颜色 |
-| `highlightcolor` | `yellow` | 收藏颜色 |
+| `highlightcolor` | `yellow` | 收藏夹的颜色 |
+| `highlightcolor` | `yellow` | 收藏夹颜色 |
 
 ＃＃＃＃ 控制
-此小部件显示所有实际广播。您可以点击频道徽标来切换频道。
-您可以点击广播来获取有关该广播的详细信息。
+此小部件显示所有正在播出的节目。您可以点击频道徽标来切换频道。您可以点击节目来查看该节目的详细信息。
 
-vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint。
+vis 中可以配置以下属性最低配置是将数据点设置为 cmd-datapoint。
 
-| 属性 | 示例 | 说明 |
+| 属性 | 示例 | 描述 |
 | ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
 | `oid` | `tvprogram.0.tv1.cmd` | `tvprogram` 适配器实例的数据点。|
-| `time` | 20:15 | 如果时间只显示此时的广播 120 分钟，则显示第二天的广播 |
+| `time` | 20:15 | 如果时间只显示此时间的广播 120 分钟，则显示第二天 |
 | `time` | 20:15/200 | 如果时间有持续时间，则此时的广播将播放 200 分钟 |
-| `time` | 2021-02-15T20:15:00.000Z | 如果 UTC-Datestring 有效，则将显示此时的广播。记住时区 |
+| `time` | 2021-02-15T20:15:00.000Z | 如果 UTC 日期字符串有效，则会显示此时间的广播。记住时区 |
 | `heightRow` | 35 | 每行显示的高度 |
-| `showpictures` | x | 如果有图片则显示 |
+| `showpictures` | x | 如有图片，请显示 |
 | `broadcastfontpercent` | 75 | 广播的字符大小百分比 |
-| `highlightcolor` | `yellow` | 收藏颜色 |
+| `highlightcolor` | `yellow` | 收藏夹的颜色 |
 | `dialogwidthpercent` | 90 | 对话框的大小占小部件的百分比 |
 | `dialogheightpercent` | 90 | 对话框的大小占小部件的百分比 |
 | `dialogheightpercent` | 90 | 对话框大小占小部件的百分比 |
@@ -163,23 +162,23 @@ CSS 类
 ```
 
 ＃＃＃＃ 搜索
-使用此小部件，您可以搜索标题、说明、开始日期和广播类型内的广播。
-输入字段“从”预先填写了实际日期。如果此字段不变，则搜索从实际时间开始。
-如果您将此字段更改为未来或过去的日期，则搜索从该日期的 00:00 开始。
-必须填写/选择输入字段搜索文本和类别中的一个或两个。
+使用此小部件，您可以根据标题、描述、开始日期和广播类型搜索广播。
+“起始日期”输入字段已预先填写实际日期。如果此字段保持不变，则搜索将从实际时间开始。
+如果您将此字段更改为未来或过去的日期，则搜索将从该日期的 00:00 开始。
+必须填写/选择输入字段“搜索文本”和“类别”中的一个或两个。
 
-vis 中可配置以下属性最低配置是将数据点设置为 cmd-datapoint。
+vis 中可以配置以下属性最低配置是将数据点设置为 cmd-datapoint。
 
-| 属性 | 示例 | 说明 |
+| 属性 | 示例 | 描述 |
 | ---------------------- | --------------------- | ----------------------------------------------------- |
 | `Object ID` | `tvprogram.0.tv1.cmd` | `tvprogram` 适配器实例的数据点。|
 | `maxresults` | 10 | 列表中的最大结果 |
 | `heightRow` | 35 | 每行显示的高度 |
 | `broadcastfontpercent` | 75 | 广播的字符大小百分比 |
-| `highlightcolor` | `yellow` | 收藏颜色 |
+| `highlightcolor` | `yellow` | 收藏夹的颜色 |
 | `dialogwidthpercent` | 90 | 对话框的大小占小部件的百分比 |
 | `dialogheightpercent` | 90 | 对话框的大小占小部件的百分比 |
-| `dialogheightpercent` | 90 | 对话框占小部件的百分比大小 |
+| `dialogheightpercent` | 90 | 对话框大小占小部件的百分比 |
 
 CSS 类
 请将`w00001`更改为您的小部件ID
@@ -196,7 +195,7 @@ CSS 类
 ```
 
 ### 提供的数据点
-每台创建的电视都存在以下数据点集
+每台创建的电视都存在以下数据点
 
 #### `channelfilter`
 该数据点包含小部件中以 JSON 数组形式显示的通道
@@ -205,13 +204,13 @@ CSS 类
 该数据点用于小部件和适配器之间的内部通信
 
 #### `favorites`
-该数据点以 JSON 数组的形式包含所选的收藏夹
+该数据点包含所选收藏夹的 JSON 数组
 
 #### `record`
-如果用户点击广播详细视图中的录制按钮，则会设置此数据点。
-提供的数据是
+如果用户点击直播详情视图中的录制按钮，则会设置此数据点。
+提供的数据包括
 
-| 字段 | 示例 | 说明 |
+| 字段 | 示例 | 描述 |
 | ------------- | ------------------------- | ---------------------- |
 | `startTime` | 2021-01-01T00:10:00+01:00 | 开始时间 |
 | `title` | 广播标题 | 广播标题 |
@@ -222,18 +221,18 @@ CSS 类
 | `eventid` | 12345678 | 唯一广播 ID |
 
 #### `selectchannel`
-该数据点用于通过单击详细视图中的频道徽标或切换图标来识别频道切换命令。
+此数据点用于通过单击详细视图中的频道徽标或切换图标来识别频道切换命令。
 
 #### `show`
-此数据点包含是否只应在小部件 tvprogram 中显示收藏夹或所有内容的状态
+此数据点包含是否仅应在小部件 tvprogram 中显示收藏夹或所有内容的状态
 
 #### `config`
 此数据点已弃用，将在下一版本中删除
 
 #### `optchnlogopath`
-数据指向一个可以保存备选频道徽标的文件夹。该路径必须可通过浏览器访问。
+数据指向一个可保存备选频道徽标的文件夹。该路径必须可通过浏览器访问。
 
-必须在数据点中输入以 http 开头的完整路径，包括尾随斜杠。
+必须在数据点中输入以 http 开头的完整路径，包括尾部的斜杠。
 
 **例子：**
 
@@ -249,10 +248,10 @@ ttp://localhost:8082/vis.0/icons/tvlogos/
 
 所有图标都应通过 iobroker 文件对话框上传。
 
-示例请参阅第 [替代徽标示例](#alternative-channel-logos-by-tino-0) 章
+请参阅第[替代徽标示例](#alternative-channel-logos-by-tino-0)章示例
 
-### 提供`Sendto` 命令
-可以通过 sendto 命令从适配器请求所有数据。这可用于开发单独的功能
+### 提供`Sendto`命令
+所有数据都可以通过 sendto 命令从适配器请求。这可用于开发单独的功能
 
 #### `getServerData`
 从适配器请求基础数据。
@@ -296,7 +295,7 @@ sendTo("tvprogram.0", "getServerTVProgram", "2021-02-10", (data) =>
 请求广播的详细数据。
 
 ##### 有效参数是
-包含以下格式的 viewdate 的对象 yyyy-mm-dd 广播的 eventid
+包含以下格式的观看日期的对象 yyyy-mm-dd 广播的事件 ID
 
 **返回：**
 
@@ -314,10 +313,10 @@ sendTo(
 ```
 
 #### `getFavoritesData`
-从现在开始直到数据保存结束为止请求所有喜欢的广播。
+从现在起直到保存数据结束为止请求所有喜欢的广播。
 
 ##### 有效参数是
-`Array` 的收藏
+收藏的 `Array`
 
 **返回：**
 
@@ -335,7 +334,7 @@ sendTo("tvprogram.0", "getFavoritesData", ["heute", "Tagesschau"], (data) =>
 请求当前正在运行的所有广播
 
 ##### 有效参数是
-您喜欢的频道的 channelID 数组
+您喜爱的频道的 channelID 数组
 
 **返回：**
 
@@ -353,7 +352,7 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 请求在某个日期时间运行的所有广播
 
 ##### 有效参数是
-您最喜欢的频道的 channelID 数组 datetime
+您喜爱的频道的 channelID 数组 datetime
 
 **返回：**
 
@@ -371,10 +370,10 @@ sendTo(
 ```
 
 #### `getServerBroadcastFind`
-搜索一定时间范围内的广播，并可按类别搜索
+搜索一定时间范围内的广播，并可选择分类
 
 ##### 有效参数是
-`channelfilter`：您最喜爱的频道的频道 ID 数组 `categoryfilter`：可选的类别 ID 数组 `datetimefrom`：日期时间从 `datetimetill`：日期时间到 `textfilter`：可选的要搜索的标题或部分标题 `maxresults`：可选的最大结果数量。默认值为 10
+`channelfilter`：您收藏频道的频道 ID 数组 `categoryfilter`：可选的类别 ID 数组 `datetimefrom`：日期时间从 `datetimetill`：日期时间到 `textfilter`：可选的要搜索的标题或部分标题 `maxresults`：可选的最大结果数量。默认值为 10
 
 **返回：**
 
@@ -416,7 +415,7 @@ sendTo("tvprogram.0", "getServerInfo", "{}", (data) => console.log(data));
 
 ### 社区提供小部件/脚本
 #### `Harmony` 和 `MagentaTV`
-由 pix 提供的脚本 点击频道徽标后，脚本将映射的频道 ID 设置为 harmony-datapoint
+由 pix 提供的脚本 点击频道徽标后，脚本将映射的频道 ID 设置为 Harmony-datapoint
 
 ```javascript
 /* TV Programm Adapter
@@ -527,8 +526,8 @@ on(idKanalWahl, function (obj) {
 });
 ```
 
-#### 由 Tino 0 提供的替代频道徽标
-带有示例截图的论坛链接<https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
+#### 替代频道标志由 Tino 0 提供
+带有示例截图的论坛链接 <https://forum.iobroker.net/topic/40168/test-adapter-tvprogram/863>
 
 **下载频道徽标：**
 
@@ -552,29 +551,23 @@ on(idKanalWahl, function (obj) {
 /vis.0/icons/tvlogos/
 ```
 
-**输入数据点的路径：**
+**在数据点中输入路径：*
 
-在电视的数据点 `optchnlogopath` 中输入以下路径。
+在电视的数据点`optchnlogopath`中输入以下路径。
 将 192.1.2.3 替换为 iobroker 安装的 IP 地址。
 
 ```text
 http://192.1.2.3:8082/vis.0/icons/tvlogos/
 ```
 
-**使用 css 命令调整图标宽度：**
+**调整图标宽度：**
 
-由于图标的宽度应限制为 100px，因此必须在 vis 中的 css 选项卡中添加以下命令。
+每个小部件都有一个属性“宽度 通道 徽标 像素”。请为图标集输入合适的宽度。
 
-```css
-.channel {
-    width: 100px !important;
-}
-```
-
-### 适配器中未实现的功能，但作为 javascript 适配器的脚本提供
+### 适配器中未实现的功能，但作为 javascript-adapter 的脚本提供
 #### `Recordlist`
 记录数据点记录的所有当前记录时间的列表，每分钟更新一次。
-您必须配置 RecorderList 的数据点名称和要观察的数据点的名称。
+您必须配置 RecorderList 的数据点名称以及要观察的数据点的名称。
 脚本将记录添加到列表后，记录数据点将被清空。
 
 ```javascript
@@ -615,8 +608,8 @@ var timer = setInterval(function () {
 }, 1000 * 60);
 ```
 
-为了可视化这些数据，适配器 myTime 中的小部件 JSON 模板可以帮助使用以下模板。
-将带有`recordlist` 的数据点作为 json_oid 输入，并将以下代码作为 json_template 输入：
+为了可视化这些数据，适配器 myTime 中的小部件 JSON 模板可以帮助实现以下模板。
+将带有`recordlist`的数据点作为 json_oid 输入，并将以下代码作为 json_template 输入：
 
 ```javascript
 <% data.sort((a,b)=>new Date(a.startTime) - new Date(b.startTime)) %>
@@ -639,7 +632,7 @@ var timer = setInterval(function () {
 ```
 
 #### 目前最喜欢的广播
-下面的脚本每分钟确定一次你最喜欢的程序当前是否正在运行。
+以下脚本每分钟确定一次您喜爱的程序当前是否正在运行。
 
 ```javascript
 // Favorites datapoint of your tv
@@ -661,10 +654,10 @@ var timer = setInterval(function () {
 }, 1000 * 60);
 ```
 
-#### 对位于小部件 tvprogram 中的`recordlist`数据点的程序进行着色
-以下模板用于来自适配器 rssfeed 的小部件 JSON 模板。
-此模板不会生成任何可见输出，但会生成为当前程序着色的 css 指令。
-它还会为详细视图中的记录按钮着色。
+#### 对位于小部件 tvprogram 中的`recordlist`数据点的节目进行着色
+以下模板是来自适配器 RSSFeed 的小部件 JSON 模板。
+此模板不会生成任何可见的输出，但会生成用于为当前程序着色的 CSS 指令。
+它还会为详细视图中的“录制”按钮着色。
 
 要使用此模板，请在小部件属性 json_oid 中选择 recordlist 数据点，并在 json_template 中插入以下模板
 
@@ -697,15 +690,15 @@ var timer = setInterval(function () {
 - 配置显示的电视频道和顺序，可以通过拖放重新排序。
 - 点击徽标后通过数据点切换命令
 - 放大/缩小
-- 导航接下来和之前的日子
+- 导航下一天和前一天
 - 播放按钮切换频道数据点
 - 中心放大未来几天
 - 回到今天
 - 重置缩放
-- 喜爱的广播
+- 最喜欢的广播
 - 从详细信息视图复制文本
 - 标记位置可配置
-- 对话框的宽度和高度可配置
+- 对话框的宽度和高度是可配置的
 - Datenpunkt 记录，der nach druck auf Knopf mit Aufnahmedaten gefüllt wird
 - 收藏夹小部件
 - 隐藏非收藏夹
@@ -714,15 +707,15 @@ var timer = setInterval(function () {
 小部件电视节目：
 
 - 或许是一个精彩集锦广播小部件
-- 其他来源的数据适配器（互联网、Enigma、VU-Box 等硬件）。由于需求低，目前暂缓考虑此问题
+- 其他来源的数据适配器（互联网、Enigma、VU-Box 等硬件）。由于需求低迷，目前暂缓考虑此方案。
 - ~~改进配置小部件的文档~~
 - ~~如果时间小部件的主视图中可用，则广播图片~~
-- ~~搜索全文还可以找到导演和演员~~
+- ~~搜索全文，还可以找到导演和演员~~
 - ~~时间小部件中按钮的工具提示~~
 - ~~基于现有电视节目脚本的更多小部件的想法~~
 - ~~问题：Firefox 中无限滚动~~
 - ~~待讨论：Datenpunkt，mit allen Aufnahmedaten，应该在录像机适配器上或在单独的脚本中实现~~
-- ~~详细视图的响应式设计->jQuery 对话框无法实现响应式设计，已找到另一种解决方案，其高度>宽度具有固定布局~~
+- ~~详细视图的响应式设计->jQuery 对话框无法进行响应式设计，已找到另一种解决方案，具有高度>宽度的固定布局~~
 - ~~问题：如果滚动窗格在左侧完成，则会出现小像素故障~~
 
 ## Changelog
@@ -731,6 +724,23 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- reduce requests to data provider
+- revert to node 18
+
+### 4.0.0 (2025-01-21)
+
+- Breaking Change. fix marker position with flexible width of channel logos. In each widget the property "width channel logo px" have to be set to approbiate width.
+
+### 3.0.5 (2025-01-20)
+
+- upgrade jscontroller dependency
+
+### 3.0.4 (2025-01-20)
+
+- remove check for certifates in axios due to expired certificate of data provider
+
 ### 3.0.3 (2025-01-03)
 
 - fix datapoint creation and overwriting states

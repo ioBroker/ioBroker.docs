@@ -43,6 +43,7 @@ valid</br>
 - `Delay for EdgeCut`: When should EdgeCut start (example 5 seconds to lawn)
 - `Distance and time in min and m`: Default h and km
 - `Updating MQTT data after token update.`: Loads the Worx data after the refresh token.
+- `Display errors via notifications (for all devices)`: Turn notification on/off for all devices (can be turned on/off for each device under Objects)
 - `Delete session data` If you have problems logging in, delete the current session
 - `Reset Login counter` Reset Login counter
 
@@ -206,7 +207,7 @@ valid</br>
         "2": "Lifted", //(Draht & Vision & RTK-Body)
         "3": "Wire missing", //(Draht)
         "4": "Outside boundary", //(Draht & Vision & RTK-Body)
-        "5": "Raining", //(Draht & Vision & RTK-Body)
+        "5": "Rain delay", //(Draht & Vision & RTK-Body)
         "6": "Close door to cut grass", //(Draht)
         "7": "Close door to go home", //(Draht)
         "8": "Blade motor fault", //(Draht & Vision & RTK-Body)
@@ -280,6 +281,7 @@ valid</br>
 - `mqtt_update`: Update Mqtt data max. 150/day (wire & Vision/changeable) 🟢
 - `mqtt_update_count`: Counter Update Mqtt data (wire & Vision/readonly)
 - `notification`: Enable or disable notification via JS controller. Offline and error messages are output. (Design & Vision/changeable) 🔴
+- `notification_excluded`: Which error IDs should not be displayed (separate IDs with commas [IDS](#error-ids)) 🔴
 
 ![Mower img/mower_2.png](img/mower_2.png)</br>
 ![Mower img/info_connection.png](img/info_connection.png)
@@ -311,6 +313,8 @@ valid</br>
 - `rfidStatus`: Status RF sensor 0=OK/1=Error (vision/read only)
 - `sendCommand`: Send cmd command (wire & Vision/changeable) 🟢
 
+### Send Commands
+
 ```json
 {
     "states": {
@@ -335,6 +339,8 @@ valid</br>
 
 - `state`: True for start mower and False for stop mower (wire & Vision/changeable)
 - `status`: Status mower (wire & Vision/readonly)
+
+### Status ID`s
 
 ```json
 {
@@ -831,10 +837,22 @@ Default without zone:
 ![img/array_nok.png](img/array_nok.png)
 
 ## Changelog
+### 3.2.3 (2025-06-05)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) All Sentry issues fixed
+- (Lucky-ESA) Add new mowers without adapter restart
+
+### 3.2.2 (2025-05-29)
+
+- (Lucky-ESA) Fixed invalid object type
+- (Lucky-ESA) Error message it is raining changes to rain delay
+
+### 3.2.1 (2025-05-25)
 
 - (Lucky-ESA) Fixed starting firmware update (did not work)
+- (Lucky-ESA) Added confirm edgecut
+- (Lucky-ESA) Added notifications about instance settings toggle on/off
+- (Lucky-ESA) Small bugs fixed
 
 ### 3.2.0 (2025-04-08)
 
@@ -850,25 +868,6 @@ Default without zone:
 - (Lucky-ESA) Added JS-Controller Notification
 - (Lucky-ESA) Dependencies updated
 - (Lucky-ESA) New design for settings page added
-
-### 3.1.0 (2024-09-10)
-
-- (Lucky-ESA) Added Landroid IP
-- (Lucky-ESA) Fixed interval
-- (Lucky-ESA) Fixed Vision Edgecut
-
-### 3.0.2 (2024-05-12)
-
-- (Lucky-ESA) mowTimeExtend restricted input
-- (Lucky-ESA) Fixed TypeError
-
-### 3.0.1 (2024-05-08)
-
-- (Lucky-ESA) Preperation mission Kress new API
-- (Lucky-ESA) Fixed TypeError
-- (Lucky-ESA) Fixed missing activity states
-- (Lucky-ESA) Added update interval in instance setting
-- (Lucky-ESA) Added last update
 
 ## License
 

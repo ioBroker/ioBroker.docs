@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: UUOO/z2PWdjdq1AJ3fHiXijuBrVnh1IQrmfaGhIpQbo=
+hash: drpnQNpZlM+9gT9kDsZI9pC30PxYja3++prE3EBhJjc=
 ---
 ![标识](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
@@ -22,7 +22,7 @@ hash: UUOO/z2PWdjdq1AJ3fHiXijuBrVnh1IQrmfaGhIpQbo=
 [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试与发布](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg）](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
 
 哨兵
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## IoBroker 的 PID 适配器
 该适配器提供可配置的 PID 控制器。
@@ -30,13 +30,13 @@ hash: UUOO/z2PWdjdq1AJ3fHiXijuBrVnh1IQrmfaGhIpQbo=
 ＃＃ 一般信息
 该适配器提供 PID 控制器的功能。
 
-实际上，PID 控制器会根据实际值和设定值自动计算系统的校正值。行为由参数控制。一个日常示例是汽车的巡航控制，如果发动机功率恒定，则上坡会降低速度。控制器的 PID 算法通过以受控方式增加发动机的功率输出，以最小的延迟和超调将测量速度恢复到所需速度。[(c) 维基百科]
+实际应用中，PID 控制器会根据实际值和设定值自动计算系统的校正值。其行为由参数控制。一个常见的例子是汽车的巡航控制，如果发动机功率恒定，上坡时车速会降低。控制器的 PID 算法会以受控的方式增加发动机的功率输出，从而将测量速度恢复到所需速度，并最大程度地减少延迟和过冲。[(c) 维基百科]
 
-在一个适配器实例中，可以配置多个控制器。适配器支持配置参数（P、I、D 组件）和用于计算的循环时间。此外，计算可以暂停和恢复，控制器可以完全重置。作为方便的服务器，可以打开手动模式以直接设置输出。输出可以限制为最小/最大值并包含固定偏移量。
+在一个适配器实例中可以配置多个控制器。适配器支持配置参数（P、I、D 组件）以及用于计算的循环时间。此外，计算可以暂停和恢复，控制器也可以完全重置。作为便捷的服务器，可以切换手动模式直接设置输出。输出可以限制为最小/最大值，并包含固定偏移量。
 
 所有相关值（包括内部数据）均可作为诊断目的的状态。
 
-文档
+## 文档
 [英文文件](docs/en/pid_en.md)<br> [德国文献](docs/de/pid_de.md)
 
 ## 致谢
@@ -45,8 +45,16 @@ hash: UUOO/z2PWdjdq1AJ3fHiXijuBrVnh1IQrmfaGhIpQbo=
 ## 如何报告问题和功能请求
 请使用 GitHub 问题来解决此问题。
 
-最好将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从管理员处获取，因为管理员会切断线路）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件将其发送给我（mcm57@gmx.at）。请添加对相关 GitHub 问题的引用，并描述我在日志中看到的内容。
+最好将适配器设置为“调试”日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘获取日志文件（ioBroker 安装目录中的“log”子目录，而不是管理员目录，因为管理员会截断线路）。如果您不想在 GitHub 问题中提供日志文件，也可以通过电子邮件 (mcm57@gmx.at) 发送给我。请添加相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
 “title”：“lblCtrlInvert”，
+
+**************************************************************************************************************
+
+**如果您喜欢它，请考虑捐赠：**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+
+**************************************************************************************************************
 
 ## Changelog
 

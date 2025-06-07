@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: WRpC//LRFk79oJlgfa7E8QhXu1pwpCQmmqXQYydsHsE=
+hash: cKAza368CjBQjzeBBEFQSj0TMNxPcQ4mCpItJ4NpZhA=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -153,6 +153,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`language`:**](#language) Wählt die Sprache der Benutzeroberfläche
 - [**`license`:**](#license) zeigt die Lizenzinformationen an, sofern sie nicht bereits akzeptiert wurden.
 - [**`number`:**](#number) Numerisches Eingabefeld mit Min-/Max-Werten und Schrittweite
+- [**`oauth2`:**](#oauth2) OAuth2-Authentifizierung für den Adapter durchführen (Admin 7.6.18 oder neuer)
 - [**`objectId`:**](#objectid) Wählt eine Objekt-ID mit Name, Farbe und Symbol aus
 - [**`panel`:**](#panel) Registerkarte mit Elementen
 - [**`password`:**](#password) Passwort-Eingabefeld
@@ -459,8 +460,8 @@ speichert das Bild als Datei des `adapter.X` Objekts oder als Base64 im Attribut
 | `maxSize` | maximale Größe der hochzuladenden Datei |
 | `base64` | wenn wahr, wird das Bild als Daten-URL im Attribut gespeichert, andernfalls als Binärdatei im Dateispeicher |
 | `crop` | wenn wahr, Benutzer darf das Bild zuschneiden |
-| `!maxWidth` |                                                                                                                                        |
-| `!maxHeight` |                                                                                                                                        |
+| `!maxWidth` | |
+| `!maxHeight` | |
 | `!square` | Breite muss gleich Höhe sein, oder beim Zuschneiden darf nur ein Quadrat als Form zulässig sein |
 | `!square` | Breite muss gleich Höhe sein, oder der Zuschnitt darf nur Quadrate als Form zulassen |
 
@@ -485,6 +486,33 @@ speichert das Bild als Datei des `adapter.X` Objekts oder als Base64 im Attribut
      }
   }
 ```
+
+### `oauth2`
+(Administrator >= 17.06.18)
+
+Zeigt die Schaltfläche „OAuth2-Authentifizierung“ an, um die Aktualisierungs- und Zugriffstoken für den Adapter abzurufen.
+
+Um dies zu verwenden, müssen Sie zuerst die OAuth2-Daten (Client-ID, Geheimnis usw.) dem ioBroker-Wartungsteam bereitstellen, damit dieses sie der Cloud hinzufügen kann.
+
+| Immobilie | Beschreibung |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `identifier` | Oauth2-Kennung, wie `spotify`, `google`, `dropbox`, `microsoft` |
+| `scope` | Optionale Bereiche, durch Leerzeichen getrennt, z. B. `user-read-private user-read-email` |
+| `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
+| `refreshLabel` | Optionale Schaltflächenbeschriftung zum Aktualisieren des Tokens |
+
+#### Beispiel für `oauth2`
+```json
+  "_oauth2": {
+       "type": "oauth2",
+       "identifier": "spotify",
+       "label": "Get Spotify OAuth2 Token",
+       "label": "Refresh Spotify OAuth2 Token",
+       "icon": "data:image/svg+xml;base64,...",
+  }
+```
+
+Weitere Informationen finden Sie auch unter [OAUTH2.md](OAUTH2.md).
 
 ### `objectId`
 Objekt-ID: mit Name, Farbe und Symbol anzeigen
@@ -558,7 +586,7 @@ Der Benutzer kann das Wort eingeben und es wird hinzugefügt (siehe Cloud => Die
 | `delimiter` | wenn definiert, wird die Option als String mit Trennzeichen statt als Array gespeichert. Beispielsweise erhalten Sie durch `delimiter=;` `a;b;c` statt `['a', 'b', 'c']` |
 
 ### `alive`
-nur eine Anzeige, ob die Instanz aktiv ist und in den Modi „versteckt“ und „deaktiviert“ verwendet werden kann (wird nicht in der Konfiguration gespeichert)
+nur ein Hinweis, ob die Instanz aktiv ist und in den Modi „versteckt“ und „deaktiviert“ verwendet werden kann (wird nicht in der Konfiguration gespeichert)
 
 Nur Text: Instanz läuft, Instanz läuft nicht
 
@@ -748,7 +776,7 @@ horizontale Linie
 ### `header`
 | Immobilie | Beschreibung |
 |----------|--------------|
-| `text` |              |
+| `text` | |
 | `Größe` | 1-5 => h1-h5 |
 
 ### `cron`
@@ -898,7 +926,7 @@ Zeigt die Autovervollständigungssteuerung mit den von der Instanz angegebenen W
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn „jsonData“ nicht definiert ist. |
 | `freeSolo` | Setzen Sie `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
-| `alsoDependsOn` | bei Änderung welcher Attribute der Befehl erneut gesendet werden muss |
+| `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
 | `maxLength` | maximale Länge des Textes im Feld |
 | `maxLength` | maximale Länge des Textes im Feld |
 
@@ -912,7 +940,7 @@ Zeigt das schreibgeschützte Steuerelement mit den von der Instanz angegebenen W
 | Immobilie | Beschreibung |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `container` | `div`, `text`, `html` |
-| `alsoDependsOn` | bei Änderung welcher Attribute der Befehl erneut gesendet werden muss |
+| `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenfolge - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn „jsonData“ nicht definiert ist. |
@@ -971,7 +999,7 @@ adapter.on("message", (obj) => {
 ```
 
 ### `coordinates`
-Ermittelt den aktuellen Standort und verwendet `system.config`-Koordinaten, falls dies nicht in der Form "Breitengrad,Längengrad" möglich ist.
+Bestimmt den aktuellen Standort und verwendet die Koordinaten `system.config`, falls dies nicht in der Form "Breitengrad,Längengrad" möglich ist.
 
 | Immobilie | Beschreibung |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1361,7 +1389,7 @@ Beispiele finden Sie im Adapter [`telegram`](https://github.com/iobroker-communi
 ## JSON-Registerkarte im Admin
 Ab der Admin-Version 7.6.x können Sie die Registerkarte (wie `backitup` oder `matter`) über die JSON-Konfiguration definieren.
 
-Hierzu müssen Sie im Abschnitt `io-package.json` im Abschnitt `common` Folgendes definieren:
+Hierzu müssen Sie in `io-package.json` im Teil `common` Folgendes definieren:
 
 ```json5
 {

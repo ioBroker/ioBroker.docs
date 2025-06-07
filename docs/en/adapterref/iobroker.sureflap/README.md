@@ -41,30 +41,31 @@ It also shows the location of your pets and their food and water consumption (wi
 
 It lets you control the lockmode and curfew of your flap and set the location of your pets.
 
-The adapter requires Node 18 or newer.
+The adapter requires Node 20 or newer.
 
 ### Changeable Values
 
 The following states can be changed and will take effect on your device respectively will be reflected in your Sure
 Petcare® app.
 
-| state                                                                 | description                                                                          | allowed values                                                                          |
-|-----------------------------------------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| household_name.hub_name.control.led_mode                              | sets the brightness of the hub leds                                                  | **0** - off<br>**1** - high<br>**4** - dimmed                                           |
-| household_name.hub_name.flap_name.control.curfew_enabled              | enables or disables the configured curfew                                            | **true** or **false**                                                                   |
-| household_name.hub_name.flap_name.control.current_curfew              | sets the current_curfew,<br>supports 1 (pet flap) or up to 4 (cat flap) curfew times | **[{"enabled":true\|false, "lock_time":"xx:xx", "unlock_time":"xx:xx"}, ...]**          |
-| household_name.hub_name.flap_name.control.lockmode                    | sets the lockmode                                                                    | **0** - open<br>**1** - lock in<br>**2** - lock out<br>**3** - closed (lock in and out) |
-| household_name.hub_name.flap_name.assigned_pets.pet_name.control.type | sets the pet type for the assigned pet and flap                                      | **2** - outdoor pet<br>**3** - indoor pet                                               |
-| household_name.hub_name.feeder_name.control.close_delay               | sets the close delay of the feeder lid                                               | **0** - fast<br>**4** - normal<br>**20** - slow                                         |
-| household_name.pets.pet_name.inside                                   | sets whether your pet is inside                                                      | **true** or **false**                                                                   |
+| state                                                              | description                                                                          | allowed values                                                                          |
+|--------------------------------------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| HOUSEHOLD_NAME.HUB_NAME.control.led_mode                           | sets the brightness of the hub leds                                                  | **0** - off<br>**1** - high<br>**4** - dimmed                                           |
+| HOUSEHOLD_NAME.HUB_NAME.DEVICE_NAME.control.pets.PET_NAME.assigned | assigns or unassigns the pet to or from the device                                   | **true** or **false**                                                                   |
+| HOUSEHOLD_NAME.HUB_NAME.FEEDER_NAME.control.close_delay            | sets the close delay of the feeder lid                                               | **0** - fast<br>**4** - normal<br>**20** - slow                                         |
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.curfew_enabled           | enables or disables the configured curfew                                            | **true** or **false**                                                                   |
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.current_curfew           | sets the current_curfew,<br>supports 1 (pet flap) or up to 4 (cat flap) curfew times | **[{"enabled":true\|false, "lock_time":"xx:xx", "unlock_time":"xx:xx"}, ...]**          |
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.lockmode                 | sets the lockmode                                                                    | **0** - open<br>**1** - lock in<br>**2** - lock out<br>**3** - closed (lock in and out) |
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.pets.PET_NAME.type       | sets the pet type for the assigned pet and flap                                      | **2** - outdoor pet<br>**3** - indoor pet                                               |
+| HOUSEHOLD_NAME.pets.PET_NAME.inside                                | sets whether your pet is inside                                                      | **true** or **false**                                                                   |
 
 ### Structure
 
 The adapter creates the following hierarchical structure:
 
 adapter<br>
-├ household_name<br>
-│ ├ hub_name<br>
+├ HOUSEHOLD_NAME<br>
+│ ├ HUB_NAME<br>
 │ │ ├ online<br>
 │ │ ├ serial_number<br>
 │ │ ├ signal<br>
@@ -75,7 +76,7 @@ adapter<br>
 │ │ │ └ hardware<br>
 │ │ ├ control<br>
 │ │ │ └ led_mode<br>
-│ │ ├ felaqua_name<br>
+│ │ ├ FELAQUA_NAME<br>
 │ │ │ ├ battery<br>
 │ │ │ ├ battery_percentage<br>
 │ │ │ ├ online<br>
@@ -86,13 +87,15 @@ adapter<br>
 │ │ │ ├ version<br>
 │ │ │ │ ├ firmware<br>
 │ │ │ │ └ hardware<br>
-│ │ │ ├ assigned_pets<br>
-│ │ │ │ └ pet_name<br>
-│ │ │ └ water<br>
-│ │ │ &nbsp;&nbsp;&nbsp; ├ fill_percent<br>
-│ │ │ &nbsp;&nbsp;&nbsp; ├ last_filled_at<br>
-│ │ │ &nbsp;&nbsp;&nbsp; └ weight<br>
-│ │ ├ feeder_name<br>
+│ │ │ ├ water<br>
+│ │ │ │ ├ fill_percent<br>
+│ │ │ │ ├ last_filled_at<br>
+│ │ │ │ └ weight<br>
+│ │ │ └ control<br>
+│ │ │ &nbsp;&nbsp;&nbsp; └ pets<br>
+│ │ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ PET_NAME<br>
+│ │ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ assigned<br>
+│ │ ├ FEEDER_NAME<br>
 │ │ │ ├ battery<br>
 │ │ │ ├ battery_percentage<br>
 │ │ │ ├ online<br>
@@ -103,8 +106,6 @@ adapter<br>
 │ │ │ ├ version<br>
 │ │ │ │ ├ firmware<br>
 │ │ │ │ └ hardware<br>
-│ │ │ ├ assigned_pets<br>
-│ │ │ │ └ pet_name<br>
 │ │ │ ├ bowls<br>
 │ │ │ │ └ 0..1<br>
 │ │ │ │ &nbsp;&nbsp;&nbsp; ├ fill_percent<br>
@@ -114,8 +115,11 @@ adapter<br>
 │ │ │ │ &nbsp;&nbsp;&nbsp; ├ target<br>
 │ │ │ │ &nbsp;&nbsp;&nbsp; └ weight<br>
 │ │ │ └ control<br>
+│ │ │ &nbsp;&nbsp;&nbsp; ├ pets<br>
+│ │ │ &nbsp;&nbsp;&nbsp; │ └ PET_NAME<br>
+│ │ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; └ assigned<br>
 │ │ │ &nbsp;&nbsp;&nbsp; └ close_delay<br>
-│ │ └ flap_name<br>
+│ │ └ FLAP_NAME<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ battery<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ battery_percentage<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ curfew_active<br>
@@ -123,24 +127,24 @@ adapter<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ online<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ serial_number<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ control<br>
+│ │ &nbsp;&nbsp;&nbsp; │ ├ pets<br>
+│ │ &nbsp;&nbsp;&nbsp; │ │ └ PET_NAME<br>
+│ │ &nbsp;&nbsp;&nbsp; │ │ &nbsp;&nbsp;&nbsp; ├ assigned<br>
+│ │ &nbsp;&nbsp;&nbsp; │ │ &nbsp;&nbsp;&nbsp; └ type<br>
 │ │ &nbsp;&nbsp;&nbsp; │ ├ curfew_enabled<br>
 │ │ &nbsp;&nbsp;&nbsp; │ ├ current_curfew<br>
 │ │ &nbsp;&nbsp;&nbsp; │ └ lockmode<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ signal<br>
 │ │ &nbsp;&nbsp;&nbsp; │ ├ device_rssi<br>
 │ │ &nbsp;&nbsp;&nbsp; │ └ hub_rssi<br>
-│ │ &nbsp;&nbsp;&nbsp; ├ version<br>
-│ │ &nbsp;&nbsp;&nbsp; │ ├ firmware<br>
-│ │ &nbsp;&nbsp;&nbsp; │ └ hardware<br>
-│ │ &nbsp;&nbsp;&nbsp; └ assigned_pets<br>
-│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ pet_name<br>
-│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ control<br>
-│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ type<br>
+│ │ &nbsp;&nbsp;&nbsp; └ version<br>
+│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ firmware<br>
+│ │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ hardware<br>
 │ ├ history<br>
 │ │ └ json<br>
 │ │ &nbsp;&nbsp;&nbsp; └ 0..24<br>
 │ └ pets<br>
-│ &nbsp;&nbsp;&nbsp; └ pet_name<br>
+│ &nbsp;&nbsp;&nbsp; └ PET_NAME<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ inside<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ name<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ since<br>
@@ -177,6 +181,11 @@ The pictures of the SureFlap® devices are provided free to use
 from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 3.2.0 (2025-06-01)
+
+* (Sickboy78) made pet assignment controllable
+* (Sickboy78) dependency updates
 
 ### 3.1.1 (2025-04-16)
 

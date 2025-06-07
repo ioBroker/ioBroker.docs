@@ -62,6 +62,14 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.22 (2025-06-02)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) testing node24 implemented
+
+### 1.2.21 (2025-05-04)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) minimum node.js version changed to 20
+
 ### 1.2.19 (2025-04-01)
 * (Andreas Ruttkamp) update deps
 * (Andreas Ruttkamp) minimum version for admin now 7.4.10

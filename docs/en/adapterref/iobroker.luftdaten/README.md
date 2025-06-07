@@ -56,6 +56,10 @@ Wait some seconds until the cronjob collects the data for the first time.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
 ### 4.0.0 (2024-08-09)
 
 NodeJS >= 18.x and js-controller >= 5 is required

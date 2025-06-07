@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
+hash: VuoMuH0MEntk60T782Hm/p5n+SeZGJ79Jpi8hSQqNb8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -25,18 +25,37 @@ hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
 
 [Вики](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-<!-- Заполнитель для следующей версии (в начале строки):
-
-https://github.com/AlCalzone/release-script#usage npm run release major ---p iobroker license --all 0.9.8 -> 1.0.0 npm run release minor ---p iobroker license --all 0.9.8 -> 0.10.0 npm run release patch ---p iobroker license --all 0.9.8 -> 0.9.9 npm run release prerelease beta ---p iobroker license --all v0.2.1 -> v0.2.2-beta.0
-
-### **РАБОТА В ХОДЕ** -->
 ## Пожертвование
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.3 (2025-05-05)
+* (arteck) fix bug with day and time tag for EV 
+* (arteck) dependency update
+
+### 3.1.2 (2025-01-11)
+* (arteck) error on create dp fix
+
+### 3.1.1 (2025-01-07)
+* (arteck) monthlyReport for phev/hev
+* (arteck) trip corr for ev cars
+
+### 3.1.0 (2024-10-05)
+* (arteck) SOC corr 
+* (arteck) dependency update
+
+### 3.0.4 (2024-10-03)
+* (arteck) typo
+
+### 3.0.3 (2024-10-02)
+* (arteck) add city to position text
+
+### 3.0.2 (2024-10-01)
+* (arteck) corr for hev
+
 ### 3.0.1 (2024-09-27)
 * (arteck) activate jsonconfig
-  
+
 ### 3.0.0 (2024-09-27)
 * (arteck) new structure jsonconfig
 
@@ -132,7 +151,7 @@ https://github.com/AlCalzone/release-script#usage npm run release major ---p iob
 ## License
 MIT License
 
-Copyright (c) 2024 Newan <info@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

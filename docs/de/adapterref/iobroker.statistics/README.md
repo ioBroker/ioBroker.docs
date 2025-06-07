@@ -156,6 +156,10 @@ sendTo('statistics.0', 'enableStatistics', {
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+
+* (@klein0r) Optimized avg calculation (without using a sum)
+
 ### 4.0.0 (2025-04-16)
 NodeJS >= 20.x and js-controller >= 6 is required
 

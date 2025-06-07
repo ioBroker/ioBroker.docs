@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
+hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -11,48 +11,50 @@ hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
 ![下载](https://img.shields.io/npm/dm/iobroker.alexa-timer-vis.svg)
 ![安装数量](https://iobroker.live/badges/alexa-timer-vis-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/alexa-timer-vis-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
 # IoBroker.alexa-timer-vis
-![测试与发布](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关禁用错误报告的更多详细信息和说明，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告的使用从 js-controller 3.0 开始。
 
 ## IoBroker 的 alexa-timer-vis 适配器
-此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及如何禁用错误报告的信息，请参阅 Sentry-Plugin 文档！从 js-controller 3.0 开始使用 Sentry 报告。
+此适配器使用 Sentry 库自动向开发者报告异常和代码错误。更多详情以及如何禁用错误报告，请参阅 Sentry 插件文档！从 js-controller 3.0 开始使用 Sentry 报告功能。
 
 输出 Alexa 计时器以在 vis 中显示
 
 **如果您喜欢它，请考虑捐赠：**
 
-[![贝宝]（https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ### 这是我的 vis 的一个例子
 ![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
 
 功能
-通过 Alexa 创建一个或多个语音输入计时器，由适配器评估并写入状态，以便使它们在 Vis 中可见。因此，如果您同时激活多个计时器，您可以更好地了解情况。
+通过 Alexa 创建一个或多个语音输入计时器，适配器会评估这些计时器，并将其写入状态，以便在 Vis 中显示。这样，如果您同时激活多个计时器，就能更好地概览它们。
 
 - ---- 需要 Alexa2 适配器 ----
 - Vis Widget 尚未集成
-- 每个计时器都有一个按钮，用于停止它。停止 Alexa 和适配器中的计时器
+- 每个计时器都有一个按钮，用于停止它。在 Alexa 和适配器中停止计时器
 - 可以通过语音命令使用 Alexa 创建无限的计时器。
 - 当适配器启动时，将创建 4 个包含所有状态的文件夹。
-- 一旦通过 Alexa 的语音输入创建第 5 个或更多计时器，就会创建其他文件夹。
+- 通过 Alexa 的语音输入创建第 5 个或更多计时器后，将立即创建其他文件夹。
 - 它适用于德语输入
 
 ### 定时器添加（示例）
-- Alexa，定时器 5 分钟
-- Alexa，炸薯条 计时器 9 分钟
+- Alexa，计时器 5 分钟
+- Alexa，薯条计时器 9 分钟
 - Alexa，设置一个 1 小时 30 分钟的计时器
-- Alexa，设置 2 小时的定时器
-- Alexa，120 分钟定时器
+- Alexa，设置一个 2 小时的定时器
+- Alexa，120 分钟计时器
 - Alexa，定时器 9 分钟意大利面
 
-### 定时器删除 (示例)
+### 定时器删除（示例）
 - Alexa，删除所有计时器
 - Alexa，删除薯条计时器
 - Alexa，删除 5 分钟计时器
 
-### 如果您有任何改进或添加其他功能的建议，请随时与我们联系
+### 如果您对改进某些功能或添加其他功能有任何建议，请随时与我们联系
 
 ## Changelog
 
@@ -60,8 +62,11 @@ hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2025-04-28)
 
-### **WORK IN PROGRESS**
+- FEAT: #141 Activate sentry
+
+### 2.0.9 (2025-04-06)
 
 - FEAT: Add more config
 - CHORE: Update dependencies

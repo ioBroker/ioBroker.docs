@@ -14,6 +14,39 @@ Jung/Gira eNet Smarthome Adapter for [ioBroker smart home system](https://www.io
 Control Jung/Gira eNet smarthome devices using the Jung/Gira eNet Mobile Gate Wireless IP gateway (https://www.gira.com/en_GB/gebaeudetechnik/systeme/enet/enet-produkte/bediengeraete/enet-mobile-gate.html) or the Jung/Gira eNet Smart Home Server.
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.0.3 (2025-06-05)
+* switched configUI to JSON
+
+   #### Gateway version
+* "discover.js" and "gateway.js" replaced by files from Version 1.2.2\
+   and reformatted accroding to requirements from ESLINT\
+   **no logical code changed**\
+   Gateway function activated again,\
+   eNet Gateway version should now be running again (depending on outstanding tests)
+
+  #### Server version
+
+  **Breaking Change**
+* username/password are stored encrypted, **you need to input username/password <ins>once</ins> again**
+* fixed wrong type-errors/warnings,   **you should delete project and scenes folder**\
+  (will be rebuild during Adapter start)
+
+### 2.0.2 (2025-05-30)
+* (stoffel7) fixed error in io-package.json (materialize)
+* index.html removed
+* fixed JSDoc issues
+  
+* Gateway version actually not supported, please remain on Version 1.0.1
+
+### 2.0.1 (2025-05-26)
+* (stoffel7) adpter takeover and added some changes to requests from adapter creator
+* added PING function, ( config-> interval=0 no PING)
+
 ### 1.2.2 (2023-09-28)
 
 -   minor changes/fixes for js-controller 5
@@ -40,7 +73,7 @@ Control Jung/Gira eNet smarthome devices using the Jung/Gira eNet Mobile Gate Wi
 
 The MIT License (MIT)
 
-Copyright (c) 2023 stoffel7
+Copyright (c) 2025 stoffel7
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -27,6 +27,10 @@ Or ignore values with a high standard deviation.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
 ### 1.4.0 (2025-04-03)
 * (BenAhrdt) implement calculation type median
 

@@ -3,20 +3,28 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: dXHYdKotEnm8Agt87cZL2hBOssbujrK9A9/5O/Kn+Ck=
+hash: Z+Gz0BFzpoYSG/LsgdOZ7/JEJkNp4KJJA4Jciqk4Te4=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
-![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/bmw-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/bmw-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.bmw.svg)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.bmw?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.bmw?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/TA2k/iobroker.bmw?style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/TA2k/iobroker.bmw/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Bekannte SNYK-Sicherheitslücken](https://snyk.io/test/github/TA2k/ioBroker.bmw/badge.svg)
+![Beta](https://img.shields.io/npm/v/iobroker.bmw.svg?color=red&label=beta)
+![Stabil](https://iobroker.live/badges/bmw-stable.svg)
+![Installiert](https://iobroker.live/badges/bmw-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.bmw.png?downloads=true)
 
 <img src="admin/bmw.png" alt="Logo" width="200">
 
 # IoBroker.bmw
-**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.bmw/workflows/Test%20and%20Release/badge.svg)
-
+## Versionen
 # BMW Adapter für ioBroker
 Dieser Adapter integriert BMW-Fahrzeuge nahtlos in ioBroker und ermöglicht Ihnen die Überwachung und Steuerung Ihres BMW direkt über die ioBroker-Plattform. Er ruft Daten aller BMW-Modelle ab, die über die offizielle BMW-App mit Ihrem BMW-Konto verknüpft sind, und aktualisiert diese. Er stellt Fahrzeugeigenschaften bereit und unterstützt Fernsteuerungen.
 
@@ -38,7 +46,7 @@ Fahrzeugspezifische Daten sind unter `bmw.0.VIN.properties` abrufbar, wobei `VIN
 ## Remote-Befehle
 Die Fernsteuerung Ihres BMW ist unter `bmw.0.VIN.remotev2` verfügbar. Unterstützte Aktionen können je nach BMW Modell und ConnectedDrive-Funktionen das Ver- und Entriegeln von Türen, das Aktivieren der Klimaanlage oder das Auslösen anderer Fahrzeugfunktionen sein.
 
-*Hinweis: Die verfügbaren Felder und Remote-Funktionen variieren je nach Ihrem BMW-Modell und der ConnectedDrive-API.*
+*Hinweis: Die verfügbaren Felder und Remote-Funktionen variieren je nach BMW-Modell und ConnectedDrive-API.*
 
 ## Quelle
 Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](https://github.com/TA2k/ioBroker.bmw)
@@ -46,6 +54,14 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
 ## Changelog
 
 ### **WORK IN PROGRESS**
+
+- BREAKING: Dropped support for Node.js 18 (#88)
+- (hombach) BREAKING: Dropped support for js-controller 5 (#111)
+- (hombach) BREAKING: change to admin 7.4.10 as recommended by ioBroker (#111)
+- (hombach) encrypt and protect second user password - has to be reentered (#111)
+- (hombach) bump dependencies
+
+### 2.9.5 (2025-05-18)
 
 - (hombach) update axios
 - (hombach) fixing issues detected by repository checker (#88)
@@ -59,13 +75,13 @@ Dieser Adapter ist erhältlich unter: [https://github.com/TA2k/ioBroker.bmw](htt
 
 ### 2.9.3 (2025-01-29)
 
-- fix Remote Controls
+- fix remote controls
 - add Mitbenutzer Login for remote controls
 
 ### 2.9.0 (2024-11-28)
 
 - added new remotes as switch and updated values
-- added retry logice for remotes
+- added retry logic for remotes
 
 ### 2.8.4 (2024-11-21)
 

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.telegram-menu/README.md
-title: ioBroker.telegram 菜单
-hash: Kbd/Gkt7a67/k2OjMPQxUr3MSnStbWCIlzEZAIoa2r4=
+title: ioBroker.telegram菜单
+hash: 2ZoGnQ+X7mp0FZjZvnbaziNVHWjl3jAbMcjBrz7Gwu4=
 ---
 ![标识](../../../en/adapterref/iobroker.telegram-menu/admin/telegram-menu.png)
 
@@ -11,10 +11,12 @@ hash: Kbd/Gkt7a67/k2OjMPQxUr3MSnStbWCIlzEZAIoa2r4=
 ![下载](https://img.shields.io/npm/dm/iobroker.telegram-menu.svg)
 ![安装数量](https://iobroker.live/badges/telegram-menu-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/telegram-menu-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.telegram-menu.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.telegram-menu.png?downloads=true)
 
 # IoBroker.telegram 菜单
-![测试与发布](https://github.com/MiRo1310/ioBroker.telegram-menu/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/MiRo1310/ioBroker.telegram-menu/workflows/Test%20and%20Release/badge.svg)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关禁用错误报告的更多详细信息和说明，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！Sentry 报告的使用从 js-controller 3.0 开始。
 
 ## IoBroker 电报菜单适配器
 轻松创建电报菜单
@@ -23,7 +25,7 @@ hash: Kbd/Gkt7a67/k2OjMPQxUr3MSnStbWCIlzEZAIoa2r4=
 
 **如果您喜欢它，请考虑捐赠：**
 
-[![贝宝]（https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ## 文档
 [🇺🇸 文档](./docs/en/README.md)
@@ -36,8 +38,59 @@ hash: Kbd/Gkt7a67/k2OjMPQxUr3MSnStbWCIlzEZAIoa2r4=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+
+- FIX: #338 Exchange value does not work in newline
+
+### 2.4.3 (2025-06-05)
+
+- FIX: #332 Copy dropdown
+- FIX: SetDynamicValue 
+- FIX: Change value in getStatus
+
+### 2.4.2 (2025-05-26)
+
+- FIX: Error returnText is empty
+
+### 2.4.1 (2025-05-26)
+
+- Fix some errors and update tests
+
+### 2.4.0 (2025-05-24)
+
+- FEAT: Extension for get by function 
+- FIX: Errors reported by sentry
+
+### 2.3.1 (2025-05-20)
+
+
+- FIX: #309 SetState only sets false
+- FIX: #311 Delete does not navigate
+
+### 2.3.0 (2025-05-12)
+
+- FIX: #303 GetState output in incorrect order
+- FIX: #296 Frontend fixes
+- FIX: #295 Delete button not working
+- FIX: #291 Menu button not working
+- FEAT: Nodejs >= 20.0.0
+- FEAT: Add sentry
+- FEAT: Add mocha tests
+
+### 2.2.4 (2025-04-13)
+
+- FIX: #279 Backslash is in the message when using newline
+
+### 2.2.2 (2025-03-20)
+
+- FIX: Style and update dependencies
+
+### 2.2.1 (2025-01-12)
+
+- FIX: Infinite loop on open events
+- FIX: #248 Error converting time
+
+### 2.2.0 (2025-01-02)
 
 - FEAT: #237 Navigate by nav-button-click to action
 - FIX: Cannot get value false in return text

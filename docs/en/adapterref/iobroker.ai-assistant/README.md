@@ -13,15 +13,19 @@
 
 ## Overview
 
-The ioBroker AI Assistant Adapter runs a smart assistant in your ioBroker system. The assistant can be used to interact with your ioBroker system, set time-based instructions, trigger-based instructions, and call custom functions. The assistant can be configured with different language models from various providers (e.g., OpenAI, Anthropic, Perplexity, OpenRouter) or custom/self-hosted models. The assistant can be used to automate tasks, control your smart home, or provide information.
+The ioBroker AI Assistant Adapter runs a smart assistant in your ioBroker system.
+The assistant can be used to interact with your ioBroker system, set time-based instructions, trigger-based instructions, and call custom functions.
+The assistant can be configured with different language models from various providers (e.g., OpenAI, Anthropic, Perplexity, OpenRouter) or custom/self-hosted models.
+The assistant can be used to automate tasks, control your smart home, or provide information.
 
 ## Features
 
 - Personalize the name and personality of your assistant
 - List, Read and Write ioBroker states
-- Set timeouts and cronjobs to run time based instructions
+- Set timeouts and cronjobs to run time-based instructions
 - Set triggers on ioBroker states with conditions that run instructions when the conditions are met
 - Define custom functions with your own data and logic
+- Use the admin tab to chat with your personal assistant
 
 ## Supported Providers
 
@@ -37,11 +41,11 @@ The ioBroker AI Assistant Adapter runs a smart assistant in your ioBroker system
 ## Quick Start
 
 1. Install the adapter.
-2. Setup a provider (e.g., OpenAI, Anthropic, Perplexity, OpenRouter) and get an API Token.
+2. Set up a provider (e.g., OpenAI, Anthropic, Perplexity, OpenRouter) and get an API Token.
 3. Configure the adapter with the API Token.
 4. Select the model you want to use for the assistant.
 5. Add some ioBroker states under the `Objects` tab that will be available to the assistant.
-6. Start communicating with your assistant by sending text requests to the assistant's `text_request` state and receive responses from the `text_response` state.
+6. Start communicating with your assistant by sending text requests to the assistant's `text_request` state and receive responses from the `text_response` state or use the custom admin tab labeled "Assistant".
 
 ---
 
@@ -176,8 +180,8 @@ The assistant can list, read and write multiple ioBroker states at once. You can
 #### Time-based Instructions
 
 The assistant can set timeouts for relative time instructions and cronjobs for specific times. Cronjobs will be listed in the assistant objects tree unter `Cronjobs`.
-Timeouts will only be temporary and will be removed after the the timeout is executed or the adapter is restarted.
-When a timeout or cronjob is triggered the assistant will be woken up and the instruction will be executed.
+Timeouts will only be temporary and will be removed after the timeout is executed or the adapter is restarted.
+When a timeout or cronjob is triggered, the assistant will be woken up and the instruction will be executed.
 
 #### Trigger-based Instructions
 
@@ -225,6 +229,11 @@ Set the log level to `debug` in the ioBroker admin interface for detailed logs.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.4 (2025-06-05)
+* (@ToGe3688) Added tab to interact with the assitant in the admin adapter
+* (@ToGe3688) Added a custom timeout parameter
+* (@GermanBluefox) Corrected using of the states with the multi-language names
+
 ### 0.1.3 (2025-29-01)
 * (@ToGe3688) Added support for Deepseek as api provider
 * (@ToGe3688) Better display of providers in model selection for admin config
@@ -261,7 +270,7 @@ Set the log level to `debug` in the ioBroker admin interface for detailed logs.
 
 The MIT License (MIT)
 
-Copyright (c) 2025 ToGe3688 <toge3688@gmail.com>
+Copyright (c) 2024-2025 ToGe3688 <toge3688@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

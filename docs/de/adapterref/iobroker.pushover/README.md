@@ -11,7 +11,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pushover.svg
 
 1. Erstelle ein Konto auf [pushover.net](https://pushover.net/)
 2. Erstelle eine neue Applikation
-3. Konfiguriere das Applikations-Token und Benutzer-Token in Deiner Pushover-Instanz
+3. Konfiguriere das Applikation-Token und Benutzer-Token in Deiner Pushover-Instanz
 
 ![Pushover configuration](./img/pushover-applications.png)
 
@@ -90,6 +90,10 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.1.1 (2025-05-19)
+* (robseh) Added a field "tags" to hand over a tag to pushover-service
+* (@GermanBluefox) Updated packages
+
 ### 4.1.0 (2024-08-17)
 * (isi07) added HTML/monospace options to blockly
 * (isi07) fixed issue that blockly block is invalid when different priority other than normal is selected
@@ -107,14 +111,11 @@ sendTo('pushover', 'glances', {
 ### 3.0.5 (2023-10-24)
 * (bluefox) Updated packages
 
-### 3.0.4 (2023-08-08)
-* (MrStefanH) Added new ttl parameter to blockly
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
-title: ioBroker.tvProgramm
-hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
+title: ioBroker.tv-Programm
+hash: CGeWMiuk9CXldmTdWi1G2dQmGb8zqr43jwW2KGXzHqk=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -16,17 +16,17 @@ hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
 # IoBroker.tv-Programm
 **Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.tvprogram/workflows/Test%20and%20Release/badge.svg)
 
-## `tvprogram`-Adapter für ioBroker
+## `tvprogram` Adapter für ioBroker
 Dieser Adapter fragt in regelmäßigen Abständen Informationen zum Fernsehprogramm ab.
 Die Daten können in verschiedenen Widgets angezeigt werden.
 
-Zur Einrichtung muss der Adapter bereits die notwendigen Daten abgerufen und befüllt haben.
+Zur Einrichtung muss der Adapter bereits auf die benötigten Daten zugegriffen und diese gefüllt haben.
 
-Aufgrund der Größe werden die Daten nicht in Datenpunkten, sondern in Dateien (Linux-Pfad: /opt/iobroker/data-files/tvprogram) und im Speicher des Adapters abgelegt.
+Aufgrund ihrer Größe werden die Daten nicht in Datenpunkten, sondern in Dateien (Linux-Pfad: /opt/iobroker/data-files/tvprogram) und im Speicher des Adapters gespeichert.
 
-In der Konfiguration muss das Widget dann nur noch mit einem beliebigen Datenpunkt des Adapters befüllt werden (z.B.cmd).
+In der Konfiguration muss das Widget lediglich mit einem beliebigen Datenpunkt des Adapters (z. B. cmd) gefüllt werden.
 
-Alle restlichen Datenpunkte sucht das Widget automatisch heraus.
+Das Widget sucht automatisch nach allen verbleibenden Datenpunkten.
 
 ## Installation
 Der Adapter kann über die stabile Version oder zum Testen über das Beta-/Neueste-Repository installiert werden.
@@ -42,16 +42,14 @@ Internet Explorer oder Microsoft Edge ohne Chromium (Version <79) werden nicht u
 Dieses Widget zeigt das aktuelle Fernsehprogramm auf einer Zeitleiste nach Fernsehsendern.
 
 Wenn der Text hinter den Kanallogos durchscheint, muss im Widget eine Hintergrundfarbe ausgewählt werden.
-
-Grundsätzlich ist es ein guter Ansatz, eine explizite Vordergrund- und Hintergrundfarbe für die Ansicht oder zumindest für das Widget zu wählen.
-
+Es empfiehlt sich grundsätzlich, eine eindeutige Vorder- und Hintergrundfarbe für die Ansicht oder zumindest für das Widget auszuwählen.
 Die Markerposition wird alle 15 Sekunden aktualisiert.
 
 Wenn nach der Installation etwas schief geht und das Widget nicht richtig angezeigt wird, versuchen Sie bitte den folgenden Befehl von der Shell aus:
 
 iobroker lädt alles hoch
 
-Die folgenden Attribute stehen zur Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
 
 | Attribut | Beispiel | Beschreibung |
 | ----------------------- | --------------------- | ----------------------------------------------------- |
@@ -83,8 +81,8 @@ So ändern Sie die Formatierung der Dialoge
 }
 ```
 
-Wenn Sie einige zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die TV-Programmdialoge festlegen.
-Möglicherweise müssen Sie eine höhere Zahl als 300 festlegen. Dies hängt von Einstellungen in anderen Dialogen ab, die die TV-Programmdialoge (Sendeinformationen und Kanalauswahl) überlappen oder verbergen.
+Wenn Sie zusätzliche Dialoge mit anderen Z-Index-Einstellungen verwenden, können Sie einen höheren Z-Index für die Fernsehprogrammdialoge festlegen.
+Möglicherweise müssen Sie einen höheren Wert als 300 festlegen. Dies hängt von Einstellungen in anderen Dialogen ab, die die Fernsehprogrammdialoge (Sendeinformationen und Kanalauswahl) überlappen oder verbergen.
 
 ```css
 .ui-dialog.w00001 {
@@ -123,28 +121,27 @@ So ändern Sie die Formatierung der wechselnden Hintergrundfarben der Sendungen
 #### Favoriten
 Dieses Widget zeigt eine Liste der ausgewählten Favoriten, sortiert nach Datum und Uhrzeit.
 
-Die folgenden Attribute stehen zur Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
 
 | Attribut | Beispiel | Beschreibung |
 | ---------------- | ---------------------- | ----------------------------------------------------- |
 | `oid` | `tvprogram.0.tv 1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram`-Adapters. |
 | `showweekday` | `yes` | Wochentag anzeigen |
-| `maxfavorites` | 10 | Max. anzuzeigende Favoriten |
+| `maxfavorites` | 10 | Maximal anzuzeigende Favoriten |
 | `highlightcolor` | `yellow` | Farbe für die Favoriten |
-| `Highlightcolor` | `Yellow` | Farbe für die Favoriten |
+| `highlightcolor` | `yellow` | Farbe für die Favoriten |
 
 #### Kontrolle
-Dieses Widget zeigt alle aktuellen Sendungen. Sie können auf das Kanallogo klicken, um den Kanal zu wechseln.
-Sie können auf die Sendung klicken, um detaillierte Informationen zur Sendung zu erhalten.
+Dieses Widget zeigt alle aktuellen Sendungen an. Klicken Sie auf das Kanallogo, um den Kanal zu wechseln. Klicken Sie auf die Sendung, um detaillierte Informationen dazu zu erhalten.
 
-Die folgenden Attribute stehen zur Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
 
 | Attribut | Beispiel | Beschreibung |
 | ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------- |
 | `oid` | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram`-Adapters. |
-| `time` | 20:15 | wenn Uhrzeit nur die Sendung zu dieser Uhrzeit für 120 Minuten gezeigt werden soll, dann wird der nächste Tag gezeigt |
-| `time` | 20:15/200 | wenn Uhrzeit mit Dauer angegeben wird, würde die Sendung zu dieser Uhrzeit 200 Minuten lang gezeigt werden |
-| `time` | 2021-02-15T20:15:00.000Z | Wenn der UTC-Datumsstring gültig ist, wird die Sendung zu dieser Zeit angezeigt. Zeitzonen beachten |
+| `time` | 20:15 | wenn Uhrzeit nur die Sendung zu dieser Uhrzeit 120 Minuten lang gezeigt werden soll, dann wird der nächste Tag gezeigt |
+| `time` | 20:15/200 | wenn Zeit mit Dauer angegeben wird, würde die Sendung zu dieser Zeit 200 Minuten lang gezeigt werden |
+| `time` | 2021-02-15T20:15:00.000Z | Bei gültigem UTC-Datum wird die Sendung zu diesem Zeitpunkt angezeigt. Zeitzonen beachten |
 | `heightRow` | 35 | Höhe für jede angezeigte Zeile |
 | `showpictures` | x | Bilder anzeigen, falls verfügbar |
 | `broadcastfontpercent` | 75 | Zeichengröße in Prozent für die Sendungen |
@@ -168,15 +165,12 @@ So ändern Sie die Formatierung der wechselnden Hintergrundfarben der Sendungen
 ```
 
 #### Suchen
-Mit diesem Widget können Sie nach Sendungen mit Titel, Beschreibung, Startdatum und Sendungstyp suchen.
+Mit diesem Widget können Sie nach Sendungen anhand von Titel, Beschreibung, Startdatum und Sendungstyp suchen.
+Das Eingabefeld „Von“ ist mit dem aktuellen Datum vorbelegt. Bleibt dieses Feld unverändert, beginnt die Suche mit der aktuellen Uhrzeit.
+Ändert man dieses Feld in ein zukünftiges oder vergangenes Datum, beginnt die Suche um 00:00 Uhr dieses Datums.
+Eines oder beide der Eingabefelder „Suchtext“ und „Kategorie“ müssen ausgefüllt bzw. ausgewählt sein.
 
-Das Eingabefeld „Von“ ist mit dem aktuellen Datum vorbefüllt. Wenn dieses Feld unverändert bleibt, beginnt die Suche mit der aktuellen Uhrzeit.
-
-Wenn Sie dieses Feld auf ein zukünftiges oder vergangenes Datum ändern, beginnt die Suche um 00:00 dieses Datums.
-
-Eines oder beide der Eingabefelder Suchtext und Kategorie müssen ausgefüllt/ausgewählt sein.
-
-Die folgenden Attribute stehen zur Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
+Die folgenden Attribute stehen für die Konfiguration in vis zur Verfügung. Die Mindestkonfiguration besteht darin, den Datenpunkt auf den Befehlsdatenpunkt festzulegen.
 
 | Attribut | Beispiel | Beschreibung |
 | ---------------------- | --------------------- | ----------------------------------------------------- |
@@ -204,7 +198,7 @@ So ändern Sie die Formatierung der wechselnden Hintergrundfarben der Sendungen
 ```
 
 ### Bereitgestellte Datenpunkte
-Für jedes angelegte Fernsehgerät gibt es den folgenden Datenpunktsatz
+Für jeden erstellten Fernseher ist der folgende Satz von Datenpunkten vorhanden
 
 #### `channelfilter`
 Dieser Datenpunkt enthält die im Widget angezeigten Kanäle als JSON-Array
@@ -216,12 +210,12 @@ Dieser Datenpunkt wird für die interne Kommunikation zwischen den Widgets und d
 Dieser Datenpunkt enthält die ausgewählten Favoriten als JSON-Array
 
 #### `record`
-Dieser Datenpunkt wird gesetzt, wenn der Benutzer in der Detailansicht einer Sendung auf die Schaltfläche „Aufzeichnen“ klickt.
+Dieser Datenpunkt wird gesetzt, wenn der Nutzer in der Detailansicht einer Sendung auf die Schaltfläche „Aufzeichnen“ klickt.
 Die bereitgestellten Daten sind
 
 | Feld | Beispiel | Beschreibung |
 | ------------- | ------------------------- | ---------------------- |
-| `startTime` | 2021-01-01T00:10:00+01:00 | Startzeit |
+| `startTime` | 01.01.2021, 00:10:00 Uhr +01:00 | Startzeit |
 | `title` | Titel der Sendung | Titel der Sendung |
 | `channel` | 7 | Eindeutige Kanalnummer |
 | `channelid` | `zdf` | Eindeutige Kanal-ID |
@@ -230,13 +224,13 @@ Die bereitgestellten Daten sind
 | `eventid` | 12345678 | Eindeutige Broadcast-ID |
 
 #### `selectchannel`
-Dieser Datenpunkt dient der Erkennung eines Kanalwechselbefehls bei Klick auf das Kanallogo oder das Umschaltsymbol in der Detailansicht.
+Dieser Datenpunkt dient zur Erkennung eines Kanalwechselbefehls durch Klick auf das Kanallogo bzw. das Umschaltsymbol in der Detailansicht.
 
 #### `show`
 Dieser Datenpunkt enthält den Status, ob nur Favoriten oder alles im Widget TV-Programm angezeigt werden soll
 
 #### `config`
-dieser Datenpunkt ist veraltet und wird in den nächsten Versionen entfernt
+Dieser Datenpunkt ist veraltet und wird in den nächsten Versionen entfernt
 
 #### `optchnlogopath`
 Die Daten verweisen auf einen Ordner, in dem alternative Senderlogos gespeichert werden können. Der Pfad muss über den Browser erreichbar sein.
@@ -255,12 +249,12 @@ ist dann erreichbar über
 ttp://localhost:8082/vis.0/icons/tvlogos/
 ``
 
-Alle Symbole sollten über den Iobroker-Dateidialog hochgeladen werden.
+Alle Symbole sollten über den iobroker-Dateidialog hochgeladen werden.
 
 Ein Beispiel finden Sie im Kapitel [Beispiel für alternative Logos](#alternative-channel-logos-by-tino-0)
 
 ### Bereitgestellte `Sendto`-Befehle
-Alle Daten können über Sendto-Befehle vom Adapter abgefragt werden. Dies kann zur Entwicklung individueller Funktionalitäten genutzt werden
+Alle Daten können über SendTo-Befehle vom Adapter abgefragt werden. Dies kann zur Entwicklung individueller Funktionalitäten genutzt werden.
 
 #### `getServerData`
 Fordern Sie Basisdaten vom Adapter an.
@@ -301,10 +295,10 @@ sendTo("tvprogram.0", "getServerTVProgram", "2021-02-10", (data) =>
 ```
 
 #### `getServerBroadcast`
-Detaildaten einer Sendung anfordern.
+Fordern Sie die Detaildaten einer Sendung an.
 
 ##### Gültige Parameter sind
-ein Objekt, das ein Anzeigedatum im folgenden Format enthält: jjjj-mm-tt die Ereignis-ID der Übertragung
+ein Objekt, das ein Anzeigedatum im folgenden Format enthält: JJJJ-MM-TT, die Ereignis-ID der Übertragung
 
 **Rücksendungen:**
 
@@ -322,10 +316,10 @@ sendTo(
 ```
 
 #### `getFavoritesData`
-Fordern Sie von jetzt an alle Lieblingssendungen an, bis das gespeicherte Datenvolumen aufgebraucht ist.
+Fordern Sie alle Lieblingssendungen von jetzt an bis zum Ende des gespeicherten Datenvolumens an.
 
 ##### Gültige Parameter sind
-`Array` Favoriten
+`Array` von Favoriten
 
 **Rücksendungen:**
 
@@ -358,7 +352,7 @@ sendTo("tvprogram.0", "getServerBroadcastNow", [1, 6, 22, 7], (data) =>
 ```
 
 #### `getServerBroadcastDate`
-Fordert alle Übertragungen an, die zu einem bestimmten Zeitpunkt ausgeführt werden
+Fordert alle Sendungen an, die zu einem bestimmten Zeitpunkt laufen
 
 ##### Gültige Parameter sind
 Array von Kanal-IDs Ihrer Lieblingskanäle datetime
@@ -379,7 +373,7 @@ sendTo(
 ```
 
 #### `getServerBroadcastFind`
-Suche nach Sendungen in einem Zeitbereich und optional mit Kategorien
+Suche nach Sendungen in einem bestimmten Zeitraum und optional mit Kategorien
 
 ##### Gültige Parameter sind
 `channelfilter`: Array von Kanal-IDs Ihrer Lieblingskanäle `categoryfilter`: Optionales Array von Kategorie-IDs `datetimefrom`: Datum/Uhrzeit von `datetimetill`: Datum/Uhrzeit bis `textfilter`: Optionaler Titel oder Teil eines zu suchenden Titels `maxresults`: Optional die maximale Anzahl der Ergebnisse. Der Standardwert ist 10
@@ -540,19 +534,19 @@ Forumlink mit Beispiel-Screenshots <https://forum.iobroker.net/topic/40168/test-
 
 **Kanallogos herunterladen:**
 
-Sie müssen sich registrieren, um die Logos in der Größe 400x160 herunterzuladen
+Sie müssen sich registrieren, um die Logos mit der folgenden Größe 400x160 herunterzuladen
 
 <https://vuplus-support.org/wbb4/index.php?thread/64098-mirror-glass-3d-huminator-design-by-stefanbenno6/>
 
 **Logos umbenennen:**
 
-Starten Sie die folgenden Befehle im heruntergeladenen und entpackten Ordner
+Führen Sie die folgenden Befehle im heruntergeladenen und entpackten Ordner aus
 
 <details><summary>Details</summary><pre><code> copy 1_0_19_283D_3FB_1_C00000_0_0_0.png ard.png copy 1_0_19_2B66_3F3_1_C00000_0_0_0.png zdf.png copy 1_0_19_EF10_421_1_C00000_0_0_0.png rtl.png copy 1_0_19_EF15_421_1_C00000_0_0_0.png rtl2.png copy 1_0_19_2E9B_411_1_C00000_0_0_0.png srtl.png copy 1_0_19_2EAF_411_1_C00000_0_0_0.png nitro.png copy 1_0_19_EF74_3F9_1_C00000_0_0_0.png sat1.png copy 1_0_19_EF75_3F9_1_C00000_0_0_0.png pro7.png copy 1_0_19_EF78_3F9_1_C00000_0_0_0.png pro7maxx.png copy 1_0_19_EF76_3F9_1_C00000_0_0_0.png kaka.png copy 1_0_19_EF77_3F9_1_C00000_0_0_0.png sixx.png copy 1_0_19_EF11_421_1_C00000_0_0_0.png vox.png copy 1_0_19_1519_455_1_C00000_0_0_0.png tele5.png copy 1_0_19_2B7A_3F3_1_C00000_0_0_0.png zdfneo.png copy 1_0_19_2B98_3F2_1_C00000_0_0_0.png kika.png copy 1_0_19_2B8E_3F2_1_C00000_0_0_0.png 3sat.png copy 1_0_19_285B_401_1_C00000_0_0_0.png phoenix.png copy 1_0_19_157C_41F_1_C00000_0_0_0.png disney.png copy 1_0_19_2871_425_1_C00000_0_0_0.png mdr.png copy 1_0_19_286F_425_1_C00000_0_0_0.png rbb.png copy 1_0_19_283F_3FB_1_C00000_0_0_0.png sw3.png copy 1_0_19_1581_41F_1_C00000_0_0_0.png sport1de.png copy 1_0_19_283E_3FB_1_C00000_0_0_0.png arte.png copy 1_0_19_526C_41D_1_C00000_0_0_0.png anixehd.png copy 1_0_19_151A_455_1_C00000_0_0_0.png dmax.png copy 1_0_19_2855_401_1_C00000_0_0_0.png bayern3.png copy 1_0_19_2873_425_1_C00000_0_0_0.png hessen3.png copy 1_0_1_6EE1_4B1_1_C00000_0_0_0.png radiobremen.png copy 1_0_19_2858_401_1_C00000_0_0_0.png nord3.png copy 1_0_19_2BA2_3F2_1_C00000_0_0_0.png info.png copy 1_0_19_132F_3EF_1_C00000_0_0_0.png orf1.png copy 1_0_19_1330_3EF_1_C00000_0_0_0.png orf2.png copy 1_0_19_2777_409_1_C00000_0_0_0.png mtv.png copy 1_0_19_288A_40F_1_C00000_0_0_0.png sw3.sr.png copy 1_0_1_6F76_457_1_C00000_0_0_0.png west3.png copy 1_0_19_2887_40F_1_C00000_0_0_0.png tagesschau24.png COPY 1_0_16_2EB9_411_1_C00000_0_0_0.png ntv.png copy 1_0_19_2888_40F_1_C00000_0_0_0.png one.png copy 1_0_19_2889_40F_1_C00000_0_0_0.png alpha.png copy 1_0_1_445F_453_1_C00000_0_0_0.png welt.png copy 1_0_1_772D_416_1_C00000_0_0_0.png eurosp.png copy 1_0_1_76C8_40E_1_C00000_0_0_0.png comedycentral.png copy 1_0_1_2F1D_441_1_C00000_0_0_0.png rtlnitro.png</code></pre></details>
 
-**Neuen Ordner im vis erstellen:**
+**Neuen Ordner im vis: erstellen**
 
-Öffnen Sie es im Dateimanager-Dialogfeld.
+Öffnen Sie es im Dialogfeld „Dateimanager“.
 
 Prüfen Sie, ob der folgende Pfad existiert oder erstellen Sie den Pfad im Dialog.
 
@@ -569,22 +563,14 @@ Ersetzen Sie 192.1.2.3 durch die IP-Adresse Ihrer iobroker-Installation.
 http://192.1.2.3:8082/vis.0/icons/tvlogos/
 ```
 
-**Passen Sie die Symbolbreite mit einem CSS-Befehl an:**
+**Symbolbreite anpassen:**
 
-Da die Breite der Icons auf 100px begrenzt werden soll, muss im CSS-Tab in Vis folgender Befehl eingefügt werden.
+Jedes Widget verfügt über das Attribut „Breite Kanallogo px“. Bitte geben Sie eine passende Breite für das Icon-Set ein.
 
-```css
-.channel {
-    width: 100px !important;
-}
-```
-
-### Funktionen sind nicht im Adapter implementiert, werden aber als Skripte für den JavaScript-Adapter bereitgestellt
+### Funktionen, die nicht im Adapter implementiert sind, sondern als Skripte für den JavaScript-Adapter bereitgestellt werden
 #### `Recordlist`
 Liste aller aktuellen Aufnahmezeiten, die vom Aufnahmedatenpunkt erfasst und minütlich aktualisiert werden.
-
 Sie müssen den Datenpunktnamen Ihrer RecorderList und den Namen des zu beobachtenden Datenpunkts konfigurieren.
-
 Sobald das Skript die Aufnahme zur Liste hinzugefügt hat, wird der Aufnahmedatenpunkt geleert.
 
 ```javascript
@@ -625,9 +611,8 @@ var timer = setInterval(function () {
 }, 1000 * 60);
 ```
 
-Zur Visualisierung dieser Daten kann das Widget JSON Template vom Adapter myTime mit folgender Vorlage helfen.
-
-Gebt als json_oid den Datenpunkt mit dem `recordlist` ein und als json_template folgenden Code:
+Zur Visualisierung dieser Daten kann das Widget-JSON-Template des Adapters myTime mit der folgenden Vorlage hilfreich sein.
+Geben Sie als json_oid den Datenpunkt mit `recordlist` und als json_template den folgenden Code ein:
 
 ```javascript
 <% data.sort((a,b)=>new Date(a.startTime) - new Date(b.startTime)) %>
@@ -650,7 +635,7 @@ Gebt als json_oid den Datenpunkt mit dem `recordlist` ein und als json_template 
 ```
 
 #### Aktuelle Lieblingssendung
-Das folgende Skript ermittelt einmal pro Minute, ob ein Lieblingsprogramm gerade ausgeführt wird.
+Das folgende Skript ermittelt einmal pro Minute, ob gerade ein Lieblingsprogramm läuft.
 
 ```javascript
 // Favorites datapoint of your tv
@@ -673,8 +658,8 @@ var timer = setInterval(function () {
 ```
 
 #### Einfärbung von Sendungen, die sich im Datenpunkt `recordlist` im Widget tvprogram befinden
-die folgende Vorlage ist für die Widget-JSON-Vorlage vom Adapter RSS-Feed.
-Diese Vorlage erzeugt keine sichtbare Ausgabe, sondern generiert CSS-Anweisungen, die die aktuellen Programme einfärben.
+Die folgende Vorlage ist für die Widget-JSON-Vorlage des RSS-Feed-Adapters.
+Diese Vorlage erzeugt keine sichtbare Ausgabe, sondern CSS-Anweisungen, die die aktuellen Programme einfärben.
 Sie färbt auch die Aufnahmeschaltfläche in der Detailansicht ein.
 
 Um diese Vorlage zu verwenden, wählen Sie bitte den Datensatzlisten-Datenpunkt in den Widget-Eigenschaften json_oid aus und fügen Sie die folgende Vorlage in json_template ein
@@ -703,9 +688,9 @@ Um diese Vorlage zu verwenden, wählen Sie bitte den Datensatzlisten-Datenpunkt 
 
 ### Funktionen
 - TV-Daten auf der Zeitleiste nach TV-Kanal anzeigen
-- Details zu einer Fernsehsendung anzeigen, sofern verfügbar
+- Details zu einer Fernsehsendung anzeigen, falls verfügbar
 - Anzeige einer Markierung der aktuellen Position mit automatischem Scrollen
-- Angezeigte TV-Sender konfigurieren und anordnen, Neusortierung per Drag & Drop möglich.
+- Angezeigte TV-Sender konfigurieren und sortieren, Neusortierung per Drag & Drop möglich.
 - Schaltbefehl über Datenpunkt nach Klick auf Logo
 - Vergrößern/Verkleinern
 - Navigation nächster und vorheriger Tag
@@ -725,16 +710,16 @@ Um diese Vorlage zu verwenden, wählen Sie bitte den Datensatzlisten-Datenpunkt 
 Widget TV-Programm:
 
 - vielleicht ein Highlight-Sendungs-Widget
-- Datenadapter für andere Quellen (Internet, Hardware wie Enigma, VU-Box). Überlegungen hierzu sind derzeit aufgrund der geringen Nachfrage ausgesetzt
+- Datenadapter für andere Quellen (Internet, Hardware wie Enigma, VU-Box). Überlegungen hierzu ruhen derzeit aufgrund der geringen Nachfrage
 - ~~Dokumentation zur Konfiguration der Widgets verbessern~~
-- ~~Bilder übertragen, sofern verfügbar, in der Hauptansicht des Zeit-Widgets~~
-- ~~Suche im gesamten Text, um auch Regisseure und Schauspieler zu finden~~
+- ~~Bilder senden, sofern verfügbar, in der Hauptansicht des Zeit-Widgets~~
+- ~~durchsuche den gesamten Text, um auch Regisseure und Schauspieler zu finden~~
 - ~~Tooltips für die Schaltflächen im Zeit-Widget~~
 - ~~Ideen für weitere Widgets basierend auf dem bestehenden TV-Programmskript~~
 - ~~Problem: Endloses Scrollen in Firefox~~
 - ~~zu besprechen: Datenpunkt, mit allen Aufnahmedaten, sollte an einem Videorecorder-Adapter oder in einem separaten Skript implementiert werden~~
-- ~~Responsive Design für Detailansicht->kein Responsive Design für jQuery-Dialog möglich, andere Lösung mit festen Layouts für Höhe>Breite gefunden~~
-- ~~Problem: kleiner Pixelfehler, wenn der Scrollbereich auf der linken Seite vollständig ist~~
+- ~~Responsives Design für Detailansicht->Kein responsives Design für jQuery-Dialog möglich, andere Lösung mit festen Layouts für Höhe>Breite gefunden~~
+- ~~Problem: kleiner Pixelfehler, wenn der Bildlaufbereich auf der linken Seite vollständig ist~~
 
 ## Changelog
 
@@ -742,6 +727,23 @@ Widget TV-Programm:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- reduce requests to data provider
+- revert to node 18
+
+### 4.0.0 (2025-01-21)
+
+- Breaking Change. fix marker position with flexible width of channel logos. In each widget the property "width channel logo px" have to be set to approbiate width.
+
+### 3.0.5 (2025-01-20)
+
+- upgrade jscontroller dependency
+
+### 3.0.4 (2025-01-20)
+
+- remove check for certifates in axios due to expired certificate of data provider
+
 ### 3.0.3 (2025-01-03)
 
 - fix datapoint creation and overwriting states

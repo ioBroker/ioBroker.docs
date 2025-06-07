@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.squeezeboxrpc/README.md
 title: Адаптер ioBroker Logitech/Lyrion Squeezebox через протокол JSON/RPC
-hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
+hash: 1FXGg6yCRjI6wLTdl6pM7NZQJUVnpljvXchtFitYDsc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.squeezeboxrpc/admin/squeezeboxrpc.png)
 
@@ -336,7 +336,7 @@ hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
 ### Игровая панель
 ![Бар для игр](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playtime.png)
 
-Полоса времени воспроизведения визуально отображает ход воспроизведения песни, которая в данный момент проигрывается,\ при условии, что сервер предоставляет общее время воспроизведения (продолжительность).\ Обычно это не относится к онлайн-трансляциям. Ширина полосы\ соответствует 100% времени воспроизведения песни. Нажав на точку на полосе, вы можете перейти к нужному моменту в песне.\ Для подготовки необходимо подключить кнопку к виджету плеера.
+Полоса времени воспроизведения визуально отображает ход воспроизведения песни, которая в данный момент воспроизводится,\ при условии, что сервер предоставляет общее время воспроизведения (продолжительность).\ Обычно это не относится к онлайн-трансляциям. Ширина полосы\ соответствует 100% времени воспроизведения песни. Нажав на точку на полосе, вы можете перейти к нужному моменту в песне.\ Для подготовки необходимо подключить кнопку к виджету плеера.
 
 #### Атрибуты для панели времени воспроизведения
 | Группа | Атрибут | Описание |
@@ -379,22 +379,22 @@ hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
 | Разделитель тысяч | Расширенные настройки | Для больших чисел разделитель вставляется через каждые 3 знака. |
 
 ### Плейлист
-![Число](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playlist.png)
+![Плейлист](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/playlist.png)
 
 Отобразить плейлист с сервера. Если нажать на запись, плейлист загрузится и запустится проигрыватель.
 Виджет не обновляется автоматически, нужно нажать кнопку обновления.
 
 #### Атрибуты для плейлиста
 | Группа | Атрибут | Описание |
-| --------------------- | ----------------- | ----------------------------------------------------------------- |
+| ------------- | ------------- | ------------------------------- |
 | Виджет плеера | Общая группа | Выбор виджета плеера. |
 
 Сам виджет имеет очень мало форматирования.
 Для самостоятельного форматирования есть несколько предопределенных css-классов:
 
 | CSS-класс | описание |
-| ---------- | ----------------------------------------- |
-| plcontainer| Имя класса, назначенное ul-тегу |
+| ----------- | ----------------------------------------- |
+| plcontainer | Имя класса, назначенное ul-тегу |
 | plentry | Имя класса, назначенное li-tag |
 | plrefresh | Имя класса, назначенное тегу refresh-li |
 | pltext | Имя класса, назначенное имени плейлиста |
@@ -406,21 +406,21 @@ hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
 ```css
 .plentry {
     border: 1px #505050 groove;
-    margin:1px 0px;
-    padding:5px;
-    background-color:#202020;
+    margin: 1px 0px;
+    padding: 5px;
+    background-color: #202020;
 }
 .plrefresh {
-    padding:5px;
+    padding: 5px;
 }
 .plentry:hover {
-    background-color:#404040;
+    background-color: #404040;
 }
 .plrefresh svg {
-    color:#cccccc;
+    color: #cccccc;
 }
 .plrefresh svg:hover {
-    color:#ffffff;
+    color: #ffffff;
     filter: drop-shadow(0px 0px 1px #87ceeb);
 }
 ```
@@ -430,24 +430,81 @@ hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
 ```css
 .plentry {
     border: 1px #b0b0b0 groove;
-    margin:1px 0px;
-    padding:5px;
-    background-color:#c0c0c0;
+    margin: 1px 0px;
+    padding: 5px;
+    background-color: #c0c0c0;
 }
 .plrefresh {
-    padding:5px;
+    padding: 5px;
 }
 .plentry:hover {
-    background-color:#e0e0e0;
+    background-color: #e0e0e0;
 }
 .plrefresh svg {
-    color:#444444;
+    color: #444444;
 }
 .plrefresh svg:hover {
-    color:#000000;
+    color: #000000;
     filter: drop-shadow(0px 0px 1px #87ceeb);
 }
 ```
+
+### Браузер
+![Браузер](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/browser.png)
+
+Отображает музыку, альбомы, исполнителей, радиостанции, приложения и т. д. с сервера.
+Щелкните элемент, чтобы перейти глубже в иерархию. Доступные команды отображаются с дополнительными кнопками.
+Вы можете подняться на один уровень, щелкнув путь, отображаемый вверху.
+
+#### Атрибуты для браузера
+| Группа | Атрибут | Описание |
+| --------------------- | ------------- | ------------------------------------------------------------------- |
+| Виджет плеера | Общая группа | Выбор виджета плеера. |
+| отладка | Общая группа | Включить дополнительную отладку (справочник функций) в консоли браузера. |
+| debugwithfetchresults | Общая группа | Включить дополнительную отладку (ссылку на объект) в консоли браузера. |
+
+Сам виджет имеет очень много форматирования.
+Для самостоятельного форматирования есть несколько предопределенных css-классов:
+
+| CSS-класс | описание |
+| ------------------------------------------ | ------------------------------------- |
+| sqbrowser-list-container | контейнер для виджета |
+| sqbrowser-parent-directory | элемент для отображения родительского каталога |
+| sqbrowser-btn-svg | Класс для всех кнопок svg |
+| sqbrowser-btn-svg-menu | Класс для меню svg |
+| sqbrowser-scrollable-area | Класс для контейнера прокрутки |
+| sqbrowser-list-item | Класс для одного элемента |
+| sqbrowser-list-item-content | Класс для заголовка элемента |
+| sqbrowser-button-group | Класс для группы кнопок в элементе списка |
+| sqbrowser-btn-svg sqbrowser-btn-svg-action | Класс для кнопки действия |
+
+**Примечание об альфа-состоянии этого виджета:**
+
+- Внедрение LMS/Lyrion для просмотра веб-страниц — это ад.
+- Технической моделью для этого виджета является плагин темы «Material».
+
+на сервере LMS/Lyrion.
+
+- В настоящее время не все функции реализованы.
+- Все типы полей ввода пока недоступны.
+- Не все типы предметов могли быть реализованы.
+- Для анализа добавлен дополнительный расширенный вывод отладки (см. также атрибуты).
+- Вывод ссылки на функцию: Все имена функций выводятся в
+
+заказ в консоли браузера.
+
+- Вывод справочных данных: все запрошенные и возвращенные данные
+
+сервером выводится.
+
+Если тестировщики столкнутся с ошибками/проблемами или отсутствующими реализациями, пожалуйста, предоставьте как можно более подробное описание:
+
+- Откуда берутся данные в LMS/Lyrion?
+
+(уже встроенный сервис/дополнительно устанавливаемый плагин)
+
+- Какие шаги/щелчки были выполнены для создания проблемы
+- Что такое ссылки на функции и ссылки на данные?
 
 ## SendTo-Befehle
 ### CmdGeneral
@@ -459,11 +516,11 @@ hash: d2rhnJVg7WXYF2uQi4EjwYWJP7UGtasXYe9pHV+GgJY=
 
 ```js
 async function main() {
-  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
-    playerid: "",
-    cmdArray: ["playlists", "0", "999", "tags:us"],
-  });
-  console.log(JSON.stringify(data));
+    let data = await sendToAsync('squeezeboxrpc.0', 'cmdGeneral', {
+        playerid: '',
+        cmdArray: ['playlists', '0', '999', 'tags:us'],
+    });
+    console.log(JSON.stringify(data));
 }
 main();
 ```
@@ -474,11 +531,11 @@ main();
 
 ```js
 async function main() {
-  let data = await sendToAsync("squeezeboxrpc.0", "cmdGeneral", {
-    playerid: "",
-    cmdArray: ["favorites", "items", "0", "999", "want_url:1", "item_id:"],
-  });
-  console.log(JSON.stringify(data));
+    let data = await sendToAsync('squeezeboxrpc.0', 'cmdGeneral', {
+        playerid: '',
+        cmdArray: ['favorites', 'items', '0', '999', 'want_url:1', 'item_id:'],
+    });
+    console.log(JSON.stringify(data));
 }
 main();
 ```
@@ -522,7 +579,21 @@ main();
 -->
 ### **WORK IN PROGRESS**
 
+- revert to node 18
+
+### 1.6.2 (2025-05-05)
+
+- fix node version in github workflow
+
+### 1.6.1 (2025-05-05)
+
+- Fix eslint
+
+### 1.6.0 (2025-05-05)
+
 - upgrade dependency js-controller
+- new widget, but only alpha version for testing and improvement
+- fix issues of adapter checker
 
 ### 1.5.2 (2024-12-16)
 
@@ -862,4 +933,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2019-2024 oweitman
+Copyright (c) 2019-2025 oweitman

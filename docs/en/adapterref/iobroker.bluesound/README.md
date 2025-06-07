@@ -44,6 +44,21 @@ The following functions are implemented:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Uwe Nagel) Update testing to minimum node.js version 20
+- (Uwe Nagel) Bump eslint-config-prettier from 10.1.1 to 10.1.2
+- (Uwe Nagel) Bump sinon from 19.0.5 to 20.0.0
+- (Uwe Nagel) Bump @eslint/js from 9.23.0 to 9.25.1
+- (Uwe Nagel) Bump @types/node from 22.13.10 to 22.15.3
+- (Uwe Nagel) Bump eslint-plugin-prettier from 5.2.3 to 5.2.6
+- (Uwe Nagel) Bump @eslint/eslintrc from 3.3.0 to 3.3.1
+- (Uwe Nagel) Bump @types/chai from 5.2.0 to 5.2.1
+- (Uwe Nagel) Bump @eslint/js from 9.22.0 to 9.23.0
+- (Uwe Nagel) Bump @iobroker/testing from 5.0.3 to 5.0.4
+- (Uwe Nagel) Bump globals from 15.15.0 to 16.0.0
+
 ### 1.1.5 (2025-03-10)
 
 - (Uwe Nagel) Create version 1.1.5

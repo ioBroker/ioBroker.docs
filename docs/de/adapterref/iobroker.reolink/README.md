@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: RotdyiL8Uu3EFd4EQDhi/2GDpnEOHQo6tMqrv/ZOieY=
+hash: bCECbY+7o5yZYlBaXtv4wK0ptJJLg07amF9aEUMVku8=
 ---
 ![Logo](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
@@ -22,7 +22,7 @@ Adapter für die ioBroker-Plattform zum Abrufen von [Reolink-Kamera](https://reo
 
 Generell unterstützen alle neueren Reolink-Kameras API-Befehle. Sie unterscheiden sich lediglich in den unterstützten Befehlen.
 
-Eine Erinnerung zum Passwort. Versuchen Sie es mit oder ohne URI-Kodierung, wenn Sie nur ein Sonderzeichen haben. Verwenden Sie für die gleiche Sicherheit besser kein Sonderzeichen und einfach ein längeres Passwort.
+Eine Erinnerung zum Passwort. Versuchen Sie es mit oder ohne URI-Kodierung, wenn Sie nur ein Sonderzeichen haben. Verwenden Sie besser kein Sonderzeichen und einfach ein längeres Passwort für die gleiche Sicherheit. Überprüfen Sie unter http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity, ob Ihre Anmeldeinformationen funktionieren.
 
 Wenn Sie einen bestimmten API-Befehl einbinden möchten, lassen Sie es mich einfach wissen.
 
@@ -60,6 +60,15 @@ IR-Licht
 LED-Licht
 - E-Mail-Benachrichtigung
 
+### Push-Benachrichtigungseinstellungen
+Push-Benachrichtigungen an ein Telefon werden nur bereitgestellt, wenn die folgenden Bedingungen erfüllt sind:
+
+- Der Schalter für Push-Benachrichtigungen im Adapter ist EIN.
+- Bei NVRs sind sowohl der globale als auch der Kanalschalter eingeschaltet.
+- Die Push-Benachrichtigung in der Reolink-App dieses Telefons ist EIN.
+
+Die Push-Benachrichtigungen in der Reolink-App sind unabhängig von den Adaptereinstellungen. Sie sind auch unabhängig von den Einstellungen anderer mit derselben Kamera verbundener Smartphones. Reolink ermöglicht Ihnen so, Push-Benachrichtigungen unabhängig pro Smartphone zu deaktivieren. Das bedeutet, dass die Deaktivierung von Push-Benachrichtigungen bei iobroker den Umschaltknopf in der App nicht berührt.
+
 ### Beispielverwendung von „Bild abrufen“:
 ```
 sendTo("reolink.0",{action: "snap"}, function(result){
@@ -73,6 +82,19 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 {type:"image/png",base64:"iVBORw....askldfj"}
 ```
 
+für Telegram funktioniert das
+
+```
+sendTo("reolink.0",{action: "snap"}, function(result){
+    const buffer =Buffer.from(result.base64, "base64");
+    sendTo('telegram.0', {
+        text: buffer,
+        type: "photo",
+        caption: 'the image'
+    });
+});
+```
+
 ## Bekannte funktionierende Kameras (Firmware aus dem Jahr 2023)
 RLC 420 5MP
 - E1 Außenbereich
@@ -84,14 +106,16 @@ Duo 3 PoE
 
 ## Bekannte *NICHT* funktionierende Kameras
 E1 Pro
+- Argus 4 (möglicherweise funktionieren nicht alle Argus)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (oelison) update readme #141
+### 1.2.2 (2025-05-01)
+* (oelison) update readme #141 #155
+* (oelison) supress errors with axios timeout #154
 
 ### 1.2.1 (2025-02-09)
 * (oelison) set some errors to debug logs

@@ -29,6 +29,16 @@ Thank you very much for your work - It really helped me a lot.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.7 (2025-05-17)
+* (hacki11) Set `online` to false on adapter shutdown
+
+### 2.1.6 (2025-05-05)
+* (hacki11) Fix: `swingUpDown` was not writeable
+
+### 2.1.5 (2025-04-28)
+* (hacki11) Fix: Errorhandler used undefined aircon channel
+* (hacki11) Increased retry count to workaround hourly aircon resets
+
 ### 2.1.4 (2025-04-27)
 * (hacki11) Use sanitized ID to check if online state can be modified
 

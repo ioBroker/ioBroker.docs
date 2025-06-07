@@ -4,10 +4,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.javascript/javascript.md
 title: kein Titel
-hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
+hash: HzLmOKiKXfZj00tWYU8xM1qmDGSKsghUlH0q7WCVwkI=
 ---
 ## Inhalt
-- [Hinweis](#Hinweis)
+- [Hinweis](#note)
 - [Globale Funktionen](#global-functions)
 - [Beste Praxis](#best-practice)
 
@@ -62,7 +62,7 @@ hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
 - [formatDate](#formatdate)
 - [formatTimeDiff](#formattimediff)
 - [getDateObject](#getDateObject)
-– [Formatwert](#Formatwert)
+- [Formatwert](#Formatwert)
 - [adapterSubscribe](#adaptersubscribe)
 - [adapterUnsubscribe](#adapterunsubscribe)
 - [$ - Selektor](#---Selektor)
@@ -70,7 +70,7 @@ hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
 - [writeFile](#writefile)
 - [delFile](#delFile)
 - [Datei umbenennen](#Datei umbenennen)
-- [inDatei](#inDatei)
+- [in Datei](#in Datei)
 - [offFile](#offFile)
 - [onStop](#onstop)
 - [getHistory](#gethistory)
@@ -102,7 +102,7 @@ hash: GAJA8RS9IaFYK+wuVs1bjbRRKC6HtRWjGW6E6KDCY74=
 ## Globale Funktionen
 Sie können die globalen Skripte im Ordner `global` definieren.
 Alle globalen Skripte sind auf allen Instanzen verfügbar. Ist ein globales Skript deaktiviert, wird es nicht verwendet.
-Globale Skripte werden dem normalen Skript einfach vorangestellt und kompiliert. Sie können daher keine Daten zwischen Skripten über globale Skripte austauschen. Verwenden Sie hierfür Status.
+Globale Skripte werden dem normalen Skript einfach vorangestellt und kompiliert. Daher ist der Datenaustausch zwischen Skripten über globale Skripte nicht möglich. Verwenden Sie hierfür Status.
 
 Um globale Funktionen in TypeScript zu verwenden, müssen Sie diese zunächst `declare`, damit der Compiler über die globalen Funktionen informiert ist. Beispiel:
 
@@ -135,7 +135,7 @@ Folgende Module sind vorinstalliert: `node:dgram`, `node:crypto`, `node:dns`, `n
 Um andere Module zu verwenden, geben Sie den Namen (und die Version) des Moduls in der Instanzkonfiguration ein. ioBroker installiert das Modul. Sie können es anschließend anfordern und in Ihren Skripten verwenden.
 
 ### Konsole - Gibt die Nachricht ins Protokoll aus
-Die Verwendung ist die gleiche wie in `javascript`
+Die Verwendung ist dieselbe wie in `javascript`
 
 ### Exec – führe einen Betriebssystembefehl aus, z.`cp file1 file2`
 ```js
@@ -279,7 +279,7 @@ Zur Festlegung des Auslösers können Sie folgende Parameter verwenden:
 |             |            |                                                                                                                                                     |
 | channelId | Zeichenfolge | Die Kanal-ID muss der angegebenen entsprechen |
 | | RegExp | Kanal-ID stimmt mit regulärem Ausdruck überein |
-| | Array | Kanal-ID, die mit einer Liste zulässiger Kanal-IDs übereinstimmt |
+| | Array | Kanal-ID entspricht einer Liste zulässiger Kanal-IDs |
 |             |            |                                                                                                                                                     |
 | Kanalname | Zeichenfolge | Der Kanalname muss dem angegebenen entsprechen |
 | | RegExp | Kanalname stimmt mit regulärem Ausdruck überein |
@@ -310,7 +310,7 @@ Zur Festlegung des Auslösers können Sie folgende Parameter verwenden:
 | | Array | Der neue Wert stammt nicht von einem Adapter, der in der angegebenen Liste verbotener Adapter erscheint |
 |             |            |                                                                                                                                                     |
 | oldFrom | Zeichenfolge | Der alte Wert stammt vom definierten Adapter |
-| | RegExp | Der alte Wert stammt von einem Adapter, der mit dem regulären Ausdruck übereinstimmt |
+| | RegExp | Der alte Wert stammt von einem Adapter, der dem regulären Ausdruck entspricht |
 | | Array | Der alte Wert stammt von einem Adapter, der in der angegebenen Liste zulässiger Adapter erscheint |
 |             |            |                                                                                                                                                     |
 | oldFromNe | Zeichenfolge | Alter Wert stammt nicht vom definierten Adapter |
@@ -541,7 +541,7 @@ schedule({ astro: 'sunset', shift: 10 }, () => {
 });
 ```
 
-Das Attribut "shift" gibt den Versatz in Minuten an. Es kann auch negativ sein, um die Zeit vor dem Astro-Ereignis zu definieren.
+Das Attribut „shift“ gibt den Versatz in Minuten an. Es kann auch negativ sein, um die Zeit vor einem Astro-Ereignis zu definieren.
 
 Die folgenden Werte können als Attribut in der Astrofunktion verwendet werden:
 
@@ -556,7 +556,7 @@ Die folgenden Werte können als Attribut in der Astrofunktion verwendet werden:
 - „nauticalDusk“: nautische Dämmerung (Beginn der abendlichen astronomischen Dämmerung)
 - „Nacht“: Die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
 - „nightEnd“: Die Nacht endet (die astronomische Morgendämmerung beginnt)
-- `"nauticalDawn"`: nautische Morgendämmerung (Beginn der morgendlichen nautischen Dämmerung)
+- „nauticalDawn“: nautische Morgendämmerung (Beginn der morgendlichen nautischen Dämmerung)
 - „Morgendämmerung“: Morgendämmerung (die morgendliche nautische Dämmerung endet, die morgendliche bürgerliche Dämmerung beginnt)
 - „Nadir“: Nadir (der dunkelste Moment der Nacht, die Sonne steht am tiefsten)
 
@@ -687,7 +687,7 @@ Sie können Webseiten wie [suncalc.net](http://suncalc.net) verwenden, um zu üb
 isAstroDay();
 ```
 
-Gibt `true` zurück, wenn die aktuelle Zeit zwischen dem Astro-Sonnenaufgang und -Sonnenuntergang liegt.
+Gibt `true` zurück, wenn die aktuelle Zeit zwischen Astro-Sonnenaufgang und -Sonnenuntergang liegt.
 
 ### Vergleichszeit
 ```js
@@ -883,7 +883,7 @@ const stateObject = await getStateAsync(id);
 
 Wie getState, aber mit `promise`.
 
-### ExistiertStatus
+### ExistiertState
 ```js
 existsState(id, (err, isExists) => {});
 ```
@@ -1081,7 +1081,7 @@ common => {
 Es ist ein kurzer Typ von createState möglich:
 
 - `createState('myDatapoint')` - einfach Datenpunkt erstellen, wenn er nicht existiert
-- `createState('myDatapoint', 1)` - Datenpunkt erstellen, falls er nicht existiert und mit dem Wert 1 initialisieren
+- `createState('myDatapoint', 1)` - Datenpunkt erstellen, falls dieser nicht existiert und mit dem Wert 1 initialisieren
 - `createState('myDatapoint', { type: 'string', role: 'json', read: true, write: false }, () => { log('created'); });` – mit allgemeinen Definitionen wie Typ, Lesen, Schreiben und Rolle
 - `createState('myDatapoint', { name: 'Mein eigener Datenpunkt', unit: '°C' }, () => { log('created'); });`
 - `createState('myDatapoint', 1, { name: 'Mein eigener Datenpunkt', unit: '°C' })` – Datenpunkt erstellen, wenn er nicht mit spezifischem Namen und Einheiten existiert
@@ -1098,7 +1098,7 @@ Dasselbe wie `createState`, aber das Versprechen wird zurückgegeben.
 deleteState(name, callback);
 ```
 
-Löschen Sie Status und Objekt im JavaScript-Bereich, z. B. `javascript.0.mystate`. Status von anderen Adaptern können nicht gelöscht werden.
+Löscht Status und Objekt im Javascript-Bereich, z.B. `javascript.0.mystate`. Status von anderen Adaptern können nicht gelöscht werden.
 
 ```js
 deleteState('myDatapoint')
@@ -1119,7 +1119,7 @@ createAlias(name, alias, forceCreation, common, native, callback);
 ```
 
 Erstellen Sie einen Alias im Bereich `alias.0`, falls dieser nicht existiert, z. B. `javascript.0.myalias`, und verweisen Sie auf einen Status oder Lese-/Schreibstatus.
-Die gemeinsame Definition wird aus dem gelesenen Alias-ID-Objekt übernommen, ein bereitgestellter gemeinsamer Name hat jedoch Vorrang.
+Die gemeinsame Definition wird aus dem gelesenen Alias-ID-Objekt übernommen, ein bereitgestellter gemeinsamer Wert hat jedoch Vorrang.
 
 #### Parameter:
 - `name`: ID des neuen Alias-Status (möglich ohne Alias-Namespace), zB `test.mystate` (Namespace `alias.0.` wird hinzugefügt = `alias.0.test.mystate`)
@@ -1245,7 +1245,7 @@ sendToHost('myComputer', 'cmdExec', { data: 'ls /' }, (res) => {
 await sendToHostAsync(hostName, command, message);
 ```
 
-Dasselbe wie sendToHost, aber mit `promise`.
+Wie sendToHost, aber mit `promise`.
 
 ### Intervall festlegen
 ```js
@@ -1337,6 +1337,8 @@ formatTimeDiff(milliseconds, format);
 * m, м (kyrillisch) – kurze Minuten, z. B. „4“
 * ss, сс (kyrillisch) – volle Sekunden, zB „05“
 * s, с (kyrillisch) – kurze Sekunden, z. B. „5“
+
+Sie können das Escape-Zeichen `\` verwenden, um die Ersetzung zu vermeiden. Beispiel: `DD \Day\s, h \hour\s, m \minute, ss \second\s`
 
 #### Beispiel
 ```js
@@ -1443,7 +1445,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
 ```
 
 Dieser Code durchsucht Kanäle.
-Findet alle Kanäle mit `common.role="switch"` und gehört zu `enum.rooms.Wohnzimmer`.
+Sucht alle Kanäle mit `common.role="switch"` und Zugehörigkeit zu `enum.rooms.Wohnzimmer`.
 Übernimmt alle Zustände, deren ID auf `".STATE"` endet, und abonniert alle diese Zustände.
 Ändert sich einer dieser Zustände, wird der Callback wie bei der Funktion „Ein“ aufgerufen.
 
@@ -1536,7 +1538,7 @@ writeFile('vis.0', '/screenshots/1.png', data, (error) => {
 delFile(adapter, fileName, (error) => {});
 ```
 
-Datei oder Verzeichnis löschen. fileName ist der Name der Datei oder des Verzeichnisses in der Datenbank.
+Datei oder Verzeichnis löschen. Dateiname ist der Name der Datei oder des Verzeichnisses in der Datenbank.
 
 Der alternative Name dieser Methode ist `unlink`
 
@@ -1549,7 +1551,7 @@ Datei oder Verzeichnis umbenennen. „oldName“ ist der Name der Datei oder des
 
 Der alternative Name dieser Methode ist `rename`
 
-### In Datei
+### OnFile
 ```js
 onFile(id, fileName, withFile, (id, fileName, size, fileData, mimeType) => {});
 // or
@@ -1558,7 +1560,7 @@ onFile(id, fileName, (id, fileName, size) => {});
 
 Dateiänderungen abonnieren:
 
-- „id“ ist die ID eines Objekts vom Typ „Meta“, wie „vis.0“
+- `id` ist die ID eines Objekts vom Typ `meta`, wie `vis.0`
 - „fileName“ ist ein Dateiname oder ein Muster, wie „main/*“ oder „main/vis-view.json“.
 - „withFile“, ob der Inhalt der Datei im Rückruf übermittelt werden soll oder nicht. Die Übermittlung des Dateiinhalts kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie „withFile“ auf „false“.
 
@@ -1570,7 +1572,7 @@ Argumente im Rückruf:
 - `fileData` – Dateiinhalt vom Typ `Buffer`, wenn die Datei binär (anhand der Erweiterung erkannt) oder `string` ist. Wird nur übermittelt, wenn `withFile`;
 - `mimeType` – MIME-Typ der Datei, z. B. `image/jpeg`. Wird nur übermittelt, wenn `withFile`;
 
-**Wichtig**: Diese Funktionalität ist nur mit js-controller@4.1.x oder neuer verfügbar.
+**Wichtig**: Diese Funktion ist nur mit js-controller@4.1.x oder neuer verfügbar.
 
 ### OffFile
 ```js
@@ -1778,7 +1780,7 @@ Gleich wie [Warten](#wait)
 
 ### Nachricht an
 ```js
-messageTo({ instance: 'instance', script: 'script.js.common.scriptName', message: 'messageName' }, data, {timeout: 1000}, result =>
+messageTo({ instance: 'instance', script: 'script.js.common.scriptName', message: 'messageName' }, data, { timeout: 1000 }, result =>
     log(JSON.stringify(result)));
 ```
 
@@ -1789,7 +1791,7 @@ Das Timeout für den Rückruf beträgt standardmäßig 5 Sekunden.
 Das Ziel könnte verkürzt werden auf:
 
 ```js
-messageTo('messageName', data, result => {
+messageTo('messageName', data, (result) => {
     log(JSON.stringify(result));
 });
 ```
@@ -1828,7 +1830,9 @@ onMessage('myTopic', async (data, callback) => {
 ### BeiNachricht
 ```js
 onMessage('messageName', (data, callback) => {
-    log(`Received data: ${data}`); callback({ result: Date.now() });
+    log(`Received data: ${data}`);
+
+    callback({ result: Date.now() });
 });
 ```
 
@@ -1859,7 +1863,7 @@ iob message javascript.0 toScript '{"script": "script.js.messagetest", "message"
 ```js
 const id = onMessage('messageName', (data, callback) => {
     log(data);
-    callback(Date.now());
+    callback({ result: Date.now() });
 });
 
 // unsubscribe specific handler
@@ -2029,11 +2033,11 @@ httpPost(
 *Erfordert Version >= 8.3.0*
 
 ```js
-httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.png', { responseType: 'arraybuffer' }, async (err, response) => {
+httpGet('https://raw.githubusercontent.com/ioBroker/ioBroker.javascript/master/admin/javascript.svg', { responseType: 'arraybuffer' }, async (err, response) => {
     if (err) {
         console.error(err);
     } else {
-        const tempFilePath = createTempFile('javascript.png', response.data);
+        const tempFilePath = createTempFile('javascript.svg', response.data);
         console.log(`Saved to ${tempFilePath}`);
 
         // Use the new path in other scripts (e.g. sendTo)
@@ -2090,7 +2094,7 @@ log(`Script ${scriptName} started started by ${instance}`);
 ```
 
 ### DefaultDataDir
-`defaultDataDir` – Absoluter Pfad zu den iobroker-Daten.
+`defaultDataDir` – Absoluter Pfad zu iobroker-data.
 
 ```js
 log(`Data dir: ${defaultDataDir}`);
@@ -2111,7 +2115,7 @@ if (verbose) {
 ## Option - "Beim Start nicht alle Zustände abonnieren"
 Es gibt zwei Möglichkeiten, Zustände zu abonnieren:
 
-1. Der Adapter abonniert beim Start alle Zustände und empfängt alle Änderungen aller Zustände (die Verwendung von getState(id) ist einfacher, erfordert aber mehr CPU und RAM):
+1. Der Adapter abonniert beim Start alle Zustände und empfängt alle Änderungen aller Zustände (die Verwendung von getState(id) ist einfach, erfordert aber mehr CPU und RAM):
 
 ```js
 log(getState('someID').val);

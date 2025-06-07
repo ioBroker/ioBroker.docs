@@ -11,6 +11,8 @@
 
 ![Test and Release](https://github.com/MiRo1310/ioBroker.telegram-menu/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and instructions on disabling error reporting, please refer to the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Use of Sentry reporting starts with js-controller 3.0.
+
 ## ioBroker telegram-menu adapter
 
 Easily create Telegram Menus
@@ -33,6 +35,45 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- FIX: #338 Exchange value does not work in newline
+
+### 2.4.3 (2025-06-05)
+
+- FIX: #332 Copy dropdown
+- FIX: SetDynamicValue 
+- FIX: Change value in getStatus
+
+### 2.4.2 (2025-05-26)
+
+- FIX: Error returnText is empty
+
+### 2.4.1 (2025-05-26)
+
+- Fix some errors and update tests
+
+### 2.4.0 (2025-05-24)
+
+- FEAT: Extension for get by function 
+- FIX: Errors reported by sentry
+
+### 2.3.1 (2025-05-20)
+
+
+- FIX: #309 SetState only sets false
+- FIX: #311 Delete does not navigate
+
+### 2.3.0 (2025-05-12)
+
+- FIX: #303 GetState output in incorrect order
+- FIX: #296 Frontend fixes
+- FIX: #295 Delete button not working
+- FIX: #291 Menu button not working
+- FEAT: Nodejs >= 20.0.0
+- FEAT: Add sentry
+- FEAT: Add mocha tests
+
 ### 2.2.4 (2025-04-13)
 
 - FIX: #279 Backslash is in the message when using newline

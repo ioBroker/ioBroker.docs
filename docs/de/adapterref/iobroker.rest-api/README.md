@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: /x+PdsrJoxpoit6cC2A/HsY7OG19SgWis9sdVNgnJV0=
+hash: BVfjhb1Gx9apADa3SuQvZnxWh9WASBG6M7ZIn4QunPY=
 ---
 ![Logo](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -43,7 +43,7 @@ Es werden drei Arten der Authentifizierung unterstützt:
 - Grundlegende Authentifizierung
 – OAuth2 (Träger)
 
-Zur Authentifizierung in der Abfrage müssen Sie `user` und `pass` in der Abfrage wie folgt festlegen:
+Zur Authentifizierung in einer Abfrage müssen Sie `user` und `pass` in einer Abfrage wie folgt festlegen:
 
 ```http
 http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
@@ -105,7 +105,7 @@ Z.B.
 
 Sie können alle Befehle auch mit der POST-Methode anfordern. Der Body muss ein Objekt mit Parametern sein. Beispiel:
 
-```
+```bash
 curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -124,10 +124,12 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 - `getForeignStates(pattern)` – dasselbe wie getStates
 - `getState(id)` – Statuswert nach ID abrufen
 - `setState(id, state)` – Statuswert mit JSON-Objekt festlegen (z. B. `{"val": 1, "ack": true}`)
+- `getBinaryState(id)` - Binärstatus nach ID abrufen
+- `setBinaryState(id, base64)` – Binärstatus nach ID festlegen
 
 ### Objekte
 - `getObject(id)` – Objekt nach ID abrufen
-- `getObjects(list)` - ruft alle Zustände und Räume ab. Die GUI kann bei der Visualisierung der Antwort Probleme haben.
+- `getObjects(list)` - alle Zustände und Räume abrufen. Die GUI kann bei der Visualisierung der Antwort Probleme haben.
 - `getObjectView(design, search, params)` - bestimmte Objekte abrufen, z. B. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
 - `setObject(id, obj)` – Objekt mit JSON-Objekt festlegen (z. B. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
 - `delObject(id, options)` – Objekt nach ID löschen
@@ -195,7 +197,10 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 ### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.1 (2025-05-21)
+* (@GermanBluefox) Corrected the web extension
+
+### 3.0.0 (2025-04-27)
 * (@GermanBluefox) Rewritten in TypeScript
 * (@GermanBluefox) Removed binary states
 

@@ -43,6 +43,11 @@ Additionally, there is a rate limit of 200 requests per day for the Daikin Cloud
 The current rate limit details are contained in the adapter i fo states and are updated every time the adapter makes a request to the Daikin Cloud.
 
 ## Changelog
+### 0.4.12 (2025-05-24)
+* (@JeroenVdb) Always send writable entries to the device, irrelevant of status, always update local values
+* (@Apollon77) Optimize role detection for some states
+* (@Apollon77) Tried to prevent too luch logging of the same error in a short time on Wifi issues
+
 ### 0.4.11 (2024-10-04)
 * (Apollon77) Increase communication timeout to 10s to prevent refresh issues
 
@@ -117,7 +122,7 @@ The current rate limit details are contained in the adapter i fo states and are 
 ## License
 MIT License
 
-Copyright (c) 2022-2024 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2022-2025 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

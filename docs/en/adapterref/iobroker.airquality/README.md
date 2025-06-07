@@ -37,11 +37,11 @@ You can check other adapters for examples or ask in the developer community. Usi
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.5 (2025-05-03)
 
 - (raschy) Supplementary data points i18n
 - (raschy) Data point type corrected 
-- (raschy) @iobroker/adapter-core 3.2.3 is recommended 
+- (raschy) @iobroker/adapter-core 3.2.3 is recommended
 
 ### 0.1.4 (2024-12-16)
 

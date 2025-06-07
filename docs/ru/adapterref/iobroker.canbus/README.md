@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.canbus/README.md
 title: ioBroker.canbus
-hash: AsmePoTscNwWtzLsi82WDRG9EPTCLQmIlZFVoUGldy8=
+hash: ONJmAdYQIWIxaxVsFSbSVsYCmTRhQ7lmQEdzZjOyYpA=
 ---
 # IoBroker.canbus
 ![Логотип](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
@@ -46,6 +46,8 @@ hash: AsmePoTscNwWtzLsi82WDRG9EPTCLQmIlZFVoUGldy8=
 * Аппаратное обеспечение CAN, которое поддерживается ядром и создает интерфейс типа `can0`
 * Некоторые знания о сообщениях, отправляемых по вашей шине CAN
 
+**Внимание:** В настоящее время поддерживаются только Node.js >=20 и <23. Это временное ограничение из-за используемой библиотеки `socketcan`.
+
 ## Парсеры
 Используя парсеры, вы можете считывать данные из буфера сообщений CAN или записывать данные в него.
 
@@ -72,7 +74,7 @@ hash: AsmePoTscNwWtzLsi82WDRG9EPTCLQmIlZFVoUGldy8=
 
 * Глобальные переменные `undefined`, `NaN`, `isNaN`, `Infinity`, `isFinite`, `atob`, `btoa`,
 
-`encodeURI`, `encodeURIComponent`, `decodeURI`, `decodeURIComponent`, `parseFloat`, `parseInt`, `JSON`, `Number`, §§ SSSSS_15§§, `Array`, `BigInt`, `Blob`, `Boolean`, `Date`, `Map`, `Math`, `Object`, `RegExp`, `Set`, `Intl`, `Buffer`, `Promise`, `setTimeout`, §§ SSSSS_30§§
+`encodeURI`, `encodeURIComponent`, `decodeURI`, `decodeURIComponent`, `parseFloat`, `parseInt`, `JSON`, `Number`, `String`, `Array`, `BigInt`, `Blob`, `Boolean`, `Date`, `Map`, `Math`, `Object`, `RegExp`, `Set`, `Intl`, `Buffer`, `Promise`, `setTimeout`, `clearTimeout`
 
 * `async`/`await`
 * Функции журнала адаптера `log.warn('something')`, `log.info('something')`, `log.debug('something')`
@@ -155,6 +157,12 @@ buffer.writeInt16BE(value, 5);
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2025-05-27)
+
+* (crycode-de) Node.js >= 20 and <23, Admin >= 7.4.10 required
+* (crycode-de) Optimized admin layout for smaller devices and added a warning on very small devices
+* (crycode-de) Updated dependencies
+
 ### 2.1.1 (2024-11-04)
 
 * (crycode-de) Fixed get/set functions in custom parser scripts
@@ -179,12 +187,8 @@ buffer.writeInt16BE(value, 5);
 * (crycode-de) Fixed sentry admin integration
 * (crycode-de) Updated dependencies
 
-### 1.3.0 (2022-02-07)
-
-* (crycode-de) Added `sharedData` object in custom parsers
-
 ## License
 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
-Copyright (c) 2020-2024 Peter Müller <peter@crycode.de> (<https://crycode.de/>)
+Copyright (c) 2020-2025 Peter Müller <peter@crycode.de> (<https://crycode.de/>)

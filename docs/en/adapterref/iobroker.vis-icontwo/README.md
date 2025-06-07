@@ -60,6 +60,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 1.12.0
+
+• Neue Icons hinzugefügt (Animals/Cats)
+
 ### 1.11.0
 
 • Neue Icons hinzugefügt (Cars)

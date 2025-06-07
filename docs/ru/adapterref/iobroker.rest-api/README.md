@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rest-api/README.md
 title: Адаптер REST-API
-hash: /x+PdsrJoxpoit6cC2A/HsY7OG19SgWis9sdVNgnJV0=
+hash: BVfjhb1Gx9apADa3SuQvZnxWh9WASBG6M7ZIn4QunPY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -53,7 +53,7 @@ http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin
 
 Для аутентификации Oauth2 необходимо установить заголовок `Authorization` со значением `Bearer <AccessToken>`.
 
-Токен доступа можно получить с помощью HTTP-запроса следующего вида:
+Токен доступа можно получить с помощью HTTP-запроса, например:
 
 ```http
 http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker
@@ -105,7 +105,7 @@ http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<
 
 Вы также можете запросить все команды методом POST. Тело должно быть объектом с параметрами. Например:
 
-```
+```bash
 curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -124,6 +124,8 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getForeignStates(pattern)` - то же, что и getStates
 - `getState(id)` - получить значение состояния по идентификатору
 - `setState(id, state)` - установить значение состояния с помощью объекта JSON (например, `{"val": 1, "ack": true}`)
+- `getBinaryState(id)` - получить двоичное состояние по ID
+- `setBinaryState(id, base64)` - установить двоичное состояние по идентификатору
 
 ### Объекты
 - `getObject(id)` - получить объект по ID
@@ -195,7 +197,10 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.1 (2025-05-21)
+* (@GermanBluefox) Corrected the web extension
+
+### 3.0.0 (2025-04-27)
 * (@GermanBluefox) Rewritten in TypeScript
 * (@GermanBluefox) Removed binary states
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: hRZ4r8f17LSpFSUQieNsSDvTwwlBNjqZEYaiL58d/mU=
+hash: jF+hWbw7bmE0b57AwFFOIqvT0OTnSjQRw+gZY/STN/Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
@@ -16,7 +16,7 @@ hash: hRZ4r8f17LSpFSUQieNsSDvTwwlBNjqZEYaiL58d/mU=
 Управляйте поливом вашего сада с помощью беспроводного таймера подачи воды LinkTap Производитель: https://www.link-tap.com/
 
 ## Установка
-Используйте Node.js 18 или выше.
+Используйте Node.js 20 или выше.
 
 ## Настройки
 Создайте ключ API на сайте https://www.link-tap.com/#!/api-for-developers, используя ваши учетные данные LinkTap.
@@ -32,7 +32,10 @@ hash: hRZ4r8f17LSpFSUQieNsSDvTwwlBNjqZEYaiL58d/mU=
 
 ## Changelog
 
-### 1.0.0
+### 1.0.3
+* (Smart-Gang) Update of various dependencies and update to Node 20.
+
+### 1.0.1
 * (Smart-Gang) Update of various dependencies and update to Node 18.
 
 ### 0.3.0
@@ -56,7 +59,7 @@ hash: hRZ4r8f17LSpFSUQieNsSDvTwwlBNjqZEYaiL58d/mU=
 ## License
 MIT License
 
-Copyright (c) 2024 Author <gangrulez@gmail.com>
+Copyright (c) 2025 Author <gangrulez@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
+hash: VuoMuH0MEntk60T782Hm/p5n+SeZGJ79Jpi8hSQqNb8=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -11,10 +11,10 @@ hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
 ![下载](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![安装数量（最新）](https://iobroker.live/badges/bluelink-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/bluelink-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![测试与发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 bluelink 适配器
 用于控制现代或起亚汽车的适配器（直到 2023 年）
@@ -25,18 +25,37 @@ hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
 
 [维基百科](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-<!-- 下一版本的占位符（在行首）：
-
-https://github.com/AlCalzone/release-script#usage npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0 npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0 npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
-
-### **正在进行中** -->
 ## 捐赠
-[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+[![]（https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.3 (2025-05-05)
+* (arteck) fix bug with day and time tag for EV 
+* (arteck) dependency update
+
+### 3.1.2 (2025-01-11)
+* (arteck) error on create dp fix
+
+### 3.1.1 (2025-01-07)
+* (arteck) monthlyReport for phev/hev
+* (arteck) trip corr for ev cars
+
+### 3.1.0 (2024-10-05)
+* (arteck) SOC corr 
+* (arteck) dependency update
+
+### 3.0.4 (2024-10-03)
+* (arteck) typo
+
+### 3.0.3 (2024-10-02)
+* (arteck) add city to position text
+
+### 3.0.2 (2024-10-01)
+* (arteck) corr for hev
+
 ### 3.0.1 (2024-09-27)
 * (arteck) activate jsonconfig
-  
+
 ### 3.0.0 (2024-09-27)
 * (arteck) new structure jsonconfig
 
@@ -132,7 +151,7 @@ https://github.com/AlCalzone/release-script#usage npm run release major -- -p io
 ## License
 MIT License
 
-Copyright (c) 2024 Newan <info@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

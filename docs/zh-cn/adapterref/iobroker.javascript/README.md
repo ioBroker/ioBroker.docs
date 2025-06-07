@@ -7,59 +7,47 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/README.md
 title: ioBroker.javascript
-hash: k6V2KtvlPSRrmHV0UCtITj03N9QMfCpNbNX+49On33w=
+hash: sIj4lDA5zuva9pzKf0gVeBJqA9gYbsy2/hXm32zL0Q4=
 ---
-![标识](../../../de/admin/javascript.png)
+<img src="../../admin/javascript.svg" alt="ioBroker.javascript" width="100" />
 
-# IoBroker.javascript
+#ioBroker.javascript
 ＃＃ 目录
 - [Blockly](blockly.md)
-- [用法](usage.md)
+- [使用方法](usage.md)
 
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 9.0.2 (2025-06-04)
 
-* (klein0r) Added response time to httpGet and httpPost result
-* (klein0r) Added trigger block to ack new values
+* (@klein0r) Added possibility to escape chars in formatTimeDiff
+* (@GermanBluefox) Back-end was migrated to TypeScript
+* (@GermanBluefox) Breaking change: removed "request" module
+* (@GermanBluefox) Added prettier for scripts
 
-### 8.4.2 (2024-05-28)
+### 8.9.2 (2025-04-27)
 
-* (klein0r) Fixed createState (removed redundant native attributes)
-* (winnyschuster) Fixed astro custom component
+* (@GermanBluefox) Updated packages for GUI
+* (@GermanBluefox) Used TypeScript for an admin component
 
-### 8.4.1 (2024-05-26)
+### 8.9.1 (2025-01-26)
 
-* (klein0r) Fixed httpPost block
-* (klein0r) Just raise deprecated warnings once per script start/usage
+* (@GermanBluefox) Corrected blockly function editor
+* (@GermanBluefox) Corrected creation of folders
 
-### 8.4.0 (2024-05-25)
+### 8.9.0 (2025-01-22)
+* (@GermanBluefox) Migrated GUI to TypeScript
+* (@klein0r) Added count attribute to getHistory in blockly
 
-* (klein0r) Added checks/warnings for more incorrect blockly connections
-* (klein0r) Added option to disable certificate validation in httpGet
-* (klein0r) Added expire option to Blockly block
-* (klein0r) Fixed variables.astro times when date is not available
-* (klein0r) Fixed jsonConfig for libraries and library typings
-* (klein0r) Implemented new js-controller 6.x functions for package handling
-* (klein0r) Updated to ChatGPT-4o
-
-### 8.3.1 (2024-05-13)
-
-* (paul53) Allow negative values in formatTimeDiff
-* (klein0r) Updated tests and fixed Blockly translations
-
-### 8.3.0 (2024-05-09)
-
-* (klein0r) Added createTempFile to sandbox
-* (klein0r) Fixed log message on script start
-* (klein0r) Added instance/from to log window (like in admin)
+### 8.8.3 (2024-09-05)
+* (bluefox) Fixed object selector in rules
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>,
 
 Copyright (c) 2014      hobbyquaker
 

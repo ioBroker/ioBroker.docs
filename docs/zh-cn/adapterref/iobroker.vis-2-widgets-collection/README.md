@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-collection/README.md
 title: ioBroker.vis 2.0 的小部件集合
-hash: 5I2pTsQyZUWLk5ZntzFKs6q74UHP2jOus89BArfMSaI=
+hash: /rfIxmrbr++XTGZwRpLpCFittZj8YzhDmllIIkd/Xq4=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-collection/admin/vis-2-widgets-collection.png)
 
 ![安装数量](http://iobroker.live/badges/vis-2-widgets-collection-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-2-widgets-collection.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-collection.svg)
-![新平台](https://nodei.co/npm/iobroker.vis-2-widgets-collection.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.vis-2-widgets-collection.png?downloads=true)
 
 # IoBroker.vis 2.0 的小部件集合
 <h2 align="center">ioBroker.vis 2.0 的小部件</h2>
@@ -43,11 +43,30 @@ hash: 5I2pTsQyZUWLk5ZntzFKs6q74UHP2jOus89BArfMSaI=
 ＃＃＃ 测量
 <img src="/img/collection-gauge.png" height="150">
 
+＃＃＃ 光
+<img src="/img/collection-light.png" height="150">
+
 --- <!-- 下一版本的占位符：
 
-### __正在进行中__ -->
+### __工作正在进行中__ -->
 
 ## Changelog
+### 1.8.0 (2025-05-30)
+- (steiger04) Light added
+
+### 1.7.9 (2025-04-04)
+- (steiger04) Widget optimizations
+
+### 1.7.8 (2025-04-04)
+- (steiger04) Push button functionality for State widget added
+
+### 1.7.7 (2025-03-31)
+- (steiger04) Slider optimized
+
+### 1.7.6 (2025-03-31)
+- (steiger04) Dialog with width and height in pixel
+- (steiger04) Widget optimizations
+
 ### 1.7.5 (2025-03-23)
 - (steiger04) Dialog bug fixed
 

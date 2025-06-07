@@ -13,7 +13,7 @@ Control your garden irrigation with the LinkTap Wireless Water Timer
 Manufacturer: https://www.link-tap.com/
 
 ## Installation
-Please use Node.js 18 or higher.
+Please use Node.js 20 or higher.
 
 ## Settings
 Create Api key at https://www.link-tap.com/#!/api-for-developers with your LinkTap credentials. 
@@ -29,8 +29,11 @@ Important: The desired schedules must be set up in the app prior to use. These c
 
 ## Changelog
 
-### 1.0.1
+### 1.0.3
 * (Smart-Gang) Update of various dependencies and update to Node 20.
+
+### 1.0.1
+* (Smart-Gang) Update of various dependencies and update to Node 18.
 
 ### 0.3.0
 * (Smart-Gang) Added support for new devices (ValveLinker and multiple-outlet water timer) with 18-digit IDs.
@@ -54,7 +57,7 @@ Important: The desired schedules must be set up in the app prior to use. These c
 ## License
 MIT License
 
-Copyright (c) 2024 Author <gangrulez@gmail.com>
+Copyright (c) 2025 Author <gangrulez@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

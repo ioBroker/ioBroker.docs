@@ -244,7 +244,13 @@ relation.
 	### **WORK IN PROGRESS**
 -->
 
-## Changelog
+## Versions
+
+### 2.0.31 (22.05.2025)
+
+* updated the adapter import schema for ETS 6.3.1
+* nodejs >= 22 is required
+
 ### 2.0.30 (22.12.2024)
 * fixed GUI errors, starting redesign GA-Tools
 

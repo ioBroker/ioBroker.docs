@@ -11,8 +11,8 @@ BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.maxxi-charge/README.md
-title: ioBroker.Maxxi-Заряд
-hash: DJRI8Yt7iMPxIAEOZOgF4IrvtZRgQWz9AbkVSxfZGv0=
+title: ioBroker.Maxxi-Зарядка
+hash: R3VzZUuCIuL61+Z0M1qUBGZU5WL5QfDbUHFf2vK/d5I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.maxxi-charge/admin/ms_logo_black_green.webp)
 
@@ -39,20 +39,20 @@ http://www.maxxisun.de
 [🇩🇪 Документация](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 
 ## Совместимость версий
-| Версия | CCU V1 Локальная | CCU V1 Облако | CCU V2 Локальная | CCU V2 Облако |
-|---------|------------|-------------|-------------|--------------|
-| 0,36 | ❌ | ✅ |             |              |
-| 0,38 | ❌ | ✅ |             |              |
-| 0,40 | ❌ | ✅ |             |              |
-| 0,41 | ✅ | ✅ |             |              |
-| 0,44 | ✅ | ✅ |             |              |
-| 0,46 | ✅ | ✅ | ❓ | ❓ |
+| Версия | CCU V1 Локальная | CCU V2 Локальная | CCU V1 Облако | CCU V2 Облако |
+|:-------------:|:------------:|:------------:|:------------:|:------------:|
+| 0,36 - 0,40 | ❌ | ❌ | ✅ | ❌ |
+| 0.41 или новее | ✅ | ❓ | ✅ | ❓ |
 
 🔹 **Легенда**: ✅ - Совместимо ❌ - Несовместимо ❓ - Неизвестно
 
 ## Changelog
 
-### 1.4.31 (2025-03-29)
+### 1.4.40 (2025-05-13)
+- New Option Mode "BKW"
+> At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
+
+### 1.4.32 (2025-04-06)
 - New cloud method – Backup mode Server 2 (check config)
   > Note: Cloud Server 1 provides more datapoints but may be less stable.  
   > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.

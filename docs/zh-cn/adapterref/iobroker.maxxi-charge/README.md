@@ -12,7 +12,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.maxxi-charge/README.md
 title: ioBroker.Maxxi-Charge
-hash: DJRI8Yt7iMPxIAEOZOgF4IrvtZRgQWz9AbkVSxfZGv0=
+hash: R3VzZUuCIuL61+Z0M1qUBGZU5WL5QfDbUHFf2vK/d5I=
 ---
 ![标识](../../../en/adapterref/iobroker.maxxi-charge/admin/ms_logo_black_green.webp)
 
@@ -27,9 +27,9 @@ hash: DJRI8Yt7iMPxIAEOZOgF4IrvtZRgQWz9AbkVSxfZGv0=
 ![捐款](https://img.shields.io/badge/Paypal-Donate-blue?style=flat)
 
 # IoBroker.Maxxi-Charge
-![测试与发布](https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg)
+![测试和发布](https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg)
 
-**ioBroker.MaxxiCharge** 是 ioBroker 系统的适配器，可实现 MaxxiCharge CCU 设备的集成和控制。该适配器提供一系列功能，包括读取设备数据、调整配置和发送控制命令。
+ioBroker.MaxxiCharge 是 ioBroker 系统的适配器，用于集成和控制 MaxxiCharge CCU 设备。该适配器提供一系列功能，包括读取设备数据、调整配置和发送控制命令。
 
 http://www.maxxisun.de
 
@@ -39,20 +39,20 @@ http://www.maxxisun.de
 [🇩🇪 文档](https://github.com/blabond/ioBroker.maxxi-charge/blob/main/docs/de/README.md)
 
 ## 版本兼容性
-| 版本 | CCU V1 本地 | CCU V1 云端 | CCU V2 本地 | CCU V2 云端 |
-|---------|------------|-------------|-------------|--------------|
-| 0.36 | 0.36 ❌ | ✅ |             |              |
-| 0.38 | 0.38 ❌ | ✅ |             |              |
-| 0.40 | 0.40 ❌ | ✅ |             |              |
-| 0.41 | 0.41 ✅ | ✅ |             |              |
-| 0.44 | 0.44 ✅ | ✅ |             |              |
-| 0.46 | 0.46 ✅ | ✅ | ❓ | ❓ |
+| 版本 | CCU V1 本地 | CCU V2 本地 | CCU V1 云端 | CCU V2 云端 |
+|:-------------:|:------------:|:------------:|:------------:|:------------:|
+| 0.36 - 0.40 | ❌ | ❌ | ✅ | ❌ |
+| 0.41 或更新版本 | ✅ | ❓ | ✅ | ❓ |
 
-🔹 **图例**：✅ - 兼容 ❌ - 不兼容 ❓ - 未知
+🔹 **图例**: ✅ - 兼容 ❌ - 不兼容 ❓ - 未知
 
 ## Changelog
 
-### 1.4.31 (2025-03-29)
+### 1.4.40 (2025-05-13)
+- New Option Mode "BKW"
+> At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
+
+### 1.4.32 (2025-04-06)
 - New cloud method – Backup mode Server 2 (check config)
   > Note: Cloud Server 1 provides more datapoints but may be less stable.  
   > Cloud Server 2 (Backup mode) is more stable but delivers fewer datapoints.

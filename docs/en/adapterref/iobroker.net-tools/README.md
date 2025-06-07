@@ -75,10 +75,12 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2025-06-05)
+* Fix out of memory while scanning
+
 ### 1.1.2 (2025-04-21)
 * (Jey Cee) Add meta object object for instance to store device pictures from device manager
-* (Jey Cee) Fix repository checker errors 
-*
+* (Jey Cee) Fix repository checker errors
 
 ### 1.1.1 (2025-03-13)
 * (Jey Cee) Fix "Cannot read properties of undefined (reading 'find')"

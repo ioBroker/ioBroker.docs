@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram-menu/README.md
 title: ioBroker.telegram-Menü
-hash: Kbd/Gkt7a67/k2OjMPQxUr3MSnStbWCIlzEZAIoa2r4=
+hash: 2ZoGnQ+X7mp0FZjZvnbaziNVHWjl3jAbMcjBrz7Gwu4=
 ---
 ![Logo](../../../en/adapterref/iobroker.telegram-menu/admin/telegram-menu.png)
 
@@ -15,6 +15,8 @@ hash: Kbd/Gkt7a67/k2OjMPQxUr3MSnStbWCIlzEZAIoa2r4=
 
 # IoBroker.telegram-Menü
 ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.telegram-menu/workflows/Test%20and%20Release/badge.svg)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Verwendung der Sentry-Berichterstattung beginnt mit js-controller 3.0.
 
 ## IoBroker Telegramm-Menü-Adapter
 Einfaches Erstellen von Telegram-Menüs
@@ -36,8 +38,59 @@ Sie können verschiedene Gruppen mit separaten Menüs erstellen und ihnen dann B
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+
+- FIX: #338 Exchange value does not work in newline
+
+### 2.4.3 (2025-06-05)
+
+- FIX: #332 Copy dropdown
+- FIX: SetDynamicValue 
+- FIX: Change value in getStatus
+
+### 2.4.2 (2025-05-26)
+
+- FIX: Error returnText is empty
+
+### 2.4.1 (2025-05-26)
+
+- Fix some errors and update tests
+
+### 2.4.0 (2025-05-24)
+
+- FEAT: Extension for get by function 
+- FIX: Errors reported by sentry
+
+### 2.3.1 (2025-05-20)
+
+
+- FIX: #309 SetState only sets false
+- FIX: #311 Delete does not navigate
+
+### 2.3.0 (2025-05-12)
+
+- FIX: #303 GetState output in incorrect order
+- FIX: #296 Frontend fixes
+- FIX: #295 Delete button not working
+- FIX: #291 Menu button not working
+- FEAT: Nodejs >= 20.0.0
+- FEAT: Add sentry
+- FEAT: Add mocha tests
+
+### 2.2.4 (2025-04-13)
+
+- FIX: #279 Backslash is in the message when using newline
+
+### 2.2.2 (2025-03-20)
+
+- FIX: Style and update dependencies
+
+### 2.2.1 (2025-01-12)
+
+- FIX: Infinite loop on open events
+- FIX: #248 Error converting time
+
+### 2.2.0 (2025-01-02)
 
 - FEAT: #237 Navigate by nav-button-click to action
 - FIX: Cannot get value false in return text

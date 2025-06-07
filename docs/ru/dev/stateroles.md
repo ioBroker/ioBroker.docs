@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: Hsuf27Au+yYdf4rkK2jvi53FdwwfdSS5gk0q2HsOiCg=
+hash: km+Q56PsQMJYyuOdWf8LA50bTvC7MhpfUJq2xvIKMOA=
 ---
 # Государственные роли
 Объектам типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
@@ -139,6 +139,7 @@ hash: Hsuf27Au+yYdf4rkK2jvi53FdwwfdSS5gk0q2HsOiCg=
 * `indicator.reachable` - Если устройство находится в сети
 * `indicator.connected` - используется только для экземпляров. Используйте `indicator.reachable` для устройств
 * `indicator.direction` - `true` - вверх/открыть, `false` - вниз/закрыть. Лучше использовать `value.direction`
+* `indicator.error` - true, если существует какая-либо ошибка
 * `indicator.maintenance` - указывает на системные предупреждения/ошибки, сигналы тревоги, сервисные сообщения, разрядку батареи и тому подобное
 * `indicator.maintenance.lowbat`
 * `индикатор.обслуживания.недоступен`

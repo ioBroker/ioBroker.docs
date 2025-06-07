@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
+hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -15,6 +15,8 @@ hash: AuT8DX8it/GlkmAdRra+MlOI/sxo9pysMT/QqPxHB80=
 
 # IoBroker.alexa-timer-vis
 ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Verwendung der Sentry-Berichterstattung beginnt mit js-controller 3.0.
 
 ## Alexa-Timer-Vis-Adapter für ioBroker
 Dieser Adapter verwendet Sentry-Bibliotheken, um Exceptions und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der Sentry-Plugin-Dokumentation! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
@@ -60,8 +62,11 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2025-04-28)
 
-### **WORK IN PROGRESS**
+- FEAT: #141 Activate sentry
+
+### 2.0.9 (2025-04-06)
 
 - FEAT: Add more config
 - CHORE: Update dependencies

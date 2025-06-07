@@ -75,6 +75,17 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (hombach) add node.js 24 tests (#144)
+- (hombach) bump dependencies
+
+### 2.0.0 (2025-05-04)
+
+- (hombach) BREAKING: Dropped support for Node.js 18 (#135)
+- (hombach) BREAKING: Dropped support for js-controller 5 (#135)
+- (hombach) bump dependencies
+
 ### 1.5.0 (2025-04-14)
 
 - (hombach) add set HVAC temperature (#121)

@@ -824,6 +824,10 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- revert to node 18
+
 ### 3.5.2 (2025-03-20)
 
 - improve build

@@ -134,6 +134,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.9 (2025-05-22)
+* (MyHomeMyData) Update of list of data points for E3 devices to version 20250422
+* (MyHomeMyData) Fixed version number of enum info
+* (MyHomeMyData) Fix for issue #125 (findings of repository checker)
+
 ### 0.10.8 (2025-03-07)
 * (MyHomeMyData) Bugfix for issue #117
 * (MyHomeMyData) Updated data point 381, refer to discussion https://github.com/open3e/open3e/discussions/212

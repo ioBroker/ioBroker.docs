@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: xYoZavDQBapgTH7h8L59dJHYyDlHBTnwId/tEUu+sbA=
+hash: UxiXLPzaMP15shZ1BfLlXQJ+5BwSiw4RiIoxHO/hWEg=
 ---
-![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
-
 ![Anzahl der Installationen](http://iobroker.live/badges/iot-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.iot.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)
 
+<img src="admin/iot.svg" style="width: 100px;"/>
+
 # IoBroker IoT-Adapter
 ![Testen und Freigeben](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Dieser Adapter ist NUR für die Kommunikation mit Amazon Alexa, Google Home und Nightscout gedacht.
-Er ist nicht für den Fernzugriff auf Ihre ioBroker-Instanz gedacht. Verwenden Sie hierfür den ioBroker.cloud-Adapter.
+Dieser Adapter dient NUR zur Kommunikation mit Amazon Alexa, Google Home und Nightscout.
+Er ist nicht für den Fernzugriff auf Ihre ioBroker-Instanz vorgesehen. Verwenden Sie hierfür den ioBroker.cloud-Adapter.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -27,49 +27,50 @@ Um den IoT-Adapter zu verwenden, sollten Sie sich zunächst in der ioBroker-Clou
 ![Einleitung](../../../en/adapterref/iobroker.iot/img/intro.png)
 
 ### Sprache
-Wenn Sie die „Standardsprache“ auswählen, werden die intelligenten Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
-Dies dient dem schnellen Umschalten zwischen mehreren Sprachen zu Demonstrationszwecken.
+Wenn Sie die Standardsprache auswählen, werden die Smart-Namen von Geräten und Enumerationen nicht übersetzt. Wenn Sie eine Sprache angeben, werden alle bekannten Namen in diese Sprache übersetzt.
+Dies dient dem schnellen Wechsel zwischen mehreren Sprachen zu Demonstrationszwecken.
 
 ### Platzieren Sie die Funktion zuerst in Namen
-Reihenfolge von Funktionen und Rollen in selbst generierten Namen ändern:
+Ändern Sie die Reihenfolge der Funktionen und Rollen in selbst generierten Namen:
 
 - wenn false: „Raumfunktion“, zB „Wohnzimmerdimmer“
-- wenn wahr: „Veranstaltungsraum“, zB „Dimmer Wohnzimmer“
+- wenn wahr: „Veranstaltungsraum“, z.B. „Dimmer Wohnzimmer“
 
 ### Verketten Sie Wörter mit
-Sie können das Wort definieren, welches zwischen Funktion und Raum platziert wird. Beispielsweise wird aus "in" und aus "Dimmer Wohnzimmer" "Dimmer im Wohnzimmer".
+Sie können das Wort definieren, das zwischen Funktion und Raum platziert wird. Beispielsweise wird aus „im“ und „Dimmer Wohnzimmer“ „Dimmer im Wohnzimmer“.
 
-Dies ist jedoch nicht zu empfehlen, da die Erkennungsmaschine ein weiteres Wort analysieren muss und dies zu Missverständnissen führen kann.
+Dies wird jedoch nicht empfohlen, da die Erkennungsmaschine ein weiteres Wort analysieren muss und dies zu Missverständnissen führen kann.
 
 ### AUS-Pegel für Schalter
-Einige Gruppen bestehen aus gemischten Geräten: Dimmern und Schaltern. Sie können mit den Befehlen „EIN“ und „AUS“ und mit Prozentwerten gesteuert werden.
-Wenn der Befehl `Set to 30%` und `OFF level is 30%` ist, werden die Schalter eingeschaltet. Mit dem Befehl „Auf 25 % einstellen“ werden alle Schalter ausgeschaltet.
+Einige Gruppen bestehen aus gemischten Geräten: Dimmern und Schaltern. Diese können mit den Befehlen „EIN“ und „AUS“ sowie mit Prozentwerten gesteuert werden.
 
-Wenn der Befehl außerdem „AUS“ lautet, merkt sich der Adapter die aktuelle Dimmerstufe, wenn der tatsächliche Wert größer oder gleich „30 %“ ist.
+Wenn der Befehl `Set to 30%` und `OFF level is 30%` lautet, werden die Schalter eingeschaltet. Mit dem Befehl „Auf 25  %s etzen“ werden alle Schalter ausgeschaltet.
 
-Später, wenn der neue „EIN“-Befehl kommt, schaltet der Adapter den Dimmer nicht auf 100 %, sondern auf die Stufe im Speicher.
+Wenn der Befehl „AUS“ lautet, merkt sich der Adapter außerdem die aktuelle Dimmerstufe, sofern der tatsächliche Wert größer oder gleich „30 %“ ist.
+
+Wenn später der neue Befehl „EIN“ kommt, schaltet der Adapter den Dimmer nicht auf 100 %, sondern auf die gespeicherte Stufe.
 
 Beispiel:
 
-- Nehmen Sie an, dass der _OFF-Level_ 30 % beträgt.
+- Nehmen Sie an, dass der _AUS-Pegel_ 30 % beträgt.
 - Das virtuelle Gerät „Licht“ verfügt über zwei physische Geräte: _Schalter_ und _Dimmer_.
-- Befehl: „Stelle das Licht auf 40 %“. Der Adapter merkt sich diesen Wert für _Dimmer_, setzt ihn für „Dimmer“ und schaltet den _Schalter_ ein.
-- Befehl: „Schalte das Licht aus“. Der Adapter setzt den Dimmer auf 0 % und schaltet den Schalter aus.
-- Befehl: „Licht an“. _Dimmer_ => 40%, _Schalter_ => EIN.
-- Befehl: „Stelle das Licht auf 20 %“. _Dimmer_ => 20 %, _Schalter_ => AUS. Der Wert für den Dimmer wird nicht gespeichert, da er unter dem _AUS-Pegel_ liegt.
-- Befehl: „Licht an“. _Dimmer_ => 40%, _Schalter_ => EIN.
+- Befehl: „Stelle das Licht auf 40 %“. Der Adapter merkt sich diesen Wert für _Dimmer_, stellt ihn für „Dimmer“ ein und schaltet den _Schalter_ ein.
+- Befehl: „Schalte das Licht aus“. Der Adapter stellt den Dimmer auf 0 % und schaltet den Schalter aus.
+- Befehl: „Licht einschalten“. _Dimmer_ => 40 %, _Schalter_ => EIN.
+- Befehl: "Stelle das Licht auf 20 %". _dimmer_ => 20 %, _switch_ => AUS. Der Dimmerwert wird nicht gespeichert, da er unter dem _AUS-Pegel_ liegt.
+- Befehl: „Licht einschalten“. _Dimmer_ => 40 %, _Schalter_ => EIN.
 
 ### Von ON
-Sie können das Verhalten des ON-Befehls für den Zahlenstatus auswählen. Der spezifische Wert kann ausgewählt werden, oder der letzte Wert ungleich Null wird verwendet.
+Sie können das Verhalten des EIN-Befehls für den Zahlenstatus auswählen. Der spezifische Wert kann ausgewählt werden, oder es wird der letzte Wert ungleich Null verwendet.
 
 ### Antwort schreiben an
 Für jeden Befehl wird eine Textantwort generiert. Hier können Sie die Objekt-ID definieren, an die dieser Text geschrieben werden soll. Beispiel: _sayit.0.tts.text_.
 
 ### Farben
-Der Kanal benötigt 3-5 Zustände mit den folgenden Rollen:
+Der Kanal benötigt 3–5 Zustände mit den folgenden Rollen:
 
-- `level.color.saturation` - wird für die Erkennung des Kanals benötigt,
-- `Ebene.Farbe.Farbton`,
+- `level.color.saturation` – wird für die Erkennung des Kanals benötigt,
+- `level.color.hue`,
 - `level.dimmer`,
 - `Schalter` - optional,
 - `level.color.temperature` (optional)
@@ -82,8 +83,8 @@ Alexa, change the kitchen to the color chocolate
 ```
 
 ### Sperren
-Um die Möglichkeit zu haben, die Schlösser zu sperren, muss der Status die Rolle `switch.lock` haben und `native.LOCK_VALUE` haben, um den Sperrstatus zu bestimmen.
-Wenn Sie einen separaten Wert zur Steuerung des Schlosses benötigen, können Sie `native.CONTROL VALUE` verwenden.
+Um die Sperren sperren zu können, muss der Status die Rolle `switch.lock` haben und `native.LOCK_VALUE` zur Bestimmung des Sperrstatus aufweisen.
+Wenn Sie einen separaten Wert zur Steuerung der Sperre benötigen, können Sie `native.CONTROL VALUE` verwenden.
 
 ```
 Alexa, is "lock name" locked/unlocked
@@ -93,67 +94,66 @@ Alexa, lock the "lock name"
 ## Wie Namen generiert werden
 Der Adapter versucht, virtuelle Geräte zur Smart-Home-Steuerung (z. B. Amazon Alexa oder Google Home) zu generieren.
 
-Zwei wichtige Aufzählungen sind hierfür wichtig: Räume und Funktionen.
+Dafür gibt es zwei wichtige Aufzählungen: Räume und Funktionen.
 
 Räume sind beispielsweise: Wohnzimmer, Badezimmer, Schlafzimmer.
 Funktionen sind beispielsweise: Licht, Jalousie, Heizung.
 
-Um den Status in die automatisch generierte Liste zu erhalten, müssen folgende Bedingungen erfüllt sein:
+Um den Status in die automatisch generierte Liste aufzunehmen, müssen folgende Bedingungen erfüllt sein:
 
-- der Status muss in einer „Funktions“-Aufzählung enthalten sein.
-- Der Status muss eine Rolle haben („Zustand“, „Schalter“ oder „Ebene.\*“, z. B. Ebene.Dimmer), wenn er nicht direkt in „Funktionen“ enthalten ist.
+– der Status muss in einer „Funktions“-Aufzählung enthalten sein.
+- Der Status muss eine Rolle haben („state“, „switch“ oder „level.\*“, z. B. level.dimmer), wenn er nicht direkt in „functions“ enthalten ist.
 
-Es kann sein, dass der Kanal in den "Funktionen" ist, der Status selbst jedoch nicht.
+Es kann sein, dass der Kanal in den „Funktionen“ steht, der Status selbst jedoch nicht.
 
 - der Status muss beschreibbar sein: `common.write` = true
-- der Statusdimmer muss `common.type` als 'Nummer' haben
-- der Zustand Heizung muss `common.unit` als `°C', `°F' oder `°K' und `common.type` als `number` haben
+- Der Statusdimmer muss `common.type` als 'number' haben
+- Der Zustand Heizung muss `common.unit` als `°C', `°F' oder `°K' und `common.type` als `number` haben
 
-Befindet sich der Zustand nur in „Funktionen“ und in keinem „Raum“, wird der Name des Zustands verwendet.
+Wenn sich der Status nur in „Funktionen“ und nicht in einem „Raum“ befindet, wird der Name des Status verwendet.
 
-Die Zustandsnamen werden aus Funktion und Raum generiert. So werden beispielsweise alle _Lichter_ im _Wohnzimmer_ im virtuellen Device _Wohnzimmerlicht_ gesammelt.
+Die Zustandsnamen werden aus Funktion und Raum generiert. Beispielsweise werden alle Lichter im Wohnzimmer im virtuellen Gerät „Wohnzimmerlicht“ gesammelt.
 Der Benutzer kann diesen Namen nicht ändern, da er automatisch generiert wird.
-Ändert sich jedoch der Enumerationsname, wird dieser Name ebenfalls geändert. (So wird beispielsweise die Funktion „Licht“ in „Lichter“ geändert, sodass das _Wohnzimmerlicht_ in _Wohnzimmerlichter_ geändert wird.)
+Ändert sich jedoch der Enumerationsname, ändert sich auch dieser Name. (Beispiel: Die Funktion „Licht“ wird in „Lichter“ geändert, sodass „Wohnzimmerlicht“ in „Wohnzimmerlichter“ geändert wird.)
 
-Alle Regeln werden ignoriert, wenn der Status common.smartName hat. In diesem Fall wird nur der Smart Name verwendet.
+Alle Regeln werden ignoriert, wenn der Status „common.smartName“ hat. In diesem Fall wird nur der Smart Name verwendet.
 
 Wenn `common.smartName` gleich `false` ist, wird der Status oder die Aufzählung nicht in die Listengenerierung einbezogen.
 
-Über den Konfigurationsdialog lassen sich die einzelnen Zustände bequem entfernen und zu virtuellen Gruppen oder als Einzelgerät hinzufügen.
+Über den Konfigurationsdialog können Sie einzelne Zustände bequem entfernen und zu virtuellen Gruppen oder als einzelnes Gerät hinzufügen.
 ![Konfiguration](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-Wenn die Gruppe nur einen Status hat, kann sie umbenannt werden, da hierfür der SmartName des Status verwendet wird.
-Wenn die Gruppe mehr als einen Status hat, muss die Gruppe über die Namen der Aufzählung umbenannt werden.
+Wenn die Gruppe nur einen Status hat, kann sie umbenannt werden. Hierzu wird der SmartName des Status verwendet.
+Wenn die Gruppe mehr als einen Status hat, muss die Gruppe über die Namen der Enumeration umbenannt werden.
 
-Um eigene Gruppen zu erstellen, kann der Benutzer einen „Szenen“-Adapter installieren oder ein „Skript“ im JavaScript-Adapter erstellen.
+Um eigene Gruppen zu erstellen, kann der Benutzer den Adapter „Szenen“ installieren oder ein „Skript“ im JavaScript-Adapter erstellen.
 
 ### Ersetzt
-Sie können Zeichenfolgen angeben, die in den Gerätenamen automatisch ersetzt werden sollen. Wenn Sie beispielsweise „replaces“ auf `.STATE,.LEVEL` setzen, werden alle `.STATE` und `.LEVEL` aus den Namen gelöscht. Seien Sie vorsichtig mit Leerzeichen.
-Wenn Sie `.STATE, .LEVEL` setzen, werden `.STATE` und `.LEVEL` ersetzt und nicht `.LEVEL`.
+Sie können Zeichenfolgen angeben, die in den Gerätenamen automatisch ersetzt werden. Wenn Sie beispielsweise „replaces“ auf `.STATE,.LEVEL` setzen, werden alle Zeichenfolgen `.STATE` und `.LEVEL` aus den Namen gelöscht. Achten Sie auf Leerzeichen.
+
+Wenn Sie „`.STATE, .LEVEL`“ setzen, werden die Zeichenfolgen `.STATE` und `.LEVEL` ersetzt, nicht jedoch `.LEVEL`.
 
 ## Hilfszustände
-- „smart.lastObjectID“: Dieser Status wird gesetzt, wenn nur ein Gerät per Home-Skill (Alexa, Google Home) gesteuert wurde.
-- „smart.lastFunction“: Name der Funktion (falls vorhanden), für die der letzte Befehl ausgeführt wurde.
-- „smart.lastRoom“: Name des Raums (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
-- `smart.lastCommand`: Zuletzt ausgeführter Befehl. Befehl kann sein: `true(ON)`, `false(OFF)`, `number(%)`, `-X(decrease at x)`, `+X(increase at X)`
+- `smart.lastObjectID`: Dieser Status wird gesetzt, wenn nur ein Gerät per Home-Skill (Alexa, Google Home) gesteuert wurde.
+- `smart.lastFunction`: Funktionsname (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
+- `smart.lastRoom`: Name des Raums (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
+- `smart.lastCommand`: Zuletzt ausgeführter Befehl. Mögliche Befehle: `true(ON)`, `false(OFF)`, `number(%)`, `-X(decrease at x)`, `+X(increase at X)`
 - `smart.lastResponse`: Textuelle Antwort auf Befehl. Sie kann an eine `text2speech`-Engine (`sayit`) gesendet werden.
 
 ## Umschaltmodus
-Alexa v3 unterstützt den Umschaltmodus.
-Das bedeutet, dass wenn Sie „Alexa, schalte das Licht an“ sagen und das Licht bereits an ist, es ausgeschaltet wird.
+Alexa v3 unterstützt den Umschaltmodus. Das bedeutet: Wenn Sie „Alexa, schalte das Licht an“ sagen und das Licht bereits an ist, wird es ausgeschaltet.
 
 ## IFTTT
 [Anweisungen](doc/ifttt.md)
 
 ## Google Home
-Wenn Sie im Log folgende Fehlermeldung sehen: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
-So müssen Sie den URL-Key neu generieren:
+Wenn im Protokoll die folgende Fehlermeldung angezeigt wird: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`, müssen Sie den URL-Schlüssel neu generieren:
 
 ![URL-Schlüssel](../../../en/adapterref/iobroker.iot/img/url_key.png)
 
 ## Dienstleistungen
 Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden.
-Wenn Sie `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` aufrufen und einen Wert als Nutzlast angeben.
+Wenn Sie `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` aufrufen und den Wert als Nutzlast verwenden.
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
@@ -161,11 +161,11 @@ oder
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen `custom_test` setzen, und mit „custom_test“ als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf _myString_ gesetzt.
+Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen `custom_test` festlegen und mit „custom_test“ als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf _myString_ gesetzt.
 
 Sie können "\*" in die Whitelist schreiben und alle Dienste werden zugelassen.
 
-Hier finden Sie eine Anleitung zur Nutzung mit [Aufgabensteller](doc/tasker.md).
+Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](doc/tasker.md).
 
 Der IFTTT-Dienst ist nur zulässig, wenn ein IFTTT-Schlüssel festgelegt ist.
 
@@ -194,49 +194,49 @@ Sie können auch die GET-Methode verwenden `https://service.iobroker.in/v1/iotSe
 ## Benutzerdefinierte Fähigkeit
 Die Antworten für den Custom Skill können auf zwei Arten verarbeitet werden:
 
-- `text2befehl`
+- `text2command`
 - `Javascript`
 
 ### `text2command`
-Wenn im Konfigurationsdialog beispielsweise die Instanz `text2command` definiert ist, wird die Frage an diese Instanz gesendet.
+Wenn im Konfigurationsdialog die Instanz `text2command` definiert ist, wird die Frage an die Instanz gesendet.
 
 `text2command` muss so konfiguriert werden, dass die erwartete Phrase analysiert und die Antwort zurückgegeben wird.
 
 ### `Javascript`
-Es besteht die Möglichkeit, die Frage direkt mit dem Skript zu verarbeiten. Diese ist standardmäßig aktiviert, wenn keine `text2command`-Instanz ausgewählt ist.
+Es besteht die Möglichkeit, die Frage direkt mit dem Skript zu bearbeiten. Diese ist standardmäßig aktiviert, wenn keine `text2command`-Instanz ausgewählt ist.
 
 Wenn eine Instanz `text2command` definiert ist, muss diese Instanz die Antwort liefern und die Antwort vom _Skript_ wird ignoriert.
 
-Der Adapter stellt die Details in zwei Zuständen mit unterschiedlichem Detaillierungsgrad bereit.
+Der Adapter stellt die Details in zwei Zuständen mit unterschiedlichem Detaillierungsgrad bereit
 
-- `smart.lastCommand` enthält den empfangenen Text inklusive Informationen über die Art der Abfrage (Intent). Beispiel: `askDevice Status Rasenmäher`
-- `smart.lastCommandObj` enthält einen JSON-String, der in ein Objekt mit den folgenden Informationen umgewandelt werden kann
+- `smart.lastCommand` enthält den empfangenen Text inklusive Informationen zur Art der Abfrage (Intent). Beispiel: `askDevice Status Rasenmäher`
+- `smart.lastCommandObj` enthält eine JSON-Zeichenfolge, die in ein Objekt mit den folgenden Informationen analysiert werden kann
 - `words` enthält die empfangenen Wörter in einem Array
 - `intent` enthält den Typ der Abfrage. Mögliche Werte sind derzeit:
-- v1 Fähigkeit: „askDevice“, „controlDevice“, „actionStart“, „actionEnd“, „askWhen“, „askWhere“, „askWho“
-- v2-Fähigkeit: „queryIntent“, wenn der vollständige Text erfasst wurde, „controlDevice“ für Fallback mit nur teilweisem Text
-- „deviceId“ enthält eine Geräte-ID, die das Gerät identifiziert, an das die Anfrage gesendet wurde (geliefert von Amazon); wird sie nicht angegeben, ist sie eine leere Zeichenfolge.
-- „deviceRoom“ enthält eine zugeordnete Raumkennung, die Sie in der IoT-Administrator-Benutzeroberfläche für erfasste Geräte-IDs konfigurieren können.
+- v1-Fähigkeit: `askDevice`, `controlDevice`, `actionStart`, `actionEnd`, `askWhen`, `askWhere`, `askWho`
+- v2-Fähigkeit: „queryIntent“, wenn der vollständige Text erfasst wurde, „controlDevice“ für Fallback mit nur einem Teiltext
+- „deviceId“ enthält eine Geräte-ID, die das Gerät identifiziert, an das die Anfrage gesendet wurde (von Amazon bereitgestellt). Wenn sie nicht angegeben wird, ist sie eine leere Zeichenfolge.
+- „deviceRoom“ enthält eine zugeordnete Raumkennung, die Sie in der IoT-Admin-Benutzeroberfläche für gesammelte Geräte-IDs konfigurieren können
 - `sessionId` enthält eine SessionId der Skill-Sitzung, sollte gleich sein, wenn mehrere Befehle gesprochen wurden, von Amazon übermittelt, wird eine leere Zeichenfolge sein, wenn nicht angegeben
-- `userId` enthält eine Benutzer-ID des Gerätebesitzers (oder später vielleicht des Benutzers, der mit der Fähigkeit interagiert hat), bereitgestellt von Amazon, ist eine leere Zeichenfolge, wenn sie nicht bereitgestellt wird
-- „userName“ enthält einen zugeordneten Benutzernamen, den Sie in der IoT-Administrator-Benutzeroberfläche für erfasste Benutzer-IDs konfigurieren können
+- `userId` enthält eine Benutzer-ID des Gerätebesitzers (oder später vielleicht des Benutzers, der mit der Fähigkeit interagiert hat), bereitgestellt von Amazon, wird eine leere Zeichenfolge sein, wenn nicht angegeben
+- `userName` enthält einen zugeordneten Benutzernamen, den Sie in der IoT-Admin-Benutzeroberfläche für gesammelte Benutzer-IDs konfigurieren können
 
 Weitere Einzelheiten dazu, wie die Wörter erkannt werden und welche Abfragetypen der Alexa Custom Skill unterscheidet, finden Sie unter https://forum.iobroker.net/viewtopic.php?f=37&t=17452.
 
-**Ergebnis über den smart.lastResponse-Status zurückgeben**
+**Ergebnis über den Status smart.lastResponse zurückgeben**
 
-Die Antwort muss innerhalb von 200 ms im Status `smart.lastResponse` gesendet werden und kann eine einfache Textzeichenfolge oder ein JSON-Objekt sein.
-Wenn es sich um eine Textzeichenfolge handelt, wird dieser Text als Antwort an die Fertigkeit gesendet.
-Wenn der Text ein JSON-Objekt ist, können die folgenden Schlüssel verwendet werden:
+Die Antwort muss innerhalb von 200 ms im Status `smart.lastResponse` gesendet werden und kann ein einfacher Textstring oder ein JSON-Objekt sein.
+Handelt es sich um einen Textstring, wird dieser als Antwort an den Skill gesendet.
+Handelt es sich bei dem Text um ein JSON-Objekt, können folgende Schlüssel verwendet werden:
 
 - `responseText` muss den Text enthalten, der an Amazon zurückgegeben werden soll
-- „shouldEndSession“ ist ein Boolescher Wert und steuert, ob die Sitzung nach dem Sprechen der Antwort geschlossen wird oder geöffnet bleibt, um eine weitere Spracheingabe anzunehmen.
-- `sessionId` muss die SessionId enthalten, für die die Antwort bestimmt ist. Geben Sie diese idealerweise an, um gleichzeitige Sitzungen zu ermöglichen. Wenn sie nicht angegeben wird, wird die erste Sitzung angenommen, die eine Antwort erwartet.
+- „shouldEndSession“ ist ein Boolescher Wert und steuert, ob die Sitzung nach dem Sprechen der Antwort geschlossen wird oder offen bleibt, um eine weitere Spracheingabe zu akzeptieren.
+- `sessionId` muss die Sitzungs-ID enthalten, für die die Antwort bestimmt ist. Geben Sie diese idealerweise an, um gleichzeitige Sitzungen zu ermöglichen. Andernfalls wird die erste Sitzung angenommen, die eine Antwort erwartet.
 
 **Ergebnis über die Nachricht an die IoT-Instanz zurückgeben**
 
-Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ enthält, mit einem Objekt, das die Schlüssel `responseText` und `shouldEndSession` und `sessionId` enthalten kann, wie oben beschrieben.
-Es erfolgt keine Antwort der iot-Instanz auf die Nachricht!
+Die IoT-Instanz akzeptiert außerdem eine Nachricht mit dem Namen „alexaCustomResponse“ mit dem Schlüssel „response“ mit einem Objekt, das die Schlüssel `responseText`, `shouldEndSession` und `sessionId` enthalten kann, wie oben beschrieben.
+Es erfolgt keine Antwort der IoT-Instanz auf die Nachricht!
 
 **Beispiel eines Skripts, das Texte verwendet**
 
@@ -270,9 +270,9 @@ on({ id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any' }, obj => {
 ```
 
 ### Private Cloud
-Wenn Sie eine private Fertigkeit/Aktion/Taste für die Kommunikation mit `Alexa/Google Home/Алиса` verwenden, haben Sie die Möglichkeit, eine IoT-Instanz zu verwenden, um die Anfragen davon zu verarbeiten.
+Wenn Sie eine private Fertigkeit/Aktion/Nummer für die Kommunikation mit `Alexa/Google Home/Алиса` verwenden, haben Sie die Möglichkeit, die IoT-Instanz zu verwenden, um die Anfragen davon zu verarbeiten.
 
-Beispielsweise für `yandex alice`:
+Z. B. für `yandex alice`:
 
 ```js
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
@@ -285,8 +285,8 @@ sendTo('iot.0', 'private', { type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE }
 
 Die folgenden Typen werden unterstützt:
 
-- „alexa“ – Handeln mit Amazon Alexa oder Amazon Custom Skill
-- „ghome“ – Handeln mit Google Actions über Google Home
+- „Alexa“ – Handeln mit Amazon Alexa oder Amazon Custom Skill
+- `ghome` – Handeln mit Google Actions über Google Home
 - „alisa“ – Schauspiel mit Yandex Алиса
 - `ifttt` – verhält sich wie IFTTT (eigentlich nicht erforderlich, aber für Testzwecke)
 
@@ -295,9 +295,9 @@ Die folgenden Typen werden unterstützt:
 
 ## Nachrichten an die App senden
 Ab Version 1.15.x können Sie Nachrichten an die Anwendung `ioBroker.visu` (Android und iOS) senden.
-Dazu müssen Sie die folgenden Status schreiben:
+Dazu müssen Sie die folgenden Status eingeben:
 
-```
+```js
 setState('iot.0.app.expire', 60); // optional. Time in seconds
 setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'normal'
 setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
@@ -314,7 +314,7 @@ setState('iot.0.app.message', JSON.stringify({
 ```
 
 ## Aufgaben
-- Smartnamen müssen höhere Priorität haben als Gruppen
+- Smartnamen müssen eine höhere Priorität haben als Gruppen
 - Geräte sollten nach Smart-Namen gruppiert werden
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
@@ -322,6 +322,24 @@ setState('iot.0.app.message', JSON.stringify({
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.5.2 (2025-06-04)
+-   (@GermanBluefox) Corrected error in back-end
+
+### 3.5.1 (2025-05-31)
+-   (@GermanBluefox) Rewrite Rules with TypeScript
+-   (@GermanBluefox) Package updates. SVG logo
+
+### 3.5.0 (2025-02-24)
+-   (@foxriver76) added notification manager support (notifications will be sent as push notifications to the Visu App)
+
+### 3.4.5 (2024-12-29)
+
+-   (@GermanBluefox) Checked the max length of discovered devices for Alexa
+
+### 3.4.4 (2024-12-08)
+
+-   (@GermanBluefox) Corrected the name editing of the devices for Alexa 3
+
 ### 3.4.3 (2024-11-05)
 
 -   (@GermanBluefox) corrected the addition of the devices for Alexa
@@ -828,7 +846,7 @@ setState('iot.0.app.message', JSON.stringify({
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

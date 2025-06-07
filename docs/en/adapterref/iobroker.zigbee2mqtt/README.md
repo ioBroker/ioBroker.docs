@@ -22,6 +22,21 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 [Adapter Documentation](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/wiki.md)
 
 ## Changelog
+### 3.0.7 (2025-06-07)
+-   (arteck) fix jsconconf
+
+### 3.0.6 (2025-05-31)
+-   (arteck) settings restructure
+-   (arteck) fix icon not found message
+
+### 3.0.5 (2025-05-29)
+-   (arteck) add additional folder for some devices (like smoke detector)
+-   (arteck) state.js cleanup
+-   (arteck) set available State to true if device message include last_seen status
+
+### 3.0.4 (2025-05-11)
+-   (arteck) update admin
+
 ### 3.0.3 (2025-02-03)
 -   (arteck) corr illuminance (del illuminance_raw)
 -   (arteck) indicator.alarm.flood

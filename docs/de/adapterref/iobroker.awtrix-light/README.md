@@ -20,9 +20,9 @@ chapters: {"pages":{"de/adapterref/iobroker.awtrix-light/README.md":{"title":{"d
 
 ## Anforderungen
 
-- nodejs 18 (oder neuer)
+- nodejs 20 (oder neuer)
 - js-controller 6.0.0 (oder neuer)
-- Admin Adapter 6.6.0 (oder neuer)
+- Admin Adapter 7.4.10 (oder neuer)
 - _Awtrix 3_ Gerät mit Firmware-Version _0.98_ (oder neuer) - z.B. Ulanzi TC001
 
 Hier kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) oder hier: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
@@ -120,7 +120,9 @@ Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware 
 
 ### Töne
 
-Um eine (vorher angelegte) Ton-Datei abzuspielen:
+**Die Sound-Dateien müssen im RTTTL-Format im Ordner MELODIES abgelegt werden. Die Dateiendung für diese Sounds ist .txt. Beim Abspielen der Sounds darf die Dateiendung nicht mit übergeben werden!**
+
+Um eine (vorher angelegte) Ton-Datei `beispiel.txt` abzuspielen:
 
 ```javascript
 sendTo('awtrix-light.0', 'sound', { sound: 'beispiel' }, (res) => {
@@ -190,6 +192,16 @@ Danach werden alle steuerbaren Zustände der App `test` unter `awtrix-light.0.ap
 
 Beispiel: [Wetter-App](weather-app.md)
 
+#### Basisobjekte
+
+*Benötigt Adapter-Version 2.0.0 (und neuer)*
+
+Das Basisobjekt ist eine grundlegende Definition für eine Awtrix-App, um alle existierenden Optionen setzen zu können. *Das Basisobjekt wird mit allen anderen Attributen der Experten-App erweitert.*
+
+Beispiel: Du möchtest den Regenbogen-Effekt auf der Experten-App nutzen, aber es existiert kein vordefiniter Datenpunkt, um diese Funktion direkt zu nutzen. In diesem Fall kann das Attribut im Basis-Objekt definiert werden (als JSON): `{ "rainbow": true }`.
+
+Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/api?id=custom-apps-and-notifications) für alle verfügbaren Attribute.
+
 ## Native Apps verstecken
 
 Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die Luftfeuchtigkeit): Nutze das Menu auf dem Gerät selbst! Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/onscreen) für Details.
@@ -199,6 +211,11 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2025-05-02)
+
+* (@klein0r) Added base object for expert apps to allow all options
+* (@klein0r) Added responsive design for admin config
+
 ### 1.7.0 (2025-04-08)
 
 * (@klein0r) Improved error handling when adapter is not ready (starting)
@@ -220,10 +237,6 @@ Updated recommended firmware version to 0.97
 ### 1.4.1 (2024-11-20)
 
 NodeJS >= 20.x and js-controller >= 6 is required
-
-### 1.4.0 (2024-11-20)
-
-* (@klein0r) Added support for notification manager
 
 ## License
 

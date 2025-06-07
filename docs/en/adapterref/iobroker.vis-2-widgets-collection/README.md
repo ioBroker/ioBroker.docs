@@ -47,12 +47,19 @@
 
 <img src="/img/collection-gauge.png" height="150">
 
+### Light
+
+<img src="/img/collection-light.png" height="150">
+
 ---
 <!--
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.8.0 (2025-05-30)
+- (steiger04) Light added
+
 ### 1.7.9 (2025-04-04)
 - (steiger04) Widget optimizations
 

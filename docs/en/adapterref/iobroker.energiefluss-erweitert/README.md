@@ -25,17 +25,40 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 * :gb: [English description](./docs/en/README.md)
 * :de: [Deutsche Beschreibung](./docs/de/README.md)
 * :eyeglasses: [Views Showcase](https://forum.iobroker.net/topic/74890/energiefluss-erweitert-ansichten/)
-* :grey_question: [Wiki](https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/wiki)
+* :grey_question: [Wiki](https://www.kreyenborg.koeln/wissensdatenbank/Kategorie/iobroker-energiefluss-erweitert/)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.6 (2025-06-05)
+- FIX: Removed instances from welcome screen, as this is confusing, if not using iobroker.pro
+
+### 0.7.5 (2025-06-04)
+- FIX: Override for bordercolor and borderfillcolor were not correctly applied on rect or circle
+- FIX: If user-defined iframe was too small, animation was not applied
+- FIX: Timer corrected for using "Line animation during startup" or "Show line between elements only"
+- Added: Reworked function, to better detect overrides for > (greater than) or < (smaller than) with negative values
+- Added: "default" option for override can now contain javascript function code and additional states to be fetched
+- Added: "Fill outline" and "Fill element" according to value now support value overrides
+- Added: Version check removed, as this is confusing, if user uses the default repository and Github has a new BETA version
+- Added: New line-end for filling outline according to value added. Can now be round, square and butt
+- Added: Few language corrections
+
+### 0.7.4 (2025-04-30)
+- FIX: Switching on/off on some designs did not work correctly
+- FIX: Calculation from W to kW was overwriting user defined unit
+- Added: New link to Wiki - now hosting on own server with translatable option
+- Added: Function to draw lines now supports better alignment, if source and destination element are on the same x/y-axis
+
+### 0.7.3 (2025-04-28)
 - FIX: Only the first icon could be changed. After that, no icons were shown in the list
-- FIX: On first load, datasources are not inserted inn alphabetical order
-- FIX: If a copied element belongs to a group, the group will be removed from that element 
+- FIX: On first load, datasources are not inserted in alphabetical order
+- FIX: If a copied element belongs to a group, the group was not removed from that element
+- FIX: Element positions (fore- and background) were not saved/displayed properly
+- FIX: If an element should open a frame/site, an error was shown that no datasource is assigned
+- Added: ACE SearchBox for Styles tab, output log and overrides (Strg + F)
 
 ### 0.7.2 (2025-04-25)
 - FIX: Object browser was not opening, if objects do not have proper language details
@@ -209,7 +232,7 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 **!!! Please note, this currently an Alpha-Version, because many things are changed and needed to be tested!!!**  
 The core of the adapter keeps running on the same 0.4.1 version like before, but the configuration page has many improvements. See the list below! 
 
-Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it, it case needed or downgrading to the official version again! 
+Note: save content of the state 'configuration' inside the instance as text on your disk to be able, to restore it in case needed or downgrading to the official version again! 
 
 After downloading the BETA Version, please manually proceed with uploading the adapter (this has to be done, after adapters are installed via Github) 
 described here: https://www.iobroker.net/#de/documentation/tutorial/adapter.md?#uploadvonadapterdateien

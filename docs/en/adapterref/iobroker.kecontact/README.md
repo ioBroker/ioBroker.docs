@@ -115,6 +115,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 ### **WORK IN PROGRESS**
 * (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
 * (Sneak-L8) optimized strategy for battery charging
+* (Sneak-L8) node.js >= 20 required
 
 ### 3.1.0 (2025-03-20)
 * (Sneak-L8) new option to reduce log entries on info level (write them with debug level)

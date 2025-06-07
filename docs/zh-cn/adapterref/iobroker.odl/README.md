@@ -8,32 +8,42 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: wJ+d21FjKEag7Y0V68kuUt23+l7F75/cA2p/iAwq4rE=
+hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
 ---
-# IoBroker.odl
+#ioBroker.odl
 ![标识](../../../en/admin/odl.png)
 
 ## IoBroker 中的当前环境放射性
-该适配器将德国[联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/)指定测量点的 ODL（环境剂量率）值集成到 ioBroker 中。
+该适配器将德国[联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/)指定测量点的 ODL（环境剂量率/环境剂量率）值集成到 ioBroker 中。
 
-联邦辐射防护局的 ODL 测量网络使用大约 1,700 个测量探头来全天候监测环境中天然放射性的辐射水平。该测量网络具有重要的预警功能，可以快速检测德国空气中放射性物质的辐射增加。
-获得的测量数据由 BfS 收集和评估，并根据_德国数据许可证_公开。
+德国联邦辐射防护局 (BfS) 的 ODL 测量网络使用约 1700 个测量探头，全天候监测环境中天然放射性物质的辐射水平。该测量网络具有重要的预警功能，能够快速检测德国空气中放射性物质的辐射水平。
+获取的测量数据由 BfS 收集和评估，并根据《德国数据许可证》公开。
 
 有关环境剂量率的更多详细信息，请参阅<https://odlinfo.bfs.de/>。
 
-此适配器使用[BfS 提供的官方数据接口](https://odlinfo.bfs.de/ODL/EN/service/data-interface/data-interface_node.html)下载当前 1 小时的测量数据平均值。BfS
+此适配器使用[BfS提供的官方数据接口](https://odlinfo.bfs.de/ODL/EN/service/data-interface/data-interface_node.html)下载当前 1 小时测量数据的平均值。BfS
 
 Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [BfS 日期办公室](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html)。 BfS 是适配器使用的数据的发起者。
 所有数据均由适配器以数据接口传递的未更改形式提供。
 
-如果检测到某些值状态已启用历史记录适配器（_history_、_influxdb_ 或 _sql_），适配器将尝试通过下载缺失值来填充历史记录中的缺失值，以创建完整的历史记录。
+如果检测到某些值状态的启用历史记录适配器（_history_、_influxdb_ 或 _sql_），适配器会尝试通过下载缺失值来填充历史记录中的缺失值，以创建完整的历史记录。
 
-默认情况下，适配器每小时更新一次当前测量数据。较短的更新间隔通常没有用，因为 BfS 服务器上的底层测量数据（取决于测量点）大多每小时更新一次。
-当适配器首次启动时，检索数据的时间会自动调整，以便并非所有安装都同时检索数据，并且不会不必要地加载 BfS 数据接口。
+默认情况下，适配器每小时更新一次当前测量数据。较短的更新间隔通常没有意义，因为 BfS 服务器上的底层测量数据（取决于测量点）通常每小时更新一次。
+适配器首次启动时，会自动调整数据检索时间，以便并非所有安装都同时检索数据，从而避免 BfS 数据接口不必要地加载。
 
 [![截图 1](../ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
 
 [![截图2]（../ioBroker-odl-02.png）](../../../en/adapterref/ioBroker-odl-02.png)
+
+## 查找测量站的ID
+要找到适配器所需的 ID，您需要打开 [ODL-Info 上的测量站列表](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) 并搜索测量站。
+
+如果您打开所需的测量站，您可以在浏览器的 URL 中找到其 ID，即`?id=...`。
+
+测量点_Berlin-Karlshorst_ 的示例：
+
+* 网址：`https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
+* ID：`110000006`
 
 ## Changelog
 
@@ -41,6 +51,16 @@ Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt üb
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-05-25)
+
+* (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
+* (crycode-de) Updated dependencies
+* (crycode-de) Added information how to get the required IDs of the measuring stations
+
+### 4.0.2 (2024-11-16)
+
+* (crycode-de) Added missing sizes to jsonConfig
+
 ### 4.0.1 (2024-10-23)
 
 * (crycode-de) Added support for tiny screens to jsonConfig
@@ -150,9 +170,9 @@ Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt üb
 
 ## License
 
-Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
 
-Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
+Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 
 ### MIT License
 

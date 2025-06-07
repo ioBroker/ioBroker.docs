@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.альфа-есс
-hash: MQlhZDufCij98ZD1mBBFOylZ/vD+HChaCplicsJj9ZI=
+hash: IeYCD+EVKLA4PUNjw8fCCyH2IsGI8QFHSDrr5Do4QuU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -19,11 +19,6 @@ hash: MQlhZDufCij98ZD1mBBFOylZ/vD+HChaCplicsJj9ZI=
 
 ### Для получения поддержки, пожалуйста, откройте вопрос на GitHub или посетите
 https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
-
----
-
-### В связи со сложившимися обстоятельствами, пожалуйста, примите это к сведению!
-[Объявление об ограничении интерфейса](https://github.com/alphaess-developer/alphacloud_open_api/issues/54)
 
 ---
 
@@ -60,6 +55,23 @@ https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
 **Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками их соответствующих владельцев. Их использование не подразумевает какой-либо связи или одобрения ими или любыми связанными дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет бизнес-целей.**
 
 ## Changelog
+### 3.0.1 (2024-12-22)
+
+- (Gaspode) Optimizations of reading pseudo-realtime power data for slow systems
+
+### 3.0.0 (2024-12-21)
+
+- (Gaspode) **Breaking Change:** Renamed state "Charging_period 1_end" to "Charging_period_1_end"
+- (Gaspode) Optimizations in configuration dialog
+
+### 2.3.0 (2024-12-20)
+
+- (Gaspode) Provides the ability to read pseudo-realtime power data using the API function getTodayPowerBySn. This feature is useful for systems that lack "realtime data support." When activated, data is fetched every 5 minutes and stored in the "Recent" folder.
+
+### 2.2.0 (2024-12-16)
+
+- (Gaspode) Provide system information data (getEssList)
+
 ### 2.1.6 (2024-12-01)
 
 - (Gaspode) Migrated to ESLint 9

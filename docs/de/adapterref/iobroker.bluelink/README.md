@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: CQzjMvZvQpvxomqke8t1p29PT/gy7BHLuxIHVCq7tY8=
+hash: VuoMuH0MEntk60T782Hm/p5n+SeZGJ79Jpi8hSQqNb8=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/bluelink-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/bluelink-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/bluelink-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
@@ -21,22 +21,41 @@ Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen (bis 2023)
 
 [Diskussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-[Login Infos](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
+[Login-Informationen](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
 [Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-https://github.com/AlCalzone/release-script#usage npm-Ausführung Release Major -- -p iobroker-Lizenz --all 0.9.8 -> 1.0.0 npm-Ausführung Release Minor -- -p iobroker-Lizenz --all 0.9.8 -> 0.10.0 npm-Ausführung Release Patch -- -p iobroker-Lizenz --all 0.9.8 -> 0.9.9 npm-Ausführung Release Prerelease Beta -- -p iobroker-Lizenz --all v0.2.1 -> v0.2.2-beta.0
-
-### **IN ARBEIT** -->
 ## Spende
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 3.1.3 (2025-05-05)
+* (arteck) fix bug with day and time tag for EV 
+* (arteck) dependency update
+
+### 3.1.2 (2025-01-11)
+* (arteck) error on create dp fix
+
+### 3.1.1 (2025-01-07)
+* (arteck) monthlyReport for phev/hev
+* (arteck) trip corr for ev cars
+
+### 3.1.0 (2024-10-05)
+* (arteck) SOC corr 
+* (arteck) dependency update
+
+### 3.0.4 (2024-10-03)
+* (arteck) typo
+
+### 3.0.3 (2024-10-02)
+* (arteck) add city to position text
+
+### 3.0.2 (2024-10-01)
+* (arteck) corr for hev
+
 ### 3.0.1 (2024-09-27)
 * (arteck) activate jsonconfig
-  
+
 ### 3.0.0 (2024-09-27)
 * (arteck) new structure jsonconfig
 
@@ -132,7 +151,7 @@ https://github.com/AlCalzone/release-script#usage npm-Ausführung Release Major 
 ## License
 MIT License
 
-Copyright (c) 2024 Newan <info@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -56,7 +56,7 @@ Here is what to configure when creating a new instance of the adapter. Settings 
   </tr>
   <tr>
     <td>E3/DC Port</td>
-    <td>RSCP port of your E3/DC, usually 5033<br>NOTE: this is different fom the Modbus-Port.</td>
+    <td>RSCP port of your E3/DC, usually 5033. If you have a farm, try 5034 instead (credits to <a href="https://github.com/gitpaddex">@gitpaddex</a>)<br>NOTE: this is different fom the Modbus-Port.</td>
   </tr>
   <tr>
     <td>RSCP Password</td>
@@ -500,6 +500,13 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+
+### 1.4.3
+
+* fixed errors reported by the ioBroker Check and Service Bot:
+  * \[W028\] now "node": ">=20" at package.json
+  * \[W037\] now "adapter-dev": "^1.4.0" at package.json
+  * \[W037\] now "testing": "^5.0.4" at package.json
 
 ### 1.4.2
 

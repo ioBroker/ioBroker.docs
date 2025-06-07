@@ -3,37 +3,37 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: RpMOucw8igSZtPZLPvyx4jDtS5zdyMhwPh/f/iPGgIg=
+hash: l7gdJud3rwK61oOrYyQh/epzxRJREB47LkXkmDX+7tU=
 ---
 ![标识](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
 # IoBroker.nmea 此适配器允许将 ioBroker 连接到 NMEA-2000 游艇总线。
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 要使用此适配器，您需要一个可以读取 NMEA-2000 总线并将其转换为串行端口的硬件：
 
--Actisense NGT-1（USB）
+Actisense NGT-1（USB）
 - 或带有 PiCAN-M 的 Raspberry PI
 
 ![小部件](../../../en/adapterref/iobroker.nmea/img/widgetExamples.png)
 
 [YouTube 解释](https://youtu.be/flp_-mypbRU?si=k0lp95OukQ88LBxj)
 
-## 如何在带有 PiCAN-M 的 Raspberry PI 上使用它
-PiCAN M 是一款专为 Raspberry Pi 3/4 设计的紧凑型附加板。
-它可以将 NMEA2000 和 NMEA0183 网络连接到 Raspberry Pi。
-该板可以通过外部 12V 电源供电。
-此外，当与 PiCAN-M 板一起使用时，它还可以选择通过 NMEA2000 总线直接为 Raspberry Pi 供电。
+## 如何在 Raspberry PI 上通过 PiCAN-M 使用它
+PiCAN M 是一款专为 Raspberry Pi 3/4 设计的紧凑型扩展板。
+它支持将 NMEA2000 和 NMEA0183 网络连接到 Raspberry Pi。
+该扩展板可通过外部 12V 电源供电。
+此外，与 PiCAN-M 扩展板配合使用时，还可以选择通过 NMEA2000 总线直接为 Raspberry Pi 供电。
 
-**PiCAN-M 缺乏针对 12V 电源电压的反极性保护。当以 12V 外部供电时，必须在电源线中安装 1A 保险丝。**
+**PiCAN-M 缺乏针对 12V 电源电压的适当反极性保护。当外部以 12V 电压供电时，必须在电源线中加入 1A 保险丝。**
 
-由于 Raspberry Pi 对电源的要求很高，我们建议使用外部电源（至少 3A）为 Raspberry PI 供电。
-NMEA2000 和 USB 供电可以并行运行而不会出现问题。
+由于 Raspberry Pi 对电源的要求较高，我们建议使用外部电源（至少 3A）为 Raspberry Pi 供电。
+NMEA2000 和 USB 供电可以同时正常工作。
 
 ＃＃＃ 安装
-请参阅[PiCAN-M 用户指南](img/pican-m_UGB_10.pdf) 中的第 3 章了解更多详细信息，但这里是简短摘要：
+更多详细信息请参阅[PiCAN-M 用户指南](img/pican-m_UGB_10.pdf)中的第 3 章，以下是简短摘要：
 
-编辑文件`/boot/config.txt`（带有`sudo nano /boot/config.txt`），并在文件末尾添加以下几行：
+编辑文件`/boot/config.txt`（使用`sudo nano /boot/config.txt`）并将以下行添加到文件末尾：
 
 ```
 enable_uart=1
@@ -44,22 +44,22 @@ dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 
 禁用 UART 控制台上的输出：
 
-- 在 CLI 中启动`sudo raspi-config`
-- 转到 `3 界面选项`
-- 转到`I5 串行端口`
+- 在 CLI `sudo raspi-config` 中启动
+- 转到“3 个界面选项”
+- 转到“I5 串行端口”
 - 禁用“通过串行访问 shell”和“启用串行端口硬件”
 - 退出“raspi-config”并重新启动
 
 安装 can-utils
 
-```
+```shell
 sudo apt-get install can-utils
 ```
 
 ## Actisense NGT-1
-Actisense NGT-1 可在 Windows 或 Linux 上显示，无需任何附加驱动程序。它可显示为串行端口“COMn”（Windows）或 ttyN（在 Linux 上）。
+Actisense NGT-1 无需任何额外驱动程序即可在 Windows 或 Linux 上运行。它在 Windows 上显示为串口“COMn”，在 Linux 上显示为 ttyN。
 
-＃＃ 去做
+## 待办事项
 - 编码代码
 - 自动识别系统
 - 找出为什么从地址 100 发送数据
@@ -68,14 +68,14 @@ Actisense NGT-1 可在 Windows 或 Linux 上显示，无需任何附加驱动程
 
 ## 数据模拟
 您可以将外部传感器的数据传送到 NMEA2000 总线。
-实际上，您只能模拟环境数据，例如温度、湿度、压力。
+实际上，您只能模拟环境数据，例如温度、湿度和压力。
 
 使用标志`Combined environment`您可以定义用于温度、湿度和压力的 PGN 编号：
 
-- 如果取消选择标志“组合环境”，那么温度将使用 PGN 130314，湿度将使用 PGN 130313，压力将使用 PGN 130314。
-- 如果选择标志“组合环境”，那么所有三个值将与其他可能的环境值一起在 PGN 130311 中发送。
+- 如果取消选择标志“组合环境”，则温度将使用 PGN 130314，湿度将使用 PGN 130313，压力将使用 PGN 130314。
+- 如果您选择标志“组合环境”，那么所有三个值将与其他可能的环境值一起在 PGN 130311 中发送。
 
-＃＃ 时区
+时区
 可以根据 GPS 坐标设置时区。
 为此，必须在适配器设置中启用相应选项，并允许 `iobroker` 用户执行命令：`sudo visudo`
 
@@ -85,10 +85,14 @@ iobroker ALL=(ALL) timedatectl set-timezone
 
 <!--
 
-### **正在进行中** -->
+### **工作正在进行** -->
 
 ## Changelog
-### 0.2.0 (2024-06-15)
+### **WORK IN PROGRESS**
+* (bluefox) Widgets were rewritten on TypeScript
+* (bluefox) Corrected errors in the widgets and in the calculations
+
+### 0.2.2 (2024-06-20)
 * (bluefox) Backend was rewritten on TypeScript
 * (bluefox) Support for AIS added
 * (bluefox) Valid processing of temperature, pressure and humidity
@@ -108,7 +112,7 @@ iobroker ALL=(ALL) timedatectl set-timezone
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2024-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

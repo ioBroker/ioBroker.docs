@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: UFdW49RaHlrnZCQD/4v5Uo1McZUa0/12UbqQv244GN4=
+hash: cudsgO77sXpPgwId15gH8Ex4ig5OcbZp7Su9X66fyh4=
 ---
 # IoBroker.tado
 
@@ -18,9 +18,6 @@ hash: UFdW49RaHlrnZCQD/4v5Uo1McZUa0/12UbqQv244GN4=
 
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Testen und Freigeben](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
-## Login funktioniert nicht mehr?
-Aufgrund einer neuen Autorisierungsmethode von Tado, die ab dem 21. März verpflichtend ist (siehe https://github.com/DrozmotiX/ioBroker.tado/issues/954), wurde die Authentifizierungsmethode von UserId und Passwort auf Token umgestellt. Daher ist ein Upgrade auf Version 0.7.1 oder höher erforderlich! Nach dem Update öffne die Konfigurationsseite des Adapters und folge den Anweisungen über die Schaltflächen "Schritt 1" und "Schritt 2".
-
 ## Tado-Adapter für ioBroker
 Tado° (https://www.tado.com) ist der Experte für intelligentes Heiz- und Energiemanagement für Ihr Zuhause, konzipiert und entwickelt in Deutschland. Sparen Sie mit uns dauerhaft Energie und Kosten – genießen Sie ein gemütliches und nachhaltiges Zuhause.
 
@@ -28,7 +25,7 @@ Tado° (https://www.tado.com) ist der Experte für intelligentes Heiz- und Energ
 
 ## Tado° X
 Grundlegender Support für Tado° X verfügbar.
-Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=)). Sie müssen einige Debugging-Sitzungen unterstützen und mit dem Adapterentwickler interagieren, um die Funktionen von Tado° X zu verbessern.
+Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=)). Sie müssen Debugging-Sitzungen durchführen und mit dem Adapterentwickler interagieren, um die Funktionen von Tado° X zu verbessern.
 
 ## Dinge, die Sie mit Tado° V3+, V3, V2 steuern können
 | Bundesland | Beschreibung |
@@ -68,7 +65,7 @@ Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket]
 | tado.[x].[yyyyyy].meterReadings | JSON-Objekt mit {"date":"YYYY-MM-DD","reading": 1234} kann zum Hochladen von Zählerständen zu Energy IQ verwendet werden |
 
 ## Erfordert
-* Node.js 18 oder höher
+* Node.js 20 oder höher
 * ioBroker-Host (js-Controller) 5.0 oder höher
 
 ## Changelog
@@ -76,25 +73,27 @@ Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket]
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.7.2 (2025-03-12)
-* (HGlab01) improve sentry logs
+### __WORK IN PROGRESS__
+* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
+* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
+* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
 
-### 0.7.1 (2025-03-09)
-* (HGlab01) !!!BREAKING CHANGE!!! new Authentification method (https://github.com/DrozmotiX/ioBroker.tado/issues/954)
-* (HGlab01) Bump axios to 1.8.2
-* (HGlab01) Improve error messages for Sentry
-* (HGlab01) Add attributes 'tariffLowPriceAlert' and 'tariffHighPriceAlert'
+### 0.7.10 (2025-04-25)
+* (HGlab01) further token refresh optimizations
 
-### 0.6.1 (2024-11-04)
-* (HGlab01) Add attributes 'expiryInSeconds' and 'activated'
-* (HGlab01) Extend timeout back to 20s
-* (HGlab01) Tado° X improvements
+### 0.7.9 (2025-04-17)
+* (HGlab01) fix issue 'refreshToken() failed'
 
-### 0.6.0 (2024-10-23)
-* (HGlab01) Start supporting Tado° X
+### 0.7.8 (2025-04-10)
+* (HGlab01) fix issue 'definition missing for balanceControl' [TadoX]
 
-### 0.5.9 (2024-10-16)
-* (HGlab01) Improve axios promise handling
+### 0.7.7 (2025-04-08)
+* (HGlab01) optimize sentry usage
+* (HGlab01) improve retry-mechanism when it comes to erros
+
+### 0.7.5 (2025-03-31)
+* (HGlab01) some further refactorings
+* (HGlab01) Bump axios to 1.8.4
 
 ## License
 MIT License

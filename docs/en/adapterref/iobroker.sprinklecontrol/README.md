@@ -196,7 +196,9 @@ Activate the Notifications tab. The communication settings are then made on the 
 
 ### control
 - **Holiday:** If the "Holiday" is set to true, watering will start like the weekend if the weekend setting is enabled. A connection with a calendar would also be possible here.
+- **addStartTimeSwitch** - Only displayed if a start with external signal has been selected under Configuration, Additional start time.
 - **autoOnOff:** When the setting is "Off", the automatic mode of the irrigation system is disabled.
+- **autoStart** - Start irrigation => All active circuits are started!
 - **parallelOfMax:** For example (3: 4). Three of four possible irrigation circles are active here. (This is just an ad!)
 - **restFlow:** Display of the possible residual flow of the pump. (This is just an ad!)
 
@@ -240,6 +242,11 @@ Activate the Notifications tab. The communication settings are then made on the 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.15 (2025-06-01)
+* (Dirk-Peter-md) Readme updated
+* (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
+* (Dirk-Peter-md) ioBroker-Bot [W028]
+
 ### 0.2.14 (2025-03-15)
 * (Dirk-Peter-md) eslint-config added
 * (Dirk-Peter-md) Dependencies updated
@@ -259,10 +266,6 @@ Activate the Notifications tab. The communication settings are then made on the 
 ### 0.2.11 (2022-05-22)
 * (Dirk-Peter-md) Bug fixed => analog soil moisture sensor with negative characteristic
 * (Dirk-Peter-md) Attention => maximum soil moisture in rain now in %
-
-### 0.2.10 (2022-05-15)
-* (Dirk-Peter-md) manual watering limited to a maximum of 100%
-* (Dirk-Peter-md) Error whatsapp message fixed
 
 ## License
 MIT License

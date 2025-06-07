@@ -20,12 +20,6 @@ https://www.storion4you.de/thread/683
 
 ---
 
-### Due to current circumstances, please take note!
-
-[Interface restriction announcement](https://github.com/alphaess-developer/alphacloud_open_api/issues/54)
-
----
-
 This adapter logs into the web API of [Alpha-ESS](https://www.alphaess.com/) and retrieves information for your Alpha-ESS equipment.\
 Depending on your Alpha-ESS product, it is possible to get realtime data and configuration data for your equipment. Which data points are returned by the API depends on your Alpha-ESS equipment.
 

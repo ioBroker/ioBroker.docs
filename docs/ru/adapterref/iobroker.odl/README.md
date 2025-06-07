@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: wJ+d21FjKEag7Y0V68kuUt23+l7F75/cA2p/iAwq4rE=
+hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
 ---
 # IoBroker.odl
 ![Логотип](../../../en/admin/odl.png)
@@ -23,7 +23,7 @@ hash: wJ+d21FjKEag7Y0V68kuUt23+l7F75/cA2p/iAwq4rE=
 
 Этот адаптер загружает текущие 1-часовые средние значения данных измерений с помощью [официальный интерфейс данных, предоставленный BfS](https://odlinfo.bfs.de/ODL/EN/service/data-interface/data-interface_node.html). BfS
 
-Переходник имеет актуальную 1-контактную точку для сообщения непосредственно с [Offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). BfS является источником данных, используемых адаптером.
+Переходник имеет актуальную 1-переходную стойку для сообщения напрямую с [официальная дата Tenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). BfS является источником данных, используемых адаптером.
 Все данные предоставляются адаптером в неизменном виде, в том виде, в котором они доставляются через интерфейс данных.
 
 Если для некоторого состояния значения обнаружен включенный адаптер истории (_history_, _influxdb_ или _sql_), адаптер пытается заполнить отсутствующие значения в истории, загружая отсутствующие значения для создания полной истории.
@@ -35,12 +35,32 @@ hash: wJ+d21FjKEag7Y0V68kuUt23+l7F75/cA2p/iAwq4rE=
 
 [![Скриншот 2](../ioBroker-odl-02.png)](../../../en/adapterref/ioBroker-odl-02.png)
 
+## Найти идентификатор измерительных станций
+Чтобы найти идентификатор, требуемый адаптером, необходимо открыть [Список измерительных станций на ODL-Info](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) и выполнить поиск измерительной станции.
+
+Если вы откроете нужную измерительную станцию, вы можете найти идентификатор в URL-адресе браузера как `?id=...`.
+
+Пример для точки измерения _Берлин-Карлсхорст_:
+
+* URL: `https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
+* Идентификатор: `110000006`
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-05-25)
+
+* (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
+* (crycode-de) Updated dependencies
+* (crycode-de) Added information how to get the required IDs of the measuring stations
+
+### 4.0.2 (2024-11-16)
+
+* (crycode-de) Added missing sizes to jsonConfig
+
 ### 4.0.1 (2024-10-23)
 
 * (crycode-de) Added support for tiny screens to jsonConfig
@@ -150,9 +170,9 @@ hash: wJ+d21FjKEag7Y0V68kuUt23+l7F75/cA2p/iAwq4rE=
 
 ## License
 
-Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
 
-Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
+Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 
 ### MIT License
 

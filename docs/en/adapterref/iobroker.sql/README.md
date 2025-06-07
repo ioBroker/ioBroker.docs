@@ -361,41 +361,73 @@ Example if your database is called 'iobroker':
 | MySQL      | SELECT * FROM iobroker.datapoints ...    |
 
 ## storeState
-If you want to write other data into the InfluxDB/SQL you can use the build in system function **storeState**.
-This function can also be used to convert data from other History adapters like History or SQL.
 
-A successful response does not mean that the data is really written out to the disk. It just means that they were processed.
+If you want to write other data into the SQL database you can use the build
+in system function **storeState**. This function can also be used to convert
+data from other History adapters like InfluxDB or SQL.
 
-The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings, then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
+A successful response do not mean that the data are really written out to
+the disk. It just means that they were processed!
+
+The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
 
 The Message can have one of the following three formats:
-* one ID and one state object
 
-```
-sendTo('history.0', 'storeState', [
+1. one ID and one state object
+2. one ID and array of state objects
+3. array of multiple IDs with one state object each
+
+```javascript
+// 1.
+sendTo('sql.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
-    state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
-], result => console.log('added'));
-```
+    state: {
+        ts: 1589458809352,
+        val: 123,
+        ack: false,
+        from: 'system.adapter.whatever.0'
+    }
+}, result => console.log('added'));
 
-* one ID and array of state objects
-
-```
-sendTo('history.0', 'storeState', {
+// 2.
+sendTo('sql.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
     state: [
-      {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}, 
-      {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+        {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        },
+        {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
     ]
 }, result => console.log('added'));
-```
 
-* array of multiple IDs with one state object each
-
-```
-sendTo('history.0', 'storeState', [
-    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}, 
-    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}
+// 3.
+sendTo('sql.0', 'storeState', [
+    {
+        id: 'mbus.0.counter.xxx',
+        state: {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    },
+    {
+        id: 'mbus.0.counter.yyy',
+        state: {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    }
 ], result => console.log('added'));
 ```
 

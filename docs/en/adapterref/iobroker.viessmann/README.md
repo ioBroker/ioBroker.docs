@@ -32,6 +32,12 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.7.1 (2025-06-01)
+* (ghecker1) optimize reconnect
+
+### 1.6.0 (2025-05-03)
+* (misanorot) node 20 require
+
 ### 1.5.4 (2025-01-08)
 * (misanorot) protect password
 
@@ -40,13 +46,6 @@
 
 ### 1.5.0 (2024-10-21)
 * (misanorot) fixed issue #235 Responsive
-
-### 1.4.9 (2024-09-09)
-* (misanorot) fixed issue #211
-
-### 1.4.8 (2024-09-01)
-* (misanorot) updated iob checker issues
-* (misanorot) fixed issue #211
 
 ### License
 

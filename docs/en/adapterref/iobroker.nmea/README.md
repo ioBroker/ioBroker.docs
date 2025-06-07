@@ -3,7 +3,7 @@
 This adapter allows connecting ioBroker to NMEA-2000 yacht bus.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 Sentry reporting is used starting with js-controller 3.0.
 
 To use this adapter, you need a hardware that can read NMEA-2000 bus and convert it to the serial port:
@@ -45,7 +45,7 @@ Disable outputs on UART console:
 - Exit from `raspi-config` and reboot
 
 Install can-utils
-```
+```shell
 sudo apt-get install can-utils
 ```
 
@@ -80,6 +80,10 @@ iobroker ALL=(ALL) timedatectl set-timezone
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Widgets were rewritten on TypeScript
+* (bluefox) Corrected errors in the widgets and in the calculations
+
 ### 0.2.2 (2024-06-20)
 * (bluefox) Backend was rewritten on TypeScript
 * (bluefox) Support for AIS added
@@ -100,7 +104,7 @@ iobroker ALL=(ALL) timedatectl set-timezone
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2024-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

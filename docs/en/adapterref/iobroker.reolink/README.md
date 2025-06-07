@@ -17,7 +17,7 @@ Adapter for ioBroker Plattform to get [Reolink camera](https://reolink.com/) inf
 
 In general all newer Reolink cameras support API commands. They just differ in their supported commands.
 
-One reminder to the password. Try with or without URI encoding, when you have only one special char. Better use no special char and simply a longer password for the same security.
+One reminder to the password. Try with or without URI encoding, when you have only one special char. Better use no special char and simply a longer password for the same security. Check with http://cam.ip.add.ress/api.cgi?cmd=GetDevInfo&channel=0&user=username&password=yoursecurity if your credentials are working.
 
 If you wish to have any specific API command included...just let me now.
 
@@ -51,6 +51,15 @@ If you wish to have any specific API command included...just let me now.
  - LED Light
  - Mail Notification
 
+### Push notification settings
+
+Push notifications to a phone will only be provided if the following conditions are met:
+ - The Push notifications switch in the adapter is ON.
+ - For NVRs, both the global and channel switch are ON.
+ - The Push-notification in the Reolink App of that phone is ON.
+
+The Push-notification in the Reolink app is independent of the adapter setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone. This means deactivating push at iobroker does not touch the toggle button in the app at all.
+
 ### Example Usage of get image:
 
 ```
@@ -61,6 +70,17 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 // content from **result** is JSON :
 ```
 {type:"image/png",base64:"iVBORw....askldfj"}
+```
+for telegram this is working
+```
+sendTo("reolink.0",{action: "snap"}, function(result){
+    const buffer =Buffer.from(result.base64, "base64");
+    sendTo('telegram.0', {
+        text: buffer,
+        type: "photo",
+        caption: 'the image'
+    });
+});
 ```
 
 ## Known working cameras (firmware out of year 2023)
@@ -76,14 +96,16 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 ## Known *NOT* working cameras
 
 - E1 Pro
+- Argus 4 (maybe all Argus are not working)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (oelison) update readme #141
+### 1.2.2 (2025-05-01)
+* (oelison) update readme #141 #155
+* (oelison) supress errors with axios timeout #154
 
 ### 1.2.1 (2025-02-09)
 * (oelison) set some errors to debug logs

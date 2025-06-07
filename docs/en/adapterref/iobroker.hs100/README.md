@@ -22,6 +22,9 @@ bulb LBxxx
 
 ------------------------------------------------------------------------------
 ## Changelog
+### 3.0.5 (2025-05-16)
+* (arteck) dependency update
+
 ### 3.0.4 (2025-04-04)
 (arteck) add i18n language folder
 

@@ -10,9 +10,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)](https://nodei.co/npm/iobroker.tado/)
 
-## Login no longer working?
-Due to a new authorization method from Tado, which is mandatory by March 21st (see https://github.com/DrozmotiX/ioBroker.tado/issues/954), the authentification method was switched from UserId and Password to Token. Therefore you have to upgrade to version 0.7.1 or later! After the update go to the adapter's config page and follow the process with the Buttons "Step 1" and "Step 2".
-
 ## tado adapter for ioBroker
 Tado° (https://www.tado.com) is the expert in smart heating and energy management for your home, designed and developed in Germany. Save energy and cut costs for good with us – enjoy a cosy and sustainable home.
 
@@ -60,7 +57,7 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 | tado.[x].[yyyyyy].meterReadings | JSON-Object with {"date":"YYYY-MM-DD","reading": 1234} can be used to upload meter-readings to Energy IQ |
 
 ## Requires
-* Node.js 18 or higher
+* Node.js 20 or higher
 * ioBroker host (js-controller) 5.0 or higher
 
 ## Changelog
@@ -68,6 +65,11 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
+* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
+* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
+
 ### 0.7.10 (2025-04-25)
 * (HGlab01) further token refresh optimizations
 
@@ -75,7 +77,7 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) fix issue 'refreshToken() failed'
 
 ### 0.7.8 (2025-04-10)
-* (HGlab01) fix issue 'definition missing for balanceControl'
+* (HGlab01) fix issue 'definition missing for balanceControl' [TadoX]
 
 ### 0.7.7 (2025-04-08)
 * (HGlab01) optimize sentry usage

@@ -90,7 +90,7 @@ cf. [https://github.com/Bannsaenger/ioBroker.pjlink/issues/59](https://github.co
 -->
 ### **WORK IN PROGRESS**
 * (Bannsaenger) updated dependencies
-* (Bannsaenger) added ping feature
+* (Bannsaenger) added tcp-ping feature
 
 ### 0.1.1 (2023-01-24)
 * (Bannsaenger) temporarily fix the test script error with local libraries

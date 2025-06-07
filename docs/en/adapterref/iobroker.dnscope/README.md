@@ -56,6 +56,18 @@ If you have several domains that are to be updated, you need one instance per do
 ---
 <!-- ### **WORK IN PROGRESS** -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+* (simatec) Ready for NodeJS 24.x
+
+### 0.2.3 (2025-05-04)
+* (simatec) Fix Config
+* (foxriver76) Fix Instance terminate
+
+### 0.2.2 (2025-05-02)
+* (simatec) dependencies updated
+
 ### 0.2.1 (2025-04-06)
 * (simatec) small fix
 * (simatec) dependencies updated

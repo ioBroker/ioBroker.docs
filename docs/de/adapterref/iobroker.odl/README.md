@@ -30,12 +30,29 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 
 [![Screenshot 2](../ioBroker-odl-02.png)](../ioBroker-odl-02.png)
 
+## Kennungen der Messstellen finden
+
+Um die für den Adapter benötigten Kennungen der Messstellen zu finden, ruft man die [Liste der Messstellen auf ODL-Info](https://odlinfo.bfs.de/ODL/DE/themen/wo-stehen-die-sonden/liste/liste_node.html) auf und sucht dort nach der Messstelle.
+
+Wenn man nun die gewünschte Messstelle öffnet, dann steht die Kennung als `?id=...` in der URL im Browser.
+
+Beispiel für die Messstelle _Berlin-Karlshorst_:
+
+* URL: `https://odlinfo.bfs.de/ODL/DE/themen/wo-stehen-die-sonden/karte/_documents/Messstelle.html?id=110000006`
+* Kennung (ID): `110000006`
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-05-25)
+
+* (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
+* (crycode-de) Updated dependencies
+* (crycode-de) Added information how to get the required IDs of the measuring stations
+
 ### 4.0.2 (2024-11-16)
 
 * (crycode-de) Added missing sizes to jsonConfig
@@ -149,7 +166,7 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 
 ## License
 
-Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

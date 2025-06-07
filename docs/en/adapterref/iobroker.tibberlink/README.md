@@ -160,9 +160,23 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 5.0.0 (2025-05-30)
 
-- (HombachC) Update tibber-api
+- (HombachC) BREAKING: dropped node.js 18 support (#703)
+- (HombachC) BREAKING: dropped js-controller 5 support (#703)
+- (HombachC) add tests for node.js 24 (#717)
+
+### 4.5.4 (2025-05-18)
+
+- (HombachC) fix special cases of local export value (#704)
+- (HombachC) remove tests for node.js 18
+- (HombachC) optimize asynchron code
+
+### 4.5.3 (2025-05-17)
+
+- (HombachC) optimize shutdown-logic (#707)
+- (HombachC) update tibber-api
+- (HombachC) bump dependencies
 
 ### 4.5.2 (2025-04-18)
 
@@ -177,29 +191,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) fix not visible SBB LTF output 2 (#681)
 - (HombachC) enable JSON5 parsing starting with admin 7.5.3
 - (HombachC) fix vulnerability in axios <1.8.2 (#673)
-
-### 4.5.0 (2025-03-05)
-
-- (HombachC) add calculator channel 'smart battery buffer LTF' (#668)
-- (HombachC) rearrange calculator channels in configuration
-- (HombachC) improve debugging messages, code optimisations
-- (HombachC) fix 2 errors in enable/disable FlexCharts
-
-### 4.4.0 (2025-03-01)
-
-- (HombachC) add generation time cutoffs for graph outputs (#643)
-- (HombachC) set admin to minimum 7.4.10 as recommended by ioBroker (#651)
-- (HombachC) Code optimisations, preparations to switch to ESM module
-- (HombachC) bump cron to 4.x.x (#648)
-- (HombachC) bump axios from 1.8.x (#664)
-
-### 4.3.1 (2025-02-23)
-
-- (HombachC) Bump "@iobroker/adapter-dev" to 1.4.0 (#653)
-- (HombachC) start using "@alcalzone/release-script" (#650)
-- (HombachC) add option to enable/disable FlexCharts-JSON for each channel (#642)
-- (HombachC) fix logging for multiple homes (#647)
-- (HombachC) fix encrypted element "tibberBridgePassword" (#652)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

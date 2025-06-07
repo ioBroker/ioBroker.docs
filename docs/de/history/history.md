@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 06YOpl8WFLuNzb8W5oPlTVT2uTJkBy7zMPqmQzMk88A=
+hash: +xGmEm4OF2ZaUXTrPEERytK+EfySmeCIo6iTxdeuXJk=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -87,7 +87,7 @@ https://github.com/iobroker-community-adapters/ioBroker.cec2
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.cec2/master/admin/cec2.png" width="100" height="100" />
 
-Adapter für HDMI CEC - Sie können Geräte mit HDMI CEC überwachen und steuern. Die meisten modernen Fernseher und Multimediageräte unterstützen CEC in gewissem Umfang.
+Adapter für HDMI CEC - Sie können Geräte mit HDMI CEC überwachen/steuern. Die meisten modernen Fernseher und Multimediageräte unterstützen CEC in gewissem Umfang.
 
 ## Alexa2 (09.09.2023)
 * (Apollon77) Aktualisieren Sie den Alexa2-Adapter, um ihn an das geänderte Push-Benachrichtigungssystem von Amazon anzupassen und so wieder den Abruf von Verlaufs- und Interaktionsinformationen zu ermöglichen
@@ -121,7 +121,7 @@ Einfaches Erstellen von Telegram-Menüs
   ![Bild1](../../en/history/media/2023_09_12_vis-2-menu.png)
 
 ## Echarts (12.09.2023)
-* (bluefox) Möglichkeit zum Exportieren der Daten in eine JSON-Datei hinzugefügt
+* (Bluefox) Möglichkeit zum Exportieren der Daten in eine JSON-Datei hinzugefügt
 
   ![Bild1](../../en/history/media/2023_09_12_echart-1.png)
 
@@ -302,7 +302,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-##energiefluss (25.01.2024) – neuer Adapter
+## Energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -485,7 +485,7 @@ https://github.com/iobroker-community-adapters/ioBroker.boschindego
 
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.boschindego/main/admin/boschindego.png" width="100" height="100" />
 
-Adapter für Bosch Indego Rasenmäher zur Anzeige des Rasenmäherzustands und zur Steuerung des Rasenmähers.
+Adapter für Bosch Indego Mower zur Anzeige des Mähzustands und zur Steuerung des Mähers.
 
 ## Windows Installer (20.5.2024) – neue Funktion
 Es ist eine neue Version des Windows-Installationsprogramms verfügbar: 3.1.0. Neue Funktionen:
@@ -642,7 +642,7 @@ https://github.com/ioBroker/ioBroker.kisshome-research
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
 
-Dieser Spezialadapter wurde für das Forschungsprojekt KISSHome entwickelt. Er ist nicht für den allgemeinen Gebrauch bestimmt.
+Dieser spezielle Adapter wurde für das Forschungsprojekt KISSHome entwickelt. Er ist nicht für den allgemeinen Gebrauch bestimmt.
 
 ## Admin (21.09.2024) - neue Funktion
 ![Passwort überprüfen](../../en/history/media/2024_10_01_admin_back_alias.gif)
@@ -697,7 +697,7 @@ https://github.com/ThomasPohl/ioBroker.google-spreadsheet
 
 <img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.google-spreadsheet/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
 
-Dieser Adapter kann zur automatischen Interaktion mit Google-Tabellen verwendet werden.
+Dieser Adapter kann zur automatischen Interaktion mit Google Spreadsheets verwendet werden.
 
 ## Minuaru (3.12.2024) – neuer Adapter
 https://github.com/minukodu/ioBroker.minuaru
@@ -860,15 +860,61 @@ https://github.com/mcm4iob/ioBroker.shrdzm
 
 Dieser Adapter integriert die SHRDZM-Smartmeter-Schnittstelle der SHRDZM IT Services e.U. in den ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
-<!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole! -->
-
 ## Js-controller (16.4.2025) - neue Funktion
 Der js-controller 7.0.7 ist nun in der neuesten Version verfügbar. Er enthält Fehlerbehebungen und Verbesserungen. Die wichtigsten Änderungen sind:
 
 - Erweiterte „encryptedNative“ und „protectedNative“. Entwickler können nun „encryptedNative“ und „protectedNative“ in Strukturen und Arrays ansprechen.
 - Das Tippen wurde verbessert.
 
+## Ankersolix2 (18.4.2025) – neuer Adapter
+https://github.com/ronny130286/ioBroker.ankersolix2
+
+<img src="https://raw.githubusercontent.com/ronny130286/ioBroker.ankersolix2/main/admin/ankersolix2.png" width="100" height="100" />
+
+Integrieren Sie Anker Solix 2. Dieses Projekt stammt von https://github.com/tomquist/solix2mqtt und bringt Informationen von der Anker-API direkt in ioBroker.
+
 ## Geräte (20.4.2025) – neue Funktion
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
 
 Der `devices`-Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
+
+## Mhi-wfrac (30.4.2025) – neuer Adapter
+https://github.com/hacki11/ioBroker.mhi-wfrac
+
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.mhi-wfrac/main/admin/mhi-wfrac.png" width="100" height="100" />
+
+Mitsubishi Heavy Industries-Klimaanlagen mit WLAN-Adapter WF-RAC.
+Dieser Adapter integriert mit WF-RAC (WLAN) ausgestattete Mitsubishi Heavy Industries-Klimaanlagen in ioBroker.
+
+## Refoss (7.5.2025) – neuer Adapter
+https://github.com/Refoss/ioBroker.refoss
+
+<img src="https://raw.githubusercontent.com/Refoss/ioBroker.refoss/main/admin/refoss.png" width="100" height="100" />
+
+Integrieren Sie Refoss-Geräte in ioBroker.
+Weitere und detaillierte Informationen zum Gerät finden Sie hier: [Refoss](https://www.amazon.de/dp/B0D3PY4RVZ)
+
+## Plenticore-g3 (9.5.2025) – neuer Adapter
+https://github.com/FernetMenta/ioBroker.plenticore-g3
+
+<img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.plenticore-g3/main/admin/plenticore-g3.png" width="100" height="100" />
+
+Adapter zur Kommunikation mit einem KOSTAL Plenticore plus über die REST-API. Diese API ist deutlich leistungsfähiger als Modbus. Sie ermöglicht den Zugriff auf ca. 200 schreibgeschützte Datenpunkte (Prozessdaten) und ca. 250 schreibbare Einstellungen. Die API ist unter folgender URL dokumentiert:
+
+http://<plenticore host>/api/v1
+
+## Dnscope (17.5.2025) – neuer Adapter
+https://github.com/simatec/ioBroker.dnscope
+
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.dnscope/main/admin/dnscope.png" width="100" height="100" />
+
+DNScope ermöglicht Ihnen die Aktualisierung Ihres dynamischen DNS-Kontos direkt in ioBroker. Es ist möglich, Ihr DNS-Konto mit der aktuellen IP-Adresse Ihrer Umgebung ohne Umwege oder zusätzliche Hardware zu aktualisieren.
+
+## Skiinfo (16.5.2025) – neuer Adapter
+https://github.com/oweitman/ioBroker.skiinfo
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.skiinfo/main/admin/skiinfo.png width="100" height="100" />
+
+Mit diesem Adapter können Sie die aktuellen Schneehöhen für Berg-, Tal- und Neuschnee sowie geöffnete Lifte für verschiedene europäische Standorte abrufen.
+
+<!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole! -->

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tvпрограмма
-hash: 1UosVs7lNN4Pu20IQIfY7axNshQM22wSD/1mdJfuEWI=
+hash: CGeWMiuk9CXldmTdWi1G2dQmGb8zqr43jwW2KGXzHqk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -124,7 +124,7 @@ iobroker загрузить все
 | `oid` | `tvprogram.0.tv 1.cmd` | Точка данных экземпляра адаптера `tvprogram`. |
 | `showweekday` | `yes` | Показать будний день |
 | `maxfavorites` | 10 | Максимальное количество избранных для показа |
-| `highlightcolor` | `yellow` | цвет для избранных |
+| `highlightcolor` | `yellow` | цвет для избранного |
 | `highlightcolor` | `yellow` | цвет для избранного |
 
 #### Контроль
@@ -560,15 +560,9 @@ on(idKanalWahl, function (obj) {
 http://192.1.2.3:8082/vis.0/icons/tvlogos/
 ```
 
-**Отрегулируйте ширину значка с помощью команды css:**
+**Настройте ширину значка:**
 
-Поскольку ширина иконок должна быть ограничена 100 пикселями, необходимо добавить следующую команду на вкладку css в vis.
-
-```css
-.channel {
-    width: 100px !important;
-}
-```
+Каждый виджет имеет атрибут "Ширина логотипа канала px". Введите подходящую ширину для набора иконок.
 
 ### Функции не реализованы в адаптере, но предоставляются в виде скриптов для javascript-adapter
 #### `Recordlist`
@@ -705,7 +699,7 @@ var timer = setInterval(function () {
 - скопировать текст из Detailview
 - положение маркера настраивается
 - ширина и высота диалогового окна настраиваются
-- Запись Datenpunkt, которую нужно выпить с Knopf mit Aufnahmedaten gefüllt wird
+- Datenpunkt Record, der nach druck auf Knopf mit Aufnahmedaten gefüllt wird.
 - Виджет для избранного
 - скрыть неизбранное
 
@@ -720,7 +714,7 @@ var timer = setInterval(function () {
 - ~~подсказки для кнопок в виджете времени~~
 - ~~Идеи для дальнейших виджетов на основе существующего сценария телепрограммы~~
 - ~~Проблема: бесконечная прокрутка в Firefox~~
-- ~~обсуждается: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
+- ~~на обсуждение: Datenpunkt, mit allen Aufnahmedaten, должен быть реализован на адаптере видеомагнитофона или в отдельном скрипте~~
 - ~~адаптивный дизайн для подробного представления->адаптивный дизайн для диалогового окна jquery невозможен, нашел другое решение с фиксированными макетами для высоты>ширины~~
 - ~~Проблема: небольшая ошибка пикселей, если панель прокрутки полностью прокручена с левой стороны~~
 
@@ -730,6 +724,23 @@ var timer = setInterval(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- reduce requests to data provider
+- revert to node 18
+
+### 4.0.0 (2025-01-21)
+
+- Breaking Change. fix marker position with flexible width of channel logos. In each widget the property "width channel logo px" have to be set to approbiate width.
+
+### 3.0.5 (2025-01-20)
+
+- upgrade jscontroller dependency
+
+### 3.0.4 (2025-01-20)
+
+- remove check for certifates in axios due to expired certificate of data provider
+
 ### 3.0.3 (2025-01-03)
 
 - fix datapoint creation and overwriting states

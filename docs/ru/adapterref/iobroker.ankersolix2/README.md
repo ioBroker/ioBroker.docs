@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ankersolix2/README.md
 title: ioBroker.ankersolix2
-hash: rRSfHrrOlDzK9QTnaYIIJW2Lap1bqlUAjx1nWjoC2k4=
+hash: qhJb5snKyeXmeGuaDtXiPccuV7/4t6IhdVnHEGdAlfw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ankersolix2/admin/ankersolix2.png)
 
@@ -26,8 +26,8 @@ hash: rRSfHrrOlDzK9QTnaYIIJW2Lap1bqlUAjx1nWjoC2k4=
 У меня не все [Оборудование Anker](https://www.ankersolix.com/) доступно для тестирования. Я могу только перечислить оборудование, которое я протестировал. Возможно, что все остальные [оборудование Anker](https://www.ankersolix.com/) также совместимы
 
 | Устройство | Описание |
-| ------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `Solarbank` | - A17C0: Solarbank E1600 (1-е поколение)<br> - A17C1: Solarbank 2 E1600 Pro<br> - A17C3: Solarbank 2 E1600 Plus<br> |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Solarbank` | - A17C0: Solarbank E1600 (1-е поколение)<br> - A17C1: Solarbank 2 E1600 Pro<br> - A17C3: Solarbank 2 E1600 Plus<br> - A17C5: Solarbank 3 E2700 Plus<br> |
 | `Умный счетчик` | - A17X7: Anker 3-фазный Wi-Fi умный счетчик<br> - SHEM3: интеллектуальный счетчик Shelly 3EM<br> - SHEMP3: Умный счетчик Shelly 3EM Pro |
 
 ## Важное изменение
@@ -43,7 +43,7 @@ hash: rRSfHrrOlDzK9QTnaYIIJW2Lap1bqlUAjx1nWjoC2k4=
 
 ## Помогает
 Если у вас есть ошибки типа 401, проверьте свои учетные данные.
-Если у вас снова есть ошибки и вы не можете войти в систему, остановите адаптер и удалите session.data в iobroker-data/ankersolix2.0 (например, /opt/iobroker/iobroker-data/ankersolix2/), после этого снова запустите адаптер.
+Если у вас снова есть ошибки и вы не можете войти, остановите адаптер и удалите session.data в iobroker-data/ankersolix2.0 (например, /opt/iobroker/iobroker-data/ankersolix2/), после этого снова запустите адаптер.
 
 ## Благодарности
 
@@ -53,6 +53,19 @@ hash: rRSfHrrOlDzK9QTnaYIIJW2Lap1bqlUAjx1nWjoC2k4=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2025-05-28)
+
+- (ronny130286) fix for Solix 3
+
+### 2.1.1 (2025-05-15)
+
+- (ronny130286) bugfix
+
+### 2.1.0 (2025-04-17)
+
+- (ronny130286) reorganized analysis option (now selectable in adminconsole)
+- (ronny130286) add battery energy to solix devices
+- (ronny130286) update packages
 
 ### 2.0.0 (2025-03-09)
 

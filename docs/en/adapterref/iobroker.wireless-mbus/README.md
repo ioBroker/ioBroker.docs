@@ -74,6 +74,9 @@ Afterwards, when you delete the device from the object tree, the adapter will no
 
 ## Changelog
 
+### 0.10.1
+* (ChL) Fix SLIP encoder used by IMST iU891A-XL
+
 ### 0.10.0
 * (ChL) Add support for IMST iU891A-XL receiver
 

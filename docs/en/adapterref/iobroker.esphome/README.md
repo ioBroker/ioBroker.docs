@@ -45,8 +45,27 @@ In any case, it is possible to integrate the dashboard into ioBroker Admin inter
 
 ![Logo](admin/img/ESPhomeDashboardIP.png)
 
-> [!IMPORTANT]
-> is currently not possible to show the ESPHome DashBoard integrated in ioBroker when https is enabled, see [#159](https://github.com/DrozmotiX/ioBroker.esphome/issues/159)
+### Using HTTPS
+
+One reason to use HTTPS is to be able to flash directly to devices plugged into you pc, because esphome will not allow this with http (probably browser limitation with WebSerial).
+
+![flashFromThisComputer.png](admin/img/flashFromThisComputer.png)
+
+Using the integrated dashboard when the iobroker is using https currently requires some more steps:
+
+1. install - if you don't have it already - web adapter and configure https. see web documentation for further information: [ioBroker.web](https://github.com/ioBroker/ioBroker.web)
+2. install [proxy](https://github.com/ioBroker/ioBroker.proxy) adapter
+3. configure the path in the proxy adapter settings:
+   1. context: `esphome/`
+   2. url: `http://localhost:6052`
+![proxy.png](admin/img/proxy.png)
+4. configure the full dashboard url in the advanced section of the esphome adapter settings - esphome dashboard:
+   1. like: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
+   2. where `<iobrokerIP>` is the ip of the host where you iobroker is running (same as above)
+   3. and `<webAdapterPort>` is the port of the web adapter (default is 8082)
+   4. it should look something like this:
+   ![ESPHomeDashboardUrl.png](admin/img/ESPHomeDashboardUrl.png)
+   5. if you run the dashboard on an external host, you can also use the url to an external dashboard instance here
 
 ## How to use this adapter
 
@@ -179,10 +198,11 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
-### __WORK IN PROGRESS__
-* (ticaki) Optimize admin configuration interface
-* (DutchmanNL) Optimize backend handling of device discovery
-* (DutchmanNL) Capability to select ESPHome Dashboard version added, resolves #118
+### 0.6.1 (2025-05-24)
+* (@SimonFischer04) Update esphome
+* (@ticaki) Optimize admin configuration interface
+* (@DutchmanNL) Optimize backend handling of device discovery
+* (@DutchmanNL) Capability to select ESPHome Dashboard version added, resolves #118
 
 ### 0.5.0-beta.8 (2023-11-24)
 * (DutchmanNL) Capability to automatically detect new devices added
@@ -205,15 +225,10 @@ If you like my work, please consider a personal donation
 * (DutchmanNL) State implemented to show current connection status (unreachable/disconnected/connected) to improve management of devices
 * (DutchmanNL) Several bugfixes, resolves #181 resolves #
 
-### 0.4.1 (2023-11-05)
-* (DutchmanNL) Bugfix: Password / connection issues in previous beta resolves #179
-* (DutchmanNL) Bugfix: Allow individual API password or encryption keys for devices, resolves #174
-* (DutchmanNL) Support ESPHome device Encryption Key (you should migrate from API password to Encryption Key ! resolves #152)
-
 ## License
 MIT License
 
-Copyright (c) 2023 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2023-2025 DutchmanNL <rdrozda86@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

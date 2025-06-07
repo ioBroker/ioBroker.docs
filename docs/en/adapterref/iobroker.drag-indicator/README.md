@@ -21,6 +21,10 @@ e.g. you can use it for power or temperature values.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
 ### 2.4.0 (2025-02-22)
 * (BenAhrdt) update admin adn js-controller dependencies
 

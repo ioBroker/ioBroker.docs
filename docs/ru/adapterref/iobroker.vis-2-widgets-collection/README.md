@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-collection/README.md
 title: Коллекция виджетов для ioBroker.vis 2.0
-hash: 5I2pTsQyZUWLk5ZntzFKs6q74UHP2jOus89BArfMSaI=
+hash: /rfIxmrbr++XTGZwRpLpCFittZj8YzhDmllIIkd/Xq4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-collection/admin/vis-2-widgets-collection.png)
 
@@ -43,11 +43,30 @@ hash: 5I2pTsQyZUWLk5ZntzFKs6q74UHP2jOus89BArfMSaI=
 ### Измерять
 <img src="/img/collection-gauge.png" height="150">
 
+### Свет
+<img src="/img/collection-light.png" height="150">
+
 --- <!-- Заполнитель для следующих версий:
 
 ### __РАБОТА В ХОДЕ__ -->
 
 ## Changelog
+### 1.8.0 (2025-05-30)
+- (steiger04) Light added
+
+### 1.7.9 (2025-04-04)
+- (steiger04) Widget optimizations
+
+### 1.7.8 (2025-04-04)
+- (steiger04) Push button functionality for State widget added
+
+### 1.7.7 (2025-03-31)
+- (steiger04) Slider optimized
+
+### 1.7.6 (2025-03-31)
+- (steiger04) Dialog with width and height in pixel
+- (steiger04) Widget optimizations
+
 ### 1.7.5 (2025-03-23)
 - (steiger04) Dialog bug fixed
 

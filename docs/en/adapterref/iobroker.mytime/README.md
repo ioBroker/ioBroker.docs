@@ -379,6 +379,16 @@ Group CSS-Common / transform "scale(0.5)"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.3 (2025-06-06)
+
+- fix validation rule for the setDP button in admin
+
+### 1.4.2 (2025-06-01)
+
+- revert to node 18
+- cleanup files and some details
+- fix server time diff calculations
+
 ### 1.4.0 (2025-01-02)
 
 - to update the time from the configuration i added a SetDP Button

@@ -23,6 +23,49 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) add some roles for uplink states
+
+### 1.10.13 (2025-06-01)
+* (BenAhrdt) update dependencie for mqtt in 5.13.0
+
+### 1.10.12 (2025-05-30)
+* (BenAhrdt) update Testing to 24.x
+
+### 1.10.11 (2025-05-25)
+* (BenAhrdt) Round to convert only integers to HEX
+* (BenAhrdt) add roles for uplinks from dnt-lw-etrv
+
+### 1.10.10 (2025-05-18)
+* (BenAhrdt) update assignhandler
+
+### 1.10.9 (2025-05-17)
+* (BenAhrdt) correct lower case for targetTemperatureFloat
+* (BenAhrdt) remove role switch in case of send with uplink and collect
+
+### 1.10.8 (2025-05-17)
+* (BenAhrdt) add some states for Mode
+
+### 1.10.7 (2025-05-17)
+* (BenAhrdt) add some roles
+
+### 1.10.6 (2025-05-16)
+* (BenAhrdt) change State Opened to role sensor.window for zigbee / matter stndard
+
+### 1.10.5 (2025-05-15)
+* (BenAhrdt) add role for Low Battery
+* (BenAhrdt) add role value.battery to state BatteryPercent
+
+### 1.10.4 (2025-05-15)
+* (BenAhrdt) set new roles and bugfix role in downlink.control at startup
+
+### 1.10.3 (2025-05-07)
+* (BenAhrdt) set logging for custom send from warning to debug
+
+### 1.10.2 (2025-05-04)
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) improove timestamp in deviceInformation, if its not present in message (eg. manualy send via TTN)
+
 ### 1.10.1 (2025-04-17)
 * (BenAhrdt) Improove Custom Send
 

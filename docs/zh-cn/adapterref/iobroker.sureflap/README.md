@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: wBA7Lh1dURbNHjUPUe1qYcbJeiBGlea3exh4+qJRqdo=
+hash: /MEf/Xl3Z87kMiEr9svRkmExZoAYA0WRXXMYMsOMpuQ=
 ---
 ![稳定版本](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
 ![安装数量（最新）](http://iobroker.live/badges/sureflap-installed.svg)
-![新平台](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)
 
 <p align="center"> <img src="admin/sureflap.png" /> </p>
 
 # IoBroker.sureflap
-![测试与发布](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
 
 ## Sure Petcare® 智能宠物设备适配器
 <p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
@@ -23,43 +23,64 @@ hash: wBA7Lh1dURbNHjUPUe1qYcbJeiBGlea3exh4+qJRqdo=
 要求：在适配器配置页面上从您的 Sure Petcare® 帐户添加用户名和密码。
 
 可选：启用或禁用 JSON 事件历史记录并配置项目数量。
-可选：使用可充电电池时设置电池满电量和电量耗尽阈值。这会影响电池百分比值。
+可选：使用可充电电池时，设置电池满电阈值和空电阈值。这会影响电池百分比值。
 
 ＃＃ 描述
 该适配器提供有关宠物门、猫门、喂食器或饮水器的设置和状态的信息。
 
 它还显示您的宠物的位置以及它们的食物和水消耗量（使用喂食器和/或饮水器）。
 
-它可以让您控制门闩的锁定模式和宵禁，并设置宠物的位置。
+它可以让您控制门的锁定模式和宵禁并设置宠物的位置。
 
-该适配器需要 Node 18 或更新版本。
+该适配器需要 Node 20 或更新版本。
 
 ### 可变值
 以下状态可以更改，并将分别在您的设备上生效，并反映在您的 Sure Petcare® 应用程序中。
 
 | 状态 | 描述 | 允许的值 |
-|-----------------------------------------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| house_name.hub_name.control.led_mode | 设置集线器 LED 的亮度 | **0** - 关闭<br>**1** – 高<br>**4** - 变暗 |
-| house_name.hub_name.flap_name.control.curfew_enabled | 启用或禁用配置的宵禁 | **true** 或 **false** |
-| house_name.hub_name.flap_name.control.current_curfew | 设置 current_curfew，<br>支持 1（宠物门）或最多 4（猫门）宵禁时间 | **[{&quot;enabled&quot;:true\|false, &quot;lock_time&quot;:&quot;xx:xx&quot;, &quot;unlock_time&quot;:&quot;xx:xx&quot;}, ...]** |
-| house_name.hub_name.flap_name.control.lockmode | 设置锁定模式 | **0** - 打开<br>**1** - 锁定<br>**2** - 锁定<br>**3** - 关闭（锁定）|
-| house_name.hub_name.flap_name.assigned_pets.pet_name.control.type | 设置指定宠物和襟翼的宠物类型 | **2** - 户外宠物<br>**3** - 室内宠物 |
-| house_name.hub_name.feeder_name.control.close_delay | 设置喂食器盖的关闭延迟 | **0** - 快速<br>**4** - 正常<br>**20** - 慢 |
-| family_name.pets.pet_name.inside | 设置你的宠物是否在里面 | **true** 或 **false** |
+|--------------------------------------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| HOUSEHOLD_NAME.HUB_NAME.control.led_mode | 设置集线器 LED 的亮度 | **0** - 关闭<br>**1** - 高<br>**4** - 变暗 |
+| HOUSEHOLD_NAME.HUB_NAME.DEVICE_NAME.control.pets.PET_NAME.assigned | 将宠物分配到设备或从设备取消分配宠物 | **true** 或 **false** |
+| HOUSEHOLD_NAME.HUB_NAME.FEEDER_NAME.control.close_delay | 设置喂食器盖的关闭延迟 | **0** - 快速<br>**4** - 正常<br>**20** - 慢 |
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.curfew_enabled | 启用或禁用配置的宵禁 | **true** 或 **false** |
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.current_curfew | 设置 current_curfew，<br>支持 1 个（宠物门）或最多 4 个（猫门）宵禁时间 | **[{&quot;enabled&quot;:true\|false, &quot;lock_time&quot;:&quot;xx:xx&quot;, &quot;unlock_time&quot;:&quot;xx:xx&quot;}, ...]** |
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.lockmode | 设置锁定模式 | **0** - 打开<br>**1** - 锁定<br>**2** - 锁定<br>**3** - 关闭（锁定）|
+| HOUSEHOLD_NAME.HUB_NAME.FLAP_NAME.control.pets.PET_NAME.type | 设置指定宠物和门襟的类型 | **2** - 户外宠物<br>**3** - 室内宠物 |
+| HOUSEHOLD_NAME.pets.PET_NAME.inside | 设置你的宠物是否在里面 | **true** 或 **false** |
 
 ＃＃＃ 结构
 适配器创建以下层次结构：
 
-适配器<br>家属姓名<br>│ │ 中心名称<br>│ │ │ 在线<br>│ │ │ 序列号<br>│ │ │ 信号<br>│ │ │ │ │ 设备_rssi<br> │ │ │ └ hub_rssi<br> │ │ │ 版本<br>│ │ │ │ 固件<br>│ │ │ └ 硬件<br>│ │ ═ ...<br> │ │ │ └ led_mode<br> │ │ │ │ │ │<br> │ │ │ │ 电池<br>│ │ │ │ 电池百分比<br>│ │ │ │ 线上<br>│ │ │ │ 序列号<br>│ │ │ │ 信号<br>│ │ │ │ │ │ │ 设备_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ │ 版本<br>│ │ │ │ │ 固件<br>│ │ │ └ 硬件<br>│ │ │ │ 已分配宠物<br>│ │ │ │ └ 宠物名称<br>│ │ │ └ 水<br>│ │ │ │ 填充百分比<br>│ │ │ │ │ │ │ │<br> │ │ │ └ 重量<br>│ │ │ │ │ │ │ │<br> │ │ │ │ 电池<br>│ │ │ │ 电池百分比<br>│ │ │ │ 线上<br>│ │ │ │ 序列号<br>│ │ │ │ 信号<br>│ │ │ │ │ │ │ 设备_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ │ 版本<br>│ │ │ │ │ 固件<br>│ │ │ └ 硬件<br>│ │ │ │ 已分配宠物<br>│ │ │ │ └ 宠物名称<br>│ │ │ │ 碗<br>│ │ │ │ └ 0..1<br> │ │ │ │ │ │ 填充百分比<br>│ │ │ │ │ │ 食物类型<br>│ │ │ │ │ │ │ │ │ │ │<br> │ │ │ │ │ │ │ │ Last_zeroed_at<br> │ │ │ │ │ │ 目标<br>│ │ │ └ 重量<br>│ │ │ └ 控制<br>│ │ │ └ 关闭延迟<br>│ │ └ 襟翼名称<br>│ │ ═ ...<br> │ │ │ 电池百分比<br>│ │ │ 宵禁_活动<br>│ │ │ │ last_enabled_curfew<br> │ │ │ 在线<br>│ │ │ 序列号<br>│ │ ═ ...<br> │ │ │ │ ̀́ ...<br> │ │ │ │ │ 当前宵禁<br>│ │ │ └ 锁定模式<br>│ │ │ 信号<br>│ │ │ │ │ 设备_rssi<br> │ │ │ └ hub_rssi<br> │ │ │ 版本<br>│ │ │ │ 固件<br>│ │ │ └ 硬件<br>│ │ └ 已分配宠物<br>│ │ └ 宠物名称<br>│ │ └ 控制<br>│ │ └ 类型<br>│ │ 历史<br>│ │ └ json<br> │ │ └ 0..24<br> │ └ 宠物<br>│ └ 宠物名称<br>│ ═ ...<br> │ │ 名称<br>│ │ 自<br>│ │ 食品<br>│ │ │ │ 上次吃的<br>│ │ │ 花费时间<br>│ │ │ │ │<br> │ │ └ 干..湿<br>│ │ └ 重量<br>│ │ 运动<br>│ │ │ │ │ │ │ │<br> │ │ │ │ │<br> │ ...<br> │ │ │ 上次时间<br>│ │ │ 在外面度过的时间<br>│ │ └ times_outside<br> │ └ 水<br>│ │ 上次喝醉<br>│ │ 花费时间<br>│ │ │ │<br> │ └ 重量<br>└ 信息<br>═所有设备在线<br>联系方式<br>. ...<br> │ 离线设备<br>└ 版本<br>
+适配器<br>家属姓名<br>│ │ │ 中心名称<br>│ │ │ 在线<br>│ │ │ 序列号<br>│ │ │ 信号<br>│ │ │ │ │ 设备_rssi<br> │ │ │ └ hub_rssi<br> │ │ │ 版本<br>│ │ │ │ 固件<br>│ │ │ └ 硬件<br>│ │ ═ 控制<br>│ │ │ └ led_mode<br> │ │ │ FELAQUA_NAME<br> │ │ │ │ 电池<br>│ │ │ │ 电池百分比<br>│ │ │ │ 线上<br>│ │ │ │ 序列号<br>│ │ │ │ 信号<br>│ │ │ │ │ │ 设备_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ │ 版本<br>│ │ │ │ │ 固件<br>│ │ │ │ └ 硬件<br>│ │ │ │ 水<br>│ │ │ │ │ 填充百分比<br>│ │ │ │ │ │ │ 上次填充时间<br>│ │ │ └ 重量<br>│ │ │ └ 控制<br>│ │ │ └ 宠物<br>│ │ │ └ 宠物名称<br>│ │ │ └ 已分配<br>│ │ │ 进料器名称<br>│ │ │ │ 电池<br>│ │ │ │ 电池百分比<br>│ │ │ │ 线上<br>│ │ │ │ 序列号<br>│ │ │ │ 信号<br>│ │ │ │ │ │ 设备_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ │ 版本<br>│ │ │ │ │ 固件<br>│ │ │ │ └ 硬件<br>│ │ │ │ 碗<br>│ │ │ │ └ 0..1<br> │ │ │ │ │ 填充百分比<br>│ │ │ │ │ │ 食物类型<br>│ │ │ │ │ │ │ 上次填充时间<br>│ ...<br> │ │ │ │ │ 目标<br>│ │ │ └ 重量<br>│ │ │ └ 控制<br>│ │ │ │ 宠物<br>│ │ │ │ └ 宠物名称<br>│ │ │ │ └ 已分配<br>│ │ │ └ 关闭延迟<br>│ │ └ FLAP_NAME<br> │ │ │ 电池<br>│ │ │ 电池百分比<br>│ │ │ 宵禁活动<br>│ ...<br> │ │ │ 在线<br>│ │ │ 序列号<br>│ │ ═ 控制<br>│ │ │ │ 宠物<br>│ │ │ │ └ 宠物名称<br>│ │ │ │ │ 已分配<br>│ │ │ │ └ 类型<br>│ │ │ │ 宵禁已启用<br>│ │ │ │ 当前宵禁<br>│ │ │ └ 锁定模式<br>│ │ │ 信号<br>│ │ │ │ │ 设备_rssi<br> │ │ │ └ hub_rssi<br> │ │ └ 版本<br>│ │ │ 固件<br>│ │ └ 硬件<br>│ │ 历史<br>│ │ └ json<br> │ │ └ 0..24<br> │ └ 宠物<br>│ └ 宠物名称<br>│ 内<br>│ │ 名称<br>│ │ 自从<br>│ │ 食品<br>│ │ │ 上次吃的<br>│ │ │ 花费时间<br>│ ...<br> │ │ └ 干..湿<br>│ │ └ 重量<br>│ │ 运动<br>│ ...<br> │ ...<br> │ ...<br> │ │ │ 上次<br>│ │ │ 外出时间<br>│ │ └ times_outside<br> │ └ 水<br>│ │ 上次醉酒<br>│ │ 花费时间<br>│ │ 时间_醉酒<br>│ └ 重量<br>└ 信息<br>═所有设备在线<br>连接<br>═上次更新<br>离线设备<br>└ 版本<br>
 
-注释
+## 注释
 SureFlap®、Sure Petcare® 和 Felaqua® 是 [SureFlap 有限公司](https://www.surepetcare.com/) 的注册商标
 
-SureFlap® 设备的图片从[Sure Petcare®](https://www.surepetcare.com/en-us/press) 起可免费使用。
+SureFlap® 设备的图片可从[Sure Petcare®](https://www.surepetcare.com/en-us/press) 免费使用。
 
 ## Changelog
 
-### 3.0.0 (work in progress)
+### 3.2.0 (2025-06-01)
+
+* (Sickboy78) made pet assignment controllable
+* (Sickboy78) dependency updates
+
+### 3.1.1 (2025-04-16)
+
+* (Sickboy78) prevent log spam from missing rssi
+
+### 3.1.0 (2025-03-26)
+
+* (Sickboy78) improved handling of number of bowls
+* (Sickboy78) added version specific handling of deprecated data
+* (Sickboy78) dependency updates
+
+### 3.0.1 (2025-01-28)
+
+* (Sickboy78) fix for curfew not being 24-hour format
+* (Sickboy78) fix typos in warnings
+
+### 3.0.0 (2025-01-23)
 
 * (Sickboy78) complete refactoring of surepet API
 * (Sickboy78) complete refactoring of internal data structure
@@ -267,4 +288,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2025 Sickboy78 <asmoday_666@gmx.de>

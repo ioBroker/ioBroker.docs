@@ -32,12 +32,29 @@ When the adapter is started for the first time, the time for retrieving the data
 
 [![Screenshot 2](../ioBroker-odl-02.png)](../ioBroker-odl-02.png)
 
+## Find the ID of measuring stations
+
+To find the ID required by the adapter, you need to open the [List of measuring stations on ODL-Info](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) and search for the measuring station.
+
+If you open the desired measuring station, you can find the ID in URL of the browser as `?id=...`.
+
+Example for the measuring point _Berlin-Karlshorst_:
+
+* URL: `https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
+* ID: `110000006`
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-05-25)
+
+* (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
+* (crycode-de) Updated dependencies
+* (crycode-de) Added information how to get the required IDs of the measuring stations
+
 ### 4.0.2 (2024-11-16)
 
 * (crycode-de) Added missing sizes to jsonConfig
@@ -151,7 +168,7 @@ When the adapter is started for the first time, the time for retrieving the data
 
 ## License
 
-Copyright (c) 2019-2024 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

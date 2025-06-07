@@ -27,6 +27,10 @@ You can find more and detailed information about the device here: [Refoss](https
 
 ## Changelog
 
+### 1.0.0 (2025-05-13)
+
+- (zhoulinyue) Modify the channel display order
+
 ### 0.1.11 (2025-04-23)
 
 - (zhaochuanling) revise the feedback content

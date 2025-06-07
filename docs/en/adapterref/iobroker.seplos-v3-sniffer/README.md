@@ -99,6 +99,7 @@ active_protections
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (DpunktS) Node.js >= 20
 
 ### 0.1.1 (2025-02-28)
 * (DpunktS) bugfix

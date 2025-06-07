@@ -57,6 +57,21 @@ You can still do firmware updates with the official Zendure app via bluetooth an
 Credits goes to https://github.com/reinhard-brandstaedter/solarflow which helped a lot with the knowledge about the MQTT server from Zendure! Thanks!
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- Fix AC Mode showing unknown parameter on ACE 1500
+
+### 1.13.1 (2025-05-05)
+
+- TEST: Set Smart CT Mode and Smart Matching Mode correctly - Feedback needed!
+- Removed efficiency from calculation, as it seems Zendure already included it in charge and discharge values
+
+### 1.13.0 (2025-04-30)
+
+- Add possibility to deactivate automatic restart of adapter in adapter settings (recommended only on local mode!)
+- Fixed missing control state "hubState"
+
 ### 1.12.7 (2025-03-24)
 
 - Add productKey "gDa3tb" for Hyper 2000

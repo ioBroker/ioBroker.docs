@@ -47,7 +47,16 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+### **WORK IN PROGRESS**
+
+- (HombachC) add tests for node 24 (#655)
+- (HombachC) bump dependencies
+
+### 0.14.0 (2025-05-04)
+
+- (HombachC) BREAKING: Dropped support for Node.js 18 (#674)
+- (HombachC) BREAKING: Dropped support for js-controller 5 (#674)
+- (HombachC) bump dependencies
 
 ### 0.13.2 (2025-03-22)
 
@@ -66,11 +75,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) Bump @iobroker/adapter-dev to 1.4.0 (#621)
 - (HombachC) Using "@alcalzone/release-script" (#624)
-
-### 0.12.8 (2025-02-16)
-
-- (HombachC) Sentry changes
-- (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

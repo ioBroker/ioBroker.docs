@@ -151,7 +151,19 @@ sendTo('fb-checkpresence.0', 'triggerPresence', {}
 
 ### Whitelist settings
 In the white list you can insert every known device. Any unknown devices are listed in the blacklist object. 
-If you check the checkbox in the headline of the table all devices are selected. 
+If you check the checkbox in the headline of the table all devices are selected.
+
+In Javascript you can send an item to the whitelist. 
+The sent data (hostname, MAC) is compared with the Fritzbox device list. If the entry is present, it is checked whether it is already saved in the whitelist. If not, the entry is saved in the whitelist configuration table.
+
+sendTo('fb-checkpresence.0', 'addDeviceToWhitelist', 
+    {
+        hostname: 'devicename',
+        mac: '00:00:00:00:00:00'
+    }
+    , function (result) {
+        log(result, 'info');
+});
 
 ## Features
 
@@ -218,6 +230,13 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
+### 1.4.0 (2025-05-28)
+* (afuerhoff) dependencies updated
+* (afuerhoff) error handling optimized
+* (afuerhoff) enhancement  [#336](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/336)
+* (afuerhoff) issue [#337](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/337)
+* (afuerhoff) issue [#335](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/335)
+
 ### 1.3.1 (2025-03-02)
 * (afuerhoff) dependencies updated
 * (afuerhoff) bug fixed [#333](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/333)
@@ -234,10 +253,6 @@ Here you will find information about the history of the current day.
 
 ### 1.2.7 (2024-11-18)
 * (afuerhoff) bugfix [#319](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/319)
-
-### 1.2.6 (2024-11-14)
-* (afuerhoff) dependencies updated
-* (afuerhoff) DisAllowWanAccess optimized
 
 ## License
 MIT License

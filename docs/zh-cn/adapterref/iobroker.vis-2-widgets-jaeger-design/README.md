@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: ioBroker.vis 2.0 的特殊 Jaeger Design 小部件
-hash: j2ftcLh111BOKbGdcJpUmHw7ob1JlsRvl5Ev5owqDC4=
+hash: ww2pwFXi5G9qk35KbU8FU+RCGd8leK5XMwH7ajEJbwQ=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -16,46 +16,52 @@ hash: j2ftcLh111BOKbGdcJpUmHw7ob1JlsRvl5Ev5owqDC4=
 
 您可以找到有关如何使用小部件[这里](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe)（德语）的视频。
 
-视频 wie die Widgets benutzt werden können，kann man [耶尔](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden。
+视频 wie die Widgets benutzt werden können，kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden。
 
-## 使用“VIS-2 JAEGER 设计适配器”的智能家居 Oberfläche 概要
-### 先行者
-- 一个ioBroker系统
-- Der Jäger 设计适配器（约 50 欧元）
-- Grundkenntnisse im Umgang mit ioBroker
+德语版本 [hier](docs/README_de.md)
 
-### 介绍
-Der Jäger Design Adapter 是基于 vis-2 Adapter 和 ermöglicht es，通过单击和放置完成的 Oberfläche。 Verschiedene Widgets können hinzugefügt 和 angepasst werden，um Smart Home Geräte zu steuern。
+商业用途
+请注意，此适配器没有免费版本。必须购买许可证才能使用这些小部件（当前价格：50 欧元（含增值税））。
+不过，您可以免费安装并在编辑器中试用它们。
 
-### 上层建筑
-Die Oberfläche besteht aus mehreren Bereichen：
+## 使用“VIS-2 JAEGER 设计适配器”创建智能家居界面概述
+＃＃＃ 要求
+- ioBroker 系统
+- JAEGER 设计适配器（约 50 欧元）
+- 使用 ioBroker 的基本知识
 
-- **Hauptmenü**：链接到 Hauptmenüpunkten 的 Spalte，然后点击它。
-- **Statusleiste**：Oben können verschiedene wichtige Statusanzeigen hinzugefügt werden。
-- **Mittlerer Bereich**：Hier können Szenen、Aktionen und Hinweise angezeigt werden。 Die rechte Seite ist frei gestaltbar und kann Informationen wie Sicherheit, Wetter, Hausgeräte und Energieverbrauch anzeigen。
+＃＃＃ 介绍
+JAEGER 设计适配器基于 vis-2 适配器，允许您通过点击和拖放操作创建界面。您可以添加和自定义各种小部件来控制智能家居设备。
 
-![iobroker 付款方式1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
+### 界面基本结构
+该界面由几个区域组成：
 
-### 声明
-我的主菜单是位于 werden 的 Stockwerke ausgewählt werden。 Der Grundriss des Erdgeschosses zeigt alle Lichter，die durch Icons dargestellt werden。 Einige Icons 可以在任何地方使用、使用和照明。图标上的图标是带有弹出窗口和滑块的图标。
-![iobroker-jaeger-设计-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) 法律上的法律约束：![iobroker-jaeger-设计-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
+- **主菜单**：左侧有一列主菜单项，可以轻松创建。
+- **状态栏**：在顶部，您可以添加各种重要的状态指示器。
+- **中间区域**：可显示场景、操作和通知。右侧区域可自由配置，可显示安全、天气、家电、能耗等信息。
 
-### 罗拉登
-我的菜单“Rolladen”可以查看有关的说明。图标位于 Rolladen 的 Höhe 和 Lamellenneigung 的弹出窗口中，并且单击图标。
+  ![iobroker 付款方式1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
+
+＃＃＃ 灯光
+在主菜单中，您可以选择不同的楼层。底层的楼层平面图显示了所有以图标表示的灯光。有些图标只能打开或关闭，而有些则可以调暗。长按图标会打开一个弹出窗口，其中包含一个用于调节亮度的滑块。
+![iobroker-jaeger-设计-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) 右侧的照明场景可以轻松访问，照明设置也可以保存：![iobroker-jaeger-设计-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
+
+### 百叶窗
+在“百叶窗”菜单中，您可以查看遮光状态。图标指示百叶窗的位置，点击图标会弹出一个窗口，用于调整高度和帘片角度。
 ![智能家居经纪商介绍](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
-### 能源
-我的“Energie”菜单是在RaumTemperaturen in den einzelnen Räumen gesehen werden 中找到的。图标为 Ist- 和 Solltempern sowie den Zustand der Heizung und Fenster 和。在图标上点击图标，然后在弹出式窗口中进行温度调节和温度调节操作。
+＃＃＃ 活力
+在“能源”菜单中，您可以查看每个房间的室温。图标显示实际温度和目标温度，以及暖气和窗户的状态。点击图标后，会弹出一个窗口，您可以更改目标温度并控制其他操作，例如空调或暖风系统。
 ![iobroker-jaeger-设计-raumtemperatur_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
 
 ![iobroker-jaeger-设计-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
 
-### 安全
-我的菜单“Sicherheit”可以看到 der Zustand der Fenster gesehen werden。 Geöffnete Fenster werden rot dargestellt。
+＃＃＃ 安全
+在“安全”菜单中，可以查看窗口的状态。打开的窗口显示为红色。
 ![iobroker-jaeger-设计-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
 
-### 更多功能
-Es können auch frei definierte Oberflächen erstellt werden, wie z.B.适配器“消耗”的说明或糖尿病 Nightscout 的说明。我的菜单“设置”可用于多种设置。
+### 附加功能
+您还可以创建自由定义的界面，例如“消耗”适配器的消耗显示或 Nightscout 糖尿病显示。在“设置”菜单中，您可以进行各种设置。
 ![iobroker-jaeger-设计-Energieueberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
 
 ![iobroker-jaeger-设计-糖尿病](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
@@ -63,13 +69,33 @@ Es können auch frei definierte Oberflächen erstellt werden, wie z.B.适配器�
 ![iobroker-jaeger-设计-安装](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
 
 ### YouTube 教程
-有关详细信息和详细信息，请参阅 YouTube 教程和链接。
+有关详细说明和更多信息，建议观看链接的 YouTube 教程。
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
-### **正在进行中** -->
+### **工作正在进行** -->
 
 ## Changelog
+### 1.4.3 (2025-05-31)
+* (bluefox) Implemented the full-screen mode for cameras
+* (bluefox) Added the possibility of disabling "swipe to open the menu" in the mobile view
+* (bluefox) Corrected issue with confirmation dialog for the state widget
+* (bluefox) Added settings for submenu width and gap between submenu items
+
+### 1.4.2 (2025-05-25)
+* (bluefox) Allowed setting ON value for dimmer
+* (bluefox) Allowed inverting values in the popup dialog for shutter and blinds control
+* (bluefox) Added the control dialog for state widget
+* (bluefox) Allowed setting up the title padding
+* (bluefox) Added possibility to show the last change time for scenes
+
+### 1.4.1 (2025-05-20)
+* (bluefox) Migrated to TypeScript and vite
+* (bluefox) Corrected error with license check
+
+### 1.3.12 (2025-04-29)
+* (bluefox) Corrected min/max by thermostat
+
 ### 1.3.9 (2024-12-05)
 * (bluefox) Corrected confirmation dialog. Close now works
 * (bluefox) Caught the possible error in thermostat
@@ -245,5 +271,5 @@ Es können auch frei definierte Oberflächen erstellt werden, wie z.B.适配器�
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
 All rights reserved.

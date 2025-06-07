@@ -23,10 +23,10 @@ This project is derived from https://github.com/tomquist/solix2mqtt and brings i
 
 I don't have every [Anker hardware](https://www.ankersolix.com/) available for testing. I can only list the hardware, i have tested. It is possible that all other [Anker hardware](https://www.ankersolix.com/) is also compatible
 
-| Device       | Description                                                                                                        |
-| ------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `Solarbank`  | - A17C0: Solarbank E1600 (Gen 1)<br>- A17C1: Solarbank 2 E1600 Pro<br>- A17C3: Solarbank 2 E1600 Plus<br>          |
-| `Smartmeter` | - A17X7: Anker 3 Phase Wifi Smart Meter<br>- SHEM3: Shelly 3EM Smart Meter<br>- SHEMP3: Shelly 3EM Pro Smart Meter |
+| Device       | Description                                                                                                                                   |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Solarbank`  | - A17C0: Solarbank E1600 (Gen 1)<br>- A17C1: Solarbank 2 E1600 Pro<br>- A17C3: Solarbank 2 E1600 Plus<br> - A17C5: Solarbank 3 E2700 Plus<br> |
+| `Smartmeter` | - A17X7: Anker 3 Phase Wifi Smart Meter<br>- SHEM3: Shelly 3EM Smart Meter<br>- SHEMP3: Shelly 3EM Pro Smart Meter                            |
 
 ## Important Change
 
@@ -51,6 +51,14 @@ If you have erros again and cant login, stop the adapter and delete the session.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2025-05-28)
+
+- (ronny130286) fix for Solix 3
+
+### 2.1.1 (2025-05-15)
+
+- (ronny130286) bugfix
+
 ### 2.1.0 (2025-04-17)
 
 - (ronny130286) reorganized analysis option (now selectable in adminconsole)

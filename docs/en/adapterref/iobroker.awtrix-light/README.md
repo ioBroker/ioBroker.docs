@@ -20,9 +20,9 @@ chapters: {"pages":{"en/adapterref/iobroker.awtrix-light/README.md":{"title":{"e
 
 ## Requirements
 
-- nodejs 18 (or later)
+- nodejs 20 (or later)
 - js-controller 6.0.0 (or later)
-- Admin Adapter 6.6.0 (or later)
+- Admin Adapter 7.4.10 (or later)
 - _Awtrix 3_ device with firmware _0.98_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
@@ -120,7 +120,9 @@ The message object supports all available options of the firmware. See [document
 
 ### Sounds
 
-To play a (previously created) sound file:
+**The sound files must be saved as RTTTL fomat in the folder MELODIES. The file extension of these files is .txt. When playing those files, the file extension must not be provided.**
+
+To play a (previously created) sound file `example.txt`:
 
 ```javascript
 sendTo('awtrix-light.0', 'sound', { sound: 'example' }, (res) => {
@@ -190,6 +192,16 @@ After that, all controllable states for the app name `test` will be created in `
 
 Example: [Weather App](weather-app.md)
 
+#### Base Object
+
+*Requires adapter version 2.0.0 (or newer)*
+
+The base object is a basic defition of an awtrix app to allow all possible attributes. *The base object will be extended with other attributes of the expert app.*
+
+Example: If you want to use the rainbow effect, but there is no state to set this feature directly, you can define this in the base object (as JSON): `{ "rainbow": true }`.
+
+See [documentation](https://blueforcer.github.io/awtrix3/#/api?id=custom-apps-and-notifications) for available attributes.
+
 ## Hide native apps
 
 If you want to disable/hide a native app (like battery, temperature or humidity): Use the on screen menu on the device! See [documentation](https://blueforcer.github.io/awtrix3/#/onscreen) for details.
@@ -199,6 +211,11 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2025-05-02)
+
+* (@klein0r) Added base object for expert apps to allow all options
+* (@klein0r) Added responsive design for admin config
+
 ### 1.7.0 (2025-04-08)
 
 * (@klein0r) Improved error handling when adapter is not ready (starting)
@@ -220,10 +237,6 @@ Updated recommended firmware version to 0.97
 ### 1.4.1 (2024-11-20)
 
 NodeJS >= 20.x and js-controller >= 6 is required
-
-### 1.4.0 (2024-11-20)
-
-* (@klein0r) Added support for notification manager
 
 ## License
 

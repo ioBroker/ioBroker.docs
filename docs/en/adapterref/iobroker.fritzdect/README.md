@@ -231,6 +231,17 @@ These devices are split into a device and an unit (the function itself). The dev
 
 ## Changelog
 
+### 2.6.3 (WIP)
+* new IKEA lamp commands issue #625
+
+### 2.6.2 (npm)
+* release script
+* error correction when there is only one device used #651
+* error correction when there are more than 4 etsidevices used #651
+* correction id state creation
+* handling cases of stats where the returned data does not contain "datatime" #658
+* node version >=20
+
 ### 2.6.1 (npm)
 * log FW version of FB
 * DECT350 now with battery data (issue #513)

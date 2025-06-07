@@ -14,38 +14,44 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 
 <a id="inhaltsverzeichnis"></a>
 # Inhaltsverzeichnis 
-* [1 Grundlegendes](#1-grundlegendes)
-* [2 Installation](#2-installation)
-* [3 Konfiguration](#3-konfiguration)
-* [4 Haupteinstellungen - Startseite](#4-haupteinstellungen) 
-  * [4.1 Aufbau der Tabelle](#41-aufbau-der-tabelle) 
-  * [4.2 spezifische Konfiguration des jeweiligen Bewässerungskreises](#42-spezifische-konfiguration-des-jeweiligen-bewsserungskreises)
-    * [4.2.1 Haupteinstellungen des Ventils](#421-haupteinstellungen-des-ventils)
-      * [4.2.1.1 Bewässerungseinstellungen](#4211-bewsserungseinstellungen)
-      * [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt-zum-gieen)
-        * [Berechnung der Verdunstung](#einschaltpunkt-berechnung)
-        * [Bodenfeuchte-Sensor bistabil](#einschaltpunkt-bistabil)
-        * [Bodenfeuchte-Sensor analog](#einschaltpunkt-analog)
-        * [Start an festen Wochentagen (ohne Sensoren)](#einschaltpunkt-feste-tage)
-    * [4.2.2 Pumpeneinstellungen des Ventils](#422-pumpeneinstellungen-des-ventils) 
-* [5 Pumpen-Einstellungen](#5-pumpen-einstellungen) 
-* [6 Zeit-Einstellungen](#6-zeit-einstellungen) 
-* [7 Zusätzliche-Einstellungen](#7-zustzliche-einstellungen) 
-  * [7.1 Astro-Einstellungen](#71-astro-einstellungen)
-  * [7.2 Zusätzliche Benachrichtigungseinstellung](#72-zustzliche-benachrichtigungseinstellungen) 
-  * [7.3 Sensoren zur Berechnung der Verdunstung](#73-sensoren-zur-berechnung-der-verdunstung) 
-  * [7.4 Wettervorhersage](#74-wettervorhersage) 
-* [8 Benachrichtigungen](#8-benachrichtigungen) 
-  * [8.1 Telegram](#81-telegram) 
-  * [8.2 Pushover](#82-pushover) 
-  * [8.3 E-Mail](#83-e-mail) 
-  * [8.4 WhatsApp](#84-whatsapp) 
-* [9 Objekte](#9-objekte) 
-  * [9.1 control](#91-control) 
-  * [9.2 evaporation](#92-evaporation) 
-  * [9.3 info](#93-info) 
-  * [9.4 sprinkle](#94-sprinkle) 
-* [10 Was ist für die Zukunft geplant](#10-was-ist-fr-die-zukunft-geplant) 
+- [SprinkleControl](#sprinklecontrol)
+    - [*Der Adapter zur individuellen automatischen Gartenbewässerung. \<\< so wie es jeder mag \>\> ;-)*](#der-adapter-zur-individuellen-automatischen-gartenbewässerung--so-wie-es-jeder-mag---)
+- [Inhaltsverzeichnis](#inhaltsverzeichnis)
+- [1. Grundlegendes](#1-grundlegendes)
+- [2. Installation](#2-installation)
+- [3. Konfiguration](#3-konfiguration)
+- [4. Haupteinstellungen](#4-haupteinstellungen)
+  - [4.1. Aufbau der Tabelle](#41-aufbau-der-tabelle)
+  - [4.2. spezifische Konfiguration des jeweiligen Bewässerungskreises](#42-spezifische-konfiguration-des-jeweiligen-bewässerungskreises)
+    - [4.2.1. Haupteinstellungen des Ventils](#421-haupteinstellungen-des-ventils)
+      - [4.2.1.1 Bewässerungseinstellungen](#4211-bewässerungseinstellungen)
+      - [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt-zum-gießen)
+      - [**Berechnung der Verdunstung**](#berechnung-der-verdunstung)
+      - [Konfiguration des analogen Bodenfeuchte-Sensors](#konfiguration-des-analogen-bodenfeuchte-sensors)
+    - [4.2.2. Pumpeneinstellungen des Ventils](#422-pumpeneinstellungen-des-ventils)
+- [5. Pumpen-Einstellungen](#5-pumpen-einstellungen)
+- [6. Zeit-Einstellungen](#6-zeit-einstellungen)
+  - [Startzeit](#startzeit)
+  - [Zusätzliche Startzeit](#zusätzliche-startzeit)
+  - [Wochenendstart](#wochenendstart)
+  - [Einstellung für die Startzeit an Feiertagen](#einstellung-für-die-startzeit-an-feiertagen)
+- [7. Zusätzliche-Einstellungen](#7-zusätzliche-einstellungen)
+  - [7.1 Astro-Einstellungen](#71-astro-einstellungen)
+  - [7.2 Zusätzliche Benachrichtigungseinstellungen](#72-zusätzliche-benachrichtigungseinstellungen)
+  - [7.3. Sensoren zur Berechnung der Verdunstung](#73-sensoren-zur-berechnung-der-verdunstung)
+  - [7.4 Wettervorhersage](#74-wettervorhersage)
+- [8 Benachrichtigungen](#8-benachrichtigungen)
+  - [Auswahl der Benachrichtigung](#auswahl-der-benachrichtigung)
+    - [8.1 Telegram](#81-telegram)
+    - [8.2 Pushover](#82-pushover)
+    - [8.3 E-Mail](#83-e-mail)
+    - [8.4 WhatsApp](#84-whatsapp)
+- [9 Objekte](#9-objekte)
+  - [9.1 control](#91-control)
+  - [9.2 evaporation](#92-evaporation)
+  - [9.3 info](#93-info)
+  - [9.4 sprinkle](#94-sprinkle)
+- [10 Was ist für die Zukunft geplant](#10-was-ist-für-die-zukunft-geplant)
 
 ---
 
@@ -575,16 +581,17 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 
 <a id="9-objekte"></a>
 # 9 Objekte
-![control.jpg](img/control.jpg)
+![control.png](img/control.png)
 
 ---
 
 
 <a id="91-control"></a>
 ## 9.1 control
-* **Holiday** - Wenn Holiday auf true gesetzt wird, so wird die Bewässerung wie am Wochenende gestartet. Falls die Wochenendeinstellung aktiviert wurde. Die Verbindung mit einem Kalender wäre hier auch möglich.
+* **Holiday** - Wenn Holiday auf true gesetzt wird, so wird die Bewässerung wie am Wochenende gestartet. Falls die Wochenendeinstellung aktiviert wurde. Die Verbindung mit einem Kalender wäre hier auch möglich
 * **addStartTimeSwitch** - Wird nur angezeigt, wenn unter Konfiguration, zusätzliche Startzeit, ein start mit externen Signal ausgewählt wurde.
-* **autoOnOff** – Bei Einstellung "off“ ist der Automatikbetrieb der Bewässerungsanlage deaktiviert.
+* **autoOnOff** – Bei Einstellung "off“ ist der Automatikbetrieb der Bewässerungsanlage deaktiviert. Beim Schalten von On auf Off werden außerdem alle aktiven Prozesse gelöscht.
+* **autoStart** - Bewässerung starten => Alle aktiven Kreise werden gestartet!
 * **parallelOfMax** – z. B. (3 : 4) Drei Bewässerungskreise sind von vier möglichen aktive. (Dies ist nur eine Anzeige!)
 * **restFlow** – Anzeige der noch möglichen Restfördermenge der Pumpe. (Dies ist nur eine Anzeige!)
 
@@ -654,7 +661,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 + Überwachen ob Ventile wirklich geschaltet haben, mit Fehlermeldung über Benachrichtigung
 + Zisterne als Einzelpumpe mit Bewässerungsunterbrechung bei Unterschreitung minimalniveau
 + Ventile nach der Bewässerung x Minuten lang spülen (Bei Zisterne / Grundwasser kombination und eisenhaltigem Wasser)
-+ Die Visualisierung, die ich früher noch plante, werde ich nicht weiter verfolgen. 
 
 ---
 
@@ -668,6 +674,11 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.15 (2025-06-01)
+* (Dirk-Peter-md) Readme updated
+* (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
+* (Dirk-Peter-md) ioBroker-Bot [W028]
+
 ### 0.2.14 (2025-03-15)
 * (Dirk-Peter-md) eslint-config added
 * (Dirk-Peter-md) Dependencies updated
@@ -687,10 +698,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ### 0.2.11 (2022-05-22)
 * (Dirk-Peter-md) Bug fixed => analog soil moisture sensor with negative characteristic
 * (Dirk-Peter-md) Attention => maximum soil moisture in rain now in %
-
-### 0.2.10 (2022-05-15)
-* (Dirk-Peter-md) manual watering limited to a maximum of 100%
-* (Dirk-Peter-md) Error whatsapp message fixed
 
 ## License
 MIT License

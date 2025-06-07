@@ -148,6 +148,13 @@ sudo chmod u+s `which ping`
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Stübi) Checks actual_humidity value if it less 0% or greater 100%
+- (Stübi) fixing issues detected by repository checker (Issue #126)
+- (Stübi) node.js 24 will be supported (Issue #128)
+
 ### 2.0.8 (2025-04-19)
 
 - (Stübi) Performance optimization by pplling Lupusec alarm system (Issue #123)

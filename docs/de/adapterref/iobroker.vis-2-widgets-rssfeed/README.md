@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-rssfeed/README.md
 title: Vis 2 RSS-Feed-Widgets
-hash: +CKA/ibJKtKZYGLgyscff6eN6F7hF2IP1unJdlDY0D4=
+hash: Dl48aeWEN8jMoLFSy6F/bgqmi4HEeZPqWlI8lWJfxs0=
 ---
 # Vis 2 RSS-Feed-Widgets
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-rssfeed/admin/vis-2-widgets-rssfeed.png)
@@ -23,9 +23,14 @@ Eine detaillierte Beschreibung der Widgets und Funktionen finden Sie unter Adapt
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.2.0 (2025-06-05)
+
+- switch build framework from CRA to vite
+- Remove deprecated RSSMarquee widget. RSSMarquee5 is already available
+
 ### 1.1.2 (2025-03-20)
 
-- add missing build file
+- add a missing build file
 
 ### 1.1.1 (2025-03-20)
 
@@ -45,7 +50,7 @@ Eine detaillierte Beschreibung der Widgets und Funktionen finden Sie unter Adapt
 
 - improve link styling in the marquee widget
 - fix key and group handling
-- fix issues from adapter checker
+- fix issues from an adapter checker
 
 ### 0.3.3 (2024-07-25)
 

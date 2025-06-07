@@ -60,7 +60,27 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 9.5.0-alpha.0 (2025-04-26)
+### 10.0.0 (2025-05-30)
+
+* (@mcm1957) ATTENTION: Adapter requires BLE Script v1.0 now. See [documentation](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/ble-devices.md).
+* (@klein0r) Moved BTHome decoding to adapter (save memory on devices)
+* (@klein0r) Allow encrypted payloads of BTHome devices (set encryption key in state)
+
+### 9.5.1 (2025-05-10)
+
+* (@mcm1957) ATTENTION: Reworked configuration of inputs could effect some devices.
+* (@mcm1957) ResetPower has been added to Shelly switches supporting power measurement. [#1156]
+* (@mcm1957) ResetPower has been added to Gen2+ PM type devices.
+* (@mcm1957) Shelly Plus Uni (shellyplusuni) - configuration of inputs reworked.
+* (@mcm1957) Shelly Plus Uni (shellyplusuni) - support to reset counters added.
+* (@mcm1957) Added sensors (Temperature, Voltmeter, Humidity, analog Input) to Shelly Plus Uni (shellyplusuni).
+* (@mcm1957) Issues reported by repositor checker have been fixed.
+* (@mcm1957) Dependencies have been updated
+
+### 9.5.0 (2025-05-03)
+
+* (@mcm1957) Added Shelly Pro Dimmer 0/1-10V PM (shellypro0110pm).
+* (@mcm1957) Added Shelly Pro RGBWW PM (shellyprorgbwwpm) - Note: CCT component still missing.
 * (@mcm1957) Added Shelly AZ Plug (shellyazplug).
 * (@mcm1957) Added Shelly EM Gen 3 (shellyemg3).
 * (@mcm1957) Added 'total returned energy' to Gen2+ EM devices.
@@ -79,20 +99,19 @@ Questions? Check the [FAQ](faq.md) section first!
 
 * (@klein0r) Added Gen4 devices (see documentation for details)
 
-### 9.3.0 (2025-04-14)
+### 9.5.0 (2025-05-03)
 
-* (@klein0r) Adapter requires admin 7.4.10 now. 
-* (@mcm1957) Added Shelly Outdoor Plug S Gen3
-* (@mcm1957) Missing energy values for Switches (i.e. Shelly Outdoor Plug S Gen3) have been added
-* (@mcm1957) Missing energy values for pmminigen3 have been added
-
-### 9.2.0 (2025-03-13)
-
-* (@fLaSk1n) Added Shelly Dimmer Gen3
-* (@lennycb) Added Shelly 3EM63 Gen3
-* (@mcm1957) Translations for Gen2 devices have been added
-* (@mcm1957) State roles for Gen2 devices have been adapted
-* (@tclas) Added handling of Total Active Energy
+* (@mcm1957) Added Shelly Pro Dimmer 0/1-10V PM (shellypro0110pm).
+* (@mcm1957) Added Shelly Pro RGBWW PM (shellyprorgbwwpm) - Note: CCT component still missing.
+* (@mcm1957) Added Shelly AZ Plug (shellyazplug).
+* (@mcm1957) Added Shelly EM Gen 3 (shellyemg3).
+* (@mcm1957) Added 'total returned energy' to Gen2+ EM devices.
+* (@mcm1957) Added 'Relay' to Shelly Pro EM 50 [#1038].
+* (@mcm1957) Added Ogemray 25A (ogemray25a).
+* (@mcm1957) Added energy states to Shelly Plus RBGW PM (shellyrgbwpm) [#1099].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 1 PM (shellyprodm1pm) [#1129].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 2 PM (shellyprodm2pm) [#1067, #1056, #1037].
+* (@mcm1957) Added energy states to Shelly Plus 0-10V Dimmer Gen 3 (shelly0110dimg3) [#1103].
 
 ## License
 

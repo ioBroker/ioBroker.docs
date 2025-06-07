@@ -841,6 +841,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.drag-indicator/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.dreame/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.drops-weather/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ds18b20/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.dwd/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.dysonairpurifier/README.md
@@ -996,7 +997,6 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.kecontact/README.md
-https://www.iobroker.net/#de/adapters/adapterref/iobroker.kisshome-research/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.knx/README.md
@@ -1548,6 +1548,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.drag-indicator/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.dreame/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.drops-weather/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ds18b20/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.dwd/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.dysonairpurifier/README.md
@@ -1703,7 +1704,6 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.kecontact/README.md
-https://www.iobroker.net/#en/adapters/adapterref/iobroker.kisshome-research/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.knx/README.md
@@ -2255,6 +2255,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.drag-indicator/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.dreame/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.drops-weather/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ds18b20/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.dwd/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.dysonairpurifier/README.md
@@ -2410,7 +2411,6 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.kecontact/README.md
-https://www.iobroker.net/#ru/adapters/adapterref/iobroker.kisshome-research/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.knx/README.md
@@ -2962,6 +2962,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.drag-indicator/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.dreame/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.drops-weather/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ds18b20/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.dwd/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.dysonairpurifier/README.md
@@ -3117,7 +3118,6 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/usage.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jeelink/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.judoisoft/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.kecontact/README.md
-https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.kisshome-research/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.klf200/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.knmi-weather/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.knx/README.md

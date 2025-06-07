@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: MJoAQn3DaO5JfVYgyIFzPw1TEQ6JpcybU8qs8lRb6Lw=
+hash: AAPixqUfKFCsjwx3NXQZvTocuy413K+pphI3PZIFRmw=
 ---
 ![标识](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
@@ -12,23 +12,22 @@ hash: MJoAQn3DaO5JfVYgyIFzPw1TEQ6JpcybU8qs8lRb6Lw=
 ![安装数量（最新）](http://iobroker.live/badges/x-touch-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/x-touch-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
-![新PM](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
 
 # IoBroker.x-touch
 ![测试和发布](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 x-touch 适配器
-与 Behringer X-Touch 控制表面（DAW 控制器）通信
+与 Behringer X-Touch 控制界面（DAW 控制器）通信
 
-＃＃ 去做
-- 添加同步全局功能
-- 如果设置了选项，则添加银行的娱乐
+## 待办事项
+- 添加 syncGlobal 功能
 
 ## 消息框
-有两个接受的命令：
+有两个可接受的命令：
 
-* `export` 将存储在设备组状态中的实际值导出到用户数据文件夹 x-touch.0
-* `import` 从 userdata 文件夹中导入最年轻的文件。此外，您可以指定要恢复的“文件”和/或“设备组”编号。如果指定了“路径”，则将使用整个文件系统，并且“文件”名称是必需的。
+* `export` 将设备组状态中存储的实际值导出到用户数据文件夹 x-touch.0
+* `import` 会从 userdata 文件夹导入最新的文件。此外，您还可以指定要恢复的 `file` 和/或 `devicegroup` 编号。如果指定了 `path`，则将使用整个文件系统，并且 `file` 名称是必填项。
 
 ## Changelog
 
@@ -36,66 +35,32 @@ hash: MJoAQn3DaO5JfVYgyIFzPw1TEQ6JpcybU8qs8lRb6Lw=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.6.2 (2022-10-07)
-* (Bannsaenger) test-and-release without build
+### 0.8.1 (2025-05-21)
+* (Bannsaenger) node 22 in deploy script
+* (Bannsaenger) do not send updates when lock feature is in blank mode
 
-### 0.6.1 (2022-10-07)
-* (Bannsaenger) confusion with the release script
+### 0.8.0 (2025-05-15)
+* (Bannsaenger) updated dependencies, node 24 compatibility
+* (Bannsaenger) refactored lock feature
 
-### 0.6.0 (2022-10-07)
+### 0.7.1 (2025-02-25)
+* (Bannsaenger) updated admin dependency
 
-* (Bannsaenger) updated to adapter-dev and release script
-* (Bannsaenger) introducing admin 5 UI (jsonConfig)
+### 0.7.0 (2025-02-17)
+* (Bannsaenger) fixed some minor typos
+* (Bannsaenger) updated to node 18.x - 22.x
+* (Bannsaenger) updated dependencies, node 22 compatibility, workflow
+* (Bannsaenger) added possibility to lock the desk
+* (Bannsaenger) resend data on group membership change
+* (Bannsaenger) removed createBanks from config dialog (too dangerous, delete by hand if neccessary)
 
-### 0.5.1
-* (Bannsaenger) updated dependencies
-
-### 0.5.0
-* (Bannsaenger) fixes in db creation for js controller 4.x
-
-### 0.4.2
-* (Bannsaenger) changed sort order in changelog
-
-### 0.4.1
-* (Bannsaenger) bug fixing in the export/import feature
-
-### 0.4.0
-* (Bannsaenger) added the ability to export the actual state values via a message and reimport the states again
-
-### 0.3.0
-* (Bannsaenger) added the timecode display
-
-### 0.2.5
-* (Bannsaenger) fixed send back of button and fader values. Now only the affected device group members will be updated
-
-### 0.2.4
-* (Bannsaenger) fixed disabling of encoder display
-
-### 0.2.3
-* (Bannsaenger) fixed setting of display inverted
-
-### 0.2.2
-* (Bannsaenger) fixed fader handling and data distribution to the device group
-
-### 0.2.1
-* (Bannsaenger) changed the way to send data. Added sendDelay
-
-### 0.2.0
-* (Bannsaenger) introduced encoders
-
-### 0.1.0
-* (Bannsaenger) introduced channel and page switching
-
-### 0.0.2
-* (Bannsaenger) prepared for checkin to iobroker.latest
-
-### 0.0.1
-* (Bannsaenger) initial release
+### 0.6.5 (2023-12-30)
+* (Bannsaenger) add CHANGELOG_OLD.md
 
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2025 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rest-api/README.md
 title: REST-API 适配器
-hash: /x+PdsrJoxpoit6cC2A/HsY7OG19SgWis9sdVNgnJV0=
+hash: BVfjhb1Gx9apADa3SuQvZnxWh9WASBG6M7ZIn4QunPY=
 ---
 ![标识](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -43,7 +43,7 @@ hash: /x+PdsrJoxpoit6cC2A/HsY7OG19SgWis9sdVNgnJV0=
 - 基本身份验证
 - OAuth2（承载者）
 
-对于查询中的身份验证，您必须在查询中设置`user`和`pass`，如下所示：
+为了在查询中进行身份验证，您必须在查询中设置`user`和`pass`，如下所示：
 
 ```http
 http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
@@ -53,7 +53,7 @@ http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin
 
 对于 Oauth2 身份验证，您必须将 `Authorization` 标头设置为值 `Bearer <AccessToken>`。
 
-访问令牌可以通过 HTTP 请求重新获取，例如：
+可以使用 HTTP 请求检索访问令牌，例如：
 
 ```http
 http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker
@@ -105,7 +105,7 @@ node.js 中的示例请参见此处[demoNodeClient.js](examples/demoNodeClient.j
 
 您也可以使用 POST 方法请求所有命令。因为主体必须是带有参数的对象。例如：
 
-```
+```bash
 curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -124,6 +124,8 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getForeignStates(pattern)` - 与 getStates 相同
 - `getState(id)` - 通过 ID 获取状态值
 - `setState(id, state)` - 使用 JSON 对象设置状态值（例如 `{"val": 1, "ack": true}`）
+- `getBinaryState(id)` - 通过 ID 获取二进制状态
+- `setBinaryState(id, base64)` - 通过 ID 设置二进制状态
 
 ### 对象
 - `getObject(id)` - 通过 ID 获取对象
@@ -195,7 +197,10 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ### **工作正在进行** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.1 (2025-05-21)
+* (@GermanBluefox) Corrected the web extension
+
+### 3.0.0 (2025-04-27)
 * (@GermanBluefox) Rewritten in TypeScript
 * (@GermanBluefox) Removed binary states
 

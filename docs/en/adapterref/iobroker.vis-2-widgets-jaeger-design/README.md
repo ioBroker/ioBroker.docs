@@ -10,44 +10,51 @@ You can find videos how to use the widgets [here](https://www.youtube.com/playli
 
 Videos wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
-## Übersicht zur Erstellung einer Smart Home Oberfläche mit dem "VIS-2 JAEGER Design Adapter"
-### Voraussetzungen
-- Ein ioBroker System
-- Der Jäger Design Adapter (ca. 50€)
-- Grundkenntnisse im Umgang mit ioBroker
+Für deutsche Version sehe [hier](docs/README_de.md)
 
-### Einführung
-Der Jäger Design Adapter basiert auf dem vis-2 Adapter und ermöglicht es, eine Oberfläche per Click and Drop zu gestalten. Verschiedene Widgets können hinzugefügt und angepasst werden, um Smart Home Geräte zu steuern.
+## Commercial use
+Please note that there is no free version of this adapter. A license must be purchased to use these widgets (current price: €50 incl. VAT).  
+However, you can install them and try them out in the editor for free.
 
-### Grundaufbau der Oberfläche
-Die Oberfläche besteht aus mehreren Bereichen:
-- **Hauptmenü**: Links befindet sich eine Spalte mit den Hauptmenüpunkten, die einfach angelegt werden können.
-- **Statusleiste**: Oben können verschiedene wichtige Statusanzeigen hinzugefügt werden.
-- **Mittlerer Bereich**: Hier können Szenen, Aktionen und Hinweise angezeigt werden. Die rechte Seite ist frei gestaltbar und kann Informationen wie Sicherheit, Wetter, Hausgeräte und Energieverbrauch anzeigen.
-![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
+## Overview of Creating a Smart Home Interface with the "VIS-2 JAEGER Design Adapter"
 
-### Beleuchtung
-Im Hauptmenü können verschiedene Stockwerke ausgewählt werden. Der Grundriss des Erdgeschosses zeigt alle Lichter, die durch Icons dargestellt werden. Einige Icons können nur an- oder ausgeschaltet werden, während andere dimmbar sind. Durch längeres Drücken auf ein Icon öffnet sich ein Pop-up-Fenster mit einem Slider zur Einstellung der Helligkeit.
+### Requirements
+- An ioBroker system
+- The JAEGER Design Adapter (approx. €50)
+- Basic knowledge of using ioBroker
+
+### Introduction
+The JAEGER Design Adapter is based on the vis-2 adapter and allows you to create an interface using click and drop. Various widgets can be added and customized to control smart home devices.
+
+### Basic Structure of the Interface
+The interface consists of several areas:
+- **Main Menu**: On the left, there is a column with main menu items, which can be easily created.
+- **Status Bar**: At the top, you can add various important status indicators.
+- **Middle Area**: Here, scenes, actions, and notifications can be displayed. The right side is freely configurable and can show information such as security, weather, home appliances, and energy consumption.
+  ![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
+
+### Lighting
+In the main menu, different floors can be selected. The floor plan of the ground floor shows all lights represented by icons. Some icons can only be switched on or off, while others are dimmable. By pressing and holding an icon, a pop-up window opens with a slider for adjusting brightness.
 ![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707)
-Beleuchtungsszenen auf der rechten Seite können einfach abgerufen und auch Lichteinstellungen gespeichert werden:
+Lighting scenes on the right side can be easily accessed, and lighting settings can also be saved:
 ![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
 
-### Rolladen
-Im Menü "Rolladen" kann der Zustand der Beschattung gesehen werden. Icons zeigen die Höhe der Rolladen an, und durch Klicken auf ein Icon öffnet sich ein Pop-up-Fenster zur Einstellung der Höhe und Lamellenneigung.
+### Blinds
+In the "Blinds" menu, you can see the shading status. Icons indicate the position of the blinds, and clicking on an icon opens a pop-up window for adjusting the height and slat angle.
 ![Beschattung-iobroker-smarthome](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
-### Energie
-Im Menü "Energie" können die Raumtemperaturen in den einzelnen Räumen gesehen werden. Icons zeigen die Ist- und Solltemperaturen sowie den Zustand der Heizung und Fenster an. Durch Klicken auf ein Icon öffnet sich ein Pop-up-Fenster zur Änderung der Solltemperaturen und zur Steuerung weiterer Aktionen wie Klimaanlage oder Warmluftanlage.
+### Energy
+In the "Energy" menu, you can see the room temperatures in each room. Icons display the actual and target temperatures as well as the status of the heating and windows. By clicking on an icon, a pop-up window opens to change the target temperatures and control other actions such as air conditioning or warm air systems.
 ![iobroker-jaeger-design-raumtemperatur_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
 
 ![iobroker-jaeger-design-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
 
-### Sicherheit
-Im Menü "Sicherheit" kann der Zustand der Fenster gesehen werden. Geöffnete Fenster werden rot dargestellt.
+### Security
+In the "Security" menu, the status of the windows can be viewed. Open windows are shown in red.
 ![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
 
-### Weitere Funktionen
-Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbrauchsdarstellung des Adapters "consumption" oder die Darstellung von Nightscout für Diabetes. Im Menü "Settings" können diverse Einstellungen vorgenommen werden.
+### Additional Features
+You can also create freely defined interfaces, such as the consumption display of the "consumption" adapter or the display of Nightscout for diabetes. In the "Settings" menu, various settings can be made.
 ![iobroker-jaeger-design-energieueberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
 
 ![iobroker-jaeger-design-diabetes](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
@@ -55,14 +62,33 @@ Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbr
 ![iobroker-jaeger-design-einstellungen](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
 
 ### YouTube Tutorials
-Für detaillierte Anleitungen und weitere Informationen wird empfohlen, die verlinkten YouTube Tutorials anzuschauen.
-
+For detailed instructions and more information, it is recommended to watch the linked YouTube tutorials.
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.3 (2025-05-31)
+* (bluefox) Implemented the full-screen mode for cameras
+* (bluefox) Added the possibility of disabling "swipe to open the menu" in the mobile view
+* (bluefox) Corrected issue with confirmation dialog for the state widget
+* (bluefox) Added settings for submenu width and gap between submenu items
+
+### 1.4.2 (2025-05-25)
+* (bluefox) Allowed setting ON value for dimmer
+* (bluefox) Allowed inverting values in the popup dialog for shutter and blinds control
+* (bluefox) Added the control dialog for state widget
+* (bluefox) Allowed setting up the title padding
+* (bluefox) Added possibility to show the last change time for scenes
+
+### 1.4.1 (2025-05-20)
+* (bluefox) Migrated to TypeScript and vite
+* (bluefox) Corrected error with license check
+
+### 1.3.12 (2025-04-29)
+* (bluefox) Corrected min/max by thermostat
+
 ### 1.3.9 (2024-12-05)
 * (bluefox) Corrected confirmation dialog. Close now works
 * (bluefox) Caught the possible error in thermostat
@@ -238,5 +264,5 @@ Für detaillierte Anleitungen und weitere Informationen wird empfohlen, die verl
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
 All rights reserved.

@@ -6,30 +6,30 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.history/README.md
 title: ioBroker.history
-hash: 1BxcjI7DZqZM1IqZ+fVidPAtovw2njq9lR8wXUMol9k=
+hash: W1jkUUDShCdYwG/MMdeVXjMKLLrsmvjvn5BE/fr6C3k=
 ---
-![标识](../../../en/adapterref/iobroker.history/../../admin/history.png)
+![标识](../../../en/admin/history.png)
 
 # IoBroker.history
 * [描述](#description)
 * [适配器配置](#adapter-configuration)
 * [存储设置](#storage-settings)
 * [状态的默认设置](#default-settings-for-states)
-* [状态设置](#settings-for-states)
+* [州设置](#settings-for-states)
 * [用法](#usage)
 * [历史数据](#history-Data)
 * [图表](#chart)
-* [一次启用多个状态的日志记录](#enable-logging-for-multiple-states-at-once)
+* [同时启用多个状态的日志记录](#enable-logging-for-multiple-states-at-once)
 * [从 Javascript 适配器访问值](#access-values-from-javascript-adapter)
-* [通过 Javascript 管理历史记录](#history-logging-management-via-javascript)
+* [通过 Javascript 进行历史记录管理](#history-logging-management-via-javascript)
 * [获取启用状态列表](#get-list-of-enabled-states)
 * [将历史数据迁移到 SQL 或 InfluxDB](#migrate-history-data-to-sql-or-influxdb)
 
 ＃＃ 描述
-此适配器在两个阶段的过程中保存状态历史。
+该适配器通过两阶段过程保存状态历史记录。
 
-1. 首先数据点存储在 RAM 中
-2. 一旦达到 maxLength，它们就会存储在磁盘上
+1. 首先，数据点存储在 RAM 中
+2. 一旦它们达到 maxLength，它们就会存储在磁盘上
 
 ## 适配器配置
 ### 存储设置
@@ -39,49 +39,49 @@ hash: 1BxcjI7DZqZM1IqZ+fVidPAtovw2njq9lR8wXUMol9k=
 
 该目录将相对于默认目录“`/opt/iobroker/iobroker-data`”创建。
 
-该目录将包含一个新的子目录，用于每个新的一天，其中包含记录的信息。
+该目录将为每一天包含一个新的子目录，其中包含记录的信息。
 
-> 如果没有路径定义，数据将存储到默认位置 ``/opt/iobroker/iobroker-data/history``
+> 如果没有路径定义，数据将存储到默认位置“`/opt/iobroker/iobroker-data/history`”
 
-> 还支持像``/mnt/history`` (Linux) or ``D:/History``（Windows）这样的绝对路径
+> 绝对路径，例如 ``/mnt/history`` (Linux) or ``D:/History`` (Windows) 也受支持
 
-> 请不要将数据存储在任何 ``node_modules`` 目录中！
+> 请不要将数据存储在任何“`node_modules`”目录中！
 
-**存储值的来源** 定义是否也将存储“来自”属性。
+**存储值的来源** 定义是否也存储“来自”属性。
 
-**存储价值确认**
+**商店确认价值**
 
-**在开始/停止边界上写入 NULL 值**
+**在开始/停止边界写入 NULL 值**
 
 ### 状态的默认设置
-每个应该记录的新状态都有默认设置。
-之后可以为每个状态单独更改每个值。
+每个需要记录的新状态都有默认设置。
+之后，每个状态的每个值都可以单独更改。
 
 ![默认设置](../../../en/adapterref/iobroker.history/img/adapter-settings-default.png)
 
-**去抖时间** 防止不稳定值，以确保当值在定义的毫秒数内没有变化时，只记录稳定值。
+**去抖动时间** 防止不稳定值，以确保当值在定义的毫秒数内没有发生变化时仅记录稳定值。
 
-**Blocktime** 定义在存储最后一个值后多长时间不再存储任何值。
-当以毫秒为单位的给定时间结束时，将记录满足所有其他检查的下一个值。
+**区块时间** 定义存储最后一个值后，多久不再存储其他值。
+当指定的毫秒时间结束后，将记录下一个满足所有其他检查的值。
 
-**仍然记录相同的值（秒）** 使用“仅记录更改”时，您可以在此处设置以秒为单位的时间间隔，之后不变的值也将重新登录到数据库中。
+**仍然记录相同的值（秒）** 当使用“仅记录更改”时，您可以在此处设置一个以秒为单位的时间间隔，此后未更改的值也将重新记录到数据库中。
 
-**与上一个值的最小差异** 当使用“仅记录更改”时，您可以定义新值和上一个值之间所需的最小差异。如果未达到此值，则不记录该值。
+**与上一个值的最小差异** 使用“仅记录更改”时，您可以定义新值与上一个值之间的最小差异。如果未达到此值，则不会记录该值。
 
-**存储保留**过去有多少值将存储在磁盘上。一旦到达应该为数据点存储新数据的时间，数据就会被删除。
+**存储保留** 过去有多少值将存储在磁盘上。当达到为数据点存储新数据的时间时，数据将被删除。
 
-**RAM 中的最大数据点计数** 定义在将它们保存到磁盘之前将在 RAM 中保存多少个值。您可以控制完成多少 I/O。这对于使用 SD 卡进行存储以延长使用寿命的系统很有用。
+**RAM 中的最大数据点数量** 定义在将数据持久化到磁盘之前，RAM 中保存的数据点数量。您可以控制 I/O 操作的执行量。这对于使用 SD 卡存储的系统非常有用，可以延长数据的使用寿命。
 
-**查询四舍五入到**定义查询值时应四舍五入的位数。
+**查询时将数字四舍五入为** 定义查询值时应四舍五入为多少位数字。
 
 **禁用跳过值的图表优化记录** ??
 
-**启用数据点的增强调试日志** 如果您想查看此数据点的更详细日志，可以启用此选项。
-您仍然需要启用“调试”日志级别才能看到这些附加值！这有助于调试问题或了解适配器记录值（或不记录值）的原因。
+**为数据点启用增强调试日志** 如果您想查看此数据点的更详细日志，可以启用此选项。
+您仍然需要启用“调试”日志级别才能看到这些附加值！这有助于调试问题或了解适配器记录（或不记录）值的原因。
 
-## 状态设置
-应记录的状态设置在“对象”选项卡中定义。
-使用最右侧列中的 cog 符号来配置日志记录设置。
+## 各州的设置
+需要记录的状态设置在“对象”选项卡中定义。
+使用最右侧列中的齿轮符号来配置日志记录设置。
 
 ![对象列表](../../../en/adapterref/iobroker.history/img/object-list.png)
 
@@ -89,41 +89,41 @@ hash: 1BxcjI7DZqZM1IqZ+fVidPAtovw2njq9lR8wXUMol9k=
 
 ![对象设置](../../../en/adapterref/iobroker.history/img/object-settings.png)
 
-**已启用** 激活状态记录
+**已启用** 激活状态日志记录
 
-**去抖时间** 防止不稳定值，以确保当值在定义的毫秒数内没有变化时，只记录稳定值。
+**去抖动时间** 防止不稳定值，以确保当值在定义的毫秒数内没有发生变化时仅记录稳定值。
 
-**Blocktime** 定义在存储最后一个值后多长时间不再存储任何值。
-当以毫秒为单位的给定时间结束时，将记录满足所有其他检查的下一个值。
+**区块时间** 定义存储最后一个值后，多久不再存储其他值。
+当指定的毫秒时间结束后，将记录下一个满足所有其他检查的值。
 
-**仅记录更改** 此功能确保仅在更改值满足其他检查时才记录更改值（见下文）。不会记录相同的值。
+**仅记录更改** 此功能确保仅记录更改的值（如果它们满足其他检查，请参阅下文）。相同的值将不会被记录。
 
-**仍然记录相同的值（秒）** 使用“仅记录更改”时，您可以在此处设置以秒为单位的时间间隔，之后不变的值也将重新登录到数据库中。
+**仍然记录相同的值（秒）** 当使用“仅记录更改”时，您可以在此处设置一个以秒为单位的时间间隔，此后未更改的值也将重新记录到数据库中。
 
-**与上一个值的最小差异** 当使用“仅记录更改”时，您可以定义新值和上一个值之间所需的最小差异。如果未达到此值，则不记录该值。
+**与上一个值的最小差异** 使用“仅记录更改”时，您可以定义新值与上一个值之间的最小差异。如果未达到此值，则不会记录该值。
 
 **忽略以下值** 不要记录小于此值的值。
 
-**忽略上面的值**不要记录大于此值的值。
+**忽略上述值** 不要记录大于此值的值。
 
-**忽略 0 或空值 (==0)** 此选项可防止将值 ``0`` or ``null`` 存储到数据库中。
+**忽略 0 或空值 (==0)** 此选项可防止将值“`0`` or ``null`”存储到数据库中。
 
 **禁用跳过值的图表优化记录** ??
 
-**Alias-ID** 您可以为 ID 定义别名。如果您更改了设备并想要连续记录数据，这将非常有用。
+**别名-ID** 您可以为 ID 定义一个别名。如果您更换了设备，但希望持续记录数据，此功能非常有用。
 
-**存储保留**过去有多少值将存储在磁盘上。一旦到达应该为数据点存储新数据的时间，数据就会被删除。
+**存储保留** 过去有多少值将存储在磁盘上。当达到为数据点存储新数据的时间时，数据将被删除。
 
-**RAM 中的最大数据点计数** 定义在将它们保存到磁盘之前将在 RAM 中保存多少个值。您可以控制完成多少 I/O。这对于使用 SD 卡进行存储以延长使用寿命的系统很有用。
+**RAM 中的最大数据点数量** 定义在将值持久化到磁盘之前，RAM 中保存的值数量。您可以控制执行的 I/O 量。这对于使用 SD 卡存储的系统非常有用，可以延长使用寿命。
 
-**查询四舍五入到**定义查询值时应四舍五入的位数。
+**查询时将数字四舍五入为** 定义查询值时应四舍五入为多少位数字。
 
-**启用数据点的增强调试日志** 如果您想查看此数据点的更详细日志，可以启用此选项。
-您仍然需要启用“调试”日志级别才能看到这些附加值！这有助于调试问题或了解适配器记录值（或不记录值）的原因。
+**为数据点启用增强调试日志** 如果您想查看此数据点的更详细日志，可以启用此选项。
+您仍然需要启用“调试”日志级别才能看到这些附加值！这有助于调试问题或了解适配器记录（或不记录）值的原因。
 
 ＃＃ 用法
 ### 历史数据
-单击对象的齿轮符号可打开设置。您可以在“历史数据”选项卡中找到存储的历史历史数据：
+点击对象的齿轮符号即可打开设置。您可以在“历史数据”选项卡中找到存储的历史数据：
 
 ![国家历史](../../../en/adapterref/iobroker.history/img/state-history.png)
 
@@ -133,24 +133,24 @@ hash: 1BxcjI7DZqZM1IqZ+fVidPAtovw2njq9lR8wXUMol9k=
 ![状态图](../../../en/adapterref/iobroker.history/img/state-chart.png)
 
 ## 一次启用多个状态的日志记录
-要一次启用多个状态的日志记录，您可以按“状态”类型过滤对象列表。
-之后，您可以一次为所有状态启用日志记录。
+要一次性启用多个状态的日志记录，您可以按“状态”类型筛选对象列表。
+之后，您可以一次性启用所有状态的日志记录。
 
-> 注意：大型装置可以包含数千个状态。一次启用多个状态的日志记录可能需要很长时间。下面的过程只是一个例子！
+> 注意：大型安装可能包含数千个状态。一次性启用多个状态的日志记录可能需要很长时间。以下过程仅为示例！
 
 1. 切换到对象选项卡中的列表视图
-2.过滤类型“状态”
-3.点击右上角的扳手符号，打开日志参数的配置
-4.启用日志记录
-5.配置附加参数，如“仅记录更改”
+2. 按“州”类型进行筛选
+3. 点击右上角的扳手符号，打开日志参数配置
+4. 启用日志记录
+5. 配置“仅记录更改”等附加参数
 6.保存配置
 
 ![状态设置](../../../en/adapterref/iobroker.history/img/object-settings-multiple.png)
 
 ## 从 Javascript 适配器访问值
-可以从已安装的 JavaScript 适配器访问这些值。例子：
+可以从已安装的 JavaScript 适配器访问这些值。示例：
 
-- 为所有 ID 获取 50 个最后存储的事件
+- 获取所有 ID 的最后 50 个存储事件
 
 ```javascript
 sendTo('history.0', 'getHistory', {
@@ -168,7 +168,7 @@ sendTo('history.0', 'getHistory', {
 });
 ```
 
-- 在最后一小时获取 ``system.adapter.admin.0.memRss`` 的存储值
+- 获取过去一小时内“system.adapter.admin.0.memRss”的存储值
 
 ```javascript
 var end = Date.now();
@@ -188,79 +188,113 @@ sendTo('history.0', 'getHistory', {
 
 可用选项：
 
-- **开始** - （可选）以毫秒为单位的时间 - *Date.now()*'
-- **end** - （可选）以毫秒为单位的时间 - *Date.now()*'，默认为（现在 + 5000 秒）
-- **step** - （可选）用于聚合（最大、最小、平均、总计、...）步长（以毫秒为单位）
-- **count** - 如果聚合为“onchange”，则为值数，如果为其他聚合方法，则为间隔数。如果设置了步长，计数将被忽略，否则默认为 500，如果未设置
-- **from** - 如果 *from* 字段应包含在答案中
-- **ack** - 如果 *ack* 字段应包含在答案中
-- **q** - 如果 *q* 字段应包含在答案中
-- **user** - 如果 *user* 字段应包含在答案中
-- **comment** - 如果 *c* 字段应包含在答案中
-- **addId** - 如果 *id* 字段应包含在答案中
+- **start** - （可选）时间（毫秒） - *Date.now()*'
+- **end** - （可选）时间（毫秒） - *Date.now()*'，默认为（现在 + 5000 秒）
+-**step**-（可选）用于聚合（最大值、最小值、平均值、总计……）以毫秒为间隔的步骤
+- **count** - 如果聚合方法为“onchange”，则为值的数量；如果聚合方法为其他聚合方法，则为间隔数。如果设置了 step，则计数将被忽略；如果未设置，则默认值为 500。
+- **from** - 如果 *from* 字段应该包含在答案中
+-**ack** - 如果*ack*字段应该包含在答案中
+- **q** - 是否应在答案中包含 *q* 字段
+- **用户** - 答案中是否应包含*用户*字段
+-**评论**-如果*c*字段应该包含在答案中
+-**addId** - 如果答案中应包含*id*字段
 - **limit** - 不返回超过限制的条目
 - **round** - 将结果四舍五入到小数点后的位数
-- **ignoreNull** - 如果应包含空值 (false)，则替换为最后一个非空值 (true) 或替换为 0 (0)
-- **removeBorderValues** - 默认情况下会返回额外的边框值以优化图表。如果不需要，请将此选项设置为 true（例如，用于脚本数据处理）
-- **returnNewestEntries** - 返回的数据始终按时间戳升序排序。当使用聚合“none”并提供“count”或“limit”时，这意味着通常会返回最旧的条目（除非没有提供“start”数据）。将此选项设置为 true 以获取最新条目。
-- **aggregate** - 聚合方法（默认值：'average'）：
-    - *minmax* - 使用特殊算法。以小间隔拼接整个时间范围，并找到每个间隔的最大值、最小值、开始值和结束值。
-    - *max* - 以小间隔拼接整个时间范围，并为每个间隔查找最大值并将其用于此间隔（将忽略空值）。
-    - *min* - 与 max 相同，但取最小值。
-    - *average* - 与最大值相同，但取平均值。
-    - *total* - 与最大值相同，但计算总值。
-    - *count* - 与 max 相同，但计算值的数量（将计算空值）。
-    - *percentile* - 计算第 n 个百分位数（n 在 options.percentile 中给出，如果未提供，则默认为 50）。
-    - *quantile* - 计算 n 分位数（n 在 options.quantile 中给出，如果未提供，则默认为 0.5）。
-    - *integral* - 计算积分（附加参数见下文）。
-    - *none* - 完全没有聚合。只有给定时期的原始值。
-- **percentile** - （可选）当使用聚合方法“percentile”定义百分位水平（0..100）（默认为 50）
-- **quantile** - （可选）当使用聚合方法“quantile”定义分位数级别（0..1）（默认为 0.5）
-- **integralUnit** - （可选）使用聚合方法时“integral”以秒为单位定义单位（默认为 60 秒）。例如要获得 Wh 或类似小时的积分，请设置为 3600。
-- **integralInterpolation** - （可选）当使用聚合方法“integral”定义插值方法（默认为“none”）。
-    - *线性* - 线性插值
-    - *无* - 无/逐步插值
+- **ignoreNull** - 如果需要包含空值（false），则替换为最后一个非空值（true）或替换为 0（0）
+- **removeBorderValues** - 默认情况下，会返回额外的边框值以优化图表。如果不需要，请将此选项设置为 true（例如，用于脚本数据处理）。
+- **returnNewestEntries** - 返回的数据始终按时间戳升序排序。当使用聚合“none”并同时提供“count”或“limit”时，通常返回最旧的条目（除非未提供“start”数据）。将此选项设置为 true 可获取最新条目。
+-**aggregate** - 聚合方法（默认值：'average'）：
+- *minmax* - 使用特殊算法。将整个时间范围以小间隔拼接，并查找每个间隔的最大值、最小值、起始值和结束值。
+- *max* - 以小间隔拼接整个时间范围并找到每个间隔的最大值并将其用于该间隔（空值将被忽略）。
+- *min* - 与 max 相同，但取最小值。
+- *平均值* - 与最大值相同，但取平均值。
+- *total* - 与最大值相同，但计算总值。
+- *count* - 与最大值相同，但计算值的数量（将计算空值）。
+- *百分位数* - 计算第 n 个百分位数（n 在 options.percentile 中给出，如果未提供则默认为 50）。
+- *quantile* - 计算 n 分位数（n 在 options.quantile 中给出，如果未提供则默认为 0.5）。
+- *积分* - 计算积分（附加参数见下文）。
+- *无* - 完全不聚合。仅显示给定时间段内的原始值。
+- **百分位数** -（可选）当使用聚合方法“百分位数”时定义百分位数级别（0..100）（默认为 50）
+- **quantile** -（可选）当使用聚合方法“quantile”时定义分位数级别（0..1）（默认为 0.5）
+- **integralUnit** -（可选）当使用聚合方法“integral”时，以秒为单位定义单位（默认为 60 秒）。例如，要获得 Wh 等以小时为单位的积分，请设置为 3600。
+- **integralInterpolation** -（可选）当使用聚合方法“integral”时定义插值方法（默认为“none”）。
+- *线性* - 线性插值
+- *无* - 无/逐步插值
 
-将为聚合计算第一个和最后一个点，但聚合**无**除外。
-如果您手动请求一些聚合，您应该忽略第一个和最后一个值，因为它们是根据周期之外的值计算的。
+除**无**聚合外，聚合将计算第一个点和最后一个点。
+如果您手动请求某些聚合，则应忽略第一个值和最后一个值，因为它们是根据周期之外的值计算得出的。
 
 ### 商店状态
-如果您想将其他数据写入历史数据库，您可以使用内置系统函数**storeState**。此函数还可用于转换来自其他历史适配器（如 History 或 SQL）的数据。
+如果您想将其他数据写入历史数据库，可以使用系统内置函数 **storeState**。此函数也可用于转换来自其他历史适配器（例如 History 或 SQL）的数据。
 
-成功的响应并不意味着数据真的写到了磁盘上。这只是意味着他们被处理了！
+成功响应并不意味着数据真的被写入磁盘，而只是意味着数据已被处理！
 
-没有根据 ioBroker 数据库检查给定的 id，也不需要在那里设置或启用。如果在没有设置的情况下使用自己的 ID，则不支持“规则”参数，并会导致错误。默认的“RAM 值中存储的最大数量”用于此类 ID。
+指定的 ID 不会与 ioBroker 数据库进行核对，因此无需在数据库中进行设置或启用。如果使用未设置的个人 ID，则“规则”参数不受支持，并会导致错误。此类 ID 将使用默认的“RAM 中存储值的最大数量”。
 
-消息可以具有以下三种格式之一：
+消息可以采用以下三种格式之一：
 
-- 一个 ID 和一个状态对象
-- 一个 ID 和状态对象数组
-- 多个 ID 的数组，每个 ID 有一个状态对象
+1. 一个ID和一个状态对象
+2. 一个ID和状态对象数组
+3. 多个 ID 的数组，每个 ID 对应一个状态对象
 
 ```javascript
-sendTo('history.0', 'storeState', [
+// 1.
+sendTo('history.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
-    state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
-], result => console.log('added'));
+    state: {
+        ts: 1589458809352,
+        val: 123,
+        ack: false,
+        from: 'system.adapter.whatever.0'
+    }
+}, result => console.log('added'));
 
+// 2.
 sendTo('history.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
     state: [
-      {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...},
-      {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+        {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        },
+        {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
     ]
 }, result => console.log('added'));
 
+// 3.
 sendTo('history.0', 'storeState', [
-    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}},
-    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}
+    {
+        id: 'mbus.0.counter.xxx',
+        state: {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    },
+    {
+        id: 'mbus.0.counter.yyy',
+        state: {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    }
 ], result => console.log('added'));
 ```
 
-此外，您可以添加属性``rules: true`` in message to activate all rules, like ``counter``, ``changesOnly``, ``de-bounce``等等。
+此外，您还可以添加属性“`rules: true`` in message to activate all rules, like ``counter``, ``changesOnly``, ``de-bounce`”等等。
 
 ### 删除状态
-如果要从数据库中删除条目，可以使用内置系统函数 **delete**：
+如果您想从数据库中删除条目，您可以使用内置系统函数**delete**：
 
 ```javascript
 sendTo('history.0', 'delete', [
@@ -278,7 +312,7 @@ sendTo('history.0', 'deleteAll', [
 ], result => console.log('deleted'));
 ```
 
-要删除某个数据点和某个范围的历史数据，请执行：
+要删除某些数据点和某些范围的历史数据，请执行：
 
 ```javascript
 sendTo('history.0', 'deleteRange', [
@@ -287,12 +321,12 @@ sendTo('history.0', 'deleteRange', [
 ], result => console.log('deleted'));
 ```
 
-时间可以是自纪元以来的 ms 或 ans 字符串，可以通过 javascript Date 对象进行转换。
+时间可以是自纪元以来的毫秒数或答案字符串，可以通过 javascript Date 对象进行转换。
 
 值将被删除**包括定义的限制**（``ts >= start AND ts <= end``）。
 
 ## 更新状态
-如果您想更改数据库中的值、质量或确认标志，您可以使用内置系统功能 **update**：
+如果您想更改数据库中的值、质量或确认标志，您可以使用内置系统功能**更新**：
 
 ```javascript
 sendTo('history.0', 'update', [
@@ -301,13 +335,13 @@ sendTo('history.0', 'update', [
 ], result => console.log('deleted'));
 ```
 
-``ts``是强制性的。状态对象中必须至少包含一个其他标志。
+``ts`` 是必需的。状态对象中必须至少包含一个其他标志。
 
 ## 通过 Javascript 管理历史记录
-该适配器支持通过 JavaScript 启用和禁用历史记录，还支持使用其设置检索启用的数据点列表。
+该适配器支持通过 JavaScript 启用和禁用历史记录，还支持检索启用的数据点及其设置的列表。
 
 ＃＃＃ 使能够
-该消息需要具有数据点的“`id`”。此外，可选的 ``options`` 用于定义数据点特定设置：
+该消息需要包含数据点的 ``id``。此外，可选的 ``options`` 用于定义数据点特定的设置：
 
 ```javascript
 sendTo('history.0', 'enableHistory', {
@@ -347,7 +381,7 @@ sendTo('history.0', 'disableHistory', {
 ```
 
 ## 获取启用状态列表
-消息没有参数。
+该消息没有参数。
 
 ```javascript
 sendTo('history.0', 'getEnabledDPs', {}, function (result) {
@@ -368,35 +402,35 @@ sendTo('history.0', 'getEnabledDPs', {}, function (result) {
 ```
 
 ## 将历史数据迁移到 SQL 或 InfluxDB
-＃＃＃ 大概的概念
-当您随着时间的推移拥有更多数据时，历史适配器可能不是最佳选择，而真正的数据库会更好。为此，有更多的数据存储适配器。例如。用于 SQL 数据库（PostgreSQL、MS-SQL、MySQL、SQLite）和 InfluxDB。
-随着这种变化，问题出现了如何将收集到的数据从过去转换为这些新的适配器。
+### 总体思路
+当你的数据随着时间的推移而不断增加时，历史适配器可能不再是最佳选择，而真正的数据库则更为理想。为此，市面上有更多用于数据存储的适配器，例如适用于 SQL 数据库（PostgreSQL、MS-SQL、MySQL、SQLite）和 InfluxDB 的适配器。
+随着这一变化，随之而来的问题是如何将过去收集的数据转换到这些新的适配器中。
 
-为此，一些转换器脚本已放置在目录``/opt/iobroker/node_modules/iobroker.history/converter`` that can help and do the job. These scripts are called from the command line with ``node``中。
+为此，一些转换脚本已被放置在目录“`/opt/iobroker/node_modules/iobroker.history/converter`` that can help and do the job. These scripts are called from the command line with ``node`”中。
 
 ### 执行转换时的最佳实践
-如果您从一种历史方法转移到另一种历史方法，我建议以下过程：
+如果您从一种历史方法转向另一种历史方法，我建议遵循以下流程：
 
-1. 为相关状态激活新的历史记录方法（sql/influxdb）并开始记录并检查它是否按预期工作。这意味着您记录“两次”（在历史记录和新目标中）。
-2. 运行分析脚本以获得重复记录开始的“截止”点。
-3. 停止历史适配器并执行迁移（这可能需要一些时间）。因此，旧值将添加到新值中。
-4. 当您确定您做了任何事情并检查了错误文件时：删除历史数据以获取一些空间。
+1. 为相关状态激活新的历史记录方法 (sql/influxdb)，并开始记录日志，检查其是否按预期工作。这意味着您将记录“两次”（在历史记录和新目标中）。
+2. 运行分析脚本以获取重复日志记录开始的“截止”点。
+3. 停止历史记录适配器并执行迁移（这可能需要一些时间）。这样旧值就会被添加到新值中。
+4. 当您确定您做了任何事情并且检查了错误文件时：删除历史数据以恢复一些空间。
 
-### 步骤1：准备和分析传输目标中的现有数据
-转换数据时，只应传输那些尚未存在的数据。因此存在第一组脚本，称为 **analyze<db>.js**。此脚本应在开始时执行一次，以收集现有数据的一些数据并将它们存储在本地 .json 文件中以供实际转换器脚本使用。
+### 步骤 1：准备并分析转移目标中的现有数据
+转换数据时，仅应传输尚未存在的数据。因此，存在第一组名为 **analyze<db>.js** 的脚本。此脚本应在开始时执行一次，以收集一些现有数据并将其存储在本地 .json 文件中，以供实际转换脚本使用。
 
 收集两种数据：
 
 - **数据点 ID 的最早值**：第一个条目的时间戳
 
-默认情况下，每个现有数据点都会被存储并被导入忽略所有较新的值。假设数据从第一个条目开始完全填充，并且所有早期值都将被复制。
-这个假设可以在导入时被参数覆盖。
+每个现有数据点的默认值都会被存储，并在导入时默认忽略所有新值。假设数据从第一个条目开始已完全填充，否则所有先前的值都会重复。
+导入时可以通过参数覆盖此假设。
 
-- **每个数据点 ID 每天的现有值**：分析现有数据
+- **每个数据点 ID 每天的现有值**：对现有数据进行分析
 
-以每天为基础，并且每一天都存储在已经存在数据的地方。这可以用作第一个数据的替代方案，以便也能够填补数据中的“漏洞”。
+按天计算，每天的数据都存储在已有数据的位置。这可以作为第一批数据的替代，以填补数据中的“漏洞”。
 
-####analyzeinflux.js
+分析influx.js
 该脚本为 InfluxDB 实例收集上述数据。
 
 **用法**：
@@ -409,14 +443,14 @@ sendTo('history.0', 'getEnabledDPs', {}, function (result) {
 
 参数：
 
-- InfluxDB-Instance：应该使用哪个 influxdb-Adapter 实例？ （默认：influxdb.0）如果设置需要是脚本名称后的第一个参数。
-- 日志级别：输出的日志级别（默认值：信息）。如果设置需要是脚本名称之后的第二个参数。
-- ``--deepAnalyze``：每天也收集现有值，默认情况下只查询最早的值。
+- InfluxDB-Instance：应该使用哪个 influxdb-Adapter 实例？（默认值：influxdb.0）如果设置，则需要作为脚本名称后的第一个参数。
+- Loglevel：输出的日志级别（默认值：info）。如果设置，则需要作为脚本名称后的第二个参数。
+- ``--deepAnalyze``：也收集每天的现有值，默认情况下只查询最早的值。
 
-然后，该脚本将使用收集的数据生成一到三个 .json 文件。这些文件然后由真正的转换器脚本使用。
+然后，脚本将生成一个或三个包含收集到的数据的 .json 文件。这些文件随后会被真正的转换脚本使用。
 
-#### 分析sql.js
-此脚本收集 SQL 实例的上述数据。
+分析sql.js
+该脚本为 SQL 实例收集上述数据。
 
 **用法**：
 
@@ -428,30 +462,30 @@ sendTo('history.0', 'getEnabledDPs', {}, function (result) {
 
 参数：
 
-- SQL-Instance：应该使用哪个 SQL-Adapter 实例？ (默认: sql.0) 如果设置需要是脚本名称后的第一个参数。
-- 日志级别：输出的日志级别（默认值：信息）。如果设置需要是脚本名称之后的第二个参数。
+- SQL 实例：应该使用哪个 SQL 适配器实例？（默认值：sql.0）如果设置，则需要将其作为脚本名称后的第一个参数。
+- Loglevel：输出的日志级别（默认值：info）。如果设置，则需要作为脚本名称后的第二个参数。
 
-然后，该脚本将使用收集的数据生成两个 .json 文件。这些文件然后由真正的转换器脚本使用。
+然后，脚本将生成两个包含收集到的数据的 .json 文件。这些文件随后会被真正的转换脚本使用。
 
 ### 将历史数据转换为数据库
-该脚本将直接使用磁盘上历史适配器生成的 JSON 文件将它们传输到数据库中。此外，它使用目标数据库中已存在值的预生成数据文件来仅转换不存在的数据。
+该脚本将直接使用磁盘上历史适配器生成的 JSON 文件将其传输到数据库中。此外，它还会使用目标数据库中已存在的值预先生成的数据文件，仅转换不存在的数据。
 
-该脚本可以在没有任何分析（步骤 1）的情况下运行，然后您需要将 startdata 设置为参数，它会简单地从该时间点向后转换任何内容。
+该脚本可以在没有事先进行任何分析（步骤 1）的情况下运行，然后您需要将 startdata 设置为参数，它将简单地将该时间点的任何内容向后转换。
 
-如果您之前运行过分析并且存在 **earliestDBValues.json** 文件，则只有这些数据点会被转换，除非您使用参数来更改它。
+当您之前运行过分析并且**earliestDBValues.json**文件存在时，只有这些数据点会被转换，除非您使用参数来更改它。
 
-当之前运行分析并使用数据文件时，它们也会使用所有转换的数据进行更新，因此第二次运行通常不会产生重复。
+当之前运行分析并使用数据文件时，它们也会使用所有转换后的数据进行更新，因此第二次运行通常不会生成重复项。
 
-要重置数据，请删除文件 **earliestDBValues.json**、**existingDBValues.json** 和/或 **existingDBTypes.json**。
+要重置数据，请删除文件**earliestDBValues.json**、**existingDBValues.json**和/或**existingDBTypes.json**。
 
-然后，转换器在所有可用数据的日子里及时回溯，并确定将哪些数据传输到 InfluxDB。
+然后，转换器会回溯所有可用作数据的日期，并确定要将哪些数据传输到 InfluxDB。
 
-> 如果要中止进程，可以按“x”或“<CTRL-C>”。
+> 如果您想中止该过程，您可以按“x”或“<CTRL-C>”。
 
-转换器脚本本身应该适用于所有支持 **storeState** 方法的历史适配器。
+转换器脚本本身应该与支持 **storeState** 方法的所有历史适配器一起工作。
 
-> 注意：迁移大量数据会对系统产生一定的负载，尤其是 > 当转换器和目标数据库实例在同一台机器上运行时。
-> 在操作期间监控您的系统负载和性能，并可能使用 > ``delayMultiplicator`` 参数来增加转换器的延迟。
+> 注意：迁移大量数据会对系统产生一定的负载，尤其是当转换器和目标数据库实例在同一台机器上运行时。
+> 在操作过程中监控系统负载和性能，并可能使用 ``delayMultiplicator`` 参数来增加转换器的延迟。
 
 **用法：**
 
@@ -463,20 +497,27 @@ sendTo('history.0', 'getEnabledDPs', {}, function (result) {
 
 可能的选项和参数：
 
-- **DB-Instance**：将数据发送到的DB-Instance。必填参数。需要是脚本名称后的第一个参数。
-- **Loglevel**：输出的日志级别（默认值：info）。如果设置需要是脚本名称之后的第二个参数。
-- **开始日期**：以 `yyyymmdd` 格式开始的日期（例如 20161028）。使用“0”使用检测到的最早值。如果设置需要是脚本名称后的第三个参数。
-- **path-to-Data**：数据文件的路径。默认为 iobroker-install-directory/iobroker-data/history-data 。如果设置需要是脚本名称之后的第四个参数。
-- **<delayMultiplicator>**：通过乘法器修改脚本中多个动作之间的延迟。 “2”意味着转换后自己计算的延迟加倍。如果设置需要是脚本名称后的第五个参数。
-- **--logChangesOnly [relog-Interval(m)]**：当设置--logChangesOnly 时，数据被解析和减少，因此只有更改的值存储在 InfluxDB 中。此外，可以在几分钟内设置“重新记录间隔”，以便在此间隔之后重新记录未更改的值。
-- **--ignoreExistingDBValues**：使用此参数，所有现有数据都将被忽略，所有数据都将插入数据库。请确保不生成重复项。此选项可用于修复数据中缺少某些数据的“漏洞”。默认情况下，它只填充数据库中至少有一个条目的所有数据点。这可以被 `--processAllDPs` 覆盖
-- **--processNonExistingValuesOnly**：使用此参数，使用分析脚本中的“每日现有数据点”文件并检查每一天和数据点。 **在这种模式下，existing-DB-Values 总是被忽略，也不会更新，所以请在使用该模式后再次运行分析！！！**
-- **--processAllDPs**：使用此参数，您可以确保历史文件中的所有现有数据点都传输到数据库中，即使这些数据点目前不存在于该数据库中。
-- **--simulate**：使用此参数启用模拟模式，意味着不会发生真正的写入，并且分析数据文件也不会在退出时更新。
+- **DB-Instance**：用于发送数据的 DB-Instance。必需参数。需要作为脚本名称后的第一个参数。
+- **Loglevel**：输出的日志级别（默认值：info）。如果设置，则需要在脚本名称后设置第二个参数。
+- **开始日期**：开始日期，格式为 `yyyymmdd`（例如 20161028）。使用“0”表示使用检测到的最早值。如果需要设置，则需要将其作为脚本名称后的第三个参数。
+- **path-to-Data**：数据文件的路径。默认为 iobroker-install-directory/iobroker-data/history-data 。如果需要设置，则需要在脚本名称后的第四个参数中指定。
+- **<delayMultiplicator>**：使用乘数修改脚本中多个操作之间的延迟。“2”表示转换后自身计算的延迟加倍。如果需要设置，则需要将其作为脚本名称后的第五个参数。
+- **--logChangesOnly [relog-Interval(m)]**：设置 --logChangesOnly 后，数据会被解析并精简，以便只有更改的值才会存储在 InfluxDB 中。此外，还可以设置“relog-Interval(s)”（以分钟为单位），以便在此间隔后重新记录未更改的值。
+- **--ignoreExistingDBValues**：使用此参数将忽略所有现有数据，并将所有数据插入数据库。请确保不会生成重复数据。此选项有助于修复数据中缺失某些数据的“空洞”。默认情况下，它仅使用数据库中的至少一个条目填充所有数据点。此选项可被 `--processAllDPs` 覆盖。
+- **--processNonExistingValuesOnly**：使用此参数，将使用分析脚本中的“按天现有数据点”文件，并针对每个日期和数据点进行检查。**在此模式下，现有数据库值始终会被忽略，也不会更新，因此请在使用该模式后再运行一次分析！**
+- **--processAllDPs**：使用此参数，您可以确保历史文件中的所有现有数据点都传输到数据库中，即使这些数据点目前还不存在于该数据库中。
+- **--simulate**：使用此参数可以启用模拟模式，这意味着不会发生真正的写入，并且分析数据文件在退出时也不会更新。
 
 ## Changelog
+### 3.0.1 (2023-10-24)
+* (tuxyme) activated the round option when averaging
 
-### __WORK IN PROGRESS__
+### 3.0.0 (2023-09-19)
+* (foxriver76) fix history2db.js with controller v5
+* (bluefox) Minimal node.sj version is 16
+* (bluefox) Added support for `count` aggregate type on getHistory
+
+### 2.2.6 (2023-08-23)
 * (Apollon77) Fix getHistory when aggregations were used in some cases
 
 ### 2.2.4 (2022-09-19)
@@ -491,25 +532,25 @@ sendTo('history.0', 'getEnabledDPs', {}, function (result) {
 
 ### 2.2.0 (2022-07-22)
 * (Apollon77) make sure getHistory works for all cases
-* (Bluefox/Apollon77) Add option to add comment and user info to results
+* (Bluefox/Apollon77) Added an option to add comment and user info to results
 
 ### 2.1.7 (2022-06-27)
-* (Apollon77) Allow to remove a configuration value for "round" in config again
+* (Apollon77) Allowed removing a configuration value for "round" in config again
 
 ### 2.1.6 (2022-06-27)
 * (Apollon77) When not count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
 
 ### 2.1.5 (2022-06-24)
-* (Apollon77) Ignore errors from forked process after response was sent for GetHistory
+* (Apollon77) Ignore errors from a forked process after response was sent for GetHistory
 
 ### 2.1.4 (2022-06-12)
-* (Apollon77) Make sure debug log is active according to the settings
+* (Apollon77) Make sure the debug log is active, according to the settings
 
 ### 2.1.3 (2022-06-08)
 * (Apollon77) Huge performance optimizations for GetHistory calls
 
 ### 2.1.2 (2022-05-28)
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed crash case reported by Sentry
 
 ### 2.1.1 (2022-05-27)
 * (Apollon77) Fix crash case reported by Sentry
@@ -749,7 +790,7 @@ sendTo('history.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 Bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>, Apollon77
 
 Copyright (c) 2016 Smiling_Jack
 

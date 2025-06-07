@@ -39,14 +39,11 @@ http://www.maxxisun.de
 
 ## Version Compatibility
 
-| Version | CCU V1 Local | CCU V1 Cloud | CCU V2 Local | CCU V2 Cloud |
-|---------|------------|-------------|-------------|--------------|
-| 0.36    | ❌          | ✅           |             |              |
-| 0.38    | ❌          | ✅           |             |              |
-| 0.40    | ❌          | ✅           |             |              |
-| 0.41    | ✅          | ✅           |             |              |
-| 0.44    | ✅          | ✅           |             |              |
-| 0.46    | ✅          | ✅           | ❓           | ❓           |
+|    Version    | CCU V1 Local | CCU V2 Local | CCU V1 Cloud | CCU V2 Cloud |
+|:-------------:|:------------:|:------------:|:------------:|:------------:|
+|  0.36 - 0.40  |      ❌       |      ❌       |      ✅       |      ❌       |
+| 0.41 or newer |      ✅       |      ❓       |      ✅       |      ❓       |
+
 
 🔹 **Legend**:  
 ✅ - Compatible  
@@ -54,6 +51,10 @@ http://www.maxxisun.de
 ❓ - Unknown
 
 ## Changelog
+
+### 1.4.40 (2025-05-13)
+- New Option Mode "BKW"
+> At a battery level of ≥ 97%, the script enables BKW mode to feed a constant 600–800 W into the grid alongside household use, potentially receiving compensation if registered as a balcony power system (BKW).
 
 ### 1.4.32 (2025-04-06)
 - New cloud method – Backup mode Server 2 (check config)

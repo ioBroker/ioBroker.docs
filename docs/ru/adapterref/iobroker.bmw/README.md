@@ -3,20 +3,28 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: dXHYdKotEnm8Agt87cZL2hBOssbujrK9A9/5O/Kn+Ck=
+hash: Z+Gz0BFzpoYSG/LsgdOZ7/JEJkNp4KJJA4Jciqk4Te4=
 ---
 ![версия НПМ](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bmw.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/bmw-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/bmw-stable.svg)
-![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.bmw.svg)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.bmw?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.bmw?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/TA2k/iobroker.bmw?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/TA2k/iobroker.bmw/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Известные уязвимости SNYK](https://snyk.io/test/github/TA2k/ioBroker.bmw/badge.svg)
+![Бета](https://img.shields.io/npm/v/iobroker.bmw.svg?color=red&label=beta)
+![Стабильный](https://iobroker.live/badges/bmw-stable.svg)
+![Установлено](https://iobroker.live/badges/bmw-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bmw.png?downloads=true)
 
 <img src="admin/bmw.png" alt="Логотип" width="200">
 
 # IoBroker.bmw
-**Тесты:** ![Тест и выпуск](https://github.com/TA2k/ioBroker.bmw/workflows/Test%20and%20Release/badge.svg)
-
+## Версии
 # Адаптер BMW для ioBroker
 Этот адаптер легко интегрирует автомобили BMW в ioBroker, позволяя вам контролировать и управлять вашим BMW непосредственно на платформе ioBroker. Он извлекает и обновляет данные для всех моделей BMW, связанных с вашей учетной записью BMW через официальное приложение BMW, предоставляя свойства автомобиля и поддерживая удаленные команды.
 
@@ -47,6 +55,14 @@ hash: dXHYdKotEnm8Agt87cZL2hBOssbujrK9A9/5O/Kn+Ck=
 
 ### **WORK IN PROGRESS**
 
+- BREAKING: Dropped support for Node.js 18 (#88)
+- (hombach) BREAKING: Dropped support for js-controller 5 (#111)
+- (hombach) BREAKING: change to admin 7.4.10 as recommended by ioBroker (#111)
+- (hombach) encrypt and protect second user password - has to be reentered (#111)
+- (hombach) bump dependencies
+
+### 2.9.5 (2025-05-18)
+
 - (hombach) update axios
 - (hombach) fixing issues detected by repository checker (#88)
 - (hombach) some small code cleanups/modernisations
@@ -59,13 +75,13 @@ hash: dXHYdKotEnm8Agt87cZL2hBOssbujrK9A9/5O/Kn+Ck=
 
 ### 2.9.3 (2025-01-29)
 
-- fix Remote Controls
+- fix remote controls
 - add Mitbenutzer Login for remote controls
 
 ### 2.9.0 (2024-11-28)
 
 - added new remotes as switch and updated values
-- added retry logice for remotes
+- added retry logic for remotes
 
 ### 2.8.4 (2024-11-21)
 
