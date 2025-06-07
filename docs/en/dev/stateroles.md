@@ -214,6 +214,7 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.light`
 * `switch.comfort`        - comfort mode
 * `switch.enable`
+* `switch.mode`           - switch on/off a generic mode, use more specific if present or propose one.
 * `switch.mode.`*
 * `switch.mode.auto`      - auto mode on/off
 * `switch.mode.manual`    - manual mode on/off
@@ -221,7 +222,6 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.mode.moonlight` - moon light mode on/off
 * `switch.mode.color`     - color mode on/off
 * `switch.gate`           - closes(false) or opens(true) the gate
-* `switch.feature`        - switch on/off a feature. In contrast to modes which usually are exclusive, this should be independet of other settings
 
 ## Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
