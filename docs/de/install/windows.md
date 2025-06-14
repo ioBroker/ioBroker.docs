@@ -1,6 +1,6 @@
 ---
 title: "Windows"
-lastChanged: "29.09.2024"
+lastChanged: "11.06.2025"
 ---
 
 # Voraussetzungen prüfen
@@ -123,3 +123,13 @@ Die Installation kann nicht durchgeführt werden, da Port 9001 von einem Prozess
 Der Intel® Graphics Command Center ist bekannt dafür, Port 9001 zu blockieren.
 Überprüfe, ob es einen Windows Service mit dem Namen "Graphics Command Center" o.ä. auf deinem PC gibt. Wenn ja, beende und deaktiviere diesen Dienst.
 Anschließend sollte die Installation von ioBroker möglich sein.
+
+**Problem:**
+Git wurde währen der ioBroker Installation nicht installiert. Im Logfile gibt es eine entsprechende Fehlermeldung:
+`Fehler beim Durchsuchen der Quelle: winget
+Unerwarteter Fehler beim Ausführen des Befehls:
+0x8a15000f : Data required by the source is missing`  
+
+**Mögliche Lösung:**
+Im ioBroker Command Fenster (aus dem Startmenü) den folgenden Befehl eingeben, anschließend den Installer neu starten und "Reparieren" auswählen.
+`powershell -command " Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.Winget.Source_8wekyb3d8bbwe"`
