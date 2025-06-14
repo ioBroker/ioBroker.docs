@@ -4,16 +4,37 @@ Objects from type `state` need their `common.role` property set to one of the ro
 The Role information is a very important information and allows Visualization- and Smart-Assistant adapters 
 to detect the function of the object and also how/if they relate to other objects in the same channel, device or folder.
 
-Example:
-A RGB Lamp can have the following three objects (or more) with different roles that belong together:
-* `switch` - (On/Off)
+## State role types
+The following State Role types exist:
+
+### Operative States
+Operative states are used to control the normal functionality of a device. A RGB Lamp can have the following three objects (or more) with different roles that belong together:
+* `switch` (On/Off)
 * `level.color.rgb` with #RRGGBB color code of the lamp
 * `level.brightness` with the brightness value
+
+Also the cleaning mode or the room-to-clean of a robotic vacuum cleaner is such an operative state. These states are using the below definition witout any adjustments.
+
+Please use the most detailed role name psible that prvide the most details (e.g. `level.color.temperature` should be used over `level` for the color tenperature, or `switch.power` is better then `switch` to operate the power of a device).
+Additionally, when using detailed role names (more then one level), it is important not to use the same role twice in a channel of a device.
 
 Different Device templates used for the detecting with the required and optional objects and their roles can be found 
 in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
-## Common
+### Configuration/Setting States
+States that are configuring further "Non-operative" settings of the devices can also use the below basic role definitions to give more context of the type and usage of the provided value, **but add a ".setting." as second level of the role name**. For example:
+* `level.setting.color.temperature` with a 0..100% number can be used to set the "Startup ColorTemperature" of a light bulb
+* `switch.setting` (On/Off) coud be used to define setting that can be turned on or off (e.g. child lock functionality)
+
+User Interfaces might use these special roles to determine device settings and show then in a "Settings" dialog for the device, or ignore them.
+
+### Generic States
+
+If no detailed matching role can be found or the usecase is not specific then you can fallback to us the below defined **Common** roles.
+
+## State role categories
+
+### Common
 * `state` - very common purpose. If you don't know which role the state has, use this one.
 * `text`              `common.type = string`
 * `text.url`          `common.type = string` state val contains an url for usage in an anchor, iframe or img
@@ -23,7 +44,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `date`              `common.type = string` - parsable by `new Date(ddd)` string
 * `date`              `common.type = number` - `epoch seconds * 1000`
 
-## Sensor (booleans, read-only)
+### Sensor (booleans, read-only)
 `common.type=boolean, common.write=false`
 
 * `sensor`                - generic sensor state to represent a status: active - `true` or inactive `false`
@@ -42,7 +63,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `sensor.noise`          - noise detected
 * `sensor.switch`         - switch status: on - `true` or off - `false`
 
-## Buttons (booleans, write-only)
+### Buttons (booleans, write-only)
 `common.type=boolean, common.write=true, common.read=false`
 
 * `button`
@@ -62,14 +83,14 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `button.mode.manual`
 * `button.mode.silent`
 
-## Buttons as sensor
+### Buttons as sensor
 `common.type=boolean, common.write=false, common.read=true`
 
 * `button`         - the difference, that `common.write=false`. Please avoid this role and use `button.press` or `button.long`.
 * `button.long`
 * `button.press`
 
-## Values (numbers, read-only)
+### Values (numbers, read-only)
 `common.type=number, common.write=false`
 
 * `value`
@@ -124,7 +145,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.fill`            - Fill level, `unit=l,ml,m3,%`
 * `value.blood.sugar`     - Blood sugar value, `unit=mmol,mgdl`
 
-## Indicators (boolean, read-only)
+### Indicators (boolean, read-only)
 `common.type=boolean, common.write=false`
 
 The difference of *Indicators* from *Sensors* is that indicators will be shown as small icon. Sensors as a real value.
@@ -147,7 +168,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.alarm.secure` - door or window is opened
 * `indicator.alarm.health` - health problem
 
-## Levels (numbers, read-write)
+### Levels (numbers, read-write)
 With **levels**, you can control or set some number value.
 
 `common.type=number, common.write=true`
@@ -199,7 +220,7 @@ With **levels**, you can control or set some number value.
 * `level.tilt`           - set the tilt position of blinds (max = fully opened, min = fully closed)
 * `level.speed`          - speed eg. fan, ventilator, ..
 
-## Switches (booleans, read-write)
+### Switches (booleans, read-write)
 Switch controls a boolean device (`true = ON, false = OFF`)
 
 `common.type=boolean, common.write=true`
@@ -222,7 +243,7 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.mode.color`     - color mode on/off
 * `switch.gate`           - closes(false) or opens(true) the gate
 
-## Air condition or thermostat
+### Air condition or thermostat
 * `level.mode.fan`        - `AUTO, HIGH, LOW, MEDIUM, QUIET, TURBO`
 * `level.mode.swing`      - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - air conditioner: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, heating thermostat: `AUTO, MANUAL, VACATION`, 
@@ -232,7 +253,7 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 
 TODO: Think about ionization` and oscillation. 
 
-## Vacuum cleaner
+### Vacuum cleaner
 * `level.mode.cleanup`    - Enumeration of `AUTO, ECO, EXPRESS, NORMAL, QUIET`. Only `AUTO` and `NORMAL` are required. 
 * `level.mode.work`       - Enumeration of `AUTO, FAST, MEDIUM, SLOW, TURBO`. Optional state.
 * `value.water`           - 0-100% water level.
@@ -243,13 +264,13 @@ TODO: Think about ionization` and oscillation.
 Additionally, to these states normally the `switch.power` required to map the vacuum cleaner. `switch.power` in this case works as: `true` - clean, `false` - back to home.
 Optionally `value.battery` and  
 
-## Gate
+### Gate
 * `switch.gate`           - closes(false) or opens(true) the gate (required)
 * `value.position`        - position of the gate in percent (100% opened, 0% - closed)
 * `value.gate`            - same as `value.position`
 * `button.stop`           - stop the motion of the gate
 
-## Media
+### Media
 Special roles for media players
 
 * `button.stop`
@@ -345,7 +366,7 @@ Special roles for media players
 ]
 ```
 
-## Weather
+### Weather
 * `value.temperature`           - Actual temperature
 * `value.temperature.windchill` - Actual wind chill
 * `value.temperature.dewpoint`  - Actual dew-point
@@ -418,7 +439,7 @@ Special roles for media players
 * `value.speed.wind.forecast.1`
 * `value.pressure.forecast.1`
 
-## Info
+### Info
 * `info.ip`        - IP of a device
 * `info.mac`       - MAC address of a device
 * `info.name`      - name of a device
@@ -434,7 +455,7 @@ Special roles for media players
 * `date.start`     - string or number
 * `date.end`       - string or number
 
-## Health
+### Health
 `common.type=number, common.read=true, common.write=false`
 
 * `value.health.fat`      - body fat index in %
@@ -444,7 +465,7 @@ Special roles for media players
 * `value.health.steps`    - steps done
 * `value.health.bpm`      - heart beats per minute
 
-## Others
+### Others
 * `url`
 * `url.icon`               - icon (additionally every object can have `common.icon`)
 * `url.cam`                - web camera url
