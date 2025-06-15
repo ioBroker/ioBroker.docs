@@ -15,7 +15,7 @@ Operative states are used to control the normal functionality of a device. A RGB
 
 Also the cleaning mode or the room-to-clean of a robotic vacuum cleaner is such an operative state. These states are using the below definition witout any adjustments.
 
-Please use the most detailed role name psible that prvide the most details (e.g. `level.color.temperature` should be used over `level` for the color tenperature, or `switch.power` is better then `switch` to operate the power of a device).
+Please use the most detailed role name possible that provide the most details (e.g. `level.color.temperature` should be used over `level` for the color temperature, or `switch.power` is better than `switch` to operate the power of a device).
 Additionally, when using detailed role names (more then one level), it is important not to use the same role twice in a channel of a device.
 
 Different Device templates used for the detecting with the required and optional objects and their roles can be found 
