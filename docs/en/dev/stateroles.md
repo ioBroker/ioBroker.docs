@@ -28,7 +28,7 @@ States that are configuring further "Non-operative" settings of the devices can 
 
 User Interfaces might use these special roles to determine device settings and show then in a "Settings" dialog for the device, or ignore them.
 
-Please note: This type of roles were defined in June 2025, so many (older) adapters might not use them. In the future this state type can/should be used when relevant.
+Please note: These types of roles were defined in June 2025, so many (older) adapters might not use them. In the future this state type can/should be used when relevant.
 
 ### Generic States
 
