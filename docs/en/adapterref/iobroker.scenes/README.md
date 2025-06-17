@@ -152,6 +152,9 @@ sendTo(
 -->
 
 ## Changelog
+### 4.0.2 (2025-06-16)
+* (bluefox) Small improvements for layout
+
 ### 4.0.1 (2025-01-23)
 * (bluefox) Adapter was migrated to TypeScript
 * (bluefox) Corrected error with the Select ID dialog

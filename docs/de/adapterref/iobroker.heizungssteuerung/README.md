@@ -3,74 +3,179 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: SLEQGS3SNTdTr/oW8nwQtR2kQ0/Z0t0u8fgAHgisX6s=
+hash: Pc2vT2/oU2hjpLvmV5g1O4ShZPkhlOcRqfm3IE1UwKk=
 ---
+# IoBroker.heizungssteuerung
 ![Logo](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.heizungssteuerung.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.heizungssteuerung.svg)
-![Anzahl der Installationen](https://iobroker.live/badges/heizungssteuerung-installed.svg)
-![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/heizungssteuerung-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/jbeenenga/iobroker.heizungssteuerung.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/jbeenenga/ioBroker.heizungssteuerung/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.heizungssteuerung.png?downloads=true)
 
-# IoBroker.heizungssteuerung
-**Tests:** ![Testen und Freigeben](https://github.com/jbeenenga/ioBroker.heizungssteuerung/workflows/Test%20and%20Release/badge.svg)
+**Tests:** [![Test und Release](https://github.com/jbeenenga/ioBroker.heizungssteuerung/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/jbeenenga/ioBroker.heizungssteuerung/actions/workflows/test-and-release.yml)
 
-## Heizungssteuerungsadapter für ioBroker
-Mit diesem Adapter können Sie Heizungsanlagen steuern. Sie können zwischen Kühl- und Heizbetrieb wählen und für einen Raum Boost oder Pause aktivieren. Außerdem können Sie die Zieltemperatur für einen Raum überschreiben.
+## IoBroker Adapter zur Heizungssteuerung
+Dieser Adapter bietet umfassendes Heizsystemmanagement für ioBroker-Installationen. Er unterstützt sowohl Heiz- als auch Kühlbetrieb mit erweiterten Funktionen wie Boost-Modus, Pausenfunktion und zeitbasierter Temperaturplanung.
 
-## Konfiguration
-Um den Adapter zu verwenden, müssen Sie Räume zur Enumeration hinzufügen und die Sensoren und Motoren zu den Räumen hinzufügen.
-Außerdem müssen Sie die Funktionen Temperatur, Luftfeuchtigkeit und Motor den richtigen Zuständen hinzufügen. Die Enumerationen werden nach dem ersten Start des Adapters erstellt. Wenn Sie keinen Luftfeuchtigkeitssensor haben, können Sie das Feld leer lassen.
-![Konfigurationsbeispiel](../../../en/adapterref/iobroker.heizungssteuerung/img/configExample.png)
+[🇩🇪 English Version](README_DE.md)
 
-### Haupteinstellungen
-#### Heizmodus
-Sie können zwischen Kühlen und Heizen wählen.
+## Merkmale
+**Dual-Mode-Unterstützung**: Wechseln Sie zwischen Heiz- und Kühlmodus
+- **Boost-Modus**: Heizen/Kühlen für einzelne Räume vorübergehend erhöhen
+- **Pausenmodus**: Heizung/Kühlung für bestimmte Räume vorübergehend deaktivieren
+- **Zeitbasierte Planung**: Definieren Sie Temperaturperioden für unterschiedliche Uhrzeiten und Tage
+- **Raumbasierte Steuerung**: Individuelles Temperaturmanagement für jeden Raum
+**Feuchtigkeitskontrolle**: Stoppen Sie die Kühlung, wenn die Feuchtigkeitsschwellenwerte erreicht sind
+- **Abwesenheitsmodus**: Stellen Sie während der Ferien oder längerer Abwesenheit reduzierte Temperaturen ein
+- **Temperaturüberschreibung**: Manuelles Überschreiben der Zieltemperaturen bei Bedarf
 
-#### Setzen Sie die Temperaturen beim Adapterstart auf die Standardeinstellung zurück
-Wenn diese Einstellung aktiv ist, werden alle Temperaturzustände mit der Standardtemperatur und dem Zielwert überschrieben. Bei der nächsten Temperaturprüfung werden die Temperaturen dann auf die in den Perioden festgelegten, konfigurierten Temperaturen gesetzt.
+## Installation
+### Über die ioBroker-Admin-Schnittstelle
+1. Öffnen Sie die ioBroker-Admin-Oberfläche
+2. Gehen Sie zur Registerkarte "Adapter"
+3. Suche nach „heizungssteuerung“
+4. Klicken Sie auf „Installieren“
 
-#### Stoppen Sie die Kühlung, wenn die Luftfeuchtigkeit höher ist als
-Wenn die Luftfeuchtigkeit erreicht ist, wird die Kühlung gestoppt. Dies funktioniert nur, wenn Sie der Funktion und dem Raum einen Feuchtigkeitssensor hinzugefügt haben.
+### Über npm
+```bash
+npm install iobroker.heizungssteuerung
+```
 
-#### Updateintervall in Sekunden
-Legen Sie fest, wie oft der Adapter die Temperaturen prüft und die Motoren einstellt
+## Kurzanleitung
+### 1. Raumstruktur einrichten
+Bevor Sie den Adapter konfigurieren, müssen Sie Ihre Raumstruktur in ioBroker einrichten:
 
-#### Standardtemperatur
-Definieren Sie die einzustellende Temperatur, wenn für einen Raum kein passender Zeitraum vorhanden ist
+1. Navigieren Sie zu **Objekte → Enums → Räume**
+2. Erstellen Sie Räume für jeden Bereich, den Sie steuern möchten (z. B. „Wohnzimmer“, „Schlafzimmer“, „Küche“)
+3. Fügen Sie jedem Raum die folgenden Geräte hinzu:
+Temperatursensoren
+- Heiz-/Kühlaktoren (Ventile, Schalter usw.)
+- Feuchtigkeitssensoren (optional)
 
-#### Zeit bis zum Ende der Pause in Minuten
-Definieren Sie die Zeit in Minuten, bis der Pausenzustand auf inaktiv zurückgesetzt wird
+### 2. Funktionen konfigurieren
+Richten Sie die erforderlichen Funktionen in **Objekte → Enumerationen → Funktionen** ein:
 
-#### Zeit bis zum Ende des Boosts in Minuten
-Definieren Sie die Zeit in Minuten, bis der Boost-Status auf inaktiv zurückgesetzt wird
+- **Temperatur**: Alle Temperatursensorzustände hinzufügen
+- **Feuchtigkeit**: Feuchtigkeitssensorzustände hinzufügen (optional)
+- **Engine**: Alle Heiz-/Kühlaktorzustände hinzufügen
 
-#### Differenz von der Zieltemperatur bis zum Start oder Stopp des Heizens
-Definieren Sie die Differenz von der Zieltemperatur, ab der der Adapter mit dem Heizen beginnt oder aufhört. Wenn beispielsweise 20 °C die Zieltemperatur sind, beträgt diese Einstellung 0,5 und der Motor ist ausgeschaltet. Die Heizung startet, wenn die Temperatur unter 19,5 °C liegt, und stoppt das Heizen, wenn die Temperatur über 20,5 °C liegt.
+### 3. Adapterkonfiguration
+#### Grundeinstellungen
+- **Betriebsart**: Wählen Sie zwischen „Heizen“ und „Kühlen“
+- **Prüfintervall**: Wie oft der Adapter die Temperaturen prüft (in Minuten)
+- **Standardtemperatur**: Fallback-Temperatur, wenn kein Zeitraum übereinstimmt
+- **Temperaturhysterese**: Temperaturdifferenzschwelle zum Ein-/Ausschalten von Heizung/Kühlung
 
-### Perioden
-Sie können für jeden Raum und jede Uhrzeit Zeiträume definieren. Außerdem können Sie festlegen, ob dieser Zeitraum zum Kühlen oder Heizen verwendet werden soll. Wenn der Heizmodus nicht mit dem in den Haupteinstellungen eingestellten Modus übereinstimmt, wird der Zeitraum ignoriert.
+#### Zeitbasierte Zeiträume
+Konfigurieren Sie Temperaturpläne für jeden Raum:
 
-### Aktionen
-Während der Adapter läuft, können Sie Aktionen verwenden, um die Behandlung für spezielle Fälle zu ändern. Diese Aktionen finden Sie in Objekten im Ordner *Aktionen* unter Ihrem Adapter. Einige Aktionen sind für alle Räume und für spezielle Räume verfügbar.
+1. Wählen Sie ein Zimmer aus der Dropdown-Liste
+2. Start- und Endzeiten festlegen
+3. Zieltemperatur festlegen
+4. Wählen Sie Wochentage
+5. Geben Sie an, ob dieser Zeitraum für den Heiz- oder Kühlbetrieb gilt
 
-#### Abwesenheit Um die Heizungssteuerung während z.B. eines Urlaubs zu deaktivieren, können Sie in Ihren Objekten unter *Aktionen AbwesenheitBis* ein Abwesenheits-bis-Datum eintragen. Hier können Sie ein Datum im Format *tt.MM.jjjj hh:mm* eingeben (z.B. *01.01.2024 14:00*). Wenn aktiviert, werden die Zeiträume ignoriert und die Temperaturen auf [Standardtemperatur](#default-temperature) gesetzt.
-Diese Konfiguration ist grundsätzlich für alle Räume verfügbar.
+#### Erweiterte Einstellungen
+- **Pausendauer**: Automatische Rücksetzzeit für den Pausenmodus (Minuten)
+- **Boost-Dauer**: Automatische Rücksetzzeit für den Boost-Modus (Minuten)
+**Feuchtigkeitsschwelle**: Maximale Luftfeuchtigkeit, bevor die Kühlung stoppt
+- **Reset on Startup**: Überschreibt alle Temperaturen mit Standardwerten beim Adapterstart
 
-#### Pause
-Um die Heizung für eine Weile zu stoppen, können Sie eine Pause aktivieren. Der Pausenzustand wird nach der in [Einstellungen](#time-until-pause-will-be-end-in-minutes) definierten Zeit auf deaktiviert zurückgesetzt. Wenn die Pause aktiv ist, werden die Zeiträume ignoriert und es wird keine Heizung durchgeführt.
+## Verwendung
+### Manuelle Kontrollaktionen
+Der Adapter erstellt Aktionsobjekte unter `heizungssteuerung.0.Actions`:
 
-Diese Konfiguration ist für alle Räume allgemein und für spezielle Räume verfügbar.
+#### Globale Aktionen (Alle Räume)
+- **absenceUntil**: Abwesenheitsmodus bis zu einem bestimmten Datum/einer bestimmten Uhrzeit festlegen
+- Format: `dd.MM.yyyy HH:mm` (z.B. "01.01.2024 14:00")
+- Effekt: Ignoriert Perioden und verwendet Standardtemperatur
+- **Pause**: Alle Heiz-/Kühlvorgänge vorübergehend unterbrechen
+- **Boost**: Boost-Modus für alle Räume aktivieren
 
-#### Schub
-Um die Heizung für eine Weile zu stoppen, können Sie einen Boost aktivieren. Der Boost-Zustand wird nach der in [Einstellungen](#time-until-boost-will-be-end-in-minutes) definierten Zeit auf deaktiviert zurückgesetzt. Wenn Boost aktiv ist, werden die Zeiträume ignoriert und die Heizung wird ausgeführt.
+#### Raumspezifische Aktionen
+Für jedes Zimmer finden Sie:
 
-Diese Konfiguration ist für alle Räume allgemein und für spezielle Räume verfügbar.
+- **Pause**: Heizung/Kühlung nur für diesen Raum pausieren
+- **Boost**: Aktiviere den Boost-Modus nur für diesen Raum
+- **targetTemp**: Zieltemperatur vorübergehend außer Kraft setzen
 
-## Bilder
-Das Hauptbild erstellt von Freepick (https://www.flaticon.com/de/kostenloses-icon/heizung_1295221)
+### Beispielkonfigurationen
+#### Grundlegender Heizplan
+```
+Room: Living Room
+Time: 06:00 - 22:00
+Days: Monday to Friday
+Temperature: 21°C
+Mode: Heating
+```
+
+#### Wochenendplan
+```
+Room: Living Room
+Time: 08:00 - 24:00
+Days: Saturday, Sunday
+Temperature: 22°C
+Mode: Heating
+```
+
+#### Nachttemperatur
+```
+Room: Bedroom
+Time: 22:00 - 06:00
+Days: All days
+Temperature: 18°C
+Mode: Heating
+```
+
+## Konfigurationsbeispiele
+### Typische Heimeinrichtung
+1. **Wohnbereiche**: 21°C tagsüber, 19°C nachts
+2. **Schlafzimmer**: 19°C tagsüber, 16°C nachts
+3. **Badezimmer**: 22°C morgens/abends, sonst 19°C
+4. **Büro**: 21°C während der Arbeitszeit, 18°C sonst
+
+### Energiespartipps
+- Niedrigere Nachttemperaturen nutzen (2-3°C Reduzierung)
+- Stellen Sie Abwesenheitstemperaturen 3-5 °C unter dem Normalwert ein
+- Konfigurieren Sie den Boost-Modus für schnelles Aufwärmen anstelle konstant hoher Temperaturen
+- Verwenden Sie eine Feuchtigkeitskontrolle, um eine Überkühlung zu verhindern
+
+## Fehlerbehebung
+### Häufige Probleme
+**Temperaturen ändern sich nicht**
+
+- Überprüfen Sie, ob die Raumaufzählungen richtig konfiguriert sind
+- Überprüfen Sie, ob die Temperatursensoren den richtigen Räumen zugeordnet sind
+- Stellen Sie sicher, dass sich die Aktoren in der Funktionsaufzählung „Engine“ befinden
+
+**Perioden funktionieren nicht**
+
+- Zeitformat überprüfen (24-Stunden-Format)
+- Prüfen, ob Betriebsart mit Periodenkonfiguration übereinstimmt
+- Bestätigen Sie die Zimmerauswahl in den Zeitraumeinstellungen
+
+**Feuchtigkeitsregelung funktioniert nicht**
+
+- Fügen Sie Feuchtigkeitssensoren sowohl zu Raum- als auch zu Funktionsaufzählungen hinzu
+- Überprüfen Sie die Einstellungen für den Feuchtigkeitsschwellenwert
+- Überprüfen Sie, ob die Sensoren aktuelle Daten liefern
+
+### Debug-Informationen
+Aktivieren Sie die Debug-Protokollierung in den Adaptereinstellungen, um ausführliche Informationen zu folgenden Themen anzuzeigen:
+
+- Temperaturberechnungen
+- Periodenabgleich
+- Aktuatorsteuerungsentscheidungen
+- Fehlerbedingungen
+
+## Credits
+Symbol erstellt von Freepik ([https://www.flaticon.com/de/kostenloses-icon/heizung_1295221](https://www.flaticon.com/de/kostenloses-icon/heizung_1295221))
+
+---
+
+**Unterstützen Sie dieses Projekt** ⭐ Markieren Sie dieses Repository mit einem Stern, wenn Sie es hilfreich finden!
 
 ## Changelog
 <!--
@@ -108,24 +213,13 @@ Das Hauptbild erstellt von Freepick (https://www.flaticon.com/de/kostenloses-ico
 * (jbeenenga) add boost and pause function
 
 ## License
+
 MIT License
 
-Copyright (c) 2024 jbeenenga <j.beenenga@gmail.com>
+Copyright (c) 2024 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

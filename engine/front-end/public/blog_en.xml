@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[News, announcements and ideas about ioBroker]]></description>
         <link>https://www.iobroker.net/#en/blog</link>
-        <lastBuildDate>Sat, 26 Apr 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 17 Jun 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker at the Smart Living Forum 2025 in Solingen]]></title>
+            <description><![CDATA[
+                <p>The second edition of the Smart Living Forum took place in Solingen on June 14, 2025.\nAnd as previously announced, ioBroker was once again actively involved this year.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#en/blog/2025_06_17</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2025_06_17</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Tue, 17 Jun 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[💻 ioBroker Monthly Review – April 2025]]></title>
             <description><![CDATA[

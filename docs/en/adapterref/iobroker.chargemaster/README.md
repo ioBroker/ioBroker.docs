@@ -47,7 +47,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.14.1 (2025-06-08)
 
 - (HombachC) add tests for node 24 (#655)
 - (HombachC) bump dependencies
@@ -70,11 +70,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.13.0 (2025-02-23)
 
 - (HombachC) bump needed admin to 7.4.10 as recommended by ioBroker (#623)
-
-### 0.12.9 (2025-02-23)
-
-- (HombachC) Bump @iobroker/adapter-dev to 1.4.0 (#621)
-- (HombachC) Using "@alcalzone/release-script" (#624)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

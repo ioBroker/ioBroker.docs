@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
+hash: FQ5JVSNc4RuGya9Qp40UFQJarhUdEU9Z1yFXMz/vj+U=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -28,7 +28,7 @@ Ausgabe des Alexa-Timers zur Anzeige im Vis
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ### Dies ist ein Beispiel für meinen Besuch
-![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
+![img.png](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer1.png)
 
 ## Funktionalität
 Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser vom Adapter ausgewertet und in Zustände geschrieben um diese im Vis sichtbar zu machen. So hat man eine bessere Übersicht wenn man mehrere Timer gleichzeitig aktiv hat.
@@ -62,6 +62,11 @@ Wird ein Timer oder mehrere per Spracheingabe, über Alexa angelegt, wird dieser
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- FIX: Add alarm clock to ignored words
+
 ### 2.1.1 (2025-04-28)
 
 - FEAT: #141 Activate sentry

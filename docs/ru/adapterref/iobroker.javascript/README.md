@@ -16,6 +16,19 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 9.0.5 (2025-06-17)
+* (@GermanBluefox) Speed-up loading of GUI
+
+### 9.0.4 (2025-06-16)
+* (@GermanBluefox) Corrected script editor for Polish language
+* (@GermanBluefox) Corrected import of Blockly blocks
+* (@GermanBluefox) Corrected editing of Blockly
+
+### 9.0.3 (2025-06-12)
+
+* (@GermanBluefox) Corrected the rule editor
+* (@GermanBluefox) Removed the unused JS files
+
 ### 9.0.2 (2025-06-04)
 
 * (@klein0r) Added possibility to escape chars in formatTimeDiff
@@ -27,18 +40,6 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 
 * (@GermanBluefox) Updated packages for GUI
 * (@GermanBluefox) Used TypeScript for an admin component
-
-### 8.9.1 (2025-01-26)
-
-* (@GermanBluefox) Corrected blockly function editor
-* (@GermanBluefox) Corrected creation of folders
-
-### 8.9.0 (2025-01-22)
-* (@GermanBluefox) Migrated GUI to TypeScript
-* (@klein0r) Added count attribute to getHistory in blockly
-
-### 8.8.3 (2024-09-05)
-* (bluefox) Fixed object selector in rules
 
 ## License
 The MIT License (MIT)

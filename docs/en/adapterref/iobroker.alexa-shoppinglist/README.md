@@ -9,7 +9,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)](https://nodei.co/npm/iobroker.alexa-shoppinglist/)
 
-**Tests:** ![Test and Release](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+**Tests:
+** ![Test and Release](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
 ## alexa-shoppingList adapter for ioBroker
 
@@ -31,7 +32,7 @@ I hope you enjoy
 ## DataPoints
 
 | DP Name             | Type   | Description                                                                                         |
-| ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
+|---------------------|--------|-----------------------------------------------------------------------------------------------------|
 | add_position        | String | Type Text to insert in the list                                                                     |
 | delete_activ_list   | Button | Clears the active list and moves it to the inactive list                                            |
 | delete_inactiv_list | Button | Clears the inactive list                                                                            |
@@ -44,7 +45,7 @@ I hope you enjoy
 | to_inactive_list    | Button | First insert position_to_shift and than press the button to move to inactiv_list                    |
 
 | Attribute in JSON | Descripton                                |
-| ----------------- | ----------------------------------------- |
+|-------------------|-------------------------------------------|
 | name              | Name of the Item                          |
 | time              | Timestamp of insert                       |
 | id                | id in the Alexa2 Adapter                  |
@@ -77,6 +78,11 @@ function setOnDblClickCustomShop( myvalue) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Breaking change: minimal supported node.js version is 20.x
+
 ### 1.0.3 (2024-12-04)
 
 - CHORE: Migration to ESLint 9 and @iobroker/eslint-config

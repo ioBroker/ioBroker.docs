@@ -1,5 +1,23 @@
 {
   "pages": {
+    "2025_06_17": {
+      "date": "2025.06.17",
+      "title": {
+        "de": "ioBroker beim Smart Living Forum 2025 in Solingen",
+        "en": "ioBroker at the Smart Living Forum 2025 in Solingen",
+        "ru": "ioBroker на Smart Living Forum 2025 в Золингене",
+        "zh-cn": "ioBroker 亮相索林根 2025 智能生活论坛"
+      },
+      "logo": "de/blog/images/2025_06_17.jpg",
+      "type": "news",
+      "originalName": "2025_06_17.md",
+      "desc": {
+        "de": "Am 14. Juni 2025 fand in Solingen die zweite Ausgabe des Smart Living Forums statt.\\nUnd wie bereits im Vorfeld angekündigt, war ioBroker auch in diesem Jahr wieder aktiv mit dabei.",
+        "en": "The second edition of the Smart Living Forum took place in Solingen on June 14, 2025.\\nAnd as previously announced, ioBroker was once again actively involved this year.",
+        "ru": "Второе издание Smart Living Forum состоялось в Золингене 14 июня 2025 года. И как было объявлено ранее, ioBroker снова принял активное участие в этом году.",
+        "zh-cn": "第二届智能生活论坛于 2025 年 6 月 14 日在索林根举行。\\n正如之前宣布的那样，ioBroker 今年再次积极参与其中。"
+      }
+    },
     "2025_04_26": {
       "date": "2025.04.26",
       "title": {

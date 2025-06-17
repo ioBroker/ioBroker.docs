@@ -675,10 +675,11 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (simatec) Onedrive-API for Upload deleted
+### 3.3.0 (2025-06-15)
+* (simatec) local onedrive api added
 * (simatec) dependencies updated
 * (simatec) z2m Remote Backup added
+* (simatec) Fix Zigbee Backup
 
 ### 3.2.2 (2025-05-16)
 * (simatec) Grafana Folder added to Restore

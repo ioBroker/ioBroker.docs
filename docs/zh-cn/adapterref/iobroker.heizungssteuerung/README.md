@@ -3,74 +3,179 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: SLEQGS3SNTdTr/oW8nwQtR2kQ0/Z0t0u8fgAHgisX6s=
+hash: Pc2vT2/oU2hjpLvmV5g1O4ShZPkhlOcRqfm3IE1UwKk=
 ---
+# IoBroker.heizungssteuerung
 ![标识](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.heizungssteuerung.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.heizungssteuerung.svg)
-![安装数量](https://iobroker.live/badges/heizungssteuerung-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/heizungssteuerung-stable.svg)
 ![依赖状态](https://img.shields.io/david/jbeenenga/iobroker.heizungssteuerung.svg)
-![新平台](https://nodei.co/npm/iobroker.heizungssteuerung.png?downloads=true)
+![已知漏洞](https://snyk.io/test/github/jbeenenga/ioBroker.heizungssteuerung/badge.svg)
+![新公共管理](https://nodei.co/npm/iobroker.heizungssteuerung.png?downloads=true)
 
-# IoBroker.heizungssteuerung
-**测试：**![测试与发布](https://github.com/jbeenenga/ioBroker.heizungssteuerung/workflows/Test%20and%20Release/badge.svg)
+**测试：**[![测试与发布](https://github.com/jbeenenga/ioBroker.heizungssteuerung/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/jbeenenga/ioBroker.heizungssteuerung/actions/workflows/test-and-release.yml)
 
-## IoBroker 的 Heizungssteuerung 适配器
-此适配器可用于管理供暖系统。您可以选择制冷或供暖模式，并为某个房间启用升温或暂停。此外，您还可以覆盖某个房间的目标温度。
+## IoBroker 适配器用于加热控制
+该适配器为 ioBroker 安装提供全面的加热系统管理。它支持加热和冷却模式，并具有升压模式、暂停功能和基于时间的温度调度等高级功能。
 
-＃＃ 配置
-要使用适配器，您必须将房间添加到房间枚举中，并将传感器和引擎添加到房间。
-此外，您必须将温度、湿度和引擎功能添加到正确的状态。枚举将在适配器首次启动后创建。如果您没有湿度传感器，您可以将其留空。
-![配置示例](../../../en/adapterref/iobroker.heizungssteuerung/img/configExample.png)
+[🇩🇪 德语版](README_DE.md)
 
-### 主要设置
-####加热模式
-您可以选择制冷或制热。
+＃＃ 特征
+- **双模式支持**：在加热和冷却模式之间切换
+- **增强模式**：暂时增加个别房间的供暖/制冷
+- **暂停模式**：暂时禁用特定房间的供暖/制冷
+- **基于时间的调度**：定义不同时间和日期的温度周期
+- **基于房间的控制**：每个房间的单独温度管理
+- **湿度控制**：达到湿度阈值时停止冷却
+- **缺勤模式**：在节假日或长期缺勤期间设置降低温度
+- **温度覆盖**：需要时手动覆盖目标温度
 
-#### 在适配器启动时将温度重置为默认值
-如果此设置处于活动状态，则所有温度状态将被默认温度和 targetUntil 覆盖。因此，下一次温度检查将把温度设置为周期内设置的配置温度。
+＃＃ 安装
+### 通过 ioBroker 管理界面
+1. 打开ioBroker管理界面
+2. 转到“适配器”选项卡
+3. 搜索“heizungssteuerung”
+4.点击“安装”
 
-#### 如果湿度高于，则停止冷却
-如果湿度达到，冷却将停止。只有当您将湿度传感器添加到功能和房间时，它才有效。
+### 通过 npm
+```bash
+npm install iobroker.heizungssteuerung
+```
 
-#### 更新间隔（秒）
-定义适配器检查温度并设置引擎的频率
+## 快速入门指南
+### 1. 设置房间结构
+在配置适配器之前，您需要在 ioBroker 中设置您的房间结构：
 
-#### 默认温度
-定义当房间没有匹配的时间段时要设置的温度
+1. 导航至**对象 → 枚举 → 房间**
+2. 为您想要控制的每个区域创建房间（例如“客厅”、“卧室”、“厨房”）
+3. 在每个房间添加以下设备：
+- 温度传感器
+- 加热/冷却执行器（阀门、开关等）
+- 湿度传感器（可选）
 
-#### 暂停结束时间（分钟）
-定义暂停状态重置为非活动状态的时间（分钟）
+### 2. 配置函数
+在**对象→枚举→函数**中设置所需的函数：
 
-#### 提升结束时间（分钟）
-定义升压状态重置为非活动状态的时间（分钟）
+- **温度**：添加所有温度传感器状态
+- **湿度**：添加湿度传感器状态（可选）
+- **引擎**：添加所有加热/冷却执行器状态
 
-#### 与目标温度的差异直到开始或停止加热
-定义与目标温度之间的差异，直到适配器开始或停止加热。例如，如果目标温度为 20°，则此设置为 0.5，并且发动机关闭，如果温度低于 19.5°，将启动加热，如果温度高于 20.5°，将停止加热。
+### 3. 适配器配置
+#### 基本设置
+- **操作模式**：在“加热”和“冷却”之间选择
+- **检查间隔**：适配器检查温度的频率（以分钟为单位）
+- **默认温度**：当没有匹配的时间段时回退温度
+- **温度滞后**：用于打开/关闭加热/冷却的温差阈值
 
-### 句号
-您可以为每个房间和时间定义时间段。此外，您还可以定义此时间段是用于制冷还是制热。如果制热模式与主设置上的设置模式不匹配，则将忽略该时间段。
+基于时间的周期
+为每个房间配置温度计划：
 
-### 动作
-在适配器运行时，您可以使用操作来更改特殊情况的处理。这些操作可在适配器下方的 *Actions* 文件夹中的对象中找到。有些操作适用于所有房间和特殊房间。
+1. 从下拉菜单中选择一个房间
+2. 设置开始和结束时间
+3. 定义目标温度
+4. 选择星期几
+5. 指定此时间段是用于加热还是冷却模式
 
-#### 缺席 若要停用供暖控制（例如假期），您可以在 *Actions attendanceUntil* 中的对象中插入缺席截止日期。在这里，您可以输入格式为 *dd.MM.yyyy hh:mm* 的日期（例如 *01.01.2024 14:00*）。如果激活，时间段将被忽略，温度将设置为 [默认温度](#default-temperature)。
-此配置一般适用于所有房间。
+＃＃＃＃ 高级设置
+- **暂停时长**：暂停模式的自动重置时间（分钟）
+- **增强持续时间**：增强模式的自动重置时间（分钟）
+- **湿度阈值**：冷却停止前的最大湿度
+- **启动时重置**：适配器启动时用默认值覆盖所有温度
 
-＃＃＃＃ 暂停
-要暂时停止加热，您可以激活暂停。暂停状态将在[设置](#time-until-pause-will-be-end-in-minutes) 中定义的时间后重置为停用状态。如果暂停处于活动状态，则将忽略时间段，并且不会进行加热。
+＃＃ 用法
+### 手动控制操作
+适配器在`heizungssteuerung.0.Actions`下创建操作对象：
 
-此配置适用于所有一般房间以及特殊房间。
+#### 全局操作（所有房间）
+- **absenceUntil**：设置缺席模式直到特定日期/时间
+- 格式：`dd.MM.yyyy HH:mm`（例如，“01.01.2024 14:00”）
+- 效果：忽略周期并使用默认温度
+- **暂停**：暂时暂停所有加热/冷却
+- **增强**：为所有房间激活增强模式
 
-＃＃＃＃ 促进
-要暂时停止加热，您可以激活升压。在[设置](#time-until-boost-will-be-end-in-minutes) 中定义的时间过后，升压状态将重置为停用状态。如果升压处于活动状态，则将忽略时间段并执行加热。
+#### 特定房间的操作
+对于每个房间，您会发现：
 
-此配置适用于所有一般房间以及特殊房间。
+- **暂停**：仅暂停此房间的供暖/制冷
+- **增强**：仅为该房间激活增强模式
+-**targetTemp**：暂时覆盖目标温度
 
-图片
-主图由 Freepick 创建（https://www.flaticon.com/de/kostenloses-icon/heizung_1295221）
+### 示例配置
+#### 基本供暖时间表
+```
+Room: Living Room
+Time: 06:00 - 22:00
+Days: Monday to Friday
+Temperature: 21°C
+Mode: Heating
+```
+
+#### 周末安排
+```
+Room: Living Room
+Time: 08:00 - 24:00
+Days: Saturday, Sunday
+Temperature: 22°C
+Mode: Heating
+```
+
+夜间温度
+```
+Room: Bedroom
+Time: 22:00 - 06:00
+Days: All days
+Temperature: 18°C
+Mode: Heating
+```
+
+## 配置示例
+### 典型的家庭设置
+1. **生活区**：白天 21°C，夜间 19°C
+2. **卧室**：白天 19°C，夜间 16°C
+3. **浴室**：早/晚 22°C，其他时间 19°C
+4. **办公室**：工作时间 21°C，其他时间 18°C
+
+### 节能小贴士
+- 使用较低的夜间温度（降低2-3°C）
+- 将外出温度设置为低于正常温度 3-5°C
+- 配置升压模式以实现快速预热而不是持续高温
+- 使用湿度控制来防止过度冷却
+
+故障排除
+### 常见问题
+**温度没有变化**
+
+- 检查房间枚举是否正确配置
+- 验证温度传感器是否分配到正确的房间
+- 确保执行器位于“引擎”功能枚举中
+
+**句号不起作用**
+
+- 验证时间格式（24小时格式）
+- 检查操作模式是否与周期配置匹配
+- 在时间段设置中确认房间选择
+
+**湿度控制不工作**
+
+- 向房间和功能枚举添加湿度传感器
+- 检查湿度阈值设置
+- 验证传感器是否提供当前数据
+
+### 调试信息
+在适配器设置中启用调试日志记录以查看有关以下内容的详细信息：
+
+- 温度计算
+- 周期匹配
+- 执行器控制决策
+- 错误情况
+
+## 致谢
+图标由 Freepik ([https://www.flaticon.com/de/kostenloses-icon/heizung_1295221](https://www.flaticon.com/de/kostenloses-icon/heizung_1295221)) 创建
+
+---
+
+**支持这个项目** ⭐ 如果您发现它有用，请为该存储库加星标！
 
 ## Changelog
 <!--
@@ -108,24 +213,13 @@ hash: SLEQGS3SNTdTr/oW8nwQtR2kQ0/Z0t0u8fgAHgisX6s=
 * (jbeenenga) add boost and pause function
 
 ## License
+
 MIT License
 
-Copyright (c) 2024 jbeenenga <j.beenenga@gmail.com>
+Copyright (c) 2024 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

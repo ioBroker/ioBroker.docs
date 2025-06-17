@@ -628,6 +628,9 @@ This adapter supports the following types of authentication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.7 (2025-06-16)
+* (@GermanBluefox) corrected reading of history data
+
 ### 3.0.6 (2025-03-15)
 * (bluefox) Added support for 'Access-Control-Allow-Origin'
 * (bluefox) Removed letsencrypt information
@@ -641,6 +644,7 @@ This adapter supports the following types of authentication:
 * (bluefox) Clear cache after 10 minutes
 
 ### 3.0.0 (2025-03-09)
+* BREAKING: When the adapter is configured to work as a web extension, no own local port is opened anymore
 * (bluefox) Updated packages
 * (bluefox) Migrated to TypeScript
 * (bluefox) If State/Object not found, the response will be 404 (and not 500)

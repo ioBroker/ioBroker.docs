@@ -206,13 +206,17 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.16.2 (2025-06-16)
+
+* (@GermanBluefox) Small fix in the configuration dialog
+
 ### 1.16.1 (2024-11-01)
-* (jens-maus) fix issue with handling rrule timezones incorrect with latest node-ical (#708).
+* (jens-maus) fix issue with handling rrule timezones incorrect with the latest node-ical (#708).
 * (jens-maus) update node-ical to latest 0.20.1
 * (jens-maus) save cached files to os tmpdir instead.
 
 ### 1.16.0 (2024-10-29)
-* (cvoelkel76) add checkbox to allow to exactly match a calender event.
+* (cvoelkel76) added checkbox to allow exactly matching of a calendar event.
 * (jens-maus) update node-ical to latest 0.20.0
 * (klein0r) Breaking change: Removed trigger state (subscribe is deprecated in js-controller 6.x)
 * (simatec) Responsive design added
@@ -224,14 +228,11 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 ### 1.14.3 (2024-02-28)
 * (jens-maus) update node-ical to latest 0.18.0
 
-### 1.14.2 (2024-01-29)
-* (jens-maus) update node-ical to latest 0.17.2
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

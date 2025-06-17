@@ -379,6 +379,12 @@ Group CSS-Common / transform "scale(0.5)"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.4 (2025-06-16)
+
+- fix stopbeaviour
+- fix state handling
+- improve validator vor name and setdp in admin
+
 ### 1.4.3 (2025-06-06)
 
 - fix validation rule for the setDP button in admin

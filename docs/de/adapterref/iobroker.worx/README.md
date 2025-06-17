@@ -839,6 +839,10 @@ Standard ohne Zonen:
 ![img/array_nok.png](../en/img/array_nok.png)
 
 ## Changelog
+### 3.2.4 (2025-06-14)
+
+- (Lucky-ESA) TypeError native_excluded fixed
+
 ### 3.2.3 (2025-06-05)
 
 - (Lucky-ESA) All Sentry issues fixed
@@ -864,12 +868,6 @@ Standard ohne Zonen:
 - (Lucky-ESA) Added Party Modus Timer (wire only)
 - (Lucky-ESA) Save session infos
 - (Lucky-ESA) Added rain countdown (wire only)
-
-### 3.1.1 (2024-11-04)
-
-- (Lucky-ESA) Added JS-Controller Notification
-- (Lucky-ESA) Dependencies updated
-- (Lucky-ESA) New design for settings page added
 
 ## License
 

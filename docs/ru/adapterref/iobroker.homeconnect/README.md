@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: tgidaa2s0L6W6bnbd2mzYh/MMnpUyEGFUQzGzJ8/VFA=
+hash: EGNcl5i02TKA3DFfoJ3/aUVhdsdIU2m4DJMliS/Sq/k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
@@ -26,7 +26,9 @@ hash: tgidaa2s0L6W6bnbd2mzYh/MMnpUyEGFUQzGzJ8/VFA=
 
 ## Адаптер Homeconnect для ioBroker
 ## Требования перед установкой
-Необходимо установить Node.js версии не ниже 18!
+- Узел 20, 22 или 24
+- JS-контроллер >= 6.0.11
+- Администратор >= 7.4.10
 
 Для адаптера требуется ClientID. Используйте настройки для каждого шага для регистрации.
 
@@ -55,6 +57,12 @@ hash: tgidaa2s0L6W6bnbd2mzYh/MMnpUyEGFUQzGzJ8/VFA=
 ## Конфигурация
 Добавьте имя пользователя, пароль и сгенерированный идентификатор клиента приложения Homeconnect в конфигурацию адаптера.
 
+## Описание
+🇬🇧 [Описание](/docs/en/README.md)</br> 🇩🇪 [Описание](/docs/de/README.md)
+
+## Вопросы
+🇩🇪 [Фраген](https://forum.iobroker.net/topic/16446/test-adapter-homeconnect-bsh-home-connect-v0-0-x?_=1749842644389)
+
 ## Использование
 С помощью состояний в командах вы можете остановить, приостановить и возобновить программу. С помощью состояний в настройках вы можете выключить или включить устройство Изменение значения programs.active.BSH_Common_Root_ActiveProgram приводит к запуску программы Обновление iQ300: Вам необходимо задать имя программы в этой переменной. Если programs.selected.BSH_Common_Root_SelectedProgram скопирован, пользователь машины может заранее определить нужную программу на машине, и она будет запущена через ioBroker Изменение значения programs.selected.BSH_Common_Root_SelectedProgram приводит к выбору программы или опций
 
@@ -64,9 +72,25 @@ hash: tgidaa2s0L6W6bnbd2mzYh/MMnpUyEGFUQzGzJ8/VFA=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Clean up state roles and code
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Added language selection
+- (Lucky-ESA) Migrated to ESLint 9
+- (Lucky-ESA) Adapter requires js-controller >= 6.0.11 now
+- (Lucky-ESA) Adapter requires admin >= 7.4.10 now
+- (mcm1957) Adapter requires node.js >= 20 now
+
+### 1.4.3 (2024-11-19)
+
+- (TA2k) fix for -001 devices
+- (simatec) Adapter has been adapted to meet Responsive Design rules.
+
 ### 1.4.2 (2024-10-25)
 
-- fix for devices with object values
+- (TA2k) fix for devices with object values
 
 ### 1.4.1 (2024-07-02)
 
@@ -81,15 +105,11 @@ hash: tgidaa2s0L6W6bnbd2mzYh/MMnpUyEGFUQzGzJ8/VFA=
 
 - fix login
 
-### 1.2.2 (2023-12-02)
-
-- bump version
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

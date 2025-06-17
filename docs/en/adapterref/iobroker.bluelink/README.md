@@ -24,6 +24,21 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 
 ## Changelog
+### 3.1.8 (2025-06-12)
+* (arteck) fix location Tucson
+
+### 3.1.7 (2025-06-10)
+* (arteck) fix translate for PHEV Range
+
+### 3.1.6 (2025-06-09)
+* (arteck) add DE language
+
+### 3.1.5 (2025-06-09)
+* (arteck) calculate evModeRange for PHEV
+
+### 3.1.4 (2025-06-09)
+* (arteck) fix enModeRange for PHEV
+
 ### 3.1.3 (2025-05-05)
 * (arteck) fix bug with day and time tag for EV 
 * (arteck) dependency update

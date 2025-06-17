@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: ZaI98Yxp8NiVcO5OwHOuC6Ynvrv3E/0D/eli8t9RiZ8=
+hash: oUHjm0l2gox7du7bio9yb01Ho+BUKdegEe8BVpEQ3Ww=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -48,12 +48,38 @@ hash: ZaI98Yxp8NiVcO5OwHOuC6Ynvrv3E/0D/eli8t9RiZ8=
 
 2. Вы выйдете из официального приложения iOS или Android после входа с помощью адаптера ioBroker. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить доступ к Solarflow HUB этой учетной записи. Затем используйте вторую учетную запись для ioBroker / адаптера Zendure Solarflow.
 
-3. Адаптер покажет использование +7 Вт от батареи, если нет солнечного входа и устройство находится в режиме онлайн. Это будет отражать «резервное» использование устройства.
-
 ## Кредиты
 Благодарность за это выражается https://github.com/reinhard-brandstaedter/solarflow, который очень помог со знаниями о сервере MQTT от Zendure! Спасибо!
 
 ## Changelog
+### 1.14.3 (2025-06-09)
+
+- Fix input and output limit for Solarflow 2400 AC
+
+### 1.14.2 (2025-06-07)
+
+- Fix control states not writable.
+
+### 1.14.1 (2025-06-07)
+
+- IMPORTANT: This version will use a new way to check which states should be created for the device, so maybe something is broken on state creation!
+- Add support for AC2400, Solarflow 800 and Solarflow 800 Pro. All devices are untested as Zendure won't allow to share data to other users on these new devices AND I don't own any of the devices!
+- Removed the "standby usage" on batteries, as it confused some people.
+
+### 1.13.2 (2025-05-07)
+
+- Fix AC Mode showing unknown parameter on ACE 1500
+
+### 1.13.1 (2025-05-05)
+
+- TEST: Set Smart CT Mode and Smart Matching Mode correctly - Feedback needed!
+- Removed efficiency from calculation, as it seems Zendure already included it in charge and discharge values
+
+### 1.13.0 (2025-04-30)
+
+- Add possibility to deactivate automatic restart of adapter in adapter settings (recommended only on local mode!)
+- Fixed missing control state "hubState"
+
 ### 1.12.7 (2025-03-24)
 
 - Add productKey "gDa3tb" for Hyper 2000

@@ -50,15 +50,26 @@ You can still do firmware updates with the official Zendure app via bluetooth an
 
 2. You will be logged out of the official iOS or Android App after logging in with the ioBroker adapter. This is a normal behavior. As a workaround you can create an second Zendure account with another e-mail and grant access to your Solarflow HUB to this account. Then use the second account for ioBroker / the Zendure Solarflow adapter.
 
-3. The Adapter will show a +7W use on battery if no solar input and device is online. This will reflect the "stand-by" usage of the device.
-
 ## Credits
 
 Credits goes to https://github.com/reinhard-brandstaedter/solarflow which helped a lot with the knowledge about the MQTT server from Zendure! Thanks!
 
 ## Changelog
+### 1.14.3 (2025-06-09)
 
-### **WORK IN PROGRESS**
+- Fix input and output limit for Solarflow 2400 AC
+
+### 1.14.2 (2025-06-07)
+
+- Fix control states not writable.
+
+### 1.14.1 (2025-06-07)
+
+- IMPORTANT: This version will use a new way to check which states should be created for the device, so maybe something is broken on state creation!
+- Add support for AC2400, Solarflow 800 and Solarflow 800 Pro. All devices are untested as Zendure won't allow to share data to other users on these new devices AND I don't own any of the devices!
+- Removed the "standby usage" on batteries, as it confused some people.
+
+### 1.13.2 (2025-05-07)
 
 - Fix AC Mode showing unknown parameter on ACE 1500
 

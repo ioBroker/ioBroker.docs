@@ -1,16 +1,16 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-crawler/README.md
-title: ioBroker.netatmo-сканер
-hash: oB8p/jhz6Le9bthZbypmyxDLjomElX9IjZQRjTISB0g=
+title: ioBroker.netatmo-crawler
+hash: YJtbbntubeP/5CC/A1idWy9ui6wMTFdEprQHr2Oanrs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.netatmo-crawler/img/netatmo-logo.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.netatmo-crawler.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.netatmo-crawler.svg)
 ![Количество установок (последнее)](http://iobroker.live/badges/netatmo-crawler-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/netatmo-crawler-stable.svg)
+![Стабильная версия](http://iobroker.live/badges/netatmo-crawler-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/Bart1909/iobroker.netatmo-crawler.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Bart1909/ioBroker.netatmo-crawler/badge.svg)
 ![Статус сборки](https://travis-ci.org/Bart1909/ioBroker.netatmo-crawler.svg?branch=master)
@@ -21,32 +21,31 @@ hash: oB8p/jhz6Le9bthZbypmyxDLjomElX9IjZQRjTISB0g=
 
 =================
 
-Сканирует информацию с общедоступных станций netatmo
+Сканирует информацию с общественных станций Netatmo
 
 Оглавление
 
 =================
 
-* [Инструкция] (# инструкция)
-* [Общая информация] (# общая-информация)
-* [Влажность] (# влажность)
-* [Дождь] (# дождь)
-* [Давление] (# давление)
-* [Температура] (# температура)
-* [Ветер] (# ветер)
-* [Информация] (# информация)
-* [Кредиты] (# кредитов)
-* [Список изменений] (# список изменений)
-* [Лицензия] (# лицензия)
+* [Инструкция](#инструкция)
+* [Общая информация](#общая-информация)
+* [Влажность](#влажность)
+* [Дождь](#дождь)
+* [Давление](#давление)
+* [Температура](#температура)
+* [Ветер](#ветер)
+* [Кредиты](#кредиты)
+* [Журнал изменений](#журнал изменений)
+* [Лицензия](#лицензия)
 
 Инструкция
 
 ===========
 
-Чтобы найти URL-адрес предпочитаемой вами метеостанции, выполните следующие действия:
+Чтобы найти URL-адрес нужной вам метеостанции, выполните следующие действия:
 
-1. Откройте [Карта погоды Netatmo] (https://weathermap.netatmo.com).
-2. Найдите свою станцию и щелкните значок "Поделиться".
+1. Откройте [Netatmo Weathermap](https://weathermap.netatmo.com)
+2. Найдите свою станцию и нажмите на значок «Поделиться».
 
    ![Поделиться изображением](../../../en/adapterref/iobroker.netatmo-crawler/img/share.jpg)
 
@@ -54,7 +53,7 @@ hash: oB8p/jhz6Le9bthZbypmyxDLjomElX9IjZQRjTISB0g=
 
    ![Копировать ссылку](../../../en/adapterref/iobroker.netatmo-crawler/img/copyLink.jpg)
 
-4. Вставьте ссылку в настройки экземпляра адаптера.
+4. Вставьте ссылку в настройки экземпляра адаптера
 
    ![Вставлять](../../../en/adapterref/iobroker.netatmo-crawler/img/insert.png)
 
@@ -62,22 +61,22 @@ hash: oB8p/jhz6Le9bthZbypmyxDLjomElX9IjZQRjTISB0g=
 
 ===================
 
-«Netatmo Crawler» анализирует много реальной местной информации рядом с вами. Что вы делаете со всей этой информацией? Вот некоторые общие факты и примеры:
+«Netatmo Crawler» анализирует много реальной локальной информации рядом с вами. Что вы делаете со всей этой информацией? Вот некоторые общие факты и примеры:
 
-Влажность -------- Netatmo использует относительную влажность, это отношение текущей абсолютной влажности к максимально возможной абсолютной влажности (которая зависит от текущей температуры воздуха). Относительная влажность 100 процентов означает, что воздух полностью насыщен водяным паром и больше не может удерживаться, что создает вероятность дождя. Это не означает, что относительная влажность должна быть 100 процентов, чтобы пошел дождь - она должна быть 100 процентов там, где образуются облака, но относительная влажность у земли может быть намного меньше.
+Влажность -------- Netatmo использует относительную влажность, это отношение текущей абсолютной влажности к максимально возможной абсолютной влажности (которая зависит от текущей температуры воздуха). Показание относительной влажности 100 процентов означает, что воздух полностью насыщен водяным паром и не может больше его удерживать, создавая возможность дождя. Это не означает, что относительная влажность должна быть 100 процентов, чтобы пошел дождь — она должна быть 100 процентов там, где формируются облака, но относительная влажность у земли может быть намного меньше.
 
-Дождь ---- Использует миллиметры. Если вам нужна единица измерения литр на кубический метр, вы можете использовать это в любом случае. Можно использовать для полива в саду (например).
+Дождь ---- Использует единицу измерения миллиметр. Если вы хотите использовать единицу измерения литр на кубический метр, вы можете использовать ее в любом случае. Вы можете использовать ее для полива в саду (например).
 
-Давление -------- Воздух вокруг вас имеет вес и давит на все, чего касается. Это давление называется атмосферным давлением или давлением воздуха.
-Что делать с этим значением? Звучит так просто: прогноз погоды! Высокое давление = хорошая погода, низкое давление = плохая погода.
-Нормальное среднее значение - 1013 мбар.
+Давление -------- Воздух вокруг вас имеет вес, и он давит на все, чего касается. Это давление называется атмосферным давлением или давлением воздуха.
+Что делать с этим значением? Так же просто, как это звучит: прогноз погоды! Высокое давление = хорошая погода, низкое давление = плохая погода.
+Нормальное среднее значение составляет 1013 мбар.
 Для «реального» прогноза погоды вам понадобится история давления за несколько часов (я использую четыре часа).
-Если он падает, значит, в будущем будет плохая погода, а если он поднимется, то должна быть хорошая погода.
-Я нашел [скрипт для прогноза здесь](http://www.beteljuice.co.uk/zambretti/forecast.html) (он называется методом замбретти для прогноза 90%).
+Если оно падает, то в будущем будет плохая погода, если поднимается, то будет хорошая погода.
+Я нашел [сценарий для прогноза здесь](http://www.beteljuice.co.uk/zambretti/forecast.html) (это называется методом Замбретти для 90% прогноза).
 Другие единицы: 1 мбар = 100 Па = 1 гПа
 
-Температура ----------- Здесь вы можете рассчитать уровень температуры холода. Для низких температур - ветрового охлаждения (10 °C или ниже, рассчитывается с учетом ветра), для высоких температур можно использовать индекс тепла (25 ° C или выше, рассчитывать с учетом влажности).
-пример сценария:
+Температура ----------- Здесь вы можете рассчитать уровень температуры охлаждения. Для низких температур используется индекс охлаждения ветром (10 °C или ниже, рассчитывается с учетом ветра), для высоких температур можно использовать индекс тепла (25 °C или выше, рассчитывается с учетом влажности).
+пример скрипта:
 
 ```
 windchill1 = windchill(temp, windkmh); //Vars to-from IOBroker
@@ -100,84 +99,44 @@ function heat(temperature, humidity) {
 }
 ```
 
-Ветер - скорость ветра - это мера движения воздуха от высокого к низкому давлению, обычно из-за изменений температуры.
-Сила порыва ветра - это наивысшее значение ветра, измеренное за короткий промежуток времени (примерно три секунды).
-Вам следует сделать сценарий для вашего навеса или для метода Замбретти (см. Выше).
+Ветер ---- Скорость ветра — это мера перемещения воздуха из высокого давления в низкое, обычно из-за изменений температуры.
+Сила порыва — это наивысшее значение ветра, измеренное за короткое время (примерно три секунды).
+Вам следует создать сценарий для вашего тента или для метода Замбретти (см. выше).
 
-Информация ---- **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Дополнительные сведения и информацию о том, как отключить сообщение об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+## Кредиты
+Создание этого адаптера было бы невозможно без огромной работы @bart1909 (https://github.com/jbart1909)", который создал версии этого адаптера до V1.x.x.
 
-Кредиты
-
-=======
-
-Большое спасибо [Backfisch](https://github.com/backfisch88) за первоначальную идею и поддержку!
+Большое спасибо [бэкфиш](https://github.com/backfisch88) за первоначальную идею и поддержку!
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.0.0 (2025-06-13)
+* (Bart1909) A problem handling urls and authentication has been fixed.
+* (mcm1957) Adapter has been migrated into iobroker-community-adapters organisation.
+* (Bart1909) Adapter requires node.js 20, js-controller 6.0.11 and admin 7.4.10 now.
+* (mcm1957) Dependencies have been updated.
 
-### 0.6.0
-* (Xenon-s) saves states with acknowledgement (#23 & #26)
-* (Bart19) updates dependencies and documentation (#25 & #27)
-### 0.5.1
+### 0.8.0
+* (Bart19) Adds additional 'rain_lastHour' state as 'rain' state is now real time value
+
+### 0.7.1
+* (Bart19) removed old news (#17)
+
+### 0.7.0
+* (Bart19) saves states as read-only (#23)
+
+### 0.6.3
 * (Bart19) updates dependencies
-### 0.5.0
-* (Bart19) adds measures for wind and gust with m/s (#22) and do not query rain_today in the first 15 minutes of a day (#21)
-### 0.4.1
-* (Bart19) changes exit code and introduces an exit message
-### 0.4.0
-* (Bart19) Rounds values to two decimals
-### 0.3.13
-* (Bart19) updates dependencies
-### 0.3.9
-* (Bart19) updates dependencies
-### 0.3.8
-* (Bart19) small fix in error handling
-### 0.3.7
-* (Bart19) caches authorization token
-### 0.3.6
-* (Bart19) adds Sentry for error reporting
-### 0.3.5
-* (Bart19) fix for new netatmo website
-### 0.3.4
-* (Bart19) optimizes error handling
-### 0.3.3
-* (Bart19) changes some log level
-* (Backfisch) adds more documentation
-### 0.3.2
-* (Bart19) fixes, that rain_yesterday was saved with value rain_today
-### 0.3.1
-* (Bart19) optimizes error handling
-### 0.3.0
-* (Bart19) adds timestamps, when last info retrieved from Netatmo and timestamp, when each measure was updated last. In addition, rain_yesterday added
-### 0.2.0
-* (Bart19) changes admin view. Now you can enter as many station urls as you want. In addition, you can select, how the data should be stored
-### 0.1.2
-* (Bart19) fix for station4 and introduces allowInit, so adapter will run once on config edits
-### 0.1.1
-* (Bart19) removes files from archive which are unnecessary
-### 0.1.0
-* (Bart19) implements automatic tests
-### 0.0.8
-* (Bart19) updates logo
-### 0.0.7
-* (Bart19) changes loglevel
-### 0.0.6
-* (Bart19) updates description
-### 0.0.5
-* (Bart19) bugfixes
-### 0.0.4
-* (Bart19) bugfixes
-### 0.0.3
-* (Bart19) bugfixes
-### 0.0.2
-* (Bart19) bugfixes
-### 0.0.1
-* (Bart19) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 Bart19 <webmaster@bart19.de>
+Copyright (c) 2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2022 Bart19 <webmaster@bart19.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

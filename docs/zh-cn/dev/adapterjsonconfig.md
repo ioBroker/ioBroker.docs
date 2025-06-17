@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: cKAza368CjBQjzeBBEFQSj0TMNxPcQ4mCpItJ4NpZhA=
+hash: Uv6hWjFceLb8lT64jr+rkILf4J5Re0g7OOWTqbQbvSQ=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 格式定义 ioBroker 适配器的配置选项。这种方法提供了一种更方便用户且灵活的方式，可在 ioBroker 管理界面中管理适配器设置。
@@ -405,7 +405,7 @@ admin/customI18n/en.json
 | 属性 | 描述 |
 |-------------------|-----------------------------------|
 | `short` | 没有`enum.func.` |
-| `allowDeactivate` | 允许将功能留空 |
+| `allowDeactivate` | 允许让功能为空 |
 
 ###`select`
 | 属性 | 描述 |
@@ -505,7 +505,7 @@ admin/customI18n/en.json
        "type": "oauth2",
        "identifier": "spotify",
        "label": "Get Spotify OAuth2 Token",
-       "label": "Refresh Spotify OAuth2 Token",
+       "refreshLabel": "Refresh Spotify OAuth2 Token",
        "icon": "data:image/svg+xml;base64,...",
   }
 ```
@@ -1048,7 +1048,7 @@ adapter.on("message", (obj) => {
 （管理员 >= 7.1.0）显示来自状态（管理员 >= 7.6.4）属性`showEnterButton` 和`setOnEnterKey` 的控制或信息
 
 | 属性 | 描述 |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `oid` | 应使用哪个对象 ID 进行控制。该 ID 不带 `adapter.X.` 前缀 |
 | `foreign` | `oid` 是绝对的，无需将 `adapter.X` 或 `system.adapter.X.` 添加到 oid |
 | `control` | 应如何显示状态值：`text`、`html`、`input`、`slider`、`select`、`button`、`switch`、`number` |
@@ -1073,8 +1073,9 @@ adapter.on("message", (obj) => {
 | `labelIcon` | 标签的 Base64 图标 |
 | `buttonValue` | 可选值，将发送给按钮 |
 | `showEnterButton` | 显示“设置”按钮。此情况下，仅当按下按钮时才会发送值。您可以定义按钮的文本。默认文本为“设置”（仅适用于“输入”、“数字”或“滑块”）|
-| `setOnEnterKey` | 此例中的值仅在按下“Enter”键时发送。它可以与 `showEnterButton` | 结合使用。 |
-| `setOnEnterKey` | 此例中的值仅在按下“Enter”键时发送。可与 `showEnterButton` 结合使用 |
+| `setOnEnterKey` | 此例中的值仅在按下“Enter”键时发送。它可以与`showEnterButton` | 结合使用。 |
+| `options` | `select` 的选项，形式为 `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`。若未被污染，则对象中的 `common.states` 必定存在。|
+| `options` | `select` 的选项，格式为 `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`。若未定义，则对象中的 `common.states` 必须存在。|
 
 ###`staticInfo`
 以预格式化的形式显示静态信息，如“标题：值单位”（管理员> = 7.3.3）此控件主要用于动态表单
@@ -1096,6 +1097,18 @@ adapter.on("message", (obj) => {
 | `highlight` | （可选）鼠标悬停时突出显示线条 |
 | `booleanAsCheckbox` | （可选）将布尔值显示为复选框 |
 | `booleanAsCheckbox` | （可选）将布尔值显示为复选框 |
+
+###`infoBox`
+显示可关闭的静态文本，并带有可选的标题和图标。（来自 admin >= 7.6.19 版本）
+
+| 属性 | 描述 |
+|----------------|---------------------------------------------------------------|
+| `text` | 待显示文本 |
+| `boxType` | （可选）`warning`、`info`、`error`、`ok`。（默认`info`）|
+| `closeable` | （可选）如果框可关闭（默认`true`）|
+| `iconPosition` | （可选）`top`、`middle`（默认`middle`）|
+| `closed` | （可选）开始时将显示为已关闭 |
+| `closed` | （可选）将在开始时显示为已关闭 |
 
 ###`deviceManager`
 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
@@ -1181,7 +1194,7 @@ adapter.on("message", (obj) => {
 | `hideOnlyControl` | 如果隐藏，该地点将会显示，但没有控制|
 | `disabled` | 可以使用`native.attribute`进行计算的 JS 函数 |
 | `help` | 帮助文本（多语言）|
-| `helpLink` | href 帮助（只能与 `help` 一起使用）|
+| `helpLink` | href 帮助（只能与`help`一起使用）|
 | `style` | ReactJS 符号中的 CSS 样式：`radiusBorder` 而不是 `radius-border`。|
 | `darkStyle` | 暗黑模式的 CSS 样式 |
 | `validator` | JS 函数：true 无错误，false - 错误 |
@@ -1449,7 +1462,7 @@ const isValid = func(
 }
 ```
 
-如果提供了`sendTo`，实例将收到一条消息（`common.messagebox` 在`io-package.json` 中必须为 true），其中包含命令`tab`，或存储在`sendTo` 中的值（如果该值是字符串）。
+如果提供了`sendTo`，实例将收到一条消息（`common.messagebox` 在`io-package.json` 中必须为 true），其中包含命令`tab`，或存储在`sendTo` 中的值（如果是字符串）。
 实例必须使用如下结构进行回答：
 
 ```typescript

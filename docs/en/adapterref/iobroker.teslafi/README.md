@@ -75,7 +75,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 2.0.1 (2025-06-08)
 
 - (hombach) add node.js 24 tests (#144)
 - (hombach) bump dependencies

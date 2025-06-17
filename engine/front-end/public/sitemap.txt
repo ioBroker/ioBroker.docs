@@ -53,6 +53,7 @@ https://www.iobroker.net/#de/blog/2024_12_22
 https://www.iobroker.net/#de/blog/2025_03_29
 https://www.iobroker.net/#de/blog/2025_04_04
 https://www.iobroker.net/#de/blog/2025_04_26
+https://www.iobroker.net/#de/blog/2025_06_17
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -80,6 +81,7 @@ https://www.iobroker.net/#en/blog/2024_12_22
 https://www.iobroker.net/#en/blog/2025_03_29
 https://www.iobroker.net/#en/blog/2025_04_04
 https://www.iobroker.net/#en/blog/2025_04_26
+https://www.iobroker.net/#en/blog/2025_06_17
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -107,6 +109,7 @@ https://www.iobroker.net/#ru/blog/2024_12_22
 https://www.iobroker.net/#ru/blog/2025_03_29
 https://www.iobroker.net/#ru/blog/2025_04_04
 https://www.iobroker.net/#ru/blog/2025_04_26
+https://www.iobroker.net/#ru/blog/2025_06_17
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -134,6 +137,7 @@ https://www.iobroker.net/#zh-cn/blog/2024_12_22
 https://www.iobroker.net/#zh-cn/blog/2025_03_29
 https://www.iobroker.net/#zh-cn/blog/2025_04_04
 https://www.iobroker.net/#zh-cn/blog/2025_04_26
+https://www.iobroker.net/#zh-cn/blog/2025_06_17
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
@@ -1115,6 +1119,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.omnicomm-lls/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.onkyo/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.onlycat/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.onvif/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.opcua/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.opendtu/README.md
@@ -1822,6 +1827,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.omnicomm-lls/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.onkyo/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.onlycat/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.onvif/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.opcua/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.opendtu/README.md
@@ -2529,6 +2535,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.omnicomm-lls/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.onkyo/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.onlycat/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.onvif/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opcua/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opendtu/README.md
@@ -3236,6 +3243,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.oilfox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.omnicomm-lls/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.omron-fins/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.onkyo/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.onlycat/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.onvif/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opcua/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opendtu/README.md

@@ -70,6 +70,8 @@ This channel contains system data about the hardware and firmware as well as run
 
 - Some dependency work
 - Code documentation extended
+- Added Node.js 24. to test and release pipeline
+- Resending interval of not overtaken values changed from 1,5 seconds to 2,5 seconds
 
 ### 0.0.6 (2025-04-17)
 

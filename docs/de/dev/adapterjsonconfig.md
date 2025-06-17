@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: cKAza368CjBQjzeBBEFQSj0TMNxPcQ4mCpItJ4NpZhA=
+hash: Uv6hWjFceLb8lT64jr+rkILf4J5Re0g7OOWTqbQbvSQ=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -507,7 +507,7 @@ Um dies zu verwenden, müssen Sie zuerst die OAuth2-Daten (Client-ID, Geheimnis 
        "type": "oauth2",
        "identifier": "spotify",
        "label": "Get Spotify OAuth2 Token",
-       "label": "Refresh Spotify OAuth2 Token",
+       "refreshLabel": "Refresh Spotify OAuth2 Token",
        "icon": "data:image/svg+xml;base64,...",
   }
 ```
@@ -926,7 +926,7 @@ Zeigt die Autovervollständigungssteuerung mit den von der Instanz angegebenen W
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn „jsonData“ nicht definiert ist. |
 | `freeSolo` | Setzen Sie `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
-| `alsoDependsOn` | bei Änderung welcher Attribute muss der Befehl erneut gesendet werden |
+| `alsoDependsOn` | bei Änderung welcher Attribute der Befehl erneut gesendet werden muss |
 | `maxLength` | maximale Länge des Textes im Feld |
 | `maxLength` | maximale Länge des Textes im Feld |
 
@@ -1050,7 +1050,7 @@ Spezielle Eingabe für Ports. Es wird automatisch geprüft, ob der Port von ande
 (admin >= 7.1.0) Zeigt Kontrolle oder Informationen aus den Statusattributen (admin >= 7.6.4) `showEnterButton` und `setOnEnterKey` an
 
 | Immobilie | Beschreibung |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `oid` | Welche Objekt-ID soll zur Steuerung verwendet werden? Die ID ist ohne Präfix `adapter.X.` |
 | `foreign` | `oid` ist absolut und es ist nicht erforderlich, `adapter.X` oder `system.adapter.X.` zu oid hinzuzufügen |
 | `control` | Wie der Wert des Status angezeigt werden soll: `text`, `html`, `input`, `slider`, `select`, `button`, `switch`, `number` |
@@ -1076,7 +1076,8 @@ Spezielle Eingabe für Ports. Es wird automatisch geprüft, ob der Port von ande
 | `buttonValue` | Optionaler Wert, der für die Schaltfläche gesendet wird |
 | `showEnterButton` | SET-Button anzeigen. Der Wert wird in diesem Fall nur gesendet, wenn der Button gedrückt wird. Sie können den Text des Buttons definieren. Der Standardtext ist "Set" (nur für "Eingabe", "Zahl" oder "Schieberegler"). |
 | `setOnEnterKey` | Der Wert wird in diesem Fall nur gesendet, wenn die Eingabetaste gedrückt wird. Er kann mit `showEnterButton` kombiniert werden. |
-| `setOnEnterKey` | Der Wert wird in diesem Fall nur gesendet, wenn die Eingabetaste gedrückt wird. Kann mit `showEnterButton` kombiniert werden. |
+| `options` | Optionen für `select` in der Form `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. Wenn nicht verunreinigt, muss `common.states` im Objekt vorhanden sein. |
+| `Optionen` | Optionen für `select` in der Form `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1", "color": "red"}, "value2", ...]`. Wenn nicht verunreinigt, müssen die `common.states` im Objekt vorhanden sein. |
 
 ### `staticInfo`
 Zeigt statische Informationen in vorformatierter Form an, z. B. "Titel: Werteinheit" (Admin >= 7.3.3). Dieses Steuerelement wird hauptsächlich in dynamischen Formularen verwendet.
@@ -1098,6 +1099,18 @@ Zeigt statische Informationen in vorformatierter Form an, z. B. "Titel: Werteinh
 | `highlight` | (optional) Zeile beim Mouseover hervorheben |
 | `booleanAsCheckbox` | (optional) Boolesche Werte als Kontrollkästchen anzeigen |
 | `booleanAsCheckbox` | (optional) Boolesche Werte als Kontrollkästchen anzeigen |
+
+### `infoBox`
+Zeigt schließbaren statischen Text mit optionalem Titel und Symbol an. (Ab Admin >= 7.6.19)
+
+| Immobilie | Beschreibung |
+|----------------|---------------------------------------------------------------|
+| `text` | Anzuzeigender Text |
+| `boxType` | (optional) `warning`, `info`, `error`, `ok`. (Standard `info`) |
+| `closeable` | (optional) Wenn die Box schließbar ist (Standard `true`) |
+| `iconPosition` | (optional) `top`, `middle` (Standard `middle`) |
+| `closed` | (optional) Wird zu Beginn als geschlossen angezeigt |
+| `geschlossen` | (optional) Wird am Anfang als geschlossen angezeigt |
 
 ### `deviceManager`
 Gerätemanager anzeigen. Dazu muss der Adapter das Gerätemanagerprotokoll unterstützen. Siehe iobroker/dm-utils.

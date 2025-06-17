@@ -34,6 +34,10 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.18 (2025-06-16)
+* (HGlab01) Log finetuning
+* (HGlab01) Bump axios to 1.10.0
+
 ### 0.1.17 (2025-06-03)
 * (HGlab01) Add retry mechanism for Entsoe
 
@@ -50,9 +54,6 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
 * (HGlab01) Bump axios to 1.8.4
 * (HGlab01) Fix warning "State attribute definition missing for 'item xx' 
 * (HGlab01) Fix provider-fee% calculation if base price is negative ([#354](https://github.com/HGlab01/ioBroker.apg-info/issues/354))
-
-### 0.1.13 (2025-03-12)
-* (HGlab01) Bump axios to 1.8.3
 
 ## License
 MIT License

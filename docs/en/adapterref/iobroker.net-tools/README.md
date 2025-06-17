@@ -75,6 +75,9 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2025-06-11)
+* Added network interface information for localhost to device manager
+
 ### 1.1.3 (2025-06-05)
 * Fix out of memory while scanning
 

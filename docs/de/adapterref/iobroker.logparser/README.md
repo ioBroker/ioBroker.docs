@@ -144,6 +144,12 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2025-06-09)
+- (arteck) Adapter requires admin 7 now.
+- (arteck) Today/yesterday problem has been fixed (check new settings)
+- (arteck) Switched to ESLint 9
+- (arteck) Dependencies have been updated.
+
 ### 2.3.0 (2025-03-02)
 
 - (mcm1957) Adapter requires node.js 20, js-controller 5 and admin 6 now.
@@ -164,10 +170,6 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
 
 -   (ciddi89) Dropped: Node v14.x support and added: Node v20.x support
 -   (ciddi89) Added: Option to empty log for each parser rule.
-
-### 2.1.3 (2023-05-19)
-
--   (ciddi89) Updated: Dependencies
 
 ## License
 

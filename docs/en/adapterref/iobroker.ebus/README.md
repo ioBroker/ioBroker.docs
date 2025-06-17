@@ -40,7 +40,6 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-current supported ebusd-version: 23.2
 
 **Attention** with ebusd - version 22.1 config path has been changed to http://cfg.ebusd.eu/. Make sure you change it in your installation of ebusd.
 details see in [changelog](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
@@ -60,6 +59,14 @@ example:
 Attention: command in datapoint ebus.0.cmd is deleted after executing of command!
 
 
+## Installation / Update
+
+please follow installation instructions for ebusd under [wiki](https://github.com/john30/ebusd/wiki/1.-Build-and-install)
+
+
+in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts to install and update SBFspot on debian based systems.
+
+
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
    
@@ -69,6 +76,9 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.6.2 (2025-06-09)
+* (René) (Galileo53) #419 avoid Warning and error when history list is empty
+
 ### 3.6.1 (2025-06-06)
 * (René) changes suggested by adapter checker
 

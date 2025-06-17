@@ -1,63 +1,66 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: ymvDetbGBh3AUlmb3DQtZzbwNoNSNpssQOO9x42wHuY=
+hash: OiglQYHB+Y0tGulBl84tjrcZuAP3nee40BEVoh3/xKQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![Количество установок](http://iobroker.live/badges/ebus-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ebus.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.ebus.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.ebus.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
 ![узел-lts](https://img.shields.io/node/v-lts/iobroker.ebus?style=flat-square)
 ![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.ebus?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.ebus?style=flat-square)
 ![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 ![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 
 # IoBroker.ebus
 ![Действия GitHub](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
+**Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 Этот адаптер читает
 
-- данные из ebusd в формате html
+- данные из ebusd с использованием html
 
-В этом случае ebusd должен быть запущен и иметь возможность отправлять данные, например. проводник через http://IP:port/data (http://192.168.0.123:8889/data) Текущая версия ebusd вкл. файлы конфигурации можно скопировать с https://github.com/john30/ebusd. Все поля с данными, последними и из глобального раздела анализируются. Все остальные на данный момент игнорируются.
+В этом случае ebusd должен работать и иметь возможность отправлять данные, например, в explorer через http://IP:port/data (http://192.168.0.123:8889/data) Текущая версия ebusd, включая файлы конфигурации, может быть скопирована с https://github.com/john30/ebusd Все поля с данными, lastup и из раздела global анализируются. Все остальные в данный момент игнорируются.
 
-Существует возможность опроса данных, которые не опрашиваются ebusd напрямую. Команда «read -f» используется для принудительного чтения через ebus.
+Есть возможность опроса данных, которые не опрашиваются ebusd напрямую. Команда 'read -f' используется для принудительного чтения через ebus.
 
-Другая функция — отправить любую команду в ebusd и получить ответ для работы, например. сценарии.
+Еще одна функция — отправка любой команды в ebusd и получение ответа для работы, например, со скриптами.
 
-текущая поддерживаемая версия ebusd: 23.2
-
-**Внимание** для ebusd — путь конфигурации версии 22.1 изменен на http://cfg.ebusd.eu/. Обязательно измените его при установке ebusd.
+**Внимание** с ebusd - путь конфигурации версии 22.1 был изменен на http://cfg.ebusd.eu/. Убедитесь, что вы изменили его в вашей установке ebusd.
 подробности см. в [журнал изменений](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
 
 ## Как отправлять команды в ebusd
-1. напишите одну команду или список команд в точке данных ebus.0.cmd.
+1. написать одну команду или список команд в точке данных ebus.0.cmd
 
 Если вы хотите использовать более одной команды, используйте , для разделения отдельных команд.
-пример: прочитать -f YieldTotal,прочитать LegioProtectionEnabled,прочитать -f -c широковещательную передачу за пределы temp
+пример: read -f YieldTotal,read LegioProtectionEnabled,read -f -c broadcast outsidetemp
 
-2. при выполнении команды вы получите результаты для каждой команды в точке данных ebus.0.cmdResult.
+2. после выполнения команды вы получите результаты по каждой команде в точке данных ebus.0.cmdResult
 
-Результат также разделен запятыми, например: 2000, ERR: элемент не найден, 10,5.
+Результат также разделен запятыми, пример: 2000, ERR: элемент не найден, 10.5
 
-Внимание: команда в datapoint ebus.0.cmd удаляется после выполнения команды!
+Внимание: команда в точке данных ebus.0.cmd удаляется после выполнения команды!
 
-## Известные вопросы
-* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или вам нужны новые функции.
+## Установка/Обновление
+пожалуйста, следуйте инструкциям по установке ebusd в разделе [вики](https://github.com/john30/ebusd/wiki/1.-Build-and-install)
+
+в /opt/iobroker/node_modules/iobroker.ebus/lib/scripts вы можете найти скрипты для установки и обновления SBFspot в системах на базе Debian.
+
+## Известные проблемы
+* пожалуйста, создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.ebus/issues), если вы нашли ошибки или хотите новые функции
 
 ## Changelog
 
@@ -65,6 +68,69 @@ hash: ymvDetbGBh3AUlmb3DQtZzbwNoNSNpssQOO9x42wHuY=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.6.2 (2025-06-09)
+* (René) (Galileo53) #419 avoid Warning and error when history list is empty
+
+### 3.6.1 (2025-06-06)
+* (René) changes suggested by adapter checker
+
+### 3.6.0 (2025-06-06)
+* (René) new supported ebusd version is 25.1
+* (René) version info added in admin
+
+### 3.5.2 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 3.5.1 (2025-02-01)
+* (René) translations
+
+### 3.5.0 (2025-01-27)
+* (René) catch exceptions reportet by sentry
+* (René) option to disable check of last update time (see issue #391)
+
+### 3.4.0 (2024-12-10)
+* (René) migration to jsonConfig
+* (René) see issue #383: add optionally parameters to HTTP call
+
+### 3.3.8 (2024-11-24)
+* (René) update dependencies
+* (René) issue  #381: install widgets again
+
+### 3.3.7 (2024-11-20)
+* (René) see issue #380: support of ebusd 24.1, ATTENTION: ebusd creates datapoints with changed names, folders or in different locations
+* (René) see issue #371: test with nodejs@22
+
+### 3.3.6 (2024-08-25)
+ * (René) downgrade of "promise-socket" to 7.0.0
+
+### 3.3.5 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 3.3.4 (2024-07-12)
+ * (René) bug fix after 3.3.2 update
+
+### 3.3.3 (2024-07-12)
+ * (René) downgrade of "promise-socket" to 7.0.0
+
+### 3.3.2 (2024-07-11)
+ * (René) see issue #338: due to error in ebusd json no data are parsed
+
+### 3.3.1 (2024-05-28)
+* (René) change of dependencies
+
+### 3.3.0 (2024-05-24)
+* (René) remove cron dependency
+* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
+
+### 3.2.6 (2024-02-11)
+* (René) see issue #245: support ebusd 23.3
+* (René) fixes reported by eslint
+
+### 3.2.5 (2024-01-12)
+* (René) dependencies updated
+
 ### 3.2.4 (2023-11-19)
 * (René) revert back to flat 5.x
 
@@ -185,7 +251,7 @@ hash: ymvDetbGBh3AUlmb3DQtZzbwNoNSNpssQOO9x42wHuY=
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

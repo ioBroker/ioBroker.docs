@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-таймер-vis
-hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
+hash: FQ5JVSNc4RuGya9Qp40UFQJarhUdEU9Z1yFXMz/vj+U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -28,7 +28,7 @@ hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ### Это пример моего виз
-![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
+![img.png](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer1.png)
 
 ## Функциональность
 Таймер или несколько таймеров, заданных голосовым вводом, создаются с помощью Alexa, оцениваются адаптером и записываются в состояния, чтобы сделать их видимыми в Vis. Таким образом, у вас будет лучший обзор, если у вас одновременно активны несколько таймеров.
@@ -42,7 +42,7 @@ hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
 - Работает с немецким вводом
 
 ### Добавление таймера ( Примеры )
-- Алекса, Таймер 5 минут
+- Alexa, Таймер 5 минут
 - Алекса, фри Таймер 9 минут
 - Алекса, поставь таймер на 1 час 30 минут.
 - Алекса, поставь таймер на 2 часа.
@@ -62,6 +62,11 @@ hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- FIX: Add alarm clock to ignored words
+
 ### 2.1.1 (2025-04-28)
 
 - FEAT: #141 Activate sentry

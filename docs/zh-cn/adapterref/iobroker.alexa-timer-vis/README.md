@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
+hash: FQ5JVSNc4RuGya9Qp40UFQJarhUdEU9Z1yFXMz/vj+U=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -28,7 +28,7 @@ hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ### 这是我的 vis 的一个例子
-![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
+![图片.png](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer1.png)
 
 功能
 通过 Alexa 创建一个或多个语音输入计时器，适配器会评估这些计时器，并将其写入状态，以便在 Vis 中显示。这样，如果您同时激活多个计时器，就能更好地概览它们。
@@ -62,6 +62,11 @@ hash: hTLL2vFv2X8YTYQALUWTCD57jhfCcyjF4vyYX+CN3HI=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- FIX: Add alarm clock to ignored words
+
 ### 2.1.1 (2025-04-28)
 
 - FEAT: #141 Activate sentry

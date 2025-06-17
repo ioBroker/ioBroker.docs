@@ -3,8 +3,8 @@
 # ioBroker.mywallbox
 
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.mywallbox?style=flat-square)](https://www.npmjs.com/package/iobroker.my-wallbox)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.mywallbox.svg)](https://www.npmjs.com/package/iobroker.my-wallbox)
+[![NPM version](https://img.shields.io/npm/v/iobroker.mywallbox?style=flat-square)](https://www.npmjs.com/package/iobroker.mywallbox)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.mywallbox.svg)](https://www.npmjs.com/package/iobroker.mywallbox)
 ![Number of Installations](https://iobroker.live/badges/mywallbox-installed.svg)
 
 ![GitHub](https://img.shields.io/github/license/SKB-CGN/iobroker.mywallbox?style=flat-square)
@@ -36,6 +36,9 @@ If you like the adapter and want to support me, you can do so here:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Dependencies updated
+
 ### 1.3.0 (2024-12-10)
 - Added: EsLint 9.x for better code optimization (#135)
 

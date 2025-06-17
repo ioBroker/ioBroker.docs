@@ -1,59 +1,59 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
+hash: uzMds3K6zvGp2QE1ulEfXg5DsBuf5j28qI+RwpdccCM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
 ![Количество установок](http://iobroker.live/badges/sbfspot-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
 ![узел-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
 ![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.sbfspot?style=flat-square)
 ![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 ![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 
 # IoBroker.sbfspot
 ![Действия GitHub](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
+**Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Этот адаптер считывает данные с инверторов SMA с помощью sbfspot.
+Этот адаптер считывает данные с инверторов питания SMA с помощью sbfspot.
 Теперь поддерживаются оба типа баз данных (mySQL и sqlite).
-Начиная с версии 0.2.3 доступен собственный виджет vis на основе флота для отображения исторических данных.
+Начиная с версии 0.2.3 доступен собственный виджет vis на основе flot для отображения исторических данных.
 
-## Монтаж
-следуйте инструкциям по установке sbfspot на странице https://github.com/SBFspot/SBFspot/wiki.
+## Установка/Обновление
+пожалуйста, следуйте инструкциям по установке sbfspot по адресу https://github.com/SBFspot/SBFspot/wiki
 
-[детальная установка на системах на базе манипуляторов](docs/en/install_arm.md)
+в /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts вы можете найти скрипты для установки и обновления SBFspot в системах на базе Debian.
 
 ## Подсказки
 * используйте последнюю версию sbfspot с https://github.com/SBFspot/SBFspot
-* адаптер, sbfspot и базы данных (mySQL или sqlite) должны работать в одной системе, например. Raspberry Pi
-* руководство по установке sbfspot на Raspberry Pi (или аналогичном) можно найти по адресу https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite или https://www.rg-engineering.eu/index. php/продукт/программное обеспечение/plugin-fuer-iobroker-sbfspot
-* для Raspberry Pi существует инструмент полуавтоматической настройки, доступный по адресу https://github.com/SBFspot/sbfspot-config.
+* адаптер, sbfspot и базы данных (mySQL или sqlite) должны работать на одной системе, например Raspberry PI
+* руководство по установке sbfspot на Raspberry Pi (или аналогичное) можно найти по адресу https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite или https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot
+* для Raspberry Pi имеется полуавтоматический инструмент настройки, доступный по адресу https://github.com/SBFspot/sbfspot-config
 
-## Известные вопросы
-* иногда установка пакета npm sqlite3 завершается неудачно.
+## Известные проблемы
+* иногда установка npm-пакета sqlite3 завершается неудачей.
 
 в этом случае переустановите все пакеты npm
 
 > cd /opt/iobroker/node_modules/iobroker.sbfspot > sudo npm install
 
-иногда npm intall необходимо вызвать более одного раза, чтобы успешно установить все необходимые пакеты
+иногда npm intall необходимо вызывать более одного раза для успешной установки всех необходимых пакетов
 
-* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues), если вы обнаружите ошибки или захотите новых функций.
+* пожалуйста, создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues), если вы нашли ошибки или хотите новые функции
 
 ## Changelog
 
@@ -61,6 +61,48 @@ hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-06-07)
+* (René) ATTENTION breaking change: adapter type changed from scheduled to daemon
+* (René) update hints added to admin
+* (René) suggestions from adapter checker
+
+### 4.4.2 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 4.4.1 (2024-12-15)
+* (René) translations
+
+### 4.4.0 (2024-12-06)
+* (René) migration to admin 5 UI (jsonConfig)
+
+### 4.3.5 (2024-11-24)
+* (René) see issue #417: test with nodejs@22
+* (René) issue  #435: install widgets again
+
+### 4.3.4 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 4.3.3 (2024-05-28)
+* (René) change of dependencies
+* (René) mySql dependency update
+
+### 4.3.1 (2024-05-23)
+* (René) bug fix for data history in VIS-2
+
+### 4.3.0 (2024-05-22)
+* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
+
+### 4.2.4 (2024-01-13)
+* (René) upgrade better-sqlite
+
+### 4.2.3 (2024-01-12)
+* (René) downgrade better-sqlite
+
+### 4.2.2 (2024-01-12)
+* (René) dependencies updated
+
 ### 4.2.1 (2023-12-11)
 * (René) dependencies updated
 
@@ -183,7 +225,7 @@ hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

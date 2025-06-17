@@ -3,57 +3,57 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
+hash: uzMds3K6zvGp2QE1ulEfXg5DsBuf5j28qI+RwpdccCM=
 ---
 ![标识](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
 ![安装数量](http://iobroker.live/badges/sbfspot-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
-![节点-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
+![新公共管理](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
+![节点](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
 ![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.sbfspot?style=flat-square)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 ![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 ![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 
 # IoBroker.sbfspot
-![GitHub 操作](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
-**如果您喜欢，请考虑捐赠：**
+**如果您喜欢它，请考虑捐赠：**
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-该适配器使用 sbfspot 从 SMA 电源逆变器读取数据。
+此适配器使用 sbfspot 从 SMA 电源逆变器读取数据。
 现在支持两种数据库类型（mySQL 和 sqlite）。
-从 0.2.3 版本开始，有一个基于 flot 的自己的 vis 小部件可用于显示历史数据。
+自 0.2.3 版本起，我们提供了一个基于 flot 的可视化小部件，用于显示历史数据。
 
-＃＃ 安装
+## 安装/更新
 请按照 https://github.com/SBFspot/SBFspot/wiki 下的 sbfspot 安装说明进行操作
 
-[基于arm系统的详细安装](docs/en/install_arm.md)
+在 /opt/iobroker/node_modules/iobroker.sbfspot/lib/scripts 中，您可以找到在基于 debian 的系统上安装和更新 SBFspot 的脚本。
 
 ## 提示
 * 使用来自 https://github.com/SBFspot/SBFspot 的 sbfspot 的最新版本
-* 适配器、sbfspot 和数据库（mySQL 或 sqlite）必须在同一系统上运行，例如树莓派
-* Raspberry Pi（或类似）上的 sbfspot 安装手册可以在 https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite 或 https://www.rg-engineering.eu/index 下找到。 php/产品/软件/插件-fuer-iobroker-sbfspot
-* 对于 Raspberry Pi，在 https://github.com/SBFspot/sbfspot-config 下有一个半自动配置工具
+* 适配器、sbfspot 和数据库（mySQL 或 sqlite）必须在同一系统上运行，例如 Raspberry PI
+* Raspberry Pi（或类似产品）上的 sbfspot 安装手册可在 https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite 或 https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot 下找到
+* 对于 Raspberry Pi，有一个半自动配置工具，可在 https://github.com/SBFspot/sbfspot-config 下使用
 
-＃＃ 已知的问题
-* 有时安装 npm 包 sqlite3 会失败。
+## 已知问题
+* 有时 npm 包 sqlite3 的安装会失败。
 
-在这种情况下，请重新安装所有 npm 软件包
+在这种情况下重新安装所有 npm 包
 
 > cd /opt/iobroker/node_modules/iobroker.sbfspot > sudo npm install
 
-有时必须多次调用 npm intall 才能成功安装所有必需的ray 软件包
+有时必须多次调用 npm intall 才能成功安装所有必要的软件包
 
-* 如果您发现错误或希望有新功能，请在 [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) 创建问题
+* 如果您发现错误或需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) 创建问题
 
 ## Changelog
 
@@ -61,6 +61,48 @@ hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-06-07)
+* (René) ATTENTION breaking change: adapter type changed from scheduled to daemon
+* (René) update hints added to admin
+* (René) suggestions from adapter checker
+
+### 4.4.2 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 4.4.1 (2024-12-15)
+* (René) translations
+
+### 4.4.0 (2024-12-06)
+* (René) migration to admin 5 UI (jsonConfig)
+
+### 4.3.5 (2024-11-24)
+* (René) see issue #417: test with nodejs@22
+* (René) issue  #435: install widgets again
+
+### 4.3.4 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 4.3.3 (2024-05-28)
+* (René) change of dependencies
+* (René) mySql dependency update
+
+### 4.3.1 (2024-05-23)
+* (René) bug fix for data history in VIS-2
+
+### 4.3.0 (2024-05-22)
+* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
+
+### 4.2.4 (2024-01-13)
+* (René) upgrade better-sqlite
+
+### 4.2.3 (2024-01-12)
+* (René) downgrade better-sqlite
+
+### 4.2.2 (2024-01-12)
+* (René) dependencies updated
+
 ### 4.2.1 (2023-12-11)
 * (René) dependencies updated
 
@@ -183,7 +225,7 @@ hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

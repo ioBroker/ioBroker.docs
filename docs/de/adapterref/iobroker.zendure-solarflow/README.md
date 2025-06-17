@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: ZaI98Yxp8NiVcO5OwHOuC6Ynvrv3E/0D/eli8t9RiZ8=
+hash: oUHjm0l2gox7du7bio9yb01Ho+BUKdegEe8BVpEQ3Ww=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -46,14 +46,40 @@ Sie können weiterhin Firmware-Updates mit der offiziellen Zendure-App über Blu
 
    ![Solarflow-Einstellungsfenster](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
-2. Sie werden nach der Anmeldung mit dem ioBroker-Adapter von der offiziellen iOS- oder Android-App abgemeldet. Dies ist normal. Um dieses Problem zu umgehen, können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Verwenden Sie dann das zweite Konto für ioBroker / den Zendure Solarflow-Adapter.
-
-3. Der Adapter zeigt einen Batterieverbrauch von +7 W an, wenn kein Solarstrom zugeführt wird und das Gerät online ist. Dies entspricht dem Standby-Betrieb des Geräts.
+2. Sie werden nach der Anmeldung mit dem ioBroker-Adapter von der offiziellen iOS- oder Android-App abgemeldet. Dies ist normal. Als Workaround können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Verwenden Sie dann das zweite Konto für ioBroker / den Zendure Solarflow-Adapter.
 
 ## Credits
 Dank geht an https://github.com/reinhard-brandstaedter/solarflow, das mir mit seinem Wissen über den MQTT-Server von Zendure sehr geholfen hat! Danke!
 
 ## Changelog
+### 1.14.3 (2025-06-09)
+
+- Fix input and output limit for Solarflow 2400 AC
+
+### 1.14.2 (2025-06-07)
+
+- Fix control states not writable.
+
+### 1.14.1 (2025-06-07)
+
+- IMPORTANT: This version will use a new way to check which states should be created for the device, so maybe something is broken on state creation!
+- Add support for AC2400, Solarflow 800 and Solarflow 800 Pro. All devices are untested as Zendure won't allow to share data to other users on these new devices AND I don't own any of the devices!
+- Removed the "standby usage" on batteries, as it confused some people.
+
+### 1.13.2 (2025-05-07)
+
+- Fix AC Mode showing unknown parameter on ACE 1500
+
+### 1.13.1 (2025-05-05)
+
+- TEST: Set Smart CT Mode and Smart Matching Mode correctly - Feedback needed!
+- Removed efficiency from calculation, as it seems Zendure already included it in charge and discharge values
+
+### 1.13.0 (2025-04-30)
+
+- Add possibility to deactivate automatic restart of adapter in adapter settings (recommended only on local mode!)
+- Fixed missing control state "hubState"
+
 ### 1.12.7 (2025-03-24)
 
 - Add productKey "gDa3tb" for Hyper 2000

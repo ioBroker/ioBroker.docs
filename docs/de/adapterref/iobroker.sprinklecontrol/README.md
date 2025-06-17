@@ -346,12 +346,14 @@ Hier werden die Einstellung der Hauptpumpe (z.B. Grundwasser), einer zweiten Pum
 * **Einstellung der Pumpe**
     * **Hauptpumpe: ** → Durch anklicken des (+) Symbols öffnet sich das Select-ID State Fenster. Hier wird das STATE der Pumpe hinterlegt, welche für die Wasserversorgung zuständig ist.
     * **maximale Pumpenleistung der Hauptpumpe in l/h: ** → Hier wird die maximale Pumpenleistung hinterlegt. Diese begrenzt dann die Bewässerungskreise, damit noch genügend Druck an den Ventilen ansteht.
-        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben.  
+        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben. 
+    * **Vorlaufzeit der Hauptpumpe in s** → Hier können Sie die Vorlaufzeit der Pumpe in Sekunden eingeben, die benötigt wird um den Druck aufzubauen. Nach Ablauf der Zeit werden die Ventile erst zugeschaltet. 
 
 * **Zisternenpumpe in Vorrangschaltung hinzufügen**
     * **Zisternenpumpe** → Hier wird die Pumpe der Zisterne eingetragen. Diese wird deaktiviert, so wie der Füllstand der Zisterne zu gering ist. Wobei die Hauptpumpe, in diesem Fall, die Bewässerung fortsetzt.
     * **maximale Pumpenleistung der Zisterne in l / h** → Hier wird die maximale Pumpenleistung hinterlegt. Diese begrenzt dann die Bewässerungskreise, damit noch genügend Druck an den Ventilen ansteht.
-        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben. 
+        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben.
+    * **Vorlaufzeit der Zisternenpumpe in s** → Vorlaufzeit in Sekunden die benötigt wird um den Druck in den Hauptleitungen aufzubauen.    
     * **Füllhöhe der Zisterne** → Angabe des Füllstandsensors für die Ermittlung der Füllhöhe in %.
         > **eingebaut** → Hm-Sen-Wa-Od kapazitiver Füllstandmesser von HomeMatic.
     * **Mindestfüllstand der Zysten in %** → Schaltpunkt, bei dessen Unterschreitung wird auf die Hauptpumpe umgeschaltet und bei laufender Bewässerung die Ventile je Verbrauchsmenge angepasst.
@@ -674,6 +676,12 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.17 (2025-06-15)
+* (Dirk-Peter-md) Valve timing corrected
+
+### 0.2.16 (2025-06-08)
+* (Dirk-Peter-md) issue #95 Pump lead time added
+
 ### 0.2.15 (2025-06-01)
 * (Dirk-Peter-md) Readme updated
 * (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
@@ -689,15 +697,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ### 0.2.13 (2022-09-06)
 * (Dirk-Peter-md) various bugs fixed
 * (Dirk-Peter-md) Preparing the stable release
-
-### 0.2.12 (2022-07-17)
-* (Dirk-Peter-md) fixDay(twoNd,threeRd) => postpone by one day
-* (Dirk-Peter-md) Bug fixed => autoOn
-* (Dirk-Peter-md) Additional post-watering => in case of high evaporation / switchable externally
-
-### 0.2.11 (2022-05-22)
-* (Dirk-Peter-md) Bug fixed => analog soil moisture sensor with negative characteristic
-* (Dirk-Peter-md) Attention => maximum soil moisture in rain now in %
 
 ## License
 MIT License

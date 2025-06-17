@@ -29,7 +29,9 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Requirements before installation
 
-At least Node.js version 18 must be installed!
+- Node 20, 22 or 24
+- JS-Controller >= 6.0.11
+- Admin >= 7.4.10
 
 A ClientID is required for the adapter. Use the settings for each step to register.
 
@@ -58,6 +60,15 @@ Then save and you have the required ClientID.
 
 Please add Homeconnect App username, password and generated cleintId into adapter config.
 
+## Description
+
+🇬🇧 [Description](/docs/en/README.md)</br>
+🇩🇪 [Beschreibung](/docs/de/README.md)
+
+## Questions
+
+🇩🇪 [Fragen](https://forum.iobroker.net/topic/16446/test-adapter-homeconnect-bsh-home-connect-v0-0-x?_=1749842644389)
+
 ## Usage
 
 With the states in commands you can stop, pause and resume a program.
@@ -72,6 +83,17 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Clean up state roles and code
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Added language selection
+- (Lucky-ESA) Migrated to ESLint 9
+- (Lucky-ESA) Adapter requires js-controller >= 6.0.11 now
+- (Lucky-ESA) Adapter requires admin >= 7.4.10 now
+- (mcm1957) Adapter requires node.js >= 20 now
+
 ### 1.4.3 (2024-11-19)
 
 - (TA2k) fix for -001 devices
@@ -98,7 +120,7 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 The MIT License (MIT)
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

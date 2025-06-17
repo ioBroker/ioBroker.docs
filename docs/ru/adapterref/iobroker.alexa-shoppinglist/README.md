@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-shoppingList
-hash: 6egxt8ZmXvDHA1Wy1yHws/5BBQHshFPj77Kv1TE6mws=
+hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -14,13 +14,13 @@ hash: 6egxt8ZmXvDHA1Wy1yHws/5BBQHshFPj77Kv1TE6mws=
 ![НПМ](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
 # IoBroker.alexa-shoppingList
-**Тесты:** ![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+**Тесты: ** ![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
 ## Alexa-shoppingList адаптер для ioBroker
 Формирует список покупок из Alexa
 
 Вы также можете использовать другие списки из alexa. Настройте их в Admin.
-Когда вы используете новый пользовательский интерфейс Admin, вам будет намного проще.
+Когда вы используете новый пользовательский интерфейс администратора, вам будет намного проще.
 
 Есть Состояние для вставки новых элементов. Просто напишите Текст и нажмите Enter.
 Вы можете удалить активные и неактивные списки.
@@ -34,7 +34,7 @@ hash: 6egxt8ZmXvDHA1Wy1yHws/5BBQHshFPj77Kv1TE6mws=
 
 ## Точки данных
 | Имя DP | Тип | Описание |
-| ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
+|---------------------|--------|-----------------------------------------------------------------------------------------------------|
 | add_position | Строка | Введите текст для вставки в список |
 | delete_activ_list | Кнопка | Очищает активный список и перемещает его в неактивный список |
 | delete_inactiv_list | Кнопка | Очищает неактивный список |
@@ -47,7 +47,7 @@ hash: 6egxt8ZmXvDHA1Wy1yHws/5BBQHshFPj77Kv1TE6mws=
 | to_inactive_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к inactiv_list |
 
 | Атрибут в JSON | Описание |
-| ----------------- | ----------------------------------------- |
+|-------------------|-------------------------------------------|
 | имя | Название товара |
 | время | Временная метка вставки |
 | id | id в адаптере Alexa2 |
@@ -56,7 +56,7 @@ hash: 6egxt8ZmXvDHA1Wy1yHws/5BBQHshFPj77Kv1TE6mws=
 | buttondelete | Кнопка полного удаления элемента |
 
 JSON теперь содержит 2 кнопки для перемещения элементов или удаления.
-Для этого вам нужно вставить код в редакторе VIS в разделе Скрипт, вставьте это:
+Для этого вам нужно вставить код в редакторе VIS в разделе Skript, вставьте это:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -75,6 +75,28 @@ function setOnDblClickCustomShop( myvalue) {
 ![](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/Skript.png)
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+- Breaking change: minimal supported node.js version is 20.x
+
+### 1.0.3 (2024-12-04)
+
+- CHORE: Migration to ESLint 9 and @iobroker/eslint-config
+
+### 1.0.2 (2024-11-09)
+
+- FIX: #97 Add missing attributes to jsonConfig
+
+### 1.0.1 (2024-10-19)
+
+- FEAT: #95 Responsive Design
+
 ### 1.0.0 (2024-08-09)
 
 - Js-controller >=5.0.19 is required
@@ -109,7 +131,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 MIT License
 
-Copyright (c) 2024 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
