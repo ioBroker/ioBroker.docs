@@ -884,7 +884,7 @@ https://github.com/FernetMenta/ioBroker.plenticore-g3
 
 <img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.plenticore-g3/main/admin/plenticore-g3.png" width="100" height="100" />
 
-Adapter to communicate with a KOSTAL Plenticore plus via REST API. This API ist much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as 'processdata' and about 250 writable settings. This API is documented on this URL:
+Adapter to communicate with a KOSTAL Plenticore plus via REST API. This API is much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as `processdata` and about 250 writable settings. This API is documented on this URL:
 
 http://<plenticore host>/api/v1
 
@@ -902,5 +902,17 @@ https://github.com/oweitman/ioBroker.skiinfo
 
 With this adapter you can access the current snow depths for mountain, valley and fresh snow, as well as open lifts for various European locations.
 
+## n8n (31.6.2025) – new adapter
+https://github.com/ioBroker/ioBroker.n8n
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.n8n/main/admin/n8n.svg width="100" height="100" />
+
+With this adapter, you can run n8n workflows in ioBroker and use the data from ioBroker in n8n workflows.
+
+## Backend socket communication (22.6.2025) - new feature
+Additionally, to the WebSocket communication in browser the developers can use the backend socket communication to communicate with the ioBroker system.
+You can communicate with existing ws or admin adapters or create your own socket server.
+
+This is useful for the 3rd party applications, which need to communicate with ioBroker system.
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
