@@ -836,7 +836,7 @@ https://github.com/muffin142/ioBroker.fyta
 
 <img src="https://raw.githubusercontent.com/muffin142/ioBroker.fyta/main/admin/fyta.png" width="100" height="100" />
 
-Unofficial Adapter to connect ioBroker to FYTA plant sensors Sensors can be purchased an the FYTA Shop
+Unofficial Adapter to connect ioBroker to FYTA plant sensors. Sensors can be purchased in the FYTA shop.
 
 ## shrdzm (16.4.2025) – new adapter
 https://github.com/mcm4iob/ioBroker.shrdzm
