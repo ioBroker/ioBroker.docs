@@ -764,22 +764,5 @@
     "conditions": {
       "node-version": "smaller(20.0.0)"
     }
-  },
-  {
-    "title": {
-      "en": "Meet ioBroker at the 2nd Smart Living Forum in Solingen, June 14, 2025",
-      "de": "Treffe ioBroker beim 2. Smart Living Forum in Solingen 14.06.2025"
-    },
-    "content": {
-      "en": "We're excited to be participating with ioBroker again at the 2nd Smart Living Forum in Solingen on June 14, 2025, from 10:00 a.m. to 5:00 p.m. Information and presentations on the topics of smart cities and smart homes await you. Come along! <a href=\"https://solingen.digital/events/smart-living-forum-solingen-am-14-juni-2025/\">Details and agenda</a>",
-      "de": "Wir freuen uns mit ioBroker wieder beim 2. Smart Living Foum in Solingen am 14.06.2025 von 10:00-17:00 Uhr dabei zu sein. Es erwarten Euch Informationen und Vorträge zum Thema Smart City und Smart Home. Kommt vorbei! <a href=\"https://solingen.digital/events/smart-living-forum-solingen-am-14-juni-2025/\">Details und Agenda</a>"
-    },
-    "id": "iobsolingen2025",
-    "class": "info",
-    "fa-icon": "exclamation-circle",
-    "created": "2025-05-24T19:14:00.000Z",
-    "conditions": {
-      "admin": "installed"
-    }
   }
 ]
