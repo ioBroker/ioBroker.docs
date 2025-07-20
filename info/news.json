@@ -764,5 +764,40 @@
     "conditions": {
       "node-version": "smaller(20.0.0)"
     }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.iwg-vpn has been deleted.",
+      "de": "Adapter ioBroker.iwg-vpn wurde gelöscht.",
+      "ru": "Адаптер ioBroker.iwg-vpn был удален.",
+      "pt": "O adaptador ioBroker.iwg-vpn foi excluído.",
+      "nl": "Adapter ioBroker.iwg-vpn is verwijderd.",
+      "fr": "L'adaptateur ioBroker.iwg-vpn a été supprimé.",
+      "it": "L'adattatore ioBroker.iwg-vpn è stato eliminato.",
+      "es": "Se ha eliminado el adaptador ioBroker.iwg-vpn.",
+      "pl": "Adapter ioBroker.iwg-vpn został usunięty.",
+      "uk": "Адаптер ioBroker.iwg-vpn видалено.",
+      "zh-cn": "适配器 ioBroker.iwg-vpn 已被删除。"
+    },
+    "content": {
+      "en": "The adapter ioBroker.iwg-vpn has been deleted by it's maintainer. It is no longer available at github or npm. A deinstallation of the adapter ioBroker.iwg-vpn is recommended.",
+      "de": "Der Adapter ioBroker.iwg-vpn wurde von seinem Betreuer gelöscht. Er ist nicht mehr auf GitHub oder NPM verfügbar. Eine Deinstallation des Adapters ioBroker.iwg-vpn wird empfohlen.",
+      "ru": "Адаптер ioBroker.iwg-vpn был удалён его создателем. Он больше не доступен на GitHub и npm. Рекомендуется удалить адаптер ioBroker.iwg-vpn.",
+      "pt": "O adaptador ioBroker.iwg-vpn foi excluído pelo seu mantenedor. Ele não está mais disponível no GitHub ou no NPM. Recomenda-se a desinstalação do adaptador ioBroker.iwg-vpn.",
+      "nl": "De adapter ioBroker.iwg-vpn is verwijderd door de beheerder. Deze is niet langer beschikbaar op GitHub of NPM. Het wordt aanbevolen de adapter ioBroker.iwg-vpn te de-installeren.",
+      "fr": "L'adaptateur ioBroker.iwg-vpn a été supprimé par son responsable. Il n'est plus disponible sur GitHub ni sur npm. Il est recommandé de le désinstaller.",
+      "it": "L'adattatore ioBroker.iwg-vpn è stato eliminato dal suo gestore. Non è più disponibile su GitHub o NPM. Si consiglia di disinstallarlo.",
+      "es": "El adaptador ioBroker.iwg-vpn ha sido eliminado por su mantenedor. Ya no está disponible en GitHub ni en NPM. Se recomienda desinstalarlo.",
+      "pl": "Adapter ioBroker.iwg-vpn został usunięty przez jego opiekuna. Nie jest już dostępny na GitHubie ani npm. Zaleca się odinstalowanie adaptera ioBroker.iwg-vpn.",
+      "uk": "Адаптер ioBroker.iwg-vpn було видалено його розробником. Він більше не доступний на github або npm. Рекомендується видалити адаптер ioBroker.iwg-vpn.",
+      "zh-cn": "ioBroker.iwg-vpn 适配器已被其维护者删除。该适配器已从 GitHub 和 npm 上移除。建议卸载 ioBroker.iwg-vpn 适配器。"
+    },
+    "id": "iwg-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-07-20T00:00:00.000Z",
+    "conditions": {
+      "iwg-vpn": "installed"
+    }
   }
 ]
