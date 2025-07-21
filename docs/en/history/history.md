@@ -922,4 +922,11 @@ https://github.com/Steiger04/ioBroker.vis-2-widgets-collection
 
 Collection of widgets for ioBroker.vis 2.0
 
+## onlycat (21.7.2025) – new adapter at stable repository
+https://github.com/Sickboy78/ioBroker.onlycat
+
+<img src="https://raw.githubusercontent.com/Sickboy78/ioBroker.onlycat/main/admin/onlycat.png" width="100" height="100" />
+
+Adapter for OnlyCat® cat flaps with prey detection.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
