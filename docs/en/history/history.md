@@ -929,4 +929,11 @@ https://github.com/Sickboy78/ioBroker.onlycat
 
 Adapter for OnlyCat® cat flaps with prey detection.
 
+## drops-weather (21.7.2025) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.drops-weather
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.drops-weather/main/admin/drops-weather.png" width="100" height="100" />
+
+This adapter provides rain data from https://www.drops.live
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
