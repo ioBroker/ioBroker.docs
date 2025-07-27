@@ -936,4 +936,11 @@ https://github.com/iobroker-community-adapters/ioBroker.drops-weather
 
 This adapter provides rain data from https://www.drops.live
 
+## srm (27.7.2025) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.srm
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.srm/main/admin/srm.png" width="100" height="100" />
+
+This is an iobroker adapter to connect to Synology routers. The adapter uses the Synology API to get the data. The adapter is tested with the SRM version 1.3.1. and router model RT6600 but should work with other models as well.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
