@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: Q2OX4G2Y4FGzXN5q/OzU4jrQLAkq9jVnCD1TgAceyog=
+hash: XBvyRjf/p/zeYV++qQGa6dPPtS7TDAsmW5b3pumv92I=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
@@ -15,24 +15,29 @@ hash: Q2OX4G2Y4FGzXN5q/OzU4jrQLAkq9jVnCD1TgAceyog=
 ![NPM](https://nodei.co/npm/iobroker.smartthings.png?downloads=true)
 
 # IoBroker.smartthings
-**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
 
 ## Smartthings-Adapter für ioBroker
 Adapter für Samsung Smartthings
 
-## Loginablauf:
-Besuchen Sie den Link. https://account.smartthings.com/tokens Melden Sie sich mit Ihrem Samsung-Konto an, um zur Seite „Persönliche Zugriffstoken“ zu gelangen.
-Tippen Sie auf die Schaltfläche „Neuen Token generieren“, um auf die Seite „Neuer Zugriffstoken“ zu gelangen.
-Geben Sie einen Namen für das neue Token an. Wählen Sie im Abschnitt „Autorisierte Bereiche“ eine beliebige Funktionalität aus, die Sie für das Token autorisieren möchten.
-Tippen Sie auf die Schaltfläche „Token generieren“, wenn Sie fertig sind, und kehren Sie zur Seite „Persönliche Zugriffstoken“ zurück. Kopieren Sie das neu generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu generierten Tokenwert abzurufen.
+## Anmeldevorgang:
+Öffnen Sie den Link in den Adaptereinstellungen und melden Sie sich an, bis ein weißer Bildschirm angezeigt wird.
+Öffnen Sie die Entwicklerkonsole mit F12 oder Option + Befehl + I, kopieren Sie die blaue URL „samsungconnect://“ und fügen Sie sie in die Einstellungen ein.
 
-## Steuern
-smartthings.0.id.capabilities entweder true setzen oder einen vorgegebenen Wert setzen
+## Controlling
+smartthings.0.id.capabilities entweder auf true setzen oder einen vordefinierten Wert festlegen
 
 ## Diskussion und Fragen:
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
+### 0.2.2 (2025-02-11)
+
+- add new login process
+
+### 0.1.2 (2024-05-19)
+
+- Update Dependencies
 
 - 0.1.0 Added object excluding to reduce cpu usage
 
@@ -44,7 +49,7 @@ https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

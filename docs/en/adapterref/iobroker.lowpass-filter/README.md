@@ -19,6 +19,35 @@ e.g. you can filter power values to cut power peeks.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
+### 2.5.0 (2025-02-18)
+* (BenAhrdt) update dependency from admin and js-controller
+
+### 2.4.1 (2025-01-05)
+* (BenAhrdt) copyrigth changed to 2025
+
+### 2.4.0 (2024-12-04)
+* (BenAhrdt) Changed ESLint
+
+### 2.3.1 (2024-11-26)
+* (BenAhrdt) Changed Schema and responsive tags
+
+### 2.3.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 2.2.5 (2024-08-09)
+* (BenAhrdt) correct changes for check and service bot
+
+### 2.2.4 (2024-08-09)
+* (BenAhrdt) changes for check and service bot
+
+### 2.2.3 (2023-11-12)
+* (BenAhrdt) input check for node => 16
+
 ### 2.2.2 (2023-11-02)
 * (BenAhrdt) correction in jsonconfig schema
 
@@ -67,7 +96,7 @@ e.g. you can filter power values to cut power peeks.
 ## License
 MIT License
 
-Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

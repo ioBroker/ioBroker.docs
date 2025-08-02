@@ -1,40 +1,46 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.imow/README.md
 title: ioBroker.imow
-hash: xUWoOCrzOkYazqOv+cBNbYfB9RgMJVHHhBiOzDOuH/s=
+hash: akO17AN3D+zzSp8F4VGvR6jc/ezOl8VHDCS6vMUJ+TU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.imow/admin/imow.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.imow.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.imow.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.imow.svg)
-![Количество установок (последние)](https://iobroker.live/badges/imow-installed.svg)
+![Количество установок (последних)](https://iobroker.live/badges/imow-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/imow-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.imow.svg)
 ![НПМ](https://nodei.co/npm/iobroker.imow.png?downloads=true)
 
 # IoBroker.imow
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.imow/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.imow/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер imow для ioBroker
+##imow адаптер для ioBroker
 Адаптер для Stihl Viking iMow
 
-## Войти
-Die iMow Mail и пароль автоматически.
+## Логинабауф
+Введите iMow Mail и пароль.
 
-## Штойрн
-imow.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
+## Стойерн
+imow.0.id.remote для true/false setzen steuert den jeweiligen Befehl
 
-## Обсуждение и обсуждение
+## Обсуждение и Fragen
 <https://forum.iobroker.net/topic/55747/test-adapter-stihl-viking-imow>
 
 ## Changelog
 
+### 0.1.1
+
+- Fix login issues
+
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

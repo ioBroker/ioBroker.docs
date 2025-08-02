@@ -45,14 +45,55 @@ read in and the user can filter out the values that are not needed via
 the blacklist. The corresponding data points can be deleted, which 
 makes the number of objects clearer.
 
-Since 16.04.2023 Solarman has switched to a new platform. Further 
-adaptations of the api, as far as they exist, have not been made.
+Since 16.04.2023 Solarman has switched to a new platform - version 0.4.0. 
+Further adaptations of the api, as far as they exist, have not been made.
+
+In versions 0.5.2 to 0.6.x, only developer adjustments were made.
+
+In version 0.7.0, the node-js was raised to the recommended version 20.x 
+and the js-controller >6 was made a prerequisite. Email and app-secret are 
+encrypted. Therefore, both values must be entered again after an update!
+
+In version 0.7.1, only minor adjustments were made to the instance view.
+
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.1 (2025-04-25)
+* (raschy) jsonConfig customized
+
+### 0.7.0 (2025-04-23)
+* (raschy) NodeJS >= 20.x and js-controller >= 6 is required
+* (raschy) email and appsecret is now encrypted, please re-enter!
+
+### 0.6.4 (2025-02-06)
+* (raschy) Developer system to nodejs 22.x updated
+
+### 0.6.3 (2025-01-02)
+* (raschy) Design edited
+* (raschy) Migration from ESLint 8.x to 9.x
+
+### 0.6.2 (2024-11-08)
+* (raschy) responsive-design customized
+* (raschy) updated to adapter-core 3.2.2
+
+### 0.6.1 (2024-08-15)
+* (raschy)  renewed version without changes
+* (raschy) 	Dependencies require minor releases
+
+### 0.6.0 (2024-08-15)
+* (raschy) 	Dependencies require minor releases
+
+### 0.5.3 (2024-08-14)
+* (raschy) 	Warning in schema corrected
+
+### 0.5.2 (2024-08-10)
+* (raschy) 	updated dependencies
+* (raschy)  NodeJS >= 18.x and js-controller >= 5 is required
+
 ### 0.5.1 (2023-09-04)
 * (raschy) Expanded number of modules
 
@@ -156,7 +197,7 @@ adaptations of the api, as far as they exist, have not been made.
 ## License
 MIT License
 
-Copyright (c) 2023 raschy <raschy@gmx.de>
+Copyright (c) 2022-2025 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

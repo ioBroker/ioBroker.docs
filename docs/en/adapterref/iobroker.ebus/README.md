@@ -1,4 +1,4 @@
-﻿![Logo](admin/ebus.png)
+![Logo](admin/ebus.png)
 # ioBroker.ebus
 
 ![Number of Installations](http://iobroker.live/badges/ebus-installed.svg) ![Number of Installations](http://iobroker.live/badges/ebus-stable.svg)
@@ -9,6 +9,16 @@
 ![GitHub Actions](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.ebus.png?downloads=true)](https://nodei.co/npm/iobroker.ebus/)
+
+![node-lts](https://img.shields.io/node/v-lts/iobroker.ebus?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.ebus?label=npm%20dependencies&style=flat-square)
+
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.ebus?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
@@ -30,7 +40,6 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-current supported ebusd-version: 22.3
 
 **Attention** with ebusd - version 22.1 config path has been changed to http://cfg.ebusd.eu/. Make sure you change it in your installation of ebusd.
 details see in [changelog](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
@@ -50,10 +59,92 @@ example:
 Attention: command in datapoint ebus.0.cmd is deleted after executing of command!
 
 
+## Installation / Update
+
+please follow installation instructions for ebusd under [wiki](https://github.com/john30/ebusd/wiki/1.-Build-and-install)
+
+
+in /opt/iobroker/node_modules/iobroker.ebus/lib/scripts you can find a scripts to install and update SBFspot on debian based systems.
+
+
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
    
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.6.2 (2025-06-09)
+* (René) (Galileo53) #419 avoid Warning and error when history list is empty
+
+### 3.6.1 (2025-06-06)
+* (René) changes suggested by adapter checker
+
+### 3.6.0 (2025-06-06)
+* (René) new supported ebusd version is 25.1
+* (René) version info added in admin
+
+### 3.5.2 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 3.5.1 (2025-02-01)
+* (René) translations
+
+### 3.5.0 (2025-01-27)
+* (René) catch exceptions reportet by sentry
+* (René) option to disable check of last update time (see issue #391)
+
+### 3.4.0 (2024-12-10)
+* (René) migration to jsonConfig
+* (René) see issue #383: add optionally parameters to HTTP call
+
+### 3.3.8 (2024-11-24)
+* (René) update dependencies
+* (René) issue  #381: install widgets again
+
+### 3.3.7 (2024-11-20)
+* (René) see issue #380: support of ebusd 24.1, ATTENTION: ebusd creates datapoints with changed names, folders or in different locations
+* (René) see issue #371: test with nodejs@22
+
+### 3.3.6 (2024-08-25)
+ * (René) downgrade of "promise-socket" to 7.0.0
+
+### 3.3.5 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 3.3.4 (2024-07-12)
+ * (René) bug fix after 3.3.2 update
+
+### 3.3.3 (2024-07-12)
+ * (René) downgrade of "promise-socket" to 7.0.0
+
+### 3.3.2 (2024-07-11)
+ * (René) see issue #338: due to error in ebusd json no data are parsed
+
+### 3.3.1 (2024-05-28)
+* (René) change of dependencies
+
+### 3.3.0 (2024-05-24)
+* (René) remove cron dependency
+* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
+
+### 3.2.6 (2024-02-11)
+* (René) see issue #245: support ebusd 23.3
+* (René) fixes reported by eslint
+
+### 3.2.5 (2024-01-12)
+* (René) dependencies updated
+
+### 3.2.4 (2023-11-19)
+* (René) revert back to flat 5.x
+
+### 3.2.3 (2023-11-18)
+* (René) dependencies updated
+* (René) fix sentry reported exceptions
 
 ### 3.2.2 (2023-07-30)
 * (René) dependencies updated
@@ -64,7 +155,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 ### 3.2.0 (2023-02-11)
 * (René) **Attention** polled variables must be set as active in admin now
 * (René) search available variables per circuit added in admin
-* (René) DP "find" added to force read of all existing datapoints (Attention: might take a while) and update name in data point tree 
+* (René) DP "find" added to force read of all existing datapoints (Attention: might take a while) and update name in data point tree
 
 ### 3.1.1 (2023-01-31)
 * (René) support ebusd 23.1
@@ -74,7 +165,6 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * (René) support ebusd 22.4
 * (René) see issue #77: Update data point when read-cmd is used
 * (René) see issue #78: remove CR, LF in answer from ebusd for DP ebus.0.cmdResult
-
 
 ### 3.0.7 (2022-08-20)
 * (René) support ebusd 22.3
@@ -113,57 +203,6 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * (René) update flot to 4.2.2
 * (René) bug fix missing space in command when using circuit name
 
-## 2.4.3 (2021-10-21)
-* (René) see issue #58: bug fix for Warn: ignoring history value 1 (invalid)" when no history values set
-
-## 2.4.2 (2021-10-19)
-* (René) see issue #55: bug fix
-
-## 2.4.0 (2021-10-17)
-* (René) overwork handling of read datapoints and history datapoints, circuit added optionally
-* (René) command can now include more then one command, just separate commands with ','
-* (René) see issue #55: warnings changed to debug messages
-
-## 2.3.2 (2021-09-02)
-* (René) see issue #49: support for ebusd 21.2
-* (René) see issue #40: option to use boolean instead string for values with on/off
-* (René) dependencies updated
-
-## 2.2.7 (2021-07-03)
-* (René) dependencies updated
-* (René) see issue #48: bug fix for wrong data type logs
-
-## 2.2.5 (2021-03-21)
-* (René) dependencies updated
-
-## 2.2.4 (2021-02-17)
-* (René) see issue #42: Uncaught ReferenceError: oView is not defined in widget solved
-
-## 2.2.3 (2020-10-24)
-* (René) create history DP if not available 
-
-## 2.2.0 (2020-09-06)
-* (René) change DP only if necessary to reduce system load
-* (René) update dependencies
-
-## 2.1.1 (2020-06-27)
-* (René) issue #26: bug fix: "cmd not found" is only debug message instead of error
-
-## 2.1.0 (2020-06-17)
-* (René) refactoring:  'async/await' used
-
-## 2.0.0 (2020-04-26)
-* (René) "request" replaced by "bent"
-
-## 1.0.0 (2019-12-15)
-* (René) update to my own flot 3.0
-
-## 0.8.2 (2019-11-10)
-* (René) some more error messages in datapoint "error"
-
-## 0.8.1 (2019-10-31)
-* (René) update flot to version 3.0
-
 ### 0.8.0 (2019-02-24)
 * (René) hcmode2 value 5 = EVU Sperrzeit
 
@@ -192,13 +231,13 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * (René) write date over TCP to ebusd
 
 ### 0.4.2
-* (René) bug fix for admin V3 
+* (René) bug fix for admin V3
 
 ### 0.4.1 
-* (René) logo changed 
+* (René) logo changed
 
 ### 0.4.0 
-* (René) reading data from ebusd 
+* (René) reading data from ebusd
 
 ### 0.3.0 
 * (René) support of ebusd 
@@ -220,7 +259,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -239,6 +278,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-

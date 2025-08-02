@@ -14,7 +14,7 @@ Beispiel: Eine RGB-Lampe kann folgende drei Objekte (oder mehr) mit unterschiedl
 
 Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und optionalen Objekten und deren Rollen verwendet werden, finden Sie in den [Typ-Detektor-Repository](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
-## Allgenmein
+## Allgemein
 * `state` - sehr allgemeiner Zweck, zu verwenden, wenn nicht bekannt ist, welche Rolle der Datenpunkt hat.
 * `text` `common.type = string`
 * `text.url` `common.type = string` val enthält eine URL zur Verwendung in einem Anker, iframe oder img

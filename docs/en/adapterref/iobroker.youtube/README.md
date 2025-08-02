@@ -19,8 +19,8 @@ BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
 
 ## Requirements
 
-- nodejs 16.0 (or later)
-- js-controller 4.0.15 (or later)
+- nodejs 18.0 (or later)
+- js-controller 5.0.0 (or later)
 - Admin Adapter 6.0.0 (or later)
 
 ## Configuration
@@ -77,39 +77,36 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 6.0.0 (2025-03-16)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+### 5.1.1 (2024-11-12)
+
+* (@klein0r) Added video list (yesterday)
+
+### 5.1.0 (2024-11-11)
+
+* (klein0r) Added groups
+* (klein0r) Added icons of channels to object list
+
+### 5.0.0 (2024-04-03)
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (klein0r) Better way to get channel id by alias
+
 ### 4.4.0 (2023-10-25)
 
 NodeJS 16.x is required
 
 * (klein0r) Added icons to admin tabs
 
-### 4.3.0 (2023-08-28)
-
-* (klein0r) Added customUrl to JSON summary
-
-### 4.2.1 (2023-03-13)
-
-* (klein0r) Video data as JSON
-
-### 4.2.0 (2023-02-03)
-
-* (klein0r) Allow alias or custom url in configuration
-* (klein0r) Added request success indicators
-* (klein0r) Added Ukrainian language
-
-### 4.1.0 (2022-11-10)
-
-NodeJS >= 14.5 is required
-
-* (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

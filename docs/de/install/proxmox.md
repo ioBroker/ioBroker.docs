@@ -14,7 +14,7 @@ lastChanged: 12.08.2023
 
 Proxmox Virtual Environment (kurz Proxmox VE) ist eine auf Debian basierende Virtualisierungsplattform. Die Technik der Virtualisierung basiert bei Proxmox auf QEMU/KVM.
 
-Proxmox „verpackt“ QEMU/KVM in eine eigenen Web-Oberfläche und macht die Administration damit recht einfach (und unterstützt darüber hinaus auch noch Linux Containers – LXC). Dadurch ist Proxmox auf der einen Seite einsteigerfreundlich, auf der anderen Seite aber auch so mächtig, dass es auch im professionellen Umfeld genutzt werden kann.
+Proxmox „verpackt“ QEMU/KVM in einer eigenen Web-Oberfläche und macht die Administration damit recht einfach (und unterstützt darüber hinaus auch noch Linux Containers – LXC). Dadurch ist Proxmox auf der einen Seite einsteigerfreundlich, auf der anderen Seite aber auch so mächtig, dass es auch im professionellen Umfeld genutzt werden kann.
 
 Dieser Abschnitt zeigt an einem Beispiel die Installation und Grundkonfiguration von Proxmox in der kostenlosen Variante (non-subscription).
 
@@ -120,7 +120,9 @@ Im Anschluss wird das Passwort des root-Users eingegeben. Ebenso wird hier eine 
    
 </details>
 
-Der nächste Schritt des Installers beschäftigt sich mit den Netzwerk-Einstellungen. Hier ist eine statische IP-Adresse anzugeben (kein DHCP). Dazu zählt die IP-Adresse selbst (als CIDR-Notation), die Gateway-IP (normalerweise die IP-Adresse des Routers) und der zu verwendende DNS-Server (im privaten Umfeld meist auch die IP-Adresse des Routers). Proxmox erkennt meist das Netzwerk automatisch.
+Der nächste Schritt des Installers beschäftigt sich mit den Netzwerk-Einstellungen. Zur Auswahl steht die jeweilige Schnittstelle. Hostname kann frei gewählt werden, jedoch muss die DNS-Domane mit angegeben werden.
+Als Beispiel für Fritzbox User, wäre es `hostname.fritz.box`.
+Bei IP Adress ist vorzugsweise eine statische IP-Adresse anzugeben (kein DHCP). Dazu zählt die IP-Adresse selbst (als CIDR-Notation), die Gateway-IP (normalerweise die IP-Adresse des Routers) und der zu verwendende DNS-Server (im privaten Umfeld meist auch die IP-Adresse des Routers). Proxmox erkennt meist das Netzwerk automatisch.
 
 <details>
 <summary>Netzwerk</summary>
@@ -238,9 +240,9 @@ Hier öffnet sich dann die Web-Konsole und man kann den Fortschritt beobachten.
 
 Es ist natürlich auch möglich, den Proxmox-Server über die Kommandozeile (z.B. per SSH) upzudaten:
 
-~~~
+```bash
 apt update && apt dist-upgrade
-~~~
+```
 
 Wichtig ist hier nur, dass man ein **apt dist-upgrade** verwendet (auf „normalen“ Debian/Ubuntu-Maschinen nutzt man ja eher apt upgrade). Das „dist-upgrade“ ist bei Proxmox allerdings wichtig, da hier Abhängigkeiten besser aufgelöst werden, die zum Betrieb von Proxmox benötigt werden.
 
@@ -250,15 +252,15 @@ Insofern ist Proxmox nun in seiner Grundkonfiguration abgeschlossen. Wenn man si
 
 ## Proxmox - Erstellen einer Virtuellen Qemu/KVM-Maschine (VM) + ioBroker Installation im Anschluß
 
-Diese Beispiel-Anleitung zeigt wie eine [VM](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11) erstellt und anschließend ioBroker darin installiert wird.
+Diese Beispiel-Anleitung zeigt wie eine [VM](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian stable (Stand 30.10.2024 = Debian 12 'Bookworm')) erstellt und anschließend ioBroker darin installiert wird.
 
-Es ist natürlich möglich anstatt Debian auch ein Ubuntu zu verwenden, jedoch ist hierbei darauf zu achten, eine Ubuntu Server **LTS Version** zu verwenden.
+Es ist natürlich möglich, anstatt Debian auch ein Ubuntu zu verwenden, jedoch ist hierbei darauf zu achten, eine Ubuntu Server **LTS Version** zu verwenden.
 
 Aufgrund der Übersichtlichkeit, sind Bildbeschreibungen und Zusatzinfo's zum aufklappen.
 
 ### 1 - ISO-Image herunterladen
 
-Zuerst wird ein [ISO-Image](https://www.debian.org/distrib/)(64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
+Zuerst wird ein [ISO-Image](https://www.debian.org/distrib/) (64-Bit-PC Netinst-ISO) benötigt, welches in der Grundinstallation (sofern keine weiteren Laufwerke angelegt wurden) ins root Verzeichnis (local) geladen werden muss.
 
 Hierzu geht man auf local > ISO-Images. Dort gibt es zwei Möglichkeiten.
 
@@ -333,6 +335,7 @@ Hierbei wird man durch die Installation geführt und muss währenddessen einige 
 Hinweis:
 
 **iobroker** nicht als Benutzernamen wählen, da dieser schon Systemintern verwendet wird.
+Der Benutzername sollte lediglich aus Kleinbuchstaben und den Ziffern 0-9 bestehen und mit einem Buchstaben beginnen. Ebenfalls zulässig ist der Bindestrich, allerdings nicht als erstes Zeichen. 
 
 
 <details>
@@ -396,13 +399,13 @@ Hinweis:
 
 ### 4 - VM einrichten
 
-VM neustarten, danach loggt man sich mit dem aus der Installation vergebenen "Benutzername" und "Passwort" ein. Anschliessend wird mit dem Befehl
+VM neu starten, danach loggt man sich mit dem aus der Installation vergebenen "Benutzername" und "Passwort" ein. Anschliessend wird mit dem Befehl
 
-~~~
+```bash
 ip addr
-~~~
+```
 
-die IP Adresse ausfindig gemacht. Diese wird benötigt, um wie im nächsten Schritt, sich remote per ssh mit der VM zu verbinden.
+die IP-Adresse ausfindig gemacht. Diese wird benötigt, um wie im nächsten Schritt, sich remote per ssh mit der VM zu verbinden.
 
 <details>
 <summary>ip addr</summary>
@@ -411,12 +414,12 @@ die IP Adresse ausfindig gemacht. Diese wird benötigt, um wie im nächsten Schr
 
 </details>
 
-Nun kann per ssh (z.b. Putty) auf die VM zugegriffen werden. Hier loggt man sich ebenfalls wieder mit "Benutzername" und "Passwort" ein.
+Nun kann per ssh (z.b. PuTTY) auf die VM zugegriffen werden. Hier loggt man sich ebenfalls wieder mit "Benutzername" und "Passwort" ein.
 Anschließend kann die Netzwerkadresse von **dhcp** auf **statisch** geändert werden. (was bei Serverbetrieb zu empfehlen ist)
 
-~~~
+```bash
 sudo nano /etc/network/interfaces
-~~~
+```
 
 <details>
 <summary>network/interfaces</summary>
@@ -434,9 +437,9 @@ sudo nano /etc/network/interfaces
 
 Änderungen der IP werden erst nach einem Neustart der VM wirksam. Zuvor wird jedoch noch geprüft, ob der Qemu-Guest-Agent aktiv ist, mittels
 
-~~~
+```bash
 sudo systemctl status qemu-guest-agent
-~~~
+```
 
 <details>
 <summary>Guest-Agent</summary>
@@ -450,15 +453,15 @@ sudo systemctl status qemu-guest-agent
 
 Befehle dazu:
 
-~~~
+```bash
 sudo apt-get install qemu-guest-agent
 sudo systemctl start qemu-guest-agent
-~~~
+```
 
 Desweitern, um iobroker installieren zu können, muss **curl** noch nachinstalliert werden.
-~~~
+```bash
 sudo apt install curl
-~~~
+```
 
 <details>
 <summary>curl nachinstallieren</summary>
@@ -569,10 +572,9 @@ Nachdem der Container nun gestartet wurde, begibt man sich auf die Konsole des L
 
 Hier loggt man sich zunächst als root mit dem zuvor vergebenen Passwort, welches beim LXC erstellen vergeben wurde, ein und bringt diesen erst einmal auf einen aktuellen  Stand.
 
-~~~
+```bash
 apt update && apt upgrade
-~~~
-
+```
 
 <details>
 <summary>Upgrade</summary>
@@ -583,9 +585,9 @@ apt update && apt upgrade
 
 Hierbei wird direkt darauf hingewiesen, das die Zeitzone noch eingestellt werden muss.
 
-~~~
+```bash
 dpkg-reconfigure tzdata
-~~~
+```
 
 
 <details>
@@ -602,9 +604,9 @@ dpkg-reconfigure tzdata
 
 Nun wird **sudo** und **curl** nachinstalliert. Sudo wird benötigt, um wie im nächsten Schritt, einen Benutzer korrekt anzulegen, mit dem zukünftig auf der Konsole gearbeitet wird. Curl ist nötig, um im letzten Schritt das IoBroker Installationsscript abzurufen.
 
-~~~
+```bash
 apt install sudo curl
-~~~
+```
 
 
 <details>
@@ -621,15 +623,22 @@ Hinweis:
 
 **iobroker** nicht als Benutzernamen wählen, da dieser schon Systemintern verwendet wird.
 
-~~~
+```bash
 adduser benutzername
-~~~
+```
 
 Anschließend muss der User noch der sudo Gruppe zugeordnet werden.
 
-~~~
+```bash
 usermod -aG sudo benutzername
-~~~
+```
+
+Falls ein User nachträglich angelegt werden soll muss dieser noch per 
+
+```bash
+usermod -aG adm,dialout,sudo,audio,video,plugdev,users,iobroker benutzername
+```
+den relevanten Gruppen hinzugefügt werden. 
 
 <details>
 <summary>User anlegen</summary>
@@ -639,13 +648,13 @@ usermod -aG sudo benutzername
 </details>
 
 
-Im letzen Schritt, bevor ioBroker installiert wird, einmal ausloggen
+Im letzten Schritt, bevor ioBroker installiert wird, einmal ausloggen
 
-~~~
+```bash
 exit
-~~~
+```
 
-und anschließend mit den Neuen Benutzer einloggen. Im Anschluß kann iobroker jetzt installiert werden.
+und anschließend mit den neuen Benutzer einloggen. Im Anschluß kann iobroker jetzt installiert werden.
 
 <details>
 <summary>ausloggen und mit Benutzer anmelden</summary>
@@ -664,6 +673,58 @@ Damit der LXC auch nach einem reboot des Rechners(Proxmox) automatisch startet, 
 
 </details>
 
+### Optional: Warnungen / Fehlermeldungen bzgl. nicht gestarteter Services beheben
+
+Beim Aufruf iob diag können beispielsweise untenstehende Fehlermeldungen in der Ausgabe zu finden sein.
+Teilweise treten sie nur bei nicht privilegierten Containern aus, teilweise auch bei privilegierten Containern.
+
+~~~
+....
+*** FAILED SERVICES ***
+
+  UNIT                                 LOAD   ACTIVE SUB    DESCRIPTION
+* run-rpc_pipefs.mount                 loaded failed failed RPC Pipe File System
+* sys-kernel-config.mount              loaded failed failed Kernel Configuration File System
+* systemd-networkd-wait-online.service loaded failed failed Wait for Network to be Configured
+...
+~~~
+
+
+Wenn man den Container schon vor dem Installieren von iobroker aufräumen will, kriegt man die "FAILED SERVICES" folgendermaßen:
+
+```bash
+systemctl list-units --failed
+```
+
+Hier eine Sammlung von Vorgehensweisen zur Behebung:
+
+#### failed service run-rpc_pipefs.mount
+
+```bash
+sudo systemctl mask run-rpc_pipefs.mount
+sudo systemctl mask var-lib-nfs-rpc_pipefs.mount
+```
+
+#### failed service sys-kernel-config.mount
+
+An die Container Konfigurationsdatei im Verzeichnis `/etc/pve/lxc` folgende Zeile anhängen:
+
+~~~
+lxc.cap.drop: "sys_rawio audit_read" 
+~~~
+
+#### failed service systemd-networkd-wait-online.service
+
+Ersetzen des `ifupdown` Service durch `ifupdown2`:
+
+```bash
+sudo systemctl disable --now systemd-networkd-wait-online.service
+sudo systemctl disable --now systemd-networkd.service
+sudo systemctl disable --now ifupdown-wait-online
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install ifupdown2
+```
 
 ---
 
@@ -671,9 +732,9 @@ Damit der LXC auch nach einem reboot des Rechners(Proxmox) automatisch startet, 
 
 Für die Installation von ioBroker benötigt man lediglich einen einzigen Befehl.
 
-~~~
+```bash
 curl -sLf https://iobroker.net/install.sh | bash -
-~~~
+```
 
 Die Installationschritte dabei, sind in 4 Schritten unterteilt, welche vollautomatisch durchlaufen.
 
@@ -758,17 +819,17 @@ In der Anleitung wird das Einbinden eines **Texas Instruments Inc. CC2531** Zigb
 
 Aufbau einer SSH-Verbindung zu Proxmox:
 
-~~~
+```bash
 ssh root@IP-Adresse
-~~~
+```
 
 <span style="color:red">**Sollte das USB-Gerät bereits mit dem Proxmox Host verbunden sein, stecke das Gerät vorerst ab.**</span>
 
 Mit folgendem Befehl werden alle aktuell verbunden USB-Geräte am Proxmox Host aufgelistet: 
 
-~~~
+```bash
 lsusb
-~~~
+```
  
 ![proxmoxlxc00](media/proxmox/proxmoxlxc00.PNG)
 
@@ -780,9 +841,9 @@ Im Screenshot ist zusehen das ein neues Gerät mit der USB-Bus-Nummer: **001** u
 
 Diese Informationen werden benötigt um mit dem folgenden Befehl u. a. die **major device number** vom Gerät auszugeben:
 
-~~~
+```bash
 ls -l /dev/bus/usb/001/003
-~~~
+```
 
 Wichtig verwende bei dem Befehl die Ausgabe deiner USB-Bus-Nummer und Device-Nummer!
 
@@ -795,10 +856,10 @@ Das USB-Gerät hat in diesem Beispiel die major device number **189**, notiere d
 ![proxmoxlxc03](media/proxmox/proxmoxlxc03.PNG)
  
 Als nächstes geben wir die unique id des USB-Gerätes aus und notieren den Ausgabe Wert in der Textdatei mit dem Vermerk: #2
- 
-~~~
+
+```bash
 ls /dev/serial/by-id/
-~~~
+```
 
 ![proxmoxlxc04](media/proxmox/proxmoxlxc04.PNG)
 
@@ -806,9 +867,9 @@ ls /dev/serial/by-id/
  
 Als letzten Schritt wird die major device number des ttyACM ausgegeben und mit dem Vermerk: #3 notiert:
 
-~~~
+```bash
 ls -l /dev/ttyACM*
-~~~
+```
 
 ![proxmoxlxc06](media/proxmox/proxmoxlxc06.PNG)
  
@@ -826,9 +887,9 @@ Somit haben wir **drei** Werte vom USB-Gerät notiert die für das Einbinden in 
 
 Am Proxmox Host ins LXC Konfigurationsverzeichnis wechseln mit:
 
-~~~
+```bash
 cd /etc/pve/lxc
-~~~
+```
 
 Die Konfigurationsdatei hat die gleiche ID Nummer die bei der Erstellung des lxc vergeben wurde!
  
@@ -838,17 +899,17 @@ Die Konfigurationsdatei hat die gleiche ID Nummer die bei der Erstellung des lxc
  
 Bevor die Konfigurationsdatei bearbeitet wird, sollte eine Sicherheitskopie erstellt werden:
 
-~~~
+```bash
 cp 201.conf 201.conf.backup
-~~~
+```
 
 ![proxmoxlxc10](media/proxmox/proxmoxlxc10.PNG)
  
 Nun wird die Konfigurationsdatei mit vi oder nano bearbeitet:
 
-~~~
+```bash
 nano 201.conf
-~~~
+```
  
 ![proxmoxlxc11](media/proxmox/proxmoxlxc11.PNG)
 
@@ -866,7 +927,6 @@ Ersetze die markierten Werte mit den vermerkten Einträgen aus deiner Notiz!
 
 ![12](media/proxmox/proxmoxlxc12.PNG)
 
-
 * Die erste Zeile bezieht sich auf die major device number **189** Vermerk: #1
 * In der zweiten Zeile wird die unique id (usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00) aus Vermerk: #2 einzeln und mit dem absoluten Pfad angegeben, beachte das der komplette Text in einer Zeile ohne Zeilenumbruch geschrieben wird.
 * In der dritten Zeile wird die major device number **166** von ttyACM aus Vermerk: #3 angegeben.
@@ -879,7 +939,7 @@ Die Konfigurationsdatei abspeichern (Im Nano Editor mit der Tastenkombination: S
 
 <details>
 
-Dann gehört der lxc.cgroup Code nicht an das Ende der Config Datei sondern vor den ersten Eintrag eines Snaphots. 
+Dann gehört der lxc.cgroup Code nicht an das Ende der Config-Datei sondern vor den ersten Eintrag eines Snapshots. 
 
 ![proxmoxlxc18](media/proxmox/proxmoxlxc18.PNG)
 
@@ -906,19 +966,19 @@ lxc.cgroup
 </br>  
 Abschließend noch folgenden Befehl absetzen um die benötigten Rechte für ttyACM0 zu setzen:
 
-~~~
+```bash
 chmod o+rw /dev/ttyACM*
-~~~
+```
 
 Um die Anpassungen am lxc zu übernehmen einen cold boot vom Container mit **pct stop id / pct start id** durchführen:
 
-~~~
+```bash
 pct stop 201
-~~~
+```
 
-~~~
+```bash
 pct start 201
-~~~
+```
 
 </br>  
 
@@ -934,32 +994,32 @@ pct start 201
 
 Aufbau einer SSH-Verbindung zum LXC:
 
-~~~
+```bash
 ssh Benutzer@IP-Adresse
-~~~
+```
 
 Mit den befehlen:
 
-~~~
+```bash
 lsusb
-~~~
+```
 
 &
 
-~~~
+```bash
 ls -l /dev
-~~~
+```
 
 wird überprüft ob die Anpassungen an der Konfigurationsdatei erfolgreich waren.
  
 ![proxmoxlxc13](media/proxmox/proxmoxlxc13.PNG)
  
-* Wie im Screenshot zu sehen hat nun der Container Zugriff auf das USB-Gerät.
+* Wie im Screenshot zu sehen, hat nun der Container Zugriff auf das USB-Gerät.
 
 * Wichtig hierbei ist das ttyACM0 die gleichen Rechte hat im Screenshot also **crw-rw-rw- 1 nobody nogroup**
 >***Wenn nicht überprüfe ob alle Werte in der Konfigurationsdatei so gesetzt sind wie beschrieben, sollten die Rechte dann immer noch nicht übereinstimmen springe zu Punkt 5.***
 
-* Im Screenshot ist ebenfalls zusehen das sich die Device Nummer vom cc2531 von dem Wert 3 auf 4 verändert hat, dies liegt daran das der Stick zwischenzeitlich einmal aus- und wieder angesteckt wurde. Da in der Konfigurationsdatei aber die unique id und nicht die Bus/Device Nummer angegeben ist funktioniert der USB Passthrough weiterhin.
+* Im Screenshot ist ebenfalls zusehen das sich die Device-Nummer vom cc2531 von dem Wert 3 auf 4 verändert hat, dies liegt daran das der Stick zwischenzeitlich einmal aus- und wieder angesteckt wurde. Da in der Konfigurationsdatei aber die unique id und nicht die Bus/Device Nummer angegeben ist funktioniert der USB Passthrough weiterhin.
 
 
 
@@ -981,17 +1041,17 @@ angegeben werden damit das korrekte Gerät vom Adapter angesprochen wird.
 
 Am Ende von Schritt 3 wurde mit dem Befehl 
 
-~~~
+```bash
 chmod o+rw /dev/ttyACM*
-~~~
+```
 
 die passenden Rechte für ttyACM0 gesetzt, diese Rechte Änderungen werden aber mit Neustart des Proxmox Host zurückgesetzt, für eine permanente Anpassung wird auf dem Proxmox Host eine udev Regel benötigt. 
 
 Mit lsusb listen wir wieder die aktuell verbunden USB-Geräte auf:
 
-~~~
+```bash
 lsusb
-~~~
+```
 
 ![proxmoxlxc15](media/proxmox/proxmoxlxc15.PNG)
  
@@ -1001,9 +1061,9 @@ Diesmal notieren wir uns die Zahlenwerte Werte nach ID in diesem Fall also **045
 
 Nun wird mit vi oder nano die udev Regel unter /etc/udev/rules.d erstellt:
 
-~~~
+```bash
 nano /etc/udev/rules.d/50-myusb.rules
-~~~
+```
 
 und folgender Inhalt eingefügt:
 
@@ -1016,9 +1076,9 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", GROUP="use
 
 Abschließend noch folgenden Befehl ausführen um die udev Regel zu aktivieren:
 
-~~~
+```bash
 udevadm control –-reload
-~~~
+```
 
 </details>
 
@@ -1028,10 +1088,10 @@ udevadm control –-reload
 
 **Fehler:** ttyACM0 Rechte im lxc passen nicht bzw. gehen nach kurzer Zeit verloren (ConBee II).
 
-~~~
+```bash
 ls -l /dev/ttyACM0
  c--------- 0 nobody nogroup 166, 0 Feb  7 14:29 ttyACM0
-~~~
+```
 
 </br>
 
@@ -1041,17 +1101,17 @@ ls -l /dev/ttyACM0
 
 Dazu wird im Pfad **"/var/lib/lxc/CONTAINERID"** der Ordner **devices** erstellt und in diesem Ordner mit mknod die Bindung erzeugt: 
 
-~~~
+```bash
 mkdir /var/lib/lxc/201/devices
-~~~
+```
 
-~~~
+```bash
 cd /var/lib/lxc/201/devices
-~~~
+```
 
-~~~
+```bash
 mknod -m 666 ttyACM0 c 166 0
-~~~
+```
 
 + *mknod erstellt in dem Pfad eine Datei namens ttyACM0 (solange die Datei existiert ist das Gerät an den lxc gebunden)*
 
@@ -1102,9 +1162,9 @@ die folgenden Befehle setzen root voraus, sollte ein eigener User auf dem Host v
 
 Zuerst macht man das Device mittels [lsblk](https://wiki.ubuntuusers.de/lsblk/) ausfindig. Dabei ist es ratsam den Befehl einmal vor und nach dem Einstecken auszuführen. Dadurch lässt sich das Device leichter identifizieren.
 
-~~~
+```bash
 lsblk
-~~~
+```
 
 sieht dann in etwa so aus (Buchstaben varieren, je nachdem wie viele Geräte eingebunden sind)
 
@@ -1122,18 +1182,18 @@ sr1                   11:1    1  1024M  0 rom
 
 Mit dem menügesteuerten [cfdisk](https://wiki.ubuntuusers.de/fdisk/) wird das Laufwerk partitioniert
 
-~~~
+```bash
 cfdisk /dev/sde
-~~~
+```
 
 ### 3 - Filesystem erstellen
 
 Nun muss die zuvor erstellte Partition noch formatiert werden. Wie oben bereits erwähnt, gibt es verschiedene Möglichkeiten, abhänging vom jeweilegen Verwendungszweck.
 Mit dem Befehl [mkfs](https://wiki.ubuntuusers.de/Formatieren/) und den passenden Parametern wird die Partition formatiert.
 
-~~~
+```bash
 mkfs.vfat /dev/sde1
-~~~
+```
 
 ### 4 - Laufwerk mounten
 
@@ -1144,28 +1204,28 @@ Dazu wird ein passender Mountpoint erstellt und damit der Datenträger auch nach
 Hierzu muss die eindeutige **UUID** des Laufwerks ausgelesen werden.
 
 Mountpoint erstellen
-~~~
+```bash
 mkdir /media/ext_usb
-~~~
+```
 
 Datenträger mounten
-~~~
+```bash
 mount /dev/sde1 /media/ext_usb
-~~~
+```
 
 UUID ermitteln
-~~~
+```bash
 blkid | grep -i sde
-~~~
+```
 ergibt
 ~~~
 /dev/sde1: LABEL="Export_Bilder" UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" UUID_SUB="951e8519-8478-4d64-b093-c3597147f989" BLOCK_SIZE="4096" TYPE="btrfs" PARTUUID="00011a10-01"
 ~~~
 
 Eintrag in der */etc/fstab* mit nano bearbeiten
-~~~
+```bash
 nano /etc/fstab
-~~~
+```
 nun wird dieser Eintrag hinzugefügt und anschließend gespeichert
 ~~~
 UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ext_usb vfat defaults 0 0

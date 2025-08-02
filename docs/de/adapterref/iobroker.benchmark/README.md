@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.benchmark/README.md
-title: ioBroker.Benchmark
-hash: ahz/yZR5iynDlTF3vc+pqkZzrbd4T9kSbBcIlRrGRTk=
+title: ioBroker.benchmark
+hash: brxDyt/UU9UqJNVafQVjgXMie7jujWu3vCENfPN/0xI=
 ---
 ![Logo](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -13,29 +13,29 @@ hash: ahz/yZR5iynDlTF3vc+pqkZzrbd4T9kSbBcIlRrGRTk=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/benchmark-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)
 
-# IoBroker.Benchmark
-**Tests:** ![Testen und freigeben](https://github.com/foxriver76/ioBroker.benchmark/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.benchmark
+**Tests:** ![Testen und Freigeben](https://github.com/foxriver76/ioBroker.benchmark/workflows/Test%20and%20Release/badge.svg)
 
 ## Benchmark-Adapter für ioBroker
 Benchmarken Sie Ihr System.
 
-## Wichtig: Information für Benutzer
-Beachten Sie, dass der Zweck des Adapters in seinem aktuellen Zustand hauptsächlich darin besteht, verschiedene Szenarien zu vergleichen, um Einblicke in Änderungen auf js-Controller-Ebene zu erhalten.
-Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Beachten Sie auch, dass der Benchmark-Adapter standardmäßig in einem isolierten Modus ausgeführt wird, der alle Adapter deaktiviert und nur den Controller und sich selbst am Leben erhält. Außerdem muss der Adapter immer mit der Instanznummer `0` betrieben werden.
+## Wichtig: Informationen für Benutzer
+Beachten Sie, dass der Adapter in seinem aktuellen Zustand hauptsächlich dazu dient, verschiedene Szenarien zu vergleichen, um Erkenntnisse über Änderungen auf JS-Controller-Ebene zu gewinnen.
+Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Beachten Sie auch, dass der Benchmark-Adapter standardmäßig in einem isolierten Modus ausgeführt wird, der alle Adapter deaktiviert und nur den Controller und sich selbst am Leben hält. Darüber hinaus muss der Adapter immer mit der Instanznummer `0` ausgeführt werden.
 
 ## Wie füge ich einen neuen Test hinzu?
 1. Erstellen Sie eine neue TypeScript-Datei in src/lib/activeTests mit einer Klasse, die von TestUtils erbt
-2. Definieren Sie die drei (fünf) Schritte Ihres Tests (Durchführung wird automatisch gemessen)
-3. Optional: Wenn Ihr Test einige Anforderungen hat, z.B. Controller muss `>=3.0.0` sein, bitte übergeben Sie die Anforderungen an
+2. Definieren Sie die drei (fünf) Schritte Ihres Tests (die Ausführung wird automatisch gemessen)
+3. Optional: Wenn Ihr Test bestimmte Anforderungen hat, z. B. muss der Controller `>=3.0.0` sein, geben Sie die Anforderungen bitte weiter an
 
 der übergeordnete Konstruktor
 
 4. Fügen Sie Ihren Test zu src/lib/allTests.ts hinzu
-5. Fügen Sie admin/jsonConfig.json eine Schaltfläche und eine Übersetzung für Ihren Test hinzu
+5. Fügen Sie eine Schaltfläche und eine Übersetzung für Ihren Test zu admin/jsonConfig.json hinzu
 
 ### Testanforderungen
 Einige Tests können Anforderungen haben. Wenn das System die Anforderungen nicht erfüllt, wird der Test übersprungen.
-Im Konstruktor sollten Sie die Anforderungen an die übergeordnete Klasse übergeben, z
+Im Konstruktor sollten Sie die Anforderungen an die übergeordnete Klasse übergeben, wie
 
 ```typescript
 public constructor(adapter: AdapterInstance) {
@@ -43,13 +43,13 @@ public constructor(adapter: AdapterInstance) {
 }
 ```
 
-Derzeit werden die folgenden Anforderungen unterstützt:
+Derzeit werden folgende Anforderungen unterstützt:
 
 - `controllerVersion` - wenn Methoden getestet werden, die mit einer bestimmten Controller-Version eingeführt wurden, der Benchmark
 
 Adapter sollte nicht versuchen, diese Tests auf einem nicht unterstützenden Controller auszuführen
 
-- `freeMemory` - definieren Sie den benötigten Speicher des Tests, dies ist nur notwendig, wenn Sie z.B. viele Instanzen hinzufügen
+- `freeMemory` - definiert den benötigten Speicher des Tests, dies ist nur notwendig, wenn Sie z.B. viele Instanzen hinzufügen
 
 ## Testbeschreibung
 ### GetStates
@@ -62,10 +62,10 @@ Führt `iterations` mal `getState` auf einem Alias aus.
 Führt `iterations` mal `getState` auf einem Alias aus. Der Alias hat eine einfache Lesefunktion.
 
 ### GetStatesMulti
-Erzeugt 10.000 Zustände und führt dann `iterations` mal `getStates` auf ihnen aus.
+Erstellt 10.000 Zustände und führt dann `iterations` mal `getStates` auf ihnen aus.
 
 ### GetStatesMultiAlias
-Erzeugt 10.000 Alias-Zustände und führt dann `iterations` mal `getStates` auf ihnen aus.
+Erstellt 10.000 Aliaszustände und führt dann `iterations` mal `getStates` auf ihnen aus.
 
 ### Leerlauf
 Wartet einfach `iterations` ms.
@@ -75,50 +75,68 @@ Erstellt eine sekundäre Benchmark-Instanz. Die Controller-Instanz sendet dann `
 Wenn alle Nachrichten empfangen wurden, ist der Test beendet.
 
 ### ObjekteErstellung
-Erzeugt `iterations` Objekte über `setObject`.
+Erstellt `iterations`-Objekte über `setObject`.
 
 ### ObjekteLöschen
-Löscht `iterations` Objekte über `delObject`.
+Löscht `iterations`-Objekte über `delObject`.
 
-### ObjectViewEqual
-Erstellt 10.000 Objekte, von denen 50 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+### ObjektViewEqual
+Erstellt 10.000 Objekte, wobei 50 % davon für die Objektansicht relevant sind. Anschließend führt es `iterations` Objektansichten aus.
 
-### ObjectViewLarge
-Erstellt 10.000 Objekte, von denen 98 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+### ObjektAnsichtGroß
+Erstellt 10.000 Objekte, von denen 98 % für die Objektansicht relevant sind. Anschließend führt es `iterations` Objektansichten aus.
 
-### ObjectViewSmall
-Erstellt 10.000 Objekte, von denen nur 2 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+### ObjektAnsichtKlein
+Erstellt 10.000 Objekte, von denen nur 2 % für die Objektansicht relevant sind. Anschließend führt es `iterations` Objektansichten aus.
 
-### SetStates
+### Zustände festlegen
 Setzt `iterations` Zustände über `setState`
 
 ### SetStatesNonStrict
-Setzt `iterations` Zustände über `setState`, aber `strictObjectChecks` sind deaktiviert.
+Legt `iterations`-Zustände über `setState` fest, aber `strictObjectChecks` sind deaktiviert.
 
 ### SetStateParallel
-Fügt 30 sekundäre Instanzen hinzu, jede Instanz setzt `iterations` Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene muss der vorherige `setState` beendet werden, bis der nächste gesetzt wird.
-Dieser Test zielt darauf ab, Multicore-Systeme zu bewerten.
+Fügt 30 sekundäre Instanzen hinzu, jede Instanz setzt `iterations`-Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene muss der vorherige `setState` abgeschlossen sein, bis der nächste gesetzt ist.
+Dieser Test zielt darauf ab, Multicore-Systeme zu vergleichen.
 
 __Anforderungen__: 2 GB freier Speicher
 
 ### StaatenLöschung
-Löscht `iterations` Zustände über `delState`.
+Löscht `iterations`-Zustände über `delState`.
 
-### Gibt anAbonnement
-Die Controller-Instanz abonniert einen bestimmten Namespace. 4 Secondaries jeder Satz `iterations / 4` Staaten. Sobald der Verantwortliche alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
+### StaatenAbonnement
+Die Controllerinstanz abonniert einen bestimmten Namespace. 4 Secondaries setzen jeweils `iterations / 4`-Zustände. Sobald der Controller alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
 
-### Gibt anSubscriptionAlias
-Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Verantwortliche alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
+### StatesSubscriptionAlias
+Die Controllerinstanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
 
-### Gibt anSubscriptionAliasWrite
-Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Verantwortliche alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
+### StaatenAbonnementAliasSchreiben
+Die Controllerinstanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
 Der Alias enthält eine einfache Schreibfunktion.
+
+### StaatenAbonnementEinzel
+Zehn Sekundärknoten abonnieren jeweils die gleichen `iterations`-Zustände. Anstatt jeweils einen `subscribe`-Aufruf zu verwenden, führen Sie jeweils `iterations`-Einzelaufrufe durch. Sobald alle `ìterations` von jedem Sekundärknoten empfangen wurden, ist der Test beendet.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-06-03)
+* (foxriver76) added test `statesSubscriptionSingle`
+
+### 1.2.0 (2024-04-16)
+* (foxriver76) added `controllerVersion` to results
+
+### 1.1.4 (2022-12-30)
+* (foxriver76) fixed cleanup after `getStatesMulti`
+
+### 1.1.3 (2022-12-30)
+* (foxriver76) fixed a bug, where `getStatesMultiAlias` did not remove alias objects
+
+### 1.1.1 (2022-12-30)
+* (foxriver76) fixed a bug, where `getStatesMultiAlias` created wrong amount of objects
+
 ### 1.1.0 (2022-11-17)
 * (foxriver76) added `getStatesMulti` and `getStatesMultiAlias`
 

@@ -24,6 +24,35 @@ Reference to a company or a product name does not imply approval or recommendati
 that company or product to the exclusion of others.
 
 ## Changelog
+### 1.0.0 (2025-04-27)
+* signifylights is now stable
+* replaced the old device specific code with generic code
+  to automatically support new devices without the need to get added
+
+### 0.4.5 (2025-04-21)
+* fix minimum deps
+
+### 0.4.4 (2025-04-21)
+* fix minimum deps
+
+### 0.4.3 (2025-03-25)
+* added ESP25_MHORGB_01
+* added ESP24_SHRGB_01
+* fix hex color
+
+### 0.4.2 (2024-11-06)
+* implement responsive design in config page (thx simatec)
+
+### 0.4.1 (2024-11-02)
+* fix eslint 9.x
+* add ESP26_SHRGB_01: WIZ Wi-Fi BLE ST64 E27 822-65 RGB CL
+* add ESP25_SHRGB_01: added (WiZ Wi-Fi BLE 60W A60 E27 822-65 RGB)
+* various stuff from adapter check
+
+### 0.3.1 (2023-11-27)
+* fix scenes for ESP03_SHTWP_31, ESP24_SHRGBW_01, ESP06_SHTW1_01
+* retry to release v0.3.1
+
 ### 0.3.0 (2023-10-27)
 * several translation fixes
 * replace logo
@@ -46,7 +75,7 @@ that company or product to the exclusion of others.
 ## License
 MIT License
 
-Copyright (c) 2023 disaster123 <stefan-iobroker@prie.be>
+Copyright (c) 2025 disaster123 <stefan-iobroker@prie.be>
 
 originally developed by Copyright (c) 2022 nxtstep <privat@konzeptplus.net>
 

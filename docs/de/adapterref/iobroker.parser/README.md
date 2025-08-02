@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parser/README.md
 title: ioBroker-Parser-Adapter
-hash: Le4c+UayImhSKld1ia2TKTckHZUsW4qw9xKSC9LG2fk=
+hash: JGWFOrJmQiymwBAKSTgMT/ZQacopD19LF+/l++bVvxk=
 ---
 ![Logo](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -12,107 +12,107 @@ hash: Le4c+UayImhSKld1ia2TKTckHZUsW4qw9xKSC9LG2fk=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.parser.svg)
 
 # IoBroker-Parser-Adapter
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.parser/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/parser/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/ioBroker/ioBroker.parser/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/parser/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Dieser Adapter analysiert Daten, die über eine URL oder aus einer Datei empfangen werden, mithilfe regulärer Ausdrücke. Für jede Regel, die in den Einstellungen dieses Adapters konfiguriert wird, wird ein Status unter `parser.<instance number>` erstellt und mit den geparsten Informationen gefüllt und aktualisiert.
+Dieser Adapter analysiert Daten, die über eine URL oder aus einer Datei empfangen wurden, mithilfe regulärer Ausdrücke. Für jede Regel, die in den Einstellungen dieses Adapters konfiguriert wird, wird ein Status unter `parser.<instance number>` erstellt und mit den analysierten Informationen gefüllt und aktualisiert.
 
 ## Einstellungen
-### 1. Standardabfrageintervall
-Dieser Standardwert für das Abfrageintervall wird verwendet, wenn für einen Eintrag in der Konfigurationstabelle (Spalte: „Intervall“) kein individueller Abfrageintervallwert angegeben ist. Das Intervall wird in Millisekunden angegeben und definiert, wie oft der Link oder die Datei gelesen und die Zustände aktualisiert werden.
+### 1. Standard-Abfrageintervall
+Dieser Standard-Pollingintervallwert wird verwendet, wenn für einen Eintrag in der Konfigurationstabelle (Spalte: "Intervall") kein individueller Pollingintervallwert angegeben ist. Das Intervall wird in Millisekunden angegeben und definiert, wie oft der Link oder die Datei gelesen und die Zustände aktualisiert werden.
 
-**Hinweis:** Verwenden Sie insbesondere für Website-URLs kein zu aggressives Abfrageintervall. Wenn Sie beispielsweise den Preis Ihrer Aktien von einer bestimmten Website abrufen möchten, sollten Sie wahrscheinlich mit einem Intervall von nur 24 Stunden (= 86400000 ms) auskommen, wenn Sie kein Daytrader sind. Wenn Sie zu oft versuchen, Daten von bestimmten URLs abzurufen, kann die Website Sie sperren und auf eine Server-Blacklist setzen. Bitte nutzen Sie das Abfrageintervall daher mit Vorsicht.
+**Hinweis:** Verwenden Sie kein zu aggressives Abfrageintervall, insbesondere für Website-URLs. Wenn Sie beispielsweise den Preis Ihrer Aktien von einer bestimmten Website abrufen möchten, sollten Sie wahrscheinlich mit einem Intervall von nur 24 Stunden (= 86400000 ms) auskommen, wenn Sie kein Daytrader sind. Wenn Sie zu oft versuchen, Daten von bestimmten URLs abzurufen, kann die Website Sie sperren und auf eine Server-Blacklist setzen. Verwenden Sie das Abfrageintervall daher bitte mit Vorsicht.
 
-### 2. Timeout anfordern
+### 2. Anforderungs-Timeout
 Geben Sie an, wie lange der Adapter bei Website-Abfragen auf eine HTTP-Antwort wartet
 
 ### 3. Verzögerung zwischen Anfragen
-Geben Sie an, wie lange der Adapter zwischen dem Senden von HTTP-Anfragen bei der Durchführung von Remote-Abfragen wartet. Nützlich beim Abrufen von Daten von langsamen Hosts oder über langsame Verbindungen, um eine Überlastung beider Hosts zu vermeiden. Null (Standard) bedeutet keine Verzögerung.
+Geben Sie an, wie lange der Adapter bei der Ausführung von Remoteabfragen zwischen HTTP-Anfragen wartet. Nützlich beim Abrufen von Daten von langsamen Hosts oder über langsame Verbindungen, um eine Überlastung beider Hosts zu vermeiden. Null (Standard) bedeutet keine Verzögerung.
 
-Diese Verzögerung gilt pro Host. Wenn Remote-Abfragen für den Abruf von mehreren Remote-Hosts konfiguriert sind, wird jeder Host parallel abgefragt.
+Diese Verzögerung gilt für jeden Host einzeln. Wenn Remoteabfragen so konfiguriert sind, dass sie von mehreren Remotehosts abgerufen werden, wird jeder Host parallel abgefragt.
 
-Die Verzögerung ist ein Mindestwert zwischen der Initiierung jeder Anfrage. Das heißt, wenn das Lesen einer Abfrage länger als dieser Verzögerungsparameter dauert, wird die nächste sofort gestartet, nachdem der Lesevorgang abgeschlossen ist.
+Die Verzögerung ist ein Mindestwert zwischen dem Einleiten jeder Anfrage. Das heißt, wenn das Lesen einer Anfrage länger dauert als dieser Verzögerungsparameter, wird die nächste sofort gestartet, sobald der Lesevorgang abgeschlossen ist.
 
-### 4. Ungültige Zertifikate akzeptieren
-Geben Sie an, ob selbstsignierte/ungültige SSL/TLS-Zertifikate bei HTTPS-Anfragen akzeptiert oder abgelehnt werden
+### 4. Akzeptieren Sie ungültige Zertifikate
+Geben Sie an, ob selbstsignierte/ungültige SSL/TLS-Zertifikate bei HTTPS-Anfragen akzeptiert oder abgelehnt werden.
 
 ### 5. Verwenden Sie einen unsicheren HTTP-Parser
-Geben Sie an, dass ein unsicherer HTTP-Parser verwendet werden soll, der ungültige HTTP-Header akzeptiert. Dies ermöglicht möglicherweise die Interoperabilität mit nicht konformen HTTP-Implementierungen.
+Geben Sie an, dass ein unsicherer HTTP-Parser verwendet werden soll, der ungültige HTTP-Header akzeptiert. Dies kann die Interoperabilität mit nicht konformen HTTP-Implementierungen ermöglichen.
 Die Verwendung des unsicheren Parsers sollte vermieden werden.
 
-### 6. Tisch
+### 6. Tabelle
 Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag hinzuzufügen.
 
-**Leistungshinweis:** Wenn Sie dieselbe URL oder denselben Dateinamen mehr als einmal in verschiedene Tabellenzeilen eingeben und die Werte der Spalte „Intervall“ gleich sind, wird nur der Inhalt der URL oder des Dateinamens abgerufen ** einmal** und zwischengespeichert für die Verarbeitung mehrerer Tabellenzeilen, die URL/Dateiname und Intervall entsprechen. Dadurch können Sie mehrere reguläre Ausdrücke (also mehrere Tabellenzeilen) auf eine einzelne URL oder einen einzelnen Dateinamen anwenden, ohne die Daten mehrmals aus der Quelle abrufen zu müssen.
+**Leistungshinweis:** Wenn Sie dieselbe URL oder denselben Dateinamen mehr als einmal in verschiedene Tabellenzeilen eingeben und die Werte der Spalte „Intervall“ identisch sind, wird der Inhalt der URL oder des Dateinamens nur **einmal** abgerufen und zwischengespeichert, um mehrere Tabellenzeilen zu verarbeiten, die mit URL/Dateiname und Intervall übereinstimmen. Auf diese Weise können Sie mehrere reguläre Ausdrücke (also mehrere Tabellenzeilen) auf eine einzelne URL oder einen einzelnen Dateinamen anwenden, ohne die Daten mehrmals aus der Quelle abrufen zu müssen.
 
 **Tabellenfelder:**
 
-- **_Name_** – Name des Status, der unter „parser.<Instanznummer>“ erstellt wird. Leerzeichen sind nicht erlaubt. Sie können Punkte „.“ als Trennzeichen verwenden, um Unterordner zu erstellen. Beispiel: „Shares.Microsoft.Current“ ergibt „parser.<Instanznummer>.Shares.Microsoft.Current“.
-- **_URL oder Dateiname_** – entweder eine URL einer Website oder der Pfad zu einer Datei, über die wir Informationen abrufen möchten. Beispiele „https://darksky.net/forecast/48.1371,11.5754/si24/de“ (Wetterinformationen München) oder „/opt/iobroker/test/testdata.txt“ (Datei aus ioBroker).
-- **_RegEx_** – regulärer Ausdruck, wie man Daten aus einem Link extrahiert. Es gibt einen guten Dienst zum Testen von Regula-Ausdrücken: [regex101](https://regex101.com/). Z.B. `temp swip">(-?\d+)˚<` für die Zeile oben.
-- **_Item_** (deutsch: „Num“) – ein regulärer Ausdruck kann mehrere Einträge finden (zuordnen). Mit dieser Option können Sie festlegen, welches Match ausgewählt werden soll. 0 = erste Übereinstimmung, 1 = zweite Übereinstimmung, 2 = dritte Übereinstimmung usw. Der Standardwert ist 0 (erste Übereinstimmung).
+- **_Name_** – Name des Status, der unter „parser.<Instanznummer>“ erstellt wird. Leerzeichen sind nicht zulässig. Sie können Punkte „.“ als Trennzeichen verwenden, um Unterordner zu erstellen. Beispiel: „Shares.Microsoft.Current“ ergibt „parser.<Instanznummer>.Shares.Microsoft.Current“.
+- **_URL oder Dateiname_** - entweder eine URL einer Website oder der Pfad zu einer Datei, zu der wir Informationen abrufen möchten. Beispiele: `https://darksky.net/forecast/48.1371,11.5754/si24/de` (Wetterinformationen München) oder `/opt/iobroker/test/testdata.txt` (Datei aus ioBroker).
+- **_RegEx_** - regulärer Ausdruck, wie Daten aus einem Link extrahiert werden. Es gibt einen guten Dienst zum Testen regulärer Ausdrücke: [regex101](https://regex101.com/). Z. B. `temp swip">(-?\d+)˚<` für die obige Zeile.
+- **_Item_** (deutsch: "Num") - ein regulärer Ausdruck kann mehrere Einträge finden (entsprechen). Mit dieser Option können Sie festlegen, welcher Treffer ausgewählt werden soll. 0 = erster Treffer, 1 = zweiter Treffer, 2 = dritter Treffer usw. Standard ist 0 (erster Treffer).
 - **_Role_** – eine der Rollen:
-    - Benutzerdefiniert - Benutzer definiert sich über _admin_ die Rolle
-    - Temperatur – der Wert ist die Temperatur
-    - Wert – der Wert ist eine Zahl (z. B. Dimmer)
-    - Jalousien – der Wert ist eine Jalousieposition
-    - Schalter – der Wert ist die Schalterposition (wahr/falsch)
-    - Schaltfläche – der Wert ist eine Schaltfläche
-    - Indikator - boolescher Indikator
-- **_Type_** – der Typ der Variablen gemäß dem Pulldown-Menü.
-- **_Unit_** – Optional: Einheit des zum Statuseintrag hinzugefügten Werts. Z.B. „°C“, „€“, „GB“ usw.
-- **_Old_** – Wenn aktiviert, wird der Status _nicht_ aktualisiert, wenn der Wert im angegebenen Datum (URL oder Datei) nicht gelesen oder gefunden werden kann, sodass in diesem Fall der vorherige Wert beibehalten wird.
-- **_Subs_** – Optional: Ersatz-URL oder Dateiname. Dieser Ersatz-URL/Dateiname wird verwendet, wenn die URL/der Dateiname der ersten Spalte nicht verfügbar ist.
-- **_Factor/Offset_** (nur für „Typ“-Nummern) – ermöglicht die Änderung der abgerufenen Daten, bevor sie in den Status versetzt werden:
-  - _berechneter Wert_ = _extrahierter Wert_ \* Faktor + Offset, um sofort Änderungen am Wert vorzunehmen
-- **_Interval_** – Abfrageintervall in ms (Millisekunden). Wenn leer oder 0, wird das Standardabfrageintervall verwendet. Weitere Informationen finden Sie oben.
+- benutzerdefiniert - Benutzer definiert sich selbst über _admin_ die Rolle
+- Temperatur – der Wert ist die Temperatur
+- Wert – der Wert ist eine Zahl (z. B. Dimmer)
+- Blinds - der Wert ist eine Blindposition
+- Schalter – der Wert ist die Schalterposition (true/false)
+- Schaltfläche - der Wert ist eine Schaltfläche
+- Indikator - Boolescher Indikator
+- **_Typ_** – der Variablentyp gemäß Pulldown-Menü.
+- **_Unit_** – Optional: Einheit des Wertes, der dem Statuseintrag hinzugefügt wird. Z. B. „°C“, „€“, „GB“ usw.
+- **_Alt_** – Wenn aktiviert, wird der Status _nicht_ aktualisiert, wenn der Wert im angegebenen Datum (URL oder Datei) nicht gelesen oder gefunden werden kann. In diesem Fall wird der vorherige Wert beibehalten.
+- **_Subs_** - Optional: Ersatz-URL oder Dateiname. Diese Ersatz-URL/Dateiname wird verwendet, wenn die URL/Dateiname der ersten Spalte nicht verfügbar ist.
+- **_Faktor/Offset_** (nur für „Typ“-Nummern) – ermöglicht die Änderung der abgerufenen Daten vor dem Setzen in den Status:
+- _berechneter Wert_ = _extrahierter Wert_ \* Faktor + Offset, um sofortige Wertänderungen vorzunehmen
+- **_Interval_** - Abfrageintervall in ms (Millisekunden). Wenn leer oder 0, wird das Standardabfrageintervall verwendet. Weitere Informationen finden Sie oben.
 
 ## Beispieleinstellungen
-| Name | URL oder Dateiname | RegEx | Rolle | Geben Sie | ein Einheit | Intervall |
-| ----------------- | :----------------------------------------------------- | :----------------------------------- | ----------- | ------- | ---- | -------- |
-| TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Nummer | °C | 180000 |
-| cloudRunning | `https://iobroker.net/` | `Privacy Notice` | Indikator | boolescher Wert | | 60000 |
-| cpuTemperature | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Nummer | °C | 30000 |
-| stockPrice.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | Wert | Nummer | € | 86400000 |
-| kleinanzeigen | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` | Standard | Zeichenfolge | | 600000 |
-| kleinanzeigen | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` | Standard | Zeichenfolge | | 600000 |
+| Name | URL oder Dateiname | RegEx | Rolle | Typ | Einheit | Intervall |
+|-------------------|:-------------------------------------------------------|:-------------------------------------|-------------|---------|------|-----------|
+| TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Zahl | °C | 180000 |
+| cloudRunning | `https://iobroker.net/` | `Privacy Notice` | Indikator | Boolesch | | 60000 |
+| CPU-Temperatur | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Zahl | °C | 30000 |
+| stockPrice.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | Wert | Anzahl | € | 86400000 |
+| kleinanzeigen | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` | Standard | Zeichenfolge |      | 600000 |
+| kleinanzeigen | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` | Standard | Zeichenfolge |      | 600000 |
 
-*Hinweis:* Beim Anwenden von Regex auf die abgerufenen URL-/Dateidaten werden alle Zeilenumbrüche durch Leerzeichen ersetzt, um eine mehrzeilige Suche zu ermöglichen.
+*Hinweis:* Beim Anwenden von regulären Ausdrücken auf die abgerufenen URL-/Dateidaten werden alle Zeilenumbrüche durch Leerzeichen ersetzt, um eine mehrzeilige Suche zu ermöglichen.
 
 ## Über reguläre Ausdrücke (RegExp)
-Reguläre Ausdrücke sind ein leistungsstarkes Werkzeug zum Analysieren und Extrahieren bestimmter Daten aus Zeichenfolgen. Und was noch wichtiger ist: Sie ermöglichen das Extrahieren bestimmter Werte/Texte aus einer bestimmten Zeichenfolge (z. B. aus dem HTML-Code einer Webseite oder Text aus einer Datei) durch Anwendung von Regeln .
+Reguläre Ausdrücke sind ein leistungsfähiges Werkzeug zum Parsen und Extrahieren bestimmter Daten aus Zeichenfolgen. Und was noch wichtiger ist: Sie ermöglichen durch Anwenden von Regeln das Extrahieren bestimmter Werte/Texte aus einer gegebenen Zeichenfolge (beispielsweise aus dem HTML einer Webseite oder aus Text aus einer Datei).
 
-Für boolesche Typen ist der reguläre Ausdruck eher einfach. Bei numerischen Typen sollten Sie die Zahl mit Klammern markieren – `()`. Z.B. Um die Zahl aus *Die Temperatur beträgt 5°C* zu extrahieren, sollten Sie den Ausdruck ` (\d+)` verwenden.
+Für Boolesche Typen ist der reguläre Ausdruck ziemlich einfach. Für numerische Typen sollten Sie die Zahl mit Klammern markieren - `()`. Um beispielsweise die Zahl aus *Die Temperatur beträgt 5°C* zu extrahieren, sollten Sie den Ausdruck ` (\d+)` verwenden.
 
 Weitere Informationen zu RegExp:
 
-- [MDN/Mozilla-Dokumentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [regex101: Online-Tool zum Erstellen und Testen regulärer Ausdrücke](https://regex101.com/)
+– [MDN/Mozilla-Dokumentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+- [regex101: Online-Tool zum Erstellen und Testen von regulären Ausdrücken](https://regex101.com/)
 
 ### Beispiele
-- „.at“ entspricht jeder dreistelligen Zeichenfolge, die mit „at“ endet, einschließlich „hat“, „cat“ und „bat“.
-- „[hc]at“ entspricht „hat“ und „cat“.
-- „[^b]at“ stimmt mit allen Zeichenfolgen überein, mit denen .at übereinstimmt, mit Ausnahme von „bat“.
-- „[^hc]at“ findet alle Zeichenfolgen, die mit .at übereinstimmen, außer „hat“ und „cat“.
-- „^[hc]at“ stimmt mit „hat“ und „cat“ überein, jedoch nur am Anfang der Zeichenfolge oder Zeile.
-- „[hc]at$“ entspricht „hat“ und „cat“, aber nur am Ende der Zeichenfolge oder Zeile.
+- „.at“ passt zu jeder dreistelligen Zeichenfolge, die mit „at“ endet, einschließlich „hat“, „cat“ und „bat“.
+- `[hc]at` passt zu `hat` und `cat`.
+- `[^b]at` stimmt mit allen Zeichenfolgen überein, die mit .at übereinstimmen, außer mit `bat`.
+- `[^hc]at` stimmt mit allen Zeichenfolgen überein, die mit .at übereinstimmen, außer mit `hat` und `cat`.
+- `^[hc]at` entspricht `hat` und `cat`, aber nur am Anfang der Zeichenfolge oder Zeile.
+- `[hc]at$` entspricht `hat` und `cat`, aber nur am Ende der Zeichenfolge oder Zeile.
 - „\[.\]“ entspricht jedem einzelnen Zeichen, das von „[“ und „]“ umgeben ist, da die Klammern maskiert sind, zum Beispiel: „[a]“ und „[b]“.
 - „s.\*“ entspricht „s“, gefolgt von null oder mehr Zeichen, zum Beispiel: „s“ und „saw“ und „seed“.
 - „[hc]+at“ entspricht „hat“, „cat“, „hhat“, „chat“, „hcat“, „cchchat“ usw., aber nicht „at“.
-- „[hc]?at“ entspricht „hat“, „cat“ und „at“.
-- „[hc]\*at“ entspricht „hat“, „cat“, „hhat“, „chat“, „hcat“, „cchchat“, „at“ usw.
-- „cat|dog“ entspricht „cat“ oder „dog“.
+- `[hc]?at` entspricht `hat`, `cat` und `at`.
+- `[hc]\*at` entspricht `hat`, `cat`, `hhat`, `chat`, `hcat`, `cchchat`, `at` usw.
+- „Katze|Hund“ passt zu „Katze“ oder „Hund“.
 - `(\d+)` – Ruft die Zahl aus der Zeichenfolge ab
-- „now (\w+)“ später – das Wort zwischen „jetzt“ und „später“ ermitteln
+- `now (\w+)` later - Holen Sie sich das Wort zwischen `now` und `later`
 
-### Weitere nützliche Ausdrücke
-- `(-?\d+)` Nummer abrufen (sowohl negative als auch positive Zahlen)
+### Andere nützliche Ausdrücke
+- `(-?\d+)` Zahl abrufen (sowohl negative als auch positive Zahlen)
 - `[+-]?([0-9]+.?[0-9]|.[0-9]+)` erhält eine Zahl mit Dezimalstellen (und `.` als Dezimaltrennzeichen)
-- „[+-]?([0-9]+,?[0-9]|,[0-9]+)“ erhält eine Zahl mit Dezimalstellen (und „,“ als Dezimaltrennzeichen)
+- `[+-]?([0-9]+,?[0-9]|,[0-9]+)` erhält eine Zahl mit Dezimalstellen (und `,` als Dezimaltrennzeichen)
 
 ## Benachrichtigungsbeispiel
-### Telegramm
+### Telegram
 ```Javascript
 on("parser.0.kleinanzeigen", (obj) => {
     sendTo("telegram.0", {
@@ -125,14 +125,14 @@ on("parser.0.kleinanzeigen", (obj) => {
 Werte können Qualitätscodes haben:
 
 - 0 - OK
-- 0x82 – Die URL oder Datei kann nicht gelesen werden.
-- 0x44 – Zahlen- oder Zeichenfolgenwert im Text nicht gefunden
+– 0x82 – Die URL oder Datei kann nicht gelesen werden.
+- 0x44 - Zahl oder Zeichenfolgewert im Text nicht gefunden
 
 ## Auslösen
-Zusätzlich zum Abfrageintervall kann das Parsen bestimmter Regeln durch das Schreiben eines leeren Werts (`false`, `0`, '' – abhängig von der Art des Status) in den Status mit §§SSSSS_2 ausgelöst werden §§ Acknowledge-Flag.
-In diesem Fall wird der Wert aus der URL/Datei gelesen und sofort geparst.
+Zusätzlich zum Polling-Intervall kann die Analyse bestimmter Regeln durch das Schreiben eines leeren Wertes (`false`, `0`, '' - hängt von der Art des Status ab) in den Status mit dem Bestätigungsflag `false` ausgelöst werden.
+In diesem Fall wird der Wert aus der URL/Datei gelesen und sofort analysiert.
 
-Sie können auch mit dem Befehl `sendTo` eine Nachricht an den Adapter senden:
+Sie können dem Adapter auch mit dem Befehl `sendTo` eine Nachricht senden:
 
 ```Javascript
 sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.temperatureMunich */, result => {
@@ -141,14 +141,24 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ```
 
 ## Unterstützung
-1. Allgemein: [ioBroker-Forum](https://forum.iobroker.net/). Deutschsprachige Benutzer: siehe [ioBroker-Forumsthread Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
-2. Bei Problemen schauen Sie sich bitte [ioBroker Parser Adapter: GitHub Issues](https://github.com/ioBroker/ioBroker.parser/issues) an.
+1. Allgemein: [ioBroker Forum](https://forum.iobroker.net/). Deutschsprachige Benutzer: siehe [ioBroker-Forumsthread Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
+2. Bei Problemen lesen Sie bitte [ioBroker Parser Adapter: GitHub Issues](https://github.com/ioBroker/ioBroker.parser/issues).
 
 <!--
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.2.4 (2024-08-26)
+* (bluefox) updated packages
+* (bluefox) corrected a problem with the creation of rule
+
+### 2.2.2 (2024-07-14)
+* (bluefox) GUI was migrated for admin v7
+
+### 2.1.0 (2023-12-14)
+* (mcm1957) Only node 16 and higher is supported
+
 ### 2.0.7 (2023-10-25)
 * (TA2k) added the user agent to prevent timeout blocking
 * (bluefox) Added a configurable userAgent option
@@ -247,7 +257,7 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

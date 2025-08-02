@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: mTouPEjZV3y3rvMZ1AYVtuCTZIYtIQw0mQutGfb6fjI=
+hash: xjWAz+/VB/eyyIYdkPUidWv84DiCjfryiQ8WfTmqPJY=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -26,28 +26,28 @@ hash: mTouPEjZV3y3rvMZ1AYVtuCTZIYtIQw0mQutGfb6fjI=
 
 ## Оглавление
 - [Протокол MQTT](protocol-mqtt.md)
-- [Протокол CoAP](protocol-coap.md)
+- [Протокол CoAP/CoIoT](protocol-coap.md)
 - [Ограниченный вход](restricted-login.md)
 - [Изменения состояния](state-changes.md)
 - [Отладка](debug.md)
 - [FAQ](faq.md)
 
 ## Требования
-1. Node.js 16.0 (или новее)
-2. js-контроллер 3.3.22 (или новее)
-4. Адаптер администратора 6.0.0 (или новее)
+1. Node.js 20 (или новее)
+2. js-контроллер 6.0.0 (или новее)
+3. Адаптер администратора 6.6.0 (или новее)
 
 ## Поколения устройств
 Дополнительную информацию см. в разделе *поддерживаемые устройства*.
 
-- **Gen1**: устройства ESP8266, [CoAP](protocol-coap.md) или [MQTT](protocol-mqtt.md)
-- **Gen2**: устройства ESP32, [MQTT](protocol-mqtt.md).
+- **Поколение 1**: устройства ESP8266, [CoAP/CoIoT](protocol-coap.md) или [MQTT](protocol-mqtt.md).
+- **Поколение 2+**: устройства ESP32, [MQTT](protocol-mqtt.md).
 
 ## В целом
 Адаптер может обмениваться данными с устройствами через MQTT (рекомендуется) или CoAP/CoIoT.
 
 - Режим адаптера по умолчанию — MQTT (дополнительную информацию см. в [Документации](protocol-mqtt.md)).
-- CoAP совместим только с устройствами Gen1!
+- CoAP/CoIoT совместим только с устройствами Gen1!
 - **Если необходимо интегрировать устройства Gen2, необходимо настроить MQTT!**
 
 Вопросы? Сначала взгляните на [Часто задаваемые вопросы](faq.md)!
@@ -60,44 +60,41 @@ hash: mTouPEjZV3y3rvMZ1AYVtuCTZIYtIQw0mQutGfb6fjI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 6.4.3 (2023-09-25)
-* (klein0r) Added Shelly Pro Dual Cover/Shutter PM
-* (klein0r) Added Shelly Pro 3 EM 400A
-* (JuniperChris929) Added support of Shelly Plus 1 Mini + Shelly Plus 1 PM Mini
-* (BooosesThaSnipper) Added support of Shelly Plus AddOn for Gen2 Devices.
-* (D1gitaldad) Added support of Plus PM Mini
+### **WORK IN PROGRESS**
 
-### 6.4.1 (2023-04-23)
+NodeJS >= 20.x and js-controller >= 6 is required
 
-* (viper4gh) Added Shelly Pro 3 EM energy data
-* (klein0r) Fixed IP handling in Docker containers
+* (@Zefau) add Source and MinBrightness to Shelly Dimmer
 
-### 6.4.0 (2023-02-09)
+### 8.5.1 (2024-12-02)
 
-* (klein0r) Added Shelly Plus Plug S
-* (klein0r) Added Shelly Pro 3 EM
-* (klein0r) Reduced checks for firmware updates
-* (klein0r) Shelly TV profile is now changeable
+* (@klein0r) Fixed digest auth for Shelly Wall Display
+* (@klein0r) Added LED control for Shelly Plus Plug S
 
-### 6.3.1 (2023-01-02)
+### 8.5.0 (2024-11-24)
 
-* (klein0r) Updated MQTT topic prefix handling
-* (klein0r) Added temperature for generation 2 devices in cover mode
-* (klein0r) Added boost start/stop for Shelly TRV
-* (klein0r) Added external power for Shelly H&T
+* (@klein0r) Added Shelly Plug S Gen3
+* (@klein0r) Added Shelly BLU Gateway Gen3
+* (@klein0r) Added Shelly I4 / I4DC Gen3
 
-### 6.3.0 (2022-12-22)
+### 8.4.0 (2024-10-20)
 
-* (klein0r) Added more TRV features
-* (jlegen) Improved Shelly TRV integration
-* (klein0r) Updated knowledge base urls
-* (klein0r) Added Ukrainian language
+* (@klein0r) Added AddOn support for Gen3 devices
+* (@kalledausb) Added Shelly 0/1-10V PM Gen3 Integration
+
+### 8.3.0 (2024-10-10)
+* (@rockflopp) Added Shelly 2 PM gen 3 Integration
+
+### 8.2.1 (2024-09-23)
+
+* (@Matze2010) Added datapoint for cover target position
+* (@klein0r) Fixed integration of Shelly 1 PM Gen 3
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Thorsten Stueben <thorsten@stueben.de>,
+Copyright (c) 2018-2025 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

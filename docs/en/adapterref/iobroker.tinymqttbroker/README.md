@@ -16,6 +16,11 @@ This is very tiny MQTT broker which is not managing any objects/states in iobrok
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
+## Requires
+* Node.js 20 or higher
+* ioBroker host (js-controller) 5.0 or higher
+
+## How to use it
 A MQTT client could look like
 ```
 const mqtt = require('mqtt');
@@ -64,7 +69,7 @@ on({ id: stateMqttIn, change: 'any' }, function (obj) {
     else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
 });
 ```
-IMPORTANT! If you create your own MQTT client in a ioBroker javascript, do not forget to close the client in the scipt by using
+IMPORTANT! If you create your own MQTT client in an ioBroker javascript, do not forget to close the client in the scipt by using
 ```
 onStop(function (callback) {
     log('MQTT Client will be closed...');
@@ -82,8 +87,23 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.9-alpha.0 (2023-10-22)
-* (HGlab01) Update dependencies
+### 0.1.4 (2025-04-22)
+* (HGlab01) Improve port scan
+
+### 0.1.3 (2024-10-19)
+* (HGlab01) Improve port scan for available ports
+* (HGlab01) Improve UI config
+* (HGlab01) Bump json-explorer to 0.1.16
+* (HGlab01) Bump aedes to 0.51.3
+
+### 0.1.1 (2024-02-01)
+* (HGlab01) Bump json-explorer to 0.1.15
+* (HGlab01) Bump aedes to 0.51.0
+
+### 0.1.0 (2023-12-04)
+* (HGlab01) first minor release
+* (HGlab01) Node.js 18.0 or higher
+* (HGlab01) ioBroker host (js-controller) 5.0 or higher
 
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
@@ -104,7 +124,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

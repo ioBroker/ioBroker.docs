@@ -163,6 +163,39 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 
 [Older changes](CHANGELOG_OLD.md)
 <!-- ### **WORK IN PROGRESS** -->
+### 2.8.2 (2025-05-31)
+
+* (ioKlausi) Update dependencies
+
+### 2.8.1 (2025-04-24)
+
+* (ioKlausi) Update dependencies
+
+### 2.8.0 (2025-01-31)
+
+* (ioKlausi) Update dependencies
+
+### 2.7.3 (2024-01-27)
+
+* (ioKlausi) Option 'Only update datapoints if changes are detected' corrected
+
+### 2.7.2 (2024-01-18)
+
+* (ioKlausi) Adjust attributes of the adapter
+
+### 2.7.1 (2023-12-10)
+
+* (ioKlausi) Remove GULP support
+* (ioKlausi) Support dark mode
+
+### 2.7.0 (2023-11-19)
+
+* (ioKlausi) Adjust default value for parameters
+
+### 2.6.5 (2023-11-05)
+
+* (ioKlausi) New options in the adapter configuration for updating datapoints
+
 ### 2.6.4 (2023-10-25)
 
 * (ioKlausi) Change value only if changes are detected
@@ -226,7 +259,7 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 
 MIT License
 
-Copyright (c) 2021-2023 ioKlausi <nii@gmx.at>
+Copyright (c) 2021-2025 ioKlausi <nii@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

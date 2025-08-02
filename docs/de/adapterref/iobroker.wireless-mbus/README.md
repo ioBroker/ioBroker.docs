@@ -3,32 +3,33 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: r24RXJvLfu8k0vOUNpFyk2vqhq2DF66EqmnatUmAKVE=
+hash: aJWcyWPGZvst6S6R/ZIRSskOHipvPoYdZWa9fFWkaEg=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
-![Installierte Anzahl](https://iobroker.live/badges/wireless-mbus-installed.svg)
-![stabile Version](https://iobroker.live/badges/wireless-mbus-stable.svg)
+![Anzahl installierter Geräte](https://iobroker.live/badges/wireless-mbus-installed.svg)
+![stabile-version](https://iobroker.live/badges/wireless-mbus-stable.svg)
 
 # IoBroker.wireless-mbus
-Dieser Adapter ermöglicht den Empfang von drahtlosen M-Bus-Daten von unterstützten Empfängern. Der Umfang der Geräteimplementierung variiert, wMBus-Modi können jedoch für alle aufgelisteten Geräte konfiguriert werden.
+Dieser Adapter ermöglicht den Empfang von drahtlosen M-Bus-Daten von unterstützten Empfängern. Der Umfang der Geräteimplementierung variiert, aber für alle aufgeführten Geräte können wMBus-Modi konfiguriert werden.
 
-* WMB-Module einbetten
-* Amber Wireless AMB8465 (**Vorsicht:** Der Befehlsmodus (UART_CMD_Out_Enable) ist aktiviert!)
+* Embit WMB-Module
+* Amber Wireless AMB8465 (**Achtung:** Befehlsmodus (UART_CMD_Out_Enable) ist aktiviert!)
 * IMST iM871A
-* CUL
+* IMST iU891A-XL
+* KUL
 
-Der WMBUS-Stack wurde aus dem FHEM-Projekt „neu portiert“ und umfassend repariert und umgestaltet. Die Tests wurden mit Rohdaten aus dem Internet, OMS-Beispieldaten und einigen Testdaten aus der jmbus-Bibliothek durchgeführt. Einige Randfälle sind noch ungetestet.
+Der WMBUS-Stack wurde vom FHEM-Projekt „neu portiert“ und umfassend repariert und überarbeitet. Die Tests wurden mit im Internet abgerufenen Rohdaten, OMS-Beispieldaten und einigen Testdaten aus der jmbus-Bibliothek durchgeführt. Einige Randfälle sind noch ungetestet.
 
 Die Geräteerstellung, Aktualisierung usw. basiert größtenteils auf dem M-Bus-Adapter von Apollon77 (siehe unten).
 
-Wenn der Adapter verschlüsselte Telegramme empfängt, sollte auf der Registerkarte „AES-Schlüsselkonfiguration“ automatisch die Geräte-ID aufgeführt werden.
+Wenn der Adapter verschlüsselte Telegramme empfängt, sollte die Registerkarte „AES-Schlüsselkonfiguration“ die Geräte-ID automatisch auflisten.
 
-Wenn der Parser fehlschlägt, werden die rohen Telegrammdaten im Status „info.rawdata“ gespeichert.
+Wenn der Parser fehlschlägt, werden die Rohtelegrammdaten im Status info.rawdata gespeichert.
 
-*Achtung:* Der Amber-Empfänger scheint im C-Modus nach einiger Zeit (oder nach der Anzahl der empfangenen Nachrichten) abzustürzen? Hardwarefehler?
+*Achtung:* Der Amber-Receiver scheint nach einiger Zeit (oder nach der Anzahl empfangener Nachrichten) im C-Modus abzustürzen? Hardwarefehler?
 
-*IMST iM871A-Variante:* Es gibt einen „RWE Smart Home“-USB-Empfänger, der im Prinzip ein IMST iM871A ist, der Kernel lädt den entsprechenden Treiber jedoch nicht automatisch. Dies ist ein Einzeiler zum Erstellen einer udev-Regel, um das Problem zu beheben:
+*IMST iM871A-Variante:* Es gibt einen „RWE Smart Home“-USB-Empfänger, der im Prinzip ein IMST iM871A ist, aber der Kernel lädt den entsprechenden Treiber nicht automatisch. Dies ist eine Einzeiler-Anleitung zum Erstellen einer Udev-Regel, um das zu beheben:
 
 ```shell
 sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"87ed\", RUN+=\"/sbin/modprobe cp210x\" RUN+=\"/bin/sh -c \\'echo 10c4 87ed > /sys/bus/usb-serial/drivers/cp210x/new_id\\'\"' > /etc/udev/rules.d/99-imst.rules"
@@ -37,41 +38,53 @@ sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduc
 ## Links:
 * [WMBus-Stack-Modul](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/WMBus.pm)
 * [ioBroker.mbus](https://github.com/Apollon77/ioBroker.mbus)
-* [Original WMBUS Stack: wm-bus](https://github.com/soef/wm-bus)
+* [Ursprünglicher WMBUS-Stapel: wm-bus](https://github.com/soef/wm-bus)
 * [M-Bus-Protokoll](http://www.m-bus.com/files/MBDOC48.PDF)
-* [OMS-Spezifikationen](https://oms-group.org/en/download4all/oms-Spezifikation/)
+* [OMS-Spezifikationen](https://oms-group.org/en/download4all/oms-specification/)
 
 ## Ersteinrichtung
-Bei der Ersteinrichtung müssen die Grundlagen konfiguriert werden (Hardwareverbindung zum WM-Bus-Empfänger) und AES-Schlüssel für alle zu erfassenden verschlüsselten WM-Bus-Knoten eingerichtet werden. Der kniffligste Teil sind die AES-Tasten.
+Die Ersteinrichtung erfordert die Konfiguration der Grundlagen (Hardwareverbindung zum WMBUS-Empfänger) und die Einrichtung von AES-Schlüsseln für alle zu erfassenden verschlüsselten WMBUS-Knoten. Der schwierigste Teil sind die AES-Schlüssel.
 
-### Grundeinstellung
-Dazu müssen Sie das entsprechende USB-Gerät und die richtige Baudrate auswählen (**normalerweise** für IMST: 57600 Baud; Gelb: 9600 Baud; Embit: 9600 Baud, CUL: 38400 oder 9600 Baud). Die meisten Messgeräte senden im „T-Modus“.
+### Grundeinrichtung
+Dazu muss das entsprechende USB-Gerät und die richtige Baudrate ausgewählt werden (**normalerweise** für IMST iM871A: 57600 Baud; IMST iU891A-XL: 115200 Baud; Amber: 9600 Baud; Embit: 9600 Baud, CUL: 38400 oder 9600 Baud). Die meisten **Messgeräte** senden im „T-Modus“.
 
-Ab Version 0.9.0 unterstützt der Adapter auch die Verbindung zu seriellen Geräten, die über einen TCP-Socket erreichbar sind. Allerdings spiegelt die Admin-Oberfläche das (vorerst) nicht wirklich wider und Sie müssen „Benutzerdefinierter Port“ auswählen und den Host als `tcp://host:port` eingeben.
+Ab Version 0.9.0 unterstützt der Adapter auch die Verbindung zu seriellen Geräten, die über einen TCP-Socket erreichbar sind. Die Admin-Oberfläche spiegelt dies jedoch (noch) nicht wirklich wider und Sie müssen „benutzerdefinierter Port“ auswählen und den Host als `tcp://host:port` eingeben.
 
 ### Andere Optionen
-* **Unveränderte Zustände aktualisieren**: Beim Eintreffen eines Telegramms werden alle Zustände aktualisiert, auch wenn sich ihr Wert nicht geändert hat. (Standard ein)
-* **Cache für die Unterstützung kompakter Frames**: Zur Unterstützung kompakter Telegramme (die von einigen (Kamstrup?)-Geräten verwendet werden) wird die Struktur aller empfangenen Telegramme zwischengespeichert. Dies bedeutet in der Regel nur einen Cache-Eintrag pro Gerät. Wenn Sie kein Gerät haben, das kompakte Telegramme sendet, können Sie es deaktivieren, um etwas Leistung und Speicher zu sparen. (Standard: aus)
-* **Energieeinheiten in kWh erzwingen**: Alle Energieeinheiten (Wh und J) werden in kWh umgerechnet. (Standard: aus)
-* **Gerät nach aufeinanderfolgenden Fehlern vorübergehend blockieren**: Wenn 10 aufeinanderfolgende Telegramme desselben Geräts nicht erfolgreich analysiert werden, wird das Gerät bis zum Neustart des Adapters ignoriert (Standard: Ein).
+* **Unveränderte Zustände aktualisieren**: Beim Eintreffen eines Telegramms werden alle Zustände aktualisiert, auch wenn sich ihr Wert nicht geändert hat. (Standard: ein)
+* **Cache für Unterstützung kompakter Frames**: Zur Unterstützung kompakter Telegramme (von einigen (Kamstrup?) Geräten verwendet) wird die Struktur aller empfangenen Telegramme zwischengespeichert. Das bedeutet normalerweise nur einen Cacheeintrag pro Gerät. Wenn Sie kein Gerät haben, das kompakte Telegramme sendet, können Sie dies deaktivieren, um etwas Leistung und Speicher zu sparen. (Standard: aus)
+* **Energieeinheiten auf kWh umrechnen**: Alle Energieeinheiten (Wh und J) werden in kWh umgerechnet. (Standard: aus)
+* **Gerät nach aufeinanderfolgenden Fehlern vorübergehend blockieren**: Wenn 10 aufeinanderfolgende Telegramme desselben Geräts nicht erfolgreich analysiert werden, wird das Gerät ignoriert, bis der Adapter neu gestartet wird (Standard: ein)
 
 ### AES-Schlüssel
-Die Gerätekennung ist eine Kombination aus Herstellercode und Geräte-ID (z. B. AAA-12345678). Der Schlüssel kann entweder als Klartextschlüssel mit 16 Zeichen oder als Hex-String mit 32 Zeichen (16 Bytes) eingegeben werden.
+Die Gerätekennung ist eine Kombination aus Herstellercode und Geräte-ID (z.B. AAA-12345678). Der Schlüssel kann entweder als Klartextschlüssel mit 16 Zeichen oder als Hex-String mit 32 Zeichen (16 Bytes) eingegeben werden.
 
-Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne Schlüsseleinrichtung zu starten und auf ein verschlüsseltes Telegramm zu warten, woraufhin vom Adapter ein Eintrag mit „UNBEKANNTER“ Schlüssel generiert wird. Anschließend können Sie den entsprechenden Schlüssel ausfüllen und die Einstellungen speichern. Wenn Sie Geräte sehen, die Sie nicht kennen oder einfach loswerden möchten (z. B. Geräte von Nachbarn), können Sie diese im Reiter „Gesperrte Geräte“ eintragen (siehe unten).
+Die einfachste Möglichkeit, die Schlüssel einzurichten, besteht darin, den Adapter ohne Schlüsseleinrichtung zu starten und auf ein verschlüsseltes Telegramm zu warten, woraufhin vom Adapter ein Eintrag mit dem Schlüssel "UNKNOWN" generiert wird. Anschließend können Sie den entsprechenden Schlüssel eintragen und die Einstellungen speichern. Wenn Sie Geräte sehen, die Sie nicht kennen oder einfach loswerden möchten (z. B. Geräte von Nachbarn), können Sie diese im Reiter Blockierte Geräte eintragen (siehe unten).
 
 ### Blockieren unerwünschter Geräte
-Auf der Registerkarte „Blockierte Geräte“ können Sie den Adapter vollständig daran hindern, Telegramme von unerwünschten Geräten zu verarbeiten.
+Über die Registerkarte „Blockierte Geräte“ können Sie die Verarbeitung von Telegrammen unerwünschter Geräte durch den Adapter vollständig unterbinden.
 
-Sie müssen lediglich die Geräte-ID (z. B. AAA-12345678) eingeben, die Sie dem Objektbaum nach dem Empfang und Parsen eines Telegramms oder dem (Debug-)Protokoll entnehmen können.
+Zur Eingabe ist lediglich die Geräte-ID (z.B. AAA-12345678) notwendig, welche Sie nach Empfang und Auswertung eines Telegramms aus dem Objektbaum oder dem (Debug-)Log entnehmen können.
 
 Wenn Sie das Gerät anschließend aus dem Objektbaum löschen, wird es vom Adapter nicht erneut erstellt.
 
-## Machen
-* Telegramme für S-Mode-Empfänger senden?
+## Aufgaben
+* Senden von Telegrammen für S-Modus-Empfänger?
 * Umgang mit Zählern mit „Mehrfachtelegrammen“
 
 ## Changelog
+
+### 0.10.0
+* (ChL) Add support for IMST iU891A-XL receiver
+
+### 0.9.4
+* (ChL) Upgrade dependencies and general package stuff
+
+### 0.9.3
+* (ChL) Fix handling of 64bit integer DIFs
+
+### 0.9.2
+* (ChL) Fix handling of frame type B without CRC
 
 ### 0.9.1
 * (ChL) Fix custom port display in admin page if SerialPort returns no ports
@@ -200,6 +213,6 @@ Wenn Sie das Gerät anschließend aus dem Objektbaum löschen, wird es vom Adapt
 ## License
 
 Copyright (c) 2019 ISFH - Institute for Solar Energy Research www.isfh.de
-Copyright (c) 2021 Christian Landvogt
+Copyright (c) 2021 - 2025 Christian Landvogt
 
 Licensed under GPLv2. See [LICENSE](LICENSE) and [NOTICE](NOTICE)

@@ -3,49 +3,123 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
+hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
 ---
 ![标识](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
 ![安装数量](http://iobroker.live/badges/semp-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.semp.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.semp.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.semp.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.semp.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.semp.png?downloads=true)
+![节点](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 # IoBroker.semp
-![GitHub 操作](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
+![GitHub Actions](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
-**如果您喜欢，请考虑捐赠：**
+**如果您喜欢它，请考虑捐赠：**
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## 适用于 ioBroker 的 SMA SEMP 适配器
 通过 SunnyHomeManager 和 SEMP 与 SMA SunnyPortal 接口
 
-从 SunnyPortal 中的 ioBroker 添加您的设备。
-然后，SunnyPortal 可以更好地估计您的能源消耗，从而做出更好的预测和建议。但您也可以让 SunnyPortal 控制您的设备。如果有足够的太阳能，SunnyPortal 可以打开您的设备，或者如果没有足够的太阳能，则再次关闭它们。通过这种方式，您可以优化自己的消耗，但不依赖于 SunnyPortal 支持的少数设备。通过该适配器，ioBroker 中的任何设备都可以集成到 SunnyPortal 中。
-甚至不需要测量单个设备的消耗。即使是估计值也足够了。
+从 ioBroker 向 SunnyPortal 添加您的设备。
+这样，SunnyPortal 就能更好地估算您的能耗，从而做出更准确的预测和建议。此外，您还可以通过 SunnyPortal 控制您的设备。如果太阳能充足，SunnyPortal 可以开启您的设备；如果太阳能不足，SunnyPortal 则会关闭它们。这样，您就可以优化自身的能耗，而无需依赖 SunnyPortal 支持的少数设备。使用适配器，ioBroker 中的任何设备都可以集成到 SunnyPortal 中。
+甚至无需测量单个设备的能耗，即使是估算值也足够了。
 
 ## 用户文档
-参见[纪录片](docu/docu_en.md)
+参见[文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
 
-有关协议和用法的详细信息，请查看[SMA文档](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf)。
+有关协议和使用的详细信息，请查看[SMA文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf)。
 
-有关能源请求的一般用途的说明，请参阅[SMA文档](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf)。 （仅限德语）
+关于能源请求的一般用途的描述，请参阅[SMA文档](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf)。（仅限德语）
 
 ＃＃ 特征
-* 通过 SMA SEMP 在 SunnyPortal 中添加来自 ioBroker 的设备
-* 通知 SunnyPortal 当前的消耗情况
-* 让SunnyPortal控制这些设备（光伏电量充足时开启，太阳能不足时关闭）
+* 通过 SMA SEMP 从 SunnyPortal 中的 ioBroker 添加设备
+* 向 SunnyPortal 告知当前消耗情况
+* 让 SunnyPortal 控制这些设备（当有足够的光伏电力时打开，当没有足够的太阳能时关闭）
 
 ＃＃ 要求
-＃＃ 已知的问题
-* 如果您发现错误或希望有新功能，请在 [github](https://github.com/rg-engineering/ioBroker.semp/issues) 上创建问题
+## 洗碗机模式
+## 适配器的功能
+该适配器可让您控制洗碗机或其他消耗待机功率的设备。其工作原理如下：
+
+- 用户像平常一样手动打开设备。
+- 设备不会立即启动，而是保持暂停状态。
+- 一旦有足够的太阳能，设备将自动启动并运行，直到程序完成。
+- 在此过程中，智能家居管理器 (SHM) 发出的任何关闭设备的建议都将被忽略。
+
+> **注意：** > 有关技术实施的详细信息，请参阅[问题 #333](#) 和下面的流程图。
+
+![流程图](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
+
+## 已知问题
+* 如果您发现错误或需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.semp/issues) 创建问题
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (René) see issue #333: new sequence to handle devices with quiescent current. ATTENTION: new dishwasher sequence is used for dishwasher devices optionally!
+* (René) changes requested by adapter checker
+* (René) dependencies updated 
+
+### 1.4.8 (2024-11-20)
+* (René) update dependencies
+* (René) issue #317: test with nodejs@22
+* (René) issue #329: links to docu updated
+
+### 1.4.7 (2024-09-13)
+* (René) see issue #314: bug fix to use express@5.0.0
+
+### 1.4.6 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 1.4.5 (2024-05-29)
+* (René) see issue #250: no Power to be send for devices without measurement in off-status
+
+### 1.4.4 (2024-05-28)
+* (René) change of dependencies
+* (René) wallbox: check and log wrong value for Wallbox3phaseSwitchDelay only if enabled
+
+### 1.4.3 (2024-02-20)
+* (René) wallbox: unnecessary warn messages deactivated
+* (René) dependencies updated
+
+### 1.4.2 (2024-02-16)
+* (René) bug fix in create timeframes
+
+### 1.4.1 (2024-02-12)
+* (René) minor bug fix
+
+### 1.4.0 (2024-02-12)
+* (René) bug fix: see issue #206 - wallbox OID's selectable
+* (René) bug fix: see issue #207 - wallbox maximum charge time adjustable 
+* (René) see issue #208: timeframe can be disabled by user (optionally)
+
+### 1.3.15 (2024-02-03)
+* (René) bug fix: wallbox counter and status are not handled
+
+### 1.3.14 (2024-01-12)
+* (René) dependencies updated
+
+### 1.3.13 (2023-11-19)
+* (René) dependencies updated
+* (René) fix exceptions reported by sentry
 
 ### 1.3.12 (2023-10-29)
 * (René) some bug fixes based on changes in 1.3.11
@@ -152,7 +226,7 @@ hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

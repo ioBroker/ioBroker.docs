@@ -26,16 +26,23 @@ This adapter retrieves data from CLEVERON - API (<https://www.cleveron.ch>)
 -   Restart adapter if you added new devices, room or homes, or if you changed any settings.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.1.0 (2024-04-14)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
-### v0.0.6
+### 0.0.6
 
--   dependencies updated
+-   jsonConfig
 
-### v0.0.5
+### 0.0.5
 
 -   introduced axios
 
-### v0.0.4
+### 0.0.4
 
 -   changed ecrypting to 'encryptedNative'
 
@@ -55,7 +62,8 @@ This adapter retrieves data from CLEVERON - API (<https://www.cleveron.ch>)
 
 MIT License
 
-Copyright (c) 2022 forelleblau <mailto:marceladam@gmx.ch>
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023 forelleblau <mailto:marceladam@gmx.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

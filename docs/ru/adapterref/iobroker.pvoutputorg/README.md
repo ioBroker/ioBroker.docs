@@ -1,34 +1,41 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pvoutputorg/README.md
 title: ioBroker.pvoutputorg
-hash: 66MavZix6CUQFsgttei7j+7Q1VSbPeAtv8peCOfA0xc=
+hash: VqvGAYefwYHYeiJskKMd8QvmTPruFxgPhWVAdG5VqDA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pvoutputorg/admin/pvoutputorg.png)
 
 ![Количество установок](http://iobroker.live/badges/pvoutputorg-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pvoutputorg.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.pvoutputorg.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.pvoutputorg.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.pvoutputorg/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.pvoutputorg.png?downloads=true)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.pvoutputorg?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.pvoutputorg?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.pvoutputorg?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
 
 # IoBroker.pvoutputorg
-![Действия на GitHub](https://github.com/rg-engineering/ioBroker.pvoutputorg/workflows/Test%20and%20Release/badge.svg)
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.pvoutputorg/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
-**Если вам это нравится, рассмотрите пожертвование:**
+**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Адаптер подключается к [PvOutput.org](https://pvoutput.org). System-ID и API-ключ используются для установления соединения. Оба должны быть настроены на странице администратора.
-Система, состояние и статистические данные для всех настроенных систем в настоящее время считываются и отображаются в точках данных.
-Генерируемая энергия может быть постоянно загружена на PvOutput.org.
+Адаптер подключается к [PvOutput.org](https://pvoutput.org). Для установления соединения используется системный идентификатор и API-ключ. Оба должны быть настроены на странице администратора.
+Система, состояние и статистические данные для всех сконфигурированных систем в настоящее время считываются и отображаются в точках данных.
+Генерируемую энергию можно постоянно загружать на PvOutput.org.
 
-Подробную информацию см. в разделе [pvoutput.org помощь](https://pvoutput.org/help/overview.html).
+Для получения подробной информации ознакомьтесь с [Помощь pvoutput.org](https://pvoutput.org/help/overview.html).
 
-Если вы поддержите pvoutput.org пожертвованием, вам будут доступны дополнительные функции. На данный момент они еще не поддерживаются в адаптере.
+Если вы поддержите pvoutput.org пожертвованием, вам станут доступны дополнительные функции. На данный момент они еще не поддерживаются адаптером.
 
 # Скачать
 Адаптер загружает три типа данных
@@ -37,68 +44,79 @@ hash: 66MavZix6CUQFsgttei7j+7Q1VSbPeAtv8peCOfA0xc=
 * Данные о состоянии
 * Статистические данные
 
-Для загрузки данных адаптер запускает регулируемое задание cron. Частоту загрузки можно настроить на странице администратора с помощью «интервала чтения данных [мин]».
+Для загрузки данных адаптер запускает настраиваемое задание cron. Частоту загрузки можно настроить на странице администратора с помощью параметра «интервал чтения данных [мин]».
 Обычно значение частоты загрузки составляет 15 минут, но не более 59 минут.
 
 ## Системные данные
-Адаптер извлекает информацию о состоянии системы и выходные данные в реальном времени.
+Адаптер получает информацию о состоянии системы и выходные данные в реальном времени.
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#id25)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#id25)
 
 ## Данные о состоянии
-Данные о состоянии (или оперативные данные) включают в себя все возможные системные данные, доступные для вашей системы.
+Данные о состоянии (или текущие данные) включают в себя все возможные системные данные, доступные для вашей системы.
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#id16)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#id16)
 
 ## Статистические данные
-Адаптер извлекает системную статистическую информацию.
+Адаптер получает статистическую информацию о системе.
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#id21)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#id21)
 
 # Загрузить
-Загрузка данных — это только опция. Если вы загружаете данные с помощью другого приложения, такого как sbfspot, отключите загрузку здесь в адаптере.
+Загрузка данных является только опцией. Если вы загружаете данные с помощью другого приложения, например sbfspot, отключите загрузку здесь, в адаптере.
 
-## Загрузить оперативные данные
-Для загрузки оперативных данных/данных о состоянии адаптер запускает регулируемое задание cron. Частоту загрузки можно настроить на странице администратора с помощью «интервала для записи данных [мин]».
+## Загрузить текущие данные
+Для загрузки оперативных данных/данных о состоянии адаптер запускает настраиваемое задание cron. Частоту загрузки можно настроить на странице администратора с помощью параметра «интервал записи данных [мин]».
 Обычно значение частоты загрузки составляет от 5 до 15 минут, но не более 59 минут.
 
-Адаптер предоставляет множество точек данных в папке «upload» для каждой системы. Должны использоваться только данные о мощности или энергии. Все остальные опционально.
+Адаптер предоставляет множество точек данных в папке «Загрузка» для каждой системы. Должна использоваться только точка данных мощности или энергии. Все остальные опционально.
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#add-status-service)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#add-status-service)
 
 ### Расчет мощности и энергии
 Значения мощности и энергии могут быть получены друг из друга. Когда система отправляет только значения мощности, соответствующие значения энергии рассчитываются автоматически.
-Точно так же, когда отправляются только значения энергии, PVOutput вычисляет среднюю мощность.
+Аналогично, когда отправляются только значения энергии, PVOutput рассчитает среднюю мощность.
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#power-and-energy-calculation)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#power-and-energy-calculation)
 
-### Cumulative Energy — флаг CumulativeFlag в конфигурации системы
-Следующие значения допустимы для совокупного флага.
-1 = Значения «Выработка энергии» и «Потребление энергии» являются значениями энергии за весь срок службы. Энергия потребления и генерации сбрасывается на 0 в начале дня.
-2 - Только генерация энергии является пожизненной ценностью энергии.
-3 - Только потребление энергии является значением энергии в течение всего срока службы.
+### Cumulative Energy — CumulativeFlag в конфигурации системы
+Следующие значения действительны для накопительного флага.
+1 = Значения выработки энергии и потребления энергии являются значениями энергии за весь срок службы. Энергия потребления и генерации сбрасывается до 0 в начале дня.
+2 – Только выработка энергии является энергетической ценностью на протяжении всей жизни.
+3. Только потребление энергии является энергетической ценностью в течение всего срока службы.
 
 По умолчанию: 1
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#cumulative-energy)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#cumulative-energy)
 
-### Net Data - NetDataFlag в конфигурации системы
-Параметр, установленный на 1, будет указывать, что передаваемые значения мощности представляют собой чистый экспорт/импорт, а не валовое производство/потребление.
-Эта опция используется для устройств, которые не могут сообщать данные о валовом потреблении. Предоставленные данные об импорте/экспорте объединяются с существующими данными о производстве для получения данных о потреблении.
+### Net Data — NetDataFlag в конфигурации системы
+Если для параметра установлено значение 1, это будет означать, что передаваемые значения мощности представляют собой чистый экспорт/импорт, а не валовое производство/потребление.
+Эта опция используется для устройств, которые не могут сообщать данные о валовом потреблении. Предоставленные данные об импорте/экспорте объединяются с существующими данными о выработке электроэнергии для получения данных о потреблении.
 
 По умолчанию: не отмечено
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#net-data)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#net-data)
 
 ## Загрузить данные на конец дня
 В конце дня будет выполнена отдельная команда загрузки. Можно загрузить много разных данных. Эти данные доступны в виде точки данных в папке загрузки каждой системы. Все они опциональны.
 
-подробнее о [документация по API](https://pvoutput.org/help/api_specification.html#add-output-service)
+подробнее о [Документация по API](https://pvoutput.org/help/api_specification.html#add-output-service)
 
 ## Известные вопросы
-* пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.pvoutputorg/issues), если вы обнаружите ошибки или хотите добавить новые функции
+* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.pvoutputorg/issues), если вы обнаружите ошибки или вам нужны новые функции.
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.8.10 (2023-11-19)
+* (René) dependencies updates
+*
+
+### 1.8.9 (2023-07-30)
+* (René) dependencies updates
 
 ### 1.8.8 (2023-04-07)
 * (René) dependencies updates
@@ -117,7 +135,7 @@ hash: 66MavZix6CUQFsgttei7j+7Q1VSbPeAtv8peCOfA0xc=
 * (René) bug fix EoD upload
 
 ### 1.8.0 (2022-08-20)
-* (René) WeatherConditions can be used directly from DasWetter adapter 
+* (René) WeatherConditions can be used directly from DasWetter adapter
 
 ### 1.7.0 (2022-07-17)
 * (René) WeatherConditions for upload end of the day (EoD) data added
@@ -129,7 +147,7 @@ hash: 66MavZix6CUQFsgttei7j+7Q1VSbPeAtv8peCOfA0xc=
 ### 1.6.0 (2022-07-01)
 * (René) change back from cron to interval
 * (René) end of day data are written 1 hour after sunset
-* (René) read and write data only when daylight as an option 
+* (René) read and write data only when daylight as an option
 
 ### 1.5.0 (2022-04-21)
 * (René) datapoint added to show when data uploaded to pvoutput.org

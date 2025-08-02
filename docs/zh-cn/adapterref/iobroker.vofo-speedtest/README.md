@@ -3,41 +3,46 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vofo-speedtest/README.md
 title: ioBroker.vofo-速度测试
-hash: 8JqucXM8UL0/udKEd7RzkNHA1lejXAePJIqkdoifCEE=
+hash: 4PcZ3CeCQZ9Qx74X33H7TCPTDyHpFmQfaMyR6GSextM=
 ---
 ![标识](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
-![安装数量（最新）](http://iobroker.live/badges/vofo-speedtest-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/vofo-speedtest-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vofo-speedtest)
 ![下载](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.vofo-speedtest.png?downloads=true)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.vofo-speedtestd)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![GitHub 自最新版本以来的提交情况（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.vofo-speedtest/latest)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.vofo-speedtest)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/vofo-speedtest-stable.svg)
+![安装数量](https://iobroker.live/badges/vofo-speedtest-installed.svg)
 
 # IoBroker.vofo-速度测试
-![测试与发布](https://github.com/peterbaumert/iobroker.vofo-speedtest/workflows/Test%20and%20Release/badge.svg)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/vofo-speedtest/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试与发布]（https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml/badge.svg）](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql/badge.svg）](https://github.com/iobroker-community-adapters/ioBroker.vofo-speedtest/actions/workflows/github-code-scanning/codeql)
 
-**此适配器使用服务[哨兵大作战](https://sentry.io)自动向我（作为开发人员）报告异常和代码错误以及新设备架构。**更多详细信息请参见下文！
+## 适用于 ioBroker 的 vofo-speedtest 适配器
+Vodafone.de 的速度测试
 
-## IoBroker 的 vofo-speedtest 适配器
-Vodafone.de 速度测试
+实现的技术与 https://speedtest.vodafone.de 相同
 
-实现与 https://speedtest.vodafone.de 相同的技术
-
-## Sentry.io 是什么以及向该公司的服务器报告什么？
-Sentry.io 是一项服务，供开发人员获取有关应用程序错误的概述。这正是在这个适配器中实现的。
-
-当适配器崩溃或发生其他代码错误时，也会出现在 ioBroker 日志中的此错误消息会提交给 Sentry。
-当您允许 ioBroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包含在内。
-这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
+## 致谢
+如果没有 Peter Baumert <ioBroker.unifi-protect@outlook.com> 的出色工作，这个适配器就不可能实现，他实现了这个适配器的初始版本。
 
 ## 免责声明
-沃达丰是沃达丰有限公司的商标。我不以任何方式获得沃达丰有限公司或任何相关子公司、徽标或商标的认可或附属
+Vodafone 是 Vodafone GmbH 的商标。我与 Vodafone GmbH 或其任何关联子公司、徽标或商标没有任何关联或认可
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2024-03-29)
+* (mcm1957) BREAKING: Adapter requires node.js 18, js-controller >= 5 and admin >= 6 now
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
+* (mcm1957) Metrialize admin UI has been removed as jsonConfig is available
+* (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2023-09-13)
 * (bluefox) Updated packages and refactored code
 
@@ -94,6 +99,7 @@ Sentry.io 是一项服务，供开发人员获取有关应用程序错误的概�
 ## License
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

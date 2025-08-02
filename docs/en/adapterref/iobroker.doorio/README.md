@@ -26,6 +26,9 @@ Hardware auf der sich Baresip installieren lässt genutzt werden.
 * [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/22746/test-adapter-doorio-v0-0-x)
 
 ## Changelog
+### 2.1.5
+* (bettman66) update adapter core
+
 ### 2.1.4
 * (bettman66) test redial
 
@@ -59,7 +62,7 @@ Hardware auf der sich Baresip installieren lässt genutzt werden.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 bettman66 <w.zengel@gmx.de>
+Copyright (c) 2025 bettman66 <w.zengel@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

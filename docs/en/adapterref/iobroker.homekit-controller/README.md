@@ -110,7 +110,13 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### __WORK IN PROGRESS__
+### 0.5.11 (2024-10-31)
+* (Apollon77) Stability and compatibility improvements for BLE
+
+### 0.5.10 (2024-01-26)
+* (bluefox) Fix user interface
+
+### 0.5.9 (2023-11-23)
 * (Apollon77) Prevent crash when a single value is returned as error status
 * (Apollon77) send booleans always as 0/1 to make sure all devices handle it correctly
 * (Apollon77) Update dependencies
@@ -193,7 +199,7 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2024 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -78,9 +78,13 @@ Soundtouch Application itself.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+### 0.11.1 (2024-04-03)
+* (mcm1957) Release workflow has been fixed
+
+### 0.11.0 (2024-04-03)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Testing has been changed to support node 18 and 20
+* (mcm1957) Dependencies have been updated
 
 ### 0.10.3 (2022-06-17)
 * (Apollon77) Fix crash case reported by Sentry
@@ -215,6 +219,7 @@ Soundtouch Application itself.
 
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2022 SwedishChef <swedish.chef@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

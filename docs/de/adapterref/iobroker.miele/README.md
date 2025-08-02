@@ -17,18 +17,18 @@ hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
 #### Beschreibung
 Adapter für Miele-Geräte
 
-#### Aufbau
-Konfiguration nicht erforderlich Die erste empfangene Sendung erstellt alle kompatiblen Geräte und Zustände
+#### Konfiguration
+Konfiguration nicht erforderlich. Der erste empfangene Broadcast erstellt alle verfügbaren Geräte und Zustände
 
 #### Installation
-Führen Sie den folgenden Befehl im iobroker-Stammverzeichnis aus (z. B. in / opt / iobroker).
+Führen Sie den folgenden Befehl im iobroker-Stammverzeichnis aus (z. B. in /opt/iobroker)
 
 ```
 npm install iobroker.miele
 ```
 
-#### Bedarf
-Miele-Gateway, z.B. XGW 3000 <! -
+#### Anforderungen
+Miele-Gateway z.B. XGW 3000 <!--
 
 ## License
 The MIT License (MIT)

@@ -57,6 +57,9 @@ The adapter starts once a day.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js >=18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
 ### 1.1.5 (2023-08-15)
 * (motuditli) Adjusted for Website Changes - removal of authentication
@@ -106,6 +109,7 @@ The adapter starts once a day.
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

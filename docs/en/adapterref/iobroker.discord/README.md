@@ -167,7 +167,7 @@ for example, that a server has more channels as displayed.
 
 | Name | Description |
 |---|---|
-| `activityType` | The type of the bot activity. One of `Playing`, `Streaming`, `Listening`, `Watching`, `Competing` or an empty string. |
+| `activityType` | The type of the bot activity. One of `Playing`, `Streaming`, `Listening`, `Watching`, `Competing`, `Custom` or an empty string. |
 | `activityName` | The name of the bot activity. Only used if a type is set. |
 | `status` | The presence status of the bot. One of `online`, `idle`, `dnd` and `invisible`. |
 
@@ -1341,6 +1341,51 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.5.2 (2024-11-16)
+
+* (crycode-de) Added missing sizes to jsonConfig
+
+### 2.5.1 (2024-10-23)
+
+* (crycode-de) Small style fixes for jsonConfig
+* (crycode-de) Optimized timeout behavior
+* (crycode-de) Updated dependencies
+
+### 2.5.0 (2024-09-23)
+
+* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
+* (crycode-de) Updated dependencies
+
+### 2.4.0 (2024-07-10)
+
+* (crycode-de) Added basic support for interactions unknown to the adapter (custom scripts required for handling)
+* (crycode-de) Raw interaction JSON is now written to the state after the interaction is initially handled to prevent some race conditions
+* (crycode-de) Updated dependencies
+
+### 2.3.1 (2024-06-29)
+
+* (crycode-de) Fixed Blockly for the latest JavaScript adapter changes
+* (crycode-de) Updated dependencies
+
+### 2.3.0 (2024-05-14)
+
+* (crycode-de) 💥 Node.js 18+ is now required!
+* (crycode-de) Added support for custom bot activities
+* (crycode-de) Fixed Issue with embed colors not accepting hex color codes
+* (crycode-de) Fixed user activities for users with custom activities (see [#60](https://github.com/crycode-de/ioBroker.discord/issues/60))
+* (crycode-de) Updated dependencies
+
+### 2.2.1 (2024-04-13)
+
+* (crycode-de) Fixed blockly target detection if user is provided by a variable (You may need to move a block to update the generated code)
+* (crycode-de) Updated dependencies
+
+### 2.2.0 (2023-11-07)
+
+* (crycode-de) Optimized error handling - Network related errors should now be handled completely without adapter restarts and better logging
+* (crycode-de) Fixed small issues in config UI
+* (crycode-de) Updated dependencies
+
 ### 2.1.2 (2023-09-04)
 
 * (crycode-de) Fixed response to notification-manager adapter
@@ -1417,7 +1462,7 @@ sendTo('discord.0', 'getMessageInfo', {
 
 MIT License
 
-Copyright (c) 2022-2023 Peter Müller <peter@crycode.de>
+Copyright (c) 2022-2024 Peter Müller <peter@crycode.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

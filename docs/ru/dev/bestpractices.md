@@ -5,7 +5,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/best
 template: true
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: +XV8IURr2gL8C+dcqnid5YBl6jNOX2z99+0SAzv8kFs=
+hash: b7Zq/mSJjuWgRDm5z65FA+XKWK79yoFz0IptaP2Azko=
 ---
 # Лучшие практики
-?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы упростить принятие изменений.
+?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы облегчить применение изменений.

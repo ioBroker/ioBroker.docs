@@ -6,8 +6,6 @@
 ![Number of Installations](https://iobroker.live/badges/matrix-org-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/matrix-org-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.matrix-org.png?downloads=true)](https://nodei.co/npm/iobroker.matrix-org/)
-
 **Tests:** ![Test and Release](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
 
 ## matrix-org adapter for ioBroker
@@ -80,6 +78,11 @@ Join this room and try it out with your own credentials
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* upgrade matrix-js-sdk to 36.0.0
+* switch to ESM
+* eslint 9 (what a messi commit)
+
+### 1.1.0 (2024-11-23)
 * upgrade matrix-js-sdk
 * auto join added (default false)
 
@@ -157,7 +160,7 @@ Join this room and try it out with your own credentials
 ## License
 MIT License
 
-Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
+Copyright (c) 2024 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

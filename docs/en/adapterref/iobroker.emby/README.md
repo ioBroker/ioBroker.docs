@@ -1,26 +1,50 @@
 ![Logo](admin/emby.png)
 # ioBroker.emby
 
-[![Build Status](https://travis-ci.org/thewhobox/ioBroker.emby.svg?branch=master)](https://travis-ci.org/thewhobox/ioBroker.emby)
-![Number of Installations](http://iobroker.live/badges/emby-installed.svg) ![Number of Installations](http://iobroker.live/badges/emby-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.emby.svg)](https://www.npmjs.com/package/iobroker.emby)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.emby)](https://github.com/iobroker-community-adapters/ioBroker.emby/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.emby.svg)](https://www.npmjs.com/package/iobroker.emby)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.emby)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/emby/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.emby)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.emby/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.emby)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.emby)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.emby.svg)](https://www.npmjs.com/package/iobroker.emby)
+![Current version in stable repository](https://iobroker.live/badges/emby-stable.svg)
+![Number of Installations](https://iobroker.live/badges/emby-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.emby/actions/workflows/codeql.yml)
 
-[![NPM](https://nodei.co/npm/iobroker.emby.png?downloads=true)](https://nodei.co/npm/iobroker.emby/)
+<!--
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+-->
+
+## EMBY Adapter for ioBroker
 
 This adapter will allow you to connect to your Emby Server and controle it.
 
+## Credits
+
+This adapter would not have been possible without the great work of @thewhobox <iobroker@mikegerst.de>, who Wrote the initial versions of this adapter and doneted it to the iobroker-community-adapters organization.
+
+
+## Usage
+
 Please follow the Steps to ensure the Adapter will work correctly and you can see all Devices.
 
-## Steps 
-1. Install the Adapter from Github
-
-2. Edit the Settings and enter the IP, ApiKey and maybe some DeviceIds you want to ignore.
+1. Edit the Settings and enter the IP, ApiKey and maybe some DeviceIds you want to ignore.
 
   ```IP **with** Port => 192.168.0.100:8096```
   
-3. Save and restart the Adapter.
+2. Save and restart the Adapter.
 
-4. To see the first Items you will have to open a Emby Client to recieve some Data.
+3. To see the first Items you will have to open a Emby Client to recieve some Data.
   
   ```The Adapter will not get Data if **no** client is open.```
 
@@ -67,6 +91,24 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.2.0 (2024-04-14)
+
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.1.1 (2023-11-20)
+-   (mcm1957) Dependencies have been updated.
+
+### 1.1.0 (2023-11-20)
+-   (mcm1957) Adapter requires nodejs 16 now.
+-   (mcm1957) Adapter has been moved into iobroker-community-adapters oragnization.
+-   (thewhobox) An error causing multiple 'undefined' messages has been fixed. [#23]
+-   (mcm1957) Dependencies have been updated.
+
 ### 1.0.3
 * Added more info for playing item
 
@@ -91,7 +133,6 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 ### 0.0.3
 * added new states, connection state and more improvment
 
-
 ### 0.0.2
 * added more states
 * added DisplayMessage
@@ -99,14 +140,12 @@ Please follow the Steps to ensure the Adapter will work correctly and you can se
 ### 0.0.1
 * Initial version
 
-
-
-
 ## License
 
 MIT License
 
-Copyright (c) 2020 thewhobox
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2020-2023 thewhobox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

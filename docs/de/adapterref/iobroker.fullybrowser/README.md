@@ -53,6 +53,8 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 
 ### MQTT-Konfiguration
  * **Port**: Dieselbe Portnummer wie oben in den Fullybrowser MQTT-Einstellungen verwenden (z.B. `3000`).
+![Logo](../_img/mqtt_adapter.png)
+   
  * **Benutzername und Passwort nicht verifizieren**: Damit kann die Überprüfung von Benutzernamen und Passwort deaktiviert werden.
  * **Benutzername**: Optional
  * **Passwort**: Optional
@@ -72,6 +74,42 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.1.1 (2025-02-19)
+* (arteck) typo
+
+### 3.1.0 (2025-02-16)
+* (arteck) add new command takePicture, check new settings
+
+### 3.0.13 (2025-01-05)
+* (arteck) add setBooleanSetting
+
+### 3.0.12 (2024-03-05)
+* (arteck) set batteryLevel to 0 if tablet is offline is configurable
+
+### 3.0.11 (2024-02-25)
+* (arteck) translate api-type
+
+### 3.0.10 (2024-02-06)
+* (arteck) set batteryLevel to 0 when device is offline
+
+### 3.0.9 (2023-12-07)
+* (arteck) corr error message
+
+### 3.0.8 (2023-12-05)
+* (arteck) toForeground corr
+
+### 3.0.7 (2023-11-20)
+* (arteck) check credentials
+
+### 3.0.6 (2023-11-11)
+* (arteck) add mqttTimeout in settings
+
+### 3.0.5 (2023-11-09)
+* (arteck) add setRAW DP, this allows you to send a fullbrowser command directly
+
+### 3.0.4 (2023-11-06)
+* (arteck) set to zero corr
+
 ### 3.0.3 (2023-11-04)
  * (arteck) setStringSettings corr
 
@@ -116,7 +154,7 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Arthur Rupp arteck@outlook.com
+Copyright (c) 2014-2025 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

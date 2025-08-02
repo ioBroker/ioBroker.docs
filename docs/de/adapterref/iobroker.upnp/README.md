@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.upnp/README.md
 title: ioBroker.upnp
-hash: HJxTPvVhDbLKVrCZXT6q+fgUyDw1V6xjVS/RgGT+afE=
+hash: qKl3jUBUbIAfp2+IKp9xFSeH5ZAUfTIlwtHbPgiTM3s=
 ---
 ![Logo](../../../en/adapterref/iobroker.upnp/admin/upnp-discovery.png)
 
@@ -12,100 +12,100 @@ hash: HJxTPvVhDbLKVrCZXT6q+fgUyDw1V6xjVS/RgGT+afE=
 ![Bild](https://travis-ci.org/Jey-Cee/ioBroker.upnp.svg?branch=master)
 
 # IoBroker.upnp
-1. [Deutsch] (# german_description)
-* [Was ist UPnP?] (# Was-ist-upnp)
-* [Funktionsbeschreibung] (# funktionsbeschreibung)
-* [Objektstruktur] (# objektstruktur)
-* Allgemeine Objekte
-* [Upnp-Objekte] (# upnp-objekte)
-* [Steuerung] (# steuerung)
-* # Gerätedienst-Interessen-Persönlichkeitheiten
+1. [Deutsch](#german_description)
+	 * [Was ist UPnP?](#was-ist-upnp)
+	 * [Funktionsbeschreibung](#funktionsbeschreibung)
+	 * [Objektstruktur](#objektstruktur)
+	 * [Allgemeine Objekte](#allgemeine-objekte)
+	 * [Upnp Objekte](#upnp-objekte)
+* [Steuerung](#steuerung)
+	 * [Geräte/Dienst Spezifische Besonderheiten](#gerätedienst-spezifische-besonderheiten)
 
-2. [Englisch] (# english_description)
-* [Was ist UPnP?] (# What-is-upnp)
-* [Funktionsbeschreibung] (# Funktionsbeschreibung)
-* [Objektstruktur] (# Objektstruktur)
-* [Allgemeine Objekte] (# allgemeine Objekte)
-* [Upnp Objects] (# Objektstruktur)
-* [Kontrolle] (# Kontrolle)
-* [Geräte / Service-spezifische Funktionen] (# Devicesservice-spezifische Funktionen)
+2. [Englisch](#english_description)
+* [Was ist UPnP?](#was-ist-upnp)
+* [Funktionsbeschreibung](#funktionsbeschreibung)
+* [Objektstruktur](#Objektstruktur)
+* [Allgemeine Objekte](#general-objects)
+* [Upnp-Objekte](#Objektstruktur)
+* [Strg](#Strg)
+* [Geräte-/Dienstspezifische Funktionen](#devicesservice-specific-features)
 
-3. [Changelog] (# changelog)
+3. [Änderungsprotokoll](#changelog)
 
 ## Deutsche Beschreibung
 ### Verwendungszweck
-Dient der Kommunikation und Interaktion mit allen UPnP-Fähigen Interessen.
+Dient der Kommunikation und Interaktion mit allen UPnP-ähnlichen Geräten.
 
-#### War ist UPnP?
-UPnP = Universal Plug and Play. Ist der versuch eine Standardisierung der Kommunikation zwischen den im Netzwerk Netzwerke.
-Dazu gibt es heißt „Schemas“, diese werden in Form einer xml Datei Darstellung. Sie haben alle Informationen über das Gerät oder die Software und ihre Dienste die sie bereit gestellt. Damit diese Dienste auch Nutzbar sind, wird auch eine Beschreibung zu jedem Dienst mitgeliefert. Diese Beschreibung folgt dem für den Dienst gehört Schema, wie es möglich ist, um Informationen zu erhalten, wie es heißt, was das Modell oder die Software ist. In der Vergangenheit wurde diese Standardisierung vor allem für Mediengeräte und Software-Anwendungen. Seit Jahren Zeit gibt es Bestrebungen auch die Kommunikation des Internet der Dinge mit dieser Standardisierung zu vereinheitlichen.
-Dazu wurde 2016 die „Open Connectivity Foundation“ gestellt, diese Rechte die Aufgaben des UPnP-Forums, die die von UPnP-Fähigen-Beziehungs- und -standards haben.
+#### Was ist UPnP?
+UPnP = Universelles Plug-and-Play. Ist der Versuch eine Standardisierung der Kommunikation zwischen Geräten im Netzwerk herzustellen.
+Dazu gibt es sogenannte „Schemas“, diese werden in Form einer xml-Datei dargestellt. Sie enthalten alle Informationen über das Gerät oder die Software und deren Dienste, die sie bereit stellen. Damit diese Dienste auch Nutzbar sind, wird auch eine Beschreibung zu jedem Dienst mitgeliefert. Diese Beschreibung folgt dem für den Dienst festgelegten Schema, dadurch können schnell Informationen und Befehle ausgetauscht werden, ohne dass es nötig ist, zu wissen, welches Modell oder von welchem Hersteller das Gerät oder die Software ist.  In der Vergangenheit wurde diese Standardisierung vor allem für Mediengeräte und Software genutzt. Seit einiger Zeit gibt es Bestrebungen auch die Kommunikation des „IoT – Internet of Things“ mit dieser Standardisierung zu vereinheitlichen.
+Dazu wurde 2016 die „Open Connectivity Foundation“ gegründet, diese übernimmt die Aufgaben des UPnP-Forums, welches die Zertifizierung von UPnP-Fähigen Geräten durchgeführt und Standards erstellt hat.
 
 #### Funktionsbeschreibung
-Der Adapter wird beim ersten Start einer Sendung durch und Wertet die Antworten aus. Die Antworten erhalten den Link zu den xml Verantwortlichen der Dienste. Anhand der xml-Beschwerden werden die Objekte in ioBroker-Berechtigungen und mit allen -informations-Informationen befolgt.
+Der Adapter führt beim ersten Start einen Broadcast durch und Wertet die Antworten aus. Die Antworten enthalten den Link zu den xml-Dateien der Dienste. Anhand der xml-Dateien werden die Objekte in ioBroker erzeugt und mit allen verfügbaren Informationen befüllt.
 
-Die Zeitverzögerung wird zu einem Dienst, der von den Nachrichten von Steuern / Verträgen gehört, die sich selbst anmelden oder melden. Neu gewordene Geräte / Dienste werden zu zu den hinzugefügten hinzugefügt. Ein zweiter Dienst meldet sich bei jedem möglichen Gerät an und Abonniert Statusmeldungen, damit erhalten ioBroker jede Änderung der Geräte wird.
+Zeitverzögert wird ein Dienst gestartet, der auf Nachrichten von Geräten/Diensten wartet, die sich an- oder abmelden. Neu erkannte Geräte/Dienste werden automatisch zu den vorhandenen hinzugefügt. Ein zweiter Dienst meldet sich bei jedem verfügbaren Gerät an und abonniert Statusmeldungen, damit ioBroker jede Änderung (die gesendet wird) des Gerätes/Dienstes automatisch mitgeteilt bekommt.
 
 #### Objektstruktur
-Jedes Gerät oder Software wird auf den Broadcast übertragen als wirdiges Objekt angelegt. Unterhalb dieses Objekts können sich alle bereit sein, sich bereit zu halten. Die möglichen werden in 3 Kategorien (Rolle / Rolle) eingeteilt: Indikator.Zustand, Aktion und Argument.
+Jedes Gerät oder jede Software, die auf den Broadcast reagiert, wird als eigenständiges Objekt angelegt. Unterhalb dieses Objekts befinden sich alle bereitgestellten Dienste mit ihren Möglichkeiten. Die Möglichkeiten werden in 3 Kategorien (Rolle/role) eingeteilt: Indicator.state, action und argument.
 
-** state - ** ist eine Variable die den Aktuellen zustand eines Objekts / Datenpunkts im Gerät / Dienstweise. Jeder Indikator.Status hat einen möglichen Typ wie Nummer, Zeichenfolge, Boolescher Wert,…. Es ist wichtig, dass ein Objekts hinterlegt ist.
-Bisher implementierte Eingeborene:
+**state –** ist eine Variable, die den aktuellen Zustand eines Objekts/Datenpunkts im Gerät/Dienst darstellt. Jeder Indicator.state hat einen bestimmten Typ wie number, string, boolean,…. Darüber hinaus ist auch genau festgelegt, welchen Wert oder Wertebereich der inidcator.state haben kann, diese Angaben sind im „native“ eines Objekts hinterlegt.
+Bisher implementierte Native’s:
 
 - sendEvents = Bedeutung bis jetzt Unbekannt.
-- allowValues = Strings die werdeniert werden werden.
-- Minimum = Gibt die richtigen Zahlen an und wird gezahlt.
-- Maximum = Gibt den gleichen Zahlen an und wird gezahlt.
-- step = Gibt ein in wahrheitsgemäßem Wert ein Wert wird werden kann.
+-allowedValues = Strings die akzeptiert werden.
+- Minimum = Gibt den günstigsten Zahlenwert an der akzeptiert wird.
+- Maximum = Gibt den höchsten Zahlenwert an der akzeptiert wird.
+- step = Gibt an, in welchen Schritten ein Wert verändert werden kann.
 
-** button - ** "Anfrage" ist ein Befehl für das Gerät. Dieses Objekt hat im Regelfall ein Unterobjekt, das Argument.
+**Button –** „Anfrage“ ist ein Befehl, der an das Gerät/den Dienst geschickt werden kann und von diesem Aktzeptiert wird. Dieses Objekt hat im Regelfall ein Unterobjekt, das Argument.
 
-** Argument - ** ist ein Unterobjekt von einer Aktion-Channel. Der Typ ist „wird“ da er nicht vorgegeben wird. In den Eingeborenen des Objekts finden sich unterschiedliche Informationen, sie können von Argument zu Argument anders sein.
+**Argument –** ist ein Unterobjekt von einem Aktion-Channel. Der Typ ist „gemischt“, da er nicht vorgegeben wird. In den nativen Objekten finden sich verschiedene Informationen, sie können von Argument zu Argument anders sein.
 Bisher bekannte Eingeborene:
 
-- richtung = Gibt die Richtung und den Informationsfluss statt findet.
+- Direction = Gibt die Richtung an in der Informationsfluss statt findet.
 
-„In“ bedeutet es wird kein Wert zurückgezogen.
-„Out“ wird es wird ein Wert zurückgenommen.
+„In“ bedeutet, dass kein Wert zurückgeliefert wird.
+„Out“ bedeutet, dass ein Wert zurückgeliefert wird.
 
-- relatedStateVariable = Gibt den Indikator an
+- relatedStateVariable = Gibt den Indicator.state an der für den Austausch der Daten
 
 Zuständig ist.
 
-- argumentNumber = Gibt ein wievielte Argument der Aktion es ist.
+- argumentNumber = Gibt an das wievielte Argument der Aktion es ist.
 
 ### Allgemeine Objekte
-Die folgenden Objekte finden sich für jedes Gerät und werden zur Verwaltung verwaltet. Sie sind nicht geprüft des UPnP-Standards oder der Geräte- / Dienstbeschreibung des ordnungsgemäßen Geräts.
+Die folgenden Objekte finden sich für jedes Gerät/jeden Dienst und werden zur Verwaltung benötigt. Sie sind nicht Bestandteil des UPnP-Standards oder der Geräte-/Dienstbeschreibung des jeweiligen Gerätes.
 
-** Lebendig - ** wird vom Gerät / Dienst auf „wahr“ und Adapter nach x Sekunden auf „null“, wenn das Gerät / Dienst nicht wieder auf „wahr“ eingestellt wird. Die Ablaufzeit ist die Wahrscheinlichkeit, dass die maximale Dauer des Geräts für das lebendige Signal wurde. Wenn ein Gerät sich abmeldet wird der Status auf „falsche Angaben. Es ist möglich, dass dieses Objekt von Hand oder per Skript auf „wahr“ zu setzen, das heißt, nur wenn gemacht wird, wenn man sicher ist, dass das Gerät / Dienst gehörtbar ist. Wenn Alive manuell auf „wahr“ gestellt wurde, wurde es auch manuell auf „falsch“ gestellt, wenn nicht mehr gehört, da andernfalls Fehler gehört können.
+**Alive –** wird vom Gerät/Dienst auf „true“ gesetzt und vom Adapter nach x Sekunden auf „null“ gesetzt, wenn das Gerät/Dienst diesen nicht wieder auf „true“ setzt. Die Ablaufzeit hängt davon ab, welche maximale Lebensdauer vom Gerät für das Alive-Signal mitgeteilt wurde. Wenn sich ein Gerät abmeldet, wird der Status auf „false“ gesetzt. Es ist möglich, dieses Objekt von Hand oder per Skript auf „true“ zu setzen, das sollte jedoch nur gemacht werden, wenn man sicher ist, dass das Gerät/Dienst erreichbar ist. Wenn Alive manuell auf „true“ gesetzt wurde, sollte es auch manuell auf „false“ gesetzt werden, wenn nicht mehr nötig, da sonst Fehler auftreten können.
 
-** Sid - ** Dient als Identifikation des Abonnements. Diese Seite wird jedes Mal vom Gastgeber gestellt, wenn ein Abonnement von einem Kunden angefordert wird. Die sid laufen nach einem vom Host definierten Zeit ab, wird wird immer wieder aktualisiert. Sie vergoldete nur für einen eigenen Dienst.
+**Sid –** Dient als Identifikation der Subscription. Diese Sid wird jedes Mal vom Host generiert, wenn ein Abonnement von einem Client angefordert wird. Die Seite läuft nach einer vom Host definierten Zeit ab, daher wird sie immer wieder aktualisiert. Sie gelten nur für einen bestimmten Dienst.
 
-** Anfrage - ** sendet eine SOAP-Anfrage mit den spezifischen Optionen
+**request –** sendet eine SOAP-Anfrage mit den gegebenen Optionen
 
 ### UPnP Objekte
-Die hier auf gelisteten Objekte finden sich im UPnP Standard und / oder den Geräte- / Dinestbeschreibungen. Es handelt sich um hier keine um eine Vollständige Liste aller Rechte, diese Auswahl und umsichtige umsichtige umsichtige umdachte Dar.
+Die hier auf gelisteten Objekte finden sich im UPnP-Standard und/oder den Geräte-/Dinestbeschreibungen. Es handelt sich hier nicht um eine vollständige Liste aller Objekte, diese Auswahl an Objekten stellt lediglich häufig vorkommende Objekte dar.
 
-** (A_ARG_TYPE_) InstanceID - ** Die InstanceID ist am sichersten zu finden und wird zwingend gefunden da sie die Instanz eines funktion angibt der versucht werden soll. In den anderen fällen ist die InstanceID = 0. Diese ID wird bei jeder Ereignismeldung von einem Dienst und jedem Befehl der einen Dienst gegeben wird, mit gehört.
+**(A_ARG_TYPE_)InstanceID –** Die InstanceID ist am häufigsten zu finden und wird zwingend benötigt, da sie die Instanz eines Dienstes angibt der angesprochen werden soll. In den meisten Fällen ist die InstanceID = 0. Diese ID wird bei jeder Event-Nachricht von einem Dienst und jedem Befehl der an einen Dienst gesendet wird, mit übergeben.
 
-** (A_ARG_TYPE_) Kanal (*) - ** Das Kanalobjekt findet sich im Zusammenhang mit Audio / Video-Diensten. Ein Kanal muss zum Beispiel gegeben werden, wenn die Lautstärke verursacht werden soll. Mögliche Werte können erkennen „Meister“, „LF“ oder „RF“ sein. In diesem Beispiel steht „Master“ für die Allgemeine Lautstärke, „LF“ für Links vorne und „RF“ für rechts vorne. Wenn jetzt die Lautstärke nur rechts unerwartet werden soll, gibt man „RF“ bei Channel an.
+**(A_ARG_TYPE_)Channel(*) –** Das Channel Objekt findet sich im Zusammenhang mit Audio/Video Diensten. Ein Kanal muss zum Beispiel angegeben werden, wenn die Lautstärke verändert werden soll. Mögliche Werte können beispielsweise „Master“, „LF“ oder „RF“ sein. In diesem Beispiel steht „Master“ für die allgemeine Lautstärke, „LF“ für links vorne und „RF“ für rechts vorne. Wenn jetzt die Lautstärke nur vorne rechts verändert werden soll, gibt man „RF“ bei Channel an.
 
-** (Set / Get) Volume (*) - ** Das Volume Objekt findet sich im Zusammenhang mit Audio / Video gehört. Je mehr wo es vorkommen wird es zum Anzeigen der Lautstärke Rechte oder zum Wahrnehmen der Lautstärke. Dies Objekt hat immer einen Mindestwert und einen Maximalwert, den man kann, in den meisten fällen liegt der Wertebereich zwischen 0 und 100. Die Schrittweite liegt normal bei 1, das heißt es können nur glatte Zahlen werden.
+**(Set/Get)Volume(*) –** Das Volume Objekt findet sich im Zusammenhang mit Audio/Video Diensten. Je nachdem, was erwartet wird, wird es zum Anzeigen der Lautstärke genutzt oder zum Einstellen der Lautstärke. Dieses Objekt hat immer einen Mindestwert und einen Maximalwert, den man angeben kann, in den meisten Fällen liegt der Wertebereich zwischen 0 und 100. Die Schrittweite liegt normal bei 1, das heißt, es können nur glatte Zahlen angegeben werden.
 
 ### Steuerung
-** button - ** "request" Eine Aktion wurde einen Befehl dar, der ein Gerät / den Dienst erhalten werden kann. Zu jeder Aktion gehört auch dazu, die Zwingendlichen werden müssen. Action erkennt einen Mann und ihre Rolle, dort steht „Action“. Beschrieben man die Aktion mit „senden“ wird der Befehl an das Gerät.
+**Button –** „Anfrage“ Eine Aktion stellt einen Befehl dar, der an das Gerät/den Dienst geschickt werden kann. Zu jeder Aktion gehören auch Argumente, die zwingend angegeben werden müssen. Action’s erkennt den Menschen an ihrer Rolle/role, dort steht „action“. Beschreibt man die Aktion mit „send“ wird der Befehl an das Gerät/den Dienst gesendet.
 
-** state.argument.x - ** Muss zwingend bei einer Aktion sein werden, wenn unter Rolle "state.argument.in" ist. Mögliche Werte die wahrgenommen werden können / müssen den Mann in der „Related State Variable“ finden. Der Name dieser „Related State Variable“ ist im Objekt unter „native“ -> „relatedStateVariable“ hinterlegt. Die Verantwortlichen müssen in einer bestimmten Person sein, hierzu gibt es „native“ -> Argument_No. Ein Argument erkennt man an seine Rolle / Rolle, dort steht „Argument“. Manche Strings müssen mit einem „“ in den Datenpunkt geschrieben werden. Es kann nicht pauschal sein, wenn das der Fall ist, aber wenn es sich um Beispiel-URLs handelt, die das der Fall sein können. Hier hilft nur sich darum. Will man ein "in einem Argument fordert muss man" & quot;
+**state.argument.x –** Muss unbedingt bei einer Aktion angegeben werden, wenn unter der Rolle „state.argument.in“ steht. Mögliche Werte die angegeben werden können/müssen findet man in der „Related State Variable“. Der Name dieser „Related State Variable“ ist im Objekt unter „native“ -> „relatedStateVariable“ hinterlegt.  Die Argumente müssen in einer bestimmten Reihenfolge angegeben werden, hierzu gibt es „native“ -> Argument_No. Ein Argument erkennt man an seiner Rolle/role, dort steht „argument“.  Manche Zeichenfolgen müssen mit einem „“ in den Datenpunkt geschrieben werden. Es kann nicht pauschal geantwortet werden, wann das der Fall ist, aber bei komplexen Strings wie zum Beispiel URL’s kann das der Fall sein. Hier hilft nur ausprobieren. Will man ein " in einem Argument übergeben muss man "&quot;" verwenden.
 
-** (Verwandter Zustand) Variable - ** Es handelt sich um Variablen sterben für die Datenaustausch-Rechte werden. In den Native's der Variablen finden sich unterschiedliche Informationen:
+**(Related State) Variable –** Es handelt sich um Variablen, die für den Datenaustausch genutzt werden. In den Native‘s der Variablen finden sich verschiedene Informationen:
 
-- allowValues = gibt Auskunft über die Möglichkeit, die Variable zu ändern, oder war auch Argument mit einer Aktion, die werden kann.
-- Minimum = der Besitzste Wert den die Variable enthält kann oder als Argument mit einer Aktion erwartet werden kann.
-- Maximum = der Wert Wert der Variable kann oder als Argument mit einer Aktion werden werden kann.
-- step = gibt ein in wahrheitsgemäßem Wert wird.
-- sendEvents =? Mögliche Werte sind „ja“ oder „nein“. Es ist aber anders gehört war das zu gehört Hut. Die Rechte, dass die Werte für diese Variablen nur dann von einem Gerät / Dienst werden, wenn „ja“ bei sendEvents stehen hat sich nicht gehört.
+- erlaubtValues = gibt Auskunft über die möglichen Inhalte der Variable oder was als Argument mit einer Aktion gesendet werden kann.
+- Minimum = der niedrigste Wert den die Variable enthalten kann oder als Argument mit einer Aktion gesendet werden kann.
+- Maximum= der höchste Wert den die Variable enthalten kann oder als Argument mit einer Aktion gesendet werden kann.
+- step = gibt an in welchen Schritten ein Wert angegeben wird.
+- sendEvents = ? Mögliche Werte sind „yes“ oder „no“. Es ist aber völlig unklar, was das zu bedeuten hat. Die Annahme, dass die Werte für diese Variable nur dann von einem Gerät/Dienst automatisch gesendet werden, wenn „yes“ bei sendEvents steht, hat sich nicht bestätigt.
 
-Beispiel, wie man die Werte Pollen kann:
+Beispiel, wie man die Werte pollen kann:
 
 ```
 // get every 10 seconds the values from device
@@ -115,82 +115,82 @@ schedule("*/10 * * * * *",  function () {
 });
 ```
 
-Es gibt auch die Möglichkeit bei dem "Antrag" Objekt das Polling im Admin. Dafür Klickt man auf das Schraubenschlüssel Symbol bei dem Objekt.
+Es gibt auch die Möglichkeit, bei dem „request“ Objekt das Polling im Admin einzustellen. Dafür klickt man auf das Schraubenschlüssel-Symbol bei dem Objekt.
 
-### Geräte / Dienstliche Besonderheiten
-** Sonos: ** Für QPlay ist es nicht möglich ein Abonnement zu verbessern. Möglicherweise ist hierfür eine Autentifikation gegeben
+### Geräte/Dienst Spezifische Besonderheiten
+**Sonos:** Für QPlay ist es nicht möglich, ein Abonnement zu erstellen. Möglicherweise ist hierfür eine Authentifizierung notwendig
 
-** Phillips Hue Bridge 2: ** Die Implementierung der UPnP-Standards in der Hue Bridge 2 ist Fehlerhaft, die die Hue Bridge 2 wird zwar nicht über UPnP ansprechbar gefunden.
+**Phillips Hue Bridge 2:** Die Implementierung des UPnP-Standards in der Hue Bridge 2 ist Fehlerhaft, weshalb die Hue Bridge 2 zwar gefunden wird, jedoch nicht über UPnP ansprechbar ist.
 
-** Yamaha: ** Verwendet eine auf dem UPnP Standard basierende API, die allein ein persönliches Datenformat verwendet. Wird wird das vom UPnP Adapter nicht versucht.
+**Yamaha:** Verwendet eine auf dem UPnP-Standard basierende API, die jedoch ein eigenes Datenformat verwendet. Derzeit wird das vom UPnP-Adapter nicht unterstützt.
 
-** Sony: ** Verwendet eine ScalarWebApi genannte Schnittstelle sterben über UPnP ansprechbar ist ein persönliches Datenformat verwendet. Wird wird das vom UPnP Adapter nicht versucht.
+**Sony:** Verwendet eine ScalarWebApi genannte Schnittstelle, die über UPnP ansprechbar ist, jedoch ein eigenes Datenformat verwendet. Derzeit wird das vom UPnP-Adapter nicht unterstützt.
 
-** Amazon Kindle: ** Stellt einen UPnP-Dienst bereit, stattdessen wird keiner UPnP-Dienstbeschreibung gehört und kann sein nicht gehört werden.
+**Amazon Kindle:** Stellt einen UPnP-Dienst bereit, jedoch wird keine UPnP-Dienstbeschreibung geliefert und kann daher nicht genutzt werden.
 
 ## Englische Beschreibung
-*** Übersetzung von https://www.deepl.com/translator***
+***Übersetzung von https://www.deepl.com/translator***
 
 ### Verwendungszweck
 Dient zur Kommunikation und Interaktion mit allen UPnP-fähigen Geräten.
 
 #### Was ist UPnP?
-UPnP = Universal Plug and Play. Der Versuch, die Kommunikation zwischen Geräten im Netzwerk zu standardisieren. Zu diesem Zweck gibt es sogenannte "Schemas", die in Form einer XML-Datei angezeigt werden. Sie enthalten alle Informationen über das Gerät oder die Software und die von ihnen bereitgestellten Dienste. Um sicherzustellen, dass diese Dienste auch verwendet werden können, wird eine Beschreibung jedes Dienstes bereitgestellt. Diese Beschreibung folgt dem für den Dienst definierten Schema und ermöglicht den schnellen Austausch von Informationen und Befehlen, ohne zu wissen, um welches Modell oder welchen Hersteller es sich bei dem Gerät oder der Software handelt. In der Vergangenheit wurde diese Standardisierung hauptsächlich für Mediengeräte und Software verwendet. Seit einiger Zeit werden auch Anstrengungen unternommen, um die Kommunikation des "IoT - Internet der Dinge" mit dieser Standardisierung zu standardisieren. Zu diesem Zweck wurde 2016 die "Open Connectivity Foundation" gegründet, die die Aufgaben des UPnP-Forums übernimmt, das die Zertifizierung von UPnP-fähigen Geräten durchgeführt und Standards geschaffen hat.
+UPnP = Universal Plug and Play. Der Versuch, die Kommunikation zwischen Geräten im Netzwerk zu standardisieren. Dazu gibt es sogenannte „Schemata“, die in Form einer xml-Datei dargestellt werden. Sie enthalten alle Informationen über das Gerät bzw. die Software und deren Dienste, die sie bereitstellen. Damit diese Dienste auch genutzt werden können, wird zu jedem Dienst eine Beschreibung bereitgestellt. Diese Beschreibung folgt dem für den Dienst festgelegten Schema und ermöglicht so einen schnellen Austausch von Informationen und Befehlen, ohne zu wissen, um welches Modell oder welchen Hersteller es sich bei dem Gerät bzw. der Software handelt. In der Vergangenheit wurde diese Standardisierung vor allem für Mediengeräte und Software verwendet. Seit einiger Zeit gibt es Bestrebungen, mit dieser Standardisierung auch die Kommunikation des „IoT – Internet of Things“ zu standardisieren. Zu diesem Zweck wurde 2016 die „Open Connectivity Foundation“ gegründet, die die Aufgaben des UPnP-Forums übernimmt, das die Zertifizierung UPnP-fähiger Geräte durchgeführt und Standards erstellt hat.
 
 #### Funktionsbeschreibung
-Der Adapter sendet und wertet die Antworten beim ersten Start aus. Die Antworten enthalten den Link zu den XML-Dateien der Dienste. Die XML-Dateien werden verwendet, um die Objekte in ioBroker zu erstellen und sie mit allen verfügbaren Informationen zu füllen.
+Der Adapter sendet und wertet die Antworten beim ersten Start aus. Die Antworten enthalten den Link zu den xml-Dateien der Dienste. Die xml-Dateien werden verwendet, um die Objekte im ioBroker zu erstellen und mit allen verfügbaren Informationen zu füllen.
 
-Zeitverzögert wird ein Dienst gestartet, der auf Nachrichten von Geräten / Diensten wartet, die sich anmelden oder abmelden. Neu erkannte Geräte / Dienste werden automatisch zu den vorhandenen hinzugefügt. Ein zweiter Dienst meldet sich bei jedem verfügbaren Gerät an und abonniert Statusmeldungen, sodass ioBroker automatisch über Änderungen (gesendet) am Gerät / Dienst benachrichtigt wird.
+Zeitversetzt wird ein Dienst gestartet, der auf Nachrichten von Geräten/Diensten wartet, die sich an- oder abmelden. Neu erkannte Geräte/Dienste werden automatisch zu den bestehenden hinzugefügt. Ein zweiter Dienst meldet sich bei jedem verfügbaren Gerät an und abonniert Statusmeldungen, so dass ioBroker automatisch über Änderungen am Gerät/Dienst informiert (gesendet) wird.
 
 #### Objektstruktur
-Jedes Gerät oder jede Software, die auf die Übertragung reagiert, wird als separates Objekt erstellt. Unter diesem Objekt finden Sie alle verfügbaren Dienste mit ihren Funktionen. Die Möglichkeiten sind in 3 Kategorien unterteilt (Rolle / Rolle): Indikator. Zustand, Aktion und Argument.
+Jedes Gerät oder jede Software, die auf den Broadcast reagiert, wird als eigenes Objekt angelegt. Unterhalb dieses Objekts finden sich alle verfügbaren Dienste mit ihren Fähigkeiten. Die Möglichkeiten sind in 3 Kategorien (Rolle/Rolle) unterteilt: Indikator, Status, Aktion und Argument.
 
-** state - ** ist eine Variable, die den aktuellen Status eines Objekts / Datenpunkts im Gerät / Dienst darstellt. Jeder Indikatorstatus hat einen bestimmten Typ wie Zahl, Zeichenfolge, Boolescher Wert, ..... Außerdem wird genau angegeben, welchen Wert oder Wertebereich der Inidcator hat. Zustand haben können, werden diese Details in der "native" eines Objekts gespeichert. Zuvor implementierte native:
+**state -** ist eine Variable, die den aktuellen Status eines Objekts/Datenpunkts im Gerät/Dienst darstellt. Jeder indicator.state hat einen bestimmten Typ wie Zahl, Zeichenfolge, Boolean, …. Außerdem wird auch genau angegeben, welchen Wert oder Wertebereich der indikator.state haben kann, diese Details werden im „nativen“ eines Objekts gespeichert. Bisher implementierte native s:
 
 - sendEvents = Bedeutung bisher unbekannt.
-- allowValues = Zeichenfolgen, die akzeptiert werden.
+– allowedValues = akzeptierte Zeichenfolgen.
 - Minimum = Gibt den niedrigsten Wert an, bei dem der Wert akzeptiert wird.
-- Maximum = Gibt den höchsten Wert an, zu dem die Annahme erfolgt.
+- maximum = Gibt den höchsten Wert an, bei dem die Annahme erfolgt.
 - step = Gibt an, in welchen Schritten ein Wert geändert werden kann.
 
-** button - ** "reuqest" ist ein Befehl, der an das Gerät / den Dienst gesendet und von diesem akzeptiert werden kann. Dieses Objekt hat normalerweise ein Unterobjekt, das Argument.
+**button -** "reuqest" ist ein Befehl, der an das Gerät/den Dienst gesendet und von diesem akzeptiert werden kann. Dieses Objekt hat normalerweise ein Unterobjekt, das Argument.
 
-** Argument - ** ist ein Unterobjekt einer Aktion. Der Typ ist "gemischt", da er nicht angegeben ist. Die Eingeborenen des Objekts enthalten unterschiedliche Informationen. Sie können von Argument zu Argument unterschiedlich sein. Bisher bekannte Eingeborene:
+**Argument -** ist ein Unterobjekt einer Aktion. Der Typ ist „gemischt“, da er nicht angegeben ist. Die Natives des Objekts enthalten unterschiedliche Informationen, sie können von Argument zu Argument unterschiedlich sein. Bisher bekannte Natives:
 
-- direction = Gibt die Richtung an, in der der Informationsfluss stattfindet. In "bedeutet, dass kein Wert zurückgegeben wird. Out" bedeutet, dass ein Wert zurückgegeben wird.
-- relatedStateVariable = Gibt den Indikator zurück. Staat, für den der Datenaustausch zuständig ist.
+- direction = Gibt an, in welche Richtung der Informationsfluss erfolgt. „In“ bedeutet, dass kein Wert zurückgegeben wird. „Out“ bedeutet, dass ein Wert zurückgegeben wird.
+- relatedStateVariable = Gibt den Indikator bzw. den Status zurück, für den der Datenaustausch zuständig ist.
 - argumentNumber = Gibt die Anzahl der Argumente der Aktion zurück.
 
 ### Allgemeine Objekte
-Die folgenden Objekte werden für jedes Gerät / jeden Dienst gefunden und sind für die Verwaltung erforderlich. Sie sind nicht Bestandteil des UPnP-Standards oder der Geräte- / Bedienungsanleitung des jeweiligen Geräts.
+Die folgenden Objekte sind bei jedem Gerät/Dienst vorhanden und werden für die Administration benötigt. Sie sind nicht Bestandteil des UPnP-Standards oder der Geräte-/Bedienungsanleitung des jeweiligen Gerätes.
 
-** Lebendig - ** vom Gerät / Dienst auf "true" und vom Adapter nach x Sekunden auf "null" gesetzt, wenn das Gerät / der Dienst es nicht erneut auf "true" setzt. Die Ablaufzeit hängt von der maximalen Lebensdauer des vom Gerät ausgegebenen Alive-Signals ab. Wenn sich ein Gerät abmeldet, wird der Status auf "false" gesetzt. Es ist möglich, dieses Objekt per Hand oder Skript auf "true" zu setzen. Dies sollte jedoch nur erfolgen, wenn Sie sicher sind, dass das Gerät / der Dienst erreichbar ist. Wenn Alive manuell auf "true" gesetzt wurde, sollte es auch manuell auf "false" gesetzt werden, wenn dies nicht mehr erforderlich ist. Andernfalls können Fehler auftreten.
+**Alive -** wird vom Gerät/Dienst auf "true" gesetzt und vom Adapter nach x Sekunden auf "null" gesetzt, wenn das Gerät/der Dienst es nicht wieder auf "true" setzt. Die Ablaufzeit hängt von der maximalen Lebensdauer des vom Gerät gegebenen Alive-Signals ab. Wenn sich ein Gerät abmeldet, wird der Status auf "false" gesetzt. Es ist möglich, dieses Objekt manuell oder per Skript auf "true" zu setzen, dies sollte jedoch nur erfolgen, wenn Sie sicher sind, dass das Gerät/der Dienst erreichbar ist. Wenn Alive manuell auf "true" gesetzt wurde, sollte es auch manuell auf "false" gesetzt werden, wenn es nicht mehr notwendig ist, da sonst Fehler auftreten können.
 
-** Sid - ** Dient als Identifikation des Abonnements. Diese Seite wird vom Host jedes Mal erstellt, wenn ein Abonnement von einem Client angefordert wird. Die Sid wird nach einer vom Host festgelegten Zeit ausgeführt, sodass sie immer wieder aktualisiert wird. Es gilt nur für einen bestimmten Dienst.
+**Sid -** Dient als Identifikation des Abonnements. Diese Seite wird vom Host jedes Mal erstellt, wenn ein Abonnement von einem Client angefordert wird. Die Sid läuft nach einer vom Host definierten Zeit ab, wird also immer wieder aktualisiert. Sie ist nur für einen bestimmten Dienst gültig.
 
 ### UPnP-Objekte
-Die hier aufgeführten Objekte finden Sie im UPnP-Standard und / oder in den Geräte- / Dinest-Beschreibungen. Dies ist keine vollständige Liste aller Objekte. Diese Auswahl von Objekten repräsentiert nur häufig vorkommende Objekte.
+Die hier aufgelisteten Objekte finden sich im UPnP-Standard und/oder in den Geräte-/Dinest-Beschreibungen. Dies ist keine vollständige Liste aller Objekte, diese Auswahl an Objekten stellt nur häufig vorkommende Objekte dar.
 
-** (A_ARG_TYPE_) InstanceID - ** Die instanceID ist die häufigste und wird benötigt, da sie die Instanz eines zu adressierenden Dienstes angibt. In den meisten Fällen ist die Instanz-ID = 0. Diese ID wird mit jeder Ereignismeldung von einem Dienst und jedem Befehl, der an einen Dienst gesendet wird, übergeben.
+**(A_ARG_TYPE_)InstanceID -** Die instanceID ist die gebräuchlichste und wird benötigt, da sie die anzusprechende Instanz eines Dienstes angibt. In den meisten Fällen ist die instanceID = 0. Diese ID wird mit jeder Ereignismeldung eines Dienstes und jedem Befehl, der an einen Dienst gesendet wird, übergeben.
 
-** (A_ARG_TYPE_) Kanal (*) - ** Das Kanalobjekt ist Audio- / Videodiensten zugeordnet. Beispielsweise muss ein Kanal angegeben werden, wenn Sie die Lautstärke ändern möchten. Mögliche Werte können beispielsweise "Master", "LF" oder "RF" sein. In diesem Beispiel steht "Master" für die allgemeine Lautstärke, "LF" für die linke Vorderseite und "RF" für die rechte Vorderseite. Wenn Sie die Lautstärke nur auf der rechten Vorderseite ändern möchten, müssen Sie im Kanal "RF" angeben.
+**(A_ARG_TYPE_)Channel (*) -** Das Channel-Objekt ist mit Audio-/Video-Diensten verknüpft. Beispielsweise muss ein Channel angegeben werden, wenn man die Lautstärke ändern möchte. Mögliche Werte können beispielsweise „Master“, „LF“ oder „RF“ sein. In diesem Beispiel steht „Master“ für die allgemeine Lautstärke, „LF“ für links vorne und „RF“ für rechts vorne. Wenn man die Lautstärke nur auf der rechten Frontseite ändern möchte, muss man bei Channel „RF“ angeben.
 
-** (Set / Get) Volume (*) - ** Das Volume-Objekt ist Audio- / Videodiensten zugeordnet. Je nachdem, wo es auftritt, wird es verwendet, um die Lautstärke anzuzeigen oder die Lautstärke anzupassen. Dieses Objekt hat immer einen minimalen und einen maximalen Wert, die angegeben werden können. In den meisten Fällen liegt der Wertebereich zwischen 0 und 100. Die Schrittgröße beträgt normalerweise 1, was bedeutet, dass nur gerade Zahlen eingegeben werden können.
+**(Set/Get)Volume (*) -** Das Volume-Objekt ist mit Audio-/Videodiensten verknüpft. Je nachdem, wo es vorkommt, wird es zur Anzeige der Lautstärke oder zur Lautstärkeregelung verwendet. Dieses Objekt hat immer einen minimalen und einen maximalen Wert, die angegeben werden können, in den meisten Fällen liegt der Wertebereich zwischen 0 und 100. Die Schrittweite beträgt normalerweise 1, was bedeutet, dass nur gerade Zahlen eingegeben werden können.
 
-### Steuerung
-** button - ** Die Aktion "request" ist ein Befehl, der an das Gerät / den Dienst gesendet werden kann. Jede Aktion enthält auch Argumente, die als obligatorisch angegeben werden müssen. Aktionen können an ihrer Rolle / Rolle erkannt werden, die "Aktion" sagt. Wenn Sie die Aktion mit "Senden" beschreiben, wird der Befehl an das Gerät / den Dienst gesendet.
+### Kontrolle
+**button -** Die Aktion "request" ist ein Befehl, der an das Gerät/den Dienst gesendet werden kann. Jede Aktion enthält auch Argumente, die als obligatorisch angegeben werden müssen. Aktionen erkennt man an ihrer Rolle/Rolle, die "action" lautet. Wenn man die Aktion mit "senden" beschreibt, wird der Befehl an das Gerät/den Dienst gesendet.
 
-** state.argument.x - ** Obligatorisch für eine Aktion, wenn die Rolle "state.argument.in" ist. Mögliche Werte, die angegeben werden können / müssen, finden Sie in der "Related State Variable". Der Name dieser "Related State Variable" wird im Objekt unter "native" -> "relatedStateVariable" gespeichert. Die Argumente müssen in einer bestimmten Reihenfolge angegeben werden, dafür gibt es "native" -> Argument_No. Ein Argument kann an seiner Rolle / Rolle erkannt werden, in der es "Argument" sagt. Einige Zeichenfolgen müssen mit einem "" "" im Datenpunkt geschrieben werden. Es ist nicht möglich, diese Frage pauschal zu beantworten, aber bei komplexen Zeichenfolgen wie URLs kann dies der Fall sein. Es hilft nur, es auszuprobieren. Wenn Sie ein "in einem Argument" übergeben möchten, müssen Sie "" verwenden.
+**state.argument.x -** Obligatorisch für eine Aktion, wenn Rolle "state.argument.in" ist. Mögliche Werte die angegeben werden können/müssen, findet man in der "Related State Variable". Der Name dieser "Related State Variable" ist im Objekt unter "native" -> "relatedStateVariable" hinterlegt. Die Argumente müssen in einer bestimmten Reihenfolge angegeben werden, dafür gibt es "native" -> Argument_No. Ein Argument erkennt man an seiner Rolle/Rolle, dort steht "Argument". Manche Strings müssen mit einem """" im Datenpunkt geschrieben werden. Diese Frage kann man nicht pauschal beantworten, bei komplexen Strings wie URL's kann das aber der Fall sein. Da hilft nur ausprobieren. Wenn man in einem Argument ein " übergeben will muss man """ verwenden.
 
-** (verwandter Zustand) Variable - ** Dies sind Variablen, die für den Datenaustausch verwendet werden. In den Native der Variablen gibt es einige Informationen:
+**(Related State) Variable -** Dies sind Variablen, die für den Datenaustausch verwendet werden. Im Native der Variable gibt es einige Informationen:
 
-- allowValues = gibt Auskunft über den möglichen Inhalt der Variablen oder darüber, was als Argument mit einer Aktion gesendet werden kann.
+- allowedValues = gibt Auskunft über den möglichen Inhalt der Variable bzw. was als Argument bei einer Aktion gesendet werden kann.
 - Minimum = der niedrigste Wert, den die Variable enthalten oder als Argument mit einer Aktion gesendet werden kann.
 - Maximum = der höchste Wert, den die Variable enthalten oder als Argument mit einer Aktion gesendet werden kann.
-- step = gibt an, in welchen Schritten ein Wert angegeben wird.
-- sendEvents =? Mögliche Werte sind "Ja" oder "Nein". Es ist jedoch völlig unklar, was das bedeutet. Die Annahme, dass die Werte für diese Variable nur dann automatisch von einem Gerät / Dienst gesendet werden, wenn bei sendEvents "yes" gesetzt ist, wurde nicht bestätigt.
+- Schritt = gibt an, in welchen Schritten ein Wert angegeben wird.
+- sendEvents = ? Mögliche Werte sind "yes" oder "no". Es ist aber völlig unklar, was das bedeutet. Die Annahme, dass die Werte für diese Variable nur dann automatisch von einem Gerät/Dienst gesendet werden, wenn bei sendEvents "yes" eingestellt ist, hat sich nicht bestätigt.
 
-Beispiel für die Abfrage der Werte:
+Beispiel zum Abfragen der Werte:
 
 ```
 // get every 10 seconds the values from device
@@ -200,25 +200,38 @@ schedule("*/10 * * * * *",  function () {
 });
 ```
 
-Sie können die Abfrage in admin über die Objektkonfiguration aktivieren.
+Sie können die Abfrage im Administrator über die Objektkonfiguration aktivieren.
 
-### Geräte / Service-spezifische Funktionen
-** Sonos: ** Es ist nicht möglich, ein Abonnement für QPlay zu erstellen. Dies erfordert möglicherweise eine Authentifizierung.
+### Geräte-/Dienstspezifische Funktionen
+**Sonos:** Es ist nicht möglich, ein Abonnement für QPlay zu erstellen. Dies erfordert möglicherweise eine Authentifizierung.
 
-** Phillips Hue Bridge 2: ** Die Implementierung des UPnP-Standards in Hue Bridge 2 ist fehlerhaft, weshalb die Hue Bridge 2 gefunden wird, aber über UPnP nicht zugänglich ist.
+**Phillips Hue Bridge 2:** Die Implementierung des UPnP-Standards in der Hue Bridge 2 ist fehlerhaft, weshalb die Hue Bridge 2 zwar gefunden, aber nicht über UPnP erreichbar ist.
 
-** Yamaha: ** Verwendet eine API, die auf dem UPnP-Standard basiert, jedoch ein eigenes Datenformat verwendet. Derzeit wird dies vom UPnP-Adapter nicht unterstützt.
+**Yamaha:** Verwendet eine API, die auf dem UPnP-Standard basiert, aber ein eigenes Datenformat verwendet. Dies wird derzeit vom UPnP-Adapter nicht unterstützt.
 
-** Sony: ** Verwendet eine ScalarWebApi-Schnittstelle namens UPnP adressierbar, verwendet jedoch ein eigenes Datenformat. Derzeit wird dies vom UPnP-Adapter nicht unterstützt.
+**Sony:** Verwendet eine ScalarWebApi-Schnittstelle namens UPnP-adressierbar, verwendet aber ein eigenes Datenformat. Derzeit wird dies vom UPnP-Adapter nicht unterstützt.
 
-** Amazon Kindle: ** Bietet einen UPnP-Dienst, es wird jedoch keine Beschreibung des UPnP-Dienstes bereitgestellt und kann daher nicht verwendet werden.
+**Amazon Kindle:** Bietet einen UPnP-Dienst, es liegt jedoch keine UPnP-Dienstbeschreibung vor und daher kann das Produkt nicht verwendet werden.
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __WORK IN PROGRESS__ ->
+### **IN ARBEIT** -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+
+### 1.1.0 (2024-09-30)
+* (Jey Cee) Migrate config to JSONConfig 
+* (Jey Cee) Fix issues found by adapter checker
+* (Jey Cee) Use default test and release action
+
+### 1.0.21 (2022-02-27)
+* small fixes
+
+### 1.0.20 (2021-12-04)
+* (foxriver76) ensure compatibility with future controller versions
+__requires controller v3.3.0__
+
+### 1.0.19 (2021-05-28)
 * (bluefox) added support for Admin5
 
 ### 1.0.17 (2021-02-21)
@@ -303,7 +316,7 @@ Breaking change: naming was changed and command to poll has another name - "requ
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 Jey Cee <jey-cee@live.com>
+Copyright (c) 2016-2024 Jey Cee <iobroker@all-smart.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

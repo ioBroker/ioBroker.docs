@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
+hash: OKXZUVLJ36izUiwt4Xt60u0A8w2G8jTdKLFYp7Wt6W8=
 ---
-![商标](../../../en/adapterref/iobroker.seq/admin/seq.png)
+![标识](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![NPM版本](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![下载](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
 ![安装数量（最新）](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![安装数量（稳定）](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-![新产品管理](https://nodei.co/npm/iobroker.seq.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![依赖状态](https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![依赖状态](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 Seq 适配器
 该适配器允许您将 ioBroker 日志推送到 [序列](https://datalust.co/seq) 的系统中。
-还可以将过滤器应用于日志级别和适配器。
+还可以将过滤器应用于日志级别以及适配器。
 
 ＃＃ 配置
-1. 创建一个新的适配器实例
+1. 创建适配器的新实例
 2.填写[Seq](https://datalust.co/seq)实例的URL/IP和端口
-3.指定要推送到[Seq]的日志事件(https://datalust.co/seq)
+3. 指定要推送到[Seq](https://datalust.co/seq)的日志事件
 4. 保存设置
 
 ## Changelog
@@ -37,30 +37,33 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 	### __WORK IN PROGRESS__
 -->
 
-### **WORK IN PROGRESS**
+### __WORK IN PROGRESS__
+- (arteck) transfer to arteck
 
-- (o0shojo0o) Add adapter to TIER 1
+### 0.3.0 (2023-07-25)
+- (o0shojo0o) added adminTab
+- (o0shojo0o) added adapter to TIER 1
 
 ### 0.2.10 (2021-04-15)
 
-- (o0shojo0o) Check log message of undefine
+- (o0shojo0o) check log message of undefine
 
 ### 0.2.9 (2021-02-05)
 
-- (o0shojo0o) Bugfix 'Cannot read property common of null'
+- (o0shojo0o) fix 'Cannot read property common of null'
 
 ### 0.2.8 (2021-01-30)
 
-- (o0shojo0o) Bugfix NullPointerException
+- (o0shojo0o) fix NullPointerException
 
 ### 0.2.7 (2021-01-24)
 
-- (o0shojo0o) Add overview card
+- (o0shojo0o) added overview card
 
 ### 0.2.6 (2021-01-21)
 
-- (bluefox) Refactoring
-- (bluefox) Better translations
+- (bluefox) refactoring
+- (bluefox) better translations
 
 ### 0.2.5 (2021-01-20)
 
@@ -70,11 +73,11 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 
 - (o0shojo0o) bugfix display of the filter options
 - (o0shojo0o) bugfix display of template parameters
-- (o0shojo0o) add parameter logging Arch
-- (o0shojo0o) add parameter logging JsController
-- (o0shojo0o) add parameter logging Node
-- (o0shojo0o) add parameter logging Platform
-- (o0shojo0o) add parameter logging SourceVersion
+- (o0shojo0o) added parameter logging Arch
+- (o0shojo0o) added parameter logging JsController
+- (o0shojo0o) added parameter logging Node
+- (o0shojo0o) added parameter logging Platform
+- (o0shojo0o) added parameter logging SourceVersion
 
 ### 0.2.3 (2021-01-15)
 
@@ -101,7 +104,7 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 
 ### 0.0.5 (2020-09-23)
 
-- (o0shojo0o) add param SystemName for display in Seq
+- (o0shojo0o) added param SystemName for display in Seq
 
 ### 0.0.4 (2020-09-23)
 
@@ -127,7 +130,7 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

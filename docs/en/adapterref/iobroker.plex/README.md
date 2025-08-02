@@ -6,11 +6,9 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 ![Stable Version](http://iobroker.live/badges/plex-stable.svg)
 [![NPM Version](http://img.shields.io/npm/v/iobroker.plex.svg)](https://www.npmjs.com/package/iobroker.plex)
 [![Commits since last release](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)](https://github.com/iobroker-community-adapters/ioBroker.plex/releases/latest)
-[![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.plex.svg)](https://www.npmjs.com/package/iobroker.plex)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-[![NPM](https://nodei.co/npm/iobroker.plex.png?downloads=true)](https://nodei.co/npm/iobroker.plex/) 
 
 **Table of contents**
 1. [Features](#1-features)
@@ -133,6 +131,14 @@ This adapter would not have been possible without the great work of @Zefau (http
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.5 (2024-12-11)
+- (ticaki) State _playing.*.Metadata.viewOffset is created.
+- (ticaki) Dependencies updated
+- (mcm1957) Adapter requires nodejs >= 18 now
+
+### 1.1.4 (2023-11-06)
+- (ticaki) move logmessage into debug
+
 ### 1.1.3 (2023-10-05)
 - (ticaki) fixed: bug in readable offset
 
@@ -278,8 +284,9 @@ This adapter would not have been possible without the great work of @Zefau (http
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023-2025 iobroker-community-adapters
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>
-Copyright (c) 2023 iobroker-community-adapters
+
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

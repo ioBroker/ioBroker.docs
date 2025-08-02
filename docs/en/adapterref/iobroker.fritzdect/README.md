@@ -11,17 +11,6 @@
 
 Fritzbox DECT adapter for ioBroker
 
-## Installation:
-released version on npm with
-```javascript
- npm install iobroker.fritzdect
-```
-
-
-or the actual version from github with 
-```javascript
-npm install https://github.com/foxthefox/ioBroker.fritzdect/tarball/master --production
-```
 ## Setup
 
 IP-address and password of Fritzbox should be defined via admin page, before the first start of the instance.
@@ -30,6 +19,8 @@ The IP-address must be written with leading 'http://'
 The devices are detected automatically during startup of fritzdect instance. If devices are added to the fritzbox during a running adapter instance, then please restart the adapter for object creation.
 
 Several permissions have to be set in the fritzbox in order to interact with the adapter!
+
+If the polling interval is set to 0 in the adapter configuration, automatic cyclic polling is disabled and updates are performed only on demand (via the `update` command).
 
 A german explanatory doc is available here: [install_de](./docs/de/install.md)
 
@@ -193,6 +184,23 @@ Furthermore for energy the array values are summed up for:
 |--------|-------|:-:|--------|
 |active|boolean|x|toggle switch for routine activation|
 
+## Manual Update
+It is possible to trigger a manual update, for example between polling intervals or when polling is disabled.
+To do this, send a message with the text "update" and no parameters to the adapter instance.
+The optional callback will be executed once the update is complete.
+
+Below is an example demonstrating how to trigger the manual update:
+```javascript
+sendTo('fritzdect.0', 'update', null,
+    (e) => {
+        if (e["result"]) {
+            // update successful
+        } else {
+            console.log(e["error"]);
+        }
+    }
+);
+```
 
 ## API limitations
 * Boost and WindowOpen can only be set for the next 24h. time=0 is cancelling the command
@@ -209,14 +217,67 @@ If it is activated, a different feedback must be present to the actual state. In
 - values scaled to 100 are transmitted in steps of 1, so a threshold of 1% is capturing the same steps
 otherwise it is more complex and individually to be parametrized.
 
+## 3rd party devices (HAN-FUN, ZigBee)
+These devices are split into a device and an unit (the function itself). The device has usually no interactions and therefore is not created in the adapter. The information portion and datapoints (i.e. battery status) of the device is merged into the unit. The id shown in the adapter belongs to the unit (which is not shown in the FB-App).
+
 ## Known Adapter Limitations:
 * Not all FW-versions of fritz.box support all objects.
+* use exclude possibility in adapter config, to disable communication related to newer functions
+* some datapoints are unavailable in newer FB-FW-versions (i.e. buttons of DECT440)
 
 ## TODO:
 * map of data input from user to valid predefined colors (nearest match)
 * blind alert state -> decode bit array
 
 ## Changelog
+
+### 2.6.3 (WIP)
+* new IKEA lamp commands issue #625
+
+### 2.6.2 (npm)
+* release script
+* error correction when there is only one device used #651
+* error correction when there are more than 4 etsidevices used #651
+* correction id state creation
+* handling cases of stats where the returned data does not contain "datatime" #658
+* node version >=20
+
+### 2.6.1 (npm)
+* log FW version of FB
+* DECT350 now with battery data (issue #513)
+* merge etsi devices into etsiunits (issue #597)
+* Support of DECT250, change power (max 40kW)
+
+### 2.6.0 (npm)
+* (khnz) PR#618 support on-demand updates
+* change temperature checking < 28°C extended to < 35°C (issue #619)
+* change dependencies
+
+### 2.5.13 (npm)
+* same as 2.5.12 with corrected IOB checker issues
+
+### 2.5.12 (npm)
+* skipping devices with empty identified (#598, #599), transmitted in FW8.01
+* update responsive settings
+
+### 2.5.11 (npm)
+* upadate devDeps, linting error corrections
+* iob checker corrections
+
+### 2.5.10
+* more loggimg for issue #500 of restart loop
+* some error messages downgraded to warnings
+* correction related to thermostat value take over, when reduced setting is activated
+* update devDeps
+
+### 2.5.9 (npm)
+* correction for statistics,
+* new message box password needs to be reentered in versions >=2.5.4
+* xml output for buttons "my ..."
+
+### 2.5.8 (npm)
+* more error checking processing statistics
+
 ### 2.5.7 (npm)
 * only for the hint that password needs to be reentered
 
@@ -533,4 +594,6 @@ otherwise it is more complex and individually to be parametrized.
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2025 foxthefox <foxthefox@wysiwis.net>
+
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

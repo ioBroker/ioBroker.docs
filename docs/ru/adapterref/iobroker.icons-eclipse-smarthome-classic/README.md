@@ -2,28 +2,28 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.icons-eclipse-smarthome-classic/README.md
-title: ioBroker.icons-eclipse-smarthome-classic
+title: ioBroker.icons-eclipse-smarthome-классический
 hash: EPB1ItgKevPEfuZTCPrmmNCtB78rp4N1ev5bm88TIa0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.icons-eclipse-smarthome-classic/admin/icons-eclipse-smarthome-classic.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.icons-eclipse-smarthome-classic.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.icons-eclipse-smarthome-classic.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.icons-eclipse-smarthome-classic.svg)
 ![Количество установок](https://iobroker.live/badges/icons-eclipse-smarthome-classic-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/icons-eclipse-smarthome-classic-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/icons-eclipse-smarthome-classic-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.icons-eclipse-smarthome-classic.png?downloads=true)
 
 # IoBroker.icons-eclipse-smarthome-classic
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.icons-eclipse-smarthome-classic/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.icons-eclipse-smarthome-classic/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер icons-eclipse-smarthome-classic для ioBroker
-значки, которые можно использовать из визуализаций ioBroker, таких как webui, vis, ...
-извлечено из ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
+## Icons-eclipse-smarthome-classic адаптер для ioBroker
+иконки, которые можно использовать в визуализациях ioBroker, таких как webui, vis, ...
+извлечены из ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
 
-первоначальный источник: https://www.openhab.org/docs/configuration/iconsets/classic/, похоже, лицензия EPL: https://github.com/eclipse-archived/smarthome/blob/master/extensions/ui/iconset /org.eclipse.smarthome.ui.iconset.classic/УВЕДОМЛЕНИЕ
+первоисточник: https://www.openhab.org/docs/configuration/iconsets/classic/ лицензия, похоже, EPL: https://github.com/eclipse-archived/smarthome/blob/master/extensions/ui/iconset/org.eclipse.smarthome.ui.iconset.classic/NOTICE
 
 ## Кредиты
-Фонду Eclipse Foundation за создание иконок.
+Фонду Eclipse за создание иконок
 
 ## Changelog
 <!--

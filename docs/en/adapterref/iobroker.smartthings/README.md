@@ -16,23 +16,27 @@
 
 Adapter for Samsung Smartthings
 
-## Loginablauf:
+## Login process:
 
-Besuchen Sie den Link. https://account.smartthings.com/tokens  
-Melden Sie sich mit Ihrem Samsung-Konto an, um zur Seite \"Persönliche Zugriffstoken\" zu gelangen.  
-Tippen Sie auf die Schaltfläche „Neuen Token generieren“, um auf die Seite „Neuer Zugriffstoken“ zu gelangen.  
-Geben Sie einen Namen für das neue Token an. Wählen Sie im Abschnitt „Autorisierte Bereiche“ eine beliebige Funktionalität aus, die Sie für das Token autorisieren möchten.  
-Tippen Sie auf die Schaltfläche \"Token generieren\", wenn Sie fertig sind, und Sie kehren zur Seite \"Persönliche Zugriffstoken\" zurück. Kopieren Sie das neu generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu generierten Tokenwert abzurufen.
+Open the link in the adapter settings and login until you see a white Screen.
+Open the Developer Console F12 or Option + Command + I and copy the blue samsungconnect:// url and paste it in the settings.
 
-## Steuern
+## Controling
 
-smartthings.0.id.capabilities entweder true setzen oder ein vorgegebenen Wert setzen
+smartthings.0.id.capabilities either set to true or set a predefined value
 
-## Diskussion und Fragen:
+## Discussion and Questions:
 
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
+### 0.2.2 (2025-02-11)
+
+- add new login process
+
+### 0.1.2 (2024-05-19)
+
+- Update Dependencies
 
 - 0.1.0 Added object excluding to reduce cpu usage
 
@@ -44,7 +48,7 @@ https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

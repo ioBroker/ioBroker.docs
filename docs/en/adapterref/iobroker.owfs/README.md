@@ -19,25 +19,22 @@ This adapter uses the owfs library from https://www.npmjs.com/package/owjs and a
 
 ## Install OWFS Linux
 
-```sudo apt-get install owfs```
+`sudo apt-get install owfs`
 
-Sometimes you need write following steps:
-- To start the the server to communicate over serial interface with 1wire sensors 
+Sometimes you need to write the following steps:
+- To start the server to communicate over serial interface with 1wire sensors 
 
-```
-owserver -d "/dev/ttyUSB0" --nozero
-```
+`owserver -d "/dev/ttyUSB0" --nozero`
 
-*/dev/ttyUSB0* is the name of your serial device. Here was USB stick used for that.
+`/dev/ttyUSB0` is the name of your serial device. Here was a USB stick used for that.
 
 This command starts the 1wire server on local port 4304.
 
-- To show the data from the local 1wire server in the file system call following command: 
+- To show the data from the local 1wire server in the file system, call the following command: 
 
-```
-owfs -C -m /mnt/1wire --allow_other
-```
-Before you must create the directroy */mnt/1wire* with command `mkdir /mnt/1wire`
+`owfs -C -m /mnt/1wire --allow_other`
+
+Before you must create the directory */mnt/1wire* with command `mkdir /mnt/1wire`
 
 ## Install OWFS windows
 http://sourceforge.net/projects/owfs/
@@ -55,12 +52,12 @@ http://sourceforge.net/projects/owfs/
 * (INgo Rah) Added the alarm state handling
 
 ### 0.6.2 (2019-10-29)
-* (RustyThePropellerHead) Improved data integrity when reading from local OWFS via file system
+* (RustyThePropellerHead) Improved data integrity when reading from local OWFS via a file system
 
 ### 0.6.1 (2018-07-11)
 * (bluefox) compact mode supported
 * (lvogt) Added data points counter.A/.B/.ALL from DS2423 to config page
-* (lvogt) Add option to not log faulty readouts
+* (lvogt) Added option to not log faulty readouts
 
 ### 0.5.0 (2018-03-16)
 * (bluefox) Ready for Admin3
@@ -78,17 +75,17 @@ http://sourceforge.net/projects/owfs/
 * (bluefox) custom poll interval for every sensor
 
 ### 0.3.2 (2016-08-24)
-* (bluefox) support of local OWFS via file system
+* (bluefox) support of local OWFS via a file system
 
 ### 0.2.2 (2016-07-29)
-* (bluefox) add new datapoints: pressure, volts, ...
+* (bluefox) add new data points: pressure, volts, ...
 
 ### 0.2.1 (2016-07-28)
-* (bluefox) fixes of write
+* (bluefox) fixes of writing
 
 ### 0.2.0 (2016-07-27)
 * (bluefox) discover sensors
-* (bluefox) use other npm library to fix write
+* (bluefox) used another npm library to fix writing
 
 ### 0.1.1 (2016-07-25)
 * (bluefox) check configuration
@@ -102,17 +99,11 @@ http://sourceforge.net/projects/owfs/
 ### 0.0.1 (2014-11-02)
 * (bluefox) support of server (actual no authentication)
 
-## Install
-
-```node iobroker.js add owfs```
-
-## Configuration
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

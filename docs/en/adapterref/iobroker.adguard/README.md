@@ -16,6 +16,14 @@
 
 AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental control (adult content blocking) capabilities. The AdGuard adapter allows you to control and monitor your AdGuard Home instance in ioBroker.
 
+## Credits
+
+This adapter would not have been possible without the great work of @o0Shojo0o (https://github.com/o0Shojo0o), who developed former releases of this adapter.
+
+## How to report issues and feature requests
+
+Ideally, please use GitHub issues for this, with the best method achieved by setting the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then retrieve the logfile from disk via the  'log' ioBroker subdirectory, **not** from Admin, which will cut lines. 
+
 ## Configuration
 
 1. Create a new instance of the adapter
@@ -25,15 +33,18 @@ AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental
 5. Have fun :)
 
 ## Changelog
-
 <!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2024-10-26)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Dependencies have been updated.
+
+### 1.0.0 (2024-10-19)
+- (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
+- (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
+- (mcm1957) Dependencies have been updated.
 
 ### 0.0.8 (2021-08-18)
 
@@ -48,35 +59,11 @@ AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental
 -   (o0Shojo0o) more resource-efficient handling of the States
 -   (o0Shojo0o) better unload handling
 
-### 0.0.5 (2021-07-19)
-
--   (o0Shojo0o) better background color for dark theme
--   (o0Shojo0o) accept self signed certificate
-
-### 0.0.4 (2021-07-13)
-
--   (o0Shojo0o) Bugfix dark theme
-
-### 0.0.3 (2021-07-12)
-
--   (o0Shojo0o) added ratio of blocked queries by filtering queries (ratio_blocked_filtering)
--   (o0Shojo0o) added ratio of blocked queries by safe browsing (ratio_replaced_safebrowsing)
--   (o0Shojo0o) added ratio of blocked queries by parental control (ratio_replaced_parental)
--   (o0Shojo0o) added ratio of all blocked DNS queries (ratio_blocked_total)
--   (o0Shojo0o) added number of all blocked DNS queries (num_blocked_total)
-
-### 0.0.2 (2021-07-11)
-
--   (o0Shojo0o) first usable version
-
-### 0.0.1
-
--   (o0Shojo0o) initial release
-
 ## License
 
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

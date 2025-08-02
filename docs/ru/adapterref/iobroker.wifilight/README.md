@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wifilight/README.md
 title: ioBroker.wifilight
-hash: 0s+GfsnvdScrPZYX+N3JjBu9Z/g9LtFF6NewlDXsDlc=
+hash: 7c2nJoRfY/j3XWOssHmvFNnG3HeclP8bAs9OJXfF87Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wifilight/admin/wifilight.png)
 
 ![Количество установок](http://iobroker.live/badges/wifilight-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.wifilight.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.wifilight.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.wifilight.svg)
 
 # IoBroker.wifilight
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.wifilight/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/wifilight/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тест и выпуск](https://github.com/iobroker-community-adapters/iobroker.wifilight/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/wifilight/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Описание
 Адаптер ioBroker для WiFi Light
@@ -24,13 +24,13 @@ hash: 0s+GfsnvdScrPZYX+N3JjBu9Z/g9LtFF6NewlDXsDlc=
 Добавлена поддержка Mi-Light/LimitlessLED RGBW.
 
 ## Первоначальное создание
-Этот адаптер изначально был создан @soef по адресу https://github.com/soef/ioBroker.wifilight, но больше не поддерживается, поэтому мы переместили его в сообщество iobroker, чтобы можно было исправить ошибки. спасибо @soef за его работу.
+Этот адаптер изначально был создан @soef на https://github.com/soef/ioBroker.wifilight, но больше не поддерживается, поэтому мы переместили его в iobroker-community, чтобы можно было исправить ошибки. Спасибо @soef за его работу.
 
-### Как использовать состояние команды:
-+ Возможные идентификаторы: ``red, r, green, g, blue, b, bri, sat, transition, on, off`` + Строка может быть в формате JSON с круглыми скобками или без них.
-+ Вы также можете присвоить значение с помощью = + Диапазон цветов: ```0..255``` + Диапазон bri: ``0..100``
+### Как использовать команду state:
++ Возможные идентификаторы: ``red, r, green, g, blue, b, bri, sat, transition, on, off`` + Строка может быть JSON с скобками или без них.
++ Вы также можете назначить значение с помощью = + Диапазон цветов: `0..255` + Диапазон bri: `0..100`
 
-Несколько примеров:
+Некоторые примеры:
 
 ```
 r = 100; g = 250, b = 100
@@ -43,31 +43,38 @@ on
 ```
 
 Чтобы изменить цвет, вам не обязательно использовать все три значения.
-Например, ``` red = 0 ```, синий и зеленый останутся без изменений.
+Например, `red = 0`, синий и зеленый останутся неизменными.
 
-### R, g, b, w Состояния:
+### R, g, b, w Штаты:
 + Значения 0..255 + \#rrggbb[ww]
 
-## Установка
-Используйте панель адаптера в iobroker, чтобы добавить экземпляр.
-
-Если не существует, выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker).
-
-```
-npm install iobroker.wifilight
-```
-
-### Исправление ошибок
-Если не работает, попробуйте установить пакет soef npm.
-
-```
-cd /opt/iobroker/node_modules/iobroker.wifilight
-sudo npm install soef
-```
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.2 (2024-08-12)
+* (mcm1957) files section has been fixed
+
+### 1.3.1 (2024-08-12)
+* (p-kehling) Added ignorance of acknowledgement messages for on/off commands
+* (bluefox) refactoring
+
+### 1.2.2 (2024-04-15)
+* (mcm1957) Fix js-controller dependency
+
+### 1.2.1 (2024-04-13)
+* (mcm1957) Dependencies have been updated
+
+### 1.2.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.1.4 (2022-06-17)
+* (Apollon77) Prevent a crash case reported by sentry
+
 ### 1.1.3 (2022-04-27)
-* (Apollon77) Prevent crash case reported by sentry
+* (Apollon77) Prevent a crash case reported by sentry
 
 ### 1.1.2 (2022-04-19)
 * (Apollon77) Prevent crashes when states are controlled with null as value
@@ -85,6 +92,7 @@ sudo npm install soef
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -2,33 +2,33 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.linkeddevices/README.md
-title: без названия
-hash: fPVx5qQBuRw1am/e6Mdqgr/Zt7fBt9lI6Dy+/84luOI=
+title: нет названия
+hash: TQxFlCGAWt0gLcVkz0a2/nr/4wSvxPg7TRaP6ESbzb8=
 ---
 ![Количество установок](http://iobroker.live/badges/linkeddevices-installed.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.linkeddevices.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.linkeddevices.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.linkeddevices.svg)
 ![Статус зависимости](https://img.shields.io/david/Scrounger/iobroker.linkeddevices.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Scrounger/ioBroker.linkeddevices/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.linkeddevices.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/Scrounger/ioBroker.linkeddevices/master.svg)
 
-<h1><img src="admin/linkeddevices.png" width="32"/>ioBroker.linkedустройства</h1>
+<h1><img src="admin/linkeddevices.png" width="32"/>ioBroker.связанныеустройства</h1>
 
 ## Адаптер linkeddevices для ioBroker
-[![PayPal] (https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
 
-linkeddevices создает связанные объекты (точки данных) устройств с самоопределяемой структурой. Это дает возможность создать структуру в ioBroker, где все объекты централизованы, т.е. для использования в визуальных представлениях или сценариях. Это дает, например, то преимущество, что при замене оборудования необходимо заново создавать только связанные объекты, и все визуальные представления и сценарии снова работают.
+linkeddevices создает связанные объекты (точки данных) устройств с самоопределяемой структурой. Это позволяет создать структуру в ioBroker, где все объекты централизованы, например, для использования в представлениях или скриптах vis. Это дает, например, то преимущество, что при обмене оборудованием необходимо воссоздать только связанные объекты, а все представления и скрипты vis снова работают.
 
-С помощью адаптера вы также можете конвертировать объекты или преобразовывать их в другие типы (еще не полностью реализовано).
+С помощью адаптера вы также можете преобразовывать объекты или преобразовывать их в другие типы (еще не полностью реализовано).
 
 ![Структура](../../../en/adapterref/iobroker.linkeddevices/screenshots/structure.png)
 
-Этот адаптер основан на [скрипт виртуальных устройств от Pman](https://forum.iobroker.net/topic/7751/virtual-devices).
+Этот адаптер создан по мотивам [скрипт виртуальных устройств от Pman](https://forum.iobroker.net/topic/7751/virtual-devices).
 
 ## Конфигурация
 * [Описание на английском языке](doc/en/README.md)
-* [deutsche Beschreibung](doc/de/README.md)
+* [немецкое описание](doc/de/README.md)
 
 ## Changelog
 

@@ -14,7 +14,7 @@ BADGE-Stable: http://iobroker.live/badges/pvforecast-stable.svg
 BADGE-Installed: http://iobroker.live/badges/pvforecast-installed.svg
 chapters: {"pages":{"de/adapterref/iobroker.pvforecast/README.md":{"title":{"de":"ioBroker.pvforecast"},"content":"de/adapterref/iobroker.pvforecast/README.md"},"de/adapterref/iobroker.pvforecast/vis.md":{"title":{"de":"ioBroker.pvforecast - VIS"},"content":"de/adapterref/iobroker.pvforecast/vis.md"}}}
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pvforecast/README.md
 title: ioBroker.pvforecast
 hash: EgyBBS1zyr5QAu9ZAleVQaCYPNzWLRNI2WG+IcTiDbw=

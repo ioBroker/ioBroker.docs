@@ -43,6 +43,8 @@ This adapter connects ioBroker to a Controller Area Network (CAN bus).
 * CAN Hardware which is supported by the kernel and creates an interface like `can0`
 * Some knowledge about the messages send on you CAN bus
 
+**Caution:** Currently only Node.js >=20 and <23 are supported. This is a temporary limitation because of the used `socketcan` library.
+
 ## Parsers
 
 Using parsers you are able to read data from or write data to the CAN message buffer.
@@ -68,20 +70,26 @@ Additionally you may write you own scripts to read/write values with a *custom p
 ### Custom
 
 For a custom parser you have to provide you own read and write script.  
-These scripts should be pure javascript and will run in a sandbox.
+These scripts should be pure javascript and will run in a limited scope.
 
 In the scripts you are able to use the following features:
 
-* Most of Node.js build in functions
+* Globals `undefined`, `NaN`, `isNaN`, `Infinity`, `isFinite`, `atob`, `btoa`,
+  `encodeURI`, `encodeURIComponent`, `decodeURI`, `decodeURIComponent`, `parseFloat`,
+  `parseInt`, `JSON`, `Number`, `String`, `Array`, `BigInt`, `Blob`, `Boolean`,
+  `Date`, `Map`, `Math`, `Object`, `RegExp`, `Set`, `Intl`, `Buffer`, `Promise`,
+  `setTimeout`, `clearTimeout`
 * `async`/`await`
 * Adapter log functions `log.warn('something')`, `log.info('something')`, `log.debug('something')`
-* `getStateAsync('id')` and `getObjectAsync('id')` where `id` is the full ID of the state/object
+* `getStateAsync('id')`, `getObjectAsync('id')`, `setStateAsync('id', 'value', ack)` where `id` is the partial ID of the state/object below the current adapter instance
+* `getForeignStateAsync('id')`, `getForeignObjectAsync('id')` and `setForeignStateAsync('id', 'value', ack)` where `id` is the full ID of the state/object
+* Function `wait(ms)` which returns a Promise which resolves after the given time
 * An object `sharedData` which is shared between all custom scripts of an adapter instance
 
 Errors in the scripts will be logged by the adapter.
 
 In both scripts the variables `buffer` and `value` are predefined.  
-`buffer` always contains the current CAN message content as a Node.js Buffer.  
+`buffer` always contains the current CAN message content as a Node.js Buffer.
 
 The `sharedData` object is empty by default and may be used to share some data between multiple calls of a single custom parser or even between multiple custom parsers.
 
@@ -89,7 +97,7 @@ The `sharedData` object is empty by default and may be used to share some data b
 
 In a read script you have to read the `value` from the `buffer` variable.
 
-At the beginning of the custom read script, `buffer` will be the received/current CAN message data (like in the `.json` state).
+At the beginning of the custom read script, `buffer` will be a copy of the received/current CAN message data (like in the `.json` state).
 `value` will be `undefined` and should be set by the script.
 
 The content of the `value` variable at the end of the custom read script will be used as new value for the state.  
@@ -112,10 +120,13 @@ Cause of `value` is only set when the first three bytes matched, all other data 
 
 In a write script you have to modify (or replace) the `buffer` variable.
 
-At the beginning of the custom write script, `buffer` will be the current CAN message data (like in the `.json` state).
+At the beginning of the custom write script, `buffer` will be a copy of the current CAN message data (like in the `.json` state).
 `value` is set to the value of the state which should be written into the `buffer`.
 
 The content of the `buffer` variable at the end of the custom write script will be used as new data for the CAN message.
+
+You may also cancel the write by calling `return false;` in the custom write script.
+This allows you to prevent writes if certain conditions are not met.
 
 ##### Example for a custom write script
 
@@ -153,76 +164,42 @@ By writing JSON data to the `raw.send` state you are able to send CAN messages c
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.2.0 (2025-05-27)
+
+* (crycode-de) Node.js >= 20 and <23, Admin >= 7.4.10 required
+* (crycode-de) Optimized admin layout for smaller devices and added a warning on very small devices
+* (crycode-de) Updated dependencies
+
+### 2.1.1 (2024-11-04)
+
+* (crycode-de) Fixed get/set functions in custom parser scripts
+
+### 2.1.0 (2024-11-03)
+
+* (crycode-de) Allow `setStateAsync` and `setForeignStateAsync` in custom parser scripts
+* (crycode-de) Allow `setTimeout` and `clearTimeout` in custom parser scripts (using the adapters setTimeout implementation)
+* (crycode-de) Added `wait` function to custom parser scripts
+
+### 2.0.0 (2024-11-02)
+
+* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
+* (crycode-de) Changed how custom parser scripts are interpreted. Most custom parser scripts should work as before but they have a limited scope now.
+* (crycode-de) Custom parser scripts now support `getStateAsync`, `getForeignStateAsync`, `getObjectAsync` and `getForeignObjectAsync`. If you have used `getStateAsync`/`getObjectAsync` before you need to change them to `getForeignStateAsync`/`getForeignObjectAsync` or update the IDs if you get data from the same adapter instance.
+* (crycode-de) Custom write parser scripts an now return false to cancel the write
+* (crycode-de) Updated dependencies
+
 ### 1.3.1 (2022-04-19)
+
 * (crycode-de) Fixed `autoSetValue` defaults for parsers
 * (crycode-de) Fixed sentry admin integration
 * (crycode-de) Updated dependencies
-
-### 1.3.0 (2022-02-07)
-* (crycode-de) Added `sharedData` object in custom parsers
-
-### 1.2.3 (2021-10-17)
-* (crycode-de) Added missing `autoSet...` parser options to csv export/import
-* (crycode-de) Fixed `TypeError: Method Promise.prototype.then called on incompatible receiver [object Object]` triggered by a bug in an old `vm2` version
-* (crycode-de) Updated dependencies
-
-### 1.2.2 (2021-08-22)
-* (crycode-de) Fixed text colors in dark theme of admin 5
-* (crycode-de) Updated dependencies
-
-### 1.2.1 (2021-06-22)
-* (crycode-de) Added option to automatically set a certain value in a given interval for each parser
-* (crycode-de) Added checks for duplicate parser IDs
-* (VeSler) Russian translation updates
-* (crycode-de) Use inline sourcemaps for the adapter build files to make remote debugging work
-* (crycode-de) Updated dependencies
-
-### 1.1.4 (2021-04-30)
-* (crycode-de) Added license information to import of well-known configurations
-* (crycode-de) Fixed "Parser returned wrong data type undefined" log message
-* (crycode-de) Updated dependencies
-
-### 1.1.3 (2021-04-12)
-* (crycode-de) Added definition of possible state values in admin
-* (crycode-de) Added selection of the state role for each parser in admin
-* (crycode-de) Fixed display bug of floating action buttons in admin
-* (crycode-de) Export uses defaults if some config parts are not defined (e.g. if the config is from an older version)
-* (crycode-de) Fixed wrong validation if a message/parser was deleted
-
-### 1.1.2 (2021-04-06)
-* (crycode-de) Added copy/paste function for message and parser configurations in admin
-
-### 1.1.1 (2021-04-02)
-* (crycode-de) Import bugfixes
-* (crycode-de) Prevent wrong log warning if a parser returned undefined
-* (crycode-de) Added react errorboundary for better clientside error handling
-
-### 1.1.0 (2021-04-01)
-* (crycode-de) Added import/export feature for messages in json or csv format
-* (crycode-de) Added import of well known configurations from GitHub
-* (crycode-de) Fixed config import in admin
-* (crycode-de) Added ioBroker state data type option for custom parsers
-
-### 1.0.2 (2021-03-26)
-* (crycode-de) Fixed issue where missing state prevented custom parser write
-* (DutchmanNL) Dutch translation updates
-* (UncleSamSwiss) French translation updates
-* (VeSler) Russian translation updates
-
-### 1.0.1 (2021-03-12)
-* (crycode-de) Use a queue to process _parser_ and _send_ state changes in the correct order
-* (crycode-de) Fixed some spelling issues
-* (crycode-de) Updated dependencies
-
-### 1.0.0 (2021-02-23)
-* (crycode-de) Sort messages in admin
-* (VeSler) Russian admin translations
-* (crycode-de) Updated dependencies
-
-Older changelog is in CHANGELOG_OLD.md
 
 ## License
 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
-Copyright (c) 2020-2022 Peter Müller <peter@crycode.de> (https://crycode.de/)
+Copyright (c) 2020-2025 Peter Müller <peter@crycode.de> (<https://crycode.de/>)

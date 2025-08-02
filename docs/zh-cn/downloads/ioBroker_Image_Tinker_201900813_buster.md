@@ -2,82 +2,82 @@
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/downloads/ioBroker_Image_Tinker_201900813_buster.md
-title: Rock64 的 ioBroker 图像，带有拉伸 20190730
-hash: Knij0kKVnXf5W7yzCfj3x/rGFiUZx7zcUpMprYGAW9c=
+title: Rock64 的 ioBroker 镜像，带有 Stretch 20190730
+hash: 9Z9xd+vvUyPPrI056FA2OykiFvn5Vd/65mf4xPOexqI=
 ---
-# 用于 Rock64 的 ioBroker 图像，带有拉伸 20190730
-这是 Tinkerboard 或 Tinkerboard S 的最小 SD 卡映像。它适用于 4 GB 及更大的卡。由于它已经只适合 2GB 卡，因此 4GB 是推荐的最小尺寸。无论如何，建议使用 16GB 或更大的卡，这样不会总是写入相同的单元格，这会导致卡更快老化。
+# Rock64 的 ioBroker 图像，具有拉伸 20190730
+这是 Tinkerboard 或 Tinkerboard S 的最小 SD 卡映像。它适用于 4 GB 及更大的卡。由于它仅适合 2 GB 卡，因此建议的最小大小为 4 GB。无论如何，建议使用 16GB 或更大的卡，这样就不会总是写入相同的单元，从而导致卡更快老化。
 
 图像被解压，然后使用 Balena Etcher 程序写入 SD 卡。
 这适用于不同的操作系统。
 
-该图像包含 Armbian 5.90，基于 2019 年 7 月 6 日从 [https://dl.armbian.com/tinkerboard/Debian_buster_default.7z](https://dl.armbian.com/tinkerboard/Debian_buster_default.7z) 下载后的 Debian“Buster”。
+该镜像包含 Armbian 5.90，基于 2019 年 7 月 6 日从 [https://dl.armbian.com/tinkerboard/Debian_buster_default.7z](https://dl.armbian.com/tinkerboard/Debian_buster_default.7z) 下载的 Debian“Buster”。
 
 已创建以下用户：
 
 - **用户：** `root`，**密码：** 1234
 - **用户：** `pi`，**密码：** `raspberry`
 
-此外，根据日期为 2019 年 8 月 13 日的稳定存储库，安装了 node-js v 10.16.2，当然还有带有 js-controller 的 iobroker。
+此外，截至 2019 年 8 月 13 日的稳定存储库，已安装 Node-js v 10.16.2，当然还安装了带有 js 控制器的 iobroker。
 
-**只有管理员和发现适配器**是预安装的，并为他们创建了实例。
-[这里](/tutorial/adapter.md)中描述了其他适配器及其实例的创建
+**仅预安装管理和发现适配器**并为其创建了实例。
+[这里](/tutorial/adapter.md) 中描述了其他适配器及其实例的创建
 
 -----------------
 
-*本文档反映了创建映像时的状态。更新可能会导致更改。*
+*本文档反映了创建图像时的状态。更新可能会导致更改。*
 
-该图像已本地化为德国。如果在其他环境中使用，请进行相应调整。 （armbian-config；个人）
+该图像已本地化为德国。如果在其他环境下使用，请进行相应调整。 （armbian-config；工作人员）
 
-##第一次启动后
-如果第一次启动 Tinkerboard 后没有提示为 root 和新用户创建新密码，出于安全原因，请按以下步骤操作：
+## 第一次启动后
+如果首次启动 Tinkerboard 后系统未要求您为 root 和新用户创建新密码，出于安全原因，请按以下步骤操作：
 
-- 要使用完整大小的存储卡，您必须使用 `sudo /usr/lib/armbian/armbian-resize-filesystem` 启动文件系统
+- 要使用存储卡的完整大小，您必须使用“sudo /usr/lib/armbian/armbian-resize-filesystem”启动文件系统
 
-  适应SD卡的大小。
+  调整到SD卡的大小。
 
-- 底层 Linux 和 nodejs 可能已经有更新。更新此内容
+- 底层 Linux 和 Nodejs 的更新可能已经可用。更新此内容
 
 在控制台上执行以下操作：`sudo apt-get update && sudo apt-get upgrade -y`
 
-- 一定要用`sudo passwd root`修改root密码然后输入默认密码`1234`然后
+- 请务必使用“sudo passwd root”更改 root 密码，然后输入标准密码“1234”。
 
 输入新密码并在下一步中确认。
 
-- 这也适用于用户 `pi`。这是用 `sudo passwd pi` 改变的 然后是默认密码 `raspberry`
+- 这也适用于用户“pi”。您可以使用“sudo passwd pi”更改此密码，然后使用标准密码“raspberry”。
 
-输入然后输入新密码并在下一步中确认。
+然后输入新密码并在下一步中确认。
 
-可以使用配置实用程序进行进一步设置，该实用程序通过以下方式调用：
+可以使用配置实用程序进行进一步设置，您可以使用以下命令调用该实用程序：
 
 `sudo armbian-config`
 
-[https://docs.armbian.com/User-Guide_Armbian-Config/](https://docs.armbian.com/User-Guide_Armbian-Config/)下有关此实用程序的更多信息
+有关此实用程序的更多信息，请参见[https://docs.armbian.com/User-Guide_Armbian-Config/](https://docs.armbian.com/User-Guide_Armbian-Config/)
 
-由于在下载时创建映像可能已经过去了一段时间，因此您应该首先检查是否已经对已安装的适配器和 js 控制器进行了更新（请参阅主机选项卡）。
+由于下载时创建映像可能已经过去了一段时间，因此您应该首先检查已安装的适配器和 js 控制器是否有更新（请参阅“主机”选项卡）。
 
-除了图像的最小尺寸之外，这也是只有少数适配器已经预安装的原因。
+除了尽可能减小图像大小之外，这也是只预安装了少量适配器的原因。
 
-在这种情况下，请始终根据 Hosts 选项卡中的说明首先通过控制台运行 js-controller，然后在必要时运行 Adapter Admin，然后再运行所有其他适配器。
+在这种情况下，请始终首先根据“主机”选项卡中的说明通过控制台运行 js 控制器，然后（如有必要）运行管理适配器，然后运行所有其他适配器。
 
 ## 安装 Redis
-这些图像不再包含用于存储状态的 Redis 数据库。由于计算机较弱且 RAM 很少，使用 Redis 有时会显着提高性能。使用更快的计算机，它可以减少写入访问，从而延长 SD 卡的使用寿命。
+这些镜像不再包含用于存储状态的 Redis 数据库。在性能较弱且 RAM 较低的计算机上，使用 Redis 有时可以显着提高性能。在速度更快的计算机上，它可以减少写入访问，从而延长 SD 卡的使用寿命。
 
-如果要安装 Redis，则必须对当前图像进行如下处理。
+如果要安装Redis，则需要针对当前镜像进行如下操作。
 
-### 安装 Redis 服务器
+### Redis服务器安装
 命令后：
 
 `sudo apt install redis-server`
 
-Redis 服务器是否已准备好并在端口 6379 上可用
+Redis 服务器已准备就绪并可在端口 6379 上使用
 
-### 将状态更改为 Redis
-使用 Redis 将状态存储在 ioBroker 必须在控制台中配置：
+### 将状态切换到 Redis
+要使用 Redis 将状态存储在 ioBroker 中，必须在控制台中进行配置：
 
 `iobroker setup custom`
 
-在接下来的对话框中，输入如下（注意第 4 行）：
+在随后的对话框中，输入以下内容（注意第 4 行）：
 
 ```
 Type of objects DB [file, couch, redis], default [file]: ENTER
@@ -89,10 +89,10 @@ Port of states DB (file), default[9000]: ENTER
 Host name of this machine [hostname]: ENTER
 ```
 
-此处描述了多主机系统中安装的特殊功能：
+此处描述了在多主机系统中安装时的特殊功能：
 
 [点击这里](config/multihost.md)
 
-为用户 iobroker 释放 redis 例如，为了让备份适配器也可以访问 redis，用户必须被赋予必要的权限：
+为用户 iobroker 释放 redis 例如，为了使备份适配器也可以访问 redis，必须向用户授予必要的权限：
 
 `sudo usermod -a -G redis iobroker`

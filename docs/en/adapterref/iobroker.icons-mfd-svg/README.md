@@ -20,6 +20,12 @@ User: mfd
 - install "icons-mfd-svg" icon set (as adapter) and navigate in ioBroker.vis in image selector dialog to "/icons-mfd-svg/".
 
 ## Changelog
+### 1.2.0 (2023-12-07)
+* (Apollon77) update mfd icons (more new icons)
+
+### 1.1.0 (2022-04-10)
+* (Apollon77) update mfd icons (more new icons)
+
 ### 1.0.2 (2017-01-01)
 * (Apollon77) update mfd icons (more new icons)
 

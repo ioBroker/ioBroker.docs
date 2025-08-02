@@ -1,4 +1,5 @@
 ![Logo](admin/intex.png)
+
 # ioBroker.intex
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.intex.svg)](https://www.npmjs.com/package/iobroker.intex)
@@ -36,7 +37,6 @@ IP address and port come from the cloud. If the IP address is the same, the pool
 
 In this mode, the system only sends the control command and update command via the cloud.
 
-
 ##### Login
 
 Enter the Intex app mail and password.
@@ -55,59 +55,78 @@ The IP address of the pool can be searched for using the search button. However,
 
 "intex.0.-id-.control.-command-" set to true or false controls the pool command's state.
 
-
-
 ## Discussion and questions in German
+
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 0.1.7 (2024-08-13)
+
+- (PLCHome) Fixed error.
+
+### 0.1.6 (2024-08-13)
+
+- (PLCHome) Configure this adapter to use the release script.
+- (PLCHome) New object error, the error is extracted from the temperature if one is pending.
+
 ### 0.1.5
 
-* (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
+- (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
 
 ### 0.1.4
 
-* (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
+- (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
 
 ### 0.1.3
 
-* (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
+- (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
 
 ### 0.1.2
 
-* (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
+- (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
 
 ### 0.1.1
 
-* (PLCHome) Remaining time for filter and sanitizer added under control.
-* (PLCHome) Refresh added under Control.
-* (PLCHome) Remote deleted because Control can do it better.
+- (PLCHome) Remaining time for filter and sanitizer added under control.
+- (PLCHome) Refresh added under Control.
+- (PLCHome) Remote deleted because Control can do it better.
 
 ### 0.1.0
-* (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.
-* (PLCHome) Confirm directly after switching via Control.
+
+- (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.
+- (PLCHome) Confirm directly after switching via Control.
 
 ### 0.0.7
-* (PLCHome) Switching via remote works again.
-* (PLCHome) After switching via Control, the previous traffic status can be transmitted from the cloud. This can lead to a toggling of the status.
+
+- (PLCHome) Switching via remote works again.
+- (PLCHome) After switching via Control, the previous traffic status can be transmitted from the cloud. This can lead to a toggling of the status.
 
 ### 0.0.6
-* (PLCHome) Defined setting of states
-* (PLCHome) Change Fahrenheit Celsius
-* (PLCHome) "control.temperature", read only, object from 0.0.5 must be deleted once.
+
+- (PLCHome) Defined setting of states
+- (PLCHome) Change Fahrenheit Celsius
+- (PLCHome) "control.temperature", read only, object from 0.0.5 must be deleted once.
 
 ### 0.0.5
-* (PLCHome) Set temperature added, object must be deleted once.
-* (PLCHome) Decoding of status information
+
+- (PLCHome) Set temperature added, object must be deleted once.
+- (PLCHome) Decoding of status information
 
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 - 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021 - 2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,43 +3,46 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.synology/README.md
 title: ioBroker Synology 适配器
-hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
+hash: r9VVnVypmDX5q/4gTy9yNfoMJmm5TimtUA6puWDSGlI=
 ---
 ![标识](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
 ![安装数量](http://iobroker.live/badges/synology-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.synology.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.synology.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.synology.svg)
 
 # IoBroker Synology 适配器
 ![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ＃＃ 描述
-该驱动程序允许您接收数据并管理 Synology NAS 服务器。
+该驱动程序允许您接收数据并管理您的 Synology NAS 服务器。
 
 ### 2FA 设置
 如果您在 DSM6/7 中使用 2FA，请参阅说明[这里](docs/en/template.md)
 
-### 重新启动和关闭
-从 v2.1.4 开始，适配器将通过 SSH 执行此操作，因此请在适配器设置中设置 SSH 端口。您可以在 Synology 设置中看到它：![绘图](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![绘图](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
+### Windows 安装的重要说明
+此适配器需要在 hist 系统上安装 git。安装介质可在 https://git-scm.com/download/win 找到。
+
+### 重启和关机
+自 v2.1.4 起，适配器将通过 SSH 执行此操作，因此请在适配器设置中设置 SSH 端口。您可以在 Synology 设置中看到它：![图形](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![图形](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
 
 ### 发送方法
-您可以通过设置 sendMethod 对象来发送任何命令（方法），例如：获取 SurveillanceStation 信息是一个 getInfo 方法，没有附加参数。
+您可以通过设置 sendMethod 对象发送任何命令（方法），例如：获取 SurveillanceStation 信息是一种没有附加参数的 getInfo 方法。
 
 ```{"method": "getInfo", "params": {}}```
 
 ＃＃＃ 控制
-**commands.reboot** - 重新启动 NAS
+**commands.reboot** - 重启 NAS
 
-**commands.wake** - 将 LAN 唤醒发送到 NAS
+**commands.wake** - 向 NAS 发送局域网唤醒
 
 **commands.shutdown** - 关闭 NAS
 
-***SurveillanceStation.cameras.{NAMECAM}***：
+***SurveillanceStation.摄像头.{NAMECAM}***：
 
-* 已启用 - 当前状态和启用/禁用相机
+* 已启用 - 当前状态并启用/禁用摄像头
 * linkSnapshot - 快照的 URL
 
 ***SurveillanceStation.HomeMode.status_on*** - 当前状态和启用/禁用家庭模式
@@ -48,24 +51,24 @@ hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
 
 ***AudioStation.players.{PLAYERID}***：
 
-* 播放、暂停、停止、下一个、上一个 - 控制播放（按钮，仅 true）
-* 重复 - 重复控制（关闭、全部、一）
-* shuffle - 随机播放控制（真/假）
-* 音量 - 远程播放器的音量（0-100）
-* 搜索 - 控制播放搜索（0-100）
-* play_folder - 将文件夹中的曲目添加到播放列表（id 文件夹，例如``dir_5816``）
-* play_track - 按 id 播放曲目（例如``music_120847``）
-* current_play - 当前曲目在播放列表中的编号（例如“14”）的控制和状态
+* 播放、暂停、停止、下一个、上一个 - 控制播放（按钮，仅限 true）
+* repeat - 重复控制（关闭、全部、一次）
+* shuffle - 随机播放控制 (true/false)
+* 音量 - 远程播放器音量 (0-100)
+* seek - 控制播放搜索 (0-100)
+* play_folder - 将文件夹中的曲目添加到播放列表（id 文件夹例如“dir_5816”）
+* play_track - 根据 id 播放曲目（例如“music_120847”）
+* current_play-根据播放列表中的编号控制和显示当前曲目的状态（例如“14”）
 
 ***下载站***：
 
-* activeTask - 未完成下载的数量
-* listTasks - 包含不完整下载的数组
-* shedule_enabled、shedule_emule_enabled - 计划或立即下载的状态和控制
-* add_hash_download - 添加到哈希下载（例如``8BD3CAD02FC9ECB661A12378414FA310D3F3FE03``）
+* activeTask – 未完成下载的数量
+* listTasks - 包含未完成下载的数组
+* shedule_enabled, shedule_emule_enabled - 计划或立即下载的状态和控制
+* add_hash_download - 添加到哈希下载（例如“8BD3CAD02FC9ECB661A12378414FA310D3F3FE03”）
 * add_url_download - 添加下载 URL 或磁力链接
-* 文件夹 - 要下载的文件夹，在添加下载之前设置，否则加载到默认文件夹中
-*pause_task、resume_task - 暂停下载并恢复。 （例如“dbid_170”或“170”或“all”）
+* 文件夹 - 要下载的文件夹，在添加下载之前设置，否则将加载到默认文件夹中
+* pause_task, resume_task - 暂停下载并恢复。（例如“dbid_170”或“170”或“all”）
 
 ### 消息框
 ```
@@ -78,6 +81,14 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 <!--
      ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 3.0.1 (2023-10-01)
+* (Standarduser) A Typo in RegEx for Mac-Address has been corrected.
+* (McM1957) Dependencies have been updated.
+
 ### 3.0.0 (2023-09-07)
 * (Standarduser) Added WOL to awake Synology NAS server
 * (bluefox) Only node 16 or higher supported
@@ -247,6 +258,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

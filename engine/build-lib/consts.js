@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require('path');
+const path = require('node:path');
 
 module.exports = {
     FRONT_END_DIR: path.normalize(`${__dirname}/../front-end/public/`).replace(/\\/g, '/'),

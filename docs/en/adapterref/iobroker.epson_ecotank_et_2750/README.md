@@ -16,6 +16,14 @@ This adapter read tank level and other information from [EPSON EcoTank ET-2750](
 [EPSON EcoTank ET-2721](https://www.epson.de/products/printers/inkjet-printers/for-home/ecotank-et-2721) is also supported (tested by [mikepiko](https://github.com/mikepiko))  
 [EPSON WORKFORCE WF-3620DWF](https://www.epson.de/products/printers/inkjet-printers/for-home/workforce-wf-3620dwf) is also supported (tested by [HReimann](https://github.com/HReimann))
 
+## Credits
+
+This adapter would not have been possible without the great work of @o0Shojo0o (https://github.com/o0Shojo0o), who developed former releases of this adapter.
+
+## How to report issues and feature requests
+
+Ideally, please use GitHub issues for this, with the best method achieved by setting the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then retrieve the logfile from disk via the  'log' ioBroker subdirectory, **not** from Admin, which will cut lines. 
+
 ## Configuration
 
 1. Create a new instance of the adapter
@@ -26,13 +34,18 @@ This adapter read tank level and other information from [EPSON EcoTank ET-2750](
 ## Changelog
 
 <!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2024-10-26)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Dependencies have been updated.
+
+### 1.0.0 (2024-10-19)
+- (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
+- (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
+- (mcm1957) Dependencies have been updated.
+
 ### 0.0.12 (2022-06-09)
 
 -   (o0Shojo0o) fix ETIMEDOUT error
@@ -46,46 +59,11 @@ This adapter read tank level and other information from [EPSON EcoTank ET-2750](
 
 -   (o0Shojo0o) fix translation
 
-### 0.0.9 (2021-08-18)
-
--   (o0Shojo0o) bugfix for incorrect mapping of settings, second try ...
-
-### 0.0.8 (2021-08-18)
-
--   (o0Shojo0o) bugfix for incorrect mapping of settings
-
-### 0.0.7 (2021-08-18)
-
--   (o0Shojo0o) change UI to JSONConfig
-
-### 0.0.6 (2021-08-01)
-
--   (o0Shojo0o) better unload handling
-
-### 0.0.5 (2021-05-01)
-
--   (o0shojo0o) fix js-controller 3.3.x warnings
-
-### 0.0.4 (2021-02-01)
-
--   (o0shojo0o) bugfix first_print_date for 4750
--   (o0shojo0o) code cleaning and refactoring
-
-### 0.0.3 (2021-01-14)
-
--   (o0shojo0o) add compact mode
--   (o0shojo0o) all necessary changes for EPSON EcoTank ET-2750
--   (o0shojo0o) new tree structure
--   (o0shojo0o) replacing the request with axios npm module
-
-### 0.0.1 (2021-01-03)
-
--   (o0shojo0o) forked from iobroker.epson_stylus_px830 0.2.1
-
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

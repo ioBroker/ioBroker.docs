@@ -58,7 +58,7 @@ The PDF file could be accessed via:
 
 ## Message box
 Users can add custom events to the list via javascript:
-```
+```js
 // add custom event to event list
 sendTo('eventlist.0', 'insert', {
     event: 'My custom text', 
@@ -77,7 +77,7 @@ setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 
 ```
 
 User can request formatted JSON list for specific ID. Of course the ID must be enabled in the `eventlist` before.
-```
+```js
 // add custom event to event list
 sendTo('eventlist.0', 'list', {
     ids: ['my.0.state.id1', 'my.0.state.id2'],
@@ -96,7 +96,7 @@ sendTo('eventlist.0', 'list', 'my.0.state.id1', result => {
 ```
 
 Users can delete some or all events from the event list.
-```
+```js
 // delete all events
 sendTo('eventlist.0', 'delete', '*', result => {
     console.log(`Deleted ${result.deleted} events`);
@@ -141,6 +141,14 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 -->
 
 ## Changelog
+### 2.1.0 (2025-05-20)
+* (maeb3) Correction for handover of a message to pushover
+* (bluefox) The packages were updated
+* (bluefox) GUI migrated to vite
+
+### 2.0.1 (2024-02-11)
+* (bluefox) Translated the duration
+
 ### 2.0.0 (2023-10-12)
 * (bluefox) Caught errors by subscribe
 * (bluefox) Minimum node.js version is 16
@@ -232,7 +240,7 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 ## License
 MIT License
 
-Copyright (c) 2020-2023 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2025 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

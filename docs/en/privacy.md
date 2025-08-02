@@ -25,3 +25,23 @@ We use [Google Analytics](https://policies.google.com/terms) and [Facebook Pixel
 The [PayPal](https://www.paypal.com/webapps/mpp/ua/privacy-full) service is used for payment.
 
 Please refer to the respective websites for the privacy policy.
+
+## ioBroker Visu Android and iOS App
+1. Data Collection: The ioBroker Visu App does not engage in any form of data collection from its users.
+2. Data Transmission with ioBroker Pro Account: Should you opt to utilize an ioBroker Pro account in conjunction with the ioBroker Visu App, any data transmission is conducted with the utmost security measures in place. It's pertinent to emphasize that data transmitted under these circumstances is neither stored nor retained by ioBroker Cloud. Instead, it is exclusively processed by the ioBroker Cloud to facilitate seamless communication with your local ioBroker instance, ensuring the integrity of your privacy.
+3. No Data Transmission without ioBroker Pro Account: In the absence of an ioBroker Pro account linked to your app, no data transmission takes place whatsoever.
+   
+We continually review and refine our privacy practices to uphold the highest standards and comply with regulatory obligations.
+
+By utilizing the ioBroker Visu App, you implicitly consent to the collection and utilization of your information as delineated in this Privacy Policy.
+
+## ioBroker BackItUp Google Drive App
+We affirm that the ioBroker BackItUp Google Drive App is utilized solely for the purpose of providing a backup function for ioBroker.
+
+We do not use data obtained through Google Workspace APIs to develop, improve, or train generalized artificial intelligence (AI) or machine learning (ML) models.
+
+All data accessed via Google Workspace APIs is handled in strict accordance with Google's API policies and is used exclusively to deliver the intended services to our users.
+
+We do not save any data or access tokens from the ioBroker BackItUp Google Drive App. So the access to google drive is only possible with `ioBroker.backitup` adapter and with access tokens saved at YOUR ioBroker instance.
+
+If you want to revoke the access, just delete the access token in the settings of the `ioBroker.backitup` instance and revoke third-party access in your [Google account](https://myaccount.google.com/u/2/connections?continue=https%3A%2F%2Fmyaccount.google.com%2Fu%2F2%2Fsecurity)

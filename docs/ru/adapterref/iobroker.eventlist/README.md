@@ -2,24 +2,24 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eventlist/README.md
-title: ioBroker.eventlist
-hash: +WYlO771RZHfMZcPbi7B6ca9nsdaJq3P3c3zZiCLU5s=
+title: ioBroker.список событий
+hash: sHAusHqnsC9L3Psm1YNKfTCb9wPAMvs8RxjDlO7c35w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
 ![Количество установок](http://iobroker.live/badges/eventlist-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.eventlist.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.eventlist.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
 
 # IoBroker.список событий
-![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тест и выпуск](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-## Адаптер Event-List для ioBroker
-Позволяет определить состояния, которые должны регистрироваться в списке событий.
+## Адаптер списка событий для ioBroker
+Позволяет определить состояния, которые необходимо регистрировать в списке событий.
 
-Список можно показать в админке, вебе, визе, сохранить в формате PDF, материале (пока не реализовано).
+Список можно отобразить в админ-панели, веб-интерфейсе, vis, сохранить в формате PDF, материальном формате (еще не реализовано).
 
 Кроме того, вы можете отправлять события через Telegram или WhatsApp.
 
@@ -27,45 +27,45 @@ hash: +WYlO771RZHfMZcPbi7B6ca9nsdaJq3P3c3zZiCLU5s=
 
 ![PDF](../../../en/adapterref/iobroker.eventlist/img/pdf.png)
 
-## Режим тревоги
-События могли генерироваться только в режиме тревоги.
-Режим тревоги может управляться переменной `eventlist.X.alarm`.
+## Режим будильника
+События могли быть сгенерированы только в режиме тревоги.
+Режим тревоги мог управляться переменной `eventlist.X.alarm`.
 
-Кроме того, сообщения в мессенджеры можно было отправлять только при включенном режиме тревоги.
+Кроме того, сообщения в мессенджеры можно было отправлять только при включенном режиме будильника.
 
 Вариант использования:
 
-- Например, дверной датчик может отправлять сообщения, только если никого нет дома. В противном случае события об открытии двери будут собираться только в списке событий.
+- Например, датчик двери может отправлять сообщения только если никого нет дома. В противном случае события об открытии двери будут собираться только в списке событий.
 
 ## Возможные презентации
-### В админке как вкладка
+### В Администраторе как вкладка
 Вы можете включить список событий как вкладку в админке.
 
-### Интернет
-Список событий может отображаться в разделе `http://<IP>:8082/eventlist/index.html`. (для экземпляров > 0: `http://<IP>:8082/eventlist/index.html?X`, где X — номер экземпляра)
+### Веб
+Список событий может быть показан в `http://<IP>:8082/eventlist/index.html`. (для экземпляров > 0: `http://<IP>:8082/eventlist/index.html?X`, где X — номер экземпляра)
 
-### Виджет для просмотра
-Список событий может отображаться в виде виджета.
+### Виджет Vis
+Список событий можно отобразить в виде виджета.
 
-### Генерация PDF
-Есть возможность создать PDF документ со всеми событиями.
+### Генерация PDF-файлов
+Есть возможность сформировать PDF-документ со всеми событиями.
 
-Название документа может состоять из даты создания, если в него поместить шаблон: `Event list on {{YYYY MM DD}}`.
+Название документа может содержать дату генерации, если вы поместите в него шаблон: `Event list on {{YYYY MM DD}}`.
 Точное описание формата времени можно найти здесь: https://momentjs.com/docs/#/displaying/format/
 
-Генерацию PDF можно запустить, записав `true` в `eventlist.0.triggerPDF`.
+Генерацию PDF-файла можно запустить, записав `true` в `eventlist.0.triggerPDF`.
 
 Доступ к PDF-файлу можно получить через:
 
-- Интернет: `http://<IP>:8082/eventlist/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf`, где X — номер экземпляра)
-- администратор: `http://<IP>:8081/files/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8081/files/eventlist/report-X.pdf`, где X — номер экземпляра)
+- веб: `http://<IP>:8082/eventlist/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf`, где X - номер экземпляра)
+- admin: `http://<IP>:8081/files/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8081/files/eventlist/report-X.pdf`, где X — номер экземпляра)
 
-**Значки не отображались в формате PDF.**
+**Значки не могут быть отображены в PDF.**
 
 ## Окно сообщения
-Пользователи могут добавлять собственные события в список через javascript:
+Пользователи могут добавлять собственные события в список с помощью JavaScript:
 
-```
+```js
 // add custom event to event list
 sendTo('eventlist.0', 'insert', {
     event: 'My custom text',
@@ -83,9 +83,9 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
-Пользователь может запросить отформатированный список JSON для определенного идентификатора. Конечно, идентификатор должен быть активирован в `eventlist` заранее.
+Пользователь может запросить отформатированный список JSON для определенного ID. Конечно, ID должен быть включен в `eventlist` до этого.
 
-```
+```js
 // add custom event to event list
 sendTo('eventlist.0', 'list', {
     ids: ['my.0.state.id1', 'my.0.state.id2'],
@@ -105,7 +105,7 @@ sendTo('eventlist.0', 'list', 'my.0.state.id1', result => {
 
 Пользователи могут удалить некоторые или все события из списка событий.
 
-```
+```js
 // delete all events
 sendTo('eventlist.0', 'delete', '*', result => {
     console.log(`Deleted ${result.deleted} events`);
@@ -127,29 +127,41 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 
 - %s - значение (`Состояние изменено на %s` => `Состояние изменено на 5`),
 - %u - единица (`Состояние изменено на %s%u` => `Состояние изменено на 5%`),
-- %n - имя (`%n изменил состояние на %s` => `Устройство A изменило состояние на 5`),
-- %t - время (`Состояние изменено на %t` => `Состояние изменено сен пт, 16:32:00`),
-- %r - относительное время (`Состояние изменено %r` => `Состояние изменено 5 секунд назад`),
-- %d - продолжительность (`Состояние было в предыдущем состоянии %d` => `Состояние было в предыдущем состоянии 5 с`),
-- %g - разница значений (`Состояние было изменено на %g%` => `Состояние было изменено на 1%`),
-- %o - разница значений (`Состояние изменилось с %o на %` => `Состояние изменилось на 1%`)
+- %n - имя (`%n изменило состояние на %s` => `Устройство A изменило состояние на 5`),
+- %t - время (`Состояние изменилось %t` => `Состояние изменилось пт сен, 16:32:00`),
+- %r - относительное время (`Состояние изменилось состояние %r` => `Состояние изменилось состояние 5 секунд назад`),
+- %d - длительность (`Состояние было в предыдущем состоянии в течение %d` => `Состояние было в предыдущем состоянии в течение 5 с`),
+- %g - разница значений (`Состояние было изменено %g%` => `Состояние было изменено 1%`),
+- %o - разница значений (`Состояние изменило значение с %o на %` => `Состояние было изменено на 1%`)
 
 ## Использование нескольких экземпляров в сети
-Например, вы можете показать конкретный список экземпляра 2, например `http://IP:8082/eventlist/index.htmlindex.html?2`.
+Например, вы можете отобразить конкретный список для экземпляра 2, например `http://IP:8082/eventlist/index.htmlindex.html?2`.
 
-Сгенерированный отчет будет сохранен, например, под номером 0 в `eventlist/report.pdf`, а под номером 1 — в `eventlist/report-1.pdf`.
+Сгенерированный отчет будет сохранен для экземпляра 0 в `eventlist/report.pdf`, а для экземпляра 1 в `eventlist/report-1.pdf`.
 
-## Делать
-- Изменить начальные тексты в PDF на соответствующем языке
+## То, что нужно сделать
+- Измените исходные тексты в PDF на соответствующий язык
 - Множество предустановленных иконок (минимум 100)
 - Материальный виджет
-- Отправлять сообщения в системный журнал (возможно, splunk) https://www.npmjs.com/package/splunk-logging
+- Отправлять сообщения в syslog (возможно, splunk) https://www.npmjs.com/package/splunk-logging
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
+### 2.1.0 (2025-05-20)
+* (maeb3) Correction for handover of a message to pushover
+* (bluefox) The packages were updated
+* (bluefox) GUI migrated to vite
+
+### 2.0.1 (2024-02-11)
+* (bluefox) Translated the duration
+
+### 2.0.0 (2023-10-12)
+* (bluefox) Caught errors by subscribe
+* (bluefox) Minimum node.js version is 16
+
 ### 1.2.4 (2023-05-17)
 * (bluefox) Just the packages were updated
 
@@ -237,7 +249,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ## License
 MIT License
 
-Copyright (c) 2020-2023 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2025 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

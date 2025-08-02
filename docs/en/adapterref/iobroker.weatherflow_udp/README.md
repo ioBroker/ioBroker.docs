@@ -2,19 +2,24 @@
 # Weatherflow UDP
 
 
+[![NPM version](https://img.shields.io/npm/v/iobroker.weatherflow_udp?style=flat-square)](https://www.npmjs.com/package/iobroker.weatherflow_udp)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.weatherflow_udp?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.weatherflow_udp)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.weatherflow_udp?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.weatherflow_udp?label=npm%20dependencies&style=flat-square)
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.weatherflow_udp.svg)](https://www.npmjs.com/package/iobroker.weatherflow_udp)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.weatherflow_udp.svg)](https://www.npmjs.com/package/iobroker.weatherflow_udp)
-![Number of Installations (latest)](http://iobroker.live/badges/weatherflow_udp-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/weatherflow_udp-stable.svg)
+![GitHub](https://img.shields.io/github/license/woessmich/iobroker.weatherflow_udp?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
 [![Known Vulnerabilities](https://snyk.io/test/github/woessmich/ioBroker.weatherflow_udp/badge.svg)](https://snyk.io/test/github/woessmich/ioBroker.weatherflow_udp)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/woessmich/iobroker.weatherflow_udp/test-and-release.yml?branch=master&logo=github&style=flat-square)
 
-[![NPM](https://nodei.co/npm/iobroker.weatherflow_udp.png?downloads=true)](https://nodei.co/npm/iobroker.weatherflow_udp/)
+## Versions
 
-**Tests:**
-[![Travis-CI](http://img.shields.io/travis/woessmich/ioBroker.weatherflow_udp/master.svg)](https://travis-ci.com/github/woessmich/ioBroker.weatherflow_udp)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/woessmich/ioBroker.weatherflow_udp?branch=master&svg=true)](https://ci.appveyor.com/project/woessmich/iobroker-weatherflow-udp)
-
+![Beta](https://img.shields.io/npm/v/iobroker.weatherflow_udp.svg?color=red&label=beta)
+![Stable](http://iobroker.live/badges/weatherflow_udp-stable.svg)
+![Installed](http://iobroker.live/badges/weatherflow_udp-installed.svg)
 
 ## weatherflow_udp adapter for ioBroker
 
@@ -59,6 +64,8 @@ The protocol sends a lightning distance of 0 when no lightning was detected. Val
 
 ## Changelog
 
+### 0.1.4
+(womi) updated to reflect latest requirements on dependencies, node.js, js-controller etc.
 ### 0.1.3 
 (Scrounger) calculation of absolute humidity added
 ### 0.1.2
@@ -89,4 +96,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2022 womi <woessmich@gmail.com>
+Copyright (c) 2024 womi <woessmich@gmail.com>

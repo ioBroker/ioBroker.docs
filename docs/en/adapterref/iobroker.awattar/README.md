@@ -47,8 +47,19 @@ Im Ausgangszustand ist der Adapter so eingestellt dass er um 15.00 Uhr die Werte
 Dieser Schedule kann natürlich angepasst werden.
 Laut <a href="https://www.awattar.de/services/api" target="_blank">aWATTar api Doku</a> stehen diese Werte jeden Tag um 14.00 Uhr bereit.
 
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### 1.1.0
+* (Apollon77) Updates to testing from ioBroker Core team to make testing compatible with js-controller 4.0
+* (SirJojo69) changed copyright
+* (SirJojo69) updated js-controller dependency to 5.0.19
+* (SirJojo69) fixed stat and end date format to DD.MM.YYYY
+* (SirJojo69) adapter runs once at start
+* (mcm1957) Updates to testing
 
 ### 1.0.6
 * (SirJojo69) new version for official repo
@@ -70,8 +81,7 @@ Laut <a href="https://www.awattar.de/services/api" target="_blank">aWATTar api D
 
 ## License
 MIT License
-
-Copyright (c) 2020 - 2021 SirJojo69 <gtj.howe@gmx.de>
+Copyright (c) 2025 SirJojo69 <gtj.howe@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

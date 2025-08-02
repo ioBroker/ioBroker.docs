@@ -45,10 +45,16 @@ CipherString = DEFAULT@SECLEVEL=1
 
 ## Changelog
 
+### 0.0.26
+
+- fix for active warnings
+
 ### 0.0.25
+
 - (thost96) fixes for issues found by adapter-checker (issue #70)
 
 ### 0.0.24
+
 - fix js-controller warnings
 - minimized self expanding object tree
 - Accept long AGS Numbers

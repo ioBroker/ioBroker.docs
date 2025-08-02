@@ -3,51 +3,56 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
+hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.roborock.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.roborock.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.roborock.svg)
 ![安装数量](https://iobroker.live/badges/roborock-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/roborock-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
-**测试：** ![测试与发布](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
-**翻译：** [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+**翻译：**[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## IoBroker 的 Roborock 适配器
-该适配器允许您控制、获取状态、清洁历史记录并查看在 Roborock 应用程序中设置的 Roborock 真空吸尘器的地图。
+## Roborock ioBroker 适配器
+该适配器允许您控制、获取状态、清洁历史记录并查看在 Roborock 应用程序中设置的 Roborock 吸尘器的地图。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
+### 此适配器无法在 MacOS 上运行
 ## 支持的机器人有：
-- 石头扫地机器人S4
-- 石头扫地机器人S4 Max
-- 石头扫地机器人S5
-- 石头扫地机器人S5 Max
-- 石头扫地机器人S6
-- 石头扫地机器人S6 Pure
-- 石头扫地机器人S6 MaxV
-- 石头扫地机器人S7
-- 石头扫地机器人S7 MaxV（超）
-- 石头扫地机器人Q7
-- 石头扫地机器人Q7 Max
-- 石头扫地机器人S7 Pro Ultra
-- 石头扫地机器人S7 Max Ultra
-- 石头扫地机器人S8
-- 石头扫地机器人S8 Pro Ultra
-- 石头扫地机器人Q Revo
+-石头扫地机器人 S4
+-Roborock S4 Max
+Roborock S5 Max
+-石头扫地机器人 S6
+Roborock S6 Pure
+-Roborock S6 MaxV
+-Roborock S7
+- Roborock S7 MaxV（Ultra）
+-Roborock Q7
+-Roborock Q7 Max
+Roborock S7 Pro Ultra
+-Roborock S7 Max Ultra
+-石头扫地机器人 S8
+Roborock S8 Pro Ultra
+Roborock Q Revo
+-Roborock Q8 Max
+Roborock Q5 Pro
+Roborock Q Revo Pro
+-Roborock Qrevo S
+Roborock Qrevo Curve
 
 ## 区域清洁
-仅当在适配器选项中启用地图创建时，此功能才有效！
+此功能仅在适配器选项中启用地图创建时才有效！
 
-### 地图创建不适用于树莓派
- - 有一个网络服务器正在运行。默认端口为 6824
- - 在浏览器中打开http://iobroker:6824/map.html（将http://iobroker更改为您的ioBroker主机名或ip！！！）
- - 画出用于清洁的正方形。 Roborock 同时支持最多 4 个清洁区域。
+### 地图创建在树莓派上不起作用
+- 有一个网络服务器正在运行。默认端口为 6824
+- 在浏览器中打开 http://iobroker:6824/map.html（将 http://iobroker 更改为您的 ioBroker 主机名或 ip！！！）
+- 绘制要清洁的方块。Roborock 一次最多支持 4 个清洁区域。
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 
@@ -56,6 +61,148 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.18 (2024-12-11)
+ * (copystring) Add cleaned_area to S8
+ * (copystring) Bugfixes for Qrevo Curve
+ * (copystring) Fix reset of consumables
+ * (copystring) Fix io-package.json
+ * (copystring) Add Roborock Qrevo Master
+ * (copystring) Refactor login api and renew login every 3 hours
+ * (fL4sH3r) Fix unit of clean_percent
+ * (copystring) Add water box support to S6
+ * (copystring) Many small fixed I can't be bothered to list 😅
+
+### 0.6.17 (2024-10-14)
+ * (copystring) Add some missing attributes
+ * (copystring) Change min of update interval to 60s to prevent issues
+ * (copystring) Add web interface to sidebar
+
+### 0.6.16 (2024-10-02)
+ * (copystring) Bugfixes
+ * (copystring) update test-and-release.yml
+ * (Black-Thunder) Fix S6 feature detection
+ * (copystring) Migrate from canvas to @napu-rs/canvas
+ * (copystring) Add Qrevo S & Qrevo Curve
+
+### 0.6.15 (2024-09-22)
+ * (copystring) Refactor some code
+ * (copystring) improve handling of online/offline detection and related logging
+ * (copystring) S6 MaxV supports avoid carpet
+
+### 0.6.14 (2024-09-13)
+ * (copystring) Fix bug in app_goto_target parameter validation
+
+### 0.6.13 (2024-09-12)
+ * (copystring) Bug fixes
+ * (copystring) Add basic support for S8 MaxV Ultra
+ * (copystring) Newly found attributes are now warning instead of error
+ * (copystring) Improve detection of `home_sec`
+ * (copystring) Fix docking station detection
+ * (copystring) BREAKING: Adjust docking station states to reflect the smart phone app
+ * (copystring) Detect remote devices and connect via mqtt instead
+ * (copystring) Improve docking station feature handling
+
+### 0.6.12 (2024-09-08)
+ * (copystring) Change go2rtc github to go2rtc-static npm
+
+### 0.6.11 (2024-09-06)
+* (copystring) Add `voice_chat_status` to S7 MaxV
+
+### 0.6.10 (2024-09-05)
+* (copystring) Add `set_switch_status` to S7 MaxV and Q Revo Pro
+
+### 0.6.9 (2024-09-05)
+* (copystring) Fix bugs
+* (copystring) Add missing states
+* (copystring) Add missing translations
+
+### 0.6.8 (2024-09-04)
+* (copystring) Q Revo supports `switch_status` in `get_status`
+
+### 0.6.7 (2024-09-04)
+* (copystring) Update dependencies
+* (copystring) Many bug fixes
+* (copystring) Improve support for: Q Revo Pro
+* (copystring) Add parsing of dss in deviceStatus as `docking station status`
+* (copystring) Add `resume_segment_clean` & `stop_segment_clean`
+* (copystring) Improve reconnect intervall of direct connection
+* (copystring) Add missing translations
+* (copystring) Fix cleaningInfo of older Robots like S6 etc
+* (copystring) General logging improvements
+
+### 0.6.6 (2024-07-14)
+* (copystring) require min node 20 to operate correctly with current dependencies
+
+### 0.6.5 (2024-07-13)
+* (copystring) Add and fix some parameters and attributes
+* (copystring) Fix getMap() in getParameter()
+* (copystring) Add connection state to timeouts
+* (copystring) Detect and report unsupported attributes
+* (copystring) Improve camera and voice support detection
+* (copystring) Wait for TCP client to connect on start of adapter
+* (copystring) Add handling of TCP chunks. This will fix a lot of timeouts 🎉
+* (copystring) Manage stop/stop in the webinterface via state of robot instead of guessing via clicking the buttons in the webinterface
+* (copystring) Refactor and improve javascript code of web interface
+* (copystring) Add Roborock Q Revo Pro
+* (copystring) Update dependencies
+
+### 0.6.4 (2024-04-21)
+* (copystring) Fix io-package.json and update packages
+
+### 0.6.3 (2024-04-21)
+* (copystring) Add consumables to Qrevo MaxV
+* (copystring) Fix S5 Max clean records defintion
+* (copystring) Fix app_start via web interface
+* (copystring) Improve local devices discovery
+
+### 0.6.2 (2024-04-05)
+* (copystring) Fix start of go2rtc
+
+### 0.6.1 (2024-04-02)
+* (copystring) Fix lint
+
+### 0.6.0 (2024-04-02)
+* (copystring) New and improved message queue handler
+* (copystring) Convert robot features to new much more modular system
+* (copystring) Add support for large photos of obstacles
+* (copystring) Many bug fixes I can't remember :D
+
+### 0.5.4 (2024-02-01)
+* (copystring) Fix mqtt disconnect/reconnect bug on start of adapter
+
+### 0.5.3 (2024-01-31)
+* (copystring) Restore original UserData creation
+
+### 0.5.2 (2024-01-31)
+* (copystring) Little bug fixes
+* (copystring) Remove Roborock S5. There is no such device
+* (copystring) Limit HomeData requests to prevent rate limit
+
+### 0.5.1 (2024-01-03)
+* (copystring) Fix lint
+
+### 0.5.0 (2024-01-03)
+* (copystring) Rework map parser and map creator
+* (copystring) Convert a lof of strings to template literals
+* (copystring) Improve go2rtc download logic
+* (copystring) Improve error logging
+* (copystring) Download roborock images from roborock server and make them available as base64 png (needs to be enabled in options, uses quite a lot of resources)
+* (copystring) Use some clever logic so adjacent rooms are never the same color 🎉
+* (copystring) The name for each room is now displayed on the map
+* (copystring) Fix photo popup position on map
+* (copystring) Seriously speed up drawing of carpet map
+* (copystring) Add basic Q8 Max support
+* (copystring) Basic Q5 Pro support
+* (copystring) Support new block types on the map
+* (copystring) Don't crash when Roborock Zeo One is in the account
+* (copystring) New commands for Roborock S7 MaxV
+* (copystring) Many bug fixes
+* (copystring) Add support for station for Q7 Max
+* (copystring) Add basic scene/program support
+* (copystring) Connect to devices via TCP instead of MQTT whereever possible
+* (copystring) Refactor web interface to fix popup position for good
+* (copystring) Add support for A01 encoding/decoding (With this devices like Zeo One, Dyad Pro etc would be supported). Huge thanks to rovo89!!!
+
 ### 0.4.4 (2023-09-24)
 * (copystring) Fix for getting the map for each cleaning record
 
@@ -238,7 +385,7 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 ## License
 MIT License
 
-Copyright (c) 2023 copystring <copystring@gmail.com>
+Copyright (c) 2024 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

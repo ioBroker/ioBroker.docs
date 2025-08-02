@@ -4,9 +4,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.mercedesme.svg)](https://www.npmjs.com/package/iobroker.mercedesme)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mercedesme.svg)](https://www.npmjs.com/package/iobroker.mercedesme)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.mercedesme.svg)](https://david-dm.org/TA2k/iobroker.mercedesme)
-[![Known Vulnerabilities](https://snyk.io/test/github/TA2k/ioBroker.mercedesme/badge.svg)](https://snyk.io/test/github/TA2k/ioBroker.mercedesme)
-
+![Number of Installations](https://iobroker.live/badges/mercedesme-installed.svg)
 [![NPM](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)](https://nodei.co/npm/iobroker.mercedesme/)
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)](https://travis-ci.org/TA2k/ioBroker.mercedesme)
@@ -14,12 +12,56 @@
 ## mercedesme adapter for ioBroker
 
 Mercedes me adapter for ioBroker
+
 Unter commands das commando auf klappen und den button neben start drücken wenn das command available ist.
+
 Remote sind vorgefertige Remote Befehle
 
 ## Changelog
 
-### 0.1.2
+### 0.3.7 (2025-02-11)
+
+- fix relogin after adapter restart
+- add logs for reconnect
+
+### 0.3.6 (2025-02-06)
+
+- Fix for Login and WS connection
+
+### 0.3.5 (2025-01-31)
+
+- fix new login flow
+
+### 0.3.4 (2024-12-08)
+
+- added config parameter for reconnect delay
+
+### 0.3.2 (2024-12-06)
+
+- fix for too many request error
+
+### 0.2.4 (2024-10-17)
+
+- fix websocket connection
+
+### 0.2.3 (2024-05-18)
+
+- improve websocket ping with not internet connection
+
+### 0.2.1 (2024-04-08)
+
+- reduce cpu usage
+- add error logs
+
+### 0.2.0 (2024-04-08)
+
+- reduce cpu usage
+
+### 0.1.8 (2024-02-15)
+
+- improve code sending
+
+### 0.1.6
 
 - fix login
 
@@ -30,22 +72,23 @@ Remote sind vorgefertige Remote Befehle
 ### 0.0.56
 
 - fix vehicle list while login
-  
+
 ### 0.0.55
 
 - fix refresh login
+
 ### 0.0.55
 
 - fix refresh login
-  
+
 ### 0.0.54
 
 - fix login
-  
+
 ### 0.0.52
 
 - fix js-controller 3.3 warnings
-  
+
 ### 0.0.51
 
 - improve handling of failing logins
@@ -53,11 +96,11 @@ Remote sind vorgefertige Remote Befehle
 ### 0.0.50
 
 - fix refresh token
-  
+
 ### 0.0.47
 
 - fix new login
-  
+
 ### 0.0.45
 
 - Small improvments
@@ -116,7 +159,7 @@ Remote sind vorgefertige Remote Befehle
 
 ### 0.0.15
 
-- fix soc history bug, add basic price and  adapter restart every 6h
+- fix soc history bug, add basic price and adapter restart every 6h
 
 ### 0.0.14
 
@@ -182,7 +225,7 @@ Remote sind vorgefertige Remote Befehle
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

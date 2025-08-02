@@ -1,28 +1,32 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-клиент
-hash: XK5Xtt7JLVj8s1aTQamLmu4JQk7bY/jI6kpXPlHfTXY=
+hash: zW4LoHreN+gpPCnvEs3vSptN0V+v1rINjKN992x61hE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
-![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.mqtt-client)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.mqtt-client.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.mqtt-client)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub фиксирует данные с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.mqtt-client/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.mqtt-client)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.mqtt-client)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/mqtt-client-stable.svg)
-![Количество установок](https://iobroker.live/badges/mqtt-client-installed.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.mqtt-client?style=flat-square)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.mqtt-client?label=npm%20downloads&style=flat-square)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.mqtt-client?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.mqtt-client?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.mqtt-client?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.mqtt-client/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Бета](https://img.shields.io/npm/v/iobroker.mqtt-client.svg?color=red&label=beta)
+![Стабильный](http://iobroker.live/badges/mqtt-client-stable.svg)
+![Установлен](http://iobroker.live/badges/mqtt-client-installed.svg)
 
 # IoBroker.mqtt-клиент
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/mqtt-client/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml)
+## Версии
+Публикация и подписка состояний ioBroker на MQTT Brokers.
 
 ## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Настройки адаптера
 ![Адаптер](../../../en/adapterref/iobroker.mqtt-client/img/settings.png)
@@ -77,13 +81,24 @@ hash: XK5Xtt7JLVj8s1aTQamLmu4JQk7bY/jI6kpXPlHfTXY=
 
 #### Примечание
 * когда для ack установлено значение true, объекты ack будут перезаписаны, см. ```as object```
-* во избежание зацикливания сообщений, если включены и публикация, и подписка, для подписки всегда включено «только изменения»
+* во избежание зацикливания сообщений, если включены и публикация, и подписка, для подписки всегда включен параметр «Только изменения».
 
 <!-- Заполнитель следующей версии (в начале строки):
 
 ### __РАБОТА В ПРОГРЕССЕ__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (@klein0r) Added missing information in configuration dialog
+
+### 2.0.0 (2024-06-21)
+* (klein0r) Password is now encrypted - you have to re-renter your password in instance settings!
+* (klein0r) Use jsonConfig instead of materialize (for instance settings)
+
+### 1.8.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.7.0 (2023-10-30)
 
 * (mcm1957) Dependencies have been updated
@@ -181,6 +196,7 @@ hash: XK5Xtt7JLVj8s1aTQamLmu4JQk7bY/jI6kpXPlHfTXY=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

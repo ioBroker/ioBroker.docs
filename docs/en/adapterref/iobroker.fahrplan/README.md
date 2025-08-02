@@ -223,6 +223,20 @@ With +-Button new entries can be added to the table.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.4.1 (2025-04-21)
+* (Gaudes) Include platform in line
+* (Gaudes) Fix product regionalExpress
+* (Gaudes) Updates
+
+### 1.4.0 (2024-12-13)
+* (Gaudes) Migrate to ESM
+* (Gaudes) Upgrade HAFAS to version 6.x
+* (Gaudes) Upgrades
+
+### 1.3.0 (2024-11-18)
+* (simatec) Responsive Design added
+* (Gaudes) Upgrades
+
 ### 1.2.3 (2023-04-07)
 * (Gaudes) Upgrade hafas-client (fix for error)
 * (Gaudes) Upgrade dependency
@@ -230,27 +244,10 @@ With +-Button new entries can be added to the table.
 ### 1.2.2 (2022-08-04)
 * (Gaudes) Upgrade dependency
 
-### 1.2.1 (2022-08-04)
-* (Gaudes) Fix channel description for timetables (Git #176)
-* (Gaudes) Fix smaller bugs (Sentry)
-* (Gaudes) Include Dependabot updates
-
-### 1.2.0 (2021-09-19)
-* (Gaudes) Remove support for SBB, not using HAFAS anymore
-* (Gaudes) Fix Hafas error "Bad Gateway" with code 502 (Sentry #26)
-* (Gaudes) Fix unkown station in route (Sentry #7)
-* (Gaudes) Remove support for Node 10
-* (Gaudes) Update to newest Adapter creator for internal dependencies
-* (Gaudes) Include Dependabot updates
-
-### 1.1.1 (2021-06-22)
-* (Gaudes) Advanced error reporting for HAFAS errors
-* (Gaudes) Include Dependabot updates
-
 ## License
 MIT License
 
-Copyright (c) 2023 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2025 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

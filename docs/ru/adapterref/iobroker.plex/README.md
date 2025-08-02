@@ -2,101 +2,100 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.plex/README.md
-title: ioBroker.plex
-hash: K5ET/VY6xyAMIImuN+ozU3Spxy4k4ijIBIzTguT6J0I=
+title: ioBroker.плекс
+hash: HUt2DIGsSuTDqQ432OE7am7HDOgP8t36/31jCqTF7Ag=
 ---
 ![Логотип](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
 ![Количество установок](http://iobroker.live/badges/plex-installed.svg)
 ![Стабильная версия](http://iobroker.live/badges/plex-stable.svg)
 ![Версия НПМ](http://img.shields.io/npm/v/iobroker.plex.svg)
-![Коммиты с момента последнего выпуска](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)
+![Коммиты с момента последнего релиза](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.plex.svg)
-![НПМ](https://nodei.co/npm/iobroker.plex.png?downloads=true)
 
-# IoBroker.plex Интеграция Plex Media Server в ioBroker (с Plex Pass или без него). Кроме того, интеграция Таутулли.
-[![Трэвис CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.plex Интеграция Plex Media Server в ioBroker (с Plex Pass или без него). Кроме того, интеграция Tautulli.
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Оглавление**
 
-1. [Особенности] (#1-функции)
-2. [Инструкции по настройке] (#2-инструкции по настройке)
-   1. [Базовая настройка](#21-basic-setup)
-   2. [Расширенная настройка] (#22-advanced-setup-plex-pass-or-tautulli)
+1. [Особенности](#1-особенности)
+2. [Инструкции по настройке](#2-setup-instructions)
+1. [Базовая настройка](#21-basic-setup)
+2. [Расширенная настройка](#22-advanced-setup-plex-pass-or-tautulli)
 3. [Каналы и состояния](#3-каналы--состояния)
-   1. [с базовой настройкой] (#31-с базовой настройкой)
-   2. [с расширенной настройкой] (#32-с расширенной настройкой)
-4. [Журнал изменений](#changelog)
+1. [с базовой настройкой](#31-with-basis-setup)
+2. [с расширенной настройкой](#32-with-advanced-setup)
+4. [Журнал изменений](#журнал изменений)
 5. [Лицензия](#лицензия)
 
 ## 1. Особенности
-- Получать подробную мультимедийную информацию о текущем воспроизводимом мультимедийном элементе (например, битрейт видео, кодек, информацию о субтитрах, аудио; см. [Расширенная настройка] (https://github.com/iobroker-community-adapters/ioBroker.plex/blob/). master/README-states.md#with-advanced-setup) для получения полного списка)
-- Получайте события от Plex (через [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) и [Plex Notifications](https://support.plex.tv). /articles/push-notifications/#toc-0) с помощью Plex Pass или через Tautulli, [__см. настройку!__](#22-advanced-setup-plex-pass-or-tautulli))
+- Получать подробную информацию о текущем воспроизводимом элементе мультимедиа (например, битрейт видео, кодек, информацию о субтитрах, аудио; см. [Расширенная настройка](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/master/README-states.md#with-advanced-setup) для получения полного списка)
+- Получайте `события` от Plex (через [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) и [Plex Notifications](https://support.plex.tv/articles/push-notifications/#toc-0) с помощью Plex Pass или через Tautulli, [__см. настройку!__](#22-advanced-setup-plex-pass-or-tautulli))
 - Управление воспроизведением для игроков
 - Получить `серверы`
 - Получить `библиотеки`
 - Получить все элементы в библиотеке
-- Получить `пользователей` (только с Таутулли)
-- Получить `статистику` (только с Таутулли)
+- Извлечь `users` (только с Tautulli)
+- Получить `statistics` (только с Tautulli)
 - Получить `плейлисты`
 - Получить `настройки`
-- Получение всех данных от контролируемых клиентов
+- Извлечение всех данных из контролируемых клиентов
 - Веб-интерфейс, показывающий последние события из Plex:
 
   ![Веб-интерфейс Plex](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
 
-## 2. Инструкция по настройке
+## 2. Инструкции по настройке
 ### 2.1. Базовая настройка
-Для базовой настройки необходимо указать IP-адрес (и порт) вашей установки Plex. Кроме того, вам необходимо получить выделенный токен для адаптера для получения данных из Plex.
+Для базовой настройки необходимо указать IP-адрес (и порт) вашей установки Plex. Кроме того, вам необходимо получить выделенный токен для адаптера, чтобы получить данные из Plex.
 
-Как только это будет предоставлено, ioBroker.plex получит все основные данные (включая серверы и библиотеки). Полный список основных данных см. в [Каналы и состояния](#21-with-basis-setup).
+После этого ioBroker.plex извлечет все основные данные (включая серверы, библиотеки). Полный список основных данных см. в [Каналы и состояния](#21-with-basis-setup).
 
 ### 2.2. Расширенная настройка (Plex Pass или Tautulli)
-#### 2.2.1. Плекс Пасс
+#### 2.2.1.Плекс Пасс
 __Вебхук__
 
 Если вы являетесь пользователем Plex Pass, вы можете [настроить вебхук](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) в настройках Plex, чтобы получить текущее событие/действие с вашего Plex Media Server (воспроизведение, пауза, возобновление, остановка, просмотр и оценка).
 
-Перейдите на свой Plex Media Server и перейдите к ```Settings``` и ```Webhook```. Создал новый вебхук, щелкнув ```Add Webhook``` и введя свой IP-адрес ioBroker с настраиваемым портом, указанным в настройках ioBroker.plex, и конечным путем ```/plex```, например. ```http://192.168.178.29:41891/plex```:
+Перейдите на свой Plex Media Server и перейдите к ```Settings``` и ```Webhook```. Создайте новый вебхук, нажав ```Add Webhook``` и введите свой IP-адрес ioBroker с пользовательским портом, указанным в настройках ioBroker.plex, и завершающим путем ```/plex```, например ```http://192.168.178.29:41891/plex```:
 
-![Плекс Вебхук](../../../en/adapterref/iobroker.plex/img/screenshot_plex-webhook.png)
+![Вебхук Plex](../../../en/adapterref/iobroker.plex/img/screenshot_plex-webhook.png)
 
 __События__
 
-Для получения информации об уведомлениях Plex см. [см. официальную документацию](https://support.plex.tv/articles/push-notifications/#toc-0). Чтобы включить уведомления на вашем Plex Media Server, перейдите в раздел `Settings` > `Server` > `General`, а затем включите параметр `Push Notifications`.
+Для получения информации об уведомлениях Plex, пожалуйста, [см. официальную документацию](https://support.plex.tv/articles/push-notifications/#toc-0). Чтобы включить уведомления на вашем Plex Media Server, перейдите в `Settings` > `Server` > `General`, а затем включите параметр `Push Notifications`.
 
 #### 2.2.2.Таутулли
-[Tautulli — это стороннее приложение](https://tautulli.com/#about), которое вы можете запускать вместе с вашим Plex Media Server для мониторинга активности и отслеживания различной статистики. Самое главное, что эта статистика включает в себя то, что смотрели, кто это смотрел, когда и где они это смотрели и как это смотрели. Вся статистика представлена в красивом и понятном интерфейсе со множеством таблиц и графиков, что позволяет легко похвастаться своим сервером перед всеми остальными. Посмотрите [Tautulli Preview](https://tautulli.com/#preview) и [установите его на предпочитаемую вами систему.](https://github.com/Tautulli/Tautulli-Wiki/wiki/Installation), если вам интересно.
+[Tautulli — это стороннее приложение](https://tautulli.com/#about), которое вы можете запустить вместе с вашим Plex Media Server для мониторинга активности и отслеживания различных статистических данных. Самое главное, что эти статистические данные включают в себя то, что было просмотрено, кто это смотрел, когда и где они это смотрели, и как это было просмотрено. Вся статистика представлена в приятном и чистом интерфейсе со множеством таблиц и графиков, что позволяет легко хвастаться вашим сервером перед всеми остальными. Ознакомьтесь с [Tautulli Preview](https://tautulli.com/#preview) и [установите его на вашей предпочтительной системе](https://github.com/Tautulli/Tautulli-Wiki/wiki/Installation) если вам интересно.
 
-Этот адаптер подключается к [Таутулли API](https://github.com/Tautulli/Tautulli/blob/master/API.md), а также получает события веб-перехватчика от Tautulli.
+Этот адаптер подключается к [API Таутулли](https://github.com/Tautulli/Tautulli/blob/master/API.md), а также получает события веб-перехватчика от Tautulli.
 
-##### 2.2.2.1. API
-После установки Tautulli откройте страницу _Настройки_ на панели управления Tautulli и перейдите к _Веб-интерфейс_. Прокрутите вниз до раздела _API_ и убедитесь, что установлен флажок ```Enable API```. Скопируйте ```API key``` и введите его в настройках ioBroker.plex. Кроме того, добавьте IP-адрес и порт Tautulli, чтобы разрешить связь через API.
+##### 2.2.2.1.API
+После установки Tautulli откройте страницу _Настройки_ на панели инструментов Tautulli и перейдите в _Веб-интерфейс_. Прокрутите вниз до раздела _API_ и убедитесь, что отмечен ```Enable API```. Скопируйте ```API key``` и введите его в настройки ioBroker.plex. Кроме того, добавьте IP-адрес и порт Tautulli, чтобы разрешить связь API.
 
 ##### 2.2.2.2. Вебхук
 ###### Обзор
-Чтобы настроить веб-книгу с помощью Tautulli, следуйте приведенным ниже инструкциям и убедитесь, что вы выполнили все 4 шага:
+Чтобы настроить веб-книгу с помощью Tautulli, следуйте инструкциям ниже и убедитесь, что вы выполнили все 4 шага:
 
-1. Добавьте агент уведомлений.
-2. Настройте вебхук в агенте уведомлений.
-3. Настройте триггеры в агенте уведомлений.
-4. Настройте данные в агенте уведомлений.
-5. Настройте параметры уведомлений.
+1. Добавить агента уведомлений
+2. Настройте Webhook в Notification Agent
+3. Настройте триггеры в Notification Agent
+4. Настройте данные в Notification Agent
+5. Настройте параметры уведомлений
 
 ###### Описание
-После установки откройте страницу настроек на панели управления Tautulli и перейдите к «Агентам уведомлений», как показано ниже:
+После установки откройте страницу настроек на панели инструментов Tautulli и перейдите в раздел «Агенты уведомлений», как показано ниже:
 
-![Настройки Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-settings.png)
+![Настройки Тауттулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-settings.png)
 
-1. Нажмите _Добавить новый агент уведомлений_ и _Вебхук_.
-2. Введите IP-адрес ioBroker с настраиваемым портом, указанным в настройках ioBroker.plex, и конечным путем ```/tautulli``, например: ```http://192.168.178.29:41891/tautulli```:
+1. Нажмите _Добавить новый агент уведомлений_ и _Webhook_.
+2. Введите IP-адрес вашего ioBroker с пользовательским портом, указанным в настройках ioBroker.plex, и конечным путем ```/tautulli```, например ```http://192.168.178.29:41891/tautulli```:
 
-![Вебхук Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Кроме того, выберите ```POST``` для _Метода Webhook_ и введите любое описание, которое вам нравится, в _Description_.
+![Вебхук Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Кроме того, выберите ```POST``` для _Webhook Method_ и введите любое описание в _Description_.
 
-3. Далее переходим на вкладку _Триггеры_, выбираем нужные (или просто все) агенты уведомлений. Включенный агент уведомлений вызовет событие, которое затем будет отправлено в ioBroker. __Обязательно__ укажите необходимые данные для каждого включенного агента уведомлений на следующем шаге!
-4. Теперь, __самое главное__, заполните соответствующие полезные данные на вкладке _Данные_ в соответствии с __[Конфигурация уведомлений найдена здесь](README-tautulli.md#notification-configuration)__.
+3. Далее перейдите на вкладку _Триггеры_, выберите нужные (или просто все) агенты уведомлений. Включенный агент уведомлений вызовет событие, которое затем будет отправлено в ioBroker. __Обязательно__ предоставьте необходимые данные для каждого включенного агента уведомлений на следующем шаге!
+4. Теперь, __самое главное__, заполните соответствующие данные на вкладке _Данные_ в соответствии с __[Конфигурацией уведомлений, которая находится здесь](README-tautulli.md#notification-configuration)__.
 
-   Скопируйте конфигурацию уведомлений соответствующих агентов уведомлений из предыдущего шага (например, ```Playback Start```, ```Playback Stop```, ```Playback Pause``` и ```Playback Resume```) в каждое из текстовых полей, как показано ниже для § §JJJJJ_4§§:
+Скопируйте конфигурацию уведомлений соответствующих агентов уведомлений из предыдущего шага (например, ```Playback Start```, ```Playback Stop```, ```Playback Pause``` и ```Playback Resume```) в каждое из текстовых полей, как показано ниже для ```Playback Start```:
 
    ![Уведомление Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification.png)
 
@@ -105,36 +104,53 @@ __События__
    ![Настройки уведомлений Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification_settings.png)
 
 ## 3. Каналы и состояния
-После настройки базовой и расширенной настройки появятся следующие каналы (конечно, библиотеки, серверы и пользователи — это только примеры). Подробнее см. ниже [полный список каналов и состояний](#21-with-basis-setup).
+После настройки как базовой, так и расширенной настройки появятся следующие каналы (библиотеки, серверы и пользователи, конечно, являются только примерами). Подробнее см. ниже для [полный список каналов и штатов](#21-with-basis-setup).
 
-![Пример каналов и состояний](../../../en/adapterref/iobroker.plex/img/screenshot_plex-states.jpg)
+![Примеры каналов и состояний](../../../en/adapterref/iobroker.plex/img/screenshot_plex-states.jpg)
 
 ### 3.1. С базовой настройкой
-После успешной базовой настройки будут созданы каналы согласно следующей таблице. Список всех состояний, которые будут созданы, можно найти в [см. специальный список штатов](README-states.md#with-basis-setup).
+После успешной базовой настройки будут созданы каналы в соответствии со следующей таблицей. Для получения списка всех состояний, которые будут созданы, пожалуйста, [см. специальный список штатов](README-states.md#with-basis-setup).
 
-| Канал/Папка | Описание |
+| Канал / Папка | Описание |
 | ------- | ----------- |
 | __библиотеки__ | Библиотеки Plex |
 | __серверы__ | Серверы Plex |
 | __настройки__ | Настройки Plex |
 
 ### 3.2. С расширенной настройкой
-После успешной расширенной настройки будут _дополнительно_ созданы следующие каналы. Список всех состояний, которые будут созданы, можно найти в [см. специальный список штатов](README-states.md#with-advanced-setup).
+После успешной расширенной настройки будут _дополнительно_ созданы следующие каналы. Для списка всех состояний, которые будут созданы, пожалуйста, [см. специальный список штатов](README-states.md#with-advanced-setup).
 
-| Канал/Папка | Описание | Примечание |
+| Канал / Папка | Описание | Примечание |
 | ---------------- | ----------- | ------ |
-| __\_играю__ | Plex Media воспроизводится | с Plex Pass или Tautulli |
-| __статистика__ | Статистика просмотра Plex | только с Таутулли |
-| __пользователи__ | Пользователи Plex | только с Таутулли |
+| __\_воспроизведение__ | Plex Media воспроизводится | с помощью Plex Pass или Tautulli |
+| __статистика__ | Статистика Plex Watch | только с Tautulli |
+| __users__ | Пользователи Plex | только с Tautulli |
 
 ## Кредиты
-Этот адаптер был бы невозможен без огромной работы @Zefau (https://github.com/Zefau), которая создала и поддерживала его до 2021 года.
+Этот адаптер был бы невозможен без огромной работы @Zefau (https://github.com/Zefau), который создал его и поддерживал до 2021 года.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (ticaki) Dependencies updated
+- (mcm1957) Adapter requires nodejs >= 18 now
+
+### 1.1.4 (2023-11-06)
+- (ticaki) move logmessage into debug
+
+### 1.1.3 (2023-10-05)
+- (ticaki) fixed: bug in readable offset
+
+### 1.1.2 (2023-09-16)
+- (ticaki) prevent Plex from crashing due to incorrect tautulli configuration
+
+### 1.1.1 (2023-09-16)
+- (ticaki) Fixed: State common.name english/german
+- (ticaki) some minor improvements
+
 ### 1.1.0 (2023-09-11)
 - (ticaki) Added: Lyrics are written as link and text in _playing.device.Metadata.Music.Lyric
 - (ticaki) Added: Connection to players with refresh of playerdetail
@@ -270,8 +286,9 @@ __События__
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 iobroker-community-adapters
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>
-Copyright (c) 2023 iobroker-community-adapters
+
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

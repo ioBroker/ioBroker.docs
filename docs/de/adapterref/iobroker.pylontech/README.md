@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: ONgs2AieUJL68BRu+gZsi+F+4GBH4krMReMvcFbn714=
+hash: beWwnc8c7LiOmJsSw9fbzxuA93cfchIjRjCTtA5c9Rk=
 ---
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -19,15 +19,15 @@ hash: ONgs2AieUJL68BRu+gZsi+F+4GBH4krMReMvcFbn714=
 **Tests:** ![Test und Freigabe](https://github.com/PLCHome/ioBroker.pylontech/workflows/Test%20and%20Release/badge.svg)
 
 ## Pylontech- und Pytes-Adapter für ioBroker
-Fragen Sie über die Konsole die Zellspannungen und den Status von Pylontech- oder Pytes-Akkus ab. Ich bin nicht angeschlossen.
+Fragen Sie über die Konsole die Zellspannungen und den Status von Pylontech- oder Pytes-Batterien ab. Ich bin nicht angeschlossen.
 
-**Bitte beachten Sie, dass alles, was Sie bauen oder anschließen, immer in Ihrer Verantwortung liegt. Der Entwickler dieses Adapters übernimmt keine Haftung für etwaige Schäden!**
+**Bitte beachten Sie, dass alles, was Sie bauen oder anschließen, immer in Ihrer Verantwortung liegt. Der Entwickler dieses Adapters übernimmt keine Haftung für eventuelle Schäden!**
 
 ## Wie es funktioniert
 Dieser Adapter wird verwendet, um den Gesundheitszustand und die Funktionen eines Pylontech- oder Pytes-Arrays zu ermitteln, das aus einer oder bis zu fünfzehn Batterien bestehen kann.
 Dieser Adapter dient nicht zur Steuerung des Akkus. Dies ist der Teil einer Lade- und Stromversorgungseinheit oder eines Wechselrichters.
 Die Akkus verfügen über einen Konsolenanschluss, der eine RS232- oder V24-Schnittstelle bereitstellt. Dieser Adapter wird über eine serielle Schnittstelle daran angeschlossen.
-Die erste Batterie stellt alle Daten bereit und fragt die anderen über den Uplink an.
+Die erste Batterie stellt alle Daten zur Verfügung und fragt die anderen über den Uplink an.
 Achtung, der direkte Anschluss eines Raspberry oder ESP ist nicht möglich. Die RS232-Schnittstellen verfügen über keinen TTL-Pegel und sind nicht für 3 Volt oder 5 Volt ausgelegt. Für den Anschluss ist ein Pegelwandler erforderlich. Nachfolgend finden Sie eine Bauanleitung.
 
 ## Was wird für die Verbindung benötigt?
@@ -47,7 +47,7 @@ Mit einem [konfigurierbarer Stecker](https://www.amazon.de/gp/product/B0C8JFWNR7
 
 ![Stecker](../../../en/adapterref/iobroker.pylontech/media/configurablePlug.jpg)
 
-Oder fertig konfektionierte Kabelkontakt in den [Forum](https://forum.iobroker.net/topic/68707).
+Oder fertig konfektionierte Kabel im [Forum](https://forum.iobroker.net/topic/68707).
 
 ![Kabel](../../../en/adapterref/iobroker.pylontech/media/Kabel.jpg)
 
@@ -61,7 +61,7 @@ Oder fertig konfektionierte Kabelkontakt in den [Forum](https://forum.iobroker.n
 ![RJ45](../../../en/adapterref/iobroker.pylontech/media/8p.jpg)
 
 #### RJ11 / RJ12
-Die RJ11- und RJ12-Stecker sind gleich groß. Der RJ11 hat nur vier Kontakte, der RJ12 hat sechs Kontakte. Die Kontakte des RJ11 liegen in der Mitte des Steckers, weshalb sie unterschiedlich gezählt werden. Physisch befinden sich die Kontakte am selben Ort.
+Die RJ11- und RJ12-Anschlüsse sind gleich groß. Der RJ11 hat nur vier Kontakte, der RJ12 hat sechs Kontakte. Die Kontakte des RJ11 liegen in der Mitte des Steckers, weshalb sie unterschiedlich gezählt werden. Physisch befinden sich die Kontakte am selben Ort.
 
 | RJ11 | RJ12 | Signal | DSUB | Signal |
 | ------ | ------ | ------ | ---- | ------ |
@@ -182,7 +182,7 @@ ESP-Serial-Bridge: https://github.com/yuri-rage/ESP-Serial-Bridge
 
 Serieller Port über WLAN: https://www.instructables.com/Serial-Port-Over-WiFi/
 
-Tasmota kann auch verwendet werden: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+Tasmota hat Probleme verursacht, da Blöcke nicht in der richtigen Reihenfolge übertragen wurden und daher derzeit nicht verwendet werden sollten: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
 
 Als Bin können nur folgende oder selbst kompilierte verwendet werden, ansonsten wird der TCP-Server nicht einbezogen:
 
@@ -226,7 +226,7 @@ RFC Hier sind die Einstellungen der obigen Konfiguration. Der Geräteport ist 70
 Weitere Informationen finden Sie hier: https://gist.github.com/DraTeots/e0c669608466470baa6c
 
 #### Bereite Hardware
-Es gibt fertige Hardware, die über WLAN und/oder LAN verbunden werden kann. Solange es einen transparenten TCP-Server verwendet, sollte es funktionieren.
+Es gibt fertige Hardware, die über WLAN und/oder LAN verbunden werden kann. Solange ein transparenter TCP-Server verwendet wird, sollte es funktionieren.
 
 Beispiel:
 
@@ -236,7 +236,7 @@ Beispiel:
 Noch ein Tipp: Es gibt günstige und teure USB-Seriell-Konverter. Konverter mit CHxxx PLxxx und CPxxx im Namen haben keine Erkennungsmerkmale. Wenn man zwei davon verbindet und dann die Ports vertauscht oder zum ersten Mal bootet, weiß man nicht mehr, wer wer ist. Daher ist es besser, die guten mit FTDI und Seriennummer zu nehmen. Es gibt auch gute serielle Konverter ohne FTDI-Chip, die eine Seriennummer haben.
 
 ### Getestete Hardware
-Ich stehe noch am Anfang.
+Ich bin noch am Anfang.
 Was wurde getestet:
 
 #### RS232 zu ioBroker
@@ -245,22 +245,29 @@ Was wurde getestet:
 | Seriell zu USB | lokal | ja | Für die Adapter gibt es eine große Auswahl an Chips. Je nach Modell kann es zu Identifikationsproblemen kommen, wenn die Adapter keine Seriennummer haben und mehr als einer angeschlossen ist. Windows weist jedem USB-Stecker bereits einen COM-Port zu. |
 | LogiLink AU0034 | lokal | ja | |
 | ESP-LINK | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Denken Sie daran, einen Konverter wie den MAX | zu verwenden |
+| Tasmota | Netzwerk | nein | Bei Tasmota auf einem ESP8266 wurden Blöcke nicht in der richtigen Reihenfolge übertragen, was zu falschen Objekten und Daten führte. Tasmota ist daher nicht zu empfehlen. |
 | Waveshare RS232/485 TO ETH (für EU) | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. |
 | Waveshare RS232/485/422 TO POE ETH | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. Der Konverter kann über POE mit Strom versorgt werden. Wenn POE verfügbar ist, benötigen Sie keine Stromversorgung in der Nähe der Batterien. |
+| Elfin EW10A | Netzwerk | ja | Stellen Sie sicher, dass in Ihrem WLAN genügend Bandbreite und Signalstärke vorhanden ist, damit die Verbindung stabil ist. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. |
+| Elfin EW10A-0 | Netzwerk | ja | Stellen Sie sicher, dass in Ihrem WLAN genügend Bandbreite und Signalstärke vorhanden ist, damit die Verbindung stabil ist. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. |
+| Elfin EE10-A | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. |
 
 #### Batterien
 | Pylontech-Modell | Modell | Firmware | Funktioniert | Kommentar |
 | ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | US5000 | USA | V1.3 22.08.10 | gut | |
 | US2000C | USA | V2.6 21.09.26 | gut | |
+| US2000C | USA | V2.1 | gut | |
+| US2000C | USA | V2.8 | gut | |
 | US2000 (US2KBPL) | USA | V2.8 21.04.29 | gut | Temperaturen nur in Ein-Grad-Schritten |
 | Kraft H2 | Kraft | V1.5 21.06.18 | gut | Achtung: In einigen Force-Handbüchern sind in der Steckerbeschreibung nur die RX- und TX-Anschlüsse aufgeführt. Die Masse liegt auf PIN 8 und muss ebenfalls angeschlossen werden. |
 
 | Pytes-Modell | Modell | Firmware | Funktioniert | Kommentar |
-| ----------- | ----- | ------------- | ---------- | -------------------------------------- |
+| -------------- | ----- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | E-BOX-4850P | USA | V1.3 22.12.20 | gut | Vielen Dank an kletternaut für die Testdaten |
+| E-BOX-48100V-D | USA | V1.10 23.10.13 | gut | Adapterversion >=0.0.9 . „Laden Sie den Gesundheitszustand der Batteriezellen herunter“ und „Laden Sie die Batteriestatistikdaten herunter“ sollten ausgeschaltet sein. (soh -n- und stst -n- werden nicht unterstützt) |
 
-Wenn Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder in Github als Problem. Gerne führen wir diese Liste weiter.
+Wenn Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder in Github als Problem. Gerne führen wir diese Liste fort.
 
 ioBroker-Forum: https://forum.iobroker.net/topic/68707
 
@@ -291,11 +298,11 @@ Optionen:
 Die folgenden Felder werden nur angezeigt, wenn bei Verbindung über Lokales Gerät ausgewählt wurde.
 
 #### Lokaler Gerätepfad
-Wurde „lokales Gerät“ ausgewählt, muss der Pfad bzw. Port eingestellt werden. NodeJs denkt in Linux, daher wird „Pfad nicht gefunden“ auch dann gemeldet, wenn das angegebene Windows-Gerät nicht gefunden wird. Die Standardgeräte werden vom Adapter gesucht und als Auswahlliste angeboten, dies funktioniert jedoch nur, wenn der Adapter läuft, da hierfür eine Kommunikation mit der Instanz erforderlich ist. Es werden nur Geräte angeboten, keine alternativen Gerätekennungen und keine Unicnames, diese können aber manuell eingegeben werden.
+Wenn „Lokales Gerät“ ausgewählt wurde, muss der Pfad bzw. Port eingestellt werden. NodeJs denkt in Linux, daher wird „Pfad nicht gefunden“ auch dann gemeldet, wenn das angegebene Windows-Gerät nicht gefunden wird. Die Standardgeräte werden vom Adapter gesucht und als Auswahlliste angeboten, dies funktioniert jedoch nur, wenn der Adapter läuft, da hierfür eine Kommunikation mit der Instanz erforderlich ist. Es werden nur Geräte angeboten, keine alternativen Gerätekennungen und keine Unicnames, diese können aber manuell eingegeben werden.
 Siehe den Abschnitt über lokale Schnittstellen.
 
 #### Übertragungsgeschwindigkeit
-Hier kann die Übertragungsgeschwindigkeit eingestellt werden. Bei neueren Modellen ist dieser auf 115200 eingestellt. Bei älteren Modellen liegt sie bei 1200. Kommt keine Verbindung zustande, können Sie versuchen, ob der Adapter mit 1200 läuft. Sollte dies der Fall sein, kann die Geschwindigkeit über den Status „pylontech. -n- .config.set_speed“ auf 115200 gesetzt werden. Die Adaptergeschwindigkeit muss dann wieder auf 115200 gesetzt werden.
+Hier kann die Übertragungsgeschwindigkeit eingestellt werden. Bei neueren Modellen ist dieser auf 115200 eingestellt. Bei älteren Modellen beträgt sie 1200. Kommt keine Verbindung zustande, können Sie versuchen, ob der Adapter mit 1200 läuft. Sollte dies der Fall sein, kann die Geschwindigkeit über den Status „pylontech. -n- .config.set_speed“ auf 115200 gesetzt werden. Die Adaptergeschwindigkeit muss dann wieder auf 115200 gesetzt werden.
 
 ### Netzwerkgerät
 Die folgenden Felder werden nur angezeigt, wenn unter Verbindung über Netzwerkgerät ausgewählt wurde.
@@ -449,6 +456,26 @@ Wenn true ohne ack geschrieben wird, um zu setzen, wird die aktuelle Zeit an den
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.0.10 (2024-03-01)
+
+- (PLCHome) Hex numbers are also recognized as such if text follows them.
+
+### 0.0.9 (2024-02-29)
+
+- (PLCHome) Configure this adapter to use the release script.
+- (PLCHome) Improved "bat n" for E-BOX-48100V-D on 100%.
+- (PLCHome) Waiting time between commands of 20ms.
+- (PLCHome) If the timeout occurs, send the last command again.
+- (PLCHome) No further commands after a timeout.
+
+### 0.0.8 (16.02.2024)
+
+- (PLCHome) improved "bat n" for E-BOX-48100V-D
+
 ### 0.0.7 (01.11.2023)
 
 - (PLCHome) issue "Cannot read properties of undefined (reading 'trim') at Parser" fixed, so E-BOX-4850P works now.
@@ -475,7 +502,7 @@ Wenn true ohne ack geschrieben wird, um zu setzen, wird die aktuelle Zeit an den
 
 MIT License
 
-Copyright (c) 2023 PLCHome
+Copyright (c) 2024 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

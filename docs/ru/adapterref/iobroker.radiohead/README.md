@@ -6,7 +6,7 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/crycode-de/ioBroker.rad
 BADGE-NPM: https://nodei.co/npm/iobroker.radiohead.png?downloads=true
 BADGE-Travis-CI: http://img.shields.io/travis/crycode-de/ioBroker.radiohead/master.svg
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.radiohead/README.md
 title: ioBroker.radiohead
 hash: V0vrm0V+IiDhGTVilg+5PGS6f5bR/npZhH+Gsx9z72g=

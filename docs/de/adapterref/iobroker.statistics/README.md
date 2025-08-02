@@ -156,6 +156,21 @@ sendTo('statistics.0', 'enableStatistics', {
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+
+* (@klein0r) Optimized avg calculation (without using a sum)
+
+### 4.0.0 (2025-04-16)
+NodeJS >= 20.x and js-controller >= 6 is required
+
+### 3.1.0 (2024-11-18)
+
+* (@simatec) Added responsive jsonConfig
+* (@klein0r) Copy unit of source state to all statistic states
+
+### 3.0.0 (2024-11-15)
+NodeJS >= 18.x and js-controller >= 5 is required
+
 ### 2.4.0 (2023-11-03)
 NodeJS 16.x is required
 
@@ -166,29 +181,11 @@ NodeJS 16.x is required
 ### 2.3.1 (2023-01-11)
 * (klein0r) Added Ukrainian language
 
-### 2.3.0 (2022-11-03)
-NodeJS 14.5.0 is required
-
-* (klein0r) Added hourly, weekly, monthly, ... averages
-* (klein0r) Added promises to avoid parallel execution of tasks (lead to incorrect calculations)
-* (klein0r) Fixed init values for save/temp
-* (klein0r) Added option to enable statistics for objects via sendTo
-* (klein0r) Allow sum delta to substract values (negative delta)
-* (klein0r) Delete states when option in unchecked
-* (klein0r) Removed dayMin and dayMax from avg (use minmax for that case!)
-* (klein0r) Fix: Calculation of avg when no change of value
-
-### 2.2.0 (2022-07-07)
-* (klein0r) Added absolute min and max values
-
-### 2.1.1 (2022-06-16)
-* (klein0r) Fixed usage of default values for groups
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2018-2025 foxthefox <foxthefox@wysiwis.net>,
                         bluefox <dogafox@gmail.com> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

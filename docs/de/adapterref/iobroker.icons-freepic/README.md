@@ -2,7 +2,7 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.icons-freepic/README.md
-title: ioBroker.icons-freepic
+title: ioBroker.icons-kostenloses Bild
 hash: zoMEc5H0MtmHbZ1Q4X4Tx6HUv2EK302qyfMh0NvAhbU=
 ---
 ![Logo](../../../en/adapterref/iobroker.icons-freepic/admin/icons-freepic.png)
@@ -14,15 +14,15 @@ hash: zoMEc5H0MtmHbZ1Q4X4Tx6HUv2EK302qyfMh0NvAhbU=
 ![NPM](https://nodei.co/npm/iobroker.icons-freepic.png?downloads=true)
 
 # IoBroker.icons-freepic
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/workflows/Test%20and%20Release/badge.svg)
 
-## Icons-Freepic-Adapter für ioBroker
+## Icons-freepic-Adapter für ioBroker
 Symbole, die von ioBroker-Visualisierungen wie WebUI, Vis usw. verwendet werden können
 extrahiert aus ioBroker.habpanel
 
 ### HAFTUNGSAUSSCHLUSS
-Bitte beachten Sie Urheberrechte und Marken, wenn Sie Namen oder Logos eines Unternehmens verwenden, und fügen Sie Ihrer README-Datei einen Haftungsausschluss hinzu.
-Sie können bei anderen Adaptern nach Beispielen suchen oder in der Entwickler-Community nachfragen. Die Verwendung eines Namens oder Logos eines Unternehmens ohne Genehmigung kann rechtliche Probleme für Sie verursachen.
+Bitte beachten Sie Urheberrechte und Markenrechte, wenn Sie Namen oder Logos eines Unternehmens verwenden, und fügen Sie Ihrer README-Datei einen Haftungsausschluss hinzu.
+Sie können andere Adapter nach Beispielen durchsuchen oder in der Entwickler-Community nachfragen. Die unbefugte Verwendung eines Namens oder Logos eines Unternehmens kann rechtliche Probleme für Sie nach sich ziehen.
 
 ## Changelog
 <!--

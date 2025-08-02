@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-保护
-hash: +G2ZFhEpZGS4FRBYIYdgYEkZOmLEO/0gifXc8vqfzx8=
+hash: oJGzwHOEJDJyVKj9Xs2iXkHpz8Z1N9WYYteeHKPEEYY=
 ---
 ![标识](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.uv-protect.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.uv-protect.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.uv-protect.svg)
 ![安装数量（最新）](http://iobroker.live/badges/uv-protect-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/uv-protect-stable.svg)
@@ -17,28 +17,53 @@ hash: +G2ZFhEpZGS4FRBYIYdgYEkZOmLEO/0gifXc8vqfzx8=
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.uv-保护
-![测试和发布](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的紫外线防护适配器
-来自 openUV-API 的紫外线防护
+openUV-API 的紫外线防护
 
 **************************************************************************************************************
 
-**如果喜欢，请考虑捐款：**
-
+## 支持适配器开发 **如果您喜欢，请考虑捐赠：**
 [![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
-### 什么是 Sentry.io 以及向该公司服务器报告的内容？
-Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概览。正是在这个适配器中实现了这一点。
+### Sentry.io 是什么以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员获取有关应用程序错误的概述。这正是在这个适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，也会出现在 ioBroker 日志中的此错误消息会提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包含在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
 
 **************************************************************************************************************
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
+### 0.6.0 (2024-02-05)
+* (simatec) Dependencies updated
+* (simatec) gulp deleted
+* (simatec) @iobroker/adapter-dev
+* (simatec) Translation updated
+
+### 0.5.1 (2023-11-02)
+* (simatec) Dependencies updated
+
+### 0.5.0 (2023-10-11)
+* (simatec) Dependencies updated
+* (simatec) Fix units
+* (simatec) Code clean
+
+### 0.4.2 (2023-09-05)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Translation updated
+
+### 0.4.1 (2023-06-19)
+* (simatec) Dependencies updated
+* (simatec) Fix Adapter Stop
+
 ### 0.4.0 (2023-03-18)
 * (simatec) Dependencies updated
 * (simatec) Repo updated
@@ -100,7 +125,7 @@ Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有�
 ## License
 MIT License
 
-Copyright (c) 2021 - 2023 simatec
+Copyright (c) 2021 - 2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

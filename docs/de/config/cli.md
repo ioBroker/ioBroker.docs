@@ -1,8 +1,8 @@
 # Konsolenbefehle
 Einige Befehle wie z.B. starten, stoppen oder aktualisieren können über die Konsole (Windows bzw. Linux) ausgeführt werden.
 
-***Hinweis:*** Alle Befehle, die mit ```iobroker``` beginnen, können von jedem Verzeichnis aus aufgerufen werden. 
-Der Befehl ```npm install``` muss jedoch im ioBroker-Stammverzeichnis ausgeführt werden.
+***Hinweis:*** Alle Befehle, die mit `iobroker` beginnen, können von jedem Verzeichnis aus aufgerufen werden. 
+Der Befehl `npm install` muss jedoch im ioBroker-Stammverzeichnis ausgeführt werden.
 
 Befehlsübersicht:
 
@@ -24,6 +24,7 @@ Befehlsübersicht:
 - [iobroker upgrade](#iobroker-upgrade)
 - [iobroker upgrade self](#iobroker-upgrade-self)
 - [iobroker upgrade adapterName](#iobroker-upgrade-adaptername)
+- [iobroker nodejs-update](#iobroker-nodejs-update)
 - [iobroker object get objectId](#iobroker-object-get)
 - [iobroker object chmod](#iobroker-object-chmod)
 - [iobroker object chown](#iobroker-object-chown)
@@ -61,100 +62,100 @@ Befehlsübersicht:
 - [iobroker cert create](#iobroker-cert-create)
 - [iobroker logs \[--watch\]](#iobroker-logs)
 
-***Hinweis:*** Mit dem Parameter ```--timeout 5000``` am Ende eines jeden Befehls kann ein Timeout (ms) für die Verbindung zur DB angegeben werden.
+***Hinweis:*** Mit dem Parameter `--timeout 5000` am Ende eines jeden Befehls kann ein Timeout (ms) für die Verbindung zur DB angegeben werden.
 
 ## npm install iobroker.adapterName
-Dieser Befehl muss vom Stammverzeichnis des ioBroker aus aufgerufen werden (normalerweise ```/opt/iobroker``` oder ```C:\Program Files\ioBroker```). Mit dem npm-Manager können bestimmte Adapter und der js-Controller installiert oder aktualisiert werden. Es funktioniert immer, auch wenn der "admin" oder "js-Controller" Probleme hat.
+Dieser Befehl muss vom Stammverzeichnis des ioBroker aus aufgerufen werden (normalerweise `/opt/iobroker` oder `C:\Program Files\ioBroker`). Mit dem npm-Manager können bestimmte Adapter und der js-Controller installiert oder aktualisiert werden. Es funktioniert immer, auch wenn der "admin" oder "js-Controller" Probleme hat.
 
 Anwendungsbeispiele:
 
-- ```npm install iobroker.admin``` - aktualisiert oder installiert den "admin" -Adapter
-- ```npm install iobroker.js-controller``` - aktualisiert oder installiert den js-controller selbst
-- ```npm installiere https://github.com/husky-koglhof/ioBroker.hmm/tarball/master/``` - installiert diesen Adapter direkt von github oder von einem anderen Ort aus. Es muss ein ZIP- oder GZ-Paket sein und muss package.json enthalten.
+- `npm install iobroker.admin` - aktualisiert oder installiert den "admin" -Adapter
+- `npm install iobroker.js-controller` - aktualisiert oder installiert den js-controller selbst
+- `npm installiere https://github.com/husky-koglhof/ioBroker.hmm/tarball/master/` - installiert diesen Adapter direkt von github oder von einem anderen Ort aus. Es muss ein ZIP- oder GZ-Paket sein und muss package.json enthalten.
 
-Damit die Änderungen wirksam werden sollte nach dem Aufruf von ```npm install ..``` der Neustart des angegebenen Adapters oder des gesamten js-Controllers durchgeführt werden, .
+Damit die Änderungen wirksam werden sollte nach dem Aufruf von `npm install ..` der Neustart des angegebenen Adapters oder des gesamten js-Controllers durchgeführt werden.
 
-Dies kann mit ```iobroker restart adapterName``` oder nur mit ```iobroker restart``` erfolgen. Für Einzelheiten siehe [iobroker restart](#iobroker-restart).
+Dies kann mit `iobroker restart adapterName` oder nur mit `iobroker restart` erfolgen. Für Einzelheiten siehe [iobroker restart](#iobroker-restart).
 
 ***Hinweis:*** Nur Pakete mit dem Namen **ioBroker.zzz** können so installiert werden.
 
 ## iobroker start
 Startet Iobroker als Daemon. Wenn der ioBroker bereits gestartet ist, erscheint die Warnung:
 
-```ioBroker controller daemon already running. PID: xx```
+`ioBroker controller daemon already running. PID: xx`
 
-***Hinweis für Windows:*** ioBroker wird unter Windows als Dienst gestartet. Der Befehl ```iobroker start``` startet eine zweite Instanz von ioBroker und dies führt hier zu Konflikten. 
-Stattdessen mit Administratorrechten im ioBroker-Verzeichnis den Befehl ```serviceIoBroker.bat start``` ausführen um den Dienst zu starten.
+***Hinweis für Windows:*** ioBroker wird unter Windows als Dienst gestartet. Der Befehl `iobroker start` startet eine zweite Instanz von ioBroker und dies führt hier zu Konflikten. 
+Stattdessen mit Administratorrechten im ioBroker-Verzeichnis den Befehl `serviceIoBroker.bat start` ausführen, um den Dienst zu starten.
 
 ## iobroker stop
 Stoppt IoBroker, wenn er als Dämon ausgeführt wird. Wenn der ioBroker nicht gestartet war, erscheint die Warnung:
 
-```ioBroker controller daemon is not running```
+`ioBroker controller daemon is not running`
 
-***Hinweis für Windows:*** ioBroker wird unter Windows als Dienst gestartet. Der Befehl ```iobroker stop``` funktioniert hier nicht. Stattdessen mit Administratorrechten im ioBroker-Verzeichnis den Befehl ```serviceIoBroker.bat stop``` ausführen um den Dienst zu beenden.
+***Hinweis für Windows:*** ioBroker wird unter Windows als Dienst gestartet. Der Befehl `iobroker stop` funktioniert hier nicht. Stattdessen mit Administratorrechten im ioBroker-Verzeichnis den Befehl `serviceIoBroker.bat stop` ausführen um den Dienst zu beenden.
 
 ## iobroker restart
-Führt die Befehle ```iobroker stop``` und ```iobroker start``` nacheinander aus.
+Führt die Befehle `iobroker stop` und `iobroker start` nacheinander aus.
 
 ## iobroker isrun
 Gibt aus ob ioBroker läuft oder nicht. Wenn ioBroker nicht gestartet ist, lautet der Ausgabecode 100.
 
-Gleich Funktion wie ```iobroker status```.
+Gleich Funktion wie `iobroker status`.
 
 ## iobroker start adapterName.instance
 Startet die Instanz des angegebenen Adapters. Falls die Instanz bereits läuft wird sie neu gestartet.
 
 Beispiel:
 
-- ```iobroker start email.0``` - aktiviert und startet den email Adapter mit der Instanz 0
+- `iobroker start email.0` - aktiviert und startet den `email` Adapter mit der Instanz 0
 
-***Hinweis:*** Mit ```iobroker start all``` werden alle deaktivierten Instanzen gestartet, z.B. nach einer Systemwiederherstellung.
+***Hinweis:*** Mit `iobroker start all` werden alle deaktivierten Instanzen gestartet, z.B. nach einer Systemwiederherstellung.
 
 ## iobroker stop adapterName.instance
 Stoppt die Instanz des angegebenen Adapters.
 
 Beispiel:
 
-- ``` Iobroker stop email.0``` - stoppt den email Adapter mit der Instanz 0
+- ` Iobroker stop email.0` - stoppt den `email` Adapter mit der Instanz 0
 
 ## iobroker restart adapterName.instance
-Startet die Instanz des angegebenen Adapter neu. Wenn die Instanz deaktiviert war, wird sie aktiviert.
+Startet die Instanz den angegebenen Adapter neu. Wenn die Instanz deaktiviert war, wird sie aktiviert.
 
 ## iobroker add adapterName
-Die vollständige Syntax lautet ```iobroker add adapterName [desiredInstanceNumber] [--enabled] [--host \<host\>] [--port \<port\>]```
+Die vollständige Syntax lautet `iobroker add adapterName [desiredInstanceNumber] [--enabled] [--host \<host\>] [--port \<port\>]`
 
 Falls nicht installiert wird eine Instanz des angegebenen Adapters mit der Bezeichnung adaptername.0 installiert. Wenn die Instanz des Adapters bereits vorhanden ist, wird die nächsthöhere Instanznummer verwendet.
 
 Parameter:
 
 - enabled: Die Adapterinstanz wird nach der Erstellung automatisch aktiviert. Andernfalls wird der vom Adapter vordefinierte Wert dafür verwendet.
-- host: Name des Hosts auf dem die Adapterinstanz erstellt werden soll. Die Liste der verfügbaren Hosts kann mit dem Befehl ```iobroker list hosts``` abgefragt werden.
-- port: Hier wird der gewünschte Port eingestellt. Bei normaler Installtion ist dies nicht notwendig, da der native port des Adapters verwendet wird.
+- host: Name des Hosts, auf dem die Adapterinstanz erstellt werden soll. Die Liste der verfügbaren Hosts kann mit dem Befehl `iobroker list hosts` abgefragt werden.
+- port: Hier wird der gewünschte Port eingestellt. Bei normaler Installation ist dies nicht notwendig, da der native port des Adapters verwendet wird.
 - desiredInstanceNumber: Hiermit wird die gewünschte ID der Instanz vergeben.
 
-Beipiel:
+Beispiel:
 
-- ```iobroker add dwd``` - Installiert und erstellt eine Instanz des dwd-Adapters.
-- ```iobroker add admin --enabled --port 80``` - Erstellt eine zweite (normalerweise ist admin.0 schon vorhanden) Instanz des Admin Adapters auf Port 80 und aktiviert sie.
+- `iobroker add dwd` - Installiert und erstellt eine Instanz des dwd-Adapters.
+- `iobroker add admin --enabled --port 80` - Erstellt eine zweite (normalerweise ist admin.0 schon vorhanden) Instanz des Admin-Adapters auf Port 80 und aktiviert sie.
 
-Falls dies nicht funktioniert sollte, ist die Installation immer über den Befehl ```npm install iobroker.adapterName``` im ioBroker-Stammverzeichnis möglich. Falls keine Instanz erstellt wird, den Befehl ```iobroker add iobroker.adapterName``` noch einmal aufrufen.
+Falls dies nicht funktionieren sollte, ist die Installation immer über den Befehl `npm install iobroker.adapterName` im ioBroker-Stammverzeichnis möglich. Falls keine Instanz erstellt wird, den Befehl `iobroker add iobroker.adapterName` noch einmal aufrufen.
 
 ## iobroker install adapterName
 Installiert nur den Adapter ohne Instanz. Wenn der Adapter bereits installiert ist, erscheint die Warnung:
 
-```adapter "admin" yet installed. Use "upgrade" to install newer version.```
+`adapter "admin" yet installed. Use "upgrade" to install newer version.`
 
 ## iobroker upload adapterName
 Lädt Webseiten aus den Ordnern "www" und "admin" eines Adapters in den ioBroker-Dateispeicher hoch. Wird normalerweise von Entwicklern verwendet, um die Änderungen auf deren Konfigurationsseiten oder auf den "www" -Seiten anzuzeigen.
 Die Dateien können nicht direkt in "iobroker/iobroker-data/adapter/file" geändert werden. 
-In der Konfigurationsdatei (*iobroker-data/iobroker.json*) objects.noFileCache gibt es ein Flag für Entwickler, um den Cache der Datei zu deaktivieren. Wenn dieses Flag auf true gesetzt ist (nachdem die Konfigurationsdatei geändert wurde ist ein Neustart erforderlich), werden die Änderungen im iobroker-data-Verzeichnis ohne den Befehl ```iobroker upload adapterName``` im Web angezeigt.
+In der Konfigurationsdatei (*iobroker-data/iobroker.json*) objects.noFileCache gibt es ein Flag für Entwickler, um den Cache der Datei zu deaktivieren. Wenn dieses Flag auf true gesetzt ist (nachdem die Konfigurationsdatei geändert wurde ist ein Neustart erforderlich), werden die Änderungen im iobroker-data-Verzeichnis ohne den Befehl `iobroker upload adapterName` im Web angezeigt.
 
-***Hinweis:*** Mit ```iobroker upload all``` werden alle Adapter hochgeladen, z.B nach einer Systemwiederherstellung.
+***Hinweis:*** Mit `iobroker upload all` werden alle Adapter hochgeladen, z.B. nach einer Systemwiederherstellung.
 
 ## iobroker setup
 Dieser Befehl muss aufgerufen werden, wenn ioBroker nicht mit npm oder Windows Installer installiert wurde (z.B. von github kopiert und entpackt). Er erstellt die Standardkonfigurationsdatei und bereitet die Datenverzeichnisse vor.
 
-```iobroker setup first``` - stellt sicher, dass nichts von einer bereits vorhandenen Konfiguration überschrieben wird.
+`iobroker setup first` - stellt sicher, dass nichts von einer bereits vorhandenen Konfiguration überschrieben wird.
 
 ## iobroker setup custom
 Zur manuellen Einrichtung eines Multi-Host Systems muss dieser Befehl zuerst auf dem Master und dann auf den untergeordneten Systemen ausgeführt werden. Folgende Werte müssen nacheinander gesetzt werden:
@@ -170,15 +171,16 @@ Mit ENTER wird der jeweilige Standarwert innerhalb der eckigen Klammern übernom
 
 ***Hinweis:*** derzeit wird nur *file* DB typen unterstützt. Port Änderungen setzt Sachkenntnis voraus.
 
-***Hinweis:*** Die Firewall Einstellungen des Master Systems für die Standartports (9000/9001) prüfen.
+***Hinweis:*** Die Firewall Einstellungen des Mastersystems für die Standartports (9000/9001) prüfen.
 
 ## iobroker del adapterName
 Entfernt alle Instanzen und Zustände dieses Adapters vollständig von ioBroker und löscht ihn von der Festplatte.
 
 ***Hinweis:*** Die Einstellungen der Adapterinstanzen können nach dem Löschen nicht wiederhergestellt werden.
 
-Bespiel:
-```iobroker del dwd``` - löscht alle Instanzen und Zustände des dwd Adapters.
+Beispiel:
+
+`iobroker del dwd` - löscht alle Instanzen und Zustände des dwd Adapters.
 
 ## iobroker del adapterName.instance
 Entfernt nur die angegebene Instanz dieses Adapters von ioBroker und löscht den Adapter aber **nicht** von der Festplatte.
@@ -186,18 +188,18 @@ Entfernt nur die angegebene Instanz dieses Adapters von ioBroker und löscht den
 ***Hinweis:*** Die Einstellungen der Adapterinstanz können nach dem Löschen nicht wiederhergestellt werden.
 
 Beispiel:
-```iobroker del dwd.0``` - löscht Instanz 0 des dwd Adapters.
+`iobroker del dwd.0` - löscht Instanz 0 des dwd Adapters.
 
 ## iobroker update
-Liest die Informationen gemäß dem im Admin Adapter eingestellten ioBroker-Repository aus und zeigt mögliche Updates an. Wenn ```\repository url\``` nachgestellt wird, werden die Informationen aus dem genannten Repository ausgelesen.
+Liest die Informationen gemäß dem im Admin Adapter eingestellten ioBroker-Repository aus und zeigt mögliche Updates an. Wenn `\repository url\` nachgestellt wird, werden die Informationen aus dem genannten Repository ausgelesen.
 Dieser Befehl ändert nichts, aktualisiert lediglich die internen Informationen zu verfügbaren Adapterversionen und zeigt sie an.
 
 Beispiel:
-- ```iobroker update``` - Liste der verfügbaren Version des konfigurierten (normalerweise lokalen) Repositorys.
-- ```iobroker update https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json``` - Listet verfügbare Versionen aus dem Online-Repository auf.
-- ```iobroker update --updatable``` - Listet nur aktualisierbare Adapter auf
+- `iobroker update` - Liste der verfügbaren Version des konfigurierten (normalerweise lokalen) Repositorys.
+- `iobroker update https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - Listet verfügbare Versionen aus dem Online-Repository auf.
+- `iobroker update --updatable` - Listet nur aktualisierbare Adapter auf
 
-Ausgabebeispiel für ```iobroker update```:
+Ausgabebeispiel für `iobroker update`:
 ```
 >./iobroker.js update
 update done
@@ -243,27 +245,32 @@ Aktualisiert alle Adapter (nicht js-Controller), wenn sie mit einer neueren Vers
 
 Beispiel:
 
-- ```iobroker upgrade``` - alle Adapter aktualisieren.
-- ```iobroker upgrade https:// raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json``` - Aktualisiert alle Adapter aus dem Online-Repository
+- `iobroker upgrade` - alle Adapter aktualisieren.
+- `iobroker upgrade https:// raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - Aktualisiert alle Adapter aus dem Online-Repository
 
 ## iobroker upgrade self
-Dieser Befehl aktualisiert den ioBroker.js-Controller auf die sich im Repository zu findende Version.
+Dieser Befehl aktualisiert den `ioBroker.js-controller` auf die sich im Repository zu findende Version.
 
 ***Hinweis:*** Wenn das angegebene oder konfigurierte Repository eine niedrigere Version hat, wird es auf diese Version heruntergestuft.
 
-- ```iobroker upgrade self``` - aktualisiert den js-Controller auf die Version im konfigurierten Repository.
-- ```iobroker upgrade self https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json``` - Aktualisiert den js-controller auf die Version des online-Repository.
+- `iobroker upgrade self` - aktualisiert den js-Controller auf die Version im konfigurierten Repository.
+- `iobroker upgrade self https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - Aktualisiert den js-controller auf die Version des online-Repository.
 
 ## iobroker upgrade adapterName
 Dieser Befehl aktualisiert den angegebenen Adapter auf die Version, die sich im Repository befindet.
 
 ***Hinweis:*** Wenn das angegebene oder konfigurierte Repository eine niedrigere Version hat, wird es auf diese Version heruntergestuft.
 
-- ```iobroker upgrade email``` - Upgrade des ioBroker.email-Adapters auf die Version im konfigurierten Repository.
-- ```iobroker upgrade email https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json``` - Upgrade des ioBroker.email-Adapters auf die Version vom Online-Repository .
+- `iobroker upgrade email` - Upgrade des `ioBroker.email`-Adapters auf die Version im konfigurierten Repository.
+- `iobroker upgrade email https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/conf/sources-dist.json` - Upgrade des ioBroker.email-Adapters auf die Version vom Online-Repository.
+
+## iobroker nodejs-update
+Dieser Befehl aktualisiert Node.js auf die sich im Repository zu findende Version.
+
+- `iobroker nodejs-update` - aktualisiert Node.js auf die aktuelle Version im konfigurierten Repository.
 
 ## iobroker object get
-Liest Wert einer Objekt ID aus. Beispiel ```iobroker object get system.adapter.admin.0.uptime``` gibt aus:
+Liest Wert einer Objekt-ID aus. Beispiel `iobroker object get system.adapter.admin.0.uptime` gibt aus:
 
 ```
 >./iobroker object get system.adapter.admin.0.uptime
@@ -292,17 +299,17 @@ iobroker object get system.adapter.admin.0.uptime --pretty
 ```
 
 ## iobroker object chmod
-Format: ```iobroker object chmod <object-mode> [state-mode] <id>```
+Format: `iobroker object chmod <object-mode> [state-mode] <id>`
 
 ID kann ein Muster mit '\*' sein. '\*' kann nur am Ende des Musters sein.
 
 ## iobroker object chown
-Format: ```iobroker object chown <user> <group> <id>```
+Format: `iobroker object chown <user> <group> <id>`
 
 ID kann ein Muster mit '\*' sein. '\*' kann nur am Ende des Musters sein.
 
 ## iobroker object list
-Format: ```iobroker object list <objectid>```
+Format: `iobroker object list <objectid>`
 
 Listenberechtigungen von Objekten, wie z.B.:
 
@@ -323,19 +330,19 @@ rw-r--r--                    admin  administrator system.adapter.admin.0
 ID kann ein Muster mit '\*' sein. '\*' kann nur am Ende des Musters sein.
 
 ## iobroker set
-Vollständige Syntax: ```iobroker set <instance> [--port value] [--enabled true|false] [--ip address] [--auth true|false] [--secure true|false] [—-ttl value]``` 
+Vollständige Syntax: `iobroker set <instance> [--port value] [--enabled true|false] [--ip address] [--auth true|false] [--secure true|false] [—-ttl value]` 
 
 Zum Ändern von Instanzeinstellungen von der Konsole aus. Folgende Einstellungen können geändert werden:
 
 - Port - Port ändern, an den die Instanz gebunden ist
-- enabled - Aktivieren/Deaktivieren der Instanz (Kann auch mit ```iobroker start|stopp <Instanz>``` durchgeführt werden)
+- enabled - Aktivieren/Deaktivieren der Instanz (Kann auch mit `iobroker start|stopp <Instanz>` durchgeführt werden)
 - ip - Gebundene IP-Adresse ändern
 - auth - Authentifizierung aktivieren oder deaktivieren
 - secure - SSL-Protokoll ein- oder ausschalten
 - TTL - Login Timeout in Sekunden
 
 ## iobroker state get
-Vollständige Syntax: ```iobroker state get stateId``` 
+Vollständige Syntax: `iobroker state get stateId` 
 
 Liest den JSON-Wert eines states aus:
 
@@ -358,7 +365,7 @@ Mit dem Flag "--pretty" wird die Ausgabe formatiert::
 ```
 
 ## iobroker state getplain
-Vollständige Syntax: ```iobroker state getplain stateId```
+Vollständige Syntax: `iobroker state getplain stateId`
 
 Liest den JSON-Wert eines states als Listenattribut aus:
 
@@ -372,7 +379,7 @@ system.adapter.admin.0
 ```
 
 ## iobroker state getvalue
-Vollständige Syntax: ```iobroker state getvalue stateId```
+Vollständige Syntax: `iobroker state getvalue stateId`
 
 Lesen Sie den einfachen Wert des Status als Listenattribute:
 
@@ -382,23 +389,23 @@ Lesen Sie den einfachen Wert des Status als Listenattribute:
 ```
 
 ## iobroker state set
-Vollständige Syntax: ```iobroker state set stateId newValue ack```
+Vollständige Syntax: `iobroker state set stateId newValue ack`
 
-Setzt den Wert eines states. "ack" ist standardmäßig "false".
+Setzt den Wert eines states. `ack` ist standardmäßig `false`.
 
-```>iobroker state set sayit.0.tts.text "Text"```
+`>iobroker state set sayit.0.tts.text "Text"`
 
-```>iobroker state set adapter.0.states.temperature 28.5 true```
+`>iobroker state set adapter.0.states.temperature 28.5 true`
 
 ***Hinweis:*** Bei falscher ID wird keine Fehlermeldung angezeigt.
 
 ## iobroker state del
-Vollständige Syntax: ```iobroker state del stateId```
+Vollständige Syntax: `iobroker state del stateId`
 
 Löscht diesen state.
 
 ## iobroker message
-Vollständige Syntax: ```iobroker message adapter.instance command message```
+Vollständige Syntax: `iobroker message adapter.instance command message`
 
 Sendet eine Nachricht an die angegebene Adapterinstanz oder alle Instanzen des Adapters, wenn keine Instanz festgelegt ist.
 
@@ -417,15 +424,15 @@ Restarting ioBroker...
 
 Sichert ioBroker als ZIP-Datei im Verzeichnis _backups_ und werden mit Datum und Zeit versehen:
 
-```2015_02_10-17_49_45_backupIoBroker.tar.gz``` with current date and time.
+`2015_02_10-17_49_45_backupIoBroker.tar.gz` with current date and time.
 
 ## iobroker restore
 
 ***Hinweis:*** ioBroker muss vor Ausführung dieses Befehls gestoppt werden.
 
-Full syntax: ```iobroker restore <backup name or path>```
+Full syntax: `iobroker restore <backup name or path>`
 
-Wenn Sicherungen mit dem Befehl ```iobroker backup``` erstellt wurden, können sie hiermit wiederhergestellt werden. Ohne Parameter aufgerufen wird eine Liste der verfügbaren Sicherungen ausgegeben.
+Wenn Sicherungen mit dem Befehl `iobroker backup` erstellt wurden, können Sie hiermit wiederhergestellt werden. Ohne Parameter aufgerufen wird eine Liste der verfügbaren Sicherungen ausgegeben.
 
 ```
 />iobroker restore
@@ -434,7 +441,7 @@ Please specify one of the backup names:
    2015_07_17-21_54_01_backupIoBroker.tar.gz or 2015_07_17-21_54_01 or 1
 ```
 
-Mit ```iobroker restore 0``` wird die neueste Sicherungsdatei geladen.
+Mit `iobroker restore 0` wird die neueste Sicherungsdatei geladen.
 Die folgenden Befehle sind für das angegebene Beispiel gleich:
 
 - iobroker restore 0
@@ -442,7 +449,7 @@ Die folgenden Befehle sind für das angegebene Beispiel gleich:
 - iobroker 2015_07_17-21_54_01_backupioBroker.tar.gz
 - iobroker /opt/iobroker/backups/2015_07_17-21_54_01_backupioBroker.tar.gz
 
-Alle Adapter werden außer "admin" werden deaktiviert wiederhergestellt. Alle Adapter können gleichzeitig mit ```iobroker start all``` aktiviert werden. Falls einige Adapter nicht hochgeladen wurden, kann mit ```iobroker upload all``` um alle Adapterdateien gleichzeitig hochgeladen werden.
+Alle Adapter werden außer "admin" werden deaktiviert wiederhergestellt. Alle Adapter können gleichzeitig mit `iobroker start all` aktiviert werden. Falls einige Adapter nicht hochgeladen wurden, kann mit `iobroker upload all` um alle Adapterdateien gleichzeitig hochgeladen werden.
 
 ## iobroker host
 Ändert den Hostnamen in den Objekten.
@@ -451,80 +458,80 @@ Manchmal muss durch Verschieben der ioBroker Daten von einem System auf ein ande
 
 ***Hinweis:*** ioBroker muss vor Ausführung dieses Befehls gestoppt werden.
 
-Um einen bestimmten Hostnamen in der DB in den aktuellen Hostnamen zu ändern, schreiben Sie ```iobroker host oldHostName```.
+Um einen bestimmten Hostnamen in der DB in den aktuellen Hostnamen zu ändern, schreiben Sie `iobroker host oldHostName`.
 
-Um einen beliebigen Hostnamen zu ändern (darf nur ein Hostsystem sein, nicht für Multihosts), schreiben Sie ```iobroker host this```.
+Um einen beliebigen Hostnamen zu ändern (darf nur ein Hostsystem sein, nicht für Multihosts), schreiben Sie `iobroker host this`.
 
 ## iobroker host set
-Sie können den Hostnamen in einen bestimmten Namen ändern (nicht den Computernamen). Dazu müssen Sie schreiben: ```iobroker host set newHostName```, um den tatsächlichen Computernamen oder den zuvor angegebenen Hostnamen umzubenennen.
+Sie können den Hostnamen in einen bestimmten Namen ändern (nicht den Computernamen). Dazu müssen Sie schreiben: `iobroker host set newHostName`, um den tatsächlichen Computernamen oder den zuvor angegebenen Hostnamen umzubenennen.
 
 ## iobroker host remove
-Um den Host zu löschen, schreiben Sie einfach ```iobroker host remove hostNameToRemove```. Bitte seien Sie damit vorsichtig.
+Um den Host zu löschen, schreiben Sie einfach `iobroker host remove hostNameToRemove`. Bitte seien Sie damit vorsichtig.
 
 ## iobroker list
 Mit diesem Befehl können verschiedene Objekt-Typen und Zustände in ioBroker angezeigt werden. Beispiele:
 
-- ```iobroker list objects hm-rega.0``` - zeigt alle Objekte der Instanz hm-rega.0
-- ```iobroker list states hm-rega.0``` - Zeigt alle Zustände der Instanz hm-rega.0 an
-- ```iobroker list files vis.0``` - zeigt alle Dateien der Instanz vis.0 an
-- ```iobroker list instances``` - alle Instanzen anzeigen
-- ```iobroker list adapters``` - zeige alle Adapter
-- ```iobroker list users``` - alle Benutzer anzeigen
-- ```iobroker list groups``` - alle Gruppen anzeigen
-- ```iobroker list enums``` - zeigt alle Aufzählungen
-- ```iobroker list hosts``` - alle Hosts anzeigen
+- `iobroker list objects hm-rega.0` - zeigt alle Objekte der Instanz hm-rega.0
+- `iobroker list states hm-rega.0` - Zeigt alle Zustände der Instanz hm-rega.0 an
+- `iobroker list files vis.0` - zeigt alle Dateien der Instanz vis.0 an
+- `iobroker list instances` - alle Instanzen anzeigen
+- `iobroker list adapters` - zeige alle Adapter
+- `iobroker list users` - alle Benutzer anzeigen
+- `iobroker list groups` - alle Gruppen anzeigen
+- `iobroker list enums` - zeigt alle Aufzählungen
+- `iobroker list hosts` - alle Hosts anzeigen
 
 Es ist möglich, kurze Typenbezeichnungen zu verwenden:
 
-- o - Objekte
-- s - States
-- u - Benutzer
-- e - Aufzählungen
-- g - Gruppen
-- i - Instanzen
-- f - Dateien
-- h - Gastgeber
+- `o` - Objekte
+- `s` - States
+- `u` - Benutzer
+- `e` - Aufzählungen
+- `g` - Gruppen
+- `i` - Instanzen
+- `f` - Dateien
+- `h` - Gastgeber
 
-Z.B. wird mit ```iobroker l u``` alle Benutzer aufgelistet.
+Z.B. wird mit `iobroker l u` alle Benutzer aufgelistet.
 
 Mit den "Listeninstanzen" können zusätzliche Filter verwendet werden:
 
-- enabled - listet alle aktivierten Instanzen auf
-- disabled - listet alle deaktivierten Instanzen auf
-- port - listet alle Instanzen mit Port auf
-- ip - listet alle Instanzen auf, die an eine bestimmte IP-Adresse gebunden werden können
-- ssl - listet alle Instanzen auf, in denen SSL aktiviert werden kann
+- `enabled` - listet alle aktivierten Instanzen auf
+- `disabled` - listet alle deaktivierten Instanzen auf
+- `port` - listet alle Instanzen mit Port auf
+- `ip` - listet alle Instanzen auf, die an eine bestimmte IP-Adresse gebunden werden können
+- `ssl` - listet alle Instanzen auf, in denen SSL aktiviert werden kann
 
-Mit ```iobroker list instances --enabled``` werden alle aktivierten Instanzen aufgelistet
+Mit `iobroker list instances --enabled` werden alle aktivierten Instanzen aufgelistet
 
-oder mit ```iobroker l i --port``` werden die verwendeten Ports aufgelistet.
+oder mit `iobroker l i --port` werden die verwendeten Ports aufgelistet.
 
 ## iobroker adduser
 Mit diesem Befehl kann ein neuer Benutzer erstellt werden (standardmäßig in der Gruppe "Administrator"). Die Gruppe kann im Befehl mit dem Parameter "--ingroup" definiert werden. Wenn das Kennwort nicht angegeben ist, muss es über die Konsole eingegeben werden.
 Z.B. Benutzer "Martin" in der Gruppe "Benutzer" anlegen:
 
-```iobroker adduser martin --group user```
+`iobroker adduser martin --group user`
 
 Benutzer mit Passwort erstellen:
 
-```iobroker adduser martin --group user --password 12345```
+`iobroker adduser martin --group user --password 12345`
 
 ## iobroker deluser
 Löscht einen vorhandenen Benutzer:
 
-```iobroker deluser username```
+`iobroker deluser username`
 
-Der Benutzer wird automatisch aus allen Gruppen gelöscht. "admin" Benutzer kann nicht gelöscht werden.
+Der Benutzer wird automatisch aus allen Gruppen gelöscht. `admin` Benutzer kann nicht gelöscht werden.
 
 ## iobroker passwd
 Ändert das Passwort eines bestehenden Benutzers:
 
-```iobroker passwd username```
+`iobroker passwd username`
 
 Anschließend muss das Passwort eingeben und wiederholt werden.
 Wenn keine Konsoleninteraktion gewünscht wird, das Passwort wie folgt mitgeben:
 
-```iobroker passwd username --password newPassword```
+`iobroker passwd username --password newPassword`
 
 ## iobroker chmod
 Dateimodus ändern
@@ -536,32 +543,32 @@ Dateieigentümer ändern
 Liest eine Datei aus der Datenbank ein und speichert sie im lokalen Dateisystem.
 Verwendungszweck:
 
-```iobroker file read <fileToRead> [storeFile]```
+`iobroker file read <fileToRead> [storeFile]`
 
 storeFile ist optional, kann jedoch der Pfad zum Verzeichnis oder zur neuen Datei sein.
 
 Beispiel:
 
-```iobroker file read /vis.0/main/img/picture.png /opt/myfile.png```
+`iobroker file read /vis.0/main/img/picture.png /opt/myfile.png`
 
-file bzw. read kann mit f bzw. r abgekürzt werden.
+`file` bzw. `read` kann mit f bzw. r abgekürzt werden.
 
 ## iobroker file write
 Datei vom lokalen Dateisystem in die DB schreiben.
 Verwendungszweck:
 
-```iobroker file write <fileToRead> <storeFile>```
+`iobroker file write <fileToRead> <storeFile>`
 
 storeFile kann ein Pfad zum Verzeichnis in DB oder ein vollständiger Name sein
 
 Beispiel: 
 
-```iobroker file write /opt/myfile.png /vis.0/main/img/picture.png```
+`iobroker file write /opt/myfile.png /vis.0/main/img/picture.png`
 
-file bzw. write kann mit f bzw. w abgekürzt werden.
+`file` bzw. `write` kann mit f bzw. w abgekürzt werden.
 
 ## iobroker version
-Zeigt die Version eines Adapters oder des js-Controllers an.
+Zeigt die Version eines Adapters oder des js-controllers an.
 
 Version des js-Controllers:
 
@@ -640,9 +647,7 @@ NPM            : v5.8.0
 
 Zeigt den Status des Compact-Mode für den aktuellen Host an.
 
-```
-Compact mode for this host is currently enabled
-``` 
+`Compact mode for this host is currently enabled` 
 
 ## iobroker compact [enable|disable|on|off]
 **Verfügbar seit js-controller 2.0.0**
@@ -663,7 +668,7 @@ Folgende Befehle sind möglich:
 ## iobroker compact adapterName.instance
 **Verfügbar seit js-controller 2.0.0**
 
-Dieser Befehl erlaubt die Compact-Modus Konfiguration einer Adapter-Instanz zu prüfen und zu ändern.
+Dieser Befehl erlaubt des Compact-Modus Konfiguration einer Adapter-Instanz zu prüfen und zu ändern.
 Es werden immer alle Einstellungen (siehe status) angezeigt inklusive der vorgenommenen Änderungen.
  
 
@@ -683,7 +688,7 @@ Compact group:          0
 Bedeutung der Felder:
 * Compact mode supported: Der Adapter unterstützt den Compact Mode generell
 * Compact mode enabled: Diese Instanz wird im Compact Modus gestartet
-* Compact group: Die Instanz wird in der Compact-Gruppe gestartet wie angegeben. 0 bedeutet "im Haupt-js-controller-Prozess dieses Hosts" (höheres Risiko, wenigster RAM Bedarf). >0 bedeutet jeweils ein eigener Host-Prozess (weniger Risiko, dafür etwas mehr RAM Bedarf)
+* Compact group: Die Instanz wird in der Compact-Gruppe gestartet wie angegeben. 0 bedeutet "im Haupt-js-controller-Prozess dieses Hosts" (höheres Risiko, wenigster RAM-Bedarf). >0 bedeutet jeweils ein eigener Host-Prozess (weniger Risiko, dafür etwas mehr RAM-Bedarf)
 
 ### compact adapterName.instance group &lt;group-id&gt;
 
@@ -737,8 +742,8 @@ Letzte Zeilen anzeigen und das ioBroker-Protokoll überwachen.
 
 Dieser Befehl zeigt die letzten 1000 Protokollzeilen an und überwacht das Protokoll:
 
-```iobroker logs --lines 1000```
+`iobroker logs --lines 1000`
 
 Um das Protokoll zu überwachen, fügen Sie "--watch" hinzu, wie hier: 
 
-```iobroker logs --lines 100 --watch```
+`iobroker logs --lines 100 --watch`

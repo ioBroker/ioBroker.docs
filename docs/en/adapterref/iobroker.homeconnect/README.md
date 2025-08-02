@@ -2,19 +2,36 @@
 
 # ioBroker.homeconnect
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
-[![Build Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
+![Current version in stable repository](https://iobroker.live/badges/homeconnect-stable.svg)
+![Number of Installations](https://iobroker.live/badges/homeconnect-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
 
-## Voraussetzungen vor der Installation
+## Sentry
 
-Es muß mindestens Node.js Version 8 installiert sein!!
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Für den Adapter wird eine ClientID benötigt. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
+## Homeconnect Adapter for ioBroker
 
 ## Requirements before installation
 
-At least Node.js version 8 must be installed!
+- Node 20, 22 or 24
+- JS-Controller >= 6.0.11
+- Admin >= 7.4.10
 
 A ClientID is required for the adapter. Use the settings for each step to register.
 
@@ -22,70 +39,35 @@ A ClientID is required for the adapter. Use the settings for each step to regist
 
 ![Screenshot](img/registrierung1.JPG)
 
-Bei **Default Home Connect User Account for Testing** die E-Mail-Adresse angeben, mit der die Home-Connect-App
-registriert wurde, diese wird später auch beim Authorization-Prozess benötigt.
-
 For **Default Home Connect User Account for Testing**, specify the e-mail address with which the Home Connect app is to be sent.
 was registered, this is also required later in the authorization process.
 
 ![Screenshot](img/registrierung2.JPG)
 
-Bei **Account Type** Individual auswählen. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
-
 For **Account Type** select Individual. Add the remaining data if available (no idea if this will be checked).
 
 ![Screenshot](img/application1.JPG)
-
-Dann auf **Applications** und anschließend auf **Register Application** gehen.
 
 Then go to **Applications** and then to **Register Application**.
 
 ![Screenshot](img/application2.JPG)
 
-Bei **Application ID** einen Namen für die Application eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow selektieren. 
-**Home Connect User Account for Testing** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://example.com.
-Dann Speichern und dann hat man die benötigte ClientID.
-
 For **Application ID** enter a name for the application, e.g. ioBroker. With **OAuth Flow** Device Flow select.
 **Home Connect User Account for Testing** can remain empty. For **Success Redirect** enter a URI, e.g. https://example.com.
 Then save and you have the required ClientID.
 
-## Konfiguration
+## Configuration
 
-In der Adapter-Config muss der Homeconnect App Benutzername und Passwort und die erstellte ClientID eingetragen werden.
+Please add Homeconnect App username, password and generated cleintId into adapter config.
 
+## Description
 
-## Benutzung
+🇬🇧 [Description](/docs/en/README.md)</br>
+🇩🇪 [Beschreibung](/docs/de/README.md)
 
-Mit den states in commands kannst du das Programm stoppen, pausieren oder fortführen.
+## Questions
 
-Mit den states in settings kannst du das Gerät ein oder ausschalten.
-
-Ändern des States programs.active.BSH_Common_Root_ActiveProgram führt zum starten eines Programms
-Update iQ300: Es muss das gewüschnte Programm eingetragen werden. Wenn man programs.selected.BSH_Common_Root_SelectedProgram ausliest und einträgt, hat der User die Möglichkeit am Gerät des gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
-
-Ändern des States programs.selected.BSH_Common_Root_SelectedProgram führt zum auswählen des Programms oder Optionen
-
-Wenn man checken möchte, ob ein Programm fertig ist muss
-
-status.BSH_Common_Status_OperationState
-
-auf den kompletten Status Name übrprüft werden:
-
-BSH.Common.EnumType.OperationState.Finished
-
-Weitere Zustände sind noch:
-
-"BSH.Common.EnumType.OperationState.Inactive": "Inactive",
-"BSH.Common.EnumType.OperationState.Ready": "Ready",
-"BSH.Common.EnumType.OperationState.Run": "Run",
-"BSH.Common.EnumType.OperationState.ActionRequired": "ActionRequired",
-"BSH.Common.EnumType.OperationState.Finished": "Finished"
-
-Oder ob ein Gerät geöffnet ist
-
-"BSH.Common.EnumType.DoorState.Open": "Open",
-"BSH.Common.EnumType.DoorState.Closed": "Closed"
+🇩🇪 [Fragen](https://forum.iobroker.net/topic/16446/test-adapter-homeconnect-bsh-home-connect-v0-0-x?_=1749842644389)
 
 ## Usage
 
@@ -96,159 +78,50 @@ Update iQ300: You need to set the program name in this variable. If programs.sel
 Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to selecting a program or options
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
--   (ta2k) restart adapter instead of relogin
 
-### 1.1.1 
+- (Lucky-ESA) Clean up state roles and code
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Added language selection
+- (Lucky-ESA) Migrated to ESLint 9
+- (Lucky-ESA) Adapter requires js-controller >= 6.0.11 now
+- (Lucky-ESA) Adapter requires admin >= 7.4.10 now
+- (mcm1957) Adapter requires node.js >= 20 now
 
-- Fix auto login for SingleKey User
+### 1.4.3 (2024-11-19)
 
-### 1.1.0
+- (TA2k) fix for -001 devices
+- (simatec) Adapter has been adapted to meet Responsive Design rules.
 
-- Add auto login for SingleKey User
+### 1.4.2 (2024-10-25)
 
-### 1.0.3
+- (TA2k) fix for devices with object values
 
-- Add manually login for SingleKey User
-  
-### 1.0.2
+### 1.4.1 (2024-07-02)
 
-- Adapter complete rewriten. Includes a lot of Bugfixes
+- (foxriver76) fixed invalid min/max values
 
-### 0.0.36
+### 1.4.0 (2024-04-18)
 
-- fix for js.controller 3.3. Please delete the device in Objects manually
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
-### 0.0.32 (29.12.2020)
+### 1.3.0 (2023-12-15)
 
-- (Morluktom) bugfix for devices that are completely switched off (e.g. washing machine, dryer)
-
-### 0.0.31
-
-- (ta2k) fix pause start command
-
-### 0.0.30 (10.05.2020)
-
-- (ta2k) fix js controller 3 issues
-
-### 0.0.27 (13.11.2019)
-
-- (ta2k) improve option selecting
-
-### 0.0.26 (04.11.2019)
-
-- (ta2k) fix boolean settings
-
-### 0.0.25 (08.09.2019)
-
-- (ta2k) fix compact mode
-- (ta2k) reduce query per minute to prevent too much request error
-
-### 0.0.24 (08.09.2019)
-
-- (ta2k) improve error messaging
-
-### 0.0.22 (08.09.2019)
-
-- (ta2k) improve error messaging
-
-### 0.0.22 (26.07.2019)
-
-- (ta2k) bugfixing
-
-### 0.0.21 (12.07.2019)
-
-- (ta2k) bugfixing
-
-### 0.0.19 (30.06.2019)
-
-- (ta2k) improve displaying long states, options and events
-
-### 0.0.18 (26.06.2019)
-
-- (ta2k) add error handling for stoping
-
-### 0.0.17 (26.06.2019)
-
-- (ta2k) make commands writeable
-
-### 0.0.16 (26.06.2019)
-
-- (ta2k) cleanup states after update
-
-### 0.0.15 (24.06.2019)
-
-- (ta2k) reconnect after token refresh
-
-### 0.0.14 (18.06.2019)
-
-- (ta2k) check for keep alive events
-
-### 0.0.13 (18.06.2019)
-
-- (ta2k) close event stream before reconnect
-
-### 0.0.12 (18.06.2019)
-
-- (ta2k) fix events lost after 12hr
-
-### 0.0.11 (09.06.2019)
-
-- (ta2k) fix set values and refresh available options after program select
-
-### 0.0.10 (04.06.2019)
-
-- (ta2k) add settings and commands, add options to available and fix bugs
-
-### 0.0.9 (29.05.2019)
-
-- (ta2k) clean up code and receive event notifications
-
-### 0.0.8 (10.04.2019)
-
-- (dna909) increase refreshTokenInterval
-
-### 0.0.7 (03.04.2019)
-
-- (TA2k) Improve refreshToken and add Register process in instance option
-
-### 0.0.6 (09.01.2019)
-
-- (dna909) Oven: add Option.FastPreHeat, Logging, query stream.type DISCONNECTED
-- (tFaster) code format and cleanups,fixed devices data structure,renamed deviceArray to devices,
-    added startInRelative for Oven
-
-### 0.0.5 (28.11.2018)
-
-- (dna909) add eventstream handling
-
-### 0.0.4 (23.11.2018)
-
-- (dna909) add event-listener
-
-### 0.0.3 (14.11.2018)
-
-- (dna909) query States and available programs
-
-### 0.0.2 (08.11.2018)
-
-- (dna909) OAuth2 Deviceflow-Authorization, enumerate connected appliances
-
-### 0.0.1 (09.10.2018)
-
-- (dna909) initial release
+- fix login
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020 dna909 <dna909@googlemail.com>, TA2k
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

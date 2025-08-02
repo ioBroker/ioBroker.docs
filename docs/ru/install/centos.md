@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/centos.md
 title: Установить на CentOS
-hash: NNHd5PMz5EEH2++Yd5IKcnE5qyP9RhewUgl2YZil5Co=
+hash: se2U2FhT82/g/VF79qgLX17rU0BBl3AysNdvpbxmDGs=
 ---
-# Установить на CentOS
+# Установка на CentOS
 ## Автоматическая установка
-Убедитесь, что `curl` установлен, или установите его с помощью:
+Убедитесь, что установлен `curl`, или установите его с помощью:
 
 `sudo yum install -y curl`
 
@@ -15,10 +15,10 @@ hash: NNHd5PMz5EEH2++Yd5IKcnE5qyP9RhewUgl2YZil5Co=
 
 `curl -sL https://iobroker.net/install.sh | bash -`
 
-Если автоматическая установка не работает, вы все равно можете использовать ручную установку.
+Если автоматическая установка не работает, вы все равно можете воспользоваться ручной установкой.
 
 ## Ручная установка
-### Установите node.js
+### Установка node.js
 Если не установлено:
 
 ```
@@ -41,7 +41,7 @@ npm i iobroker.admin --production
 npm i iobroker.js-controller@stable --production
 ```
 
-### Необязательная установка Redis
+### Необязательная установка redis
 ```
 sudo yum install -y epel-release nano
 sudo yum update
@@ -51,7 +51,7 @@ sudo systemctl enable redis
 sudo nano /etc/redis.conf
 ```
 
-#### Установить Redis как состояния БД
+#### Установить redis как базу данных состояний
 ```
 ./iobroker setup custom
 ```
@@ -70,8 +70,8 @@ sudo nano /etc/redis.conf
 # creating conf/iobroker.json
 ```
 
-#### Опционально только для Redis+Multihost
-Измените привязку 127.0.0.1 на привязку 0.0.0.0.
+#### Необязательно только для Redis+Multihost
+Изменить привязку 127.0.0.1 на привязку 0.0.0.0
 
 ```
 sudo systemctl restart redis
@@ -84,7 +84,7 @@ sudo chmod 744 * -R
 sudo chown iobroker:iobroker * -R
 ```
 
-### Автоматический старт
+### Автозапуск
 ```
 sudo nano /lib/systemd/system/iobroker.service
 ```

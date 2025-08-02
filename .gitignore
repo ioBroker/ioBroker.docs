@@ -9,6 +9,7 @@
 /engine/front-end/public/zh-cn
 /engine/package-lock.json
 /engine/google-keys.json
+/api-key.json
 /engine/front-end/src/i18n/temp_words.js
 /engine/front-end/build
 /engine/front-end/docu
@@ -16,3 +17,4 @@
 /engine/front-end/node_modules
 /engine/front-end/package-lock.json
 /engine/front-end/public/blog.json
+/engine/front-end/public/data/forum.json

@@ -193,7 +193,7 @@ ESP-Serial-Bridge: https://github.com/yuri-rage/ESP-Serial-Bridge
 
 Serial Port Over WiFi: https://www.instructables.com/Serial-Port-Over-WiFi/
 
-Tasmota can also be used: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+Tasmota Caused problems because blocks were not transferred in order and should therefore not be used at the moment: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
 
 Only the following or self-compiled ones can be used as bin, otherwise the TCP server is not included:
 
@@ -262,8 +262,12 @@ What was tested:
 | Serial to USB                       | local   | yes        | There is a large selection of chips for the adapters. Depending on the model, identification problems can occur if the adapters do not have a serial number and more than one is connected. Windows already assigns one COM port for each USB plug.               |
 | LogiLink AU0034                     | local   | yes        |                                                                                                                                                                                                                                                                   |
 | ESP-LINK                            | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Remember to use a converter like the MAX                                                                                                           |
+| Tasmota                             | network | no         | With Tasmota on an ESP8266, blocks were not transferred in the correct order, resulting in incorrect objects and data. Tasmota is therefore not recommended.                                                                                                      |
 | Waveshare RS232/485 TO ETH (for EU) | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port.                                                                                                                           |
 | Waveshare RS232/485/422 TO POE ETH  | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port. The converter can be supplied with power via POE. If POE is available, you do not need a power supply near the batteries. |
+| Elfin EW10A                         | network | yes        | Make sure that there is enough bandwidth and signal strength on your WiFi so that the connection is stable. Check transmission speed 115200 8 N 1.                                                                                                                |
+| Elfin EW10A-0                       | network | yes        | Make sure that there is enough bandwidth and signal strength on your WiFi so that the connection is stable. Check transmission speed 115200 8 N 1.                                                                                                                |
+| Elfin EE10-A                        | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged.                                                                                                                                                    |
 
 #### Batteries
 
@@ -271,12 +275,15 @@ What was tested:
 | ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | US5000           | US    | V1.3 22-08-10 | fine       |                                                                                                                                                             |
 | US2000C          | US    | V2.6 21-09-26 | fine       |                                                                                                                                                             |
+| US2000C          | US    | V2.1          | fine       |                                                                                                                                                             |
+| US2000C          | US    | V2.8          | fine       |                                                                                                                                                             |
 | US2000 (US2KBPL) | US    | V2.8 21-04-29 | fine       | Temperatures only in one degree increments                                                                                                                  |
 | Force H2         | Force | V1.5 21-06-18 | fine       | Attention: in some Force manuals only the RX and TX connections are listed in the connector description. The ground is on PIN 8 and must also be connected. |
 
-| Pytes model | Model | Firmware      | Is working | Comment                                |
-| ----------- | ----- | ------------- | ---------- | -------------------------------------- |
-| E-BOX-4850P | US    | V1.3 22-12-20 | fine       | Thanx to kletternaut for the test data |
+| Pytes model    | Model | Firmware       | Is working | Comment                                                                                                                                                                            |
+| -------------- | ----- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| E-BOX-4850P    | US    | V1.3 22-12-20  | fine       | Thanx to kletternaut for the test data                                                                                                                                             |
+| E-BOX-48100V-D | US    | V1.10 23-10-13 | fine       | Adapter version >=0.0.9 . "Download the battery cells state of health" and "Download the battery statistics data" should be switched off. (soh -n- and stst -n- are not supported) |
 
 If you use hardware, please write to me in the forum or in Github as an issue. We would be happy to continue this list.
 
@@ -520,6 +527,27 @@ If true without ack is written to set, the current time is sent to the Pylontech
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 0.0.10 (2024-03-01)
+
+- (PLCHome) Hex numbers are also recognized as such if text follows them.
+
+### 0.0.9 (2024-02-29)
+
+- (PLCHome) Configure this adapter to use the release script.
+- (PLCHome) Improved "bat n" for E-BOX-48100V-D on 100%.
+- (PLCHome) Waiting time between commands of 20ms.
+- (PLCHome) If the timeout occurs, send the last command again.
+- (PLCHome) No further commands after a timeout.
+
+### 0.0.8 (16.02.2024)
+
+- (PLCHome) improved "bat n" for E-BOX-48100V-D
+
 ### 0.0.7 (01.11.2023)
 
 - (PLCHome) issue "Cannot read properties of undefined (reading 'trim') at Parser" fixed, so E-BOX-4850P works now.
@@ -546,7 +574,7 @@ If true without ack is written to set, the current time is sent to the Pylontech
 
 MIT License
 
-Copyright (c) 2023 PLCHome
+Copyright (c) 2024 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

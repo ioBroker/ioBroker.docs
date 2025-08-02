@@ -19,6 +19,12 @@ Check the current stock value
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.7 (2024-06-10)
+* fox #14, update yahoo-api
+
+### 0.0.6 (2024-04-24)
+* fix #9, update yahoo-api
+
 ### 0.0.5 (2023-08-07)
 * fix for Cookiebug #6
 
@@ -29,15 +35,19 @@ Check the current stock value
 * (Newan) rename adapter for npm
 
 ### 0.0.2 (2022-09-12)
-* (Newan) chnage to yahoo api
+* (Newan) change to yahoo api
 
 ### 0.0.1 (2022-09-12)
 * (Newan) initial release
 
+## Donation
+[![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
+
+
 ## License
 MIT License
 
-Copyright (c) 2023 Newan <info@newan.de>
+Copyright (c) 2024 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.energymanager/README.md
-title: ioBroker.energiemanager
-hash: F6uWAkQzsOIi2v2dx3ldpYwd4mTuBVMr3kycbc13d5Y=
+title: ioBroker.energymanager
+hash: WTqq0e1QzSRYhsNLC5/e2Ce7fWnER5M+2ZIGv9gQuQk=
 ---
 ![Logo](../../../en/adapterref/iobroker.energymanager/admin/energymanager.png)
 
@@ -13,15 +13,15 @@ hash: F6uWAkQzsOIi2v2dx3ldpYwd4mTuBVMr3kycbc13d5Y=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.energymanager.svg)
 ![NPM](https://nodei.co/npm/iobroker.energymanager.png?downloads=true)
 
-# IoBroker.energiemanager
-Dieser Adapter dient dazu, Werte von Geräten, die über das kiwigrid-Netzwerk mit Strom versorgt werden, wie dem E.ON Energymanager, in ioBroker einzulesen. Ebenfalls bestätigt ist der Solarwatt-Manager. Es ist möglich, dass andere Geräte mit diesem Adapter funktionieren, z. B. innogy oder enviam.
+# IoBroker.energymanager
+Dieser Adapter ist dafür gedacht, Werte von Geräten, die über das Kiwigrid-Netzwerk mit Strom versorgt werden, wie z. B. dem E.ON Energymanager, in den ioBroker einzulesen. Ebenfalls bestätigt ist der Solarwatt-Manager. Es ist möglich, dass auch andere Geräte mit diesem Adapter funktionieren, beispielsweise Innogy oder Enviam.
 
 Hilfe oder Hinweise sind willkommen.
 
 ## Schritte
 1. Installieren Sie den Adapter
 
-2. Holen Sie sich die Werte aus Ihrem Energiemanager.[x]-Objekt.
+2. Holen Sie sich die Werte aus Ihrem energymanger.[x]-Objekt.
 
 ## Anforderungen
 * E.ON Aura Energiemanager, Solarwatt MyReserve Energiemanager oder andere kiwigrid-betriebene Geräte

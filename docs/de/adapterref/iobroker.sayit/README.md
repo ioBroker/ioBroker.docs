@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sayit/README.md
 title: ioBroker Sayit-Adapter
-hash: /unz3ntgh85Hz+ZiPVipGk8JExnbZ/YczfEFY+uJno8=
+hash: iKZAJidQHuyYqiVCtChm9m1nExJtvRV2zI1LVq7PX9s=
 ---
 ![Logo](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -12,38 +12,38 @@ hash: /unz3ntgh85Hz+ZiPVipGk8JExnbZ/YczfEFY+uJno8=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sayit.svg)
 
 # IoBroker Sayit-Adapter
-![Test und Freigabe](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Der SayIt-Adapter kann Text in Sprache umwandeln und auf einem Gerät abspielen.
+Der SayIt-Adapter kann Text in Sprache umwandeln und auf einigen Geräten wiedergeben.
 
-## Aufbau
-Tatsächlich werden folgende Ausgaben unterstützt:
+## Konfiguration
+Derzeit werden die folgenden Ausgaben unterstützt:
 
-- *Browser* – der Text wird vom Browser bei geöffneter „iobroker.vis“-Seite abgespielt. Es wird von fast jedem Desktop-Browser und von wenigen mobilen Browsern unterstützt.
+- *Browser* – der Browser spielt den Text auf der geöffneten Seite „iobroker.vis“ ab. Dies wird von fast jedem Desktop-Browser und einigen mobilen Browsern unterstützt.
 
-- *[Home24-MediaPlayer](http://www.home-24.net/index.php?app=media)* – der Text wird gesendet und auf dem Android-Gerät abgespielt, auf dem Home24 - MediaPlayer installiert ist. Hierzu wird die integrierte Text-to-Speech-Engine von Android verwendet. Der Port kann nicht geändert und auf 50000 gesetzt werden.
+- *[Home24- MediaPlayer](http://www.home-24.net/index.php?app=media)* - der Text wird an das Android-Gerät gesendet und dort abgespielt, auf dem Home24-MediaPlayer installiert ist. Hierzu wird die in Android integrierte Text-to-Speech-Engine verwendet. Der Port kann nicht geändert werden und ist auf 50000 eingestellt.
 
-- *Home24 – MediaPlayer und [FTP-Server](https://play.google.com/store/apps/details?id=lutey.FTPServer)* – der Text wird mit Home24 – MediaPlayer gesendet und auf dem Android-Gerät abgespielt Eingerichtet. Hierzu wird die Text-to-Speech-Engine von Google verwendet. Die generierte MP3-Datei wird über FTP auf ein Android-Gerät kopiert und mit Home24 - MediaPlayer abgespielt.
+- *Home24 - MediaPlayer und [FTP-Server](https://play.google.com/store/apps/details?id=lutey.FTPServer)* - der Text wird gesendet und auf dem Android-Gerät abgespielt, auf dem Home24 - MediaPlayer installiert ist. Hierzu wird die Text-to-Speech-Engine von Google verwendet. Die generierte MP3-Datei wird über FTP auf ein Android-Gerät kopiert und mit Home24 - MediaPlayer abgespielt.
 
-    Beide Apps müssen dieselben Home-Verzeichnisse haben. (Z. B. Stammverzeichnis der „SD-Karte“).
+Beide Apps müssen dieselben Home-Verzeichnisse haben. (Z. B. das Stammverzeichnis der \"SD-Karte\").
 
-- *System* – der Text wird vom Betriebssystem abgespielt, auf dem der ioBroker-Adapter läuft. Folgende Betriebssysteme werden unterstützt: Windows, Linux, Mac OSx.
+- *System* - der Text wird vom Betriebssystem abgespielt, auf dem der ioBroker-Adapter läuft. Folgende Betriebssysteme werden unterstützt: Windows, Linux, Mac OSx.
 
-- *Windows-Engine* – der Text wird von Windows abgespielt, wo der sayIt-Adapter läuft. Hierzu wird die Text-to-Speech-Engine von Windows verwendet, die vom Benutzer vorkonfiguriert werden sollte. Sie können [hier](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7) überprüfen, wie Sie es einrichten.
+- *Windows-Engine* - der Text wird von Windows abgespielt, auf dem der sayIt-Adapter läuft. Dazu wird die Text-to-Speech-Engine von Windows verwendet, die vom Benutzer vorkonfiguriert werden sollte. Wie man sie einrichtet, können Sie [hier](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7) nachlesen.
 
-- *Sonos* – Text auf dem Sonos-Gerät abspielen. Stellen Sie sicher, dass der Web Adaptor aktiviert ist. Es ist erforderlich, damit SONOS die generierten MP3-Dateien lesen kann.
+- *Sonos* - Text auf dem Sonos-Gerät abspielen. Stellen Sie sicher, dass der Webadapter aktiviert ist. Er ist erforderlich, um SONOS zu aktivieren, damit die generierten MP3-Dateien gelesen werden können.
 
-- *Heos* – Text auf dem HEOS-Gerät abspielen. Stellen Sie sicher, dass der Web Adaptor aktiviert ist. Es ist erforderlich, damit HEOS die generierten MP3-Dateien lesen kann.
+- *Heos* - Text auf HEOS-Gerät abspielen. Stellen Sie sicher, dass der Webadapter aktiviert ist. HEOS muss aktiviert sein, damit die generierten MP3-Dateien gelesen werden können.
 
 - *Chromecast* – Text auf einem Chromecast-Gerät abspielen.
 
-- *MPD* – Text auf dem Music Player Daemon abspielen. Verwenden Sie für den Web-Adapter nur **http**, nicht https.
+- *MPD* - Text auf Music Player Daemon abspielen. Verwenden Sie für den Webadapter nur **http**, kein https.
 
-Um die Text-to-Speech-Funktion auf RaspberryPI oder einem Linux-System zu aktivieren, rufen Sie einmal den folgenden Befehl `sudo apt-get -y install mpg321` auf, um mpg321 zu installieren.
+Um die Text-to-Speech-Funktion auf einem RaspberryPI- oder Linux-System zu aktivieren, rufen Sie einmal den folgenden Befehl `sudo apt-get -y install mpg321` auf, um mpg321 zu installieren.
 
-Die MP3/WAV-Dateien können abgespielt werden, indem der Name in das Objekt geschrieben wird. (z. B. `/vis.0/main/img/door-bell.mp3`)
+Die MP3-/WAV-Dateien können abgespielt werden, indem ihr Name in das Objekt geschrieben wird. (z. B. `/vis.0/main/img/door-bell.mp3`)
 
 Die Datei muss zuerst geladen werden.
 
@@ -53,80 +53,80 @@ Online:
 - Google: Englisch, Deutsch, Russisch, Italienisch, Spanisch, Französisch;
 - Yandex: Russisch
 
-Um Yandex-Stimmen nutzen zu können, müssen Sie den API-Schlüssel hier anfordern: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Dieser Dienst wird am 1. Januar 2019 deaktiviert und durch Yandex.cloud ersetzt.] Um Yandex.cloud zu verwenden, sollten Sie sich hier registrieren: [https://cloud.yandex.ru/], die SpeechKIT-API in der Cloud installieren und ein Auth-Token erhalten und Ordner-ID, wie in den API-Anweisungen beschrieben.
+Um Yandex-Stimmen zu verwenden, müssen Sie hier den API-Schlüssel anfordern: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Dieser Dienst wird am 1. Januar 2019 deaktiviert und durch Yandex.cloud ersetzt.] Um Yandex.cloud zu verwenden, sollten Sie sich hier registrieren: [https://cloud.yandex.ru/], die SpeechKIT-API in der Cloud installieren und Auth-Token und Ordner-ID erhalten, wie in den API-Anweisungen beschrieben.
 
-- Cloud: Um Cloud-Stimmen zu verwenden, müssen Sie den „Cloud“-Adapter konfigurieren und ausführen oder den App-Schlüssel direkt in den Einstellungen eingeben
+- Cloud: Um Cloud-Stimmen zu verwenden, müssen Sie den „Cloud“-Adapter konfigurieren und ausführen oder den App-Schlüssel direkt in den Einstellungen eingeben.
 - Amazon Web Services Polly:
 
-  Um AWS Polly-Stimmen verwenden zu können, müssen Sie einen Zugriffsschlüssel und einen geheimen Schlüssel [hier](https://console.aws.amazon.com/iam/home). Die Amazon-Dokumentation finden Sie [hier](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) erstellen.
+Um AWS Polly-Stimmen zu verwenden, müssen Sie einen Zugriffsschlüssel und einen geheimen Schlüssel [hier](https://console.aws.amazon.com/iam/home). Die Amazon-Dokumentation finden Sie [hier](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) erstellen.
 
 Offline:
 
 - PicoTTS (nur Linux): Englisch, Deutsch, Italienisch, Spanisch, Französisch;
 
-Für PicoTTS ist die Installation der folgenden Pakete erforderlich: `libttspico-utils` und lame.
+Für PicoTTS müssen folgende Pakete installiert werden: `libttspico-utils` und lame.
 Installationsbefehl: `sudo apt-get install libttspico-utils lame`
 
 - Coqui TTS: Englisch, Deutsch, Spanisch, Französisch, Niederländisch, Japanisch, Chinesisch;
 
-  Anweisungen zur Verwendung finden Sie in den [offizielle Dokumentation](https://tts.readthedocs.io/en/latest/index.html)
+Eine Anleitung zur Verwendung finden Sie unter [amtliche Dokumentation](https://tts.readthedocs.io/en/latest/index.html)
 
-### Cloud- und Amazon Web Services Polly-Textformatierung
-Sie können Ihren Text mit [Auszeichnungssprache für die Sprachsynthese](http://docs.aws.amazon.com/polly/latest/dg/ssml.html) formatieren.
+### Cloud und Amazon Web Services Polly-Textformatierung
+Mit [Auszeichnungssprache für Sprachsynthese](http://docs.aws.amazon.com/polly/latest/dg/ssml.html) können Sie Ihren Text formatieren.
 
 Nützlichste Funktionen:
 
-- `<break time="3s"/>` – Machen Sie eine Pause für x Sekunden (maximal 10 Sekunden).
-- „<emphasis> big </emphasis>“ – Betonung eines Wortes.
-- `<prosody volume="+6dB" rate="90%">Ich spreche das</prosody>` – steuert Geschwindigkeits- und Lautstärkeparameter.
-- `<say-as interpret-as="digits">12345</say-as>` – sagen Sie jede Ziffer einzeln.
+- `<break time="3s"/>`- macht eine Pause von x Sekunden (max. 10 Sekunden).
+- `<emphasis> big </emphasis>` – Betonung auf einem Wort.
+- `<prosody volume="+6dB" rate="90%">Ich spreche dies</prosody>` - Geschwindigkeits- und Lautstärkeparameter steuern.
+- `<say-as interpret-as="digits">12345</say-as>` – jede Ziffer einzeln aussprechen.
 
-Weitere [die Info](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference).
+Mehr [Info](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference).
 
 ### Systembefehl
-Wenn Sie ein Programm haben, das Audiodateien lokal oder anderswo abspielen kann, können Sie diesen Befehl hier schreiben. Z.B.
+Wenn Sie ein Programm haben, das Audiodateien lokal oder woanders abspielen kann, können Sie diesen Befehl hier schreiben. Z. B.
 
-```myCustomPlayer --option```
+`myCustomPlayer --option`
 
-Wenn **System**-Ausgabe ausgewählt ist, führt der `sayit`-Adapter den folgenden Befehl auf einem lokalen System aus:
+Wenn die **System**-Ausgabe ausgewählt ist, führt der `sayit`-Adapter den folgenden Befehl auf einem lokalen System aus:
 
-```myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3```
+`myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3`
 
 Wenn der Dateiname irgendwo in der Mitte bleiben muss, können Sie *%s* verwenden, um anzugeben, wo der Dateiname platziert werden muss:
 
-```myCustomPlayer --option "%s" > /dev/null```
+`myCustomPlayer --option "%s" > /dev/null`
 
-sayIt wird daraus ```myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null``` machen.
+sayIt macht daraus `myCustomPlayer --option "/opt/iobroker/node_modules/iobroker.sayit/say.mp3" > /dev/null`.
 
 ## Verwendung
-Der SayIt-Adapter kann nicht alleine verwendet werden. Es muss über einen Javascript-Adapter oder über „vis“ mit einem bestimmten Widget gesteuert werden.
+Der SayIt-Adapter kann nicht allein verwendet werden. Er muss über einen JavaScript-Adapter oder über „vis“ mit einem bestimmten Widget gesteuert werden.
 Nach der Erstellung der Adapterinstanz finden Sie die folgenden Objekte:
 
-- `sayit.N.tts.text`: Zu sprechender Satz.
+- `sayit.N.tts.text`: auszusprechende Phrase.
 - „sayit.N.tts.volume“: Lautstärke, die beim Abspielen der Phrase verwendet wird.
-- `sayit.N.tts.playing`: true, wenn gerade ein Text abgespielt wird, und false, wenn nicht. Wird nur für die Wiedergabemodi „Windows“ und „System“ unterstützt.
+- `sayit.N.tts.playing`: Wahr, wenn gerade ein Text abgespielt wird, und falsch, wenn nicht. Wird nur für den Wiedergabemodus „Windows“ und „System“ unterstützt.
 - „sayit.N.tts.cachetext“: Phrase, die zwischengespeichert werden soll und dann ohne Internet verwendet werden kann.
 
-   Sie können hier beispielsweise manuell „Kein Internet“ eingeben und wenn der Ping an google.com negativ ist, schreiben Sie „Kein Internet“ in „tts.text“ und es wird ausgesprochen. Natürlich muss der Cache aktiviert sein.
+Hier kann man z.B. manuell "Kein Internet" eingeben und wenn der Ping zu google.com negativ ist, schreibt man "Kein Internet" in "tts.text" und es wird ausgesprochen. Natürlich muss der Cache aktiviert sein.
 
-State `tts.text` unterstützt erweiterte Syntax, sodass Sprache/Engine und Lautstärke zusammen mit dem Text definiert werden können. Es wird verwendet, um mehrsprachige Text2Speech-Engines zu ermöglichen.
-Wenn der Adapter beispielsweise über die Engine „Google-Englisch“ verfügt, ist es mit der Phrase ```de:Sag es``` möglich, die Verwendung der Google-Deutsch-Sprach-Engine zu erzwingen.
+Der Status `tts.text` unterstützt erweiterte Syntax, sodass Sprache/Engine und Lautstärke zusammen mit dem Text definiert werden können. Er wird verwendet, um mehrsprachige Text-zu-Sprache-Engines zu aktivieren.
+Wenn der Adapter beispielsweise die Engine `Google-english` hat, ist es mit der Phrase `de:Sag es` möglich, die Verwendung der Google-Deutsch-Sprach-Engine zu erzwingen.
 
-Mit ```ru;75;Погода хорошая``` können wir die Verwendung der russischen Sprache und Lautstärke zu 75 % erzwingen.
+Mit `ru;75;Погода хорошая` können wir die Verwendung der russischen Sprache und einer Lautstärke von 75 % erzwingen.
 
-Sie können die Lautstärke der Ansage in Prozent der aktuellen oder vorgegebenen Lautstärke (nicht der Maximallautstärke) angeben. Wenn der Befehl beispielsweise ```de;75;Gutes Wetter``` lautet und die „Ansagelautstärke“ 50 % beträgt, wird die Ansage mit einer Lautstärke von 38 % von 100 % abgespielt.
+Sie können die Lautstärke der Ansage in Prozent der aktuellen oder angegebenen Lautstärke angeben (nicht des Maximums). Wenn beispielsweise der Befehl `de;75;Gutes Wetter` lautet und die „Ansagelautstärke“ 50 % beträgt, wird die Ansage mit einer Lautstärke von 38 % der möglichen 100 % abgespielt.
 
-Der Systembefehl zum Abspielen der MP3-Datei kann ebenfalls angegeben werden. Wenn Sie das Feld leer lassen, werden die Standardeinstellungen verwendet: Windows – `cmdmp3.exe`, OSX – `/usr/bin/afplay`, Linux – `mpg321` oder `omxplayer` (empfohlen).
+Der Systembefehl zum Abspielen der MP3-Datei kann ebenfalls angegeben werden. Wenn Sie dieses Feld leer lassen, werden die Standardeinstellungen verwendet: Windows – `cmdmp3.exe`, OSX – `/usr/bin/afplay`, Linux – `mpg321` oder `omxplayer` (empfohlen).
 
-Um omxplayer zu installieren, schreiben Sie ```sudo apt-get install omxplayer``` oder schreiben Sie ```sudo apt-get install mpg321```, um mpg321 zu installieren.
+Um omxplayer zu installieren, schreiben Sie `sudo apt-get install omxplayer`, oder schreiben Sie `sudo apt-get install mpg321`, um mpg321 zu installieren.
 
 **Hinweis:** Die standardmäßige Ankündigungsauswahl ist erst nach dem Start der Instanz möglich.
 
 ### Prioritäten
-Um den Text trotz der anstehenden Texte sofort auszusprechen, haben Sie 2 Möglichkeiten:
+Um den Text trotz der anstehenden Texte sofort auszusprechen, haben Sie zwei Möglichkeiten:
 
-- Ort "!" als erstes Zeichen im Text, daher wird dieser Text unmittelbar nach dem aktuellen ausgesprochen.
-- Schreiben Sie „true“ in den Status „tts.clearQueue“ und die Warteschlange wird gelöscht. Danach können Sie einen neuen Text in „tts.text“ schreiben, alle in der Warteschlange befindlichen Texte werden jedoch verworfen.
+- Platzieren Sie „!“ als erstes Zeichen im Text, damit dieser Text unmittelbar nach dem aktuellen ausgesprochen wird.
+- schreibe true in den Status „tts.clearQueue“ und die Warteschlange wird gelöscht. Danach kannst du einen neuen Text in „tts.text“ schreiben, aber alle in der Warteschlange befindlichen Texte werden verworfen.
 
 ### Motoren
 Folgende Werte für Motoren sind möglich:
@@ -137,16 +137,16 @@ Folgende Werte für Motoren sind möglich:
 - **pl** - Polnisch
 - **ru** - Russisch
 - **uk** - український
-- **es** - Italiano
+- **es** - Italienisch
 - **es** - Spanisch
-- **fr** - Français
-- **nl** – Niederlande
-- **zh-CN** - 简体中文
-- **pt** – Portugiesisch
+- **fr** - Französisch
+- **nl** - Niederländisch
+- **zh-CN** - Chinesisch (vereinfacht)
+- **pt** - Portugiesisch
 
 #### Yandex
 - **ru_YA:Yandex** – Russisch
-- **ru_YA_CLOUD:Yandex Cloud** - Russisch [Yandex.Cloud API generiert Dateien im OGG-Format. Um ogg-Dateien unter Linux abzuspielen, muss der Mplayer installiert und als Systemplayer ausgewählt sein]
+- **ru_YA_CLOUD:Yandex Cloud** - Русский [Yandex.Cloud API generiert Dateien im OGG-Format. Um OGG-Dateien unter Linux abzuspielen, muss mplayer installiert und als Systemplayer ausgewählt sein]
 
 #### Amazon Polly über die Cloud
 - **ru-RU_CLOUD_Female** - Russisch - Tatjana
@@ -207,23 +207,23 @@ Folgende Werte für Motoren sind möglich:
 - **tr-TR_CLOUD_Female** - tr-TR - Weiblich - Filiz
 - **pt-BR_CLOUD_Female_Camila** - pt-BR - Weiblich - Camila
 
-#### Pico TTS
+#### Pico-TTS
 - **en-US** - Englisch US
 - **en-GB** - Englisch GB
 - **de-DE** - Deutsch
-- **it-IT** – Italiano
+- **it-IT** - Italienisch
 - **es-ES** - Spanisch
-- **fr-FR** – Français
+- **fr-FR** - Französisch
 
 #### Coqui TTS
 - Englisch
 - Deutsch
 - Spanisch
 - Französisch
-- Niederlande
+- Niederländisch
 - 日本
 
-#### Amazon Polly Direct
+#### Amazon Polly Direkt
 - **ru-RU_AP_Female** - Russisch - Tatjana
 - **ru-RU_AP_Male** - Russisch - Maxim
 - **de-DE_AP_Female** - Deutsch - Marlene
@@ -243,7 +243,7 @@ Folgende Werte für Motoren sind möglich:
 - **cy-GB_AP_Female** - cy-GB - Weiblich - Gwyneth
 - **cy-GB_AP_Male** - cy-GB - Männlich - Geraint
 - **en-IN_AP_Female** - en-IN - Weiblich - Raveena
-- **en-US_AP_Male_Chipmunk** - en-US - Männlich - Streifenhörnchen
+- **en-US_AP_Male_Chipmunk** - en-US - Männlich - Chipmunk
 - **en-US_AP_Male_Eric** - en-US - Männlich - Eric
 - **en-US_AP_Female_Ivy** - en-US - Weiblich - Ivy
 - **en-US_AP_Female_Jennifer** - en-US - Weiblich - Jennifer
@@ -258,7 +258,7 @@ Folgende Werte für Motoren sind möglich:
 - **fr-FR_AP_Female** - fr-FR - Weiblich - Celine
 - **fr-FR_AP_Male** - fr-FR - Männlich - Mathieu
 - **is-IS_AP_Female** - is-IS - Weiblich - Dora
-- **is-IS_AP_Male** - is-IS - Männlich - Karl
+- **ist-IST_AP_Männlich** - ist-IST - Männlich - Karl
 - **it-IT_AP_Female** - it-IT - Weiblich - Carla
 - **it-IT_AP_Male** - it-IT - Männlich - Giorgio
 - **nb-NO_AP_Female** - nb-NO - Weiblich - Liv
@@ -280,9 +280,24 @@ Folgende Werte für Motoren sind möglich:
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 5.0.0 (2024-07-16)
+* (mcm1957) Adapter requires admin v7 or newer now
+* (mcm1957) Adapter requires jas-controller 5 or newer now
+* (bluefox) Added possibility to play directly from states: `sayit.0/tts.userfiles/gong.mp3`
+
+### 4.0.5 (2024-07-12)
+* (bluefox) Packages updated
+* (bluefox) Corrected playing in vis
+* (bluefox) Corrected blockly
+* (bluefox) Corrected upload of files
+
+### 4.0.1 (2024-05-25)
+* (bluefox) Packages updated
+* (neopholus) Using the pre-calculated duration of the mp3 to wait long enough even for longer announcements
+
 ### 4.0.0 (2023-10-31)
 * (bluefox) Breaking changes: A minimal node.js version is 16
 * (bluefox) Browser outputs now to vis(1) and vis-2
@@ -343,7 +358,7 @@ Folgende Werte für Motoren sind möglich:
 
 ### 1.11.0 (2020-08-02)
 * (Apollon77) Move the generated mp3 file to an own directory in iobroker-data instead of inside node_modules (Hopefully not breaking)
-* (Apollon77) Change File write to use Sync methods to make sure they cannot run in parallel
+* (Apollon77) Change the file writing to use Sync methods to make sure they cannot run in parallel
 
 ### 1.10.2 (2020-07-19)
 * (Apollon77) Crash case prevented (Sentry IOBROKER-SAYIT-8)
@@ -417,7 +432,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 1.6.3 (2017-10-04)
 * (bluefox) Code refactoring
-* (bluefox) Add google home as output
+* (bluefox) Add Google Home as output
 * (bluefox) Remove ivona because not more supported
 
 ### 1.5.2 (2017-03-09)
@@ -428,11 +443,11 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 1.5.0 (2017-01-27)
 * (DarkChaos) Add AWS Polly as source
-* (bluefox) Add cloud as source
+* (bluefox) Add cloud as a source
 
 ### 1.4.0 (2017-01-16)
 * (bluefox) fixed install problem
-* (bluefox) add PicoTTS as source
+* (bluefox) add PicoTTS as a source
 
 ### 1.3.3 (2017-01-13)
 * (bluefox) show only installed instances in blockly
@@ -460,7 +475,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 * (bluefox) Add omxplayer option
 
 ### 1.0.1 (2016-10-12)
-* (bluefox) support of blockly
+* (bluefox) support for blockly
 
 ### 1.0.0 (2016-05-14)
 * (bluefox) Make the type of mp3 as file
@@ -482,7 +497,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 0.3.12 (2015-10-06)
 * (bluefox) fixed error if received mp3 file is too short
-* (bluefox) try to implement cache datapoint (you can use sayit.0.tts.cachetext to create cache for phrases and use sayit without internet)
+* (bluefox) try to implement cache datapoint (you can use `sayit.0.tts.cachetext` to create cache for phrases and use sayit without internet)
 
 ### 0.3.11 (2015-08-03)
 * (bluefox) change google requests from http to https
@@ -500,7 +515,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 ### 0.3.7 (2015-05-28)
 * (bluefox) fixed volume for an announcement
-* (bluefox) support for play files from internal filesystem, like "/sayit.0/tts.userfiles/myGong.mp3"
+* (bluefox) support for play files from internal filesystem, like `/sayit.0/tts.userfiles/myGong.mp3`
 
 ### 0.3.6 (2015-03-24)
 * (bluefox) fixed error with volume by sonos
@@ -542,7 +557,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

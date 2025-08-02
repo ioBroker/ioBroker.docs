@@ -14,25 +14,76 @@
 
 ## bluelink adapter for ioBroker
 
-Adapter to control Hyundai or Kia vehicle
+Adapter to control Hyundai or Kia vehicle (until 2023)
 
-Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
+[Discussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-Login Infos : https://developers.kia.com/web/v1/kia/specification/account/account_authorize
+[Login Infos](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-
-    https://github.com/AlCalzone/release-script#usage
-    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
-    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
-    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
-    ### **WORK IN PROGRESS**
--->
+[Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 
 ## Changelog
+### 3.1.8 (2025-06-12)
+* (arteck) fix location Tucson
+
+### 3.1.7 (2025-06-10)
+* (arteck) fix translate for PHEV Range
+
+### 3.1.6 (2025-06-09)
+* (arteck) add DE language
+
+### 3.1.5 (2025-06-09)
+* (arteck) calculate evModeRange for PHEV
+
+### 3.1.4 (2025-06-09)
+* (arteck) fix enModeRange for PHEV
+
+### 3.1.3 (2025-05-05)
+* (arteck) fix bug with day and time tag for EV 
+* (arteck) dependency update
+
+### 3.1.2 (2025-01-11)
+* (arteck) error on create dp fix
+
+### 3.1.1 (2025-01-07)
+* (arteck) monthlyReport for phev/hev
+* (arteck) trip corr for ev cars
+
+### 3.1.0 (2024-10-05)
+* (arteck) SOC corr 
+* (arteck) dependency update
+
+### 3.0.4 (2024-10-03)
+* (arteck) typo
+
+### 3.0.3 (2024-10-02)
+* (arteck) add city to position text
+
+### 3.0.2 (2024-10-01)
+* (arteck) corr for hev
+
+### 3.0.1 (2024-09-27)
+* (arteck) activate jsonconfig
+
+### 3.0.0 (2024-09-27)
+* (arteck) new structure jsonconfig
+
+### 2.3.11 (2024-09-27)
+* (arteck) redesign
+
+### 2.3.10 (2024-09-27)
+* (arteck) add address as text using openstreetmap
+
+### 2.3.9 (2024-09-26)
+* (arteck) add ccs2 car status
+
+### 2.3.8 (2024-02-25)
+* (arteck) corr steerWheelHeat
+
+### 2.3.7 (2024-02-04)
+* (arteck) set default force_update to server
+
 ### 2.3.6 (2023-08-05)
 * (arteck) corr crash
 
@@ -114,7 +165,7 @@ Login Infos : https://developers.kia.com/web/v1/kia/specification/account/accoun
 ## License
 MIT License
 
-Copyright (c) 2023 Newan <info@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

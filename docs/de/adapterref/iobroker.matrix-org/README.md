@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
+hash: kRlj7Slv3jZyVSdfbdrinMJsFm7VzfyYy1BGtvBO2Jc=
 ---
 ![Logo](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -11,21 +11,20 @@ hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.matrix-org.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/matrix-org-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/matrix-org-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.matrix-org.png?downloads=true)
 
 # IoBroker.matrix-org
-**Tests:** ![Test und Freigabe](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
 
-## Matrix-org-Adapter für ioBroker
-Adapter für Matrix-Push-Nachrichten. Vielen Dank für die Erstellung von Matrix (https://matrix.org/) für die Erstellung einer vollständigen kostenlosen Kommunikationsbasis
+## Matrix-Org-Adapter für ioBroker
+Adapter für Matrix-Push-Nachrichten. Vielen Dank für die Erstellung von Matrix (https://matrix.org/) für die Schaffung einer vollständigen kostenlosen Kommunikationsbasis
 
-### Aufbau
+### Konfiguration
 Am besten: Führen Sie Ihren eigenen Client auf Ihrem Server aus!
 
-Erstellen Sie einen eigenen Benutzer als Ihren BOT mit Passwort. Erstellen Sie einen Raum für alle Mitglieder, die die Bot-Nachrichten wünschen. Fügen Sie Ihren BOT zu diesem Raum hinzu (nicht erforderlich, wenn die automatische Verbindung aktiviert ist). Fügen Sie alle Mitglieder zu diesem Raum hinzu. Fügen Sie alle Daten in die Konfiguration ein. (BOT-Name, Passwort, Raumname)
+Erstelle einen eigenen Benutzer als deinen BOT mit Passwort. Erstelle einen Raum für alle Mitglieder, die die Bot-Nachrichten erhalten möchten. Füge deinen BOT diesem Raum hinzu (nicht erforderlich, wenn Autojoin aktiviert ist). Füge alle Mitglieder diesem Raum hinzu. Trage alle Daten in die Konfiguration ein. (BOT-Name, Passwort, Raumname)
 
 ### Verwendung
-Fügen Sie so viele Instanzen hinzu, wie Sie benötigen. Fügen Sie mit js einen Wert zu „matrix-org.0.sendMessage“ hinzu, wie Sie möchten. Wenn Sie „image“ auf „matrix.0.sendMessage“ setzen, wird das Matrix-Logo an Ihren Kanal gesendet.
+Fügen Sie so viele Instanzen hinzu, wie Sie benötigen. Fügen Sie matrix-org.0.sendMessage einen Wert nach Wunsch mit js hinzu. Wenn Sie „image“ auf matrix.0.sendMessage setzen, wird das Matrix-Logo an Ihren Kanal gesendet.
 Oder verwenden Sie in js:
 
 ```
@@ -34,13 +33,13 @@ sendTo("matrix-org.0", "Hello World!");
 
 Oder verwenden Sie das Blockly-Symbol in Sendto.
 
-Für Bilder aus dem lokalen Dateisystem (Linux):
+Für Bilder vom lokalen Dateisystem (Linux):
 
 ```
 sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
 ```
 
-Für Bilder aus dem lokalen Dateisystem (Windows):
+Für Bilder vom lokalen Dateisystem (Windows):
 
 ``` 
 sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
@@ -52,7 +51,7 @@ Für Bilder als Referenz:
 sendTo("matrix-org.0",{file: "https://www.abcd/images/test.png"});
 ```
 
-Für Bilder in base64:
+Für Bilder in Base64:
 
 ```
 sendTo("matrix-org.0",{file:{type:"image/png",base64:"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZdhCoAgDEZnd9D737T8xJkNNY1Ef+yB2LTcC1qWOT20kCBgjIkh0WwfmeuIxyGYnRzIPElgFSqgAvsKOOdCzeZ1y7EcZzDG16HvwtckihLdA4xxk3HeGGttc17Cc+lN6Ds/dlO6w6/ItQHn7H4GcDK3Em/zNboE5KKjcQstQxVQARVYLlDdC2YzvBfMQgVUYB8BlMWfn2E1ZJ7Fv+dEF0UZoNhXp9NnAAAAAElFTkSuQmCC"}});
@@ -64,7 +63,7 @@ Oder
 sendTo("matrix-org.0",{file:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZdhCoAgDEZnd9D737T8xJkNNY1Ef+yB2LTcC1qWOT20kCBgjIkh0WwfmeuIxyGYnRzIPElgFSqgAvsKOOdCzeZ1y7EcZzDG16HvwtckihLdA4xxk3HeGGttc17Cc+lN6Ds/dlO6w6/ItQHn7H4GcDK3Em/zNboE5KKjcQstQxVQARVYLlDdC2YzvBfMQgVUYB8BlMWfn2E1ZJ7Fv+dEF0UZoNhXp9NnAAAAAElFTkSuQmCC"});
 ```
 
-Für HTML befolgen Sie bitte diese Spezifikation: https://spec.matrix.org/v1.3/client-server-api/#mroommessage-msgtypes Z. B.:
+Für HTML folgen Sie bitte dieser Spezifikation: https://spec.matrix.org/v1.3/client-server-api/#mroommessage-msgtypes. Beispiel:
 
 ```
 sendTo("matrix-org.0",{html: "<h1>Hello World!</h1>", text: "Hello World!"});
@@ -76,11 +75,11 @@ oder
 sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td><td>b</td></tr><table>", text: "Your client can not show html!"});
 ```
 
-Wenn Ihr Client HTML nicht dekodieren kann, erhalten Sie den Text.
-Wenn Ihr Client keine Tabelle unterstützt, zeigt er entweder den Text oder einfach 12ab an.
+Wenn Ihr Client kein HTML dekodieren kann, erhalten Sie den Text.
+Wenn Ihr Client keine Tabellen unterstützt, wird entweder der Text oder einfach 12ab angezeigt.
 
 ### Um Ihre Konfiguration zu testen, verwenden Sie sendMessage
-Öffnen Sie einfach die Objekte und ändern Sie die Zeichenfolge einer Matrix-org-Instanz. Meistens ist der Port 443, wenn Sie ein öffentliches System wie Matrix.org haben. Der Port ist manchmal 8448, wenn Sie ein selbstgehostetes System ohne Proxy haben, aber dann wissen Sie es Es.
+Öffnen Sie einfach die Objekte und ändern Sie die Zeichenfolge einer Matrix-Org-Instanz. Normalerweise ist der Port 443, wenn Sie ein öffentliches System wie Matrix.org haben. Wenn Sie ein selbst gehostetes System ohne Proxy haben, ist der Port manchmal 8448, aber dann wissen Sie es.
 
 Wenn Sie es testen möchten: Server: matrix.org Port: 443 Raum: #test-ioBroker-adapter:matrix.org Treten Sie diesem Raum bei und probieren Sie es mit Ihren eigenen Anmeldeinformationen aus
 
@@ -89,7 +88,7 @@ Wenn Sie es testen möchten: Server: matrix.org Port: 443 Raum: #test-ioBroker-a
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2024-11-23)
 * upgrade matrix-js-sdk
 * auto join added (default false)
 
@@ -167,7 +166,7 @@ Wenn Sie es testen möchten: Server: matrix.org Port: 443 Raum: #test-ioBroker-a
 ## License
 MIT License
 
-Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
+Copyright (c) 2024 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

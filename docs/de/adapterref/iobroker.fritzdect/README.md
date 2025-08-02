@@ -23,6 +23,7 @@ Falls es Probleme gibt, dann eventuell erstmal ein kürzeres und einfaches PW ne
 
 * IP mit vorangestellten "http://" eingeben
 * Polling Intervall kann beliebig gewählt werden (Voreinstellung 5min=300sec). Dies ist notwendig um Bedienung ausserhalb von ioBroker nachzuführen, da die FritzBox keine automatischen Updates liefert.
+* Wird das Polling Intervall auf 0 gesetzt, werden keine zyklischen Abfragen durchgeführt. Updates erfolgen dann ausschließlich auf Abruf (siehe Manuelles Update).
 
 
 ## Adapter Start
@@ -57,11 +58,79 @@ Es besteht die Möglichkeit die gemessene Temperatur in der FritzBox zu korrigie
 Die intern im Heizkörperregler benutzte Ist-Temperatur (actualtemp), wird durch den Offset auch verändert. D.h. der HKR regelt intern auf den korrigierten Wert.
 Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 
+## Manuelles Update
+
+Es ist möglich, ein manuelles Update anzustoßen, zum Beispiel zwischen den Polling-Intervallen oder wenn das Polling deaktiviert ist.
+Dazu senden Sie eine Nachricht mit dem Text "update" und ohne Parameter an die Adapter-Instanz.
+Der optionale Callback wird aufgerufen, wenn das Update abgeschlossen ist.
+
+Unten finden Sie ein Beispiel, das zeigt, wie das manuelle Update ausgelöst wird:
+
+```javascript
+sendTo('fritzdect.0', 'update', null,
+    (e) => {
+        if (e["result"]) {
+            // Update erfolgreich
+        } else {
+            console.log(e["error"]);
+        }
+    }
+);
+```
+
 ## Troubleshooting
 
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+
+### 2.6.3 (WIP)
+* new IKEA lamp commands issue #625
+
+### 2.6.2 (npm)
+* release script
+* error correction when there is only one device used #651
+* error correction when there are more than 4 etsidevices used #651
+* correction id state creation
+* handling cases of stats where the returned data does not contain "datatime" #658
+* node version >=20
+
+### 2.6.1 (npm)
+* log FW version of FB
+* DECT350 now with battery data (issue #513)
+* merge etsi devices into etsiunits (issue #597)
+* Support of DECT250, change power (max 40kW)
+
+### 2.6.0 (npm)
+* (khnz) PR#618 support on-demand updates
+* change temperature checking < 28°C extended to < 35°C (issue #619)
+* change dependencies
+
+### 2.5.13 (npm)
+* same as 2.5.12 with corrected IOB checker issues
+
+### 2.5.12 (npm)
+* skipping devices with empty identified (#598, #599), transmitted in FW8.01
+* update responsive settings
+
+### 2.5.11 (npm)
+* upadate devDeps, linting error corrections
+* iob checker corrections
+
+### 2.5.10
+* more loggimg for issue #500 of restart loop
+* some error messages downgraded to warnings
+* correction related to thermostat value take over, when reduced setting is activated
+* update devDeps
+
+### 2.5.9 (npm)
+* correction for statistics,
+* new message box password needs to be reentered in versions >=2.5.4
+* xml output for buttons "my ..."
+
+### 2.5.8 (npm)
+* more error checking processing statistics
+
 ### 2.5.7 (npm)
 * only for the hint that password needs to be reentered
 
@@ -378,4 +447,6 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2025 foxthefox <foxthefox@wysiwis.net>
+
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

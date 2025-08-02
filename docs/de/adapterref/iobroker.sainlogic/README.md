@@ -3,26 +3,26 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sainlogic/README.md
 title: ioBroker.sainlogic
-hash: u/ldqTcFTj1tVqfjoiD1RjkyUuNKLfkXlqH2T+r3bGs=
+hash: e4+rrm8uaFo9jxAnnikRymtzrB1vJicFveWkpv7f5Zo=
 ---
 ![Logo](../../../en/adapterref/iobroker.sainlogic/admin/sainlogic.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sainlogic.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sainlogic.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/sainlogic-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/sainlogic-stable.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/sainlogic-installed.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/sainlogic-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/phifogg/iobroker.sainlogic.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/phifogg/ioBroker.sainlogic/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.sainlogic.png?downloads=true)
 
 # IoBroker.sainlogic
 ## Sainlogic-Adapter für ioBroker
-Lesen Sie Daten von einer Wetterstation auf Basis von Sainlogic
+Lesen Sie Daten von einer auf Sainlogic basierenden Wetterstation
 
 ## Unterstützte Geräte
-Grundsätzlich jedes Gerät, das mit der sainlogic-Hardware arbeitet, die Firmware meldet sich normalerweise als 'EasyWeather Vx.x.x)'.
+Grundsätzlich meldet die Firmware jedes Geräts, das mit der Sainlogic-Hardware funktioniert, normalerweise „EasyWeather Vx.x.x)“.
 
-Bekannte Arbeitsgeräte:
+Bekannte funktionierende Geräte:
 
 1. ELV WS980Wifi
 1. Eurochron EFWS2900 (nur Listener-Modus)
@@ -33,64 +33,66 @@ Bekannte Arbeitsgeräte:
 1. Ecowitt GW1000
 1. Froggit WH3000SE (nur Listener-Modus)
 
-## Verwendungszweck
-Der Adapter unterstützt zwei Modi, um Daten Ihrer Wetterstation anzuzeigen.
+## Verwendung
+Der Adapter unterstützt zwei Modi zum Anzeigen der Daten Ihrer Wetterstation.
 
-Im Listener-Modus unterstützt der Adapter zusätzliche Sensoren, wenn er von Ihrer Wetterstation geliefert wird. Derzeit werden Temperatur und Luftfeuchtigkeit unterstützt. Wenn Sie einen anderen zusätzlichen Sensor haben, melden Sie bitte ein Github-Problem und posten Sie Ihre Datenzeichenfolge, da dies mir hilft, die Funktionalität zu erweitern.
+Im Listener-Modus unterstützt der Adapter zusätzliche Sensoren, sofern diese von Ihrer Wetterstation bereitgestellt werden. Derzeit werden Temperatur und Luftfeuchtigkeit unterstützt. Wenn Sie einen weiteren Sensor haben, erstellen Sie bitte ein GitHub-Problem und veröffentlichen Sie Ihren Datenstring, da mir dies hilft, die Funktionalität zu erweitern.
 
 ### Listener-Modus:
-Mit den neuesten Firmware-Versionen unterstützt die Wetterstation das Senden von Daten an einen benutzerdefinierten Server. Der Adapter fungiert als ein solcher Server. Die Einrichtung erfordert zwei Schritte:
+Mit den neuesten Firmware-Versionen unterstützt die Wetterstation das Senden von Daten an einen benutzerdefinierten Server. Der Adapter fungiert als solcher Server. Die Einrichtung erfolgt in zwei Schritten:
 
 #### Wetterstation konfigurieren
 Verwenden Sie die App „WS View“ auf Ihrem Mobilgerät, um die Wetterstation zu konfigurieren. Konfigurieren Sie die folgenden Einstellungen für benutzerdefinierte Servereinstellungen:
 
 - Server: IP/Hostname Ihres IOBroker-Servers
-- Pfad: beliebig, merken Sie es sich einfach für die Adapterkonfiguration
+- Pfad: beliebig, merken Sie ihn sich einfach für die Adapterkonfiguration
 
-*Hinweis:* Bei manchen Stationen hat es sich bewährt, am Ende des Pfades ein Fragezeichen einzufügen. Andere funktionieren auch ohne. Am besten probiert man beides aus.
+*Hinweis:* Bei manchen Stationen hat es sich bewährt, am Ende des Pfades ein Fragezeichen hinzuzufügen. Bei anderen funktioniert es ohne. Am besten ist, beides auszuprobieren.
 
-- Port: jede Zahl zwischen 1024 und 65000 (Standard ist 45000), muss einzigartig und frei auf Ihrem IOBroker-System sein
+- Port: eine beliebige Nummer zwischen 1024 und 65000 (Standard ist 45000), muss eindeutig und frei auf Ihrem IOBroker-System sein
 - Stations-ID: nicht verwendet
 
-*Anmerkung:* Bei manchen Stationen muss noch ein beliebiger Wert eingestellt werden
+*Hinweis:* Bei manchen Stationen muss noch ein beliebiger Wert festgelegt werden
 
 - Stationsschlüssel: nicht verwendet
 
-*Anmerkung:* Bei manchen Stationen muss noch ein beliebiger Wert eingestellt werden
+*Hinweis:* Bei manchen Stationen muss noch ein beliebiger Wert festgelegt werden
 
-- Protokolltyp: WeatherUnderground
+Protokolltyp: WeatherUnderground
 - Upload-Intervall: alles, was von Ihrer Wetterstation unterstützt wird
 
 #### Konfigurieren Sie den Listener
-Wählen Sie in der Instanzkonfiguration den Reiter 'Listener' und stellen Sie folgendes ein:
+Wählen Sie in der Instanzkonfiguration die Registerkarte „Listener“ und stellen Sie Folgendes ein:
 
 - Aktiv: wahr
-- IP: Wählen Sie die IP Ihres IOBrokers, mit der sich die Wetterstation verbinden kann (Standard ist 0.0.0.0, um alle IPs zuzulassen), dies ist hauptsächlich relevant, wenn Sie mehrere Netzwerke haben, ansonsten reicht die Standardeinstellung
-- Port: Geben Sie den gleichen Port wie in der WS View App ein
+- IP: Wählen Sie die IP Ihres IOBrokers, mit der sich die Wetterstation verbinden kann (Standard ist 0.0.0.0, um alle IPs zuzulassen). Dies ist vor allem dann relevant, wenn Sie mehrere Netzwerke haben, andernfalls reicht die Standardeinstellung aus.
+- Port: Geben Sie den gleichen Port ein wie in der WS View App
 - Pfad: Geben Sie den gleichen Pfad wie in der WS View App ein
-- Weiterleitungs-URL: Wenn Sie die empfangenen Daten an einen anderen Verbraucher weiterleiten möchten, können Sie eine zusätzliche Adresse angeben. Z.B. Möglicherweise erhalten Sie Daten im WU-Format und möchten diese dennoch an WeatherUnderground weiterleiten.
+- Weiterleitungs-URL: Wenn Sie die empfangenen Daten an einen anderen Verbraucher weiterleiten möchten, können Sie eine zusätzliche Adresse angeben. Beispielsweise können Sie Daten im WU-Format empfangen und diese dennoch an WeatherUnderground weiterleiten.
+
+*Hinweis*: Die Weiterleitungs-URL muss mit einem Fragezeichen (?) enden. Beispiel: https://weatherstation.wunderground.com/weatherstation/updateweatherstation.php?
 
 Speichern.
-Der Listener startet und wartet auf eingehende Verbindungen. Basierend auf Ihrem Intervall sollten Sie im Protokoll eine Meldung mit den Daten "Listener Received Update: ..." sehen.
+Der Listener wird gestartet und wartet auf eingehende Verbindungen. Basierend auf Ihrem Intervall sollten Sie im Protokoll eine Meldung „Listener hat Update erhalten: ...“ mit den Daten sehen.
 
 ### Scheduler-Modus:
-Wenn Ihre Wetterstation das Abrufen von Daten unterstützt, können Sie den Scheduler so konfigurieren. Das verwendete Protokoll basiert auf [WS980-Dokumentation](https://github.com/RrPt/WS980).
+Wenn Ihre Wetterstation das Abrufen von Daten unterstützt, können Sie den Zeitplaner entsprechend konfigurieren. Das verwendete Protokoll basiert auf [WS980-Dokumentation](https://github.com/RrPt/WS980).
 
-#### Planer konfigurieren
-Wählen Sie in der Instanzkonfiguration den Reiter 'Scheduler' und stellen Sie folgendes ein:
+#### Konfigurieren Sie den Scheduler
+Wählen Sie in der Instanzkonfiguration den Reiter ‚Scheduler‘ und stellen Sie folgendes ein:
 
 - Aktiv: wahr
-- IP: Wählen Sie die IP Ihrer Wetterstation, Sie sollten darauf achten, dass die IP fest ist und sich nicht ändert
-- Port: Geben Sie den Port ein, zu dem eine Verbindung hergestellt werden soll (Standard ist 45000)
+- IP: Wählen Sie die IP Ihrer Wetterstation. Achten Sie darauf, dass die IP fest ist und sich nicht ändert
+- Port: Geben Sie den Port ein, mit dem die Verbindung hergestellt werden soll (Standard ist 45000).
 - Intervall: Geben Sie ein Intervall in Sekunden ein (ich würde mindestens 10 Sekunden empfehlen, um das System oder Netzwerk nicht zu überlasten)
 
 Speichern.
 
-Der Planer startet und verbindet sich nach der ersten Intervallzeit mit der Wetterstation. Im Protokoll sollte eine Meldung wie „Scheduler pull for new data“ angezeigt werden. Wenn Sie den Protokollmodus auf Debug einstellen, sehen Sie auch die empfangenen Datenstrings.
+Der Planer startet und verbindet sich nach der ersten Intervallzeit mit der Wetterstation. Im Protokoll sollte eine Meldung wie „Planer sucht nach neuen Daten“ angezeigt werden. Wenn Sie den Protokollmodus auf Debuggen einstellen, werden auch die empfangenen Datenstrings angezeigt.
 
 ## Stationsspezifische Infos
 ### Froggit DP1500
-Es scheint, dass diese Station keine Daten sendet, wenn WeatherUnderground als Protokoll ausgewählt ist. Es funktioniert korrekt mit Ecowitt.
+Es scheint, dass diese Station keine Daten sendet, wenn WeatherUnderground als Protokoll ausgewählt ist. Mit Ecowitt funktioniert es einwandfrei.
 
 ### Eurochron EFWS290
 Die Station antwortet nicht auf Scheduler-Befehle, daher wird nur der Listener-Modus unterstützt.
@@ -99,11 +101,25 @@ Die Station antwortet nicht auf Scheduler-Befehle, daher wird nur der Listener-M
 Die Station antwortet nicht auf Scheduler-Befehle, daher wird nur der Listener-Modus unterstützt.
 
 ## Credits
-Credits gehen an: lemuba, StrathCole, Glasfaser, Latzi: für unermüdliches Testen meiner Bugs :) Lisa für ihre [Code zum Übersetzen von Windgraden in eine Überschrift](https://www.programmieraufgaben.ch/aufgabe/windrichtung-bestimmen/ibbn2e7d)
+Dank geht an: lemuba, StrathCole, Glasfaser, Latzi: für das unermüdliche Testen meiner Bugs :) Lisa für ihr [Code zum Übersetzen von Windgraden in einer Überschrift](https://www.programmieraufgaben.ch/aufgabe/windrichtung-bestimmen/ibbn2e7d)
 
 ## Changelog
 
 Latest version
+
+#### 0.11.5 ECOWITT forwarding fixed
+
+#### 0.11.4 Fix yearlyrain max value and mapping for CO2 sensors
+
+#### 0.10.5 Bugfix for state initialization, removed log messages for forwarding
+
+#### 0.10.4 Bugfix for lightning count, new battery states for additional sensors
+
+#### 0.10.3 Bugfixes
+
+#### 0.10.2 Bugfixes
+
+#### 0.10.0 Added new sensors for Lightning, Piezo elements, DP250 and minor fixes
 
 #### 0.8.2 Updated UVRaw to maxvalue 4000
 
@@ -135,7 +151,7 @@ For detailed change log or previous versions check io-package.json
 ## License
 MIT License
 
-Copyright (c) 2022 Fogg <foggch@gmail.com>
+Copyright (c) 2024 Fogg <foggch@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

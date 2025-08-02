@@ -39,7 +39,7 @@ Bedeutung der Optionen im Konfigfile:
 - `preview`: 7 heisst, dass Termine 7 Tage im voraus angezeigt werden
 - `runEveryMinutes`: 30 bedeutet dass der Adapter automatisch alle 30min den Kalender neu einliesst. Bei 0 wird nicht automatisch eingelesen
 - `colorize`: true Termine am heutigen Tag sowie aktuell laufende Termine werden rot gefärbt, Termine am morgigen Tag orange, diese Option überstimmt die Option everyCalOneColor
-- `debug`: false bei true werden erweiterte Ausgaben ins CCU.IO Log geschrieben
+- `debug`: false bei true werden erweiterte Ausgaben ins ioBroker Log geschrieben
 - `defColor`: `white` legt die Standardfarbe der Kalendereinträge fest
 - `fulltime`: ` ` legt fest durch welchen String bei ganztägigen Terminen die Uhrzeit 00:00 ersetzt wird. Bei Leerzeichen (zwischen den Hochkommas) wird dir Uhrzeit bei ganztägigen Terminen weggelassen
 - `replaceDates`: true Bei true wird bei heutigen Terminen das heutige Datum durch den String todayString ersetzt (z.B. "Heute"). Bei morgigen Terminen durch den String tomorrowString
@@ -206,30 +206,33 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.13.3 (2023-06-20)
-* (jens-maus) updated node-ical to latest 0.16.1
-* (klein0r) Use color picker in adapter settings
-* (klein0r) Dropped Admin 4 UI
-* (klein0r) Added Ukrainian language
+### 1.16.2 (2025-06-16)
 
-### 1.13.2 (2022-08-29)
-* (Apollon77) fix strange log messages by downgrading RRule again
+* (@GermanBluefox) Small fix in the configuration dialog
 
-### 1.13.1 (2022-06-27)
-* (klein0r) Changed request library
+### 1.16.1 (2024-11-01)
+* (jens-maus) fix issue with handling rrule timezones incorrect with the latest node-ical (#708).
+* (jens-maus) update node-ical to latest 0.20.1
+* (jens-maus) save cached files to os tmpdir instead.
 
-### 1.13.0 (2022-06-17)
-* (klein0r) Added Admin 5 UI
-* (klein0r) Translated all object names
+### 1.16.0 (2024-10-29)
+* (cvoelkel76) added checkbox to allow exactly matching of a calendar event.
+* (jens-maus) update node-ical to latest 0.20.0
+* (klein0r) Breaking change: Removed trigger state (subscribe is deprecated in js-controller 6.x)
+* (simatec) Responsive design added
 
-### 1.12.2 (2022-06-03)
-* (Apollon77) Fix displaying rest-time of event in one case
+### 1.15.0 (2024-04-30)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.14.3 (2024-02-28)
+* (jens-maus) update node-ical to latest 0.18.0
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -12,7 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.trashschedule.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
 BADGE-Installed: http://iobroker.live/badges/trashschedule-installed.svg
-chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/README.md"},"de/adapterref/iobroker.trashschedule/blockly.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/blockly.md"},"de/adapterref/iobroker.trashschedule/faq.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/faq.md"},"de/adapterref/iobroker.trashschedule/javascript.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/javascript.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/README.md"},"de/adapterref/iobroker.trashschedule/providers.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/providers.md"},"de/adapterref/iobroker.trashschedule/blockly.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/blockly.md"},"de/adapterref/iobroker.trashschedule/faq.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/faq.md"},"de/adapterref/iobroker.trashschedule/javascript.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/javascript.md"}}}
 ---
 ![Logo](../../admin/trashschedule.png)
 
@@ -20,29 +20,21 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 ## Inhaltsverzeichnis
 
+- [Anbieter](providers.md)
 - [Blockly](blockly.md)
 - [JavaScript](javascript.md)
 - [FAQ](faq.md)
 
 ## Anforderungen
 
-1. nodejs 16.0 (oder neuer)
-2. js-controller 4.0.15 (oder neuer)
-3. iCal Adapter 1.12.1 (oder neuer)
-4. Admin Adapter 6.0.0 (oder neuer)
-
-## Voraussetzungen
-
-1. Erstelle eine neue Instanz des [ical Adapters](https://github.com/iobroker-community-adapters/ioBroker.ical)
-2. Konfiguriere die URL zu deinem Müllkalender (zum Beispiel ein Google Kalender)
-3. Setze die "Tagesvorschau" auf einen Wert, welcher möglichst jeden Abfalltyp mindestens zweimal enthält (z.B. 45 Tage)
-4. Falls Du die "Ereignisse" verwendest, stelle sicher, dass bei jedem Ereignis "anzeigen" ausgewählt wurde, welches für den Müllkalender ebenfalls relevant ist (andernfalls werden die Termine vom iCal Adapter ausgeblendet)
-
-![iCal](./img/ical.png)
+1. nodejs 20.0 (oder neuer)
+2. js-controller 6.0.0 (oder neuer)
+3. Admin Adapter 6.0.0 (oder neuer)
+4. iCal Adapter 1.12.1 (oder neuer) - *optional*
 
 ## Konfiguration
 
-1. Erstelle eine ```trashschedule``` Instanz und wähle die ical-Instanz aus, welche den Müllkalender enthält
+1. Erstelle eine ```trashschedule``` Instanz und wähle die ical-Instanz aus, welche den Müllkalender enthält. Alternativ können Anbieter direkt ausgewählt werden, welche über verschiedene Online-Dienste integriert werden.
 2. Wechsle in das Tab "Abfalltypen" und füge so viele Zeilen ein, wie Du Abfalltypen hast
 3. Vergib einen Namen für jeden Abfalltyp und lege fest, welche Termine im Kalender für diesen Typ relevant sind
 4. Starte die Instanz
@@ -53,9 +45,34 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 ![Trashschedule Types](./img/trashschedule_types.png)
 
+## Voraussetzungen für iCal
+
+1. Erstelle eine neue Instanz des [ical Adapters](https://github.com/iobroker-community-adapters/ioBroker.ical)
+2. Konfiguriere die URL zu deinem Müllkalender (zum Beispiel ein Google Kalender)
+3. Setze die "Tagesvorschau" auf einen Wert, welcher möglichst jeden Abfalltyp mindestens zweimal enthält (z.B. 45 Tage)
+4. Falls Du die "Ereignisse" verwendest, stelle sicher, dass bei jedem Ereignis "anzeigen" ausgewählt wurde, welches für den Müllkalender ebenfalls relevant ist (andernfalls werden die Termine vom iCal Adapter ausgeblendet)
+
+![iCal](./img/ical.png)
+
+## Abfall-Handling - Funktionsweise
+
+- In den Instanzeinstellungen wird mit 'daysuntilaction' eine Vorlaufzeit eingestellt, wieviele Tage im Voraus über die bevorstehende Abholung informiert wird. Annahme: Der Standard dürfte bei vielen 1 Tag, also der Abend vor der Abholung sein.
+- Wird diese Vorlaufzeit erreicht, wird der State `actionNeeded` auf `true` gesetzt.
+- Wurde der Abfallbehälter an die Straße gestellt, wird dies über den State `completed` bestätigt. Daraufhin wird `actionNeeded` auf `false` gesetzt.
+- Um mehrere gleichzeitig auf completed zu setzen gibt es folgende zusätzliche States:
+    - `completedToday`= setzt alle Behälter, die heute fällig sind, auf completed
+    - `completedTomorrow` = setzt alle Behälter, die morgen fällig sind, auf completed (einschließlich heute)
+    - `completedAll` = setzt alle Behälter auf completed, die aktuell anstehen
+
+ttd:
+- Übersetzung der Texte
+- '???' durch einen sinnvollen Text ersetzen
+
 ## VIS Widget (VIS version 1.x)
 
 ![VIS widget](./img/vis.png)
+
+**VIS 2.x wird mit diesem Widget nicht unterstützt!**
 
 ## Changelog
 
@@ -65,37 +82,42 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 -->
 ### **WORK IN PROGRESS**
 
-* (Standarduser) Added advanced handling for trash pickup
+* (@klein0r) Updated dependencies
 
-### 2.3.0 (2023-10-25)
+### 4.0.0 (2025-01-05)
 
-NodeJS 16.x is required
+NodeJS >= 20.x and js-controller >= 6 is required
 
-* (klein0r) Improved log messages
-* (klein0r) Added icons in admin tabs
+* (@klein0r) Fixed deletion of api cache files
+* (@klein0r) Added additional JSON state for each type
+* (@klein0r) Improved logging
 
-### 2.2.0 (2023-01-16)
+### 3.4.1 (2024-11-24)
 
-* (klein0r) Added completed flag for types
+* (@Sickboy78) Awido: Increased number of fetched pickups per type (1 month)
 
-### 2.1.1 (2023-01-11)
+### 3.4.0 (2024-11-07)
 
-* (klein0r) Added Ukrainian language
+* (@klein0r) Validate user inputs in instance configuration
+* (@Sickboy78) Added Awido as Webservice
 
-### 2.1.0 (2022-12-12)
+### 3.3.0 (2024-04-28)
 
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
+NodeJS >= 18.x and js-controller >= 5 is required
 
-### 2.0.3 (2022-06-02)
+* (klein0r) Improved error reporting / log messages
+* (klein0r) Fixed translations
+* (klein0r) Added Abfall+ as Webservice
 
-* (klein0r) Allow whitespaces in the match pattern
+### 3.2.0 (2024-01-22)
+
+* (klein0r) Added more providers
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

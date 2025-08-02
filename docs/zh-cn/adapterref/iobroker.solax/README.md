@@ -11,7 +11,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: QNMLwJiYD1wxvbBzzUT0QrvGYFvh4HfcesdmB7/VBGw=
+hash: RZW6F+kMWyyDPRGfkXmz1YZ5xP43u5qCgjakymep7ZI=
 ---
 ![标识](../../../en/admin/solax.png)
 
@@ -35,21 +35,21 @@ hash: QNMLwJiYD1wxvbBzzUT0QrvGYFvh4HfcesdmB7/VBGw=
 
 ***
 
-#### Solax 云连接
+## Solax 云连接
 Solax逆变器API云连接
 
 该适配器将来自制造商 Solax 的逆变器数据调用到 iobroker 中。
 
 为此，您需要一个 Solax 帐户、您的令牌 ID 和 WiFi 模块的序列号。
 
-#### API 令牌
+## API 令牌
 <span><img src="../img/solax_api.png"></span>
 
-＃＃＃＃ 序列号
+＃＃ 序列号
 <span><img src="../img/wifi-stick.png"></span>
 
-#### 专家设置
-当前仅 Pocket Wifi 棒支持本地连接。 LAN 棒只能在云模式下运行。
+## 专家设置
+当前仅 Pocket Wifi 棒支持本地连接。 LAN 棒只能在云模式下操作。
 
 注意，如果您在专家设置中激活本地模式，您应该提前检查您的 Pocket Wifi Stick 的当前固件版本。<br>该棒安装的固件版本不得高于 2.30.20 (Wifi-Pocket V1/V2) 且小于 3.001 (Wifi-Pocket V3)，因为 Solax 会阻止更高版本的本地访问并导致 Wifi 棒崩溃。
 
@@ -75,10 +75,59 @@ Solax逆变器API云连接
 在连接适配器之前，请再次检查降级是否成功以及是否安装了正确的固件。
 幸运的是，该棒不执行自动固件升级，并且在 2.033.20 版本中功能齐全。
 
-必须在适配器中输入本地 IP 地址（不是热点 IP）和 Web 界面的密码，现在您可以对逆变器进行精确到秒的本地分析
+必须在适配器中输入本地 IP 地址（不是热点 IP）和 Web 界面的密码，现在您就可以对逆变器进行精确到秒的本地分析。
+
+本地模式目前支持以下逆变器：
+
+* X1迷你
+* X1 提升
+* X3-混合/飞度
+* X3-20K/30K
+* X3-麦克风/PRO
+* X3-混合动力-G4
+* X3-MIC/PRO-G2
+* X1-混合-G4
+* X1/X3-EVC 墙盒
+
+如果您想集成其他逆变器，则应将本地请求的数据评估作为一个问题提供。
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
+### 0.9.6 (2024-02-05)
+* (simatec) small Design Fix
+
+### 0.9.5 (2024-02-04)
+* (simatec) Dependencies updated
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+
+### 0.9.4 (2024-01-22)
+* (simatec) adapter-dev added
+* (simatec) delete Gulp
+* (Andre-0815-4711) Data for X1/X3-EVC Wallbox added
+
+### 0.9.3 (2024-01-14)
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+* (simatec) Fix Inverter data
+* (simatec) Dependencies updated
+
+### 0.9.2 (2024-01-13)
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+
+### 0.9.1 (2024-01-02)
+* (simatec) Fix Inverter data
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+* (simatec) Update Docu
+
+### 0.9.0 (2024-01-02)
+* (simatec) Cloud URL Check added
+* (simatec) X1/X3-EVC added
+* (simatec) Inverter Data for X3-Hybrid-G4 updated
+* (simatec) Fix Inverter Data for X1 Hybrid G4
+* (simatec) Dependencies updated
+
 ### 0.8.0 (2023-10-23)
 * (simatec) X1-Hybrid-G4 added
 
@@ -229,7 +278,7 @@ Solax逆变器API云连接
 ## License
 MIT License
 
-Copyright (c) 2021 - 2023 simatec
+Copyright (c) 2021 - 2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

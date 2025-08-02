@@ -4,37 +4,37 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.admin/tab-users.md
 title: 用户选项卡
-hash: I8VBVO8GbDcbNuFQLInmFwTRSYk3E1gv2Csc99eIZRw=
+hash: HKsMwIvpGIO+9hqNOzBFUsRM8OOTNgILqQ6z75xDXDY=
 ---
 # 用户选项卡
-可以在这里创建用户。为此，请单击左下角的 (+)。默认情况下已经创建了管理员。
+可以在此处创建用户。为此，请单击左下角的 (+)。默认情况下，管理员已创建。
 
 ![iobroker_adapter_admin_user_01](../../../de/adapterref/iobroker.admin/img/tab-user_01-1.jpg)
 
-##页面内容
-现有用户在页面上以表格形式显示。列标题中的字段用于根据您自己的条件过滤表。
+## 页面内容
+该页面以表格形式显示现有用户。列标题中的字段用于根据您自己的条件过滤表。
 
 该表由以下列组成：
 
 ### **1.) ID**
-这是每个用户的唯一名称，根据由 system.user.username 组成的结构。
+根据由 system.user.Username 组成的结构，这是各个用户的唯一名称。
 
 ### **2.) 姓名**
-用户名。此名称可自由选择。此名称必须是唯一的。
+用户名。该名称可以自由选择。该名称必须是唯一的。
 
-### **3.) 启用**
-使用此复选框可以激活或停用用户的可用性。
+### **3.) 已启用**
+此复选框可用于激活或停用用户的可用性。
 
-### **4.) 组**
-在 **_Groups_** 选项卡中创建的组显示在此处。在这里，可以通过复选框将用户分配到适当的组。
+### **4.) 群组**
+此处显示在 **_Groups_** 选项卡中创建的组。在这里可以使用复选框将用户分配到相应的组。
 
 ![iobroker_adapter_admin_user_groups](../../../de/adapterref/iobroker.admin/img/tab-user_Groups.jpg)
 
 ### **5.) 创建新用户**
-使用此图标，可以创建新用户，然后必须将其分配给现有组。
+该图标可用于创建新用户，然后必须将其分配给现有组。
 
 ### **6.) 编辑现有用户**
-在列表中选择现有用户后，可以使用此图标编辑该用户的数据。
+在列表中选择现有用户后，可以使用该图标编辑该用户的数据。
 
 ### **7.) 删除现有用户**
-可以使用回收站图标删除现有用户，保留现有组。
+可以使用垃圾桶图标删除现有用户，但现有组保持不变。

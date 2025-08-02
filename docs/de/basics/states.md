@@ -1,24 +1,24 @@
 ---
-lastChanged: "06.06.2019"
+lastChanged: "25.08.2024"
 ---
 
 # States und Datenpunkte
 
-Ein **Datenpunkt** besteht aus einem statischen Objekt vom Typ "state" und aus einem dynamischen Zustand (state).
+Ein **Datenpunkt** besteht aus einem statischen Objekt vom Typ `state` und aus einem dynamischen Zustand (state).
 
-Eigenschaften eines Zustands sind
- * val - aktueller Wert
- * ack - Flag, das die Bestätigung des Wertes durch das Zielsystem anzeigt
- * ts  - Unix Zeitstempel der letzten Aktualisierung des Zustands (in Millisekunden)
- * lc  - Unix Zeitstempel der letzten Wertänderung (in Millisekunden)
- * q - [Qualität](../dev/objectsschema.md#states)
- * from - (optional) Quelle(Adapter Instanz) der letzten Aktualisierung
- * user - (optional) Anwendername, wer als letzter den Wert geschrieben hat.
- * c - (optional) Kommentar
- * expire - (optional) Zeit in Sekunden, wann der Wert auf `null` resetet wird.
+Eigenschaften eines Zustands sind:
+ * `val` - aktueller Wert
+ * `ack` - Flag, das die Bestätigung des Wertes durch das Zielsystem anzeigt
+ * `ts`  - Unix Zeitstempel der letzten Aktualisierung des Zustands (in Millisekunden)
+ * `lc`  - Unix Zeitstempel der letzten Wertänderung (in Millisekunden)
+ * `q` - [Qualität](../dev/objectsschema.md#states)
+ * `from` - (optional) Quelle(Adapter Instanz) der letzten Aktualisierung
+ * `user` - (optional) Anwendername, wer als letzter den Wert geschrieben hat.
+ * `c` - (optional) Kommentar
+ * `expire` - (optional) Zeit in Sekunden, wann der Wert auf `null` gesetzt wird.
   
 Attribute des statischen Objektes sind id, type = 'state', common, native. Folgende common-Attribute sind möglich:
-* `common.type` (optional) - Standard ist 'mixed' = beliebiger Typ. Mögliche Werte: 'number', 'string', 'boolean', 'array', 'object', 'mixed', 'file'.
+* `common.type` (optional) - Standard ist `mixed` = beliebiger Typ. Mögliche Werte: `number`, `string`, `boolean`, `array`, `object`, `mixed`, `file`.
 * `common.name` (optional, string)
 * `common.max` (optional, number)
 * `common.step` (optional, number) - Intervall erhöhen / verringern. Z.B. 0.5 für Thermostat

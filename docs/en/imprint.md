@@ -1,5 +1,5 @@
 ---
-title: imprint
+title: Imprint
 lastChanged: 14.09.2018
 ---
 # Imprint

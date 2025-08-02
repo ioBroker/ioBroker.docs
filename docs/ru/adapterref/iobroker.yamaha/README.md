@@ -1,48 +1,58 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yamaha/README.md
 title: без заголовка
-hash: 42NBPSFBWCuYjuhCxR3pxX4ukS3Ii3BNzjo2ofN5AY8=
+hash: 7OJuYFsy6VNYKUCbfYG3oHnTo5qf9BztKBSu3G86OrU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
 
 ![Количество установок](http://iobroker.live/badges/yamaha-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.yamaha.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.yamaha.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yamaha.svg)
 
 ## IoBroker.yamaha
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 #### Описание
-Адаптер для AV-ресиверов Yamaha
+Адаптер для AV-ресиверов Yamaha.
 
-Обсуждение пожалуйста на github или https://forum.iobroker.net/topic/53174/weiterentwicklung-yamaha-adapter
+Обсудите, пожалуйста, на github или https://forum.iobroker.net/topic/53174/weiterentwicklung-yamaha-adapter.
 
 ### Первоначальное создание
-Этот адаптер изначально был создан @soef по адресу https://github.com/soef/ioBroker.yamaha, но больше не поддерживается, поэтому мы переместили его в сообщество iobroker, чтобы можно было исправить ошибки. спасибо @soef за его работу.
+Этот адаптер изначально был создан @soef по адресу https://github.com/soef/ioBroker.yamaha, но больше не поддерживается, поэтому мы переместили его в iobroker-community, чтобы можно было исправить ошибки. спасибо @soef за его работу.
 
 #### Конфигурация
-В настоящее время без автообнаружения вам необходимо ввести IP-адрес вашего приемника.
+В настоящее время без автообнаружения вам необходимо ввести IP-адрес вашего получателя.
 
-#### Установка
+#### Монтаж
 через администратора ioBroker.
 
 В противном случае выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker) `` npm install iobroker.yamaha iobroker upload yamaha ``
 
 #### В реальном времени
-Состояния будут созданы, когда они произойдут. т.е. используйте свой ИК-пульт и измените что-нибудь, и вы увидите новые состояния.
-Устройства yamaha принимают только одно соединение.
+Государства будут созданы, когда они возникнут. Т.е. используйте свой пульт дистанционного управления и измените что-нибудь, и вы увидите новые состояния.
+Устройства Yamaha принимают только одно соединение.
 
 #### Требования
 Ресивер Ямаха
 
-Вы должны включить функцию «ожидание сети» в конфигурации вашего ресивера.
+Вам необходимо включить функцию «режим ожидания сети» в конфигурации вашего ресивера.
 
 ## Changelog
-### 0.5.1
+### 0.5.4 (2024-06-14)
+* (foxriver76) updated packages
+
+### 0.5.3 (2022-06-17)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.2 (2022-04-23)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.1 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
 * (Sneak-L8) fix type of pureDirect
 
 ### 0.5.0 (2022-03-08)
@@ -101,7 +111,7 @@ hash: 42NBPSFBWCuYjuhCxR3pxX4ukS3Ii3BNzjo2ofN5AY8=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 soef <soef@gmx.net>
+Copyright (c) 2015-2024 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

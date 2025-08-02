@@ -3,36 +3,108 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: JxKfC9EtVVe45kAUeCPy1SvUiRz0jblG8f56m8V7wqM=
+hash: Z+Gz0BFzpoYSG/LsgdOZ7/JEJkNp4KJJA4Jciqk4Te4=
 ---
-![Логотип](../../../en/adapterref/iobroker.bmw/admin/bmw.png)
-
-![версия NPM](https://img.shields.io/npm/v/iobroker.bmw.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bmw.svg)
-![Количество установок (последние)](https://iobroker.live/badges/bmw-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/bmw-stable.svg)
-![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.bmw.svg)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.bmw?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.bmw?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/TA2k/iobroker.bmw?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/TA2k/iobroker.bmw?logo=github&style=flat-square)
+![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/TA2k/iobroker.bmw/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Известные уязвимости SNYK](https://snyk.io/test/github/TA2k/ioBroker.bmw/badge.svg)
+![Бета](https://img.shields.io/npm/v/iobroker.bmw.svg?color=red&label=beta)
+![Стабильный](https://iobroker.live/badges/bmw-stable.svg)
+![Установлено](https://iobroker.live/badges/bmw-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bmw.png?downloads=true)
 
+<img src="admin/bmw.png" alt="Логотип" width="200">
+
 # IoBroker.bmw
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.bmw/workflows/Test%20and%20Release/badge.svg)
+## Версии
+# Адаптер BMW для ioBroker
+Этот адаптер легко интегрирует автомобили BMW в ioBroker, позволяя вам контролировать и управлять вашим BMW непосредственно на платформе ioBroker. Он извлекает и обновляет данные для всех моделей BMW, связанных с вашей учетной записью BMW через официальное приложение BMW, предоставляя свойства автомобиля и поддерживая удаленные команды.
 
-## Bmw адаптер для ioBroker
-Адаптер для БМВ
+## Функции
+- Извлекает и обновляет данные об автомобилях BMW из сервиса BMW ConnectedDrive.
+- Включает удаленные команды для вашего BMW в `bmw.0.VIN.remotev2`.
 
-** Актуальный статус **
+## Процесс входа
+1. В параметрах экземпляра введите данные для входа в учетную запись BMW и пройдите проверку CAPTCHA/reCAPTCHA, если будет предложено.
+2. Выберите тип вашего транспортного средства.
+3. Поскольку квота API ограничена, вы можете отключить получение определенных статистических данных для оптимизации использования.
+4. Установите интервал обновления, соответствующий вашим потребностям в данных — может потребоваться метод проб и ошибок, чтобы уложиться в максимальную квоту.
+5. Чтобы увеличить квоту, вы можете по желанию добавить вторую учетную запись пользователя.
+6. Первоначальные данные могут появиться после небольшой задержки или после первой активности транспортного средства (например, поездки).
 
-bmw.0.VIN.Свойства
+## Структура данных
+Данные по конкретному автомобилю доступны в разделе `bmw.0.VIN.properties`, где `VIN` представляет собой идентификационный номер транспортного средства вашего BMW.
 
-**Remote Befehle sind möglich unter**
+## Удаленные команды
+Дистанционное управление вашим BMW доступно в разделе `bmw.0.VIN.remotev2`. Поддерживаемые действия могут включать блокировку/разблокировку дверей, активацию климат-контроля или запуск других функций автомобиля в зависимости от модели вашего BMW и функций ConnectedDrive.
 
-bmw.0.VIN.remotev2
+*Примечание: доступные поля и возможности удаленного управления зависят от модели BMW и API ConnectedDrive.*
+
+## Источник
+Этот адаптер доступен по адресу: [https://github.com/TA2k/ioBroker.bmw](https://github.com/TA2k/ioBroker.bmw)
 
 ## Changelog
 
-### 2.5.6
+### **WORK IN PROGRESS**
 
-- Fix charging message
+- BREAKING: Dropped support for Node.js 18 (#88)
+- (hombach) BREAKING: Dropped support for js-controller 5 (#111)
+- (hombach) BREAKING: change to admin 7.4.10 as recommended by ioBroker (#111)
+- (hombach) encrypt and protect second user password - has to be reentered (#111)
+- (hombach) bump dependencies
+
+### 2.9.5 (2025-05-18)
+
+- (hombach) update axios
+- (hombach) fixing issues detected by repository checker (#88)
+- (hombach) some small code cleanups/modernisations
+- (hombach) add/translate description
+- (hombach) update logo
+
+### 2.9.4 (2025-02-26)
+
+- fix for Mitbenutzer Feature
+
+### 2.9.3 (2025-01-29)
+
+- fix remote controls
+- add Mitbenutzer Login for remote controls
+
+### 2.9.0 (2024-11-28)
+
+- added new remotes as switch and updated values
+- added retry logic for remotes
+
+### 2.8.4 (2024-11-21)
+
+- improved charging session parsing
+- added remote to fetch charging session from a specific month
+- added raw JSON of charging session for export
+
+### 2.8.3 (2024-11-18)
+
+- login fixed
+
+### 2.8.2 (2024-10-05)
+
+- fix error getvehicles v2 failed
+
+### 2.8.1 (2024-09-30)
+
+- fix remote commands
+
+### 2.7.1
+
+- Bugfixes
+
 ### 2.5.5
 
 - Fix login
@@ -61,7 +133,7 @@ bmw.0.VIN.remotev2
 
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

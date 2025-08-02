@@ -60,6 +60,86 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 1.12.0
+
+• Neue Icons hinzugefügt (Animals/Cats)
+
+### 1.11.0
+
+• Neue Icons hinzugefügt (Cars)
+
+### 1.10.2
+
+• Bug-Fix
+
+### 1.10.1
+
+• Bug-Fix
+
+### 1.10.0
+
+• Neue Icons hinzugefügt (Devices - Computers - Zigbee)
+
+### 1.9.0
+
+• Neue Icons hinzugefügt (Brands - Zigbee)
+
+### 1.8.1
+
+• Bug-Fix
+
+### 1.8.0
+
+• Neue Icons hinzugefügt (Devices - Network)
+
+### 1.6.3
+
+• Bug-Fix
+
+### 1.6.0
+
+• Neue Icons hinzugefügt (Devices - Mower Blade)
+
+### 1.5.0
+
+• Neue Icons hinzugefügt (Animals - Rat & Mouse)
+
+### 1.4.0
+
+• Neue Icons hinzugefügt (Lights - Printer-LED)
+
+### 1.3.0
+
+• Neue Icons hinzugefügt (Lights - LED)
+
+### 1.2.1
+
+• Bugfix (version number)
+
+### 1.2.0
+
+• Neue Icons hinzugefügt (Devices - thermal_heater) (Devices/Printers - printer_lable)
+
+### 1.1.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS) (Games - scissors/stone/paper)
+
+### 1.0.0
+
+• VIS-2 kompatibel
+
+### 0.98.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS)
+
+### 0.97.3
+
+• Bugfix
+
+### 0.97.2
+
+• Bugfix
+
 ### 0.97.1
 
 • Bugfix
@@ -544,9 +624,6 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
-
 MIT License (nur in englisch / englisch only)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -570,3 +647,5 @@ SOFTWARE.
 ---
 
 Icons from Icons8 https://icons8.com/ 
+
+Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)

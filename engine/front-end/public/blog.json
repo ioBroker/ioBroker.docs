@@ -1,5 +1,257 @@
 {
   "pages": {
+    "2025_06_17": {
+      "date": "2025.06.17",
+      "title": {
+        "de": "ioBroker beim Smart Living Forum 2025 in Solingen",
+        "en": "ioBroker at the Smart Living Forum 2025 in Solingen",
+        "ru": "ioBroker на Smart Living Forum 2025 в Золингене",
+        "zh-cn": "ioBroker 亮相索林根 2025 智能生活论坛"
+      },
+      "logo": "de/blog/images/2025_06_17.jpg",
+      "type": "news",
+      "originalName": "2025_06_17.md",
+      "desc": {
+        "de": "Am 14. Juni 2025 fand in Solingen die zweite Ausgabe des Smart Living Forums statt.\\nUnd wie bereits im Vorfeld angekündigt, war ioBroker auch in diesem Jahr wieder aktiv mit dabei.",
+        "en": "The second edition of the Smart Living Forum took place in Solingen on June 14, 2025.\\nAnd as previously announced, ioBroker was once again actively involved this year.",
+        "ru": "Второе издание Smart Living Forum состоялось в Золингене 14 июня 2025 года. И как было объявлено ранее, ioBroker снова принял активное участие в этом году.",
+        "zh-cn": "第二届智能生活论坛于 2025 年 6 月 14 日在索林根举行。\\n正如之前宣布的那样，ioBroker 今年再次积极参与其中。"
+      }
+    },
+    "2025_04_26": {
+      "date": "2025.04.26",
+      "title": {
+        "de": "💻 ioBroker Monatsrückblick – April 2025",
+        "en": "💻 ioBroker Monthly Review – April 2025",
+        "ru": "💻 Ежемесячный обзор ioBroker – апрель 2025 г.",
+        "zh-cn": "💻 ioBroker 月度回顾 – 2025 年 4 月"
+      },
+      "logo": "de/blog/images/2025_04_26.png",
+      "type": "news",
+      "originalName": "2025_04_26.md",
+      "desc": {
+        "de": "Herzlich willkommen zum aktuellen Monatsrückblick! Auch im April 2025 hat sich in der ioBroker-Welt wieder einiges getan. \\nNeue Adapter sind erschienen, bestehende wurden verbessert und die Basis unseres Systems – der js-controller – hat ein Update erhalten. \\nWerfen wir einen detaillierten Blick auf alle Neuerungen.",
+        "en": "Welcome to the current monthly review! A lot has happened in the ioBroker world again in April 2025.\\nNew adapters have been released, existing ones have been improved, and the foundation of our system—the js controller—has received an update.\\nLet's take a detailed look at all the new features.",
+        "ru": "Добро пожаловать в текущий ежемесячный обзор! В апреле 2025 года в мире ioBroker снова произошло много событий.\\nБыли выпущены новые адаптеры, улучшены существующие, а также обновлена основа нашей системы — js-контроллер.\\nДавайте подробно рассмотрим все новые функции.",
+        "zh-cn": "欢迎阅读本期月度回顾！ 2025年4月，ioBroker世界又发生了很多事。\\n新的适配器已经发布，现有的适配器已经得到改进，并且我们系统的基础 - js-controller - 已经更新。\\n让我们详细了解一下所有新功能。"
+      }
+    },
+    "2025_04_04": {
+      "date": "2025.04.04",
+      "title": {
+        "de": "Die nächste Stufe des Smart Homes - ioBroker unterstützt jetzt Matter!",
+        "en": "The next level of smart home - ioBroker now supports Matter!",
+        "ru": "Новый уровень умного дома — ioBroker теперь поддерживает Matter!",
+        "zh-cn": "智能家居的更高级别 - ioBroker 现在支持 Matter！"
+      },
+      "logo": "de/blog/images/2025_04_04.png",
+      "type": "news",
+      "originalName": "2025_04_04.md",
+      "desc": {
+        "de": "Seit Anfang 2025 hebt ioBroker das Smart Home auf ein neues Level: \\nDer neue Matter-Adapter ist da! Nach über zwei Jahren intensiver Entwicklungsarbeit ist ioBroker nun bereit \\nfür den zukunftsweisenden Smart-Home-Standard **Matter** – ein Quantensprung für alle, die Geräte herstellerübergreifend und vor allem lokal vernetzen möchten.",
+        "en": "Since the beginning of 2025, ioBroker has been taking the smart home to a new level: The new Matter adapter is here! After more than two years of intensive development work, ioBroker is now ready for the pioneering smart home standard **Matter** – a quantum leap for anyone who wants to connect devices across manufacturers and, above all, locally.",
+        "ru": "С начала 2025 года ioBroker выводит умный дом на новый уровень: новый адаптер Matter уже здесь! После более чем двух лет интенсивной разработки ioBroker теперь готов к ориентированному на будущее стандарту умного дома **Matter** — качественному скачку для всех, кто хочет объединить в сеть устройства разных производителей и, прежде всего, локально.",
+        "zh-cn": "自 2025 年初以来，ioBroker 一直致力于将智能家居提升到一个新的水平：全新 Matter 适配器来了！经过两年多的密集开发工作，ioBroker 现已为面向未来的智能家居标准 **Matter** 做好了准备——这对于所有想要跨制造商、尤其是在本地联网设备的人来说都是一个巨大的飞跃。"
+      }
+    },
+    "2025_03_29": {
+      "date": "2025.03.29",
+      "title": {
+        "de": "ioBroker Neuigkeiten – Frühjahr 2025 🌼",
+        "en": "ioBroker News – Spring 2025 🌼",
+        "ru": "Новости ioBroker – весна 2025 🌼",
+        "zh-cn": "ioBroker 新闻 – 2025 年春季 🌼"
+      },
+      "logo": "de/blog/images/2025_03_29.jpg",
+      "type": "news",
+      "originalName": "2025_03_29.md",
+      "desc": {
+        "de": "Willkommen zum ioBroker-Update für das Frühjahr 2025! In den letzten Wochen hat sich wieder einiges in der ioBroker-Welt getan.\\nNeue Adapter erweitern die Plattform um spannende Integrationen,\\nbestehende Komponenten wurden mit hilfreichen Funktionen verbessert – und auch die Community bleibt weiterhin aktiv und kreativ.",
+        "en": "Welcome to the ioBroker Spring 2025 update! A lot has happened in the ioBroker world in recent weeks.\\nNew adapters expand the platform with exciting integrations, existing components have been enhanced with helpful features – and the community remains active and creative.",
+        "ru": "Добро пожаловать в весеннее обновление ioBroker 2025! За последние несколько недель в мире ioBroker произошло много событий.\\nНовые адаптеры расширяют платформу за счет интересных интеграций, существующие компоненты улучшены и дополнены полезными функциями, а сообщество остается активным и креативным.",
+        "zh-cn": "欢迎来到 ioBroker 2025 年春季更新！过去几周，ioBroker 领域发生了很多事情。\\n新的适配器通过令人兴奋的集成扩展了平台，现有组件已通过有用的功能得到改进 - 并且社区仍然活跃且富有创造力。"
+      }
+    },
+    "2024_12_22": {
+      "date": "2024.12.22",
+      "title": {
+        "de": "Jahresrückblick 2024 ❄",
+        "en": "annual review 2024",
+        "ru": "Годовой обзор 2024 г.",
+        "zh-cn": "2024年年度回顾"
+      },
+      "logo": "de/blog/images/2024_12_22.jpg",
+      "type": "news",
+      "originalName": "2024_12_22.md",
+      "desc": {
+        "de": "Liebe ioBroker-Community, das Jahr neigt sich dem Ende zu und wir möchten die Gelegenheit nutzen, euch allen von Herzen zu danken.\\nEure Ideen, eure Kreativität und eure Begeisterung für ioBroker sind das, was dieses Projekt seit über 10 Jahren auszeichnet und weiterbringt.",
+        "en": "Dear ioBroker community, the year is coming to an end and we would like to take this opportunity to thank you all from the bottom of our hearts.\\nYour ideas, your creativity and your enthusiasm for ioBroker are what have distinguished and driven this project forward for over 10 years.",
+        "ru": "Уважаемое сообщество ioBroker, год подходит к концу, и мы хотели бы воспользоваться возможностью, чтобы поблагодарить всех вас от всего сердца.\\nВаши идеи, креативность и энтузиазм в отношении ioBroker — вот что отличает и продвигает этот проект на протяжении более 10 лет.",
+        "zh-cn": "亲爱的ioBroker社区，今年即将结束，我们想借此机会衷心感谢大家。\\n十多年来，您的想法、创造力和对 ioBroker 的热情使该项目脱颖而出并不断发展。"
+      }
+    },
+    "2024_12_21": {
+      "date": "2024.12.21",
+      "title": {
+        "de": "ioBroker Monatsupdate - Dezember 2024 🎄",
+        "en": "ioBroker Monthly Update - December 2024 🎄",
+        "ru": "Ежемесячное обновление ioBroker — декабрь 2024 г. 🎄",
+        "zh-cn": "ioBroker 每月更新 - 2024 年 12 月 🎄"
+      },
+      "logo": "de/blog/images/2024_12_21.png",
+      "type": "news",
+      "originalName": "2024_12_21.md",
+      "desc": {
+        "de": "Herzlich willkommen zu unserer letzten Ausgabe des Jahres 2024!\\nWir bedanken uns bei allen Entwicklern, Testern und Nutzern, die das Projekt in diesem Jahr weitergebracht haben. ",
+        "en": "Welcome to our last issue of 2024! We would like to thank all developers, testers and users who have helped move the project forward this year.",
+        "ru": "Ежемесячное обновление # ioBroker: декабрь 2024 г. 🎄\\nДобро пожаловать в наш последний выпуск 2024 года! Мы хотели бы поблагодарить всех разработчиков, тестировщиков и пользователей, которые продвинули проект в этом году.",
+        "zh-cn": "欢迎来到 2024 年最后一期！我们要感谢今年推动该项目前进的所有开发人员、测试人员和用户。"
+      }
+    },
+    "2024_11_23": {
+      "date": "2024.11.23",
+      "title": {
+        "de": "Rückblick auf das Community-Treffen zum 10-jährigen ioBroker Jubiläum",
+        "en": "Review of the community meeting for the 10th ioBroker anniversary",
+        "ru": "Обзор встречи сообщества к 10-летию ioBroker",
+        "zh-cn": "ioBroker十周年社区会议回顾"
+      },
+      "logo": "de/blog/images/2024_11_23.png",
+      "type": "news",
+      "originalName": "2024_11_23.md",
+      "desc": {
+        "de": "Am 09. November 2024 war es endlich soweit: Das erste große ioBroker Community-Treffen fand in der \"Gläsernen Werkstatt\" in Solingen statt. Einige Monate intensiver Planung und Organisation haben sich ausgezahlt – das Event war ein voller Erfolg.",
+        "en": "On November 9, 2024, the time had finally come: The first major ioBroker community meeting took place in the \"Gläserne Werkstatt\" in Solingen. Several months of intensive planning and organization paid off - the event was a complete success.",
+        "ru": "9 ноября 2024 года время наконец пришло: первая большая встреча сообщества ioBroker состоялась в «Gläserne Workshop» в Золингене. Несколько месяцев интенсивного планирования и организации принесли свои плоды – мероприятие увенчалось полным успехом.",
+        "zh-cn": "2024 年 11 月 9 日，时机终于到来：第一次大型 ioBroker 社区会议在索林根的“Gläserne Workshop”举行。几个月的精心策划和组织得到了回报——活动取得了圆满成功。"
+      }
+    },
+    "2024_10_01": {
+      "date": "2024.10.01",
+      "title": {
+        "de": "ioBroker News – August & September 2024",
+        "en": "ioBroker News – August & September 2024",
+        "ru": "Новости ioBroker – август и сентябрь 2024 г.",
+        "zh-cn": "ioBroker 新闻 – 2024 年 8 月和 9 月"
+      },
+      "logo": "en/blog/images/2024_10_01.png",
+      "type": "news",
+      "originalName": "2024_10_01.md",
+      "desc": {
+        "de": "Der Sommer ist vorbei, und es geht mit frischem Schwung in den Herbst. Obwohl es in den letzten Monaten traditionell etwas ruhiger war, \\nda viele der Dev's im wohlverdienten Urlaub waren, gab es dennoch einige Updates und neue Adapter, die wir euch vorstellen möchten.",
+        "en": "Summer is over and we're heading into autumn with renewed vigor. Although things have traditionally been a bit quieter in recent months as many of the developers have been on well-deserved vacation, there have still been a few updates and new adapters that we would like to introduce to you.",
+        "ru": "Лето закончилось, и осень с новой энергией движется в осень. Хотя в последние несколько месяцев традиционно все было немного спокойнее, поскольку многие разработчики были в заслуженном отпуске, все же были некоторые обновления и новые адаптеры, которые мы хотели бы вам представить.",
+        "zh-cn": "夏天过去了，秋天带着新鲜的活力进入秋天。尽管过去几个月事情比较安静，因为许多开发人员正在享受应得的假期，但我们仍然想向您介绍一些更新和新适配器。"
+      }
+    },
+    "2024_06_30": {
+      "date": "2024.06.30",
+      "title": {
+        "de": "RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!",
+        "en": "RoundUp June 2024. New month, new ioBroker features!",
+        "ru": "TR: RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!",
+        "zh-cn": "TR: RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!"
+      },
+      "logo": "en/blog/images/2024_06_30.png",
+      "type": "news",
+      "originalName": "2024_06_30.md",
+      "desc": {
+        "de": "In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.",
+        "en": "In this blog post, we take a look at the new features, updates and news about ioBroker in June 2024: js-controller 6.0 in beta, new widgets, changes in admin 7.0, new adapters (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), new app, new YouTube videos.",
+        "ru": "TR: #  RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!\\nTR: In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos.",
+        "zh-cn": "TR: #  RoundUp Juni 2024. Neuer Monat, neue ioBroker-Features!\\nTR: In diesem Blogbeitrag werfen wir einen Blick auf die Neuerungen, Updates und News rund um ioBroker im Juni 2024: js-controller 6.0 in beta, neue Widgets, Änderungen in admin 7.0, neue Adapter (waterkotte-easycon, hiob, notificationforandroidtv, gree-hvac), neue App, neue YouTube -Videos."
+      }
+    },
+    "2024_06_04": {
+      "date": "2024.06.04",
+      "title": {
+        "de": "ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024",
+        "en": "TR: ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024",
+        "ru": "TR: ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024",
+        "zh-cn": "TR: ioBroker JavaScript-Adapter - Verbesserungen April-Mai 2024"
+      },
+      "logo": "en/blog/images/2024_06_06.png",
+      "type": "news",
+      "originalName": "2024_06_04.md",
+      "desc": {
+        "de": "Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.",
+        "en": "TR: # ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024\\nTR: Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.",
+        "ru": "TR: # ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024\\nTR: Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0.",
+        "zh-cn": "TR: # ioBroker JavaScript-Adapter: Verbesserungen April-Mai 2024\\nTR: Diese Zusammenfassung enthält die wichtigsten Änderungen des JavaScript-Adapters ab Version 8.0.0."
+      }
+    },
+    "2024_06_02": {
+      "date": "2024.06.02",
+      "title": {
+        "de": "Update Mai 2024 - News und Entwicklungen bei ioBroker",
+        "en": "May 2024 Update - Latest News and Developments in ioBroker",
+        "ru": "TR: May 2024 Update - Latest News and Developments in ioBroker",
+        "zh-cn": "TR: May 2024 Update - Latest News and Developments in ioBroker"
+      },
+      "logo": "en/blog/images/2024_06_02.jpg",
+      "type": "news",
+      "originalName": "2024_06_02.md",
+      "desc": {
+        "de": "Hallo, ioBroker-Community!",
+        "en": "Hello, ioBroker community! ",
+        "ru": "TR: # May 2024 Update: Latest News and Developments in ioBroker\\nTR: Hello, ioBroker community!",
+        "zh-cn": "TR: # May 2024 Update: Latest News and Developments in ioBroker\\nTR: Hello, ioBroker community!"
+      }
+    },
+    "2024_05_12": {
+      "date": "2024.05.12",
+      "title": {
+        "de": "Ein Roundup Teil 2 - von Dezember 2023 bis Februar 2024",
+        "en": "A Roundup Part 2 - from December 2023 to February 2024",
+        "ru": "TR: A Roundup Part 2 - from December 2023 to February 2024",
+        "zh-cn": "TR: A Roundup Part 2 - from December 2023 to February 2024"
+      },
+      "logo": "en/blog/images/2024_05_12.png",
+      "type": "news",
+      "originalName": "2024_05_12.md",
+      "desc": {
+        "de": "*Eine Übersicht über die Neuentwicklungen in ioBroker*. \\nIn diesem zweiten Teil unseres Blogs werden weitere Adapter und Funktionen vorgestellt, die in diesem Zeitraum veröffentlicht wurden.",
+        "en": "*An overview of new adapters, and features in ioBroker*.\\nExploring Further: This blog highlights additional adapters and features released during this period.",
+        "ru": "TR: # A Roundup Part 2: from December 2023 to February 2024\\nTR: *An overview of new adapters, and features in ioBroker*.\\nExploring Further: This blog highlights additional adapters and features released during this period.",
+        "zh-cn": "TR: # A Roundup Part 2: from December 2023 to February 2024\\nTR: *An overview of new adapters, and features in ioBroker*.\\nExploring Further: This blog highlights additional adapters and features released during this period."
+      }
+    },
+    "2024_04_23": {
+      "date": "2024.04.23",
+      "title": {
+        "de": "Ein Roundup Teil 1 - von Oktober 2023 bis November 2023",
+        "en": "A Roundup Part 1 - from October 2023 to November 2023",
+        "ru": "TR: A Roundup Part 1 - from October 2023 to November 2023",
+        "zh-cn": "TR: A Roundup Part 1 - from October 2023 to November 2023"
+      },
+      "logo": "en/blog/images/2024_04_23.png",
+      "type": "news",
+      "originalName": "2024_04_23.md",
+      "desc": {
+        "de": "*Ein „Besser spät als nie“-Überblick über News, neue Adapter und Funktionen in ioBroker*.\\nIn der sich ständig weiterentwickelnden Welt der Hausautomatisierung bleibt ioBroker mit einer Reihe von Updates und Ergänzungen von Oktober 2023 bis Februar 2024 präsent.\\nLasst uns einen genaueren Blick auf einige der Fortschritte werfen, die in diesem Zeitraum eingeführt wurden, auch wenn dieser Blogbeitrag etwas spät kommt.",
+        "en": "*A \"better late than never\" review of the ioBroker news, adapters, and features*.\\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late.",
+        "ru": "TR: # A Roundup Part 1: from October 2023 to November 2023\\nTR: *A \"better late than never\" review of the ioBroker news, adapters, and features*.\\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late.",
+        "zh-cn": "TR: # A Roundup Part 1: from October 2023 to November 2023\\nTR: *A \"better late than never\" review of the ioBroker news, adapters, and features*.\\nIn the ever-evolving world of home automation, ioBroker remains present with a series of updates and additions from October 2023 to February 2024.\\nLet's take a closer look at some of the advances introduced during this time, although this blog post is a little late."
+      }
+    },
+    "2024_04_21": {
+      "date": "2024.04.21",
+      "title": {
+        "de": "Zusammenfassung der neuen Adapter und Funktionen zwischen Februar und April 2024",
+        "en": "Roundup of new adapters and features between February and April 2024",
+        "ru": "Обзор новых адаптеров и функций с февраля по апрель 2024 г.",
+        "zh-cn": "2024 年 2 月至 4 月新适配器和功能汇总"
+      },
+      "logo": "en/blog/images/2024_04_21.png",
+      "type": "news",
+      "originalName": "2024_04_21.md",
+      "desc": {
+        "de": "Dieser Blogbeitrag bietet einen Überblick über neue Adapter und Funktionen, die zwischen Februar und April 2024 in ioBroker eingeführt wurden. Er zielt darauf ab, grundlegende Informationen für Benutzer aller technischen Hintergründe bereitzustellen.",
+        "en": "This blog post provides an overview of new adapters and features introduced in ioBroker between February and April 2024\\nIt aims to deliver basic information for users of all technical backgrounds.",
+        "ru": "В этом сообщении блога представлен обзор новых адаптеров и функций, представленных в ioBroker в период с февраля по апрель 2024 г. Целью статьи является предоставление базовой информации для пользователей с любым техническим опытом.",
+        "zh-cn": "这篇博文全面概述了 2024 年 2 月至 4 月期间 ioBroker 中引入的新适配器和功能，旨在为所有技术背景的用户提供基本信息。"
+      }
+    },
     "2023_09_16": {
       "date": "2023.09.16",
       "title": {

@@ -7,23 +7,23 @@ hash: 1ek9knumlLUJtkUTkA1mTn6ZCRyw+GZQrKhhecAgJkg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.icons-smarthome/admin/icons-smarthome.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.icons-smarthome.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.icons-smarthome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.icons-smarthome.svg)
 ![Количество установок](https://iobroker.live/badges/icons-smarthome-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/icons-smarthome-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/icons-smarthome-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.icons-smarthome.png?downloads=true)
 
 # IoBroker.icons-smarthome
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.icons-smarthome/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.icons-smarthome/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер icons-smarthome для ioBroker
-значки, которые можно использовать из визуализаций ioBroker, таких как webui, vis, ...
-извлечено из ioBroker.habpanel
+## Иконки-адаптер smarthome для ioBroker
+иконки, которые можно использовать в визуализациях ioBroker, таких как webui, vis, ...
+извлечены из ioBroker.habpanel
 
-значки, которые можно использовать из визуализаций ioBroker, таких как webui, vis, ...
-извлечено из ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
+иконки, которые можно использовать в визуализациях ioBroker, таких как webui, vis, ...
+извлечены из ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
 
-первоисточник: https://dribbble.com/shots/2084609-Smart-House-Icon-Set-Free, лицензия CC0-1.0, см. в zip-архиве первоисточника.
+оригинальный источник: https://dribbble.com/shots/2084609-Smart-House-Icon-Set-Free лицензия CC0-1.0, см. в zip-архиве оригинального источника
 
 ## Кредиты
 Спасибо Роману Малашкову за создание иконок.

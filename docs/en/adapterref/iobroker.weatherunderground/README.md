@@ -71,6 +71,10 @@ Or you can aso use your own "custom" icons, for this purpose the following gif-f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.7.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.6.0 (2023-09-09)
 * (mcm1957) Icon urls at admin ui have been adapted to weatherunderground website changes (#158)
 * (mcm1957) Forecast periods have been extended
@@ -242,6 +246,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2015-2023 dschaedl <daniel.schaedler@gmail.com>, iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -3,25 +3,62 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: cY1eX6hSp1hWxKXwnuZDfdFKSEYODDKpZkjW/vxTAZM=
+hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 ---
 ![标识](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
 ![NPM版本](http://img.shields.io/npm/v/iobroker.mercedesme.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.mercedesme.svg)
-![依赖状态](https://img.shields.io/david/TA2k/iobroker.mercedesme.svg)
-![已知漏洞](https://snyk.io/test/github/TA2k/ioBroker.mercedesme/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.mercedesme.svg)
+![安装数量](https://iobroker.live/badges/mercedesme-installed.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)
+![特拉维斯-CI](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)
 
-＃ioBroker.mercedesme
-## IoBroker的mercedesme适配器
-适用于ioBroker的Mercedes me适配器Unter命令可用das commando auf klappen和den按钮启动drückenwenn das命令。
-远程犯罪远程Befehle
+# IoBroker.mercedesme
+## IoBroker 的 Mercedesme 适配器
+适用于 ioBroker 的 Mercedes me 适配器
+
+在命令下，可以使用突击队命令和按钮来启动命令。
+
+远程 Sind vorgefertige 远程 Befehle
 
 ## Changelog
 
-### 0.0.46
+### 0.1.6
+
+- fix login
+
+### 0.1.1
+
+- fix login
+
+### 0.0.56
+
+- fix vehicle list while login
+  
+### 0.0.55
+
+- fix refresh login
+### 0.0.55
+
+- fix refresh login
+  
+### 0.0.54
+
+- fix login
+  
+### 0.0.52
+
+- fix js-controller 3.3 warnings
+  
+### 0.0.51
+
+- improve handling of failing logins
+
+### 0.0.50
+
+- fix refresh token
+  
+### 0.0.47
 
 - fix new login
   
@@ -149,7 +186,7 @@ hash: cY1eX6hSp1hWxKXwnuZDfdFKSEYODDKpZkjW/vxTAZM=
 
 MIT License
 
-Copyright (c) 2020 tombox
+Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

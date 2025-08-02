@@ -1,4 +1,4 @@
-﻿![Logo](admin/daswettercom.png)
+![Logo](admin/daswettercom.png)
 # ioBroker.DasWetter.
 
 ![Number of Installations](http://iobroker.live/badges/daswetter-installed.svg) ![Number of Installations](http://iobroker.live/badges/daswetter-stable.svg)
@@ -9,6 +9,16 @@
 ![GitHub Actions](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)](https://nodei.co/npm/iobroker.daswetter/)
+
+![node-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.daswetter?label=npm%20dependencies&style=flat-square)
+
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.daswetter?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
@@ -21,6 +31,9 @@ For more details and for information how to disable the error reporting see [Sen
 
 
 This adapter reads weather forecast data from DasWetter.com.
+
+**ATTENTION: At the moment, new registrations at DasWetter are apparently not possible. Please do not open any tickets here in the adapter, as we have no influence on the data provider. As soon as we have new information, we will publish it here.**
+
 
 You need an account on DasWetter.com. Register at https://www.daswetter.com/api/#/login
 The account is for free under certain conditions.
@@ -56,6 +69,42 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) if you find bugs or whish new features
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.2.3 (2025-02-26)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 3.2.2 (2024-12-15)
+* (René) translations
+* (René) see issue #408: hint regarding user registration limitation added
+
+### 3.2.1 (2024-12-06)
+* (René) see issue #411: jsonConfig fixed
+
+### 3.2.0 (2024-12-04)
+* (René) see issue #406: test with nodejs@22
+* (René) update dependencies
+* (René) migration to admin 5 UI (jsonConfig)
+
+### 3.1.16 (2024-08-18)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 3.1.15 (2024-05-28)
+* (René) see issue #354: change of dependencies
+
+### 3.1.13 (2024-01-12)
+* (René) update dependencies
+
+### 3.1.12 (2023-12-24)
+* (René) see issue #217: additional log added to understand root cause, please copy&past log output into github issue
+
+### 3.1.11 (2023-11-18)
+* (René) update dependencies
 
 ### 3.1.10 (2023-07-30)
 * (René) update dependencies
@@ -106,10 +155,10 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 * (René) dependencies updated
 
 ### 3.0.4 (2020-10-16)
-* (René) see issue #76: parse rain values as float instead integer 
+* (René) see issue #76: parse rain values as float instead integer
 
 ### 3.0.3 (2020-09-19)
-* (René) see issue #66: parse numbers added 
+* (René) see issue #66: parse numbers added
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -178,21 +227,17 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 * (bluefox) Added the roles and the names to states
 * (bluefox) Icons moved to admin directory
 
-
-
 ### 2.0.0
 * (René) new datastructure !not compatible to version 1.x!
 now parsing all data from xml and store them in datapoints
 for compatibility: in configuration old data structure can be enabled 
 needs also 2.x of vis-weather-widget
 
-
-
 ## License
 
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -211,5 +256,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-

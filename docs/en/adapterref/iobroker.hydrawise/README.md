@@ -39,6 +39,56 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2024-09-24)
+
+- (SentiQ) fixed issues detected by repository checker
+
+### 1.0.1 (2024-09-24)
+
+- (SentiQ) added compatibility check and testing for node.js 22
+
+### 1.0.0 (2024-04-30)
+
+-   (SentiQ) fixed adapter crash after dns not reachable
+
+### 0.3.3 (2024-04-22)
+
+-   (SentiQ) updated dependencies
+
+### 0.3.2 (2024-04-19)
+
+-   (SentiQ) added default value to parameter `apiInterval`
+-   (SentiQ) added translations
+
+### 0.3.1 (2024-04-18)
+
+-   (SentiQ) removed parameter `apiKey` in method call
+
+### 0.3.0 (2024-04-18)
+
+-   (SentiQ) added api interval to settings
+-   (SentiQ) changed interval of schedule endpoint from 5 minutes to 1 minute
+
+### 0.2.8 (2024-04-08)
+
+-   (SentiQ) fixed tier and license
+
+### 0.2.7 (2024-04-08)
+
+-   (SentiQ) fixed type of runDefault object
+
+### 0.2.6 (2024-04-08)
+
+-   (SentiQ) fixed type of `runDefault`
+
+### 0.2.5 (2024-04-07)
+
+-   (SentiQ) NodeJS >= 18.x and js-controller >= 5 is required
+
+### 0.2.4 (2024-02-01)
+
+-   (SentiQ) updated dependencies
+
 ### 0.2.3 (2023-10-28)
 
 -   (SentiQ) NodeJS 16.x is required
@@ -146,7 +196,7 @@ You can see all controller information, schedules and sensors. It is also possib
 
 MIT License
 
-Copyright (c) 2023 SentiQ <fischer.yves@web.de>
+Copyright (c) 2024 SentiQ <yves.nuesser@proton.me>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

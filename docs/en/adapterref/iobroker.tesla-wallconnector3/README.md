@@ -394,16 +394,14 @@ Please be aware that most (if not all) descriptions might be way off and might r
    *SSID the Tesla Wall Connector Gen 3 is connected to.*
 
 ## Changelog
-### 0.1.1 (NoBl)
-* Improvements
 
-### 0.1.0 (NoBl)
-* Initial release
+### 1.0.6 (NoBl)
+* Maintenance update (dependencies, ...)
 
 ## License
 MIT License
 
-Copyright (c) 2022 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2024 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

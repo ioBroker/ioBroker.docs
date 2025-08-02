@@ -1,6 +1,7 @@
 ![Logo](admin/cloudflare.png)
 # ioBroker.cloudflare
 
+[![ko-fi support](https://img.shields.io/badge/support-me-ff5e5b?style=flat-square&logo=ko-fi)](https://ko-fi.com/marco15453)
 [![NPM version](https://img.shields.io/npm/v/iobroker.cloudflare.svg)](https://www.npmjs.com/package/iobroker.cloudflare)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.cloudflare.svg)](https://www.npmjs.com/package/iobroker.cloudflare)
 ![Number of Installations](https://iobroker.live/badges/cloudflare-installed.svg)
@@ -18,6 +19,49 @@ Automatically updates the registered domain name at Cloudflare with your public 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.7 (2025-05-29)
+* Fixed #23
+* Fixed #24
+
+### 1.2.6 (2025-03-31)
+* Fixed Axios High Vulnerability Issue detected by Dependabot
+
+### 1.2.5 (2025-03-31)
+* Fixed #20
+
+### 1.2.4 (2025-02-13)
+* Fixed #17
+
+### 1.2.3 (2024-12-15)
+* Fixes Issues by RepoChecker
+
+### 1.2.2 (2024-10-20)
+* Added NodeJS v22 to Workflows
+* Updated README
+* Fixes #14
+
+### 1.2.1 (2024-08-16)
+* Fixed Axios High Vulnerability Issue detected by Dependabot
+
+### 1.2.0 (2024-08-12)
+* Version Bump
+
+### 1.1.6 (2024-08-09)
+* Fixed E204 from Checker
+* Fixed E162 from Checker
+
+### 1.1.5 (2024-08-09)
+* Updated Workflows
+
+### 1.1.4 (2024-08-09)
+* Updated LicenseInformation
+
+### 1.1.3 (2024-08-09)
+* Fixes some issues from checker
+
+### 1.1.2 (2024-08-09)
+* Updating to newest versions
+
 ### 1.1.1 (2022-11-16)
 * Updated Translations
 
@@ -69,7 +113,7 @@ Automatically updates the registered domain name at Cloudflare with your public 
 ## License
 MIT License
 
-Copyright (c) 2022 Marco15453 <support@marco15453.xyz>
+Copyright (c) 2025 Marco15453 <support@marco15453.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,51 +2,98 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
-title: 无题
-hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
+title: 无标题
+hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 ---
-![商标](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
+![标识](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![安装数量](http://iobroker.live/badges/deconz-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![NPM 版本](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![下载](https://img.shields.io/npm/dm/iobroker.deconz.svg)
-![新PM](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
 ioBroker deConz 德累斯顿电子适配器
 
 ==============
 
 ＃＃ 注意
-不支持 deConz 的 Beta 版本
+不支持 deConz 测试版
 
-所需的 js 控制器版本 >2.x.x，所需的 node.js >= 10.x.x
+所需 js-controller 版本 >5.x.x, 所需 node.js >= 18.x.x
 
 ＃＃ 英语
-连接到由 dresden-elektronik 开发的 deConz 软件。该软件旨在成为一个通用的 ZigBee 网关解决方案，使用来自 dresden-elektronik 的硬件、ConBee USB 记忆棒和用于 Raspberry Pi 的 RaspBee 模块。
+连接到 dresden-elektronik 开发的 deConz REST-API 软件。该软件旨在成为通用的 ZigBee 网关解决方案，使用 dresden-elektronik 的硬件 ConBee(X) USB 棒和 RaspBee(X) Raspberry Pi 模块。
 
 您必须首先链接到 deConz。
 
-1. a) 输入 deConz 的 IP 地址
+1. a) 输入 deConz 的 IP 地址<br>
 
-    b) 输入端口号，标准为 80。
+b）输入标准桥接端口：80 和标准 Websocket：443<br> [例如 Phoscon App - 帮助 - API 信息 - 无过滤器 - 搜索端口/websocketport]
 
-2. 输入 IP 地址和端口并保存后，点击“创建 API 密钥”按钮。现在您可以输入 deConz 的凭据或进入 Phoscon APP 并将 ioBroker 注册为第三方 APP。
+2. 输入并保存 IP 地址和端口后，点击“创建 API 密钥”按钮。现在您可以输入 deConz 的凭证或转到 Phoscon APP 并将 ioBroker 注册为第三方 APP。
 
-####同时发送多个命令
-为此目的，有一个称为“动作”的对象。
+## 为避免更新 (deConz/adapter) 后出现某些错误，请停止适配器并删除对象结构中的这些条目。启动时，将重新创建对象结构。
+![Deconz 适配器](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+
+#### 同时发送多个命令
+为了这个目的，有一个名为“动作”的对象。
 
 例子：
 
 `"on": true, "xy": [0.6586,0.3138]`
 
-`"on": true, "transitiontime": 5, "hue": 65500`
+`"on": true, "transitiontime": 5, "hue": 360`
 
-## 链接
-[德康兹](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/)[REST 插件](https://github.com/dresden-elektronik/deconz-rest-plugin)[网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+链接
+[deCONZ REST-API 插件](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [deCONZ REST-API 插件文档](https://dresden-elektronik.github.io/deconz-rest-doc/) [网关（硬件）](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [赞助商](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.6.4 (2024-10-06)
+* (mattreim) Add "protectedNative" and "encryptedNative"
+* (mattreim) Fix websocket connection
+* (Jey Cee) Fix missing port for create api key function
+
+### 1.6.3 (2024-10-04)
+* (Jey Cee) Fix connection problems
+
+### 1.6.2 (2024-10-04)
+* (Jey Cee) Fix no connection on new installation
+
+### 1.6.1 (2024-10-03)
+* (Jey Cee/mattreim) Highlight helper text for authentication
+
+### 1.6.0 (2024-10-02)
+* (Jey Cee/mattreim) Migrate config to JSONConfig
+* (Jey Cee) Removed device and group management from config
+* (mattreim) Add natives
+* (Jey Cee) Update dependencies
+* (Jey Cee) Use default test and release action
+
+### 1.5.0 (2024-08-11)
+* Updated/added some translations
+* (mattreim) Dependencies have been updated
+* (mattreim) Logo compressed
+* (mattreim) Remove common.title
+
+### 1.4.1 (2024-05-05)
+* (mattreim) Added new objects for various sensors
+
+### 1.4.0 (2024-01-29)
+* (mattreim) Added new objects for Tuya and Bosch thermostats
+
+### 1.3.23 (2023-11-05)
+* fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
+* added possibility to change the port for websocket connection
+* updated/added translations
+* (grizzelbee) Fix: Re-enabled window covers
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) New: Added ukrainian translation
+
+### 1.3.21 (2022-05-13)
+* added schedule to object definition
+* changed limit for duration to 999999
 
 ### 1.3.20 (2022-02-26)
 * (withstu) add retry if gateway is busy
@@ -159,7 +206,6 @@ ioBroker deConz 德累斯顿电子适配器
 * (mobilutz) remove ip overwrite
 * (njeisecke) add transitiontime for bri_inc (dim step)
 
-
 ### 1.2.3
 * fix expire time for alive 
 * add object for open zigbee network to add new devices without admin config
@@ -197,14 +243,11 @@ ioBroker deConz 德累斯顿电子适配器
 *  (asgothian) added object "buttonpressd"
 *  some fixes
 
-
 ### 1.0.2
 * fix set bri for groups
 
-
 ### 1.0.1
 * small fixes
-
 
 ### 1.0.0
 *  (thewhobox) skip helper groups
@@ -218,7 +261,6 @@ ioBroker deConz 德累斯顿电子适配器
 *  (jey-cee) new possible to change duration (if the device accept it)
 *  (jey-cee) get API key with credentials
 
-
 ### 0.4.0
 * (asgothian) Fix for hue change
 * (halloamt)  Added support for dimming lights and groups
@@ -227,11 +269,9 @@ ioBroker deConz 德累斯顿电子适配器
 ### 0.3.1
 * Fixing hue from range 0-65535 to 0-360
 
-
 ### 0.3.0
 * Added scene support
 *  Drop nodejs 4 support
-
 
 ### 0.2.5
 * Fix/Change handling create objects during running Adapter
@@ -293,4 +333,4 @@ ioBroker deConz 德累斯顿电子适配器
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2022 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2024 Jey Cee jey-cee@live.com

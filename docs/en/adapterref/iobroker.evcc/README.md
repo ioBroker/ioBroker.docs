@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.evcc.svg)](https://www.npmjs.com/package/iobroker.evcc)
 ![Number of Installations (latest)](https://iobroker.live/badges/evcc-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/evcc-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Newan/iobroker.evcc.svg)](https://david-dm.org/Newan/iobroker.evcc)
 
 [![NPM](https://nodei.co/npm/iobroker.evcc.png?downloads=true)](https://nodei.co/npm/iobroker.evcc/)
 
@@ -22,25 +21,44 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.2 (2025-04-27)
+* (arteck) corr dissolve folders
+
+### 0.2.1 (2025-04-27)
+* (arteck) consolidate off, min, pv, now buttons to select object
+* (arteck) update dependencies
+
+### 0.2.0 (2025-03-10)
+* (arteck) generate status folder
+
+### 0.1.1 (2024-01-07)
+* (Newan) add batteriemangement
+* (Newan) add Soc limit to loadpoint
+* (Newan) change vehicle on loadpoint
+
+### 0.1.0 (2023-12-30)
+* (Newan) rewrite for evcc api changes
+* (Newan) add multiple vehicle
+
 ### 0.0.10 (2023-06-14)
 * (arteck) generate dynamic objects
 * (Newan) typo fixes
 
 ### 0.0.8 (2023-05-09)
-* fix for minSoc & targetSoc
+* (Newan) fix for minSoc & targetSoc
 
 ### 0.0.7 (2023-01-15)
-* Update for evcc 1.11.x
-* Bugfix #4, change SoC names
+* (Newan) Update for evcc 1.11.x
+* (Newan) Bugfix #4, change SoC names
 
 ### 0.0.5 (2022-10-14)
-* update for latest-repository
+* (Newan) update for latest-repository
 
 ### 0.0.4 (2022-08-08)
-* first release
+* (Newan) first release
 
 ### 0.0.3 (2022-05-21)
-(Newan) support evcc 0.9X - change to jsonConfig GUI
+* (Newan) support evcc 0.9X - change to jsonConfig GUI
 
 ### 0.0.2 (2021-11-07)
 * (Newan) initial release
@@ -48,7 +66,7 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
 ## License
 MIT License
 
-Copyright (c) 2023 Newan <info@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and asSociated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.govee-local/README.md
 title: 无题
-hash: m9G1tXNj6IUJh9RyR238pwrauTfZ0Lhd6fRevJOg7zk=
+hash: 0+ORttMM0E5A5h+aitNGmGMC97RYQQ4WFXIfEaZsbJY=
 ---
 ![标识](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
 
@@ -20,14 +20,41 @@ hash: m9G1tXNj6IUJh9RyR238pwrauTfZ0Lhd6fRevJOg7zk=
 
 为了能够在本地控制 govee 设备，需要在 govve 应用程序设置中明确打开该功能，如其 [文档](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)> 中所述），因为我目前只有 H6051 灯，这是唯一的设备我可以测试一下。
 
+对于 **Windows** 用户：请转到设置并确保选择正确的网络接口，否则适配器将不会收到来自 Govee Devices 的任何响应。
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.5 (2024-01-13)
+
+-   create only one socket, as the second seems not to be necessary
+-   refactoring the code for better structure
+-   possibility to choose listen interface in settings
+
+### 0.2.4 (2024-01-05)
+
+-   fix access
+
+### 0.2.2 (2024-01-05)
+
+-   fix color temperature messsage
+
+### 0.2.1 (2023-12-24)
+
+-   repair onOff / all other actions Fixes: [#65](https://github.com/boergegrunicke/ioBroker.govee-local/issues/65)
+-   fix log spamming because of wildcard
+
+### 0.2.0 (2023-12-17)
+
+-   support controlling the color
+-   extended logging mode
+
 ### 0.1.2 (2023-09-06)
--  change icon path and resolution
+
+-   change icon path and resolution
 
 ### 0.1.1 (2023-08-21)
 
@@ -66,7 +93,7 @@ hash: m9G1tXNj6IUJh9RyR238pwrauTfZ0Lhd6fRevJOg7zk=
 
 MIT License
 
-Copyright (c) 2023 Børge Grunicke
+Copyright (c) 2024 Børge Grunicke
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

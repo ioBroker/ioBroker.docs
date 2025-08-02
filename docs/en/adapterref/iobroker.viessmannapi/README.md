@@ -35,6 +35,7 @@ viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.v
 viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
 
 **Kompatibilitätsliste**:
+https://documentation.viessmann.com/static/compatibility
 
 **Regelungen für Wand- oder Kompaktgeräte**
 
@@ -112,6 +113,9 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.4.1 (2025-03-31)
+
+- Update to new viessmann api
 
 ### 2.3.2
 
@@ -121,7 +125,7 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

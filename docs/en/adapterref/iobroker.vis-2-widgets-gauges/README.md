@@ -21,6 +21,28 @@
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.1 (2024-11-25)
+* (bluefox) Allowed to define digits after comma for the color gauge
+
+### 1.1.0 (2024-07-07)
+* (bluefox) Removed withStyles package
+
+### 1.0.4 (2024-05-26)
+* (bluefox) updated packages
+
+### 1.0.3 (2024-03-13)
+* (bluefox) updated packages
+
+### 1.0.2 (2024-01-02)
+* (bluefox) Allowed showing text in every widget
+
+### 1.0.0 (2023-12-05)
+* (bluefox) updated packages
+* (bluefox) Allowed showing text on battery
+
+### 0.2.2 (2023-11-10)
+* (bluefox) update packages
+
 ### 0.2.0 (2023-07-28)
 * (bluefox) Changed layout of widgets
 * (bluefox) Added text color settings to water widget
@@ -46,7 +68,7 @@
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

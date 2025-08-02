@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-天气
-hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
+hash: 3zzpR4fJsEXG5VXKbOJWUmUSdij8fjkArHeHpMItnZc=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
@@ -11,34 +11,54 @@ hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
+![节点](https://img.shields.io/node/v-lts/iobroker.vis-weather?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.vis-weather?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.vis-weather?style=flat-square)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 
 # IoBroker.vis-天气
 ![GitHub 操作](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
-**如果喜欢，请考虑捐款：**
+**如果您喜欢它，请考虑捐赠：**
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![贝宝]（https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-这个 vis-widget 显示来自 DasWetter.com 或 weatherunderground 的天气预报数据 你还需要 DasWetter-Adpater 或 weatherunderground-Adapter 运行......
+这个 vis-widget 显示来自 DasWetter.com 或 weatherunderground 的天气预报数据。您还需要运行 DasWetter-Adpater 或 weatherunderground-Adapter...
 
 在 weatherunderground 中，您需要启用未来 36 小时的预报。
-在 DasWetter.com 中，您需要启用四种预测数据结构之一。您可以选择要显示的那个。
+在 DasWetter.com 中，您需要启用四个预报数据结构之一。您可以选择要显示的那个。
 
-## 笔记/wiki
+## 与 vis-2 兼容
+此小部件与 vis-2 不兼容。
+名为 [vis-2-widgets-天气](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) 的新版本正在准备中。
+
+## 注释/维基
 ### 定义预测时间
-默认情况下，预测图显示 40 小时 (DasWetter) 或 36 小时 (wunderground)。如果您更喜欢只显示例如10小时预报，只需在vis-edit中删除oid_groups下不需要的OID即可。
+默认情况下，预报图显示 40 小时（DasWetter）或 36 小时（wunderground）。如果您希望仅显示 10 小时预报，只需在 vis-edit 中删除 oid_groups 下不必要的 OID 即可。
 
 ### 使用 DasWetter 时不会自动创建 OID
-当您选择实例或数据结构时，通常会自动创建 OID。当您收到“没有可用的 OID”时，请检查您是否在 DasWetter 中使用了“NextDaysDetailed”。
+通常，当您选择实例或数据结构时，会自动创建 OID。当您收到“没有可用的 OID”时，请检查您是否在 DasWetter 中使用了“NextDaysDetailed”。
 您可能需要启用“NextDaysDetailed”。
 
 ＃＃ 已知的问题
-* 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) 创建问题
+* 如果您发现错误或者需要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) 创建问题
 
 ## Changelog
 
-### 2.5.7 (in progress)
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (René) 
+
+### 2.5.9 (2024-01-13)
+* (René) dependencies update
 
 ### 2.5.6 (2022-08-18)
 * (René) tooltip with value added as an option
@@ -147,7 +167,7 @@ hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

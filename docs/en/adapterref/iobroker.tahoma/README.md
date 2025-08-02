@@ -51,6 +51,7 @@ The following configuration parameters are supported by the adapter.
 | Password                                                | _`<Your Tahomalink password>`_ | Required to authenticate your Tahoma account. |
 | Polling interval                                        | `20000` | Time (in milliseconds) after which the adapter will try to get new data from Tahomalink. |
 | PIN of the Tahoma box | format similar to `1234-5678-9012` | __<sup>Only for LocalAPI</sup>__ Unique PIN of your Tahoma box provided by Somfy. More infos on how to activate/use it [here](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode) |
+| Local IP                                                | | Optional. Use only, if you want to connect to the local api of your Tahoma box via the specified IP, instead of using the default DNS-Record `gateway-<pin>`, which will work fine for most installation.
 | Use MDNS | `false` | __<sup>Only for LocalAPI</sup>__ If set to true will try to use mDNS to resolve local hostname of you Tahoma-Box. Might not be supported by all routers, hence it is deactivated by default. |
 | Login Attempts <sup>1</sup> <sup>2</sup>                | `3` | Amount of attempts to login again after login failure. |
 | Delay between login attempts <sup>1</sup> <sup>2</sup>  | `30` | Time (in seconds) to wait between login attempts. |
@@ -102,11 +103,33 @@ These states contain current status of the devices as follows. Some of the state
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).
 
+<!--
+	Placeholder for the next version (add instead of version-number-headline below):
+	## __WORK IN PROGRESS__
+-->
+### 0.11.0 (2025-04-15)
+- Feature: Added option to specify IP address for access to local API (https://github.com/Excodibur/ioBroker.tahoma/issues/424)
+
+### 0.10.4 (2024-04-28)
+- Fixed: Warning resolved about invalid element in jsonConfig
+
+### 0.10.3 (2024-01-29)
+- Fixed: Some crashed caused by event-updates were fixed with a workaround.
+
+### 0.10.2 (2023-03-25)
+- Fixed: Improved core:MovingState. Should reflect moving blinds correctly now.
+
+### 0.10.1 (2023-01-23)
+- Fixed: Clear bearer token, if connection to local API fails, so new one can be fetched.
+
+### 0.10.0 (2023-01-03)
+- Fixed warnings about _Failed getting execution state_ when using the local API.
+
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020-2023 Marius Burkard & Excodibur
+Copyright (c) 2020-2025 Marius Burkard & Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kodi/README.md
-title: Kodi für ioBroker (JSON-RPC-API)
-hash: qAlRZtML3qdXIoe7sRiqtDoHz6EMGa0+6KEfbAqyHPE=
+title: Kodi für ioBroker (JSON-RPC API)
+hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 ---
 ![Logo](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
@@ -18,15 +18,15 @@ hash: qAlRZtML3qdXIoe7sRiqtDoHz6EMGa0+6KEfbAqyHPE=
 
 [Englisches Handbuch](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-Sie können eine offizielle Dokumentation von KODI über die API JSON-RCP [Tut](http://kodi.wiki/view/JSON-RPC_API) und polnischer Quelltext des Befehls (ab Protokollversion 6) [Tut](http://kodi.wiki/view/JSON-RPC_API/v6) lesen.
+Sie können die offizielle KODI-Dokumentation über die JSON-RCP-API [hier](http://kodi.wiki/view/JSON-RPC_API) und eine vollständige Liste der verfügbaren Befehle (für Abschnitt 6) [hier](http://kodi.wiki/view/JSON-RPC_API/v6) finden.
 
-## KODI-Konfiguration
+## KODI-Konfigurator
 Включение удаленного управления и веб-сервера.
-![Fernbedienungsfreigabe.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+![Fernbedienung aktivieren.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-Die JSON-RPC-API wird **über Port 9090** bereitgestellt, damit diese Personen keine Einträge in der Datei [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) vornehmen können.
+Die JSON-RPC-API verwendet **die URL 9090**, damit Sie die erforderlichen Einträge in der Datei [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) anzeigen können.
 
-_Hinweis: Die Datei advancedsettings.xml wird nicht aktualisiert. Вы должны сначала создать его!_
+_Hinweis: Die Datei advancedsettings.xml ist bei der Installation nicht verfügbar. Du musst es unbedingt schaffen!_
 
 ```xml
 <jsonrpc>
@@ -36,28 +36,28 @@ _Hinweis: Die Datei advancedsettings.xml wird nicht aktualisiert. Вы долж�
 ```
 
 ## Конфигурация драйвера
-Der installierte Adapter bietet eine IP-Adresse und einen Port für die JSON-RPC-API (ab Version 9090) sowie ein Login/Paar für die Bereitstellung auf dem Web-Server Kodi.
+In den meisten Fällen werden Adapter für die JSON-RPC-API (gemäß UML 9090) mit IP-Adresse und Port sowie für die Bereitstellung an den Kodi-Webserver aktiviert.
 
 ## Использование
-### ShowNotif:
+### Benachrichtigung anzeigen:
 Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
 
-**Bild:** Уровень сообщения
+**Bild:** Überraschende Freundschaft
 
-  * 'info' - 0 (Standard),
-  * 'Warnung' - 1,
-  * 'Fehler' - 2.
+* 'info' – 0 (Standard),
+* 'Warnung' - 1,
+* „Fehler“ – 2.
 
-**Anzeigezeit:** Anzeigedauer in Millionen, minimal 1500 bis 30000 Minuten.
+**Anzeigezeit:** Die Dauer der Zuweisung von Konten beträgt in Milligramm, minimal 1500 mal 30000 Millionen.
 
 **Пример:**
 
- * 1;Внимание;Протечка воды;15000
- * Внимание;Протечка воды;2;10000
+* 1;Einnahme;Wasserverbrauch;15000
+* Einstufung;Probewasser;2;10000
  * Внимание;Протечка воды
  * Протечка воды
 
-Mit dieser Funktion können Sie den Javascript-Downloader aufrufen:
+Einige dieser Dinge können auch über Javascript gelöscht werden:
 
 ```js
 sendTo("kodi.0", {
@@ -69,51 +69,51 @@ sendTo("kodi.0", {
 ```
 
 ### SwitchPVR:
-Sperren von PVR-IPTV-Kanälen bei der Suche nach Kanälen auf der Website.
-**Beispiel:** Der Fernsehsender „Discovery Science“ ist auf die Suche nach mehr Informationen zum Thema „Entdecken“ ausgerichtet.
+Schließen Sie PVR-IPTV-Kanäle ab, um den Kanal in Ihrem Browser zu finden.
+**Beispiel:** Der 2V-Kanal - Discovery Science wird als einer der führenden Entwickler dieser Technologie und als Discover bezeichnet.
 
 ### Youtube:
-Um das Video auf der YouTube-Seite zu sehen, müssen Sie den Videocode im aktuellen Status herunterladen. Ab der Version 0.1.5 können Sie die Software auf Video, zusätzlich zum Code oder auf der Wiedergabesoftware herunterladen.
-Beispiel: Um diese [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA) zu öffnen, muss der Status geändert werden - Bvmxr24D4TA
+Um ein Video von einer YouTube-Site zu entfernen, müssen Sie den Videocode in der Datendatei speichern. Beginnen Sie mit der Version 0.1.5 und Sie können den Video-Link sowie den entsprechenden Code oder den vollständigen Link zum Link verwenden.
+Beispiel: Um dieses [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA) anzuzeigen, müssen Sie es unbedingt im Status „Bvmxr24D4TA“ speichern.
 
 ### Offen:
-Es wird eine Liste mit Medikamenteninhalten in Internet-Websites erstellt, die in die lokale Mediendatenbank aufgenommen wurden.
-Nach der Download-Nachricht erfolgt die Weitergabe an den KODI-Benutzer.
+Sie haben einen Link zum Medizinerzentrum in Ihrer Nähe gepostet, der zur lokalen Mediziner-Facebook-Seite führt.
+Nachfolgend finden Sie Hinweise zur Fehlerbehebung beim KODI-Processer.
 
-### Position:
-Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую и KODI тут же перейдет к воспроизведению этой позиции.
+### Stellung:
+Dieser Beitrag wurde am häufigsten gestellt und ich kann ihn auch in diesem Artikel beschreiben. KODI verwendet diese Beschreibung als Referenz für diese Beiträge.
 
 ### Suchen:
-Die folgenden Ergebnisse werden in Prozenten von 0 bis 100 angezeigt.
+Besonders hervorzuheben sind die Anzahl der Sendungen in Bereichen von 0 bis 100.
 
 ### Wiederholen:
 Повтор воспроизведения, принимает следующие значения:
 
-* aus - Повтор воспроизведения отключен
-* on - повтор воспроизведения текущего трека
-* all - повтор всего плейлиста
+* aus - der Ausschalter schaltet aus
+* ein - ein Übersetzer für die Übersetzung des Textes
+* alle - повтор всего плейлиста
 
 ### Mischen:
-Detaillierte Beschreibung des Weges auf der Playlist zur sicheren Weitergabe.
-Bedeutet: wahr und falsch
+Übernehmen Sie die Spezialisierung auf die richtige Verteilung.
+Markiert die Einträge true und false
 
 ### Spielen:
-Start der Anzeige (wahr, falsch)
+Star-Vermittlungsstelle (wahr, falsch)
 
 ### Geschwindigkeit:
-Скорость воспроизведения. Reduzierte Werte (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32) sowie 'Inkrement' und 'Dekrement'
+Sichern Sie die Verfügbarkeit. Effektive Werte (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32) sowie „Inkrement“ und „Dekrement“
 
 ### Verzeichnis:
 Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
 
-### ActivateWindow:
+### Fenster aktivieren:
 Активизирует в проигрывателе окно. Поддерживает следующий список:
 
 ```
 "home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
-### ExecuteAction:
+### Aktion ausführen:
 Можно выполнить одно из следующих действий:
 
 ```
@@ -122,17 +122,21 @@ Start der Anzeige (wahr, falsch)
 ```
 
 ### System:
- - EjectOpticalDrive - Erfasst oder schließt optische Disks (wird nicht angezeigt)
- - Ruhezustand – Ausschalten des Schlafmodus
- - Neustart - Systemwiederherstellung
- - Herunterfahren - System wird ausgeschaltet
- - Suspend – unterstützt Kodi
-
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **ARBEIT IN ARBEIT** -->
+- EjectOpticalDrive – Entfernt oder verschließt optische Laufwerke (wird automatisch gelöscht)
+- Ruhezustand - aktivieren Sie den Ruhezustand
+- Neustart - Wiederherstellungsserver
+- Herunterfahren - klickt auf das System
+- Suspend - aktiviert Kodi
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 3.0.0 (2023-09-08)
 * (agross) Fixed seeking on Kodi >= 19
 * (bluefox) Supported only node.js versions >= 16
@@ -256,6 +260,7 @@ Start der Anzeige (wahr, falsch)
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

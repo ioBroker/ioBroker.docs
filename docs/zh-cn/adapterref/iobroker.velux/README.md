@@ -3,37 +3,48 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.velux/README.md
 title: ioBroker.velux
-hash: 7e92LnjeE0SgrBs2hMe35kLcWdVhbLQF+CYh6a6cLOs=
+hash: dNMaWTk3dVhHLWhtugFae3Avh3GIMG9DZi/pe2tRNnY=
 ---
-![商标](../../../en/adapterref/iobroker.velux/admin/velux.png)
+![标识](../../../en/adapterref/iobroker.velux/admin/velux.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.velux.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.velux.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.velux.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.velux.svg)
 ![依赖状态](https://img.shields.io/david/ta2k/iobroker.velux.svg)
 ![已知漏洞](https://snyk.io/test/github/ta2k/ioBroker.velux/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.velux.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/ta2k/ioBroker.velux/master.svg)
+![新平台](https://nodei.co/npm/iobroker.velux.png?downloads=true)
 
-＃ioBroker.velux
-## IoBroker的velux适配器
-Velux KIX 300的适配器
+# IoBroker.velux
+## Velux 适配器用于 ioBroker
+Velux KIX 300 适配器
 
-##用法
-在模块下输入新的target_position。 Windows仅允许target_position 0。
+＃＃ 用法
+在模块下输入您的新 target_position。Windows 仅允许 target_position 0。
 
 ## Changelog
 
-### 0.0.4
+### 0.0.8
 
-* Improve room assignment
-  
+- Update to latest dependencies
+
+### 0.0.7
+
+- fix js-controller 3.2 and interval problem
+
+### 0.0.6
+
+- fix js-controller 3 problem
+
+### 0.0.5
+
+- Improve room assignment
+
 ### 0.0.2
 
-* add changing target_position for non windows  
-  
+- add changing target_position for non windows
+
 ### 0.0.1
 
-* (ta2k) initial release
+- (ta2k) initial release
 
 ## License
 

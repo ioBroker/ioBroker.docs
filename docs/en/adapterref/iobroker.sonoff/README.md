@@ -122,6 +122,27 @@ States:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.2.1 (2024-10-07)
+
+* (bluefox) Sanitize the IDs of the clients
+
+### 3.2.0 (2024-08-28)
+* (bluefox) Added information about connected clients in the server mode
+
+### 3.1.2 (2024-08-17)
+* (mattreim) updated packages
+
+### 3.1.1 (2024-08-09)
+* (mattreim) updated packages
+
+### 3.1.0 (2024-05-25)
+* Important: Node.js 18.x and js-controller 5.0.19+ are necessary at minimum
+* (mattreim) upgraded states for Tasmota 13.4.0.3 20240402
+* (mattreim) enhanced some log messages
+* (mattreim) Added PWM Items
+* (Apollon77) Fixed QoS handling to prevent invalid resubmissions
+* (Apollon77) Prevent creation of storeMap property in common and cleanup
+
 ### 3.0.3 (2023-09-25)
 * (bluefox/Bettman66) Added migration of password on JSON Config
 
@@ -256,7 +277,7 @@ States:
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

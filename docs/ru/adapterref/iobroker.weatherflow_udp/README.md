@@ -2,61 +2,72 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weatherflow_udp/README.md
-title: Weatherflow UDP
-hash: yxgr2MEMcXFzQZVMqmC5+baOM6kYCy8UA0/+Jotrft4=
+title: UDP-протокол погоды
+hash: hGAfz3t2ag9lo6Hj4I4jq+P26RipTF5tObr5GWVrJwM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weatherflow_udp/admin/weatherflow_udp.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.weatherflow_udp.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.weatherflow_udp.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/weatherflow_udp-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/weatherflow_udp-stable.svg)
-![Статус зависимости](https://img.shields.io/david/woessmich/iobroker.weatherflow_udp.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.weatherflow_udp?style=flat-square)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.weatherflow_udp?label=npm%20downloads&style=flat-square)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.weatherflow_udp?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.weatherflow_udp?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/woessmich/iobroker.weatherflow_udp?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/woessmich/iobroker.weatherflow_udp?logo=github&style=flat-square)
 ![Известные уязвимости](https://snyk.io/test/github/woessmich/ioBroker.weatherflow_udp/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.weatherflow_udp.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/woessmich/ioBroker.weatherflow_udp/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/woessmich/ioBroker.weatherflow_udp?branch=master&svg=true)
+![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/woessmich/iobroker.weatherflow_udp/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Бета](https://img.shields.io/npm/v/iobroker.weatherflow_udp.svg?color=red&label=beta)
+![Стабильный](http://iobroker.live/badges/weatherflow_udp-stable.svg)
+![Установлено](http://iobroker.live/badges/weatherflow_udp-installed.svg)
 
-# Weatherflow UDP
-** Тесты: **
-
+# UDP-протокол погоды
+## Версии
 ## Адаптер weatherflow_udp для ioBroker
-Приемник Weatherflow UDP Адаптер для приема и анализа [Сообщения UDP] (https://weatherflow.github.io/Tempest/api/udp/v143/) с интеллектуальных метеостанций [Weatherflow] (www.weatherflow.com), таких как [Weatherflow Tempest](https://weatherflow.com/tempest-weather-system/).
-Адаптер также должен уметь анализировать старые станции, такие как «Air» и «Sky» (но это не проверено).
-Стандартный порт, который прослушивает adpater, - 50222, но его можно изменить в настройке.
+Адаптер приемника Weatherflow UDP для приема и анализа [UDP-сообщения](https://weatherflow.github.io/Tempest/api/udp/v143/) от [Weatherflow](www.weatherflow.com) умные метеостанции, такие как [Weatherflow Tempest](https://weatherflow.com/tempest-weather-system/).
+Адаптер должен уметь анализировать и старые станции, такие как "Air" и "Sky" (но это не проверено).
+Стандартный порт, который слушает адаптер, — 50222, но его можно изменить в настройках.
 
 ## Настройки
 Адаптер предоставляет минимальный набор параметров настройки.
-Порт прослушивания может быть изменен, что не требуется, поскольку порт, отправляемый концентратором метеостанции, не может быть изменен, насколько мне известно.
+Порт прослушивания можно изменить, что не должно быть обязательным, поскольку порт, на который отправляет данные концентратор метеостанции, изменить нельзя, насколько мне известно.
 
-Высота станции в метрах над уровнем моря используется для расчета пониженного давления на основе местного давления, предоставляемого станцией. Просто используйте ту же высоту, что и в приложении. В зависимости от используемой формулы могут быть небольшие отличия от значения пониженного давления в приложении. Адаптер использует формулу, которую использует немецкий погодный сервис DWD (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; nur noch [его](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
+Высота станции в метрах над уровнем моря используется для расчета пониженного давления из местного давления, которое предоставляется станцией. Просто используйте ту же высоту, что введена в приложении. Могут быть небольшие различия по сравнению с пониженным давлением в приложении в зависимости от используемой формулы. Адаптер использует формулу, которую использует немецкая метеорологическая служба DWD (http://dk0te.ba-ravensburg.de/cgi-bin/navi?m=WX_BAROMETER; nur noch [здесь](https://www.symcon.de/forum/threads/6480-Relativen-Luftdruck-aus-absoluten-Luftdruck-errechnen)).
 
-Когда установлен флажок отладки, адаптер создает большой объем вывода в файле журнала. Следует использовать только для отладки.
+Если флажок отладки установлен, адаптер создает много выходных данных в файле журнала. Следует использовать только для отладки.
 
 ## Данные и состояния по погодным потокам
-Адаптер предоставляет все параметры, которые отправляются по протоколу UDP. Состояния отображаются в дереве под идентификатором концентратора и станции. <b>Внимание</b> : при отправке данных в базы данных для долгосрочного архивирования следует использовать псевдонимы для состояний, чтобы не потерять серию, если блок нуждается в замене. Есть некоторые отличия от того, что предоставляет Tempest-App, поскольку приложение получает уже обработанные данные обратно с серверов weatherflow. При достаточном заряде батареи данные &quot;device_status&quot; и &quot;obs_st&quot; обновляются каждую минуту, &quot;rapid_wind&quot; обновляется каждые 3 секунды. «evt_precip» и «evt_strike» обновляются (и создаются) только тогда, когда они происходят. &quot;hub_status&quot; обновляется каждые 10 секунд. Значения, рассчитанные станцией и адаптером (см. Ниже), создаются только при получении или сроке для расчета. Это означает, что может потребоваться до 24 часов, чтобы увидеть все, кроме событий начала дождя и удара молнии, которые могут появиться через несколько дней, недель, месяцев ;-)
+Адаптер предоставляет все параметры, которые отправляются по протоколу UDP. Состояния находятся в дереве под идентификатором концентратора и станции. <b>Внимание</b> : при отправке данных в базы данных для долгосрочного архивирования следует использовать псевдонимы для состояний, чтобы не потерять ряд, если блоку требуется замена. Существуют некоторые отличия от того, что предоставляет Tempest-App, поскольку приложение получает уже обработанные данные обратно с серверов weatherflow. При достаточном заряде батареи данные &quot;device_status&quot; и &quot;obs_st&quot; обновляются каждую минуту, &quot;rapid_wind&quot; обновляется каждые 3 секунды. &quot;evt_precip&quot; и &quot;evt_strike&quot; обновляются (и создаются) только тогда, когда они происходят. &quot;hub_status&quot; обновляется каждые 10 секунд. Значения от станции и адаптера, рассчитанные (см. ниже), создаются только тогда, когда они получены или подлежат расчету. Это означает, что может потребоваться до 24 часов, чтобы увидеть все, за исключением событий начала дождя и удара молнии, которые могут появиться в течение дней, недель, месяцев ;-)
 
-## Расчетные состояния адаптера
-В дополнение к данным, предоставленным системой, адаптер вычисляет некоторые дополнительные данные, все из которых имеют суффикс имени «адаптер вычислен»:
+## Адаптер вычисляет состояния
+В дополнение к данным, предоставляемым системой, адаптер вычисляет некоторые дополнительные данные, все из которых имеют суффикс «adaptercalculated» (вычислено адаптером):
 
-- Средний ветер, порывы и затишье в [Бофорте] (https://en.wikipedia.org/wiki/Beaufort_scale)
-- точка росы рассчитывается по температуре и влажности
-- похоже на температуру, рассчитанную на основе температуры, влажности и среднего ветра. В зависимости от температуры и ветра, температуры или влажности отображается либо просто температура воздуха, либо [холодный ветер] (https://en.wikipedia.org/wiki/Wind_chill) или [индекс тепла] (https://en.wikipedia. org / wiki / Heat_index).
-- Количество и продолжительность осадков, а также [продолжительность солнечного сияния] (https://en.wikipedia.org/wiki/Sunshine_duration) (> = 120 Вт / м2) указаны для текущего и прошедшего часа, а также сегодня и вчера. Использование предыдущего часа и вчерашнего дня позволяет легко сохранять данные об изменении значений в базе данных.
-- Интенсивность осадков представлена по этой шкале: нет (0): 0 мм / час; очень легкий (1):> 0, <0,25 мм / час; свет (2): ≥ 0,25, <1,0 мм / час; умеренный (3): ≥ 1,0, <4,0 мм / час; тяжелые (4): ≥ 4,0, <16,0 мм / час; очень тяжелые (5): ≥ 16,0, <50 мм / час; крайний (6):> 50,0 мм / час
-- Дождь также отображается как логическое состояние (истина, ложь) в команде gap_evt. Будет установлено значение true, если получено событие об осадках и если значение осадков> 0. Через 3 минуты он сбрасывается, если дождь больше не идет
-- Солнечный свет также отображается как логическое состояние: истина, если> = 120 Вт / м2, и ложь, если меньше.
-- Направление ветра в кардинальных буквах (NSWE), рассчитанное по направлению ветра в градусах.
+- Ветер средний, порывистый и затишье в [шкале Бофорта](https://en.wikipedia.org/wiki/Beaufort_scale)
+- точка росы рассчитывается на основе температуры и влажности
+- ощущается как температура, рассчитанная из температуры, влажности и среднего ветра. В зависимости от температуры и ветра или температуры или влажности отображается только температура воздуха или рассчитывается [индекс охлаждения ветром](https://en.wikipedia.org/wiki/Wind_chill) или [индекс тепла](https://en.wikipedia.org/wiki/Heat_index).
+- Количество и продолжительность осадков, а также [продолжительность солнечного сияния](https://en.wikipedia.org/wiki/Sunshine_duration) (>= 120 Вт/м2) предоставляются для текущего и прошедшего часа, а также для сегодняшнего и вчерашнего дня. Использование предыдущего часа и вчерашнего дня позволяет легко сохранять данные в базе данных об изменении значений.
+- Интенсивность осадков указывается по следующей шкале: отсутствуют (0): 0 мм/час; очень слабые (1): > 0, < 0,25 мм/час; слабые (2): ≥ 0,25, < 1,0 мм/час; умеренные (3): ≥ 1,0, < 4,0 мм/час; сильные (4): ≥ 4,0, < 16,0 мм/час; очень сильные (5): ≥ 16,0, < 50 мм/час; экстремальные (6): > 50,0 мм/час
+- Дождь также отображается как логическое состояние (true, false) в precip_evt. Он будет установлен в true, если получено событие осадков и если значение осадков >0. Через 3 минуты он сбрасывается, если дождь больше не идет
+- Солнечный свет также отображается как логическое состояние true, если >= 120 Вт/м2, и false, если меньше
+- Направление ветра по сторонам света (NSWE), рассчитанное по направлению ветра в градусах.
 
-Далее в адаптере предусмотрена подборка полезных минимальных и максимальных значений параметров на сегодня и вчера.
+Кроме того, адаптер предоставляет выборку полезных минимальных и максимальных значений параметров за сегодня и вчера.
 
-- sensor_status в виде текста, чтобы легко увидеть, какой датчик (и) вышел из строя, если это произойдет.
-- Из битов sensor_status извлекается режим мощности (экспериментальный)
+- sensor_status в виде текста, чтобы легко увидеть, какой датчик(и) вышел из строя, если это произойдет.
+- Из битов sensor_status извлекается режим питания (экспериментально)
 
-## Расстояние до молнии
-Протокол отправляет молнию на расстоянии 0, если молния не обнаружена. Значения 0 изменяются на 999, чтобы избежать впечатления, что удары молнии находятся прямо над головой.
+## Расстояние молнии
+Протокол отправляет расстояние молнии 0, когда молния не обнаружена. Значения 0 изменяются на 999, чтобы избежать впечатления, что удары молнии происходят прямо над головой.
 
 ## Changelog
+
+### 0.1.4
+(womi) updated to reflect latest requirements on dependencies, node.js, js-controller etc.
+### 0.1.3 
+(Scrounger) calculation of absolute humidity added
+### 0.1.2
+(womi) Update js-controller >3.0.0; checked compatibility with js-controller 4.0 
 ### 0.1.1
 (womi) Fixed "invalid date" in timestamps 
 ### 0.1.0
@@ -64,8 +75,6 @@ hash: yxgr2MEMcXFzQZVMqmC5+baOM6kYCy8UA0/+Jotrft4=
 
 ## License
 MIT License
-
-Copyright (c) 2021 womi <woessmich@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -84,3 +93,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2024 womi <woessmich@gmail.com>

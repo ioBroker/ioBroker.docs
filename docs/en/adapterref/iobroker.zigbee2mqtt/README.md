@@ -10,8 +10,8 @@
 [![NPM](https://nodei.co/npm/iobroker.zigbee2mqtt.png?downloads=true)](https://nodei.co/npm/iobroker.zigbee2mqtt/)
 
 **Tests:**  
-![Test and Release](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/workflows/Test%20and%20Release/badge.svg)
-![CodeQL](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/actions/workflows/codeql.yml/badge.svg?branch=main)
+![Test and Release](https://github.com/arteck/ioBroker.zigbee2mqtt/workflows/Test%20and%20Release/badge.svg)
+![CodeQL](https://github.com/arteck/ioBroker.zigbee2mqtt/actions/workflows/codeql.yml/badge.svg?branch=main)
 
 ## zigbee2mqtt adapter for ioBroker
 
@@ -19,22 +19,77 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ## Adapter Documentation
 
-[Adapter Documentation](./docs/wiki.md)
+[Adapter Documentation](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/wiki.md)
 
 ## Changelog
+### 3.0.8 (2025-06-08)
+-   (arteck) fix device is deleted
+-   (arteck) fix translation
 
-<!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
-    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
-    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+### 3.0.7 (2025-06-07)
+-   (arteck) fix jsonconf
+
+### 3.0.6 (2025-05-31)
+-   (arteck) settings restructure
+-   (arteck) fix icon not found message
+
+### 3.0.5 (2025-05-29)
+-   (arteck) add additional folder for some devices (like smoke detector)
+-   (arteck) state.js cleanup
+-   (arteck) set available State to true if device message include last_seen status
+
+### 3.0.4 (2025-05-11)
+-   (arteck) update admin
+
+### 3.0.3 (2025-02-03)
+-   (arteck) corr illuminance (del illuminance_raw)
+-   (arteck) indicator.alarm.flood
+
+### 3.0.2 (2025-01-06)
+-   (simateck) corr WebSocket connection
+
+### 3.0.1 (2025-01-04)
+-   (arteck) corr icon download
+
+### 3.0.0 (2025-01-04)
+-   (arteck) adaptation z2m 2.x
+
+### 2.13.11 (2024-10-17)
+-   (arteck) corr package.json
+
+### 2.13.10 (2024-09-05)
+-   (arteck) update dependecy
+-   (arteck) add available object for groups
+
+### 2.13.9 (2024-05-13)
+-   (arteck) fix lint
+-   (arteck) update dependecy
+
+### 2.13.9 (2024-05-13)
+-   (arteck) fix lint
+-   (arteck) update dependecy
+
+### 2.13.8 (2024-05-13)
+-   (arteck) fix icon path
+
+### 2.13.7 (2024-04-20)
+-   (arteck) core dependecy
+-   (arteck) update dependecy
+-   (pepp86) Enable occupancy to be always updated if true
+
+### 2.13.6 (2024-03-11)
+-   (arteck) update dependecy
+
+### 2.13.5 (2024-02-02)
+-   (arteck) fixed mqttClient.end()
+
+### 2.13.4 (2023-12-17)
+
+-   (o0shojo0o) fixed unnecessary warning for special value ([269](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/269))
+
 ### 2.13.3 (2023-10-10)
 
--   (o0shojo0o) fixed devices erroneous offline indication ([#255](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/255))
+-   (o0shojo0o) fixed devices erroneous offline indication ([#255](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/255))
 
 ### 2.13.2 (2023-09-30)
 
@@ -46,10 +101,10 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.13.0 (2023-09-07)
 
--   (o0shojo0o) added state `info.coordinator_check` ([#247](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/247))
--   (o0shojo0o) added state `info.missing_routers` ([#247](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/247))
--   (o0shojo0o) added state `info.missing_routers_count` ([#247](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/247))
--   (o0shojo0o) added option `Automatic check for missing routers in the coordinator memory` ([#247](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/247))
+-   (o0shojo0o) added state `info.coordinator_check` ([#247](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/247))
+-   (o0shojo0o) added state `info.missing_routers` ([#247](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/247))
+-   (o0shojo0o) added state `info.missing_routers_count` ([#247](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/247))
+-   (o0shojo0o) added option `Automatic check for missing routers in the coordinator memory` ([#247](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/247))
 
 ### 2.12.0 (2023-09-05)
 
@@ -61,7 +116,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 -   (o0shojo0o) device images from Meta-Storage added to the object 
 -   (o0shojo0o) device images from Meta-Storage auto resize to 28x28 pixel for smaller object
 -   (o0shojo0o) added option `Download device images from Zigbee2Mqtt and use them as object icons.`
--   (o0shojo0o) fixed Hue_Move ([#223](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/223))
+-   (o0shojo0o) fixed Hue_Move ([#223](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/223))
 -   (o0shojo0o) added option `Generate simple 'Hold' and 'Release' states`
 -   (o0shojo0o) added option `Generate simple 'Move' and 'Stop' states`
 -   (o0shojo0o) added option `Generate simple 'Press' and 'Release' states`
@@ -73,8 +128,8 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 ### 2.10.0 (2023-08-12)
 
 -   (o0shojo0o) optimisation for the MQTT connection  
--   (o0shojo0o) fixed for MQTT output type: attribute_and_json ([#87](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/87))
--   (o0shojo0o) added support for external MQTT-Server credentials ([#148](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/148))
+-   (o0shojo0o) fixed for MQTT output type: attribute_and_json ([#87](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/87))
+-   (o0shojo0o) added support for external MQTT-Server credentials ([#148](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/148))
   	- *After update, Websocket Auth-Token must be set again, if used.*
 
 ### 2.9.0 (2023-07-21)
@@ -83,12 +138,12 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.8.0 (2023-07-19)
 
--   (o0shojo0o) added WSS support for websoket connection ([#191](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/191))
+-   (o0shojo0o) added WSS support for websoket connection ([#191](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/191))
 -   (o0shojo0o) small fixes
 
 ### 2.7.5 (2023-04-08)
 
--   (o0shojo0o) added state `last_seen` contains date/time of last Zigbee message ([#131](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/131))
+-   (o0shojo0o) added state `last_seen` contains date/time of last Zigbee message ([#131](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/131))
 
 ### 2.7.4 (2023-03-05)
 
@@ -104,37 +159,37 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.7.1 (2023-01-24)
 
--   (o0shojo0o) added option for use folder description
--   (o0shojo0o) use the iobroker device folder description for device description or events
+-   (arteck) added option for use folder description
+-   (arteck) use the iobroker device folder description for device description or events
 
 ### 2.7.0 (2023-01-18)
 
--   (o0shojo0o) added support for  wildcard actions (eg. *_single) ([#116](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/116))
+-   (o0shojo0o) added support for  wildcard actions (eg. *_single) ([#116](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/116))
 -   (o0shojo0o) added error handling optimizations ([more](https://github.com/ioBroker/ioBroker.repositories/pull/1976#issuecomment-1382038679))
--   (o0shojo0o) added option `auth_token` for websocket connection ([#112](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/112))
+-   (o0shojo0o) added option `auth_token` for websocket connection ([#112](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/112))
 -   (o0shojo0o) websocket timeout increased
 
 ### 2.6.0 (2023-01-10)
 
--   (o0shojo0o) added state `transition` for transition overwrite (-1 disabled overwrite) ([#101](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/101))
--   (o0shojo0o) consideration of the description when creating the friendly name ([#105](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/105))
--   (o0shojo0o) added state `effect` for groups ([#101](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/101))
+-   (o0shojo0o) added state `transition` for transition overwrite (-1 disabled overwrite) ([#101](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/101))
+-   (o0shojo0o) consideration of the description when creating the friendly name ([#105](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/105))
+-   (o0shojo0o) added state `effect` for groups ([#101](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/101))
 -   (o0shojo0o) fixed state contact
 -   (o0shojo0o) added handling for disabled devices
 
 ### 2.5.0 (2023-01-02)
 
 -   (o0shojo0o) added option `Brightness step should also turn the light on or off`
--   (o0shojo0o) added handling of `brightness_step` ([#96](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/96))
--   (o0shojo0o) states processing more flexible designed ([#94](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/94))
+-   (o0shojo0o) added handling of `brightness_step` ([#96](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/96))
+-   (o0shojo0o) states processing more flexible designed ([#94](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/94))
 
 ### 2.4.5 (2022-12-20)
 
--   (o0shojo0o) extend `text` for `action` ([#84](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/84))
+-   (o0shojo0o) extend `text` for `action` ([#84](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/84))
 
 ### 2.4.4 (2022-12-06)
 
--   (o0shojo0o) better state identification ([#79](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/79))
+-   (o0shojo0o) better state identification ([#79](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/79))
 
 ### 2.4.3 (2022-11-23)
 
@@ -142,7 +197,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.4.2 (2022-11-20)
 
--   (o0shojo0o) added correct handling of `move_to_saturation`, `hue_move` and `brightness_move_to_level` ([#68](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/68))
+-   (o0shojo0o) added correct handling of `move_to_saturation`, `hue_move` and `brightness_move_to_level` ([#68](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/68))
 -   (o0shojo0o) fixed when `friendly_name` `/` contains
 
 ### 2.4.1 (2022-11-16)
@@ -151,10 +206,10 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.4.0 (2022-11-08)
 
--   (o0shojo0o) fixed for devices with multiple endpoints ([#57](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/57)).
+-   (o0shojo0o) fixed for devices with multiple endpoints ([#57](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/57)).
 -   (o0shojo0o) added option `Brightness move should also turn the light on or off`
 -   (o0shojo0o) added state toggle for groups 
--   (o0shojo0o) more dynamic during data point creation ([#48](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/48)).
+-   (o0shojo0o) more dynamic during data point creation ([#48](https://github.com/arteck/ioBroker.zigbee2mqtt/issues/48)).
 
 ### 2.3.0 (2022-10-30)
 
@@ -207,7 +262,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 -   (o0shojo0o) automatically set button actions back to false
 -   (o0shojo0o) added support for Zigbee2MQTT feature simulated_brightness
 -   (o0shojo0o) added config check
--   (arteck) added log output about coordinator details
+-   (o0shojo0o) added log output about coordinator details
 
 ### 0.2.0 (2022-10-04)
 
@@ -216,9 +271,9 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 -   (o0shojo0o) remove available logic, now will use the information from z2m
 -   (o0shojo0o) rename noLogDevices to logfilter
 -   (o0shojo0o) lots of bugfixes
--   (arteck) added noLogDevices functionality
--   (arteck) added debugmessage for specific device functionality
--   (arteck) added some states are default false
+-   (o0shojo0o) added noLogDevices functionality
+-   (o0shojo0o) added debugmessage for specific device functionality
+-   (o0shojo0o) added some states are default false
 -   (o0shojo0o) added support for scenes defined on a device
 -   (o0shojo0o) fixed available state role
 -   (o0shojo0o) fixed edsubscribeWritableStates
@@ -231,7 +286,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

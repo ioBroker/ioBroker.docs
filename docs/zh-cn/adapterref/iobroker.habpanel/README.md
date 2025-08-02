@@ -2,36 +2,36 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.habpanel/README.md
-title: ioBroker.habpanel
-hash: LQ+bSxPyPWV8TE+RtEIB/MJ9/cWlzUQ1dv6yj5LrkU8=
+title: ioBroker.hab面板
+hash: G/cOschXC8jAPiCjmmT9GPZV7hQcje1laNp5SGBBBNs=
 ---
-![商标](../../../en/adapterref/iobroker.habpanel/admin/habpanel.png)
+![标识](../../../en/adapterref/iobroker.habpanel/admin/habpanel.png)
 
 ![安装数量](http://iobroker.live/badges/habpanel-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.habpanel.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.habpanel.svg)
-![新PM](https://nodei.co/npm/iobroker.habpanel.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.habpanel.png?downloads=true)
 
 # IoBroker.habpanel
 HABPanel 是基于 OpenHAB HABpanel 的 ioBroker 轻量级仪表板界面。
 
-它特别具有嵌入式仪表板设计器，允许在目标设备上轻松构建界面。
+其显著特点是嵌入式仪表板设计器，允许在目标设备上轻松构建界面。
 
 ＃＃ 安装
-**重要！** 此适配器无法直接从 GitHub 安装。仅来自 npm。
+**重要！** 此适配器不能直接从 GitHub 安装。只能从 npm 安装。
 
 ＃＃ 入门
-- 在新的浏览器或设备上首次访问 HABPanel 时，您应该看到一个相当空白的屏幕 - 按照教程并通过单击（或点击）右上角的图标开始。
-- 您现在处于编辑模式，出现了一个链接（_“添加新仪表板”_），以及一个 _“高级设置”_ 链接。
-- 如果您之前使用 HABPanel 并在服务器上存储了一些面板配置，请转到_“高级设置”_ 并单击您之前的配置 - 它会立即恢复。或者，创建您的第一个仪表板：单击/点击_“添加新仪表板”_ 链接并为其命名。
-- 单击/点击仪表板磁贴以进入仪表板编辑器
-- 添加您的第一个小部件：选择_“添加小部件”_ 菜单并选择一个小部件类型（假设是 Dummy - 一个显示项目状态的简单小部件）
-- 通过拖放移动小部件并使用白色 V 形调整其大小 - 单击小部件时会出现
-- 点击小部件右上角的三个点以调出其上下文菜单并选择_“编辑...”_
+- 首次在新浏览器或设备上访问 HABPanel 时，您应该看到一个相当空白的屏幕 - 按照教程并首先单击（或点击）右上角的图标。
+- 您现在处于编辑模式，出现一个链接（“添加新仪表板”）以及一个“高级设置”链接。
+- 如果您之前使用过 HABPanel 并在服务器上存储了一些面板配置，请转到“高级设置”并单击您之前的配置 - 它将立即恢复。或者，创建您的第一个仪表板：单击/点击“添加新仪表板”链接并为其命名。
+- 单击/点击仪表板图块以进入仪表板编辑器
+- 添加您的第一个小部件：选择“添加小部件”菜单并选择一个小部件类型（比如说“虚拟”——一个显示项目状态的简单小部件）
+- 通过拖放移动小部件，并使用白色 V 形图标调整其大小 - 单击小部件时会出现该图标
+- 点击小部件右上角的三个点以调出其上下文菜单并选择“编辑...”
 - 调整一些设置（名称、openHAB 项目等）并确认您的更改
-- 通过单击/点击_保存_按钮保存您的配置
-- 单击/点击 _Run_ 以查看您的仪表板 - 使用浏览器的后退按钮或箭头返回绘图板
-- 对仪表板集感到满意后，返回_“高级设置”_，然后单击/点击_“将当前配置保存到新面板配置”_；这会将其存储在如上所述的 openHAB 2 服务器上，并使其可供重用。
+- 点击/轻触“保存”按钮保存您的配置
+- 单击/点击“运行”即可查看仪表板的运行情况 - 使用浏览器的后退按钮或箭头返回绘图板
+- 对仪表板设置满意后，返回“高级设置”，然后单击/点击“将当前配置保存到新面板配置”；这会将其存储在如上所述的 openHAB 2 服务器上，并可供重复使用。
 
 ## 截图
 ![](../../../en/adapterref/iobroker.habpanel/doc/images/habpanel_screenshot0.png)
@@ -48,11 +48,15 @@ HABPanel 是基于 OpenHAB HABpanel 的 ioBroker 轻量级仪表板界面。
 
 ![](../../../en/adapterref/iobroker.habpanel/doc/images/habpanel_screenshot6.png)
 
-<!-- 下一个版本的占位符（在行首）：
-
-### __工作进行中__ -->
-
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### __WORK IN PROGRESS__
+-   (mcm1957) Adapter requires nodeJS >=18 and js-controller >= 5 now.
+-   (mcm1957) Dependencies have been updated.
+
 ### 0.5.0 (2022-02-16)
 * (jogibear9988) added on support for new websockets
 
@@ -97,6 +101,7 @@ HABPanel 是基于 OpenHAB HABpanel 的 ioBroker 轻量级仪表板界面。
 * (bluefox) initial commit
 
 ## License
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright 2017-2022 bluefox <dogafox@gmail.com>
 
 Eclipse Public License

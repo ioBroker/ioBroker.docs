@@ -9,14 +9,16 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.simple-api.svg)](https://www.npmjs.com/package/iobroker.simple-api)
 
-This is RESTFul interface to read the objects and states from ioBroker and to write/control the states over HTTP Get/Post requests.
+This is a RESTFul interface to read the objects and states from ioBroker and to write/control the states over HTTP Get/Post requests.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+**Use better [`ioBroker.rest-api`](https://github.com/ioBroker/ioBroker.rest-api) instead of this adapter.**
 
 ## Usage
 Call in browser `http://ipaddress:8087/help` to get the help about API. The result is:
 
-```
+```json
 {
   "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID",
   "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID?json",
@@ -74,7 +76,7 @@ Call e.g.:
 `http://ipaddress:8087/get/system.adapter.admin.0.alive`
 
 Result:
-```
+```json
 {"val":true,"ack":true,"ts":1442432193,"from":"system.adapter.admin.0","lc":1442431190,"expire":23437,"_id":"system.adapter.admin.0.alive","type":"state","common":{"name":"admin.0.alive","type":"boolean","role":"indicator.state"},"native":{}}
 ```
 
@@ -84,7 +86,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ```
 
 Result:
-```
+```json
 {
   "val": true,
   "ack": true,
@@ -104,23 +106,19 @@ Result:
 ```
 
 ### getBulk
-Get many states with one request, returned as array of objects in order of list in request and id/val/ts as sub-object
+Get many states with one request, returned as an array of objects in order of a list in request and id/val/ts as a sub-object
 
 ### set
-Call e.g.:
-```
-http://ipaddress:8087/set/javascript.0.test?value=1
-```
+Call e.g.: `http://ipaddress:8087/set/javascript.0.test?value=1`
+
 Result:
-```
+```json
 {"id":"javascript.0.test","value":1}
 ```
-or call e.g.:
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint
-```
+or call e.g.: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
+
 Result:
-```
+```json
 {
   "id": "javascript.0.test",
   "value": 1
@@ -128,17 +126,9 @@ Result:
 ```
 Of course the data point `javascript.0.test` must exist.
 
-Additionally, the type of value could be defined:
+Additionally, the type of value could be defined: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
 
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string
-```
-
-and ack flag could be defined too:
-
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
-```
+and an acknowledgment flag could be defined too: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
 
 ### toggle
 Toggles value:
@@ -150,15 +140,19 @@ Toggles value:
 ### setBulk
 Set many states with one request. This request supports POST method too, for POST data should be in body and not URL.
 
+Please use content type `text/plain` for that.
+
 ### setValueFromBody
-Allows to set the value of a given State be set by the POST body content.
+This command allows setting the value of a given state to be set by the POST body content.
 
 Call e.g.:
 `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state`
 with body `hello` where `0_userdata.0.example_state` is the ID of the state.
 
+Please use content type `text/plain` for that.
+
 ### objects
-Read objects of defined type from DB.
+Read objects of a defined type from DB.
 
 Call e.g.:
 `http://ipaddress:8087/objects?pattern=enum.*&type=enum` - to read all enums
@@ -170,7 +164,7 @@ or
 ### states
 
 ### search
-Is a data source (History, SQL) in the configuration is set, then only the data points known to the data source are listed.
+If a data source (History, SQL) in the configuration is set, then only the data points known to the data source are listed.
 If the option 'List all data points' has been activated or no data source has been specified, all data points will be listed.
 This command is needed for the Grafana JSON / SimpleJSON Plugin.
 
@@ -181,15 +175,10 @@ This command is needed for the Grafana JSON / SimpleJSON Plugin.
 ### help
 Gives [this](#usage) output back
 
-
-## Install
-
-```node iobroker.js add simple-api```
-
 ## Usage
 Assume, we have no security and the server runs on default port 8087.
 
-For all queries the name or id of the state can be specified.
+For all queries, the name or id of the state can be specified.
 
 For every request that returns JSON you can set parameter `prettyPrint` to get the output in human-readable form.
 
@@ -198,25 +187,22 @@ If authentication is enabled, two other fields are mandatory: `?user=admin&pass=
 ### getPlainValue
 Read state value as text. You can specify more ids divided by semicolon
 
-```http://ip:8087/getPlainValue/admin.0.memHeapTotal```
+`http://ip:8087/getPlainValue/admin.0.memHeapTotal` => `31.19`
 
-```
-  31.19
-```
+`http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed` =>
 
-```http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed```
 ```
   31.19
   17.52
 ```
 
 ### get
-Read state and object data of state as json. You can specify more ids divided by semicolon.
-If more than one ID requested, the JSON array will be returned.
+Read state and object data of state as JSON. You can specify more ids divided by semicolon.
+If more than one ID is requested, the JSON array will be returned.
 
-```http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint```
+`http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint` =>
 
-```
+```json
   {
     "val": 31.19,
     "ack": true,
@@ -243,8 +229,9 @@ If more than one ID requested, the JSON array will be returned.
   }
 ```
 
-```http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
-```
+`http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint` =>
+
+```json
   [
     {
       "val": 31.19,
@@ -301,9 +288,9 @@ If more than one ID requested, the JSON array will be returned.
 Read the states of more IDs with timestamp. You can specify more ids divided by semicolon.
 The JSON array will be returned always.
 
-```http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
+`http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint` =>
 
-```
+```json
   {
       "admin.0.memHeapTotal": {
           "val": 31.19,
@@ -319,15 +306,19 @@ The JSON array will be returned always.
 ### set
 Write the states with specified IDs. You can specify *wait* option in milliseconds to wait for answer from driver.
 
-```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint```
-```{
+`http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint` =>
+
+```json
+{
        "id": "hm-rpc.0.IEQ12345.LEVEL",
        "value": 1
      }
 ```
 
-```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint```
-```{
+`http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint` =>
+
+```json
+{
        "val": 1,
        "ack": true,
        "ts": 1423155399,
@@ -336,14 +327,15 @@ Write the states with specified IDs. You can specify *wait* option in millisecon
      }
 ```
 
-If no answer will be received in specified time, the `null` value will be returned.
+If no answer is received in specified time, the `null` value will be returned.
 In the first case the answer will be returned immediately and `ack` is false. In the second case `ack` is true. That means it was response from driver.
 
 ### setBulk
-- write bulk of IDs in one request.
+- write the bulk of IDs in one request.
 
-```http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint```
-```
+`http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint` =>
+
+```json
   [
     {
       "id": "hm-rpc.0.FEQ1234567:1.LEVEL",
@@ -354,13 +346,14 @@ In the first case the answer will be returned immediately and `ack` is false. In
     }
   ]
 ```
-You can send this request as POST too.
+You can send this request as POST too. Please use content type `text/plain` and put the data in the body.
 
 ### objects
-Get the list of all objects for pattern. If no pattern specified  all objects as JSON array will be returned.
+Get the list of all objects for pattern. If no pattern is specified, all objects as JSON array will be returned.
 
-```http://ip:8087/objects?prettyPrint```
-```
+`http://ip:8087/objects?prettyPrint` =>
+
+```json
   {
   "system.adapter.admin.0.uptime": {
     "_id": "system.adapter.admin.0.uptime",
@@ -397,8 +390,9 @@ Get the list of all objects for pattern. If no pattern specified  all objects as
 ```
 
 Get all control objects of adapter system.adapter.admin.0:
-```http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint```
-```
+`http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
+
+```json
     {
     "system.adapter.admin.0.uptime": {
       "_id": "system.adapter.admin.0.uptime",
@@ -416,10 +410,11 @@ Get all control objects of adapter system.adapter.admin.0:
 ```
 
 ### states
-Get the list of all states for pattern. If no pattern specified all states as JSON array will be returned.
+Get the list of all states for pattern. If no pattern is specified, all states as JSON array will be returned.
 
-```http://ip:8087/states?prettyPrint```
-```
+`http://ip:8087/states?prettyPrint` =>
+
+```json
   {
     "system.adapter.admin.0.uptime": {
       "val": 32176,
@@ -447,8 +442,9 @@ Get the list of all states for pattern. If no pattern specified all states as JS
 
 Get all control objects of adapter system.adapter.admin.0:
 
- ```http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint```
-```
+`http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint` =>
+
+```json
     {
       "system.adapter.admin.0.uptime": {
         "val": 32161,
@@ -498,13 +494,12 @@ Get all control objects of adapter system.adapter.admin.0:
 ```
 
 ### search
-Is a data source (History, SQL) in the configuration is set, then only the data points known to the data source are listed.
+If a data source (History, SQL) in the configuration is set, then only the data points known to the data source are listed.
 If the option 'List all data points' has been activated or no data source has been specified, all data points will be listed.
 
-```
-http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
-```
-```
+`http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint` =>
+
+```json
   {
     "system.adapter.admin.0.outputCount",
     "system.adapter.admin.0.inputCount",
@@ -520,10 +515,11 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ```
 
 ### query
-If a data source (History, SQL) has been specified, the data from the specified data points are read out for the specified period.
+If a data source (History, SQL) is specified, data from the specified data points will be retrieved for the given period.
 
-```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
-```
+`http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
+
+```json
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -564,8 +560,9 @@ If a data source (History, SQL) has been specified, the data from the specified 
 
 If no data source was specified or the noHistory parameter is passed, then only the current value of the data point is read out.
 
-```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true```
-```
+`http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true` =>
+
+```json
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -587,11 +584,75 @@ If no data source was specified or the noHistory parameter is passed, then only 
     }
   ]
 ```
+
+You can use relative time in the query. For example, `dateFrom=-1h` or `dateTo=today`.
+
+The following relative patterns are supported:
+- `hour` or `thisHour` or `this hour` - start of the current hour
+- `last hour` or `lastHour` - start of the previous hour
+- `today` - start of the current day
+- `yesterday` - start of the previous day
+- `week` or `thisWeek` or `this week` - start of the current week
+- `lastWeek` or `last week` - start of the previous week
+- `month` or `thisMonth` or `this month` - start of the current month
+- `lastMonth` or `last month` - start of the previous month
+- `year` or `thisYear` or `this year` - start of the current year
+- `lastYear` or `last year` - start of the previous year
+- `-Nd` - N days ago
+- `-NM` - N months ago
+- `-Ny` - N years ago
+- `-Nh` - N hours ago
+- `-Nm` - N minutes ago
+- `-Ns` - N seconds ago
+
+## CORS
+With option "Allow origin (CORS)" you can set the `Access-Control-Allow-Origin` header to allow requests from other domains.
+
+If you leave it blank, the header will not be set.
+
+## Modifiers
+You can use some options to modify the answer:
+- `prettyPrint` - to get the output in human-readable form
+- `json` - to force the parsing of the value in the `getPlainValue` command
+- `timeRFC3339` - to get the time of timestamps (`ts` and `lc`) in RFC3339 format, like `2019-06-08T01:00:00.000Z`
+- `callback` - response with JSONP format. In `callback=<CALLBACK>` the `CALLBACK` is the name of the callback function
+
+## Authentication
+This adapter supports the following types of authentication:
+- Query parameter `user` and `pass`
+- Basic authentication
+- Oauth2 Bearer token in the header. Read more in the web adapter about how to get tokens.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.7 (2025-06-16)
+* (@GermanBluefox) corrected reading of history data
+
+### 3.0.6 (2025-03-15)
+* (bluefox) Added support for 'Access-Control-Allow-Origin'
+* (bluefox) Removed letsencrypt information
+* (bluefox) Added basic and OAuth2 authentication
+* (bluefox) Implemented JSONP response
+* (bluefox) Implemented relative times for query
+
+### 3.0.5 (2025-03-13)
+* (bluefox) Corrected the indication of running mode in admin
+* (bluefox) Corrected the writing of numeric values
+* (bluefox) Clear cache after 10 minutes
+
+### 3.0.0 (2025-03-09)
+* BREAKING: When the adapter is configured to work as a web extension, no own local port is opened anymore
+* (bluefox) Updated packages
+* (bluefox) Migrated to TypeScript
+* (bluefox) If State/Object not found, the response will be 404 (and not 500)
+* (bluefox) If a user has no permission, the response will be 403 (and not 401)
+
+### 2.8.0 (2024-05-23)
+* (foxriver76) ported to `@iobroker/webserver`
+
 ### 2.7.2 (2022-10-08)
 * (Apollon77) Prepare for future js-controller versions
 
@@ -601,10 +662,10 @@ If no data source was specified or the noHistory parameter is passed, then only 
 
 ### 2.7.0 (2022-05-31)
 * (crycode-de) Allow use of ack flag for setBulk post requests
-* (Apollon77) Return ack flag too on getBulk
+* (Apollon77) Return an ack flag too on getBulk
 
 ### 2.6.5 (2022-04-14)
-* Added support aggregate and count for queries
+* Added support for aggregate and count for queries
 
 ### 2.6.4 (2022-03-17)
 * (Apollon77) Optimize performance, especially when using names instead of object ids
@@ -636,10 +697,10 @@ If no data source was specified or the noHistory parameter is passed, then only 
 * (Apollon77) check that targets are an array for "query" requests (Sentry IOBROKER-SIMPLE-API-F)
 
 ### 2.4.6 (2020-06-11)
-* (Apollon77) Make sure adapter is showing correct error when webserver can not be initialized (Sentry IOBROKER-SIMPLE-API-7)
+* (Apollon77) Make sure that the adapter is showing the correct error when webserver cannot be initialized (Sentry IOBROKER-SIMPLE-API-7)
 
 ### 2.4.5 (2020-05-04)
-* (Apollon77) webserver initialization optimized again to prevent errors with imvalid certificates
+* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
 
 ### 2.4.4 (2020-05-02)
 * (Apollon77) Make sure Permission errors do not crash adapter (Sentry IOBROKER-SIMPLE-API-3)
@@ -751,7 +812,7 @@ If no data source was specified or the noHistory parameter is passed, then only 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

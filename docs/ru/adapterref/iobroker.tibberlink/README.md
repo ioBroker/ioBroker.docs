@@ -3,254 +3,204 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: LT/LhbUF0XVZzj2ztND+GmoRHWjQULtqliGgbKeB0qc=
+hash: ucsrbboNZlZMjao+AU+r2J/q5iskGTbXVBZHtcnYax4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.tibberlink?style=flat-square)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.tibberlink?style=flat-square)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tibberlink?label=npm%20downloads&style=flat-square)
 ![узел-lts](https://img.shields.io/node/v-lts/iobroker.tibberlink?style=flat-square)
 ![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.tibberlink?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/hombach/iobroker.tibberlink?style=flat-square)
 ![Размер репозитория GitHub](https://img.shields.io/github/repo-size/hombach/iobroker.tibberlink?logo=github&style=flat-square)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![Последний коммит GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/hombach/iobroker.tibberlink?logo=github&style=flat-square)
-![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=main&logo=github&style=flat-square)
-![Аппвейор-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)
+![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)
 ![Известные уязвимости SNYK](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)
 ![Бета](https://img.shields.io/npm/v/iobroker.tibberlink.svg?color=red&label=beta)
 ![Стабильный](https://iobroker.live/badges/tibberlink-stable.svg)
-![Установлен](https://iobroker.live/badges/tibberlink-installed.svg)
+![Установлено](https://iobroker.live/badges/tibberlink-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tibberlink.png?downloads=true)
 
 # IoBroker.tibberlink
-[![CodeQL] (https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-anasis.yml/badge.svg)](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml)
 
 ## Версии
 ## Адаптер для использования данных об энергии TIBBER в ioBroker
-Этот адаптер облегчает подключение данных из API вашей учетной записи Tibber для использования в ioBroker, будь то для одного дома или нескольких домов.
+Этот адаптер облегчает подключение данных из API вашей учетной записи Tibber для использования в ioBroker, как для одного дома, так и для нескольких жилых помещений.
+Новая функция: адаптер теперь поддерживает прямое локальное считывание импульсного датчика Tibber через вашу домашнюю сеть, что позволяет осуществлять мониторинг и сбор данных в режиме реального времени, не полагаясь исключительно на облачный API.
 
-Если вы в настоящее время не являетесь пользователем Tibber, я был бы очень признателен, если бы вы использовали мою реферальную ссылку: [Реферальная ссылка Тиббера](https://invite.tibber.com/mu8c82n5).
+Если вы в настоящее время не являетесь пользователем Tibber, я был бы очень признателен, если бы вы могли воспользоваться моей реферальной ссылкой: [Реферальная ссылка Тиббера](https://invite.tibber.com/mu8c82n5).
 
 ## Стандартная конфигурация
 - Начните с создания нового экземпляра адаптера.
-- Вам также потребуется токен API от Tibber, который вы можете получить здесь: [Tibber Developer API](https://developer.tibber.com).
-- Введите свой токен API Tibber в стандартных настройках и настройте хотя бы одну строку для настроек прямой трансляции (выберите «Нет доступно»).
-- Сохраните настройки и выйдите из конфигурации, чтобы перезагрузить адаптер; этот шаг позволяет запрашивать ваш дом(ы) с сервера Tibber.
-- Вернитесь на экран конфигурации и выберите дома, из которых вы хотите получать данные в реальном времени с помощью Tibber Pulse. Вы также можете выбрать дома и отключить ленту (Примечание: это работает, только если оборудование установлено и сервер Tibber проверил соединение с Pulse).
+- Вам также потребуется токен API от Tibber, который можно получить здесь: [Tibber Developer API](https://developer.tibber.com).
+- Введите свой токен API Tibber в стандартных настройках и настройте хотя бы одну строку для параметров прямой трансляции (выберите «Нет доступных»).
+- Сохраните настройки и выйдите из конфигурации, чтобы перезапустить адаптер; этот шаг позволит вашему дому(ам) впервые получить запрос с сервера Tibber.
+- Вернитесь на экран конфигурации и выберите дома, из которых вы хотите получать данные в реальном времени с помощью Tibber Pulse. Вы также можете выбрать дома и отключить канал (Примечание: это работает только в том случае, если установлено оборудование и сервер Tibber проверил подключение к Pulse).
+- Примечание: Если в вашей учетной записи Tibber активно более одного дома, вам придется добавить их все, чтобы избавиться от сообщения об ошибке, вызванной потенциально ненужными домами. Добавьте их все и отключите опции.
+- У вас есть возможность отключить получение данных о ценах на сегодня и завтра, например, если вы собираетесь использовать только прямые трансляции Pulse.
+- При желании вы можете включить извлечение исторических данных о потреблении. Укажите количество наборов данных для часов, дней, недель, месяцев и лет. Вы можете использовать «0», чтобы отключить один или несколько из этих интервалов в зависимости от ваших предпочтений.
+- Примечание: важно помнить о размере набора данных, так как чрезмерно большие запросы могут привести к отсутствию ответа от сервера Tibber. Мы рекомендуем поэкспериментировать с размером набора данных, чтобы обеспечить оптимальную функциональность. Настройка интервалов и номеров наборов данных может помочь найти правильный баланс между получением содержательных данных и поддержанием отзывчивости сервера. Например, 48 — это довольно хорошее количество для часов.
 - Сохраните настройки.
 
 ## Конфигурация калькулятора
 - Теперь, когда соединение Tibber установлено и работает, вы также можете использовать калькулятор для включения дополнительных функций автоматизации в адаптер TibberLink.
 - Калькулятор работает с использованием каналов, каждый из которых связан с выбранным домом.
-- Эти каналы можно активировать или деактивировать в зависимости от соответствующих состояний.
-— Эти состояния предназначены для использования в качестве внешних динамических входных данных для TibberLink, что позволяет вам, например, корректировать предельную стоимость («TriggerPrice») из внешнего источника или отключать канал калькулятора («Активный»).
-- Состояния канала калькулятора располагаются рядом с исходными состояниями и называются в соответствии с номером канала.
+- Эти состояния предназначены для использования в качестве внешних динамических входов для TibberLink, позволяя, например, корректировать предельную стоимость («TriggerPrice») из внешнего источника или включать канал калькулятора («Active»).
+- Эти каналы должны быть активированы или деактивированы в зависимости от соответствующих состояний.
+- Состояния канала калькулятора располагаются рядом с домашними состояниями и именуются в соответствии с номером канала. Таким образом, имя канала, выбранное на экране администратора, отображается здесь для лучшей идентификации ваших конфигураций.
 
-    ![Состояния калькулятора](../../../en/adapterref/iobroker.tibberlink/admin/calculatorStates.png)
+  ![Калькулятор Состояния](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
 
-- Поведение каждого канала определяется его типом: «лучшая стоимость», «лучшие отдельные часы» или «лучший блок часов».
-- Каждый канал заполняет внешнее состояние в качестве выхода, которое необходимо выбрать на вкладке настроек. Например, это состояние может быть «0_userdata.0.example_state» или любым другим доступным для записи внешним состоянием.
-- Значения, которые должны быть записаны в выходное состояние, могут быть определены в «значении ДА» и «значении НЕТ», например, «истина» для логических состояний или числа или текста для записи.
+- Поведение каждого канала определяется его типом: «лучшая стоимость (LTF)», «лучшие отдельные часы (LTF)», «лучший блок часов (LTF)» или «умный буфер батареи».
+- Каждый канал заполняет одно или два внешних состояния в качестве выходных данных, которые должны быть выбраны на вкладке настроек. Например, это состояние может быть "0_userdata.0.example_state" или любое другое записываемое внешнее состояние.
+- Если внешнее выходное состояние не выбрано, будет создано внутреннее состояние в диапазоне канала.
+- Значения, которые должны быть записаны в выходное состояние, могут быть определены как «значение ДА» и «значение НЕТ», например, «истина» для логических состояний или число или текст, которые должны быть записаны.
 - Выходы:
-    - «Лучшая стоимость»: в качестве входных данных используется состояние «TriggerPrice», а выходным сигналом является «ДА» каждый час, когда текущая стоимость энергии Tibber ниже триггерной цены.
-    - «Лучшие отдельные часы»: выходное значение «ДА» в течение самого дешевого количества часов, число которого определяется в состоянии «AmountHours».
-    - «Блок лучших часов»: вывод «ДА» в течение лучшего блока часов, при этом количество часов определяется в состоянии «AmountHours».
+- «Лучшая стоимость»: использует состояние «TriggerPrice» в качестве входных данных, выдавая выход «ДА» каждый час, когда текущая стоимость энергии Tibber ниже цены триггера.
+- «Лучшие отдельные часы»: генерирует вывод «ДА» в течение наименее дорогих часов с числом, указанным в состоянии «AmountHours».
+- «Блок лучших часов»: выводит «ДА» в течение наиболее экономически эффективного блока часов с количеством часов, указанным в состоянии «AmountHours».
 
-## Примечания
-Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, обратитесь к разделу [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry запускаются начиная с js-controller 3.0.
+Дополнительно, средняя общая стоимость в определенном блоке записывается в состояние "AverageTotalCost" рядом с входными состояниями этого канала. Также начальный и конечный час блока записывается в "BlockStartFullHour" и "BlockEndFullHour" как результат расчета.
+
+- «Лучший процент»: выводит «ДА» в течение наименее дорогого часа и любых других часов, когда цена попадает в процентный диапазон, указанный в настройках «Процент».
+- «Лучшая стоимость LTF»: «Лучшая стоимость» в течение ограниченного периода времени (LTF).
+- «Лучшие отдельные часы LTF»: «Лучшие отдельные часы» в течение ограниченного периода времени (LTF).
+- «Блок лучших часов LTF»: «Блок лучших часов» в течение ограниченного периода времени (LTF).
+- «Лучший процент LTF»: «Лучший процент» в течение ограниченного периода времени (LTF).
+- "Smart Battery Buffer": используйте параметр "EfficiencyLoss", чтобы указать потерю эффективности аккумуляторной системы. Параметр "EfficiencyLoss" может иметь значение от 0 до 1, где 0 означает отсутствие потери эффективности, а 1 означает полную потерю эффективности. Например, значение 0,25 указывает на потерю эффективности 25% для цикла заряда/разряда.
+
+Используйте параметр "AmountHours" для ввода желаемого количества часов для зарядки аккумулятора. Калькулятор активирует зарядку аккумулятора ("значение ДА") и деактивирует питание аккумулятора ("значение 2 НЕТ") в течение указанных "AmountHours" самых дешевых часов. И наоборот, он деактивирует зарядку аккумулятора ("значение НЕТ") и активирует питание аккумулятора ("значение 2 ДА") в часы с самой высокой стоимостью, при условии, что стоимость выше самой высокой общей цены среди дешевых часов. В оставшиеся обычные часы, когда буферизация энергии аккумулятором экономически нецелесообразна, оба выхода будут отключены.
+
+- Каналы LTF: они работают аналогично стандартным каналам, но активны только в течение временного интервала, определяемого объектами состояния «StartTime» и «StopTime». После «StopTime» канал автоматически деактивируется. «StartTime» и «StopTime» могут охватывать два календарных дня, поскольку Tibber не предоставляет данные за пределами 48-часового окна. Для обоих состояний требуется строка даты и времени в формате ISO-8601 со смещением часового пояса, например, «2024-12-24T18:00:00.000+01:00». Кроме того, каналы LTF имеют новый параметр состояния, называемый «RepeatDays», который по умолчанию равен 0. Если для «RepeatDays» задано положительное целое число, канал будет повторять свой цикл, увеличивая «StartTime» и «StopTime» на указанное количество дней после достижения «StopTime». Например, установите «RepeatDays» на 1 для ежедневного повторения.
+
+## Конфигурация выходного графика
+Адаптер помогает визуализировать ценовые тенденции и результаты калькулятора. Он обеспечивает три уровня сложности, каждый из которых предлагает различные варианты.
+Эти три метода предоставляют различные варианты визуализации ценовых тенденций и результатов калькулятора. В зависимости от ваших требований вы можете выбрать от простого подхода на основе JSON до полностью настраиваемого решения JavaScript.
+
+### 1. **(В разработке) Визуализация с использованием адаптера "E-Charts"**
+Для этого метода требуется отдельная установка адаптера «E-Charts».
+
+- Можно использовать данные JSON, сгенерированные в разделе «Состояния калькулятора» как «Output-E-Charts».
+- Возможности ограничены ограничениями адаптера E-Charts.
+
+### 2. **Использование адаптера «FlexCharts» (или «Fully Featured eCharts») с JSON**
+Для этого метода требуется отдельная установка адаптера «FlexCharts».
+
+- Адаптер TibberLink создает состояние под названием `jsonFlexCharts`.
+
+    ![jsonFlexChartsState.png](../../../en/adapterref/iobroker.tibberlink/docu/jsonFlexChartsState.png)
+
+- Адаптер FlexCharts отображает это состояние через следующий URL:
+
+```
+http://[YOUR IP of FLEXCHARTS]:8082/flexcharts/echarts.html?source=state&id=tibberlink.0.Homes.[TIBBER-HOME-ID].PricesTotal.jsonFlexCharts
+```
+
+- Более подробную информацию см. в [документации по адаптеру FlexCharts](https://github.com/MyHomeMyData/ioBroker.flexcharts).
+
+#### **Использование шаблона JSON**
+- Состояние `jsonFlexCharts` формируется на основе шаблона, настроенного через редактор JSON в настройках адаптера.
+- **Важно:** встроенный редактор JSON в ioBroker.Admin не поддерживает JSON5, что может приводить к появлению ложных сообщений об ошибках.
+- Образец шаблона можно загрузить с сайта: [TemplateFlexChart01.md](docu/TemplateFlexChart01.md).
+- Скопируйте и вставьте шаблон в редактор JSON.
+- Шаблон содержит заполнители:
+- `%%xAxisData%%` и `%%yAxisData%%` (заполняются информацией о ценах во время выполнения).
+- `%%CalcChannelsData%%` (заполняется данными выбранного канала калькулятора).
+- Остальная часть шаблона соответствует конфигурации Apache ECharts. Для справки см. [Примеры Apache ECharts](https://echarts.apache.org/examples/en/index.html).
+- **Рекомендация:** Протестируйте адаптер TibberLink без реального шаблона, используя строку по умолчанию:
+
+```
+%%xAxisData%%\n\n%%yAxisData%%\n\n%%CalcChannelsData%%
+```
+
+Это помогает понять его функциональность.
+
+- Настройки шаблона можно протестировать на страницах примеров Apache ECharts с использованием данных состояния «Output-E-Charts».
+- Хорошие шаблоны будут распространены в сообществе адаптеров TibberLink.
+
+### 3. **Использование «FlexCharts» с пользовательским кодом JavaScript**
+Для максимальной гибкости и настройки адаптер FlexCharts можно использовать с пользовательским JavaScript.
+
+- Адаптеры «FlexCharts» и «JavaScript» необходимо устанавливать отдельно.
+- Такой подход позволяет создавать несколько настраиваемых графиков.
+- Более подробную информацию см. в [Обсуждении адаптера FlexCharts](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67).
+
+## Подсказки
+### Обратное использование
+Чтобы получить, например, часы пик вместо оптимальных часов, просто поменяйте местами использование и параметры: ![Калькулятор Состояния Обратные](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Поменяв местами true <-> false, вы получите true по низкой стоимости в первой строке и true по высокой стоимости во второй строке (названия каналов не являются триггерами и по-прежнему могут быть выбраны).
+
+Внимание: Для пиковых отдельных часов, таких как в примере, вам также необходимо скорректировать количество часов. Исходное: 5 -> Обратное (24-5) = 19 -> Вы получите истинный результат в течение 5 пиковых часов.
+
+### LTF-каналы
+Расчет выполняется для «многодневных» данных. Поскольку у нас есть только информация на «сегодня» и «завтра» (доступная примерно после 13:00), временной диапазон фактически ограничен максимум 35 часами. Однако крайне важно помнить об этом поведении, поскольку рассчитанный результат может/изменится около 13:00, когда станут доступны новые данные о завтрашних ценах.
+
+Чтобы наблюдать это динамическое изменение временного диапазона для стандартного канала, вы можете выбрать Limited Time Frame (LTF), охватывающий несколько лет. Это особенно полезно для сценария «Best Single Hours LTF».
+
+## Прямой локальный опрос данных Pulse
+Чтобы это заработало, вам нужно изменить веб-интерфейс Bridge, чтобы он оставался постоянно включенным.
+marq24 описал, как это сделать превосходно для своей интеграции HomeAssistant здесь:
+
+https://github.com/marq24/ha-tibber-pulse-local
+
+Если все работает правильно, данные счетчика будут записываться в состояния ioBroker каждые 2 секунды.
+
+## Часовой
+Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, обратитесь к [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry инициируются, начиная с js-controller 3.0.
+
+## Пожертвовать
+<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/master/docu/bluePayPal.svg" height="40"></a> Если вам понравился этот проект — или вы просто чувствуете щедрость, подумайте о том, чтобы угостить меня пивом. Ура! :beers:
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+### **WORK IN PROGRESS**
 
-### 1.4.2 (2023-11-xx) WORK in PROGRESS
+- (HombachC) enable JSON5 parsing starting with admin 7.5.3
+- (HombachC) fix vulnerability in axios <1.8.2 (#673)
 
--   (HombachC) complete rework of task scheduling for more precise pull timing (#149)
--   (HombachC) critical vulnerability fix for axios
--   (HombachC) fix debug message typos, code optimisations
--   (HombachC) fix type error in price average calculation notified by Sentry
+### 4.5.0 (2025-03-05)
 
-### 1.4.1 (2023-10-25)
+- (HombachC) add calculator channel 'smart battery buffer LTF' (#668)
+- (HombachC) rearrange calculator channels in configuration
+- (HombachC) improve debugging messages, code optimisations
+- (HombachC) fix 2 errors in enable/disable FlexCharts
 
--   (HombachC) implement forced update of all data after adapter restart (#155)
--   (HombachC) Bump actions/setup-node from 3.8.1 to 4.0.0 (#157)
--   (HombachC) remove node.js 16 actions - dependency updates
+### 4.4.0 (2025-03-01)
 
-### 1.4.0 (2023-10-24)
+- (HombachC) add generation time cutoffs for graph outputs (#643)
+- (HombachC) set admin to minimum 7.4.10 as recommended by ioBroker (#651)
+- (HombachC) Code optimisations, preparations to switch to ESM module
+- (HombachC) bump cron to 4.x.x (#648)
+- (HombachC) bump axios from 1.8.x (#664)
 
--   (HombachC) implement min/max states (#131)
--   (HombachC) fix error with ignored calculator channel deaktivations (#143)
--   (HombachC) optimize translation handling, code cleanup
+### 4.3.1 (2025-02-23)
 
-### 1.3.1 (2023-10-21)
+- (HombachC) Bump "@iobroker/adapter-dev" to 1.4.0 (#653)
+- (HombachC) start using "@alcalzone/release-script" (#650)
+- (HombachC) add option to enable/disable FlexCharts-JSON for each channel (#642)
+- (HombachC) fix logging for multiple homes (#647)
+- (HombachC) fix encrypted element "tibberBridgePassword" (#652)
 
--   (HombachC) fix initialisiation of channel states (#141)
--   (HombachC) change message "reconnect successful" to level info (#80)
--   (HombachC) documentation tweaks - dependency updates
+### 4.3.0 (2025-02-09)
 
-### 1.3.0 (2023-10-20)
+- (HombachC) added ioBroker.FlexCharts - JSON
+- (HombachC) Update tibber-api to 5.2.1 - handle obsolete data as default, remove option
+- (HombachC) Calculate outputJSON prior to time frame for channels of type 'BestSingleHours', 'BestHoursBlock', 'BestPercentage', 'BestCost' and their LTF variants (#592)
+- (HombachC) add outputJSON and outputJSON2 for 'SmartBatteryBuffer' channels (#592)
+- (HombachC) calculator and projectUtils code optimizations
+- (HombachC) correct role of stats states to json
 
--   (HombachC) implement tibber calculator mode "best hours block" (#16)
--   (HombachC) handle empty calculator destination states - detected by sentry
+### 4.2.3 (2025-01-14)
 
-### 1.2.0 (2023-10-18)
+- (HombachC) bump cron to 3.5
 
--   (HombachC) implement tibber calculator mode "best single hours" (#16)
--   (HombachC) changed i18n files to inline translations, single files aren't update compatible (#128)
--   (HombachC) fixed error in initial read of calculator states (#129)
-
-### 1.1.2 (2023-10-15)
-
--   (HombachC) fix timing error in calculator
-
-### 1.1.1 (2023-10-14)
-
--   (HombachC) fix error in startup of additional channels
-
-### 1.1.0 (2023-10-14)
-
--   (HombachC) implement tibber calculator mode "best price" (#16)
--   (HombachC) precised pull times of current cost
--   (HombachC) reduced error messages (#80)
--   (HombachC) extend documentation
--   (HombachC) update adapter-core
-
-### 1.0.0 (2023-10-05)
-
--   (HombachC) Increase to the first major release, as now a stable level is reached
--   (HombachC) Code cleanup
-
-### 0.4.2 (2023-10-03)
-
--   (HombachC) fixed error with polling multiple homes live data (#108)
--   (HombachC) Lots of dependency updates; code optimizations
-
-### 0.4.1 (2023-09-24)
-
--   (HombachC) Hardened 2 typeerrors uppon sentry recognition
--   (HombachC) Fix error with not deleted averages of tomorrow pricing (#95)
--   (HombachC) preparations for tibber calculator
-
-### 0.4.0 (2023-09-20)
-
--   (HombachC) Added daily average price values (#89)
-
-### 0.3.3 (2023-09-17)
-
--   (HombachC) Fixed false positive connection message (#87)
--   (HombachC) Updated translations with ChatGPT
--   (HombachC) preparations for tibber calculator
-
-### 0.3.2 (2023-09-14)
-
--   (HombachC) Fixed error when starting adapter first time (#82)
--   (HombachC) Fixed error in admin config from 0.3.0 (#81)
-
-### 0.3.1 (2023-09-13)
-
--   (HombachC) Mitigate error in admin config from 0.3.0 (#81)
--   (HombachC) Change logging of TibberFeed errors from type error to type warn - because of too many downtimes of Tibber server (#80)
-
-### 0.3.0 (2023-09-12)
-
--   (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
--   (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
--   (HombachC) preparations for tibber calculator
-
-### 0.2.7 (2023-09-07)
-
--   (HombachC) reducing polls at Tibber server by precheck of current price data
--   (HombachC) preparations for tibber calculator
-
-### 0.2.6 (2023-09-04)
-
--   (HombachC) fix error with boolean states
-
-### 0.2.5 (2023-09-03)
-
--   (HombachC) optimize code to mitigate set state timing for long JSON states (#68)
-
-### 0.2.4 (2023-08-30)
-
--   (HombachC) enable correct price poll also for adapter running in different timezones (#63)
-
-### 0.2.3 (2023-08-27)
-
--   (HombachC) fix error in 0.2.2 in start conditions of adapter
-
-### 0.2.2 (2023-08-24)
-
--   (HombachC) reducing polls at Tibber server by precheck of known data
--   (HombachC) code optimizations
--   (HombachC) fix config screen (#55)
-
-### 0.2.1 (2023-08-21)
-
--   (HombachC) double timeout for Tibber server queries
-
-### 0.2.0 (2023-08-18)
-
--   (HombachC) introduces JSONs for prices sorted by price ascending
--   (HombachC) fix stupid error for obsolete next day pricing (#23, #50)
-
-### 0.1.10 (2023-08-15)
-
--   (HombachC) bump dependencies, code cleanups
--   (HombachC) preparations for tibber calculator
--   (HombachC) mitigate multi homes & pulse problems (#41)
--   (HombachC) add documentation to config screen (#47)
-
-### 0.1.9 (2023-08-14)
-
--   (HombachC) optimizing fetching homes list (#32) after Tibber server error, restart adapter in case of trouble
-
-### 0.1.8 (2023-08-12)
-
--   (HombachC) bump dev-dependencies, fix eslint/prettier issue
-
-### 0.1.7 (2023-08-11)
-
--   (HombachC) code cleanup, fix error for obsolete next day pricing (#23)
--   (HombachC) add another try/catch while fetching homes list (#32)
-
-### 0.1.6 (2023-07-30)
-
--   (HombachC) add units for live data, bump adapter-core to 3.x
-
-### 0.1.5 (2023-07-18)
-
--   (HombachC) fix error in sentry logging
-
-### 0.1.4 (2023-07-17)
-
--   (HombachC) BREAKING: encrypted API-Token in ioBroker
--   (HombachC) rearranged configuration options
--   (HombachC) fixed bug in state generation
-
-### 0.1.3 (2023-07-17)
-
--   (HombachC) all log messages in English
--   (HombachC) remove unused state change handler
--   (HombachC) fixed state roles
-
-### 0.1.2 (2023-07-17)
-
--   (HombachC) round grid consumption meter values to Wh accuracy
--   (HombachC) hide unused checkboxes in config
--   (HombachC) fix snyc and appveyor
-
-### 0.1.1 (2023-07-16)
-
--   (HombachC) remove release script and dev-server
-
-### 0.1.0 (2023-07-14)
-
--   (HombachC) initial version
+### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023 Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2025 C.Hombach <TibberLink@homba.ch>

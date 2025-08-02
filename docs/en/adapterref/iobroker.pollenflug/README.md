@@ -19,7 +19,7 @@ Information on the pollen counties can be found at: https://www.dwd.de/pollenflu
 Copyright of used pollen data: © Deutscher Wetterdienst (Quelle: Deutscher Wetterdienst)
 
 ## Install & Configuration
-Requires node.js 8.0 or higher and Admin v3! Select the county in the ioBroker adapter
+Select the county in the ioBroker adapter
 configuration. You will get the pollen risk index for this county. The index will be updated 
 once the day, around 11 o'clock.
 In the objects info.today, info.tomorrow and info.dayaftertomorrow the validity period will be shown.
@@ -105,7 +105,19 @@ on({id: "pollenflug.0.info.today"/*Today*/, change: "ne"}, (obj) => {
 });
 ```
 
+## Credits
+
+This adapter would not have been possible without the great work of schmupu (https://github.com/schmupu), who created V1.x.x of this adapter.
+
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.0 (2024-07-24)
+* (mcm1957) This adapter hase been moved to iobroker-community-adapters organization
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now.
+* (mcm1957) Dependencies have been updated
 
 ### 1.0.6 (03.05.2019)
 * (Stübi) User can enable/disable sentry logging
@@ -142,10 +154,10 @@ on({id: "pollenflug.0.info.today"/*Today*/, change: "ne"}, (obj) => {
 ### 0.1.6 (20.02.2019)
 * (Stübi) First Version of pollen index adapter
 
-
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020 Thorsten Stueben <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

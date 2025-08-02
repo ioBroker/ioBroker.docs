@@ -31,119 +31,9 @@ You need to provide your Cloud login credentials. The adapter connects to your c
 
 One Adapter instance will show all devices from one Eufy Cloud account and allows to control them.
 
-## Features
-
-* Supports local and remote p2p connection to station
-* Two factor authentication
-* Livestream as HLS stream (supports all platforms, but introduce a latency)
-* Last HLS live stream is always saved for later viewing
-* Downloads event video when push notification is received (async)
-* Takes jpeg thumbnail of the livestream or downloaded video
-* Base station:
-  * States:
-    * Configured Guard mode
-    * Current Guard mode
-    * Name
-    * Model
-    * Serial number
-    * Software version
-    * Hardware version
-    * MAC address
-    * LAN ip address
-  * Actions:
-    * Change guard mode
-    * Trigger alarm sound
-    * Reset alarm sound
-    * Reboot station
-  * Events:
-    * Alarm mode change
-* Camera:
-  * States:
-    * Online / offline etc.
-    * Battery %
-    * Battery temperature
-    * Name
-    * Model
-    * Serial number
-    * Software version
-    * Hardware version
-    * MAC address
-    * Wifi RSSI
-    * Filtered false events since last charge
-    * Saved/Recorded events since last charge
-    * Total events since last charge
-    * Used days since last charge
-    * And lot's more...
-  * Actions:
-    * Start livestream (hls; supports also local livestream)
-    * Stop livestream (hls)
-    * Enable/disable device
-    * Enable/disable auto night vision
-    * Enable/disable led (only camera 2 products, indoor cameras, floodlight camera, solo cameras and doorbells)
-    * Enable/disable anti-theft detection (only camera 2 products)
-    * Enable/disable motion detection
-    * Enable/disable pet detection (only indoor cameras)
-    * Enable/disable sound detection (only indoor cameras)
-    * Enable/disable RTSP stream (only camera2 products, indoor cameras and solo cameras)
-    * Change video watermark setting
-    * And lot's more...
-  * Events:
-    * Motion detected
-    * Person detected
-    * Ringing (only Doorbell)
-    * Crying detected (only Indoor cameras)
-    * Sound detected (only Indoor cameras)
-    * Pet detected (only Indoor cameras)
-* Sensor:
-  * Entry sensor:
-    * States:
-      * Online / offline etc.
-      * Low battery
-      * Name
-      * Model
-      * Serial number
-      * Software version
-      * Hardware version
-    * Events:
-      * Open / closed
-  * Motion sensor:
-    * States:
-      * Online / offline etc.
-      * Low battery
-      * Name
-      * Model
-      * Serial number
-      * Software version
-      * Hardware version
-    * Events:
-      * Motion detected
-* Keypad:
-  * States:
-    * Online / offline etc.
-    * Low battery
-    * Name
-    * Model
-    * Serial number
-    * Software version
-    * Hardware version
-* Lock:
-  * States:
-    * Online / offline etc.
-    * Battery %
-    * Lock status
-    * Name
-    * Model
-    * Serial number
-    * Software version
-    * Hardware version
-    * Wifi RSSI
-  * Actions:
-    * Lock/unlock
-* more to come...
-
 ## Documentation
 
-Look [here](https://bropat.github.io/ioBroker.eusec/)
+Checkout the documentation [here](https://bropat.github.io/ioBroker.eusec/).
 
 ## Known working devices
 
@@ -156,6 +46,60 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (see [here](https://bropat.github.io/ioBroker.eusec/#/debugging)). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines).
 
 ## Changelog
+
+### 1.3.3 (2024-09-28)
+
+* (bropat) Updated version of the package eufy-security-client (3.1.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
+
+### 1.3.2 (2024-09-10)
+
+* (bropat) Fixed issue #440
+
+### 1.3.1 (2024-09-08)
+
+* (bropat) Fixed issue #436
+* (bropat) Fixed issue #439
+
+### 1.3.0 (2024-08-27)
+
+* (bropat) Requires ioBroker.admin version >= 7.0.12
+* (bropat) Requires ioBroker.js-controller version >= 6.0.0
+* (bropat) Requires node version >= 20
+* (bropat) Added new setting to choose country indipendently of ioBroker setting
+* (bropat) New go2rtc streaming implementation
+* (bropat) Added messagebox support (sendTo) to exhibit new commands (snooze #294, chime, quickResponse, getQuickResponseVoices, pollRefresh)
+* (bropat) Fixed deletion of obsolete devices, channels and states
+* (bropat) Added support for Video Smart Lock S330 (T8530)
+* (bropat) Added support for Smart Lock C210 (T8502)
+* (bropat) Added support for Smart Lock C220 (T8506)
+* (bropat) Added support for Smart Lock S230 (T8510P)
+* (bropat) Added support for Smart Lock S231 (T8520P)
+* (bropat) Added support for Retrofit Smart Lock E110 (T8503)
+* (bropat) Added support for Retrofit Smart Lock E130 (T8504)
+* (bropat) Added support for Smart Drop S300 (T8790)
+* (bropat/martijnpoppen) Added support for Video Doorbell E340 (T8214)
+* (martijnpoppen) Added support for MiniBase Chime (T8023)
+* (bropat/martijnpoppen) Added support for eufyCam E330 (Professional; T8600; #391)
+* (bropat/martijnpoppen) Added support for Solar Wall Light Cam S120 (T84A0; #406)
+* (bropat/martijnpoppen) Added support for SoloCam S340 (T8170; #399)
+* (bropat) Added support for Indoor Cam S350 (T8416; #403)
+* (bropat) Added support for Floodlight Cam E340 (T8425, #428)
+* (bropat) Added support for SoloCam C210 (T8B00)
+* (bropat) Storage of files switched to [Meta-Storage](https://iobroker.readthedocs.io/de/latest/bestpractice/storefiles.html#meta-storage)
+* (bropat) Implemented workaround for livestreaming issue introduced by CVE-2023-46809 in Node.js (18.19.1=<; 20.11.1=<; 21.6.2=<)
+* (bropat) Changed ffmpeg static package from `ffmpeg-static` to `ffmpeg-for-homebridge`
+* (bropat) Fixed issue #432
+* (bropat) Fixed issue #422
+* (bropat) Fixed issue #420
+* (bropat) Fixed issue #387
+* (bropat) Fixed issue #380
+* (bropat) Fixed issue #379
+* (bropat) Fixed issue #376
+* (bropat) Fixed issue #371
+* (bropat) Updated version of the package go2rtc-static (1.8.5)
+* (bropat) Updated version of the package eufy-security-client (3.0.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (3.0.0)
 
 ### 1.2.1 (2023-11-04)
 
@@ -703,7 +647,7 @@ Best is to set the adapter to Debug log mode (see [here](https://bropat.github.i
 
 MIT License
 
-Copyright (c) 2020-2023 bropat <patrick.broetto@gmail.com>
+Copyright (c) 2020-2024 bropat <patrick.broetto@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

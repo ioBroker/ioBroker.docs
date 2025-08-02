@@ -27,6 +27,12 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 
 ## Changelog
 
+### 1.1.0 (2024-09-30)
+* (Jey Cee) Delete group objects if the group was removed from configuration
+* (Jey Cee) Migrate configuration to JSON Config
+* (Jey Cee) Update dependencies
+* (Jey Cee) Fix issues found by adapter checker
+
 ### 0.2.4 / 0.2.5 / 1.0.0 / 1.0.1
 * back to original & updated telnet-rxjs dependency
 
@@ -83,7 +89,7 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 ## License
 MIT License
 
-Copyright (c) 2019-2022 Jey Cee <jey-cee@live.com>
+Copyright (c) 2019-2025 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

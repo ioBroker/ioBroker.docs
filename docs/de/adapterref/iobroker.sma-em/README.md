@@ -58,6 +58,27 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - ...
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+
+### 1.2.0 (2025-01-31) - 2025H1 maintenance release
+
+- (pdbjjens) Change: Migration to ESLint 9
+- (simatec) Responsive Design added
+
+### 1.1.0 (2024-08-15) - 2024H2 maintenance release
+
+- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
+- (pdbjjens) Change: Removed .npmignore
+- (pdbjjens) New: Updated dependencies
+- (pdbjjens) Fix: IP family property changed from string to number in nodejs 18.0.0-18.4.0
+
+### 1.0.1 (2024-01-26) - 2024 maintenance release
+
+- (pdbjjens) Updated dependencies
+
 ### 1.0.0 (2023-08-19)
 
 - (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
@@ -74,28 +95,11 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - (pdbjjens) New: Configurable data point update intervals to reduce system load
 - (pdbjjens) New: Use JSON config
 
-### 0.6.6 (2023-02-28)  2023 maintenance release
-
-- (pdbjjens) Updated dependencies
-- (pdbjjens) New: Use adapter-dev instead of gulp translate
-
-### 0.6.5 (2022-02-19)
-
-- Updated dependencies
-- Compatibility check for js-controller 4.0
-- Prevent onUnload warnings
-
-### 0.6.4 (2021-08-19)
-
-- (TGuybrush) Bug fixes
-- Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
-- Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 IoBroker-Community
+Copyright (c) 2025 IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

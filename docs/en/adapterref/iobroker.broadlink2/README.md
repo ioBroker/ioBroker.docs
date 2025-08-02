@@ -109,11 +109,23 @@ The adapter understands also 'sendTo' commands.
 * If you learn the same signal multiple times the code can be different everytime. This can not be changed.
 * Sometimes it does not find devices if they do not respond to the search. Do a rescan or restart adapter to restart a new instance.
 
-## Important/Wichtig
-
-* Requires node >=V6
-
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (mattreim) Several issues reported by adapter checker have been fixed
+
+### 2.3.0 (2024-05-21)
+* (mattreim) Adapter migrated to jsonConfig
+* (mcm1957) Adapter requires admin >= 6 now
+* (mcm1957) Dependencies have been updated
+
+### 2.2.0 (2024-04-05)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
 
 ### 2.1.5
 
@@ -128,42 +140,6 @@ The adapter understands also 'sendTo' commands.
 * bug corrections for States and Scenes
 * Names are now taken from DNS end which mean you may rename devices in router and set their fixed IP address there
 
-### 2.1.0
-
-* Added RM4 protocol for newest RM4 and RM3-Minis 
-* Added LB1 Wifi bulb device support
-* Added finding of devices if name or ip changes according to mac address
-* Added support of devices in other netword with IP address
-* Changed learning and device communication for all RM devices
-* Re-write of 70% nof the code for new js-controllers and nodejs versions.
-
-### 2.0.3
-
-* changed to new myAdapter to support js-controller 2.0 and 3.0
-
-### 2.0.1
-
-* Can handle Floureon/Beko thermostats (now with MQTT)
-* Can handle S1C security devices
-* Names device after their name or with their mac to reduce possibility of renaming
-* Can rename devices
-* Support compact mode
-* Can add device Id's/Types for new devices
-* New communication routines to find & re-find devices
-* New communication protocoll with devices which do not allow that devices can get commands from 2 sources intermixed
-
-### 1.9.1
-
-* added anothe RM Mini code
-
-### 1.8.1
-
-* Changed util.js and tests and added new devices
-
-### 1.7.0
-
-* Changed and corrected states which are created by A1-devices
-
 ### Todo for later revisions
 
 * config of devices and codes in separate config tool
@@ -176,6 +152,7 @@ with ioBroker admin, npm install iobroker.broadlink2 or from <https://github.com
 
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2014-2020, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

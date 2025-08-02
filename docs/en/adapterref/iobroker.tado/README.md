@@ -15,7 +15,11 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Things you can steer
+## Tado° X
+Basic support for Tado° X available.
+If your setup is not working, please raise a [ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=). You will need to support some debugging session and interact with the adapter developer to improve Tado° X features.
+
+## Things you can steer on Tado° V3+, V3, V2
 | State | Description |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power | Turn device on/off |
@@ -29,46 +33,64 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Enable/Disable open window detection on thermostat |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout how long thermostats are turned off when an open window is detected |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Switch thermostats off when an open window is detected (only works if the thermostat detects an open window) | 
-| tado.[x].[yyyyyy].Home.state.presence | Set HOME, AWAY or AUTO mode |
-| tado.[x].[yyyyyy].Home.masterswitch | Turn all devices on/off |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC mode (only AC devices) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed (only AC devices with V3 and older versions) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (only AC devices with V3+ version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertical swing (only AC devices with V3+ version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontal swing (only AC devices with V3 and olderversions) |
+| tado.[x].[yyyyyy].Home.state.presence | Set HOME, AWAY or AUTO mode |
+| tado.[x].[yyyyyy].Home.masterswitch | Turn all devices on/off |
+| tado.[x].[yyyyyy].meterReadings | JSON-Object with {"date":"YYYY-MM-DD","reading": 1234} can be used to upload meter-readings to Energy IQ |
+
+## Things you can steer on Tado° X
+| State | Description |
+| ----- | ----------- |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | Turn device on/off |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.value | Define temperature |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.controlType | Set time table mode |
+| tado.[x].[yyyyyy].Rooms.[z].manualControlTermination.remainingTimeInSeconds | Duration time for timer mode |
+| tado.[x].[yyyyyy].Rooms.[z].resumeScheduleRoom | Back to automatic mode for this room |
+| tado.[x].[yyyyyy].Rooms.resumeScheduleHome | Back to automatic mode for all rooms |
+| tado.[x].[yyyyyy].Rooms.allOff | Switch all rooms off |
+| tado.[x].[yyyyyy].Rooms.boost | Switch all rooms to boost mode |
+| tado.[x].[yyyyyy].Home.state.presence | Set HOME, AWAY or AUTO mode |
+| tado.[x].[yyyyyy].meterReadings | JSON-Object with {"date":"YYYY-MM-DD","reading": 1234} can be used to upload meter-readings to Energy IQ |
 
 ## Requires
-* NodeJS 16 or higher
-* ioBroker host (js-controller) 4.0 or higher
+* Node.js 20 or higher
+* ioBroker host (js-controller) 5.0 or higher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.12-alpha.0 (2023-10-13)
-* (HGlab01) switch finaly to Admin5 UI
+### __WORK IN PROGRESS__
+* (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
+* (HGlab01) fix issue 'definition missing for preheating' [TadoX]
+* (HGlab01) Additional guidance/log when it comes to RefreshToken issue
 
-### 0.4.11 (2023-10-09)
-* (HGlab01) Bump json-explorer to 0.1.14
-* (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+### 0.7.10 (2025-04-25)
+* (HGlab01) further token refresh optimizations
 
-### 0.4.10 (2023-09-26)
-* (HGlab01) Add attribute 'isBalanceHpEligible'
-* (HGlab01) improve axios keep_a_live
+### 0.7.9 (2025-04-17)
+* (HGlab01) fix issue 'refreshToken() failed'
 
-### 0.4.9 (2023-07-05)
-* (HGlab01) Add attribute 'zonesCount'
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
+### 0.7.8 (2025-04-10)
+* (HGlab01) fix issue 'definition missing for balanceControl' [TadoX]
 
-### 0.4.8 (2023-05-12)
-* (HGlab01) Add attribute 'isHeatSourceInstalled'
-* (HGlab01) Bump axios to 1.4.0
+### 0.7.7 (2025-04-08)
+* (HGlab01) optimize sentry usage
+* (HGlab01) improve retry-mechanism when it comes to erros
+
+### 0.7.5 (2025-03-31)
+* (HGlab01) some further refactorings
+* (HGlab01) Bump axios to 1.8.4
 
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 & DutchmanNL <rdrozda@hotmail.com>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

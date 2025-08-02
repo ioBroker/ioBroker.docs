@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker.weather-предупреждения
-hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
+hash: yJIs/0h53Ul0pFadLx7sOtFyx92lZmKyFLbAaT12Vhs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -15,14 +15,14 @@ hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
 # IoBroker.weather-warnings
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/weather-warnings/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/weather-warnings/287x66-grey.png)](https://weblate.iobroker.net/projects/adapters/weather-warnings/)
 
 **Тесты:** [![Тестирование и выпуск] (https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml/badge.svg?event=push)](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml)
 
 ## Адаптер предупреждений о погоде для ioBroker
 [Немецкий Readme (мейст актюллер)](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
 
-Этот адаптер получает доступ к погодным предупреждениям различных метеорологических служб и выводит их в виде текстовых или голосовых сообщений. Кроме того, он создает состояния, сгруппированные по типам, которые можно использовать для реагирования на текущие предупреждения.
+Этот адаптер получает доступ к погодным предупреждениям различных погодных служб и выводит их в виде текстовых или голосовых сообщений. Кроме того, он создает состояния, сгруппированные по типу, которые можно использовать для реагирования на текущие предупреждения.
 
 Провайдер:
 
@@ -49,7 +49,7 @@ Push-сервис
 - **Активировать Telegram/Pushover,...:** активировать вывод сообщений на эти установленные адаптеры.
 - **Активировать электронную почту:** записывает все текущие предупреждения в электронное письмо.
 - **Активировать историю:** записывает историю, которая может содержать до 500 записей, в состояние: .history. Все данные или выбранные данные.
-- **Активировать json-array:** особая функция, помещает текущие предупреждения в массив или - после активации - пользовательский Json в массив, который может использоваться сценариями.
+- **Активировать json-array:** особенный вариант: текущие предупреждения помещаются в массив или — после активации — пользовательский Json в массив, который может использоваться сценариями.
 
 - **Интервал обновления:** интервал получения данных в минутах (минимум: 5).
 
@@ -101,7 +101,7 @@ Push-сервис
 
 **Фильтр:** 1) Игнорировать предупреждения этого типа 2) Игнорировать предупреждения с равным или меньшим уровнем
 
-**Сообщения**: используйте следующие шаблоны для: Столбец 1: 1) Новые или существующие предупреждения. 2) Предупреждение было удалено, но есть **другие** активные предупреждения.
+**Сообщения:** используйте следующие шаблоны для: Столбец 1: 1) Новые или существующие предупреждения. 2) Предупреждение было удалено, но есть **другие** активные предупреждения.
 3) Предупреждения удалены, других активных предупреждений **нет**.
 
 Столбец 2: 1) Уведомления, запускаемые вручную 2) Использовать без предупреждения 1.3
@@ -141,6 +141,44 @@ Push-сервис
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ticaki) add cleartimeout, add axios timeout
+
+### 0.6.2 (2023-11-20)
+* (ticaki) Reduce zamg spam
+
+### 0.6.1 (2023-11-19)
+* (ticaki) Optimise: DWD City names, adminconfiguration, translations
+
+### 0.6.0 (2023-11-16)
+* (ticaki) Added: global alerts.
+* (ticaki) Changed: Token ...adverb - if no adverb, then day of the week.
+
+### 0.5.6 (2023-11-15)
+* (ticaki) Added: Select template for manual notification without warnings.
+* (ticaki) Added: Configuration dialogue marks invalid template keys for most notification services.
+
+### 0.5.5 (2023-11-14)
+* (ticaki) Added: Missing space in emailMessage template.
+* (ticaki) Fixed: wrong status for all removed.
+* (ticaki) Admin: moving test options to tab general.
+
+### 0.5.4 (2023-11-10)
+* (ticaki) Fixed: Fixed randomly occurring errors in the first approx. 15 seconds.
+* (ticaki) Added: max number of warnings (default 5)
+* (ticaki) Fixed: not crash with the wrong uwz configuration.
+* (ticaki) Fixed: small error in quiet times.
+
+### 0.5.3 (2023-11-09)
+* (ticaki) Fixed: command states (text / automode)
+* (ticaki) Added: .alerts. List of warning types.
+* (ticaki) Changed: .alerts. view current event with highest level or next event
+
+### 0.5.2 (2023-11-06)
+* (ticaki) Multiple Say-It instances.
+* (ticaki) Some icons added.
+* (ticaki) -no warning- Warning level for uwz corrected.
+
 ### 0.5.1 (2023-11-05)
 * (ticaki) Fixed: Foreign languages did not work for UWZ.
 * (ticaki) Fixed: clearHistory command didnt work on gloabl level.

@@ -16,12 +16,27 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 
 ## Settings
 * specify your e-mail and password in the configuration page
+
+## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.3.1 (2024-10-28)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Testing for node.js 22 has been added.
+- (mcm1957) Missing translations have been added.
+- (mcm1957) Dependencies have been updated.
 
-## Changelog
+### 4.3.0 (2024-04-21)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 4.2.1 (2024-01-30)
+* (mcm1957) Adapter will be terminated now after a maximum of 45s execution time to clean unresponsive service.
+* (mcm1957) Default cron schedule will be changed to random executions once a hour.
+* (mcm1957) Dependencies have been updated.
+
 ### 4.2.0 (2023-09-08)
 * (mcm1957) Adapter requires node 16 or newer now
 * (mcm1957) A timeout of 5s has been added to http requests to avoid hanging processes (#110)
@@ -81,8 +96,8 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 ioBroker Community Developers 
-Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, ioBroker Community Developers
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

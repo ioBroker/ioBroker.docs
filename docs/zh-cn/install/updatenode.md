@@ -4,7 +4,7 @@ lastChanged: 11.08.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/updatenode.md
-hash: pFg4K3FLxNRB0d97+1vrNGa5Fk2/nQkW6FFnW2x6kk0=
+hash: tJGX8RGXf39O/2BqWaP41YGMCp6Gq1+N03L+zh/H5MI=
 ---
 # Node.js 更新
 | js 控制器 | Node.js | npm |
@@ -17,13 +17,13 @@ hash: pFg4K3FLxNRB0d97+1vrNGa5Fk2/nQkW6FFnW2x6kk0=
 与许多开源技术一样，Node.js 正在快速发展。
 提高**稳定性**和**安全性**甚至添加**新功能**的更新会定期出现。
 
-ioBroker 在没有 Node.js 的情况下无法工作，详细信息请参见[建筑学](https://www.iobroker.net/#de/documentation/basics/architecture.md)。
+ioBroker 在没有 Node.js 的情况下无法工作，有关详细信息请参见[建筑学](https://www.iobroker.net/#de/documentation/basics/architecture.md)。
 如果您想了解有关 Node.js 的更多信息，请参见[维基百科 Node.js](https://de.wikipedia.org/wiki/Node.js)。
 
 ?> **更改 Node.js 版本时，必须检查某些要求，并在必要时提前更正。
 请注意安装所在路径。**
 
-＃＃＃ 方法
+＃＃＃ 程序
 #### 1 - 检查情况
 - 版本和路径
 - 操作系统
@@ -57,7 +57,7 @@ ioBroker 在没有 Node.js 的情况下无法工作，详细信息请参见[建�
 ioBroker 使用其自己的控制台命令或通过系统服务管理停止
 
 #### 5 - 检查进程是否仍在运行
-这通常会终止所有进程。为了安全起见，您应该再次检查是否没有进程（适配器、备份）实际在运行。您还可以使用“top”等工具来检查以“io.”开头的进程是否仍然存在。开始。
+这通常会终止所有进程。为了安全起见，您应该再次检查是否没有进程（适配器、备份）实际在运行。您还可以使用“top”等工具来检查以“io”开头的进程是否仍然存在。开始。
 
 #### 6 - Node.js 更新
 下一步是将 Node.js 更新到所需的新版本。
@@ -206,7 +206,7 @@ Node.js 通过执行 [Windows安装程序](./windows.md) 进行更新。
 - Node.js 通常通过将容器更新为新版本的 [Docker 映像](https://hub.docker.com/r/buanet/iobroker/tags) 来完成。
 - 有关 iobroker 容器的详细过程和更多详细信息，请访问 [buanet](https://smarthome.buanet.de/2020/10/iobroker-docker-container-updates-upgrades/)。
 
-＃＃ 故障排除
+## 问题解决
 ### 手动重建
 - 有这个
 

@@ -1,4 +1,4 @@
-﻿![Logo](admin/pvoutputorg.png)
+![Logo](admin/pvoutputorg.png)
 # ioBroker.pvoutputorg
 
 ![Number of Installations](http://iobroker.live/badges/pvoutputorg-installed.svg) ![Number of Installations](http://iobroker.live/badges/pvoutputorg-stable.svg)
@@ -10,6 +10,15 @@
 
 [![NPM](https://nodei.co/npm/iobroker.pvoutputorg.png?downloads=true)](https://nodei.co/npm/iobroker.pvoutputorg/)
 
+![node-lts](https://img.shields.io/node/v-lts/iobroker.pvoutputorg?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.pvoutputorg?label=npm%20dependencies&style=flat-square)
+
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.pvoutputorg?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -104,6 +113,31 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.9.2 (2025-06-08)
+* (René) bug fix date conversion
+
+### 1.9.1 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 1.9.0 (2024-12-15)
+* (René) see issue #289: test with nodejs@22
+* (René) update dependencies
+* (René) migration to jsonConfig
+
+### 1.8.13 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 1.8.12 (2024-05-28)
+* (René) change of dependencies
+* (René) show cron status after job creation
+
+### 1.8.11 (2024-01-12)
+* (René) dependencies updates
+
+### 1.8.10 (2023-11-19)
+* (René) dependencies updates
 
 ### 1.8.9 (2023-07-30)
 * (René) dependencies updates
@@ -125,7 +159,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 * (René) bug fix EoD upload
 
 ### 1.8.0 (2022-08-20)
-* (René) WeatherConditions can be used directly from DasWetter adapter 
+* (René) WeatherConditions can be used directly from DasWetter adapter
 
 ### 1.7.0 (2022-07-17)
 * (René) WeatherConditions for upload end of the day (EoD) data added
@@ -137,7 +171,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 ### 1.6.0 (2022-07-01)
 * (René) change back from cron to interval
 * (René) end of day data are written 1 hour after sunset
-* (René) read and write data only when daylight as an option 
+* (René) read and write data only when daylight as an option
 
 ### 1.5.0 (2022-04-21)
 * (René) datapoint added to show when data uploaded to pvoutput.org
@@ -166,7 +200,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -428,8 +428,8 @@ The message has no parameters.
 
 ```javascript
 sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
-    //result is object like:
-    {
+    // result is an object like:
+    console.log(JSON.stringify({
         'system.adapter.influxdb.0.memRss': {
             changesOnly: true,
             debounce: 0,
@@ -440,8 +440,8 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
             changesRelogInterval: 0,
             aliasId: ''
         }
-        ...
-    }
+        /// ...
+    }));
 });
 ```
 
@@ -451,7 +451,12 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
-### 4.0.0 (2023-09-19)
+### 4.0.3 (2024-05-16)
+* (bluefox) Some packages were updated
+
+### 4.0.2 (2024-01-03)
+* (bluefox) Corrected JSON config
+* (Marc-Berg) Corrected filter function in booleanTypeCheckQuery
 * (Marc-Berg) Allowed the self-signed certificates using "test connection" button
 * (Marc-Berg) The deletion of data from DB was implemented for V2
 * (bluefox) Added support for `count` aggregate type on getHistory
@@ -702,7 +707,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2023 bluefox, apollon77
+Copyright (c) 2015-2024 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

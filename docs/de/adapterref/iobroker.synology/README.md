@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
 title: ioBroker Synology-Adapter
-hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
+hash: r9VVnVypmDX5q/4gTy9yNfoMJmm5TimtUA6puWDSGlI=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -12,60 +12,63 @@ hash: FoQkF3Tmpx06oSykWEJj+YP2pBryXB9dEXd3Y8ZLzS0=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.synology.svg)
 
 # IoBroker Synology-Adapter
-![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
-Mit dem Treiber können Sie Daten empfangen und Ihren Synology NAS-Server verwalten.
+Der Treiber ermöglicht Ihnen, Daten zu empfangen und Ihren Synology NAS-Server zu verwalten.
 
 ### 2FA-Einstellungen
-Wenn Sie 2FA in DSM6/7 verwenden, siehe Anweisungen [Hier](docs/en/template.md)
+Wenn Sie 2FA in DSM6/7 verwenden, lesen Sie die Anweisungen [Hier](docs/en/template.md)
+
+### Wichtiger Hinweis für Windows-Installationen
+Dieser Adapter erfordert die Installation von Git auf dem Hist-System. Installationsmedien finden Sie unter https://git-scm.com/download/win.
 
 ### Neustart und Herunterfahren
-Der Adapter erledigt dies seit v2.1.4 über SSH, daher stellen Sie bitte den SSH-Port in den Adaptereinstellungen ein. Sie können es in den Synology-Einstellungen sehen: ![Grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![Grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
+Der Adapter macht dies seit v2.1.4 über SSH, also stellen Sie bitte den SSH-Port in den Adaptereinstellungen ein. Sie können ihn in den Synology-Einstellungen sehen: ![grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
 
-### SendMethod
-Sie können jeden Befehl (Methode) senden, indem Sie das sendMethod-Objekt festlegen, zum Beispiel: Get the SurveillanceStation info ist eine getInfo-Methode ohne zusätzliche Parameter.
+### Sendemethode
+Sie können jeden beliebigen Befehl (jede beliebige Methode) senden, indem Sie das sendMethod-Objekt festlegen, zum Beispiel: „Get the SurveillanceStation info“ ist eine getInfo-Methode ohne zusätzliche Parameter.
 
 ```{"method": "getInfo", "params": {}}```
 
 ### Kontrolle
-**commands.reboot** – NAS neu starten
+**commands.reboot** - NAS neu starten
 
-**commands.wake** – Wake On Lan an NAS senden
+**commands.wake** - Wake On Lan an NAS senden
 
-**commands.shutdown** – NAS herunterfahren
+**commands.shutdown** - NAS herunterfahren
 
 ***SurveillanceStation.cameras.{NAMECAM}***:
 
-* aktiviert – Aktueller Status und Kamera aktivieren/deaktivieren
+* aktiviert - Aktueller Status und Kamera aktivieren/deaktivieren
 * linkSnapshot – URL für Snapshot
 
-***SurveillanceStation.HomeMode.status_on*** – Aktueller Status und Homemode aktivieren/deaktivieren
+***SurveillanceStation.HomeMode.status_on*** - Aktueller Status und Homemode aktivieren/deaktivieren
 
-***SurveillanceStation.getSnapshotCamera*** – Schnappschuss nach Kameranummer abrufen, die Datei wird im Verzeichnis „`...iobroker-data\synology_0\snapshotCam_2.jpg`“ gespeichert
+***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird in einem Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` gespeichert
 
 ***AudioStation.players.{PLAYERID}***:
 
-* Wiedergabe, Pause, Stopp, Weiter, Zurück – Steuern der Wiedergabe (Schaltfläche, nur wahr)
-* wiederholen – Wiederholungssteuerung (Aus, Alle, Eins)
-* shuffle – Mischsteuerung (wahr/falsch)
-* Lautstärke – Lautstärke des Remote-Players (0-100)
-*seek – Steuerung der Wiedergabesuche (0–100)
-* play_folder – Titel aus dem Ordner zur Playlist hinzufügen (ID-Ordner z. B. „dir_5816“)
-* play_track – Titel anhand seiner ID abspielen (z. B. „music_120847“)
-* current_play – Kontrolle und Status des aktuellen Titels anhand seiner Nummer in der Playlist (z. B. „14“)
+* Play, Pause, Stop, Weiter, Zurück - Steuerung der Wiedergabe (Button, nur True)
+* repeat - Wiederholungssteuerung (Aus, Alle, Eins)
+* shuffle - Shuffle-Steuerung (true/false)
+* Lautstärke - Lautstärke des Remote-Players (0-100)
+* seek - Steuerung der Wiedergabesuche (0-100)
+* play_folder – Titel aus dem Ordner zur Playlist hinzufügen (Ordner-ID z. B. „dir_5816“)
+* play_track – Titel anhand seiner ID abspielen (z. B. „music_120847“)
+* current_play – Steuerung und Status des aktuellen Titels über seine Nummer in der Playlist (z. B. „14“)
 
 ***DownloadStation***:
 
-* activeTask – Anzahl unvollständiger Downloads
+* activeTask - Anzahl unvollständiger Downloads
 * listTasks – ein Array mit unvollständigen Downloads
-* schedule_enabled, schedule_emule_enabled – Status und Kontrolle geplanter oder sofortiger Downloads
-* add_hash_download – zu Hash-Downloads hinzufügen (z. B. „8BD3CAD02FC9ECB661A12378414FA310D3F3FE03“)
+* schedule_enabled, schedule_emule_enabled - Status und Kontrolle geplanter oder sofortiger Downloads
+* add_hash_download – zu Hash-Downloads hinzufügen (z. B. „8BD3CAD02FC9ECB661A12378414FA310D3F3FE03“)
 * add_url_download – Download-URL oder Magnet-Link hinzufügen
-* Ordner – Der herunterzuladende Ordner, der vor dem Hinzufügen des Downloads festgelegt wird, andernfalls wird er in den Standardordner geladen
-* pause_task, resume_task – Unterbrechen Sie den Download und setzen Sie ihn fort. (z. B. „dbid_170“ oder „170“ oder „all“)
+* Ordner - Der herunterzuladende Ordner, der vor dem Hinzufügen des Downloads festgelegt wird, andernfalls wird er in den Standardordner geladen
+* pause_task, resume_task – Download anhalten und fortsetzen. (z. B. „dbid_170“ oder „170“ oder „all“)
 
 ### Nachrichtenbox
 ```
@@ -78,6 +81,14 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 <!--
      ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 3.0.1 (2023-10-01)
+* (Standarduser) A Typo in RegEx for Mac-Address has been corrected.
+* (McM1957) Dependencies have been updated.
+
 ### 3.0.0 (2023-09-07)
 * (Standarduser) Added WOL to awake Synology NAS server
 * (bluefox) Only node 16 or higher supported
@@ -247,6 +258,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

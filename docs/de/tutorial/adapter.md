@@ -114,7 +114,7 @@ Dort bitte die gewünschte Version anklicken.
 
 **Über die Konsole**
 
-``iobroker install AdapterName@ver.si.on``
+``iobroker upgrade AdapterName@ver.si.on``
 
 Wobei ***AdapterName*** der Name des gewünschten Adapters laut Liste in iobroker update ist, 
 und ***ver.si.on*** die entsprechend formatierte Versionsnummer.

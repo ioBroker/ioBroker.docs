@@ -13,21 +13,21 @@ BADGE-Beta: https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=be
 BADGE-Stable: http://iobroker.live/badges/youtube-stable.svg
 BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: cLr+/ivSywAeNSv0TVQcAPp5FSWMj3NUyPjDF0BsoN4=
+hash: jkT0CYFTYast+0ZeBTCz+gkfmCwJO1ifDBus3CkeQBI=
 ---
 ![Логотип](../../../en/admin/youtube.png)
 
 # IoBroker.youtube
 ## Требования
-- nodejs 16.0 (или новее)
-- js-контроллер 4.0.15 (или новее)
+- nodejs 18.0 (или новее)
+- js-контроллер 5.0.0 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
 
 ## Конфигурация
-Чтобы получить API-ключ, вам необходимо перейти на страницу [console.developers.google.com](https://console.developers.google.com/apis/dashboard).
+Чтобы получить API-ключ, вам необходимо перейти по адресу [console.developers.google.com](https://console.developers.google.com/apis/dashboard).
 
 1. Создайте новый проект.
 2. Создайте новый ключ API.
@@ -78,6 +78,12 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2024-04-03)
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (klein0r) Better way to get channel id by alias
+
 ### 4.4.0 (2023-10-25)
 
 NodeJS 16.x is required
@@ -98,19 +104,11 @@ NodeJS 16.x is required
 * (klein0r) Added request success indicators
 * (klein0r) Added Ukrainian language
 
-### 4.1.0 (2022-11-10)
-
-NodeJS >= 14.5 is required
-
-* (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

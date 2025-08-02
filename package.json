@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "name": "iobroker.docs",
+  "dependencies": {
+    "@iobroker/eslint-config": "^1.0.0"
+  }
+}

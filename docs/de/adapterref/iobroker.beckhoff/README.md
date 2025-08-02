@@ -90,6 +90,11 @@ Die \*.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am S
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.6.0 (2024-04-02)
+
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.5.3 (2023-10-29)
 
 - (mcm1957) Dependencies have been updated
@@ -155,6 +160,7 @@ Die \*.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am S
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2018-2023 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

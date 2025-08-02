@@ -58,12 +58,41 @@ The ioBroker adapter was tested sucessfully with:
 | V01.10        | V02.26   | [Parameterliste_Modbus_TCP_03.2020](https://schwoerer-service.com/storage/files/Community/2020/Parameterliste_Modbus_TCP_032020.pdf) |
 
 ## Changelog
-See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md).
+See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md) for a list of all changes.
+
+<!--
+	Placeholder for the next version (add instead of version-number-headline below):
+	## __WORK IN PROGRESS__
+-->
+### 1.4.2 (2021-08-08)
+* Removed test configuration from default adapter values
+
+### 1.4.1 (2021-06-05)
+* Corrected Modbus address for ***T6*** measurement (Issue #60)[https://github.com/Excodibur/ioBroker.schwoerer-ventcube/issues/60], (PR #61)[https://github.com/Excodibur/ioBroker.schwoerer-ventcube/pull/61]
+* Added scheduling priority ***Tier 2*** (introduced with JS-Controller 3.3.0)
+* (Development) added tests for Node.js 16 Support
+
+### 1.4.0 (2021-04-30)
+* Added Admin 5 support
+
+### 1.3.0 (2020-09-23)
+* Added new parameter ***request timeout***
+* Added info channel to inform about adapter status
+* Redefined state roles to describe available data better
+* Improvements to Adapter termination process
+
+
+### 1.2.0 (2020-09-15)
+* Added missing reconnect behaviour in case Ventcube is not reachable
+* Added connection settings for new reconnect-behaviour
+* Reworked layout ouf settings page
+* (Development) Fixed mock-server connection handling and Windows integration tests
+* (Development) Moved integration tests (windows, Linux, OSX) from Travis to Github Actions
 
 ## License
 MIT License
 
-Copyright (c) 2020-2023 Excodibur
+Copyright (c) 2020-2024 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

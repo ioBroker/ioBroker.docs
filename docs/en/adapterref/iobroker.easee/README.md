@@ -74,7 +74,7 @@ dynamicCircuitCurrentPX -> All phases must be set within 500ms (script) otherwis
 ## License
 MIT License
 
-Copyright (c) 2021 Newan <iobroker@newan.de>
+Copyright (c) 2025 Newan <iobroker@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: VSB8r4x8eNQs/mNUHr3bfNEfbBG6wh6ID2/aE1DlHOs=
+hash: psMXPXYoWBisaqJRGhSeYCBctm1G2h7R+P/So598MDI=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -13,207 +13,208 @@ hash: VSB8r4x8eNQs/mNUHr3bfNEfbBG6wh6ID2/aE1DlHOs=
 
 # IoBroker.knx
 #### Inhaltsverzeichnis
-* [Beschreibung](#Beschreibung)
+* [Beschreibung](#description)
 * [Anforderungen](#Anforderungen)
-* [Funktionen](#Funktionen)
-* [Installation](#Installation)
+* [Funktionen](#features)
+* [Installation](#installation)
 * [Adapterkonfiguration](#adapter-configuration)
-    * [Lizenz installieren](#install-the-license)
-    * [Konfigurationsschnittstelle](#configuration-interface)
-    * [Objekte](#Objekte)
-    * [Nutzung](#Nutzung)
-    * [Datenpunkttypen (DPT)](#data-point-types-dpt)
-    * [Wie der Import funktioniert](#wie-der-Import-funktioniert)
-    * [Vermeidung von Problemen](#Vermeidung-von-Problemen)
-* [GA-Tool](#ga-Tool)
-    * [Direct Link non-KNX state to KNX vice-verse](#direct-link-non-knx-state-to-knx-vice-verse)
+* [Installieren Sie die Lizenz](#install-the-license)
+* [Konfigurationsschnittstelle](#configuration-interface)
+* [Objekte](#Objekte)
+* [Verwendung](#Verwendung)
+* [Datenpunkttypen (DPT)](#data-point-types-dpt)
+* [So funktioniert der Import](#how-the-import-works)
+* [Vermeidung von Problemen](#avoidance-of-problems)
+* [GA-Tool](#ga-tool)
+* [Direkte Verbindung vom Nicht-KNX-Zustand zum KNX-Zustand und umgekehrt](#direct-link-non-knx-state-to-knx-vice-verse)
 * [Geplante Funktionen](#planned-features)
-* [Änderungsprotokoll](#Änderungsprotokoll)
+* [Änderungsprotokoll](#changelog)
 
 ## Beschreibung
-de: Dieser Adapter ermöglicht den Import von knxproj-Dateien aus ETS. Es erstellt die Übersetzung zwischen KNX-Gruppenadressen und ioBroker und platziert die Geräte in Räumen (insbesondere für MobileUI).
+en: Dieser Adapter ermöglicht den Import von `knxproj`-Dateien aus der ETS. Er führt die Übersetzung zwischen KNX-Gruppenadressen und ioBroker durch und ordnet die Geräte den Räumen zu (insbesondere für MobileUI).
 
 ru: [Установка и базовая настройка адаптера](docs/ru/README.md)
 
-Es verbindet sich mit Standard-KNX/LAN-Gateways.
+Es lässt sich mit Standard-KNX/LAN-Gateways verbinden.
 
-**Achtung: Mit dem Wechsel auf die KNX-Adapter Version 2.x hat sich die Lizenzierung geändert. Eine neue Lizenz erhalten Sie bei [https://iobroker.net](https://iobroker.net/)**
+**Achtung: Mit dem Wechsel auf den KNX-Adapter Version 2.x hat sich die Lizenzierung geändert. Eine neue Lizenz erhalten Sie unter [https://iobroker.net](https://iobroker.net/)**
 
-**Sie sollten auch iobroker js-controller UND admin auf die neueste Version aktualisieren.**
+**Sie sollten außerdem den iobroker js-controller UND den Admin auf die neueste Version aktualisieren.**
 
-Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
+Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt festgelegt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert sein.
 
 ## Anforderungen
 * Knotenversion >= 14.15.4
 * Admin-Version >= 5.2.0
 * js-controller Version >=3.3.20
 
-Ohne diese Voraussetzungen kann der Adapter nicht installiert werden oder funktioniert nicht richtig.
+Ohne diese Voraussetzung ist der Adapter nicht installierbar bzw. funktioniert nicht ordnungsgemäß.
 
 ## Merkmale
-* Importieren der `knxproj`-Datei
-* Erzeugen einer ETS-ähnlichen Objektstruktur
-* Act-Channel und State-Channel finden und kombinieren (Heuristik)
-* Aktualisieren aller Zustände beim Start
-* Keine Cloud oder Internet erforderlich
-* Senden eines READ auf den KNX-Bus, während auf das State-Objekt geschrieben wird
-* GA-Objekte mit GA-Tools bearbeiten und modifizieren
-* Zustand-Akt-Beziehungen mit GA-Tools bearbeiten und modifizieren
-* NEU: Nicht-KNX-State-Direktverbindung zulassen (umgekehrt)
-* NEU: Adapterantworten auf GroupValueRead an ein mit DirectLink verbundenes Objekt
-* NEU: Import passwortgeschützter Projektdateien (Dank an aKzenT)
+* Importieren der Datei „knxproj“
+* Generieren einer ETS-ähnlichen Objektstruktur
+* Finden und Kombinieren von Akt-Kanal und Zustands-Kanal (Heuristik)
+* Aktualisierung aller Zustände beim Start
+* keine Cloud oder Internet erforderlich
+* Ausgeben eines READ auf den KNX-Bus, während auf das Statusobjekt geschrieben wird
+* Bearbeiten und Ändern von GA-Objekten mit GA-Tools
+* Zustands-Gesetz-Beziehungen mit GA-Tools bearbeiten und ändern
+* NEU: Erlaubt eine direkte Verbindung zu Nicht-KNX-Zuständen (und umgekehrt)
+* NEU: Adapterantworten auf GroupValueRead an ein per DirectLink verbundenes Objekt
+* NEU: Import von passwortgeschützten Projektdateien (danke an aKzenT)
 
 ###Installation
-Dieser Adapter kann nur mit npm installiert werden. Die Installation über github funktioniert **nicht**.
+Dieser Adapter kann nur mit npm installiert werden. Die Installation über GitHub funktioniert **nicht**.
 
 ##Adapterkonfiguration
 Öffnen Sie nach der Installation dieses Adapters die Adapterkonfiguration.
 
 ###Installieren Sie die Lizenz
-Der erste Schritt besteht darin, die Lizenz zu beantragen. Wenn Sie keine Lizenz installiert haben, werden 500 Datenpunkte angewendet.
+Der erste Schritt besteht darin, die Lizenz anzuwenden. Wenn Sie keine Lizenz installiert haben, werden 500 Datenpunkte angewendet.
 
-* (1) zeigt Ihre System-ID, Sie benötigen diese, um eine Lizenz zu erhalten
-* (2) Klicken Sie hier, um Ihre Lizenz zu beantragen
+* (1) zeigt Ihre System-ID, diese benötigen Sie um eine Lizenz zu erhalten
+* (2) Klicken Sie hier, um Ihre Lizenz anzuwenden
 
 ![knxV2-Erststart-Mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-first-start-mod.jpg)
 
-Wenn Sie unter [https://iobroker.net](https://iobroker.net/) bereits eine neue Lizenz erstellt haben, können Sie diese in (2) einfügen, ODER Sie können diese direkt online erwerben, indem Sie auf (1) klicken.
+Wenn Sie bereits eine neue Lizenz unter [https://iobroker.net](https://iobroker.net/) erstellt haben, können Sie diese in (2) einfügen, ODER Sie können sie direkt online erwerben, indem Sie auf (1) klicken.
 
-![knxV2-2-1-Installieren-Lizenz-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-1-Install-License-mod.jpg)
+![knxV2-2-1-Install-Lizenz-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-1-Install-License-mod.jpg)
 
 Wenn Sie auf (1) geklickt haben, geben Sie Ihren iobroker.net-Konto-Login ein.
 
-![knxV2-2-2-Installieren-Lizenz-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-2-Install-License-online-mod.jpg)
+![knxV2-2-2-Install-Lizenz-Online-Mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-2-Install-License-online-mod.jpg)
 
-Wenn Ihre Daten korrekt sind, sehen Sie alle Ihre Lizenzen, die Sie erhalten haben. Wählen Sie diejenige aus, die Sie verwenden möchten.
+Wenn Ihre Angaben korrekt sind, werden Ihnen alle Lizenzen angezeigt, die Sie erworben haben. Wählen Sie die Lizenz aus, die Sie verwenden möchten.
 
-![knxV2-2-3-Installieren-Lizenz-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
+![knxV2-2-3-Install-Lizenz-Online-Mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-3-Install-License-online-mod.jpg)
 
 Wenn dies erfolgreich war, speichern Sie es.
 
-![knxV2-2-4-Installieren-Lizenz-online-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-4-Install-License-online-mod.jpg)
+![knxV2-2-4-Install-Lizenz-Online-Mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-4-Install-License-online-mod.jpg)
 
 Das ist alles. Klicken Sie unten auf dieser Seite auf die Schaltfläche zum Speichern.
 
 ### Konfigurationsschnittstelle
-![knxV2-2-5-Installieren-Lizenz-online-angewendet-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
+![knxV2-2-5-Install-Lizenz-online-angewendet-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
 
-1. KNX-Gateway IP: IPv4 des KNX-LAN Gateway.
+1. KNX-Gateway IP: IPv4 des KNX-LAN Gateways.
 2. KNX-Gateway-Port: Standard ist Port 3671.
-3. Physikalische Adresse: Physikalische Adresse der iobroker knx-Instanz **! wichtig: das ist nicht die phys. Adresse des LAN-Gateways !** und Darf nicht auf 0 enden
-4. KNX-Pakete pro Sekunde: Dies begrenzt die Paketrate. Wenn sich das KNX Lan Gateway zu oft neu verbindet oder vorübergehend nicht erreichbar ist, reduzieren Sie diese Rate.
-5. Local iobroker IP: Wählen Sie die IP / Schnittstelle aus, an die der Adapter gebunden werden soll
-6. Loglevel: Normalerweise ist Level "Info", zum Debuggen Level erhöhen.
-7. Nur neue Datenpunkte importieren: Dies ist standardmäßig aktiviert. Im Falle einer Deaktivierung werden neue GAs generiert UND bestehende GAs werden neu erstellt.
-8. Schaltfläche Datei hochladen: Drag'n Drop ist hier verfügbar oder klicken Sie auf den Dateiauswahldialog. Hier können Sie Ihren ETS-Export im `knxproj`-Format hochladen.
+3. Physikalische Adresse: Physikalische Adresse der iobroker knx-Instanz. **Wichtig: Dies ist nicht die physikalische Adresse des LAN-Gateways!** und darf nicht auf 0 enden.
+4. KNX-Pakete pro Sekunde: Dies begrenzt die Paketrate. Wenn das KNX LAN Gateway zu oft erneut verbindet oder vorübergehend nicht erreichbar ist, reduzieren Sie diese Rate.
+5. lokale iobroker IP: Wählen Sie die IP / Schnittstelle, an die der Adapter gebunden wird
+6. Loglevel: Normalerweise ist es das Level „Info“, zum Debuggen erhöhen Sie das Level.
+7. Nur neue Datenpunkte importieren: Dies ist standardmäßig aktiviert. Bei Deaktivierung werden neue GAs generiert UND bestehende GAs neu erstellt.
+8. Schaltfläche „Datei hochladen“: Hier können Sie per Drag-and-Drop oder per Klick auf den Dateiauswahldialog klicken. Hier können Sie Ihren ETS-Export im Format „knxproj“ hochladen.
 
-Nach erfolgreichem Import zeigt ein Dialog die Anzahl der importierten Objekte an. Drücken Sie nun "Speichern & Schließen" und der Adapter sollte starten.
-Beim Start liest der Adapter alle Gruppenadressen mit Read-Flag und Write-Flag. Dies kann einige Zeit dauern und Ihren KNX-Bus stark belasten. Aber die Werte in Ihrem Vis werden nach dem Start aktualisiert.
-Das Hochladen einer passwortgeschützten Datei ist noch nicht verfügbar.
+Nach erfolgreichem Import wird die Anzahl der importierten Objekte in einem Dialog angezeigt. Klicken Sie nun auf „Speichern & Schließen“, und der Adapter sollte starten.
 
-9. Host-ID: Dies ist eine spezielle ID des iobroker-Hosts. Diese ID wird zum Generieren und Validieren der Lizenz benötigt
-10. GA-Tools: Toolbox zum schnellen Wechseln von GA's
+Während des Starts liest der Adapter alle Gruppenadressen mit Lese- und Schreib-Flags. Dies kann eine Weile dauern und Ihren KNX-Bus stark belasten. Die Werte in Ihrer Visualisierung werden jedoch nach dem Start aktualisiert.
+
+Das Hochladen einer passwortgeschützten Datei ist derzeit nicht möglich.
+
+9. Host-ID: Dies ist eine spezielle ID des iobroker-Hosts. Diese ID wird für die Generierung und Validierung der Lizenz benötigt.
+10. GA-Tools: Toolbox für schnell wechselnde GAs
 
 ### Objekte
-Hier befindet sich unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt. Verwenden Sie zum Ändern der Eigenschaften das GA-Tool.
+Hier finden Sie unter knx.0 den Gruppenadressbaum wie in Ihrem ETS-Projekt. Zum Ändern der Eigenschaften verwenden Sie das GA-Tool.
 
 ### Verwendung
-Wenn der Adapter erfolgreich startet, stehen Ihnen Ihre Datenpunkte für alles zur Verfügung, was Sie gerne tun.
+Wenn der Adapter erfolgreich startet, stehen Ihnen Ihre Datenpunkte für alles zur Verfügung, was Sie tun möchten.
 
 ### Datenpunkttypen (DPT)
-Alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association sind verfügbar. Das heißt, es gibt 2 Arten von Informationen, die Sie erhalten können: 1) ein Wert oder eine Zeichenfolge 2) kommagetrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, was der bessere Weg ist)
+Alle DPTs gemäß den „Systemspezifikationen, Interworking, Datenpunkttypen“ der KNX Association sind verfügbar. Das bedeutet, dass Sie zwei Arten von Informationen erhalten können: 1) einen Wert oder einen String, 2) kommagetrennte Werte oder ein Werte-Array (im Moment weiß ich nicht, was besser ist).
 
-Beispielsweise wird ein DPT5.001 als unsigned Integer mit 8-Bit kodiert. Dies ergibt einen einzigen Wert. Der DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) kodiert.
-Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "Verringern" und "5" die Anzahl der Intervalle bedeutet.
+Beispielsweise wird ein DPT5.001 als vorzeichenloser Integer mit 8 Bit kodiert. Dies ergibt einen einzelnen Wert. Der DPT3.007 (Dimmsteuerung) wird als 1Bit (Boolean) + 3Bit (vorzeichenloser Int) kodiert. Dies ergibt beispielsweise einen Wert wie „0,5“, wobei „0“ für „Verringerung“ und „5“ für die Anzahl der Intervalle steht.
 
 ### So funktioniert der Import
-1. Auslesen aller Kommunikationsobjektreferenzen (COR):
+1. Lesen aller Kommunikationsobjektreferenzen (COR):
 
-    Kombinieren der Gruppenadressreferenz ID'd mit DPT der entsprechenden COR (falls vorhanden).
+Kombination der Gruppenadressreferenz-ID mit dem DPT des entsprechenden COR (sofern vorhanden).
 
 2. Generierung der Gruppenadressstruktur (GAS):
 
-    Generieren des GAS basierend auf GAR-IDs und Setzen von DPT (falls noch nicht geschehen)
+Generieren des GAS basierend auf GAR-IDs und Festlegen des DPT (falls noch nicht geschehen)
 
-3. Suche nach staatlichen Adressen:
+3. Feststellung des Staates, in dem eine Handlung stattfindet:
 
-in ets-exports sind keine informationen über state und act-adressen enthalten. Der adapter parst alle GA's von "status" oder "state". Wenn es 2 GAs mit einer Ähnlichkeit von mehr als 90 % gibt, dann ist eine Adresse der Akt und die andere der Zustand. Es wird auch geprüft, ob die DPT's ähnlich sind. Deshalb ist es nicht einfach, einen Peer zu finden, wenn die GA-Namensgebung nicht konsistent ist.
+In ETS-Exporten sind keine Informationen zu Status- und Aktadressen enthalten. Der Adapter analysiert alle GAs mit „Status“ oder „State“. Bei zwei GAs mit einer Ähnlichkeit von über 90 % ist eine Adresse Akteur und die andere Staat. Es wird auch geprüft, ob die DPTs ähnlich sind. Daher ist es nicht einfach, ein Paar zu finden, wenn die GA-Benennung nicht konsistent ist.
 
-4. Flagcheck in der Gerätekonfiguration:
+4. Flag-Check in der Gerätekonfiguration:
 
-   Die Flags werden wie folgt behandelt:
+Die Flags werden wie folgt behandelt:
 
-    | KNX | | | iobroker | | |
-    |-------|-----------|------------|----------|----------|-------------------------------------------------|
-    | Lesen Sie | Schreiben Sie | Übertragen | Lesen Sie | Schreiben Sie | Erklärung |
-    | - | - | - | - | - | der Wert wird durch GroupValueRead| aktualisiert |
-    | x | - | - | x | x | Das Senden eines beliebigen Werts in diesem Zustand löst ein GroupValueRead| aus |
-    | - | x | - | - | x | mit GroupValueWrite| den Wert auf KNX schreiben |
-    | - | - | x | x | - | der Zustandswert wird durch GroupValueResponse | aktualisiert |
-    | x | - | x | x | x | Das Senden eines beliebigen Werts in diesem Zustand löst ein GroupValueRead| aus |
+| KNX | KNX | KNX | ioBroker | ioBroker | |
+    |-------|-------|----------|----------|----------|----------------------------------------------------------|
+| Lesen | Schreiben | Senden | Lesen | Schreiben | Erklärung |
+| - | - | - | - | - | der Wert wird durch GroupValueRead aktualisiert |
+| x | - | - | x | x | Das Senden eines beliebigen Werts in diesem Status löst einen GroupValueRead aus |
+| - | x | - | - | x | Schreibe den Wert mit GroupValueWrite auf KNX |
+| - | - | x | x | - | der Statuswert wird von GroupValueResponse aktualisiert |
+| x | - | x | x | x | Das Senden eines beliebigen Werts in diesem Status löst einen GroupValueRead aus |
 
-6. Erstellung von Datenpunkt-Peers (DPP):
+6. Erstellen von Datapoint Peers (DPP):
 
 Ein DPP wird erstellt, wenn GA, GAR und DPT gültig sind. Dies sind die DPP, mit denen der Adapter arbeitet.
-Wenn DPT in einem GA fehlt, weil es nicht gefunden werden konnte, wird das DPP nicht erstellt. Dies kann mit GA-Tool durchgeführt werden.
+Falls DPT in einem GA fehlt, weil es nicht gefunden werden konnte, wird der DPP nicht erstellt. Dies kann mit dem GA-Tool erfolgen.
 
-7. beim Adapterstart:
+7. Beim Adapterstart:
 
-Alle mit "Read" Flag markierten GAs werden beim Start geprüft. Dies kann sich auf einen höheren Busverkehr auswirken. Am Ende sind alle Zustände aktuell.
+Alle mit "Read" gekennzeichneten GAs werden beim Start überprüft. Dies kann sich auf den höheren Busverkehr auswirken. Am Ende sind alle Zustände aktuell.
 
-###Vermeidung von Problemen
-* saubere ETS-Programmierung und vor allem saubere ETS-Programmierung und vor allem saubere ETS-Programmierung
+### Vermeidung von Problemen
+* saubere ETS-Programmierung und noch wichtiger saubere ETS-Programmierung und am wichtigsten saubere ETS-Programmierung
 * Weisen Sie die DPTs zu!!
-* einheitliche Kennzeichnung der GA-Bezeichnungen (z. B. „EG Wohnen Decke Licht schalten“ und „EG Wohnen Decke Licht schalten Status“ )
-* Vermeidung von Sonderzeichen ",./;&%$§[]" (kann Probleme bei der Gaserzeugung verursachen)
-* Überprüfen Sie, ob das KNX/LAN GW erreichbar ist. Ist dies nicht der Fall, versucht der Adapter ständig, eine Verbindung herzustellen.
-* Physikalische Adresse richtig wählen ( wichtig bei Verwendung von Linienkopplern ). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN Gateways und darf nicht auf 0 enden !!!
-* Der Port der LAN-Schnittstelle ist normalerweise 3671
-* Aufgrund der Möglichkeit der Statusabfrage ist eines zu beachten: Es muss sichergestellt werden, dass nicht mehr als 40 Anfragen pro Sekunde durch den ioBroker generiert werden, da diese dann physikalisch generiert werden können
+* einheitliche Kennzeichnung der GA-Bezeichnungen (z. B. „EG Wohnen Decke Licht schalten“ und „EG Wohnen Decke Licht schalten Status“)
+* Vermeidung von Sonderzeichen ",./;&%$§[]" (kann zu Problemen bei der Gaserzeugung führen)
+* Prüfen Sie, ob das KNX/LAN GW erreichbar ist. Ist dies nicht der Fall, versucht der Adapter kontinuierlich, eine Verbindung herzustellen.
+* Physikalische Adresse richtig wählen (wichtig bei Einsatz von Linienkopplern). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN-Gateways und darf nicht auf 0 enden!!!
+* Der Port der LAN-Schnittstelle ist in der Regel 3671
+* Aufgrund der Möglichkeit der Statusabfrage muss eines beachtet werden: Es muss sichergestellt werden, dass nicht mehr als 40 Anfragen pro Sekunde vom ioBroker generiert werden, da diese dann physikalisch generiert werden können
 
-  kann vom Adapter nicht mehr an das Gateway weitergegeben werden.
+können vom Adapter nicht mehr an das Gateway weitergegeben werden.
 
 ## GA-Tool
-Das GA-Tool macht es einfach, Eigenschaften von GA's zu ändern.
+Das GA-Tool erleichtert das Ändern der Eigenschaften von GAs.
 
 ![knxV2-3-6-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-6-GATools-mod.jpg)
 
-1. zeigt den GA-Baum und den ausgewählten GA
-2. im Eigenschaftenbereich der Name des ausgewählten GA
-3. iobroker-Flags setzen
+1. zeigt den GA-Baum und ausgewählte GA
+2. im Eigenschaftsbereich der Name des ausgewählten GA
+3. Setzen Sie die iobroker-Flags
 4. GA DPT einstellen
-5. Anerkannte Rechtsakte GA
-6. anerkannter Staat GA
+5. anerkannte Handlung GA
+6. anerkannte staatliche GA
 
 ![knxV2-3-2-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
-1. Zeigen Sie die Beziehung zwischen Staat und Handlung
+1. Zeigen Sie die Zustands-Akt-Beziehung
 2. Wenn eine Beziehung besteht, kann sie entfernt werden
 
-Wenn noch keine Relation existiert, kann durch Klicken auf (2) für den ausgewählten GA (1) eine neue erstellt werden.
-Im Dialog (3) kann der Peer ausgewählt werden
+Falls keine Beziehung besteht, kann durch Klicken auf (2) für die ausgewählte GA (1) eine neue erstellt werden.
+Im Dialogfenster (3) kann der Peer ausgewählt werden.
 
 ![knxV2-3-5-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-5-GATools-mod.jpg)
 
-Wenn es mehr GAs zum Ändern von Eigenschaften gibt, verwenden Sie die Mehrfachauswahl. Diese Funktion funktioniert nur für GAs ohne Beziehung.
+Wenn mehrere GAs Eigenschaften ändern sollen, verwenden Sie die Mehrfachauswahl. Diese Funktion funktioniert nur für GAs ohne Beziehung.
 
 ![knxV2-3-4-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-4-GATools-mod.jpg)
 
 1. ausgewählte GAs
-2. zu ändernde Eigenschaften
+2. Zu ändernde Eigenschaften
 3. Es ist keine Änderung möglich
 
-### Direct Link Nicht-KNX-Zustand zu KNX umgekehrt
-Seit Adapter Version 2.0.6 ist es möglich, einen Nicht-KNX ioBroker Zustand direkt mit einem GA zu verknüpfen. Damit können Uhrzeit, Datum, beliebige Zustände oder Infos auf KNX übernommen werden. (ein kleiner Tipp: Sie können jede Ihrer IOT-Komponenten direkt mit einem GA in KNX verknüpfen (z. B. einen Homematic-Taster mit einem KNX-GA verknüpfen oder einen KNX-Tastensensor mit Ihrem Sonosplayer verknüpfen)). Die Zustände können mit einem GroupValueRead ausgelesen werden und wenn sich die Zustände ändern, werden sie automatisch auf KNX aktualisiert. Auch wenn Sie auf KNX wechseln, wird das verknüpfte Nicht-KNX-IOT-Gerät aktualisiert.
+### Direkte Verbindung vom Nicht-KNX-Zustand zum KNX-Zustand und umgekehrt
+Seit Adapterversion 2.0.6 ist es möglich, einen Nicht-KNX-ioBroker-Zustand direkt mit einem GA zu verknüpfen. Dies kann verwendet werden, um Uhrzeit, Datum, beliebige Zustände oder Informationen auf KNX anzuwenden. (Kleiner Hinweis: Sie können jede Ihrer IoT-Komponenten direkt mit einem GA in KNX verknüpfen (z. B. einen Homematic-Taster mit einem KNX-GA oder einen KNX-Tastensensor mit Ihrem Sonos-Player verknüpfen). Die Zustände können mit einem GroupValueRead gelesen werden. Bei einer Zustandsänderung wird dieser automatisch auf KNX aktualisiert. Auch bei einer Änderung auf KNX wird das verknüpfte Nicht-KNX-IoT-Gerät aktualisiert.
 
 ![knxV2-3-7-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
 
-1. Wählen Sie den GA aus, zu dem eine Verbindung hergestellt werden soll
-2. den ausgewählten GA anzeigen
-3. Dieses GA muss das Attribut **write** haben
+1. Wählen Sie den GA aus, mit dem Sie eine Verbindung herstellen möchten
+2. zeige das ausgewählte GA
+3. Dieser GA muss das Attribut **write** haben
 4. Wählen Sie einen gültigen Datenpunkttyp (wenn sie nicht übereinstimmen, funktioniert es nicht)
-5. Es ist nicht erlaubt, eine Act-State-Beziehung zu haben
-6. Schaltfläche zur Auswahl eines Nicht-KNX-Objekts zur Verknüpfung
+5. Es ist nicht erlaubt, eine Akt-Zustand-Beziehung zu haben
+6. Schaltfläche zum Auswählen eines Nicht-KNX-Objekts zur Verknüpfung mit
 
 ![knxV2-3-8-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-8-GATools-DirectLink-mod.jpg)
 
@@ -222,369 +223,364 @@ Seit Adapter Version 2.0.6 ist es möglich, einen Nicht-KNX ioBroker Zustand dir
 
 ![knxV2-3-9-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-9-GATools-DirectLink-mod.jpg)
 
-Jetzt ist KNX-GA **(1)** direkt mit Nicht-KNX-iobroker **(2)** verknüpft. Mit **(3)** können Sie diese Verknüpfung löschen.
+Nun ist KNX-GA **(1)** direkt mit dem Nicht-KNX-IO-Broker **(2)** verknüpft. Mit **(3)** können Sie diese Verknüpfung löschen.
 
 ## Geplante Funktionen
-* esf-Import
+* esf-import
 * GA-Mon-Busüberwachungstool
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __LAUFENDE ARBEIT__ -->
-## Ausnahmen und Fehler
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+### **IN ARBEIT** -->
+## Versionen
+### 2.0.31 (22.05.2025)
+* das Adapter-Importschema für ETS 6.3.1 aktualisiert
+* nodejs >= 22 ist erforderlich
 
-Der Entwickler kann keine weiteren speziellen Informationen über das System/config/user/enviroment erhalten. Falls keine Lizenz gefunden wird, werden auch die Adapterversion und die Host-ID gemeldet.
+### 2.0.30 (22.12.2024)
+* GUI-Fehler behoben, Neugestaltung von GA-Tools gestartet
 
-## Vielen Dank für die Unterstützung und Hilfe
-* blauer Fuchs
-* Foxriver76
+### 2.0.29 (11.12.2024)
+* das Adapter-Importschema für ETS 6.3.0 aktualisiert
+* nodejs >= 20 ist erforderlich
 
-## Changelog
+### 2.0.28
+* Lizenzbezogene Daten aktualisieren und Paketversion korrigieren
+
+### 2.0.27 (02.05.2024)
+* das Adapter-Importschema für ETS 6.2.2 aktualisiert
+* UTF-8-Fehler behoben
+
+### 2.0.26 (28.03.2024)
+* das Adapter-Importschema für ETS 6.2.1 aktualisiert
+* nodejs >= 18 ist erforderlich
+
+### 2.0.25 (03.03.2024)
+* das Adapter-Importschema für ETS 6.2.0 aktualisiert
+* kleine Fehlerbehebungen
+
+### 2.0.24 (24.11.2023)
+* das Adapter-Importschema für ETS 6.1.1 aktualisiert
+
+### 2.0.23 (11.10.2023)
+* falscher GW-Port nach Adapter-Upgrade korrigiert
+* selbstdefinierte Werte für Min und Max zulassen
+* einige andere kleine Korrekturen
+
+### 2.0.22 (04.07.2023)
+* Importspezifikation hinzugefügt, Probleme in GaTools gelöst
+
+### 2.0.21 (17.06.2023)
+* Lizenzhandhabung behoben
+
+### 2.0.20 (16.06.2023)
+* Lizenzhandhabung mit js-controller Version > 5 behoben
+
+### 2.0.19 (29.05.2023)
+* ETS V6.1.0-Import hinzugefügt
+* erforderliche Knotenversion >= 16.13.1
+
 ### 2.0.18 (08.04.2023)
-* fixed send-delay
-* small changes
+* Sendeverzögerung behoben
+* kleine Änderungen
 
 ### 2.0.17 (14.10.2022)
-* added ETSv6.0.6 import
-* major changes in Adapter Config UI
-* fixed change of port settings for LAN-GW
+* ETSv6.0.6-Import hinzugefügt
+* wesentliche Änderungen in der Adapterkonfigurations-Benutzeroberfläche
+* Änderung der Porteinstellungen für LAN-GW behoben
 
 ### 2.0.16 (04.09.2022)
-* added ETSv6.0.5 import
+* ETSv6.0.5-Import hinzugefügt
 
 ### 2.0.15 (02.06.2022)
-* fixed import error with extrem large KNX catalogue files
-* fixed unrecognized connection breaks
+* Importfehler bei extrem großen KNX-Katalogdateien behoben
+* nicht erkannte Verbindungsabbrüche behoben
 
 ### 2.0.14 (08.04.2022)
-* added ETSv6.0.4 (override 6.0.3)
-* small bugfixes
+* ETSv6.0.4 hinzugefügt (6.0.3 überschreiben)
+* kleine Fehlerbehebungen
 
 ### 2.0.13 (12.03.2022)
-* added ETSv5.7.7 import
-* fixed "unknown value" bug
-* some other small fixes
+* ETSv5.7.7-Import hinzugefügt
+* Fehler „unbekannter Wert“ behoben
+* einige andere kleine Korrekturen
 
 ### 2.0.12 (25.02.2022)
-* fixed handling of undefined DP
-* updated datapointtypes
-* fix warning with incompatible DPT in future
-* the biggest issue of all: I get shocked because of the war in Ukraine. My thoughts are with the people of Ukraine, I am infinitely sorry for what is happening to them and their country. It is an inhuman shame.
-* can't fix it, but I appeal to everyone: Be neighbors and not enemies. Respect the other and do not fight yourselves.
+* Handhabung undefinierter DP behoben
+* Datenpunkttypen aktualisiert
+* Warnung bei inkompatiblem DPT zukünftig beheben
+* Das größte Problem überhaupt: Der Krieg in der Ukraine schockiert mich. Meine Gedanken sind bei den Menschen in der Ukraine. Es tut mir unendlich leid, was ihnen und ihrem Land widerfährt. Es ist eine unmenschliche Schande.
+* kann es nicht beheben, aber ich appelliere an alle: Seid Nachbarn und nicht Feinde. Respektiert den anderen und streitet nicht miteinander.
 
 ### 2.0.11
-* fixed password handling for projects from upgraded ETS
+* Korrektur der Passwortbehandlung für Projekte aus aktualisiertem ETS
 
 ### 2.0.10
-* import of ETS6.0.2 projects **ETS6.0.1 not possible**
-* bugfixes
+* Import von ETS6.0.2 Projekten **ETS6.0.1 nicht möglich**
+* Fehlerbehebungen
 
 ### 2.0.9
-* import password protected project files
-* bug fixes
+* passwortgeschützte Projektdateien importieren
+* Fehlerbehebungen
 
 ### 2.0.8
-* fixed bug with unackn write
-* fixed bug in linkedState
+* Fehler mit unbestätigtem Schreiben behoben
+* Fehler im LinkedState behoben
 
 ### 2.0.7
-* fixed bug with unable to write on KNX
+* Fehler behoben, der dazu führte, dass auf KNX nicht geschrieben werden konnte
 
 ### 2.0.6
-* fixed problem on ETSv6 import
-* many small bugfixes
-* implemented GA-Tools directLink feature
+* Problem beim ETSv6-Import behoben
+* viele kleine Fehlerbehebungen
+* GA-Tools DirectLink-Funktion implementiert
 
 ### 2.0.5
-
-* fixed problem on ETSv4 import
-* corrected some messages
-* corrected DPT14.x min and max range
+* Problem beim ETSv4-Import behoben
+* einige Nachrichten korrigiert
+* DPT14.x Min.- und Max.-Bereich korrigiert
 
 ### 2.0.4
+* DPT9.xxx-Berechnung korrigiert
+* Datum und Uhrzeit DPT19.00x implementiert
+* verwirrender „Keine Lizenz“-Fehler behoben
+* kleine Fehlerbehebungen
 
-* fixed DPT9.xxx calculation
-* implemented date-and-time DPT19.00x
-* fixed confusing "no license error"
-* small bugfixes
-
-### 2.0.3 (2021-12-04)
-
-* fixed counting 1st Datapoint
-* automaticly remove old V1 license", preventing confusion after upgrade from V1 to V2
+### 2.0.3 (04.12.2021)
+* Feste Zählung des 1. Datenpunkts
+* alte V1-Lizenz automatisch entfernen", um Verwirrung nach dem Upgrade von V1 auf V2 zu vermeiden
 
 ### 2.0.1
+* Problem mit der Lizenzakzeptanz behoben
 
-* fixed problem with license acceptance
+### 2.0.0 (15.11.2021) **Hauptversion**
+* Wichtige Änderung! => Neue Lizenz erforderlich. V1-Lizenzen funktionieren nicht. => V1-Business-Lizenzen können auf V2 geändert werden.
+* komplettes Refactoring von knx-admin
+* Tool zur Handhabung von GA in knx-admin hinzugefügt
+* Viele Fehler behoben (im KNX-Stack, beim Importieren von ETS-Projekten, erneuter Verbindung und Timeouts)
+* neue Datenpunkttypen hinzugefügt
+* Import bis ETS V6 hinzugefügt
+* geändertes Lizenzmanagement
 
-### 2.0.0 (2021-11-15) **Major release**
+### 1.0.46 (23.03.2021)
+* Neue Admin-GUI
 
-* Breaking change! => new license is neccessary V1 Licenses will not work => V1 business Licenses can changed to V2
-* complete refactoring of knx-admin
-* added Tool for handling GA in knx-admin
-* fixed many bugs (in knx-stack, on importing ETS Projects, reconnect and timeouts)
-* added new datapoint types
-* added import till ETS V6
-* changed license management
+### 1.0.45 (22.03.2021)
+* Import von ETS v5.7.5-Projekten
 
-### 1.0.46 (2021-03-23)
+### 1.0.44 (22.01.2021)
+* Feste Akt- und Zustandsbehandlung
+* einige neue Datenpunkttypen hinzugefügt
+* Einrichtungs- und Raumerkennung sowie Gerätezuordnung korrigieren
 
-* New admin GUI
-
-### 1.0.45 (2021_03_22)
-
-* import of ETS v5.7.5 projects
-
-### 1.0.44 (2021_01_22)
-
-* fixed act and state handling
-* added some new datapoint types
-* fix facility and room recognition and device allocation
-
-### 1.0.42 (2020_09_03)
-
-* Fixed problem with missing index_m.html
+### 1.0.42 (03.09.2020)
+* Problem mit fehlender index_m.html behoben
 
 ### 1.0.41
-
-* fixed bug on GroupValue_Response event
-* corrected connection to Gira GW
+* Fehler beim GroupValue_Response-Ereignis behoben
+* Anbindung an Gira GW korrigiert
 
 ### 1.0.40
-
-* fixed some import errors for ETS 5.7.x
-* fixed bug on GroupValue_Response event
+* einige Importfehler für ETS 5.7.x behoben
+* Fehler beim GroupValue_Response-Ereignis behoben
 
 ### 1.0.39
-
-* fixed import error
+* Importfehler behoben
 
 ### 1.0.38
+* einige Fehler beim Import behoben
+* Warnung anzeigen, wenn die Importdatei passwortgeschützt ist
 
-* fixed some bugs on import
-* show warning if import-file ist password protected
+### 1.0.37 (31.01.2010)
+* Update für ETS 5.7.3 Import
 
-### 1.0.37 (2010-01-31)
+### 1.0.36 (16.10.2019)
+* einige Fehler behoben
 
-* update for ETS 5.7.3 import
+### 1.0.35 (15.09.2019)
+* Feste permanente Wiederverbindungen, wenn kein Verkehr auf dem KNX-Bus ist
 
-### 1.0.36 (2019-10-16)
+### 1.0.34 (15.09.2019)
+* Änderungen am Importer zum Erkennen der Projekt-ID
 
-* some bugs fixed
+### 1.0.33 (12.09.2019)
+* Fehler beim Schreiben auf den Bus behoben
+* Einheiten zu Staaten hinzugefügt
+* Fehler „Lesen/Schreiben von undefiniertem“ behoben
 
-### 1.0.35 (2019-09-15)
-
-* fixed permanent reconnects, if no traffic on knx-bus
-
-### 1.0.34 (2019-09-15)
-
-* changes on importer for detecting project-id
-
-### 1.0.33 (2019-09-12)
-
-* fixed bug while writing to bus
-* added units to states
-* fixed "read/write of undefined" error
-
-### 1.0.32 (2019-09-03)
-
-* updated importer for ETS V5.7.2, some changes in KNX-stack state-machine
+### 1.0.32 (03.09.2019)
+* aktualisierter Importer für ETS V5.7.2, einige Änderungen in der KNX-Stack-Zustandsmaschine
 
 ### 1.0.31
-
-* some fixes on ETS5.7.2 importer
-* small changes in knx-stack statemachine
-* added (again) phys address to admin config dialog
-* fixed bug in deviceTree generation
+* einige Korrekturen am ETS5.7.2-Importer
+* kleine Änderungen in der KNX-Stack-Statemachine
+* Physische Adresse zum Admin-Konfigurationsdialog hinzugefügt (erneut)
+* Fehler bei der DeviceTree-Generierung behoben
 
 ### 1.0.30
-
-* new Importer for ETS5.7.2 knxproj files
-* extended accepted Data point types
-* new adapter configuration menu
-* implemented a switch for the user to decide to use "true" and "false" or "0" or "1" for binary values
-* fixed bug in GroupValue_Read
-* implemented a selector for local network interface for KNX to Gateway communication
-* extended State Object for later features
-* fixed some small other bugs
+* neuer Importer für ETS5.7.2 knxproj-Dateien
+* erweiterte akzeptierte Datenpunkttypen
+* neues Adapterkonfigurationsmenü
+* Implementierung eines Schalters, mit dem der Benutzer entscheiden kann, ob für Binärwerte "true" und "false" oder "0" oder "1" verwendet werden soll
+* Fehler in GroupValue_Read behoben
+* Implementierung eines Selektors für die lokale Netzwerkschnittstelle für die KNX-zu-Gateway-Kommunikation
+* erweitertes State Object für spätere Funktionen
+* einige andere kleine Fehler behoben
 
 ### 1.0.20
-
-* fixed bug in handling KNX-data packages, which occurs periodical reconnects
-* fixed bug in KNX-project file upload procedure
+* Fehler im Umgang mit KNX-Datenpaketen behoben, der zu periodischen Neuverbindungen führte
+* Fehler im Upload-Verfahren für KNX-Projektdateien behoben
 
 ### 1.0.19
-
-* reverted to true/false handling for DPT1.x
+* Zurückgesetzt auf True/False-Behandlung für DPT1.x
 
 ### 1.0.18
+* Upload-Problem mit ETS5.6.x-Projektdateien behoben
+* Werte für "boolean" von 1 und 0 auf true false umgestellt
+* Erkennung der Rolleneinstellung für DPT1.x zum Umschalten korrigiert
+* Fehler beim Schreiben von DPT16.xxx auf den KNX-Bus mit Werten < 14Byte behoben
 
-* fixed upload issue with ETS5.6.x project files
-* switched values for "boolean" from 1 and 0 to true false 
-* fixed recognition of role set for DPT1.x to switch
-* fixed DPT16.xxx writing to KNX-Bus with values < 14Byte
+### 1.0.17 (16.08.2018)
+* Bessere Zustandsverarbeitung
+* Konfigurierbare Paketrate hinzufügen
+* Fehler bei „Nur neue Objekte importieren“ behoben
 
-### 1.0.17 (2018-08-16)
+### 1.0.15 (18.07.2018)
+* ChID bei erneuter Verbindung ändern
+* beim Startlesen auf Antwort des Statuskanals oder Timeout warten
 
-* Better state processing
-* Add configurable package rate
-* corrected Bug in "import only new objects"
+### 1.0.13 (04.07.2018)
+* Eliminierung von Sonderzeichen beim Importieren
+* kleine Fehlerbehebungen
 
-### 1.0.15 (2018-07-18)
+### 1.0.12 (19.06.2018)
+* reduzierte und sortierte Protokollausgabe
+* kleine Fehlerbehebungen
+* NEUE Funktion: Status/Wert des Statusobjekts vom KNX-Bus anfordern
 
-* change ChID on reconnect
-* on Startup read wait for response of State channel or timeout
+### 1.0.11 (27.05.2018)
+* Problem mit dem DPT1-Korrekturwert behoben
+* Problem der erneuten Verbindung behoben
+* weitere kleine Optimierungen und Fehlerbehebungen
 
-### 1.0.13 (2018-07-04)
+### 1.0.10 (04.05.2018)
+* Schließen des lokalen Ports bei undefiniertem Verbindungsstatus
+* Erweitertes Debug-Level über Adapter-Konfiguration hinzugefügt
+* viele Fehlerbehebungen
 
-* elimination of special signs while importing
-* small bug-fixes
+### 1.0.9 (29.04.2018)
+* auf zustandsweise Verarbeitung umgestellt
+* "Disconnect-Request" behoben
+* geänderte Verbindungsbehandlung mit knxd
+* viele kleine Fehlerbehebungen
 
-### 1.0.12 (2018-06-19)
+### 1.0.8 (04.04.2018)
+* geänderte Paketwarteschlange
+* ACK beim Senden an den KNX-Bus behoben
+* viele kleine Fehlerbehebungen
 
-* reduced and sorted log output
-* small bug-fixes
-* NEW Feature: request State/Val of stateObject from KNX-Bus
+### 1.0.7 (16.03.2018)
+* Adapter-Sperre beim Hochladen von Projekten behoben
 
-### 1.0.11 (2018-05-27)
+### 1.0.6 (11.03.2018)
+* Verbindungsproblem behoben
+* Paketzähler korrigiert
 
-* fixed DPT1 correcting value problem
-* fixed reconnect problem
-* other small optimizations and fixes
+### 1.0.5 (01.03.2018)
+* leere Objekte behoben, bezogen auf DPT1 (Fehlermeldung \[Objekt Objekt\] unbekannter Eingabewert)
+* feste Pfadvariable
+* Fehler mit GAs behoben, die ein "/" im Namen enthielten (beim Projektimport)
+* Beginnen Sie mit der Implementierung einer übergreifenden Eigenschaftsaktualisierung auf dem entsprechenden DPT (beim Projektimport).
 
-### 1.0.10 (2018-05-04)
+### 1.0.4 (27.02.2018)
+* Schema-Update für die Raumaufzählung mit ETS 5.6
 
-* closing local port in case of undefined connection state
-* added advanced debug-level via adapter-config
-* many fixes
-
-### 1.0.9 (2018-04-29)
-
-* changed to state-wise processing
-* fixed "disconnect-request"
-* changed connection handling with knxd
-* many small fixes
-
-### 1.0.8 (2018-04-04)
-
-* modified package queue
-* fixed ACK if sending to KNX-Bus
-* many small fixes
-
-### 1.0.7 (2018-03-16)
-
-* fixed Adapter-lock while uploading projects
-
-### 1.0.6 (2018-03-11)
-
-* fixed connection problem
-* corrected package counter
-
-### 1.0.5 (2018-03-01)
-
-* fixed empty objects, related to DPT1 (error message \[object Object\] unknown Input value)
-* fixed path variable
-* fixed bug with GA's containing a "/" in the name (on proj-import)
-* start implementing crosswise property update on corresponding DPT (on proj-import)
-
-### 1.0.4 (2018-02-27)
-
-* schema update for room enumeration coming up with ETS 5.6
-
-### 1.0.2 (2018-02-27)
-
+### 1.0.2 (27.02.2018)
 * kleine Fehler beseitigt
 
-### 1.0.1 (2018-02-26)
+### 1.0.1 (26.02.2018)
+* Zertifikatsfehler behoben
 
-* fixed certificate error
+### 1.0.0 (25.02.2018)
+* Ersetzung des verwendeten KNX-Stacks durch einen eigenen, von Grund auf neu erstellten Stack
+* DPT-Komplettskala gemäß „Systemspezifikationen, Interworking, Datenpunkttypen“ der KNX Association implementiert
+* Härtung der Verbindungsbehandlung für Tunnelverbindungen
+* Adapter-Konfigurationsschnittstelle aktualisieren, um mit Admin3 bereit zu sein
+* "Delay Slider" wegen des neuen KNX-Stacks entfernt
+* viele andere kleine Änderungen
+* Nachkommawerte auf Skalenwert von DPT korrigiert
+* Implementierung des „Hinzufügen“-Modus für den Upload von KNX-Projekten (vorhandene Objekte bleiben wie sie sind, nur neue Objekte werden hinzugefügt)
 
-### 1.0.0 (2018-02-25)
+### 0.8.6 (17.06.2017)
+* einige kleine Fehlerbehebungen
+* Schieberegler einfügen, um eine Sendeverzögerung für langsame KNX/LAN-Gateways einzustellen und so Verbindungsverluste zu vermeiden
 
-* substitution of used KNX-stack with own from scratch build stack
-* implemented full scale of DPT according to "System Specifications, Interworking, Datapointtypes" from KNX Association
-* hardening connection handling for tunneling connections
-* upgrade Adapter-configuration Interface to be ready with Admin3
-* removed "Delay Slider" because of the new knx-stack
-* many other small changes
-* fixed post-comma values to scale-value of DPT
-* implemented "add" mode for knxproject upload (existing Objects stay as they are, only new Objects where added)
+### 0.8.5 (05.06.2017)
+* Projektlader neu erstellt, dpt13-fix
 
-### 0.8.6 (2017-06-17)
+### 0.8.3 (24.04.2017)
+* Act-Channel-Update des entsprechenden Status hinzugefügt
+* Fehler im State-Vis-Update behoben
+* optimierter knxproj-Upload
 
-* some small bug-fixes
-* insert slider to set a sendDelay for slow KNX/LAN Gateways to prevent connection loss
+### 0.8.2 (26.02.2017)
+* Gerätekonfigurationsanalyse von knxproj implementiert
+* bessere Auswahl des Status/Werts von DP-Objekten
 
-### 0.8.5 (2017-06-05)
+### 0.8.1 (06.02.2017)
+* DPT1-Schalterproblem behoben
 
-* project loader rebuild, dpt13-fix
+### 0.8.0 (2017-02-xx) kommt bald
+### 0.7.3 (22.12.2016)
+* (chefkoch009) mehr DPTs werden unterstützt
+* schnellerer Start
+* Generierung einer Raumliste mit Geräteabhängigkeiten implementiert
 
-### 0.8.3 (2017-04-24)
+### 0.7.2 (20.11.2016)
+* (chefkoch009) notwendige Abhängigkeiten hinzugefügt
 
-* added act channel update of corresponding state
-* fix bug in state-vis update
-* optimized knxproj upload
+### 0.7.1 (19.11.2016)
+* (chefkoch009) Unterstützt standardmäßige KNX/LAN-Gateways.
 
-### 0.8.2 (2017-02-26)
+### 0.7.0 (13.10.2016)
+* (chefkoch009) Unterstützung beim Projektexport
 
-* implemented device-config parsing from knxproj
-* better choice of state/val of DP objects
-
-### 0.8.1 (2017-02-06)
-
-* fixed DPT1 switch problem
-
-### 0.8.0 (2017-02-xx) comming soon
-
-### 0.7.3 (2016-12-22)
-
-* (chefkoch009) more DPT's are supported
-* faster Startup
-* implemented generation of room list with device dependencies
-
-### 0.7.2 (2016-11-20)
-
-* (chefkoch009) added necessary dependencies
-
-### 0.7.1 (2016-11-19)
-
-* (chefkoch009) Support standard KNX/LAN Gateways.
-
-### 0.7.0 (2016-10-13)
-
-* (chefkoch009) Support of project export
-
-### 0.6.0 (2016-07-20)
-
-* (chefkoch009) redesign
+### 0.6.0 (20.07.2016)
+* (chefkoch009) Neugestaltung
 
 ### 0.5.0
-
-*  (vegetto) include vis widget
+* (vegetto) Vis-Widget einbinden
 
 #### 0.4.0
-
-* (bluefox) fix errors with grunt
+* (Bluefox) Fehler mit Grunt beheben
 
 #### 0.2.0
+* (Bluefox) Erstveröffentlichung
 
-* (bluefox) initial release
+## Ausnahmen und Fehler
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+Der Entwickler kann keine weiteren speziellen Informationen zum System/zur Konfiguration/zum Benutzer/zur Umgebung abrufen. Falls keine Lizenz gefunden wird, werden auch die Adapterversion und die Host-ID gemeldet.
+
+## Vielen Dank für die Unterstützung und Hilfe
+* Blaufuchs
+* foxriver76
 
 ## License
 
-For <500 datapoints there is no need of registration or adding a license key. If you have more then 500 datapoints you need a license. You can choose  
-between yearly and permanent licence.
+For less than 500 data points, there is no need for registration or adding a license key.
+If you have more than 500 data points, you need a license.
+You can choose between yearly and permanent license.
 
-To use this adapter in ioBroker you need to accept the source code license of the adapter. The source code of this adapter is available under the CC-NC-BY license.
+To use this adapter in ioBroker, you need to accept the source code license of the adapter.
+The source code of this adapter is available under the CC-NC-BY license.
 
-Additionally you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
-
+Additionally, you need a license to use the adapter. The license editions are available on [https://iobroker.net/www/pricing](https://iobroker.net/www/pricing)
 
 ## License
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2023 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2024 K.Ringmann <info@punktnetzwerk.net>
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

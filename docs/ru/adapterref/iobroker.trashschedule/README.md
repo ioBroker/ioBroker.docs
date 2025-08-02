@@ -12,49 +12,52 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.trashschedule.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
 BADGE-Installed: http://iobroker.live/badges/trashschedule-installed.svg
-chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: sfrtJ2NXHAZN0t3qfiJRvjKFJI6/1RxBECdMdGaVTsU=
+hash: lzuSu0sby5D6UegSa6JsEn012jiF5TzYHCMRQGOm79Y=
 ---
 ![Логотип](../../../en/admin/trashschedule.png)
 
 # IoBroker.trashschedule
 ## Оглавление
+- [Провайдеры](providers.md)
 - [Блокли](blockly.md)
 - [JavaScript](javascript.md)
 - [FAQ](faq.md)
 
 ## Требования
-1. nodejs 16.0 (или новее)
-2. js-контроллер 4.0.15 (или новее)
-3. Адаптер iCal 1.12.1 (или более поздняя версия)
-4. Адаптер администратора 6.0.0 (или более поздней версии)
-
-## Предварительные условия
-1. Создайте новый экземпляр [ical адаптера] (https://github.com/iobroker-community-adapters/ioBroker.ical).
-2. Настройте URL-адрес вашего календаря (например, календаря Google).
-3. Установите для параметра «Дни предварительного просмотра» диапазон, включающий каждый тип мусора как минимум дважды (например, 45 дней).
-4. Если вы используете вкладку «События», обязательно установите флажок «Отображать» для каждого типа событий, который также следует использовать в вашем расписании мусора (в противном случае событие будет скрыто реальным экземпляром).
-
-![iCal](../../../en/adapterref/iobroker.trashschedule/img/ical.png)
+1. nodejs 20.0 (или более поздняя версия)
+2. js-controller 6.0.0 (или более поздняя версия)
+3. Административный адаптер 6.0.0 (или более поздней версии)
+4. iCal Adapter 1.12.1 (или более поздняя версия) - *необязательно*
 
 ## Конфигурация
-1. Создайте экземпляр «trashschedule» и выберите его в качестве источника.
-2. Перейдите на вкладку «Типы мусора» и добавьте столько типов, сколько у вас есть типов мусора.
+1. Создайте экземпляр ```trashschedule``` и выберите экземпляр ical в качестве источника. В качестве альтернативы можно напрямую выбирать поставщиков, которые интегрируются через различные онлайн-сервисы.
+2. Перейдите на вкладку «Типы мусора» и добавьте столько типов, сколько у вас типов мусора.
 3. Определите имя для каждого нового типа мусора и настройте соответствующие события.
 4. Запустите экземпляр
 
-**Вопросы?** Проверьте [Часто задаваемые вопросы](./faq.md).
+**Вопросы?** Проверьте [Часто задаваемые вопросы](./faq.md)
 
-![Расписание мусора](../../../en/adapterref/iobroker.trashschedule/img/trashschedule.png)
+![График вывоза мусора](../../../en/adapterref/iobroker.trashschedule/img/trashschedule.png)
 
-![Типы расписаний мусора](../../../en/adapterref/iobroker.trashschedule/img/trashschedule_types.png)
+![Типы расписания вывоза мусора](../../../en/adapterref/iobroker.trashschedule/img/trashschedule_types.png)
+
+## Предварительные условия для iCal
+1. Создайте новый экземпляр [адаптера ical](https://github.com/iobroker-community-adapters/ioBroker.ical)
+2. Настройте URL вашего календаря (например, Google Calendar)
+3. Установите «Дни предварительного просмотра» на диапазон, который включает каждый тип мусора как минимум дважды (например, 45 дней)
+4. Если вы используете вкладку «События», обязательно включите флажок «Отображение» для каждого типа событий, который также должен использоваться в вашем расписании очистки (в противном случае событие будет скрыто экземпляром ical).
+
+![iCal](../../../en/adapterref/iobroker.trashschedule/img/ical.png)
 
 ## Виджет VIS (версия VIS 1.x)
-![Виджет ВИС](../../../en/adapterref/iobroker.trashschedule/img/vis.png)
+![Виджет VIS](../../../en/adapterref/iobroker.trashschedule/img/vis.png)
+
+**VIS 2.x не поддерживается этим виджетом!**
 
 ## Changelog
 
@@ -62,35 +65,40 @@ hash: sfrtJ2NXHAZN0t3qfiJRvjKFJI6/1RxBECdMdGaVTsU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.3.0 (2023-10-25)
+### 4.0.0 (2025-01-05)
 
-NodeJS 16.x is required
+NodeJS >= 20.x and js-controller >= 6 is required
 
-* (klein0r) Improved log messages
-* (klein0r) Added icons in admin tabs
+* (@klein0r) Fixed deletion of api cache files
+* (@klein0r) Added additional JSON state for each type
+* (@klein0r) Improved logging
 
-### 2.2.0 (2023-01-16)
+### 3.4.1 (2024-11-24)
 
-* (klein0r) Added completed flag for types
+* (@Sickboy78) Awido: Increased number of fetched pickups per type (1 month)
 
-### 2.1.1 (2023-01-11)
+### 3.4.0 (2024-11-07)
 
-* (klein0r) Added Ukrainian language
+* (@klein0r) Validate user inputs in instance configuration
+* (@Sickboy78) Added Awido as Webservice
 
-### 2.1.0 (2022-12-12)
+### 3.3.0 (2024-04-28)
 
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
+NodeJS >= 18.x and js-controller >= 5 is required
 
-### 2.0.3 (2022-06-02)
+* (klein0r) Improved error reporting / log messages
+* (klein0r) Fixed translations
+* (klein0r) Added Abfall+ as Webservice
 
-* (klein0r) Allow whitespaces in the match pattern
+### 3.2.0 (2024-01-22)
+
+* (klein0r) Added more providers
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,0 +1,168 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
+---
+![Logo](../../admin/trashschedule.png)
+
+# ioBroker.trashschedule
+
+## Jumomind (MyMüll)
+
+- Darmstadt-Dieburg (ZAW)
+	- Darmstadt-Dieburg (ZAW)
+- Altötting (LK)
+	- Altötting (LK)
+- Aurich (MKW)
+	- Aurich (MKW)
+- Bad Homburg vdH
+	- Bad Homburg vdH
+- Barnim
+	- Barnim
+- Hattersheim am Main
+	- Hattersheim am Main
+- Ingolstadt
+	- Ingolstadt
+- Lübbecke
+	- Lübbecke
+- Minden
+	- Minden
+- Recklinghausen
+	- Recklinghausen
+- Rhein-Hunsrück
+	- Rhein-Hunsrück
+- Uckermark
+	- Uckermark
+- My Müll (App)
+	- Aschaffenburg
+	- Bad Arolsen
+	- Beverungen
+	- Darmstadt
+	- Esens
+	- Flensburg
+	- Großkrotzenburg
+	- Hainburg
+	- Holtgast
+	- Kamp-Lintfort
+	- Kirchdorf
+	- Landkreis Aschaffenburg
+	- Landkreis Biberach
+	- Landkreis Eichstätt
+	- Landkreis Friesland
+	- Landkreis Leer
+	- Landkreis Mettmann
+	- Landkreis Paderborn
+	- Landkreis Wittmund
+	- Landkreis Wittmund
+	- Main-Kinzig-Kreis
+	- Mühlheim am Main
+	- Nenndorf
+	- Neumünster
+	- Salzgitter
+	- Schmitten im Taunus
+	- Schöneck
+	- Seligenstadt
+	- Ulm
+	- Usingen
+	- Volkmarsen
+	- Vöhringen
+	- Wegberg
+	- Westerholt
+	- Wilhelmshaven
+- Neustadt an der Weinstraße
+	- Neustadt an der Weinstraße
+- Ostholstein
+	- Ostholstein
+- Celle
+	- Celle
+- Landkreis Grafschaft
+	- Landkreis Grafschaft
+- Landkreis Harz
+	- Landkreis Harz
+- Höxter
+	- Höxter
+- Langen
+	- Langen
+- Rosbach Vor Der Höhe
+	- Rosbach Vor Der Höhe
+- Main Kinzig Kreis
+	- Main Kinzig Kreis
+
+## Abfall.io
+
+- Abfallwirtschaft Landkreis Böblingen
+	- Aidlingen
+	- Altdorf
+	- Böblingen
+	- Bondorf
+	- Deckenpfronn
+	- Ehningen
+	- Gärtringen
+	- Gäufelden
+	- Grafenau
+	- Herrenberg
+	- Hildrizhausen
+	- Holzgerlingen
+	- Jettingen
+	- Leonberg
+	- Magstadt
+	- Mötzingen
+	- Nufringen
+	- Renningen
+	- Rutesheim
+	- Schönaich
+	- Sindelfingen
+	- Steinenbronn
+	- Waldenbuch
+	- Weil der Stadt
+	- Weil im Schönbuch
+	- Weissach
+
+## Awido.de
+
+- LK Aichach Friedberg
+- LK Altenkirchen
+- LK Ansbach
+- LK Aschaffenburg
+- LK Bad Dürkheim
+- LK Bad Tölz - Wolfratshausen
+- LK Berchtesgadener Land
+- Burbach
+- LK Coburg
+- LK Dachau
+- LK Erding
+- Fulda
+- LK Fulda
+- LK Fürstenfeldbruck
+- LK Gießen
+- LK Gotha
+- LK Günzburg
+- LK Haßberge
+- LK Hersfeld Rotenburg
+- Kaufbeuren
+- LK Kelheim
+- LK Kulmbach
+- LK Kronach
+- LK Lahn Dill
+- Memmingen
+- LK Mühldorf am Inn
+- München Südost
+- LK Neuburg Schrobenhausen
+- LK Neustadt a.d. Waldnaab
+- Nordschwaben
+- Pullach
+- Regensburg
+- LK Regensburg
+- LK Rems-Murr AöR
+- LK Rosenheim
+- LK Roth
+- LK Rottal-Inn und Dingolfing-Landau
+- LK Saale-Orla und Saalfeld-Rudolstadt
+- LK Schweinfurt
+- LK Südliche Weinstrasse
+- LK Tirschenreuth
+- LK Tübingen
+- Unterhaching
+- Unterschleißheim
+- Allmannshofen [Kein Müll]
+- Heretsried [Kein Müll]
+- Tae Kwon Do Bruderschule Hyeonsil [Kein Müll]
+- VDI Mittelrheinischer Bezirksverein [Kein Müll]

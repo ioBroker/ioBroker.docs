@@ -5,7 +5,7 @@ BADGE-Number of Installations: https://iobroker.live/badges/nsclient-installed.s
 BADGE-Current version in stable repository: https://iobroker.live/badges/nsclient-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.nsclient.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nsclient/README.md
 title: Настройка и использование адаптера NSCLIENT
 hash: CqL3cwekn6c3/gk7ItmldzBDENrCBQ2jFPLbOM+IQRw=

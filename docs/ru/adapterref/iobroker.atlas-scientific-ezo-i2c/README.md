@@ -1,6 +1,6 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.atlas-scientific-ezo-i2c/README.md
 title: ioBroker.atlas-научный-ezo-i2c
 hash: v9RAK7QEG5BrWsrUSr+aIbnA5Z3BCv9GgjX7ZtuS+MM=

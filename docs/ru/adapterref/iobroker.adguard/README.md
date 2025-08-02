@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.adguard/README.md
 title: ioBroker.adguard
-hash: ZONWA7AVIU0BWLNsU45LuyHkQCX3Yd5aYmfSxgbXrHs=
+hash: LjuS7ZNH3yS1ivp9ZY52sadIaODeAdRlkmzLJwwRkeU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.adguard/admin/adguard.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.adguard.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.adguard.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.adguard.svg)
 ![Количество установок (последнее)](https://iobroker.live/badges/adguard-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/adguard-stable.svg)
@@ -15,28 +15,37 @@ hash: ZONWA7AVIU0BWLNsU45LuyHkQCX3Yd5aYmfSxgbXrHs=
 ![НПМ](https://nodei.co/npm/iobroker.adguard.png?downloads=true)
 
 # IoBroker.adguard
-** Тесты: ** ![Тестирование и выпуск](https://github.com/o0shojo0o/ioBroker.adguard/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/o0shojo0o/ioBroker.adguard/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер AdGuard для ioBroker
-AdGuard Home - это общесетевой DNS-сервер, блокирующий рекламу и трекер, с возможностями родительского контроля (блокировка контента для взрослых). Адаптер AdGuard позволяет вам контролировать и отслеживать свой экземпляр AdGuard Home в ioBroker.
+AdGuard Home — это сетевой DNS-сервер, блокирующий рекламу и трекеры, с возможностями родительского контроля (блокировки контента для взрослых). Адаптер AdGuard позволяет вам контролировать и отслеживать ваш экземпляр AdGuard Home в ioBroker.
+
+## Кредиты
+Этот адаптер был бы невозможен без огромной работы @o0Shojo0o (https://github.com/o0Shojo0o), который разработал предыдущие версии этого адаптера.
+
+## Как сообщать о проблемах и запрашивать новые функции
+В идеале, пожалуйста, используйте для этого GitHub issues, а лучший метод достигается путем установки адаптера в режим Debug log (Instances -> Expert mode -> Column Log level). Затем извлеките файл журнала с диска через подкаталог ioBroker 'log', **не** из Admin, что приведет к сокращению строк.
 
 ## Конфигурация
-1. Создайте новый экземпляр адаптера.
-2. Заполните URL / IP с сервера AdGurad.
+1. Создайте новый экземпляр адаптера
+2. Введите URL/IP с сервера AdGurad
 3. Настройте имя пользователя и пароль.
 4. Сохраните настройки.
-5. Удачи :)
+5. Развлекайтесь :)
 
 ## Changelog
-
 <!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2024-10-26)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Dependencies have been updated.
+
+### 1.0.0 (2024-10-19)
+- (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
+- (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
+- (mcm1957) Dependencies have been updated.
 
 ### 0.0.8 (2021-08-18)
 
@@ -51,36 +60,12 @@ AdGuard Home - это общесетевой DNS-сервер, блокирую�
 -   (o0Shojo0o) more resource-efficient handling of the States
 -   (o0Shojo0o) better unload handling
 
-### 0.0.5 (2021-07-19)
-
--   (o0Shojo0o) better background color for dark theme
--   (o0Shojo0o) accept self signed certificate
-
-### 0.0.4 (2021-07-13)
-
--   (o0Shojo0o) Bugfix dark theme
-
-### 0.0.3 (2021-07-12)
-
--   (o0Shojo0o) added ratio of blocked queries by filtering queries (ratio_blocked_filtering)
--   (o0Shojo0o) added ratio of blocked queries by safe browsing (ratio_replaced_safebrowsing)
--   (o0Shojo0o) added ratio of blocked queries by parental control (ratio_replaced_parental)
--   (o0Shojo0o) added ratio of all blocked DNS queries (ratio_blocked_total)
--   (o0Shojo0o) added number of all blocked DNS queries (num_blocked_total)
-
-### 0.0.2 (2021-07-11)
-
--   (o0Shojo0o) first usable version
-
-### 0.0.1
-
--   (o0Shojo0o) initial release
-
 ## License
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

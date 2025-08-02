@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-comfort-cloud
-hash: WhJMnUEqQIkf/Vs/OuNgbAZzw8hTdmggK27lMGSFrjw=
+hash: xQjDElXBH0ppzwQG8lJvCF1O+5zctozFA27kyd1fZAk=
 ---
 # IoBroker.panasonic-comfort-cloud
 
@@ -12,13 +12,14 @@ hash: WhJMnUEqQIkf/Vs/OuNgbAZzw8hTdmggK27lMGSFrjw=
 ![Статус зависимости](https://img.shields.io/david/marc2016/iobroker.panasonic-comfort-cloud.svg)
 ![Известные уязвимости](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.panasonic-comfort-cloud.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/marc2016/ioBroker.panasonic-comfort-cloud/master.svg)
 
 | :предупреждение: ВНИМАНИЕ |
 |:---------------------------|
-| Новая версия приложения в настройках адаптера — 1.19.1 |
+| Новая версия приложения в настройках адаптера — 1.21.0 |
 
 ![Логотип](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
+
+[![Тесты и выпуск](https://github.com//marc2016/ioBroker.panasonic-comfort-cloud/actions/workflows/test-and-release.yml/badge.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
 
 ## Адаптер panasonic-comfort-cloud для ioBroker
 Адаптер для управления устройствами в Panasonic Comfort Cloud. Он использует вызовы REST, полученные из официального приложения Comfort Cloud.
@@ -28,6 +29,17 @@ hash: WhJMnUEqQIkf/Vs/OuNgbAZzw8hTdmggK27lMGSFrjw=
 Рекомендуется использовать вторую учетную запись, для которой были предоставлены общие устройства.
 
 ## Changelog
+### 3.0.0 (2024-06-29)
+
+* Added option to deactivate the automatic refresh.
+* Added state to manual refresh device infos.
+* Updated client version for OAuth support.
+
+### 2.3.0 (2023-12-21)
+
+* Updated packages
+* Added connected state to devices
+
 ### 2.2.4 (2023-10-18)
 
 * Fixed load AppVersion from Github.
@@ -130,7 +142,7 @@ hash: WhJMnUEqQIkf/Vs/OuNgbAZzw8hTdmggK27lMGSFrjw=
 
 MIT License
 
-Copyright (c) 2023 marc <marc@lammers.dev>
+Copyright (c) 2024 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

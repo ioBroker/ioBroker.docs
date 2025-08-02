@@ -7,22 +7,22 @@ hash: zoMEc5H0MtmHbZ1Q4X4Tx6HUv2EK302qyfMh0NvAhbU=
 ---
 ![标识](../../../en/adapterref/iobroker.icons-freepic/admin/icons-freepic.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.icons-freepic.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.icons-freepic.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.icons-freepic.svg)
 ![安装数量](https://iobroker.live/badges/icons-freepic-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/icons-freepic-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.icons-freepic.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.icons-freepic.png?downloads=true)
 
 # IoBroker.icons-freepic
-**测试：** ![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.icons-freepic/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的无图标图片适配器
-可从 ioBroker 可视化使用的图标，例如 webui、vis、...
-从 ioBroker.habpanel 中提取
+## 用于 ioBroker 的 icons-freepic 适配器
+可从 ioBroker 可视化（如 webui、vis 等）中使用的图标
+提取自 ioBroker.habpanel
 
 ### 免责声明
-当您使用公司名称或徽标时，请确保考虑版权和商标，并在自述文件中添加免责声明。
-您可以查看其他适配器的示例或在开发者社区中询问。未经许可使用公司名称或徽标可能会给您带来法律问题。
+在使用公司名称或徽标时，请务必考虑版权和商标，并在 README 中添加免责声明。
+您可以查看其他适配器以获取示例或在开发者社区中提问。未经许可使用公司名称或徽标可能会给您带来法律问题。
 
 ## Changelog
 <!--

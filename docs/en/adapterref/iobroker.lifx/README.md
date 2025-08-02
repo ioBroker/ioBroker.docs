@@ -8,17 +8,6 @@
 
 Lifx adapter for ioBroker
 
-## Installation:
-the official released version
-```javascript
-npm install iobroker.lifx
-```
-
-the actual version from github:
-```javascript
-npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --production
-```
-
 ## Settings/Configuration:
 - no settings or configuration required, adapter automatically detects the lamps
 ### metro widget unreachable status
@@ -61,6 +50,23 @@ npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --producti
 - values outside of range cause crash of adapter
 
 ## Changelog:
+
+### 1.0.8
+* update dependencies
+
+### 1.0.7
+* (Jarves020) Reactivated Cyclic Updates (brackets were missing at function call)
+* (Jarves020) reenabled Settings for lifx Cyclic Update Intervall
+* (Jarves020) Changed LogLevel for "Failed Cyclic Update...." from error to debug to avoid log spamming
+* (foxthefox) IOB checker corrections
+
+### 1.0.6
+* eslint upgrade and corrections
+
+### 1.0.5
+* update devDeps
+* IOB checker corrections
+
 ### 1.0.4
 * implementation jsonUI
 
@@ -117,4 +123,5 @@ npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --producti
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

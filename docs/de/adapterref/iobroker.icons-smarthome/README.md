@@ -14,19 +14,19 @@ hash: 1ek9knumlLUJtkUTkA1mTn6ZCRyw+GZQrKhhecAgJkg=
 ![NPM](https://nodei.co/npm/iobroker.icons-smarthome.png?downloads=true)
 
 # IoBroker.icons-smarthome
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.icons-smarthome/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.icons-smarthome/workflows/Test%20and%20Release/badge.svg)
 
 ## Icons-Smarthome-Adapter für ioBroker
 Symbole, die von ioBroker-Visualisierungen wie WebUI, Vis usw. verwendet werden können
 extrahiert aus ioBroker.habpanel
 
-Symbole, die von ioBroker-Visualisierungen wie WebUI, Vis usw. verwendet werden können
-extrahiert aus ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
+Symbole, die von ioBroker-Visualisierungen wie WebUI, Vis usw. verwendet werden können.
+extrahiert von ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
 
-Originalquelle: https://dribbble.com/shots/2084609-Smart-House-Icon-Set-Free-Lizenz ist CC0-1.0, siehe ZIP-Datei der Originalquelle
+Originalquelle: https://dribbble.com/shots/2084609-Smart-House-Icon-Set-Free Lizenz ist CC0-1.0, siehe im Zip auf der Originalquelle
 
 ## Credits
-Vielen Dank an Roman Malashkov für die Erstellung der Symbole
+Dank geht an Roman Malashkov für die Erstellung der Icons
 
 ## Changelog
 <!--

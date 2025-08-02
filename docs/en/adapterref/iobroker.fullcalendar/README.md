@@ -35,6 +35,31 @@ How to use:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.4.5 (2024-09-09)
+* (bluefox) Corrected SelectID Dialog
+
+### 2.4.4 (2024-09-09)
+* (bluefox) Removed withStyles package
+
+### 2.3.17 (2024-05-26)
+* (bluefox) Corrected the simulation
+
+### 2.3.16 (2024-05-25)
+* (bluefox) Small UI fixes on widget
+
+### 2.3.10 (2024-05-22)
+* (bluefox) Small UI fixes
+
+### 2.3.9 (2024-05-20)
+* (bluefox) Corrected vis-2 widget
+
+### 2.3.4 (2023-11-28)
+* (bluefox) Corrected monthly events
+
+### 2.3.1 (2023-11-27)
+* (bluefox) Packages were updated
+* (bluefox) Corrected vis-2 widget
+
 ### 2.2.6 (2023-07-27)
 * (bluefox) Compatibility with vis-2
 
@@ -83,7 +108,7 @@ How to use:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

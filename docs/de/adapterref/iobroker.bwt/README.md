@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bwt/README.md
 title: ioBroker.bwt
-hash: PP+ePNmV2FiHn4oeaoQGofPdAYFxcCtScVo0M/FQwWI=
+hash: x4VNZgkP8CtiBf4K5mONISqEvhRPs+bdWUdAp5YJQIo=
 ---
 ![Logo](../../../en/adapterref/iobroker.bwt/admin/bwt.png)
 
@@ -15,27 +15,33 @@ hash: PP+ePNmV2FiHn4oeaoQGofPdAYFxcCtScVo0M/FQwWI=
 ![NPM](https://nodei.co/npm/iobroker.bwt.png?downloads=true)
 
 # IoBroker.bwt
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.bwt/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.bwt/workflows/Test%20and%20Release/badge.svg)
 
-## Bwt-Adapter für ioBroker
-Adapter für bwt-Geräte
+## BWT-Adapter für ioBroker
+Adapter für BWT-Geräte
 
-## Anmeldeablauf
-Die lokale IP und Zugriffscode eingeben
+## Loginablauf
+Die lokale IP und den Zugriffscode eingeben
 
-Es WIRD der lokale Zugriffscode benötigt. Dazu muss man am Gerät die Cloud-Registrierung durchlaufen. Danach bekommt man den Zugriffs-Code per Email zugesendet.
+BWT-Firmware >V2.02xx ( kann durch den BWT Support auf Anfrage an ProfilineAS@bwt.de installiert werden
 
-Tipp zur Inbetriebnahme der Anbindung am Gerät: Bei WLAN-Anbindung muss die Option DHCP deaktiviert sein. DHCP bezieht sich nur auf die LAN-Anbindung ! Andersherum muss bei LAN-Anbindung DHCP aktiviert und WLAN ausgeschaltet sein. Es darf immer nur sterben Parameter Einer Schnittstelle konfiguriert sein, sonst klappts nicht.
+-lokae API aktivieren im GeräteMenu unter Verbindungen
 
-##Diskussion und Fragen
+-BWT-Firmware > V2.02xx. (kann vom BWT-Support aus der Ferne installiert werden, per Anfrage an: ProfilineAS@bwt.de.
+
+-API muss vom Benutzer vor Ort im Verbindungsmenü aktiviert werden
+
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/49576/test-adapter-bwt-v0-0-x>
 
 ## Changelog
 
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

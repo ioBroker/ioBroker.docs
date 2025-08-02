@@ -8,8 +8,9 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/Lu
 BADGE-GitHub commits since latest release: https://img.shields.io/github/commits-since/Lucky-ESA/ioBroker.imap/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/Lucky-ESA/ioBroker.imap
 BADGE-GitHub issues: https://img.shields.io/github/issues/Lucky-ESA/ioBroker.imap
-BADGE-Beta: https://img.shields.io/npm/v/iobroker.imap.svg?color=red&label=beta
+BADGE-Current version in stable repository: https://iobroker.live/badges/imap-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.imap.png?downloads=true
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap/badge.svg
 ---
 ![Logo](../../admin/imap.png)
 
@@ -24,33 +25,34 @@ BADGE-NPM: https://nodei.co/npm/iobroker.imap.png?downloads=true
 
 # Summary
 
--   [Instance Settings](#instance-settings)
-    -   [Settings TAB IMAP](#instance-settings-tab---create-imaps)
-    -   [Settings TAB Icons](#instance-settings-tab---create-icons)
-    -   [Settings TAB Mailparser](#instance-settings-tab---mailparser-options)
--   [Datenpunkte](#datenpunkte)
-    -   [Data points imap.0](#data-point-imap0)
-    -   [Data points imap.0.username](#data-point-imap0username)
-    -   [Data points imap.0.username.email.emails_xx](#data-point-imap0usernameemailemail_xx)
-    -   [Data points imap.0.username.infos](#data-point-imap0usernameinfos)
-    -   [Data points imap.0.username.remote](#data-point-imap0usernameremote)
-    -   [Data points imap.0.username.remote.copy](#data-point-imap0usernameremotecopy)
-    -   [Data points imap.0.username.remote.flag](#data-point-imap0usernameremoteflag)
-    -   [Data points imap.0.username.remote.html](#data-point-imap0usernameremotehtml)
-    -   [Data points imap.0.username.remote.move](#data-point-imap0usernameremotemove)
--   [Blocklys](#blocklys)
-    -   [Blockly - Change Instance settings](#blockly---change-imap-query)
-    -   [Blockly - Own query](#blockly---imap-own-query)
-    -   [Blockly - Query with instance settings](#blockly---imap-query-with-instance-settings)
-    -   [Blockly - Set flags](#blockly---set-imap-flags)
--   [Array JSON](#array-json)
-    -   [imap.0.xxx.email.email_xx.attach_json](#array-json-imap0xxxemailemail_xxattach_json)
-    -   [imap.0.xxx.json](#array-json-imap0xxxjson)
-    -   [imap.0.xxx.last_activity_json](#json-imap0xxxlast_activity_json)
-    -   [imap.0.xxx.quality](#json-imap0xxxquality)
-    -   [imap.0.xxx.status](#json-imap0xxxstatus)
-    -   [imap.0.online_history](#array-json-imap0online_history)
--   [Example Javascripts and Blocklys](/docs/en/EXAMPLE.md)
+- [Instance Settings](#instance-settings)
+    - [Settings TAB IMAP](#instance-settings-tab---create-imaps)
+    - [Settings TAB Icons](#instance-settings-tab---create-icons)
+    - [Settings TAB Oauth2](#instance-settings-tab---oauth2)
+    - [Settings TAB Mailparser](#instance-settings-tab---mailparser-options)
+- [States](#states)
+    - [States imap.0](#state-imap0)
+    - [States imap.0.username](#state-imap0username)
+    - [States imap.0.username.email.emails_xx](#state-imap0usernameemailemail_xx)
+    - [States imap.0.username.infos](#state-imap0usernameinfos)
+    - [States imap.0.username.remote](#state-imap0usernameremote)
+    - [States imap.0.username.remote.copy](#state-imap0usernameremotecopy)
+    - [States imap.0.username.remote.flag](#state-imap0usernameremoteflag)
+    - [States imap.0.username.remote.html](#state-imap0usernameremotehtml)
+    - [States imap.0.username.remote.move](#state-imap0usernameremotemove)
+- [Blocklys](#blocklys)
+    - [Blockly - Change Instance settings](#blockly---change-imap-query)
+    - [Blockly - Own query](#blockly---imap-own-query)
+    - [Blockly - Query with instance settings](#blockly---imap-query-with-instance-settings)
+    - [Blockly - Set flags](#blockly---set-imap-flags)
+- [Array JSON](#array-json)
+    - [imap.0.xxx.email.email_xx.attach_json](#array-json-imap0xxxemailemail_xxattach_json)
+    - [imap.0.xxx.json](#array-json-imap0xxxjson)
+    - [imap.0.xxx.last_activity_json](#json-imap0xxxlast_activity_json)
+    - [imap.0.xxx.quality](#json-imap0xxxquality)
+    - [imap.0.xxx.status](#json-imap0xxxstatus)
+    - [imap.0.online_history](#array-json-imap0online_history)
+- [Example Javascripts and Blocklys](/docs/en/EXAMPLE.md)
 
 # Instance Settings
 
@@ -62,21 +64,21 @@ BADGE-NPM: https://nodei.co/npm/iobroker.imap.png?downloads=true
  ⚠ The instance must be activated!!!!
 ```
 
--   `Activ`: Enable IMAP connection
--   `Host`: Host - e.g. imap.gmail.com
--   `Inbox`: Default INBOX - Box to be monitored - Possible selection see imap.0.xxx.remote.change_folder
--   `Port`: Port - Default 993
--   `Username`: Username - Instance must be activated!!!
--   `Password`: Password - Instance must be activated!!!
-    -   [gmail login](https://support.google.com/mail/answer/185833?hl=de)
-    -   [outlook 2Factor authentication](https://mcuiobroker.gitbook.io/jarvis-infos/tipps/allgemein/microsoft-windows/2-fach-authentifizierung)
+- `Activ`: Enable IMAP connection
+- `Host`: Host - e.g. imap.gmail.com
+- `Inbox`: Default INBOX - Box to be monitored - Possible selection see imap.0.xxx.remote.change_folder
+- `Port`: Port - Default 993
+- `Username`: Username - Instance must be activated!!!
+- `Password`: Password - Instance must be activated!!!
+    - [gmail login](https://support.google.com/mail/answer/185833?hl=de)
+    - [outlook Oauth2 authentication](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)
 
 ![imap_create_1.png](img/imap_create_1.png)
 
--   `max.`: Create maximum as data points - email_01...email_02... (1-99)
--   `max. HTML`: Maximum number of emails as HTML. Should be greater than max data points (1-99)
--   `TLS`: Use TLS-Connection - Default true
--   `Flags`: Flags for the query - Possible flags:
+- `max.`: Create maximum as States - email_01...email_02... (1-99)
+- `max. HTML`: Maximum number of emails as HTML. Should be greater than max States (1-99)
+- `TLS`: Use TLS-Connection - Default true
+- `Flags`: Flags for the query - Possible flags:
 
 ```
 ALL - All messages.
@@ -95,33 +97,34 @@ UNFLAGGED - Messages that do not have the Flagged flag set.
 UNSEEN - Messages that do not have the Seen flag set.
 ```
 
--   `Choose icon`: Folder icon (upload under TAB `CREATE ICON`)
+- `Choose icon`: Folder icon (upload under TAB `CREATE ICON`)
 
 ![imap_create_icon.png](img/../../de/img/imap_create_icon.png)
 
--   `tls Option`: Default {"rejectUnauthorized": false}
--   `auto tls`: Set to `always` to always attempt connection upgrades via STARTTLS, `required` only if upgrading is required, or `never` to never attempt upgrading. Default: `never`
-    **[For more information](https://www.npmjs.com/package/node-imap)**
+- `tls Option`: Default {"rejectUnauthorized": false}
+- `auto tls`: Set to `always` to always attempt connection upgrades via STARTTLS, `required` only if upgrading is required, or `never` to never attempt upgrading. Default: `never`
+  **[For more information](https://www.npmjs.com/package/node-imap)**
 
 ![imap_create_2.png](img/imap_create_2.png)
 
--   `Att.`: In order to fill the HTML field, attachments must also be loaded. Very high RAM consumption!!! Default `false`
--   `Mail option`: Mailparser-Option (Create under TAB `MAILPARSER OPTIONEN`)
+- `Att.`: In order to fill the HTML field, attachments must also be loaded. Very high RAM consumption!!! Default `false`
+- `Mail option`: Mailparser-Option (Create under TAB `MAILPARSER OPTIONEN`)
+- `Token`: Token [first create](#instance-settings-tab---oauth2)
 
 ![imap_create_3.png](img/imap_create_3.png)
 
--   `max. MEMRSS-Limit:` From when the actions listed below should be triggered. Default 400 MB
--   `Restart:` When the MEMRSS limit is reached, the adapter restarts. It is checked every 24 hours.
+- `max. MEMRSS-Limit:` From when the actions listed below should be triggered. Default 400 MB
+- `Restart:` When the MEMRSS limit is reached, the adapter restarts. It is checked every 24 hours.
 
 ![imap_create_restart.png](img/imap_create_restart.png)
 
--   `Datapoint:` When the MEMRSS limit is reached, the selected data point is set to `true`. This must be reset manually. It is checked every 24 hours.
+- `Object-ID:` When the MEMRSS limit is reached, the selected state is set to `true`. This must be reset manually. It is checked every 24 hours.
 
 ![imap_create_datapoint.png](img/imap_create_datapoint.png)
 
--   `Send:` A message is sent when the MEMRSS limit is reached. A message will then be sent whenever `MEMRSS` is updated.
-    -   `Instance:` e. g. telegram.0,telegram.1,pushover.0
-    -   `Instance User:` e. g. Peter,Olaf,Thomas
+- `Send:` A message is sent when the MEMRSS limit is reached. A message will then be sent whenever `MEMRSS` is updated.
+    - `Instance:` e. g. telegram.0,telegram.1,pushover.0
+    - `Instance User:` e. g. Peter,Olaf,Thomas
 
 ![imap_create_send.png](img/imap_create_send.png)
 
@@ -129,27 +132,41 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 [Summary](#summary)
 
--   `Icon Name:` Name for the icon. Please do not use duplicate names. An error message is output when the adapter starts.
--   `Upload:` Upload icon.
+- `Icon Name:` Name for the icon. Please do not use duplicate names. An error message is output when the adapter starts.
+- `Upload:` Upload icon.
 
 ![imap_create_icon.png](img/imap_create_symbol.png)
+
+### Instance settings TAB - oauth2
+
+[Summary](#summary)
+
+- `Name` Name
+- `Client ID` Client-ID
+- `Token` Token
+- `Tenant ID` Mandaten-ID
+
+![imap_create_oauth2.png](img/imap_create_oauth2.png)</br>
+![token_id.png](./../de/img/token_id.png)</br>
+![client_id.png](./../de/img/client_id.png)</br>
+![mandant_id.png](./../de/img/mandant_id.png)
 
 ### Instance settings TAB - MAILPARSER OPTIONS
 
 [Summary](#summary)
 
--   `Name:` Name for the Mailparser. Please do not use duplicate names. An error message is output when the adapter starts. [There is a detailed description here](https://nodemailer.com/extras/mailparser/).
--   `skip Html To Text:` Don’t generate plaintext from HTML.
--   `max Html Length To Parse:` The maximum amount of HTML to parse in bytes. If this is exceeded, only header data is generated.
--   `skip Image Links:` Skip converting CID attachments to data URL images. Images are not converted as base64 which saves `huge RAM usage`.
--   `skip Text To Html:` Don’t generate HTML from plaintext message.
--   `skip Text Links:` Do not linkify links in plaintext content.
+- `Name:` Name for the Mailparser. Please do not use duplicate names. An error message is output when the adapter starts. [There is a detailed description here](https://nodemailer.com/extras/mailparser/).
+- `skip Html To Text:` Don’t generate plaintext from HTML.
+- `max Html Length To Parse:` The maximum amount of HTML to parse in bytes. If this is exceeded, only header data is generated.
+- `skip Image Links:` Skip converting CID attachments to data URL images. Images are not converted as base64 which saves `huge RAM usage`.
+- `skip Text To Html:` Don’t generate HTML from plaintext message.
+- `skip Text Links:` Do not linkify links in plaintext content.
 
 ![imap_create_mailparser.png](img/imap_create_mailparser.png)
 
-# Data points
+# States
 
-### Data point `imap.0`
+### State `imap.0`
 
 [Summary](#summary)
 
@@ -162,28 +179,28 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 ![imap_total_overview.png](img/imap_total_overview.png)
 
-### Data point `imap.0.username`
+### State `imap.0.username`
 
 [Summary](#summary)
 
-| Object                             | Description                                                                                      |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
-| imap.0.xxx.active_inbox            | Active Inbox                                                                                     |
-| imap.0.xxx.host                    | Hostname                                                                                         |
-| imap.0.xxx.html                    | HTML Code for VIS                                                                                |
-| imap.0.xxx.json                    | JSON Table for VIS - [Example](#array-json)                                                      |
-| imap.0.xxx.last_activity           | Last activity                                                                                    |
-| imap.0.xxx.last_activity_json      | Activity as array JSON - [Example](#json-imap0xxxlast_activity_json)                             |
-| imap.0.xxx.last_activity_timestamp | Last activity timestamp                                                                          |
-| imap.0.xxx.online                  | IMAP status Verbindung                                                                           |
-| imap.0.xxx.quality                 | Quality of all data points as JSON. Is updated every 24 hours - [Example](#json-imap0xxxquality) |
-| imap.0.xxx.status                  | Information about the IMAP connection as JSON - [Example](#json-imap0xxxstatus)                  |
-| imap.0.xxx.total                   | Total eMails                                                                                     |
-| imap.0.xxx.total_unread            | Total unread eMails                                                                              |
+| Object                             | Description                                                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------- |
+| imap.0.xxx.active_inbox            | Active Inbox                                                                                |
+| imap.0.xxx.host                    | Hostname                                                                                    |
+| imap.0.xxx.html                    | HTML Code for VIS                                                                           |
+| imap.0.xxx.json                    | JSON Table for VIS - [Example](#array-json)                                                 |
+| imap.0.xxx.last_activity           | Last activity                                                                               |
+| imap.0.xxx.last_activity_json      | Activity as array JSON - [Example](#json-imap0xxxlast_activity_json)                        |
+| imap.0.xxx.last_activity_timestamp | Last activity timestamp                                                                     |
+| imap.0.xxx.online                  | IMAP status Verbindung                                                                      |
+| imap.0.xxx.quality                 | Quality of all States as JSON. Is updated every 24 hours - [Example](#json-imap0xxxquality) |
+| imap.0.xxx.status                  | Information about the IMAP connection as JSON - [Example](#json-imap0xxxstatus)             |
+| imap.0.xxx.total                   | Total eMails                                                                                |
+| imap.0.xxx.total_unread            | Total unread eMails                                                                         |
 
 ![imap_overview_1.png](img/imap_overview_1.png)
 
-### Data point `imap.0.username.email.email_xx`
+### State `imap.0.username.email.email_xx`
 
 [Summary](#summary)
 
@@ -205,7 +222,7 @@ UNSEEN - Messages that do not have the Seen flag set.
 ![imap_overview_email_single.png](img/imap_overview_email_single.png)
 ![imap_overview_email.png](img/imap_overview_email.png)
 
-### Data point `imap.0.username.infos`
+### State `imap.0.username.infos`
 
 [Summary](#summary)
 
@@ -236,23 +253,30 @@ UNSEEN - Messages that do not have the Seen flag set.
 ![imap_overview_capability.png](img/imap_overview_capability.png)
 ![imap_overview_capability_1.png](img/imap_overview_capability_1.png)
 
-### Data point `imap.0.username.remote`
+### State `imap.0.username.remote`
 
 [Summary](#summary)
 
-| Object                          | Description                                                                                                                                      |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| imap.0.xxx.remote.apply_html    | Apply change in imap.0.xxx.remote.html.                                                                                                          |
-| imap.0.xxx.remote.change_folder | Instance settings: Change post folder to be monitored and displayed. Will only be reset after a reboot.                                          |
-| imap.0.xxx.remote.criteria      | Instance settings: Change search. Will only be reset after a reboot.                                                                             |
-| imap.0.xxx.remote.reload_emails | Reload emails.                                                                                                                                   |
-| imap.0.xxx.remote.search_start  | Apply changes from change_folder, criteria and show_mails                                                                                        |
-| imap.0.xxx.remote.show_mails    | Instance settings: Number of emails (max. HTML) to be loaded. Will only be reset after a reboot. Should of course be greater than the value max. |
-| imap.0.xxx.remote.vis_command   | Command from the VIS to move mails from the selection boxes. Only used by VIS.                                                                   |
+| Object                                       | Description                                                                                                                                      |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| imap.0.xxx.remote.apply_html                 | Apply change in imap.0.xxx.remote.html.                                                                                                          |
+| imap.0.xxx.remote.change_folder              | Instance settings: Change post folder to be monitored and displayed. Will only be reset after a reboot.                                          |
+| imap.0.xxx.remote.criteria                   | Instance settings: Change search. Will only be reset after a reboot.                                                                             |
+| imap.0.xxx.remote.mailbox_folder_change_name | Change name of mailbox folder Example ["INBOX.imap", "INBOX.newimap"] [see](#folder-name)                                                        |
+| imap.0.xxx.remote.mailbox_folder_create      | Create mailbox folder                                                                                                                            |
+| imap.0.xxx.remote.mailbox_folder_delete      | Delete mailbox folder                                                                                                                            |
+| imap.0.xxx.remote.reload_emails              | Reload emails.                                                                                                                                   |
+| imap.0.xxx.remote.search_start               | Apply changes from change_folder, criteria and show_mails                                                                                        |
+| imap.0.xxx.remote.show_mails                 | Instance settings: Number of emails (max. HTML) to be loaded. Will only be reset after a reboot. Should of course be greater than the value max. |
+| imap.0.xxx.remote.vis_command                | Command from the VIS to move mails from the selection boxes. Only used by VIS.                                                                   |
 
 ![imap_overview_remote.png](img/imap_overview_remote.png)
 
-### Data point `imap.0.username.remote.copy`
+### Folder name
+
+Old folder names can be viewed in the imap.0.xxx.remote.change_folder object
+
+### State `imap.0.username.remote.copy`
 
 [Summary](#summary)
 
@@ -264,7 +288,7 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 ![imap_overview_remote_copy.png](img/imap_overview_remote_copy.png)
 
-### Data point `imap.0.username.remote.flag`
+### State `imap.0.username.remote.flag`
 
 [Summary](#summary)
 
@@ -277,7 +301,7 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 ![imap_overview_remote_flag.png](img/imap_overview_remote_flag.png)
 
-### Data point `imap.0.username.remote.html`
+### State `imap.0.username.remote.html`
 
 [Summary](#summary)
 
@@ -391,7 +415,7 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 ![imap_overview_remote_html_7.png](img/imap_overview_remote_html_7.png)
 
-### Data point `imap.0.username.remote.move`
+### State `imap.0.username.remote.move`
 
 [Summary](#summary)
 
@@ -409,10 +433,10 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 [Summary](#summary)
 
--   With this you can set these [data points](#data-point-imap0usernameremote).
--   See the [instance setting](#instance-settings-tab---create-imaps) for possible flags.
--   Select IMAP connection or apply to all.
--   Max. 100 emails allowed.
+- With this you can set these [States](#state-imap0usernameremote).
+- See the [instance setting](#instance-settings-tab---create-imaps) for possible flags.
+- Select IMAP connection or apply to all.
+- Max. 100 emails allowed.
 
 ![blockly_imap_1.png](img/blockly_imap_1.png)
 ![blockly_imap_2.png](img/blockly_imap_2.png)
@@ -421,12 +445,12 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 [Summary](#summary)
 
--   DANGER! Here comes all the data such. E.g. attachments. This query can push the RAM or CPU to the limit. If an incorrect criterion is created, this can lead to an iobroker crash!!!
--   The data is then delivered as JSON.
--   With log outputs, the log file becomes very large. Therefore delete the log outputs again later.
--   A variable called `result` must be created.
--   Max. 100 emails allowed.
--   [Beispiele](/docs/en/EXAMPLE.md)
+- DANGER! Here comes all the data such. E.g. attachments. This query can push the RAM or CPU to the limit. If an incorrect criterion is created, this can lead to an iobroker crash!!!
+- The data is then delivered as JSON.
+- With log outputs, the log file becomes very large. Therefore delete the log outputs again later.
+- A variable called `result` must be created.
+- Max. 100 emails allowed.
+- [Beispiele](/docs/en/EXAMPLE.md)
 
 ![blockly_imap_request.png](img/blockly_imap_request.png)
 
@@ -434,12 +458,12 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 [Summary](#summary)
 
--   Load all data from the IMAP connection and process it yourself. The instance setting is used as the search criterion.
--   DANGER! Higher RAM consumption
--   The data is then delivered as JSON.
--   With log outputs, the log file becomes very large. Therefore delete the log outputs again later.
--   A variable called `result` must be created.
--   [Example](/docs/en/EXAMPLE.md)
+- Load all data from the IMAP connection and process it yourself. The instance setting is used as the search criterion.
+- DANGER! Higher RAM consumption
+- The data is then delivered as JSON.
+- With log outputs, the log file becomes very large. Therefore delete the log outputs again later.
+- A variable called `result` must be created.
+- [Example](/docs/en/EXAMPLE.md)
 
 ![blockly_imap_current.png](img/blockly_imap_current.png)
 
@@ -447,11 +471,11 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 [Summary](#summary)
 
--   Set a flag setFlag=set, addFlag=add or delFlag=delete for an email.
--   Select mailbox.
--   Select setFlag=set, addFlag=add or delFlag=delete.
--   select flag.
--   [Possible flags in imap.0.xxx.status](#json-imap0xxxstatus)
+- Set a flag setFlag=set, addFlag=add or delFlag=delete for an email.
+- Select mailbox.
+- Select setFlag=set, addFlag=add or delFlag=delete.
+- select flag.
+- [Possible flags in imap.0.xxx.status](#json-imap0xxxstatus)
 
 ![blockly_imap_flag.png](img/blockly_imap_flag.png)
 
@@ -601,84 +625,119 @@ UNSEEN - Messages that do not have the Seen flag set.
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
-
 ### **WORK IN PROGRESS**
 
--   (Lucky-ESA) Missing translate
+- (Lucky-ESA) Description revised
+- (Lucky-ESA) Admin 7.4.10 required
+- (Lucky-ESA) JS-Controller 6.0.11 required
+- (Lucky-ESA) Added meta object for attachments
+
+### 0.3.0 (2024-12-07)
+
+- (Lucky-ESA) Mailbox folder delete added
+- (Lucky-ESA) Mailbox folder create added
+- (Lucky-ESA) Change Mailbox Folder name added
+- (Lucky-ESA) IMAP package changed
+- (Lucky-ESA) Migration to ESLint9
+
+### 0.2.2 (2024-11-07)
+
+- (Lucky-ESA) New design for settings page added
+- (Lucky-ESA) Crash if uid is empty for new emails
+
+### 0.2.1 (2024-09-16)
+
+- (Lucky-ESA) Update dependencies
+- (Lucky-ESA) Changed Log info to debug
+- (Lucky-ESA) Fixed blockly setFlag crash
+
+### 0.2.0 (2024-06-15)
+
+- (Lucky-ESA) Updated Blockly definitions
+- (Lucky-ESA) JS-Controller >= 5.0.19 required
+- (Lucky-ESA) Admin >=6.13.16 required
+
+### 0.1.3 (2024-03-06)
+
+- (Lucky-ESA) Fixed setFlag
+- (Lucky-ESA) Fixed sendTo error during instance deletion ([#57](https://github.com/Lucky-ESA/ioBroker.imap/issues/57))
+- (Lucky-ESA) Mass email shift intercepted
+
+### 0.1.2 (2024-01-24)
+
+- (Lucky-ESA) Added missing translate
+- (Lucky-ESA) Updated package
+- (Lucky-ESA) Bug fixes
 
 ### 0.1.1 (2023-09-11)
 
--   (Lucky-ESA) Delete wrong error parse message
+- (Lucky-ESA) Delete wrong error parse message
 
 ### 0.1.0 (2023-09-06)
 
--   (Lucky-ESA) Added RAM consumption - Instance Settings
--   (Lucky-ESA) Added german documention
--   (Lucky-ESA) Added Mailparser options
--   (Lucky-ESA) Added counter history
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added RAM consumption - Instance Settings
+- (Lucky-ESA) Added german documention
+- (Lucky-ESA) Added Mailparser options
+- (Lucky-ESA) Added counter history
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.9 (2023-07-26)
 
--   (Lucky-ESA) Fixed RAM consumption of new emails
--   (Lucky-ESA) Added counter attachments in JSON
+- (Lucky-ESA) Fixed RAM consumption of new emails
+- (Lucky-ESA) Added counter attachments in JSON
 
 ### 0.0.8 (2023-07-13)
 
--   (Lucky-ESA) Fix refresh crash
--   (Lucky-ESA) Added MB threshold
+- (Lucky-ESA) Fix refresh crash
+- (Lucky-ESA) Added MB threshold
 
 ### 0.0.7 (2023-04-25)
 
--   (Lucky-ESA) Fix correct counter for seen and unseen
--   (Lucky-ESA) Added capabilities
--   (Lucky-ESA) Criteria change without restart
--   (Lucky-ESA) Added outlook.office365.com oauth2 login
--   (Lucky-ESA) Added Connection.js from Module to Adapter
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Fix correct counter for seen and unseen
+- (Lucky-ESA) Added capabilities
+- (Lucky-ESA) Criteria change without restart
+- (Lucky-ESA) Added outlook.office365.com oauth2 login
+- (Lucky-ESA) Added Connection.js from Module to Adapter
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.6 (2023-03-17)
 
--   (Lucky-ESA) Added trigger move or copy emails
--   (Lucky-ESA) Added JSON for multiple IMAP accounts
--   (Lucky-ESA) Bug fixes
+- (Lucky-ESA) Added trigger move or copy emails
+- (Lucky-ESA) Added JSON for multiple IMAP accounts
+- (Lucky-ESA) Bug fixes
 
 ### 0.0.5 (2023-03-15)
 
--   (Lucky-ESA) Added: Limited reconnected (5 max)
--   (Lucky-ESA) Added: into datapoints
--   (Lucky-ESA) Added: Password entry not possible without an active instance
--   (Lucky-ESA) Added: Added description to readme
--   (Lucky-ESA) Added: Added move or copy
--   (Lucky-ESA) Added: Set flag with datapoints
--   (Lucky-ESA) Fix: debug output without attachments
--   (Lucky-ESA) Fix: wrong json_table
--   (Lucky-ESA) Fix: value null
--   (Lucky-ESA) Change: Reconnected change info level to debug level
--   (Lucky-ESA) Change: correct dp roles
--   (Lucky-ESA) Change: delete attachments (too much RAM usage)
+- (Lucky-ESA) Added: Limited reconnected (5 max)
+- (Lucky-ESA) Added: into datapoints
+- (Lucky-ESA) Added: Password entry not possible without an active instance
+- (Lucky-ESA) Added: Added description to readme
+- (Lucky-ESA) Added: Added move or copy
+- (Lucky-ESA) Added: Set flag with datapoints
+- (Lucky-ESA) Fix: debug output without attachments
+- (Lucky-ESA) Fix: wrong json_table
+- (Lucky-ESA) Fix: value null
+- (Lucky-ESA) Change: Reconnected change info level to debug level
+- (Lucky-ESA) Change: correct dp roles
+- (Lucky-ESA) Change: delete attachments (too much RAM usage)
 
 ### 0.0.4 (2023-03-03)
 
--   (Lucky-ESA) Fix json_table
+- (Lucky-ESA) Fix json_table
 
 ### 0.0.3 (2023-03-03)
 
--   (Lucky-ESA) Beta release
+- (Lucky-ESA) Beta release
 
 ### 0.0.2 (2023-03-03)
 
--   (Lucky-ESA) initial release
+- (Lucky-ESA) initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Lucky-ESA <github@luckyskills.de>
+Copyright (c) 2023-2025 Lucky-ESA <github@luckyskills.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

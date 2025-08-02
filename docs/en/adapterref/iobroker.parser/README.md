@@ -61,27 +61,27 @@ If you enter the same URL or filename more than once into different table rows, 
 - **_Unit_** - Optional: unit of the value added to the state entry. E.g. `°C`, `€`, `GB`, etc.
 - **_Old_** - If activated, the state will _not_ be updated if the value cannot be read or found in the provided date (URL or file), so it will keep the former value in this case.
 - **_Subs_** - Optional: substitute URL or file name. This substitute URL/filename will be used if the URL/file name of the first column is not available.
-- **_Factor/Offset_** (for "Type" numbers only) - allows to modify the retrieved data prior to set into the state:
-  -   _calculated value_ = _extracted value_ \* factor + offset , to make immediately modifications of value
+- **_Factor/Offset_** (for "Type" numbers only) - allows modifying the retrieved data prior to set into the state:
+  -   _calculated value_ = _extracted value_ \* factor + offset, to immediately make modifications of value
 - **_Interval_** - poll interval in ms (milliseconds). If blank or 0, the default poll interval will be used. Please see further information above.
 
 ## Sample settings
 
-| Name              | URL or file name                                       | RegEx                                | Role        | Type    | Unit | Interval |
-| ----------------- | :----------------------------------------------------- | :----------------------------------- | ----------- | ------- | ---- | -------- |
-| temperatureMunich | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<`               | temperature | number  | °C   | 180000   |
-| forumRunning      | `http://forum.iobroker.net/`                           | `Forum`                              | indicator   | boolean |      | 60000    |
-| cloudRunning      | `https://iobroker.net/`                                | `Privacy Notice`                     | indicator   | boolean |      | 60000    |
-| cpuTemperature    | `/sys/devices/virtual/thermal/thermal_zone0/temp`      | `(.*)`                               | temperature | number  | °C   | 30000    |
-| stockPrice.Visa   | `https://www.finanzen.net/aktien/visa-aktie`           | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value       | number  | €    | 86400000 |
-| kleinanzeigen     | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0`      | `data-href="(.*?).">`                | default     | string  |      | 600000   |
+| Name              | URL or file name                                       | RegEx                                | Role        | Type    | Unit | Interval  |
+|-------------------|:-------------------------------------------------------|:-------------------------------------|-------------|---------|------|-----------|
+| temperatureMunich | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<`               | temperature | number  | °C   | 180000    |
+| forumRunning      | `http://forum.iobroker.net/`                           | `Forum`                              | indicator   | boolean |      | 60000     |
+| cloudRunning      | `https://iobroker.net/`                                | `Privacy Notice`                     | indicator   | boolean |      | 60000     |
+| cpuTemperature    | `/sys/devices/virtual/thermal/thermal_zone0/temp`      | `(.*)`                               | temperature | number  | °C   | 30000     |
+| stockPrice.Visa   | `https://www.finanzen.net/aktien/visa-aktie`           | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value       | number  | €    | 86400000  |
+| kleinanzeigen     | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0`      | `data-href="(.*?).">`                | default     | string  |      | 600000    |
 
 *Note:* While applying regex to the retrieved URL/file data, all line breaks will be replaced with spaces to allow multi-line search.
 
 ## About Regular expressions (RegExp)
 Regular expressions are a powerful tool to parse and extract certain data from strings, and even more important: it allows to extract certain values/text from a given string (like from the HTML of a webpage, or text from a file) by applying rules.
 
-For boolean types, the regex is rather simple. For numeric types, you should mark the number with brackets - `()`. E.g. to extract the number from *The temperature is 5°C* you should use ` (\d+)` expression.
+For boolean types, the regex is rather simple. For numeric types, you should mark the number with brackets - `()`. E.g., to extract the number from *The temperature is 5°C* you should use ` (\d+)` expression.
 
 Further information on RegExp:
 -   [MDN/Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
@@ -143,6 +143,19 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.3.1 (2025-03-24)
+* (bluefox) Migrated the admin GUI to TypeScript
+
+### 2.2.4 (2024-08-26)
+* (bluefox) updated packages
+* (bluefox) corrected a problem with the creation of rule
+
+### 2.2.2 (2024-07-14)
+* (bluefox) GUI was migrated for admin v7
+
+### 2.1.0 (2023-12-14)
+* (mcm1957) Only node 16 and higher is supported
+
 ### 2.0.7 (2023-10-25)
 * (TA2k) added the user agent to prevent timeout blocking
 * (bluefox) Added a configurable userAgent option
@@ -241,7 +254,7 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

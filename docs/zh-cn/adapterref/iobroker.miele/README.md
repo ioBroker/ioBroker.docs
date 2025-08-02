@@ -2,33 +2,33 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.miele/README.md
-title: 无题
+title: 无标题
 hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
 ---
-![商标](../../../en/adapterref/iobroker.miele/admin/miele.png)
+![标识](../../../en/adapterref/iobroker.miele/admin/miele.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.miele.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.miele.svg)
 ![测试](http://img.shields.io/travis/soef/ioBroker.miele/master.svg)
-![建立状态](https://ci.appveyor.com/api/projects/status/o43a9fj5a19d5n6y?svg=true)
+![构建状态](https://ci.appveyor.com/api/projects/status/o43a9fj5a19d5n6y?svg=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.miele.svg)
 
 ## IoBroker.miele
-####说明
-适用于Miele设备的适配器
+＃＃＃＃ 描述
+Miele 设备适配器
 
-####配置
-配置没有必要。第一次接收的广播将创建所有可用的设备和状态
+＃＃＃＃ 配置
+无需配置。第一个收到的广播将创建所有可用的设备和状态
 
-####安装
-在iobroker根目录中执行以下命令（例如在/ opt / iobroker中）
+＃＃＃＃ 安装
+在 iobroker 根目录中执行以下命令（例如在 /opt/iobroker 中）
 
 ```
 npm install iobroker.miele
 ```
 
 ＃＃＃＃ 要求
-Miele网关，例如XGW 3000 <！ -
+Miele 网关，例如XGW 3000 <!--
 
 ## License
 The MIT License (MIT)

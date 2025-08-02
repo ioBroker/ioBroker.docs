@@ -2,18 +2,18 @@
 
 | :warning: WARNING          |
 |:---------------------------|
-| New app version in adapter settings is 1.19.1      |
+| New app version in adapter settings is 1.21.0      |
 
 ![Logo](admin/panasonic-comfort-cloud.png)
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
+[![Tests and release](https://github.com//marc2016/ioBroker.panasonic-comfort-cloud/actions/workflows/test-and-release.yml/badge.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
+
 [![Dependency Status](https://img.shields.io/david/marc2016/iobroker.panasonic-comfort-cloud.svg)](https://david-dm.org/marc2016/iobroker.panasonic-comfort-cloud)
 [![Known Vulnerabilities](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud/badge.svg)](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud)
 
 [![NPM](https://nodei.co/npm/iobroker.panasonic-comfort-cloud.png?downloads=true)](https://nodei.co/npm/iobroker.panasonic-comfort-cloud/)
-
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/marc2016/ioBroker.panasonic-comfort-cloud/master.svg)](https://travis-ci.org/marc2016/ioBroker.panasonic-comfort-cloud)
 
 ## panasonic-comfort-cloud adapter for ioBroker
 
@@ -24,6 +24,25 @@ With the method used, only one client can be logged on with the account at a tim
 It is recommended that a second account, for which the devices have been shared, is used.
 
 ## Changelog
+### 3.0.2 (2024-07-10)
+
+* Fixed bug in refreshing oauth token again.
+
+### 3.0.1 (2024-07-01)
+
+* Fixed bug in refreshing oauth token.
+
+### 3.0.0 (2024-06-29)
+
+* Added option to deactivate the automatic refresh.
+* Added state to manual refresh device infos.
+* Updated client version for OAuth support.
+
+### 2.3.0 (2023-12-21)
+
+* Updated packages
+* Added connected state to devices
+
 ### 2.2.4 (2023-10-18)
 
 * Fixed load AppVersion from Github.
@@ -126,7 +145,7 @@ It is recommended that a second account, for which the devices have been shared,
 
 MIT License
 
-Copyright (c) 2023 marc <marc@lammers.dev>
+Copyright (c) 2024 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

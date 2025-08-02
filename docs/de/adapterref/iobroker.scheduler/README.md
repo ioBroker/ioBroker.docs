@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scheduler/README.md
-title: ioBroker Scheduler-Adapter
-hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
+title: ioBroker Scheduler Adapter
+hash: 32jCsXKqdnXNCB4EKsz3xjm452DBZjh48kYgvIr3Mgc=
 ---
 ![Logo](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
@@ -12,27 +12,46 @@ hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.scheduler.svg)
 ![NPM](https://nodei.co/npm/iobroker.scheduler.png?downloads=true)
 
-# IoBroker Scheduler-Adapter
-Dieser Adapter dient zur zeitgesteuerten Steuerung von Geräten. Zum Beispiel Heizungs- oder Bewässerungssteuerung.
+# IoBroker Scheduler Adapter
+Dieser Adapter dient zur zeitgesteuerten Steuerung von Geräten. Beispielsweise zur Heizungs- oder Bewässerungssteuerung.
 
-Sie können die Profile mit unterschiedlicher Priorität erstellen: normal (z. B. an Werktagen), hoch (z. B. am Wochenende) und am höchsten (z. B. für Feiertage).
+Sie können Profile mit unterschiedlicher Priorität erstellen: normal (z. B. an Werktagen), hoch (z. B. am Wochenende) und höchste (z. B. für Feiertage).
 Das Profil mit der höheren Priorität überlastet andere Profile.
 
-Für jedes Profil wird die aktive Variable erstellt.
-Der Benutzer kann jedoch eine eigene Aktivierungsvariable auswählen, um beispielsweise Feiertage zu steuern.
+Für jedes Profil wird eine Aktivvariable angelegt.
+Der Benutzer kann aber auch eine eigene Aktivierungsvariable wählen, um z.B. Feiertage zu steuern.
 
-Der Benutzer sollte dem Profil Geräte hinzufügen, und alle Geräte im Profil werden auf denselben Wert eingestellt.
+Der Benutzer sollte dem Profil Geräte hinzufügen und alle Geräte im Profil werden auf denselben Wert eingestellt.
 
-Dieser Adapter verfügt über ein Vis2-Widget.
+Dieser Adapter hat ein Vis2-Widget.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.3.2 (2024-04-05)
+* (bluefox) Corrected widget errors
+* (bluefox) Implemented custom types
+* (bluefox) Added possibility to control devices on holidays
+
+### 1.2.1 (2024-04-03)
+* (bluefox) Added two options: "Ignore values if same as previous" and "Do not control if device already in desired state"
+* (bluefox) Corrected 15-minute intervals
+* (bluefox) GUI improvements for mobile view
+
+### 1.1.14 (2024-04-02)
+* (bluefox) Corrected widget and profile
+
+### 1.1.12 (2024-03-13)
+* (bluefox) Packages updated
+
+### 1.1.10 (2023-10-19)
+* (bluefox) Packages updated
+
+### 1.1.9 (2023-06-28)
 * (bluefox) Packages updated
 
 ### 1.1.7 (2023-03-24)
@@ -57,7 +76,7 @@ Dieser Adapter verfügt über ein Vis2-Widget.
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.1 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 1.0.0 (2022-03-22)
 * (bluefox) GUI migrated to material@5
@@ -77,7 +96,7 @@ Dieser Adapter verfügt über ein Vis2-Widget.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -112,6 +112,11 @@ Please note: highlighting current playing favorite is not supported.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (seb2010) Added support for treble and bass information
+* (Apollon77) stores the tts files in files instead of binary states
+
 ### 3.0.0 (2023-10-09)
 * (udondan) Added support for the playing Sonos playlists (added new state `playlist_set`)
 * (bluefox) The minimal node.js version is 16
@@ -120,7 +125,7 @@ Please note: highlighting current playing favorite is not supported.
 * (foxriver76) fixed cover url
 
 ### 2.3.2 (2023-09-20)
-* (foxriver76) store the cover file in files instead of binary states
+* (foxriver76) stores the cover file in files instead of binary states
 
 ### 2.3.1 (2023-03-22)
 * (Apollon77) Prepare for future js-controller versions
@@ -287,7 +292,7 @@ Please note: highlighting current playing favorite is not supported.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

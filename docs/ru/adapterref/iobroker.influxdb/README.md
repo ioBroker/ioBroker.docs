@@ -5,7 +5,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.influxdb.svg
 BADGE-Tests: http://img.shields.io/travis/ioBroker/ioBroker.history/master.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.influxdb.png?downloads=true
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.influxdb/README.md
 title: без названия
 hash: 3NwDgz/ioa8U77f97f49AfeoC0uK8sBFk9+oqMjp09Y=

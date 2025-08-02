@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vivitek/README.md
 title: ioBroker.vivitek
-hash: t+Ah+LoEx9Tq5fdmj9fc8ljk00si9IGbuXy7TvSePFo=
+hash: XMhDgcHa2xqJZkUjWZ9usXlpe33EZqQIJz6Yg40Pdec=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vivitek/admin/vivitek.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vivitek.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.vivitek.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vivitek.svg)
 ![Количество установок (последнее)](http://iobroker.live/badges/vivitek-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/vivitek-stable.svg)
@@ -16,31 +16,46 @@ hash: t+Ah+LoEx9Tq5fdmj9fc8ljk00si9IGbuXy7TvSePFo=
 ![НПМ](https://nodei.co/npm/iobroker.vivitek.png?downloads=true)
 
 # IoBroker.vivitek
-## Адаптер vivitek для ioBroker
-Управление проектором Vivitek по сети (команды RS 232 через telnet)
+##адаптер vivitek для ioBroker
+Управление проектором Vivitek через сеть (команды RS 232 через telnet)
 
-Адаптер предназначен для связи с проектором vivitek через интерфейс Telnet.
-Он должен вести себя как последовательный порт.
-К сожалению, в реализации telnet отсутствуют некоторые основные команды.
-На данный момент это возможно только через сеть с сервером RS232.
-Я запускаю его с помощью Wieseman & Theis Comserver.
+Адаптер предназначен для связи с проектором vivitek через его интерфейс telnet. Он должен вести себя как последовательный порт.
 
-## Делать
-Когда реализация на стороне проектора заработает в полную силу, необходимо добавить больше команд для полного управления проектором.
-Насколько мне известно, протокол охватывает целое семейство проектов.
+К сожалению, в реализации telnet отсутствуют некоторые базовые команды.
+На данный момент возможно только подключение по сети к RS232 Com-Server.
+Я запускаю его с помощью Wieseman & Theis Com-Server.
+
+## Задача
+Когда реализация на стороне проектора заработает полностью, следует добавить больше команд для полного управления проектором.
+Насколько мне известно на данный момент, протокол охватывает целое семейство проектов.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.1.1 (2025-02-25)
+* (Bannsaenger) updated admin dependency
+
+### 0.1.0 (2025-02-09)
+* (Bannsaenger) updated dependencies and moved to release script
+* (Bannsaenger) instance config and object database handling prepared for >= admin5
+* (Bannsaenger) json Config
+* (Bannsaenger) add errorHandler
+
+### 0.0.2
+* (Bannsaenger) prepared for checkin to iobroker.latest
 
 ### 0.0.1
 * (Bannsaenger) initial release
 
 ### 0.0.2
-* (Bannsaenger) prepared for checkin to iobroker.latest
+* (Bannsaenger) added engine and prepared for review
 
 ## License
 MIT License
 
-Copyright (c) 2021 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2025 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

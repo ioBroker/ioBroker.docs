@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-购物清单
-hash: HSFwRXQrrs4eNztQ9DaQN8lE/YF/bl79FvsVUjpidLs=
+hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -11,52 +11,52 @@ hash: HSFwRXQrrs4eNztQ9DaQN8lE/YF/bl79FvsVUjpidLs=
 ![下载](https://img.shields.io/npm/dm/iobroker.alexa-shoppinglist.svg)
 ![安装数量](https://iobroker.live/badges/alexa-shoppinglist-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
-# IoBroker.alexa 购物清单
-**测试：** ![测试和发布](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.alexa-购物清单
+**测试：**![测试和发布](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 alexa-shoppinglist 适配器
+## IoBroker 的 alexa-shoppingList 适配器
 从 Alexa 生成购物清单
 
-您还可以使用 Alexa 的其他列表。在管理员中配置它。
-当您使用新的管理 UI 时，这对您来说会容易得多。
+您还可以使用 Alexa 的其他列表。请在管理员界面中进行配置。
+使用新的管理员界面，一切将更加便捷。
 
-有一个插入新项目的状态。只需编写文本并输入。
+有一个状态可以插入新项目。只需输入文本并按 Enter 键即可。
 您可以删除活动和非活动列表。
-您也可以只向两个方向移动一个项目。
+您也可以双向移动单个项目。
 
 我希望你喜欢
 
-**如果喜欢，请考虑捐款：**
+**如果您喜欢它，请考虑捐赠：**
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
-＃＃ 数据点
-| DP 名称 |类型 |说明 |
-| ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
-|添加位置 |字符串 |键入要插入列表中的文本 |
-|删除活动列表 |按钮 |清除活动列表并将其移至非活动列表 |
-|删除无效列表 |按钮 |清除非活动列表 |
-| position_to_shift |编号 |您可以插入项目移动的位置编号，而不是按钮 to_active_list 或 to_inactive list |
-|列表活动 | JSON | JSON 格式的活动列表 |
-|列表活动排序 |切换 |您可以按名称或插入时间对活动列表进行排序 |
-| list_inactive | JSON |非活动列表作为 JSON |
-| list_inactive_sort |切换 |您可以按名称或插入时间对非活动列表进行排序 |
-| to_activ_list |按钮 |首先插入 position_to_shift 然后按下按钮移动到 activ_list |
-| to_inactive_list |按钮 |首先插入 position_to_shift 然后按下按钮移动到 inactiv_list |
+数据点
+| DP 名称 | 类型 | 描述 |
+|---------------------|--------|-----------------------------------------------------------------------------------------------------|
+| add_position | 字符串 | 输入要插入列表的文本 |
+| delete_activ_list | 按钮 | 清除活动列表并将其移至非活动列表 |
+| delete_inactiv_list | 按钮 | 清除非活动列表 |
+|position_to_shift|数字|您可以插入项目移动的位置编号，然后按钮移动到活动列表或非活动列表|
+| list_active | JSON | JSON 格式的活动列表 |
+| list_active_sort | 开关 | 您可以按名称或插入时间对活动列表进行排序 |
+| list_inactive | JSON | JSON 格式的非活动列表 |
+| list_inactive_sort | 开关 | 您可以按名称或插入时间对非活动列表进行排序 |
+| to_activ_list | 按钮 | 首先插入position_to_shift，然后按按钮移动到activ_list |
+| to_inactive_list | 按钮 | 首先插入position_to_shift，然后按按钮移动到inactiv_list |
 
-| JSON 中的属性 |说明 |
-| ----------------- | ----------------------------------------- |
-|姓名 |物品名称 |
-|时间 |插入的时间戳 |
-|编号 | Alexa2 适配器中的 ID |
-|位置 |榜单位置 |
-|按钮移动 |移动到活动或非活动列表的按钮 |
-|按钮删除 |完全删除项目的按钮 |
+| JSON 中的属性 | 描述 |
+|-------------------|-------------------------------------------|
+| 名称 | 商品名称 |
+| 时间 | 插入时间戳 |
+| id | Alexa2 适配器中的 id |
+| pos | 列表中的位置 |
+| buttonmove | 移动到活动或非活动列表的按钮 |
+| buttondelete | 彻底删除项目的按钮 |
 
-JSON 现在包含 2 个用于移动项目或删除的按钮。
-为此，您必须在 Skript 下的 VIS 编辑器中插入代码，将其放入：
+JSON 现在包含 2 个按钮，分别用于移动项目和删除。
+为此，您需要在 Skript 下的 VIS 编辑器中插入代码，如下所示：
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -64,9 +64,11 @@ JSON 现在包含 2 个用于移动项目或删除的按钮。
 function setOnDblClickCustomShop( myvalue) {
     let id = myvalue.slice(0,myvalue.indexOf(","));
     let val = myvalue.slice(myvalue.indexOf(",")+1, myvalue.length);
-    if (val){
-      vis.setValue(id,val);
+    if (val=== "true"){
+      vis.setValue(id,true);
+      return
     }
+    vis.setValue(id,false);
   }
 ```
 
@@ -74,14 +76,40 @@ function setOnDblClickCustomShop( myvalue) {
 
 ## Changelog
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+- Breaking change: minimal supported node.js version is 20.x
+
+### 1.0.3 (2024-12-04)
+
+- CHORE: Migration to ESLint 9 and @iobroker/eslint-config
+
+### 1.0.2 (2024-11-09)
+
+- FIX: #97 Add missing attributes to jsonConfig
+
+### 1.0.1 (2024-10-19)
+
+- FEAT: #95 Responsive Design
+
+### 1.0.0 (2024-08-09)
+
+- Js-controller >=5.0.19 is required
+- Breaking change: minimal supported node.js version is 18.x
+
 ### 0.1.5 (09.01.2023)
 
 - Error when deleting via the JSON list fixed
 
 ### 0.1.4 (25.09.2022)
 
-- Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
-- You only have to check the Checkbox
+- Its now possible to delete always the inactive list, when you delete an article from the active list
+- You only have to check the checkbox
 
 ### 0.1.2 ( 09.04.2022)
 
@@ -103,7 +131,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 MIT License
 
-Copyright (c) 2023 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

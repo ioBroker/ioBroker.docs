@@ -12,49 +12,52 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.trashschedule.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
 BADGE-Installed: http://iobroker.live/badges/trashschedule-installed.svg
-chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.trashschedule/README.md
 title: ioBroker.trashschedule
-hash: sfrtJ2NXHAZN0t3qfiJRvjKFJI6/1RxBECdMdGaVTsU=
+hash: lzuSu0sby5D6UegSa6JsEn012jiF5TzYHCMRQGOm79Y=
 ---
 ![标识](../../../en/admin/trashschedule.png)
 
 # IoBroker.trashschedule
 ＃＃ 目录
+- [提供商]（providers.md）
 - [Blockly](blockly.md)
-- [JavaScript](javascript.md)
-- [常见问题解答](faq.md)
+- [JavaScript]（javascript.md）
+- [常见问题](faq.md)
 
 ＃＃ 要求
-1.nodejs 16.0（或更高版本）
-2.js-controller 4.0.15（或更高版本）
-3. iCal 适配器 1.12.1（或更高版本）
-4.管理适配器6.0.0（或更高版本）
-
-## 前提条件
-1. 创建[ical适配器]的新实例(https://github.com/iobroker-community-adapters/ioBroker.ical)
-2. 配置日历的 URL（例如 google 日历）
-3. 将“预览天数”设置为包含每种垃圾类型至少两次的范围（例如 45 天）
-4. 如果您使用“事件”选项卡，请确保为每个事件类型启用“显示”复选框，该复选框也应在垃圾计划中使用（否则该事件将被 ical 实例隐藏）
-
-![钙](../../../en/adapterref/iobroker.trashschedule/img/ical.png)
+1.nodejs 20.0（或更高版本）
+2. js-controller 6.0.0 (或更高版本)
+3. Admin Adapter 6.0.0（或更高版本）
+4. iCal Adapter 1.12.1（或更高版本）- *可选*
 
 ＃＃ 配置
-1. 创建一个 ```trashschedule``` 实例并选择 ical 实例作为源
-2. 转到垃圾类型选项卡并添加与垃圾类型一样多的类型
-3. 为每个新垃圾类型定义名称并配置匹配事件
+1. 创建一个 ```trashschedule``` 实例，并选择 ical 实例作为源。或者，可以直接选择提供商，这些提供商通过各种在线服务进行集成。
+2. 转到垃圾类型选项卡，并添加尽可能多的垃圾类型
+3. 为每种新的垃圾类型定义名称并配置匹配的事件
 4.启动实例
 
-**有问题吗？** 检查[常问问题](./faq.md)
+**有问题？** 查看[常问问题](./faq.md)
 
-![垃圾时间表](../../../en/adapterref/iobroker.trashschedule/img/trashschedule.png)
+![垃圾分类表](../../../en/adapterref/iobroker.trashschedule/img/trashschedule.png)
 
 ![垃圾计划类型](../../../en/adapterref/iobroker.trashschedule/img/trashschedule_types.png)
 
+## ICal 的先决条件
+1. 创建 [ical 适配器](https://github.com/iobroker-community-adapters/ioBroker.ical) 的新实例
+2. 配置你的日历的 URL（例如谷歌日历）
+3. 将“预览天数”设置为至少包含每种垃圾类型两次的范围（例如 45 天）
+4. 如果您使用“事件”选项卡，请确保启用每个事件类型的“显示”复选框，该复选框也应在您的垃圾计划中使用（否则该事件将被 ical 实例隐藏）
+
+![苹果](../../../en/adapterref/iobroker.trashschedule/img/ical.png)
+
 ## VIS 小部件（VIS 版本 1.x）
-![视觉小部件](../../../en/adapterref/iobroker.trashschedule/img/vis.png)
+![VIS 小部件](../../../en/adapterref/iobroker.trashschedule/img/vis.png)
+
+**此小部件不支持 VIS 2.x！**
 
 ## Changelog
 
@@ -62,35 +65,40 @@ hash: sfrtJ2NXHAZN0t3qfiJRvjKFJI6/1RxBECdMdGaVTsU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.3.0 (2023-10-25)
+### 4.0.0 (2025-01-05)
 
-NodeJS 16.x is required
+NodeJS >= 20.x and js-controller >= 6 is required
 
-* (klein0r) Improved log messages
-* (klein0r) Added icons in admin tabs
+* (@klein0r) Fixed deletion of api cache files
+* (@klein0r) Added additional JSON state for each type
+* (@klein0r) Improved logging
 
-### 2.2.0 (2023-01-16)
+### 3.4.1 (2024-11-24)
 
-* (klein0r) Added completed flag for types
+* (@Sickboy78) Awido: Increased number of fetched pickups per type (1 month)
 
-### 2.1.1 (2023-01-11)
+### 3.4.0 (2024-11-07)
 
-* (klein0r) Added Ukrainian language
+* (@klein0r) Validate user inputs in instance configuration
+* (@Sickboy78) Added Awido as Webservice
 
-### 2.1.0 (2022-12-12)
+### 3.3.0 (2024-04-28)
 
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
+NodeJS >= 18.x and js-controller >= 5 is required
 
-### 2.0.3 (2022-06-02)
+* (klein0r) Improved error reporting / log messages
+* (klein0r) Fixed translations
+* (klein0r) Added Abfall+ as Webservice
 
-* (klein0r) Allow whitespaces in the match pattern
+### 3.2.0 (2024-01-22)
+
+* (klein0r) Added more providers
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

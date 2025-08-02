@@ -1,0 +1,236 @@
+---
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ta-blnet/README.md
+title: ioBroker.ta-blnet
+hash: toqB4XA2zoRCMjH4AFYkafT1vyKsl+cT7eN9urhOvf4=
+---
+![NPM-Version](https://img.shields.io/npm/v/iobroker.ta-blnet.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.ta-blnet.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/ta-blnet-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/ta-blnet-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.ta-blnet.png?downloads=true)
+
+<img src="admin/ta-blnet.png" alt="Logo" style="width:20%;" />
+
+# IoBroker.ta-blnet
+**Tests:** ![Testen und Freigeben](https://github.com/weberk/ioBroker.ta-blnet/workflows/Test%20and%20Release/badge.svg)
+
+## Ta-blnet-Adapter für ioBroker
+Ein ioBroker-Adapter zum Lesen von Daten von einem oder bis zu acht Klimareglern per [Technische Alternative](http://www.ta.co.at) über BL-NET. Oder eine unbegrenzte Anzahl an Klimareglern, die an CMI angeschlossen sind.
+
+Nach der Installation müssen Sie eine Instanz erstellen und benutzerdefinierte Werte konfigurieren, z. B. für die IP-Adresse, die Portnummer und das Aktualisierungsintervall, das die Instanz verwenden soll.
+
+Bitte stellen Sie sicher, dass Sie das BL-NET-Gerät oder das neuere CMI-Produkt besitzen.
+
+Das BL-NET-Gerät sieht so aus: ![BL-NET](../../../en/adapterref/iobroker.ta-blnet/doc/BL-NET.png) Das Handbuch zum BL-NET finden Sie hier: https://www.ta.co.at/fileadmin/Downloads/Betriebsanleitungen/00_Auslauftypen/BL-NET/Manual_BL-Net_V2.19-2_EN.pdf
+
+Das CMI-Gerät sieht so aus: ![BL-NET](doc/CMI.png) Das Handbuch zum CMI finden Sie hier: [https://www.ta.co.at/download/datei/805](https://www.ta.co.at/download/datei/805)
+
+## Adapterbeschreibung
+Der Adapter liest regelmäßig die aktuellen Daten Ihrer Heizungssteuerung aus. Er stellt über Ethernet Kontakt her zu:
+
+- dem BL-NET Bootloader oder
+- die CMI-Steuerungs- und Überwachungsschnittstelle.
+
+BL-NET und CMI sind Produkte der Firma Technische Alternative und ermöglichen das Auslesen und Zwischenspeichern der Daten verschiedenster Heizungssteuerungen per CAN-Bus bzw. Dataline-Bus.
+
+## Installation
+Die Installation kann erfolgen über:
+
+- **ioBroker GUI**: Gehen Sie in den Expertenmodus > Adapter > Von URL installieren und geben Sie „https://github.com/weberk/ioBroker.ta-blnet“ ein.
+- **CLI**: Führen Sie den folgenden Befehl aus:
+
+```sh
+iobroker url iobroker.ta-blnet@latest
+```
+
+## Changelog
+
+<!--
+Placeholder for next version:  ### **WORK IN PROGRESS**
+-->
+### 1.0.36 (2025-01-04)
+
+- added CMI support to adapters summary description
+
+### 1.0.35 (2024-12-22)
+
+- port number is taken from config for communication with CMI
+
+### 1.0.34 (2024-12-22)
+
+- improved retry logic for requests to CMI
+
+### 1.0.33 (2024-12-20)
+
+- improved error handling for calls to CMI JSON API
+
+### 1.0.32 (2024-12-19)
+
+- introduced increasing wait time between successive CMI request attempts
+
+### 1.0.31 (2024-12-18)
+
+- removed port number constraint to allow port 80 for CMI
+
+### 1.0.30 (2024-12-16)
+
+- added eslint9 config, removed eslint8 config
+
+### 1.0.29 (2024-12-13)
+
+- added translation and documentation to data object config
+
+### 1.0.28 (2024-12-13)
+
+- improved JSON Status Code logging
+- added data_objects per can_node to config for CMI requests
+
+### 1.0.27 (2024-12-13)
+
+- added additional sections processing to CMI mode
+
+### 1.0.26 (2024-12-12)
+
+- used uvr_type_code as capital letter string
+- node name for channel is now 4 digid
+
+### 1.0.25 (2024-12-10)
+
+- improved error handling on CMI return codes
+- improved node names
+
+### 1.0.24 (2024-12-08)
+
+- fixed lint errors
+
+### 1.0.23 (2024-12-08)
+
+- added initial CMI support
+
+### 1.0.22 (2024-12-01)
+
+- fixed negative current_heat_power
+
+### 1.0.21 (2024-12-01)
+
+- added 2DL reading
+- renamed main class to TaBlnet and port to 'TA port'
+- fixed negative current_heat_power
+
+### 1.0.20 (2024-11-30)
+
+- renamed adapter and git repo from ioBroker.uvr16xx-blnet to ioBroker.ta-blnet
+- published new package to npm
+
+### 1.0.19 (2024-11-29)
+
+- removed onStateChange;
+- streamlined object node names;
+- improved node typing;
+- explicitely created every node;
+- improved outputs value filter;
+- ensured calls to setObjectNotExistsAsync happen only once;
+- removed data_frame_number parameter
+- introduced limit for poll intervall
+- removed obsolete react admin GUI settings and artefacts
+- use this.setTimeout instead of this.setInterval
+- finalized changes because of review findings
+
+### 1.0.18 (2024-11-28)
+
+- introduced multiple data_frame_reading and population of multiple devices in adapter object tree
+
+### 1.0.17 (2024-11-26)
+
+- added number of CAN frames to uvr_mode_str
+- improved recognition of retry necessity on 'keep patient' messages from BL-NET
+
+### 1.0.16 (2024-11-25)
+
+- improved reading of flow rate
+- code refactoring
+
+### 1.0.15 (2024-11-24)
+
+- refactorings and improved code documentation
+
+### 1.0.14 (2024-11-23)
+
+- added frame index to options
+
+### 1.0.13 (2024-11-22)
+
+- improved CAN bus mode reading
+
+### 1.0.12 (2024-11-22)
+
+- lint fixes
+
+### 1.0.11 (2024-11-22)
+
+- improved CAN bus mode reading
+
+### 1.0.10 (2024-11-21)
+
+- improved reading device info
+- fixed handling of negative temperatures
+
+### 1.0.9 (2024-11-21)
+
+- improved logging and introduced a new socket for each command
+
+### 1.0.8 (2024-11-21)
+
+- improving logging in order to analyse system using CAN bus
+- added retry for reading UVR HEADER in order to identify uvr_mode
+
+### 1.0.7 (2024-11-19)
+
+- testing deployment via "npm run release"
+
+### 1.0.6 (2024-11-19)
+
+- testing deployment via "npm run release"
+
+### 1.0.5 (2024-11-17)
+
+- improve build and deploy using github workflow (workflow>test-and-release.yml, ioBroker Check and Service Bot)
+- added compliance with ioBrokers adapter repository (https://github.com/ioBroker/ioBroker.repositories?tab=readme-ov-file#how-to-publish-on-npm)
+
+### 1.0.1 (2024-11-17)
+
+- improve build and deploy
+
+### 1.0.0 (2024-11-17)
+
+- (Klaus Weber) initial release
+
+### 0.0.1
+
+- initial working version
+
+## License
+
+MIT License
+
+Copyright (c) 2025 Klaus Weber <klausatweberesprit@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -3,7 +3,7 @@ BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/
 BADGE-npm: https://img.shields.io/npm/v/iobroker.beckhoff.svg
 BADGE-Number of Installations: http://iobroker.live/badges/beckhoff-installed.svg
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.beckhoff/README.md
 title: ioBroker.beckhoff
 hash: pz8eEIO01aYfgLmjSOGh38tMxgZTE2PCRqETLkUQ3xE=

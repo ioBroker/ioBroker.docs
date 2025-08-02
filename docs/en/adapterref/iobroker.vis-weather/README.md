@@ -10,6 +10,14 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)](https://nodei.co/npm/iobroker.vis-weather/)
 
+![node-lts](https://img.shields.io/node/v-lts/iobroker.vis-weather?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.vis-weather?label=npm%20dependencies&style=flat-square)
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.vis-weather?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 
 
 **If you like it, please consider a donation:**
@@ -21,6 +29,13 @@ You need DasWetter-Adpater or weatherunderground-Adapter running as well...
 
 In weatherunderground you need forecast of next 36 hours enabled.
 In DasWetter.com you need one of four forecast data structures enabled. You can select the one you want to display. 
+
+
+## compatibility with vis-2
+
+This widget is NOT compatible with vis-2.
+A new version under the name [vis-2-widgets-weather](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) is under preparation.
+
 
 ## Notes / wiki
 ### Define Forecast hours
@@ -35,7 +50,22 @@ You might need to enable "NextDaysDetailed".
 
 ## Changelog
 
-### 2.5.7 (in progress)
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.5.12 (2025-06-02)
+* (René) bug fix: widget was not shown at all sometimes
+
+### 2.5.11 (2025-02-28)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 2.5.10 (2024-05-28)
+* (René) suggested changes by adapter checker
+
+### 2.5.9 (2024-01-13)
+* (René) dependencies update
 
 ### 2.5.6 (2022-08-18)
 * (René) tooltip with value added as an option
@@ -144,7 +174,7 @@ You might need to enable "NextDaysDetailed".
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -163,7 +193,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-

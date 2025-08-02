@@ -314,6 +314,7 @@ title: "状态角色"
 * info.standby  - 如果设备处于待机模式，则为true
 * info.status  - 设备状态
 * info.display  - 设备显示屏上显示的信息
+* info.model - 设备型号
 * date.start  - 字符串或数字
 * date.end  - 字符串或数字
 

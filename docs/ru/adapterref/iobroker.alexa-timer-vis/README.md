@@ -2,57 +2,141 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-timer-vis/README.md
-title: ioBroker.alexa-таймер-вис
-hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
+title: ioBroker.alexa-таймер-vis
+hash: FQ5JVSNc4RuGya9Qp40UFQJarhUdEU9Z1yFXMz/vj+U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.alexa-timer-vis.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.alexa-timer-vis.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.alexa-timer-vis.svg)
 ![Количество установок](https://iobroker.live/badges/alexa-timer-vis-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/alexa-timer-vis-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
-# IoBroker.alexa-timer-vis
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.alexa-таймер-vis
+![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер alexa-timer-vis для ioBroker
-Вывод таймера Alexa для отображения в окне
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Более подробную информацию и инструкции по отключению отчетов об ошибках см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Использование отчетов Sentry начинается с js-controller 3.0.
 
-**Если вам это нравится, рассмотрите пожертвование:**
+## Alexa-timer-vis адаптер для ioBroker
+Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчет об ошибках, см. документацию Sentry-Plugin! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+Вывод таймера Alexa для отображения в vis
 
-### Это пример моего виза
-![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
+**Если вам понравилось, пожалуйста, рассмотрите возможность пожертвования:**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+
+### Это пример моего виз
+![img.png](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer1.png)
 
 ## Функциональность
-Таймер или несколько с помощью голосового ввода создается через Alexa, это оценивается адаптером и записывается в состояния, чтобы сделать их видимыми в Vis. Таким образом, у вас будет лучший обзор, если у вас одновременно активны несколько таймеров.
+Таймер или несколько таймеров, заданных голосовым вводом, создаются с помощью Alexa, оцениваются адаптером и записываются в состояния, чтобы сделать их видимыми в Vis. Таким образом, у вас будет лучший обзор, если у вас одновременно активны несколько таймеров.
 
-- ---- Требуется адаптер Alexa2 ----
-- Виджет Vis еще не интегрирован
+- ---- Необходим адаптер Alexa2 ----
+- Виджет Vis пока не интегрирован
 - У каждого таймера есть кнопка, чтобы остановить его. Останавливает таймер в Alexa и в адаптере
-- С Alexa можно создавать неограниченное количество таймеров с помощью голосовой команды.
+- С помощью голосовой команды Alexa можно создавать неограниченное количество таймеров.
 - При запуске адаптера создаются 4 папки со всеми состояниями.
-- Дополнительные папки будут созданы, как только будет создан 5-й и более таймеров с помощью голосового ввода Alexa.
-- Он работает с немецким вводом
+- Дополнительные папки будут созданы, как только будет создано 5-й и более таймеров с помощью голосового ввода Alexa.
+- Работает с немецким вводом
 
 ### Добавление таймера ( Примеры )
-- Алекса, Таймер 5 минут
-- Алекса, картофель фри Таймер 9 минут
+- Alexa, Таймер 5 минут
+- Алекса, фри Таймер 9 минут
 - Алекса, поставь таймер на 1 час 30 минут.
-- Алекса, поставь таймер на 2 часа
-- Алекса, Таймер на 120 минут
-- Алекса, Таймер 9 минут Спагетти
+- Алекса, поставь таймер на 2 часа.
+- Alexa, Таймер на 120 минут
+- Alexa, Таймер 9 минут Спагетти
 
 ### Удаление таймера ( Примеры )
 - Алекса, удали все таймеры
-- Alexa, удалить картофель фри Таймер
-- Alexa, удалить 5 минут Таймер
+- Алекса, удали таймер картошки фри
+- Алекса, удали 5-минутный таймер
 
-### Если у вас есть какие-либо предложения по улучшению или добавлению других функций, не стесняйтесь обращаться к нам
+### Если у вас есть предложения по улучшению чего-либо или добавлению других функций, свяжитесь с нами.
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+- FIX: Add alarm clock to ignored words
+
+### 2.1.1 (2025-04-28)
+
+- FEAT: #141 Activate sentry
+
+### 2.0.9 (2025-04-06)
+
+- FEAT: Add more config
+- CHORE: Update dependencies
+
+### 2.0.8 (2024-12-04)
+
+- CHORE: Update dependencies
+- CHORE: Migration to ESLint 9 and @iobroker/eslint-config
+
+### 2.0.7 (2024-11-19)
+
+- FIX: #157 Add size attribute xl for text in jsonConfig
+- FIX: #156 Error in decomposeInputValue
+
+### 2.0.6 (2024-10-19)
+
+- FEAT: #151 Responsive Design
+
+### 2.0.5 (2024-09-26)
+
+- FIX: #142 Timeout error
+- FIX: #137 Reset timer name
+- FEAT: Add json state
+
+### 2.0.4 (2024-09-18)
+
+- FIX: #132 Second timer button reset deletes timer one
+
+### 2.0.3 (2024-09-13)
+
+- FIX: #133 Timer names are not correct
+- FIX: #134 All timer alive at start
+
+### 2.0.2 (2024-09-12)
+
+- FIX: #130 Sting_2 remains empty
+
+### 2.0.1 (2024-09-10)
+
+- FIX: #128 Timer creating error
+
+### 2.0.0 (2024-09-08)
+
+- FIX: #119 Error "has no existing object" on first start
+- FEAT: Use Typescript
+- FEAT: #118 get name from activeTimerList
+- FIX: #117 createDevice is deprecated
+
+### 1.0.0 (2024-08-09)
+
+- Js-controller >=5.0.19 is required
+
+### 0.3.0 (2023-12-23)
+
+- FIX: #82 Delete Timer by Button
+- FIX: #74 Start time
+- FEAT: #71 Name of Echo in data tree
+- FEAT: #75 Percent from 0% to 100%
+- Breaking change: minimal supported node.js version is 16.x
+- FEAT: #58 Another String Variation
+
+### 0.2.0 (2023-07-27)
+
+- create Timer with Alexa2 TextCommand, fixed
+- lengthen and shorten timers
 
 ### 0.1.15 (22.09.2022)
 
@@ -91,7 +175,8 @@ hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
 ### 0.1.6 (17.01.2022)
 
 - numbers from 1-9 are always displayed as two digits, 1 => 01
-- When you update to this or a newer Version, please delete the timer folders or delete the whole adapter, otherwise errors will occur
+- When you update to this or a newer Version, please delete the timer folders or delete the whole adapter, otherwise
+  errors will occur
 
 ### 0.1.5 (08.01.2022)
 
@@ -127,19 +212,19 @@ hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
 
 ### 0.0.3 (26.12.2021)
 
-- (Michael Roling) Bugfix
+- Bugfix
 
 ### 0.0.2 (26.12.2021)
 
-- (Michael Roling) Bugfix
+- Bugfix
 
 ### 0.0.1 (25.12.2021)
 
-- (Michael Roling) initial release
+- initial release
 
 ## License
 
-Copyright (c) 2021-2023 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2025 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 

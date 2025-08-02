@@ -14,169 +14,105 @@
 
 [Deutsche Beschreibung hier](README_de.md)
 
-This adapter control your Yeelight device. this adapter is only for admin3. Admin2 is not supported
-
-## Jump Version
-When changing from the 0.4.X to the 0.9.X or higher, the objects must be deleted manually so they can be recreated.
+This adapter controls your Yeelight devices over your local network.
 
 ## Installation
-for RGB Bulbs you have to enable the LAN in the settings of the yeelight app.
+
+For all the Yeelights you want to control, you need to enable "LAN Control" in the yeelight app settings.
 
 ![](admin/lan.jpg)
 
 ## Config
-you can add manually devices or find devices in network. the basic port is 55443. if you want, you can change the name, ip, port and smartname
+
+You can add devices manually or find devices on the network. The default port is 55443. If you want, you can change the name, IP, port and smartname.
 
 ### smartname
-if you type in a smartname, the device is add to the iobroker.cloud and can control by alexa. 
+
+If you enter a smartname, the device will be added to the iobroker.cloud and can be controlled by Alexa.
 
 ### Find device
-with this button you can scan your Network for devices, if something is found, the divices added to the table. It takes about 20 seconds to scan the network. if the devices not found, the Lan mode is not enabled or the bulbs are in a nother network.
+
+With this button you can scan your network for devices, if something is found, the devices will be added to the table. It takes about 20 seconds to scan the network. if the devices are not found, "LAN Control" is not enabled or the devices are in a different network.
 
 ### Device not in the list
-If your Device is not in the list eg. yltd003 use a different lamp with the same fetures in ths case desklamp or Color or something else.
+
+If your device is not in the list, e.g. YLTD003, use another lamp with the same features in this case (desklamp or Color or something else).
+
 ## set_scene
-Usage: This method is used to set the smart LED directly to specified state. If
-the smart LED is off, then it will turn on the smart LED firstly and then apply the specified
-command.
+
+Usage: This method is used to set the Smart LED directly to a specified state. If the device is off, it is first turned on and then the specified command is applied.
 
 Parameters: 3 ~ 4.
 
- "class" can be "color", "hsv", "ct", "cf", "auto_dealy_off".
+"class" can be "color", "hsv", "ct", "cf", "auto_dealy_off".
 
-- "color" means change the smart LED to specified color and
-brightness.
-- "hsv" means change the smart LED to specified color and brightness.
-- "ct" means change the smart LED to specified ct and brightness.
-- "cf" means start a color flow in specified fashion.
-- "auto_delay_off" means turn on the smart LED to specified
-brightness and start a sleep timer to turn off the light after the specified minutes.
+-   "color" means to change the smart LED to the specified color and brightness.
+-   "hsv" means to change the Smart LED to specified color and brightness.
+-   "ct" means to change the Smart LED to specified ct and brightness.
+-   "cf" means start a color flow in specified way.
+-   "auto_delay_off" means to turn on the Smart LED to specified brightness and start a sleep timer to turn off the light after the specified minutes.
 
- "val1", "val2", "val3" are class specific.
+"val1", "val2", "val3" are class-specific.
 
-Request Example: 
-- ``["color", 65280, 70]``
-- ``["hsv", 300, 70, 100]``
-- ``["ct", 5400, 100]``
-- ``["cf",0,0,"500,1,255,100,1000,1,16776960,70"]``
-- ``["auto_delay_off", 50, 5]``
+Request Example:
 
-NOTE: Accepted on both "on" and "off" state.
+-   `["color", 65280, 70]`
+-   `["hsv", 300, 70, 100]`
+-   `["ct", 5400, 100]`
+-   `["cf",0,0,"500,1,255,100,1000,1,16776960,70"]`
+-   `["auto_delay_off", 50, 5]`
 
- For above examples:
+NOTE: Accepted in both "on" and "off" states.
 
- - The first is to set color to "652280" and 70% brightness.
- - The second is to set color to Hue:300, Saturation:70 and max brightness.
- - The third is set CT to 500K and 100% brightness.
- - The forth one is to start a infinite color flow on two flow tuples.
- - The fifth one is turn on the light to 50% brightness and then turn off
-after 5 minutes.
+For the above examples:
+
+-   The first is to set color to "652280" and brightness to 70%.
+-   The second is to set color to hue:300, saturation:70 and max brightness.
+-   The third is to set CT to 5400K and 100% brightness.
+-   The fourth is to start an infinite color flow on two flow tuples.
+-   The fifth is to turn on the light to 50% brightness and then turn it off after 5 minutes.
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+### 1.5.2 (2025-02-28)
 
-* (Apollon77) make sure reconnects work correctly
+-   (Black-Thunder) Incompatibilities with the dependency "joy" have been fixed and "joy" has been updated.
 
-### 1.2.1 (2022-06-16)
-* (Apollon77) register error handler for Yeelight instance
-* (Apollon77) Prevent to register too many event listeners on discovery
-* (Apollon77) Set some states after object creation
-* (Apollon77) Prevent some crash cases reported by Sentry
+### 1.5.1 (2025-02-26)
 
-### 1.2.0 (2022-04-13)
-* (Apollon77) Optimize unload handling and async executions
-* (Apollon77) Prevent log on unexpected types
-* (Apollon77) Add Sentry for crash reporting
+-   (mcm1957) Update of joi has been reverted due to incompatibilities.
 
-### 1.1.2 (2021-08-05)
-* Fix Joi Error
+### 1.5.0 (2025-02-26)
 
-### 1.1.1 (2021-08-03)
-* (MeisterTR) js-controller 3.3 fixes
-* (jlssmt) fixed unhandled promise rejection causing the adapter to stop
-* (jlssmt) adapter won't set power of offline devices to off anymore
+-   (mcm1957) Adapter requires node.js >= 20, js-controller >= 6 and admin >= 6 now
+-   (Black-Thunder) Online status for each device has been added (visible in admin object tree).
+-   (Black-Thunder) Support for compact mode has been added.
+-   (Black-Thunder) Code has been partially refeactored.
+-   (mcm1957) Dependencies have been updated
 
-### 1.1.0 (2021-07-26)
-* (MeisterTR) add release-script update testing and dependencies
-* (Diginix) fixed data types
+### 1.4.0 (2024-04-29)
 
-### 1.0.3 (2019-12-01)
-* (MeisterTR) add Pedant
-* (MeisterTR) transfer to community
+-   (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+-   (mcm1957) Dependencies have been updated
 
-### 1.0.1 (2018-12-08)
-* (MeisterTR) push version, added set_scene
+### 1.3.1 (2024-02-15)
 
-### 0.9.6 (2018-12-08)
-* (MeisterTR) yeelight-wifi added
-* (MeisterTR) fixed  bugs
-* (MeisterTR) add manuell light
-* (MeisterTR) better error handling
-* (MeisterTR) fixed reconnect at start
-* (MeisterTR) delete object and smartname bug fixed
-
-### 0.9.1 (2018-10-31)
-* (MeisterTR) added offline detection, poll sates, cleanup
-
-### 0.9.0 (2018-08-29)
-* (MeisterTR) rebuild
-
-### 0.4.1 (2018-08-29)
-* (MeisterTR) fixed JSON error
-
-### 0.4.0 (2018-08-29)
-* (MeisterTR) fixed errors
-* (MeisterTR) added scenen
-
-### 0.3.6 (2018-07-07)
-* (MeisterTR) catch spaces in config, small performance changes
-
-### 0.3.5 (2018-06-18)
-* (MeisterTR) added yeelight650, fixed some bugs, power on when ct change
-
-### 0.2.9 (2018-06-07)
-* (MeisterTR) change name for repo and npm
-
-### 0.2.8 (2018-06-01)
-* (MeisterTR) fixed bug wit port, fixed set ct by alexa
-
-### 0.2.6 (2018-05-31)
-* (MeisterTR) fixed manny bugs.
-
-### 0.2.0 (2018-03-07)
-* (MeisterTR) many changes add smartname Option, add manual devices, many fixes
-* (MeisterTR) fix role for alexa
-
-### 0.1.1 (2018-03-07)
-* (MeisterTR)return to default value when turn on
-* (MeisterTR)fix role for alexa
-
-### 0.1.0 (2018-03-07)
-* (MeisterTR) many changes, add hue and sat for alexa control
-
-### 0.0.2 (2018-03-07)
-* (MeisterTR) objects not overwirte after restart
-
-### 0.0.2 (2018-03-07)
-* (MeisterTR) testing added, log changed
-
-### 0.0.1 (2018-01-29)
-* (cahek2202) initinal version
-
-
-
-base from: adb backup https://github.com/cahek2202/ioBroker.yeelight
+-   (mcm1957) BREAKING: adapter requires node.js 18 or newer now.
+-   (Black-Thunder) Crashes at startup of adapter have been fixed. [#271, #227 and #222]
+-   (mcm1957) Testing has been changed to support node 18 and 20
+-   (mcm1957) Dependencies have been updated
+-   (Apollon77) make sure reconnects work correctly
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2024 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

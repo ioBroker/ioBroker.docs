@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-shoppinglist/README.md
-title: ioBroker.alexa-einkaufsliste
-hash: HSFwRXQrrs4eNztQ9DaQN8lE/YF/bl79FvsVUjpidLs=
+title: ioBroker.alexa-shoppingList
+hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -13,50 +13,50 @@ hash: HSFwRXQrrs4eNztQ9DaQN8lE/YF/bl79FvsVUjpidLs=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
-# IoBroker.alexa-shoppinglist
-**Tests:** ![Test und Freigabe](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.alexa-shoppingList
+**Tests: ** ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
-## Alexa-Shoppinglist-Adapter für ioBroker
-Erzeugt die Einkaufsliste von Alexa
+## Alexa-ShoppingList-Adapter für ioBroker
+Generiert die Einkaufsliste von Alexa
 
-Sie können auch andere Listen von Alexa verwenden. Konfigurieren Sie es im Admin.
-Wenn Sie die neue Admin-Benutzeroberfläche verwenden, wird es für Sie viel einfacher.
+Sie können auch andere Listen von Alexa verwenden. Konfigurieren Sie diese im Admin-Bereich.
+Mit der neuen Admin-Oberfläche wird es für Sie deutlich einfacher.
 
-Es gibt einen Status zum Einfügen neuer Elemente. Schreiben Sie einfach den Text und geben Sie ein.
+Es gibt einen Status zum Einfügen neuer Elemente. Geben Sie einfach den Text ein und drücken Sie die Eingabetaste.
 Sie können aktive und inaktive Listen löschen.
-Sie können auch nur einen Gegenstand in beide Richtungen bewegen.
+Sie können auch nur ein Element in beide Richtungen verschieben.
 
-Ich hoffe es gefällt dir
+Ich hoffe, es gefällt Ihnen
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ## Datenpunkte
-| DP-Name | Geben Sie | ein Beschreibung |
-| ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
-| add_position | Zeichenfolge | Geben Sie Text ein, der in die Liste eingefügt werden soll |
-| delete_activ_list | Knopf | Löscht die aktive Liste und verschiebt sie in die inaktive Liste |
-| delete_inactiv_list | Knopf | Löscht die inaktive Liste |
-| position_to_shift | Nummer | Sie können die Positionsnummer der Elementverschiebung über die Schaltfläche to_active_list oder to_inactive list | eingeben |
-| list_active | JSON | Die Aktivliste als JSON |
-| list_active_sort | Schalter | Sie können die aktive Liste nach Name oder nach Einfügezeit | sortieren |
+| DP-Name | Typ | Beschreibung |
+|---------------------|--------|-----------------------------------------------------------------------------------------------------|
+| add_position | Zeichenfolge | Geben Sie den in die Liste einzufügenden Text ein |
+| delete_activ_list | Schaltfläche | Löscht die aktive Liste und verschiebt sie in die inaktive Liste |
+| delete_inactiv_list | Schaltfläche | Löscht die Inaktivliste |
+| position_to_shift | Nummer | Sie können die Positionsnummer des Elements eingeben und dann mit der Schaltfläche to_active_list oder to_inactive_list verschieben. |
+| list_active | JSON | Die aktive Liste als JSON |
+| list_active_sort | Schalter | Sie können die aktive Liste nach Name oder Einfügezeit sortieren |
 | list_inactive | JSON | Die inaktive Liste als JSON |
-| list_inactive_sort | Schalter | Sie können die inaktive Liste nach Name oder nach Einfügezeit | sortieren |
-| to_activ_list | Knopf | Geben Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu activ_list | zu wechseln |
-| to_inactive_list | Knopf | Geben Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu inactiv_list | zu wechseln |
+| list_inactive_sort | Schalter | Sie können die inaktive Liste nach Namen oder Einfügezeit sortieren |
+| zur_Aktivliste | Schaltfläche | Geben Sie zuerst die Position zum Verschieben ein und drücken Sie dann die Schaltfläche, um zur Aktivliste zu wechseln |
+| zur_inaktiven_Liste | Schaltfläche | Geben Sie zuerst die Position zum Verschieben ein und drücken Sie dann die Schaltfläche, um zur inaktiven_Liste zu wechseln |
 
 | Attribut in JSON | Beschreibung |
-| ----------------- | ----------------------------------------- |
+|-------------------|-------------------------------------------|
 | Name | Name des Artikels |
-| Zeit | Zeitstempel der Einfügung |
+| Zeit | Zeitstempel des Einfügens |
 | id | id im Alexa2-Adapter |
 | pos | Position in der Liste |
-| buttonmove | Schaltfläche zum Wechseln zur aktiven oder inaktiven Liste |
+| buttonmove | Schaltfläche zum Verschieben zur aktiven oder inaktiven Liste |
 | buttondelete | Schaltfläche zum vollständigen Löschen des Elements |
 
-Das JSON enthält nun 2 Buttons zum Verschieben oder Löschen von Elementen.
-Dazu müssen Sie im VIS-Editor unter Skript Code einfügen, diesen eingeben:
+Das JSON enthält nun zwei Schaltflächen zum Verschieben und Löschen von Elementen.
+Hierfür müssen Sie im VIS-Editor unter „Skript“ Code einfügen. Geben Sie Folgendes ein:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -64,9 +64,11 @@ Dazu müssen Sie im VIS-Editor unter Skript Code einfügen, diesen eingeben:
 function setOnDblClickCustomShop( myvalue) {
     let id = myvalue.slice(0,myvalue.indexOf(","));
     let val = myvalue.slice(myvalue.indexOf(",")+1, myvalue.length);
-    if (val){
-      vis.setValue(id,val);
+    if (val=== "true"){
+      vis.setValue(id,true);
+      return
     }
+    vis.setValue(id,false);
   }
 ```
 
@@ -74,14 +76,40 @@ function setOnDblClickCustomShop( myvalue) {
 
 ## Changelog
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+- Breaking change: minimal supported node.js version is 20.x
+
+### 1.0.3 (2024-12-04)
+
+- CHORE: Migration to ESLint 9 and @iobroker/eslint-config
+
+### 1.0.2 (2024-11-09)
+
+- FIX: #97 Add missing attributes to jsonConfig
+
+### 1.0.1 (2024-10-19)
+
+- FEAT: #95 Responsive Design
+
+### 1.0.0 (2024-08-09)
+
+- Js-controller >=5.0.19 is required
+- Breaking change: minimal supported node.js version is 18.x
+
 ### 0.1.5 (09.01.2023)
 
 - Error when deleting via the JSON list fixed
 
 ### 0.1.4 (25.09.2022)
 
-- Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
-- You only have to check the Checkbox
+- Its now possible to delete always the inactive list, when you delete an article from the active list
+- You only have to check the checkbox
 
 ### 0.1.2 ( 09.04.2022)
 
@@ -103,7 +131,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 MIT License
 
-Copyright (c) 2023 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2025 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

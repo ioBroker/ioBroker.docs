@@ -16,6 +16,8 @@
 Access data from HDG Control of HDG Bavaria boilers. Currently a limited configuration is supported (K10-33, 850l tank with 3 
 temperature sensors, configurable number of heating circuits). Others could be added on request.
 
+I have only very few time for this project and moved to HA in the meantime. There is a similar interesting project https://github.com/srt/hdg-exporter.
+
 ## Changelog
 <ul>
   <li>v0.4.0

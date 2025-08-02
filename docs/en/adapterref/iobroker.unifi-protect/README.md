@@ -5,12 +5,11 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.unifi-protect.svg)](https://www.npmjs.com/package/iobroker.unifi-protect)
 ![Number of Installations (latest)](http://iobroker.live/badges/unifi-protect-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/unifi-protect-stable.svg)
-[![Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.unifi-protect.svg)](https://david-dm.org/peterbaumert/iobroker.unifi-protect)
+[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.unifi-protect.svg)](https://david-dm.org/peterbaumert/iobroker.unifi-protect)
 [![Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect)
 
 [![NPM](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)](https://nodei.co/npm/iobroker.unifi-protect/)
 
-**This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
 ## unifi-protect adapter for ioBroker
 
@@ -58,18 +57,24 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
     sendImage(path);
 });
 ```
-
-## What is Sentry.io and what is reported to the servers of that company?
-Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
-
-When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
+## Credits
+This adapter would not have been possible without the great work of Peter Baumert <ioBroker.unifi-protect@outlook.com> who implemented the inital release of this adapter.
 
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## **WORK IN PROGRESS**
+    ### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2024-06-06)
+* (Scrounger) A Problem accessing the 'manual snapshot' folder has been fixed.
+* (mcm1957) Dependencies have been updated
+
+### 1.0.0 (2024-03-28)
+* (mcm1957) BREAKING: Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
+* (mcm1957) Dependencies have been updated
+
 ### 0.0.13 (2023-01-23)
 * dependencies updates
 * first implementation of realtime updates api
@@ -133,6 +138,7 @@ Thank you very much for providing this code. His codes license you can find [her
 ## License
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

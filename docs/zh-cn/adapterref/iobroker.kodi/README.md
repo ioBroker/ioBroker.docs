@@ -2,31 +2,31 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kodi/README.md
-title: Kodi for ioBroker（JSON-RPC API）
-hash: qAlRZtML3qdXIoe7sRiqtDoHz6EMGa0+6KEfbAqyHPE=
+title: Kodi 适用于 ioBroker（JSON-RPC API）
+hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 ---
 ![标识](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.kodi.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.kodi.svg)
 ![安装数量](http://iobroker.live/badges/kodi-installed.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kodi.svg)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
-# Kodi for ioBroker (JSON-RPC API)
-[![测试](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
+# 用于 ioBroker 的 Kodi（JSON-RPC API）
+[![测试]（https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.kodi/actions/)
 
-[英文说明书](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
+[英文手册](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-我们使用 KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) 和 полный список доступных команд (для протокола версиии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6)。
+您可能已经通过 API JSON-RCP [这个](http://kodi.wiki/view/JSON-RPC_API) 以及类似的 kodi 库曼德（共 6 个版本）[这个](http://kodi.wiki/view/JSON-RPC_API/v6) 获得了 KODI 的可用文档。
 
-## KODI KODI
+## KODI 顾问
 Включение удаленного управления и веб-сервера.
 ![远程控制启用。](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-JSON-RPC API использует **по умолчанию порт 9090**，для того чтобы его изменить необходимо внести изменени в файл [高级设置.xml](http://kodi.wiki/view/AdvancedSettings.xml)я
+JSON-RPC API 提供**支持 9090**，以便我们可以在 [高级设置.xml](http://kodi.wiki/view/AdvancedSettings.xml) 中提供新功能。
 
-_注意：在 Advancedsettings.xml 中设置该文件。 Вы должны сначала создать его!_
+_注意：您未将 advancedsettings.xml 设置为 DefaultSettings.xml。您想停下来吗？_
 
 ```xml
 <jsonrpc>
@@ -36,7 +36,7 @@ _注意：在 Advancedsettings.xml 中设置该文件。 Вы должны сн�
 ```
 
 ## Конфигурация драйвера
-包括 IP 和 JSON-RPC API (по умолчанию 9090)，以及 логин/пароль дял доступа на веб-сервер Kodi。
+在您的帐户中，您可以设置 IP 地址并使用 JSON-RPC API（仅限 9090）登录/登录 Kodi 服务器上的服务器。
 
 ## Использование
 ### 显示通知：
@@ -44,20 +44,20 @@ _注意：在 Advancedsettings.xml 中设置该文件。 Вы должны сн�
 
 **图片：** Уровень сообщения
 
-  * '信息' - 0（默认），
-  * '警告' - 1,
-  *“错误”- 2。
+* ‘info’ - 0（默认），
+* ‘警告’ - 1，
+* ‘错误’-2。
 
-**显示时间：** 比赛时间为 1500 月 30000 月。
+**displaytime:** 所有在军事基地的活动，最低 1500 米到 30000 米。
 
 **Пример:**
 
- * 1;Внимание;Протечка воды;15000
- * Внимание;Протечка воды;2;10000
+* 1;Vнимание;Протечка воды;15000
+* 访客数量;2;10000
  * Внимание;Протечка воды
  * Протечка воды
 
-Так же сообщения можно отправлять из драйвера javascript:
+若要共享此信息，请运行 javascript 脚本：
 
 ```js
 sendTo("kodi.0", {
@@ -69,39 +69,39 @@ sendTo("kodi.0", {
 ```
 
 ### SwitchPVR：
-PVR IPTV 是一种新型的 PVR IPTV 技术。
-**示例：** ТВ канал - Discovery Science найдет как по полному наименованию так и по 发现，
+浏览 PVR IPTV 频道，了解最新频道。
+**示例：**本网站 - Discovery Science 致力于提供科学研究和发现，
 
 ＃＃＃ YouTube：
-Для открытия видео с сайта youtube достаточно записать код видео в данный статус。 Начиная с версии 0.1.5 和 выше можно вставлять прямую ссылку на видео，а также код или полную ссылку на плейлист。
-名称: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
+要查看 YouTube 网站上的视频，请访问我们的主页并输入视频代码。更新于 0.1.5 版本，并且您可能已经尝试过视频、代码或简体中文版本。
+标题：本站不提供视频播放服务，请先阅读后评论 - Bvmxr24D4TA
 
 ＃＃＃ 打开：
-Сюда записывается ссылка на медиконтент в сети интернет либо путь до локального медиа файла.
-KODI 上的 записи значения начнется воспроизведение на проигрывателе KODI。
+谨致问候，敬请关注我们网站，我们将竭诚为您服务。
+请参阅 KODI 合作伙伴论坛以获取更多信息。
 
 ＃＃＃ 位置：
-Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую 和 KODI тут же перейдет к вос произведению этой позиции.
+您需要在个人资料中描述您的个人资料，并且 KODI 必须提供您个人资料才能观看该个人资料。
 
 ＃＃＃ 寻找：
-Текущее значение позиции воспроизведения в процентах от 0 до 100.
+您将在 0 至 100 的评分范围内获得最高的评分。
 
 ＃＃＃ 重复：
 Повтор воспроизведения, принимает следующие значения:
 
-* 关闭 - повтор воспроизведения отключен
-* 上 - повтор воспроизведения текущего трека
-* 全部 - повтор всего плейлиста
+* off - 取消 已注销
+* on - 过去 500 年中各国技术状况
+* 全部 - 超过 1000 个评分
 
 ### 随机播放：
-Перемешивание списка треков в плейлисте для случайного воспроизведения。
-正确与错误
+简要回顾一下 trekov 在 slv 中的应用。
+示例 true 和 false
 
 ＃＃＃ 玩：
-Старт воспроизведения（真、假）
+状态异常（true，false）
 
 ＃＃＃ 速度：
-Скорость воспроизведения。 Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32)，表示“递增”和“递减”
+回顾过去。整数倍数 (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32)，以及 'increment' 和 'decrement'
 
 ＃＃＃ 目录：
 Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
@@ -122,17 +122,21 @@ KODI 上的 записи значения начнется воспроизве�
 ```
 
 ＃＃＃ 系统：
- - EjectOpticalDrive - Извлекает или закрывает дисковод оптических дисков (если имеется)
- - Hibernate - 休眠模式
- - 重新启动 - перезагрузка системы
- - 关闭 - выключает систему
- - 暂停 - приостанавливает Kodi
-
-<!-- 下一个版本的占位符（在行的开头）：
-
-### **正在进行中** -->
+- EjectOpticalDrive - 弹出或删除光驱中的光盘（或附件）
+- Hibernate - 最高级语法
+- 重启 - 优化系统
+- 关机 - 已启动系统
+- 暂停 - Kodi 应用程序
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2024-04-18)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 3.0.0 (2023-09-08)
 * (agross) Fixed seeking on Kodi >= 19
 * (bluefox) Supported only node.js versions >= 16
@@ -256,6 +260,7 @@ KODI 上的 записи значения начнется воспроизве�
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

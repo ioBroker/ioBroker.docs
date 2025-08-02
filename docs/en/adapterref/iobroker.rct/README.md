@@ -1,4 +1,5 @@
-![Logo](admin/rct.png)
+[![Logo](admin/rct.png)](https://www.rct-power.com/de)
+
 # ioBroker.rct
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.rct.svg)](https://www.npmjs.com/package/iobroker.rct)
@@ -6,38 +7,54 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/rct-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/rct-stable.svg)
 
-[![Dependency Status](https://img.shields.io/david/aruttkamp/iobroker.rct.svg)](https://david-dm.org/aruttkamp/iobroker.rct)
+[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
 
 [![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)](https://nodei.co/npm/iobroker.rct/)
 
 **Tests:** ![Test and Release](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## Owner Change
-
-After lauff switched to Home Assistant - project will continued by aruttkamp
-
-
 ## RCT adapter for ioBroker
 
 Please note that this is a private project and that I (Andreas Ruttkamp) am not related to RCT in any way.
-
-Show values of a RCT Power photovolatics power converter
+Read values of a RCT Power photovoltaics power converter.
 
 ## REMARKS
 
-### Initial productive release
+By using the "RCT Elements" field, one may select which data shall be read from the power converter.
+If nothing is entered here, default will be used:
 
-This is an initial productive release after the previous version has proven stable and fulfilling the minimal viable scope.
+"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
-Configuration is still limited and rather technical. Using the "RCT ELemente" it can be selected which data shall be read from the power converter. Default is "battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag,prim_sm.state". Other elements can be found in the code (file "rct/rc_core2.js"). But this is not self descriptive at all (even not really tested).
+Other elements can be found in the code (file "rct/rc_core2.js"). Since this is not self descriptive, use at own risk!
+
+The object "battery.bat_status" indicates the status of a connected battery:
+* 0 -> charge/discharge (normal operation)
+* 1 -> idle (no CAN-connection inverter -> battery)
+* 3 -> connecting (inverter -> battery)
+* 5 -> synchronizing (inverter -> battery)
+* 8 -> calibrating - charging phase (0% --> 100%)
+* 1024 -> calibrating - discharge phase (xx% --> 0%)
+* 2048 -> balancing
+	
+The object "inverter_state" indicates the status of the inverter
+*	0 -> 'Standby'
+*	1 -> 'Initialization'
+*	2 -> 'Standby'
+*	3 -> 'Efficiency (debug state for development purposes)'
+*	4 -> 'Insulation check'
+*	5 -> 'Island check (decision where to go - grid connected or island)'
+*	6 -> 'Power check (decision if enougth energy to start or not)'
+*	7 -> 'Symmetry (DC-link alignment)'
+*	8 -> 'Relays test'
+*	9 -> 'Grid passive (inverter get power from grid without bridge clocking)'
+*	10 -> 'Prepare battery passive'
+*	11 -> 'Battery passive (off-grid)'
+*	12 -> 'Hardware test'
+*	13 -> 'Grid feeding'
 
 ## Known Issues
 
-### Wrong Channels / States
-
-A new version might not be able to create the right ioBroker channels / states. In most cases this can be recognized by the node "battery" showing up as a single element instead of a folder.
-
-If this happens, stop the adapter and manually delete the node "rct.0".
+None
 
 ## Changelog
 
@@ -45,19 +62,107 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.22 (2025-06-02)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) testing node24 implemented
+
+### 1.2.21 (2025-05-04)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) minimum node.js version changed to 20
+
+### 1.2.19 (2025-04-01)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) minimum version for admin now 7.4.10
+
+### 1.2.18 (2025-02-24)
+* (NCIceWolf) Debug mode in Admin added
+* (NCIceWolf) update dependencies
+
+### 1.2.17 (2025-01-01)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) update copyright
+
+### 1.2.16 (2024-12-16)
+* (NCIceWolf) Changed admin to type "panel"
+
+### 1.2.15 (2024-12-15)
+* (Andreas Ruttkamp) update deps
+* (Andreas Ruttkamp) include node.js 22 testing
+* (Andreas Ruttkamp) IMPLEMENTING eslint 9
+
+### 1.2.14 (2024-09-13)
+* (Andreas Ruttkamp) removed .npmignore
+
+### 1.2.13 (2024-07-17)
+* (NCIceWolf) Added multiple debugging messages
+* (NCIceWolf) Corrected debug messages to be shown as debug, not info
+* (NCIceWolf) corrected connection abortion if not successfully established
+* (NCIceWolf) elements from inverter are only requested once a connection is successfully established
+* (NCIceWolf) added requested and received elements to/from inverter to debug logging
+* (NCIceWolf) merged recent dependabot suggestions   
+* (Andreas Ruttkamp) Dependabot suggested updates
+* (Andreas Ruttkamp) some Code cosmetics
+
+### 1.2.12 (2024-07-03)
+* (Andreas Ruttkamp) Dependabot suggested updates
+* (NCIceWolf) Improving connectivity to inverter
+
+### 1.2.11 (2024-06-28)
+* (NCIceWolf) mistyping corrected
+
+### 1.2.10 (2024-06-28)
+* (NCIceWolf) stability improvements for data connection to inverter
+* (Andreas Ruttkamp) some code corrections
+
+### 1.2.9 (2024-05-17)
+* (Andreas Ruttkamp) wrong type for next_calib_date corrected
+
+### 1.2.8 (2024-05-16)
+* (NCIceWolf) Implementation of new adminUI
+* (Andreas Ruttkamp) index_m.html deleted
+* (Andreas Ruttkamp) Datatype battery_stack_cycles corrected
+* (NCIceWolf) style.css deleted (not needed for json admin)
+* (NCIceWolf) removed tab-materialize (leftover from initial adapter creation)
+* (NCIceWolf) updated minimum js-controller version to >= 5.0.0
+* (NCIceWolf) added minimum admin version to >= 5.0.0
+* (NCIceWolf) prepared translations for adminUI
+
+### 1.2.7 (2024-05-05)
+* (Andreas Ruttkamp) prim_sm.state added
+* (NCIceWolf) handling of type errors added
+* (Andreas Ruttkamp) some Code cleaning
+* (NCIceWolf) Update io-package.json
+
+### 1.2.6 (2024-05-03)
+* (Andreas Ruttkamp) unused parameter deleted
+
+### 1.2.5 (2024-05-02)
+* (Andreas Ruttkamp) misspelling in rct_core2 corrected
+* (Andreas Ruttkamp) Missing ack:true added ( issue:#89)
+* (Andreas Ruttkamp) datatypes corrected ( issue:#106)
+* (NCIceWolf) changes to correct loosing connection ( issue:#114 )
+
+### 1.2.4 (2024-02-09)
+* (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed
+
+### 1.2.3 (2024-02-09)
+* (Andreas Ruttkamp) prim_sm.state added
+* (Andreas Ruttkamp) states for battery added
+* (Andreas Ruttkamp) output of data points power_mng.soc_min and soc_min_island corrected
+
 ### 1.2.2 (2023-09-13)
 * (Andreas Ruttkamp) data type for power_mng.bat_next_calib_date corrected
 * (Andreas Ruttkamp) data type for battery.stack_cycles[x] corrected
 
 ### 1.2.1 (2023-09-13)
-* (Andreas Ruttkamp) configured rct elements will now correctly used. ( in 1.2.0 only power_mng.bat_next_calib_date was read)
+* (Andreas Ruttkamp) configured rct elements will now be used correctly ( in 1.2.0 only power_mng.bat_next_calib_date was read)
 
 ### 1.2.0 (2023-09-11)
-* (Andreas Ruttkamp) Connection state on Stop from Adapter corrected
+* (Andreas Ruttkamp) connection state corrected when adapter is stopped
 * (Andreas Ruttkamp) dependancies updated
 
 ### 1.1.7 (2023-08-30)
-* (Andreas Ruttkamp) Connection state corrected
+* (Andreas Ruttkamp) connection state corrected
 
 ### 1.1.6 (2023-08-23)
 * (Andreas Ruttkamp) rct_core.js deleted (now rct_core2 is used)
@@ -132,4 +237,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2023 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2025 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

@@ -19,22 +19,33 @@ Provides support for media players, internet radios and SmartRadios equipped wit
 
 NOTE: This adapter has been transferred to iobroker-community-adapters for maintenance. Thus planned features (see below) will not be implemented. Only important bug fixes and dependency updates will be released in the future. However PRs with bug fixes or feature enhancements are always welcome.
 
-RELEASE NOTES: Version 0.1.x includes some Breaking Changes:
+RELEASE NOTES:
 
-- node>=14, js-contoller>=4 and admin>=5 required
+Version 0.4.x includes a Breaking Change:
 
-Upgrade your ioBroker to at least this software level, if you want to use this adapter
-
-- PIN encryption and validity check of all parameters in config UI
-If you update this adapter from a previous version instead of a new installation, the adapter will not start, even if your PIN in your config is correct and has not been changed. To fix this, simply enter the same previous PIN once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
-
-- The type of "frontier_silicon.X.modes.selectPreset" changed from "string" to "number"
-If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:
-`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"`
+- The type of "frontier_silicon.X.media.state" changed from "number" to "string" and readonly  
+If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:  
+`State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"`  
 To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
 
-- Synchronization of power, volume and mute states with the UNDOK App
+Version 0.3.x includes some Breaking Changes:
+
+- node>=18, js-contoller>=5 and admin>=6 required  
+Upgrade your ioBroker to at least this software level, if you want to use this adapter
+
+- PIN encryption and validity check of all parameters in config UI  
+If you update this adapter from a previous version instead of a new installation, the adapter will not start, even if your PIN in your config is correct and has not been changed. To fix this, simply enter the same previous PIN once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
+
+- The type of "frontier_silicon.X.modes.selectPreset" changed from "string" to "number"  
+If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:  
+`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"`  
+To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
+
+- Synchronization of power, volume and mute states with the UNDOK App  
 Synchronization with the UNDOK App here means that power, volume and mute settings changed by the UNDOK App will now also be updated in the states of this adapter.  Due to the limitations of the FSAPI protocol the state synchronization of the UNDOK App with the adapter still is unreliable and will not be instantaneous but only happen when e.g. a preset or a mode is changed using the UNDOK App.
+
+- Cyclic connection retry instead of disabling the adapter  
+Previously the adapter was terminated after 10 session connection attempts when the device was unreachable due to long-lasting network problems like router restarts, LAN or WiFi outage. Now the adapter will retry after every session refresh interval until the device is reachable again. If you want to avoid log entries regarding these retries you have to stop the adapter manually. If your network problem is fixed while the retry period is still ongoing, simply restart the adapter.
 
 ## Features
 
@@ -46,10 +57,10 @@ Synchronization with the UNDOK App here means that power, volume and mute settin
 - Notifications for several states
 - Volume control
 - Notifications
+- Auto discovery
 
 ### Planned features
 
-- Auto discovery
 - More states
 - Translations
 - More Exception handling
@@ -64,6 +75,7 @@ Synchronization with the UNDOK App here means that power, volume and mute settin
 
 - The Media player must be on for preset discovery
 - Due to limitations of the FSAPI protocol, parallel operation with the UNDOK App is not reliable and thus not supported. Use at own risk.
+- Due to limitations of the FSAPI protocol, Radio station icons are not available in DAB+ mode.
 
 ## Documentation
 
@@ -73,134 +85,8 @@ After installation the device's IP and PIN must be entered in the configuration 
 
 When the adapter starts for the first time it collects information about the device. For that it needs to switch through all modes. During checking settings the device will be muted for a few seconds to avoid disturbing sounds.
 
-While the adapter reads the device's settings ioBroker objects and states are created. States can be read-only (`ro`) or read-write (`rw`) *ok, write-only for buttons is also possible*.
-
-- audio
-
-  Basic audio settings. No equalizer controls implemented yet.
-
-  - maxVolume (`number, ro`)
-
-    The maximum volume selectable
-
-  - mute (`boolean, rw`)
-
-    `true` if the device is muted, `false`otherwise
-
-  - volume (`number, rw`)
-  - control
-    - volumeDown and volumeUp
-
-    In-/ or decreases volume by 1
-
-- device
-
-  - friendlyName (`text, rw`)
-  - power (`boolean, rw`)
-  - radioId (`test, ro`)
-
-    My guess is that this is the MAC of the device
-
-  - version (`text, ro`)
-
-    Software version
-
-  - webfsapi (`text, ro`)
-
-    The address of the API
-
-- info
-
-  - connection (`boolean, ro`)
-
-    Connection indicator for the adapter
-
-- media
-
-  - state (`number, rw`)
-
-    valid values are:
-    - 0: Pause
-    - 1: Play
-
-  - control
-
-    - next
-    - plause
-    - play
-    - previous
-
-  Do not take the following names too seriously. The radio uses them differently in different modes.
-
-  - album (`text, ro`)
-  - artist (`text, ro`)
-  - graphic (`text, ro`)
-
-    Use this URL to get an album cover or a station's logo.
-
-  - name (`text, ro`)
-  - text (`text, ro`)
-  - title (`text, ro`)
-
-- modes
-
-  - readPresets
-
-    Re-reads all presets
-
-  - selectPreset (`number, rw`)
-
-    Used to get or select a preset. Be warned that the adapter guesses as this value cannot be read from the API.
-
-  - selected (`number, rw`)
-
-    Indicates or selects the selected mode. Can also be selected via `modes.{number}.switchTo`
-
-  - `{number}`
-
-    - id (`text, ro`)
-
-      The name of that mode
-
-    - key (`number, ro`)
-
-      The index of that mode. Equals `mode.{number}` from object tree and can be written into `modes.selected`.
-
-    - selectable (`boolean, ro`)
-
-      `true` if this mode can be manually selected.
-
-    - streamable (`boolean, ro`)
-
-      Only present on multi-room enabled devices. `true` if this mode can be used as source for several multi-room devices.
-  
-    - switchTo
-
-      Selects that mode.
-
-    - presets
-
-      - availabe (`boolean, ro`)
-
-        Indicates whether presets for this mode are available
-
-      - `{number}`
-
-        The index of that preset. Equals `mode.*.presets.{number}.key`.
-
-        - key
-
-          The index of that preset. Equals `mode.*.presets.{number}` from object tree and can be written into `modes.selectPreset`.
-
-        - name (`text, ro`)
-
-          The name of that preset
-
-        - switchTo
-
-          Selects that preset and the corresponding mode.
-
-Please be aware that you can sometimes choose between "pushing a button" or "setting a value". Use what is more convenient for you.
+Documentation of the states and objects as well as general FSAPI documentation can be found at  
+<https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/blob/master/docs/en>
 
 ## Changelog
 <!--
@@ -209,8 +95,38 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 -->
 ### **WORK IN PROGRESS**
 
+- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+- (oelison) read and write from daylight saving time
+- (pdbjjens) Fix: UpdatePreset now skips empty presets (#289)
+- (pdbjjens) Change: Adapter and FSAPI documentation was moved to the docs folder (#281)
+
+
+### 0.4.0 (2025-02-01) - 2025H1 maintenance release
+
+- (pdbjjens) Change: media state changed from number to string and readonly (#241)
+- (pdbjjens) New: Added media control function "stop" (#241)
+- (pdbjjens) New: Optimizations for responsive design (#244)
+- (pdbjjens) Change: Migration to ESLint 9 (#253)
+- (pdbjjens) Fix: Added button state acknowledgement
+- (pdbjjens) Fix: Prevent warning on adapter stop
+
+### 0.3.0 (2024-08-27) - 2024H2 maintenance release
+
+- (pdbjjens) Change: node>=18, js-contoller>=5 and admin>=6 required
+- (pdbjjens) Change: Removed .npmignore
+- (pdbjjens) Change: Cyclic connection retry instead of disabling the adapter (#191)
+- (pdbjjens) New: Updated dependencies
+- (pdbjjens) Fix: Replace deprecated method "deleteChannel" by "delObject" (#224)
+
+### 0.2.0 (2024-01-28)
+
+- (pdbjjens) Change: Increase minor version number
+
+### 0.1.2 (2024-01-26) - 2024 maintenance release
+
 - (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=5 required
 - (pdbjjens) New: Optionally display PIN code and limit to 4 digits in config GUI
+- (pdbjjens) Updated dependencies
 
 ### 0.1.1 (2023-07-26)
 
@@ -220,34 +136,6 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 - (pdbjjens) Change: Validity check of all parameters in config UI
 - (pdbjjens) Change: Re-establish session if network connection is lost
 - (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
-
-### 0.1.0 (2023-07-15)
-
-- (pdbjjens) Breaking Changes: node>=14, js-contoller>=4 and admin>=5 required
-- (pdbjjens) New: json config UI
-- (pdbjjens) New: Re-establish session if network connection is lost
-- (pdbjjens) New: Remove obsolete unit testing
-- (pdbjjens) Fix: Prevent crashes if radio device is not reachable
-
-### 0.0.11 (2023-03-30) 2023 maintenance release
-
-- (pdbjjens) New: Transfer of adapter to community
-- (pdbjjens) New: Updated dependencies
-- (pdbjjens) New: Use adapter-dev instead of gulp translate
-- (pdbjjens) Fix: Prevent js-controller >=3.2.x warnings regarding non-existent objects and typeErrors
-
-### 0.0.10 (2020-11-29)
-
-- Translations
-
-### 0.0.9
-
-- (halloamt) Selected preset can be read now. The adapter guesses a little but this seems to work.
-
-- (halloamt) Nicer readme
-- (halloamt) (Hopefully) more robust session handling.
-- (halloamt) Long polling should work more reliably
-- (halloamt) Sleep timers are cleared on `onUnload`
 
 ## Legal Notices
 
@@ -261,7 +149,7 @@ The authors are in no way endorsed by or affiliated with Frontier Smart Technolo
 
 MIT License
 
-Copyright (c) 2023 halloamt <iobroker@halloserv.de>
+Copyright (c) 2025 halloamt <iobroker@halloserv.de> & IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

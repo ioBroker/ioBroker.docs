@@ -6,8 +6,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)](https://www.npmjs.com/package/iobroker.traccar)
 ![Number of Installations (latest)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
 ![Number of Installations (stable)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
-[![Dependency Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/o0shojo0o/iobroker.traccar)
-[![Known Vulnerabilities](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar/badge.svg?dummy=unused)](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar)
+[![Known Vulnerabilities](https://snyk.io/test/github/arteck/ioBroker.traccar/badge.svg?dummy=unused)](https://snyk.io/test/github/arteck/ioBroker.traccar)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.traccar.png?downloads=true)](https://nodei.co/npm/iobroker.traccar/)
@@ -25,16 +24,13 @@ This adapter imports in real time the position and the extended data from [Tracc
 5. Have fun :)
 
 ## Changelog
+### 1.1.6 (2024-10-28)
+-   (arteck) dependency update
 
-<!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
-    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
-    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
+### 1.1.5 (2024-09-26)
+-   (arteck) transfer to arteck 
+-   (arteck) add accuracy
+
 ### 1.1.4 (2023-10-30)
 -   (arteck) fix last_update DP
 
@@ -45,68 +41,68 @@ This adapter imports in real time the position and the extended data from [Tracc
 -   (arteck) another fix for Traccar Server >= v5.8
 
 ### 1.1.1 (2023-07-01)
--   (o0shojo0o) fix translation
+-   (arteck) fix translation
 
 ### 1.1.0 (2023-07-01)
--   (o0shojo0o) support for https/wss connections
--   (o0shojo0o) fix for Traccar Server < v5.8
+-   (arteck) support for https/wss connections
+-   (arteck) fix for Traccar Server < v5.8
 
 ### 1.0.1 (2023-06-22)
--   (o0shojo0o) fix deploy workflow
+-   (arteck) fix deploy workflow
 
 ### 1.0.0 (2023-06-22)
--   (o0shojo0o) fix for Traccar Server >= v5.8
+-   (arteck) fix for Traccar Server >= v5.8
 
 ### 0.0.12 (2022-07-20)
 
--   (o0shojo0o) fix geofenceIds now nullable
--   (o0shojo0o) add Device datapoint Status
+-   (arteck) fix geofenceIds now nullable
+-   (arteck) add Device datapoint Status
 
 ### 0.0.11 (2021-08-19)
 
--   (o0shojo0o) fix translation
+-   (arteck) fix translation
 
 ### 0.0.10 (2021-08-18)
 
--   (o0Shojo0o) change UI to JSONConfig
+-   (arteck) change UI to JSONConfig
 
 ### 0.0.9 (2021-05-19)
 
--   (o0shojo0o) prevent unnecessary process attributes from being interrupted
--   (o0shojo0o) optimization of the link between device and incoming message
+-   (arteck) prevent unnecessary process attributes from being interrupted
+-   (arteck) optimization of the link between device and incoming message
 
 ### 0.0.8 (2021-04-30)
 
--   (o0shojo0o) bugfix wrong value type
+-   (arteck) bugfix wrong value type
 -   (Weblate) german language update
 
 ### 0.0.7 (2021-03-24)
 
--   (o0shojo0o) bugfix special characters in password or username
--   (o0shojo0o) code refactor
--   (o0shojo0o) better handling with new device or geolocation at runtime
+-   (arteck) bugfix special characters in password or username
+-   (arteck) code refactor
+-   (arteck) better handling with new device or geolocation at runtime
 
 ### 0.0.6 (2021-03-19)
 
--   (o0shojo0o) adjustments according to the adapter review
+-   (arteck) adjustments according to the adapter review
 
 ### 0.0.5 (2021-03-08)
 
--   (o0shojo0o) add [release-script](https://github.com/AlCalzone/release-script)
+-   (arteck) add [release-script](https://github.com/AlCalzone/release-script)
 
 ### 0.0.4
 
--   (o0shojo0o) add datapoint address (https://www.traccar.org/reverse-geocoding/)
+-   (arteck) add datapoint address (https://www.traccar.org/reverse-geocoding/)
 
 ### 0.0.3
 
--   (o0shojo0o) workaround for unclean geofences in the database
+-   (arteck) workaround for unclean geofences in the database
 
 ### 0.0.2
 
--   (o0shojo0o) add websocket connection
--   (o0shojo0o) add position url
--   (o0shojo0o) add dynamic datapoints for attributes
+-   (arteck) add websocket connection
+-   (arteck) add position url
+-   (arteck) add dynamic datapoints for attributes
 
 ### 0.0.1
 
@@ -116,7 +112,7 @@ This adapter imports in real time the position and the extended data from [Tracc
 
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024  Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

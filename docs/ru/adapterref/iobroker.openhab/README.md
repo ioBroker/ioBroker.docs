@@ -1,26 +1,35 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openhab/README.md
-title: Перемещено на https://github.com/iobroker-community-adapters/ioBroker.openhab
-hash: 4ZdWn3iLr1RFw/oEu2l/uV8zXKJDY0DUGjmY+Mg2noo=
+title: ioBroker.openhab
+hash: Vm+wnbH0oOdX66Pivd4ERaoNxGRdd8+RrZCgBhvIXTw=
 ---
-# Перемещено на https://github.com/iobroker-community-adapters/ioBroker.openhab
-![логотип](../../../en/adapterref/iobroker.openhab/admin/openhab.png)
+![Логотип](../../../en/adapterref/iobroker.openhab/admin/openhab.png)
 
 ![Количество установок](http://iobroker.live/badges/openhab-stable.svg)
 
-# IoBroker.openhab =================
+# IoBroker.openhab
+=================
+
 Этот адаптер соединяет ioBroker с [openhab](http://openhab.org/).
 
 Он экспортирует устройства и группы из openhab, а затем отслеживает обновления переменных.
 
-## Сделать
-- Новые устройства обнаруживают синонимы без перезагрузки адаптера?
-- На данный момент только элементы просмотра / переключаемые, также могут быть прочитаны "вещи"
-- Элементы, удаленные из OpenHab, не исчезают в ioBroker
+## Делать
+- Новые устройства обнаруживают синонимы без перезапуска адаптера?
+- На данный момент можно просматривать/переключать только элементы, также можно читать «вещи».
+- Элементы, удаленные из OpenHab, не исчезают в ioBroker.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.2.0 (2024-04-21)
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.1.0 (2019.02.12)
 * (Schluesselmeister) Add first support for new OH type definition
 
@@ -52,6 +61,7 @@ hash: 4ZdWn3iLr1RFw/oEu2l/uV8zXKJDY0DUGjmY+Mg2noo=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2017-2018 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

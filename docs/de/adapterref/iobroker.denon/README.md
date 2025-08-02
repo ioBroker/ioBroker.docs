@@ -965,6 +965,14 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.12 (2024-07-23)
+* (foxriver76) updated dependencies
+* (foxriver76) added tier and license information
+* (foxriver76) fixed invalid object `denon.0`
+
+### 1.15.5 (2024-01-06)
+* (foxriver76) fixed issue on setting tuner frequency (closes #328)
+
 ### 1.15.4 (2023-08-19)
 * (foxriver76) fixed detection of display content if content does not contain `NULL` (closes #323)
 
@@ -1264,7 +1272,7 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2024 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

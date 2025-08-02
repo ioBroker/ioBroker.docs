@@ -15,7 +15,7 @@ This adapter serves as communication interface between Iobroker and your KNX IP 
 The adapter allows to generate the iobroker communication objects automatically by importing an ETS group address xml export.  
 All generated communication objects are initially configured readable and writeable, values are fetched from the knx bus on adapter restart.
 
-**If you like it, please consider a donation:**
+**If you like OpenKNX, please consider a donation:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z8UFC8QEC4ARW&source=url)
 
@@ -58,11 +58,15 @@ If you experience disconnects from your KNX IP Gateway in the log then increase 
 
 Use in IOB Object common.type boolean for 1 bit enum instead of number.
 
-### readout values of autoread iob objects on startup
+### readout KNX values on startup of iob objects that are configured for autoread
 
 All IOB objects that are configured with the autoread flag are requested on the bus to be synchronized with IOB.
 
-### import only GAs that do not exist already as IOB objects
+### do not warn on unknown KNX group adresses
+
+Do not create a warn log entry in the protocol on receiving an unknown ga.
+
+### do not overwrite existing IOB objects
 
 If checked, the import will skip overwriting existing communication objects.
 
@@ -92,11 +96,11 @@ A GA without DPT basetype cannot be imported with this adapter. ETS4 projects mu
 
 The style only defines the appearance of the Group Address in the ETS user interface. The following styles are available:
 
-    Presentation Style	Name	                Example
-
-1 3-Level Main/Middle/Subgroup 1/3/5
-2 2-Level Main Group/Subgroup 1/25
-3 Free-Level Subgroup 300
+|     | Presentation Style | Name                 | Example |
+| --- | ------------------ | -------------------- | ------- |
+| 1   | 3-Level            | Main/Middle/Subgroup | 1/3/5   |
+| 2   | 2-Level            | Main Group/Subgroup  | 1/25    |
+| 3   | Free-Level         | Subgroup             | 300     |
 
 The adapter supports all 3 style configurations in the project import xml file. For storing in the IOB object, the format is always converted into the 3-level form.
 Please note that the combined ga and group name must be unique for the IOB object tree. Having for example an ETS configuration with two middle groups of the same name will result in a joint hierarchy element and having two identically named gas in there will result into an error.
@@ -173,21 +177,23 @@ The whole name including path is used to check for similarity.
     where entry_new points to the old adapter object path and entry_new the openknx adapter instance
 -   set influx enabled for new object entry_new
 
-# howto use the adapter & basic concept
+# howto use the adapter & basic concepts
+
+# howto use the adapter & basic concepts
 
 ### ACK flags with tunneling connections
 
 Applications shall not set the ack flag, application is notified from this adapter by the ack flag if data is updated.
-KNX Stack sets the ack flag of the corresponding IoBroker object on receiption of a group address if another knx host writes to the bus.
+OpenKNX sets the ack flag of the corresponding IoBroker object on receiption of a group address if another knx host writes to the bus.
 
-| GA is                               | connected to device with a R flag | connected to devices with no R flag | unconnected |
-| ----------------------------------- | --------------------------------- | ----------------------------------- | ----------- |
-| Application issues GroupValue_Write | ack                               | ack                                 | no ack      |
-| Application issues GroupValue_Read  | ack                               | no ack                              | no ack      |
+| GA is                               | connected to device with an R flag | connected to devices with no R flag | unconnected              |
+| ----------------------------------- | ---------------------------------- | ----------------------------------- | ------------------------ |
+| Application issues GroupValue_Write | OpenKNX generates ack              | OpenKNX generates ack               | OpenKNX generates no ack |
+| Application issues GroupValue_Read  | OpenKNX generates ack              | OpenKNX generates no ack            | OpenKNX generates no ack |
 
 ### Node Red complex datatype example
 
-Create a function node that connects to a ioBroker out node that connects with a KNX object of DPT2.
+Create a function node that connects to a ioBroker out node that connects with a KNX object of DPT-2.
 msg.payload = {"priority":1 ,"data":0};
 return msg;
 
@@ -211,12 +217,12 @@ Autoread is set to false where it is clear from the DPT that this is a trigger s
     "type": "state",
     "common": {
         // values here can be interpreted by iobroker
-        "desc": "Basetype: 1-bit value, Subtype: switch", // informative, from dpt
+        "desc": "Basetype: 1-bit value, Subtype: switch", // informative, from DPT
         "name": "Aussen Melder Licht schalten", // informative description from ets export
         "read": true, // default set, if false incoming bus values are not updating the object
         "role": "state", // default state, derieved from DPT
-        "type": "boolean", // boolean, number, string, object, derieved from dpt
-        "unit": "", // derived from dpt
+        "type": "boolean", // boolean, number, string, object, derieved from DPT
+        "unit": "", // derived from DPT
         "write": true // default true, if set change on object is triggering knx write, succ. write sets then ack flag to true
     },
     "native": {
@@ -224,7 +230,7 @@ Autoread is set to false where it is clear from the DPT that this is a trigger s
         "address": "0/1/2", // knx group address
         "answer_groupValueResponse": false, // default false, if set to true adapter responds with value on GroupValue_Read
         "autoread": true, // default true for non trigger signals , adapter sends a GroupValue_read on start to sync its states
-        "bitlength": 1, // size ob knx data, derived from dpt
+        "bitlength": 1, // size ob knx data, derived from DPT
         "dpt": "DPT1.001", // DPT
         "encoding": {
             // values of the interface if it is an enum DPT type
@@ -283,10 +289,10 @@ GroupValue_Read comment does not work for javascript adapter. Use qualityAsNumbe
 
 | KNX DPT   | javascript datatype    | special values                                                                                       | value range                               | remark                                                |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------- |
-| DPT-1     | number enum            |                                                                                                      | false, true                               |                                                       |
+| DPT-1     | number enum            |                                                                                                      | 1 bit false, true                         |                                                       |
 | DPT-2     | object                 | {"priority":1 bit,"data":1 bit}                                                                      | -                                         |                                                       |
 | DPT-3     | object                 | {"decr_incr":1 bit,"data":2 bit}                                                                     | -                                         |                                                       |
-| DPT-18    | object                 | {"save_recall":0,"scenenumber":0}                                                                    | -                                         | Datapoint Type DPT_SceneControl removed from autoread |
+| DPT-18    | object                 | {"save_recall":0,"scenenumber":0}                                                                    | -                                         | datapoint Type DPT_SceneControl removed from autoread |
 |           |                        |                                                                                                      |                                           | save_recall: 0 = recall scene, 1 = save scene         |
 | DPT-21    | object                 | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0}                               | -                                         |                                                       |
 | DPT-232   | object                 | {red:0..255, green:0.255, blue:0.255}                                                                | -                                         |                                                       |
@@ -304,27 +310,29 @@ GroupValue_Read comment does not work for javascript adapter. Use qualityAsNumbe
 | DPT-12    | number                 |                                                                                                      | 4-byte unsigned value                     |                                                       |
 | DPT-13    | number                 |                                                                                                      | 4-byte signed value                       |                                                       |
 | DPT-15    | number                 |                                                                                                      | 4-byte                                    |                                                       |
-| DPT-17    | number                 |                                                                                                      | 1-byte                                    | DPT_SceneNumber removed from autoread                 |
+| DPT-17    | number                 |                                                                                                      | 1-byte                                    | DPT_SceneNumber is not read by autoread               |
 | DPT-20    | number                 |                                                                                                      | 1-byte                                    |                                                       |
 | DPT-238   | number                 |                                                                                                      | 1-byte                                    |                                                       |
 | DPT-10    | number for Date Object |                                                                                                      | -                                         |                                                       |
 | DPT-11    | number for Date Object |                                                                                                      | -                                         |                                                       |
 | DPT-19    | number for Date Object |                                                                                                      | -                                         |                                                       |
-| DPT-26    | string                 | e.g. 00010203..                                                                                      | -                                         | Datapoint Type DPT_SceneInfo not read by autread      |
-| DPT-238   | string                 | e.g. 00010203..                                                                                      | -                                         | DPT_SceneConfig not read by autread                   |
+| DPT-26    | string                 | e.g. 00010203..                                                                                      | -                                         | Datapoint Type DPT_SceneInfo is not read by autread   |
+| DPT-28    | string                 |                                                                                                      | variable                                  | Unicode UTF-8 encoded string                          |
+| DPT-29    | string                 | e.g. "123456789000"                                                                                  | 8-byte signed value                       | the datatype in IOB of this numeric value is string   |
+| DPT-238   | string                 | e.g. 00010203..                                                                                      | -                                         | DPT_SceneConfig is not read by autread                |
 | rest      | string                 | e.g. 00010203..                                                                                      | -                                         |                                                       |
 
 Only time and date information is exchanged with KNX time based datatypes, e.g. DPT-19 has unsupported fields for signal quality.
 
-Object send and receive values are of type boolean DPT1), number (scaled, or unscaled), string.  
-DPT 2 'expects a object {"priority":0,"data":1}' receive provides a strinified object of same type.  
+Object send and receive values are of type boolean DPT-1), number (scaled, or unscaled), string.  
+DPT-2 'expects a object {"priority":0,"data":1}' receive provides a strinified object of same type.  
 Other joint DPTs have similar object notation.  
-DPT19 expects a Number from a Date Object, Iobroker can not handle objects, fields of KNX ko that cannot be derived from timestamp are not implemented eg. quality flags.
+DPT-19 expects a Number from a Date Object, Iobroker can not handle objects, fields of KNX ko that cannot be derived from timestamp are not implemented eg. quality flags.
 
 Date and time DPTs (DPT10, DPT11)  
 Please have in mind that Javascript and KNX have very different base type for time and date.
 DPT10 is time (hh:mm:ss) plus "day of week". This concept is unavailable in JS, so you'll be getting/setting a regular Date Js object, but please remember you'll need to ignore the date, month and year. The exact same datagram that converts to "Mon, Jul 1st 12:34:56", will evaluate to a wildly different JS Date of "Mon, Jul 8th 12:34:56" one week later. Be warned!
-DPT11 is date (dd/mm/yyyy): the same applies for DPT11, you'll need to ignore the time part.
+DPT11 is date (dd/mm/yyyy): the same applies for DPT-11, you'll need to ignore the time part.
 
 (KNX specification of DPTs https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf)
 
@@ -367,12 +375,13 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 # Features
 
+-   compatible with ETS 5 and ETS 6
 -   stable and reliable knx stack
--   Automatic encoding/deconding of KNX datagrams for most importants DPTs, raw read and write for other DPTs
+-   automatic encoding/deconding of KNX datagrams for most importants DPTs, raw read and write for other DPTs
 -   support of KNX group value read and group value write and group value response
 -   free open source
--   no dependencies to cloud services, runs without internet access
--   Autoread on start
+-   no dependencies to cloud services, runs offline without internet access
+-   autoread on start
 -   fast import of group addresses in XML format
 -   create joint alias objects that react on status inputs
 -   supports project of all possible group address styles
@@ -396,19 +405,68 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
   * .... -> this is used by script to generate a new entry, copy after a new release
+  * npm run release
   * npm run release major/minor/patch major.minor.patch
+  * update gui: iob upload openknx
+  * update stable: https://github.com/ioBroker/ioBroker.repositories#add-a-new-adapter-to-the-stable-repository
 -->
+### 0.9.0 (2024-04-21)
 
-### **WORK IN PROGRESS**
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
--   feature: KNX bus load measurement
--   bugfix: translation
+### 0.8.0 (2024-03-30)
+
+-   feature: put KNX interface name into log
+-   bugfix: #419 wait for connection complete before data processing in case of receiving data before
+-   bugfix: #457 Ack missing after changing IOB object value
+
+### 0.7.3 (2024-03-05)
+
+-   feature: one of the warnings is configurable in the dialog
+
+### 0.7.2 (2024-01-09)
+
+-   feature: handle network connection instability issues
+-   feature: generate more log messages
+-   bugfix: telegram count
+
+### 0.7.1 (2024-01-07)
+
+-   feature: when requesting fast message sendout create iob acks per bus message status, situation before: it triggered all acks on first message send confirmance
+-   feature: when requesting fast message sendout create iob acks per bus message status, situation before: it triggered all acks on first message send confirmance
+-   feature: add message count object
+-   feature: use common.desc from ets xml Description field and move datatype info to native
+-   cleanup: stop timers on shutdown
+-   bugfix: create a log entry on reception of unknown ga
+-   bugfix: do not count send as duplicate trigger in load measurement
+-   increase default minimum send delay to 80ms
+
+### 0.7.0 (2023-12-18)
+
+-   feature: adding support for DPT-28 and DPT-29
+-   severity lifted to warning for gas appearing in multiple objects
+-   feature: some more verbose failure outputs
+-   feature: always warn if knx element in object tree not found in import file
+-   bugfix: do not report errors resulting from bad bus data to sentry #433
+-   bugfix: do not forward invalid bus data to iob object tree
+-   cleanup: DTP library
+
+### 0.6.3 (2023-12-10)
+
+-   stable release of version 0.6.1
+
+### 0.6.1 (2023-12-02)
+
+-   feature: add KNX bus load measurement
+-   feature: remove standard autoread enable for some DPT-1 datatypes which are triggers
+-   bugfix: in error logging
 
 ### 0.5.3 (2023-03-17)
 
 -   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
 -   bugfix: admin menu scroll small screen #339
--   feature: add dpt 9.009
+-   feature: add DTP-9.009
 
 ### 0.5.2 (2023-01-02)
 
@@ -422,11 +480,11 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ### 0.4.5 (2022-12-19)
 
--   bugfix in knx lib: make dpt2 not an enum datatype
+-   bugfix in knx lib: make DPT-2 not an enum datatype
 
 ### 0.4.2 (2022-12-18)
 
--   bugfix: swap value for dpt 1 for enums
+-   bugfix: swap value for DPT-1 for enums
 
 ### 0.4.1 (2022-12-17)
 
@@ -450,7 +508,7 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ### 0.2.7 (2022-08-26)
 
--   bugfix: fix issue with writing to dpt 19 object
+-   bugfix: fix issue with writing to DPT-19 object
 
 ### 0.2.6 (2022-07-09)
 
@@ -549,13 +607,13 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ### 0.1.13 (2021-12-30)
 
--   bugfix: state.value of of type object must be serialized
+-   bugfix: state.value of type object must be serialized
 -   bugfix: alias algorithm error handling, takover more info to alias
 
 ### 0.1.12 (2021-12-30)
 
 -   feature: improve alias status search algorithm, add units
--   feature: notify user after import if no dpt subtype is set
+-   feature: notify user after import if no DPT subtype is set
 -   fix: library did not allow to write possible 0 values to certain dpts
 -   fix: admin dialog ui fixes, better presentation of some warnings
 
@@ -565,12 +623,12 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 -   feature: sends GroupValue_Response on GroupValue_Read if configured
 -   feature: admin dialog with option to generate aliases (beta)
 -   feature: admin dialog reactivates after adapter reset
--   feature: add support for DPT 7.600
+-   feature: add support for DPT-7.600
 -   feature: show logs of knx library
 -   fix: filter out logs with device address bus interactions
 -   fix: filter ga names that are forbidden in IOB
 -   fix: reply with GroupValue_Response on request, not with GroupValue_Write
--   fix: remove more scene dpts from autoread
+-   fix: remove more scene DPTs from autoread
 
 ### 0.1.10 (2021-12-24)
 
@@ -620,7 +678,7 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ### 0.0.17
 
--   (boellner) feature: raw value handling, can now write and receive ga of unsupported dpt
+-   (boellner) feature: raw value handling, can now write and receive ga of unsupported DPT
 -   (boellner) bugfix: setting onlyAddNewObjects fixed
 -   (boellner) feature: adapter restart after import
 
@@ -634,7 +692,7 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ## License
 
-Copyright 2023 contributors to the ioBroker.openknx project
+Copyright 2024 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

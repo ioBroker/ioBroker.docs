@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-weather/README.md
-title: ioBroker.vis-Wetter
-hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
+title: ioBroker.vis-wetter
+hash: 3zzpR4fJsEXG5VXKbOJWUmUSdij8fjkArHeHpMItnZc=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
@@ -12,6 +12,13 @@ hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.vis-weather?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.vis-weather?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.vis-weather?style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 
 # IoBroker.vis-Wetter
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
@@ -20,25 +27,38 @@ hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Dieses Vis-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground Sie müssen auch den DasWetter-Adpater oder den weatherunderground-Adapter laufen lassen...
+Dieses Vis-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground. Sie benötigen außerdem einen laufenden DasWetter-Adapter oder weatherunderground-Adapter ...
 
-In WeatherUnderground muss die Vorhersage der nächsten 36 Stunden aktiviert sein.
-In DasWetter.com muss eine von vier Prognosedatenstrukturen aktiviert sein. Sie können die anzuzeigende auswählen.
+In weatherunderground muss die Vorhersage für die nächsten 36 Stunden aktiviert sein.
+In DasWetter.com muss eine von vier Vorhersagedatenstrukturen aktiviert sein. Sie können diejenige auswählen, die Sie anzeigen möchten.
+
+## Kompatibilität mit vis-2
+Dieses Widget ist NICHT mit vis-2 kompatibel.
+Eine neue Version unter dem Namen [vis-2-widgets-wetter](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) ist in Vorbereitung.
 
 ## Notizen / Wiki
 ### Prognosestunden definieren
-Standardmäßig zeigt das Vorhersagediagramm 40 Stunden (DasWetter) oder 36 Stunden (wunderground). Wenn Sie es vorziehen, nur z.B. 10 Stunden Vorhersage, lösche einfach die unnötigen OIDs unter oid_groups in vis-edit.
+Standardmäßig zeigt das Prognosediagramm 40 Stunden (DasWetter) bzw. 36 Stunden (wunderground) an. Wenn du lieber nur z.B. 10 Stunden Prognose anzeigen lassen möchtest, lösche einfach die unnötigen OIDs unter oid_groups im vis-edit.
 
-### OID's werden bei der Nutzung von DasWetter nicht automatisch erstellt
-Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie "keine OID's verfügbar" erhalten, prüfen Sie, ob Sie "NextDaysDetailed" in DasWetter verwenden.
-Möglicherweise müssen Sie "NextDaysDetailed" aktivieren.
+### OIDs werden bei der Verwendung von DasWetter nicht automatisch erstellt
+Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie die Meldung „Keine OIDs verfügbar“ erhalten, prüfen Sie, ob Sie „NextDaysDetailed“ in DasWetter verwenden.
+Möglicherweise müssen Sie „NextDaysDetailed“ aktivieren.
 
 ## Bekannte Probleme
-* Bitte erstellen Sie Probleme auf [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+* Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
 ## Changelog
 
-### 2.5.7 (in progress)
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (René) 
+
+### 2.5.9 (2024-01-13)
+* (René) dependencies update
 
 ### 2.5.6 (2022-08-18)
 * (René) tooltip with value added as an option
@@ -147,7 +167,7 @@ Möglicherweise müssen Sie "NextDaysDetailed" aktivieren.
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

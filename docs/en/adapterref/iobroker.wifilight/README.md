@@ -20,14 +20,14 @@ Supports LW12, LD382 and LD382A.
 Support for Mi-Light/LimitlessLED RGBW added.
 
 ## Initial Creation
-This adapter was initialy created by @soef at https://github.com/soef/ioBroker.wifilight but not maintained any more, so we moved it to iobroker-community so that bugs could be fixed. thanks @soef for his work.
+This adapter was initially created by @soef at https://github.com/soef/ioBroker.wifilight but not maintained anymore, so we moved it to iobroker-community so that bugs could be fixed. Thanks @soef for his work.
 
 ### How to use the command state:
 + Possible identifiers are: ``red, r, green, g, blue, b, bri, sat, transition, on, off``
 + The string can be a JSON with or without parentheses. 
 + You can also assign a value by =
-+ Range of colors: ```0..255``` 
-+ Range of bri: ``0..100`` 
++ Range of colors: `0..255` 
++ Range of bri: `0..100`
 
 Some Examples:
 ```
@@ -39,34 +39,59 @@ off
 on
 {on:0}
 ```
-To change the color you do not have to use all three vallues.
-For example, ``` red = 0 ```, blue and green will stay unchanged.
+To change the color, you do not have to use all three values.
+For example, `red = 0`, blue and green will stay unchanged.
 
 ### r, g, b, w States:
 + Values 0..255
 + \#rrggbb[ww]
 
-## Installation
-Use the Adapter panel in iobroker to add an instance.
-
-If not exists execute the following command in the iobroker root directory (e.g. in /opt/iobroker).
-```
-npm install iobroker.wifilight 
-```
-
-### Error fixing
-In case of not working try to install the soef npm package
-```
-cd /opt/iobroker/node_modules/iobroker.wifilight 
-sudo npm install soef 
-```
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.3 (2025-01-29)
+* (bluefox) Trying to reconnect after the EHOSTUNREACH error code
+* (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2024-09-06)
+* (bluefox) Corrected error with array comparison
+* (bluefox) Added tests
+
+### 2.0.0 (2024-09-05)
+* (bluefox) The adapter was completely refactored
+* (bluefox) Added compact mode
+* (bluefox) JSON config GUI added
+
+### 1.3.5 (2024-09-04)
+* (bluefox) Formatting of the code
+
+### 1.3.3 (2024-09-03)
+* (bluefox) Just renamed some functions
+
+### 1.3.2 (2024-08-12)
+* (mcm1957) files section has been fixed
+
+### 1.3.1 (2024-08-12)
+* (p-kehling) Added ignorance of acknowledgement messages for on/off commands
+* (bluefox) refactoring
+
+### 1.2.2 (2024-04-15)
+* (mcm1957) Fix js-controller dependency
+
+### 1.2.1 (2024-04-13)
+* (mcm1957) Dependencies have been updated
+
+### 1.2.0 (2024-04-13)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.1.4 (2022-06-17)
-* (Apollon77) Prevent crash case reported by sentry
+* (Apollon77) Prevent a crash case reported by sentry
 
 ### 1.1.3 (2022-04-27)
-* (Apollon77) Prevent crash case reported by sentry
+* (Apollon77) Prevent a crash case reported by sentry
 
 ### 1.1.2 (2022-04-19)
 * (Apollon77) Prevent crashes when states are controlled with null as value
@@ -84,6 +109,7 @@ sudo npm install soef
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 ioBroker Community Developers, 2019-2020 soef <soef@gmx.net>, 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

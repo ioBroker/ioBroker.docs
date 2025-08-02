@@ -13,39 +13,43 @@ This adapter uses the [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-
 
 ## Features
 
-Some noteworthy features are:
+### Basic Features
 
-* Basic cleaning functions (e.g. auto clean, spot area, custom area)
-* and various other basic functions (e.g. play sound, reset consumables, relocate position)
-* Retrieve basic information (e.g. battery level, cleaning log, consumable, cleaning and charging status)
-* and various extended information (e.g. charging position, map related information, network information)
-* Retrieve information during the cleaning process (e.g. current position and current spot area)
-* Set vacuum power, water level and other basic settings
-* Set extended settings (e.g. continuous cleaning, do-not-disturb mode, volume, TrueDetect 3D)
+* Cleaning functions (e.g., auto, area and custom area cleaning) and various other basic functions (e.g., play sound, reset consumables, relocate position)
+* Retrieve information (e.g., battery level, cleaning log, consumables status, cleaning and charging status) and various other extended information (e.g., charging position, map-related information)
+* Set vacuum power, water level, and other basic adjustments along with various extended settings (e.g., continuous cleaning, do-not-disturb mode, volume, AIVI/TrueDetect 3D)
+* Retrieve information of the maps including areas, virtual boundaries, and no-mop-zones, also during the cleaning process (e.g., current position and area)
+* Loading the current map image
+
+### Extended Features (ioBroker adapter only)
+
+* Save and recreate full sets of virtual boundaries and no-mop-zones
+* Information about the date and time of the last presence for each single area
+* Some functionality when returning to the charging station or entering/leaving area
 * Save the last used custom area and rerun the saved areas
-* Retrieve information of the maps incl. spot areas, virtual boundaries and no-mop-zones
-* Delete, save and recreate single virtual boundaries as well as a full set of virtual boundaries
-* Information about the date and time of the last presence for each single spot area
-* Some functionality when returning to charging station or entering/leaving spot area
-* Function for loading the current map image
-* Set individual spot area names (in ioBroker)
-* Silent approach feature for current models
+* Silent approach cleaning and go-to-position functions
+* Set individual area names
 
-Please note: Some features are only available for some models and some are still experimental
+### Important Notes
+
+* Some features (e.g., "Silent approach") are only available for some models (mostly current models)
+* and some are still experimental (e.g., "Loading the current map image", handle sets of virtual boundaries)
+* The functionality of the adapter is not guaranteed for all models (see below)
 
 ## Models
 
-### Fully supported models
+### Supported models
 
-The fully supported models are those that I own myself:
+The following models I own myself, so they are very widely supported:
 
-* Deebot OZMO 920
+* Deebot OZMO 920/950
 * Deebot OZMO T8 AIVI
 * Deebot X1 Turbo
+* Airbot Z1
 
-### Other supported models
+### Other models
 
-These models should work properly or at least partially.
+The following models should work properly or at least partially.
 They are either already known to work or are technically similar to these models.
 Nevertheless, the functionality may be partially limited.
 
@@ -54,15 +58,15 @@ There is of course no claim to full functionality.
 
 #### Ecovacs Deebot
 
-* Deebot OZMO 950
 * Deebot N8 series
-* Deebot U2 series
 * Deebot T8 series
 * Deebot T9 series
 * Deebot T10 series
+* Deebot T20 series
 * Deebot X1 series
+* Deebot X2 series
 
-#### yeedi (since version 1.4.5)
+#### yeedi
 
 * yeedi k650
 * yeedi 2 hybrid
@@ -71,24 +75,14 @@ There is of course no claim to full functionality.
 * yeedi vac 2 pro
 * yeedi mop station
 
-#### Legacy models (soon to be discontinued)
+**Note**: All these lists may not be fully complete
 
-These models use XML for data transport and also different characteristics for commands and events than the current models.
-I also don't use my Slim 2, Deebot 901 and OZMO 930 anymore.
+### Legacy models (soon to be discontinued)
 
-**Support for these models will therefore soon be discontinued**.
+Legacy models that use XML for data transport (e.g. Deebot OZMO 930, Deebot 900/901) are mostly still working, 
+but support for these models will be discontinued sooner or later.
 
-* Deebot Slim 2
-* Deebot N79 series
-* Deebot M88
-* Deebot 500
-* Deebot 600/601/605
-* Deebot 710/711
-* Deebot 900/901
-* Deebot OZMO 610
-* Deebot OZMO 900/905
-* Deebot OZMO 930
-* Deebot OZMO Slim 10/11
+Please check [this readme](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued) for more information.
 
 ## Installation
 
@@ -96,7 +90,7 @@ I also don't use my Slim 2, Deebot 901 and OZMO 930 anymore.
 
 To use this adapter, you will need to already have [ioBroker](iobroker.net) installed. 
 
-The minimum required version of Node.js is 14.x. It is recommended to use version 16.x or 18.x
+The minimum required version of Node.js is 16.x.
 
 ### Optional prerequisites
 
@@ -134,22 +128,36 @@ and [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkt
 
 ## Known issues
 
-* The generation of map images is currently not stable on 32-bit systems
-* The "edge" function does not work with Deebot U2 (starts auto clean instead)
-* The "move" functions do not work properly on some models
-* The generation of map images does not work properly with the Deebot X1 series
+* The "move" function varies from model to model, so it's not implemented universally
+* The generation of map images is not stable on 32-bit systems
+* and it still does not work properly with the Deebot X1 series and other current models
 
 ## Changelog
 
-### 1.4.14 (alpha)
+### 1.4.16-alpha.1
+- Add more states for air drying timer
+- Use adapter-dev module
+- Some further improvements and optimizations
+
+### 1.4.15 (beta)
+- Breaking change: Bump minimum required version of Node.js to 18.x
+- Bumped ecovacs-deebot.js to 0.9.6 (beta)
+- Add state (button) for manually requesting the cleaning log
+- Separate mopping and scrubbing mode
+- Add states for air drying timer
+- Some further improvements and optimizations
+
+### 1.4.14
 * Breaking change: Bump minimum required version of Node.js to 16.x
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
-* Added T20 Omni and X2 to the models dictionary
+* Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
+* and also several improvements for the T20 and X2 series
 * Bumped max number of devices to 20
+* Added Australia, the United Arab Emirates and "Other countries" as "country"
 * Bumped some dependencies
 * Some further improvements and optimizations
 
-### 1.4.13
+### 1.4.13 (latest stable)
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations
@@ -161,7 +169,7 @@ and [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkt
   * Implemented "silentApproach" cleaning
 * Some further improvements and optimizations
 
-### 1.4.11 (latest stable)
+### 1.4.11
 * Bumped ecovacs-deebot.js to 0.9.2 (alpha)
 * Added channel for the auto empty station (incl. dust bag full)
 * Added state for changing the scrubbing pattern (OZMO Pro)
@@ -256,7 +264,7 @@ I am in no way affiliated with Ecovacs Robotics Co., Ltd. or yeedi Technology Li
 
 MIT License
 
-Copyright (c) 2023 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2024 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

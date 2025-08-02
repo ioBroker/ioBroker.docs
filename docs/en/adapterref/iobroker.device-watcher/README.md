@@ -1,15 +1,14 @@
 ---
-BADGE-GitHub license: https://img.shields.io/github/license/ciddi89/ioBroker.device-watcher
+BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.device-watcher
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.device-watcher.svg
-BADGE-GitHub repo size: https://img.shields.io/github/repo-size/ciddi89/ioBroker.device-watcher
-BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/ciddi89/ioBroker.device-watcher
-BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/ciddi89/ioBroker.device-watcher/latest
-BADGE-GitHub last commit: https://img.shields.io/github/last-commit/ciddi89/ioBroker.device-watcher
-BADGE-GitHub issues: https://img.shields.io/github/issues/ciddi89/ioBroker.device-watcher
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.device-watcher
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.device-watcher
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.device-watcher/latest
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.device-watcher
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.device-watcher
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/ciddi89/ioBroker.device-watcher
 ---
 ![Logo](../../admin/device-watcher.png)
 
@@ -28,6 +27,100 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (ciddi89) Fixed [#362](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/362): Ecovacs Deebot use connectionUptime dp as timeselector
+- (mcm1957) Dependencies have been updated
+  
+### 2.12.1 (2024-05-09)
+
+-   (ciddi89) Added: [#341](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/341) Support for Zigbee battery_state datapoint
+
+### 2.12.0 (2024-04-05)
+
+-   (mcm1957) Adapter requires nodeJS >= 18 and js-controller >= 5 now
+-   (mcm1957) Adpter has been migrated to iobroker-community-adapters organisation
+-   (mcm1957) Dependencies have been updated
+
+### 2.11.0 (2024-03-18)
+
+-   (ciddi89) Added [#323](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/323): Support for Ring Cameras
+
+### 2.10.5 (2024-02-29)
+
+-   (ciddi89) Fixed [#262](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/262) & [#292](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/292): Phantom Messages
+
+### 2.10.4 (2024-02-26)
+
+-   (ciddi89) Added: Option to set language for messages and tables
+-   (ciddi89) Fixed [#312](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/312): Schedule messages were not emptied after they were sent
+-   (ciddi89) Fixed: Too many messages were sent about online / offline devices when an instance was started or ended
+
+### 2.10.3 (2024-01-27)
+
+-   (ciddi89) Fixed [#299](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/299): blacklisted devices was shown in html-list
+
+### 2.10.2 (2024-01-20)
+
+-   (ciddi89) Fixed: typeError for available adapter update messages
+-   (ciddi89) Fixed: Lists for updatable adapter
+
+### 2.10.1 (2024-01-15)
+
+-   (ciddi89) Fixed: several bugs from last version
+-   (ciddi89) Added: finished translations
+
+### 2.10.0 (2024-01-13)
+
+-   (ciddi89) Fixed: Batterie value for shelly plus Gen2 devices [#282](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/282)
+-   (ciddi89) Added: Option to display the last signal strength value when the device is offline [#282](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/282)
+-   (ciddi89) Added: Translation for JSON lists, HTML lists and notifications [#245](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/245)
+-   (ciddi89) Other: clean up code
+
+### 2.9.14 (2024-01-04)
+
+-   (ciddi89) Fixed: This schould fixed the bugs with high cpu and ram load, finally. Sorry about the last two buggy versions.
+
+### 2.9.13 (2024-01-03)
+
+-   (ciddi89) Fixed: Issues from v2.9.12 [#283](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/283)
+-   (ciddi89) Fixed: High CPU usage at object and state changes [#283](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/283)
+
+### 2.9.12 (2024-01-02)
+
+-   (ciddi89) Fixed: Changed handling for state changes and subscriptions [#283](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/283)
+
+### 2.9.11 (2023-12-12)
+
+-   (ciddi89) Fixed: Fullybroswer >v3 use id not common name
+
+### 2.9.10 (2023-12-11)
+
+-   (ciddi89) Fixed: Fullybroswer >v3 devicename
+-   (ciddi89) Fixed: Fullybroswer >v3 wifi signal
+
+### 2.9.9 (2023-12-07)
+
+-   (ciddi89) Fixed: Write log message of selected adapters only on startup
+
+### 2.9.8 (2023-11-26)
+
+-   (ciddi89) Fixed: Added additional check for instance states [#262](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/262)
+-   (ciddi89) Fixed: Execute adapter even if no device adapter is selected
+
+### 2.9.7 (2023-11-23)
+
+-   (ciddi89) Added: Support for Wifilight
+-   (ciddi89) Fixed: Multiple messages if Sonoff devices reachable [#244](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/244)
+
+### 2.9.6 (2023-11-12)
+
+-   (ciddi89) Fixed: Admin jsonConfig schema
+-   (ciddi89) Changed: Admin jsonConfig to json5
+-   (ciddi89) Added: Support for Tuya devices with online state
+-   (ciddi89) Other: cleaned up files
+
 ### 2.9.5 (2023-11-03)
 
 -   (ciddi89) Added: if available use deviceName datapoint for sonoff devices
@@ -37,8 +130,8 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 
 ### 2.9.4 (2023-10-16)
 
--   (ciddi89) Added: Fallback for HmIp-eTRV-2 batterie devices [#218](https://github.com/ciddi89/ioBroker.device-watcher/issues/218)
--   (@mango1402) Fixed: Proxmox VM/CT online status [#241](https://github.com/ciddi89/ioBroker.device-watcher/issues/241)
+-   (ciddi89) Added: Fallback for HmIp-eTRV-2 batterie devices [#218](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/218)
+-   (@mango1402) Fixed: Proxmox VM/CT online status [#241](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/241)
 -   (ciddi89) Updated: Dependencies
 
 ### 2.9.3 (2023-07-21)
@@ -67,17 +160,17 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 
 ### 2.8.5 (2023-04-20)
 
--   (ciddi89) Fixed: Error that instances can not be added to the blacklist because of the popup message [#172](https://github.com/ciddi89/ioBroker.device-watcher/issues/172)
--   (ciddi89) Fixed: That messages have been sent when the instance has briefly jumped from Enabled to Disabled and back to Enabled [#173](https://github.com/ciddi89/ioBroker.device-watcher/issues/173)
+-   (ciddi89) Fixed: Error that instances can not be added to the blacklist because of the popup message [#172](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/172)
+-   (ciddi89) Fixed: That messages have been sent when the instance has briefly jumped from Enabled to Disabled and back to Enabled [#173](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/173)
 
 ### 2.8.4 (2023-04-16)
 
--   (ciddi89) Fixed: Functions for instance status completely renewed ([#170](https://github.com/ciddi89/ioBroker.device-watcher/issues/170))
--   (ciddi89) Added: Popup message when the instance is not running and the user tries to select a device/instance in the settings tables ([#170](https://github.com/ciddi89/ioBroker.device-watcher/issues/170))
+-   (ciddi89) Fixed: Functions for instance status completely renewed ([#170](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/170))
+-   (ciddi89) Added: Popup message when the instance is not running and the user tries to select a device/instance in the settings tables ([#170](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/170))
 
 ### 2.8.3 (2023-04-13)
 
--   (ciddi89) Fixed: Multiple push messages when restarting an instance ([#170](https://github.com/ciddi89/ioBroker.device-watcher/issues/170))
+-   (ciddi89) Fixed: Multiple push messages when restarting an instance ([#170](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/170))
 
 ### 2.8.2 (2023-04-13)
 
@@ -119,10 +212,10 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 
 -   (ciddi89) Added: Signal adapter for notifications
 -   (ciddi89) Added: Raw-List with all data of devices
--   (ciddi89) Added: FHEM TFA sensors [#137](https://github.com/ciddi89/ioBroker.device-watcher/issues/137)
+-   (ciddi89) Added: FHEM TFA sensors [#137](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/137)
 -   (ciddi89) Improvement: Objecthandling of devices/instances
 -   (ciddi89) Improvement: Adapter update data
--   (ciddi89) Fixed: HM-CC-RT-DN battery [#128](https://github.com/ciddi89/ioBroker.device-watcher/issues/128)
+-   (ciddi89) Fixed: HM-CC-RT-DN battery [#128](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/128)
 -   (ciddi89) Added/Changed: some texts in instance config
 
 ### 2.6.0 (2023-02-06)
@@ -131,9 +224,9 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 -   (ciddi89) Fixed: Made working notification for adapter update
 -   (ciddi89) Added: Delete objects automatically if it is not selected in settings.
 -   (ciddi89) Enhancement: Check if general device connected state is true for more then few seconds to prevent multiple device status messages
--   (ciddi89) Added: Proxmox Adapter ([#123](https://github.com/ciddi89/ioBroker.device-watcher/issues/123))
--   (ciddi89) Fixed: Delete/Add data of new or deleted instance without restart ([#125](https://github.com/ciddi89/ioBroker.device-watcher/issues/125))
--   (ciddi89) Fixed: Delete/Add data of new or deleted devices without restart ([#125](https://github.com/ciddi89/ioBroker.device-watcher/issues/125))
+-   (ciddi89) Added: Proxmox Adapter ([#123](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/123))
+-   (ciddi89) Fixed: Delete/Add data of new or deleted instance without restart ([#125](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/125))
+-   (ciddi89) Fixed: Delete/Add data of new or deleted devices without restart ([#125](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/125))
 -   (ciddi89) Enhancement: Schedule and State notifications
 -   (ciddi89) Enhancement: Some code improvements
 
@@ -166,8 +259,8 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 
 -   (ciddi89) sorting for device selection in the blacklist added
 -   (ciddi89) Devices can now also be blacklisted in adapter own list
--   (ciddi89) booleans for lowbat, offline and upgradable added ([#105](https://github.com/ciddi89/ioBroker.device-watcher/issues/105))
--   (ciddi89) euSec adapter added ([#73](https://github.com/ciddi89/ioBroker.device-watcher/issues/73))
+-   (ciddi89) booleans for lowbat, offline and upgradable added ([#105](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/105))
+-   (ciddi89) euSec adapter added ([#73](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/73))
 
 ### 2.2.2 (2022-12-29)
 
@@ -193,13 +286,13 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 ### 2.1.0 (2022-12-19)
 
 -   (Scrounger) optionally show adapter name in notification
--   (ciddi89) optionally receive a message when an update for an device is available [#87](https://github.com/ciddi89/ioBroker.device-watcher/issues/87)
+-   (ciddi89) optionally receive a message when an update for an device is available [#87](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/87)
 -   (Scrounger) update message for shelly adapter added
 -   (Scrounger) Yamaha MusicCast adapter added
 -   (ciddi89) update message for unifi devices added
--   (ciddi89) fixed devices are not reported in case battery is 0% [#86](https://github.com/ciddi89/ioBroker.device-watcher/issues/86)
--   (ciddi89) SynoChat added [#85](https://github.com/ciddi89/ioBroker.device-watcher/issues/85)
--   (ciddi89) MQTT NukiHub, MQTT-Clien Zigbee2MQTT added ([#82](https://github.com/ciddi89/ioBroker.device-watcher/issues/82))
+-   (ciddi89) fixed devices are not reported in case battery is 0% [#86](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/86)
+-   (ciddi89) SynoChat added [#85](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/85)
+-   (ciddi89) MQTT NukiHub, MQTT-Clien Zigbee2MQTT added ([#82](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/82))
 
 ### 2.0.3 (2022-11-26)
 
@@ -216,7 +309,7 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 -   small improvements of translations
 -   offline time settings: you can use 0 instead of -1 (it will be the new standard)
 -   improvements of adaptername
--   fixed issues [#66](https://github.com/ciddi89/ioBroker.device-watcher/issues/66) & [#67](https://github.com/ciddi89/ioBroker.device-watcher/issues/67)
+-   fixed issues [#66](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/66) & [#67](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/67)
 -   repaired blacklist notifications
 -   added handling for blacklist object
 
@@ -331,7 +424,8 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 
 MIT License
 
-Copyright (c) 2023 Christian Behrends <mail@christian-behrends.de>
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024 Christian Behrends <mail@christian-behrends.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

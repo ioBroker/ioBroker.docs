@@ -3,15 +3,14 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.minuaru.svg)](https://www.npmjs.com/package/iobroker.minuaru)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.minuaru.svg)](https://www.npmjs.com/package/iobroker.minuaru)
-[!Number of Installations](https://iobroker.live/badges/minuaru-installed.svg)
+[!Number of Installations](https://iobroker.live/badges/minuaru-installe.svg)
 [!Current version in stable repository](https://iobroker.live/badges/minuaru-stable.svg)
-
-[![NPM](https://nodei.co/npm/iobroker.minuaru.png?downloads=true)](https://nodei.co/npm/iobroker.minuaru/)
-
 
 ## minuaru adapter for ioBroker
 
 alarmsystem for ioBroker and minuvis
+
+> **BREAKING CHANGE with V2.0.0: Existing alarms of version 1.x will be deleted**
 
 ## Instructions
 
@@ -54,6 +53,18 @@ alarmsystem for ioBroker and minuvis
 
 
 ## Changelog
+### 2.0.2 (2024-12-03)
+* (svallant) update jsonConfig for responsive design
+
+### 2.0.1 (2024-11-29)
+* (svallant) minor changes
+
+### 2.0.0 (2024-11-15)
+* BREAKING CHANGE: Existings alarms of version 1.x will be deleted
+* (svallant) release of version 2
+* (svallant) fixing issues detected by repository checker
+* (svallant) switch to duckdb
+
 ### 1.1.0 (2023-03-19)
 * (svallant) respect ack-flag at control-states
 
@@ -72,7 +83,7 @@ alarmsystem for ioBroker and minuvis
 ## License
 MIT License
 
-Copyright (c) 2023 svallant <svallant@gmx.eu>
+Copyright (c) 2024 svallant <svallant@gmx.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

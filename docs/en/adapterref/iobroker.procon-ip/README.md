@@ -8,25 +8,23 @@
 [![Test and Release](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 [![Known Vulnerabilities](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
-[![Buy me a coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat)](https://www.buymeacoffee.com/ylabonte)
 
-ioBroker adapter for basic support of the ProCon.IP swimming pool control
-unit. It is intended for integration with your ioBroker home automation, eg.
-to build logic that involves other devices or simply to be paired with your
-favorite voice assistant(s):
+ioBroker adapter for the Pool Digital ProCon.IP swimming pool controller.
+It is intended for integration with your ioBroker home automation, eg.
+to build logic that involves other devices or to be paired with your favorite 
+voice assistant(s):
 * You can use the [_cloud_](https://github.com/ioBroker/ioBroker.cloud) or
   [_IoT_](https://github.com/ioBroker/ioBroker.iot) adapter for Alexa
   (and also Google Home, I think) and
-* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) as bridge to the
-  Apple HomeKit to be reached by Siri or
-* use the [_javascript_](https://github.com/ioBroker/ioBroker.javascript) to
-  build your own custom logic.
+* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) adapter as bridge to
+  the Apple HomeKit to be reached by Siri or
+* use the [_javascript_](https://github.com/ioBroker/ioBroker.javascript) 
+  adapter to build your own custom logic.
 
 See the [wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki) for more
 information.
 
 ## What is the ProCon.IP pool controller?
-![Picture from pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
 
 The ProCon.IP pool control is a low budget network attached control unit for
 home swimming pools. With its software switched relays, it can control
@@ -46,8 +44,8 @@ switching the relays).
 
 For more information see the following link (sorry it's only in german;
 haven't found an english documentation/information so far):
-* [pooldigital.de webshop](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-* [pooldigital.de forum](http://forum.pooldigital.de/)
+* [pooldigital.de webshop](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+* [pooldigital.de forum](https://www.poolsteuerung.de/)
 
 **Just to be clear: I have nothing to do with the development, sellings,
 marketing or support of the pool control unit. I just developed a solution
@@ -63,15 +61,12 @@ relays.
 
 ### Compatibility
 For now the adapter has been tested and developed in combination with the
-ProCon.IP firmware **revision 1.7.6.a**.
-
-## Roadmap
-There is nothing special on the plan. You can create an issue to suggest new
-features/functionality...
+ProCon.IP firmware **revision 1.7.6.a**. But it should work with any prior
+newer/upcoming firmware version.
 
 ## Development and participation
-Feel free to contact me, if you wish to participate in development or
-documentation of this adapter.
+Feel free to contact me, if you wish to participate in development, translation
+or documentation of this adapter.
 
 Useful links for the approach will be
 * the [TypeScript adapter template](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
@@ -79,12 +74,35 @@ Useful links for the approach will be
 * the [guide for adapter developers](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
 
 ## Donation
-Feel free. But if you're feeling really patronizing, you could... 😃  
+If you want to support this adapter or say thank you, you can:
+
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.6.0 (2024-09-08)
+* Fix versioning according to prior changes in requirements (should have happened with v1.5.5).
+  * Raise minimum required js-controller version to 5.0.19.
+  * Raise minimum required node version to 20.
+* Dependency updates.
+
+### 1.5.5 (2024-08-19)
+* Dependency updates.
+* Raise minimum required js-controller version to 5.0.19.
+* Raise minimum required node version to 18.
+* Fix minor issues reported by the ioBroker adapter bot (https://github.com/ylabonte/ioBroker.procon-ip/issues/102).
+
+### 1.5.4 (2024-02-27)
+* Fix the last issues that were reported by the ioBroker adapter checker.  
+  (Includes a minor optimization in implementation.) 
+* Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the 
+  latest version.
+
+### 1.5.3 (2024-02-27)
+* Update dependencies.
+
+### 1.5.2 (2024-02-13)
 * Add newline before descriptive text in adapter config.
+* Update dependencies.
 
 ### 1.5.1 (2023-09-05)
 * Re-translate adapter config.
@@ -154,9 +172,10 @@ Feel free. But if you're feeling really patronizing, you could... 😃
 
 ### 1.0.1 (2020-08-16)
 * Fix Object State updates.
-  For some reason the two js objects used to compare the before and after values
-  of the GetState.csv calls became the same object (before was referencing the
-  new values). That caused the adapter to never update the object states.
+  For some reason the two js objects used to compare the before and after 
+  values of the GetState.csv calls became the same object (before was 
+  referencing the new values). That caused the adapter to never update the
+  object states.
 
 ### 1.0.0 (2020-08-15)
 * Official release in ioBroker adapter repository:  
@@ -215,9 +234,10 @@ Feel free. But if you're feeling really patronizing, you could... 😃
 ### 0.0.1 (2019-07-09)
 * All information from `GetState.csv` as readonly states.
 * Writable states for all relays to toggle auto/manual.
-* Writable states for relays not configured for dosage control to toggle on/off.
+* Writable states for relays not configured for dosage control to toggle 
+  on/off.
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2023 ylabonte <yannic.labonte@gmail.com>
+Copyright (c) 2019-2024 ylabonte <yannic.labonte@gmail.com>

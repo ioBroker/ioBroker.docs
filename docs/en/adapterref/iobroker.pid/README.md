@@ -2,14 +2,14 @@
 
 # ioBroker.pid
 
-![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.pid)](https://github.com/iobroker-community-adapters/ioBroker.pid/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)](https://github.com/mcm4iob/ioBroker.pid/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
-![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.pid)
+![GitHub repo size](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.pid)
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.pid/latest)
-![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.pid)
-![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.pid)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
+![GitHub issues](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
 </br>
 **Version:** </br>
 [![NPM version](http://img.shields.io/npm/v/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
@@ -17,14 +17,12 @@
 ![Number of Installations](https://iobroker.live/badges/pid-installed.svg)
 </br>
 **Tests:** </br>
-[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml)
-[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml)
+[![Test and Release](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
 
-<!--
 ## Sentry
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
--->
 
 ## PID Adapter for ioBroker
 
@@ -56,12 +54,33 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (mcm57@gmx.at). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 "title": "lblCtrlInvert",
 
+**************************************************************************************************************
+
+**If you like it, please consider a donation:**
+  
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+
+**************************************************************************************************************
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2024-03-22)
+
+-   (mcm1957) Adapter uses sentry to report errors now.
+
+### 1.0.0 (2024-03-11)
+
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
+-   (mcm1957) BREAKING: Adapter requires js-controller 5.x.x and admin 6.x.x or newer now
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
+-   (mcm1957) Incorrect error message whenever no controllers have been defied has been removed. [#68]
+-   (mcm1957) State roles have been reviewed and adapted. [#88]
+-   (mcm1957) Dependencies have been updated.
+
 ### 0.0.8 (2023-07-13)
 
 -   (mcm1957) changed: Overall stability during state updates has been increased
@@ -129,7 +148,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 MIT License
 
-Copyright (c) 2023 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2023-2024 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

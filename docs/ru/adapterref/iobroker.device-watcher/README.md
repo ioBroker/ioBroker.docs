@@ -11,7 +11,7 @@ BADGE-Current version in stable repository: https://iobroker.live/badges/device-
 BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/ciddi89/ioBroker.device-watcher
 translatedFrom: de
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.device-watcher/README.md
 title: ioBroker.device-наблюдатель
 hash: BiX3QU/IP/67sV1esx0No3bPB7Cctkqzm52H4smZPmE=

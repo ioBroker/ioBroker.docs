@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yamaha/README.md
 title: kein Titel
-hash: 42NBPSFBWCuYjuhCxR3pxX4ukS3Ii3BNzjo2ofN5AY8=
+hash: 7OJuYFsy6VNYKUCbfYG3oHnTo5qf9BztKBSu3G86OrU=
 ---
 ![Logo](../../../en/adapterref/iobroker.yamaha/admin/yamaha.png)
 
@@ -12,37 +12,47 @@ hash: 42NBPSFBWCuYjuhCxR3pxX4ukS3Ii3BNzjo2ofN5AY8=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.yamaha.svg)
 
 ## IoBroker.yamaha
-![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.yamaha/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yamaha/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 #### Beschreibung
 Adapter für Yamaha AV-Receiver
 
 Diskussion bitte auf github oder unter https://forum.iobroker.net/topic/53174/weiterentwicklung-yamaha-adapter
 
-### Ersterstellung
-Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.yamaha erstellt, aber nicht mehr gepflegt, also haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden können. Danke @soef für seine Arbeit.
+### Erste Erstellung
+Dieser Adapter wurde ursprünglich von @soef unter https://github.com/soef/ioBroker.yamaha erstellt, aber nicht mehr gepflegt, daher haben wir ihn in die iobroker-community verschoben, damit Fehler behoben werden konnten. Danke @soef für seine Arbeit.
 
 #### Aufbau
-Derzeit ohne Autodiscover müssen Sie die IP Ihres Receivers eingeben
+Derzeit ohne Autodiscover, Sie müssen die IP Ihres Receivers eingeben
 
 #### Installation
-über ioBroker Admin.
+über den ioBroker-Admin.
 
-Andernfalls führen Sie im iobroker-Root-Verzeichnis (z. B. in /opt/iobroker) den folgenden Befehl aus: `` npm install iobroker.yamaha iobroker upload yamaha ``
+Andernfalls führen Sie den folgenden Befehl im iobroker-Stammverzeichnis (z. B. in /opt/iobroker) aus: `` npm install iobroker.yamaha iobroker upload yamaha ``
 
 #### Echtzeit
-Die Zustände werden erstellt, wenn sie auftreten. Dh Verwenden Sie Ihre IR-Fernbedienung und ändern Sie etwas, und Sie werden die neuen Zustände sehen.
-Nur eine Verbindung wird von Yamaha-Geräten akzeptiert.
+Die Zustände werden erstellt, wenn sie auftreten. Verwenden Sie z. B. Ihre IR-Fernbedienung und ändern Sie etwas, dann werden die neuen Zustände angezeigt.
+Von Yamaha-Geräten wird nur eine Verbindung akzeptiert.
 
 #### Anforderungen
 Yamaha-Empfänger
 
-Sie müssen die „Netzwerk-Standby“-Funktion in der Konfiguration Ihres Receivers aktivieren
+Sie müssen die Funktion "Netzwerk-Standby" in der Konfiguration Ihres Receivers aktivieren
 
 ## Changelog
-### 0.5.1
+### 0.5.4 (2024-06-14)
+* (foxriver76) updated packages
+
+### 0.5.3 (2022-06-17)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.2 (2022-04-23)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.1 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
 * (Sneak-L8) fix type of pureDirect
 
 ### 0.5.0 (2022-03-08)
@@ -101,7 +111,7 @@ Sie müssen die „Netzwerk-Standby“-Funktion in der Konfiguration Ihres Recei
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 soef <soef@gmx.net>
+Copyright (c) 2015-2024 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

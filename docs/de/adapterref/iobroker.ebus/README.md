@@ -3,20 +3,27 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: N1+qoBcOZs3GExmvBcD7gWvW+xHqKRQGHFQBqqxk9hU=
+hash: OiglQYHB+Y0tGulBl84tjrcZuAP3nee40BEVoh3/xKQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/ebus-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ebus.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ebus.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
+![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.ebus?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.ebus?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.ebus?style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 
 # IoBroker.ebus
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
@@ -24,139 +31,115 @@ hash: N1+qoBcOZs3GExmvBcD7gWvW+xHqKRQGHFQBqqxk9hU=
 
 Dieser Adapter liest
 
-- Daten von ebusd mit html
+- Daten von ebusd unter Verwendung von HTML
 
-In diesem Fall muss ebusd laufen und Daten an z.B. Explorer über http://IP:port/data (http://192.168.0.123:8889/data) Aktuelle Version von ebusd inkl. Konfigurationsdateien können von https://github.com/john30/ebusd kopiert werden. Alle Felder mit Daten, lastup und aus dem globalen Abschnitt werden geparst. Alle anderen werden im Moment ignoriert.
+In diesem Fall muss ebusd laufen und in der Lage sein, Daten z. B. an den Explorer über http://IP:port/data (http://192.168.0.123:8889/data) zu senden. Die aktuelle Version von ebusd inkl. Konfigurationsdateien kann von https://github.com/john30/ebusd kopiert werden. Alle Felder mit Daten, Lastup und aus dem globalen Abschnitt werden analysiert. Alle anderen werden derzeit ignoriert.
 
-Es besteht die Möglichkeit, Daten abzufragen, die nicht direkt von ebusd abgefragt werden. Der Befehl 'read -f' wird verwendet, um das Lesen über ebus zu erzwingen.
+Es besteht die Möglichkeit, Daten abzufragen, die nicht direkt von ebusd abgefragt werden. Mit dem Befehl 'read -f' wird das Lesen über ebus erzwungen.
 
-Eine weitere Funktion besteht darin, einen beliebigen Befehl an ebusd zu senden und eine Antwort zu erhalten, um z. Skripte.
+Eine weitere Funktion besteht darin, beliebige Befehle an ebusd zu senden und eine Antwort zu erhalten, um beispielsweise mit Skripten zu arbeiten.
 
-aktuell unterstützte ebusd-version: 22.3
-
-**Achtung** mit ebusd - Version 22.1 Konfigurationspfad wurde auf http://cfg.ebusd.eu/ geändert. Stellen Sie sicher, dass Sie es in Ihrer Installation von ebusd ändern.
+**Achtung** mit ebusd – der Konfigurationspfad wurde in Version 22.1 auf http://cfg.ebusd.eu/ geändert. Stellen Sie sicher, dass Sie ihn in Ihrer ebusd-Installation ändern.
 Details siehe [Änderungsprotokoll](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
 
 ## Wie man Befehle an ebusd sendet
 1. Schreiben Sie einen einzelnen Befehl oder eine Befehlsliste auf den Datenpunkt ebus.0.cmd
 
-Wenn Sie mehr als einen Befehl verwenden möchten, verwenden Sie , um einzelne Befehle zu trennen.
-Beispiel: read -f YieldTotal, read LegioProtectionEnabled, read -f -c broadcast outsidetemp
+Wenn Sie mehr als einen Befehl verwenden möchten, trennen Sie die einzelnen Befehle mit ,.
+Beispiel: read -f YieldTotal,read LegioProtectionEnabled,read -f -c broadcast outsidetemp
 
 2. Wenn der Befehl ausgeführt wird, erhalten Sie die Ergebnisse pro Befehl im Datenpunkt ebus.0.cmdResult
 
-Das Ergebnis ist ebenfalls kommasepariert. Beispiel: 2000, ERR: element not found, 10.5
+Das Ergebnis ist ebenfalls durch Kommas getrennt. Beispiel: 2000, ERR: Element nicht gefunden, 10.5
 
 Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelöscht!
 
+## Installation / Update
+Bitte folgen Sie den Installationsanweisungen für ebusd unter [Wiki](https://github.com/john30/ebusd/wiki/1.-Build-and-install)
+
+In /opt/iobroker/node_modules/iobroker.ebus/lib/scripts finden Sie Skripte zum Installieren und Aktualisieren von SBFspot auf Debian-basierten Systemen.
+
 ## Bekannte Probleme
-* Bitte erstellen Sie Probleme auf [github](https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
-
-## 2.4.3 (2021-10-21)
-* (René) siehe Issue #58: Bugfix für Warn: Ignoriere History-Wert 1 (ungültig)", wenn keine History-Werte gesetzt sind
-
-## 2.4.2 (2021-10-19)
-* (René) siehe Ausgabe Nr. 55: Fehlerbehebung
-
-## 2.4.0 (2021-10-17)
-* (René) überarbeitete Behandlung von gelesenen Datenpunkten und historischen Datenpunkten, Schaltung optional hinzugefügt
-* (René)-Befehl kann jetzt mehr als einen Befehl enthalten, nur getrennte Befehle mit ','
-* (René) siehe Issue #55: Warnungen in Debug-Meldungen geändert
-
-## 2.3.2 (2021-09-02)
-* (René) siehe Ausgabe Nr. 49: Unterstützung für ebusd 21.2
-* (René) siehe Ausgabe Nr. 40: Option zur Verwendung von booleschen Werten anstelle von Zeichenfolgen für Werte mit Ein/Aus
-* (René) Abhängigkeiten aktualisiert
-
-## 2.2.7 (2021-07-03)
-* (René) Abhängigkeiten aktualisiert
-* (René) siehe Issue #48: Bugfix für Logs mit falschem Datentyp
-
-## 2.2.5 (2021-03-21)
-* (René) Abhängigkeiten aktualisiert
-
-## 2.2.4 (2021-02-17)
-* (René) siehe Issue #42: Uncaught ReferenceError: oView is not defined in widget behoben
-
-## 2.2.3 (2020-10-24)
-* (René) History DP erstellen falls nicht vorhanden
-
-## 2.2.0 (2020-09-06)
-* (René) DP nur bei Bedarf ändern, um Systemlast zu reduzieren
-* (René) Abhängigkeiten aktualisieren
-
-## 2.1.1 (2020-06-27)
-* (René) Issue #26: Bugfix: "cmd not found" ist nur Debug-Meldung statt Fehler
-
-## 2.1.0 (2020-06-17)
-* (René) Refactoring: 'async/await' verwendet
-
-## 2.0.0 (2020-04-26)
-* (René) "Anfrage" ersetzt durch "gebogen"
-
-## 1.0.0 (2019-12-15)
-* (René) Update auf meine eigene Flotte 3.0
-
-## 0.8.2 (2019-11-10)
-* (René) weitere Fehlermeldungen im Datenpunkt "error"
-
-## 0.8.1 (2019-10-31)
-* (René) Flot auf Version 3.0 aktualisieren
-
-### 0.8.0 (2019-02-24)
-* (René) hcmode2 Wert 5 = EVU Sperrzeit
-
-### 0.7.0 (2019-01-28)
-* (René) einstellbares Timeout hinzufügen
-
-### 0.6.0 (2019-01-06)
-* (René) Unterstützung des Kompaktmodus
-
-### 0.5.5 (2018-11-04)
-* (René) Code aufräumen
-
-### 0.5.4
-* (René) Arduino-Unterstützung entfernt
-
-### 0.5.3
-* (René) Fehlerinformationen hinzufügen
-
-### 0.5.2
-* (René) Bugfix: in vis 1.x werden einige Werte nicht gespeichert
-
-### 0.5.1
-* (René) Fehlerbehebung: Wenn nichts abzufragen ist, dann Telnet-Verbindung überspringen
-
-### 0.5.0
-* (René) Daten über TCP nach ebusd schreiben
-
-### 0.4.2
-* (René) Bugfix für Admin V3
-
-### 0.4.1
-* (René)-Logo geändert
-
-### 0.4.0
-* (René) liest Daten von ebusd
-
-### 0.3.0
-* (René) Unterstützung von ebusd
-* (René) admin3-Unterstützung
-
-### 0.2.0
-* (René) Geschichte als JSON für vis hinzufügen
-* (René) Flot-basiertes Widget hinzugefügt, um Temperatur-, Status- und Leistungsdiagramm anzuzeigen
-
-### 0.1.0
-* (René) geplanter Adapter statt Deamon
-
-### 0.0.3
-* (René) UTF8-Codierung
-
-### 0.0.2
-* (René) Erstveröffentlichung
+* Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.6.2 (2025-06-09)
+* (René) (Galileo53) #419 avoid Warning and error when history list is empty
+
+### 3.6.1 (2025-06-06)
+* (René) changes suggested by adapter checker
+
+### 3.6.0 (2025-06-06)
+* (René) new supported ebusd version is 25.1
+* (René) version info added in admin
+
+### 3.5.2 (2025-02-27)
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 3.5.1 (2025-02-01)
+* (René) translations
+
+### 3.5.0 (2025-01-27)
+* (René) catch exceptions reportet by sentry
+* (René) option to disable check of last update time (see issue #391)
+
+### 3.4.0 (2024-12-10)
+* (René) migration to jsonConfig
+* (René) see issue #383: add optionally parameters to HTTP call
+
+### 3.3.8 (2024-11-24)
+* (René) update dependencies
+* (René) issue  #381: install widgets again
+
+### 3.3.7 (2024-11-20)
+* (René) see issue #380: support of ebusd 24.1, ATTENTION: ebusd creates datapoints with changed names, folders or in different locations
+* (René) see issue #371: test with nodejs@22
+
+### 3.3.6 (2024-08-25)
+ * (René) downgrade of "promise-socket" to 7.0.0
+
+### 3.3.5 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 3.3.4 (2024-07-12)
+ * (René) bug fix after 3.3.2 update
+
+### 3.3.3 (2024-07-12)
+ * (René) downgrade of "promise-socket" to 7.0.0
+
+### 3.3.2 (2024-07-11)
+ * (René) see issue #338: due to error in ebusd json no data are parsed
+
+### 3.3.1 (2024-05-28)
+* (René) change of dependencies
+
+### 3.3.0 (2024-05-24)
+* (René) remove cron dependency
+* (René) data history prepared for VIS-2: just a option here in the adapter and new widget (at this moment GeneralChart widget in vis-2-widgets-weather can be used)
+
+### 3.2.6 (2024-02-11)
+* (René) see issue #245: support ebusd 23.3
+* (René) fixes reported by eslint
+
+### 3.2.5 (2024-01-12)
+* (René) dependencies updated
+
+### 3.2.4 (2023-11-19)
+* (René) revert back to flat 5.x
+
+### 3.2.3 (2023-11-18)
+* (René) dependencies updated
+* (René) fix sentry reported exceptions
+
+### 3.2.2 (2023-07-30)
+* (René) dependencies updated
 
 ### 3.2.1 (2023-04-07)
 * (René) dependencies updated
@@ -164,7 +147,7 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 ### 3.2.0 (2023-02-11)
 * (René) **Attention** polled variables must be set as active in admin now
 * (René) search available variables per circuit added in admin
-* (René) DP "find" added to force read of all existing datapoints (Attention: might take a while) and update name in data point tree 
+* (René) DP "find" added to force read of all existing datapoints (Attention: might take a while) and update name in data point tree
 
 ### 3.1.1 (2023-01-31)
 * (René) support ebusd 23.1
@@ -174,7 +157,6 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) support ebusd 22.4
 * (René) see issue #77: Update data point when read-cmd is used
 * (René) see issue #78: remove CR, LF in answer from ebusd for DP ebus.0.cmdResult
-
 
 ### 3.0.7 (2022-08-20)
 * (René) support ebusd 22.3
@@ -213,10 +195,63 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) update flot to 4.2.2
 * (René) bug fix missing space in command when using circuit name
 
+### 0.8.0 (2019-02-24)
+* (René) hcmode2 value 5 = EVU Sperrzeit
+
+### 0.7.0 (2019-01-28)
+* (René) add adjustable timeout
+
+### 0.6.0 (2019-01-06)
+* (René) support of compact mode
+
+### 0.5.5 (2018-11-04)
+* (René) code clean up
+
+### 0.5.4
+* (René) arduino support removed
+
+### 0.5.3
+* (René) add error information
+
+### 0.5.2
+* (René) bug fix: in vis 1.x some values are not stored
+
+### 0.5.1
+* (René) bug fix: if nothing to poll then skip telnet connection
+
+### 0.5.0
+* (René) write date over TCP to ebusd
+
+### 0.4.2
+* (René) bug fix for admin V3
+
+### 0.4.1 
+* (René) logo changed
+
+### 0.4.0 
+* (René) reading data from ebusd
+
+### 0.3.0 
+* (René) support of ebusd 
+* (René) admin3 support
+
+### 0.2.0
+* (René) add history as JSON for vis
+* (René) add flot based widget to display temperatur, status and power graph
+
+### 0.1.0
+* (René) scheduled adapter instead of deamon
+
+### 0.0.3
+* (René) UTF8 coding
+
+### 0.0.2
+* (René) initial release
+
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

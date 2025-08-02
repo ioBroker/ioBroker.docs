@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/debug.md
 title: ioBroker.shelly
-hash: KVTitqklg4RU1iuba/LwscH4vzBa0K/tcd29J3k2QFw=
+hash: jewN0ODcNYhVW2t/1J05+xr6ZHrxICAjpV86oZ5wjQE=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -12,10 +12,10 @@ hash: KVTitqklg4RU1iuba/LwscH4vzBa0K/tcd29J3k2QFw=
 这是德语文档 - [🇺🇸英文版](../en/debug.md)
 
 ＃＃ 调试
-*调试仅适用于第 2 代设备*
+*调试仅适用于第 2 代以上设备*
 
 ＃＃＃ 要求
-- 第 2 代设备
+- 第 2 代以上设备
 - MQTT 模式下的 Shelly Adapter 实例（版本 >= 6.0.0）
 
 ### 启用调试

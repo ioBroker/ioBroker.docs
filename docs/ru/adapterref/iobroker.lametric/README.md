@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
+hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -29,27 +29,33 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
 - [Уведомления](notifications.md)
 
 ## Требования
-- nodejs 14.5 (или новее)
-- js-контроллер 4.0.15 (или новее)
-- Адаптер администратора 6.0.0 (или новее)
-- _LaMetric Time_ с прошивкой _2.3.8_ (_3.0.18_ на модели 2022 года) (или новее)
+- nodejs 20 (или более поздняя версия)
+- js-controller 6.0.0 (или более поздняя версия)
+- Административный адаптер 7.4.10 (или более поздней версии)
+- _LaMetric Time_ с прошивкой _3.1.4_ (или более поздней)
+- прошивка _2.3.9_ (или более поздняя) на старых моделях (выпущенных до 2022 года)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
 ## Конфигурация
-Вы можете получить ключ API вашего устройства [здесь](https://developer.lametric.com/user/devices).
+1. Добавьте LaMetric Time в свою локальную сеть
+- Приложение LaMetric Time (2017–2021 гг.) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
+- Приложение LaMetric (с 2022 г. по настоящее время) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
+2. Скопируйте ключ API устройства из приложения (только модели 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
+
+Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
 
 ![API-ключ](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ## Функции
-- Установите яркость дисплея (в процентах, автоматический режим/ручной режим)
+- Установка яркости дисплея (процент, автоматический режим/ручной режим)
 - Установить громкость звука (в процентах)
-- Настройка заставки (включить/отключить, по времени, в темноте)
+- Настройка заставки (включить/выключить, по времени, в темноте)
 - Активировать/деактивировать Bluetooth и изменить имя Bluetooth
-- Переключение между приложениями (следующее, предыдущее, переход к конкретному приложению)
-- Отправка уведомлений блочно (с настраиваемым приоритетом, звуком, значками, текстом и т. д.)
-- Управляйте специальными приложениями, такими как «часы», «радио», «секундомер» или «погода».
-- Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянной информации.
+- Переключение между приложениями (следующее, предыдущее, переход к определенному приложению)
+- Отправлять уведомления поблочно (с настраиваемым приоритетом, звуком, значками, текстом, ...)
+- Управление специальными приложениями, такими как «часы», «радио», «секундомер» или «погода»
+- Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянной информации
 
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
@@ -59,37 +65,36 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 3.1.1 (2023-10-27)
+### 4.0.0 (2025-04-08)
 
-* (klein0r) Fixed issue with foreign states of version 3.1.0
+NodeJS >= 20.x and js-controller >= 6 is required
 
-### 3.1.0 (2023-10-25)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.4)
 
-NodeJS 16.x is required
+### 3.4.1 (2024-10-29)
 
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.18)
-* (klein0r) Updated admin tab layout (icons, button style)
-* (klein0r) Fixed path of default widgets
+* (@klein0r) Limit frame duration to 10 seconds (limited by LaMetric)
 
-### 3.0.0 (2023-09-13)
+### 3.4.0 (2024-09-06)
 
-* (klein0r) Added push option for My Data DIY
-* (klein0r) Added option to force app reload
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
+* (@klein0r) Added support for notification manager
+* (@klein0r) Added validator for icon inputs
+* (@klein0r) Fixed some missing translations
 
-### 2.4.2 (2023-09-08)
+### 3.3.0 (2024-08-05)
 
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
+* (@klein0r) Added api version as state (and check value)
 
-### 2.4.1 (2023-06-10)
+### 3.2.3 (2024-07-21)
 
-* (klein0r) Blockly bugfix
+* (@klein0r) Fixed blockly definitions
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

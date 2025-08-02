@@ -2,52 +2,57 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
-title: ioBroker.roborock
-hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
+title: ioBroker.роборок
+hash: 8vyKsaXLQdRuIN6K67E9BKiMUHXH+FLd6tqx4zv4f6Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.roborock.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.roborock.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.roborock.svg)
 ![Количество установок](https://iobroker.live/badges/roborock-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/roborock-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/roborock-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
-**Тесты:** ![Тестирование и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
 **Перевод:** [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер Roborock для ioBroker
-Этот адаптер позволяет вам управлять, получать состояния, историю уборки и просматривать карту пылесоса Roborock, настроенную в приложении Roborock.
+Этот адаптер позволяет вам управлять, получать данные о состоянии, историю уборки и просматривать карту пылесоса Roborock, настроенного в приложении Roborock.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
+### Этот адаптер не может работать на MacOS
 ## Поддерживаемые роботы:
 - Роборок S4
 - Роборок S4 Макс
-- Роборок S5
 - Роборок S5 Макс
 - Роборок S6
-- Роборок S6 Чистый
-- Роборок С6 МаксВ
+- Roborock S6 Чистый
+- Roborock S6 MaxV
 - Роборок S7
-- Роборок S7 MaxV (Ультра)
+- Roborock S7 MaxV (Ультра)
 - Роборок Q7
 - Роборок Q7 Макс
-- Роборок С7 Про Ультра
-- Роборок S7 Макс Ультра
+- Roborock S7 Pro Ультра
+- Roborock S7 Max Ultra
 - Роборок S8
-- Роборок С8 Про Ультра
+- Roborock S8 Pro Ультра
 - Роборок Кью Рево
+- Роборок Q8 Макс
+- Роборок Q5 Pro
+- Roborock Q Revo Pro
+- Роборок Крево S
+- Кривая Роборока Крево
 
-## Очистка зоны
-Эта функция работает только тогда, когда в настройках адаптера включено создание карт!
+## Зональная уборка
+Эта функция работает только в том случае, если в настройках адаптера включена функция создания карты!
 
 ### Создание карты не работает на Raspberry Pi
- - Работает веб-сервер. Порт по умолчанию — 6824.
- - Откройте http://iobroker:6824/map.html в своем браузере (измените http://iobroker на свое имя хоста или IP-адрес ioBroker!!!)
- - Нарисуйте свой квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон очистки одновременно.
+- Веб-сервер запущен. Порт по умолчанию 6824.
+- Откройте http://iobroker:6824/map.html в вашем браузере (измените http://iobroker на имя хоста или IP вашего ioBroker!!!)
+- Нарисуйте свой квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон уборки одновременно.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
 
@@ -56,6 +61,148 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.18 (2024-12-11)
+ * (copystring) Add cleaned_area to S8
+ * (copystring) Bugfixes for Qrevo Curve
+ * (copystring) Fix reset of consumables
+ * (copystring) Fix io-package.json
+ * (copystring) Add Roborock Qrevo Master
+ * (copystring) Refactor login api and renew login every 3 hours
+ * (fL4sH3r) Fix unit of clean_percent
+ * (copystring) Add water box support to S6
+ * (copystring) Many small fixed I can't be bothered to list 😅
+
+### 0.6.17 (2024-10-14)
+ * (copystring) Add some missing attributes
+ * (copystring) Change min of update interval to 60s to prevent issues
+ * (copystring) Add web interface to sidebar
+
+### 0.6.16 (2024-10-02)
+ * (copystring) Bugfixes
+ * (copystring) update test-and-release.yml
+ * (Black-Thunder) Fix S6 feature detection
+ * (copystring) Migrate from canvas to @napu-rs/canvas
+ * (copystring) Add Qrevo S & Qrevo Curve
+
+### 0.6.15 (2024-09-22)
+ * (copystring) Refactor some code
+ * (copystring) improve handling of online/offline detection and related logging
+ * (copystring) S6 MaxV supports avoid carpet
+
+### 0.6.14 (2024-09-13)
+ * (copystring) Fix bug in app_goto_target parameter validation
+
+### 0.6.13 (2024-09-12)
+ * (copystring) Bug fixes
+ * (copystring) Add basic support for S8 MaxV Ultra
+ * (copystring) Newly found attributes are now warning instead of error
+ * (copystring) Improve detection of `home_sec`
+ * (copystring) Fix docking station detection
+ * (copystring) BREAKING: Adjust docking station states to reflect the smart phone app
+ * (copystring) Detect remote devices and connect via mqtt instead
+ * (copystring) Improve docking station feature handling
+
+### 0.6.12 (2024-09-08)
+ * (copystring) Change go2rtc github to go2rtc-static npm
+
+### 0.6.11 (2024-09-06)
+* (copystring) Add `voice_chat_status` to S7 MaxV
+
+### 0.6.10 (2024-09-05)
+* (copystring) Add `set_switch_status` to S7 MaxV and Q Revo Pro
+
+### 0.6.9 (2024-09-05)
+* (copystring) Fix bugs
+* (copystring) Add missing states
+* (copystring) Add missing translations
+
+### 0.6.8 (2024-09-04)
+* (copystring) Q Revo supports `switch_status` in `get_status`
+
+### 0.6.7 (2024-09-04)
+* (copystring) Update dependencies
+* (copystring) Many bug fixes
+* (copystring) Improve support for: Q Revo Pro
+* (copystring) Add parsing of dss in deviceStatus as `docking station status`
+* (copystring) Add `resume_segment_clean` & `stop_segment_clean`
+* (copystring) Improve reconnect intervall of direct connection
+* (copystring) Add missing translations
+* (copystring) Fix cleaningInfo of older Robots like S6 etc
+* (copystring) General logging improvements
+
+### 0.6.6 (2024-07-14)
+* (copystring) require min node 20 to operate correctly with current dependencies
+
+### 0.6.5 (2024-07-13)
+* (copystring) Add and fix some parameters and attributes
+* (copystring) Fix getMap() in getParameter()
+* (copystring) Add connection state to timeouts
+* (copystring) Detect and report unsupported attributes
+* (copystring) Improve camera and voice support detection
+* (copystring) Wait for TCP client to connect on start of adapter
+* (copystring) Add handling of TCP chunks. This will fix a lot of timeouts 🎉
+* (copystring) Manage stop/stop in the webinterface via state of robot instead of guessing via clicking the buttons in the webinterface
+* (copystring) Refactor and improve javascript code of web interface
+* (copystring) Add Roborock Q Revo Pro
+* (copystring) Update dependencies
+
+### 0.6.4 (2024-04-21)
+* (copystring) Fix io-package.json and update packages
+
+### 0.6.3 (2024-04-21)
+* (copystring) Add consumables to Qrevo MaxV
+* (copystring) Fix S5 Max clean records defintion
+* (copystring) Fix app_start via web interface
+* (copystring) Improve local devices discovery
+
+### 0.6.2 (2024-04-05)
+* (copystring) Fix start of go2rtc
+
+### 0.6.1 (2024-04-02)
+* (copystring) Fix lint
+
+### 0.6.0 (2024-04-02)
+* (copystring) New and improved message queue handler
+* (copystring) Convert robot features to new much more modular system
+* (copystring) Add support for large photos of obstacles
+* (copystring) Many bug fixes I can't remember :D
+
+### 0.5.4 (2024-02-01)
+* (copystring) Fix mqtt disconnect/reconnect bug on start of adapter
+
+### 0.5.3 (2024-01-31)
+* (copystring) Restore original UserData creation
+
+### 0.5.2 (2024-01-31)
+* (copystring) Little bug fixes
+* (copystring) Remove Roborock S5. There is no such device
+* (copystring) Limit HomeData requests to prevent rate limit
+
+### 0.5.1 (2024-01-03)
+* (copystring) Fix lint
+
+### 0.5.0 (2024-01-03)
+* (copystring) Rework map parser and map creator
+* (copystring) Convert a lof of strings to template literals
+* (copystring) Improve go2rtc download logic
+* (copystring) Improve error logging
+* (copystring) Download roborock images from roborock server and make them available as base64 png (needs to be enabled in options, uses quite a lot of resources)
+* (copystring) Use some clever logic so adjacent rooms are never the same color 🎉
+* (copystring) The name for each room is now displayed on the map
+* (copystring) Fix photo popup position on map
+* (copystring) Seriously speed up drawing of carpet map
+* (copystring) Add basic Q8 Max support
+* (copystring) Basic Q5 Pro support
+* (copystring) Support new block types on the map
+* (copystring) Don't crash when Roborock Zeo One is in the account
+* (copystring) New commands for Roborock S7 MaxV
+* (copystring) Many bug fixes
+* (copystring) Add support for station for Q7 Max
+* (copystring) Add basic scene/program support
+* (copystring) Connect to devices via TCP instead of MQTT whereever possible
+* (copystring) Refactor web interface to fix popup position for good
+* (copystring) Add support for A01 encoding/decoding (With this devices like Zeo One, Dyad Pro etc would be supported). Huge thanks to rovo89!!!
+
 ### 0.4.4 (2023-09-24)
 * (copystring) Fix for getting the map for each cleaning record
 
@@ -238,7 +385,7 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 ## License
 MIT License
 
-Copyright (c) 2023 copystring <copystring@gmail.com>
+Copyright (c) 2024 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

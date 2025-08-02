@@ -333,6 +333,33 @@ The supported commands are:
     ### **WORK IN PROGRESS**
     * () 
 -->
+### 5.2.0 (2025-01-22)
+* (deher) add IP Adress to info
+* (deher) assign rockrobo (valetudo) to roborock Manager
+
+### 5.1.0 (2025-01-18)
+* (AlexAchilleus) Added mop pad status and some states for Dreame/Xiaomi 
+* (deher) change model handling
+
+### 5.0.0 (2025-01-04)
+* (deher) token from config now encrypted, user has to re-choose device in settings
+* (deher) some fixes in UI Setting
+
+### 4.3.0 (2025-01-02) rejected
+* (JimmyBondi) added dreame error messages
+* (simatec) responsive design added
+* (deher) update dependecies and linting
+
+### 4.2.0 (2024-04-01)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+* (dirkhe) update dependecies
+* (dirkhe) replace zlib with native zlib
+
+### 4.1.1 (2024-01-06)
+* (Dirkhe) adapt stockConsumables to dreame
+* (dirkhe) fix url #886
+
 ### 4.1.0 (2023-10-31)
 * (Dirkhe) update dependecies
 * (Dirkhe) add Roborock S8 and P10
@@ -623,7 +650,8 @@ The supported commands are:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2023-2025 iobroker community developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

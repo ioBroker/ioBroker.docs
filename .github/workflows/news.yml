@@ -1,0 +1,19 @@
+name: File Change Trigger
+
+on:
+  pull_request:
+    branches: [ "master" ]
+  push:
+    paths:
+      - 'info/news.json'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check the JSON
+        run: node info/processNews.js --check

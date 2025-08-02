@@ -2,283 +2,212 @@
 
 # ioBroker.lupusec
 
-[![Travis Build Status](https://travis-ci.org/schmupu/ioBroker.lupusec.svg?branch=master)](https://travis-ci.org/schmupu/ioBroker.lupusec)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/schmupu/ioBroker.lupusec?branch=master&svg=true)](https://ci.appveyor.com/project/schmupu/ioBroker-lupusec/)
-![Stable Version](http://iobroker.live/badges/lupusec-stable.svg) 
-![Number of Installations](http://iobroker.live/badges/lupusec-installed.svg) 
-[![NPM version](http://img.shields.io/npm/v/iobroker.lupusec.svg)](https://www.npmjs.com/package/iobroker.lupusec) 
-[![Downloads](https://img.shields.io/npm/dm/iobroker.lupusec.svg)](https://www.npmjs.com/package/iobroker.lupusec) 
+![Stable Version](http://iobroker.live/badges/lupusec-stable.svg)
+![Number of Installations](http://iobroker.live/badges/lupusec-installed.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.lupusec.svg)](https://www.npmjs.com/package/iobroker.lupusec)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.lupusec.svg)](https://www.npmjs.com/package/iobroker.lupusec)  
 [![NPM](https://nodei.co/npm/iobroker.lupusec.png?downloads=true)](https://nodei.co/npm/iobroker.lupusec/)
 
-**Requires node.js 10.0 or higher and Admin v3!**
+**Requires node.js 20.0 or higher and Admin v5!**
 
 This adapter connects the Lupusec alarm system XT1 Plus, XT2, XT2 Plus and XT3 with ioBroker.
 The XT1 (without Plus) will not be supported. You can read the status of the Lupusec sensors
 like door, windows, water, smoke sensors and the status of the alarm system.
 For example, you can turn on switches, control your shutter and arm/disarm the alarm system.
+Because the adapter has to call the alarm system a few times to get all the information for the status and device the CPU load and memory usage is high. To decrease the CPU load you can increase the polltime.
 
 You can find detailed information here: [Lupus](https://www.lupus-electronics.de/en)
 
 ## Installation
+
 1. Install the adapter
-The easiest way is to configure the lupusec.iobroker adapter via the discovery adapter in ioBroker. The discovery adapter search for the right IP-address of the Lupusec alarm system. The other way is it, to configure it manually
+   The easiest way is to configure the lupusec.iobroker adapter via the discovery adapter in ioBroker. The discovery adapter search for the right IP-address of the Lupusec alarm system. The other way is it, to configure it manually
 
 2. Manually configuration of the adapter
-Choose the IP-Address or hostname from the Lupusec alarm system. Choose https (recommended) if possible.
-For only reading the status, select a user without write access. If you want to change the status
-(for example, turn on/off the light or arm/disarm the alarm) pick a user with write access.      
-![admin_main](docs/en/img/lupusec_admin.png)
-If you have surveillance cams connected to your Lupusec alarm system you can provide them in ioBroker. The Lupusec adapter finds all Lupusec cams by it own. You have to enter a address (your ioBroker IP addrss or 0.0.0.0) and a port for later connecting to the cams.
-![admin_webcam](docs/en/img/lupusec_admin_webcam.png)
-If you have your Nuki door opener connected to your Lupusec alarm system you can use it from ioBroker too. On the ioBroker instance admin menu, you can enter your Lupusec door sensor which is mounted to the Nuki door. If you now open the door where the Nuki is mounted you have the additional state 'door opened' instead only 'unlocked'. If you do not have a Lupusec door sensor at the Nuki door, you will only see the states 'locked' or 'locked'.
-![admin_nuki](docs/en/img/lupusec_admin_nuki.png)
+   Choose the IP-Address or hostname and port from the Lupusec alarm system. If you use https, activate the https flag. The CPU load is higher with https insted without http.
+   For only reading the status, select a user without write access. If you want to change the status
+   (for example, turn on/off the light or arm/disarm the alarm) pick a user with write access.
+   With polltime you can configure, how often the alarm system shall be called. A high polltime decrease the CPU load.
 
-By default all Lupusec devices will be on the ioBroker object tab  displayed.
+    ![admin_main](docs/en/img/lupusec_admin.png)
+    If you have surveillance cams connected to your Lupusec alarm system you can provide them in ioBroker. The Lupusec adapter finds all Lupusec cams by it own. You have to enter a address (your ioBroker IP addrss or 0.0.0.0) and a port for later connecting to the cams.
+    ![admin_webcam](docs/en/img/lupusec_admin_webcam.png)
+    If you have your Nuki door opener connected to your Lupusec alarm system you can use it from ioBroker too. On the ioBroker instance admin menu, you can enter your Lupusec door sensor which is mounted to the Nuki door. If you now open the door where the Nuki is mounted you have the additional state 'door opened' instead only 'unlocked'. If you do not have a Lupusec door sensor at the Nuki door, you will only see the states 'locked' or 'locked'.
+    ![admin_nuki](docs/en/img/lupusec_admin_nuki.png)
+
+By default all Lupusec devices will be on the ioBroker object tab displayed.
 Fully supported and individually adapted are following devices:
 
-  - Door contact / window contact (Type 4)
-  - Water sensor (Type 5)
-  - Panic Button (Type 7)
-  - Motion detector / 360 degree motion detector (Type 9)
-  - CO sensor (Type 13)
-  - Smoke Detector / Heat Detector (Type 14)
-  - Temperature Sensor V2 (Type 20)
-  - Siren inside (Type 21)
-  - Status Indicator / Mini Indoor Siren (Type 22)
-  - Power Switch (Type 24)
-  - 1 channel relay with ZigBee repeater (Type 24)
-  - 2 channel relay with ZigBee repeater (Type 24)
-  - Repater V2 (Type 26)
-  - Keypad (Type 37)
-  - Glass sensor (Type 39)
-  - Siren inside (Type 45)
-  - Siren outside (Type 48)
-  - Power Switch Meter (Type 48)
-  - Electric Meter (Type 50)
-  - Universal IR Controller (Type 52)
-  - Room sensor V1 (Type 54)
-  - LCD temperature sensor (Type 54)  
-  - Mini temperature (Type 54)
-  - Nuki door opener (Type 57)
-  - Heat detector (Type 58)
-  - Dimmer (Type 66)
-  - Light Switch V2 (Type 66)
-  - Hue (Type 74)
-  - Roller shutter relay V1 (Type 76)
-  - Radiator thermostat (Type 79)
-  - Radiator thermostat V2 (Type 79)
-  - Light sensor (Type 78)
-  - Scenario Switch V2 (Type 81)
-  - Shock sensor (Type 93)
-  - Smoke detector V2 (Type 14)
-  - Inwall relay with dimmer V3 (Type 66)
-  - Keypad Outdoor V2 (Type 17)
+- Door contact / window contact (Type 4)
+- Water sensor (Type 5)
+- Panic Button (Type 7)
+- Motion detector / 360 degree motion detector (Type 9)
+- CO sensor (Type 13)
+- Smoke Detector / Heat Detector (Type 14)
+- Temperature Sensor V2 (Type 20)
+- Siren inside (Type 21)
+- Status Indicator / Mini Indoor Siren (Type 22)
+- Power Switch (Type 24)
+- 1 channel relay with ZigBee repeater (Type 24)
+- 2 channel relay with ZigBee repeater (Type 24)
+- Repater V2 (Type 26)
+- Keypad (Type 37)
+- Glass sensor (Type 39)
+- Siren inside (Type 45)
+- Siren outside (Type 48)
+- Power Switch Meter (Type 48)
+- Electric Meter (Type 50)
+- Universal IR Controller (Type 52)
+- Room sensor V1 (Type 54)
+- LCD temperature sensor (Type 54)
+- Mini temperature (Type 54)
+- Nuki door opener (Type 57)
+- Heat detector (Type 58)
+- Dimmer (Type 66)
+- Light Switch V2 (Type 66)
+- Hue (Type 74)
+- Roller shutter relay V1 (Type 76)
+- Radiator thermostat (Type 79)
+- Radiator thermostat V2 (Type 79)
+- Light sensor (Type 78)
+- Scenario Switch V2 (Type 81)
+- Shock sensor (Type 93)
+- Smoke detector V2 (Type 14)
+- Inwall relay with dimmer V3 (Type 66)
+- Keypad Outdoor V2 (Type 17)
 
-The two states apple_home_a1 and lupusec.0.status.apple_home_a2 for the Apple Homekit adapter yahka supported. You can turn in addition to the lupusec states the alarm system for area 1 and 2 on and off.  
+The two states apple_home_a1 and lupusec.0.status.apple_home_a2 for the Apple Homekit adapter yahka supported. You can turn in addition to the lupusec states the alarm system for area 1 and 2 on and off.
 
 If you own a device that is not listed in the list above, please contact me
 at Thorsten Stueben <thorsten@stueben.de>.
 
+## Migration from adapter version 1.x.x to 2.x.x
+
+If you have installed version 1.x.x installed and you would like to switch to version 2.0.0 or higher, you unfortunately have to configure the Lupusec instance again.
+The old configruation values from version 1.x.x ​​are not adopted.
+
+This is due to the fact that the configuration interface has been completely revised.
+
+To make the settings for the Nuki lock, you first have to enter the hostname, username and password and then save. The instance will now restart. As soon as it starts without errors, open the instance configuration again. You can now configure your Nuki lock on the Nuki tab.
+
 ## Objects
+
 ### Lupusec Status
+
 ioBroker offers you the same status objects as in the Lupusec app does.
 ![lupusec_obj_status](docs/en/img/lupusec_obj_status.png)
 
+### Lupusec Devices
 
-### Lupusec Devices 
 You find all supported Lupsec sensors and devices under 'devices'. If a device is missing, please contact me.
 ![lupusec_obj_status](docs/en/img/lupusec_obj_devices.png)
 Detailed view of a sensor or device. In this example you see the CO sensor. On CO alarm the state 'alarm_status_ex' change to true and 'alarm_status' change to 'CO'.
 ![lupusec_obj_status](docs/en/img/lupusec_obj_devices_type09.png)
 
 ### Lupusec Webcams
-You find all connected surveillance cams under 'webcams'. You can copy the link provided in the 'image' and 'stream' state to your web browser for opening. 
+
+You find all connected surveillance cams under 'webcams'. You can copy the link provided in the 'image' and 'stream' state to your web browser for opening.
 ![lupusec_obj_webcam](docs/en/img/lupusec_obj_webcam.png)
 
 ### Lupusec Nuki
+
 You find your Nuki door opener under 'devices' like the Lupusec devices. The Nuki provides 2 states. The state nuki_state shows you the actuall state of the Nuki door opener like door is locked or unlocked. With the state nuki_action you can open, lock or unlock your door.  
 ![lupusec_obj_nuki](docs/en/img/lupusec_obj_nuki.png)
 
 ### Lupusec SMS
+
 If you ar using the Lupusec XT1+, XT2+ or XT3 with an SMS sim card, you can send SMS with following states:
 ![lupusec_obj_sms](docs/en/img/lupusec_obj_sms.png)
 
 Alternative you can send SMS from your JavaScript with following command:
+
 ```
-sendTo('lupusec.0', 'sms', { number: '017247114711', text: 'Test message' });
-``` 
+sendTo('lupusec.0', 'sms', { number: '+4917247114711', text: 'Test message' });
+```
 
 if you are using the SMS gateway you can use following command in your script:
+
 ```
-sendTo('lupusec.0', 'smsgw', { number: '017247114711', text: 'Test message' });
-``` 
+sendTo('lupusec.0', 'smsgw', { number: '+4917247114711', text: 'Test message' });
+```
 
 ## Troubleshooting
-If you start the Lupusec Adapter and you get the error that the alarm system is not reachable please try to ping the system from a terminal window of your ioBroker system. 
+
+If you start the Lupusec Adapter and you get the error that the alarm system is not reachable please try to ping the system from a terminal window of your ioBroker system.
 
 ```
-ssh <user>@<iobroker-ip-address> 
+ssh <user>@<iobroker-ip-address>
 sudo -u iobroker ping <lupsec-ip-address>
-``` 
+```
+
 If you get the error _ping: icmp open socket: Operation not permitted_ please do following and start afterwards the Lupusec adapter again.
+
 ```
 ls -l `which ping`
-sudo chmod u+s `which ping` 
-``` 
+sudo chmod u+s `which ping`
+```
 
 ## Changelog
 
-### 1.3.6 (30.11.2021)
-* (Stübi) Bugfixing
-* (Stübi) Fixed Issue #41 (Datenpunkte für Temperatur gehen nur bis 0)
-* (Stübi) Fixed Issue #34 (cpu load 4-5% higher with 1.3.5 compared to older versions)
+### **WORK IN PROGRESS**
 
-### 1.3.5 (24.04.2021)
-* (Stübi) Add device keypad outdoor v2
-* (Stübi) Add log file state. Important time of Lupusec Alarm system and ioBroker have to be synchrony
-* (Stübi) Workaround dropdown list with admin in react mode (wrong type)
+- (Stübi) Checks actual_humidity value if it less 0% or greater 100%
+- (Stübi) fixing issues detected by repository checker (Issue #126)
+- (Stübi) node.js 24 will be supported (Issue #128)
 
-### 1.3.4 (01.03.2021)
-* (Stübi) Bugfixing
+### 2.0.8 (2025-04-19)
 
-### 1.3.3 (17.02.2021)
-* (Stübi) Bugfixing
-* (Stübi) Send SMS with SMS gateway or SIM card
+- (Stübi) Performance optimization by pplling Lupusec alarm system (Issue #123)
+- (Stübi) Add actual_temperature to type 20 Sensor (Issue #124)
 
-### 1.3.2 (14.02.2021)
-* (Stübi) Send SMS if you are using a sim card
+### 2.0.7 (2025-02-23)
 
-### 1.3.1 (07.02.2021)
-* (Stübi) Add universal IR controller (type 52)
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #115)
+- (Stübi) Fixiing problem, that state value jumps back to old value (Issue #116)
+- (Stübi) Delete status switch and add 3 butteons (shutter_up, shutter_down, shutter_stop) for shutter (Issue #116)
+- (Stübi) Fixing dependency (Issue #117)
 
-### 1.3.0 (03.10.2020)
-* (Stübi) Reduce CPU Load
-* (Stübi) Add local link to alarm system
-* (Stübi) Bugfixing Issue #27 - bypass
+### 2.0.6 (2025-02-10)
 
-### 1.2.9 (04.07.2020)
-* (Stübi) Bugfixing
+- (Stübi) Minus temperature degrees will be shown now (Issue #113)
+- (Stübi) Deletes unnecessary device objects (Issue #114)
 
-### 1.2.8 (10.06.2020)
-* (Stübi) Add sentry mode
-* (Stübi) Now you can hold the reason for the alarm in alarm_status and alarm_status till the alarm ends
+### 2.0.5 (2025-02-01)
 
-### 1.2.7 (25.05.2020)
-* (Stübi) Add token renew time to expert mode
+- (Stübi) Adjust datapoints hue, sat with step 1
+- (Stübi) Fixed, that unused states will be not be shwon.
 
-### 1.2.6 (02.05.2020)
-* (Stübi) Change logic to get faster sensor states
-* (Stübi) Node 10 recommended 
-* (Stübi) Add old Light sensor (type 78)
+### 2.0.4 (2025-01-05)
 
-### 1.2.5 (21.01.2019)
-* (Stübi) Change logic to get faster sensor states
+- (Stübi) Adjustments of test and release yml
+- (Stübi) Readme expanded to include migration instructions (Issue #97)
+- (Stübi) Fixed error with HUE lights (Issue #104)
+- (Stübi) Added the following values ​​for type 54: air pressure, wind strength, wind angle, wind gust, co2, wind speed
+- (Stübi) Added for HUE the values mode (hue or temperature) and tempererature
+- (Stübi) Added not used states will be not be shwon.
+- (Stübi) Fixed value range for HUE to 0 to 360 degree, saturation from 0% to 100% and temperature from 2200 to 6500 kelvin
 
-### 1.2.4 (09.01.2019)
-* (Stübi) Add device: temperature sensor v2
+### 2.0.3 (2024-12-29)
 
-### 1.2.3 (06.09.2019)
-* (Stübi) Add device: Repeater V2
-* (Stübi) Add device: Siren inside (Battery version without Zigbee repeater)
-
-### 1.2.1 (14.10.2019)
-* (Stübi) Bugfixing (Issue #9)
-* (Stübi) Bugfixing: if the name of a device is empty, the name was changed all the time between NaN and ''  
-
-### 1.2.0 (13.09.2019)
-* (Stübi) Changing error handling of adapter
-* (Stübi) Add Nuki door opener
-
-### 1.1.9 (06.09.2019)
-* (Stübi) Add device: Smoke detector V2
-* (Stübi) Add device: Inwall relay with dimmer V3
-
-### 1.1.8 (10.06.2019)
-* (Stübi) Add device: 360 PIR motion sensor
-* (Stübi) Add device: electric meter
-* (Stübi) Add device: LCD temperature sensor
-* (Stübi) Add device: mini temperature sensor
-
-### 1.1.7 (06.05.2019)
-* (Stübi) Enhancement: optimizing webcam support
-
-### 1.1.6 (01.05.2019)
-* (Stübi) New feature: you can change the buttons for keypad
-* (Stübi) New feature: add push notifications to sensors
-* (Stübi) New feature: change switch from switch to push button 
-* (Stübi) New feature: now you can change status for tamper, bypass and reporting for sensors
-* (Stübi) New feature: Webcam support. You can get the link of Lupusec provided webcams.
-* (Stübi) New feature: you can edit the on/off timer for shutters 
-* (Stübi) New feature: Discription of states are now in English or German available
-* (Stübi) Bugfixing: HUE and saturation of HUE devices fixed 
-* (Stübi) Bugfixing: Add role to button 4 of scenario switch.  
-
-### 1.1.5 (24.04.2019)
-* (Stübi) New feature: Add buttons for Scenario Switch V2
-* (Stübi) Bugfixing: Various improvements
-
-### 1.1.4 (13.04.2019)
-* (Stübi) Add device outside alarm
-* (Stübi) Add device inside alarm
-* (Stübi) Add device PIR motions sensor V2
-* (Stübi) Add device glass sensor
-
-### 1.1.3 (10.04.2019)
-* (Stübi) New Logo
-* (Stübi) Add device Panic Button
-* (Stübi) Add status indicator 
-* (Stübi) Add sensor Heat detector
-* (Stübi) Add shock sensor 
-* (Stübi) Add Light Switch V2
- 
-### 1.1.2 (06.04.2019)
-* (Stübi) Add light sensor 
-* (Stübi) Add CO sensor
-* (Stübi) Add water sensor V2
-* (Stübi) Add Radiator thermostat V2
-* (Stübi) Add 1 channel relay with ZigBee repeater (Type 24)
-* (Stübi) Add 2 channel relay with ZigBee repeater (Type 24)
-* (Stübi) If you change the sensor name in the Lupusec App, it will be change in ioBroker too 
-* (Stübi) Bugfixing Radiator thermostat V1/V2
-* (Stübi) Bugfixing Dimmer
-* (Stübi) Bugfixing PD Status (Timer) for relay, power switch
-* (Stübi) Bugfixing status switch for rollter/shutter device
-
-### 1.1.1 (27.03.2019)
-* (Stübi) Lupusec alarm online status added
-
-### 1.1.0 (23.03.2019)
-* (Stübi) Totally redesign of the Lupusec adapter. Node 8 or higher is now required
-
-### 1.0.0 (22.12.2018)
-* (Stübi) Support js-controller compact mode
-* (Stübi) Changed core adapter
-* (Stübi) Add Light sensor (type 78)
-* (Stübi) Add Apple home alarm status
-* (Stübi) Add dimmer / relais (type 66)
-* (Stübi) Bugfixing and new status alarm_ex
-* (Stübi) Bugfixing and changing of the polling mechanism
-* (Stübi) password will be encrypted. Translation of configuration
-* (Stübi) add debug messages
-* (Stübi) Hue, room sensor, power switch added
-* (Stübi) Fixing error update function
-* (Stübi) Improvements and new add/del/update Object function
-* (Stübi) Changes of roles and icons added to devices
-* (Stübi) Wrong device description removed
-* (Stübi) RSSI Status an Device shutter (type 76) supported
-* (Stübi) Devices thermostat (type 79) and switch (type 48) supported
-* (Stübi) Directory widged deleted
-* (Stübi) Port can be added
+- (Stübi) Adjustments due to migration from ESLint 8x≤ to 9.x.x (Issue #91)
+- (Stübi) Redesign - changed everything from JavaScript to TypeScript
+- (Stübi) Using axios for http requests
+- (Stübi) the configuration changed. You have to edit the configuration
+- (Stübi) js-controller in version 6 and 7 will be supported (Issue #83, #84, #95)
+- (Stübi) nodejs 20 and nodejs 22 will be suported (Issue #87)
 
 ## Planed
+
 Following things are planed in the future:
-* support more sensors / devices
-* writing a documentation for every sensor / device
+
+- support more sensors / devices
+- writing a [documentation](docs/en/info.md) for every sensor / device
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 Thorsten Stueben <thorsten@stueben.de>
+Copyright (c) 2025 Thorsten Stueben <thorsten@stueben.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

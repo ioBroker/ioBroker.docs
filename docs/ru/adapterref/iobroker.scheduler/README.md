@@ -1,38 +1,57 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scheduler/README.md
 title: Адаптер планировщика ioBroker
-hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
+hash: 32jCsXKqdnXNCB4EKsz3xjm452DBZjh48kYgvIr3Mgc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
 ![Количество установок](http://iobroker.live/badges/scheduler-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.scheduler.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.scheduler.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.scheduler.svg)
 ![НПМ](https://nodei.co/npm/iobroker.scheduler.png?downloads=true)
 
 # Адаптер планировщика ioBroker
 Этот адаптер предназначен для управления устройствами по расписанию. Например, управление отоплением или поливом.
 
-Вы можете создавать профили с разным приоритетом: нормальный (например, рабочие дни), высокий (например, выходные) и самый высокий (например, праздничные дни).
+Вы можете создавать профили с разным приоритетом: нормальный (например, рабочие дни), высокий (например, выходные) и самый высокий (например, для праздников).
 Профиль с более высоким приоритетом перегружает другие профили.
 
 Для каждого профиля будет создана активная переменная.
 Но пользователь может выбрать собственную переменную активации, например, для управления праздниками.
 
-Пользователь должен добавить устройства в профиль, и все устройства в профиле будут иметь одинаковое значение.
+Пользователь должен добавить устройства в профиль, и для всех устройств в профиле будет установлено одно и то же значение.
 
 Этот адаптер имеет виджет vis2.
 
 ![Скриншот](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
 
-<!-- Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.3.2 (2024-04-05)
+* (bluefox) Corrected widget errors
+* (bluefox) Implemented custom types
+* (bluefox) Added possibility to control devices on holidays
+
+### 1.2.1 (2024-04-03)
+* (bluefox) Added two options: "Ignore values if same as previous" and "Do not control if device already in desired state"
+* (bluefox) Corrected 15-minute intervals
+* (bluefox) GUI improvements for mobile view
+
+### 1.1.14 (2024-04-02)
+* (bluefox) Corrected widget and profile
+
+### 1.1.12 (2024-03-13)
+* (bluefox) Packages updated
+
+### 1.1.10 (2023-10-19)
+* (bluefox) Packages updated
+
+### 1.1.9 (2023-06-28)
 * (bluefox) Packages updated
 
 ### 1.1.7 (2023-03-24)
@@ -57,7 +76,7 @@ hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.1 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 1.0.0 (2022-03-22)
 * (bluefox) GUI migrated to material@5
@@ -77,7 +96,7 @@ hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

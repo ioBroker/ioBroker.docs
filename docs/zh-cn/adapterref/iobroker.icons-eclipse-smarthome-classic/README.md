@@ -7,23 +7,23 @@ hash: EPB1ItgKevPEfuZTCPrmmNCtB78rp4N1ev5bm88TIa0=
 ---
 ![标识](../../../en/adapterref/iobroker.icons-eclipse-smarthome-classic/admin/icons-eclipse-smarthome-classic.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.icons-eclipse-smarthome-classic.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.icons-eclipse-smarthome-classic.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.icons-eclipse-smarthome-classic.svg)
 ![安装数量](https://iobroker.live/badges/icons-eclipse-smarthome-classic-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/icons-eclipse-smarthome-classic-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.icons-eclipse-smarthome-classic.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.icons-eclipse-smarthome-classic.png?downloads=true)
 
-# IoBroker.icons-eclipse-smarthome-classic
-**测试：** ![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.icons-eclipse-smarthome-classic/workflows/Test%20and%20Release/badge.svg)
+#ioBroker.icons-eclipse-smarthome-classic
+**测试：**![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.icons-eclipse-smarthome-classic/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的图标-eclipse-smarthome-经典适配器
-可从 ioBroker 可视化使用的图标，例如 webui、vis、...
-从 ioBroker.habpanel 中提取（https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons）
+## Icons-eclipse-smarthome-classic 适配器用于 ioBroker
+可从 ioBroker 可视化（如 webui、vis 等）中使用的图标...
+提取自 ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
 
-原始来源：https://www.openhab.org/docs/configuration/iconsets/classic/ 许可证似乎是EPL：https://github.com/eclipse-archived/smarthome/blob/master/extensions/ui/iconset /org.eclipse.smarthome.ui.iconset.classic/注意
+原始来源：https：//www.openhab.org/docs/configuration/iconsets/classic/许可证似乎是 EPL：https：//github.com/eclipse-archived/smarthome/blob/master/extensions/ui/iconset/org.eclipse.smarthome.ui.iconset.classic/NOTICE
 
-## 学分
-致 Eclipse Foundation 创建图标
+## 致谢
+感谢 Eclipse 基金会创建图标
 
 ## Changelog
 <!--

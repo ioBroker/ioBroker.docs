@@ -27,7 +27,7 @@ startCook Beispieles Fritten:
 
 ```
 {
-            "accountId": "8604100",
+            "accountId": "000000",
             "cookTempDECP": 0,
             "hasPreheat": 1,
             "hasWarm": false,
@@ -50,6 +50,34 @@ startCook Beispieles Fritten:
             },
             "tempUnit": "c"
         }
+```
+
+AirFry
+
+```
+{
+            "accountId": "000000",
+            "cookTempDECP": 0,
+            "hasPreheat": 0,
+            "hasWarm": false,
+            "imageUrl": "",
+            "mode": "AirFry",
+            "readyStart": true,
+            "recipeId": 14,
+            "recipeName": "Air Fry",
+            "recipeType": 3,
+            "startAct": {
+                "appointingTime": 0,
+                "cookSetTime": 600,
+                "cookTemp": 180,
+                "cookTempDECP": 0,
+                "imageUrl": "",
+                "level": 0,
+                "preheatTemp": 0,
+                "shakeTime": 0,
+                "targetTemp": 0
+            },
+
 ```
 
 cookMode:
@@ -83,6 +111,13 @@ Stop:
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog
+### 0.0.9 (2024-12-21)
+
+- fix login
+
+### 0.0.8 (2024-10-26)
+
+- fix login
 
 ### 0.0.3
 
@@ -92,7 +127,7 @@ Stop:
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

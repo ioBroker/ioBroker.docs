@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scenes/README.md
-title: ioBroker-Szenenadapter
-hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
+title: ioBroker Szenenadapter
+hash: Io2jtg2yoSH0XtMVQvpAhtXEtvJa+v5uqUhWKn5UbdE=
 ---
 ![Logo](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -11,12 +11,12 @@ hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.scenes.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.scenes.svg)
 
-# IoBroker-Szenenadapter
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker Szenenadapter
+![Testen und Freigeben](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-_scenes Adapter_ kann Szenen erstellen und in der ioBroker-Umgebung ausführen.
+_scenes Adapter_ kann Szenen erstellen und sie in der ioBroker-Umgebung ausführen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Dieser Adapter kann drei Arten von Szenen erstellen:
 
@@ -25,9 +25,9 @@ Dieser Adapter kann drei Arten von Szenen erstellen:
 - **virtuelle Gruppen**
 
 ## Szenen
-**Szenen** werden erstellt, wenn die Einstellung „set on false“ nicht verwendet wird.
-Jede Szene kann einzeln konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Instanz des Adapters haben können.
-Die **Szene** ist lediglich eine Liste von Status-IDs und -Werten, die diese Status bei Aktivierung der Szene haben müssen. Z.B. Wir haben vor Ort `scene.allLightInBath` erstellt:
+**Szenen** werden erstellt, wenn die Einstellung „auf „false“ gesetzt“ nicht verwendet wird.
+Jede Szene kann einzeln konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Adapterinstanz haben können.
+Die **Szene** ist nur eine Liste von Zustands-IDs und -Werten, die diese Zustände bei Aktivierung der Szene haben müssen. Beispielsweise haben wir in der Szene `scene.allLightInBath` Folgendes erstellt:
 
 ```
   scene.allLightInBath
@@ -36,10 +36,10 @@ Die **Szene** ist lediglich eine Liste von Status-IDs und -Werten, die diese Sta
 ```
 
 Um die Szene zu aktivieren, müssen wir `scene.allLightInBath` auf true setzen (z. B. über ein Skript oder Vis). Dann werden beide Zustände auf die gewünschten Werte gesetzt, auf `true`.
-Der Wert von `scene.allLightInBath` wird auch `true` sein. Wenn wir manuell zum oberen Licht wechseln, wechselt der Wert von `scene.allLightInBath` zu `false`.
-Und noch einmal zu `true`, wenn wir das Licht manuell einschalten.
+Der Wert von `scene.allLightInBath` wird ebenfalls `true`. Wenn wir manuell auf das obere Licht umschalten, wird der Wert von `scene.allLightInBath` auf `false` gesetzt.
+Und wieder auf `true`, wenn wir das Licht manuell einschalten.
 
-Fügen wir der **Szene** den Fan hinzu:
+Fügen wir der **Szene** den Ventilator hinzu:
 
 ```
   scene.allLightInBath
@@ -49,12 +49,12 @@ Fügen wir der **Szene** den Fan hinzu:
   |- hm-rpc.0.FAN.STATE          - false (delay 60000ms)
 ```
 
-In diesem Fall wird der Ventilator durch Aktivierung der **Szene** eingeschaltet und in einer Minute wieder ausgeschaltet.
-Nach dem Ausschalten des Lüfters geht der Wert von `scene.allLightInBath` auf `false` über, da nicht alle Zustände den gewünschten Werten entsprechen.
-Staaten mit Verspätung werden an den Berechnungen nicht beteiligt.
+In diesem Fall wird der Ventilator durch Aktivierung der **Szene** eingeschaltet und nach einer Minute wieder ausgeschaltet.
+Nachdem der Ventilator ausgeschaltet wurde, ändert sich der Wert von `scene.allLightInBath` zu `false`, da nicht alle Zustände den gewünschten Werten entsprechen.
+Zustände mit Verzögerung werden bei den Berechnungen nicht berücksichtigt.
 
-Sie können die Szene mit einem „Play“-Button testen.
-Darüber hinaus können Sie diese **Szene** direkt mit einer anderen Szenen-ID verknüpfen. Z.B. Wenn Sie einen Sensor an der Tür haben, können Sie diesen als Auslöser auswählen:
+Sie können die Szene mit einer „Play“-Taste testen.
+Zusätzlich können Sie diese **Szene** direkt mit einer anderen Szenen-ID verknüpfen. Wenn Sie beispielsweise einen Sensor an der Tür haben, können Sie ihn als Auslöser auswählen:
 
 ```
   trigger
@@ -63,11 +63,11 @@ Darüber hinaus können Sie diese **Szene** direkt mit einer anderen Szenen-ID v
     value:     true
 ```
 
-Und jedes Mal, wenn Sie die Tür im Bad öffnen, werden alle Lichter mit Ventilator eingeschaltet.
+Und jedes Mal, wenn Sie im Badezimmer die Tür öffnen, werden alle Lichter mit Ventilator eingeschaltet.
 
 ## Gruppen
-**Gruppen** sind wie virtuelle Kanäle. Mithilfe von **Gruppen** können Sie aus mehreren Aktoren virtuelle Geräte erstellen und diese gemeinsam wie ein Gerät steuern.
-Lassen Sie uns unser Beispiel mit den Lichtern des Bades modifizieren.
+**Gruppen** sind wie virtuelle Kanäle. Sie können mit Hilfe von **Gruppen** virtuelle Geräte aus mehreren Aktoren erstellen und diese gemeinsam wie ein Gerät steuern.
+Lassen Sie uns unser Beispiel mit den Lichtern des Badezimmers modifizieren.
 
 ```
   scene.allLightInBath             "set on true"    "set on false"
@@ -75,7 +75,7 @@ Lassen Sie uns unser Beispiel mit den Lichtern des Bades modifizieren.
   +- hm-rpc.0.TOP_LIGHT.STATE     - true             false
 ```
 
-Wenn Sie diese **Gruppe** mit dem Türsensor verknüpfen, wie folgt:
+Wenn Sie diese **Gruppe** mit dem Türsensor verknüpfen, wie:
 
 ```
   trigger on true
@@ -89,26 +89,26 @@ Wenn Sie diese **Gruppe** mit dem Türsensor verknüpfen, wie folgt:
     value:     false
 ```
 
-Jedes Mal, wenn Sie die Tür öffnen, werden alle Lichter in einer Badewanne eingeschaltet. Der Wert von `scene.allLightInBath` wird auf **true** gesetzt.
-Wenn Sie die Tür schließen, wird das Licht ausgeschaltet und der Wert von `scene.allLightInBath` geht auf **false**.
+Jedes Mal, wenn Sie die Tür öffnen, werden alle Lichter im Bad eingeschaltet. Der Wert von `scene.allLightInBath` wird auf **true** gesetzt.
+Wenn Sie die Tür schließen, werden die Lichter ausgeschaltet und der Wert von `scene.allLightInBath` wird auf **false** gesetzt.
 
 Es ist nutzlos, aber als Beispiel gut.
 
-Wenn Sie ein Licht manuell einschalten, geht der Wert von `scene.allLightInBath` auf **unsicher**.
+Wenn Sie ein Licht manuell einschalten, wird der Wert von `scene.allLightInBath` auf **unsicher** gesetzt.
 
-Verzögerungen können auch in der **Gruppe** verwendet werden, aber die Zustände mit Verzögerung werden nicht an der Berechnung des aktuellen Werts der **Gruppe** beteiligt.
+Verzögerungen können auch in der **Gruppe** verwendet werden, aber die Zustände mit Verzögerung werden nicht in die Berechnungen des aktuellen Werts der **Gruppe** einbezogen.
 
 ## Virtuelle Gruppen
-**Virtuelle Gruppen** sind wie virtuelle Kanäle und Gruppen, können aber beliebige Werte haben: Zahlen, Zeichenfolgen usw.
+**Virtuelle Gruppen** sind wie virtuelle Kanäle und wie Gruppen, können aber beliebige Werte haben: Zahlen, Zeichenfolgen usw.
 Sie können eine virtuelle Gruppe erstellen, um alle Rollläden im Wohnzimmer zu steuern.
-Durch das Schreiben von 40 % in eine virtuelle Gruppe werden alle Rollläden auf 40 % gesetzt.
+Indem Sie 40 % in eine virtuelle Gruppe schreiben, werden alle Rollläden auf 40 % eingestellt.
 
-Darüber hinaus können Sie das Verhalten definieren, bei dem der Wert für die Gruppe übernommen werden soll, wenn nicht alle Zustände der Gruppe den gleichen Wert haben.
+Zusätzlich lässt sich hier das Verhalten festlegen, welcher Wert für die Gruppe übernommen werden soll, wenn nicht alle Zustände der Gruppe den gleichen Wert aufweisen.
 
 Sie können folgende Aggregationen bereitstellen (nur im erweiterten Modus verfügbar):
 
-- „unsicher“ – (Standard) – der Wert der Gruppe wird den Text „unsicher“ haben.
-- „any“ – erster Nicht-Null-Wert aller Zustände in einer Gruppe.
+- „unsicher“ – (Standard) – der Wert der Gruppe enthält den Text „unsicher“.
+- „any“ – erster von Null verschiedener Wert aller Zustände in einer Gruppe.
 - „min“ – Minimalwert aller Zustände in einer Gruppe.
 - „max“ – Maximalwert aller Zustände in einer Gruppe.
 - „avg“ – Durchschnittswert aller Zustände in einer Gruppe.
@@ -128,13 +128,73 @@ sendTo(
 );
 ```
 
-Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten IDs und speichert sie als konfigurierte Werte.
+Der Adapter liest alle aktuellen Werte für die in dieser Szene definierten IDs und speichert sie als konfigurierte Werte.
+
+## Deaktivieren oder Aktivieren einer Szene über eine Nachricht Um eine Szene zu deaktivieren oder zu aktivieren, können Sie eine Nachricht an den Adapter senden:
+```js
+// enable
+sendTo(
+    'scenes.0',
+    'enable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// disable
+sendTo(
+    'scenes.0',
+    'disable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// or
+sendTo(
+    'scenes.0',
+    'disable', // 'enable' to enable
+    {sceneId: 'scene.0.SCENE_ID'},
+    result => result.err && console.error(result.error) // optional
+);
+```
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __WORK IN PROGRESS__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 4.0.1 (2025-01-23)
+* (bluefox) Adapter was migrated to TypeScript
+* (bluefox) Corrected error with the Select ID dialog
+
+### 3.2.4 (2025-01-22)
+* (bluefox) Migrated to vite
+* (bluefox) Packages updated
+
+### 3.2.3 (2024-08-26)
+* (bluefox) Packages updated
+
+### 3.2.1 (2024-06-21)
+* (bluefox) GUI migrated for the new `adapter-react` library
+
+### 3.1.1 (2024-06-21)
+* (bluefox) Packages updated
+* (bluefox) Prepared for js-controller 6
+
+### 3.0.4 (2024-04-27)
+* (bluefox) Corrected error if profile is empty
+
+### 3.0.3 (2024-02-25)
+* (bluefox) Saving of the scene states from GUI was implemented
+
+### 3.0.1 (2024-02-16)
+* (bluefox) Cleared cron tasks by re-init
+* (bluefox) CRON Editor dialog added
+* (bluefox) Implemented scene enabling/disabling via messages
+* (bluefox) Implemented the writing of the scene states with ack=true
+* (bluefox) Added description to the scene states
+* (bluefox) Added possibility to use categories/enumerations
+
+### 2.4.2 (2024-02-12)
+* (bluefox) Preserved empty folders by renaming and moving of scenes
+
 ### 2.4.0 (2022-12-23)
 * (Apollon77) prevent a crash case reported by Sentry
 * (bluefox) Updated some GUI libraries
@@ -144,7 +204,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handles a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -155,7 +215,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
 
 ### 2.3.4 (2021-01-16)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
 
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
@@ -163,13 +223,13 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-M)
 
 ### 2.3.0 (2020-11-02)
 * (bluefox) Fixed GUI errors
 
 ### 2.1.7 (2020-10-30)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
 
 ### 2.1.6 (2020-09-25)
 * (bluefox) Updated the select ID dialog.
@@ -247,9 +307,9 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (bluefox) try to fix error by renaming
 
 ### 0.1.1 (2015-08-10)
-* (bluefox) allow description for states in scene
+* (bluefox) allow description for states in a scene
 * (bluefox) check by rename if the scene with the same name yet exists
-* (bluefox) allow copy scene
+* (bluefox) allowed a coping of a scene
 * (bluefox) fix error with delay and stopAllDelays settings
 
 ### 0.1.0 (2015-08-09)
@@ -259,7 +319,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 ### 0.0.2 (2015-08-05)
 * (bluefox) change configuration schema
 * (bluefox) add cron
-* (bluefox) add burst interval
+* (bluefox) add a burst interval
 
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
@@ -267,7 +327,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2025, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

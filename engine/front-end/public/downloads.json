@@ -1,8 +1,8 @@
 [
   {
-    "file": "win/iobroker-installer-2.2.2.exe",
+    "file": "win/iobroker-latest-windows-installer.exe",
     "platform": "Windows 32/64Bit",
-    "date": "20230717",
+    "date": "",
     "device": "Windows",
     "details": "Small Windows Installer",
     "picture": "windows.png"
@@ -17,12 +17,12 @@
     "info": "https://docs.buanet.de/iobroker-docker-image/"
   },
   {
-    "file": "https://github.com/buanet/ioBroker.raspberry-os/releases",
+    "file": "https://iobroker.live/images/ioBroker-image-RPi_5_2024_11_01.zip",
     "platform": "Raspberry OS",
     "date": "",
-    "device": "Raspberry Pi",
-    "details": "Raspberry OS Image with ioBroker",
-    "picture": "Pi4.png",
-    "info": "https://forum.iobroker.net/topic/41520/raspberry-os-lite-image-for-with-iobroker"
+    "device": "Raspberry Pi 5",
+    "details": "Raspberry OS Image. Password: 2024=smart!",
+    "picture": "Pi5.png",
+    "info": "https://github.com/GermanBluefox/kisshome-raspi-image"
   }
 ]

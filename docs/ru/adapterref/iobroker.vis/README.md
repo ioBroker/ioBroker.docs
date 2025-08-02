@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
 title: Визуализация
-hash: FXqbQUH6a3Kg+/ZYK+8uS6HA6FaYdSNGpXMlIMeJh5Y=
+hash: u5RHVJwMNPvuFMWJazdtORFpU0eLPIxFaw2vV7RhgS4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -15,6 +15,8 @@ hash: FXqbQUH6a3Kg+/ZYK+8uS6HA6FaYdSNGpXMlIMeJh5Y=
 # Визуализация
 WEB-визуализация для платформы ioBroker.
 
+***Разработка этой версии остановлена. Пожалуйста, перенесите свои проекты на vis-2.***
+
 ## Установка и документация
 ![Демо-интерфейс](img/user0.png) ![Демо-интерфейс](../../../en/adapterref/iobroker.vis/img/user7.png)
 
@@ -24,7 +26,7 @@ WEB-визуализация для платформы ioBroker.
 Обычно большинство виджетов имеют атрибут ObjectID, и этот атрибут может быть связан с некоторым значением идентификатора объекта.
 Но есть другой вариант привязки *любого* атрибута виджета к некоторому ObjectID.
 
-Просто напишите в атрибут `{object.id}`, и он будет привязан (не в режиме редактирования) к значению этого объекта.
+Просто запишите в атрибут `{object.id}`, и он будет привязан (не в режиме редактирования) к значению этого объекта.
 Если вы используете специальный формат, вы даже можете выполнять с ним некоторые простые операции, например, умножение или форматирование.
 Паттен имеет следующий формат:
 
@@ -34,7 +36,7 @@ WEB-визуализация для платформы ioBroker.
 
 Поддерживаются следующие операции:
 
-- `\*` - умножение. Аргумент должен быть в квадратных скобках, например «*(4)». В этом примере мы умножаем значение на 4.
+- `\*` - умножение. Аргумент должен быть в скобках, например «*(4)». В этом примере мы умножаем значение на 4.
 - `\+` - доп. Аргумент должен быть в скобках, например «+(4.5)». В этом примере мы добавляем значение 4,5.
 - `\-` - вычесть. Аргумент должен быть в скобках, например «-(-674,5)». В этом примере мы вычитаем из значения -674,5.
 - `/` - деление. Аргумент должен быть в скобках, например «/(0,5)». В этом примере мы делим значение на 0,5.
@@ -44,7 +46,7 @@ WEB-визуализация для платформы ioBroker.
 - `hex` - преобразовать значение в шестнадцатеричное значение. Все буквы в нижнем регистре.
 - `hex2` - преобразовать значение в шестнадцатеричное значение. Все буквы в нижнем регистре. Если значение меньше 16, будет добавлен ведущий ноль.
 - `HEX` - то же, что и шестнадцатеричное, но в верхнем регистре.
-- `HEX2` - то же, что hex2, но в верхнем регистре.
+- `HEX2` — то же, что hex2, но в верхнем регистре.
 - `date` - форматировать дату в соответствии с заданным форматом. Формат такой же, как в [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate).
 - `min(N)` - если значение меньше N, взять N, иначе значение
 - `max(M)` - если значение больше M, взять M, иначе значение
@@ -53,11 +55,12 @@ WEB-визуализация для платформы ioBroker.
 - `pow` - степень 2.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
+- `json` — операция получения json или свойства объекта. Например, `{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R или просто Math.random(), если нет аргумента
 - `formatValue(decimals)` - форматировать значение в соответствии с настройками системы и использовать десятичные дроби.
 - `date(format)` - форматировать значение как дату. Формат такой: `ГГГГ-ММ-ДД чч:мм:сс.сс`
 — `momentDate(format, useTodayOrYesterday)` — форматирует значение как дату с помощью Moment.js. [Утвержденные форматы необходимо вводить в соответствии с библиотекой moment.js](https://momentjs.com/docs/#/displaying/format/). При использовании `useTodayOrYesterday=true` формат momentjs `ddd`/`dddd` заменяется на сегодня/вчера.
-- `array(element1,element2[,element3,element4])` - возвращает элемент индекса. например: `{id.ack;array(ack ложно,ack истинно)}`
+- `array(element1,element2[,element3,element4])` - возвращает элемент индекса. например: `{id.ack;array(ack — ложь, ack — true)}`
 
 Вы можете использовать этот шаблон в любом тексте, например
 
@@ -111,7 +114,7 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 * `wid` - имя актуального виджета
 * `язык` - может быть `de`, `en` или `ru`.
 * `instance` — экземпляр браузера
-* `login` - требуется ли вход в систему (например, чтобы показать/скрыть кнопку выхода из системы)
+* `login` - требуется ли вход в систему (например, чтобы показать/скрыть кнопку выхода)
 * `local_*` - если имя состояния начинается с `local_`, об этом не будет сообщено ioBroker, но будут обновлены все виджеты, которые зависят от этого состояния. (Локальная переменная для текущего сеанса браузера)
 
 Примечание. Чтобы использовать «:» в вычислениях (например, в строковых формулах), используйте вместо этого «::».
@@ -140,7 +143,7 @@ Vis создает 3 переменные:
 
 Команды:
 
-* `alert` — показать окно оповещения в визе. «control.data» имеет следующий формат «сообщение;заголовок;jquery-значок». Название и значок jquery не являются обязательными. Названия значков можно найти [здесь](http://jqueryui.com/themeroller/). Чтобы отобразить значок «ui-icon-info», напишите ```Message;;info```.
+* `alert` — показать окно оповещения в визе. «control.data» имеет следующий формат «сообщение;заголовок;jquery-значок». Название и значок jquery не являются обязательными. Названия значков можно найти [здесь](http://jqueryui.com/themeroller/). Чтобы отобразить значок «ui-icon-info», напишите ```Message;;info``.
 * `changeView` — переключиться на нужный вид. «control.data» должно иметь имя представления. Вы также можете указать имя проекта как «проект/представление». Проект по умолчанию — «основной».
 * `refresh` — перезагрузить визу, например, после изменения проекта для перезагрузки во всех браузерах.
 * `reload` - то же, что и обновление.
@@ -148,7 +151,7 @@ Vis создает 3 переменные:
 
     - `статический - HTML - Диалог`,
     - `статический - Значок - Диалог`,
-    - `контейнер - HTML - просмотр в диалоге jqui`,
+    - `контейнер - HTML - просмотр в диалоговом окне jqui`,
     - `контейнер - ext cmd - просмотр в диалоге jqui`,
     - `контейнер - Значок - просмотр в диалоге jqui`,
     - `контейнер - Кнопка - просмотр в диалоге jqui`.
@@ -167,7 +170,7 @@ Vis создает 3 переменные:
 - `control.data`: имя проекта и представления в форме `project/view`, например. `main/view` (и `ack=true`)
 - `control.command`: `changedView` и `ack=true`
 
-Вы можете записать JSON-строку или объект в `control.command` как `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. В этом случае экземпляр и данные будут взяты из объекта JSON.
+Вы можете записать строку JSON или объект в `control.command` как `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. В этом случае экземпляр и данные будут взяты из объекта JSON.
 
 Пример адаптера JavaScript:
 
@@ -180,8 +183,8 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 
 Кроме того, вы можете определить, должно ли это представление использоваться по умолчанию для этого разрешения.
 
-Таким образом, каждый раз, когда вызывается `index.html` (без `#viewName`), будет открываться наиболее подходящее для данного разрешения представление.
-Если только одно представление имеет флаг *"По умолчанию"*, то это представление будет открываться независимо от разрешения или ориентации экрана.
+Таким образом, каждый раз, когда вызывается `index.html` (без `#viewName`), будет открываться наиболее подходящий для данного разрешения вид.
+Если только один вид имеет флаг *"По умолчанию"*, то этот вид будет открыт независимо от разрешения или ориентации экрана.
 
 Например, вы можете создать два вида «Альбомный-мобильный» и «Портрет-мобильный», и эти два вида будут автоматически переключаться при изменении ориентации или размера экрана.
 
@@ -207,6 +210,21 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Removed usage of `storage` and uses localStorage instead.
+
+### 1.5.5 (2024-04-12)
+* (bluefox) Corrected small warning
+
+### 1.5.4 (2023-11-29)
+* (agav99) added the new binding operation for getting property of JSON or object
+* (agav99) Checked the initialization of the `local_` variables
+* (agav99) fixed subscribeOidAtRuntime
+* (stephanritscher) Added dynamic web manifest
+* (agav99) Optimization for basic-view in widget8
+* (oweitman) Changed binding regex to accept umlauts
+* (mcm1957) Corrected first installation of vis
+
 ### 1.5.1 (2023-11-06)
 * (bluefox) Changed License: it is now MIT, and the license check was removed
 
@@ -546,17 +564,12 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 * (bluefox) change security settings
 
 ## License
-To use this adapter in ioBroker, you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
-
-Additionally, you need a license to use the adapter. The following license editions are available on https://iobroker.net/www/pricing 
-* **Community-License: Free for private use!**: Get a free license by registering an account on https://iobroker.net . The license if checked online against the ioBroker license server when the vis adapter is started, so an online connection at this timepoint is required!
-* **Private use Offline-License**: For paying a small support fee, you can get rid of the required online license check on adapter startup. **Only for Private use!**
-* **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
+The adapter is free for all kinds of usage.
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2013-2023 Denis Haev <dogafox@gmail.com>,
+Copyright (c) 2013-2024 Denis Haev <dogafox@gmail.com>,
 Copyright (c) 2013      hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

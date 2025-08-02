@@ -1,52 +1,45 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.odl/README.md
-title: ioBroker.odl
-hash: ja4539IBHaJhsGqx+/ckSuW2iq2HTI33OsHJQcGkIBk=
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.odl.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.odl.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/odl-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/odl-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.odl.png?downloads=true
 ---
-![Logo](../../../en/adapterref/iobroker.odl/admin/odl.png)
+# ioBroker.odl
 
-![NPM-Version](https://img.shields.io/npm/v/iobroker.odl.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.odl.svg)
-![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/odl-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/odl-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.odl.png?downloads=true)
-
-# IoBroker.odl
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/odl/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-**Tests:** ![Test und Freigabe](https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg)
-
-## ODL-Adapter für ioBroker
-Dieser Adapter integriert die ODL-Werte (Ortsdosisleistung / Ambient Dose Rate) bestimmter Messstellen der [Bundesamt für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
-
-Weitere Informationen zur Ortsdosisleistung in Deutschland finden Sie unter <https://odlinfo.bfs.de/>.
-
----
+![Logo](../../admin/odl.png)
 
 ## Die aktuelle Umweltradioaktivität in ioBroker
-Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamt für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
 
-Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
+Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [Bundesamtes für Strahlenschutz (BfS)](https://www.bfs.de/) in ioBroker.
 
-Weitere Informationen zum ODL finden Sie unter <https://odlinfo.bfs.de/>.
+Das ODL-Messnetz des BfS überwacht mit rund 1.700 Messsonden rund um die Uhr die Strahlenbelastung durch natürliche Radioaktivität in der Umwelt. Das Messnetz hat eine wichtige Frühwarnfunktion, um erhöhte Strahlung durch radioaktive Stoffe in der Luft in Deutschland schnell zu erkennen.  
+Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
 
-Dieser Adapter lädt die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.
-Alle Daten werden in unveränderter Form, also wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
+Für weitere Informationen zur ODL siehe <https://odlinfo.bfs.de/>.
+
+Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
+Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
 
 Wird ein aktivierter History-Adapter (_history_, _influxdb_ oder _sql_) für einen Werte-State erkannt, dann werden gegebenenfalls in der Historie fehlende Datenpunkte durch den Adapter automatisch nachgetragen, sodass sich vollständige Zeitreihen ergeben.
 
-Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringeres Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils regelmäßig aktualisiert werden.
-Beim ersten Start des Adapters wird der Zeitpunkt für den Abruf der Daten automatisch angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht übermäßig belastet wird.
+Die aktuellen Messdaten werden von dem Adapter standardmäßig im Stundentakt aktualisiert. Ein geringerer Aktualisierungsintervall ist meist nicht sinnvoll, da die zu Grunde liegenden Messdaten auf dem BfS-Server (abhängig von der Messstelle) größtenteils stündlich aktualisiert werden.  
+Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der Daten angepasst, sodass nicht alle Installation die Daten zur gleichen Zeit abrufen und die Datenschnittstelle des BfS nicht unnötig belastet wird.
 
-[![Screenshot 1](./docs/ioBroker-odl-01.png)](../../../en/adapterref/iobroker.odl/docs/ioBroker-odl-01.png)
+[![Screenshot 1](../ioBroker-odl-01.png)](../ioBroker-odl-01.png)
 
-[![Screenshot 2](./docs/ioBroker-odl-02.png)](../../../en/adapterref/iobroker.odl/docs/ioBroker-odl-02.png)
+[![Screenshot 2](../ioBroker-odl-02.png)](../ioBroker-odl-02.png)
 
----
+## Kennungen der Messstellen finden
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Um die für den Adapter benötigten Kennungen der Messstellen zu finden, ruft man die [Liste der Messstellen auf ODL-Info](https://odlinfo.bfs.de/ODL/DE/themen/wo-stehen-die-sonden/liste/liste_node.html) auf und sucht dort nach der Messstelle.
+
+Wenn man nun die gewünschte Messstelle öffnet, dann steht die Kennung als `?id=...` in der URL im Browser.
+
+Beispiel für die Messstelle _Berlin-Karlshorst_:
+
+* URL: `https://odlinfo.bfs.de/ODL/DE/themen/wo-stehen-die-sonden/karte/_documents/Messstelle.html?id=110000006`
+* Kennung (ID): `110000006`
 
 ## Changelog
 
@@ -54,6 +47,27 @@ Beim ersten Start des Adapters wird der Zeitpunkt für den Abruf der Daten autom
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-05-25)
+
+* (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
+* (crycode-de) Updated dependencies
+* (crycode-de) Added information how to get the required IDs of the measuring stations
+
+### 4.0.2 (2024-11-16)
+
+* (crycode-de) Added missing sizes to jsonConfig
+
+### 4.0.1 (2024-10-23)
+
+* (crycode-de) Added support for tiny screens to jsonConfig
+* (crycode-de) Updated dependencies
+
+### 4.0.0 (2024-09-23)
+
+* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
+* (crycode-de) Migrate to jsonConfig
+* (crycode-de) Updated dependencies
+
 ### 3.0.1 (2023-09-27)
 
 * (crycode-de) Node.js >= 16 is required
@@ -152,9 +166,9 @@ Beim ersten Start des Adapters wird der Zeitpunkt für den Abruf der Daten autom
 
 ## License
 
-Copyright (c) 2019-2023 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
 
-Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
+Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 
 ### MIT License
 

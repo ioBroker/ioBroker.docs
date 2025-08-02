@@ -8,20 +8,26 @@
 [![NPM](https://nodei.co/npm/iobroker.opcua.png?downloads=true)](https://nodei.co/npm/iobroker.opcua/)
 
 ## Client
-**Just now only client is implemented.**
+**Actually only client is implemented.**
 
 ## Server
-Following data types are supported:
+The following data types are supported:
 - number
 - string
 - boolean
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
-
 ## Changelog
+### 1.1.0 (2024-07-13)
+* (bluefox) GUI was migrated to a non-style framework
+
+### 1.0.3 (2024-03-03)
+* (bluefox) License changes to the free license (MIT)
+* (bluefox) Minimum node.js version 16
+
 ### 0.4.5 (2021-11-13)
 * (bluefox) Implemented the writing of states in the client mode
 
@@ -50,10 +56,24 @@ Following data types are supported:
 * (bluefox) support of server (actual no authentication)
 
 ## License
-Commercial license.
+The MIT License (MIT)
 
-Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>, ioBroker GmbH <info@iobroker.net>
+Copyright (c) 2024, Denis Haev (dogafox@gmail.com)
 
-All Rights Reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The full text of the license could be found [here](LICENSE).
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.benchmark/README.md
-title: ioBroker.基准测试
-hash: ahz/yZR5iynDlTF3vc+pqkZzrbd4T9kSbBcIlRrGRTk=
+title: ioBroker.基准
+hash: brxDyt/UU9UqJNVafQVjgXMie7jujWu3vCENfPN/0xI=
 ---
 ![标识](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -11,31 +11,31 @@ hash: ahz/yZR5iynDlTF3vc+pqkZzrbd4T9kSbBcIlRrGRTk=
 ![下载](https://img.shields.io/npm/dm/iobroker.benchmark.svg)
 ![安装数量](https://iobroker.live/badges/benchmark-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/benchmark-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)
 
-# IoBroker.基准测试
-**测试：** ![测试和发布](https://github.com/foxriver76/ioBroker.benchmark/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.基准
+**测试：**![测试与发布](https://github.com/foxriver76/ioBroker.benchmark/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的基准适配器
 对您的系统进行基准测试。
 
-## 重要：用户信息
-请注意，在当前状态下，适配器的目的主要是对不同的场景进行基准测试，以收集对 js-controller 级别变化的见解。
-基准测试可能需要很长时间，并可能导致系统负载过高。另请注意，默认情况下，基准适配器以隔离模式运行，这将禁用所有适配器并仅保持控制器及其自身处于活动状态。此外，适配器始终需要使用实例编号 `0` 运行。
+## 重要：用户须知
+请注意，适配器的当前目的主要是对不同场景进行基准测试，以了解 js 控制器级别的变化。
+基准测试可能需要很长时间，并且可能导致系统负载过高。另请注意，默认情况下，基准测试适配器以隔离模式运行，这将禁用所有适配器，只保持控制器和适配器本身处于活动状态。此外，适配器始终需要使用实例号 `0` 运行。
 
-## 如何添加新的测试？
-1. 在 src/lib/activeTests 中新建一个 TypeScript 文件，其中有一个继承自 TestUtils 的类
-2.定义测试的三（五）步（执行自动测量）
-3.可选：如果您的测试有一些要求，例如控制器需要`>=3.0.0`，请将要求传递给
+## 如何添加新测试？
+1. 在 src/lib/activeTests 中创建一个新的 TypeScript 文件，其中包含一个从 TestUtils 继承的类
+2. 定义测试的三个（五个）步骤（执行是自动测量的）
+3. 可选：如果您的测试有一些要求，例如控制器需要 `>=3.0.0`，请将要求传递给
 
 父构造函数
 
-4. 将您的测试添加到 src/lib/allTests.ts
-5. 为你的测试添加一个按钮和翻译到 admin/jsonConfig.json
+4. 将测试添加到 src/lib/allTests.ts
+5. 在 admin/jsonConfig.json 中添加一个按钮和翻译以供测试
 
 ### 测试要求
-一些测试可能有要求。如果系统不满足要求，测试将被跳过。
-在构造函数中，您应该将要求传递给父类，例如
+有些测试可能有要求。如果系统不满足要求，则跳过测试。
+在构造函数中，你应该将要求传递给父类，例如
 
 ```typescript
 public constructor(adapter: AdapterInstance) {
@@ -43,82 +43,100 @@ public constructor(adapter: AdapterInstance) {
 }
 ```
 
-目前，支持以下要求：
+目前支持以下要求：
 
-- `controllerVersion` - 如果测试了特定控制器版本引入的方法，基准
+- `controllerVersion` - 如果测试了使用特定控制器版本引入的方法，则基准
 
 适配器不应尝试在不支持的控制器上运行这些测试
 
-- `freeMemory` - 定义测试所需的内存，这仅在您需要时才需要。添加很多实例
+- `freeMemory` - 定义测试所需的内存，这只有在你添加大量实例时才有必要
 
-## 测试说明
+## 测试描述
 ### 获取状态
-执行 `iterations` 次 `getState`。
+执行`iterations`次`getState`。
 
-### 获取状态别名
-在别名上执行 `iterations` 次 `getState`。
+### 获取州别名
+对别名执行`iterations`次`getState`。
 
-### GetStatesAliasRead
-在别名上执行 `iterations` 次 `getState`。别名具有简单的读取功能。
+### 获取状态别名读取
+对别名执行`iterations`次`getState`。该别名有一个简单的读取功能。
 
-### GetStates多
-创建 10,000 个状态，然后对它们执行 `iterations` 次 `getStates`。
+### 获取多个状态
+创建 10,000 个状态，然后对它们执行`iterations`次`getStates`。
 
 ### 获取状态多别名
 创建 10,000 个别名状态，然后对它们执行 `iterations` 次 `getStates`。
 
 ＃＃＃ 闲置的
-只是等待 `iterations` 毫秒。
+只需等待`iterations` 毫秒。
 
 ### 消息
-创建一个辅助基准实例。然后，控制器实例将向辅助实例发送 `iterations` 消息。
-如果收到所有消息，则测试结束。
+创建辅助基准测试实例。然后，控制器实例将向辅助实例发送`iterations` 消息。
+如果收到所有消息，则测试完成。
 
-###对象创建
-通过 `setObject` 创建 `iterations` 对象。
+### 对象创建
+通过`setObject` 创建`iterations` 对象。
 
-###对象删除
-通过 `delObject` 删除 `iterations` 对象。
+### 对象删除
+通过`delObject`删除`iterations`对象。
 
 ### 对象视图相等
-创建 10,000 个对象，其中 50% 与对象视图相关。然后它执行 `iterations` 对象视图。
+创建 10,000 个对象，其中 50% 与对象视图相关。然后执行 `iterations` 对象视图。
 
-### ObjectViewLarge
-创建 10,000 个对象，其中 98% 与对象视图相关。然后它执行 `iterations` 对象视图。
+### 对象视图大图
+创建 10,000 个对象，其中 98% 与对象视图相关。然后执行 `iterations` 对象视图。
 
-### ObjectViewSmall
-创建 10,000 个对象，其中只有 2% 与对象视图相关。然后它执行 `iterations` 对象视图。
+### ObjectView小
+创建 10,000 个对象，但其中只有 2% 与对象视图相关。然后它执行 `iterations` 对象视图。
 
 ### 设置状态
-通过 `setState` 设置 `iterations` 状态
+通过`setState`设置`iterations`状态
 
-### SetStatesNonStrict
-通过 `setState` 设置 `iterations` 状态，但 `strictObjectChecks` 被禁用。
+### 设置非严格状态
+通过`setState`设置`iterations`状态，但`strictObjectChecks`被禁用。
 
 ### 设置状态并行
-添加 30 个次级实例，每个实例将设置 `iterations` 状态。在系统级别，实例并行设置这些状态，但在实例级别，之前的 `setState` 需要完成，直到设置下一个。
-该测试旨在对多核系统进行基准测试。
+添加 30 个辅助实例，每个实例将设置 `iterations` 状态。在系统级别，实例并行设置这些状态，但在实例级别，需要完成前一个 `setState` 才能设置下一个状态。
+此测试旨在对多核系统进行基准测试。
 
-__Requirements__：2 GB 可用内存
+__要求__：2 GB 可用内存
 
-###状态删除
-通过 `delState` 删除 `iterations` 状态。
+### 状态删除
+通过`delState`删除`iterations`状态。
 
-### 状态订阅
-控制器实例订阅特定的命名空间。 4 个次级，每个设置 `iterations / 4` 状态。一旦控制器收到所有 `iterations` 发布，测试就完成了。
+### StatesSubscription
+控制器实例订阅特定命名空间。4 个辅助实例各自设置 `iterations / 4` 状态。一旦控制器收到所有 `iterations` 发布，测试就完成了。
 
 ### StatesSubscriptionAlias
-控制器实例订阅别名命名空间。 4 个次级，每个设置 `iterations / 4` 别名状态。一旦控制器收到所有 `iterations` 发布，测试就完成了。
+控制器实例在别名命名空间上订阅。4 个辅助实例各自设置 `iterations / 4` 别名状态。一旦控制器收到所有 `iterations` 发布，测试就完成了。
 
 ### StatesSubscriptionAliasWrite
-控制器实例订阅别名命名空间。 4 个次级，每个设置 `iterations / 4` 别名状态。一旦控制器收到所有 `iterations` 发布，测试就完成了。
-别名包含一个简单的写函数。
+控制器实例在别名命名空间上订阅。4 个辅助节点各自设置 `iterations / 4` 别名状态。一旦控制器收到所有 `iterations` 发布，测试就完成了。
+别名包含一个简单的写入函数。
+
+### StatesSubscriptionSingle
+十个辅助节点各自订阅相同的`iterations` 状态。每个辅助节点不再使用一个`subscribe` 调用，而是执行`iterations` 单个订阅调用。一旦每个辅助节点都收到所有`ìterations`，测试就完成了。
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2024-06-03)
+* (foxriver76) added test `statesSubscriptionSingle`
+
+### 1.2.0 (2024-04-16)
+* (foxriver76) added `controllerVersion` to results
+
+### 1.1.4 (2022-12-30)
+* (foxriver76) fixed cleanup after `getStatesMulti`
+
+### 1.1.3 (2022-12-30)
+* (foxriver76) fixed a bug, where `getStatesMultiAlias` did not remove alias objects
+
+### 1.1.1 (2022-12-30)
+* (foxriver76) fixed a bug, where `getStatesMultiAlias` created wrong amount of objects
+
 ### 1.1.0 (2022-11-17)
 * (foxriver76) added `getStatesMulti` and `getStatesMultiAlias`
 

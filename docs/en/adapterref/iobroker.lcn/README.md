@@ -17,7 +17,7 @@ This adapter allows to connect Local Control Network [LCN](https://www.lcn.eu/) 
 
 ![pke](img/lcn-pku.png)
 
-**Don't forget that ioBroker.lcn will block one LCN Connection License.**
+**Don't forget that `ioBroker.lcn` will block one LCN Connection License.**
 
 The configuration and modules will be automatically detected by scan, that must be triggered manually from the configuration dialog and can be repeated any time again.
 
@@ -90,6 +90,25 @@ After the first start, the devices must be scanned. It can be done in the config
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.1 (2025-03-24)
+* (bluefox) License was changed to MIT. The adapter is now free of charge.
+
+### 2.0.3 (2024-09-04)
+* (bluefox) Added translations
+
+### 2.0.2 (2024-09-03)
+* (bluefox) Corrected checking of licenses with license manager
+
+### 2.0.1 (2024-08-07)
+* (bluefox) Disable possibility to install via git
+
+### 2.0.0 (2024-08-06)
+* (bluefox) Made adapter compatible with js-controller 6
+* (bluefox) A minimum supported node.js version is 18
+
+### 1.1.8 (2023-11-13)
+* (bluefox) Added SUM inputs
+
 ### 1.1.7 (2023-11-06)
 * (bluefox) Corrected setting of undefined values
 
@@ -139,8 +158,25 @@ After the first start, the devices must be scanned. It can be done in the config
 * (bluefox) initial release
 
 ## License
-CC-BY-NC-4.0
+The MIT License (MIT)
 
-Copyright (c) 2018-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2024 Denis Haev <dogafox@gmail.com> Private License
+Copyright (c) 2025 Denis Haev <dogafox@gmail.com> MIT License
 
-Up to 10 devices can be connected for free. If you need more devices, you must buy a commercial license.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

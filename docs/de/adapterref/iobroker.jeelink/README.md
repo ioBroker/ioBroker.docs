@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: b4G41zaqVIxZxuG/kePTos+2oSEKN60Tfxc7ktLC4Zc=
+hash: ygqO6reRPimNACWJSTeIFwnWGaYTFXUX8w51il+EQno=
 ---
 ![Logo](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
@@ -12,73 +12,63 @@ hash: b4G41zaqVIxZxuG/kePTos+2oSEKN60Tfxc7ktLC4Zc=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.jeelink.svg)
 
 # IoBroker.jeelink
-**Tests:** ![Testen und freigeben](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/foxthefox/ioBroker.jeelink/workflows/Test%20and%20Release/badge.svg)
 
-Dies ist ein Adapter für ioBroker, um RFM12B/RFM69 über Jeelink zu integrieren.
+Dies ist ein Adapter für ioBroker zur Einbindung von RFM12B/RFM69 über Jeelink.
 Der Jeelink kann mit der vorinstallierten Software (rfmdemo) zum Auslesen von OpenEnergy-Sensoren (emon) verwendet werden.
-Für die Verwendung von LaCrosse-Sensoren muss die Firmware ausgetauscht werden (siehe iobroker-Forum).
-
-## Installation:
-### Veröffentlichte Version
-```javascript
-npm install iobroker.jeelink
-```
-
-Auf Himbeere könnte es hilfreich sein, Folgendes zu verwenden:
-
-```javascript
- npm install --unsafe-perm iobroker.jeelink
- ```
-
- da das Serialport-Paket auf einem nicht unterstützten Arm-HW erstellt werden muss
-
-### Die aktuelle Entwicklungsversion von github (funktioniert möglicherweise nicht, wenn sie getestet wird!)
-```javascript
-npm install https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
-```
-
-oder
-
-```javascript
-npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
-```
+Für die Nutzung von LaCrosse-Sensoren muss die Firmware ausgetauscht werden (siehe iobroker-Forum).
 
 ## Einstellungen:
-- USB-Port des JeelinkAdapter normalerweise /dev/ttyACME
+- USB-Anschluss des JeelinkAdapters normalerweise /dev/ttyACME
 - Serielle Geschwindigkeit normalerweise 57600 Baud
 
-## Aufbau:
-im Adminbereich zu erledigen
+## Konfiguration:
+muss im Adminbereich erledigt werden
 
 * Definition des USB-Anschlusses
 * Einstellen der Baudrate
-- Definieren Sie die Sensoradresse, die auf Sendung empfangen wird
-- eindeutige Sensoradresse im Adapter definieren (LaCrosse ändert die On Air Adresse nach Batteriewechsel, also Debug Log beachten und Sensoradresse nach Batteriewechsel anpassen)
+- Sensoradresse definieren, die über Funk empfangen wird
+- Definieren Sie eine eindeutige Sensoradresse im Adapter (LaCrosse ändert die On-Air-Adresse nach einem Batteriewechsel. Beachten Sie daher das Debug-Protokoll und passen Sie die Sensoradresse nach einem Batteriewechsel an.)
 - Definieren Sie den Sensortyp (siehe Beispiele unten)
 - den Raum definieren
 
 ## Sensoren
-|Objekt|Gerätevarianten|Beispieltelegramm|Beschreibung|
+|Objekt|Gerätevarianten|Telegrammbeispiel|Beschreibung|
 |--------|-------|:-:|--------|
 |emonTH|emonTH|OK 19 ...|Sensor von openenergy.org|
-|emonWater|emonWater|OK 21 ... |Sensor mit RFM12B zur Wasserzählung|
-|LaCrosseDTH |TX|OK 9 ... |Sensoren von LaCrosse, technoline|
-|LaCrosseDTT |TX|OK 9 ... |Sensoren von LaCrosse, technoline double temp|
-|HMS100TF |TXH29DTH-IT|H00 ... |Sensoren technoline|
-|LaCrosseBMP180||OK WS ... |sensor mod, superjee|
+|emonWater|emonWater|OK 21 ... |Sensor mit RFM12B zur Wassermessung|
+|LaCrosseDTH |TX|OK 9 ... |Sensoren von LaCrosse, Technoline|
+|LaCrosseDTT |TX|OK 9 ... |Sensoren von LaCrosse, Technoline Doppeltemperatur|
+|HMS100TF |TXH29DTH-IT|H00 ... |Sensoren Technoline|
+|LaCrosseBMP180||OK WS ... |Sensormod, Superjee|
 |LaCrosseWS|WS1080,TX22,WS1600|OK WS ... |Wetterstation|
 |EC3000|EC3000|OK 22 ... |Energiezähler|
 |EMT7110|EMT7110|OK EMT7110 ... |Energiezähler|
-|Niveau|Niveau|OK LS ... |Niveausensor|
-|DavisVantage|Davis Vantage|OK WERT DAVIS ... |Wetterstation|
+|Füllstand|Niveau|OK LS ... |Füllstandssensor|
+|DavisVantage|Davis Vantage|OK, WERT, DAVIS ... |Wetterstation|
 
-## MACHEN:
+## ZU TUN:
 * andere Sensortypen
-* Legen Sie den Sensorcode in einer separaten Datei ab
-* Schieben des neuen Sensors in die Konfiguration, dann sichtbar auf der Admin-/Konfigurationsseite
-* HMS100TF Temperatur unter 0°C und Batterie schwach zu implementieren
+* Legen Sie den Sensorcode in eine separate Datei
+* neuen Sensor zur Konfiguration hinzufügen, dann auf der Admin-/Konfigurationsseite sichtbar
+* HMS100TF Temperatur unter 0°C und Batterie schwach soll implementiert werden
 
 ## Changelog
+
+### 1.2.5 (npm)
+* (foxthefox) eslint upgrade and corrections
+
+### 1.2.4 (npm)
+* (foxthefox) IOB checker corrections
+
+
+### 1.2.3 (npm)
+* (foxthefox) serialport 12
+* (foxthefox) translation with @iobroker/adapter-dev
+
+### 1.2.2
+* (foxthefox) more datapoints for Davis Vantage
+
 ### 1.2.1
 * (foxthefox) corrections for Davis Vantage
 
@@ -156,4 +146,5 @@ im Adminbereich zu erledigen
 
 The MIT License (MIT)
 
-Copyright (c) 2016 - 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016 - 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

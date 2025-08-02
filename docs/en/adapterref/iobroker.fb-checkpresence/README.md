@@ -1,12 +1,20 @@
 ![Logo](admin/fb-checkpresence.png)
 # ioBroker.fb-checkpresence
-
-[![NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
+![GitHub license](https://img.shields.io/github/license/afuerhoff/iobroker.fb-checkpresence)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
-![Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/afuerhoff/iobroker.fb-checkpresence)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/afuerhoff/iobroker.fb-checkpresence)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/afuerhoff/iobroker.fb-checkpresence/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/afuerhoff/iobroker.fb-checkpresence)
+![GitHub issues](https://img.shields.io/github/issues/afuerhoff/iobroker.fb-checkpresence)
 [![Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence)
+
 [![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)](https://nodei.co/npm/iobroker.fb-checkpresence/)
+
+![Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![Stable version](https://iobroker.live/badges/fb-checkpresence-stable.svg)
+[![Latest NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
 
 **Tests:** ![Test and Release](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
@@ -112,7 +120,10 @@ the mesh objects for every device in the Fritzbox device list are created.
 If this option is checked the states for guests are created. 
 
 ### qr-code generation
-If this option is checked the qr-code from guest wlan is generated. 
+If this option is checked the qr-code from guest wlan is generated.
+You can show this QR code in your VIS with the widget "Basic Boolesches SVG".
+Please use following settings:
+<img src="doc/QRCode.png"/>
 
 ### Family member settings
 For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. 
@@ -140,7 +151,19 @@ sendTo('fb-checkpresence.0', 'triggerPresence', {}
 
 ### Whitelist settings
 In the white list you can insert every known device. Any unknown devices are listed in the blacklist object. 
-If you check the checkbox in the headline of the table all devices are selected. 
+If you check the checkbox in the headline of the table all devices are selected.
+
+In Javascript you can send an item to the whitelist. 
+The sent data (hostname, MAC) is compared with the Fritzbox device list. If the entry is present, it is checked whether it is already saved in the whitelist. If not, the entry is saved in the whitelist configuration table.
+
+sendTo('fb-checkpresence.0', 'addDeviceToWhitelist', 
+    {
+        hostname: 'devicename',
+        mac: '00:00:00:00:00:00'
+    }
+    , function (result) {
+        log(result, 'info');
+});
 
 ## Features
 
@@ -207,29 +230,34 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
-### 1.2.2 (2023-07-28)
-* (afuerhoff) bug fixed json tables [#215](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/215)
-* (afuerhoff) link feature optimized. See #206
-
-### 1.2.1 (2023-07-14)
-* (afuerhoff) bug fixed property link
-
-### 1.2.0 (2023-07-13)
+### 1.4.0 (2025-05-28)
 * (afuerhoff) dependencies updated
-* (afuerhoff) mesh link added to family members [#206](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/206)
+* (afuerhoff) error handling optimized
+* (afuerhoff) enhancement  [#336](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/336)
+* (afuerhoff) issue [#337](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/337)
+* (afuerhoff) issue [#335](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/335)
 
-### 1.1.26 (2023-04-06)
-* (afuerhoff) Wrong default settings in io-package.json [#188](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/188)
-* (afuerhoff) Wrong Axios parameter in getMeshList [#197](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/197)
+### 1.3.1 (2025-03-02)
+* (afuerhoff) dependencies updated
+* (afuerhoff) bug fixed [#333](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/333)
+* (afuerhoff) bug fixed [#305](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/305)
+
+### 1.3.0 (2025-02-14)
+* (afuerhoff) dependencies updated
+* (afuerhoff) eslint setup changed
+* (afuerhoff) ipv6 ip-address and prefix added
+
+### 1.2.8 (2024-11-20)
+* (afuerhoff) bugfix configuration
 * (afuerhoff) dependencies updated
 
-### 1.1.25 (2023-01-21)
-* (afuerhoff) Warning message empty hostname optimized. Issue [#180](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/180)
+### 1.2.7 (2024-11-18)
+* (afuerhoff) bugfix [#319](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/319)
 
 ## License
 MIT License
 
-Copyright (c) 2019-2023 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2025 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -62,14 +62,23 @@ Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Obj
 <https://forum.iobroker.net/topic/51795/test-adapter-parcel-paketverfolgung-dhl-v0-0-1>
 
 ## Changelog
+### 0.2.10 (2025-01-15)
+
+- add alternative way for dhl login
+- move dhl connections error to info level
+
+### 0.2.8 (2024-10-18)
+
+- fix amazon login
 
 ### 0.0.30
 
 - Fix hermes login
-  
+
 ### 0.0.25
 
 - Fix amazon UI parsing
+
 ### 0.0.19
 
 - Fix GLS Parcel
@@ -86,7 +95,7 @@ Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Obj
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -504,6 +504,32 @@ Doesn't exist anymore.
    *Read-only text, which designates the serial number of wallbox [0..3].*
 
 ## Changelog
+
+### 1.6.17
+* License update
+
+### 1.6.16
+* Moved Dashboard to ApiV2. This invalidates existing datapoints under /Dashboard/ and introduces "Dashboard/currently" and "Dashboard/today" due to changes in the API.
+
+### 1.6.15
+* Maintenance update (dependencies, ...)
+
+### 1.6.14
+* Bugfix (values were way off)
+
+### 1.6.13 (NoBl)
+* Removed Support for node 16
+* Added more translations
+* Code cleanup
+
+### 1.6.12 (NoBl)
+* Updated license
+
+### 1.6.11 (NoBl)
+* Moving from Senec App API 3.12.0 to 4.3.3 (thanks to oakdesign@github for providing the new API!)
+* This WILL invalidate all current API datapoints in the Statistik branch. Easiest solution to this: Delete the Statistik branch.
+* Remember to force a rebuild of historic data in adapter settings!
+
 ### 1.6.10 (NoBl)
 * Bugfix for AllTimeHistory (should work again)
 
@@ -512,54 +538,13 @@ Doesn't exist anymore.
 * Improved handling of forced loading (please report if we need more appliance-states covered by this)
 * Minor improvements and bugfixes
 
-### 1.6.8 (NoBl)
-* Added switch control.ForceLoadBattery to start/stop charging battery. Use this to start/stop forced charging (like with dynamic power prices, ...).
-
-### 1.6.7 (NoBl)
-* Added option to turn off local polling.
-
-### 1.6.6 (NoBl)
-* Node 16 required
-* Bugfixes
-* Removed non-existing branches: _calc, Bat1Obj[2-4], Display, Statistic, File
-* Added branches: CURRENT_IMBALANCE_CONTROL, BMZ_CURRENT_LIMITS, CELL_DEVIATION_ROC, SENEC_IO_OUTPUT, SENEC_IO_INPUT
-
-### 1.6.5 (NoBl)
-* Added AllTime Statistics (trigger initial calculations in adapter settings)
-* https is now default for new instances
-
-### 1.6.4 (NoBl)
-* Bugfix (numbers are numbers again)
-
-### 1.6.3 (NoBl)
-* Code optimization
-
-### 1.6.2 (NoBl)
-* Added statistics values from API along with some own calculations.
-
-### 1.6.1 (NoBl)
-* Bugfixes
-
-### 1.6.0 (NoBl)
-* Added option to also poll SENEC App API. This requires user credentials for mein-senec.de
-* We are starting with just some information - more to follow. But with Dashboard we at least have current values and day statistics back.
-
-### 1.5.1 (NoBl)
-* Added more datapoints. If you experience messages in log - feel free to add them yourself to state_attr on github (pull request)
-* Autarky calculations will stopp working because SENEC removed STATISTICS branch.
-* If you experience issues with connecting to your appliance after it got updated, please activate https connection in settings.
-
-### 1.5.0 (NoBl)
-* Added configuration section to add datapoints to high priority polling. Please be aware of the possible issues this could cause (if too many datapoints added) and use at your own risk.
-* ALL Wallbox datapoints have been removed from high priority polling. Only some users even have a SENEC wallbox. Please reconfigure via the new config dialogue.
-* Possible Candidate for stable. Please report any findings!
 
 ### [Former Updates](CHANGELOG_old.md)
 
 ## License
 MIT License
 
-Copyright (c) 2023 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2025 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

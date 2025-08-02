@@ -121,6 +121,21 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.11 (2025-04-10)
+- Fixes bug with totalMileage
+
+### 0.2.10 (2024-10-27)
+- Fixes according to ioBroker-Bot notification
+  
+### 0.2.9 (2024-04-27)
+- BugFix Cockpit und Batterie json structure changed by Renault
+
+### 0.2.8 (2024-04-27)
+- BugFix Cockpit und Batterie (thanks to @MCP-KC, @gik007)
+
+### 0.2.7 (2024-04-08)
+- BugFix gps Location (thanks to @MCP-KC)
+
 ### 0.2.6 (2022-07-22)
 - API Timeout configurable via config-screen
 - Improved stability
@@ -207,7 +222,7 @@ for your great documentation and work.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021 RenePilz <rene@pilz.cc>
+Copyright (c) 2024 RenePilz <rene@pilz.cc>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

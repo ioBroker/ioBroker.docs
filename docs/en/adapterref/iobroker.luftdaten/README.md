@@ -56,6 +56,14 @@ Wait some seconds until the cronjob collects the data for the first time.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+### 4.0.0 (2024-08-09)
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
 ### 3.1.0 (2023-10-25)
 
 NodeJS 16.x is required
@@ -83,15 +91,11 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Always stop instance when tasks are completed
 * (klein0r) Updated log messages
 
-### 2.2.2 (2022-03-14)
-
-* (klein0r) Bugfix: Requested local sensors with https instead of http
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

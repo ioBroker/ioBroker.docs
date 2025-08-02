@@ -1,35 +1,34 @@
 ![Logo](admin/contactid.png)
+
 # ioBroker.contactid
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.contactid.svg)](https://www.npmjs.com/package/iobroker.contactid)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.contactid.svg)](https://www.npmjs.com/package/iobroker.contactid)
 ![Number of Installations (latest)](http://iobroker.live/badges/contactid-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/contactid-stable.svg)
-[![Dependency Status](https://img.shields.io/david/schmupu/iobroker.contactid.svg)](https://david-dm.org/schmupu/iobroker.contactid)
 [![Known Vulnerabilities](https://snyk.io/test/github/schmupu/ioBroker.contactid/badge.svg)](https://snyk.io/test/github/schmupu/ioBroker.contactid)
 
 [![NPM](https://nodei.co/npm/iobroker.contactid.png?downloads=true)](https://nodei.co/npm/iobroker.contactid/)
 
 **Tests:** ![Test and Release](https://github.com/schmupu/ioBroker.contactid/workflows/Test%20and%20Release/badge.svg)
 
-
 The protocol Contact ID used by alarm systems to communicate with central stations.
 
 This adapter is a Contact ID Server. When an alarm event is triggered, the alarm system sends over IP the Contact ID message to the central station.
-You can use ioBroker with this adapter as central station. For example. you can send for a alarm by Conntact ID  a telegram message.  
+You can use ioBroker with this adapter as central station. For example. you can send for a alarm by Conntact ID a telegram message.
 
 The Contact-ID message
 
-  SSSS 18QEEEGGZZZC
+SSSS 18QEEEGGZZZC
 
-  * SSSS – Subscriber. These four digits identify the specific alarm system or customer to the central station. ioBroker allows longer subscriber names.
+- SSSS – Subscriber. These four digits identify the specific alarm system or customer to the central station. ioBroker allows longer subscriber names.
 
-  * 18 - Message Type. Basically this field should always be “18”.
-  * Q – Event Qualifier.
-  * EEE – Event Code.
-  * GG – Group/Partition Number.
-  * ZZZ – Zone Number (001 - 999). This is the number of the zone that triggered the alarm.
-  * C – Checksum.
+- 18 - Message Type. Basically this field should always be “18”.
+- Q – Event Qualifier.
+- EEE – Event Code.
+- GG – Group/Partition Number.
+- ZZZ – Zone Number (001 - 999). This is the number of the zone that triggered the alarm.
+- C – Checksum.
 
 [Contact ID protocol](http://www.technoimport.com.co/Producto/pdfs/ADEMCO%20-%20DC05_Contact_ID.pdf)
 
@@ -40,55 +39,91 @@ The Contact-ID message
 
     Choose the IP-address and port for listening for Conctact-ID requests.
     Register you subcriber name to identify you burglar alarm messages and
-  select your burglar alarm type.
+    select your burglar alarm type.
 
 3. Configure your burglar system to send Contact ID messages
 
     Lupusec XT1:
 
-      Einstellungen -> Contact ID : rptn://subcriber@ip-address-iobroker:port
-      Example: rptn://test@192.168.20.1:50000
+    Einstellungen -> Contact ID : rptn://subcriber@ip-address-iobroker:port
+    Example: rptn://test@192.168.20.1:50000
 
-    Lupusec XT1+/XT2/XT2+/XT3:
+    Lupusec XT1+/XT2/XT2+/XT3/XT4:
 
-      Einstellungen -> Contact ID : ip://subcriber@ip-address-iobroker:port/CID
-      Example: ip://test@192.168.20.1:50000/CID
-
+    Einstellungen -> Contact ID : ip://subcriber@ip-address-iobroker:port/CID
+    Example: ip://test@192.168.20.1:50000/CID
 
 4. Testing the Adpater
 
-  Open command shell and type  
+Open command shell and type
 
-  ```
-  telnet ip-address-iobroker port
-  Example: telnet 192.168.20.1 50000
+```
+telnet ip-address-iobroker port
+Example: telnet 192.168.20.1 50000
 
-  ```
+```
 
- Now you can sen a Conntact ID Message. For Lupsec burglar alarm systems the
-  message begins and ends with [ and ]. Type in your telnet session:
+Now you can sen a Conntact ID Message. For Lupsec burglar alarm systems the
+message begins and ends with [ and ]. Type in your telnet session:
 
-  ```
-  [SSSS 18QEEEGGZZZC]
-  Example: [test 18160201010B]
-  ```
+```
+[SSSS 18QEEEGGZZZC]
+Example: [test 18160201010B]
+```
 
-  Now you can see the message in the ioBroker objects
+Now you can see the message in the ioBroker objects
 
+5. Problems / Issues
+
+If you have problems processing ContactID messages, please create an issue.
+In the issue I need the following information:
+
+1. Manufacturer and type of alarm system
+2. The ContactID message as a file. You can create a file if you activate it in the instance configuration.
+3. The debug output from ioBroker when processing the message
+4. Detailed description of the bug
+
+You can test saved ContactID message with following command
+
+```
+# cat fileanme_of_cid_message | nc ip_address_of_iobroker cid_port
+cat /tmp/cid/cid_msg_fa165cc0-8e3a-faa1-eb5c-fd3e47479044.txt | nc localhost 55000
+```
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (Stübi) Fixing @iobroker/adapter-dev 1.0.1 specified. 1.3.0 is required as minimum, 1.3.0 is recommended (Issue #51)
+- (Stübi) Fixing dependency, (Issue #52)
+
+### 2.0.1 (2025-02-01)
+
+- (Stübi) Fixed Notification from ioBroker Check and Service Bot (Issue #46)
+
+### 2.0.0 (2025-01-18)
+
+- (Stübi) Redesign of Contact ID Adapter.
+- (Stübi) Wokring now with nodejs 20 and 22
+- (Stübi) js-controller in version 6 and 7 will be supported (Issue #19, #28)
+- (Stübi) nodejs 20 and nodejs 22 will be suported (Issue #20, #36)
+- (Stübi) states moved to channel subscriber
+- (Stübi) add Lupusec XT4 to list of alarm systems
+- (Stübi) migration to eslint 9 (Issue #39)
+- (Stübi) change admin configuration (Issue #38)
+- (Stübi) fixed dependency ot iobroker adapter-core (Issue #37)
+- (Stübi) fixed iobroker notifications (Issue 35)
+
 ### 1.0.2 (2020.12.13)
-* (Stübi) Bugfixing, ACK-invalid Format - Issue #14 
 
-### 1.0.1 (2019.10.14)
-* (Stübi) Bugfixing, Issue #9 
-
+- (Stübi) Bugfixing, ACK-invalid Format - Issue #14
+- (Stübi) Bugfixing, Issue #9
 
 ## License
+
 MIT License
 
-Copyright (c) 2020 Thorsten Stueben <thorsten@stueben.de>
+Copyright (c) 2025 Thorsten Stueben <thorsten@stueben.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

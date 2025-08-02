@@ -74,6 +74,41 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.16.2 (2025-04-12)
+* (@foxriver76) do not try to use v2 functionality on legacy Hue bridges (closes #720)
+
+### 3.16.1 (2025-03-07)
+* (@foxriver76) fix if no tamper report is present on state creation
+
+### 3.16.0 (2025-03-07)
+* (@foxriver76) added tamper states for contact sensors
+
+### 3.15.0 (2025-03-06)
+* (@foxriver76) added support for contact sensors
+
+### 3.14.1 (2025-02-01)
+* (@foxriver76) improved error handling for smart scenes
+
+### 3.14.0 (2025-01-08)
+* (@foxriver76) added dynamic scenes (Note: new states are added by UUID)
+
+### 3.13.1 (2024-10-16)
+* (@foxriver76) correct min color temperature to 2000 (valid for color lights) instead of 2200
+
+### 3.13.0 (2024-10-16)
+* (@Jey-Cee) optimized settings page for mobile devices (ported to json-config)
+
+### 3.12.0 (2024-07-14)
+* (foxriver76) `level` and `bri` states of groups are now updated via push API
+
+### 3.11.0 (2024-03-26)
+* (seb2010) added possibility to use global light-scenes in commands (in addition to object-lightscene)
+* (foxriver76) dropped support of node 16 (End-Of-Life)
+
+### 3.10.2 (2023-12-25)
+* (foxriver76) bring back short delay between setting and polling a group
+* (foxriver76) use adapter internal timer methods
+
 ### 3.10.1 (2023-10-17)
 * (foxriver76) fixed frontend/backend communication (closes #481)
 
@@ -498,5 +533,5 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 Apache 2.0
 
-Copyright (c) 2017-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  
 Copyright (c) 2014-2016 hobbyquaker

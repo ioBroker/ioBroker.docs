@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
+hash: unbugf5ftTb/BE8Q4uqsUfz2KGBUs9exwOd/mkoxahs=
 ---
 ![Logo](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -41,7 +41,7 @@ Barebone-Implementierung der inoffiziellen Fronius Watt Pilot (https://www.froni
 Sie können die Datenpunkte dieses Adapters wie jeden anderen Datenpunkt in Ihrem Broker verwenden.
 Einige Anregungen finden Sie unter „Beispiele“.
 
-Es gibt eine [Blockly-Beispiel](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml) Möglichkeit, die Leistung Ihres Solarnetzes zu messen und den Piloten automatisch auf den richtigen Stromwert (Ampere) einzustellen, um Ihren internen Energieverbrauch zu verbessern.
+Es gibt eine [Blockly-Beispiel](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml) Möglichkeit, die Leistung Ihres Solarnetzes zu messen und den Piloten automatisch auf den richtigen Stromwert (Ampere) einzustellen, um Ihren internen Energieverbrauch zu verbessern.
 Sie können es einfach importieren, indem Sie den Inhalt des Beispiels kopieren und über das „Import Blocks“-Symbol in der oberen rechten Ecke Ihres Blockly-Skripts einfügen.
 
 ## Was leistet der Adapter?
@@ -49,7 +49,7 @@ Der Adapter verbindet sich mit dem WattPilots WebSocket und trennt eingehende Da
 
 ## Zustände abrufen
 Standardmäßig schreibt der Adapter nur die Eckpunkte des Wattpiloten. Wenn Sie alle möglichen Werte wünschen, die die API liefern kann, deaktivieren Sie das Kontrollkästchen in den Instanzeinstellungen.
-Eine Dokumentation der Datenpunkte finden Sie hier: https://github.com/joscha82/wattpilot/blob/main/API.md (Danke an joscha82)
+Eine Dokumentation der Datenpunkte finden Sie hier: https://github.com/joscha82/wattpilot/blob/main/API.md (Dank an joscha82)
 
 ## Zustände festlegen?
 Die wichtigsten Zustände, die Sie direkt setzen können, sind AccessState, amp, CableLock, cae und mode.
@@ -82,6 +82,17 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.3 (2023-12-24)
+- Fixed a bug where the adapter would use a undefined variable
+- Fixed bug #44
+- Fixed bug #43
+
+### 4.6.2 (2023-08-15)
+- Thanks to Norb1204 for fixing a few bugs that I missed. More in Issue #40
+
+### 4.6.1 (2023-08-15)
+- Fixed Issue #39 (set_state not working)
+
 ### 4.6.0 (2023-07-15)
 - Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
 - Fixed a number of issues concerning the static parser mode
@@ -221,7 +232,7 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
 ## License
 MIT License
 
-Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2024 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

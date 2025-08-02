@@ -51,40 +51,25 @@ http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
 http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
 ```
 
-or
+or (when Redis is not used)
 
 ```
-/opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg'
+/opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg
 ```
 
 #### Example:
 
-```
-http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
-```
+`http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg`
 
 ### Send Snapshot per Telegram
 
 #### Example
 
-```
-readFile("doorbird.0", "TakeSnapshot_1.jpg", function (error, data) {
-  if (error) {
-    console.error(error);
-  } else {
-    sendTo("telegram.0", {
-      text: data,
-      type: "photo",
-    });
-  }
-});
-```
+js-controller 5 necessary
 
-or since js-controller 5
-
-```
+```js
 setState('doorbird.0.TakeSnapshot', true);
-onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, fileData, mimeType) {
+onFile('doorbird.0', 'TakeSnapshot_1.jpg', true, (id, fileName, size, fileData, mimeType) => {
     sendTo('telegram.0', {
         text: fileData,
         type: 'photo'
@@ -101,6 +86,7 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
 | DoorBird Video Door Station D21x | 1.00 and above   | 000108 and above |
 | BirdGuard B10x                   | 1.00 and above   | 000099 and above |
 | DoorBird Video Door Station D11x | 1.00 and above   | 000130 and above |
+| DoorBird Mini Dome Camera A1131  | 1.00 and above   | 000148 and above |
 
 ## Changelog
 
@@ -108,33 +94,35 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.3.0 (2023-10-03)
+### 3.0.0 (2025-03-03)
 
--   (Schmakus) add debug logs to find out "Maximum call stack size exceeded"
--   (Schmakus) update dependencies
+NodeJS >= 20.x and js-controller >= 6 is required
 
-### 1.2.4 (2023-08-31)
+- (@klein0r) Migrated to json config
+- (@klein0r) Updated documentation and dependencies
 
--   (Schmakus) tryed to fixed [#73] Maximum call stack size exceeded
--   (Stefan592) fixed 'listen on all interfaces'
+### 2.0.0 (2024-09-02)
 
-### 1.2.3 (2023-08-17)
+- (Schmakus) update dependencies
 
--   (Schmakus) changed schedule handling. (fix status code 400)
+### 1.7.0 (2024-08-23)
 
-### 1.2.2 (2023-08-17)
+- (Schmakus) Dependencies have been updated
 
--   (Schmakus) some code improvements
+### 1.6.0 (2024-07-02)
 
-### 1.2.1 (2023-08-17)
+- (mcm1957) Adapter requires node.js >= 18 and Admin >=6 now
+- (mcm1957) Dependencies have been updated
 
--   (Schmakus) Issue 'Maximum call stack size exceeded' - try to fix
+### 1.5.0 (2024-03-01)
+
+- (Schmakus) update dependencies
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 iobroker-community-adapters <>
+Copyright (c) 2025 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

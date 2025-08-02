@@ -27,7 +27,7 @@ TCP Port of modbus partner if configured as master (client) or own port if confi
 Modbus Device ID. Important if TCP/Modbus bridge is used.
 
 ### Type
-Slave(Server) or Master(Client).
+Slave (Server) or Master (Client).
 
 ### Use aliases as address
 Normally, all registers can have address from 0 to 65535. By using of aliases, you can define virtual address fields for every type of registers. Normally:
@@ -64,7 +64,7 @@ Cyclic poll interval (Only relevant for master)
 Reconnection interval (Only relevant for master)
 
 ### Read timeout
-Timeout for read requests in milliseconds. If no response is received from a slave in this time, the connection will be terminated.
+Timeout for read requests in milliseconds. If no response is received from a slave at this time, the connection will be terminated.
 
 ### Pulse time
 If pulse used for coils, this defines the interval in milliseconds how long is the pulse.
@@ -96,7 +96,7 @@ Normally, if the value has not changed, it will not be written into ioBroker.
 This flag allows updating the value's timestamp by every cycle.
 
 ### Do not include addresses in ID
-Do not add address in the generated ioBroker iD. `10_Input10` vs `Input10`.
+Do not add address in the generated ioBroker iD. `10_Input10` vs `_Input10`.
 
 ### Preserve dots in ID
 With this flag the Name will be `Inputs.Input10`. Without => `Inputs_Input10`.
@@ -130,8 +130,8 @@ This factor is used to multiply the read value from Bus for static scaling. So t
 This offset is added to the read value after above multiplication. So the calculation looks like following `val = x * Factor + Offset`.
 
 ### Formula
-This field can be used for advanced calculations if Factor and Offset are not sufficient. **If this field is set, then the Factor and Offset fields are ignored.**
-The Formula is executed by the eval() function. Therefore, all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore, also take care about upper and lower cases.
+This field can be used for advanced calculations if Factor and Offset are not enough. **If this field is set, then the Factor and Offset fields are ignored.**
+The Formula is executed by the eval() function. Therefore, all common functions are supported. Especially the Math functions. The formula must comply with JavaScript syntax, therefore, also take care about upper and lower cases.
 
 In the formula, "x" has to be used for the read value from Modbus. E.g. `x * Math.pow(10, sf['40065'])`
 
@@ -154,41 +154,44 @@ If activated, the values are polled in a predefined interval from slave.
 Write pulse
 
 ### CW
-Cyclic write
+Cyclically write
 
 ### SF
 Use value as a scaling factor.
-This is needed to be used by dynamic scaling factors which are on some systems provided through values on interface.
+This is necessary to be used by dynamic scaling factors which are on some systems provided through values on interface.
 If a value is marked with this flag, then the value will be stored into a variable with the following naming convention: `sf['Modbus_address']`.
 This variable can be then later used in any formula for other parameters. E.g., the following formula can set: `(x * sf['40065']) + 50;`
 
 ## Data types
-- `uint16be` - `Unsigned 16 bit (Big Endian): AABB => AABB`
-- `uint16le` - `Unsigned 16 bit (Little Endian): AABB => BBAA`
-- `int16be`  - `Signed 16 bit (Big Endian): AABB => AABB`
-- `int16le`  - `Signed 16 bit (Little Endian): AABB => BBAA`
-- `uint32be` - `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
-- `uint32le` - `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
-- `uint32sw` - `Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `uint32sb` - `Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `int32be`  - `Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD`
-- `int32le`  - `Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA`
-- `int32sw`  - `Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `int32sb`  - `Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `uint64be` - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
-- `uint64le` - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
-- `uint8be`  - `Unsigned 8 bit (Big Endian): AA => AA`
-- `uint8le`  - `Unsigned 8 bit (Little Endian): AA => AA`
-- `int8be`   - `Signed 8 bit (Big Endian): AA => AA`
-- `int8le`   - `Signed 8 bit (Little Endian): AA => AA`
-- `floatbe`  - `Float (Big Endian): AABBCCDD => AABBCCDD`
-- `floatle`  - `Float (Little Endian): AABBCCDD => DDCCBBAA`
-- `floatsw`  - `Float (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `floatsb`  - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `doublebe` - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
-- `doublele` - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
-- `string`   - `String (Zero-end): ABCDEF\0 => ABCDEF\0`
-- `stringle` - `String (Little Endian, Zero-end): BADCFE\0 => ABCDEF\0`
+- `uint16be`  - `Unsigned 16 bit (Big Endian): AABB => AABB`
+- `uint16le`  - `Unsigned 16 bit (Little Endian): AABB => BBAA`
+- `int16be`   - `Signed 16 bit (Big Endian): AABB => AABB`
+- `int16le`   - `Signed 16 bit (Little Endian): AABB => BBAA`
+- `uint32be`  - `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `uint32le`  - `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
+- `uint32sw`  - `Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `uint32sb`  - `Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `int32be`   - `Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `int32le`   - `Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA`
+- `int32sw`   - `Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `int32sb`   - `Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `uint64be`  - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `uint64le`  - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `uint8be`   - `Unsigned 8 bit (Big Endian): AABB => BB`
+- `uint8le`   - `Unsigned 8 bit (Little Endian): AABB => AA`
+- `int8be`    - `Signed 8 bit (Big Endian): AABB => BB`
+- `int8le`    - `Signed 8 bit (Little Endian): AABB => AA`
+- `floatbe`   - `Float (Big Endian): AABBCCDD => AABBCCDD`
+- `floatle`   - `Float (Little Endian): AABBCCDD => DDCCBBAA`
+- `floatsw`   - `Float (Big Endian Word Swap): AABBCCDD => CCDDAABB`
+- `floatsb`   - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `doublebe`  - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `doublele`  - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `string`    - `String 8 bit (Zero-end): ABCDEF\0 => ABCDEF\0`
+- `stringle`  - `String 8 bit (Little Endian, Zero-end): ABCDEF\0 => BADCFE\0`
+- `string16`  - `String 16 bit (Zero-end): \0A\0B\0C\0D\0E\0F\0\0 => ABCDEF\0`
+- `string16le`- `String 16 bit (Little Endian, Zero-end): A\0B\0C\0D\0E\0F\0\0\0 => ABCDEF\0`
+- `rawhex`    - `String with value in hex representation AABBCCDD.... => AABBCCDD....`
 
 The following description was copied from [here](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
@@ -231,7 +234,7 @@ This means that when a numerical quantity larger than a single byte is transmitt
 
 Big-Endian is the most commonly used format for network protocols – so common, in fact, that it is also referred to as ‘network order’.
 
-Given that the Modbus RTU message protocol is big-Endian, in order to successfully exchange a 32-bit datatype via a Modbus RTU message, the endianness of both the master, and the slave must be considered. Many RTU master and slave devices allow specific selection of byte order, particularly in the case of software-simulated units. It only has to be ensured that both units are set to the same byte order.
+Given that the Modbus RTU message protocol is big-Endian, in order to successfully exchange a 32-bit datatype via a Modbus RTU message, the endianness of both the master and the slave must be considered. Many RTU master and slave devices allow specific selection of byte order, particularly in the case of software-simulated units. It only has to be ensured that both units are set to the same byte order.
 
 As a rule of thumb, the family of a device’s microprocessor determines its endianness. Typically, the big-Endian style (the high-order byte is stored first, followed by the low-order byte) is generally found in CPUs designed with a Motorola processor. The little-Endian style (the low-order byte is stored first, followed by the high-order byte) is generally found in CPUs using the Intel architecture. It is a matter of personal perspective as to which style is considered ‘backwards’.
 
@@ -258,32 +261,36 @@ The following table shows the FieldServer function moves that copy two adjacent 
 
 The following table shows the FieldServer function moves that copy a single 32-bit floating point value to two adjacent 16-bit registers:
 
-| Function Keyword | Swap Mode         | Source Bytes    | Target Bytes   |
-|------------------|-------------------|-----------------|----------------|
-| 1.float-2.i16    |N/A                | [ a b ] [ c d ] | [ a b ][ c d ] |
-| 1.float-2.i16-s  |byte and word swap | [ a b ] [ c d ] | [ d c ][ b a ] |
-| 1.float-2.i16-sb |byte swap          | [ a b ] [ c d ] | [ b a ][ d c ] |
-| 1.float-2.i16-sw |word swap          | [ a b ] [ c d ] | [ c d ][ a b ] |
+| Function Keyword | Swap Mode          | Source Bytes    | Target Bytes   |
+|------------------|--------------------|-----------------|----------------|
+| 1.float-2.i16    | N/A                | [ a b ] [ c d ] | [ a b ][ c d ] |
+| 1.float-2.i16-s  | byte and word swap | [ a b ] [ c d ] | [ d c ][ b a ] |
+| 1.float-2.i16-sb | byte swap          | [ a b ] [ c d ] | [ b a ][ d c ] |
+| 1.float-2.i16-sw | word swap          | [ a b ] [ c d ] | [ c d ][ a b ] |
 
 Given the various FieldServer function moves, the correct handling of 32-bit data is dependent on choosing the proper one. Observe the following behavior of these FieldServer function moves on the known single-precision decimal float value of 123456.00:
 
-|16-bit Values | Function Move    | Result	  | Function Move    | Result        |
-|--------------|------------------|-----------|------------------|---------------|
-|0x2000 0x47F1 | 2.i16-1.float    | 123456.00 | 1.float-2.i16    | 0x2000 0x47F1 |
-|0xF147 0x0020 | 2.i16-1.float-s  | 123456.00 | 1.float-2.i16-s  | 0xF147 0X0020 |
-|0x0020 0xF147 | 2.i16-1.float-sb | 123456.00 | 1.float-2.i16-sb | 0x0020 0xF147 |
-|0x47F1 0x2000 | 2.i16-1.float-sw | 123456.00 | 1.float-2.i16-sw | 0x47F1 0x2000 |
+| 16-bit Values | Function Move    | Result    | Function Move    | Result        |
+|---------------|------------------|-----------|------------------|---------------|
+| 0x2000 0x47F1 | 2.i16-1.float    | 123456.00 | 1.float-2.i16    | 0x2000 0x47F1 |
+| 0xF147 0x0020 | 2.i16-1.float-s  | 123456.00 | 1.float-2.i16-s  | 0xF147 0X0020 |
+| 0x0020 0xF147 | 2.i16-1.float-sb | 123456.00 | 1.float-2.i16-sb | 0x0020 0xF147 |
+| 0x47F1 0x2000 | 2.i16-1.float-sw | 123456.00 | 1.float-2.i16-sw | 0x47F1 0x2000 |
 
 Notice that different byte and word orderings require the use of the appropriate FieldServer function move. Once the proper function move is selected, the data can be converted in both directions.
 
-Of the many hex-to-floating point converters and calculators that are available in the Internet, very few actually allow manipulation of the byte and word orders. One such utility is located at www.61131.com/download.htm where both Linux and Windows versions of the utilities can be downloaded. Once installed, the utility is run as an executable with a single dialog interface. The utility presents the decimal float value of 123456.00 as follows:
+Of the many hex-to-floating point converters and calculators that are available on the Internet,
+very few actually allow manipulation of the byte and word orders.
+One such utility is located at www.61131.com/download.htm where both Linux and Windows versions of the utilities can be downloaded.
+Once installed, the utility is run as an executable with a single dialog interface.
+The utility presents the decimal float value of 123456.00 as follows:
 
 ![Image5](img/img5.png)
 
 One can then swap bytes and/or words to analyze what potential endianness issues may exist between Modbus RTU master and slave devices.
 
 ## Export / Import of registers
-With export / import functionality, you can convert all register data (only of one type) to TSV (Tab separated values) file and back to easily copy data from one device to another or to edit register in Excel.
+With export / import functionality, you can convert all register data (only of one type) to a TSV (Tab separated values) file and back to easily copy data from one device to another or to edit register in Excel.
 
 You can share your schemas with other users in [modbus-templates](https://github.com/ioBroker/modbus-templates) or you can find some register schemas there.
 
@@ -300,6 +307,38 @@ There are some programs in folder `test` to test the TCP communication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 6.4.0 (2024-11-22)
+* (bluefox) Moved GUI compilation to vite
+* (bluefox) Added error message if the response length is invalid
+
+### 6.3.2 (2024-08-29)
+* (bluefox) Corrected the error with alignment of addresses
+
+### 6.3.0 (2024-08-28)
+* (Apollon77) Fix Timeout management to prevent leaking memory
+* (bluefox) Added information about connected clients in the server mode
+* (bluefox) Tried to fix error with aligning addresses
+* (bluefox) GUI was migrated to admin 7
+
+### 6.2.3 (2024-05-25)
+* (Q7Jensen) Fixed error at aligning addresses to word
+* (Apollon77) Added device id to some errors
+
+### 6.2.2 (2024-04-26)
+* (Apollon77) Downgrade gulp to 4.0.2 to fix build
+
+### 6.2.1 (2024-04-16)
+* (PLCHome) Warning regarding scale factor due to incorrect check: "Calculation of a scaleFactor which is based on another scaleFactor seems strange."
+
+### 6.2.0 (2024-04-12)
+* (PLCHome) String based on 16-bit values big endian as well as little endian
+* (PLCHome) Raw data as a hex string
+* (PLCHome) Fix issue `stringle` was always converted to number for slave
+* (PLCHome) Enable formula for strings and hex strings
+
+### 6.1.0 (2023-12-14)
+* (nkleber78) Implement the connection keepAlive
+
 ### 6.0.1 (2023-10-30)
 * (bluefox) Better tooltips in settings
 
@@ -322,7 +361,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (bluefox) Corrected type of connection indicator
 
 ### 5.0.3 (2022-05-13)
-* (bluefox) Fixed error with mutli-devices
+* (bluefox) Fixed error with multi-devices
 
 ### 5.0.0 (2022-05-11)
 * BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
@@ -334,7 +373,7 @@ There are some programs in folder `test` to test the TCP communication:
 
 ### 4.0.3 (2022-03-21)
 * (bluefox) Updated serial port package
-* (bluefox) Minimal node.js version is 12
+* (bluefox) A minimal node.js version is 12
 
 ### 3.4.17 (2021-11-11)
 * (Apollon77) Catch errors in tasks processing to prevent crashes
@@ -582,7 +621,7 @@ There are some programs in folder `test` to test the TCP communication:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2024 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

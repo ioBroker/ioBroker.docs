@@ -317,27 +317,61 @@ Es bedeutet nur, dass die Daten erfolgreich verarbeitet wurden!
 
 Die Nachricht kann eines der folgenden drei Formate haben:
 
-- eine ID und ein Objektstatus
-- eine ID und ein Array von Objektstatus
-- Array von mehreren IDs mit Objektstatus
+1. eine ID und ein Objektstatus
+2. eine ID und ein Array von Objektstatus
+3. Array von mehreren IDs mit Objektstatus
 
 ```javascript
-sendTo('history.0', 'storeState', [
+// 1.
+sendTo('history.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
-    state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
-], result => console.log('added'));
+    state: {
+        ts: 1589458809352,
+        val: 123,
+        ack: false,
+        from: 'system.adapter.whatever.0'
+    }
+}, result => console.log('added'));
 
+// 2.
 sendTo('history.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
     state: [
-      {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}, 
-      {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
+        {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        },
+        {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
     ]
 }, result => console.log('added'));
 
+// 3.
 sendTo('history.0', 'storeState', [
-    {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}, 
-    {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}
+    {
+        id: 'mbus.0.counter.xxx',
+        state: {
+            ts: 1589458809352,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    },
+    {
+        id: 'mbus.0.counter.yyy',
+        state: {
+            ts: 1589458809353,
+            val: 123,
+            ack: false,
+            from: 'system.adapter.whatever.0'
+        }
+    }
 ], result => console.log('added'));
 ```
 

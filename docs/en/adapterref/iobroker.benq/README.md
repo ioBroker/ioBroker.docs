@@ -1,6 +1,12 @@
 ![Logo](admin/benq-logo.png)
 # ioBroker BenQ Projector adapter
 
+![Number of Installations](http://iobroker.live/badges/benq-installed.svg) ![Number of Installations](http://iobroker.live/badges/benq-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.benq.svg)](https://www.npmjs.com/package/iobroker.benq)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.benq.svg)](https://www.npmjs.com/package/iobroker.benq)
+[![Tests](https://github.com/instalator/iobroker.benq/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.benq/actions/)   
+
+[![NPM](https://nodei.co/npm/iobroker.benq.png?downloads=true)](https://nodei.co/npm/iobroker.benq/)
+
 [![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
 
@@ -17,9 +23,18 @@ You will also need an Ethernet Shield W5100 or W5500 and an RS232 to TTL convert
 Supported models: W1200, W1070, W1080 to be...
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.3.0 (2024-04-02)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) changed: Testing has been changed to support node 18 and 20
+* (mcm1957) changed: Dependencies have been updated
 
-### 100.0.0
+### 0.2.7
  * (instalator) fix error
+
 ### 0.2.4
  * (instalator) change test
 
@@ -37,6 +52,7 @@ Supported models: W1200, W1070, W1080 to be...
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

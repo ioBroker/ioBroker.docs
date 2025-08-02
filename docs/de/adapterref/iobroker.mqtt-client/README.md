@@ -3,87 +3,102 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-client
-hash: XK5Xtt7JLVj8s1aTQamLmu4JQk7bY/jI6kpXPlHfTXY=
+hash: zW4LoHreN+gpPCnvEs3vSptN0V+v1rINjKN992x61hE=
 ---
 ![Logo](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
-![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.mqtt-client)
-![Downloads](https://img.shields.io/npm/dm/iobroker.mqtt-client.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.mqtt-client/latest)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.mqtt-client)
-![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.mqtt-client)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)
-![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/mqtt-client-stable.svg)
-![Anzahl der Installationen](https://iobroker.live/badges/mqtt-client-installed.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.mqtt-client?style=flat-square)
+![Downloads](https://img.shields.io/npm/dm/iobroker.mqtt-client?label=npm%20downloads&style=flat-square)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.mqtt-client?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.mqtt-client?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.mqtt-client?style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![Letztes GitHub-Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.mqtt-client?logo=github&style=flat-square)
+![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.mqtt-client/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![Beta](https://img.shields.io/npm/v/iobroker.mqtt-client.svg?color=red&label=beta)
+![Stabil](http://iobroker.live/badges/mqtt-client-stable.svg)
+![Eingerichtet](http://iobroker.live/badges/mqtt-client-installed.svg)
 
 # IoBroker.mqtt-client
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/mqtt-client/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml)
+## Versionen
+Veröffentlichen und Abonnieren von ioBroker-Zuständen bei MQTT-Brokern
 
 ## Wachposten
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Adaptereinstellungen
 ![Adapter](../../../en/adapterref/iobroker.mqtt-client/img/settings.png)
 
-### Zum Thema und der Nachricht verbinden
-Die ```on connect message``` werden jedes Mal, wenn der Client eine Verbindung zum Server herstellt oder erneut verbindet, in den ```on connect topic``` veröffentlicht.
+### Zum Verbinden von Thema und Nachricht
+```on connect message``` wird jedes Mal an ```on connect topic``` veröffentlicht, wenn der Client eine Verbindung zum Server herstellt oder wiederherstellt.
 
-### Zum Thema und zur Nachricht trennen
-Die ```on disconnect message``` werden in den ```on disconnect topic``` veröffentlicht, wenn der Adapter ordnungsgemäß beendet wird.
+### Zum Thema und zur Nachricht „Trennung“
+```on disconnect message``` wird an ```on disconnect topic``` veröffentlicht, wenn der Adapter ordnungsgemäß stoppt.
 
-### Letztes Thema und Nachricht
-Die ```last will message``` werden jedes Mal, wenn der Client eine Verbindung zum Server herstellt oder erneut verbindet, in den ```last will topic``` veröffentlicht.
-Der Server speichert diese Nachricht und sendet sie an seine Abonnenten, wenn der Client unerwartet die Verbindung trennt.
+### Thema und Nachricht des letzten Testaments
+Die ```last will message``` wird jedes Mal an die ```last will topic``` gesendet, wenn der Client eine Verbindung zum Server herstellt oder wiederherstellt.
+Der Server speichert diese Nachricht und sendet sie an seine Abonnenten, wenn der Client die Verbindung unerwartet trennt.
 
 ### Abonnements
-Durch Kommas getrennte Liste von Themen, die nicht durch bestehende Staaten abgedeckt werden.
-Empfangene Nachrichten werden in Zustände innerhalb des Namensraums des Adapters (z. B. mqtt.0) umgewandelt und abonniert.
+Durch Kommas getrennte Liste von Themen, die nicht von vorhandenen Status abgedeckt sind.
+Empfangene Nachrichten werden in Status innerhalb des Namespace des Adapters (z. B. mqtt.0) umgewandelt und abonniert.
 Sie können Themen entfernen, nachdem alle Status erstellt wurden.
 
 ### Veröffentlichungspräfix
-Bei der Veröffentlichung wird dies allen Themen vorangestellt.
-Der Standardwert ist leer (kein Präfix).
+Beim Veröffentlichen wird dies allen Themen vorangestellt.
+Standardmäßig ist es leer (kein Präfix).
 
-### Subscribe-Präfix
+### Präfix abonnieren
 Beim Abonnieren wird dies allen Themen vorangestellt.
-Der Standardwert ist leer (kein Präfix).
+Standardmäßig ist es leer (kein Präfix).
 
 ## Statuseinstellungen
 ![Zustand](../../../en/adapterref/iobroker.mqtt-client/img/dialog.png)
 
 ### Ermöglicht
-Aktiviert oder deaktiviert die mqtt-client-Funktionalität für diesen Status.
-Durch die Deaktivierung werden alle MQTT-Client-Einstellungen aus diesem Zustand gelöscht.
+Aktiviert oder deaktiviert die MQTT-Client-Funktionalität für diesen Status.
+Durch Deaktivieren werden alle MQTT-Client-Einstellungen aus diesem Status gelöscht.
 
 ### Thema
-Das Thema, für das dieser Status veröffentlicht und abonniert wurde.
-Standard: State-ID konvertiert in ein MQTT-Thema.
+Das Thema, zu dem dieser Status veröffentlicht und von dem aus er abonniert wird.
+Standard: Status-ID in ein MQTT-Thema konvertiert.
 
 ### Veröffentlichen
-* Der Status „Aktivieren“ wird veröffentlicht
-* Der Status „Ändert sich nur“ wird nur veröffentlicht, wenn sich sein Wert ändert
-* „Als Objekt“ wird der gesamte Staat als Objekt veröffentlicht
+* Der Status „enable“ wird veröffentlicht
+* Der Status „Nur Änderungen“ wird nur veröffentlicht, wenn sich sein Wert ändert.
+* ```als Objekt``` Der gesamte Status wird als Objekt veröffentlicht
 * „qos“ siehe <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
 * „retain“ siehe <http://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages>
 
 ### Abonnieren
-* Das Thema „enable“ wird abonniert und der Status wird entsprechend aktualisiert
+* Das Thema ```enable``` wird abonniert und der Status wird entsprechend aktualisiert.
 * Der Status „Nur Änderungen“ wird nur geschrieben, wenn sich der Wert geändert hat
-* „Als Objekt“-Nachrichten werden als Objekte interpretiert
+* ```als Objekt``` Nachrichten werden als Objekte interpretiert
 * „qos“ siehe <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
-* „ack“ Bei Statusaktualisierungen wird das Bestätigungsflag entsprechend gesetzt
+* ```ack``` bei Statusaktualisierungen wird das Ack-Flag entsprechend gesetzt
 
 #### Notiz
-* Wenn „ack“ auf „true“ gesetzt ist, werden Objekte mit „ack“ überschrieben, siehe „als Objekt“.
-* Um Nachrichtenschleifen zu verhindern, ist „Nur Änderungen“ für das Abonnieren immer aktiviert, wenn sowohl „Veröffentlichen“ als auch „Abonnieren“ aktiviert sind
+* Wenn „ack“ auf „true“ gesetzt ist, wird das „ack“-Objekt überschrieben, siehe „als Objekt“
+* um Nachrichtenschleifen zu vermeiden, ist „Nur Änderungen“ beim Abonnieren immer aktiviert, wenn sowohl „Veröffentlichen“ als auch „Abonnement“ aktiviert sind.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __WORK IN PROGRESS__ -->
+### __IN ARBEIT__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (@klein0r) Added missing information in configuration dialog
+
+### 2.0.0 (2024-06-21)
+* (klein0r) Password is now encrypted - you have to re-renter your password in instance settings!
+* (klein0r) Use jsonConfig instead of materialize (for instance settings)
+
+### 1.8.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 1.7.0 (2023-10-30)
 
 * (mcm1957) Dependencies have been updated
@@ -181,6 +196,7 @@ Standard: State-ID konvertiert in ein MQTT-Thema.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

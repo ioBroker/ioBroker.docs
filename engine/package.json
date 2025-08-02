@@ -1,26 +1,28 @@
 {
   "name": "docs-backend",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "private": true,
   "optionalDependencies": {
     "x509": "^0.3.4"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.18.2",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
     "express-brute": "^1.0.1",
-    "minisearch": "^6.1.0",
+    "minisearch": "^7.1.1",
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@google-cloud/translate": "^8.0.2",
+    "@google-cloud/translate": "^8.5.0",
+    "@iobroker/build-tools": "^2.0.14",
+    "@iobroker/eslint-config": "^1.0.0",
     "gulp": "^4.0.2",
-    "axios": "^1.5.1"
+    "axios": "^1.7.9"
   },
   "scripts": {
     "start": "node main",
     "build-all": "gulp",
-    "update-packages": "ncu --upgrade && cd front-end && ncu --upgrade && cd ..",
+    "update-packages": "npx -y npm-check-updates --upgrade && cd front-end && npx -y npm-check-updates --upgrade && cd ..",
     "npm": "npm i && cd front-end && npm i -f && cd .."
   }
 }

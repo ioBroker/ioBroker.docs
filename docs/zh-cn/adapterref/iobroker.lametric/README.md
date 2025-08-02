@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
+hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
 ---
 ![标识](../../../en/admin/lametric.png)
 
@@ -29,29 +29,35 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
 - [通知](notifications.md)
 
 ＃＃ 要求
--nodejs 14.5（或更高版本）
-- js-controller 4.0.15（或更高版本）
-- 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 固件为 _2.3.8_（2022 年型号为 _3.0.18_）（或更高版本）
+- nodejs 20（或更高版本）
+- js-controller 6.0.0（或更高版本）
+- 管理适配器 7.4.10（或更高版本）
+- _LaMetric Time_ 固件版本 _3.1.4_（或更高版本）
+- 旧型号（2022 年之前生产）的固件为 _2.3.9_（或更高版本）
 
-[固件更改日志](https://firmware.lametric.com) [固件更改日志时间2](https://firmware.lametric.com/?product=time2)
+[固件更新日志](https://firmware.lametric.com) [固件更新日志时间2](https://firmware.lametric.com/?product=time2)
 
 ＃＃ 配置
-您可以获得设备 API 密钥[这里](https://developer.lametric.com/user/devices)。
+1. 将 LaMetric Time 添加到您的本地网络
+- LaMetric Time App（2017 年至 2021 年）- [iOS](https://apps.apple.com/de/app/lametric-time/id987445829)、[Google Play 商店](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
+- LaMetric App（2022 至今）- [iOS](https://apps.apple.com/de/app/lametric/id1502981694)、[Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
+2. 从应用程序复制设备 API 密钥（仅限 2022 及更新型号）。旧型号请使用以下网站：
+
+您可以获取您的设备 API 密钥[这里](https://developer.lametric.com/user/devices)。
 
 ![API 密钥](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ＃＃ 特征
-- 设置显示亮度（百分比、自动模式/手动模式）
+- 设置显示亮度（百分比，自动模式/手动模式）
 - 设置音量（百分比）
-- 配置屏幕保护程序（启用/禁用、基于时间、天黑时）
+- 配置屏幕保护程序（启用/禁用、基于时间、黑暗时）
 - 激活/停用蓝牙并更改蓝牙名称
 - 在应用程序之间切换（下一个、上一个、转到特定应用程序）
-- 使用 blockly 发送通知（可配置优先级、声音、图标、文本……）
+- 使用 blockly 发送通知（具有可配置的优先级、声音、图标、文本等）
 - 控制特殊应用程序，如“时钟”、“收音机”、“秒表”或“天气”
-- 使用_我的数据（DIY）_ LaMetric App 显示持久信息
+- 使用“我的数据（DIY）”LaMetric 应用程序显示持久信息
 
-功能受 [官方API功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) 限制。
+功能受到[官方 API 功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html)的限制。
 
 ## Changelog
 
@@ -59,37 +65,36 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 3.1.1 (2023-10-27)
+### 4.0.0 (2025-04-08)
 
-* (klein0r) Fixed issue with foreign states of version 3.1.0
+NodeJS >= 20.x and js-controller >= 6 is required
 
-### 3.1.0 (2023-10-25)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.4)
 
-NodeJS 16.x is required
+### 3.4.1 (2024-10-29)
 
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.18)
-* (klein0r) Updated admin tab layout (icons, button style)
-* (klein0r) Fixed path of default widgets
+* (@klein0r) Limit frame duration to 10 seconds (limited by LaMetric)
 
-### 3.0.0 (2023-09-13)
+### 3.4.0 (2024-09-06)
 
-* (klein0r) Added push option for My Data DIY
-* (klein0r) Added option to force app reload
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.1.2)
+* (@klein0r) Added support for notification manager
+* (@klein0r) Added validator for icon inputs
+* (@klein0r) Fixed some missing translations
 
-### 2.4.2 (2023-09-08)
+### 3.3.0 (2024-08-05)
 
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
+* (@klein0r) Added api version as state (and check value)
 
-### 2.4.1 (2023-06-10)
+### 3.2.3 (2024-07-21)
 
-* (klein0r) Blockly bugfix
+* (@klein0r) Fixed blockly definitions
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

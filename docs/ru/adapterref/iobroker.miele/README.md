@@ -2,13 +2,13 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.miele/README.md
-title: без названия
+title: нет названия
 hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
 ---
-![логотип](../../../en/adapterref/iobroker.miele/admin/miele.png)
+![Логотип](../../../en/adapterref/iobroker.miele/admin/miele.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.miele.svg)
-![тесты](http://img.shields.io/travis/soef/ioBroker.miele/master.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.miele.svg)
+![Тесты](http://img.shields.io/travis/soef/ioBroker.miele/master.svg)
 ![Статус сборки](https://ci.appveyor.com/api/projects/status/o43a9fj5a19d5n6y?svg=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.miele.svg)
@@ -20,15 +20,15 @@ hash: ntQsuok18FYOQC1Xy1GunSEv+n7xbjy608yxu4r0oqw=
 #### Конфигурация
 Конфигурация не требуется. Первая полученная трансляция создаст все доступные устройства и состояния
 
-#### Монтаж
-Выполните следующую команду в корневом каталоге iobroker (например, в / opt / iobroker)
+#### Установка
+Выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker)
 
 ```
 npm install iobroker.miele
 ```
 
 #### Требования
-Miele gateway, например, XGW 3000 <! -
+Шлюз Miele, например. XGW 3000 <!--
 
 ## License
 The MIT License (MIT)

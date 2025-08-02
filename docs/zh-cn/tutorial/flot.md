@@ -5,7 +5,7 @@ template: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/tutorial/flot.md
-hash: MkFcoC3e4hW4vh6AzuanUKrGZZdwIc9bcKA078LI62A=
+hash: OvYtsG+BRq599Ej1qC6z6XW9UqqcU1rOkBzsObvwWEM=
 ---
-# 带有 Flot 的图表
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
+# 带 Flot 的图表
+?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请记下[ioBroker 风格指南](community/styleguidedoc)，以便更轻松地应用更改。

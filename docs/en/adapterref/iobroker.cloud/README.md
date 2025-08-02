@@ -9,18 +9,18 @@
 This adapter allows connection from the internet through ioBroker cloud to local installation of ioBroker.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Settings
 ### APP-KEY
-To use cloud adapter you should first get the APP-Key on [https://iobroker.net](https://iobroker.net).
+To use cloud adapter, you should first get the APP-Key on [https://iobroker.net](https://iobroker.net).
 
 This is application key that the user can get on [https://iobroker.net](https://iobroker.net) site. Please get the key there and enter it here.
 
 ![Intro](img/intro.png)
 
 ### Instance
-All requests from cloud adapter will be routed to specific WEB Instance. User must specify here the WEB instance, that will be showed to user, when he logs in https://iobroker.net site.
+All requests from cloud adapter will be routed to specific WEB Instance. User must specify here the WEB instance; that will be shown to user, when he logs in https://iobroker.net site.
 
 ### Allow self-signed certificates
 If you use standard iobroker.net cloud, you can deactivate it. This option is only important if own cloud used.
@@ -35,29 +35,29 @@ If you use standard iobroker.net cloud, you can deactivate it. This option is on
 There is a possibility to send messages to cloud adapter.
 If you call `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und value as payload.
 
-```
+```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
 If you set in the settings the field "White list for services" the name *custom_test*, and call with "custom_test" as the service name, the state `cloud.0.services.custom_test` will be set to `myString`.
 
-You may write "*" in white list and all services will be allowed.
+You may write "*" in whitelist and all services will be allowed.
 
 From version 2.0.5 you can use GET request in form `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` to place the `\<data\>` into `cloud.0.services.custom_\<NAME\>`.
 
-Here you can find instructions how to use it with [tasker](doc/tasker.md).
+Here you can find instructions on how to use it with [tasker](doc/tasker.md).
 
-IFTTT service is allowed only if IFTTT key is set.
+IFTTT service is allowed only if an IFTTT key is set.
 
-Reserved names are "ifttt", "text2command", "simpleApi", "swagger". These must be used without the `"custom_"` prefix.
+Reserved names are `ifttt`, `text2command`, `simpleApi`, `swagger`. These must be used without the `"custom_"` prefix.
 
 ### text2command
-You may write `text2command` in white list, you can send POST request to `https://iobroker.net/service/text2command/<user-app-key>` to write data into `text2command.X.text` variable.
+You may write `text2command` in whitelist, you can send POST request to `https://iobroker.net/service/text2command/<user-app-key>` to write data into `text2command.X.text` variable.
 
 "X" can be defined in settings by the "Use text2command instance" option.
 
 ### simpleApi
-You can use following commands (only pro):
+You can use the following commands (only pro):
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - to read state value => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - to read state value => `103.641`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - to set state value => `{"result":"OK"}`
@@ -67,7 +67,7 @@ You can use following commands (only pro):
 ### Limitations
 If HTTPs (Security) or authentication is enabled on defined web-instance, it does not work.
 
-You can deactivate HTTPS and authentication on these web instance, but better is to create a new web instance that is bound to `localhost` and select this instance in cloud-settings.
+You can deactivate HTTPS and authentication on this web instance, but better is to create a new web instance that is bound to `localhost` and select this instance in cloud-settings.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -75,6 +75,16 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) updated socket classes
+* (bluefox) minimum required node.js version is 18
+* (bluefox) used `@iobroker/eslint-config`
+* (bluefox) Rewritten with TypeScript
+
+### 5.0.1 (2024-02-22)
+* (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
+* (bluefox) minimum required node.js version is 16
+
 ### 4.4.1 (2023-04-17)
 * (bluefox) allowed to use "neural" voices for aws text-to-speech engine
 
@@ -93,10 +103,10 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 * (bluefox) Corrected error with iobroker.pro and delete object
 
 ### 4.2.2 (2022-08-24)
-* (bluefox) Corrected error with services list and admin6
+* (bluefox) Corrected error with service's list and admin6
 
 ### 4.2.1 (2022-07-20)
-* (bluefox) Used new version of socket library.
+* (bluefox) Used a new version of a socket library.
 
 ### 4.2.0 (2022-07-05)
 * (bluefox) Added preparations for Admin 6
@@ -128,7 +138,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 * (bluefox) Fixed error with the admin
 
 ### 4.0.8 (2021-01-31)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-CLOUD-S)
 * (bluefox) fix usage of credentials
 
 ### 4.0.7 (2021-01-30)
@@ -213,7 +223,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 * (grimneko) update readme for IFTTT
 
 ### 2.1.0 (2017-12-06)
-* (bluefox) Allow to disable alexa service by state
+* (bluefox) Allowed disabling alexa service by state
 
 ### 2.0.8 (2017-11-28)
 * (bluefox / Philipp Beckers) Translations
@@ -222,29 +232,29 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 * (bluefox) Changes for socket-io
 
 ### 2.0.6 (2017-10-26)
-* (bluefox) Fix small error in configuration
+* (bluefox) Fixed small error in configuration
 * (bluefox) Send uuid to cloud for authentication
 
 ### 2.0.5 (2017-09-26)
 * (bluefox) The small custom service reaction improvement
 
 ### 2.0.4 (2017-09-12)
-* (bluefox) Allow access to admin via iobroker.pro
-* (c-klinger) Add settings for the connection timeout
+* (bluefox) Allowed access to admin via iobroker.pro
+* (c-klinger) Added settings for the connection timeout
 
 ### 1.0.8 (2017-07-13)
-* (bluefox) Allow control light colors
+* (bluefox) Allowed control light colors
 
 ### 1.0.7 (2017-06-26)
 * (bluefox) AI deactivated
-* (bluefox) change ping interval from 10 to 30 seconds
+* (bluefox) changed a ping interval from 10 to 30 seconds
 * (bluefox) fix double auth on connect
 
 ### 1.0.3 (2017-05-23)
 * (bluefox) Rename some german words
 
 ### 1.0.2 (2017-05-23)
-* (bluefox) Support of IFTTT
+* (bluefox) Support for IFTTT
 
 ### 1.0.0 (2017-05-22)
 * (bluefox) Catch an error if the invalid smart name set
@@ -252,7 +262,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 ### 0.8.2 (2017-04-24)
 * (bluefox) controls of colors (english only)
 * (bluefox) request temperature (target temperature and sensor temperature, english only)
-* (bluefox) support of double names
+* (bluefox) support for double names
 
 ### 0.7.1 (2017-04-05)
 * (bluefox) Fixed reconnection
@@ -271,7 +281,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 * (bluefox) Add workaround for alexa reconnection
 
 ### 0.6.9 (2017-02-17)
-* (bluefox) Allow to use more than one smart name
+* (bluefox) Allowed using more than one smart name
 
 ### 0.6.8 (2017-02-16)
 * (bluefox) Fix deactivation of enums
@@ -310,7 +320,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 ### 0.3.3 (2017-01-02)
 * (bluefox) Fix error with smartNames
 * (bluefox) Take the superset of actions for group and not the last one
-* (bluefox) if group has switches and dimmers, turn devices OFF if the percent level is less than 30%
+* (bluefox) if a group has switches and dimmers, turn devices OFF if the percent level is less than 30%
 * (bluefox) Remember ON level for dimmers to switch it later ON
 
 ### 0.3.0 (2016-12-29)
@@ -331,7 +341,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,52 +1,49 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.odl.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.odl.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/odl-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/odl-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.odl.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.odl/README.md
 title: ioBroker.odl
-hash: ja4539IBHaJhsGqx+/ckSuW2iq2HTI33OsHJQcGkIBk=
+hash: XICJIRZWFL65xVqSL7iwuADAvVWWButIZezWf1Qqpp0=
 ---
-![标识](../../../en/adapterref/iobroker.odl/admin/odl.png)
+#ioBroker.odl
+![标识](../../../en/admin/odl.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.odl.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.odl.svg)
-![安装数量（最新）](https://iobroker.live/badges/odl-installed.svg)
-![安装数量（稳定）](https://iobroker.live/badges/odl-stable.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.odl.png?downloads=true)
+## IoBroker 中的当前环境放射性
+该适配器将德国[联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/)指定测量点的 ODL（环境剂量率/环境剂量率）值集成到 ioBroker 中。
 
-# IoBroker.odl
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/odl/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+德国联邦辐射防护局 (BfS) 的 ODL 测量网络使用约 1700 个测量探头，全天候监测环境中天然放射性物质的辐射水平。该测量网络具有重要的预警功能，能够快速检测德国空气中放射性物质的辐射水平。
+获取的测量数据由 BfS 收集和评估，并根据《德国数据许可证》公开。
 
-**测试：** ![测试与发布](https://github.com/crycode-de/iobroker.odl/workflows/Test%20and%20Release/badge.svg)
+有关环境剂量率的更多详细信息，请参阅<https://odlinfo.bfs.de/>。
 
-## IoBroker 的 ODL 适配器
-该适配器将德国 [联邦辐射防护办公室 (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) 指定测量点的 ODL（Ortsdosisleistung / 环境剂量率）值集成到 ioBroker 中。
+此适配器使用[BfS提供的官方数据接口](https://odlinfo.bfs.de/ODL/EN/service/data-interface/data-interface_node.html)下载当前 1 小时测量数据的平均值。BfS
 
-有关德国环境剂量率的更多信息，请访问 <https://odlinfo.bfs.de/>。
+Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [BfS 日期办公室](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html)。 BfS 是适配器使用的数据的发起者。
+所有数据均由适配器以数据接口传递的未更改形式提供。
 
----
+如果检测到某些值状态的启用历史记录适配器（_history_、_influxdb_ 或 _sql_），适配器会尝试通过下载缺失值来填充历史记录中的缺失值，以创建完整的历史记录。
 
-## IoBroker 中的 aktuelle Umweltradioaktivität
-Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählten Messstellen des [德国联邦安全局 (BfS)](https://www.bfs.de/) in ioBroker.
+默认情况下，适配器每小时更新一次当前测量数据。较短的更新间隔通常没有意义，因为 BfS 服务器上的底层测量数据（取决于测量点）通常每小时更新一次。
+适配器首次启动时，会自动调整数据检索时间，以便并非所有安装都同时检索数据，从而避免 BfS 数据接口不必要地加载。
 
-Das Bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen werden werden vom BfS gesammelt, ausgewertet und öffentlich under _Datanliizenz Deutschland_ zur Verfügung gestellt.
+[![截图 1](../ioBroker-odl-01.png)](../../../en/adapterref/ioBroker-odl-01.png)
 
-请参阅 ODL siehe <https://odlinfo.bfs.de/> 的信息。
+[![截图2]（../ioBroker-odl-02.png）](../../../en/adapterref/ioBroker-odl-02.png)
 
-Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [BfS 日期办公室](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html)。 Das BfS ist Urheber der vom Adapter verwendeten Daten。
-所有数据均以 Unveränderter 形式显示，因此请参阅数据表中的数据，将适配器置于其上。
+## 查找测量站的ID
+要找到适配器所需的 ID，您需要打开 [ODL-Info 上的测量站列表](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) 并搜索测量站。
 
-激活历史适配器（_history_、_influxdb_ 或 _sql_），以便在状态发生时，在适配器自动执行历史数据时，该数据会落入其中，并自动执行该操作。
+如果您打开所需的测量站，您可以在浏览器的 URL 中找到其 ID，即`?id=...`。
 
-请注意适配器标准的最新信息。在任何时间间隔内，BfS-Server (abhängig von der Messstelle) 都会产生重大影响。
-首先启动适配器以自动获取数据的时间，然后安装数据并在 BfS 上安装数据。
+测量点_Berlin-Karlshorst_ 的示例：
 
-[![屏幕截图 1](./docs/ioBroker-odl-01.png)](../../../en/adapterref/iobroker.odl/docs/ioBroker-odl-01.png)
-
-[![截图2](./docs/ioBroker-odl-02.png)](../../../en/adapterref/iobroker.odl/docs/ioBroker-odl-02.png)
-
----
-
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+* 网址：`https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
+* ID：`110000006`
 
 ## Changelog
 
@@ -54,6 +51,27 @@ Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt üb
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.0 (2025-05-25)
+
+* (crycode-de) Node.js >= 20, Admin >= 7.4.10 required
+* (crycode-de) Updated dependencies
+* (crycode-de) Added information how to get the required IDs of the measuring stations
+
+### 4.0.2 (2024-11-16)
+
+* (crycode-de) Added missing sizes to jsonConfig
+
+### 4.0.1 (2024-10-23)
+
+* (crycode-de) Added support for tiny screens to jsonConfig
+* (crycode-de) Updated dependencies
+
+### 4.0.0 (2024-09-23)
+
+* (crycode-de) Node.js >= 18, Admin >= 6.17, js-contoller >= 5.0.19 are required
+* (crycode-de) Migrate to jsonConfig
+* (crycode-de) Updated dependencies
+
 ### 3.0.1 (2023-09-27)
 
 * (crycode-de) Node.js >= 16 is required
@@ -152,9 +170,9 @@ Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt üb
 
 ## License
 
-Copyright (c) 2019-2023 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2025 Peter Müller <peter@crycode.de>
 
-Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
+Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data License Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 
 ### MIT License
 

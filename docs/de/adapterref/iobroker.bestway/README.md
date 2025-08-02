@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bestway/README.md
 title: ioBroker.bestway
-hash: gkxOBvP/GTDL6DPZZyWo1f0e6eWzZU3h3kqNQaJRKFI=
+hash: aVYd28AjLM0etmyUCyGg+E7880tjgZIVKzeklZTIzi0=
 ---
 ![Logo](../../../en/adapterref/iobroker.bestway/admin/bestway.png)
 
@@ -14,30 +14,36 @@ hash: gkxOBvP/GTDL6DPZZyWo1f0e6eWzZU3h3kqNQaJRKFI=
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.bestway.svg)
 ![NPM](https://nodei.co/npm/iobroker.bestway.png?downloads=true)
 
-#ioBroker.bestway
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.bestway/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.bestway
+**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.bestway/workflows/Test%20and%20Release/badge.svg)
 
-## Bestway Adapter für ioBroker
+## Bestway-Adapter für ioBroker
 Adapter für Bestway Smart Hub
 
-##Anmeldeablauf:
+## Loginablauf:
 Die Bestway Smart Hub App Mail und Passwort eingeben.
 
-##Steuern
-bestway.0.id.remote auf true setzen steuert den jeweiligen Befehl
+## Steuern
+bestway.0.id.remote auf true setzt steuert den jeweiligen Befehl
 
 ## Diskussion und Fragen:
 https://forum.iobroker.net/topic/48023/test-adapter-bestway-v0-0-x
 
 ## Changelog
 
+### 0.0.5
+
+Support for v2 pump version
+
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -24,58 +24,71 @@ This adapter connects ioBroker to various VBus-based devices using resol-vbus, a
 * Device access using the VBus/USB serial interface adapter or via VBus.net(R) using DLx/KMx is also supported.
 * Processes live VBus data streams and makes them available as ioBroker states.
 * Values are updated with a configurable cycle time.
-* Reading or setting the VBus device configuration parameters is not supported. The tools provided by Resol should be used for this, e.g. via VBus.net or the parameterization tool RPT.
+* Reading or setting the VBus device configuration parameters is not supported. The tools provided by Resol should be used for this, e.g. via VBus.net or the parameterization tool RPT.  
+A derived version of this adapter supporting control of VBus devices is available at <https://github.com/Grizzelbee/ioBroker.resol>
 * Reading DL3 channel 0 (sensors directly connected to the DL3 device) is not supported due to limitations of the DL3 interface.
 
 ## Configuration hints
 
-* The default setting for the connection type is VBus/LAN, but it must be explicitly selected even for VBus/LAN, otherwise no connection will be established.
+* The connection device type e.g. VBus/LAN or DL2. Must be explicitly selected, otherwise no connection will be established.
+* TCP connection port: Only relevant or LAN-based access. The default setting 7053 should not be changed
+* Device password: The password which you have set in your connection device (default: vbus)
+* DL3 channel: Only relevant for DL3/DL2Plus - leave at "None" for all other connection devices.  
+(allowed values: 1-6, channel 0 cannot be read out)
+* Via Tag: Only relevant for DL3, DL2, KM2 access via VBus.net - leave blank for all other connection devices.
+* Update interval: The time between updates of the measured values (default 30s)
+* The correct settings for direct serial interface access for VBus/USB are:
+  * Connection Device: VBus/USB
+  * Device Address: The path to the serial port to which the serial interface adapter is connected like  
+  '/dev/ttyUSB0' or  
+  '/dev/serial/by-id/usb-Silicon_Labs_USB-Modul_UO2102_TDEB6I8DAVDLGAGC-if00-port0' or  
+  '/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4.1:1.0-port0' for Linux or  
+  'COM5' for Windows-based ioBroker platforms
 * The correct settings for direct LAN access for VBus/LAN, DL3, DL2, KM2 are:
-  * Connection type: VBus/LAN or KM2 or DL2 or DL3
-  * Connection identifier: IP address (e.g. 192.168.178.188) or FullyQualifiedHostName (e.g. host1.example.com)
-  * VBus password: YourVBusPassword (default: vbus)
-  * Connection port: Default setting 7053 should not be changed
-  * DL3 channel: Only relevant for DL3 (values 1-6, channel 0 can not be read out)
-  * Update interval: Time between updates of the measured values (default 30s)
+  * Connection Device: VBus/LAN or KM2/DL2 or DL3/DL2Plus
+  * Device Address: IP address (e.g. 192.168.178.188) or FullyQualifiedHostName (e.g. myKM2.fritz.box)
 * The correct settings for the DL3, DL2, KM2 access via VBus.net are:
-  * Connection type: DL3 or DL2 or KM2
-  * Connection identifier: vbus.net (or vbus.io) - both without http:// and Via identifier!
-  * Connection port: Default setting 7053 should not be changed
-  * VBus password: YourVBusPassword (default: vbus)
-  * DL3 channel: Only relevant for DL3 (values: 1-6, channel 0 cannot be read out)
-  * Via identifier: YourViaIdentifier (e.g. d1234567890) - without http:// before or .vbus.io behind
-  * Update interval: Time between the update of the measured values (default 30s)
+  * Connection Device: DL3/DL2Plus or DL2/KM2
+  * Device Address: vbus.net (or vbus.io) - both without http:// and Via identifier!  
+  * Via Tag: YourViaIdentifier (e.g. d1234567890) - without http:// before or .vbus.io behind
 
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+
+### 0.5.1 (2025-02-15)
+
+* (pdbjjens) Fix: Removed attribute "contributor" from package.json (#718)
+
+### 0.5.0 (2025-01-30) - 2025H1 maintenance release
+
+* (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
+* (pdbjjens) Change: Migration to ESLint 9
+* (simatec) Responsive Design added
+
+### 0.4.0 (2024-08-13) - 2024H2 maintenance release
+
+* (pdbjjens) Change: node>=18, js-controller>=5 and admin>=6 required
+* (pdbjjens) Change: Removed .npmignore
+* (pdbjjens) New: Updated dependencies
+
+### 0.3.0 (2024-01-24) - 2024 maintenance release
+
+* (pdbjjens) New: Use JSON config UI
+* (pdbjjens) New: Support ioBroker discovery
+* (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
+* (pdbjjens) Updated dependencies
+* (pdbjjens) Fix: Set info.connection false when reconnecting
+
 ### 0.2.5 (2023-03-14)
 
 * (pdbjjens) Updated dependencies
 * (pdbjjens) Fix: reconnect handling for serial connections
-
-### 0.2.4 (2023-03-01)
-
-* (pdbjjens) Fix password check
-
-### 0.2.3 (2023-02-27) - 2023 maintenance release
-
-* (pdbjjens) Updated dependencies
-* (pdbjjens) New: Use adapter-dev instead of gulp translate
-* (pdbjjens) Fix: error handling for serial connections
-
-### 0.2.2 (2022-02-11)
-
-* Updated dependencies
-* Compatibility check for js-controller 4.0
-* Support for js-controller 1.x dropped
-
-### 0.2.1 (2021-08-18)
-
-* Update dependencies
-* Changed allowed range of temperature values to include the error values for short circuit and open circuit
 
 ## Legal Notices
 
@@ -89,7 +102,7 @@ The authors are in no way endorsed by or affiliated with RESOL GmbH, or any asso
 
 MIT License
 
-Copyright (c) 2023 Jens-Peter Jensen <jjensen@t-online.de>
+Copyright (c) 2025 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

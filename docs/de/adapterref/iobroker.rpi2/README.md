@@ -3,54 +3,59 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rpi2/README.md
 title: kein Titel
-hash: R9fOiJyoT2DZytnnC+cE6C+nwMWndONVOBFvcpla20A=
+hash: cWeo+oq08XAAh++hWgPAHjLTCo8IlnCkgOpYAAeWOEM=
 ---
-![Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) ioBroker RPI-Monitor-Adapter
+![Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) ioBroker RPI-Monitor-Adapter
 
-![Anzahl der Installationen](http://iobroker.live/badges/rpi2-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.rpi2.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.rpi2.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/rpi2-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/rpi2-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
 
 ==============
 
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-RPI-Monitor-Implementierung zur Integration in ioBroker. Es ist die gleiche Implementierung wie bei iobroker.rpi, jedoch mit GPIOs.
+**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die gleiche Implementierung wie für iobroker.rpi, jedoch mit GPIOs.
 
 ## Wichtige Informationen
-Funktioniert nur mit Knoten >= 0.12
+Funktioniert nur mit Knoten >= 18
 
-**ioBroker benötigt spezielle Berechtigungen, um GPIOs zu steuern.** Bei den meisten Linux-Distributionen kann dies erreicht werden, indem der ioBroker-Benutzer zur Gruppe `gpio` hinzugefügt wird (empfohlen) oder ioBroker unter `root` ausgeführt wird (weniger sicher).
+**ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Bei den meisten Linux-Distributionen kann dies erreicht werden, indem der ioBroker-Benutzer zur Gruppe `gpio` hinzugefügt wird (empfohlen) oder ioBroker unter `root` ausgeführt wird (weniger sicher).
+
+Damit GPIO funktioniert, müssen Sie libgpiod **vor** der Installation des Adapters installieren, und zwar wie folgt: `sudo apt-get install -y libgpiod-dev`
 
 ## Installation
-Nach der Installation müssen Sie alle benötigten Module über die Administrationsseite konfigurieren.
+Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
 
-Nach dem Start von iobroker.rpi erzeugen alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname> z.B. rpi.0.cpu
+Nach dem Start von iobroker.rpi generieren alle ausgewählten Module einen Objektbaum in ioBroker innerhalb von rpi.<Instanz>.<Modulname>, z. B. rpi.0.cpu
 
-Stellen Sie sicher, dass Python und build-essential installiert sind:
+Stellen Sie sicher, dass Python und Build-Essential installiert sind:
 
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential python
+sudo apt-get install -y libgpiod-dev
 ```
 
-Folgende Objekte stehen nach Auswahl zur Verfügung:
+(letzteres ist nur notwendig, wenn Sie mit GPIOs arbeiten möchten)
 
-#### **ZENTRALPROZESSOR**
-- CPU_Frequenz
+Folgende Objekte stehen nach der Auswahl zur Verfügung:
+
+#### **CPU**
+- CPU-Frequenz
 - laden1
 - laden5
-- Last15
+- Belastung15
 
-#### **Himbeere (vcgencmd ist erforderlich)**
-- CPU_Spannung
+#### **Raspberry (vcgencmd ist erforderlich)**
+- CPU-Spannung
 - mem_arm
-- mem_gpu
+mem_gpu
 
 #### **Erinnerung**
-- Speicher_verfügbar
-- memory_free
-- memory_total
+- verfügbarer Speicher
+- speicherfrei
+- Gesamtspeicher
 
 #### **Netzwerk (eth0)**
 - net_received
@@ -69,45 +74,42 @@ Folgende Objekte stehen nach Auswahl zur Verfügung:
 #### **Temperatur**
 - soc_temp
 
-#### **Verfügbarkeit**
+#### **Betriebszeit**
 - Betriebszeit
 
 #### **WLAN**
-- wifi_received
-- wifi_send
+- WLAN empfangen
+- WLAN_senden
 
-## Aufbau
+## Konfiguration
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
-- ZENTRALPROZESSOR
+- CPU
 - Himbeere
 - Erinnerung
-- Netzwerk
-- SD-Karte
+Netzwerk
+SD-Karte
 - Tauschen
 - Temperatur
 - Betriebszeit
-- WLAN
+WLAN
 
-## Logfiles / Konfigurationseinstellungen
-## Eigenschaften
-## Machen
-## Getestete Hardware
- - Odroid C1
- - Raspberry Pi 1
+### NVME-Temperatur
+Seit Adapterversion 2.3.2 können Sie die NVMe-Temperatur ablesen. Dazu müssen Sie das Paket `nvme-cli` auf Ihrem System installieren.
+Sie können dies mit dem folgenden Befehl tun: `sudo apt-get install nvme-cli`. Sie müssen den Befehl außerdem zur ioBroker-Sudoers-Datei `/etc/sudoers.d/iobroker` hinzufügen. Öffnen Sie diese mit einem Editor, zum Beispiel nano: `sudo nano /etc/sudoers.d/iobroker`, und fügen Sie am Ende die folgende Zeile hinzu: `nvme smart-log /dev/nvme0`.
 
 ## GPIOs
 Sie können auch GPIOs lesen und steuern.
-Alles was Sie tun müssen, ist in den Einstellungen die GPIOs-Optionen zu konfigurieren (zusätzlicher Reiter).
+Sie müssen lediglich in den Einstellungen die GPIO-Optionen konfigurieren (zusätzliche Registerkarte).
 
 ![GPIOs](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
-Nachdem einige Ports aktiviert wurden, erscheinen folgende Zustände im Objektbaum:
+Nachdem einige Ports aktiviert wurden, werden im Objektbaum folgende Zustände angezeigt:
 
 - rpi.0.gpio.PORT.state
 
-Die Nummerierung der Ports ist BCM (BroadComm Pins on Chip). Die Aufzählung erhalten Sie mit ```gpio readall```.
-Zum Beispiel PI2:
+Die Nummerierung der Ports erfolgt in BCM (BroadComm Pins on Chip). Die Nummerierung erhalten Sie mit ```gpio readall```.
+Beispiel: PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -139,73 +141,55 @@ Zum Beispiel PI2:
 ```
 
 ## DHTxx/AM23xx-Sensoren
-Sie können von den Temperatur-/Feuchtesensoren DHT11, DHT22 und AM2302 ablesen.
+Sie können von den Temperatur-/Feuchtigkeitssensoren DHT11, DHT22 und AM2302 lesen.
 
-Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der [Knoten-dht-Sensor](https://www.npmjs.com/package/node-dht-sensor) Paketseite beschrieben. Mehrere Sensoren können wie besprochen an *mehrere* Pins angeschlossen werden (dies ist *kein* ein Bussystem).
+Schließen Sie einen solchen Sensor an einen GPIO-Pin an, wie auf der Paketseite [Knoten-DHT-Sensor](https://www.npmjs.com/package/node-dht-sensor) beschrieben. Mehrere Sensoren können wie beschrieben an *mehrere* Pins angeschlossen werden (dies ist *kein* Bussystem).
 
 ## Changelog
 
-### 1.3.1 (2021-07-16)
-* (Apollon77) Prevent js-controller 3.3 warnings
+<!--
+	PLACEHOLDER for the next version:
+	### **WORK IN PROGRESS**
+-->
+### 2.4.0 (2025-03-06)
+* (Garfonso) read the current state of GPIO outputs during adapter startup.
+* (Garfonso) re-read GPIO input, if set by the user (with ack=false).
+* (Garfonso) add an option to invert true/false mapping to 1/0.
+* (Garfonso) Allow multiple instances of this adapter per host.
+* (Garfonso) tried to improve initialization of GPIO inputs.
 
-### 1.3.0 (2021-07-16)
-* (asgothian) Fix to get CPU frequencies also on Raspi 4
-* (raintor) Add support for DHTxx/AM23xx Sensors
-* (raintor) Configure internal Pull UP/Down Resistor
-* (raintor) Add port 'label'/'friendly name' to GPIO config
+### 2.3.2 (2025-02-06)
+* (asgothian) added support for NVMe temperature (needs additional configuration, see README)
+* (Garfonso) fixed inital values for outputs.
 
-### 1.2.0 (2020-01-17)
-- (janfromberlin) GPIO configuration as output with defined initial value
-- (foxriver76) No longer use adapter.objects
-- (Apollon77) Adjust gpio errors
+### 2.3.1 (2025-01-06)
+* (Garfonso) fixed: GPIO library failed to load after recent dependency update.
 
-### 1.1.1
-- (Apollon77) Error messages for not existing values are logged only once
+### 2.3.0 (2024-12-23)
+* (Garfonso) correct interpretation of start value setting. Output with initial value 0/1 will set GPIO accordingly during startup. Output without an initial state will not set GPIO at all.
 
-### 1.1.0
- - (Apollon77) Nodejs 10 support 
-
-### 1.0.0 (2018-08-20)
- - (bluefox) Admin3 support 
-
-### 0.3.2 (2017-11-29)
- - (Homoran) fixed Mem available readings on Stretch
-
-### 0.3.1 (2017-01-11)
- - (olifre) Fixup swap_used calculation.
-
-### 0.2.2 (2016-12-01)
- - (bluefox) Add GPIO direction indication
-
-### 0.2.2 (2016-11-22)
- - (bluefox) Use BCM enumeration
-
-### 0.2.1 (2016-10-29)
- - (bluefox) fix start of adapter
-
-### 0.2.0 (2016-10-23)
- - (bluefox) just version change
-
-### 0.1.1 (2016-10-13)
- - (bluefox) implement GPIOs control
-
-### 0.0.4 (2016-03-25)
- - (bluefox) Try catch by eval
-   (bluefox) do not process if exec fails
-
-### 0.0.3 (2015-12-28)
- - (husky-koglhof) Fixed value calc.
-   Set Value to 2 digits
-
-### 0.0.2 (2015-12-26)
- - (husky-koglhof) Workaround for node 0.10.x
- - (bluefox) Some Fixes
-
-### 0.0.1 (2015-12-23)
- - Initial commit. Alpha Version.
+### 2.2.2 (2024-11-02)
+* (simatec) responsive design for settings page added
 
 ## License
-
-Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
-
 MIT License
+
+Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

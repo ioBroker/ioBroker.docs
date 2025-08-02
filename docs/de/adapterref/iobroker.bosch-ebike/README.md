@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bosch-ebike/README.md
 title: ioBroker.bosch-ebike
-hash: PkZX28hM7GnCM5fYrBxfjv76FUC9YJn5h9c+iB4OTLc=
+hash: FFYmulm05/mMJR7iazCpBbpKu3Ara/b79d2BHM6vzW8=
 ---
 ![Logo](../../../en/adapterref/iobroker.bosch-ebike/admin/bosch-ebike.png)
 
@@ -15,29 +15,32 @@ hash: PkZX28hM7GnCM5fYrBxfjv76FUC9YJn5h9c+iB4OTLc=
 ![NPM](https://nodei.co/npm/iobroker.bosch-ebike.png?downloads=true)
 
 # IoBroker.bosch-ebike
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.bosch-ebike/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.bosch-ebike/workflows/Test%20and%20Release/badge.svg)
 
-## Bosch-eBike-Adapter für ioBroker
+## Bosch-Ebike-Adapter für ioBroker
 Adapter für Bosch eBike
 
-## Anmeldeablauf
+## Loginablauf
 Die Bosch eBike Mail und Passwort eingeben.
 
 ## Steuern
 bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
-##Diskussion und Fragen
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog
 
-### 0.0.3
-* (TA2k) login fix
+### 0.1.5
+
+- (TA2k) login fix
 
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

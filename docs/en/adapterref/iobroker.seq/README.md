@@ -6,7 +6,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)](https://www.npmjs.com/package/iobroker.seq)
 ![Number of Installations (latest)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![Number of Installations (stable)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-[![dependencies Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq)
+[![dependencies Status](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)](https://nodei.co/npm/iobroker.seq/)
@@ -33,8 +33,11 @@ It is also possible to apply a filter to the log levels and also to the adapters
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### 0.3.0 (2023-07-25)
 
+### __WORK IN PROGRESS__
+- (arteck) transfer to arteck
+
+### 0.3.0 (2023-07-25)
 - (o0shojo0o) added adminTab
 - (o0shojo0o) added adapter to TIER 1
 
@@ -124,7 +127,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

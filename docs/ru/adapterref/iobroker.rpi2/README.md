@@ -2,61 +2,66 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
-title: без заголовка
-hash: R9fOiJyoT2DZytnnC+cE6C+nwMWndONVOBFvcpla20A=
+title: нет названия
+hash: cWeo+oq08XAAh++hWgPAHjLTCo8IlnCkgOpYAAeWOEM=
 ---
-![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) Адаптер ioBroker RPI-Monitor
+![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi2.png) Адаптер ioBroker RPI-монитор
 
-![Количество установок](http://iobroker.live/badges/rpi2-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.rpi2.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.rpi2.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
+![Количество установок](https://iobroker.live/badges/rpi2-installed.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/rpi2-stable.svg)
+![НПМ](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
 
 ==============
 
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
+**Тесты:** ![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.rpi2/workflows/Test%20and%20Release/badge.svg) Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
 
 ## Важная информация
-Работает только с node> = 0.12
+Работает только с узлом >= 18
 
-** ioBroker требуются особые разрешения для управления GPIO. ** В большинстве дистрибутивов Linux это может быть достигнуто путем добавления пользователя ioBroker в группу `gpio` (рекомендуется) или запуска ioBroker под `root` (менее безопасно).
+**ioBroker требуются специальные разрешения для управления GPIO.** В большинстве дистрибутивов Linux этого можно добиться, добавив пользователя ioBroker в группу `gpio` (рекомендуется) или запустив ioBroker под учетной записью `root` (менее безопасно).
 
-## Монтаж
+Для работы gpio необходимо установить libgpiod **перед** установкой адаптера, например так: `sudo apt-get install -y libgpiod-dev`
+
+## Установка
 После установки вам необходимо настроить все необходимые модули через страницу администрирования.
 
-После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker в пределах rpi. <instance>. <modulename>, например. rpi.0.cpu
+После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker в rpi.<instance>.<modulename> например rpi.0.cpu
 
 Убедитесь, что установлены python и build-essential:
 
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential python
+sudo apt-get install -y libgpiod-dev
 ```
+
+(последний необходим только если вы хотите работать с GPIO)
 
 После выбора доступны следующие объекты:
 
 #### **ПРОЦЕССОР**
-- cpu_frequency
-- load1
-- load5
-- load15
+- частота_процессора
+- нагрузка1
+- нагрузка5
+- нагрузка15
 
-#### **Малина (требуется vcgencmd)**
-- cpu_voltage
+#### **Raspberry (требуется vcgencmd)**
+- напряжение_процессора
 - mem_arm
 - mem_gpu
 
-#### **Объем памяти**
-- memory_available
-- memory_free
-- memory_total
+#### **Память**
+- память_доступна
+- память_свободна
+- память_всего
 
 #### **Сеть (eth0)**
 - net_received
 - net_send
 
-#### **SD Card**
+#### **SD-карта**
 - sdcard_boot_total
 - sdcard_boot_used
 - sdcard_root_total
@@ -69,11 +74,11 @@ sudo apt-get install -y build-essential python
 #### **Температура**
 - soc_temp
 
-#### **Время работы**
+#### **Время безотказной работы**
 - время безотказной работы
 
-#### **WLAN**
-- wifi_received
+#### **Беспроводная ЛВС**
+- wifi_получен
 - wifi_send
 
 ## Конфигурация
@@ -81,24 +86,21 @@ sudo apt-get install -y build-essential python
 
 - ПРОЦЕССОР
 - Малина
-- Объем памяти
+- Память
 - Сеть
-- SD Card
+- SD-карта
 - Менять
-- температура
+- Температура
 - Время безотказной работы
-- WLAN
+- Беспроводная локальная сеть
 
-## Файлы журнала / Настройки конфигурации
-## Функции
-## Делать
-## Протестированное оборудование
- - Odroid C1
- - Raspberry Pi 1
+### Температура NVME
+Начиная с версии адаптера 2.3.2 вы можете считывать температуру NVMe. Для этого вам необходимо установить пакет `nvme-cli` в вашей системе.
+Это можно сделать с помощью следующей команды: `sudo apt-get install nvme-cli`. Вам также необходимо добавить команду в файл ioBroker sudoers `/etc/sudoers.d/iobroker`. Откройте его с помощью редактора, например nano: `sudo nano /etc/sudoers.d/iobroker` и добавьте следующую строку: `nvme smart-log /dev/nvme0` в конец.
 
 ## GPIO
 Вы также можете читать и управлять GPIO.
-Все, что вам нужно сделать, это настроить в настройках параметры GPIO (дополнительная вкладка).
+Все, что вам нужно сделать, это настроить параметры GPIO в настройках (дополнительная вкладка).
 
 ![GPIO](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
@@ -106,7 +108,7 @@ sudo apt-get install -y build-essential python
 
 - rpi.0.gpio.PORT.state
 
-Нумерация портов - BCM (контакты BroadComm на кристалле). Вы можете получить перечисление с помощью ```gpio readall```.
+Нумерация портов — BCM (контакты BroadComm на чипе). Вы можете получить нумерацию с помощью ```gpio readall```.
 Например, PI2:
 
 ```
@@ -138,74 +140,56 @@ sudo apt-get install -y build-essential python
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-## Датчики DHTxx / AM23xx
-Вы можете считывать показания датчиков температуры / влажности DHT11, DHT22 и AM2302.
+## Датчики DHTxx/AM23xx
+Вы можете считывать показания с датчиков температуры/влажности DHT11, DHT22 и AM2302.
 
-Подключите такой датчик к контакту GPIO, как описано на странице пакета [узел-dht-сенсор](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков могут быть подключены к *нескольким* контактам (это *не* шинная система), как обсуждалось.
+Подключите такой датчик к выводу GPIO, как описано на странице пакета [узел-dht-датчик](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков можно подключить к *нескольким* выводам (это *не* шинная система), как обсуждалось.
 
 ## Changelog
 
-### 1.3.1 (2021-07-16)
-* (Apollon77) Prevent js-controller 3.3 warnings
+<!--
+	PLACEHOLDER for the next version:
+	### **WORK IN PROGRESS**
+-->
+### 2.4.0 (2025-03-06)
+* (Garfonso) read the current state of GPIO outputs during adapter startup.
+* (Garfonso) re-read GPIO input, if set by the user (with ack=false).
+* (Garfonso) add an option to invert true/false mapping to 1/0.
+* (Garfonso) Allow multiple instances of this adapter per host.
+* (Garfonso) tried to improve initialization of GPIO inputs.
 
-### 1.3.0 (2021-07-16)
-* (asgothian) Fix to get CPU frequencies also on Raspi 4
-* (raintor) Add support for DHTxx/AM23xx Sensors
-* (raintor) Configure internal Pull UP/Down Resistor
-* (raintor) Add port 'label'/'friendly name' to GPIO config
+### 2.3.2 (2025-02-06)
+* (asgothian) added support for NVMe temperature (needs additional configuration, see README)
+* (Garfonso) fixed inital values for outputs.
 
-### 1.2.0 (2020-01-17)
-- (janfromberlin) GPIO configuration as output with defined initial value
-- (foxriver76) No longer use adapter.objects
-- (Apollon77) Adjust gpio errors
+### 2.3.1 (2025-01-06)
+* (Garfonso) fixed: GPIO library failed to load after recent dependency update.
 
-### 1.1.1
-- (Apollon77) Error messages for not existing values are logged only once
+### 2.3.0 (2024-12-23)
+* (Garfonso) correct interpretation of start value setting. Output with initial value 0/1 will set GPIO accordingly during startup. Output without an initial state will not set GPIO at all.
 
-### 1.1.0
- - (Apollon77) Nodejs 10 support 
-
-### 1.0.0 (2018-08-20)
- - (bluefox) Admin3 support 
-
-### 0.3.2 (2017-11-29)
- - (Homoran) fixed Mem available readings on Stretch
-
-### 0.3.1 (2017-01-11)
- - (olifre) Fixup swap_used calculation.
-
-### 0.2.2 (2016-12-01)
- - (bluefox) Add GPIO direction indication
-
-### 0.2.2 (2016-11-22)
- - (bluefox) Use BCM enumeration
-
-### 0.2.1 (2016-10-29)
- - (bluefox) fix start of adapter
-
-### 0.2.0 (2016-10-23)
- - (bluefox) just version change
-
-### 0.1.1 (2016-10-13)
- - (bluefox) implement GPIOs control
-
-### 0.0.4 (2016-03-25)
- - (bluefox) Try catch by eval
-   (bluefox) do not process if exec fails
-
-### 0.0.3 (2015-12-28)
- - (husky-koglhof) Fixed value calc.
-   Set Value to 2 digits
-
-### 0.0.2 (2015-12-26)
- - (husky-koglhof) Workaround for node 0.10.x
- - (bluefox) Some Fixes
-
-### 0.0.1 (2015-12-23)
- - Initial commit. Alpha Version.
+### 2.2.2 (2024-11-02)
+* (simatec) responsive design for settings page added
 
 ## License
-
-Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
-
 MIT License
+
+Copyright (c) 2024-2025 Garfonso <garfonso@mobo.info>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

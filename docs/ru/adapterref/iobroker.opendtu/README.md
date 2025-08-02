@@ -3,22 +3,22 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.opendtu/README.md
 title: ioBroker.opendtu
-hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
+hash: alLXbwYFsoM6loMs4wtm8WG7PEhiR+WLYwwf3XsM8wg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.opendtu/admin/opendtu.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.opendtu.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.opendtu.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.opendtu.svg)
 ![Количество установок](https://iobroker.live/badges/opendtu-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/opendtu-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.opendtu.png?downloads=true)
 
 # IoBroker.opendtu
-**Тесты:** ![Тестирование и выпуск](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu /действия/рабочие процессы/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
+**Тесты:** ![Тест и выпуск](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
 
 ## Адаптер opendtu для ioBroker
-Этот адаптер получает данные из проекта [OpenDTU](https://github.com/tbnobody/OpenDTU), доступные в режиме реального времени.
-Кроме того, через адаптер можно использовать следующие точки данных для ограничения мощности OpenDTU.
+Этот адаптер получает точки данных из проекта [OpenDTU](https://github.com/tbnobody/OpenDTU), доступные в режиме реального времени.
+Кроме того, следующие точки данных могут использоваться через адаптер для управления ограничением мощности OpenDTU.
 
 ```
 - opendtu.0.xxxxxx.power_control.limit_nonpersistent_absolute
@@ -29,58 +29,60 @@ hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
 
 Для получения дополнительной информации о точках данных см. их описание или нажмите [здесь](https://github.com/tbnobody/OpenDTU/blob/master/docs/MQTT_Topics.md#inverter-limit-specific-topics).
 
+## Кредиты
+Этот адаптер был бы невозможен без огромной работы @o0Shojo0o (https://github.com/o0Shojo0o), который разработал предыдущие версии этого адаптера.
+
+## Как сообщать о проблемах и запрашивать новые функции
+В идеале, пожалуйста, используйте для этого GitHub issues, а лучший метод достигается путем установки адаптера в режим Debug log (Instances -> Expert mode -> Column Log level). Затем извлеките файл журнала с диска через подкаталог ioBroker 'log', **не** из Admin, что приведет к сокращению строк.
+
 ## Конфигурация
 1. Создайте новый экземпляр адаптера
-2. Заполните схему *(по умолчанию http)*, WebUi-Address и WebUi-port *(по умолчанию 80)* оборудования [OpenDTU](https://github.com/tbnobody/OpenDTU).
-3. Установите WebUi-пароль **(это обязательно, если он неверный, ограничение не может быть установлено!)**
-4. Сохраните настройки
+2. Заполните поля Безопасность *(по умолчанию http)*, IP-адрес и порт *(по умолчанию 80)* оборудования [OpenDTU](https://github.com/tbnobody/OpenDTU)
+3. Установите пароль WebUI **(это обязательно, если он неверный, ограничение не может быть установлено!)**
+4. Сохраните настройки.
 
 ## Changelog
 <!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
-    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
-    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.7 (2023-06-30)
+### **WORK IN PROGRESS**
+- (mattreim) Description has benn translated into supported languages.
+- (mattreim) Admin-UI has been adapted for some display sizes.
 
-- (o0shojo0o) workaround for incorrectly used button data point
+### 3.0.1 (2024-10-26)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Dependencies have been updated.
 
-### 0.1.6 (2023-06-30)
+### 3.0.0 (2024-10-19)
+- (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
+- (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
+- (mcm1957) Dependencies have been updated.
 
-- (o0shojo0o) fix power control (power_off)
+### 2.1.0 (2024-10-11)
 
-### 0.1.5 (2023-05-15)
+- (o0shojo0o) update dependencies
+- (mattreim) support small screens
+- (mattreim) update translations
+- (mattreim) update object names
+- (mattreim) add variable polling intervall [1-59s]
 
-- (o0shojo0o) code optimizations
+### 2.0.0 (2024-08-13)
 
-### 0.1.4 (2023-03-23)
+- (o0shojo0o) changes for new websocket structure ([#129](https://github.com/o0shojo0o/ioBroker.opendtu/issues/129))
+- (o0shojo0o) `Efficiency`, `YieldTotal`, `YieldDay` and `DC Power` moved from the AC section to the INV (old data points must be removed manually)
+- (mattreim) update to current OpenDTU logo ([#156](https://github.com/o0shojo0o/ioBroker.opendtu/issues/156))
+- (mattreim) update dependencies ([#162](https://github.com/o0shojo0o/ioBroker.opendtu/issues/162)), ([#179](https://github.com/o0shojo0o/ioBroker.opendtu/issues/179))
+- (mattreim) fix GUI translation ([#163](https://github.com/o0shojo0o/ioBroker.opendtu/issues/163))
 
-- (o0shojo0o) fix power control `on`, `off`, `restart`
-- (o0shojo0o) support for password protected liveview
-- (o0shojo0o) other small fixes
+### 1.0.1 (2023-10-29)
 
-### 0.1.2 (2023-03-03)
-
-- (o0shojo0o) fix yield* values
-
-### 0.1.1 (2023-02-24)
-
-- (o0shojo0o) state rolls corrected
-- (o0shojo0o) add DTU datapoint `rssi` and `ip`
-- (o0shojo0o) repeated writing of the yieldtotal set to 00:01:00. (is necessary for e.g. sourceanalytix)
-
-### 0.1.0 (2023-02-17)
-
-- (o0shojo0o) initial release
+- (o0shojo0o) fixed `power_control.current_limit_absolute" has value "-1" less than min "0"`
 
 ## License
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
+Copyright (c) 2024 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

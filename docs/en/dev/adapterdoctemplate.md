@@ -1,12 +1,12 @@
 ---
-title: Documentation Template
+title: documentation template
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: G1Dw09iG483BXujNGhY87hCuh9W3To0stxzuBDoOtas=
+hash: S34O7LuuqJ1xp+YU0UqptNxr6cbYr4UXePoOSuNvXwI=
 ---
-# Template for creating an adapter documentation
+# Template for creating adapter documentation
 ```
 ---
 title:       "{Seitentitel}"

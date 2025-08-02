@@ -8,8 +8,17 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)](https://snyk.io/test/github/rg-engineering/ioBroker.semp)
 ![GitHub Actions](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.semp.png?downloads=true)](https://nodei.co/npm/iobroker.sempt/)
+[![NPM](https://nodei.co/npm/iobroker.semp.png?downloads=true)](https://nodei.co/npm/iobroker.semp/)
 
+![node-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
+
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -34,11 +43,11 @@ It is not even necessary for the consumption of a single device to be measured. 
 
 ## user documentation
 
-see [docu](docu/docu_en.md)
+see [docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
 
-For details about protocol and usage check [SMA docu](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
+For details about protocol and usage check [SMA docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
-An description about general usage of energy requests see [SMA docu](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (german only)
+An description about general usage of energy requests see [SMA docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (german only)
 
 ## Features
 * add devices from ioBroker in SunnyPortal via SMA SEMP
@@ -48,10 +57,84 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 ## Requirements
 
 
+## Dishwasher Mode
+
+## Functionality of the Adapter
+
+The adapter allows you to control a dishwasher or other devices that consume standby power. It works as follows:
+
+- The user manually switches the device on as usual.  
+- Instead of starting immediately, the device remains paused.  
+- Once enough solar energy is available, the device will automatically start and run until the program is completed.  
+- Any recommendations from the Smart Home Manager (SHM) to switch off the device will be ignored during this process.
+
+> **Note:**  
+> Detailed information about the technical implementation can be found in [Issue #333](#) and in the flow chart below.
+
+![Flowchart](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
+
+
+
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.semp/issues) if you find bugs or whish new features
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.5.1 (2025-05-31)
+* (René) bug fix calculation of used energy
+
+### 1.5.0 (2025-05-24)
+* (René) see issue #333: new sequence to handle devices with quiescent current. ATTENTION: new dishwasher sequence is used for dishwasher devices optionally!
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 1.4.8 (2024-11-20)
+* (René) update dependencies
+* (René) issue #317: test with nodejs@22
+* (René) issue #329: links to docu updated
+
+### 1.4.7 (2024-09-13)
+* (René) see issue #314: bug fix to use express@5.0.0
+
+### 1.4.6 (2024-08-24)
+* (René) update dependencies
+* (René) bug fixes based on adapter checker recommendation
+
+### 1.4.5 (2024-05-29)
+* (René) see issue #250: no Power to be send for devices without measurement in off-status
+
+### 1.4.4 (2024-05-28)
+* (René) change of dependencies
+* (René) wallbox: check and log wrong value for Wallbox3phaseSwitchDelay only if enabled
+
+### 1.4.3 (2024-02-20)
+* (René) wallbox: unnecessary warn messages deactivated
+* (René) dependencies updated
+
+### 1.4.2 (2024-02-16)
+* (René) bug fix in create timeframes
+
+### 1.4.1 (2024-02-12)
+* (René) minor bug fix
+
+### 1.4.0 (2024-02-12)
+* (René) bug fix: see issue #206 - wallbox OID's selectable
+* (René) bug fix: see issue #207 - wallbox maximum charge time adjustable 
+* (René) see issue #208: timeframe can be disabled by user (optionally)
+
+### 1.3.15 (2024-02-03)
+* (René) bug fix: wallbox counter and status are not handled
+
+### 1.3.14 (2024-01-12)
+* (René) dependencies updated
+
+### 1.3.13 (2023-11-19)
+* (René) dependencies updated
+* (René) fix exceptions reported by sentry
 
 ### 1.3.12 (2023-10-29)
 * (René) some bug fixes based on changes in 1.3.11
@@ -158,7 +241,7 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

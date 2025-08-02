@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.janitza-gridvis/README.md
 title: ioBroker.janitza-gridvis
-hash: OU046Ap4wNMBB89k0JIaAj7TnR1BMUdMmQUSqS57EcE=
+hash: FHVN1izpRHwlKON+CYZxl8sDJt8mV68+AhqkubZ/9xY=
 ---
 ![标识](../../../en/adapterref/iobroker.janitza-gridvis/admin/janitza-gridvis.png)
 
@@ -11,22 +11,94 @@ hash: OU046Ap4wNMBB89k0JIaAj7TnR1BMUdMmQUSqS57EcE=
 ![下载](https://img.shields.io/npm/dm/iobroker.janitza-gridvis.svg)
 ![安装数量](https://iobroker.live/badges/janitza-gridvis-installed.svg)
 ![捐](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![新PM](https://nodei.co/npm/iobroker.janitza-gridvis.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.janitza-gridvis.png?downloads=true)
 
 # IoBroker.janitza-gridvis
-![测试和发布](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/workflows/Test%20and%20Release/badge.svg)
 
-## 用于 ioBroker 的 janitza-gridvis 适配器
-从 Energymanagementsystem Janitza® GridVis® 读取数据。
+## Janitza-gridvis 适配器用于 ioBroker
+从能源管理系统 Janitza® GridVis® 读取数据。
 您可以读取当前设备的所有在线值。
-此外，您还可以读取当前设备的历史能量值。
-实施时间如下： 今天 昨天 ThisWeek LastWeek ThisMonth LastMonth ThisQuarter LastQuarter ThisYear LastYear
+此外，您还可以读取当前设备的历史能源值。
+实施以下时间：今天 昨天 本周 上周 本月 上个月 本季度 上季度 今年 去年 灵活的时间基准
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.1.12 (2024-05-08)
+* (BenAhrdt) config default for additional flexible time changed
+
+### 3.1.11 (2024-05-07)
+* (BenAhrdt) Plugin for release added
+
+### 3.1.10 (2024-05-07)
+* (BenAhrdt) manual review for release script
+
+### 3.1.9 (2024-05-07)
+* (BenAhrdt) implement more flexible timebases
+
+### 3.1.8 (2023-11-08)
+* (BenAhrdt) remove debuglogging from stable version
+
+### 3.1.7 (2023-11-08)
+* (BenAhrdt) Handling of iconsetting improoved & implements new icon
+
+### 3.1.6 (2023-11-04)
+* (BenAhrdt) Bugfix Logging utc time
+
+### 3.1.5 (2023-11-04)
+* (BenAhrdt) change endstring of timerparameters to utc
+
+### 3.1.4 (2023-11-02)
+* (BenAhrdt) corrction in jsonconfig schema & new order of deviceicons
+
+### 3.1.3 (2023-10-11)
+* (BenAhrdt) Errorhandling improoved in case if device is not present. => Reducing API connection trafic
+
+### 3.1.2 (2023-04-18)
+* (BenAhrdt) check timestamp improoved
+
+### 3.1.1 (2023-04-18)
+* (BenAhrdt) warning in case of invalid timestamp
+
+### 3.1.0 (2023-04-17)
+* (BenAhrdt) flexible timebases with timestamp added
+
+### 3.0.0 (2023-04-05)
+* (BenAhrdt) Timbases from past implemented (to compare)
+
+### 2.2.2 (2023-03-30)
+* (BenAhrdt) node-schedule updated
+
+### 2.2.1 (2023-03-30)
+* (BenAhrdt) get projects and get devices improved
+
+### 2.2.0 (2023-03-29)
+* (BenAhrdt) Testings 12.x removed & Testings 18.x implemented
+
+### 2.1.32 (2023-03-29)
+* (BenAhrdt) do some code improvments
+
+### 2.1.31 (2023-03-29)
+* (BenAhrdt) internal rename of variables
+
+### 2.1.30 (2023-02-17)
+* (BenAhrdt) Bugfix: devicestates will created only once at startup (not more times at startup)
+
+### 2.1.29 (2023-02-15)
+* (BenAhrdt) deficeinfo in case of values is NaN added
+
+### 2.1.28 (2023-02-15)
+* (BenAhrdt) devicetype added to info-folder for every device
+
+### 2.1.27 (2023-02-14)
+* (BenAhrdt) Bugfix info-folder will not deleted at startup, if there is no connection
+
+### 2.1.26 (2023-02-14)
+* (BenAhrdt) adding info folder for every device
+
 ### 2.1.25 (2022-10-21) - Bugfix errorcheck
 * (BenAhrdt) before checking error for status, the error will be check for exist
 
@@ -186,7 +258,7 @@ hash: OU046Ap4wNMBB89k0JIaAj7TnR1BMUdMmQUSqS57EcE=
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2024 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

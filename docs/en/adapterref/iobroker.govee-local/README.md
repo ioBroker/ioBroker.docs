@@ -16,14 +16,54 @@ Control Govee devices via local access (no cloud)
 To be able to control govee deivce locally, the feature needs to be explicitely turned on in the settings of the govve application settings as described in their [documentation](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)>)
 As I currently only have the H6051 lamp, this is the only device I can test with.
 
+For **Windows** Users: Please go to the settings and make sure you choose the correct network interface, otherwise the adapter will not receive any response from Govee Devices.
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.8 (2025-03-28)
+
+-   update dependencies
+-   avoid repeated overriding of states
+
+### 0.2.7 (2024-08-18)
+
+-   update core dependencies and min required node version to 18
+
+### 0.2.6 (2024-02-06)
+
+-   fix brightness change also changing white temperature
+
+### 0.2.5 (2024-01-13)
+
+-   create only one socket, as the second seems not to be necessary
+-   refactoring the code for better structure
+-   possibility to choose listen interface in settings
+
+### 0.2.4 (2024-01-05)
+
+-   fix access
+
+### 0.2.2 (2024-01-05)
+
+-   fix color temperature message
+
+### 0.2.1 (2023-12-24)
+
+-   repair onOff / all other actions Fixes: [#65](https://github.com/boergegrunicke/ioBroker.govee-local/issues/65)
+-   fix log spamming because of wildcard
+
+### 0.2.0 (2023-12-17)
+
+-   support controlling the color
+-   extended logging mode
+
 ### 0.1.2 (2023-09-06)
--  change icon path and resolution
+
+-   change icon path and resolution
 
 ### 0.1.1 (2023-08-21)
 
@@ -35,7 +75,7 @@ As I currently only have the H6051 lamp, this is the only device I can test with
 -   clear all timeouts, when adapter is stopped
 -   replace forbidden characters in names
 -   update translations
--   update dependecies
+-   update dependencies
 
 ### 0.0.6 (2023-05-18)
 
@@ -47,11 +87,11 @@ As I currently only have the H6051 lamp, this is the only device I can test with
 
 ### 0.0.4 (2023-04-02)
 
--   make device status refresh invertal indepentent from device search interval
+-   make device status refresh independent from device search interval
 
 ### 0.0.3 (2023-04-01)
 
--   update dependecies
+-   update dependencies
 
 ### 0.0.2
 
@@ -62,7 +102,7 @@ As I currently only have the H6051 lamp, this is the only device I can test with
 
 MIT License
 
-Copyright (c) 2023 Børge Grunicke
+Copyright (c) 2025 Børge Grunicke
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

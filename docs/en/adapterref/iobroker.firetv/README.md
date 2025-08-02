@@ -31,10 +31,14 @@ Search on Google (Minimal ADB and Fastboot) for the latest download link.
 
 Alternatively, you can use *adbLink* 
 
+## Changelog
 <!-- 
     ### **WORK IN PROGRESS** 
 -->
-## Changelog
+### 2.1.0 (2024-04-07) 
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.2 (2023-09-09) 
 * (jonaskn) A crash has been fixed (#56)
 
@@ -48,6 +52,7 @@ Alternatively, you can use *adbLink*
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

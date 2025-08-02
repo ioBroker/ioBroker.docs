@@ -51,6 +51,23 @@ This adapter uses the [public API](https://github.com/apption-labs/meater-cloud-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (Standarduser) Fixed some messages of Adapter checker
+-   (Standarduser) updated depencies and devDepencies
+
+### 1.1.1 (2024-07-08)
+
+-   (Standarduser) Fixed some messages of Adapter checker
+-   (Standarduser) Updated depencies
+-   (Standarduser) Detailed error message
+
+### 1.1.0 (2024-04-25)
+
+-   (Standarduser) Tried to fix restart loop at the end of cooking
+-   (Standarduser) Dropped node v16 support
+
 ### 1.0.2 (2023-09-08)
 
 -   (Standarduser) Updated depencies
@@ -64,7 +81,7 @@ This adapter uses the [public API](https://github.com/apption-labs/meater-cloud-
 
 MIT License
 
-Copyright (c) 2023 Standarduser
+Copyright (c) 2024 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

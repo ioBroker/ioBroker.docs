@@ -11,16 +11,16 @@
 
 ## lovelace adapter for ioBroker
 
-With this adapter you can build visualization for ioBroker with Home Assistant Lovelace UI.
+With this adapter, you can build visualization for ioBroker with Home Assistant Lovelace UI.
 
 [Deutsche Dokumentation](docs/de/README.md)
 
 ## Instance objects
-In the folder instances there are some objects that can be used to control the UI. For every browser a new subfolder will
-be created with a random ID. This ID is stored in the client browser's web storage. If you delete the web storage a new
+In the folder instances, there are some objects that can be used to control the UI. For every browser, a new subfolder will
+be created with a random ID. This ID is stored in the client browser's web storage. If you delete the web storage, a new
 instance will be created. If you use Fully Kiosk Browser make sure the function `Delete webstorage on reload` is **disabled**.
 
-This functionality uses browser_mod, which is installed and updated by the adapter. Do not add your own version of browser_mod as custom card.
+This functionality uses browser_mod, which is installed and updated by the adapter. Do not add your own version of browser_mod as a custom card.
 
 ## Configuration
 There are two ways how the entities could be configured:
@@ -35,14 +35,14 @@ In auto mode the similar process will be applied like for `google home` or `mate
 You can define friendly names and this will be used in entities.
 
 ### Manual
-The objects can be defined manually in object tree like sql or histroy. The type of entity must be provided and optionally the name of object.
+The objects can be defined manually in an object tree like `sql` or `history`. The type of entity must be provided and optionally the name of object.
 With this method only simple entities, like input_number, input_text or input_boolean could be created. It may not have more than one state or attribute.
 
 ## Panels
 ### Alarm panel
 ioBroker does not support such a device yet, but it can be simulated. If you create such a script:
 
-```
+```js
 createState(
     'alarmSimple',
     false,
@@ -82,7 +82,7 @@ This can be done manually if input_number entity type in custom dialog is select
 This type required `min` and `max` values in `common` and optional `step` could be added.
 If you want to see the up and down arrows, you should set in custom `mode` to 'number':
 
-```
+```json5
 common: {
     custom: {
         "lovelace.0": {
@@ -96,10 +96,10 @@ common: {
 ```
 
 ### Select input
-This can be done manually if input_select entity type in custom dialog is selected.
-The list of options to select from should be provide in standard commom.states object:
+This can be done manually if `input_select` entity type in custom dialog is selected.
+The list of options to select from should be provided in a standard `common.states` object:
 
-```
+```json
 "common": {
     "type": "string",
     "states": {
@@ -115,12 +115,12 @@ The list of options to select from should be provide in standard commom.states o
       }
     }
 ```
-in other words in should also be input select in IoB.
+in other words, there should also be select input in IoB.
 
 ### Timer
-Timer could be simulated by following script:
+Timer could be simulated by the following script:
 
-```
+```js
 createState(
     'timerSimple',
     false,
@@ -202,27 +202,29 @@ createState(
 ```
 
 ### Weather
-Tested with yr and daswetter. One or more of following objects must have `Function=Weather` and `Room=Any` set to be available in configuration:
-- daswetter.0.NextDays.Location_1
-- yr.0.forecast
+Tested with `yr` and `daswetter`. One or more of the following objects must have `Function=Weather` and `Room=Any` set to be available in configuration:
+- `daswetter.0.NextDays.Location_1`
+- `yr.0.forecast`
 
-Tested with AccuWeather driver v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
+Tested with `AccuWeather` driver v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
 Custom Lovelace card created in support of accuweather forecast - https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Shopping list
 Shopping list writes the values in form:
-```
+```json
 [
-   {name: 'Task 1', id: 1234222, complete: false},
-   {name: 'Task 2', id: 1234223, complete: true}
+   {"summary": "Task 1", "uid": "1234222", "status": "needs_action"},
+   {"summary": "Task 2", "uid": "1234223", "status": "completed"}
 ]
 ```
 into `lovelace.X.control.shopping_list` state.
 
+You can also add your own todo or shopping lists by creating manual entities with type `todo`.
+
 ### Map
 The objects must look like this one:
 
-```
+```js
 createState('location', '39.5681295;2.6432632', false, {
     "name": "location",
     "role": "value.gps",
@@ -233,9 +235,9 @@ createState('location', '39.5681295;2.6432632', false, {
 });
 ```
 
-or this two objects:
+or these two objects:
 
-```
+```js
 createState('location.longitude', 2.6432632, false, {
     "name": "location longitude",
     "role": "value.gps.longitude",
@@ -255,10 +257,10 @@ createState('location.latitude', 39.5681295, false, {
 ```
 
 ### Picture entity
-You can use static picture for it or use any state that delivers URL as state.
+You can use a static picture for it or use any state that delivers URL as a state.
 E.g.:
 
-```
+```json
 {
   "_id": "daswetter.0.NextDays.Location_1.Day_1.iconURL",
   "type": "state",
@@ -273,38 +275,34 @@ E.g.:
 }
 ```
 
-or just set manually the entity type to `camera` and write URL into it.
-
-### Hide toolbar
-To hide toolbar you can set the checkbox in the ioBroker configuration dialog on the Themes tab.
-To show it, you can disable it in the dialog again or just call the URL with `?toolbar=true` parameter.
+or just manually set the entity type to `camera` and write URL into it.
 
 ### Markdown
-You can use bindings in markdown like in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects).
+You can use bindings in Markdown like in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects).
 
-E.g. Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` will produce text `Admin adapter is alive` in markdown panel.
+E.g., Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` will produce text `Admin adapter is alive` in a markdown panel.
 
 ## Custom cards
 ### Upload of custom cards
-To upload the custom card write following:
+To upload the custom card, write the following:
 
 ```iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/```
 
 After restart of lovelace adapter it will include all files from the `cards` directory automatically.
 
-Following custom cards could be tested successfully:
-- bignumber-card: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-- simple-thermostat: https://github.com/nervetattoo/simple-thermostat/releases (take the latest release)
-- thermostat: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (both files .js and .lib.js are required)
+The following custom cards could be tested successfully:
+- `bignumber-card`: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
+- `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases (take the latest release)
+- `thermostat`: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (both files .js and .lib.js are required)
 
 I found this link https://github.com/jimz011/homeassistant as an interesting resource for custom cards.
 
-Often the custom cards are stored on github as sources and must be compiled before use.
-You should check the `Releases` menu on github and try to find compiled files there.
+Often the custom cards are stored on GitHub as sources and must be compiled before use.
+You should check the `Releases` menu on GitHub and try to find compiled files there.
 Like this one: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Look for the file `mini-graph-card-bundle.js`)
 
 ## Own images
-The custom images (e.g. for background) could be loaded via the same configuration dialog like the custom cards. And use it like this:
+The custom images (e.g., for a background) could be loaded via the same configuration dialog like the custom cards. And use it like this:
 
 `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
@@ -312,12 +310,12 @@ or
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-in lovelace configuration file. Read more about background in lovelace [here](https://www.home-assistant.io/lovelace/views/#background).
+in lovelace configuration file. Read more about the background in lovelace [here](https://www.home-assistant.io/lovelace/views/#background).
 
 ## Themes
-The themes can be defined in configuration dialog of ioBroker.
+The themes can be defined in the configuration dialog of ioBroker.
 Paste something like:
-```
+```yaml
 midnight:
   # Main colors
   primary-color: '#5294E2'                                                        # Header
@@ -388,19 +386,19 @@ midnight:
 taken from [here](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
 ## Icons
-Use icons in form `mdi:NAME`, like 'mdi:play-network'. Names can be taken from here: https://materialdesignicons.com/
+Use icons in form `mdi:NAME`, like `mdi:play-network`. Names can be taken from here: https://materialdesignicons.com/
 
 ## Notifications
 You can add notifications via `sendTo` functionality or by writing the state into `lovelace.X.notifications.add`:
 
-```
+```js
 sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full version
 sendTo('lovelace.0', 'send', 'Message text'); // short version
 ```
 
 or
 
-```
+```js
 setState('lovelace.0.notifications.add', '{"message": "Message text", "title": "Title"}'); // full version
 setState('lovelace.0.notifications.add', 'Message text'); // short version
 ```
@@ -408,7 +406,7 @@ setState('lovelace.0.notifications.add', 'Message text'); // short version
 ## Voice control
 All commands from web interface will be written into lovelace.X.conversation state with `ack=false`.
 You can write a script that will react on request and will answer:
-```
+```js
 on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
    console.log('Question: ' + obj.state.val);
    if (obj.state.val.includes('time')) {
@@ -421,45 +419,42 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Trouble Shooting
 If you messed up the YAML Code and see a blank page but still have the top menu, you can enable edit mode (if not already enabled) from the menu and then open the menu again to access the "RAW Yaml Editor" in which you see the complete YAML code and can clean it up.
-If that does not help, you can open the object lovelace.*.configuration in raw-editor in ioBroker and have a look there.
+If that does not help, you can open the object `lovelace.*.configuration` in raw-editor in ioBroker and have a look there.
 You can also restore that object from a backup. It contains the complete configuration of your visualization.
 
 ## Original sources for lovelace
 Used sources are here https://github.com/GermanBluefox/home-assistant-polymer .
 
 ## Todo
-Security must be taken from current user and not from default_user
+Security must be taken from the current user and not from default_user
 
 ## Development
 ### Version
-Used version of home-assistant-frontend@20230906.1
-Version of Browser Mod: 2.3.0
+Used version of home-assistant-frontend@20250306.0
+Version of Browser Mod: 2.3.3
 
 ### How to build the new Lovelace version
-First of all the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
+First of all, the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20230608.0) following files were modified:
+For now (20250401.0) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task develop-iob
-- `build-scripts/bundle.cjs` - disable fail on error
-- `build-scripts/gulp/webpack.js` - Add new gulp task webpack-dev-app
-- `src/data/lovelace.ts` - add hide toolbar option
+- `build-scripts/gulp/rspack.js` - Add new gulp task rspack-dev-app
+- `src/data/icons.ts` - always use fallback for old versions where frontend decides which icon to use for binary_sensors (if none supplied).
 - `src/data/weather.ts` - add support to display weather icon from url.
 - `src/dialogs/more-info/const.ts` - remove weather state & history
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and tab
-- `src/dialogs/more-info/ha-more-info-history.ts` - remove 'show more' link in history
+- `src/dialogs/more-info/ha-more-info-history.ts` - remove `show more` link in history
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - remove `show more` link in logbook
 - `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - disable configuration of voice assistants
-- `src/entrypoints/core.ts` - modified authentication process
-- `src/layouts/home-assistant-main.ts` - remove app sidebar
+- `src/entrypoints/core.ts` - add no auth option
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - add support to display weather icon from url.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - add support to display weather icon from url with auth.
-- `src/panels/lovelace/hui-root.ts` - added notifications and voice control
-- `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
-- `.gitignore` - add `.idea` ignore
+- `src/panels/lovelace/hui-root.ts` - added notification button, disable manage dashboards link
+- `src/util/documentation-url.ts` - for link to iobroker help instead of home assistant.
 - `.husky/pre-commit` - remove git commit hooks.
-- `package.json` - remove husky commit hook
-+
+
 After that checkout modified version in `./build` folder. Then.
 
 1. go to ./build directory.
@@ -468,61 +463,44 @@ After that checkout modified version in `./build` folder. Then.
 4. `git checkout master`
 5. `yarn install`
 6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
-7. copy all files from `./build/home-assistant-polymer/hass_frontend` into `./hass_frontend` in this repo
-8. Run `gulp rename` task multiple times (until no changes happen).
-9. Update Version in Readme and also in server.js VERSION constant.
+7. run script `hass_frontend/static_cards/newFrontend.sh` in adapter repo to update frontend (it assumes that the two repositories are next to each other in the same folder, if not, please adjust script, preferably with some parameter handling and make a PR, thanks :smile: ) 
+8. Run `gulp rename` task.
+9. Update the version in `README.md`
 
 ## Changelog
 
 <!--
-	PLACEHOLDER for next version:
+	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (Garfonso) Update frontent to 2023.06.08.0
-* (Garfonso) Use better random numbers
+* (Garfonso) settings from entity registry are now loaded on startup
+* (Garfonso) logbook: prevent entries from the future
+* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
 
-### 3.0.1 (2022-11-03)
-* (Garfonso) do not crash if no history instance selected.
-* (Garfonso) notifications working again.
-* (Garfonso) repaired color temperature handling.
+### 5.0.0 (2025-04-10)
+* (Garfonso) Updated frontend to 20250401.0
+* (Garfonso) Updated browser_mod to 2.3.3
+* (Garfonso) Add statistics recorder
+* (Garfonso) Add entity registry, use it to solve id clashes. In the future, store entity settings here.
+* (Garfonso) Limit the number of stored browser instances
+* (Garfonso) Improved caching behavior. Might solve iobroker.pro issue... hopefully?
+* (Garfonso) Prevent crash with some edge cases with light entities
+* (Garfonso) experimental dashboard support.
+* (Garfonso) Allow to show sidebar via object in instances. VERY experimental. A lot of stuff does not yet work. But allows to configure dashboards and also browser mod.
 
-### 3.0.0 (2022-10-28)
-* (agross) added: per instance language support
-* (Garfonso) entity_id for devices with only one non english name should be ok again.
-* (Garfonso) changed: updated frontend to 20221027.0. Needs theme adjustment (add code-editor-background-color) and probably card updates
-* (Garfonso) added: browser_mod (2.1.3) is now integrated. Please remove manual installed versions of custom browser_mod card.
-* (Garfonso) added: 'instances.refresh' can be used to reload page in connected browsers.
-* (Garfonso) removed: lovelace_reload and window_reload states
-* (Garfonso) removed: name state, not supported by browser_mod anymore
-* (Garfonso) added: Support for toasts with action button (either json or ;-string)
-* (Garfonso) added: activity state will show if user is currently using a certain browser
-* (Garfonso) added: Support for subfolders in /cards/ for images and stuff custom cards load (please keep cards in root folder).
-* (Garfonso) crash if notification was malformed json.
-* (Garfonso) some translation stuff
-* (Garfonso) crash case when states were updated before websocket was ready
-* (Apollon77) Prepare for future js-controller versions
-* (bluefox) tried to make html requests relative
+### 4.1.15 (2025-03-10)
+* (Garfonso) repaired image loading, again.
 
-### 2.2.0 (2022-06-05)
-* (Garfonso) fixed: incorrect warning about duplicate entities on update of manual entity.
-* (Garfonso) fixed: input_datetime did not work if time was enabled and did vanish if date and time were enabled.
-* (Garfonso) fixed: RGB hex string got broken on not rounded numbers (problem with mushroom ligth card).
-* (Garfonso) fixed: state of cover entity if not 0 or 100% (fixes problem with sliter-button-card).
-* (Garfonso) fixed: light did not read brightness ACTUAL in dimmer devices.
-* (Garfonso) added: support auto entities card and subscription.
-* (Garfonso) added: improve support for input_datetime & string states.
-* (Garfonso) added: support for browser_mod (i.e. crontrol frontend from iobroker).
+### 4.1.14 (2025-03-10)
+* (Garfonso) repaired image loading. Fixes #577
 
-### 2.1.4 (2022-01-09)
-* (Garfonso) Dependency update
-
-### 2.1.3 (2022-01-07)
-* (Garfonso) Fixed: remove backup of old frontend (sorry)
+### 4.1.13 (2025-03-06)
+* (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
 
 ## License
 
-Copyright 2019-2022, bluefox <dogafox@gmail.com>
+Copyright 2019-2025, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

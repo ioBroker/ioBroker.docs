@@ -26,12 +26,79 @@ Implemented are the following times:
 	LastQuarter
 	ThisYear
 	LastYear
-
+	Flexible Timebases
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.5.3 (2025-06-10)
+* (BenAhrdt) bugfix jsonconfig schema
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
+### 3.5.2 (2025-03-15)
+* (BenAhrdt) Bugfix text
+
+### 3.5.1 (2025-03-15)
+* (BenAhrdt) add local links tile
+
+### 3.5.0 (2025-02-22)
+* (BenAhrdt) update admin and js-controller dependencies
+
+### 3.4.3 (2025-01-15)
+* (BenAhrdt) bugfix reading id of device
+
+### 3.4.2 (2025-01-15)
+* (BenAhrdt) remove wrong errorlogging
+
+### 3.4.1 (2025-01-15)
+* (BenAhrdt) set the \" in jsonconfig and parse the message.device (bugfix for valueconfig)
+
+### 3.4.0 (2024-12-05)
+* (BenAhrdt) update eslint
+
+### 3.3.2 (2024-11-26)
+* (BenAhrdt) Schemas updated
+
+### 3.3.1 (2024-11-26)
+* (BenAhrdt) update admin dependecies and responsive tags and deviceicons for UMG806_LP and UMG800
+
+### 3.3.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 3.2.3 (2024-08-09)
+* (BenAhrdt) correct changes for check and service bot
+
+### 3.2.2 (2024-08-09)
+* (BenAhrdt) changes for check and service bot
+
+### 3.2.1 (2024-06-05)
+* (BenAhrdt) do not send axios or setState after unload Adapter
+* (BenAhrdt) rename reconnectCout in reconnectCount (connfig-parameter)
+
+### 3.2.0 (2024-05-17)
+* (BenAhrdt) add historic timebases (hours)
+
+### 3.1.12 (2024-05-08)
+* (BenAhrdt) config default for additional flexible time changed
+
+### 3.1.11 (2024-05-07)
+* (BenAhrdt) Plugin for release added
+
+### 3.1.10 (2024-05-07)
+* (BenAhrdt) manual review for release script
+
+### 3.1.9 (2024-05-07)
+* (BenAhrdt) implement more flexible timebases
+
+### 3.1.8 (2023-11-08)
+* (BenAhrdt) remove debuglogging from stable version
+
+### 3.1.7 (2023-11-08)
+* (BenAhrdt) Handling of iconsetting improoved & implements new icon
+
 ### 3.1.6 (2023-11-04)
 * (BenAhrdt) Bugfix Logging utc time
 
@@ -245,7 +312,7 @@ Implemented are the following times:
 ## License
 MIT License
 
-Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

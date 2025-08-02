@@ -31,35 +31,40 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Added option to use manually uploaded ical files
+
+### 4.0.0 (2025-03-06)
+
+NodeJS >= 20.x and js-controller >= 6 is required
+
+* (@klein0r) Replace webcal url with http (for iCloud)
+
+### 3.1.0 (2024-11-19)
+
+* (@simatec) Responsive Design added
+* (@klein0r) Updated dependencies
+
+### 3.0.1 (2024-06-26)
+
+* (@klein0r) Fixed value of nextWeekday in states
+
+### 3.0.0 (2024-05-13)
+
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (klein0r) Skipping invalid ical events (e.g. not recurring yearly)
+
 ### 2.4.1 (2023-10-30)
 
 * (klein0r) Added warnings if birthday event is not recurring
-
-### 2.4.0 (2023-10-25)
-
-NodeJS 16.x is required
-
-* (klein0r) Added icons in admin tabs
-
-### 2.3.1 (2023-06-16)
-
-* (klein0r) Added current age text to JSON
-
-### 2.3.0 (2023-06-16)
-
-* (klein0r) Added JSON and count for each month
-* (klein0r) Added current age as text
-
-### 2.2.2 (2023-05-01)
-
-* (klein0r) Warn if a birthday with the same name has already been added
-* (klein0r) Code optimization
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

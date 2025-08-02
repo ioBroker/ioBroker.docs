@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
+hash: OKXZUVLJ36izUiwt4Xt60u0A8w2G8jTdKLFYp7Wt6W8=
 ---
 ![Logo](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
 ![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![Abhängigkeiten Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Abhängigkeiten Status](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Seq-Adapter für ioBroker
-Mit diesem Adapter können Sie Ihr ioBroker-Log in das System von [Seq](https://datalust.co/seq) pushen.
-Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adapter anzuwenden.
+Mit diesem Adapter können Sie Ihr ioBroker-Protokoll in das System von [Seq](https://datalust.co/seq) übertragen.
+Es besteht auch die Möglichkeit, einen Filter auf die Protokollebenen und auch auf die Adapter anzuwenden.
 
 ## Aufbau
 1. Erstellen Sie eine neue Instanz des Adapters
 2. Geben Sie die URL/IP und den Port der [Seq](https://datalust.co/seq)-Instanz ein
-3. Geben Sie an, welche Protokollereignisse Sie an [Seq] senden möchten (https://datalust.co/seq)
+3. Geben Sie an, welche Protokollereignisse Sie an [Seq](https://datalust.co/seq) übertragen möchten.
 4. Speichern Sie die Einstellungen
 
 ## Changelog
@@ -37,30 +37,33 @@ Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adap
 	### __WORK IN PROGRESS__
 -->
 
-### **WORK IN PROGRESS**
+### __WORK IN PROGRESS__
+- (arteck) transfer to arteck
 
-- (o0shojo0o) Add adapter to TIER 1
+### 0.3.0 (2023-07-25)
+- (o0shojo0o) added adminTab
+- (o0shojo0o) added adapter to TIER 1
 
 ### 0.2.10 (2021-04-15)
 
-- (o0shojo0o) Check log message of undefine
+- (o0shojo0o) check log message of undefine
 
 ### 0.2.9 (2021-02-05)
 
-- (o0shojo0o) Bugfix 'Cannot read property common of null'
+- (o0shojo0o) fix 'Cannot read property common of null'
 
 ### 0.2.8 (2021-01-30)
 
-- (o0shojo0o) Bugfix NullPointerException
+- (o0shojo0o) fix NullPointerException
 
 ### 0.2.7 (2021-01-24)
 
-- (o0shojo0o) Add overview card
+- (o0shojo0o) added overview card
 
 ### 0.2.6 (2021-01-21)
 
-- (bluefox) Refactoring
-- (bluefox) Better translations
+- (bluefox) refactoring
+- (bluefox) better translations
 
 ### 0.2.5 (2021-01-20)
 
@@ -70,11 +73,11 @@ Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adap
 
 - (o0shojo0o) bugfix display of the filter options
 - (o0shojo0o) bugfix display of template parameters
-- (o0shojo0o) add parameter logging Arch
-- (o0shojo0o) add parameter logging JsController
-- (o0shojo0o) add parameter logging Node
-- (o0shojo0o) add parameter logging Platform
-- (o0shojo0o) add parameter logging SourceVersion
+- (o0shojo0o) added parameter logging Arch
+- (o0shojo0o) added parameter logging JsController
+- (o0shojo0o) added parameter logging Node
+- (o0shojo0o) added parameter logging Platform
+- (o0shojo0o) added parameter logging SourceVersion
 
 ### 0.2.3 (2021-01-15)
 
@@ -101,7 +104,7 @@ Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adap
 
 ### 0.0.5 (2020-09-23)
 
-- (o0shojo0o) add param SystemName for display in Seq
+- (o0shojo0o) added param SystemName for display in Seq
 
 ### 0.0.4 (2020-09-23)
 
@@ -127,7 +130,7 @@ Es ist auch möglich, einen Filter auf die Protokollebenen und auch auf die Adap
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

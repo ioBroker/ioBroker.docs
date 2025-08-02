@@ -1,4 +1,4 @@
-![Logo](admin/vis-2.png)
+![Logo](packages/iobroker.vis-2/admin/vis-2.png)
 # Next generation visualization for ioBroker: vis-2 
 
 ![Number of Installations](http://iobroker.live/badges/vis-2-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-2-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-2.svg)](https://www.npmjs.com/package/iobroker.vis-2)
@@ -6,7 +6,18 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-2.png?downloads=true)](https://nodei.co/npm/iobroker.vis-2/)
 
-WEB visualisation for ioBroker platform.
+WEB visualization for ioBroker platform.
+
+## Overview
+- [License requirements](#license-requirements)
+- [Installation & Documentation](#installation--documentation)
+- [Bindings of objects](#bindings-of-objects)
+- [Filters](#filters)
+- [Control interface](#control-interface)
+- [Default view](#default-view)
+- [Permissions System](#permissions-system)
+- [Settings](#settings)
+- [SVG and curentColor](#svg-and-currentcolor)
 
 ## License requirements
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
@@ -18,8 +29,8 @@ Additionally, you need a license to use the adapter. The following license editi
 
 ## Installation & Documentation
 
-![Demo interface](img/user0.png)
-![Demo interface](img/user7.png)
+![Demo interface](packages/iobroker.vis-2/img/user0.png)
+![Demo interface](packages/iobroker.vis-2/img/user7.png)
 
 [Online Demos](https://iobroker.click/)
 
@@ -27,14 +38,14 @@ Additionally, you need a license to use the adapter. The following license editi
 Normally, most of the widgets have ObjectID attribute and this attribute can be bound with some value of object ID.
 But there is another option for how to bind *any* attribute of widget to some ObjectID. 
 
-Just write into attribute `{object.id}` and it will be bound to this object's value. 
+Just write into attribute `{object.id}` e.g. `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` and it will be bound to this object's value. 
 If you use the special format, you can even make some simple operations with it, e.g., multiplying or formatting.
 
 E.g., to calculate the hypotenuse of a triangle:
 
 `{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(h*h + w*w))}` will be interpreted as function:
 
-```
+```js
 value = await (async function () {
     var h = (await getState('javascript.0.myCustom.height')).val;
     var w = (await getState('javascript.0.myCustom.width')).val;
@@ -44,10 +55,10 @@ value = await (async function () {
 
 or 
 
-`{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;h*w}` will just multiply height with width.
+`{h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;h*w}` will simply multiply height with width.
 
 
-You can use *any* javascript (browser) functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
+You can use *any* JavaScript (browser) functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
 
 Take care about types. All of them are defined as strings. To be sure, that value will be treated as number use parseFloat function.
 
@@ -84,6 +95,7 @@ The following operations are supported:
 - `pow` - power of 2.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
+- `json` - operation for getting json or object property. E.g., `{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R, or just Math.random() if no argument
 - `formatValue(decimals)` - format value according to system settings and use decimals
 - `date(format)` - format value as date. The format is like: "YYYY-MM-DD hh:mm:ss.sss"
@@ -114,13 +126,14 @@ There are a number of different internal bindings to provide additional informat
 * `view` - name of actual view
 * `wname` - widget name
 * `widget` - is an object with all data of widget. Can be used only in JS part, like `{a:a;widget.data.name}`
+* `widgetOid` - use the OID of the widget to assign the widget's value in the assignment section, like `{t:widgetOid.val;t}`
 * `wid` - name of actual widget
 * `language` - can be `de`, `en` or `ru`.
 * `instance` - browser instance
 * `login` - if login required or not (e.g., to show/hide logout button)
 * `local_*` - if state name is started from `local_` it will not be reported to ioBroker but will update all widgets, that depends on this state. (Local variable for current browser session)
 
-Note: to use ":" in calculations (e.g. in string formula) use "::" instead.
+Note: to use ":" in calculations (e.g., in string formula) use "::" instead.
 
 **Remember**, that style definitions will be interpreted as bindings, so use `{{style: value}}` or just
 
@@ -164,6 +177,7 @@ Commands:
 * `popup` - opens a new browser window. Link must be specified in `control.data`, e.g., http://google.com
 * `playSound` - play sound file. The link to file is specified in `control.data`, e.g., http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
   You can upload your own file in vis-2 and let it play as for instance `/vis-2.0/main/img/myFile.mp3`.
+  **Important** browser cannot play audio till the user has not clicked at least once on the page. It is a browser security policy. [Here](https://github.com/Hugo22O/chrome-autoplay) you can read more.
 
 If the user changes the view or at the start, the variables will be filled by the vis-2 with
 
@@ -171,13 +185,15 @@ If the user changes the view or at the start, the variables will be filled by th
 - `control.data`: project and view name in form `project/view`, e.g. `main/view` (and `ack=true`)
 - `control.command`: `changedView` and `ack=true`
 
-You can write the JSON-string or Object into `control.command` as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case, the instance and data will be taken from JSON object.
+You can write the JSON string or Object into `control.command` as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case, the instance and data will be taken from JSON object.
 
 Example for javascript adapter:
 
+```js
+setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
-setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
-```
+
+If you write the JSON as a string, ensure that it is parseable, e.g. `{"instance": "*", "command": "refresh", "data": ""}`, note the `"`. 
 
 ## Default view
 You can define for every view the desired resolution (Menu=>Tools=>Resolution).
@@ -192,10 +208,29 @@ E.g., you can create two views "Landscape-Mobile" and "Portrait-Mobile" and thes
 
 There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and best suitable default view for this resolution. 
 
+## Permissions System
+### Project
+In the project management dialog, you can configure `read` and `write` permissions for each ioBroker user.
+
+The `read` flag means that the project is accessible for this user in the Runtime. 
+The `write` flag means that the project is accessible for this user in the Edit Mode.
+
+When a new user is created via ioBroker Admin adapter, it will have both permissions by default.
+
+### View
+You can also specify which views the user is allowed to access for runtime and edit mode. 
+When one of the access rights is not granted on project level, it does not have any effect to specify them on view level, as the project as a whole will not be accessible.
+
+Note that whenever you try to access a view, where the current user has no permission for, the user will see the project selection panel instead.
+
+### Widget
+If the user has no `read` permissions, the widget will not be rendered in the runtime. If user has no `write` permissions, the widget
+will not be rendered in edit mode.
+
 ## Settings
 ### Reload if sleep longer than
 There is a rule that after some disconnection period, the whole VIS page will be reloaded to synchronize the project.
-You can configure it in the menu "Settings...". If you set the interval to "never" so the page will never be reloaded.
+You can configure it in the menu "Settings...". If you set the interval to "never", so the page will never be reloaded.
 
 ### Reconnect interval
 Set the interval between the connection attempts if disconnected. If you set 2 seconds, it will try to establish the connection every 2 seconds.
@@ -205,7 +240,7 @@ Sometimes (in the night) it is required to have the dark loading screen. With th
 
 Notice that these settings are valid only for reconnection and not for the first connecting.
 
-![Dark](img/dark_screen.png)
+![Dark](packages/iobroker.vis-2/img/dark_screen.png)
 
 ## SVG and currentColor
 The currentColor keyword in CSS allows elements to inherit the current text color from their parent element.
@@ -221,6 +256,36 @@ Here's a simple example with a circle in an SVG:
 In this case, if the SVG takes the color of parent element.
 E.g., if it was used in a menu and the menu is red, the circle would be red.
 
+## Development and Debugging
+
+In order to make adjustments to the vis-2 editor itself, to search for errors and to debug, the following steps must be carried out.
+
+1. fork the iobroker/iobroker.vis-2 repository into your own account via user interface of GitHub
+
+2. clone the repository into a directory. copy the url from your GitHub repository. the command looks like
+
+```shell
+git clone https://github.com/<your profile name>/ioBroker.vis-2.git
+```
+
+3. open the downloaded repository with your IDE
+
+4. to install and download all necessary libraries, run the following command in a terminal in the root directory of the repository
+
+```shell
+npm run install-monorepo
+```
+
+5. to start the editor in the browser, please execute the following command. 
+An already separately running iobroker server instance must be available on port 8082.
+
+```shell
+npm run start
+```
+
+- Debugging is available in the browser e.g. chrome F12
+- if you change a file, automatic reload of the editor is supported
+
 
 ## Todo
 <!--
@@ -228,87 +293,31 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-
 ### **WORK IN PROGRESS**
-* (foxriver76) improved performance due to optimizations on auto save
+* (@GermanBluefox) Corrected selection of the view for resolution
 
-### 2.3.5 (2023-11-03)
-* (foxriver76) update adapter-react to have enhanced image support in file selector
-* (foxriver76) fixed color of file browser in light mode
-* (foxriver76) fixed color inputs jumping to end of input on modify
+### 2.12.10 (2025-05-25)
+* (@GermanBluefox) Added possibility to define favicon and browser tab title
 
-### 2.3.4 (2023-11-02)
-* (foxriver76) fix crash when selecting multiple widgets
-* (foxriver76) removed duplicate `none` entry in `border-style` dropdown
-* (foxriver76) fix crash when reordering widgets
+### 2.12.9 (2025-05-19)
+* (@GermanBluefox) Added possibility to use value in signal text
 
-### 2.3.3 (2023-10-30)
-* (foxriver76) fixed problem, that vis is not loading if a single widget has a script error
-* (bluefox) added the editor for bindings
-* (bluefox) background does not used if in iframe
+### 2.12.8 (2025-05-03)
+* (@GermanBluefox) Added new SVG icon as favicon.
+* (@GermanBluefox) Added support for the TypeScript widgets
+* (@GermanBluefox) Used `vite` for faster loading
 
-### 2.3.2 (2023-10-14)
-* (bluefox) Allowed showing only selected widgets in edit mode
-* (bluefox) Corrected the visibility calculation for old (CanJS) widgets
+### 2.11.2 (2025-01-23)
+* (@GermanBluefox) Do not load vis-1 widgets if vis-2 widgets are provided
 
-### 2.3.1 (2023-10-13)
-* (bluefox) Corrected vertical gap between relative widgets
-* (bluefox) Better input of numbers with min/max in attribute dialog
-
-### 2.3.0 (2023-09-28)
-* (bluefox) jQui widgets (many of them) were improved
-
-### 2.2.7 (2023-09-18)
-* (bluefox) Improved icon selector: you can upload your own icon directly
-* (bluefox) Optimized loading: do not load unused widget sets
-
-### 2.2.6 (2023-09-17)
-* (bluefox) Date binding corrected
-* (bluefox) Optimized loading of widgeteria
-* (bluefox) Horizontal navigation is fixed
-
-### 2.2.5 (2023-09-12)
-* (bluefox) Implemented horizontal navigation
-
-### 2.2.4 (2023-09-04)
-* (bluefox) Corrected license checking
-
-### 2.2.2 (2023-08-16)
-* (bluefox) Changed sentry settings
-
-### 2.2.1 (2023-08-15)
-* (bluefox) Added possibility to filter widgets in edit mode
-* (bluefox) Added possibility to change the order of relative widgets with drag&drop
-
-### 2.2.0 (2023-08-14)
-* (bluefox) Release candidate 1
-
-### 2.1.7 (2023-08-10)
-* (bluefox) Optimized the rendering of the widgets
-
-### 2.1.6 (2023-07-30)
-* (bluefox) First beta release
-
-### 2.1.4 (2023-07-19)
-* (bluefox) Allowed to add widgets to widgets
-
-### 2.0.36 (2023-06-21)
-* (bluefox) Added widgeteria
-
-### 2.0.29 (2023-05-17)
-* (bluefox) Corrected errors
-
-### 2.0.10 (2022-12-01)
-* (bluefox) Added the file browser
-
-### 2.0.8 (2022-11-26)
-* (bluefox) Improved the error handling
-
-### 2.0.0 (2022-10-21)
-* (bluefox) Completely new visualization, but partly compatible with the previous version
+### 2.11.1 (2024-12-02)
+* (@GermanBluefox) Corrected navigation menu
+* (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
+* (@GermanBluefox) Added the HTML rebuild button to settings
+* (@GermanBluefox) Backend was migrated to TypeScript
 
 ## License
- Copyright (c) 2021-2023 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2021-2025 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
   
  Creative Common Attribution-NonCommercial (CC BY-NC)
 

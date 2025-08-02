@@ -2,26 +2,28 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.simple-api/README.md
-title: 简单的api
-hash: RUFO6KW5sFINliHNwf6Q1qvsFmY0ih6Vrsvdmy1IjgY=
+title: 简单 API
+hash: q1/fQiizuoo4563slosAzKVM/45ewTQF6c+UgBc9kaM=
 ---
 ![标识](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
 ![安装数量](http://iobroker.live/badges/simple-api-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.simple-api.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.simple-api.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
 
 # 简单 API
 ![测试与发布](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-这是 RESTFul 接口，用于从 ioBroker 读取对象和状态，并通过 HTTP Get/Post 请求写入/控制状态。
+这是一个 RESTFul 接口，用于从 ioBroker 读取对象和状态并通过 HTTP Get/Post 请求写入/控制状态。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+
+**使用更好的[`ioBroker.rest-api`](https://github.com/ioBroker/ioBroker.rest-api)代替这个适配器。**
 
 ＃＃ 用法
-在浏览器中调用`http://ipaddress:8087/help`以获取有关API的帮助。结果是：
+在浏览器中调用`http://ipaddress:8087/help`获取API帮助，结果如下：
 
-```
+```json
 {
   "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID",
   "getPlainValue": "http://ipaddress:8087/getPlainValue/stateID?json",
@@ -41,7 +43,7 @@ hash: RUFO6KW5sFINliHNwf6Q1qvsFmY0ih6Vrsvdmy1IjgY=
 }
 ```
 
-### 获取简单值
+### 获取纯值
 致电例如：
 
 `http://ipaddress:8087/getPlainValue/system.adapter.admin.0.alive`
@@ -75,11 +77,11 @@ hash: RUFO6KW5sFINliHNwf6Q1qvsFmY0ih6Vrsvdmy1IjgY=
 `"VALUETEXT"`
 
 ＃＃＃ 得到
-致电例如：`http://ipaddress:8087/get/system.adapter.admin.0.alive`
+调用例如：`http://ipaddress:8087/get/system.adapter.admin.0.alive`
 
 结果：
 
-```
+```json
 {"val":true,"ack":true,"ts":1442432193,"from":"system.adapter.admin.0","lc":1442431190,"expire":23437,"_id":"system.adapter.admin.0.alive","type":"state","common":{"name":"admin.0.alive","type":"boolean","role":"indicator.state"},"native":{}}
 ```
 
@@ -91,7 +93,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 结果：
 
-```
+```json
 {
   "val": true,
   "ack": true,
@@ -111,30 +113,22 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ```
 
 ### 获取批量
-通过一个请求获取多个状态，以请求中列表的顺序作为对象数组返回，并将 id/val/ts 作为子对象
+通过一次请求获取多个状态，按请求中列表的顺序返回对象数组，并以 id/val/ts 作为子对象
 
 ＃＃＃ 放
-致电例如：
-
-```
-http://ipaddress:8087/set/javascript.0.test?value=1
-```
+调用例如：`http://ipaddress:8087/set/javascript.0.test?value=1`
 
 结果：
 
-```
+```json
 {"id":"javascript.0.test","value":1}
 ```
 
-或致电例如：
-
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint
-```
+或致电例如：`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
 
 结果：
 
-```
+```json
 {
   "id": "javascript.0.test",
   "value": 1
@@ -143,77 +137,66 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint
 
 当然，数据点`javascript.0.test`必须存在。
 
-此外，可以定义值的类型：
+此外，可以定义值的类型：`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
 
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string
-```
-
-也可以定义 ack 标志：
-
-```
-http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
-```
+并且可以定义一个确认标志：`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
 
 ### 切换
 切换值：
 
-- 布尔值：true => false，false => true
-- 无限制的数字：x => 100-x
-- 有限制的数字：x => max - (x - min)
+- 布尔值： true => false，false => true
+- 无限制数字：x => 100-x
+- 有限制的数字：x => 最大值 - （x - 最小值）
 
 ### 设置批量
-通过一个请求设置多个状态。此请求也支持 POST 方法，因为 POST 数据应该在正文中而不是 URL 中。
+用一个请求设置多个状态。此请求也支持 POST 方法，因为 POST 数据应该在正文中而不是 URL 中。
 
-### SetValueFromBody
-允许设置由 POST 正文内容设置的给定状态的值。
+请使用内容类型`text/plain`。
 
-例如调用：`http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state`，主体为`hello`，其中`0_userdata.0.example_state` 是州 ID。
+### 设置Body的值
+此命令允许设置由 POST 主体内容设置的给定状态的值。
+
+调用例如：`http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` 和主体`hello`，其中`0_userdata.0.example_state` 是状态的 ID。
+
+请使用内容类型`text/plain`。
 
 ### 对象
-从数据库中读取定义类型的对象。
+从数据库读取定义类型的对象。
 
 调用例如：`http://ipaddress:8087/objects?pattern=enum.*&type=enum` - 读取所有枚举
 
 或者
 
-`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - 读取分支`system.adapter.admin.0`中的所有状态
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - 读取分支 `system.adapter.admin.0` 中的所有状态
 
-＃＃＃ 状态
+### 州
 ＃＃＃ 搜索
-就是在配置中设置了一个数据源（History、SQL），那么只列出该数据源已知的数据点。
-如果“列出所有数据点”选项已激活或未指定数据源，则将列出所有数据点。
+如果在配置中设置了数据源（历史记录、SQL），则仅列出数据源已知的数据点。
+如果已激活“列出所有数据点”选项或未指定数据源，则将列出所有数据点。
 Grafana JSON / SimpleJSON 插件需要此命令。
 
 ＃＃＃ 询问
-如果实例配置中指定了数据源（History、SQL），则在指定时间段内读取指定数据点的数据，否则仅读取当前值。
+如果在实例配置中指定了数据源（History、SQL），则会读取指定时间段内指定数据点的数据，否则仅读取当前值。
 Grafana JSON / SimpleJSON 插件需要此命令。
 
 ＃＃＃ 帮助
-返回 [这](#usage) 输出
-
-＃＃ 安装
-```node iobroker.js add simple-api```
+返回[这](#usage)输出
 
 ＃＃ 用法
-假设我们没有安全措施，服务器在默认端口 8087 上运行。
+假设我们没有安全性并且服务器在默认端口 8087 上运行。
 
-对于所有查询，都可以指定状态的名称或 ID。
+对于所有查询，可以指定状态的名称或 ID。
 
-对于每个返回 JSON 的请求，您可以设置参数 `prettyPrint` 以获取人类可读形式的输出。
+对于每个返回 JSON 的请求，您可以设置参数`prettyPrint` 以人类可读的形式获取输出。
 
-如果启用身份验证，则其他两个字段是必填的：`?user=admin&pass=iobroker`
+如果启用了身份验证，则另外两个字段是必填的：`?user=admin&pass=iobroker`
 
-### 获取简单值
-将状态值读取为文本。您可以指定多个 id 除以分号
+### 获取纯值
+将状态值读取为文本。您可以指定更多 ID，以分号分隔
 
-```http://ip:8087/getPlainValue/admin.0.memHeapTotal```
+`http://ip:8087/getPlainValue/admin.0.memHeapTotal` => `31.19`
 
-```
-  31.19
-```
-
-```http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed```
+`http://ip:8087/getPlainValue/admin.0.memHeapTotal, admin.0.memHeapUsed` =>
 
 ```
   31.19
@@ -221,12 +204,12 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 ```
 
 ＃＃＃ 得到
-以 json 形式读取状态和状态对象数据。您可以指定多个用分号分隔的 id。
-如果请求多个 ID，将返回 JSON 数组。
+以 JSON 格式读取状态和状态的对象数据。您可以指定多个 ID，以分号分隔。
+如果请求多个 ID，则将返回 JSON 数组。
 
-```http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint```
+`http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint` =>
 
-```
+```json
   {
     "val": 31.19,
     "ack": true,
@@ -253,9 +236,9 @@ Grafana JSON / SimpleJSON 插件需要此命令。
   }
 ```
 
-```http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
+`http://ip:8087/get/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint` =>
 
-```
+```json
   [
     {
       "val": 31.19,
@@ -309,12 +292,12 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 ```
 
 ### 获取批量
-读取更多带有时间戳的ID的状态。您可以指定多个用分号分隔的 id。
-JSON 数组将始终返回。
+读取更多带时间戳的 ID 的状态。您可以指定更多 ID，以分号分隔。
+将始终返回 JSON 数组。
 
-```http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
+`http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint` =>
 
-```
+```json
   {
       "admin.0.memHeapTotal": {
           "val": 31.19,
@@ -328,19 +311,21 @@ JSON 数组将始终返回。
 ```
 
 ＃＃＃ 放
-写入具有指定 ID 的状态。您可以指定 *wait* 选项（以毫秒为单位）来等待驱动程序的答复。
+写入指定 ID 的状态。您可以指定 *wait* 选项（以毫秒为单位）来等待驱动程序的答复。
 
-```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint```
+`http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint` =>
 
-```{
+```json
+{
        "id": "hm-rpc.0.IEQ12345.LEVEL",
        "value": 1
      }
 ```
 
-```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint```
+`http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&wait=5000&prettyPrint` =>
 
-```{
+```json
+{
        "val": 1,
        "ack": true,
        "ts": 1423155399,
@@ -349,15 +334,15 @@ JSON 数组将始终返回。
      }
 ```
 
-如果在指定时间内没有收到答复，则将返回`null`值。
-在第一种情况下，将立即返回答案，并且`ack`为假。在第二种情况下，`ack` 为真。这意味着这是司机的回应。
+如果在指定时间内未收到任何答案，则将返回 `null` 值。
+在第一种情况下，答案将立即返回，并且 `ack` 为假。在第二种情况下，`ack` 为真。这意味着这是来自驱动程序的响应。
 
 ### 设置批量
-- 在一个请求中写入大量 ID。
+- 在一次请求中写入大部分 ID。
 
-```http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint```
+`http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint` =>
 
-```
+```json
   [
     {
       "id": "hm-rpc.0.FEQ1234567:1.LEVEL",
@@ -369,14 +354,14 @@ JSON 数组将始终返回。
   ]
 ```
 
-您也可以通过 POST 方式发送此请求。
+您也可以以 POST 形式发送此请求。请使用内容类型`text/plain`并将数据放入正文中。
 
 ### 对象
-获取模式的所有对象的列表。如果没有指定模式，则将返回 JSON 数组形式的所有对象。
+获取模式的所有对象列表。如果未指定模式，则将返回所有对象作为 JSON 数组。
 
-```http://ip:8087/objects?prettyPrint```
+`http://ip:8087/objects?prettyPrint` =>
 
-```
+```json
   {
   "system.adapter.admin.0.uptime": {
     "_id": "system.adapter.admin.0.uptime",
@@ -412,11 +397,9 @@ JSON 数组将始终返回。
   ...
 ```
 
-获取适配器system.adapter.admin.0的所有控制对象：
+获取适配器 system.adapter.admin.0 的所有控制对象：`http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
 
-```http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint```
-
-```
+```json
     {
     "system.adapter.admin.0.uptime": {
       "_id": "system.adapter.admin.0.uptime",
@@ -433,12 +416,12 @@ JSON 数组将始终返回。
 
 ```
 
-＃＃＃ 状态
-获取模式的所有状态的列表。如果没有指定模式，则将返回 JSON 数组形式的所有状态。
+### 州
+获取模式的所有状态列表。如果未指定模式，则将返回所有状态的 JSON 数组。
 
-```http://ip:8087/states?prettyPrint```
+`http://ip:8087/states?prettyPrint` =>
 
-```
+```json
   {
     "system.adapter.admin.0.uptime": {
       "val": 32176,
@@ -466,9 +449,9 @@ JSON 数组将始终返回。
 
 获取适配器system.adapter.admin.0的所有控制对象：
 
-```http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint```
+`http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint` =>
 
-```
+```json
     {
       "system.adapter.admin.0.uptime": {
         "val": 32161,
@@ -518,14 +501,12 @@ JSON 数组将始终返回。
 ```
 
 ＃＃＃ 搜索
-就是在配置中设置了一个数据源（History、SQL），那么只列出该数据源已知的数据点。
-如果“列出所有数据点”选项已激活或未指定数据源，则将列出所有数据点。
+如果在配置中设置了数据源（历史记录、SQL），则仅列出数据源已知的数据点。
+如果已激活“列出所有数据点”选项或未指定数据源，则将列出所有数据点。
 
-```
-http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
-```
+`http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint` =>
 
-```
+```json
   {
     "system.adapter.admin.0.outputCount",
     "system.adapter.admin.0.inputCount",
@@ -541,11 +522,11 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ```
 
 ＃＃＃ 询问
-如果指定了数据源（历史记录、SQL），则在指定时间段内读取指定数据点的数据。
+如果指定了数据源（历史记录、SQL），则将检索给定时间段内指定数据点的数据。
 
-```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
+`http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z` =>
 
-```
+```json
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -584,11 +565,11 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
   ]
 ```
 
-如果未指定数据源或传递 noHistory 参数，则仅读取数据点的当前值。
+如果没有指定数据源或者传递了noHistory参数，那么只读出数据点的当前值。
 
-```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true```
+`http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true` =>
 
-```
+```json
   [
     {
       "target": "system.host.iobroker-dev.load",
@@ -611,11 +592,73 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
   ]
 ```
 
-<!-- 下一个版本的占位符（在行的开头）：
+您可以在查询中使用相对时间。例如，`dateFrom=-1h` 或 `dateTo=today`。
+
+支持以下相对模式：
+
+- `hour` 或 `thisHour` 或 `this hour` - 当前小时的开始
+- `last hour` 或 `lastHour` - 前一小时的开始时间
+- `today` - 当前日期的开始
+- `yesterday` - 前一天的开始
+- `week` 或 `thisWeek` 或 `this week` - 当前周的开始
+- `lastWeek` 或 `last week` - 上周的开始
+- `month` 或 `thisMonth` 或 `this month` - 当前月份的开始
+- `lastMonth` 或 `last month` - 上个月的开始
+- `year` 或 `thisYear` 或 `this year` - 当前年份的开始
+- `lastYear` 或 `last year` - 上一年的开始
+- `-Nd` - N 天前
+- `-NM` - N 个月前
+-`-Ny` - N 年前
+- `-Nh` - N 小时前
+- `-Nm` - N 分钟前
+- `-Ns` - N 秒前
+
+CORS
+使用选项“允许来源（CORS）”，您可以设置`Access-Control-Allow-Origin` 标头以允许来自其他域的请求。
+
+如果将其留空，则不会设置标题。
+
+## 修饰符
+您可以使用一些选项来修改答案：
+
+- `prettyPrint` - 以人类可读的形式获取输出
+- `json` - 强制解析 `getPlainValue` 命令中的值
+- `timeRFC3339` - 获取 RFC3339 格式的时间戳（“ts”和“lc”）的时间，例如“2019-06-08T01：00：00.000Z”
+- `callback` - JSONP 格式的响应。在 `callback=<CALLBACK>` 中，`CALLBACK` 是回调函数的名称
+
+＃＃ 验证
+此适配器支持以下类型的身份验证：
+
+- 查询参数 `user` 和 `pass`
+- 基本身份验证
+- 标头中的 Oauth2 Bearer 令牌。在 Web 适配器中阅读更多有关如何获取令牌的信息。
+
+<!-- 下一版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.6 (2025-03-15)
+* (bluefox) Added support for 'Access-Control-Allow-Origin'
+* (bluefox) Removed letsencrypt information
+* (bluefox) Added basic and OAuth2 authentication
+* (bluefox) Implemented JSONP response
+* (bluefox) Implemented relative times for query
+
+### 3.0.5 (2025-03-13)
+* (bluefox) Corrected the indication of running mode in admin
+* (bluefox) Corrected the writing of numeric values
+* (bluefox) Clear cache after 10 minutes
+
+### 3.0.0 (2025-03-09)
+* (bluefox) Updated packages
+* (bluefox) Migrated to TypeScript
+* (bluefox) If State/Object not found, the response will be 404 (and not 500)
+* (bluefox) If a user has no permission, the response will be 403 (and not 401)
+
+### 2.8.0 (2024-05-23)
+* (foxriver76) ported to `@iobroker/webserver`
+
 ### 2.7.2 (2022-10-08)
 * (Apollon77) Prepare for future js-controller versions
 
@@ -625,10 +668,10 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 
 ### 2.7.0 (2022-05-31)
 * (crycode-de) Allow use of ack flag for setBulk post requests
-* (Apollon77) Return ack flag too on getBulk
+* (Apollon77) Return an ack flag too on getBulk
 
 ### 2.6.5 (2022-04-14)
-* Added support aggregate and count for queries
+* Added support for aggregate and count for queries
 
 ### 2.6.4 (2022-03-17)
 * (Apollon77) Optimize performance, especially when using names instead of object ids
@@ -660,10 +703,10 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 * (Apollon77) check that targets are an array for "query" requests (Sentry IOBROKER-SIMPLE-API-F)
 
 ### 2.4.6 (2020-06-11)
-* (Apollon77) Make sure adapter is showing correct error when webserver can not be initialized (Sentry IOBROKER-SIMPLE-API-7)
+* (Apollon77) Make sure that the adapter is showing the correct error when webserver cannot be initialized (Sentry IOBROKER-SIMPLE-API-7)
 
 ### 2.4.5 (2020-05-04)
-* (Apollon77) webserver initialization optimized again to prevent errors with imvalid certificates
+* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
 
 ### 2.4.4 (2020-05-02)
 * (Apollon77) Make sure Permission errors do not crash adapter (Sentry IOBROKER-SIMPLE-API-3)
@@ -775,7 +818,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

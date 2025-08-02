@@ -218,10 +218,16 @@ You can enable polling in admin via objects configuration.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+
+### 1.1.0 (2024-09-30)
+* (Jey Cee) Migrate config to JSONConfig 
+* (Jey Cee) Fix issues found by adapter checker
+* (Jey Cee) Use default test and release action
+
 ### 1.0.21 (2022-02-27)
 * small fixes
 
@@ -314,7 +320,7 @@ Breaking change: naming was changed and command to poll has another name - "requ
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 Jey Cee <jey-cee@live.com>
+Copyright (c) 2016-2024 Jey Cee <iobroker@all-smart.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

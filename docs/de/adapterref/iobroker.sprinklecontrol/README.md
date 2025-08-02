@@ -14,38 +14,44 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 
 <a id="inhaltsverzeichnis"></a>
 # Inhaltsverzeichnis 
-* [1 Grundlegendes](#1-grundlegendes)
-* [2 Installation](#2-installation)
-* [3 Konfiguration](#3-konfiguration)
-* [4 Haupteinstellungen - Startseite](#4-haupteinstellungen) 
-  * [4.1 Aufbau der Tabelle](#41-aufbau-der-tabelle) 
-  * [4.2 spezifische Konfiguration des jeweiligen Bewässerungskreises](#42-spezifische-konfiguration-des-jeweiligen-bewsserungskreises)
-    * [4.2.1 Haupteinstellungen des Ventils](#421-haupteinstellungen-des-ventils)
-      * [4.2.1.1 Bewässerungseinstellungen](#4211-bewsserungseinstellungen)
-      * [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt-zum-gieen)
-        * [Berechnung der Verdunstung](#einschaltpunkt-berechnung)
-        * [Bodenfeuchte-Sensor bistabil](#einschaltpunkt-bistabil)
-        * [Bodenfeuchte-Sensor analog](#einschaltpunkt-analog)
-        * [Start an festen Wochentagen (ohne Sensoren)](#einschaltpunkt-feste-tage)
-    * [4.2.2 Pumpeneinstellungen des Ventils](#422-pumpeneinstellungen-des-ventils) 
-* [5 Pumpen-Einstellungen](#5-pumpen-einstellungen) 
-* [6 Zeit-Einstellungen](#6-zeit-einstellungen) 
-* [7 Zusätzliche-Einstellungen](#7-zustzliche-einstellungen) 
-  * [7.1 Astro-Einstellungen](#71-astro-einstellungen)
-  * [7.2 Zusätzliche Benachrichtigungseinstellung](#72-zustzliche-benachrichtigungseinstellungen) 
-  * [7.3 Sensoren zur Berechnung der Verdunstung](#73-sensoren-zur-berechnung-der-verdunstung) 
-  * [7.4 Wettervorhersage](#74-wettervorhersage) 
-* [8 Benachrichtigungen](#8-benachrichtigungen) 
-  * [8.1 Telegram](#81-telegram) 
-  * [8.2 Pushover](#82-pushover) 
-  * [8.3 E-Mail](#83-e-mail) 
-  * [8.4 WhatsApp](#84-whatsapp) 
-* [9 Objekte](#9-objekte) 
-  * [9.1 control](#91-control) 
-  * [9.2 evaporation](#92-evaporation) 
-  * [9.3 info](#93-info) 
-  * [9.4 sprinkle](#94-sprinkle) 
-* [10 Was ist für die Zukunft geplant](#10-was-ist-fr-die-zukunft-geplant) 
+- [SprinkleControl](#sprinklecontrol)
+    - [*Der Adapter zur individuellen automatischen Gartenbewässerung. \<\< so wie es jeder mag \>\> ;-)*](#der-adapter-zur-individuellen-automatischen-gartenbewässerung--so-wie-es-jeder-mag---)
+- [Inhaltsverzeichnis](#inhaltsverzeichnis)
+- [1. Grundlegendes](#1-grundlegendes)
+- [2. Installation](#2-installation)
+- [3. Konfiguration](#3-konfiguration)
+- [4. Haupteinstellungen](#4-haupteinstellungen)
+  - [4.1. Aufbau der Tabelle](#41-aufbau-der-tabelle)
+  - [4.2. spezifische Konfiguration des jeweiligen Bewässerungskreises](#42-spezifische-konfiguration-des-jeweiligen-bewässerungskreises)
+    - [4.2.1. Haupteinstellungen des Ventils](#421-haupteinstellungen-des-ventils)
+      - [4.2.1.1 Bewässerungseinstellungen](#4211-bewässerungseinstellungen)
+      - [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt-zum-gießen)
+      - [**Berechnung der Verdunstung**](#berechnung-der-verdunstung)
+      - [Konfiguration des analogen Bodenfeuchte-Sensors](#konfiguration-des-analogen-bodenfeuchte-sensors)
+    - [4.2.2. Pumpeneinstellungen des Ventils](#422-pumpeneinstellungen-des-ventils)
+- [5. Pumpen-Einstellungen](#5-pumpen-einstellungen)
+- [6. Zeit-Einstellungen](#6-zeit-einstellungen)
+  - [Startzeit](#startzeit)
+  - [Zusätzliche Startzeit](#zusätzliche-startzeit)
+  - [Wochenendstart](#wochenendstart)
+  - [Einstellung für die Startzeit an Feiertagen](#einstellung-für-die-startzeit-an-feiertagen)
+- [7. Zusätzliche-Einstellungen](#7-zusätzliche-einstellungen)
+  - [7.1 Astro-Einstellungen](#71-astro-einstellungen)
+  - [7.2 Zusätzliche Benachrichtigungseinstellungen](#72-zusätzliche-benachrichtigungseinstellungen)
+  - [7.3. Sensoren zur Berechnung der Verdunstung](#73-sensoren-zur-berechnung-der-verdunstung)
+  - [7.4 Wettervorhersage](#74-wettervorhersage)
+- [8 Benachrichtigungen](#8-benachrichtigungen)
+  - [Auswahl der Benachrichtigung](#auswahl-der-benachrichtigung)
+    - [8.1 Telegram](#81-telegram)
+    - [8.2 Pushover](#82-pushover)
+    - [8.3 E-Mail](#83-e-mail)
+    - [8.4 WhatsApp](#84-whatsapp)
+- [9 Objekte](#9-objekte)
+  - [9.1 control](#91-control)
+  - [9.2 evaporation](#92-evaporation)
+  - [9.3 info](#93-info)
+  - [9.4 sprinkle](#94-sprinkle)
+- [10 Was ist für die Zukunft geplant](#10-was-ist-für-die-zukunft-geplant)
 
 ---
 
@@ -340,12 +346,14 @@ Hier werden die Einstellung der Hauptpumpe (z.B. Grundwasser), einer zweiten Pum
 * **Einstellung der Pumpe**
     * **Hauptpumpe: ** → Durch anklicken des (+) Symbols öffnet sich das Select-ID State Fenster. Hier wird das STATE der Pumpe hinterlegt, welche für die Wasserversorgung zuständig ist.
     * **maximale Pumpenleistung der Hauptpumpe in l/h: ** → Hier wird die maximale Pumpenleistung hinterlegt. Diese begrenzt dann die Bewässerungskreise, damit noch genügend Druck an den Ventilen ansteht.
-        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben.  
+        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben. 
+    * **Vorlaufzeit der Hauptpumpe in s** → Hier können Sie die Vorlaufzeit der Pumpe in Sekunden eingeben, die benötigt wird um den Druck aufzubauen. Nach Ablauf der Zeit werden die Ventile erst zugeschaltet. 
 
 * **Zisternenpumpe in Vorrangschaltung hinzufügen**
     * **Zisternenpumpe** → Hier wird die Pumpe der Zisterne eingetragen. Diese wird deaktiviert, so wie der Füllstand der Zisterne zu gering ist. Wobei die Hauptpumpe, in diesem Fall, die Bewässerung fortsetzt.
     * **maximale Pumpenleistung der Zisterne in l / h** → Hier wird die maximale Pumpenleistung hinterlegt. Diese begrenzt dann die Bewässerungskreise, damit noch genügend Druck an den Ventilen ansteht.
-        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben. 
+        > **Achtung** → Hier muss die tatsächliche Pumpenleistung angegeben werden, nicht die vom Typenschild. Ich habe z. B. eine "Gardena 5000/5 LCD" diese schafft aber nur 1800l auf grund der Leitungslänge und nicht 4500l/h, wie auf dem Typenschild angegeben.
+    * **Vorlaufzeit der Zisternenpumpe in s** → Vorlaufzeit in Sekunden die benötigt wird um den Druck in den Hauptleitungen aufzubauen.    
     * **Füllhöhe der Zisterne** → Angabe des Füllstandsensors für die Ermittlung der Füllhöhe in %.
         > **eingebaut** → Hm-Sen-Wa-Od kapazitiver Füllstandmesser von HomeMatic.
     * **Mindestfüllstand der Zysten in %** → Schaltpunkt, bei dessen Unterschreitung wird auf die Hauptpumpe umgeschaltet und bei laufender Bewässerung die Ventile je Verbrauchsmenge angepasst.
@@ -575,16 +583,17 @@ Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfe
 
 <a id="9-objekte"></a>
 # 9 Objekte
-![control.jpg](img/control.jpg)
+![control.png](img/control.png)
 
 ---
 
 
 <a id="91-control"></a>
 ## 9.1 control
-* **Holiday** - Wenn Holiday auf true gesetzt wird, so wird die Bewässerung wie am Wochenende gestartet. Falls die Wochenendeinstellung aktiviert wurde. Die Verbindung mit einem Kalender wäre hier auch möglich.
+* **Holiday** - Wenn Holiday auf true gesetzt wird, so wird die Bewässerung wie am Wochenende gestartet. Falls die Wochenendeinstellung aktiviert wurde. Die Verbindung mit einem Kalender wäre hier auch möglich
 * **addStartTimeSwitch** - Wird nur angezeigt, wenn unter Konfiguration, zusätzliche Startzeit, ein start mit externen Signal ausgewählt wurde.
-* **autoOnOff** – Bei Einstellung "off“ ist der Automatikbetrieb der Bewässerungsanlage deaktiviert.
+* **autoOnOff** – Bei Einstellung "off“ ist der Automatikbetrieb der Bewässerungsanlage deaktiviert. Beim Schalten von On auf Off werden außerdem alle aktiven Prozesse gelöscht.
+* **autoStart** - Bewässerung starten => Alle aktiven Kreise werden gestartet!
 * **parallelOfMax** – z. B. (3 : 4) Drei Bewässerungskreise sind von vier möglichen aktive. (Dies ist nur eine Anzeige!)
 * **restFlow** – Anzeige der noch möglichen Restfördermenge der Pumpe. (Dies ist nur eine Anzeige!)
 
@@ -654,7 +663,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 + Überwachen ob Ventile wirklich geschaltet haben, mit Fehlermeldung über Benachrichtigung
 + Zisterne als Einzelpumpe mit Bewässerungsunterbrechung bei Unterschreitung minimalniveau
 + Ventile nach der Bewässerung x Minuten lang spülen (Bei Zisterne / Grundwasser kombination und eisenhaltigem Wasser)
-+ Die Visualisierung, die ich früher noch plante, werde ich nicht weiter verfolgen. 
 
 ---
 
@@ -668,84 +676,32 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.17 (2025-06-15)
+* (Dirk-Peter-md) Valve timing corrected
+
+### 0.2.16 (2025-06-08)
+* (Dirk-Peter-md) issue #95 Pump lead time added
+
+### 0.2.15 (2025-06-01)
+* (Dirk-Peter-md) Readme updated
+* (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
+* (Dirk-Peter-md) ioBroker-Bot [W028]
+
+### 0.2.14 (2025-03-15)
+* (Dirk-Peter-md) eslint-config added
+* (Dirk-Peter-md) Dependencies updated
+* (Dirk-Peter-md) Update License
+* (Dirk-Peter-md) issue #92 Sprinkler im Gewächshaus solved
+* (Dirk-Peter-md) add Button control.autoStart
+
 ### 0.2.13 (2022-09-06)
 * (Dirk-Peter-md) various bugs fixed
 * (Dirk-Peter-md) Preparing the stable release
 
-### 0.2.12 (2022-07-17)
-* (Dirk-Peter-md) fixDay(twoNd,threeRd) => postpone by one day
-* (Dirk-Peter-md) Bug fixed => autoOn
-* (Dirk-Peter-md) Additional post-watering => in case of high evaporation / switchable externally
-
-### 0.2.11 (2022-05-22)
-* (Dirk-Peter-md) Bug fixed => analog soil moisture sensor with negative characteristic
-* (Dirk-Peter-md) Attention => maximum soil moisture in rain now in %
-
-### 0.2.10 (2022-05-15)
-* (Dirk-Peter-md) manual watering limited to a maximum of 100%
-* (Dirk-Peter-md) Error whatsapp message fixed
-
-### 0.2.9 (2022-04-10)
-* (Dirk-Peter-md) Bug-Initialisierungsroutine
-
-### 0.2.8 (2022-03-20)
-* (Dirk-Peter-md) Adaptation for js controller 4
-* (Dirk-Peter-md) switched main.js to async
-
-### 0.2.7 (16.10.2021)
-* (Dirk-Peter-md) zusätzliche Testnachrichten gelöscht, Readme aktualisiert
-
-### 0.2.6 (03.10.2021)
-* (Dirk-Peter-md) inGreenhouse in Bewässerungsverfahren "Calculation" hinzugefügt
-
-### 0.2.5 (18.08.2021)
-* (Dirk-Peter-md) Mehrfachverwendung von Bodenfeuchte-Sensoren
-* (Dirk-Peter-md) Objekte mit \"def\": ... überarbeitet
-
-### 0.2.4 (16.08.2021)
-* (Dirk-Peter-md) Triggerpunktanzeige hinzufügen
-* (Dirk-Peter-md) Fehler in der Bodenfeuchteanalyse behoben
-
-### 0.2.3 (15.08.2021)
-* (Dirk-Peter-md) index_m-Fehler behoben
-* (Dirk-Peter-md) timeExtension (FixDay, bistabil) Fehler behoben
-
-### 0.2.2 (27.07.2021)
-* (Dirk-Peter-md) Fehler FixDay behoben
-* (Dirk-Peter-md) Anzeige actualSoilMoisture überarbeitet
-* (Dirk-Peter-md) Infomeldungen überarbeitet
-
-### 0.2.1 (13.07.2021)
-* (Dirk-Peter-md) Start an festen Wochentagen (ohne Sensoren) hinzugefügt
-* (Dirk-Peter-md) Fehler behoben
-
-### 0.2.0 (03.07.2021)
-* (Dirk-Peter-md) Bodenfeuchte-Sensor hinzugefügt
-* (Dirk-Peter-md) Schwellwert für Wettervorhersage hinzugefügt
-
-### 0.1.7 (22.05.2021)
-* (Dirk-Peter-md) Beschreibung in englischer Sprache hinzugefügt
-* (Dirk-Peter-md) bereit für stable
-
-### 0.1.5 (05.05.2021)
-* (Dirk-Peter-md) Zurücksetzen der Regenmenge im 24-Stunden-Modus hinzugefügt
-
-### 0.1.4 (21.04.2021)
-* (Dirk-Peter-md) Fehler bei deaktivierter Wettervorhersage behoben
-
-### 0.1.2 (30.12.2020)
-* (Dirk-Peter-md) Beschreibung von SprinkleControl überarbeitet
-
-### 0.0.12 (10.10.2020)
-* (Dirk-Peter-md) Bewässerung über eine 2. Pumpe (Zisterne mit Vorrangschaltung) in abhängigkeit vom Füllstand hinzugefügt.
-
-
-*************************************************************************************************************************************
-
 ## License
 MIT License
 
-Copyright (c) 2022 Dirk Peter <dirk.peter@freenet.de>
+Copyright (c) 2020 - 2025     Dirk Peter     <dirk.peter@freenet.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,44 +1,64 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-погода
-hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
+hash: 3zzpR4fJsEXG5VXKbOJWUmUSdij8fjkArHeHpMItnZc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-weather-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.vis-weather?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.vis-weather?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.vis-weather?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 
-# IoBroker.vis-погода
-![Действия на GitHub](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.vis-weather
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
-**Если вам это нравится, рассмотрите пожертвование:**
+**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Этот визуальный виджет показывает данные прогноза погоды с DasWetter.com или WeatherUnderground. Вам также необходимо запустить DasWetter-Adpater или WeatherUnderground-Adapter...
+Этот виджет показывает данные прогноза погоды с DasWetter.com или WeatherUnderground. Вам также понадобится работающий DasWetter-Adpater или WeatherUnderground-Adapter...
 
-В WeatherUnderground вам нужно включить прогноз на следующие 36 часов.
-В DasWetter.com вам необходимо включить одну из четырех структур данных прогноза. Вы можете выбрать тот, который хотите отобразить.
+В WeatherUnderground вам нужен включенный прогноз на следующие 36 часов.
+В DasWetter.com вам необходимо включить одну из четырех структур прогнозных данных. Вы можете выбрать тот, который хотите отобразить.
+
+## Совместимость с вис-2
+Этот виджет НЕ совместим с vis-2.
+Новая версия под названием [vis-2-виджеты-погода](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) находится в стадии подготовки.
 
 ## Заметки/вики
-### Определение часов прогноза
-По умолчанию диаграмма прогноза показывает 40 часов (DasWetter) или 36 часов (wunderground). Если вы предпочитаете показывать только, например. Прогноз на 10 часов, просто удалите ненужные OID в oid_groups в vis-edit.
+### Определить часы прогноза
+По умолчанию диаграмма прогноза показывает 40 часов (DasWetter) или 36 часов (wunderground). Если вы предпочитаете показывать только, например. Прогноз на 10 часов, просто удалите ненужные OID в разделе oid_groups в vis-edit.
 
 ### OID не создаются автоматически при использовании DasWetter
-Обычно OID создаются автоматически при выборе экземпляра или структуры данных. Когда вы получите «нет доступных OID», проверьте, используете ли вы «NextDaysDetailed» в DasWetter.
-Возможно, вам потребуется включить «NextDaysDetailed».
+Обычно OID создаются автоматически при выборе экземпляра или структуры данных. Когда вы получите сообщение «нет доступных OID», проверьте, используете ли вы «NextDaysDetailed» в DasWetter.
+Возможно, вам придется включить «NextDaysDetailed».
 
 ## Известные вопросы
-* пожалуйста, создайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.vis-weather/issues), если вы найдете ошибки или хотите новые функции
+* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues), если вы обнаружите ошибки или захотите новых функций.
 
 ## Changelog
 
-### 2.5.7 (in progress)
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (René) 
+
+### 2.5.9 (2024-01-13)
+* (René) dependencies update
 
 ### 2.5.6 (2022-08-18)
 * (René) tooltip with value added as an option
@@ -147,7 +167,7 @@ hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

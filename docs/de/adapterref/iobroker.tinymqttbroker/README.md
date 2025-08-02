@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: LtNaOuu3zVDV/o1KnsP3mWYriUCzR15W9DxvTf/VsCk=
+hash: +4BEYBju93eii2cAjZxbr+S6XLLuzNLxSM8pDCE4O68=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -14,14 +14,19 @@ hash: LtNaOuu3zVDV/o1KnsP3mWYriUCzR15W9DxvTf/VsCk=
 ![NPM](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-![Test und Freigabe](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
+![Testen und Freigeben](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
 ## Tinymqttbroker-Adapter für ioBroker
-Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Abonnementthemen als MQTT-Client zu veröffentlichen. Sehr hilfreich, um mehrere Geräte mit einem Broker kommunizieren zu lassen und auf iobroker mit einem MQTT-Client-Javascript zu interagieren.
+Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Themen als MQTT-Client zu veröffentlichen und zu abonnieren. Sehr hilfreich, um mehreren Geräten die Kommunikation mit einem Broker zu ermöglichen und sie mit einem MQTT-Client-JavaScript auf iobroker interagieren zu lassen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
-So könnte ein MQTT-Client aussehen
+## Erfordert
+* Node.js 20 oder höher
+* ioBroker-Host (js-Controller) 5.0 oder höher
+
+## Wie man es benutzt
+Ein MQTT-Client könnte so aussehen
 
 ```
 const mqtt = require('mqtt');
@@ -60,7 +65,7 @@ client.on('message', (topic: string, payload) => {
 ```
 
 Zum Veröffentlichen von Nachrichten verwende ich einen ioBroker-Status, der auf Änderungen wartet und diese an den Broker weiterleitet.
-Der Staat erwartet einen JSON mit „Topic“ und „Message“.
+Der Status erwartet ein JSON mit „Thema“ und „Nachricht“.
 
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
@@ -72,7 +77,7 @@ on({ id: stateMqttIn, change: 'any' }, function (obj) {
 });
 ```
 
-WICHTIG! Wenn Sie Ihren eigenen MQTT-Client in einem ioBroker-Javascript erstellen, vergessen Sie nicht, den Client im Skript mit zu schließen
+WICHTIG! Wenn Sie Ihren eigenen MQTT-Client in einem ioBroker-Javascript erstellen, vergessen Sie nicht, den Client im Skript mit
 
 ```
 onStop(function (callback) {
@@ -91,8 +96,20 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.9-alpha.0 (2023-10-22)
-* (HGlab01) Update dependencies
+### 0.1.3 (2024-10-19)
+* (HGlab01) Improve port scan for available ports
+* (HGlab01) Improve UI config
+* (HGlab01) Bump json-explorer to 0.1.16
+* (HGlab01) Bump aedes to 0.51.3
+
+### 0.1.1 (2024-02-01)
+* (HGlab01) Bump json-explorer to 0.1.15
+* (HGlab01) Bump aedes to 0.51.0
+
+### 0.1.0 (2023-12-04)
+* (HGlab01) first minor release
+* (HGlab01) Node.js 18.0 or higher
+* (HGlab01) ioBroker host (js-controller) 5.0 or higher
 
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
@@ -113,7 +130,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

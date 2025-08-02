@@ -3,25 +3,24 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.kecontact.svg)](https://www.npmjs.com/package/iobroker.kecontact)
-![Number of Installations (latest)](https://iobroker.live/badges/kecontact-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/kecontact-stable.svg)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.kecontact)
-
-[![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)](https://nodei.co/npm/iobroker.kecontact/)
+![Number of Installations](https://iobroker.live/badges/kecontact-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/kecontact-stable.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
+[![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)](https://nodei.co/npm/iobroker.kecontact/)
+
+**Tests:** ![Test and Release](https://github.com/Sneak-L8/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
 
-Control your charging station and use automatic regulation e.g. to charge your vehicle by photovoltaic surplus and battery storage using its UDP protocol.
+Control your charging station using its UDP protocol and use automatic regulation e.g. to charge your vehicle by photovoltaic surplus and battery storage.
 
 ## Install
 
 Install this adapter via ioBroker Admin:
 1. Open instance config dialog
 2. Enter the IP address of your KEBA KeContact wallbox
-3. Adjust the refresh interval if needed
+3. Enter states of energy meters for PV autoamtics or power limitation and desired data for battery storage
 4. Save the configuration
 5. Start the adapter
 
@@ -33,7 +32,7 @@ This is the IP address of your KEBA KeContact or BMW i wallbox. Combination with
 
 ### Firmware check
 
-Once a day adapter will check if a newer firmware is available at KEBA website. This information will be printed to log as warning.
+No longer supported since webite of Keba was changed.
 
 ### Passive Mode
 
@@ -56,22 +55,32 @@ The default value is 10 minutes which is a good balance between the load for the
 
 ### PV automatics
 
-To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and regard of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
+To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and grid consumption of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
 * a state to switch charging phases 1p/3p or using X2 port of Keba Kecontact (with Keba KeContact S10 or any other contactor)
 * a state for current power of battery storage, so the photovoltaics automatics will use it additionally for charging your vehicle
 * an option to limit power of battery storage to just hold charging with minimum power
 * toggle X1 option if you want to use X1 input from charging station to control whether to charge with full power or by photovoltaic automatic
 * a different mimimum amperage than the default 6 A (only needed for e.g. Renault Zoe)
-* a value of regard power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
+* a value of grid consumption power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
 * an increment for amperage (suggested 500 mA)
-* a value of regard that may be temporarily used to uphold charging session (that means charging will stop later even if enough surplus is no longer available - starting regard will be added - suggested 500 W)
+* a value of grid consumption that may be temporarily used to uphold charging session (that means charging will stop later even if enough surplus is no longer available - starting grid consumption will be added - suggested 500 W)
 * minimum duration of charging session (even if surplus is no longer sufficient, a charging session will last at least this time - suggested 300 sec)
 * time to continue charging session each time surplus is no longer sufficient (to bridge the time on cloudy days)
+* time to always charge your vehicle as soon as vehicle is plugged and authorization is required (to prevent bug that without charging at once nofurther charging is possible)
 
 ### 1p/3p charging
 
 If you have an installation contactor to (dis)connect phase 2 and 3 of your charging station and this switch can be triggered by a state then this adapter is able to start charging with one phase and switch to 3 phases charging if your surplus is sufficient for it.
 In this case please enter the state for your installation contactor and whetherit is a NO (normally open) or NC (normally close)
+
+### batery storage
+
+If you own a battery storage please fill in the options here. By specifiying states for surplus and grid consumption of your battery storage, this adapter can control whether
+battery storage should be used for charging your vehicle or not, depenent from the strategy preficied in the options.
+
+### german §14a EnWG power limitation
+
+Due to german §14a EnWG there's an option to limit charging station to max. 6A fix or dynamically to grid consumption of 3x6A (4.140 watts)
 
 ### power limitation
 
@@ -80,51 +89,70 @@ If you enter a value, your wallbox will be limited continously to not pass your 
 Up to three states of energy meters can be specified for limitation. All values will be added to calculate current consumption.
 An extra checkbox is used to specified whether wallbox power is included (in this case wallbox power will be subtracted from the state values).
 
+An other option gives you the possibility not to limit power but amperage. With this options amperage of charging station will be reduced to not pass a maximum amperage of each phase.
+Therefore you need to specify the amperage states of each phase of your enegy meter. Please ensure, that phases of charging station and energy meter have the same numbering.
+
 ### dynamic options
 
 Additionally there are some states to influence behaviour of photovoltaics automatic on the fly, e.g. by a script of your own updating these values according to your needs)
-* kecontact.0.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
-* kecontact.0.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
-* kecontact.0.automatic.addPower - defines an amount of watts of regard allowed to charge your vehicle (same as in options)
-* kecontact.0.automatic.pauseWallbox - stops every charging session immediately as long a set to true
-* kecontact.0.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
+* kecontact.n.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
+* kecontact.n.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
+* kecontact.n.automatic.addPower - defines an amount of watts of grid consumption allowed to charge your vehicle (same as in options)
+* kecontact.n.automatic.pauseWallbox - stops every charging session immediately as long a set to true
+* kecontact.n.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
+* kecontact.n.automatic.batteryStorageStrategy - strategy whether and how your battery storage should be using for charging your vehicle
+* kecontact.n.automatic.batterySoCForCharging - limit usage of battery torage for vehicle by specifying a SoC below which charging is prohibited
 
 Sample:
 To charge your vehicle with a constant amperage of 6A regardless of surplus, set photovoltaics to false and limitCurrent to 6000.
 
 
 ## Changelog
-
 <!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (Sneak-L8) multiple options for battery storage strategy
+* (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
+* (Sneak-L8) optimized strategy for battery charging
+* (Sneak-L8) node.js >= 20 required
 
-### 2.0.2 (2023-10-10)
-* (Sneak-L8) default value for minimum regard time (180 seconds)
-* (Sneak-L8) fix calculation of phases for reduced charging
-* (chrisko) added minimum timer to switch between phases if 1p/3p charging is used.
-* (Sneak-L8) disable firmware check for c-series due to changes on webpage of Keba
-* (Sneak-L8) sometimes 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
+### 3.1.0 (2025-03-20)
+* (Sneak-L8) new option to reduce log entries on info level (write them with debug level)
+* (Sneak-L8) fix wording error ("regard" changed to grid consumption)
+* (Sneak-L8) fixed some english translations
+* (Sneak-L8) renamed state "regardTimestamp" to "consumptionTimestamp" - please delete old state
 
-### 2.0.1 (2023-07-10)
-* (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
+### 3.0.1 (2025-03-15)
+* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-29 an IOBROKER-KECONTACT-2A
+* (Sneak-L8) minimum js-controller now >= 7 due to I18n
+* (Sneak-L8) fix roles of states in io-package.json
+* (Sneak-L8) log of config on level debug instead of info
 
-### 2.0.0 (2023-06-26)
-* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available) including Keba KeContact S10
-* (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
-* (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
-* (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
-* (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
-* (Sneak-L8) added new Keba model Company Car Wall Box MID (sentry IOBROKER-KECONTACT-1K)
+### 3.0.0 (2025-03-10)
+* (Sneak-L8) rebase adapter on newest version of adapter creator
+* (Sneak-L8) required js-controller now >= 6.0.11 and admin >= 7.0.23
+* (Sneak-L8) new option to limit amperage of charging station to maximum value for amperage of whole mains circuit
+* (Sneak-L8) immediately reduce charging power when over max amperage or max power limits
+* (Sneak-L8) fix one time attempt for recharging vehicle in state 5
+* (Sneak-L8) reduced info logs for max power adjustment when no vehicle is plugged (log as debug in that case)
+* (Sneak-L8) pay attention to minimum time for phase switch by x2 when vehicle is plugged/unplugged
+* (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
+* (Sneak-L8) migrate from request to axios
+* (Sneak-L8) migrate from ESlint v8 to v9
 
-### 1.5.2 (2022-11-02)
-* (Sneak-L8) fix error in release script
+### 2.3.0 (2024-11-29)
+* (Sneak-L8) new option to limit charging station according to german §14a EnWG
+* (Sneak-L8) enable currTime for manual use and X2 even in passive mode
+* (Sneak-L8) minimum verison für js-controller now 5.0.19
+* (Sneak-L8) set currTimer timeout default value from 0 to 1
+* (Sneak-L8) support new option "setBoot" of c-series stating firmware 3.10.57
 
-### 1.5.1 (2022-11-02)
-* (Sneak-L8) update release script to v3
+### 2.2.0 (2024-06-23)
+* (mcm1957) Adapter requires nodejs >= 18 and js-controller >= 5 now.
+* (mcm1957) Dependencies have been updated.
+* (Sneak-L8) fix url for download page at Keba website
+* (Sneak-L8) fix lint problems by replacing double by single quotes
 
 ## Legal
 
@@ -321,7 +349,7 @@ KeConnect is a registered trademark of KEBA AG.
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2023 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2025 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

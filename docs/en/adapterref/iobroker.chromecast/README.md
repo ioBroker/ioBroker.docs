@@ -25,15 +25,16 @@ Build on top of the following projects:
 
 ## Instructions
 1. Install this adapter into ioBroker
-2(optional) If you plan to stream local files you need to configure the adapter
-   * you need to have an ioBroker web server instance
+2. (optional) If you plan to stream local files or if your chromecast devices are located in a different subnet, you need to configure the adapter
+   * you need to have an ioBroker web server instance to stream local files
+   * you need to manually add information (name, IP, port, ad type) for each device located in a different subnet than your ioBroker server. If you want names to correspond  to the names of the automatically found devices, use the MAC address as name. You can define any name you want. Make sure, each name is unique! To avoid problems, names should only contain upper case characters A-Z, lower case characters a-z, digits 0-9, - (minus), and _ (underscore).
 3. Check your log: you should see logs about the detected devices
 4. Write a URL such as [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) to the chromecast.0.`<your chromecast name>`.player.url2play
 5. The URL should start playing on your device
 
 ## Features
 * detect devices with multicast-dns
-  * optionally add additional manually configured devices in admin pannel
+  * optionally add additional manually configured devices in admin pannel, tab "devices"
 * create ioBroker objects for each found device
 * status, player, media and metadata channels
 * control Google Home device from adapter
@@ -59,16 +60,29 @@ Build on top of the following projects:
 * more testing
 
 ## Changelog
-<!--
-    ### **WORK IN PROGRESS**
--->
+### 4.0.0 (2024-10-09)
+* (neopholus) Release 3.4.0 added support for devices located in adifferent subnet. This introduced a problem due to changing some state-ids reported at issue #274. This problem has been fixed. This might be considered a breaking change for some people. 
+* (mcm1957) Testing for node.js 22.x has been added.
+* (mcm1957) Several issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated
 
-### **WORK IN PROGRESS**
-- (mcm1957) changed: Testing gas been updsated to use node 16/18/20
-- (mcm1957) changed: dependencies have been updated
-* (raintonr) Allow YouTube videos ([#75](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/75))
-* (raintonr) Add appId to status ([#151](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/151))
-* (raintonr) When web instance listens on only one address save that correctly ([#145](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/145))
+### 3.4.1 (2024-07-02)
+* (foxriver76) migrated binary state to file
+
+### 3.4.0 (2024-04-13)
+* (neopholus) Support for devices located in different subnets has been added. [#154, #160]
+* (mcm1957) Dependencies have been updated
+
+### 3.3.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 3.2.0 (2024-01-22)
+- (mcm1957) changed: Testing has been updated to use node.js 16/18/20
+- (mcm1957) changed: Dependencies have been updated
+* (raintonr) YouTube videos are allowed now ([#75](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/75))
+* (raintonr) AppId has been added to status ([#151](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/151))
+* (raintonr) Storing of webserver settings has been corrected if web instance listens on only one address ([#145](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/145))
 
 ### 3.1.0 (2022-11-12)
 * (bluefox) Refactoring done
@@ -77,7 +91,7 @@ Build on top of the following projects:
 
 ### 3.0.3 (2022-08-26)
 * (jey cee) Breaking change: Object IDs are now mac addresses instead names
-* (Bjoern3003) set album name as song if provided in icy-name
+* (Bjoern3003) set album name as song if provided in icy-nlicame
 * (Apollon77/aortmannm) Make compatible with Node.js 16+
 * (Apollon77) Add Sentry for crash reporting
 
@@ -231,7 +245,8 @@ Build on top of the following projects:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -17,15 +17,15 @@ Es ist ein Adapter für Huawei USB-Modems mit Hilink-Firmware.
 
 Getestet auf Modems: E3372h-153_Update_22.323.01.00.143_M_AT_05.10 E3372s Update_22.286.53.01.161_S_ADB_TLN_03 E3272s 22.491.09.00.00 17.100.08.00.03-Mod1.2
 
-Firmware und andere Informationen finden Sie hier - http://4pda.ru/forum/index.php?showtopic=582284&
+Firmware und weitere Informationen finden Sie hier - http://4pda.ru/forum/index.php?showtopic=582284&
 
-Kompatibilität E3372 (МТС 827F / 829F, МегаФон M150-2, Билайн E3372 / E3370, TELE2 E3372р-153, МТС 824F, Мегафон M100-4, Билайн E3272)
+Kompatibilität E3372 (МТС 827F/829F, Мегафон M150-2, Билайн E3372/E3370, TELE2 E3372р-153, МТС 824F, Мегафон M100-4, Билайн E3272).
 
-- Verbindung, Trennung vom Netzwerk und Neustart des Modems
-- Lesen Sie eingehende und ausgehende Nachrichten.
-- Nachrichten senden.
-- Senden von ussd-Anfragen.
-- Ermitteln der Grundparameter des Modems, Informationen zum Datenverkehr.
+- Verbindung herstellen, vom Netzwerk trennen und das Modem neu starten
+- eingehende und ausgehende Nachrichten lesen.
+- Senden von Nachrichten.
+- Senden von USSD-Anfragen.
+- Abrufen der grundlegenden Parameter des Modems und Informationen zum Datenverkehr.
 
 ```javascript
 
@@ -80,6 +80,9 @@ sendTo("hilink.0",'clear','outbox',function (response){
 ```
 
 ## Changelog
+
+#### 0.3.0
+* (bondrogeen) update
 
 #### 0.2.8
 * (bondrogeen) add E3272s

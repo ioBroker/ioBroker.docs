@@ -3,43 +3,53 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.libre/README.md
 title: ioBroker.libre
-hash: QtphTuSjYnDaRYvGnj0sSh4zJGwX4OdPanA4RN5P9cs=
+hash: 04ToZkj7gRRYLr77st19b2kTTOVGNspsAhOwI2zrLe0=
 ---
 ![Logo](../../../en/adapterref/iobroker.libre/admin/libre.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.libre.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.libre.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/libre-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/libre-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/libre-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/libre-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.libre.svg)
 ![NPM](https://nodei.co/npm/iobroker.libre.png?downloads=true)
 
 # IoBroker.libre
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.libre/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.libre/workflows/Test%20and%20Release/badge.svg)
 
 ## Libre-Adapter für ioBroker
 Adapter für Libre über LibreLinkUp
 
-## Anmeldeablauf
-Für LibreLinkUp anmelden. In der Freestyle Libre App mit der LibreLinkUp verbinden und die LibreLinkUp Zugangsdaten in den Adapter eingeben.
+## Loginablauf
+Für LibreLinkUp anmelden. In der Freestyle Libre App mit dem LibreLinkUp verbinden und die LibreLinkUp Zugangsdaten in den Adapter eingeben.
 
 ## Steuern und Werte
 Aktueller Wert libre.0.id.graph.connection.glucoseMeasurement.Value Graph Werte libre.0.id.graph.graphData01.Value
 
-libre.0.vin.remote.refresh manueller Refresh
+libre.0.vin.remote.refresh manueller Aktualisieren
 
-##Diskussion und Fragen
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/55443/test-freestyle-libre-librelinkup>
 
 ## Changelog
 
+### 0.1.3 (2024-11-15)
+
+- login fixed
+
+### 0.0.3
+
+- (TA2k) fix login
+
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

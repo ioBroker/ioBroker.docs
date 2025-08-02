@@ -12,6 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
+chapters: {"pages":{"en/adapterref/iobroker.awtrix-light/README.md":{"title":{"en":"ioBroker.awtrix-light"},"content":"en/adapterref/iobroker.awtrix-light/README.md"},"en/adapterref/iobroker.awtrix-light/weather-app.md":{"title":{"en":"ioBroker.awtrix-light"},"content":"en/adapterref/iobroker.awtrix-light/weather-app.md"}}}
 ---
 ![Logo](../../admin/awtrix-light.png)
 
@@ -19,16 +20,16 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 
 ## Requirements
 
-- nodejs 14.5 (or later)
-- js-controller 4.0.15 (or later)
-- Admin Adapter 6.6.0 (or later)
-- _Awtrix Light_ device with firmware _0.90_ (or later) - e.g. Ulanzi TC001
+- nodejs 20 (or later)
+- js-controller 6.0.0 (or later)
+- Admin Adapter 7.4.10 (or later)
+- _Awtrix 3_ device with firmware _0.98_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
 ## Getting started
 
-1. Flash the firmware on your device and add it to your WiFi network - see [documentation](https://blueforcer.github.io/awtrix-light/#/quickstart)
+1. Flash the firmware on your device and add it to your WiFi network - see [documentation](https://blueforcer.github.io/awtrix3/#/quickstart)
 2. Install the awtrix-light adapter in ioBroker (and add a new instance)
 3. Open the instance configuration and enter the IP address of the device in your local network
 
@@ -44,7 +45,7 @@ Just create an alias in `alias.0` of type `string` and convert your `boolean` va
 
 **How can I update to the latest firmware version?**
 
-Just use the [onscreen menu](https://blueforcer.github.io/awtrix-light/#/onscreen) and navigate to `update`. No need to use the web flasher again.
+Just use the [onscreen menu](https://blueforcer.github.io/awtrix3/#/onscreen) and navigate to `update`. No need to use the web flasher again.
 
 **The device is getting hot while charging.**
 
@@ -52,7 +53,7 @@ The hardware design is not the best. Please use a power supply which deliveres m
 
 **Is it possible to remove the battery from the device?**
 
-Yes, but you have to open the case with a heat gun (since the front glued to the case) and [modify the PCB with a step down converter](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765).
+Yes, but you have to open the case with a heat gun (since the front glued to the case) and [modify the PCB with a step down converter](https://github.com/Blueforcer/awtrix3/issues/67#issuecomment-1595418765).
 
 **Is it possible to re-order apps?**
 
@@ -74,15 +75,25 @@ All states (of common.type `number`) are formatted as configured in the system s
 
 Yes, since firware version 0.82 it is possible to configure a user name and a password to protect the access. Since adapter version 0.8.0 it is also possible to enter these credentials in the instance configuration.
 
+**How does the hold option in notifications work?**
+
+When sending a notification with `hold: true`, the text will stay on the display until the notification will be confirmed. This can either happen with a press on the middle button of the device, or by setting the state `notification.dismiss` to `true`.
+
+**Some state changes are not displayed immediately.**
+
+If your states changes very often (like every second), some changes will be ignored to prevent frequent requests to the device. Each app has a global "block time" which is configurable in the instance configuration. The default block time is 3 seconds. It is not recommended to set a lower value than 3.
+
 ## Same apps on multiple devices
 
-If you have multiple awtrix-light devices, it is required to create a new instance for each device. But it is possible to copy all app settings of another instance if you want to display the same information on all devices. Just select the other instance in the app configuration tab.
+If you have multiple awtrix-light devices, **it is required to create a new instance for each device.** But it is possible to copy all app settings of another instance if you want to display the same information on all devices. Just select the other instance in the app configuration tab.
 
 Example:
 
 1. Configure all apps in instance `awtrix-light.0`
 2. Create a new instance for the second device (`awtrix-light.1`)
 3. Choose `awtrix-light.0` in the instance configuration of `awtrix-light.1` to use the same apps on the second device
+
+Since version 0.15.0 (and later) the visibility of custom apps and contents of expert apps are also applied to other devices (when app settings are copied). In the example above the apps of `awtrix-light.1` will be hidden automatically if the visibility state of an app in instance `awtrix-light.0` changes.
 
 ## Blockly and JavaScript
 
@@ -96,48 +107,57 @@ Example:
 Send a "one time" notification to your device:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true }, (res) => {
+sendTo('awtrix-light.0', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties) for details.
+The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix3/#/api?id=json-properties) for details.
 
 *You can also use a Blockly block to send a notification (doesn't provide all available options).*
 
 ### Sounds
 
-To play a (previously created) sound file:
+**The sound files must be saved as RTTTL fomat in the folder MELODIES. The file extension of these files is .txt. When playing those files, the file extension must not be provided.**
+
+To play a (previously created) sound file `example.txt`:
 
 ```javascript
-sendTo('awtrix-light', 'sound', { sound: 'example' }, (res) => {
+sendTo('awtrix-light.0', 'sound', { sound: 'example' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix-light/#/api?id=sound-playback) for details.
+The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix3/#/api?id=sound-playback) for details.
 
 *You can also use a Blockly block to play a sound.*
 
 To play a custom ringtone:
 
 ```javascript
-sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-## Custom apps
+## Apps
 
 **App names must be lowercase (a-z) and unique. No numbers, no capital letters, no special characters, no whitespaces.**
 
-The following names are used by internal apps and cannot be used: `time`, `date`, `temp`, `hum`, `bat`.
+The following names are used by internal apps and cannot be used: `Time`, `Date`, `Temperature`, `Humidity`, `Battery`.
+
+- You can use the state `activate` of each app to bring that app to front
+- This state has the role `button` and allows just the value `true` (other values will raise a warning)
+
+Each custom and history app has a state `apps.<name>.visible`. If this state is set to `false`, the app will be removed from the device and no further updates are pushed. This is useful, if a certain app should only be displayed during day time or in a given time range.
+
+### Custom apps
 
 - `%s` is a placeholder for the state value
 - `%u` is a placeholder for the unit of the state object (e.g. `°C`)
@@ -154,77 +174,75 @@ The following combinations will lead to a warning in the log:
 - A custom app with a selected object id of a state without a unit `common.unit`, but `%u` is used in the text
 - A custom app without a selected object, but `%s` has been used in the text
 
-## History apps / graphs
+### History apps / graphs
 
-**App names must be lowercase (a-z) and unique. No numbers, no capital letters, no special characters, no whitespaces.**
-
-The following names are used by internal apps and cannot be used: `time`, `date`, `temp`, `hum`, `bat`.
+TODO
 
 **History apps just display acknowledged history values! Control states with `ack: false` are filtered and ignored!**
 
-## App states
+### Expert apps
 
-- You can use the state `activate` of each app to bring that app to front
-- This state has the role `button` and allows just the value `true` (other values will raise a warning)
+Expert apps are available since apdater version 0.10.0. They allow to set all values manually and to implement your own logic by controlling all data via states. To create a new expert app
 
-## Hide custom or history apps
+- Go to expert options in instance settings
+- Create a new expert app by choosing a name (e.g. `test`)
+- Save and close the instance settings
 
-Each custom and history app has a state `apps.<name>.visible`. If this state is set to `false`, the app will be removed from the device and no further updates are pushed. This is useful, if a certain app should only be displayed during day time or in a given time range.
+After that, all controllable states for the app name `test` will be created in `awtrix-light.0.apps.test`. Just set values of `icon`, `text` and other states by using your own scripts and logic (e.g. JavaScript or Blockly).
+
+Example: [Weather App](weather-app.md)
+
+#### Base Object
+
+*Requires adapter version 2.0.0 (or newer)*
+
+The base object is a basic defition of an awtrix app to allow all possible attributes. *The base object will be extended with other attributes of the expert app.*
+
+Example: If you want to use the rainbow effect, but there is no state to set this feature directly, you can define this in the base object (as JSON): `{ "rainbow": true }`.
+
+See [documentation](https://blueforcer.github.io/awtrix3/#/api?id=custom-apps-and-notifications) for available attributes.
 
 ## Hide native apps
 
-If you want to disable/hide a native app (like battery, temperature or humidity): Use the on screen menu on the device! See [documentation](https://blueforcer.github.io/awtrix-light/#/onscreen) for details.
+If you want to disable/hide a native app (like battery, temperature or humidity): Use the on screen menu on the device! See [documentation](https://blueforcer.github.io/awtrix3/#/onscreen) for details.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.10.0 (2023-10-23)
+### 2.0.0 (2025-05-02)
 
-Updated recommended firmware version to 0.90
+* (@klein0r) Added base object for expert apps to allow all options
+* (@klein0r) Added responsive design for admin config
 
-* (klein0r) Added support for sleep mode
-* (klein0r) Added fading for indicators
+### 1.7.0 (2025-04-08)
 
-### 0.9.2 (2023-10-22)
+* (@klein0r) Improved error handling when adapter is not ready (starting)
+* (@klein0r) Added scroll speed to expert apps
+* (@klein0r) Added icons for custom apps in object tree
 
-* (klein0r) Fixed: Visisble state of expert apps
+### 1.6.0 (2025-01-27)
 
-### 0.9.1 (2023-10-02)
+Updated recommended firmware version to 0.98
 
-NodeJS 16.x is required
+* (@klein0r) Updated dependencies
 
-* (klein0r) Fixed hidden apps
-* (klein0r) Fixed color conversions of settings
+### 1.5.0 (2025-01-07)
 
-### 0.9.0 (2023-10-01)
+Updated recommended firmware version to 0.97
 
-Updated recommended firmware version to 0.88
+* (@klein0r) Updated dependencies
 
-* (klein0r) Added expert apps
-* (klein0r) Use the last value of fast refreshing states
-* (klein0r) Added settings for calendar colors
-* (klein0r) Allow to use apps without text (just background effect)
-* (AlCalzone) Added rtttl api endpoint support (via sendTo)
-* (klein0r) Native apps have been renamed
+### 1.4.1 (2024-11-20)
 
-### 0.8.0 (2023-09-04)
-
-Updated recommended firmware version to 0.83
-
-* (klein0r) Allow to set custom app positions (expert options)
-* (klein0r) Unsubscribe from all states if device is not reachable
-* (klein0r) Added options basic auth
-* (klein0r) Get background effects via API
-* (klein0r) Fixed 0 decimals setting
-* (klein0r) Changed log level of some messages
-* (klein0r) Added states for transitions
+NodeJS >= 20.x and js-controller >= 6 is required
 
 ## License
+
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

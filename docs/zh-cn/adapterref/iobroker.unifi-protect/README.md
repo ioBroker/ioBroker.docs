@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.unifi-protect/README.md
 title: ioBroker.unifi-保护
-hash: QANKqdkfOjhoVCrxVCEXj04jEbvXlS9y2vBQjNABsrA=
+hash: ezNKLsW90QDTZEKqD4GqCIgZ9s9wK0rue0cj0MorYTk=
 ---
 ![标识](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
@@ -11,22 +11,20 @@ hash: QANKqdkfOjhoVCrxVCEXj04jEbvXlS9y2vBQjNABsrA=
 ![下载](https://img.shields.io/npm/dm/iobroker.unifi-protect.svg)
 ![安装数量（最新）](http://iobroker.live/badges/unifi-protect-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/unifi-protect-stable.svg)
-![依赖状态](https://img.shields.io/david/peterbaumert/iobroker.unifi-protect.svg)
+![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.unifi-protect.svg)
 ![已知漏洞](https://snyk.io/test/github/peterbaumert/ioBroker.unifi-protect/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.unifi-protect.png?downloads=true)
 
 # IoBroker.unifi-保护
-**此适配器使用服务 [哨兵.io](https://sentry.io) 自动向作为开发人员的我报告异常和代码错误以及新的设备架构。**更多详细信息请参见下文！
+## IoBroker 的 unifi-protect 适配器
+连接到 Unifi Protect 控制器并从添加的摄像机中提取所有数据。
 
-## IoBroker 的统一保护适配器
-连接到 Unifi Protect Controller 并从添加的相机中提取所有数据。
+如果您不自行更改，则标准端口：
 
-标准端口，如果你不自己改变的话：
+Cloud Key Plus Gen2：7443
+UDM专业版：443
 
- - Cloud Key Plus Gen2：7443
- - UDM 专业版：443
-
-## GetThumbnail 和 getSnapshot 的例子
+## GetThumbnail 和 getSnapshot 的示例
 ```
 // Settings
 const path = '/opt/iobroker/tmp/temp.jpg';
@@ -63,21 +61,24 @@ sendTo('unifi-protect.0', 'getSnapshot', { "cameraid": "5e4a861c01d12503870003f9
 });
 ```
 
-## 什么是 Sentry.io 以及向该公司服务器报告的内容？
-Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概览。正是在这个适配器中实现了这一点。
-
-当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
+## 致谢
+如果没有 Peter Baumert <ioBroker.unifi-protect@outlook.com> 的出色工作，这个适配器就不可能实现，他实现了这个适配器的初始版本。
 
 ## 代码使用
-[protect_api](./protect_api) 大部分是从[hjdhjd's homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect) 中的代码。
-非常感谢您提供此代码。您可以找到他的代码许可 [这里](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md)。
+代码位于[protect_api](./protect_api) 大部分是从 [hjdhjd 的 homebridge-unifi-protect] 复制而来](https://github.com/hjdhjd/homebridge-unifi-protect)。
+非常感谢您提供此代码。您可以在[这里](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md)找到他的代码许可证。
 
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
-    ## **WORK IN PROGRESS**
+    ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2024-03-28)
+* (mcm1957) BREAKING: Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation
+* (mcm1957) Dependencies have been updated
+
 ### 0.0.13 (2023-01-23)
 * dependencies updates
 * first implementation of realtime updates api
@@ -136,6 +137,7 @@ Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有�
 ## License
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

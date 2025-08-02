@@ -1,4 +1,4 @@
-![Logo](admin/openweathermap.png)
+![Logo](admin/openweathermap.svg)
 
 # ioBroker.openweathermap
 
@@ -20,6 +20,20 @@ You need an api key to access the data. The api key you can get for free after r
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.3.0 (2025-05-21)
+* (bluefox) Widget was completely ported to TypeScript
+* (bluefox) Backend was completely ported to TypeScript
+
+### 1.2.0 (2024-07-23)
+* (bluefox) Widget was partly ported to TypeScript
+
+### 1.1.2 (2024-07-07)
+* (bluefox) Removed withStyles package
+
+### 1.0.4 (2023-12-05)
+* (bluefox) Used the JSON config for configuration dialog
+* (bluefox) Added title to widget
+
 ### 0.4.5 (2023-10-09)
 * (feuer-sturm) changed german translation
 
@@ -80,7 +94,7 @@ You need an api key to access the data. The api key you can get for free after r
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

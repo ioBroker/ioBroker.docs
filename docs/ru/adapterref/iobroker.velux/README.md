@@ -1,39 +1,50 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.velux/README.md
 title: ioBroker.velux
-hash: 7e92LnjeE0SgrBs2hMe35kLcWdVhbLQF+CYh6a6cLOs=
+hash: dNMaWTk3dVhHLWhtugFae3Avh3GIMG9DZi/pe2tRNnY=
 ---
-![логотип](../../../en/adapterref/iobroker.velux/admin/velux.png)
+![Логотип](../../../en/adapterref/iobroker.velux/admin/velux.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.velux.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.velux.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.velux.svg)
 ![Статус зависимости](https://img.shields.io/david/ta2k/iobroker.velux.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ta2k/ioBroker.velux/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.velux.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/ta2k/ioBroker.velux/master.svg)
+![НПМ](https://nodei.co/npm/iobroker.velux.png?downloads=true)
 
 # IoBroker.velux
-## Адаптер Velux для ioBroker
+##адаптер velux для ioBroker
 Адаптер для Velux KIX 300
 
 ## Использование
-Введите под модулем вашу новую target_position. Windows допускает только target_position 0.
+Введите в модуле свою новую target_position. Windows допускает только target_position 0.
 
 ## Changelog
 
-### 0.0.4
+### 0.0.8
 
-* Improve room assignment
-  
+- Update to latest dependencies
+
+### 0.0.7
+
+- fix js-controller 3.2 and interval problem
+
+### 0.0.6
+
+- fix js-controller 3 problem
+
+### 0.0.5
+
+- Improve room assignment
+
 ### 0.0.2
 
-* add changing target_position for non windows  
-  
+- add changing target_position for non windows
+
 ### 0.0.1
 
-* (ta2k) initial release
+- (ta2k) initial release
 
 ## License
 

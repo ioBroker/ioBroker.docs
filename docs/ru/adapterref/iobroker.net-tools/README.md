@@ -1,57 +1,62 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.net-tools/README.md
-title: Сетевые инструменты
-hash: biyMNvPKtoKQkW+U+RYyqU3SdvcXnkGWYkH04cZN/SA=
+title: ioBroker.net-инструменты
+hash: aywaAn2IRpd3JJOaTlGfgxStQY9zTrvOOPPb/jdf4TQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
-![Количество установок](http://iobroker.live/badges/net-tools-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.net-tools.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.net-tools.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.net-tools.svg)
-![Тесты](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)
+![Количество установок](https://iobroker.live/badges/net-tools-installed.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/net-tools-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)
 
-# Сетевые инструменты
-| [Спонсоры](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
-|---|---|
-| [![Пожертвовать](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
-| [![Пожертвовать](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/ webscr?cmd=_s-xclick&amp;hosted_button_id=95YZN2LR59Q64&amp;source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+# IoBroker.net-инструменты
+**Тесты:** ![Тестирование и выпуск](https://github.com/jey-cee/ioBroker.net-tools/workflows/Test%20and%20Release/badge.svg)
 
-### Обнаружение устройств в сети
-Установите для объекта обнаружения значение true, чтобы обнаруживать устройства в вашей сети, этот процесс занимает некоторое время.
-Эта функция предоставляется адаптером обнаружения, что означает, что обнаружение будет установлено, если оно не установлено, и его необходимо запустить.
+## Адаптер net-tools для ioBroker
+Этот адаптер циклически опрашивает настроенные IP-адреса, может отправлять пакеты пробуждения по локальной сети и сканировать открытые порты.
 
+Эта функция обнаружения предоставляется адаптером обнаружения, что означает, что обнаружение будет установлено, если оно не установлено, и его необходимо запустить.
 Примечание. Эта функция ограничена подсетью хоста ioBroker.
 
-### Добавить ручные устройства
-Если вы добавляете устройство вручную, то можете оставить MAC пустым, адаптер попытается его получить.
-Существует 50% вероятность того, что этот автоматический поиск завершится ошибкой и устройства не будут добавлены. В этом случае вы должны ввести MAC.
+### Важно: для использования этого адаптера необходимо приобрести лицензию. Вы можете купить его здесь -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
+### Wichtig: Для адаптеров Nutzung dies müssen Sie eine Lizenz erwerben. Sie können eine hier kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
+### Автоматическое обнаружение
+Существует функция автоматического поиска устройств. Также возможно выполнить его по расписанию.
+Примечание. Если вы используете ioBroker в Docker-контейнере, эта функция не будет работать в зависимости от конфигурации вашей сети.
 
-### Пингует настроенные IP-адреса
-Пингует указанные IP-адреса с заданным интервалом и отслеживает результаты. (жив, об/с, время)
+### Проверяет настроенные IP-адреса
+Проверяет указанные IP-адреса через определенный интервал и отслеживает результаты. (активность, количество об/с, время) Интервал пинга можно указать на уровне устройства.
 
 ### Wake On LAN
-Установите для объекта wol значение true, и на ваше устройство будут отправлены 3 пакета WOL с паузой в 750 мс.
+Установите для объекта wol значение true, и на ваше устройство будут отправлены 3 пакета WOL с паузой 750 мс.
 
 ### Сканирование портов
-Вы можете ввести список портов или диапазон в конфиге, которые должны сканироваться по умолчанию. Если это поле не заполнено, диапазон 0-65535 будет принят по умолчанию.
+В конфигурации вы можете ввести список портов или диапазон, которые должны сканироваться по умолчанию. Если это поле пусто, по умолчанию будет использоваться диапазон 0–65535.
 Также можно указать список или диапазон для каждого устройства, которое будет использоваться для одного сканирования.
 
-Введите список или диапазон портов в объект portList, если хотите. Это перезаписывает настройку в config.
-Установите для сканирования значение true, это будет сканировать все открытые порты в диапазоне 0-65535 или то, что определено в списке портов. Этот процесс занимает некоторое время.
+Если хотите, введите список или диапазон портов в объекте portList. Это перезапишет настройку в config.
+Установите для сканирования значение true, при этом будут сканироваться все открытые порты в диапазоне 0–65535 или в том, что определено в portList. Этот процесс занимает некоторое время.
 Результат будет записан в порты объекта.
 
 ---
 
+### Айфон
+iPhone пытаются защитить пользователей от отслеживания при смене Mac-адреса.
+Узнайте больше об этом и о том, как отключить частные сети: https://support.apple.com/en-us/102509.
+
+---
+
 ## Для разработчиков
-#### Получить mac для конкретного устройства
+#### Получите Mac для конкретного устройства
 `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
 
 Примечание. Эта функция ограничена подсетью хоста ioBroker.
 
-#### Пингуем определенный IP-адрес
+#### Пинг конкретного IP-адреса
 `sendToAsync('net-tools.X, 'ping', 'IP ADDRESS')`
 
 #### Wake On LAN
@@ -59,52 +64,38 @@ hash: biyMNvPKtoKQkW+U+RYyqU3SdvcXnkGWYkH04cZN/SA=
 
 ---
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
-
 ## Changelog
-### 0.2.0 (2022-05-16)
- * add feature to define ports they should be scanned
- * fix crash if no MAC address can be found by the adapter
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
-### 0.1.7 (2021-07-31)
-* fix device settings in adapter configuration
+### 1.0.6 04.03.2024
+* (Jey Cee) Reduce system load during discovery process to prevent adapter crash
 
-### 0.1.5
-* changes on testing
+### 1.0.5 04.02.2024
+* (Jey Cee) remove discovery adapter as dependency
+* (Jey Cee) add possibility to choose the interface which will be used for ping operations
+* (Jey Cee) add possibility to enter IP range for device discovery
+* (Jey Cee) add auto search by configurable schedule
+* (Jey Cee) fix/catch crash if device was deleted in objects and not in device management
+* (Jey Cee) fix ping rights on lxc containers which prevent to ping devices
 
-### 0.1.4
-* fixes for js-controller 3.3
+### 1.0.2 20.01.2024
+* (Jey Cee) bugfix require
 
-### 0.1.3
-* fixes for js-controller 3.3
-
-### 0.1.2
-* added device discovery to configuration page
-* start discovery if it is not started and stop it afterwards
-
-### 0.1.1 
-* initial release
+### 1.0.1 19.01.2024
+* (Jey Cee) add device manager to configuration
+* (Jey Cee) add use of license
 
 ## License
+Attribution-NonCommercial 4.0 (CC BY-NC 4.0)
 
-The MIT License (MIT)
+Copyright (c) 2024 Jey Cee <iobroker@all-smart.net>
 
-Copyright (c) 2020-2022, Jey Cee <jey-cee@live.com>
+http://creativecommons.org/licenses/by-nc/4.0/
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Short content:
+Licensees may copy, distribute, display and perform the work and make derivative works based on it only if they give the author or licensor the credits in the manner specified by these.
+Licensees may copy, distribute, display, and perform the work and make derivative works based on it only for noncommercial purposes.
+(Free for non-commercial use).

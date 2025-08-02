@@ -5,31 +5,31 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wolf/README.md
-title: iobroker.wolf
+title: iobroker 工具
 hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 ---
 # Iobroker.wolf
 ## 应用领域：供暖/太阳能/家庭通风
-该适配器可通过 ISM8i 评估最多 4 个以下加热器：
+该适配器可以通过 ISM8i 评估最多以下 4 个加热器：
 
-   * 气体冷凝机组：CGB-2（包括：CGW-2、CGS-2、CSZ-2）、MGK-2
-   * 油冷凝锅炉：TOB
-   * 分体式热泵：BWL-1-S
-   * 客厅通风 CWL 优秀
+* 气体冷凝机组：CGB-2（包括：CGW-2、CGS-2、CSZ-2）、MGK-2
+* 燃油冷凝锅炉：TOB
+* 分体热泵：BWL-1-S
+* 客厅通风 CWL 优秀
 
 始终需要系统控制模块 BM-2 或显示模块 AM。
-此外，eBus系统中可以存在诸如混合器模块MM、级联模块KM、太阳能模块SM1或SM2之类的附加组件。
+此外，eBus 系统中可能存在其他组件，例如混合器模块 MM、级联模块 KM、太阳能模块 SM1 或 SM2。
 
 单个模块的最大数量：
 
-   * 最大限度。 4 个加热器 hg (1) -hg (4)
-   * 最大限度。 3 个搅拌机 mm (1) - mm (3)
-   * 最大限度。 4 个操作面板 (BM-2) bm (1) -bm (4)
-   * 最大限度。 1个级联模块km (1)
-   * 最大限度。 1 个太阳能模块（SM1 或 SM2）sm (1)
-   * 最大限度。 1 分体式空气/水热泵 (BWL-1-S) hg (0)
+* 最多 4 个加热器 hg (1) -hg (4)
+* 最多 3 个混合器 mm (1) - mm (3)
+* 最多 4 个操作面板 (BM-2) bm (1) -bm (4)
+* 最大级联模块数1km(1)
+* 最多 1 个太阳能模块 (SM1 或 SM2) sm (1)
+* 最多 1 个分体式空气/水热泵 (BWL-1-S) hg (0)
 
-   CWL Excellent 系列的住宅通风装置也可以使用 ISM8i 进行评估和操作。
+还可以使用 ISM8i 评估和操作 CWL Excellent 系列的住宅通风装置。
 
 ## Changelog
 ### 1.7.0 (2023-01-26)

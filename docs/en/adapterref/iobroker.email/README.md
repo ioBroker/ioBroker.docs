@@ -9,56 +9,60 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)](https://www.npmjs.com/package/iobroker.email)
 
-Send emails from ioBroker.
+Send emails from ioBroker. You cannot check emails with this adapter, only send them.
 
 The adapter uses [nodemailer](https://github.com/nodemailer/nodemailer) to provide the functionality.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-To use Gmail you may need to configure "Allow Less Secure Apps" in your Gmail account unless you are using 2FA in which
-case you would have to create an Application Specific password. You also may need to unlock your account with "Allow access to your Google account" to use SMTP.
+To use Gmail, you may need to configure "Allow Less Secure Apps" in your Gmail account unless you are using 2FA, in which
+case you would have to create an application-specific password. You also may need to unlock your account with "Allow access to your Google account" to use SMTP.
 
 ## Usage
 
 To send email from ScriptEngine just write:
 
-```
+```js
 // send email to all instances of email adapter
-sendTo("email", "Email body");
+sendTo('email', 'Email body');
 
 // send email to specific instance of email adapter
-sendTo("email.1", "Email body");
+sendTo("email.1", 'Email body');
 
 // To specify subject or other options
-sendTo("email", {
-    from:    "iobroker@mydomain.com",
-    to:      "aabbcc@gmail.com, xxyyzz@gmail.com", // comma separated multiple recipients.
-    subject: "Message from ioBroker",
-    text:    "This is test email to you!"
+sendTo('email', {
+    from:    'iobroker@mydomain.com',
+    to:      'aabbcc@gmail.com, xxyyzz@gmail.com', // comma separated multiple recipients.
+    subject: 'Message from ioBroker',
+    text:    'This is test email to you!',
 });
 
 // To send attachments
-sendTo("email", {
+sendTo('email', {
     attachments: [
-       // use file on disk as attachment
-       {path: "/pathToImage/picture1.jpg"},
-       {   // use URL as an attachment
+        {
+            path: '/pathToImage/picture1.jpg', // use file on disk as attachment
+        },
+        {
             filename: 'license.txt',
-            path: 'https://raw.github.com/andris9/Nodemailer/master/LICENSE'
-       }
+            path: 'https://raw.github.com/andris9/Nodemailer/master/LICENSE', // use URL as an attachment
+        },
     ]
 });
 
 // To send in html format
-sendTo("email", {
-    html: "<p>Embedded image: <img src='cid:image1'/></p>",
+sendTo('email', {
+    html: '<p>Embedded image: <img src='cid:image1'/></p>',
     attachments:[
-        {path: "path/to/file/image1.jpg", cid: "image1"}
+        {
+            path: 'path/to/file/image1.jpg',
+            cid: 'image1',
+        },
     ]
 });
 ```
 
-To send email from other adapter use **adapter.sendTo** function.
+To send email from another adapter, use `adapter.sendTo` function.
 
 
 ## Supported services
@@ -93,6 +97,7 @@ To send email from other adapter use **adapter.sendTo** function.
 - SES-US-EAST-1
 - SES-US-WEST-2
 - SES-EU-WEST-1
+- t-online.de
 - Sparkpost
 - Yahoo
 - Yandex
@@ -106,85 +111,35 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 1.2.0 (2023-06-02)
-* (foxriver76) support [Notification Manager](https://github.com/foxriver76/ioBroker.notification-manager)
+### 2.0.4 (2025-04-15)
+* (@mcm1957) `From email address is not equal to the configured email address for authentication.` changed to debug level.
+* (mcm1957) Dependencies have been updated
 
-### 1.1.4 (2022-10-08)
-* (Apollon77) Prepare compatibility with future js-controller versions
+### 2.0.3 (2025-03-24)
+* (@GermanBluefox) Added t-online.de to the list of supported services
 
-### 1.1.3 (2022-05-30)
-* (Apollon77) Make sure the STARTTLS configuration field is displayed
+### 2.0.2 (2025-03-14)
+* (@GermanBluefox) Renamed `dist` folder to `build`
+* (@GermanBluefox) Fixing pass decoding
 
-### 1.1.2 (2022-05-18)
-* (Apollon77) Fix mail.ee settings
+### 2.0.0 (2025-03-11)
+* (@GermanBluefox) Breaking change: Structure of configuration was corrected, and it could be they needed to be reconfigured
+* (@GermanBluefox) Made Outlook work again. Requires now to be authenticated via OAuth2
+* (mcm1957) Adapter requires js-controller 5.0.19 and admin 6.17.14 now
+* (mcm1957) EsLint uses @iobroker/linter-config now
+* (mcm1957) Dependencies have been updated
+* (@GermanBluefox) Migrated to TypeScript
+* (@GermanBluefox) Added "Ignore SSL errors" option
 
-### 1.1.1 (2022-05-18)
-* (Apollon77) Allow to use connections to port 25 unencrypted
-
-### 1.1.0 (2022-05-11)
-* (Apollon77) Adjust default settings for web.de and 1und1 and add ionos
-* (Apollon77) Add "Always use STARTTLS" option for custom SMTP settings
-
-### 1.0.10 (2021-07-06)
-* (Apollon77) Optimize for js-controller 3.3
-
-### 1.0.9 (2021-02-22)
-* (Apollon77) Call message callback always with error or without
-
-### 1.0.7 (2020-06-11)
-* (Apollon77) Make sure adapter is not crashing on stop in some edge cases
-* (Apollon77) Add Sentry for crash reporting with js-controller >=3.x
-
-### 1.0.6 (2019-12-29)
-* (bluefox) Compact mode supported
-
-### 1.0.5 (2019-09-18)
-* (Apollon77/bluefox) js-controller 2.0 compatibility, dependency updates
-
-### 1.0.4 (2018-03-26)
-* (skraw.iobroker) Add ith
-
-### 1.0.3 (2018-03-04)
-* (bluefox) fix blockly
-* (bluefox) Admin3 ready
-
-### 1.0.2 (2017-01-31)
-* (instalator) fix translations
-
-### 1.0.1 (2016-12-20)
-* (bluefox) add Office365
-
-### 1.0.0 (2016-10-12)
-* (bluefox) support of blockly
-
-### 0.2.1 (2016-09-03)
-* (bluefox) fix sending emails after first one
-
-### 0.2.0 (2016-08-29)
-* (bluefox) filter out double messages
-* (bluefox) use new nodemailer packet
-
-### 0.1.2 (2015-04-30)
-* (bluefox) fix settings if "user defined" was selected
-
-### 0.1.1 (2015-04-28)
-* (bluefox) update configuration page and decode errors
-
-### 0.1.0 (2015-01-02)
-* (bluefox) prepare npm
-
-### 0.0.4 (2014-11-2)
-(bluefox) support of new naming concept
-
-### 0.0.3 (2014-10-09)
-* (bluefox) support of daemon mode
-* (bluefox) add Gruntfile.js
+### 1.4.0 (2024-11-17)
+* (simatec) Responsive Design added
+* (Jey-Cee) Admin-UI has been migrated to jsonConfig
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox
+Copyright (c) 2014-2025 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

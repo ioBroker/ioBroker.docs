@@ -19,15 +19,18 @@
 ## ESPHome adapter for ioBroker
 
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome.
-Native integration of ESPHome managed device (Including Dashboard) by its native API and ensure all data is synchronised (live-event handling, no data polling ! :)
+Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling ! :)
 
 ![Logo](admin/img/dashboard.png)
 
 This adapter uses the [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) with all credits to @Nafaya to interact with [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
 
+
+<!--
 ## [Documentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 
-All our adapter documentation can be found at [The DrozmotiX Docu Page](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
+All our adapter documentation can be found at [The DrozmotiX Docu Page](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) 
+-->
 
 ## Prerequisites
 
@@ -36,13 +39,96 @@ All our adapter documentation can be found at [The DrozmotiX Docu Page](https://
     * For admin tabs (optional)
         * ESPHome Dashboard IP is provided in instance settings
 
-### Activate API in YAML
+## Using the built-in ESPHome Dashboard
+You can either use an external installation of ESPHome (like docker) or activate the ESPHome Dashboard process included in this adapter.  
+In any case, it is possible to integrate the dashboard into ioBroker Admin interface, for this purpose you must specify the ip where the Dashboard is running
 
+![Logo](admin/img/ESPhomeDashboardIP.png)
+
+### Using HTTPS
+
+One reason to use HTTPS is to be able to flash directly to devices plugged into you pc, because esphome will not allow this with http (probably browser limitation with WebSerial).
+
+![flashFromThisComputer.png](admin/img/flashFromThisComputer.png)
+
+Using the integrated dashboard when the iobroker is using https currently requires some more steps:
+
+1. install - if you don't have it already - web adapter and configure https. see web documentation for further information: [ioBroker.web](https://github.com/ioBroker/ioBroker.web)
+2. install [proxy](https://github.com/ioBroker/ioBroker.proxy) adapter
+3. configure the path in the proxy adapter settings:
+   1. context: `esphome/`
+   2. url: `http://localhost:6052`
+![proxy.png](admin/img/proxy.png)
+4. configure the full dashboard url in the advanced section of the esphome adapter settings - esphome dashboard:
+   1. like: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
+   2. where `<iobrokerIP>` is the ip of the host where you iobroker is running (same as above)
+   3. and `<webAdapterPort>` is the port of the web adapter (default is 8082)
+   4. it should look something like this:
+   ![ESPHomeDashboardUrl.png](admin/img/ESPHomeDashboardUrl.png)
+   5. if you run the dashboard on an external host, you can also use the url to an external dashboard instance here
+
+## How to use this adapter
+
+### Activate API in YAML
+> [!IMPORTANT]
+> ioBroker ESPHome allows to integrate Devices by Encryption Key (recommended) or API-Password (legacy), 
+> you must specify your authentication settings accordingly, 
+> see [ESPHome Documentation](https://esphome.io/components/api.html?highlight=api)
+> Please only configure Encryption Key (preferable) or API-Password (legacy)
+
+#### Example Encryption Key configuration entry
+```
+api:
+  encryption:
+    key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
+```
+
+#### Example API configuration entry
 ```
 api:
   password: 'MyPassword'
 ```
 
+### Add / Modify / Remove ESPHome devices to ioBroker
+> [!IMPORTANT]
+> This adapter integrates communication with ESPHome capable devices and 
+> (if activated) an integrated version of ESPHome Dashboard.
+> You must configure and upload your ESP configuration by yourself, 
+> either by using the integrated Dashboard or an external alternative 
+> (like Docker) before they can be integrated to ioBroker
+
+The device Tab will show all current known devices; you can either wait for Devices to be autodetect
+(currently disabled, see #175) or add them manually by providing their IP-Address and credentials
+
+![DevicesTab](admin/img/deviceTabEmpty.png)
+
+> [!NOTE]
+> Buttons to add/modify/remove devices and load device table are only available if adapter is running!
+> You must refresh the device table manually by pressing "Refresh device Overview", all devices and their connection state will be shown
+
+Please enter IP-Address (if a device is already known, you can select it from the dropdown) and choose the proper actions:
+- ADD / Modify Devices
+  - Will send IP address and credentials to the backend and try to establish a connection
+  - When an encryption Key is provided, API-Password is ignored, please ensure proper YAML configuration!
+
+- Delete Device
+  - Will send a message to the backend to remove this device
+
+> [!WARNING]
+> This action will remove a selected device and all its related states from ioBroker!
+
+> [!NOTE]
+> After a device has been added, a message will be indicated if successfully or error, 
+> you can refresh the table to show current devices and their connection status
+
+![DevicesError](admin/img/connectionIssue.png)
+![DevicesOK](admin/img/connectionOK.png)
+
+If connection was successfully, the Device will be initiated and all related states created to control their attributes.  
+When making any changes to your YAML configuration, reboot of the ESP will disconnect and initiate a new connection.  
+During this process, states not part anymore of YAML configuration will be automatically removed.
+
+![DevicesOK](admin/img/deviceTree.png)
 
 ### Example config
 Example config, for more examples see [The DrozmotiX Docu Page](https://DrozmotiX.github.io) or [ESPHome Documentation](https://esphome.io/index.html)
@@ -95,14 +181,14 @@ Example config, for more examples see [The DrozmotiX Docu Page](https://Drozmoti
 ## Tasmota / ESPEasy migration
 
 Migrating from previous Sonoff Tasmota or ESPEasy setups is very easy. You just need to have ESPHome create a binary for you and then upload that in the web interface.  
-See for more details our [Docu Page](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html)
+See for more details on our [Docu Page](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html)
 
 **_NOTE:_** Generated yaml files are stored at ```/opt/iobroker/iobroker-data/iobroker.esphome.>instance</>device<.yaml
 
 
 ## Support me
 If you like my work, please consider a personal donation  
-(this is an personal Donate link for DutchmanNL, no relation to the ioBroker Project !)  
+(this is a personal Donate link for DutchmanNL, no relation to the ioBroker Project !)  
 [![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
@@ -112,35 +198,37 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
-### 0.4.1 (2023-11-05)
-* (DutchmanNL) Bugfix: Password / connection issues in previous beta resolves #179
-* (DutchmanNL) Bugfix: Allow individual API password or encryption keys for devices, resolves #174
-* (DutchmanNL) Support ESPHome device Encryption Key (you should migrate from API password to Encryption Key ! resolves #152)
+### 0.6.1 (2025-05-24)
+* (@SimonFischer04) Update esphome
+* (@ticaki) Optimize admin configuration interface
+* (@DutchmanNL) Optimize backend handling of device discovery
+* (@DutchmanNL) Capability to select ESPHome Dashboard version added, resolves #118
 
-### 0.4.0 (2023-11-03)
-* (DutchmanNL) Added cleanup capability for unused channels & states after initialisation of device, resolves #39
-* (DutchmanNL) Added button to info channel which allows to delete all offline devices from adapter tree. resolves #39
-* (DutchmanNL) [Breaking] Backup strategy changed, requires [BackitUp v2.9.1](https://github.com/simatec/ioBroker.backitup) and activate option for ESPHome, fixes #129
+### 0.5.0-beta.8 (2023-11-24)
+* (DutchmanNL) Capability to automatically detect new devices added
+* (DutchmanNL) Ensures a compatible pillow version is used (10.0.1)
+* (SimonFischer04) Add pillow python package by default, resolves #188
 
-### 0.3.2 (2023-11-01)
-* (DutchmanNL) Improved error handling if devices are not reachable/disconnected
-* (DutchmanNL) Bugfix: Allow control of brightness and color for light component, resolves #173
+### 0.5.0-beta.4 (2023-11-15)
+* (DutchmanNL) Refactor memory caching of device data, resolves #189
 
-### 0.3.1 (2023-10-31)
-* (DutchmanNL) Bugfix: Show online state of ESP Device correctly, resolves #106
+### 0.5.0-beta.1 (2023-11-12)
+* (DutchmanNL) Only show error messages once for unreachable devices
 
-### 0.3.0 (2023-10-31) - Bugfixes & Improvements
-* (Dutchman & SimonFischer04) Several Bugfixes
-* (SimonFischer04) Support type "select device"
-* (DutchmanNL) ESPHome dashboard default disabled
-* (SimonFischer04) Migrate to @2colors/esphome-native-api
-* (DutchmanNL) Automatically create needed directories, resolves #168
-* (SimonFischer04) Migrate usage of python to new structure, should solve all ESPHome Dashboard related installation issues
+### 0.5.0-beta.0 (2023-11-12) - Rebuild Admin Interface & Connection handler
+* (DutchmanNL) Admin interface redesigned to JSON-Config relates #171
+* (DutchmanNL) Backend massages implemented to Add/Modify/Delete devices
+* (DutchmanNL) Device connection handling and visibility of devices improved
+* (DutchmanNL) Auto device discovery temporary disabled due to external bug, relates #175
+* (DutchmanNL) Possibility added to exclude IP-Addresses from device discovery, relates #175
+* (DutchmanNL) Allow Selection to listen on specific interface or all for device discovery resolves #67
+* (DutchmanNL) State implemented to show current connection status (unreachable/disconnected/connected) to improve management of devices
+* (DutchmanNL) Several bugfixes, resolves #181 resolves #
 
 ## License
 MIT License
 
-Copyright (c) 2023 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2023-2025 DutchmanNL <rdrozda86@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

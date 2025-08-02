@@ -2,7 +2,8 @@
 # ioBroker.HeatingControl
 
 
-![Number of Installations](http://iobroker.live/badges/heatingcontrol-installed.svg) ![Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
+![Number of Installations](http://iobroker.live/badges/heatingcontrol-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
 [![NPM version](http://img.shields.io/npm/v/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
 
@@ -10,6 +11,25 @@
 ![GitHub Actions](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)](https://nodei.co/npm/iobroker.heatingcontrol/)
+
+
+![node-lts](https://img.shields.io/node/v-lts/iobroker.heatingcontrol?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.heatingcontrol?label=npm%20dependencies&style=flat-square)
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.heatingcontrol?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+
+
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/heatingcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+
+
+
+
+
 
 
 
@@ -97,18 +117,17 @@ Features:
 | LastProgramRun      | shows last time when adapter run                                                                    | 
 
 ### temperature decrease / increase
-
 | DP name             | description                                                | target temperature for relative decrease                                       | target temperature for absolute decrease                      |
 |---------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-| GuestsPresent       | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          | 
-| PartyNow            | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          | 
-| Present             | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         | 
-| VacationAbsent	  | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease | 
-| FireplaceModeActive | decrease temperature bacause you use a fireplace, will be  | decrease current profile temperature by Profiles.0.room.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  | 
+| GuestsPresent       | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.relative.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          | 
+| PartyNow            | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.relative.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          | 
+| Present             | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.relative.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         | 
+| VacationAbsent	  | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.relative.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease | 
+| FireplaceModeActive | decrease temperature bacause you use a fireplace, will be  | decrease current profile temperature by Profiles.0.room.relative.FireplaceModeDecrease  | set target to Profiles.0.room.absolute.FireplaceModeDecrease  | 
 |                     | reseted automatically at adjustable time
 
 
-
+* Datapoints only available if "General Profile Settings, temperature lowering" is set
 * in both szenarious only one lowering is used (in previous version of adapter more then one degreases could be used)
 * in absolute degrease szenario only target values not equal 0°C are used. If you do not need any lowering for a certain room then keep decrease-values at 0°C
 
@@ -261,6 +280,68 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (René) HmIP-eTRV-B-2 R4M added to autodetect
+
+### 2.12.14 (2025-02-27)
+* (René) see issue #635: initial values (-99) not to write to object 
+* (René) changes requested by adapter checker
+* (René) dependencies updated
+
+### 2.12.13 (2024-11-20)
+* (René) see issue #607: minimum length of telegram user reduced to one char
+
+### 2.12.12 (2024-11-20)
+* (René) see issue #422: bug fix window open/close handling
+* (René) update dependencies
+
+### 2.12.11 (2024-10-21)
+* (René) see issue #611: test with nodejs@22
+* (René) see issue #617: bug fix: TemperaturOverrideRemainingTime is not correct after Override interruption
+
+### 2.12.10 (2024-08-18)
+* (René) update dependencies
+* (René) adaption for new Vis-2 widgets (Weather / Heating)
+* (René) bug fixes based on adapter checker recommendation
+
+### 2.12.8 (2024-06-05)
+* (René) bug fix heating period: calculation of cron job string fixed
+
+### 2.12.7 (2024-05-28)
+* (René) see issue #561: change of dependencies
+
+### 2.12.5 (2024-03-01)
+* (René) see issue #492: cron jobs recalculation is necessary after reboot if VacationAtHome and PublicHoliday is active
+* (René) create cron job for PowerInterruption only if feature is active
+* (René) bug fix: with cron 3.x status log of cron jobs were wrong
+
+### 2.12.4 (2024-02-11)
+* (René) dependencies updated
+* (Marc-Berg) update readme "temperature decrease / increase"
+* (René) in some cases undefined was sent in notification messages instead of actor name
+* (René) bug fix related to cron@3.x.x: show next cron job event in log
+
+### 2.12.3 (2024-01-12)
+* (René) dependencies updated
+
+### 2.12.2 (2023-12-16)
+* (René) see issue #491: bug fix in offset calculation (NaN)
+
+### 2.12.1 (2023-11-25)
+* (René) issue #459: Show the number of objects that can be deleted in the log and indicate that they can be deleted in admin
+* (René) issue #376: notification messages customizable
+
+### 2.12.0 (2023-11-22)
+* (René) dependencies updated
+* (René) fix eslint reported issues
+* (René) see issue #486: option to use offset calculation immediately
+* (René) see issue #489: increase limit of status change list to 100
+
 ### 2.11.1 (2023-07-30)
 * (René) dependencies updated
 
@@ -303,7 +384,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ### 2.9.1 (2022-06-10)
 * (René) bug fix timer id's for extended actor handling
-* (René) bug fix exception in SetRoomTemperature 
+* (René) bug fix exception in SetRoomTemperature
 
 ### 2.9.0 (2022-06-09)
 * (René) see issue #302: adjustable info logging for temperature, aktor and window status change
@@ -313,7 +394,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #312: bug fix in window is open handling if thermostat reduces temperature
 
 ### 2.8.6 (2022-03-31)
-* (René) see issue #265 and #305: bg fix window handling for rooms with more then one window and sensors with regular status update 
+* (René) see issue #265 and #305: bg fix window handling for rooms with more then one window and sensors with regular status update
 
 ### 2.8.5 (2022-02-12)
 * (René) sentry: Cannot read property 'PARENT_TYPE' of undefined
@@ -379,7 +460,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 2.4.3 (2021-06-17)
 * (René) see issue #243: bug fix for HeatingPeriod when adpater starts
 * (René) see issue #245: problem with manual mode when SensorOpenDelay is used
-* (René) see issue #244: bug fix for WindowOpenImg 
+* (René) see issue #244: bug fix for WindowOpenImg
 
 ### 2.4.2 (2021-05-17)
 * (René) logging for ActorsOn optimized
@@ -413,7 +494,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #219: bug fix: DecreaseValues and ProfilName are copied in CopyProfile now
 
 ### 2.1.1 (2021-02-08)
-* (René) bug fix Temperatur Offset: invert sign of TemperatureOffset 
+* (René) bug fix Temperatur Offset: invert sign of TemperatureOffset
 
 ### 2.1.0 (2021-01-31)
 * (René) see issue #198: add name to profile as a datapoint, used to be shown in visualisation
@@ -463,7 +544,6 @@ When the adapter crashes or an other Code error happens, this error message that
 	* #152 Fenstererkennung im manuellen Modus
 	* #148 Bei Änderung vom Thermostat bis zum nächsten Profilpunkt müssen Sensoren berücksichtigt werden
 
-
 ### 1.1.2 (2020-11-11)
 * (René) bug fix: activate actors after temperatur change
 
@@ -474,7 +554,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #132: timer before on and off for actuators 
 * (René) see issue #143: additional checks to avoid unneccessary override 
 * (René) see issue #140: use guests present and party now DP's also as counter like present (as a option); add adjustable counter limit for present, party now and guest present
-* (René) see issue #145: avoid reset of target temperatur by profile settings in option "until next profil point" when set by thermostat 
+* (René) see issue #145: avoid reset of target temperatur by profile settings in option "until next profil point" when set by thermostat
 
 ### 1.0.0 (2020-10-09)
 * (matida538) added better Handling of strings in HandleThermostat (convert to Number, instead of warn) (e.g. fhem connector for fht80)
@@ -522,7 +602,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #70: use changes from thermostat
 * (René) see issue #91 bug fix: if the same sensor is configured for more than one room thermostat target temperature will be set for all configured rooms
 * (René) script from Pittini integrated to support his visualization [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) 
-* (Dutchman) some refactoring 
+* (Dutchman) some refactoring
 
 ### 0.3.19 (2020-03-15)
 * (René) create correct cron job for sunday if profile type "every day" is used
@@ -554,11 +634,11 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) bugfix create cron jobs for profile type 3 (daily)
 
 ### 0.3.12 (2019-12-27)
-* (René) bugfix exception in CheckTemperatureChange [ReferenceError: RoomState is not defined] 
+* (René) bugfix exception in CheckTemperatureChange [ReferenceError: RoomState is not defined]
 
 ### 0.3.11 (2019-12-27)
 * (René) option: minimum temperature per room
-* (René) bugfix exception in CheckTemperatureChange [ReferenceError: PublicHolidyToday is not defined] 
+* (René) bugfix exception in CheckTemperatureChange [ReferenceError: PublicHolidyToday is not defined]
 
 ### 0.3.10 (2019-12-26)
 * (René) see issue #54: stop override with OverrideTemperature =0
@@ -610,7 +690,7 @@ Attention: some changes in datapoints!!
 ### 0.3.2 (2019-11-01)
 * (René) try to convert temperature to number if NaN
 * (René) see issue #33: check for heating period when adapter starts
-* (René) fix a problem in subscription function when room can not be found 
+* (René) fix a problem in subscription function when room can not be found
 
 ### 0.3.1 (2019-10-31)
 * (René) see issue #42 and #44: check all sensors per room and set state when adapter starts
@@ -622,7 +702,7 @@ Attention: some changes in datapoints!!
 * (René) see issue #24: use external data point to set internal "present" data point 
 * (René) see issue #15: manual temperatur override
 * (René) see issue #35: delete of devices
-* (René) reset DeleteAll at next admin start 
+* (René) reset DeleteAll at next admin start
 
 ### 0.2.3 (2019-09-20)
 * (René) see issue #19: handling of enums created in iobroker admin fixed
@@ -642,7 +722,7 @@ Attention: some changes in datapoints!!
 * (René) bug fixes in actuator handling
 
 ### 0.2.0 (2019-09-05)
-* (René) path to Feiertag-Adapter can also include a complete datapoint path 
+* (René) path to Feiertag-Adapter can also include a complete datapoint path
 
 ### 0.1.0 (2019-08-25)
 * (René) redesign of data structure
@@ -672,7 +752,7 @@ Attention: some changes in datapoints!!
 ## License
 MIT License
 
-Copyright (c) 2019-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2019-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

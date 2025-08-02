@@ -15,7 +15,41 @@
 
 ## mystrom adapter for ioBroker
 
-myStrom Adapter
+myStrom adapter
+
+The adapter reads all data from the myStrom app and updates it every 30 minutes. It also reads the local data of the devices if they are online and an IP has been assigned via the app or manually. To do this, all devices must be online when the adapter is started. Buttons are not always online either try by pressing twice and then holding for 8 seconds or reset by pressing for 10 seconds until it flashes red and then pressing once. After the reset, it is necessary to reconnect via WLAN. Connect manually by pressing 3 times and then log in manually to the WLAN and only then follow the path in the app. The button is then online and can be read out.
+
+URLs can be entered for the respective actions of the buttons and motion detectors. The switches can also be switched via ioBroker State.
+
+#### Wifi switch
+
+To switch the devices use the localCommand mystrom.0.XXXXXXX.localCommands.
+
+#### Buttons
+
+The [SimpleAPI](https://github.com/ioBroker/ioBroker.simple-api) must be used to switch ioBroker states.
+
+The SimpleAPI can be activated via an ioBroker web.0 instance. Activate the "Built-in 'Simple API'" options in the web.0 instance.
+
+The following can then be used to set a state
+Set the following state under Objects mystrom.0.XXX.localData.api/v1/device.XXXX.single or long or double (devices must be online when the adapter is started, press twice and then hold for 8 seconds. Then restart the adapter until the localData folder is filled).
+
+##### get://ioBrokerIP:8082/toggle/javascript.0.test
+
+<br />
+
+#### PIR motion detector
+
+Set the following state under objects mystrom.0.XXXXX.localData.api/v1/action.pir
+
+##### get://ioBrokerIP:8082/toggle/javascript.0.test
+
+   <br />
+
+More details on how to change two states at the same time, for example
+[https://api.mystrom.ch/#d74e63de-9e48-4d02-8164-cd8d7ed67332](https://api.mystrom.ch/#d74e63de-9e48-4d02-8164-cd8d7ed67332)
+
+DE:
 
 Der Adapter liest alle Daten aus der myStrom App und aktualisiert diese alle 30min. Er liest außerdem die lokalen Daten der Geräte wenn sie online sind und über die App oder manuell eine IP vergeben wurden ist. Dazu müssen alle Geräte bei Adapterstart online sein. Button sind nicht immer online entweder probieren über 2x drücken und dann 8 Sekunden gedrückt halten oder reseten über 10 Sekunden drücken bis er rot blinkt und dann einmal drücken. Nach dem Reset ist ein erneutes Verbinden via WLAN notwendig. Manuell verbinden via 3 mal drücken und dann manuell bei dem WLAN anmelden und dann erst den Weg in der App folgen. Danach ist der Button online und kann ausgelesen werden.
 
@@ -52,12 +86,15 @@ Mehr Details wie man z.B. zwei States gleichzeitig ändert:
 [https://api.mystrom.ch/#d74e63de-9e48-4d02-8164-cd8d7ed67332](https://api.mystrom.ch/#d74e63de-9e48-4d02-8164-cd8d7ed67332)
 
 ## Changelog
+### 0.1.0 (2024-04-21)
+
+- improve cpu usage
 
 ## License
 
 MIT License
 
-Copyright (c) 2020 TA2k <tombox2020@gmail.com>
+Copyright (c) 2020-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

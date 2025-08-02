@@ -9,7 +9,7 @@ BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 ---
 ![Logo](../../admin/solax.png)
-# ioBroker.solax
+ # ioBroker.solax
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
@@ -32,11 +32,11 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 
 **************************************************************************************************************
 
-### Solax Adapter for ioBroker
+## Solax Adapter for ioBroker
 
 **************************************************************************************************************
 
-#### Solax Cloud-Verbindung
+### Solax Cloud-Verbindung
 
 Solax Wechselrichter API-Cloud-Verbindung
 
@@ -44,16 +44,16 @@ Dieser Adapter ruft die Daten deines Wechselrichters vom Hersteller Solax für i
 
 Was dazu benötigt wird, ist ein Konto bei Solax, eine Token-ID und die Seriennummer des Pocket Wifi oder LAN Sticks.
 
-#### API-Token
+### API-Token
 
 <span><img src="../img/solax_api.png"></span>
 
-#### Seriennummer
+### Seriennummer
 
 <span><img src="../img/wifi-stick.png"></span>
 
 
-#### Experteneinstellungen
+### Experteneinstellungen
 
 Die lokale Verbindung wird aktuell nur von dem Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
 
@@ -87,8 +87,107 @@ Der Stick aktualisiert die Firmware nicht automatisch und ist mit der Version 2.
 
 Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort des Webinterfaces eingetragen werden, und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
 
+Aktuell werden im lokalen Modus folgende Umrichter unterstützt:
+
+* X1 mini
+* X1 boost
+* X3-Hybiyd/Fit
+* X3-20K/30K
+* X3-MIC/PRO
+* X3-Hybrid-G4
+* X3-MIC/PRO-G2
+* X1-Hybrid-G4
+* X1/X3-EVC Wallbox
+
+Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung des lokalen Requests als Issue zur Verfügung stellen.
+
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Code fix
+* (simatec) Dependencies updated
+* (simatec) Ready for NodeJS 24.x
+
+### 0.9.17 (2025-04-07)
+* (simatec) Dependencies updated
+* (simatec) Cleaned up code
+* (simatec) migrated to json5
+
+### 0.9.16 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small fix
+
+### 0.9.15 (2025-01-23)
+* (simatec) Fix Request
+* (simatec) Code Fix
+* (simatec) Dependencies updated
+
+### 0.9.14 (2025-01-08)
+* (simatec) eslint-config fix
+* (simatec) Code fix
+* (simatec) Dependencies updated
+* (simatec) License updated
+
+### 0.9.13 (2024-11-27)
+* (simatec) Dependencies updated
+* (simatec) small Design fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 0.9.12 (2024-09-26)
+* (simatec) Fix for Admin 7.1.5
+
+### 0.9.11 (2024-09-21)
+* (simatec) small Design fix
+
+### 0.9.10 (2024-09-17)
+* (simatec) small fix
+* (simatec) Dependencies updated
+* (simatec) Responsive Design added
+
+### 0.9.9 (2024-06-27)
+* (simatec) Fix X1-Mini G4
+
+### 0.9.8 (2024-06-27)
+* (simatec) Dependencies updated
+* (simatec) X1-Mini G4 added
+
+### 0.9.7 (2024-06-19)
+* (simatec) Cloud-URL updated
+* (simatec) Dependencies updated
+
+### 0.9.6 (2024-02-05)
+* (simatec) small Design Fix
+
+### 0.9.5 (2024-02-04)
+* (simatec) Dependencies updated
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+
+### 0.9.4 (2024-01-22)
+* (simatec) adapter-dev added
+* (simatec) delete Gulp
+* (Andre-0815-4711) Data for X1/X3-EVC Wallbox added
+
+### 0.9.3 (2024-01-14)
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+* (simatec) Fix Inverter data
+* (simatec) Dependencies updated
+
+### 0.9.2 (2024-01-13)
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+
+### 0.9.1 (2024-01-02)
+* (simatec) Fix Inverter data
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+* (simatec) Update Docu
+
+### 0.9.0 (2024-01-02)
+* (simatec) Cloud URL Check added
+* (simatec) X1/X3-EVC added
+* (simatec) Inverter Data for X3-Hybrid-G4 updated
+* (simatec) Fix Inverter Data for X1 Hybrid G4
+* (simatec) Dependencies updated
+
 ### 0.8.0 (2023-10-23)
 * (simatec) X1-Hybrid-G4 added
 
@@ -239,7 +338,7 @@ Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort
 ## License
 MIT License
 
-Copyright (c) 2021 - 2023 simatec
+Copyright (c) 2021 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

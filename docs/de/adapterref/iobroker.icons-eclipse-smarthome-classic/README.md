@@ -14,13 +14,13 @@ hash: EPB1ItgKevPEfuZTCPrmmNCtB78rp4N1ev5bm88TIa0=
 ![NPM](https://nodei.co/npm/iobroker.icons-eclipse-smarthome-classic.png?downloads=true)
 
 # IoBroker.icons-eclipse-smarthome-classic
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.icons-eclipse-smarthome-classic/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.icons-eclipse-smarthome-classic/workflows/Test%20and%20Release/badge.svg)
 
-##icons-eclipse-smarthome-classic-Adapter für ioBroker
-Symbole, die von ioBroker-Visualisierungen wie WebUI, Vis usw. verwendet werden können
-extrahiert aus ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
+## Icons-eclipse-smarthome-classic-Adapter für ioBroker
+Symbole, die von ioBroker-Visualisierungen wie WebUI, Vis usw. verwendet werden können.
+extrahiert von ioBroker.habpanel (https://github.com/iobroker-community-adapters/ioBroker.habpanel/tree/master/src/assets/icons)
 
-Originalquelle: https://www.openhab.org/docs/configuration/iconsets/classic/ Lizenz scheint EPL zu sein: https://github.com/eclipse-archived/smarthome/blob/master/extensions/ui/iconset /org.eclipse.smarthome.ui.iconset.classic/NOTICE
+Originalquelle: https://www.openhab.org/docs/configuration/iconsets/classic/ Lizenz scheint EPL zu sein: https://github.com/eclipse-archived/smarthome/blob/master/extensions/ui/iconset/org.eclipse.smarthome.ui.iconset.classic/NOTICE
 
 ## Credits
 An die Eclipse Foundation für die Erstellung der Icons

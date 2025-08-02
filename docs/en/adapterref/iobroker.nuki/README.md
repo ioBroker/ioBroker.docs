@@ -81,9 +81,22 @@ Remove:
 * http://< bridge_ip >:< bridge_port >/callback/remove?id=< callback_id >&token=< bridgeToken >
 
 ## Update
-When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all instances of the old version before installing the new version. Please be aware that version changes bigger than on patch level (-> change of only the last digit) could always contain changes to data points e.g. 1.1.2 to 1.1.4
+When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all instances of the old version before installing the new version. Please be aware that version changes bigger than on patch level (-> change of only the last digit) could always contain changes to data points e.g. 1.1.2 to 1.1.4.
+When updating to 2.x the token has to be entered again.
 
 ## Changelog
+
+### 2.0.1
+* (smaragdschlange) update: dependencie updates
+
+### 2.0.0
+* (simatec) jsonConfig added
+* (simatec) dependency updated
+* (simatec) devdependency updated
+* (simatec) translate added
+* (simatec) test and release added
+* (simatec) Release Script added
+* (simatec) Remove Travis
 
 ### 1.7.0
 * (smaragdschlange) update: implementation of latest bridge API changes (battery charge state)
@@ -207,7 +220,7 @@ When updating from 1.0.x to 1.1.0 or higher it is recommended to delete all inst
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Smaragdschlange <smaragdschlange@gmx.de>
+Copyright (c) 2018-2024 Smaragdschlange <smaragdschlange@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

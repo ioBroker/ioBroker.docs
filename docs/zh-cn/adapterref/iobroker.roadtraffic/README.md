@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roadtraffic/README.md
 title: ioBroker.roadtraffic
-hash: YmnxW7ZtzsG+u0IO1fpwJZaBmGWFwiFcPvcI1jn7j5Q=
+hash: FiuShFzhuh6eVaPfGOG4QkRRlL0SqXobREHNpOAZ6tk=
 ---
 ![标识](../../../en/adapterref/iobroker.roadtraffic/admin/roadtraffic.png)
 
@@ -65,7 +65,7 @@ hash: YmnxW7ZtzsG+u0IO1fpwJZaBmGWFwiFcPvcI1jn7j5Q=
 在实例设置中，您可以通过选中“启用闹钟功能”来启用闹钟。
 您应该安装 Alexa2 适配器并在 Alexa2 实例设置中设置为使用推送连接。
 选择您想要由适配器控制的 Alexa 设备，然后输入您想要在触发闹钟时播放的 TuneIn StationID。
-警报音量的范围是 0-100。
+警报音量的范围为 0-100。
 使用 Speak 字符串，您可以控制 Alexa 的公告。
 默认为：Guten Morgen %name。 Bei aktueller Verkehrslage benötigst du %dur zur Arbeit。
 
@@ -77,16 +77,26 @@ Alexa 开始播放指定的 TuneIn Station 15 秒后，将宣布该字符串。
 每条路线有 7 个报警通道（周一至周日）。
 在每个频道中，您有以下状态：
 
-* 到达时间：输入您想要到达目的地的时间（例如：07:30 是早上七点半）。
+* 到达时间：输入您希望到达目的地的时间（例如：07:30 是早上七点半）。
 * 洗澡时间：输入您想要添加到旅行持续时间中的时间。 （示例：45 是 45 分钟。假设您将到达时间设置为 10:00，沐浴时间设置为 30 分钟，当前旅行持续时间为 1 小时。那么适配器将在 08:30（到达时间 - 沐浴时间 - 旅行持续时间）触发。
 * 启用：如果您想启用当天的闹钟，则设置为 true
 *已触发：当警报被触发时，适配器将将此状态设置为true。 （例如，您可以将其与自己的脚本一起使用......）触发状态将在相应日期的 00:00 重置为 false。 （周六触发将在周六 00:00 设置为 false）。
+
+## 学分
+@icastillo15 <starwarsmalu@gmail.com> 提供了使用 HERE v8 pi 的代码改编。
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2023-11-28)
+* (mcm1957) Role definitions have been corrected.
+
+### 1.1.0 (2023-11-27)
+* (icastillo15) Support for HERE v8 api protocoll has been added.
+* (mcm1957) Dependencies have been updated.
+
 ### 1.0.2 (2023-10-27)
 * (mcm1957) Error logging has been corrected.
 

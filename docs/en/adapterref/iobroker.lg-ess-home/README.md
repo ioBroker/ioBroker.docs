@@ -44,11 +44,21 @@ This should give you the password and a status in return.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.1 (2024-12-23)
+* (Morluktom) Bugfix lg-ess-home.0.user.essinfo.common not updated
+* (Morluktom) Responsive Design added
+
+### 0.4.0 (2024-12-23)
+* (Morluktom) Bugfix: State value to set for "lg-ess-home.0.user.essinfo.home.statistics.bat_status" has to be type "number" but received type "string"
+* LG ESS HOME 15 Plus added
+* Switch AutoCharge and backup soc writeable
+
+### 0.3.0 (2024-08-10)
 * (Morluktom) Fixed warnings found by adapter checker
 * (Morluktom) Added Admin 5 configuration
 * (Morluktom) Added Ukrainan language
 * (Morluktom) Add PV Forecast to chart
+* (morluktom) NodeJS >= 18.x and js-controller >= 5 is required
 
 ### 0.2.3 (2022-04-05)
 * (Morluktom) Chart widget: Datepicker changed to jquery
@@ -102,7 +112,7 @@ This should give you the password and a status in return.
 ## License
 MIT License
 
-Copyright (c) 2023 Morluktom <strassertom@gmx.de>
+Copyright (c) 2025 Morluktom <strassertom@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

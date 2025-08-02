@@ -1,4 +1,5 @@
 ![Logo](admin/bosch-ebike.png)
+
 # ioBroker.bosch-ebike
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.bosch-ebike.svg)](https://www.npmjs.com/package/iobroker.bosch-ebike)
@@ -23,23 +24,36 @@ Die Bosch eBike Mail und Passwort eingeben.
 
 bosch-ebike.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
-
 ## Diskussion und Fragen
 
 <https://forum.iobroker.net/topic/55902/test-adapter-bosch-ebik-connect-flow>
 
 ## Changelog
+### 0.1.12 (2025-01-14)
 
-### 0.0.3
-* (TA2k) login fix
+- fix for login use code url instead of captcha
+
+### 0.1.11 (2025-01-03)
+
+- fix for login. Deletion of the instance is necessary if the settings screen is not loading.
+
+### 0.1.9 (2024-11-25)
+
+- fix for login
+
+### 0.1.5
+
+- (TA2k) login fix
 
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

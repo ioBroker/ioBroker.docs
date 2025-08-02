@@ -3,28 +3,28 @@ local: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hm-rega/README.md
-title: HomeMatic ReGaHSS
-hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
+title: 主页Matic ReGaHSS
+hash: 5nzOtddjd6p/3BVJJkfR7yHWPQUqVm2mcbdsP7tvrkM=
 ---
 ![标识](../../../de/adapterref/iobroker.hm-rega/media/homematic.png)
 
 # HomeMatic ReGaHSS
-##家常
-> Homematic 是来自 eQ-3 的智能家居系统，它可以使用房屋或公寓中的场景（从简单到复杂）全面控制各种功能。
+## 家居用品
+> Homematic 是 eQ-3 的智能家居系统，它可以使用房屋或公寓中的场景（从简单到复杂）全面控制各种功能。
 
-> 这些设备包括用于控制灯光、卷帘和加热的产品、危险探测器、安全传感器和用于测量天气数据的产品。无线通信简化了改装。有线总线组件可用于新建筑。
+> 这些设备包括用于照明、卷帘和加热控制的产品、危险探测器、安全传感器以及用于天气数据测量的产品。无线电通信简化了改造。有线总线组件可用于新建筑。
 
 [来源](https://www.eq-3.de/produkte/homematic.html)
 
 ## 适配器 Homematic ReGaHss
-此适配器建立到 Homematic 逻辑层“ReGaHSS”（**Re**sideential **G**teway）的连接。
-它在 Homematic 和 ioBroker 之间同步清晰的名称、系统变量、房间、交易和程序。
+该适配器建立与 Homematic 逻辑层“ReGaHSS”（**Re**sidential **Ga**teway）的连接。
+它可以在 Homematic 和 ioBroker 之间同步真实姓名、系统变量、房间、交易和程序。
 
-如果要将多个中心集成到 ioBroker 中，则必须为每个中心安装和配置单独的实例。
+如果要将多个控制中心集成到ioBroker中，则必须为每个控制中心安装和配置单独的实例。
 
-随着 ReGaHSS 的安装，“hm-rpc”适配器的实例也被安装，应该预先配置和激活。
+安装 ReGaHSS 时，还会安装“hm-rpc”适配器的实例，应提前配置并激活该适配器。
 
-这个适配器的一个实例可以管理多达 5 个不同的 Homematic RPC 适配器实例，它们提供不同的服务（每个服务都需要自己的 RPC 实例）：
+该适配器的一个实例最多可以管理 5 个不同的 Homematic RPC 适配器实例，这些实例提供不同的服务（每个服务需要自己的 RPC 实例）：
 
 - rfd（标准组件的 CCU 无线电服务）
 - hs485d（有线）（用于有线总线组件）
@@ -32,67 +32,67 @@ hash: G+XgC3bx73W0XgVhW1GkYuvI38TcQQgIsp3P1ggWznM=
 - Homematic IP（IP支持的组件）
 - 虚拟设备
 
-### 预安装要求
-- Homematic 网关 (CCU/CCU2/CCU3 ...) *或*
+### 安装前的要求
+- Homematic 网关 (CCU/CCU2/CCU3 …) *或*
 - 带有合适软件的无线电模块（piVCCU(*x)*、RaspberryMatic 或类似软件）
 
 ＃＃ 安装
-适配器的一个实例是从 ioBroker 管理界面安装的。
+适配器的实例是通过 ioBroker 管理界面安装的。
 
-安装完成后，配置窗口会自动打开。
+安装完成后，配置窗口自动打开。
 
-在实际配置之前，应创建和配置 HM-RPC 适配器的实例（与此适配器一起创建），或者，如果需要，还应创建和配置其他 HM-RPC 实例。
+在实际配置之前，应创建并配置 HM-RPC 适配器的实例（与该适配器一起创建），或者如有必要，还应创建并配置其他 HM-RPC 实例。
 
 ＃＃ 配置
-![](../../../de/adapterref/iobroker.hm-rega/media/01c7dbc4da0240421b0711b331971d2d.png) **上面的选择菜单**
+![](../../../de/adapterref/iobroker.hm-rega/media/01c7dbc4da0240421b0711b331971d2d.png) **上方选择菜单**
 
-在上部选择菜单中可以选择三个不同的区域：
+可以在顶部选择菜单中选择三个不同的区域：
 
 ### 主要设置区域
 ![](../../../de/adapterref/iobroker.hm-rega/media/3e0325b2bf61e508e131f8792e2c004d.png) **主要设置**
 
-在此区域进行基本设置。
+基本设置均在此区域进行。
 
-CCU的IP地址可以在下拉菜单中选择；用户也可以调整重新连接间隔（标准 30 秒）。
+可在下拉菜单中选择CCU的IP地址；用户也可以调整重新连接间隔（默认30秒）。
 
-![](../../../de/adapterref/iobroker.hm-rega/media/ce181cdbb3b8979e1233b57a4588cf1d.png) **分配 RPC 实例**
+![](../../../de/adapterref/iobroker.hm-rega/media/ce181cdbb3b8979e1233b57a4588cf1d.png) **RPC 实例的分配**
 
 然后激活所需的服务并将其链接到适当的 HM-RPC 实例。
 
 轮询
 
-如果激活，CCU 将根据 Intervals 字段中设置的秒数定期查询 RegaHSS 数据。间隔不应设置得太低，因为轮询太频繁会导致 CCU 崩溃。
+如果激活，则会根据间隔字段中设置的秒数定期从 CCU 查询 RegaHSS 数据。间隔不应设置得太低，因为轮询太频繁可能会导致 CCU 崩溃。
 
 触发器
 
-为了最大限度地减少从 ioBroker 到 RegaHSS 的活动查询，触发器还可以在程序发生变化时推送 CCU 上的数据。
-为此可以使用 CCU 上的虚拟按钮，该按钮在 CCU 程序中触发。默认情况下，这是 BidCosRF.50.PRESS_SHORT 按钮（参见示例程序）。
+为了最大限度地减少从 ioBroker 到 RegaHSS 的活动查询，程序内 CCU 上的触发器也可以在发生变化时推送数据。
+为此，可以使用 CCU 上的虚拟按钮，该按钮在 CCU 程序中触发。默认情况下，这是 BidCosRF.50.PRESS_SHORT 键（请参阅示例程序）。
 
 ### 同步区域
-在这里，用户可以指定哪些信息从 CCU 传输到 ioBroker。然后在 ioBroker 中创建相应的对象和数据点。
+此处，用户可以指定哪些信息从 CCU 传输到 ioBroker。然后在 ioBroker 中创建相应的对象和数据点。
 
-- DutyCycle：激活占空比指示（以 % 为单位）
-- 变量：激活采用来自 CCU 的系统变量
-- 程序：激活采用 CCU 的程序名称
+- 占空比：激活占空比规范（以%为单位）
+- 变量：激活从 CCU 传输系统变量
+- 程序：激活从 CCU 传输程序名称
 - 名称：激活从 CCU 传输数据点的纯文本名称
-- 收藏夹：激活收藏夹的获取和列表
-- 房间：激活房间的获取和它们的列表
-- 交易：激活交易的转移及其列表
+- 收藏夹：激活收藏夹的传输和列表
+- 房间：激活房间及其列表的采用
+- 交易：激活交易及其列表的转移
 
 ### 附加设置区域
-在这里，用户可以决定是否应该使用 https（加密和防窃听连接）。如果激活，必须输入用户名和相应的密码
+在这里，用户可以决定是否使用 https（加密且防窃听连接）。如果激活，您将需要输入用户名和密码
 
-完成所有设置后，使用“保存并关闭”命令（设置区域下方的按钮）关闭配置页面。适配器关闭，实例以新值启动。
+完成所有设置后，使用“保存并关闭”命令（设置区域下方的按钮）即可完成配置页面。适配器关闭，实例使用新值启动。
 
 ＃＃＃ 实例
 ![](../../../de/adapterref/iobroker.hm-rega/media/44785b82964bcdc198565b1681787dc0.png) **实例和信号**
 
-创建的实例现在可以在 ioBroker 的 *Instances* 区域中找到。左侧的红绿灯系统显示适配器是否已激活或连接到 CCU。
+现在可以在 ioBroker 的 *Instances* 区域中找到创建的实例。左侧，交通灯系统显示适配器是否已激活或连接到 CCU。
 
-如果将鼠标指针放在符号上，您将获得详细信息。
+如果将鼠标指针放在符号上，您将收到详细信息。
 
 ### 适配器的对象
-适配器从 CCU 传输的所有值和信息都以树形结构显示在 Objects 区域中。
+在对象区域中，适配器从 CCU 传输的所有值和信息均以树形结构显示。
 
 由于对象是特定于用户的，因此此处仅显示对所有用户都相同的通用对象。
 
@@ -103,19 +103,25 @@ CCU的IP地址可以在下拉菜单中选择；用户也可以调整重新连接
 CCU 和 info 文件夹包含网关的基本信息，包括。
 占空比的百分比（如果激活）。
 
-最后，列出在 CCU 中创建的变量
+最后列出了CCU中创建的变量
 
-＃＃＃常问问题
+＃＃＃ 常问问题
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2024-08-29)
+* (@foxriver76) added notification if devices are low on battery
+
+### 5.0.0 (2024-07-18)
+* (bluefox) required node 18
+* (bluefox) updated dependencies
+
 ### 4.0.0 (2023-09-04)
 * (mcm1957) required node 16 due to adapter-core 3.x.x
 * (bluefox) removed deprecated package - `request`
-*
 
 ### 3.0.47 (2023-08-08)
 * (bluefox) Updated packages
@@ -568,7 +574,7 @@ or non existent if no rpc instance existed
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

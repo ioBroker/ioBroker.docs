@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roadtraffic/README.md
 title: ioBroker.roadtraffic
-hash: YmnxW7ZtzsG+u0IO1fpwJZaBmGWFwiFcPvcI1jn7j5Q=
+hash: FiuShFzhuh6eVaPfGOG4QkRRlL0SqXobREHNpOAZ6tk=
 ---
 ![Logo](../../../en/adapterref/iobroker.roadtraffic/admin/roadtraffic.png)
 
@@ -82,11 +82,21 @@ In jedem Kanal gibt es folgende Zustände:
 * aktiviert: Auf „true“ setzen, wenn Sie den Alarm für diesen Tag aktivieren möchten
 * ausgelöst: Der Adapter setzt diesen Status auf „True“, wenn der Alarm ausgelöst wird. (Sie können es beispielsweise mit eigenen Skripten verwenden.) Der ausgelöste Status wird um 00:00 Uhr des entsprechenden Tages auf „false“ zurückgesetzt. (Der Samstag-Trigger wird am Samstag um 00:00 Uhr auf „false“ gesetzt).
 
+## Credits
+Codeanpassungen zur Verwendung von HERE v8 pi wurden von @icastillo15 <starwarsmalu@gmail.com> bereitgestellt.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2023-11-28)
+* (mcm1957) Role definitions have been corrected.
+
+### 1.1.0 (2023-11-27)
+* (icastillo15) Support for HERE v8 api protocoll has been added.
+* (mcm1957) Dependencies have been updated.
+
 ### 1.0.2 (2023-10-27)
 * (mcm1957) Error logging has been corrected.
 

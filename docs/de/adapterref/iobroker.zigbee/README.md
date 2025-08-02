@@ -3,301 +3,273 @@ BADGE-Number of Installations: http://iobroker.live/badges/zigbee-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.zigbee.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
 ---
-# ioBroker Adapter für Zigbee-Geräte
-Mit Hilfe eines Koordinators für Zigbee-Netz, basierend auf Texas Instruments SoC cc253x (und anderen), wird ein eigenes Netz erschaffen, welchem sich andere Zigbee Geräte beitreten können. Dank der direkten Interaktion mit dem Koordinator, erlaubt der Zigbee Adapter die Steuerung der Geräte ohne jegliche Gateways/Bridges der Hersteller (Xiaomi/Tradfri/Hue). Über Funktionsweise der Zigbee-Netze kann man [hier nachlesen (Englisch)](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network).
+# ioBroker Adapter for ZigBee Devices
+Using a ZigBee network coordinator, a dedicated ZigBee network is created, to which ZigBee devices (lights, dimmers, sensors, etc.) can join. Thanks to direct interaction with the coordinator, the ZigBee adapter allows the devices to be controlled without any gateways/bridges from the manufacturers (Xiaomi/Tradfri/Hue). Additional information about ZigBee can be found [here](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network).
 
-## Die Hardware
-Für die Umsetzung wird einer der aufgezählten Geräte/Sticks verwendet, welche mit spezieller ZNP-Firmware geflasht sind: [cc2530, cc2530, cc2530+RF.](https://github.com/Koenkk/zigbee2mqtt/wiki/Supported-sniffer-devices#zigbee-coordinator)
+## Hardware
+The coordinator (see above) requires additional hardware that enables the conversion between USB and ZigBee wireless signals. There are three types of coordinators:
 
-![](img/CC2531.png)
-![](img/sku_429478_2.png)
-![](img/sku_429601_2.png)
-![](img/CC2591.png)
+- Plug-in modules for the Raspberry Pi (The use of these modules is **not** recommended.)
+- USB-connected modules, either in the form of development boards or USB sticks
+- Network coordinators
 
-Der benötigte Flasher/Programmer und der Prozess der Vorbereitung werden [hier (Englisch)](https://github.com/Koenkk/zigbee2mqtt/wiki/Getting-started) oder [hier (Russisch)](https://github.com/kirovilya/ioBroker.zigbee/wiki/%D0%9F%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0) beschrieben. 
+A complete list of compatible coordinators can be found [here](https://www.zigbee2mqtt.io/guide/adapters/). We recommend using only coordinators listed as 'recommended'. Instructions for installing the required firmware can also be found there.
 
-Die mit dem Zigbee-Netz verbundenen Geräte übermitteln dem Koordinator ihren Zustand und benachrichtigen über Ereignisse (Knopfdruck, Bewegungserkennung, Temperaturänderung). Diese Infos werden im Adapter unter den jeweiligen Objekten angezeigt. Außerdem ist es möglich manche Ereignisse/Status zurück zum Zigbee-Gerät zusenden (Zustandsänderung Steckdosen und Lampen, Farb- und Helligkeitseinstellungen).
+Coordinators are also sold with pre-installed firmware. The following applies: **Any coordinator whose firmware is compatible with Zigbee2mqtt.io can also be used with the ZigBee adapter**.
 
-## Einstellungen und Pairing
-![](https://raw.githubusercontent.com/kirovilya/files/master/config.PNG)
+Currently (as of March 2025), the "Sonoff ZIGBEE 3.0 USB-STICK CC2652P" (both the CC2652P and EZSP chipset versions) and network coordinators with Cod.m and/or XTG firmware are particularly popular. The Conbee II and Conbee III are also frequently used. The use of TI coordinators with CC2530/CC2531 is strongly discouraged – these are now considered obsolete.
 
-Zu Beginn muss der USB-Port angegeben werden, an welchem der cc253x angeschlossen ist. Wie man diesen Erkennt ist [hier beschrieben (Russisch)](https://github.com/kirovilya/ioBroker.zigbee/wiki#%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B0%D0%B4%D0%B0%D0%BF%D1%82%D0%B5%D1%80%D0%B0)
+The devices connected to the ZigBee network transmit their status to the coordinator and notify them of events (button presses, motion detection, temperature changes, etc.). This information is displayed in the adapter under the respective ioBroker objects and can thus be further processed in ioBroker. It is also possible to send commands to the ZigBee device (change of status of sockets and lamps, color and brightness settings, etc.).
 
-Zum Verbinden der Geräte muss der Koordinator für Zigbee-Netz in den Pairingmodus versetzt werden, dazu auf den grünen Knopf im Adapter klicken. Pairingmodus ist ab jetzt für 60 Sekunden aktiv. Um die Geräte zu verbinden, reicht im Normallfall ein Betätigen des Knopfes auf dem zu verbindendem Gerät. Es gibt aber auch „besondere“ Geräte. Wie man diese verbindet ist [hier Englisch](https://github.com/Koenkk/zigbee2mqtt/wiki/Pairing-devices) [oder Russisch](https://github.com/kirovilya/ioBroker.zigbee/wiki#%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%D1%8B%D0%B5-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0) beschrieben.
+## Software
 
-Nach erfolgreichem Pairing, wird das Gerät im Adapter angezeigt. Sollte ein Gerät (aus der Liste) den Namen „undefined“ haben, dann versucht es zu löschen und nochmal zu pairen. Sollte es trotzdem nicht funktionieren, schreibt bitte ein Issue.
-Zigbee-Geräte die nicht in der Liste aufgeführt sind, können zwar gepairt werden, aber der Adapter kann mit diesen nicht kommunizieren.
+The software is divided into "converter" and "adapter".
 
-## Zusätzliche Informationen
-Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mit gleichen Funktionen und gleicher Technologie, welcher mit denselben Geräten über ein MQTT Protokoll kommuniziert. Wenn irgendwelche Verbesserungen oder neu unterstütze Geräte im Projekt Zigbee2MQTT eingefügt werden, können jene auch in dieses Projekt hinzugefügt werden. Solltet Ihr unterschiede merken, schreibt bitte ein Issue, wir kümmern uns darum
+![](img/software1.jpg)
+
+   - Converter
+    The converter is divided into two parts: <br>
+      a) General provision of the data from the ZigBee radio signals. This [software part](https://github.com/Koenkk/zigbee-herdsman) is used for all ZigBee devices. <br>
+      b) Device-specific [processing](https://github.com/Koenkk/zigbee-herdsman-converters) of the data to a defined interface to the adapter.
+   - Adapter<br>
+      This software part is the connection of the converter to ioBroker. The [adapter](https://github.com/ioBroker/ioBroker.zigbee) includes the graphical user interface for managing the ZigBee devices and the creation of ioBroker objects for controlling the ZigBee devices.
+
+
+## Installation
+1. Connect the coordinator hardware to computer running ioBroker (or the network, in case of LAN/WLan coordinators).<br>
+2. Open a console on the server. In case of Unix/Linux based systems, this can be done remotely via ssh. Depending on the OS used, additional programs (e.g. puTTY on Windows) may be needed.<br>
+3. Determine the coordinator path. On Unix/Linux systems, this is often located in the /dev/serial/by-id directory. Alternatively, /dev/ttyUSB*, /dev/ttyAM* (Unix/Linux), /dev/tty.usbserial-* (macOS), or com* (Windows) are expected.<br>
+The following example shows a Linux installation on a Raspberry Pi. The command `ls -la /dev/serial/by-id/` produces the output shown in the image.
+![](../de/img/Bild2.png)
+4. ioBroker -> Install the ZigBee adapter, here version 1.8.10 as an example. <br> ![](../de/img/Bild3.png) <br> This installs all required software components (converter and adapter). <br>![](img/Zigbee_config_en.png)<br>
+5. Open the adapter configuration. The above image shows the interface version 3.0.0 or newer.
+In this situation, the admin indicates whether the ZigBee subsystem is started (A).
+6. Enter the port for the coordinator (B). In the case of USB coordinators, this is the previously determined device path. For coordinators controlled via the network, the network address and port must be specified in the form tcp://ip:port instead of the device path. If the adapter itself (not the Zigbee subsystem) is active, a list of available serial interfaces is available for selection. The following applies when selecting:
+- If multiple adapters with different USB devices are used for communication on the system, a port from the /dev/serial/by-id directory (if available) should **absolutely** be selected. This ensures that the adapter's association with the coordinator is retained when the system is restarted.
+- If only one USB device is used, the /dev/TTY* port is preferable. This allows the coordinator to be replaced with an identical device in the event of a defect without having to adjust the configuration.
+7. Assign a Network ID and Pan ID to distinguish it from other ZigBee networks within wireless range. e.g., starting with adapter version 2.1.0, ExtPanID (C) and PanID (D) are automatically pre-assigned with random values ​​until the configuration is saved.<br>
+8. Select a suitable ZigBee channel (E). Please note that ZigBee and 2.4GHz Wi-Fi share the same frequency band. The optimal channel therefore depends, among other things, on the Wi-Fi channels used in the area. The channel names for ZigBee and Wi-Fi are **not** identical, e.g. WIFI channel 11 and Zigbee channel 11 do **not** interfere with each other. It is also advisable to limit your selection to the ZigBee Light Link channels (11, 15, 20, 25). If a channel is selected that does not belong to the ZLL, the interface displays a yellow triangle with an exclamation mark above the entered channel. <br>After the adapter has been successfully started, a scan of the network channels can also be performed via the configuration.<br>
+**Note:** Starting with adapter version 2.1.0, it is possible to change the channel without deleting the configuration and re-learning all devices. However, **this feature is considered experimental** – individual devices may not respond to the channel change; these devices will then need to be re-learned.<br>
+9. Check whether the Zigbee subsystem is starting. To do this, try starting the Zigbee subsystem using *Start/Stop* (F). The progress of the start attempt can be observed in the log. The icon (A) changes from black/red to black/orange while the Herdsman starts. If the attempt was successful, the icon disappears completely; otherwise, it turns red again, and the messages in the log provide clues as to the cause.<br>
+The Herdsman can also be stopped using the same button. The icon is also displayed in black/orange. **Important: Stopping can take up to 2 minutes in some cases – especially when using network coordinators.** Patience is required here. After Herdsman has been terminated, the icon appears in black/red and the message 'Herdsman stopped!' appears.
+Depending on the error, there are various possible reasons why Herdsman may not start. If it is 'just' a timeout, it is certainly advisable to repeat the attempt immediately. If the configuration is inconsistent, the relevant data is displayed in the log. The adapter offers two options for resolving the conflict:
+- Reading the data from the NV backup. In this case, the adapter's configuration is adjusted.
+- Deleting the NV backup. In this case, the adapter's configuration remains as it is. This **forces** a rebuild of the network, which subsequently requires all previously trained devices to be reset and retrained.<br>
+The log output can also be used to search for a solution in the [ioBroker Forum](https://forum.iobroker.net). Please highlight the messages and post them **as text** in the forum.
+
+## Pairing
+Each ZigBee device (switch, bulb, sensor, ...) must be paired with the coordinator (pairing):  <br>
+
+   - ZigBee device:
+    Each ZigBee device can only be connected to exactly 1 ZigBee network. If the ZigBee device still has pairing information saved for a different coordinator (e.g. Philips Hue Bridge), then it must first be decoupled from this ZigBee network. This decoupling from the old ZigBee network preferably is done via the user interface of the old ZigBee network (z.B. Philips Hue App). Alternatively, you can reset the ZigBee device to factory settings.  <br>
+There are typically the following options for putting a ZigBee device into pairing mode <br>
+        1.	Unpair a ZigBee device from a ZigBee network
+        2.	Press the pairing button on the ZigBee device
+        3.	Switch the supply voltage of the ZigBee device off and then on again
+
+
+The ZigBee device is then in pairing mode for typically 60 seconds. Similar to the procedure for resetting to factory settings, activating the pairing mode also depends on the respective device type (if necessary, read the operating instructions of the ZigBee device).
+
+   - Coordinator:
+Press the green button to put the coordinator into pairing mode for 60 seconds. <br>
+![](img/Zigbee_pairing_en.png)
+
+   - Wait until "New device joined" appears in the dialog:  <br>
+![](img/Bild13.png)
+
+   - Check Pairing:
+The device to be paired must be supported by the ioBroker ZigBee adapter. In the best case, a new device is displayed in the ZigBee adapter (e.g. Philips Light Stripe) and corresponding ioBroker objects are created:
+![](../de/img/Bild14.png) ![](../de/img/Bild15.png)
+
+   - In the worst case, the ZigBee device is not currently supported. The next section describes what needs to be done to use this ZigBee device anyhow.
+
+## Pairing of unknown ZigBee devices so far
+
+For previously unknown ZigBee devices, the ZigBee name of the ZigBee device (e.g., HOMA1001) appears during pairing with the suffix "supported": false. <br>
+![](../de/img/Bild16.png) <br>
+
+Rotating this tile provides detailed information about the ZigBee device: <br>
+![](../de/img/Bild17.png) ![](img/Bild18.png) <br>
+
+After registering at [github.com](https://github.com/ioBroker/ioBroker.zigbee/issues), the missing ZigBee device can be reported via an "issue":
+
+![](../de/img/Bild19.png) <br>
+
+Include the detailed information about the tile (see above) in the issue, create a brief documentation (preferably in English), and submit it. A developer will then respond to the issue.
+
+One of two options is possible as a result:
+- Adapting to the Zigbee Herdsman converter. This requires an updated version of the Zigbee adapter, which is first tested and then made available in the Latest Repository.
+- Creating an "external converter" – a file with JS code that can be copied to the Zigbee adapter's data directory and specified in the adapter's configuration.
+In both cases, restarting the adapter is sufficient – ​​the adapter's correspondingly adapted data points will be created. If data points are no longer supported, they will be highlighted in orange, and the adapter will display a button for deleting the orphaned data points.
+
+
+## Symbols within the ZigBee adapter
+
+| Icon                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](../de/img/Bild30.png) | **State Cleanup** <br> Deletes unconnected ioBroker objects. These can be created by the "Exclude" operation. |
+| ![](../de/img/Bild38.png) | **Show stashed errors** <br> Displays accumulated error messages that occur repeatedly. This icon is only visible if the system has suppressed recurring error messages and serves to alert the user to their existence. |
+| ![](../de/img/Bild31.png) | **Check for Firmware Updates** <br> The Zigbee adapter supports OTA firmware upgrades, provided the connected devices support them. This button initiates the check for newer firmware – the actual upgrade must then be initiated individually on each device. |
+| ![](../de/img/Bild32.png) | **Add Group** <br>The Zigbee specification supports the creation of groups of devices that can be controlled together via a single command. While the specification supports almost any command as group commands, the implementation in the Zigbee adapter is limited to light bulbs - this button can be used to create a new group. Members can be added and removed via the devices |
+| ![](../de/img/Bild33.png) | **Reset and pair Touchlink** <br> Touchlink is a function of the Zigbee Light Link (ZLL) that allows devices that are physically close to one another to communicate with each other without being connected to a coordinator. This function is not supported by all devices. To reset a Zigbee device to factory settings via Touchlink, bring the device close (< 10 cm) to the Zigbee coordinator and then press the green symbol. **Warning** If the Touchlink reset process is not carried out correctly, devices located further away may also be reset. If in doubt, it is advisable to briefly unplug any affected devices. |
+| ![](../de/img/Bild34.png) | **Pairing with a QR Code** <br>There are devices that require an additional security code to pair with a network. This is usually provided as a QR code on the device and/or in the instructions. Pairing with these devices is only possible if the corresponding code has been entered beforehand. **Note** Many instructions specify QR codes that should be read with the manufacturer-specific app in order to connect the device to the manufacturer's gateway, even though the devices do not support a security code. In this case, the adapter displays an error when you try to enter the code. If this happens, it makes sense to try to program the device 'normally'. |
+| ![](../de/img/Bild35.png) | **Pairing** <br> Start the pairing process for new ZigBee devices. Pressing this button opens the network for a (configurable) time between 10 and 250 seconds so that new devices can be added to the network.
+## Device tiles
+| Icon                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](../de/img/Bild36.png) | Time since a data exchange last took place with this ZigBee device. |
+| ![](../de/img/battery.png) | Battery level, if the device reports a battery level. |
+| ![](../de/img/Bild37.png)<br>![](../de/img/disconnected.png) | Strength of the ZigBee radio signal on this ZigBee device (<10 poor, <50 medium, >50 good). ZigBee is a wireless mesh network. Most mains-powered ZigBee devices (e.g., Philips Hue lamps) can act as ZigBee routers, i.e., as wireless nodes. ZigBee devices therefore do not necessarily have to establish a direct wireless connection to the coordinator, but can instead use any router in the network for a wireless connection. With each ZigBee router, the wireless range of the network is extended. All ZigBee devices regularly check whether there is a better wireless route and automatically switch over. However, this process can take several minutes.<br>Manually assigning devices to routers is **not** possible.<br> The red, crossed-out symbol is displayed when a device is considered 'not connected'. |
+| ![](../de/img/grp_ok.png) ![](../de/img/grp_nok.png) | Status of a group <br> A green circle indicates that a group has members and is functional; the red X appears when a group is empty or unusable for other reasons. |
+| ![](../de/img/info.png) | Info <br> Opens the information display for the device. The information shown on this page comes directly from the device. It is also available for unknown devices. |
+| ![](../de/img/debug.png) | Debug device <br> Enables / disables the generation of extended debug messages for this device. The color of the icon indicates the current status: (Black/White: no debug messages, Green: debug messages - can be deactivated with this button. Orange: debug messages via filter under zigbee.x.info.debugmessages. |
+| ![](../de/img/on_off.png) | On/Off <br> This button can be used to activate/deactivate a device. No communication takes place with deactivated devices. |
+| ![](../de/img/edit_image.png) | Assign image/name <br> This button allows you to specify a custom image and/or name for the device based on the device or device type. Settings made in this way are retained even if the device is deleted. |
+| ![](../de/img/edit_grp.png) | Edit name/groups <br> This button can be used to change the name of a device and - if applicable - the assignment of the device to one or more groups. |
+| ![](../de/img/delete.png) | Delete device <br> Starts the deletion process for this device. |
+## Additional information
+The Zigbee-Adapter shares the same libraries (zigbee-herdsman, zigbee-herdsman-converters) asn the [Zigbee2mqtt](https://www.zigbee2mqtt.io/) Project ([Github Link](https://github.com/Koenkk/zigbee2mqtt)). It is possible to use zigbee2mqtt.io directly with ioBroker using MQTT or its own [Adapter](https://github.com/arteck/ioBroker.zigbee2mqtt).<br>
+As the libraries are shared, any device supported in zigbee2mqtt.io will in time also be supported in the Zigbee Adapter. Due to the need for compatibility-checks, this can occur with a delay of a few days or weeks. Generating an issue describing the device and its zigbee2mqtt.io integration usually leads to either a temporary solution or an adapter update to include the support in the zigbee Adapter.<br>
+Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
-### 1.6.18 (2022-04-21)
-* (arteck) fix pairing modus
+### 3.0.1 (2025-04-25)
+* (AlexHaxe)  Fix for Ikea SOMRIG configuration raising 'definition.endpoint is not a function' error.
+* (asgothian) Access to 'zigbee2mqtt options as settings in zigbee adapter (ALPHA Stage !)
+* (asgothian) Fix for 'error: zigbee.0 (1118300) zigbee.0 already running' at adapter start (Alpha Stage)
+* (asgothian) Updated hardware configuration panel - exchanged text buttons for buttons with icons.
+* (asgothian) Limited states on device tiles to states which are read only or which can be modified sensibly via the device tile.
+*
 
-### 1.6.17 (2022-04)
- rollback 
+### 3.0.0 (2025-04-08)
+* (asgothian) Breaking change: Start of zigbee subsystem requires checking the 'start the Zigbee network automatically' checkbox. !!!
+* (asgothian) Hardware configuration panel
+* (asgothian) Update for external converter - detect /dist/ subfolder
+* (asgothian) Update device image: use of icons defined in external converter (beta)
+*
 
-### 1.6.16 (2022-02-16)
-* (arteck) admin dep fix
-* (arteck) colored objects for online/offline state
+### 2.0.5 (2025-03-25)
+* (asgothian) ZHC 23.6.0
+* (asgothian) ZH 3.3.x
+* (asgothian) removed extra logging
+* (asgothian) fixed memory issue.
+* (asgothian) Configure on Message - 5 attempts.
+* (arteck) update transmitPower
+* (asgothian) fix crash in ZigbeeController.ByteArrayToString
+* (AlexHaxe) device designation for  devices without mapped model (allows use in groups and bindings)
+*
 
-### 1.6.15 (2022-02-08)
-* (arteck) Battery status % calculation was changed for xiaomi devices
+### 2.0.4 (2025-03-09)
+* (arteck) back to 2.0.2
 
+### 2.0.3 (2025-03-07)
+* (asgothian) fix configured info
+* (asgothian) fix battery voltage (V -> mV)
+* (asgothian) enable debug interface v1.0
+* (asgothian) Push Zigbee-Herdsman to 2.5.7
+* (asgothian) Push Zigbee-Herdsman-Converters to 23.1.1
+* (asgothian) fix configure on message
+* (asgothian) remove extra warning messages
+* (asgothian) fix Adapter-Checker notes
+* (asgothian) improve base64 image detection
+* (asgothian) removed unused adaptert objects (info.groups, excludes) from adapter config
 
-### 1.6.14 (2022-01)
-* (asgothian) OTA limitation
-  - devices with the available state set to false are excluded from OTA updates (and the update check)
-  - devices with link_quality 0 are excluded from OTA updates (and the update check)
-* (asgothian) Device deactivation:
-  - Devices can be marked inactive from the device card.
-  - inactive devices are not pinged
-  - state changes by the user are not sent to inactive devices.
-  - when a pingable device is marked active (from being inactive) it will be pinged again.
-  - inactive devices are excluded from OTA updates.
-* (asgothian) Group rework part 2:
-  - state device.groups will now be deleted with state Cleanup
-  - state info.groups is now obsolete and will be deleted at adapter start (after transferring data to
-    the new storage)
-* (asgothian) Device name persistance.
-  - Changes to device names made within the zigbee adapter are stored in the file dev_names.json. This file
-    is not deleted when the adapter is removed, and will be referenced when a device is added to the zigbee adapter. Deleting and reinstalling the adapter will no longer remove custom device names, nor will deleting and adding the device anew.
-* (asgothian) Readme edit to reflect the current information on zigbee coordinator hardware.
-* (arteck) Zigbee-Herdsman 0.14.4, Zigbee-Herdsman-Converters 14.0.394
+### 2.0.2 (2025-03-02)
+* (asgothian)  expose generation with expose function requiring a device. (Issue #1842)
+* (asgothian) fix failure to configure for devices needing multiple configurations (Issue #2375)
+* (asgothian) fix hold/release and press/release action handling (Issue #2387)
+* (asgothian) fix lib/legacy requirement for external converters (Issue #2376)
+* (asgothian) improved external converter handling
+* (asgothian) fix OTA bug
+* (asgothian) improved message handling for devices which report values outside their defined ranges
+* (asgothian) preparation for ZHC 22.x (model definition loaded on demand
+* (asgothian) fix legacy definition for devices
+* (asgothian) added action state for remotes.
+*
 
-### 1.6.13 (2022-01)
+### 2.0.1 (2025-02-25)
+* BREAKING CHANGES
+*
+* switch to converters 21 changes the exposes for a large numbern of devices (mostly remotes)
+* new method for controlling color based on subchannels for rgb, hs and xy
+* Exposes as default for ALL devices. Use of old definition as option only
+* Requires Node 20.x or newer
+*
+* (asgothian) Fix Pairing
+* (asgothian) change ping
+* (asgothian) delay map generation until refresh is activated, map messages after generation
+* (asgothian) remove bindings tab from zigbee tab
+* (asgothian) reorder tabs in configuration
+* (asgothian) remove binding tab from configuration
+* (asgothian) remove map from configuration
+* (asgothian) add debug to zigbee tab
+* (asgothian) Herdsman 3.2.5, Converters 21.30.0
+* (asgothian) Exposes as default, use of old device definitions as legacy optional
+* (asgothian) User specific images (model based, device based)
+* (asgothian) Improved group editing - remove members from group card
 
-* (kirovilya) update to Zigbee-Herdsman 0.14
+### 1.10.14 (2025-01-01)
+* (arteck) Herdsman 2.1.9, Converters 20.58.0
+* (asgothian) Fix: Aqara T1M (CL-L02D)
+* (arteck) deleteDeviceStates change to deleteObj
 
-### 1.6.12 (2022-01)
-* (asgothian) Groups were newly revised (read [here](https://github.com/ioBroker/ioBroker.zigbee/pull/1327) )
-   -  object device.groups is obsolet..the old one is no longer up to date
+### 1.10.13 (2024-11-10)
+* (arteck) corr icon download bug (axios)
 
-### 1.6.9 (2021-12)
-* (simatec) fix admin Dark-Mode
-* (asgothian) Expose Access Handling
-* (arteck) translations
-* (asgothian) fix groups
-* (agross) use different normalization rules
+### 1.10.12 (2024-11-03)
+* (asgothian) corr Channel Scan
 
-### 1.6.1 (2021-08)
-* (kirovilya) herdsman compatibility
+### 1.10.11 (2024-11-02)
+* BREAKING CHANGE
+*
+*  bugs : ChannelScan is currently not available
+*
+*
+* (lebrinkma) fix linter errors
+* (asgothian) disable map display for deactivated devices
+* (asgothian) new option on map: disable physics interaction
+* (asgothian) new zigbee-herdsman-converters 20.28.0
+* (asgothian) new zigbee-herdsman 2.1.1
+* (asgothian) Allow use of keyless converters (used for TuYa and compatible devices in zigbee-herdsman-converters
+* (arteck) swap from request to axios
+* (arteck) delete groups works again
 
-### 1.6.0 (2021-08-09)
+### 1.10.9 (2024-09-05)
+* (arteck) typo admin settings
+* (arteck) eslint config
 
-### 1.5.6 (2021-05-26)
-* (kirovilya) new UI add
+### 1.10.8 (2024-09-05)
+* (arteck) corr admin settings
+* (arteck) add new eslint version
 
-### 1.5.5 (2021-05-05)
-* Fixes for new zigbee-herdsman-converters
-* UI fixes
+### 1.10.7 (2024-09-05)
+* (arteck) add flow control option
+* (asgothian) add new NewHerdsman
+* (arteck) add new ezsp coordinator Firmware (7.4.1.0)
 
-### 1.5.3 (2021-04-30)
-* (arteck) Fix for js-controller 3.3.*
+### 1.10.5 (2024-06-21)
+* (arteck) icon ota device update
+* (arteck) icon fix
 
-### 1.5.2 (2021-04-29)
-* (asgothian) Groups on dashboard
+### 1.10.4 (2024-04-20)
+* (arteck) core update
+* (arteck) dependency update
 
-### 1.5.1 (2021-04-14)
-* (kirovilya) Dashboard
-* (asgothian) Groups (reworked)
-* [Experimental support EZSP protocol for EFR32 chips](https://github.com/Koenkk/zigbee-herdsman/issues/319) (zigbee-herdsman)
+### 1.10.3 (2024-04-06)
+* (arteck) dependency update
 
-### 1.4.4 (2021-02-14)
-* (kirovilya) External converters https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration
-* (asgothian) Enhancement ping process
-* (asgothian) Devive query state-button
-* (asgothian) State Cleanup button
-* (arteck) Setting to use exposes instead of internal device description
+### 1.10.2 (2024-01-25)
+* (arteck) dependency update
 
-### 1.4.1 (2020-12)
-* (o0shojo0o) added a kelvin posibility into colortemp
-* (asgothian) Hue_calibration for exposed devices (Use requires PR on zigbee-herdsman-converters, PR is being worked on)
-* (asgothian) fix Tuya Thermostat: restore lost property "preset"
-* (asgothian) Change for Device Availability: Stagger initial ping by 200 ms to prevent network congestion due to a large number of ping requests
-* (asgothian) Change for Device Availability: Ping request triggered on reconnect. Before the herdsman Ping function is used, the adapter attempts to read the "state" dp. If this is successful, no ping is sent and the state is set
-* (asgothian) Change for Device Availability: Set link Quality to 0 when a device is not connected, 10 when it is reconnecting.
-* (asgothian) fix for message "illegal properties x,y" - remove color and color_temp from readable states on device available again (Issue #607)
-* (asgothian) RGB Color can now be entered as "named" color. Implemented names are taken from the list of extended web colors on wikipedia (https://en.wikipedia.org/wiki/Web_colors)
-* (asgothian) change in how RGB color is parsed. Incomplete colors will now be parsed successfully. #FFF will result in R 0, G 15, B 255
-* (asgothian) change in OTA: Message that a device does not respond for OTA query downgraded to "info" from "error"
-* (asgothian) new coordinator card
+### 1.10.1 (2024-01-21)
+* (arteck) Baudrate is now configurable. works ONLY with Deconz/Conbee(38400)
+* (arteck) add nvbackup.json delete button
 
-### 1.4.0 (2020-12)
-* Many new devices available
+### 1.10.0 (2024-01-13)
+* (arteck) new zigbee-herdsman-converters 18.x
+* (arteck) configure message is now a warning
 
-Starting from version 1.4.0, new devices in iobroker.zigbee will be added automatically, based on the *exposes* described in zigbee-herdsman-converters.
-The *exposes* section describes the device's capabilities, events and control commands. In iobroker.zigbee these descriptions are converted to iobroker states.
-This means that the new device is described correctly enough in zigbee-herdsman-converters to start working with iobroker.zigbee (do not need to add it to our /lib/devices files.js and /lib/states.js).
-
-The only thing that is not described (yet, it may change in the future) in zigbee-herdsman-converters is the device image. This is why the device icon on network map uses external links to the resource https://www.zigbee2mqtt.io/images/devices/*.
-If you want to use local images, then you need to put the image file in /admin/img and briefly describe the device in the /lib/devices.js file without the *states*:
-```
-{
-    models: [‘01MINIZB’],
-    icon: 'img/ITEAD01ZBMINI. png',
-}
-```
-in this case, the *states* attribute will be formed based on the *exposes* description and the image will be local.
-
-### 1.3.1 (2020-10-30)
-* [Experimental Zigate support](https://github.com/Koenkk/zigbee-herdsman/issues/242) (zigbee-herdsman)
-* New devices by:
-    asgothian, arteck, kirovilya, PaulchenPlump
-
-### 1.3.0 (2020-10-07)
-* More stable (zigbee-herdsman)
-* Backup prior database and nv-data (for z-stack 3) before start adapter
-* Allow to select bind cluster
-* Admin Tab support (experimental)
-* (UncleSamSwiss, DutchmanNL) Translation
-* New devices by:
-    arteck, kirovilya, Shade, krumbholz, fre, Alex18081, ae, asgothian,
-    Strunzdesign, kairauer, VLGorskij, Hesse-Bub, PaulchenPlump, blackrozes
-
-### 1.2.1 (2020-08-16)
-* Fixes after changing device identify method
-* (Garfonso) Allow to unbind from coordinator
-
-### 1.2.0 (2020-08-09)
-* Serialport 9.0.0. (zigbee-herdsman)
-* Drop support Node < 10 (zigbee-herdsman)
-* Device now identify (for zigbee-herdsman-converters) by model not zigbeeModel
-
-Improvements and fixes:
-* (Strunzdesign) Fixed the mapping between bulb levels and adapter levels
-* (kirovilya) Fix ota for unavailable devices
-* (kirovilya) Lazy states - created only when an event arrives
-* (kirovilya) States generator - states are created depending on the device and its endpoints
-* (Shade) Fixed WXKG11LM clicks
-* (allofmex) Improved DeveloperTab logs
-* (allofmex) Add humidity and temperature calibration state to Tuya RH3052
-* (kirovilya) Fixed a typo due to which extPanID was not set
-* (allofmex) Retry reconnect gateway all the time for tcp connected gateway
-* (kirovilya) Allow to collect zigbee-herdsman logs to iobroker logs
-* (kirovilya) Additional states for QBKG12LM
-
-New devices:
-* (kirovilya) BlitzWolf BW-IS3, Paulmann 500.67, Paulmann 798.09
-* (kirovilya) DiY Geiger counter https://modkam.ru/?p=1591
-* (kirovilya) DiY 8 Relays + 8 switches https://modkam.ru/?p=1638
-* (kirovilya) DiY Freepad https://github.com/diyruz/freepad
-* (kirovilya) Neo Zigbee Siren Alarm https://szneo.com/en/products/show.php?id=241
-* (Shade) RB 278 T
-* (arteck) TS0601_thermostat
-* (arteck) TS0121
-* (arteck) GL-D-004Z
-* (Shade) WXKG07LM
-* (drohne200) 1746430P7
-* (sebastian) 4058075816459
-* (itProfi) SGMHM-I1
-* (arteck) owvfni3
-* (arteck) TS0001, TS0111
-* (Daniel Dreier) Paulmann 500.45
-* (arteck) ZK-EU-2U
-* (Newan) Busch-Jaeger 6735/6736/6737
-* (andrico21) ZM-L03E-Z
-* (arteck) 915005106701, 9290018187B
-* (frankjoke) HGZB-20-UK, GL-W-001Z
-* (arteck) 4034031P7, 3435011P7
-* (arteck) TS0041
-* (agross) 5062231P7, 5062431P7
-* (kirovilya) TI0001-switch, TI0001-socket
-* (arteck) RB 178 T
-* (arteck) HGZB-07A, AV2010/22, AV2010/22A, TS0041, TS0043
-* (nbars) E1744
-* (Florian Look) GS361A-H04
-* (arteck) ICZB-IW11SW
-* (kirovilya) HS2WD-E
-* (Sacred-Shadow) FL 130 C
-* (arteck) HS3SA, 9290022169, 4096730U7, AC10787, SP 220, SP 222, SP 224, 07004D, BW-IS2, InstaRemote
-* (kirovilya) MCLH-08, MCLH-05
-* (Sacred-Shadow) 1746130P7
-* (mar565) GUNNARP panel round
-* (Erdnuss3003) 4090531P7
-
-### 1.1.1 (2020-04-17)
-* (kirovilya) Critical. Fixed error starting adapter if cc-chip was only flashed
-* (kirovilya) Nue/3A FNB56-ZSW02LX2.0
-* (Strunzdesign) Added missing raw button events for Philips Hue Smart Button ROM001
-* (Sacred-Shadow) Fix Color for Outdoor Lantern W RGBW OSRAM
-
-### 1.1.0 (2020-04-12)
-new Zigbee-herdsman features:
-* ConBee/RaspBee (experimental support) https://github.com/Koenkk/zigbee-herdsman/issues/72
-* OTA update for some devices (IKEA, OSRAM and other) https://github.com/Koenkk/zigbee2mqtt/issues/2921
-* Touchlink reset and join https://github.com/Koenkk/zigbee2mqtt/issues/2396
-* Green Power devices support https://github.com/Koenkk/zigbee2mqtt/issues/3322
-* (peterfido) iCasa KPD14S und KPD18S hinzu
-* (kirovilya) Moes Zigbee Thermostatic Radiator
-* (kirovilya) LifeControl power plug MCLH-03, bulb MCLH-02, water leak MCLH-07, door sensor MCLH-04
-* (kirovilya) Philips LCT002, LCT011, LTW015, LWG004
-* (kirovilya) Gledopto GL-C-007 with with channel
-* (MultivitaminJuice) Iluminize 511.040
-* (Sacred-Shadow) Bitron 902010/24
-* (kirovilya) Color indication of LQI and Battery icon
-* (kirovilya) Device info modal dialog
-* (arteck) Philips LCT026
-* (obakuhl) Improvements Osram switch mini
-* (arteck) Nue / 3A FB56+ZSW1GKJ2.5, LXN-1S27LX1.0
-* (agross) Philips Signe Floor and Table
-* (arteck) TRADFRI bulb E14 WS 470lm, OSRAM PAR16 TW Z3
-* (kirovilya) Smart remote controller (4 buttons)
-* (allofmex) OTA updates
-* (kirovilya) Aqara opple change mode keys (for binding)
-* (palsch) Heiman HS2WD-E siren
-
-### 1.0.4 (2020-03-14)
-* (kirovilya) Philips Hue Adore Bathroom Mirror Light
-* (kirovilya) Oujiabao Gas and carbon monoxide alarm
-* (kirovilya) Tuya SOS button
-* (Erdnuss3003) Schwaiger ZBT-DIMLight-GLS0800
-* (arteck) Smart Home Pty FB56-ZCW11HG1.4, LXT56-LS27LX1.7
-* (arteck) Xiaomi plug lumi.plug.mmeu01
-* (arteck) Innr RS 228 T, RS 230 C
-* (arteck) Gledopto GL-MC-001, GL-D-003ZS
-* (allmyjoes) Bitron AV2010/21A
-* (arteck) Osram Panel TW 595 UGR22
-* (kirovilya) IKEA SURTE door WS 38x64
-* (andigandi) Philips Hue LCG002, Hue LTG002
-* (arteck) iCasa ICZB-FC
-* (arteck) Osram A60 DIM Z3
-* (arteck) Paulmann 371000001
-* (DaCHRIS) Osram PAR16 DIM Z3
-* (DaCHRIS) Philips LWG001
-* (DaCHRIS) Illuminize 511.202
-* (SchumyHao) TERNCY-SD01 knob dimmer
-* (SchumyHao) Xiaomi lumi.lock.aq1
-* (kirovilya) New eWeLink devices: button, TH sensor, contact sensor, motion sensor
-* (kirovilya) Allow pairing to routers (again)
-* (Erdnuss3003) Philips Hue LCT021
-* (root) Trust ZWLD-100 water leak sensor
-* (smartpran) Bitron AV2010/32
-
-### 1.0.3 (2020-02-09)
-* (Tw1nh34d) Hornbach FLAIR LED
-* (asgothian) Hue smart button, Heiman smoke sensor
-* (kirovilya) Philips LTC014, LTC015
-* (kirovilya) Power states for QBKG11LM
-* (Garfonso) Change role for occupancy state to 'sensor.motion'
-* (kirovilya) Change illuminance state to illuminance_lux (for lux value)
-* (arteck) Philips LCF002
-* (arteck) TRADFRI open/close remote
-* (kirovilya) Tuya sensor TS0201
-
-### 1.0.2 (2020-01-29)
-* (kirovilya) All button events for Aqara Opple switch
-* (ma-john) OSRAM PAR16 RGBW Z3
-* (arteck) Phillips LWA004
-* (MiniMe6666) Heiman SmokeSendor-N-3.0
-* (kirovilya) Force remove device
-* (kirovilya) Fix some networkmap bugs
-* (kirovilya) Extended info button
-* (kirovilya) Long press for WXKG01LM
-
-### 1.0.1 (2020-01-23)
-* fix for old z-stack firmware
+ ***********************************************
 
 ### 1.0.0 (2020-01-22)
 * Powered by new [zigbee-herdsman](https://github.com/Koenkk/zigbee-herdsman) library and new [converters database](https://github.com/Koenkk/zigbee-herdsman-converters)
@@ -307,10 +279,13 @@ new Zigbee-herdsman features:
 * Some design update
 * Binding
 
+
+------------------------------------------------------------------------------
+
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2025 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -4,8 +4,8 @@
 // 2. Cross translate adapters in master/front-end/public/LN/adapterreff. start from english
 
 const axios  = require('axios');
-const fs     = require('fs');
-const path   = require('path');
+const fs     = require('node:fs');
+const path   = require('node:path');
 const utils  = require('./utils');
 const consts = require('./consts');
 
@@ -218,12 +218,11 @@ function getIcon(url, checkFile) {
     if (url) {
         if (checkFile && fs.existsSync(checkFile)) {
             return Promise.resolve(fs.readFileSync(checkFile));
-        } else {
-            return getUrl(url, true);
         }
-    } else {
-        return Promise.resolve();
+        return getUrl(url, true);
     }
+
+    return Promise.resolve();
 }
 
 function getUrl(url, binary) {
@@ -234,7 +233,7 @@ function getUrl(url, binary) {
         return urlsCache[url];
     }
     urlsCache[url] = new Promise(resolve => {
-        console.log('Requested ' + url);
+        console.log(`Requested ${url}`);
         axios(url, {responseType: 'arraybuffer', validateStatus: status => status === 200})
             .then(result => {
                 resolve(binary ? result.data : result.data.toString());
@@ -246,7 +245,7 @@ function getUrl(url, binary) {
 }
 
 // 1. reads from remote repo the remoteRepo/README.md and all files in remoteRepo/docs/LN (if exist)
-// 2a. if local version for this adapter exists, merge local version and remoteRepo/README.md
+// 2a. if a local version for this adapter exists, merge a local version and remoteRepo/README.md
 // 2b. if remote version is in remoteRepo/docs/LN, so merge data with remote remoteRepo/README.md
 // returns the array of files that must be stored locally
 function getReadme(lang, dirName, repo, adapter) {
@@ -265,9 +264,9 @@ function getReadme(lang, dirName, repo, adapter) {
 
             if (repo.docs && repo.docs[lang]) {
                 if (repo.docs[lang] instanceof Array) {
-                    links = repo.docs[lang].map(link => readme.replace('/README.md', '/' + link));
+                    links = repo.docs[lang].map(link => readme.replace('/README.md', `/${link}`));
                 } else {
-                    links.push(readme.replace('/README.md', '/' + repo.docs[lang]));
+                    links.push(readme.replace('/README.md', `/${repo.docs[lang]}`));
                 }
             }
 
@@ -282,8 +281,11 @@ function getReadme(lang, dirName, repo, adapter) {
                             if (!results[0].body) {
                                 return;
                             }
+                            if (!readmeParsed) {
+                                debugger;
+                            }
 
-                            // insert the changelog, logo, licenses, badges info from readme into first file
+                            // insert the changelog, logo, licenses, badges info from readme into the first file
                             const {badges} = fixImages(lang, adapter, readmeParsed.body);
                             const linkParsed = utils.extractHeader(results[0].body) || {};
 
@@ -680,15 +682,15 @@ function copyAdapterToFrontEnd(lang, adapter) {
                             console.error(`Adapter ${adapter} has no readme. Please fix it!!!!`);
                         } else {
                             if (repo[adapter].readme.indexOf('/main/')) {
-                                link = repo[adapter].readme
+                                link = `${repo[adapter].readme
                                     .replace('/blob/main/README.md', '')
                                     .replace('/main/README.md', '')
-                                    .replace('github.com', 'raw.githubusercontent.com') + '/main/' + file.replace(dirName.endsWith('/') ? dirName : dirName + '/', '');
+                                    .replace('github.com', 'raw.githubusercontent.com')}/main/${file.replace(dirName.endsWith('/') ? dirName : `${dirName}/`, '')}`;
                             } else {
-                                link = repo[adapter].readme
+                                link = `${repo[adapter].readme
                                     .replace('/blob/master/README.md', '')
                                     .replace('/master/README.md', '')
-                                    .replace('github.com', 'raw.githubusercontent.com') + '/master/' + file.replace(dirName.endsWith('/') ? dirName : dirName + '/', '');
+                                    .replace('github.com', 'raw.githubusercontent.com')}/master/${file.replace(dirName.endsWith('/') ? dirName : `${dirName}/`, '')}`;
                             }
                         }
                     }
@@ -714,7 +716,7 @@ function copyAdapterToFrontEnd(lang, adapter) {
                                 if (!fs.existsSync(dst)) {
                                     const src = `${consts.FRONT_END_DIR}${result.logo}`;
 
-                                    // copy logo into main dir
+                                    // copy logo into the main directory
                                     if (fs.existsSync(src) && (src.toLowerCase().endsWith('.png') || src.toLowerCase().endsWith('.svg') || src.toLowerCase().endsWith('.jpg'))) {
                                         const logo = fs.readFileSync(src);
                                         utils.writeSafe(dst, logo);

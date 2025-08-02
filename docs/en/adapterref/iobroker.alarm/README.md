@@ -29,24 +29,22 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 3.4.3 (2023-11-05)
-* (misanorot) added silent_alarm (state list) to shortcuts
+### 3.7.0 (2025-05-03)
+* (misanorot) node 20 require
 
-### 3.4.2 (2023-10-31)
-* (misanorot) added enhancement #170
+### 3.6.8 (2025-01-08)
+* (misanorot) protect password
 
-### 3.4.1 (2023-10-29)
-* (misanorot) fixed astro at presence simulation (jsControler 5.x???)
+### 3.6.7 (2024-12-18)
+* (misanorot) ESlint 9  #267
 
-### 3.4.0 (2023-10-03)
-* (misanorot) fixed #168
+### 3.6.5 (2024-12-15)
+* (misanorot) fixed Firefox scrolling issue #266
 
-**[older changelogs](CHANGELOG_OLD.md)**
-
-### 3.3.7 (2023-01-02)
-* (misanorot) fixed issues at presence light trigger
+### 3.6.4 (2024-10-23)
+* (simatec) fixed issue #256 responsive design
 
 ## License
 MIT License
 
-Copyright (c) 2019-2023 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2025 misanorot <audi16v@gmx.de>

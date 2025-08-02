@@ -16,7 +16,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Tuning Web-Sockets
 On some web-sockets clients, there is a performance problem with communication. 
-Sometimes this issue is due to the fallback of socket.io communication on long polling mechanism.
+Sometimes this issue is due to the fallback of socket.io communication on a long polling mechanism.
 You can set the option *Force Web-Sockets* to force using only web-sockets transport.
 
 ## Let's Encrypt Certificates
@@ -31,7 +31,7 @@ and will be called by web server.
 E.g., the user can activate a special proxy adapter and reach other devices (like webcams) in the same web server.
 It is required to let all services be available under one web server.
 
-Web-extension could and should support `unload` function, that could return `promise` if the unload action will take some time. 
+Web extension could and should support `unload` function, that could return `promise` if the unload action will take some time. 
 
 You can read more about web-extensions [here](WEB-EXTENSIONS-HOWTO.md).
 
@@ -44,26 +44,18 @@ If this options is selected, the user stays logged in for one month.
 If not, the user will stay logged in for the configured "login timeout".
 
 ## Access state's values
-You can access the normal and binary state values via the HTTP get request.
+You can access the normal state values via the HTTP get request.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-or
+or access files like:
 
 ```
-http://IP:8082/state/javascript.picture.png =>
+http://IP:8082/vis-2.0/javascript.picture.png =>
 [IMAGE]
-```
-
-The image must be written in the javascript adapter like:
-
-```
-createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
-    setBinaryState('javascript.0.picture.png', fs.readFileSync('/tmp/picture.png'));
-});
 ```
 
 ## "Basic Authentication" option
@@ -71,10 +63,40 @@ Allows Login via Basic Authentication by sending `401` Unauthorized with a `WWW-
 This can be used for applications like *FullyBrowser*. When entering the wrong credentials once, you will be redirected 
 to the Login Page. 
 
+## User list
+You can define the list of users that can access the web server. You can change the access right for logged-in user.
+
+If the user is not in the list, he cannot access the web server.
+
+It is simpler as to set for every object and every state the access rights for the specific user.
+
 ## Advanced options
 ### Default redirect
 If by opening of web port im browser no APP selection should be shown, but some specific application, 
 the path could be provided here (e.g. `/vis/`) so this path will be opened automatically.
+
+## OAuth2 authentication
+The web adapter supports OAuth2 authentication.
+
+To get the tokens, the user must call the URL:
+
+```
+http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<password>&client_id=ioBroker&stayloggedin=<false/true>
+```
+
+`stayloggedin=true` means that the token will be stored in the browser and will be used for the next requests and is optional.
+
+The answer is like:
+```json
+{
+    "access_token": "21f89e3eee32d3af08a71c1cc44ec72e0e3014a9",
+    "expires_in": "2025-02-23T11:39:32.208Z",
+    "refresh_token": "66d35faa5d53ca8242cfe57367210e76b7ffded7",
+    "refresh_token_expires_in": "2025-03-25T10:39:32.208Z",
+    "token_type": "Bearer"
+}
+```         
+More info could be found here: https://github.com/ioBroker/webserver?tab=readme-ov-file#oauth2-support
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -82,6 +104,65 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 7.0.9 (2025-03-28)
+* (@GermanBluefox) Corrected the loading of the material adapter
+
+### 7.0.8 (2025-03-18)
+* (@GermanBluefox) Added settings for custom CORS headers
+* (@GermanBluefox) Added the possibility to show admin instances on the web welcome page
+* (@GermanBluefox) Implemented the new index page
+
+### 7.0.7 (2025-03-15)
+* (@GermanBluefox) Trying to catch an error by the web extension
+
+### 7.0.6 (2025-03-09)
+* (@GermanBluefox) Corrected the login for iobroker.visu app
+* (@GermanBluefox) Corrected load of TypeScript Web extensions
+
+### 7.0.4 (2025-03-04)
+* (@GermanBluefox) Corrected the login page
+* (@GermanBluefox) Removed the frequent debug output
+
+### 7.0.3 (2025-03-03)
+* (@GermanBluefox) Corrected the problem with the user rights
+
+### 7.0.1 (2025-03-02)
+* (@GermanBluefox) [Breaking change] Removed simple-api as it could be connected as web-extension
+* (@GermanBluefox) updated packages
+* (@GermanBluefox) removed gulp in a build process
+* (@GermanBluefox) Migrated GUI to vite
+* (@GermanBluefox) Rewritten in TypeScript
+* (@GermanBluefox) Added OAuth2 support
+* (@GermanBluefox) Added new 404 and the directory list pages
+
+### 6.3.1 (2024-09-23)
+* (@foxriver76) added new admin icon (svg)
+
+### 6.3.0 (2024-06-27)
+* (bluefox) Corrected call of getObjectView with null parameter
+* (bluefox) updated packages
+* (bluefox) GUI was migrated to a non-style framework
+
+### 6.2.6 (2024-05-25)
+* (bluefox) Preparations for a custom loading background
+* (bluefox) updated packages
+
+### 6.2.5 (2024-02-22)
+* (bluefox) Just some packages were updates
+
+### 6.2.4 (2024-02-17)
+* (klein0r) Extensions may block the web instance
+* (klein0r) Fixed directory listing
+
+### 6.2.3 (2023-12-18)
+* (foxriver76) updated the websocket library to increase the maximum file size from 100 MB to 500 MB
+
+### 6.2.2 (2023-12-14)
+* (joltcoke) Corrected the crash if authentication is enabled
+
+### 6.2.1 (2023-12-04)
+* (bluefox) Added the user access list option
+
 ### 6.1.10 (2023-10-16)
 * (bluefox) Corrected the start screen
 
@@ -93,7 +174,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (bluefox) Corrected socket.io connection
 
 ### 6.1.4 (2023-10-08)
-* (foxriver76) upgrade socketio and ws dependencies to fix vis subscribe problem
+* (foxriver76) upgrade socketio and ws dependencies to fix a vis subscribe problem
 
 ### 6.1.3 (2023-09-28)
 * (bluefox) upgraded socketio and ws dependencies to correct the error by unsubscribing on client disconnect
@@ -138,7 +219,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

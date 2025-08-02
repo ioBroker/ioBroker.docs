@@ -10,13 +10,19 @@
   - new widget
 - if your news about the new adapter, please add a GitHub link and a logo of the adapter
   Example:
-``` 
+```markdown
     ## frigate (2023-08-20) - new adapter
     https://github.com/Bettman66/ioBroker.frigate
    
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
+## ecoflow-mqtt (2024-10-14) - new adapter
+https://github.com/foxthefox/ioBroker.ecoflow-mqtt
+
+<img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
+   
+ioBroker adapter for connection to the Ecoflow MQTT Server (emulating the App communication), provides also a Home Assistant Gateway via discovery function.
 
 ## frigate (2023-08-20) - new adapter
 https://github.com/Bettman66/ioBroker.frigate
@@ -123,7 +129,7 @@ https://github.com/HGlab01/ioBroker.tinymqttbroker
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
 
-This is a very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+This is a very tiny MQTT broker which is not managing any objects/states in ioBroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
 
 ## awtrix-light (2.10.2023) - new adapter
 https://github.com/klein0r/ioBroker.awtrix-light
@@ -138,12 +144,12 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
 
 This is a complete visualization system for ioBroker.
-* completely based on webcomponents
+* completely based on web-components
 * wysiwyg editor for UI, but you can also switch to source view, or split view
-* multi window ui in edit view, like in visal studio
-* bindings per drag/drop of ioBroker objects on ui-elments or properties
-* complex bindings with javascript inside, and converters
-* simple script language wich could be created via ui
+* multi window ui in edit view, like in visual studio
+* bindings per drag/drop of ioBroker objects on ui-elements or properties
+* complex bindings with JavaScript inside, and converters
+* simple script language which could be created via ui
 
 ## heizungssteuerung (4.10.2023) - new adapter
 https://github.com/jbeenenga/ioBroker.heizungssteuerung
@@ -226,13 +232,715 @@ Added possibility to add custom links to the welcome page. The pages will be che
 <img src="media/2023_11_07_welcome.png" width="500" />
 
 ## echarts (08.11.2023) - new feature
-Vis-2 widget was added. Now, additionally to presets, you can use the object ID with history data directly.
+Vis-2 widget was added. Now, additionally to the presets, you can use the object ID with history data directly.
 
 <img src="media/2023_11_08_echarts.png" width="500" />
 
 ## renacidc (17.11.2023) - new adapter
-[https://github.com/disaster123/ioBroker.signifylights](https://github.com/raschy/ioBroker.renacidc)
+https://github.com/raschy/ioBroker.renacidc
 
 <img src="https://raw.githubusercontent.com/raschy/ioBroker.renacidc/main/admin/renacidc.png" width="100" height="100" />
 
 Reading the data from renacpower solar inverters
+
+## weather-warnings (24.11.2023) - new adapter
+https://github.com/ticaki/ioBroker.weather-warnings
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
+
+This adapter accesses weather warnings of different weather services and outputs them as text or voice messages. Additionally, it creates States grouped by type, which can be used to react to current warnings.
+
+## tractive-gps (06.12.2023) - new adapter
+https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tractive-gps/main/admin/tractive-gps.png" width="100" height="100" />
+
+This adapter allows you to connect to the Tractive GPS service and retrieve the location of your pets.
+
+## admin (06.12.2023) - new feature
+It is possible to change menu colors in admin
+
+<img src="media/2023_12_06_admin.png" width="500" />
+
+## emporia (07.12.2023) - new adapter
+https://github.com/Chris-656/ioBroker.emporia
+
+<img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
+
+This adapter retrieves data from emporia energy system.
+
+## reolink (27.12.2023) - new adapter
+https://github.com/aendue/ioBroker.reolink
+
+<img src="https://raw.githubusercontent.com/aendue/ioBroker.reolink/main/admin/reolink_logo.png" width="100" height="100" />
+
+Adapter for ioBroker Plattform to get Reolink camera information..
+
+## vis-2 (08.01.2024) - new adapter
+https://github.com/ioBroker/ioBroker.vis-2
+
+vis-2 is now in a stable repository. It is a new generation of vis. It is based on ReactJS and has many new features.
+
+## artnet-recorder (08.01.2024) - new adapter
+https://github.com/Bannsaenger/ioBroker.artnet-recorder
+
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.artnet-recorder/master/admin/artnet-recorder.png" width="100" height="100" />
+
+Record Art-Net data to a file for later playback
+
+## energiefluss (25.01.2024) - new adapter
+https://github.com/SKB-CGN/ioBroker.energiefluss
+
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
+
+It provides an animated energyflow of the current consumption for photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge and up to 10 possible elements (circle or rectangle).
+
+## amtronwallbox (28.01.2024) - new adapter
+https://github.com/rg-engineering/ioBroker.amtronwallbox
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.amtronwallbox/master/admin/amtronwallbox.png" width="100" height="100" />
+
+The adapter serves as an interface to various Amtron wallboxes. The data provided by the box is read out and made available as a state in the adapter. The data is only processed locally, a cloud connection is not necessary.
+
+## zendure-solarflow (30.01.2024) - new adapter
+https://github.com/nograx/ioBroker.zendure-solarflow
+
+<img src="https://raw.githubusercontent.com/nograx/ioBroker.zendure-solarflow/main/admin/zendure-solarflow.png" width="100" height="100" />
+
+This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API. It uses the official API provided by Zendure.
+
+## echarts (03.02.2024) - new feature
+Added "radar" chart type
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />
+
+## soliscloud (3.2.2024) - new adapter
+https://github.com/Trixx34/ioBroker.soliscloud
+
+<img src="https://raw.githubusercontent.com/Trixx34/ioBroker.soliscloud/main/admin/solis.png" width="100" height="100" />
+
+This adapter will read multiple values available from the soliscloud API and store them for use in ioBroker. 
+
+## sun2000-modbus (8.2.2024) - new adapter
+https://github.com/daolis/ioBroker.sun2000-modbus
+
+<img src="https://raw.githubusercontent.com/daolis/ioBroker.sun2000-modbus/main/admin/sun2000-modbus.png" width="100" height="100" />
+
+Read data from Huawei SUN2000 inverter and LUNA2000 Storage using Modbus TCP. 
+
+## scenes (10.2.2024) - new feature
+It is possible to use categories in scenes
+
+<img src="media/2024_02_16_scenes-enums.png" width="500" />
+
+## solaredge (15.2.2024) – new adapter
+https://github.com/iobroker-community-adapters/ioBroker.solaredge
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
+
+Get data from solaredge monitoring portal. Currently, only the /overview data point is used to get the current power and day/month/year/lifetime energy readings.
+
+## elgato-key-light (18.2.2024) – new adapter
+https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.elgato-key-light/main/admin/elgato-key-light.png" width="100" height="100" />
+
+This adapter allows you to control Elgato Key Lights via ioBroker.
+
+## myuplink (18.2.2024) – new adapter
+https://github.com/sebilm/ioBroker.myuplink
+
+<img src="https://raw.githubusercontent.com/sebilm/ioBroker.myuplink/main/admin/myuplink.png" width="100" height="100" />
+
+This ioBroker adapter receives data from myUplink.com.
+
+## sun2000 (19.2.2024) – new adapter
+https://github.com/bolliy/ioBroker.sun2000
+
+<img src="https://raw.githubusercontent.com/bolliy/ioBroker.sun2000/main/admin/sun2000.png" width="100" height="100" />
+
+Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbus TCP.
+
+## opcua (21.2.2024) – new feature
+The adapter has now free license.
+
+## senec (25.2.2024) – new adapter
+https://github.com/nobl/ioBroker.senec
+
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.senec/master/admin/senec.png" width="100" height="100" />
+
+Initially targeted at the Senec Home V2.1 System. In the Senec.Home system, only selected values can be changed by the adapter. Senec currently also no longer provides a reliable way to influence peak shaving via the web interface. Whether other systems (e.g. V3) also work with it depends on whether they are also based on lala.cgi and provide the same JSON information.
+
+## energiefluss-erweitert (11.3.2024) – new adapter
+https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert
+
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png" width="100" height="100" />
+
+Adapter provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.
+
+## nmea (17.3.2024) – new adapter
+https://github.com/ioBroker/ioBroker.nmea
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
+
+This adapter allows connecting ioBroker to NMEA-2000 yacht bus. You can read SOG, COG, GPS position, depth, wind, temperature, and many other data from the NMEA-2000 bus.
+And even control the Raymarine autopilot.
+
+![nmea](media/2024_03_17_nmea.png)
+
+## vis-homekittiles (25.3.2024) – new adapter
+https://github.com/Standarduser/ioBroker.vis-homekittiles
+
+<img src="https://raw.githubusercontent.com/Standarduser/ioBroker.vis-homekittiles/main/admin/vis-homekittiles.png" width="100" height="100" />
+
+Homekit Tiles is a widget set based on the design of Apple HomeKit. The special feature of the widgets is that they do not contain any fixed style elements, but everything is formatted using CSS. As a result, there are no separate settings in the VIS editor for the position and/or size of the icons, labels, etc. The design is adjusted by changing the CSS code. For this purpose, the CSS code from the file /widgets/homekittiles/css/style.css can be used as a template. The code is inserted into the CSS tab in the VIS editor and can be customized as desired. It is also possible to add your own CSS classes via the VIS editor in the "General" section of the widgets.
+
+The widgets are designed for VIS 1.x.
+
+## scheduler (05.4.2024) – new feature
+Scheduler supports now holidays and custom types.
+
+## admin (6.4.2024) – new feature
+Admin now supports the includes in JSONConfig files:
+
+```json5
+{
+    "tabs": {
+        "tab1": {
+            "type": "panel", // data will be combined with the content of "tab1.json". If the same attribute is defined in both files, the value from the included file will be used.
+            "#include": "tab1.json"
+        }
+    }
+}
+```
+
+https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/SCHEMA.md#includes
+
+## smoothed (8.4.2024) – new adapter
+https://github.com/BenAhrdt/ioBroker.smoothed
+
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.smoothed/main/admin/smoothed.png" width="100" height="100" />
+
+This Adapter make it easy to select some icons to smooth it according to a selected allgorithem and the smoothtime (filtertime). You can select one id more times to smooth it in defferent allgorithems and or times. The destination is an id in the directory of the flger, wicht delivers you the smoothed values. You can limit the min- or max- values. Limit the decimal places. Or ignore values with a high standard deviation.
+
+## heizoel24-mex (14.4.2024) – new adapter
+https://github.com/ltspicer/ioBroker.heizoel24-mex
+
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.heizoel24-mex/main/admin/heizoel24-mex.png" width="100" height="100" />
+
+The MEX is a heating oil level measuring device. This adapter reads the MEX data from the Heizoel24 server.
+
+## hydrawise (17.4.2024) – new adapter
+https://github.com/SentiQ/ioBroker.hydrawise
+
+<img src="https://raw.githubusercontent.com/SentiQ/ioBroker.hydrawise/main/admin/hydrawise.jpg" width="100" height="100" />
+
+Integrate your Hydrawise controller into ioBroker. You can see all controller information, schedules and sensors. It is also possible to suspend planned watering by x seconds.
+
+## tedee (17.4.2024) – new adapter
+https://github.com/TA2k/ioBroker.tedee
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.tedee/main/admin/tedee.png" width="100" height="100" />
+
+Adapter for Tedee Locks. This Adapter uses the local bridge API to control a tedee lock.
+All Lock devices by Tedee are supported.
+
+## pid (22.4.2024) – new adapter
+https://github.com/mcm4iob/ioBroker.pid
+
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.pid/master/admin/pid.png" width="100" height="100" />
+
+This adapter provides the functionality of a PID controller.
+
+
+## unifi-protect (28.4.2024) – stable release
+https://github.com/iobroker-community-adapters/ioBroker.unifi-protect
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.unifi-protect/master/admin/unifi-protect.png" width="100" height="100" />
+
+Connects to Unifi Protect Controller and pulls all Data from added Cameras.
+
+## air-q (1.5.2024) – new adapter
+https://github.com/CorantGmbH/ioBroker.air-q
+
+<img src="https://raw.githubusercontent.com/CorantGmbH/ioBroker.air-q/main/admin/air-q.png" width="100" height="100" />
+
+This ioBroker Adapter is used in connection with our air-Q device. It polls the values from our sensors and displays them for you in the ioBroker environment.
+
+## boschindego (4.5.2024) – new adapter
+https://github.com/iobroker-community-adapters/ioBroker.boschindego
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.boschindego/main/admin/boschindego.png" width="100" height="100" />
+
+Adapter for Bosch Indego Mower to show the state of the mower and control the mower.
+
+## Windows installer (20.5.2024) – new feature
+There is a new version for Windows installer available: 3.1.0
+New features:
+- Update/Upgrade of JS-Controller implemented
+- Some bugfixes
+
+## radar-trap (29.5.2024) – new adapter at stable
+https://github.com/Steiger04/ioBroker.radar-trap
+
+<img src="https://raw.githubusercontent.com/Steiger04/ioBroker.radar-trap/main/admin/radar-trap.png" width="100" height="100" />
+
+Adapter to detect speed traps and obstacles.
+
+##  waterkotte-easycon (12.4.2024) – new adapter at latest
+https://github.com/theknut/ioBroker.waterkotte-easycon
+
+<img src="https://raw.githubusercontent.com/theknut/ioBroker.waterkotte-easycon/main/admin/waterkotte-easycon.png" width="100" height="100" />
+
+Adapter for Gree and C&H conditioners.
+
+## vis-2-widgets-inventwo (25.4.2024) – new adapter at latest
+https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-inventwo/main/admin/vis-2-widgets-inventwo.png" width="100" height="100" />
+
+Adds switches, buttons, sliders, and more as widgets for ioBroker VIS 2.0.
+
+## webui (3.10.2023) - new adapter
+https://github.com/iobroker-community-adapters/ioBroker.webui
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
+
+This is a complete visualization system for ioBroker.
+* completely based on web-components
+* wysiwyg editor for UI, but you can also switch to source view, or split view
+* multi window ui in edit view, like in visual studio
+* bindings per drag/drop of ioBroker objects on ui-elements or properties
+* complex bindings with JavaScript inside, and converters
+* simple script language which could be created via ui
+## hiob (22.5.2024) – new adapter at latest
+https://github.com/moba15/ioBroker.hiob
+
+<img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
+
+This app allows you to control your ioBroker Smarthome system via the hiob app. It is a simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
+
+## notificationforandroidtv (22.5.2024) – new adapter at latest
+https://github.com/DNAngelX/ioBroker.notificationforandroidtv
+
+<img src="https://raw.githubusercontent.com/DNAngelX/ioBroker.notificationforandroidtv/main/admin/notificationforandroidtv.png" width="100" height="100" />
+
+Notification integration for IoBroker includes support for Notifications for Android TV and Notifications for Fire TV. With this integration, you can send notifications to your Android TV device. It enables an overlay displaying the message content for a customizable duration before disappearing. Additionally, it supports sending images, such as those from security cameras, and custom icons. Icons function similarly to images, appearing smaller and to the left of the notification, while images display larger and above the notification.
+
+These notifications operate within the global scope of your Android TV device, appearing regardless of the active application.
+
+## IOB Mobile App for Android und iOS (04.6.2024) - new app
+![logo](https://raw.githubusercontent.com/iobroker/iobroker.docs/master/docs/en/history/media/2024_06_30_iob_mobile.png)
+
+Wiki: https://github.com/peter9teufel/iobmobile-issues/wiki/IOB-Mobile-Quickstart
+
+## gree-hvac (10.6.2024) – new adapter at stable
+https://github.com/XHunter74/ioBroker.gree-hvac
+
+<img src="https://raw.githubusercontent.com/XHunter74/ioBroker.gree-hvac/master/admin/air-conditioner.png" width="100" height="100" />
+
+Adapter for Gree and C&H conditioners.
+
+## Admin (10.6.2024) – new feature
+- Log tab was improved. (Mostly layout and GUI)
+- Added support for the adapter's auto-update option. New version of js-controller required.
+- Only installed adapters in the adapter tab or first 100 adapters are shown. To see more adapters, the user must enter some filter.
+
+## opcua (13.6.2024) – new adapter at stable
+https://github.com/ioBroker/ioBroker.opcua
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.opcua/master/admin/opcua.png" width="100" height="100" />
+
+ioBroker OPC-UA Adapter.
+
+## e3oncan (25.7.2024) – new adapter at stable
+https://github.com/MyHomeMyData/ioBroker.e3oncan
+
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/e3oncan_small.png" width="100" height="100" />
+
+Viessmann E3 series devices (One Base) are doing a lot of data exchanges on CAN bus. This adapter can listen to this communication and extract much useful information. Energy meters E380CA and E3100CB also are supported. This mode of operation is called `Collect`.  
+
+Note: This adapter is supported on linux systems only.
+
+## egigeozone2 (6.8.2024) – new adapter at stable
+https://github.com/obakuhl/ioBroker.egigeozone2
+
+<img src="https://raw.githubusercontent.com/obakuhl/ioBroker.egigeozone2/master/admin/egigeozone.png" width="100" height="100" />
+
+This is an ioBroker adapter for Android geofencing app "EgiGeoZone". It is able to receive geofence events as HTTP requests when entering or leaving a defined area with your mobile device.
+
+## hiob (17.8.2024) – new adapter at stable
+https://github.com/moba15/ioBroker.hiob
+
+<img src="https://raw.githubusercontent.com/moba15/ioBroker.hiob/main/admin/hiob.png" width="100" height="100" />
+
+This app allows you to control your ioBroker Smarthome system via the hiob app. It is a simpler and faster alternative to comparable projects with fewer configuration possibilities. It is mainly intended for Android devices, but also works on Windows and Linux desktops.
+
+## extron (17.8.2024) – new adapter at stable
+https://github.com/Bannsaenger/ioBroker.extron
+
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.extron/master/admin/extron.png" width="100" height="100" />
+
+Control devices from Extron. This Adapter is designed to control some of the Extron Audio Video Products via the Simple Instruction Set Protocol. The functional scope of the devices is tremendous. Not all of the features make sense to be supported with the adapter and the interaction with ioBroker.
+
+## ping (23.08.2024) - new feature
+Ping adapter can detect the range of IP addresses if the range has less than 4096 addresses.
+
+Users can add the IP-Addresses directly from notification.
+
+![Dynamic notifications](media/2024_09_24_dynamic_notifications.png)
+
+## admin (23.08.2024) - new feature
+States could be controlled directly from JSON Config to start range detection or something similar.
+
+## admin (01.09.2024) - new feature
+![Context menu](media/2024_09_10_admin_context_menu.png)
+
+Some users may already be familiar with the context menu in the ioBroker Admin Object Browser. However, we want to remind everyone that a simple left-click provides quick access to the context menu, allowing you to perform various operations on objects, such as creating an alias for them.
+
+## gotify-ws (4.9.2024) – new adapter at stable
+https://github.com/simatec/ioBroker.gotify-ws
+
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.gotify-ws/master/admin/gotify-ws.png" width="100" height="100" />
+
+Gotify-WS is an adapter that establishes a websocket connection to a Gotify server and can therefore receive and process all messages from the server.
+
+## wifilight (05.09.2024) - new feature
+The wifilight adapter was completely rewritten and now supports compact mode and JSON config.
+
+## rainbird (17.9.2024) – new adapter at stable
+https://github.com/iobroker-community-adapters/ioBroker.rainbird
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.rainbird/master/admin/rainbird.png" width="100" height="100" />
+
+An ioBroker adapter for Rain Bird with LNK WiFi adapter. This project has no affiliation with Rain Bird.
+
+## vis-2-widgets-rssfeed (18.9.2024) – new adapter
+https://github.com/oweitman/ioBroker.vis-2-widgets-rssfeed
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-rssfeed/main/admin/vis-2-widgets-rssfeed.png" width="100" height="100" />
+
+This adapter contains only the vis-2 widgets for the adapter rssfeed. For a detailed description of the widgets and functionality see Adapter rssfeed.
+
+## kisshome-research (19.9.2024) – new adapter
+https://github.com/ioBroker/ioBroker.kisshome-research
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-research/main/admin/kisshome-research.png" width="100" height="100" />
+
+This special adapter was developed for the KISSHome research project. It is not intended for general use.
+
+## admin (21.09.2024) - new feature
+![Check password](media/2024_10_01_admin_back_alias.gif)
+
+Users can jump from alias target to alias itself.
+
+## admin (28.09.2024) - new feature
+![Check password](media/2024_09_28_admin_password.png)
+
+Admin checks now on Linux systems if the system user with a well-known password exist and asks to change it if such a user was found.
+
+Admin supports dynamic notification's GUI.
+
+## node-red (30.09.2024) - new feature
+![Select ID dialog](media/2024_09_30_node_red.png)
+
+Node-red got at least the same select ID dialog as other adapters.
+It requires running admin instance on the same host.
+
+Node-red package version was increased from 3 to 4.0.3
+
+## ecoflow-mqtt (14.10.2024) – new adapter
+https://github.com/foxthefox/ioBroker.ecoflow-mqtt
+
+<img src="https://raw.githubusercontent.com/foxthefox/ioBroker.ecoflow-mqtt/main/admin/ecoflow-mqtt.png" width="100" height="100" />
+
+This adapter connects to products of Ecoflow ([https://www.ecoflow.com])
+
+## remeha-home (28.10.2024) – new adapter
+https://github.com/simatec/ioBroker.remeha-home
+
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.remeha-home/master/admin/remeha-home.png" width="100" height="100" />
+
+The ioBroker.remeha-home adapter enables the integration and control of Remeha heating systems via the Remeha Home platform. The adapter continuously connects to the Remeha Home API and retrieves current data to make it available in the ioBroker system. This allows the heating system to be optimally monitored and controlled.
+
+
+## vis-2-widgets-ovarious (12.11.2024) – new adapter
+https://github.com/oweitman/ioBroker.vis-2-widgets-ovarious
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-2-widgets-ovarious/main/admin/vis-2-widgets-ovarious.png" width="100" height="100" />
+
+This adapter contains various vis-2 widgets. Ok, actually, there is only one vis-2 widget, but some more are on the roadmap.
+
+## gotify (16.11.2024) – new adapter
+https://github.com/ThomasPohl/ioBroker.gotify
+
+<img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.gotify/main/admin/gotify.png" width="100" height="100" />
+
+Send push notifications from ioBroker to Gotify.
+
+## google-spreadsheet (3.12.2024) – new adapter
+https://github.com/ThomasPohl/ioBroker.google-spreadsheet
+
+<img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.google-spreadsheet/main/admin/Google_Sheets_logo.svg" width="100" height="100" />
+
+This adapter can be used to automatically interact with google spreadsheets.
+
+## minuaru (3.12.2024) – new adapter
+https://github.com/minukodu/ioBroker.minuaru
+
+<img src="https://raw.githubusercontent.com/minukodu/ioBroker.minuaru/main/admin/minuaru.png" width="100" height="100" />
+
+alarmsystem for ioBroker and minuvis
+
+## mytime (29.12.2024) – new adapter
+https://github.com/oweitman/ioBroker.mytime
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.mytime/main/admin/mytime.png" width="100" height="100" />
+
+This adapter handles Time (e.g.: countdown, etc.). The countdown functionality provides data points that you can use to manage a countdown (e.g., in a script). The adapter also includes several widgets to visualize these countdowns. Time series can be used to create complex time series at which the data points are triggered.s
+
+## vis-2-widgets-weather-and-heating (29.12.2024) – new adapter
+https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
+
+This vis-2-widget shows weather forecast data from `DasWetter.com` or `weatherunderground`. You need DasWetter-Adapter or `weatherunderground`-Adapter running on your system.
+
+## mywallbox (29.12.2024) – new adapter
+https://github.com/SKB-CGN/ioBroker.mywallbox
+
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.mywallbox/main/admin/wallbox.png" width="100" height="100" />
+
+Connect your My-Wallbox (e.g. Pulsar Plus) with ioBroker via the Cloud-Service of My Wallbox
+
+## bluesound (11.1.2025) – new adapter
+https://github.com/Uwe1958/ioBroker.bluesound
+
+<img src="https://raw.githubusercontent.com/Uwe1958/ioBroker.bluesound/main/admin/bluesound.png" width="100" height="100" />
+
+Adapter to control Bluesound devices
+
+## ta-blnet (11.1.2025) – new adapter
+https://github.com/weberk/ioBroker.ta-blnet
+
+<img src="https://raw.githubusercontent.com/weberk/ioBroker.ta-blnet/main/admin/ta-blnet.png" width="100" height="100" />
+
+An ioBroker adapter for reading data from one or up to eight climate controllers by Technische Alternative using BL-NET. Or an infinite number of climate controllers connected to CMI.
+
+## teslafi (11.1.2025) – new adapter
+https://github.com/hombach/ioBroker.teslafi
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.teslafi/master/admin/teslafi.png" width="100" height="100" />
+
+The TeslaFi adapter enables effortless integration of vehicle data from your TeslaFi account into the ioBroker system. Leverage this data to enhance your Tesla experience and optimize home automation workflows.
+
+## flexcharts (2025-01-15) - new adapter
+https://github.com/MyHomeMyData/ioBroker.flexcharts
+   
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/flexcharts-icon-small.png" width="100" height="100" />
+
+This adapter brings almost the complete feature set of [Apache ECharts](https://echarts.apache.org/en/index.html) to ioBroker. This adapter is not intended to be used to quickly create a simple chart. But if you have a specific idea in mind for a more complex chart, flexcharts offers the possibility to implement it.
+
+## paperless-ngx (27.1.2025) – new adapter
+https://github.com/BenAhrdt/ioBroker.paperless-ngx
+
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.paperless-ngx/main/admin/paperless-ngx.png" width="100" height="100" />
+
+paperless-ngx API to get information of running instances from paperless-ngx. For instance, you can read the tags, documents, document-types, user or correspondents of the paperless instance.
+
+## asterisk (12.2.2025) – new adapter
+https://github.com/schmupu/ioBroker.asterisk
+
+<img src="https://raw.githubusercontent.com/schmupu/ioBroker.asterisk/master/admin/asterisk.png" width="100" height="100" />
+
+The Asterisk adapter converts text messages to audio files and calls then over Asterisk by VoIP any telephone number you want and plays the audio message.
+
+## tagesschau (15.2.2025) – new adapter
+https://github.com/ticaki/ioBroker.tagesschau
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.tagesschau/main/admin/tagesschau.png" width="100" height="100" />
+
+Retrieves news and video links from Tagesschau.
+
+## maxxi-charge (15.2.2025) – new adapter
+https://github.com/blabond/ioBroker.maxxi-charge
+
+<img src="https://raw.githubusercontent.com/blabond/ioBroker.maxxi-charge/main/admin/maxxi-charge.png" width="100" height="100" />
+
+ioBroker.MaxxiCharge is an adapter for the ioBroker system that enables the integration and control of MaxxiCharge CCU devices. The adapter provides a range of features, including reading device data, adjusting configurations, and sending control commands.
+
+## admin (2.3.2025) - new feature
+Admin version 7.5.0 has new important and useful features:
+- OAuth2 authentication.
+- Rename/Copy of the objects
+
+The authentication process was completely rewritten, and now the logged-in session will be kept properly.
+
+User can rename, move or create a copy of the objects via context menu.
+
+## airquality (3.3.2025) – new adapter
+https://github.com/raschy/ioBroker.airquality
+
+<img src="https://raw.githubusercontent.com/raschy/ioBroker.airquality/main/admin/airquality.png" width="100" height="100" />
+
+Fetch data from German UBA.
+
+## oxxify-fan-control (17.3.2025) – new adapter
+https://github.com/N-b-dy/ioBroker.oxxify-fan-control
+
+<img src="https://raw.githubusercontent.com/N-b-dy/ioBroker.oxxify-fan-control/main/admin/oxxify-fan-control.png" width="100" height="100" />
+
+Integrate your Oxxify fans into your Smart Home. All the provided ioBroker data points are based on the communication protocol described here. As other manufacturers are using the same protocol (e.g. Blauberg vents), it is pretty likely, that they will work as well.
+
+## seplos-v3-sniffer (12.3.2025) – new adapter
+https://github.com/DpunktS/ioBroker.seplos-v3-sniffer
+
+<img src="https://raw.githubusercontent.com/DpunktS/ioBroker.seplos-v3-sniffer/main/admin/seplos-v3-sniffer.jpg" width="100" height="100" />
+
+This adapter was developed to read the Seplos V3 BMS in a multipack configuration. In the V3 generation, the first BMS acts as the Modbus master, while all other BMS act as slaves. In this configuration, it is no longer possible to access the BMS via Modbus from a third device, since two master devices cannot exist in an RS-485 Modbus system. The adapter passively detects the communication between the devices, which means that the communication of the individual BMS is not disrupted. It can communicate either via a local interface (e.g. /dec/ttyS0) or via Ser2Net (tcp://ip:2001).
+
+## lcn (12.3.2025) – new feature
+https://github.com/ioBroker/ioBroker.lcn
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.lcn/master/admin/lcn.png" width="100" height="100" />
+
+LCN adapter is free now. Everyone can use it without any restrictions.
+
+## bayernluft (29.3.2025) – new adapter
+https://github.com/iobroker-community-adapters/ioBroker.bayernluft
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.bayernluft/main/admin/bayernluft.png" width="100" height="100" />
+
+Connects ventilation devices manufactured by BayernLuft to IoBroker systems.
+
+## controme (3.4.2025) – new adapter
+https://github.com/MadErstam/ioBroker.controme
+
+<img src="https://raw.githubusercontent.com/MadErstam/ioBroker.controme/main/admin/controme.png" width="100" height="100" />
+
+Connect to local Controme mini server using the official API.
+
+Controme is a heating control system with which you can control your floor heating, central heating system, radiators or other forms of climate control. At the core of a Controme Smart-Heat-System is the Controme mini server, a local Raspberry Pi based system. For more information on the Controme Smart-Heat-System, see the Controme website.
+
+## batrium-bms (4.4.2025) – new adapter
+https://github.com/bembelstemmer/ioBroker.batrium-bms
+
+<img src="https://raw.githubusercontent.com/bembelstemmer/ioBroker.batrium-bms/main/admin/batrium-bms.png" width="100" height="100" />
+
+An ioBroker Adapter to track Metrics of your Batrium BMS published via UDP.
+
+This Adapter is based on the official Batrium WatchMonUdpListener Implementation on: https://github.com/Batrium/WatchMonUdpListener
+
+## fyta (9.4.2025) – new adapter
+https://github.com/muffin142/ioBroker.fyta
+
+<img src="https://raw.githubusercontent.com/muffin142/ioBroker.fyta/main/admin/fyta.png" width="100" height="100" />
+
+Unofficial Adapter to connect ioBroker to FYTA plant sensors. Sensors can be purchased in the FYTA shop.
+
+## shrdzm (16.4.2025) – new adapter
+https://github.com/mcm4iob/ioBroker.shrdzm
+
+<img src="https://raw.githubusercontent.com/mcm4iob/ioBroker.shrdzm/main/admin/shrdzm.png" width="100" height="100" />
+
+This adapter integrates the SHRDZM smartmeter interface available from SHRDZM IT Services e.U. into ioBroker. A description of the interface is available [here](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+
+## js-controller (16.4.2025) - new feature
+The js-controller 7.0.7 is now available in the latest version. I
+It contains bugfixes and improvements. The most important changes are:
+- Extended `encryptedNative` and `protectedNative`. Developers can now address `encryptedNative` and `protectedNative` in structures and arrays.
+- Typing was improved.
+
+## ankersolix2 (18.4.2025) – new adapter
+https://github.com/ronny130286/ioBroker.ankersolix2
+
+<img src="https://raw.githubusercontent.com/ronny130286/ioBroker.ankersolix2/main/admin/ankersolix2.png" width="100" height="100" />
+
+Integrate Anker Solix 2. This project is derived from https://github.com/tomquist/solix2mqtt and brings information from the anker api directly into ioBroker.
+
+## devices (20.4.2025) - new feature
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
+
+The `devices` adapter was updated to version 1.2.0. It was completely rewritten with TypeScript and vite technologies. The new version is faster and more stable.
+
+## mhi-wfrac (30.4.2025) – new adapter
+https://github.com/hacki11/ioBroker.mhi-wfrac
+
+<img src="https://raw.githubusercontent.com/hacki11/ioBroker.mhi-wfrac/main/admin/mhi-wfrac.png" width="100" height="100" />
+
+Mitsubishi Heavy Industries Air Conditioners with WLAN Adapter WF-RAC.
+This Adapter integrates WF-RAC (Wifi) equipped Mitsubishi Heavy Industries Air Conditioners in ioBroker.
+
+## refoss (7.5.2025) – new adapter
+https://github.com/Refoss/ioBroker.refoss
+
+<img src="https://raw.githubusercontent.com/Refoss/ioBroker.refoss/main/admin/refoss.png" width="100" height="100" />
+
+Integrate Refoss devices into ioBroker.  
+You can find more and detailed information about the device here: [Refoss](https://www.amazon.de/dp/B0D3PY4RVZ)
+
+## plenticore-g3 (9.5.2025) – new adapter
+https://github.com/FernetMenta/ioBroker.plenticore-g3
+
+<img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.plenticore-g3/main/admin/plenticore-g3.png" width="100" height="100" />
+
+Adapter to communicate with a KOSTAL Plenticore plus via REST API. This API is much more powerful than modbus. It gives access to approximately 200 read-only data points referred to as `processdata` and about 250 writable settings. This API is documented on this URL:
+
+http://<plenticore host>/api/v1
+
+## dnscope (17.5.2025) – new adapter
+https://github.com/simatec/ioBroker.dnscope
+
+<img src="https://raw.githubusercontent.com/simatec/ioBroker.dnscope/main/admin/dnscope.png" width="100" height="100" />
+
+DNScope allows you to update your dynamic DNS account directly in ioBroker. It is possible to update your DNS account with the current IP address of your environment without any detours or additional hardware.
+
+## skiinfo (16.5.2025) – new adapter
+https://github.com/oweitman/ioBroker.skiinfo
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.skiinfo/main/admin/skiinfo.png" width="100" height="100" />
+
+With this adapter you can access the current snow depths for mountain, valley and fresh snow, as well as open lifts for various European locations.
+
+## n8n (31.6.2025) – new adapter (development in progress - not yet available at repository)
+https://github.com/ioBroker/ioBroker.n8n
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.n8n/main/admin/n8n.svg" width="100" height="100" />
+
+With this adapter, you can run n8n workflows in ioBroker and use the data from ioBroker in n8n workflows.
+
+## Backend socket communication (22.6.2025) - new feature
+Additionally, to the WebSocket communication in browser the developers can use the backend socket communication to communicate with the ioBroker system.
+You can communicate with existing ws or admin adapters or create your own socket server.
+
+This is useful for the 3rd party applications, which need to communicate with ioBroker system.
+
+## vis-2-widgets-collection (13.7.2025) – new adapter at stable repository
+https://github.com/Steiger04/ioBroker.vis-2-widgets-collection
+
+<img src="https://raw.githubusercontent.com/Steiger04/ioBroker.vis-2-widgets-collection/main/admin/vis-2-widgets-collection.png" width="100" height="100" />
+
+Collection of widgets for ioBroker.vis 2.0
+
+## onlycat (21.7.2025) – new adapter at stable repository
+https://github.com/Sickboy78/ioBroker.onlycat
+
+<img src="https://raw.githubusercontent.com/Sickboy78/ioBroker.onlycat/main/admin/onlycat.png" width="100" height="100" />
+
+Adapter for OnlyCat® cat flaps with prey detection.
+
+## drops-weather (21.7.2025) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.drops-weather
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.drops-weather/main/admin/drops-weather.png" width="100" height="100" />
+
+This adapter provides rain data from https://www.drops.live
+
+## srm (27.7.2025) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.srm
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.srm/main/admin/srm.png" width="100" height="100" />
+
+This is an iobroker adapter to connect to Synology routers. The adapter uses the Synology API to get the data. The adapter is tested with the SRM version 1.3.1. and router model RT6600 but should work with other models as well.
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->

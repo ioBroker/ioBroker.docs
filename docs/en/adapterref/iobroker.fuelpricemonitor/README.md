@@ -19,8 +19,8 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 16 or higher
-* ioBroker host (js-controller) 4.0 or higher
+* Node.js 20 or higher
+* ioBroker host (js-controller) 5.0 or higher
 
 ## Changelog
 <!--
@@ -28,7 +28,21 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
-* (HGlab01) !Breaking change! NodeJS 16 or higher required
+* (HGlab01) some small improvements
+
+### 0.4.2 (2025-03-12)
+* (HGlab01) Bump axios to 1.8.3
+
+### 0.4.1 (2024-07-04)
+* (HGlab01) fix "Method "deleteDevice" is deprecated" (#692)
+* (HGlab01) Bump axios to 1.7.2
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.16
+
+### 0.4.0 (2023-12-05)
+* (HGlab01) Breaking changes
+    - Node.js 18.0 or higher
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Bump axios to 1.6.2
 
 ### 0.3.6 (2023-08-10)
 * (HGlab01) switch to Admin5 UI for configuration
@@ -37,22 +51,10 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 * (HGlab01) Spread API calls
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
 
-### 0.3.4 (2023-02-05)
-* (HGlab01) Cheapest station from experimental to stable
-* (HGlab01) Bump axios to 1.3.2
-
-### 0.3.3 (2022-12-22)
-* (HGlab01) Cheapest station now per fuel type (#445)
-
-### 0.3.2 (2022-12-16)
-* (HGlab01) Add feature to find cheapest stations over all locations (#365)
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10
-* (HGlab01) Bump axios to 1.2.1
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,4 +1,5 @@
 ![Logo](admin/imow.png)
+
 # ioBroker.imow
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.imow.svg)](https://www.npmjs.com/package/iobroker.imow)
@@ -23,17 +24,22 @@ Die iMow Mail und Passwort eingeben.
 
 imow.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
-
 ## Diskussion und Fragen
 
 <https://forum.iobroker.net/topic/55747/test-adapter-stihl-viking-imow>
 
 ## Changelog
 
+### 0.1.1
+
+- Fix login issues
+
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

@@ -36,6 +36,43 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### __WORK IN PROGRESS__
+* (simatec) smal Code fix
+* (simatec) Dependencies updated
+
+### 1.3.8 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
+### 1.3.7 (2025-01-09)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 1.3.6 (2024-11-25)
+* (simatec) Dependencies updated
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 1.3.5 (2024-09-21)
+* (simatec) small fix
+
+### 1.3.4 (2024-09-20)
+* (simatec) Dependencies updated
+* (simatec) dev-server added
+* (simatec) small fix
+* (simatec) Responsive Design added
+
+### 1.3.3 (2024-02-08)
+* (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) gulp deleted
+* (simatec) adapter-dev added
+* (simatec) Translation updated
+
+### 1.3.2 (2023-11-20)
+* (simatec) Dependencies updated
+
 ### 1.3.1 (2023-09-04)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -141,7 +178,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2020 - 2023 simatec
+Copyright (c) 2020 - 2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

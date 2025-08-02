@@ -13,44 +13,52 @@
 [![NPM](https://nodei.co/npm/iobroker.apg-info.png?downloads=true)](https://nodei.co/npm/iobroker.apg-info/)
 
 ## apg-info adapter for ioBroker
-This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria and Germany (configure in Adapter settngs).<br>
+This adapter provides the peak-times for the Austrian Power Grid (Austrian values only!), where power consumption shall be avoided. In addition the adapter provides the PHELIX Day-Ahead (EPEX Spot) prices for Austria, Swiss and Germany (configure in Adapter settngs). Provider fee, tax, grid costs can be added optionally in the config (tab Calculation). 
 `[..].marketprice.today.jsonChart` and `[..].marketprice.tomorrow.jsonChart` can be used with https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart.  
+With the standard-configuration the adapter runs at 00:00, 13:00 and 15.00 o'clock. It's highly recommended not to remove the run at 00:00, otherwise the day-change (tomorrow --> today) will nit work propperly.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 16 or higher
-* ioBroker host (js-controller) 4.0 or higher
+* Node.js 20 or higher
+* ioBroker host (js-controller) 5.0 or higher
+
+## Swiss market
+For the swiss market a token from entsoe.eu is needed. Please add your token to the adapter configuration in the tab "ENTSOE TOKEN".
+Register at the page https://transparency.entsoe.eu/ and send afterwards and email to transparency@entsoe.eu asking for RESTFUL API access for the email address you registered. <br>
+For more details check https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
+
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.7 (2023-10-11)
-* (HGlab01) Bump json-explorer to 0.1.14
-* (HGlab01) add jsonChart-json for market prices
+### 0.1.18 (2025-06-16)
+* (HGlab01) Log finetuning
+* (HGlab01) Bump axios to 1.10.0
 
-### 0.0.6 (2023-10-04)
-* (HGlab01) fix "TypeError: Cannot read properties of undefined (reading 'Warning')"
+### 0.1.17 (2025-06-03)
+* (HGlab01) Add retry mechanism for Entsoe
 
-### 0.0.5 (2023-10-03)
-* (HGlab01) switch data provider for prices to EXAA
-* (HGlab01) support DE market prices in addiotion to AT prices
+### 0.1.16 (2025-05-18)
+* (HGlab01) Optimize Entsoe (Swiss market) requests
+* (HGlab01) Extend timeout for Api calls to 30 seconds 
+* (HGlab01) Bump axios to 1.9.0
 
-### 0.0.3 (2023-09-24)
-* (HGlab01) add point in times sorted as array
-* (HGlab01) add average price
-* (HGlab01) fix bug IOBROKER-APG-INFO-2 notified by sentry
+### 0.1.15 (2025-04-17)
+* (HGlab01) fix 'Cannot read properties of undefined (reading 'price_amount')'
 
-### 0.0.2 (2023-09-14)
-* (HGlab01) add number of days below/above treshold
-* (HGlab01) add states sorted by price
+### 0.1.14 (2025-03-30)
+* (HGlab01) Fix switch to summer time begin issue
+* (HGlab01) Bump axios to 1.8.4
+* (HGlab01) Fix warning "State attribute definition missing for 'item xx' 
+* (HGlab01) Fix provider-fee% calculation if base price is negative ([#354](https://github.com/HGlab01/ioBroker.apg-info/issues/354))
 
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

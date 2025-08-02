@@ -3,29 +3,44 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.benq/README.md
 title: ioBroker BenQ 投影仪适配器
-hash: LkqF9K34d1UeWB7DB6vf83rG2pjH2T/wKUk11feC7lM=
+hash: YfmCWWyypsOuFfAS5vkeXbUOvtycDdAEiBM8nkinyGM=
 ---
 ![标识](../../../en/adapterref/iobroker.benq/admin/benq-logo.png)
 
+![安装数量](http://iobroker.live/badges/benq-stable.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.benq.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.benq.svg)
+![新平台](https://nodei.co/npm/iobroker.benq.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker BenQ 投影仪适配器
-ioBroker BenQ 投影仪适配器用于通过 RS232 和 Etnernet 网关控制您的 BenQ 投影仪。
-模型和命令列表包含在 `admin/commands.json` 文件中。
+[![测试]（https://github.com/instalator/iobroker.benq/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.benq/actions/)
+
+ioBroker BenQ 投影仪适配器用于通过 RS232 与以太网网关配合使用来控制您的 BenQ 投影仪。
+型号和命令列表包含在 `admin/commands.json` 文件中。
 
 ＃＃ 硬件
-该驱动程序允许您通过 [适配器](http://blog.instalator.ru/archives/744) RS232 转以太网连接到 BenQ 投影机。
+该驱动程序允许您通过[适配器](http://blog.instalator.ru/archives/744) RS232 至以太网连接到 BenQ 投影仪。
 
-作为以太网的 RS232 网关，使用任何需要下载 [这段代码](https://github.com/stepansnigirev/ArduinoSerialToEthernet) 的 Arduino 兼容卡。
-您还需要一个 Ethernet Shield W5100 或 W5500 和一个 RS232 到 TTL 转换器。
+作为 RS232 到以太网的网关，可以使用任何需要下载 [此代码](https://github.com/stepansnigirev/ArduinoSerialToEthernet) 的 Arduino 兼容卡。
+您还需要一个以太网屏蔽 W5100 或 W5500 和一个 RS232 到 TTL 转换器。
 
 ＃＃ 支持
-支持型号：W1200、W1070、W1080待...
+支持型号：W1200、W1070、W1080...
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.3.0 (2024-04-02)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) changed: Testing has been changed to support node 18 and 20
+* (mcm1957) changed: Dependencies have been updated
 
 ### 0.2.7
  * (instalator) fix error
+
 ### 0.2.4
  * (instalator) change test
 
@@ -43,6 +58,7 @@ ioBroker BenQ 投影仪适配器用于通过 RS232 和 Etnernet 网关控制您�
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

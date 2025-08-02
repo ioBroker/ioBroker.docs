@@ -1,7 +1,6 @@
 ![Logo](admin/fakeroku.png)
 # ioBroker.fakeroku
 
-[![Build Status](https://travis-ci.org/Pmant/ioBroker.fakeroku.svg?branch=master)](https://travis-ci.org/Pmant/ioBroker.fakeroku)
 ![Number of Installations](http://iobroker.live/badges/fakeroku-installed.svg) 
 ![Number of Installations](http://iobroker.live/badges/fakeroku-stable.svg) 
 
@@ -27,6 +26,16 @@ You can rename the device on your Harmony.
 States are automatically created when fakeRoku receives a key for the first time.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### 0.3.0 (2024-06-11)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 0.2.2 (2023-07-24)
+* (Appollon77) fixed issues with controller v5
 
 ### 0.2.1
   (Pmant) fix jQuery error in admin
@@ -40,10 +49,11 @@ States are automatically created when fakeRoku receives a key for the first time
 
 ### 0.1.0
   (Pmant) initial release
-  
+
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2017 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

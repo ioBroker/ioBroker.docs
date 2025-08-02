@@ -9,19 +9,41 @@
 
 ## blebox adapter for ioBroker
 
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
+
 Adapter for controlling the Smarthome devices of the manufacturer [blebox](https://blebox.eu/). The API description can be found [here](https://technical.blebox.eu/). The implementation has taken place without the support of the manufacturer.
 
 An incomplete and outdated API simulation can be downloaded [here](https://github.com/blebox/blebox-virtual-devices).
 
 The following devices are currently supported:
 
-* shutterbox
-* switchbox
-* saunabox
-* tempsensor
-* gatebox
-* tvlift
-* multisensor - not tested with real hardware, up to 4 sensors are supported
+
+
+| Gerät                | API-Type            | Status                                   |
+|----------------------|---------------------|-----------------------------------------|
+| airsensor            | airsensor           | ❓ alpha, neither tested with real Hardware nor an API-Simulation |
+| gatebox              | gatebox             | ✅ Tested                                |
+| multisensor          | multisensor         | up to 8 sensors per device are supported |
+| tempSensor PRO       | multisensor         | ❓ beta, not tested with real Hardware   |
+| tempSensorAC         | multisensor         | ❓ beta, not tested with real Hardware   |
+| humiditySensor       | multisensor         | ❓ beta, not tested with real Hardware   |
+| windSensor PRO       | multisensor         | ❓ beta, not tested with real Hardware   |
+| floodSensor          | multisensor         | ❓ beta, not tested with real Hardware   |
+| rainSensor           | multisensor         | ❓ beta, not tested with real Hardware   |
+| saunabox             | saunabox            | ❓ beta, not tested with real Hardware   |
+| shutterbox           | shutterbox          | ✅ Tested                                |
+| shutterBoxDC         | shutterBox          | ❓ beta, not tested with real Hardware   |
+| shutterBoxDIN        | shutterBox          | ❓ beta, not tested with real Hardware   |
+| switchbox            | switchbox           | ✅ Tested                                |
+| switchBoxD           | switchBoxD          | ❓ beta, not tested with real Hardware   |
+| switchBoxDC          | switchBoxD          | ❓ beta, not tested with real Hardware   |
+| switchBox DIN        | switchBox           | ❓ beta, not tested with real Hardware   |
+| switchBoxD DIN       | switchBoxD          | ❓ beta, not tested with real Hardware   |
+| switchBoxT PRO       | switchBoxD          | ❓ beta, not tested with real Hardware   |
+| tempsensor           | tempsensor          | ❓ beta, not tested with real Hardware   |
+| tvlift               | tvlift              | ❓ beta, not tested with real Hardware   |
+
+
 
 ## Changelog
 
@@ -29,6 +51,19 @@ The following devices are currently supported:
     Placeholder for the next version:
     ### **WORK IN PROGRESS**
 -->
+
+### 2.2.3 (2025-02-13)
+
+* (Kai van Nuis) Support for airsensor, alpha, neither tested with real Hardware nor an API-Simulation
+* (Kai van Nuis) Support both relay on switchBoxD
+
+### 2.2.1 (2024-12-26)
+
+* (Kai van Nuis) Support for multi-device APIs
+  
+* ### 2.2.0 (2024-12-21)
+
+* (Kai van Nuis) Support for multi-device APIs
 
 ### 2.1.0 (2023-10-13)
 
@@ -56,7 +91,7 @@ The following devices are currently supported:
 ## License
 MIT License
 
-Copyright (c) 2023 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2025 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

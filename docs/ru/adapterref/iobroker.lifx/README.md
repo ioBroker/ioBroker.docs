@@ -3,75 +3,90 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lifx/README.md
 title: ioBroker.lifx
-hash: kcATNN9SeK/K8naEsyUEXDNkSAzbBW+v9YSuK+9Bwos=
+hash: B5jRjVJrj3E1HA6OmRZ+zA1I+dPzjI2vAeSGLDjtbM4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lifx/admin/lifx_logo.png)
 
 ![Количество установок](http://iobroker.live/badges/lifx-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.lifx.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.lifx.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lifx.svg)
 
 # IoBroker.lifx
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/foxthefox/ioBroker.lifx/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/foxthefox/ioBroker.lifx/workflows/Test%20and%20Release/badge.svg)
 
 Адаптер Lifx для ioBroker
 
-## Установка:
-официальная выпущенная версия
-
-```javascript
-npm install iobroker.lifx
-```
-
-актуальная версия с github:
-
-```javascript
-npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --production
-```
-
 ## Настройки/Конфигурация:
-- никаких настроек или настроек не требуется, адаптер автоматически определяет лампы
+- не требуется никаких настроек или конфигурирования, адаптер автоматически определяет лампы
 
-### Статус виджета метро недоступен
-- маленькая иконка недостижимого статуса в метро-виджете - первый объект оповещения
-- object_id[0] - это индикатор.unreachable
-- вместо предустановки "true" должно быть написано "false"
-- иконка должна быть wifiColorRed.png
+### Статус недоступности виджета метро
+- маленькая иконка для статуса «недоступен» в метро-виджете является первым объектом уведомления
+- object_id[0] - это индикатор.недоступен
+- вместо предустановки «истина» следует написать «ложь»
+- значок должен быть wifiColorRed.png
 - горизонтальное смещение 6 должно работать нормально
 
 ## Визуализация:
 - использовать виджеты lifx
 
-## Объекты
+## Объектов
 |Объект|Значение|устанавливаемое|Описание|
 |--------|-------|:-:|--------|
-|Bulb.state|boolean|x|true/false -> ON/OFF|
-|Bulb.colormode|boolean|x|цвет, белый|
-|Bulb.temp|value|x|цветовая температура 2500...9000 K|
+|состояние лампочки|логическое|x|истина/ложь -> ВКЛ/ВЫКЛ|
+|Bulb.colormode|логическое|x|цвет, белый|
+|Bulb.temp|значение|x|цветовая температура 2500...9000 К|
 |Bulb.hue|значение|x|цвет 0...360|
 |Bulb.sat|значение|x|насыщенность 0...100 %|
-|Яркость лампы|значение|x|яркость 0...100 %|
-|Bulb.online|логическое значение|-|true/false|
+|Bulb.bright|значение|x|яркость 0...100 %|
+|Bulb.online|логическое|-|истина/ложь|
 |Bulb.label|значение|-|имя/метка|
 |Bulb.vendor|значение|-|информация о поставщике|
-|Bulb.product|значение|-|информация о продукте|
+|Bulb.product|стоимость|-|информация о продукте|
 |Bulb.colorLamp|значение|-|информация о colorLamp|
 |Bulb.infraredLamp|значение|-|информация об инфракрасной лампе|
 |Bulb.multizoneLamp|значение|-|информация о multizoneLamp|
-|Bulb.Zone.temp|значение|x|цветовая температура 2500...9000 K|
+|Bulb.Zone.temp|значение|x|цветовая температура 2500...9000 К|
 |Bulb.Zone.hue|значение|x|цвет 0...360|
 |Bulb.Zone.sat|значение|x|насыщенность 0...100 %|
 |Bulb.Zone.bright|значение|x|яркость 0...100 %|
 
-## СДЕЛАТЬ:
-- получение настройки значений цвета со всеми существующими настройками (регулировка яркости имеет фиксированную насыщенность 80% и сохраняет предыдущую настройку оттенка; регулировка насыщенности и настройка оттенка имеют фиксированную яркость 80%)
+## ДЕЛАТЬ:
+- получение настройки цветовых значений со всеми существующими настройками (настройка яркости имеет фиксированную насыщенность 80% и сохраняет предыдущую настройку оттенка; настройка насыщенности и настройка оттенка имеют фиксированную яркость 80%)
 - время перехода
-- формы волны
+- формы волн
 
 ## Известные проблемы
 - значения вне диапазона вызывают сбой адаптера
 
 ## Changelog
+
+### 1.0.7
+* (Jarves020) Reactivated Cyclic Updates (brackets were missing at function call)
+* (Jarves020) reenabled Settings for lifx Cyclic Update Intervall
+* (Jarves020) Changed LogLevel for "Failed Cyclic Update...." from error to debug to avoid log spamming
+* (foxthefox) IOB checker corrections
+
+### 1.0.6
+* eslint upgrade and corrections
+
+### 1.0.5
+* update devDeps
+* IOB checker corrections
+
+### 1.0.4
+* implementation jsonUI
+
+### 1.0.3
+* translation with adapter-dev
+
+### 1.0.2
+* some changes to loglevel
+* fix crash when no label is provided
+
+### 1.0.1
+* bugfix, context of 'this' in timeout
+* Null exception with B/W bulb issue#23
+
 ### 1.0.0
 * refactoring, change to class based structure of the adapter
 * gitub actions instead travis
@@ -114,4 +129,5 @@ npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --producti
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2016-2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: QzYvKAMKqRDtfUgDy+EtBL7KSGq2JddR4RsDjwmsDro=
+hash: TadMzyLupLTq8YRjYAiMbsBteDVD8BaYJr2j8x5OzSo=
 ---
 ![Logo](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -13,32 +13,75 @@ hash: QzYvKAMKqRDtfUgDy+EtBL7KSGq2JddR4RsDjwmsDro=
 ![NPM](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)
 
 # IoBroker.accuweather
-## Accuweather-Adapter für ioBroker
-Wettervorhersage mit AccuWeather API.
+## AccuWeather-Adapter für ioBroker
+Wettervorhersage mithilfe der AccuWeather API.
 
-Der Adapter empfängt aktuelle Bedingungen (stündlich aktualisiert), eine 5-Tage-Tagesprognose (Aktualisierung einmal täglich um ca. 7 Uhr) und eine 12-Stunden-Prognose (alle sechs Stunden um 12, 6, 12 und 18 Uhr aktualisiert).
+Adapter empfängt
+
+- Aktuelle Bedingungen (stündlich aktualisiert), (24 Anfragen)
+- 5-Tage-Vorhersage (tägliche Aktualisierung um ca. 7 Uhr und 20 Uhr), (2 Anfragen)
+- und 12-Stunden-Vorhersage (alle sechs Stunden um 0:00, 6:00, 12:00 und 18:00 Uhr aktualisiert). (4 Anfragen)
+
+Standardmäßig aktualisiert der Adapter beim Neustart nur veraltete Daten.
+Es sind 50 Anfragen pro Tag zulässig. Für jeden Neustart wären 3 Anfragen erforderlich, um alle Daten zu aktualisieren.
 
 ## Erste Schritte
 ### API-Schlüssel abrufen
-Um den API-Schlüssel zu erhalten, registrieren Sie sich auf https://developer.accuweather.com/ und erstellen Sie eine Anwendung im Menü `My Apps`.
+Um einen API-Schlüssel zu erhalten, registrieren Sie sich unter https://developer.accuweather.com/ und erstellen Sie eine Anwendung im Menü `My Apps`.
 Sobald die Anwendung erstellt ist, wird ein API-Schlüssel generiert.
-Bei kostenloser Nutzung ist es möglich, täglich 50 Anfragen an die API zu stellen.
-Es wurde darauf hingewiesen, dass die folgenden Einstellungen bevorzugt werden, damit die API funktioniert (bitte wählen Sie Ihr Land aus!): ![Einstellungen](../../../en/adapterref/iobroker.accuweather/admin/image.png)
+Für die kostenlose Nutzung können Sie 50 Anfragen an die API pro Tag stellen.
+Es wurde darauf hingewiesen, dass für die Funktionsfähigkeit der API die folgenden Einstellungen bevorzugt werden (bitte wählen Sie Ihr Land aus!): ![Einstellungen](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
 ### Standortschlüssel abrufen
-Um den Standortschlüssel zu erhalten, gehen Sie zu https://www.accuweather.com/ und geben Sie den Namen Ihrer Stadt ein oder versuchen Sie, Ihre Koordinaten (Breitengrad, Längengrad) so einzugeben, wie Sie sie haben, z. B. in den ioBroker-Einstellungen.
-Ihr Standortschlüssel ist die Zahl am Ende der Prognose-URL.
+Um den Standortschlüssel zu erhalten, gehen Sie zu https://www.accuweather.com/ und geben Sie Ihren Städtenamen ein oder versuchen Sie, Ihre Koordinaten (Breitengrad, Längengrad) so einzugeben, wie Sie sie haben, z. B. in den ioBroker-Einstellungen.
+Ihr Standortschlüssel ist die Nummer am Ende der Prognose-URL.
 
 ### Verwendung in der Lovelace-Visualisierung (ab Version 1.1.0)
-Der Zusammenfassungskanal enthält eine aktuelle und tagesaktuelle Prognose mit Rolle/Typen von Zuständen, die vom Typdetektor unterstützt werden.
-Neue Funktion kann verwendet werden, um die Wettervorhersage in der Lovelace-Benutzeroberfläche anzuzeigen.
-Zur besseren Ansicht wird eine benutzerdefinierte Lovelace-Karte erstellt – siehe https://github.com/algar42/IoB.lovelace.accuweather-card
-
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **ARBEIT IN ARBEIT** -->
+Der Zusammenfassungskanal enthält eine aktuelle und tagesgenaue Vorhersage mit Rolle/Typen von Zuständen, die vom Typdetektor unterstützt werden.
+Die neue Funktion kann verwendet werden, um die Wettervorhersage in der Lovelace-Benutzeroberfläche anzuzeigen.
+Für eine bessere Ansicht wird eine benutzerdefinierte Lovelace-Karte erstellt – siehe https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (ticaki) Missing Http error handling added
+* (ticaki) For error codes from the 400 series, do not attempt any unscheduled reconnections. 
+
+### 2.1.0-alpha.0 (2025-01-19)
+* (ticaki) Change: min. js-controller to 6.0.11
+* (ticaki) Change: Outdated data is updated at startup.
+* (ticaki) New: Photo link added in current weather
+* (ticaki) New: Metric and Imperial are available for selection - Will be taken into account with the next data update.
+* (ticaki) New: In the event of a data retrieval error, an attempt is made again after 10 minute
+* (ticaki) Remove admin option (restart blocking)
+* (ticaki) Rewritten in Typescript
+
+### 2.0.1 (2025-01-18)
+* (ticaki) BREAKING: Requires Nodejs 20 or higher
+* (ticaki) BREAKING: Command states are now buttons and only respond to ack=false. 
+* (ticaki) admin option: No data is updated on adapter startup (default: true). 
+* (ticaki) apikey renamed and encrypted
+* (ticaki) Dependencies and eslint updated
+* (devtronic) Add nextHour.CloudCover
+
+### 1.5.0 (2024-06-23)
+* (xdaamg) limit updates to once an hour, this fixes part of issue #273.
+* (mcm1957) Adapter requires js-controller >= 5 and admin >= 6 now
+* (mcm1957) Node 22 support has been added to testing
+* (mcm1957) Dependencies have been updated
+
+### 1.4.0 (2024-04-02)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.3.2 (2023-12-04)
+* (ticaki) fixed: dependencies
+* (ticaki) fixed: error message [object Object]
+
 ### 1.3.1 (2023-08-15)
 * (isi07) added the Wind Direction Text und Cloud Cover
 * (bluefox) Added json config
@@ -79,6 +122,7 @@ Minor bug fixes to `Object.common` section
 ## License
 MIT License
 
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 algar42 <igor.aleschenkov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

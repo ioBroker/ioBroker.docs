@@ -1,35 +1,35 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vesync/README.md
 title: ioBroker.vesync
-hash: itncUpTg0tCsqWXPL7C9iiIo4a6xpm1Tf5Itz9fh8mY=
+hash: 6KWO3g5PHUaA038TwB0lxGiz7C+MgWBuuhdUyJhUSAU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vesync/admin/vesync.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.vesync.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.vesync.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vesync.svg)
 ![Количество установок](https://iobroker.live/badges/vesync-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/vesync-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/vesync-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vesync.png?downloads=true)
 
 # IoBroker.vesync
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер vesync для ioBroker
 Адаптер для VeSync
 
-# Войти
-Die App Mail и пароль автоматически.
+# Логинаблауф
+Используйте приложение «Почта» и пароль.
 
-# Штойерунг
-Gerate können через vesync.0.id.remote gesteuert werden
+# Steuerung
+Вы можете получить доступ через vesync.0.id.remote gesteuert werden
 
-startCook Beispieles Fritten:
+startКук Бейспилес Фриттен:
 
 ```
 {
-            "accountId": "8604100",
+            "accountId": "000000",
             "cookTempDECP": 0,
             "hasPreheat": 1,
             "hasWarm": false,
@@ -52,6 +52,34 @@ startCook Beispieles Fritten:
             },
             "tempUnit": "c"
         }
+```
+
+ЭйрФрай
+
+```
+{
+            "accountId": "000000",
+            "cookTempDECP": 0,
+            "hasPreheat": 0,
+            "hasWarm": false,
+            "imageUrl": "",
+            "mode": "AirFry",
+            "readyStart": true,
+            "recipeId": 14,
+            "recipeName": "Air Fry",
+            "recipeType": 3,
+            "startAct": {
+                "appointingTime": 0,
+                "cookSetTime": 600,
+                "cookTemp": 180,
+                "cookTempDECP": 0,
+                "imageUrl": "",
+                "level": 0,
+                "preheatTemp": 0,
+                "shakeTime": 0,
+                "targetTemp": 0
+            },
+
 ```
 
 режим приготовления:
@@ -80,7 +108,7 @@ startCook Beispieles Fritten:
         }
 ```
 
-## Обсуждение и обсуждение
+## Обсуждение и Fragen
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog

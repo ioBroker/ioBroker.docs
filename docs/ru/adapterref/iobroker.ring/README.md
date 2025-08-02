@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ring/README.md
 title: Кольцевой адаптер
-hash: YPLlivLg7RVp4wqyTAkGwQ5CTLlP4ubFSoZVGLsOjE0=
+hash: xLiRXI7wH5yl6HEec+cgjm+jnMQdpKrTdjVegN3gvE4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -41,6 +41,8 @@ node ring-auth-cli
 Вы можете использовать специальные переменные для прямой трансляции, пути к снимку и имени файла. Эти переменные будут заменены счетчиком, меткой времени, идентификатором звонка или типом звонка.
 
 * `%d`: временная метка Unix. Пример: `test_%d -> test_1588331430061`
+* `%g`: Отформатировано по дате ГГГГММДД. Пример: `test_%g -> test_20240614`
+* `%t`: форматированное время HHiiss. Пример: `test_%t -> test_235901`
 * `%i`: идентификатор вашего кольцевого устройства: Пример: `test_%i -> test_234567890`
 * `%n`: Счетчик с момента запуска экземпляра кольца. Пример: `test_%n -> test_1`
 * `%k`: Тип вашего вызывного устройства: Пример: `test_%k -> test_doorbell`
@@ -88,6 +90,25 @@ node ring-auth-cli
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2024-06-22)
+
+* (SFGJK) #710 Enhancement of filename placeholder feature
+* (theimo1221) Updated Packages
+
+### 5.0.10 (2023-11-06)
+
+* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
+
+### 5.0.8 (2023-11-05)
+
+* (crocri) Code cleanup
+* (theimo1221) #614 Add @homebridge/camera-utils as direct depency to mitigate import issue
+
+### 5.0.7 (2023-11-02)
+
+* (theimo1221) Updated Packages
+* (theimo1221) Include missing build artifacts
+
 ### 5.0.6 (2023-10-29)
 
 * (theimo1221) Updated Packages
@@ -459,7 +480,7 @@ node ring-auth-cli
 
 MIT License
 
-Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2024 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

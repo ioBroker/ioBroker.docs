@@ -2,51 +2,98 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
-title: без заголовка
-hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
+title: нет названия
+hash: 6/x2DbZCDtTO0us9rIBbOJBGbXgLhQHXkzqo5rs4qa8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Количество установок](http://iobroker.live/badges/deconz-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![версия НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
-![НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
-Адаптер ioBroker deConz dresden-elektronik
+Адаптер ioBroker deConz Dresden-elektronik
 
 ==============
 
 ## Уведомление
 Нет поддержки бета-версий deConz
 
-Требуемая версия js-контроллера >2.x.x, Требуется node.js >= 10.x.x
+Требуемая версия js-controller >5.x.x, Требуемый node.js >= 18.x.x
 
 ## Английский
-Подключается к программному обеспечению deConz, разработанному dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway с использованием оборудования от dresden-elektronik, USB-накопителя ConBee и модуля RaspBee для Raspberry Pi.
+Подключается к программному обеспечению deConz REST-API, разработанному dresden-elektronik. Это программное обеспечение нацелено на универсальное решение ZigBee Gateway, использующее оборудование от dresden-elektronik USB-накопитель ConBee(X) и модуль RaspBee(X) для Raspberry Pi.
 
-Вы должны сначала установить ссылку на deConz.
+Сначала вам необходимо сделать ссылку на deConz.
 
-1. а) Введите IP-адрес для deConz
+1. а) Введите IP-адрес для deConz<br>
 
-    б) Введите номер порта, стандарт 80.
+б) Введите стандартный порт моста: 80 и стандартный Websocket: 443<br> [например, приложение Phoscon - Справка - Информация об API - Без фильтра - поиск по port/websocketport]
 
-2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker в качестве стороннего приложения.
+2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
 
-#### Отправить более одной команды одновременно
-Для этого существует объект под названием «действие».
+## Чтобы избежать некоторых ошибок после обновления (deConz/adapter), остановите адаптер и удалите эти записи в структуре объекта. При запуске структура объекта пересоздается.
+![Адаптер Deconz](https://github.com/mattreim/ioBroker.deconz/assets/80219712/fb56647e-a0a8-4535-9e18-2b7651b32824)
+
+#### Отправка более одной команды одновременно
+Для этой цели существует объект, называемый «действие».
 
 Примеры:
 
 `"on": true, "xy": [0.6586,0.3138]`
 
-`"on": true, "transitiontime": 5, "hue": 65500`
+`"on": true, "transitiontime": 5, "hue": 360`
 
 ## Ссылки
-[деконз](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [REST-плагин](https://github.com/dresden-elektronik/deconz-rest-plugin) [Шлюзы (аппаратные)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[Плагин deCONZ REST-API](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) [Документация по плагину deCONZ REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/) [Шлюзы (Аппаратные)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Спонсоры](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.6.4 (2024-10-06)
+* (mattreim) Add "protectedNative" and "encryptedNative"
+* (mattreim) Fix websocket connection
+* (Jey Cee) Fix missing port for create api key function
+
+### 1.6.3 (2024-10-04)
+* (Jey Cee) Fix connection problems
+
+### 1.6.2 (2024-10-04)
+* (Jey Cee) Fix no connection on new installation
+
+### 1.6.1 (2024-10-03)
+* (Jey Cee/mattreim) Highlight helper text for authentication
+
+### 1.6.0 (2024-10-02)
+* (Jey Cee/mattreim) Migrate config to JSONConfig
+* (Jey Cee) Removed device and group management from config
+* (mattreim) Add natives
+* (Jey Cee) Update dependencies
+* (Jey Cee) Use default test and release action
+
+### 1.5.0 (2024-08-11)
+* Updated/added some translations
+* (mattreim) Dependencies have been updated
+* (mattreim) Logo compressed
+* (mattreim) Remove common.title
+
+### 1.4.1 (2024-05-05)
+* (mattreim) Added new objects for various sensors
+
+### 1.4.0 (2024-01-29)
+* (mattreim) Added new objects for Tuya and Bosch thermostats
+
+### 1.3.23 (2023-11-05)
+* fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
+* added possibility to change the port for websocket connection
+* updated/added translations
+* (grizzelbee) Fix: Re-enabled window covers
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) New: Added ukrainian translation
+
+### 1.3.21 (2022-05-13)
+* added schedule to object definition
+* changed limit for duration to 999999
 
 ### 1.3.20 (2022-02-26)
 * (withstu) add retry if gateway is busy
@@ -159,7 +206,6 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 * (mobilutz) remove ip overwrite
 * (njeisecke) add transitiontime for bri_inc (dim step)
 
-
 ### 1.2.3
 * fix expire time for alive 
 * add object for open zigbee network to add new devices without admin config
@@ -197,14 +243,11 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 *  (asgothian) added object "buttonpressd"
 *  some fixes
 
-
 ### 1.0.2
 * fix set bri for groups
 
-
 ### 1.0.1
 * small fixes
-
 
 ### 1.0.0
 *  (thewhobox) skip helper groups
@@ -218,7 +261,6 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 *  (jey-cee) new possible to change duration (if the device accept it)
 *  (jey-cee) get API key with credentials
 
-
 ### 0.4.0
 * (asgothian) Fix for hue change
 * (halloamt)  Added support for dimming lights and groups
@@ -227,11 +269,9 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 ### 0.3.1
 * Fixing hue from range 0-65535 to 0-360
 
-
 ### 0.3.0
 * Added scene support
 *  Drop nodejs 4 support
-
 
 ### 0.2.5
 * Fix/Change handling create objects during running Adapter
@@ -293,4 +333,4 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2022 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2024 Jey Cee jey-cee@live.com

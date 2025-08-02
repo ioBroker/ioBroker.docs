@@ -8,63 +8,158 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fritzdect/README.md
 title: 安装说明
-hash: lwwdDTRwowRvfKRVnTjca+VueSpo7Z2PQgz7nn97AoY=
+hash: pmuEeuURe1K+Xf1kOmHTZG6bguIYTS/a2guR2rrDVq0=
 ---
 ![标识](../../../de/admin/fritzdect_logo.png)
 
-＃ 安装说明
+# 安装说明
 ## FritzBox 设置
-它必须是有权访问 Fritzbox 和 Smarthome 的用户
+必须是具有 Fritzbox 和 Smarthome 访问权限的用户
 
 ＃ 密码
-可能会出现问题：
+可能存在的问题：
 
 - 密码长度超过 32 个字符
 - 使用特殊字符
-- 使用扩展的 ASCII
+- 使用扩展 ASCII
 
-如果有问题，那么或许先拿一个更短更简单的PW来基本测试一下adapter的登录机制，然后依次展开。
+如果有问题，那么也许首先使用更短更简单的 PW 来从根本上测试适配器的登录机制，然后逐步扩展它。
 
 ## 适配器设置
-* 输入以“http://”开头的 IP。
-* 轮询间隔可以任意选择（默认设置 5min=300sec）。这是跟踪 ioBroker 之外的操作所必需的，因为 FritzBox 不提供自动更新。
+* 输入 IP 并以“http://”开头
+* 轮询间隔可以任意选择（默认 5 分钟=300 秒）。这对于跟踪 ioBroker 之外的操作是必要的，因为 FritzBox 不提供自动更新。
+* 如果轮询间隔设置为 0，则不执行循环查询。然后仅根据需要进行更新（参见手动更新）。
 
 ## 适配器启动
-随着适配器的启动，完成以下操作：
+当适配器启动时，会发生以下情况：
 
-* Fritzbox 的 FW 被查询并写入日志（一些 Fritzbox 不回答，这会产生错误）。
-* 数据点（对象）是为设备创建的
+* 查询 Fritzbox 的 FW 并将其写入日志中（某些 Fritzbox 没有响应，因此会产生错误）。
+* 为设备创建数据点（对象）
 * 创建组的数据点（对象）
-* 对象提供数据
+* 对象被提供数据
 
-以下对象仅在启动时写入一次：
+以下对象在启动时仅写入一次：
 
-* IE
+* ID
 * 固件版本
 * 制造商
 * 产品名称
-* masterdviceid
+* 主服务 ID
 * 成员
 
-##恒温功能
-恒温器可以在自动模式（温度控制）下运行并控制设定点温度。
-目标温度可以是舒适温度、降低温度或自选温度。
+## 恒温器功能
+恒温器可在自动模式（温度控制）下运行，并将温度调节至目标温度。
+目标温度可以是舒适温度、回退温度或者您自己选择的温度。
 
-此外，阀门可以完全关闭，这对应于 OFF 状态。
-另一个方向也可以用 ON 预选，对应于 BOOST 或桑拿模式（不要忘记让它再次调节 ;-)）。
+此外，阀门可以完全关闭，这对应于关闭状态。
+另一个方向也可以通过 ON 进行预先选择，并对应 BOOST 或桑拿模式（不要忘记让它再次调节 ;-) ）。
 
-目前这3种工作模式在数据点模式下可以预选0、1或2。
-当预选 0-AUTO 时，选择最后的目标温度。
+目前这 3 种操作模式可以在数据点模式下用 0、1 或 2 进行预先选择。
+当选择 0-AUTO 时，选择上次设定的温度。
 
 ### 带偏移的温度
-可以通过指定测量温度来校正 FritzBox 中的测量温度，并且存在偏移量。数据点 .temp 会考虑此偏移量。在这里您可以获得内部温度测量值。
-散热器控制器内部使用的实际温度 (actualtemp) 也因偏移而改变。这意味着 HKR 内部调节到更正后的值。
-因此，Atualtemp 和 targettemp 对于目标/实际进程是可比较的。
+可以校正 FritzBox 中测量的温度。为此，请输入测量的温度，然后会生成偏移量。该偏移量已被考虑在数据点 .temp 中。在这里您可以获得内部温度测量值。
+散热器控制器内部使用的实际温度（actualtemp）也会因偏移而改变。这意味着 HKR 内部调节至校正值。
+因此，对于目标/实际曲线而言，实际温度与目标温度是可比的。
 
-＃＃故障排除
-建议查看日志，如果信息没有意义或太少，请通过实例的专家设置预选调试模式。
+## 手动更新
+可以启动手动更新，例如在轮询间隔之间或禁用轮询时。
+为此，向适配器实例发送一条包含文本“更新”且不包含任何参数的消息。
+更新完成时将调用可选的回调。
+
+下面是一个展示如何触发手动更新的示例：
+
+```javascript
+sendTo('fritzdect.0', 'update', null,
+    (e) => {
+        if (e["result"]) {
+            // Update erfolgreich
+        } else {
+            console.log(e["error"]);
+        }
+    }
+);
+```
+
+故障排除
+建议查看日志；如果没有意义或者信息太少，请通过实例的专家设置选择调试模式。
 
 ## Changelog
+
+### 2.6.1 (npm)
+* log FW version of FB
+* DECT350 now with battery data (issue #513)
+* merge etsi devices into etsiunits (issue #597)
+
+### 2.6.0 (npm)
+* (khnz) PR#618 support on-demand updates
+* change temperature checking < 28°C extended to < 35°C (issue #619)
+* change dependencies
+
+### 2.5.13 (npm)
+* same as 2.5.12 with corrected IOB checker issues
+
+### 2.5.12 (npm)
+* skipping devices with empty identified (#598, #599), transmitted in FW8.01
+* update responsive settings
+
+### 2.5.11 (npm)
+* upadate devDeps, linting error corrections
+* iob checker corrections
+
+### 2.5.10
+* more loggimg for issue #500 of restart loop
+* some error messages downgraded to warnings
+* correction related to thermostat value take over, when reduced setting is activated
+* update devDeps
+
+### 2.5.9 (npm)
+* correction for statistics,
+* new message box password needs to be reentered in versions >=2.5.4
+* xml output for buttons "my ..."
+
+### 2.5.8 (npm)
+* more error checking processing statistics
+
+### 2.5.7 (npm)
+* only for the hint that password needs to be reentered
+
+### 2.5.6 (npm)
+* change in jsonUIconfig
+
+### 2.5.5 (npm)
+* implementation of jsonUIconfig
+
+### 2.5.4 (npm)
+* correction for excluding routines
+
+### 2.5.3 (npm)
+* correction for updating komfort, absenk
+* corrections for the statistics polling when device is not plugged in
+* correction for year to date energy value (not recognizing two digit month)
+* new possibility in admin page to exclude templates/routines/statistics for compatibility with older FB
+
+### 2.5.2 (npm)
+* correction for komfort, absenk if receiving 253/254 for OFF/ON it will be NaN see issue #164
+
+### 2.5.1
+* correction for energy today value
+
+### 2.5.0
+* getbasicdevicestats for powermeter (voltage, power, energy)
+* derived values from energy stats -> year to date, month to date, last 12 month, last 31 days, todays accumulation
+
+### 2.4.1 (npm)
+* corrections reported by adapter-checker
+
+### 2.4.0
+* new function for routines which activatetrigger
+* correction for templates and scenario (all templates are buttons, no need to check functionbitmask)
+
+### 2.3.1
+* new function gettriggerlist in admin
+* corrected xml2json-light (included drirectly in repo until PR#8 is merged in repo), caused problems with templates in newer FB-firmware
+
 ### 2.3.0
 * option to set for logging only when a difference to the old value is detected
 * fritzdect-aha-nodejs as dependency
@@ -342,4 +437,6 @@ hash: lwwdDTRwowRvfKRVnTjca+VueSpo7Z2PQgz7nn97AoY=
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2025 foxthefox <foxthefox@wysiwis.net>
+
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

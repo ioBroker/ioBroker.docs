@@ -2,77 +2,650 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rssfeed/README.md
-title: ioBroker Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-hash: CUJE1vXzY4Olp+i/hUXHsA24LdITdLKRME/fHR+ZYKQ=
+title: ioBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
+hash: KWXSnbkoZOLx7c0Aii1gWEokXl/zIqP4sCpzuFpTpVo=
 ---
-![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed-logo.png)
+# IoBroker-Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
+![Logo](../../../en/adapterref/iobroker.rssfeed/admin/rssfeed.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/rssfeed-installed.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.rssfeed.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.rssfeed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rssfeed.svg)
-![Travis](https://img.shields.io/travis/oweitman/ioBroker.rssfeed.svg)
-![AppVeyor-Build-Status](https://img.shields.io/appveyor/ci/oweitman/iobroker-rssfeed.svg)
-![GitHub-Probleme](https://img.shields.io/github/issues/oweitman/ioBroker.rssfeed.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/rssfeed-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/rssfeed-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.rssfeed.png?downloads=true)
 
-# IoBroker Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF)
-## Überblick
-Adapter zum Abrufen und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF).
-Sie können die Ausgabe des Feeds mit einem Vorlagensystem anpassen. In die Vorlagen können Sie HTML, CSS und Javascript einbinden.
+**Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.rssfeed/workflows/Test%20and%20Release/badge.svg)
 
-Wichtig: Aufgrund von Fehlern in der automatischen Übersetzung durch iobroker in andere Sprachen ist nur die englische Übersetzung gültig
+## Übersicht
+Adapter zum Anfordern und Anzeigen von RSS-Feeds verschiedener Standards (Atom, RSS, RDF).
+Sie können die Ausgabe des Feeds mithilfe eines Vorlagensystems anpassen. In den Vorlagen können Sie HTML, CSS und Javascript einbinden.
 
-## Instanz hinzufügen
-Nach der Installation sollte der Adapter dann im Adapterbereich im iobroker angezeigt werden.
-Manchmal kommt es vor, dass die Änderungen nicht sichtbar sind, insbesondere bei Web-Änderungen (Widgets / Konfigurationsdialog), ggf. muss folgender Befehl auf der Kommandozeile ausgeführt werden:
+Wichtig: Aufgrund von Fehlern in den automatischen Übersetzungen in andere Sprachen durch iobroker ist nur die englische Übersetzung gültig.
+
+## Installation
+Installieren Sie den Adapter wie gewohnt aus dem stabilen Repository. Wenn Sie neue Funktionen oder Fehlerbehebungen testen möchten, können Sie den Adapter auch aus dem Beta-Repository installieren. Weitere Informationen zu Funktionen und Neuigkeiten finden Sie im Test- und Support-Thread für diesen Adapter im iobroker-Forum.
+
+Nach der Installation sollte der Adapter im Adapterbereich des iobrokers angezeigt werden.
+Manchmal kommt es vor, dass die Änderungen nicht sichtbar sind, insbesondere bei Web-Änderungen (Widgets/Konfigurationsdialog). In diesem Fall muss möglicherweise der folgende Befehl in der Kommandozeile ausgeführt werden:
 
 ```bash
 iobroker upload rssfeed
 ```
 
-Im rechten Bereich in der Zeile des Adapters kann über die Plus-Schaltfläche eine Instanz hinzugefügt werden
+Im rechten Bereich in der Zeile des Adapters kann über den Plus-Button eine Instanz hinzugefügt werden
 
-## Aufbau
+## Konfiguration
 Die Konfiguration ist einfach. Es gibt nur wenige Felder
 
 | Einstellung | Beschreibung |
-| ------- | ----------- |
-| Standardaktualisierung (Min.) | ist die allgemeine Angabe, wie oft der Feed in Minuten wieder aufgerufen werden soll. Der Standardwert ist 60 Minuten |
-| Max. Artikel (Standard) | Die Gesamtmenge der zu verarbeitenden Daten kann hier begrenzt werden.|
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Standard-Aktualisierung (min) | ist die allgemeine Angabe in Minuten, wie oft der Feed erneut aufgerufen werden soll. Der Standardwert liegt bei 60 Minuten |
+| Max Artikel (Standard) | Hier kann die Gesamtmenge der zu verarbeitenden Daten begrenzt werden. |
 
 Dann für jeden neuen Feed:
 
 | Einstellung | Beschreibung |
-| ------- | ----------- |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name | Ein Name für den Datenpunkt. Innerhalb eines Ordners darf ein Name nicht zweimal vorkommen. |
-| Kategorie | Name für einen Unterordner, in dem der Datenpunkt erscheinen soll. Die Kategorie muss eindeutig sein |
+| Kategorie | Name für einen Unterordner, in dem der Datenpunkt erscheinen soll. |
 | URL | Die vollständige Adresse des Feeds (mit http:// oder https://, siehe Beispiele unten) |
-| Aktualisieren (min) | Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Spezifikation genommen |
-| Max Artikel | Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Spezifikation genommen |
+| Aktualisierung (min) | Zeit zum Aktualisieren/Laden des Feeds. Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Angabe verwendet. |
+| Max. Artikel | Anzahl der Artikel, die im Datenpunkt gespeichert werden sollen. Für diesen Feed kann ein anderer Wert angegeben werden. Andernfalls wird die allgemeine Angabe verwendet. |
 
 Wenn Sie die Konfiguration gespeichert und geschlossen haben, finden Sie die Feed-Daten als JSON-Datenpunkt im Objektbaum.
-Wenn Sie einen Eintrag löschen, werden die Datenpunkte nicht gelöscht.
+Wenn Sie einen Eintrag löschen, werden die Datenpunkte nicht automatisch gelöscht.
 
 ## Vis und Widgets
-Die folgenden Widgets existieren tatsächlich
+Folgende Widgets gibt es aktuell
 
-* `RSS-Feed-Widget 2` - um einen einzelnen Feed anzuzeigen
-* `RSS-Feed-Multi-Widget` - um mehrere aggregierte Feeds in einem Widget anzuzeigen.
-* `RSS Feed Meta Helper` - ein Helfer-Widget, um die Metadaten eines Feeds zu untersuchen
-* `RSS Feed Article Helper 2` - ein Hilfs-Widget zum Einsehen der Artikeldaten eines Feeds
-* `RSS Feed Title marquee 3` - ein Widget, um die Schlagzeilen eines Feeds als Laufschrift anzuzeigen
-* `JSON Template` - ein Wdiget, das nichts mit RSS-Feeds zu tun hat, aber die gleiche Technologie verwendet und Sie können ein benutzerdefiniertes Template definieren, um beliebige JSON-Daten in vis anzuzeigen.
+- [`RSS-Feed-Widget 2`](#rss-feed-widget-2) - um einen einzelnen Feed anzuzeigen
+- [`RSS Feed Multi widget 3`](#rss-feed-multi-widget-3) – um mehrere aggregierte Feeds in einem Widget anzuzeigen.
+- [`RSS Feed Meta Helper`](#rss-feed-meta-helper) - ein Hilfs-Widget zum Überprüfen der Metadaten eines Feeds
+- [`RSS Feed Article Helper 2`](#rss-feed-article-helper) - ein Hilfs-Widget zum Überprüfen der Artikeldaten eines Feeds
+- [`RSS Feed Title marquee 4 (veraltet)`](#rss-feed-title-marquee-4-deprecated) - ein Widget, um die Überschriften eines Feeds als Laufschrift anzuzeigen
+- [`RSS Feed Title marquee 5`](#rss-feed-title-marquee-5) - ein Widget, um die Überschriften eines Feeds als Laufschrift anzuzeigen
+- [`JSON-Vorlage 3`](#json-template3) – ein Widget, das nichts mit RSS-Feeds zu tun hat, aber dieselbe Technologie verwendet, und Sie können eine benutzerdefinierte Vorlage definieren, um beliebige JSON-Daten in vis anzuzeigen.
 
-Dokumentation für die vis-Widgets sind verfügbar innerhalb von vis oder [Widget-Dokumentation/deutsch](https://htmlpreview.github.io/?https://github.com/oweitman/ioBroker.rssfeed/blob/master/widgets/rssfeed/doc.html)
+### RSS-Feed-Widget 2
+Mit diesem Widget können die abonnierten RSS-Feeds im Konfigurationsdialog des Adapters angezeigt werden.
+Mithilfe eines Vorlagensystems lässt sich die Ausgabe beliebig anpassen. Eine einfache Standardvorlage ist bereits vorhanden.
+Beschreibungen der Formatierung und Syntax finden Sie auf den folgenden Seiten.
+
+| Einstellung | Beschreibung |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_oid | Auswahl des Datenpunkts mit dem entsprechenden RSS-Feed. |
+| rss_template | Das Template bestimmt das Aussehen des RSS-Feeds. Alle gültigen HTML-Tags (auch CSS-Attribute in Style-Tags) können im Template verwendet werden. Zusätzlich gibt es spezielle Tags, innerhalb derer die Feed-Daten angezeigt und JavaScript-Anweisungen ausgeführt werden können. Zur besseren Identifizierung der Daten und der verwendeten Attributnamen gibt es zwei Widgets: rssfeed Meta Helper und rssfeed Article Helper. |
+| rss_maxarticles | Die maximale Anzahl der angezeigten Einzelartikel aus dem RSS-Feed |
+| rss_filter | Für die Filterfunktion können in das Feld ein oder mehrere Filterkriterien, getrennt durch Semikolon (;), eingegeben werden. Bei der Suche werden folgende Artikelattribute durchsucht: Titel, Beschreibung, Kategorien. Es werden nur Artikel angezeigt, die einen dieser Begriffe enthalten. |
+
+**Verfügbarkeit der Variable:**
+
+- rss.meta: die Metainformationen des Feeds
+- rss.articles: ein Array aller Artikel
+- widgetid: die Widget-ID des Widgets
+- Stil: das Stilobjekt, wenn Sie zusätzliche Stilinformationen konfigurieren
+
+Weitere Einzelheiten zu diesen Variablen finden Sie im Kapitel **Verfügbare Variablen**
+
+Details zum Vorlagensystem finden Sie im Kapitel Vorlage anhand von Beispielen
+
+### RSS-Feed Multi-Widget 3
+Mit diesem Widget können mehrere Feeds in einem Feed zusammengefasst werden.
+Aufgrund der mehreren Feeds gibt es einige Unterschiede in der Datenverfügbarkeit im Template im Vergleich zum normalen RSS-Feed-Widget.
+Die Meta-Variable ist im Template nicht verfügbar. Allerdings stehen in jedem einzelnen Artikel drei Meta-Attribute – Titel und Beschreibung – unter den Namen meta_title und meta_description zur Verfügung.
+Zusätzlich kann jedem Feed in den Einstellungen ein allgemeiner Name zugewiesen werden, der im Template unter dem Namen meta_name in jedem Artikel verfügbar ist, sodass die Herkunft eines Artikels identifiziert werden kann.
+Ansonsten gelten für das Template die gleichen Regeln wie für das RSS-Feed-Widget.
+
+| Einstellung | Gruppe | Beschreibung |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_feedCount | Allgemeine Gruppe | Hier können Sie die Anzahl der zu konfigurierenden Feeds einstellen. Für jeden Feed wird in vis eine eigene Gruppe zur Konfiguration angelegt. |
+| rss_template | | Das Template bestimmt das Aussehen des RSS-Feeds. Alle gültigen HTML-Tags (einschließlich CSS-Attribute in Style-Tags) können im Template verwendet werden. Zusätzlich gibt es spezielle Tags, innerhalb derer die Feed-Daten angezeigt und JavaScript-Anweisungen ausgeführt werden können. Zur besseren Identifizierung der Daten und der verwendeten Attributnamen gibt es zwei Widgets: rssfeed Meta Helper und rssfeed Article Helper. Details zum Template-System finden Sie im Kapitel Template anhand von Beispielen |
+| rss_dpCount | Gruppe „Allgemein“ | Hier können Sie die Anzahl der zusätzlichen Datenpunkte angeben, die innerhalb der Vorlage zur Verfügung gestellt werden sollen. |
+| rss_dp[Nummer] | Gruppe Allgemein | Hier können Sie den jeweiligen Datenpunkt auswählen. Der Datenpunkt ist innerhalb der Vorlage unter der Variable dp verfügbar. Das bedeutet, dass ein Datenpunkt innerhalb der Vorlage wie folgt abgerufen werden kann. Details zu diesen Variablen finden Sie im Kapitel Verfügbare Variablen |
+| rss_oid | Gruppe feeds[Anzahl] | Auswahl des Datenpunkts mit dem entsprechenden RSS-Feed. |
+| rss_name | Gruppen-Feeds[Nummer] | Hier können Sie einen Namen eingeben, der im Template bei jedem Artikel unter dem Attributnamen meta_name zur Verfügung gestellt wird. |
+| rss_maxarticles | Gruppen-Feeds[Anzahl] | Die maximale Anzahl der angezeigten Einzelartikel aus dem RSS-Feed |
+| rss_filter | Gruppen-Feeds[Anzahl] | Weitere Details zu diesen Variablen finden Sie im Kapitel Verfügbare Variablen. Für die Filterfunktion können in das Feld ein oder mehrere Filterkriterien eingegeben werden, getrennt durch Semikolon (;). Bei der Suche werden folgende Artikelattribute durchsucht: Titel, Beschreibung, Kategorien. Es werden nur Artikel angezeigt, die einen dieser Begriffe enthalten. |
+
+**Verfügbarkeit der Variable:**
+
+- rss.articles: ein Array aller Artikel.
+
+- Eine Teilmenge der Metainformationen eines Artikels ist im Artikel als **Metaname**, **Metatitel** und **Metabeschreibung** verfügbar
+
+- dp[] als Array, wenn Sie zusätzliche Datenpunkte konfigurieren
+- widgetid: die Widget-ID des Widgets
+- Stil: das Stilobjekt, wenn Sie zusätzliche Stilinformationen konfigurieren
+
+### RSS-Feed-Meta-Helfer
+Mit diesem Widget können die Metaattribute eines bestimmten Feeds angezeigt werden. Es dient als Hilfe-Widget zum Erstellen einer Vorlage, um die Inhalte der RSS-Feed-Daten schnell und einfach anzuzeigen.
+Attribute
+
+| Einstellung | Beschreibung |
+| ------- | ------------------------------------------------------------ |
+| rss_oid | Auswahl des Datenpunkts mit dem dazugehörigen RSS-Feed. |
+
+### RSS-Feed-Artikel-Helfer
+Mit diesem Widget können die Artikelattribute eines bestimmten Feeds angezeigt werden. Es dient lediglich als Hilfe-Widget zum Erstellen einer Vorlage, um den Inhalt der RSS-Feed-Daten schnell und einfach anzuzeigen.
+
+| Einstellung | Beschreibung |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_oid | Auswahl des Datenpunkts mit dem dazugehörigen RSS-Feed. |
+| rss_prefix | Um die Verwendung der Attributnamen per Copy/Paste zu erleichtern, kann hier der in der Vorlage für einen Artikel verwendete Variablenname angegeben werden. |
+| rss_article | Mit diesem Attribut kann zwischen den verschiedenen vorhandenen Artikeln im RSS-Feed gewechselt werden. |
+
+### RSS-Feed-Titel-Laufschrift 4 (veraltet)
+Mit diesem Widget werden alle Titelattribute als Lauftext angezeigt. Im Zuge der Umstellung von Marquee-Widget 2 auf 3 ist dieses Widget nun ein Multi-Widget, in dem Sie mehrere RSS-Feeds zusammenfassen können.
+
+| Einstellung | Gruppe | Beschreibung |
+| ---------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_feedCount | Allgemeine Gruppe | Hier können Sie die Anzahl der zu konfigurierenden Feeds einstellen. Für jeden zu konfigurierenden Feed wird in vis eine eigene Gruppe angelegt. |
+| rss_speed | Gruppe allgemein | Die Scrollgeschwindigkeit des Lauftextes. Attribut rss_divider - Gruppe allgemein. Hier können Sie die Zeichen eingeben, die zur Trennung der Überschriften verwendet werden. Der Standardwert ist +++. |
+| rss_pauseonhover | Gruppe Allgemein | Ist diese Option eingeschaltet, stoppt der Lauftext, sobald Sie mit der Maus über den Text fahren. |
+| rss_link | Gruppe Allgemein | Ist diese Option eingeschaltet, werden die Überschriften als Link angezeigt. Klickt oder tippt man auf eine Überschrift, öffnet sich der Link zum Artikel in einem neuen Fenster oder Tab. |
+| rss_withtime | Gruppe allgemein | Ist diese Option eingeschaltet, wird vor der jeweiligen Überschrift die Uhrzeit angezeigt. Attribut rss_withdate - Gruppe allgemein Ist diese Option aktiviert, wird vor der jeweiligen Überschrift das Datum ohne Jahresangabe und die Uhrzeit angezeigt. |
+| rss_withyear | Gruppe Allgemein | Ist diese Option aktiviert, wird vor der jeweiligen Überschrift das Datum mit Jahreszahl und Uhrzeit angezeigt. |
+| rss_oid | Feeds[Nummer]-Gruppe | Wählen Sie den Datenpunkt mit dem entsprechenden RSS-Feed aus. |
+| rss_maxarticles | Feeds[Anzahl]-Gruppe | Die maximale Anzahl der angezeigten Einzelartikel aus dem RSS-Feed |
+| rss_filter | Feeds[Nummer] Gruppe | Für die Filterfunktion können in das Feld ein oder mehrere Filterkriterien, getrennt durch Semikolon (;), eingegeben werden. Bei der Suche werden folgende Artikelattribute durchsucht: Titel, Beschreibung, Kategorien. Es werden nur Artikel angezeigt, die einen dieser Begriffe enthalten. |
+
+### RSS-Feed-Titel-Laufschrift 5
+Mit diesem Widget werden alle Titelattribute als Lauftext angezeigt. Im Zuge der Umstellung von Marquee-Widget 2 auf 3 ist dieses Widget nun ein Multi-Widget, in dem Sie mehrere RSS-Feeds zusammenfassen können.
+
+| Einstellung | Gruppe | Beschreibung |
+| ---------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_feedCount | Allgemeine Gruppe | Hier können Sie die Anzahl der zu konfigurierenden Feeds einstellen. Für jeden zu konfigurierenden Feed wird in vis eine eigene Gruppe angelegt. |
+| rss_speed | Gruppe allgemein | Die Scrollgeschwindigkeit des Lauftextes. Attribut rss_divider - Gruppe allgemein. Hier können Sie die Zeichen eingeben, die zur Trennung der Überschriften verwendet werden. Der Standardwert ist +++. |
+| rss_pauseonhover | Gruppe Allgemein | Ist diese Option eingeschaltet, stoppt der Lauftext, sobald Sie mit der Maus über den Text fahren. |
+| rss_opentype | Gruppe allgemein | Auswahl, wie der Link geöffnet wird: `none`, `link`, `popup` |
+| rss_withtime | Gruppe allgemein | Ist diese Option eingeschaltet, wird vor der jeweiligen Überschrift die Uhrzeit angezeigt. Attribut rss_withdate - Gruppe allgemein Ist diese Option aktiviert, wird vor der jeweiligen Überschrift das Datum ohne Jahresangabe und die Uhrzeit angezeigt. |
+| rss_withyear | Gruppe Allgemein | Ist diese Option aktiviert, wird vor der jeweiligen Überschrift das Datum mit Jahreszahl und Uhrzeit angezeigt. |
+| rss_oid | Feeds[Nummer]-Gruppe | Wählen Sie den Datenpunkt mit dem entsprechenden RSS-Feed aus. |
+| rss_maxarticles | Feeds[Anzahl]-Gruppe | Die maximale Anzahl der angezeigten Einzelartikel aus dem RSS-Feed |
+| rss_filter | Feeds[Nummer] Gruppe | Für die Filterfunktion können in das Feld ein oder mehrere Filterkriterien, getrennt durch Semikolon (;), eingegeben werden. Bei der Suche werden folgende Artikelattribute durchsucht: Titel, Beschreibung, Kategorien. Es werden nur Artikel angezeigt, die einen dieser Begriffe enthalten. |
+
+### JSON-Vorlage3
+Mit diesem Widget können beliebige Datenpunkte mit JSON-Daten nach Wunsch angezeigt werden.
+Die Anzeige erfolgt über ein Vorlagenformat, das sich als Kombination aus HTML-Code, JavaScript und speziellen Tags zur Steuerung der JSON-Attribute darstellt.
+JSON-Vorlage 3 unterstützt nun asynchrone Aufrufe mit „await“. JSON-Vorlage 2 wird zukünftig nicht mehr unterstützt.
+
+| Einstellung | Beschreibung |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rss_template | Mit dem Template kann das Aussehen der JSON-Daten bestimmt werden. Alle gültigen HTML-Tags (auch CSS-Attribute in Style-Tags) können im Template verwendet werden. Darüber hinaus gibt es spezielle Tags, innerhalb derer die JSON-Daten angezeigt und JavaScript-Anweisungen ausgeführt werden können. |
+| json_oid | Auswahl des Datenpunkts mit den entsprechenden JSON-Daten. |
+
+Details zum Vorlagensystem finden Sie im Kapitel Vorlage anhand von Beispielen
+
+Die JSON-Daten werden mit dem Präfix data an das Template übergeben. Zusätzlich steht die aktuelle WidgetID auch als Variable zur Verfügung, um diese in einzelnen CSS-Anweisungen angeben zu können.
+
+#### Erweiterter Anwendungsfall
+In den obigen Beispielen wurde lediglich die reine Ausgabe behandelt. Die Vorlage kann nun auch mit HTML-Tags angereichert werden, um ein spezifisches Layout zu erreichen. Hier ein Beispiel:
+
+```html
+<h3>Output</h3>
+<style>
+  .mycssclassproperty {
+    color: green;
+  }
+  .mycssclassdata {
+    color: red;
+  }
+</style>
+<% for (var prop in data.oneobject) { %>
+<div>
+  <span class="mycssclassproperty"
+    ><%- "data.oneobject." + prop + " = " %></span
+  >
+  <span class="mycssclassdata"><%- data.oneobject[prop] %></span>
+</div>
+<% } %>
+```
+
+**Ergebnis:**
+
+```text
+    data.oneobject.attribute1 = 1
+    data.oneobject.attribute2 = 2
+```
+
+(In Markdown sind Farben nicht sichtbar)
+
+#### Anwendungsfall für asynchrone Aufrufe
+**Block 1:**
+
+Rufen Sie die Funktion sendToAsync mit await auf. Dieses Beispiel ruft eine Testfunktion im Admin-Adapter auf.
+
+**Block 2:**
+
+Stringifizieren Sie das Ergebnis und geben Sie es in HTML aus
+
+**Block 3:**
+
+Definition der sendToAsync-Funktion
+
+```html
+<% req = await sendToAsync("admin.0","selectSendTo",{test:"test"}); %>
+<%- JSON.stringify(req) %>
+<%
+async function sendToAsync(instance, command, sendData) {
+    console.log(`sendToAsync ${command} ${sendData}`);
+    return new Promise((resolve, reject) => {
+        try {
+            vis.conn.sendTo(instance, command, sendData, function (receiveData) {
+                resolve(receiveData);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+%>
+```
+
+**Ergebnis:**
+
+```text
+[{"label":"Afghanistan","value":"AF"},{"label":"Åland Islands","value":"AX"},{"label":"Albania","value":"AL"}]
+```
+
+#### Anwendungsfall für eine datenbankgestützte Aufgabenliste
+##### **Einführung**
+Dieser Anwendungsfall beschreibt die Visualisierung und interaktive Bearbeitung einer To-Do-Liste aus einer MySQL-Datenbank in `ioBroker` mithilfe des `>=rssfeed 3.5.0`-Adapters. Der Fokus liegt auf der Implementierung einer einfachen Statusänderung per Button-Klick. Dieses Konzept dient als **Proof of Concept (PoC)** und kann in zukünftige Dokumentationen integriert werden.
+
+---
+
+##### **Datenbankstruktur (MySQL)**
+Zunächst wird eine MySQL-Datenbank mit dem Namen `test` angelegt. Sie enthält eine Tabelle `test` mit den folgenden Feldern:
+
+- `id`: Eindeutige ID für jeden Eintrag
+- `todo`: Titel des To-Do-Eintrags
+- `action`: Status des Eintrags (0 = in Bearbeitung, 1 = abgeschlossen)
+
+###### **SQL-Code zur Tabellenerstellung**
+<details><summary>Details</summary><pre><code>
+
+```sql
+
+CREATE TABLE `test` (
+`id` int(11) NOT NULL,
+`todo` varchar(100) NOT NULL,
+`action` int(11) NOT NULL
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+SERT INTO `test` (`id`, `todo`, `action`) VALUES
+, 'Todo 1', 0),
+, 'Todo 2', 1),
+, 'Todo 3', 1),
+, 'Todo 4', 0);
+
+TER TABLE `test`
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE KEY `id` (`id`),
+ADD KEY `idx` (`id`);
+
+TER TABLE `test`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MMIT;
+
+`
+
+</code></pre> </details>
+
+---
+
+##### **Integration in ioBroker**
+###### **SQL-Adapter**
+Für die Interaktion mit der Datenbank wird der Adapter `ioBroker.sql` benötigt.
+Er ist entsprechend konfiguriert, um eine Verbindung zur MySQL-Datenbank `test` herzustellen.
+Beachten Sie, dass `ioBroker` automatisch eigene Strukturen in der Datenbank erstellt, um Verlaufsdatenpunkte zu speichern.
+
+###### **RSSFeed-Adapter und JSONTemplate-Widget**
+Zur Visualisierung verwenden wir das Widget `JSONTemplate`.
+
+**Wichtige Hinweise:**
+
+- In „vis 2“ ist das Widget im Adapter „vis-2-widget-ovarious“ enthalten.
+- In Zukunft soll dieses Widget in „ioBroker.jsontemplate“ integriert werden, sobald „bluefox“ die Build-Kette stabilisiert.
+
+##### **Integration in VIS**
+Wir platzieren das Widget `JSONTemplate` und füllen folgende Felder aus:
+
+###### **Vorlagencode**
+<details><summary>Details</summary><pre><code>
+
+```html
+
+tyle>
+  .btn {
+      width: 100%;
+  }
+style>
+able>
+  <tr>
+      <th>ID</th>
+      <th>Todo</th>
+      <th>Action</th>
+  </tr>
+
+t todos = await getTodo();
+r (let i = 0; i < todos.length; i++) {
+  let todo = todos[i];
+
+  <tr>
+      <td><%- todo.id %></td>
+      <td><%- todo.todo %></td>
+      <td><%- getButton(todo.id, todo.action) %></td>
+  </tr>
+ } %>
+table>
+
+cript>
+ndow.jsontemplate = { clicktodo: clicktodo };
+
+nction getButton(id, action) {
+  let text = action === 0 ? "In Progress" : "Completed";
+  return `<button class="btn" onclick="window.jsontemplate.clicktodo(this)" data-id="${id}" data-action="${action}">${text}</button>`;
+
+
+nction clicktodo(el) {
+  let id = el.dataset.id;
+  let action = el.dataset.action;
+  let nextAction = action == 0 ? 1 : 0;
+  setAction(id, nextAction);
+
+
+ync function getTodo() {
+  let req = await sendToAsync("sql.0", "query", "SELECT * FROM test.test");
+  return req.result;
+
+
+ync function setAction(id, action) {
+  await sendToAsync("sql.0", "query", `UPDATE test.test SET action = ${action} WHERE id = ${id}`);
+  vis.setValue("local_trigger", Math.random());
+
+
+ync function sendToAsync(instance, command, sendData) {
+  return new Promise((resolve, reject) => {
+      try {
+          vis.conn.sendTo(instance, command, sendData, (receiveData) => resolve(receiveData));
+      } catch (error) {
+          reject(error);
+      }
+  });
+
+script>
+
+`
+
+</code></pre> </details>
+
+###### **Datenpunkt zum Aktualisieren von Inhalten**
+Um sicherzustellen, dass Aktualisierungen nach einer Statusänderung berücksichtigt werden, fügen wir den folgenden lokalen Datenpunkt hinzu:
+
+```text
+local_trigger
+```
+
+Dieser Datenpunkt **muss nicht explizit erstellt werden**, da `local_?`-Datenpunkte intern innerhalb von VIS verarbeitet werden (siehe `vis`-Dokumentation).
+
+##### **Code-Erklärung**
+###### **Vorlagenstruktur**
+| Zeile | Inhalt |
+|-------|--------|
+| 1-5 | CSS-Stile für das Erscheinungsbild von Schaltflächen |
+| 6-11 | Tabellenkopf mit Spalten ID, Todo, Action |
+| 12-16 | Daten aus der MySQL-Datenbank mit `getTodo()` abrufen |
+| 23-28 | Globale Referenz der Funktion `clicktodo()` |
+| 30-37 | `getButton()` Funktion zum Erstellen einer Schaltfläche mit dem aktuellen Status |
+| 38-44 | `clicktodo()` Funktion zum Ändern des Status per Button-Klick |
+| 45-48 | `getTodo()` Funktion zum Abrufen von Daten über den SQL-Adapter |
+| 49-52 | `setAction()` Funktion zum Aktualisieren des Datenbankeintrags |
+| 53-58 | `sendToAsync()`-Funktion zur Verwendung von `async/await` mit `vis.conn.sendTo()` |
+| 53-58 | Funktion „sendToAsync()“ zur Verwendung von „async/await“ mit „vis.conn.sendTo()“ |
+
+## Vorlagensystem
+## Tags
+Das Vorlagensystem arbeitet mit bestimmten Tags.
+Die verwendeten Tags haben folgende Bedeutung:
+
+| `tag` | Beschreibung |
+| ----- | ------------------------------------------------------------------- |
+| <%= | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable wird maskiert. |
+| <%- | Der Inhalt des enthaltenen Ausdrucks/der enthaltenen Variable ist nicht maskiert. |
+| <% | Keine Ausgabe, wird für eingeschlossene Javascript-Anweisungen verwendet |
+| %> | ist im Allgemeinen ein schließender Tag, der einen der vorherigen vervollständigt |
+
+Alles außerhalb dieser Tags wird unverändert angezeigt oder, falls HTML vorhanden, als HTML interpretiert.
+In der Vorlage stehen Ihnen zwei vordefinierte Variablen zur Verfügung.
+
+### Beispielobjekt
+Für alle folgenden Beispiele wird das folgende JSON verwendet.
+
+```json
+{
+  "onearray": ["one", "two"],
+  "oneobject": {
+    "attribute1": 1,
+    "attribute2": 2
+  },
+  "onenumber": 123,
+  "onetext": "onetwothree"
+}
+```
+
+Attribute könnten wie folgt ausgegeben werden
+
+**Vorlage:**
+
+```html
+<%- data.onenumber %> <%- data.onetext %>
+```
+
+**Ergebnis:**
+
+```text
+    123 onetwothree
+```
+
+Auf Arrays kann über einen Index zugegriffen werden. Der Index beginnt immer mit 0. Es gibt jedoch auch Fake-Arrays, bei denen der Index nicht mit 0 beginnt oder sogar aus Text besteht. Hier gelten die Regeln für Objekte. Im obigen Beispiel wäre dies
+
+**Vorlage:**
+
+```html
+<%- data.onearray[0] %> <%- data.onearray[1] %>
+```
+
+**Ergebnis:**
+
+```text
+    one two
+```
+
+Wenn Sie versuchen, ein Array direkt ohne Index auszugeben, gibt die Vorlage alle Elemente durch Kommas getrennt aus
+
+**Vorlage:**
+
+```html
+<%- data.onearray %>
+```
+
+**Ergebnis:**
+
+```text
+    one,two
+```
+
+Arrays können auch aus einer Sammlung von Objekten bestehen. Das Beispiel hier enthält nur ein einfaches Array. Ein Beispiel für Arrays mit Objekten folgt später.
+
+**Vorlage:**
+
+```html
+<% for (var i = 0; i < data.onearray.length ; i++ ) { %> <%- data.onearray[i] %>
+<% } %>
+```
+
+**Ergebnis:**
+
+```text
+    one two
+```
+
+**Objekte** können einzelne Attribute, Arrays oder wiederum Objekte enthalten. Das bedeutet, dass JSON-Daten beliebig tief verschachtelt werden können.
+
+Attribute eines Objekts können mit der Punktnotation oder der Klammernotation angesprochen werden. Die Punktnotation funktioniert nur, wenn das Attribut bestimmten Namenskonventionen entspricht (das erste Zeichen muss ein Buchstabe sein, die restlichen Ziffern, Buchstaben oder ein Unterstrich).
+Die Klammernotation funktioniert auch für Attribute, die nicht der Namenskonvention entsprechen.
+
+**Punktnotation:**
+
+**Vorlage:**
+
+```html
+<%- data.oneobject.attribute1 %>
+```
+
+**Klammernotation:**
+
+**Vorlage:**
+
+```html
+<%- data.oneobject["attribute1"] %>
+```
+
+**Ergebnis für beide Beispiele:**
+
+```text
+    1
+```
+
+Schleife über die Attribute eines Objekts
+
+**Vorlage:**
+
+```html
+<% for (var prop in data.oneobject) { %> <%- "data.oneobject." + prop + " = " +
+data.oneobject[prop] %> <% } %>
+```
+
+**Ergebnis:**
+
+```text
+    data.oneobject.attribute1 = 1
+    data.oneobject.attribute2 = 2
+```
+
+## Verfügbare Variablen in Vorlagen
+### `rss.meta`
+Hier finden Sie alle Metainformationen zum Feed. Folgende Inhalte stehen zur Verfügung. Die Bezeichner sind meiner Meinung nach selbsterklärend. In der Hilfe werde ich sie genauer beschreiben. Oder geben Sie den Inhalt an (einige sind Arrays). Nur im RSS-Feed-Widget 2 ist ein vollständiger Satz der Metainformationen verfügbar.
+
+Die Verwendung in der Vorlage finden Sie unter **Vorlage basierend auf Beispiel**
+
+- `meta.title`
+- `meta.description`
+- `meta.link`
+- `meta.xmlurl`
+- `meta.date`
+- `meta.pubdate`
+- `meta.author`
+- `Metasprache`
+- `meta.image`
+- `meta.favicon`
+- `meta.copyright`
+- `meta.generator`
+- `meta.categories`
+
+### `rss.articles or articles`
+Ist ein Array mit einzelnen Elementen (JavaScript-Array). Jedes Element hat folgende Eigenschaften.
+Damit es passt, setze ich beispielsweise das Präfix item davor. Das kannst du aber auch selbst wählen. Es muss nur in der Schleife (forEach) entsprechend benannt werden. Auch hier sind die Bezeichner selbsterklärend. Nicht alle Attribute sind in jedem Feed ausgefüllt. Die wichtigsten sind bereits in der obigen Vorlage enthalten.
+
+Die Artikel sind als rss.articles im RSS-Feed-Widget 2 und als Artikel im RSS-Feed-Multi-Widget 3 verfügbar
+
+Die Verwendung in der Vorlage finden Sie unter **Vorlage basierend auf Beispiel**
+
+- `item.title`
+- `item.description`
+- `item.summary`
+- `item.link`
+- `item.origlink`
+- `item.permalink`
+- `Artikel.Datum`
+- `item.pubdate`
+- `item.author`
+- `item.guid`
+- `item.comments`
+- `item.image`
+- `item.categories`
+- `item.source`
+- `item.enclosures`
 
 ## Vorlage basierend auf Beispielen
-Ein Beispiel, das ich mit folgenden RSS-Feeds getestet habe:
+### Basisvorlage RSS-Feed-Widget 2
+Die folgende Vorlage wird derzeit standardmäßig im RSS-Feed-Widget 2 verwendet.
+Sie wurde mit den folgenden Feeds getestet:
 
-* <http://www.tagesschau.de/xml/rss2>
-* <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
+- <http://www.tagesschau.de/xml/rss2> oder
+- <https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html>
 
 ```html
-<%= meta.title %>
-<% articles.forEach(function(item){ %>
+<!--
+    available variables:
+    widgetid      ->  id of the widget
+    rss.meta      ->  all meta informations of an feed, details see Meta Helper widget
+    rss.articles  ->  all articles as array, details see Article Helper widget
+    style         ->  all style settings for the widget
+
+    all variables are read only
+    -->
+<style>
+  #<%- widgetid % > img {
+    width: calc(<%- style.width %> - 15px);
+    height: auto;
+  }
+  #<%- widgetid % > img.rssfeed {
+    width: auto;
+    height: auto;
+  }
+</style>
+<p><%- rss.meta.title %></p>
+<% rss.articles.forEach(function(item){ %>
+<div class="article">
+  <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
+  <h3><%- item.title %></h3>
+  <p><%- item.description %></p>
+  <div style="clear:both;"></div>
+</div>
+<% }); %>
+```
+
+### Basisvorlage RSS-Feed Multi-Widget 3
+Die folgende Vorlage wird derzeit standardmäßig im RSS-Feed-Multi-Widget 3 verwendet.
+Bitte beachten Sie kleine Unterschiede in der Verwendung der Variablen. Sie wurde mit den folgenden Feeds getestet:
+
+```html
+<!--
+    available variables:
+    widgetid      ->  id of the widget
+    articles      ->  all articles as array, details see Article Helper widget
+                      only subset of meta information of the feed is available as
+                      articles[0].meta_name
+                      articles[0].meta_title
+                      articles[0].meta_description
+    style         ->  all style settings for the widget
+    dp[]          ->  array of addition configured datapoints
+
+    all variables are read only
+    -->
+<style>
+  #<%- widgetid %> img {
+    width: calc(<%- style.width || "230px" %> - 15px);
+    height: auto;
+  }
+  #<%- widgetid %> img.rssfeed {
+    width: auto;
+    height: auto;
+  }
+</style>
+<% rss.articles.forEach(function(item){ %>
+<p><%- item.meta_name || item.meta_title || '' %></p>
 <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
 <h3><%- item.title %></h3>
 <p><%- item.description %></p>
@@ -80,59 +653,101 @@ Ein Beispiel, das ich mit folgenden RSS-Feeds getestet habe:
 <% }); %>
 ```
 
-Das Vorlagensystem arbeitet mit bestimmten Tags.
-Die verwendeten Tags bedeuten Folgendes
-
-| Tag | Beschreibung |
-| ----- | --------------------------------------------------------------------- |
-| <%= | Der Inhalt des enthaltenen Ausdrucks / der enthaltenen Variable wird maskiert. |
-| <%- | Der Inhalt des enthaltenen Ausdrucks / der enthaltenen Variable ist nicht maskiert. |
-| <% | Keine Ausgabe, wird für eingeschlossene Javascript-Anweisungen verwendet |
-| %> | ist im Allgemeinen ein schließendes Tag, um eines der vorherigen zu vervollständigen |
-
-Alles, was sich außerhalb dieser Tags befindet, wird genau so angezeigt, wie es ist, oder wenn es sich um HTML handelt, wird es als HTML interpretiert. (siehe z.B. p-tag, div-tag, small-tag Innerhalb des Templates stehen Ihnen 2 vordefinierte Variablen zur Verfügung
-
-### `meta`
-Diese enthält alle Metainformationen zum Feed. Die folgenden Inhalte sind verfügbar. Ich denke, die Bezeichner sind selbsterklärend. In der Hilfe werde ich sie genauer beschreiben. oder geben Sie den Inhalt an (einige sind Arrays)
-
-* `meta.title`
-* `meta.description`
-* `meta.link`
-* `meta.xmlurl`
-* `meta.date`
-* `meta.publikation`
-* `meta.autor`
-* `meta.sprache`
-* `meta.image`
-* `meta.favicon`
-* `meta.Copyright`
-* `meta.generator`
-* `Meta.Kategorien`
-
-#### `articles`
-Ist ein Array mit einzelnen Elementen (Javascript-Array). Jedes Element hat die folgenden Eigenschaften.
-Damit es zum Beispiel passt, mache ich das Präfix-Item davor. Aber wenn du willst, kannst du das selbst wählen. Es muss nur in der Schleife entsprechend benannt werden (forEach). Auch hier sind die Bezeichner selbsterklärend. Nicht alle Attribute sind in jedem Feed ausgefüllt. Die wichtigsten sind bereits in der obigen Vorlage enthalten.
-
-* `Artikel.Titel`
-* `Artikel.Beschreibung`
-* `Artikel.Zusammenfassung`
-* `Artikel.Link`
-* `Artikel.Origlink`
-* `Artikel.Permalink`
-* `Artikel.Datum`
-* `Artikel.Veröffentlichungsdatum`
-* `Artikel.Autor`
-* `Artikel.guid`
-* `Artikel.Kommentare`
-* `Artikel.Bild`
-* `Artikel.Kategorien`
-* `Element.Quelle`
-* `Artikel.Gehäuse`
-
-## Vorlagenbeispiel und ausführliche Beschreibung
+### Beispielvorlage für RSS-Feed Multi-Widget 3 mit Artikeln als Slideshow und Prev/Next-Buttons
 ```html
-<%= meta.title %>
-<% articles.forEach(function(item){ %>
+<!--
+ available variables:
+ widgetid      ->  id of the widget
+ rss.articles  ->  all articles as array, details see Article Helper widget
+ style         ->  all style settings for the widget
+
+ all variables are read only
+-->
+
+<style>
+  #<%- widgetid %> img {
+    width: calc(<%- style.width || "230px" %> - 15px);
+    height: auto;
+  }
+  #<%- widgetid %> img.rssfeed {
+    width: auto;
+    height: auto;
+  }
+
+  .container {
+    overflow: hidden;
+    height: 100%;
+  }
+  .content {
+    position: relative;
+    border: 1px solid #ccc;
+    overflow: scroll;
+    height: 90%;
+  }
+
+  .slide {
+    position: absolute;
+    display: none;
+  }
+
+  .slide.active {
+    display: contents;
+  }
+
+  .controls {
+    margin-top: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="content">
+    <% rss.articles.forEach(function(item){ %>
+    <div class="article slide">
+      <p>
+        <small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small>
+      </p>
+      <h3><%- item.title %></h3>
+      <p><%- item.description %></p>
+      <div style="clear:both;"></div>
+    </div>
+    <% }); %>
+  </div>
+  <div class="controls">
+    <button onclick="prevSlide()">Zurück</button>
+    <button onclick="nextSlide()">Weiter</button>
+  </div>
+</div>
+
+<script>
+  currentSlide = 0;
+  slides = document.querySelectorAll(".slide");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.classList.add("active");
+      } else {
+        slide.classList.remove("active");
+      }
+    });
+  }
+
+  function prevSlide() {
+    currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+    showSlide(currentSlide);
+  }
+
+  function nextSlide() {
+    currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+    showSlide(currentSlide);
+  }
+  showSlide(currentSlide);
+</script>
+```
+
+### Vorlagenbeispiel und detaillierte Beschreibung
+```html
+<%= meta.title %> <% articles.forEach(function(item){ %>
 <p><small><%- vis.formatDate(item.pubdate, "TT.MM.JJJJ SS:mm") %></small></p>
 <h3><%- item.title %></h3>
 <p><%- item.description %></p>
@@ -140,19 +755,19 @@ Damit es zum Beispiel passt, mache ich das Präfix-Item davor. Aber wenn du will
 <% }); %>
 ```
 
-Kurzbeschreibung was in den einzelnen Zeilen passiert Z1: Die Ausgabe des Feedtitels Z2: Ohne Ausgabe. Javascript-Befehl zum Durchlaufen aller Artikel, bei jedem Durchlauf wird das aktuelle Element dem variablen Artikel zugewiesen.
-Z3: Ausgabe von Datum und Uhrzeit ist. Es ist mit einem p / small-Tag zur Formatierung versehen. Zur Formatierung wird die Funktion vis-own date format verwendet. Beschreibung finden Sie im Adaptervis.
-Z4: Die Ausgabe des Artikeltitels. Zur Formatierung wird ein Header 3 - Tag verwendet.
-Z5: Ausgabe des Inhalts des Artikels. Es ist mit einem p-Tag umschlossen. Hier ist zumindest in den beiden Beispielen HTML-Code eingebunden, der meist mit Bild und beschreibendem Text daherkommt Z6: Ausgabe eines div-Tags, das spezielle Formatierungen im Feed-html löscht (wird in beiden Beispielen für tagesschau und bild benötigt. Anderes Futter brauchte es vielleicht nicht.
-Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
+Kurzbeschreibung der einzelnen Zeilen: Z1: Ausgabe des Feedtitels. Z2: Ohne Ausgabe. Javascript-Befehl zum Durchlaufen aller Artikel, wobei bei jedem Durchlauf das aktuelle Element der Variable item zugewiesen wird.
+Z3: Ausgabe von Datum und Uhrzeit. Eingeschlossen mit einem p/small-Tag zur Formatierung. Zur Formatierung wird die vis-eigene Datumsformatfunktion verwendet. Beschreibung im Adapter vis.
+Z4: Ausgabe des Artikeltitels. Zur Formatierung wird ein Header 3-Tag verwendet.
+Z5: Ausgabe des Artikelinhalts. Eingeschlossen mit einem p-Tag. Hier wird, zumindest in den beiden Beispielen, HTML-Code eingebunden, der üblicherweise ein Bild und einen beschreibenden Text enthält. Z6: Ausgabe eines div-Tags, der spezielle Formatierungen im Feed-HTML löscht (in beiden Beispielen für tagesschau und bild wird dies benötigt. Andere Feeds benötigen dies möglicherweise nicht).
+Z7: Ohne Ausgabe. Diese Zeile schließt die Javascript-Schleife. Alles, was zwischen Z2 und Z7 definiert wurde, wird für jeden einzelnen Artikel wiederholt.
 
-## Machen
-* Unbenutzte Einträge im Datenpunkt info.lastRequest bereinigen durch Speichern im Admin-Dialog.
-* Schaltfläche zum Bereinigen nicht verwendeter Datenpunkte im Admin-Dialog
-* ~~Multi-Widget-RSS-Feeds~~
-* ~~Multi-Widget-Festzelt~~
-* ~~Weitere Datenpunkte im Template verfügbar machen.~~
-* ~~Widget für Laufschrift mit den Titeln <https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
+## Aufgaben
+- Bereinigen Sie nicht verwendete Einträge im Datenpunkt info.lastRequest, indem Sie sie im Admin-Dialog speichern.
+- Schaltfläche zum Bereinigen nicht verwendeter Datenpunkte im Admin-Dialog
+- ~~Multi-Widget-RSS-Feeds~~
+- ~~Multi-Widget-Laufschrift~~
+- ~~Weitere Datenpunkte im Template verfügbar machen.~~
+- ~~Widget für Laufschrift mit den Titeln <https://forum.iobroker.net/topic/31242/nachrichten-ticker-newsticker-via-php-in-vis-einbinden/2>~~
 
 ## Changelog
 
@@ -160,185 +775,295 @@ Z7: Ohne Ausgang. Diese Zeile schloss die Javascript-Schleife. Alles, was zwisch
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.5.2 (2025-03-20)
+
+- improve build
+
+### 3.5.1 (2025-03-20)
+
+- improve build
+
+### 3.5.0 (2025-03-18)
+
+- make async function calls available in templates
+
+### 3.4.1 (2025-02-18)
+
+- fix eslint
+- introducing a new attribute opentype to open the links in the marquee widget
+
+### 3.3.1 (2025-01-23)
+
+- add an accept request header, because axios send only application/json
+
+### 3.3.0 (2025-01-21)
+
+- upgrade version js-controller
+- switch from request to axios
+
+### 3.2.0 (2024-11-27)
+
+- update jsonconfig responsive
+- switch to iobroker/eslint
+- improver adapter code
+- improve widget code
+
+### 3.1.0 (2024-08-11)
+
+- adjust dependency to js-controller in a minor release
+
+### 3.0.2 (2024-08-09)
+
+- add keyword in package.json
+
+### 3.0.1 (2024-08-09)
+
+- add template example for articles as a Diashow
+- adjust dependency to js-controller
+
+### 3.0.0 (2024-07-24)
+
+- update multifeed widget 3 and deprecate multifeed widget 2
+- breaking change: in rssfeed widget 2: articles and meta have to be changed to rss.articles and rss.meta
+
+### 2.10.0 (2024-07-11)
+
+- fine tuning on templates and available variables
+- fine tuning on format and translation
+- move widget documentation form doc.html to readme
+
+### 2.9.10 (2024-07-11)
+
+- update images for dark and light theme
+
+### 2.9.9 (2024-07-11)
+
+- update packages
+- update formating and improve error logging
+- remove detailed sentry status reporting
+- fix subscribing states
+
+### 2.9.8 (2024-07-09)
+
+- ignore widgets in vis-2
+- add restart vis/vis2
+
+### 2.9.7 (2024-06-22)
+
+- formating code
+- remove common.main from io-package.json
+
+### 2.9.6 (2024-06-06)
+
+- fix branch name in link
+
+### 2.9.4 (2024-06-05)
+
+- test release after rename branch from master to main
+
+### 2.9.3 (2024-06-05)
+
+- switch branchname from master to main
+- add node 22 to tests
+
+### 2.9.2 (2024-06-04)
+
+- add some translations
+- fix warning from adapter checker
+
+### 2.9.1 (2024-06-03)
+
+- update iobroker files and settings
+
+### 2.8.2 (2024-04-21)
+
+- (bluefox) Fixed loading of words.js in vis
+
+### 2.8.1 (2023-03-15)
+
+- (bluefox) Corrected vis widget
+- admin changed to jsonConfig, dev-environment now devcontainer
+
+### 2.7.0 (2022-12-11)
 
 ### 2.6.1 (2022-07-30)
 
-* add more informations to sentry
+- added more information to sentry
 
 ### 2.6.0 (2022-07-26)
 
-* add sentry
+- added sentry
 
 ### 2.4.0 (2022-07-25)
 
-* add name option to marquee widget
+- added name option to marquee widget
 
 ### 2.0.0
 
-* Rework of the admin dialog
-* Fix some errors and glitches
+- Rework of the admin dialog
+- Fix some errors and glitches
 
 ### 1.0.0
 
-* Release in stable
+- Released in stable
 
 ### 0.9.0
 
-* fix/extend json template
+- fixed/extended json template
 
 ### 0.8.0
 
-* adapt configuration pages to react.
-* Prepare for stable release
+- adapted configuration pages to react.
+- Prepared for stable release
 
 ### 0.0.30
 
-* add some template examples to the widget documentation
+- added some template examples to the widget documentation
 
 ### 0.0.29
 
-* improve error messages
-* remove deprecated widget / change widget beta flag
-* change createObject/setState logic due iobroker-controller >3.0
+- improved error messages
+- removed deprecated widget / change widget beta flag
+- changed createObject/setState logic due iobroker-controller >3.0
 
 ### 0.0.28
 
-* remove customtab
+- removed customtab
 
 ### 0.0.27
 
-* adapter configuration is now editable
+- adapter configuration is now editable
 
 ### 0.0.26
 
-* correct changelog size
+- corrected changelog size
 
 ### 0.0.25
 
-* the error messages for the template are improved
+- the error messages for the template are improved
 
 ### 0.0.24
 
-* errors in the request of feeds are now real errors in the iobroker log
-* loading of rules for ejs in the editor is improved
-* marquee3 widget: options to show time and date
+- errors in the request of feeds are now real errors in the iobroker log
+- loading of rules for ejs in the editor is improved
+- marquee3 widget: options to show time and date
 
 ### 0.0.23
 
-* republish to npm
+- republish to npm
 
 ### 0.0.22
 
-* improvements in the configuration dialog
-* remove unused admintab
-* new RSS Feed multi widget. in this widget you can add your one or more datapoints, that are available in the template.
-* New marquee widget 3 replaces the existing marquee widget 2.The marquee widget 3 is now a multi widget and can handle more than one feed. The Headlines are now aggregated.
-* the existing widget JSON template is improved. in this widget you can add your one or more datapoints, that are available in the template.
-* Remove several deprecated widgets (RSS Feed widget 1, Article Helper 1, Marquee 1, JSON template 1)
+- improvements in the configuration dialog
+- remove unused admintab
+- new RSS Feed multi widget. in this widget you can add your one or more datapoints, that are available in the template.
+- New marquee widget 3 replaces the existing marquee widget 2.The marquee widget 3 is now a multi widget and can handle more than one feed. The Headlines are now aggregated.
+- the existing widget JSON template is improved. in this widget you can add your one or more datapoints, that are available in the template.
+- Remove several deprecated widgets (RSS Feed widget 1, Article Helper 1, Marquee 1, JSON template 1)
 
 ### 0.0.21
 
-* add link option to marquee widget
-* widget help added
-* marquee widget: the divider characters (default: +++) are configurable
+- add link option to marquee widget
+- widget help added
+- marquee widget: the divider characters (default: +++) are configurable
 
 ### 0.0.20
 
-* add ejs syntax to template editor
+- add ejs syntax to template editor
 
 ### 0.0.19
 
-* try to fix marquee widget.
+- try to fix marquee widget.
 
 ### 0.0.18
 
-* try to fix the wrong NoSave dialog
+- try to fix the wrong NoSave dialog
 
 ### 0.0.17
 
-* rework setting objects and states
+- rework setting objects and states
 
 ### 0.0.16
 
-* improve logic adding rssfeed in configuration dialog
-* fix wrong icon for marquee widget
-* define default template for rssfeed widget
-* deprecate existing and replace with new version of widgets to improve naming of the attributes in case of translation
-* widget rss marquee: replace duration attribute with speed attribute and improved the calculation algorithm. now same number is same speed regardless of the length of the titles
+- improve logic adding rssfeed in configuration dialog
+- fix wrong icon for marquee widget
+- define default template for rssfeed widget
+- deprecate existing and replace with new version of widgets to improve naming of the attributes in case of translation
+- widget rss marquee: replace duration attribute with speed attribute and improved the calculation algorithm. now same number is same speed regardless of the length of the titles
 
 ### 0.0.15
 
-* fix bug saving last request in adapter configuration / improve debug messages
+- fix bug saving last request in adapter configuration / improve debug messages
 
 ### 0.0.14
 
-* update package.json and install new tools for stream encoding/decoding detection
-* implement encoding detection and stream encoding
-* change the ejs lib with a real browserified lib
+- update package.json and install new tools for stream encoding/decoding detection
+- implement encoding detection and stream encoding
+- change the ejs lib with a real browserified lib
 
 ### 0.0.13
 
-* new widget as a guest, because it is not directly related to the rssfeed functionality, but reuse the same code base. maybe later i transfer it to an own adapter. the new widget can take a json datapoint and you can visualize the data with the ejs template system.
+- new widget as a guest, because it is not directly related to the rssfeed functionality, but reuse the same code base. maybe later i transfer it to an own adapter. the new widget can take a json datapoint and you can visualize the data with the ejs template system.
 
 ### 0.0.12
 
-* now you can download the adapter configuration in the admin dialog. upload is not possible due to security restrictions in modern browsers.
+- now you can download the adapter configuration in the admin dialog. upload is not possible due to security restrictions in modern browsers.
 
 ### 0.0.11
 
-* improve admin layout
-* implement a forceRefresh button
+- improve admin layout
+- implement a forceRefresh button
 
 ### 0.0.10
 
-* fix bug a bug in marquee widget. not all styles should applied to the span tag.
+- fix bug a bug in marquee widget. not all styles should applied to the span tag.
 
 ### 0.0.9
 
-* apply widget styles also to the inner span element, because they had not any effect on the marquee.
-* renew the package-lock.json
-* add categories to save feeds in subfolders
-* improve mechanism to write only updated feeds to datapoint. the feed has new data if comparision of articles in title and description is different.
+- apply widget styles also to the inner span element, because they had not any effect on the marquee.
+- renew the package-lock.json
+- add categories to save feeds in subfolders
+- improve mechanism to write only updated feeds to datapoint. the feed has new data if comparision of articles in title and description is different.
 
 ### 0.0.8
 
-* improve lasrequest logic of the adapter
-* fix problem with datapoint naming
+- improve lasrequest logic of the adapter
+- fix problem with datapoint naming
 
 ### 0.0.7
 
-* test with encapsulation of ejs.js, becaus of error in some browsers
+- test with encapsulation of ejs.js, because of error in some browsers
 
 ### 0.0.6
 
-* add attribute duration for widget marquee to control animation duration
+- add attribute duration for widget marquee to control animation duration
 
 ### 0.0.5
 
-* new widget marquee for article titles
-* add filter function for articles. the filter searchs in title,description and categories, seceral filter criteria can be seperated by semicolon
+- new widget marquee for article titles
+- add filter function for articles. the filter searches in title,description and categories, several filter criteria can be seperated by semicolon
 
 ### 0.0.4
 
-* some adjustments in readme, io-package
+- some adjustments in readme, io-package
 
 ### 0.0.3
 
-* add addveyor build
+- add addveyor build
 
 ### 0.0.2
 
-* added widgets meta helper and article helper
+- added widgets meta helper and article helper
 
 ### 0.0.1
 
-* initial release
+- initial release
 
 ## License
 
 MIT License
 
-Copyright (c) 2021 oweitman <oweitman@gmx.de>
+Copyright (c) 2021-2025 oweitman <oweitman@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

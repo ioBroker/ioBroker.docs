@@ -34,20 +34,18 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 
 Aktiviere MQTT auf deinen Shelly-Geräten.
 
-### Generation 2 Geräte (Plus und Pro)
+### Generation 2+ Geräte (Plus und Pro)
 
 1. Öffne die Shelly-Webkonfiguration in einem Browser (nicht in der Shelly App!)
-2. Gehe zu `Networks -> Mqtt`
+2. Öffne das Tab `Settings` und gehe zu `Networks -> Mqtt`
 3. Aktiviere MQTT und gib die gerade konfigurierten Benutzerdaten und die IP-Adresse des Systems an, auf welchen ioBroker installiert ist - gefolgt vom konfigurierten Port (beispielsweise `192.168.1.2:1882`)
 4. Speichere die Konfiguration - der Shelly startet automatisch neu
 
 - **Ändere nicht die "client id" in dieser Konfiguration**
-- **Für Generation 2 Geräte (Gen2) müssen alle RPC-Optionen aktiviert werden (siehe Screenshots)!**
+- **Für Generation 2+ Geräte (Gen2+) müssen alle RPC-Optionen aktiviert werden (siehe Screenshots)!**
 - SSL/TLS darf nicht aktiviert werden
 
 ![shelly gen2](./img/shelly_mqtt-gen2.png)
-
-![shelly gen2 old](./img/shelly_mqtt-gen2-old.png)
 
 ### Generation 1 Geräte
 

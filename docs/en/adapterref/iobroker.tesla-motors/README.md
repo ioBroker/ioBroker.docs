@@ -43,10 +43,31 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 1.4.5 (2024-04-19)
+
+- cleaned up token folder to reduce state objects
+
+### 1.4.4 (2024-04-10)
+
+- improve energy history data
+
+### 1.4.3 (2024-04-10)
+
+- fix for too many state in the powerwall energy history
+
+### 1.4.2 (2023-11-17)
+
+- fix km states are not refreshed
+
+### 1.4.1 (2023-11-17)
+
+- fix \_km states are not refreshed
+
+### 1.4.0 (2023-11-14)
+
+- fix location fetching and add new option to change location fetching interval
+
 ### 1.3.5 (2023-10-24)
 
 - fix vehicle update
@@ -76,7 +97,7 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 MIT License
 
-Copyright (c) 2021-2023 iobroker-community
+Copyright (c) 2021-2029 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

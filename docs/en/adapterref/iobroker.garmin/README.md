@@ -24,6 +24,9 @@ Die garmin connect Mail und Passwort eingeben.
 <https://forum.iobroker.net/topic/59413/test-adapter-garmin>
 
 ## Changelog
+### 0.2.0 (2025-03-02)
+
+- rework login process
 
 ### 0.0.4
 
@@ -37,7 +40,7 @@ Die garmin connect Mail und Passwort eingeben.
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022-2030 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

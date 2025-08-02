@@ -35,12 +35,20 @@ If you have any device transmitting specially encoded information via advertisem
   * [Mosquito Repellent](https://www.aliexpress.com/item/32883859984.html)
 * `"mi-flora"`: Original plugin for the flower care plant sensor, now aliased to `"xiaomi"`
 * `"ruuvi-tag"`: [Ruuvi Tag](https://tag.ruuvi.com/) multisensor with firmware versions v1 and v2. **Untested, please give feedback!** 
+* `"bthome"`: Sensors using the [BTHome](https://bthome.io) protocol. For now this is limited to the `v2` revision of the protocol and does not support encrypted packets.
 
 ## Changelog
 <!--
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 0.14.1 (2025-02-09)
+* Fixed compatibility issues with newer OS and Node.js versions (#874)
+
+### 0.14.0 (2023-12-11)
+* **BREAKING:** Dropped support for Node.js 16 and below
+* Add support for the BTHome v2 protocol (unencrypted packets only)
+
 ### 0.13.4 (2023-07-06)
 * Very experimental support for scanning on a remote host (#793)
 * Another attempt at updating `noble`. Hopefully this version works now...
@@ -204,7 +212,7 @@ If you have any device transmitting specially encoded information via advertisem
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 AlCalzone <d.griesel@gmx.net>
+Copyright (c) 2017-2025 AlCalzone <d.griesel@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

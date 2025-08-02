@@ -37,43 +37,44 @@ Based on the python library "pyrainbird" from https://github.com/jbarrancos/pyra
 `rainbird.X.device.stations.Y.testZone` - Test zone Y.  
 
 
+## Credits
+
+This adapter would not have been possible without the great work of Marius Burkard <m.burkard@pixcept.de>, who previous releases of this adapter.
+
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.2 (2024-12-27)
+* (Feuersturm) @strathcole/iob-lib has been migrated to local repository (#27)
+* (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2024-12-15)
+* (Feuersturm) Some minor corrections to installations news and some internal changes at pacakging have been applied.
+
+### 2.0.0 (2024-12-13)
+* (Feuersturm) BREAKING: The password is stored encrypted now. Please reenter you password at configuration page. This is required only once after migration from release < 2.0.0 to release 2.0.0 or newer.
+* (mcm1957) Adapter requires node.js 20 now
+* (mcm1957) Adapter requires js-controller 5 and admin 6  now
+* (Feuersturm) switch adapter config to jsonconfig
+* (mcm1957) Dependencies have been updated
+
+### 1.0.1 (2024-06-06)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Adapter has been move to iobroker-community-adapters organization
+* (mcm1957) Adapter-core has been adapter, adapter supports js-controller 6 now.
+* (mcm1957) Dependencies have been updated
 
 ### 0.2.3
-
 -   Fixed problem with sensor data
 -   Added seasonal water budget adjust information
-
-### 0.2.2
-
--   Added fixes for adapter crashes on failed connection to controller
-
-### 0.2.1
-
--   Added support for run times on different controller model
--   Less polling for some states to reduce requests to controller
-
-### 0.2.0
-
--   Added remaining irrigation time of zone
--   Fixed bug in decoding responses
-
-### 0.1.2
-
--   Fixed adapter stalling on connection timeout
-
-### 0.1.1
-
--   Smaller fixes
-
-### 0.1.0
-
--   First running Version
 
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024-2025, iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -93,7 +94,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
-## Donate
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFLJ8HCW9T698&source=url)

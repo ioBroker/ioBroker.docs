@@ -9,8 +9,8 @@
 ![Screenshot](img/widgets.png)
 
 Widgets, that can show coordinates on a map.
-Actually supported only Open Stree Maps and Google. To use Google Maps you should get the API Key for google maps.
-You can get it [here](https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend&keyType=CLIENT_SIDE&reusekey=true)
+Actually supported only Open Street Maps and Google. To use Google Maps you should get the API Key for Google Maps.
+You can get it [here](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ## Usage
 
@@ -22,13 +22,27 @@ You can bind longitude and latitude apart or just place into **longitude** the O
 - 49.0000,7.0001 (latitude , longitude + swap flag)
 - 49.0000;7.0001 (latitude ; longitude + swap flag)
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 ## Changelog
+### 1.1.2 (2024-07-12)
+- fix datapoint handling for lat/lan
+- Make data points in 0_userdata work again
+
+### 1.1.0 (2024-03-07)
+- (bluefox) Removed dependency to `iobroker.vis`. Only show the message if vis is not installed
+
+### 1.0.5 (2024-01-14)
+- (bluefox) Added vis-2 to the restart by installation
+
 ### 1.0.4 (2020-03-18)
 - (bluefox) Small errors were fixed
 
 ### 1.0.3 (2020-01-25)
 - (TA2k) Fix OSM issue with Safari
-  
+
 ### 1.0.2 (2018-07-06)
 - (bluefox) Event click on pins added
 
@@ -51,5 +65,5 @@ You can bind longitude and latitude apart or just place into **longitude** the O
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2016-2020 bluefox <dogafox@gmail.com>
+ Copyright (c) 2016-2024 bluefox <dogafox@gmail.com>
  MIT

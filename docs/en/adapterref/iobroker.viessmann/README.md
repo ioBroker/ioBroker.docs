@@ -32,19 +32,23 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 1.4.6 (2023-10-31)
-* (misanorot) fixed open connection after unload
+### 1.7.1 (2025-06-01)
+* (ghecker1) optimize reconnect
 
-### 1.4.5 (2023-08-13)
-* (misanorot) fixed issue #135
+### 1.6.0 (2025-05-03)
+* (misanorot) node 20 require
 
-### 1.4.4 (2023-06-21) 
-* (misanorot) Fixed JS-Controller 5 issues
+### 1.5.4 (2025-01-08)
+* (misanorot) protect password
 
-**[older changelogs](CHANGELOG_OLD.md)**
+### 1.5.3 (2024-12-19)
+* (misanorot) fixed issue #245 ESlint
+
+### 1.5.0 (2024-10-21)
+* (misanorot) fixed issue #235 Responsive
 
 ### License
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 misanorot <audi16v@gmx.de>
+Copyright (c) 2017-2025 misanorot <audi16v@gmx.de>

@@ -23,30 +23,31 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 ## Inhaltsverzeichnis
 
 - [MQTT Protokoll](protocol-mqtt.md)
-- [CoAP Protokoll](protocol-coap.md)
+- [CoAP/CoIoT Protokoll](protocol-coap.md)
 - [Geschützter Login](restricted-login.md)
 - [Zustandsänderungen](state-changes.md)
 - [Debug](debug.md)
 - [FAQ](faq.md)
 
 ## Anforderungen
-1. Node.js 16.0 (oder neuer)
-2. js-controller 3.3.22 (oder neuer)
-4. Admin Adapter 6.0.0 (oder neuer)
+
+1. Node.js 20 (oder neuer)
+2. js-controller 6.0.0 (oder neuer)
+3. Admin Adapter 6.6.0 (oder neuer)
 
 ## Geräte-Generationen
 
 Für mehr Informationen, siehe *supported devices*.
 
-- **Gen1**: ESP8266 Geräte, [CoAP](protocol-coap.md) oder [MQTT](protocol-mqtt.md)
-- **Gen2**: ESP32 Geräte, [MQTT](protocol-mqtt.md)
+- **Gen 1**: ESP8266 Geräte, [CoAP/CoIoT](protocol-coap.md) oder [MQTT](protocol-mqtt.md)
+- **Gen 2+**: ESP32 Geräte, [MQTT](protocol-mqtt.md)
 
 ## Allgemein
 
 Der Adapter kann über MQTT (empfohlen) oder CoAP/CoIoT mit den Geräten kommunizieren.
 
 - Der Standard-Modus des Adapters ist MQTT (siehe [Dokumentation](protocol-mqtt.md) für mehr Informationen)
-- CoAP ist ausschließlich mit Gen1 Geräten kompatibel!
+- CoAP/CoIoT ist ausschließlich mit Gen1 Geräten kompatibel!
 - **Falls Gen2-Geräte integriert werden sollen, muss MQTT konfiguriert werden!**
 
 Fragen? Schaue zuerst in die [FAQ](faq.md)!
@@ -61,42 +62,68 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 -->
 ### **WORK IN PROGRESS**
 
-* (klein0r) Updated handling of ble payloads
+* (@klein0r) Allow infinite event listeners
+* (@klein0r) Added transformed voltage for voltmeter
+* (@klein0r) Improved logging of mqtt authentication failures
 
-### 6.6.1 (2023-10-20)
+### 10.0.0 (2025-05-30)
 
-* (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2
-* (klein0r) Added humidity of Shelly Plus Addon
-* (klein0r) Not all devices have external power
+* (@mcm1957) ATTENTION: Adapter requires BLE Script v1.0 now. See [documentation](https://github.com/iobroker-community-adapters/ioBroker.shelly/blob/master/docs/en/ble-devices.md).
+* (@klein0r) Moved BTHome decoding to adapter (save memory on devices)
+* (@klein0r) Allow encrypted payloads of BTHome devices (set encryption key in state)
 
-### 6.6.0 (2023-10-17)
+### 9.5.1 (2025-05-10)
 
-* (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
+* (@mcm1957) ATTENTION: Reworked configuration of inputs could effect some devices.
+* (@mcm1957) ResetPower has been added to Shelly switches supporting power measurement. [#1156]
+* (@mcm1957) ResetPower has been added to Gen2+ PM type devices.
+* (@mcm1957) Shelly Plus Uni (shellyplusuni) - configuration of inputs reworked.
+* (@mcm1957) Shelly Plus Uni (shellyplusuni) - support to reset counters added.
+* (@mcm1957) Added sensors (Temperature, Voltmeter, Humidity, analog Input) to Shelly Plus Uni (shellyplusuni).
+* (@mcm1957) Issues reported by repositor checker have been fixed.
+* (@mcm1957) Dependencies have been updated
 
-### 6.5.0 (2023-10-17)
+### 9.5.0 (2025-05-03)
 
-* (klein0r) Added Shelly Plus Smoke
-* (klein0r) Added Shelly Bluetooth Low Energy Gateway
-* (theimo1221) More Shelly TRV Datapoints
+* (@mcm1957) Added Shelly Pro Dimmer 0/1-10V PM (shellypro0110pm).
+* (@mcm1957) Added Shelly Pro RGBWW PM (shellyprorgbwwpm) - Note: CCT component still missing.
+* (@mcm1957) Added Shelly AZ Plug (shellyazplug).
+* (@mcm1957) Added Shelly EM Gen 3 (shellyemg3).
+* (@mcm1957) Added 'total returned energy' to Gen2+ EM devices.
+* (@mcm1957) Added 'Relay' to Shelly Pro EM 50 [#1038].
+* (@mcm1957) Added Ogemray 25A (ogemray25a).
+* (@mcm1957) Added energy states to Shelly Plus RBGW PM (shellyrgbwpm) [#1099].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 1 PM (shellyprodm1pm) [#1129].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 2 PM (shellyprodm2pm) [#1067, #1056, #1037].
+* (@mcm1957) Added energy states to Shelly Plus 0-10V Dimmer Gen 3 (shelly0110dimg3) [#1103].
 
-### 6.4.5 (2023-09-26)
+### 9.4.1 (2025-04-17)
 
-* (klein0r) Added Shelly Pro Dual Cover/Shutter PM
-* (klein0r) Added Shelly Pro 3 EM 400A
-* (JuniperChris929) Added support of Shelly Plus 1 Mini + Shelly Plus 1 PM Mini
-* (BooosesThaSnipper) Added support of Shelly Plus AddOn for Gen2 Devices.
-* (D1gitaldad) Added support of Plus PM Mini
+* (@mcm1957) Minimum value for min_brightness fixed for dimmer1/2 [#1166]
 
-### 6.4.1 (2023-04-23)
+### 9.4.0 (2025-04-16)
 
-* (viper4gh) Added Shelly Pro 3 EM energy data
-* (klein0r) Fixed IP handling in Docker containers
+* (@klein0r) Added Gen4 devices (see documentation for details)
+
+### 9.5.0 (2025-05-03)
+
+* (@mcm1957) Added Shelly Pro Dimmer 0/1-10V PM (shellypro0110pm).
+* (@mcm1957) Added Shelly Pro RGBWW PM (shellyprorgbwwpm) - Note: CCT component still missing.
+* (@mcm1957) Added Shelly AZ Plug (shellyazplug).
+* (@mcm1957) Added Shelly EM Gen 3 (shellyemg3).
+* (@mcm1957) Added 'total returned energy' to Gen2+ EM devices.
+* (@mcm1957) Added 'Relay' to Shelly Pro EM 50 [#1038].
+* (@mcm1957) Added Ogemray 25A (ogemray25a).
+* (@mcm1957) Added energy states to Shelly Plus RBGW PM (shellyrgbwpm) [#1099].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 1 PM (shellyprodm1pm) [#1129].
+* (@mcm1957) Added energy states to Shelly Pro Dimmer 2 PM (shellyprodm2pm) [#1067, #1056, #1037].
+* (@mcm1957) Added energy states to Shelly Plus 0-10V Dimmer Gen 3 (shelly0110dimg3) [#1103].
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Thorsten Stueben <thorsten@stueben.de>,
+Copyright (c) 2018-2025 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

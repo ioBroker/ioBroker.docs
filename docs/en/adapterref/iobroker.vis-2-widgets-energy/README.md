@@ -25,6 +25,21 @@ This widget set consists of the following widgets:
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.2 (2024-08-06)
+* (bluefox) updated packages
+
+### 1.0.0 (2024-07-07)
+* (bluefox) Removed withStyles package
+
+### 0.3.12 (2024-06-09)
+* (bluefox) Allowed setting the title color
+
+### 0.3.11 (2024-02-16)
+* (bluefox) show value with green color if we feed back into power line
+
+### 0.3.9 (2023-11-10)
+* (bluefox) update packages
+
 ### 0.3.8 (2023-09-20)
 * (bluefox) Added support of counters for consumption
 
@@ -64,7 +79,7 @@ This widget set consists of the following widgets:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

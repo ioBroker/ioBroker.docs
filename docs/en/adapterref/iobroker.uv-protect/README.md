@@ -18,7 +18,7 @@
 UV-Protect from openUV-API
 
 **************************************************************************************************************
-
+## Support adapter development
 **If you like it, please consider a donation:**
   
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
@@ -34,6 +34,46 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### __WORK IN PROGRESS__
+* (simatec) dependencies updated
+
+### 0.6.6 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small fix
+
+### 0.6.5 (2025-01-11)
+* (simatec) eslint-config fix
+* (simatec) Code fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 0.6.4 (2024-11-24)
+* (simatec) json5 added
+* (simatec) Dependencies updated
+* (simatec) small Design Fix
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 0.6.3 (2024-09-26)
+* (simatec) Fix for Admin 7.1.5
+
+### 0.6.2 (2024-09-21)
+* (simatec) Dependencies updated
+* (simatec) small Design Fix
+
+### 0.6.1 (2024-09-16)
+* (simatec) Dependencies updated
+* (simatec) dev-server added
+* (simatec) Repo Check fix
+* (simatec) Responsive Design added
+
+### 0.6.0 (2024-02-05)
+* (simatec) Dependencies updated
+* (simatec) gulp deleted
+* (simatec) @iobroker/adapter-dev
+* (simatec) Translation updated
+
 ### 0.5.1 (2023-11-02)
 * (simatec) Dependencies updated
 
@@ -112,7 +152,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2021 - 2023 simatec
+Copyright (c) 2021-2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
 ---
 ![Logo](../../admin/trashschedule.png)
 
@@ -22,13 +22,15 @@ function sendText(text) {
 
 ```javascript
 schedule('0 18 * * *', async () => {
-    const nextDateFound = getState('trashschedule.0.next.dateFound').val;
-    const daysLeft = getState('trashschedule.0.next.daysLeft').val;
+    const nextDateFoundState = await getStateAsync('trashschedule.0.next.dateFound');
+    const daysLeftState = await getStateAsync('trashschedule.0.next.daysLeft');
 
-    if (nextDateFound && daysLeft == 1) {
-        const nextText = getState('trashschedule.0.next.typesText').val;
+    if (nextDateFoundState.val && daysLeftState.val == 1) {
+        const nextTextState = await getStateAsync('trashschedule.0.next.typesText');
 
-        sendText(`Trash will be picked up tomorrow: ${nextText}`);
+        if (nextTextState && nextTextState.val) {
+            sendText(`Trash will be picked up tomorrow: ${nextTextState.val}`);
+        }
     }
 });
 ```
@@ -37,13 +39,40 @@ schedule('0 18 * * *', async () => {
 
 ```javascript
 schedule('0 7 * * *', async () => {
-    const nextDateFound = getState('trashschedule.0.next.dateFound').val;
-    const daysLeft = getState('trashschedule.0.next.daysLeft').val;
+    const nextDateFoundState = await getStateAsync('trashschedule.0.next.dateFound');
+    const daysLeftState = await getStateAsync('trashschedule.0.next.daysLeft');
 
-    if (nextDateFound && daysLeft == 0) {
-        const nextText = getState('trashschedule.0.next.typesText').val;
+    if (nextDateFoundState.val && daysLeftState.val == 0) {
+        const nextTextState = await getStateAsync('trashschedule.0.next.typesText');
 
-        sendText(`Trash will be picked up today: ${nextText}`);
+        if (nextTextState && nextTextState.val) {
+            sendText(`Trash will be picked up today: ${nextTextState.val}`);
+        }
+    }
+});
+```
+
+## Notify about missing trash types in calendar
+
+```javascript
+schedule('0 12 * * *', async () => {
+    const notFoundJsonState = await getStateAsync('trashschedule.0.type.jsonNotFound');
+
+    if (notFoundJsonState && notFoundJsonState.val) {
+        try {
+            const notFoundTypes = JSON.parse(notFoundJsonState.val);
+            const notFoundTypesWarn = notFoundTypes.filter(t => !t.hideWarnings);
+
+            if (notFoundTypesWarn.length > 0) {
+                const text = notFoundTypesWarn
+                    .map(t => t.name)
+                    .join(', ');
+
+                sendText(`Some trash type are missing in calendar: ${text}`);
+            }
+        } catch (err) {
+            console.error(err);
+        }
     }
 });
 ```

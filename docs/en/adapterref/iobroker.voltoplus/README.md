@@ -37,6 +37,10 @@ or any associated subsidiaries, logos or trademarks.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.1.4 (2024-09-30)
+* Update dependencies
+* Fix issues found by adapter checker
+
 ### 0.1.3 (2023-07-27)
 * stable release
 
@@ -57,7 +61,7 @@ or any associated subsidiaries, logos or trademarks.
 ## License
 MIT License
 
-Copyright (c) 2023 Jey Cee <jey-cee@live.com>
+Copyright (c) 2025 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

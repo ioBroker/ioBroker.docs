@@ -5,7 +5,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.hilink
 hash: zbN8N2aPAc+ULr/C6cpbWjv2a1jhhd9OK0iBvHByapI=
 ---
-![логотип](../../../en/adapterref/iobroker.hilink/admin/hilink.png)
+![Логотип](../../../en/adapterref/iobroker.hilink/admin/hilink.png)
 
 ![Количество установок](http://iobroker.live/badges/hilink-stable.svg)
 
@@ -15,16 +15,16 @@ hash: zbN8N2aPAc+ULr/C6cpbWjv2a1jhhd9OK0iBvHByapI=
 
 [Русский](https://github.com/bondrogeen/iobroker.hilink/blob/master/docs/ru/README.md)
 
-Проверено на модемах: E3372h-153_Update_22.323.01.00.143_M_AT_05.10 E3372s Update_22.286.53.01.161_S_ADB_TLN_03 E3272s 22.491.09.00.00 17.100.08.00.03-Mod1.2
+Протестировано на модемах: E3372h-153_Update_22.323.01.00.143_M_AT_05.10 E3372s Update_22.286.53.01.161_S_ADB_TLN_03 E3272s 22.491.09.00.00 17.100.08.00.03-Mod1.2
 
-Прошивки и другую информацию можно найти здесь - http://4pda.ru/forum/index.php?showtopic=582284&
+Прошивку и другую информацию можно найти здесь - http://4pda.ru/forum/index.php?showtopic=582284&
 
-Совместимость E3372 (МТС 827F / 829F, МегаФон M150-2, Билайн E3372 / E3370, TELE2 E3372р-153, МТС 824F, Мегафон M100-4, Билайн E3272).
+Совместимость E3372 (МТС 827F/829F, МегаФон M150-2, Билайн E3372/E3370, TELE2 E3372р-153, МТС 824F, Мегафон M100-4, Билайн E3272).
 
 - подключение, отключение от сети и перезагрузка модема
 - читать входящие и исходящие сообщения.
-отправка сообщений.
-отправка запросов ussd.
+- отправка сообщений.
+- отправка ussd-запросов.
 - получение основных параметров модема, информации о трафике.
 
 ```javascript
@@ -80,6 +80,9 @@ sendTo("hilink.0",'clear','outbox',function (response){
 ```
 
 ## Changelog
+
+#### 0.3.0
+* (bondrogeen) update
 
 #### 0.2.8
 * (bondrogeen) add E3272s

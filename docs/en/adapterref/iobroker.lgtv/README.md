@@ -177,6 +177,33 @@ is true when TV is on and false if TV is off
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2024-12-27)
+
+* (uKL) Ability to unicast the WOL packet has been added. This is needed if sender and TV are on different subnets.
+* (mcm1957) Dependencies have been updated
+
+### 2.3.2 (2024-12-21)
+
+* (mcm1957) Poll-interval limited to 5s minimum.
+* (mcm1957) Compact mode has been disabled due to outdated timer handling.
+* (mcm1957) Dependencies have been updated
+
+### 2.3.1 (2024-12-03)
+
+* (Feuer-Sturm) Some default values and limits of paramaters have been corrected.
+
+### 2.3.0 (2024-12-02)
+
+* (mcm1957) Adapter requires node.js 20 now.
+* (mcm1957) Adapter requires js-controller 5 and admin 6 now.
+* (Jey-Cee) Adapter has been migrated to jsonConfig and responsive design rules have been applied.
+* (mcm1957) Dependencies have been updated.
+
+### 2.2.0 (2024-04-13)
+
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.1.2 (2023-10-26)
 
 - (agross) Functionality of state.on turning false immediately after turning off the TV with turnOff has been restored. [#165]
@@ -318,6 +345,7 @@ is true when TV is on and false if TV is off
 
 MIT License
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2023 Sebastian Schultz.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

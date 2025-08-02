@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
+hash: unbugf5ftTb/BE8Q4uqsUfz2KGBUs9exwOd/mkoxahs=
 ---
 ![标识](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -41,7 +41,7 @@ hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
 您可以像代理中的所有其他数据点一样使用此适配器的数据点。
 要获得一些想法，请参阅“示例”。
 
-您可以通过 [块示例](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml) 测量太阳能电网输出并自动将 Pilot 调整至正确的电流值 (Amp)，以改善内部能耗。
+您可以通过 [块示例](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml) 测量太阳能电网输出并自动将 Pilot 调整至正确的电流值 (Amp)，以改善内部能耗。
 您只需复制示例的内容即可导入它，然后通过 Blockly 脚本右上角的“导入块”图标插入它。
 
 ## 适配器有什么作用？
@@ -82,6 +82,17 @@ hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.3 (2023-12-24)
+- Fixed a bug where the adapter would use a undefined variable
+- Fixed bug #44
+- Fixed bug #43
+
+### 4.6.2 (2023-08-15)
+- Thanks to Norb1204 for fixing a few bugs that I missed. More in Issue #40
+
+### 4.6.1 (2023-08-15)
+- Fixed Issue #39 (set_state not working)
+
 ### 4.6.0 (2023-07-15)
 - Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
 - Fixed a number of issues concerning the static parser mode
@@ -221,7 +232,7 @@ hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
 ## License
 MIT License
 
-Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2024 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

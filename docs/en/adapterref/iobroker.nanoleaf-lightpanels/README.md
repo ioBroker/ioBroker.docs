@@ -59,6 +59,10 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
 
+### 1.5. (2024-04-21)
+* (daniel_2k) new: added Skylight device
+* (daniel_2k) changes: use keep alive for HTTP connections to avoid SNAT port exhaustion (e.g. Docker environments)
+
 ### 1.4.0 (2023-07-16)
 * (daniel_2k) changed: use adapter-core for js-controller 5 compatibility
 

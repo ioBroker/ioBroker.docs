@@ -79,6 +79,9 @@ sendTo("hilink.0",'clear','outbox',function (response){
 
 ## Changelog
 
+#### 0.3.0
+* (bondrogeen) update
+
 #### 0.2.8
 * (bondrogeen) add E3272s
 

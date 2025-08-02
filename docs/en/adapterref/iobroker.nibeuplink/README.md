@@ -10,6 +10,8 @@
 
 ## nibeuplink adapter for ioBroker
 
+**The nibeuplink API has been officially discontinued! For this reason, this ioBroker adapter will not be developed any further! Please use the myUplink adapter!**
+
 This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
 This adapter does NOT work with Nibe myUplink! It therefore does NOT work with S-series heat pumps such as Nibe VVM S320.
 
@@ -49,6 +51,13 @@ You can read other values but I think you can't write other values. Other values
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.3.2 (2024-11-10)
+- The nibeuplink API has been officially discontinued! For this reason, this ioBroker adapter will not be developed any further! Please use the myUplink adapter!
+- Dependencies have been updated
+
+### 1.3.1 (2023-12-23)
+- Bump dependencies
+
 ### 1.3.0 (2023-08-27)
 - Remove NodeJS 14 support
 - Support strings as parameters in the management #241
@@ -174,7 +183,7 @@ https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 MIT License
 
-Copyright (c) 2023 Sebastian Häßelbarth <seb@sebmail.de>
+Copyright (c) 2024 Sebastian Häßelbarth <seb@sebmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

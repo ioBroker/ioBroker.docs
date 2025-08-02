@@ -4,9 +4,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.lightcontrol.svg)](https://www.npmjs.com/package/iobroker.lightcontrol)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lightcontrol.svg)](https://www.npmjs.com/package/iobroker.lightcontrol)
-![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.lightcontrol?label=npm%20vulnerabilities&style=flat-square)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.lightcontrol?style=flat-square)
-![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.lightcontrol?label=npm%20dependencies&style=flat-square)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ![GitHub](https://img.shields.io/github/license/schmakus/iobroker.lightcontrol?style=flat-square)
@@ -33,7 +31,7 @@
 
 ## Installation
 
-Please use the "adapter list" & Beta Repository in ioBroker to install a beta version of this adapter. You can also use the CLI to install this adapter:
+Please use the "adapter list" & Stable Repository in ioBroker to install a version of this adapter. You can also use the CLI to install this adapter:
 
 ```
 iobroker add lightcontrol
@@ -41,9 +39,9 @@ iobroker add lightcontrol
 
 ## Documentation
 
-[🇺🇸 Documentation](./en/lightcontrol.md)
+[🇺🇸 Documentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/en/lightcontrol.md)
 
-[🇩🇪 Dokumentation](./docs/de/lightcontrol.md)
+[🇩🇪 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/de/lightcontrol.md)
 
 ## ToDo
 
@@ -59,45 +57,38 @@ iobroker add lightcontrol
 
 ### **WORK IN PROGRESS**
 
+-   (Schmakus) fix responsive issues
+
+### 2.0.0 (2025-03-06)
+
 -   (Schmakus) update dependencies
--       (Schmakus) fixed AutoOnLux (Cannot read properties of undefined (reading 'minLux'))
+-   (Schmakus) Admin 7.4.10 required
+-   (Schmakus) Node 20 required
+-   (Schmakus) fix responive issues
 
-### 0.4.0 (2023-08-16)
+### 1.0.1 (2024-09-02)
 
--   (Schmakus) Node >=16 and NPM >=7 necessary!
--   (Schmakus) fixed rampOff.time
 -   (Schmakus) update dependencies
 
-### 0.3.0 (2023-07-17)
+### 1.0.0 (2024-09-02)
 
--   (Schmakus) (thoml95) Changed conversion of color-temperature (edit of ct-states required)
--   (Schmakus) (thoml95) fixed some bugs related to powerCleaningLight
--   (Schmakus) Some code improvements
--   (Schmakus) Update Docu
+-   (Schmakus) update dependencies
 
-### 0.2.18 (2023-07-08)
+### 0.8.0 (2024-08-16)
 
--   (Schmakus) Fixed CtReverse [#149]
--   (Schmakus) Fixed translation for light [#136]
--   (Schmakus) Fixed warning min/max of ct-state [#148]
--   (Schmakus) Fixed Set Color-Temperature (set null value)
+-   (Schmakus) Adapter requires node.js >= 18 and Admin >=6 now
+-   (Schmakus) Dependencies have been updated
+-   (Schmakus) Fixed repo checker issues
 
-### 0.2.17 (2023-05-17)
+### 0.7.0 (2024-07-02)
 
--   (Schmakus) Fix error by init of customConfig, if no light description is available
--   (Schmakus) Fix error by set Ct, Color,... if no lights or groups defined
--   (Schmakus) Some code improvements
-
-### 0.2.16 (2023-05-10)
-
--   (Schmakus) Fix AdaptiveCt - StartYoureDay Interpolated
--   (Schmakus) Update docs
+-   (Schmakus) Dependencies have been updated
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Schmakus <schmakus@gmail.com>
+Copyright (c) 2025 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

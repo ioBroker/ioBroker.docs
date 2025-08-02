@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pushbullet/README.md
 title: Адаптер pushbullet ioBroker
-hash: CtKKZqxl/lmSpVf4JdH+/LeT9EhUHhmLI5c+DX5vhTk=
+hash: GlBZrRqM51m4t6OgF1QSrM9o1GgemUdJtEQO8f7CtbI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pushbullet/admin/pushbullet.png)
 
@@ -43,11 +43,25 @@ sendTo("pushbullet", {
 });
 ```
 
-<!-- Заполнитель следующей версии (в начале строки):
-
-### **РАБОТА В ПРОГРЕССЕ** -->
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.1.0 (2024-04-25)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 2.0.1 (2023-10-09)
+- (mcm1957) Dependencies have been updated
+
+### 2.0.0 (2023-10-09)
+- (mcm1957) first official release after migration to iobroker-community-adapters
+
+### 2.0.0-alpha.0 (2023-09-30)
+- (mcm1957) Adapter has been migrated to iobroker-community-adapters area
+- (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2023-09-10)
 * (bluefox) Breaking change: Only node version 16+ supported
 * (bluefox) Added JSON config and used the latest version of a pushbullet library
@@ -82,6 +96,7 @@ sendTo("pushbullet", {
 
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2023 Jens1809
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

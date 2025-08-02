@@ -4,55 +4,55 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.admin/tab-hosts.md
 title: The Hosts tab
-hash: Jnt6k6H3Zc3NxzBPrWKISqelf4FWzT2DqjFE1jk2OjQ=
+hash: A0PX3gNVnrOQijF2MxOe4AXudr5VPDE9MVykcpPXSng=
 ---
 # The Hosts tab
 The available hosts are displayed here.
 
-In a standard system there is only one host. With a [multihost system](http://www.iobroker.net/?page_id=3068&lang=de), several accordingly.
+In a standard system there is only one host. In a [multihost system](http://www.iobroker.net/?page_id=3068&lang=de) there are several.
 
 ## The title line
-The title bar contains icons for the most important processes. There is context help for each icon. Simply hold the mouse on the icon for a while.
+In the title bar there are icons for the most important processes. There is context help for each icon. Simply hold the mouse over the icon for a while.
 
 ![](../../../de/adapterref/iobroker.admin/img/tab-hosts_Hosts_icons.jpg)
 
 ### **The icons in detail:**
 ### **1.) Get updates**
-To check whether there is an update for the js-controller, you can click on this button. If there is an update, the label on the tab appears in green and the new version is displayed in the _**available**_ column.
+To check whether there is an update for the js-controller you can click on this button. If there is an update the tab label appears in green and the new version is displayed in the _**available**_ column.
 
-### **2.) Filters**
-With this field you can filter the list of hosts according to your own needs
+### **2.) Filter**
+With this field you can filter the list of hosts according to your wishes
 
 ## The page content
-The existing hosts are displayed in tabular form on the page.
+The page displays the available hosts in a table.
 
 ![](../../../de/adapterref/iobroker.admin/img/tab-hosts_Hosts_01.jpg)
 
 The table consists of the following columns:
 
 ### **3.) Name**
-This is the unique name of each host, as set in the host's operating system. This name must be unique.
+This is the unique name of each host as defined in the host's operating system. This name must be unique.
 
 ### **4.) Restart Host**
-The corresponding host can be restarted with this button. Clicking on it corresponds to the **_reboot_** command.
+This button can be used to restart the corresponding host. Clicking it corresponds to the command **_reboot_**.
 
 ### **5.) Type**
-Specification on which engine the host is running.
+Specifies which engine the host is running on.
 
 ### **6.) Title**
-full engine name, typically ioBroker.js-controller
+full name of the engine, usually ioBroker.js-controller
 
 ### **7.) Platform**
-Specification of the software basis on which the engine is based.
+Specifies the software basis on which the engine is based.
 
 ### **8.) Operating system**
-Specification of the operating system running on the host.
+Specifies the operating system running on the host.
 
-### **9 available**
-Indication of the latest available version of the engine
+### **9.) Available**
+Specifying the latest available version of the engine
 
 If a newer version of the engine is available, it can be updated via the console.
-If available, this should always be done first, before you start updating the adapter.
+This should always be done first if available, before starting to update the adapter.
 
 ### **9.) Installed**
-Specification of the installed version of the engine
+Specifying the installed version of the engine

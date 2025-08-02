@@ -3,136 +3,179 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.resol/README.md
 title: ioBroker.resol
-hash: PrkSK9V9UrIMTJzsbmV+Z7A3Kqad2Gbst21lsMXgIBg=
+hash: 9HCa9stLdL1IsFVVCVRtsPGj20vxrIdve7AmpWJjKZQ=
 ---
 # IoBroker.resol
 ![Логотип](../../../en/adapterref/iobroker.resol/admin/resol.svg)
 
-![Количество установок (последние)](http://iobroker.live/badges/resol-installed.svg)
-![версия NPM](https://img.shields.io/npm/v/iobroker.resol.svg)
+![Количество установок (последнее)](http://iobroker.live/badges/resol-installed.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.resol.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/resol-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Grizzelbee/ioBroker.resol/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.resol.svg?downloads=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.resol.svg)
 
-[![CodeQL] (https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/codeql-analysis.yml) [![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/codeql-analysis.yml) [![Тестирование и выпуск](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.resol/actions/workflows/test-and-release.yml)
 
 ## Кредиты
-Этот адаптер является производным от адаптера myVbus и основан на работе DutchmanNL и pdbjjens. Большое спасибо им обоим за их работу.
-Поскольку pdbjjens хотел только считывать значения с vbus, а некоторым людям необходимо получить больше контроля над своими устройствами - этот адаптер был поднят.
+Этот адаптер создан на основе адаптера myVbus и основан на работе DutchmanNL и pdbjjens. Большое спасибо им обоим за их работу.
+Поскольку pdbjjens хотел только считывать значения из vbus, а некоторым людям нужно больше контроля над своими устройствами, был создан этот адаптер.
 Здесь вы получаете возможность управлять своим контроллером vbus.
 
 ## Адаптер ioBroker для Resol VBus
-Этот адаптер подключает различные устройства на базе VBus к ioBroker, поддерживая различные типы подключения.
+Этот адаптер подключает различные устройства на базе VBus к ioBroker, поддерживая различные типы подключений.
 
-&gt; Если вам нравится этот адаптер и вы можете поддержать меня<br/> &gt; [![Пожертвовать через PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+&gt; Если вам понравился этот адаптер и вы хотите меня поддержать<br/> &gt; [![Пожертвовать через PayPal](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
-Он использует resol-vbus, библиотеку JavaScript, предоставленную Даниэлем Випперманном.
-Посетите <https://github.com/danielwippermann/resol-vbus>, если вы заинтересованы в более глубоком погружении.
+Он использует resol-vbus, библиотеку JavaScript, предоставленную Дэниелом Випперманном.
+Пожалуйста, посетите <https://github.com/danielwippermann/resol-vbus>, если вам интересно более глубокое погружение.
 
 ## Функции
-* Позволяет считывать данные измерений с различных устройств RESOL(R) VBus(R) — предпочтительно, солнечных и системных контроллеров серии DeltaSol(R), включая встроенные счетчики количества тепла (HQM) — с помощью регистраторов данных DL3 или DL2, KM2 модули связи, адаптеры интерфейса VBus/LAN или шлюзы последовательной/LAN локально через TCP/IP.
-* Также поддерживается доступ к устройству с помощью адаптера последовательного интерфейса VBus/USB или через VBus.net(R) с использованием DLx/KMx.
-* Обрабатывает живые потоки данных VBus и делает их доступными в состоянии ioBroker.
+* Позволяет считывать данные измерений с различных устройств RESOL(R) VBus(R) — предпочтительно солнечных и системных контроллеров серии DeltaSol(R), включая встроенные счетчики количества тепла (HQM) — с использованием регистраторов данных DL3 или DL2, коммуникационных модулей KM2, адаптеров интерфейса VBus/LAN или последовательных/LAN-шлюзов локально через TCP/IP.
+* Также поддерживается доступ к устройству с использованием адаптера последовательного интерфейса VBus/USB или через VBus.net(R) с использованием DLx/KMx.
+* Обрабатывает потоки данных VBus в реальном времени и делает их доступными в виде состояний ioBroker.
 * Значения обновляются с настраиваемым временем цикла.
-* Чтение или установка параметров конфигурации устройства VBus не поддерживается. Для этого следует использовать инструменты, предоставляемые Resol, например. через VBus.net или инструмент параметризации RPT.
+* Чтение или настройка параметров конфигурации устройства VBus не поддерживается. Для этого следует использовать инструменты, предоставляемые Resol, например, через VBus.net или инструмент параметризации RPT.
 * Чтение канала 0 DL3 (датчики, напрямую подключенные к устройству DL3) не поддерживается из-за ограничений интерфейса DL3.
 
 ## Советы по настройке
-* По умолчанию для типа соединения установлено значение VBus/LAN, но его необходимо явно выбрать даже для VBus/LAN, иначе соединение не будет установлено.
-* Правильные настройки прямого доступа к локальной сети для VBus/LAN, DL3, DL2, KM2:
-  * Тип подключения: VBus/LAN или KM2 или DL2 или DL3
-  * Идентификатор соединения: IP-адрес (например, 192.168.178.188) или FullyQualifiedHostName (например, host1.example.com)
-  * Пароль VBus: YourVBusPassword (по умолчанию: vbus)
-  * Порт подключения: настройка по умолчанию 7053 не должна изменяться.
-  * Канал DL3: относится только к DL3 (значения 1-6, канал 0 не может быть прочитан)
-  * Интервал обновления: время между обновлениями измеренных значений (по умолчанию 30 с).
-* Правильные настройки доступа DL3, DL2, KM2 через VBus.net:
-  * Тип подключения: vbus.net
-  * Идентификатор соединения: оставьте пустым
-  * Порт подключения: настройка по умолчанию 7053 не должна изменяться.
-  * Пароль VBus: YourVBusPassword (по умолчанию: vbus)
-  * Канал DL3: относится только к DL3 (значения: 1-6, канал 0 не может быть прочитан)
-  * Идентификатор Via: Ваш тег Via (например, d1234567890.vbus.io) - без префикса http://
-  * Интервал обновления: время между обновлением измеренных значений (по умолчанию 30 с).
+* По умолчанию тип соединения установлен на VBus/LAN, но его необходимо явно выбрать даже для VBus/LAN, в противном случае соединение не будет установлено.
+* Правильные настройки для прямого доступа к локальной сети для VBus/LAN, DL3, DL2, KM2:
+* Тип подключения: VBus/LAN или KM2 или DL2 или DL3
+* Идентификатор соединения: IP-адрес (например, 192.168.178.188) или FullyQualifiedHostName (например, host1.example.com)
+* Пароль VBus: YourVBusPassword (по умолчанию: vbus)
+* Порт подключения: значение по умолчанию 7053 не следует менять.
+* Канал DL3: актуально только для DL3 (значения 1-6, канал 0 не может быть считан)
+* Интервал обновления: время между обновлениями измеренных значений (по умолчанию 30 с)
+* Правильные настройки для доступа DL3, DL2, KM2 через VBus.net:
+* Тип подключения: vbus.net
+* Идентификатор соединения: оставьте пустым
+* Порт подключения: значение по умолчанию 7053 не следует менять.
+* Пароль VBus: YourVBusPassword (по умолчанию: vbus)
+* Канал DL3: актуально только для DL3 (значения: 1-6, канал 0 не может быть считан)
+* Идентификатор Via: Ваш тег Via (например, d1234567890.vbus.io) - без http:// перед ним
+* Интервал обновления: время между обновлениями измеренных значений (по умолчанию 30 с)
 
 ### Примеры:
 #### Подключение через USB/последовательный порт
-| Операционная система | Устройство подключения | Адрес устройства | Порт | DL3-канал | через тег |
+| Операционная система | Устройство подключения | Адрес устройства | Порт | Канал DL3 | Тег Via |
 |------------------|------------------|---------------------|------|-------------|---------|
-| Окна | USB/последовательный | COMx | | Нет | |
-| Линукс | | /dev/tty.usbserial/ | | Нет | |
+| Windows | USB/Serial | COMx | | Нет | |
+| Linux | | /dev/tty.usbserial/ | | Нет | |
 
-#### Подключение по локальной сети
+#### Подключение через локальную сеть
 Это включает в себя:
 
-  * ЛВС
-  * Устройства КМ2
-  * Устройства DL2
-  * Устройства DL3 (выбор канала важен, канал 0 не поддерживается)
-  * Шлюзы Serial to LAN
+* Локальная сеть
+* Устройства KM2
+* Устройства DL2
+* Устройства DL3 (выбор канала важен, канал 0 не поддерживается)
+* Последовательные шлюзы в локальную сеть
 
-| | Устройство подключения | Адрес устройства | Порт | DL3-канал | через тег |
+| | Устройство-подключения | Адрес-устройства | Порт | Канал-DL3 | Тег-через |
 |---------|------------------------------|---------------------------|----------------|-------------------------------------|-------------|
-| | выберите свое устройство из списка | IP-адрес вашего устройства | TCP-порт | Канал DL3 для использования, если применимо | оставить пустым |
-| Пример | км2 | 192.168.17x.xxx | 7053 (по умолчанию) | Нет | |
-| Пример | ДЛ2 | 192.168.17x.xxx | 7053 (по умолчанию) | Нет | |
-| Пример | ДЛ3 | 192.168.17x.xxx | 7053 (по умолчанию) | Канал х | |
+| | выберите свое устройство из списка | IP-адрес вашего устройства | TCP-порт | Канал DL3 для использования, если применимо | оставьте пустым |
+| Пример | KM2 | 192.168.17x.xxx | 7053 (по умолчанию) | Нет | |
+| Пример | DL2 | 192.168.17x.xxx | 7053 (по умолчанию) | Нет | |
+| Пример | DL3 | 192.168.17x.xxx | 7053 (по умолчанию) | Канал x | |
 
 #### Подключение через vbus.net от Resol
-Вы найдете свой личный Via-tag для каждого устройства на главной странице vbus.net в разделе: My VBus.net - Мои устройства.
+Вы найдете свой личный Via-тег для каждого устройства на домашней странице vbus.net в разделе: Мой VBus.net - Мои устройства.
 Лучше всего скопировать/вставить его оттуда - **без http://**
 
-| | Устройство подключения | Адрес устройства | Порт | DL3-канал | через тег |
+| | Устройство-подключения | Адрес-устройства | Порт | Канал-DL3 | Тег-через |
 |-------------------|---------------------------|----------------|----------------|-------------|----------------------------------|
-| | выберите vbus.net из списка | оставить пустым | TCP-порт | Нет | ваш Via-тег от resol vbus.net |
-| Пример КМ2/ДЛ2 | vbus.net | | 7053 (по умолчанию) | Нет | d01234567890.vbus.net |
-| Пример КМ2/ДЛ2 | vbus.net | | 7053 (по умолчанию) | Нет | d01234567890.vbus.io |
-| Пример Dl3 | vbus.net | | 7053 (по умолчанию) | Канал х | d01234567890.vbus.io |
+| | выберите vbus.net из списка | оставьте пустым | TCP-порт | Нет | ваш Via-тег из resol vbus.net |
+| Пример KM2 / DL2 | vbus.net | | 7053 (по умолчанию) | Нет | d01234567890.vbus.net |
+| Пример KM2 / DL2 | vbus.net | | 7053 (по умолчанию) | Нет | d01234567890.vbus.io |
+| Пример Dl3 | vbus.net | | 7053 (по умолчанию) | Канал x | d01234567890.vbus.io |
 
-#### Отправка команд на resol устройство
-Отредактируйте файл вашего контроллера, который вы найдете в установленном каталоге «lib\resol-setup».
+#### Отправка команд на устройство resol
+Отредактируйте файл вашего контроллера, который вы найдете в установленном каталоге 'lib\resol-setup'
 
-{"dp": [{"dpName":"Pumpe1","type":"число","min":0,"max":2}, {"dpName":"Pumpe2","type":" число","мин":0,"макс":2}, {"dpName":"AutoRueckkuehl","тип":"число","мин":0,"макс":1} ],
+{"dp": [{"dpName":"Pumpe1","type":"number","min":0,"max":2}, {"dpName":"Pumpe2","type":"number","min":0,"max":2}, {"dpName":"AutoRueckkuehl","type":"number","min":0,"max":1} ],
 
-"fct": [{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val ":"val"}, {"name":"AutoRueckkuehl","cmds":[{"cmd":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val ":"val"}]} ]}
+"fct": [{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val":"val"}, {"name":"AutoRueckkuehl","cmds":[{"cmd":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val":"val"}]} ]}
 
-Пункты "dp" будут созданы после установки адаптера Пункты "fct", "name" есть ссылка на dpName.
-Пример: Если вы измените значение в объекте «Pumpe1», то адаптер отправляет команду «Handbetrieb1» со значением на устройство resol.
-Также возможно более одной команды. Например. "Авто Рюккюль"
+Элементы "dp" будут созданы после установки адаптера. Элементы "fct", "name" являются ссылкой dpName.
+Пример: если вы измените значение в объекте "Pumpe1", то адаптер отправит команду "Handbetrieb1" со значением на устройство resol.
+Также возможно более одной команды. Например, "AutoRueckkuehl"
 
 #### Как добавить новую команду
 например охлаждение для устройства resol cs plus
 
-Обратите внимание на идентификатор устройства в объектах разрешения (8721). Откройте файл выбора lib/resol-setup/Setup-Resol-Types.js и обратите внимание на строку, соответствующую идентификатору устройства {"id":8721,"setup":" setup-resol-deltasol-cs-plus", "data": "resol-deltasol-cs-plus-110-data"},
+Обратите внимание на идентификатор устройства в объектах resol (8721). Откройте файл селектора lib/resol-setup/Setup-Resol-Types.js и обратите внимание на строку, соответствующую идентификатору устройства {"id":8721,"setup":"setup-resol-deltasol-cs-plus","data":"resol-deltasol-cs-plus-110-data"},
 
 Откройте файл resol-deltasol-cs-plus-110-data.js в каталоге resol-vbus/src/configuration-optimizers. Найдите в этом файле «ORueckkuehlung».
 
-Откройте файл setup-resol-deltasol-cs-plus.js в каталоге lib/resol-setup/ Добавьте строку в "dp" {"dpName":"Rueckkuehlung","type":"number","min": 0,"max":1} Добавить строку в "fct" {"name":"Rueckkuehlung","cmd":"ORueckkuehlung","val":"val"},
+Откройте файл setup-resol-deltasol-cs-plus.js в каталоге lib/resol-setup/ Добавьте строку в "dp" {"dpName":"Rueckkuehlung","type":"number","min":0,"max":1} Добавьте строку в "fct" {"name":"Rueckkuehlung","cmd":"ORueckkuehlung","val":"val"},
 
 Файл должен выглядеть так
 
-{"dp": [{"dpName":"Pumpe1","type":"число","min":0,"max":2}, {"dpName":"Pumpe2","type":" число", "мин": 0, "макс": 2}, {"dpName": "Rueckkuehlung", "тип": "число", "мин": 0, "макс": 1}, {"имя dp" :"AutoRueckkuehl","тип":"число","мин":0,"макс":1} ],
+{"dp": [{"dpName":"Pumpe1","type":"number","min":0,"max":2}, {"dpName":"Pumpe2","type":"number","min":0,"max":2}, {"dpName":"Rueckkuelung","type":"number","min":0,"max":1}, {"dpName":"AutoRueckkuel","type":"number","min":0,"max":1} ],
 
-"fct": [{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val ":"val"}, {"name":"Rueckkuehlung","cmd":"ORueckkuehlung","val":"val"}, {"name":"AutoRueckkuehl","cmds":[{"cmd ":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val":"val"}]} ]}
+"fct": [{"name":"Pumpe1","cmd":"Handbetrieb1","val":"val"}, {"name":"Pumpe2","cmd":"Handbetrieb2","val":"val"}, {"name":"Rueckkuehlung","cmd":"ORueckkuehlung","val":"val"}, {"name":"AutoRueckkuehl","cmds":[{"cmd":"ORueckkuehlung","val":"val"},{"cmd":"OHolyCool","val":"val"}]} ]}
 
 Сохраните файл и перезапустите адаптер, теперь вы найдете новый объект Rueckkuehlung.
 
-## Сделать
-## Официальные уведомления
-RESOL, VBus, VBus.net, DeltaSol и другие являются товарными знаками или зарегистрированными товарными знаками RESOL - Elektronische Regelungen GmbH <https://www.resol.de/en>
+## То, что нужно сделать
+## Юридические уведомления
+RESOL, VBus, VBus.net, DeltaSol и другие являются торговыми марками или зарегистрированными торговыми марками RESOL - Elektronische Regelungen GmbH <https://www.resol.de/en>
 
-Все другие товарные знаки являются собственностью их соответствующих владельцев.
+Все остальные товарные знаки являются собственностью их владельцев.
 
 ## Сентри.ио
-Этот адаптер использует sentry.io для сбора сведений о сбоях и автоматического сообщения об этом автору.
-Для этого используется [Плагин ioBroker.sentry](https://github.com/ioBroker/plugin-sentry). Пожалуйста, обратитесь к [домашняя страница плагина](https://github.com/ioBroker/plugin-sentry) для получения подробной информации о том, что делает плагин, какая информация собирается и как его отключить, если вы не хотите поддерживать автора своей информацией о сбоях.
+Этот адаптер использует sentry.io для сбора данных о сбоях и автоматического сообщения об этом автору.
+Для этого используется [плагин ioBroker.sentry](https://github.com/ioBroker/plugin-sentry). Пожалуйста, обратитесь к [домашняя страница плагина](https://github.com/ioBroker/plugin-sentry) для получения подробной информации о том, что делает плагин, какая информация собирается и как его отключить, если вы не хотите поддерживать автора своей информацией о сбоях.
 
 ## Авторские права
-Copyright (c) grizzelbee, 2022 г. <open.source@hingsen.de>
+Авторские права (c) 2024 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### 1.5.0 (2024-10-01)
+* (grizzelbee) Upd: Fixed some issues mentioned by adapter-checker
+
+### 1.4.2 (2024-10-01)
+* (grizzelbee) Upd: Internal update
+
+### 1.4.1 (2024-10-01)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Fix: Plugin-Sentry removed
+* (grizzelbee) Upd: made release script working
+
+### 1.4.0 (2024-07-xx)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Upd: Translations got updated
+* (grizzelbee) Fix: Finished work on new jsonConfig admin-UI
+* (grizzelbee) New: Added new option for MX-Controllers to admin-UI
+* (grizzelbee) New: Admin-UI now hides options which are invalid for the selected device.
+* (gargano)    New: Integrated Actions for MX-Controller (V1 and V2)
+
+### 1.3.0 (2022-11-01)
+* (grizzelbee) Fix: [#106](https://github.com/Grizzelbee/ioBroker.resol/issues/106) Attempt to fix errors in log regarding DeltaSol-BX
+* (grizzelbee) Fix: [#108](https://github.com/Grizzelbee/ioBroker.resol/issues/106) Attempt to fix errors in log regarding DeltaSol-SLT and others
+* (grizzelbee) New: Moved Admin interface to jsonConfig 
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Upd: Translations got updated
+
+### v1.2.0 (2022-05-16)
+* (grizzelbee) New: [#106](https://github.com/Grizzelbee/ioBroker.resol/issues/106) Added support for DeltaSol-BX
+
+### v1.1.6 (2022-05-04)
+* (grizzelbee) Fix: [#103](https://github.com/Grizzelbee/ioBroker.resol/issues/103) Fixed support for Serial-to-LAN-Gateway connections (Disabled credentials handshake - which is not necessary over serial ports.)
+
+### v1.1.5 (2022-04-29)
+* (grizzelbee) New: [#96](https://github.com/Grizzelbee/ioBroker.resol/issues/96) Fixed Cosmo-Multi-2 support (Faking a DeltaSol-E now)
+
+### v1.1.0 (2022-04-28)
+* (grizzelbee) New: [#96](https://github.com/Grizzelbee/ioBroker.resol/issues/96) Added support for DeltaSol-E and improved support for Cosmo-Multi-2 controllers
+
+### v1.0.0 (2022-04-25)
+* (grizzelbee) New: [#94](https://github.com/Grizzelbee/ioBroker.resol/issues/94) Added support for Cosmo controllers (No Sensor connected = 888°C)
+* (grizzelbee) Upd: Pushed version from 0.4.4 to v1.0.0 to be compliant to semver
+* (grizzelbee) Upd: Dependencies got updated
+
 ### v0.4.4 (2022-03-17)
 * (grizzelbee) New: Added donate button to config page and readme
 * (grizzelbee) Upd: Dependencies got updated

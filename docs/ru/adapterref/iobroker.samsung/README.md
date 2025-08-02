@@ -1,55 +1,48 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.samsung/README.md
 title: без заголовка
-hash: fMqJKEXdLxR/Yz6PqBYEwadR+vbNNnWrf9oAuEToQ3Y=
+hash: yV2UJS2q2NC3u9uj++eNNGbe8+MrMbJdbL2+4YYtkvI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.samsung/admin/samsung.png)
 
 ![Количество установок](http://iobroker.live/badges/samsung-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.samsung.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.samsung.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.samsung.svg)
 
 ### IoBroker.samsung
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.samsung/workflows/Test%20and%20Release/badge.svg) <!-- [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/samsung/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.samsung/workflows/Test%20and%20Release/badge.svg) <!-- [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/samsung/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+
+**Важное примечание для пользователей Windows: для этого адаптера требуется установка git во всей системе**
 
 #### Описание
-Адаптер для телевизоров Samsung
+Адаптер для телевизоров Samsung.
 
 ### Первоначальное создание
-Этот адаптер изначально был создан @soef по адресу https://github.com/soef/ioBroker.samsung, но больше не поддерживается, поэтому мы переместили его в сообщество iobroker, чтобы можно было исправить ошибки. спасибо @soef за его работу.
-С тех пор адаптер был расширен jogibear9988 и mwp007 с дополнительным API.
+Этот адаптер изначально был создан @soef по адресу https://github.com/soef/ioBroker.samsung, но больше не поддерживается, поэтому мы переместили его в iobroker-community, чтобы можно было исправить ошибки. спасибо @soef за его работу.
+С тех пор адаптер был расширен jogibear9988 и mwp007 дополнительным API.
 
 #### Конфигурация
-Введите IP-адрес вашего телевизора Samsung.
-Выберите свой API: Samsung Remote — телевизоры до 2014 г. После установки вам необходимо подтвердить новое подключение на телевизоре Samsung HJ — 2014 и 2015 гг. После первого подключения вам необходимо ввести PIN-код, отображаемый на вашем телевизоре.
-Samsung2016 — самоочевидный SamsungTV — телевизоры Tizen после 2016 года
-
-#### Монтаж
-через админку ioBroker.
-
-В противном случае выполните следующую команду в корневом каталоге ioBroker (например, в /opt/iobroker)
-
-```
-iobroker install samsung
-```
-
-или же
-
-```
-npm install iobroker.samsung
-```
+Введите IP вашего телевизора Samsung.
+Выберите свой API: Samsung Remote — телевизоры до 2014 года. После установки вам необходимо подтвердить новое подключение на вашем телевизоре. Samsung HJ — 2014 и 2015 годов. После первого подключения вам необходимо ввести PIN-код, показанный на вашем телевизоре.
+Samsung2016 - самообъясняющее SamsungTV - Телевизоры Tizen после 2016 года
 
 #### Требования
-Самсунг ТВ<br> Серия HJ тестировалась мной на UE55HU7200. Поддержка устройств с 2016 года экспериментальная, если что-то не работает, смотрите в лог.
+телевизор Самсунг<br> Серия HJ проверена мной на UE55HU7200. Поддержка устройств с 2016 года экспериментальная, если что-то не работает, посмотрите в журнале.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+<!--
+	Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.6.0 (2024-05-24)
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Adapter uses adapter-core now
 * (Apollon77) Only Wake-On-Lan SamsungTVs on adapterstart if no token is configured
+* (mcm1957) Dependencies have been updated
 
 ### 0.5.11 (2022-06-02)
 * (Apollon77) Optimize checkOnOff logic on adapter start
@@ -63,38 +56,26 @@ npm install iobroker.samsung
 ### 0.5.8 (2022-04-23)
 * (Apollon77) Fix crash cases reported by Sentry
 
-### 0.5.7 (2022-04-19)
-* (Apollon77) Adjust logic to detect if TV is on or off
-
-### 0.5.6 (2022-03-31)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.5.5 (2022-03-30)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.5.4 (2022-03-30)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.5.3 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.5.2 (2022-03-29)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 0.5.1 (2022-03-25)
-* (Apollon77) General updates
-* (Apollon77) Add Sentry for Crash reporting
-
-### 0.5.0
-* New api Type for H and J Series (2014 + 2015)
-
-### 0.4.0
-* New api Type, removed node 4 check
-
-### 0.2.9
-* Update utils.js and usage, CI Testing and deps (Apollon77)",
-
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2017 soef <soef@gmx.net>, 2018-2022 ioBroker Community
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

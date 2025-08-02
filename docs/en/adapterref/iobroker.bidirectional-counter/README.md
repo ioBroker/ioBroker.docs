@@ -29,6 +29,33 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
+### 2.4.0 (2025-02-22)
+* (BenAhrdt) update admin and js-controller dependencies
+
+### 2.3.0 (2024-12-05)
+* (BenAhrdt) update eslint
+
+### 2.2.1 (2024-11-26)
+* (BenAhrdt) changed schema and responsive tags
+
+### 2.2.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 2.1.4 (2024-08-09)
+* (BenAhrdt) changes for check and service Bot
+
+### 2.1.3 (2023-11-14)
+* (BenAhrdt) debuglogging for changed values added
+
+### 2.1.2 (2023-11-12)
+* (BenAhrdt) translation for uk added
+* (BenAhrdt) insert check vor node version >= 16
+
 ### 2.1.1 (2023-11-02)
 * (BenAhrdt) correction in jsonconfig schema
 
@@ -78,7 +105,7 @@ The counter state will increase up from its saved value, when the shelly energy 
 ## License
 MIT License
 
-Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,29 +3,28 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
+hash: kRlj7Slv3jZyVSdfbdrinMJsFm7VzfyYy1BGtvBO2Jc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.matrix-org.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.matrix-org.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.matrix-org.svg)
 ![Количество установок](https://iobroker.live/badges/matrix-org-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/matrix-org-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.matrix-org.png?downloads=true)
 
 # IoBroker.matrix-org
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тест и выпуск](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер matrix-org для ioBroker
-Адаптер матричных push-сообщений Большое спасибо за создание матрицы (https://matrix.org/) за создание полноценной бесплатной базы для общения
+Адаптер для push-сообщений матрицы Большое спасибо за создание матрицы (https://matrix.org/) для создания полноценной бесплатной базы общения
 
 ### Конфигурация
-Лучше всего: Запустите свой собственный клиент на своем сервере!
+Лучшее: запустите собственный клиент на своем сервере!
 
-Создайте собственного пользователя в качестве BOT с паролем. Создайте комнату для всех участников, которым нужны сообщения бота. Добавьте своего бота в эту комнату (не требуется, если автоприсоединение активно). Добавить всех участников в эту комнату. Внесите все данные в конфиг. (имя бота, пароль, имя комнаты)
+Создайте собственного пользователя в качестве вашего бота с паролем. Создайте комнату для всех участников, которые хотят получать сообщения от бота. Добавьте вашего бота в эту комнату (не обязательно, если включено автоприсоединение). Добавьте всех участников в эту комнату. Поместите все данные в конфигурацию. (Имя бота, пароль, имя комнаты)
 
 ### Использование
-Добавьте столько экземпляров, сколько вам нужно. Добавьте значение в matrix-org.0.sendMessage так, как вам нравится, с помощью js. Если вы установите «image» в matrix.0.sendMessage, он отправит логотип матрицы на ваш канал.
+Добавьте столько экземпляров, сколько вам нужно. Добавьте значение в matrix-org.0.sendMessage так, как вам нравится, с помощью js. Если вы установите "image" для matrix.0.sendMessage, он отправит логотип матрицы на ваш канал.
 Или в js используйте:
 
 ```
@@ -34,7 +33,7 @@ sendTo("matrix-org.0", "Hello World!");
 
 Или используйте блочный символ в Sendto.
 
-Для образов из локальной файловой системы (Linux):
+Для изображений из локальной файловой системы (Linux):
 
 ```
 sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
@@ -46,7 +45,7 @@ sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
 sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
 ```
 
-Для изображений в качестве справки:
+Для справки изображений:
 
 ```
 sendTo("matrix-org.0",{file: "https://www.abcd/images/test.png"});
@@ -77,19 +76,19 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
 ```
 
 Если ваш клиент не может декодировать html, вы получите текст.
-Если ваш клиент не поддерживает таблицу, он либо показывает текст, либо просто 12ab.
+Если ваш клиент не поддерживает таблицу, он либо покажет текст, либо просто 12ab.
 
-### Для проверки вашей конфигурации используйте sendMessage
-просто откройте объекты и измените строку одного экземпляра matrix-org В основном порт 443, если у вас общедоступная система, такая как matrix.org Порт иногда 8448, когда у вас есть собственная система без прокси, но тогда вы знаете это.
+### Для проверки конфигурации используйте sendMessage
+просто откройте объекты и измените строку одного экземпляра matrix-org. Чаще всего это порт 443, если у вас публичная система, например matrix.org. Иногда это порт 8448, если у вас система, размещенная самостоятельно, без прокси, но тогда вы это знаете.
 
-Если хотите протестировать: Сервер: matrix.org Порт: 443, комната: #test-ioBroker-adapter:matrix.org Присоединяйтесь к этой комнате и попробуйте, используя свои учетные данные.
+Если вы хотите протестировать: Сервер: matrix.org Порт: 443 Комната: #test-ioBroker-adapter:matrix.org Присоединяйтесь к этой комнате и попробуйте, используя свои собственные учетные данные
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2024-11-23)
 * upgrade matrix-js-sdk
 * auto join added (default false)
 
@@ -167,7 +166,7 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
 ## License
 MIT License
 
-Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
+Copyright (c) 2024 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -19,6 +19,10 @@ The driver allows you to receive data and manage your Synology NAS server.
 
 If you use 2FA in DSM6/7 see instructions [here](docs/en/template.md)
 
+### Important note for Windows Installations
+
+This adapter requires git to be installed at the hist system. Installation media can be found at https://git-scm.com/download/win.
+
 ### Reboot and Shutdown
 The adapter will do this via SSH since v2.1.4, so please set the SSH port in the adapter setttings. You can see it in the Synology settings:
 ![grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png)
@@ -77,6 +81,10 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 <!--
      ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2024-04-07)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.0.1 (2023-10-01)
 * (Standarduser) A Typo in RegEx for Mac-Address has been corrected.
 * (McM1957) Dependencies have been updated.
@@ -250,6 +258,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024, iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

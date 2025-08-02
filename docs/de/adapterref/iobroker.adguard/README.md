@@ -3,40 +3,49 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.adguard/README.md
 title: ioBroker.adguard
-hash: ZONWA7AVIU0BWLNsU45LuyHkQCX3Yd5aYmfSxgbXrHs=
+hash: LjuS7ZNH3yS1ivp9ZY52sadIaODeAdRlkmzLJwwRkeU=
 ---
 ![Logo](../../../en/adapterref/iobroker.adguard/admin/adguard.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.adguard.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.adguard.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/adguard-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/adguard-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/adguard-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/adguard-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/o0shojo0o/iobroker.adguard.svg)
 ![NPM](https://nodei.co/npm/iobroker.adguard.png?downloads=true)
 
-#ioBroker.adguard
-**Tests:** ![Testen und freigeben](https://github.com/o0shojo0o/ioBroker.adguard/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.adguard
+**Tests:** ![Testen und Freigeben](https://github.com/o0shojo0o/ioBroker.adguard/workflows/Test%20and%20Release/badge.svg)
 
 ## AdGuard-Adapter für ioBroker
-AdGuard Home ist ein netzwerkweiter DNS-Server zum Blockieren von Werbung und Trackern mit Funktionen zur Kindersicherung (Blockierung von Inhalten für Erwachsene). Mit dem AdGuard-Adapter können Sie Ihre AdGuard Home-Instanz in ioBroker steuern und überwachen.
+AdGuard Home ist ein netzwerkweiter DNS-Server, der Werbung und Tracker blockiert und über die Möglichkeit zur Kindersicherung (Blockierung von Inhalten für Erwachsene) verfügt. Mit dem AdGuard-Adapter können Sie Ihre AdGuard Home-Instanz in ioBroker steuern und überwachen.
 
-## Aufbau
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von @o0Shojo0o (https://github.com/o0Shojo0o) nicht möglich gewesen, der frühere Versionen dieses Adapters entwickelt hat.
+
+## So melden Sie Probleme und Funktionsanfragen
+Verwenden Sie hierfür idealerweise GitHub-Probleme. Die beste Methode erreichen Sie, indem Sie den Adapter in den Debug-Protokollmodus versetzen (Instanzen -> Expertenmodus -> Spaltenprotokollebene). Rufen Sie dann die Protokolldatei über das ioBroker-Unterverzeichnis „log“ von der Festplatte ab, **nicht** über Admin, da dies Zeilen abschneiden würde.
+
+## Konfiguration
 1. Erstellen Sie eine neue Instanz des Adapters
-2. Geben Sie die URL/IP vom AdGurad-Server ein
+2. Füllen Sie die URL/IP vom AdGuard-Server aus
 3. Benutzername und Passwort konfigurieren
 4. Speichern Sie die Einstellungen
 5. Viel Spaß :)
 
 ## Changelog
-
 <!--
- https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2024-10-26)
+- (simatec) Admin-UI has been adapted for small displays.
+- (mcm1957) Dependencies have been updated.
+
+### 1.0.0 (2024-10-19)
+- (mcm1957) Adapter has been moved to iobroker-community-adapter organisation.
+- (mcm1957) Adapter requires js-controller 5, admin 6 and node.js 20 now.
+- (mcm1957) Dependencies have been updated.
 
 ### 0.0.8 (2021-08-18)
 
@@ -51,36 +60,12 @@ AdGuard Home ist ein netzwerkweiter DNS-Server zum Blockieren von Werbung und Tr
 -   (o0Shojo0o) more resource-efficient handling of the States
 -   (o0Shojo0o) better unload handling
 
-### 0.0.5 (2021-07-19)
-
--   (o0Shojo0o) better background color for dark theme
--   (o0Shojo0o) accept self signed certificate
-
-### 0.0.4 (2021-07-13)
-
--   (o0Shojo0o) Bugfix dark theme
-
-### 0.0.3 (2021-07-12)
-
--   (o0Shojo0o) added ratio of blocked queries by filtering queries (ratio_blocked_filtering)
--   (o0Shojo0o) added ratio of blocked queries by safe browsing (ratio_replaced_safebrowsing)
--   (o0Shojo0o) added ratio of blocked queries by parental control (ratio_replaced_parental)
--   (o0Shojo0o) added ratio of all blocked DNS queries (ratio_blocked_total)
--   (o0Shojo0o) added number of all blocked DNS queries (num_blocked_total)
-
-### 0.0.2 (2021-07-11)
-
--   (o0Shojo0o) first usable version
-
-### 0.0.1
-
--   (o0Shojo0o) initial release
-
 ## License
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

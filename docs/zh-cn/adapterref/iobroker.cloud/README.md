@@ -2,85 +2,105 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cloud/README.md
-title: ioBroker 云适配器
-hash: 4r/Wxr+2EjpbmN7uLOTJNUVz9ZPeqqpWt+taAd4r5uo=
+title: ioBroker云适配器
+hash: HlxYFaKc41+tZeW6tBgPLNImJ3M6EjDblNj9COJVCzY=
 ---
 ![标识](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
 ![安装数量](http://iobroker.live/badges/cloud-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.cloud.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.cloud.svg)
-![新PM](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.cloud.png?downloads=true)
 
 # IoBroker 云适配器
-此适配器允许通过 ioBroker 云从 Internet 连接到 ioBroker 的本地安装。
+该适配器允许通过 ioBroker 云从互联网连接到 ioBroker 的本地安装。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
-## 设置
-### APP-KEY
-要使用云适配器，您应该首先获得 [https://iobroker.net](https://iobroker.net) 上的 APP-Key。
+＃＃ 设置
+### 应用密钥
+要使用云适配器，您首先应该在[https://iobroker.net](https://iobroker.net)上获取APP-Key。
 
-这是用户可以在[https://iobroker.net](https://iobroker.net)网站上获得的应用程序密钥。请在此处获取密钥并在此处输入。
+这是用户可以在[https://iobroker.net](https://iobroker.net)网站上获取的应用程序密钥。请在那里获取密钥并在此处输入。
 
-![介绍](../../../en/adapterref/iobroker.cloud/img/intro.png)
+![简介](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ＃＃＃ 实例
-来自云适配器的所有请求都将被路由到特定的 WEB 实例。用户必须在此处指定当他登录 https://iobroker.net 站点时将显示给用户的 WEB 实例。
+来自云适配器的所有请求都将被路由到特定的 WEB 实例。用户必须在此处指定 WEB 实例；当用户登录 https://iobroker.net 网站时，该实例将显示给用户。
 
 ### 允许自签名证书
-如果您使用标准 iobroker.net 云，您可以停用它。此选项仅在使用自己的云时才重要。
+如果您使用标准 iobroker.net 云，则可以停用它。此选项仅在使用自有云时才重要。
 
 ### Alexa 设置
-*** `cloud` 适配器不再支持 Alexa。为此使用 ioBroker.iot 适配器。***
+***`cloud` 适配器不再支持 Alexa。请使用 ioBroker.iot 适配器。***
 
 ## IFTTT
 [指示](doc/ifttt.md)
 
-＃＃ 服务
+## 服务
 有可能向云适配器发送消息。
-如果您将 `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und 调用为有效负载。
+如果您调用`[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>`，则将值作为有效载荷。
 
-```
+```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-如果您在设置中将“服务白名单”字段设置为名称 *custom_test*，并使用“custom_test”作为服务名称进行调用，则状态 `cloud.0.services.custom_test` 将设置为 `myString`。
+如果您在设置中将“服务白名单”字段设置为名称*custom_test*，并以“custom_test”作为服务名称进行调用，则状态`cloud.0.services.custom_test`将被设置为`myString`。
 
-您可以在白名单中写上“*”，所有服务都将被允许。
+您可以在白名单中写入“*”，所有服务都将被允许。
 
-从版本 2.0.5 开始，您可以使用 GET 请求以 `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` 的形式将 `\<data\>` 放入 `cloud.0.services.custom_\<NAME\>`。
+从 2.0.5 版本开始，您可以使用表单 `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` 中的 GET 请求将 `\<data\>` 放入 `cloud.0.services.custom_\<NAME\>` 中。
 
-在这里您可以找到如何将其与[任务者](doc/tasker.md)一起使用的说明。
+您可以在此处找到有关如何将其与[塔斯克](doc/tasker.md)一起使用的说明。
 
-只有设置了 IFTTT 密钥，才允许使用 IFTTT 服务。
+仅当设置了 IFTTT 密钥时才允许使用 IFTTT 服务。
 
-保留名称是“ifttt”、“text2command”、“simpleApi”、“swagger”。这些必须在没有 `"custom_"` 前缀的情况下使用。
+保留名称为`ifttt`、`text2command`、`simpleApi` 和 `swagger`。使用这些名称时，必须不使用`"custom_"`前缀。
 
-### Text2command
-您可以在白名单中写入`text2command`，您可以向`https://iobroker.net/service/text2command/<user-app-key>`发送 POST 请求以将数据写入`text2command.X.text`变量。
+###文本到命令
+您可以在白名单中写入`text2command`，您可以发送 POST 请求到`https://iobroker.net/service/text2command/<user-app-key>`将数据写入`text2command.X.text`变量。
 
-“X”可以通过“使用 text2command 实例”选项在设置中定义。
+可以通过“使用 text2command 实例”选项在设置中定义“X”。
 
-### 简单API
-您可以使用以下命令（仅限专业版）：
+### 简单 API
+您可以使用以下命令（仅限专业人士）：
 
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - 读取状态值 => `{"val":103.516,"ack":true, "ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - 读取状态值 => `{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - 读取状态值 => `103.641`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - 设置状态值 => `{"result":"OK"} `
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - 设置状态值 => `{"result":"OK"}`
 
-**不要忘记将`simpleApi`添加到配置中允许的服务。**
+**不要忘记在配置中将`simpleApi`添加到允许的服务。**
 
 ### 限制
 如果在定义的 Web 实例上启用了 HTTPs（安全）或身份验证，则它不起作用。
 
-您可以在这些 Web 实例上停用 HTTPS 和身份验证，但更好的是创建一个绑定到 `localhost` 的新 Web 实例并在云设置中选择此实例。
+您可以在此 Web 实例上停用 HTTPS 和身份验证，但更好的方法是创建一个绑定到 `localhost` 的新 Web 实例并在云设置中选择此实例。
 
 <!-- 下一个版本的占位符（在行首）：
 
-### **正在进行中** -->
+### **工作正在进行** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) updated socket classes
+* (bluefox) minimum required node.js version is 18
+* (bluefox) used `@iobroker/eslint-config`
+* (bluefox) Rewritten with TypeScript
+
+### 5.0.1 (2024-02-22)
+* (bluefox) updated socket classes and fixed vis-2 error if connected via cloud
+* (bluefox) minimum required node.js version is 16
+
+### 4.4.1 (2023-04-17)
+* (bluefox) allowed to use "neural" voices for aws text-to-speech engine
+
+### 4.4.0 (2023-04-03)
+* (bluefox) Corrected error with `name` command
+* (bluefox) Corrected `text2speech` functionality
+
+### 4.3.1 (2022-12-22)
+* (bluefox) Downgrade of axios package to 0.27.2
+
 ### 4.3.0 (2022-10-27)
 * (bluefox) Corrected work with lovelace
 
@@ -89,10 +109,10 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 * (bluefox) Corrected error with iobroker.pro and delete object
 
 ### 4.2.2 (2022-08-24)
-* (bluefox) Corrected error with services list and admin6
+* (bluefox) Corrected error with service's list and admin6
 
 ### 4.2.1 (2022-07-20)
-* (bluefox) Used new version of socket library.
+* (bluefox) Used a new version of a socket library.
 
 ### 4.2.0 (2022-07-05)
 * (bluefox) Added preparations for Admin 6
@@ -124,7 +144,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 * (bluefox) Fixed error with the admin
 
 ### 4.0.8 (2021-01-31)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-CLOUD-S)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-CLOUD-S)
 * (bluefox) fix usage of credentials
 
 ### 4.0.7 (2021-01-30)
@@ -209,7 +229,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 * (grimneko) update readme for IFTTT
 
 ### 2.1.0 (2017-12-06)
-* (bluefox) Allow to disable alexa service by state
+* (bluefox) Allowed disabling alexa service by state
 
 ### 2.0.8 (2017-11-28)
 * (bluefox / Philipp Beckers) Translations
@@ -218,29 +238,29 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 * (bluefox) Changes for socket-io
 
 ### 2.0.6 (2017-10-26)
-* (bluefox) Fix small error in configuration
+* (bluefox) Fixed small error in configuration
 * (bluefox) Send uuid to cloud for authentication
 
 ### 2.0.5 (2017-09-26)
 * (bluefox) The small custom service reaction improvement
 
 ### 2.0.4 (2017-09-12)
-* (bluefox) Allow access to admin via iobroker.pro
-* (c-klinger) Add settings for the connection timeout
+* (bluefox) Allowed access to admin via iobroker.pro
+* (c-klinger) Added settings for the connection timeout
 
 ### 1.0.8 (2017-07-13)
-* (bluefox) Allow control light colors
+* (bluefox) Allowed control light colors
 
 ### 1.0.7 (2017-06-26)
 * (bluefox) AI deactivated
-* (bluefox) change ping interval from 10 to 30 seconds
+* (bluefox) changed a ping interval from 10 to 30 seconds
 * (bluefox) fix double auth on connect
 
 ### 1.0.3 (2017-05-23)
 * (bluefox) Rename some german words
 
 ### 1.0.2 (2017-05-23)
-* (bluefox) Support of IFTTT
+* (bluefox) Support for IFTTT
 
 ### 1.0.0 (2017-05-22)
 * (bluefox) Catch an error if the invalid smart name set
@@ -248,7 +268,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ### 0.8.2 (2017-04-24)
 * (bluefox) controls of colors (english only)
 * (bluefox) request temperature (target temperature and sensor temperature, english only)
-* (bluefox) support of double names
+* (bluefox) support for double names
 
 ### 0.7.1 (2017-04-05)
 * (bluefox) Fixed reconnection
@@ -267,7 +287,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 * (bluefox) Add workaround for alexa reconnection
 
 ### 0.6.9 (2017-02-17)
-* (bluefox) Allow to use more than one smart name
+* (bluefox) Allowed using more than one smart name
 
 ### 0.6.8 (2017-02-16)
 * (bluefox) Fix deactivation of enums
@@ -306,7 +326,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ### 0.3.3 (2017-01-02)
 * (bluefox) Fix error with smartNames
 * (bluefox) Take the superset of actions for group and not the last one
-* (bluefox) if group has switches and dimmers, turn devices OFF if the percent level is less than 30%
+* (bluefox) if a group has switches and dimmers, turn devices OFF if the percent level is less than 30%
 * (bluefox) Remember ON level for dimmers to switch it later ON
 
 ### 0.3.0 (2016-12-29)
@@ -327,7 +347,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

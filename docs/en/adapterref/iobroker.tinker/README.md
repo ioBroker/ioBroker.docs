@@ -1,6 +1,7 @@
 ![Logo](admin/tinker.png)
+
 # ioBroker.tinker
-===================
+---
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.tinker.svg)](https://www.npmjs.com/package/iobroker.tinker)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tinker.svg)](https://www.npmjs.com/package/iobroker.tinker)
@@ -16,64 +17,121 @@
 
 Tinker Board Monitor adapter is Modified Version of Raspberry PI Monitor adapter and OrangePi Monitor adapter for ioBroker
 
+
+## Support adapter development
 **If you like it, please consider a donation:**
   
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-### Important Information
+---
+
+## Important Information
 
 tested Hardware: Asus Tinker Board
 
 
-### Following Objects are available after selection:
+## Following Objects are available after selection:
 
-## *CPU*
-- cpu_frequency
-- load1
-- load5
-- load15
+### CPU
+* cpu_frequency
+* load1
+* load5
+* load15
 
-## *Memory*
-- memory_available
-- memory_free
-- memory_total
+### Memory
+* memory_available
+* memory_free
+* memory_total
 
-## *Network (eth0)*
-- net_received
-- net_send
+### Network (eth0)
+* net_received
+* net_send
 
-## *sdcard*
-- sdcard_root_total
-- sdcard_root_used
+### sdcard
+* sdcard_root_total
+* sdcard_root_used
 
-## *Swap*
-- swap_total
-- swap_used
+### Swap
+* swap_total
+* swap_used
 
-## *Temperature*
-- soc_temp
+### Temperature
+* soc_temp
 
-## *Uptime*
-- uptime
+### Uptime
+* uptime
 
-## *WLAN*
-- wifi_received
-- wifi_send
+### WLAN
+* wifi_received
+* wifi_send
+
+---
 
 ## Configuration
 On configuration page you can select following modules:
 
-- CPU
-- Memory
-- Network
-- sdcard
-- Swap
-- Temperature
-- Uptime
-- WLAN
+* CPU
+* Memory
+* Network
+* sdcard
+* Swap
+* Temperature
+* Uptime
+* WLAN
+
+---
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+* (simatec) Ready for NodeJS 24.x
+
+### 1.3.7 (2025-02-22)
+* (simatec) Dependencies updated
+* (simatec) small Fix
+
+### 1.3.6 (2025-01-11)
+* (simatec) eslint-config fix
+* (simatec) Dependencies updated
+* (simatec) Update License
+
+### 1.3.5 (2024-11-27)
+* (simatec) Dependencies updated
+* (simatec) Fix jsonConfig
+* (simatec) Issue Action added
+* (simatec) eslint-config added
+
+### 1.3.4 (2024-09-26)
+* (simatec) Fix for Admin 7.1.5
+
+### 1.3.3 (2024-09-21)
+* (simatec) Dependencies updated
+* (simatec) Docu updated
+* (simatec) dev-server added
+* (simatec) Repo Check fix
+* (simatec) Design Fix
+
+### 1.3.2 (2024-02-14)
+* (simatec) Design Fix
+* (simatec) Source code cleaned up
+
+### 1.3.1 (2024-02-11)
+* (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) Translation added
+* (simatec) jsonConfig added
+* (simatec) gulp deleted
+* (simatec) adapter-dev added
+
+### 1.3.0 (2024-01-07)
+* (simatec) Dependencies updated
+* (simatec) many smal Fix
+* (simatec) Translation added
+
+### 1.2.1 (2023-11-20)
+* (simatec) Dependencies updated
+
 ### 1.2.0 (2023-03-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -107,7 +165,7 @@ On configuration page you can select following modules:
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2023 simatec
+Copyright (c) 2018-2025 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

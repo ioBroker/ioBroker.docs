@@ -120,11 +120,13 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
 ```
 
 ## Changelog
- <!--
- Release Script: https://github.com/AlCalzone/release-script
- Placeholder for the next version (at the beginning of the line):
- ### __WORK IN PROGRESS__ (- falls nicht benötigt löschen sonst klammern entfernen und nach dem - dein text schreiben)
- -->
+<!--
+    ### **WORK IN PROGRESS**
+-->
+### 3.4.0 (2024-04-28)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 3.3.7 (2023-02-06)
 * (xXBJXx) added difference to jsonTable [issue #116](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/116)
 * (xXBJXx) added a log message for the error `parameter error`
@@ -142,15 +144,11 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
 ### 3.3.4 (2023-01-03)
 * (xXBJXx) Fixed an issue where a postal code starting with 0 was not displayed correctly [Issue #113](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/113)
 
-### 3.3.3 (2023-01-02)
-* (xXBJXx) fixed => adapter does not fetch data after a `requestData error` e.g. internet termination.
-* (xXBJXx) add adapter migration Guide from 3.1.x to 3.3.x or 3.2.x to 3.3.x [Migration guide](docs/guide/migration_3.3.x.md)
-* (xXBJXx) fixed Issue [Issue #111](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/111)
-
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2016-2023 xXBJXx <issi.dev.iobroker@gmail.com> pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: G1Dw09iG483BXujNGhY87hCuh9W3To0stxzuBDoOtas=
+hash: S34O7LuuqJ1xp+YU0UqptNxr6cbYr4UXePoOSuNvXwI=
 ---
 # 用于创建适配器文档的模板
 ```

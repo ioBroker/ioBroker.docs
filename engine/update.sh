@@ -10,5 +10,6 @@ cd front-end
 /usr/bin/npm i -f
 cd ..
 /usr/bin/node node_modules/gulp/bin/gulp.js buildOnly
-/usr/bin/pm2 restart doc
+PM2_PATH=$(which pm2)
+$PM2_PATH restart doc
 

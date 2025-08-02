@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fritzdect/README.md
 title: Инструкция по установке
-hash: lwwdDTRwowRvfKRVnTjca+VueSpo7Z2PQgz7nn97AoY=
+hash: pmuEeuURe1K+Xf1kOmHTZG6bguIYTS/a2guR2rrDVq0=
 ---
 ![логотип](../../../de/admin/fritzdect_logo.png)
 
@@ -17,54 +17,149 @@ hash: lwwdDTRwowRvfKRVnTjca+VueSpo7Z2PQgz7nn97AoY=
 это должен быть пользователь, имеющий доступ к Fritzbox и Smarthome
 
 # Пароль
-могут быть проблемы:
+Могут возникнуть проблемы:
 
 - Пароль длиннее 32 символов
 - Использование специальных символов
 - Использование расширенного ASCII
 
-Если есть проблемы, то, возможно, сначала возьмите более короткий и простой PW, чтобы в основном проверить механизм входа в адаптер адаптера, а затем последовательно расширяйте его.
+Если возникнут проблемы, то, возможно, сначала используйте более короткий и простой пароль для фундаментальной проверки механизма входа в систему адаптера, а затем постепенно расширяйте его.
 
 ## Настройки адаптера
-* Введите IP-адрес, которому предшествует "http://".
-* Интервал опроса может быть выбран произвольно (настройка по умолчанию 5 минут = 300 секунд). Это необходимо для отслеживания работы вне ioBroker, поскольку FritzBox не обеспечивает автоматических обновлений.
+* Введите IP-адрес с префиксом «http://»
+* Интервал опроса может быть выбран произвольно (по умолчанию 5 мин=300 сек). Это необходимо для отслеживания операций за пределами ioBroker, поскольку FritzBox не обеспечивает автоматических обновлений.
+* Если интервал опроса установлен на 0, циклические запросы не выполняются. Обновления будут выполняться только по запросу (см. Ручное обновление).
 
 ## Запуск адаптера
-с запуском адаптера делается следующее:
+При запуске адаптера происходит следующее:
 
-* FW Fritzbox запрашивается и записывается в журнал (некоторые Fritzbox не отвечают, что приводит к ошибке).
+* Прошивка Fritzbox запрашивается и записывается в журнал (некоторые Fritzbox не отвечают, и это приводит к ошибке).
 * точки данных (объекты) создаются для устройств
-* созданы точки данных (объекты) для групп
+* создаются точки данных (объекты) для групп
 * объекты снабжены данными
 
 Следующие объекты записываются только один раз при запуске:
 
-* я бы
-* прошивка
+* идентификатор
+* версия прошивки
 * производитель
-* наименование товара
-* masterdviceid
-* члены
+* название продукта
+* идентификатор основной услуги
+* участники
 
 ## Функция термостата
-Термостат может работать в автоматическом режиме (контроль температуры) и контролировать заданную температуру.
-Целевой температурой может быть комфортная температура, пониженная температура или выбранная вами температура.
+Термостат может работать в автоматическом режиме (регулирование температуры), при этом температура регулируется до заданного значения.
+Целевой температурой может быть комфортная температура, пониженная температура или температура, выбранная вами.
 
 Кроме того, клапан может быть полностью закрыт, что соответствует состоянию ВЫКЛ.
-Другое направление также может быть предварительно выбрано с помощью ON и будет соответствовать режиму BOOST или сауне (не забудьте снова отрегулировать его ;-) ).
+Другое направление также можно предварительно выбрать с помощью ON, что будет соответствовать режиму BOOST или сауны (не забудьте снова включить регулировку ;-) ).
 
-Эти в настоящее время 3 режима работы могут быть предварительно выбраны с помощью 0, 1 или 2 в режиме точки данных.
-При предварительном выборе 0-AUTO выбирается последняя целевая температура.
+В настоящее время эти 3 режима работы можно предварительно выбрать с помощью 0, 1 или 2 в режиме точек данных.
+При выборе 0-AUTO выбирается последняя установленная температура.
 
 ### Температура со смещением
-Можно скорректировать измеренную температуру в FritzBox, указав измеренную температуру, и есть смещение. Это смещение учитывается для точки данных .temp. Здесь вы получаете измерение внутренней температуры.
-Фактическая температура (actualtemp), используемая внутри контроллера радиатора, также изменяется на смещение. Это означает, что HKR внутренне регулирует исправленное значение.
-Таким образом, Atualtemp и targettemp сопоставимы для целевого/фактического прогресса.
+В FritzBox можно скорректировать измеренную температуру. Для этого вы вводите измеренную температуру и генерируется смещение. Это смещение учитывается для точки данных .temp. Здесь вы получаете данные измерения внутренней температуры.
+Фактическая температура (actualtemp), используемая внутри контроллера радиатора, также изменяется на величину смещения. Это означает, что HKR осуществляет внутреннее регулирование в соответствии с скорректированным значением.
+Таким образом, фактическая и целевая температуры сопоставимы для целевой/фактической кривой.
 
-##Исправление проблем
-Желательно посмотреть лог, если информация не содержательная или ее слишком мало, предварительно выбрать режим отладки через экспертную настройку экземпляра.
+## Ручное обновление
+Можно инициировать ручное обновление, например, между интервалами опроса или когда опрос отключен.
+Для этого отправьте экземпляру адаптера сообщение с текстом «обновление» без параметров.
+Необязательный обратный вызов выполняется после завершения обновления.
+
+Ниже приведен пример, показывающий, как запустить ручное обновление:
+
+```javascript
+sendTo('fritzdect.0', 'update', null,
+    (e) => {
+        if (e["result"]) {
+            // Update erfolgreich
+        } else {
+            console.log(e["error"]);
+        }
+    }
+);
+```
+
+## Поиск неисправностей
+Рекомендуется просмотреть журнал; если он не содержит никакой информации или содержит слишком мало информации, выберите режим отладки через экспертные настройки экземпляра.
 
 ## Changelog
+
+### 2.6.1 (npm)
+* log FW version of FB
+* DECT350 now with battery data (issue #513)
+* merge etsi devices into etsiunits (issue #597)
+
+### 2.6.0 (npm)
+* (khnz) PR#618 support on-demand updates
+* change temperature checking < 28°C extended to < 35°C (issue #619)
+* change dependencies
+
+### 2.5.13 (npm)
+* same as 2.5.12 with corrected IOB checker issues
+
+### 2.5.12 (npm)
+* skipping devices with empty identified (#598, #599), transmitted in FW8.01
+* update responsive settings
+
+### 2.5.11 (npm)
+* upadate devDeps, linting error corrections
+* iob checker corrections
+
+### 2.5.10
+* more loggimg for issue #500 of restart loop
+* some error messages downgraded to warnings
+* correction related to thermostat value take over, when reduced setting is activated
+* update devDeps
+
+### 2.5.9 (npm)
+* correction for statistics,
+* new message box password needs to be reentered in versions >=2.5.4
+* xml output for buttons "my ..."
+
+### 2.5.8 (npm)
+* more error checking processing statistics
+
+### 2.5.7 (npm)
+* only for the hint that password needs to be reentered
+
+### 2.5.6 (npm)
+* change in jsonUIconfig
+
+### 2.5.5 (npm)
+* implementation of jsonUIconfig
+
+### 2.5.4 (npm)
+* correction for excluding routines
+
+### 2.5.3 (npm)
+* correction for updating komfort, absenk
+* corrections for the statistics polling when device is not plugged in
+* correction for year to date energy value (not recognizing two digit month)
+* new possibility in admin page to exclude templates/routines/statistics for compatibility with older FB
+
+### 2.5.2 (npm)
+* correction for komfort, absenk if receiving 253/254 for OFF/ON it will be NaN see issue #164
+
+### 2.5.1
+* correction for energy today value
+
+### 2.5.0
+* getbasicdevicestats for powermeter (voltage, power, energy)
+* derived values from energy stats -> year to date, month to date, last 12 month, last 31 days, todays accumulation
+
+### 2.4.1 (npm)
+* corrections reported by adapter-checker
+
+### 2.4.0
+* new function for routines which activatetrigger
+* correction for templates and scenario (all templates are buttons, no need to check functionbitmask)
+
+### 2.3.1
+* new function gettriggerlist in admin
+* corrected xml2json-light (included drirectly in repo until PR#8 is merged in repo), caused problems with templates in newer FB-firmware
+
 ### 2.3.0
 * option to set for logging only when a difference to the old value is detected
 * fritzdect-aha-nodejs as dependency
@@ -342,4 +437,6 @@ hash: lwwdDTRwowRvfKRVnTjca+VueSpo7Z2PQgz7nn97AoY=
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2025 foxthefox <foxthefox@wysiwis.net>
+
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

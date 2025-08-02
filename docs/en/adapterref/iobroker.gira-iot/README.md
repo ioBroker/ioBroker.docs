@@ -36,9 +36,13 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.1 (2025-05-02)
 
-NodeJS 16.x is required
+NodeJS >= 20.x and js-controller >= 6 is required
+
+### 0.5.0 (2024-03-28)
+
+NodeJS >= 18.x and js-controller >= 5 is required
 
 ### 0.4.0 (2023-10-02)
 
@@ -54,21 +58,11 @@ NodeJS 16.x is required
 
 * (klein0r) Added Ukrainian language
 
-### 0.2.0 (2022-12-12)
-
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
-
-### 0.1.3 (2022-10-10)
-
-* (klein0r) Update objects if configuration changed
-* (klein0r) Fixed client registration for Gira Home Server
-
 ## License
 
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roadtraffic/README.md
 title: ioBroker.roadtraffic
-hash: YmnxW7ZtzsG+u0IO1fpwJZaBmGWFwiFcPvcI1jn7j5Q=
+hash: FiuShFzhuh6eVaPfGOG4QkRRlL0SqXobREHNpOAZ6tk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roadtraffic/admin/roadtraffic.png)
 
@@ -77,16 +77,26 @@ hash: YmnxW7ZtzsG+u0IO1fpwJZaBmGWFwiFcPvcI1jn7j5Q=
 Каждый маршрут имеет 7 каналов сигнализации (понедельник-воскресенье).
 В каждом Канале у вас есть следующие состояния:
 
-* Время прибытия: введите время, в которое вы хотите быть в пункте назначения (пример: 07:30 — половина седьмого утра).
+* Время прибытия: введите время, в которое вы хотите быть в пункте назначения (пример: 07:30 — половина восьмого утра).
 * Время купания: введите время, которое вы хотите добавить к продолжительности поездки. (Пример: 45 — 45 минут. Допустим, вы установили время прибытия на 10:00, время купания на 30 минут, а текущая продолжительность путешествия — 1 час. Тогда адаптер сработает в 08:30 (время прибытия — время купания — продолжительность путешествия).
 * включено: установите значение true, если вы хотите включить будильник на этот день.
 * сработало: адаптер установит для этого состояния значение «истина» при срабатывании сигнализации. (Например, вы можете использовать его с собственными сценариями.) Состояние срабатывания будет сброшено на false в 00:00 соответствующего дня. (Триггер субботы будет установлен на значение «ложь» в субботу в 00:00).
+
+## Кредиты
+Адаптации кода для использования HERE v8 pi были предоставлены @icastillo15 <starwarsmalu@gmail.com>.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2023-11-28)
+* (mcm1957) Role definitions have been corrected.
+
+### 1.1.0 (2023-11-27)
+* (icastillo15) Support for HERE v8 api protocoll has been added.
+* (mcm1957) Dependencies have been updated.
+
 ### 1.0.2 (2023-10-27)
 * (mcm1957) Error logging has been corrected.
 

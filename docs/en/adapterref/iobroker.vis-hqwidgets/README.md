@@ -18,6 +18,9 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 -->
 
 ## Changelog
+### 1.5.1 (2024-03-07)
+* (bluefox) Removed vis dependency and replaced with message by installation or update if vis is not installed
+
 ### 1.4.0 (2023-05-03)
 * (bluefox) Behavior of the dimmer was changed. If the current value is over 5% and the user clicks on dimmer, the dimmer will be set to 0%. If the current value is less than 5%, the dimmer will be set to 100%.
 
@@ -150,5 +153,5 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2023 bluefox <dogafox@gmail.com>
+ Copyright (c) 2013-2024 bluefox <dogafox@gmail.com>
  MIT

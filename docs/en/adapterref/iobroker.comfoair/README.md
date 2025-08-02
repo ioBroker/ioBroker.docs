@@ -7,7 +7,14 @@
 
 [![NPM](https://nodei.co/npm/iobroker.comfoair.png?downloads=true)](https://nodei.co/npm/iobroker.comfoair/)
 
-An ioBroker adapter for Zehnder Comfoair  'CA' -ventilations (i.e. ComfoAir CA350, NOT ComfoAir Q350...).
+
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+## ioBroker adapter for Zehnder Comfoair
+
+This is an ioBroker adapter for Zehnder Comfoair  'CA' -ventilations (i.e. ComfoAir CA350, NOT ComfoAir Q350...).
 
 ## Connection
 
@@ -58,6 +65,25 @@ Boostmode: set boosttime and start. Ventilation will go back to the previous lev
 Tested on comfoair CA350.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.2.2 (2024-04-24)
+
+* (mcm1957) The dependency requirements have been corrected
+* (mcm1957) Some dependencies have been updated
+
+### 1.2.0 (2024-04-14)
+
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 1.1.9 (2024-03-08)
+
+-   (mcm1957) German title of adapter has been corrected
+-   (mcm1957) Dependencies have been updated
 
 ### 1.1.8
 
@@ -167,7 +193,7 @@ Tested on comfoair CA350.
 
 The MIT License (MIT)
 
-Copyright (c) 2023 forelleblau marceladam@gmx.ch
+Copyright (c) 2023-2024 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

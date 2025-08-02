@@ -3,22 +3,32 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
+hash: EGNcl5i02TKA3DFfoJ3/aUVhdsdIU2m4DJMliS/Sq/k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![Статус сборки](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
+![Коммиты GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/homeconnect-stable.svg)
+![Количество установок](https://iobroker.live/badges/homeconnect-installed.svg)
 
 # IoBroker.homeconnect
-## Информация об установке
-Очень важно установить Node.js версии 8!!
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
 
-Для адаптера будет полезен ClientID. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
+## Часовой
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
+## Адаптер Homeconnect для ioBroker
 ## Требования перед установкой
-Должен быть установлен как минимум Node.js версии 8!
+- Узел 20, 22 или 24
+- JS-контроллер >= 6.0.11
+- Администратор >= 7.4.10
 
 Для адаптера требуется ClientID. Используйте настройки для каждого шага для регистрации.
 
@@ -26,219 +36,81 @@ hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Если вы используете **учетную запись пользователя Home Connect по умолчанию для тестирования**, где указан адрес электронной почты, при регистрации приложения Home-Connect-App этот адрес будет отправлен, а также будет полезен процесс авторизации.
-
-Для **Учетной записи пользователя Home Connect по умолчанию для тестирования** укажите адрес электронной почты, на который будет отправлено приложение Home Connect.
-был зарегистрирован, это также потребуется в дальнейшем в процессе авторизации.
+Для **Учетной записи пользователя Home Connect по умолчанию для тестирования** укажите адрес электронной почты, с которого будет отправлено приложение Home Connect.
+был зарегистрирован, это также потребуется позже в процессе авторизации.
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **Тип учетной записи** Индивидуальный аккаунт. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
-
-В поле **Тип учетной записи** выберите Индивидуальный. Добавьте оставшиеся данные, если они доступны (не знаю, будет ли это проверено).
+Для **Типа учетной записи** выберите Индивидуальный. Добавьте оставшиеся данные, если они доступны (не знаю, будут ли они проверяться).
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
 
-Пожалуйста, перейдите к разделу **Приложения** и отмените его в разделе **Зарегистрировать приложение**.
-
-Затем перейдите в раздел **Приложения**, а затем в раздел **Зарегистрировать приложение**.
+Затем перейдите в раздел **Приложения**, а затем в раздел **Регистрация приложения**.
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-**Идентификатор приложения** einen Namen für die Application eintragen, z.B. ioБрокер. Выберите **Поток OAuth** Поток устройства.
-**Учетная запись пользователя Home Connect для тестирования** kann leer bleiben. **Успешное перенаправление** eine URI eintragen, z.B. https://example.com.
-Дайте знать и еще раз, чтобы получить хороший ClientID.
+Для **Application ID** введите имя приложения, например, ioBroker. С **OAuth Flow** выберите Device Flow.
 
-В поле **Идентификатор приложения** введите имя приложения, например. ioБрокер. С помощью **Потока OAuth** выберите «Поток устройства».
-**Учетная запись пользователя Home Connect для тестирования** может оставаться пустой. Для параметра **Перенаправление успеха** введите URI, например. https://example.com.
-Затем сохраните, и у вас есть необходимый ClientID.
+**Home Connect User Account for Testing** может оставаться пустым. Для **Success Redirect** введите URI, например, https://example.com.
+Затем сохраните, и у вас будет требуемый ClientID.
 
 ## Конфигурация
-В конфигурации адаптера необходимо указать имя приложения Homeconnect, пароль и второй ClientID.
+Добавьте имя пользователя, пароль и сгенерированный идентификатор клиента приложения Homeconnect в конфигурацию адаптера.
 
-## Бенуцунг
-В командах указано, что программа может быть остановлена, приостановлена или приостановлена.
+## Описание
+🇬🇧 [Описание](/docs/en/README.md)</br> 🇩🇪 [Описание](/docs/de/README.md)
 
-В настройках указано, что вы можете быть готовы к использованию или отключены.
-
-Обновление программ iQ300: Es muss das gewüschnte Programm eingetragen werden. Если вы используете program.selected.BSH_Common_Root_SelectedProgram и хотите, чтобы пользователь мог использовать новую программу, она будет доступна для использования ioBroker.
-
-Список состояний программ.выбранных.BSH_Common_Root_SelectedProgram для выбора программ или опций
-
-Если вы хотите проверить свою программу, вы должны сделать это
-
-status.BSH_Common_Status_OperationState
-
-auf den kompletten Статус Имя übrprüft werden:
-
-BSH.Common.EnumType.OperationState.Finished
-
-Weitere Zustände sind noch:
-
-"BSH.Common.EnumType.OperationState.Inactive": "Неактивно", "BSH.Common.EnumType.OperationState.Ready": "Готово", "BSH.Common.EnumType.OperationState.Run": "Выполнить", "BSH" .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Завершено"
-
-Oder ob ein Gerät geöffnet ist
-
-"BSH.Common.EnumType.DoorState.Open": "Открыто", "BSH.Common.EnumType.DoorState.Closed": "Закрыто"
+## Вопросы
+🇩🇪 [Фраген](https://forum.iobroker.net/topic/16446/test-adapter-homeconnect-bsh-home-connect-v0-0-x?_=1749842644389)
 
 ## Использование
-С помощью состояний команд вы можете остановить, приостановить и возобновить программу.
-С помощью состояний в настройках вы можете выключить или включить устройство. Изменение значения programs.active.BSH_Common_Root_ActiveProgram приводит к запуску программы. Обновление iQ300: в этой переменной необходимо указать имя программы. Если программы.selected.BSH_Common_Root_SelectedProgram скопированы, пользователь машины может заранее определить нужную программу на машине, и она будет запущена через ioBroker. Изменение значения программы.selected.BSH_Common_Root_SelectedProgram приведет к выбору программы или параметров.
+С помощью состояний в командах вы можете остановить, приостановить и возобновить программу. С помощью состояний в настройках вы можете выключить или включить устройство Изменение значения programs.active.BSH_Common_Root_ActiveProgram приводит к запуску программы Обновление iQ300: Вам необходимо задать имя программы в этой переменной. Если programs.selected.BSH_Common_Root_SelectedProgram скопирован, пользователь машины может заранее определить нужную программу на машине, и она будет запущена через ioBroker Изменение значения programs.selected.BSH_Common_Root_SelectedProgram приводит к выбору программы или опций
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
--   (ta2k) restart adapter instead of relogin
 
-### 1.1.1 
+- (Lucky-ESA) Clean up state roles and code
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Added language selection
+- (Lucky-ESA) Migrated to ESLint 9
+- (Lucky-ESA) Adapter requires js-controller >= 6.0.11 now
+- (Lucky-ESA) Adapter requires admin >= 7.4.10 now
+- (mcm1957) Adapter requires node.js >= 20 now
 
-- Fix auto login for SingleKey User
+### 1.4.3 (2024-11-19)
 
-### 1.1.0
+- (TA2k) fix for -001 devices
+- (simatec) Adapter has been adapted to meet Responsive Design rules.
 
-- Add auto login for SingleKey User
+### 1.4.2 (2024-10-25)
 
-### 1.0.3
+- (TA2k) fix for devices with object values
 
-- Add manually login for SingleKey User
-  
-### 1.0.2
+### 1.4.1 (2024-07-02)
 
-- Adapter complete rewriten. Includes a lot of Bugfixes
+- (foxriver76) fixed invalid min/max values
 
-### 0.0.36
+### 1.4.0 (2024-04-18)
 
-- fix for js.controller 3.3. Please delete the device in Objects manually
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
-### 0.0.32 (29.12.2020)
+### 1.3.0 (2023-12-15)
 
-- (Morluktom) bugfix for devices that are completely switched off (e.g. washing machine, dryer)
-
-### 0.0.31
-
-- (ta2k) fix pause start command
-
-### 0.0.30 (10.05.2020)
-
-- (ta2k) fix js controller 3 issues
-
-### 0.0.27 (13.11.2019)
-
-- (ta2k) improve option selecting
-
-### 0.0.26 (04.11.2019)
-
-- (ta2k) fix boolean settings
-
-### 0.0.25 (08.09.2019)
-
-- (ta2k) fix compact mode
-- (ta2k) reduce query per minute to prevent too much request error
-
-### 0.0.24 (08.09.2019)
-
-- (ta2k) improve error messaging
-
-### 0.0.22 (08.09.2019)
-
-- (ta2k) improve error messaging
-
-### 0.0.22 (26.07.2019)
-
-- (ta2k) bugfixing
-
-### 0.0.21 (12.07.2019)
-
-- (ta2k) bugfixing
-
-### 0.0.19 (30.06.2019)
-
-- (ta2k) improve displaying long states, options and events
-
-### 0.0.18 (26.06.2019)
-
-- (ta2k) add error handling for stoping
-
-### 0.0.17 (26.06.2019)
-
-- (ta2k) make commands writeable
-
-### 0.0.16 (26.06.2019)
-
-- (ta2k) cleanup states after update
-
-### 0.0.15 (24.06.2019)
-
-- (ta2k) reconnect after token refresh
-
-### 0.0.14 (18.06.2019)
-
-- (ta2k) check for keep alive events
-
-### 0.0.13 (18.06.2019)
-
-- (ta2k) close event stream before reconnect
-
-### 0.0.12 (18.06.2019)
-
-- (ta2k) fix events lost after 12hr
-
-### 0.0.11 (09.06.2019)
-
-- (ta2k) fix set values and refresh available options after program select
-
-### 0.0.10 (04.06.2019)
-
-- (ta2k) add settings and commands, add options to available and fix bugs
-
-### 0.0.9 (29.05.2019)
-
-- (ta2k) clean up code and receive event notifications
-
-### 0.0.8 (10.04.2019)
-
-- (dna909) increase refreshTokenInterval
-
-### 0.0.7 (03.04.2019)
-
-- (TA2k) Improve refreshToken and add Register process in instance option
-
-### 0.0.6 (09.01.2019)
-
-- (dna909) Oven: add Option.FastPreHeat, Logging, query stream.type DISCONNECTED
-- (tFaster) code format and cleanups,fixed devices data structure,renamed deviceArray to devices,
-    added startInRelative for Oven
-
-### 0.0.5 (28.11.2018)
-
-- (dna909) add eventstream handling
-
-### 0.0.4 (23.11.2018)
-
-- (dna909) add event-listener
-
-### 0.0.3 (14.11.2018)
-
-- (dna909) query States and available programs
-
-### 0.0.2 (08.11.2018)
-
-- (dna909) OAuth2 Deviceflow-Authorization, enumerate connected appliances
-
-### 0.0.1 (09.10.2018)
-
-- (dna909) initial release
+- fix login
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020 dna909 <dna909@googlemail.com>, TA2k
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

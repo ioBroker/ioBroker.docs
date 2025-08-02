@@ -191,6 +191,10 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
+### 0.9.4 (2024-10-12)
+* (Jey Cee) fix use gateway fgw(-14) with ser2net
+* (Jey Cee) add notice to the ser2net switch 
+
 ### 0.9.1 (2023-09-01)
 * (Jey Cee) added support for Eltako FKD-am
 * (Jey Cee) added Afriso ASD 20

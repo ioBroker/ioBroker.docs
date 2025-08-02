@@ -7,11 +7,11 @@
 
 This adapter is designed to control devices on a schedule. For example, heating or watering control.
 
-You can create the profiles with different priority: normal (e.g. workdays), high (e.g. weekends) and highest (e.g. for holidays).
+You can create the profiles with different priority: normal (e.g., workdays), high (e.g., weekends) and highest (e.g., for holidays).
 The profile with higher priority overloads other profiles.
 
 For every profile, the active variable will be created.
-But the user can select own activation variable, e.g., to control holidays. 
+But the user can select their own activation variable, e.g., to control holidays. 
 
 The user should add devices to profile, and all devices in profile will be set to the same value.
 
@@ -25,6 +25,44 @@ This adapter has vis2 widget.
 -->
 
 ## Changelog
+### 1.5.0 (2025-05-21)
+* (bluefox) Corrected widgets for vis-2
+* (bluefox) Packages were updated
+
+### 1.4.3 (2024-12-16)
+* (bluefox) Corrected states selection
+
+### 1.4.2 (2024-12-06)
+* (bluefox) Allowed selection of mixed states
+
+### 1.4.1 (2024-07-25)
+* (bluefox) Packages of the widget were updated
+
+### 1.4.0 (2024-07-07)
+* (bluefox) Removed `withStyles` from the widget
+
+### 1.3.12 (2024-04-27)
+* (bluefox) Corrected widget
+
+### 1.3.8 (2024-04-11)
+* (bluefox) Small GUI changes done
+
+### 1.3.7 (2024-04-06)
+* (bluefox) Corrected widget errors
+* (bluefox) Implemented custom types
+* (bluefox) Added possibility to control devices on holidays
+
+### 1.2.1 (2024-04-03)
+* (bluefox) Added two options: "Ignore values if same as previous" and "Do not control if device already in desired state"
+* (bluefox) Corrected 15-minute intervals
+* (bluefox) GUI improvements for mobile view
+
+### 1.1.14 (2024-04-02)
+* (bluefox) Corrected widget and profile
+
+### 1.1.12 (2024-03-13)
+* (bluefox) Packages updated
+
 ### 1.1.10 (2023-10-19)
 * (bluefox) Packages updated
 
@@ -53,7 +91,7 @@ This adapter has vis2 widget.
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.1 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 1.0.0 (2022-03-22)
 * (bluefox) GUI migrated to material@5
@@ -73,7 +111,7 @@ This adapter has vis2 widget.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

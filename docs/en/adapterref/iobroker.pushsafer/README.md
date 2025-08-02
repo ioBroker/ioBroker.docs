@@ -50,6 +50,9 @@ You can find API description [here](https://www.pushsafer.com/en/pushapi)
 You can use blockly too.
 
 ## Changelog
+### 1.1.0 (2024-04-21)
+* IMPORTANT: This adapter now requires Node.js 18.x+
+* (ChrMaass) Fix Blockly priority and answer
 
 ### 1.0.3 (2021-01-13)
 * (Apollon77) update dependencies
@@ -84,7 +87,7 @@ You can use blockly too.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

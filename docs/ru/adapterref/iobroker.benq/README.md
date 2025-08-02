@@ -1,31 +1,46 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.benq/README.md
-title: ioBroker BenQ Адаптер для проектора
-hash: LkqF9K34d1UeWB7DB6vf83rG2pjH2T/wKUk11feC7lM=
+title: Адаптер проектора ioBroker BenQ
+hash: YfmCWWyypsOuFfAS5vkeXbUOvtycDdAEiBM8nkinyGM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.benq/admin/benq-logo.png)
 
+![Количество установок](http://iobroker.live/badges/benq-stable.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.benq.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.benq.svg)
+![НПМ](https://nodei.co/npm/iobroker.benq.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# IoBroker BenQ Адаптер для проектора
-Адаптер ioBroker BenQ Projector используется для управления проектором BenQ через RS232 вместе со шлюзом Etnernet.
+# IoBroker Адаптер проектора BenQ
+[![Тесты] (https://github.com/instalator/iobroker.benq/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.benq/actions/)
+
+Адаптер проектора ioBroker BenQ используется для управления проектором BenQ через RS232 в сочетании со шлюзом Etnernet.
 Список моделей и команд содержится в файле `admin/commands.json`.
 
 ## Аппаратное обеспечение
 Драйвер позволяет подключаться к проекторам BenQ через [адаптер](http://blog.instalator.ru/archives/744) RS232 к Ethernet.
 
-В качестве шлюза RS232 к Ethernet используется любая совместимая с Arduino карта, на которую необходимо загрузить [этот код](https://github.com/stepansnigirev/ArduinoSerialToEthernet).
+В качестве шлюза RS232 к Ethernet используется любая Arduino-совместимая карта, в которую необходимо загрузить [этот код](https://github.com/stepansnigirev/ArduinoSerialToEthernet).
 Вам также понадобится Ethernet Shield W5100 или W5500 и преобразователь RS232 в TTL.
 
-## Служба поддержки
-Поддерживаемые модели: W1200, W1070, W1080 будет ...
+## Поддерживать
+Поддерживаемые модели: W1200, W1070, W1080...
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.3.0 (2024-04-02)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) changed: Testing has been changed to support node 18 and 20
+* (mcm1957) changed: Dependencies have been updated
 
 ### 0.2.7
  * (instalator) fix error
+
 ### 0.2.4
  * (instalator) change test
 
@@ -43,6 +58,7 @@ hash: LkqF9K34d1UeWB7DB6vf83rG2pjH2T/wKUk11feC7lM=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

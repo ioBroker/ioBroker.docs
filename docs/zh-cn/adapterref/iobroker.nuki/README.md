@@ -3,82 +3,123 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nuki/README.md
 title: ioBroker.nuki
-hash: 0NwI4F2l9JM+WLttJWlD5gTrvhhGycNLkvJzpvrV7So=
+hash: tssDUVscG1a2RiJ4PrJZeRDf+6LBX3lQOGdshxvJA8E=
 ---
-![商标](../../../en/adapterref/iobroker.nuki/admin/nuki-logo.png)
+![标识](../../../en/adapterref/iobroker.nuki/admin/nuki-logo.png)
 
 ![安装数量](http://iobroker.live/badges/nuki-installed.svg)
-![稳定版](http://iobroker.live/badges/nuki-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.nuki.svg)
-![自上次发行以来提交](https://img.shields.io/github/commits-since/smaragdschlange/ioBroker.nuki/latest.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.nuki.svg)
-![NPM](https://nodei.co/npm/iobroker.nuki.png?downloads=true)
+![稳定版本](http://iobroker.live/badges/nuki-stable.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.nuki.svg)
+![自上次发布以来的提交](https://img.shields.io/github/commits-since/smaragdschlange/ioBroker.nuki/latest.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.nuki.svg)
+![新平台](https://nodei.co/npm/iobroker.nuki.png?downloads=true)
 
-＃ioBroker.nuki [![Travis CI]（https://travis-ci.com/smaragdschlange/ioBroker.nuki.svg?branch=master）](https://travis-ci.com/smaragdschlange/ioBroker.nuki)
-此ioBroker适配器允许使用Nuki Bridge的API控制和监视[Nuki智能锁](https://nuki.io/de/)。
+# IoBroker.nuki [![特拉维斯 CI](https://travis-ci.com/smaragdschlange/ioBroker.nuki.svg?branch=master)](https://travis-ci.com/smaragdschlange/ioBroker.nuki)
+该 ioBroker 适配器允许使用 Nuki Bridge 的 API 来控制和监控[Nuki智能锁](https://nuki.io/de/)。
 
 ＃＃ 要求
-* Nuki（硬件或软件）网桥。
-* Nuki Smart Lock和/或Nuki开瓶器。
-* ioBroker的运行实例。
+* Nuki（硬件或软件）桥。
+* Nuki 智能锁和/或 Nuki 开启器。
+* ioBroker 的运行实例。
 
-##用法
-Nuki适配器的每个实例都代表一个Nuki桥。创建实例时，只需输入Nuki网桥的IP地址，端口和令牌。该名称是可选的，如果留空则将自动生成。复选框“使用回调”和值“ ioBroker中的回调端口”是可选的，可以进行设置以便利用Nuki的回调功能。保存实例后，将创建一个桥设备，该桥设备的每个Nuki锁都有一个通道，该锁连接到指定的Nuki桥。通道提供Nuki锁定的当前状态作为输出参数：
+＃＃ 用法
+Nuki 适配器的每个实例都代表一个 Nuki 桥。创建实例时，只需输入 Nuki 桥的 IP 地址、端口和令牌。名称是可选的，如果留空，将自动生成。复选框“使用回调”和值“ioBroker 中的回调端口”是可选的，可以设置以使用 Nuki 的回调功能。保存实例后，将创建一个桥接设备，其中包含连接到指定 Nuki 桥的每个 Nuki 锁的通道。通道提供 Nuki 锁的当前状态作为输出参数：
 
-*电池严重：电池电量低指示器
-* deviceType：Nuki设备的类型（Smart Lock或Opener）
-*模式：Nuki设备的操作模式
-* doorState：当前（数字）门传感器状态（Nuki本机）
-* lockState：指示Nuki是否已锁定（仅Nuki Smart Lock）
-*状态：当前（数字）锁定状态（Nuki本机）
-*时间戳：最近更新
+* batteryCritical: 电池电量低指示器
+* deviceType：Nuki 设备的类型（智能锁或开启器）
+* 模式：Nuki 设备的操作模式
+* doorState：当前（数字）门传感器状态（Nuki 原生）
+* lockState：指示 Nuki 是否被锁定（仅限 Nuki 智能锁）
+* 状态：当前（数字）锁定状态（Nuki 原生）
+* 时间戳：最后更新
 
-此外，通道还提供输入参数，可对Nuki锁进行基本控制：
+此外，这些通道还提供输入参数，可实现对 Nuki 锁的基本控制：
 
-* action：用于设置Nuki状态的数字操作代码（Nuki本机）
+* action：设置 Nuki 状态的数字操作代码（Nuki 原生）
 
 锁的有效输入值为：
 
-0（无动作）1（解锁）2（锁定）3（解锁）4（锁定“ n”前进）5（锁定“ n”进行解锁）
+0（无动作） 1（解锁） 2（锁定） 3（解开闩锁） 4（锁定并进入） 5（锁定并进入，解开闩锁）
 
-* lockAction：锁定/解锁Nuki的开关（true =解锁； false =锁定）
-* openAction：用于解锁Nuki的按钮
-* openLocknGoAction：解锁按钮，并在几秒钟后锁定Nuki
-* unlockLocknGoAction：用于解锁并在锁定Nuki几秒钟后的按钮
+* lockAction：用于锁定/解锁 Nuki 的开关（true = 解锁；false = 锁定）
+* openAction：用于解锁 Nuki 的按钮
+* openLocknGoAction：用于解锁并在几秒后锁定 Nuki 的按钮
+* unlockLocknGoAction：用于解锁的按钮，并在几秒后锁定 Nuki
 
-开罐器的有效输入值为：
+开启器的有效输入值为：
 
-0（无动作）1（激活rto）2（禁用rto）3（电击致动）4（激活连续模式）5（取消连续模式）
+0（无动作） 1（激活 rto） 2（停用 rto） 3（电动锁扣启动） 4（激活连续模式） 5（停用连续模式）
 
-* rtoAction：启用/禁用“打开振铃”功能的开关（true =激活； false =禁用）
-* openAction：电击致动按钮
-* cmActiveAction：用于激活连续模式的按钮
-* cmDeactiveAction：用于禁用连续模式的按钮
+* rtoAction：用于激活/停用 Ring to Open 功能的开关（true = 激活；false = 停用）
+* openAction: 电动锁扣启动按钮
+* cmActiveAction：激活连续模式的按钮
+* cmDeactiveAction：用于停用连续模式的按钮
 
 ＃＃ 附加信息
-如何获取网桥令牌：
+如何获取桥梁令牌：
 
-*从局域网中的任何浏览器调用http：// <bridge_ip>：<bridge_port> / auth-> bridge点亮其LED
-*在30秒内按桥的按钮
-*浏览器调用的结果应如下所示：
+* 从 LAN 中的任何浏览器调用 http://< bridge_ip >:< bridge_port >/auth -> 网桥打开其 LED
+* 30秒内按下桥按钮
+* 浏览器调用的结果应该是这样的：
 
-{“ token”：“ token123”，“ success”：true}回调函数：
+{ "token": “token123”, "success": true } 回调函数：
 
-如果使用了回调函数，则在保存实例时，适配器将尝试在Nuki桥上自动设置回调。实例卸载后，回调将再次被删除。激活回调时，Nuki桥将使所有Nuki状态保持最新。
-可以使用以下网址从任何浏览器中设置和删除回调：
+如果正在使用回调函数，则适配器将尝试在保存实例时自动在 Nuki 桥上设置回调。卸载实例时，回调将再次被删除。激活回调后，Nuki 桥将使所有 Nuki 状态保持最新。
+可以使用以下 URL 从任何浏览器设置和删除回调：
 
-组：
+放：
 
-* http：// <bridge_ip>：<bridge_port> / callback / add？url = http％3A％2F％2F <host_ip>％3A <host_port>％2Fapi％2Fnuki＆token = <bridgeToken>
+* http://< bridge_ip >:< bridge_port >/callback/add?url=http%3A%2F%2F< host_ip >%3A< host_port >%2Fapi%2Fnuki&token=< bridgeToken >
 
-去掉：
+消除：
 
-* http：// <bridge_ip>：<bridge_port> / callback / remove？id = <callback_id>＆token = <bridgeToken>
+* http://< bridge_ip >:< bridge_port >/callback/remove?id=< callback_id >&token=< bridgeToken >
 
-##更新
-从1.0.x更新到1.1.0或更高版本时，建议在安装新版本之前删除旧版本的所有实例。请注意，版本更改大于补丁程序级别（->仅更改最后一位数字）可能始终包含对数据点的更改，例如1.1.2至1.1.4
+＃＃ 更新
+从 1.0.x 更新到 1.1.0 或更高版本时，建议在安装新版本之前删除旧版本的所有实例。请注意，版本更改大于补丁级别（-> 仅更改最后一位数字）可能始终包含对数据点的更改，例如 1.1.2 到 1.1.4。
+更新到 2.x 时，必须再次输入令牌。
 
 ## Changelog
+
+### 2.0.1
+* (smaragdschlange) update: dependencie updates
+
+### 2.0.0
+* (simatec) jsonConfig added
+* (simatec) dependency updated
+* (simatec) devdependency updated
+* (simatec) translate added
+* (simatec) test and release added
+* (simatec) Release Script added
+* (simatec) Remove Travis
+
+### 1.7.0
+* (smaragdschlange) update: implementation of latest bridge API changes (battery charge state)
+
+### 1.6.0
+* (smaragdschlange) improvement: support for Nuki Smart Door and Nuki Smart Lock 3.0 (Pro)
+
+### 1.5.0
+* (smaragdschlange) bug fix: compatibility with jscontroller 3.3.13
+
+### 1.4.4
+* (smaragdschlange) update: changes to comply with admin 5.x.x requirements
+
+### 1.4.3
+* (smaragdschlange) update: dependency axios to >=0.21.1
+
+### 1.4.2
+* (smaragdschlange) bug fix: common.dataSource type had an invalid type
+
+### 1.4.1
+* (smaragdschlange) bug fix: references fixed
+
+### 1.4.0
+* (smaragdschlange) improvement: support of keypad battery state 
+* (smaragdschlange) improvement: support of ring action states for opener
+
+### 1.3.1
+* (smaragdschlange) bug fix: some objects did not get updated
 
 ### 1.3.0
 * (smaragdschlange) improvement: support of doorsensor states
@@ -174,7 +215,7 @@ Nuki适配器的每个实例都代表一个Nuki桥。创建实例时，只需输
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Smaragdschlange <smaragdschlange@gmx.de>
+Copyright (c) 2018-2024 Smaragdschlange <smaragdschlange@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

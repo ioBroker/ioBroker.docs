@@ -26,6 +26,10 @@ Not all plant types are implemented.
 
 Currently only data can be read, writing parameters or changing parameters is not possible.
 
+### Can I spend a coffee?
+
+Of course if you like my work via Paypal to PLChome _at_ fontanestr _dot_ de
+
 ---
 
 ## Adapter admin page
@@ -65,6 +69,10 @@ This data record contains some data from the device. Some data are also availabl
 #### Read weather
 
 This data set contains the weather forecast.
+
+#### Read fault log entries
+
+Reads the entries in the fault log of the current year and creates objects with the messages for this. Only the first page with the most current reports is read.
 
 #### Write inverter settings
 
@@ -355,6 +363,42 @@ Therefore, the description has also been removed.
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 3.3.1 (2024-10-26)
+
+- (PLCHome) Added ac charge for TLXH. Thanx to olli0815!
+- (PLCHome) Added time slots for TLXH. Thanks to olli0815 for debugging and support.
+- (PLCHome) Added Inverter On Off for TLX und TLXH. Thanks to olli0815 for debugging and support.
+
+### 3.3.0 (2024-10-25)
+
+- (PLCHome) Added time slots for TLXH. Thanks to olli0815 for debugging and support.
+- (PLCHome) Added Inverter On Off for TLX und TLXH. Thanks to olli0815 for debugging and support.
+
+### 3.2.5 (2024-08-13)
+
+- (PLCHome) Solved the problem that no inverter list but result 2 was returned in NOAH.
+- (PLCHome) Added NOAH.
+
+### 3.2.4 (2024-07-03)
+
+- (PLCHome) Configure this adapter to use the release script.
+- (PLCHome) no connection can be established password must now be transferred as MD5 hash.
+- (PLCHome) cookie issue
+
+### 3.2.3 (27.01.2024)
+
+- (PLCHome) In Multiple Backflow the objects in Total Data and Status Data were swapped. Please delete the objects below Total Data and Status Data and restart the adapter after the update.
+
+### 3.2.2 (27.01.2024)
+
+- (PLCHome) Catching of the fault log messages is now possible (Thanx to ZioCain for the code)
+- (PLCHome) Setting active power for MAX inverter (Thanx to sefina for testing)
+
 ### 3.2.1 (08.09.2023)
 
 - (PLCHome) Additionally query the status information via the Plant List.
@@ -584,7 +628,7 @@ Therefore, the description has also been removed.
 
 The MIT License (MIT)
 
-Copyright (c) 2020 - 2023 PLCHome
+Copyright (c) 2024 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

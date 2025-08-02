@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yeelight-2/README.md
 title: ioBroker.yeelight-2
-hash: B3LK3xfNX9fmvXuxJxb46Nr0OTCP/yXUM0gYFA2x/i4=
+hash: LQx3Ecwqu+UAsQ6tKBY9Hs7TfKBTpH2ygoIwMmVSC64=
 ---
 ![Logo](../../../en/adapterref/iobroker.yeelight-2/admin/yeelight.png)
 
@@ -11,143 +11,106 @@ hash: B3LK3xfNX9fmvXuxJxb46Nr0OTCP/yXUM0gYFA2x/i4=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.yeelight-2.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.yeelight-2.svg)
 
-![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.yeelight-2/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/yeelight-2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 # IoBroker.yeelight-2
 [Deutsche Beschreibung hier](README_de.md)
 
-Dieser Adapter steuert Ihr Yeelight-Gerät. Dieser Adapter ist nur für admin3. Admin2 wird nicht unterstützt
-
-## Jump-Version
-Beim Wechsel von 0.4.X auf 0.9.X oder höher müssen die Objekte manuell gelöscht werden, damit sie neu erstellt werden können.
+Dieser Adapter steuert Ihre Yeelight-Geräte über Ihr lokales Netzwerk.
 
 ## Installation
-für RGB Bulbs muss das LAN in den Einstellungen der Yeelight App aktiviert werden.
+Für alle Yeelights, die Sie steuern möchten, müssen Sie in den Einstellungen der Yeelight-App „LAN-Steuerung“ aktivieren.
 
 ![](../../../en/adapterref/iobroker.yeelight-2/admin/lan.jpg)
 
-## Konfig
-Sie können Geräte manuell hinzufügen oder Geräte im Netzwerk suchen. Der Basisport ist 55443. Wenn Sie möchten, können Sie Name, IP, Port und Smartname ändern
+## Konfiguration
+Sie können Geräte manuell hinzufügen oder im Netzwerk suchen. Der Standardport ist 55443. Bei Bedarf können Sie Name, IP, Port und Smartname ändern.
 
-### Smartname
+### Intelligenter Name
 Wenn Sie einen Smartname eingeben, wird das Gerät zur iobroker.cloud hinzugefügt und kann von Alexa gesteuert werden.
 
-### Gerät suchen
-Mit dieser Schaltfläche können Sie Ihr Netzwerk nach Geräten durchsuchen, wenn etwas gefunden wird, werden die Geräte der Tabelle hinzugefügt. Das Scannen des Netzwerks dauert etwa 20 Sekunden. Wenn die Geräte nicht gefunden werden, ist der LAN-Modus nicht aktiviert oder die Lampen befinden sich in einem anderen Netzwerk.
+### Gerät finden
+Mit dieser Schaltfläche können Sie Ihr Netzwerk nach Geräten durchsuchen. Wenn welche gefunden werden, werden die Geräte der Tabelle hinzugefügt. Der Netzwerkscan dauert etwa 20 Sekunden. Werden die Geräte nicht gefunden, ist die LAN-Steuerung nicht aktiviert oder die Geräte befinden sich in einem anderen Netzwerk.
 
 ### Gerät nicht in der Liste
-Wenn Ihr Gerät nicht in der Liste ist, z. yltd003 Verwenden Sie eine andere Lampe mit den gleichen Eigenschaften, in diesem Fall Schreibtischlampe oder Farbe oder etwas anderes.
+Sollte Ihr Gerät nicht in der Liste enthalten sein, z.B. YLTD003, verwenden Sie in diesem Fall eine andere Lampe mit den gleichen Eigenschaften (Schreibtischlampe oder Color oder etwas anderes).
 
-## Set_scene Verwendung: Diese Methode wird verwendet, um die intelligente LED direkt in den angegebenen Zustand zu versetzen. Wenn die Smart-LED ausgeschaltet ist, wird zuerst die Smart-LED eingeschaltet und dann der angegebene Befehl angewendet.
+## Szene einstellen
+Verwendung: Mit dieser Methode wird die Smart LED direkt in einen bestimmten Zustand versetzt. Ist das Gerät ausgeschaltet, wird es zunächst eingeschaltet und anschließend der angegebene Befehl ausgeführt.
+
 Parameter: 3 ~ 4.
 
- „class“ kann „color“, „hsv“, „ct“, „cf“, „auto_dealy_off“ sein.
+„Klasse“ kann „Farbe“, „hsv“, „ct“, „cf“, „auto_dealy_off“ sein.
 
-- "Farbe" bedeutet, dass die Smart-LED auf die angegebene Farbe geändert wird und
+- „Farbe“ bedeutet, die Smart-LED auf die angegebene Farbe und Helligkeit zu ändern.
+- „hsv“ bedeutet, die Smart-LED auf die angegebene Farbe und Helligkeit zu ändern.
+- „ct“ bedeutet, die Smart-LED auf die angegebene ct und Helligkeit zu ändern.
+- „cf“ bedeutet, einen Farbfluss auf eine bestimmte Weise zu starten.
+- „auto_delay_off“ bedeutet, die Smart-LED auf die angegebene Helligkeit einzuschalten und einen Sleep-Timer zu starten, um das Licht nach den angegebenen Minuten auszuschalten.
 
-Helligkeit.
-
-- "hsv" bedeutet, dass die Smart-LED auf die angegebene Farbe und Helligkeit geändert wird.
-- "ct" bedeutet, dass die Smart-LED auf die angegebene ct und Helligkeit geändert wird.
-- "cf" bedeutet, einen Farbfluss auf bestimmte Weise zu starten.
-- "auto_delay_off" bedeutet, dass die intelligente LED auf die angegebene Weise eingeschaltet wird
-
-Helligkeit und starten Sie einen Sleep-Timer, um das Licht nach den angegebenen Minuten auszuschalten.
-
- "val1", "val2", "val3" sind klassenspezifisch.
+„val1“, „val2“, „val3“ sind klassenspezifisch.
 
 Anforderungsbeispiel:
 
-- ``["Farbe", 65280, 70]``
-- ``["hsv", 300, 70, 100]``
-- ``["ct", 5400, 100]``
-- ``["cf",0,0,"500,1,255,100,1000,1,16776960,70"]``
-- ``["auto_delay_off", 50, 5]``
+- `["Farbe", 65280, 70]`
+- `["hsv", 300, 70, 100]`
+- `["ct", 5400, 100]`
+- `["cf",0,0,"500,1,255,100,1000,1,16776960,70"]`
+- `["auto_delay_off", 50, 5]`
 
-HINWEIS: Akzeptiert sowohl im „Ein“- als auch im „Aus“-Zustand.
+HINWEIS: Wird sowohl im Zustand „Ein“ als auch „Aus“ akzeptiert.
 
- Für obige Beispiele:
+Für die obigen Beispiele:
 
- - Die erste besteht darin, die Farbe auf "652280" und 70 % Helligkeit einzustellen.
- - Die zweite besteht darin, die Farbe auf Farbton: 300, Sättigung: 70 und maximale Helligkeit einzustellen.
- - Der dritte CT ist auf 500K und 100% Helligkeit eingestellt.
- - Die vierte besteht darin, einen unendlichen Farbfluss auf zwei Flusstupeln zu starten.
- - Der fünfte ist, das Licht auf 50% Helligkeit einzuschalten und dann auszuschalten
-
-nach 5 Minuten.
+- Die erste besteht darin, die Farbe auf „652280“ und die Helligkeit auf 70 % einzustellen.
+- Die zweite Möglichkeit besteht darin, die Farbe auf Farbton: 300, Sättigung: 70 und maximale Helligkeit einzustellen.
+- Die dritte Möglichkeit besteht darin, CT auf 5400 K und 100 % Helligkeit einzustellen.
+- Die vierte besteht darin, einen unendlichen Farbfluss auf zwei Flusstupeln zu starten.
+- Die fünfte Möglichkeit besteht darin, das Licht auf 50 % Helligkeit einzuschalten und es dann nach 5 Minuten auszuschalten.
 
 ## Changelog
 
-### __WORK IN PROGRESS__
-* (Apollon77) Optimize unload handling and async executions
-* (Apollon77) Prevent log on unexpected types
-* (Apollon77) Add Sentry for crash reporting
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.5.2 (2025-02-28)
 
-### 1.1.2 (2021-08-05)
-* Fix Joi Error
-### 1.1.1 (2021-08-03)
-* (MeisterTR) js-controller 3.3 fixes
-* (jlssmt) fixed unhandled promise rejection causing the adapter to stop
-* (jlssmt) adapter won't set power of offline devices to off anymore 
-### 1.1.0 (2021-07-26)
-* (MeisterTR) add release-script update testing and dependencies
-* (Diginix) fixed data types
-### 1.0.3 (2019-12-01)
-* (MeisterTR) add Pedant
-* (MeisterTR) transfer to community
-### 1.0.1 (2018-12-08)
-* (MeisterTR) push version, added set_scene
-### 0.9.6 (2018-12-08)
-* (MeisterTR) yeelight-wifi added
-* (MeisterTR) fixed  bugs
-* (MeisterTR) add manuell light
-* (MeisterTR) better error handling
-* (MeisterTR) fixed reconnect at start
-* (MeisterTR) delete object and smartname bug fixed
-### 0.9.1 (2018-10-31)
-* (MeisterTR) added offline detection, poll sates, cleanup
-### 0.9.0 (2018-08-29)
-* (MeisterTR) rebuild
-### 0.4.1 (2018-08-29)
-* (MeisterTR) fixed JSON error
-### 0.4.0 (2018-08-29)
-* (MeisterTR) fixed errors
-* (MeisterTR) added scenen
-### 0.3.6 (2018-07-07)
-* (MeisterTR) catch spaces in config, small performance changes
-### 0.3.5 (2018-06-18)
-* (MeisterTR) added yeelight650, fixed some bugs, power on when ct change
-### 0.2.9 (2018-06-07)
-* (MeisterTR) change name for repo and npm
-### 0.2.8 (2018-06-01)
-* (MeisterTR) fixed bug wit port, fixed set ct by alexa
-### 0.2.6 (2018-05-31)
-* (MeisterTR) fixed manny bugs.
-### 0.2.0 (2018-03-07)
-* (MeisterTR) many changes add smartname Option, add manual devices, many fixes
-* (MeisterTR) fix role for alexa
-### 0.1.1 (2018-03-07)
-* (MeisterTR)return to default value when turn on
-* (MeisterTR)fix role for alexa
-### 0.1.0 (2018-03-07)
-* (MeisterTR) many changes, add hue and sat for alexa control
-### 0.0.2 (2018-03-07)
-* (MeisterTR) objects not overwirte after restart
-### 0.0.2 (2018-03-07)
-* (MeisterTR) testing added, log changed
-### 0.0.1 (2018-01-29)
-* (cahek2202) initinal version
+-   (Black-Thunder) Incompatibilities with the dependency "joy" have been fixed and "joy" has been updated.
 
+### 1.5.1 (2025-02-26)
 
+-   (mcm1957) Update of joi has been reverted due to incompatibilities.
 
-base from: adb backup https://github.com/cahek2202/ioBroker.yeelight
+### 1.5.0 (2025-02-26)
+
+-   (mcm1957) Adapter requires node.js >= 20, js-controller >= 6 and admin >= 6 now
+-   (Black-Thunder) Online status for each device has been added (visible in admin object tree).
+-   (Black-Thunder) Support for compact mode has been added.
+-   (Black-Thunder) Code has been partially refeactored.
+-   (mcm1957) Dependencies have been updated
+
+### 1.4.0 (2024-04-29)
+
+-   (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+-   (mcm1957) Dependencies have been updated
+
+### 1.3.1 (2024-02-15)
+
+-   (mcm1957) BREAKING: adapter requires node.js 18 or newer now.
+-   (Black-Thunder) Crashes at startup of adapter have been fixed. [#271, #227 and #222]
+-   (mcm1957) Testing has been changed to support node 18 and 20
+-   (mcm1957) Dependencies have been updated
+-   (Apollon77) make sure reconnects work correctly
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2024 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,242 +3,114 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
+hash: EGNcl5i02TKA3DFfoJ3/aUVhdsdIU2m4DJMliS/Sq/k=
 ---
 ![标识](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)
 ![下载](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![构建状态](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 自最新版本以来的提交情况（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/homeconnect-stable.svg)
+![安装数量](https://iobroker.live/badges/homeconnect-installed.svg)
 
 # IoBroker.homeconnect
-## 安装前的 Voraussetzungen
-这是 Node.js 版本 8 安装过程！！
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg）](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
 
-Für den Adapter wrd eine ClientID benötigt。 Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen。
+哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
+## IoBroker 的 Homeconnect 适配器
 ## 安装前的要求
-至少必须安装 Node.js 版本 8！
+- 节点 20、22 或 24
+-JS 控制器 >= 6.0.11
+- 管理员 >= 7.4.10
 
-适配器需要 ClientID。使用每个步骤的设置进行注册。
+适配器需要 ClientID。请使用每个步骤的设置进行注册。
 
 <https://developer.home-connect.com>
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **用于测试的默认 Home Connect 用户帐户** 已注册电子邮件地址，请注册 Home-Connect-App，然后再注册授权过程。
-
-对于 **用于测试的默认 Home Connect 用户帐户**，指定用于发送 Home Connect 应用程序的电子邮件地址。
-已注册，稍后在授权过程中也需要这样做。
+对于**用于测试的默认 Home Connect 用户帐户**，请指定用于发送 Home Connect 应用程序的电子邮件地址。
+已注册，这在后续授权过程中也是必需的。
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **账户类型** 个人 auswählen。 Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wrd)。
-
-对于**帐户类型**，选择个人。添加剩余数据（如果可用）（不知道是否会检查）。
+在“账户类型”中选择“个人”。如有剩余数据，请添加（不知道是否会被勾选）。
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
-
-Dann auf **应用程序** 和 anschließend auf **注册应用程序** gehen。
 
 然后转到**应用程序**，然后转到**注册应用程序**。
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-Bei **应用程序 ID** einen Namen für die 应用程序 eintragen，z.B. ioBroker。 Bei **OAuth Flow** 设备流程选择。
-**用于测试的 Home Connect 用户帐户** kann leer bleiben。 Bei **成功重定向** eine URI eintragen，z.B. https://example.com。
-Dann Speichern 和 dann hat man die benötigte ClientID。
+在“应用程序 ID”中输入应用程序名称，例如 ioBroker。在“OAuth 流程”中选择“设备流程”。
+“Home Connect 测试用户帐户”可以留空。在“成功重定向”中输入 URI，例如 https://example.com。
+保存后，您便获得了所需的客户端 ID。
 
-对于**应用程序 ID**，输入应用程序的名称，例如ioBroker。使用 **OAuth Flow** 设备流选择。
-**用于测试的 Home Connect 用户帐户**可以保留为空。对于 **成功重定向** 输入 URI，例如https://example.com。
-然后保存，您就有了所需的 ClientID。
+＃＃ 配置
+请将 Homeconnect App 用户名、密码和生成的 cleintId 添加到适配器配置中。
 
-## 配置
-在 Adapter-Config 中，输入 Homeconnect 应用程序的名称、密码和 ClientID 即可。
+＃＃ 描述
+🇬🇧[描述](/docs/en/README.md)🇩🇪[描述](/docs/de/README.md)
 
-## 贝努宗
-Mit den 在命令中声明 kannst du das Programm stoppen, pausieren oder fortführen。
-
-Mit den 的设置为 kannst du das Gerät ein oder ausschalten。
-
-在状态programs.active.BSH_Common_Root_ActiveProgram 中启动程序更新iQ300：这是一个非常好的程序。 Wenn manprograms.selected.BSH_Common_Root_SelectedProgram ausliest und einträgt, hat der User die Möglichkeit am Gerät des gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
-
-在 Statesprograms.selected.BSH_Common_Root_SelectedProgram 中包含 Programms oder Optionen
-
-Wenn man checken möchte, ob ein Programm fertig ist muss
-
-状态.BSH_Common_Status_OperationState
-
-auf den kompleten 状态名称 übrprüft werden:
-
-BSH.Common.EnumType.OperationState.Finished
-
-Weitere Zustände sind noch：
-
-"BSH.Common.EnumType.OperationState.Inactive": "非活动", "BSH.Common.EnumType.OperationState.Ready": "就绪", "BSH.Common.EnumType.OperationState.Run": "运行", "BSH .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "已完成"
-
-Oder ob ein Gerät geoffnet ist
-
-"BSH.Common.EnumType.DoorState.Open": "打开", "BSH.Common.EnumType.DoorState.Closed": "关闭"
+＃＃ 问题
+🇩🇪 [弗拉根](https://forum.iobroker.net/topic/16446/test-adapter-homeconnect-bsh-home-connect-v0-0-x?_=1749842644389)
 
 ＃＃ 用法
-通过命令中的状态，您可以停止、暂停和恢复程序。
-通过设置中的状态，您可以关闭或打开设备。更改programs.active.BSH_Common_Root_ActiveProgram 的值将导致启动程序更新iQ300：您需要在此变量中设置程序名称。如果复制programs.selected.BSH_Common_Root_SelectedProgram，机器用户可以在机器上预定义所需的程序，并将通过ioBroker启动该程序。更改programs.selected.BSH_Common_Root_SelectedProgram的值导致选择程序或选项
+使用命令中的状态，您可以停止、暂停和恢复程序。
+使用设置中的状态，您可以关闭或打开设备。更改 programs.active.BSH_Common_Root_ActiveProgram 的值将启动程序。更新 iQ300：您需要在此变量中设置程序名称。如果复制了 programs.selected.BSH_Common_Root_SelectedProgram，机器用户可以在机器上预定义所需的程序，并通过 ioBroker 启动。更改 programs.selected.BSH_Common_Root_SelectedProgram 的值将选择程序或选项。
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
--   (ta2k) restart adapter instead of relogin
 
-### 1.1.1 
+- (Lucky-ESA) Clean up state roles and code
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Added language selection
+- (Lucky-ESA) Migrated to ESLint 9
+- (Lucky-ESA) Adapter requires js-controller >= 6.0.11 now
+- (Lucky-ESA) Adapter requires admin >= 7.4.10 now
+- (mcm1957) Adapter requires node.js >= 20 now
 
-- Fix auto login for SingleKey User
+### 1.4.3 (2024-11-19)
 
-### 1.1.0
+- (TA2k) fix for -001 devices
+- (simatec) Adapter has been adapted to meet Responsive Design rules.
 
-- Add auto login for SingleKey User
+### 1.4.2 (2024-10-25)
 
-### 1.0.3
+- (TA2k) fix for devices with object values
 
-- Add manually login for SingleKey User
-  
-### 1.0.2
+### 1.4.1 (2024-07-02)
 
-- Adapter complete rewriten. Includes a lot of Bugfixes
+- (foxriver76) fixed invalid min/max values
 
-### 0.0.36
+### 1.4.0 (2024-04-18)
 
-- fix for js.controller 3.3. Please delete the device in Objects manually
+- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (mcm1957) Dependencies have been updated
 
-### 0.0.32 (29.12.2020)
+### 1.3.0 (2023-12-15)
 
-- (Morluktom) bugfix for devices that are completely switched off (e.g. washing machine, dryer)
-
-### 0.0.31
-
-- (ta2k) fix pause start command
-
-### 0.0.30 (10.05.2020)
-
-- (ta2k) fix js controller 3 issues
-
-### 0.0.27 (13.11.2019)
-
-- (ta2k) improve option selecting
-
-### 0.0.26 (04.11.2019)
-
-- (ta2k) fix boolean settings
-
-### 0.0.25 (08.09.2019)
-
-- (ta2k) fix compact mode
-- (ta2k) reduce query per minute to prevent too much request error
-
-### 0.0.24 (08.09.2019)
-
-- (ta2k) improve error messaging
-
-### 0.0.22 (08.09.2019)
-
-- (ta2k) improve error messaging
-
-### 0.0.22 (26.07.2019)
-
-- (ta2k) bugfixing
-
-### 0.0.21 (12.07.2019)
-
-- (ta2k) bugfixing
-
-### 0.0.19 (30.06.2019)
-
-- (ta2k) improve displaying long states, options and events
-
-### 0.0.18 (26.06.2019)
-
-- (ta2k) add error handling for stoping
-
-### 0.0.17 (26.06.2019)
-
-- (ta2k) make commands writeable
-
-### 0.0.16 (26.06.2019)
-
-- (ta2k) cleanup states after update
-
-### 0.0.15 (24.06.2019)
-
-- (ta2k) reconnect after token refresh
-
-### 0.0.14 (18.06.2019)
-
-- (ta2k) check for keep alive events
-
-### 0.0.13 (18.06.2019)
-
-- (ta2k) close event stream before reconnect
-
-### 0.0.12 (18.06.2019)
-
-- (ta2k) fix events lost after 12hr
-
-### 0.0.11 (09.06.2019)
-
-- (ta2k) fix set values and refresh available options after program select
-
-### 0.0.10 (04.06.2019)
-
-- (ta2k) add settings and commands, add options to available and fix bugs
-
-### 0.0.9 (29.05.2019)
-
-- (ta2k) clean up code and receive event notifications
-
-### 0.0.8 (10.04.2019)
-
-- (dna909) increase refreshTokenInterval
-
-### 0.0.7 (03.04.2019)
-
-- (TA2k) Improve refreshToken and add Register process in instance option
-
-### 0.0.6 (09.01.2019)
-
-- (dna909) Oven: add Option.FastPreHeat, Logging, query stream.type DISCONNECTED
-- (tFaster) code format and cleanups,fixed devices data structure,renamed deviceArray to devices,
-    added startInRelative for Oven
-
-### 0.0.5 (28.11.2018)
-
-- (dna909) add eventstream handling
-
-### 0.0.4 (23.11.2018)
-
-- (dna909) add event-listener
-
-### 0.0.3 (14.11.2018)
-
-- (dna909) query States and available programs
-
-### 0.0.2 (08.11.2018)
-
-- (dna909) OAuth2 Deviceflow-Authorization, enumerate connected appliances
-
-### 0.0.1 (09.10.2018)
-
-- (dna909) initial release
+- fix login
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020 dna909 <dna909@googlemail.com>, TA2k
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

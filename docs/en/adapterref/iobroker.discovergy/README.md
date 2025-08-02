@@ -37,8 +37,8 @@ If you like my work, please feel free to provide a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
+### 0.6.0 (2024-12-04) - API change to Inexogy
+* (DutchmanNL) Bugfix: API change to Inexogy. Fixes #249
 * (DutchmanNL) Migrate admin settings to JSON config. Fixes #211
 
 ### 0.5.13 (2023-10-31)
@@ -54,10 +54,6 @@ If you like my work, please feel free to provide a personal donation
 ### 0.5.8 (2021-08-17)
 * (DutchmanNL) Minor dependency & configuration updates, stable release candidate
 
-### 0.5.7 (2021-03-19)
-* (DutchmanNL) Change why of password encryption, you my need to re-enter your credentials !
-* (DutchmanNL) Bugfix : State "system.this.discovergy.0.alive" has no existing object, this might lead to an error in future versions
-
 ## Contributors
 * AlCalzone
 * zoernert
@@ -65,7 +61,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 MIT License
 
-Copyright (c) 2023 DutchmanNL
+Copyright (c) 2024 DutchmanNL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -12,6 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
+chapters: {"pages":{"de/adapterref/iobroker.awtrix-light/README.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/README.md"},"de/adapterref/iobroker.awtrix-light/weather-app.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/weather-app.md"}}}
 ---
 ![Logo](../../admin/awtrix-light.png)
 
@@ -19,16 +20,16 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 
 ## Anforderungen
 
-- nodejs 14.5 (oder neuer)
-- js-controller 4.0.15 (oder neuer)
-- Admin Adapter 6.6.0 (oder neuer)
-- _Awtrix Light_ Gerät mit Firmware-Version _0.90_ (oder neuer) - z.B. Ulanzi TC001
+- nodejs 20 (oder neuer)
+- js-controller 6.0.0 (oder neuer)
+- Admin Adapter 7.4.10 (oder neuer)
+- _Awtrix 3_ Gerät mit Firmware-Version _0.98_ (oder neuer) - z.B. Ulanzi TC001
 
 Hier kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) oder hier: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
 ## Erste Schritte
 
-1. Flashe die Firmware auf das Gerät und füge es zu deinem lokalen Netzwerk per WLAN hinzu - siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/quickstart)
+1. Flashe die Firmware auf das Gerät und füge es zu deinem lokalen Netzwerk per WLAN hinzu - siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/quickstart)
 2. Installiere den awtrix-light Adapter im ioBroker (und erstelle eine neue Instanz)
 3. Öffne die Instanz-Konfiguration und hinterlege die IP-Adresse des Gerätes im lokalen Netzwerk
 
@@ -44,7 +45,7 @@ Erstelle dafür einfach einen Alias in `alias.0` vom Typ `string` (Zeichenkette)
 
 **Wie kann ich zur aktuellsten Firmware-Version wechseln?**
 
-Nutze einfach das [Menu auf dem Gerät](https://blueforcer.github.io/awtrix-light/#/onscreen) um zum Punkt `update` zu navigieren. Den Rest erledigt die Uhr dann selbst. Es ist nicht nötig, den Web-Flasher erneut zu verwenden (außer, ein Firware-Update erfordert dies explizit).
+Nutze einfach das [Menu auf dem Gerät](https://blueforcer.github.io/awtrix3/#/onscreen) um zum Punkt `update` zu navigieren. Den Rest erledigt die Uhr dann selbst. Es ist nicht nötig, den Web-Flasher erneut zu verwenden (außer, ein Firware-Update erfordert dies explizit).
 
 **Das Gerät wird heiß während es geladen wird.**
 
@@ -52,7 +53,7 @@ Das Hardware-Design ist leider nicht optimal. Es wird empfohlen, ein möglichst 
 
 **Kann man den Akku aus dem Gerät entfernen?**
 
-Ja, es gibt diese Möglichkeit. Allerdings muss das Gerät dazu mit einem Heißluftföhn geöffnet werden, da die Frontscheibe verklebt ist. Außerdem ist es nötig einen [Step-Down-Converter zu verlöten](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765), damit alles funktioniert.
+Ja, es gibt diese Möglichkeit. Allerdings muss das Gerät dazu mit einem Heißluftföhn geöffnet werden, da die Frontscheibe verklebt ist. Außerdem ist es nötig einen [Step-Down-Converter zu verlöten](https://github.com/Blueforcer/awtrix3/issues/67#issuecomment-1595418765), damit alles funktioniert.
 
 **Kann man die Apps auf dem Gerät anders sortieren?**
 
@@ -74,15 +75,25 @@ Alle Zustände vom Typ Zahl (common.type `number`) werden so formatiert, wie es 
 
 Ja, seit Firware-Version 0.82 kann der Zugriff mit einem Benutzernamen und Passwort geschützt werden. Seit Adapter-Version 0.8.0 können diese Benutzerdaten ebenfalls in den Instanz-Einstellungen hinterlegt werden.
 
+**Wie funktioniert die halten-Option bei Benachrichtigungen?**
+
+Wenn eine Benachrichtigung mit der Option `hold: true` gesendet wird, bleibt der Text auf dem Display so lange stehen, bis die Benachrichtigung bestätigt wird. Das kann entweder über den mittleren Taster auf dem Gerät passieren, oder indem der Zustand `notification.dismiss` auf `true` gesetzt wird.
+
+**Einige Zustandsänderungen werden nich sofort dargestellt.**
+
+Falls ein Zustand sehr oft geändert wird (z.B. jede Sekunde), werden einige Änderungen ignoriert und nicht übertragen, damit die Last auf dem Gerät gering gehalten wird. Dafür hat jede App eine eigene "Block-Zeit", welche global in den Instanz-Einstellungen konfiguriert werden kann. Die Standard-Zeit ist 3 Sekunden. Es ist nicht empfohlen, ein Wert kleiner als 3 zu setzen.
+
 ## Identische Apps auf mehreren Geräten
 
-Falls mehrere awtrix-light Geräte mit den gleichen Apps angesteuert werden sollen, muss eine eigene Instanz für jedes Gerät angelegt werden. Allerdings kann in den Instanzeinstellungen der weiteren Geräte dann festgelegt werden, dass die Apps aus einer anderen Instanz übernommen werden sollen.
+Falls mehrere awtrix-light Geräte mit den gleichen Apps angesteuert werden sollen, **muss eine eigene Instanz für jedes Gerät angelegt werden.** Allerdings kann in den Instanzeinstellungen der weiteren Geräte dann festgelegt werden, dass die Apps aus einer anderen Instanz übernommen werden sollen.
 
 Beispiel
 
 1. Konfiguriere alle gewünschten Apps in der Instanz `awtrix-light.0`
 2. Lege eine weitere Instanz für das zweite Gerät an (`awtrix-light.1`)
 3. Wähle `awtrix-light.0` in den Instanz-Einstellungen von `awtrix-light.1` um die gleichen Apps auf dem zweiten Gerät darzustellen
+
+Seit Version 0.15.0 (und neuer) wird die Sichtbarkeit von benutzerdefinierten Apps und alle Inhalte der Experten-Apps auch auf andere Geräte übertragen, welche die App-Einstellungen kopieren. Im Beispiel oben werden z.B. die Apps der Instanz `awtrix-light.1` ebenfalls versteckt, sobald die Sichtbarkeit der App in der Hauptinstanz `awtrix-light.0` geändert wird. Das gleiche gilt für alle Inhalte der Experten-Apps.
 
 ## Blockly und JavaScript
 
@@ -96,48 +107,57 @@ Beispiel
 Sende eine einmalige Benachrichtigung an das Gerät:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true }, (res) => {
+sendTo('awtrix-light.0', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties) für Details.
+Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/api?id=json-properties) für Details.
 
 *Außerdem kann ein Blockly-Block verwendet werden um die Benachrichtigung zu erstellen (dort werden nicht alle verfügbaren Optionen angeboten).*
 
 ### Töne
 
-Um eine (vorher angelegte) Ton-Datei abzuspielen:
+**Die Sound-Dateien müssen im RTTTL-Format im Ordner MELODIES abgelegt werden. Die Dateiendung für diese Sounds ist .txt. Beim Abspielen der Sounds darf die Dateiendung nicht mit übergeben werden!**
+
+Um eine (vorher angelegte) Ton-Datei `beispiel.txt` abzuspielen:
 
 ```javascript
-sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
+sendTo('awtrix-light.0', 'sound', { sound: 'beispiel' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/api?id=sound-playback) für Details.
+Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/api?id=sound-playback) für Details.
 
 *Es kann ein Blockly-Block verwendet werden, um diesen Aufruf noch einfacher zu verwenden.*
 
 Um einen eigenen Klingelton abzuspielen:
 
 ```javascript
-sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-## Benutzerdefinierte Apps
+## Apps
 
 **App-Namen dürfen nur Kleinbuchstaben (a-z) enthalten und müssen eindeutig sein. Keine Zahlen, keine Sonderzeichen, keine Leerzeichen.**
 
-Die folgenden App-Namen sind von den internen apps reserviert und können nicht verwendet werden: `time`, `date`, `temp`, `hum`, `bat`.
+Die folgenden App-Namen sind von den internen apps reserviert und können nicht verwendet werden: `Time`, `Date`, `Temperature`, `Humidity`, `Battery`.
+
+- Mit dem `activate`-Zustand jeder App kann diese in den Vordergrund geholt werden
+- Diese Zustände haben die Rolle `button` und erlauben nur den boolschen Wert `true` (andere Werte führen zu einer Warnung im Log)
+
+Jede selbst angelegte App hat einen Zustand mit der ID `apps.<name>.visible`. Wenn dieser Zustand auf `false` (falsch) gesetzt wird, wird die App vom Gerät entfernt und nicht mehr dargestellt. Dies ist nützlich, um bestimmte Apps z.B. nur tagsüber oder in bestimmten Zeiträumen darzustellen.
+
+### Benutzerdefinierte Apps
 
 - `%s` ist ein Platzhalter für den Zustands-Wert
 - `%u` ist ein Platzhalter für die Einheit des Zustandes (z.B. `°C`)
@@ -154,77 +174,75 @@ Die folgenden Kombinationen führen zu einer Warnung im Log:
 - Eine benutzerdefinierte App wird mit einer gewählten Objekt-ID ohne Einheit in `common.unit` angelegt, aber `%u` ist im Text enthalten
 - Es wird keine Objekt-ID ausgewählt, aber `%s` im Text verwendet
 
-## Historische Apps / Graphen
+### Historische Apps / Graphen
 
-**App-Namen dürfen nur Kleinbuchstaben (a-z) enthalten und müssen eindeutig sein. Keine Zahlen, keine Sonderzeichen, keine Leerzeichen.**
-
-Die folgenden App-Namen sind von den internen apps reserviert und können nicht verwendet werden: `time`, `date`, `temp`, `hum`, `bat`.
+TODO
 
 **In den Graphen werden nur bestätigte Werte dargestellt. Steuere-Werte mit `ack: false` werden gefiltert und ignoriert!**
 
-## App-Zustände
+### Experten Apps
 
-- Mit dem `activate`-Zustand jeder App kann diese in den Vordergrund geholt werden
-- Diese Zustände haben die Rolle `button` und erlauben nur den boolschen Wert `true` (andere Werte führen zu einer Warnung im Log)
+Experten-Apps sind seit Adapter-Version 0.10.0 verfügbar. Diese Apps erlauben es, alle Werte manuell über Zustände zu setzen und diese mit eigenen Logiken zu steuern. Um eine neue Experten-App zu erstellen:
 
-## Benutzerdefinierte Apps verstecken
+- Öffne das Tab Expertenoptionen in den Instanz-Einstellungen
+- Erstelle eine neue Experten-App mit einem frei wählbaren Namen (z.B. `test`)
+- Speichere die Instanz-Einstellungen
 
-Jede selbst angelegte App hat einen Zustand mit der ID `apps.<name>.visible`. Wenn dieser Zustand auf `false` (falsch) gesetzt wird, wird die App vom Gerät entfernt und nicht mehr dargestellt. Dies ist nützlich, um bestimmte Apps z.B. nur tagsüber oder in bestimmten Zeiträumen darzustellen.
+Danach werden alle steuerbaren Zustände der App `test` unter `awtrix-light.0.apps.test` erstellt. Um die jeweiligen Werte einer App zu verändern, kann einfach der Wert der Zustände `icon`, `text`, usw. mit eigenen Scripts (z.B. JavaScript oder Blockly) gesetzt werden.
+
+Beispiel: [Wetter-App](weather-app.md)
+
+#### Basisobjekte
+
+*Benötigt Adapter-Version 2.0.0 (und neuer)*
+
+Das Basisobjekt ist eine grundlegende Definition für eine Awtrix-App, um alle existierenden Optionen setzen zu können. *Das Basisobjekt wird mit allen anderen Attributen der Experten-App erweitert.*
+
+Beispiel: Du möchtest den Regenbogen-Effekt auf der Experten-App nutzen, aber es existiert kein vordefiniter Datenpunkt, um diese Funktion direkt zu nutzen. In diesem Fall kann das Attribut im Basis-Objekt definiert werden (als JSON): `{ "rainbow": true }`.
+
+Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/api?id=custom-apps-and-notifications) für alle verfügbaren Attribute.
 
 ## Native Apps verstecken
 
-Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die Luftfeuchtigkeit): Nutze das Menu auf dem Gerät selbst! Siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/onscreen) für Details.
+Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die Luftfeuchtigkeit): Nutze das Menu auf dem Gerät selbst! Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/onscreen) für Details.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.10.0 (2023-10-23)
+### 2.0.0 (2025-05-02)
 
-Updated recommended firmware version to 0.90
+* (@klein0r) Added base object for expert apps to allow all options
+* (@klein0r) Added responsive design for admin config
 
-* (klein0r) Added support for sleep mode
-* (klein0r) Added fading for indicators
+### 1.7.0 (2025-04-08)
 
-### 0.9.2 (2023-10-22)
+* (@klein0r) Improved error handling when adapter is not ready (starting)
+* (@klein0r) Added scroll speed to expert apps
+* (@klein0r) Added icons for custom apps in object tree
 
-* (klein0r) Fixed: Visisble state of expert apps
+### 1.6.0 (2025-01-27)
 
-### 0.9.1 (2023-10-02)
+Updated recommended firmware version to 0.98
 
-NodeJS 16.x is required
+* (@klein0r) Updated dependencies
 
-* (klein0r) Fixed hidden apps
-* (klein0r) Fixed color conversions of settings
+### 1.5.0 (2025-01-07)
 
-### 0.9.0 (2023-10-01)
+Updated recommended firmware version to 0.97
 
-Updated recommended firmware version to 0.88
+* (@klein0r) Updated dependencies
 
-* (klein0r) Added expert apps
-* (klein0r) Use the last value of fast refreshing states
-* (klein0r) Added settings for calendar colors
-* (klein0r) Allow to use apps without text (just background effect)
-* (AlCalzone) Added rtttl api endpoint support (via sendTo)
-* (klein0r) Native apps have been renamed
+### 1.4.1 (2024-11-20)
 
-### 0.8.0 (2023-09-04)
-
-Updated recommended firmware version to 0.83
-
-* (klein0r) Allow to set custom app positions (expert options)
-* (klein0r) Unsubscribe from all states if device is not reachable
-* (klein0r) Added options basic auth
-* (klein0r) Get background effects via API
-* (klein0r) Fixed 0 decimals setting
-* (klein0r) Changed log level of some messages
-* (klein0r) Added states for transitions
+NodeJS >= 20.x and js-controller >= 6 is required
 
 ## License
+
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2025 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

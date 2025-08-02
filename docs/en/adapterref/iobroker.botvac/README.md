@@ -33,6 +33,18 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2024-04-04)
+* (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
+### 2.1.0 (2024-03-21)
+- (mcm1957) Adapter requires node 18 or newer now.
+- (mcm1957) Dependencies have been updated.
+
+### 2.0.2 (2023-12-23)
+- (ar7bd) SpotWidth and spotHeight are now allowed to be zero. [#29]
+- (mcm1957) Dependencies have been updated.
+
 ### 2.0.1 (2023-09-20)
 - (PeterVoronov) A problem causing crashes if some devices are unreachable has been fixed [#46]
 
@@ -68,7 +80,7 @@
 
 MIT License
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2024 iobroker-community-adapters <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

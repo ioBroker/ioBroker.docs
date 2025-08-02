@@ -3,29 +3,55 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ford/README.md
 title: ioBroker.ford
-hash: kQ2va7kLEjAUoKK7TS19/R+J/WtDEqCghXSB3IfV6iU=
+hash: KoE3N+9ggisC8DUdeKJmwCgYld8UkmzHhv4tcsq7+LM=
 ---
 ![Logo](../../../en/adapterref/iobroker.ford/admin/ford.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.ford.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ford.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/ford-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/ford-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/ford-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/ford-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.ford.svg)
 ![NPM](https://nodei.co/npm/iobroker.ford.png?downloads=true)
 
-#ioBroker.ford
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.ford/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.ford
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.ford/workflows/Test%20and%20Release/badge.svg)
 
 ## Ford-Adapter für ioBroker
 Adapter für FordPass
 
 ## Changelog
 
-### 0.0.6
-* (TA2k) initial release
+### 0.2.0
+
+- Login Fix
+
+### 0.0.14
+
+- Improvements to prevent blocking from Ford
+
+### 0.0.13
+
+- removed not working detail api
+
+### 0.0.12
+
+- fix login
+
+### 0.0.11
+
+- fix login
+
+### 0.0.8
+
+- (TA2k) add remote control for refresh
+
+### 0.0.7
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2021 TA2k <tombox2020@gmail.com>

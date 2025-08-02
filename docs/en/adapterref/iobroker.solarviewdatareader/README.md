@@ -60,36 +60,37 @@ UL3, IL3 = mains voltage, mains power phase 3
 TKK= Temperature inverter
 
 ## Changelog
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
--->
 ### **WORK IN PROGRESS**
-
-### 1.0.7 (2022-12-21)
 * (afuerhoff) dependencies updated
 
-### 1.0.6 (2022-07-04)
+### 1.2.2 (2025-05-30)
 * (afuerhoff) dependencies updated
-* (afuerhoff) Interval settings changed from minutes to seconds
-* (afuerhoff) States only writen after changes
+* (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
+* (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
 
-### 1.0.5 (2022-02-17)
+### 1.2.1 (2025-02-26)
 * (afuerhoff) dependencies updated
-* (afuerhoff) test and release updated
-* (afuerhoff) smaller changes
 
-### 1.0.4 (2022-02-09)
+### 1.2.0 (2024-12-20)
 * (afuerhoff) dependencies updated
-* (afuerhoff) issue #20 fixed
+* (afuerhoff) Migration to ESLint 9 and @iobroker/eslint-config - issue [#189]
+* (afuerhoff) eslint: code optimized
+* (afuerhoff) fixing chksum message if inverter 2 - 4 is not available
+* (afuerhoff) logging optimized
+* (afuerhoff) net handling optimized
 
-### 1.0.3 (2021-12-08)
+### 1.1.4 (2024-10-17)
+* (afuerhoff) dependencies updated
+* (afuerhoff) Fixes [#182](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/182)
+
+### 1.1.3 (2024-09-17)
+* (afuerhoff) adapter checker changes [#176](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/176)
 * (afuerhoff) dependencies updated
 
 ## License
 MIT License
 
-Copyright (c) 2019-2022 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2025 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

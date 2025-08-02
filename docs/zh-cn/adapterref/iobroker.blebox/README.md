@@ -3,30 +3,48 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
+hash: 8oNPKG+hEgovErukFkieAYGOQYu1hwgt3nGJXZYLh58=
 ---
 ![标识](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.blebox.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.blebox.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.blebox.svg)
 ![已知漏洞](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
+![新平台](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
 
 # IoBroker.blebox
 ## IoBroker 的 blebox 适配器
-用于控制制造商[blebox](https://blebox.eu/)。 API说明可以在这里找到](https://technical.blebox.eu/)的智能家居设备的适配器。该实施是在没有制造商支持的情况下进行的。
+[![贝宝]（https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/donate/?hosted_button_id=8JKRSMB8LS76S)
+
+用于控制制造商 [blebox](https://blebox.eu/)。API 描述可在此处找到](https://technical.blebox.eu/) 的智能家居设备的适配器。该实现无需制造商的支持。
 
 可以下载不完整且过时的 API 模拟[这里](https://github.com/blebox/blebox-virtual-devices)。
 
 目前支持以下设备：
 
-* 快门盒
-* 开关盒
-* 桑拿箱
-* 温度传感器
-* 门盒
-* 电视电梯
-* 多传感器 - 未使用真实硬件进行测试，最多支持 4 个传感器
+|盖拉特 | API 类型 |状态 |
+|----------------------|---------------------|-----------------------------------------|
+| airsensor | airsensor | ❓ alpha，未使用真实硬件或 API 模拟进行测试 |
+| gatebox | gatebox | ✅ 已测试 |
+| 多传感器 | 多传感器 | 每个设备最多支持 8 个传感器 |
+| tempSensor PRO | 多传感器 | ❓ 测试版，未经真实硬件测试 |
+| tempSensorAC | 多传感器 | ❓ 测试版，未经真实硬件测试 |
+| 湿度传感器 | 多传感器 | ❓ 测试版，未经真实硬件测试 |
+| windSensor PRO | 多传感器 | ❓ 测试版，未经真实硬件测试 |
+| floodSensor | multisensor | ❓ beta，未经真实硬件测试 |
+| rainSensor | 多传感器 | ❓ 测试版，未经真实硬件测试 |
+| saunabox | saunabox | ❓ 测试版，未经真实硬件测试 |
+| 快门盒 | 快门盒 | ✅ 已测试 |
+| shutterBoxDC | shutterBox | ❓ 测试版，未经真实硬件测试 |
+| shutterBoxDIN | shutterBox | ❓ 测试版，未经真实硬件测试 |
+| 开关盒 | 开关盒 | ✅ 已测试 |
+| switchBoxD | switchBoxD | ❓ 测试版，未经真实硬件测试 |
+| switchBoxDC | switchBoxD | ❓ 测试版，未经真实硬件测试 |
+| switchBox DIN | switchBox | ❓ 测试版，未经真实硬件测试 |
+| switchBoxD DIN | switchBoxD | ❓ 测试版，未经真实硬件测试 |
+| switchBoxT PRO | switchBoxD | ❓ 测试版，未经真实硬件测试 |
+| tempsensor | tempsensor | ❓ 测试版，未经真实硬件测试 |
+| tvlift | tvlift | ❓ 测试版，未经真实硬件测试 |
 
 ## Changelog
 
@@ -34,6 +52,19 @@ hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
     Placeholder for the next version:
     ### **WORK IN PROGRESS**
 -->
+
+### 2.2.3 (2025-02-13)
+
+* (Kai van Nuis) Support for airsensor, alpha, neither tested with real Hardware nor an API-Simulation
+* (Kai van Nuis) Support both relay on switchBoxD
+
+### 2.2.1 (2024-12-26)
+
+* (Kai van Nuis) Support for multi-device APIs
+  
+* ### 2.2.0 (2024-12-21)
+
+* (Kai van Nuis) Support for multi-device APIs
 
 ### 2.1.0 (2023-10-13)
 
@@ -61,7 +92,7 @@ hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
 ## License
 MIT License
 
-Copyright (c) 2023 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2025 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

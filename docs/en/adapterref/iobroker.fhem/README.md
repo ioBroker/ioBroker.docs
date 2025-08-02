@@ -52,6 +52,12 @@ Actually only following attributes are supported:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.0 (2024-07-22)
+NodeJS >= 18.x and js-controller >= 5 is required
+
+* (@LausiD) Removed warning from log
+* (@klein0r) Updated tests and dependencies
+
 ### 2.0.5 (2023-08-13)
 * (mcm1957) Dependencies have been updated
 * (mcm1957) Adapter now requires node 16
@@ -167,7 +173,7 @@ Actually only following attributes are supported:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

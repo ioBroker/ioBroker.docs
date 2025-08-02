@@ -3,55 +3,89 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: JQQBUpmrNcfZ1SfB79YyVuOEscS89aiyniN0x7Jw99E=
+hash: M4U04T/lqElBWr/9sEcOAgB14FDrstxg6jiQKvT9mh0=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.go-e.svg)
+![Apache 2.0](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.go-e.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/go-e-installed.svg)
-![Version der Installationen (stabil)](http://iobroker.live/badges/go-e-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/go-e-installed.svg)
+![Installationsversionen (stabil)](http://iobroker.live/badges/go-e-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
-![Bauen & testen](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
 ![NPM](https://nodei.co/npm/iobroker.go-e.png?mini=true)
 ![Codacy-Abzeichen](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
-![Warnungen](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
-![Codequalität](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
 
 # IoBroker.go-echarger
-[!Lizenz](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
-
-# Verwendung von Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Für weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung siehe [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 # Die go-eCharger Wallbox
-![Produktbild](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) Weitere Informationen finden Sie unter https://go-e.co/
+![Abbildung des Produkts](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) Weitere Einzelheiten finden Sie unter https://go-e.co/
 
-## Notiz
-Dieser Adapter läuft derzeit nur mit API v1. Die Unterstützung der neuen API v2 steht derzeit noch aus.
+## Beachten
+Dieser Adapter läuft derzeit nur mit API v1. Die neue API v2-Unterstützung steht derzeit noch aus.
 Bitte stellen Sie sicher, dass Sie in der App die API v1 aktiviert haben.
 
-Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API v2 steht in der Warteschlange. Bitte stellen Sie sicher, dass in der APP die API v1 aktiviert wurde.
-![API_v1](../../../en/adapterref/iobroker.go-e/./docs/active_v1.jpg)
+Dieser Adapter unterstützt derzeit die API v1 und benötigt zur vollen Funktionalität auch die V2. Bitte stellen Sie sicher, dass in der APP die API v1 und v2 aktiviert wurde.
 
-## Go-eCharger Adapter für ioBroker **EN** go-e ist eine Einladung, sich elektrisch zu bewegen. E-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für E-Autos über Photovoltaikanbindungen bis hin zum Lastmanagement ganzer Gebäude sind wir Anbieter ganzheitlicher Systemlösungen für alle Anforderungen moderner E-Mobilität.
+## Go-eCharger-Adapter für ioBroker
+**DE** go-e ist eine Einladung, sich elektrisch fortzubewegen. E-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für E-Autos über Photovoltaikanschlüsse bis hin zum Lastmanagement ganzer Gebäude sind wir Anbieter ganzheitlicher Systemlösungen für alle Anforderungen moderner E-Mobilität.
+
 **DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für e-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement ganzer Gebäude, sind wir Anbieter gesamtheitlicher Systemlösungen für sämtliche Anforderungen der modernen e-Mobilität.
 
 ## IoBroker-Adapter Handbuch / Kurzanleitung
-Das Handbuch zur Installation und Konfiguration finden Sie hier: [Adapter Handbuch](./docs/Readme.md)
+Die Anleitung zur Installation und Konfiguration finden Sie hier: [Adapterhandbuch](./docs/Readme.md)
 
 ## Entwicklerhandbuch
 Treten Sie der Adapter-Community bei https://t.me/goECharger
 
-Offizielle API-Dokumentation: https://github.com/goecharger/go-eCharger-API-v1
+Offizielle API-Dokumentation: https://github.com/goecharger/go-eCharger-API-v1 https://github.com/goecharger/go-eCharger-API-v2
 
 Offizieller Produktsupport: https://go-e.co/support/
 
-## Urheberrechte ©
-Copyright (c) 2022 MK-2001 go-e@itinsi.de
+## Übersetzungen
+Die meisten Übersetzungen stammen von https://translator-ui.iobroker.in. Wenn bei den Übersetzungen etwas schiefgelaufen ist, können Sie gerne einen Beitrag leisten.
+
+## Urheberrecht
+Copyright (c) 2024 MK-2001 go-e@itinsi.de
 
 ## Changelog
 
-[moved here](./docs/CHANGELOG.md)
+### 1.0.42
+* Changed Adapter Core
+
+
+### 1.0.41
+* Update of dependencies
+* Default PSM Grid mode selectable
+* Bug in negate when using go-e software (Thanks to Markus D.)
+* ioBroker updates on core packes (dependencies update)
+
+### 1.0.38
+* Bug on Negate Watts if use Go-e charger
+
+### 1.0.35
+* switch between ioBroker and go-e Hardware logic for PV-Calculation
+* Adding phaseSwitch Buffer to reduce switch on coudy days
+* improved documentation
+* Bug #232
+* Wrong deafult value type
+
+### 1.0.32
+* Timer for loading
+
+### 1.0.31
+* Versioning updates
+
+### 1.0.30
+* added max ampere in settings
+* Added level to switch 1-phase to 3 pahases
+* enables phasesSwitchMode
+* Only possible if V2 is enabled
+* some bugs
+
+### 1.0.29
+* Bugfixes.
+
+[Additional moved here](./CHANGELOG_OLD.md)
 
 ## License
                                  Apache License

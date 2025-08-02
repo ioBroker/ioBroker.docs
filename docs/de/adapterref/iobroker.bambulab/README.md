@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bambulab/README.md
 title: ioBroker.bambulab
-hash: yQ0eXhG2tSPxVJ1yRnio0js1/98MhPI1Qp41pSS5Wns=
+hash: xF9K+twXSSsRjQblkO/bs0evJUr4bRoAZwa4pUEwSJg=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bambulab.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bambulab.svg)
@@ -20,7 +20,7 @@ hash: yQ0eXhG2tSPxVJ1yRnio0js1/98MhPI1Qp41pSS5Wns=
 ## Erste Schritte
 Mit Credits an [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), alle anderen Beteiligten und inspiriert von [diesem Forenthread](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) integriert dieser Adapter Bambulab 3D-Drucker in ioBroker.
 
-Bitte geben Sie in den Adaptereinstellungen die IP-Adresse Ihres Druckers, Ihr API-Token und Ihre Seriennummer an. Diese sind für eine lokale Verbindung (keine Cloud-Beteiligung) zu Ihrem Drucker erforderlich.
+Bitte geben Sie in den Adaptereinstellungen die IP-Adresse Ihres Druckers, das API-Token und die Seriennummer ein. Diese sind für eine lokale Verbindung (ohne Cloud) zu Ihrem Drucker erforderlich.
 Diese Anmeldeinformationen werden lokal gespeichert und nicht an Dritte weitergegeben.
 
 Sie müssen Ihr Druckermodell auswählen, nur der X1 ermöglicht das Senden von Nachrichten, die P1x-Serie erfordert eine Anforderung per Intervalleinstellung (Standard alle 5 Sekunden).
@@ -28,30 +28,30 @@ Sie müssen Ihr Druckermodell auswählen, nur der X1 ermöglicht das Senden von 
 ## Unterstützte Modelle
 | Druckermodell | Status |
 |---------------|-------------------------|
-| P1p | :white_check_mark: |
-| P1s | :Frage:muss getestet werden |
-| X1 | :white_check_mark: |
 | AMS | :white_check_mark: |
+| A1 | :white_check_mark: |
+| P1p | :white_check_mark: |
+| P1s | :white_check_mark: |
+| X1 | :white_check_mark: |
 
 ## Unterstützte Befehle
-| Befehl | X1C | X1 | P1P | P1S |
-|--------------------|---------------------|---------------------|--------------------------|--------------------------|
-| Benutzerdefinierter G-Code | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
-| Pause | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
-| Lebenslauf | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
-| Stopp | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
-| Fan-Aux | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden | :Frage: Muss getestet werden |
-| Ventilatorkammer | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden | :Frage: Muss getestet werden |
-| Fan-ToolHead | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden | :Frage: Muss getestet werden |
-| Lichtkammer | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden | :Frage: Muss getestet werden |
-| Lichtdüse | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden | :Frage: Muss getestet werden |
-| Licht-Logo | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden | :Frage: Muss getestet werden |
-| Temperaturbett | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
-| Temperatur-Düse | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
-| Geschwindigkeitsstufe | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
+| Befehl | X1C | X1 | P1P | P1S | A1 |
+|--------------------|---------------------|---------------------|--------------------------|--------------------------|--------------------------|
+| Benutzerdefinierter G-Code | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Pause | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Lebenslauf | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Stopp | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Fan-Aux | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :x: Keine Hardwareunterstützung |
+| Ventilatorkammer | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :x: Keine Hardwareunterstützung |
+| Fan-ToolHead | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :white_check_mark: |
+| Lichtkammer | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :white_check_mark: |
+| Licht-Logo | :white_check_mark: | :white_check_mark: | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung |
+| Temperaturbett | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Temperatur-Düse | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Geschwindigkeitsstufe | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## Machen
-[ ] Aktuelle Steuerzustände im Steuerordner neu strukturieren/vervollständigen [ ] Zustandsattributdefinitionen optimieren [ ] Druckerserie P1S testen
+[ ] Aktuelle Kontrollzustände im Kontrollordner neu strukturieren/vervollständigen. [ ] Zustandsattributdefinitionen optimieren
 
 ## Unterstütze mich
 Wenn Ihnen meine Arbeit gefällt, ziehen Sie bitte eine persönliche Spende in Betracht (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
@@ -59,13 +59,31 @@ Wenn Ihnen meine Arbeit gefällt, ziehen Sie bitte eine persönliche Spende in B
 ## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
 Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter umgesetzt.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt.
+Wenn Sie der iobroker GmbH erlauben, Diagnosedaten zu sammeln, wird auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten.
+Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
+All dies hilft mir, fehlerfreie Adapter bereitzustellen, die grundsätzlich nie abstürzen.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2 (2023-11-20)
+* (DutchmanNL) Show finish time as ISO string
+
+### 0.3.1 (2023-11-20)
+* (DutchmanNL) Bugfix control P & A Series
+* (DutchmanNL) Show end time as a separate state, resolves #53
+* (DutchmanNL) Bugfix resolves missing fan speed value, resolves #36
+
+### 0.3.0 (2023-11-19) - Release candidate
+* (DutchmanNL) Update dependencies for state handling, resolves #50
+* (DutchmanNL) Adjust log level for Unknown Message from error to debug, resolves #39
+* (DutchmanNL) Add missing definitions to ensure correct creation of states, resolves #39
+* (DutchmanNL) Reduce selection dropdown in admin config to printer series instead of a specific printer type
+* (DutchmanNL) Update adapter code to support new firmware versions released by bambulab, please ensure your printer is up-to-date! resolves #46, resolves #38, resolves #26,
+
 ### 0.2.0 (2023-10-18) - Small fixes for new firmware version
 * (DutchmanNL) Button for homing added, fixes #28
 * (DutchmanNL) Bugfix: Translation of HMS-Error codes
@@ -80,7 +98,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 * (DutchmanNL) Control bed & Nozzle temperature implemented
 * (DutchmanNL) HMS error status indicator states implemented
 * (DutchmanNL) Translations of HMS error codes implemented solves #9
-* (DutchmanNL) Correct definitions for all temperature related states
+* (DutchmanNL) Correct definitions for all temperature-related states
 * (DutchmanNL) Control LED for tooling head Logo and calibration unit
 
 ### 0.1.4 (2023-07-28) - Support P1-series

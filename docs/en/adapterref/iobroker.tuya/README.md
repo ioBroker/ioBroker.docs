@@ -19,6 +19,8 @@ The adapter locally connects to all devices that are "always in wifi". Devices t
 
 One adapter instance can locally discover and connect to all devices in a network that routes UDP packages! For Docker environments this requires additional actions and potentially Macvlan or similar!
 
+**Note: Only one instance of this adapter can run on one host because of the used network ports.**
+
 ## Disclaimer
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 **TUYA is a trademark of Tuya Global Inc.**
@@ -175,6 +177,35 @@ When there are issues with the Tuya App Cloud synchronisation then additional lo
 Send the log with reference to the generated GitHub issue to iobroker@fischer-ka.de
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (@Apollon77) Fixed initial setting and value correction for special Temp values
+* (@Apollon77) Updating Tuyapi to latest version to prevent parsing issues
+* (@Apollon77) Adjust timestamps from MQTT
+* (@Apollon77) More schema information were added/updated
+
+### 3.17.0 (2025-01-08)
+* (@Apollon77) Added support for Tuya 3.5 devices
+* (@Apollon77) Fixed several errors report by Sentry
+* (@Apollon77) Tried to reduce memory usage by only loading Schema definitions when needed and giving memory free afterward
+* (@Apollon77) More schema information were added/updated
+* (@Apollon77) Added enhanced logic for AC/DC states and generalized it for more devices
+* (@Apollon77) Fixed raw data parsing for some devices
+* (@Apollon77) Adjusted special handling for TempSet, TempCurrent and FloorTemp states to return correct values
+* (@simatec) Responsive Design added
+
+### 3.16.0 (2024-08-15)
+* js-controller 5.0 is now required at least
+* (Apollon77) Improves stability
+* (Apollon77) Tries to support phase_X information with 10 bytes
+* (Apollon77) More schema information were added/updated
+
+### 3.15.0 (2023-11-23)
+* (agraf) Add support to login with "Ledvance" App account
+* (Apollon77) Add support to login with "Sylvania" App account
+* (Apollon77) Fixed several smaller issues reported by Sentry
+* (Apollon77) More schema information added/updated
+
 ### 3.14.2 (2023-03-24)
 * (Apollon77) prevent state polling to hang when decide do not return new data
 * (Apollon77) More schema information added/updated
@@ -522,7 +553,7 @@ Send the log with reference to the generated GitHub issue to iobroker@fischer-ka
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2025 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

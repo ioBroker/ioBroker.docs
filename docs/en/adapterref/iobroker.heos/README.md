@@ -145,10 +145,28 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (withstu) improve group state updates
+
+### 2.2.4 (2024-10-31)
+* (withstu) improve tidal connect workaround
+
+### 2.2.3 (2024-10-30)
+* (withstu) fix audio format
+
+### 2.2.2 (2024-10-30)
+* (withstu) add workaround for tidal connect sid = 0 bug and fix audio format
+* (withstu) increase minimum node.js version to recommended version 18
+* (withstu) project maintenance
+
+### 2.2.1 (2024-01-14)
+* (withstu) add workaround for node 19+ ECONNRESET bug #299
+
+### 2.2.0 (2024-01-06)
 * (withstu) update dependencies
 * (withstu) add admin 5 UI support
 * (withstu) improve preferred IP handling
 * (withstu) improve undefined station handling #299
+* (withstu) reduce upnp requests
 
 ### 2.1.0 (2023-08-05)
 * (withstu) replace got with axios
@@ -339,7 +357,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ## License
 MIT License
 
-Copyright (c) 2023 withstu <withstu@gmx.de>
+Copyright (c) 2024 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

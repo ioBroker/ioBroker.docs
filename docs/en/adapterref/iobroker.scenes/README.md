@@ -21,7 +21,7 @@ This adapter can create three types of scenes:
 ## Scenes
 **Scenes** will be created if setting "set on false" are not used. 
 Every scene can be configured individually, so you can have **scenes** and **groups** in one instance of adapter.
-The **scene** is just a list of states id and values, that these states must have by activation of the scene. E.g. we have created on the scene `scene.allLightInBath`:
+The **scene** is just a list of states id and values, that these states must have by activation of the scene. E.g., we have created on the scene `scene.allLightInBath`:
 
 ```
   scene.allLightInBath
@@ -48,7 +48,7 @@ After the fan will be switched off the value of `scene.allLightInBath` will go t
 States with delay are not participated in calculations.
 
 You can test the scene with a "play" button.
-Additionally, you can link this **scene** direct with other scene ID. E.g. if you have a sensor on the door, you can select it as a trigger:
+Additionally, you can link this **scene** direct with other scene ID. E.g., if you have a sensor on the door, you can select it as a trigger:
 
 ```
   trigger
@@ -97,7 +97,7 @@ Delays can be used in the **group** too, but the states with delay are not parti
 You can create a virtual group to control all shutters in living room. 
 By writing 40% into a virtual group all shutters will be set to 40%.
 
-Additionally, you can define the behaviour for which value should be taken for the group if not all states of the group have the same value.
+Additionally, you can define the behavior for which value should be taken for the group if not all states of the group have the same value.
 
 You can provide following aggregations (available only in advanced mode):
 - `uncertain` - (default) - the value of the group will have text `uncertain`.
@@ -120,13 +120,76 @@ sendTo(
 );
 ```
 The adapter will read all actual values for IDs defined in this scene and save it as configured ones.
+## Disable or enable a scene via a message
+To disable or enable some scene, you can send a message to the adapter:
+```js
+// enable
+sendTo(
+    'scenes.0', 
+    'enable', 
+    'scene.0.SCENE_ID', 
+    result => result.err && console.error(result.error) // optional
+);
+// disable
+sendTo(
+    'scenes.0', 
+    'disable', 
+    'scene.0.SCENE_ID', 
+    result => result.err && console.error(result.error) // optional
+);
+// or
+sendTo(
+    'scenes.0', 
+    'disable', // 'enable' to enable
+    {sceneId: 'scene.0.SCENE_ID'}, 
+    result => result.err && console.error(result.error) // optional
+);
+```
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 4.0.2 (2025-06-16)
+* (bluefox) Small improvements for layout
+
+### 4.0.1 (2025-01-23)
+* (bluefox) Adapter was migrated to TypeScript
+* (bluefox) Corrected error with the Select ID dialog
+
+### 3.2.4 (2025-01-22)
+* (bluefox) Migrated to vite
+* (bluefox) Packages updated
+
+### 3.2.3 (2024-08-26)
+* (bluefox) Packages updated
+
+### 3.2.1 (2024-06-21)
+* (bluefox) GUI migrated for the new `adapter-react` library
+
+### 3.1.1 (2024-06-21)
+* (bluefox) Packages updated
+* (bluefox) Prepared for js-controller 6
+
+### 3.0.4 (2024-04-27)
+* (bluefox) Corrected error if profile is empty
+
+### 3.0.3 (2024-02-25)
+* (bluefox) Saving of the scene states from GUI was implemented
+
+### 3.0.1 (2024-02-16)
+* (bluefox) Cleared cron tasks by re-init
+* (bluefox) CRON Editor dialog added
+* (bluefox) Implemented scene enabling/disabling via messages
+* (bluefox) Implemented the writing of the scene states with ack=true
+* (bluefox) Added description to the scene states
+* (bluefox) Added possibility to use categories/enumerations
+
+### 2.4.2 (2024-02-12)
+* (bluefox) Preserved empty folders by renaming and moving of scenes
+
 ### 2.4.0 (2022-12-23)
 * (Apollon77) prevent a crash case reported by Sentry
 * (bluefox) Updated some GUI libraries
@@ -136,7 +199,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handles a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -147,7 +210,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 * (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
 
 ### 2.3.4 (2021-01-16)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
 
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
@@ -155,13 +218,13 @@ The adapter will read all actual values for IDs defined in this scene and save i
 * (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-M)
 
 ### 2.3.0 (2020-11-02)
 * (bluefox) Fixed GUI errors
 
 ### 2.1.7 (2020-10-30)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
 
 ### 2.1.6 (2020-09-25)
 * (bluefox) Updated the select ID dialog.
@@ -239,9 +302,9 @@ The adapter will read all actual values for IDs defined in this scene and save i
 * (bluefox) try to fix error by renaming
 
 ### 0.1.1 (2015-08-10)
-* (bluefox) allow description for states in scene
+* (bluefox) allow description for states in a scene
 * (bluefox) check by rename if the scene with the same name yet exists
-* (bluefox) allow copy scene
+* (bluefox) allowed a coping of a scene
 * (bluefox) fix error with delay and stopAllDelays settings
 
 ### 0.1.0 (2015-08-09)
@@ -251,7 +314,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 ### 0.0.2 (2015-08-05)
 * (bluefox) change configuration schema
 * (bluefox) add cron
-* (bluefox) add burst interval
+* (bluefox) add a burst interval
 
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
@@ -259,7 +322,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2025, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

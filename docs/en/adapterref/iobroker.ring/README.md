@@ -38,6 +38,8 @@ You can use special variables for your livestream and snapshot path and filename
 a counter, timestamp, ring id or kind of ring.
 
 * `%d`: Unix timestamp. Example: `test_%d -> test_1588331430061`
+* `%g`: Formatted dated YYYYMMDD. Example: `test_%g -> test_20240614`
+* `%t`: Formatted time HHiiss. Example: `test_%t -> test_235901`
 * `%i`: ID of your ring device: Example: `test_%i -> test_234567890`
 * `%n`: Counter since ring instance start. Example: `test_%n -> test_1`
 * `%k`: Kind of your ring device: Example: `test_%k -> test_doorbell`
@@ -63,7 +65,6 @@ the fault of this adapter.
    is in channel `livestream`).
 2. You can now configure wether you want to react on events (with recording, snapshot, ...) or not.
 3. Binary states got removed.
-
 
 ### V3 Rewrite Breaking Changes
 
@@ -96,9 +97,62 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.0.9 (2023-11-05)
+### 6.3.0 (2024-11-08)
 
-* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.0
+* (theimo1221) #768 Add df_doorbell_clownfish
+* (theimo1221) #738 Add stickup_cam_medusa
+* (theimo1221) #685 Add cocoa_doorbell_v3
+
+### 6.2.4 (2024-10-31)
+
+* (simatec) Settings for responsive Design
+* (theimo1221) Update some developer packages
+
+### 6.2.3 (2024-10-31)
+
+* (theimo1221) Fix License-Info object in io-package.json
+* (theimo1221) Update iobroker test package
+* (theimo1221) Update some test packages regarding mocha
+
+### 6.2.2 (2024-10-31)
+
+* (theimo1221) Update pipelines to stop using node 18.x
+* (theimo1221) #746 Fix license information in io-package.json
+* (theimo1221) #746 Add tier in io-package.json
+* (theimo1221) #746 Remove deprecated property 'materializeTab' in io-package.json
+* (theimo1221) #746 Remove deprecated property 'main' in io-package.json
+* (theimo1221) #746 Bump minimum js-controller in io-package.json
+* (theimo1221) #746 Remove specific version reference to camera utils
+* (theimo1221) #746 Add @alcalzone/release-script-plugin-manual-review
+
+### 6.2.1 (2024-10-09)
+
+* (Speedbreaker12) js-controller7 compatibility #707
+
+### 6.2.0 (2024-10-08)
+
+* (Speedbreaker12) Added siren trigger functionality to cameras
+* (Speedbreaker12) Add battery status support for Ring Intercom
+* (theimo1221) Some minor package updates
+
+### 6.1.0 (2024-09-20)
+
+* (theimo1221) Some package updates
+* (theimo1221) #749 Bump minimal Node Version to 20
+
+### 6.0.0 (2024-08-17)
+
+* (crocri) Multiple fixes
+* (theimo1221) Update Ring-Api to V13
+
+### 5.1.0 (2024-06-22)
+
+* (SFGJK) #710 Enhancement of filename placeholder feature
+* (theimo1221) Updated Packages
+
+### 5.0.10 (2023-11-06)
+
+* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
 
 ### 5.0.8 (2023-11-05)
 
@@ -481,7 +535,7 @@ doorbell recorded video.
 
 MIT License
 
-Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2024 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
