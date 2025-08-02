@@ -898,14 +898,14 @@ DNScope allows you to update your dynamic DNS account directly in ioBroker. It i
 ## skiinfo (16.5.2025) – new adapter
 https://github.com/oweitman/ioBroker.skiinfo
 
-<img src="https://raw.githubusercontent.com/oweitman/ioBroker.skiinfo/main/admin/skiinfo.png width="100" height="100" />
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.skiinfo/main/admin/skiinfo.png" width="100" height="100" />
 
 With this adapter you can access the current snow depths for mountain, valley and fresh snow, as well as open lifts for various European locations.
 
-## n8n (31.6.2025) – new adapter
+## n8n (31.6.2025) – new adapter (development in progress - not yet available at repository)
 https://github.com/ioBroker/ioBroker.n8n
 
-<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.n8n/main/admin/n8n.svg width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.n8n/main/admin/n8n.svg" width="100" height="100" />
 
 With this adapter, you can run n8n workflows in ioBroker and use the data from ioBroker in n8n workflows.
 
@@ -914,5 +914,33 @@ Additionally, to the WebSocket communication in browser the developers can use t
 You can communicate with existing ws or admin adapters or create your own socket server.
 
 This is useful for the 3rd party applications, which need to communicate with ioBroker system.
+
+## vis-2-widgets-collection (13.7.2025) – new adapter at stable repository
+https://github.com/Steiger04/ioBroker.vis-2-widgets-collection
+
+<img src="https://raw.githubusercontent.com/Steiger04/ioBroker.vis-2-widgets-collection/main/admin/vis-2-widgets-collection.png" width="100" height="100" />
+
+Collection of widgets for ioBroker.vis 2.0
+
+## onlycat (21.7.2025) – new adapter at stable repository
+https://github.com/Sickboy78/ioBroker.onlycat
+
+<img src="https://raw.githubusercontent.com/Sickboy78/ioBroker.onlycat/main/admin/onlycat.png" width="100" height="100" />
+
+Adapter for OnlyCat® cat flaps with prey detection.
+
+## drops-weather (21.7.2025) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.drops-weather
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.drops-weather/main/admin/drops-weather.png" width="100" height="100" />
+
+This adapter provides rain data from https://www.drops.live
+
+## srm (27.7.2025) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.srm
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.srm/main/admin/srm.png" width="100" height="100" />
+
+This is an iobroker adapter to connect to Synology routers. The adapter uses the Synology API to get the data. The adapter is tested with the SRM version 1.3.1. and router model RT6600 but should work with other models as well.
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
