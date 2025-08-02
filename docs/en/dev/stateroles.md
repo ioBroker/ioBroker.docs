@@ -68,6 +68,10 @@ If no detailed matching role can be found or the usecase is not specific then yo
 ### Buttons (booleans, write-only)
 `common.type=boolean, common.write=true, common.read=false`
 
+Buttons normally do not have a value and are only used to send an event (TRUE) when pressed, therefore the attribute read-flag must be FALSE.
+User interfaces should not read the value of this state nor expect it to be reset to "FALSE" after the action was executed or such.
+Button events triggering onChange on an adapter should be confirmed with ACK = TRUE to show the event has been recognized and processed.
+
 * `button`
 * `button.long`
 * `button.stop`           - e.g. rollo stop,
