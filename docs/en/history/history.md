@@ -943,4 +943,11 @@ https://github.com/iobroker-community-adapters/ioBroker.srm
 
 This is an iobroker adapter to connect to Synology routers. The adapter uses the Synology API to get the data. The adapter is tested with the SRM version 1.3.1. and router model RT6600 but should work with other models as well.
 
+## pi-hole2 (16.8.2025) – new adapter at stable repository
+https://github.com/oweitman/ioBroker.pi-hole2
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
+
+Manage a pi-hole installation >=v6. Get information from pi-hole. Start/Stop blocking domains. (for pi-hole <v6 please use adapter ioBroker.pi-hole)
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
