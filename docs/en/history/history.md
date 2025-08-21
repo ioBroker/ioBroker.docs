@@ -950,4 +950,11 @@ https://github.com/oweitman/ioBroker.pi-hole2
 
 Manage a pi-hole installation >=v6. Get information from pi-hole. Start/Stop blocking domains. (for pi-hole <v6 please use adapter ioBroker.pi-hole)
 
+## energy-tracker (21.8.2025) – new adapter at stable repository
+https://github.com/energy-tracker/ioBroker.energy-tracker
+
+<img src="https://raw.githubusercontent.com/energy-tracker/ioBroker.energy-tracker/main/admin/energy-tracker.png" width="100" height="100" />
+
+Adapter for sending meter readings to the Energy Tracker platform.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
