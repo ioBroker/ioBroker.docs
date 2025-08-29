@@ -799,7 +799,7 @@
     "conditions": {
       "iwg-vpn": "installed"
     }
-  }
+  },
   {
     "title":{
       "en": "Adapter ioBroker.paw has been deprecated",
