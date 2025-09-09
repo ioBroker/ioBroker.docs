@@ -957,4 +957,11 @@ https://github.com/energy-tracker/ioBroker.energy-tracker
 
 Adapter for sending meter readings to the Energy Tracker platform.
 
+## vis-2-widgets-icontwo (9.9.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-icontwo/main/admin/vis-2-widgets-icontwo.png" width="100" height="100" />
+
+Icon adapter for the ioBroker.vis adapter (only for VIS-2)
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
