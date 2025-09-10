@@ -964,4 +964,11 @@ https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo
 
 Icon adapter for the ioBroker.vis adapter (only for VIS-2)
 
+## pirate-weather (10.9.2025) – new adapter at stable repository
+https://github.com/ticaki/ioBroker.pirate-weather
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.pirate-weather/main/admin/pirate-weather.png" width="100" height="100" />
+
+Retrieve data from Pirate-Weather.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
