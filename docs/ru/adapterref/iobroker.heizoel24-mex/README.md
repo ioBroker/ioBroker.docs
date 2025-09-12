@@ -1,38 +1,71 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heizoel24-mex/README.md
 title: ioBroker.heizoel24-mex
-hash: tw1pepMs2bnt9iPaEVBs3+H0IZPf9T/S1wr3GeJaJTs=
+hash: eiLDLxzEp5ZZdD+z7glNxntKsqg5jT+R/FB9/3wobx0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heizoel24-mex/admin/heizoel24-mex.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.heizoel24-mex.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.heizoel24-mex.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.heizoel24-mex.svg)
 ![Количество установок](https://iobroker.live/badges/heizoel24-mex-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/heizoel24-mex-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/heizoel24-mex-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.heizoel24-mex.png?downloads=true)
 
 # IoBroker.heizoel24-mex
 **Тесты:** ![Тестирование и выпуск](https://github.com/ltspicer/ioBroker.heizoel24-mex/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер heizoel24-mex для ioBroker
-MEX – это прибор для измерения уровня печного топлива. Этот адаптер считывает данные MEX с сервера Heizoel24.
+MEX — это устройство измерения уровня печного топлива. Этот адаптер считывает данные MEX с сервера Heizoel24.
 
-См.: https://www.heizoel24.de/mex.
+См.: https://www.heizoel24.de/mex
 
 ## Использовать:
-Просто введите данные для входа в свою учетную запись Heizoel24 (адрес электронной почты и пароль).
+Просто введите данные для входа в вашу учётную запись Heizoel24 (адрес электронной почты и пароль).
 Данные MEX хранятся в точке данных heizoel24-mex.
-Адаптер по умолчанию запускается каждые 3 часа. Этого вполне достаточно, поскольку MEX отправляет данные только один раз в день.
-Точку данных CalculatedRemaining/JsonForEcharts (расчетное оставшееся количество) можно открыть непосредственно с помощью eCharts.
+Адаптер запускается по умолчанию каждые 3 часа. Этого вполне достаточно, поскольку MEX отправляет данные только один раз в день.
+Точки данных CalculatedRemaining/JsonForEcharts (расчётный остаточный объём) и OilUsage/JsonForEcharts можно использовать напрямую в eCharts.
 
 ## Changelog
+### 1.4.5 (2025-08-29)
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+- Depends updated
+
+### 1.4.4 (2025-06-21)
+
+- README.md & README-de.md corrected
+
+### 1.4.3 (2025-06-21)
+
+- io-package.json > admin set to >=7.4.10
+
+### 1.4.2 (2025-06-17)
+
+- Bug fix jsonConfig.json : xs,sm, md, ...
+
+### 1.4.1 (2025-06-17)
+
+- Bug fix jsonConfig.json : size removed
+
+### 1.4.0 (2025-06-17)
+
+- OilUsage (Oil consumption per month) added
+
+### 1.3.5 (2024-08-08)
+
+js-controller dependency updated
+
+### 1.3.3 (2024-06-04)
+
+Fix: no error if CalculatedRemaining is empty and mqtt is active
+
+### 1.3.2 (2024-06-04)
+
+Error intercepted for:
+- RemainsUntilCombined no data found
+- CalculatedRemaining is empty
+
 ### 1.3.1 (2024-03-24)
 
 - CalculatedRemaining json data point for eCharts added
@@ -63,7 +96,7 @@ MEX – это прибор для измерения уровня печног�
 ## License
 MIT License
 
-Copyright (c) 2024 Daniel Luginbühl <webmaster@ltspiceusers.ch>
+Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -122,6 +122,27 @@ States:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (copilot) **BREAKING**: Commands now correctly use cmnd/ prefix instead of tele/ prefix - Fix regex bug causing MQTT commands to use "tele" instead of "cmnd" topics
+* (copilot) Fix shutter command mapping to use correct Tasmota format - Transforms Shutter1_Position to ShutterPosition1 for proper device control
+* (copilot) Fix IRHVAC Power, Light and Mode fields showing NULL instead of actual string values
+* (copilot) Add Zigbee device control support for Tasmota coordinators - users can now control Zigbee devices (Power/Dimmer) through ioBroker states via automatic ZbSend command generation
+* (copilot) Added configuration for advanced MQTT settings
+* (copilot) Add support for Tasmota tele/MARGINS messages enabling integration of PowerLow, PowerHigh, and PowerDelta limits
+* (copilot) Fix POW R2 energy datapoints not being created by enabling TELE_STATE by default
+* (copilot) Fix pressure and temperature unit display to respect PressureUnit and TempUnit from Tasmota MQTT messages
+* (copilot) Add support for decoupled button actions in Tasmota devices - creates Button1-Button8 datapoints for button events
+* (copilot) Fix RESULT message processing bug where tele/*/RESULT messages were incorrectly processed as WAKEUP instead of RESULT
+* (copilot) Fix deprecated value.power.consumption role for ENERGY_Power datapoint to improve device detection
+* (copilot) Add support for SHUTTER5-SHUTTER16 datapoints for ESP32 shutter32 devices
+* (copilot) Update admin UI responsive design to use ioBroker standard values for mobile compatibility
+* (copilot) Add support for Sonoff B1 (RGB LED) and Sonoff SC (Environmental Sensor) devices with proper value ranges
+* (copilot) Add meaningful state labels for Scheme datapoint (color animation schemes)
+* (copilot) Add configuration option to suppress "not connected" warnings for temporarily offline devices
+* (copilot) Add Switch5-Switch28 datapoint definitions for consistent boolean mapping
+* (copilot) Fix write flag for all Switch datapoints to enable proper control from ioBroker
+
 ### 3.2.1 (2024-10-07)
 
 * (bluefox) Sanitize the IDs of the clients

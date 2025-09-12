@@ -52,7 +52,9 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 -->
 ### __WORK IN PROGRESS__
 
+* (@klein0r) Added option to use a weighted average (based on time delta between changes)
 * (@klein0r) Optimized avg calculation (without using a sum)
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
 
 ### 4.0.0 (2025-04-16)
 NodeJS >= 20.x and js-controller >= 6 is required

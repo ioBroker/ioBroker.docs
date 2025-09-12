@@ -83,7 +83,13 @@ On configuration page you can select following modules:
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+
+### 1.3.9 (2025-08-31)
+* (simatec) Dependencies updated
+
+### 1.3.8 (2025-06-29)
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x
 

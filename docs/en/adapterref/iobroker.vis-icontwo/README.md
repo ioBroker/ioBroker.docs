@@ -1,17 +1,15 @@
 ﻿![Logo](admin/icontwo.png)
 # ioBroker.vis-icontwo
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vis-icontwo.svg)](https://www.npmjs.com/package/iobroker.vis-icontwo)
-![Number of Installations (stable)](http://iobroker.live/badges/vis-icontwo-stable.svg)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)](https://www.npmjs.com/package/iobroker.vis-icontwo)
 ![Number of Installations (latest)](http://iobroker.live/badges/vis-icontwo-installed.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo)
+![Number of Installations (stable)](http://iobroker.live/badges/vis-icontwo-stable.svg)
+[![NPM Version](https://nodei.co/npm/iobroker.vis-icontwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-icontwo)<br>
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)](https://www.npmjs.com/package/iobroker.vis-icontwo)
+[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)](https://github.com/inventwo/ioBroker.vis-icontwo/tree/master?tab=security-ov-file)
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-icontwo)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/iobroker.vis-icontow/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/inventwo/ioBroker.vis-icontwo/tree/master?tab=License-1-ov-file)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
-
-[![NPM](https://nodei.co/npm/iobroker.vis-icontwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-icontwo/)
 
 
 ## Icon Adapter für den ioBroker.vis Adapter
@@ -59,6 +57,31 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+### 1.18.0
+
+• Neue Icons hinzugefügt (Network, Printer & People)
+
+### 1.17.0
+
+• Neue Icons hinzugefügt (Devices/battery)
+• Neue Icons hinzugefügt (Alarm/camera)
+
+### 1.16.0
+
+• Neue Icons hinzugefügt (Backgrounds/wood)
+
+### 1.15.0
+
+• Neue Icons hinzugefügt (Devices/mower)
+
+### 1.14.0
+
+• Neue Icons hinzugefügt (Player/record)
+
+### 1.13.0
+
+• Neue Icons hinzugefügt (Alarm/record)
 
 ### 1.12.0
 

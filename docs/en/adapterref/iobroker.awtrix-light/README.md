@@ -211,6 +211,10 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
 ### 2.0.0 (2025-05-02)
 
 * (@klein0r) Added base object for expert apps to allow all options

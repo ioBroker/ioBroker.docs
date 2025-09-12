@@ -121,6 +121,9 @@ for your great documentation and work.
 
 ## Changelog
 
+### 0.2.12 (2025-08-17)
+- Fixes bug ChargeStartOrCancel
+
 ### 0.2.11 (2025-04-10)
 - Fixes bug with totalMileage
 

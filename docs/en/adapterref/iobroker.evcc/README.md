@@ -21,6 +21,9 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.3 (2025-07-16)
+* (arteck) simplify json response by removing result wrapper, see https://github.com/evcc-io/evcc/pull/22299
+
 ### 0.2.2 (2025-04-27)
 * (arteck) corr dissolve folders
 
@@ -29,7 +32,7 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
 * (arteck) update dependencies
 
 ### 0.2.0 (2025-03-10)
-* (arteck) generate status folder
+* (arteck) generate status folder, Status folder must be deleted manually
 
 ### 0.1.1 (2024-01-07)
 * (Newan) add batteriemangement

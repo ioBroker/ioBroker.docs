@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: Pc2vT2/oU2hjpLvmV5g1O4ShZPkhlOcRqfm3IE1UwKk=
+hash: 2m3mBBpG9Jdf9hmobcyYS54GbWl+7rC6ZwLPYuOOYXQ=
 ---
 # IoBroker.heizungssteuerung
 ![Logo](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
@@ -17,15 +17,16 @@ hash: Pc2vT2/oU2hjpLvmV5g1O4ShZPkhlOcRqfm3IE1UwKk=
 **Tests:** [![Test und Release](https://github.com/jbeenenga/ioBroker.heizungssteuerung/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/jbeenenga/ioBroker.heizungssteuerung/actions/workflows/test-and-release.yml)
 
 ## IoBroker Adapter zur Heizungssteuerung
-Dieser Adapter bietet umfassendes Heizsystemmanagement für ioBroker-Installationen. Er unterstützt sowohl Heiz- als auch Kühlbetrieb mit erweiterten Funktionen wie Boost-Modus, Pausenfunktion und zeitbasierter Temperaturplanung.
+Dieser Adapter bietet umfassendes Heizsystemmanagement für ioBroker-Installationen. Er unterstützt sowohl Heiz- als auch Kühlmodus mit erweiterten Funktionen wie Boost-Modus, Pausenfunktion und zeitbasierter Temperaturplanung.
 
 [🇩🇪 English Version](README_DE.md)
 
 ## Merkmale
 **Dual-Mode-Unterstützung**: Wechseln Sie zwischen Heiz- und Kühlmodus
+- **Wetterbasierte Steuerung**: Automatische Aktivierung/Deaktivierung basierend auf der Außentemperatur
 - **Boost-Modus**: Heizen/Kühlen für einzelne Räume vorübergehend erhöhen
 - **Pausenmodus**: Heizung/Kühlung für bestimmte Räume vorübergehend deaktivieren
-- **Zeitbasierte Planung**: Definieren Sie Temperaturperioden für unterschiedliche Uhrzeiten und Tage
+- **Zeitbasierte Planung**: Definieren Sie Temperaturperioden für verschiedene Uhrzeiten und Tage
 - **Raumbasierte Steuerung**: Individuelles Temperaturmanagement für jeden Raum
 **Feuchtigkeitskontrolle**: Stoppen Sie die Kühlung, wenn die Feuchtigkeitsschwellenwerte erreicht sind
 - **Abwesenheitsmodus**: Stellen Sie während der Ferien oder längerer Abwesenheit reduzierte Temperaturen ein
@@ -34,7 +35,7 @@ Dieser Adapter bietet umfassendes Heizsystemmanagement für ioBroker-Installatio
 ## Installation
 ### Über die ioBroker-Admin-Schnittstelle
 1. Öffnen Sie die ioBroker-Admin-Oberfläche
-2. Gehen Sie zur Registerkarte "Adapter"
+2. Gehen Sie zur Registerkarte „Adapter“
 3. Suche nach „heizungssteuerung“
 4. Klicken Sie auf „Installieren“
 
@@ -47,7 +48,7 @@ npm install iobroker.heizungssteuerung
 ### 1. Raumstruktur einrichten
 Bevor Sie den Adapter konfigurieren, müssen Sie Ihre Raumstruktur in ioBroker einrichten:
 
-1. Navigieren Sie zu **Objekte → Enums → Räume**
+1. Navigieren Sie zu **Objekte → Enumerationen → Räume**
 2. Erstellen Sie Räume für jeden Bereich, den Sie steuern möchten (z. B. „Wohnzimmer“, „Schlafzimmer“, „Küche“)
 3. Fügen Sie jedem Raum die folgenden Geräte hinzu:
 Temperatursensoren
@@ -81,23 +82,38 @@ Konfigurieren Sie Temperaturpläne für jeden Raum:
 - **Pausendauer**: Automatische Rücksetzzeit für den Pausenmodus (Minuten)
 - **Boost-Dauer**: Automatische Rücksetzzeit für den Boost-Modus (Minuten)
 **Feuchtigkeitsschwelle**: Maximale Luftfeuchtigkeit, bevor die Kühlung stoppt
-- **Reset on Startup**: Überschreibt alle Temperaturen mit Standardwerten beim Adapterstart
+- **Reset beim Start**: Überschreibt alle Temperaturen mit Standardwerten beim Adapterstart
+
+#### Wetterbasierte Steuerung (optional)
+Intelligenten Betrieb basierend auf der Außentemperatur ermöglichen:
+
+- **Wettersteuerung aktivieren**: Wetterbasierte Heiz-/Kühlsteuerung aktivieren
+- **Wetterdatenquelle**: Wählen Sie den Staat aus, der Daten zur Außentemperatur enthält
+- **Heizschwelle**: Heizung nur aktivieren, wenn die Außentemperatur unter diesem Wert liegt (Standard: 15°C)
+- **Kühlschwelle**: Kühlung nur aktivieren, wenn die Außentemperatur über diesem Wert liegt (Standard: 24 °C)
+
+**So funktioniert es:**
+
+- Im Heizbetrieb: Anlage arbeitet nur, wenn Außentemperatur < Grenzwert
+- Im Kühlbetrieb: Anlage arbeitet nur, wenn Außentemperatur > Grenzwert
+- Hat Vorrang vor allen anderen Einstellungen (Stunden, Boost, Abwesenheit)
+- Wenn keine Wetterdaten verfügbar sind, arbeitet das System normal als Fallback
 
 ## Verwendung
-### Manuelle Kontrollaktionen
+### Manuelle Steuerungsaktionen
 Der Adapter erstellt Aktionsobjekte unter `heizungssteuerung.0.Actions`:
 
 #### Globale Aktionen (Alle Räume)
 - **absenceUntil**: Abwesenheitsmodus bis zu einem bestimmten Datum/einer bestimmten Uhrzeit festlegen
 - Format: `dd.MM.yyyy HH:mm` (z.B. "01.01.2024 14:00")
-- Effekt: Ignoriert Perioden und verwendet Standardtemperatur
+- Effekt: Ignoriert Perioden und verwendet die Standardtemperatur
 - **Pause**: Alle Heiz-/Kühlvorgänge vorübergehend unterbrechen
 - **Boost**: Boost-Modus für alle Räume aktivieren
 
 #### Raumspezifische Aktionen
 Für jedes Zimmer finden Sie:
 
-- **Pause**: Heizung/Kühlung nur für diesen Raum pausieren
+- **Pause**: Heizen/Kühlen nur für diesen Raum pausieren
 - **Boost**: Aktiviere den Boost-Modus nur für diesen Raum
 - **targetTemp**: Zieltemperatur vorübergehend außer Kraft setzen
 
@@ -134,10 +150,10 @@ Mode: Heating
 1. **Wohnbereiche**: 21°C tagsüber, 19°C nachts
 2. **Schlafzimmer**: 19°C tagsüber, 16°C nachts
 3. **Badezimmer**: 22°C morgens/abends, sonst 19°C
-4. **Büro**: 21°C während der Arbeitszeit, 18°C sonst
+4. **Büro**: 21°C während der Arbeitszeit, sonst 18°C
 
 ### Energiespartipps
-- Niedrigere Nachttemperaturen nutzen (2-3°C Reduzierung)
+- Verwenden Sie niedrigere Nachttemperaturen (2-3 °C Reduzierung)
 - Stellen Sie Abwesenheitstemperaturen 3-5 °C unter dem Normalwert ein
 - Konfigurieren Sie den Boost-Modus für schnelles Aufwärmen anstelle konstant hoher Temperaturen
 - Verwenden Sie eine Feuchtigkeitskontrolle, um eine Überkühlung zu verhindern
@@ -147,7 +163,7 @@ Mode: Heating
 **Temperaturen ändern sich nicht**
 
 - Überprüfen Sie, ob die Raumaufzählungen richtig konfiguriert sind
-- Überprüfen Sie, ob die Temperatursensoren den richtigen Räumen zugeordnet sind
+- Überprüfen Sie, ob die Temperatursensoren den richtigen Räumen zugewiesen sind
 - Stellen Sie sicher, dass sich die Aktoren in der Funktionsaufzählung „Engine“ befinden
 
 **Perioden funktionieren nicht**
@@ -163,7 +179,7 @@ Mode: Heating
 - Überprüfen Sie, ob die Sensoren aktuelle Daten liefern
 
 ### Debug-Informationen
-Aktivieren Sie die Debug-Protokollierung in den Adaptereinstellungen, um ausführliche Informationen zu folgenden Themen anzuzeigen:
+Aktivieren Sie die Debug-Protokollierung in den Adaptereinstellungen, um detaillierte Informationen zu folgenden Themen anzuzeigen:
 
 - Temperaturberechnungen
 - Periodenabgleich
@@ -178,45 +194,81 @@ Symbol erstellt von Freepik ([https://www.flaticon.com/de/kostenloses-icon/heizu
 **Unterstützen Sie dieses Projekt** ⭐ Markieren Sie dieses Repository mit einem Stern, wenn Sie es hilfreich finden!
 
 ## Changelog
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.0 (2024-09-17)
-* (jbeenenga) update dependencies
-* (jbeenenga) add absence mode
-* (jbeenenga) fix pause and boost for cooling mode
+### **WORK IN PROGRESS**
+- (jbeenenga) fix invalid state roles according to ioBroker documentation
+- (jbeenenga) fix repository checker issues
+
+### 2.1.1 (2025-09-02)
+ - (jbeenenga) correct outsite temperature path setting
+
+### 2.1.0 (2025-08-25)
+
+- (jbeenenga) add weather-based heating/cooling control
+- (jbeenenga) refactor business logic into service classes
+- (jbeenenga) add comprehensive unit tests
+- (jbeenenga) update dependencies to latest versions
+
+### 2.0.3 (2025-07-02)
+
+- (jbeenenga) fix absence format issue
+- (jbeenenga) fix period matching issue
+
+### 2.0.2 (2025-06-24)
+
+- (jbeenenga) fix build bug
+
+### 2.0.1 (2025-06-24)
+
+- (jbeenenga) fix technical issues
+
+### 2.0.0 (2025-06-18)
+
+- (jbeenenga) update dependencies
+- (jbeenenga) add absence mode
+- (jbeenenga) fix pause and boost for cooling mode
 
 ### 1.7.0 (2023-01-05)
-* (jbeenenga) fix bug for end boost or pause mode
-* (jbeenenga) provide corrent humidity in temperatures
+
+- (jbeenenga) fix bug for end boost or pause mode
+- (jbeenenga) provide corrent humidity in temperatures
 
 ### 1.6.7 (2022-12-16)
-* (jbeenenga) fix date format
+
+- (jbeenenga) fix date format
 
 ### 1.6.5 (2022-12-16)
-* (jbeenenga) add possibility to reset temperatures on adapter start
+
+- (jbeenenga) add possibility to reset temperatures on adapter start
 
 ### 1.6.4 (2022-12-16)
-* (jbeenenga) add more debug outputs
-* (jbeenenga) fixed incorrect period to room mapping
+
+- (jbeenenga) add more debug outputs
+- (jbeenenga) fixed incorrect period to room mapping
 
 ### 1.6.3 (2022-12-15)
-* (jbeenenga) removed unnecessary debug output
+
+- (jbeenenga) removed unnecessary debug output
 
 ### 1.6.2 (2022-12-15)
-* (jbeenenga) fix for temperature calculation
+
+- (jbeenenga) fix for temperature calculation
 
 ### 1.5.0 (2022-09-25)
-* (jbeenenga) add possibility to overwrite temperature temporarily
-* (jbeenenga) add config for temperature offset
-* (jbeenenga) add boost and pause function
+
+- (jbeenenga) add possibility to overwrite temperature temporarily
+- (jbeenenga) add config for temperature offset
+- (jbeenenga) add boost and pause function
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
+Copyright (c) 2025 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

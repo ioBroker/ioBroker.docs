@@ -242,6 +242,12 @@ Activate the Notifications tab. The communication settings are then made on the 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.19 (2025-07-02)
+* (Dirk-Peter-md) The switch-on hysteresis of the cistern is now stored in the configuration.
+
+### 0.2.18 (2025-06-30)
+* (Dirk-Peter-md) Hysteresis switch-on value of the cistern changed to 20%
+
 ### 0.2.17 (2025-06-15)
 * (Dirk-Peter-md) Valve timing corrected
 
@@ -252,17 +258,6 @@ Activate the Notifications tab. The communication settings are then made on the 
 * (Dirk-Peter-md) Readme updated
 * (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
 * (Dirk-Peter-md) ioBroker-Bot [W028]
-
-### 0.2.14 (2025-03-15)
-* (Dirk-Peter-md) eslint-config added
-* (Dirk-Peter-md) Dependencies updated
-* (Dirk-Peter-md) Update License
-* (Dirk-Peter-md) issue #92 Sprinkler im Gewächshaus solved
-* (Dirk-Peter-md) add Button control.autoStart
-
-### 0.2.13 (2022-09-06)
-* (Dirk-Peter-md) various bugs fixed
-* (Dirk-Peter-md) Preparing the stable release
 
 ## License
 MIT License

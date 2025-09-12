@@ -58,10 +58,11 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - ...
 
 ## Changelog
+### 1.3.0 (2025-08-28) - 2025H2 maintenance release
 
-### **WORK IN PROGRESS**
-
-- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+- (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
+- (pdbjjens) Fix: Correctly identify new SMA EMETER (#795)
+- (pdbjjens) Change: Cleanup devDependencies
 
 ### 1.2.0 (2025-01-31) - 2025H1 maintenance release
 
@@ -89,11 +90,6 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - (pdbjjens) New: Detect SMA-EM 1.0 (SUSy 270)
 - (arteck) New: Detect new SHM 2.0 with SUSy 501
 - (ticaki) Fix: Catch interface errors
-
-### 0.7.0 (2023-03-14)
-
-- (pdbjjens) New: Configurable data point update intervals to reduce system load
-- (pdbjjens) New: Use JSON config
 
 ## License
 

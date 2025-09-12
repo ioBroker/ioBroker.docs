@@ -9,7 +9,23 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 # ioBroker.worx Adapter
 
-## Wichtige Info
+# Summary
+
+- [Instance Settings](#instance-settings)
+- [Login Infos JSON](#login-infos-worx0logininfo)
+- [All folders](#folder)
+    - [activityLog (Wire and Vision)](#activitylog-wire-and-vision)
+    - [areas (wire)](#areas-wire)
+    - [calendar (wire)](#calendar-wire)
+    - [calendar (Vision)](#calendar-vision)
+    - [modules (Wire and Vision)](#modules-wire-and-vision)
+    - [mower (Wire and Vision)](#mower-wire-and-vision)
+    - [info_mqtt (Draht und Vision)](#info_mqtt-wire-and-vision)
+- [Additionally Vision Infos](#additionally-for-vision)
+- [Rate Limiting](#rate-limiting)
+- [Example Blockly sendMultiZonesJson Vision](#example-blockly-sendmultizonesjson-vision)
+
+## Important information
 
 🟢 1.1 second pause between 2 active switching operations</br>
 🔴 No delay and the next active also without a delay
@@ -36,6 +52,8 @@ valid</br>
 
 ### Instance settings
 
+[Summary](#summary)
+
 - `App Email`: Your APP Username (eMail)
 - `App Password`: Your APP Password
 - `App Name`: Choose your device
@@ -46,11 +64,22 @@ valid</br>
 - `Display errors via notifications (for all devices)`: Turn notification on/off for all devices (can be turned on/off for each device under Objects)
 - `Delete session data` If you have problems logging in, delete the current session
 - `Reset Login counter` Reset Login counter
+- `Requests limit per day (50-180)`: Limit the number of requests per day. These are API queries, such as the set interval and updates after a refresh token (in the instance settings). Each restart generates 4 requests. Additionally, 1 query for the firmware status and the activity log queries (every status/error change from the mower). Set this to 100 digits and check how many queries were sent at 11:55 PM. Then enter this number + 10.
+- `Requests limit per 10 minutes (4-15)`: API Requests Limitierung - Sollte auf 4 stehen da sonst ein Neustart nicht möglich wäre.
+- `MQTT limit per day (1-250 pro device)`: Request Limitierung über MQTT. Die Auswahl ist pro Geräte.
+- `Restart limitation per day (1-10)`: Protects against unknown and unwanted adapter reboots.
+- `MQTT-Verbindung auswählen`:
+    - `Alte AWS-Verbindung`: The old MQTT connection is used. Disadvantage: There is a forced disconnect every 20 minutes, and re-establishing the connection takes 1 second.
+    - `Neue AWS-Verbindung`: A new MQTT connection is used. Disadvantage: The connection is disconnected and re-established every hour due to the token. If the module encounters an error, the old connection is automatically used.
+    - `MQTT5-Verbindung (derzeit nicht verfügbar)`: Not currently available. The old connection will then be used.
 
 ![Instance Settings img/instance.png](img/instance.png)</br>
-![Instance Settings img/instance_1.png](img/instance_1.png)
+![Instance Settings img/instance_1.png](img/instance_1.png)</br>
+![Instance Settings img/instance_2.png](img/instance_2.png)
 
 ### Login Infos `worx.0.loginInfo`
+
+[Summary](#summary)
 
 ```json
 {
@@ -74,6 +103,8 @@ valid</br>
 
 ### Folder
 
+[Summary](#summary)
+
 - `activityLog`: Your activity log (Wire & Vision / control possible)
 - `areas`: Areas (Wire / control possible)
 - `multiZones`: Multizones (Vision / control possible)
@@ -87,6 +118,8 @@ valid</br>
 
 ### activityLog (Wire and Vision)
 
+[Summary](#summary)
+
 - `last_update`: Last update as timestamp (Wire & Vision / readonly)
 - `manuell_update`: Loads the current activity log (automatically after status changes - Wire & Vision / control possible)
 - `payload`: Activity log as JSON Table (for VIS or Blockly)
@@ -94,6 +127,8 @@ valid</br>
 ![Activity img/activity.png](img/activity.png)
 
 ### areas (wire)
+
+[Summary](#summary)
 
 - `actualArea`: Current
 - `actualAreaIndicator`: Next array zone start
@@ -108,8 +143,9 @@ valid</br>
 
 ### calendar (Wire)
 
-- E.g. time setting for wednesday
+[Summary](#summary)
 
+- E.g. time setting for wednesday
     - `wednesday.borderCut`: With or without bordercut (Change value without delay) (changeable) 🔴
     - `wednesday.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay) (changeable) 🔴
     - `wednesday.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = endtime 09:30 (Change value without delay) (changeable) 🔴
@@ -122,9 +158,10 @@ valid</br>
 
 ### calendar (Vision)
 
+[Summary](#summary)
+
 - E.g. time setting for friday
 - As standard, 2 timeslots are created. If 3 slots are created in the APP, 3 will also be created in ioBroker. If it is reduced again to 2, these slots will be deleted in ioBroker. The day with the most slots is used as a reference for all days.
-
     - `friday.time_0.borderCut`: With or without bordercut (Change value without delay) (changeable) 🔴
     - `friday.time_0.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay) (changeable) 🔴
     - `friday.time_0.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endtime 09:30 (Change value without delay) (changeable) 🔴
@@ -160,18 +197,17 @@ valid</br>
 
 ### modules (Wire and Vision)
 
-- Off Limit Module (Wire and Vision)
+[Summary](#summary)
 
+- Off Limit Module (Wire and Vision)
     - `DF.OLMSwitch_Cutting`: Prevents magnetic tape from being run over - true-on/false-off
     - `DF.OLMSwitch_FastHoming`: Fast return to the charging station - using shortcuts made from magnetic strips - true-on/false-off
 
 - ACS Module (Wire only)
-
     - `US.ACS`: Enable or disable ACS - 1-on/0-off 🟢
     - `US.ACS_Status`: Status from ACS Module (readonly)
 
 - EA Module (Vision only)
-
     - `EA.height`: Height adjustment of mower deck from 30-60 in 5 mm increments 🟢
 
 - HL Module (Vision only)
@@ -184,6 +220,8 @@ valid</br>
 ![Module img/module_hl.png](img/module_hl.png)
 
 ### mower (Wire and Vision)
+
+[Summary](#summary)
 
 - `AutoLock`: Auto lock true-on/false-off (wire & Vision/changeable) 🟢
 - `AutoLockTimer`: Timer auto lock max. 10 minutes in 30 second steps (wire & Vision/changeable) 🟢
@@ -406,6 +444,8 @@ valid</br>
 
 ### Additionally for vision
 
+[Summary](#summary)
+
 - MultiZones
     - `multiZones.zones.zone_1.borderDistance`: When boarder cutting, the distance to the edge in mm - allowed 50mm, 100mm, 150mm and 200mm - Set with Blockly without delay - Change is written in `multiZones.multiZones` (vision/changeable) 🔴
     - `multiZones.zones.zone_1.chargingStation`: 1 If the charging station is found in this zone. 0 for no charging station - Set with Blockly without delay - Change is written to `multiZones.multiZones` (vision/changeable) 🔴
@@ -496,6 +536,8 @@ Default without zone:
 
 ### info_mqtt (Wire and Vision)
 
+[Summary](#summary)
+
 - `incompleteOperationCount`: Total number of operations submitted to the connection that have not yet been completed. Unacked operations are a subset of this.
 - `incompleteOperationSize`: Total packet size of operations submitted to the connection that have not yet been completed. Unacked operations are a subset of this.
 - `unackedOperationCount`: Total number of operations that have been sent to the server and are waiting for a corresponding ACK before they can be completed.
@@ -506,7 +548,136 @@ Default without zone:
 
 ![Vision img/mqtt_info.png](img/mqtt_info.png)
 
+### Rate Limiting
+
+[Summary](#summary)
+
+- Value worx.0.blocking
+  The lock will be automatically lifted after 24 hours. The next time the token is updated, everything will be reset.
+
+```json
+{
+    "block": false, // true = 429 too many request is activ
+    "start": 0, // Start of the blocking as a timestamp
+    "time": "", // With time zone
+    "retry-after": 0 // How long you are blocked
+}
+```
+
+- Value worx.0.requestsrateLimit
+  The counters can be changed manually to remove any premature locks.
+
+```json
+{
+    "apiCounter": 6, // API request per day
+    "apiLast": 1751483518418, // Last API request as timestamp
+    "apiTime": "2025-07-02T19:11:58.418Z", // Last API request with time zone
+    "apiRequest": [
+        // All API requests
+        {
+            "count": 1,
+            "request": "https://api.worxlandroid.com/api/v2/product-items?status=1&gps_status=1",
+            "time": "2025-07-02T19:11:58.418Z"
+        },
+        {
+            "count": 2,
+            "request": "https://api.worxlandroid.com/api/v2/product-items/xxx/firmware-upgrade",
+            "time": "2025-07-02T19:11:58.895Z"
+        },
+        {
+            "count": 3,
+            "request": "https://api.worxlandroid.com/api/v2/product-items/xxx/activity-log",
+            "time": "2025-07-02T19:11:59.130Z"
+        },
+        {
+            "count": 4,
+            "request": "https://api.worxlandroid.com/api/v2/products",
+            "time": "2025-07-02T19:11:59.364Z"
+        },
+        {
+            "count": 5,
+            "request": "https://api.worxlandroid.com/api/v2/users/me",
+            "time": "2025-07-02T19:12:00.318Z"
+        },
+        {
+            "count": 6,
+            "request": "https://id.worx.com/oauth/token?",
+            "time": "2025-07-03T18:12:46.628Z"
+        }
+    ],
+    "mqttDevice": {
+        // MQTT Counter per device
+        "xxxF3": {
+            "mqttCount": 6, // Counter MQTT commands
+            "mqttLast": 1751651797646, // Last command with time zone
+            "mqttTime": "2025-07-04T17:56:37.646Z", // Letzter Kommando mit Zeitzone
+            "mqttBlock": true, // true = Kommandos deaktiviert / false = Kommandos aktiv
+            "mqttRequest": [
+                // Last commands
+                {
+                    "count": 1,
+                    "message": "{\"id\":23210,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"21:12:00\",\"dt\":\"02/07/2025\"}",
+                    "time": "2025-07-02T19:12:00.811Z"
+                },
+                {
+                    "count": 2,
+                    "message": "{\"id\":58731,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"20:12:49\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T18:12:49.586Z"
+                },
+                {
+                    "count": 3,
+                    "message": "{\"id\":3925,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"20:20:41\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T18:20:41.579Z"
+                },
+                {
+                    "count": 4,
+                    "message": "{\"id\":3265,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"21:10:19\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T19:10:19.292Z"
+                },
+                {
+                    "count": 5,
+                    "message": "{\"id\":28606,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"21:11:20\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T19:11:20.634Z"
+                },
+                {
+                    "count": 6,
+                    "message": "{\"id\":12891,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"19:56:37\",\"dt\":\"04/07/2025\"}",
+                    "time": "2025-07-04T17:56:37.646Z"
+                }
+            ]
+        },
+        "xxxE2": {
+            "mqttCount": 0,
+            "mqttLast": 0,
+            "mqttBlock": false,
+            "mqttRequest": []
+        },
+        "xxxC5": {
+            "mqttCount": 0,
+            "mqttLast": 0,
+            "mqttBlock": false,
+            "mqttRequest": []
+        },
+        "xxx2F": {
+            "mqttCount": 0,
+            "mqttLast": 0,
+            "mqttBlock": false,
+            "mqttRequest": []
+        }
+    },
+    "mqttDay": "27-4", // calendar week-day. When changing everything is reset
+    "restartCount": 6, // Counter restart adapter
+    "restartLast": 1751569817003, // Last restart
+    "restartTime": "2025-07-03T19:10:17.003Z", // Last restart with time zone
+    "day": "27-4" // calendar week-day. When changing everything is reset
+}
+```
+
+![img/limiting.png](/img/limiting.png)
+
 ### Example Blockly sendMultiZonesJson Vision
+
+[Summary](#summary)
 
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -837,6 +1008,20 @@ Default without zone:
 ![img/array_nok.png](img/array_nok.png)
 
 ## Changelog
+### 3.2.7 (2025-08-16)
+
+- (Lucky-ESA) MQTT connection selection added
+- (Lucky-ESA) Rate limit selection added in instance settings
+- (Lucky-ESA) Admin 7.6.17 required
+
+### 3.2.6 (2025-06-29)
+
+- (Lucky-ESA) Added rate limit for API request
+
+### 3.2.5 (2025-06-25)
+
+- (Lucky-ESA) MQTT connection changed
+
 ### 3.2.4 (2025-06-14)
 
 - (Lucky-ESA) TypeError native_excluded fixed
@@ -845,27 +1030,6 @@ Default without zone:
 
 - (Lucky-ESA) All Sentry issues fixed
 - (Lucky-ESA) Add new mowers without adapter restart
-
-### 3.2.2 (2025-05-29)
-
-- (Lucky-ESA) Fixed invalid object type
-- (Lucky-ESA) Error message it is raining changes to rain delay
-
-### 3.2.1 (2025-05-25)
-
-- (Lucky-ESA) Fixed starting firmware update (did not work)
-- (Lucky-ESA) Added confirm edgecut
-- (Lucky-ESA) Added notifications about instance settings toggle on/off
-- (Lucky-ESA) Small bugs fixed
-
-### 3.2.0 (2025-04-08)
-
-- (Lucky-ESA) Migration to ESLint9
-- (Lucky-ESA) Node 20 required
-- (Lucky-ESA) Admin 7.4.10 required
-- (Lucky-ESA) Added Party Modus Timer (wire only)
-- (Lucky-ESA) Save session infos
-- (Lucky-ESA) Added rain countdown (wire only)
 
 ## License
 

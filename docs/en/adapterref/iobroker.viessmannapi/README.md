@@ -113,6 +113,14 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 ```
 
 ## Changelog
+### 2.4.3 (2025-08-10)
+
+- fix for new role preventing data update
+
+### 2.4.2 (2025-07-11)
+
+- change api host name
+
 ### 2.4.1 (2025-03-31)
 
 - Update to new viessmann api

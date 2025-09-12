@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: DQoafM/aKX66Exe5lkCA99dTzXsqAMffbwmDykXNzdo=
+hash: 9mTZmsP0P4NntrJ6mv5eNf2RsWmim13FdipiYS1ukv4=
 ---
 ![Logo](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -17,24 +17,30 @@ hash: DQoafM/aKX66Exe5lkCA99dTzXsqAMffbwmDykXNzdo=
 **Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.intex/workflows/Test%20and%20Release/badge.svg)
 
 ## Intex-Adapter für ioBroker
-Adapter für Intex Whirlpool mit WLAN Modul
+Adapter für Intex Whirlpool mit WLAN-Modul, der mit der alten App funktioniert.
+
+## Dieser Adapter funktioniert nur mit der alten Intex-App
+Intex bietet seit 2025 zwei Apps zum Download an, sowohl für Apple als auch für Android. Wie bereits erwähnt, funktioniert dieser Adapter nicht mit den neuen Pools. Welche App Sie benötigen, erfahren Sie in der Anleitung. RTFM ist daher empfehlenswert.
+
+### Muss ich weinen, wenn ich einen neuen Pool habe?
+Ein klares Nein, die neuen Pools scheinen Tuya zu unterstützen. Vergesst die neue Intex-App; nutzt einfach die Tuya-App, Smart Life oder eine andere, die der Tuya-Adapter unterstützt. Fügt den Pool dort hinzu. Es wird perfekt funktionieren. Also viel Spaß und bedankt euch bei Thestef86 für die Recherche.
 
 ## Die Strategie zur Kommunikation mit dem Pool und der Cloud
 ### Über Wolken
 #### Cloud sekundär; Pool lokal, falls verfügbar
-In diesem Modus versucht das System, die Steuerbefehle und Update-Befehle lokal abzusetzen. Tritt bei der lokalen Kommunikation ein Fehler auf, wechselt das System in den Cloud-Betrieb, bis der Adapter erneut gestartet wird.
+In diesem Modus versucht das System, den Steuerbefehl und den Aktualisierungsbefehl lokal abzusetzen. Tritt bei der lokalen Kommunikation ein Fehler auf, wechselt das System in den Cloud-Betrieb, bis der Adapter erneut gestartet wird.
 
-IP-Adresse und Port kommen aus der Cloud. Ist die IP-Adresse gleich, muss der Pool in der App neu angemeldet werden. Dazu den Connect-Button lange drücken und den Pool suchen. Ein Löschen aus der App ist in der Regel nicht nötig.
+IP-Adresse und Port kommen aus der Cloud. Ist die IP-Adresse identisch, muss der Pool erneut in der App registriert werden. Dazu den Verbinden-Button lange drücken und den Pool suchen. Ein Löschen aus der App ist in der Regel nicht nötig.
 
 #### Cloud sekundär; Pool nur lokal
-In diesem Modus erteilt das System die Steuerbefehle und Updatebefehle lokal. Tritt bei der lokalen Kommunikation ein Fehler auf, wechselt das System nicht in den Cloud-Betrieb.
+In diesem Modus gibt das System den Steuerbefehl und den Aktualisierungsbefehl lokal aus. Bei einem Fehler in der lokalen Kommunikation wechselt das System nicht in den Cloud-Betrieb.
 
 Das Intervall kann hier auf 0,5 Minuten eingestellt werden.
 
-IP-Adresse und Port kommen aus der Cloud. Ist die IP-Adresse gleich, muss der Pool in der App neu angemeldet werden. Dazu den Connect-Button lange drücken und den Pool suchen. Ein Löschen aus der App ist in der Regel nicht nötig.
+IP-Adresse und Port kommen aus der Cloud. Ist die IP-Adresse identisch, muss der Pool erneut in der App registriert werden. Dazu den Verbinden-Button lange drücken und den Pool suchen. Ein Löschen aus der App ist in der Regel nicht nötig.
 
 #### Nur Cloud
-In diesem Modus sendet das System lediglich Steuerbefehle und Aktualisierungsbefehle über die Cloud.
+In diesem Modus sendet das System nur den Steuerbefehl und den Aktualisierungsbefehl über die Cloud.
 
 ##### Anmelden
 Geben Sie die E-Mail-Adresse und das Passwort der Intex-App ein.
@@ -43,9 +49,9 @@ Geben Sie die E-Mail-Adresse und das Passwort der Intex-App ein.
 #### Nur lokal
 Im lokalen Betrieb werden aktuell auch Funktionen angeboten, die der Pool nicht unterstützt. Unter Adresse muss entweder der DNS-Name des Pools auf dem Router oder die IP-Adresse des Pools angegeben werden.
 
-Das Intervall kann hier auch auf 0,5 Minuten eingestellt werden.
+Auch hier kann das Intervall auf 0,5 Minuten eingestellt werden.
 
-Über den Suchen-Button kann nach der IP-Adresse des Pools gesucht werden. Dies kann allerdings durch Router unterbunden werden, wenn z. B. WLAN-Geräte nicht untereinander kommunizieren dürfen oder in der lokalen Firewall des Rechners Ports bzw. Onboard-Casting gesperrt sind.
+Über den Suchen-Button kann nach der IP-Adresse des Pools gesucht werden. Dies kann allerdings durch Router verhindert werden, wenn z. B. WLAN-Geräte nicht untereinander kommunizieren dürfen oder in der lokalen Firewall des Rechners Ports bzw. On-Board-Casting gesperrt sind.
 
 ## Steuerung der Funktionen des Spas
 „intex.0.-id-.control.-command-“ auf „true“ oder „false“ gesetzt steuert den Status des Poolbefehls.

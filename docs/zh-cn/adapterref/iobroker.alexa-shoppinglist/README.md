@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-购物清单
-hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
+hash: or7jj4BKgLMQAtb9TD415gPeR8SUoLzBJq0i6Me7pzQ=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -17,6 +17,8 @@ hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 **测试：**![测试和发布](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 alexa-shoppingList 适配器
+此适配器使用 Sentry 库自动向开发者报告异常和代码错误。更多详情以及如何禁用错误报告，请参阅 Sentry 插件文档！从 js-controller 3.0 开始使用 Sentry 报告功能。
+
 从 Alexa 生成购物清单
 
 您还可以使用 Alexa 的其他列表。请在管理员界面中进行配置。
@@ -83,7 +85,17 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### **WORK IN PROGRESS**
 
+- CHORE: #145 Update dependencies
+
+### 1.1.1 (2025-08-13)
+
+- FIX: Error reported by sentry
+
+### 1.1.0 (2025-07-14)
+
+- FEAT: Activate sentry
 - Breaking change: minimal supported node.js version is 20.x
+- FEAT: Add typescript
 
 ### 1.0.3 (2024-12-04)
 

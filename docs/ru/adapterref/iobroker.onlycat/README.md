@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onlycat/README.md
 title: ioBroker.onlycat
-hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
+hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.onlycat/admin/onlycat.png)
 
@@ -14,7 +14,7 @@ hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
 ![НПМ](https://nodei.co/npm/iobroker.onlycat.png?downloads=true)
 
 # IoBroker.onlycat
-**Тесты:** ![Тест и выпуск](https://github.com/Author/ioBroker.onlycat/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/Author/ioBroker.onlycat/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер для кошачьих дверец OnlyCat® с функцией обнаружения добычи
 Адаптер для кошачьих дверец OnlyCat® с функцией обнаружения добычи.
@@ -22,11 +22,12 @@ hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
 <p align="center"> <img src="/admin/onlycat-flap.webp" /> </p> <p align="center"> <img style="max-width: 300px" src="/admin/screenshot.jpg" /> </p>
 
 ## Конфигурация
-Добавьте токен устройства на странице конфигурации адаптера.
-Токен можно найти в приложении OnlyCat на странице «Учетная запись».
+Добавьте токен устройства на странице настройки адаптера.
+Токен можно найти в приложении OnlyCat на странице «Учётная запись».
 
 ## Описание
-Адаптер передает события от кошачьей дверцы OnlyCat, т. е. входы, выходы и обнаружение добычи.
+Адаптер отслеживает события, происходящие в кошачьей дверце OnlyCat, такие как входы, выходы и обнаружение добычи.
+Он также позволяет настроить активную политику транзита.
 
 Для адаптера требуется Node 20 или более новая версия.
 
@@ -34,6 +35,24 @@ hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
 OnlyCat® является зарегистрированной торговой маркой [VirtualV Trading Ltd.](https://www.onlycat.com/)
 
 ## Changelog
+
+### 0.5.1 (2025-09-08)
+
+* (Sickboy78) fix error on firmware channel missing
+
+### 0.5.0 (2025-09-07)
+
+* (Sickboy78) transit policies added
+* (Sickboy78) connectivity and firmware channel added to device
+
+### 0.4.0 (2025-07-13)
+
+* (Sickboy78) migrated to iobroker eslint rules
+
+### 0.3.1 (2025-07-12)
+
+* (Sickboy78) improved event type classification
+* (Sickboy78) improved fetching of events in progress
 
 ### 0.3.0 (2025-06-04)
 

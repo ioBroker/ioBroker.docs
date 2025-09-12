@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: Uv6hWjFceLb8lT64jr+rkILf4J5Re0g7OOWTqbQbvSQ=
+hash: z5N1PFAXZ8ZDQOV5TGYTYQrdHG/h01FaTlSQtJFXBNQ=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 格式定义 ioBroker 适配器的配置选项。这种方法提供了一种更方便用户且灵活的方式，可在 ioBroker 管理界面中管理适配器设置。
@@ -405,7 +405,7 @@ admin/customI18n/en.json
 | 属性 | 描述 |
 |-------------------|-----------------------------------|
 | `short` | 没有`enum.func.` |
-| `allowDeactivate` | 允许让功能为空 |
+| `allowDeactivate` | 允许将功能留空 |
 
 ###`select`
 | 属性 | 描述 |
@@ -699,14 +699,15 @@ admin/customI18n/en.json
 | `validateJson` | 如果为假，则文本将不会被验证为 JSON |
 | `json5` | 如果允许 JSON5 格式（从 7.5.3 开始）|
 | `doNotApplyWithError` | 如果 JSON 或 JSON5 中出现错误，则不允许保存该值（从 7.5.3 开始）|
-| `doNotApplyWithError` | 如果 JSON 或 JSON5 中出现错误，则不允许保存值（从 7.5.3 开始）|
+| `readOnly` | 以只读模式打开编辑器 - 可以打开编辑器但无法修改内容 |
+| `readOnly` | 以只读模式打开编辑器 - 可以打开编辑器但不能修改内容 |
 
 ###`language`
 选择语言
 
 | 属性 | 描述 |
 |----------|----------------------------------------------------------------------------------------------------------------------|
-| `system` | 允许使用`system.config` 中的系统语言作为默认语言（如果选择，则为空字符串值）|
+| `system` | 允许使用`system.config` 中的系统语言作为默认语言（如果选择则为空字符串值）|
 
 ###`certificate`
 | 属性 | 描述 |
@@ -1194,7 +1195,7 @@ adapter.on("message", (obj) => {
 | `hideOnlyControl` | 如果隐藏，该地点将会显示，但没有控制|
 | `disabled` | 可以使用`native.attribute`进行计算的 JS 函数 |
 | `help` | 帮助文本（多语言）|
-| `helpLink` | href 帮助（只能与`help`一起使用）|
+| `helpLink` | href 帮助（只能与 `help` 一起使用）|
 | `style` | ReactJS 符号中的 CSS 样式：`radiusBorder` 而不是 `radius-border`。|
 | `darkStyle` | 暗黑模式的 CSS 样式 |
 | `validator` | JS 函数：true 无错误，false - 错误 |
@@ -1230,7 +1231,7 @@ adapter.on("message", (obj) => {
 - `ok` - 确定按钮的文本
 - `cancel` - 取消按钮的文本
 - `type` - 以下之一：`info`、`warning`、`error`、`none`
-- `alsoDependsOn` - 带有属性的数组，也用于通过这些属性检查条件
+- `alsoDependsOn` - 带有属性的数组，也通过这些属性检查条件
 
 自动完成
 `Number`、`text`、`checkbox`、`select` 支持自动完成功能，以便在用作自定义设置时选择选项。

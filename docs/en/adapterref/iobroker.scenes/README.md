@@ -94,12 +94,12 @@ Delays can be used in the **group** too, but the states with delay are not parti
 
 ## Virtual groups
 **Virtual groups** are like virtual channels and like groups, but can have any kind of values: numbers, strings, and so on. 
-You can create a virtual group to control all shutters in living room. 
-By writing 40% into a virtual group all shutters will be set to 40%.
+You can create a virtual group to control all shutters in the living room. 
+By writing 40% into a virtual group, all shutters will be set to 40%.
 
 Additionally, you can define the behavior for which value should be taken for the group if not all states of the group have the same value.
 
-You can provide following aggregations (available only in advanced mode):
+You can provide the following aggregations (available only in advanced mode):
 - `uncertain` - (default) - the value of the group will have text `uncertain`.
 - `any` - first non-zero value of all states in a group.
 - `min` - minimal value of all states in a group.
@@ -108,7 +108,7 @@ You can provide following aggregations (available only in advanced mode):
 
 ## Save actual states as a scene
 To save actual states in some scene, you can send a message to the adapter:
-```
+```js
 sendTo(
     'scenes.0', 
     'save', 
@@ -152,6 +152,9 @@ sendTo(
 -->
 
 ## Changelog
+### 4.0.3 (2025-07-20)
+* (agross) Canceled the cron tasks on the instance stop
+
 ### 4.0.2 (2025-06-16)
 * (bluefox) Small improvements for layout
 

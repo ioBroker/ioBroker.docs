@@ -24,6 +24,10 @@ Set the proper device (example /dev/ttyUSB0) in adapter config.
     ### __WORK IN PROGRESS__
 -->
 
+### 0.3.3 (2024-09-10)
+* (DutchmanNL) Repository checker compliance updates
+* (DutchmanNL) Update dependencies for Node.js 18+ compatibility
+
 ### 0.3.1 (2023-10-29)
 * (DutchmanNL) Message buffer implemented to avoid system overload
 

@@ -30,6 +30,9 @@ The counter state will increase up from its saved value, when the shelly energy 
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (BenAhrdt) update lint to 2.1.0
+* (BenAhrdt) update testing removeing defDependencies
+* (BenAhrdt) update dependencie core
 * (BenAhrdt) update dependencie to node >= 20
 * (BenAhrdt) update testing to 24.x
 

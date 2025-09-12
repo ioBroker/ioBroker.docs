@@ -68,9 +68,9 @@ to make them visible in the Vis. So you have a better overview if you have sever
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2025-08-13)
 
-### **WORK IN PROGRESS**
-
+- FIX: Errors reported by Sentry
 - FIX: Add alarm clock to ignored words
 
 ### 2.1.1 (2025-04-28)

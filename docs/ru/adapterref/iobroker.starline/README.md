@@ -1,18 +1,30 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.starline/README.md
 title: ioBroker.starline
-hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
+hash: uSGA8rTiU9pBpcSEn6/WSYsQNZE1ssAb1lr9DO8EPS4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.starline/admin/starline_git.jpg)
 
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # IoBroker.starline
-Для работы драйвера необходимо установленное и настроенное противоугонное устройство поддерживающее обслуживание StarLine телематика 2.0.
+Адаптер позволяет получать данные о состоянии автомобиля через сервис StarLine Телематика (https://starline-online.ru).
 
-Драйвер позволяет получить данные состояния автомобиля через сервис StarLine Telematica. https://starline-online.ru.
+##### Управление основными функциями сигнализации:
+- Постановка/снятие системы с охраны
+- Активируйте функцию AntiHiJack
+- Дистанционный запуск двигателя
+- Включить режим Valet (сервисный)
+- Запуск вспомогательных каналов
+- Включить/выключить отопитель Webasto (если установлен)
+- Запросить GPS-координаты автомобиля
+- Отключить датчики удара и наклона
+
+Для работы драйвера необходимо установленное и настроенное противоугонное устройство поддерживающее сервис StarLine телематика 2.0.
+
+Драйвер позволяет получать данные о состоянии автомобиля через сервис StarLine Телематика. https://starline-online.ru.
 
 ##### Управление основными режимами работы автосигнализации:
   - Постановка/снятие с охраны
@@ -25,6 +37,12 @@ hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
   - Отключение датчиков удара и наклона
 
 ## Changelog
+
+#### 2.1.0
+* (tglynx) modernized the adapter to support the current (August 2025) starline website api
+
+#### 2.0.0
+* (instalator) latest working version from 2021
 
 #### 1.1.3
 * (instalator) fixed error parse mayak

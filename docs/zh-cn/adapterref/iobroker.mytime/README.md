@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mytime/README.md
 title: ioBroker.mytime
-hash: dKou9UsuRwTDEpxx02fHxmREnUPTepWzl5Jrkw6oN/I=
+hash: B1gdWMXf+l3s2pS2Z1okjTjjkWbRSvvYG9qoNSo6/cw=
 ---
 ![标识](../../../en/adapterref/iobroker.mytime/admin/mytime.png)
 
@@ -11,38 +11,38 @@ hash: dKou9UsuRwTDEpxx02fHxmREnUPTepWzl5Jrkw6oN/I=
 ![下载](https://img.shields.io/npm/dm/iobroker.mytime.svg)
 ![安装数量](https://iobroker.live/badges/mytime-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/mytime-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.mytime.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.mytime.png?downloads=true)
 
 # IoBroker.mytime
-**测试：**![测试与发布](https://github.com/oweitman/ioBroker.mytime/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试和发布](https://github.com/oweitman/ioBroker.mytime/workflows/Test%20and%20Release/badge.svg)
 
 ＃＃ 重要的
 只有英文文档有效，因为自动翻译会翻译不应翻译的区域。
 
 ## IoBroker 的 mytime 适配器
 此适配器处理时间（例如：倒计时等）。
-倒计时功能提供可用于管理倒计时的数据点（例如在脚本中）。适配器还包括几个小部件来可视化这些倒计时。时间序列可用于创建触发数据点的复杂时间序列。
+倒计时功能提供可用于管理倒计时的数据点（例如在脚本中）。该适配器还包含多个用于可视化这些倒计时的小部件。时间序列可用于创建触发数据点的复杂时间序列。
 
 ＃＃＃ 配置
 #### 倒计时
-在配置对话框的“倒计时”选项卡中，您可以创建一个新的倒计时，例如“测试”，将计时器设置为 10 秒并导入以下小部件。
-数据点已预先配置为名为测试的倒计时。
+在配置对话框的“倒计时”选项卡中，您可以创建一个新的倒计时，例如“测试”，将计时器设置为 10 秒，并导入以下小部件。
+名为“测试”的倒计时已预先配置数据点。
 
 ##### 停止行为计时器
-当倒计时得到信号停止后，倒计时重置为计时器设定的时间。
+倒计时得到信号停止后，倒计时重置为定时器设定的时间。
 
 ##### 停止行为零
 倒计时得到信号停止后，倒计时仍为0。
 
-时间序列
-在配置对话框的“时间序列”选项卡中，您可以创建一个具有一个或多个时间规则的新时间序列。对于每个时间规则，您可以定义不同的参数。每个时间序列都会创建一个单独的数据点，该数据点在计算的时间事件时触发。
-时间事件是实时计算的。但是，所使用的规则库在所有参数组合中还不完善。
+#### 时间序列
+在配置对话框的“时间序列”选项卡中，您可以创建一个包含一个或多个时间规则的新时间序列。您可以为每个时间规则定义不同的参数。每个时间序列都会创建一个单独的数据点，该数据点会在计算出的时间事件发生时触发。
+时间事件是实时计算的。然而，所使用的规则库在所有参数组合中尚不完善。
 这表明，在某些组合下，页面会陷入无限循环。
-演示页面<http://jakubroztocil.github.io/rrule/>也可用于实验。
-除了添加时间规则外，您还可以添加时间规则以排除时间事件、添加单个时间事件以及排除单个时间事件。
+演示页面 <http://jakubroztocil.github.io/rrule/> 也可用于实验。
+除了添加时间规则外，您还可以添加时间规则来排除时间事件、添加单个时间事件以及排除单个时间事件。
 
 ＃＃＃ 用法
-时间序列的使用
+#### 时间序列的使用
 时间序列的可用数据点
 配置新的时间序列后，适配器将创建以下数据点：
 
@@ -65,54 +65,53 @@ hash: dKou9UsuRwTDEpxx02fHxmREnUPTepWzl5Jrkw6oN/I=
 | --------- | ---------------------------------------------------------------------- |
 | 动作 | 倒计时的实际状态。可能的值是停止，运行，暂停，结束 |
 | cmd | 命令的数据点。可能的命令如下所述 |
-| 开始 | 数据点的开始时间（以毫秒为单位）|
+| 开始 | 以毫秒为单位的开始时间数据点 |
 | end | 结束时间的数据点（以毫秒为单位）|
-| 计时器 | 以毫秒为单位设置的总时间的数据点 |
+| 计时器 | 以毫秒为单位设置的总时间数据点 |
 
 ##### 倒计时可用的操作状态
 | 动作 | 描述 |
 | ------ | ----------------------------------------------------------------------------------------------------- |
 | 停止 | 倒计时停止，开始和结束时间设置为 0 |
-| 运行 | 倒计时运行。如果倒计时到达结束时间，操作将切换到结束 |
+| 运行 | 倒计时运行。如果倒计时到达结束时间。操作将切换到结束 |
 | 暂停 | 倒计时处于暂停模式。结束时间设置为暂停时间 |
 | 结束 | 倒计时结束。您可以用此状态作为进一步操作的触发器（声音、弹出窗口等）|
 
 ##### Cmd 数据点可用的命令
 | 命令 | 示例 | 描述 |
-| ------------- | --------------------- | --------------------------------------------------------------------------------------------- |
-| +值 | +1:10 | 将时间添加到倒计时设置。该设置将在下次启动时被考虑在内 |
-| +!value | +!1:10 | 类似 + 操作符并延长正在运行的计时器 |
-| -值 | -1：2：3 | 从倒计时中减去时间。该设置将在下次启动时被考虑在内 |
-| -!value | -!1:2:3 | 类似 - 操作符并减少正在运行的计时器 |
-| =值 | =5:00 | 将倒计时器设置为这个时间。|
-| =!value | =!5:00 | 像 = 运算符一样并将运行计时器设置为给定时间 |
-| #ISO-Date | #2025-01-01T10:00:00 | 将倒计时器设置为目标时间。时间必须格式化为 ISO-Datestring |
-| #!ISO-Date | #!2025-01-01T10:00:00 | 像 # 运算符一样将运行计时器设置为给定的目标时间 |
-| $Time | $20:15 | 将倒数计时器设置为目标时间。如果时间早于当前时间，则设置第二天。|
-| $!Time | $!20:15 | 类似 $ 操作符并将正在运行的计时器设置为给定的目标时间 |
-| 开始 | 开始 | 开始倒计时 |
-| 停止 | 停止 | 停止倒计时。倒计时时间重置为设置值 |
-| 暂停 | 暂停 | 暂停倒计时 |
-| 结束 | 结束 | 停止倒计时。倒计时设置为 0 |
-| 重置 | 重置 | 将计时器重置为配置状态 |
-| setstop2timer | setstop2timer | 将停止行为配置设置为计时器 |
-| setstop2zero | setstop2zero | 将停止行为配置设置为零 |
-| 保存 | 保存 | 将 datapoints 中定义的配置保存到 iobroker 配置 |
-| | | iobroker 在保存后自动重新启动适配器 |
+| --------------- | ----------------------- | --------------------------------------------------------------------------------------------- |
+| `+value` | `+1:10` | 为倒计时设置添加时间。该设置将在下次启动时被考虑在内 |
+| `-value` | `-1:2:3` | 从倒计时中减去时间。该设置将在下次启动时被考虑在内 |
+| `-!value` | `-!1:2:3` | 喜欢 - 操作员并减少运行计时器 |
+| `=value` | `=5:00` | 将倒计时器设置为此时间。|
+| `=!value` | `=!5:00` | 类似 = 运算符并将运行计时器设置为给定时间 |
+| `#ISO-Date` | `#2025-01-01T10:00:00` | 将倒计时器设置为目标时间。时间必须格式化为 ISO 日期字符串 |
+| `#!ISO-Date` | `#!2025-01-01T10:00:00` | 像 # 运算符一样并将运行计时器设置为给定的目标时间 |
+| `$Time` | `$20:15` | 将倒计时器设置为目标时间。如果时间早于当前时间，则设置为下一天。|
+| `$!Time` | `$!20:15` | 像 $ 运算符一样并将运行计时器设置为给定的目标时间 |
+| `start` | `start` | 开始倒计时 |
+| `stop` | `stop` | 停止倒计时。倒计时时间重置为设置|
+| `pause` | `pause` | 暂停倒计时 |
+| `end` | `end` | 停止倒计时。倒计时设置为 0 |
+| `reset` | `reset` | 将计时器重置为配置状态 |
+| `setstop2timer` | `setstop2timer` | 将停止行为配置设置为计时器 |
+| `setstop2zero` | `setstop2zero` | 将停止行为配置设置为零 |
+| `save` | `save` | 将 datapoints 中定义的配置保存到 iobroker 配置中，iobroker 保存后自动重启适配器 |
+| `save` | `save` | 将 datapoints 中定义的配置保存到 iobroker 配置中，iobroker 保存后自动重启适配器 |
 
 ##### 设置倒计时器的值的格式
-您可以将倒计时设置为无限时间。
-值的表示法为 [天:[小时:[分钟:[秒]]]] 天、小时和分钟是可选的。
-如果您想将计时器设置为一天，您必须设置小时、分钟和秒，并且您不必遵守正常的值范围（例如小时 0-24）。
+您可以将倒计时设置为无限长。
+值的表示形式为 [天:[小时:[分钟:[秒]]]]，天、小时和分钟是可选的。
+如果您想将计时器设置为一天，则必须同时设置小时、分钟和秒，并且不必遵循正常的值范围（例如，小时 0-24）。
 您也可以设置 48 小时。
-如果您愿意，您可以设置不规则的时间符号。时间是单独总结的
+如果您愿意，可以设置不规则的时间表示形式。时间会单独汇总。
 
 **示例：**
 
 | 设置 | 描述 |
 | --------- | ------------------------------------------- |
 | 1:0:0:0 | 设置/增加/减少 1 天到计时器 |
-| 2:0:0 | 设置/添加/减去 2 小时到计时器 |
+| 2:0:0 | 设置/增加/减少 2 小时到计时器 |
 | 3:0 | 设置/增加/减少 3 分钟到计时器 |
 | 120 | 设置/增加/减少 120 秒到计时器 |
 | 48:0:0 | 设置/添加/减去 48 小时到计时器 |
@@ -127,9 +126,9 @@ hash: dKou9UsuRwTDEpxx02fHxmREnUPTepWzl5Jrkw6oN/I=
 | dd | 带有前导零的天数 |
 | H | 没有前导零的小时数 |
 | HH | 带前导零的小时数 |
-| m | 没有前导零的分钟 |
-| mm | 带有前导零的分钟 |
-| s | 没有前导零的秒数 |
+| 米 | 没有前导零的分钟 |
+| 毫米 | 带前导零的分钟 |
+| s | 不带前导零的秒数 |
 | ss | 带前导零的秒数 |
 | \ | 如果要在输出中使用占位符，请输入转义字符 |
 
@@ -151,15 +150,15 @@ hash: dKou9UsuRwTDEpxx02fHxmREnUPTepWzl5Jrkw6oN/I=
 #### 纯文本倒计时小部件
 用于纯文本输出的倒计时小部件
 
-##### 小部件属性
+小部件属性
 ###### 对象
 倒计时数据点的计时器数据点。
 
 ＃＃＃＃＃＃ 格式
-格式化计时器输出。默认值为 mm:ss。有关详细信息，请参阅章节格式模板
+格式化计时器输出。默认为 mm:ss。有关详细信息，请参阅章节格式模板
 
-示例小部件代码
-这些小部件已预先配置为名为 test 的倒计时。
+##### 示例小部件代码
+这些小部件已预先配置为名为“测试”的倒计时。
 vis1 和 vis2 有两个独立版本
 
 **VIS1：**
@@ -170,7 +169,7 @@ vis1 和 vis2 有两个独立版本
 
 <details><summary>细节</summary><pre><code>[{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;pause&quot;,&quot;value&quot;:&quot;pause&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000001&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;start&quot;,&quot;value&quot;:&quot;start&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000002&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;stop&quot;,&quot;value&quot;:&quot;stop&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;402.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000003&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;+10&quot;,&quot;value&quot;:&quot;+10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000004&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;=100&quot;,&quot;value&quot;:&quot;=100&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000005&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;-10&quot;,&quot;value&quot;:&quot;-10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;349.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000006&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;+!10&quot;,&quot;value&quot;:&quot;+!10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;423.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000007&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;=!100&quot;,&quot;value&quot;:&quot;=!100&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000008&quot;},{&quot;tpl&quot;:&quot;tplIconState&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;oid&quot;:&quot;mytime.0.Countdowns.test.cmd&quot;,&quot;type&quot;:&quot;value&quot;,&quot;g_common&quot;:true,&quot;step&quot;:1,&quot;minmax&quot;:1,&quot;repeat_delay&quot;:800,&quot;repeat_interval&quot;:300,&quot;min&quot;:0,&quot;max&quot;:100,&quot;variant&quot;:&quot;contained&quot;,&quot;g_style&quot;:true,&quot;text&quot;:&quot;-!10&quot;,&quot;value&quot;:&quot;-!10&quot;},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;485.0000305175781px&quot;,&quot;top&quot;:&quot;320.00001525878906px&quot;,&quot;width&quot;:&quot;59px&quot;,&quot;height&quot;:&quot;26px&quot;},&quot;widgetSet&quot;:&quot;jqui&quot;,&quot;_id&quot;:&quot;i000009&quot;},{&quot;tpl&quot;:&quot;tplMyTimeCountdownPlain&quot;,&quot;data&quot;:{&quot;bindings&quot;:[],&quot;countdown_format&quot;:&quot;dd\\d HH\\h mm\\m ss\\s&quot;,&quot;g_common&quot;:true,&quot;g_css_border&quot;:true,&quot;countdown_oid&quot;:&quot;mytime.0.Countdowns.test.timer&quot;,&quot;g_css_font_text&quot;:true},&quot;style&quot;:{&quot;bindings&quot;:[],&quot;left&quot;:&quot;361.0000305175781px&quot;,&quot;top&quot;:&quot;375.00001525878906px&quot;,&quot;width&quot;:&quot;182px&quot;,&quot;height&quot;:&quot;24px&quot;,&quot;border-width&quot;:&quot;0&quot;,&quot;border-style&quot;:&quot;solid&quot;,&quot;border-color&quot;:&quot;rgba(237,235,243,1)&quot;,&quot;text-align&quot;:&quot;center&quot;},&quot;widgetSet&quot;:&quot;mytime&quot;,&quot;_id&quot;:&quot;i000010&quot;}]</code></pre></details>
 
-**倒计时的实际操作状态 (cdstop、cdrun、cdpause、cdend) 可作为 CSS-Class 选择器使用：**
+**倒计时的实际操作状态（cdstop、cdrun、cdpause、cdend）可作为 CSS-Class 选择器使用：**
 
 ```css
 #w00000 .timer.cdend {
@@ -181,13 +180,13 @@ vis1 和 vis2 有两个独立版本
 }
 ```
 
-#### 小部件反向倒计时平原
+#### 普通反向倒计时小部件
 显示从给定时间点开始经过的时间的小部件
 
-反向倒计时小部件属性
+##### 反向倒计时小部件属性
 | 数据点 | 描述 |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| datetime | 开始时间的 DateTime-String。该表达式必须能够通过 javascript 函数 new Date(expression) 解释。另请参阅 <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> 示例：2022-01-10 23:12 或 2022-01-104T23:12:00.000Z |
+| datetime | 表示开始时间的 DateTime 字符串。该表达式必须能够通过 JavaScript 函数 new Date(expression) 解析。另请参阅 <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse> 示例：2022-01-10 23:12 或 2022-01-104T23:12:00.000Z |
 | 格式 | 格式化计时器输出。默认为 mm:ss。有关详细信息，请参阅章节格式模板 |
 | HTML-Prepend | 此文本或 html 被添加到小部件的输出前面 |
 | HTML-Append | 此文本或 html 附加到小部件的输出 |
@@ -195,23 +194,23 @@ vis1 和 vis2 有两个独立版本
 #### 小部件倒计时圆圈
 环形/圆形设计的倒计时小部件。
 
-倒计时圆圈的控件属性
+倒计时圆圈的 ##### 小部件属性
 | 数据点 | 描述 |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | oid | 倒计时数据点的计时器数据点。|
 | notimetext | 禁用极地时钟上的时间文本 |
-| 格式 | 格式化计时器输出。默认值为 mm:ss。有关详细信息，请参阅章节格式模板。用于增大或缩小环/圆的反向设置 |
+| 格式 | 格式化计时器输出。默认值为 mm:ss。有关详细信息，请参阅章节格式模板。反向设置用于扩大或缩小环/圆圈 |
 | 宽度 | 环或圆的宽度。|
 | 环间隙 | 环之间的像素间隙 |
-| 盖子 | 环/圆圈末端的设置：圆形或直线形 |
+| 盖子 | 环/圆圈末端的设置：圆形或直形 |
 | 背景 | 环/圆圈的背景颜色 |
 | 前景 | 环/圆圈的前景颜色 |
 | showsec | 显示秒数环 |
 | showmin | 显示分钟数环 |
-| showhrs | 显示分钟环 |
-| showday | 显示日子之环 |
+| showhrs | 显示分钟数环 |
+| showday | 展示日子的戒指 |
 
-**倒计时的实际操作状态 (cdstop、cdrun、cdpause、cdend) 可作为 CSS-Class 选择器使用：**
+**倒计时的实际操作状态（cdstop、cdrun、cdpause、cdend）可作为 CSS-Class 选择器使用：**
 
 ```css
 #w00000 .timer.cdend {
@@ -222,7 +221,7 @@ vis1 和 vis2 有两个独立版本
 }
 ```
 
-#### 小部件倒计时 FlipClock
+#### 倒计时小部件 FlipClock
 机场翻板风格的倒计时小部件
 
 倒计时 FlipClock 的小部件属性
@@ -232,16 +231,16 @@ vis1 和 vis2 有两个独立版本
 | countdown_showsec | 显示秒部分。两个单位之间不能有间隙。|
 | countdown_showmin | 显示分钟部分。两个单位之间不能有间隙。|
 | countdown_showhrs | 显示小时部分。两个单位之间不能有间隙。|
-| countdown_showday | 显示一天中的某个部分。两个单位之间不能有间隙。|
+| countdown_showday | 显示一天中的某个部分。两个单位之间必须没有间隙。|
 | countdown_color | 倒计时器的颜色 |
 | countdown_background_color | 倒计时器的背景颜色 |
-| countdown_dot_color | 倒计时器的点的颜色 |
+| countdown_dot_color | 倒计时器圆点的颜色 |
 
 **尖端：**
 
-如果要调整倒计时翻转时钟的大小，在 vis 中的 css 设置下，您可以输入一半大小：Group CSS-Common / transform "scale(0.5)"
+如果要调整倒计时翻页时钟的大小，在vis中的css设置下，可以输入一半大小：Group CSS-Common / transform "scale(0.5)"
 
-**倒计时的实际操作状态 (cdstop、cdrun、cdpause、cdend) 可作为 CSS-Class 选择器使用：**
+**倒计时的实际操作状态（cdstop、cdrun、cdpause、cdend）可作为 CSS-Class 选择器使用：**
 
 ```css
 #w00000 .timer.cdend {
@@ -253,7 +252,7 @@ vis1 和 vis2 有两个独立版本
 ```
 
 #### 小部件倒计时 NixieClock
-采用 Nixie-Tube/LED 风格的倒计时小部件
+数码管/LED 风格的倒计时小部件
 
 ##### 倒计时 NixieClock 的小部件属性
 | 数据点 | 描述 |
@@ -262,14 +261,40 @@ vis1 和 vis2 有两个独立版本
 | countdown_showsec | 显示秒部分。两个单位之间不能有间隙。|
 | countdown_showmin | 显示分钟部分。两个单位之间不能有间隙。|
 | countdown_showhrs | 显示小时部分。两个单位之间不能有间隙。|
-| countdown_showday | 显示一天中的某个部分。两个单位之间不能有间隙。|
+| countdown_showday | 显示一天中的某个部分。两个单位之间必须没有间隙。|
 | countdown_color_active | 倒计时器的颜色 |
-| countdown_color_inactive | 非活动数字的颜色 |
+| countdown_color_inactive | 不活动数字的颜色 |
 | countdown_opacity_inactive | 非活动数字颜色的不透明度 |
-| countdown_glowcolor | 数字周围的光亮颜色 |
+| countdown_glowcolor | 数码管周围的光晕颜色 |
 
-#### 小部件字时钟
-一个可显示带有多种选项的字时钟的小部件
+＃＃＃＃＃ 尖端
+###### 顶部/底部边距
+使用的 Lato 字体略微向下倾斜，导致上下边距不均匀。您可以使用高度和负上边距来调整。
+该小部件使用 1em 的高度。高度可以直接在小部件属性中设置。
+
+必须为负边距创建 CSS 类。
+
+```css
+#w00000 .cdclock {
+margin-top: -5px;
+}
+```
+
+###### Vrsion 2 之前的小部件大小
+如果要调整倒计时 nixieclock 的大小，在 vis 中的 css 设置下，可以输入一半大小：Group CSS-Common / transform "scale(0.5)"
+
+###### 将 Nixie 时钟置于中心
+要将时钟居中，需要额外的 CSS 类，因为无法在小部件设置中配置相应的设置：
+
+```css
+#w00000 {
+  display: flex;
+  justify-content: center;
+}
+```
+
+#### 小部件字钟
+一个显示带有多种选项的字时钟的小部件
 
 Wordclock 的小部件属性
 | 数据点 | 描述 |
@@ -277,20 +302,16 @@ Wordclock 的小部件属性
 | 语言 | 字时钟有多种不同语言可供选择 |
 | letterActivated | 突出显示单词的颜色 |
 | letterDeactivated | 正常字母的颜色 |
-| wordclockMargin | 字时钟和LED之间的边距 |
-| withMinutes | 在字时钟的角落显示分钟 LED |
-|minuteSize|分钟LED的像素大小|
+| wordclockMargin | 字时钟和 LED 之间的裕度 |
+| withMinutes | 在字钟的角落显示分钟 LED |
+| 分钟大小 | 分钟 LED 的像素大小 |
 | 分钟颜色 | 分钟 LED 的颜色 |
 | withSeconds | 显示字时钟的秒数 LED |
 | secondSize | 秒 LED 的像素大小 |
 | secondColor | 秒 LED 的颜色 |
 | 时区 | 显示所选时区的时间 |
 
-**尖端：**
-
-如果要调整倒计时 nixieclock 的大小，在 vis 中的 css 设置下，您可以输入一半大小：Group CSS-Common / transform "scale(0.5)"
-
-**倒计时的实际操作状态 (cdstop、cdrun、cdpause、cdend) 可作为 CSS-Class 选择器使用：**
+**倒计时的实际操作状态（cdstop、cdrun、cdpause、cdend）可作为 CSS-Class 选择器使用：**
 
 ```css
 #w00000 .timer.cdend {
@@ -301,19 +322,19 @@ Wordclock 的小部件属性
 }
 ```
 
-待办事项
-- 7段显示
+## 待办事项
+- 7段显示屏
 - 滚动数字
 - 可定制的字体
-- ts：排除的时间规则（时间范围，单个日期）
+- ts：排除的时间规则（时间范围、单个日期）
 - ~~为字时钟添加时区~~
-- ~~字时钟定时器~~
+- ~~字时钟计时器~~
 - ~~定时调度程序：像 Outlook 一样计划单个日期/时间和重复事件~~
 - ~~Nixie 风格~~
 - ~~翻转板展示（机场展示）~~
-- ~~新命令仅设置目标时间而不设置日期~~
+- ~~新命令仅设置目标时间，不设置日期~~
 - ~~倒计时圆圈小部件，可选择禁用倒计时文本
-- ~~名称中的组分隔符‘.’~~
+- ~~名称中的组分隔符“.”~~
 - ~~极地时钟~~
 - ~~圆圈反转~~
 - ~~带圆帽的圆圈~~
@@ -324,6 +345,41 @@ Wordclock 的小部件属性
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2025-09-08)
+
+- major release: make nixie clock responsive. the users have to adjust the 
+  font-size of the widget to get the old size.
+  if you want the old size try it with 100px font-size.
+
+### 1.4.7 (2025-07-25)
+
+- remove types/request
+- improve documentation format
+
+### 1.4.6 (2025-07-21)
+
+- fix wrong calc of datapoints in some cases
+
+### 1.4.5 (2025-07-21)
+
+- fix widget reverse countdown plain
+
+### 1.4.4 (2025-06-16)
+
+- fix stopbeaviour
+- fix state handling
+- improve validator vor name and setdp in admin
+
+### 1.4.3 (2025-06-06)
+
+- fix validation rule for the setDP button in admin
+
+### 1.4.2 (2025-06-01)
+
+- revert to node 18
+- cleanup files and some details
+- fix server time diff calculations
+
 ### 1.4.0 (2025-01-02)
 
 - to update the time from the configuration i added a SetDP Button

@@ -97,6 +97,10 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.4.0 (2025-06-27)
+
+* (theimo1221) #820 Support Node-JS 22
+
 ### 6.3.0 (2024-11-08)
 
 * (theimo1221) #768 Add df_doorbell_clownfish
@@ -535,7 +539,7 @@ doorbell recorded video.
 
 MIT License
 
-Copyright (c) 2018-2024 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2025 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

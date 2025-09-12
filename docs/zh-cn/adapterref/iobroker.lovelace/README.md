@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: CevnA7T7sHSamYWblZJOuDzy/NIuSAqwybgwIb9sCEI=
+hash: 9eNN5XG2Hc1qnapPKKoFNt8cDNC4UlPz7A/DJ7N8NBQ=
 ---
 ![标识](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -450,7 +450,7 @@ ioBroker 的所有更改均标有注释`// IoB`。
 
 - `build-scripts/gulp/app.js` - 添加新的 gulp 任务develop-iob
 - `build-scripts/gulp/rspack.js` - 添加新的 gulp 任务 rspack-dev-app
-- `src/data/icons.ts` - 始终对旧版本使用后备，其中前端决定为 binary_sensors 使用哪个图标（如果没有提供）。
+- `src/data/icons.ts` - 目前保留旧图标。
 - `src/data/weather.ts` - 添加从 url 显示天气图标的支持。
 - `src/dialogs/more-info/const.ts` - 删除天气状态和历史记录
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - 删除实体设置按钮和选项卡
@@ -483,10 +483,13 @@ ioBroker 的所有更改均标有注释`// IoB`。
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.1 (2025-09-09)
 * (Garfonso) settings from entity registry are now loaded on startup
 * (Garfonso) logbook: prevent entries from the future
-* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+* (Garfonso) icons should now work as before, again.
+* (Garfonso) script entities now can be used again.
+* (Garfonso) subscribe to all object ids in a template.
+* (Garfonso) Update dependencies.
 
 ### 5.0.0 (2025-04-10)
 * (Garfonso) Updated frontend to 20250401.0

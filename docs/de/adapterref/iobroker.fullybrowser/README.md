@@ -74,6 +74,10 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.1.2 (2025-07-20)
+* (arteck) add device name into the warning message
+* (arteck) dependency update
+
 ### 3.1.1 (2025-02-19)
 * (arteck) typo
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nmea/README.md
 title: ioBroker.nmea
-hash: l7gdJud3rwK61oOrYyQh/epzxRJREB47LkXkmDX+7tU=
+hash: xv4gSNvUObtOc0uw1l5uXOk+BDw82/trbY3tJYq5O34=
 ---
 ![标识](../../../en/adapterref/iobroker.nmea/admin/nmea.png)
 
@@ -12,8 +12,11 @@ hash: l7gdJud3rwK61oOrYyQh/epzxRJREB47LkXkmDX+7tU=
 
 要使用此适配器，您需要一个可以读取 NMEA-2000 总线并将其转换为串行端口的硬件：
 
-Actisense NGT-1（USB）
-- 或带有 PiCAN-M 的 Raspberry PI
+- [Actisense NGT-1 (USB)](https://actisense.com/products/ngt-1-nmea-2000-to-pc-interface/)
+- [Actisense NGX1-USB (USB)](https://actisense.com/products/nmea-2000-gateway-ngx-1/)
+- 或 [带有 PiCAN-M 的 Raspberry PI](https://www.skpang.co.uk/collections/hats/products/copy-of-pican-m-with-can-bus-micro-c-and-rs422-connector-no-smps)
+
+PiCAN-M 可以与 Raspberry 4 和 [5](https://copperhilltech.com/blog/testing-pican-can-bus-hats-with-the-raspberry-pi-5/) 配合使用。
 
 ![小部件](../../../en/adapterref/iobroker.nmea/img/widgetExamples.png)
 
@@ -83,14 +86,20 @@ Actisense NGT-1 无需任何额外驱动程序即可在 Windows 或 Linux 上运
 iobroker ALL=(ALL) timedatectl set-timezone
 ```
 
+自动驾驶仪
+实际上，只支持一种自动驾驶仪：Raymarine
+
+Simrad/navico/B&G 的开发尚未完成。
+
 <!--
 
 ### **工作正在进行** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.3.0 (2025-08-16)
 * (bluefox) Widgets were rewritten on TypeScript
 * (bluefox) Corrected errors in the widgets and in the calculations
+* (bluefox) Small fix for ais data
 
 ### 0.2.2 (2024-06-20)
 * (bluefox) Backend was rewritten on TypeScript

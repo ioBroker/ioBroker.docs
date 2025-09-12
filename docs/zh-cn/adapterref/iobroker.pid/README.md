@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: drpnQNpZlM+9gT9kDsZI9pC30PxYja3++prE3EBhJjc=
+hash: 9UJOPypmxkFfxvXFuqf+wbRiFmcNAW2l/q/xAjD51bM=
 ---
 ![标识](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
@@ -17,15 +17,26 @@ hash: drpnQNpZlM+9gT9kDsZI9pC30PxYja3++prE3EBhJjc=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.pid.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/pid-stable.svg)
 ![安装数量](https://iobroker.live/badges/pid-installed.svg)
+![捐](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.pid
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试与发布](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg）](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
+**一般信息：**<br> [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br></br> **版本：**</br></br> **测试：**</br> [![测试与发布](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL]（https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg）](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)<br> **捐款：**</br>
 
-哨兵
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**************************************************************************************************************
+
+## Sentry **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**************************************************************************************************************
 
 ## IoBroker 的 PID 适配器
 该适配器提供可配置的 PID 控制器。
+
+**************************************************************************************************************
+
+## 免责声明
+**所有产品和公司名称或徽标均为其各自所有者的商标™或注册商标®。使用它们并不意味着与它们或其任何关联子公司有任何关联或认可！本个人项目由业余时间维护，不承担任何商业目的。**
+
+**************************************************************************************************************
 
 ＃＃ 一般信息
 该适配器提供 PID 控制器的功能。
@@ -50,7 +61,7 @@ hash: drpnQNpZlM+9gT9kDsZI9pC30PxYja3++prE3EBhJjc=
 
 **************************************************************************************************************
 
-**如果您喜欢它，请考虑捐赠：**
+**如果您喜欢这个适配器，请考虑捐赠：**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
 

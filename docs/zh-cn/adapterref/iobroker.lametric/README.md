@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
+hash: VRXQzZdgLRuQuhOEZ3wVEjTv+AhxQe8wVAcFarW07VE=
 ---
 ![标识](../../../en/admin/lametric.png)
 
@@ -32,7 +32,7 @@ hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
 - nodejs 20（或更高版本）
 - js-controller 6.0.0（或更高版本）
 - 管理适配器 7.4.10（或更高版本）
-- _LaMetric Time_ 固件版本 _3.1.4_（或更高版本）
+- _LaMetric Time_ 固件版本 _3.2.4_（或更高版本）
 - 旧型号（2022 年之前生产）的固件为 _2.3.9_（或更高版本）
 
 [固件更新日志](https://firmware.lametric.com) [固件更新日志时间2](https://firmware.lametric.com/?product=time2)
@@ -65,6 +65,19 @@ hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 4.2.0 (2025-08-15)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.4)
+
+### 4.1.0 (2025-07-09)
+
+* (@klein0r) Allow icons with placeholders in config (improved validation)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
+
 ### 4.0.0 (2025-04-08)
 
 NodeJS >= 20.x and js-controller >= 6 is required
@@ -81,14 +94,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (@klein0r) Added support for notification manager
 * (@klein0r) Added validator for icon inputs
 * (@klein0r) Fixed some missing translations
-
-### 3.3.0 (2024-08-05)
-
-* (@klein0r) Added api version as state (and check value)
-
-### 3.2.3 (2024-07-21)
-
-* (@klein0r) Fixed blockly definitions
 
 ## License
 

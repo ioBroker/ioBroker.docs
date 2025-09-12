@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wolf-smartset/README.md
 title: ioBroker.wolf-smartset
-hash: sj4BZC0ul6/4YEKETMqfv+iDAETh/IioBU1GiVNKFFY=
+hash: HnhXfR/SVlPFwpg3YJePcFIBYPTlFqqhrmuu9LtafCQ=
 ---
 ![标识](../../../en/adapterref/iobroker.wolf-smartset/admin/wolf-smartset.png)
 
@@ -55,10 +55,14 @@ hash: sj4BZC0ul6/4YEKETMqfv+iDAETh/IioBU1GiVNKFFY=
 高级设置允许您根据自身需求调整适配器的操作。通常，您可以将所有高级设置保留为默认设置。
 
 #### 轮询周期间隔和参数列表
-连接到 Wolf Smartset 服务器后，适配器将定期从服务器轮询参数值。它支持两个独立的轮询周期，且周期间隔不同。
+连接到 Wolf Smartset 服务器后，适配器将定期从服务器轮询参数值。
 
-- “短轮询周期间隔”：输入间隔（以秒为单位）。Wolf Smartset 服务器定义了绝对最小轮询间隔（当前为 60 秒），您不应低于该间隔。如果您配置的值低于此最小间隔，服务器将无法按预期方式响应，甚至可能断开您的会话。适配器会定期向服务器请求当前的最小轮询间隔。如果配置的轮询间隔低于服务器指示的最小轮询间隔，您将收到适配器发出的警告日志，您应该相应地调整轮询间隔。
-- `长轮询周期间隔`：输入第二个轮询周期的间隔（分钟）。
+- `轮询所有参数`：适配器将始终轮询服务器上找到的所有参数。此轮询策略向后兼容适配器版本 1.x
+
+该适配器还支持基于两个具有不同周期间隔的独立轮询周期的更复杂的轮询策略。
+
+- `短轮询周期间隔`：输入以秒为单位的间隔。Wolf Smartset 服务器定义了绝对最小轮询间隔（当前为 60 秒），您不应低于此值。如果您配置的值低于此最小间隔，服务器将无法按预期响应，甚至可能断开您的会话。适配器会定期向服务器请求当前的最小轮询间隔。如果配置的轮询间隔低于服务器指示的最小轮询间隔，您将收到适配器发出的警告日志，您应该相应地调整轮询间隔。
+- `长轮询周期间隔`：输入第二个轮询周期的间隔（以分钟为单位）。
 
 Wolf Smartset 服务器将各种设备参数分组到不同的 bundles 中，并通过数字 BundleId 进行标识。在 __ioBroker Admin__ 界面中，您可以在通道级别的 __wolf-smartset__ 实例下方的 __Object__ 视图中找到不同参数组的 BundleId。
 
@@ -70,6 +74,8 @@ Wolf Smartset API 要求每个轮询请求除了包含要轮询的参数列表�
 
 - `短轮询周期的 BundleId`
 - `长轮询周期的 BundleId`
+
+如果您配置了`Poll all Parameters`，则轮询请求中使用的 BundleId 将被设置为 1000。这可能会导致结果中排除一些 Expert 参数（见下文）。因此，如果您打算轮询 Expert 参数，则最好不要使用`Poll all Parameters`。
 
 #### 专家登录
 Wolf Smartset API 为设备参数定义了两种访问级别：__User__ 和 __Expert__。因此，您可以在 __ioBroker Admin__ UI 的 __Object__ 视图中找到相应的两个子树：__Benutzer__ 和 __Fachmann__。初始身份验证后，适配器处于用户模式，并且在初始化期间仅接收一次所有可用参数值。此后，在定期轮询期间，它将仅接收用户级别参数值的更新（即 __Benutzer__ 树中的值）。
@@ -129,6 +135,23 @@ API 分析允许您跟踪适配器的 Wolf Smartset API 使用情况。如果您
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm1957) Dependencies have been updated.
+
+### 2.1.2 (2025-08-14)
+- (mcm1957) Adapter requires admin 7.6.17 now.
+- (mcm1957) Dependencies have been updated.
+
+### 2.1.1 (2025-08-05)
+- (mcm1957) Dependencies have been updated.
+
+### 2.1.0 (2025-08-05)
+- (flingo64) Change: Log periodic message '_refreshAuthToken(): ERROR ...' with level info
+- (flingo64) Bugfix (#458): set instance state to connected only if initialization went fine
+- (flingo64) Bugfix: if configured BundleId for poll requests is not available on server, use default BundleId
+- (flingo64) Enhancement: option 'Poll all Parameters' implements backward compatible poll strategy
+- (flingo64) Enhancement(#459, #465): added more BundleIds (4300, 10000, 10700, 14000, 14700, 15600, 15700, 15800) for AdminUI as found on different Wolf device configurations
+
 ### 2.0.1 (2025-04-18)
 - (flingo64) Bugfix: fixed various typos in Readme and translations
 - (flingo64) Bugfix: Fixed an AdminUI issue (#450 - 'No device selected') when the device information contained line break (e.g. in ContactInformation, Description or Comment )
@@ -145,69 +168,6 @@ API 分析允许您跟踪适配器的 Wolf Smartset API 使用情况。如果您
 - (flingo64) ParameterId lists for each Wolf BundleId created and show `BundleIds` for each channel added
 - (flingo64) Support for two sepearate poll cycles to avoid server abuse reactions has been added. 
 - (flingo64) Switched AdminUI to `jsconConfig`.
-
-### 2.0.0-internal
-- (flingo64) further internal changes omitted from news section due to size limitations
-  - Demystified (decoded) API constants (array _021a[])
-  - All API strings (URL, paths, params) as constants
-  - Fixed various typechecker and eslint/prettier warnings
-  - Replaced deprecated ioBroker async functions by sync function equivalents
-  - Re-ordered and renamed private functions in main.js and admin/wss.js
-  - Reorganized adapter initialization / openIdInit for more robust error handling
-  - Added openId logout on instance unload to force a fresh AuthN on next adapter start
-  - Added API Profiling option to track requested BundleId / # of requested params and # of returned params / # of returned values
-  - Migrated translations from words.js to i18n
-  - Added complete translation for all adapter instance setting strings
-  - Disabled code for caching of auth data to allow a clean re-auth when required by server or on adapter reload
-  - Added optional Check for public IP changes for faster Wolf Smartset expert session recovery
-  - README: added descriptions on all instance settings and adpater operation
-
-### 1.2.4 (2024-12-22)
-- (flingo64) Bugfix for issues #281, #329, #365, #406: ioBroker object limits min/max use Wolf Smartset Min/MaxValueCondition if available, otherwise use Min/MaxValue now.
-- (flingo64) Added some comments on Wolf Smartset ControlTypes
-- (flingo64) Modified misspelled variable name to 'SubMenuEntry'
-- (flingo64) Add NamePrefix, if exists, to object names (e.g. 'A1: ', 'WP001: ') for better parameter identification
-- (mcm1957) Adapter has been adapted to @iobroker/eslint-config and eslint 9.x.
-- (mcm1957) Dependencies have been updated
-
-### 1.2.3 (2024-04-29)
-- (mcm1957) Dependencies have been updated
-
-### 1.2.2 (2024-04-22)
-- (flingo64) A crash during re-authentication has been fixed. OpenIdInit will be called only once to avoid endless loop during re-authentication.
-
-### 1.2.1 (2024-04-19)
-- (flingo64) Initialization added to openId. This fixes GET_AUTH_TOKEN_ERROR [#304, #330]
-
-### 1.2.0 (2024-04-19)
-- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-- (mcm1957) Dependencies have been updated
-
-### 1.1.1 (2023-01-26)
-* (Apollon77) Adjusted to new Login procedure
-* (Apollon77) Tokens are now stored and tried to be refreshed automatically
-* (Apollon77) Errors in session updates will try to create new session or authenticate anew
-* (Apollon77) Generates folder and channel structures for created states
-* (Apollon77) Fix some more crash cases
-* (Apollon77) make sure adapter is stopped correctly in all cases
-
-### 1.0.0 (2021-07-31)
-* (MeisterTR) fix Sentry: IOBROKER-WOLF-SMARTSET-6,IOBROKER-WOLF-SMARTSET-5, IOBROKER-WOLF-SMARTSET-7,IOBROKER-WOLF-SMARTSET-8,IOBROKER-WOLF-SMARTSET-1,IOBROKER-WOLF-SMARTSET-3,IOBROKER-WOLF-SMARTSET-4
-* (MeisterTR) Change api from app data to Web PEASE DELETE ADAPTER AND REINSTALL OR DELETE ALL OBJECTS
-* (MEISTERTR) added "FACHMANN" states
-
-### 0.2.2 (26.03.2021)
-* (MeisterTR) fix timeouts, fix conection
-
-### 0.2.1
-* (MeisterTR) Rebuild api and objects, breaking change
-
-### 0.1.2
-* (MeisterTR) Poll and set Values
-* (MeisterTR) Fix error at start
-
-### 0.1.0
-* (MeisterTR) First running Version, Poll Param Only
 
 ## License
 MIT License

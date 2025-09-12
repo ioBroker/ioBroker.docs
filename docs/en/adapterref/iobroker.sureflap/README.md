@@ -182,6 +182,30 @@ from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
+### 3.4.0 (2025-08-11)
+
+* (Sickboy78) removed deprecated util.promisify
+
+### 3.3.0 (2025-07-13)
+
+* (Sickboy78) added translations for unknown pet setting
+
+### 3.2.4 (2025-07-07)
+
+* (Sickboy78) fixed unknown pet getting deleted at adapter startup
+
+### 3.2.3 (2025-06-28)
+
+* (Sickboy78) fixed bug with unknown pet movement
+
+### 3.2.2 (2025-06-20)
+
+* (Sickboy78) fixed bug with unknown pet movement
+
+### 3.2.1 (2025-06-20)
+
+* (Sickboy78) added unknown pet movement
+
 ### 3.2.0 (2025-06-01)
 
 * (Sickboy78) made pet assignment controllable

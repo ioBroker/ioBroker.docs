@@ -3,28 +3,46 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.starline/README.md
 title: ioBroker.starline
-hash: tKAmCdJIRJxCv5NwsM66DKRRbnyp6LdQpxGVntHm3pM=
+hash: uSGA8rTiU9pBpcSEn6/WSYsQNZE1ssAb1lr9DO8EPS4=
 ---
 ![Logo](../../../en/adapterref/iobroker.starline/admin/starline_git.jpg)
 
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-#ioBroker.starline
-ля работы драйвера необходимо установленное und настроенное ротивоугонное устройство оддерживающес 2.0 Star Line сетервиа
+# IoBroker.starline
+Mit dem Adapter können Sie Fahrzeugstatusdaten über den StarLine Telematics-Dienst (https://starline-online.ru) abrufen.
 
-райвер позволяет олучать данные состояния автомобиля ерез сервис StarLine елематика. https://starline-online.ru.
+##### Steuerung der wichtigsten Alarmfunktionen:
+- Aktivieren/Deaktivieren des Systems
+- Aktivieren Sie die AntiHiJack-Funktion
+- Fernstart des Motors
+- Aktivieren Sie den Valet-Modus (Servicemodus).
+- Hilfskanäle auslösen
+- Webasto-Heizung ein-/ausschalten (falls vorhanden)
+- Fordern Sie die GPS-Koordinaten des Fahrzeugs an
+- Deaktivieren Sie die Stoß- und Neigungssensoren
+
+Für die Arbeit mit dem Ladegerät ist ein neues, leistungsstarkes und leistungsstarkes Dienstprogramm erforderlich, das die StarLine-Telematikdienste 2.0 unterstützt.
+
+Der Drucker ist bereit, die folgenden Autokosten für den StarLine-Telematikdienst zu nutzen. https://starline-online.ru.
 
 ##### Управление основными режимами работы автосигнализации:
   - Постановка/снятие с охраны
-  - ктивация функции AntiHiJack
+  - Aktivierung der AntiHiJack-Funktion
   - Автозапуск
-  - Активация сервисного режима (Diener)
+  - Активация servisnoго режима (Valet)
   - Активация доп. каналов
-  - ключение/отключение одогревателя Webasto (При его наличии)
+  - Sperrung/Öffnungssperre für Webasto (dies ist der Fall)
   - Запрос координат автомобиля
   - Отключение датчиков удара и наклона
 
 ## Changelog
+
+#### 2.1.0
+* (tglynx) modernized the adapter to support the current (August 2025) starline website api
+
+#### 2.0.0
+* (instalator) latest working version from 2021
 
 #### 1.1.3
 * (instalator) fixed error parse mayak

@@ -13,7 +13,15 @@
 
 ## intex adapter for ioBroker
 
-Adapter for Intex Whirlpool with wifi modul
+Adapter for Intex Whirlpool with wifi module that works with the old app.
+
+## This adapter only works with the old intex app
+
+Intex has had two apps available for download since 2025, both for Apple and Android. As mentioned above, this adapter doesn't work with the new pools. The manual tells you which app you need. RTFM is therefore recommended.
+
+### Do I have to cry if I have a new pool?
+
+Definitely NO, the new pools seem to support Tuya. Forget the new Intex app; just use the Tuya app, Smart Life, or another one that the Tuya adapter supports. Add the pool there. It will work perfectly. So have fun and say thanks to Thestef86 for the research.
 
 ## The strategy how to communicate with the pool and the cloud
 

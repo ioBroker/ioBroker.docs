@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skiinfo/README.md
 title: ioBroker.skiinfo
-hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
+hash: diLFZTVpYoRZ/ljJwh5kj1PptGiP84IIK94aVIF/iJg=
 ---
 # IoBroker.skiinfo
 ![Logo](../../../en/adapterref/iobroker.skiinfo/admin/skiinfo.png)
@@ -12,6 +12,7 @@ hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.skiinfo.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/skiinfo-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/skiinfo-stable.svg)
+![nycrc-Konfiguration auf GitHub](https://img.shields.io/nycrc/oweitman/iobroker.skiinfo?preferredThreshold=functions)
 ![NPM](https://nodei.co/npm/iobroker.skiinfo.png?downloads=true)
 
 **Tests:** ![Testen und Freigeben](https://github.com/oweitman/ioBroker.skiinfo/workflows/Test%20and%20Release/badge.svg)
@@ -23,10 +24,13 @@ Mit diesem Adapter können Sie die aktuellen Schneehöhen für Berg-, Tal- und N
 Der Adapter benötigt keine Konfiguration.
 
 ## Vis und Widgets
-Folgende Widgets gibt es aktuell
+Folgende Widgets gibt es tatsächlich
 
-- [`Skiinfo-Browser`](#skiinfo-browser) – um alle verfügbaren Länder, Regionen und Gebiete zu durchsuchen und Lieblingsgebiete festzulegen.
-- [`Skiinfo-Favoriten`](#skiinfo-favorite) – um nur die beliebtesten Skigebiete anzuzeigen.
+- [`Skiinfo browser`](#skiinfo-browser) - um alle verfügbaren
+
+Länder, Regionen und Gebiete und legen Sie Lieblingsgebiete fest.
+
+- [`Skiinfo-Favoriten`](#skiinfo-favorite) - um nur die bevorzugten Skigebiete anzuzeigen.
 
 weitere Informationen
 
@@ -50,7 +54,8 @@ Als Datenpunkt wählen Sie bitte den Konfigurationsdatenpunkt aus.
 
 ### CSS-Klassen
 #### `widgetID` und `skiinfo`
-Alle CSS-Klassen werden mit den beiden Basisklassen `widgetID` und `skiinfo` bereitgestellt. Dadurch können Sie Formatierungen auf einzelne Widgets oder, bei Verwendung mehrerer Skiinfo-Widgets, auf alle Skiinfo-Widgets anwenden.
+Alle CSS-Klassen werden mit den beiden Basisklassen `widgetID` und `skiinfo` bereitgestellt.
+Dadurch können Sie Formatierungen auf einzelne Widgets oder, bei Verwendung mehrerer Skiinfo-Widgets, auf alle Skiinfo-Widgets anwenden.
 
 #### `countries`,`regions` und `areas`
 Mit diesen 3 CSS-Klassen können die einzelnen Informationsbereiche separat angesprochen werden
@@ -62,10 +67,11 @@ Jeder der 3 Informationsbereiche besteht aus einer normalen HTML-Tabelle.
 Jedes der ausgewählten Elemente befindet sich in einem Span-Element und hat die CSS-Klasse `selected` erhalten.
 
 #### Formatieren der Spalten im Bereich „Bereich“
-Der Tabellenkopf wurde mit den CSS-Klassen tharea und thsort versehen. Jedes Spaltenelement wurde mit `txtr` für rechtsbündige und `txtl` für linksbündige Formatierung versehen.
+Der Tabellenkopf wurde mit den CSS-Klassen tharea und thsort versehen.
+Jedes Spaltenelement wurde mit `txtr` für rechtsbündige und `txtl` für linksbündige Formatierung versehen.
 
 #### Lieblingsstar
-Der Favoritenstern kann in einem Span-Element platziert werden und ist über die CSS-Klasse `favorite` ansprechbar. Ist ein Element als Favorit ausgewählt, wird das Span-Element um `selected` ergänzt.
+Der Favoritenstern kann in einem Span-Element stehen und über die CSS-Klasse `favorite` angesprochen werden. Wurde ein Element als Favorit ausgewählt, wird das Span-Element mit `selected` ergänzt.
 
 #### Beispiele für CSS-Klassen
 ##### Andere Farbe für ein ausgewähltes Länder- oder Regionenelement
@@ -97,7 +103,7 @@ console.log(response);
 ```
 
 ### GetServerCountryData
-Lädt die Länderdaten, sofern diese noch nicht geladen wurden, und sendet die Daten an den Client zurück.
+Lädt die Länderdaten, falls diese noch nicht geladen wurden, und sendet die Daten an den Client zurück.
 
 #### Parameter für getServerCountryData
 - Ländercode
@@ -110,7 +116,7 @@ console.log(response);
 ```
 
 ### GetServerRegionData
-Lädt die Länder- und Regionsdaten, sofern sie noch nicht geladen wurden, und sendet die Daten an den Client zurück.
+Lädt die Länder- und Regionsdaten, falls diese noch nicht geladen wurden, und sendet die Daten an den Client zurück.
 
 #### Parameter für getServerRegionData
 - Ländercode
@@ -126,7 +132,7 @@ let response = await sendToAsync(instance, 'getServerRegionData', {
 console.log(response);
 ```
 
-### ServerFavorite hinzufügen
+### AddServerFavorite
 Fügt ein bevorzugtes Gebiet für das angegebene Land und Gebiet hinzu.
 Wenn das bevorzugte Gebiet nicht vorhanden ist, wird es hinzugefügt.
 Sendet die aktualisierten Daten zurück an den Client.
@@ -166,6 +172,11 @@ console.log(response);
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- test remove node 18,extend to node 24
+
 ### 0.5.0 (2025-04-16)
 
 - add search for regions in browser

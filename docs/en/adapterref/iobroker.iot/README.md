@@ -105,12 +105,12 @@ Functions are like: light, blind, heating.
 
 The following conditions must be met to get the state in the automatically generated list:
 
--   the state must be in some "function" enumeration.
--   the state must have a role ("state", "switch" or "level.\*", e.g., level.dimmer) if not directly included in "functions".
-    It can be that the channel is in the "functions", but state itself not.
+-   the state must be in some `function` enumeration.
+-   the state must have a role (`state`, `switch` or `level.\*`, e.g., `level.dimmer`) if not directly included in "functions".
+    It can be that the channel is in the `functions`, but state itself not.
 -   the state must be writable: `common.write` = true
 -   the state dimmer must have `common.type` as 'number'
--   the state heating must have `common.unit` as '°C', '°F' or '°K' and `common.type` as `number`
+-   the state heating must have `common.unit` as `°C`, `°F` or `°K` and `common.type` as `number`
 
 If the state is only in "functions" and not in any "room", the name of state will be used.
 
@@ -311,7 +311,7 @@ The following types are supported:
 
 ## Send messages to app
 
-From version 1.15.x you can send messages to `ioBroker.visu` application (Android and iOS).
+From version 1.15.x you can send messages to `ioBroker Visu` application ([Android](https://play.google.com/store/apps/details?id=com.iobroker.visu) and [iOS](https://apps.apple.com/de/app/iobroker-visu/id1673095774)).
 For that, you need to write the following states:
 
 ```js
@@ -320,13 +320,23 @@ setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'norm
 setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
 setState('iot.0.app.message', 'Message text'); // important, that ack=false (default)
 
-// or just one state
-// only is message is mandatory. All other are optional
+// or just one state (this also allows to use payload -> `actions`, `devices` and `link` property)
+// only message is mandatory. All other are optional
+// Note that, if you are using `actions`or `devices`, the app needs to handle the notification in the background before showing it
+// in some scenarios, e.g. low power or spamming to many notifications the OS may decide to not show the notification at all
 setState('iot.0.app.message', JSON.stringify({
   message: 'Message text',
   title: 'ioBroker',
   expire: 60,
-  priority: 'normal'
+  priority: 'normal', 
+  payload: {
+      devices: JSON.stringify(['iPhone von Maelle', 'iPhone von Max']), // devices to send the message to, if not given send to all - requires Visu App 1.4.0
+      openUrl: 'https://www.iobroker.net', // opens a link when clicking on the notification
+      actions: JSON.stringify([ // actions to respond to the notification - requires Visu App 1.4.0
+          { buttonTitle: 'Yes', identifier: 'home:yes' }, // The app will display the button title and on clicking the identifier will be set to the state `iot.0.app.devices.<deviceName>.actionResponse`
+          { buttonTitle: 'No', identifier: 'home:no' }
+      ])
+  }
 })); // important, that ack=false (default)
 ```
 
@@ -339,8 +349,16 @@ setState('iot.0.app.message', JSON.stringify({
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.0.3 (2025-08-27)
+- (@GermanBluefox) Added response ID to custom skill responses
 
-## Changelog
+### 4.0.2 (2025-08-26)
+- (@GermanBluefox) Some files were rewritten in TypeScript
+- (@GermanBluefox) Improvement of Alexa V3
+
+### 3.6.0 (2025-07-02)
+-   (@foxriver76) new features for upcoming Visu App 1.4.0
+
 ### 3.5.2 (2025-06-04)
 -   (@GermanBluefox) Corrected error in back-end
 

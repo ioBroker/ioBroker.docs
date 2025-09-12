@@ -2,20 +2,20 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.opcua/README.md
-title: ioBroker OPC-UA 适配器
-hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
+title: ioBroker OPC-UA适配器
+hash: ZKUjg+3F0nXeXnb9ZO8gk/hZ7Z2bbg1fWIka4y6mIFk=
 ---
 ![标识](../../../en/adapterref/iobroker.opcua/admin/opcua.png)
 
 ![安装数量](http://iobroker.live/badges/opcua-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.opcua.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.opcua.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.opcua.svg)
 ![测试](https://travis-ci.org/ioBroker/ioBroker.opcua.svg?branch=master)
-![国家公共管理](https://nodei.co/npm/iobroker.opcua.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.opcua.png?downloads=true)
 
 # IoBroker OPC-UA 适配器
 ＃＃ 客户
-**实际上只实现了客户端。**
+**实际上，只实现了客户端。**
 
 ＃＃ 服务器
 支持以下数据类型：
@@ -24,12 +24,19 @@ hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
 - 细绳
 - 布尔值
 
-<!-- 下一个版本的占位符（在行的开头）：
+<!-- 下一个版本的占位符（在行首）：
 
-### **正在进行中** -->
+### **工作正在进行** -->
 
 ## Changelog
-### 1.0.0 (2024-02-21)
+### 1.2.1 (2025-07-10)
+* (bluefox) GUI was migrated vite
+* (bluefox) Backend was changed for new js-controller
+
+### 1.1.0 (2024-07-13)
+* (bluefox) GUI was migrated to a non-style framework
+
+### 1.0.3 (2024-03-03)
 * (bluefox) License changes to the free license (MIT)
 * (bluefox) Minimum node.js version 16
 
@@ -63,7 +70,7 @@ hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024, Denis Haev (dogafox@gmail.com)
+Copyright (c) 2024-2025, Denis Haev (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

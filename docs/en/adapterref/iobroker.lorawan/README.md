@@ -23,6 +23,134 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.14.5 (2025-09-12)
+* (BenAhrdt) Safe last 10 publish and subscribed values
+
+### 1.14.4 (2025-09-11)
+* (BenAhrdt) Return the virtual mode
+
+### 1.14.3 (2025-09-11)
+* (BenAhrdt) Change Nameing of Virtual ID for virtual_mode
+
+### 1.14.2 (2025-09-11)
+* (BenAhrdt) Bugfix Climate current_temperature topic
+
+### 1.14.1 (2025-09-11)
+* (BenAhrdt) Bugfix unique_id of climate entities
+
+### 1.14.0 (2025-09-11)
+* (BenAhrdt) normalize topics (without space, dot ....)
+* (BenAhrdt) change topics into set and state topic
+
+### 1.13.14 (2025-09-10)
+* (BenAhrdt) Add assign more device_class and state_class in case of unit
+
+### 1.13.13 (2025-09-09)
+* (BenAhrdt) Bugfix unit of measurement
+
+### 1.13.12 (2025-09-09)
+* (BenAhrdt) Improve Statehandling and improve Key Length-handling
+
+### 1.13.11 (2025-09-09)
+* (BenAhrdt) Bugfix selction of States and state_class
+
+### 1.13.10 (2025-09-09)
+* (BenAhrdt) Change Timeformat in Info states and improov logging in case of Statechange
+* (BenAhrdt) Add possibility to activate / deactivate cron for cyclic discovery
+
+### 1.13.9 (2025-09-07)
+* (BenAhrdt) Add time to State Information and improov translations.
+
+### 1.13.8 (2025-09-07)
+* (BenAhrdt) Add Tabfunctionality to Adapter (info to some states)
+
+### 1.13.7 (2025-09-07)
+* (BenAhrdt) More Informations in Tab
+* (BenAhrdt) Additionals States for published ids & subscribed topics
+
+### 1.13.6 (2025-09-06)
+* (BenAhrdt) Bugfix handling in fillDownlink
+
+### 1.13.5 (2025-09-06)
+* (BenAhrdt) Show discovery topic(s) & messag(es) ind array
+* (BenAhrdt) Add Tab to see Discovered, Published and Subscribed Ids.
+* (BenAhrdt) Add Posibility to discover climate Entity
+* (BenAhrdt) Retaining Discovery
+
+### 1.13.4 (2025-09-04)
+* (BenAhrdt) Bugfixing crc in Vicki Profile => ChildLock
+
+### 1.13.3 (2025-09-04)
+* (BenAhrdt) Add images to the new States
+
+### 1.13.2 (2025-09-04)
+* (BenAhrdt) Dont check connection to Bridge if not selected
+* (BenAhrdt) Add the State discovered Ids
+
+### 1.13.1 (2025-09-04)
+* (BenAhrdt) More Debuglogging
+* (BenAhrdt) General Nameing in the functions
+* (BenAhrdt) Performance update fpr rediscover on cron.
+
+### 1.13.0 (2025-09-03)
+* (BenAhrdt) Build fist Version of own Bridge MQTT Client
+
+### 1.12.1 (2025-09-01)
+* (BenAhrdt) remove Bug with folder / state handling
+
+### 1.12.0 (2025-09-01)
+* (BenAhrdt) Custom Table for Config HA Bridge
+
+### 1.11.10 (2025-08-31)
+* (BenAhrdt) insert logging to object change
+
+### 1.11.9 (2025-08-31)
+* (BenAhrdt) build Custom Config for HA Bridge
+
+### 1.11.8 (2025-08-30)
+* (BenAhrdt) log adapterObjects at start
+
+### 1.11.7 (2025-08-30)
+* (BenAhrdt) more improov logging in case of deviceinformation at startup (debug)
+
+### 1.11.6 (2025-08-30)
+* (BenAhrdt) improov logging in case of deviceinformation at startup (debug)
+
+### 1.11.5 (2025-08-29)
+* (BenAhrdt) update Assignhandler
+* (BenAhrdt) update Core dependencies
+
+### 1.11.4 (2025-08-23)
+* (BenAhrdt) set Custom Send payload to upper case
+
+### 1.11.3 (2025-08-17)
+* (BenAhrdt) replace german specific chars like ä => ae
+
+### 1.11.2 (2025-08-17)
+* (BenAhrdt) swap hidden logic
+
+### 1.11.1 (2025-08-17)
+* (BenAhrdt) add more hidden attributes to HA Bridge
+
+### 1.11.0 (2025-08-17)
+* (BenAhrdt) change dependencies
+* (BenAhrdt) Add LoRaWAN 2 Home Assistant Bridge
+
+### 1.10.22 (2025-07-27)
+* (BenAhrdt) config notification and / or logging in case of connection state to LNS
+
+### 1.10.21 (2025-07-27)
+* (BenAhrdt) add extSersorTemperature unit "°C"
+
+### 1.10.20 (2025-07-23)
+* (BenAhrdt) backflip handling limits
+
+### 1.10.19 (2025-07-23)
+* (BenAhrdt) improove handling of limits for downlinks
+
+### 1.10.18 (2025-07-23)
+* (BenAhrdt) add role to valve openess in vicki
+
 ### 1.10.17 (2025-06-16)
 * (BenAhrdt) bugfix profile for dnt-lw-etrv
 

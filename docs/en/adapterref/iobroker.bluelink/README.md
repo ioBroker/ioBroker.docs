@@ -24,6 +24,44 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 
 ## Changelog
+### 3.1.20 (2025-08-14)
+* (arteck) fix Geo coordinates
+* (arteck) fix Kia Gas
+* (arteck) Warning !!!!  new Structure for some Vehicles (vehicleStatusRaw only). Check you Objects tree.
+
+### 3.1.19 (2025-08-09)
+* (arteck) dependency update
+
+### 3.1.18 (2025-08-08)
+* (arteck) fix login Kia/Hyundai
+
+### 3.1.17 (2025-07-20)
+* (arteck) fix bat-12V
+
+### 3.1.16 (2025-07-03)
+* (arteck) fix ratio from car
+
+### 3.1.15 (2025-06-27)
+* (arteck) fix GeoCoord from car
+
+### 3.1.14 (2025-06-26)
+* (arteck) fix SoH value
+
+### 3.1.13 (2025-06-26)
+* (arteck) fix location if timestamp in ccs2 is greater than vehicle timestamp
+
+### 3.1.12 (2025-06-26)
+* (arteck) fix vehicallocation in ccs2
+
+### 3.1.11 (2025-06-26)
+* (arteck) fix Version number
+
+### 3.1.10 (2025-06-25)
+* (arteck) fix BatteryManagement
+
+### 3.1.9 (2025-06-24)
+* (arteck) fix translate
+
 ### 3.1.8 (2025-06-12)
 * (arteck) fix location Tucson
 

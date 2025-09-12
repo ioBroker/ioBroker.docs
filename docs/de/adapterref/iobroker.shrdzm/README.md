@@ -3,20 +3,25 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: E8CVANcq4KIUE18wXRqlxtXZp9tRdHWHrGhcVDJAK5E=
+hash: l+9nKDVCDAgPwp6Es7/uxGbZ1qDsHJ+bzgJNB4u824k=
 ---
 ![Logo](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.shrdzm.svg)
+![GitHub-Lizenz](https://img.shields.io/github/license/mcm4iob/ioBroker.shrdzm)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.shrdzm.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/shrdzm-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/shrdzm-stable.svg)
-![Lizenz](https://img.shields.io/github/license/mcm4iob/ioBroker.shrdzm?style=flat)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.shrdzm)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.shrdzm)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.shrdzm/latest)
+![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.shrdzm)
+![GitHub-Probleme](https://img.shields.io/github/issues/mcm4iob/ioBroker.shrdzm)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.shrdzm.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/shrdzm-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/shrdzm-installed.svg)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.shrdzm
-![Testen und Freigeben](https://github.com/mcm4iob/ioBroker.shrdzm/workflows/Test%20and%20Release/badge.svg)
+**Allgemeine Informationen:**<br> [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/shrdzm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br></br> **Version:**</br></br> **Tests:**</br> [![Testen und Freigeben](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql)<br> **Spende:**</br>
 
 **************************************************************************************************************
 
@@ -24,25 +29,31 @@ hash: E8CVANcq4KIUE18wXRqlxtXZp9tRdHWHrGhcVDJAK5E=
 **************************************************************************************************************
 
 ## Shrdzm-Adapter für ioBroker
-Dieser Adapter integriert die SHRDZM-Smartmeter-Schnittstelle des Anbieters *SHRDZM IT Services e.U.* in den ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+Dieser Adapter integriert die SHRDZM Smartmeter-Schnittstelle des Anbieters *SHRDZM IT Services e.U.* in den ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
 
 Beachten Sie, dass dieser Adapter in keiner Weise mit dem oben genannten Unternehmen verbunden ist und keinerlei Geschäftsbeziehung besteht.
+
+## Dokumentation
+Eine ausführliche Dokumentation ist in mehreren Sprachen verfügbar:
+
+- **Englisch**: [doc/en/DOCUMENTATION_en.md](doc/en/DOCUMENTATION_en.md)
+- **Deutsch**: [doc/de/DOCUMENTATION_de.md](doc/de/DOCUMENTATION_de.md)
 
 **************************************************************************************************************
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in meiner Freizeit gepflegt und verfolgt kein Geschäftsziel.**
+**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.**
 
 **************************************************************************************************************
 
 ## Konfiguration
-Installieren und richten Sie Ihre SHRZDM-Schnittstelle gemäß der Herstellerdokumentation ein. Dieser Adapter verbindet sich über eine UDP-Verbindung (IPv4) mit der Schnittstelle. Zur Inbetriebnahme sind folgende Schritte erforderlich:
+Installieren und richten Sie Ihre SHRZDM-Schnittstelle gemäß der Herstellerdokumentation ein. Der Adapter verbindet sich über eine UDP-Verbindung (IPv4) mit der Schnittstelle. Zur Inbetriebnahme sind folgende Schritte erforderlich:
 
-- Installieren Sie den iobroker Adapter wie gewohnt
+- Installieren Sie den iobroker-Adapter wie gewohnt
 - Öffnen Sie die ioBroker-AdminUI-Schnittstelle, um den Adapter zu konfigurieren
-- Wählen Sie in der AdminUI einen freien Port aus. Der Standardwert ist Port 9000, es kann jedoch jeder beliebige freie Port verwendet werden.
+- Wählen Sie in der AdminUI einen freien Port aus. Der Standardwert ist Port 9000, es kann jedoch jeder freie Port verwendet werden.
 
-- Öffnen Sie die SHRZDM-Konfigurationsoberfläche (mit einem Webbrowser)
+- Öffnen Sie die SHRZDM-Konfigurationsoberfläche (mithilfe eines Webbrowsers)
 
 ![Alternativtext](../../../en/adapterref/iobroker.shrdzm/doc/shrzdm-cloud.pgn)
 
@@ -54,15 +65,15 @@ Installieren und richten Sie Ihre SHRZDM-Schnittstelle gemäß der Herstellerdok
 Das SHRDZM-Gerät sollte sofort mit der Datenübertragung in dem auf der Seite „Einstellungen“ konfigurierten Intervall beginnen.
 
 ## Betrieb
-Der Adapter erstellt Status für alle von allen Geräten empfangenen OBO-Daten. Wenn Sie mehrere SHRZDM-Geräte installiert haben und die Anzahl der akzeptierten Geräte einschränken möchten, können Sie in der Adapterkonfiguration eine Liste zulässiger Geräte angeben. Wenn keine Geräte konfiguriert sind, werden Daten von allen Absendern akzeptiert.
+Der Adapter erstellt Status für alle von allen Geräten empfangenen OBO-Daten. Wenn Sie mehrere SHRZDM-Geräte installiert haben und die Anzahl der akzeptierten Geräte einschränken möchten, können Sie in der Konfiguration des Adapters eine Liste der zulässigen Geräte angeben. Wenn keine Geräte konfiguriert sind, werden Daten von allen Absendern akzeptiert.
 
 ## Häufig gestellte Fragen
 #### Updates erfolgen zu oft
-Die Live-Daten werden aktualisiert, sobald neue Daten vom SHRDZM-Gerät empfangen werden. Um die vom Gerät gesendete Datenmenge zu reduzieren, passen Sie den Intervallparameter auf der Geräteeinstellungsseite an.
+Aktualisierungen der Live-Daten werden durchgeführt, sobald neue Daten vom SHRDZM-Gerät empfangen werden. Um die vom Gerät gesendete Datenmenge zu reduzieren, passen Sie den Intervallparameter auf der Seite „Einstellungen“ des Geräts an.
 
 **************************************************************************************************************
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn Ihnen dieser Adapter gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
 
@@ -73,6 +84,13 @@ Die Live-Daten werden aktualisiert, sobald neue Daten vom SHRDZM-Gerät empfange
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK_IN_PROGRESS**
+
+### 1.0.0 (2025-08-14)
+* (mcm1957) Adapter requires node.js 20.x, js-controller 7.0.7 and admin 7.6.17 now.
+* (mcm1957) Dependencies have been updated.
+
 ### 0.2.0 (2025-04-06)
 * (mcm1957) Online indicator has been added to objectview.
 * (mcm1957) Translations have been updated.

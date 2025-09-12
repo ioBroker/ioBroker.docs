@@ -831,7 +831,7 @@ widget tvprogram:
 ### **WORK IN PROGRESS**
 
 - reduce requests to data provider
-- revert to node 18
+- test remove node 18,extend to node 24
 
 ### 4.0.0 (2025-01-21)
 

@@ -1,21 +1,21 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.opcua/README.md
 title: Адаптер ioBroker OPC-UA
-hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
+hash: ZKUjg+3F0nXeXnb9ZO8gk/hZ7Z2bbg1fWIka4y6mIFk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.opcua/admin/opcua.png)
 
 ![Количество установок](http://iobroker.live/badges/opcua-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.opcua.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.opcua.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.opcua.svg)
 ![Тесты](https://travis-ci.org/ioBroker/ioBroker.opcua.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.opcua.png?downloads=true)
 
 # Адаптер ioBroker OPC-UA
 ## Клиент
-**Фактически реализован только клиент.**
+**На самом деле реализован только клиент.**
 
 ## Сервер
 Поддерживаются следующие типы данных:
@@ -24,12 +24,19 @@ hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
 - нить
 - логическое значение
 
-<!-- Заполнитель следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### **РАБОТА В ПРОГРЕССЕ** -->
+### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### 1.0.0 (2024-02-21)
+### 1.2.1 (2025-07-10)
+* (bluefox) GUI was migrated vite
+* (bluefox) Backend was changed for new js-controller
+
+### 1.1.0 (2024-07-13)
+* (bluefox) GUI was migrated to a non-style framework
+
+### 1.0.3 (2024-03-03)
 * (bluefox) License changes to the free license (MIT)
 * (bluefox) Minimum node.js version 16
 
@@ -63,7 +70,7 @@ hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024, Denis Haev (dogafox@gmail.com)
+Copyright (c) 2024-2025, Denis Haev (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

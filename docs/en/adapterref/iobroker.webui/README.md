@@ -133,6 +133,34 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.33.0 (2025-08-26)
+- fix NaN check
+
+### 1.32.0 (2025-08-20)
+- Support css prop suggestions
+
+### 1.31.6 (2025-08-19)
+- Test one more release
+
+### 1.31.5 (2025-08-19)
+- Fix setting Props with simple scripts
+
+### 1.31.4 (2025-08-19)
+- SimpleScripts should be able to set Properties
+
+### 1.31.3 (2025-08-19)
+- NaN not NaN
+
+### 1.31.2 (2025-08-18)
+- update npms
+
+### 1.31.1 (2025-08-17)
+- remove nod 18 from github actions
+
+### 1.31.0 (2025-08-17)
+- update packages
+- script support for properties
+
 ### 1.30.0 (2025-05-25)
 - starting indirect binding fix
 

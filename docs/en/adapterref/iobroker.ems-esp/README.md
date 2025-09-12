@@ -44,8 +44,9 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* dependabot 
-* test and realase with node 24.x
+* dependabot updates 
+* eslint 9 migration
+* test and release with node 24.x
 
 ### 6.0.0 (2025-05-08)
 * ems-esp: NEW encrypt ems token - token needs to be re-entered

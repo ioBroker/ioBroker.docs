@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: /LJ7Z0+VbWYKA6WbedYPK1ecLHnLys58wJKAQrnjkug=
+hash: JL8A3UjM0JADNNfDOETM+9CZACpV5a0qPyv007L3IIA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -33,9 +33,9 @@ WEB-Visualisierung für die ioBroker-Plattform.
 
 ## Bindungen von Objekten
 Normalerweise verfügen die meisten Widgets über ein ObjectID-Attribut, das mit einem Objekt-ID-Wert verknüpft werden kann.
-Es gibt jedoch eine weitere Möglichkeit, *jedes* Widget-Attribut an eine ObjectID zu binden.
+Es gibt jedoch eine weitere Möglichkeit, *beliebige* Widget-Attribute an eine ObjectID zu binden.
 
-Schreiben Sie einfach in das Attribut `{object.id}` z.`{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}`, und es wird an den Wert dieses Objekts gebunden.
+Schreiben Sie einfach in das Attribut `{object.id}`, z. B. `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}`, und es wird an den Wert dieses Objekts gebunden.
 Wenn Sie das spezielle Format verwenden, können Sie damit sogar einige einfache Operationen durchführen, z. B. Multiplizieren oder Formatieren.
 
 So berechnen Sie beispielsweise die Hypothenuse eines Dreiecks:
@@ -58,7 +58,7 @@ Sie können *beliebige* JavaScript-Funktionen (Browser) verwenden. Argumente mü
 
 Achten Sie auf die Typen. Alle sind als Zeichenfolgen definiert. Um sicherzustellen, dass der Wert als Zahl behandelt wird, verwenden Sie die Funktion parseFloat.
 
-Unsere Hypothenuse-Berechnung lautet also:
+Unsere Hypotenuse-Berechnung lautet also:
 
 ```
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
@@ -77,26 +77,26 @@ Die folgenden Vorgänge werden unterstützt:
 - `+` - Addieren. Das Argument muss in Klammern stehen, z. B. "+(4,5)". In diesem Beispiel addieren wir zum Wert 4,5.
 - `-` - Subtrahieren. Das Argument muss in Klammern stehen, z. B. "-(-674,5)". In diesem Beispiel subtrahieren wir vom Wert -674,5.
 - `/` - Division. Das Argument muss in Klammern stehen, z. B. "/(0,5)". In diesem Beispiel dividieren wir den Wert durch 0,5.
-- `%` - Modulo. Das Argument muss in Klammern stehen, z. B. "%(5)". In diesem Beispiel verwenden wir Modulo von 5.
+- `%` - Modulo. Das Argument muss in Klammern stehen, z. B. "%(5)". In diesem Beispiel nehmen wir Modulo von 5.
 - `round` – rundet den Wert.
-- `round(N)` - rundet den Wert mit N Stellen nach dem Komma, zB 34.678;round(1) => 34.7
-- `hex` - Wert in Hexadezimalwert umwandeln. Alle Buchstaben werden klein geschrieben.
+- `round(N)` - rundet den Wert mit N Stellen nach dem Punkt, zB 34.678;round(1) => 34.7
+- `hex` – Wert in Hexadezimalwert umwandeln. Alle Buchstaben werden klein geschrieben.
 - `hex2` - konvertiert den Wert in einen Hexadezimalwert. Alle Buchstaben werden klein geschrieben. Ist der Wert kleiner als 16, wird die führende Null hinzugefügt.
 - „HEX“ – dasselbe wie Hex, aber in Großbuchstaben.
 - „HEX2“ – dasselbe wie Hex2, aber in Großbuchstaben.
-- `date` - Datum entsprechend dem angegebenen Format formatieren. Das Format ist dasselbe wie in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
-- `min(N)` - wenn der Wert kleiner als N ist, wird N genommen, sonst der Wert
+- `date` – Datum entsprechend dem angegebenen Format formatieren. Das Format ist dasselbe wie in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
+- `min(N)` - wenn der Wert kleiner als N ist, wird N genommen, andernfalls der Wert
 - `max(M)` - wenn der Wert größer als M ist, wird M genommen, sonst der Wert
 - `sqrt` - Quadratwurzel
 - `pow(n)` – Potenz von N.
-- „pow“ – Potenz von 2.
+- `pow` – Potenz von 2.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
-- `json` - Operation zum Abrufen von JSON- oder Objekteigenschaft. Z. B. `{id;json(common.name.en)}`
+- `json` – Vorgang zum Abrufen von JSON- oder Objekteigenschaft. Z. B. `{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R, oder einfach Math.random(), wenn kein Argument vorhanden ist
 - `formatValue(decimals)` – Wert entsprechend den Systemeinstellungen formatieren und Dezimalzahlen verwenden
-- `date(format)` - Wert als Datum formatieren. Das Format lautet: "JJJJ-MM-TT hh:mm:ss.sss"
-- `momentDate(format, useTodayOrYesterday)` - Formatiert den Wert als Datum mit Moment.js. [Freigegebene Formate müssen gemäß der moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` wird das `moment.js`-Format `ddd`/`dddd` mit heute / gestern überschrieben.
+- `date(format)` - Wert als Datum formatieren. Das Format ist etwa: "JJJJ-MM-TT hh:mm:ss.sss"
+- `momentDate(format, useTodayOrYesterday)` - Wert mit Moment.js als Datum formatieren. [Freigegebene Formate müssen entsprechend der moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday=true` wird das `moment.js`-Format `ddd`/`dddd` mit heute / gestern überschrieben
 - `array(element1,element2[,element3,element4])` – gibt das Element des Index zurück. zB: `{id.ack;array(ack ist falsch,ack ist wahr)}`
 
 Sie können dieses Muster in jedem Text verwenden, wie
@@ -111,7 +111,7 @@ oder Farbberechnungen:
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-Um den Zeitstempel des Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für letzte Änderung) am Ende der Objekt-ID, zum Beispiel:
+Um den Zeitstempel des Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für die letzte Änderung) am Ende der Objekt-ID, z. B.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -123,12 +123,12 @@ Es gibt eine Reihe verschiedener interner Bindungen, um zusätzliche Information
 * `Benutzername` - zeigt den angemeldeten Benutzer
 * `view` - Name der aktuellen Ansicht
 * `wname` - Widgetname
-* `widget` – ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, z. B. `{a:a;widget.data.name}`
+* `widget` – ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie `{a:a;widget.data.name}`
 * `widgetOid` – verwenden Sie die OID des Widgets, um den Wert des Widgets im Zuweisungsabschnitt zuzuweisen, z. B. `{t:widgetOid.val;t}`
 * `wid` - Name des aktuellen Widgets
 * „Sprache“ – kann „de“, „en“ oder „ru“ sein.
 * `Instanz` – Browserinstanz
-* „Anmelden“ – ob eine Anmeldung erforderlich ist oder nicht (z. B. um die Schaltfläche zum Abmelden anzuzeigen/auszublenden)
+* `login` – ob eine Anmeldung erforderlich ist oder nicht (z. B. um die Schaltfläche zum Abmelden anzuzeigen/auszublenden)
 * `local_*` – Wenn der Statusname von `local_` ausgeht, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für die aktuelle Browsersitzung)
 
 Hinweis: Um ":" in Berechnungen (z. B. in Zeichenfolgenformeln) zu verwenden, verwenden Sie stattdessen "::".
@@ -153,20 +153,20 @@ Vis erstellt 3 Variablen:
 
 - `control.instance` – Hier sollte die Browserinstanz geschrieben werden oder `FFFFFFFF`, wenn jeder Browser gesteuert werden muss.
 - `control.data` – Parameter für den Befehl. Siehe spezifische Befehlsbeschreibung.
-- `control.command` – Befehlsname. Das Schreiben dieser Variable löst den Befehl aus. Das bedeutet, bevor der Befehl geschrieben wird, müssen die Variablen „Instanz“ und „Daten“ mit Daten vorbereitet werden.
+- `control.command` - Befehlsname. Das Schreiben dieser Variable löst den Befehl aus. Das bedeutet, bevor der Befehl geschrieben wird, müssen die "Instanz" und "Daten" mit Daten vorbereitet werden.
 
 Befehle:
 
-* `alert` – zeigt ein Warnfenster in Vis-2 an. „control.data“ hat das Format „message;title;jquery-icon“. Titel und jquery-icon sind optional. Die Icon-Namen finden Sie [hier](http://jqueryui.com/themeroller/). Um das Icon „ui-icon-info“ anzuzeigen, schreiben Sie „Message;;info“.
+* `alert` – zeigt ein Warnfenster in vis-2 an. „control.data“ hat das Format „message;title;jquery-icon“. Titel und jquery-icon sind optional. Die Icon-Namen finden Sie [hier](http://jqueryui.com/themeroller/). Um das Icon „ui-icon-info“ anzuzeigen, schreiben Sie „Message;;info“.
 * `changeView` - Wechselt zur gewünschten Ansicht. "control.data" muss den Namen der Ansicht enthalten. Sie können auch den Projektnamen als `project/view` angeben. Das Standardprojekt ist `main`.
-* „Aktualisieren“ – vis-2 neu laden, beispielsweise nachdem das Projekt so geändert wurde, dass es in allen Browsern neu geladen wird.
-* „Neuladen“ – dasselbe wie Aktualisieren.
-* `dialog` - Dialogfenster anzeigen. Der Dialog muss in der Ansicht vorhanden sein. Eine der folgenden Optionen:
+* `refresh` – vis-2 neu laden, beispielsweise nachdem das Projekt so geändert wurde, dass es in allen Browsern neu geladen wird.
+* „Neuladen“ – dasselbe wie „Aktualisieren“.
+* `dialog` - Dialogfenster anzeigen. Dialog muss in der Ansicht vorhanden sein. Eines von:
 
-- `statischer - HTML - Dialog`,
+- `statischer HTML-Dialog`,
 - `statisch - Symbol - Dialog`,
-- `Container - HTML - Ansicht im JQUI-Dialog`,
-- `Container - ext cmd - im jqui-Dialog anzeigen`,
+- `Container – HTML – Ansicht im JQUI-Dialog`,
+- `Container - ext cmd - Ansicht im jqui-Dialog`,
 - `Container - Symbol - Im JQUI-Dialog anzeigen`,
 - `Container – Schaltfläche – Im JQUI-Dialog anzeigen`.
 
@@ -179,7 +179,7 @@ Befehle:
 Sie können Ihre eigene Datei in Vis-2 hochladen und abspielen lassen, z. B. `/vis-2.0/main/img/myFile.mp3`.
 **Wichtig** Der Browser kann Audio erst abspielen, wenn der Benutzer mindestens einmal auf die Seite geklickt hat. Dies ist eine Browser-Sicherheitsrichtlinie. [Hier](https://github.com/Hugo22O/chrome-autoplay) Weitere Informationen finden Sie hier.
 
-Bei einem Wechsel der Ansicht oder beim Start werden die Variablen vom vis-2 gefüllt mit
+Bei einem Wechsel der Ansicht oder beim Start werden die Variablen vom vis-2 mit
 
 - `control.instance`: Browserinstanz und `ack=true`
 - `control.data`: Projekt- und Ansichtsname in der Form `project/view`, zB `main/view` (und `ack=true`)
@@ -196,14 +196,14 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 Wenn Sie das JSON als Zeichenfolge schreiben, stellen Sie sicher, dass es analysierbar ist, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie das `"`.
 
 ## Standardansicht
-Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü=>Extras=>Auflösung).
-Dies ist lediglich der visuelle Rahmen im Bearbeitungsmodus, der Ihnen die Bildschirmgröße auf einem bestimmten Gerät anzeigt. Im Echtzeitmodus ist er nicht sichtbar; alle Widgets außerhalb des Rahmens sind sichtbar.
+Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü => Tools => Auflösung).
+Dies ist nur der visuelle Rahmen im Bearbeitungsmodus, um Ihnen die Bildschirmgröße auf einem bestimmten Gerät anzuzeigen. Im Echtzeitmodus ist er nicht sichtbar und alle Widgets außerhalb des Rahmens sind sichtbar.
 
 Zusätzlich können Sie festlegen, ob diese Ansicht als Standard für diese Auflösung verwendet werden soll.
 
-Bei jedem Aufruf von `index.html` (ohne `#viewName`) wird die für die jeweilige Auflösung am besten geeignete Ansicht geöffnet.
+Daher wird bei jedem Aufruf von `index.html` (ohne `#viewName`) die für diese Auflösung am besten geeignete Ansicht geöffnet.
 
-Verfügt nur eine Ansicht über das Flag *„Standard“*, wird diese unabhängig von Bildschirmauflösung und -ausrichtung geöffnet.
+Wenn nur eine Ansicht das Flag *„Standard“* hat, wird diese Ansicht unabhängig von Bildschirmauflösung oder -ausrichtung geöffnet.
 
 Sie können beispielsweise zwei Ansichten erstellen: „Querformat-Mobil“ und „Hochformat-Mobil“. Diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
 
@@ -219,10 +219,10 @@ Das Flag `write` bedeutet, dass das Projekt für diesen Benutzer im Bearbeitungs
 Wenn ein neuer Benutzer über den ioBroker-Admin-Adapter erstellt wird, verfügt er standardmäßig über beide Berechtigungen.
 
 ### Sicht
-Sie können außerdem festlegen, auf welche Ansichten der Benutzer im Laufzeit- und Bearbeitungsmodus zugreifen darf.
-Wenn eines der Zugriffsrechte auf Projektebene nicht gewährt wird, hat die Angabe auf Ansichtsebene keine Auswirkung, da dann nicht auf das gesamte Projekt zugegriffen werden kann.
+Sie können auch festlegen, auf welche Ansichten der Benutzer im Laufzeit- und Bearbeitungsmodus zugreifen darf.
+Wenn eines der Zugriffsrechte auf Projektebene nicht gewährt wird, hat die Angabe auf Ansichtsebene keine Auswirkungen, da das gesamte Projekt nicht zugänglich ist.
 
-Beachten Sie, dass dem Benutzer beim Versuch, auf eine Ansicht zuzugreifen, für die er keine Berechtigung hat, stattdessen das Projektauswahlfenster angezeigt wird.
+Beachten Sie, dass dem Benutzer beim Versuch, auf eine Ansicht zuzugreifen, für die er keine Berechtigung hat, stattdessen das Projektauswahlfeld angezeigt wird.
 
 ### Widget
 Wenn der Benutzer nicht über die Berechtigung `read` verfügt, wird das Widget zur Laufzeit nicht gerendert. Wenn der Benutzer nicht über die Berechtigung `write` verfügt, wird das Widget im Bearbeitungsmodus nicht gerendert.
@@ -244,9 +244,9 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 
 ## SVG und currentColor
 Das Schlüsselwort currentColor in CSS ermöglicht es Elementen, die aktuelle Textfarbe von ihrem übergeordneten Element zu übernehmen.
-Es ist besonders nützlich in SVGs (Scalable Vector Graphics), da es ein dynamischeres Styling und eine einfachere Integration in HTML-Inhalte ermöglicht.
+Es kann besonders in SVGs (Scalable Vector Graphics) nützlich sein, da es ein dynamischeres Styling und eine einfachere Integration mit HTML-Inhalten ermöglicht.
 
-Sie können das Schlüsselwort currentColor anstelle eines spezifischen Farbwerts für jede Eigenschaft innerhalb der SVG-Datei verwenden, die einen Farbwert akzeptiert.
+Sie können das Schlüsselwort currentColor anstelle eines bestimmten Farbwerts für jede Eigenschaft innerhalb der SVG-Datei verwenden, die einen Farbwert akzeptiert.
 Hier ist ein einfaches Beispiel mit einem Kreis in einer SVG-Datei:
 
 ```xml
@@ -261,7 +261,7 @@ Beispiel: Wenn es in einem Menü verwendet wird und das Menü rot ist, ist der K
 ## Entwicklung und Debugging
 Um Anpassungen am vis-2 Editor selbst vorzunehmen, Fehler zu suchen und zu debuggen, müssen folgende Schritte durchgeführt werden.
 
-1. Forken Sie das Repository iobroker/iobroker.vis-2 über die Benutzeroberfläche von GitHub in Ihr eigenes Konto.
+1. Forken Sie das Repository iobroker/iobroker.vis-2 über die Benutzeroberfläche von GitHub in Ihr eigenes Konto
 
 2. Klonen Sie das Repository in ein Verzeichnis. Kopieren Sie die URL aus Ihrem GitHub-Repository. Der Befehl sieht so aus
 
@@ -279,7 +279,7 @@ npm run install-monorepo
 
 5. Um den Editor im Browser zu starten, führen Sie bitte den folgenden Befehl aus.
 
-Eine bereits separat laufende iobroker Serverinstanz muss auf Port 8082 verfügbar sein.
+Eine bereits separat laufende iobroker-Serverinstanz muss auf Port 8082 verfügbar sein.
 
 ```shell
 npm run start
@@ -294,28 +294,20 @@ npm run start
 ### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (@GermanBluefox) Corrected selection of the view for resolution
+### 2.13.4 (2025-09-05)
+* (@GermanBluefox) Added the basic methods for metro widgets again
 
-### 2.12.10 (2025-05-25)
-* (@GermanBluefox) Added possibility to define favicon and browser tab title
+### 2.13.3 (2025-08-27)
+* (@GermanBluefox) Corrected loading of icon sets
 
-### 2.12.9 (2025-05-19)
-* (@GermanBluefox) Added possibility to use value in signal text
+### 2.13.2 (2025-08-26)
+* (@GermanBluefox) Added support for older Android versions
 
-### 2.12.8 (2025-05-03)
-* (@GermanBluefox) Added new SVG icon as favicon.
-* (@GermanBluefox) Added support for the TypeScript widgets
-* (@GermanBluefox) Used `vite` for faster loading
+### 2.13.1 (2025-08-25)
+* (@GermanBluefox) Fixed loading of widgets on the cloud
 
-### 2.11.2 (2025-01-23)
-* (@GermanBluefox) Do not load vis-1 widgets if vis-2 widgets are provided
-
-### 2.11.1 (2024-12-02)
-* (@GermanBluefox) Corrected navigation menu
-* (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
-* (@GermanBluefox) Added the HTML rebuild button to settings
-* (@GermanBluefox) Backend was migrated to TypeScript
+### 2.13.0 (2025-08-24)
+* (@GermanBluefox) Added possibility to define SVG icon sets from widgets sets
 
 ## License
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.

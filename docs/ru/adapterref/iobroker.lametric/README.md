@@ -17,31 +17,31 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
+hash: VRXQzZdgLRuQuhOEZ3wVEjTv+AhxQe8wVAcFarW07VE=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
 # IoBroker.lametric
 ## Оглавление
 - [Приложения](apps.md)
-- [Блокли](blockly.md)
+- [Блочный](blockly.md)
 - [Мои данные DIY](my-data-diy.md)
 - [Уведомления](notifications.md)
 
 ## Требования
 - nodejs 20 (или более поздняя версия)
 - js-controller 6.0.0 (или более поздняя версия)
-- Административный адаптер 7.4.10 (или более поздней версии)
-- _LaMetric Time_ с прошивкой _3.1.4_ (или более поздней)
+- Административный адаптер 7.4.10 (или более поздний)
+- _LaMetric Time_ с прошивкой _3.2.4_ (или более поздней)
 - прошивка _2.3.9_ (или более поздняя) на старых моделях (выпущенных до 2022 года)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
 ## Конфигурация
-1. Добавьте LaMetric Time в свою локальную сеть
-- Приложение LaMetric Time (2017–2021 гг.) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
-- Приложение LaMetric (с 2022 г. по настоящее время) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
-2. Скопируйте ключ API устройства из приложения (только модели 2022 года и новее). Для более старых моделей используйте следующий веб-сайт:
+1. Добавьте LaMetric Time в свою локальную сеть.
+- Приложение LaMetric Time (2017–2021) - [iOS](https://apps.apple.com/de/app/lametric-time/id987445829), [Google Play Store](https://play.google.com/store/apps/details?id=com.smartatoms.lametric)
+- Приложение LaMetric (с 2022 г.) - [iOS](https://apps.apple.com/de/app/lametric/id1502981694), [Google Play Store](https://play.google.com/store/apps/details?id=com.lametric.platform)
+2. Скопируйте API-ключ устройства из приложения (только для моделей 2022 года и новее). Для более старых моделей используйте следующий сайт:
 
 Вы можете получить API-ключ вашего устройства [здесь](https://developer.lametric.com/user/devices).
 
@@ -50,12 +50,12 @@ hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
 ## Функции
 - Установка яркости дисплея (процент, автоматический режим/ручной режим)
 - Установить громкость звука (в процентах)
-- Настройка заставки (включить/выключить, по времени, в темноте)
+- Настроить заставку (включить/выключить, по времени, в темноте)
 - Активировать/деактивировать Bluetooth и изменить имя Bluetooth
 - Переключение между приложениями (следующее, предыдущее, переход к определенному приложению)
-- Отправлять уведомления поблочно (с настраиваемым приоритетом, звуком, значками, текстом, ...)
+- Отправлять уведомления блочно (с настраиваемым приоритетом, звуком, значками, текстом, ...)
 - Управление специальными приложениями, такими как «часы», «радио», «секундомер» или «погода»
-- Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянной информации
+- Используйте приложение LaMetric _My Data (DIY)_ для отображения постоянной информации
 
 Возможности ограничены [официальные функции API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
 
@@ -65,6 +65,19 @@ hash: 19lmbTSRQCuySkzLxuYPI1NWQKduO0QhSL+332RLBX4=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 4.2.0 (2025-08-15)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.4)
+
+### 4.1.0 (2025-07-09)
+
+* (@klein0r) Allow icons with placeholders in config (improved validation)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
+
 ### 4.0.0 (2025-04-08)
 
 NodeJS >= 20.x and js-controller >= 6 is required
@@ -81,14 +94,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (@klein0r) Added support for notification manager
 * (@klein0r) Added validator for icon inputs
 * (@klein0r) Fixed some missing translations
-
-### 3.3.0 (2024-08-05)
-
-* (@klein0r) Added api version as state (and check value)
-
-### 3.2.3 (2024-07-21)
-
-* (@klein0r) Fixed blockly definitions
 
 ## License
 

@@ -160,6 +160,26 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 5.0.2 (2025-08-29)
+
+- (HombachC) min admin 7.6.17 as recommended (#754)
+- (HombachC) update adapter-core
+- (HombachC) bump typescript
+- (HombachC) bump dependencies
+
+### 5.0.1 (2025-08-15)
+
+- (HombachC) add decoder for EMH eHZB IMSys
+- (HombachC) remove creation of not feeded states
+- (HombachC) fix typo in error message (#731)
+- (HombachC) fix vulnerability
+- (HombachC) change power production to be polled by default (#721)
+- (HombachC) bump dependencies
+
 ### 5.0.0 (2025-05-30)
 
 - (HombachC) BREAKING: dropped node.js 18 support (#703)
@@ -177,20 +197,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) optimize shutdown-logic (#707)
 - (HombachC) update tibber-api
 - (HombachC) bump dependencies
-
-### 4.5.2 (2025-04-18)
-
-- (HombachC) fix jsonConfig error (#686)
-- (HombachC) bump dependencies
-- (HombachC) add statevalue range to projectUtils
-- (HombachC) code optimizations
-
-### 4.5.1 (2025-03-23)
-
-- (HombachC) fix Smart Battery Buffer JSON2 (#676)
-- (HombachC) fix not visible SBB LTF output 2 (#681)
-- (HombachC) enable JSON5 parsing starting with admin 7.5.3
-- (HombachC) fix vulnerability in axios <1.8.2 (#673)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

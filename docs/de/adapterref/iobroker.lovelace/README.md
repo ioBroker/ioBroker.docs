@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: CevnA7T7sHSamYWblZJOuDzy/NIuSAqwybgwIb9sCEI=
+hash: 9eNN5XG2Hc1qnapPKKoFNt8cDNC4UlPz7A/DJ7N8NBQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -20,7 +20,7 @@ Mit diesem Adapter können Sie eine Visualisierung für ioBroker mit der Home As
 [Deutsche Dokumentation](docs/de/README.md)
 
 ## Instanzobjekte
-In den Ordnerinstanzen befinden sich Objekte zur Steuerung der Benutzeroberfläche. Für jeden Browser wird ein neuer Unterordner mit einer zufälligen ID erstellt. Diese ID wird im Webspeicher des Client-Browsers gespeichert. Wenn Sie den Webspeicher löschen, wird eine neue Instanz erstellt. Wenn Sie den Fully Kiosk Browser verwenden, stellen Sie sicher, dass die Funktion `Delete webstorage on reload` **deaktiviert** ist.
+In den Ordnerinstanzen befinden sich Objekte, die zur Steuerung der Benutzeroberfläche verwendet werden können. Für jeden Browser wird ein neuer Unterordner mit einer zufälligen ID erstellt. Diese ID wird im Webspeicher des Client-Browsers gespeichert. Wenn Sie den Webspeicher löschen, wird eine neue Instanz erstellt. Wenn Sie den Fully Kiosk Browser verwenden, stellen Sie sicher, dass die Funktion `Delete webstorage on reload` **deaktiviert** ist.
 
 Diese Funktion verwendet browser_mod, das vom Adapter installiert und aktualisiert wird. Fügen Sie keine eigene Version von browser_mod als benutzerdefinierte Karte hinzu.
 
@@ -35,10 +35,10 @@ Im Auto-Modus wird der gleiche Vorgang wie für `google home` oder `material ada
 
 ***Es werden nur Objekte und Kanäle erkannt, für die die Kategorien `function` und `room` definiert sind.***
 
-Sie können benutzerfreundliche Namen definieren, die in Entitäten verwendet werden.
+Sie können Anzeigenamen definieren, die in Entitäten verwendet werden.
 
 ### Handbuch
-Die Objekte können manuell in einem Objektbaum wie `sql` oder `history` definiert werden. Der Entitätstyp und optional der Objektname müssen angegeben werden.
+Die Objekte können manuell in einem Objektbaum wie `sql` oder `history` definiert werden. Der Entitätstyp muss angegeben werden, optional der Name des Objekts.
 Mit dieser Methode können nur einfache Entitäten wie input_number, input_text oder input_boolean erstellt werden. Es dürfen nicht mehr als ein Status oder Attribut vorhanden sein.
 
 ## Paneele
@@ -83,7 +83,7 @@ oder Sie verwenden dafür einfach `lovelace.X.control.alarm (entity_id = alarm_c
 ### Zahleneingabe
 Dies kann manuell erfolgen, wenn im benutzerdefinierten Dialogfeld der Entitätstyp „input_number“ ausgewählt ist.
 Dieser Typ erfordert die Werte `min` und `max` in `common`. Optional kann `step` hinzugefügt werden.
-Um die Auf- und Abwärtspfeile anzuzeigen, setzen Sie `mode` im benutzerdefinierten Feld auf „number“:
+Wenn Sie die Auf- und Abwärtspfeile sehen möchten, sollten Sie im benutzerdefinierten `mode` „Nummer“ festlegen:
 
 ```json5
 common: {
@@ -119,10 +119,10 @@ Die Liste der zur Auswahl stehenden Optionen sollte in einem Standardobjekt `com
     }
 ```
 
-mit anderen Worten, es sollte auch in IoB eine Auswahleingabe geben.
+mit anderen Worten, es sollte auch eine Auswahleingabe in IoB geben.
 
 ### Zeitgeber
-Der Timer könnte durch das folgende Skript simuliert werden:
+Der Timer kann durch das folgende Skript simuliert werden:
 
 ```js
 createState(
@@ -206,13 +206,13 @@ createState(
 ```
 
 ### Wetter
-Getestet mit `yr` und `daswetter`. Für eines oder mehrere der folgenden Objekte müssen die Werte `Function=Weather` und `Room=Any` gesetzt sein, damit sie in der Konfiguration verfügbar sind:
+Getestet mit `yr` und `daswetter`. Für eines oder mehrere der folgenden Objekte müssen `Function=Weather` und `Room=Any` gesetzt sein, damit sie in der Konfiguration verfügbar sind:
 
 - `daswetter.0.NextDays.Location_1`
 - `yr.0.forecast`
 
-Getestet mit dem `AccuWeather`-Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
-Benutzerdefinierte Lovelace-Karte zur Unterstützung der AccuWeather-Vorhersage erstellt – https://github.com/algar42/IoB.lovelace.accuweather-card
+Getestet mit `AccuWeather` Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
+Benutzerdefinierte Lovelace-Karte zur Unterstützung der Accuweather-Vorhersage erstellt - https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Einkaufsliste
 Einkaufsliste schreibt die Werte in Form:
@@ -297,7 +297,7 @@ Um die benutzerdefinierte Karte hochzuladen, schreiben Sie Folgendes:
 
 Nach dem Neustart des Lovelace-Adapters werden alle Dateien aus dem Verzeichnis `cards` automatisch eingeschlossen.
 
-Folgende Custom Cards konnten erfolgreich getestet werden:
+Folgende Custom-Karten konnten erfolgreich getestet werden:
 
 - `bignumber-card`: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
 - `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases (nehmen Sie die neueste Version)
@@ -305,7 +305,7 @@ Folgende Custom Cards konnten erfolgreich getestet werden:
 
 Ich habe diesen Link https://github.com/jimz011/homeassistant als interessante Ressource für benutzerdefinierte Karten gefunden.
 
-Die benutzerdefinierten Karten werden häufig als Quellcode auf GitHub gespeichert und müssen vor der Verwendung kompiliert werden.
+Oftmals werden die benutzerdefinierten Karten als Quellen auf GitHub gespeichert und müssen vor der Verwendung kompiliert werden.
 Sie sollten das Menü `Releases` auf GitHub überprüfen und versuchen, dort kompilierte Dateien zu finden.
 Wie diese: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Suchen Sie nach der Datei `mini-graph-card-bundle.js`)
 
@@ -322,7 +322,7 @@ in der Lovelace-Konfigurationsdatei. Lesen Sie mehr über den Hintergrund in Lov
 
 ## Themen
 Die Themen können im Konfigurationsdialog von ioBroker definiert werden.
-Fügen Sie Folgendes ein:
+Fügen Sie etwas wie Folgendes ein:
 
 ```yaml
 midnight:
@@ -413,7 +413,7 @@ setState('lovelace.0.notifications.add', 'Message text'); // short version
 ```
 
 ## Sprachsteuerung
-Alle Befehle der Weboberfläche werden mit `ack=false` in den Status lovelace.X.conversation geschrieben.
+Alle Befehle aus der Weboberfläche werden mit `ack=false` in den Status lovelace.X.conversation geschrieben.
 Sie können ein Skript schreiben, das auf Anfragen reagiert und antwortet:
 
 ```js
@@ -428,9 +428,9 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 ```
 
 ## Fehlerbehebung
-Wenn Sie den YAML-Code beschädigt haben und eine leere Seite sehen, das Hauptmenü aber weiterhin angezeigt wird, können Sie den Bearbeitungsmodus (falls nicht bereits aktiviert) über das Menü aktivieren und anschließend das Menü erneut öffnen, um auf den „RAW-YAML-Editor“ zuzugreifen. Dort sehen Sie den vollständigen YAML-Code und können ihn bereinigen.
+Wenn Sie den YAML-Code durcheinandergebracht haben und eine leere Seite sehen, das Hauptmenü aber weiterhin angezeigt wird, können Sie den Bearbeitungsmodus (falls nicht bereits aktiviert) über das Menü aktivieren und anschließend das Menü erneut öffnen, um auf den „RAW Yaml Editor“ zuzugreifen. Dort sehen Sie den vollständigen YAML-Code und können ihn bereinigen.
 
-Wenn das nicht hilft, können Sie das Objekt `lovelace.*.configuration` im Raw-Editor von ioBroker öffnen und dort nachsehen.
+Wenn das nicht hilft, können Sie das Objekt `lovelace.*.configuration` im Raw-Editor in ioBroker öffnen und dort nachsehen.
 
 Sie können dieses Objekt auch aus einer Sicherung wiederherstellen. Es enthält die vollständige Konfiguration Ihrer Visualisierung.
 
@@ -452,18 +452,18 @@ Vorläufig (20250401.0) wurden folgende Dateien geändert:
 
 - `build-scripts/gulp/app.js` - Neue Gulp-Aufgabe „develop-iob“ hinzufügen
 - `build-scripts/gulp/rspack.js` - Neue Gulp-Aufgabe rspack-dev-app hinzufügen
-- `src/data/icons.ts` – verwenden Sie immer einen Fallback für alte Versionen, bei denen das Frontend entscheidet, welches Symbol für Binärsensoren verwendet werden soll (falls keines angegeben ist).
+- `src/data/icons.ts` – alte Symbole vorerst behalten.
 - `src/data/weather.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/dialogs/more-info/const.ts` – Wetterstatus und -verlauf entfernen
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte „Entitätseinstellungen entfernen“
-- `src/dialogs/more-info/ha-more-info-history.ts` - Link „Mehr anzeigen“ im Verlauf entfernen
+- `src/dialogs/more-info/ha-more-info-history.ts` – Link „Mehr anzeigen“ im Verlauf entfernen
 - `src/dialogs/more-info/ha-more-info-logbook.ts` - Link „Mehr anzeigen“ im Logbuch entfernen
 - `src/dialogs/more-info/controls/more-info-weather.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` – Konfiguration von Sprachassistenten deaktivieren
 - `src/entrypoints/core.ts` – keine Authentifizierungsoption hinzufügen
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` – Unterstützung für die Anzeige von Wettersymbolen von URLs mit Authentifizierung hinzufügen.
-- `src/panels/lovelace/hui-root.ts` – Benachrichtigungsschaltfläche hinzugefügt, Link zur Dashboard-Verwaltung deaktiviert
+- `src/panels/lovelace/hui-root.ts` – Benachrichtigungsschaltfläche hinzugefügt, Link zum Verwalten von Dashboards deaktiviert
 - `src/util/documentation-url.ts` – für den Link zur Iobroker-Hilfe anstelle des Home Assistant.
 - `.husky/pre-commit` – Git-Commit-Hooks entfernen.
 
@@ -473,9 +473,9 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` ist ein Fork von https://github.com/home-assistant/frontend.git, aber einige Dinge wurden geändert (siehe die Dateiliste weiter oben).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
-5. `yarn install`
-6. „gulp build-app“ für die Release-Version oder „gulp develop-iob“ für die Debug-Version. Um die Web-Version nach Änderungen zu erstellen, können Sie „webpack-dev-app“ für einen schnelleren Build aufrufen. Sobald die Version einsatzbereit ist, müssen Sie „build-app“ jedoch trotzdem aufrufen.
-7. Führen Sie das Skript „hass_frontend/static_cards/newFrontend.sh“ im Adapter-Repository aus, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositorys nebeneinander im selben Ordner befinden. Wenn nicht, passen Sie das Skript bitte an, vorzugsweise mit etwas Parameterbehandlung, und erstellen Sie einen PR, danke :smile:)
+5. `Garn installieren`
+6. `gulp build-app` für die Veröffentlichung oder `gulp develop-iob` für die Debug-Version. Um das Web nach Änderungen zu erstellen, können Sie `webpack-dev-app` für einen schnelleren Build aufrufen. Sie müssen jedoch trotzdem `build-app` aufrufen, nachdem die Version einsatzbereit ist.
+7. Führen Sie das Skript „hass_frontend/static_cards/newFrontend.sh“ im Adapter-Repo aus, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositories nebeneinander im selben Ordner befinden. Wenn nicht, passen Sie das Skript bitte an, vorzugsweise mit etwas Parameterbehandlung, und erstellen Sie einen PR, danke :smile:)
 8. Führen Sie die Aufgabe „gulp rename“ aus.
 9. Aktualisieren Sie die Version in „README.md“
 
@@ -485,10 +485,13 @@ Checken Sie anschließend die geänderte Version im Ordner `./build` aus. Dann.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.1 (2025-09-09)
 * (Garfonso) settings from entity registry are now loaded on startup
 * (Garfonso) logbook: prevent entries from the future
-* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+* (Garfonso) icons should now work as before, again.
+* (Garfonso) script entities now can be used again.
+* (Garfonso) subscribe to all object ids in a template.
+* (Garfonso) Update dependencies.
 
 ### 5.0.0 (2025-04-10)
 * (Garfonso) Updated frontend to 20250401.0

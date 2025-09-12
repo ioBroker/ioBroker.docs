@@ -100,27 +100,26 @@ After configuration of a new countdown the adapter creates the following datapoi
 
 ##### Available commands for the cmd datapoint
 
-| command       | example               | description                                                                                   |
-| ------------- | --------------------- | --------------------------------------------------------------------------------------------- |
-| +value        | +1:10                 | adds time to the countdown setting. the setting will be taken into account at the next start  |
-| +!value       | +!1:10                | like + operator and extend the running timer                                                  |
-| -value        | -1:2:3                | subtracts time from the countdown. the setting will be taken into account at the next start   |
-| -!value       | -!1:2:3               | like - operator and reduce the running timer                                                  |
-| =value        | =5:00                 | set the countdowntimer to this time.                                                          |
-| =!value       | =!5:00                | like = operator and set running timer to the given time                                       |
-| #ISO-Date     | #2025-01-01T10:00:00  | set the countdowntimer to a target time. The Time must be formatted as ISO-Datestring         |
-| #!ISO-Date    | #!2025-01-01T10:00:00 | like # operator and setting running timer to the given target time                            |
-| $Time         | $20:15                | set the countdowntimer to a target time. If Time is before current time. the next day is set. |
-| $!Time        | $!20:15               | like $ operator and setting running timer to the given target time                            |
-| start         | start                 | starts the countdown                                                                          |
-| stop          | stop                  | stops the countdown. the countdown time is reset to the setting                               |
-| pause         | pause                 | pauses the countdown                                                                          |
-| end           | end                   | stops the countdown. the countdown is set to 0                                                |
-| reset         | reset                 | reset the timer to the configuration state                                                    |
-| setstop2timer | setstop2timer         | set stop behaviour configuration to timer                                                     |
-| setstop2zero  | setstop2zero          | set stop behaviour configuration to zeros                                                     |
-| save          | save                  | save the configuration defined in datapoints to the iobroker configuration                    |
-|               |                       | iobroker restarts the adapter after saving automatically                                      |
+| command         | example                 | description                                                                                   |
+| --------------- | ----------------------- | --------------------------------------------------------------------------------------------- |
+| `+value`        | `+1:10`                 | adds time to the countdown setting. the setting will be taken into account at the next start  |
+| `+!value`       | ``+!1:10`               | like + operator and extend the running timer                                                  |
+| `-value`        | `-1:2:3`                | subtracts time from the countdown. the setting will be taken into account at the next start   |
+| `-!value`       | `-!1:2:3`               | like - operator and reduce the running timer                                                  |
+| `=value`        | `=5:00`                 | set the countdowntimer to this time.                                                          |
+| `=!value`       | `=!5:00`                | like = operator and set running timer to the given time                                       |
+| `#ISO-Date`     | `#2025-01-01T10:00:00`  | set the countdowntimer to a target time. The Time must be formatted as ISO-Datestring         |
+| `#!ISO-Date`    | `#!2025-01-01T10:00:00` | like # operator and setting running timer to the given target time                            |
+| `$Time`         | `$20:15`                | set the countdowntimer to a target time. If Time is before current time. the next day is set. |
+| `$!Time`        | `$!20:15`               | like $ operator and setting running timer to the given target time                            |
+| `start`         | `start`                 | starts the countdown                                                                          |
+| `stop`          | `stop`                  | stops the countdown. the countdown time is reset to the setting                               |
+| `pause`         | `pause`                 | pauses the countdown                                                                          |
+| `end`           | `end`                   | stops the countdown. the countdown is set to 0                                                |
+| `reset`         | `reset`                 | reset the timer to the configuration state                                                    |
+| `setstop2timer` | `setstop2timer`         | set stop behaviour configuration to timer                                                     |
+| `setstop2zero`  | `setstop2zero`          | set stop behaviour configuration to zeros                                                     |
+| `save`          | `save`                  | save the configuration defined in datapoints to the iobroker configuration, iobroker restarts the adapter after saving automatically                    |
 
 ##### Format of the value for setting the countdown timer
 
@@ -318,6 +317,40 @@ A countdown widget in a Nixie-Tube/LED style
 | countdown_opacity_inactive | Opacity of the color of the inactive digits                     |
 | countdown_glowcolor        | Color of the glow around thie Nixie-digits                      |
 
+##### Tips
+
+###### Top/Bottom Margins
+
+The used Lato font is slightly slanted downwards, creating uneven top and
+bottom margins. This can be adjusted using the height and a negative top margin.
+The widget uses a height of 1em. The height can be set directly in the widget properties.
+
+A CSS class must be created for the negative margin.
+
+```css
+#w00000 .cdclock {
+margin-top: -5px;
+}
+```
+
+###### Widget size before Vrsion 2
+
+If you want to adjust the size of the countdown nixieclock,
+under css settings in vis you can enter for half size:
+Group CSS-Common / transform "scale(0.5)"
+
+###### Centering the Nixie Clock
+
+To center the clock, an additional CSS class is required, as the
+corresponding settings cannot be configured in the widget settings:
+
+```css
+#w00000 {
+  display: flex;
+  justify-content: center;
+}
+```
+
 #### Widget Wordclock
 
 A widget to show a wordclock with many options
@@ -338,11 +371,7 @@ A widget to show a wordclock with many options
 | secondColor       | color of the Seconds LED                                 |
 | timezone          | The time of the selected timezone is displayed           |
 
-**Tips:**
 
-If you want to adjust the size of the countdown nixieclock,
-under css settings in vis you can enter for half size:
-Group CSS-Common / transform "scale(0.5)"
 
 **The actual action state (cdstop,cdrun,cdpause,cdend) of the countdown is available as CSS-Class selector:**
 
@@ -379,6 +408,25 @@ Group CSS-Common / transform "scale(0.5)"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2025-09-08)
+
+- major release: make nixie clock responsive. the users have to adjust the 
+  font-size of the widget to get the old size.
+  if you want the old size try it with 100px font-size.
+
+### 1.4.7 (2025-07-25)
+
+- remove types/request
+- improve documentation format
+
+### 1.4.6 (2025-07-21)
+
+- fix wrong calc of datapoints in some cases
+
+### 1.4.5 (2025-07-21)
+
+- fix widget reverse countdown plain
+
 ### 1.4.4 (2025-06-16)
 
 - fix stopbeaviour

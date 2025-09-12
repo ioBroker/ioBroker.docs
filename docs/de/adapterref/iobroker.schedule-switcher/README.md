@@ -790,10 +790,13 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.12 (2025-08-27)
 
-### **WORK IN PROGRESS**
+- (Lucky-ESA) Astro time in widget fixed
 
-- (Lucky-ESA) Admin 7.4.10 required
+### 0.0.11 (2025-08-16)
+
+- (Lucky-ESA) Admin 7.6.17 required
 - (Lucky-ESA) Node 20 required
 
 ### 0.0.10 (2025-02-11)
@@ -814,17 +817,6 @@ app-on-off-schedules-widget {
 
 - (Lucky-ESA) Migration to ESLint9
 - (Lucky-ESA) Bugfixes
-
-### 0.0.7 (2024-11-26)
-
-- (Lucky_ESA) HTML overview added
-
-### 0.0.6 (2024-11-16)
-
-- (Lucky_ESA) Put value of state correctly
-- (Lucky_ESA) Added next triggers as JSON
-- (Lucky_ESA) Added counter trigger
-- (Lucky_ESA) Updating astro time fixed
 
 ## License
 

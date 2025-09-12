@@ -77,6 +77,10 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
 ### 6.0.0 (2025-03-16)
 
 NodeJS >= 20.x and js-controller >= 6 is required

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: bNUdqvJICJaQ89tHreBIeLUFjHyxdXcY/SuCSN1X3RU=
+hash: TrVvrFSq4u7AaaRxKlcy45ySYcqrWFFO5HjRluhLbPc=
 ---
 # IoBroker.dysonAirPurifier
 ![徽标](admin/dyson_logo.svg)![徽标](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -12,52 +12,52 @@ hash: bNUdqvJICJaQ89tHreBIeLUFjHyxdXcY/SuCSN1X3RU=
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/dysonairpurifier-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
-![新平台](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-[![测试与发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml)![代码QL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
+[![测试与发布](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/test-and-release.yml) ![CodeQL](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/actions/workflows/codeQL.yml/badge.svg)
 
 ## 适用于戴森空气净化器和风扇的 ioBroker 适配器
-该适配器将 ioBroker 连接到各种戴森空气净化器。
-徽标中的风扇图标由[Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/) 创建。
+此适配器可将 ioBroker 连接到各种戴森空气净化器。
+徽标中的风扇图标由 [Freepik](https://www.flaticon.com/de/autoren/freepik) 来自 [www.flaticon.com](https://www.flaticon.com/de/) 创建。
 
-&gt; 如果您喜欢这个适配器并考虑支持我<br/>&gt; [![使用 payPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+&gt; 如果您喜欢这个适配器并考虑支持我<br/>&gt; [![使用 PayPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ### 支持的设备
 - 戴森 Pure Humidify+Cool（PH01，产品类型 358）
 - 戴森 Pure Humidify+Cool（PH03，产品类型 358E）
-- 戴森 Pure Humidify+Cool Formaldehyde（PH04，产品类型 358K）
-- Dyson Pure Cool Tower，2018 年型号（TP04，产品类型 438）
-- Dyson Pure Cool Tower Formaldehyde，2018 年型号（TP07，产品类型 438E）
-- Dyson Pure Cool Tower Formaldehyde，2018 年型号（TP07，产品类型 438K）
+- 戴森 Pure Humidify+Cool 甲醛 (PH04, 产品类型 358K)
+- 戴森 Pure Cool Tower，2018 年型号（TP04，产品类型 438）
+- 戴森 Pure Cool Tower 甲醛净化器，2018 年型号（TP07，产品类型 438E）
+- 戴森 Pure Cool Tower 甲醛净化器，2018 年型号（TP07，产品类型 438K）
 - 戴森 Pure Hot+Cool Link（HP02，产品类型 455）
-- 戴森 Pure Hot+Cool Link 新品 (产品类型 455A)
-- 戴森 Pure Cool Link 书桌 (DP01, 产品类型 469)
+- 戴森 Pure Hot+Cool Link 新品（产品类型 455A）
+- 戴森 Pure Cool Link 书桌（DP01，产品类型 469）
 - 戴森 Pure Cool Link Tower（TP02，产品类型 475）
-- Dyson Pure Cool Desk，2018 年型号（DP04，ProductType 520）
-- Dyson Pure Hot+Cool，2018 年型号（HP04，产品类型 527）
+- 戴森 Pure Cool Desk，2018 年型号（DP04，产品类型 520）
+- 戴森 Pure Hot+Cool，2018 年型号（HP04，产品类型 527）
 - 戴森 Pure Hot+Cool（HP07，产品类型 527E）
 - 戴森 Pure Hot+Cool 甲醛 (HP09, 产品类型 527K)
-- 戴森净化器 Big+Quiet 甲醛 (BP03, 产品型号 664)
+- 戴森大号+静音甲醛净化器（BP03，产品型号664）
 
 ＃＃ 特征
 将您的戴森风扇、风扇加热器、空气净化器和空气加湿器连接到 ioBroker。
 
 - 从设备和传感器读取值
-- 可以通过让您改变某些值（主电源、振荡、加热、风扇速度等）来控制设备。
+- 可以通过让您改变某些值（主功率、振荡、加热、风扇速度等）来控制设备。
 - 从戴森服务器读取设备列表
-- 处理无限数量的粉丝（当然，事实上您的 ioBroker 主机的资源限制了数量）。
+- 处理无限数量的粉丝（当然，实际上您的 ioBroker 主机的资源限制了数量）。
 
 工作原理
-启动时，戴森云会查询绑定到您帐户的所有已知设备及其 MQTT 密码。获得该列表后，适配器便会本地连接到所有设备并与它们交互。
+启动时，戴森云会查询所有绑定到您帐户的已知设备及其 MQTT 密码。获取该列表后，适配器即可本地连接到所有设备并进行交互。
 
-- 连接戴森云只需要获取绑定到您账户的设备列表及其 MQTT 密码。
+- 只需连接到戴森云即可获取绑定到您帐户的设备列表及其 MQTT 密码。
 - 因此，只有在适配器启动时才能识别新设备。
 - 戴森云仅在适配器启动期间被查询一次。
 - 戴森风扇充当 MQTT 服务器，适配器充当客户端。
-- 设备和适配器之间的所有通信仅在本地发生。
-- 适配器中的所有连接信息都将被删除并在重启时重新建立。
+- 设备和适配器之间的所有通信仅在本地进行。
+- 适配器中的所有连接信息都会在重启期间被删除并重新建立。
 
 ＃＃ 安装
 ### 先决条件
@@ -65,117 +65,117 @@ hash: bNUdqvJICJaQ89tHreBIeLUFjHyxdXcY/SuCSN1X3RU=
 - 至少需要 js-Controller 3.0.0
 - 至少需要 Admin 6.0.0
 - 要运行此适配器，您需要一个戴森帐户。
-- 确保将您的粉丝添加到您的帐户。通过应用程序或在线方式均可。
+- 请务必将你的粉丝添加到你的帐户。无论是通过应用程序还是在线添加。
 
 ### 适配器安装
 使用 npm
 在您的 ioBroker 安装上运行 `npm install iobroker.dysonairpurifier` 以从 npm 存储库中获取此适配器的最新版本。
 
 #### 替代方案：使用 GitHub URL
-通过 ioBroker 管理 UI 将其指向 GitHub 上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+通过 ioBroker 管理 UI 安装，将其指向 GitHub 上的最新稳定版本：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-您也可以使用这些方法安装旧的发布版本（通过指向版本标签，例如 URL 中的`v0.6.0`而不是`master`），但通常最好使用最新版本。
+您也可以使用这些方法安装旧版本（通过指向版本标签，例如 URL 中的`v0.6.0`而不是`master`），但通常首选最新版本。
 
 ### 需要配置数据
-- 戴森账户用户名
+- 戴森帐户用户名
 - 戴森账户密码（此适配器可处理最多 32 个字符的密码）
 - 您的 LAN 中的风扇/空气净化器的 IP 地址（并非所有情况）。
 
-dyson 用户名和密码是常规配置数据，需要在适配器的配置页面中输入。
-不同之处在于，IP 输入到设备树中`devices` 选项卡页上的字段`Hostname` 中。
+戴森用户名和密码是常规配置数据，需要在适配器的配置页面中输入。
+不同之处在于，IP 地址输入到设备树中“SSSSS_1”标签页的“SSSSS_0”字段中。
 
 #### 如何配置适配器
-> 首次定期启动此适配器时，将查询 Dyson API 以获取所有设备，并将在设备树中创建所有支持的设备 - API 提供其基本信息以及附加字段 `Hostaddress`。
-> > 因此，请运行一次适配器，您的 Dyson 设备将在设备树中创建，并附带其基本设置。
-> > 然后停止适配器，将 IP 输入设备树中的 `Hostaddress` 字段并重新启动适配器。之后，设备树中的 Dyson 设备应该会填充数据。
+> 此适配器首次常规启动时，会查询您的所有设备，并在设备树中创建所有受支持的设备——其基本信息由 API 提供，并包含一个附加字段 `Hostaddress`。
+> > 因此，请运行一次适配器，您的戴森设备将在设备树中创建，并包含其基本设置。
+> > 然后停止适配器，在设备树中的 `Hostaddress` 字段中输入 IP 地址，并重新启动适配器。之后，设备树中的戴森设备应该会填充数据。
 
 _请注意_：由于戴森的 mDNS 实施不符合要求，您需要在_首次运行后_提供设备的本地 IP。
 
-_附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器就会尝试通过其主机名（序列号）连接到设备。这将在两个先决条件下起作用：
+_附加说明_：自 0.7.1 版本起，只要未提供主机地址/IP，适配器就会尝试通过其主机名（序列号）连接到设备。此功能在两个前提条件下有效：
 
-1. 您的 LAN 中有一个 DNS 服务器正在运行。它位于您的路由器中（例如 FritzBox 有一个 DNS 正在运行），或位于专用路由器中。
+1. 您的局域网中正在运行 DNS 服务器。DNS 服务器位于您的路由器中（例如，FritzBox 就运行 DNS 服务器），或者位于专用的路由器中。
 2.您没有更改默认设备名称。
 3. 设备名称已正确映射到其 IP（如果您手动管理 DNS）。
 
 ### 双因素身份验证（自 V0.9.0 起）
 安装适配器后，它应该会自动启动 - 如果没有，请先启动它。
-更新后，它也将自动重新启动。在这两种情况下，它都会保持“黄色”状态，并且可能会在日志中显示一些错误 - 目前这样就没问题了。
+更新后，它也会自动重启。在这两种情况下，它都会保持“黄色”状态，并且可能会在日志中显示一些错误 - 目前这样就没问题了。
 
 - 打开适配器的配置对话框
 - 至少填写您的电子邮件地址、密码和国家代码 - 其余部分是可选的
 - 点击 2FA 代码电子邮件按钮启动该流程
-- 您将在相应字段中自动收到一个“challengeId”、一封电子邮件和一个包含进一步说明的对话框
+- 您将在相应字段中自动收到“challengeId”、一封电子邮件和一个包含进一步说明的对话框
 - 在“戴森一次性密码”字段中输入电子邮件中的 6 位代码
 - 点击“完成”按钮
-- 之后你应该已经收到来自戴森的令牌（出于安全目的不可见）
-- 完成设置后，单击“保存并关闭” - 适配器应重新启动并变为绿色。
+- 之后你应该会收到来自戴森的令牌（出于安全目的不可见）
+- 完成设置后单击“保存并关闭” - 适配器应重新启动并变为绿色。
 
 所有值都将被保存并进一步显示。
 
-> 通常您不需要定期执行这 2 FA - 但您可以在需要时重复它。
+> 通常您不需要定期执行这 2 个 FA - 但您可以在需要时重复执行此操作。
 
-#### 如果您在 2-FA 期间遇到 401 问题。请尝试此解决方法：
+#### 如果您在双重身份验证 (2-FA) 期间遇到 401 问题，请尝试以下解决方法：
 1. 退出戴森智能手机应用程序
 2. 等待几分钟
 3. 将您的登录数据输入适配器（如果尚未完成）并按照 2FA 程序进行操作直至最后。
 4. 适配器应启动并变为绿色。
-5. 等待一段时间（最多一个小时或更长时间，因为戴森在短时间内阻止了太多请求）
-6.如果您想使用它，请重新登录您的戴森智能手机应用程序。
+5.等待一段时间（最多一个小时或更长时间，因为戴森在短时间内阻止了太多的请求）
+6.如果您想使用，请重新登录您的戴森智能手机应用程序。
 
-## 控制你的设备
-此适配器目前能够控制您的设备的以下状态：
+## 控制您的设备
+此适配器目前可以控制您的设备的以下状态：
 
 - FanMode，设备模式（手动，自动，关闭）
-- FanSpeed，当前风扇速度
+- FanSpeed，当前风扇转速
 - 夜间模式，夜间模式状态
-- 振荡，风扇振荡（开、关）。
+- 振荡，风扇振荡（开，关）。
 - OscillationRight、OscillationAngle 上边界
 - OscillationLeft、OscillationAngle 下边界
 - 振荡角度，振荡角度
 - 连续监测，即使设备关闭，也能连续监测环境传感器。
 - MainPower，风扇的主电源。
-- 自动模式，风扇处于自动模式。
-- 流动方向，风扇吹向的方向。 ON=向前； OFF=向后（又称喷射焦点）
-- Jetfocus，风扇吹向的方向。 ON=向前； OFF=向后（又称 Jet focus）
+- AutomaticMode，风扇处于自动模式。
+- 气流方向，风扇吹向的方向。开启=向前；关闭=向后（又称喷射聚焦）
+- Jetfocus，风扇吹向的方向。开启=向前；关闭=向后（又称 Jet focus）
 - 加热模式，加热模式[开/关]
 - HeatingTargetTemp，加热目标温度
 - AirQualityTarget，自动模式的目标空气质量。
 - 加湿模式，开/关
 - 自动加湿模式，自动/关闭
 - 自动加湿目标，自动加湿目标
-- 加湿目标、手动加湿目标
-- TemperatureUnit，显示温度值的单位（风扇显示）。
+- 加湿目标，手动加湿目标
+- 温度单位，显示温度值的单位（风扇显示）。
 - 水硬度，软，中，硬
 
-据了解，这些状态的可能值记录如下。
-风扇速度仅允许从 1 到 10 的值和自动。如果您想将风扇速度设置为 0，则需要关闭主电源。
-这也是戴森应用程序所做的。
+据目前所知，这些状态的可能值如下所示。
+风扇速度仅允许 1 到 10 之间的值以及“自动”模式。如果您想将风扇速度降至 0，则需要关闭主电源。
+戴森应用程序也这样做。
 
 ### SystemStates 文件夹（自 2.4.0 起）
 设备能够报告故障。此功能已添加到适配器版本 2.4.0 中。
-目前，只有有关故障的粗略信息，数据点因设备而异。
-如果您有关于故障的更好信息，请随时向我报告以改进适配器。
-所有状态都报告是否存在故障。`True` 表示故障，`false` 表示“无故障”。
+目前，故障信息仅供参考，且数据点因设备而异。
+如果您有关于故障的更详细信息，请随时报告给我，以便改进适配器。
+所有状态均报告是否存在故障。`True` 表示故障，`false` 表示“无故障”。
 
 ### 轮询间隔
-- 从 v3.2.2 开始，轮询间隔为 0 肯定会禁用轮询。以前可能因为数学原因而起作用 - 但不确定，而且有未知的副作用。
+- 从 v3.2.2 开始，轮询间隔设为 0 肯定会禁用轮询。之前由于数学原因，这个功能可能有效，但目前尚不确定，而且存在未知的副作用。
 
-知道这一点很好，因为设备通常会在状态发生变化时自行发送（至少我的设备会这样做）。使用此设置有助于通过停止不必要的轮询来减少网络流量。
+了解这一点很有用，因为设备通常会在状态发生变化时自行发送（至少我的设备是这样）。使用此设置有助于通过停止不必要的轮询来减少网络流量。
 
 ### 已知问题
-- 没有自动检测设备的 IP
-- 仍有许多未知的设备消息（主要是故障和警告）
-- 由于正确的 mqtt 消息未知，因此过滤器重置不起作用
-- 有时适配器会丢失与风扇的 MQTT 连接，并且无法重新连接。`这通常不是适配器本身的问题，而是本地网络的问题！`
-- 在某些情况下，只需拔下风扇电源约 10 秒钟即可重置，然后再重新插入即可。试试看吧！
-- 其他情况下是 IP/DNS 问题。重置 DHCP/DNS 服务器（路由器）可解决问题。
+- 无法自动检测设备的 IP 地址
+- 仍然有许多未知的设备消息（主要是故障和警告）
+- 由于正确的 mqtt 消息未知，因此无法重置过滤器
+- 有时适配器会丢失与风扇的 MQTT 连接，并且无法重新连接。“这通常不是适配器本身的问题，而是本地网络的问题！”
+- 在某些情况下，只需拔掉风扇电源插头约10秒钟即可重置，然后再重新插上即可。不妨试试！
+- 其他情况下，是 IP/DNS 问题。重置 DHCP/DNS 服务器（路由器）即可解决问题。
 
-## 戴森 API 数据（消息有效负载）的解释
-从 <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md> 复制并扩展的信息
+## 戴森 API 数据（消息有效载荷）的解释
+信息复制并扩展自 <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
 
 ### 当前状态
 | 名称 | 含义 | 可能的值 | 单位 |
-| ------------ | ---------------------------------------------------------- | -------------------- | ---- |
+|--------------|------------------------------------------------------------|----------------------|------|
 | 模式原因 | 当前模式已由 RemoteControl、App、Scheduler 设置 | PRC、LAPP、LSCH、PUI | |
 | 状态原因 | | 模式 | |
 | rssi | WIFI强度 | -100 - 0 | dBm |
@@ -186,36 +186,36 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 产品状态
 | 名称 | 含义 | 可能的值 | 单位 |
 | ---- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --- |
-| ercd | 最后一个错误代码 | NONE ，或者一些十六进制值 | |
-| filf | 剩余 过滤器寿命 | 0000 - 4300 | 小时 |
+| ercd | 最后错误代码 | NONE ，或一些十六进制值 | |
+| filf | 剩余滤芯寿命 | 0000 - 4300 | 小时 |
 | fmod | 模式 | 风扇，自动，关闭 | |
 | fpwr | 主电源 | 开启，关闭 | |
-| fnst | 风扇状态 | 开，关，风扇 | |
-| fnsp|风扇转速| 0001 - 0010，自动 |                                     |
-| fdir | Fandirection 又名喷射焦点/开=前，关=后 | 开，关 | |
+| fnst | 风扇状态 | 开启，关闭，风扇 | |
+| fnsp|风扇转速 | 0001 - 0010，自动 |                                     |
+| fdir | Fandirection 又名喷射焦点/ ON=前，OFF=后 | ON，OFF | |
 | ffoc | JetFocus | 开启，关闭 | |
 | nmod | 夜间模式 | 开启，关闭 | |
-| oson | 振荡 | 开，关 | |
-| osal | 振荡角度下界 | 0005 - 355 | ° （度）|
-| osau | 振荡角度上界 | 0005 - 355 | ° （度）|
-| oscs | 振荡活动 | 开，关，空闲 | |
-| ancp | 振荡角度 | CUST, 0180 | ° （度）|
+| oson | 振荡 | 开 , 关 | |
+| osal | 振荡角度下限 | 0005 - 355 | ° （度）|
+| osau | 振荡角度上边界 | 0005 - 355 | ° （度）|
+| oscs | 振荡活动 | 开启，关闭，空闲 | |
+| ancp | 振荡角度 | CUST, 0180 | °（度）|
 | qtar | 空气质量目标 | 0001=好，0002=正常，0003=差，0004=非常差 | |
-| rhtm | 连续监测 | 开，关 | |
+| rhtm | 持续监测 | 开启，关闭 | |
 | 自动 | 自动模式 | 开，关 | |
 | nmdv | 夜间模式最大风扇速度？| 0004 | |
 | cflr | 碳过滤器状态 | 0000 - 0100 | 百分比 |
-| cflt|碳过滤器| CARF，无|                                     |
-| hflr | HEPA 过滤器状态 | 0000 - 0100 | 百分比 |
+| cflt|碳过滤器| CARF，无 |                                     |
+| hflr | HEPA过滤器状态 | 0000 - 0100 | 百分比 |
 |哈弗 | HEPA 过滤器 | GHEP、GCOM |                                     |
 | sltm | 睡眠定时器 | 开启，关闭 | | |
 | hmod | 加热器模式 [开/关] | 加热 | |
 | hmax | 加热目标温度 | 0 .. 5000 | K |
 | hume | 加湿模式 | 开，关，| |
-| haut | 加湿自动模式 | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF | |
+| haut | 自动加湿模式 | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF | |
 | humt | 加湿目标 | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY | |
 | cdrr | CleanDurationRemaining | 整数 | 分钟 |
-| 矩形 | AutoHumidificationTarget | 整数 | % |
+| 矩形 | 自动加湿目标 | 整数 | % |
 | cltr | TimeRemainingToNextClean | 整数 | 小时 |
 | wath | 水硬度 | 软="2025", 中="1350", 硬="0675" | |
 |瓦CD |警告代码 |没有... |                                     |
@@ -225,20 +225,20 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 | hsta | 加热状态 | ACTIVE/IDLE | |
 | msta | 加湿状态 | 活动/空闲 OFF, HUMD | |
 |聚苯乙烯 | [HP0x] 未知 | INIT、CLNG、INV、OFF |                                     |
-| bril | 未知 | 0002 | LEVEL_LOW，LEVEL_MEDIUM，LEVEL_HIGH |
+| bril | 未知 | 0002 | 低级，中级，高级 |
 | fqhp | 未知 | | |
 | 倾斜 | [HP0x] 未知 | 字符串 | |
-| 拨号 | [DP0x] 未知|||
+| 拨号 | [DP0x] 未知 | | |
 
 | 错误代码 | 含义 |
-| ----------- | -------------------------------------------------------------------------------------------- |
+|-------------|----------------------------------------------------------------------------------------------|
 | NONE | 没有活动错误 |
 | 57C2 | 未知 |
-| 11E1 | 振荡功能已禁用。请按遥控器上的“振荡”按钮继续。|
+| 11E1 | 振荡功能已禁用。请按下遥控器上的“振荡”按钮继续。|
 
 #### 调度程序
 | 名称 | 含义 | 可能的值 | 单位 |
-| ---- | ------------------ | --------------- | ---- |
+|------|--------------------|-----------------|------|
 | dstv | 夏令时 | 0001... | |
 | srsc | ？ | 7c68... | |
 |齐德 |时区？          | 0001... |      |
@@ -246,16 +246,16 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 ### 环境电流传感器数据
 ＃＃＃＃ 数据
 | 名称 | 含义 | 可能的值 | 单位 |
-| ---- | -------------------------- | --------------- | ------- |
-| hact | 湿度（％）| 0000 - 0100 | 百分比|
+|------|----------------------------|-----------------|---------|
+| hact | 湿度 (%) | 0000 - 0100 | 百分比 |
 | 契约 | 灰尘 | 0000 - 0009 | |
 | sltm | 睡眠定时器 | 关闭... 9999 | 分钟 |
-| 触觉 | 开尔文温度 | 0000 - 5000 | K |
+| 触觉 | 温度（开尔文）| 0000 - 5000 | K |
 | vact | 挥发性有机化合物 | 0001 - 0009 | |
-| hcho | 甲醛（未使用） | | |
+| 甲醛 | 甲醛（未使用） | | |
 | hchr | 甲醛 | | |
 | pm25 | PM2.5 (未使用) | 0018 | |
-| pm10 | PM10 （未使用）| 0011 | |
+| pm10 | PM10（未使用）| 0011 | |
 | va10 | 挥发性有机化合物 | 0004 | |
 | 氮氧化物 | 二氧化氮 | 0000 - 0014 | |
 | p25r | PM2.5 颗粒物 | 0019 | µg/m³ |
@@ -267,26 +267,40 @@ _附加说明_：自 0.7.1 版起，只要未提供主机地址/IP，适配器�
 ＃＃＃＃ 数据
 | 名称 | 含义 | 可能的值 | 单位 |
 | ----------- | ------------------------------------------------------------------------ | ------------------------------------------- | ----------- | --- |
-| pal0 - pal9 | 从一小时开始在此灰尘层中度过的秒数 | 0000 - 3600 | |
+| pal0 - pal9 | 从一小时开始在此灰尘层中停留的秒数 | 0000 - 3600 | |
 | palm | 似乎是 palX 的中值 | | |
-| vol0 - vol9 | 自一小时开始以来在此级别的 voc 中花费的秒数 | 0000 - 3600 | |
-| volm | 似乎是 volX | | | 的中值 |
-| aql0 - aql9 | 自一小时开始以来处于该空气质量等级的秒数 | max (pal, vol)) | 0000 - 3600 | |
+| vol0 - vol9 | 从一小时开始在此级别的 voc 中花费的秒数 | 0000 - 3600 | |
+| volm | 似乎是 volX 的中值 | | |
+| aql0 - aql9 | 自一小时开始以来处于此空气质量等级的秒数 | max (pal, vol)) | 0000 - 3600 | |
 | aqlm | 似乎是 aqlX 的中值 | | |
 | fafs | 似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 | faos | 似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
-| fofs | 似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
+| fofs | 似乎是在特定时间内花费的秒数 | 0000 - 3600 ||
 | fons | 似乎是在特定时间内花费的秒数 | 0000 - 3600 | |
 | 嗡嗡 | 湿度？（％）| 0000 - 0100 | |
 | tmpm | 温度（开尔文）？| 0000 - 5000 | |
 
 ### Sentry.io
-此适配器使用 sentry.io 收集崩溃详细信息并自动向作者报告。为此使用 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件。如果您不想用崩溃信息支持作者，请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件功能、收集哪些信息以及如何禁用它的详细信息。
+此适配器使用 sentry.io 收集崩溃详情并自动向作者报告。此操作使用了 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) 插件。如果您不想通过崩溃信息支持作者，请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解该插件的功能、收集哪些信息以及如何禁用它。
 
 ## 法律声明
 Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson.com) 的商标或注册商标。所有其他商标均为其各自所有者的财产。
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: [#338](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/338) Fixed Admin dependency
+- (grizzelbee) Fix: [#341](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/341) Fixed linting
+- fixes #342 Updated minimum required NodeJs Version to 20
+
+### 3.2.7 (2025-02-13)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Upd: Moved to eslint 9 and fixed new lint issues
+
+### 3.2.6 (2024-11-13)
+- (grizzelbee) Upd: Dependencies got updated
+- (grizzelbee) Fix: Fixed issues mentioned by adapter checker regarding responsive design
+
 ### 3.2.5 (2024-10-08) 
 - (grizzelbee) Upd: Dependencies got updated
 - (grizzelbee) Fix: Fixed GUI issues
@@ -368,7 +382,7 @@ Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson
 
 - (grizzelbee) Upd: dependencies got updated
 - (grizzelbee) Fix: 2FA Process is working again
-- (grizzelbee) New: At least nodeJs V18.2.0 is required
+- (grizzelbee) New: At least Node.js V18.2.0 is required
 
 ### 3.1.1 (2024-02-01) (Marching on)
 
@@ -624,7 +638,7 @@ Dyson、pure cool、pure hot & cool 等是[戴森有限公司](https://www.dyson
 
 - (jpwenzel) New: Removing crypto from package dependency list (using Node.js provided version)
 - (jpwenzel) New: Introducing unit tests
-- (jpwenzel) New: At least NodeJs 10.0.0 is required
+- (jpwenzel) New: At least Node.js 10.0.0 is required
 - (grizzelbee) New: [#23](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/23) - Introduced new data field AirQuality which represents the worst value of all present indexes.
 - (grizzelbee) New: BREAKING CHANGE! - switched over to the adapter-prototype build-in password encryption. Therefore, you'll need to enter your password again in config.
 - (grizzelbee) New: At least js-controller 3.0.0 is required
@@ -724,4 +738,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2024 Hanjo Hingsen <open-source@hingsen.de>
+Copyright (c) 2025 Hanjo Hingsen <open-source@hingsen.de>

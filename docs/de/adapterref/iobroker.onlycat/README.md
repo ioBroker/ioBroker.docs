@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onlycat/README.md
 title: ioBroker.onlycat
-hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
+hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
 ---
 ![Logo](../../../en/adapterref/iobroker.onlycat/admin/onlycat.png)
 
@@ -26,7 +26,8 @@ Fügen Sie das Gerätetoken auf der Adapterkonfigurationsseite hinzu.
 Das Token finden Sie in der OnlyCat-App auf der Kontoseite.
 
 ## Beschreibung
-Der Adapter stellt die Ereignisse der OnlyCat-Katzenklappe bereit, also Ein- und Ausgänge sowie Beuteerkennung.
+Der Adapter stellt die Ereignisse der OnlyCat-Katzenklappe bereit, d. h. Ein- und Ausgänge sowie Beuteerkennung.
+Außerdem können Sie damit die aktive Transitrichtlinie festlegen.
 
 Der Adapter erfordert Node 20 oder neuer.
 
@@ -34,6 +35,24 @@ Der Adapter erfordert Node 20 oder neuer.
 OnlyCat® ist eine eingetragene Marke von [VirtualV Trading Ltd.](https://www.onlycat.com/)
 
 ## Changelog
+
+### 0.5.1 (2025-09-08)
+
+* (Sickboy78) fix error on firmware channel missing
+
+### 0.5.0 (2025-09-07)
+
+* (Sickboy78) transit policies added
+* (Sickboy78) connectivity and firmware channel added to device
+
+### 0.4.0 (2025-07-13)
+
+* (Sickboy78) migrated to iobroker eslint rules
+
+### 0.3.1 (2025-07-12)
+
+* (Sickboy78) improved event type classification
+* (Sickboy78) improved fetching of events in progress
 
 ### 0.3.0 (2025-06-04)
 

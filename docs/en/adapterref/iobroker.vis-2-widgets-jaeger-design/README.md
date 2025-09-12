@@ -69,6 +69,10 @@ For detailed instructions and more information, it is recommended to watch the l
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.7 (2025-07-01)
+* (bluefox) Corrected the editing of scenes
+* (bluefox) Added the right padding for the time
+
 ### 1.4.3 (2025-05-31)
 * (bluefox) Implemented the full-screen mode for cameras
 * (bluefox) Added the possibility of disabling "swipe to open the menu" in the mobile view

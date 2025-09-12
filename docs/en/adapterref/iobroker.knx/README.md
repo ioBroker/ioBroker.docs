@@ -245,9 +245,10 @@ relation.
 -->
 
 ## Versions
+### 2.0.33 (22.6.2025)
+* unstable knx-connection problem solved
 
 ### 2.0.31 (22.05.2025)
-
 * updated the adapter import schema for ETS 6.3.1
 * nodejs >= 22 is required
 

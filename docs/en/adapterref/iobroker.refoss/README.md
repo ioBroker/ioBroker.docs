@@ -26,6 +26,30 @@ You can find more and detailed information about the device here: [Refoss](https
 | Refoss Smart Energy Monitor, EM06 | >= v2.3.8 |
 
 ## Changelog
+### 1.2.1 (2025-09-04)
+
+- (zhoulinyue) Formatting the code
+
+### 1.2.0 (2025-09-03)
+
+- (zhoulinyue) Add support for EM16P devices
+
+### 1.1.4 (2025-08-21)
+
+- (zhoulinyue) Fix the official issue mentioned in iobroker official PR
+
+### 1.1.3 (2025-08-08)
+
+- (zhoulinyue) Enhance the compatibility of EM06P devices
+
+### 1.1.2 (2025-08-08)
+
+- (zhoulinyue) Fix the problem that the value of factor, mConsume, mConsumeRe is 0 but returns 0
+
+### 1.1.1 (2025-08-07)
+
+- (zhoulinyue) Enhance the compatibility of EM06P devices
+
 ### 1.1.0 (2025-05-13)
 
 - (zhoulinyue) Monitor battery level, if the network is online, trigger data update again

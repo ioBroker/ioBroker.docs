@@ -31,6 +31,7 @@ Token can be found in the OnlyCat App on the Account page.
 ## Description
 
 The adapter provides the events from the OnlyCat cat flap, i.e. entries, exits and prey detection.
+It also lets you set the active transit policy.
 
 The adapter requires Node 20 or newer.
 
@@ -39,6 +40,24 @@ The adapter requires Node 20 or newer.
 OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.onlycat.com/)
 
 ## Changelog
+
+### 0.5.1 (2025-09-08)
+
+* (Sickboy78) fix error on firmware channel missing
+
+### 0.5.0 (2025-09-07)
+
+* (Sickboy78) transit policies added
+* (Sickboy78) connectivity and firmware channel added to device
+
+### 0.4.0 (2025-07-13)
+
+* (Sickboy78) migrated to iobroker eslint rules
+
+### 0.3.1 (2025-07-12)
+
+* (Sickboy78) improved event type classification
+* (Sickboy78) improved fetching of events in progress
 
 ### 0.3.0 (2025-06-04)
 

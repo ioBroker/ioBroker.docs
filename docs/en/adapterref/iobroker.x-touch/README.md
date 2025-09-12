@@ -28,6 +28,9 @@ There a two acepted commands:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.8.2 (2025-09-05)
+* (Bannsaenger) updated dependencies and issues from repository checker
+
 ### 0.8.1 (2025-05-21)
 * (Bannsaenger) node 22 in deploy script
 * (Bannsaenger) do not send updates when lock feature is in blank mode
@@ -46,9 +49,6 @@ There a two acepted commands:
 * (Bannsaenger) added possibility to lock the desk
 * (Bannsaenger) resend data on group membership change
 * (Bannsaenger) removed createBanks from config dialog (too dangerous, delete by hand if neccessary)
-
-### 0.6.5 (2023-12-30)
-* (Bannsaenger) add CHANGELOG_OLD.md
 
 ## License
 MIT License

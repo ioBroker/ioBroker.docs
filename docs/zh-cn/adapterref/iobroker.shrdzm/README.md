@@ -3,20 +3,25 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: E8CVANcq4KIUE18wXRqlxtXZp9tRdHWHrGhcVDJAK5E=
+hash: l+9nKDVCDAgPwp6Es7/uxGbZ1qDsHJ+bzgJNB4u824k=
 ---
 ![标识](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.shrdzm.svg)
+![GitHub 许可证](https://img.shields.io/github/license/mcm4iob/ioBroker.shrdzm)
 ![下载](https://img.shields.io/npm/dm/iobroker.shrdzm.svg)
-![安装数量（最新）](http://iobroker.live/badges/shrdzm-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/shrdzm-stable.svg)
-![执照](https://img.shields.io/github/license/mcm4iob/ioBroker.shrdzm?style=flat)
+![GitHub 仓库大小](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.shrdzm)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.shrdzm)
+![GitHub 自最新版本以来的提交情况（按日期）](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.shrdzm/latest)
+![GitHub 上次提交](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.shrdzm)
+![GitHub 问题](https://img.shields.io/github/issues/mcm4iob/ioBroker.shrdzm)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.shrdzm.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/shrdzm-stable.svg)
+![安装数量](https://iobroker.live/badges/shrdzm-installed.svg)
 ![捐](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.shrdzm
-![测试和发布](https://github.com/mcm4iob/ioBroker.shrdzm/workflows/Test%20and%20Release/badge.svg)
+**一般信息：**<br> [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/shrdzm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br></br> **版本：**</br></br> **测试：**</br> [![测试与发布](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql)<br> **捐款：**</br>
 
 **************************************************************************************************************
 
@@ -27,6 +32,12 @@ hash: E8CVANcq4KIUE18wXRqlxtXZp9tRdHWHrGhcVDJAK5E=
 此适配器将 *SHRDZM IT Services e.U.* 提供的 SHRDZM 智能电表接口集成到 ioBroker 中。该接口的说明请参见[这里](https://cms.shrdzm.com/produkt/smartmeter-modul/)。
 
 请注意，此适配器与上述公司没有任何关系，并且不存在任何商业关系。
+
+## 文档
+详细文档有多种语言版本：
+
+- **英语**：[doc/en/DOCUMENTATION_en.md](doc/en/DOCUMENTATION_en.md)
+- **德语**：[doc/de/DOCUMENTATION_de.md](doc/de/DOCUMENTATION_de.md)
 
 **************************************************************************************************************
 
@@ -62,7 +73,7 @@ SHRDZM 设备应按照页面“设置”中配置的间隔立即开始发送数�
 
 **************************************************************************************************************
 
-**如果您喜欢它，请考虑捐赠：**
+**如果您喜欢这个适配器，请考虑捐赠：**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
 
@@ -73,6 +84,13 @@ SHRDZM 设备应按照页面“设置”中配置的间隔立即开始发送数�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK_IN_PROGRESS**
+
+### 1.0.0 (2025-08-14)
+* (mcm1957) Adapter requires node.js 20.x, js-controller 7.0.7 and admin 7.6.17 now.
+* (mcm1957) Dependencies have been updated.
+
 ### 0.2.0 (2025-04-06)
 * (mcm1957) Online indicator has been added to objectview.
 * (mcm1957) Translations have been updated.

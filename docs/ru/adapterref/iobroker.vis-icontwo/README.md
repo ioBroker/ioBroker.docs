@@ -1,21 +1,20 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-icontwo/README.md
 title: ioBroker.vis-icontwo
-hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
+hash: ILCLKSTsrZUtsJxiUX06oFXc4e9QvWk3TblBSWO5HbQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-icontwo.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/vis-icontwo-stable.svg)
+![Количество установок (последнее)](http://iobroker.live/badges/vis-icontwo-installed.svg)
+![Количество установок (стабильное)](http://iobroker.live/badges/vis-icontwo-stable.svg)
+![Версия НПМ](https://nodei.co/npm/iobroker.vis-icontwo.svg?style=shields&data=v,u,d&color=orange)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
-![Количество установок (последних)](http://iobroker.live/badges/vis-icontwo-installed.svg)
 ![Известные уязвимости](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)
 ![Статус сборки](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
-![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![Лицензия](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 ![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
-![НПМ](https://nodei.co/npm/iobroker.vis-icontwo.png?downloads=true)
 
 # IoBroker.vis-icontwo
 ## Адаптер значков для адаптера ioBroker.vis
@@ -23,7 +22,7 @@ hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_001.png)
 
-Все значки находятся в Dateimanager (на рабочем столе) в режиме просмотра значков, где они находятся.
+Все значки находятся в Dateimanager (на рабочем месте) в режиме просмотра значков, где они находятся.
 
 ![Пфад](../../../en/adapterref/iobroker.vis-icontwo/img/Pfad_001.png)
 
@@ -32,15 +31,15 @@ hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
 ## Форшау
 Eine kleine Vorschau über den Stil der Icons:
 
-З.Б. Свет (Тейлаусваль):
+Z.B. Lights (Teilauswahl):
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_002.png)
 
-З.Б. Комнаты (Тейлаусваль):
+Z.B. Rooms (Teilauswahl):
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_003.png)
 
-З.Б. Устройства (Тейлаусваль):
+Z.B. Devices (Teilauswahl):
 
 ![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_004.png)
 
@@ -55,11 +54,116 @@ Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur
 
 (Dieser Link для использования PayPal-Konto и получения дополнительной информации от ioBroker)
 
-[![Расходы](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog
+
+### 1.18.0
+
+• Neue Icons hinzugefügt (Network, Printer & People)
+
+### 1.17.0
+
+• Neue Icons hinzugefügt (Devices/battery)
+• Neue Icons hinzugefügt (Alarm/camera)
+
+### 1.16.0
+
+• Neue Icons hinzugefügt (Backgrounds/wood)
+
+### 1.15.0
+
+• Neue Icons hinzugefügt (Devices/mower)
+
+### 1.14.0
+
+• Neue Icons hinzugefügt (Player/record)
+
+### 1.13.0
+
+• Neue Icons hinzugefügt (Alarm/record)
+
+### 1.12.0
+
+• Neue Icons hinzugefügt (Animals/Cats)
+
+### 1.11.0
+
+• Neue Icons hinzugefügt (Cars)
+
+### 1.10.2
+
+• Bug-Fix
+
+### 1.10.1
+
+• Bug-Fix
+
+### 1.10.0
+
+• Neue Icons hinzugefügt (Devices - Computers - Zigbee)
+
+### 1.9.0
+
+• Neue Icons hinzugefügt (Brands - Zigbee)
+
+### 1.8.1
+
+• Bug-Fix
+
+### 1.8.0
+
+• Neue Icons hinzugefügt (Devices - Network)
+
+### 1.6.3
+
+• Bug-Fix
+
+### 1.6.0
+
+• Neue Icons hinzugefügt (Devices - Mower Blade)
+
+### 1.5.0
+
+• Neue Icons hinzugefügt (Animals - Rat & Mouse)
+
+### 1.4.0
+
+• Neue Icons hinzugefügt (Lights - Printer-LED)
+
+### 1.3.0
+
+• Neue Icons hinzugefügt (Lights - LED)
+
+### 1.2.1
+
+• Bugfix (version number)
+
+### 1.2.0
+
+• Neue Icons hinzugefügt (Devices - thermal_heater) (Devices/Printers - printer_lable)
+
+### 1.1.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS) (Games - scissors/stone/paper)
+
+### 1.0.0
+
+• VIS-2 kompatibel
+
+### 0.98.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS)
+
+### 0.97.3
+
+• Bugfix
+
+### 0.97.2
+
+• Bugfix
 
 ### 0.97.1
 
@@ -545,9 +649,6 @@ Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur
 
 ## License
 
-Urheberrechte (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
-
 MIT License (nur in englisch / englisch only)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -570,4 +671,6 @@ SOFTWARE.
 
 ---
 
-Icons from Icons8 https://icons8.com/
+Icons from Icons8 https://icons8.com/ 
+
+Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)

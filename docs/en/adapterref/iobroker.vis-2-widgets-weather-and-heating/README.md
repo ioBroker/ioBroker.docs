@@ -102,18 +102,31 @@ Based on [Pittini's](https://github.com/Pittini/iobroker-heatingcontrol-vis) pro
 
 
 ## Changelog
+### 1.1.3 (2025-09-06)
+* (René) dependencies updated and bug fix based on adapter checker
+
+### 1.1.2 (2025-08-17)
+* (René) SourceAnalytics widget: min / max calculation optimisation
+
+### 1.1.1 (2025-08-15)
+* (René) SourceAnalytics widget: bug fix min / max calculation
+
+### 1.1.0 (2025-08-13)
+* (René) new widget SourceAnalytics two weeks bar chart added 
+* (René) overworked with TypeScript and vite -> code review desired
+
 ### 0.10.4 (2025-04-08)
-  * (René) Meteored widget: reload once per hour as an option
+* (René) Meteored widget: reload once per hour as an option
 
 ### 0.10.3 (2025-04-06)
- * (René) Heating Room widget: some translations
- * (René) Meteored widget: make reload of widget possible
+* (René) Heating Room widget: some translations
+* (René) Meteored widget: make reload of widget possible
 
 ### 0.10.2 (2025-04-04)
- * (René) Heating Room widget: support of more then one thermostat. ATTENTIOM: Please check your configuration!
+* (René) Heating Room widget: support of more then one thermostat. ATTENTIOM: Please check your configuration!
 
 ### 0.10.1 (2025-03-30)
- * (René) Heating Room widget: smaller optimizations
+* (René) Heating Room widget: smaller optimizations
 
 ### 0.10.0 (2025-03-02)
 * (René) widget from Meteored (DasWetter.com) added, no further adapter needed, but only display of data from Meteored possible

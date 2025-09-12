@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.onlycat/README.md
 title: ioBroker.onlycat
-hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
+hash: VLVL6oNNFIC0HhQ5EDt2a3POqhRCEm2hYDOLKr+gd9c=
 ---
 ![标识](../../../en/adapterref/iobroker.onlycat/admin/onlycat.png)
 
@@ -26,7 +26,8 @@ hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
 令牌可在 OnlyCat 应用的“帐户”页面中找到。
 
 ＃＃ 描述
-该适配器提供来自 OnlyCat 猫门的事件，即进入、退出和猎物检测。
+该适配器提供 OnlyCat 猫洞的事件，例如进入、退出和猎物检测。
+它还允许您设置主动通行策略。
 
 该适配器需要 Node 20 或更新版本。
 
@@ -34,6 +35,24 @@ hash: kpSbfAe9D4coZUjPmQ+JhNEK13XZWOy3TnIcs/UfvBI=
 OnlyCat® 是 [VirtualV 贸易有限公司](https://www.onlycat.com/) 的注册商标
 
 ## Changelog
+
+### 0.5.1 (2025-09-08)
+
+* (Sickboy78) fix error on firmware channel missing
+
+### 0.5.0 (2025-09-07)
+
+* (Sickboy78) transit policies added
+* (Sickboy78) connectivity and firmware channel added to device
+
+### 0.4.0 (2025-07-13)
+
+* (Sickboy78) migrated to iobroker eslint rules
+
+### 0.3.1 (2025-07-12)
+
+* (Sickboy78) improved event type classification
+* (Sickboy78) improved fetching of events in progress
 
 ### 0.3.0 (2025-06-04)
 

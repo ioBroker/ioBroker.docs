@@ -150,6 +150,16 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2025-08-24)
+* (Apollon77) Only execute arpscan if there are IPs configured
+* (mcm1957) Adapter requires admin >= 7.6.17 now
+* (mcm1957) 'debug:' logs are recorded with level 'debug' now [#391].
+* (mcm1957) Several issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated
+
+### 2.3.1 (2025-08-16)
+* (Apollon77) Updates dependencies
+
 ### 2.3.0 (2025-05-14)
 * (speebreaker12) Deprecated 'delObject' call have been replaced to meet current standards.
 * (mcm1957) Adapter requires node.js 20, js-controller >= 6.0.11 and admin >= 7.4.10 now
@@ -208,7 +218,7 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
 
 The MIT License (MIT)
 
-Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2023, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

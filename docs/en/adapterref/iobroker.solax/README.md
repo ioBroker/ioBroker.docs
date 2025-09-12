@@ -100,7 +100,17 @@ If you would like to have other inverters integrated, you should make the data e
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+
+### 0.9.20 (2025-08-31)
+* (simatec) Dependencies updated
+
+### 0.9.19 (2025-08-09)
+* (simatec) Dependencies updated
+* (simatec) Update API URL
+
+### 0.9.18 (2025-06-27)
 * (simatec) Code fix
 * (simatec) Dependencies updated
 * (simatec) Ready for NodeJS 24.x

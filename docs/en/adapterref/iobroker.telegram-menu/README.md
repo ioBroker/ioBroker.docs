@@ -35,6 +35,47 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- FEAT: Send picture without delay 
+- FIX: #385 Grafana token
+- CHORE: #384 Set recommended versions
+
+### 3.0.6 (2025-08-31)
+
+- FIX: #381 No response status
+
+### 3.0.5 (2025-08-24)
+
+- FIX: #377 Commands are not executed
+
+### 3.0.4 (2025-08-22)
+
+- FIX: Submenu percent
+
+### 3.0.3 (2025-08-17)
+
+- FIX: #374 Cannot check menu checkbox
+- FIX: Errors reported by sentry
+
+### 3.0.2 (2025-08-13)
+
+- FIX: Errors reported by sentry
+
+### 3.0.1 (2025-08-02)
+
+- CHORE: Update dependencies
+- FIX: Errors reported by sentry
+
+### 3.0.0 (2025-07-23)
+
+- FEAT: #266 Usage of multiple telegram instances
+
+### 2.4.5 (2025-07-23)
+
+- FIX: Errors reported by sentry
+- FIX: #357 Navigation trigger input with trim method
+
 ### 2.4.4 (2025-06-09)
 
 - FIX: #342 Result not in the correct order
@@ -62,9 +103,9 @@ You can create different groups with separate menus, and then assign users to th
 
 ### 2.3.1 (2025-05-20)
 
-
 - FIX: #309 SetState only sets false
 - FIX: #311 Delete does not navigate
+- FIX: #310 DynSwitch sets key not the value
 
 ### 2.3.0 (2025-05-12)
 

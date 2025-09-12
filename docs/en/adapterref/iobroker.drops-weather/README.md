@@ -52,25 +52,22 @@ This adapter would not have been possible without the great work of @inbux (http
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.7 (2025-07-11)
+- (arteck) fix adapter stop after wrong request
+
+### 1.2.6 (2025-06-24)
+- (arteck) fix translate
+
+### 1.2.5 (2025-06-19)
+- (arteck) add browser timeout
+- (arteck) add temp folder definition
+
 ### 1.2.4 (2025-06-04)
 - (mcm1957) fix language default.
 - (mcm1957) dependencies have been updated
 
 ### 1.2.3 (2025-03-29)
 - (arteck) Text is now deleted if no text is available
-
-### 1.2.2 (2025-03-29)
-- (arteck) Puppeteer-extra and puppeteer-extra-plugin-stealth have been added
-
-### 1.2.1 (2025-03-25)
-- (arteck) Language support has been added.
-- (mcm1957) Unused dependencies have been removed.
-
-### 1.2.0 (2025-03-24)
-- (mcm1957) Timeout has been encreased to 15s.
-- (mcm1957) Logging has been reduced.
-- (arteck) Adapter has been converted to scheduled operation. 
-- (mcm1957) A spelling error blocking chromium-browser manual selection has been corrected.
 
 ## License
 

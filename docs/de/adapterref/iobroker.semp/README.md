@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
+hash: 18/InU6f0vqyo4Dl0L5dR7Y5iYHkB3VyxTVdnZ/ku7A=
 ---
 ![Logo](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -33,7 +33,7 @@ hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
 Schnittstelle zum SMA SunnyPortal über SunnyHomeManager und SEMP
 
 Fügen Sie Ihre Geräte aus dem ioBroker in SunnyPortal ein.
-SunnyPortal kann Ihren Energieverbrauch so besser einschätzen und Ihnen bessere Prognosen und Empfehlungen geben. Sie können Ihre Geräte aber auch von SunnyPortal steuern lassen. Bei ausreichender Solarenergie schaltet SunnyPortal Ihre Geräte ein oder bei zu geringer Solarenergie wieder aus. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter lässt sich jedes Gerät aus dem ioBroker in SunnyPortal integrieren.
+SunnyPortal kann Ihren Energieverbrauch dadurch besser einschätzen und Ihnen bessere Prognosen und Empfehlungen geben. Sie können Ihre Geräte aber auch über SunnyPortal steuern lassen. Bei ausreichender Solarenergie schaltet das SunnyPortal Ihre Geräte ein oder bei zu geringer Solarenergie wieder aus. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter lässt sich jedes Gerät aus dem ioBroker in das SunnyPortal integrieren.
 Es ist nicht einmal notwendig, den Verbrauch eines einzelnen Geräts zu messen. Schon geschätzte Werte reichen aus.
 
 ## Benutzerdokumentation
@@ -41,24 +41,23 @@ siehe [Doku](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/do
 
 Einzelheiten zu Protokoll und Verwendung finden Sie unter [SMA-Dokumentation](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
-Eine Beschreibung zur allgemeinen Verwendung von Energieanforderungen finden Sie unter [SMA-Dokumentation](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf).
+Eine Beschreibung zur allgemeinen Nutzung von Energieanforderungen finden Sie unter [SMA-Dokumentation](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf).
 
 ## Merkmale
-* Geräte vom ioBroker über SMA SEMP in SunnyPortal hinzufügen
+* Geräte von ioBroker über SMA SEMP in SunnyPortal hinzufügen
 * informiert das SunnyPortal über den aktuellen Verbrauch
 * diese Geräte über SunnyPortal steuern lassen (Einschalten bei ausreichender PV-Leistung und Ausschalten bei zu geringer Solarenergie)
 
 ## Anforderungen
-## Geschirrspülermodus
-## Funktionalität des Adapters
+## Spülmaschinenmodus: Funktionsweise des Adapters
 Mit dem Adapter können Sie einen Geschirrspüler oder andere Geräte steuern, die Standby-Strom verbrauchen. Das funktioniert folgendermaßen:
 
 - Der Benutzer schaltet das Gerät wie gewohnt manuell ein.
-- Anstatt sofort zu starten, bleibt das Gerät angehalten.
+- Anstatt sofort zu starten, wird das Gerät ausgeschaltet und bleibt pausiert.
 - Sobald genügend Solarenergie zur Verfügung steht, startet das Gerät automatisch und läuft, bis das Programm abgeschlossen ist.
-- Eventuelle Empfehlungen des Smart Home Managers (SHM), das Gerät auszuschalten, werden bei diesem Vorgang ignoriert.
+- Eventuelle Empfehlungen des Smart Home Managers (SHM) zum Ausschalten des Gerätes werden bei diesem Vorgang ignoriert.
 
-> **Hinweis:** > Detaillierte Informationen zur technischen Umsetzung finden Sie in [Ausgabe Nr. 333](#) und im untenstehenden Flussdiagramm.
+> **Hinweis:** > Detaillierte Informationen zur technischen Umsetzung finden Sie in [Ausgabe Nr. 333](https://github.com/rg-engineering/ioBroker.semp/issues/333) und im untenstehenden Flussdiagramm.
 
 ![Flussdiagramm](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
 
@@ -71,11 +70,17 @@ Mit dem Adapter können Sie einen Geschirrspüler oder andere Geräte steuern, d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.5.2 (2025-08-16)
+* (René) new testing
+* (René) issue #333 dishwasher sequence: off detection changed
 
-### **WORK IN PROGRESS**
+### 1.5.1 (2025-05-31)
+* (René) bug fix calculation of used energy
+
+### 1.5.0 (2025-05-24)
 * (René) see issue #333: new sequence to handle devices with quiescent current. ATTENTION: new dishwasher sequence is used for dishwasher devices optionally!
 * (René) changes requested by adapter checker
-* (René) dependencies updated 
+* (René) dependencies updated
 
 ### 1.4.8 (2024-11-20)
 * (René) update dependencies
@@ -226,7 +231,7 @@ Mit dem Adapter können Sie einen Geschirrspüler oder andere Geräte steuern, d
 ## License
 MIT License
 
-Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2022-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

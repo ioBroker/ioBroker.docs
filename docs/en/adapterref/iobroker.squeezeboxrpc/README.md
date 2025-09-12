@@ -632,7 +632,7 @@ are contained in the following CLI documentation:
 -->
 ### **WORK IN PROGRESS**
 
-- revert to node 18
+- test remove node 18,extend to node 24
 
 ### 1.6.2 (2025-05-05)
 

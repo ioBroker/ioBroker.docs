@@ -39,6 +39,10 @@ Also a big thanks to the company Bayernluft for their great support
 	Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2025-09-07)
+* (mcm1957) Adapter requires Admin >= 7.6.17, js-controller >= 6.0.11 and node.js >= 20 now.
+* (mcm1957) Dependencies have been updated
+
 ### 3.0.0 (2025-02-24)
 * (boriswerner) **Breaking Change:** All states from the 2.alpha versions have been removed and the adapter has been completely redesigned. The Bayernlüfter devices need a new export configuration file. Please upload export_iobroker.txt to each of your devices and delete old states.
 * (mcm1957) Adapter requires node.js 20, js-controller 6 and admin 7 now.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: unbugf5ftTb/BE8Q4uqsUfz2KGBUs9exwOd/mkoxahs=
+hash: nRtUxJxL8jc8iMLKpLwL7mkVOqPO8R1jUqixfK8Nu3o=
 ---
 ![Logo](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -11,66 +11,118 @@ hash: unbugf5ftTb/BE8Q4uqsUfz2KGBUs9exwOd/mkoxahs=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fronius-wattpilot.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/fronius-wattpilot-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/fronius-wattpilot-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/tim2zg/iobroker.fronius-wattpilot.svg)
 ![NPM](https://nodei.co/npm/iobroker.fronius-wattpilot.png?downloads=true)
 
 # IoBroker.fronius-wattpilot
-**Tests:** ![Test und Freigabe](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
 
-Barebone-Implementierung der inoffiziellen Fronius Watt Pilot (https://www.fronius.com/de-ch/switzerland/solarenergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) API . Basierend auf https://github.com/joscha82/wattpilot.
+[Zur deutschen Version der Dokumentation](README_DE.md)
 
-## Wie installiert man:
-**Ich übernehme keine Verantwortung für Ihr Gerät. Mit dieser API können Sie direkt auf das Gerät zugreifen, seien Sie vorsichtig.**
+## Was ist das für ein Adapter?
+Dieser Adapter integriert Ihr Fronius Wattpilot EV-Ladegerät mit ioBroker und ermöglicht Ihnen die Überwachung und Steuerung Ihrer Ladestation. Der Wattpilot ist eine intelligente Ladelösung für Elektrofahrzeuge, die in Ihr Smart-Home-System integriert werden kann.
 
-### **Anforderungen**
-- Schließen Sie Ihre normale Installation der Fronius Watt Pilot-App ab. Merken Sie sich das Passwort!
-- Gehen Sie zur Registerkarte „Internet“ und verbinden Sie Ihren Pilot mit Ihrem WLAN.
-- Finden Sie die IP-Adresse Ihres WattPilot heraus.
-  - Option 1: Über die Web-GUI Ihres Routers.
-  - Option 2: Über die Wattpilot-App: Klicken Sie nach dem Verbindungsaufbau auf den WLAN-Namen.
+**🌟 Hauptfunktionen:**
 
-  Sie sehen eine Seite mit weiteren Informationen zu Ihrer WLAN-Verbindung. Notieren Sie sich die IP-Adresse.
+- Echtzeitüberwachung des Ladestatus
+- Fernsteuerung der Ladeparameter
+- Unterstützung für Cloud- und lokale Verbindungen
 
-### **iobroker.fronuis-wattpilot-Adapter**
-- Jetzt können Sie über die „Adapter“-Seite regulär eine Instanz von iobroker.fronius-wattpilot installieren.
-- Nachdem Sie die Instanz erstellt haben, werden Sie aufgefordert, die IP-Adresse und das Passwort Ihres WattPilot einzugeben. Geben Sie die Werte ein, die Sie zuvor bemerkt haben, und speichern Sie die Konfiguration. Wenn Sie alles richtig gemacht haben, wird der Adapter nach einer Weile grün und Sie können die eingehenden Daten im Reiter „Objekte“ sehen.
+## Installation und Einrichtung
+### Voraussetzungen
+Bevor Sie den Adapter installieren, müssen Sie Ihren Wattpilot einrichten:
 
-**Es wird dringend empfohlen, Ihrem WattPilot eine statische IP zuzuweisen.**
+1. **Wattpilot-Setup abschließen**: Schließen Sie die Ersteinrichtung mit der offiziellen Fronius Wattpilot-App ab und **merken Sie sich Ihr Passwort**
+2. **Mit WLAN verbinden**: Gehe in der App auf den Reiter „Internet“ und verbinde deinen Wattpilot mit deinem WLAN-Netzwerk
+3. **IP-Adresse ermitteln**: Sie benötigen die IP-Adresse Ihres Wattpiloten mit einer der folgenden Methoden:
+- **Router-Methode**: Überprüfen Sie die Weboberfläche Ihres Routers auf angeschlossene Geräte
+- **App-Methode**: Tippen Sie in der Wattpilot-App nach der Verbindung auf den WLAN-Namen. Sie sehen Netzwerkdetails einschließlich der IP-Adresse
 
-## Wie kann ich den Adapter verwenden...
-Sie können die Datenpunkte dieses Adapters wie jeden anderen Datenpunkt in Ihrem Broker verwenden.
-Einige Anregungen finden Sie unter „Beispiele“.
+> 💡 **Wichtig**: Es wird dringend empfohlen, Ihrem Wattpilot in den Routereinstellungen eine statische IP-Adresse zuzuweisen, um Verbindungsprobleme zu vermeiden.
 
-Es gibt eine [Blockly-Beispiel](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml) Möglichkeit, die Leistung Ihres Solarnetzes zu messen und den Piloten automatisch auf den richtigen Stromwert (Ampere) einzustellen, um Ihren internen Energieverbrauch zu verbessern.
-Sie können es einfach importieren, indem Sie den Inhalt des Beispiels kopieren und über das „Import Blocks“-Symbol in der oberen rechten Ecke Ihres Blockly-Skripts einfügen.
+### Adapterinstallation
+1. Installieren Sie den Adapter von der ioBroker-Seite „Adapter“
+2. Erstellen Sie eine neue Instanz des Fronius-Wattpilot-Adapters
+3. In der Instanzkonfiguration:
+- Geben Sie die **IP-Adresse** Ihres Wattpiloten ein
+- Geben Sie Ihr Wattpilot-**Passwort** ein
+- Konfigurieren Sie nach Bedarf weitere Einstellungen
+4. Speichern Sie die Konfiguration
 
-## Was leistet der Adapter?
-Der Adapter verbindet sich mit dem WattPilots WebSocket und trennt eingehende Daten in ioBroker-Datenpunkte, die Sie ganz komfortabel nutzen können.
+Wenn alles richtig konfiguriert ist, stellt der Adapter eine Verbindung her und beginnt mit der Erstellung von Datenpunkten.
 
-## Zustände abrufen
-Standardmäßig schreibt der Adapter nur die Eckpunkte des Wattpiloten. Wenn Sie alle möglichen Werte wünschen, die die API liefern kann, deaktivieren Sie das Kontrollkästchen in den Instanzeinstellungen.
-Eine Dokumentation der Datenpunkte finden Sie hier: https://github.com/joscha82/wattpilot/blob/main/API.md (Dank an joscha82)
+## So verwenden Sie den Adapter
+### Daten lesen
+Der Adapter erstellt automatisch Datenpunkte für alle Wattpilot-Werte. Diese können Sie wie alle anderen Datenpunkte im ioBroker verwenden für:
 
-## Zustände festlegen?
-Die wichtigsten Zustände, die Sie direkt setzen können, sind AccessState, amp, CableLock, cae und mode.
+- Visualisierung in VIS oder anderen Frontends
+- Logik in Skripten und Blockly
+- Automatisierungsregeln
 
-**AccessState**: „Offen“ oder „Warten“
+**Datenmodi:**
 
-**Verstärker**: 6-16
+- **Nur wichtige Punkte** (Standard): Zeigt nur die wichtigsten Werte an
+- **Alle Werte**: Deaktivieren Sie die Option „Nur Schlüsselpunkte“, um alle verfügbaren API-Daten anzuzeigen
 
-**cableLock**: „Normal“ oder „AutoUnlock“ oder „AlwaysLock“
+📖 Vollständige API-Dokumentation: [Wattpilot API-Dokumentation](https://github.com/joscha82/wattpilot/blob/main/API.md) (Danke an joscha82)
 
-**cae**: „true“ oder „false“ (Achtung: Dadurch wird die Cloud-Funktionalität Ihres WattPilot deaktiviert, möglicherweise muss ein Neustart erfolgen)
+### Steuerung Ihres Wattpiloten
+#### Direkte staatliche Kontrolle (NEU!)
+Wichtige Wattpilot-Funktionen können Sie nun direkt durch Schreiben in die Zustände steuern.
 
-Ja, schreiben Sie einfach den Statusnamen, gefolgt von einem Semikolon und dann den Wert im Status set_state.
-Zum Beispiel:
+#### Erweiterte Steuerung über set_state
+Für eine erweiterte Steuerung verwenden Sie den Datenpunkt `set_state` mit diesem Format:
 
-    Amp;6
+```
+stateName;value
+```
 
-**Sie können den „amp“- und den „lmo“-Zustand direkt über die set_power- und set_mode-Zustände steuern.**
+**Verfügbare Zustände:**
 
-## Was bedeutet dieses Durcheinander?
-Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
+- **Ampere**: `6-16` (Ladestrom in Ampere)
+- **cae**: „true“ oder „false“ (⚠️ deaktiviert die Cloud-Funktionalität – möglicherweise ist ein Neustart erforderlich)
+
+**Beispiele:**
+
+```
+amp;10          // Set charging current to 10A
+```
+
+## Beispiele und Anwendungsfälle
+### Beispiel für Solarintegration
+Schauen Sie sich unseren [Blockly-Beispiel](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml) an, der zeigt, wie Sie:
+
+- Überwachen Sie Ihre Solarstromproduktion
+- Automatische Anpassung des Wattpilot-Ladestroms basierend auf überschüssigem Solarstrom
+
+**So verwenden Sie das Beispiel:**
+
+1. Kopieren Sie den Inhalt aus der Beispieldatei
+2. Klicken Sie in ioBroker Blockly auf das Symbol „Blöcke importieren“ (obere rechte Ecke).
+3. Fügen Sie den Inhalt ein und passen Sie ihn an Ihr Setup an
+
+### Allgemeine Automatisierungen
+- **Zeitbasiertes Laden**: Beginnen Sie mit dem Laden außerhalb der Spitzenzeiten
+- **Solar-Überschussladung**: Laden Sie nur, wenn überschüssiger Solarstrom verfügbar ist
+- **Anwesenheitserkennung**: Starten/Stoppen des Ladevorgangs basierend auf der Fahrzeuganwesenheit
+- **Lastausgleich**: Passen Sie den Ladestrom an den Stromverbrauch im Haushalt an
+
+## Technische Details
+Der Adapter verbindet sich mit der WebSocket-Schnittstelle des Wattpilot und wandelt eingehende Daten in ioBroker-Datenpunkte um. Er unterstützt sowohl lokale WLAN-Verbindungen als auch Cloud-basierte Verbindungen.
+
+**Verbindungstypen:**
+
+- **Lokales WLAN** (empfohlen): Direkte Verbindung zu Ihrem Wattpilot
+- **Cloud**: Anbindung über Fronius Cloud-Dienste
+
+## Fehlerbehebung
+**Häufige Probleme:**
+
+- **Verbindung fehlgeschlagen**: Überprüfen Sie IP-Adresse und Passwort
+- **Häufige Verbindungsabbrüche**: Weisen Sie Ihrem Wattpilot eine statische IP zu
+- **Fehlende Datenpunkte**: Versuchen Sie, den Modus „Alle Werte“ zu aktivieren
+- **Probleme mit der Cloud-Verbindung**: Überprüfen Sie die „cae“-Einstellung
+
+**⚠️ Haftungsausschluss:** Dieser Adapter verwendet inoffizielle APIs. Die Verwendung erfolgt auf eigene Gefahr und sei vorsichtig beim Ändern von Einstellungen, die den Betrieb deines Geräts beeinträchtigen könnten.
 
 ## Entwickler
 - [SebastianHanz](https://github.com/SebastianHanz)
@@ -78,10 +130,18 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
 - [derHaubi](https://github.com/derHaubi)
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 4.7.0 (2025-06-19)
+- Rewrite of the adapter
+- Added ability to set states directly
+- Added ability to set common states directly
+- Fix all issues
+
 ### 4.6.3 (2023-12-24)
 - Fixed a bug where the adapter would use a undefined variable
 - Fixed bug #44
@@ -125,7 +185,7 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
 - Added some quality of life improvements
 
 ### 4.0.0 (2022-11-30)
-- Fixed timing issue 
+- Fixed timing issue
 - Added set_power and set_mode states
 
 ### 3.3.1 (2022-11-17)
@@ -139,7 +199,7 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
 ### 3.2.5 (2022-10-14)
 - Small changes to the package.json and io-package.json
 
-### 3.2.4 (2022-10-11) 
+### 3.2.4 (2022-10-11)
 - Fiexed cool down timer for normal values
 
 ### 3.2.3 (2022-10-08)
@@ -232,7 +292,7 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
 ## License
 MIT License
 
-Copyright (c) 2024 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2025 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

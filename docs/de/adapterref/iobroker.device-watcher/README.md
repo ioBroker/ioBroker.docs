@@ -27,12 +27,35 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.13.1 (2025-09-06)
+* (arteck) Dependencies have been fixed
 
-### **WORK IN PROGRESS**
+### 2.13.0 (2025-09-04)
+-   (mcm1957) Adapter requires admin >= 7.6.17, js-controller >= 6.0.11 and node.js>= 20 now.
+-   (mcm1957) Missing dependency of 'node-schedule' has been fixed.
+-   (mcm1957) Dependencies have been updated
 
+### 2.12.6 (2025-08-08)
+- (arteck) fix send message
+
+### 2.12.5 (2025-08-04)
+- (arteck) fix translation
+- (arteck) fix htmllist output
+
+### 2.12.4 (2025-08-02)
+- (arteck) ignore zigbee2mqtt disabled devices
+- (arteck) fix proxmox
+- (arteck) add proxmox new structure request
+
+### 2.12.3 (2025-08-02)
+- (arteck) add XSense
+- (arteck) fix Sonoff Name
+- (arteck) Dependencies have been updated
+
+### 2.12.2 (2025-08-02)
 - (ciddi89) Fixed [#362](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/362): Ecovacs Deebot use connectionUptime dp as timeselector
 - (mcm1957) Dependencies have been updated
-  
+
 ### 2.12.1 (2024-05-09)
 
 -   (ciddi89) Added: [#341](https://github.com/iobroker-community-adapters/ioBroker.device-watcher/issues/341) Support for Zigbee battery_state datapoint
@@ -424,8 +447,8 @@ BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-insta
 
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
-Copyright (c) 2024 Christian Behrends <mail@christian-behrends.de>
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2025 Christian Behrends <mail@christian-behrends.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

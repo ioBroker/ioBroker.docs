@@ -29,6 +29,9 @@ The interval or the stepping to send the data ist set by the configuartion.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.4 (2025-09-06)
+* (Bannsaenger) updated dependencies and issues from repository checker
+
 ### 0.1.3 (2025-02-25)
 * (Bannsaenger) previous release did not work
 
@@ -42,9 +45,6 @@ The interval or the stepping to send the data ist set by the configuartion.
 * (Bannsaenger) updated dependencies, scripts, eslint 9
 * (Bannsaenger) tested with node v22.13.0
 * (Bannsaenger) jsonConfig tested for responsive design
-
-### 0.0.5 (2023-12-25)
-* (Bannsaenger) added releaseconfig
 
 ## License
 MIT License

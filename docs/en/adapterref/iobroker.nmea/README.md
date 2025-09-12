@@ -7,8 +7,11 @@ For more details and for information how to disable the error reporting, see [Se
 Sentry reporting is used starting with js-controller 3.0.
 
 To use this adapter, you need a hardware that can read NMEA-2000 bus and convert it to the serial port:
-- Actisense NGT-1 (USB)
-- or Raspberry PI with PiCAN-M
+- [Actisense NGT-1 (USB)](https://actisense.com/products/ngt-1-nmea-2000-to-pc-interface/)
+- [Actisense NGX1-USB (USB)](https://actisense.com/products/nmea-2000-gateway-ngx-1/)
+- or [Raspberry PI with PiCAN-M](https://www.skpang.co.uk/collections/hats/products/copy-of-pican-m-with-can-bus-micro-c-and-rs422-connector-no-smps)
+
+PiCAN-M could work with Raspberry 4 and [5](https://copperhilltech.com/blog/testing-pican-can-bus-hats-with-the-raspberry-pi-5/).
 
 ![Widgets](img/widgetExamples.png)
 
@@ -76,13 +79,19 @@ For this the according option must be enabled in the adapter settings and allowe
 iobroker ALL=(ALL) timedatectl set-timezone
 ```
 
+## Autopilot
+Actually, only one autopilot is supported: Raymarine
+
+The development of Simrad/navico/B&G is not completed yet.
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.3.0 (2025-08-16)
 * (bluefox) Widgets were rewritten on TypeScript
 * (bluefox) Corrected errors in the widgets and in the calculations
+* (bluefox) Small fix for ais data
 
 ### 0.2.2 (2024-06-20)
 * (bluefox) Backend was rewritten on TypeScript

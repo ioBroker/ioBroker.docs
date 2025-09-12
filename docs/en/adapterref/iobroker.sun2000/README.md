@@ -33,6 +33,22 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* fix: adjust event value limits based on usableSurplus parameters
+* new state sun2000.x.collected.[surplusPower](https://github.com/bolliy/ioBroker.sun2000/wiki/%C3%9Cberschuss-(surplus))
+
+
+### 2.1.0 (2025-07-06)
+* emma: system time is being determined [#179](https://github.com/bolliy/ioBroker.sun2000/issues/179)
+* control: add grid power scheduling functionality to inverter driver [#176](https://github.com/bolliy/ioBroker.sun2000/issues/176)
+
+### 2.0.0 (2025-06-29)
+* add support for chargers via Emma and save the data in the charger path #171
+* Establish data consistency between meter.activePower and the power of the meter phases #174
+* allows `control.battery.chargeFromGridFunction` when using the Emma
+* breaking change: 
+   - the value `sun2000.x.inverter.x.battery.runningStatus` is saved as a number. The translated value (such as STANDBY, RUNNING etc.) is stored in the path sun2000.x.inverter.x.battery.derived
+
 ### 1.5.0 (2025-05-20)
 * update dependencies
 * fix: surplus power during battery discharge

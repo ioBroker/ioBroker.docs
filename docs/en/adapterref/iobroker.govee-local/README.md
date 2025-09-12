@@ -24,6 +24,12 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.9 (2025-08-22)
+
+- update dependencies
+- add support for node 24
+- update to ESlint 9
+
 ### 0.2.8 (2025-03-28)
 
 -   update dependencies
