@@ -2,6 +2,8 @@
 /.idea
 /.vscode
 /node_modules
+/api-key.json
+
 /engine/node_modules
 /engine/front-end/public/de
 /engine/front-end/public/en
@@ -9,7 +11,6 @@
 /engine/front-end/public/zh-cn
 /engine/package-lock.json
 /engine/google-keys.json
-/api-key.json
 /engine/front-end/src/i18n/temp_words.js
 /engine/front-end/build
 /engine/front-end/docu
@@ -18,3 +19,19 @@
 /engine/front-end/package-lock.json
 /engine/front-end/public/blog.json
 /engine/front-end/public/data/forum.json
+
+/engine-2/node_modules
+/engine-2/front-end/public/de
+/engine-2/front-end/public/en
+/engine-2/front-end/public/ru
+/engine-2/front-end/public/zh-cn
+/engine-2/package-lock.json
+/engine-2/google-keys.json
+/engine-2/front-end/src/i18n/temp_words.js
+/engine-2/front-end/build
+/engine-2/front-end/docu
+/engine-2/front-end/data
+/engine-2/front-end/node_modules
+/engine-2/front-end/package-lock.json
+/engine-2/front-end/public/blog.json
+/engine-2/front-end/public/data/forum.json
