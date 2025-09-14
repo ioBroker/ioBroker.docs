@@ -943,4 +943,39 @@ https://github.com/iobroker-community-adapters/ioBroker.srm
 
 This is an iobroker adapter to connect to Synology routers. The adapter uses the Synology API to get the data. The adapter is tested with the SRM version 1.3.1. and router model RT6600 but should work with other models as well.
 
+## pi-hole2 (16.8.2025) – new adapter at stable repository
+https://github.com/oweitman/ioBroker.pi-hole2
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
+
+Manage a pi-hole installation >=v6. Get information from pi-hole. Start/Stop blocking domains. (for pi-hole <v6 please use adapter ioBroker.pi-hole)
+
+## energy-tracker (21.8.2025) – new adapter at stable repository
+https://github.com/energy-tracker/ioBroker.energy-tracker
+
+<img src="https://raw.githubusercontent.com/energy-tracker/ioBroker.energy-tracker/main/admin/energy-tracker.png" width="100" height="100" />
+
+Adapter for sending meter readings to the Energy Tracker platform.
+
+## vis-2-widgets-icontwo (9.9.2025) – new adapter at stable repository
+https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-icontwo/main/admin/vis-2-widgets-icontwo.png" width="100" height="100" />
+
+Icon adapter for the ioBroker.vis adapter (only for VIS-2)
+
+## pirate-weather (10.9.2025) – new adapter at stable repository
+https://github.com/ticaki/ioBroker.pirate-weather
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.pirate-weather/main/admin/pirate-weather.png" width="100" height="100" />
+
+Retrieve data from Pirate-Weather.
+
+## brightsky (14.9.2025) – new adapter at stable repository
+https://github.com/ticaki/ioBroker.brightsky
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.brightsky/main/admin/brightsky.png" width="100" height="100" />
+
+The Bright Sky API is a free, public API that provides weather data from the German Weather Service (DWD). It was developed to simplify access to this data, as the original DWD data is often in difficult-to-interpret formats. Bright Sky converts this data into an easy-to-use JSON format and makes it accessible via an API.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
