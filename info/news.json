@@ -799,5 +799,40 @@
     "conditions": {
       "iwg-vpn": "installed"
     }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.rmb-bhkw has been deprecated",
+      "de": "Adapter ioBroker.rmb-bhkw wurde abgekündigt und archiviert",
+      "ru": "Адаптер ioBroker.rmb-bhkw был обесценен",
+      "pt": "Adapter ioBroker.rmb-bhkw foi desprecaído",
+      "nl": "Adapter ioBroker.rmb-bhkw is verouderd",
+      "fr": "L'adaptateur ioBroker.rmb-bhkw a été déprécié",
+      "it": "Adattatore ioBroker.rmb-bhkw è stato deprecato",
+      "es": "Adaptador ioBroker.rmb-bhkw ha sido deprecatado",
+      "pl": "Adapter joBroker.rmb-bhkw został zdepregowany",
+      "uk": "Адаптер ioBroker.rmb-bhkw був розшифрований",
+      "zh-cn": "适应器 ioBroker.rmb-bhkw 已贬值"
+    },
+    "content": {
+      "en": "The adapter ioBroker.rmb-bhkw has been archived by its maintainer and will no longer get any updates. It has been removed from repositories and a deinstallation of the adapter should be considered.",
+      "de": "Der Adapter ioBroker.rmb-bhkw wurde von seinem Betreuer archiviert und erhält keine Updates mehr. Er wurde aus den Repositories entfernt und eine Deinstallation des Adapters sollte in Erwägung gezogen werden.",
+      "ru": "Адаптер ioBroker.rmb-bhkw был архивирован его разработчиком и больше не будет получать обновления. Он был удалён из репозиториев, поэтому рекомендуется рассмотреть возможность его деинсталляции.",
+      "pt": "O adaptador ioBroker.rmb-bhkw foi arquivado pelo seu mantenedor e não receberá mais atualizações. Ele foi removido dos repositórios e a desinstalação do adaptador deve ser considerada.",
+      "nl": "De adapter ioBroker.rmb-bhkw is gearchiveerd door de beheerder en ontvangt geen updates meer. Deze is verwijderd uit de repositories en een de-installatie van de adapter dient te worden overwogen.",
+      "fr": "L'adaptateur ioBroker.rmb-bhkw a été archivé par son responsable et ne sera plus mis à jour. Il a été supprimé des dépôts et sa désinstallation doit être envisagée.",
+      "it": "L'adattatore ioBroker.rmb-bhkw è stato archiviato dal suo manutentore e non riceverà più aggiornamenti. È stato rimosso dai repository e si consiglia di valutarne la disinstallazione.",
+      "es": "El adaptador ioBroker.rmb-bhkw ha sido archivado por su mantenedor y ya no recibirá actualizaciones. Se ha eliminado de los repositorios y se debe considerar su desinstalación.",
+      "pl": "Adapter ioBroker.rmb-bhkw został zarchiwizowany przez jego administratora i nie będzie już otrzymywał aktualizacji. Został usunięty z repozytoriów i należy rozważyć odinstalowanie adaptera.",
+      "uk": "Адаптер ioBroker.rmb-bhkw був архівований його розробником і більше не отримуватиме жодних оновлень. Його було видалено з репозиторіїв, і слід розглянути можливість видалення адаптера.",
+      "zh-cn": "适配器 ioBroker.rmb-bhkw 已被其维护者存档，将不再获得任何更新。该适配器已从代码库中移除，建议考虑卸载。"
+    },
+    "id": "rmb-bhkw-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-11T00:00:00.000Z",
+    "conditions": {
+      "rmb-bhkw": "installed"
+    }
   }
 ]
