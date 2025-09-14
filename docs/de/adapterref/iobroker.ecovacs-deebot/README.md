@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: 713ZW7GDu30w1y02dO7S5QJvaboY7I2w0irmkat0788=
+hash: dOsDodHcp4bWmWak81bEG1Afw9rWl/ks/wYylpE/Dy0=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
-![stabile Version](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
-![Letzte Version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
+![Stabile Version](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
+![Neuste Version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
 ![Anzahl der monatlichen Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
 ![Anzahl der Downloads](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
@@ -16,32 +16,32 @@ hash: 713ZW7GDu30w1y02dO7S5QJvaboY7I2w0irmkat0788=
 # Ecovacs Deebot-Adapter für ioBroker
 [![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
 
-Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js)-Bibliothek.
+Dieser Adapter verwendet die Bibliothek [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
 
 ## Merkmale
 ### Grundfunktionen
-* Reinigungsfunktionen (z. B. automatische, Bereichs- und benutzerdefinierte Bereichsreinigung) und verschiedene andere Grundfunktionen (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen, Position ändern)
-* Informationen abrufen (z. B. Akkustand, Reinigungsprotokoll, Verbrauchsmaterialstatus, Reinigungs- und Ladestatus) und verschiedene andere erweiterte Informationen (z. B. Ladeposition, kartenbezogene Informationen)
-* Stellen Sie die Saugleistung, den Wasserstand und andere grundlegende Einstellungen sowie verschiedene erweiterte Einstellungen ein (z. B. kontinuierliche Reinigung, Nicht-Stören-Modus, Lautstärke, AIVI/TrueDetect 3D).
-* Abrufen von Karteninformationen, einschließlich Flächen, virtuellen Grenzen und Wischverbotszonen, auch während des Reinigungsprozesses (z. B. aktuelle Position und Fläche)
+* Reinigungsfunktionen (z. B. automatische, flächenbezogene und benutzerdefinierte Flächenreinigung) und verschiedene weitere Grundfunktionen (z. B. Ton abspielen, Verbrauchsmaterial zurücksetzen, Position verschieben)
+* Abrufen von Informationen (z. B. Akkustand, Reinigungsprotokoll, Verbrauchsmaterialstatus, Reinigungs- und Ladestatus) und diversen weiteren erweiterten Informationen (z. B. Ladeposition, kartenbezogene Informationen)
+* Saugleistung, Wasserstand und weitere Grundeinstellungen sowie diverse erweiterte Einstellungen (z. B. Dauerreinigung, Nicht-Stören-Modus, Lautstärke, AIVI/TrueDetect 3D) einstellen
+* Abrufen von Informationen der Karten, einschließlich Bereichen, virtuellen Grenzen und Wischverbotszonen, auch während des Reinigungsvorgangs (z. B. aktuelle Position und Bereich)
 * Laden des aktuellen Kartenbildes
 
 ### Erweiterte Funktionen (nur ioBroker-Adapter)
 * Speichern und erstellen Sie vollständige Sätze virtueller Grenzen und No-Mop-Zonen
-* Informationen zu Datum und Uhrzeit der letzten Präsenz für jeden einzelnen Bereich
-* Einige Funktionen beim Zurückkehren zur Ladestation oder beim Betreten/Verlassen des Bereichs
+* Informationen über Datum und Uhrzeit der letzten Anwesenheit für jeden einzelnen Bereich
+* Einige Funktionen bei der Rückkehr zur Ladestation oder beim Betreten/Verlassen des Bereichs
 * Speichern Sie den zuletzt verwendeten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
-* Leise Anfahrreinigungs- und Go-to-Position-Funktionen
-* Legen Sie individuelle Bereichsnamen fest
+* Leise Annäherungsreinigung und Go-to-Position-Funktionen
+* Individuelle Bereichsnamen festlegen
 
-### Wichtige Notizen
-* Einige Funktionen (z. B. „Silent Approach“) sind nur für einige Modelle verfügbar (meist aktuelle Modelle)
+### Wichtige Hinweise
+* Einige Funktionen (z. B. „Silent Approach“) sind nur bei einigen Modellen verfügbar (meist aktuelle Modelle)
 * und einige sind noch experimentell (z. B. „Laden des aktuellen Kartenbildes“, Umgang mit Sätzen virtueller Grenzen)
-* Die Funktionalität des Adapters ist nicht für alle Modelle gewährleistet (siehe unten)
+* Die Funktionalität des Adapters ist nicht für alle Modelle garantiert (siehe unten)
 
 ## Modelle
 ### Unterstützte Modelle
-Die folgenden Modelle besitze ich selbst und werden daher sehr weithin unterstützt:
+Die folgenden Modelle besitze ich selbst und werden daher sehr umfassend unterstützt:
 
 * Deebot OZMO 920/950
 * Deebot OZMO T8 AIVI
@@ -50,10 +50,10 @@ Die folgenden Modelle besitze ich selbst und werden daher sehr weithin unterstü
 
 ### Andere Modelle
 Die folgenden Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren.
-Ihre Funktionsfähigkeit ist entweder bereits bekannt oder sie sind diesen Modellen technisch ähnlich.
+Sie funktionieren entweder bereits oder ähneln technisch diesen Modellen.
 Dennoch kann die Funktionalität teilweise eingeschränkt sein.
 
-Ich versuche einen möglichst großen Funktionsumfang zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
+Ich bemühe mich um einen möglichst breiten Funktionsumfang, entscheide dies aber im Einzelfall je nach Komplexität und verschiedenen weiteren Kriterien.
 Ein Anspruch auf volle Funktionalität besteht selbstverständlich nicht.
 
 #### Ecovacs Deebot
@@ -66,30 +66,30 @@ Ein Anspruch auf volle Funktionalität besteht selbstverständlich nicht.
 * Deebot X2-Serie
 
 #### Yeedi
-* Yeedi k650
+* Yeedi K650
 * Yeedi 2 Hybrid
-* Yeedi-Vac-Hybrid
-* yeedi vac max
-* Yeedi vac 2 pro
-* Yeedi Wischstation
+* Yeedi Staubsauger-Hybrid
+* Yeedi Staubsauger Max
+* Yeedi Vac 2 Pro
+* Yeedi-Moppstation
 
 **Hinweis**: Alle diese Listen sind möglicherweise nicht vollständig
 
-### Legacy-Modelle (wird bald eingestellt)
-Ältere Modelle, die XML für den Datentransport nutzen (z. B. Deebot OZMO 930, Deebot 900/901), funktionieren größtenteils noch, der Support für diese Modelle wird jedoch früher oder später eingestellt.
+### Legacy-Modelle (werden bald eingestellt)
+Ältere Modelle, die XML für den Datentransport verwenden (z. B. Deebot OZMO 930, Deebot 900/901), funktionieren größtenteils noch, der Support für diese Modelle wird jedoch früher oder später eingestellt.
 
-Weitere Informationen finden Sie unter [diese Readme-Datei](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued).
+Weitere Informationen finden Sie unter [diese Readme](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued).
 
 ## Installation
 ### Voraussetzungen
 Um diesen Adapter verwenden zu können, muss [ioBroker](iobroker.net) bereits installiert sein.
 
-Die mindestens erforderliche Version von Node.js ist 16.x.
+Die mindestens erforderliche Version von Node.js ist 20.x.
 
 ### Optionale Voraussetzungen
-Dieser Adapter verwendet die [Knoten-Leinwand](https://www.npmjs.com/package/canvas)-Bibliothek für einige kartenbezogene Funktionen, die möglicherweise die Installation einiger zusätzlicher Pakete erfordern.
+Dieser Adapter verwendet die Bibliothek [Knoten-Canvas](https://www.npmjs.com/package/canvas) für einige kartenbezogene Funktionen, für die möglicherweise die Installation einiger zusätzlicher Pakete erforderlich ist.
 
-Die Installation von Canvas ist optional und für Modelle ohne Kartenfunktionalität nicht notwendig, für den vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
+Die Installation von Canvas ist optional und für Modelle ohne Kartenfunktionalität nicht erforderlich. Für den vollen Funktionsumfang installieren Sie jedoch bitte die folgenden Pakete.
 
 Für Debian-basierte Linux-Systeme sollten die folgenden Befehle ausgeführt werden:
 
@@ -98,7 +98,7 @@ sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Möglicherweise ist ein Neustart erforderlich, bevor der nächste Befehl ausgeführt wird
+Vor der Ausführung des nächsten Befehls ist möglicherweise ein Neustart erforderlich
 
 ```bash
 npm install canvas --unsafe-perm=true
@@ -106,28 +106,40 @@ npm install canvas --unsafe-perm=true
 
 Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/canvas#compiling
 
-## FAQ
-Häufig gestellte Fragen finden Sie unter [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+## Häufig gestellte Fragen
+Häufig gestellte Fragen finden Sie [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ## Verwendung
-Informationen zur Verwendung dieses Adapters finden Sie unter [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
+Informationen zur Verwendung dieses Adapters finden Sie [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
-### Zustände
+### Staaten
 Informationen zu den Bundesländern finden Sie unter [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (Englisch) und [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (Deutsch).
 
 ## Bekannte Probleme
-* Die Funktion „Verschieben“ variiert von Modell zu Modell und ist daher nicht universell implementiert
+* Die Funktion „Verschieben“ variiert von Modell zu Modell, daher ist sie nicht universell implementiert
 * Die Generierung von Kartenbildern ist auf 32-Bit-Systemen nicht stabil
 * und es funktioniert immer noch nicht richtig mit der Deebot X1-Serie und anderen aktuellen Modellen
 
 ## Haftungsausschluss
-Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technology Limited.
+Ich bin in keiner Weise mit Ecovacs Robotics Co., Ltd. oder yeedi Technology Limited verbunden.
 
 ## Changelog
 
-### 1.4.15 (alpha)
-* Breaking change: Bump minimum required version of Node.js to 18.x
-* Improvements and optimizations
+### 1.4.16 (alpha)
+- Breaking change: Bump minimum required version of Node.js to 20.x
+- Add more states for air drying timer
+- Use adapter-dev module
+- Some further improvements and optimizations
+* Bumped ecovacs-deebot.js to 0.9.6 (latest beta)
+* Bumped several other dependencies
+ 
+### 1.4.15 (latest stable)
+- Breaking change: Bump minimum required version of Node.js to 18.x
+- Bumped ecovacs-deebot.js to 0.9.6 (beta)
+- Add state (button) for manually requesting the cleaning log
+- Separate mopping and scrubbing mode
+- Add states for air drying timer
+- Some further improvements and optimizations
 
 ### 1.4.14
 * Breaking change: Bump minimum required version of Node.js to 16.x
@@ -139,7 +151,7 @@ Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technolo
 * Bumped some dependencies
 * Some further improvements and optimizations
 
-### 1.4.13 (latest stable)
+### 1.4.13
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations
@@ -242,7 +254,7 @@ Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technolo
 
 MIT License
 
-Copyright (c) 2024 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2025 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

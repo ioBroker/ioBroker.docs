@@ -17,6 +17,15 @@ For a detailed description of the widgets and functionality, see Adapter rssfeed
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.2.2 (2025-07-13)
+
+- upgrade dependencies
+
+### 1.2.1 (2025-07-13)
+
+- fix some type refs
+- activate dependabot
+
 ### 1.2.0 (2025-06-05)
 
 - switch build framework from CRA to vite

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: drpnQNpZlM+9gT9kDsZI9pC30PxYja3++prE3EBhJjc=
+hash: 9UJOPypmxkFfxvXFuqf+wbRiFmcNAW2l/q/xAjD51bM=
 ---
 ![Logo](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
@@ -17,15 +17,26 @@ hash: drpnQNpZlM+9gT9kDsZI9pC30PxYja3++prE3EBhJjc=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.pid.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pid-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/pid-installed.svg)
+![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.pid
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Testen und Freigeben](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
+**Allgemeine Informationen:**<br> [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br></br> **Version:**</br></br> **Tests:**</br> [![Testen und Freigeben](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)<br> **Spende:**</br>
 
-## Wache
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**************************************************************************************************************
+
+## Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**************************************************************************************************************
 
 ## PID-Adapter für ioBroker
 Dieser Adapter bietet einen konfigurierbaren PID-Regler.
+
+**************************************************************************************************************
+
+## Haftungsausschluss
+**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.**
+
+**************************************************************************************************************
 
 ## Allgemeine Informationen
 Dieser Adapter bietet die Funktionalität eines PID-Reglers.
@@ -34,7 +45,7 @@ In der Praxis berechnet ein PID-Regler automatisch einen Korrekturwert für ein 
 
 Innerhalb einer Adapterinstanz können mehrere Regler konfiguriert werden. Der Adapter unterstützt die Konfiguration der Parameter (P-, I-, D-Anteil) und der für die Berechnung verwendeten Zykluszeit. Darüber hinaus kann die Berechnung unterbrochen und fortgesetzt sowie der Regler zurückgesetzt werden. Als praktische Funktion lässt sich ein manueller Modus aktivieren, um die Ausgabe direkt zu setzen. Die Ausgabe kann auf einen Minimal-/Maximalwert begrenzt werden und einen festen Offset enthalten.
 
-Alle relevanten Werte inklusive interner Daten stehen als Zustände für Diagnosezwecke zur Verfügung.
+Alle relevanten Werte, einschließlich interner Daten, stehen als Zustände für Diagnosezwecke zur Verfügung.
 
 ## Dokumentation
 [englische Dokumentation](docs/en/pid_en.md)<br> [deutsche Dokumentation](docs/de/pid_de.md)
@@ -45,12 +56,12 @@ Die Bereitstellung dieses Adapters wäre ohne die großartige Arbeit von @Philmo
 ## So melden Sie Probleme und Funktionsanfragen
 Bitte verwenden Sie hierfür GitHub-Probleme.
 
-Am besten stellst du den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalte Log-Level). Lade dir anschließend die Logdatei von der Festplatte herunter (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis, nicht vom Admin-Bereich, da dieser die Zeilen abschneidet). Falls du die Logdatei nicht im GitHub-Issue bereitstellen möchtest, kannst du sie mir auch per E-Mail (mcm57@gmx.at) senden. Bitte füge einen Verweis auf das entsprechende GitHub-Issue hinzu und beschreibe, was ich zu welchem Zeitpunkt im Log sehe.
+Am besten stellst du den Adapter in den Debug-Log-Modus (Instanzen -> Expertenmodus -> Spalte Log-Level). Lade dir dann die Logdatei von der Festplatte herunter (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin-Bereich, da dieser die Zeilen abschneidet). Falls du die Logdatei nicht im GitHub-Issue bereitstellen möchtest, kannst du sie mir auch per E-Mail (mcm57@gmx.at) senden. Bitte füge einen Verweis auf das entsprechende GitHub-Issue hinzu UND beschreibe, was ich zu welchem Zeitpunkt im Log sehe.
 "title": "lblCtrlInvert",
 
 **************************************************************************************************************
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn Ihnen dieser Adapter gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
 

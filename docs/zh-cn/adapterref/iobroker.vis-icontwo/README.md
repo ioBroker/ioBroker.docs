@@ -3,19 +3,18 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-icontwo/README.md
 title: ioBroker.vis-icontwo
-hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
+hash: ILCLKSTsrZUtsJxiUX06oFXc4e9QvWk3TblBSWO5HbQ=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis-icontwo.svg)
-![安装数量（稳定）](http://iobroker.live/badges/vis-icontwo-stable.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
 ![安装数量（最新）](http://iobroker.live/badges/vis-icontwo-installed.svg)
+![安装数量（稳定）](http://iobroker.live/badges/vis-icontwo-stable.svg)
+![NPM 版本](https://nodei.co/npm/iobroker.vis-icontwo.svg?style=shields&data=v,u,d&color=orange)
+![下载](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
 ![已知漏洞](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)
 ![构建状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
-![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.vis-icontwo.png?downloads=true)
+![执照](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
+![Paypal 捐款](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
 # IoBroker.vis-icontwo
 ## IoBroker.vis 适配器的图标适配器
@@ -29,18 +28,18 @@ hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
 
 ---
 
-## 福尔绍
+## 展望
 Eine kleine Vorschau über den Stil der Icons：
 
-Z.B.灯（泰劳斯瓦尔）：
+Z.B. Lights（选择）：
 
 ![截屏](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_002.png)
 
-Z.B.客房（泰劳斯瓦尔）：
+Z.B. 房间（预订选择）：
 
 ![截屏](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_003.png)
 
-Z.B.设备（Teilauswahl）：
+Z.B. 设备（订购选择）：
 
 ![截屏](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_004.png)
 
@@ -50,16 +49,121 @@ Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur
 
 ---
 
-## 下图
+## 服务
 瀑布Dir unsere Arbeit gefällt und Du uns unterstützen möchtest，wir freuen uns über jede Spende。
 
 （Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker）
 
-[![花费](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog
+
+### 1.18.0
+
+• Neue Icons hinzugefügt (Network, Printer & People)
+
+### 1.17.0
+
+• Neue Icons hinzugefügt (Devices/battery)
+• Neue Icons hinzugefügt (Alarm/camera)
+
+### 1.16.0
+
+• Neue Icons hinzugefügt (Backgrounds/wood)
+
+### 1.15.0
+
+• Neue Icons hinzugefügt (Devices/mower)
+
+### 1.14.0
+
+• Neue Icons hinzugefügt (Player/record)
+
+### 1.13.0
+
+• Neue Icons hinzugefügt (Alarm/record)
+
+### 1.12.0
+
+• Neue Icons hinzugefügt (Animals/Cats)
+
+### 1.11.0
+
+• Neue Icons hinzugefügt (Cars)
+
+### 1.10.2
+
+• Bug-Fix
+
+### 1.10.1
+
+• Bug-Fix
+
+### 1.10.0
+
+• Neue Icons hinzugefügt (Devices - Computers - Zigbee)
+
+### 1.9.0
+
+• Neue Icons hinzugefügt (Brands - Zigbee)
+
+### 1.8.1
+
+• Bug-Fix
+
+### 1.8.0
+
+• Neue Icons hinzugefügt (Devices - Network)
+
+### 1.6.3
+
+• Bug-Fix
+
+### 1.6.0
+
+• Neue Icons hinzugefügt (Devices - Mower Blade)
+
+### 1.5.0
+
+• Neue Icons hinzugefügt (Animals - Rat & Mouse)
+
+### 1.4.0
+
+• Neue Icons hinzugefügt (Lights - Printer-LED)
+
+### 1.3.0
+
+• Neue Icons hinzugefügt (Lights - LED)
+
+### 1.2.1
+
+• Bugfix (version number)
+
+### 1.2.0
+
+• Neue Icons hinzugefügt (Devices - thermal_heater) (Devices/Printers - printer_lable)
+
+### 1.1.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS) (Games - scissors/stone/paper)
+
+### 1.0.0
+
+• VIS-2 kompatibel
+
+### 0.98.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS)
+
+### 0.97.3
+
+• Bugfix
+
+### 0.97.2
+
+• Bugfix
 
 ### 0.97.1
 
@@ -545,9 +649,6 @@ Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur
 
 ## License
 
-Urheberrechte (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
-
-
 MIT License (nur in englisch / englisch only)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -570,4 +671,6 @@ SOFTWARE.
 
 ---
 
-Icons from Icons8 https://icons8.com/
+Icons from Icons8 https://icons8.com/ 
+
+Copyright (c) 2025 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)

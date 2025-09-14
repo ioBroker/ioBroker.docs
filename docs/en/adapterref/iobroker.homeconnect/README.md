@@ -1,31 +1,18 @@
+---
+BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.homeconnect.svg
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.homeconnect.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/homeconnect-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/homeconnect-installed.svg
+---
 ![Logo](admin/homeconnect.png)
 
 # ioBroker.homeconnect
-
-[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/blob/main/LICENSE)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
-![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
-![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
-![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
-</br>
-**Version:** </br>
-[![NPM version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
-![Current version in stable repository](https://iobroker.live/badges/homeconnect-stable.svg)
-![Number of Installations](https://iobroker.live/badges/homeconnect-installed.svg)
-</br>
-**Tests:** </br>
-[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml)
-[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
-
-## Sentry
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
-For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
-## Homeconnect Adapter for ioBroker
 
 ## Requirements before installation
 
@@ -60,15 +47,6 @@ Then save and you have the required ClientID.
 
 Please add Homeconnect App username, password and generated cleintId into adapter config.
 
-## Description
-
-🇬🇧 [Description](/docs/en/README.md)</br>
-🇩🇪 [Beschreibung](/docs/de/README.md)
-
-## Questions
-
-🇩🇪 [Fragen](https://forum.iobroker.net/topic/16446/test-adapter-homeconnect-bsh-home-connect-v0-0-x?_=1749842644389)
-
 ## Usage
 
 With the states in commands you can stop, pause and resume a program.
@@ -77,6 +55,132 @@ Change the value of programs.active.BSH_Common_Root_ActiveProgram leads to start
 Update iQ300: You need to set the program name in this variable. If programs.selected.BSH_Common_Root_SelectedProgram is copied, the machine user can predefine the wanted program at the machine and it will be started via ioBroker
 Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to selecting a program or options
 
+## Rate Limiting
+
+[API Rate Limiting](https://api-docs.home-connect.com/general/#rate-limiting)
+
+- 10 event monitoring sessions per user and Home Connect account
+  - not added
+- 10 queries per second (this depends on the data volume)
+
+  - not added
+
+- 10 token refreshes per minute
+  - Triggered after 9 requests within a minute. Then locked for 1 minute
+- 109 token refreshes per day
+  - Triggered after 99 requests within a day. Then locked until midnight. Not sure if it's actually 24 hours.
+
+## homeconnect.0.rateTokenLimit.isBlocked
+
+- true for lock and false for no lock
+
+## homeconnect.0.rateTokenLimit.limitJson
+
+```JSON
+{
+  "tokenRefreshMinutesMax": 9, // Max requests per 10 minutes
+  "tokenRefreshMinutesCount": 0, // Counter for max requests per 10 minutes
+  "tokenRefreshMinutesLast": 1754680202619, // Start time as a timestamp from which counting begins
+  "tokenRefreshDayMax": 99, // Max requests per day
+  "tokenRefreshDayCount": 2, // Counter for max requests per day
+  "tokenRefreshDayLast": 1754658108428, // Start time as a timestamp from which counting begins
+  "tokenBlock": false, // True if a lock is active
+  "tokenBlockTime": 0, // Timestamp when the lock was triggered
+  "tokenReason": "No Block" // Name of the lock (internal adapter)
+}
+```
+
+## homeconnect.0.rateTokenLimit.reason
+
+```JSON
+    "states": {
+      "0": "Nothing", // No lock
+      "1": "Token Limit (10 per minute)", // 10 minute lock active
+      "2": "Token Limit (100 per day)" // 24h active
+    }
+```
+
+- 10 requests per second on average (20 requests max. burst) with leaky bucket algorithm
+
+  - Triggered after 15 requests
+
+- 1000 requests per client and Home Connect user account per day
+
+  - Triggered after 9999 requests within one day. Then locked until midnight. I'm not sure if it's actually 24 hours.
+
+- 50 requests per client and Home Connect user account per minute
+
+  - Triggered after 49 requests within one minute. All queries are blocked for one minute.
+
+- 5 Start requests per user and Home-Connect user account per minute
+
+  - Triggered after 4 requests within one minute. All queries are blocked for 1 minute.
+
+- 5 Stop requests per user and Home-Connect user account per minute
+
+  - Triggered after 4 requests within one minute. All queries are blocked for 1 minute.
+
+- 10 successive requests per client and Home Connect user account per 10 minutes
+  - Triggered after 9 error messages within 10 minutes. All queries are blocked for 10 minutes.
+
+## homeconnect.0.rateLimit.isBlocked
+
+- true for lock and false for no lock
+
+## homeconnect.0.rateLimit.limitJson
+
+```JSON
+{
+  "requestsMinutesMax": 49, // Max requests per minute
+  "requestsMinutesCount": 0, // Counter for max requests per minute
+  "requestsMinutesLast": 1754680202594, // Start time as a timestamp from which counting begins
+  "requestsDayMax": 999, // Max requests per day
+  "requestsDayCount": 21, // Counter for max requests per day
+  "requestsDayLast": 0, // Start time as a timestamp from which counting begins
+  "requestsMinutesStartMax": 4, // Max start requests per minute
+  "requestsMinutesStartCount": 0, // Counter for start requests per minute
+  "requestsMinutesStartLast": 1754680202594, // Start time as a timestamp from which counting begins
+  "requestsMinutesStopMax": 4, // Max stop requests per minute
+  "requestsMinutesStopCount": 0, // Counter for stop requests per minute
+  "requestsMinutesStopLast": 1754680202594, // Start time as a timestamp from which counting begins
+  "responseErrorLast10MinutesMax": 9, // Max requests per 10 minutes
+  "responseErrorLast10MinutesCount": 2, // Counter for max requests per 10 minutes
+  "responseErrorLast10MinutesLast": 1754680143652, // Start time as a timestamp from which counting begins
+  "requestBlock": false, // True if a lock is active
+  "requestBlockTime": 0, // Timestamp when the lock was triggered
+  "requestReason": "No Block", // Name of the lock (internal adapter)
+  "requests": [ // All requests per day
+    {
+      "methode": "GET", // Methode
+      "haId": "0000", // Serial number
+      "url": "/status", // URL
+      "date": "2025-08-14T18:46:17.535Z", // TIme
+      "response": "OK" // OK == Kein Fehler / Error == Fehler
+    },
+    {
+      "methode": "GET",
+      "haId": "015030396331009276",
+      "url": "/settings",
+      "date": "2025-08-14T18:46:17.536Z",
+      "response": "OK"
+    },
+  ],
+}
+```
+
+## homeconnect.0.rateLimit.reason
+
+```JSON
+    "states": {
+      "0": "Nothing", // No lock
+      "1": "Error Limit (10 per 10 minutes)", // Error lock active for 10 minutes
+      "2": "Start (5 per minute)", // Start lock active for 1 minute
+      "3": "Stop Limit (5 per minute)", // Stop lock active for 1 minute
+      "4": "Request Limit (50 per minute)", // Lock active for 1 minute
+      "5": "Request Limit (1000 per day)" // Block for one day active
+    }
+```
+
 ## Changelog
 
 <!--
@@ -84,14 +188,19 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+**WORK IN PROGRESS**
+
+- (Lucky-ESA) Fixed: Name of the objects are deleted
+
+### 1.5.0 (2025-09-02)
 
 - (Lucky-ESA) Clean up state roles and code
+- (Lucky-ESA) Added rate limiting
 - (Lucky-ESA) Dependencies updated
 - (Lucky-ESA) Added language selection
 - (Lucky-ESA) Migrated to ESLint 9
 - (Lucky-ESA) Adapter requires js-controller >= 6.0.11 now
-- (Lucky-ESA) Adapter requires admin >= 7.4.10 now
+- (Lucky-ESA) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Adapter requires node.js >= 20 now
 
 ### 1.4.3 (2024-11-19)
@@ -111,10 +220,6 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 - (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 - (mcm1957) Dependencies have been updated
-
-### 1.3.0 (2023-12-15)
-
-- fix login
 
 ## License
 

@@ -164,6 +164,11 @@ Hier können allgemeine Einstellungen des Geräts vorgenommen werden. Beispielsw
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (eifel-tech) Try to replace access=none in some options (Issue #333)
+
 ### 1.6.2 (2025-05-28)
 
 - (eifel-tech) Dependency updates and node-version >= 20

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: oHusWnae3ROygjc/y6YEEP/LW8ZbCO2QY6Cc+3r9bYc=
+hash: SgMuOpJIB+SOkVym/n7GnyodzW7w3eHFGhWOfLXT+nA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -20,17 +20,17 @@ hash: oHusWnae3ROygjc/y6YEEP/LW8ZbCO2QY6Cc+3r9bYc=
 Vaillant multiMatic und myVaillant Adapter
 
 ### Erste Schritte
-Geben Sie in den Instanzoptionen die E-Mail-Adresse und das Passwort der MultiMatic/Senso- oder MyVaillant-App ein.
+Geben Sie in den Instanzoptionen Mail und Passwort der multimatic /senso oder myVaillant App ein.
 
-Die Konfiguration kann geändert werden, indem sie unter dem Unterpunkt Konfiguration angepasst wird. Einige Optionen werden nur angewendet, wenn der Modus EIN oder MANUELL und nicht AUTO oder ZEITGESTEUERT ist.
+Die Konfiguration kann in dem sie unter dem Unterpunkt Konfiguration angepasst werden geändert werden. Manche Konfigurationen werden erst angewendet, wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
 
 ## **Beispiel Multimatic:**
-**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Zuerst auf MANUELL vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUELL dann Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint und schließlich operation_mode auf ZEITGESTEUERT
+**Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Erst auf MANUAL vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint Und am Ende operation_mode auf TIME_CONTROLLED
 
-Parameter können über den Parameterwertpunkt angepasst werden, dabei ist zu beachten, welche Werte in der Objektdefinition erlaubt sind.
+Parameter können über den Punkt parameterValue angepasst werden und dabei beachten, welche Werte im Objekt definition erlaubt sind.
 
 ## **Beispiel myVaillant:**
-vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false, um Boost zu aktivieren oder zu deaktivieren. vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint, um die gewünschte Raumtemperatur einzustellen. vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode AUS MANUELL ZEITGESTEUERT vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode AUS MANUELL ZEITGESTEUERT
 
 ## Remote-Befehle
 Für Refresh und vordefinierte `vaillant.0.id.remote`
@@ -39,7 +39,7 @@ Für Refresh und vordefinierte `vaillant.0.id.remote`
 Sie können benutzerdefinierte Command-Remote für nicht vordefinierte Fernbedienungen verwenden `vaillant.0.id.remotes.customCommand`
 
 ### Beispiele:
-## Zonen können von 0 bis X reichen. Probieren Sie zone/0/ oder zone/2/ aus
+## Die Zone kann von 0 bis X gehen. Bitte Zone/0/ oder Zone/2/ testen
 zone/0/xxxx
 
 zone/1/xxxx
@@ -117,7 +117,7 @@ zone/2/xxxx
 ```
 
 ```json
-{
+{w
   "url": "ventilation/0/day-fan-stage",
   "data": { "maximumDayFanStage": 3 }
 }
@@ -236,12 +236,9 @@ zone/2/xxxx
 
 ## Changelog
 
-### 0.7.3
-
 <!-- ### **WORK IN PROGRESS** -->
-- fix month stats period
-- initial english translation for documentation
-- formal cleanups for publishing process
+### 0.7.5 (2025-07-09)
+ - revert change to fix save issue
 
 ### 0.7.2 (2024-04-18)
 

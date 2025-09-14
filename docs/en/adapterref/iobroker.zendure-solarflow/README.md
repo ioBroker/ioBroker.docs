@@ -42,129 +42,68 @@ If the Zendure device communicates with your MQTT server, you can connect this i
 
 You can still do firmware updates with the official Zendure app via bluetooth and use both bluetooth tools to reconnect the device to the cloud!
 
+## Important
+
+If you plan to control the charging and feed in of your device with a script/blockly, I recommend using the control parameter '**setDeviceAutomationInOutLimit**', as this controls the device without writing to the flash memory of the device. It is also a good idea to set the control state '**smartMode**' to true if you own a HUB 1200/2000 with ACE 1500, as it will also force the device to write 'acMode' changes to the ram instead of flash memory.
+
+### Hyper 2000, SF 2400 AC oder SF 800 (pro)
+
+On devices like the Hyper 2000, SF 2400 AC oder SF 800 (pro) you can use negative values to trigger charging from grid. SF 2400 AC oder SF 800 (pro) is currently **untested**!
+
+### HUB 1200 / HUB 2000 / ACE 1500 Combo
+
+On a HUB 1200 / HUB 2000 / ACE 1500 combination you have to use '**setDeviceAutomationInOutLimit**' for feed in and manualy switch acMode and the '**setInputLimit**' if you want to charge from the grid. Setting the '**smartMode**' to true is highly recommended in this scenario!
+
 ## Notes
 
-1. Please deactivate/uncheck all modes in the Zendure App, otherwise it is not possible to set the output limit!
-
-   ![Solarflow Settings Window](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
-
-2. You will be logged out of the official iOS or Android App after logging in with the ioBroker adapter. This is a normal behavior. As a workaround you can create an second Zendure account with another e-mail and grant access to your Solarflow HUB to this account. Then use the second account for ioBroker / the Zendure Solarflow adapter.
+You will be logged out of the official iOS or Android App after logging in with the ioBroker adapter. This is a normal behavior. As a workaround you can create an second Zendure account with another e-mail and grant access to your Solarflow HUB to this account. Then use the second account for ioBroker / the Zendure Solarflow adapter. This is not working für new devices like SF 2400 AC or SF 800 (Pro).
 
 ## Credits
 
 Credits goes to https://github.com/reinhard-brandstaedter/solarflow which helped a lot with the knowledge about the MQTT server from Zendure! Thanks!
 
 ## Changelog
-### 1.14.3 (2025-06-09)
+### 2.0.4 (2025-09-12)
 
-- Fix input and output limit for Solarflow 2400 AC
+- Fix creation of control states on new Hyper 2000 v3
+- Updates dependencies
 
-### 1.14.2 (2025-06-07)
+### 2.0.3 (2025-09-09)
 
-- Fix control states not writable.
+- Added 'B3Dxda' as new Hyper 2000 productKey
+- Removed parameter 'upTime' and 'pullTime' from 'setDeviceAutomationInOutLimit'
+- TEST: Use 'setDeviceAutomationInOutLimit' to let HUB1200/HUB2000 charge with connected ACE 1500
 
-### 1.14.1 (2025-06-07)
+### 2.0.1 (2025-07-22)
 
-- IMPORTANT: This version will use a new way to check which states should be created for the device, so maybe something is broken on state creation!
-- Add support for AC2400, Solarflow 800 and Solarflow 800 Pro. All devices are untested as Zendure won't allow to share data to other users on these new devices AND I don't own any of the devices!
-- Removed the "standby usage" on batteries, as it confused some people.
+- Small fix MQTT service
 
-### 1.13.2 (2025-05-07)
+### 2.0.0 (2025-07-21)
 
-- Fix AC Mode showing unknown parameter on ACE 1500
+- Breaking Change: Add control parameter 'setDeviceAutomationInOutLimit' which emulates Zendure's Smart Matching mode. I recommend using this device automation instead of 'setInputLimit'/'setOutputLimit' from now on, as there were concerns that setting limits/modes would be stored in the flash memory. You can use negative values for charging and positive for feed in. On HUB 1200/2000 with ACE 1500 you can use "smartMode" to prevent switching AC mode trigger writing to the flash memory. Check you the readme for more details or participate in the ioBroker forum.
 
-### 1.13.1 (2025-05-05)
+### 1.15.4 (2025-07-17)
 
-- TEST: Set Smart CT Mode and Smart Matching Mode correctly - Feedback needed!
-- Removed efficiency from calculation, as it seems Zendure already included it in charge and discharge values
+- Add smart mode control parameter for more devices
 
-### 1.13.0 (2025-04-30)
+### 1.15.3 (2025-07-17)
 
-- Add possibility to deactivate automatic restart of adapter in adapter settings (recommended only on local mode!)
-- Fixed missing control state "hubState"
+- Match case sensitive product key for SF 2400 AC and SF 800 in settings if local mode is used
+- Add sensor and control of "SmartMode"
 
-### 1.12.7 (2025-03-24)
+### 1.15.2 (2025-07-14)
 
-- Add productKey "gDa3tb" for Hyper 2000
+- Fix missing SF 800 & 2400 AC in local mode settings
 
-### 1.12.6 (2025-03-21)
+### 1.15.1 (2025-07-11)
 
-- Fix onMessage Debug message
+- Fix missing Solar Input 3 & 4 on Solarflow 800 Pro
+- Fix 'packPower' state did not set to 0 if no input/output
 
-### 1.12.5 (2025-03-21)
+### 1.15.0 (2025-06-27)
 
-- Add Debug messages on log level debug
-- Add schedule for adapter refresh on local mode
-- Fix Change of Discharge limit to 0
-
-### 1.12.4 (2025-03-19)
-
-- Fix calculation of SOC if "local" mode is used
-
-### 1.12.3 (2025-03-19)
-
-- Add 2 more devices if "local" mode is used
-- Fix mqtt subscription of 2. device in "local" mode
-
-### 1.12.2 (2025-03-18)
-
-- Fix reset of calculation values on "local" mode
-
-### 1.12.1 (2025-03-17)
-
-- Fix IOT subscription
-
-### 1.12.0 (2025-03-17)
-
-- Added possibility to use "local" mode. You have to either route dns request to your own MQTT server or use a tool to modify the Zendure device
-- Some improvements on value calculation
-- Some improvements on AIO 2400 device
-
-### 1.11.0 (2025-02-11)
-
-- Drop Standby usage to 7W and 14W if HUB connected with ACE as it is more accurate
-- Added heatState and autoModel (system operation mode) state
-- Added possibility to set the operation mode (autoModel)
-- Fix gridPower state
-
-### 1.10.7 (2025-01-21)
-
-- Fix reset calculation values of ACE if connected to HUB
-
-### 1.10.6 (2025-01-16)
-
-- Fix start of calculation if HUB is connected with Ace
-
-### 1.10.4 (2025-01-14)
-
-- Fix "Grid Input Power" state if connected with Ace
-
-### 1.10.1 (2025-01-06)
-
-- Fix input limit when hub is bundled with ace
-- Fix calculation when low voltage block is activated
-
-### 1.10.0 (2024-12-02)
-
-- Add setting to perform a full charge if SOC from Zendure is greater than 50% when on low voltage
-- Bugfixes
-
-### 1.9.3 (2024-11-22)
-
-- Fix for Low Voltage Block not deactivated
-
-### 1.9.2 (2024-11-21)
-
-- Fix some state definitions
-
-### 1.9.1 (2024-11-21)
-
-- Improvement for 'Low Voltage Block'.
-- Changed the state "hubState" a an option value.
-
-### 1.9.0 (2024-11-20)
-
-- New option to force Solarflow device to go offline when "Low Voltage Block"-option is used.
+- Add 'packPower' state, which shows combined power from (packInputPower and outputPackPower). Discharging will be shown with a negative value.
+- Add 'hyperTmp' to Solarflow 800 devices in hope this will show the temperature of the Solarflow 800 (can not test it due to lack of test device).
 
 ## License
 

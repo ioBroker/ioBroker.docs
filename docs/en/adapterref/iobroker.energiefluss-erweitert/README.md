@@ -32,6 +32,21 @@ It provides an animated energyflow for all elements, you add. This could be: pho
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- FIX: When using **Animation dependency** 'Dots' or 'Duration' the animation could "jump" during recalculation (now the 'jump' is smoothly animated)
+- FIX: Editing a datasource was not accepting the new choosen state (#374)
+- FIX: 'Manual value change' of click actions now better detect the value type of the destination source
+- Added: A new property 'Distance between the dot blocks' inside 'animation'-tab is available. This setting can be used, to define the distance between dot-blocks
+- Added: Some more error handling for overrides. Now they are checked, if they have the correct format and/or syntax
+- Added: 2 new override properties are available: "addClass" and "removeClass" which allow the user, to add or remove own defined CSS classes
+- Added: The workspace will be centered itself to the current selected element
+- Added: Better support for touch-devices including different modes for moving the workspace and editing elements
+- Added: Few language and design corrections, code optimization
+
+### 0.7.8 (2025-06-18)
+- Added: Convert a text element to a datasource element
+- Added: Now supports Web-Adapter with socket.io adapter configured (#333)
+
 ### 0.7.7 (2025-06-12)
 - FIX: Issues found by ioBroker-Adapter-Checker (348)
 - Added: When adding a new datasource, the associated name of this datasource is set as recommended alias

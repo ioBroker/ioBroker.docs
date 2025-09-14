@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matter/README.md
 title: ioBroker Matter Adapter
-hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
+hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
 ---
 ![Logo](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -18,19 +18,18 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 
 ## Einführung
 > [!Wichtig] > Der Adapter kann NICHT über GitHub installiert werden: Er muss über das ioBroker-Repository (stabil oder aktuell) installiert werden.
-> > Der Adapter befindet sich derzeit in der BETA-Phase und ist nur im neuesten Repository verfügbar. Informationen zur Installation eines Adapters aus dem neuesten Repository/npm finden Sie unter [iobroker-Dokumentation](https://www.iobroker.net/#de/documentation/basics/repositories.md).
 > > Eine detaillierte Beschreibung der Konfiguration und Verwendung des ioBroker Matter-Adapters finden Sie in 🇩🇪 [deutsches Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) und 🇬🇧 [englisches Wiki](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
 > > Bitte lesen Sie [Wichtige Hinweise](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten), bevor Sie den Adapter verwenden.
 
 ## Beschreibung
 Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzubilden:
 
-* Matter-basierte Geräte können direkt mit ioBroker verknüpft und somit eingelesen/gesteuert werden
+* Matter-basierte Geräte können direkt mit ioBroker verknüpft und somit eingelesen / gesteuert werden
 * Die Bereitstellung mehrerer ioBroker-Geräte als Matter Bridge: Matter Bridges können mehrere Geräte enthalten und sind der einfachste Weg, ioBroker-Geräte in ein Matter-kompatibles Ökosystem zu integrieren.
 * ioBroker stellt individuelle virtuelle Matter-Geräte auf Basis von ioBroker-Geräten/ioBroker-Zuständen bereit, die einem Matter-kompatiblen Ökosystem beigebracht werden können (derzeit sind nur Bridges für Amazon Alexa möglich)
 
 ## Aufgaben
-* Texte sind teilweise in Englisch
+* Texte sind teilweise auf Englisch
 * Min/Max von Matter in ioBroker-Objekte synchronisieren
 * Objekte bereinigen, wenn Geräte/Zustände entfernt werden
 * ioBroker-Gerätetypen
@@ -41,8 +40,8 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 * (5) MediaPlayer
 * Warnung - wie?
 * Tor – auch bekannt als Jalousien, weil Materie keinen anderen Gerätetyp hat?
-* windowTilt - wie besprochen als zusammengesetztes Gerät mit zwei Kontaktsensoren ... einer zum Öffnen und Schließen und einer zum Kippen
-* LevelSlider – idealerweise als nicht beleuchtete dimmbare Steckdose?
+* Fensterneigung - wie besprochen als zusammengesetztes Gerät mit zwei Kontaktsensoren ... einer zum Öffnen und Schließen und einer zum Neigen
+* LevelSlider – idealerweise als nicht beleuchtete gedimmte Steckdose?
 * Matter-Gerätetypen
 * (8) Ventilator -> Klimaanlage?
 * (7) Luftqualitätssensor -> ???
@@ -77,11 +76,33 @@ Mit dem ioBroker Matter Adapter ist es möglich, folgende Anwendungsfälle abzub
 ### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.5.2 (2025-08-03)
+* (@Apollon77) Updated matter.js to 0.15.2 with many performance- and other improvements
+* (@GermanBluefox) Corrected the checking of the licenses if they were stacked
+* (Apollon77) Use attributes from cache instead of requesting them from the device
+* (Apollon77) Ignoring invalid min/max for color temperature from objects
+* (Apollon77) Prevents update loops for Thermostat on/off state changes
+* (Apollon77) Fixes invalid color state updates when multiple attributes are adjusted together
+* (Apollon77) Rounds RSSI values to prevent digits
+
+### 0.5.1 (2025-06-06)
+* (@Apollon77) Updated matter.js to 0.14 with many performance- and other improvements
+
+### 0.5.0 (2025-05-03)
+* IMPORTANT: Increase Node.js requirement to at least 20.x because else BLE currently does not work
+* (@Apollon77) Added info log message when the device decided for a different subscription interval
+
+### 0.4.16 (2025-05-01)
 * (@GermanBluefox) Added expert mode to GUI
 * (@GermanBluefox) GUI optimizations
 * (@Apollon77) Upgrade Matter support to 1.4
 * (@Apollon77) Upgrade type detector and usage for better automatic detection results
+* (@Apollon77) Included Battery state in attribute polling and changed default interval to 24h if the device is battery powered
+* (@Apollon77) Shows subscription maximum interval of the node in the connection-infos
+* (@Apollon77) Allows to overwrite the default subscription maximum interval send to the device in Node settings
+* (@Apollon77) Considers also the BatteryAlarm state of Smoke-CO sensors when determine LOWBAT state
+* (@Apollon77) Updates the connection state of Controller devices as soon as alive triggers or data updates come in
+* (@Apollon77) For Lock devices the SET state is synced with ACTUAL
 
 ### 0.4.15 (2025-02-25)
 * (@GermanBluefox) Added Button display and control in the UI

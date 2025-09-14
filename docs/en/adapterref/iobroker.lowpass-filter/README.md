@@ -20,6 +20,8 @@ e.g. you can filter power values to cut power peeks.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (BenAhrdt) update defDependencie eslint
+* (BenAhrdt) update dependencie core
 * (BenAhrdt) update dependencie to node >= 20
 * (BenAhrdt) update testing to 24.x
 

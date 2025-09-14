@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scenes/README.md
 title: ioBroker Szenenadapter
-hash: Io2jtg2yoSH0XtMVQvpAhtXEtvJa+v5uqUhWKn5UbdE=
+hash: CVpkOFmAOg1uytkc3GPwzIY6a/6Sr4Sa+cSCn+yaLec=
 ---
 ![Logo](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -26,8 +26,8 @@ Dieser Adapter kann drei Arten von Szenen erstellen:
 
 ## Szenen
 **Szenen** werden erstellt, wenn die Einstellung „auf „false“ gesetzt“ nicht verwendet wird.
-Jede Szene kann einzeln konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Adapterinstanz haben können.
-Die **Szene** ist nur eine Liste von Zustands-IDs und -Werten, die diese Zustände bei Aktivierung der Szene haben müssen. Beispielsweise haben wir in der Szene `scene.allLightInBath` Folgendes erstellt:
+Jede Szene kann individuell konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Adapterinstanz haben können.
+Die **Szene** ist lediglich eine Liste von Zustands-IDs und Werten, die diese Zustände bei Aktivierung der Szene haben müssen. Beispielsweise haben wir in der Szene `scene.allLightInBath` Folgendes erstellt:
 
 ```
   scene.allLightInBath
@@ -35,9 +35,9 @@ Die **Szene** ist nur eine Liste von Zustands-IDs und -Werten, die diese Zustän
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-Um die Szene zu aktivieren, müssen wir `scene.allLightInBath` auf true setzen (z. B. über ein Skript oder Vis). Dann werden beide Zustände auf die gewünschten Werte gesetzt, auf `true`.
-Der Wert von `scene.allLightInBath` wird ebenfalls `true`. Wenn wir manuell auf das obere Licht umschalten, wird der Wert von `scene.allLightInBath` auf `false` gesetzt.
-Und wieder auf `true`, wenn wir das Licht manuell einschalten.
+Um die Szene zu aktivieren, müssen wir `scene.allLightInBath` auf „true“ setzen (z. B. über ein Skript oder Vis). Dann werden beide Zustände auf die gewünschten Werte gesetzt, nämlich auf `true`.
+Der Wert von `scene.allLightInBath` wird ebenfalls auf `true` gesetzt. Wenn wir manuell das Oberlicht einschalten, wird der Wert von `scene.allLightInBath` auf `false` gesetzt.
+Und erneut auf `true`, wenn wir das Licht manuell einschalten.
 
 Fügen wir der **Szene** den Ventilator hinzu:
 
@@ -49,11 +49,11 @@ Fügen wir der **Szene** den Ventilator hinzu:
   |- hm-rpc.0.FAN.STATE          - false (delay 60000ms)
 ```
 
-In diesem Fall wird der Ventilator durch Aktivierung der **Szene** eingeschaltet und nach einer Minute wieder ausgeschaltet.
-Nachdem der Ventilator ausgeschaltet wurde, ändert sich der Wert von `scene.allLightInBath` zu `false`, da nicht alle Zustände den gewünschten Werten entsprechen.
-Zustände mit Verzögerung werden bei den Berechnungen nicht berücksichtigt.
+In diesem Fall wird der Lüfter durch Aktivierung der **Szene** eingeschaltet und nach einer Minute wieder ausgeschaltet.
+Nach dem Ausschalten des Lüfters wird der Wert von `scene.allLightInBath` auf `false` geändert, da nicht alle Zustände den gewünschten Werten entsprechen.
+Zustände mit Verzögerung werden nicht in die Berechnung einbezogen.
 
-Sie können die Szene mit einer „Play“-Taste testen.
+Sie können die Szene mit der Play-Taste testen.
 Zusätzlich können Sie diese **Szene** direkt mit einer anderen Szenen-ID verknüpfen. Wenn Sie beispielsweise einen Sensor an der Tür haben, können Sie ihn als Auslöser auswählen:
 
 ```
@@ -63,11 +63,11 @@ Zusätzlich können Sie diese **Szene** direkt mit einer anderen Szenen-ID verkn
     value:     true
 ```
 
-Und jedes Mal, wenn Sie im Badezimmer die Tür öffnen, werden alle Lichter mit Ventilator eingeschaltet.
+Und jedes Mal, wenn Sie die Tür im Bad öffnen, werden alle Lichter mit Ventilator eingeschaltet.
 
 ## Gruppen
-**Gruppen** sind wie virtuelle Kanäle. Sie können mit Hilfe von **Gruppen** virtuelle Geräte aus mehreren Aktoren erstellen und diese gemeinsam wie ein Gerät steuern.
-Lassen Sie uns unser Beispiel mit den Lichtern des Badezimmers modifizieren.
+**Gruppen** sind wie virtuelle Kanäle. Mithilfe von **Gruppen** können Sie virtuelle Geräte aus mehreren Aktoren erstellen und diese gemeinsam wie ein Gerät steuern.
+Modifizieren wir unser Beispiel mit den Badezimmerleuchten.
 
 ```
   scene.allLightInBath             "set on true"    "set on false"
@@ -89,34 +89,34 @@ Wenn Sie diese **Gruppe** mit dem Türsensor verknüpfen, wie:
     value:     false
 ```
 
-Jedes Mal, wenn Sie die Tür öffnen, werden alle Lichter im Bad eingeschaltet. Der Wert von `scene.allLightInBath` wird auf **true** gesetzt.
-Wenn Sie die Tür schließen, werden die Lichter ausgeschaltet und der Wert von `scene.allLightInBath` wird auf **false** gesetzt.
+Jedes Mal, wenn du die Tür öffnest, werden alle Lichter im Bad eingeschaltet. Der Wert von `scene.allLightInBath` wird auf **true** gesetzt.
+Wenn du die Tür schließt, werden die Lichter ausgeschaltet und der Wert von `scene.allLightInBath` wird auf **false** gesetzt.
 
 Es ist nutzlos, aber als Beispiel gut.
 
 Wenn Sie ein Licht manuell einschalten, wird der Wert von `scene.allLightInBath` auf **unsicher** gesetzt.
 
-Verzögerungen können auch in der **Gruppe** verwendet werden, aber die Zustände mit Verzögerung werden nicht in die Berechnungen des aktuellen Werts der **Gruppe** einbezogen.
+Verzögerungen können auch in der **Gruppe** verwendet werden, aber die Zustände mit Verzögerung werden nicht in die Berechnung des aktuellen Werts der **Gruppe** einbezogen.
 
 ## Virtuelle Gruppen
-**Virtuelle Gruppen** sind wie virtuelle Kanäle und wie Gruppen, können aber beliebige Werte haben: Zahlen, Zeichenfolgen usw.
+**Virtuelle Gruppen** sind wie virtuelle Kanäle und Gruppen, können aber beliebige Werte enthalten: Zahlen, Zeichenfolgen usw.
 Sie können eine virtuelle Gruppe erstellen, um alle Rollläden im Wohnzimmer zu steuern.
-Indem Sie 40 % in eine virtuelle Gruppe schreiben, werden alle Rollläden auf 40 % eingestellt.
+Wenn Sie 40 % in eine virtuelle Gruppe schreiben, werden alle Rollläden auf 40 % eingestellt.
 
-Zusätzlich lässt sich hier das Verhalten festlegen, welcher Wert für die Gruppe übernommen werden soll, wenn nicht alle Zustände der Gruppe den gleichen Wert aufweisen.
+Zusätzlich können Sie das Verhalten definieren, welcher Wert für die Gruppe übernommen werden soll, wenn nicht alle Zustände der Gruppe den gleichen Wert haben.
 
-Sie können folgende Aggregationen bereitstellen (nur im erweiterten Modus verfügbar):
+Sie können die folgenden Aggregationen bereitstellen (nur im erweiterten Modus verfügbar):
 
 - „unsicher“ – (Standard) – der Wert der Gruppe enthält den Text „unsicher“.
-- „any“ – erster von Null verschiedener Wert aller Zustände in einer Gruppe.
-- „min“ – Minimalwert aller Zustände in einer Gruppe.
-- „max“ – Maximalwert aller Zustände in einer Gruppe.
-- „avg“ – Durchschnittswert aller Zustände in einer Gruppe.
+- „any“ – erster Wert ungleich Null aller Zustände in einer Gruppe.
+- `min` – Minimalwert aller Zustände in einer Gruppe.
+- `max` – Maximalwert aller Zustände in einer Gruppe.
+- `avg` – Durchschnittswert aller Zustände in einer Gruppe.
 
 ## Aktuelle Zustände als Szene speichern
 Um aktuelle Zustände in einer Szene zu speichern, können Sie eine Nachricht an den Adapter senden:
 
-```
+```js
 sendTo(
     'scenes.0',
     'save',
@@ -160,6 +160,12 @@ sendTo(
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 4.0.3 (2025-07-20)
+* (agross) Canceled the cron tasks on the instance stop
+
+### 4.0.2 (2025-06-16)
+* (bluefox) Small improvements for layout
+
 ### 4.0.1 (2025-01-23)
 * (bluefox) Adapter was migrated to TypeScript
 * (bluefox) Corrected error with the Select ID dialog

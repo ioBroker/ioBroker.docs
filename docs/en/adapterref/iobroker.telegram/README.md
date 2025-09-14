@@ -752,6 +752,9 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
 ### 4.1.0 (2025-03-19)
 * (bluefox) Admin component was migrated to TypeScript
 * (bluefox) NodeJS >= 20.x and js-controller >= 6 and admin >= 7 are required now.

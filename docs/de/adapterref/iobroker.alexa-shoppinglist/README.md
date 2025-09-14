@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-shoppingList
-hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
+hash: or7jj4BKgLMQAtb9TD415gPeR8SUoLzBJq0i6Me7pzQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -17,10 +17,12 @@ hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 **Tests: ** ![Testen und Freigeben](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
 ## Alexa-ShoppingList-Adapter für ioBroker
+Dieser Adapter verwendet Sentry-Bibliotheken, um Exceptions und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in der Sentry-Plugin-Dokumentation! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
 Generiert die Einkaufsliste von Alexa
 
 Sie können auch andere Listen von Alexa verwenden. Konfigurieren Sie diese im Admin-Bereich.
-Mit der neuen Admin-Oberfläche wird es für Sie deutlich einfacher.
+Mit der neuen Admin-Benutzeroberfläche wird es für Sie viel einfacher.
 
 Es gibt einen Status zum Einfügen neuer Elemente. Geben Sie einfach den Text ein und drücken Sie die Eingabetaste.
 Sie können aktive und inaktive Listen löschen.
@@ -38,13 +40,13 @@ Ich hoffe, es gefällt Ihnen
 | add_position | Zeichenfolge | Geben Sie den in die Liste einzufügenden Text ein |
 | delete_activ_list | Schaltfläche | Löscht die aktive Liste und verschiebt sie in die inaktive Liste |
 | delete_inactiv_list | Schaltfläche | Löscht die Inaktivliste |
-| position_to_shift | Nummer | Sie können die Positionsnummer des Elements eingeben und dann mit der Schaltfläche to_active_list oder to_inactive_list verschieben. |
+| position_to_shift | Nummer | Sie können die Positionsnummer des Elements eingeben, das Sie verschieben möchten, und dann auf die Schaltfläche „to_active_list“ oder „to_inactive_list“ klicken. |
 | list_active | JSON | Die aktive Liste als JSON |
 | list_active_sort | Schalter | Sie können die aktive Liste nach Name oder Einfügezeit sortieren |
 | list_inactive | JSON | Die inaktive Liste als JSON |
 | list_inactive_sort | Schalter | Sie können die inaktive Liste nach Namen oder Einfügezeit sortieren |
-| zur_Aktivliste | Schaltfläche | Geben Sie zuerst die Position zum Verschieben ein und drücken Sie dann die Schaltfläche, um zur Aktivliste zu wechseln |
-| zur_inaktiven_Liste | Schaltfläche | Geben Sie zuerst die Position zum Verschieben ein und drücken Sie dann die Schaltfläche, um zur inaktiven_Liste zu wechseln |
+| to_activ_list | Button | Geben Sie zuerst position_to_shift ein und drücken Sie dann den Button, um zur Activ_list zu wechseln |
+| to_inactive_list | Button | Geben Sie zuerst position_to_shift ein und drücken Sie dann den Button, um zur inactiv_list zu wechseln |
 
 | Attribut in JSON | Beschreibung |
 |-------------------|-------------------------------------------|
@@ -52,11 +54,11 @@ Ich hoffe, es gefällt Ihnen
 | Zeit | Zeitstempel des Einfügens |
 | id | id im Alexa2-Adapter |
 | pos | Position in der Liste |
-| buttonmove | Schaltfläche zum Verschieben zur aktiven oder inaktiven Liste |
+| buttonmove | Schaltfläche zum Wechseln zur aktiven oder inaktiven Liste |
 | buttondelete | Schaltfläche zum vollständigen Löschen des Elements |
 
-Das JSON enthält nun zwei Schaltflächen zum Verschieben und Löschen von Elementen.
-Hierfür müssen Sie im VIS-Editor unter „Skript“ Code einfügen. Geben Sie Folgendes ein:
+Das JSON enthält nun zwei Schaltflächen zum Verschieben oder Löschen von Elementen.
+Hierfür müssen Sie im VIS-Editor unter Skript Code einfügen. Geben Sie Folgendes ein:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -83,7 +85,17 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### **WORK IN PROGRESS**
 
+- CHORE: #145 Update dependencies
+
+### 1.1.1 (2025-08-13)
+
+- FIX: Error reported by sentry
+
+### 1.1.0 (2025-07-14)
+
+- FEAT: Activate sentry
 - Breaking change: minimal supported node.js version is 20.x
+- FEAT: Add typescript
 
 ### 1.0.3 (2024-12-04)
 

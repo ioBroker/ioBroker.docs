@@ -1,105 +1,52 @@
-# ioBroker.frontier_silicon
+---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.frontier_silicon.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg
+BADGE-Number of Installations (latest): http://iobroker.live/badges/frontier_silicon-installed.svg
+BADGE-Number of Installations (stable): http://iobroker.live/badges/frontier_silicon-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.frontier_silicon.png?downloads=true
+chapters: {"pages":{"en/adapterref/iobroker.frontier_silicon/README.md":{"title":{"en":"FSAPI Examples"},"content":"en/adapterref/iobroker.frontier_silicon/README.md"},"en/adapterref/iobroker.frontier_silicon/states.md":{"title":{"en":"States documentation"},"content":"en/adapterref/iobroker.frontier_silicon/states.md"}}}
+---
+# FSAPI Examples
 
-![Logo](admin/radio.png)
+Read presets  
+<http://192.168.178.26/fsapi/LIST_GET_NEXT/netRemote.nav.presets/-1?pin=7389&sid=883168529&maxItems=10>
 
-## ioBroker adapter for Frontier SmartRadio
+Nav on  
+<http://192.168.178.26/fsapi/SET/netRemote.nav.state?pin=7389&sid=883168529&value=1>
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.frontier_silicon.svg)](https://www.npmjs.com/package/iobroker.frontier_silicon)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg)](https://www.npmjs.com/package/iobroker.frontier_silicon)
-![Number of Installations (latest)](http://iobroker.live/badges/frontier_silicon-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/frontier_silicon-stable.svg)
+Read modes  
+<http://192.168.178.26/fsapi/LIST_GET_NEXT/netRemote.sys.caps.validModes/-1?pin=7389&sid=682647964&maxItems=100>
 
-**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/workflows/Test%20and%20Release/badge.svg)
+Read current mode  
+<http://192.168.178.26/fsapi/GET/netRemote.sys.mode?pin=7389&sid=682647964>
 
-[![NPM](https://nodei.co/npm/iobroker.frontier_silicon.png?downloads=true)](https://nodei.co/npm/iobroker.frontier_silicon/)
+Search for updates  
+<http://192.168.178.26/fsapi/SET/netRemote.sys.isu.control?pin=7389&value=2>
 
-## Info
+On/Off?  
+<http://192.168.178.26/fsapi/GET/netRemote.sys.power?pin=7389&sid=682647964>
 
-Provides support for media players, internet radios and SmartRadios equipped with a Frontier Silicon chipset using FSAPI.
+Switch On  
+<http://192.168.178.26/fsapi/SET/netRemote.sys.power?pin=7389&sid=883168529&value=0>
 
-NOTE: This adapter has been transferred to iobroker-community-adapters for maintenance. Thus planned features (see below) will not be implemented. Only important bug fixes and dependency updates will be released in the future. However PRs with bug fixes or feature enhancements are always welcome.
-
-RELEASE NOTES:
-
-Version 0.4.x includes a Breaking Change:
-
-- The type of "frontier_silicon.X.media.state" changed from "number" to "string" and readonly  
-If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:  
-`State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"`  
-To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
-
-Version 0.3.x includes some Breaking Changes:
-
-- node>=18, js-contoller>=5 and admin>=6 required  
-Upgrade your ioBroker to at least this software level, if you want to use this adapter
-
-- PIN encryption and validity check of all parameters in config UI  
-If you update this adapter from a previous version instead of a new installation, the adapter will not start, even if your PIN in your config is correct and has not been changed. To fix this, simply enter the same previous PIN once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
-
-- The type of "frontier_silicon.X.modes.selectPreset" changed from "string" to "number"  
-If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:  
-`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"`  
-To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
-
-- Synchronization of power, volume and mute states with the UNDOK App  
-Synchronization with the UNDOK App here means that power, volume and mute settings changed by the UNDOK App will now also be updated in the states of this adapter.  Due to the limitations of the FSAPI protocol the state synchronization of the UNDOK App with the adapter still is unreliable and will not be instantaneous but only happen when e.g. a preset or a mode is changed using the UNDOK App.
-
-- Cyclic connection retry instead of disabling the adapter  
-Previously the adapter was terminated after 10 session connection attempts when the device was unreachable due to long-lasting network problems like router restarts, LAN or WiFi outage. Now the adapter will retry after every session refresh interval until the device is reachable again. If you want to avoid log entries regarding these retries you have to stop the adapter manually. If your network problem is fixed while the retry period is still ongoing, simply restart the adapter.
-
-## Features
-
-### Implemented features
-
-- Power control
-- Mode selection
-- Preset selection
-- Notifications for several states
-- Volume control
-- Notifications
-- Auto discovery
-
-### Planned features
-
-- More states
-- Translations
-- More Exception handling
-- Cleaner code
-- Multi room features
-
-### Not planned features
-
-- Changing system information
-
-### Known Bugs and Limitations
-
-- The Media player must be on for preset discovery
-- Due to limitations of the FSAPI protocol, parallel operation with the UNDOK App is not reliable and thus not supported. Use at own risk.
-- Due to limitations of the FSAPI protocol, Radio station icons are not available in DAB+ mode.
-
-## Documentation
-
-This adapter lets you control internet radios and media players based on Frontier Silicon chipsets. Many devices which can be controlled via [UNDOK](https://support.undok.net) should work. Tested devices come from [Revo](https://revo.co.uk/de/products/), [Sangean](https://www.sangean.eu/products/all_product.asp), [Hama](https://de.hama.com/produkte/audio-hifi/digitalradio) and [SilverCrest](https://www.lidl.de), others should work, too.
-
-After installation the device's IP and PIN must be entered in the configuration dialog. If the radio does not play DAB after switching on via the UNDOK App or this adapter try again with "DAB starts without sound" enabled.
-
-When the adapter starts for the first time it collects information about the device. For that it needs to switch through all modes. During checking settings the device will be muted for a few seconds to avoid disturbing sounds.
-
-Documentation of the states and objects as well as general FSAPI documentation can be found at  
-<https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/blob/master/docs/en>
+Other FSAPI documents  
+<https://github.com/flammy/fsapi/blob/master/FSAPI.md>
+<https://www.niehoff.nl/producthandleiding/PMR4000RMKII-03.pdf>
+<https://downloads.biamp.com/assets/docs/default-source/control/apart-pmr4000r-mkii-mkiii-control-command-list.pdf?sfvrsn=13dc3a3e_6&_ga=2.16179958.1900116300.1624008695-122457801.1580652037>
+<https://github.com/z1c0/FsApi/blob/master/FsApi/Command.cs>
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.0 (2025-08-28) - 2025H2 maintenance release
 
-- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
-- (oelison) read and write from daylight saving time
-- (pdbjjens) Fix: UpdatePreset now skips empty presets (#289)
+- (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
+- (oelison)  New: Read and write from daylight saving time
+- (pdbjjens) Fix: UpdatePreset now handles empty presets correctly (#289)
 - (pdbjjens) Change: Adapter and FSAPI documentation was moved to the docs folder (#281)
-
+- (pdbjjens) Change: Cleanup devDependencies
 
 ### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
@@ -127,23 +74,6 @@ Documentation of the states and objects as well as general FSAPI documentation c
 - (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=5 required
 - (pdbjjens) New: Optionally display PIN code and limit to 4 digits in config GUI
 - (pdbjjens) Updated dependencies
-
-### 0.1.1 (2023-07-26)
-
-- (pdbjjens) Breaking Change: node>=14, js-contoller>=4 and admin>=5 required
-- (pdbjjens) Breaking Change: PIN encryption and validity check of all parameters in config UI
-- (pdbjjens) Breaking Change: Type of `frontier_silicon.X.modes.selectPreset` changed from "string" to  "number"
-- (pdbjjens) Change: Validity check of all parameters in config UI
-- (pdbjjens) Change: Re-establish session if network connection is lost
-- (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
-
-## Legal Notices
-
-Frontier, Frontier Silicon, SmartRadio, UNDOK and associated logos are trademarks or registered trademarks of Frontier Smart Technologies Limited  [https://www.frontiersmart.com](https://www.frontiersmart.com)
-
-All other trademarks are the property of their respective owners.
-
-The authors are in no way endorsed by or affiliated with Frontier Smart Technologies Limited , or any associated subsidiaries, logos or trademarks.
 
 ## License
 

@@ -14,6 +14,10 @@
 
 ## alexa-shoppingList adapter for ioBroker
 
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more
+details and for information how to disable the error reporting see Sentry-Plugin Documentation! Sentry reporting is used
+starting with js-controller 3.0.
+
 Generates the shoppingList from Alexa
 
 You can also use other Lists from alexa. Configure it in Admin.
@@ -81,7 +85,17 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### **WORK IN PROGRESS**
 
+- CHORE: #145 Update dependencies
+
+### 1.1.1 (2025-08-13)
+
+- FIX: Error reported by sentry
+
+### 1.1.0 (2025-07-14)
+
+- FEAT: Activate sentry
 - Breaking change: minimal supported node.js version is 20.x
+- FEAT: Add typescript
 
 ### 1.0.3 (2024-12-04)
 

@@ -357,6 +357,7 @@ Hier werden die Einstellung der Hauptpumpe (z.B. Grundwasser), einer zweiten Pum
     * **Füllhöhe der Zisterne** → Angabe des Füllstandsensors für die Ermittlung der Füllhöhe in %.
         > **eingebaut** → Hm-Sen-Wa-Od kapazitiver Füllstandmesser von HomeMatic.
     * **Mindestfüllstand der Zysten in %** → Schaltpunkt, bei dessen Unterschreitung wird auf die Hauptpumpe umgeschaltet und bei laufender Bewässerung die Ventile je Verbrauchsmenge angepasst.
+    * **Einschalthysterese in %** → Die Zysterne schaltet alse erst wieder zu wenn der Mindestfüllstand + Einschalthysterese überschritten ist!
     
 ---
 
@@ -676,6 +677,12 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.19 (2025-07-02)
+* (Dirk-Peter-md) The switch-on hysteresis of the cistern is now stored in the configuration.
+
+### 0.2.18 (2025-06-30)
+* (Dirk-Peter-md) Hysteresis switch-on value of the cistern changed to 20%
+
 ### 0.2.17 (2025-06-15)
 * (Dirk-Peter-md) Valve timing corrected
 
@@ -686,17 +693,6 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 * (Dirk-Peter-md) Readme updated
 * (Dirk-Peter-md) Fixed an error when switching off with autoOnOff
 * (Dirk-Peter-md) ioBroker-Bot [W028]
-
-### 0.2.14 (2025-03-15)
-* (Dirk-Peter-md) eslint-config added
-* (Dirk-Peter-md) Dependencies updated
-* (Dirk-Peter-md) Update License
-* (Dirk-Peter-md) issue #92 Sprinkler im Gewächshaus solved
-* (Dirk-Peter-md) add Button control.autoStart
-
-### 0.2.13 (2022-09-06)
-* (Dirk-Peter-md) various bugs fixed
-* (Dirk-Peter-md) Preparing the stable release
 
 ## License
 MIT License

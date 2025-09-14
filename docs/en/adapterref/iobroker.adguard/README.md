@@ -37,6 +37,10 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2025-09-07)
+- (mcm1957) Adapter requires admin >= 7.6.17, js-controller >= 6.0.11 and node.js >= 20 now.
+- (mcm1957) Dependencies have been updated.
+
 ### 1.0.1 (2024-10-26)
 - (simatec) Admin-UI has been adapted for small displays.
 - (mcm1957) Dependencies have been updated.
@@ -54,16 +58,11 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 
 -   (o0Shojo0o) better unload handling
 
-### 0.0.6 (2021-08-01)
-
--   (o0Shojo0o) more resource-efficient handling of the States
--   (o0Shojo0o) better unload handling
-
 ## License
 
 MIT License
 
-Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2024-2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

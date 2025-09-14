@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
+hash: 18/InU6f0vqyo4Dl0L5dR7Y5iYHkB3VyxTVdnZ/ku7A=
 ---
 ![标识](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -49,16 +49,15 @@ hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
 * 让 SunnyPortal 控制这些设备（当有足够的光伏电力时打开，当没有足够的太阳能时关闭）
 
 ＃＃ 要求
-## 洗碗机模式
-## 适配器的功能
+## 洗碗机模式：适配器的功能
 该适配器可让您控制洗碗机或其他消耗待机功率的设备。其工作原理如下：
 
 - 用户像平常一样手动打开设备。
-- 设备不会立即启动，而是保持暂停状态。
+- 设备不会立即启动，而是关闭并保持暂停状态。
 - 一旦有足够的太阳能，设备将自动启动并运行，直到程序完成。
 - 在此过程中，智能家居管理器 (SHM) 发出的任何关闭设备的建议都将被忽略。
 
-> **注意：** > 有关技术实施的详细信息，请参阅[问题 #333](#) 和下面的流程图。
+> **注意：** > 有关技术实施的详细信息，请参阅[问题 #333](https://github.com/rg-engineering/ioBroker.semp/issues/333) 和下面的流程图。
 
 ![流程图](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
 
@@ -71,11 +70,17 @@ hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.5.2 (2025-08-16)
+* (René) new testing
+* (René) issue #333 dishwasher sequence: off detection changed
 
-### **WORK IN PROGRESS**
+### 1.5.1 (2025-05-31)
+* (René) bug fix calculation of used energy
+
+### 1.5.0 (2025-05-24)
 * (René) see issue #333: new sequence to handle devices with quiescent current. ATTENTION: new dishwasher sequence is used for dishwasher devices optionally!
 * (René) changes requested by adapter checker
-* (René) dependencies updated 
+* (René) dependencies updated
 
 ### 1.4.8 (2024-11-20)
 * (René) update dependencies
@@ -226,7 +231,7 @@ hash: 9x8Gy0zUJTE7iU9B6wdR5eWu/hvkKpG+iMhLbxsHaVk=
 ## License
 MIT License
 
-Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
+Copyright (c) 2022-2025 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

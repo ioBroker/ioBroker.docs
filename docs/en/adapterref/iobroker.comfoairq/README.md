@@ -36,6 +36,10 @@ Connect your Zehnder ComfoAirQ over ComfoConnect LAN C
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
 ### 0.5.1 (2025-04-14)
 
 * (@klein0r) Updated dependencies

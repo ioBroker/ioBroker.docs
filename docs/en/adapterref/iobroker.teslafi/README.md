@@ -75,6 +75,17 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.0.2 (2025-08-24)
+
+- (hombach) admin 7.6.17 recommended by ioBroker (#166)
+- (hombach) bumb adapter-core to 3.3.2 (#166)
+- (hombach) fix vulnerability
+- (hombach) bump dependencies
+
 ### 2.0.1 (2025-06-08)
 
 - (hombach) add node.js 24 tests (#144)

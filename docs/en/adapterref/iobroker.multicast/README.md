@@ -81,7 +81,7 @@ The adapter is build to send up to 5-times a retry to ensure all state changes a
 * [x] Correct handling of hostname and hostname changes
 
 
-# Changelog
+## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__

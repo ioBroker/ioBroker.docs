@@ -37,6 +37,10 @@ Bell in icon designed by Freepik from www.flaticon.com
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.0.1 (2025-06-24)
+* (mcm1957) Invalid dependency has been removed.
+* (mcm1957) Dependencies have been updated.
+
 ### 4.0.0 (2025-06-06)
 * (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation.
 * (mcm1957) Adapter requires node.js 20, js-controller 6.0.11 and admin 7.4.10 now.
@@ -54,9 +58,6 @@ Bell in icon designed by Freepik from www.flaticon.com
 ### 3.0.1 (2024-02-29)
 * (jack-blackson) Bugfix for location names
 * (jack-blackson) Removed necessity to choose country, this is now automatically detected
-
-### 3.0.0 (2024-02-26)
-* (jack-blackson) Breaking change: switch to locations instead of choosing geocodes to be able to also handle warnings coming with polygons (e.g. Switzerland)
 
 ## License
 The MIT License (MIT)

@@ -75,11 +75,12 @@ You can deactivate HTTPS and authentication on this web instance, but better is 
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 5.1.0 (2025-08-19)
 * (bluefox) updated socket classes
 * (bluefox) minimum required node.js version is 18
 * (bluefox) used `@iobroker/eslint-config`
 * (bluefox) Rewritten with TypeScript
+* (bluefox) Added the possibility to hide vis(2) editor in the cloud
 
 ### 5.0.1 (2024-02-22)
 * (bluefox) updated socket classes and fixed vis-2 error if connected via cloud

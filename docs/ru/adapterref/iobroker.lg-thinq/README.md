@@ -3,12 +3,12 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.lg-thinq.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lg-thinq.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.png?downloads=true
+BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
+hash: zyF6zWq5raDf1nBFkCyFlDGlRDDgcbytOomAyF6c0VQ=
 ---
 ![Логотип](../../../en/admin/lg-thinq.png)
 
@@ -16,7 +16,7 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 [Вернуться к README](/README.md)
 
 # Введение
-Адаптер создает все точки данных с шаблоном из точки данных `modelJsonUri` (отклонение для устройств) и использует перевод с шаблоном из точки данных `langPackModelUri` (отклонение для устройств). Поэтому возможно, что точки данных создаются в REMOTE, которые не имеют функции или недоступны для устройства.
+Адаптер создаёт все точки данных с использованием шаблона из точки данных `modelJsonUri` (отклонение для устройств) и использует преобразование с использованием шаблона из точки данных `langPackModelUri` (отклонение для устройств). Поэтому возможно, что в режиме REMOTE создаются точки данных, не имеющие функции или недоступные для устройства.
 
 # Краткое содержание
 - [Настройки экземпляра](#instance-settings)
@@ -29,7 +29,7 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 - [Снимок](#101-snapshot-thinq1--thinq2)
 - [Сигнатура государственного устройства 201](#device-201-washer-signature-thinq2)
 - [Базовые команды дистанционного управления](#201-remote-control-signature-thinq2)
-- [Устройство состояния 201 Стиральная машина](#device-201-washer-thinq1--thinq2)
+- [Государственное устройство 201 Стиральная машина](#device-201-washer-thinq1--thinq2)
 - [Удаленная статистика](#201-remote-statistic-thinq2)
 - [Базовые команды дистанционного управления](#201-remote-control-thinq1--thinq2)
 - [Снимок](#201-snapshot-thinq1--thinq2)
@@ -58,14 +58,13 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 [Краткое содержание](#summary)
 
 - `LG ThinQ Email`: введите адрес электронной почты приложения
-- `LG ThinQ Password`: введите пароль приложения
-- `Интервал обновления в минутах`: Рекомендуется: 60 минут. Если интервал thinq1 установлен на 0, то здесь 0,5/1 минута
+- `Пароль LG ThinQ`: введите пароль приложения
+- `Интервал обновления в минутах`: Рекомендуется: 60 минут. Если интервал thinq1 равен 0, то это будет 0,5/1 минуты.
 - `Интервал обновления в секундах для Thinq1 (на устройство 1 секунда)`: Интервал для пользователей thinq1
 - `Страна`: Введите страну - по умолчанию DE
 - `Язык`: Введите язык - по умолчанию de_DE
 - `Платформа`: Введите платформу - по умолчанию LGThinQ
-- `Выбор метода регистрации` Переключение между старым сторонним входом или входом через приложение (вы получите электронное письмо)
-- `Удалить данные сеанса`: Если возникли проблемы со входом в систему, удалите данные сеанса (lg-thinq.0.session wird geleert)
+- `Удалить данные сеанса`: Если возникли проблемы со входом в систему, пожалуйста, удалите данные сеанса (lg-thinq.0.session wird geleert)
 
 ![экземпляр_config_1.png](img/instance_config_1.png) ![экземпляр_config_2.png](../../../en/adapterref/iobroker.lg-thinq/img/instance_config_2.png)
 
@@ -74,18 +73,18 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 
 - `interval.active` Сколько устройств в данный момент получают обновления
 - `interval.inactive` Сколько устройств в настоящее время не получают обновления
-- `interval.interval` Изменить интервал из настройки экземпляра. После перезапуска адаптера настройка экземпляра применяется.
+- `interval.interval` Изменить интервал, заданный в настройках экземпляра. После перезапуска адаптера настройки экземпляра применяются.
 - `interval.last_update` Последнее обновление
 - `interval.status_devices`
 - `OK` Интервал ОК
 - `Fail - 0100` Запрос не выполнен - WorkID создан заново
-- `Fail - 0106` Устройство не подключено - WorkID создан заново
+- `Сбой - 0106` Устройство не подключено - WorkID создан заново
 - `Ошибка` Ошибка WorkID - WorkID создается заново
     - `Ошибка <code>` Unknown error - WorkID is recreated</code>
 - `Result Error` Ошибка получения - WorkID создается заново
 - `Ошибка анализа` Ошибка анализа - WorkID создается заново
-- `Unknown` Неизвестная ошибка - WorkID создается заново
-- `Request` Receive неизвестен - WorkID создан заново
+- `Неизвестная` Неизвестная ошибка - WorkID создается заново
+- Получение `Request` не известно - WorkID создан заново
 - `{}` Неизвестно - WorkID создается заново
 
     ![интервал.png](../../../en/adapterref/iobroker.lg-thinq/img/interval.png)
@@ -97,18 +96,18 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 [Краткое содержание](#summary)
 
 ### 101 Все папки thinq1 и thinq2
-![101_папка.png](../../../en/adapterref/iobroker.lg-thinq/img/101_folder.png)
+![101_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/101_folder.png)
 
 ### 101 Удаленная папка thinq1 и thinq2
-![101_удаленный.png](../../../en/adapterref/iobroker.lg-thinq/img/101_remote.png)
+![101_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/101_remote.png)
 
 ### 101 Удаленная статистика thinq2
 [Краткое содержание](#summary)
 
 - `remote.Statistic.command` Какую историю следует загрузить
-- почасовая
-- `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- почасовая оплата
+- `remote.Statistic.endDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -116,77 +115,77 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 - `remote.Statistic.endDate` Введите дату ежемесячно - Формат: 2023.12.01
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выбрать период
-- `remote.Statistic.sendRequest` Отправить выборку
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, то ваше устройство их не поддерживает или указана неверная дата.
+- `remote.Statistic.sendRequest` Отправить выбранное
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, ваше устройство их не поддерживает или указана неверная дата.
 
-![101_удаленный.png](img/101_remote.png) ![101_удаленная_команда.png](img/101_remote_command.png) ![101_удаленный_период.png](../../../en/adapterref/iobroker.lg-thinq/img/101_remote_period.png)
+![101_remote.png](img/101_remote.png) ![101_удаленная_команда.png](img/101_remote_command.png) ![101_remote_period.png](../../../en/adapterref/iobroker.lg-thinq/img/101_remote_period.png)
 
 Пример JSON Открытие двери
 
 ```json
 {
-  "item": [
-    {
-      "usedDate": "2023-11",
-      "doorType": "DID_DOOR",
-      "openCount": "0",
-      "openTime": "0"
-    },
-    {
-      "usedDate": "2023-12",
-      "doorType": "DID_DOOR",
-      "openCount": "0",
-      "openTime": "0"
-    },
-    {
-      "usedDate": "2023-11",
-      "doorType": "FREEZER_DOOR",
-      "openCount": "62",
-      "openTime": "713937"
-    },
-    {
-      "usedDate": "2023-12",
-      "doorType": "FREEZER_DOOR",
-      "openCount": "0",
-      "openTime": "0"
-    },
-    {
-      "usedDate": "2023-11",
-      "doorType": "FRIDGE_DOOR",
-      "openCount": "1037",
-      "openTime": "12421700"
-    },
-    {
-      "usedDate": "2023-12",
-      "doorType": "FRIDGE_DOOR",
-      "openCount": "27",
-      "openTime": "304857"
-    },
-    {
-      "usedDate": "2023-11",
-      "doorType": "CONVERTIBLE_DOOR",
-      "openCount": "0",
-      "openTime": "0"
-    },
-    {
-      "usedDate": "2023-12",
-      "doorType": "CONVERTIBLE_DOOR",
-      "openCount": "0",
-      "openTime": "0"
-    },
-    {
-      "usedDate": "2023-11",
-      "doorType": "ONE_DOOR",
-      "openCount": "0",
-      "openTime": "0"
-    },
-    {
-      "usedDate": "2023-12",
-      "doorType": "ONE_DOOR",
-      "openCount": "0",
-      "openTime": "0"
-    }
-  ]
+    "item": [
+        {
+            "usedDate": "2023-11",
+            "doorType": "DID_DOOR",
+            "openCount": "0",
+            "openTime": "0"
+        },
+        {
+            "usedDate": "2023-12",
+            "doorType": "DID_DOOR",
+            "openCount": "0",
+            "openTime": "0"
+        },
+        {
+            "usedDate": "2023-11",
+            "doorType": "FREEZER_DOOR",
+            "openCount": "62",
+            "openTime": "713937"
+        },
+        {
+            "usedDate": "2023-12",
+            "doorType": "FREEZER_DOOR",
+            "openCount": "0",
+            "openTime": "0"
+        },
+        {
+            "usedDate": "2023-11",
+            "doorType": "FRIDGE_DOOR",
+            "openCount": "1037",
+            "openTime": "12421700"
+        },
+        {
+            "usedDate": "2023-12",
+            "doorType": "FRIDGE_DOOR",
+            "openCount": "27",
+            "openTime": "304857"
+        },
+        {
+            "usedDate": "2023-11",
+            "doorType": "CONVERTIBLE_DOOR",
+            "openCount": "0",
+            "openTime": "0"
+        },
+        {
+            "usedDate": "2023-12",
+            "doorType": "CONVERTIBLE_DOOR",
+            "openCount": "0",
+            "openTime": "0"
+        },
+        {
+            "usedDate": "2023-11",
+            "doorType": "ONE_DOOR",
+            "openCount": "0",
+            "openTime": "0"
+        },
+        {
+            "usedDate": "2023-12",
+            "doorType": "ONE_DOOR",
+            "openCount": "0",
+            "openTime": "0"
+        }
+    ]
 }
 ```
 
@@ -197,12 +196,12 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 - `remote.freezerTemp` Изменить температуру морозильной камеры (только по Цельсию)
 - `remote.fridgeTemp` Изменить температуру холодильника (только по Цельсию)
 
-    ![101_пульт_управления.png](../../../en/adapterref/iobroker.lg-thinq/img/101_remote_control.png)
+  ![101_remote_control.png](../../../en/adapterref/iobroker.lg-thinq/img/101_remote_control.png)
 
 ### 101 Снимок thinq1 и thinq2
 [Краткое содержание](#summary)
 
-![101_снимок_1.png](img/101_snapshot_1.png) ![101_снимок_2.png](../../../en/adapterref/iobroker.lg-thinq/img/101_snapshot_2.png)
+![101_snapshot_1.png](img/101_snapshot_1.png) ![101_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/101_snapshot_2.png)
 
 ### Устройство 201 Стиральная машина Подпись thinq2
 [Краткое содержание](#summary)
@@ -210,23 +209,23 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 ### 201 Подпись пульта дистанционного управления thinq2
 - Может управляться как 201. Однако в папке `Course` необходимо установить следующие значения.
 - В папке курса: initialBit на INITIAL_BIT_ON
-- В папке курса: remoteStart на REMOTE_START_ON
+- В папке курса: remoteStart on REMOTE_START_ON
 
 ### Устройство 201 Стиральная машина thinq1 и thinq2
 [Краткое содержание](#summary)
 
 ### 201 Все папки thinq1 и thinq2
-![201_папка.png](../../../en/adapterref/iobroker.lg-thinq/img/201_folder.png)
+![201_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/201_folder.png)
 
 ### 201 Удаленная папка thinq1 и thinq2
-![201_удалённые_состояния.png](../../../en/adapterref/iobroker.lg-thinq/img/201_remote_states.png)
+![201_remote_states.png](../../../en/adapterref/iobroker.lg-thinq/img/201_remote_states.png)
 
 ### 201 Удаленная статистика thinq2
 [Краткое содержание](#summary)
 
-- почасовая
-- `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- почасовая оплата
+- `remote.Statistic.endDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -234,92 +233,92 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 - `remote.Statistic.endDate` Введите дату ежемесячно - Формат: 2023.12.01
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выбрать период
-- `remote.Statistic.sendRequest` Отправить выборку
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, то ваше устройство их не поддерживает или указана неверная дата.
+- `remote.Statistic.sendRequest` Отправить выбранное
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, ваше устройство их не поддерживает или указана неверная дата.
 
-    ![201_удаленная_статистика.png](../../../en/adapterref/iobroker.lg-thinq/img/201_remote_statistic.png)
+    ![201_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/201_remote_statistic.png)
 
 ```json
 {
-  "count": 0,
-  "power": 0,
-  "energyWater": 0,
-  "energyDetergent": 0,
-  "energySoftener": 0,
-  "powerWh": 0,
-  "periodicEnergyData": 0,
-  "item": [
-    {
-      "usedDate": "2023-12-04",
-      "count": 0,
-      "power": 0,
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 0
-    },
-    {
-      "usedDate": "2023-12-05",
-      "count": 0,
-      "power": 0,
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 0
-    },
-    {
-      "usedDate": "2023-12-06",
-      "count": 2,
-      "power": 2,
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 2
-    },
-    {
-      "usedDate": "2023-12-07",
-      "count": 2,
-      "power": 2,
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 2
-    },
-    {
-      "usedDate": "2023-12-08",
-      "count": 5,
-      "power": 5,
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 5
-    },
-    {
-      "usedDate": "2023-12-09",
-      "count": 0,
-      "power": 0,
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 0
-    },
-    {
-      "usedDate": "2023-12-10",
-      "count": 0,
-      "power": 0,
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 0
-    }
-  ]
+    "count": 0,
+    "power": 0,
+    "energyWater": 0,
+    "energyDetergent": 0,
+    "energySoftener": 0,
+    "powerWh": 0,
+    "periodicEnergyData": 0,
+    "item": [
+        {
+            "usedDate": "2023-12-04",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 0
+        },
+        {
+            "usedDate": "2023-12-05",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 0
+        },
+        {
+            "usedDate": "2023-12-06",
+            "count": 2,
+            "power": 2,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 2
+        },
+        {
+            "usedDate": "2023-12-07",
+            "count": 2,
+            "power": 2,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 2
+        },
+        {
+            "usedDate": "2023-12-08",
+            "count": 5,
+            "power": 5,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 5
+        },
+        {
+            "usedDate": "2023-12-09",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 0
+        },
+        {
+            "usedDate": "2023-12-10",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 0
+        }
+    ]
 }
 ```
 
@@ -327,38 +326,38 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 [Краткое содержание](#summary)
 
 - `remote.Favorite` Работает только в том случае, если в приложении выбрано избранное и устройство включено.
-- `remote.LastCourse` Можно выбрать последние 10 программ.
-- `remote.WMDownload_Select` Выбор всех доступных программ (STD=Стандартные/DL=Загрузить программы)
+- `remote.LastCourse` Можно выбрать 10 последних программ.
+- `remote.WMDownload_Select` Выбор всех доступных программ (STD=Стандартные/DL=Загрузка программ)
 
-Когда одна из 3 точек данных заполнена, выбранная программа записывается в папку Course. Затем вы можете внести здесь изменения. Однако не все точки данных в папке `Course` могут быть изменены. Пожалуйста, проверьте сами, какие данные принимает стиральная машина.
+После заполнения одной из трёх точек данных выбранная программа записывается в папку «Course». Здесь вы можете внести изменения. Однако не все точки данных в папке `Course` можно изменить. Проверьте сами, какие данные принимает стиральная машина.
 
 - `remote.WMDownload` При нажатии программа из папки «Course» переносится в стиральную машину и отображается на дисплее (стиральная машина должна быть включена).
-- `remote.WMStart` Запустить стиральную машину
-- `remote.WMStop` Остановить стиральную машину
+- `remote.WMStart` Запуск стиральной машины
+- `remote.WMStop` Остановка стиральной машины
 - `remote.WMWakeup` Пробуждение стиральной машины
 
-![201_удалённые_состояния.png](img/201_remote_states.png) ![201_удаленный_курс.png](../../../en/adapterref/iobroker.lg-thinq/img/201_remote_course.png)
+![201_remote_states.png](img/201_remote_states.png) ![201_remote_course.png](../../../en/adapterref/iobroker.lg-thinq/img/201_remote_course.png)
 
 ### 201 Снимок thinq1 и thinq2
 [Краткое содержание](#summary)
 
-![201_снимок_1.png](img/201_snapshot_1.png) ![201_снимок_2.png](img/201_snapshot_2.png) ![201_снимок_3.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_3.png)
+![201_snapshot_1.png](img/201_snapshot_1.png) ![201_snapshot_2.png](img/201_snapshot_2.png) ![201_snapshot_3.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_3.png)
 
 ### Устройство 202 Сушилка thinq1 и thinq2
 [Краткое содержание](#summary)
 
 ### 202 Все папки thinq1 и thinq2
-![202_папка.png](../../../en/adapterref/iobroker.lg-thinq/img/202_folder.png)
+![202_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/202_folder.png)
 
 ### 202 Удаленная папка thinq1 и thinq2
-![202_удаленный.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote.png)
+![202_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote.png)
 
 ### 202 Удаленная статистика thinq2
 [Краткое содержание](#summary)
 
-- почасовая
-- `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- почасовая оплата
+- `remote.Statistic.endDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -366,32 +365,32 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 - `remote.Statistic.endDate` Введите дату ежемесячно - Формат: 2023.12.01
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выбрать период
-- `remote.Statistic.sendRequest` Отправить выборку
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, то ваше устройство их не поддерживает или указана неверная дата.
+- `remote.Statistic.sendRequest` Отправить выбранное
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, ваше устройство их не поддерживает или указана неверная дата.
 
-    ![202_удаленная_статистика.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_statistic.png)
+    ![202_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_statistic.png)
 
 ```json
 {
-  "count": 0,
-  "power": 0,
-  "energyWater": 0,
-  "energyDetergent": 0,
-  "energySoftener": 0,
-  "powerWh": 0,
-  "periodicEnergyData": 0,
-  "item": [
-    {
-      "usedDate": "2023-12-08",
-      "count": 5,
-      "power": 2587, // 2587 / 1000 kwh
-      "energyWater": 0,
-      "energyDetergent": 0,
-      "energySoftener": 0,
-      "powerWh": 0,
-      "periodicEnergyData": 2587
-    }
-  ]
+    "count": 0,
+    "power": 0,
+    "energyWater": 0,
+    "energyDetergent": 0,
+    "energySoftener": 0,
+    "powerWh": 0,
+    "periodicEnergyData": 0,
+    "item": [
+        {
+            "usedDate": "2023-12-08",
+            "count": 5,
+            "power": 2587, // 2587 / 1000 kwh
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 2587
+        }
+    ]
 }
 ```
 
@@ -399,22 +398,22 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 [Краткое содержание](#summary)
 
 - `remote.Favorite` Работает только в том случае, если в приложении выбрано избранное и устройство включено.
-- `remote.LastCourse` Можно выбрать последние 10 программ.
-- `remote.WMDownload_Select` Выбор всех доступных программ (STD=Стандартные/DL=Загрузить программы)
+- `remote.LastCourse` Можно выбрать 10 последних программ.
+- `remote.WMDownload_Select` Выбор всех доступных программ (STD=Стандартные/DL=Загрузка программ)
 
-Когда одна из 3 точек данных заполнена, выбранная программа записывается в папку Course. Затем вы можете внести здесь изменения. Однако не все точки данных в папке `Course` могут быть изменены. Пожалуйста, проверьте сами, какие данные принимает сушилка.
+После заполнения одной из трёх точек данных выбранная программа записывается в папку «Course». Здесь вы можете внести изменения. Однако не все точки данных в папке `Course` можно изменить. Проверьте сами, какие данные принимает сушилка.
 
 - `remote.WMDownload` Нет функции
-- `remote.WMStart` При нажатии программа из папки «Курс» переносится в сушилку и отображается на дисплее (сушилка должна быть включена).
+- `remote.WMStart` При нажатии программа из папки «Курс» передается в сушилку и отображается на дисплее (сушилка должна быть включена).
 - `remote.WMStop` Остановка сушилки
 - `remote.WMWakeup` Пробуждение сушилки
 
-![202_пульт_управления.png](img/202_remote_control.png) ![202_удаленный_курс.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_course.png)
+![202_remote_control.png](img/202_remote_control.png) ![202_remote_course.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_course.png)
 
 ### 202 Снимок thinq1 и thinq2
 [Краткое содержание](#summary)
 
-![201_снимок_1.png](img/201_snapshot_1.png) ![201_снимок_2.png](img/201_snapshot_2.png) ![201_снимок_3.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_3.png)
+![201_snapshot_1.png](img/201_snapshot_1.png) ![201_snapshot_2.png](img/201_snapshot_2.png) ![201_snapshot_3.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_3.png)
 
 ### Устройство 401 Кондиционер thinq2
 [Краткое содержание](#summary)
@@ -429,9 +428,9 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 [Краткое содержание](#summary)
 
 - `remote.Statistic.command` Какую историю следует загрузить
-- почасовая
-- `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- почасовая оплата
+- `remote.Statistic.endDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -439,28 +438,28 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 - `remote.Statistic.endDate` Введите дату ежемесячно - Формат: 2023.12.01
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выбрать период
-- `remote.Statistic.sendRequest` Отправить выборку
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, то ваше устройство их не поддерживает или указана неверная дата.
+- `remote.Statistic.sendRequest` Отправить выбранное
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, ваше устройство их не поддерживает или указана неверная дата.
 
     ![401_thinq2_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_remote_statistic.png)
 
 ```json
 [
-  {
-    "usedDate": "2023-04",
-    "energyData": "0",
-    "operationTime": "0"
-  },
-  {
-    "usedDate": "2023-05",
-    "energyData": "0",
-    "operationTime": "0"
-  },
-  {
-    "usedDate": "2023-06",
-    "energyData": "3800",
-    "operationTime": "13873"
-  }
+    {
+        "usedDate": "2023-04",
+        "energyData": "0",
+        "operationTime": "0"
+    },
+    {
+        "usedDate": "2023-05",
+        "energyData": "0",
+        "operationTime": "0"
+    },
+    {
+        "usedDate": "2023-06",
+        "energyData": "3800",
+        "operationTime": "13873"
+    }
 ]
 ```
 
@@ -483,15 +482,15 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 
 - `remote.break.holiday_silent_update` Текущие данные всегда должны быть сначала загружены из облака.
 - `remote.break.holiday_silent_data` Текущее расписание из облака.
-- `remote.break.holiday_startdate` Введите здесь дату начала режима отпуска. Дата не может быть в прошлом (формат ДД.ММ.ГГ ЧЧ:ММ)
-- `remote.break.holiday_enddate` Введите здесь дату окончания режима отпуска. Дата не может быть в прошлом и должна быть больше даты начала (формат ДД.ММ.ГГ ЧЧ:ММ)
+- `remote.break.holiday_startdate` Введите здесь дату начала режима отпуска. Дата не может быть в прошлом (формат ДД.ММ.ГГ ЧЧ:ММ).
+- `remote.break.holiday_enddate` Введите здесь дату окончания режима отпуска. Эта дата не может быть в прошлом и должна быть позже даты начала (формат ДД.ММ.ГГ ЧЧ:ММ).
 - `remote.break.holiday_heating` Включение/выключение отопления (как в приложении)
 - `remote.break.holiday_water` Включение/выключение горячей воды (как в приложении)
-- `remote.break.holiday_onoff` Только указанные выше заполните точки данных, а затем активируйте/деактивируйте режим отпуска здесь
+- `remote.break.holiday_onoff` Только указанные выше заполните точки данных, а затем активируйте/деактивируйте здесь режим отпуска.
 - `remote.break.silent_mode_starttime` Введите здесь время начала режима низкого шума. (Формат ЧЧ:ММ)
 - `remote.break.silent_mode_endtime` Введите здесь время окончания тихого режима. Конечно, оно должно быть больше даты начала. (Формат ЧЧ:ММ)
 - `remote.break.silent_mode_onoff` Включить/выключить тихий режим
-- `remote.break.holiday_sendJSON` Предназначено только для экспертов. JSON имеет массив, состоящий из JSON Type 1, 2 и 3. 1 обозначает время выполнения, 2 — режим отпуска, а тип 3 — тихий режим. Теперь вы можете добавить дополнительные JSON к Type 1 и, таким образом, сгенерировать больше времени переключения.
+- `remote.break.holiday_sendJSON` Предназначено только для экспертов. JSON содержит массив, состоящий из JSON-данных типов 1, 2 и 3. 1 обозначает время выполнения, 2 — режим отпуска, а тип 3 — тихий режим. Теперь вы можете добавить дополнительные JSON-данные к типу 1 и, таким образом, увеличить время переключения.
 
 ![401_thinq2_remote_control_2.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_remote_control_2.png)
 
@@ -506,9 +505,9 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 ### 401 Удаленная статистика thinq1
 [Краткое содержание](#summary)
 
-- почасовая
-- `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового сбора данных, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- почасовая оплата
+- `remote.Statistic.endDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -516,89 +515,89 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 - `remote.Statistic.endDate` Введите дату ежемесячно - Формат: 2023.12.01
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выбрать период
-- `remote.Statistic.sendRequest` Отправить выборку
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, то ваше устройство их не поддерживает или указана неверная дата.
-- `remote.Statistic.ownrequest` Собственный запрос данных. Откройте файл по ссылке `modelJsonUri` и примените cmd, cmdOpt и value.
+- `remote.Statistic.sendRequest` Отправить выбранное
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, ваше устройство их не поддерживает или указана неверная дата.
+- `remote.Statistic.ownrequest` Собственный запрос данных. Откройте файл по ссылке `modelJsonUri` и примените cmd, cmdOpt и значение.
 - `remote.Statistic.ownresponse` Результат `remote.Statistic.ownrequest`
 
     ![401_thinq1_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_remote_statistic.png)
 
 ```json
 [
-  {
-    "month": 0,
-    "day": "03",
-    "hour": 0,
-    "min": "16",
-    "kwh": 0.1
-  },
-  {
-    "month": 0,
-    "day": "04",
-    "hour": 0,
-    "min": "59",
-    "kwh": 0.2
-  },
-  {
-    "month": 0,
-    "day": "06",
-    "hour": 0,
-    "min": "15",
-    "kwh": 0.1
-  },
-  {
-    "month": 0,
-    "day": "07",
-    "hour": 0,
-    "min": "40",
-    "kwh": 0.1
-  },
-  {
-    "month": 0,
-    "day": "09",
-    "hour": 0,
-    "min": "35",
-    "kwh": 0.2
-  },
-  {
-    "month": 0,
-    "day": "10",
-    "hour": 0,
-    "min": "60",
-    "kwh": 0.2
-  },
-  {
-    "month": 0,
-    "day": "11",
-    "hour": 0,
-    "min": "60",
-    "kwh": 0.2
-  },
-  {
-    "month": 0,
-    "day": "12",
-    "hour": 0,
-    "min": "90",
-    "kwh": 0.3
-  }
+    {
+        "month": 0,
+        "day": "03",
+        "hour": 0,
+        "min": "16",
+        "kwh": 0.1
+    },
+    {
+        "month": 0,
+        "day": "04",
+        "hour": 0,
+        "min": "59",
+        "kwh": 0.2
+    },
+    {
+        "month": 0,
+        "day": "06",
+        "hour": 0,
+        "min": "15",
+        "kwh": 0.1
+    },
+    {
+        "month": 0,
+        "day": "07",
+        "hour": 0,
+        "min": "40",
+        "kwh": 0.1
+    },
+    {
+        "month": 0,
+        "day": "09",
+        "hour": 0,
+        "min": "35",
+        "kwh": 0.2
+    },
+    {
+        "month": 0,
+        "day": "10",
+        "hour": 0,
+        "min": "60",
+        "kwh": 0.2
+    },
+    {
+        "month": 0,
+        "day": "11",
+        "hour": 0,
+        "min": "60",
+        "kwh": 0.2
+    },
+    {
+        "month": 0,
+        "day": "12",
+        "hour": 0,
+        "min": "90",
+        "kwh": 0.3
+    }
 ]
 ```
 
 # Собственный запрос JSON
 ```json
 {
-  "method": "POST", // POST or GET Axios Request
-  "url": "rti/rtiControl", // URL
-  "data": {
-    "lgedmRoot": {
-      "deviceId": null, // Adapter replaces null
-      "workId": null, // Adapter replaces null
-      "cmd": "Config", // Change possible
-      "cmdOpt": "Get", // Change possible
-      "value": "InOutInstantPower", // Change possible
-      "isControlFree": "Y" // DO NOT change
+    "method": "POST", // POST or GET Axios Request
+    "url": "rti/rtiControl", // URL
+    "data": {
+        "lgedmRoot": {
+            "deviceId": null, // Adapter replaces null
+            "workId": null, // Adapter replaces null
+            "cmd": "Config", // Change possible
+            "cmdOpt": "Get", // Change possible
+            "value": "InOutInstantPower", // Change possible
+            "isControlFree": "Y" // DO NOT change
+        }
     }
-  }
 }
 ```
 
@@ -607,25 +606,25 @@ hash: R+A3sPSGw3wRlO22d2/WsjK+AwaqM/3USpzf72v+560=
 
 [Краткое содержание](#summary)
 
-Какие точки данных принадлежат набору... точек данных указано в названии точки данных.
+Какие точки данных принадлежат множеству... точек данных, указано в названии точки данных.
 lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}","`WDirUpDown`":"0"}
 
 - Пример включения:
-- `remote.settings.Operation` установлено на 1
-- `remote.SetOperation`, затем установите эту точку данных в значение true
+- `remote.settings.Operation` установлено в 1
+- `remote.SetOperation`, затем установите для этой точки данных значение true
 
 - Пример выключения:
-- `remote.settings.Operation` установлен на 0
-- `remote.SetOperation`, затем установите эту точку данных в значение true
+- `remote.settings.Operation` установлено в 0
+- `remote.SetOperation`, затем установите для этой точки данных значение true
 
 - Пример изменения температуры:
 - `remote.settings.TempCfg` Введите температуру
-- `remote.SetTempCfg`, затем установите эту точку данных в значение true
+- `remote.SetTempCfg`, затем установите для этой точки данных значение true
 
 - Другой пример:
-- `remote.settings.WDirUpDown` установлен на 0
+- `remote.settings.WDirUpDown` установлено в 0
 - `remote.settings.WDirLeftRight` 0 или 1
-- `remote.SetWDirLeftRight`, затем установите эту точку данных в значение true
+- `remote.SetWDirLeftRight`, затем установите для этой точки данных значение true
 
     ![401_thinq1_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_remote.png)
 
@@ -638,7 +637,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 [Краткое содержание](#summary)
 
 ### 406 Все папки thinq2
-![406_папка.png](../../../en/adapterref/iobroker.lg-thinq/img/406_folder.png)
+![406_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/406_folder.png)
 
 ### 406 Удаленная папка thinq2
 ![406_folder_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/406_folder_remote.png)
@@ -647,9 +646,9 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 [Краткое содержание](#summary)
 
 - `remote.Statistic.command` Какую историю следует загрузить
-- почасовая
-- `remote.Statistic.endDate` Введите дату для почасового периода, конец и начало должны быть одинаковыми. Формат: 2023.12.01
-- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и конец должны быть одинаковыми. Формат: 2023.12.01
+- почасовая оплата
+- `remote.Statistic.endDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отчета, начало и окончание должны быть одинаковыми. Формат: 2023.12.01
 - Или ежедневно
 - `remote.Statistic.endDate` Введите дату ежедневно - Формат: 2023.12.06
 - `remote.Statistic.startDate` Введите дату ежедневно - Формат: 2023.12.01
@@ -657,8 +656,8 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.Statistic.endDate` Введите дату ежемесячно - Формат: 2023.12.01
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выбрать период
-- `remote.Statistic.sendRequest` Отправить выборку
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, то ваше устройство их не поддерживает или указана неверная дата.
+- `remote.Statistic.sendRequest` Отправить выбранное
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пустые, ваше устройство их не поддерживает или указана неверная дата.
 
     ![406_удаленная_статистика](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_statistic.png)
 
@@ -668,73 +667,78 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.basicCtrl.hotWaterTarget` Установка температуры
 - `remote.basicCtrl.opMode` Установить режим
 
-    ![406_удаленный_базовый_управление](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_basicctrl.png)
+    ![406_remote_basicctrl](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_basicctrl.png)
 
-### 406 Удалённое резервированиеCtrl thinq2
+### 406 Удаленное резервированиеCtrl thinq2
 [Краткое содержание](#summary)
 
-- `remote.reservationCtrl.add_new_schedule` Создайте новое расписание. Затем будут созданы 3 новые точки данных, которые необходимо заполнить. Затем нажмите `send_new_schedule`, чтобы сохранить новый слот. Если он не будет отправлен, эти новые точки данных будут удалены после перезапуска.
-- `remote.reservationCtrl.del_new_schedule` Удалить слот еще раз. Затем снова нажать `send_new_schedule`, чтобы сохранить данные.
+- `remote.reservationCtrl.add_new_schedule` Создайте новое расписание. Будут созданы 3 новые точки данных, которые необходимо заполнить. Затем нажмите `send_new_schedule`, чтобы сохранить новый интервал. Если данные не будут отправлены, эти новые точки данных будут удалены после перезапуска.
+- `remote.reservationCtrl.del_new_schedule` Удалите слот ещё раз. Затем нажмите `send_new_schedule` ещё раз, чтобы сохранить данные.
 - `remote.reservationCtrl.send_new_schedule` Нажмите, чтобы сохранить изменения.
 - `remote.reservationCtrl.01_end Enddatum` Пример 22:30.
 - `remote.reservationCtrl.01_start Начальная дата` Пример 21:30.
 - `remote.reservationCtrl.01_state` Включить/Отключить
 
-    ![406_удалённое_резервированиеctrl](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_reservationctrl.png)
+    ![406_remote_reservationctrl](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_reservationctrl.png)
 
 ### 406 Снимок thinq2
 [Краткое содержание](#summary)
 
-![406_снимок_1.png](img/406_snapshot_1.png) ![406_снимок_2.png](../../../en/adapterref/iobroker.lg-thinq/img/406_snapshot_2.png)
+![406_snapshot_1.png](img/406_snapshot_1.png) ![406_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/406_snapshot_2.png)
 
 ### Погода
 [Краткое содержание](#summary)
 
-lg-thinq.0.xxx.area должен быть заполнен!
+Поле lg-thinq.0.xxx.area должно быть заполнено!
 
-- `weather.device` Выберите область. Если все устройства имеют одинаковую область, отображается только одно устройство.
+- `weather.device` Выберите область. Если все устройства имеют одинаковую область, будет отображаться только одно устройство.
 - `weather.humidity` Влажность
-- `погода.температура` Температура
+- `weather.temperature` Температура
 - `weather.unit` Выберите градусы Цельсия или Фаренгейта
 - `weather.update` Запросить отправку LG (устройство и устройство müssen gefüllt sein!)
 
     ![погода.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Add translate for device 201
+- (Lucky-ESA) Delete APP-Login (removed by LG)
+
+### 1.1.2 (2025-08-18)
+
+- (Lucky-ESA) Delete expires check
+
+### 1.1.1 (2025-08-16)
+
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Node 20.x required
+- (Lucky-ESA) Admin 7.6.17 required
+
+### 1.1.0 (2025-04-08)
+
+- (Lucky-ESA) max target changed from 30 to 40 degrees
+- (Lucky-ESA) Dependencies updated
+- (Lucky-ESA) Admin 7.4.10 required
+
 ### 1.0.7 (2024-12-08)
 
--   (Lucky-ESA) Fixed: Connection status does not turn green
--   (Lucky-ESA) Changed: Checkbox to dropdown for login procedure
+- (Lucky-ESA) Fixed: Connection status does not turn green
+- (Lucky-ESA) Changed: Checkbox to dropdown for login procedure
 
 ### 1.0.6 (2024-12-07)
 
--   (Lucky-ESA) Save session data (prevents the login email)
--   (Lucky-ESA) Fixed invalid jsonConfig
--   (Lucky-ESA) Added choice between old and new login
--   (Lucky-ESA) Bugfixe
-
-### 1.0.5 (2024-12-02)
-
--   (Lucky-ESA) Migration to ESLint9
--   (Lucky-ESA) Bugfixe
-
-### 1.0.4 (2024-12-01)
-
--   (TA2k) Login fixed
--   (Lucky-ESA) Added hotwater for device 406 & 401
--   (Lucky-ESA) Dependencies updated
-
-### 1.0.2 (2024-09-10)
-
--   (Lucky-ESA) Dependencies updated
--   (Lucky-ESA) Changed autoDryRemainTime max value
--   (Lucky-ESA) Added own request for 401 thinq1
+- (Lucky-ESA) Save session data (prevents the login email)
+- (Lucky-ESA) Fixed invalid jsonConfig
+- (Lucky-ESA) Added choice between old and new login
+- (Lucky-ESA) Bugfixe
 
 ## License
 
 MIT License
 
-Copyright (c) 2021-2024 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2025 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

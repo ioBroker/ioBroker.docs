@@ -60,11 +60,23 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 10.2.0 (2025-09-09)
+
+* (@mcm1957) Role definitions for anergy states has been corrected [#1195].
+* (@mcm1957) Shelly Dali Dimmer Gen 3 (shellyddimmerg3) has been added.
+* (@mcm1957) Shelly1L Gen 3 (shelly1lg3) has been added.
+* (@mcm1957) Shelly2L Gen 3 (shelly2lg3) has been added.
+* (@mcm1957) Shelly2PM Gen 4 (shelly2pmg4) has been added.
+* (@klein0r) Shelly Shutter Gen 3 (shellyshutter) has been added.
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required now.
+* (@mcm1957) Dependencies have been updated
+
+### 10.1.0 (2025-06-30)
 
 * (@klein0r) Allow infinite event listeners
 * (@klein0r) Added transformed voltage for voltmeter
 * (@klein0r) Improved logging of mqtt authentication failures
+* (@klein0r) Acknowledge new encryption keys for bthome encryption
 
 ### 10.0.0 (2025-05-30)
 
@@ -82,28 +94,6 @@ Questions? Check the [FAQ](faq.md) section first!
 * (@mcm1957) Added sensors (Temperature, Voltmeter, Humidity, analog Input) to Shelly Plus Uni (shellyplusuni).
 * (@mcm1957) Issues reported by repositor checker have been fixed.
 * (@mcm1957) Dependencies have been updated
-
-### 9.5.0 (2025-05-03)
-
-* (@mcm1957) Added Shelly Pro Dimmer 0/1-10V PM (shellypro0110pm).
-* (@mcm1957) Added Shelly Pro RGBWW PM (shellyprorgbwwpm) - Note: CCT component still missing.
-* (@mcm1957) Added Shelly AZ Plug (shellyazplug).
-* (@mcm1957) Added Shelly EM Gen 3 (shellyemg3).
-* (@mcm1957) Added 'total returned energy' to Gen2+ EM devices.
-* (@mcm1957) Added 'Relay' to Shelly Pro EM 50 [#1038].
-* (@mcm1957) Added Ogemray 25A (ogemray25a).
-* (@mcm1957) Added energy states to Shelly Plus RBGW PM (shellyrgbwpm) [#1099].
-* (@mcm1957) Added energy states to Shelly Pro Dimmer 1 PM (shellyprodm1pm) [#1129].
-* (@mcm1957) Added energy states to Shelly Pro Dimmer 2 PM (shellyprodm2pm) [#1067, #1056, #1037].
-* (@mcm1957) Added energy states to Shelly Plus 0-10V Dimmer Gen 3 (shelly0110dimg3) [#1103].
-
-### 9.4.1 (2025-04-17)
-
-* (@mcm1957) Minimum value for min_brightness fixed for dimmer1/2 [#1166]
-
-### 9.4.0 (2025-04-16)
-
-* (@klein0r) Added Gen4 devices (see documentation for details)
 
 ### 9.5.0 (2025-05-03)
 

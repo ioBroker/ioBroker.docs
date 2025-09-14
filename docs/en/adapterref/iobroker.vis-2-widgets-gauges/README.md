@@ -21,6 +21,12 @@
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.2 (2025-08-26)
+* (bluefox) Support for older Android devices
+
+### 2.0.1 (2025-07-01)
+* (bluefox) Rewritten with TypeScript
+
 ### 1.1.1 (2024-11-25)
 * (bluefox) Allowed to define digits after comma for the color gauge
 
@@ -68,7 +74,7 @@
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

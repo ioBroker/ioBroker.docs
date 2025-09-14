@@ -268,6 +268,9 @@ The values of the state provide multiple manipulation modes:
 - (Michael Schroeder) [#248](https://github.com/MiSchroe/ioBroker.klf200/issues/248), [#294](https://github.com/MiSchroe/ioBroker.klf200/issues/294), [#297](https://github.com/MiSchroe/ioBroker.klf200/issues/297) Closed items regarding invalid jsonConfig.json. Fix must be provided by Admin adapter.
 - (Michael Schroeder) [#254](https://github.com/MiSchroe/ioBroker.klf200/issues/254) Future-proof development: Converted adapter to ESM.
 - (Michael Schroeder) [#292](https://github.com/MiSchroe/ioBroker.klf200/issues/292) Fixed findings from Adapter Checker.
+- (Michael Schroeder) [#310](https://github.com/MiSchroe/ioBroker.klf200/issues/310) Upgrade dependencies.
+- (Michael Schroeder) [#317](https://github.com/MiSchroe/ioBroker.klf200/issues/317) Switch using ping instead of net-ping for compatibility with Node v24.
+- (Michael Schroeder) [#309](https://github.com/MiSchroe/ioBroker.klf200/issues/309), [#316](https://github.com/MiSchroe/ioBroker.klf200/issues/316) Support Node V24.
 
 ### 1.3.5 (2024-11-20)
 

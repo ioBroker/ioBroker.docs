@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.skiinfo/README.md
 title: ioBroker.skiinfo
-hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
+hash: diLFZTVpYoRZ/ljJwh5kj1PptGiP84IIK94aVIF/iJg=
 ---
 # IoBroker.skiinfo
 ![标识](../../../en/adapterref/iobroker.skiinfo/admin/skiinfo.png)
@@ -12,6 +12,7 @@ hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
 ![下载](https://img.shields.io/npm/dm/iobroker.skiinfo.svg)
 ![安装数量](https://iobroker.live/badges/skiinfo-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/skiinfo-stable.svg)
+![GitHub 上的 nycrc 配置](https://img.shields.io/nycrc/oweitman/iobroker.skiinfo?preferredThreshold=functions)
 ![新公共管理](https://nodei.co/npm/iobroker.skiinfo.png?downloads=true)
 
 **测试：**![测试和发布](https://github.com/oweitman/ioBroker.skiinfo/workflows/Test%20and%20Release/badge.svg)
@@ -25,7 +26,10 @@ hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
 ## Vis 和小部件
 以下小部件确实存在
 
-- [`Skiinfo browser`](#skiinfo-browser) - 浏览所有可用的国家、地区和区域并设置喜欢的区域。
+- [`Skiinfo browser`](#skiinfo-browser) - 浏览所有可用的
+
+国家、地区和区域，并设置喜爱的区域。
+
 - [`Skiinfo Favorites`](#skiinfo-favorite) - 仅显示最喜欢的滑雪区。
 
 更多信息
@@ -50,7 +54,8 @@ hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
 
 ### CSS 类
 #### `widgetID` 和 `skiinfo`
-所有 CSS 类都包含两个基类 `widgetID` 和 `skiinfo`。这允许您将格式应用于单个窗口小部件，或者在使用多个 skiinfo 窗口小部件时，将格式应用于所有 skiinfo 窗口小部件。
+所有 CSS 类都包含两个基类 `widgetID` 和 `skiinfo`。
+这允许您将格式应用于单个窗口小部件，或者在使用多个 skiinfo 窗口小部件时，将格式应用于所有 skiinfo 窗口小部件。
 
 #### `countries`、`regions` 和 `areas`
 每个不同的信息区域都可以用这 3 个 CSS 类分别处理
@@ -59,10 +64,11 @@ hash: y12O3xCAjzKgdZffC4wOapYeE0k5w/Nq8O7yBMZIbEo=
 3 个信息区域均由一个普通的 HTML 表组成。
 
 #### 国家和地区精选元素
-每个选定元素都位于一个 span 元素中，并被赋予 CSS 类`selected`。
+每个选定元素都位于一个 span 元素中，并被赋予 CSS 类 `selected`。
 
 #### 格式化区域部分中的列
-表格标题使用了 CSS 类 tharea 和 thsort。每列元素均使用了 `txtr`（用于右对齐）和 `txtl`（用于左对齐）格式。
+表格标题使用了 CSS 类 tharea 和 thsort。
+每个列元素均使用了 `txtr`（用于右对齐）和 `txtl`（用于左对齐）格式。
 
 #### 最喜欢的明星
 收藏星标可放置在 span 元素中，并通过 CSS 类 `favorite` 进行访问。如果某个元素已被收藏，则 span 元素会添加 `selected`。
@@ -166,6 +172,11 @@ console.log(response);
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- test remove node 18,extend to node 24
+
 ### 0.5.0 (2025-04-16)
 
 - add search for regions in browser

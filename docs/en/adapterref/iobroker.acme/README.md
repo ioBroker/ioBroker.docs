@@ -97,6 +97,10 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 6.17.14 now
+- (mcm1957) Dependencies have been updated
+
 ### 1.0.6 (2024-12-27)
 
 - (mcm1957) Missing size attributes for jsonCOnfig have been added.
@@ -125,7 +129,7 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 
 MIT License
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 Robin Rainton <robin@rainton.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: oHusWnae3ROygjc/y6YEEP/LW8ZbCO2QY6Cc+3r9bYc=
+hash: SgMuOpJIB+SOkVym/n7GnyodzW7w3eHFGhWOfLXT+nA=
 ---
 ![标识](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -13,33 +13,33 @@ hash: oHusWnae3ROygjc/y6YEEP/LW8ZbCO2QY6Cc+3r9bYc=
 ![安装数量（稳定）](http://iobroker.live/badges/vaillant-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.vaillant.svg)
 ![已知漏洞](https://snyk.io/test/github/TA2k/ioBroker.vaillant/badge.svg)
-![新平台](https://nodei.co/npm/iobroker.vaillant.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.vaillant.png?downloads=true)
 
 # IoBroker.vaillant
 ## 适用于 ioBroker 的 vaillant 适配器
 Vaillant multiMatic 和 myVaillant 适配器
 
 ＃＃＃ 入门
-在实例选项中输入 MultiMatic /Senso 或 myvaillant 应用程序邮件地址和密码。
+在 Multimatic /senso 或 myVaillant 应用程序中的 Instanz 选项中设置邮件和密码。
 
-可以更改配置，并在子点配置下进行调整。某些选项仅在模式为 ON 或 MANUAL 时应用，而不是 AUTO 或 TIME_CONTROLLED。
+配置可以在 dem sie unter dem Unterpunkt 配置中进行。 Manche 配置最初是在 MANUAL 或 TIME_CONTROLLED 模式下进行的
 
-## **Mutlimatic 示例：**
-**热水**：vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **加热**：首先打开 MANUAL vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL，然后设置温度 vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint，最后将 operation_mode 设置为 TIME_CONTROLLED
+## **多功能示例：**
+**Warmwasser**：vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_Temperature_setpoint **Heizung**：第一次手动vaillant.0.serialnummber.systemcontrol/tli.zones03.heating.configuration.operation_mode手动丹恩模具温度vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_Temperature_setpoint 和结束操作模式 auf TIME_CONTROLLED
 
-可以通过参数值点来调整参数，请记住对象定义中允许哪些值。
+参数值与对象定义中的参数值相同。
 
-## **示例 myVaillant：**
-vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost 为 true/false 以激活或停用 Boost vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint 以设置所需室温 vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+## **myVaillant 示例：**
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode 关闭手动 TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode 关闭手动 TIME_CONTROLLED
 
-远程命令
+## 远程命令
 用于刷新和预定义`vaillant.0.id.remote`
 
-自定义命令
-您可以将自定义命令遥控器用于未预定义的遥控器`vaillant.0.id.remotes.customCommand`
+## 自定义命令
+您可以使用自定义命令遥控器来控制未预定义的遥控器`vaillant.0.id.remotes.customCommand`
 
-###示例：
-## 区域可以从 0 到 X。尝试 zone/0/ 或 zone/2/
+### 示例：
+## Die zone kann von 0 bis X gehen。咬区/0/ 奥德区/2/ 测试
 区域/0/xxxx
 
 区域/1/xxxx
@@ -117,7 +117,7 @@ vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost 为 true/
 ```
 
 ```json
-{
+{w
   "url": "ventilation/0/day-fan-stage",
   "data": { "maximumDayFanStage": 3 }
 }
@@ -236,12 +236,9 @@ vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost 为 true/
 
 ## Changelog
 
-### 0.7.3
-
 <!-- ### **WORK IN PROGRESS** -->
-- fix month stats period
-- initial english translation for documentation
-- formal cleanups for publishing process
+### 0.7.5 (2025-07-09)
+ - revert change to fix save issue
 
 ### 0.7.2 (2024-04-18)
 

@@ -21,11 +21,33 @@ See: https://www.heizoel24.de/mex
 Simply enter the login data from your Heizoel24 account (e-mail and password).
 The MEX data is stored in the data point heizoel24-mex.
 The adapter starts by default every 3 hours. This is completely sufficient, as the MEX only sends data once a day.
-The data point CalculatedRemaining/JsonForEcharts (calculated remaining quantity) can be opened directly with eCharts.
+The data points CalculatedRemaining/JsonForEcharts (calculated remaining quantity) and OilUsage/JsonForEcharts can used directly with eCharts.
 
 
 ## Changelog
+### 1.4.5 (2025-08-29)
 
+- Depends updated
+
+### 1.4.4 (2025-06-21)
+
+- README.md & README-de.md corrected
+
+### 1.4.3 (2025-06-21)
+
+- io-package.json > admin set to >=7.4.10
+
+### 1.4.2 (2025-06-17)
+
+- Bug fix jsonConfig.json : xs,sm, md, ...
+
+### 1.4.1 (2025-06-17)
+
+- Bug fix jsonConfig.json : size removed
+
+### 1.4.0 (2025-06-17)
+
+- OilUsage (Oil consumption per month) added
 
 ### 1.3.5 (2024-08-08)
 
@@ -71,7 +93,7 @@ Error intercepted for:
 ## License
 MIT License
 
-Copyright (c) 2024 Daniel Luginbühl <webmaster@ltspiceusers.ch>
+Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

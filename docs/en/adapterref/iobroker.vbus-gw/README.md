@@ -63,9 +63,10 @@ If you only want to connect to a single serial port it is recommended to configu
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.0 (2025-08-29) - 2025H1 maintenance release
 
-- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
+- (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
+- (pdbjjens) Change: Cleanup devDependencies
 
 ### 0.2.0 (2025-01-29) - 2025H1 maintenance release
 
@@ -88,12 +89,6 @@ If you only want to connect to a single serial port it is recommended to configu
 
 - (pdbjjens) New: Use resol-vbus v0.29.0
 - (pdbjjens) New: Logging of denied connection events
-
-### 0.0.5 (2024-01-21)
-
-- (pdbjjens) New: Use resol-vbus v0.28.0
-- (pdbjjens) New: Configurable password for the VBus gateway
-- (pdbjjens) Fix: Channel forwarding to the requesting connections only
 
 ## License
 

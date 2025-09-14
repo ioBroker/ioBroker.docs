@@ -82,6 +82,11 @@ ttd:
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 4.0.1 (2025-07-04)
+
+* (@klein0r) Improved logging of ical source
 * (@klein0r) Updated dependencies
 
 ### 4.0.0 (2025-01-05)
@@ -108,10 +113,6 @@ NodeJS >= 18.x and js-controller >= 5 is required
 * (klein0r) Improved error reporting / log messages
 * (klein0r) Fixed translations
 * (klein0r) Added Abfall+ as Webservice
-
-### 3.2.0 (2024-01-22)
-
-* (klein0r) Added more providers
 
 ## License
 

@@ -5,76 +5,142 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fronius-wattpilot.svg)](https://www.npmjs.com/package/iobroker.fronius-wattpilot)
 ![Number of Installations](https://iobroker.live/badges/fronius-wattpilot-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/fronius-wattpilot-stable.svg)
-[![Dependency Status](https://img.shields.io/david/tim2zg/iobroker.fronius-wattpilot.svg)](https://david-dm.org/tim2zg/iobroker.fronius-wattpilot)
 
 [![NPM](https://nodei.co/npm/iobroker.fronius-wattpilot.png?downloads=true)](https://nodei.co/npm/iobroker.fronius-wattpilot/)
 
 **Tests:** ![Test and Release](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
 
-Barebones implementation of the unofficial Fronius Watt pilot (https://www.fronius.com/de-ch/switzerland/solarenergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) API. Based on https://github.com/joscha82/wattpilot.
+[Zur deutschen Version der Dokumentation](README_DE.md)
 
-## How to install:
-**I don't take the responsibility for your device. With this API you can access the device directly, be careful.** 
-### **Requirements**
-- Finish your normal installation of the Fronius Watt pilot app. Remember the Password! 
-- Go to the Internet tab and connect your Pilot to your Wi-Fi. 
-- Find out the IP-Adress of your WattPilot. 
-  - Option 1: Via your Router's Web-GUI. 
-  - Option 2: Via Wattpilot App: After the connection established click on the Wi-Fi name.     
-  You will see a page with more information about your Wi-Fi connection. Note the IP address down.
-  
-### **iobroker.fronuis-wattpilot Adapter**
-- Now you can regularly install an instance of iobroker.fronius-wattpilot via the "Adapters"-page.
-- After you created the instance, you will be prompted to insert IP-Address and password of your WattPilot. Fill in the values you noticed before and save the config. If you have done everything correctly the adapter will turn green after a while and you can see the incoming data in the objects tab.
+## What is this adapter?
 
-**It is highly recommended to assign a static-IP to your WattPilot.**
-## How can I use the adapter...
-You can use the datapoints of this adapter like every other datapoint in your broker.
+This adapter integrates your Fronius Wattpilot EV charger with ioBroker, allowing you to monitor and control your charging station. The Wattpilot is an intelligent electric vehicle charging solution that can be integrated into your smart home system.
 
-To get some ideas see "examples".
+**🌟 Key Features:**
+- Real-time monitoring of charging status
+- Remote control of charging parameters
+- Cloud and local connection support
 
-There is a [Blockly-example](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml) how you can measure your Solar Grid output and automatically adjusts the Pilot to the right current value (Amp) to improve your internal energy consumption.    
-You can simply import it by copying the content of the example and insert it via the "Import blocks"-icon in the upper right corner of your Blockly-script.
+## Installation and Setup
 
+### Prerequisites
 
-## What does the adapter?
-The adapter connects to the WattPilots WebSocket and separates incoming data into ioBroker-datapoints you can use quite comfortable. 
+Before installing the adapter, you need to set up your Wattpilot:
 
-## Get states
-By default, the adapter only writes the key points of the Wattpilot. If you want all the possible values the API can deliver, uncheck the checkbox in the instance-settings.    
-A documentation of the Datapoints is available here: https://github.com/joscha82/wattpilot/blob/main/API.md (Thanks to joscha82)
+1. **Complete Wattpilot Setup**: Finish the initial setup using the official Fronius Wattpilot app and **remember your password**
+2. **Connect to WiFi**: In the app, go to the "Internet" tab and connect your Wattpilot to your WiFi network
+3. **Find IP Address**: You'll need your Wattpilot's IP address using one of these methods:
+  - **Router Method**: Check your router's web interface for connected devices
+  - **App Method**: In the Wattpilot app, tap on the WiFi name after connection. You'll see network details including the IP address
 
-## Set states?
-The most important states you can set directly, these are AccessState, amp, cableLock, cae and mode. 
+> 💡 **Important**: It's highly recommended to assign a static IP address to your Wattpilot in your router settings to prevent connection issues.
 
-**AccessState**: "Open" or "Wait"
+### Adapter Installation
 
-**amp**: 6-16
+1. Install the adapter from the ioBroker "Adapters" page
+2. Create a new instance of the fronius-wattpilot adapter
+3. In the instance configuration:
+  - Enter your Wattpilot's **IP address**
+  - Enter your Wattpilot **password**
+  - Configure other settings as needed
+4. Save the configuration
 
-**cableLock**: "Normal" or "AutoUnlock" or "AlwaysLock"
+If everything is configured correctly, the adapter will connect and start creating data points.
 
-**cae**: "true" or "false" (watch out this disables the cloud functionality of your WattPilot may need to restart)
+## How to Use the Adapter
 
-Yes, just write the state name followed by a semicolon and then the value in the set_state state.     
-For example:
+### Reading Data
 
-    amp;6
-  
-**You can control the "amp" and the "lmo" state directly via the set_power and the set_mode states.**
+The adapter automatically creates data points for all Wattpilot values. You can use these like any other data points in ioBroker for:
+- Visualization in VIS or other frontends
+- Logic in scripts and Blockly
+- Automation rules
 
-## What does this mess mean?
-Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.md
+**Data Modes:**
+- **Key Points Only** (default): Shows only the most important values
+- **All Values**: Uncheck the "Key points only" option to see all available API data
+
+📖 Full API documentation: [Wattpilot API Documentation](https://github.com/joscha82/wattpilot/blob/main/API.md) (Thanks to joscha82)
+
+### Controlling Your Wattpilot
+
+#### Direct State Control (NEW!)
+
+You can now directly control important Wattpilot functions by writing to the states.
+
+#### Advanced Control via set_state
+
+For more advanced control, use the `set_state` data point with this format:
+```
+stateName;value
+```
+
+**Available states:**
+- **amp**: `6-16` (charging current in Amperes)
+- **cae**: `true` or `false` (⚠️ disables cloud functionality - may require restart)
+
+**Examples:**
+```
+amp;10          // Set charging current to 10A
+```
+
+## Examples and Use Cases
+
+### Solar Integration Example
+
+Check out our [Blockly example](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml) that shows how to:
+- Monitor your solar power production
+- Automatically adjust Wattpilot charging current based on excess solar power
+
+**How to use the example:**
+1. Copy the content from the example file
+2. In ioBroker Blockly, click the "Import blocks" icon (upper right corner)
+3. Paste the content and adapt it to your setup
+
+### Common Automations
+
+- **Time-based charging**: Start charging during off-peak hours
+- **Solar surplus charging**: Charge only when excess solar power is available
+- **Presence detection**: Start/stop charging based on car presence
+- **Load balancing**: Adjust charging current based on household power consumption
+
+## Technical Details
+
+The adapter connects to the Wattpilot's WebSocket interface and converts incoming data into ioBroker data points. It supports both local WiFi connections and cloud-based connections.
+
+**Connection Types:**
+- **Local WiFi** (recommended): Direct connection to your Wattpilot
+- **Cloud**: Connection via Fronius cloud services
+
+## Troubleshooting
+
+**Common Issues:**
+- **Connection failed**: Check IP address and password
+- **Frequent disconnections**: Assign a static IP to your Wattpilot
+- **Missing data points**: Try enabling "All Values" mode
+- **Cloud connection issues**: Verify the `cae` setting
+
+**⚠️ Disclaimer:** This adapter uses unofficial APIs. Use at your own risk and be careful when modifying settings that could affect your device's operation.
 
 ## Developers
+
 - [SebastianHanz](https://github.com/SebastianHanz)
 - [tim2zg](https://github.com/tim2zg)
 - [derHaubi](https://github.com/derHaubi)
 
-### Changelog
+## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 4.7.0 (2025-06-19)
+- Rewrite of the adapter
+- Added ability to set states directly
+- Added ability to set common states directly
+- Fix all issues
+
 ### 4.6.3 (2023-12-24)
 - Fixed a bug where the adapter would use a undefined variable
 - Fixed bug #44
@@ -118,7 +184,7 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
 - Added some quality of life improvements
 
 ### 4.0.0 (2022-11-30)
-- Fixed timing issue 
+- Fixed timing issue
 - Added set_power and set_mode states
 
 ### 3.3.1 (2022-11-17)
@@ -132,7 +198,7 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
 ### 3.2.5 (2022-10-14)
 - Small changes to the package.json and io-package.json
 
-### 3.2.4 (2022-10-11) 
+### 3.2.4 (2022-10-11)
 - Fiexed cool down timer for normal values
 
 ### 3.2.3 (2022-10-08)
@@ -225,7 +291,7 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
 ## License
 MIT License
 
-Copyright (c) 2024 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2025 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

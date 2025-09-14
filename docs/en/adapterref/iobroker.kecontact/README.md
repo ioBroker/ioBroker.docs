@@ -71,7 +71,8 @@ To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can 
 ### 1p/3p charging
 
 If you have an installation contactor to (dis)connect phase 2 and 3 of your charging station and this switch can be triggered by a state then this adapter is able to start charging with one phase and switch to 3 phases charging if your surplus is sufficient for it.
-In this case please enter the state for your installation contactor and whetherit is a NO (normally open) or NC (normally close)
+In this case please enter the state for your installation contactor and whetherit is a NO (normally open) or NC (normally close).
+There's also an option to set charging permanently to 1p or 3p.
 
 ### batery storage
 
@@ -97,6 +98,7 @@ Therefore you need to specify the amperage states of each phase of your enegy me
 Additionally there are some states to influence behaviour of photovoltaics automatic on the fly, e.g. by a script of your own updating these values according to your needs)
 * kecontact.n.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
 * kecontact.n.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
+* kecontact.n.automatic.1p3pSwitch - defines if - regardless of surplus - charging should take place with always 1p or always 3p
 * kecontact.n.automatic.addPower - defines an amount of watts of grid consumption allowed to charge your vehicle (same as in options)
 * kecontact.n.automatic.pauseWallbox - stops every charging session immediately as long a set to true
 * kecontact.n.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
@@ -113,6 +115,11 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) new option to always charge with 1p oder 3p
+* (Sneak-L8) new setting for discharging power of storage battery (if not equal to max battery power)
+* (Sneak-L8) updated version requirements (admin 7.6.17 and core 3.3.2)
+
+### 3.2.0 (2025-07-13)
 * (Sneak-L8) new option to always start charging when vehicle is plugged if authorization is required to prevent charging station to block charging
 * (Sneak-L8) optimized strategy for battery charging
 * (Sneak-L8) node.js >= 20 required
@@ -147,12 +154,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) minimum verison für js-controller now 5.0.19
 * (Sneak-L8) set currTimer timeout default value from 0 to 1
 * (Sneak-L8) support new option "setBoot" of c-series stating firmware 3.10.57
-
-### 2.2.0 (2024-06-23)
-* (mcm1957) Adapter requires nodejs >= 18 and js-controller >= 5 now.
-* (mcm1957) Dependencies have been updated.
-* (Sneak-L8) fix url for download page at Keba website
-* (Sneak-L8) fix lint problems by replacing double by single quotes
 
 ## Legal
 

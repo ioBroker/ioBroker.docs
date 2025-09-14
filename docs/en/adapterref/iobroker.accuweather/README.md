@@ -41,6 +41,9 @@ For better view a custom lovelace card is created - see https://github.com/algar
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2025-09-02)
+* (mcm1957) Dependencies have been updated
+
 ### 2.1.0 (2025-01-22)
 * (ticaki) Change: min. js-controller to 6.0.11
 * (ticaki) Change: Outdated data is updated at startup.

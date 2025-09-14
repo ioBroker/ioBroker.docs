@@ -682,6 +682,26 @@ Shuttercontrol creates various data points under the following folders:
 
 ---
 
+### Status of the roller shutters
+
+A roller shutter can have the following status
+
+* up: Roller shutter open
+* down: Roller shutter closed
+* sunProtect: Roller shutter in sun protection mode
+* none: no status available
+* OpenInSunProtect: Window or door open in sun protection mode
+* Manu_Mode: manual mode (roller shutter was moved manually)
+* manu_sunProtect: manually moved into sun protection mode
+* Wind1: Wind level 1 alarm
+* wind2: Wind level 2 alarm
+* triggered: Window opened and roller shutter moved to the open position
+* frost: Frost alarm
+* rain: Rain alarm
+* fire: Fire alarm
+
+---
+
 
 ### shuttercontrol0control
 
@@ -794,8 +814,19 @@ _[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 2.0.5 (2025-09-03)
+* (simatec) dependencies updated
+* (simatec) Try & Catch for Tab-Menu added
+
+### 2.0.4 (2025-08-31)
+* (simatec) Dependencies updated
+
+### 2.0.3 (2025-07-22)
+* (simatec) Translations updated
+
+### 2.0.2 (2025-06-29)
 * (simatec) Fix Responsive Design for Tab Menu
+* (simatec) Dependencies updated
 
 ### 2.0.1 (2025-03-24)
 * (simatec) Fix Translations

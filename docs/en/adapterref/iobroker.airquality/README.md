@@ -37,6 +37,16 @@ You can check other adapters for examples or ask in the developer community. Usi
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.7 (2025-08-22)
+
+- (raschy) Station names visible again
+
+### 0.1.6 (2025-08-22)
+
+- (raschy) Removal of an unused state
+- (raschy) improved error messages
+- (raschy) improved retrieval logic
+
 ### 0.1.5 (2025-05-03)
 
 - (raschy) Supplementary data points i18n

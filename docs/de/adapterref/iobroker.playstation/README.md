@@ -4357,6 +4357,7 @@ Bekannte paltform: PS5, PS4, PS3, PSVita
 - (Lucky-ESA) Added Playstation Stars
 - (Lucky-ESA) Added Playstation Store
 - (Lucky-ESA) Fixed create folder
+- (Lucky-ESA) Admin 7.6.17 required
 
 ### 0.0.3 (2025-02-14)
 

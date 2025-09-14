@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluesound/README.md
 title: ioBroker.bluesound
-hash: PU3PlrEUB2NHsiR97M2AcniN3Tl/pOYngvNPCLHwh1g=
+hash: waoLcBOsb5gz0sO/1PPmjKFdIZ1WjwR/sSEfaDwQ7ww=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluesound/admin/bluesound.png)
 
@@ -16,38 +16,67 @@ hash: PU3PlrEUB2NHsiR97M2AcniN3Tl/pOYngvNPCLHwh1g=
 # IoBroker.bluesound
 [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluesound/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Тесты:** ![Тест и выпуск](https://github.com/Uwe1958/ioBroker.bluesound/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/Uwe1958/ioBroker.bluesound/workflows/Test%20and%20Release/badge.svg)
 
 ## Bluesound адаптер для ioBroker
 Адаптер для управления устройствами Bluesound
 
-## Включенные функции
-Адаптер использует вызовы API в формате: http://--playerAPI--:11000/xxx
+## Функции включены
+Адаптер использует вызовы API в формате: http://--playerIP--:11000/xxx
 
-Параметр тайм-аута задается необязательным параметром 'config.TimeOut' как тайм-аут для вызова API. Значение по умолчанию — 2 секунды.
-
-При запуске предустановки считываются и добавляются в канал «presets».
-Модель и имя проигрывателя сохраняются в канале «info».
-Когда проигрыватель воспроизводится, заголовки устанавливаются в канале «info».
+При запуске предустановки считываются из плеера и добавляются в канал «presets».
+Модель и название плеера хранятся в канале «info».
+Во время воспроизведения титры устанавливаются в канале «info».
 
 Статус игрока опрашивается с интервалом, установленным параметром «config.pollingtime», а результат сохраняется в «control.state», а также в «info.\*».
 
-Значения PollingTime до 120 секунд являются разумными. Адаптер не может быть запущен со значениями больше 300 секунд. Значение по умолчанию — 30 секунд.
+Допустимые значения PollingTime — до 120 секунд. Адаптер не может быть запущен со значениями более 300 секунд. Значение по умолчанию — 30 секунд.
+
+Параметр тайм-аута задаётся необязательным параметром config.TimeOut как тайм-аут для вызова API. Значение по умолчанию — 2 секунды.
 
 Реализованы следующие функции:
 
-- Остановка игрока (вызывается установкой 'control.stop' в значение true)
-- Запуск проигрывателя (запускается установкой «control.start» в значение true)
-- Пауза проигрывателя (активируется установкой «control.pause» в значение true, режим переключения)
+- Остановка проигрывателя (активируется установкой 'control.stop' в значение true)
+- Запуск проигрывателя (запускается установкой 'control.start' в значение true)
+- Пауза проигрывателя (активируется установкой 'control.pause' в значение true)
 - Воспроизвести Presetxxx (запускается установкой '.presets.preset(x).start' в значение true)
 - Изменение громкости (запускается изменением «control.volume»)
+- Перемешивание плейлиста (активируется установкой 'control.shuffle' в значение true, режим переключения)
+- Пересылка плейлиста (активируется установкой 'control.forward' в значение true)
+- Воспроизведение плейлиста в обратном направлении (запускается установкой 'control.backward' в значение true)
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### **WORK IN PROGRESS**
+
+- (Uwe Nagel) Further code cleaning (apiclient, getStateAsync)
+- (Uwe Nagel) @types/xml2js added
+- (Uwe Nagel) Move to eslint 9 and fix subsequent issues
+
+### 1.2.0 (2025-07-24)
+
+- (Uwe Nagel) Logic added to shift playlist forward/backward
+- (Uwe Nagel) State roles updated
+- (Uwe Nagel) Logic added to shuffle playlist
+- (Uwe Nagel) Translated using Weblate (Dutch)
+- (Uwe Nagel) Update test-and.release.yml to node 24.x
+- (Uwe Nagel) Update testing to minimum node.js version 20
+
+### 1.1.5 (2025-03-10)
+
+- (Uwe Nagel) Create version 1.1.5
+- (Uwe Nagel) Update info.connection regularly
+- (Uwe Nagel) Update admin dependency to >=7.4.10
+- (Uwe Nagel) Update @iobroker/adapter-dev to 1.3.0
+- (Uwe Nagel) Fixing test action problems
+- (Uwe Nagel) Bump mocha from 11.0.1 to 11.1.0
+- (Uwe Nagel) Bump eslint-config-prettier from 9.1.0 to 10.0.1
+- (Uwe Nagel) Bump chai and @types/chai
+- (Uwe Nagel) Bump eslint from 9.16.0 to 9.19.0
+- (Uwe Nagel) Corrected translations (de,pl)
+- (Uwe Nagel) Update @iobroker/adapter-core to 3.2.3
+- (Uwe Nagel) Update @iobroker/testing to 5.0.0
+
 ### 1.1.4 (2025-01-03)
 
 - (Uwe Nagel) Correct common.news

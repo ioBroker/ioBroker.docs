@@ -18,11 +18,9 @@ Adapter to control Bluesound devices
 
 ## Functions included
 
-The adapter uses API calls in the format: http://--playerAPI--:11000/xxx
+The adapter uses API calls in the format: http://--playerIP--:11000/xxx
 
-A timeout parameter is set by optional parameter 'config.TimeOut' as timeout for the API call. Default value is 2 secs.
-
-At startup the presets are read and added to the 'presets' channel.
+At startup the presets are read from the player and added to the 'presets' channel.
 Player model and name are stored in the 'info' channel.
 When player is playing the titles are set in the 'info' channel.
 
@@ -30,34 +28,35 @@ The player status is polled in the interval set by 'config.pollingtime' and the 
 
 PollingTime values up to 120 secs are reasonable. The adapter cannot be startet with values larger than 300 secs. Default value is 30 secs.
 
+A timeout parameter is set by optional parameter 'config.TimeOut' as timeout for the API call. Default value is 2 secs.
+
 The following functions are implemented:
 
-- Player stop (triggered by setting 'control.stop' to true)
-- Player start (triggered by setting 'control.start' to true)
-- Player Pause (triggered by setting 'control.pause' to true, toggle mode)
+- Player Stop (triggered by setting 'control.stop' to true)
+- Player Start (triggered by setting 'control.start' to true)
+- Player Pause (triggered by setting 'control.pause' to true)
 - Play Presetxxx (triggered by setting '.presets.preset(x).start' to true)
 - Change Volume (triggered by changing 'control.volume')
+- Shuffle Playlist (triggered by setting 'control.shuffle' to true, toggle mode)
+- Playlist forward (triggered by setting 'control.forward' to true)
+- Playlist backward (triggered by setting 'control.backward' to true)
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
-
 ### **WORK IN PROGRESS**
 
+- (Uwe Nagel) Further code cleaning (apiclient, getStateAsync)
+- (Uwe Nagel) @types/xml2js added
+- (Uwe Nagel) Move to eslint 9 and fix subsequent issues
+
+### 1.2.0 (2025-07-24)
+
+- (Uwe Nagel) Logic added to shift playlist forward/backward
+- (Uwe Nagel) State roles updated
+- (Uwe Nagel) Logic added to shuffle playlist
+- (Uwe Nagel) Translated using Weblate (Dutch)
+- (Uwe Nagel) Update test-and.release.yml to node 24.x
 - (Uwe Nagel) Update testing to minimum node.js version 20
-- (Uwe Nagel) Bump eslint-config-prettier from 10.1.1 to 10.1.2
-- (Uwe Nagel) Bump sinon from 19.0.5 to 20.0.0
-- (Uwe Nagel) Bump @eslint/js from 9.23.0 to 9.25.1
-- (Uwe Nagel) Bump @types/node from 22.13.10 to 22.15.3
-- (Uwe Nagel) Bump eslint-plugin-prettier from 5.2.3 to 5.2.6
-- (Uwe Nagel) Bump @eslint/eslintrc from 3.3.0 to 3.3.1
-- (Uwe Nagel) Bump @types/chai from 5.2.0 to 5.2.1
-- (Uwe Nagel) Bump @eslint/js from 9.22.0 to 9.23.0
-- (Uwe Nagel) Bump @iobroker/testing from 5.0.3 to 5.0.4
-- (Uwe Nagel) Bump globals from 15.15.0 to 16.0.0
 
 ### 1.1.5 (2025-03-10)
 

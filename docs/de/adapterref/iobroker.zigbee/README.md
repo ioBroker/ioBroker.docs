@@ -49,13 +49,15 @@ In this situation, the admin indicates whether the ZigBee subsystem is started (
 - If only one USB device is used, the /dev/TTY* port is preferable. This allows the coordinator to be replaced with an identical device in the event of a defect without having to adjust the configuration.
 7. Assign a Network ID and Pan ID to distinguish it from other ZigBee networks within wireless range. e.g., starting with adapter version 2.1.0, ExtPanID (C) and PanID (D) are automatically pre-assigned with random values ​​until the configuration is saved.<br>
 8. Select a suitable ZigBee channel (E). Please note that ZigBee and 2.4GHz Wi-Fi share the same frequency band. The optimal channel therefore depends, among other things, on the Wi-Fi channels used in the area. The channel names for ZigBee and Wi-Fi are **not** identical, e.g. WIFI channel 11 and Zigbee channel 11 do **not** interfere with each other. It is also advisable to limit your selection to the ZigBee Light Link channels (11, 15, 20, 25). If a channel is selected that does not belong to the ZLL, the interface displays a yellow triangle with an exclamation mark above the entered channel. <br>After the adapter has been successfully started, a scan of the network channels can also be performed via the configuration.<br>
-**Note:** Starting with adapter version 2.1.0, it is possible to change the channel without deleting the configuration and re-learning all devices. However, **this feature is considered experimental** – individual devices may not respond to the channel change; these devices will then need to be re-learned.<br>
+**Note:** Starting with adapter version 3.1.0, it is possible to change the channel without deleting the configuration and re-pairing all devices. Individual devices may not respond to the channel change request; these devices will then need to be re-paired. This is most often true for end-devices.<br>
 9. Check whether the Zigbee subsystem is starting. To do this, try starting the Zigbee subsystem using *Start/Stop* (F). The progress of the start attempt can be observed in the log. The icon (A) changes from black/red to black/orange while the Herdsman starts. If the attempt was successful, the icon disappears completely; otherwise, it turns red again, and the messages in the log provide clues as to the cause.<br>
 The Herdsman can also be stopped using the same button. The icon is also displayed in black/orange. **Important: Stopping can take up to 2 minutes in some cases – especially when using network coordinators.** Patience is required here. After Herdsman has been terminated, the icon appears in black/red and the message 'Herdsman stopped!' appears.
 Depending on the error, there are various possible reasons why Herdsman may not start. If it is 'just' a timeout, it is certainly advisable to repeat the attempt immediately. If the configuration is inconsistent, the relevant data is displayed in the log. The adapter offers two options for resolving the conflict:
 - Reading the data from the NV backup. In this case, the adapter's configuration is adjusted.
 - Deleting the NV backup. In this case, the adapter's configuration remains as it is. This **forces** a rebuild of the network, which subsequently requires all previously trained devices to be reset and retrained.<br>
 The log output can also be used to search for a solution in the [ioBroker Forum](https://forum.iobroker.net). Please highlight the messages and post them **as text** in the forum.
+
+10. Once the zigbee network is configured correctly and starts without issues, it is time to set the adapter to automatically start the network at start. This is done by checking the checkbox labeled 'start the zigbee network automatically'.
 
 ## Pairing
 Each ZigBee device (switch, bulb, sensor, ...) must be paired with the coordinator (pairing):  <br>
@@ -122,6 +124,7 @@ In both cases, restarting the adapter is sufficient – ​​the adapter's corr
 | ![](../de/img/Bild37.png)<br>![](../de/img/disconnected.png) | Strength of the ZigBee radio signal on this ZigBee device (<10 poor, <50 medium, >50 good). ZigBee is a wireless mesh network. Most mains-powered ZigBee devices (e.g., Philips Hue lamps) can act as ZigBee routers, i.e., as wireless nodes. ZigBee devices therefore do not necessarily have to establish a direct wireless connection to the coordinator, but can instead use any router in the network for a wireless connection. With each ZigBee router, the wireless range of the network is extended. All ZigBee devices regularly check whether there is a better wireless route and automatically switch over. However, this process can take several minutes.<br>Manually assigning devices to routers is **not** possible.<br> The red, crossed-out symbol is displayed when a device is considered 'not connected'. |
 | ![](../de/img/grp_ok.png) ![](../de/img/grp_nok.png) | Status of a group <br> A green circle indicates that a group has members and is functional; the red X appears when a group is empty or unusable for other reasons. |
 | ![](../de/img/info.png) | Info <br> Opens the information display for the device. The information shown on this page comes directly from the device. It is also available for unknown devices. |
+| ![](../de/img/reconfigure.png) | (re)configure the device. <br> This button allows to trigger a device configuration, which is used to tell the device what data to report automatically to the coordinator. The configuration items are defined in the *converter* for this device. Note that the device needs to be active for a configuration attempt to be successful. If the device is not active, the attempt will time out, and the device will be placed in a queue of devices to be configured the next time the device i sends a message.  |
 | ![](../de/img/debug.png) | Debug device <br> Enables / disables the generation of extended debug messages for this device. The color of the icon indicates the current status: (Black/White: no debug messages, Green: debug messages - can be deactivated with this button. Orange: debug messages via filter under zigbee.x.info.debugmessages. |
 | ![](../de/img/on_off.png) | On/Off <br> This button can be used to activate/deactivate a device. No communication takes place with deactivated devices. |
 | ![](../de/img/edit_image.png) | Assign image/name <br> This button allows you to specify a custom image and/or name for the device based on the device or device type. Settings made in this way are retained even if the device is deleted. |
@@ -133,6 +136,26 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
+### 3.1.0 (2025-08-02)
+* (asgothian) ZHC 24.9.0
+* (asgothian) ZH 5.x
+* (asgothian) extend and stop pairing countdown
+
+### 3.0.5 (2025-08-27)
+* (asgothian) fix random error where devices are not shown due to illegal groups
+* (asgothian) drop support for node 18
+* (asgothian) Required node Versions Node 20.19.0 or 22.11.0 or newer (courtesy of ZH 4.4.1 / ZHC 24.8.0)
+
+### 3.0.3 (2025-07-27)
+* (asgothian) fix 'icon' error for unknown devices
+* (asgothian) fix state for level.color.rgb role (hex_color, accepts only #rrggbb values
+* (asgothian) ZH 4.4.1
+* (asgothian) ZHC 23.72.1
+* (asgothian) preparation for breaking change in ZHC 24.0.0
+
+### 3.0.2 (2025-07-07)
+* (asgothian) fix images
+
 ### 3.0.1 (2025-04-25)
 * (AlexHaxe)  Fix for Ikea SOMRIG configuration raising 'definition.endpoint is not a function' error.
 * (asgothian) Access to 'zigbee2mqtt options as settings in zigbee adapter (ALPHA Stage !)

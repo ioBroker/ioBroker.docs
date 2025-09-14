@@ -30,7 +30,7 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 - nodejs 20 (or later)
 - js-controller 6.0.0 (or later)
 - Admin Adapter 7.4.10 (or later)
-- _LaMetric Time_ with firmware _3.1.4_ (or later)
+- _LaMetric Time_ with firmware _3.2.4_ (or later)
     - firmware _2.3.9_ (or later) on older models (produced before year 2022)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
@@ -65,6 +65,19 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 4.2.0 (2025-08-15)
+
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.4)
+
+### 4.1.0 (2025-07-09)
+
+* (@klein0r) Allow icons with placeholders in config (improved validation)
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.3)
+
 ### 4.0.0 (2025-04-08)
 
 NodeJS >= 20.x and js-controller >= 6 is required
@@ -81,14 +94,6 @@ NodeJS >= 20.x and js-controller >= 6 is required
 * (@klein0r) Added support for notification manager
 * (@klein0r) Added validator for icon inputs
 * (@klein0r) Fixed some missing translations
-
-### 3.3.0 (2024-08-05)
-
-* (@klein0r) Added api version as state (and check value)
-
-### 3.2.3 (2024-07-21)
-
-* (@klein0r) Fixed blockly definitions
 
 ## License
 

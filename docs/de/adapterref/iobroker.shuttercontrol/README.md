@@ -681,6 +681,27 @@ Shuttercontrol legt verschiedene Datenpunkte unter folgenden Ordnern an:
 > :point_right: x steht für die jeweilig installierte Instanz
 
 ---
+
+### Status der Rollläden
+
+Folgenden Status kann ein Rollladen haben
+* up: Rollladen geöffnet
+* down: Rollladen geschlossen
+* sunProtect: Rollladen im Sonnenschutz
+* none: kein Status vorhanden
+* OpenInSunProtect: Fenster oder Tür geöffnet im Sonnenschutz
+* Manu_Mode: manueller Modus (Rollladen wurde manuell bewegt)
+* manu_sunProtect: manuell in den Sonnenschutz gefahren
+* wind1: Alarm Windstufe 1
+* wind2: Alarm Windstufe 2
+* triggered: Fenster geöffnet und Rollladen in die Fenster offen Position gefahren
+* frost: Alarm Frost
+* rain: Alarm Regen
+* fire: Alarm Feuer
+
+---
+
+
 ### shuttercontrol0control
 
 ![datapointscontrol](img/datapointscontrol.png)
@@ -792,8 +813,19 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 2.0.5 (2025-09-03)
+* (simatec) dependencies updated
+* (simatec) Try & Catch for Tab-Menu added
+
+### 2.0.4 (2025-08-31)
+* (simatec) Dependencies updated
+
+### 2.0.3 (2025-07-22)
+* (simatec) Translations updated
+
+### 2.0.2 (2025-06-29)
 * (simatec) Fix Responsive Design for Tab Menu
+* (simatec) Dependencies updated
 
 ### 2.0.1 (2025-03-24)
 * (simatec) Fix Translations

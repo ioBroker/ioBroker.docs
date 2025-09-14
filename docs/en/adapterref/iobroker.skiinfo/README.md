@@ -6,6 +6,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.skiinfo.svg)](https://www.npmjs.com/package/iobroker.skiinfo)
 ![Number of Installations](https://iobroker.live/badges/skiinfo-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/skiinfo-stable.svg)
+[![nycrc config on GitHub](https://img.shields.io/nycrc/oweitman/iobroker.skiinfo?preferredThreshold=functions)](https://html-preview.github.io/?url=https://github.com/oweitman/ioBroker.skiinfo/blob/main/coverage/index.html)
 
 [![NPM](https://nodei.co/npm/iobroker.skiinfo.png?downloads=true)](https://nodei.co/npm/iobroker.skiinfo/)
 
@@ -13,7 +14,8 @@
 
 ## skiinfo adapter for ioBroker
 
-With this adapter you can access the current snow depths for mountain, valley and fresh snow, as well as open lifts for various European locations.
+With this adapter you can access the current snow depths for mountain, valley
+and fresh snow, as well as open lifts for various European locations.
 
 ## Configuration
 
@@ -23,7 +25,8 @@ The adapter dont need any configuration.
 
 The following widgets actually exists
 
-- [`Skiinfo browser`](#skiinfo-browser) - to browse through all available countries, regions and areas and set favorite areas.
+- [`Skiinfo browser`](#skiinfo-browser) - to browse through all available
+  countries, regions and areas and set favorite areas.
 - [`Skiinfo Favorites`](#skiinfo-favorite) - to show only the favorite ski areas.
 
 weitere Informationen
@@ -32,9 +35,11 @@ weitere Informationen
 
 ### Skiinfo browser
 
-The widget allows you to browse all available countries, regions, and territories and set favorites.
+The widget allows you to browse all available countries, regions, and
+territories and set favorites.
 
-You can toggle the sorting for each column (default, descending, or ascending) using the table header.
+You can toggle the sorting for each column (default, descending, or ascending)
+using the table header.
 You can search using the search icon in the area column.
 You can toggle favorites mode using the star icon.
 
@@ -43,7 +48,8 @@ Select the configuration data point as the data point.
 ### Skiinfo favorite
 
 The widget is used to show only the favorite ski areas.
-With the table head, you can toggle the sort mode for each column (default, descending, ascending).
+With the table head, you can toggle the sort mode for each column (default,
+descending, ascending).
 With the star icon you can remove the area from the favorite list.
 
 As a datapoint please select the config datapoint.
@@ -52,11 +58,14 @@ As a datapoint please select the config datapoint.
 
 #### `widgetID` and `skiinfo`
 
-All CSS classes are provided with the two base classes `widgetID` and `skiinfo`. This allows you to apply formatting to individual widgets or, when using multiple skiinfo widgets, to all skiinfo widgets.
+All CSS classes are provided with the two base classes `widgetID` and `skiinfo`.
+This allows you to apply formatting to individual widgets or, when using multiple
+skiinfo widgets, to all skiinfo widgets.
 
 #### `countries`,`regions` and `areas`
 
-each of the different information areas can be addressed separately with these 3 CSS classes
+each of the different information areas can be addressed separately with
+these 3 CSS classes
 
 #### Information areas country, region and area
 
@@ -64,15 +73,20 @@ Each of the 3 information areas consists of a normal HTML table.
 
 #### Selected Elements in Country and Region
 
-Each of the selected elements is located in a span element and has been given the CSS class `selected`.
+Each of the selected elements is located in a span element and has been given
+the CSS class `selected`.
 
 #### Formatting the columns in the Area section
 
-The table header was provided with the CSS classes tharea and thsort. Each column element was provided with `txtr` for right-aligned and `txtl` for left-aligned formatting.
+The table header was provided with the CSS classes tharea and thsort.
+Each column element was provided with `txtr` for right-aligned and `txtl`
+for left-aligned formatting.
 
 #### Favorite star
 
-The favorite star can be located in a span element and can be addressed via the CSS class `favorite`. If an element has been selected as a favorite, the span element is supplemented with `selected`.
+The favorite star can be located in a span element and can be addressed via the
+CSS class `favorite`. If an element has been selected as a favorite, the span
+element is supplemented with `selected`.
 
 #### Examples for CSS classes
 
@@ -112,7 +126,8 @@ console.log(response);
 
 ### getServerCountryData
 
-Loads the country data if it was not already loaded and sends the data back to the client.
+Loads the country data if it was not already loaded and
+sends the data back to the client.
 
 #### Parameters for getServerCountryData
 
@@ -197,7 +212,7 @@ console.log(response);
 
 ### **WORK IN PROGRESS**
 
-- revert to node 18
+- test remove node 18,extend to node 24
 
 ### 0.5.0 (2025-04-16)
 

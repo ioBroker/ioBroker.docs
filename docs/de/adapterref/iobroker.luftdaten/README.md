@@ -58,6 +58,10 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) admin 7.6.17 and js-controller 6.0.11 (or later) are required
+
+### 5.0.0 (2025-07-02)
+
 NodeJS >= 20.x and js-controller >= 6 is required
 
 ### 4.0.0 (2024-08-09)
@@ -85,11 +89,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 ### 2.2.4 (2022-04-14)
 
 * (klein0r) Abort HTTP requests if running too long
-
-### 2.2.3 (2022-04-11)
-
-* (klein0r) Always stop instance when tasks are completed
-* (klein0r) Updated log messages
 
 ## License
 

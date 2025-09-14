@@ -15,9 +15,7 @@ Sentry reporting is used starting with js-controller 3.0.
 
 ## Introduction
 > [!Important]
-> The adapter can NOT be installed via GitHub: The adapter must be installed via the ioBroker repository (stable or latest).
-> 
-> Currently the adapter is in the BETA phase and only available in latest repository. Please check [iobroker documentation](https://www.iobroker.net/#de/documentation/basics/repositories.md) how to install an adapter from latest repository/npm.
+> The adapter CANNOT be installed via GitHub: The adapter must be installed via the ioBroker repository (stable or latest).
 >
 > A detailed description of the configuration and use of the ioBroker Matter adapter is described in the 🇩🇪 [german Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) and 🇬🇧 [english Wiki](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
 > 
@@ -78,19 +76,28 @@ With the ioBroker Matter Adapter, it is possible to map the following use cases:
 -->
 
 ## Changelog
+### 0.5.2 (2025-08-03)
+* (@Apollon77) Updated matter.js to 0.15.2 with many performance- and other improvements
+* (@GermanBluefox) Corrected the checking of the licenses if they were stacked
+* (Apollon77) Use attributes from cache instead of requesting them from the device
+* (Apollon77) Ignoring invalid min/max for color temperature from objects
+* (Apollon77) Prevents update loops for Thermostat on/off state changes
+* (Apollon77) Fixes invalid color state updates when multiple attributes are adjusted together
+* (Apollon77) Rounds RSSI values to prevent digits
+
 ### 0.5.1 (2025-06-06)
 * (@Apollon77) Updated matter.js to 0.14 with many performance- and other improvements
 
 ### 0.5.0 (2025-05-03)
 * IMPORTANT: Increase Node.js requirement to at least 20.x because else BLE currently does not work
-* (@Apollon77) Added info log message when device decided for a different subscription interval
+* (@Apollon77) Added info log message when the device decided for a different subscription interval
 
 ### 0.4.16 (2025-05-01)
 * (@GermanBluefox) Added expert mode to GUI
 * (@GermanBluefox) GUI optimizations
 * (@Apollon77) Upgrade Matter support to 1.4
 * (@Apollon77) Upgrade type detector and usage for better automatic detection results
-* (@Apollon77) Included Battery state in attribute polling and changed default interval to 24h if device is battery bowered
+* (@Apollon77) Included Battery state in attribute polling and changed default interval to 24h if the device is battery powered
 * (@Apollon77) Shows subscription maximum interval of the node in the connection-infos
 * (@Apollon77) Allows to overwrite the default subscription maximum interval send to the device in Node settings
 * (@Apollon77) Considers also the BatteryAlarm state of Smoke-CO sensors when determine LOWBAT state

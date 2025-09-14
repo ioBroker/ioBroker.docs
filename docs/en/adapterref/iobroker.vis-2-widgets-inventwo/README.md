@@ -1,12 +1,12 @@
 ![Logo](admin/vis-2-widgets-inventwo.png)
 # inventwo Widgets for ioBroker.vis 2.0
 
-![Number of Installations](http://iobroker.live/badges/vis-2-widgets-inventwo-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/vis-2-widgets-inventwo-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-inventwo-stable.svg) 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-inventwo)
+[![NPM Version](https://nodei.co/npm/iobroker.vis-2-widgets-inventwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-2-widgets-inventwo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-inventwo)
 
-[![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-2-widgets-inventwo/)
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ## About
 Adds switches, buttons, sliders and more as widgets for ioBroker VIS 2.0.
@@ -39,6 +39,36 @@ Switches
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.7 (2025-09-10)
+- Removed code to print console logs to a widget for debugging purposes
+
+### 0.3.6 (2025-09-01)
+- Extended debugging by printing source file with line number
+
+### 0.3.5 (2025-08-10)
+- Fix for previous version
+
+### 0.3.4 (2025-08-09)
+- Added code to print console logs to a widget for debugging purposes
+
+### 0.3.3 (2025-07-16)
+- Added option to click through universal widget
+- Fixed state not used then oid is left empty
+- Added options to control table row line width and color
+- Removed table background color to allow transparency
+
+### 0.3.2 (2025-07-11)
+* Support font styles in table widget (#78)
+* Added border and shadow options for table widget (#78)
+
+### 0.3.1 (2025-07-08)
+* Change build to vite
+
+### 0.3.0 (2025-07-08)
+* Added new widget: Checkbox
+* Fixed issue with table widget and object values (#77)
+* Fixed translated text (#79)
+
 ### 0.2.2 (2025-05-24)
 * Fixed build issue
 

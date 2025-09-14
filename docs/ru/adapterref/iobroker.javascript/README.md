@@ -16,30 +16,28 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 9.0.5 (2025-06-17)
+### 9.0.11 (2025-07-29)
+* (@GermanBluefox) Corrected the rule editor if the condition is empty
+* (@GermanBluefox) Corrected types for TypeScript
+
+### 9.0.10 (2025-07-27)
+* (@klein0r) Added Blockly block to format a numeric value
+* (@GermanBluefox) Fixing some blocks in blockly: cron, time
+* (@GermanBluefox) Added new block: "unconditional return"
+* (@GermanBluefox) Type definitions for TypeScript were updated
+* (@GermanBluefox) Corrected bug with deleting of sub-folders
+
+### 9.0.7 (2025-06-29)
+* (@GermanBluefox) Fixing some blocks in blockly: time, function
+
+### 9.0.6 (2025-06-18)
 * (@GermanBluefox) Speed-up loading of GUI
+* (@GermanBluefox) Migrating old blocks to new format
 
 ### 9.0.4 (2025-06-16)
 * (@GermanBluefox) Corrected script editor for Polish language
 * (@GermanBluefox) Corrected import of Blockly blocks
 * (@GermanBluefox) Corrected editing of Blockly
-
-### 9.0.3 (2025-06-12)
-
-* (@GermanBluefox) Corrected the rule editor
-* (@GermanBluefox) Removed the unused JS files
-
-### 9.0.2 (2025-06-04)
-
-* (@klein0r) Added possibility to escape chars in formatTimeDiff
-* (@GermanBluefox) Back-end was migrated to TypeScript
-* (@GermanBluefox) Breaking change: removed "request" module
-* (@GermanBluefox) Added prettier for scripts
-
-### 8.9.2 (2025-04-27)
-
-* (@GermanBluefox) Updated packages for GUI
-* (@GermanBluefox) Used TypeScript for an admin component
 
 ## License
 The MIT License (MIT)

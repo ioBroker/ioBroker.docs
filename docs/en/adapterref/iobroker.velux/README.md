@@ -19,6 +19,10 @@ Enter under module your new target_position. Windows allows only target_position
 
 ## Changelog
 
+### 0.0.9
+
+- Fix login
+
 ### 0.0.8
 
 - Update to latest dependencies

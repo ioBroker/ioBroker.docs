@@ -285,6 +285,7 @@ If activated, this separately adjustable backup is created with every ioBroker b
 ### Zigbee2MQTT backup
 This backup, which can be set separately, is created with every backup ioBroker if it is activated and is also deleted after the specified retention time has expired. FTP or CIFS are also valid for this backup if set for the other IoBroker backup types.
 
+#### Local Zigbee2MQTT Backup
 The path in the `ioBroker.backitup` adapter should always be created directly to the `data` path of zigbee2mqtt.
 Example: `/opt/zigbee2mqtt/data` or directly into the volume of a Docker installation of zigbee2mqtt.
 
@@ -297,6 +298,18 @@ sudo usermod -a -G <zigbe2mqtt User> iobroker
 sudo reboot
 ```
 
+#### Remote Zigbee2MQTT backup
+It is possible to create a Zigbee2MQTT backup that is located on another system.
+
+To do this, the IP address of the MQTT server (not the IP address of Zigbee2MQTT) that Zigbee2MQTT uses must be configured in Backitup, the MQTT port and the base topic of Zigbee2MQTT. 
+
+If the MQTT server has active authentication, a user name and password are also required.
+
+
+> [!IMPORTANT]
+> The remote backup is restored directly via Zigbee2MQTT and not via Backitup.
+
+
 ### Node-Red-Backup
 This backup, which can be set separately, is created with every backup ioBroker if it is activated and is also deleted after the specified retention time has expired. FTP or CIFS are also valid for this backup if set for the other ioBroker backup types.
 
@@ -304,8 +317,7 @@ This backup, which can be set separately, is created with every backup ioBroker 
 If activated, this separately adjustable backup is created with every ioBroker backup and deleted after the specified retention period has expired. FTP or CIFS are also valid for this backup if the other IoBroker backup types are set.
 
 > [!IMPORTANT]
-> In order to be able to create a Grafana backup, the Grafana username (Admin) and password are required.
-> Furthermore, an API key or service token must be created in the Grafana web interface to get access to the dashboards.
+> In order to create a Grafana backup, an API key or service token must be generated in the Grafana web interface to gain access to the dashboards and datasources.
 
 Up to Grafana version 8.x, the API key can be created under ***"Configuration → API Keys or Service Token"*** and must have full admin permissions.
 
@@ -675,6 +687,31 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+
+### 3.3.6 (2025-08-31)
+* (simatec) dependencies updated
+
+### 3.3.5 (2025-07-05)
+* (simatec) Fix Dropbox Token Check
+* (simatec) dependencies updated
+
+### 3.3.4 (2025-06-26)
+* (simatec) Fix Grafana Backup & Restore
+
+### 3.3.3 (2025-06-24)
+* (simatec) Translation updated
+* (simatec) Fix Grafana Backup & Restore
+* (simatec) Docu updated
+* (simatec) dependencies updated
+
+### 3.3.2 (2025-06-19)
+* (simatec) Base Topic for z2m Remote Backup added
+
+### 3.3.1 (2025-06-18)
+* (simatec) Fix z2m Remote Backup
+
 ### 3.3.0 (2025-06-15)
 * (simatec) local onedrive api added
 * (simatec) dependencies updated

@@ -286,35 +286,26 @@ npm run start
 - Debugging is available in the browser e.g. chrome F12
 - if you change a file, automatic reload of the editor is supported
 
-
 ## Todo
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
-* (@GermanBluefox) Corrected selection of the view for resolution
+### 2.13.4 (2025-09-05)
+* (@GermanBluefox) Added the basic methods for metro widgets again
 
-### 2.12.10 (2025-05-25)
-* (@GermanBluefox) Added possibility to define favicon and browser tab title
+### 2.13.3 (2025-08-27)
+* (@GermanBluefox) Corrected loading of icon sets
 
-### 2.12.9 (2025-05-19)
-* (@GermanBluefox) Added possibility to use value in signal text
+### 2.13.2 (2025-08-26)
+* (@GermanBluefox) Added support for older Android versions
 
-### 2.12.8 (2025-05-03)
-* (@GermanBluefox) Added new SVG icon as favicon.
-* (@GermanBluefox) Added support for the TypeScript widgets
-* (@GermanBluefox) Used `vite` for faster loading
+### 2.13.1 (2025-08-25)
+* (@GermanBluefox) Fixed loading of widgets on the cloud
 
-### 2.11.2 (2025-01-23)
-* (@GermanBluefox) Do not load vis-1 widgets if vis-2 widgets are provided
-
-### 2.11.1 (2024-12-02)
-* (@GermanBluefox) Corrected navigation menu
-* (@GermanBluefox) Migrated widgets to React: basic - frame, basic - note, basic - logout 
-* (@GermanBluefox) Added the HTML rebuild button to settings
-* (@GermanBluefox) Backend was migrated to TypeScript
+### 2.13.0 (2025-08-24)
+* (@GermanBluefox) Added possibility to define SVG icon sets from widgets sets
 
 ## License
  Copyright (c) 2021-2025 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

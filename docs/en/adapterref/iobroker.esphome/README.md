@@ -198,6 +198,11 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### 0.6.2 (2025-08-08)
+* (@SimonFischer04) add support for text device type #141, displays #103
+* (@SimonFischer04) fix cover device type #156
+* (@SimonFischer04) workaround: downgrade python for now. fixes #259
+
 ### 0.6.1 (2025-05-24)
 * (@SimonFischer04) Update esphome
 * (@ticaki) Optimize admin configuration interface
@@ -214,16 +219,6 @@ If you like my work, please consider a personal donation
 
 ### 0.5.0-beta.1 (2023-11-12)
 * (DutchmanNL) Only show error messages once for unreachable devices
-
-### 0.5.0-beta.0 (2023-11-12) - Rebuild Admin Interface & Connection handler
-* (DutchmanNL) Admin interface redesigned to JSON-Config relates #171
-* (DutchmanNL) Backend massages implemented to Add/Modify/Delete devices
-* (DutchmanNL) Device connection handling and visibility of devices improved
-* (DutchmanNL) Auto device discovery temporary disabled due to external bug, relates #175
-* (DutchmanNL) Possibility added to exclude IP-Addresses from device discovery, relates #175
-* (DutchmanNL) Allow Selection to listen on specific interface or all for device discovery resolves #67
-* (DutchmanNL) State implemented to show current connection status (unreachable/disconnected/connected) to improve management of devices
-* (DutchmanNL) Several bugfixes, resolves #181 resolves #
 
 ## License
 MIT License

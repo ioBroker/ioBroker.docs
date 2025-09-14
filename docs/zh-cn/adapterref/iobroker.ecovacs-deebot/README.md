@@ -2,94 +2,94 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
-title: 适用于 ioBroker 的科沃斯 Deebot 适配器
-hash: 713ZW7GDu30w1y02dO7S5QJvaboY7I2w0irmkat0788=
+title: Ecovacs Deebot ioBroker 适配器
+hash: dOsDodHcp4bWmWak81bEG1Afw9rWl/ks/wYylpE/Dy0=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
-![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
+![稳定版本](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
 ![安装数量](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
 ![每月下载量](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
 ![下载次数](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
 
-# 适用于 ioBroker 的 Ecovacs Deebot 适配器
-[![github-workflow](https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg)](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
+# Ecovacs Deebot ioBroker 适配器
+[![github-workflow]（https://github.com/mrbungle64/iobroker.ecovacs-deebot/actions/workflows/node.js.yml/badge.svg）](https://github.com/mrbungle64/iobroker.ecovacs-deebot)
 
-该适配器使用[ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js)库。
+此适配器使用[ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js)库。
 
 ＃＃ 特征
-### 基本特征
-* 清洁功能（例如自动、区域和自定义区域清洁）和各种其他基本功能（例如播放声音、重置耗材、重新定位）
+### 基本功能
+* 清洁功能（例如自动、区域和自定义区域清洁）以及各种其他基本功能（例如播放声音、重置消耗品、重新定位位置）
 * 检索信息（例如电池电量、清洁日志、耗材状态、清洁和充电状态）以及各种其他扩展信息（例如充电位置、地图相关信息）
-* 设置吸尘器功率、水位和其他基本调整以及各种扩展设置（例如连续清洁、请勿打扰模式、音量、AIVI/TrueDetect 3D）
-* 检索地图信息，包括区域、虚拟边界和禁止拖地区域，以及清洁过程中的信息（例如当前位置和区域）
+* 设置吸尘功率、水位和其他基本调整以及各种扩展设置（例如连续清洁、请勿打扰模式、音量、AIVI/TrueDetect 3D）
+* 在清洁过程中检索地图信息，包括区域、虚拟边界和禁拖区（例如当前位置和区域）
 * 加载当前地图图像
 
 ### 扩展功能（仅限 ioBroker 适配器）
-* 保存并重新创建全套虚拟边界和无拖把区
+* 保存并重新创建全套虚拟边界和禁拖区
 * 有关每个区域最后出现的日期和时间的信息
 * 返回充电站或进入/离开区域时的一些功能
-* 保存上次使用的自定义区域并重新运行保存的区域
-* 静音清洁和定位功能
+* 保存最后使用的自定义区域并重新运行保存的区域
+* 静音接近清洁和定位功能
 * 设置单独的区域名称
 
-＃＃＃ 重要笔记
-* 某些功能（例如“静音接近”）仅适用于某些型号（主要是当前型号）
-* 有些仍处于实验阶段（例如，“加载当前地图图像”、处理虚拟边界集）
-* 不保证所有型号的适配器的功能（见下文）
+### 重要提示
+* 某些功能（例如“静音方法”）仅适用于某些型号（主要是当前型号）
+* 还有一些仍处于实验阶段（例如，“加载当前地图图像”，处理虚拟边界集）
+* 不保证所有型号都能正常使用适配器（见下文）
 
-＃＃ 楷模
+## 模型
 ### 支持的型号
-以下模型是我自己拥有的，因此它们得到了广泛的支持：
+以下模型我自己拥有，因此它们受到广泛支持：
 
 * 地宝 OZMO 920/950
-* 地宝 OZMO T8 AIVI
-* 地宝 X1 Turbo
-* 空中机器人Z1
+* Deebot OZMO T8 AIVI
+* Deebot X1 Turbo
+* 空中机器人 Z1
 
 ### 其他型号
-以下模型应该可以正常工作或至少部分正常工作。
-它们要么已知可以工作，要么在技术上与这些模型相似。
+以下型号应该可以正常工作，或至少可以部分工作。
+它们要么已知可以工作，要么技术上与这些型号相似。
 然而，功能可能会受到部分限制。
 
-我尝试实现广泛的功能，但根据复杂性和各种其他标准逐案决定。
-当然，没有声称拥有全部功能。
+我尝试实现广泛的功能，但会根据复杂程度和其他各种标准逐一确定。
+当然，我不敢保证功能齐全。
 
 #### 科沃斯 Deebot
-* 地宝N8系列
-* 地宝T8系列
-* 地宝T9系列
-* 地宝T10系列
-* 地宝T20系列
-* 地宝X1系列
-* 地宝X2系列
+* Deebot N8系列
+* Deebot T8系列
+* Deebot T9系列
+* Deebot T10系列
+* Deebot T20系列
+* Deebot X1系列
+* Deebot X2系列
 
 #### 耶迪
-* 怡迪K650
-* 耶迪 2 混合动力车
-* Yeedi 真空混合动力
-* 耶迪真空最大
-* 耶迪真空吸尘器 2 专业版
-* Yeedi拖把站
+* 亿迪 k650
+* yeedi 2 混合动力车
+* yeedi vac 混合动力车
+* yeedi vac max
+* yeedi vac 2 pro
+* yeedi拖把站
 
 **注意**：所有这些列表可能并不完整
 
 ### 旧型号（即将停产）
-使用 XML 进行数据传输的旧模型（例如 Deebot OZMO 930、Deebot 900/901）大多数仍在运行，但对这些模型的支持迟早会停止。
+使用 XML 进行数据传输的旧型号（例如 Deebot OZMO 930、Deebot 900/901）大多仍在运行，但对这些型号的支持迟早会停止。
 
-请查看[本自述文件](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued)了解更多信息。
+请查看[本自述文件](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued)以了解更多信息。
 
 ＃＃ 安装
 ### 先决条件
-要使用此适配器，您需要已安装[io经纪商](iobroker.net)。
+要使用此适配器，您需要已经安装[ioBroker](iobroker.net)。
 
-Node.js 所需的最低版本是 16.x。
+Node.js 的最低要求版本是 20.x。
 
 ### 可选先决条件
-此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现某些与地图相关的功能，这可能需要安装一些附加软件包。
+此适配器使用[节点画布](https://www.npmjs.com/package/canvas)库实现一些与地图相关的功能，这可能需要安装一些额外的包。
 
-画布的安装是可选的，对于没有地图功能的型号来说不是必需的，但对于完整的功能范围，请安装以下软件包。
+对于没有地图功能的模型，画布的安装是可选的，不是必需的，但为了获得完整的功能范围，请安装以下软件包。
 
 对于基于 Debian 的 Linux 系统，应执行以下命令：
 
@@ -98,7 +98,7 @@ sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-在执行下一个命令之前可能需要重新启动
+执行下一个命令之前可能需要重新启动
 
 ```bash
 npm install canvas --unsafe-perm=true
@@ -107,27 +107,39 @@ npm install canvas --unsafe-perm=true
 有关其他系统的说明，请访问 https://www.npmjs.com/package/canvas#compiling
 
 ＃＃ 常问问题
-常见问题可参见[这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+常见问题解答可参见[这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
 ＃＃ 用法
 有关如何使用此适配器的信息，请参阅[这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
-＃＃＃ 状态
-有关各州的信息，请参见 [这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29)（英语）和 [这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29)（德语）
+### 州
+有关各州的信息可在[这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29)（英语）和[这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29)（德语）中找到
 
-＃＃ 已知的问题
-* “移动”功能因型号而异，因此不通用
-* 地图图像的生成在32位系统上不稳定
-* 与地宝X1系列及其他当前型号仍无法正常工作
+## 已知问题
+*“移动”功能因型号而异，因此并非普遍实现
+* 32 位系统上地图图像生成不稳定
+* 并且它仍然无法与 Deebot X1 系列和其他当前型号正常配合使用
 
 ## 免责声明
-我与科沃斯机器人有限公司或亿迪科技有限公司没有任何关系。
+我与科沃斯机器人有限公司或亿迪科技有限公司没有任何关联。
 
 ## Changelog
 
-### 1.4.15 (alpha)
-* Breaking change: Bump minimum required version of Node.js to 18.x
-* Improvements and optimizations
+### 1.4.16 (alpha)
+- Breaking change: Bump minimum required version of Node.js to 20.x
+- Add more states for air drying timer
+- Use adapter-dev module
+- Some further improvements and optimizations
+* Bumped ecovacs-deebot.js to 0.9.6 (latest beta)
+* Bumped several other dependencies
+ 
+### 1.4.15 (latest stable)
+- Breaking change: Bump minimum required version of Node.js to 18.x
+- Bumped ecovacs-deebot.js to 0.9.6 (beta)
+- Add state (button) for manually requesting the cleaning log
+- Separate mopping and scrubbing mode
+- Add states for air drying timer
+- Some further improvements and optimizations
 
 ### 1.4.14
 * Breaking change: Bump minimum required version of Node.js to 16.x
@@ -139,7 +151,7 @@ npm install canvas --unsafe-perm=true
 * Bumped some dependencies
 * Some further improvements and optimizations
 
-### 1.4.13 (latest stable)
+### 1.4.13
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations
@@ -242,7 +254,7 @@ npm install canvas --unsafe-perm=true
 
 MIT License
 
-Copyright (c) 2024 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2025 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,110 +1,45 @@
 ---
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.frontier_silicon.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg
+BADGE-Number of Installations (latest): http://iobroker.live/badges/frontier_silicon-installed.svg
+BADGE-Number of Installations (stable): http://iobroker.live/badges/frontier_silicon-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.frontier_silicon.png?downloads=true
+chapters: {"pages":{"en/adapterref/iobroker.frontier_silicon/README.md":{"title":{"en":"FSAPI Examples"},"content":"en/adapterref/iobroker.frontier_silicon/README.md"},"en/adapterref/iobroker.frontier_silicon/states.md":{"title":{"en":"States documentation"},"content":"en/adapterref/iobroker.frontier_silicon/states.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frontier_silicon/README.md
-title: ioBroker.frontier_silicon
-hash: VlKB9oFrSD18e9fGj/k22iAD/ujC91ROnPQ+fvMqe6Y=
+title: Примеры FSAPI
+hash: 32KzutoxaEsueTTo836vNz5jhnxcrT8/P9/JLmdrGoQ=
 ---
-# IoBroker.frontier_silicon
-![Логотип](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
+# Примеры FSAPI
+Чтение предустановок <http://192.168.178.26/fsapi/LIST_GET_NEXT/netRemote.nav.presets/-1?pin=7389&sid=883168529&maxItems=10>
 
-![версия НПМ](http://img.shields.io/npm/v/iobroker.frontier_silicon.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/frontier_silicon-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/frontier_silicon-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.frontier_silicon.png?downloads=true)
+Навигация на <http://192.168.178.26/fsapi/SET/netRemote.nav.state?pin=7389&sid=883168529&value=1>
 
-## Адаптер ioBroker для Frontier SmartRadio
-**Тесты:** ![Тест и выпуск](https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/workflows/Test%20and%20Release/badge.svg)
+Режимы чтения <http://192.168.178.26/fsapi/LIST_GET_NEXT/netRemote.sys.caps.validModes/-1?pin=7389&sid=682647964&maxItems=100>
 
-## Информация
-Обеспечивает поддержку медиаплееров, интернет-радио и SmartRadio, оснащенных чипсетом Frontier Silicon, с использованием FSAPI.
+Чтение текущего режима <http://192.168.178.26/fsapi/GET/netRemote.sys.mode?pin=7389&sid=682647964>
 
-ПРИМЕЧАНИЕ: Этот адаптер был передан в iobroker-community-adapters для обслуживания. Таким образом, запланированные функции (см. ниже) не будут реализованы. В будущем будут выпущены только важные исправления ошибок и обновления зависимостей. Однако PR с исправлениями ошибок или улучшениями функций всегда приветствуются.
+Поиск обновлений <http://192.168.178.26/fsapi/SET/netRemote.sys.isu.control?pin=7389&value=2>
 
-ПРИМЕЧАНИЯ К ВЫПУСКУ:
+Вкл/Выкл? <http://192.168.178.26/fsapi/GET/netRemote.sys.power?pin=7389&sid=682647964>
 
-Версия 0.4.x включает в себя критическое изменение:
+Включить <http://192.168.178.26/fsapi/SET/netRemote.sys.power?pin=7389&sid=883168529&value=0>
 
-- Тип «frontier_silicon.X.media.state» изменен с «number» на «string» и доступен только для чтения.
-
-Если вы обновите этот адаптер с предыдущей версии вместо новой установки, вы можете обнаружить предупреждения в журнале ioBroker, например: `State value to set for "frontier_silicon.0.media.state" has to be type "number" but received type "string"` Чтобы этого не произошло, самое простое решение — остановить адаптер на вкладке экземпляров ioBroker, полностью удалить дерево объектов на вкладке объектов и затем перезапустить адаптер. Конечно, это необходимо только один раз после обновления и не требуется, если вы делаете чистую новую установку.
-
-Версия 0.3.x включает в себя некоторые критические изменения:
-
-- требуется node>=18, js-contoller>=5 и admin>=6
-
-Обновите свой ioBroker как минимум до этого уровня программного обеспечения, если вы хотите использовать этот адаптер
-
-- Шифрование PIN-кода и проверка корректности всех параметров в пользовательском интерфейсе конфигурации
-
-Если вы обновите этот адаптер с предыдущей версии вместо новой установки, адаптер не запустится, даже если ваш PIN-код в вашей конфигурации правильный и не был изменен. Чтобы исправить это, просто введите тот же предыдущий PIN-код еще раз в пользовательском интерфейсе конфигурации, сохраните и закройте пользовательский интерфейс конфигурации, чтобы перезапустить адаптер. Конечно, это необходимо только один раз после первого запуска после обновления.
-
-- Тип «frontier_silicon.X.modes.selectPreset» изменен с «string» на «number»
-
-Если вы обновите этот адаптер с предыдущей версии вместо новой установки, вы можете обнаружить предупреждения в журнале ioBroker, например: `State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"` Чтобы этого не произошло, самое простое решение — остановить адаптер на вкладке экземпляров ioBroker, полностью удалить дерево объектов на вкладке объектов и затем перезапустить адаптер. Конечно, это необходимо только один раз после обновления и не требуется, если вы делаете чистую новую установку.
-
-- Синхронизация состояний питания, громкости и отключения звука с приложением UNDOK
-
-Синхронизация с приложением UNDOK здесь означает, что настройки питания, громкости и отключения звука, измененные приложением UNDOK, теперь также будут обновлены в состояниях этого адаптера. Из-за ограничений протокола FSAPI синхронизация состояний приложения UNDOK с адаптером по-прежнему ненадежна и не будет мгновенной, а произойдет только тогда, когда, например, предустановка или режим будут изменены с помощью приложения UNDOK.
-
-- Циклический повтор подключения вместо отключения адаптера
-
-Раньше адаптер отключался после 10 попыток подключения к сеансу, когда устройство было недоступно из-за длительных сетевых проблем, таких как перезагрузки маршрутизатора, отключение LAN или WiFi. Теперь адаптер будет повторять попытки после каждого интервала обновления сеанса, пока устройство снова не станет доступно. Если вы хотите избежать записей в журнале относительно этих повторных попыток, вам придется остановить адаптер вручную. Если проблема с сетью устранена, пока период повторных попыток все еще продолжается, просто перезапустите адаптер.
-
-## Функции
-### Реализованные функции
-- Управление мощностью
-- Выбор режима
-- Выбор предустановки
-- Уведомления для нескольких штатов
-- Регулировка громкости
-- Уведомления
-- Автоматическое обнаружение
-
-### Планируемые функции
-- Больше штатов
-- Переводы
-- Дополнительная обработка исключений
-- Более чистый код
-- Многокомнатные функции
-
-### Не запланированные функции
-- Изменение системной информации
-
-### Известные ошибки и ограничения
-- Для обнаружения предустановок необходимо включить медиаплеер.
-- Из-за ограничений протокола FSAPI параллельная работа с приложением UNDOK ненадежна и поэтому не поддерживается. Используйте на свой страх и риск.
-- Из-за ограничений протокола FSAPI значки радиостанций недоступны в режиме DAB+.
-
-## Документация
-Этот адаптер позволяет управлять интернет-радио и медиаплеерами на базе чипсетов Frontier Silicon. Многие устройства, которыми можно управлять через [UNDOK](https://support.undok.net) должно работать. Протестированные устройства от [Revo](https://revo.co.uk/de/products/), [Sangean](https://www.sangean.eu/products/all_product.asp), [Hama](https://de.hama.com/produkte/audio-hifi/digitalradio) и [SilverCrest](https://www.lidl.de), другие тоже должны работать.
-
-После установки IP и PIN-код устройства должны быть введены в диалоговом окне конфигурации. Если радио не воспроизводит DAB после включения через приложение UNDOK или этот адаптер, попробуйте еще раз с включенным "DAB запускается без звука".
-
-При первом запуске адаптер собирает информацию об устройстве. Для этого ему нужно переключиться во все режимы. Во время проверки настроек устройство будет отключено на несколько секунд, чтобы избежать мешающих звуков.
-
-Документацию по состояниям и объектам, а также общую документацию FSAPI можно найти по адресу <https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/blob/master/docs/en>
-
-## Юридические уведомления
-Frontier, Frontier Silicon, SmartRadio, UNDOK и связанные с ними логотипы являются товарными знаками или зарегистрированными товарными знаками Frontier Smart Technologies Limited [https://www.frontiersmart.com](https://www.frontiersmart.com)
-
-Все остальные товарные знаки являются собственностью их владельцев.
-
-Авторы никоим образом не поддерживаются и не связаны с Frontier Smart Technologies Limited или какими-либо связанными с ней дочерними компаниями, логотипами или товарными знаками.
+Другие документы FSAPI <https://github.com/flammy/fsapi/blob/master/FSAPI.md> <https://www.niehoff.nl/producthandleiding/PMR4000RMKII-03.pdf> <https://downloads.biamp.com/assets/docs/default-source/control/apart-pmr4000r-mkii-mkiii-control-command-list.pdf?sfvrsn=13dc3a3e_6&_ga=2.16179958.1900116300.1624008695-122457801.1580652037> <https://github.com/z1c0/FsApi/blob/master/FsApi/Command.cs>
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.0 (2025-08-28) - 2025H2 maintenance release
 
-- (pdbjjens) Change: node>=20, js-controller>=7 and admin>=7 required
-- (oelison) read and write from daylight saving time
-- (pdbjjens) Fix: UpdatePreset now skips empty presets (#289)
+- (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
+- (oelison)  New: Read and write from daylight saving time
+- (pdbjjens) Fix: UpdatePreset now handles empty presets correctly (#289)
 - (pdbjjens) Change: Adapter and FSAPI documentation was moved to the docs folder (#281)
-
+- (pdbjjens) Change: Cleanup devDependencies
 
 ### 0.4.0 (2025-02-01) - 2025H1 maintenance release
 
@@ -132,15 +67,6 @@ Frontier, Frontier Silicon, SmartRadio, UNDOK и связанные с ними 
 - (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=5 required
 - (pdbjjens) New: Optionally display PIN code and limit to 4 digits in config GUI
 - (pdbjjens) Updated dependencies
-
-### 0.1.1 (2023-07-26)
-
-- (pdbjjens) Breaking Change: node>=14, js-contoller>=4 and admin>=5 required
-- (pdbjjens) Breaking Change: PIN encryption and validity check of all parameters in config UI
-- (pdbjjens) Breaking Change: Type of `frontier_silicon.X.modes.selectPreset` changed from "string" to  "number"
-- (pdbjjens) Change: Validity check of all parameters in config UI
-- (pdbjjens) Change: Re-establish session if network connection is lost
-- (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
 
 ## License
 

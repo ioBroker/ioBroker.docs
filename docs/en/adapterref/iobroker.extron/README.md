@@ -59,6 +59,7 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) introducing jsonConfig
 * (mschlgl) add more DSP SIS commands
 * (mschlgl) enhanced network reconnect functionality, added DANTE remote commands, additional devices
+* (Bannsaenger) updated dependencies and issues from repository checker
 
 ### 0.2.15 (2024-06-12)
 * (mschlgl) fixed typo in io-package.json

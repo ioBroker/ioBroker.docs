@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: Pc2vT2/oU2hjpLvmV5g1O4ShZPkhlOcRqfm3IE1UwKk=
+hash: 2m3mBBpG9Jdf9hmobcyYS54GbWl+7rC6ZwLPYuOOYXQ=
 ---
 # IoBroker.heizungssteuerung
 ![标识](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
@@ -23,6 +23,7 @@ hash: Pc2vT2/oU2hjpLvmV5g1O4ShZPkhlOcRqfm3IE1UwKk=
 
 ＃＃ 特征
 - **双模式支持**：在加热和冷却模式之间切换
+- **基于天气的控制**：根据外部温度自动激活/停用
 - **增强模式**：暂时增加个别房间的供暖/制冷
 - **暂停模式**：暂时禁用特定房间的供暖/制冷
 - **基于时间的调度**：定义不同时间和日期的温度周期
@@ -82,6 +83,21 @@ npm install iobroker.heizungssteuerung
 - **增强持续时间**：增强模式的自动重置时间（分钟）
 - **湿度阈值**：冷却停止前的最大湿度
 - **启动时重置**：适配器启动时用默认值覆盖所有温度
+
+#### 基于天气的控制（可选）
+根据室外温度实现智能运行：
+
+- **启用天气控制**：激活基于天气的加热/冷却控制
+- **天气数据源**：选择包含室外温度数据的州
+- **加热阈值**：仅当外部温度低于此值时才激活加热（默认值：15°C）
+- **冷却阈值**：仅当外部温度高于此值时才激活冷却（默认值：24°C）
+
+**工作原理：**
+
+- 在加热模式下：系统仅当外部温度小于阈值时运行
+- 在冷却模式下：系统仅当外部温度>阈值时运行
+- 优先于所有其他设置（周期、提升、缺席）
+- 如果天气数据不可用，系统将正常运行
 
 ＃＃ 用法
 ### 手动控制操作
@@ -178,45 +194,81 @@ Mode: Heating
 **支持这个项目** ⭐ 如果您发现它有用，请为该存储库加星标！
 
 ## Changelog
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.0 (2024-09-17)
-* (jbeenenga) update dependencies
-* (jbeenenga) add absence mode
-* (jbeenenga) fix pause and boost for cooling mode
+### **WORK IN PROGRESS**
+- (jbeenenga) fix invalid state roles according to ioBroker documentation
+- (jbeenenga) fix repository checker issues
+
+### 2.1.1 (2025-09-02)
+ - (jbeenenga) correct outsite temperature path setting
+
+### 2.1.0 (2025-08-25)
+
+- (jbeenenga) add weather-based heating/cooling control
+- (jbeenenga) refactor business logic into service classes
+- (jbeenenga) add comprehensive unit tests
+- (jbeenenga) update dependencies to latest versions
+
+### 2.0.3 (2025-07-02)
+
+- (jbeenenga) fix absence format issue
+- (jbeenenga) fix period matching issue
+
+### 2.0.2 (2025-06-24)
+
+- (jbeenenga) fix build bug
+
+### 2.0.1 (2025-06-24)
+
+- (jbeenenga) fix technical issues
+
+### 2.0.0 (2025-06-18)
+
+- (jbeenenga) update dependencies
+- (jbeenenga) add absence mode
+- (jbeenenga) fix pause and boost for cooling mode
 
 ### 1.7.0 (2023-01-05)
-* (jbeenenga) fix bug for end boost or pause mode
-* (jbeenenga) provide corrent humidity in temperatures
+
+- (jbeenenga) fix bug for end boost or pause mode
+- (jbeenenga) provide corrent humidity in temperatures
 
 ### 1.6.7 (2022-12-16)
-* (jbeenenga) fix date format
+
+- (jbeenenga) fix date format
 
 ### 1.6.5 (2022-12-16)
-* (jbeenenga) add possibility to reset temperatures on adapter start
+
+- (jbeenenga) add possibility to reset temperatures on adapter start
 
 ### 1.6.4 (2022-12-16)
-* (jbeenenga) add more debug outputs
-* (jbeenenga) fixed incorrect period to room mapping
+
+- (jbeenenga) add more debug outputs
+- (jbeenenga) fixed incorrect period to room mapping
 
 ### 1.6.3 (2022-12-15)
-* (jbeenenga) removed unnecessary debug output
+
+- (jbeenenga) removed unnecessary debug output
 
 ### 1.6.2 (2022-12-15)
-* (jbeenenga) fix for temperature calculation
+
+- (jbeenenga) fix for temperature calculation
 
 ### 1.5.0 (2022-09-25)
-* (jbeenenga) add possibility to overwrite temperature temporarily
-* (jbeenenga) add config for temperature offset
-* (jbeenenga) add boost and pause function
+
+- (jbeenenga) add possibility to overwrite temperature temporarily
+- (jbeenenga) add config for temperature offset
+- (jbeenenga) add boost and pause function
 
 ## License
 
 MIT License
 
-Copyright (c) 2024 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
+Copyright (c) 2025 jbeenenga [j.beenenga@gmail.com](mailto:j.beenenga@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

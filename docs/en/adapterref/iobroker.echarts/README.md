@@ -115,6 +115,20 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
+### 2.0.10 (2025-09-01)
+
+- (@GermanBluefox) Just improvement of the build system
+- (@GermanBluefox) Optimizing read of objects
+
+### 2.0.8 (2025-08-19)
+
+- (@GermanBluefox) Corrected icon for admin tab
+
+### 2.0.7 (2025-08-16)
+
+- (@GermanBluefox) Vis-2 widgets were migrated to vite
+- (@GermanBluefox) Corrected the service side rendering of echarts in node 22
+
 ### 2.0.6 (2025-02-02)
 
 - (@GermanBluefox) Validate configuration at start

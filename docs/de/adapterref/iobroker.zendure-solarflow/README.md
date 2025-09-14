@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: oUHjm0l2gox7du7bio9yb01Ho+BUKdegEe8BVpEQ3Ww=
+hash: DZuP+0B2Q62XEToyzjxTwo5xmgbDp4XOf6iQq/eTGvA=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -21,147 +21,83 @@ hash: oUHjm0l2gox7du7bio9yb01Ho+BUKdegEe8BVpEQ3Ww=
 Dieses Projekt ist ein ioBroker-Adapter zum Lesen von Daten aus der Zendure Solarflow Cloud API.
 
 ## Spenden
-Wenn Sie den Adapter nützlich finden und meine Arbeit unterstützen möchten, können Sie gerne per Paypal spenden. Vielen Dank! (Dies ist ein persönlicher Spendenlink für Nograx und steht in keiner Verbindung zum ioBroker-Projekt!)<br />
+Wenn Sie den Adapter nützlich finden und meine Arbeit unterstützen möchten, können Sie gerne per Paypal spenden. Vielen Dank! (Dies ist ein persönlicher Spendenlink für Nograx, der in keiner Verbindung zum ioBroker-Projekt steht!)<br />
 
 ## Merkmale
-- Erhalten Sie alle Telemetriedaten von Ihren Solarflow-Geräten, auch diejenigen, die in der offiziellen App nicht sichtbar sind – wie die Batteriespannung
+- Erhalten Sie alle Telemetriedaten von Ihren Solarflow-Geräten, auch diejenigen, die in der offiziellen App nicht sichtbar sind – wie z. B. die Batteriespannung
 - Steuern Sie Ihren Solarflow HUB wie in der offiziellen App. Die meisten Einstellungen sind verfügbar.
 - Steuern Sie die Leistungsbegrenzung – Sie sind nicht auf die Verwendung eines Shelly Pro EM beschränkt, um eine Nulleinspeisung zu realisieren. Sie können auch komplexere Szenarien per Skript oder Blockly in ioBroker entwerfen.
-- Stoppen Sie den Eingang, wenn eine Batterie unter Spannung fällt (Batterieschutz). Funktioniert nur, wenn die Ausgangsbegrenzung über den Adapter eingestellt wird.
+- Stoppen Sie den Eingang, wenn eine Batterie auf Unterspannung fällt (Batterieschutz). Funktioniert nur, wenn die Ausgangsbegrenzung über den Adapter eingestellt wird
 - Steuern Sie mehr als einen Solarflow gleichzeitig!
 - Erhalten Sie präzisere Berechnungen!
 - Funktioniert mit allen Zendure SolarFlow-Geräten: HUB1200, Hyper2000, HUB2000 und AIO!
 
 ## Offline-Modus (Verbindung zur Zendure Cloud trennen)
-Neu ist die Möglichkeit, das Zendure-Gerät von der Cloud zu trennen. Verwenden Sie dazu entweder den [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) von Reinhard Brandstätter oder mein eigenes Windows-Tool [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector). Außerdem können Sie DNS-Anfragen Ihres Routers von "mq.zen-iot.com" auf Ihren eigenen MQTT-Server umleiten!
+Neu ist die Möglichkeit, das Zendure-Gerät von der Cloud zu trennen. Dazu können Sie entweder [Solarflow Bluetooth Manager](https://github.com/reinhard-brandstaedter/solarflow-bt-manager) von Reinhard Brandstätter oder mein eigenes Windows-Tool [Zendure Cloud Disconnector](https://github.com/nograx/zendure-cloud-disconnector) verwenden. Es ist auch möglich, DNS-Anfragen mit Ihrem Router von "mq.zen-iot.com" auf Ihren eigenen MQTT-Server umzuleiten!
 
-Beide Tools verbinden sich per Bluetooth mit dem Zendure-Gerät und setzen die interne MQTT-URL einfach auf eine neue URL/IP, die Sie angeben müssen. Aktuell müssen Sie den Standard-MQTT-Port 1883 auf Ihrem Server verwenden. Sie müssen außerdem die Authentifizierung auf dem MQTT-Server deaktivieren, da das Zendure-Gerät ein fest codiertes Passwort verwendet.
+Beide Tools verbinden sich per Bluetooth mit dem Zendure-Gerät und setzen die interne MQTT-URL einfach auf eine neue URL/IP, die Sie angeben müssen. Aktuell sind Sie gezwungen, den Standard-MQTT-Port 1883 auf Ihrem Server zu verwenden. Sie müssen außerdem die Authentifizierung auf dem MQTT-Server deaktivieren, da das Zendure-Gerät ein fest codiertes Passwort verwendet.
 
-Wenn das Zendure-Gerät mit Ihrem MQTT-Server kommuniziert, können Sie diesen ioBroker-Adapter mit derselben MQTT-Instanz verbinden. Sie müssen das Gerätemodell und den Geräteschlüssel angeben (der in der Zendure Cloud Disconnector App angezeigt wird).
+Wenn das Zendure-Gerät mit Ihrem MQTT-Server kommuniziert, können Sie diesen ioBroker-Adapter mit derselben MQTT-Instanz verbinden. Sie müssen das Gerätemodell und den Geräteschlüssel angeben (der in der Zendure Cloud Disconnector-App angezeigt wird).
 
 Sie können weiterhin Firmware-Updates mit der offiziellen Zendure-App über Bluetooth durchführen und beide Bluetooth-Tools verwenden, um das Gerät wieder mit der Cloud zu verbinden!
 
+## Wichtig
+Wenn Sie das Laden und Einspeisen Ihres Geräts über ein Skript/Blockly steuern möchten, empfehle ich die Verwendung des Steuerparameters „**setDeviceAutomationInOutLimit**“, da dieser das Gerät steuert, ohne in den Flash-Speicher zu schreiben. Es ist auch eine gute Idee, den Steuerstatus „**smartMode**“ auf „true“ zu setzen, wenn Sie einen HUB 1200/2000 mit ACE 1500 besitzen, da dies das Gerät auch dazu zwingt, „acMode“-Änderungen in den RAM statt in den Flash-Speicher zu schreiben.
+
+### Hyper 2000, SF 2400 AC oder SF 800 (Pro)
+Bei Geräten wie dem Hyper 2000, SF 2400 AC oder SF 800 (pro) können Sie mit negativen Werten die Netzladung auslösen. SF 2400 AC oder SF 800 (pro) ist derzeit **ungetestet**!
+
+### HUB 1200 / HUB 2000 / ACE 1500 Combo
+Bei einer HUB 1200 / HUB 2000 / ACE 1500-Kombination müssen Sie '**setDeviceAutomationInOutLimit**' für die Einspeisung verwenden und den acMode sowie '**setInputLimit**' manuell umschalten, wenn Sie vom Netz laden möchten. In diesem Szenario wird dringend empfohlen, den '**smartMode**' auf true zu setzen!
+
 ## Hinweise
-1. Bitte deaktivieren/entfernen Sie alle Modi in der Zendure App, da sonst die Einstellung der Leistungsbegrenzung nicht möglich ist!
-
-   ![Solarflow-Einstellungsfenster](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
-
-2. Sie werden nach der Anmeldung mit dem ioBroker-Adapter von der offiziellen iOS- oder Android-App abgemeldet. Dies ist normal. Als Workaround können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Verwenden Sie dann das zweite Konto für ioBroker / den Zendure Solarflow-Adapter.
+Sie werden nach der Anmeldung mit dem ioBroker-Adapter von der offiziellen iOS- oder Android-App abgemeldet. Dies ist normal. Als Workaround können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Verwenden Sie dann das zweite Konto für ioBroker / den Zendure Solarflow-Adapter. Dies funktioniert nicht für neue Geräte wie SF 2400 AC oder SF 800 (Pro).
 
 ## Credits
-Dank geht an https://github.com/reinhard-brandstaedter/solarflow, das mir mit seinem Wissen über den MQTT-Server von Zendure sehr geholfen hat! Danke!
+Dank geht an https://github.com/reinhard-brandstaedter/solarflow, das mit seinem Wissen über den MQTT-Server von Zendure sehr hilfreich war! Danke!
 
 ## Changelog
-### 1.14.3 (2025-06-09)
+### 2.0.4 (2025-09-12)
 
-- Fix input and output limit for Solarflow 2400 AC
+- Fix creation of control states on new Hyper 2000 v3
+- Updates dependencies
 
-### 1.14.2 (2025-06-07)
+### 2.0.3 (2025-09-09)
 
-- Fix control states not writable.
+- Added 'B3Dxda' as new Hyper 2000 productKey
+- Removed parameter 'upTime' and 'pullTime' from 'setDeviceAutomationInOutLimit'
+- TEST: Use 'setDeviceAutomationInOutLimit' to let HUB1200/HUB2000 charge with connected ACE 1500
 
-### 1.14.1 (2025-06-07)
+### 2.0.1 (2025-07-22)
 
-- IMPORTANT: This version will use a new way to check which states should be created for the device, so maybe something is broken on state creation!
-- Add support for AC2400, Solarflow 800 and Solarflow 800 Pro. All devices are untested as Zendure won't allow to share data to other users on these new devices AND I don't own any of the devices!
-- Removed the "standby usage" on batteries, as it confused some people.
+- Small fix MQTT service
 
-### 1.13.2 (2025-05-07)
+### 2.0.0 (2025-07-21)
 
-- Fix AC Mode showing unknown parameter on ACE 1500
+- Breaking Change: Add control parameter 'setDeviceAutomationInOutLimit' which emulates Zendure's Smart Matching mode. I recommend using this device automation instead of 'setInputLimit'/'setOutputLimit' from now on, as there were concerns that setting limits/modes would be stored in the flash memory. You can use negative values for charging and positive for feed in. On HUB 1200/2000 with ACE 1500 you can use "smartMode" to prevent switching AC mode trigger writing to the flash memory. Check you the readme for more details or participate in the ioBroker forum.
 
-### 1.13.1 (2025-05-05)
+### 1.15.4 (2025-07-17)
 
-- TEST: Set Smart CT Mode and Smart Matching Mode correctly - Feedback needed!
-- Removed efficiency from calculation, as it seems Zendure already included it in charge and discharge values
+- Add smart mode control parameter for more devices
 
-### 1.13.0 (2025-04-30)
+### 1.15.3 (2025-07-17)
 
-- Add possibility to deactivate automatic restart of adapter in adapter settings (recommended only on local mode!)
-- Fixed missing control state "hubState"
+- Match case sensitive product key for SF 2400 AC and SF 800 in settings if local mode is used
+- Add sensor and control of "SmartMode"
 
-### 1.12.7 (2025-03-24)
+### 1.15.2 (2025-07-14)
 
-- Add productKey "gDa3tb" for Hyper 2000
+- Fix missing SF 800 & 2400 AC in local mode settings
 
-### 1.12.6 (2025-03-21)
+### 1.15.1 (2025-07-11)
 
-- Fix onMessage Debug message
+- Fix missing Solar Input 3 & 4 on Solarflow 800 Pro
+- Fix 'packPower' state did not set to 0 if no input/output
 
-### 1.12.5 (2025-03-21)
+### 1.15.0 (2025-06-27)
 
-- Add Debug messages on log level debug
-- Add schedule for adapter refresh on local mode
-- Fix Change of Discharge limit to 0
-
-### 1.12.4 (2025-03-19)
-
-- Fix calculation of SOC if "local" mode is used
-
-### 1.12.3 (2025-03-19)
-
-- Add 2 more devices if "local" mode is used
-- Fix mqtt subscription of 2. device in "local" mode
-
-### 1.12.2 (2025-03-18)
-
-- Fix reset of calculation values on "local" mode
-
-### 1.12.1 (2025-03-17)
-
-- Fix IOT subscription
-
-### 1.12.0 (2025-03-17)
-
-- Added possibility to use "local" mode. You have to either route dns request to your own MQTT server or use a tool to modify the Zendure device
-- Some improvements on value calculation
-- Some improvements on AIO 2400 device
-
-### 1.11.0 (2025-02-11)
-
-- Drop Standby usage to 7W and 14W if HUB connected with ACE as it is more accurate
-- Added heatState and autoModel (system operation mode) state
-- Added possibility to set the operation mode (autoModel)
-- Fix gridPower state
-
-### 1.10.7 (2025-01-21)
-
-- Fix reset calculation values of ACE if connected to HUB
-
-### 1.10.6 (2025-01-16)
-
-- Fix start of calculation if HUB is connected with Ace
-
-### 1.10.4 (2025-01-14)
-
-- Fix "Grid Input Power" state if connected with Ace
-
-### 1.10.1 (2025-01-06)
-
-- Fix input limit when hub is bundled with ace
-- Fix calculation when low voltage block is activated
-
-### 1.10.0 (2024-12-02)
-
-- Add setting to perform a full charge if SOC from Zendure is greater than 50% when on low voltage
-- Bugfixes
-
-### 1.9.3 (2024-11-22)
-
-- Fix for Low Voltage Block not deactivated
-
-### 1.9.2 (2024-11-21)
-
-- Fix some state definitions
-
-### 1.9.1 (2024-11-21)
-
-- Improvement for 'Low Voltage Block'.
-- Changed the state "hubState" a an option value.
-
-### 1.9.0 (2024-11-20)
-
-- New option to force Solarflow device to go offline when "Low Voltage Block"-option is used.
+- Add 'packPower' state, which shows combined power from (packInputPower and outputPackPower). Discharging will be shown with a negative value.
+- Add 'hyperTmp' to Solarflow 800 devices in hope this will show the temperature of the Solarflow 800 (can not test it due to lack of test device).
 
 ## License
 

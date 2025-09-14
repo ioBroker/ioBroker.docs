@@ -49,9 +49,12 @@ Advanced settings allow you to adapt the adpater's operation to your needs. Typi
 
 #### Poll Cycle Intervals and Parameter Lists
 
-The adapter will - after connecting to the Wolf Smartset server - periodically poll parameter values from the server. It supports two independent poll cycles with different cycle intervals.
-- `Short Poll Cycle Interval`: enter the interval in seconds. The Wolf Smartset server defines an absolute minimum poll interval (currently 60 sec) which you should not undercut. If you configure a value below this minimum interval the server will not respond in the expected way or may even disconnect your session. The adapter requests the current minimum poll interval from the server periodically. If the configured poll interval is below the minimum poll interval indicated by the server, you will get a warning log from the adapter and you should adjust your poll interval accordingly.
-- `Long Poll Cycle Interval`: enter the interval in minutes for the second poll cycle.
+The adapter will - after connecting to the Wolf Smartset server - periodically poll parameter values from the server.
+- `Poll all Parameters`: the adapter will always poll all parameters found on the server. This poll strategy is backward compatible with adapter version 1.x
+
+The adapter also supports a more sophisticated poll strategy based on two independent poll cycles with different cycle intervals.
+- `Short Poll Cycle Interval`: enter the interval in __seconds__. The Wolf Smartset server defines an absolute minimum poll interval (currently 60 sec) which you should not undercut. If you configure a value below this minimum interval the server will not respond in the expected way or may even disconnect your session. The adapter requests the current minimum poll interval from the server periodically. If the configured poll interval is below the minimum poll interval indicated by the server, you will get a warning log from the adapter and you should adjust your poll interval accordingly.
+- `Long Poll Cycle Interval`: enter the interval in __minutes__ for the second poll cycle.
 
 The Wolf Smartset server groups the various device parameters into different bundles, identified by a numeric BundleId. In the __ioBroker Admin__ UI  you will find the BundleIds for the different parameter groups in the __Object__ view below the __wolf-smartset__ instance at the channel level. 
 
@@ -62,6 +65,8 @@ The Wolf Smartset server groups the various device parameters into different bun
 The Wolf Smartset API requires each poll request to include - besides a list of parameters to poll - also a BundleId. It's not quite clear how the BundleId relates to the actual parameter list, but in most cases 'Default' should be OK: it maps to the largest selected BundleId for the given poll cycle. Any other setting here is for experimental use. Configure the BundleId to be used as:
 - `BundleId for Short Poll Cycle`
 - `BundleId for Long Poll Cycle` 
+
+If you configured `Poll all Parameters`, the BundleId used in the poll requests is set to 1000. This will likely exclude some Expert parameters (see below) from the result. So, if you intend to poll Expert parameters, you should probably not use `Poll all Parameters`.
 
 #### Expert Login
 
@@ -120,6 +125,23 @@ API Profiling allows you to track the Wolf Smartset API usage of the adapter. if
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm1957) Dependencies have been updated.
+
+### 2.1.2 (2025-08-14)
+- (mcm1957) Adapter requires admin 7.6.17 now.
+- (mcm1957) Dependencies have been updated.
+
+### 2.1.1 (2025-08-05)
+- (mcm1957) Dependencies have been updated.
+
+### 2.1.0 (2025-08-05)
+- (flingo64) Change: Log periodic message '_refreshAuthToken(): ERROR ...' with level info
+- (flingo64) Bugfix (#458): set instance state to connected only if initialization went fine
+- (flingo64) Bugfix: if configured BundleId for poll requests is not available on server, use default BundleId
+- (flingo64) Enhancement: option 'Poll all Parameters' implements backward compatible poll strategy
+- (flingo64) Enhancement(#459, #465): added more BundleIds (4300, 10000, 10700, 14000, 14700, 15600, 15700, 15800) for AdminUI as found on different Wolf device configurations
+
 ### 2.0.1 (2025-04-18)
 - (flingo64) Bugfix: fixed various typos in Readme and translations
 - (flingo64) Bugfix: Fixed an AdminUI issue (#450 - 'No device selected') when the device information contained line break (e.g. in ContactInformation, Description or Comment )
@@ -136,69 +158,6 @@ API Profiling allows you to track the Wolf Smartset API usage of the adapter. if
 - (flingo64) ParameterId lists for each Wolf BundleId created and show `BundleIds` for each channel added
 - (flingo64) Support for two sepearate poll cycles to avoid server abuse reactions has been added. 
 - (flingo64) Switched AdminUI to `jsconConfig`.
-
-### 2.0.0-internal
-- (flingo64) further internal changes omitted from news section due to size limitations
-  - Demystified (decoded) API constants (array _021a[])
-  - All API strings (URL, paths, params) as constants
-  - Fixed various typechecker and eslint/prettier warnings
-  - Replaced deprecated ioBroker async functions by sync function equivalents
-  - Re-ordered and renamed private functions in main.js and admin/wss.js
-  - Reorganized adapter initialization / openIdInit for more robust error handling
-  - Added openId logout on instance unload to force a fresh AuthN on next adapter start
-  - Added API Profiling option to track requested BundleId / # of requested params and # of returned params / # of returned values
-  - Migrated translations from words.js to i18n
-  - Added complete translation for all adapter instance setting strings
-  - Disabled code for caching of auth data to allow a clean re-auth when required by server or on adapter reload
-  - Added optional Check for public IP changes for faster Wolf Smartset expert session recovery
-  - README: added descriptions on all instance settings and adpater operation
-
-### 1.2.4 (2024-12-22)
-- (flingo64) Bugfix for issues #281, #329, #365, #406: ioBroker object limits min/max use Wolf Smartset Min/MaxValueCondition if available, otherwise use Min/MaxValue now.
-- (flingo64) Added some comments on Wolf Smartset ControlTypes
-- (flingo64) Modified misspelled variable name to 'SubMenuEntry'
-- (flingo64) Add NamePrefix, if exists, to object names (e.g. 'A1: ', 'WP001: ') for better parameter identification
-- (mcm1957) Adapter has been adapted to @iobroker/eslint-config and eslint 9.x.
-- (mcm1957) Dependencies have been updated
-
-### 1.2.3 (2024-04-29)
-- (mcm1957) Dependencies have been updated
-
-### 1.2.2 (2024-04-22)
-- (flingo64) A crash during re-authentication has been fixed. OpenIdInit will be called only once to avoid endless loop during re-authentication.
-
-### 1.2.1 (2024-04-19)
-- (flingo64) Initialization added to openId. This fixes GET_AUTH_TOKEN_ERROR [#304, #330]
-
-### 1.2.0 (2024-04-19)
-- (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-- (mcm1957) Dependencies have been updated
-
-### 1.1.1 (2023-01-26)
-* (Apollon77) Adjusted to new Login procedure
-* (Apollon77) Tokens are now stored and tried to be refreshed automatically
-* (Apollon77) Errors in session updates will try to create new session or authenticate anew
-* (Apollon77) Generates folder and channel structures for created states
-* (Apollon77) Fix some more crash cases
-* (Apollon77) make sure adapter is stopped correctly in all cases
-
-### 1.0.0 (2021-07-31)
-* (MeisterTR) fix Sentry: IOBROKER-WOLF-SMARTSET-6,IOBROKER-WOLF-SMARTSET-5, IOBROKER-WOLF-SMARTSET-7,IOBROKER-WOLF-SMARTSET-8,IOBROKER-WOLF-SMARTSET-1,IOBROKER-WOLF-SMARTSET-3,IOBROKER-WOLF-SMARTSET-4
-* (MeisterTR) Change api from app data to Web PEASE DELETE ADAPTER AND REINSTALL OR DELETE ALL OBJECTS
-* (MEISTERTR) added "FACHMANN" states
-
-### 0.2.2 (26.03.2021)
-* (MeisterTR) fix timeouts, fix conection
-
-### 0.2.1
-* (MeisterTR) Rebuild api and objects, breaking change
-
-### 0.1.2
-* (MeisterTR) Poll and set Values
-* (MeisterTR) Fix error at start
-
-### 0.1.0
-* (MeisterTR) First running Version, Poll Param Only
 
 ## License
 MIT License

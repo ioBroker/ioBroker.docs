@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.opcua/README.md
-title: ioBroker OPC-UA-Adapter
-hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
+title: ioBroker OPC-UA Adapter
+hash: ZKUjg+3F0nXeXnb9ZO8gk/hZ7Z2bbg1fWIka4y6mIFk=
 ---
 ![Logo](../../../en/adapterref/iobroker.opcua/admin/opcua.png)
 
@@ -13,12 +13,12 @@ hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
 ![Tests](https://travis-ci.org/ioBroker/ioBroker.opcua.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.opcua.png?downloads=true)
 
-# IoBroker OPC-UA-Adapter
-## Klient
-**Eigentlich ist nur der Client implementiert.**
+# IoBroker OPC-UA Adapter
+## Kunde
+**Tatsächlich ist nur der Client implementiert.**
 
 ## Server
-Folgende Datentypen werden unterstützt:
+Die folgenden Datentypen werden unterstützt:
 
 - Nummer
 - Schnur
@@ -26,10 +26,17 @@ Folgende Datentypen werden unterstützt:
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **ARBEIT IN ARBEIT** -->
+### **IN ARBEIT** -->
 
 ## Changelog
-### 1.0.0 (2024-02-21)
+### 1.2.1 (2025-07-10)
+* (bluefox) GUI was migrated vite
+* (bluefox) Backend was changed for new js-controller
+
+### 1.1.0 (2024-07-13)
+* (bluefox) GUI was migrated to a non-style framework
+
+### 1.0.3 (2024-03-03)
 * (bluefox) License changes to the free license (MIT)
 * (bluefox) Minimum node.js version 16
 
@@ -63,7 +70,7 @@ Folgende Datentypen werden unterstützt:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024, Denis Haev (dogafox@gmail.com)
+Copyright (c) 2024-2025, Denis Haev (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -47,6 +47,17 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.14.2 (2025-08-26)
+
+- (HombachC) min admin 7.6.17 as recommended
+- (HombachC) bump adapter-core (#676)
+- (HombachC) fix vulnerability
+- (HombachC) bump dependencies
+
 ### 0.14.1 (2025-06-08)
 
 - (HombachC) add tests for node 24 (#655)
@@ -66,10 +77,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.13.1 (2025-03-06)
 
 - (HombachC) bump dependencies
-
-### 0.13.0 (2025-02-23)
-
-- (HombachC) bump needed admin to 7.4.10 as recommended by ioBroker (#623)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

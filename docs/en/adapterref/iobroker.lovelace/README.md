@@ -440,7 +440,7 @@ All changes for ioBroker are marked with comment `// IoB`.
 For now (20250401.0) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task develop-iob
 - `build-scripts/gulp/rspack.js` - Add new gulp task rspack-dev-app
-- `src/data/icons.ts` - always use fallback for old versions where frontend decides which icon to use for binary_sensors (if none supplied).
+- `src/data/icons.ts` - keep old icons, for now.
 - `src/data/weather.ts` - add support to display weather icon from url.
 - `src/dialogs/more-info/const.ts` - remove weather state & history
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and tab
@@ -473,10 +473,13 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.1 (2025-09-09)
 * (Garfonso) settings from entity registry are now loaded on startup
 * (Garfonso) logbook: prevent entries from the future
-* (Garfonso) use default icons for binary sensors again (recompiled frontend, clear browser cache if problems occur)
+* (Garfonso) icons should now work as before, again.
+* (Garfonso) script entities now can be used again.
+* (Garfonso) subscribe to all object ids in a template.
+* (Garfonso) Update dependencies.
 
 ### 5.0.0 (2025-04-10)
 * (Garfonso) Updated frontend to 20250401.0

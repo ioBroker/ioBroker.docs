@@ -34,16 +34,33 @@ If your updating from v1.x to 2.x, you have to reinsert your password again! If 
 
 ## Config
 
-1. Create a familie-account in anker app and add it to your main-account
+1. ~~Create a familie-account in anker app and add it to your main-account~~ Since end of july 2025, you can use the same account in app and adapter.
 2. install the adapter
 3. go to adapter setting and set your credentials
 4. at first time, pleas use a high poll time (180sec), so you have enought time to stop the adapter if everything goes wrong.
    Normally you can see in logfile that you have an site_id and you got the message: Published.
 
+## Control with Adapter
+
+1. You need to login in your admin account
+2. go to adapter settings, tab control and activet the control
+3. select you site id witch you want control.
+4. Control Opitons
+   4.1. select a datapoint witch you want use to control. It can be a manuel data point witch set by a script or you a smartmeter data point. (Important: it must be a numerical value)
+   4.2. you can set a custom powerplan, if you to trigger the powerplan again, you can control is the datapoint ankersolix2.x.control.SetPowerplan (set true and ack)
+   4.3. you can enable ac loading. If its enabled, you can control it with the datapoint ankersolix2.x.control.ACLoading\ (set true and ack = activ (time now + 12h), set false and ack = inactiv, userdefine powerplan will select)
+5. click save and restart adapter
+
+Note: The adapter overwrites the settings in the app. If you want to use the app again, you must deactivate the adapter or the control function.
+
 ## Helps
 
 If you have errors like 401, than please check you credentials.
 If you have erros again and cant login, stop the adapter and delete the session.data under the iobroker-data/ankersolix2.0 (e.g. /opt/iobroker/iobroker-data/ankersolix2/), after this start adapter again.
+
+## You want to support me?
+
+[!["Buy Me A Coffee"](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/ronny130286)
 
 ## Changelog
 
@@ -51,6 +68,20 @@ If you have erros again and cant login, stop the adapter and delete the session.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (ronny130286) add Powerplan and AC Loading (for AC devices)
+
+### 2.3.0 (2025-08-16)
+
+- (ronny130286) you can use now same account in app and adapter
+- (ronny130286) now you can control the solarbank with adapter (if you use adminaccount)
+
+### 2.2.0 (2025-06-30)
+
+- (ronny130286) battery types and number are adjustable in the instance
+
 ### 2.1.2 (2025-05-28)
 
 - (ronny130286) fix for Solix 3

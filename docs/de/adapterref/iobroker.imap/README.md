@@ -67,6 +67,7 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap
 - `Aktiv`: IMAP Verbindung aktivieren
 - `Host`: z. Bsp. imap.gmail.com
 - `Posteingang`: Standard INBOX - Box die Überwacht werden soll - Mögliche Auswahl siehe imap.0.xxx.remote.change_folder
+Beispiel: INBOX.unterordner (punkt als seperator)
 - `Port`: Standard 993
 - `Nutzername`: Benutzername - Instanz muss aktiviert sein!!!
 - `Passwort`: Passwort - Instanz muss aktiviert sein!!! - [gmail login](https://support.google.com/mail/answer/185833?hl=de) - [outlook Oauth2-Authentifizierung](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)
@@ -625,8 +626,9 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 ### **WORK IN PROGRESS**
 
 - (Lucky-ESA) Description revised
-- (Lucky-ESA) Admin 7.4.10 required
-- (Lucky-ESA) JS-Controller 6.0.11 required
+- (Lucky-ESA) Admin 7.6.17 required
+- (Lucky-ESA) JS-Controller 7.0.7 required
+- (Lucky-ESA) Node 20 required
 - (Lucky-ESA) Added meta object for attachments
 
 ### 0.3.0 (2024-12-07)

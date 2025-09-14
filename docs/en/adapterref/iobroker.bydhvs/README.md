@@ -1,5 +1,17 @@
 ![Logo](admin/bydhvs.png)
 
+[![NPM version](https://img.shields.io/npm/v/iobroker.bydhvs.svg)](https://www.npmjs.com/package/iobroker.bydhvs)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.bydhvs.svg)](https://www.npmjs.com/package/iobroker.bydhvs)
+![Number of Installations](https://iobroker.live/badges/bydhvs-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/bydhvs-stable.svg)
+
+[![NPM](https://nodei.co/npm/iobroker.bydhvs.png?downloads=true)](https://nodei.co/npm/iobroker.bydhvs/)
+
+**Tests:**  
+![Test and Release](https://github.com/christianh17/ioBroker.bydhvs/workflows/Test%20and%20Release/badge.svg)
+![CodeQL](https://github.com/christianh17/ioBroker.bydhvs/actions/workflows/codeql.yml/badge.svg?branch=main)
+
+
 ## bydhvs adapter for ioBroker
 
 BYD HVS Battery poll data
@@ -32,7 +44,21 @@ Copy and Paste does not work - the data is cut at the end. You will have to down
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-## **WORK IN PROGRESS**
+### __WORK IN PROGRESS__
+* (arteck) add current info
+* (arteck) add creates into separated file 
+
+### 1.5.4 (2025-08-03)
+* (arteck) typo
+
+### 1.5.3 (2025-08-02)
+* (arteck) update dependecy
+
+### 1.5.2 (2025-08-02)
+* (arteck) add socketConnection DP
+* (arteck) use jsconConfig
+* (arteck) refactoring to modern Code
+* (arteck) use direct socket connection without detour IPClient
 * first Version with two towers in NPM
 
 ### 1.5.1 (2024-01-15)
@@ -44,33 +70,12 @@ Copy and Paste does not work - the data is cut at the end. You will have to down
 * automated checks and release-script repaired (thanks to mcm1957, he did the work)
 * nothing else changed in code
 
-### 1.4.2 (2023-09-28)
-* Typo in version number removed
-
-### 1.4.1 (2023-09-24)
-* Compatibility with js.controller 5x
-* Removed some bugs in detecting inverter
-* Inverternumber ist logged, so I can easily add new inverters if neccerary, just send me the silly-log if inverter is unknown.
-
-### 1.4.0 (2022-10-31)
-* Update of referred modules (mainly around testing)
-* improvmenets contributed by Tapter (5 modules, readme and better readable code)
-* Better detection of battery type and inverter
-* SOC not only from normal data but from diagnosis-data, too. There we have one decimal place more
-* removed frequency limit for battery detail data
-* increased max count of temperature measurements for HVS to 64
-* support for up to 5 HVS modules
-
-### 1.3.0 (2021-11-06)
-* updated even more dependencies
-* official release with new state SOH
-
 ###
 
 ## License
 MIT License
 
-Copyright (c) 2023 Christian <github@familie-herrmann.de>
+Copyright (c) 2025 Christian <github@familie-herrmann.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -88,4 +93,5 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+
 SOFTWARE.

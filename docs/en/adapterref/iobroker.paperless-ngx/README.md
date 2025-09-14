@@ -28,6 +28,9 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (BenAhrdt) update test to resolve conflicts
+* (BenAhrdt) update testing 5.1.1
+* (BenAhrdt) update dependencie core
 * (BenAhrdt) update dependencie to node >= 20
 * (BenAhrdt) update testing to 24.x
 

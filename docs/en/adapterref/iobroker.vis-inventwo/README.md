@@ -1,17 +1,16 @@
 ![Logo](admin/inventwo.png)
 # ioBroker.vis-inventwo
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
-![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
 ![Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo)
+![Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
+[![NPM Version](https://nodei.co/npm/iobroker.vis-inventwo.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.vis-inventwo)<br>
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)](https://www.npmjs.com/package/iobroker.vis-inventwo)
+[![Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)](https://github.com/inventwo/ioBroker.vis-inventwo/tree/master?tab=security-ov-file)
 [![Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)](https://ci.appveyor.com/project/inventwo/iobroker-vis-inventwo)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/iobroker.vis-inventwo/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/inventwo/ioBroker.vis-inventwo?tab=License-1-ov-file)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
-[![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)](https://nodei.co/npm/iobroker.vis-inventwo/)
 
 ## Widgets für den ioBroker.vis Adapter
 

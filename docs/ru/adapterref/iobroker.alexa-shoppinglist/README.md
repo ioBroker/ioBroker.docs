@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-shoppingList
-hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
+hash: or7jj4BKgLMQAtb9TD415gPeR8SUoLzBJq0i6Me7pzQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -14,17 +14,19 @@ hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 ![НПМ](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
 # IoBroker.alexa-shoppingList
-**Тесты: ** ![Тест и выпуск](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+**Тесты: ** ![Тестирование и выпуск](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
-## Alexa-shoppingList адаптер для ioBroker
-Формирует список покупок из Alexa
+## Адаптер alexa-shoppingList для ioBroker
+Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. Подробнее об отключении отправки сообщений об ошибках см. в документации Sentry-Plugin! Отправка сообщений Sentry используется начиная с версии js-controller 3.0.
 
-Вы также можете использовать другие списки из alexa. Настройте их в Admin.
-Когда вы используете новый пользовательский интерфейс администратора, вам будет намного проще.
+Генерирует список покупок из Alexa
 
-Есть Состояние для вставки новых элементов. Просто напишите Текст и нажмите Enter.
-Вы можете удалить активные и неактивные списки.
-Вы также можете переместить только один элемент в обоих направлениях.
+Вы также можете использовать другие списки Alexa. Настройте их в панели администратора.
+С новым интерфейсом администратора всё станет гораздо проще.
+
+Есть состояние для добавления новых элементов. Просто введите текст и нажмите Enter.
+Вы можете удалять активные и неактивные списки.
+Вы также можете перемещать только один элемент в обоих направлениях.
 
 Надеюсь вам понравится
 
@@ -42,7 +44,7 @@ hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 | list_active | JSON | Список актив в формате JSON |
 | list_active_sort | Switch | Вы можете сортировать активный список по имени или по времени вставки |
 | list_inactive | JSON | Неактивный список в формате JSON |
-| list_inactive_sort | Switch | Вы можете отсортировать неактивный список по имени или по времени вставки |
+| list_inactive_sort | Switch | Вы можете сортировать неактивный список по имени или по времени вставки |
 | to_activ_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к activ_list |
 | to_inactive_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к inactiv_list |
 
@@ -52,11 +54,11 @@ hash: /i35XMUEl/Yuw4quAqHRZC+8nZ8o6+9VySs0ZzMiKl0=
 | время | Временная метка вставки |
 | id | id в адаптере Alexa2 |
 | pos | Позиция в списке |
-| buttonmove | Кнопка для перехода в активный или неактивный список |
+| buttonmove | Кнопка перехода к активному или неактивному списку |
 | buttondelete | Кнопка полного удаления элемента |
 
-JSON теперь содержит 2 кнопки для перемещения элементов или удаления.
-Для этого вам нужно вставить код в редакторе VIS в разделе Skript, вставьте это:
+JSON теперь содержит 2 кнопки для перемещения и удаления элементов.
+Для этого необходимо вставить код в редактор VIS в разделе «Скрипт» следующим образом:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -83,7 +85,17 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### **WORK IN PROGRESS**
 
+- CHORE: #145 Update dependencies
+
+### 1.1.1 (2025-08-13)
+
+- FIX: Error reported by sentry
+
+### 1.1.0 (2025-07-14)
+
+- FEAT: Activate sentry
 - Breaking change: minimal supported node.js version is 20.x
+- FEAT: Add typescript
 
 ### 1.0.3 (2024-12-04)
 

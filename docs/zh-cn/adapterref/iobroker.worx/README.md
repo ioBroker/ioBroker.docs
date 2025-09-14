@@ -8,11 +8,26 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx适配器
-hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
+hash: 3F05ebDewbLClTYO8SM72Uy9oU+qKenLhUySoL5DHck=
 ---
 ![标识](../../../en/admin/worx.png)
 
 # IoBroker.worx 适配器
+＃ 概括
+- [实例设置](#instance-settings)
+- [登录信息 JSON](#login-infos-worx0logininfo)
+- [所有文件夹](#folder)
+- [activityLog（Wire 和 Vision）](#activitylog-wire-and-vision)
+- [区域（线）](#areas-wire)
+- [日历（wire）](#calendar-wire)
+- [日历（愿景）](#calendar-vision)
+- [模块（Wire 和 Vision）](#modules-wire-and-vision)
+- [割草机 (Wire and Vision)](#mower-wire-and-vision)
+    - [info_mqtt（Draht und Vision）]（#info_mqtt-wire-and-vision）
+- [附加视觉信息](#additionally-for-vision)
+- [速率限制](#rate-limiting)
+- [Blockly sendMultiZonesJson Vision 示例](#example-blockly-sendmultizonesjson-vision)
+
 ## 重要信息
 🟢 两次活动切换操作之间有 1.1 秒的暂停</br> 🔴 无延迟，且下一次活动切换操作也无延迟
 
@@ -30,6 +45,8 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 
 ＃＃ 描述
 ### 实例设置
+[概括](#summary)
+
 - `App Email`：您的 APP 用户名（电子邮件）
 - `应用密码`：您的应用密码
 - `应用程序名称`：选择您的设备
@@ -40,10 +57,20 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 - `通过通知显示错误（针对所有设备）`：为所有设备打开/关闭通知（可以在对象下为每个设备打开/关闭）
 - `删除会话数据` 如果您登录时遇到问题，请删除当前会话
 - `重置登录计数器` 重置登录计数器
+- `每日请求限制 (50-180)`：限制每日请求数量。这些是 API 查询，例如设置的时间间隔以及刷新令牌后的更新（在实例设置中）。每次重启都会生成 4 个请求。此外，还会生成 1 个固件状态查询和活动日志查询（割草机的每次状态/错误更改）。将此限制设置为 100 位数字，并检查晚上 11:55 发送了多少个查询。然后输入此数字 + 10。
+- “每 10 分钟请求限制 (4-15)”：API 请求限制 - Sollte auf 4 stehen da sonst ein Neustart nicht möglich wäre。
+- “每天 MQTT 限制（1-250 个专业设备）”：请求 Limitierung über MQTT。 Die Auswahl ist pro Geräte。
+- `每天重启限制（1-10）`：防止未知和不必要的适配器重启。
+- `MQTT-Verbindung auswählen`：
+- `Alte AWS-Verbindung`：使用旧的 MQTT 连接。缺点：每 20 分钟强制断开一次连接，重新建立连接需要 1 秒。
+- `Neue AWS-Verbindung`：使用新的 MQTT 连接。缺点：由于令牌问题，连接每小时都会断开并重新建立。如果模块遇到错误，则自动使用旧连接。
+    - `MQTT5-Verbindung (derzeit nicht verfügbar)`：当前不可用。然后将使用旧的连接。
 
-![实例设置 img/instance.png](img/instance.png)![实例设置 img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
+![实例设置 img/instance.png](img/instance.png)![实例设置 img/instance_1.png](img/instance_1.png)![实例设置 img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
 
 ### 登录信息 `worx.0.loginInfo`
+[概括](#summary)
+
 ```json
 {
     "loginCounter": 1, // Login counter
@@ -65,6 +92,8 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ```
 
 ＃＃＃ 文件夹
+[概括](#summary)
+
 - `activityLog`：您的活动日志（可能为有线和视觉/控制）
 - `areas`：区域（可以连接/控制）
 - `multiZones`：多区域（可实现视觉/控制）
@@ -77,6 +106,8 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ![文件夹 img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
 ### ActivityLog（Wire 和 Vision）
+[概括](#summary)
+
 - `last_update`：上次更新时间戳（Wire & Vision / 只读）
 - `manuell_update`：加载当前活动日志（状态改变后自动加载 - 可以使用 Wire & Vision / 控制）
 - `payload`：活动日志作为 JSON 表（用于 VIS 或 Blockly）
@@ -84,11 +115,13 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ![活动 img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
 
 ### 区域（线路）
+[概括](#summary)
+
 - `actualArea`: 当前
 - `actualAreaIndicator`: 下一个数组区域开始
 - `area_0`: 区域 1 的起始位置（以米为单位）（数组 = 0）（可更改）🟢
 - `area_1`: 区域 2 的起点（以米为单位）（数组=1）（可更改）🟢
-- `area_2`: 区域 3 的起点（以米为单位）（数组 = 2）（可更改）🟢
+- `area_2`: 区域 3 的起始位置（以米为单位）（数组 = 2）（可更改）🟢
 - `area_3`: 区域 4 的起点（以米为单位）（数组=3）（可更改）🟢
 - `startSequence`：数组区域开始（0-9 个事件）例如仅在区域 3 开始 [2,2,2,2,2,2,2,2,2,2]（可更改）🟢
 - `zoneKeeper`：在狭窄区域交叉口安全驾驶（必须创建区域）（自固件 3.30 起）（可更改）🟢
@@ -96,12 +129,13 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ![区域 img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
 ### 日历（电报）
-- 例如，周三的时间设置
+[概括](#summary)
 
+- 例如，周三的时间设置
 - `wednesday.borderCut`：有或无 bordercut（立即更改值）（可更改）🔴
 - `wednesday.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（立即更改值）（可更改）🔴
 - `wednesday.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）🔴
-- `calJson_sendto`：如果所有状态都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将割草 30 分钟（可更改）🟢
+- `calJson_sendto`：如果所有状态都已设置，则按下按钮发送（延迟 1.1 秒）。割草机现在将持续割草 30 分钟（可更改）🟢
 - `calJson_tosend`：此数据将发送至 Mqtt（割草计划/自动设置）。您也可以自行创建此 JSON。（可更改）🟢
 - `calendar.calJson`：每周割草计划的数组。您也可以自行创建此数组。（割草计划 1/自动设置 - 仅适用于电线）（可更改）🔴
 - `calendar.calJson2`：每周割草计划的数组。您也可以自行创建此数组。（割草计划 2/自动设置 - 仅适用于电线）（可更改）🔴
@@ -109,9 +143,10 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
 
 ### 日历（愿景）
+[概括](#summary)
+
 - 例如，周五的时间设置
 - 默认情况下，会创建 2 个时间段。如果在 APP 中创建了 3 个时间段，ioBroker 中也会创建 3 个。如果时间段再次减少到 2 个，ioBroker 中会删除这些时间段。时间段最多的日期将作为所有日期的参考。
-
 - `friday.time_0.borderCut`: 有或无 bordercut（立即更改值）（可更改）🔴
 - `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如 09:00（立即更改值）（可更改）🔴
 - `friday.time_0.workTime`：工作时间（分钟）（180 分钟 = 3 小时）例如 30 = 结束时间 09:30（立即更改值）（可更改）🔴
@@ -123,7 +158,7 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 
 ![文件夹 img/calendar.png](img/calendar_vision.png) ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
 
-### 示例时间段（愿景）
+### 时间段示例（愿景）
 - `calJson_tosend` 此 JSON 会在周日输入一次，并删除所有其他日期。必须始终提交整周的数据。🔴
 
 ```json
@@ -144,18 +179,17 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ```
 
 ### 模块（Wire 和 Vision）
-- 禁区模块（电线和视觉）
+[概括](#summary)
 
+- 禁区模块（电线和视觉）
 - `DF.OLMSwitch_Cutting`：防止磁带被碾过 - true-on/false-off
 - `DF.OLMSwitch_FastHoming`：快速返回充电站 - 使用磁条制作的快捷方式 - 真开/假关
 
 - ACS 模块（仅限有线）
-
 - `US.ACS`：启用或禁用 ACS - 1-开启/0-关闭 🟢
 - `US.ACS_Status`：来自 ACS 模块的状态（只读）
 
 - EA 模块（仅限视觉）
-
 - `EA.height`：割草机甲板高度调节范围为 30-60，增量为 5 毫米🟢
 
 - HL 模块（仅限视觉）
@@ -166,11 +200,13 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ![模块 img/module.png](img/module.png) ![模块 img/module_ea.png](img/module_ea.png) ![模块 img/module_hl.png](../../../en/adapterref/iobroker.worx/img/module_hl.png)
 
 ### 割草机（Wire and Vision）
+[概括](#summary)
+
 - `AutoLock`：自动锁定真开/假关（有线和视觉/可更改）🟢
 - `AutoLockTimer`：定时器自动锁定最长 10 分钟，每 30 秒一次（有线和视觉/可更改）🟢
 - `batteryChargeCycle`：电池充电周期（电线和视觉/只读）
 - `batteryCharging`：电池充电 false->no/true->yes（电线和视觉/只读）
-- `batteryState`：电池状态（百分比）（wire & Vision/readonly）
+- `batteryState`：电池状态（百分比）（电线和视觉/只读）
 - `batteryTemperature`：电池温度（摄氏度）（电线和视觉/只读）
 - `batteryVoltage`：电池电压（伏特）（电线和视觉/只读）
 - `cameraStatus`：相机状态 0=OK/1=Error (Vision/readonly)
@@ -383,6 +419,8 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ![割草机 img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
 
 ### 另外对于视力
+[概括](#summary)
+
 - 多区域
 - `multiZones.zones.zone_1.borderDistance`：切割边框时，到边缘的距离（以毫米为单位）- 允许 50 毫米、100 毫米、150 毫米和 200 毫米 - 使用 Blockly 立即设置 - 更改写入 `multiZones.multiZones`（视觉/可更改）🔴
 - `multiZones.zones.zone_1.chargingStation`: 1 表示在此区域找到充电站。0 表示没有充电站 - 立即使用 Blockly 设置 - 更改写入 `multiZones.multiZones` (vision/changeable) 🔴
@@ -471,7 +509,9 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 
 ![视觉 img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
-### Info_mqtt（有线和视觉）
+### Info_mqtt（Wire 和 Vision）
+[概括](#summary)
+
 - `incompleteOperationCount`：已提交至连接但尚未完成的操作总数。未确认的操作是其中的一部分。
 - `incompleteOperationSize`：已提交至连接且尚未完成的操作的总数据包大小。未确认的操作是其中的一部分。
 - `unackedOperationCount`：已发送到服务器并在完成之前等待相应 ACK 的操作总数。
@@ -482,7 +522,137 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 
 ![愿景 img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
-### 示例 Blockly sendMultiZonesJson Vision
+### 速率限制
+[概括](#summary)
+
+- 值 worx.0.blocking
+
+锁定将在24小时后自动解除。下次更新令牌时，所有内容都将重置。
+
+```json
+{
+    "block": false, // true = 429 too many request is activ
+    "start": 0, // Start of the blocking as a timestamp
+    "time": "", // With time zone
+    "retry-after": 0 // How long you are blocked
+}
+```
+
+- 值 worx.0.requestsrateLimit
+
+可以手动更改计数器以消除任何过早的锁定。
+
+```json
+{
+    "apiCounter": 6, // API request per day
+    "apiLast": 1751483518418, // Last API request as timestamp
+    "apiTime": "2025-07-02T19:11:58.418Z", // Last API request with time zone
+    "apiRequest": [
+        // All API requests
+        {
+            "count": 1,
+            "request": "https://api.worxlandroid.com/api/v2/product-items?status=1&gps_status=1",
+            "time": "2025-07-02T19:11:58.418Z"
+        },
+        {
+            "count": 2,
+            "request": "https://api.worxlandroid.com/api/v2/product-items/xxx/firmware-upgrade",
+            "time": "2025-07-02T19:11:58.895Z"
+        },
+        {
+            "count": 3,
+            "request": "https://api.worxlandroid.com/api/v2/product-items/xxx/activity-log",
+            "time": "2025-07-02T19:11:59.130Z"
+        },
+        {
+            "count": 4,
+            "request": "https://api.worxlandroid.com/api/v2/products",
+            "time": "2025-07-02T19:11:59.364Z"
+        },
+        {
+            "count": 5,
+            "request": "https://api.worxlandroid.com/api/v2/users/me",
+            "time": "2025-07-02T19:12:00.318Z"
+        },
+        {
+            "count": 6,
+            "request": "https://id.worx.com/oauth/token?",
+            "time": "2025-07-03T18:12:46.628Z"
+        }
+    ],
+    "mqttDevice": {
+        // MQTT Counter per device
+        "xxxF3": {
+            "mqttCount": 6, // Counter MQTT commands
+            "mqttLast": 1751651797646, // Last command with time zone
+            "mqttTime": "2025-07-04T17:56:37.646Z", // Letzter Kommando mit Zeitzone
+            "mqttBlock": true, // true = Kommandos deaktiviert / false = Kommandos aktiv
+            "mqttRequest": [
+                // Last commands
+                {
+                    "count": 1,
+                    "message": "{\"id\":23210,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"21:12:00\",\"dt\":\"02/07/2025\"}",
+                    "time": "2025-07-02T19:12:00.811Z"
+                },
+                {
+                    "count": 2,
+                    "message": "{\"id\":58731,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"20:12:49\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T18:12:49.586Z"
+                },
+                {
+                    "count": 3,
+                    "message": "{\"id\":3925,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"20:20:41\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T18:20:41.579Z"
+                },
+                {
+                    "count": 4,
+                    "message": "{\"id\":3265,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"21:10:19\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T19:10:19.292Z"
+                },
+                {
+                    "count": 5,
+                    "message": "{\"id\":28606,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"21:11:20\",\"dt\":\"03/07/2025\"}",
+                    "time": "2025-07-03T19:11:20.634Z"
+                },
+                {
+                    "count": 6,
+                    "message": "{\"id\":12891,\"cmd\":0,\"lg\":\"de\",\"sn\":\"xxx\",\"tm\":\"19:56:37\",\"dt\":\"04/07/2025\"}",
+                    "time": "2025-07-04T17:56:37.646Z"
+                }
+            ]
+        },
+        "xxxE2": {
+            "mqttCount": 0,
+            "mqttLast": 0,
+            "mqttBlock": false,
+            "mqttRequest": []
+        },
+        "xxxC5": {
+            "mqttCount": 0,
+            "mqttLast": 0,
+            "mqttBlock": false,
+            "mqttRequest": []
+        },
+        "xxx2F": {
+            "mqttCount": 0,
+            "mqttLast": 0,
+            "mqttBlock": false,
+            "mqttRequest": []
+        }
+    },
+    "mqttDay": "27-4", // calendar week-day. When changing everything is reset
+    "restartCount": 6, // Counter restart adapter
+    "restartLast": 1751569817003, // Last restart
+    "restartTime": "2025-07-03T19:10:17.003Z", // Last restart with time zone
+    "day": "27-4" // calendar week-day. When changing everything is reset
+}
+```
+
+![img/限制.png](../../../en/adapterref/iobroker.worx/img/limiting.png)
+
+### 示例 Blockly sendMultiZonesJson 愿景
+[概括](#summary)
+
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -808,37 +978,28 @@ hash: 9WhKVM8VxDIqSKqSqAPRmYkCGSRaCcB5Hlujr6wL1Po=
 ![img/json_nok.png](img/json_nok.png) ![img/array_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
+### 3.2.7 (2025-08-16)
+
+- (Lucky-ESA) MQTT connection selection added
+- (Lucky-ESA) Rate limit selection added in instance settings
+- (Lucky-ESA) Admin 7.6.17 required
+
+### 3.2.6 (2025-06-29)
+
+- (Lucky-ESA) Added rate limit for API request
+
+### 3.2.5 (2025-06-25)
+
+- (Lucky-ESA) MQTT connection changed
+
+### 3.2.4 (2025-06-14)
+
+- (Lucky-ESA) TypeError native_excluded fixed
+
 ### 3.2.3 (2025-06-05)
 
 - (Lucky-ESA) All Sentry issues fixed
 - (Lucky-ESA) Add new mowers without adapter restart
-
-### 3.2.2 (2025-05-29)
-
-- (Lucky-ESA) Fixed invalid object type
-- (Lucky-ESA) Error message it is raining changes to rain delay
-
-### 3.2.1 (2025-05-25)
-
-- (Lucky-ESA) Fixed starting firmware update (did not work)
-- (Lucky-ESA) Added confirm edgecut
-- (Lucky-ESA) Added notifications about instance settings toggle on/off
-- (Lucky-ESA) Small bugs fixed
-
-### 3.2.0 (2025-04-08)
-
-- (Lucky-ESA) Migration to ESLint9
-- (Lucky-ESA) Node 20 required
-- (Lucky-ESA) Admin 7.4.10 required
-- (Lucky-ESA) Added Party Modus Timer (wire only)
-- (Lucky-ESA) Save session infos
-- (Lucky-ESA) Added rain countdown (wire only)
-
-### 3.1.1 (2024-11-04)
-
-- (Lucky-ESA) Added JS-Controller Notification
-- (Lucky-ESA) Dependencies updated
-- (Lucky-ESA) New design for settings page added
 
 ## License
 

@@ -8,7 +8,7 @@
 [![NPM](https://nodei.co/npm/iobroker.opcua.png?downloads=true)](https://nodei.co/npm/iobroker.opcua/)
 
 ## Client
-**Actually only client is implemented.**
+**Actually, only client is implemented.**
 
 ## Server
 The following data types are supported:
@@ -21,6 +21,10 @@ The following data types are supported:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.2.1 (2025-07-10)
+* (bluefox) GUI was migrated vite
+* (bluefox) Backend was changed for new js-controller
+
 ### 1.1.0 (2024-07-13)
 * (bluefox) GUI was migrated to a non-style framework
 
@@ -58,7 +62,7 @@ The following data types are supported:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024, Denis Haev (dogafox@gmail.com)
+Copyright (c) 2024-2025, Denis Haev (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

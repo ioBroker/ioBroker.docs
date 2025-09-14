@@ -55,10 +55,21 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
 ### **WORK IN PROGRESS**
 
-- (HombachC) add test for node.js 24 (#801)
+- (HombachC) min admin 7.6.17 as recommended (#817)
 - (HombachC) bump dependencies
+
+### 6.0.1 (2025-08-17)
+
+- (HombachC) bump TypeScript to 5.9
+- (HombachC) add test for node.js 24 (#801)
+- (HombachC) bump dependency with security vulnerability
 
 ### 6.0.0 (2025-05-04)
 
@@ -79,13 +90,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) raise support for ioBroker.admin to min 7.4.10 as recommended by ioBroker (#773)
 - (HombachC) bump axios to 1.8.1 (#778)
-
-### 5.0.3 (2025-02-23)
-
-- (HombachC) bump @iobroker/adapter-dev to 1.4.0 (#774)
-- (HombachC) using "@alcalzone/release-script" (#772)
-- (HombachC) fix typos (#770)
-- (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

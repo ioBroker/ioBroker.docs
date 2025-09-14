@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: psMXPXYoWBisaqJRGhSeYCBctm1G2h7R+P/So598MDI=
+hash: OgC3W9ajAU4i8QZBvIlBJIUkTzpBBHJaHAiFBrWv2gs=
 ---
 ![标识](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -98,7 +98,7 @@ ru：[Установка и базовая настройка адаптера](
 ### 配置接口
 ![knxV2-2-5-安装-许可证-在线应用-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-2-5-Install-License-online-applied-mod.jpg)
 
-1. KNX-网关 IP：KNX-LAN 网关的 IPv4。
+1. KNX-Gateway IP：KNX-LAN 网关的 IPv4。
 2. KNX-Gateway 端口：默认为端口 3671。
 3. 物理地址：iobroker knx 实例的物理地址。**重要提示：这不是 LAN 网关的物理地址！**并且不能以 0 结尾。
 4. 每秒 KNX 数据包数：此项限制数据包速率。如果 KNX Lan 网关重新连接次数过多或暂时无法访问，则降低此速率。
@@ -203,7 +203,7 @@ GA-Tool 可以轻松更改 GA 的属性。
 2. 要更改的属性
 3. 不可能改变
 
-### 将非 KNX 状态直接链接到 KNX 状态，反之亦然
+### 将非 KNX 状态直接链接到 KNX，反之亦然
 自适配器版本 2.0.6 起，可以将非 KNX ioBroker 状态直接链接到 GA。这可用于将时间、日期、任何状态或信息应用于 KNX。（小提示：您可以将任何物联网组件直接链接到 KNX 中的 GA（例如，将 Homematic 按钮链接到 KNX GA，或将 KNX 按钮传感器链接到 Sonos 播放器））。可以使用 GroupValueRead 读取状态，如果状态发生变化，它将自动在 KNX 上更新。此外，如果您在 KNX 上进行更改，它将更新链接的非 KNX 物联网设备。
 
 ![knxV2-3-7-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
@@ -232,6 +232,9 @@ GA-Tool 可以轻松更改 GA 的属性。
 
 ### **工作正在进行** -->
 ## 版本
+### 2.0.33（2025年6月22日）
+* 解决了不稳定的 knx 连接问题
+
 ### 2.0.31（2025年5月22日）
 * 更新了 ETS 6.3.1 的适配器导入模式
 * 需要 nodejs >= 22
@@ -267,7 +270,7 @@ GA-Tool 可以轻松更改 GA 的属性。
 * 其他一些小的修复
 
 ### 2.0.22（2023年7月4日）
-* 添加了导入规范，解决了 GaTools 中的问题
+* 增加了导入规范，解决了 GaTools 中的问题
 
 ### 2.0.21（2023年6月17日）
 * 修复许可证处理
@@ -474,7 +477,7 @@ GA-Tool 可以轻松更改 GA 的属性。
 * 修复了许多小问题
 
 ### 1.0.8（2018-04-04）
-* 修改了包队列
+* 修改了包裹队列
 * 修复发送至 KNX-Bus 时的 ACK
 * 修复了许多小问题
 
@@ -548,12 +551,12 @@ GA-Tool 可以轻松更改 GA 的属性。
 *（chefkoch009）重新设计
 
 ### 0.5.0
-*（vegetto）包括 vis 小部件
+*（vegetto）包含 vis 小部件
 
 #### 0.4.0
 *（bluefox）使用 grunt 修复错误
 
-#### 0.2.0
+0.2.0
 *（bluefox）初始版本
 
 ## 异常和错误

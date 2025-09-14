@@ -28,6 +28,8 @@ Or ignore values with a high standard deviation.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (BenAhrdt) update dependencie EsLint
+* (BenAhrdt) update dependencie admin, Core, EsLint
 * (BenAhrdt) update dependencie to node >= 20
 * (BenAhrdt) update testing to 24.x
 

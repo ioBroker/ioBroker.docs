@@ -33,8 +33,15 @@ Discussion:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-- (Black-Thunder) Adapter requires node.js >= 20 and admin >= 7.4.10 now
+### 3.0.1 (2025-08-13)
+- (Black-Thunder) Setting a state value is now more tolerant of strings.
+- (Black-Thunder) Fixed a bug that caused subsequent commands to fail after a failed state change.
+
+### 3.0.0 (2025-07-29)
+
+- (Black-Thunder) Adapter requires node.js >= 20, admin >= 7.4.10 and js-controller >= 6 now
+- (Black-Thunder) Experimental support for ERV devices was added
+- (Black-Thunder) Dependencies were updated and code refactorings applied
 
 ### 2.0.5 (2024-12-11)
 

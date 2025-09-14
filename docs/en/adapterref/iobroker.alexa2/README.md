@@ -488,6 +488,12 @@ After deleting an unused device, please restart the adapter to remove them there
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 3.27.3 (2025-07-15)
+* (Apollon77) Adjust Lists to recent Amazon changes
+* (Apollon77) Adjust retrieving the Smart home device list to recent Amazon changes
+* (Apollon77) Delete all ioBroker originated Smart Home devices because not controllable anyway
+* (Apollon77) Adjust usage of some deprecated js-controller methods
+
 ### 3.26.7 (2024-10-24)
 * (Apollon77) Fix Sentry integration
 
@@ -1069,7 +1075,7 @@ After deleting an unused device, please restart the adapter to remove them there
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2024 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
+Copyright (c) 2018-2025 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

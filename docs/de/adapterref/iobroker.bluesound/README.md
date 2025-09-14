@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluesound/README.md
 title: ioBroker.bluesound
-hash: PU3PlrEUB2NHsiR97M2AcniN3Tl/pOYngvNPCLHwh1g=
+hash: waoLcBOsb5gz0sO/1PPmjKFdIZ1WjwR/sSEfaDwQ7ww=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluesound/admin/bluesound.png)
 
@@ -22,32 +22,61 @@ hash: PU3PlrEUB2NHsiR97M2AcniN3Tl/pOYngvNPCLHwh1g=
 Adapter zur Steuerung von Bluesound-Geräten
 
 ## Enthaltene Funktionen
-Der Adapter verwendet API-Aufrufe im Format: http://--playerAPI--:11000/xxx
+Der Adapter verwendet API-Aufrufe im Format: http://--playerIP--:11000/xxx
 
-Ein Timeout-Parameter wird durch den optionalen Parameter „config.TimeOut“ als Timeout für den API-Aufruf festgelegt. Der Standardwert beträgt 2 Sekunden.
-
-Beim Start werden die Voreinstellungen gelesen und dem Kanal „Voreinstellungen“ hinzugefügt.
-Playermodell und -name werden im Kanal „Info“ gespeichert.
-Wenn der Player spielt, werden die Titel im Kanal „Info“ festgelegt.
+Beim Start werden die Voreinstellungen vom Player gelesen und dem Kanal „Voreinstellungen“ hinzugefügt.
+Player-Modell und -Name werden im Kanal „Info“ gespeichert.
+Während der Wiedergabe werden die Titel im Kanal „Info“ eingestellt.
 
 Der Playerstatus wird im durch „config.pollingtime“ eingestellten Intervall abgefragt und das Ergebnis sowohl in „control.state“ als auch in „info.\*“ gespeichert.
 
 PollingTime-Werte bis 120 Sekunden sind sinnvoll. Bei Werten über 300 Sekunden kann der Adapter nicht gestartet werden. Der Standardwert ist 30 Sekunden.
 
+Ein Timeout-Parameter wird durch den optionalen Parameter „config.TimeOut“ als Timeout für den API-Aufruf festgelegt. Der Standardwert beträgt 2 Sekunden.
+
 Folgende Funktionen sind implementiert:
 
-- Spielerstopp (ausgelöst durch Setzen von „control.stop“ auf „true“)
-- Playerstart (ausgelöst durch Setzen von „control.start“ auf „true“)
-- Player-Pause (ausgelöst durch Setzen von „control.pause“ auf „true“, Umschaltmodus)
-- Presetxxx abspielen (ausgelöst durch Setzen von '.presets.preset(x).start' auf true)
+- Player Stop (ausgelöst durch Setzen von „control.stop“ auf „true“)
+- Player Start (ausgelöst durch Setzen von „control.start“ auf „true“)
+- Player-Pause (ausgelöst durch Setzen von „control.pause“ auf „true“)
+- Presetxxx abspielen (ausgelöst durch Setzen von „.presets.preset(x).start“ auf „true“)
 - Lautstärke ändern (ausgelöst durch Ändern von „control.volume“)
+- Zufallswiedergabe der Playlist (ausgelöst durch Setzen von „control.shuffle“ auf „true“, Umschaltmodus)
+- Playlist weiterleiten (ausgelöst durch Setzen von „control.forward“ auf „true“)
+- Playlist rückwärts (ausgelöst durch Setzen von „control.backward“ auf „true“)
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+### **WORK IN PROGRESS**
+
+- (Uwe Nagel) Further code cleaning (apiclient, getStateAsync)
+- (Uwe Nagel) @types/xml2js added
+- (Uwe Nagel) Move to eslint 9 and fix subsequent issues
+
+### 1.2.0 (2025-07-24)
+
+- (Uwe Nagel) Logic added to shift playlist forward/backward
+- (Uwe Nagel) State roles updated
+- (Uwe Nagel) Logic added to shuffle playlist
+- (Uwe Nagel) Translated using Weblate (Dutch)
+- (Uwe Nagel) Update test-and.release.yml to node 24.x
+- (Uwe Nagel) Update testing to minimum node.js version 20
+
+### 1.1.5 (2025-03-10)
+
+- (Uwe Nagel) Create version 1.1.5
+- (Uwe Nagel) Update info.connection regularly
+- (Uwe Nagel) Update admin dependency to >=7.4.10
+- (Uwe Nagel) Update @iobroker/adapter-dev to 1.3.0
+- (Uwe Nagel) Fixing test action problems
+- (Uwe Nagel) Bump mocha from 11.0.1 to 11.1.0
+- (Uwe Nagel) Bump eslint-config-prettier from 9.1.0 to 10.0.1
+- (Uwe Nagel) Bump chai and @types/chai
+- (Uwe Nagel) Bump eslint from 9.16.0 to 9.19.0
+- (Uwe Nagel) Corrected translations (de,pl)
+- (Uwe Nagel) Update @iobroker/adapter-core to 3.2.3
+- (Uwe Nagel) Update @iobroker/testing to 5.0.0
+
 ### 1.1.4 (2025-01-03)
 
 - (Uwe Nagel) Correct common.news

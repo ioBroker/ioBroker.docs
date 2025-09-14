@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: UxiXLPzaMP15shZ1BfLlXQJ+5BwSiw4RiIoxHO/hWEg=
+hash: nHZSEspy8ae1p1z5byBu/bftY4W74lkX+nHje3yM8ks=
 ---
 ![安装数量](http://iobroker.live/badges/iot-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -55,7 +55,7 @@ hash: UxiXLPzaMP15shZ1BfLlXQJ+5BwSiw4RiIoxHO/hWEg=
 - 命令：“将灯光亮度设置为 40%”。适配器会记住这个“调光”值，并将其设置为“调光”，然后打开“开关”。
 - 命令：“关灯”。适配器会将_调光器_设置为 0%，并关闭_开关_。
 - 命令：“打开灯”。_dimmer_ => 40%，_switch_ => ON。
-- 命令：“将灯光亮度设置为 20%”。_调光器_ => 20%，_开关_ => 关闭。调光器的亮度值不会被记录，因为它低于_关闭级别_。
+- 命令：“将灯光设置为 20%”。_调光器_ => 20%，_开关_ => 关闭。调光器的数值不会被记住，因为它低于_关闭级别_。
 - 命令：“打开灯”。_dimmer_ => 40%，_switch_ => ON。
 
 ### 由 ON
@@ -99,14 +99,14 @@ Alexa, lock the "lock name"
 
 要想获取自动生成列表中的状态，必须满足以下条件：
 
-- 状态必须处于某个“功能”枚举中。
-- 如果状态没有直接包含在“功能”中，则必须具有角色（“状态”，“开关”或“级别。\ *”，例如，level.dimmer）。
+- 状态必须位于某个“函数”枚举中。
+- 如果状态没有直接包含在“函数”中，则必须具有角色（“state”、“switch”或“level.\*”，例如“level.dimmer”）。
 
-有可能频道处于“功能”中，但状态本身却不在。
+有可能该通道处于`functions`，但状态本身却不在。
 
 - 状态必须是可写的：`common.write` = true
 - 状态调光器必须将“common.type”设置为“number”
-- 状态加热必须具有“common.unit”作为“°C”，“°F”或“°K”，并且“common.type”为“number”
+- 状态加热必须具有 `common.unit` 作为 `°C`、`°F` 或 `°K` 且 `common.type` 为 `number`
 
 如果该状态仅在“功能”中而不在任何“房间”中，则将使用状态名称。
 
@@ -116,7 +116,7 @@ Alexa, lock the "lock name"
 
 如果状态包含 common.smartName，则所有规则都将被忽略。在这种情况下，只会使用智能名称。
 
-如果`common.smartName` 是 `false`，则该状态或枚举将不会包含在列表生成中。
+如果`common.smartName`是`false`，则该状态或枚举将不会包含在列表生成中。
 
 配置对话框可让您轻松地移除单个状态并将其添加到虚拟组或单个设备。
 ![配置](../../../en/adapterref/iobroker.iot/img/configuration.png)
@@ -268,7 +268,7 @@ on({ id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any' }, obj => {
 ```
 
 ### 私有云
-如果您使用私人技能/动作/навык 与 `Alexa/Google Home/Алиса` 进行通信，那么您就可以使用物联网实例来处理来自它的请求。
+如果您使用私人技能/动作/навык 与 `Alexa/Google Home/Алиса` 进行通信，那么您可以使用 IoT 实例来处理来自它的请求。
 
 例如对于`yandex alice`：
 
@@ -292,7 +292,7 @@ sendTo('iot.0', 'private', { type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE }
 [指示](doc/alisa.md)
 
 ## 发送消息到应用程序
-从 1.15.x 版本开始，您可以向 `ioBroker.visu` 应用程序（Android 和 iOS 系统）发送消息。
+从 1.15.x 版本开始，您可以向 `ioBroker Visu` 应用程序 ([Android](https://play.google.com/store/apps/details?id=com.iobroker.visu) 和 [iOS](https://apps.apple.com/de/app/iobroker-visu/id1673095774)) 发送消息。
 为此，您需要写入以下状态：
 
 ```js
@@ -301,13 +301,23 @@ setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'norm
 setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
 setState('iot.0.app.message', 'Message text'); // important, that ack=false (default)
 
-// or just one state
-// only is message is mandatory. All other are optional
+// or just one state (this also allows to use payload -> `actions`, `devices` and `link` property)
+// only message is mandatory. All other are optional
+// Note that, if you are using `actions`or `devices`, the app needs to handle the notification in the background before showing it
+// in some scenarios, e.g. low power or spamming to many notifications the OS may decide to not show the notification at all
 setState('iot.0.app.message', JSON.stringify({
   message: 'Message text',
   title: 'ioBroker',
   expire: 60,
-  priority: 'normal'
+  priority: 'normal',
+  payload: {
+      devices: JSON.stringify(['iPhone von Maelle', 'iPhone von Max']), // devices to send the message to, if not given send to all - requires Visu App 1.4.0
+      openUrl: 'https://www.iobroker.net', // opens a link when clicking on the notification
+      actions: JSON.stringify([ // actions to respond to the notification - requires Visu App 1.4.0
+          { buttonTitle: 'Yes', identifier: 'home:yes' }, // The app will display the button title and on clicking the identifier will be set to the state `iot.0.app.devices.<deviceName>.actionResponse`
+          { buttonTitle: 'No', identifier: 'home:no' }
+      ])
+  }
 })); // important, that ack=false (default)
 ```
 
@@ -318,527 +328,415 @@ setState('iot.0.app.message', JSON.stringify({
 <!-- 下一个版本的占位符（在行首）：
 
 ### **工作正在进行** -->
+### 4.0.3 (2025-08-27)
+- (@GermanBluefox) 为自定义技能响应添加了响应 ID
 
-## Changelog
+### 4.0.2 (2025-08-26)
+- (@GermanBluefox) 一些文件用 TypeScript 重写
+- (@GermanBluefox) Alexa V3 的改进
+
+### 3.6.0 (2025-07-02)
+- (@foxriver76) 即将推出的 Visu App 1.4.0 的新功能
+
 ### 3.5.2 (2025-06-04)
--   (@GermanBluefox) Corrected error in back-end
+- (@GermanBluefox) 修正后端错误
 
 ### 3.5.1 (2025-05-31)
--   (@GermanBluefox) Rewrite Rules with TypeScript
--   (@GermanBluefox) Package updates. SVG logo
+- (@GermanBluefox) 使用 TypeScript 重写规则
+- (@GermanBluefox) 软件包更新。SVG 徽标
 
 ### 3.5.0 (2025-02-24)
--   (@foxriver76) added notification manager support (notifications will be sent as push notifications to the Visu App)
+- (@foxriver76) 添加了通知管理器支持（通知将作为推送通知发送到 Visu 应用程序）
 
 ### 3.4.5 (2024-12-29)
-
--   (@GermanBluefox) Checked the max length of discovered devices for Alexa
+- (@GermanBluefox) 检查了 Alexa 发现设备的最大长度
 
 ### 3.4.4 (2024-12-08)
-
--   (@GermanBluefox) Corrected the name editing of the devices for Alexa 3
+- (@GermanBluefox) 更正了 Alexa 3 的设备名称编辑
 
 ### 3.4.3 (2024-11-05)
-
--   (@GermanBluefox) corrected the addition of the devices for Alexa
--   (@GermanBluefox) changed compilation of GUI to remove deprecated packages
+- (@GermanBluefox) 修正了 Alexa 设备的添加
+- (@GermanBluefox) 修改了 GUI 的编译以删除已弃用的软件包
 
 ### 3.4.2 (2024-09-17)
-
--   (@GermanBluefox) Updated GUI packages and removed `gulp`
--   (@foxriver76) do not override custom `result` attribute on `sendToAdapter` response (Visu App - only relevant for developers)
+- (@GermanBluefox) 更新了 GUI 包并删除了 `gulp`
+- (@foxriver76) 不要覆盖 `sendToAdapter` 响应中的自定义 `result` 属性（Visu App - 仅与开发人员相关）
 
 ### 3.4.0 (2024-08-26)
-
--   (@foxriver76) added new commands for the visu app
--   (bluefox) updated packages
--   (bluefox) Migrated GUI for admin v7
+- (@foxriver76) 为 visu 应用程序添加了新命令
+-（bluefox）更新了软件包
+- (bluefox) 迁移至 admin v7 的 GUI
 
 ### 3.3.0 (2024-05-09)
-
--   (foxriver76) Fix error on reconnecting
--   (foxriver76) prepared adapter for new ioBroker Visu app states
--   (bluefox) updated packages
+- (foxriver76) 修复重新连接时的错误
+-（foxriver76）为新的 ioBroker Visu 应用状态准备了适配器
+-（bluefox）更新了软件包
 
 ### 3.2.2 (2024-04-11)
-
--   (foxriver76) remove some warnings that should only be debug log
+-（foxriver76）删除一些应该只作为调试日志的警告
 
 ### 3.2.1 (2024-04-11)
-
--   (foxriver76) fixed issue that only valid JSON could be sent to app via message state
+- (foxriver76) 修复了只有有效的 JSON 才能通过消息状态发送到应用程序的问题
 
 ### 3.2.0 (2024-04-10)
-
--   (foxriver76) implemented geofence with ioBroker Visu app
+-（foxriver76）使用 ioBroker Visu 应用实现地理围栏
 
 ### 3.1.0 (2024-02-05)
-
--   (bluefox) Updated packages
--   (bluefox) Disabled the state change report for alexa v3
+-（bluefox）更新了软件包
+- (bluefox) 禁用 Alexa v3 的状态变化报告
 
 ### 3.0.0 (2023-10-24)
-
--   (bluefox) Updated packages
--   (bluefox) The minimal supported node.js version is 16
+-（bluefox）更新了软件包
+- (bluefox) 最低支持的 node.js 版本是 16
 
 ### 2.0.11 (2023-06-20)
-
--   (bluefox) Added support for the state toggling (alexa 3)
--   (bluefox) Done small improvements for alexa 3
+- (bluefox) 增加了对状态切换的支持 (alexa 3)
+- (bluefox) 对 Alexa 3 做了一些小改进
 
 ### 2.0.9 (2023-06-15)
-
--   (bluefox) Working on support for amazon alexa v3
+- (bluefox) 致力于支持亚马逊 Alexa v3
 
 ### 2.0.2 (2023-06-05)
-
--   (bluefox) Added support for amazon alexa v3
--   (bluefox) Removed support for sugar blood indication
+- (bluefox) 增加了对 amazon alexa v3 的支持
+- (bluefox) 删除了对血糖指示的支持
 
 ### 1.14.6 (2023-05-12)
-
--   (bluefox) Corrected translations
+- (bluefox) 更正翻译
 
 ### 1.14.5 (2023-03-01)
-
--   (bluefox) Corrected names of enums in GUI
+- (bluefox) 修正 GUI 中的枚举名称
 
 ### 1.14.3 (2023-01-10)
-
--   (kirovilya) Fixed processing for lights with CT and RGB in Alisa
+-（kirovilya）修复 Alisa 中 CT 和 RGB 灯光处理
 
 ### 1.14.2 (2022-12-23)
-
--   (bluefox) Updated GUI packages
+- (bluefox) 更新了 GUI 包
 
 ### 1.14.1 (2022-12-22)
-
--   (bluefox) Downgraded the axios version to 0.27.2
+- (bluefox) 将 axios 版本降级至 0.27.2
 
 ### 1.14.0 (2022-12-13)
-
--   (bluefox) Added netatmo support
+- (bluefox) 添加了 netatmo 支持
 
 ### 1.13.0 (2022-12-08)
-
--   (Apollon77) Added support vor Custom Skill v2
+- (Apollon77) 增加了对自定义技能 v2 的支持
 
 ### 1.12.5 (2022-11-09)
-
--   (bluefox) Small changes on configuration GUI
+- (bluefox) 配置 GUI 上的小改动
 
 ### 1.12.4 (2022-11-03)
-
--   (bluefox) Added ukrainian language
--   (bluefox) Corrected blockly for unknown languages
+- (bluefox) 添加乌克兰语
+- (bluefox) 修正了未知语言的块
 
 ### 1.12.2 (2022-10-01)
-
--   (Apollon77) Fixed crash case
+-（Apollon77）修复崩溃问题
 
 ### 1.12.1 (2022-09-27)
-
--   (bluefox) Corrected error in GUI with empty password
+- (bluefox) 修正 GUI 中密码为空的错误
 
 ### 1.12.0 (2022-09-27)
-
--   (Apollon77) Do not control saturation with a percentage request via alexa
--   (bluefox) Migrated GUI to v5
+- (Apollon77) 不要通过 Alexa 的百分比请求来控制饱和度
+- (bluefox) 将 GUI 迁移至 v5
 
 ### 1.11.9 (2022-07-22)
-
--   (Apollon77) Fix temperature controlling for thermostats via alexa
+- （Apollon77）修复通过 Alexa 控制恒温器的温度
 
 ### 1.11.8 (2022-06-24)
-
--   (Apollon77) Update dependencies to allow better automatic rebuild
+-（Apollon77）更新依赖项以允许更好的自动重建
 
 ### 1.11.7 (2022-06-13)
-
--   (bluefox) Tried to correct URL key creation for Google home
+- (bluefox) 尝试纠正 Google Home 的 URL 键创建
 
 ### 1.11.5 (2022-06-03)
-
--   (kirovilya) Alisa: update for binary-sensor "motion" and "contact"
+- (kirovilya) Alisa：二进制传感器“运动”和“接触”的更新
 
 ### 1.11.4 (2022-03-29)
-
--   (Apollon77) Fix crash cases reported by Sentry
+- （Apollon77）修复 Sentry 报告的崩溃情况
 
 ### 1.11.3 (2022-03-23)
-
--   (bluefox) Added the generation of URL key for services
+- (bluefox) 添加了服务的 URL 密钥生成
 
 ### 1.11.2 (2022-03-20)
-
--   (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3P)
+-（Apollon77）修复 Sentry 报告的崩溃情况（IOBROKER-IOT-3P）
 
 ### 1.11.1 (2022-03-18)
-
--   (Apollon77) Optimize logging when many devices are used
+- (Apollon77) 优化使用多设备时的日志记录
 
 ### 1.11.0 (2022-03-17)
-
--   (Apollon77) Also support "stored" when a rgb state is turned on/off
--   (Apollon77) Fixed control percent value to respect min/max correctly
--   (bluefox) Support for response messages longer than 128k (zip)
+- (Apollon77) 当 RGB 状态打开/关闭时也支持“存储”
+- （Apollon77）修复控制百分比值以正确遵守最小值/最大值
+- (bluefox) 支持长度超过 128k 的响应消息 (zip)
 
 ### 1.10.0 (2022-03-09)
-
--   (Apollon77) Respect min/max when calculating the value for byOn with % values
+- (Apollon77) 使用 % 值计算 byOn 值时，请考虑最小值/最大值
 
 ### 1.9.7 (2022-02-20)
-
--   (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3C)
+-（Apollon77）修复 Sentry 报告的崩溃情况（IOBROKER-IOT-3C）
 
 ### 1.9.6 (2022-02-19)
-
--   (Apollon77) Make sure to not remember the off value when using stored values for on
--   (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3A)
+- (Apollon77) 使用存储值时，请确保不要记住关闭值
+-（Apollon77）修复 Sentry 报告的崩溃情况（IOBROKER-IOT-3A）
 
 ### 1.9.5 (2022-02-08)
-
--   (bluefox) Fixed Google home error with color control
+- (bluefox) 修复 Google Home 颜色控制错误
 
 ### 1.9.4 (2022-02-08)
-
--   (bluefox) Fixed error with the certificates fetching
+- (bluefox) 修复证书获取错误
 
 ### 1.9.3 (2022-02-03)
-
--   (bluefox) Removed deprecated package `request`
--   (bluefox) Refactoring and better error handling
+- (bluefox) 删除了弃用的包 `request`
+- (bluefox) 重构和更好的错误处理
 
 ### 1.9.2 (2022-01-26)
-
--   (bluefox) Added experimental support for remote access
+- (bluefox) 增加了对远程访问的实验性支持
 
 ### 1.8.25 (2021-11-18)
-
--   (bluefox) Corrected the enabling of the category
+- (bluefox) 修正了类别的启用
 
 ### 1.8.24 (2021-09-19)
-
--   (bluefox) Respect the min/max limits by controlling
+- (bluefox) 通过控制来尊重最小/最大限制
 
 ### 1.8.23 (2021-09-18)
-
--   (bluefox) Fixed the response for the heating control
+- (bluefox) 修复了加热控制的响应
 
 ### 1.8.22 (2021-05-16)
-
--   (bluefox) Make it admin4 compatible
+- (bluefox) 使其兼容 admin4
 
 ### 1.8.21 (2021-05-16)
-
--   (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
+- (bluefox) 修复了密码加密问题。警告：如果您在日志中看到密码无效的消息，请在配置对话框中再次输入密码并保存。
 
 ### 1.8.20 (2021-05-16)
-
--   (foxriver76) we now write data received from custom services with the acknowledge flag
+- (foxriver76) 我们现在使用确认标志写入从自定义服务收到的数据
 
 ### 1.8.19 (2021-05-14)
-
--   (bluefox) Only added one debug output
+-（bluefox）仅添加了一个调试输出
 
 ### 1.8.16 (2021-03-13)
-
--   (bluefox) fixed the blind functionality in alisa
+- (bluefox) 修复了 alisa 中的盲注功能
 
 ### 1.8.15 (2021-03-12)
-
--   (bluefox) implemented the sensor functionality in alisa
+- (bluefox) 在 alisa 中实现了传感器功能
 
 ### 1.8.14 (2021-03-12)
-
--   (bluefox) allowed the control of the blinds in alisa
+- (bluefox) 允许在 alisa 中控制百叶窗
 
 ### 1.8.13 (2021-02-04)
-
--   (Apollon77) add missing object smart.lastObjectID
+- （Apollon77）添加缺失的对象 smart.lastObjectID
 
 ### 1.8.12 (2021-02-02)
-
--   (bluefox) Fixed the dimmer issue with alisa.
+- （bluefox）修复了 alisa 的调光器问题。
 
 ### 1.8.11 (2021-01-20)
-
--   (Morluktom) Alexa - Corrected the request for percentage values
+- （Morluktom）Alexa - 修正了百分比值的请求
 
 ### 1.8.10 (2021-01-20)
-
--   (bluefox) Added the reconnection strategy if DNS address cannot be resolved
+- (bluefox) 添加 DNS 地址无法解析时的重连策略
 
 ### 1.8.9 (2020-12-27)
-
--   (bluefox) Updated configuration GUI to the latest state
+- (bluefox) 将配置 GUI 更新至最新状态
 
 ### 1.8.8 (2020-12-14)
-
--   (bluefox) Corrected the "Google home" error
+- (bluefox) 修正了“Google home”错误
 
 ### 1.8.6 (2020-12-13)
-
--   (bluefox) Try to fix google home error
+- (bluefox) 尝试修复 google home 错误
 
 ### 1.8.5 (2020-11-23)
-
--   (bluefox) Corrected the configuration table for Google home
+- (bluefox) 修正了 Google Home 的配置表
 
 ### 1.8.4 (2020-11-18)
-
--   (bluefox) Corrected the configuration table for Google home
+- (bluefox) 修正了 Google Home 的配置表
 
 ### 1.8.3 (2020-11-16)
-
--   (bluefox) Trying to fix the set to false at start for Google home
+- (bluefox) 尝试修复 Google Home 启动时设置为 false 的问题
 
 ### 1.8.2 (2020-11-15)
-
--   (bluefox) Added the debug outputs for Google home
+- (bluefox) 添加了 Google Home 的调试输出
 
 ### 1.8.1 (2020-11-13)
-
--   (bluefox) The deletion of google home devices was corrected
+- (bluefox) 已更正 Google Home 设备的删除问题
 
 ### 1.8.0 (2020-11-12)
-
--   (bluefox) The Google home table was rewritten
+- (bluefox) Google 主页表已重写
 
 ### 1.7.15 (2020-11-05)
-
--   (Morluktom) Corrected the request for temperature
+- (Morluktom) 修正了温度请求
 
 ### 1.7.14 (2020-11-05)
-
--   (bluefox) Updated the select ID dialog.
+- (bluefox) 更新了选择 ID 对话框。
 
 ### 1.7.12 (2020-09-25)
-
--   (bluefox) Updated the select ID dialog.
+- (bluefox) 更新了选择 ID 对话框。
 
 ### 1.7.9 (2020-09-17)
-
--   (bluefox) Updated GUI for config.
+- （bluefox）更新了配置的 GUI。
 
 ### 1.7.7 (2020-09-02)
-
--   (bluefox) Added information about changed linking process.
+-（bluefox）添加了有关更改链接过程的信息。
 
 ### 1.7.6 (2020-08-25)
-
--   (bluefox) Some colors were changed in the dark mode.
+- （bluefox）黑暗模式下一些颜色发生了变化。
 
 ### 1.7.5 (2020-08-21)
-
--   (Apollon77) Crash prevented (Sentry IOBROKER-IOT-W)
--   (bluefox) Values for modes will be converted to number in Alisa
+-（Apollon77）防止崩溃（Sentry IOBROKER-IOT-W）
+- (bluefox) 模式值将在 Alisa 中转换为数字
 
 ### 1.7.3 (2020-08-16)
+- (bluefox) 为 Alisa 添加了吸尘器
 
--   (bluefox) Added vacuum cleaner to Alisa
-
-### 1.7.1 (2020-08-16)
-
--   (bluefox) Added blinds, lock and thermostat to Alisa
+### 1.7.1（2020-08-16）
+- (bluefox) 为 Alisa 添加了百叶窗、锁和恒温器
 
 ### 1.6.4 (2020-08-06)
-
--   (Apollon77) crash prevented (Sentry IOBROKER-IOT-V)
+-（Apollon77）防止崩溃（Sentry IOBROKER-IOT-V）
 
 ### 1.6.3 (2020-08-04)
+- (bluefox) 在允许的符号中添加了法语字母
 
--   (bluefox) Added french letters to allowed symbols
-
-### 1.6.1 (2020-07-10)
-
--   (bluefox) Used new SelectID Dialog in GUI
+### 1.6.1（2020-07-10）
+- (bluefox) 在 GUI 中使用新的 SelectID 对话框
 
 ### 1.5.3 (2020-05-28)
-
--   (bluefox) Small change for nightscout
+-（bluefox）nightscout 的小变化
 
 ### 1.5.2 (2020-05-21)
-
--   (bluefox) Changed requirements for password
--   (bluefox) Do not try to load the "sharp" if the blood sugar not enabled
+- (bluefox) 更改了密码要求
+- (bluefox) 如果血糖未启用，请勿尝试加载“夏普”
 
 ### 1.4.18 (2020-05-11)
-
--   (Apollon77) Make sure that invalid configured states or values without a timestamp do not crash adapter (Sentry IOBROKER-IOT-8)
--   (Apollon77) Make sure publishes after the disconnect to not break adapter (Sentry IOBROKER-IOT-A)
+- (Apollon77) 确保无效的配置状态或没有时间戳的值不会导致适配器崩溃 (Sentry IOBROKER-IOT-8)
+- (Apollon77) 确保在断开连接后发布，以免损坏适配器 (Sentry IOBROKER-IOT-A)
 
 ### 1.4.17 (2020-05-11)
-
--   (bluefox) Better error output is implemented
+- (bluefox) 实现了更好的错误输出
 
 ### 1.4.14 (2020-05-01)
-
--   (bluefox) Fixed the problem if admin is not on 8081 port
+- (bluefox) 修复管理员不在 8081 端口时出现的问题
 
 ### 1.4.12 (2020-04-30)
-
--   (Apollon77) error case handled where system.config objects does not exist (Sentry IOBROKER-IOT-5)
+-（Apollon77）处理 system.config 对象不存在的错误情况（Sentry IOBROKER-IOT-5）
 
 ### 1.4.11 (2020-04-26)
-
--   (bluefox) fixed IOBROKER-IOT-REACT-F
+-（bluefox）修复了 IOBROKER-IOT-REACT-F
 
 ### 1.4.10 (2020-04-24)
-
--   (bluefox) Fixed crashes reported by sentry
+- (bluefox) 修复哨兵报告的崩溃
 
 ### 1.4.7 (2020-04-23)
-
--   fixed iot crash when timeouts in communications to Google happens (Sentry IOBROKER-IOT-2)
--   fixed iot crash when google answers without customData (Sentry IOBROKER-IOT-1)
+- 修复与 Google 通信超时导致的物联网崩溃问题（Sentry IOBROKER-IOT-2）
+- 修复了当谷歌回答时没有自定义数据（Sentry IOBROKER-IOT-1）导致的物联网崩溃
 
 ### 1.4.6 (2020-04-18)
-
--   (Apollon77) Add the Sentry error reporting to `React Frontend`
+- (Apollon77) 将 Sentry 错误报告添加到 `React Frontend`
 
 ### 1.4.4 (2020-04-14)
-
--   (Apollon77) remove js-controller 3.0 warnings and replace `adapter.objects` access
--   (Apollon77) add linux dependencies for canvas library
--   (Apollon77) add sentry configuration
+-（Apollon77）删除 js-controller 3.0 警告并替换 `adapter.objects` 访问
+-（Apollon77）为 Canvas 库添加 Linux 依赖项
+- （Apollon77）添加哨兵配置
 
 ### 1.4.2 (2020-04-08)
+- （TA2k）修复 Google Home 的 updateState
 
--   (TA2k) Fix updateState for Google Home
-
-### 1.4.1 (2020-04-04)
-
--   (bluefox) The blood glucose request supported now
+### 1.4.1（2020-04-04）
+- (bluefox) 现在支持血糖请求
 
 ### 1.3.4 (2020-02-26)
-
--   (TA2k) Fixed deconz issues in Google Home
+- （TA2k）修复 Google Home 中的 deconz 问题
 
 ### 1.3.3 (2020-02-12)
-
--   (Apollon77) fix alisa error with invalid smartName attributes
+- (Apollon77) 修复 alisa 因无效的 smartName 属性而产生的错误
 
 ### 1.3.2 (2020-02-10)
+- （Apollon77）优化了各种管理端口和反向代理的使用
 
--   (Apollon77) usage with all kinds of admin ports and reverse proxies optimized
+### 1.3.1（2020-02-09）
+-（Apollon77）依赖项更新
+-（Apollon77）由于更新了 socket.io，因此与 Admin > 4.0 兼容
 
-### 1.3.1 (2020-02-09)
+### 1.2.1（2020-01-18）
+- (bluefox) 修复管理员端口不是 8081 时的问题
 
--   (Apollon77) Dependency updates
--   (Apollon77) Make compatible with Admin > 4.0 because of updated socket.io
-
-### 1.2.1 (2020-01-18)
-
--   (bluefox) Fixed problem if the port of admin is not 8081
-
-### 1.2.0 (2020-01-04)
-
--   (TA2k) Google Home handling and visualization improved.
+### 1.2.0（2020-01-04）
+- （TA2k）Google Home 处理和可视化得到改进。
 
 ### 1.1.10 (2020-01-03)
+- (bluefox) 现在允许选择 Alexa 所声明的温度值
+- (bluefox) 允许在插入新状态后立即设置类型
 
--   (bluefox) Now is allowed to select the temperature values as alexa states
--   (bluefox) Allowed the setting type immediately after insertion of new state
+### 1.1.9（2019-11-27）
+- (bluefox) 修复：有时无法加载配置
 
-### 1.1.9 (2019-11-27)
+### 1.1.8（2019-09-12）
+- (bluefox) 优化了 google home 通信
 
--   (bluefox) Fixed: sometimes the configuration could not be loaded
+### 1.1.7（2019-09-11）
+- (bluefox) 发送至 google home 的速率现在受到限制
 
-### 1.1.8 (2019-09-12)
+### 1.1.6（2019-09-11）
+- （TA2k）修复 Google Home 和 LinkedDevices 的房间问题
 
--   (bluefox) Optimization of google home communication was done
+### 1.1.4（2019-09-10）
+- (bluefox) 降低 keepalive 值以修复断开连接问题
 
-### 1.1.7 (2019-09-11)
+### 1.1.3（2019-09-09）
+- （TA2k）Google Home 与 LinkedDevices 的问题已修复
 
--   (bluefox) The sending rate to google home is limited now
+### 1.1.0（2019-09-06）
+- (bluefox) 增加了对别名的支持
 
-### 1.1.6 (2019-09-11)
+### 1.0.8（2019-09-03）
+-（TA2k）改进了对 Google Home 的支持
+- (TA2k) 增加了 RGB、RGBSingle、Hue、CT、MediaDevice、Switch、Info、Socket、Light、Dimmer、Thermostat、WindowTilt、Blinds、Slider 的自动检测功能
+-（TA2k）增加了手动添加状态作为设备的支持
+- （TA2k）修复同步后的更新状态
+- (TA2k) 添加了典型的 Google Home 设备和特征/操作
+- （TA2k）修复在选项中选中 Alexa 时仅处理更新消息
 
--   (TA2k) Room fix for Google Home and LinkedDevices
+### 1.0.4（2019-08-01）
+- (bluefox) 已修复密码编码问题。请重新输入密码！
 
-### 1.1.4 (2019-09-10)
+### 1.0.3（2019-07-30）
+- (bluefox) 修复了 google home 和 yandex alice 的语言问题
 
--   (bluefox) decreased keepalive value to fix issue with disconnect
+### 1.0.1（2019-07-26）
+- （bluefox）增加了对私人技能/行动的支持。
 
-### 1.1.3 (2019-09-09)
+### 1.0.0（2019-07-14）
+- （TA2k）添加了 Google Home 列表
 
--   (TA2k) Google Home problem fixed with LinkedDevices
+### 0.5.0（2019-06-29）
+- (bluefox) 尝试添加 yandex Alisa
 
-### 1.1.0 (2019-09-06)
+### 0.4.3（2019-04-14）
+- （Apollon77）将 Amazon Alexa 和 Google Home 的启用/禁用从配置更改为真正“选择时激活”。
 
--   (bluefox) Added support of aliases
+### 0.4.2（2019-03-10）
+- （bluefox）允许从配置中启用和禁用 Amazon Alexa 和 Google Home。
 
-### 1.0.8 (2019-09-03)
+### 0.4.1（2019-02-19）
+- (bluefox) 为 google home 添加版本检查
 
--   (TA2k) Improved support for Google Home
--   (TA2k) Added auto detection for RGB, RGBSingle, Hue, CT, MediaDevice, Switch, Info, Socket, Light, Dimmer, Thermostat, WindowTilt, Blinds, Slider
--   (TA2k) Added support for manually adding states as devices
--   (TA2k) Fix update state after Sync
--   (TA2k) Added typical Google Home devices and traits/actions
--   (TA2k) Fix only process update message when Alexa is checked in the options
+### 0.3.1（2019-01-13）
+-（bluefox）Blockly 已修复
 
-### 1.0.4 (2019-08-01)
+### 0.3.0（2018-12-30）
+- (bluefox) 谷歌设备检测已修复
 
--   (bluefox) Fixed password encoding. Please enter password anew!
+### 0.2.2（2018-12-21）
+-（bluefox）添加了新 URL 密钥的生成
 
-### 1.0.3 (2019-07-30)
+### 0.2.0（2018-12-18）
+- (bluefox) 更改适配器的名称
 
--   (bluefox) Fixed language issues for google home and yandex alice
+### 0.1.8（2018-10-21）
+- (bluefox) 添加了扩展诊断
 
-### 1.0.1 (2019-07-26)
+### 0.1.7（2018-10-14）
+- (bluefox) 配置对话框已更正
+-（bluefox）实现了使用脚本为自定义技能创建答案的可能性。
 
--   (bluefox) Support of private skills/actions was added.
-
-### 1.0.0 (2019-07-14)
-
--   (TA2k) Google Home list was added
-
-### 0.5.0 (2019-06-29)
-
--   (bluefox) tried to add yandex Alisa
-
-### 0.4.3 (2019-04-14)
-
--   (Apollon77) Change enable/disable of Amazon Alexa and of Google Home from configuration to be really "active if selected".
-
-### 0.4.2 (2019-03-10)
-
--   (bluefox) Allowed the enablement and disable of Amazon Alexa and of Google Home from configuration.
-
-### 0.4.1 (2019-02-19)
-
--   (bluefox) Add version check to google home
-
-### 0.3.1 (2019-01-13)
-
--   (bluefox) Blockly was fixed
-
-### 0.3.0 (2018-12-30)
-
--   (bluefox) Detection of google devices was fixed
-
-### 0.2.2 (2018-12-21)
-
--   (bluefox) Generation of new URL key was added
-
-### 0.2.0 (2018-12-18)
-
--   (bluefox) Change the name of adapter
-
-### 0.1.8 (2018-10-21)
-
--   (bluefox) Added extended diagnostics
-
-### 0.1.7 (2018-10-14)
-
--   (bluefox) The configuration dialog was corrected
--   (bluefox) The possibility to create the answer with script for the custom skill was implemented.
-
-### 0.1.4 (2018-09-26)
-
--   (bluefox) Initial commit
+### 0.1.4（2018-09-26）
+-（bluefox）初始提交
 
 ## License
 

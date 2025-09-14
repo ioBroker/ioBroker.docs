@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heizoel24-mex/README.md
 title: ioBroker.heizoel24-mex
-hash: tw1pepMs2bnt9iPaEVBs3+H0IZPf9T/S1wr3GeJaJTs=
+hash: eiLDLxzEp5ZZdD+z7glNxntKsqg5jT+R/FB9/3wobx0=
 ---
 ![标识](../../../en/adapterref/iobroker.heizoel24-mex/admin/heizoel24-mex.png)
 
@@ -11,28 +11,61 @@ hash: tw1pepMs2bnt9iPaEVBs3+H0IZPf9T/S1wr3GeJaJTs=
 ![下载](https://img.shields.io/npm/dm/iobroker.heizoel24-mex.svg)
 ![安装数量](https://iobroker.live/badges/heizoel24-mex-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/heizoel24-mex-stable.svg)
-![新平台](https://nodei.co/npm/iobroker.heizoel24-mex.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.heizoel24-mex.png?downloads=true)
 
 # IoBroker.heizoel24-mex
-**测试：**![测试与发布](https://github.com/ltspicer/ioBroker.heizoel24-mex/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试和发布](https://github.com/ltspicer/ioBroker.heizoel24-mex/workflows/Test%20and%20Release/badge.svg)
 
-## Heizoel24-mex 适配器用于 ioBroker
-MEX 是一种加热油位测量装置。此适配器从 Heizoel24 服务器读取 MEX 数据。
+## Heizoel24-mex ioBroker 适配器
+MEX 是一款加热油位测量装置。此适配器从 Heizoel24 服务器读取 MEX 数据。
 
-请参阅：https://www.heizoel24.de/mex
+详情请见：https://www.heizoel24.de/mex
 
 ＃＃ 使用：
-只需输入 Heizoel24 帐户的登录数据（电子邮件和密码）。
+只需输入您的 Heizoel24 账户登录数据（邮箱和密码）。
 MEX 数据存储在数据点 heizoel24-mex 中。
-适配器默认每 3 小时启动一次。这完全足够了，因为 MEX 每天只发送一次数据。
-数据点 CalculatedRemaining/JsonForEcharts（计算的剩余数量）可以直接使用 eCharts 打开。
+适配器默认每 3 小时启动一次。这完全足够，因为 MEX 每天只发送一次数据。
+数据点 CalculatedRemaining/JsonForEcharts（计算剩余量）和 OilUsage/JsonForEcharts 可以直接与 eCharts 一起使用。
 
 ## Changelog
+### 1.4.5 (2025-08-29)
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+- Depends updated
+
+### 1.4.4 (2025-06-21)
+
+- README.md & README-de.md corrected
+
+### 1.4.3 (2025-06-21)
+
+- io-package.json > admin set to >=7.4.10
+
+### 1.4.2 (2025-06-17)
+
+- Bug fix jsonConfig.json : xs,sm, md, ...
+
+### 1.4.1 (2025-06-17)
+
+- Bug fix jsonConfig.json : size removed
+
+### 1.4.0 (2025-06-17)
+
+- OilUsage (Oil consumption per month) added
+
+### 1.3.5 (2024-08-08)
+
+js-controller dependency updated
+
+### 1.3.3 (2024-06-04)
+
+Fix: no error if CalculatedRemaining is empty and mqtt is active
+
+### 1.3.2 (2024-06-04)
+
+Error intercepted for:
+- RemainsUntilCombined no data found
+- CalculatedRemaining is empty
+
 ### 1.3.1 (2024-03-24)
 
 - CalculatedRemaining json data point for eCharts added
@@ -63,7 +96,7 @@ MEX 数据存储在数据点 heizoel24-mex 中。
 ## License
 MIT License
 
-Copyright (c) 2024 Daniel Luginbühl <webmaster@ltspiceusers.ch>
+Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

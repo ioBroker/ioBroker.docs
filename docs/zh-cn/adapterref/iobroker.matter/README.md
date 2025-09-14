@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.matter/README.md
 title: ioBroker Matter 适配器
-hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
+hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
 ---
 ![标识](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -17,10 +17,9 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ＃＃ 介绍
-> [!重要] > 该适配器无法通过 GitHub 安装：必须通过 ioBroker 仓库（稳定版或最新版）安装。
-> > 目前，该适配器处于 BETA 阶段，仅在最新仓库中可用。请参阅[iobroker 文档](https://www.iobroker.net/#de/documentation/basics/repositories.md)，了解如何从最新仓库/npm 安装适配器。
-> > ioBroker Matter 适配器的配置和使用详细说明请参阅🇩🇪[德语 Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) 和🇬🇧 [英语 Wiki]](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN)。
-> > 使用适配器前，请阅读[重要说明](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten)。
+> [!重要] > 该适配器无法通过 GitHub 安装：必须通过 ioBroker 存储库（稳定版或最新版本）安装。
+> > ioBroker Matter 适配器的配置和使用详细说明请参阅 🇩🇪 [德语 Wiki](https://github.com/ioBroker/ioBroker.matter/wiki) 和🇬🇧 [英语 Wiki]](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN)。
+> > 使用适配器前，请阅读 [重要说明](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten)。
 
 ＃＃ 描述
 使用 ioBroker Matter Adapter，可以映射以下用例：
@@ -77,11 +76,33 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 ### **工作正在进行** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.5.2 (2025-08-03)
+* (@Apollon77) Updated matter.js to 0.15.2 with many performance- and other improvements
+* (@GermanBluefox) Corrected the checking of the licenses if they were stacked
+* (Apollon77) Use attributes from cache instead of requesting them from the device
+* (Apollon77) Ignoring invalid min/max for color temperature from objects
+* (Apollon77) Prevents update loops for Thermostat on/off state changes
+* (Apollon77) Fixes invalid color state updates when multiple attributes are adjusted together
+* (Apollon77) Rounds RSSI values to prevent digits
+
+### 0.5.1 (2025-06-06)
+* (@Apollon77) Updated matter.js to 0.14 with many performance- and other improvements
+
+### 0.5.0 (2025-05-03)
+* IMPORTANT: Increase Node.js requirement to at least 20.x because else BLE currently does not work
+* (@Apollon77) Added info log message when the device decided for a different subscription interval
+
+### 0.4.16 (2025-05-01)
 * (@GermanBluefox) Added expert mode to GUI
 * (@GermanBluefox) GUI optimizations
 * (@Apollon77) Upgrade Matter support to 1.4
 * (@Apollon77) Upgrade type detector and usage for better automatic detection results
+* (@Apollon77) Included Battery state in attribute polling and changed default interval to 24h if the device is battery powered
+* (@Apollon77) Shows subscription maximum interval of the node in the connection-infos
+* (@Apollon77) Allows to overwrite the default subscription maximum interval send to the device in Node settings
+* (@Apollon77) Considers also the BatteryAlarm state of Smoke-CO sensors when determine LOWBAT state
+* (@Apollon77) Updates the connection state of Controller devices as soon as alive triggers or data updates come in
+* (@Apollon77) For Lock devices the SET state is synced with ACTUAL
 
 ### 0.4.15 (2025-02-25)
 * (@GermanBluefox) Added Button display and control in the UI

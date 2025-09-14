@@ -66,12 +66,14 @@ This channel contains system data about the hardware and firmware as well as run
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.0.7 (2025-07-01)
 
 - Some dependency work
 - Code documentation extended
-- Added Node.js 24. to test and release pipeline
+- Added Node.js 24 to test and release pipeline
 - Resending interval of not overtaken values changed from 1,5 seconds to 2,5 seconds
+- Changed writable mixed numerical/string values for enums into selectable values, to show available configurations (**breaking change** if already used to remote control fans)
+- Rewrite mechanism allows now manual changes within the buttons of the fan, which were overridden by the internal stored value before
 
 ### 0.0.6 (2025-04-17)
 

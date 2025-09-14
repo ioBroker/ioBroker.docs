@@ -2,6 +2,7 @@
 
 # ioBroker.pid
 
+**General Info:**<br>
 [![GitHub license](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)](https://github.com/mcm4iob/ioBroker.pid/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
 ![GitHub repo size](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
@@ -19,14 +20,28 @@
 **Tests:** </br>
 [![Test and Release](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml)
 [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/github-code-scanning/codeql)
+<br>
+**Donation:** </br>
+[![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mcm1957atIoBroker)
+[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/mcm1957)
 
+**************************************************************************************************************
 ## Sentry
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+**************************************************************************************************************
+
 ## PID Adapter for ioBroker
 
 This adapter provides a configurable PID Controller.
+
+**************************************************************************************************************
+
+## Disclaimer
+**All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
+
+**************************************************************************************************************
 
 ## General Information
 
@@ -56,7 +71,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 **************************************************************************************************************
 
-**If you like it, please consider a donation:**
+**If you like this adapter, please consider a donation:**
   
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
 

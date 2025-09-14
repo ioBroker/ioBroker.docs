@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.matter/README.md
 title: Адаптер ioBroker Matter
-hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
+hash: /lBrnZY2SJyXKDLGYvnNr2wVfvqeIKu6j+u0Y3vXC0s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.matter/admin/matter.svg)
 
@@ -11,21 +11,20 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 ![версия НПМ](http://img.shields.io/npm/v/iobroker.matter.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.matter.svg)
 
-# Адаптер ioBroker Matter
-![Тест и выпуск](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker Matter Adapter
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.matter/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/matter/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении отчётов об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчёты Sentry используются, начиная с версии js-controller 3.0.
 
 ## Введение
-> [!Важно] > Адаптер НЕ может быть установлен через GitHub: адаптер должен быть установлен через репозиторий ioBroker (стабильный или последний).
-> > В настоящее время адаптер находится в стадии BETA и доступен только в последнем репозитории. Пожалуйста, проверьте [документация iobroker](https://www.iobroker.net/#de/documentation/basics/repositories.md), как установить адаптер из последнего репозитория/npm.
-> > Подробное описание конфигурации и использования адаптера ioBroker Matter описано в 🇩🇪 [немецкая Вики](https://github.com/ioBroker/ioBroker.matter/wiki) и 🇬🇧 [английская Вики](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
-> > Пожалуйста, прочтите [Важные примечания](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten) перед использованием адаптера.
+> [!Важно] > Адаптер НЕЛЬЗЯ установить через GitHub: адаптер необходимо установить через репозиторий ioBroker (стабильную или последнюю версию).
+> > Подробное описание настройки и использования адаптера ioBroker Matter приведено в 🇩🇪 [немецкая Вики](https://github.com/ioBroker/ioBroker.matter/wiki) и 🇬🇧 [английская Вики](https://github.com/ioBroker/ioBroker.matter/wiki/Home-%E2%80%90-EN).
+> > Перед использованием адаптера ознакомьтесь с [Важные примечания](https://github.com/ioBroker/ioBroker.matter/wiki/Einleitung-und-wichtige-Hinweise#wichtige-hinweise-bitte-dringend-beachten).
 
 ## Описание
 С помощью адаптера ioBroker Matter можно сопоставить следующие варианты использования:
 
-* Устройства на основе Matter могут быть напрямую подключены к ioBroker и, таким образом, считывать/контролировать их
+* Устройства на основе материи могут быть напрямую подключены к ioBroker и, таким образом, считывать данные с них/контролировать их.
 * Предоставление нескольких устройств ioBroker в качестве моста Matter: мосты Matter могут содержать несколько устройств и являются самым простым способом интеграции устройств ioBroker в экосистему, совместимую с Matter.
 * ioBroker предоставляет отдельные виртуальные устройства Matter на основе устройств ioBroker/состояний ioBroker, которые можно обучить экосистеме, совместимой с Matter (в настоящее время возможны только мосты для Amazon Alexa)
 
@@ -41,9 +40,9 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 * (5) медиаплеер
 * предупреждение - как?
 * ворота - они же жалюзи, потому что у материи нет других типов устройств?
-* windowTilt - как обсуждалось ранее, это составное устройство с двумя контактными датчиками... один для открытия/закрытия и один для наклона
-* levelSlider - идеально подходит в качестве неосвещающей розетки с регулируемой яркостью?
-* Типы устройств имеют значение
+* windowTilt - как обсуждалось, комбинированное устройство с двумя контактными датчиками... один для открытия и закрытия, а другой для наклона
+* levelSlider - в идеале как неяркая диммируемая розетка?
+* Типы устройств Matter
 * (8) Вентилятор -> Кондиционер?
 * (7) Датчик качества воздуха -> ???
 * (7) Очиститель воздуха -> ???
@@ -51,7 +50,7 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 * (6) Датчик давления -> ??? DEF
 * (6) Робот-пылесос -> vacuumCleaner
 * (4) Датчик расхода -> ??? DEF
-* (5+) Кондиционер воздуха в помещении -> airCondition
+* (5+) Кондиционер воздуха в помещении -> Кондиционер
 * (5+) Посудомоечная машина-> ???
 * (4+) Базовый видеоплеер -> mediaPlayer
 * (4+) Стиральная машина -> ???
@@ -63,10 +62,10 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 * (2) Сушильная машина для белья -> ???
 * (2) Духовка -> ???
 * (2) Варочная панель -> ???
-* (2) Поверхность для готовки -> ???
+* (2) Варочная поверхность -> ???
 * (2) Вытяжка -> ???
 * (2) Микроволновая печь -> ???
-* (2) Оборудование для электропитания транспортных средств -> ???
+* (2) Оборудование для электроснабжения транспортных средств -> ???
 * (2) Водонагреватель -> ???
 * (1+) Солнечная энергия -> ???
 * (1+) Аккумуляторная батарея -> ???
@@ -77,11 +76,33 @@ hash: tplOcwLlzqzOxfKi01FYKzrhlmPsK63B4UG8gv8/yyY=
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.5.2 (2025-08-03)
+* (@Apollon77) Updated matter.js to 0.15.2 with many performance- and other improvements
+* (@GermanBluefox) Corrected the checking of the licenses if they were stacked
+* (Apollon77) Use attributes from cache instead of requesting them from the device
+* (Apollon77) Ignoring invalid min/max for color temperature from objects
+* (Apollon77) Prevents update loops for Thermostat on/off state changes
+* (Apollon77) Fixes invalid color state updates when multiple attributes are adjusted together
+* (Apollon77) Rounds RSSI values to prevent digits
+
+### 0.5.1 (2025-06-06)
+* (@Apollon77) Updated matter.js to 0.14 with many performance- and other improvements
+
+### 0.5.0 (2025-05-03)
+* IMPORTANT: Increase Node.js requirement to at least 20.x because else BLE currently does not work
+* (@Apollon77) Added info log message when the device decided for a different subscription interval
+
+### 0.4.16 (2025-05-01)
 * (@GermanBluefox) Added expert mode to GUI
 * (@GermanBluefox) GUI optimizations
 * (@Apollon77) Upgrade Matter support to 1.4
 * (@Apollon77) Upgrade type detector and usage for better automatic detection results
+* (@Apollon77) Included Battery state in attribute polling and changed default interval to 24h if the device is battery powered
+* (@Apollon77) Shows subscription maximum interval of the node in the connection-infos
+* (@Apollon77) Allows to overwrite the default subscription maximum interval send to the device in Node settings
+* (@Apollon77) Considers also the BatteryAlarm state of Smoke-CO sensors when determine LOWBAT state
+* (@Apollon77) Updates the connection state of Controller devices as soon as alive triggers or data updates come in
+* (@Apollon77) For Lock devices the SET state is synced with ACTUAL
 
 ### 0.4.15 (2025-02-25)
 * (@GermanBluefox) Added Button display and control in the UI
