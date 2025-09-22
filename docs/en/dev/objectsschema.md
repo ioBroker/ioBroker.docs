@@ -706,6 +706,29 @@ Rules are strings inside the `rules` array. Examples:
 }
 ```
 
+##### Test and debugging
+
+To test the messages and their rules in, for example, a "dev server" environment, the following steps must be implemented:
+
+- Identify the future version number under which the message should be displayed. This version number will later be selected during the release process.
+- Add the `common.messages` object to the `io-packages.json` file according to the description.
+- Include the previously identified version number in the `common.messages` object, if necessary.
+- Add the changelog entry to the `common.news` object, using the identified version number. This changelog information will later be displayed in the update dialog, along with the information from the `common.messages` object.
+- Enable expert mode in the iobroker of the test environment.
+- In the object view, open the following data point: `system.repositories`.
+- For security reasons, and because the object is very large, it is recommended to copy the content and edit it in a JSON editor (e.g., VS Code or Notepad++).
+- In the editor, locate the existing adapter object.
+- In the found object, modify the following information:
+- `version` -> with the version number identified above
+- `news` -> add the changelog entry for the identified version number
+- `messages` -> insert the prepared message object from `io-packages.json`.
+- To prevent problems, the result should be checked in a JSON validator.
+- Then copy the result back into the "system.repositories" object and save it.
+- Open or reload the adapter tab in the admin interface.
+- The updated version should now be displayed as available for update for the adapter.
+- After clicking the update button for the adapter, the information from the message object should be displayed in a dialog after a short time.
+- Since this version is not yet available on npm, pressing the update button will result in an error, and the dialog should be closed.
+
 #### instance
 ID: `system.adapter.&lt;adapter.name&gt;.&lt;instance-number&gt;`
 
@@ -748,4 +771,5 @@ ID: `system.host.<host>`
 * `common.name`       - (mandatory) name of the group
 * `common.members`    - (mandatory) array of user-object IDs
 * `common.desc`       - (optional) group purpose description
+
 
