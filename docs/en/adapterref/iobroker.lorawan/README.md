@@ -23,6 +23,9 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.14 (2025-09-24)
+* (BenAhrdt) add humidifier to foreign States
+
 ### 1.17.13 (2025-09-24)
 * (BenAhrdt) Bugfix discover new devices
 
