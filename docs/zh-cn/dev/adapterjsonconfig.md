@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: HTbN/tI1yIzK7K200TnNOjoOJSMnYokpvr8A7vtIRXc=
+hash: 2PpXmcuMNWXByr0Qhx+59kiraBHm4PrlkqhItphLbos=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。这种方法提供了一种更加用户友好且灵活的方式，可在 ioBroker 管理界面中管理适配器设置。
@@ -132,7 +132,7 @@ jsonConfig 由多个按层次结构排列的元素组成。\ 每个元素可以�
 - [**`certificateCollection`:**](#certificatecollection) 选择 Let's Encrypt 证书的集合
 - [**`certificates`:**](#certificates) 用于管理不同证书类型的通用类型（来自 Admin 6.4.0）
 - [**`checkbox`:**](#checkbox) 布尔值复选框
-- [**`checkDocker`:**](#checklicense) 特殊组件，用于检查 Docker 是否可用，如果可用，则可以激活复选框
+- [**`checkDocker`:**](#checklicense) 特殊组件，用于检查 Docker 是否可用，如果可用，则可以激活复选框（从 Admin 7.8.0 开始）
 - [**`checkLicense`:**](#checklicense) 非常特殊的组件，用于在线检查许可证
 - [**`chips`:**](#chips) 用户可以输入添加到数组的单词
 - [**`color`:**](#color) 颜色选择器
@@ -309,7 +309,7 @@ admin/customI18n/en.json
 | `tabsStyle` | Mui-Tabs 组件的 React 格式的 CSS 样式（`marginLeft` 而不是 `margin-left`）|
 
 ###`panel`
-带有项目的选项卡
+带有项目的标签
 
 | 属性 | 描述 |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -569,12 +569,12 @@ admin/customI18n/en.json
 ###`instance`
 | 属性 | 描述 |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `adapter` | 适配器的名称。使用特殊名称`_dataSources`，您可以获取所有带有标志`common.getHistory`的适配器。|
+| `adapter` | 适配器名称。使用特殊名称`_dataSources`，您可以获取所有带有标志`common.getHistory`的适配器。|
 | `allowDeactivate` | 如果为真，则显示附加选项“停用”|
 | `onlyEnabled` | 如果为真，则仅显示已启用的实例 |
 | `long` | 值将类似于`system.adapter.ADAPTER.0` 而不是`ADAPTER.0` |
 | `short` | 值将类似于`0` 而不是`ADAPTER.0` |
-| `all` | 向选项“全部”选项添加值为`*` |
+| `all` | 将值为 `*` 的选项添加到选项“全部” |
 | `all` | 向选项“all”选项添加值为“*”|
 
 ###`chips`
@@ -601,7 +601,7 @@ admin/customI18n/en.json
 | 属性 | 描述 |
 |-------------------|-----------------------|
 | `copyToClipboard` | 如果为真 - 显示按钮 |
-| `图案` | 我的图案 |
+| `模式` | 我的模式 |
 
 ###`sendTo`
 向实例发送请求的按钮（<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>）
@@ -1029,6 +1029,8 @@ adapter.on("message", (obj) => {
 | `checkBox` | 如果定义，则显示指定名称的复选框。如果选中，则启用同意按钮。|
 
 ###`checkDocker`
+- （管理员 >= 7.1.0）初始实施
+
 用于检查 Docker 是否已安装并正在运行的特殊组件。
 如果已安装 Docker，则会显示一个复选框以允许使用 Docker。
 
@@ -1055,7 +1057,8 @@ adapter.on("message", (obj) => {
 | `min` | 允许的最小端口号。它可以是 0。如果该值为零，则不会检查端口是否被占用。|
 
 ###`state`
-（管理员 >= 7.1.0）显示来自状态（管理员 >= 7.6.4）属性`showEnterButton` 和`setOnEnterKey` 的控制或信息
+- (admin >= 7.1.0) 显示来自状态的控制或信息
+- (admin >= 7.6.4) 属性 `showEnterButton` 和 `setOnEnterKey`
 
 | 属性 | 描述 |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1266,7 +1269,7 @@ adapter.on("message", (obj) => {
 
 如果值为 [false, true]，布尔值必须支持不确定
 
-对于未改变的`__different__`必须返回不同的值：
+对于未改变的`__different__`，必须返回不同的值：
 
 输入：
 

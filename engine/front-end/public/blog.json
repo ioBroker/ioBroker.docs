@@ -4,18 +4,18 @@
       "date": "2025.09.24",
       "title": {
         "de": "ioBroker Monatsrückblick – September 2025",
-        "en": "",
-        "ru": "",
-        "zh-cn": ""
+        "en": "ioBroker Monthly Review – September 2025",
+        "ru": "Ежемесячный обзор ioBroker – сентябрь 2025 г.",
+        "zh-cn": "ioBroker 月度回顾 – 2025 年 9 月"
       },
-      "logo": "",
+      "logo": "de/blog/images/2025_09_24.jpg",
       "type": "news",
       "originalName": "2025_09_24.md",
       "desc": {
         "de": "Der Sommer geht zu Ende und auch in der ioBroker-Welt war in den letzten Monaten einiges los. \\nZahlreiche neue Adapter wurden veröffentlicht, einige davon haben es bereits ins stable-Repository geschafft, \\neinige weitere sind im latest-Repository verfügbar und warten auf euren Testeinsatz.",
-        "en": "# IoBroker Monthly Review – September 2025\\nSummer is coming to an end, and there's been a lot going on in the ioBroker world over the past few months.\\nNumerous new adapters have been released, some of which have already made it into the stable repository, and several more are available in the latest repository, waiting for you to test them.",
-        "ru": "Ежемесячный обзор # ioBroker – сентябрь 2025 г.\\nЛето подходит к концу, и за последние несколько месяцев в мире ioBroker произошло немало событий.\\nВыпущено множество новых адаптеров, некоторые из которых уже попали в стабильный репозиторий, а ещё несколько доступны в последней версии репозитория и ждут, когда вы их протестируете.",
-        "zh-cn": "# IoBroker 月度回顾 – 2025 年 9 月\\n夏天即将结束，过去几个月，ioBroker 世界发生了很多事情。\\n许多新的适配器已经发布，其中一些已经进入稳定存储库，还有几个已在最新的存储库中可用，等待您进行测试。"
+        "en": "Summer is coming to an end, and there's been a lot going on in the ioBroker world over the past few months.\\nNumerous new adapters have been released, some of which have already made it into the stable repository, and several more are available in the latest repository, waiting for you to test them.",
+        "ru": "Лето подходит к концу, и за последние несколько месяцев в мире ioBroker произошло немало событий.\\nВыпущено множество новых адаптеров, некоторые из которых уже попали в стабильный репозиторий, а ещё несколько доступны в последней версии репозитория и ждут, когда вы их протестируете.",
+        "zh-cn": "夏天即将结束，过去几个月，ioBroker 世界发生了很多事情。\\n许多新的适配器已经发布，其中一些已经进入稳定存储库，还有几个已在最新的存储库中可用，等待您进行测试。"
       }
     },
     "2025_06_17": {

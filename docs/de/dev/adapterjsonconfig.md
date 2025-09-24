@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: HTbN/tI1yIzK7K200TnNOjoOJSMnYokpvr8A7vtIRXc=
+hash: 2PpXmcuMNWXByr0Qhx+59kiraBHm4PrlkqhItphLbos=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mit JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -25,7 +25,7 @@ Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Ada
 
 2. **JSON-Konfiguration aktivieren:**
 
-- Fügen Sie in der Datei „io-package.json“ Ihres Adapters unter dem Abschnitt „common“ die folgende Zeile hinzu:
+– Fügen Sie in der Datei „io-package.json“ Ihres Adapters unter dem Abschnitt „common“ die folgende Zeile hinzu:
 
 ```json
 "common": {
@@ -39,7 +39,7 @@ Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Ada
 
 Die Konfigurationsdatei definiert eine hierarchische Struktur aus Registerkarten, Bedienfeldern und Steuerelementen. \ Jedes Element verfügt über bestimmte Attribute, die sein Verhalten und seine Darstellung in der Admin-Oberfläche bestimmen.
 
-jsonConfig sorgt automatisch dafür, dass die gesammelten Daten als Konfigurationsdaten für den Adapter erfasst und intern gespeichert werden, sodass sie im Adapter abgerufen und weiterverarbeitet werden können.
+jsonConfig sorgt automatisch dafür, dass die gesammelten Daten als Konfigurationsdaten für den Adapter erfasst und intern gespeichert werden, um sie im Adapter abrufen und weiterverarbeiten zu können.
 
 Das folgende Beispiel würde das folgende Konfigurationsobjekt erstellen:
 
@@ -132,11 +132,11 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`certificateCollection`:**](#certificatecollection) Wählt eine Sammlung für Let’s Encrypt-Zertifikate aus
 - [**`certificates`:**](#certificates) Universeller Typ zur Verwaltung verschiedener Zertifikatstypen (ab Admin 6.4.0)
 - [**`checkbox`:**](#checkbox) Kontrollkästchen für boolesche Werte
-- [**`checkDocker`:**](#checklicense) Spezielle Komponente zum Prüfen, ob der Docker verfügbar ist. Wenn ja, können Sie ein Kontrollkästchen aktivieren.
+- [**`checkDocker`:**](#checklicense) Spezielle Komponente um zu prüfen ob der Docker verfügbar ist und wenn ja, kann man ein Kontrollkästchen aktivieren (ab Admin 7.8.0)
 - [**`checkLicense`:**](#checklicense) Ganz spezielle Komponente zur Online-Überprüfung der Lizenz
 - [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die zu einem Array hinzugefügt werden
 - [**`color`:**](#color) Farbwähler
-- [**`cron`:**](#cron) Konfiguriert Cron-Ausdrücke zum Planen von Aufgaben
+- [**`cron`:**](#cron) Konfiguriert Cron-Ausdrücke für die Planung von Aufgaben
 - [**`custom`:**](#custom) Integriert benutzerdefinierte Komponenten für bestimmte Funktionen (nur Admin 6)
 - [**`datePicker`:**](#datepicker) Ermöglicht Benutzern die Auswahl eines Datums
 - [**`deviceManager`:**](#devicemanager) Gerätemanager anzeigen
@@ -782,7 +782,7 @@ horizontale Linie
 ### `cron`
 Zeigt die CRON-Einstellungen an. Sie haben 3 Optionen:
 
-- `simple` - zeigt einfache CRON-Einstellungen
+- `simple` – zeigt einfache CRON-Einstellungen
 - `complex` - zeigt CRON mit "Minuten", "Sekunden" usw.
 - weder „einfach“ noch „komplex“ - Der Benutzer kann im Dialog zwischen einfach und komplex wechseln
 
@@ -1010,7 +1010,7 @@ Ermittelt den aktuellen Standort und verwendet `system.config` Koordinaten, fall
 | `useSystemName` | falls definiert, wird das Kontrollkästchen „Systemeinstellungen verwenden“ angezeigt und Breiten- und Längengrad werden aus `system.config` gelesen, ein Boolescher Wert wird unter dem angegebenen Namen gespeichert |
 
 ### `interface`
-Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
+Wählen Sie die Schnittstelle des Hosts, auf dem die Instanz läuft
 
 | Immobilie | Beschreibung |
 |------------------|----------------------------------------------------------------|
@@ -1029,6 +1029,8 @@ Zeigt die Lizenzinformationen an, sofern diese noch nicht akzeptiert wurden. Ein
 | `checkBox` | Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert. |
 
 ### `checkDocker`
+- (Admin >= 7.1.0) Erstimplementierung
+
 Spezielle Komponente zur Überprüfung, ob Docker installiert und ausgeführt wird.
 Wenn Docker installiert ist, wird ein Kontrollkästchen angezeigt, um die Verwendung von Docker zuzulassen.
 
@@ -1055,7 +1057,8 @@ Spezielle Eingabe für Ports. Es wird automatisch geprüft, ob der Port von ande
 | `min` | minimal zulässige Portnummer. Sie könnte 0 sein. Und wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt. |
 
 ### `state`
-(admin >= 7.1.0) Zeigt Kontrolle oder Informationen aus dem Status (admin >= 7.6.4) Attribute `showEnterButton` und `setOnEnterKey`
+- (admin >= 7.1.0) Kontrolle oder Informationen vom Staat anzeigen
+- (admin >= 7.6.4) Attribute „showEnterButton“ und „setOnEnterKey“.
 
 | Immobilie | Beschreibung |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1218,7 +1221,7 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `onChange` | Struktur in Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` |
 | `doNotSave` | Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird |
 | `noMultiEdit` | Wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zur Bearbeitung ausgewählt hat. |
-| `expertMode` | wenn dieses Flag auf true gesetzt ist, wird dieses Feld nur angezeigt, wenn der Expertenmodus true ist (ab Admin 7.4.3) |
+| `expertMode` | wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nur angezeigt, wenn der Expertenmodus „true“ ist (ab Admin 7.4.3) |
 | `expertMode` | wenn dieses Flag auf true gesetzt ist, wird dieses Feld nur angezeigt, wenn der Expertenmodus true ist (ab Admin 7.4.3) |
 
 ### Optionen mit detaillierter Konfiguration
