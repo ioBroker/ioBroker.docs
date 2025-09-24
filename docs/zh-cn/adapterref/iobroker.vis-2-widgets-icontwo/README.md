@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-icontwo/README.md
 title: ioBroker.vis 2.0 的 inventwo 图标
-hash: cdoM9TvsUOLwUSBLx0jqnEYG/3VL0qrsoqJx+9iR5QU=
+hash: 0Oo7oUoIrDA69VV2X2owCYHLLTRFbfOvtBhTB95JsbY=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/vis-2-widgets-icontwo.png)
 
@@ -11,25 +11,66 @@ hash: cdoM9TvsUOLwUSBLx0jqnEYG/3VL0qrsoqJx+9iR5QU=
 ![NPM 版本](https://nodei.co/npm/iobroker.vis-2-widgets-icontwo.svg?style=shields&data=v,u,d&color=orange)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-icontwo.svg)
 ![GitHub 仓库大小](https://img.shields.io/github/repo-size/inventwo/iobroker.vis-2-widgets-icontwo)
-![Paypal 捐款](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
+![Paypal 捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 
-# 为 ioBroker.vis 2.0 发明图标
+# 为 ioBroker.vis 2.0 发明两个图标
 ## IoBroker.vis 适配器的图标适配器（仅适用于 VIS-2）
 ### **请注意：**此图标仅适用于 ioBroker.vis-2 适配器 2.13.x 版本（或更高版本）！
-.... 更多信息将会发布
+.... 更多信息将随后发布
 
-![沃尔绍](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/solid.PNG)
+![沃尔绍](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/solid.png)
 
-![沃尔绍](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/opacity.PNG)
+![沃尔绍](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/opacity.png)
+
+### 可用版本：v1.x.x
+![沃尔绍](../../../en/adapterref/iobroker.vis-2-widgets-icontwo/admin/animated.png)
 
 ## Changelog
 
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.7.0 (2025-09-23)
+- new icons (waterfall & sprinkler & plan-doors)
+
+### 1.6.0 (2025-09-22)
+- new icons (weather-direction & people)
+
+### 1.5.0 (2025-09-21)
+- new icons (garage & battery-storage & maps & spa)
+
+### 1.4.0 (2025-09-20)
+- new icons (network & computer & alexa)
+
+### 1.3.0 (2025-09-16)
+- new icons (plan doors)
+
+### 1.2.3 (2025-09-16)
+- fix adapter checker
+
+### 1.2.2 (2025-09-16)
+- fix adapter checker
+
+### 1.2.1 (2025-09-16)
+- fix adapter checker
+
+### 1.2.0 (2025-09-15)
+- new icons (animated attention & bell)
+
+### 1.1.0 (2025-09-15)
+- new icons (animated arrows)
+
+### 1.0.0 (2025-09-15)
+- new category animated icons (fan)
+
+### 0.29.0 (2025-09-14)
+- new icons (lights & signs & 3D-print & cooker)
+
+### 0.28.0 (2025-09-13)
+- new icons (3D & laser & fans)
+
 ### 0.27.0 (2025-09-12)
 - new icons (signs & network)
--
 
 ### 0.26.0 (2025-09-11)
 - new icons (signs & ecar)

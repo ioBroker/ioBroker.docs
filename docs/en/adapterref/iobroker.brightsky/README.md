@@ -83,6 +83,33 @@ The data is as follows Provided:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (ticaki) Code migration from axios to node:fetch
+
+### 0.3.5 (2025-09-20)
+- (ticaki) Corrected roles for visualisation (lovelance) fixes #28
+
+### 0.3.4 (2025-09-19)
+- (ticaki) fixed too low limit for currently updates
+
+### 0.3.3 (2025-09-19)
+- (ticaki) update current at sunrise and sunset (unless custom interval is too large)
+- (ticaki) added inverter limiting
+
+### 0.3.2 (2025-09-17)
+- (ticaki) Solar estimation calculation revised
+
+### 0.3.1 (2025-09-15)
+- (ticaki) Fixed data evaluation crash when no panels are defined  
+- (ticaki) state name fixed
+
+### 0.3.0 (2025-09-15)
+- (ticaki) Added experimental datapoint for solar energy estimation (daily and hourly)  
+- (ticaki) Wind bearing text is now translated into ioBroker system language  
+- (ticaki) Added new datapoint for MDI icons support  
+- (ticaki) Add day and night objects in addition to daily objects fixes [#11](https://github.com/ticaki/ioBroker.brightsky/issues/11)
+- (ticaki) Enhanced day and night support with dedicated day/night icons
+
 ### 0.2.4 (2025-08-28)
 * (ticaki) Create all folders
 

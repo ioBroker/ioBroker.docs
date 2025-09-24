@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: plkLUc+tOv5PV5e6JRQ4oMqZJ+ZUy2OYf+Oy4ILiK2U=
+hash: 7t91wemXcJHRlcuVrYAyghIyB2asLdRNxjTWSirfwEY=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -221,7 +221,7 @@ https://github.com/PLCHome/ioBroker.pylontech
 
 <img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
 
-Fragen Sie die Zellspannungen und den Status von pylontech-Batterien über die Konsole ab.
+Fragen Sie die Zellspannungen und den Status von Pylontech-Batterien über die Konsole ab.
 
 ## Signifylights (26.10.2023) - neuer Adapter
 https://github.com/disaster123/ioBroker.signifylights
@@ -876,7 +876,7 @@ Integrieren Sie Anker Solix 2. Dieses Projekt stammt von https://github.com/tomq
 ## Geräte (20.4.2025) - neue Funktion
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
 
-Der Adapter `devices` wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
+Der `devices`-Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
 
 ## Mhi-wfrac (30.4.2025) – neuer Adapter
 https://github.com/hacki11/ioBroker.mhi-wfrac
@@ -957,5 +957,40 @@ https://github.com/iobroker-community-adapters/ioBroker.srm
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.srm/main/admin/srm.png" width="100" height="100" />
 
 Dies ist ein iobroker-Adapter zum Anschluss an Synology-Router. Der Adapter nutzt die Synology-API zum Datenabruf. Der Adapter wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
+
+## Pi-hole2 (16.8.2025) – neuer Adapter im stabilen Repository
+https://github.com/oweitman/ioBroker.pi-hole2
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
+
+Verwalten Sie eine Pi-Hole-Installation >=v6. Holen Sie sich Informationen von Pi-Hole. Starten/Stoppen Sie das Blockieren von Domänen. (Für Pi-Hole <v6 verwenden Sie bitte den Adapter ioBroker.pi-hole)
+
+## Energy-tracker (21.8.2025) – neuer Adapter im stabilen Repository
+https://github.com/energy-tracker/ioBroker.energy-tracker
+
+<img src="https://raw.githubusercontent.com/energy-tracker/ioBroker.energy-tracker/main/admin/energy-tracker.png" width="100" height="100" />
+
+Adapter zum Senden von Zählerständen an die Energy Tracker-Plattform.
+
+## Vis-2-widgets-icontwo (9.9.2025) – neuer Adapter im stabilen Repository
+https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-icontwo/main/admin/vis-2-widgets-icontwo.png" width="100" height="100" />
+
+Icon-Adapter für den ioBroker.vis-Adapter (nur für VIS-2)
+
+## Pirate-weather (10.9.2025) – neuer Adapter im stabilen Repository
+https://github.com/ticaki/ioBroker.pirate-weather
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.pirate-weather/main/admin/pirate-weather.png" width="100" height="100" />
+
+Daten von Pirate-Weather abrufen.
+
+## Brightsky (14.9.2025) – neuer Adapter im stabilen Repository
+https://github.com/ticaki/ioBroker.brightsky
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.brightsky/main/admin/brightsky.png" width="100" height="100" />
+
+Die Bright Sky API ist eine kostenlose, öffentliche API, die Wetterdaten des Deutschen Wetterdienstes (DWD) bereitstellt. Sie wurde entwickelt, um den Zugriff auf diese Daten zu vereinfachen, da die ursprünglichen DWD-Daten oft in schwer interpretierbaren Formaten vorliegen. Bright Sky konvertiert diese Daten in ein benutzerfreundliches JSON-Format und macht sie über eine API zugänglich.
 
 <!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole! -->

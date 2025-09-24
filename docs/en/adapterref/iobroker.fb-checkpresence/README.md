@@ -230,6 +230,10 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
+### 1.4.1 (2025-09-19)
+* (afuerhoff) dependencies updated
+* (afuerhoff) repository checker & code scanning issues fixed
+
 ### 1.4.0 (2025-05-28)
 * (afuerhoff) dependencies updated
 * (afuerhoff) error handling optimized
@@ -250,9 +254,6 @@ Here you will find information about the history of the current day.
 ### 1.2.8 (2024-11-20)
 * (afuerhoff) bugfix configuration
 * (afuerhoff) dependencies updated
-
-### 1.2.7 (2024-11-18)
-* (afuerhoff) bugfix [#319](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/319)
 
 ## License
 MIT License

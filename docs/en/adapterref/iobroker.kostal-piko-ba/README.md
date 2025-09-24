@@ -59,9 +59,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 6.0.2 (2025-09-14)
 
-### **WORK IN PROGRESS**
-
+- (HombachC) update axios (#829)
 - (HombachC) min admin 7.6.17 as recommended (#817)
 - (HombachC) bump dependencies
 
@@ -85,11 +85,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 5.1.1 (2025-03-05)
 
 - (HombachC) bump dependencies
-
-### 5.1.0 (2025-03-01)
-
-- (HombachC) raise support for ioBroker.admin to min 7.4.10 as recommended by ioBroker (#773)
-- (HombachC) bump axios to 1.8.1 (#778)
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

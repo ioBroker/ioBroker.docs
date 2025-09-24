@@ -26,6 +26,22 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 
 ## Changelog
+### 3.2.2 (2025-09-19)
+
+- Typos corrected
+
+### 3.2.1 (2025-09-16)
+
+- Increment failed login attempts only if username or password is wrong
+
+### 3.2.0 (2025-09-16)
+
+- More login info. No increment failed login attempts if server error
+
+### 3.1.0 (2025-09-14)
+
+- DataReceived flag added
+
 ### 3.0.1 (2025-08-29)
 
 - Normalize values before write

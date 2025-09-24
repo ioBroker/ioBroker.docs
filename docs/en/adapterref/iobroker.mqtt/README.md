@@ -804,6 +804,11 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimized client state generation logic to prevent load issues
+* (Apollon77) Optimized detection of incoming data as ioBroker states 
+
 ### 6.1.4 (2025-05-07)
 * (bluefox) Allowed disabling the client objects creation
 * (bluefox) Create client objects with timeout (1s) to prevent memory leaks

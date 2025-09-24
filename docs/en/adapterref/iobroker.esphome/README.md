@@ -23,8 +23,72 @@ Native integration of ESPHome managed device (Including Dashboard) by its native
 
 ![Logo](admin/img/dashboard.png)
 
+**Quick Links:**
+- 📋 [FAQ - Common Questions](#frequently-asked-questions-faq)
+- ⚙️ [Prerequisites & Setup](#prerequisites)
+- 🎛️ [Dashboard Integration](#esphome-dashboard-integration-optional)
+- 📱 [Device Management](#device-management)
+- 🔧 [Configuration Examples](#example-config)
+
 This adapter uses the [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) with all credits to @Nafaya to interact with [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
 
+## Frequently Asked Questions (FAQ)
+
+### What's the difference between the ioBroker ESPHome Adapter and ESPHome Dashboard?
+
+**ioBroker ESPHome Adapter:**
+- Integrates your ESPHome devices into ioBroker for home automation control
+- Communicates directly with ESP devices via ESPHome's native API
+- Creates ioBroker states/objects for device control and monitoring
+- Handles real-time device status updates (no polling required)
+- Manages device configuration within ioBroker
+
+**ESPHome Dashboard:**
+- A web interface for creating, editing, and managing ESPHome device configurations
+- Used for writing YAML configs, compiling firmware, and flashing devices
+- Can be integrated into ioBroker's admin interface as an optional feature
+- Can be run either integrated with this adapter or as an external installation (Docker, standalone)
+
+**In Summary:** The adapter controls your devices within ioBroker, while the dashboard manages device configurations and firmware.
+
+### How do I configure the Dashboard IP selector?
+
+The Dashboard IP setting in the adapter configuration serves different purposes:
+
+**For Integrated Dashboard Tab in ioBroker Admin:**
+1. Enter the IP address and port where your ESPHome Dashboard is running
+2. **Built-in Dashboard:** Use `127.0.0.1:6052` (default for integrated dashboard)
+3. **External Dashboard:** Use the IP:port of your external ESPHome installation (e.g., Docker container)
+4. **HTTPS Setup:** For HTTPS environments, see the detailed HTTPS configuration section below
+
+**Dashboard IP Examples:**
+- Built-in: `127.0.0.1:6052`
+- External Docker: `192.168.1.100:6052`
+- External Host: `esphome.local:6052`
+- HTTPS Proxy: `https://192.168.1.50:8082/proxy.0/esphome/`
+
+![ESPHome Dashboard IP Configuration](admin/img/ESPhomeDashboardIP.png)
+
+**Note:** You can use this adapter to control ESPHome devices without configuring the Dashboard IP. The Dashboard IP is only needed if you want to integrate the ESPHome Dashboard interface into ioBroker's admin panel.
+
+### Do I need the ESPHome Dashboard to use this adapter?
+
+**No, the Dashboard is optional.** You can use this adapter in several ways:
+
+1. **Adapter Only:** Control pre-configured ESPHome devices without any dashboard integration
+2. **Adapter + External Dashboard:** Use your existing ESPHome installation (Docker, standalone) and optionally integrate it into ioBroker's interface
+3. **Adapter + Built-in Dashboard:** Enable the integrated ESPHome Dashboard feature for a complete solution
+
+The adapter works independently and only requires devices with ESPHome API enabled in their configuration.
+
+### How do I add devices to the adapter?
+
+1. **Ensure ESPHome API is enabled** in your device's YAML configuration (see Prerequisites section)
+2. **Open the adapter's device tab** in ioBroker Admin (adapter must be running)
+3. **Add devices manually:** Enter device IP address and authentication credentials
+4. **Automatic discovery:** Currently disabled (see issue #175)
+
+The adapter will establish a connection and create all necessary ioBroker objects for device control.
 
 <!--
 ## [Documentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
@@ -39,11 +103,29 @@ All our adapter documentation can be found at [The DrozmotiX Docu Page](https://
     * For admin tabs (optional)
         * ESPHome Dashboard IP is provided in instance settings
 
-## Using the built-in ESPHome Dashboard
-You can either use an external installation of ESPHome (like docker) or activate the ESPHome Dashboard process included in this adapter.  
-In any case, it is possible to integrate the dashboard into ioBroker Admin interface, for this purpose you must specify the ip where the Dashboard is running
+## ESPHome Dashboard Integration (Optional)
 
-![Logo](admin/img/ESPhomeDashboardIP.png)
+This adapter can optionally integrate the ESPHome Dashboard into ioBroker's admin interface. You have several options:
+
+**Option 1: Built-in Dashboard (Recommended for beginners)**
+- Enable "Native Integration of ESPHome Dashboard" in adapter settings
+- Uses integrated Python environment (no external setup required)
+- Dashboard runs on port 6052 by default
+- Set Dashboard IP to `127.0.0.1:6052` for admin integration
+
+**Option 2: External Dashboard**
+- Use existing ESPHome installation (Docker, standalone, etc.)
+- Enter the external dashboard's IP:port in adapter settings
+- Example: `192.168.1.100:6052` for Docker container
+
+**Option 3: No Dashboard Integration**
+- Skip dashboard configuration entirely
+- Use external ESPHome tools for device configuration
+- Adapter still controls devices normally
+
+![Dashboard IP Configuration](admin/img/ESPhomeDashboardIP.png)
+
+> **💡 See FAQ above** for detailed explanations about Dashboard IP configuration and adapter vs. dashboard differences.
 
 ### Using HTTPS
 
@@ -89,6 +171,8 @@ api:
   password: 'MyPassword'
 ```
 
+## Device Management
+
 ### Add / Modify / Remove ESPHome devices to ioBroker
 > [!IMPORTANT]
 > This adapter integrates communication with ESPHome capable devices and 
@@ -96,6 +180,8 @@ api:
 > You must configure and upload your ESP configuration by yourself, 
 > either by using the integrated Dashboard or an external alternative 
 > (like Docker) before they can be integrated to ioBroker
+
+> **💡 See FAQ above** for step-by-step guidance on adding devices to the adapter.
 
 The device Tab will show all current known devices; you can either wait for Devices to be autodetect
 (currently disabled, see #175) or add them manually by providing their IP-Address and credentials
@@ -198,6 +284,14 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### 0.6.3 (2025-09-16)
+* (@DutchmanNL) Fixed an admin error related to `jsonConfig` validation. #287
+* (@DutchmanNL) Various general fixes and dependency updates to improve stability.
+* (@DutchmanNL) Improved responsive design for better usability across devices. #284
+* (@DutchmanNL) Introduced GitHub Actions to automatically verify the ESPHome Dashboard. #290
+* (@DutchmanNL) Added a comprehensive FAQ section to the README to help users with common questions. #286
+* (@DutchmanNL) Updated the `esphome-native-api` library to V1.3.3, which may resolve connection issues. #201
+
 ### 0.6.2 (2025-08-08)
 * (@SimonFischer04) add support for text device type #141, displays #103
 * (@SimonFischer04) fix cover device type #156
@@ -216,9 +310,6 @@ If you like my work, please consider a personal donation
 
 ### 0.5.0-beta.4 (2023-11-15)
 * (DutchmanNL) Refactor memory caching of device data, resolves #189
-
-### 0.5.0-beta.1 (2023-11-12)
-* (DutchmanNL) Only show error messages once for unreachable devices
 
 ## License
 MIT License

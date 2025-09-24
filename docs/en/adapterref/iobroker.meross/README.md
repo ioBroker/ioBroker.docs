@@ -41,6 +41,10 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* IMPORTANT: The minimum Node.js version is now 18.x or higher
+
 ### 1.17.0 (2023-12-30)
 * (Apollon77) Adjust Signin API and add support for MFA
 * (Apollon77) Store login token and try to reuse it for reconnections, but also do not log out anymore
@@ -200,7 +204,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2025 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

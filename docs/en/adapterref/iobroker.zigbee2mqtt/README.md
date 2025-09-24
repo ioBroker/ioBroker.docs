@@ -24,6 +24,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 ## Changelog
 ### **WORK IN PROGRESS**
 -   (arteck) Dependencies have been updated
+-   (bluefox) Changed role of `color_temp_startup` state to `level` to avoid double `level.temperature` in one device
 -   (arteck) fix ZBMINIR2 inching DP
 
 ### 3.0.9 (2025-06-19)

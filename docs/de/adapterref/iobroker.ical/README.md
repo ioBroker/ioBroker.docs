@@ -206,6 +206,11 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.0 (2025-09-15)
+* (jens-maus) fixed adapter warnings and responsive design suggestions.
+* (jens-maus) updated dependencies.
+* (jens-maus) update node-ical to latest 0.21.0.
+
 ### 1.16.2 (2025-06-16)
 
 * (@GermanBluefox) Small fix in the configuration dialog
@@ -224,9 +229,6 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 ### 1.15.0 (2024-04-30)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
-
-### 1.14.3 (2024-02-28)
-* (jens-maus) update node-ical to latest 0.18.0
 
 ## License
 

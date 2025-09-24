@@ -1,14 +1,14 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bambulab/README.md
 title: ioBroker.bambulab
-hash: xF9K+twXSSsRjQblkO/bs0evJUr4bRoAZwa4pUEwSJg=
+hash: /u7lTibuTChR3pNxT1eoPHUWSPRhIN6Jie1/3qqnl60=
 ---
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.bambulab.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.bambulab.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bambulab.svg)
 ![Количество установок](https://iobroker.live/badges/bambulab-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/bambulab-stable.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/bambulab-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bambulab.png?downloads=true)
 
 <img src="admin/bambulab.png" alt="Логотип" width="200"/>
@@ -16,116 +16,111 @@ hash: xF9K+twXSSsRjQblkO/bs0evJUr4bRoAZwa4pUEwSJg=
 # IoBroker.bambulab
 **Тесты:** ![Тестирование и выпуск](https://github.com/DrozmotiX/ioBroker.bambulab/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер Bambulab для 3D-печати для ioBroker
+## Адаптер Bambulab 3D-печати для ioBroker
 ## Начиная
-Благодаря [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), все остальные, вовлеченные и вдохновленные [этой веткой форума](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) этот адаптер интегрирует 3D-принтеры Bambulab в ioBroker.
+Благодаря этому адаптеру [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), все остальные, кто участвует и вдохновляется [этой темой форума](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) вы сможете интегрировать 3D-принтеры Bambulab в ioBroker.
 
-Укажите IP-адрес вашего принтера, токен API и серийный номер в настройках адаптера; они необходимы для локального подключения (без использования облака) к вашему принтеру.
-Эти учетные данные хранятся локально и не передаются третьим лицам.
+Укажите IP-адрес принтера, API-токен и серийный номер в настройках адаптера. Эти данные необходимы для локального подключения к принтеру (без использования облака).
+Эти учётные данные хранятся локально и не передаются третьим лицам.
 
-Вы должны выбрать модель вашего принтера, только X1 позволяет отправлять сообщения, серия P1x должна запрашивать через настройку интервала (по умолчанию каждые 5 секунд).
+## Поиск токена API и серийного номера
+Расположение API-токена и серийного номера зависит от модели вашего принтера:
+
+### Серия A1/A1 mini
+1. Перейдите в **Настройки** → **Сеть** на дисплее принтера.
+2. Включите **Только режим LAN»** (ну и Lan-Modus).
+3. После включения будут отображены IP-адрес, токен доступа и серийный номер.
+
+### Серия P1S
+1. Перейдите в **Настройки** → **Сеть** на дисплее принтера.
+2. Токен доступа виден непосредственно в настройках сети (режим локальной сети не требуется)
+3. Серийный номер можно найти в том же меню или в информации об устройстве.
+
+### Серия X1/X1C
+1. Перейдите в **Настройки** → **Сеть** на дисплее принтера.
+2. Токен доступа виден непосредственно в настройках сети.
+3. Серийный номер можно найти в том же меню или в информации об устройстве.
+
+**Примечание:** Необходимо правильно выбрать модель принтера в настройках адаптера. Только серия X1 поддерживает push-уведомления, для серии P1x требуется запрашивать сообщения с заданным интервалом (по умолчанию каждые 5 секунд).
 
 ## Поддерживаемые модели
 | Модель принтера | Статус |
 |---------------|-------------------------|
 | АМС | :white_check_mark: |
-| А1 | :white_check_mark: |
-| П1п | :white_check_mark: |
-| P1с | :white_check_mark: |
-| Х1 | :white_check_mark: |
+| A1 | :white_check_mark: |
+| P1p | :white_check_mark: |
+| P1s | :white_check_mark: |
+| X1 | :white_check_mark: |
 
 ## Поддерживаемые команды
-| Команда | X1C | Х1 | P1P | П1С | А1 |
+| Команда | X1C | X1 | P1P | P1S | A1 |
 |--------------------|---------------------|---------------------|--------------------------|--------------------------|--------------------------|
 | Пользовательский g-код | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Пауза | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Резюме | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Стоп | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Вентилятор-Aux | :white_check_mark: | :white_check_mark: | :interrobang: если присутствует | :white_check_mark: | :x: Нет аппаратной поддержки |
-| Фан-камера | :white_check_mark: | :white_check_mark: | :interrobang: если присутствует | :white_check_mark: | :x: Нет аппаратной поддержки |
+| Fan-Aux | :white_check_mark: | :white_check_mark: | :interrobang: если присутствует | :white_check_mark: | :x: Аппаратная поддержка отсутствует |
+| Вентиляторная камера | :white_check_mark: | :white_check_mark: | :interrobang: если присутствует | :white_check_mark: | :x: Аппаратная поддержка отсутствует |
 | Fan-ToolHead | :white_check_mark: | :white_check_mark: | :interrobang: если присутствует | :white_check_mark: | :white_check_mark: |
 | Световая камера | :white_check_mark: | :white_check_mark: | :interrobang: если присутствует | :white_check_mark: | :white_check_mark: |
-| Лайт-Логотип | :white_check_mark: | :white_check_mark: | :x: Нет аппаратной поддержки | :x: Нет аппаратной поддержки | :x: Нет аппаратной поддержки |
-| Температурный слой | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Light-Logo | :white_check_mark: | :white_check_mark: | :x: Нет аппаратной поддержки | :x: Нет аппаратной поддержки | :x: Нет аппаратной поддержки |
+| Температура-кровать | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Температура-Сопло | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Уровень скорости | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
-## Делать
-[ ] Реструктуризация/дополнение текущих состояний элемента управления в папке управления [ ] Оптимизация определений атрибутов состояния
+## Список дел
+[ ] Реструктурировать/дополнить текущие состояния элементов управления в папке элементов управления [ ] Оптимизировать определения атрибутов состояний
 
-## Поддержите меня
-Если вам нравится моя работа, рассмотрите возможность личного пожертвования (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
+## Поддержи меня
+Если вам нравится моя работа, пожалуйста, рассмотрите возможность личного пожертвования (это персональная ссылка для пожертвований для DutchmanNL, не имеющая никакого отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Что такое Sentry.io и какие данные передаются на серверы этой компании?
-Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок в их приложениях. И именно это реализовано в этом адаптере.
+Sentry.io — это сервис, позволяющий разработчикам получать обзор ошибок в своих приложениях. Именно это и реализовано в этом адаптере.
 
 При сбое адаптера или возникновении любой другой ошибки кода это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry.
-Когда вы разрешаете iobroker GmbH собирать диагностические данные, тогда также включается ваш установочный идентификатор (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, адресе электронной почты, имени и т. д.).
-Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуло такая ошибка.
-Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не выходят из строя.
+
+Если вы разрешаете iobroker GmbH собирать диагностические данные, то также указывается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, например, адреса электронной почты, имени или чего-либо подобного).
+Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей столкнулись с такой ошибкой.
+Всё это помогает мне создавать безошибочные адаптеры, которые практически никогда не выходят из строя.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.3.2 (2023-11-20)
-* (DutchmanNL) Show finish time as ISO string
+### 0.4.2 (2025-09-16)
+* (DutchmanNL) Improve error messages if printer is offline or not reachable. #xxx
+* (DutchmanNL) Solve several type definition issues. #203, #202, #201, #200, #199, #198
+* (DutchmanNL & Copilot) Fix type conversion errors by replacing deprecated `tonumber` with proper `TOINTEGER`/`TOFLOAT` modifiers. #197
+* (DutchmanNL & Copilot) Add missing state attribute definitions for HD2 printer during printing (height, platform, tool, mapping). Fixes #194
 
-### 0.3.1 (2023-11-20)
-* (DutchmanNL) Bugfix control P & A Series
-* (DutchmanNL) Show end time as a separate state, resolves #53
-* (DutchmanNL) Bugfix resolves missing fan speed value, resolves #36
+### 0.4.1 (2025-09-13)
+* (DutchmanNL & Copilot) Fix HMS error code translations timeout error handling (#183)
+* (DutchmanNL & Copilot) Block dangerous G-code commands during printing for safety (#185)
+* (DutchmanNL & Copilot) Fix P1S fan speed display issues - double conversion and incorrect mapping (#184)
+* (DutchmanNL & Copilot) Add comprehensive API token location documentation for all Bambulab printer models (#182)
 
-### 0.3.0 (2023-11-19) - Release candidate
-* (DutchmanNL) Update dependencies for state handling, resolves #50
-* (DutchmanNL) Adjust log level for Unknown Message from error to debug, resolves #39
-* (DutchmanNL) Add missing definitions to ensure correct creation of states, resolves #39
-* (DutchmanNL) Reduce selection dropdown in admin config to printer series instead of a specific printer type
-* (DutchmanNL) Update adapter code to support new firmware versions released by bambulab, please ensure your printer is up-to-date! resolves #46, resolves #38, resolves #26,
+### 0.4.0 (2025-09-13)
+* (DutchmanNL) Add missing state definitions to resolve adapter warnings (#181)
+* (DutchmanNL) Empty finishTime and avoid time calculation when not printing (#179)
+* (DutchmanNL) Fix MQTT reconnection to prevent maximum call stack size exceeded error (#177)
 
-### 0.2.0 (2023-10-18) - Small fixes for new firmware version
-* (DutchmanNL) Button for homing added, fixes #28
-* (DutchmanNL) Bugfix: Translation of HMS-Error codes
-* (DutchmanNL) Several bugfixes for situations no AMS is used
-* (DutchmanNL) Remove control for LED calibration head (could damage hardware)
+### 0.3.5 (2025-09-13)
+* (DutchmanNL & Copilot) Fix several type mismatches #143 #139 #130
+* (DutchmanNL) Updated missing definitions for full MQTT API incl H2D
+* (DutchmanNL & Copilot) Fix repository checker issues and improve admin UI compatibility
 
-### 0.1.5 (2023-07-29) - HMS error codes Human readable, new functionalities added
-#### Several state locations have been changed, advise to completely remove adapter & reinstall to upgrade
-* (DutchmanNL) State for human-readable start time added
-* (DutchmanNL) Speed level control implemented solves #10
-* (DutchmanNL) Capability to control all fans implemented
-* (DutchmanNL) Control bed & Nozzle temperature implemented
-* (DutchmanNL) HMS error status indicator states implemented
-* (DutchmanNL) Translations of HMS error codes implemented solves #9
-* (DutchmanNL) Correct definitions for all temperature-related states
-* (DutchmanNL) Control LED for tooling head Logo and calibration unit
+### 0.3.4 (2024-10-28) - Door Indicator Fixes #115
+* (DutchmanNL) Added doorOpen indicator, Fixes [#115](https://github.com/DrozmotiX/ioBroker.bambulab/issues/115)
 
-### 0.1.4 (2023-07-28) - Support P1-series
-* (DutchmanNL) Configuration page in admin updated
-* (DutchmanNL) Information messages regarding incorrect type of bed-temperatures solved
-* (DutchmanNL) Implemented P1-X printer series, polling interval required for this model (only X1 handles data push)
-
-### 0.1.3 (2023-07-27) - Add new control options
-* (DutchmanNL) add control for chamber fan, tooling head light and allow custom g-code
-
-### 0.1.1 - Minor improvements
-* (DutchmanNL) Translations added
-* (DutchmanNL) Debug logging improved
-* (DutchmanNL) Minor code improvements
-* (DutchmanNL) Control states implemented
-* (DutchmanNL) Test & release workflows updated
-* (DutchmanNL) Encryption of token and device serial improved
-
-### 0.1.0 initial release
-* (DutchmanNL) initial release
-* During startup adapter throws warnings, these can be ignored and will be solved in =< 0.5.0
-* Control start/stop/resume and light available in >= 0.1.1
+### 0.3.3 (2024-10-27) - Bugfixes
+* (DutchmanNL) update state definitions, (solves [#77](https://github.com/DrozmotiX/ioBroker.bambulab/issues/77) [#58](https://github.com/DrozmotiX/ioBroker.bambulab/issues/58))
+* (DutchmanNL) update connection handling, show connection error only once (Solves #99 #78 #74)
 
 ## License
 MIT License
 
-Copyright (c) 2023 DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2025 DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

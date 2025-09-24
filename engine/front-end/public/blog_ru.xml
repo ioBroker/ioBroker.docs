@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.net/#ru/blog</link>
-        <lastBuildDate>Tue, 17 Jun 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[]]></title>
+            <description><![CDATA[
+                <p>Ежемесячный обзор # ioBroker – сентябрь 2025 г.\nЛето подходит к концу, и за последние несколько месяцев в мире ioBroker произошло немало событий.\nВыпущено множество новых адаптеров, некоторые из которых уже попали в стабильный репозиторий, а ещё несколько доступны в последней версии репозитория и ждут, когда вы их протестируете.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#ru/blog/2025_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#ru/blog/2025_09_24</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker на Smart Living Forum 2025 в Золингене]]></title>
             <description><![CDATA[

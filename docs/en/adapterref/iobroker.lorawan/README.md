@@ -23,6 +23,140 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.13 (2025-09-24)
+* (BenAhrdt) Bugfix discover new devices
+
+### 1.17.12 (2025-09-24)
+* (BenAhrdt) Virtual Mode in default selected for Climate Entities
+* (BenAhrdt) improve hidden attribute for climate entitie in LoRaWAN
+* (BenAhrdt) change discovery delete {} => ''
+
+### 1.17.11 (2025-09-23)
+* (BenAhrdt) dont fillDownlinks in case of not implemented messagetype
+* (BenAhrdt) type of json ids changed to string
+
+### 1.17.10 (2025-09-23)
+* (BenAhrdt) Update topics und qnique ids
+
+### 1.17.9 (2025-09-20)
+* (BenAhrdt) setdefault defiveidentifier for lorawan bridge function to used Device Id
+
+### 1.17.8 (2025-09-20)
+* (BenAhrdt) normalize [] () & {} into _
+
+### 1.17.7 (2025-09-19)
+* (BenAhrdt) Virtal Mode for Foreign climate entities available
+
+### 1.17.6 (2025-09-19)
+* (BenAhrdt) Check foreign state id in climate improved
+
+### 1.17.5 (2025-09-19)
+* (BenAhrdt) Improve quere for foreign states in discover foreign climate
+
+### 1.17.4 (2025-09-19)
+* (BenAhrdt) More debuglogging for Foreign Climate error
+
+### 1.17.3 (2025-09-19)
+* (BenAhrdt) Bugfix calling Foreign climate ids
+
+### 1.17.2 (2025-09-19)
+* (BenAhrdt) Bugfix nameing of foreign states
+
+### 1.17.1 (2025-09-19)
+* (BenAhrdt) Bugfix xs in jsonconfig
+
+### 1.17.0 (2025-09-19)
+* (BenAhrdt) Add Climate Entity configuration to foreign states
+
+### 1.16.12 (2025-09-18)
+* (BenAhrdt) delete devices in bridge (discover empty) after changing the device_identifier
+
+### 1.16.11 (2025-09-18)
+* (BenAhrdt) dont use bridge enum within namespace of adapter
+* (BenAhrdt) Improve Namebuilding of foreign states to bridge
+
+### 1.16.10 (2025-09-18)
+* (BenAhrdt) bugfix change query of Bridgeurl to LoRaWAN url
+
+### 1.16.9 (2025-09-18)
+* (BenAhrdt) bring connectiontest to bridge config
+* (BenAhrdt) Bugfixing deaktivate LNS connection search in case of empty url
+* (BenAhrdt) Bugfixing defaultvalues for json states.
+
+### 1.16.8 (2025-09-17)
+* (BenAhrdt) Bring enum selection in config
+
+### 1.16.7 (2025-09-17)
+* (BenAhrdt) Bugfix deleting discovered devices
+* (BenAhrdt) build in devug logging to find bug in devicename
+
+### 1.16.6 (2025-09-17)
+* (BenAhrdt) Change detection of new Discovery from LoRaWAN devices
+
+### 1.16.5 (2025-09-17)
+* (BenAhrdt) Bugfix in notifications to Bridge (new device dicovered) => namespace not set
+
+### 1.16.4 (2025-09-17)
+* (BenAhrdt) Bridge import foreign states till Adapter is running
+* (BenAhrdt) Bridge delete foreign states till Adapter is running
+
+### 1.16.3 (2025-09-16)
+* (BenAhrdt) nameing of foreign Devices in Bridge
+
+### 1.16.2 (2025-09-16)
+* (BenAhrdt) bugfix namespace also by calling work from directoryhandler
+
+### 1.16.1 (2025-09-16)
+* (BenAhrdt) bugfix namespace also by notifications
+
+### 1.16.0 (2025-09-16)
+* (BenAhrdt) possibility to insert foreign states to bridge by using enum.functions.bridge
+
+### 1.15.8 (2025-09-16)
+* (BenAhrdt) remove await from some callings
+
+### 1.15.7 (2025-09-15)
+* (BenAhrdt) solve publishing intern
+
+### 1.15.6 (2025-09-15)
+* (BenAhrdt) improve handling of state device in case of subfolders
+
+### 1.15.5 (2025-09-15)
+* (BenAhrdt) Bugfix logging removed
+
+### 1.15.4 (2025-09-15)
+* (BenAhrdt) Bugfix send state topics retain
+* (BenAhrdt) Bugfix with stateending
+
+### 1.15.3 (2025-09-15)
+* (BenAhrdt) dont translate the selected state in bridge config
+
+### 1.15.2 (2025-09-15)
+* (BenAhrdt) change wording of notifications
+* (BenAhrdt) import diagnostic and config fpr entity_type
+* (BenAhrdt) change extSernsorTemperature in ExtSernsorTemperature
+
+### 1.15.1 (2025-09-14)
+* (BenAhrdt) Send Trigger retain = false
+
+### 1.15.0 (2025-09-14)
+* (BenAhrdt) Bring notification for Bridge in Admin
+* (BenAhrdt) Notify different trigger to Bridge
+
+### 1.14.9 (2025-09-13)
+* (BenAhrdt) notifi new device discovered till Adapter running
+
+### 1.14.8 (2025-09-13)
+* (BenAhrdt) Add general, offline and online Notifications to the discovered devices
+* (BenAhrdt) Add general Notifications to device called namespace of the Adapter
+
+### 1.14.7 (2025-09-12)
+* (BenAhrdt) Add Folders for Target Temperature in Heating Events
+* (BenAhrdt) correct unit handling & Max valueCount in Tab
+
+### 1.14.6 (2025-09-12)
+* (BenAhrdt) more logging in debug mode
+
 ### 1.14.5 (2025-09-12)
 * (BenAhrdt) Safe last 10 publish and subscribed values
 

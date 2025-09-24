@@ -114,7 +114,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.3.0 (2025-09-18)
 * (Sneak-L8) new option to always charge with 1p oder 3p
 * (Sneak-L8) new setting for discharging power of storage battery (if not equal to max battery power)
 * (Sneak-L8) updated version requirements (admin 7.6.17 and core 3.3.2)
@@ -147,13 +147,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
 * (Sneak-L8) migrate from request to axios
 * (Sneak-L8) migrate from ESlint v8 to v9
-
-### 2.3.0 (2024-11-29)
-* (Sneak-L8) new option to limit charging station according to german §14a EnWG
-* (Sneak-L8) enable currTime for manual use and X2 even in passive mode
-* (Sneak-L8) minimum verison für js-controller now 5.0.19
-* (Sneak-L8) set currTimer timeout default value from 0 to 1
-* (Sneak-L8) support new option "setBoot" of c-series stating firmware 3.10.57
 
 ## Legal
 

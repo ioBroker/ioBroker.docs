@@ -20,18 +20,60 @@
 
 .... more information will follow
 
-![Vorschau](admin/solid.PNG)
+![Vorschau](admin/solid.png)
 
-![Vorschau](admin/opacity.PNG)
+![Vorschau](admin/opacity.png)
+
+### Available since: v1.x.x
+
+![Vorschau](admin/animated.png)
 
 ## Changelog
 
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.7.0 (2025-09-23)
+- new icons (waterfall & sprinkler & plan-doors)
+
+### 1.6.0 (2025-09-22)
+- new icons (weather-direction & people)
+
+### 1.5.0 (2025-09-21)
+- new icons (garage & battery-storage & maps & spa)
+
+### 1.4.0 (2025-09-20)
+- new icons (network & computer & alexa)
+
+### 1.3.0 (2025-09-16)
+- new icons (plan doors)
+
+### 1.2.3 (2025-09-16)
+- fix adapter checker
+
+### 1.2.2 (2025-09-16)
+- fix adapter checker
+
+### 1.2.1 (2025-09-16)
+- fix adapter checker
+
+### 1.2.0 (2025-09-15)
+- new icons (animated attention & bell)
+
+### 1.1.0 (2025-09-15)
+- new icons (animated arrows)
+
+### 1.0.0 (2025-09-15)
+- new category animated icons (fan)
+
+### 0.29.0 (2025-09-14)
+- new icons (lights & signs & 3D-print & cooker)
+
+### 0.28.0 (2025-09-13)
+- new icons (3D & laser & fans)
+
 ### 0.27.0 (2025-09-12)
 - new icons (signs & network)
--
 
 ### 0.26.0 (2025-09-11)
 - new icons (signs & ecar)

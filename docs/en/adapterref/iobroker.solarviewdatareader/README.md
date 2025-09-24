@@ -63,6 +63,11 @@ TKK= Temperature inverter
 ### **WORK IN PROGRESS**
 * (afuerhoff) dependencies updated
 
+### 1.2.3 (2025-09-19)
+* (afuerhoff) dependencies updated
+* (afuerhoff) repository checker issues fixed
+* (afuerhoff) typescript error fixed
+
 ### 1.2.2 (2025-05-30)
 * (afuerhoff) dependencies updated
 * (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
@@ -82,10 +87,6 @@ TKK= Temperature inverter
 ### 1.1.4 (2024-10-17)
 * (afuerhoff) dependencies updated
 * (afuerhoff) Fixes [#182](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/182)
-
-### 1.1.3 (2024-09-17)
-* (afuerhoff) adapter checker changes [#176](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/176)
-* (afuerhoff) dependencies updated
 
 ## License
 MIT License

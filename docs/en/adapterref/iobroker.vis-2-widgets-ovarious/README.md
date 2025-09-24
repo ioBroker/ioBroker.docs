@@ -173,6 +173,12 @@ data.oneobject.attribute1 = 1 data.oneobject.attribute2 = 2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.0.3 (2025-09-24)
+
+- mark JSON Template widget as deprecated. please use widgets from new adapter vis-jsontemplate
+- the complete adapter is going to be deprecated
+- fix an react element name
+
 ### 1.0.0 (2025-03-20)
 
 - add package @alcalzone/release-script-plugin-manual-review as requested

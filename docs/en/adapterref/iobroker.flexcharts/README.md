@@ -168,7 +168,9 @@ Apache ECharts supports dynamically changing charts. Take a look at this [exampl
 Here's a screen recording of this chart operated by flexcharts:
 [dynamically changing chart](dynamic_charts_with_flexcharts.mkv)
 
-To use this feature for your own charts I recommend to use a **script as source**. [Template 4](templates/flexchartsTemplate4.js) demonstrates the implementation. Please take care about following:
+**Important remark** for updating to version **0.5.0** of flexcharts: If you're using this feature and you wanted to dynamically change options of chart within your event driven function you had to address the option via the variable named `jsopts`. With version 0.5.0 and later this has changed to `option`. Pls. adapt the naming within you function accordingly, i.e. replace `jsopts` by `option`.
+
+To use event driven functions for your own charts I recommend to use a **script as source**. [Template 4](templates/flexchartsTemplate4.js) demonstrates the implementation. Please take care about following:
 * To make the chart dynamic we need to define functionality to handle events within the chart. This is done via definition of functions like `myChart.on("event",function(e){ ... });`
 * It's mandatory to name each of those functions with `myChart.on`
 * For handing over the functions definition to flexcharts it has to be converted to a **Javascript String**. This could be done by consequently using quotation marks (`"`) inside the function and then enclosing it in apostrophes (`'`) - or the other way round. You may use an compactor, e.g. [this one](https://www.toptal.com/developers/javascript-minifier), to reduce the needed space.
@@ -228,8 +230,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (MyHomeMyData) Fixes for issue #114 (findings of repository checker)
+### 0.5.0 (2025-09-17)
+* (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
+* (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
 
 ### 0.4.1 (2025-05-22)
 * (MyHomeMyData) Fix for issue #96 (findings of repository checker)

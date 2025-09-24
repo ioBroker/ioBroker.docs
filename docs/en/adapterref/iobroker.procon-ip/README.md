@@ -88,7 +88,7 @@ If you want to support this adapter or say thank you, you can:
 
 ## Changelog
 
-### 1.7.0 (2025-09-08)
+### 1.7.0 (2025-09-20)
 
 - Satisfy latest requirements demanded by the ioBroker-Bot.
 - Raise minimum required js-controller version to 7.0.7.

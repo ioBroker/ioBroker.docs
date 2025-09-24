@@ -361,14 +361,25 @@ it creates [PROTOBUF unknown] messages in th log, they contain the raw hex teleg
 
 ## Changelog
 
-### 1.4.5 (WIP)
+### 1.4.7 (WIP)
 
 - (foxthefox) new datapoints Delta2max
 
+### 1.4.6 (npm)
+
+- (foxthefox) powerocean implementation of ParallelEnergyStreamDetail which is the update to ParallelEnergyStreamReport
+- (foxthefox) powerocean implementation of EnergyStreamDetail which is the update to EnergyStreamReport
+
+### 1.4.5 (npm)
+
+- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) change of cmdId/CmdFunc structure
+
 ### 1.4.4 (npm)
 
-- (foxthefox) new datapoints for PowerOcean and HeatingRod
-- (foxthefox) change from object to array for messages (for telegrams with multiple messages of same type i.e. powerocean)
+- (foxthefox) new datapoints for PowerOcean (HeatingRod, ParallelEnergy)
+- (foxthefox) improvements tp powerocean plus
+- (foxthefox) corrections for powerocean
 - (foxthefox) testing JSON->buffer
 
 ### 1.4.3 (npm)

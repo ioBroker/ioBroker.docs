@@ -25,6 +25,16 @@ The data points CalculatedRemaining/JsonForEcharts (calculated remaining quantit
 
 
 ## Changelog
+
+### 1.4.7 (2025-09-19)
+
+- More explicit function names
+- If received boolean instead number, set it to 0
+
+### 1.4.6 (2025-09-14)
+
+- Axios dependency updated
+
 ### 1.4.5 (2025-08-29)
 
 - Depends updated

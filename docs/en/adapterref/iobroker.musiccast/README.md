@@ -1,336 +1,386 @@
 ![Logo](admin/musiccast.png)
+
 # ioBroker.musiccast
 
-![Number of Installations](http://iobroker.live/badges/musiccast-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/musiccast-stable.svg) 
+![Number of Installations](http://iobroker.live/badges/musiccast-installed.svg)
+![Number of Installations](http://iobroker.live/badges/musiccast-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.musiccast.svg)](https://www.npmjs.com/package/iobroker.musiccast)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.musiccast.svg)](https://www.npmjs.com/package/iobroker.musiccast)
 
 **Tests:** ![Test and Release](https://github.com/foxthefox/ioBroker.musiccast/workflows/Test%20and%20Release/badge.svg)
 
-
 adapter for Yamaha MusicCast devices like WX-010/030, YSP-1600
 
 ## Settings
+
 The admin page the "+" can be used for adding manually the IP address, DeviceID, Type and Name.
-Press the search button for discovery. If you have multiple devices, you have to hit the button multiple times until all devices are discovered. Unfortunately the discovery returns only one object at the time and this could be any of your MusicCast devices. If the return is the same as already part of the table, you have to hit the button again. Sometimes it helps to save and open the damin page again. 
+Press the search button for discovery. If you have multiple devices, you have to hit the button multiple times until all devices are discovered. Unfortunately the discovery returns only one object at the time and this could be any of your MusicCast devices. If the return is the same as already part of the table, you have to hit the button again. Sometimes it helps to save and open the damin page again.
 
 In the unlikely case that 2 or more devices are delivering the same ID, then change one ID slightly. Otherwise the adapter can not distinguish between the 2 devices.
 
 If you want to see the playtime updated for the tracks you listen, please enable/check the respective checkbox. Be aware that increases the message count (every second for every device the pingpong of updates).
 
 ## available Objects
+
 The following objects are currently implemented:
 
 ### basic (zone)
-|Object|Value|settable|Description|
-|--------|-------|:-:|--------|
-|{zone}.power|boolean|x|true/false -> ON/Standby|
-|{zone}.zone_b|boolean|?|true/false -> target Zone is Zone B|
-|{zone}.mute|boolean|x|true/false -> muted/ not muted|
-|{zone}.volume|value|x|0...max (max depending on device)|
-|{zone}.act_vol_mode|text|?|actual volume in dB mode|
-|{zone}.act_vol_val|value|?|actual volume in dB value|
-|{zone}.act_vol_unit|text|-|actual volume unit (should be dB)|
-|{zone}.act_vol_mode_list|text|-|actual volume in dB modes|
-|{zone}.input|text|x|inputs depending on device|
-|{zone}.input_list|text|-|possible inputs|
-|{zone}.input_text|text|-|selected input as text|
-|{zone}.sound_program|text|x|set sound program|
-|{zone}.sound_program_list|text|-|possible sound programs|
-|{zone}.surr_decoder_type|text|?|set surround type|
-|{zone}.surr_decoder_type_list|text|-|possible surround decoder|
-|{zone}.link_control|text|x|set link control|
-|{zone}.link_control_list|text|-|possible link control settings|
-|{zone}.link_audio_delay|text|x|set link audio delay|
-|{zone}.link_audio_delay_list|text|-|possible link link audio delay settings|
-|{zone}.clearVoice|boolean|x|clear Voice control|
-|{zone}.low|value|x|level EQ low|
-|{zone}.mid|value|x|level EQ mid|
-|{zone}.high|value|x|level EQ high|
-|{zone}.subwoofer_volume|value|x|level subwoofer volume|
-|{zone}.bass|value|x|level bass|
-|{zone}.treble|value|x|level treble|
-|{zone}.tone_control_mode_list|text|-|possible tone control mode|
-|{zone}.tone_mode|boolean|?|tone control mode|
-|{zone}.balance|value|x|level balance|
-|{zone}.direct|boolean|x|set direct|
-|{zone}.pure_direct|boolean|x|set pure direct|
-|{zone}.enhancer|boolean|x|set enhancer|
-|{zone}.bass_extension|boolean|x|set bass extension|
-|{zone}.sleep|value|x|sleep timer|
-|{zone}.disable_flags|boolean|x|set disable_flags|
-|{zone}.contents_display|boolean|x|set contents_display|
-|{zone}.party_enable|boolean|x|set party_enable|
-|{zone}.extra_bass|boolean|x|set extra_bass|
-|{zone}.adaptive_drc|boolean|x|set adaptive_drc|
-|{zone}.dts_dialogue_control|value|x|set dts_dialogue_control|
-|{zone}.adaptive_dsp_level|boolean|x|set adaptive_dsp_level|
+
+| Object                        | Value   | settable | Description                             |
+| ----------------------------- | ------- | :------: | --------------------------------------- |
+| {zone}.power                  | boolean |    x     | true/false -> ON/Standby                |
+| {zone}.zone_b                 | boolean |    ?     | true/false -> target Zone is Zone B     |
+| {zone}.mute                   | boolean |    x     | true/false -> muted/ not muted          |
+| {zone}.volume                 | value   |    x     | 0...max (max depending on device)       |
+| {zone}.act_vol_mode           | text    |    ?     | actual volume in dB mode                |
+| {zone}.act_vol_val            | value   |    ?     | actual volume in dB value               |
+| {zone}.act_vol_unit           | text    |    -     | actual volume unit (should be dB)       |
+| {zone}.act_vol_mode_list      | text    |    -     | actual volume in dB modes               |
+| {zone}.input                  | text    |    x     | inputs depending on device              |
+| {zone}.input_list             | text    |    -     | possible inputs                         |
+| {zone}.input_text             | text    |    -     | selected input as text                  |
+| {zone}.sound_program          | text    |    x     | set sound program                       |
+| {zone}.sound_program_list     | text    |    -     | possible sound programs                 |
+| {zone}.surr_decoder_type      | text    |    ?     | set surround type                       |
+| {zone}.surr_decoder_type_list | text    |    -     | possible surround decoder               |
+| {zone}.link_control           | text    |    x     | set link control                        |
+| {zone}.link_control_list      | text    |    -     | possible link control settings          |
+| {zone}.link_audio_delay       | text    |    x     | set link audio delay                    |
+| {zone}.link_audio_delay_list  | text    |    -     | possible link link audio delay settings |
+| {zone}.clearVoice             | boolean |    x     | clear Voice control                     |
+| {zone}.low                    | value   |    x     | level EQ low                            |
+| {zone}.mid                    | value   |    x     | level EQ mid                            |
+| {zone}.high                   | value   |    x     | level EQ high                           |
+| {zone}.subwoofer_volume       | value   |    x     | level subwoofer volume                  |
+| {zone}.bass                   | value   |    x     | level bass                              |
+| {zone}.treble                 | value   |    x     | level treble                            |
+| {zone}.tone_control_mode_list | text    |    -     | possible tone control mode              |
+| {zone}.tone_mode              | boolean |    ?     | tone control mode                       |
+| {zone}.balance                | value   |    x     | level balance                           |
+| {zone}.direct                 | boolean |    x     | set direct                              |
+| {zone}.pure_direct            | boolean |    x     | set pure direct                         |
+| {zone}.enhancer               | boolean |    x     | set enhancer                            |
+| {zone}.bass_extension         | boolean |    x     | set bass extension                      |
+| {zone}.sleep                  | value   |    x     | sleep timer                             |
+| {zone}.disable_flags          | boolean |    x     | set disable_flags                       |
+| {zone}.contents_display       | boolean |    x     | set contents_display                    |
+| {zone}.party_enable           | boolean |    x     | set party_enable                        |
+| {zone}.extra_bass             | boolean |    x     | set extra_bass                          |
+| {zone}.adaptive_drc           | boolean |    x     | set adaptive_drc                        |
+| {zone}.dts_dialogue_control   | value   |    x     | set dts_dialogue_control                |
+| {zone}.adaptive_dsp_level     | boolean |    x     | set adaptive_dsp_level                  |
 
 ### netusb
-|Object|Value|settable|Description|
-|--------|-------|:-:|--------|
-|netusb.input|value|x|set/actual input|
-|netusb.playPause|boolean|x|set Play/Pause|
-|netusb.playback|text|-|status net player|
-|netusb.stop|boolean|x|set Stop|
-|netusb.auto_stop|boolean|-|automatically stopped|
-|netusb.next|boolean|x|set Forward|
-|netusb.prev|boolean|x|set Rewind|
-|netusb.shuffle|boolean|x|toggle shuffle|
-|netusb.shuffle_stat|text|-|shuffle status|
-|netusb.repeat|boolean|x|toggle repeat|
-|netusb.repeat_stat|text|-|repeat status|
-|netusb.artist|text|-|artist name|
-|netusb.album|text|-|album name|
-|netusb.track|text|-|track name|
-|netusb.albumart_url|text|-|http address for album art|
-|netusb.albumart_id|value|-|album art id|
-|netusb.play_time|value|-|played time in s|
-|netusb.play_queue_type|text|-|netusb queue type|
-|netusb.total_time|value|-|total time played in s|
-|netusb.recent_info|json|-|history of played items|
-|netusb.preset_info|json|-|saved presets/favourites|
-|netusb.presetrecallnumber|value|x|recall the # in the favourite list|
-|netusb.usb_devicetype|text|-|type of connected USB device|
-|netusb.attribute|value|-|which possibilites has the service, to be decoded|
-|netusb.recallRecentItem|value|x|which possibiolites has the service, to be decoded|
+
+| Object                    | Value   | settable | Description                                        |
+| ------------------------- | ------- | :------: | -------------------------------------------------- |
+| netusb.input              | value   |    x     | set/actual input                                   |
+| netusb.playPause          | boolean |    x     | set Play/Pause                                     |
+| netusb.playback           | text    |    -     | status net player                                  |
+| netusb.stop               | boolean |    x     | set Stop                                           |
+| netusb.auto_stop          | boolean |    -     | automatically stopped                              |
+| netusb.next               | boolean |    x     | set Forward                                        |
+| netusb.prev               | boolean |    x     | set Rewind                                         |
+| netusb.shuffle            | boolean |    x     | toggle shuffle                                     |
+| netusb.shuffle_stat       | text    |    -     | shuffle status                                     |
+| netusb.repeat             | boolean |    x     | toggle repeat                                      |
+| netusb.repeat_stat        | text    |    -     | repeat status                                      |
+| netusb.artist             | text    |    -     | artist name                                        |
+| netusb.album              | text    |    -     | album name                                         |
+| netusb.track              | text    |    -     | track name                                         |
+| netusb.albumart_url       | text    |    -     | http address for album art                         |
+| netusb.albumart_id        | value   |    -     | album art id                                       |
+| netusb.play_time          | value   |    -     | played time in s                                   |
+| netusb.play_queue_type    | text    |    -     | netusb queue type                                  |
+| netusb.total_time         | value   |    -     | total time played in s                             |
+| netusb.recent_info        | json    |    -     | history of played items                            |
+| netusb.preset_info        | json    |    -     | saved presets/favourites                           |
+| netusb.presetrecallnumber | value   |    x     | recall the # in the favourite list                 |
+| netusb.usb_devicetype     | text    |    -     | type of connected USB device                       |
+| netusb.attribute          | value   |    -     | which possibilites has the service, to be decoded  |
+| netusb.recallRecentItem   | value   |    x     | which possibiolites has the service, to be decoded |
 
 ### system
-|Object|Value|settable|Description|
-|--------|-------|:-:|--------|
-|system.api_version|value|-|API Version|
-|system.system_version|value|-|System Version|
-|system.inputs.{service}|value|-|available input service|
-|system.inputs.{service}.account_enable|value|-|available input service enabled|
-|system.inputs.{service}.distribution_enable|value|-|available input service distributable|
-|system.inputs.{service}.play_info_type|value|-|available input service type|
+
+| Object                                      | Value | settable | Description                           |
+| ------------------------------------------- | ----- | :------: | ------------------------------------- |
+| system.api_version                          | value |    -     | API Version                           |
+| system.system_version                       | value |    -     | System Version                        |
+| system.inputs.{service}                     | value |    -     | available input service               |
+| system.inputs.{service}.account_enable      | value |    -     | available input service enabled       |
+| system.inputs.{service}.distribution_enable | value |    -     | available input service distributable |
+| system.inputs.{service}.play_info_type      | value |    -     | available input service type          |
 
 ### CD player
-|Object|Value|settable|Description|
-|--------|-------|:-:|--------|
-|cd.playPause|boolean|x|set Play/Pause|
-|cd.playback|text|-|status CD player|
-|cd.stop|boolean|x|set Stop|
-|cd.next|boolean|x|set Forward|
-|cd.prev|boolean|x|set Rewind|
-|cd.shuffle|boolean|x|toggle shuffle|
-|cd.shuffle_stat|text|-|shuffle status|
-|cd.repeat|boolean|x|toggle repeat|
-|cd.repeat_stat|text|-|repeat status|
-|cd.device_stat|text|-|device status|
-|cd.playtime|value|-|current playback time|
-|cd.totaltime|value|-|current track total time|
-|cd.disctime|value|-|CD total time|
-|cd.tracknumber|value|-|track current in playback|
-|cd.totaltracks|value|-|total CD tracks|
-|cd.artist|text|-|artist name|
-|cd.album|text|-|album name|
-|cd.track|text|-|track name|
+
+| Object          | Value   | settable | Description               |
+| --------------- | ------- | :------: | ------------------------- |
+| cd.playPause    | boolean |    x     | set Play/Pause            |
+| cd.playback     | text    |    -     | status CD player          |
+| cd.stop         | boolean |    x     | set Stop                  |
+| cd.next         | boolean |    x     | set Forward               |
+| cd.prev         | boolean |    x     | set Rewind                |
+| cd.shuffle      | boolean |    x     | toggle shuffle            |
+| cd.shuffle_stat | text    |    -     | shuffle status            |
+| cd.repeat       | boolean |    x     | toggle repeat             |
+| cd.repeat_stat  | text    |    -     | repeat status             |
+| cd.device_stat  | text    |    -     | device status             |
+| cd.playtime     | value   |    -     | current playback time     |
+| cd.totaltime    | value   |    -     | current track total time  |
+| cd.disctime     | value   |    -     | CD total time             |
+| cd.tracknumber  | value   |    -     | track current in playback |
+| cd.totaltracks  | value   |    -     | total CD tracks           |
+| cd.artist       | text    |    -     | artist name               |
+| cd.album        | text    |    -     | album name                |
+| cd.track        | text    |    -     | track name                |
 
 ### tuner
-|Object|Value|settable|Description|
-|--------|-------|:-:|--------|
-|tuner.common_preset_info|array|-|Preset Information|
-|tuner.am.preset_info|array|-|Preset AM Information|
-|tuner.fm.preset_info|array|-|Preset FM Information|
-|tuner.dab.preset_info|array|-|Preset DAB Information|
-|tuner.am.preset|number|x|AM preset number|                 
-|tuner.am.freq|number|x|AM frequency in kHz|
-|tuner.am.tuned|boolean|-|AM tuned|
-|tuner.fm.preset|number|x|FM preset number|               
-|tuner.fm.freq|number|x|FM frequency in kHz|
-|tuner.fm.tuned|boolean|-|FM tuned|
-|tuner.fm.audio_mode|string|-|FM mono/stereo|
-|tuner.dab.preset|number|x|DAB preset number|                 
-|tuner.dab.id|number|-|DAB Station ID|
-|tuner.dab.status|string|-|DAB status|
-|tuner.dab.freq|number|-|DAB frequency|
-|tuner.dab.category|string|-|primary/secondary|
-|tuner.dab.audio_mode|string|-|DAB mono/stereo|
-|tuner.dab.bit_rate|number|-|DAB bit rate in kpbs|
-|tuner.dab.quality|number|-|DAB quality 0-100|
-|tuner.dab.tune_aid|number|-|DAB signal strenth 0-100|
-|tuner.dab.off_air|boolean|-|DAB off air|
-|tuner.dab.dab_plus|boolean|-|DAB+|
-|tuner.dab.program_type|string|-|DAB program type|
-|tuner.dab.ch_label|string|-|DAB CH label|
-|tuner.dab.service_label|string|-|DAB service label|
-|tuner.dab.dls|string|-|DAB DLS|
-|tuner.dab.ensemble_label|string|-|DAB ensmble label|
-|tuner.dab.initial_scan_progress|number|-|DAB intitial scan progress 0-100|
-|tuner.dab.total_station_num|number|-|DAB total stations 0-255|
-|tuner.rds.program_type|string|-|RDS program type|                 
-|tuner.rds.program_service|string|-|RDS program service|
-|tuner.rds.radio_text_a|string|-|RDS text A|
-|tuner.rds.radio_text_b|string|-|RDS text B|
+
+| Object                          | Value   | settable | Description                      |
+| ------------------------------- | ------- | :------: | -------------------------------- |
+| tuner.common_preset_info        | array   |    -     | Preset Information               |
+| tuner.am.preset_info            | array   |    -     | Preset AM Information            |
+| tuner.fm.preset_info            | array   |    -     | Preset FM Information            |
+| tuner.dab.preset_info           | array   |    -     | Preset DAB Information           |
+| tuner.am.preset                 | number  |    x     | AM preset number                 |
+| tuner.am.freq                   | number  |    x     | AM frequency in kHz              |
+| tuner.am.tuned                  | boolean |    -     | AM tuned                         |
+| tuner.fm.preset                 | number  |    x     | FM preset number                 |
+| tuner.fm.freq                   | number  |    x     | FM frequency in kHz              |
+| tuner.fm.tuned                  | boolean |    -     | FM tuned                         |
+| tuner.fm.audio_mode             | string  |    -     | FM mono/stereo                   |
+| tuner.dab.preset                | number  |    x     | DAB preset number                |
+| tuner.dab.id                    | number  |    -     | DAB Station ID                   |
+| tuner.dab.status                | string  |    -     | DAB status                       |
+| tuner.dab.freq                  | number  |    -     | DAB frequency                    |
+| tuner.dab.category              | string  |    -     | primary/secondary                |
+| tuner.dab.audio_mode            | string  |    -     | DAB mono/stereo                  |
+| tuner.dab.bit_rate              | number  |    -     | DAB bit rate in kpbs             |
+| tuner.dab.quality               | number  |    -     | DAB quality 0-100                |
+| tuner.dab.tune_aid              | number  |    -     | DAB signal strenth 0-100         |
+| tuner.dab.off_air               | boolean |    -     | DAB off air                      |
+| tuner.dab.dab_plus              | boolean |    -     | DAB+                             |
+| tuner.dab.program_type          | string  |    -     | DAB program type                 |
+| tuner.dab.ch_label              | string  |    -     | DAB CH label                     |
+| tuner.dab.service_label         | string  |    -     | DAB service label                |
+| tuner.dab.dls                   | string  |    -     | DAB DLS                          |
+| tuner.dab.ensemble_label        | string  |    -     | DAB ensmble label                |
+| tuner.dab.initial_scan_progress | number  |    -     | DAB intitial scan progress 0-100 |
+| tuner.dab.total_station_num     | number  |    -     | DAB total stations 0-255         |
+| tuner.rds.program_type          | string  |    -     | RDS program type                 |
+| tuner.rds.program_service       | string  |    -     | RDS program service              |
+| tuner.rds.radio_text_a          | string  |    -     | RDS text A                       |
+| tuner.rds.radio_text_b          | string  |    -     | RDS text B                       |
 
 ### clock
-|Object|Value|settable|Description|
-|--------|-------|:-:|--------|
-|clock.auto_sync|boolean|x|Clock auto sync|
-|clock.format|string|x|Clock format 12h/24h|
-|clock.alarm_on|boolean|x|Clock alarm status on/off|
-|clock.volume|number|x|Clock alarm volume|
-|clock.fade_interval|number|x|Clock alarm fade interval|
-|clock.fade_type|number|x|Clock alarm fade type| 
-|clock.mode|string|x|Clock alarm mode oneday/weekly| 
-|clock.repeat|boolean|x|Clock alarm repeat if oneday is specified|   
-|clock.{day}.enable|boolean|x|Clock Setup validity| 
-|clock.{day}.time|string|-|Clock alarm start up time hhmm 00-23,00-59| 
-|clock.{day}.beep|boolean|x|Clock Beep validity|
-|clock.{day}.playback_type|string|-|Clock alarm playback type resume/preset|
-|clock.{day}.resume_input|string|-|Clock alarm resume input ID|
-|clock.{day}.preset_type|string|-|Clock alarm preset type|
-|clock.{day}.preset_num|number|-|Clock alarm preset input ID| 
-|clock.{day}.preset_netusb_input|string|-|Clock alarm netusb input ID| 
-|clock.{day}.preset_netusb_text|string|-|Clock alarm netusb text| 
-|clock.{day}.preset_tuner_band|string|-|Clock alarm tuner band|
-|clock.{day}.preset_tuner_number|number|-|Clock alarm tuner frequency or station ID|
 
+| Object                          | Value   | settable | Description                                |
+| ------------------------------- | ------- | :------: | ------------------------------------------ |
+| clock.auto_sync                 | boolean |    x     | Clock auto sync                            |
+| clock.format                    | string  |    x     | Clock format 12h/24h                       |
+| clock.alarm_on                  | boolean |    x     | Clock alarm status on/off                  |
+| clock.volume                    | number  |    x     | Clock alarm volume                         |
+| clock.fade_interval             | number  |    x     | Clock alarm fade interval                  |
+| clock.fade_type                 | number  |    x     | Clock alarm fade type                      |
+| clock.mode                      | string  |    x     | Clock alarm mode oneday/weekly             |
+| clock.repeat                    | boolean |    x     | Clock alarm repeat if oneday is specified  |
+| clock.{day}.enable              | boolean |    x     | Clock Setup validity                       |
+| clock.{day}.time                | string  |    -     | Clock alarm start up time hhmm 00-23,00-59 |
+| clock.{day}.beep                | boolean |    x     | Clock Beep validity                        |
+| clock.{day}.playback_type       | string  |    -     | Clock alarm playback type resume/preset    |
+| clock.{day}.resume_input        | string  |    -     | Clock alarm resume input ID                |
+| clock.{day}.preset_type         | string  |    -     | Clock alarm preset type                    |
+| clock.{day}.preset_num          | number  |    -     | Clock alarm preset input ID                |
+| clock.{day}.preset_netusb_input | string  |    -     | Clock alarm netusb input ID                |
+| clock.{day}.preset_netusb_text  | string  |    -     | Clock alarm netusb text                    |
+| clock.{day}.preset_tuner_band   | string  |    -     | Clock alarm tuner band                     |
+| clock.{day}.preset_tuner_number | number  |    -     | Clock alarm tuner frequency or station ID  |
 
 ## ToDo
-* support of lists
-* change of interaction values to nice naming
-* fastforward/fastrewind for NETUSB/CD
-* bluetooth
-* dialog level
+
+- support of lists
+- change of interaction values to nice naming
+- fastforward/fastrewind for NETUSB/CD
+- bluetooth
+- dialog level
 
 ## Changelog
 
+### 1.2.1
+
+- materialize -> jsonUI
+
+### 1.2.0
+
+- issue #388 dab.freq and dab.bit_rate min=0
+- dependency update
+- issue #412 dab.preset correction
+
 ### 1.1.4
-* fixed main.surround_ai
-* update devDeps, eslint corrections
-* IOB checker corrections
+
+- fixed main.surround_ai
+- update devDeps, eslint corrections
+- IOB checker corrections
 
 ### 1.1.3
-* translation with adapter-dev
+
+- translation with adapter-dev
 
 ### 1.1.2
-* new version yamahe-yxc library
+
+- new version yamahe-yxc library
 
 ### 1.1.1
-*  (scrounger) added datapoint isOnline, used by ioBroker.device-watcher
+
+- (scrounger) added datapoint isOnline, used by ioBroker.device-watcher
 
 ### 1.1.0 (npm)
-* improved testing
+
+- improved testing
 
 ### 1.0.8
-* error correction add_to_group/remove_from_group
+
+- error correction add_to_group/remove_from_group
 
 #### 1.0.7
-* error correction in link/unlink/distribution
+
+- error correction in link/unlink/distribution
 
 #### 1.0.6
-* (scrounger) recallRecentItem added
+
+- (scrounger) recallRecentItem added
 
 #### 1.0.5
-* usage of new IOB test library
+
+- usage of new IOB test library
 
 #### 1.0.4
-* correction for setting the input ("setInput")
+
+- correction for setting the input ("setInput")
 
 #### 1.0.3
-* new datapoint "extra_bass"
-* new datapoint "adaptive_drc"
-* new datapoint "dts_dialogue_control"
-* new datapoint "adaptive_dsp_level"
-* these are only read in, most likely they are commands, but the API is unknown
+
+- new datapoint "extra_bass"
+- new datapoint "adaptive_drc"
+- new datapoint "dts_dialogue_control"
+- new datapoint "adaptive_dsp_level"
+- these are only read in, most likely they are commands, but the API is unknown
 
 #### 1.0.2
-* new datapoint "input_text"
+
+- new datapoint "input_text"
 
 #### 1.0.1
-* changed algorithm for developer support 
+
+- changed algorithm for developer support
 
 ## 1.0.0 BREAKING CHANGES
-* the deviceId was previously the systemId, which is not unique. Now the deviceId is used, this is changing the object tree
-* musiccast API 2.0.0
-* device search can now returns more than 1 device
-* new output for developer in the the admin panel
-* more async/await
-* corrected testing
+
+- the deviceId was previously the systemId, which is not unique. Now the deviceId is used, this is changing the object tree
+- musiccast API 2.0.0
+- device search can now returns more than 1 device
+- new output for developer in the the admin panel
+- more async/await
+- corrected testing
 
 #### 0.2.2
-* musiccast API 0.0.14
+
+- musiccast API 0.0.14
 
 #### 0.2.1
-* license 2022
-* dependency correction
+
+- license 2022
+- dependency correction
 
 #### 0.2.0
-* refactoring with "create adaptor"
-* async/await
+
+- refactoring with "create adaptor"
+- async/await
 
 #### 0.1.5
-* (Scrounger) error handling when device is not reachable
+
+- (Scrounger) error handling when device is not reachable
 
 #### 0.1.4
-* (Scrounger) correction of type mismatch (array object)
+
+- (Scrounger) correction of type mismatch (array object)
 
 #### 0.1.3
-* (foxthefox) added writing for linkControl/linkAudioDelay/linkAudioQuality
+
+- (foxthefox) added writing for linkControl/linkAudioDelay/linkAudioQuality
 
 #### 0.1.2
-* (Scrounger) correction of type mismatch (string boolean)
+
+- (Scrounger) correction of type mismatch (string boolean)
 
 #### 0.1.1
-* correction for clock "oneday"
+
+- correction for clock "oneday"
 
 #### 0.1.0
-* compact mode
-* yamaha-yxc-nodejs 0.0.8
-* widget update
+
+- compact mode
+- yamaha-yxc-nodejs 0.0.8
+- widget update
 
 #### 0.0.9
-* adminV3 uses values2table and add button back again
-* zone2/3/4 now working
-* extended automatic testing
-* button in admin for collection of JSON responses
+
+- adminV3 uses values2table and add button back again
+- zone2/3/4 now working
+- extended automatic testing
+- button in admin for collection of JSON responses
 
 #### 0.0.8
-* automatic testing update
-* given name in admin page to appear in object (device)
+
+- automatic testing update
+- given name in admin page to appear in object (device)
 
 #### 0.0.7
-* tuner support
-* clock support (information mainly)
-* support of more zones
-* support of mc-link
-* setting of min and max values according features
-* admin v3
+
+- tuner support
+- clock support (information mainly)
+- support of more zones
+- support of mc-link
+- setting of min and max values according features
+- admin v3
 
 #### 0.0.6
-* widget set matching the objects and control
-* cd.shuffle_stat boolean -> text
-* new netusb.shuffle_stat (text)
-* status update via subscribing UDP messages
-* switch for update on playtime info (disabling reduces traffic)
+
+- widget set matching the objects and control
+- cd.shuffle_stat boolean -> text
+- new netusb.shuffle_stat (text)
+- status update via subscribing UDP messages
+- switch for update on playtime info (disabling reduces traffic)
 
 #### 0.0.5
-* cleanup in admin page
-* improvement for object creation
-* more objects on netusb
-* more objects in system
-* added support of CD
+
+- cleanup in admin page
+- improvement for object creation
+- more objects on netusb
+- more objects in system
+- added support of CD
 
 #### 0.0.4
-* new objects and functions (input, sound_prog, EQ, clearVoice)
-* search/discovery in admin page
+
+- new objects and functions (input, sound_prog, EQ, clearVoice)
+- search/discovery in admin page
 
 #### 0.0.3
-* more objects implemented
+
+- more objects implemented
 
 #### 0.0.2
-* minor corrections
+
+- minor corrections
 
 #### 0.0.1
-* initial release with setting of IP in config-page, 
-* available commands power, mute, volume
+
+- initial release with setting of IP in config-page,
+- available commands power, mute, volume
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2024 foxthefox <foxthefox@wysiwis.net>
-Copyright (c) 2024 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2017 - 2025 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2025 foxthefox <foxthefox@wysiwis.net>

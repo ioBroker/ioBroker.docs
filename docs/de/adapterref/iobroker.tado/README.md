@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: cudsgO77sXpPgwId15gH8Ex4ig5OcbZp7Su9X66fyh4=
+hash: 1FE1vzrNGINQ6iiDnOBkccJ3iCl6Y5Iy0cfnXMDm5hA=
 ---
 # IoBroker.tado
 
@@ -23,12 +23,18 @@ Tado° (https://www.tado.com) ist der Experte für intelligentes Heiz- und Energ
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
+## !WICHTIG! Tado° wird API-Aufruflimits einführen
+Tado führt ein Limit für API-Aufrufe ein. Nutzer ohne Auto-Assist-Abonnement sind auf 100 Aufrufe pro Tag beschränkt, Nutzer mit Abonnement auf 20.000 Aufrufe.
+Weitere Informationen finden Sie im Artikel [Das](https://support.tado.com/en/articles/12165739-limitation-for-rest-api-usage).
+Der Tado ioBroker-Adapter wurde um eine neue Funktion erweitert, die neue Konfigurationsmöglichkeiten zur Verwaltung der API-Nutzung bietet. Das tägliche Limit von 100 Aufrufen bedeutet jedoch, dass der Adapter ohne Auto-Assist-Abonnement nicht nutzbar ist. Dies entspricht nur etwa vier Anfragen pro Stunde, was die Funktionalität des Adapters erheblich einschränkt.
+Wenn Sie mit Tados Entscheidung nicht einverstanden sind, informieren Sie sie [wissen](https://support.tado.com/de/articles/3590239-wie-kann-ich-den-kundensupport-von-tado-kontaktieren)!
+
 ## Tado° X
 Grundlegender Support für Tado° X verfügbar.
-Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=)). Sie müssen Debugging-Sitzungen durchführen und mit dem Adapterentwickler interagieren, um die Funktionen von Tado° X zu verbessern.
+Wenn Ihr Setup nicht funktioniert, melden Sie sich bitte mit [Ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=). Sie müssen einige Debugging-Sitzungen unterstützen und mit dem Adapterentwickler interagieren, um die Funktionen von Tado° X zu verbessern.
 
-## Dinge, die Sie mit Tado° V3+, V3, V2 steuern können
-| Bundesland | Beschreibung |
+## Dinge, die Sie auf Tado° V3+, V3, V2 steuern können
+| Zustand | Beschreibung |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power | Gerät ein-/ausschalten |
 | tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius | Temperatur definieren |
@@ -51,7 +57,7 @@ Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket]
 | tado.[x].[yyyyyy].meterReadings | JSON-Objekt mit {"date":"YYYY-MM-DD","reading": 1234} kann zum Hochladen von Zählerständen zu Energy IQ verwendet werden |
 
 ## Dinge, die Sie mit Tado° X steuern können
-| Bundesland | Beschreibung |
+| Zustand | Beschreibung |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power | Gerät ein-/ausschalten |
 | tado.[x].[yyyyyy].Rooms.[z].setting.temperature.value | Temperatur definieren |
@@ -66,17 +72,20 @@ Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket]
 
 ## Erfordert
 * Node.js 20 oder höher
-* ioBroker-Host (js-Controller) 5.0 oder höher
+* ioBroker-Host (js-Controller) 7.0.6 oder höher
+* iorBroker.admin 7.7.2 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.8.0-alpha.0 (2025-09-22)
 * (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
 * (HGlab01) fix issue 'definition missing for preheating' [TadoX]
 * (HGlab01) Additional guidance/log when it comes to RefreshToken issue
+* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
+* (HGlab01) Bump axios to 1.12.2
 
 ### 0.7.10 (2025-04-25)
 * (HGlab01) further token refresh optimizations
@@ -90,10 +99,6 @@ Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket]
 ### 0.7.7 (2025-04-08)
 * (HGlab01) optimize sentry usage
 * (HGlab01) improve retry-mechanism when it comes to erros
-
-### 0.7.5 (2025-03-31)
-* (HGlab01) some further refactorings
-* (HGlab01) Bump axios to 1.8.4
 
 ## License
 MIT License

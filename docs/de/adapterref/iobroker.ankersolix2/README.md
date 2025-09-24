@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ankersolix2/README.md
 title: ioBroker.ankersolix2
-hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
+hash: SLi2rDlaXAw4B4c4s+1uBJLdCVtAMj6cKNEMD9deld0=
 ---
 ![Logo](../../../en/adapterref/iobroker.ankersolix2/admin/ankersolix2.png)
 
@@ -57,6 +57,10 @@ Hinweis: Der Adapter überschreibt die Einstellungen in der App. Wenn Sie die Ap
 Wenn Sie Fehler wie 401 haben, überprüfen Sie bitte Ihre Anmeldeinformationen.
 Wenn Sie erneut Fehler haben und sich nicht anmelden können, stoppen Sie den Adapter und löschen Sie die Sitzungsdaten unter iobroker-data/ankersolix2.0 (z. B. /opt/iobroker/iobroker-data/ankersolix2/). Starten Sie den Adapter anschließend erneut.
 
+## Doku
+- de: [zur Dokumentation](docs/de/README.md)
+- de: [zur Dokumentation](docs/en/README.md)
+
 ## Du willst mich unterstützen?
 [!["Kauf mir einen Kaffee"](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/ronny130286)
 
@@ -68,9 +72,9 @@ Wenn Sie erneut Fehler haben und sich nicht anmelden können, stoppen Sie den Ad
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2025-09-20)
 
-### **WORK IN PROGRESS**
-
+- (ronny130286) add timeplan (schedule) and userdefine energyplan
 - (ronny130286) add Powerplan and AC Loading (for AC devices)
 
 ### 2.3.0 (2025-08-16)

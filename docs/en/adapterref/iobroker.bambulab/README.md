@@ -22,7 +22,26 @@ Please provide your Printer IP-Address, API token and serial number in adapter s
 these are required for a local connection (no cloud involved) to your printer.
 These credentials are stored locally and not shared to third parties.
 
-You must select your Printer model, only the X1 allows pushing of messages, P1x series needs to request by interval setting (default every 5 seconds)
+## Finding the API Token and Serial Number
+
+The location of the API token and serial number depends on your printer model:
+
+### A1/A1 mini Series
+1. Navigate to **Settings** → **Network** on your printer display
+2. Enable **"LAN Mode Only"** (nur Lan-Modus)
+3. Once enabled, IP address, access token, and serial number will be displayed
+
+### P1S Series  
+1. Navigate to **Settings** → **Network** on your printer display
+2. The access token is directly visible in network settings (no LAN mode required)
+3. Serial number can be found in the same menu or in device information
+
+### X1/X1C Series
+1. Navigate to **Settings** → **Network** on your printer display  
+2. The access token is directly visible in network settings
+3. Serial number can be found in the same menu or in device information
+
+**Note:** You must select your Printer model correctly in the adapter settings. Only the X1 series allows pushing of messages, P1x series needs to request by interval setting (default every 5 seconds)
 
 ## Supported models
 | Printer-Model | Status                  |
@@ -74,6 +93,28 @@ All of this helps me to provide error-free adapters that basically never crash.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.2 (2025-09-16)
+* (DutchmanNL) Improve error messages if printer is offline or not reachable. #xxx
+* (DutchmanNL) Solve several type definition issues. #203, #202, #201, #200, #199, #198
+* (DutchmanNL & Copilot) Fix type conversion errors by replacing deprecated `tonumber` with proper `TOINTEGER`/`TOFLOAT` modifiers. #197
+* (DutchmanNL & Copilot) Add missing state attribute definitions for HD2 printer during printing (height, platform, tool, mapping). Fixes #194
+
+### 0.4.1 (2025-09-13)
+* (DutchmanNL & Copilot) Fix HMS error code translations timeout error handling (#183)
+* (DutchmanNL & Copilot) Block dangerous G-code commands during printing for safety (#185)
+* (DutchmanNL & Copilot) Fix P1S fan speed display issues - double conversion and incorrect mapping (#184)
+* (DutchmanNL & Copilot) Add comprehensive API token location documentation for all Bambulab printer models (#182)
+
+### 0.4.0 (2025-09-13)
+* (DutchmanNL) Add missing state definitions to resolve adapter warnings (#181)
+* (DutchmanNL) Empty finishTime and avoid time calculation when not printing (#179)
+* (DutchmanNL) Fix MQTT reconnection to prevent maximum call stack size exceeded error (#177)
+
+### 0.3.5 (2025-09-13)
+* (DutchmanNL & Copilot) Fix several type mismatches #143 #139 #130
+* (DutchmanNL) Updated missing definitions for full MQTT API incl H2D
+* (DutchmanNL & Copilot) Fix repository checker issues and improve admin UI compatibility
+
 ### 0.3.4 (2024-10-28) - Door Indicator Fixes #115
 * (DutchmanNL) Added doorOpen indicator, Fixes [#115](https://github.com/DrozmotiX/ioBroker.bambulab/issues/115)
 
@@ -81,63 +122,10 @@ All of this helps me to provide error-free adapters that basically never crash.
 * (DutchmanNL) update state definitions, (solves [#77](https://github.com/DrozmotiX/ioBroker.bambulab/issues/77) [#58](https://github.com/DrozmotiX/ioBroker.bambulab/issues/58))
 * (DutchmanNL) update connection handling, show connection error only once (Solves #99 #78 #74)
 
-### 0.3.2 (2023-11-20)
-* (DutchmanNL) Show finish time as ISO string
-
-### 0.3.1 (2023-11-20)
-* (DutchmanNL) Bugfix control P & A Series
-* (DutchmanNL) Show end time as a separate state, resolves [#53](https://github.com/DrozmotiX/ioBroker.bambulab/issues/53)
-* (DutchmanNL) Bugfix resolves missing fan speed value, resolves [#36](https://github.com/DrozmotiX/ioBroker.bambulab/issues/36)
-
-### 0.3.0 (2023-11-19) - Release candidate
-* (DutchmanNL) Update dependencies for state handling, resolves #50
-* (DutchmanNL) Adjust log level for Unknown Message from error to debug, resolves #39
-* (DutchmanNL) Add missing definitions to ensure correct creation of states, resolves #39
-* (DutchmanNL) Reduce selection dropdown in admin config to printer series instead of a specific printer type
-* (DutchmanNL) Update adapter code to support new firmware versions released by bambulab, please ensure your printer is up-to-date! resolves #46, resolves #38, resolves #26,
-
-### 0.2.0 (2023-10-18) - Small fixes for new firmware version
-* (DutchmanNL) Button for homing added, fixes #28
-* (DutchmanNL) Bugfix: Translation of HMS-Error codes
-* (DutchmanNL) Several bugfixes for situations no AMS is used
-* (DutchmanNL) Remove control for LED calibration head (could damage hardware)
-
-### 0.1.5 (2023-07-29) - HMS error codes Human readable, new functionalities added
-#### Several state locations have been changed, advise to completely remove adapter & reinstall to upgrade
-* (DutchmanNL) State for human-readable start time added
-* (DutchmanNL) Speed level control implemented solves #10
-* (DutchmanNL) Capability to control all fans implemented
-* (DutchmanNL) Control bed & Nozzle temperature implemented
-* (DutchmanNL) HMS error status indicator states implemented
-* (DutchmanNL) Translations of HMS error codes implemented solves #9
-* (DutchmanNL) Correct definitions for all temperature-related states
-* (DutchmanNL) Control LED for tooling head Logo and calibration unit
-
-### 0.1.4 (2023-07-28) - Support P1-series
-* (DutchmanNL) Configuration page in admin updated
-* (DutchmanNL) Information messages regarding incorrect type of bed-temperatures solved
-* (DutchmanNL) Implemented P1-X printer series, polling interval required for this model (only X1 handles data push)
-
-### 0.1.3 (2023-07-27) - Add new control options
-* (DutchmanNL) add control for chamber fan, tooling head light and allow custom g-code
-
-### 0.1.1 - Minor improvements
-* (DutchmanNL) Translations added
-* (DutchmanNL) Debug logging improved
-* (DutchmanNL) Minor code improvements
-* (DutchmanNL) Control states implemented
-* (DutchmanNL) Test & release workflows updated
-* (DutchmanNL) Encryption of token and device serial improved
-
-### 0.1.0 initial release
-* (DutchmanNL) initial release
-* During startup adapter throws warnings, these can be ignored and will be solved in =< 0.5.0
-* Control start/stop/resume and light available in >= 0.1.1
-
 ## License
 MIT License
 
-Copyright (c) 2024 DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2025 DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

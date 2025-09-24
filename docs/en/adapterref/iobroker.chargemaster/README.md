@@ -51,6 +51,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (HombachC) bump typescript (#684)
+
 ### 0.14.2 (2025-08-26)
 
 - (HombachC) min admin 7.6.17 as recommended
