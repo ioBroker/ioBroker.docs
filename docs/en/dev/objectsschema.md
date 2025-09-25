@@ -577,33 +577,157 @@ ID: `system.adapter.<adapter.name>`
 * `encryptedNative`           - array of config attributes which will be automatically encrypted when stored via Admin configuration page and automatically decrypted at adapter runtime, e.g. `["password", "token"]`
 * `native`                    - predefined attributes which are accessible in `index_m.html` and at runtime via `adapter.config.<attribute>`, e.g. `{"port": 1234, "password": "secret"}`
 
-#### Conditional messages
-If you want that by update from some specific version to a new specific version the message must be shown, you can define `common.messages`.
+#### Conditional Messages (`common.messages`)
 
-Example: 
-```
+You can define **conditional messages** that are shown to the user when updating an adapter.
+These messages can depend on the old version, new version, or even the presence of other adapters.
+
+##### Structure
+
+```jsonc
 "messages": {
-    "condition": {
-        "operand": "and", // "and" or "or"
-        "rules": [
-            "oldVersion<=1.0.44", // currently only oldVersion and newVersion are supported
-            "newVersion>=1.0.45"  // possible comparators: <, >, >=, <=, !=, ==
-        ]
-    },
-    "title": {
-        "en": "Important notice",
-    },
-    "text": {
-        "en": "Main text",
-    },
-    "link": "https://iobroker.net/www/pricing",
-    "buttons": ["agree", "cancel", "ok], // optional. If no buttons defined the info will be shown only in the change log dialog
-    "linkText" {
-         "en": "More info",
-    },
-    "level": "warn" // info, warn, error
+  "condition": {
+    "operand": "and", // "and" = all rules must be true, "or" = at least one must be true
+    "rules": [
+      "oldVersion<=1.0.44",   // condition using the old version
+      "newVersion>=1.0.45"    // condition using the new version
+    ]
+  },
+  "title": {
+    "en": "Important notice"
+  },
+  "text": {
+    "en": "Main text shown to the user"
+  },
+  "link": "https://iobroker.net/www/pricing", // optional
+  "buttons": ["agree", "cancel", "ok"],       // optional. If missing, the message only appears in the changelog
+  "linkText": {
+    "en": "More info"                         // optional text for the link
+  },
+  "level": "warn" // one of: "info", "warn", "error"
 }
 ```
+
+##### Supported Rules
+
+Rules are strings inside the `rules` array. Examples:
+
+* **Version checks**
+
+  * `"oldVersion<=1.0.44"` – old version is less than or equal to 1.0.44
+  * `"newVersion>=1.0.45"` – new version is greater than or equal to 1.0.45
+    *(operators: `<`, `>`, `<=`, `>=`, `==`, `!=`)*
+
+* **Installed state**
+
+  * `"installed"` – true if the adapter was already installed
+  * `"not-installed"` or `"!"` – true if the adapter was not installed
+
+* **Other adapters**
+
+  * `"vis-2>=1.0.0"` – true if adapter `vis-2` is installed with version ≥ 1.0.0
+  * `"vis"` – true if adapter `vis` is installed
+  * `"!vis-2"` – true if adapter `vis-2` is not installed
+
+##### Rule Reference
+
+| Rule example           | Meaning                                                   |
+| ---------------------- | --------------------------------------------------------- |
+| `oldVersion<=1.0.44`   | The currently installed version is ≤ 1.0.44               |
+| `oldVersion>=1.2.0`    | The currently installed version is ≥ 1.2.0                |
+| `newVersion>=1.0.45`   | The version being installed is ≥ 1.0.45                   |
+| `newVersion==2.0.0`    | The version being installed is exactly 2.0.0              |
+| `installed`            | True if the adapter was already installed (any version)   |
+| `not-installed` or `!` | True if the adapter was not installed before              |
+| `vis-2>=1.0.0`         | True if adapter `vis-2` is installed with version ≥ 1.0.0 |
+| `vis`                  | True if adapter `vis` is installed (any version)          |
+| `!vis-2`               | True if adapter `vis-2` is **not** installed              |
+
+###### Operators supported
+
+* `==` – equal
+* `!=` – not equal
+* `<` – less than
+* `<=` – less than or equal
+* `>` – greater than
+* `>=` – greater than or equal
+
+###### Operand
+
+* `"and"` → all rules must be true
+* `"or"` → at least one rule must be true
+
+##### Examples
+
+###### Example 1: Show message only when upgrading from version ≤1.0.44 to ≥1.0.45
+
+```json
+"messages": {
+  "condition": {
+    "operand": "and",
+    "rules": [
+      "oldVersion<=1.0.44",
+      "newVersion>=1.0.45"
+    ]
+  },
+  "title": { "en": "Important update" },
+  "text": { "en": "Please read before continuing." },
+  "level": "warn"
+}
+```
+
+###### Example 2: Show message if adapter is newly installed
+
+```json
+"messages": {
+  "condition": {
+    "operand": "or",
+    "rules": ["not-installed"]
+  },
+  "title": { "en": "Welcome!" },
+  "text": { "en": "Thanks for installing this adapter." },
+  "level": "info"
+}
+```
+
+###### Example 3: Show message if another adapter is required
+
+```json
+"messages": {
+  "condition": {
+    "operand": "and",
+    "rules": ["vis-2>=1.0.0"]
+  },
+  "title": { "en": "Dependency notice" },
+  "text": { "en": "This adapter requires vis-2 version 1.0.0 or higher." },
+  "link": "https://example.com/setup-guide",
+  "linkText": { "en": "Setup guide" },
+  "level": "error"
+}
+```
+
+##### Test and debugging
+
+To test the messages and their rules in, for example, a "dev server" environment, the following steps must be implemented:
+
+- Identify the future version number under which the message should be displayed. This version number will later be selected during the release process.
+- Add the `common.messages` object to the `io-packages.json` file according to the description.
+- Include the previously identified version number in the `common.messages` object, if necessary.
+- Add the changelog entry to the `common.news` object, using the identified version number. This changelog information will later be displayed in the update dialog, along with the information from the `common.messages` object.
+- Enable expert mode in the iobroker of the test environment.
+- In the object view, open the following data point: `system.repositories`.
+- For security reasons, and because the object is very large, it is recommended to copy the content and edit it in a JSON editor (e.g., VS Code or Notepad++).
+- In the editor, locate the existing adapter object.
+- In the found object, modify the following information:
+- `version` -> with the version number identified above
+- `news` -> add the changelog entry for the identified version number
+- `messages` -> insert the prepared message object from `io-packages.json`.
+- To prevent problems, the result should be checked in a JSON validator.
+- Then copy the result back into the "system.repositories" object and save it.
+- Open or reload the adapter tab in the admin interface.
+- The updated version should now be displayed as available for update for the adapter.
+- After clicking the update button for the adapter, the information from the message object should be displayed in a dialog after a short time.
+- Since this version is not yet available on npm, pressing the update button will result in an error, and the dialog should be closed.
 
 #### instance
 ID: `system.adapter.&lt;adapter.name&gt;.&lt;instance-number&gt;`
@@ -647,3 +771,5 @@ ID: `system.host.<host>`
 * `common.name`       - (mandatory) name of the group
 * `common.members`    - (mandatory) array of user-object IDs
 * `common.desc`       - (optional) group purpose description
+
+
