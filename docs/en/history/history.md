@@ -978,4 +978,11 @@ https://github.com/ticaki/ioBroker.brightsky
 
 The Bright Sky API is a free, public API that provides weather data from the German Weather Service (DWD). It was developed to simplify access to this data, as the original DWD data is often in difficult-to-interpret formats. Bright Sky converts this data into an easy-to-use JSON format and makes it accessible via an API.
 
+## vbus-gw (17.9.2025) – new adapter at stable repository
+https://github.com/pdbjjens/ioBroker.vbus-gw
+
+<img src="https://raw.githubusercontent.com/pdbjjens/ioBroker.vbus-gw/main/admin/vbus-gw.png" width="100" height="100" />
+
+Allows TCP access to serial port based VBus devices
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
