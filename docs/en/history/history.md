@@ -978,4 +978,19 @@ https://github.com/ticaki/ioBroker.brightsky
 
 The Bright Sky API is a free, public API that provides weather data from the German Weather Service (DWD). It was developed to simplify access to this data, as the original DWD data is often in difficult-to-interpret formats. Bright Sky converts this data into an easy-to-use JSON format and makes it accessible via an API.
 
+## weathersense (2.10.2025) – new adapter at stable repository
+https://github.com/ltspicer/ioBroker.weathersense
+
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.weathersense/main/admin/weathersense.png" width="100" height="100" />
+
+WeatherSense is a cloud for weather stations. This adapter reads data from the WeatherSense server.
+
+## sofarcloud (2.10.2025) – new adapter at stable repository
+https://github.com/ltspicer/ioBroker.sofarcloud
+
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.sofarcloud/main/admin/sofarcloud.jpg" width="100" height="100" />
+
+This adapter reads the data from the SofarCloud server and stores it in the data point sofarcloud.
+The SofarCloud server stores data from Sofar inverters.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
