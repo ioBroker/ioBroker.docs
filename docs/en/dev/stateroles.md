@@ -420,7 +420,7 @@ Special roles for media players
 * `value.temperature.feelslike` - Actual temperature "feels like"
 * `value.temperature.max`       - Maximal temperature in last 24h
 * `value.temperature.max.forecast.0`  - Max temperature forecast for today
-* `value.temperature.max.forecast.1`
+* `value.temperature.max.forecast.1`  - Max temperature forecast for tomorrow
 * `value.temperature.min`       - Minimal temperature in last 24h
 * `value.temperature.min.forecast.0`  - Min temperature forecast for today
 * `value.temperature.min.forecast.1`
