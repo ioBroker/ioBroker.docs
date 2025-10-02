@@ -423,7 +423,7 @@ Special roles for media players
 * `value.temperature.max.forecast.1`  - Max temperature forecast for tomorrow
 * `value.temperature.min`       - Minimal temperature in last 24h
 * `value.temperature.min.forecast.0`  - Min temperature forecast for today
-* `value.temperature.min.forecast.1`
+* `value.temperature.min.forecast.1`  - Min temperature forecast for tomorrow
 * `value.temperature.windchill` - Actual wind chill
 * `value.uv`                    - Actual UV level
 * `weather.chart.url`           - URL to chart for weather history
