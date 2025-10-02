@@ -373,40 +373,35 @@ Special roles for media players
 ```
 
 ### Weather
-* `value.temperature`           - Actual temperature
-* `value.temperature.windchill` - Actual wind chill
-* `value.temperature.dewpoint`  - Actual dew-point
-* `value.temperature.feelslike` - Actual temperature "feels like"
-* `value.temperature.min`       - Minimal temperature in last 24h
-* `value.temperature.max`       - Maximal temperature in last 24h
-* `value.humidity`              - actual or average humidity
-* `value.humidity.min`          - actual humidity
-* `value.humidity.max`          - actual humidity
-* `value.speed.wind`            - actual or average wind speed
-* `value.speed.max.wind`        - maximal wind speed in last 24h
-* `value.speed.min.wind`        - minimal wind speed in last 24h
-* `value.speed.wind.gust`       - actual wind gust speed
-* `value.direction.wind`        - actual or average wind direction in degrees
-* `value.direction.max.wind`    - actual wind direction in degrees
-* `value.direction.min.wind`    - actual wind direction in degrees
-* `weather.direction.wind`      - actual or average wind direction as text, e.g., NNW
 * `date`                        - actual date or date of last-read information
+* `date.forecast.1`                 - tomorrow date
 * `date.sunrise`                - Sunrise for today
 * `date.sunset`                 - Sunset for today
 * `dayofweek`                   - day of week as text
 * `location`                    - Text description of location (e.g., address)
-* `weather.icon`                - Actual state icon URL for now
-* `weather.icon.wind`           - Actual wind icon URL for now
-* `weather.icon.name`           - Actual state icon name for now
-* `weather.state`               - Actual weather description
-* `value.precipitation`         - (`type: number, unit: mm`) precipitation for last 24 hours rain/snow (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
-* `value.precipitation.hour`    - Actual precipitation level in last hour
-* `value.precipitation.today`   - Actual precipitation level for today (till 0:00)
-* `value.precipitation.chance`  - Actual precipitation chance for today
-* `value.precipitation.type`    - Actual precipitation type for today. (`type: number`) States: 0 - NO, 1 - RAIN, 2 - SNOW, 3 - HAIL
-* `value.radiation`             - Actual sun radiation level
-* `value.uv`                    - Actual UV level
 * `value.clouds`                - Clouds on the sky. 0% - no clouds, 100% - many clouds.
+* `value.direction.max.wind`    - actual wind direction in degrees
+* `value.direction.min.wind`    - actual wind direction in degrees
+* `value.direction.wind`        - actual or average wind direction in degrees
+* `value.direction.wind.forecast.0` - wind direction forecast for today in degrees
+* `value.direction.wind.forecast.1` - wind direction forecast for tomorrow in degrees
+* `value.humidity`              - actual or average humidity
+* `value.humidity.max`          - actual humidity
+* `value.humidity.min`          - actual humidity
+* `value.precipitation`         - (`type: number, unit: mm`) precipitation for last 24 hours rain/snow (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
+* `value.precipitation.chance`  - Actual precipitation chance for today
+* `value.precipitation.day.forecast.0`     - Forecast for precipitation for daytime
+* `value.precipitation.forecast.0`  - (`type: number, unit: %`) Forecast of precipitation chance for today
+* `value.precipitation.forecast.0`  - (`type: number, unit: mm`) Forecast of precipitation level for today
+* `value.precipitation.forecast.1`  - (`type: number, unit: %`) Forecast of precipitation chance for tomorrow
+* `value.precipitation.forecast.1`  - (`type: number, unit: mm`) Forecast of precipitation level for tomorrow
+* `value.precipitation.hour`    - Actual precipitation level in last hour
+* `value.precipitation.night.forecast.0`   - Forecast for precipitation for nighttime
+* `value.precipitation.today`   - Actual precipitation level for today (till 0:00)
+* `value.precipitation.type`    - Actual precipitation type for today. (`type: number`) States: 0 - NO, 1 - RAIN, 2 - SNOW, 3 - HAIL
+* `value.pressure.forecast.0`       - forecast for pressure for today
+* `value.pressure.forecast.1`
+* `value.radiation`             - Actual sun radiation level
 * `value.rain`                  - Actual rain level in last 24 hours
 * `value.rain.hour`             - Actual rain level in last hour
 * `value.rain.today`            - Actual rain level for today (till 0:00)
@@ -414,36 +409,40 @@ Special roles for media players
 * `value.snow.hour`             - Actual snow level in last hour
 * `value.snow.today`            - Actual snow level for today (till 0:00)
 * `value.snowline`              - Actual snow line in meters
+* `value.speed.max.wind`        - maximal wind speed in last 24h
+* `value.speed.min.wind`        - minimal wind speed in last 24h
+* `value.speed.wind`            - actual or average wind speed
+* `value.speed.wind.forecast.0`     - wind speed forecast for today
+* `value.speed.wind.forecast.1`     - wind speed forecast for tomorrow
+* `value.speed.wind.gust`       - actual wind gust speed
+* `value.temperature`           - Actual temperature
+* `value.temperature.dewpoint`  - Actual dew-point
+* `value.temperature.feelslike` - Actual temperature "feels like"
+* `value.temperature.max`       - Maximal temperature in last 24h
+* `value.temperature.max.forecast.0`  - Max temperature forecast for today
+* `value.temperature.max.forecast.1`  - Max temperature forecast for tomorrow
+* `value.temperature.min`       - Minimal temperature in last 24h
+* `value.temperature.min.forecast.0`  - Min temperature forecast for today
+* `value.temperature.min.forecast.1`  - Min temperature forecast for tomorrow
+* `value.temperature.windchill` - Actual wind chill
+* `value.uv`                    - Actual UV level
 * `weather.chart.url`           - URL to chart for weather history
 * `weather.chart.url.forecast`  - URL to chart for weather forecast
+* `weather.direction.wind`      - actual or average wind direction as text, e.g., NNW
+* `weather.direction.wind.forecast.0` - wind direction forecast for today as text
 * `weather.html`                - HTML object with weather description
+* `weather.icon`                - Actual state icon URL for now
+* `weather.icon.forecast.1`         - tomorrow icon
+* `weather.icon.name`           - Actual state icon name for now
+* `weather.icon.wind`           - Actual wind icon URL for now
+* `weather.json`                - JSON object with specific data
+* `weather.state`               - Actual weather description
+* `weather.state.forecast.0`        - Weather description for today
+* `weather.state.forecast.1`        - tomorrow weather state
 * `weather.title`               - Very short description
+* `weather.title.forecast.0`        - Very short description for tomorrow
 * `weather.title.short`         - Very, very short description (One word)
 * `weather.type`                - Type of weather information
-* `weather.json`                - JSON object with specific data
-* `value.speed.wind.forecast.0`     - wind speed forecast for today
-* `weather.state.forecast.0`        - Weather description for today
-* `value.direction.wind.forecast.0` - wind direction forecast for today in degrees
-* `weather.direction.wind.forecast.0` - wind direction forecast for today as text
-* `value.pressure.forecast.0`       - forecast for pressure for today
-* `value.temperature.min.forecast.0`  - Min temperature forecast for today
-* `value.temperature.max.forecast.0`  - Max temperature forecast for today
-* `value.precipitation.forecast.0`  - (`type: number, unit: %`) Forecast of precipitation chance for today
-* `value.precipitation.forecast.0`  - (`type: number, unit: mm`) Forecast of precipitation level for today
-* `weather.title.forecast.0`        - Very short description for tomorrow
-* `value.precipitation.day.forecast.0`     - Forecast for precipitation for daytime
-* `value.precipitation.night.forecast.0`   - Forecast for precipitation for nighttime
-
-* `date.forecast.1`                 - tomorrow date
-* `weather.icon.forecast.1`         - tomorrow icon
-* `weather.state.forecast.1`        - tomorrow weather state
-* `value.temperature.min.forecast.1`
-* `value.temperature.max.forecast.1`
-* `value.precipitation.forecast.1`  - (`type: number, unit: %`) Forecast of precipitation chance for tomorrow
-* `value.precipitation.forecast.1`  - (`type: number, unit: mm`) Forecast of precipitation level for tomorrow
-* `value.direction.wind.forecast.1`
-* `value.speed.wind.forecast.1`
-* `value.pressure.forecast.1`
 
 ### Info
 * `info.ip`        - IP of a device
