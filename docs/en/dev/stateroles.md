@@ -384,7 +384,7 @@ Special roles for media players
 * `value.direction.min.wind`    - actual wind direction in degrees
 * `value.direction.wind`        - actual or average wind direction in degrees
 * `value.direction.wind.forecast.0` - wind direction forecast for today in degrees
-* `value.direction.wind.forecast.1`
+* `value.direction.wind.forecast.1` - wind direction forecast for tomorrow in degrees
 * `value.humidity`              - actual or average humidity
 * `value.humidity.max`          - actual humidity
 * `value.humidity.min`          - actual humidity
