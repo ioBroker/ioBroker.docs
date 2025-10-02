@@ -413,7 +413,7 @@ Special roles for media players
 * `value.speed.min.wind`        - minimal wind speed in last 24h
 * `value.speed.wind`            - actual or average wind speed
 * `value.speed.wind.forecast.0`     - wind speed forecast for today
-* `value.speed.wind.forecast.1`
+* `value.speed.wind.forecast.1`     - wind speed forecast for tomorrow
 * `value.speed.wind.gust`       - actual wind gust speed
 * `value.temperature`           - Actual temperature
 * `value.temperature.dewpoint`  - Actual dew-point
