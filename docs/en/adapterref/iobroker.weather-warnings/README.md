@@ -146,6 +146,10 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2025-10-02)
+- (ticaki) Add configurable email recipients with correct processing of comma-separated addresses
+- (ticaki) Update dependencies
+
 ### 0.7.4 (2025-02-03)
 - (ticaki) change sendTo for whatsapp
 

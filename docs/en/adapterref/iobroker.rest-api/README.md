@@ -184,6 +184,12 @@ You cannot send POST request to commands via GUI.
 
 
 ## Changelog
+### 3.1.0 (2025-10-05)
+* (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
+* (@SimonFischer04) remove 18 and add node 24 to tests
+* (@SimonFischer04) multiple null error fixes and wrong swagger schema #151
+* (@GermanBluefox) updated packages
+
 ### 3.0.1 (2025-05-21)
 * (@GermanBluefox) Corrected the web extension
 

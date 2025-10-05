@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: nndb+Vr3DTPX71zseg9XTxRubRCvqrSDw+NPUorH1IA=
+hash: cGsREiIjFudCdgPjrbHcFaIkH3grXBVxpuy/k8Uh4gM=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -41,8 +41,6 @@ Wichtige Teile dieses Adapters basieren auf dem Projekt [open3e](https://github.
 
 Eine Python-basierte Implementierung eines reinen Listening-Ansatzes (nur Collect) unter Verwendung von MQTT-Messaging ist ebenfalls verfügbar, siehe [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
-**Wichtiger Hinweis zum Update von node.js:** Der Adapter verwendet sogenannte native Module, die bei einem Versionswechsel von node.js neu erstellt werden müssen. Daher ist es nach einem Upgrade von node.js sehr wahrscheinlich, dass der Adapter beim nächsten Start ausfällt. Stoppen Sie in diesem Fall den Adapter, geben Sie in der Kommandozeile `iob rebuild` ein und starten Sie den Adapter anschließend. Dies sollte das Problem beheben. Sollte das Problem weiterhin bestehen, melden Sie es bitte.
-
 # Erste Schritte
 **Voraussetzungen:**
 
@@ -75,6 +73,9 @@ Sie können die Datenpunktinformationen auf der Registerkarte „LISTE DER DATEN
 
 * Wenn Sie einen CAN-Adapter konfiguriert haben, der an den **zweiten CAN-Bus** angeschlossen ist, wird ein Reiter "ZUORDNUNGEN ZUM ZWEITEN CAN-ADAPTER" angezeigt. Bitte konfigurieren Sie dort die zu erfassenden Geräte.
 * Das war's. Drücken Sie die Schaltfläche „SPEICHERN & SCHLIESSEN“ und überprüfen Sie die im Objektbaum gesammelten Daten.
+
+# Warnung: Nach dem Upgrade von node.js wird der Adapter wahrscheinlich nicht mehr funktionieren
+**Der Adapter verwendet sogenannte native Module, die bei einem Versionswechsel von node.js neu erstellt werden müssen.** Daher ist es nach einem Upgrade von node.js sehr wahrscheinlich, dass der Adapter beim nächsten Start ausfällt. Stoppen Sie in diesem Fall den Adapter, geben Sie in der Kommandozeile `iob rebuild` ein und starten Sie den Adapter anschließend. Dies sollte das Problem beheben. Sollte das Problem weiterhin bestehen, melden Sie es bitte.
 
 # E380 Daten und Einheiten
 Es werden bis zu zwei E380-Energiezähler unterstützt. Die IDs der Datenpunkte hängen von der CAN-Adresse des Geräts ab:
@@ -137,13 +138,22 @@ Ja, das ist unter bestimmten Voraussetzungen möglich:
 * Wenn Sie UDSonCAN hier verwenden, ist es wichtig, dies nicht für dieselben Geräte zu tun wie open3e. Andernfalls treten sporadische Kommunikationsfehler auf.
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, können Sie mir gerne ein Bier spendieren. Prost! :Bier:
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, geben Sie mir doch ein Bier aus. Prost! :Bier:
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (MyHomeMyData) Fixes for issue #169 (repository checker)
+
+### 0.10.13 (2025-09-30)
+* (MyHomeMyData) Fix for issue #162
+
+### 0.10.12 (2025-09-15)
+* (MyHomeMyData) Migration to ESLint 9, refer to issues #141 and #152
+
 ### 0.10.11 (2025-09-06)
 * (MyHomeMyData) Fix for issue #152 (repository checker) and #126 (node.js 24)
 * (MyHomeMyData) Added hint to readme regarding user action after upgrading version of node.js

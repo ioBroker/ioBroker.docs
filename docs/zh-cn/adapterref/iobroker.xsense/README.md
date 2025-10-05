@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: lXYKPeJrq1REyGDcyi6qzSM4N0/S0n2sjBJ8GuUJ3Gc=
+hash: 55bZGVCl8p5II4kj8dE1jRNeDjumMqcwtFLshb/cjD8=
 ---
 ![标识](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -90,7 +90,7 @@ python --version
 pip --version
 ```
 
-- 随后，在“xsense.0.info.callPython”下的对象中输入“python”（默认值为“python3”）。
+- 随后，在“xsense.0.info.callPython”下的对象中，输入“python”（默认值为“python3”）。
 
 🐧 **Linux / Docker**
 
@@ -115,11 +115,19 @@ pip --version
 
 <img width="1029" height="438" alt="形象的" src="https://github.com/user-attachments/assets/86e4fd1c-1d4e-4234-a2ad-48b8dd9f418e" />
 
-<img width="1387" height="779" alt="形象的" src="https://github.com/user-attachments/assets/f065c43d-125b-4ca4-a053-bbf4b926e1f6" />
+<img width="1668" height="832" alt="形象的" src="https://github.com/user-attachments/assets/9c6b78dd-aca0-45d4-acbc-bd1511e6ee4b" />
 
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.1.1 (2025-10-04)
+* (arteck) fix
+
+### 0.1.0 (2025-10-04)
+* (arteck) improved query handling
+* (arteck) add Test button with answer message
+* (arteck) shorter request interval (min 10 sec)
+
 ### 0.0.18 (2025-09-06)
 * (arteck) fix time state from device
 

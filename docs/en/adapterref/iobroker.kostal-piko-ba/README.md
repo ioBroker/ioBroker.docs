@@ -59,6 +59,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (HombachC) fixing issues detected by repository checker (#830)
+- (HombachC) update chai system
+
 ### 6.0.2 (2025-09-14)
 
 - (HombachC) update axios (#829)

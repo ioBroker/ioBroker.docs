@@ -84,6 +84,10 @@ directory) to try it out on the commandline. Call the scripts using "node filena
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.7.0 (2025-10-02)
+* IMPORTANT: js-controller 6.0 is now needed at least
+* (Apollon77) Dependencies updated
+
 ### 1.6.0 (2022-12-09)
 * IMPORTANT: js-controller 3.0 is now needed at least
 * (Apollon77) Delay adapter initialization when USV is not reachable on adapter start
@@ -148,7 +152,7 @@ directory) to try it out on the commandline. Call the scripts using "node filena
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2016-2025 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

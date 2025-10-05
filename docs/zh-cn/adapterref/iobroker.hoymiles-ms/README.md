@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hoymiles-ms/README.md
 title: ioBroker.hoymiles-ms
-hash: BPRyqwDODN2tHAKClSYQAInymu/9hXiS5ctU+20iSyU=
+hash: xIGHU50v07ytNPukywDhuEkgVqwXE+FtLcOfQ6vtMys=
 ---
 ![标识](../../../en/adapterref/iobroker.hoymiles-ms/admin/hoymiles-ms.png)
 
@@ -24,14 +24,14 @@ hash: BPRyqwDODN2tHAKClSYQAInymu/9hXiS5ctU+20iSyU=
 **************************************************************************************************************
 
 ## Hoymiles-ms ioBroker 适配器
-此适配器将**HOYMILES**微存储系统（目前仅支持 Hoymiles SM-A2）集成到 ioBroker。设备描述可参见[这里](https://www.hoymiles.com/de/products/micro-storage)。
+此适配器将**HOYMILES**微存储系统（目前仅支持 Hoymiles SM-A2）集成到 ioBroker。设备描述请参见[这里](https://www.hoymiles.com/de/products/micro-storage)。
 
 请注意，此适配器与上述公司没有任何关系，并且不存在任何商业关系。
 
 **************************************************************************************************************
 
 ## 免责声明
-**所有产品和公司名称或徽标均为其各自所有者的商标™或注册商标®。使用它们并不意味着与它们或其任何关联子公司有任何关联或认可！本个人项目由业余时间维护，不承担任何商业目的。**
+**所有产品和公司名称或徽标均为其各自所有者的商标™或注册商标®。使用它们并不意味着与它们或其任何关联子公司有任何关联或认可！此个人项目由业余时间维护，不用于任何商业目的。**
 
 **************************************************************************************************************
 
@@ -49,11 +49,11 @@ hash: BPRyqwDODN2tHAKClSYQAInymu/9hXiS5ctU+20iSyU=
 
 -mqtt网络
 
-指定要监听的网络。通常，监听所有网络 (0.0.0.0) 就足够了。
+指定要监听的网络。通常情况下，监听所有网络 (0.0.0.0) 就足够了。
 
 -mqtt端口
 
-指定要使用的 (tcp) 端口。由于 ioBroker.mqtt 适配器可能占用标准 MQTT 端口 (1883)，而 ioBroker.shelly 适配器默认使用端口 1882，因此本适配器默认使用端口 1881。不过，您可以使用任何空闲端口。
+指定要使用的 (tcp) 端口。由于标准 MQTT 端口 (1883) 可能已被 ioBroker.mqtt 适配器占用，并且 ioBroker.shelly 适配器默认使用端口 1882，因此本适配器默认使用端口 1881。但您可以使用任何空闲端口。
 
 ### Hoymiles MS-A2 的配置
 要配置 Hoymiles MS-A2 设备，请打开 S-Miles Home App。选择配置页面（使用右上角的齿轮图标），然后向下滚动到“MQTT 服务”。启用 MQTT 服务并输入
@@ -64,14 +64,14 @@ ioBroker 系统的 IP 地址（使用 MQTT 服务器模式时）或您的 MQTT B
 
 - 港口
 
-配置你的MQTT代理的por号码
+为您的 mqtt 代理配置的端口号
 
 - 可选择设置客户端前缀（默认为“MSA”）
 
-此适配器目前尚不支持身份验证。因此必须将其禁用。
+此适配器目前尚不支持身份验证。因此必须禁用此功能。
 
 ＃＃ 手术
-适配器启动后，会监听从 Hoymiles 设备接收的 MQTT 数据包。适配器不会以任何方式轮询 - 所有活动均由 Hoymiles 单元触发。请注意，配置数据仅在连接建立后发送一次，而实时数据每秒发送一次。系统统计信息通常每五分钟更新一次。请注意，这些间隔不可由适配器配置 - 它们由 Hoymiles-Api 定义。
+适配器启动后，会监听从 Hoymiles 设备接收的 MQTT 数据包。适配器不会以任何方式轮询 - 所有活动均由 Hoymiles 设备触发。请注意，配置数据仅在连接建立后发送一次，而实时数据每秒发送一次。系统统计信息通常每五分钟更新一次。请注意，这些间隔不可由适配器配置 - 它们由 Hoymiles-Api 定义。
 
 **************************************************************************************************************
 

@@ -136,7 +136,12 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.1.5 (2025-10-04)
+* (asgothian) Bugfixes
+* (asgothian) ZHC25.36.0
+* (asgothian) reduced stopTimeout to 5s
+
+### 3.1.4 (2025-09-26)
 * (asgothian) Remove extra logging
 * (asgothian) Add extra configurations
 * (asgothian) Do not read states from deactivated devices
@@ -144,6 +149,9 @@ Other topics related to this adapter are also documented in the associated [wiki
 * (asgothian) Change display for deactivated devices in the object tree (gray, no connected icon)
 * (asgothian) more detailed device debug
 * (asgothian) device debug UI improvements
+* (asgothian) Pairing and device Query buttons on router cards
+* (asgothian) ZHC 25.31.0, ZH 6.1.2 or newer
+* (asgothian) Options based on ZHC defined options
 
 ### 3.1.2 (2025-09-15)
 * (asgothian) Fix pairing bug

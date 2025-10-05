@@ -56,13 +56,21 @@ On a HUB 1200 / HUB 2000 / ACE 1500 combination you have to use '**setDeviceAuto
 
 ## Notes
 
-You will be logged out of the official iOS or Android App after logging in with the ioBroker adapter. This is a normal behavior. As a workaround you can create an second Zendure account with another e-mail and grant access to your Solarflow HUB to this account. Then use the second account for ioBroker / the Zendure Solarflow adapter. This is not working für new devices like SF 2400 AC or SF 800 (Pro).
-
-## Credits
-
-Credits goes to https://github.com/reinhard-brandstaedter/solarflow which helped a lot with the knowledge about the MQTT server from Zendure! Thanks!
+This adapter will now use the Cloud Authorization Code for authentication on the official mqtt servers, which you can generate in the Zendure app!
 
 ## Changelog
+### 3.0.1 (2025-10-02)
+
+- Update 'lastUpdate' when a battery value changes
+- Add deviceKey 'R3mn8U' for Solarflow 800 Pro
+
+### 3.0.0 (2025-09-30)
+
+- Breaking Change: Change authentication to "authentication cloud key". You can generate a key in the official zendure app
+- Removed fallback server
+- Add deviceKey 'a4ss5P' for Solarflow 800
+- Refactor a lot of code
+
 ### 2.0.4 (2025-09-12)
 
 - Fix creation of control states on new Hyper 2000 v3

@@ -74,9 +74,9 @@ Now we have implemented a "auto-repair" which changes to structure to documented
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.2.4 (2025-10-04)
 * (René) new testing
+* (René) update dependencies + changes based on adapter checker
 
 ### 3.2.3 (2025-02-26)
 * (René) changes requested by adapter checker

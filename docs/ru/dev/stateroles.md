@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: f6xavxln/lfdaUZugKWOXA9EFNDGFKL9sejm5XsPYyw=
+hash: SAbUzvDtWNhrpF4I5/Bso4E/DCqenx+tWZoF89KG30k=
 ---
 # Государственные роли
 Для объектов типа `state` необходимо задать для свойства `common.role` одну из ролей, определённых в списке ниже.
@@ -126,12 +126,12 @@ hash: f6xavxln/lfdaUZugKWOXA9EFNDGFKL9sejm5XsPYyw=
 * `value.gps.radius` - радиус текущего измерения GPS
 * ~~`value.power.consumption` - потребление энергии (единица измерения = Вт·ч или кВт·ч)~~
 * ~~`value.power.production` - производство энергии (единица измерения = Вт·ч или кВт·ч)~~
-* `value.energy` - энергия (единица измерения = Вт·ч, кВт·ч или м³ для бензина)
+* `value.energy` - энергия (единица измерения=Вт·ч, кВт·ч или м³ для бензина)
 * `value.energy.active` - активная энергия (единица измерения=Вт·с, Вт·ч, кВт·ч)
 * `value.energy.reactive` - реактивная энергия (единица измерения=вар, кВарч)
 * `value.energy.consumed` - потребленная энергия (единица измерения=Вт·с, Вт·ч, кВт·ч)
 * `value.energy.produced` - произведенная мощность (единица измерения = Вт·ч, Вт·ч или кВт·ч)
-* `value.power` - мощность энергии (единица измерения = Вт или кВт)
+* `value.power` - мощность энергии (единица измерения=Вт или кВт)
 * `value.power.active` - активная мощность (ед. изм.=Вт, кВт)
 * `value.power.reactive` - реактивная мощность (единица измерения=вар, кВар)
 * `value.power.consumed` - потребляемая мощность (единица измерения=Вт или кВт)
@@ -378,40 +378,35 @@ hash: f6xavxln/lfdaUZugKWOXA9EFNDGFKL9sejm5XsPYyw=
 ```
 
 ### Погода
-* `value.temperature` - Фактическая температура
-* `value.temperature.windchill` - Фактическое охлаждение ветром
-* `value.temperature.dewpoint` - Фактическая точка росы
-* `value.temperature.feelslike` — Фактическая температура «по ощущениям»
-* `value.temperature.min` - Минимальная температура за последние 24 часа
-* `value.temperature.max` - Максимальная температура за последние 24 часа
-* `value.humidity` - фактическая или средняя влажность
-* `value.humidity.min` - фактическая влажность
-* `value.humidity.max` - фактическая влажность
-* `value.speed.wind` - фактическая или средняя скорость ветра
-* `value.speed.max.wind` - максимальная скорость ветра за последние 24 часа
-* `value.speed.min.wind` - минимальная скорость ветра за последние 24 часа
-* `value.speed.wind.gust` - фактическая скорость порыва ветра
-* `value.direction.wind` - фактическое или среднее направление ветра в градусах
-* `value.direction.max.wind` - фактическое направление ветра в градусах
-* `value.direction.min.wind` - фактическое направление ветра в градусах
-* `weather.direction.wind` - фактическое или среднее направление ветра в виде текста, например, NNW
 * `date` - фактическая дата или дата последнего прочтения информации
+* `date.forecast.1` - завтрашняя дата
 * `date.sunrise` - Восход солнца на сегодня
 * `date.sunset` - Закат на сегодня
 * `dayofweek` - день недели в виде текста
 * `location` - Текстовое описание местоположения (например, адрес)
-* `weather.icon` — URL-адрес актуального значка состояния на данный момент
-* `weather.icon.wind` — актуальный URL-адрес значка ветра на данный момент
-* `weather.icon.name` — Фактическое название значка состояния на данный момент
-* `weather.state` — Фактическое описание погоды
-* `value.precipitation` - (`type: number, unit: mm`) осадки в виде дождя/снег за последние 24 часа (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
-* `value.precipitation.hour` - Фактический уровень осадков за последний час
-* `value.precipitation.today` - Фактический уровень осадков на сегодня (до 0:00)
-* `value.precipitation.chance` - Фактическая вероятность осадков на сегодня
-* `value.precipitation.type` - Фактический тип осадков на сегодня. (`type: number`) Состояния: 0 - НЕТ, 1 - ДОЖДЬ, 2 - СНЕГ, 3 - ГРАД
-* `value.radiation` - Фактический уровень солнечной радиации
-* `value.uv` - Фактический уровень УФ
 * `value.clouds` - Облака на небе. 0% - нет облаков, 100% - много облаков.
+* `value.direction.max.wind` - фактическое направление ветра в градусах
+* `value.direction.min.wind` - фактическое направление ветра в градусах
+* `value.direction.wind` - фактическое или среднее направление ветра в градусах
+* `value.direction.wind.forecast.0` - прогноз направления ветра на сегодня в градусах
+* `value.direction.wind.forecast.1` - прогноз направления ветра на завтра в градусах
+* `value.humidity` - фактическая или средняя влажность
+* `value.humidity.max` - фактическая влажность
+* `value.humidity.min` - фактическая влажность
+* `value.precipitation` - (`type: number, unit: mm`) осадки в виде дождя/снега за последние 24 часа (Niederschlag heute für Schnee oder Regen / осадки сегодня снега или дождя)
+* `value.precipitation.chance` - Фактическая вероятность осадков на сегодня
+* `value.precipitation.day.forecast.0` - Прогноз осадков на дневное время
+* `value.precipitation.forecast.0` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на сегодня
+* `value.precipitation.forecast.0` - (`тип: число, единица: мм`) Прогноз уровня осадков на сегодня
+* `value.precipitation.forecast.1` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на завтра
+* `value.precipitation.forecast.1` - (`тип: число, единица: мм`) Прогноз уровня осадков на завтра
+* `value.precipitation.hour` - Фактический уровень осадков за последний час
+* `value.precipitation.night.forecast.0` - Прогноз осадков на ночь
+* `value.precipitation.today` - Фактический уровень осадков на сегодня (до 0:00)
+* `value.precipitation.type` - Фактический тип осадков на сегодня. (`type: number`) Состояния: 0 - НЕТ, 1 - ДОЖДЬ, 2 - СНЕГ, 3 - ГРАД
+* `value.pressure.forecast.0` - прогноз давления на сегодня
+* `значение.давление.прогноз.1`
+* `value.radiation` - Фактический уровень солнечной радиации
 * `value.rain` - Фактический уровень дождя за последние 24 часа
 * `value.rain.hour` - Фактический уровень дождя за последний час
 * `value.rain.today` - Фактический уровень дождя на сегодня (до 0:00)
@@ -419,36 +414,40 @@ hash: f6xavxln/lfdaUZugKWOXA9EFNDGFKL9sejm5XsPYyw=
 * `value.snow.hour` - Фактический уровень снега за последний час
 * `value.snow.today` - Фактический уровень снега на сегодня (до 0:00)
 * `value.snowline` - Фактическая снеговая линия в метрах
+* `value.speed.max.wind` - максимальная скорость ветра за последние 24 часа
+* `value.speed.min.wind` - минимальная скорость ветра за последние 24 часа
+* `value.speed.wind` - фактическая или средняя скорость ветра
+* `value.speed.wind.forecast.0` - прогноз скорости ветра на сегодня
+* `value.speed.wind.forecast.1` - прогноз скорости ветра на завтра
+* `value.speed.wind.gust` - фактическая скорость порыва ветра
+* `value.temperature` - Фактическая температура
+* `value.temperature.dewpoint` - Фактическая точка росы
+* `value.temperature.feelslike` — Фактическая температура «по ощущениям»
+* `value.temperature.max` - Максимальная температура за последние 24 часа
+* `value.temperature.max.forecast.0` - максимальный прогноз температуры на сегодня
+* `value.temperature.max.forecast.1` - Прогноз максимальной температуры на завтра
+* `value.temperature.min` - Минимальная температура за последние 24 часа
+* `value.temperature.min.forecast.0` - Минимальный прогноз температуры на сегодня
+* `value.temperature.min.forecast.1` - Минимальный прогноз температуры на завтра
+* `value.temperature.windchill` - Фактическое охлаждение ветром
+* `value.uv` - Фактический уровень УФ
 * `weather.chart.url` — URL-адрес диаграммы истории погоды
 * `weather.chart.url.forecast` - URL-адрес графика прогноза погоды
+* `weather.direction.wind` - фактическое или среднее направление ветра в виде текста, например, NNW
+* `weather.direction.wind.forecast.0` - прогноз направления ветра на сегодня в текстовом виде
 * `weather.html` - HTML-объект с описанием погоды
+* `weather.icon` — URL-адрес актуального значка состояния на данный момент
+* `weather.icon.forecast.1` - значок завтрашнего дня
+* `weather.icon.name` — Фактическое название значка состояния на данный момент
+* `weather.icon.wind` — актуальный URL-адрес значка ветра на данный момент
+* `weather.json` - JSON-объект с определенными данными
+* `weather.state` — Фактическое описание погоды
+* `weather.state.forecast.0` - Описание погоды на сегодня
+* `weather.state.forecast.1` - состояние погоды на завтра
 * `weather.title` - Очень краткое описание
+* `weather.title.forecast.0` - Очень краткое описание завтрашнего дня
 * `weather.title.short` - Очень, очень короткое описание (одно слово)
 * `weather.type` - Тип информации о погоде
-* `weather.json` - JSON-объект с определенными данными
-* `value.speed.wind.forecast.0` - прогноз скорости ветра на сегодня
-* `weather.state.forecast.0` - Описание погоды на сегодня
-* `value.direction.wind.forecast.0` - прогноз направления ветра на сегодня в градусах
-* `weather.direction.wind.forecast.0` - прогноз направления ветра на сегодня в текстовом виде
-* `value.pressure.forecast.0` - прогноз давления на сегодня
-* `value.temperature.min.forecast.0` - Минимальный прогноз температуры на сегодня
-* `value.temperature.max.forecast.0` - максимальный прогноз температуры на сегодня
-* `value.precipitation.forecast.0` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на сегодня
-* `value.precipitation.forecast.0` - (`тип: число, единица: мм`) Прогноз уровня осадков на сегодня
-* `weather.title.forecast.0` - Очень краткое описание завтрашнего дня
-* `value.precipitation.day.forecast.0` - Прогноз осадков на дневное время
-* `value.precipitation.night.forecast.0` - Прогноз осадков на ночь
-
-* `date.forecast.1` - завтрашняя дата
-* `weather.icon.forecast.1` - значок завтрашнего дня
-* `weather.state.forecast.1` - состояние погоды на завтра
-* `значение.температуры.мин.прогноз.1`
-* `значение.температуры.макс.прогноз.1`
-* `value.precipitation.forecast.1` - (`тип: число, единица измерения: %`) Прогноз вероятности осадков на завтра
-* `value.precipitation.forecast.1` - (`тип: число, единица: мм`) Прогноз уровня осадков на завтра
-* `значение.направление.ветра.прогноз.1`
-* `value.speed.wind.forecast.1`
-* `значение.давление.прогноз.1`
 
 ### Информация
 * `info.ip` - IP устройства

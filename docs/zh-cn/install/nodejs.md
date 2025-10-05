@@ -1,25 +1,25 @@
 ---
 title: Node.js 和 npm
-lastChanged: 11.08.2023
+lastChanged: 28.09.2025
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/nodejs.md
-hash: +/clKGI6Nn2MdnSbbF4O7f+FeueoHcyUaLSIcalX/Gs=
+hash: 5VmhgF6IZVKJAoCC+lc8+082z7AVOORazHpIunSfxIg=
 ---
-!> 引入安装脚本后，不再需要在常见的Linux系统上单独安装Node.js和npm了！请参阅[在 Linux 上安装](https://www.iobroker.net/#de/documentation/install/linux.md)
+!> 随着安装脚本的引入，在标准 Linux 系统上不再需要单独安装 Node.js 和 npm！请参阅[Linux下安装](https://www.iobroker.net/#de/documentation/install/linux.md)
 
-ioBroker 和适配器主要是用 JavaScript 编程语言编写的，由于计算机无法直接执行 Javascript，因此需要 Node.js 运行时环境才能执行。
+ioBroker 和适配器主要用 JavaScript 编程语言编写，由于计算机无法直接执行 JavaScript，因此需要 Node.js 运行时环境。
 
 ?> 我们建议在基于 Debian 和 Ubuntu 的 Linux 发行版上安装 ioBroker。
 
-如果需要，使用以下命令在此处安装 Node.js：
+如果需要，可以使用以下命令在此处安装 Node.js：
 
-```curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -```
+```curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -```
 
 ```sudo apt-get install -y nodejs```
 
-!> 自 2023 年 3 月起，ioBroker 建议使用 Node.js 版本 18！
+!> 自 2025 年 9 月起，建议 ioBroker 使用 Node.js 22 版本！
 
 !> 不得使用奇怪的 Node.js 版本。
 
-有关为各种操作系统安装 Node.js 的更多信息，请参阅此处[Node.js 基金会](https://nodejs.org/en/download/package-manager/)。
+有关为不同操作系统安装 Node.js 的更多信息，请参见此处[Node.js 基金会](https://nodejs.org/en/download/package-manager/)。

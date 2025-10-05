@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: Gy4OlsyXmVeAn2b1RDd6DJ7zM/aavhqL990dY2gwuoU=
+hash: lL0J43bP1VwhfQkBecOWPLNIsDwQCpMx6Ga1o+PjvFU=
 ---
 ![Logo](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -17,23 +17,20 @@ hash: Gy4OlsyXmVeAn2b1RDd6DJ7zM/aavhqL990dY2gwuoU=
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Ein Google Home-Adapter für ioBroker
-Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audio-Google-Home-Geräten. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht die Übermittlung einer neuen URL zum Casten.
+Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audio-Google-Home-Geräten. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht das Senden einer neuen URL zum Casten.
 
 Bauen Sie auf den folgenden Projekten auf:
 
 * [ioBroker](http://www.iobroker.net)
 * [node-castv2-client](https://github.com/thibauts/node-castv2-client) als Home-Client-Bibliothek.
 
-## Treten Sie dem Discord-Server bei, um alles zur ioBroker-Integration zu besprechen!
-<a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
-
 ## Anweisungen
 1. Installieren Sie diesen Adapter in ioBroker
-2. (optional) Wenn Sie vorhaben, lokale Dateien zu streamen oder wenn sich Ihre Chromecast-Geräte in einem anderen Subnetz befinden, müssen Sie den Adapter konfigurieren
+2. (optional) Wenn Sie lokale Dateien streamen möchten oder sich Ihre Chromecast-Geräte in einem anderen Subnetz befinden, müssen Sie den Adapter konfigurieren
 * Sie benötigen eine ioBroker-Webserverinstanz, um lokale Dateien zu streamen
-* Sie müssen für jedes Gerät, das sich in einem anderen Subnetz als Ihr ioBroker-Server befindet, manuell Informationen (Name, IP, Port, Anzeigentyp) hinzufügen. Wenn Sie möchten, dass die Namen den Namen der automatisch gefundenen Geräte entsprechen, verwenden Sie die MAC-Adresse als Namen. Sie können jeden beliebigen Namen definieren. Stellen Sie sicher, dass jeder Name eindeutig ist! Um Probleme zu vermeiden, sollten Namen nur Großbuchstaben A-Z, Kleinbuchstaben a-z, Ziffern 0-9, - (Minus) und _ (Unterstrich) enthalten.
+* Sie müssen für jedes Gerät, das sich in einem anderen Subnetz als Ihr ioBroker-Server befindet, manuell Informationen (Name, IP, Port, Anzeigentyp) hinzufügen. Wenn die Namen den Namen der automatisch gefundenen Geräte entsprechen sollen, verwenden Sie die MAC-Adresse als Namen. Sie können beliebige Namen definieren. Stellen Sie sicher, dass jeder Name eindeutig ist! Um Probleme zu vermeiden, sollten Namen nur Großbuchstaben A-Z, Kleinbuchstaben a-z, Ziffern 0-9, - (Minus) und _ (Unterstrich) enthalten.
 3. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle über die erkannten Geräte sehen
-4. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) in chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
+4. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) in den chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
 5. Die URL sollte auf Ihrem Gerät abgespielt werden
 
 ## Merkmale
@@ -41,21 +38,21 @@ Bauen Sie auf den folgenden Projekten auf:
 * Optional können Sie im Admin-Bereich unter der Registerkarte „Geräte“ weitere manuell konfigurierte Geräte hinzufügen.
 * ioBroker-Objekte für jedes gefundene Gerät erstellen
 * Status-, Player-, Medien- und Metadatenkanäle
-* Google Home-Gerät über den Adapter steuern
+* Google Home-Gerät über Adapter steuern
 * Lautstärke einstellen
 * Stummschalten/Stummschaltung aufheben
-* Sendung beenden
-  * Pause
+* Sendestopp
+* Pause
 * Wiedergabe-URL (chromecast.0.`<Ihr Google Home-Name>`.player.url2play)
 * getestet mit MP3
 * Vollständige Liste der Formate [hier](https://developers.google.com/cast/docs/media).
-* Wenn die URL nicht mit http beginnt, dann gehen Sie davon aus, dass es sich um eine lokale Datei handelt
+* Wenn die URL nicht mit http beginnt, gehen Sie davon aus, dass es sich um eine lokale Datei handelt
 * Datei über ioBroker-Webserver exportieren
-* Es wird nur die erste Datei aus Wiedergabelistendateien wie .m3u abgespielt.
+* Es wird nur die erste Datei aus Wiedergabelistendateien wie .m3u abgespielt
 * Vis-Widget
 * HINWEIS: erfordert [gepatchten Vis-Adapter](https://github.com/angelnu/ioBroker.vis).
 * Erste Unterstützung für Chromecast-Audiogruppen
-* Hinweis: dies funktioniert nicht mit SSDP -> standardmäßig in den Adaptereinstellungen deaktivieren
+* Hinweis: Dies funktioniert nicht mit SSDP -> standardmäßig in den Adaptereinstellungen deaktivieren
 * Zuletzt abgespielten Stream erneut abspielen: Setzen Sie einfach _chromecast.0.`<Ihr Gerät>`.status.playing_ auf _true_
 
 ## Was fehlt?
@@ -64,10 +61,15 @@ Bauen Sie auf den folgenden Projekten auf:
 * mehr Tests
 
 ## Changelog
-<!--
-    ### **WORK IN PROGRESS**
-    - (neopholus) Breaking change: Bugfix for ([#154](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/154)) and ([#160](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/160)): manually configured devices in admin pannel (devices tab) are created correctly again (broke with 3.0.3) using the name defined in the admin panel, tab "devices".
--->
+### 4.0.0 (2024-10-09)
+* (neopholus) Release 3.4.0 added support for devices located in adifferent subnet. This introduced a problem due to changing some state-ids reported at issue #274. This problem has been fixed. This might be considered a breaking change for some people. 
+* (mcm1957) Testing for node.js 22.x has been added.
+* (mcm1957) Several issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated
+
+### 3.4.1 (2024-07-02)
+* (foxriver76) migrated binary state to file
+
 ### 3.4.0 (2024-04-13)
 * (neopholus) Support for devices located in different subnets has been added. [#154, #160]
 * (mcm1957) Dependencies have been updated

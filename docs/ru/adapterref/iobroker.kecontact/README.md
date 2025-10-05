@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: La5CV/fe48g5FjWEvYBRJHMgTEF+4t/4PISc93px8Fc=
+hash: LJPtBKpFe5pEkfv+/Ay6IJBfOV2UtFDQ+QOnBnu6fJw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -98,6 +98,9 @@ hash: La5CV/fe48g5FjWEvYBRJHMgTEF+4t/4PISc93px8Fc=
 * kecontact.n.automatic.limitCurrent — ограничивает зарядку заданной силой тока в мА (0 = без ограничений)
 * kecontact.n.automatic.batteryStorageStrategy — стратегия, определяющая, следует ли использовать аккумулятор для зарядки вашего автомобиля и как это сделать
 * kecontact.n.automatic.batterySoCForCharging — ограничение использования заряда аккумулятора транспортного средства путем указания уровня заряда, ниже которого зарядка запрещена
+* kecontact.n.automatic.stateVehicleSoC - имя состояния для получения текущего SoC транспортного средства
+* kecontact.n.automatic.targetSoC — отключить автоматическую зарядку PV (максимальную мощность), пока транспортное средство не достигнет этого уровня SoC
+* kecontact.n.automatic.resetTargetSoC — установите значение true, если целевой SoC должен быть очищен после достижения
 
 Пример: Чтобы заряжать автомобиль постоянной силой тока 6 А независимо от излишков, установите для параметра «фотоэлектрические системы» значение «ложь», а для параметра «limitCurrent» — значение «6000».
 
@@ -112,6 +115,11 @@ KeConnect является зарегистрированной торговой
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) new options to charge vehicle up to a specified SoC
+* (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
+* (Sneak-L8) drop dependencies to chai, sinon and mocha
+
+### 3.3.0 (2025-09-18)
 * (Sneak-L8) new option to always charge with 1p oder 3p
 * (Sneak-L8) new setting for discharging power of storage battery (if not equal to max battery power)
 * (Sneak-L8) updated version requirements (admin 7.6.17 and core 3.3.2)
@@ -144,13 +152,6 @@ KeConnect является зарегистрированной торговой
 * (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
 * (Sneak-L8) migrate from request to axios
 * (Sneak-L8) migrate from ESlint v8 to v9
-
-### 2.3.0 (2024-11-29)
-* (Sneak-L8) new option to limit charging station according to german §14a EnWG
-* (Sneak-L8) enable currTime for manual use and X2 even in passive mode
-* (Sneak-L8) minimum verison für js-controller now 5.0.19
-* (Sneak-L8) set currTimer timeout default value from 0 to 1
-* (Sneak-L8) support new option "setBoot" of c-series stating firmware 3.10.57
 
 ## License
                                  Apache License

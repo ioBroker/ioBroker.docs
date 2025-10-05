@@ -197,6 +197,11 @@ Each consumer gets its own channel with the following states:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.8 (2025-10-03)
+
+- (quorle) Fix for binary consumers that do not turn off
+- (quorle) Fix for heating elements that are not switched off at max temperature
+
 ### 0.0.7 (2025-09-09)
 
 - (quorle) modified Readme
@@ -223,10 +228,6 @@ Each consumer gets its own channel with the following states:
 
 - (quorle) Adjustments package.json
 - (quorle) Code changed
-
-### 0.0.1 (2025-09-02)
-
-- (quorle) Release
 
 ## License
 

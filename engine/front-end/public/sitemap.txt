@@ -1210,6 +1210,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.samsung_tizen/README.m
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.scheduler/README.md
@@ -1925,6 +1926,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.samsung_tizen/README.m
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.scheduler/README.md
@@ -2640,6 +2642,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.samsung_tizen/README.m
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.scheduler/README.md
@@ -3355,6 +3358,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.samsung_tizen/READM
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scheduler/README.md

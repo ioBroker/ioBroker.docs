@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: DZuP+0B2Q62XEToyzjxTwo5xmgbDp4XOf6iQq/eTGvA=
+hash: DuZMTwYVqm7rd5887ZeukvOJr6IJs4sHJJGY7LJY/dc=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -51,12 +51,21 @@ Bei Geräten wie dem Hyper 2000, SF 2400 AC oder SF 800 (pro) können Sie mit ne
 Bei einer HUB 1200 / HUB 2000 / ACE 1500-Kombination müssen Sie '**setDeviceAutomationInOutLimit**' für die Einspeisung verwenden und den acMode sowie '**setInputLimit**' manuell umschalten, wenn Sie vom Netz laden möchten. In diesem Szenario wird dringend empfohlen, den '**smartMode**' auf true zu setzen!
 
 ## Hinweise
-Sie werden nach der Anmeldung mit dem ioBroker-Adapter von der offiziellen iOS- oder Android-App abgemeldet. Dies ist normal. Als Workaround können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Verwenden Sie dann das zweite Konto für ioBroker / den Zendure Solarflow-Adapter. Dies funktioniert nicht für neue Geräte wie SF 2400 AC oder SF 800 (Pro).
-
-## Credits
-Dank geht an https://github.com/reinhard-brandstaedter/solarflow, das mit seinem Wissen über den MQTT-Server von Zendure sehr hilfreich war! Danke!
+Dieser Adapter verwendet nun den Cloud-Autorisierungscode zur Authentifizierung auf den offiziellen MQTT-Servern, den Sie in der Zendure-App generieren können!
 
 ## Changelog
+### 3.0.1 (2025-10-02)
+
+- Update 'lastUpdate' when a battery value changes
+- Add deviceKey 'R3mn8U' for Solarflow 800 Pro
+
+### 3.0.0 (2025-09-30)
+
+- Breaking Change: Change authentication to "authentication cloud key". You can generate a key in the official zendure app
+- Removed fallback server
+- Add deviceKey 'a4ss5P' for Solarflow 800
+- Refactor a lot of code
+
 ### 2.0.4 (2025-09-12)
 
 - Fix creation of control states on new Hyper 2000 v3

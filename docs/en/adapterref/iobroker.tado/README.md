@@ -72,13 +72,16 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.8.0-alpha.1 (2025-09-25)
+### 0.8.0-alpha.2 (2025-09-28)
+* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
+* (HGlab01) Implement API debouncing
+* (HGlab01) Refactorings Tado API calls
 * (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
 * (HGlab01) fix issue 'definition missing for preheating' [TadoX]
 * (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
 * (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
 * (HGlab01) Bump axios to 1.12.2
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
 
 ### 0.7.10 (2025-04-25)
 * (HGlab01) further token refresh optimizations

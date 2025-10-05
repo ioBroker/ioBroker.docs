@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 7t91wemXcJHRlcuVrYAyghIyB2asLdRNxjTWSirfwEY=
+hash: PwIbSOzUPW8pkyUCQv2/mxkokzc0W478GO0c/zChves=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -302,7 +302,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-##energiefluss (25.01.2024) – neuer Adapter
+## Energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -611,7 +611,7 @@ Zustände könnten direkt aus der JSON-Konfiguration gesteuert werden, um die Be
 ## Admin (01.09.2024) - neue Funktion
 ![Kontextmenü](../../en/history/media/2024_09_10_admin_context_menu.png)
 
-Einige Benutzer sind möglicherweise bereits mit dem Kontextmenü im ioBroker Admin Object Browser vertraut. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick einen schnellen Zugriff auf das Kontextmenü bietet und es Ihnen ermöglicht, verschiedene Operationen an Objekten durchzuführen, z. B. einen Alias für diese zu erstellen.
+Einige Benutzer sind möglicherweise bereits mit dem Kontextmenü im ioBroker Admin Object Browser vertraut. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick schnellen Zugriff auf das Kontextmenü bietet und es Ihnen ermöglicht, verschiedene Operationen an Objekten durchzuführen, z. B. einen Alias für diese zu erstellen.
 
 ## Gotify-ws (4.9.2024) – neuer Adapter im stabilen
 https://github.com/simatec/ioBroker.gotify-ws
@@ -876,7 +876,7 @@ Integrieren Sie Anker Solix 2. Dieses Projekt stammt von https://github.com/tomq
 ## Geräte (20.4.2025) - neue Funktion
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.devices/master/admin/devices.png" width="100" height="100" />
 
-Der `devices`-Adapter wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
+Der Adapter `devices` wurde auf Version 1.2.0 aktualisiert. Er wurde komplett mit TypeScript- und Vite-Technologien neu geschrieben. Die neue Version ist schneller und stabiler.
 
 ## Mhi-wfrac (30.4.2025) – neuer Adapter
 https://github.com/hacki11/ioBroker.mhi-wfrac
@@ -993,4 +993,24 @@ https://github.com/ticaki/ioBroker.brightsky
 
 Die Bright Sky API ist eine kostenlose, öffentliche API, die Wetterdaten des Deutschen Wetterdienstes (DWD) bereitstellt. Sie wurde entwickelt, um den Zugriff auf diese Daten zu vereinfachen, da die ursprünglichen DWD-Daten oft in schwer interpretierbaren Formaten vorliegen. Bright Sky konvertiert diese Daten in ein benutzerfreundliches JSON-Format und macht sie über eine API zugänglich.
 
+## Weathersense (2.10.2025) – neuer Adapter im stabilen Repository
+https://github.com/ltspicer/ioBroker.weathersense
+
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.weathersense/main/admin/weathersense.png" width="100" height="100" />
+
+WeatherSense ist eine Cloud für Wetterstationen. Dieser Adapter liest Daten vom WeatherSense-Server.
+
+## Sofarcloud (2.10.2025) – neuer Adapter im stabilen Repository
+https://github.com/ltspicer/ioBroker.sofarcloud
+
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.sofarcloud/main/admin/sofarcloud.jpg" width="100" height="100" />
+
+Dieser Adapter liest die Daten vom SofarCloud-Server und speichert sie im Datenpunkt SofarCloud.
+Der SofarCloud-Server speichert Daten von Sofar-Wechselrichtern.
+
 <!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole! -->
+
+## Ping (05.10.2025) - neue Funktion
+Der Ping-Adapter kann die TCP-Ports prüfen.
+
+https://github.com/ioBroker/ioBroker.ping

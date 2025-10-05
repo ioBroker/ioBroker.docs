@@ -60,7 +60,7 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 10.3.0-alpha.2 (2025-09-22)
+### 10.3.0-alpha.3 (2025-09-29)
 
 * (@klein0r) Rssi for ble has been added to script.
 * (@mcm1957) Shelly Flood Gen 4 (shellyfloodg4) has been added.

@@ -51,10 +51,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.14.3 (2025-09-27)
 
 - (HombachC) bump typescript (#684)
+- (HombachC) update adapter-dev (#693)
+- (HombachC) update chai system (#678)
 
 ### 0.14.2 (2025-08-26)
 
@@ -77,10 +78,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.13.2 (2025-03-22)
 
 - (HombachC) fix axios vulnerability
-- (HombachC) bump dependencies
-
-### 0.13.1 (2025-03-06)
-
 - (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

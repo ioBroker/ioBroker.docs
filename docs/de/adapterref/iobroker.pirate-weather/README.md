@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pirate-weather/README.md
 title: ioBroker.pirate-weather
-hash: ovEFc1olkHWgOzghIJRM7HIsrmPuct5Lrd7lpN30I6E=
+hash: vfcXHjLWFI2b6N8KXegJnsg1uiVesXTbE0zhHfWPaoM=
 ---
 ![Logo](../../../en/adapterref/iobroker.pirate-weather/admin/pirate-weather.png)
 
@@ -22,12 +22,31 @@ Daten von Pirate-Weather abrufen.
 Den benötigten API-Token erhalten Sie hier: https://docs.pirateweather.net/en/latest/ Der Rest sollte selbsterklärend sein.
 Die Erklärung der einzelnen Datenpunkte finden Sie hier: https://docs.pirateweather.net/en/latest/API/
 
+Symbole: von icebear (kostenlos verwendbar)
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-09-30)
+- (ticaki) Added comprehensive astronomy data to daily forecast: twilight times, day/night length, solar noon, moonrise/moonset, and lunar transit
+- (ticaki) Added human-readable time formats (HH:MM:SS) for duration fields
+
+### 0.6.2 (2025-09-27)
+- (ticaki) more robust fetch usage
+
+### 0.6.1 (2025-09-26)
+- (ticaki) Use the default icons for mostly-
+
+### 0.6.0 (2025-09-25)
+- (ticaki) icons from icebear added
+
+### 0.5.0 (2025-09-24)
+- (ticaki) Code migration from axios to node:fetch
+- (ticaki) Corrected roles for visualisation (lovelance) fixes #19
+
 ### 0.4.1 (2025-09-12)
 - (ticaki) Humidity is now displayed correctly in percent.  fixes #15
 - (ticaki) Wind direction text is now translated into the system iobroker language. fixes #16

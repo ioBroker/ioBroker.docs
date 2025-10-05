@@ -26,6 +26,10 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 
 ## Changelog
+### 3.2.3 (2025-10-04)
+
+- Security issue (my email address)
+
 ### 3.2.2 (2025-09-19)
 
 - Typos corrected
@@ -71,7 +75,7 @@ The received data can also be saved as JSON (sofar_realtime.json).
 ## License
 MIT License
 
-Copyright (c) 2025 Daniel Luginbühl <dlu0@sunrise.ch>
+Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

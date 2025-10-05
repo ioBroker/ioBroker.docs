@@ -994,3 +994,8 @@ This adapter reads the data from the SofarCloud server and stores it in the data
 The SofarCloud server stores data from Sofar inverters.
 
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
+## ping (05.10.2025) - new feature
+Ping adapter can probe the TCP ports.
+
+https://github.com/ioBroker/ioBroker.ping

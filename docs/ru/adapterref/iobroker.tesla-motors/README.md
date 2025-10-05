@@ -1,16 +1,16 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: qiJyGYl+iytQgjCKWTgus6qTMM6Fh7ONOiqQLYWwcsA=
+hash: Fvr1aTw0IyZbJ+fLgciBIKNx+41ASXE7fi8j6dPSNfk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)
-![Количество установок (последних)](https://iobroker.live/badges/tesla-motors-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/tesla-motors-stable.svg)
+![Количество установок (последнее)](https://iobroker.live/badges/tesla-motors-installed.svg)
+![Количество установок (стабильное)](https://iobroker.live/badges/tesla-motors-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.tesla-motors.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)
 
@@ -18,37 +18,58 @@ hash: qiJyGYl+iytQgjCKWTgus6qTMM6Fh7ONOiqQLYWwcsA=
 **Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Tesla для ioBroker
-Все модели Tesla и Powerwalls из приложения Tesla доступны и актуальны.
+Все модели Tesla и Powerwall из приложения Tesla отображаются и обновляются.
 
-**Пульт дистанционного управления для Tesla и Powerwall, который может быть полезен** tesla-motors.0.id.remote
+**Удаленные команды для Tesla и Powerwall доступны по адресу** tesla-motors.0.id.remote
 
-**Войтиblauf:**
+**Процесс входа:**
 
-- В этом случае нажмите кнопку «Instanzoptionen den Auth Link».
-- При входе в систему и при использовании Captcha/reCaptcha и при использовании MFA.
-- Если страница не найдена, посетите полный URL-адрес в браузере, скопированном и мгновенно выбранном, а также нажмите кнопку Speichen und Schließen.
-- Die ersten Daten kommen unter Umständen erst nach der ersten Fahrt
+- Нажмите ссылку «Аутентификация» в параметрах экземпляра.
+- Введите свои учетные данные и, при необходимости, пройдите Captcha/reCaptcha и MFA.
+- На странице «Страница не найдена» скопируйте полный URL-адрес из браузера и вставьте его в параметры экземпляра, затем нажмите «Сохранить и закрыть».
+- Исходные данные могут появиться только после первого проезда
 
 **Описание поля**
 
-- передняя часть водителя
-- доктор водитель сзади
-- пф переднее пассажирское
-- перед пассажиром сзади
-- передний багажник
-— задний багажник
+- передний водительский DF
+- водитель сзади
+- передний пассажирский
+- пассажир сзади
+- фут передний багажник
+- задний багажник
 
-[Коды опций](https://tesla-api.timdorr.com/vehicle/optioncodes)
+[Объяснение кодов опций](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
-## Fragen und Diskussionen:
+## Вопросы и обсуждения:
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 1.4.5 (2024-04-19)
+
+- cleaned up token folder to reduce state objects
+
+### 1.4.4 (2024-04-10)
+
+- improve energy history data
+
+### 1.4.3 (2024-04-10)
+
+- fix for too many state in the powerwall energy history
+
+### 1.4.2 (2023-11-17)
+
+- fix km states are not refreshed
+
+### 1.4.1 (2023-11-17)
+
+- fix \_km states are not refreshed
+
+### 1.4.0 (2023-11-14)
+
+- fix location fetching and add new option to change location fetching interval
+
 ### 1.3.5 (2023-10-24)
 
 - fix vehicle update
@@ -72,13 +93,13 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ### 1.0.2
 
-- (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
+- (iobroker-community-adapters) ALL DATA POINTS ARE NEW, Vis must be adapted. New version with new states for Tesla and Powerwalls.
 
 ## License
 
 MIT License
 
-Copyright (c) 2021-2023 iobroker-community
+Copyright (c) 2021-2029 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

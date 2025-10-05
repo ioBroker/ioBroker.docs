@@ -23,6 +23,17 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.17 (2025-10-04)
+* (BenAhrdt) serialize appending Data on NextSend
+* (BenAhrdt) update assignhandler (SensorTemperature)
+
+### 1.17.16 (2025-09-25)
+* (BenAhrdt) bring state_off topic to humidifier
+
+### 1.17.15 (2025-09-25)
+* (BenAhrdt) notifi new discover in case of oldDiscoveredDevices
+* (BenAhrdt) bugfix debug logging
+
 ### 1.17.14 (2025-09-24)
 * (BenAhrdt) add humidifier to foreign States
 
@@ -659,7 +670,7 @@ For now there is documentation in English here: https://wiki.hafenmeister.de
 ## License
 MIT License
 
-Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025 BenAhrdt <bsahrdt@gmail.com>  
 Copyright (c) 2025 Joerg Froehner <LoraWan@hafenmeister.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

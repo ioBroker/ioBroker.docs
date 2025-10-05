@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.brightsky/README.md
 title: ioBroker.brightsky
-hash: BDgJzNcxSrgPopj9xztOpvbO3YCm5DsCEGQRTVDNnWI=
+hash: NA9qxVeYgOL98VT9tUOzLZLi5ioqx6JqOZFRZGs4wc8=
 ---
 ![Logo](../../../en/adapterref/iobroker.brightsky/admin/brightsky.png)
 
@@ -63,6 +63,7 @@ Die Daten werden wie folgt bereitgestellt: <img width="183" height="156" alt="Bi
 * aktuell – das aktuelle Wetter (siehe auch: https://brightsky.dev/docs/#/operations/getCurrentWeather )
 * täglich - die aktuelle Wettervorhersage für die nächsten 8 Tage (wird vom Adapter erstellt und ist nicht Teil der API)
 * stündlich – die aktuelle Wettervorhersage für die nächsten definierten n Stunden (siehe auch: https://brightsky.dev/docs/#/operations/getWeather )
+* Radar - Niederschlagsradarvorhersage für die nächsten 2 Stunden in 5-Minuten-Intervallen mit Werten in mm pro 5 Minuten. Beinhaltet Maximalwerte über alle Rasterzellen und kumulative Summen über alle Rasterbereiche (siehe auch: https://brightsky.dev/docs/#/operations/getRadar )
 
 ---
 
@@ -71,6 +72,65 @@ Die Daten werden wie folgt bereitgestellt: <img width="183" height="156" alt="Bi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.5 (2025-10-04)
+- (ticaki) Added leading zero to 5-minute radar datapoint folders for correct sorting in UI
+
+### 0.6.3 (2025-10-04)
+- (ticaki) Added Beaufort wind force scale datapoints (wind_force and wind_force_desc) based on wind_speed_10
+- (ticaki) Fixed radar precipitation unit conversion - API values are in 0.01mm per 5 minutes, now correctly converted to mm
+- (ticaki) Added cumulative precipitation states (next_Xmin_sum) showing maximum precipitation sum across all grid areas
+- (ticaki) Added descriptions to max_precipitation_forecast states indicating "mm per 5 minutes"
+
+### 0.6.2 (2025-10-02)
+- (ticaki) Flag set to activate language
+
+### 0.6.1 (2025-10-02)
+- (ticaki) Added optional createRadarData configuration to make detailed radar.data folder optional fixes [#45](https://github.com/ticaki/ioBroker.brightsky/issues/45)
+- (ticaki) Added weekday name datapoints (short and long) to daily weather data fixes [#41](https://github.com/ticaki/ioBroker.brightsky/issues/41)
+
+### 0.6.0 (2025-09-30)
+- (ticaki) Added weather radar feature with 2-hour precipitation forecast
+- (ticaki) Radar data shows precipitation in mm with average, min, max, and median values
+- (ticaki) Configurable radar polling interval (5+ minutes, auto-rotates data every 5 min)
+- (ticaki) Added max precipitation forecast states for next 5, 10, 15, 30, 45, 60, 90 minutes
+
+### 0.5.2 (2025-09-28)
+- (ticaki) New data point wind_gust_speed_max for role value.speed.max.wind
+- (ticaki) role checked
+
+### 0.5.1 (2025-09-27)
+- (ticaki) more robust fetch usage
+
+### 0.5.0 (2025-09-26)
+- (ticaki) Icons provided by icebear added fixes #31
+
+### 0.4.0 (2025-09-24)
+- (ticaki) Code migration from axios to node:fetch
+
+### 0.3.5 (2025-09-20)
+- (ticaki) Corrected roles for visualisation (lovelance) fixes #28
+
+### 0.3.4 (2025-09-19)
+- (ticaki) fixed too low limit for currently updates
+
+### 0.3.3 (2025-09-19)
+- (ticaki) update current at sunrise and sunset (unless custom interval is too large)
+- (ticaki) added inverter limiting
+
+### 0.3.2 (2025-09-17)
+- (ticaki) Solar estimation calculation revised
+
+### 0.3.1 (2025-09-15)
+- (ticaki) Fixed data evaluation crash when no panels are defined  
+- (ticaki) state name fixed
+
+### 0.3.0 (2025-09-15)
+- (ticaki) Added experimental datapoint for solar energy estimation (daily and hourly)  
+- (ticaki) Wind bearing text is now translated into ioBroker system language  
+- (ticaki) Added new datapoint for MDI icons support  
+- (ticaki) Add day and night objects in addition to daily objects fixes [#11](https://github.com/ticaki/ioBroker.brightsky/issues/11)
+- (ticaki) Enhanced day and night support with dedicated day/night icons
+
 ### 0.2.4 (2025-08-28)
 * (ticaki) Create all folders
 

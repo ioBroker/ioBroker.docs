@@ -33,6 +33,12 @@
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.9.0 (2025-10-05)
+- new icons (autodarts)
+
+### 1.8.0 (2025-09-28)
+- new icons (home assistant - brands & computer)
+
 ### 1.7.0 (2025-09-23)
 - new icons (waterfall & sprinkler & plan-doors)
 

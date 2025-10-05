@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hoymiles-ms/README.md
 title: ioBroker.hoymiles-ms
-hash: BPRyqwDODN2tHAKClSYQAInymu/9hXiS5ctU+20iSyU=
+hash: xIGHU50v07ytNPukywDhuEkgVqwXE+FtLcOfQ6vtMys=
 ---
 ![Logo](../../../en/adapterref/iobroker.hoymiles-ms/admin/hoymiles-ms.png)
 
@@ -24,7 +24,7 @@ hash: BPRyqwDODN2tHAKClSYQAInymu/9hXiS5ctU+20iSyU=
 **************************************************************************************************************
 
 ## Hoymiles-ms-Adapter für ioBroker
-Dieser Adapter integriert die **HOYMILES** **M**icro**S**torage-Systeme (derzeit nur Hoymiles SM-A2) in ioBroker. Eine Gerätebeschreibung ist verfügbar [Hier](https://www.hoymiles.com/de/products/micro-storage).
+Dieser Adapter integriert die **HOYMILES** **M**icro**S**torage-Systeme (derzeit nur Hoymiles SM-A2) in ioBroker. Eine Beschreibung des Gerätes ist verfügbar [Hier](https://www.hoymiles.com/de/products/micro-storage).
 
 Beachten Sie, dass dieser Adapter in keiner Weise mit dem oben genannten Unternehmen verbunden ist und keinerlei Geschäftsbeziehung besteht.
 
@@ -45,7 +45,7 @@ Detaillierte Einrichtungsanweisungen, Konfigurationshandbuch und umfassende Refe
 ### Konfiguration des Adapters
 Der Adapter kann als dedizierter MQTT-Server oder als MQTT-Client konfiguriert werden (Hinweis: Client-Modus noch nicht implementiert).
 
-Für den Betrieb als MQTT-Server müssen die folgenden Parameter konfiguriert werden:
+Für den Betrieb als MQTT-Server müssen folgende Parameter konfiguriert werden:
 
 - MQTT-Netzwerk
 
@@ -56,7 +56,7 @@ Geben Sie das Netzwerk an, auf dem gelauscht werden soll. Normalerweise reicht e
 Geben Sie den zu verwendenden (TCP-)Port an. Da der Standard-MQTT-Port (1883) möglicherweise vom ioBroker.mqtt-Adapter belegt ist und Port 1882 vom Adapter ioBroker.shelly verwendet wird, verwendet dieser standardmäßig Port 1881. Sie können jedoch jeden freien Port verwenden.
 
 ### Konfiguration des Hoymiles MS-A2
-Um die Hoymiles MS-A2-Einheit zu konfigurieren, öffnen Sie die S-Miles Home App. Wählen Sie die Konfigurationsseite (über das Zahnradsymbol in der oberen rechten Ecke) und scrollen Sie nach unten zu „MQTT-Service“. Aktivieren Sie den MQTT-Service und geben Sie ein
+Um die Hoymiles MS-A2-Einheit zu konfigurieren, öffnen Sie die S-Miles Home App. Wählen Sie die Konfigurationsseite (über das Zahnradsymbol in der oberen rechten Ecke) und scrollen Sie nach unten zu „MQTT-Service“. Aktivieren Sie den MQTT-Service und geben Sie
 
 - Serveradresse
 
@@ -64,9 +64,9 @@ die IP-Adresse des ioBroker-Systems (bei Verwendung des MQTT-Servermodus) oder d
 
 - Hafen
 
-Die Por-Nummer konfiguriert Ihren MQTT-Broker
+Die für Ihren MQTT-Broker konfigurierte Portnummer
 
-- Optional ein Client-Präfix festlegen (Standard: „MSA“)
+- Optionales Festlegen eines Client-Präfixes (Standard: „MSA“)
 
 Dieser Adapter unterstützt derzeit noch keine Authentifizierung. Daher muss diese deaktiviert werden.
 

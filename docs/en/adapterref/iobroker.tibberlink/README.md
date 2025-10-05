@@ -165,9 +165,25 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 6.0.0-beta.5 (2025-10-05)
 
-- (HombachC) change price updates to 15 minutes resolution (#384)
+- (HombachC) BREAKING: hourly price states (0...23) are now quarterhourly (0...95)
+- (HombachC) BREAKING: adapted calculator time blocks need reentry of "AmountHours" values
+- (HombachC) change price updates to 15 minutes resolution as default
+- (HombachC) change current price updates to use existing today values instead of Tibber calls
+- (HombachC) more timely precision for current price and calculator
+- (HombachC) adapt chart generation
+- (HombachC) fix error in efficiency loss
+- (HombachC) adapt calculator time blocks
+- (HombachC) update tibber-api to 5.5.2
+- (HombachC) update typescript to 5.9.3 (#777)
+- (HombachC) add names to price states folders
+
+### 5.0.4 (2025-09-27)
+
+- (HombachC) prepared price updates to 15 minutes resolution (#384)
+- (HombachC) update tibber-api to 5.4.2
+- (HombachC) update chai system
 
 ### 5.0.3 (2025-09-17)
 
@@ -181,27 +197,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) update adapter-core
 - (HombachC) bump typescript
 - (HombachC) bump dependencies
-
-### 5.0.1 (2025-08-15)
-
-- (HombachC) add decoder for EMH eHZB IMSys
-- (HombachC) remove creation of not feeded states
-- (HombachC) fix typo in error message (#731)
-- (HombachC) fix vulnerability
-- (HombachC) change power production to be polled by default (#721)
-- (HombachC) bump dependencies
-
-### 5.0.0 (2025-05-30)
-
-- (HombachC) BREAKING: dropped node.js 18 support (#703)
-- (HombachC) BREAKING: dropped js-controller 5 support (#703)
-- (HombachC) add tests for node.js 24 (#717)
-
-### 4.5.4 (2025-05-18)
-
-- (HombachC) fix special cases of local export value (#704)
-- (HombachC) remove tests for node.js 18
-- (HombachC) optimize asynchron code
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: Gy4OlsyXmVeAn2b1RDd6DJ7zM/aavhqL990dY2gwuoU=
+hash: lL0J43bP1VwhfQkBecOWPLNIsDwQCpMx6Ga1o+PjvFU=
 ---
 ![标识](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -12,29 +12,26 @@ hash: Gy4OlsyXmVeAn2b1RDd6DJ7zM/aavhqL990dY2gwuoU=
 ![下载](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
 
 # IoBroker.chromecast
-![测试与发布](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-Plugin 文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 适用于 ioBroker 的 Google Home 适配器
-此插件允许检测视频和/或音频 Google Home 设备。对于每个检测到的 Home 设备，都会创建一个 ioBroker 设备。此设备显示设备的状态并允许向其发送新的 URL 进行投射。
+此插件允许检测 Google Home 设备的视频和/或音频。对于每个检测到的 Home 设备，都会创建一个 ioBroker 设备。该设备会显示设备的状态，并允许向其发送新的 URL 进行投射。
 
 在以下项目的基础上构建：
 
 * [ioBroker](http://www.iobroker.net)
 * [node-castv2-client](https://github.com/thibauts/node-castv2-client) 作为 Home 客户端库。
 
-## 加入 Discord 服务器讨论有关 ioBroker 集成的一切！
-<a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
-
 ＃＃ 指示
-1. 将此适配器安装到 ioBroker
-2. （可选）如果您计划流式传输本地文件，或者您的 chromecast 设备位于不同的子网中，则需要配置适配器
-* 您需要有一个 ioBroker 网络服务器实例来传输本地文件
-* 您需要手动添加与 ioBroker 服务器位于不同子网中的每个设备的信息（名称、IP、端口、广告类型）。如果您希望名称与自动找到的设备的名称相对应，请使用 MAC 地址作为名称。您可以定义任何您想要的名称。确保每个名称都是唯一的！为避免出现问题，名称应仅包含大写字母 A-Z、小写字母 a-z、数字 0-9、-（减号）和 _（下划线）。
-3. 检查日志：您应该会看到有关检测到的设备的日志
-4. 将 URL（例如 [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3)）写入 chromecast.0.`<您的 chromecast 名称>`.player.url2play
-5. URL 应该开始在你的设备上播放
+1.将此适配器安装到ioBroker中
+2.（可选）如果您计划传输本地文件，或者您的 Chromecast 设备位于不同的子网中，则需要配置适配器
+* 您需要有一个 ioBroker Web 服务器实例来传输本地文件
+* 您需要为与 ioBroker 服务器位于不同子网的每个设备手动添加信息（名称、IP、端口、广告类型）。如果您希望名称与自动找到的设备名称相对应，请使用 MAC 地址作为名称。您可以自定义任何名称。请确保每个名称都是唯一的！为避免出现问题，名称应仅包含大写字母 A-Z、小写字母 a-z、数字 0-9、-（减号）和 _（下划线）。
+3.检查你的日志：你应该看到有关检测到的设备的日志
+4. 将 URL（例如 [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3)）写入 chromecast.0.`<your chromecast name>`.player.url2play
+5. URL 应该开始在您的设备上播放
 
 ＃＃ 特征
 * 使用多播 DNS 检测设备
@@ -46,28 +43,33 @@ hash: Gy4OlsyXmVeAn2b1RDd6DJ7zM/aavhqL990dY2gwuoU=
 * 静音/取消静音
 * 停止广播
   * 暂停
-* 播放网址 (chromecast.0.`<你的 Google Home 名称>`.player.url2play)
+* 播放网址 (chromecast.0.`<您的 Google Home 名称>`.player.url2play)
 * 使用 MP3 测试
-* 完整格式列表请参见[此处](https://developers.google.com/cast/docs/media)。
-* 当 URL 不是以 http 开头时，则假定这是一个本地文件
+* 完整格式列表见[此处](https://developers.google.com/cast/docs/media)。
+* 当 URL 不以 http 开头时，则假定这是一个本地文件
 * 通过 ioBroker 网络服务器导出文件
 * 它仅播放播放列表中的第一个文件，例如 .m3u
-* 可视化小部件
+* 可见小部件
 * 注意：需要[修补的 vis 适配器](https://github.com/angelnu/ioBroker.vis)。
 * 初步支持 Chromecast 音频组
-* 注意：这不适用于 SSDP -> 在适配器设置中默认禁用
+* 注意：这不适用于 SSDP -> 适配器设置中默认禁用
 * 再次播放上次播放的流：只需将 _chromecast.0.`<your device>`.status.playing_ 设置为 _true_
 
 ＃＃ 缺什么？
-* 添加状态机来跟踪状态：检测到 -> 连接 -> 播放器加载器 -> 播放
+* 添加状态机来跟踪状态：检测到->连接->播放器加载器->播放
 * 添加重试：有时 Google Home 无法响应请求
 * 更多测试
 
 ## Changelog
-<!--
-    ### **WORK IN PROGRESS**
-    - (neopholus) Breaking change: Bugfix for ([#154](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/154)) and ([#160](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/160)): manually configured devices in admin pannel (devices tab) are created correctly again (broke with 3.0.3) using the name defined in the admin panel, tab "devices".
--->
+### 4.0.0 (2024-10-09)
+* (neopholus) Release 3.4.0 added support for devices located in adifferent subnet. This introduced a problem due to changing some state-ids reported at issue #274. This problem has been fixed. This might be considered a breaking change for some people. 
+* (mcm1957) Testing for node.js 22.x has been added.
+* (mcm1957) Several issues reported by adapter checker have been fixed.
+* (mcm1957) Dependencies have been updated
+
+### 3.4.1 (2024-07-02)
+* (foxriver76) migrated binary state to file
+
 ### 3.4.0 (2024-04-13)
 * (neopholus) Support for devices located in different subnets has been added. [#154, #160]
 * (mcm1957) Dependencies have been updated

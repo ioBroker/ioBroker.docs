@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: lXYKPeJrq1REyGDcyi6qzSM4N0/S0n2sjBJ8GuUJ3Gc=
+hash: 55bZGVCl8p5II4kj8dE1jRNeDjumMqcwtFLshb/cjD8=
 ---
 ![logo](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -115,11 +115,19 @@ If the file does not exist, you did not wait long enough for the adapter to star
 
 <img width="1029" height="438" alt="graphic" src="https://github.com/user-attachments/assets/86e4fd1c-1d4e-4234-a2ad-48b8dd9f418e" />
 
-<img width="1387" height="779" alt="graphic" src="https://github.com/user-attachments/assets/f065c43d-125b-4ca4-a053-bbf4b926e1f6" />
+<img width="1668" height="832" alt="graphic" src="https://github.com/user-attachments/assets/9c6b78dd-aca0-45d4-acbc-bd1511e6ee4b" />
 
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.1.1 (2025-10-04)
+* (arteck) fix
+
+### 0.1.0 (2025-10-04)
+* (arteck) improved query handling
+* (arteck) add Test button with answer message
+* (arteck) shorter request interval (min 10 sec)
+
 ### 0.0.18 (2025-09-06)
 * (arteck) fix time state from device
 

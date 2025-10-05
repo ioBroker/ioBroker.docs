@@ -19,10 +19,6 @@ Build on top of the following projects:
   * [ioBroker](http://www.iobroker.net)
   * [node-castv2-client](https://github.com/thibauts/node-castv2-client) as Home client library.
 
-## Join the Discord server to discuss everything about ioBroker integration!
-
-<a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
-
 ## Instructions
 1. Install this adapter into ioBroker
 2. (optional) If you plan to stream local files or if your chromecast devices are located in a different subnet, you need to configure the adapter
