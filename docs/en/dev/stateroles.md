@@ -214,9 +214,10 @@ With **levels**, you can control or set some number value.
 * `level.color.saturation`
 * `level.color.rgb`       - hex color like `#rrggbb` (`common.type=string`)
 * `level.color.rgbw`      - hex color like `#rrggbbww` (`common.type=string`)
-* `level.color.cie`       - cie color in form `[x, y]` (`common.type=string)
+* `level.color.cie`       - cie color in form `[x, y]` (`common.type=string`)
 * `level.color.luminance`
 * `level.color.temperature` - color temperature in K° `2200 warm-white, 6500° cold white`
+* `level.effect`          - effect, usually for lights. Should have list of possible effects in `common.states`. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep`    - sleep timer. 0 - off, or in minutes
 * ...
