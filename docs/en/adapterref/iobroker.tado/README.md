@@ -15,6 +15,12 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+## !IMPORTANT! Tado° will introduce API call limits
+Tado will introduce a limit on API calls. Users without an Auto-Assist subscription are restricted to 100 calls per day, with subsription to 20.000 calls.  
+For more information, please refer to [this](https://support.tado.com/en/articles/12165739-limitation-for-rest-api-usage) article.  
+A new feature has been added to the Tado ioBroker adapter, providing new configuration capabilities to manage API usage. Nevertheless, the daily limit of 100 calls means the adapter is unusable without an Auto-Assist subscription. This translates to only about four requests per hour, which significantly hinders the adapter’s functionality.  
+If you're not happy with Tado's decision, you should let them [know](https://support.tado.com/de/articles/3590239-wie-kann-ich-den-kundensupport-von-tado-kontaktieren)!
+
 ## Tado° X
 Basic support for Tado° X available.
 If your setup is not working, please raise a [ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=). You will need to support some debugging session and interact with the adapter developer to improve Tado° X features.
@@ -58,17 +64,24 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 
 ## Requires
 * Node.js 20 or higher
-* ioBroker host (js-controller) 5.0 or higher
+* ioBroker host (js-controller) 7.0.6 or higher
+* iorBroker.admin 7.7.2 or higher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.8.0-alpha.2 (2025-09-28)
+* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
+* (HGlab01) Implement API debouncing
+* (HGlab01) Refactorings Tado API calls
 * (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
 * (HGlab01) fix issue 'definition missing for preheating' [TadoX]
 * (HGlab01) Additional guidance/log when it comes to RefreshToken issue
+* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
+* (HGlab01) Bump axios to 1.12.2
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
 
 ### 0.7.10 (2025-04-25)
 * (HGlab01) further token refresh optimizations
@@ -82,10 +95,6 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 ### 0.7.7 (2025-04-08)
 * (HGlab01) optimize sentry usage
 * (HGlab01) improve retry-mechanism when it comes to erros
-
-### 0.7.5 (2025-03-31)
-* (HGlab01) some further refactorings
-* (HGlab01) Bump axios to 1.8.4
 
 ## License
 MIT License

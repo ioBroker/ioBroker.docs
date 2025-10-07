@@ -33,10 +33,17 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* fix: adjust event value limits based on usableSurplus parameters
-* new state sun2000.x.collected.[surplusPower](https://github.com/bolliy/ioBroker.sun2000/wiki/%C3%9Cberschuss-(surplus))
+### 2.2.0 (2025-10-05)
+* dependency and configuration updates
+* new state `meter.derived.signConventionForPowerFeed-in` sign of meter.activePower that is currently being fed into the power grid
+* new state `meter.derived.feed-inPower` electric power that is supplied to a grid ("fed in")
 
+### 2.1.1 (2025-09-24)
+* dependency and configuration updates
+* fix: adjust event value limits based on usableSurplus parameters
+* fix: swap register values for power consumption in Emma driver #190
+* emma: improve power calculation with exponential moving average in EmmaCharger
+* update surplus power state definitions and deprecate old identifiers
 
 ### 2.1.0 (2025-07-06)
 * emma: system time is being determined [#179](https://github.com/bolliy/ioBroker.sun2000/issues/179)

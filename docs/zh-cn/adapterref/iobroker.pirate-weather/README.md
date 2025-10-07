@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pirate-weather/README.md
 title: ioBroker.pirate-天气
-hash: ovEFc1olkHWgOzghIJRM7HIsrmPuct5Lrd7lpN30I6E=
+hash: vfcXHjLWFI2b6N8KXegJnsg1uiVesXTbE0zhHfWPaoM=
 ---
 ![标识](../../../en/adapterref/iobroker.pirate-weather/admin/pirate-weather.png)
 
@@ -16,11 +16,13 @@ hash: ovEFc1olkHWgOzghIJRM7HIsrmPuct5Lrd7lpN30I6E=
 # IoBroker.pirate-天气
 **测试：**![测试和发布](https://github.com/ticaki/ioBroker.pirate-weather/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 pirate-weather 适配器
+## IoBroker 的海盗天气适配器
 从 Pirate-Weather 检索数据。
 
 您可以在此处获取所需的 Api 令牌：https://docs.pirateweather.net/en/latest/ 其余部分应该不言自明。
 有关各个数据点含义的解释，请参见：https://docs.pirateweather.net/en/latest/API/
+
+图标：来自 icebear（免费使用）
 
 ## Changelog
 
@@ -28,6 +30,23 @@ hash: ovEFc1olkHWgOzghIJRM7HIsrmPuct5Lrd7lpN30I6E=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-09-30)
+- (ticaki) Added comprehensive astronomy data to daily forecast: twilight times, day/night length, solar noon, moonrise/moonset, and lunar transit
+- (ticaki) Added human-readable time formats (HH:MM:SS) for duration fields
+
+### 0.6.2 (2025-09-27)
+- (ticaki) more robust fetch usage
+
+### 0.6.1 (2025-09-26)
+- (ticaki) Use the default icons for mostly-
+
+### 0.6.0 (2025-09-25)
+- (ticaki) icons from icebear added
+
+### 0.5.0 (2025-09-24)
+- (ticaki) Code migration from axios to node:fetch
+- (ticaki) Corrected roles for visualisation (lovelance) fixes #19
+
 ### 0.4.1 (2025-09-12)
 - (ticaki) Humidity is now displayed correctly in percent.  fixes #15
 - (ticaki) Wind direction text is now translated into the system iobroker language. fixes #16

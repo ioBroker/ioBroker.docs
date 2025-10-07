@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: plkLUc+tOv5PV5e6JRQ4oMqZJ+ZUy2OYf+Oy4ILiK2U=
+hash: PwIbSOzUPW8pkyUCQv2/mxkokzc0W478GO0c/zChves=
 ---
 # Was ist neu
 ## Anweisungen für Autoren
@@ -221,7 +221,7 @@ https://github.com/PLCHome/ioBroker.pylontech
 
 <img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
 
-Fragen Sie die Zellspannungen und den Status von pylontech-Batterien über die Konsole ab.
+Fragen Sie die Zellspannungen und den Status von Pylontech-Batterien über die Konsole ab.
 
 ## Signifylights (26.10.2023) - neuer Adapter
 https://github.com/disaster123/ioBroker.signifylights
@@ -302,7 +302,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Aufzeichnen von Art-Net-Daten in einer Datei zur späteren Wiedergabe
 
-##energiefluss (25.01.2024) – neuer Adapter
+## Energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -611,7 +611,7 @@ Zustände könnten direkt aus der JSON-Konfiguration gesteuert werden, um die Be
 ## Admin (01.09.2024) - neue Funktion
 ![Kontextmenü](../../en/history/media/2024_09_10_admin_context_menu.png)
 
-Einige Benutzer sind möglicherweise bereits mit dem Kontextmenü im ioBroker Admin Object Browser vertraut. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick einen schnellen Zugriff auf das Kontextmenü bietet und es Ihnen ermöglicht, verschiedene Operationen an Objekten durchzuführen, z. B. einen Alias für diese zu erstellen.
+Einige Benutzer sind möglicherweise bereits mit dem Kontextmenü im ioBroker Admin Object Browser vertraut. Wir möchten jedoch alle daran erinnern, dass ein einfacher Linksklick schnellen Zugriff auf das Kontextmenü bietet und es Ihnen ermöglicht, verschiedene Operationen an Objekten durchzuführen, z. B. einen Alias für diese zu erstellen.
 
 ## Gotify-ws (4.9.2024) – neuer Adapter im stabilen
 https://github.com/simatec/ioBroker.gotify-ws
@@ -958,4 +958,59 @@ https://github.com/iobroker-community-adapters/ioBroker.srm
 
 Dies ist ein iobroker-Adapter zum Anschluss an Synology-Router. Der Adapter nutzt die Synology-API zum Datenabruf. Der Adapter wurde mit der SRM-Version 1.3.1 und dem Routermodell RT6600 getestet, sollte aber auch mit anderen Modellen funktionieren.
 
+## Pi-hole2 (16.8.2025) – neuer Adapter im stabilen Repository
+https://github.com/oweitman/ioBroker.pi-hole2
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.pi-hole2/main/admin/pi-hole2.png" width="100" height="100" />
+
+Verwalten Sie eine Pi-Hole-Installation >=v6. Holen Sie sich Informationen von Pi-Hole. Starten/Stoppen Sie das Blockieren von Domänen. (Für Pi-Hole <v6 verwenden Sie bitte den Adapter ioBroker.pi-hole)
+
+## Energy-tracker (21.8.2025) – neuer Adapter im stabilen Repository
+https://github.com/energy-tracker/ioBroker.energy-tracker
+
+<img src="https://raw.githubusercontent.com/energy-tracker/ioBroker.energy-tracker/main/admin/energy-tracker.png" width="100" height="100" />
+
+Adapter zum Senden von Zählerständen an die Energy Tracker-Plattform.
+
+## Vis-2-widgets-icontwo (9.9.2025) – neuer Adapter im stabilen Repository
+https://github.com/inventwo/ioBroker.vis-2-widgets-icontwo
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-icontwo/main/admin/vis-2-widgets-icontwo.png" width="100" height="100" />
+
+Icon-Adapter für den ioBroker.vis-Adapter (nur für VIS-2)
+
+## Pirate-weather (10.9.2025) – neuer Adapter im stabilen Repository
+https://github.com/ticaki/ioBroker.pirate-weather
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.pirate-weather/main/admin/pirate-weather.png" width="100" height="100" />
+
+Daten von Pirate-Weather abrufen.
+
+## Brightsky (14.9.2025) – neuer Adapter im stabilen Repository
+https://github.com/ticaki/ioBroker.brightsky
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.brightsky/main/admin/brightsky.png" width="100" height="100" />
+
+Die Bright Sky API ist eine kostenlose, öffentliche API, die Wetterdaten des Deutschen Wetterdienstes (DWD) bereitstellt. Sie wurde entwickelt, um den Zugriff auf diese Daten zu vereinfachen, da die ursprünglichen DWD-Daten oft in schwer interpretierbaren Formaten vorliegen. Bright Sky konvertiert diese Daten in ein benutzerfreundliches JSON-Format und macht sie über eine API zugänglich.
+
+## Weathersense (2.10.2025) – neuer Adapter im stabilen Repository
+https://github.com/ltspicer/ioBroker.weathersense
+
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.weathersense/main/admin/weathersense.png" width="100" height="100" />
+
+WeatherSense ist eine Cloud für Wetterstationen. Dieser Adapter liest Daten vom WeatherSense-Server.
+
+## Sofarcloud (2.10.2025) – neuer Adapter im stabilen Repository
+https://github.com/ltspicer/ioBroker.sofarcloud
+
+<img src="https://raw.githubusercontent.com/ltspicer/ioBroker.sofarcloud/main/admin/sofarcloud.jpg" width="100" height="100" />
+
+Dieser Adapter liest die Daten vom SofarCloud-Server und speichert sie im Datenpunkt SofarCloud.
+Der SofarCloud-Server speichert Daten von Sofar-Wechselrichtern.
+
 <!-- ACHTUNG: Verwenden Sie die Adresse https://raw.githubusercontent.com/... für Symbole! -->
+
+## Ping (05.10.2025) - neue Funktion
+Der Ping-Adapter kann die TCP-Ports prüfen.
+
+https://github.com/ioBroker/ioBroker.ping

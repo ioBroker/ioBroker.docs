@@ -759,11 +759,12 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+### 1.1.3 (2025-10-03)
 
-### **WORK IN PROGRESS**
-
-- (Lucky-ESA) Add translate for device 201
+- (Lucky-ESA) Added translate for device 201
 - (Lucky-ESA) Delete APP-Login (removed by LG)
+- (Lucky-ESA) Added online icon
+- (Lucky-ESA) Microwave 302 disabled (thinq1)
 
 ### 1.1.2 (2025-08-18)
 
@@ -785,13 +786,6 @@ lg-thinq.0.xxx.area must be filled!
 
 - (Lucky-ESA) Fixed: Connection status does not turn green
 - (Lucky-ESA) Changed: Checkbox to dropdown for login procedure
-
-### 1.0.6 (2024-12-07)
-
-- (Lucky-ESA) Save session data (prevents the login email)
-- (Lucky-ESA) Fixed invalid jsonConfig
-- (Lucky-ESA) Added choice between old and new login
-- (Lucky-ESA) Bugfixe
 
 ## License
 

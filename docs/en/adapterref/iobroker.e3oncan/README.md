@@ -35,8 +35,6 @@ Important parts of this adpater are based on the project [open3e](https://github
 
 A python based implementation of a pure listening approach (Collect only) using MQTT messaging is also availabe, see [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
-**Important hint on updating of node.js:** Adapter uses so called native modules which need a rebuild when version of node.js changes. Therefore, after you did an upgrade of node.js, most likely the adapter will fail during next start up. In this case please stop the adapter, do an `iob rebuild` on the command line, then start the adapter. This should fix the problem. If the problem persists, pls. raise an issue.
-
 # Getting started
 
 **Preconditions:**
@@ -64,6 +62,9 @@ This step is not mandatory but strongly recommended. If you would like to write 
 You may use data points informations on tab "LIST OF DATA POINTS" for reference (opening on 2nd tab could help).
 * If you have configured a CAN adapter connected to the **second CAN bus**, a tab "ASSIGNMENTS TO SECOND CAN ADAPTER" is visible. Please configure the devices for colletion there.
 * That's it. Press "SAVE & CLOSE" button and check the data collected in object tree.
+
+# Warning: After upgrading node.js, the adapter will probably no longer work
+**The adapter uses so called native modules which need a rebuild when version of node.js has changed.** Therefore, after you did an upgrade of node.js, most likely the adapter will fail during next start up. In this case please stop the adapter, do an `iob rebuild` on the command line, then start the adapter. This should fix the problem. If the problem persists, pls. raise an issue.
 
 # E380 data and units
 
@@ -137,6 +138,15 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (MyHomeMyData) Fixes for issue #169 (repository checker)
+
+### 0.10.13 (2025-09-30)
+* (MyHomeMyData) Fix for issue #162
+
+### 0.10.12 (2025-09-15)
+* (MyHomeMyData) Migration to ESLint 9, refer to issues #141 and #152
+
 ### 0.10.11 (2025-09-06)
 * (MyHomeMyData) Fix for issue #152 (repository checker) and #126 (node.js 24)
 * (MyHomeMyData) Added hint to readme regarding user action after upgrading version of node.js

@@ -3,40 +3,40 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: qiJyGYl+iytQgjCKWTgus6qTMM6Fh7ONOiqQLYWwcsA=
+hash: Fvr1aTw0IyZbJ+fLgciBIKNx+41ASXE7fi8j6dPSNfk=
 ---
 ![Logo](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/tesla-motors-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/tesla-motors-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/tesla-motors-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.tesla-motors.svg)
 ![NPM](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)
 
 # IoBroker.tesla-motors
-**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
 
 ## Tesla-Adapter für ioBroker
-Es werden alle Tesla Modelle und Powerwalls aus der Tesla App angezeigt und aktualisiert.
+Alle Tesla-Modelle und Powerwalls aus der Tesla-App werden angezeigt und aktualisiert.
 
-**Remote Befehle für Tesla und Powerwall sind möglich unter** tesla-motors.0.id.remote
+**Fernbefehle für Tesla und Powerwall sind verfügbar unter** tesla-motors.0.id.remote
 
-**Loginablauf:**
+**Anmeldevorgang:**
 
-- Klicken Sie in den Instanzoptionen auf den Auth-Link.
-- Die Logindaten eingeben und ggf. Captcha/reCaptcha und MFA eingeben.
-- Auf der Page not Found Seite die komplette URL aus dem Browser kopieren und in die Instanzoptionen einfügen und auf Speichen und Schließen klicken.
-- Die ersten Daten kommen unter Umständen erst nach der ersten Fahrt
+- Klicken Sie in den Instanzoptionen auf den Authentifizierungslink.
+- Geben Sie Ihre Anmeldedaten ein und führen Sie bei Bedarf Captcha/reCaptcha und MFA durch.
+- Kopieren Sie auf der Seite „Seite nicht gefunden“ die vollständige URL aus dem Browser und fügen Sie sie in die Instanzoptionen ein. Klicken Sie dann auf „Speichern und schließen“.
+- Die ersten Daten werden möglicherweise erst nach der ersten Fahrt angezeigt
 
-**Feld Beschreibung**
+**Feldbeschreibung**
 
-- DF-Fahrer vorne
-- Dr. Fahrer hinten
-- Beifahrer vorne
-- PR Beifahrer hinten
-- ft vorderer Kofferraum
-- RT hinterer Kofferraum
+- df Fahrer vorne
+- Fahrertür hinten
+- pf Beifahrer vorne
+- pro Beifahrer hinten
+- ft Kofferraum vorne
+- rechter Kofferraum
 
 [Erklärung der Optionscodes](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
@@ -45,10 +45,31 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 1.4.5 (2024-04-19)
+
+- cleaned up token folder to reduce state objects
+
+### 1.4.4 (2024-04-10)
+
+- improve energy history data
+
+### 1.4.3 (2024-04-10)
+
+- fix for too many state in the powerwall energy history
+
+### 1.4.2 (2023-11-17)
+
+- fix km states are not refreshed
+
+### 1.4.1 (2023-11-17)
+
+- fix \_km states are not refreshed
+
+### 1.4.0 (2023-11-14)
+
+- fix location fetching and add new option to change location fetching interval
+
 ### 1.3.5 (2023-10-24)
 
 - fix vehicle update
@@ -72,13 +93,13 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ### 1.0.2
 
-- (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
+- (iobroker-community-adapters) ALL DATA POINTS ARE NEW, Vis must be adapted. New version with new states for Tesla and Powerwalls.
 
 ## License
 
 MIT License
 
-Copyright (c) 2021-2023 iobroker-community
+Copyright (c) 2021-2029 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

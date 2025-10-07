@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: La5CV/fe48g5FjWEvYBRJHMgTEF+4t/4PISc93px8Fc=
+hash: LJPtBKpFe5pEkfv+/Ay6IJBfOV2UtFDQ+QOnBnu6fJw=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -38,7 +38,7 @@ Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox. Die Kombination
 Wird nicht mehr unterstützt, da die Website von Keba geändert wurde.
 
 ### Passiver Modus
-Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und keine Automatiken über den Adapter wünschen. In diesem Fall werden alle nachfolgenden Optionen zur PV-Automatik und Leistungsbegrenzung ignoriert.
+Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und der Adapter keine Automatikfunktionen ausführen soll. In diesem Fall werden alle nachfolgenden Optionen zur PV-Automatik und Leistungsbegrenzung ignoriert.
 
 ### Nachfolgende Wallbox
 Aktivieren Sie diese Option, wenn es sich um eine weitere Wallbox in Ihrer Umgebung handelt. Aktuell kann nur eine Wallbox aktiv verwaltet werden. Alle anderen (separaten Instanzen) müssen diese Option aktivieren, da nur eine Instanz Broadcast-Nachrichten empfangen kann. Diese Wallbox/Instanz läuft im passiven Modus.
@@ -88,7 +88,7 @@ Eine weitere Option bietet Ihnen die Möglichkeit, nicht die Leistung, sondern d
 Dazu müssen Sie die Stromstärken jeder Phase Ihres Energiezählers angeben. Bitte stellen Sie sicher, dass die Phasen der Ladestation und des Energiezählers die gleiche Nummerierung haben.
 
 ### Dynamische Optionen
-Zusätzlich gibt es einige Zustände, um das Verhalten der Photovoltaik automatisch im laufenden Betrieb zu beeinflussen, z.B. durch ein eigenes Skript, das diese Werte entsprechend Ihren Anforderungen aktualisiert.)
+Zusätzlich gibt es einige Zustände, um das Verhalten der Photovoltaik automatisch im laufenden Betrieb zu beeinflussen, z.B. durch ein eigenes Skript, das diese Werte entsprechend Ihren Anforderungen aktualisiert)
 
 * kecontact.n.automatic.photovoltaics - aktiviert die Photovoltaik automatisch (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn auf false gesetzt
 * kecontact.n.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden sollen. Dies wird für die Keba Deutschland Edition benötigt und kann für die erste Ladesitzung für alle Ladestationen verwendet werden
@@ -98,6 +98,9 @@ Zusätzlich gibt es einige Zustände, um das Verhalten der Photovoltaik automati
 * kecontact.n.automatic.limitCurrent – begrenzt Ihre Ladung auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
 * kecontact.n.automatic.batteryStorageStrategy – Strategie, ob und wie Ihr Batteriespeicher zum Laden Ihres Fahrzeugs genutzt werden soll
 * kecontact.n.automatic.batterySoCForCharging – Begrenzen Sie die Nutzung des Batteriespeichers für das Fahrzeug, indem Sie einen SoC angeben, unter dem das Laden verboten ist
+* kecontact.n.automatic.stateVehicleSoC – Statusname zum Abrufen des aktuellen SoC des Fahrzeugs
+* kecontact.n.automatic.targetSoC – PV-Automatik deaktivieren (mit maximaler Leistung laden), bis das Fahrzeug diesen SoC erreicht
+* kecontact.n.automatic.resetTargetSoC - auf true setzen, wenn Ziel-SoC nach Erreichen gelöscht werden soll
 
 Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6 A zu laden, setzen Sie „Photovoltaik“ auf „Falsch“ und „LimitCurrent“ auf 6000.
 
@@ -112,6 +115,11 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Sneak-L8) new options to charge vehicle up to a specified SoC
+* (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
+* (Sneak-L8) drop dependencies to chai, sinon and mocha
+
+### 3.3.0 (2025-09-18)
 * (Sneak-L8) new option to always charge with 1p oder 3p
 * (Sneak-L8) new setting for discharging power of storage battery (if not equal to max battery power)
 * (Sneak-L8) updated version requirements (admin 7.6.17 and core 3.3.2)
@@ -144,13 +152,6 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 * (Sneak-L8) fix error sentry IOBROKER-KECONTACT-21
 * (Sneak-L8) migrate from request to axios
 * (Sneak-L8) migrate from ESlint v8 to v9
-
-### 2.3.0 (2024-11-29)
-* (Sneak-L8) new option to limit charging station according to german §14a EnWG
-* (Sneak-L8) enable currTime for manual use and X2 even in passive mode
-* (Sneak-L8) minimum verison für js-controller now 5.0.19
-* (Sneak-L8) set currTimer timeout default value from 0 to 1
-* (Sneak-L8) support new option "setBoot" of c-series stating firmware 3.10.57
 
 ## License
                                  Apache License

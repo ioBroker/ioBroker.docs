@@ -40,6 +40,12 @@ States are generated automatically whenn the adapter starts. If a status or chan
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-09-28)
+
+- (SG-App) dependency updates
+- (SG-App) allow multi channel configuration
+- (SG-App) optimize Rest request and log channel not exists
+
 ### 0.6.2 (2025-02-11)
 
 - (SG-App) fix loading single channel

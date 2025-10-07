@@ -54,6 +54,7 @@ https://www.iobroker.net/#de/blog/2025_03_29
 https://www.iobroker.net/#de/blog/2025_04_04
 https://www.iobroker.net/#de/blog/2025_04_26
 https://www.iobroker.net/#de/blog/2025_06_17
+https://www.iobroker.net/#de/blog/2025_09_24
 https://www.iobroker.net/#en/blog/2018_03_17
 https://www.iobroker.net/#en/blog/2019_02_22
 https://www.iobroker.net/#en/blog/2019_02_25
@@ -82,6 +83,7 @@ https://www.iobroker.net/#en/blog/2025_03_29
 https://www.iobroker.net/#en/blog/2025_04_04
 https://www.iobroker.net/#en/blog/2025_04_26
 https://www.iobroker.net/#en/blog/2025_06_17
+https://www.iobroker.net/#en/blog/2025_09_24
 https://www.iobroker.net/#ru/blog/2018_03_17
 https://www.iobroker.net/#ru/blog/2019_02_22
 https://www.iobroker.net/#ru/blog/2019_02_25
@@ -110,6 +112,7 @@ https://www.iobroker.net/#ru/blog/2025_03_29
 https://www.iobroker.net/#ru/blog/2025_04_04
 https://www.iobroker.net/#ru/blog/2025_04_26
 https://www.iobroker.net/#ru/blog/2025_06_17
+https://www.iobroker.net/#ru/blog/2025_09_24
 https://www.iobroker.net/#zh-cn/blog/2018_03_17
 https://www.iobroker.net/#zh-cn/blog/2019_02_22
 https://www.iobroker.net/#zh-cn/blog/2019_02_25
@@ -138,6 +141,7 @@ https://www.iobroker.net/#zh-cn/blog/2025_03_29
 https://www.iobroker.net/#zh-cn/blog/2025_04_04
 https://www.iobroker.net/#zh-cn/blog/2025_04_26
 https://www.iobroker.net/#zh-cn/blog/2025_06_17
+https://www.iobroker.net/#zh-cn/blog/2025_09_24
 https://www.iobroker.net/#de/documentation/admin/adapter.md
 https://www.iobroker.net/#de/documentation/admin/enums.md
 https://www.iobroker.net/#de/documentation/admin/files.md
@@ -1206,6 +1210,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.samsung_tizen/README.m
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.scheduler/README.md
@@ -1239,6 +1244,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.smappee/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smart-eq/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartcontrol/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartgarden/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartloadmanager/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartthings/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smoothed/README.md
@@ -1417,6 +1423,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.x-touch/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.xbox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.xiaomi-gateway3/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.xs1/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.xsense/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.xterm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.yahka/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.yahoo-stock-market/README.md
@@ -1919,6 +1926,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.samsung_tizen/README.m
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.scheduler/README.md
@@ -1952,6 +1960,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.smappee/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smart-eq/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartcontrol/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartgarden/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartloadmanager/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartthings/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smoothed/README.md
@@ -2130,6 +2139,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.x-touch/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.xbox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.xiaomi-gateway3/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.xs1/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.xsense/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.xterm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.yahka/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.yahoo-stock-market/README.md
@@ -2632,6 +2642,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.samsung_tizen/README.m
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.scheduler/README.md
@@ -2665,6 +2676,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smappee/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smart-eq/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartcontrol/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartgarden/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartloadmanager/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartthings/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smoothed/README.md
@@ -2843,6 +2855,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.x-touch/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.xbox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.xiaomi-gateway3/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.xs1/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.xsense/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.xterm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.yahka/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.yahoo-stock-market/README.md
@@ -3345,6 +3358,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.samsung_tizen/READM
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sanext/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sayit/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbfspot/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sbms/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scenes/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.schedule-switcher/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.scheduler/README.md
@@ -3378,6 +3392,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smappee/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smart-eq/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartcontrol/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartgarden/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartloadmanager/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartthings/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smoothed/README.md
@@ -3556,6 +3571,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.x-touch/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xbox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xiaomi-gateway3/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xs1/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xsense/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.xterm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yahka/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yahoo-stock-market/README.md

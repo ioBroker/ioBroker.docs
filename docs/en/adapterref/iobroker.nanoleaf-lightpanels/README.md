@@ -59,9 +59,12 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
 
-### 1.5. (2024-04-21)
+### 1.5.1 (2025-09-30)
+* (daniel_2k) update dependencies and fixed ioBroker Check / Service Bot findings
+
+### 1.5.0 (2024-04-21)
 * (daniel_2k) new: added Skylight device
-* (daniel_2k) changes: use keep alive for HTTP connections to avoid SNAT port exhaustion (e.g. Docker environments)
+* (daniel_2k) changed: use keep alive for HTTP connections to avoid SNAT port exhaustion (e.g. Docker environments)
 
 ### 1.4.0 (2023-07-16)
 * (daniel_2k) changed: use adapter-core for js-controller 5 compatibility
@@ -192,6 +195,5 @@ You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2023 daniel_2k <daniel_2k@outlook.com>
- (MIT)
-Copyright (c) 2021 daniel_2k <daniel_2k@outlook.com>
+
+Copyright (c) 2025 daniel_2k <daniel_2k@outlook.com>

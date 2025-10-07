@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ankersolix2/README.md
 title: ioBroker.ankersolix2
-hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
+hash: SLi2rDlaXAw4B4c4s+1uBJLdCVtAMj6cKNEMD9deld0=
 ---
 ![标识](../../../en/adapterref/iobroker.ankersolix2/admin/ankersolix2.png)
 
@@ -20,10 +20,10 @@ hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
 集成 Anker Solix 2
 
 ＃＃ 描述
-该项目源自https://github.com/tomquist/solix2mqtt，并将来自anker api的信息直接带入ioBroker。
+该项目源自 https://github.com/tomquist/solix2mqtt，并将来自 anker api 的信息直接带入 ioBroker。
 
 ## 支持的设备
-我没有每一个[Anker 硬件](https://www.ankersolix.com/) 可供测试。我只能列出我测试过的硬件。其他所有 [Anker 硬件](https://www.ankersolix.com/) 可能也适用于其他 [Anker 硬件](https://www.ankersolix.com/)。](https://www.ankersolix.com/)也兼容
+我没有每个[Anker 硬件](https://www.ankersolix.com/) 可供测试。我只能列出我测试过的硬件。其他所有 [Anker 硬件](https://www.ankersolix.com/) 可能](https://www.ankersolix.com/)也兼容
 
 | 设备 | 描述 |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -37,17 +37,17 @@ hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
 1. ~~在 anker 应用程序中创建一个家庭帐户并将其添加到您的主帐户~~自 2025 年 7 月底起，您可以在应用程序和适配器中使用同一个帐户。
 2.安装适配器
 3. 进入适配器设置并设置您的凭据
-4. 首次使用时，请使用较长的轮询时间（180 秒），这样如果出现问题，您就有足够的时间停止适配器。
+4. 第一次，请使用较长的轮询时间（180 秒），这样如果出现问题，您就有足够的时间停止适配器。
 
-通常您可以在日志文件中看到您有一个 site_id 并且收到消息：已发布。
+通常您可以在日志文件中看到您有一个 site_id 并且您收到消息：已发布。
 
 ## 使用适配器控制
 1. 您需要登录您的管理员账户
 2. 进入适配器设置，标签控制并激活控制
-3.选择您想要控制的站点 ID。
+3. 选择您想要控制的站点 ID。
 4. 控制选项
 
-4.1. 选择您想要控制的数据点。它可以是由脚本设置的手动数据点，也可以是智能电表数据点。（重要提示：必须为数值）4.2. 您可以设置自定义电源计划，如果需要再次触发电源计划，可以通过数据点 ankersolix2.x.control.SetPowerplan（设置为 true 并确认）进行控制。4.3. 您可以启用交流负载。如果已启用，您可以通过数据点 ankersolix2.x.control.ACLoading\ 进行控制（设置为 true 且确认 = activ（当前时间 + 12 小时），设置为 false 且确认 = inactiv，用户自定义电源计划将启用）。
+4.1. 选择您想要控制的数据点。它可以是由脚本设置的手动数据点，也可以是智能电表数据点。（重要提示：必须是数值）4.2. 您可以设置自定义电源计划，如果需要再次触发电源计划，您可以通过数据点 ankersolix2.x.control.SetPowerplan（设置为 true 并确认）进行控制。4.3. 您可以启用交流负载。如果已启用，您可以通过数据点 ankersolix2.x.control.ACLoading\ 进行控制（设置为 true 且确认 = activ（当前时间 + 12 小时），设置为 false 且确认 = inactiv，用户自定义电源计划将启用）。
 
 5.单击保存并重新启动适配器
 
@@ -56,6 +56,10 @@ hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
 ## 帮助
 如果您遇到类似 401 的错误，请检查您的凭据。
 如果您再次遇到错误并且无法登录，请停止适配器并删除 iobroker-data/ankersolix2.0 下的 session.data（例如 /opt/iobroker/iobroker-data/ankersolix2/），然后重新启动适配器。
+
+## 多库
+- de: [zur 文档](docs/de/README.md)
+- en: [文档](docs/en/README.md)
 
 ## 你想支持我吗？
 [![“给我买杯咖啡”](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/ronny130286)
@@ -68,9 +72,9 @@ hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2025-09-20)
 
-### **WORK IN PROGRESS**
-
+- (ronny130286) add timeplan (schedule) and userdefine energyplan
 - (ronny130286) add Powerplan and AC Loading (for AC devices)
 
 ### 2.3.0 (2025-08-16)

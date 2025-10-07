@@ -196,7 +196,7 @@ For more details on how to handle integrations within Synology chat, please refe
 
 	your message template would look like this:
 
-	`The ${type} in the ${location} changed to ${value}°C`
+	`The ${sensor.type} in the ${sensor.location} changed to ${sensor.value}°C`
 
 	**NOTE AND RESTRICTIONS:**
 
@@ -270,6 +270,7 @@ For more details on how to handle integrations within Synology chat, please refe
 		* `${from}` - Pattern related to the `iobroker.Message` object
 		* `${_id}` - Pattern related to the `iobroker.Message` object
 		* `${instances}` - Pattern will be replaced with a list of instances related to the received notification of the Notification-Manager
+		* `${contextData}` - Pattern providing additional contextData which is also stored with the notification information
 
         More information about the structure of the [Notification-Manager](https://github.com/foxriver76/ioBroker.notification-manager) message object can be found in the [README](https://github.com/foxriver76/ioBroker.notification-manager).
         
@@ -389,6 +390,13 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.2 (2025-10-04)
+- *[@phoeluga]* Adding channelToken and channels properties to protectedNative and encryptedNative object type
+- *[@phoeluga]* Enhanced template handling to properly ignore non-JSON objects, preventing them from being processed as JSON objects
+- *[@OlliMartin]* Allow to be used in message templates - #34
+- *[@phoeluga]* Adding compatibility check and testing for node.js 24 - #35
+- *[@phoeluga]* Updated dependencies to the current minimum versions and according to - #36 ; #38 ; #39
+
 ### 1.3.3 (2025-01-26)
 - *[@phoeluga]* Updated admin UI to fix desponsive design (mobile view) - #28
 

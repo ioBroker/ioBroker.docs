@@ -136,6 +136,40 @@ As the libraries are shared, any device supported in zigbee2mqtt.io will in time
 Other topics related to this adapter are also documented in the associated [wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki).
 
 ## Changelog
+### 3.1.5 (2025-10-04)
+* (asgothian) Bugfixes
+* (asgothian) ZHC25.36.0
+* (asgothian) reduced stopTimeout to 5s
+
+### 3.1.4 (2025-09-26)
+* (asgothian) Remove extra logging
+* (asgothian) Add extra configurations
+* (asgothian) Do not read states from deactivated devices
+* (asgothian) Ignore deactivated devices for group state updates
+* (asgothian) Change display for deactivated devices in the object tree (gray, no connected icon)
+* (asgothian) more detailed device debug
+* (asgothian) device debug UI improvements
+* (asgothian) Pairing and device Query buttons on router cards
+* (asgothian) ZHC 25.31.0, ZH 6.1.2 or newer
+* (asgothian) Options based on ZHC defined options
+
+### 3.1.2 (2025-09-15)
+* (asgothian) Fix pairing bug
+* (asgothian) add ping messages to device debug to verify ping failure reasons
+* (asgothian) Fix bug that blocked group names and renaming
+* (asgothian) removed extra warning message for resolveEntity
+
+### 3.1.1 (2025-09-14)
+* (asgothian) ZHC 25.x ZH 6.x
+* (asgothian) Refactor main/statescontroller/zigbeecontroller
+* (asgothian) Allow groups to trigger member state reads (via state memberupdate)
+* (asgothian) Allow groups to set state based on accumulated member states (via state stateupdate)
+* (asgothian) Trigger state read at device announce (via Settings: Read states at device announce)
+* (asgothian) Trigger state read at adapter start for all pingable devices (via settings: 'try to read all states at adapter start' and 'read delay' (in seconds))
+* (asgothian) Bugfix: Error in automatic restart function
+* (asgothian) Bugfix: Error in device_query blocked certain states from being read
+* (asgothian) Change to device Query: 15 second delay between queries only for automated queries. Manual queries are not affected
+
 ### 3.1.0 (2025-08-02)
 * (asgothian) ZHC 24.9.0
 * (asgothian) ZH 5.x

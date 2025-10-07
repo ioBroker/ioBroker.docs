@@ -1,41 +1,41 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovergy/README.md
 title: ioBroker.discovergy
-hash: 1Nr1cgwlVRa80FxerZJGSIxk11/GXMQFME3TV9m0Z0U=
+hash: JrTgb6QHbY0ilsnijYvzoCe9QUeb4wCl0Zi3TKn78kc=
 ---
 ![альтернативный текст](https://raw.githubusercontent.com/DrozmotiX/ioBroker.discovergy/master/admin/Discovergy_logo.png)
 
 ![альтернативный текст](https://travis-ci.org/DrozmotiX/ioBroker.discovergy.svg?branch=master)
 ![Количество установок](http://iobroker.live/badges/discovergy-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.discovergy.svg)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.discovergy.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.discovergy.svg)
 
 # IoBroker.discovergy
-Это адаптер ioBroker для вашего измерителя мощности Discovery.
-Он использует API Discovergy для считывания данных ваших счетчиков и синхронизации их текущих значений с ioBroker.
+Это адаптер ioBroker для вашего счётчика электроэнергии Discovery Power.
+Он использует API Discovergy для считывания данных с ваших счётчиков и синхронизации их текущих значений с ioBroker.
 
 https://api.discovergy.com/docs/
 
-Пожалуйста, не стесняйтесь добавлять проблемы, связанные с желаемыми функциями или проблемами, которые вы видите, чтобы я мог взглянуть на них!
+Не стесняйтесь добавлять описание желаемой вами функциональности или проблем, которые вы видите, чтобы я мог их рассмотреть!
 
-Примечание: у меня нет всех возможных устройств, а также демо-счет не предоставляет все существующие значения, которые могут предоставить устройства.
+Примечание: У меня нет всех возможных устройств, и демо-аккаунт не предоставляет все существующие значения, которые могут предоставить устройства.
 Если вы получили следующую ошибку:
 
-Информация, полученная от Discovery, которая еще не является частью этого адаптера" "Отправьте эту информацию разработчику: xxxxx
+Информация, полученная от Discovery, которая пока не является частью этого адаптера. «Отправить эту информацию разработчику: xxxxx
 
-Пожалуйста, перейдите в свой файл журнала и загрузите его, создайте проблему здесь, на github, с указанными значениями.
-Не копируйте и вставляйте из веб-интерфейса администратора, здесь отсутствует информация, которая мне нужна!
+Пожалуйста, перейдите к своему лог-файлу и скачайте его, создайте issue здесь на GitHub с предоставленными значениями.
+Не копируйте и не вставляйте данные из веб-интерфейса администратора, здесь отсутствует необходимая мне информация!
 
-Вы можете протестировать этот адаптер, используя демо-учетные данные Discovery (или свои собственные :-)): username = demo@discovergy.com pass = demo
+Вы можете протестировать этот адаптер, используя демонстрационные учетные данные discoverygy (или свои собственные :-)): имя пользователя = demo@inexogy.com пароль = demo
 
-## Поддержите меня
-Если вам понравилась моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+## Поддержи меня
+Если вам понравилась моя работа, не стесняйтесь сделать личное пожертвование (это персональная ссылка для пожертвований для DutchmanNL, не имеющая никакого отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
-## Авторы
+## Участники
 * АльКальцоне
-* зорнерт
+* зоернерт
 
 ## Changelog
 
@@ -43,8 +43,18 @@ https://api.discovergy.com/docs/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
 ### __WORK IN PROGRESS__
+* (DutchmanNL) **ENHANCED**: Updated GitHub Copilot instructions to latest template version 0.4.0 with comprehensive testing framework patterns and enhanced development guidelines. Fixes #287
+* (DutchmanNL) **FIXED**: Repository checker issues - deprecated methods replaced and VSCode configuration improved
+* (DutchmanNL) **ENHANCED**: VSCode IntelliSense support for io-package.json and package.json validation
+* (DutchmanNL) **NEW**: Added comprehensive API testing with demo credentials to ensure adapter reliability
+* (DutchmanNL) **FIXED**: Critical bug where adapter would always show "credentials missing" even with valid credentials - now properly validates user login
+* (DutchmanNL) **ENHANCED**: Demo testing now includes proper password encryption matching ioBroker admin interface behavior
+* (DutchmanNL) **TESTING**: New `npm run test:integration-demo` command validates full API connectivity with working demo credentials (`demo@inexogy.com` / `demo`)
+* (DutchmanNL) **CI/CD**: Automated testing ensures adapter connects properly to Discovergy/Inexogy API and initializes meters successfully
+
+### 0.6.0 (2024-12-04) - API change to Inexogy
+* (DutchmanNL) Bugfix: API change to Inexogy. Fixes #249
 * (DutchmanNL) Migrate admin settings to JSON config. Fixes #211
 
 ### 0.5.13 (2023-10-31)
@@ -60,14 +70,10 @@ https://api.discovergy.com/docs/
 ### 0.5.8 (2021-08-17)
 * (DutchmanNL) Minor dependency & configuration updates, stable release candidate
 
-### 0.5.7 (2021-03-19)
-* (DutchmanNL) Change why of password encryption, you my need to re-enter your credentials !
-* (DutchmanNL) Bugfix : State "system.this.discovergy.0.alive" has no existing object, this might lead to an error in future versions
-
 ## License
 MIT License
 
-Copyright (c) 2023 DutchmanNL
+Copyright (c) 2025 DutchmanNL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

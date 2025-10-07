@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: nndb+Vr3DTPX71zseg9XTxRubRCvqrSDw+NPUorH1IA=
+hash: cGsREiIjFudCdgPjrbHcFaIkH3grXBVxpuy/k8Uh4gM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -40,8 +40,6 @@ hash: nndb+Vr3DTPX71zseg9XTxRubRCvqrSDw+NPUorH1IA=
 
 Также доступна реализация подхода чистого прослушивания (только сбор) на базе Python с использованием обмена сообщениями MQTT, см. [E3onCAN](https://github.com/MyHomeMyData/E3onCAN).
 
-**Важный совет по обновлению node.js:** Адаптер использует так называемые нативные модули, которые необходимо пересобрать при изменении версии node.js. Поэтому после обновления node.js адаптер, скорее всего, выйдет из строя при следующем запуске. В этом случае остановите адаптер, выполните команду `iob rebuild` в командной строке, а затем запустите адаптер. Это должно решить проблему. Если проблема не исчезнет, пожалуйста, сообщите нам об этом.
-
 # Начиная
 **Предпосылки:**
 
@@ -74,6 +72,9 @@ hash: nndb+Vr3DTPX71zseg9XTxRubRCvqrSDw+NPUorH1IA=
 
 * Если вы настроили CAN-адаптер, подключенный ко **второй CAN-шине**, будет видна вкладка «НАЗНАЧЕНИЯ ВТОРОГО CAN-АДАПТЕРА». Настройте устройства для сбора данных там.
 * Вот и всё. Нажмите кнопку «СОХРАНИТЬ И ЗАКРЫТЬ» и проверьте собранные данные в дереве объектов.
+
+# Внимание: после обновления node.js адаптер, вероятно, перестанет работать.
+**Адаптер использует так называемые нативные модули, которые необходимо пересобрать при изменении версии node.js.** Поэтому после обновления node.js адаптер, скорее всего, выйдет из строя при следующем запуске. В этом случае остановите адаптер, выполните команду `iob rebuild` в командной строке, а затем запустите адаптер. Это должно решить проблему. Если проблема не исчезнет, пожалуйста, сообщите нам об этом.
 
 # Данные и единицы измерения E380
 Поддерживается до двух счётчиков электроэнергии E380. Идентификаторы точек данных зависят от CAN-адреса устройства:
@@ -143,6 +144,15 @@ CAN-address=98: точки данных с нечетными идентифик
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (MyHomeMyData) Fixes for issue #169 (repository checker)
+
+### 0.10.13 (2025-09-30)
+* (MyHomeMyData) Fix for issue #162
+
+### 0.10.12 (2025-09-15)
+* (MyHomeMyData) Migration to ESLint 9, refer to issues #141 and #152
+
 ### 0.10.11 (2025-09-06)
 * (MyHomeMyData) Fix for issue #152 (repository checker) and #126 (node.js 24)
 * (MyHomeMyData) Added hint to readme regarding user action after upgrading version of node.js

@@ -48,6 +48,10 @@ When the adapter crashes or another Code error happens, this error message that 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (ticaki) allow sending of raw json from state
+
 ### 0.7.3 (2024-10-26)
 * (HaggardFFM) allow write on segments, solves #688 #706
 * (DutchmanNL) Fixed error when a device is not available Solves #698

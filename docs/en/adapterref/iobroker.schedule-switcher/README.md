@@ -791,6 +791,11 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Fixed warn log (Cannot read dir...)
+
 ### 0.0.12 (2025-08-27)
 
 - (Lucky-ESA) Astro time in widget fixed

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ankersolix2/README.md
 title: ioBroker.ankersolix2
-hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
+hash: SLi2rDlaXAw4B4c4s+1uBJLdCVtAMj6cKNEMD9deld0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ankersolix2/admin/ankersolix2.png)
 
@@ -57,6 +57,10 @@ hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
 Если у вас возникают ошибки типа 401, проверьте свои учётные данные.
 Если ошибки появляются снова и вы не можете войти в систему, остановите адаптер и удалите файл session.data в папке iobroker-data/ankersolix2.0 (например, /opt/iobroker/iobroker-data/ankersolix2/), после чего снова запустите адаптер.
 
+## Доку
+- de: [zur Dokumentation](docs/de/README.md)
+- ru: [для документации](docs/en/README.md)
+
 ## Хотите меня поддержать?
 [![«Купи мне кофе»](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/ronny130286)
 
@@ -68,9 +72,9 @@ hash: iYYEh5sf48QGNA4uvAzKAuwIbEuuW5JU55EBHLl1eMk=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2025-09-20)
 
-### **WORK IN PROGRESS**
-
+- (ronny130286) add timeplan (schedule) and userdefine energyplan
 - (ronny130286) add Powerplan and AC Loading (for AC devices)
 
 ### 2.3.0 (2025-08-16)

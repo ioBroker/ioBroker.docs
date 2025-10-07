@@ -62,6 +62,9 @@ In version 0.7.1, only minor adjustments were made to the instance view.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.2 (2025-10-01)
+* (raschy) Bump axios from 1.11.0 to 1.12.2
+
 ### 0.7.1 (2025-04-25)
 * (raschy) jsonConfig customized
 

@@ -18,6 +18,9 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 -->
 
 ## Changelog
+### 1.6.0 (2025-09-21)
+* (bluefox) Optimization of button de-bouncing
+
 ### 1.5.1 (2024-03-07)
 * (bluefox) Removed vis dependency and replaced with message by installation or update if vis is not installed
 
@@ -153,5 +156,5 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2024 bluefox <dogafox@gmail.com>
+ Copyright (c) 2013-2025 bluefox <dogafox@gmail.com>
  MIT

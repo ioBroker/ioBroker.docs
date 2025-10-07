@@ -687,7 +687,14 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 ---
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.3.8 (2025-10-05)
+* (simatec) dependencies updated
+* (simatec) Fix ESPHome Backup
+
+### 3.3.7 (2025-09-21)
+* (simatec) Fix ftp signed Certificates
+* (simatec) Fix vscode settings
+* (simatec) Fix Error Handling for Dropbox
 * (simatec) dependencies updated
 
 ### 3.3.6 (2025-08-31)

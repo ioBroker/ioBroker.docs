@@ -473,6 +473,11 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 5.0.2 (2025-10-02)
+* (Garfonso) some light entities did not restore their proper state on switch on. Fixed.
+* (Garfonso) process folders-Objects for auto entities, too. (pirate-weather support)
+* (Garfonso) prepare support for effects in light entities (will need new type-detector version).
+
 ### 5.0.1 (2025-09-09)
 * (Garfonso) settings from entity registry are now loaded on startup
 * (Garfonso) logbook: prevent entries from the future
@@ -497,9 +502,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 4.1.14 (2025-03-10)
 * (Garfonso) repaired image loading. Fixes #577
-
-### 4.1.13 (2025-03-06)
-* (Garfonso) reworked image sending. Now weather icons work for normal users, too. Also, weather images are transferred from our server, so no access to admin is needed anymore.
 
 ## License
 

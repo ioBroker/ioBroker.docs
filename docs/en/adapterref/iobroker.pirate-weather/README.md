@@ -18,12 +18,31 @@ Retrieve data from Pirate-Weather.
 You can get the required Api token here: https://docs.pirateweather.net/en/latest/ The rest should be self-explanatory.
 The explanation of what the individual data points mean can be found here: https://docs.pirateweather.net/en/latest/API/
 
+Icons: from icebear (free to use)
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2025-09-30)
+- (ticaki) Added comprehensive astronomy data to daily forecast: twilight times, day/night length, solar noon, moonrise/moonset, and lunar transit
+- (ticaki) Added human-readable time formats (HH:MM:SS) for duration fields
+
+### 0.6.2 (2025-09-27)
+- (ticaki) more robust fetch usage
+
+### 0.6.1 (2025-09-26)
+- (ticaki) Use the default icons for mostly-
+
+### 0.6.0 (2025-09-25)
+- (ticaki) icons from icebear added
+
+### 0.5.0 (2025-09-24)
+- (ticaki) Code migration from axios to node:fetch
+- (ticaki) Corrected roles for visualisation (lovelance) fixes #19
+
 ### 0.4.1 (2025-09-12)
 - (ticaki) Humidity is now displayed correctly in percent.  fixes #15
 - (ticaki) Wind direction text is now translated into the system iobroker language. fixes #16

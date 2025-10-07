@@ -799,5 +799,250 @@
     "conditions": {
       "iwg-vpn": "installed"
     }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.rmb-bhkw has been deprecated",
+      "de": "Adapter ioBroker.rmb-bhkw wurde abgekündigt und archiviert",
+      "ru": "Адаптер ioBroker.rmb-bhkw был обесценен",
+      "pt": "Adapter ioBroker.rmb-bhkw foi desprecaído",
+      "nl": "Adapter ioBroker.rmb-bhkw is verouderd",
+      "fr": "L'adaptateur ioBroker.rmb-bhkw a été déprécié",
+      "it": "Adattatore ioBroker.rmb-bhkw è stato deprecato",
+      "es": "Adaptador ioBroker.rmb-bhkw ha sido deprecatado",
+      "pl": "Adapter joBroker.rmb-bhkw został zdepregowany",
+      "uk": "Адаптер ioBroker.rmb-bhkw був розшифрований",
+      "zh-cn": "适应器 ioBroker.rmb-bhkw 已贬值"
+    },
+    "content": {
+      "en": "The adapter ioBroker.rmb-bhkw has been archived by its maintainer and will no longer get any updates. It has been removed from repositories and a deinstallation of the adapter should be considered.",
+      "de": "Der Adapter ioBroker.rmb-bhkw wurde von seinem Betreuer archiviert und erhält keine Updates mehr. Er wurde aus den Repositories entfernt und eine Deinstallation des Adapters sollte in Erwägung gezogen werden.",
+      "ru": "Адаптер ioBroker.rmb-bhkw был архивирован его разработчиком и больше не будет получать обновления. Он был удалён из репозиториев, поэтому рекомендуется рассмотреть возможность его деинсталляции.",
+      "pt": "O adaptador ioBroker.rmb-bhkw foi arquivado pelo seu mantenedor e não receberá mais atualizações. Ele foi removido dos repositórios e a desinstalação do adaptador deve ser considerada.",
+      "nl": "De adapter ioBroker.rmb-bhkw is gearchiveerd door de beheerder en ontvangt geen updates meer. Deze is verwijderd uit de repositories en een de-installatie van de adapter dient te worden overwogen.",
+      "fr": "L'adaptateur ioBroker.rmb-bhkw a été archivé par son responsable et ne sera plus mis à jour. Il a été supprimé des dépôts et sa désinstallation doit être envisagée.",
+      "it": "L'adattatore ioBroker.rmb-bhkw è stato archiviato dal suo manutentore e non riceverà più aggiornamenti. È stato rimosso dai repository e si consiglia di valutarne la disinstallazione.",
+      "es": "El adaptador ioBroker.rmb-bhkw ha sido archivado por su mantenedor y ya no recibirá actualizaciones. Se ha eliminado de los repositorios y se debe considerar su desinstalación.",
+      "pl": "Adapter ioBroker.rmb-bhkw został zarchiwizowany przez jego administratora i nie będzie już otrzymywał aktualizacji. Został usunięty z repozytoriów i należy rozważyć odinstalowanie adaptera.",
+      "uk": "Адаптер ioBroker.rmb-bhkw був архівований його розробником і більше не отримуватиме жодних оновлень. Його було видалено з репозиторіїв, і слід розглянути можливість видалення адаптера.",
+      "zh-cn": "适配器 ioBroker.rmb-bhkw 已被其维护者存档，将不再获得任何更新。该适配器已从代码库中移除，建议考虑卸载。"
+    },
+    "id": "rmb-bhkw-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-11T00:00:00.000Z",
+    "conditions": {
+      "rmb-bhkw": "installed"
+    }
+  },
+  {
+    "title":{
+      "en": "Adapter ioBroker.paw has been deprecated",
+      "de": "Adapter ioBroker.paw ist veraltet",
+      "ru": "Адаптер ioBroker.paw устарел",
+      "pt": "O adaptador ioBroker.paw foi descontinuado",
+      "nl": "Adapter ioBroker.paw is verouderd",
+      "fr": "L'adaptateur ioBroker.paw est obsolète",
+      "it": "L'adattatore ioBroker.paw è stato deprecato",
+      "es": "El adaptador ioBroker.paw ha quedado obsoleto",
+      "pl": "Adapter ioBroker.paw został wycofany",
+      "uk": "Адаптер ioBroker.paw застарів",
+      "zh-cn": "适配器 ioBroker.paw 已被弃用"
+    },
+    "content": {
+      "en": "The adapter ioBroker.paw has been deprectaed by it's maintainer. All open isses have been closed with remark \"not planned\". The adapter has been removed from repositories as no more maintainance is to be expected. A deinstallation of the adapter should be evaluated. It us not recommended to use any adapter only available via github instal at production systems.",
+      "de": "Der Adapter ioBroker.paw wurde vom Betreuer als veraltet markiert. Alle offenen Probleme wurden mit dem Vermerk „nicht geplant“ geschlossen. Der Adapter wurde aus den Repositories entfernt, da keine weitere Wartung zu erwarten ist. Eine Deinstallation des Adapters sollte geprüft werden. Es wird nicht empfohlen, Adapter, die nur über GitHub verfügbar sind, auf Produktionssystemen zu verwenden.",
+      "ru": "Адаптер ioBroker.paw объявлен устаревшим его разработчиком. Все открытые выпуски закрыты с пометкой «не планируется». Адаптер удалён из репозиториев, поскольку дальнейшая поддержка не планируется. Рекомендуется рассмотреть возможность удаления адаптера. Не рекомендуется использовать адаптеры, доступные только через GitHub Install, в рабочих системах.",
+      "pt": "O adaptador ioBroker.paw foi descontinuado pelo seu mantenedor. Todos os problemas em aberto foram encerrados com a observação \"não planejado\". O adaptador foi removido dos repositórios, pois não há mais manutenção prevista. Uma desinstalação do adaptador deve ser avaliada. Não é recomendado o uso de adaptadores disponíveis apenas via instalação via GitHub em sistemas de produção.",
+      "nl": "De adapter ioBroker.paw is door de beheerder afgekeurd. Alle openstaande kwesties zijn gesloten met de opmerking \"niet gepland\". De adapter is uit de repositories verwijderd omdat er geen onderhoud meer wordt verwacht. Een de-installatie van de adapter moet worden overwogen. Het wordt afgeraden om een adapter te gebruiken die alleen via GitHub beschikbaar is en op productiesystemen wordt geïnstalleerd.",
+      "fr": "L'adaptateur ioBroker.paw a été déconseillé par son mainteneur. Tous les problèmes ouverts ont été clôturés avec la mention « non planifié ». L'adaptateur a été retiré des dépôts, aucune maintenance n'étant prévue. Une désinstallation de l'adaptateur est à envisager. Il est déconseillé d'utiliser un adaptateur disponible uniquement via GitHub sur les systèmes de production.",
+      "it": "L'adattatore ioBroker.paw è stato dichiarato obsoleto dal suo manutentore. Tutti i problemi aperti sono stati chiusi con la nota \"non pianificato\". L'adattatore è stato rimosso dai repository poiché non è prevista ulteriore manutenzione. Si consiglia di valutare la disinstallazione dell'adattatore. Si sconsiglia di utilizzare adattatori disponibili solo tramite installazione su GitHub sui sistemi di produzione.",
+      "es": "El adaptador ioBroker.paw ha sido descontinuado por su mantenedor. Todos los problemas abiertos se han cerrado con la nota \"no planificado\". El adaptador se ha eliminado de los repositorios, ya que no se espera más mantenimiento. Se debe evaluar su desinstalación. No se recomienda usar adaptadores disponibles únicamente mediante instalación en GitHub en sistemas de producción.",
+      "pl": "Adapter ioBroker.paw został uznany za przestarzały przez jego opiekuna. Wszystkie otwarte zgłoszenia zostały zamknięte z adnotacją „nieplanowane”. Adapter został usunięty z repozytoriów, ponieważ nie przewiduje się dalszych prac konserwacyjnych. Należy rozważyć deinstalację adaptera. Nie zaleca się używania adapterów dostępnych wyłącznie za pośrednictwem instalacji GitHub w systemach produkcyjnych.",
+      "uk": "Адаптер ioBroker.paw було визнано застарілим його розробником. Усі відкриті проблеми було закрито з приміткою «не заплановано». Адаптер було видалено з репозиторіїв, оскільки подальше обслуговування не очікується. Слід розглянути можливість видалення адаптера. Не рекомендується використовувати будь-які адаптери, доступні лише через встановлення на GitHub, у робочих системах.",
+      "zh-cn": "ioBroker.paw 适配器已被其维护者弃用。所有未解决的问题都已关闭，并标记为“无计划”。由于预计不再需要维护，该适配器已从代码库中移除。应评估该适配器的卸载情况。我们不建议在生产系统中使用任何仅通过 GitHub 安装的适配器。"
+    },
+    "id": "paw-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-29T01:00:00.000Z",
+    "conditions": {
+      "paw": "installed"
+    }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.megadd has been deprecated",
+      "de": "Adapter ioBroker.megadd ist veraltet",
+      "ru": "Адаптер ioBroker.megadd устарел",
+      "pt": "O adaptador ioBroker.megadd foi descontinuado",
+      "nl": "Adapter ioBroker.megadd is verouderd",
+      "fr": "L'adaptateur ioBroker.megadd est obsolète",
+      "it": "L'adattatore ioBroker.megadd è stato deprecato",
+      "es": "El adaptador ioBroker.megadd ha quedado obsoleto",
+      "pl": "Adapter ioBroker.megadd został wycofany",
+      "uk": "Адаптер ioBroker.megadd застарів",
+      "zh-cn": "适配器 ioBroker.megaadd 已被弃用"
+    },
+    "content": {
+      "en": "The adapter ioBroker.megadd has been deprecated. The adapter has not been maintained for a long time and there was no reaction from maintainer at all. The adapter has been removed from repositories as no more maintainance is to be expected. A deinstallation of the adapter should be evaluated. It is not recommended to use any adapter only available via github instal at production systems.",
+      "de": "Der Adapter ioBroker.megadd ist veraltet. Der Adapter wurde lange Zeit nicht mehr gewartet, und es gab keinerlei Reaktion vom Betreuer. Der Adapter wurde aus den Repositories entfernt, da keine weitere Wartung zu erwarten ist. Eine Deinstallation des Adapters sollte geprüft werden. Es wird nicht empfohlen, Adapter, die nur über die GitHub-Installation verfügbar sind, auf Produktionssystemen zu verwenden.",
+      "ru": "Адаптер ioBroker.megadd устарел. Он долгое время не поддерживался, и от сопровождающего не было никакой реакции. Адаптер был удалён из репозиториев, поскольку дальнейшая поддержка не планируется. Рекомендуется рассмотреть возможность удаления адаптера. Не рекомендуется использовать адаптеры, доступные только через github install, в производственных системах.",
+      "pt": "O adaptador ioBroker.megadd foi descontinuado. O adaptador não recebe manutenção há muito tempo e não houve nenhuma reação do mantenedor. O adaptador foi removido dos repositórios, pois não há mais manutenção prevista. Uma desinstalação do adaptador deve ser avaliada. Não é recomendado usar adaptadores disponíveis apenas via instalação via GitHub em sistemas de produção.",
+      "nl": "De adapter ioBroker.megadd is verouderd. De adapter is al geruime tijd niet meer onderhouden en er is geen enkele reactie van de beheerder ontvangen. De adapter is uit de repositories verwijderd omdat er geen onderhoud meer te verwachten is. Een de-installatie van de adapter dient te worden overwogen. Het wordt afgeraden om adapters te gebruiken die alleen via GitHub beschikbaar zijn en op productiesystemen worden geïnstalleerd.",
+      "fr": "L'adaptateur ioBroker.megadd est obsolète. Il n'a pas été maintenu depuis longtemps et son mainteneur n'a réagi à aucune demande. Il a été supprimé des dépôts, car aucune maintenance n'est prévue. Une désinstallation de l'adaptateur est à envisager. Il est déconseillé d'utiliser un adaptateur disponible uniquement via GitHub sur les systèmes de production.",
+      "it": "L'adattatore ioBroker.megadd è stato deprecato. L'adattatore non è stato mantenuto per molto tempo e non c'è stata alcuna reazione da parte del manutentore. L'adattatore è stato rimosso dai repository poiché non è prevista ulteriore manutenzione. Si consiglia di valutare la disinstallazione dell'adattatore. Si sconsiglia di utilizzare adattatori disponibili solo tramite GitHub instal sui sistemi di produzione.",
+      "es": "El adaptador ioBroker.megadd ha quedado obsoleto. No se ha mantenido durante mucho tiempo y no se ha recibido respuesta alguna por parte del mantenedor. Se ha eliminado de los repositorios, ya que no se espera más mantenimiento. Se debe evaluar su desinstalación. No se recomienda usar adaptadores disponibles únicamente mediante la instalación de GitHub en sistemas de producción.",
+      "pl": "Adapter ioBroker.megadd został wycofany. Adapter nie był utrzymywany od dłuższego czasu i nie było żadnej reakcji ze strony opiekuna. Adapter został usunięty z repozytoriów, ponieważ nie oczekuje się dalszej konserwacji. Należy rozważyć odinstalowanie adaptera. Nie zaleca się używania adapterów dostępnych wyłącznie za pośrednictwem instalacji GitHub w systemach produkcyjnych.",
+      "uk": "Адаптер ioBroker.megadd визнано застарілим. Адаптер давно не підтримувався, і розробник взагалі не реагував на нього. Адаптер було видалено з репозиторіїв, оскільки подальша підтримка не очікується. Слід розглянути можливість видалення адаптера. Не рекомендується використовувати адаптери, доступні лише через встановлення на github, у робочих системах.",
+      "zh-cn": "ioBroker.megaadd 适配器已弃用。该适配器长期无人维护，维护人员也未对此做出任何回应。由于预计不会再进行维护，该适配器已从代码库中移除。建议评估是否卸载该适配器。不建议在生产系统中使用任何仅通过 GitHub 安装的适配器。"
+    },
+    "id": "megadd-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-29T02:00:00.000Z",
+    "conditions": {
+      "megadd": "installed"
+    }
+  },
+  {
+    "title":{
+      "en": "Adapter ioBroker.megaesp has been deprecated",
+      "de": "Adapter ioBroker.megaesp ist veraltet",
+      "ru": "Адаптер ioBroker.megaesp устарел",
+      "pt": "O adaptador ioBroker.megaesp foi descontinuado",
+      "nl": "Adapter ioBroker.megaesp is verouderd",
+      "fr": "L'adaptateur ioBroker.megaesp est obsolète",
+      "it": "L'adattatore ioBroker.megaesp è stato deprecato",
+      "es": "El adaptador ioBroker.megaesp ha quedado obsoleto",
+      "pl": "Adapter ioBroker.megaesp został wycofany",
+      "uk": "Адаптер ioBroker.megaesp застарів",
+      "zh-cn": "适配器 ioBroker.megaesp 已被弃用"
+    },
+    "content": {
+        "en": "The adapter ioBroker.megaesp has been deprecated. The adapter has not been maintained for a long time and there was no reaction from maintainer at all. The adapter has been removed from repositories as no more maintainance is to be expected. A deinstallation of the adapter should be evaluated. It is not recommended to use any adapter only available via github instal at production systems.",
+        "de": "Der Adapter ioBroker.megaesp ist veraltet. Der Adapter wurde lange Zeit nicht mehr gewartet, und es gab keinerlei Reaktion vom Betreuer. Der Adapter wurde aus den Repositories entfernt, da keine weitere Wartung zu erwarten ist. Eine Deinstallation des Adapters sollte geprüft werden. Es wird nicht empfohlen, Adapter, die nur über GitHub verfügbar sind, auf Produktionssystemen zu verwenden.",
+        "ru": "Адаптер ioBroker.megaesp устарел. Он долгое время не поддерживался, и от сопровождающего не было никакой реакции. Адаптер был удалён из репозиториев, поскольку дальнейшая поддержка не планируется. Рекомендуется рассмотреть возможность удаления адаптера. Не рекомендуется использовать адаптеры, доступные только через github install, в производственных системах.",
+        "pt": "O adaptador ioBroker.megaesp foi descontinuado. O adaptador não recebe manutenção há muito tempo e não houve nenhuma reação do mantenedor. O adaptador foi removido dos repositórios, pois não há mais manutenção prevista. Uma desinstalação do adaptador deve ser avaliada. Não é recomendado usar adaptadores disponíveis apenas via instalação via GitHub em sistemas de produção.",
+        "nl": "De adapter ioBroker.megaesp is verouderd. De adapter is al geruime tijd niet meer onderhouden en er is geen enkele reactie van de beheerder ontvangen. De adapter is uit de repositories verwijderd omdat er geen onderhoud meer te verwachten is. Een de-installatie van de adapter dient te worden overwogen. Het wordt afgeraden om adapters te gebruiken die alleen via GitHub beschikbaar zijn en op productiesystemen worden geïnstalleerd.",
+        "fr": "L'adaptateur ioBroker.megaesp est obsolète. Il n'a pas été maintenu depuis longtemps et son mainteneur n'a réagi à aucune demande. Il a été supprimé des dépôts, car aucune maintenance n'est prévue. Une désinstallation de l'adaptateur est à envisager. Il est déconseillé d'utiliser un adaptateur disponible uniquement via GitHub sur les systèmes de production.",
+        "it": "L'adattatore ioBroker.megaesp è stato deprecato. L'adattatore non è stato mantenuto per molto tempo e non c'è stata alcuna reazione da parte del manutentore. L'adattatore è stato rimosso dai repository poiché non è prevista ulteriore manutenzione. Si consiglia di valutare la disinstallazione dell'adattatore. Si sconsiglia di utilizzare adattatori disponibili solo tramite GitHub instal sui sistemi di produzione.",
+        "es": "El adaptador ioBroker.megaesp ha quedado obsoleto. No se ha mantenido durante mucho tiempo y no se ha recibido respuesta alguna por parte del mantenedor. Se ha eliminado de los repositorios, ya que no se espera más mantenimiento. Se debe evaluar su desinstalación. No se recomienda usar adaptadores disponibles únicamente mediante la instalación de GitHub en sistemas de producción.",
+        "pl": "Adapter ioBroker.megaesp został wycofany. Adapter nie był utrzymywany od dłuższego czasu i nie było żadnej reakcji ze strony opiekuna. Adapter został usunięty z repozytoriów, ponieważ nie oczekuje się dalszej konserwacji. Należy rozważyć odinstalowanie adaptera. Nie zaleca się używania adaptera dostępnego wyłącznie za pośrednictwem instalacji GitHub w systemach produkcyjnych.",
+        "uk": "Адаптер ioBroker.megaesp визнано застарілим. Адаптер давно не підтримувався, і розробник взагалі не реагував на нього. Адаптер було видалено з репозиторіїв, оскільки подальша підтримка не очікується. Слід розглянути можливість видалення адаптера. Не рекомендується використовувати адаптери, доступні лише через встановлення на GitHub, у робочих системах.",
+        "zh-cn": "ioBroker.megaesp 适配器已弃用。该适配器长期无人维护，维护人员也未对此做出任何回应。由于预计不会再进行维护，该适配器已从代码库中移除。建议评估是否卸载该适配器。不建议在生产系统中使用任何仅通过 GitHub 安装的适配器。"
+      },
+      "id": "megaesp-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-29T03:00:00.000Z",
+    "conditions": {
+      "megaesp": "installed"
+    }
+  },
+  {
+    "title":{
+      "en": "Adapter ioBroker.hilink has been deprecated",
+      "de": "Adapter ioBroker.hilink ist veraltet",
+      "ru": "Адаптер ioBroker.hilink устарел",
+      "pt": "O adaptador ioBroker.hilink foi descontinuado",
+      "nl": "Adapter ioBroker.hilink is verouderd",
+      "fr": "L'adaptateur ioBroker.hilink est obsolète",
+      "it": "L'adattatore ioBroker.hilink è stato deprecato",
+      "es": "El adaptador ioBroker.hilink ha quedado obsoleto",
+      "pl": "Adapter ioBroker.hilink został wycofany",
+      "uk": "Адаптер ioBroker.hilink застарів",
+      "zh-cn": "适配器 ioBroker.hilink 已被弃用"
+    },
+    "content": {
+      "en": "The adapter ioBroker.hilink has been deprecated. The adapter has not been maintained for a long time and there was no reaction from maintainer at all. The adapter has been removed from repositories as no more maintainance is to be expected. A deinstallation of the adapter should be evaluated. It is not recommended to use any adapter only available via github instal at production systems.",
+      "de": "Der Adapter ioBroker.hilink ist veraltet. Der Adapter wurde lange Zeit nicht mehr gewartet, und es gab keinerlei Reaktion vom Betreuer. Der Adapter wurde aus den Repositories entfernt, da keine weitere Wartung zu erwarten ist. Eine Deinstallation des Adapters sollte geprüft werden. Es wird nicht empfohlen, Adapter, die nur über die GitHub-Installation verfügbar sind, auf Produktionssystemen zu verwenden.",
+      "ru": "Адаптер ioBroker.hilink устарел. Адаптер долгое время не поддерживался, и от сопровождающего не было никакой реакции. Адаптер был удалён из репозиториев, поскольку дальнейшая поддержка не планируется. Рекомендуется рассмотреть возможность удаления адаптера. Не рекомендуется использовать адаптеры, доступные только через github install, в производственных системах.",
+      "pt": "O adaptador ioBroker.hilink foi descontinuado. O adaptador não recebe manutenção há muito tempo e não houve nenhuma reação do mantenedor. O adaptador foi removido dos repositórios, pois não há mais manutenção prevista. Uma desinstalação do adaptador deve ser avaliada. Não é recomendado usar adaptadores disponíveis apenas via instalação via GitHub em sistemas de produção.",
+      "nl": "De adapter ioBroker.hilink is verouderd. De adapter is al geruime tijd niet meer onderhouden en er is geen enkele reactie van de beheerder ontvangen. De adapter is uit de repositories verwijderd, aangezien er geen onderhoud meer te verwachten is. Een de-installatie van de adapter dient te worden overwogen. Het wordt afgeraden om adapters te gebruiken die alleen via GitHub beschikbaar zijn en op productiesystemen worden geïnstalleerd.",
+      "fr": "L'adaptateur ioBroker.hilink est obsolète. Il n'a pas été maintenu depuis longtemps et son mainteneur n'a réagi à aucune demande. Il a été supprimé des dépôts, car aucune maintenance n'est prévue. Une désinstallation de l'adaptateur est à envisager. Il est déconseillé d'utiliser un adaptateur disponible uniquement via GitHub sur les systèmes de production.",
+      "it": "L'adattatore ioBroker.hilink è stato deprecato. L'adattatore non è stato mantenuto per molto tempo e non c'è stata alcuna reazione da parte del manutentore. L'adattatore è stato rimosso dai repository poiché non è prevista ulteriore manutenzione. Si consiglia di valutare la disinstallazione dell'adattatore. Si sconsiglia di utilizzare adattatori disponibili solo tramite GitHub instal sui sistemi di produzione.",
+      "es": "El adaptador ioBroker.hilink ha quedado obsoleto. No se ha mantenido durante mucho tiempo y no se ha recibido respuesta alguna por parte del mantenedor. Se ha eliminado de los repositorios, ya que no se espera más mantenimiento. Se debe evaluar su desinstalación. No se recomienda usar adaptadores disponibles únicamente mediante la instalación de GitHub en sistemas de producción.",
+      "pl": "Adapter ioBroker.hilink został wycofany. Adapter nie był utrzymywany od dłuższego czasu i nie było żadnej reakcji ze strony opiekuna. Adapter został usunięty z repozytoriów, ponieważ nie oczekuje się dalszej konserwacji. Należy rozważyć odinstalowanie adaptera. Nie zaleca się używania adapterów dostępnych wyłącznie za pośrednictwem instalacji GitHub w systemach produkcyjnych.",
+      "uk": "Адаптер ioBroker.hilink визнано застарілим. Адаптер давно не підтримувався, і розробник взагалі не реагував на нього. Адаптер було видалено з репозиторіїв, оскільки подальша підтримка не очікується. Слід розглянути можливість видалення адаптера. Не рекомендується використовувати адаптери, доступні лише через встановлення на GitHub, у робочих системах.",
+      "zh-cn": "ioBroker.hilink 适配器已弃用。该适配器长期无人维护，且维护人员对此毫无反应。由于预计不会再进行维护，该适配器已从代码库中移除。建议评估是否卸载该适配器。不建议在生产系统中使用任何仅通过 GitHub 安装的适配器。"
+    },
+    "id": "hilink-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-29T04:00:00.000Z",
+    "conditions": {
+      "hilink": "installed"
+    }
+  },
+  {
+    "title":{
+      "en": "Adapter ioBroker.teslamateapi has been deprecated",
+      "de": "Adapter ioBroker.teslamateapi ist veraltet",
+      "ru": "Адаптер ioBroker.teslamateapi устарел",
+      "pt": "O adaptador ioBroker.teslamateapi foi descontinuado",
+      "nl": "Adapter ioBroker.teslamateapi is verouderd",
+      "fr": "L'adaptateur ioBroker.teslamateapi est obsolète",
+      "it": "L'adattatore ioBroker.teslamateapi è stato deprecato",
+      "es": "El adaptador ioBroker.teslamateapi ha quedado obsoleto",
+      "pl": "Adapter ioBroker.teslamateapi został wycofany",
+      "uk": "Адаптер ioBroker.teslamateapi застарів",
+      "zh-cn": "适配器 ioBroker.teslamateapi 已被弃用"
+    },
+    "content": {
+      "en": "The adapter ioBroker.teslamateapi been deprecated. The adapter has not been maintained for a long time and there was no reaction from maintainer at all. The adapter has been removed from repositories as no more maintainance is to be expected. A deinstallation of the adapter should be evaluated. It is not recommended to use any adapter only available via github instal at production systems.",
+      "de": "Der Adapter ioBroker.teslamateapi ist veraltet. Der Adapter wurde lange Zeit nicht mehr gewartet, und es gab keinerlei Reaktion vom Betreuer. Der Adapter wurde aus den Repositories entfernt, da keine weitere Wartung zu erwarten ist. Eine Deinstallation des Adapters sollte geprüft werden. Es wird nicht empfohlen, Adapter, die nur über die GitHub-Installation verfügbar sind, auf Produktionssystemen zu verwenden.",
+      "ru": "Адаптер ioBroker.teslamateapi устарел. Адаптер долгое время не поддерживался, и от сопровождающей стороны не было никакой реакции. Адаптер был удалён из репозиториев, поскольку дальнейшая поддержка не планируется. Рекомендуется рассмотреть возможность удаления адаптера. Не рекомендуется использовать адаптеры, доступные только через github install, в производственных системах.",
+      "pt": "O adaptador ioBroker.teslamateapi foi descontinuado. O adaptador não recebe manutenção há muito tempo e não houve nenhuma reação do mantenedor. O adaptador foi removido dos repositórios, pois não há mais manutenção prevista. Uma desinstalação do adaptador deve ser avaliada. Não é recomendado usar adaptadores disponíveis apenas via instalação via GitHub em sistemas de produção.",
+      "nl": "De adapter ioBroker.teslamateapi is verouderd. De adapter is al geruime tijd niet meer onderhouden en er is geen enkele reactie van de beheerder ontvangen. De adapter is uit de repositories verwijderd omdat er geen onderhoud meer wordt verwacht. Een de-installatie van de adapter dient te worden overwogen. Het wordt afgeraden om adapters te gebruiken die alleen via GitHub beschikbaar zijn en op productiesystemen worden geïnstalleerd.",
+      "fr": "L'adaptateur ioBroker.teslamateapi est obsolète. Il n'a pas été maintenu depuis longtemps et son mainteneur n'a réagi à aucune demande. Il a été supprimé des dépôts, car aucune maintenance n'est prévue. Une désinstallation de l'adaptateur est à envisager. Il est déconseillé d'utiliser un adaptateur disponible uniquement via GitHub sur les systèmes de production.",
+      "it": "L'adattatore ioBroker.teslamateapi è stato deprecato. L'adattatore non è stato mantenuto per molto tempo e non c'è stata alcuna reazione da parte del manutentore. L'adattatore è stato rimosso dai repository poiché non è prevista ulteriore manutenzione. Si consiglia di valutare la disinstallazione dell'adattatore. Si sconsiglia di utilizzare adattatori disponibili solo tramite GitHub instal sui sistemi di produzione.",
+      "es": "El adaptador ioBroker.teslamateapi ha quedado obsoleto. No se ha mantenido durante mucho tiempo y no se ha recibido respuesta alguna por parte del mantenedor. Se ha eliminado de los repositorios, ya que no se espera más mantenimiento. Se debe evaluar su desinstalación. No se recomienda usar adaptadores disponibles únicamente mediante la instalación de GitHub en sistemas de producción.",
+      "pl": "Adapter ioBroker.teslamateapi został wycofany. Adapter nie był utrzymywany od dłuższego czasu i nie było żadnej reakcji ze strony opiekuna. Adapter został usunięty z repozytoriów, ponieważ nie oczekuje się dalszej konserwacji. Należy rozważyć odinstalowanie adaptera. Nie zaleca się używania adaptera dostępnego wyłącznie za pośrednictwem instalacji GitHub w systemach produkcyjnych.",
+      "uk": "Адаптер ioBroker.teslamateapi визнано застарілим. Адаптер давно не підтримувався, і розробник взагалі не реагував на нього. Адаптер було видалено з репозиторіїв, оскільки подальша підтримка не очікується. Слід розглянути можливість видалення адаптера. Не рекомендується використовувати адаптери, доступні лише через встановлення на GitHub, у робочих системах.",
+      "zh-cn": "ioBroker.teslamateapi 适配器已弃用。该适配器长期无人维护，且维护人员对此毫无反应。由于预计不会再进行维护，该适配器已从代码库中移除。建议评估是否卸载该适配器。不建议在生产系统中使用任何仅通过 GitHub 安装的适配器。"
+    },
+    "id": "teslamateapi-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-30T01:00:00.000Z",
+    "conditions": {
+      "teslamateapi": "installed"
+    }
+  },
+  {
+    "title":{
+      "en": "Adapter ioBroker.mihome-lamp has been deprecated",
+      "de": "Adapter ioBroker.mihome-lamp ist veraltet",
+      "ru": "Адаптер ioBroker.mihome-lamp устарел",
+      "pt": "O adaptador ioBroker.mihome-lamp foi descontinuado",
+      "nl": "Adapter ioBroker.mihome-lamp is verouderd",
+      "fr": "L'adaptateur ioBroker.mihome-lamp est obsolète",
+      "it": "L'adattatore ioBroker.mihome-lamp è stato deprecato",
+      "es": "El adaptador ioBroker.mihome-lamp ha quedado obsoleto",
+      "pl": "Adapter ioBroker.mihome-lamp został wycofany",
+      "uk": "Адаптер ioBroker.mihome-lamp застарів",
+      "zh-cn": "适配器 ioBroker.mihome-lamp 已被弃用"
+    },
+    "content": {
+      "en": "The adapter ioBroker.mihome-lamphas been deprecated. The adapter has not been maintained for a long time and there was no reaction from maintainer at all. The adapter has been removed from repositories as no more maintainance is to be expected. A deinstallation of the adapter should be evaluated. It is not recommended to use any adapter only available via github instal at production systems.",
+      "de": "Der Adapter ioBroker.mihome-lamp ist veraltet. Der Adapter wurde lange Zeit nicht mehr gewartet, und es gab keinerlei Reaktion vom Betreuer. Der Adapter wurde aus den Repositories entfernt, da keine weitere Wartung zu erwarten ist. Eine Deinstallation des Adapters sollte geprüft werden. Es wird nicht empfohlen, Adapter, die nur über GitHub verfügbar sind, auf Produktionssystemen zu verwenden.",
+      "ru": "Адаптер ioBroker.mihome-lamp устарел. Он давно не поддерживается, и от сопровождающего не было никакой реакции. Адаптер удалён из репозиториев, поскольку дальнейшая поддержка не планируется. Рекомендуется рассмотреть возможность удаления адаптера. Не рекомендуется использовать адаптеры, доступные только через github install, в производственных системах.",
+      "pt": "O adaptador ioBroker.mihome-lamp foi descontinuado. O adaptador não recebe manutenção há muito tempo e não houve nenhuma reação do mantenedor. O adaptador foi removido dos repositórios, pois não há mais manutenção prevista. Uma desinstalação do adaptador deve ser avaliada. Não é recomendado usar adaptadores disponíveis apenas via instalação via GitHub em sistemas de produção.",
+      "nl": "De adapter ioBroker.mihome-lamp is verouderd. De adapter is al geruime tijd niet meer onderhouden en er is geen enkele reactie van de beheerder ontvangen. De adapter is uit de repositories verwijderd omdat er geen onderhoud meer wordt verwacht. Een de-installatie van de adapter dient te worden overwogen. Het wordt afgeraden om adapters te gebruiken die alleen via GitHub beschikbaar zijn en op productiesystemen worden geïnstalleerd.",
+      "fr": "L'adaptateur ioBroker.mihome-lamp est obsolète. Il n'a pas été maintenu depuis longtemps et son mainteneur n'a réagi à aucune demande. Il a été supprimé des dépôts, car aucune maintenance n'est prévue. Une désinstallation de l'adaptateur est à envisager. Il est déconseillé d'utiliser un adaptateur disponible uniquement via GitHub sur les systèmes de production.",
+      "it": "L'adattatore ioBroker.mihome-lamp è stato deprecato. L'adattatore non è stato mantenuto per molto tempo e non c'è stata alcuna reazione da parte del manutentore. L'adattatore è stato rimosso dai repository poiché non è prevista ulteriore manutenzione. Si consiglia di valutare la disinstallazione dell'adattatore. Si sconsiglia di utilizzare adattatori disponibili solo tramite GitHub instal sui sistemi di produzione.",
+      "es": "El adaptador ioBroker.mihome-lamp ha quedado obsoleto. No se ha mantenido durante mucho tiempo y no se ha recibido respuesta alguna por parte del mantenedor. Se ha eliminado de los repositorios, ya que no se espera más mantenimiento. Se debe evaluar su desinstalación. No se recomienda usar adaptadores disponibles únicamente mediante instalación en GitHub en sistemas de producción.",
+      "pl": "Adapter ioBroker.mihome-lamp został wycofany. Adapter nie był aktualizowany od dłuższego czasu i nie było żadnej reakcji ze strony opiekuna. Adapter został usunięty z repozytoriów, ponieważ nie oczekuje się dalszej konserwacji. Należy rozważyć odinstalowanie adaptera. Nie zaleca się używania adapterów dostępnych wyłącznie za pośrednictwem instalacji GitHub w systemach produkcyjnych.",
+      "uk": "Адаптер ioBroker.mihome-lamphas визнано застарілим. Адаптер давно не підтримувався, і розробник взагалі не реагував на нього. Адаптер було видалено з репозиторіїв, оскільки подальша підтримка не очікується. Слід розглянути можливість видалення адаптера. Не рекомендується використовувати адаптери, доступні лише через встановлення на github, у робочих системах.",
+      "zh-cn": "ioBroker.mihome-lamp 适配器已弃用。该适配器长期无人维护，维护人员也未对此做出任何回应。由于预计不会再进行维护，该适配器已从代码库中移除。建议评估是否需要卸载该适配器。不建议在生产系统中使用任何仅通过 GitHub 安装的适配器。"
+    },
+    "id": "mihome-lamp-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2025-08-30T02:00:00.000Z",
+    "conditions": {
+      "mihome-lamp": "installed"
+    }
   }
 ]

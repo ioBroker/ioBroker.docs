@@ -133,6 +133,31 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.35.4 (2025-09-23)
+- clear cache on reload
+
+### 1.35.3 (2025-09-23)
+- object changed to all clients
+
+### 1.35.2 (2025-09-23)
+- forgett to parse bindings
+
+### 1.35.1 (2025-09-23)
+- fix reload custom controls
+
+### 1.35.0 (2025-09-23)
+- better nameing
+- changed object notification
+
+### 1.34.2 (2025-09-21)
+- anaother small fix in signal handling
+
+### 1.34.1 (2025-09-20)
+- script command wrong name fix
+
+### 1.34.0 (2025-09-20)
+- designer and script updates
+
 ### 1.33.0 (2025-08-26)
 - fix NaN check
 

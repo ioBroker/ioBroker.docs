@@ -3,52 +3,73 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tesla-motors/README.md
 title: ioBroker.tesla-motors
-hash: qiJyGYl+iytQgjCKWTgus6qTMM6Fh7ONOiqQLYWwcsA=
+hash: Fvr1aTw0IyZbJ+fLgciBIKNx+41ASXE7fi8j6dPSNfk=
 ---
 ![标识](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)
 ![安装数量（最新）](https://iobroker.live/badges/tesla-motors-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/tesla-motors-stable.svg)
 ![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.tesla-motors.svg)
-![国家公共管理](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)
+![新公共管理](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)
 
 # IoBroker.tesla-motors
-**测试：** ![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
+**测试：**![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 Tesla 适配器
-所有 Tesla 模型和 Powerwall 均通过 Tesla 应用程序进行操作和操作。
+## 适用于 ioBroker 的 Tesla 适配器
+显示并更新特斯拉应用程序中的所有特斯拉车型和 Powerwall。
 
-**特斯拉和 Powerwall 的远程连接** tesla-motors.0.id.remote
+**Tesla 和 Powerwall 的远程命令可在 tesla-motors.0.id.remote 下使用**
 
-**登录名：**
+**登录流程：**
 
-- 在“授权链接”选项中的“即时选项”中。
-- 登录日期和验证码/验证码和 MFA 验证码。
-- 在浏览器中找不到页面，并在即时选项中找到完整的 URL，并在 Speichen 和 Schließen klicken 中找到该页面。
-- Die ersten Daten kommen unter Umständen erst nach der ersten Fahrt
+- 单击实例选项中的“Auth Link”。
+- 输入您的登录凭据，如有必要，完成 Captcha/reCaptcha 和 MFA。
+- 在“页面未找到”页面上，从浏览器复制完整的 URL 并将其粘贴到实例选项中，然后单击“保存并关闭”。
+- 初始数据可能仅在第一次驾驶后出现
 
-**字段说明**
+**字段描述**
 
 - df 驾驶员前部
-- 驾驶员后方博士
-- pf 乘客前排
-- PR乘客后排
+- 司机后方
+- pf 乘客前部
+- pr 乘客后部
 - 英尺前行李箱
-- rt后备箱
+- 右后备箱
 
-[选项代码 Erklärung](https://tesla-api.timdorr.com/vehicle/optioncodes)
+[选项代码说明](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
-## 讨论和讨论：
+## 问题和讨论：
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 1.4.5 (2024-04-19)
+
+- cleaned up token folder to reduce state objects
+
+### 1.4.4 (2024-04-10)
+
+- improve energy history data
+
+### 1.4.3 (2024-04-10)
+
+- fix for too many state in the powerwall energy history
+
+### 1.4.2 (2023-11-17)
+
+- fix km states are not refreshed
+
+### 1.4.1 (2023-11-17)
+
+- fix \_km states are not refreshed
+
+### 1.4.0 (2023-11-14)
+
+- fix location fetching and add new option to change location fetching interval
+
 ### 1.3.5 (2023-10-24)
 
 - fix vehicle update
@@ -72,13 +93,13 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ### 1.0.2
 
-- (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
+- (iobroker-community-adapters) ALL DATA POINTS ARE NEW, Vis must be adapted. New version with new states for Tesla and Powerwalls.
 
 ## License
 
 MIT License
 
-Copyright (c) 2021-2023 iobroker-community
+Copyright (c) 2021-2029 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

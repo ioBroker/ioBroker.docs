@@ -55,6 +55,10 @@ All product and company names or logos are trademarks™ or registered® tradema
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2025-10-01)
+
+- (raschy) Reduction of info-log output
+
 ### 0.3.0 (2025-08-29)
 
 - (raschy) Reduction of devDependencies

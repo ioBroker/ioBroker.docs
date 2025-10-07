@@ -26,6 +26,8 @@ More useful information about apcupsd config for Ubuntu you can find on https://
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 ## Changelog
+### 5.0.1 (2025-10-01) 
+ - Updated dependencies
 ### 5.0.0 (2025-05-01)
  - BREAKING! Changed the minimal version of nodejs to 20. Updated dependencies.
 ### 4.0.5 (2025-03-01) 
@@ -42,13 +44,6 @@ More useful information about apcupsd config for Ubuntu you can find on https://
  - Update dependencies
 ### 3.0.0 (2024-04-22)
  - BREAKING! Changed the minimal version of nodejs to 18, js-controller to 4.0.0
-### 2.0.0 (2024-02-17)
- - BREAKING! Changed the minimal version of nodejs to 16 
-### 1.0.15 (2023-04-25)
- - Changed approach how to states are creating
-### 1.0.13 (2023-04-24)
- - Added 'END APC' and 'BATDATE' fields 
-
 
 ## License
 MIT License

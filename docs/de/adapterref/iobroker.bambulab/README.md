@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bambulab/README.md
 title: ioBroker.bambulab
-hash: xF9K+twXSSsRjQblkO/bs0evJUr4bRoAZwa4pUEwSJg=
+hash: /u7lTibuTChR3pNxT1eoPHUWSPRhIN6Jie1/3qqnl60=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bambulab.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bambulab.svg)
@@ -14,118 +14,112 @@ hash: xF9K+twXSSsRjQblkO/bs0evJUr4bRoAZwa4pUEwSJg=
 <img src="admin/bambulab.png" alt="Logo" width="200"/>
 
 # IoBroker.bambulab
-**Tests:** ![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.bambulab/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/DrozmotiX/ioBroker.bambulab/workflows/Test%20and%20Release/badge.svg)
 
-## Bambulab 3D-Druck-Adapter für ioBroker
+## Bambulab 3D-Druckadapter für ioBroker
 ## Erste Schritte
-Mit Credits an [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), alle anderen Beteiligten und inspiriert von [diesem Forenthread](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) integriert dieser Adapter Bambulab 3D-Drucker in ioBroker.
+Mit Dank an [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), alle anderen Beteiligten und Inspirierten von [diesem Forenthread](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) integriert dieser Adapter Bambulab 3D-Drucker in ioBroker.
 
-Bitte geben Sie in den Adaptereinstellungen die IP-Adresse Ihres Druckers, das API-Token und die Seriennummer ein. Diese sind für eine lokale Verbindung (ohne Cloud) zu Ihrem Drucker erforderlich.
+Bitte geben Sie in den Adaptereinstellungen Ihre Drucker-IP-Adresse, Ihr API-Token und Ihre Seriennummer an. Diese sind für eine lokale Verbindung (ohne Cloud-Einbindung) zu Ihrem Drucker erforderlich.
 Diese Anmeldeinformationen werden lokal gespeichert und nicht an Dritte weitergegeben.
 
-Sie müssen Ihr Druckermodell auswählen, nur der X1 ermöglicht das Senden von Nachrichten, die P1x-Serie erfordert eine Anforderung per Intervalleinstellung (Standard alle 5 Sekunden).
+## API-Token und Seriennummer finden
+Der Speicherort des API-Tokens und der Seriennummer hängt von Ihrem Druckermodell ab:
+
+### A1/A1 Mini-Serie
+1. Navigieren Sie auf Ihrem Druckerdisplay zu **Einstellungen** → **Netzwerk**
+2. Aktivieren Sie **"LAN Mode Only"** (nur Lan-Modus)
+3. Nach der Aktivierung werden IP-Adresse, Zugriffstoken und Seriennummer angezeigt
+
+### P1S-Serie
+1. Navigieren Sie auf Ihrem Druckerdisplay zu **Einstellungen** → **Netzwerk**
+2. Der Zugriffstoken ist direkt in den Netzwerkeinstellungen sichtbar (kein LAN-Modus erforderlich)
+3. Die Seriennummer finden Sie im selben Menü oder in den Geräteinformationen
+
+### X1/X1C-Serie
+1. Navigieren Sie auf Ihrem Druckerdisplay zu **Einstellungen** → **Netzwerk**
+2. Der Zugriffstoken ist direkt in den Netzwerkeinstellungen sichtbar
+3. Die Seriennummer finden Sie im selben Menü oder in den Geräteinformationen
+
+**Hinweis:** Sie müssen Ihr Druckermodell in den Adaptereinstellungen korrekt auswählen. Nur die X1-Serie ermöglicht das Senden von Nachrichten. Die P1x-Serie muss die Nachrichten per Intervalleinstellung anfordern (Standard: alle 5 Sekunden).
 
 ## Unterstützte Modelle
 | Druckermodell | Status |
 |---------------|-------------------------|
-| AMS | :white_check_mark: |
-| A1 | :white_check_mark: |
-| P1p | :white_check_mark: |
-| P1s | :white_check_mark: |
-| X1 | :white_check_mark: |
+| AMS | :weißes Häkchen: |
+| A1 | :weißes_Häkchen: |
+| P1p | :weißes Häkchen: |
+| P1s | :weißes Häkchen: |
+| X1 | :weißes_Häkchen: |
 
 ## Unterstützte Befehle
 | Befehl | X1C | X1 | P1P | P1S | A1 |
 |--------------------|---------------------|---------------------|--------------------------|--------------------------|--------------------------|
-| Benutzerdefinierter G-Code | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Pause | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Lebenslauf | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Stopp | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Fan-Aux | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :x: Keine Hardwareunterstützung |
-| Ventilatorkammer | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :x: Keine Hardwareunterstützung |
-| Fan-ToolHead | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :white_check_mark: |
-| Lichtkammer | :white_check_mark: | :white_check_mark: | :interrobang: falls vorhanden | :white_check_mark: | :white_check_mark: |
-| Licht-Logo | :white_check_mark: | :white_check_mark: | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung |
-| Temperaturbett | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Temperatur-Düse | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Geschwindigkeitsstufe | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Benutzerdefinierter G-Code | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
+| Pause | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
+| Lebenslauf | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
+| Stopp | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
+| Fan-Aux | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :x: Keine Hardwareunterstützung |
+| Fan-Chamber | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :x: Keine Hardwareunterstützung |
+| Fan-ToolHead | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :weißes_Häkchen: |
+| Lichtkammer | :weißes_Häkchen: | :weißes_Häkchen: | :interrobang: falls vorhanden | :weißes_Häkchen: | :weißes_Häkchen: |
+| Light-Logo | :weißes_Häkchen: | :weißes_Häkchen: | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung | :x: Keine Hardwareunterstützung |
+| Temperatur-Bett | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
+| Temperatur-Düse | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
+| Geschwindigkeitsstufe | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: | :weißes_Häkchen: |
 
-## Machen
-[ ] Aktuelle Kontrollzustände im Kontrollordner neu strukturieren/vervollständigen. [ ] Zustandsattributdefinitionen optimieren
+## Aufgaben
+[ ] Aktuelle Kontrollzustände im Kontrollordner neu strukturieren/vervollständigen [ ] Definitionen der Zustandsattribute optimieren
 
 ## Unterstütze mich
-Wenn Ihnen meine Arbeit gefällt, ziehen Sie bitte eine persönliche Spende in Betracht (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
+Wenn Ihnen meine Arbeit gefällt, denken Sie bitte über eine persönliche Spende nach (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Verbindung zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter umgesetzt.
+Sentry.io ist ein Dienst für Entwickler, der ihnen einen Überblick über Fehler in ihren Anwendungen verschafft. Und genau das ist in diesem Adapter implementiert.
 
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt.
-Wenn Sie der iobroker GmbH erlauben, Diagnosedaten zu sammeln, wird auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten.
-Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
-All dies hilft mir, fehlerfreie Adapter bereitzustellen, die grundsätzlich nie abstürzen.
+Wenn Sie der iobroker GmbH erlauben, Diagnosedaten zu sammeln, wird auch Ihre Installations-ID (dies ist lediglich eine eindeutige ID **ohne** weitere Informationen über Sie, E-Mail, Name usw.) mitgeliefert.
+So kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
+All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.3.2 (2023-11-20)
-* (DutchmanNL) Show finish time as ISO string
+### 0.4.2 (2025-09-16)
+* (DutchmanNL) Improve error messages if printer is offline or not reachable. #xxx
+* (DutchmanNL) Solve several type definition issues. #203, #202, #201, #200, #199, #198
+* (DutchmanNL & Copilot) Fix type conversion errors by replacing deprecated `tonumber` with proper `TOINTEGER`/`TOFLOAT` modifiers. #197
+* (DutchmanNL & Copilot) Add missing state attribute definitions for HD2 printer during printing (height, platform, tool, mapping). Fixes #194
 
-### 0.3.1 (2023-11-20)
-* (DutchmanNL) Bugfix control P & A Series
-* (DutchmanNL) Show end time as a separate state, resolves #53
-* (DutchmanNL) Bugfix resolves missing fan speed value, resolves #36
+### 0.4.1 (2025-09-13)
+* (DutchmanNL & Copilot) Fix HMS error code translations timeout error handling (#183)
+* (DutchmanNL & Copilot) Block dangerous G-code commands during printing for safety (#185)
+* (DutchmanNL & Copilot) Fix P1S fan speed display issues - double conversion and incorrect mapping (#184)
+* (DutchmanNL & Copilot) Add comprehensive API token location documentation for all Bambulab printer models (#182)
 
-### 0.3.0 (2023-11-19) - Release candidate
-* (DutchmanNL) Update dependencies for state handling, resolves #50
-* (DutchmanNL) Adjust log level for Unknown Message from error to debug, resolves #39
-* (DutchmanNL) Add missing definitions to ensure correct creation of states, resolves #39
-* (DutchmanNL) Reduce selection dropdown in admin config to printer series instead of a specific printer type
-* (DutchmanNL) Update adapter code to support new firmware versions released by bambulab, please ensure your printer is up-to-date! resolves #46, resolves #38, resolves #26,
+### 0.4.0 (2025-09-13)
+* (DutchmanNL) Add missing state definitions to resolve adapter warnings (#181)
+* (DutchmanNL) Empty finishTime and avoid time calculation when not printing (#179)
+* (DutchmanNL) Fix MQTT reconnection to prevent maximum call stack size exceeded error (#177)
 
-### 0.2.0 (2023-10-18) - Small fixes for new firmware version
-* (DutchmanNL) Button for homing added, fixes #28
-* (DutchmanNL) Bugfix: Translation of HMS-Error codes
-* (DutchmanNL) Several bugfixes for situations no AMS is used
-* (DutchmanNL) Remove control for LED calibration head (could damage hardware)
+### 0.3.5 (2025-09-13)
+* (DutchmanNL & Copilot) Fix several type mismatches #143 #139 #130
+* (DutchmanNL) Updated missing definitions for full MQTT API incl H2D
+* (DutchmanNL & Copilot) Fix repository checker issues and improve admin UI compatibility
 
-### 0.1.5 (2023-07-29) - HMS error codes Human readable, new functionalities added
-#### Several state locations have been changed, advise to completely remove adapter & reinstall to upgrade
-* (DutchmanNL) State for human-readable start time added
-* (DutchmanNL) Speed level control implemented solves #10
-* (DutchmanNL) Capability to control all fans implemented
-* (DutchmanNL) Control bed & Nozzle temperature implemented
-* (DutchmanNL) HMS error status indicator states implemented
-* (DutchmanNL) Translations of HMS error codes implemented solves #9
-* (DutchmanNL) Correct definitions for all temperature-related states
-* (DutchmanNL) Control LED for tooling head Logo and calibration unit
+### 0.3.4 (2024-10-28) - Door Indicator Fixes #115
+* (DutchmanNL) Added doorOpen indicator, Fixes [#115](https://github.com/DrozmotiX/ioBroker.bambulab/issues/115)
 
-### 0.1.4 (2023-07-28) - Support P1-series
-* (DutchmanNL) Configuration page in admin updated
-* (DutchmanNL) Information messages regarding incorrect type of bed-temperatures solved
-* (DutchmanNL) Implemented P1-X printer series, polling interval required for this model (only X1 handles data push)
-
-### 0.1.3 (2023-07-27) - Add new control options
-* (DutchmanNL) add control for chamber fan, tooling head light and allow custom g-code
-
-### 0.1.1 - Minor improvements
-* (DutchmanNL) Translations added
-* (DutchmanNL) Debug logging improved
-* (DutchmanNL) Minor code improvements
-* (DutchmanNL) Control states implemented
-* (DutchmanNL) Test & release workflows updated
-* (DutchmanNL) Encryption of token and device serial improved
-
-### 0.1.0 initial release
-* (DutchmanNL) initial release
-* During startup adapter throws warnings, these can be ignored and will be solved in =< 0.5.0
-* Control start/stop/resume and light available in >= 0.1.1
+### 0.3.3 (2024-10-27) - Bugfixes
+* (DutchmanNL) update state definitions, (solves [#77](https://github.com/DrozmotiX/ioBroker.bambulab/issues/77) [#58](https://github.com/DrozmotiX/ioBroker.bambulab/issues/58))
+* (DutchmanNL) update connection handling, show connection error only once (Solves #99 #78 #74)
 
 ## License
 MIT License
 
-Copyright (c) 2023 DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2025 DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

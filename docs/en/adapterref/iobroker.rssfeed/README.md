@@ -824,9 +824,19 @@ Z7: Without output. This line closed the javascript loop . Everything that was d
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.6.1 (2025-09-22)
+
+- remove dist/ folder from lint
+
+### 3.6.0 (2025-09-22)
 
 - revert to node 18
+- remove deprecated marquee4 widget
+- improve widget build
+- integrate translations and css into build process
+- remove unused css
+- deprecate JSON-Template widgets, please use new adapter iobroker.vis-jsontemplate
+- add message for the update to inform users
 
 ### 3.5.2 (2025-03-20)
 

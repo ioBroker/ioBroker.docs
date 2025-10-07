@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Tue, 17 Jun 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker 月度回顾 – 2025 年 9 月]]></title>
+            <description><![CDATA[
+                <p>夏天即将结束，过去几个月，ioBroker 世界发生了很多事情。\n许多新的适配器已经发布，其中一些已经进入稳定存储库，还有几个已在最新的存储库中可用，等待您进行测试。</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2025_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2025_09_24</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker 亮相索林根 2025 智能生活论坛]]></title>
             <description><![CDATA[

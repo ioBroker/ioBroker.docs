@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: ePObUsirC8yjBbABKE6Su2y/+eZvkZmFMQDFlxOkew8=
+hash: tgvZZl7ky8Zoh2J0asNK9l7l9EcDIw2HbRwFyLDxX4E=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -18,13 +18,13 @@ hash: ePObUsirC8yjBbABKE6Su2y/+eZvkZmFMQDFlxOkew8=
 
 ## Flexcharts-Adapter für ioBroker
 # Grundkonzept
-Es gibt verschiedene Adapter zur Anzeige von Diagrammen in ioBroker. Soweit mir bekannt ist, verwenden alle eine Benutzeroberfläche zur Konfiguration von Inhalt und Optionen der Diagramme. Typischerweise können nicht alle Funktionen des verwendeten grafischen Subsystems auf diese Weise genutzt werden. Beispielsweise ist es mit dem eChart-Adapter nicht möglich, voll funktionsfähige gestapelte Diagramme anzuzeigen.
+Es gibt verschiedene Adapter zur Anzeige von Diagrammen in ioBroker. Soweit mir bekannt ist, verwenden alle Adapter eine Benutzeroberfläche zur Konfiguration von Inhalt und Optionen der Diagramme. Typischerweise können nicht alle Funktionen des verwendeten grafischen Subsystems auf diese Weise genutzt werden. Beispielsweise ist es mit dem eChart-Adapter nicht möglich, voll funktionsfähige gestapelte Diagramme anzuzeigen.
 
-Dieser Adapter verwendet einen anderen Ansatz. Er bietet fast den kompletten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) zu ioBroker. Schauen Sie sich die [Demo-Charts an](https://echarts.apache.org/examples/en/index.html).
+Dieser Adapter verwendet einen anderen Ansatz. Er bietet fast den kompletten Funktionsumfang von [Apache ECharts](https://echarts.apache.org/en/index.html) zu ioBroker. Werfen Sie einen Blick auf die [Demo-Charts](https://echarts.apache.org/examples/en/index.html).
 
 Hinweis: Der Adapter wurde noch nicht unter MacOS getestet.
 
-**Es gibt keine Benutzeroberfläche zur Konfiguration von Diagrammen.** Sie müssen das Diagramm selbst definieren, der Adapter übernimmt die Visualisierung. Sie müssen Definition und Inhalt des Diagramms angeben, indem Sie den Inhalt als JSON-Objekt bereitstellen – in eCharts-Beispielen entspricht dies dem Inhalt der Variable `option`. Hier ein Beispiel zur Verdeutlichung. Um ein gestapeltes Diagramm zu erstellen, speichern Sie dessen Definition in einem ioBroker-Status (JSON-Format):
+**Es gibt keine Benutzeroberfläche zum Konfigurieren von Diagrammen.** Sie müssen das Diagramm selbst definieren, der Adapter kümmert sich um die Visualisierung. Sie müssen Definition und Inhalt des Diagramms bereitstellen, indem Sie den Inhalt als JSON-Objekt bereitstellen – in eCharts-Beispielen entspricht dies dem Inhalt der Variable `option`. Hier ein Beispiel zur Verdeutlichung. Um ein gestapeltes Diagramm zu erstellen, speichern Sie dessen Definition in einem ioBroker-Status (JSON-Format):
 
 ```
 { "tooltip": {"trigger": "axis","axisPointer": {"type": "shadow"}},
@@ -53,25 +53,25 @@ Der Flexchart-Adapter zeigt dann dieses Diagramm an:
 
 Normalerweise verwenden Sie Blockly oder JavaScript, um Inhalte dieses Status zu erstellen und zu aktualisieren.
 
-Es besteht außerdem die Möglichkeit, eCharts-Daten direkt über eine Callback-Funktion in JavaScript zu übergeben. Details dazu finden Sie weiter unten.
+Es besteht eine weitere Möglichkeit, eCharts-Daten direkt per Callback-Funktion innerhalb von Javascript zu übergeben. Details siehe unten.
 
 Um es klarzustellen: Dieser Ansatz ist nicht dazu gedacht, schnell ein einfaches Diagramm zu erstellen.
 Wenn Sie jedoch eine konkrete Idee für ein komplexeres Diagramm haben, bietet Flexcharts die Möglichkeit, diese umzusetzen.
 
 # Erste Schritte
 ### Verwenden des Adapters
-Dieser Adapter dient als Web-Erweiterung. Daher ist die Installation und Ausführung von [Webadapter](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`) zwingend erforderlich. In dieser Readme-Datei wird davon ausgegangen, dass Sie den Standardport 8082 für den Web-Adapter verwenden.
+Dieser Adapter dient als Web-Erweiterung. Daher ist die Installation und Ausführung von [Webadapter](https://www.iobroker.net/#en/adapters/adapterref/iobroker.ws/README.md) (`web.0`) zwingend erforderlich. In dieser Readme wird davon ausgegangen, dass Sie den Standardport 8082 für den Web-Adapter verwenden.
 
 Wenn der Flexcharts-Adapter aktiv ist, können Sie über http://localhost:8082/flexcharts/echarts.html darauf zugreifen (ersetzen Sie `localhost` durch die Adresse Ihres ioBroker-Servers).
 
-Sie können diese Adresse in iFrame-Widgets von vis, jarvis oder anderen Visualisierungen verwenden. Natürlich können Sie sie auch direkt in einem Browser-Tab verwenden.
+Sie können diese Adresse in iFrame-Widgets von vis oder jarvis oder anderen Visualisierungen verwenden. Natürlich können Sie sie auch direkt in einem Browser-Tab verwenden.
 
 Damit dies funktioniert, müssen Sie zusätzliche Parameter angeben, um dem Adapter die Datenquelle mitzuteilen. Zwei Optionen stehen zur Verfügung:
 
 * `source=state` => Sie stellen Diagrammdaten in einem ioBroker-Status (json) bereit
 * `source=script` => Sie stellen Diagrammdaten über ein Skript (Javascript oder Blockly) bereit
 
-Es stehen weitere Optionen zur Verfügung, siehe [Referenzabschnitt](#reference)
+Es sind weitere Optionen verfügbar, siehe [Referenzabschnitt](#reference)
 
 Um die korrekte Installation des Adapters zu überprüfen, verwenden Sie das integrierte Demodiagramm: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
 
@@ -80,12 +80,12 @@ Beispiel: `http://localhost:8082/flexcharts/echarts.html?source=state&id=0_userd
 
 <!-- Would this be better to read: Example: http://localhost:8082/flexcharts/echarts.html?<mark style="background-color: #ffff00">source=state</mark>&<mark style="background-color: #00c000">&id=0_userdata.0.echarts.chart1</mark> -->
 
-Flexcharts wertet den Status `0_userdata.0.echarts.chart1` als Daten für eChart aus. Probieren Sie es aus: Erstellen Sie einen solchen Status und kopieren Sie die JSON-Daten des oben gezeigten Beispiels (`{ "tooltip": { ...`) als Statusinhalt. Greifen Sie anschließend mit einem Browser auf die angegebene Adresse zu.
+Flexcharts wertet den Status `0_userdata.0.echarts.chart1` als Daten für eChart aus. Probieren Sie es aus: Erstellen Sie einen solchen Status und kopieren Sie die JSON-Daten des oben gezeigten Beispiels (`{ "tooltip": { ...`) als Statusinhalt. Greifen Sie dann mit einem Browser auf die angegebene Adresse zu.
 
 Die folgenden Zeichen dürfen in der Status-ID nicht verwendet werden: `: / ? # [ ] @ ! $ & ' ( ) * + , ; = %`
 
 ### Verwenden Sie Javascript als Quelle für ein eChart
-Dies ist etwas aufwendiger, aber deutlich effizienter und flexibler. Die Diagrammdaten werden direkt über Ihr JS-Skript bereitgestellt, das dynamisch vom Flexcharts-Adapter aufgerufen wird. Sie können Ihrem Skript zusätzliche Parameter übergeben, indem Sie Parameter an die HTTP-Adresse anhängen, z. B. `&chart=chart1`. Alle HTTP-Parameter sind im Skript im Objekt `httpParams` verfügbar (siehe Beispiel unten).
+Dies ist zwar etwas aufwendiger, aber deutlich effizienter und flexibler. Die Diagrammdaten werden direkt über das JS-Skript bereitgestellt, das dynamisch vom Flexcharts-Adapter aufgerufen wird. Zusätzliche Parameter können an das Skript übergeben werden, indem Parameter an die HTTP-Adresse angehängt werden, z. B. `&chart=chart1`. Alle HTTP-Parameter sind im Skript im Objekt `httpParams` verfügbar (siehe Beispiel unten).
 
 Auch hier ist es am besten, dies anhand eines Beispiels zu erklären. Erstellen Sie ein Skript mit diesem Inhalt (nur die erste JS-Instanz (**javascript.0**) wird unterstützt, der Name des Skripts spielt keine Rolle):
 
@@ -143,7 +143,7 @@ httpParams = {"source":"script","chart":"chart1","myjsonparams":"{\"period\":\"d
 myJsonParams = {"period":"daily"}
 ```
 
-Bitte beachten Sie, dass Sie die Funktion `onMessage()` verwenden müssen, um den Trigger vom Adapter zu empfangen. Der Standardwert für die Nachricht ist `flexcharts`, wie im obigen Beispiel gezeigt. Sie können verschiedene Nachrichten verwenden, indem Sie einen zusätzlichen Parameter angeben. Beispielsweise fügen Sie für die Nachricht `mycharts` `&message=mycharts` zur HTTP-Adresse `http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts` hinzu.
+Bitte beachten Sie, dass Sie die Funktion `onMessage()` verwenden müssen, um den Trigger vom Adapter zu empfangen. Der Standardwert für die Nachricht ist `flexcharts`, wie im obigen Beispiel gezeigt. Sie können verschiedene Nachrichten verwenden, indem Sie einen zusätzlichen Parameter angeben. Um beispielsweise die Nachricht `mycharts` zu verwenden, fügen Sie `&message=mycharts` zur http-Adresse hinzu: `http://localhost:8082/flexcharts/echarts.html?source=script&message=mycharts`
 
 ### Verwenden von Funktionen innerhalb der Diagrammdefinition
 Leider funktionieren Funktionsdefinitionen innerhalb der Diagrammdefinition normalerweise nicht, da sie bei Verwendung von `JSON.stringify(option)` oder `callback(option)` gefiltert werden.
@@ -155,50 +155,52 @@ Seit V0.3.0 von Flexcharts ist es jedoch möglich, es zum Laufen zu bringen. Es 
 ![npm-Module hinzufügen](../../../en/adapterref/iobroker.flexcharts/add_npm_modules.png)
 
 * Fügen Sie in Ihrem Skript am Anfang `var strify = require('javascript-stringify');` hinzu
-* Wenn Sie ein Skript als Datenquelle verwenden: Ersetzen Sie innerhalb Ihrer „onMessage()“-Funktionalität „callback(option);“ durch „callback(strify.stringify(option));“ (vorausgesetzt, „option“ enthält Ihre Diagrammdefinition).
-* Dann verwenden Sie einen Status als Datenquelle: Ersetzen Sie beim Erstellen des Status `setState('my_chart_id', JSON.stringify(option), true);` durch `setState('my_chart_id', strify.stringify(option), true);`
+* Wenn Sie ein Skript als Datenquelle verwenden: Ersetzen Sie in Ihrer „onMessage()“-Funktionalität „callback(option);“ durch „callback(strify.stringify(option));“ (vorausgesetzt, „option“ enthält Ihre Diagrammdefinition).
+* Dann einen Status als Datenquelle verwenden: Beim Erstellen des Status ersetzen Sie `setState('my_chart_id', JSON.stringify(option), true);` durch `setState('my_chart_id', strify.stringify(option), true);`
 * Das war's. Jetzt werden Funktionen innerhalb von Diagrammdefinitionen korrekt an Flexcharts weitergeleitet.
 
-Probieren Sie es einfach mit [Vorlage3](templates/flexchartsTemplate3.js). Eine Funktion wird verwendet, um Daten des Tooltips mit 2 Dezimalstellen anzuzeigen: `tooltip: {trigger: "axis", valueFormatter: (value) => '. + value.toFixed(2)}`.
+Probieren Sie es einfach mit [Vorlage3](templates/flexchartsTemplate3.js). Es wird eine Funktion verwendet, um Daten des Tooltips mit 2 Dezimalstellen anzuzeigen: `tooltip: {trigger: "axis", valueFormatter: (value) => '. + value.toFixed(2)}`.
 
-Ein Beispiel für die Verwendung der Diagrammdefinition über den Status finden Sie in `flexcharts.0.info.chart2`. Es wird dasselbe Diagramm wie in Vorlage 3 angezeigt.
+Ein Beispiel für die Verwendung der Diagrammdefinition über den Status finden Sie in `flexcharts.0.info.chart2`. Hier wird dasselbe Diagramm wie in Vorlage 3 angezeigt.
 
-Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, könnte dessen Funktionalität auch von Schadcode (Cross-Site-Scripting) ausgenutzt werden. Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
+Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, kann dessen Funktionalität auch von Schadcode (Cross-Site-Scripting) ausgenutzt werden. Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
 
 ### Verwenden ereignisgesteuerter Funktionen zum Erstellen dynamischer Diagramme
-Apache ECharts unterstützt dynamisch anpassbare Diagramme. Sehen Sie sich das hier an: [Beispiel](https://echarts.apache.org/examples/en/editor.html?c=dataset-link). Wenn die Maus über einen Datenpunkt des Liniendiagramms bewegt wird, wird das Kreisdiagramm entsprechend aktualisiert.
+Apache ECharts unterstützt dynamisch veränderliche Diagramme. Sehen Sie sich das hier an: [Beispiel](https://echarts.apache.org/examples/en/editor.html?c=dataset-link). Wenn die Maus über einen Datenpunkt des Liniendiagramms bewegt wird, wird das Kreisdiagramm entsprechend aktualisiert.
 Hier ist eine Bildschirmaufnahme dieses von Flexcharts gesteuerten Diagramms: [dynamisch änderndes Diagramm](dynamic_charts_with_flexcharts.mkv)
 
-Um diese Funktion für eigene Diagramme zu nutzen, empfehle ich die Verwendung eines **Skripts als Quelle**. [Vorlage 4](templates/flexchartsTemplate4.js) demonstriert die Implementierung. Bitte beachten Sie Folgendes:
+**Wichtiger Hinweis** zum Update auf Version **0.5.0** von Flexcharts: Wenn Sie diese Funktion nutzen und die Optionen des Diagramms innerhalb Ihrer ereignisgesteuerten Funktion dynamisch ändern möchten, mussten Sie die Option über die Variable `jsopts` ansprechen. Ab Version 0.5.0 und höher wurde diese in `option` geändert. Bitte passen Sie die Benennung innerhalb Ihrer Funktion entsprechend an, d. h. ersetzen Sie `jsopts` durch `option`.
+
+Um ereignisgesteuerte Funktionen für eigene Diagramme zu nutzen, empfehle ich die Verwendung eines **Skripts als Quelle**. [Vorlage 4](templates/flexchartsTemplate4.js) demonstriert die Implementierung. Bitte beachten Sie Folgendes:
 
 * Um das Diagramm dynamisch zu gestalten, müssen wir Funktionen zur Verarbeitung von Ereignissen innerhalb des Diagramms definieren. Dies geschieht durch die Definition von Funktionen wie `myChart.on("event",function(e){ ... });`
-* Es ist zwingend erforderlich, jede dieser Funktionen mit `myChart.on` zu benennen
-* Um die Funktionsdefinition an Flexcharts zu übergeben, muss sie in einen **Javascript-String** konvertiert werden. Dies kann durch konsequentes Setzen von Anführungszeichen (`"`) innerhalb der Funktion und anschließendes Einschließen in Apostrophe (`'`) erfolgen – oder umgekehrt. Sie können einen Kompaktor, z. B. [diesen](https://www.toptal.com/developers/javascript-minifier), verwenden, um den benötigten Platz zu reduzieren.
-* Abschließend müssen Sie beide Teile, die Diagrammdefinition und die Definition der Ereignisfunktion(en), als **Array von Javascript-Strings** über den Callback bereitstellen. In Vorlage 4 erfolgt dies als `callback([strify.stringify(option), onEvent]);`, wobei `option` die Diagrammdefinition und `onEvent` die Definition der Ereignisfunktion als Javascript-String enthält. Wenn Sie mehr als eine Funktion definieren, müssen alle Funktionen auf den String `onEvent` verweisen.
-* Um die Definition des Diagramms in eine Zeichenfolge umzuwandeln („Option“), müssen Sie „javascript-stringify“ verwenden, wie im vorherigen Kapitel beschrieben.
+* Es ist zwingend erforderlich, jede dieser Funktionen mit „myChart.on“ zu benennen.
+* Für die Übergabe der Funktionsdefinition an Flexcharts muss diese in einen **Javascript-String** konvertiert werden. Dies kann durch konsequentes Setzen von Anführungszeichen (`"`) innerhalb der Funktion und anschließendes Einschließen in Apostrophe (`'`) erfolgen – oder umgekehrt. Sie können einen Kompaktor, z. B. [diesen](https://www.toptal.com/developers/javascript-minifier), verwenden, um den benötigten Platz zu reduzieren.
+* Abschließend müssen beide Teile, die Diagrammdefinition und die Definition der Ereignisfunktion(en), als **Array von Javascript-Strings** über den Callback bereitgestellt werden. In Vorlage 4 geschieht dies als `callback([strify.stringify(option), onEvent]);`, wobei `option` die Diagrammdefinition und `onEvent` die Definition der Ereignisfunktion als Javascript-String enthält. Wenn Sie mehr als eine Funktion definieren, müssen alle Funktionen auf den String `onEvent` verweisen.
+* Um die Definition des Diagramms in eine Zeichenfolge zu konvertieren („Option“), müssen Sie „javascript-stringify“ verwenden, wie im vorherigen Kapitel beschrieben.
 
-Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, könnte dessen Funktionalität auch von Schadcode (Cross-Site-Scripting) ausgenutzt werden. Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
+Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, kann dessen Funktionalität auch von Schadcode (Cross-Site-Scripting) ausgenutzt werden. Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
 
-Es ist auch möglich, diese Funktion mit einem **Bundesland als Datenquelle** zu verwenden. Allerdings ist es noch schwieriger:
+Es ist auch möglich, diese Funktion mit einem **Bundesstaat als Datenquelle** zu verwenden. Allerdings ist es noch schwieriger:
 
-* Der Status muss als **Array von JSON-Strings** erstellt werden. Die beiden Elemente des Arrays bestehen aus der Diagrammdefinition und der Definition der Ereignisfunktion(en).
+* Der Status muss als **Array von JSON-Strings** erstellt werden. Die beiden Elemente des Arrays bestehen aus der Definition des Diagramms und der Definition der Ereignisfunktion(en).
 * Nun müssen beide Strings gültige **JSON-Strings** sein. Dies unterscheidet sich von Javascript-Strings und bringt zusätzliche Einschränkungen mit sich:
 * Um einen String einzuschließen, müssen Anführungszeichen verwendet werden. Daher sind innerhalb des Strings nur Apostrophe oder maskierte Anführungszeichen (`\"`) zulässig.
 * Innerhalb eines Strings ist keine neue Zeile zulässig.
-* Es ist eine gute Idee, die Gültigkeit des Arrays mithilfe eines JSON-Validators sicherzustellen, z. B. [diesen hier](https://jsonformatter.curiousconcept.com/#).
-* Natürlich möchten Sie die Daten des Diagramms bearbeiten. Die Daten sind jedoch Teil der Diagrammdefinition. Daher müssen Sie das Array der JSON-Strings mit Javascript lesen und schreiben. Daher empfehle ich, wie oben beschrieben ein Skript als Datenquelle zu verwenden.
-* Ein Beispiel ist jedoch im Infobereich von Flexcharts verfügbar: `flexcharts.0.info.chart3`. Zur Anzeige im Browser verwenden Sie `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
+* Es ist eine gute Idee, die Gültigkeit des Arrays mithilfe eines JSON-Validators sicherzustellen, z. B. [diesen](https://jsonformatter.curiousconcept.com/#).
+* Natürlich möchten Sie die Daten des Diagramms manipulieren. Die Daten sind jedoch Teil der Diagrammdefinition. Daher müssen Sie das Array der JSON-Strings mit Javascript lesen und schreiben. Daher empfehle ich, wie oben beschrieben ein Skript als Datenquelle zu verwenden.
+* Ein Beispiel ist jedoch im Info-Teil von Flexcharts verfügbar: `flexcharts.0.info.chart3`. Zur Anzeige in einem Browser verwenden Sie `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
 
 ## Vorlagen
 Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 
 * Diagramm mit Daten aus dem Verlaufsadapter: [template1](templates/flexchartsTemplate1.js)
 * einfaches Diagramm für eine Wärmekurve: [template2](templates/flexchartsTemplate2.js)
-* einfaches gestapeltes Balkendiagramm mithilfe der Funktion innerhalb der Diagrammdefinition: [template3](templates/flexchartsTemplate3.js)
+* einfaches gestapeltes Balkendiagramm mit Funktion innerhalb der Diagrammdefinition: [template3](templates/flexchartsTemplate3.js)
 * Diagramm für Daten des **TibberLink-Adapters**: siehe Diskussionen [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) und [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
-* Für Viessmann-Geräte der E3-Serie, z. B. die Wärmepumpe Vitocal 250, ist ein sehr spezifischer Anwendungsfall verfügbar. Siehe https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
+* Für Viessmann-Geräte der E3-Serie, z. B. Wärmepumpe Vitocal 250, ist ein sehr spezifischer Anwendungsfall verfügbar. Siehe https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 * Implementierung dynamisch wechselnder Diagramme: [template4](templates/flexchartsTemplate4.js)
-* Der Adapter [tibberLink](https://github.com/hombach/ioBroker.tibberlink) nutzt Flexcharts als Option zur grafischen Aufbereitung der Daten. Derzeit im Beta-Repo von ioBroker verfügbar. Siehe die [Dokumentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
+* Adapter [tibberLink](https://github.com/hombach/ioBroker.tibberlink) nutzt Flexcharts als Option zur grafischen Aufbereitung der Daten. Derzeit im Beta-Repo von ioBroker verfügbar. Siehe die [Dokumentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
 
 ## Referenz
 **ioBroker-Status** als Datenquelle verwenden: `http://localhost:8082/flexcharts/echarts.html?source=state&id=my_state_id`
@@ -206,15 +208,15 @@ Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 Verwenden Sie **Javascript** als Datenquelle: `http://localhost:8082/flexcharts/echarts.html?source=script`
 
 ### Optionale Argumente
-* `&message=my_message` – sendet „my_message“ an JavaScript. Verwenden Sie `onMessage('my_message', (httpParams, callback) => { callback(mychart); })`, um Diagrammdaten bereitzustellen. Standardmäßig wird `flexcharts` verwendet.
-* „&darkmode“ – aktiviert die Dunkelmodus-Visualisierung von ECharts.
-* `&refresh=number` – aktualisiert das Diagramm alle "number" Sekunden. Standardmäßig 60 Sekunden. Der Mindestwert beträgt 5 Sekunden.
+* `&message=my_message` – sendet „my_message“ an JavaScript. Verwenden Sie `onMessage('my_message', (httpParams, callback) => { callback(mychart); })`, um Diagrammdaten bereitzustellen. Standardmäßig wird „flexcharts“ verwendet.
+* `&darkmode` – aktiviert die Dunkelmodus-Visualisierung von ECharts.
+* `&refresh=number` – aktualisiert das Diagramm alle "number" Sekunden. Der Standardwert beträgt 60 Sekunden. Der Mindestwert beträgt 5 Sekunden.
 * `&user_defined_arguments` – Fügen Sie je nach Bedarf weitere Parameter hinzu. Alle Argumente sind in der Funktion `onMessage()` im Objekt `httpParams` verfügbar. Weitere Details finden Sie in den obigen Beispielen und Vorlagen.
 
 ### Verwenden von Funktionen innerhalb der Diagrammdefinition
 Verfügbar ab Version 0.3.0. Siehe vorherige [Kapitel](#using-functions-within-definition-of-chart)
 
-### Integriertes Demo-Diagramm
+### Integriertes Demodiagramm
 Es ist ein integriertes Demodiagramm verfügbar: http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1
 
 Dies sollte ein Demodiagramm aufrufen, wenn Flexcharts und Webadapter ausgeführt werden.
@@ -222,13 +224,20 @@ Dies sollte ein Demodiagramm aufrufen, wenn Flexcharts und Webadapter ausgeführ
 **Hinweis:** Ersetzen Sie `localhost` durch die Adresse Ihres ioBroker-Servers. Ersetzen Sie `8082` durch die von Ihrem Web-Adapter verwendete Portnummer.
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a> Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig bist –, überlege doch, mir ein Bier auszugeben. Prost! :Bier:
+<a href="https://www.paypal.com/donate/?hosted_button_id=WKY6JPYJNCCCQ"><img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach nur großzügig sind –, geben Sie mir doch ein Bier aus. Prost! :Bier:
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2025-09-17)
+* (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
+* (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)
+
+### 0.4.1 (2025-05-22)
+* (MyHomeMyData) Fix for issue #96 (findings of repository checker)
+
 ### 0.4.0 (2025-03-24)
 * (MyHomeMyData) Added functionality to support event driven functions within charts, ref. issue #85
 * (MyHomeMyData) Added timeout for script as source

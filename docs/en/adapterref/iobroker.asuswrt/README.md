@@ -22,9 +22,12 @@ You can find a list from Asus which Router DO NOT use ASUSWRT here: https://even
 
 You must activate and allow SSH Connections in your Router Settings
 
-You need at least NodeJS V6 and Admin V3
+You need at least:
+* js-controller >= 6.0.11
+* admin >= 7.6.17
+* Node.js >= 18.x
 
-If you need Admin V2 install last supported Version 0.3.1
+For older ioBroker versions, install version 0.3.1
 
 ## Setup
 * Asus Router IP-Address (Mandatory)
@@ -52,6 +55,14 @@ If you need Admin V2 install last supported Version 0.3.1
     * Don´t forget to set the Checkbox to activate the monitoring
 
 ## Changelog
+
+### 1.0.2 (2025-10-05)
+* (mcdhrts) Fixed admin UI 404 error - renamed index_m.html to index.html
+* (mcdhrts) Updated requirements documentation to reflect current dependencies (js-controller >= 6.0.11, admin >= 7.6.17, Node.js >= 18.x)
+* (mcdhrts) Improved integration tests with proper test harness and configuration validation
+* (mcdhrts) Removed deprecated unit tests in favor of modern integration tests
+* (mcdhrts) Updated dependencies: ssh2 ^1.4.0 -> ^1.17.0, @iobroker/adapter-core ^3.3.1 -> ^3.3.2, @iobroker/testing ^5.0.4 -> ^5.1.1
+* (mcdhrts) Removed deprecated devDependencies: gulp, mocha, chai (now handled by @iobroker/testing)
 
 ### 1.0.1 (2019-03-22)
 * (mcdhrts) Add Support for Compact Mode

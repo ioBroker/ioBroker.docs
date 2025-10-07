@@ -38,6 +38,9 @@ protocol://address:port/person
 
 ## Changelog
 
+### 1.0.9
+* (obakuhl) Updating dependencies
+
 ### 1.0.8
 * (obakuhl) Updating dependencies
 

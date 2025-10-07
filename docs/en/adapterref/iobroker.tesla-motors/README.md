@@ -12,32 +12,32 @@
 
 **Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
 
-## Tesla adapter für ioBroker
+## Tesla adapter for ioBroker
 
-Es werden alle Tesla Modelle und Powerwalls aus der Tesla App angezeigt und aktualisiert.
+All Tesla models and Powerwalls from the Tesla App are displayed and updated.
 
-**Remote Befehle für Tesla und Powerwall sind möglich unter**
+**Remote commands for Tesla and Powerwall are available under**
 tesla-motors.0.id.remote
 
-**Loginablauf:**
+**Login process:**
 
-- In den Instanzoptionen den Auth Link klicken.
-- Die Logindaten eingeben und gegebenenfalls Captcha/reCaptcha und MFA eingeben.
-- Auf der Page not Found Seite die komplette URL aus dem Browser kopieren und in die Instanzoptionen einfügen und auf Speichen und Schließen klicken.
-- Die ersten Daten kommen unter Umständen erst nach der ersten Fahrt
+- Click the Auth Link in the instance options.
+- Enter your login credentials and, if necessary, complete Captcha/reCaptcha and MFA.
+- On the "Page not Found" page, copy the complete URL from the browser and paste it into the instance options, then click Save and Close.
+- The initial data may only appear after the first drive
 
 **Field Description**
 
 - df driver front
-- dr driver rear
+- dr driver rear  
 - pf passenger front
 - pr passenger rear
 - ft front trunk
 - rt rear trunk
 
-[Option Codes Erklärung](https://tesla-api.timdorr.com/vehicle/optioncodes)
+[Option Codes Explanation](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
-## Fragen und Diskussionen:
+## Questions and Discussions:
 
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
@@ -91,7 +91,7 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ### 1.0.2
 
-- (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
+- (iobroker-community-adapters) ALL DATA POINTS ARE NEW, Vis must be adapted. New version with new states for Tesla and Powerwalls.
 
 ## License
 

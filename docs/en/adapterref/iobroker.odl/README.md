@@ -49,6 +49,11 @@ Example for the measuring point _Berlin-Karlshorst_:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2025-10-04)
+
+* (crycode-de) js-controller >= 6.0.11, Admin >= 7.6.17 required
+* (crycode-de) Updated dependencies
+
 ### 5.0.0 (2025-05-25)
 
 * (crycode-de) Node.js >= 20, Admin >= 7.4.10 required

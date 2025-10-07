@@ -1,7 +1,10 @@
+
+---
+---
 # Konsolenbefehle
 Einige Befehle wie z.B. starten, stoppen oder aktualisieren können über die Konsole (Windows bzw. Linux) ausgeführt werden.
 
-***Hinweis:*** Alle Befehle, die mit `iobroker` beginnen, können von jedem Verzeichnis aus aufgerufen werden. 
+***Hinweis:*** Alle Befehle, die mit `iobroker` beginnen, können von jedem Verzeichnis aus aufgerufen werden und dürfen **nie** mit sudo eingeleitet werden. 
 Der Befehl `npm install` muss jedoch im ioBroker-Stammverzeichnis ausgeführt werden.
 
 Befehlsübersicht:
@@ -747,3 +750,4 @@ Dieser Befehl zeigt die letzten 1000 Protokollzeilen an und überwacht das Proto
 Um das Protokoll zu überwachen, fügen Sie "--watch" hinzu, wie hier: 
 
 `iobroker logs --lines 100 --watch`
+

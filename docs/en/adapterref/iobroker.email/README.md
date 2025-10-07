@@ -112,6 +112,7 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (@copilot) Enhanced GitHub Copilot instructions with tool calling efficiency guidelines
 * (@copilot) Fixed SMTP relay anonymous access by ignoring user and password when empty
 
 ### 2.0.4 (2025-04-15)

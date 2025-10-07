@@ -45,6 +45,15 @@ The following functions are implemented:
 
 ### **WORK IN PROGRESS**
 
+- (Uwe Nagel) Correct error in main.js, update package-lock.json
+- (Uwe Nagel) Update io-package.json and package.json
+- (Uwe Nagel) Update .vscode/jsonConfig.json and .gitignore
+- (Uwe Nagel) Resolve dependency errors
+- (Uwe Nagel) Bump mocha from 11.1.0 to 11.7.1
+- (Uwe Nagel) Bump globals from 16.2.0 to 16.3.0
+- (Uwe Nagel) Bump @types/node from 24.0.8 to 24.1.0
+- (Uwe Nagel) Bump typescript from 5.7.3 to 5.9.2
+- (Uwe Nagel) Bump chai from 5.2.0 to 5.2.1
 - (Uwe Nagel) Further code cleaning (apiclient, getStateAsync)
 - (Uwe Nagel) @types/xml2js added
 - (Uwe Nagel) Move to eslint 9 and fix subsequent issues

@@ -26,6 +26,15 @@ You can find more and detailed information about the device here: [Refoss](https
 | Refoss Smart Energy Monitor, EM06 | >= v2.3.8 |
 
 ## Changelog
+### 1.2.4 (2025-09-22)
+
+- (zhoulinyue) Fix issues of npm test
+### 1.2.3 (2025-09-19)
+
+- (zhoulinyue) Compatible with node v24; delete the unnecessary code
+### 1.2.2 (2025-09-18)
+
+- (zhoulinyue) Compatible with node v24; solve the error of npm test
 ### 1.2.1 (2025-09-04)
 
 - (zhoulinyue) Formatting the code

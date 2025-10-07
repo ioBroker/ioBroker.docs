@@ -26,6 +26,26 @@ The received data can also be saved as JSON (sofar_realtime.json).
 
 
 ## Changelog
+### 3.2.3 (2025-10-04)
+
+- Security issue (my email address)
+
+### 3.2.2 (2025-09-19)
+
+- Typos corrected
+
+### 3.2.1 (2025-09-16)
+
+- Increment failed login attempts only if username or password is wrong
+
+### 3.2.0 (2025-09-16)
+
+- More login info. No increment failed login attempts if server error
+
+### 3.1.0 (2025-09-14)
+
+- DataReceived flag added
+
 ### 3.0.1 (2025-08-29)
 
 - Normalize values before write
@@ -55,7 +75,7 @@ The received data can also be saved as JSON (sofar_realtime.json).
 ## License
 MIT License
 
-Copyright (c) 2025 Daniel Luginbühl <dlu0@sunrise.ch>
+Copyright (c) 2025 Daniel Luginbühl <webmaster@ltspiceusers.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

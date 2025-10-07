@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Tue, 17 Jun 2025 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 24 Sep 2025 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker Monatsrückblick – September 2025]]></title>
+            <description><![CDATA[
+                <p>Der Sommer geht zu Ende und auch in der ioBroker-Welt war in den letzten Monaten einiges los. \nZahlreiche neue Adapter wurden veröffentlicht, einige davon haben es bereits ins stable-Repository geschafft, \neinige weitere sind im latest-Repository verfügbar und warten auf euren Testeinsatz.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2025_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2025_09_24</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 24 Sep 2025 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker beim Smart Living Forum 2025 in Solingen]]></title>
             <description><![CDATA[

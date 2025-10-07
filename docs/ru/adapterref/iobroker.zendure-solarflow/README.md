@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: DZuP+0B2Q62XEToyzjxTwo5xmgbDp4XOf6iQq/eTGvA=
+hash: DuZMTwYVqm7rd5887ZeukvOJr6IJs4sHJJGY7LJY/dc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -51,12 +51,21 @@ hash: DZuP+0B2Q62XEToyzjxTwo5xmgbDp4XOf6iQq/eTGvA=
 В сочетании HUB 1200 / HUB 2000 / ACE 1500 необходимо использовать **setDeviceAutomationInOutLimit** для подачи питания и вручную переключать acMode и **setInputLimit**, если требуется зарядка от сети. В этом случае настоятельно рекомендуется установить **smartMode** в значение true!
 
 ## Примечания
-После входа через адаптер ioBroker вы будете выходить из официального приложения для iOS или Android. Это нормальное явление. В качестве обходного решения вы можете создать вторую учётную запись Zendure с другим адресом электронной почты и предоставить ей доступ к Solarflow HUB. Затем используйте вторую учётную запись для ioBroker/адаптера Zendure Solarflow. Эта функция не работает на новых устройствах, таких как SF 2400 AC или SF 800 (Pro).
-
-## Кредиты
-Спасибо https://github.com/reinhard-brandstaedter/solarflow за большую помощь с изучением MQTT-сервера от Zendure! Спасибо!
+Теперь этот адаптер будет использовать облачный код авторизации для аутентификации на официальных серверах MQTT, который вы можете сгенерировать в приложении Zendure!
 
 ## Changelog
+### 3.0.1 (2025-10-02)
+
+- Update 'lastUpdate' when a battery value changes
+- Add deviceKey 'R3mn8U' for Solarflow 800 Pro
+
+### 3.0.0 (2025-09-30)
+
+- Breaking Change: Change authentication to "authentication cloud key". You can generate a key in the official zendure app
+- Removed fallback server
+- Add deviceKey 'a4ss5P' for Solarflow 800
+- Refactor a lot of code
+
 ### 2.0.4 (2025-09-12)
 
 - Fix creation of control states on new Hyper 2000 v3

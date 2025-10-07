@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: rSaf2RScDzW/5dH0RUT9HYH1WyMBbA/P+j6N78/8YSE=
+hash: 18Pj+G0GU9fUbpZnTRp3sGUGh2dcAqJspn5lQ0ZgoY0=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -25,35 +25,120 @@ hash: rSaf2RScDzW/5dH0RUT9HYH1WyMBbA/P+j6N78/8YSE=
 ## ESPHome-Adapter für ioBroker
 Steuern Sie Ihren ESP8266/ESP32 mit einfachen, aber leistungsstarken Konfigurationsdateien, die von ESPHome erstellt und verwaltet werden.
 
-Die native Integration des von ESPHome verwalteten Geräts (einschließlich Dashboard) über die native API stellt sicher, dass alle Daten synchronisiert sind (Live-Event-Verarbeitung, kein Datenabruf! :)
+Die native Integration des von ESPHome verwalteten Geräts (einschließlich Dashboard) über die native API stellt sicher, dass alle Daten synchronisiert sind (Live-Event-Handling, kein Daten-Polling! :)
 
 ![Logo](../../../en/adapterref/iobroker.esphome/admin/img/dashboard.png)
 
-Dieser Adapter verwendet [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) mit allen Credits an @Nafaya für die Interaktion mit [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
+**Schnelllinks:**
+
+- 📋 [FAQ – Häufig gestellte Fragen](#frequently-asked-questions-faq)
+- ⚙️ [Voraussetzungen und Einrichtung](#prerequisites)
+- 🎛️ [Dashboard-Integration](#esphome-dashboard-integration-optional)
+- 📱 [Geräteverwaltung](#device-management)
+- 🔧 [Konfigurationsbeispiele](#example-config)
+
+Dieser Adapter verwendet [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) mit allen Credits an @Nafaya zur Interaktion mit [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
+
+## Häufig gestellte Fragen (FAQ)
+### Was ist der Unterschied zwischen dem ioBroker ESPHome-Adapter und dem ESPHome-Dashboard?
+**ioBroker ESPHome-Adapter:**
+
+- Integriert Ihre ESPHome-Geräte in ioBroker zur Steuerung der Heimautomatisierung
+- Kommuniziert direkt mit ESP-Geräten über die native API von ESPHome
+- Erstellt ioBroker-Zustände/Objekte zur Gerätesteuerung und -überwachung
+- Verarbeitet Gerätestatusaktualisierungen in Echtzeit (keine Abfrage erforderlich)
+- Verwaltet die Gerätekonfiguration innerhalb von ioBroker
+
+**ESPHome-Dashboard:**
+
+- Eine Weboberfläche zum Erstellen, Bearbeiten und Verwalten von ESPHome-Gerätekonfigurationen
+- Wird zum Schreiben von YAML-Konfigurationen, Kompilieren von Firmware und Flashen von Geräten verwendet
+- Kann als optionale Funktion in die Admin-Oberfläche von ioBroker integriert werden
+- Kann entweder integriert mit diesem Adapter oder als externe Installation (Docker, Standalone) ausgeführt werden
+
+**Zusammenfassung:** Der Adapter steuert Ihre Geräte innerhalb von ioBroker, während das Dashboard die Gerätekonfigurationen und die Firmware verwaltet.
+
+### Wie konfiguriere ich den Dashboard-IP-Selektor?
+Die Dashboard-IP-Einstellung in der Adapterkonfiguration dient verschiedenen Zwecken:
+
+**Für die Registerkarte „Integriertes Dashboard“ im ioBroker-Admin:**
+
+1. Geben Sie die IP-Adresse und den Port ein, auf dem Ihr ESPHome Dashboard läuft
+2. **Integriertes Dashboard:** Verwenden Sie `127.0.0.1:6052` (Standard für integriertes Dashboard)
+3. **Externes Dashboard:** Verwenden Sie die IP:Port Ihrer externen ESPHome-Installation (z. B. Docker-Container)
+4. **HTTPS-Setup:** Informationen zu HTTPS-Umgebungen finden Sie im ausführlichen Abschnitt zur HTTPS-Konfiguration weiter unten.
+
+**Dashboard-IP-Beispiele:**
+
+- Eingebaut: `127.0.0.1:6052`
+- Externer Docker: `192.168.1.100:6052`
+- Externer Host: `esphome.local:6052`
+- HTTPS-Proxy: `https://192.168.1.50:8082/proxy.0/esphome/`
+
+![IP-Konfiguration des ESPHome-Dashboards](../../../en/adapterref/iobroker.esphome/admin/img/ESPhomeDashboardIP.png)
+
+**Hinweis:** Sie können diesen Adapter verwenden, um ESPHome-Geräte zu steuern, ohne die Dashboard-IP zu konfigurieren. Die Dashboard-IP wird nur benötigt, wenn Sie die ESPHome-Dashboard-Schnittstelle in das Admin-Panel von ioBroker integrieren möchten.
+
+### Benötige ich das ESPHome Dashboard, um diesen Adapter zu verwenden?
+**Nein, das Dashboard ist optional.** Sie können diesen Adapter auf verschiedene Arten verwenden:
+
+1. **Nur Adapter:** Steuern Sie vorkonfigurierte ESPHome-Geräte ohne Dashboard-Integration
+2. **Adapter + Externes Dashboard:** Nutzen Sie Ihre vorhandene ESPHome-Installation (Docker, Standalone) und integrieren Sie diese optional in die ioBroker-Oberfläche
+3. **Adapter + integriertes Dashboard:** Aktivieren Sie die integrierte ESPHome Dashboard-Funktion für eine Komplettlösung
+
+Der Adapter funktioniert unabhängig und erfordert nur Geräte, bei denen die ESPHome-API in der Konfiguration aktiviert ist.
+
+### Wie füge ich dem Adapter Geräte hinzu?
+1. **Stellen Sie sicher, dass die ESPHome-API aktiviert ist** in der YAML-Konfiguration Ihres Geräts (siehe Abschnitt „Voraussetzungen“)
+2. **Öffnen Sie die Geräteregisterkarte des Adapters** in ioBroker Admin (Adapter muss ausgeführt werden)
+3. **Geräte manuell hinzufügen:** Geben Sie die IP-Adresse und die Authentifizierungsdaten des Geräts ein
+4. **Automatische Erkennung:** Derzeit deaktiviert (siehe Problem Nr. 175)
+
+Der Adapter stellt eine Verbindung her und erstellt alle erforderlichen ioBroker-Objekte zur Gerätesteuerung.
 
 ## [Dokumentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 
 ## [Dokumentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
-Unsere gesamte Adapterdokumentation finden Sie unter [Die DrozmotiX-Dokuseite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) -->
+Unsere gesamte Adapterdokumentation finden Sie unter [Die DrozmotiX-Doku-Seite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) -->
 
 ## Voraussetzungen
 * NodeJS >= 18.x
 * API ist in YAML aktiviert
-* Für Admin-Tabs (optional)
+* Für Admin-Registerkarten (optional)
 * Die IP des ESPHome-Dashboards wird in den Instanzeinstellungen bereitgestellt
 
-## Verwenden des integrierten ESPHome Dashboards
-Sie können entweder eine externe Installation von ESPHome (z. B. Docker) verwenden oder den in diesem Adapter enthaltenen ESPHome-Dashboard-Prozess aktivieren.
-In jedem Fall ist es möglich, das Dashboard in die ioBroker-Admin-Oberfläche zu integrieren. Dazu müssen Sie die IP-Adresse angeben, unter der das Dashboard ausgeführt wird.
+## ESPHome Dashboard-Integration (optional)
+Dieser Adapter kann optional das ESPHome Dashboard in die Admin-Oberfläche von ioBroker integrieren. Sie haben mehrere Möglichkeiten:
 
-![Logo](../../../en/adapterref/iobroker.esphome/admin/img/ESPhomeDashboardIP.png)
+**Option 1: Integriertes Dashboard (Empfohlen für Anfänger)**
+
+- Aktivieren Sie "Native Integration von ESPHome Dashboard" in den Adaptereinstellungen
+- Verwendet eine integrierte Python-Umgebung (keine externe Einrichtung erforderlich)
+- Dashboard läuft standardmäßig auf Port 6052
+- Setzen Sie die Dashboard-IP für die Admin-Integration auf „127.0.0.1:6052“
+
+**Option 2: Externes Dashboard**
+
+- Vorhandene ESPHome-Installation verwenden (Docker, Standalone usw.)
+- Geben Sie die IP:Port des externen Dashboards in den Adaptereinstellungen ein
+- Beispiel: `192.168.1.100:6052` für Docker-Container
+
+**Option 3: Keine Dashboard-Integration**
+
+- Überspringen Sie die Dashboard-Konfiguration vollständig
+- Verwenden Sie externe ESPHome-Tools zur Gerätekonfiguration
+- Adapter steuert Geräte weiterhin normal
+
+![Dashboard-IP-Konfiguration](../../../en/adapterref/iobroker.esphome/admin/img/ESPhomeDashboardIP.png)
+
+> **💡 Siehe FAQ oben** für detaillierte Erklärungen zur Dashboard-IP-Konfiguration und den Unterschieden zwischen Adapter und Dashboard.
 
 ### Verwenden von HTTPS
 Ein Grund für die Verwendung von HTTPS besteht darin, dass Sie direkt auf an Ihren PC angeschlossene Geräte flashen können, da esphome dies mit http nicht zulässt (wahrscheinlich Browserbeschränkung mit WebSerial).
 
 ![flashFromThisComputer.png](../../../en/adapterref/iobroker.esphome/admin/img/flashFromThisComputer.png)
 
-Die Verwendung des integrierten Dashboards, wenn der iobroker https verwendet, erfordert derzeit einige zusätzliche Schritte:
+Die Verwendung des integrierten Dashboards, wenn der iobroker https verwendet, erfordert derzeit einige weitere Schritte:
 
 1. Installieren Sie – falls noch nicht geschehen – den Webadapter und konfigurieren Sie https. Weitere Informationen finden Sie in der Webdokumentation: [ioBroker.web](https://github.com/ioBroker/ioBroker.web)
 2. Installieren Sie den [Proxy](https://github.com/ioBroker/ioBroker.proxy)-Adapter
@@ -64,7 +149,7 @@ Die Verwendung des integrierten Dashboards, wenn der iobroker https verwendet, e
 ![proxy.png](../../../en/adapterref/iobroker.esphome/admin/img/proxy.png)
 
 4. Konfigurieren Sie die vollständige Dashboard-URL im erweiterten Abschnitt der Esphome-Adaptereinstellungen – Esphome-Dashboard:
-1. etwa: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
+1. wie: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
 2. wobei „<iobrokerIP>“ die IP des Hosts ist, auf dem Ihr iobroker ausgeführt wird (wie oben)
 3. und „<webAdapterPort>“ ist der Port des Webadapters (Standard ist 8082)
 4. Es sollte ungefähr so aussehen:
@@ -84,21 +169,24 @@ api:
     key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
 ```
 
-#### Beispiel eines API-Konfigurationseintrags
+#### Beispiel für einen API-Konfigurationseintrag
 ```
 api:
   password: 'MyPassword'
 ```
 
+## Geräteverwaltung
 ### ESPHome-Geräte zu ioBroker hinzufügen / ändern / entfernen
 > [!WICHTIG] > Dieser Adapter integriert die Kommunikation mit ESPHome-fähigen Geräten und (falls aktiviert) eine integrierte Version des ESPHome-Dashboards.
 > Sie müssen Ihre ESP-Konfiguration selbst konfigurieren und hochladen, entweder über das integrierte Dashboard oder eine externe Alternative (z. B. Docker), bevor sie in ioBroker integriert werden kann.
+
+> **💡 Siehe FAQ oben** für eine Schritt-für-Schritt-Anleitung zum Hinzufügen von Geräten zum Adapter.
 
 Auf der Registerkarte „Geräte“ werden alle aktuell bekannten Geräte angezeigt. Sie können entweder warten, bis die Geräte automatisch erkannt werden (derzeit deaktiviert, siehe Nr. 175), oder sie manuell hinzufügen, indem Sie ihre IP-Adresse und Anmeldeinformationen angeben.
 
 ![Registerkarte „Geräte“](../../../en/adapterref/iobroker.esphome/admin/img/deviceTabEmpty.png)
 
-> [!HINWEIS] > Schaltflächen zum Hinzufügen/Ändern/Entfernen von Geräten und Laden der Gerätetabelle sind nur verfügbar, wenn der Adapter läuft! > Sie müssen die Gerätetabelle manuell aktualisieren, indem Sie auf "Geräteübersicht aktualisieren" klicken. Alle Geräte und ihr Verbindungsstatus werden angezeigt
+> [!HINWEIS] > Schaltflächen zum Hinzufügen/Ändern/Entfernen von Geräten und Laden der Gerätetabelle sind nur verfügbar, wenn der Adapter läuft! > Sie müssen die Gerätetabelle manuell aktualisieren, indem Sie auf „Geräteübersicht aktualisieren“ klicken. Alle Geräte und ihr Verbindungsstatus werden angezeigt
 
 Bitte geben Sie die IP-Adresse ein (wenn ein Gerät bereits bekannt ist, können Sie es aus der Dropdown-Liste auswählen) und wählen Sie die entsprechenden Aktionen:
 
@@ -111,11 +199,11 @@ Bitte geben Sie die IP-Adresse ein (wenn ein Gerät bereits bekannt ist, können
 
 > [!WARNING] > Diese Aktion entfernt ein ausgewähltes Gerät und alle zugehörigen Zustände aus ioBroker!
 
-> [!NOTE] > Nachdem ein Gerät hinzugefügt wurde, wird eine Meldung angezeigt, ob es erfolgreich war oder ein Fehler aufgetreten ist. > Sie können die Tabelle aktualisieren, um die aktuellen Geräte und ihren Verbindungsstatus anzuzeigen.
+> [!NOTE] > Nachdem ein Gerät hinzugefügt wurde, wird eine Meldung angezeigt, ob es erfolgreich war oder ein Fehler aufgetreten ist. > Sie können die Tabelle aktualisieren, um die aktuellen Geräte und ihren Verbindungsstatus anzuzeigen
 
 ![Gerätefehler](admin/img/connectionIssue.png) ![GeräteOK](../../../en/adapterref/iobroker.esphome/admin/img/connectionOK.png)
 
-Nach erfolgreicher Verbindung wird das Gerät initialisiert und alle zugehörigen Zustände zur Steuerung der zugehörigen Attribute erstellt.
+Bei erfolgreicher Verbindung wird das Gerät initialisiert und alle zugehörigen Zustände zur Steuerung der zugehörigen Attribute erstellt.
 Wenn Sie Änderungen an Ihrer YAML-Konfiguration vornehmen, wird durch einen Neustart des ESP die Verbindung getrennt und eine neue hergestellt.
 Dabei werden Zustände, die nicht mehr Teil der YAML-Konfiguration sind, automatisch entfernt.
 
@@ -126,9 +214,9 @@ Beispielkonfiguration, weitere Beispiele siehe [Die DrozmotiX-Dokumentationsseit
 
 <details><summary>Beispielkonfiguration anzeigen</summary>
 
-esphome: Name: Sensor_Badkamer Plattform: ESP32 Board: esp-wrover-kit
+esphome: Name: sensor_badkamer Plattform: ESP32 Board: esp-wrover-kit
 
-WLAN: Use_address: 192.168.10.122 SSID: "xxxxx" Passwort: "xxxxxx"
+WLAN: use_address: 192.168.10.122 SSID: „xxxxx“ Passwort: „xxxxxx“
 
 # ESPHome-API aktivieren
 API: Passwort: „MeinPasswort“
@@ -153,10 +241,10 @@ Pin: 12 invertiert: true ID: gpio_12
 
 - Plattform: Ausgabe
 
-Name: "Allgemeine Ausgabe" Ausgabe: 'gpio_12' </details>
+Name: „Allgemeine Ausgabe“ Ausgabe: „gpio_12“ </details>
 
 ## Tasmota / ESPEasy-Migration
-Die Migration von vorherigen Sonoff Tasmota- oder ESPEasy-Setups ist kinderleicht. ESPHome erstellt einfach eine Binärdatei und lädt diese anschließend in die Weboberfläche hoch.
+Die Migration von vorherigen Sonoff Tasmota- oder ESPEasy-Setups ist ganz einfach. ESPHome erstellt einfach eine Binärdatei und lädt diese anschließend in die Weboberfläche hoch.
 Weitere Informationen finden Sie in unserem [Doku-Seite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html)
 
 **_HINWEIS:_** Generierte YAML-Dateien werden unter ```/opt/iobroker/iobroker-data/iobroker.esphome.>instance</>device<.yaml gespeichert
@@ -171,6 +259,19 @@ Wenn Ihnen meine Arbeit gefällt, denken Sie bitte über eine persönliche Spend
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### 0.6.3 (2025-09-16)
+* (@DutchmanNL) Fixed an admin error related to `jsonConfig` validation. #287
+* (@DutchmanNL) Various general fixes and dependency updates to improve stability.
+* (@DutchmanNL) Improved responsive design for better usability across devices. #284
+* (@DutchmanNL) Introduced GitHub Actions to automatically verify the ESPHome Dashboard. #290
+* (@DutchmanNL) Added a comprehensive FAQ section to the README to help users with common questions. #286
+* (@DutchmanNL) Updated the `esphome-native-api` library to V1.3.3, which may resolve connection issues. #201
+
+### 0.6.2 (2025-08-08)
+* (@SimonFischer04) add support for text device type #141, displays #103
+* (@SimonFischer04) fix cover device type #156
+* (@SimonFischer04) workaround: downgrade python for now. fixes #259
+
 ### 0.6.1 (2025-05-24)
 * (@SimonFischer04) Update esphome
 * (@ticaki) Optimize admin configuration interface
@@ -184,19 +285,6 @@ Wenn Ihnen meine Arbeit gefällt, denken Sie bitte über eine persönliche Spend
 
 ### 0.5.0-beta.4 (2023-11-15)
 * (DutchmanNL) Refactor memory caching of device data, resolves #189
-
-### 0.5.0-beta.1 (2023-11-12)
-* (DutchmanNL) Only show error messages once for unreachable devices
-
-### 0.5.0-beta.0 (2023-11-12) - Rebuild Admin Interface & Connection handler
-* (DutchmanNL) Admin interface redesigned to JSON-Config relates #171
-* (DutchmanNL) Backend massages implemented to Add/Modify/Delete devices
-* (DutchmanNL) Device connection handling and visibility of devices improved
-* (DutchmanNL) Auto device discovery temporary disabled due to external bug, relates #175
-* (DutchmanNL) Possibility added to exclude IP-Addresses from device discovery, relates #175
-* (DutchmanNL) Allow Selection to listen on specific interface or all for device discovery resolves #67
-* (DutchmanNL) State implemented to show current connection status (unreachable/disconnected/connected) to improve management of devices
-* (DutchmanNL) Several bugfixes, resolves #181 resolves #
 
 ## License
 MIT License

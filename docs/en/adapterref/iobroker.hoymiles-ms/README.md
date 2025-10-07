@@ -20,7 +20,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## hoymiles-ms adapter for ioBroker
 
-This adapter integrates the **HOYMILES** **M**icro**S**torage systems (currently only Hoymiles SM-A2) into ioBroker. A descritpion of the device is available [here](https://www.hoymiles.com/de/products/micro-storage).
+This adapter integrates the **HOYMILES** **M**icro**S**torage systems (currently only Hoymiles SM-A2) into ioBroker. A description of the device is available [here](https://www.hoymiles.com/de/products/micro-storage).
 
 Note that this adapter is not related to the company mentioned above in any way and that no commercial relationship exists at all.
 
@@ -41,29 +41,29 @@ For detailed setup instructions, configuration guide, and comprehensive referenc
 ## Configuration
 
 ### Configuration of the adapter
-The adapter can be configured as a dedicated mqtt server or as a mqtt client (Note: cleint mode not yet implemented). 
+The adapter can be configured as a dedicated mqtt server or as a mqtt client (Note: client mode not yet implemented). 
 
-To operate as a mqtt server the following patramaters must be configured:
+To operate as a mqtt server the following parameters must be configured:
 - mqtt network
   Specify the network to listen on. Normally listening on all networks (0.0.0.0) is sufficient. 
 
 - mqtt port
-  Specify to (tcp)port to use. As standard mqtt port (1883) might be occopied by ioBroker.mqtt adapter and port 1882 is used by the adapter ioBroker.shelly per default this adapter uses port 1881 per default. But you can use any free port.
+  Specify to (tcp)port to use. As standard mqtt port (1883) might be occupied by ioBroker.mqtt adapter and port 1882 is used by the adapter ioBroker.shelly per default this adapter uses port 1881 per default. But you can use any free port.
 
 ### Configuration of the Hoymiles MS-A2
 
-To configure the Hoymiles MS-A2 unit open the S-Miles Home App. Select configuration page (using the gear icon on teh upper right corner) and scroll down to 'MQTT-Service'. Enable MQTT Service and enter 
+To configure the Hoymiles MS-A2 unit open the S-Miles Home App. Select configuration page (using the gear icon on the upper right corner) and scroll down to 'MQTT-Service'. Enable MQTT Service and enter 
 - Server Address
   the IP Address of the ioBroker system (when using mqtt server mode) or the address of your mqtt Broker
 - Port
-  The por number configured your you mqtt broker
-- Optionally set a cleint prefix (default 'MSA')
+  The port number configured for your mqtt broker
+- Optionally set a client prefix (default 'MSA')
 
-This adapter currently does not yet support authentification. So this must be disabled.
+This adapter currently does not yet support authentication. So this must be disabled.
 
 ## Operation
 
-Once the adapter is started it listens to mqtt packets received from the Hoymiles device. The adapter does not poll in any way - all activity is triggered by the Hoymiles unit. Note that configurationd ata is sent only once after connection shas been established while realtime data is sent every second. Systemwide statistics is typically uodated every five minutes. Note that these intervals are not configurable by the adapter - they are defined by the Hoymiles-Api.
+Once the adapter is started it listens to mqtt packets received from the Hoymiles device. The adapter does not poll in any way - all activity is triggered by the Hoymiles unit. Note that configuration data is sent only once after connection has been established while realtime data is sent every second. Systemwide statistics is typically updated every five minutes. Note that these intervals are not configurable by the adapter - they are defined by the Hoymiles-Api.
 
 **************************************************************************************************************
 

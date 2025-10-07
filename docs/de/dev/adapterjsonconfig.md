@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: z5N1PFAXZ8ZDQOV5TGYTYQrdHG/h01FaTlSQtJFXBNQ=
+hash: 2PpXmcuMNWXByr0Qhx+59kiraBHm4PrlkqhItphLbos=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mit JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -132,6 +132,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`certificateCollection`:**](#certificatecollection) Wählt eine Sammlung für Let’s Encrypt-Zertifikate aus
 - [**`certificates`:**](#certificates) Universeller Typ zur Verwaltung verschiedener Zertifikatstypen (ab Admin 6.4.0)
 - [**`checkbox`:**](#checkbox) Kontrollkästchen für boolesche Werte
+- [**`checkDocker`:**](#checklicense) Spezielle Komponente um zu prüfen ob der Docker verfügbar ist und wenn ja, kann man ein Kontrollkästchen aktivieren (ab Admin 7.8.0)
 - [**`checkLicense`:**](#checklicense) Ganz spezielle Komponente zur Online-Überprüfung der Lizenz
 - [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die zu einem Array hinzugefügt werden
 - [**`color`:**](#color) Farbwähler
@@ -276,7 +277,7 @@ Der Aufbau einer Datei entspricht folgendem Aufbau
 
 Bei der Suche nach einer Übersetzung werden die Informationen im entsprechenden Feld verwendet, um die Eigenschaft mit dem Text in den Dateien zu finden. Wird die Eigenschaft nicht gefunden, bleiben die Informationen aus dem Feld erhalten. Es wird empfohlen, den Text auf Englisch einzugeben.
 
-### Geben Sie die Übersetzung direkt in den Feldern an
+### Geben Sie die Übersetzung direkt in die Felder ein
 Übersetzungen können in allen Feldern angegeben werden, die Text enthalten können. Beispiele für Felder sind Beschriftung, Titel, Tooltip, Text usw.
 
 ```json5
@@ -331,7 +332,7 @@ Textkomponente
 | `maxRows` | maximale Zeilenzahl des Textbereichs. Wird nur verwendet, wenn `minRows` > 1. |
 | `noClearButton` | Wenn „true“, wird die Schaltfläche „Löschen“ nicht angezeigt (Admin >= 6.17.13) |
 | `validateJson` | wenn wahr, wird der Text als JSON validiert |
-| `allowEmpty` | wenn wahr, wird das JSON nur validiert, wenn der Wert nicht leer ist |
+| `allowEmpty` | Wenn „true“, wird das JSON nur validiert, wenn der Wert nicht leer ist |
 | `time` | der Wert ist die Zeit in ms oder eine Zeichenfolge. Wird nur mit dem Flag „readOnly“ verwendet |
 | `Zeit` | der Wert ist die Zeit in ms oder eine Zeichenfolge. Wird nur mit dem Flag „readOnly“ verwendet |
 
@@ -1009,7 +1010,7 @@ Ermittelt den aktuellen Standort und verwendet `system.config` Koordinaten, fall
 | `useSystemName` | falls definiert, wird das Kontrollkästchen „Systemeinstellungen verwenden“ angezeigt und Breiten- und Längengrad werden aus `system.config` gelesen, ein Boolescher Wert wird unter dem angegebenen Namen gespeichert |
 
 ### `interface`
-Wählt die Schnittstelle des Hosts aus, auf dem die Instanz läuft
+Wählen Sie die Schnittstelle des Hosts, auf dem die Instanz läuft
 
 | Immobilie | Beschreibung |
 |------------------|----------------------------------------------------------------|
@@ -1026,6 +1027,16 @@ Zeigt die Lizenzinformationen an, sofern diese noch nicht akzeptiert wurden. Ein
 | `agreeText` | Text der vereinbarten Schaltfläche |
 | `checkBox` | Falls definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert. |
 | `checkBox` | Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert. |
+
+### `checkDocker`
+- (Admin >= 7.1.0) Erstimplementierung
+
+Spezielle Komponente zur Überprüfung, ob Docker installiert und ausgeführt wird.
+Wenn Docker installiert ist, wird ein Kontrollkästchen angezeigt, um die Verwendung von Docker zuzulassen.
+
+| Immobilie | Beschreibung |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `hideVersion` | Wenn die Informationen zur Docker-Version oder zum Fehler ausgeblendet werden sollen (z. B. wenn mehr als ein solches Element auf der Seite verwendet wird, wird der Fehler oder die Version einmal angezeigt |
 
 ### `checkLicense`
 Sehr spezielle Komponente zur Online-Überprüfung der Lizenz. Es werden genau die Eigenschaften `license` und `useLicenseManager` in nativer Form benötigt.
@@ -1046,7 +1057,8 @@ Spezielle Eingabe für Ports. Es wird automatisch geprüft, ob der Port von ande
 | `min` | minimal zulässige Portnummer. Sie könnte 0 sein. Und wenn der Wert dann Null ist, wird die Prüfung, ob der Port belegt ist, nicht durchgeführt. |
 
 ### `state`
-(admin >= 7.1.0) Zeigt Kontrolle oder Informationen aus dem Status (admin >= 7.6.4) Attribute `showEnterButton` und `setOnEnterKey`
+- (admin >= 7.1.0) Kontrolle oder Informationen vom Staat anzeigen
+- (admin >= 7.6.4) Attribute „showEnterButton“ und „setOnEnterKey“.
 
 | Immobilie | Beschreibung |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1200,7 +1212,7 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `darkStyle` | CSS-Stil für den Dunkelmodus |
 | `validator` | JS-Funktion: true kein Fehler, false - Fehler |
 | `validatorErrorText` | Text, der angezeigt wird, wenn der Validator fehlschlägt |
-| `validatorNoSaveOnError` | Schaltfläche „Speichern“ bei Fehler deaktivieren |
+| `validatorNoSaveOnError` | Speichern-Schaltfläche bei Fehler deaktivieren |
 | `tooltip` | optionaler Tooltip |
 | `default` | Standardwert |
 | `defaultFunc` | JS-Funktion zum Berechnen des Standardwerts |
