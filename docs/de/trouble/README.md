@@ -1,101 +1,194 @@
 ---
 title:       "Einleitung"
-lastChanged: "14.09.2018"
+lastChanged: "05.10.2025"
 ---
 
-# Fehlerbehebung
-@@@   
-Übergreifende Verfahren. Auf individuelle Hilfe beim jeweiligen, Adapter,
-Installationsverfahren und -plattform verweisen.  
-@@@
+# ioBroker Fehlerbehebung - Umfassender Leitfaden
 
+## Einleitung für Einsteiger
 
-Auf dieser Seite findet Ihr Informationen zu Problemen und deren Lösungen bzw Ansätze für Lösungen.
-Bitte schaut die Themen durch, ob Euer Problem hier bzw auf den Unterseiten bereits enthalten ist und damit ggf auch schon die Lösung.
+ioBroker ist eine leistungsstarke Smart-Home-Plattform auf Node.js-Basis, die verschiedene IoT-Geräte und -Services über Adapter miteinander verbindet. Für Einsteiger ist es wichtig zu verstehen, dass eine stabile ioBroker-Installation auf **fünf fundamentalen Säulen** basiert, die bei Problemen systematisch geprüft werden sollten.
 
-## Erste-Hilfe-Checkliste "Mein ioBroker funktioniert nicht mehr" - Was sollte ich zu alle erst prüfen und im Forum immer posten?
+## Die 5 Grundsäulen einer stabilen ioBroker-Installation
 
-Wichtige Informationen sind immer die folgenden Versionsangaben:
-* `node -v`: ioBroker unterstützt die "LTS-Versionen" von nodejs (gerade Versionsnummern). Neuinstallationen müssen mindestens nodejs 8.12 nutzen. **Achtung:** Entwicklungsversionen von nodejs (ungerade Versionsnummern) werden offiziell nicht unterstützt! Bitte auch ganz neue LTS-Versionen erst nach Forums-Informationen nutzen. Empfohlen ist nodejs 8.15 oder höher. 
-* `npm -v`: ioBroker unterstützt npm in Version 3 und >5.7.1. Empfohlen ist 6.4.1 oder höher
-* `iobroker -v`
-* Versionsnummer des/der Adapter um die es geht
-* Betriebssystem (Linux, MacOS, Windows)
-* Hardware-Platform
+### 1. **Betriebssystem-Auswahl und -Konfiguration**
 
-Am besten stellt diese Informationen direkt im Thread zur Verfügung.
+**Empfohlene Betriebssysteme:**
+- **Debian** (Stable): Maximale Stabilität, längste Support-Zyklen, ideal für produktive Systeme
+- **Ubuntu LTS**: Guter Kompromiss zwischen Aktualität und Stabilität, große Community
+- **Raspberry Pi OS**: Für Pi-Hardware optimiert, basiert auf Debian
 
-Weiterhin bitte VOR einer ForumAnfrage diese Troubleshooting-Seite und auch die FAQ --LINK-- prüfen ob das Thema bereits dort enthalten ist. Falls Ihr Aktionen aus diesen Dokumenten bereits versucht habt, schreibt das bitte auch gleich mit dazu.
+**Grundlegende Systemanforderungen:**
+- Mindestens 2 GB RAM (4 GB empfohlen für größere Installationen)
+- Mindestens 16 GB Speicherplatz (32 GB+ für umfangreiche Installationen)
+- Stabile Internetverbindung für Updates und Adapter-Downloads
+- SSH-Zugang für Wartungsarbeiten
 
-Bitte prüft die Logs, ob zu den Problemzeitpunkten von den relevanten Adaptern Einträge vorhanden sind die hilfreich sind. Setzt Logs und auch Skripte o.ä. immer in Spoiler.
+**Warum die OS-Wahl wichtig ist:**
+Eine falsche Betriebssystem-Wahl führt zu wiederkehrenden Problemen. Ubuntu-Zwischenversionen haben kurze Support-Zyklen und werden schnell obsolet[99]. Windows-Installationen sind möglich, aber nicht empfohlen.
 
-## Wo finde ich Logs?
+### 2. **Pflege des Betriebssystems**
 
-Logs können im einfachsten Fall in der Admin-UI im Web-Browser gefunden werden. Bitte beachtet aber hier das im Admin die Log Zeilen nach ca 200 Zeichen abgeschnitten werden. Dadurch gehen ggf. wichtige Informationen verloren oder sind unvollständig. 
-Weiterhin stehen die Logs im Admin immer nur für die aktuelle Browser-Sitzung zur Verfügung.
+**Regelmäßige Wartungsroutine:**
+```bash
+# Wöchentlich ausführen:
+sudo apt update          # Paketlisten aktualisieren
+sudo apt upgrade -y      # Sicherheitsupdates installieren
+sudo apt autoremove      # Nicht benötigte Pakete entfernen
+```
 
-ioBroker schreibt weiterhin alle Logs auch in eine Log-Datei. Diese liegt im ioBroker-Verzeichnis im Unterverzeichnis "log" und stehen dort im Normalfall für 7 Tage zur Verfügung. Einfach mit einem Text-Editor öffnen und ggf. Auszüge mitsenden.
+**Monatliche Vollwartung:**
+```bash
+sudo apt update
+sudo apt full-upgrade    # Größere Systemupdates
+sudo apt autoclean       # Paket-Cache bereinigen
+sudo reboot             # Neustart nach Kernel-Updates
+```
 
-## Wie ändere ich die Log-Stufe einer Adapter-Instanz?
+**Automatisierung der Wartung:**
+Erfahrene Nutzer können Wartungsskripte einsetzen, die System- und ioBroker-Updates automatisch durchführen. Diese sollten aber nur nach ausgiebigen Tests in produktiven Umgebungen verwendet werden.
 
-Standardmäßig läuft der js-controller und die Adapter in der Log-Stufe "info". Dies bedeutet das Informationen die der Adapter-Entwickler als sinnvoll angesehen hat im Log ausgegeben werden. In Summe gibt es die folgenden Log-Stufen:
-* **error**: Nur Fehler werden geloggt
-* **warn**: Fehler und Warnungen werden geloggt
-* **info**: Informationen, Warnungen und Fehler werden geloggt, Standard
-* **debug**: neben Informationen, Warnungen und Fehlern werden zusäzliche Informationen geloggt, die der Adapter-Entwickler als sinnvoll zur Fehlersuche erachtet.
-* **silly**: Ausführlichste Log-Stufe, in welcher auch Meldungen vom js-controller mit geloggt werden, nur nutzen wenn explizit angefragt.
+### 3. **Korrekte ioBroker-Installation**
 
-Die Log-Stufe einer Instanz kann im Admin-WebUI gesetzt werden. Aktiviert hierzu unter "Instanzen" den Expertenmodus und stellt die Log-Stufe in der gleichnamigen Spalte für die Instanz ein.
-Nach einer Änderung der Log-Stufe wird die Instanz automatisch neu gestartet.
+**Ein-Zeilen-Installation (empfohlen):**
+```bash
+curl -sLf https://iobroker.net/install.sh | bash -
+```
 
-**Achtung:** Je nach Log-Stufe (vor allem debug und silly) kann das Logfile auf der Platte ziemlich groß werden. Achtet auf den verfügbaren Speicherplatz.
+**Was das Installationsskript macht:**
+- Erstellt automatisch den Benutzer `iobroker`
+- Installiert die korrekte Node.js-Version
+- Richtet alle notwendigen Verzeichnisse und Berechtigungen ein
+- Installiert Basis-Adapter (Admin, Discovery)
+- Konfiguriert Autostart-Services
 
-## Nach Betriebssystemupdates funktioniert ioBroker nicht mehr (nodeversionen checken und sowas)
-## Ein Adapter/ioBroker startet nicht mehr mit Fehler "falsche node version natives paket. bla" ? (npm rebuild und so)
-## Ich habe mehrere verschiedene nodejs Versionen auf meinem Rechner?
-## Plötzlich geht ioBroker/Adapter nicht mehr mit Meldung "Syntax Error Unexpected/Invalid Token o.ä." (File korrupt, SD Karte ...)
-## Beim Adapterstart Error 7/ Reconnect to DB (Gründe ... Lösungen)
-## Der ioBroker ist plötzlich nicht mehr erreichbar, mein Rechner aber noch? (syslog oom oder sowas)
-## Der ganze Host friert plötzlich im laufenden Betrieb ein (Swapping top ...)
-## Der ganze Host friert bei Adapter-updates ein (zB sql Installation)
-## Wie kann ich manuell den js-controller neu installieren und wann sollte ich soetwas tun? Was muss ich beachten?
-## Wie kann ich manuell einen Adapter neu installieren und wann sollte ich soetwas tun? Was muss ich beachten?
-## Bei der Installation eines Adapter kommt ein Fenster mit "index.html not found"? (Admin3 installieren)
+**Häufige Installationsfehler vermeiden:**
+- **Nicht** als root installieren
+- **Nicht** manuell Node.js vorinstallieren (macht das Script automatisch)
+- **Nicht** mit sudo vor dem curl-Befehl arbeiten
+- Immer ein frisches, aktualisiertes System verwenden
 
-## Meine Adapter sind alle weg?
+### 4. **Mit dem richtigen Benutzer arbeiten**
 
-...
+**Das Benutzerkonzept verstehen:**
+ioBroker läuft unter einem eigenen Systembenutzer namens `iobroker`, **nicht** als root. Dies ist ein kritischer Sicherheitsaspekt.
 
-## Wo liegen die Daten von iobroker?
-* Iobroker-data Objects, und Backup und so
-## Mein Speicher RAM ist ständig voll?
-## Mein System stürzt ab? Bleibt ständig stehen, nicht mehr erreichbar
-* Ssh noch? 
-* Gar nicht mehr?
-* Netzteil?
-* Syslog
-## Wo finde ich das iobroker Logfile?
-## Nicht 2x auf gleichem Rechner/Docker installierbar
-## Node und nodejs unterschiedliche Ausgaben
-## Wie schalte ich Debug Log Modus bei Adapterinstanzen ein?
-## Fehler von ppm beim Installieren von Adaptern
-* ENOGIT
-* EACCESS
-* ENOSPC
-## Error: Module version mismatch. Expected 48, got 67.
-## Iot Geräte gehen nicht mehr?
-## Cloud oder iot?
-## Fehler beim Aufruf der Admin Seite „index.html not found“
-## Wann Forum wann GitHub issue?
-## Es hat alles funktioniert, ich habe nichts geändert und jetzt läuft etwas nicht mehr?
-* Kommunikationsfehler
-* Filesystemfehler
-## Nach Stromausfall/Strom weg ohne sauberen shutdown Fehler
-## iobroker updates? Adapter? Controller? Wann npm?
-## Warnungen bei ppm Aktionen?
-* No Access
-* Audit, Security, Deprications
-## Reconnection to DB
-## Error 7 Adapter läuft schon
-## Reinstall/rebuild (und Fehler shell script)
-## Habe kein Backup gemacht aber habe noch das ioBroker Verzeichnis? Reicht für Restore?
+**Benutzer-Hierarchie:**
+- **Ihr Login-User** (z.B. pi, ubuntu): Für SSH-Anmeldung und Systemverwaltung
+- **iobroker-User**: Führt alle ioBroker-Prozesse aus, hat eingeschränkte sudo-Rechte
+- **root**: Nur für Systemadministration, niemals für ioBroker-Betrieb
+
+**Typische Rechtsprobleme beheben:**
+```bash
+# Wenn ioBroker-Befehle nicht funktionieren:
+sudo usermod -aG iobroker $(whoami)  # Ihren User zur iobroker-Gruppe hinzufügen
+# Danach: Aus- und wieder einloggen
+
+# Fixer-Script bei Rechteproblemen:
+curl -sL https://iobroker.net/fix.sh | bash -
+```
+
+**Was Sie NIEMALS tun sollten:**
+- ioBroker mit `sudo iobroker ...` ausführen
+- Als root-User arbeiten für normale ioBroker-Operationen
+- Dateiberechtigungen manuell mit chmod 777 "reparieren"
+
+### 5. **Node.js aktuell halten**
+
+**Kompatibilität verstehen:**
+- **js-controller 7.x**: Node.js 18.x, 20.x, 22.x
+- **js-controller 6.x**: Node.js 18.x, 20.x, 22.x
+- **js-controller 5.x**: Node.js 16.x, 18.x, 20.x
+- **Veraltete Versionen**: Node.js unter 18.x sind End-of-Life
+
+**Node.js korrekt aktualisieren:**
+```bash
+# Moderne Methode (seit 2024):
+iob stop                 # ioBroker stoppen
+iob fix                  # System reparieren
+iob nodejs-update 20     # Auf Node.js 20.x wechseln
+sudo reboot             # System neu starten
+iob start               # ioBroker starten
+```
+
+**Warum Node.js-Updates kritisch sind:**
+- Sicherheitsupdates schließen Lücken
+- Neue Adapter benötigen moderne Node.js-Versionen
+- Performance-Verbesserungen
+- LTS-Versionen (18, 20, 22) sind stabil und langfristig unterstützt
+
+**Update-Häufigkeit:**
+- **Sicherheitsupdates**: Sofort installieren
+- **Minor-Updates**: Monatlich prüfen
+- **Major-Updates**: Nach Community-Feedback, nicht sofort bei Release
+
+## Zusätzliche wichtige Konzepte für Einsteiger
+
+### SSH-Zugang einrichten und nutzen
+SSH (Secure Shell) ist der Standard-Weg, um ioBroker-Systeme zu verwalten:
+- **Windows**: PuTTY oder Windows Terminal verwenden
+- **macOS/Linux**: Eingebaute Terminal-App verwenden
+- **Verbindung**: `ssh benutzername@IP-adresse`
+
+### Backup-Strategie von Anfang an
+```bash
+# Manuelles Backup:
+iob backup
+
+# Automatisches Backup mit backitup-Adapter:
+# Über Admin-Interface installieren und konfigurieren
+```
+
+### Log-Dateien verstehen lernen
+```bash
+# Live-Logs anzeigen:
+iob logs --watch
+
+# Spezifische Adapter-Logs:
+iob logs adaptername
+
+# System-Logs:
+sudo journalctl -u iobroker -f
+```
+
+### Grundlegende Fehlerbehebungs-Mentalität
+1. **Immer Backup vor Änderungen**
+2. **Eine Änderung nach der anderen**
+3. **Logs lesen, bevor wild experimentiert wird**
+4. **Community-Forum für komplexe Probleme nutzen**
+5. **Geduld haben - das System braucht Zeit zum Starten**
+
+## Typische Einsteiger-Fallen
+
+### 1. Zu schnelle, zu viele Änderungen
+- **Problem**: Mehrere Adapter parallel installieren, dann ist unklar, was Probleme verursacht
+- **Lösung**: Einen Adapter nach dem anderen testen
+
+### 2. Updates ohne Backup
+- **Problem**: System nach Update defekt, keine Rückkehr möglich
+- **Lösung**: Vor jedem größeren Update automatisches Backup
+
+### 3. Root-Rechte als "Lösung"
+- **Problem**: `sudo` vor ioBroker-Befehle setzen, wenn etwas nicht funktioniert
+- **Lösung**: Ursache finden, nicht Symptom mit Gewalt "beheben"
+
+### 4. Veraltete Anleitungen befolgen
+- **Problem**: Internet-Tutorials von 2018 befolgen
+- **Lösung**: Offizielle Dokumentation und aktuelle Forum-Threads bevorzugen
+
+### 5. Docker ohne Linux-Grundlagen
+- **Problem**: Docker-Container nutzen ohne Verständnis für Volumes, Netzwerke etc.
+- **Lösung**: Erst Linux-Grundlagen, dann Docker-Spezialitäten
+
+## Wie diese Grundlagen zur Fehlerbehebung führen
+
+Mit dem Verständnis dieser fünf Säulen können Sie die nachfolgenden Kapitel viel besser nachvollziehen:
+
+- **"ioBroker läuft nicht mehr"**: Behandelt Probleme mit Datenbanksperren, Admin-Ausfällen, Node.js-Konflikten
+- **"Adapterfehler"**: Fokussiert auf Installations-, Start- und Performance-Probleme einzelner Adapter
+
+**Wichtiger Hinweis**: Die meisten ioBroker-Probleme entstehen durch eine oder mehrere vernachlässigte Grundlagen. Bevor Sie komplexe Reparaturversuche starten, prüfen Sie systematisch diese fünf Bereiche.
+
+---
+
+*Die folgenden Kapitel bauen auf diesem Grundverständnis auf und bieten konkrete Lösungen für spezifische Problemsituationen.*
