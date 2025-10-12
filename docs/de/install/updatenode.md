@@ -11,7 +11,7 @@ lastChanged: 04.10.2025
 | 4.x | 12.x, 14.x, 16.x | 6.x, 7.x, 8.x |
 | 5.x | 16.x, 18.x, 20.x | 8.x, 9.x |
 | **6.x** | **18.x, 20.x, 22.x** | **8.x, 9.x, 10.x** |
-| **7.x** | **18.x, 20.x, 22.x, (24.x)** | **8.x, 9.x, 10.x** |
+| **7.x** | **18.x, 20.x, 22.x, (24.x)** | **8.x, 9.x, 10.x, 11.x** |
 
 ## Warum muss man das updaten?
 Ohne Node.js funktioniert ioBroker nicht, Details dazu unter [Architektur](https://www.iobroker.net/#de/documentation/basics/architecture.md).  
@@ -21,7 +21,7 @@ Wie bei vielen Open-Source-Technologien üblich, entwickelt sich Node.js schnell
 Updates, die die **Stabilität** und **Sicherheit** steigern, oder gar **neue Funktionen** hinzufügen, erscheinen regelmäßig.
 
 Node.js 22.x ist die aktuelle Empfehlung für ioBroker-Installationen. Diese Version befindet sich seit Oktober 2024 im Active LTS-Status und wird bis April 2027 unterstützt.
-Die ioBroker-Community hat diese Version offiziell empfohlen und der **iob nodejs-update** Befehl installiert standardmäßig Node.js 22.x.
+Die ioBroker-Community hat diese Version offiziell empfohlen und der **iob nodejs-update** Befehl installiert automatisch die empfohlene Version.
 
 Node.js 24.x steht vor der LTS-Promotion im Oktober 2025 und wird dann bis April 2028 unterstützt werden.
 Während diese Version bereits verfügbar ist, wird sie allerdings erst nach der LTS-Promotion für Produktionsumgebungen empfohlen.
@@ -34,7 +34,7 @@ Dabei ist darauf zu achten, in welchen Pfaden die Installation liegt.**
 #### Empfohlene Update-Methoden
 Die einfachste Methode für bestehende ioBroker-Installationen ist der integrierte Update-Befehl:
 ```
-iob nodejs-update 22
+iob nodejs-update
 ```
 
 
