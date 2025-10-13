@@ -17,6 +17,9 @@ ioBroker ist eine leistungsstarke Smart-Home-Plattform auf Node.js-Basis, die ve
 - **Debian** (Stable): Maximale Stabilität, längste Support-Zyklen, ideal für produktive Systeme
 - **Ubuntu LTS**: Guter Kompromiss zwischen Aktualität und Stabilität, große Community
 - **Raspberry Pi OS**: Für Pi-Hardware optimiert, basiert auf Debian
+- 
+**Möglich, jedoch nicht empfohlen:**
+- **macOS**
 
 **Grundlegende Systemanforderungen:**
 - Mindestens 2 GB RAM (4 GB empfohlen für größere Installationen)
@@ -25,7 +28,7 @@ ioBroker ist eine leistungsstarke Smart-Home-Plattform auf Node.js-Basis, die ve
 - SSH-Zugang für Wartungsarbeiten
 
 **Warum die OS-Wahl wichtig ist:**
-Eine falsche Betriebssystem-Wahl führt zu wiederkehrenden Problemen. Ubuntu-Zwischenversionen haben kurze Support-Zyklen und werden schnell obsolet[99]. Windows-Installationen sind möglich, aber nicht empfohlen.
+Eine falsche Betriebssystem-Wahl führt zu wiederkehrenden Problemen. Ubuntu-Zwischenversionen haben kurze Support-Zyklen und werden schnell obsolet. Windows-Installationen sind möglich, aber nicht empfohlen.
 
 ### 2. **Pflege des Betriebssystems**
 
@@ -37,8 +40,8 @@ sudo apt upgrade -y      # Sicherheitsupdates installieren
 sudo apt autoremove      # Nicht benötigte Pakete entfernen
 ```
 
-**Monatliche Vollwartung:**
 ```bash
+# Monatliche Vollwartung:
 sudo apt update
 sudo apt full-upgrade    # Größere Systemupdates
 sudo apt autoclean       # Paket-Cache bereinigen
@@ -85,10 +88,12 @@ sudo usermod -aG iobroker $(whoami)  # Ihren User zur iobroker-Gruppe hinzufüge
 # Danach: Aus- und wieder einloggen
 
 # Fixer-Script bei Rechteproblemen:
+iob fix
+# als Fallback, falls die Kurzform nicht greift
 curl -sL https://iobroker.net/fix.sh | bash -
 ```
 
-**Was Sie NIEMALS tun sollten:**
+**Was man NIEMALS tun sollten:**
 - ioBroker mit `sudo iobroker ...` ausführen
 - Als root-User arbeiten für normale ioBroker-Operationen
 - Dateiberechtigungen manuell mit chmod 777 "reparieren"
@@ -96,17 +101,17 @@ curl -sL https://iobroker.net/fix.sh | bash -
 ### 5. **Node.js aktuell halten**
 
 **Kompatibilität verstehen:**
-- **js-controller 7.x**: Node.js 18.x, 20.x, 22.x
+- **js-controller 7.x**: Node.js 18.x, 20.x, 22.x, 24.x
 - **js-controller 6.x**: Node.js 18.x, 20.x, 22.x
 - **js-controller 5.x**: Node.js 16.x, 18.x, 20.x
-- **Veraltete Versionen**: Node.js unter 18.x sind End-of-Life
+- **Veraltete Versionen**: Node.js unter 20.x sind End-of-Life
 
 **Node.js korrekt aktualisieren:**
 ```bash
 # Moderne Methode (seit 2024):
 iob stop                 # ioBroker stoppen
 iob fix                  # System reparieren
-iob nodejs-update 20     # Auf Node.js 20.x wechseln
+iob nodejs-update     # Auf empfohlene Node.js 20.x wechseln
 sudo reboot             # System neu starten
 iob start               # ioBroker starten
 ```
@@ -115,7 +120,7 @@ iob start               # ioBroker starten
 - Sicherheitsupdates schließen Lücken
 - Neue Adapter benötigen moderne Node.js-Versionen
 - Performance-Verbesserungen
-- LTS-Versionen (18, 20, 22) sind stabil und langfristig unterstützt
+- LTS-Versionen (20, 22, 24) sind stabil und langfristig unterstützt
 
 **Update-Häufigkeit:**
 - **Sicherheitsupdates**: Sofort installieren
