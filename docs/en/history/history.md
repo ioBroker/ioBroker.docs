@@ -993,9 +993,17 @@ https://github.com/ltspicer/ioBroker.sofarcloud
 This adapter reads the data from the SofarCloud server and stores it in the data point sofarcloud.
 The SofarCloud server stores data from Sofar inverters.
 
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
-
 ## ping (05.10.2025) - new feature
 Ping adapter can probe the TCP ports.
 
 https://github.com/ioBroker/ioBroker.ping
+
+## vis-jsontemplate (15.10.2025) – new adapter at stable repository
+https://github.com/oweitman/ioBroker.vis-jsontemplate
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-jsontemplate/main/admin/vis-jsontemplate.png" width="100" height="100" />
+
+Adapter to visualize JSON data and other data in Vis/Vis2. You can customize the output of the data with a template system. In the templates you can include HTML, CSS and Javascript.
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+
