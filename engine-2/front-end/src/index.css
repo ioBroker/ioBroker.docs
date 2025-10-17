@@ -1,3 +1,45 @@
+@font-face {
+  font-family: 'Audiowide';
+  src: url('/Audiowide-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira';
+  src: url('/Saira-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira';
+  src: url('/Saira-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira';
+  src: url('/Saira-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,11 +50,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Saira', 'Roboto', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 #root {

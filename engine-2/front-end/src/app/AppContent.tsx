@@ -3,21 +3,26 @@ import { makeStyles } from '../theme';
 import { useRoutes } from './providers/router';
 import { Header, Footer } from '../components';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(() => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
-        paddingTop: 64,
         width: '100%',
         margin: 0,
         padding: 0,
     },
+    header: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+    },
     main: {
         flexGrow: 1,
-        paddingTop: theme.spacing(3),
-        paddingBottom: theme.spacing(3),
         width: '100%',
+        paddingTop: 64,
     },
 }));
 
@@ -27,13 +32,9 @@ const AppContent = () => {
 
     return (
         <Box className={classes.root}>
-            <Header
-                title="My App"
-                links={[
-                    { label: 'Home', path: '/' },
-                    { label: 'About', path: '/about' },
-                ]}
-            />
+            <Box className={classes.header}>
+                <Header selected="" noSearch={false} />
+            </Box>
             <Box component="main" className={classes.main}>
                 {routes}
             </Box>
