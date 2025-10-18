@@ -1012,5 +1012,12 @@ https://github.com/Scrounger/ioBroker.freeair
 
 locale connection to your BluMartin FreeAir 100 ventilation system
 
+## unifi-network (18.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.unifi-network
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
+
+Unifi Network uses the websocket interface to receive real-time information from the unifi-network application
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
