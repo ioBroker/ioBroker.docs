@@ -1005,5 +1005,12 @@ https://github.com/oweitman/ioBroker.vis-jsontemplate
 
 Adapter to visualize JSON data and other data in Vis/Vis2. You can customize the output of the data with a template system. In the templates you can include HTML, CSS and Javascript.
 
+## freeair (18.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.freeair
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.freeair/main/admin/freeair.png" width="100" height="100" />
+
+locale connection to your BluMartin FreeAir 100 ventilation system
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
