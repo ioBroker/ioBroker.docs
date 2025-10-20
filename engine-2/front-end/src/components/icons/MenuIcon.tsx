@@ -3,7 +3,7 @@ import React from 'react';
 export default function MenuIcon(props: { style?: React.CSSProperties }): React.JSX.Element {
     return (
         <svg
-            style={{ width: 24, height: 24, marginTop: 4, ...props?.style }}
+            style={{ width: 44, height: 44, marginTop: 4, ...props?.style }}
             viewBox="0 0 40 40"
         >
             <path

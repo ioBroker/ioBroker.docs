@@ -69,8 +69,8 @@ export const useHeaderStyles = makeStyles()((theme) => ({
   languageSelect: {
     marginRight: theme.spacing(2),
     fontFamily: theme.typography.fontFamily,
-    fontSize: 14,
-    fontWeight: 500,
+    fontSize: 20,
+    fontWeight: 400,
     color: theme.palette.text.primary,
     '& .MuiSelect-select': {
       paddingRight: '0 !important',
@@ -97,7 +97,7 @@ export const useHeaderStyles = makeStyles()((theme) => ({
     },
   },
   link: {
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: 400,
     textDecoration: 'none',
     color: theme.palette.text.primary,

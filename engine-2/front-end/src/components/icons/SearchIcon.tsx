@@ -3,7 +3,7 @@ import React from 'react';
 export default function SearchIcon(): React.JSX.Element {
     return (
         <svg
-            style={{ width: 24, height: 24 }}
+            style={{ width: 18, height: 18 }}
             viewBox="0 0 24 24"
             fill="none"
         >

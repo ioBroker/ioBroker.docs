@@ -21,13 +21,13 @@ export const HeroSection: React.FC = () => {
                     </Box>
 
                     <Box className={classes.heroRight}>
+                        <Box className={classes.supportIcons}>
+                            <Box className={classes.supportIcon}>P</Box>
+                            <Box className={classes.supportIcon}>A</Box>
+                        </Box>
                         <Typography className={classes.supportText}>
                             Unsere Software ist kostenlos. <br /> Unterstütze uns!
                         </Typography>
-                        <Box className={classes.supportIcons}>
-                            <Box className={classes.supportIcon}>P</Box> 
-                            <Box className={classes.supportIcon}>A</Box> 
-                        </Box>
                     </Box>
                 </Box>
             </Box>

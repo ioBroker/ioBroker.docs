@@ -2,30 +2,33 @@ import { makeStyles } from '../../../../theme';
 
 export const useStyles = makeStyles()(theme => ({
     container: {
-        maxWidth: 1200,
+        width: '100%',
         margin: '0 auto',
-        padding: '0 40px',
+        padding: '0 64px',
         position: 'relative',
         height: '100%',
+        [theme.breakpoints.down('md')]: {
+            padding: '0 40px',
+        },
         [theme.breakpoints.down('sm')]: {
             padding: '0 20px',
         },
     },
     heroSection: {
-        minHeight: 'calc(100vh - 64px)', 
+        minHeight: 'calc(100vh - 64px)',
         width: '100%',
         backgroundImage: 'url(/background.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        
-        
+
+
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     },
     heroContentWrapper: {
         width: '100%',
-        marginTop: 'auto', 
+        marginTop: 'auto',
         paddingBottom: theme.spacing(8),
         [theme.breakpoints.down('md')]: {
             paddingBottom: theme.spacing(4),
@@ -33,17 +36,19 @@ export const useStyles = makeStyles()(theme => ({
     },
     heroContent: {
         display: 'flex',
-        justifyContent: 'space-between', 
+        justifyContent: 'space-between',
         alignItems: 'flex-end',
         width: '100%',
     },
     heroLeft: {
         textAlign: 'left',
+        height: '100vh'
     },
     heroLogo: {
         width: '100%',
-        maxWidth: '300px', 
-        marginBottom: theme.spacing(24),
+        maxWidth: '643px',
+        marginBottom: '251px',
+        marginTop: '100px'
     },
     heroSlogan: {
         fontFamily: 'Audiowide, sans-serif',
@@ -52,10 +57,10 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: theme.spacing(8),
     },
     heroPlatformText: {
-        fontSize: '1.1rem',
-        marginBottom: theme.spacing(3),
+        fontSize: '24px',
+        marginBottom: theme.spacing(9),
         color: 'rgba(255, 255, 255, 0.9)',
-        lineHeight: 1.5,
+        lineHeight: '130%',
     },
     installButton: {
         backgroundColor: theme.palette.primary.main,
@@ -76,12 +81,13 @@ export const useStyles = makeStyles()(theme => ({
     },
     supportText: {
         fontSize: '0.9rem',
-        marginBottom: theme.spacing(1.5),
+        marginBottom: '150px',
     },
     supportIcons: {
         display: 'flex',
         gap: theme.spacing(1.5),
         justifyContent: 'flex-end',
+        marginBottom: '24px'
     },
     supportIcon: {
         border: `1px solid ${theme.palette.primary.main}`,
