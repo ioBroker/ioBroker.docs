@@ -8,7 +8,6 @@ export const useHeaderStyles = makeStyles()((theme) => ({
     right: 0,
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
-    width: '100%',
     zIndex: 1000,
     height: 64,
     display: 'flex',

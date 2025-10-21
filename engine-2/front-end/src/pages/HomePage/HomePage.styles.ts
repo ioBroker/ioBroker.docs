@@ -64,7 +64,6 @@ export const useHomePageStyles = makeStyles()((theme) => ({
         fontSize: '1.2rem',
         maxWidth: 600,
         margin: '0 auto',
-        marginTop: theme.spacing(3),
         [theme.breakpoints.down('sm')]: {
             fontSize: '1rem',
         },

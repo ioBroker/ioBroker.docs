@@ -22,11 +22,11 @@ export const AdaptersSection: React.FC = () => {
                         <StyledButton>640+ ADAPTER</StyledButton>
                     </Box>
                     <Box className={classes.adaptersGrid}>
-                        {/* {adapterIcons.map((_, index) => (
+                         {adapterIcons.map((_, index) => (
                             <Box key={index} className={classes.adapterIcon}>
                                 <PlaceholderIcon />
                             </Box>
-                        ))} */}
+                        ))}
                     </Box>
                 </Box>
             </Box>
