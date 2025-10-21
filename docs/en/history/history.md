@@ -1026,5 +1026,11 @@ https://github.com/Scrounger/ioBroker.weatherflow-tempest-api
 
 Get data for your Tempest Weather Station from the WeatherFlow Tempest API
 
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
+## openmediavault (21.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.openmediavault
 
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.openmediavault/main/admin/openmediavault.png" width="100" height="100" />
+
+This adapter allows to read informations from your OpenMediaVault using the rpc interface.
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
