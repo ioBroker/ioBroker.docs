@@ -192,7 +192,7 @@ Mit dem Verständnis dieser fünf Säulen können Sie die nachfolgenden Kapitel 
 - **"ioBroker läuft nicht mehr"**: Behandelt Probleme mit Datenbanksperren, Admin-Ausfällen, Node.js-Konflikten
 - **"Adapterfehler"**: Fokussiert auf Installations-, Start- und Performance-Probleme einzelner Adapter
 
-**Wichtiger Hinweis**: Die meisten ioBroker-Probleme entstehen durch eine oder mehrere vernachlässigte Grundlagen. Bevor Sie komplexe Reparaturversuche starten, prüfen Sie systematisch diese fünf Bereiche.
+**Wichtiger Hinweis**: Die meisten ioBroker-Probleme entstehen durch eine oder mehrere vernachlässigte Grundlagen. Bevor komplexe Reparaturversuche gestarten werden, prüfe systematisch diese fünf Bereiche.
 
 ---
 
