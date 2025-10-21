@@ -1019,5 +1019,12 @@ https://github.com/Scrounger/ioBroker.unifi-network
 
 Unifi Network uses the websocket interface to receive real-time information from the unifi-network application
 
+## weatherflow-tempest-api (21.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.weatherflow-tempest-api
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.weatherflow-tempest-api/main/admin/weatherflow-tempest-api.png" width="100" height="100" />
+
+Get data for your Tempest Weather Station from the WeatherFlow Tempest API
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
 
