@@ -2,6 +2,8 @@ import { Box } from '@mui/material';
 import { makeStyles } from '../theme';
 import { useRoutes } from './providers/router';
 import { Header, Footer } from '../components';
+import Divider from '../components/Divider/Divider';
+import { usePageScrollProgress } from '../hooks/usePageScrollProgress';
 
 const useStyles = makeStyles()(() => ({
     root: {
@@ -29,6 +31,7 @@ const useStyles = makeStyles()(() => ({
 const AppContent = () => {
     const { classes } = useStyles();
     const routes = useRoutes();
+    const { scrollPosition } = usePageScrollProgress();
 
     return (
         <Box className={classes.root}>
@@ -38,6 +41,10 @@ const AppContent = () => {
             <Box component="main" className={classes.main}>
                 {routes}
             </Box>
+            <Divider
+                position={scrollPosition}
+                parentWidth={window.innerWidth}
+            />
             <Footer />
         </Box>
     );

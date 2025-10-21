@@ -21,9 +21,11 @@ export const useStyles = makeStyles()(theme => ({
         backgroundColor: theme.palette.background.default,
         position: 'relative',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'start',
-        justifyContent: 'center',
-        overflow: 'hidden',
+        justifyContent: 'space-between',
+        overflowX: 'hidden',
+        overflowY: 'visible',
     },
     heroBackgroundImage: {
         position: 'absolute',
@@ -151,7 +153,7 @@ export const useStyles = makeStyles()(theme => ({
             backgroundColor: 'rgba(29, 144, 202, 0.1)',
         }
     },
-    supportIconPayPal: {
+        supportIconPayPal: {
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: theme.shape.borderRadius,
         padding: theme.spacing(1.5),
@@ -165,8 +167,6 @@ export const useStyles = makeStyles()(theme => ({
         '&:hover': {
             backgroundColor: 'rgba(29, 144, 202, 0.1)',
         }
-
-
     },
     platformTextComment: {
         paddingLeft: '114px',
