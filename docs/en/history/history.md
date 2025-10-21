@@ -993,9 +993,44 @@ https://github.com/ltspicer/ioBroker.sofarcloud
 This adapter reads the data from the SofarCloud server and stores it in the data point sofarcloud.
 The SofarCloud server stores data from Sofar inverters.
 
-<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
-
 ## ping (05.10.2025) - new feature
 Ping adapter can probe the TCP ports.
 
 https://github.com/ioBroker/ioBroker.ping
+
+## vis-jsontemplate (15.10.2025) – new adapter at stable repository
+https://github.com/oweitman/ioBroker.vis-jsontemplate
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-jsontemplate/main/admin/vis-jsontemplate.png" width="100" height="100" />
+
+Adapter to visualize JSON data and other data in Vis/Vis2. You can customize the output of the data with a template system. In the templates you can include HTML, CSS and Javascript.
+
+## freeair (18.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.freeair
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.freeair/main/admin/freeair.png" width="100" height="100" />
+
+locale connection to your BluMartin FreeAir 100 ventilation system
+
+## unifi-network (18.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.unifi-network
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.unifi-network/main/admin/unifi-network.png" width="100" height="100" />
+
+Unifi Network uses the websocket interface to receive real-time information from the unifi-network application
+
+## weatherflow-tempest-api (21.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.weatherflow-tempest-api
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.weatherflow-tempest-api/main/admin/weatherflow-tempest-api.png" width="100" height="100" />
+
+Get data for your Tempest Weather Station from the WeatherFlow Tempest API
+
+## openmediavault (21.10.2025) – new adapter at stable repository
+https://github.com/Scrounger/ioBroker.openmediavault
+
+<img src="https://raw.githubusercontent.com/Scrounger/ioBroker.openmediavault/main/admin/openmediavault.png" width="100" height="100" />
+
+This adapter allows to read informations from your OpenMediaVault using the rpc interface.
+
+<!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
