@@ -1033,4 +1033,13 @@ https://github.com/Scrounger/ioBroker.openmediavault
 
 This adapter allows to read informations from your OpenMediaVault using the rpc interface.
 
+## xsense (22.10.2025) – new adapter at stable repository
+https://github.com/arteck/ioBroker.xsense
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.xsense/main/admin/xsense.png" width="100" height="100" />
+
+This ioBroker adapter allows the integration of XSense devices into the ioBroker smart home system.
+It is designed to receive data from XSense smoke detectors, CO detectors, and other compatible devices, making them available in ioBroker for automation and monitoring.
+The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.
+
 <!--  ATTENTION: use https://raw.githubusercontent.com/... address for icons ! -->
