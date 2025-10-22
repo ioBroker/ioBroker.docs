@@ -29,8 +29,8 @@ export const HeroSection: React.FC = () => {
 
                     <Box className={classes.heroRight}>
                         <Box className={classes.supportIcons}>
-                            <Box className={classes.supportIconAmazon}><img alt="PayPal Icon" src={PayPalIcon} /></Box>
-                            <Box className={classes.supportIconPayPal}><img alt="Amazon Icon" src={AmazonIcon} /></Box>
+                            <Box className={classes.supportIconPayPal}><img alt="PayPal Icon" src={PayPalIcon} /></Box>
+                            <Box className={classes.supportIconAmazon}><img alt="Amazon Icon" src={AmazonIcon} /></Box>
                         </Box>
                         <Typography className={classes.supportText}>
                             Unsere Software ist kostenlos. <br /> Unterstütze uns!
@@ -41,6 +41,7 @@ export const HeroSection: React.FC = () => {
             <Divider
                 position={scrollPosition}
                 parentWidth={window.innerWidth}
+                style={{marginBottom: '26px'}}
             />
         </Box>
     );

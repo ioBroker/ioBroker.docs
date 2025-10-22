@@ -116,10 +116,10 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     heroRight: {
-        textAlign: 'right',
+        textAlign: 'left',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'end',
+        alignItems: 'start',
         [theme.breakpoints.down('md')]: {
             textAlign: 'left',
             alignItems: 'flex-start',
@@ -127,11 +127,15 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     supportText: {
-        fontSize: '16px'
+        fontSize: '16px',
+        textAlign: 'left',
+        lineHeight: '24px',
+        letterSpacing: '-3%',
+        fontWeight: '400'
     },
     supportIcons: {
         display: 'flex',
-        gap: theme.spacing(1.5),
+        gap: '24px',
         justifyContent: 'flex-end',
         marginBottom: '24px',
         [theme.breakpoints.down('md')]: {
@@ -147,6 +151,7 @@ export const useStyles = makeStyles()(theme => ({
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
+        paddingBottom: '30px',
         justifyContent: 'center',
         transition: 'background-color 0.2s',
         '&:hover': {
