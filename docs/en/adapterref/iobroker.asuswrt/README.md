@@ -4,7 +4,6 @@
 
 ![Number of Installations](http://iobroker.live/badges/asuswrt-installed.svg) ![Number of Installations](http://iobroker.live/badges/asuswrt-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.asuswrt.svg)](https://www.npmjs.com/package/iobroker.asuswrt)
-[![Tests](https://api.travis-ci.org/mcdhrts/ioBroker.asuswrt.svg)](https://travis-ci.org/mcdhrts/ioBroker.asuswrt)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/mcdhrts/ioBroker.asuswrt/blob/master/LICENSE)
 
 [![NPM](https://nodei.co/npm/iobroker.asuswrt.png?downloads=true)](https://nodei.co/npm/iobroker.asuswrt/)
@@ -56,6 +55,18 @@ For older ioBroker versions, install version 0.3.1
 
 ## Changelog
 
+### 1.0.3 (2025-10-11)
+* (mcdhrts) Migrated to modern i18n format with separate translation files in admin/i18n/ directory
+* (mcdhrts) Migrated from HTML-based admin interface to JSON Config system (Admin 5+) for better user experience
+* (mcdhrts) Fixed critical issue where admin folder was not included in npm package (404 error on jsonConfig.json)
+* (mcdhrts) Fixed + button not responding in device monitoring table
+* (mcdhrts) Improved parsing of ip neigh command output for better device detection
+* (mcdhrts) Fixed all ioBroker repository checker issues (E5507, W4042, W4044)
+* (mcdhrts) Added comprehensive configuration validation with min/max values
+* (mcdhrts) Added VS Code settings with JSON schema definitions for better development experience
+* (mcdhrts) Removed invalid i18n property from io-package.json
+* (mcdhrts) Updated release configuration format to dictionary
+
 ### 1.0.2 (2025-10-05)
 * (mcdhrts) Fixed admin UI 404 error - renamed index_m.html to index.html
 * (mcdhrts) Updated requirements documentation to reflect current dependencies (js-controller >= 6.0.11, admin >= 7.6.17, Node.js >= 18.x)
@@ -101,7 +112,7 @@ For older ioBroker versions, install version 0.3.1
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019 mcdhrts <mcdhrts@outlook.com>
+Copyright (c) 2025 mcdhrts <mcdhrts@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

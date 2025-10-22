@@ -813,8 +813,9 @@ _[Zurück zum Anfang](#dokumentation-und-anleitung-für-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 2.0.6 (2025-10-12)
 * (simatec) dependencies updated
+* (simatec) adminTab Fix
 
 ### 2.0.5 (2025-09-03)
 * (simatec) dependencies updated

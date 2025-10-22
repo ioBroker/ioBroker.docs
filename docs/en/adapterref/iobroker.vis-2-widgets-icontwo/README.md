@@ -33,6 +33,27 @@
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.16.0 (2025-10-18)
+- new icons (tablets)
+
+### 1.15.0 (2025-10-18)
+- new icons (computer-usv & network-fritzbox)
+
+### 1.14.0 (2025-10-12)
+- new icons (weather)
+
+### 1.13.0 (2025-10-12)
+- new icons (diagram & network-NAS)
+
+### 1.12.0 (2025-10-12)
+- new icons (diagram)
+
+### 1.11.0 (2025-10-12)
+- new icons (weather-station)
+
+### 1.10.0 (2025-10-12)
+- new icons (weather-station & people-sleep & lights-tree & thermostat)
+
 ### 1.9.0 (2025-10-05)
 - new icons (autodarts)
 

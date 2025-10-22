@@ -84,6 +84,9 @@ The data is as follows Provided:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.6 (2025-10-11)
+- (ticaki) Added apparent temperature datapoints for current, hourly, and daily weather data
+
 ### 0.6.5 (2025-10-04)
 - (ticaki) Added leading zero to 5-minute radar datapoint folders for correct sorting in UI
 

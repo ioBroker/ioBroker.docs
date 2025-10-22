@@ -70,12 +70,47 @@ With the ioBroker Matter Adapter, it is possible to map the following use cases:
   * (1+) Battery Storage -> ???
   * (1+) Heat Pump -> ???
 
+## Development
+
+### Updating Dependencies
+
+When updating project dependencies (in both the root `package.json` and `src-admin/package.json`), always use the following command:
+
+```bash
+npm run npm
+```
+
+This command updates dependencies in both the main project and the admin frontend, ensuring `package-lock.json` files are properly synchronized.
+
+### Running Tests
+
+All tests are written in TypeScript and executed directly without compilation:
+
+```bash
+npm test
+```
+
+Tests are located in the `test/` directory and use ts-node for direct TypeScript execution.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 0.5.6 (2025-10-21)
+* (@Apollon77) Type detector update, should detect single states in non-device structures better
+
+### 0.5.5 (2025-10-16)
+* (@Apollon77) Optimizes Battery drain information
+* (@Apollon77) Correctly shows "in progress changes" in UI when adjusting devices to ovoid overlapping actions
+* (@Apollon77) Fix HSV to RGB calculation for some cases
+* (@Apollon77) Updated matter.js to 0.15.6
+* (@Apollon77) Optimizes shutdown process to ensure everything is properly closed
+
+### 0.5.4 (2025-10-07)
+* (@Apollon77) Updated matter.js to 0.15.5
+
 ### 0.5.3 (2025-09-20)
 * (@Apollon77) Updated matter.js to 0.15.4
 

@@ -3,20 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.siegenia/README.md
 title: ioBroker.siegenia
-hash: rHbPlGxnGQWGgWc6lrO0q1AyYILl0gKk7ZcQ7fSvqw4=
+hash: wlVBOqXKLMOElBCSOcaoQUPD//+JZz14OYxLjkIaZI0=
 ---
+# IoBroker.siegenia
+
 ![Anzahl der Installationen](http://iobroker.live/badges/siegenia-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.siegenia.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.siegenia.svg)
 
-#ioBroker.siegenia
 <img src="./admin/siegenia_logo.jpg"/>
 
-![Testen und freigeben](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und Freigeben](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Dieser Adapter bietet ioBroker-Unterstützung für Siegenia Klima- und Luftsteuerungsgeräte (https://www.siegenia.com).
+Dieser Adapter bietet ioBroker-Unterstützung für Klima- und Luftsteuerungsgeräte von Siegenia (https://www.siegenia.com).
 
 Der Adapter erfordert mindestens Nodejs 8.x.
 
@@ -25,20 +26,28 @@ Alle aktuellen Geräte werden von diesem Adapter unterstützt:
 
 * AEROPAC
 * AEROMAT VT
-* ANTRIEB axxent DK/MH
+* DRIVE axxent DK/MH
 * SENSOAIR
-* AEROVITAL-Ambiente
+* AEROVITAL Ambiente
 * MHS-Familie
+* ACS
 * AEROTUBE
 * Universalmodul
+* enOcean Konvertermodul
+* VT-Upgrade
+* FAHREN CL
+* AEROPLUS
 
-Der Adapter ist in der Lage, die Siegenia-Geräte im selben Netzwerk wie ioBroker automatisch zu erkennen und in seiner Admin-Oberfläche aufzulisten. Sie müssen nur den Benutzer und das Kennwort nach der Erkennung korrigieren. Sie können IPs und Login-Daten aber auch manuell eingeben.
+Der Adapter erkennt Siegenia-Geräte im selben Netzwerk wie ioBroker automatisch und listet sie in seiner Admin-Oberfläche auf. Nach der Erkennung müssen Sie lediglich Benutzername und Passwort korrigieren. Sie können IP-Adressen und Anmeldedaten aber auch manuell eingeben.
 
-Alle verfügbaren Datenfelder des erkannten Gerätes werden in Objekten angezeigt und liefern aktuelle Daten und/oder ermöglichen die Änderung von Daten.
+Alle verfügbaren Datenfelder des erkannten Geräts werden in Objekten angezeigt und liefern aktuelle Daten bzw. ermöglichen die Änderung von Daten.
 
-Timer und andere komplexere Daten werden vom Adapter angezeigt, können aber nur über die Siegenia App geändert werden.
+Timer und andere komplexere Daten werden vom Adapter angezeigt, können aber nur über die Siegenia-App geändert werden.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (@Apollon77) Add support for enOcean Converter Module, VT Upgrade, DRIVE CL, and AEROPLUS
 
 ### 1.1.1 (2021-07-06)
 * (thost96/Apollon77) Optimize for js-controller 3.3
@@ -57,7 +66,7 @@ Timer und andere komplexere Daten werden vom Adapter angezeigt, können aber nur
 ## License
 MIT License
 
-Copyright (c) 2019-2021 Apollon77 iobroker@fischer-ka.de
+Copyright (c) 2019-2025 Apollon77 iobroker@fischer-ka.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

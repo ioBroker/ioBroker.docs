@@ -165,7 +165,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### 6.0.0-beta.5 (2025-10-05)
+### 6.0.1 (2025-10-09)
+
+- (HombachC) fix error in cleaning tomorrow data
+- (HombachC) update release management to 4.x.x
+
+### 6.0.0 (2025-10-06)
 
 - (HombachC) BREAKING: hourly price states (0...23) are now quarterhourly (0...95)
 - (HombachC) BREAKING: adapted calculator time blocks need reentry of "AmountHours" values

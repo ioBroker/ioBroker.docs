@@ -3,10 +3,10 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心概念
-hash: ZrGxXyZrIiTT1Ijp70v86qN2uIcQ5fe+bwvxMACMwzA=
+hash: oOWjcIwxoEZMeT171Acl2qKPo6M5YiunUkx1Z6o+dk8=
 ---
 # 核心概念
-ioBroker 中有两种根本不同的数据类型，即所谓的**状态**（`states`）和**对象**。
+ioBroker 中有两种根本不同的数据类型：所谓的**状态**（`states`）和**对象**。
 
 对象表示很少更改且较大的数据，例如系统设备、配置和其他文件的元数据。每个对象都必须具有一个“type”属性。有关可用的对象类型以及特定类型的对象需要哪些强制属性的更多信息，请参阅下文。适配器模块为您提供了 setObject、getObject 等函数。
 
@@ -209,7 +209,7 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
 * 对于字符串，包含允许值列表及其（显示）标签，例如 `{'value': 'valueName', 'value2': 'valueName2'}`。仅允许这些值
 * 对于字符串，包含允许值列表，例如 `['Start', 'Flight', 'Land']`（实际上与 `{'Start': 'Start', 'Flight': 'Flight', 'Land': 'Land'}` 相同）。仅允许使用这些值
 * 这些值目前（从 js-controller 4.0 开始）尚未经过 js-controller 检查或验证，仅适用于 UI 和可视化
-* `common.workingID`（字符串，可选）- 如果此状态具有辅助状态 WORKING，则必须在此处填写全名；如果前部分与实际值相同，则仅填写后半部分。用于 `HM.LEVEL`，通常值为 `WORKING`
+* `common.workingID`（字符串，可选）- 如果此状态具有辅助状态 WORKING。此处必须填写全名，如果前部分与实际值相同，则仅填写后半部分。用于 `HM.LEVEL`，通常值为 `WORKING`
 * `common.custom`（可选）- 针对特定适配器的自定义设置结构。例如 `{"influxdb.0": {"enabled": true, "alias": "name"}}`。`enabled` 属性是必需的，如果该属性不为 true，则整个属性将被删除。
 
 ##### 州 `common.role`
@@ -263,7 +263,7 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
 
 * `alarm` - 一些警报
 
-* `电话` - fritz box、speedport 等等
+* `phone` - fritz!box、speedport 等等
 
 * `按钮` - 像墙壁开关或电视遥控器，每个按钮都是一种状态，如.play、.stop、.pause
 * `remote` - 电视或其他遥控器的状态是带有按下值的字符串，例如“播放”、“停止”、“暂停”
@@ -280,8 +280,8 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
 
 “M”——必填
 
-##### 每个通道/设备的可选状态
-```javascript
+每个通道/设备的可选状态
+```json5
 // state-working (optional)
 {
    "_id": "adapter.instance.channelName.stateName-working", // e.g. "hm-rpc.0.JEQ0205612:1.WORKING"
@@ -294,12 +294,14 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.working"     // mandatory
+       "role":  "indicator.working",     // mandatory
        "desc":  ""                      // optional,  default undefined
    }
 }
-,
-// state-direction (optional). The state can have following states: "up"/"down"/""
+```
+
+```json5
+// state-direction (optional). The state can have the following states: "up"/"down"/""
 {
    "_id": "adapter.instance.channelName.stateName-direction", // e.g. "hm-rpc.0.JEQ0205612:1.DIRECTION"
    "type": "state",
@@ -309,11 +311,13 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
        "type":  "string",               // optional,  default "string"
        "read":  true,                   // mandatory, default true
        "write": false,                  // mandatory, default false
-       "role":  "direction"             // mandatory
+       "role":  "direction",            // mandatory
        "desc":  ""                      // optional,  default undefined
    }
 }
-,
+```
+
+```json5
 // state-maintenance (optional).
 {
    "_id": "adapter.instance.channelName.stateName-maintenance", //e.g. "hm-rpc.0.JEQ0205612:1.MAINTENANCE"
@@ -326,11 +330,13 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.maintenance" // mandatory
+       "role":  "indicator.maintenance", // mandatory
        "desc":  "Problem description"   // optional,  default undefined
    }
 }
-,
+```
+
+```json5
 // state-maintenance-unreach (optional).
 {
    "_id": "adapter.instance.channelName.stateName-maintenance-unreach", //e.g. "hm-rpc.0.JEQ0205612:0.UNREACH"
@@ -343,7 +349,7 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
        "write": false,                  // mandatory, default false
        "min":   false,                  // optional,  default false
        "max":   true,                   // optional,  default true
-       "role":  "indicator.maintenance.unreach" // mandatory
+       "role":  "indicator.maintenance.unreach", // mandatory
        "desc":  "Device unreachable"    // optional,  default 'Device unreachable'
    }
 }
@@ -351,7 +357,7 @@ ID是一个最大长度为240字节的字符串，采用层次结构，各层级
 
 ##### `light.switch` - 属性描述
 | **名称** | **common.role** | **M** | **W** | **common.type** | **描述** |
-| ------------- |:--------------------------|:-----:|:-----:|-----------------|-------------------------------------|
+|-------------|:--------------------------|:-----:|:-----:|-----------------|-------------------------------------|
 | 状态 | 开关 | X | X | 布尔值 | |
 | 描述 | 文本描述 | | | | |
 | mmm | indicator.maintenance.mmm | | | | mmm = lowbat 或 unreach 或其他 |
@@ -480,14 +486,14 @@ ID：`system.adapter.<adapter.name>`
 
 *注意：*除特殊标记为**强制**的标志外，所有标志都是可选的。
 
-* `common.adminColumns` - 自定义属性，必须在对象浏览器的管理员面板中显示。例如：`[{"name": {"en": "KNX address"}, "path": "native.address", "width": 100, "align": "left"}, {"name": "DPT", "path": "native.dpt", "width": 100, "align": "right", "type": "number", "edit": true, "objTypes": ["state", "channel"]}]`。`type` 是属性的类型（例如字符串、数字、布尔值），仅在启用编辑功能时需要。`objTypes` 是可以具有此类属性的对象类型列表。也仅在编辑模式下使用。
+* `common.adminColumns` - 自定义属性，必须在对象浏览器的管理员界面中显示。例如：`[{"name": {"en": "KNX address"}, "path": "native.address", "width": 100, "align": "left"}, {"name": "DPT", "path": "native.dpt", "width": 100, "align": "right", "type": "number", "edit": true, "objTypes": ["state", "channel"]}]`。`type` 是属性的类型（例如字符串、数字、布尔值），仅在启用编辑功能时需要。`objTypes` 是可以具有此类属性的对象类型列表。也仅在编辑模式下使用。
 * `common.adminTab.fa-icon` - （已弃用）TAB 的 Font-Awesome 图标名称。
 * `common.adminTab.icon` - （可选）TAB图标链接或base64编码图标。可以是SVG
 * `common.adminTab.ignoreConfigUpdate` - 如果配置发生变化，则不更新配置 TAB（以在 TAB 中启用配置设置）
 * `common.adminTab.link` - TAB 中 iframe 的链接。您可以使用类似这样的参数替换：`http://%ip%:%port%`。IP 地址将被替换为主机 IP 地址。`port` 将从 `native.port` 中提取。
 * `common.adminTab.name` - 管理员中的 TAB 名称
 * `common.adminTab.singleton` - [true/false] 适配器是否具有管理员的 TAB。所有实例仅显示一个 TAB。
-* `common.adminUI.config` - [none/json/materialize/html] 配置 UI 类型。如果未定义，适配器将显示为 html。（`admin` 文件夹中应包含 `jsonConfig.json` 或 `jsonConfig.json5`（对应 `json`）、`materialize` 的 `index_m.html` 和 `html` 的 `index.html`）
+* `common.adminUI.config` - [none/json/materialize/html] 配置 UI 类型。如果未定义，适配器将显示为 HTML。（`admin` 文件夹中应包含 `json` 对应的 `jsonConfig.json` 或 `jsonConfig.json5`、`materialize` 对应的 `index_m.html` 和 `html` 对应的 `index.html`）
 * `common.adminUI.custom` - [none/json] 自定义配置 UI 类型。如果未定义，则不会显示自定义 UI。只能在 `admin` 文件夹中使用 `jsonCustom.json` 或 `jsonCustom.json5`。
 * `common.adminUI.tab` - [none/html] TAB UI 类型。如果定义为 `html`，则 `tab.html` 或 `tab_m.html` 会在文件夹 `admin` 中扩展。
 * `common.allowInit` - [true/false] 允许在设置更改或适配器启动后，将“已调度”适配器调用为“不在时间表内”。或者允许在配置更改后，将已调度的适配器启动一次，然后按时间表调用。
@@ -523,7 +529,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.loglevel` - 调试、信息、警告或错误
 * `common.main` - **已弃用** 在 package.json 中使用 main。
 * `common.materializeTab` - 如果适配器支持 > admin3 选项卡（materialize 样式）
-* `common.materialize` - 如果适配器支持 > admin3（materialize 样式）
+* `common.materialize` - 如果适配器支持 > admin3 (materialize 样式)
 * `common.messagebox` - 如果支持消息框，则为 true。因此，适配器可以接收 sendTo 消息（用于电子邮件、推送等）。
 * `common.messages` - 更新时触发的条件消息。详情请参阅[条件消息](#conditional-messages)。
 * `common.mode` - **强制** 可能的值见下文
@@ -549,6 +555,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.serviceStates` - [true/false 或 path] 适配器是否支持传递附加状态。如果支持，则将调用路径 `adapter/lib/states.js`，并提供以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递包含值的点数组，例如 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost` - 适配器只能在一个主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
+* `common.smartName` - 与 IoT 适配器相关，用于存储 alexa & co 的设置。
 * `common.statusStates` - 用于管理界面状态指示的结构，格式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`。可以使用 `offlineId` 代替 `onlineId`。如果 ID 非常短（少于 2 个点），则该 ID 将被视为相对于当前对象。
 * `common.stopBeforeUpdate` - [true/false] 适配器是否必须在更新前停止
 * `common.stopTimeout` - 等待适配器关闭的超时时间（毫秒）。默认为 500 毫秒。
@@ -561,7 +568,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.titleLang` - **强制** 所有支持语言的适配器的较长名称，如 `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title` - （已弃用）在管理员中显示的适配器的较长名称
 * `common.type` - 适配器类型。参见 [类型](adapterpublish.md)
-* `common.unchanged` - （系统）请勿使用此标志。该标志用于通知系统，必须在管理界面中显示配置对话框。
+* `common.unchanged` - （系统）请勿使用此标志。该标志用于通知系统必须在管理界面中显示配置对话框。
 * `common.unsafePerm` - [true/false] 是否必须使用 `npm --unsafe-perm` 参数安装包
 * `common.version` - **强制**可用版本
 * `common.visWidgets` - 描述 `vis2 react widgets`。例如 `{"i18n": "component", "vis2NAMEWidgets": { "name": "vis2NAMEWidgets", "url": "vis-2-widgets-NAME/customWidgets.js", "components": [ "NAMEwidgetName"]} }`
@@ -578,6 +585,8 @@ ID：`system.adapter.<adapter.name>`
 * `protectedNative` - 配置属性数组，只能由自己的适配器访问，例如 `["password"]`
 * `encryptedNative` - 配置属性数组，通过管理配置页面存储时将自动加密，并在适配器运行时自动解密，例如 `["password", "token"]`
 * `native` - 预定义属性，可在 `index_m.html` 中访问，并在运行时通过 `adapter.config.<attribute>` 访问，例如 `{"port": 1234, "password": "secret"}`
+
+#### 条件消息（`common.messages`）
 
 #### 条件消息（`common.messages`）
 您可以定义在更新适配器时向用户显示的**条件消息**。
@@ -631,7 +640,7 @@ ID：`system.adapter.<adapter.name>`
 
 ##### 规则参考
 | 规则示例 | 含义 |
-| ---------------------- | --------------------------------------------------------- |
+|------------------------|-----------------------------------------------------------|
 | `oldVersion<=1.0.44` | 当前安装的版本≤1.0.44 |
 | `newVersion>=1.0.45` | 正在安装的版本≥1.0.45 |
 | `newVersion==2.0.0` | 正在安装的版本正好是 2.0.0 |
@@ -657,45 +666,51 @@ ID：`system.adapter.<adapter.name>`
 示例
 ###### 示例 1：仅当从版本 ≤1.0.44 升级到 ≥1.0.45 时显示消息
 ```json
-"messages": {
-  "condition": {
-    "operand": "and",
-    "rules": [
-      "oldVersion<=1.0.44",
-      "newVersion>=1.0.45"
-    ]
-  },
-  "title": { "en": "Important update" },
-  "text": { "en": "Please read before continuing." },
-  "level": "warn"
+{
+    "messages": {
+        "condition": {
+            "operand": "and",
+            "rules": [
+                "oldVersion<=1.0.44",
+                "newVersion>=1.0.45"
+            ]
+        },
+        "title": { "en": "Important update" },
+        "text": { "en": "Please read before continuing." },
+        "level": "warn"
+    }
 }
 ```
 
 ###### 示例 2：如果适配器是新安装的，则显示消息
 ```json
-"messages": {
-  "condition": {
-    "operand": "or",
-    "rules": ["not-installed"]
-  },
-  "title": { "en": "Welcome!" },
-  "text": { "en": "Thanks for installing this adapter." },
-  "level": "info"
+{
+    "messages": {
+        "condition": {
+            "operand": "or",
+            "rules": ["not-installed"]
+        },
+        "title": { "en": "Welcome!" },
+        "text": { "en": "Thanks for installing this adapter." },
+        "level": "info"
+    }
 }
 ```
 
 ###### 示例 3：如果需要另一个适配器，则显示消息
 ```json
-"messages": {
-  "condition": {
-    "operand": "and",
-    "rules": ["vis-2>=1.0.0"]
-  },
-  "title": { "en": "Dependency notice" },
-  "text": { "en": "This adapter requires vis-2 version 1.0.0 or higher." },
-  "link": "https://example.com/setup-guide",
-  "linkText": { "en": "Setup guide" },
-  "level": "error"
+{
+    "messages": {
+        "condition": {
+            "operand": "and",
+            "rules": ["vis-2>=1.0.0"]
+        },
+        "title": { "en": "Dependency notice" },
+        "text": { "en": "This adapter requires vis-2 version 1.0.0 or higher." },
+        "link": "https://example.com/setup-guide",
+        "linkText": { "en": "Setup guide" },
+        "level": "error"
+    }
 }
 ```
 

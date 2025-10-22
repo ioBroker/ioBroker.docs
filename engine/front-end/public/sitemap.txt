@@ -846,6 +846,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.discovergy/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.discovery/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.divera247/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.dnscope/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.docker-manager/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.drag-indicator/README.md
@@ -902,6 +903,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.foobar2000/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ford/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.freeair/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.frigate/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fritzbox/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.fritzdect/README.md
@@ -1130,6 +1132,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.openmediavault/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openweathermap/README.md
@@ -1323,7 +1326,9 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.twinkly/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.unifi/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.unifi-protect/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.unraid/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.upnp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.uv-protect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vaillant/README.md
@@ -1390,6 +1395,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weather-warnings/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weathersense/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherunderground/README.md
@@ -1562,6 +1568,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.discovergy/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.discovery/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.divera247/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.dnscope/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.docker-manager/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.drag-indicator/README.md
@@ -1618,6 +1625,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.foobar2000/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ford/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.freeair/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.frigate/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fritzbox/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.fritzdect/README.md
@@ -1846,6 +1854,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.openmediavault/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openweathermap/README.md
@@ -2039,7 +2048,9 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.twinkly/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.unifi/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.unifi-protect/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.unraid/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.upnp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.uv-protect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vaillant/README.md
@@ -2106,6 +2117,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weather-warnings/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weathersense/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherunderground/README.md
@@ -2278,6 +2290,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.discovergy/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.discovery/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.divera247/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.dnscope/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.docker-manager/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.drag-indicator/README.md
@@ -2334,6 +2347,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.foobar2000/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ford/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.freeair/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.frigate/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fritzbox/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.fritzdect/README.md
@@ -2562,6 +2576,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openmediavault/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openweathermap/README.md
@@ -2755,7 +2770,9 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.twinkly/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.unifi/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.unifi-protect/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.unraid/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.upnp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.uv-protect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vaillant/README.md
@@ -2822,6 +2839,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weather-warnings/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weathersense/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherunderground/README.md
@@ -2994,6 +3012,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.discovergy/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.discovery/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.divera247/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.dnscope/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.docker-manager/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.doorbird/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.doorio/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.drag-indicator/README.md
@@ -3050,6 +3069,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.flot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.followthesun/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.foobar2000/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ford/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.freeair/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.frigate/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fritzbox/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.fritzdect/README.md
@@ -3278,6 +3298,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openmediavault/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openweathermap/README.md
@@ -3471,7 +3492,9 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tvprogram/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tvspielfilm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.twinkly/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.unifi/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.unifi-network/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.unifi-protect/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.unraid/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.upnp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.uv-protect/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vaillant/README.md
@@ -3538,6 +3561,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.warp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.waterkotte-easycon/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weather-warnings/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherflow-tempest-api/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weathersense/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherunderground/README.md

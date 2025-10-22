@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: fFIEBJshLTild/XRsvL+mjDspkm5nmMAICvK5lMkaVE=
+hash: qnZIuAh7ANALCQR3L5FGXqyrKZbBZUa1noZ1hufGKxE=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -20,9 +20,7 @@ hash: fFIEBJshLTild/XRsvL+mjDspkm5nmMAICvK5lMkaVE=
 
 ## Apg-info-Adapter für ioBroker
 Dieser Adapter liefert die Spitzenzeiten für das österreichische Stromnetz (nur österreichische Werte!), in denen Stromverbrauch vermieden werden soll. Zusätzlich liefert der Adapter die PHELIX Day-Ahead (EPEX Spot)-Preise für Österreich, die Schweiz und Deutschland (Konfiguration in den Adaptereinstellungen). Anbietergebühren, Steuern und Netzkosten können optional in der Konfiguration (Registerkarte „Berechnung“) hinzugefügt werden.
-
 `[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
-
 In der Standardkonfiguration läuft der Adapter um 00:00, 13:00 und 15:00 Uhr. Es wird dringend empfohlen, den Betrieb um 00:00 Uhr nicht zu entfernen, da sonst der Tageswechsel (morgen -> heute) nicht ordnungsgemäß funktioniert.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
@@ -32,32 +30,31 @@ In der Standardkonfiguration läuft der Adapter um 00:00, 13:00 und 15:00 Uhr. E
 * ioBroker-Host (js-Controller) 5.0 oder höher
 
 ## Schweizer Markt
-Für den Schweizer Markt wird ein Token von entsoe.eu benötigt. Bitte fügen Sie Ihren Token in der Adapterkonfiguration im Reiter &quot;ENTSOE TOKEN&quot; hinzu. Registrieren Sie sich auf der Seite https://transparency.entsoe.eu/ und senden Sie anschließend eine E-Mail an transparency@entsoe.eu mit der Bitte um RESTFUL-API-Zugriff für die registrierte E-Mail-Adresse.<br> Weitere Einzelheiten finden Sie unter https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
+Für den Schweizer Markt wird ein Token von entsoe.eu benötigt. Bitte fügen Sie Ihren Token in der Adapterkonfiguration im Reiter &quot;ENTSOE TOKEN&quot; hinzu. Registrieren Sie sich auf der Seite https://transparency.entsoe.eu/ und senden Sie anschließend eine E-Mail an transparency@entsoe.eu mit der Bitte um RESTFUL-API-Zugriff für die von Ihnen registrierte E-Mail-Adresse.<br> Weitere Einzelheiten finden Sie unter https://transparency.entsoe.eu/content/static_content/Static%20content/web%20api/Guide.html#_authentication_and_authorisation
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.17 (2025-06-03)
-* (HGlab01) Add retry mechanism for Entsoe
+### 0.1.22 (2025-10-21)
+* (HGlab01) Implement retry mechanism for API calls
+* (HGlab01) add turn on/off for peak hours and market prices
 
-### 0.1.16 (2025-05-18)
-* (HGlab01) Optimize Entsoe (Swiss market) requests
-* (HGlab01) Extend timeout for Api calls to 30 seconds 
-* (HGlab01) Bump axios to 1.9.0
+### 0.1.21 (2025-10-13)
+* (HGlab01) Support quater-hourly tarifs
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.1
 
-### 0.1.15 (2025-04-17)
-* (HGlab01) fix 'Cannot read properties of undefined (reading 'price_amount')'
+### 0.1.20 (2025-10-06)
+* (HGlab01) prepeare iobroker-jsonexplorer readiness for v0.2.0
+* (HGlab01) Bump axios to 1.12.2
 
-### 0.1.14 (2025-03-30)
-* (HGlab01) Fix switch to summer time begin issue
-* (HGlab01) Bump axios to 1.8.4
-* (HGlab01) Fix warning "State attribute definition missing for 'item xx' 
-* (HGlab01) Fix provider-fee% calculation if base price is negative ([#354](https://github.com/HGlab01/ioBroker.apg-info/issues/354))
+### 0.1.19 (2025-06-23)
+* (HGlab01) use encrypted token in config
 
-### 0.1.13 (2025-03-12)
-* (HGlab01) Bump axios to 1.8.3
+### 0.1.18 (2025-06-16)
+* (HGlab01) Log finetuning
+* (HGlab01) Bump axios to 1.10.0
 
 ## License
 MIT License

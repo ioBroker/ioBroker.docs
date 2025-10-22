@@ -9,7 +9,7 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.modbus.svg)](https://www.npmjs.com/package/iobroker.modbus)
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 Implementation of ModBus Slave and Master for ioBroker. The following types are supported:
 - Modbus RTU over serial (master)
@@ -60,7 +60,7 @@ Like addresses from 3 to 20 will be aligned to 0 up 32.
 If this option is active, the addresses will not be aligned.
 
 ### Do not use multiple registers
-If slave does not support "write multiple registers" command, you can activate it to get warnings, when the multiple registers will be written.
+If slave does not support "write multiple registers" command, you can activate it to get warnings when the multiple registers will be written.
 
 ### Use only multiple write registers
 If slave only supports "write multiple registers" command, you can activate so the registers will be written always with FC15/FC16 command.
@@ -90,7 +90,7 @@ Some systems require first "write request" to deliver the data on "read request"
 You can force this mode by setting of the "Max read request length" to 1.
 
 **Notice:**
-Some USB Modbus solutions (e.g. based on socat) can have trouble to work with serialport npm module.
+Some USB Modbus solutions (e.g. based on `socat`) can have trouble to work with `serialport` npm module.
 
 There is a software [**Modbus RTU <-> Modbus RTU over TCP**](http://mbus.sourceforge.net/index.html) gateway to enable using of serial RTU over TCP protocol.
 
@@ -206,7 +206,7 @@ This variable can be then later used in any formula for other parameters. E.g., 
 
 The following description was copied from [here](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
-The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason that its basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
+The point-to-point Modbus protocol is a popular choice for RTU communications if for no other reason that its basic convenience. The protocol itself controls the interactions of each device on a Modbus network, how the device establishes a known address, how each device recognizes its messages and how basic information is extracted from the data. In essence, the protocol is the foundation of the entire Modbus network.
 
 Such a convenience does not come without any complications, however, and Modbus RTU Message protocol is no exception.
 The protocol itself was designed based on devices with a 16-bit register length.
@@ -303,25 +303,35 @@ One can then swap bytes and/or words to analyze what potential endianness issues
 ## Export / Import of registers
 With export / import functionality, you can convert all register data (only of one type) to a TSV (Tab separated values) file and back to easily copy data from one device to another or to edit register in Excel.
 
-You can share your schemas with other users in [modbus-templates](https://github.com/ioBroker/modbus-templates) or you can find some register schemas there.
+You can share your schemas with other users in [modbus-templates,](https://github.com/ioBroker/modbus-templates) or you can find some register schemas there.
 
 ## Test
 There are some programs in folder `test` to test the TCP communication:
 - Ananas32/64 is a slave simulator (only holding registers and inputs, no coils and digital inputs)
 - RMMS is master simulator
-- mod_RSsim.exe is a slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of SideBySide error).
-
-## Todo
-- [ ] Parse files on https://github.com/ioBroker/modbus-templates and allow to import them directly from adapter
+- mod_RSsim.exe is a slave simulator. It can be that you need [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) to start it (because of Side-By-Side error).
 
 <!--
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.5 (2025-10-13)
+* (bluefox) Prohibited installation from github
+
+### 7.0.4 (2025-10-08)
+* (bluefox) Added migration procedure from 6 to 7
+* (bluefox) Corrected serial communication
+
+### 7.0.1 (2025-10-07)
+* (bluefox) Redesign of the configuration tabs
+* (bluefox) Added option to remove leading underscores in the object names
+
+### 7.0.0 (2025-10-06)
 * (copilot) Improved Modbus error handling and fault tolerance - continue polling working devices even when others fail
 * (copilot) Fixes memory leak
 * (copilot) Added option to disable connection error logging to avoid log spam when devices are unavailable
+* (bluefox) Show values directly in configuration
+* (bluefox) Implemented TLS connection (master)
 
 ### 6.4.0 (2024-11-22)
 * (bluefox) Moved GUI compilation to vite
@@ -438,7 +448,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (bluefox) fixed the configuration dialog for "input registers" in slave mode
 
 ### 3.3.0 (2021-04-16)
-* (Apollon77) Allow usage of write-only (no poll) states
+* (Apollon77) Allowed usage of write-only (no poll) states
 * (Apollon77/TmShaz) F Write multiple registers
 * (prog42) create states of type string with default value of type string
 
@@ -516,7 +526,7 @@ There are some programs in folder `test` to test the TCP communication:
 * (bluefox) Refactoring
 
 ### 3.0.0 (2019-05-15)
-* (Apollon77) Support for nodejs 12 added, nodejs 4 is no longer supported!
+* (Apollon77) Support for Node.js 12 added, Node.js 4 is no longer supported!
 
 ### 2.0.9 (2018-10-11)
 * (Bjoern3003) Write registers was corrected
@@ -637,7 +647,7 @@ There are some programs in folder `test` to test the TCP communication:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

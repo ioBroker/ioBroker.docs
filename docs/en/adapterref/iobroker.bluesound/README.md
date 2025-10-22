@@ -42,9 +42,13 @@ The following functions are implemented:
 - Playlist backward (triggered by setting 'control.backward' to true)
 
 ## Changelog
+### 1.2.1 (2025-10-18)
 
-### **WORK IN PROGRESS**
-
+- (Uwe Nagel) Changes according to ioBroker Check
+- (Uwe Nagel) Bump @types/node from 24.5.2 to 24.6.1
+- (Uwe Nagel) Bump chai from 6.0.1 to 6.2.0
+- (Uwe Nagel) Bump typescript from 5.9.2 to 5.9.3
+- (Uwe Nagel) Bump mocha from 11.7.2 to 11.7.3
 - (Uwe Nagel) Correct error in main.js, update package-lock.json
 - (Uwe Nagel) Update io-package.json and package.json
 - (Uwe Nagel) Update .vscode/jsonConfig.json and .gitignore

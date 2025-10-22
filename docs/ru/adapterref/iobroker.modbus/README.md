@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: bV12UaHIWeE2s72XClON8yl9YIq+LHFAoh5+qejs8ic=
+hash: rY6TVD9Cqql762gZE6QnbgrmfGtX9OYNEFsFGg2smB4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -14,7 +14,7 @@ hash: bV12UaHIWeE2s72XClON8yl9YIq+LHFAoh5+qejs8ic=
 # Iobroker.modbus
 ![Тестирование и выпуск](https://github.com/ioBroker/iobroker.modbus/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении отчётов об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчёты Sentry используются, начиная с версии js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Подробнее об отключении сообщений об ошибках см. в разделе [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сообщения Sentry используются, начиная с версии js-controller 3.0.
 
 Реализация ModBus Slave и Master для ioBroker. Поддерживаются следующие типы устройств:
 
@@ -96,7 +96,7 @@ TCP-порт партнера Modbus, если он настроен как ве
 В некоторых системах для доставки данных по запросу на чтение требуется сначала запрос на запись.
 Вы можете принудительно включить этот режим, установив «Максимальную длину запроса на чтение» на 1.
 
-**Примечание:** Некоторые решения USB Modbus (например, основанные на socat) могут испытывать трудности при работе с модулем npm serialport.
+**Примечание:** Некоторые решения USB Modbus (например, основанные на `socat`) могут испытывать трудности при работе с модулем npm `serialport`.
 
 Имеется программный шлюз [**Modbus RTU <-> Modbus RTU через TCP**](http://mbus.sourceforge.net/index.html), позволяющий использовать последовательный RTU по протоколу TCP.
 
@@ -211,7 +211,7 @@ TCP-порт партнера Modbus, если он настроен как ве
 
 Следующее описание было скопировано из [здесь](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/)
 
-Протокол Modbus типа «точка-точка» популярен для связи RTU, хотя бы потому, что он удобен. Сам протокол управляет взаимодействием каждого устройства в сети Modbus, установлением адреса, распознаванием сообщений каждым устройством и извлечением базовой информации из данных. По сути, протокол является основой всей сети Modbus.
+Протокол Modbus типа «точка-точка» популярен для связи RTU, хотя бы потому, что он удобен. Сам протокол управляет взаимодействием каждого устройства в сети Modbus, тем, как устройство устанавливает известный адрес, как каждое устройство распознаёт свои сообщения и как извлекается базовая информация из данных. По сути, протокол является основой всей сети Modbus.
 
 Однако такое удобство не обходится без сложностей, и протокол сообщений Modbus RTU не является исключением.
 Сам протокол был разработан на основе устройств с 16-битным регистром.
@@ -307,27 +307,37 @@ Big-Endian — наиболее часто используемый формат
 ## Экспорт/импорт регистров
 Благодаря функции экспорта/импорта вы можете преобразовать все данные регистра (только одного типа) в файл TSV (значения, разделенные табуляцией) и обратно, чтобы легко копировать данные с одного устройства на другое или редактировать регистр в Excel.
 
-Вы можете поделиться своими схемами с другими пользователями в [шаблоны modbus](https://github.com/ioBroker/modbus-templates) или найти некоторые схемы регистров там.
+Вы можете поделиться своими схемами с другими пользователями в [modbus-шаблоны,](https://github.com/ioBroker/modbus-templates) или найти некоторые схемы регистров там.
 
 ## Тест
 В папке `test` находятся несколько программ для проверки TCP-связи:
 
 - Ananas32/64 — это симулятор ведомого устройства (только хранение регистров и входов, без катушек и цифровых входов)
 - RMMS — главный симулятор
-- mod_RSsim.exe — это симулятор ведомого устройства. Возможно, для его запуска потребуется [Распространяемый пакет Microsoft Visual C++ 2008 SP1](https://www.microsoft.com/en-us/download/details.aspx?id=5582) (из-за ошибки SideBySide).
-
-## Задача
-- [ ] Анализ файлов на https://github.com/ioBroker/modbus-templates и возможность импортировать их напрямую из адаптера
+- mod_RSsim.exe — это симулятор ведомого устройства. Возможно, для его запуска потребуется [Распространяемый пакет Microsoft Visual C++ 2008 SP1](https://www.microsoft.com/en-us/download/details.aspx?id=5582) (из-за ошибки Side-By-Side).
 
 <!--
 
 ### **РАБОТА В ХОДЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 7.0.5 (2025-10-13)
+* (bluefox) Prohibited installation from github
+
+### 7.0.4 (2025-10-08)
+* (bluefox) Added migration procedure from 6 to 7
+* (bluefox) Corrected serial communication
+
+### 7.0.1 (2025-10-07)
+* (bluefox) Redesign of the configuration tabs
+* (bluefox) Added option to remove leading underscores in the object names
+
+### 7.0.0 (2025-10-06)
 * (copilot) Improved Modbus error handling and fault tolerance - continue polling working devices even when others fail
 * (copilot) Fixes memory leak
 * (copilot) Added option to disable connection error logging to avoid log spam when devices are unavailable
+* (bluefox) Show values directly in configuration
+* (bluefox) Implemented TLS connection (master)
 
 ### 6.4.0 (2024-11-22)
 * (bluefox) Moved GUI compilation to vite
@@ -444,7 +454,7 @@ Big-Endian — наиболее часто используемый формат
 * (bluefox) fixed the configuration dialog for "input registers" in slave mode
 
 ### 3.3.0 (2021-04-16)
-* (Apollon77) Allow usage of write-only (no poll) states
+* (Apollon77) Allowed usage of write-only (no poll) states
 * (Apollon77/TmShaz) F Write multiple registers
 * (prog42) create states of type string with default value of type string
 
@@ -522,7 +532,7 @@ Big-Endian — наиболее часто используемый формат
 * (bluefox) Refactoring
 
 ### 3.0.0 (2019-05-15)
-* (Apollon77) Support for nodejs 12 added, nodejs 4 is no longer supported!
+* (Apollon77) Support for Node.js 12 added, Node.js 4 is no longer supported!
 
 ### 2.0.9 (2018-10-11)
 * (Bjoern3003) Write registers was corrected
@@ -643,7 +653,7 @@ Big-Endian — наиболее часто используемый формат
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2025 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

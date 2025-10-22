@@ -1,78 +1,68 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: iyF0ZWK88/WwUlksouiJrRJoAU/ZMAs2UqiVj+jo/Co=
+hash: 1ClhfUd7q9ds4+iWLWMIIZl2Kb6RRT7t1Bk67QM3dxc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.stiebel-isg.svg)
+![версия НПМ](https://img.shields.io/npm/v/iobroker.stiebel-isg.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.stiebel-isg.svg)
 ![Количество установок (последнее)](https://iobroker.live/badges/stiebel-isg-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/stiebel-isg-stable.svg)
+![Количество установок (стабильное)](https://iobroker.live/badges/stiebel-isg-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/unltdnetworx/iobroker.stiebel-isg.svg)
 ![НПМ](https://nodei.co/npm/iobroker.stiebel-isg.png?downloads=true)
 
 # IoBroker.stiebel-isg
-** Тесты: ** ![Тестирование и выпуск](https://github.com/unltdnetworx/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/unltdnetworx/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер stiebel-isg для ioBroker
-Этот адаптер предназначен для считывания значений со шлюзов интернет-сервисов stiebel-eltron / tecalor (ISG) и управления устройством.
-
-ИСПОЛЬЗУЙТЕ НА СВОЙ РИСК!!! АБСОЛЮТНО ОТСУТСТВИЕ ГАРАНТИЙ НА УБЫТКИ И Т.П. !!!
-
-Помощь или подсказки приветствуются.
-
-## Пожертвовать
-Каффи тратишь / подай кофе <https://paypal.me/unltdnetworx>
+Этот адаптер предназначен для считывания значений с интернет-шлюзов (ISG) stiebel-eltron/tecalor и управления устройством.
 
 ## Шаги
-1. Установите адпатер
-
-2. Возьмите значения из вашего stiebel-isg. [X] -объекта.
+1. Установите адаптер.
+2. Извлеките значения из вашего объекта stiebel-isg.[x].
 
 ## Требования
-* шлюз интернет-услуг stiebel-eltron / tecalor (ISG)
+* интернет-шлюз stiebel-eltron/tecalor (ISG)
+
+## Кредиты
+Создание этого адаптера было бы невозможно без выдающейся работы Майкла Шустера (unltdnetworx) <https://github.com/unltdnetworx>, создавшего предыдущие версии этого адаптера.
 
 ## Changelog
 
-### 1.7.0
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 2.0.0-alpha.1 (2025-10-21)
 
-* new adapter structure, bugfixes for new js-controller
+- (mcm1957) Adapter has been migrated to iobroker-communita-adapters organisation
+- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
-### 1.6.0
+### 1.7.7
 
-* new values for isg-version 12 implemented
+* security- and compatibility update
 
-### 1.6.1
+### 1.7.6
 
-* isg-sites to read values from, can now be select by the user
+* fix error with controller v5
 
-### 1.5.3
+### 1.7.5
 
-* bugfix for latest_value added in statistics for database
+* security enhancements
 
-### 1.5.2
+### 1.7.4
 
-* latest_value added in statistics for database
-
-### 1.5.1
-
-* new adapter testing and security update
-
-### 1.5.0
-
-* support for cooling values and startpage graphs
-
-### 1.4.11
-
-* support for further heatingtyp WPL25A
+* security enhancements
 
 ## License
 MIT License
 
-Copyright (c) 2018-2021 Michael Schuster <development@unltd-networx.de>
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2023 Michael Schuster <development@unltd-networx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

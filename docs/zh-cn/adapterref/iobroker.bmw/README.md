@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: vpXwnVJpS3wnAiyu8fy5VMVFWvIYqhlWurGRfuTYfaM=
+hash: WhGG3fHzhSI6UF+yl66mxbxq7oNmCRrArnm4WdKMQzo=
 ---
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bmw.svg)
@@ -31,6 +31,9 @@ hash: vpXwnVJpS3wnAiyu8fy5VMVFWvIYqhlWurGRfuTYfaM=
 ## 充电时数据更新
 充电时，由于车辆处于睡眠/待机状态，电池电量可能无法通过数据流更新。车辆启动后，数据将更新。您可以通过 API `bmw.0.vin.remote.fetchViaAPI` 触发更新。
 
+## 数据点描述
+您可以在此处找到详细的数据点描述[远程信息处理.json](telematic.json)
+
 ## 设置说明
 ### 1. BMW ConnectedDrive 门户设置
 1. 访问 BMW ConnectedDrive 门户：**https://www.bmw.de/de-de/mybmw/vehicle-overview**
@@ -47,9 +50,9 @@ hash: vpXwnVJpS3wnAiyu8fy5VMVFWvIYqhlWurGRfuTYfaM=
 
 ![CarData 客户端设置](../../../en/adapterref/iobroker.bmw/img/cardata-client-setup.png)
 
-# **关键**：点击一项服务，如果出现错误信息，请等待 30 秒，然后再次点击。不要点击“Gerät Authentifizieren/Devict authentication”，请在 iobroker 设置中输入 client_id。
+# **关键**：点击一项服务，如果出现错误信息，请等待 30 秒，然后再次点击。不要点击“Gerät Authentifizieren/Devict authentication”（执行身份验证/取消身份验证）。请在 iobroker 设置中输入 client_id。
 ### 2. CarData 流配置
-**您必须配置 CARDATA 流并选择所有 244 个数据点**
+**您必须配置 CARDATA STREAMING 并选择所有 244 个数据点**
 
 创建客户端 ID 后，配置流式传输：
 
@@ -133,7 +136,7 @@ BMW CarData API 为只读，因此此适配器不提供车辆命令功能。如�
 
 **此适配器中可用的遥控器：**
 
-- `fetchViaAPI` - 通过容器 API 获取最新的远程信息处理数据
+- `fetchViaAPI` - 通过容器 API 获取最新的远程信息数据
 - `basicData` - 刷新车辆基本信息（型号、品牌、系列）
 - `chargingHistory` - 获取过去 30 天的充电会话
 - `image` - 检索当前车辆图像
@@ -185,6 +188,15 @@ _注意：这些只是数据检索命令 - BMW CarData API 不支持任何车辆
 此适配器可在以下位置获取：[https://github.com/TA2k/ioBroker.bmw](https://github.com/TA2k/ioBroker.bmw)
 
 ## Changelog
+### 4.3.1 (2025-10-11)
+
+- fix gps coordinate parsing
+
+### 4.3.0 (2025-10-09)
+
+- improve logs
+- add autocast
+- add descriptions
 
 ### 4.2.0 (2025-10-04)
 

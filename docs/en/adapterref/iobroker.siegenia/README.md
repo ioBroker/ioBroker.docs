@@ -25,8 +25,13 @@ All current devices are support by this adapter:
 * SENSOAIR
 * AEROVITAL ambience
 * MHS Family
+* ACS
 * AEROTUBE
 * Universal Module
+* enOcean Converter Module
+* VT Upgrade
+* DRIVE CL
+* AEROPLUS
 
 The adapter is capable to automatically detect the Siegenia devices in the same network as ioBroker and will list them in it's Admin interface. You only need to correct the user and password after the detection. But you can also enter IPs and login data manually.
 
@@ -36,6 +41,9 @@ Timers and other more complex data are shown by the adapter, but can be changed 
 
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (@Apollon77) Add support for enOcean Converter Module, VT Upgrade, DRIVE CL, and AEROPLUS
 
 ### 1.1.1 (2021-07-06)
 * (thost96/Apollon77) Optimize for js-controller 3.3
@@ -54,7 +62,7 @@ Timers and other more complex data are shown by the adapter, but can be changed 
 ## License
 MIT License
 
-Copyright (c) 2019-2021 Apollon77 iobroker@fischer-ka.de
+Copyright (c) 2019-2025 Apollon77 iobroker@fischer-ka.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

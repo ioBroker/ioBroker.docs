@@ -1,30 +1,30 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: OKXZUVLJ36izUiwt4Xt60u0A8w2G8jTdKLFYp7Wt6W8=
+hash: 4lYcnQYfG6avpQQzmubo56sJld4ntQ7Z6tPM3BcNKrQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![версия НПМ](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
-![Количество установок (последних)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
-![Количество установок (стабильно)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
+![Количество установок (последнее)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
+![Количество установок (стабильное)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
 ![НПМ](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
 [![Статус зависимостей](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер Seq для ioBroker
-Этот адаптер позволяет вам перенести журнал ioBroker в систему [сек.](https://datalust.co/seq).
-Также можно применить фильтр к уровням журналов, а также к адаптерам.
+Этот адаптер позволяет вам передавать журнал ioBroker в систему [Последовательность](https://datalust.co/seq).
+Также можно применить фильтр к уровням журнала и к адаптерам.
 
 ## Конфигурация
 1. Создайте новый экземпляр адаптера.
-2. Укажите URL/IP и порт экземпляра [Seq](https://datatalust.co/seq).
-3. Укажите, какие события журнала вы хотите отправить в [Seq](https://datatalust.co/seq).
-4. Сохраните настройки
+2. Заполните URL/IP-адрес и порт экземпляра [Seq](https://datalust.co/seq)
+3. Укажите, какие события журнала вы хотите отправить в [Seq](https://datalust.co/seq)
+4. Сохраните настройки.
 
 ## Changelog
 
@@ -34,11 +34,17 @@ hash: OKXZUVLJ36izUiwt4Xt60u0A8w2G8jTdKLFYp7Wt6W8=
     npm run release patch -- --all 0.9.8 -> 0.9.9
     npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+  ### **WORK IN PROGRESS**
 -->
+### 0.4.2 (2025-10-20)
+* (arteck) fixes
 
-### __WORK IN PROGRESS__
-- (arteck) transfer to arteck
+### 0.4.1 (2025-10-20)
+* (arteck) pin seq-logging
+
+### 0.4.0 (2025-10-20)
+* (arteck) Dependencies have been updated
+* (arteck) transfer to arteck
 
 ### 0.3.0 (2023-07-25)
 - (o0shojo0o) added adminTab
@@ -130,7 +136,7 @@ hash: OKXZUVLJ36izUiwt4Xt60u0A8w2G8jTdKLFYp7Wt6W8=
 
 MIT License
 
-Copyright (c) 2024 Arthur Rupp <arteck@outlook.com>,
+Copyright (c) 2025 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

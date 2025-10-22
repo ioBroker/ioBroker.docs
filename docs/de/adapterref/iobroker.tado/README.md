@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: 1FE1vzrNGINQ6iiDnOBkccJ3iCl6Y5Iy0cfnXMDm5hA=
+hash: eRnSe9MXrZmvrPp5Vewfrw4Nv1Ts9M7+NvGEeTxTPlM=
 ---
 # IoBroker.tado
 
@@ -31,7 +31,7 @@ Wenn Sie mit Tados Entscheidung nicht einverstanden sind, informieren Sie sie [w
 
 ## Tado° X
 Grundlegender Support für Tado° X verfügbar.
-Wenn Ihr Setup nicht funktioniert, melden Sie sich bitte mit [Ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=). Sie müssen einige Debugging-Sitzungen unterstützen und mit dem Adapterentwickler interagieren, um die Funktionen von Tado° X zu verbessern.
+Wenn Ihr Setup nicht funktioniert, melden Sie bitte eine Fehlermeldung ([Ticket](https://github.com/DrozmotiX/ioBroker.tado/issues/new?assignees=HGlab01&labels=enhancement&projects=&template=Enhancement.md&title=)). Sie müssen einige Debugging-Sitzungen unterstützen und mit dem Adapterentwickler interagieren, um die Funktionen von Tado° X zu verbessern.
 
 ## Dinge, die Sie auf Tado° V3+, V3, V2 steuern können
 | Zustand | Beschreibung |
@@ -80,12 +80,21 @@ Wenn Ihr Setup nicht funktioniert, melden Sie sich bitte mit [Ticket](https://gi
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.8.0-alpha.0 (2025-09-22)
+### 0.8.1-alpha.0 (2025-10-17)
+* (HGlab01) code refactorings
+* (HGlab01) fix issue 'definition missing for holidayMode' [TadoX]
+* (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
+
+### 0.8.0 (2025-10-07)
+* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
+* (HGlab01) Implement API debouncing
+* (HGlab01) Refactorings Tado API calls
 * (HGlab01) fix issue 'definition missing for awayMode' [TadoX]
 * (HGlab01) fix issue 'definition missing for preheating' [TadoX]
 * (HGlab01) Additional guidance/log when it comes to RefreshToken issue
-* (HGlab01) new configuration capabilities to manage API usage quota (#1047, #1048)
+* (HGlab01) fix Object of state "tado.0.xxxxx.Rooms.y.openWindow" is missing the required property "common.type" (#1059)
 * (HGlab01) Bump axios to 1.12.2
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.0
 
 ### 0.7.10 (2025-04-25)
 * (HGlab01) further token refresh optimizations
@@ -95,10 +104,6 @@ Wenn Ihr Setup nicht funktioniert, melden Sie sich bitte mit [Ticket](https://gi
 
 ### 0.7.8 (2025-04-10)
 * (HGlab01) fix issue 'definition missing for balanceControl' [TadoX]
-
-### 0.7.7 (2025-04-08)
-* (HGlab01) optimize sentry usage
-* (HGlab01) improve retry-mechanism when it comes to erros
 
 ## License
 MIT License

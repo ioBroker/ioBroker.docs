@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.flexcharts/README.md
 title: ioBroker.flexcharts
-hash: tgvZZl7ky8Zoh2J0asNK9l7l9EcDIw2HbRwFyLDxX4E=
+hash: s0KkPOkIdm+ZL3Z7qz3BmdJg5fbyuO0+OQR9sMRvEXE=
 ---
 ![Logo](../../../en/adapterref/iobroker.flexcharts/admin/flexcharts-icon-small.png)
 
@@ -17,6 +17,19 @@ hash: tgvZZl7ky8Zoh2J0asNK9l7l9EcDIw2HbRwFyLDxX4E=
 **Tests:** ![Testen und Freigeben](https://github.com/MyHomeMyData/ioBroker.flexcharts/workflows/Test%20and%20Release/badge.svg)
 
 ## Flexcharts-Adapter für ioBroker
+# Aktuelle Nachrichten
+**Apache ECharts hat Version 6.0.0 mit 12 wichtigen Updates veröffentlicht.** Weitere Informationen finden Sie unter https://echarts.apache.org/handbook/en/basics/release-note/v6-feature.
+
+Flexcharts v0.6.0 basiert auf dieser neuen Version und bietet neue Funktionen:
+
+* brandneues Standarddesign
+* Möglichkeit zur Übergabe einer unbegrenzten Anzahl eigener Themen
+* Dynamischer Themenwechsel. Ein typisches Szenario besteht darin, auf den Dunkelmodus des Systems zu hören und das Diagrammthema dynamisch anzupassen (zum Aktivieren den HTTP-Parameter „&darkmode=auto“ hinzufügen).
+* neue Diagrammtypen
+* Möglichkeit, eine unbegrenzte Anzahl ereignisgesteuerter Funktionen zu übergeben
+
+**Anmerkung:** Sie können das **ECharts v5-Standarddesign** beibehalten, indem Sie einfach den HTTP-Parameter `&themev5` hinzufügen, z. B. `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart1&themev5`
+
 # Grundkonzept
 Es gibt verschiedene Adapter zur Anzeige von Diagrammen in ioBroker. Soweit mir bekannt ist, verwenden alle Adapter eine Benutzeroberfläche zur Konfiguration von Inhalt und Optionen der Diagramme. Typischerweise können nicht alle Funktionen des verwendeten grafischen Subsystems auf diese Weise genutzt werden. Beispielsweise ist es mit dem eChart-Adapter nicht möglich, voll funktionsfähige gestapelte Diagramme anzuzeigen.
 
@@ -173,10 +186,10 @@ Hier ist eine Bildschirmaufnahme dieses von Flexcharts gesteuerten Diagramms: [d
 
 Um ereignisgesteuerte Funktionen für eigene Diagramme zu nutzen, empfehle ich die Verwendung eines **Skripts als Quelle**. [Vorlage 4](templates/flexchartsTemplate4.js) demonstriert die Implementierung. Bitte beachten Sie Folgendes:
 
-* Um das Diagramm dynamisch zu gestalten, müssen wir Funktionen zur Verarbeitung von Ereignissen innerhalb des Diagramms definieren. Dies geschieht durch die Definition von Funktionen wie `myChart.on("event",function(e){ ... });`
-* Es ist zwingend erforderlich, jede dieser Funktionen mit „myChart.on“ zu benennen.
-* Für die Übergabe der Funktionsdefinition an Flexcharts muss diese in einen **Javascript-String** konvertiert werden. Dies kann durch konsequentes Setzen von Anführungszeichen (`"`) innerhalb der Funktion und anschließendes Einschließen in Apostrophe (`'`) erfolgen – oder umgekehrt. Sie können einen Kompaktor, z. B. [diesen](https://www.toptal.com/developers/javascript-minifier), verwenden, um den benötigten Platz zu reduzieren.
-* Abschließend müssen beide Teile, die Diagrammdefinition und die Definition der Ereignisfunktion(en), als **Array von Javascript-Strings** über den Callback bereitgestellt werden. In Vorlage 4 geschieht dies als `callback([strify.stringify(option), onEvent]);`, wobei `option` die Diagrammdefinition und `onEvent` die Definition der Ereignisfunktion als Javascript-String enthält. Wenn Sie mehr als eine Funktion definieren, müssen alle Funktionen auf den String `onEvent` verweisen.
+* Um das Diagramm dynamisch zu gestalten, müssen Sie Funktionen zur Verarbeitung von Ereignissen innerhalb des Diagramms definieren. Dies geschieht durch die Definition von Funktionen wie `myChart.on("event",function(e){ ... });`
+* Es ist zwingend erforderlich, jede dieser Funktionen mit `myChart.on()` zu benennen.
+* Um die Funktionsdefinition an Flexcharts zu übergeben, muss sie in einen **Javascript-String** konvertiert werden. Dies kann durch konsequentes Setzen von Anführungszeichen (`"`) innerhalb der Funktion und anschließendes Einschließen in Apostrophe (`'`) erfolgen – oder umgekehrt. Sie können einen Kompaktor, z. B. [diesen](https://www.toptal.com/developers/javascript-minifier), verwenden, um den benötigten Platz zu reduzieren.
+* Abschließend müssen Sie alle Teile, die Diagrammdefinition und die Definition der Ereignisfunktion(en), als **Array von Javascript-Strings** über den Rückruf bereitstellen. In Vorlage 4 geschieht dies als `callback([strify.stringify(option), onEvent]);`, wobei `option` die Diagrammdefinition und `onEvent` die Definition der Ereignisfunktion als Javascript-String enthält. Wenn Sie mehr als eine Funktion definieren, können Sie diese in den String `onEvent` aufnehmen oder als zusätzliches Array-Element hinzufügen, z. B. `callback([strify.stringify(option), onEvent1, onEvent2, onEvent3]);`. Die Anzahl der Funktionsdefinitionen ist nicht begrenzt.
 * Um die Definition des Diagramms in eine Zeichenfolge zu konvertieren („Option“), müssen Sie „javascript-stringify“ verwenden, wie im vorherigen Kapitel beschrieben.
 
 Hinweis: Wenn das npm-Modul `javascript-stringify` installiert ist, kann dessen Funktionalität auch von Schadcode (Cross-Site-Scripting) ausgenutzt werden. Daher sollte ioBroker bei Verwendung dieses Moduls nicht über das Internet erreichbar sein.
@@ -191,6 +204,44 @@ Es ist auch möglich, diese Funktion mit einem **Bundesstaat als Datenquelle** z
 * Natürlich möchten Sie die Daten des Diagramms manipulieren. Die Daten sind jedoch Teil der Diagrammdefinition. Daher müssen Sie das Array der JSON-Strings mit Javascript lesen und schreiben. Daher empfehle ich, wie oben beschrieben ein Skript als Datenquelle zu verwenden.
 * Ein Beispiel ist jedoch im Info-Teil von Flexcharts verfügbar: `flexcharts.0.info.chart3`. Zur Anzeige in einem Browser verwenden Sie `http://localhost:8082/flexcharts/echarts.html?source=state&id=flexcharts.0.info.chart3`
 
+### Arbeiten mit Apache EChart-Themen (v6-Funktion)
+ECharts bietet verschiedene Optionen zur individuellen Gestaltung von Diagrammen. Eine leistungsstarke Methode ist die Verwendung von Designs. Standardmäßig wird im Normalmodus das Design „default“ und im Dunkelmodus das Design „dark“ verwendet. Diese Designs sind vordefiniert, können aber angepasst werden.
+
+Flexcharts Version 0.6.0 und höher unterstützt die Definition von Designs. Darüber hinaus ist in Kombination mit der Definition ereignisgesteuerter Funktionen – siehe vorheriges Kapitel – ein dynamischer Wechsel zwischen Designs möglich.
+
+Designs lassen sich am besten mit Apache ECharts [Themen-Builder](https://echarts.apache.org/en/theme-builder.html) erstellen oder anpassen.
+
+Um ein Design an Flexcharts zu übergeben, indem Sie ein **Skript als Quelle** verwenden, gehen Sie folgendermaßen vor:
+
+* Wählen Sie auf der Site „Theme Builder“ ein Thema aus oder ändern Sie es und drücken Sie dann die Schaltfläche „Herunterladen“.
+* Wählen Sie die Registerkarte „JSON-Version“ und kopieren Sie den Inhalt in die Zwischenablage, indem Sie auf die Schaltfläche „Kopieren“ klicken
+* Fügen Sie etwas wie `const myThemeDefault = ` zu Ihrem Skript hinzu und fügen Sie die Zwischenablage dahinter ein
+* Übergeben Sie das Design mithilfe eines Arrays an Flexcharts, wie für ereignisgesteuerte Funktionen gezeigt: `callback([JSON.stringify(option), ['default', JSON.stringify(myThemeDefault)]]);`
+* Bitte beachten: Sie müssen das Design als Array von Zeichenfolgen übergeben: `[<Name des Designs>, <Zeichenfolgendefinition des Designs>]`
+
+[Vorlage 5](templates/flexchartsTemplate5.js) demonstriert die Implementierung der Übergabe neuer Themes für den Standardmodus (Theme 'default') und den Dunkelmodus (Theme 'dark'). Die dynamische Umschaltung zwischen beiden Themes basierend auf den Systemeinstellungen ist aktiviert.
+
+So verwenden Sie einen **Status als Quelle** zum Übergeben von Themen:
+
+* Erstellen Sie den Status mit dem Format „Array“.
+* Fügen Sie die Diagrammdefinition als erstes Element des Arrays hinzu
+* Bereiten Sie das/die Design(s) als stringifiziertes JSON-Objekt vor. Sie verwenden einen JSON-Formatierer, z. B. https://jsonformatter.curiousconcept.com/ mit der Vorlage „compact“, um das JSON-Objekt in einen String zu komprimieren.
+* füge das Thema als 2. Element zum Status als Array hinzu (siehe oben): `[<Name des Themas>, <Definition des Themas>]`
+* Schließlich sollte der Status wie folgt aussehen: „[<stringifizierte Definition des Diagramms>,[‚Standard‘, <stringifizierte Definition des Standarddesigns>]]“.
+* Ein Beispiel ist unter „flexcharts.0.info.chart4“ verfügbar (nur auf neu installierten Instanzen).
+
+Die Anzahl der Designdefinitionen ist nicht begrenzt. Um jedoch Designs mit anderen Namen als „Standard“ oder „Dunkel“ zu aktivieren, müssen Sie eine eigene Funktionalität mit dem Ausdruck `myChart.setTheme(<name of theme>);` und Code definieren, um diese unter bestimmten Bedingungen aufzurufen.
+
+**Probieren Sie es aus:**
+
+* Erstellen Sie ein einfaches Diagramm basierend auf [diesem Beispiel](https://echarts.apache.org/examples/en/editor.html?c=area-stack)
+* Um Daten an Flexcharts zu übergeben, verwenden Sie `callback(JSON.stringify(option));`
+* Nehmen Sie nun einige Änderungen am Standarddesign vor. Ersetzen Sie den Rückruf durch diese Version:
+
+`callback([JSON.stringify(option), ['default', '{"title":{"left":"left"},"color":["#ff715e","#ffaf51","#ffee51","#8c6ac4","#715c87"],"backgroundColor":"rgba(64,64,64,0.5)"}']]);`
+
+* Sie sollten einen linksbündigen Titel und geänderte Farben für die Daten und den Hintergrund sehen.
+
 ## Vorlagen
 Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 
@@ -200,6 +251,7 @@ Für einige Anwendungsfälle stehen Javascript-Vorlagen zur Verfügung:
 * Diagramm für Daten des **TibberLink-Adapters**: siehe Diskussionen [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/67) und [hier](https://github.com/MyHomeMyData/ioBroker.flexcharts/discussions/66)
 * Für Viessmann-Geräte der E3-Serie, z. B. Wärmepumpe Vitocal 250, ist ein sehr spezifischer Anwendungsfall verfügbar. Siehe https://github.com/MyHomeMyData/ioBroker.e3oncan/discussions/35
 * Implementierung dynamisch wechselnder Diagramme: [template4](templates/flexchartsTemplate4.js)
+* Implementierung eigener Designs für den Standard- und Dunkelmodus und Verwendung dynamischer Umschaltung basierend auf den Systemeinstellungen: [template5](templates/flexchartsTemplate5.js)
 * Adapter [tibberLink](https://github.com/hombach/ioBroker.tibberlink) nutzt Flexcharts als Option zur grafischen Aufbereitung der Daten. Derzeit im Beta-Repo von ioBroker verfügbar. Siehe die [Dokumentation](https://github.com/hombach/ioBroker.tibberlink?tab=readme-ov-file#2-using-the-flexcharts-or-fully-featured-echarts-adapter-with-json).
 
 ## Referenz
@@ -209,8 +261,9 @@ Verwenden Sie **Javascript** als Datenquelle: `http://localhost:8082/flexcharts/
 
 ### Optionale Argumente
 * `&message=my_message` – sendet „my_message“ an JavaScript. Verwenden Sie `onMessage('my_message', (httpParams, callback) => { callback(mychart); })`, um Diagrammdaten bereitzustellen. Standardmäßig wird „flexcharts“ verwendet.
-* `&darkmode` – aktiviert die Dunkelmodus-Visualisierung von ECharts.
+* `&darkmode[=on|off|auto]` – gibt die Dunkelmodus-Visualisierung von ECharts an: „off“ => Dunkelmodus dauerhaft ausgeschaltet; „on“ oder kein Wert => Dunkelmodus dauerhaft eingeschaltet; „auto“ => achtet auf die Dunkelmodus-Einstellung des Systems.
 * `&refresh=number` – aktualisiert das Diagramm alle "number" Sekunden. Der Standardwert beträgt 60 Sekunden. Der Mindestwert beträgt 5 Sekunden.
+* `&themev5` – Standarddesign des Diagramms auf Apache ECharts-Design „v5“ festlegen – siehe https://echarts.apache.org/handbook/en/basics/release-note/v6-upgrade-guide/, Kapitel „Standarddesign“
 * `&user_defined_arguments` – Fügen Sie je nach Bedarf weitere Parameter hinzu. Alle Argumente sind in der Funktion `onMessage()` im Objekt `httpParams` verfügbar. Weitere Details finden Sie in den obigen Beispielen und Vorlagen.
 
 ### Verwenden von Funktionen innerhalb der Diagrammdefinition
@@ -231,6 +284,13 @@ Dies sollte ein Demodiagramm aufrufen, wenn Flexcharts und Webadapter ausgeführ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.0 (2025-10-19)
+* (MyHomeMyData) Updated Apache ECharts to version 6.0.0 using brand new default theme - please take a look to Readme! Ref. issue #125
+* (MyHomeMyData) Added option to dynamically switch dark mode by listening to the system's setting. Based on Apache ECharts 6.
+* (MyHomeMyData) Added possibility to add self defined themes. Based on Apache ECharts 6.
+* (MyHomeMyData) Extended support for definition of onEvent functions. Now an unlimited number of functions can be defined instead of just one.
+* (MyHomeMyData) Fixes for issue #132 (repository checker)
+
 ### 0.5.0 (2025-09-17)
 * (MyHomeMyData) Changed internal naming of chart's options from 'jsopts' to 'option'. If you're using event driven functions within your charts, you may need to adapt the naming accordingly. Pls. refer to Readme.
 * (MyHomeMyData) Migration to ESLint 9. Fixes issues #107 (Migration to ESLint 9) and #114 (findings of repository checker)

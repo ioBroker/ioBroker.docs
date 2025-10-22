@@ -29,6 +29,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.7.5 (2025-10-12)
+* (misanorot) update packages
+
 ### 3.7.4 (2025-08-17)
 * (misanorot) update packages
 
@@ -40,9 +43,6 @@
 
 ### 3.6.7 (2024-12-18)
 * (misanorot) ESlint 9  #267
-
-### 3.6.5 (2024-12-15)
-* (misanorot) fixed Firefox scrolling issue #266
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: SAbUzvDtWNhrpF4I5/Bso4E/DCqenx+tWZoF89KG30k=
+hash: dYFtKGiq7nipkX2SNOKhI/HgRHRaJ3OqPl2evIBAZmg=
 ---
 # Государственные роли
 Для объектов типа `state` необходимо задать для свойства `common.role` одну из ролей, определённых в списке ниже.
@@ -126,7 +126,7 @@ hash: SAbUzvDtWNhrpF4I5/Bso4E/DCqenx+tWZoF89KG30k=
 * `value.gps.radius` - радиус текущего измерения GPS
 * ~~`value.power.consumption` - потребление энергии (единица измерения = Вт·ч или кВт·ч)~~
 * ~~`value.power.production` - производство энергии (единица измерения = Вт·ч или кВт·ч)~~
-* `value.energy` - энергия (единица измерения=Вт·ч, кВт·ч или м³ для бензина)
+* `value.energy` - энергия (единица измерения = Вт·ч, кВт·ч или м³ для бензина)
 * `value.energy.active` - активная энергия (единица измерения=Вт·с, Вт·ч, кВт·ч)
 * `value.energy.reactive` - реактивная энергия (единица измерения=вар, кВарч)
 * `value.energy.consumed` - потребленная энергия (единица измерения=Вт·с, Вт·ч, кВт·ч)
@@ -218,9 +218,10 @@ hash: SAbUzvDtWNhrpF4I5/Bso4E/DCqenx+tWZoF89KG30k=
 * `уровень.цвет.насыщенность`
 * `level.color.rgb` - шестнадцатеричный цвет, например `#rrggbb` (`common.type=string`)
 * `level.color.rgbw` - шестнадцатеричный цвет, например `#rrggbbww` (`common.type=string`)
-* `level.color.cie` - цвет CIE в формате `[x, y]` (`common.type=string)
+* `level.color.cie` - цвет CIE в формате `[x, y]` (`common.type=string`)
 * `уровень.цвет.яркость`
 * `level.color.temperature` - цветовая температура в K° `2200 теплый белый, 6500° холодный белый`
+* `level.effect` — эффект, обычно для освещения. Должен содержать список возможных эффектов в `common.states`. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep` - таймер сна. 0 - выключено, или в минутах
 * ...

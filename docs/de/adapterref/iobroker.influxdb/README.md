@@ -104,6 +104,11 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Completely refactored the code to TypeScript and ES6
+* (bluefox) Added possibility to start docker containers directly from the adapter
+* (mcm1957) Adapter requires admin >= 7.7.2 now
+
 ### 4.0.3 (2024-05-16)
 * (bluefox) Some packages were updated
 
@@ -360,7 +365,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2024 bluefox, apollon77
+Copyright (c) 2015-2025 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

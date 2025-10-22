@@ -79,6 +79,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (hombach) bump dependencies
+
 ### 2.0.3 (2025-09-27)
 
 - (hombach) remove allowInit (#181)

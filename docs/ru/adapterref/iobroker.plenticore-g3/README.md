@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.plenticore-g3/README.md
 title: ioBroker.plenticore-g3
-hash: e+eYDNls+d1LJL15tRreGMhv4+kqvruep0tqXxK8GXs=
+hash: B0UYuVEGJli+1hMjS9GTkZerCB7REb/xhVWqz2I5zaQ=
 ---
 ![версия НПМ](https://img.shields.io/npm/v/iobroker.plenticore-g3.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.plenticore-g3.svg)
@@ -14,27 +14,66 @@ hash: e+eYDNls+d1LJL15tRreGMhv4+kqvruep0tqXxK8GXs=
 <p align="left"> <img src="admin/plenticore-g3.png" width="30%"> </p>
 
 # IoBroker.plenticore-g3
-**Тесты:** ![Тест и выпуск](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/fernetmenta/ioBroker.plenticore-g3/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер plenticore-g3 для ioBroker
-Адаптер для связи с KOSTAL Plenticore plus через REST API. Этот API намного мощнее, чем modbus. Он предоставляет доступ примерно к 200 точкам данных только для чтения, называемым «processdata», и примерно к 250 записываемым настройкам. Этот API задокументирован по этому URL:
+Адаптер для связи с KOSTAL Plenticore (различные модели, см. раздел ниже) через REST API. Этот API гораздо мощнее Modbus. Он предоставляет доступ примерно к 200 точкам данных, доступным только для чтения (processdata), и примерно к 250 записываемым параметрам. Документация по этому API доступна по ссылке:
 
 http://\<хост plenticore>/api/v1
 
 <p align="center"> <img src="images/rest1.png" width="50%"> <img src="images/rest2.png" width="50%"> </p>
 
-Этот адаптер использует «Данные процесса» и «Настройки» REST API. Поскольку ни одному пользователю не нужны все доступные данные, адаптер имеет только очень небольшое количество предустановленных данных процесса и настроек, но дает пользователю возможность выбирать дополнительные точки данных из списка всех доступных данных процесса и настроек соответственно.
+Этот адаптер использует «Данные процесса» и «Настройки» REST API. Поскольку пользователю не нужны все доступные данные, адаптер имеет лишь очень небольшое количество предустановленных данных процесса и настроек, но предоставляет пользователю возможность выбирать дополнительные точки данных из списка всех доступных данных процесса и настроек соответственно.
 
 <p align="center"> <img src="images/processdata.png" width="50%"> </p>
 
-Вы также можете добавлять собственные описания к необязательным точкам данных, которые будут отображаться как описания в дереве объектов iobroker. В большинстве случаев назначение точки данных можно определить по ее имени. Например, 'devices:local/HomeBat_P' представляет мощность, которую дом использует от батареи.
+Вы также можете добавить собственные описания к дополнительным точкам данных, которые будут отображаться в виде описаний в дереве объектов iobroker. В большинстве случаев назначение точки данных можно определить по её названию. Например, «devices:local/HomeBat_P» отображает мощность, потребляемую домом от аккумулятора.
 
 ### Именование
-Собственные объекты состоят из идентификатора модуля и идентификатора данных, например, &#39;scb:statistic:EnergyFlow/Statistic:Yield:Day&#39;. Часть перед косой чертой — это идентификатор модуля. В этом случае &#39;scb:statistic:EnergyFlow&#39;. В дереве объектов iobroker будет создана структура папок для идентификатора модуля:<br> скб<br> статистика<br> EnergyFlow<br>
+Собственные объекты состоят из идентификатора модуля и идентификатора данных, например, «scb:statistic:EnergyFlow/Statistic:Yield:Day». Часть перед косой чертой — это идентификатор модуля. В данном случае это «scb:statistic:EnergyFlow». В дереве объектов iobroker будет создана структура папок для идентификаторов модулей:<br> скб<br> статистика<br> EnergyFlow<br>
 
-Двоеточия в идентификаторе данных заменяются подчеркиванием:<br> «Статистика:Доходность:День» станет «Статистика_Доходность_День»
+Двоеточия в идентификаторе данных заменяются подчеркиванием:<br> «Statistic:Yield:Day» станет «Statistic_Yield_Day»
+
+## Поддерживаемые/протестированные модели Plenticore
+Несмотря на то, что название адаптера может указывать на поддержку только моделей G3, поддерживаются и другие модели. API, по всей видимости, аналогичен, могут различаться только доступные точки данных. Ниже представлен список моделей, успешно протестированных пользователями.
+
+- Пленкёр G3
+- Plenticore plus 10 (G1) - Версия прошивки 01.30.12092
+- Plenticore BI 10/26 (G2) - Версия прошивки 02.15.19562
 
 ## Changelog
+### 0.4.1 (2025-10-17)
+- move to npm trusted publishing
+
+### 0.4.0 (2025-10-07)
+- improve init process: do preinit, if inverter is not in state FeedIn; trigger init as soon as inverter goes to FeedIn
+
+### 0.3.0 (2025-10-06)
+- update documentation with soction of tested models
+- enhance port selection related to http/https for base settings
+- do not poll data points related to battery, if no battery is present
+- update dependencies
+
+### 0.2.1 (2025-08-29)
+- update dependencies
+
+### 0.2.0 (2025-07-22)
+- check Inverter_State for FeedIn before init
+- suspend error logging on too many errors
+- add timeout to API calls
+- update translations
+
+### 0.1.4 (2025-06-17)
+- fix logging for preset and optional data
+
+### 0.1.3 (2025-06-15)
+- add some logging for debugging
+- fix log warnings
+
+### 0.1.2 (2025-06-01)
+- add node 24 to tests
+- chores
+
 ### 0.1.1 (2025-04-07)
 
 - fix object hierarchy

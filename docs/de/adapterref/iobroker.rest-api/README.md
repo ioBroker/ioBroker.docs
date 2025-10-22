@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: BVfjhb1Gx9apADa3SuQvZnxWh9WASBG6M7ZIn4QunPY=
+hash: xn86ZLFPgffbxoD8CgqI2CSXHvCth7G1XqTBbf7NWy8=
 ---
 ![Logo](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -18,7 +18,7 @@ hash: BVfjhb1Gx9apADa3SuQvZnxWh9WASBG6M7ZIn4QunPY=
 
 Dies ist eine RESTFul-Schnittstelle zum Lesen der Objekte und Zustände von ioBroker und zum Schreiben/Steuern der Zustände über HTTP-Get/Post-Anfragen.
 
-Der Zweck dieses Adapters ähnelt dem von simple-api. Dieser Adapter unterstützt jedoch Long-Polling und URL-Hooks zum Abonnieren.
+Der Zweck dieses Adapters ist ähnlich wie bei Simple-API. Dieser Adapter unterstützt jedoch Long-Polling und URL-Hooks zum Abonnieren.
 
 Es verfügt über eine nützliche Weboberfläche zum Spielen mit den Anfragen:
 
@@ -30,9 +30,9 @@ Rufen Sie im Browser `http://ipaddress:8093/` auf und verwenden Sie die Swagger-
 Einige Anfragebeispiele:
 
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - Status als JSON lesen
-- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` – Status als Zeichenfolge lesen (nur Wert)
+- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - Status als Zeichenfolge lesen (nur Wert)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - Status mit GET schreiben (nur für Abwärtskompatibilität mit Simple-API)
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` – Senden Sie eine Nachricht an `javascript.0` im Skript `scriptName`
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` – senden Sie eine Nachricht an `javascript.0` im Skript `scriptName`
 
 ### Authentifizierung
 Um die Authentifizierung zu aktivieren, müssen Sie im Konfigurationsdialog die Option `Authentication` setzen.
@@ -40,8 +40,8 @@ Um die Authentifizierung zu aktivieren, müssen Sie im Konfigurationsdialog die 
 Es werden drei Arten der Authentifizierung unterstützt:
 
 - Anmeldeinformationen in der Abfrage
-- Grundlegende Authentifizierung
-– OAuth2 (Träger)
+- Basisauthentifizierung
+- OAuth2 (Träger)
 
 Zur Authentifizierung in einer Abfrage müssen Sie `user` und `pass` in einer Abfrage wie folgt festlegen:
 
@@ -84,7 +84,7 @@ Dieser Adapter unterstützt das Abonnieren von Datenänderungen über Long Polli
 Ein Beispiel für einen Browser finden Sie hier: [demoNodeClient.js](examples/demoBrowserClient.html)
 
 ## Web-Erweiterung
-Dieser Adapter kann als Web-Erweiterung ausgeführt werden. In diesem Fall ist der Pfad unter `http://ipaddress:8082/rest` verfügbar.
+Dieser Adapter kann als Web-Erweiterung laufen. In diesem Fall ist der Pfad unter `http://ipaddress:8082/rest-api/` verfügbar
 
 ## Beachten
 - `POST` dient immer zum Erstellen einer Ressource (es spielt keine Rolle, ob sie dupliziert wurde)
@@ -120,23 +120,23 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 <!-- START -->
 
 ### Staaten
-- `getStates(pattern)` - ruft die Statusliste für das Muster ab (z. B. für system.adapter.admin.0.*). Die GUI kann bei der Visualisierung der Antwort Probleme haben.
+- `getStates(pattern)` - Ruft die Liste der Zustände für das Muster ab (z. B. für system.adapter.admin.0.*). Die GUI kann bei der Visualisierung der Antwort Probleme haben.
 - `getForeignStates(pattern)` – dasselbe wie getStates
 - `getState(id)` – Statuswert nach ID abrufen
 - `setState(id, state)` – Statuswert mit JSON-Objekt festlegen (z. B. `{"val": 1, "ack": true}`)
-- `getBinaryState(id)` - Binärstatus nach ID abrufen
+- `getBinaryState(id)` – Binärstatus nach ID abrufen
 - `setBinaryState(id, base64)` – Binärstatus nach ID festlegen
 
 ### Objekte
 - `getObject(id)` – Objekt nach ID abrufen
 - `getObjects(list)` - alle Zustände und Räume abrufen. Die GUI kann bei der Visualisierung der Antwort Probleme haben.
-- `getObjectView(design, search, params)` - bestimmte Objekte abrufen, z. B. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
+- `getObjectView(design, search, params)` - bestimmte Objekte abrufen, zB design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
 - `setObject(id, obj)` – Objekt mit JSON-Objekt festlegen (z. B. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
 - `delObject(id, options)` – Objekt nach ID löschen
 
 ### Dateien
-- `readFile(adapter, fileName)` - Datei lesen, z.B. adapter=vis.0, fileName=main/vis-views.json. Zusätzlich kann in der Abfrage die Option binary=true gesetzt werden, um die Antwort als Datei und nicht als JSON zu erhalten.
-- `readFile64(adapter, fileName)` - liest die Datei als Base64-String, z. B. adapter=vis.0, fileName=main/vis-views.json. Zusätzlich kann in der Abfrage die Option binary=true gesetzt werden, um die Antwort als Datei und nicht als JSON zu erhalten.
+- `readFile(adapter, fileName)` - Datei lesen, z.B. adapter=vis.0, fileName=main/vis-views.json. Zusätzlich können Sie in der Abfrage die Option binary=true setzen, um die Antwort als Datei und nicht als JSON zu erhalten
+- `readFile64(adapter, fileName)` - liest die Datei als Base64-String, z.B. adapter=vis.0, fileName=main/vis-views.json. Zusätzlich kann man in der Abfrage die Option binary=true setzen, um die Antwort als Datei und nicht als JSON zu erhalten.
 - `writeFile64(adapter, fileName, data64, options)` - Datei schreiben, zB adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - Datei oder Ordner löschen
 - `deleteFile(adapter, name)` - Datei löschen
@@ -146,7 +146,7 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 - `mkdir(adapter, dirName)` - Ordner erstellen
 - `readDir(adapter, dirName, options)` - Inhalt des Ordners lesen
 - `chmodFile(adapter, fileName, options)` - Dateimodus ändern. Z.B. adapter=vis.0, fileName=main/*, options = `{"mode": 0x644}`
-- `chownFile(adapter, fileName, options)` - Dateibesitzer ändern. Z.B. adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
+- `chownFile(adapter, fileName, options)` – Dateibesitzer ändern. Z. B. adapter=vis.0, fileName=main/*, options = `{"owner": "newOwner", "ownerGroup": "newgroup"}`
 - `fileExists(adapter, fileName)` - prüfen, ob die Datei existiert
 
 ### Administratoren
@@ -162,27 +162,27 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 - `getCompactInstances()` - Liste der Instanzen mit Kurzinformationen lesen
 - `getCompactAdapters()` - Liste der installierten Adapter mit Kurzinformationen lesen
 - `getCompactInstalled(host)` - kurze Informationen über installierte Adapter lesen
-- `getCompactSystemConfig()` - kurze Systemkonfiguration lesen
+- `getCompactSystemConfig()` – kurze Systemkonfiguration lesen
 - `getCompactSystemRepositories()`
 - `getCompactRepository(host)` - kurzes Repository lesen
 - `getCompactHosts()` - kurze Informationen über Hosts abrufen
 - `addUser(user, pass)` - neuen Benutzer hinzufügen
-- `delUser(user)` – Benutzer löschen
-- `addGroup(group, desc, acl)` – neue Gruppe erstellen
+- `delUser(user)` - Benutzer löschen
+- `addGroup(group, desc, acl)` - neue Gruppe erstellen
 - `delGroup(group)` - Gruppe löschen
 - `changePassword(user, pass)` - Benutzerpasswort ändern
 - `getAllObjects()` - liest alle Objekte als Liste. Die GUI kann Probleme bei der Visualisierung der Antwort haben.
-- `extendObject(id, obj)` – Objekt anhand der ID mit JSON ändern. (z. B. `{"common":{"enabled": true}}`)
-- `getForeignObjects(Muster, Typ)` - dasselbe wie getObjects
+- `extendObject(id, obj)` – Objekt nach ID mit JSON ändern. (z. B. `{"common":{"enabled": true}}`)
+- `getForeignObjects(Muster, Typ)` – dasselbe wie getObjects
 - `delObjects(id, options)` – Objekte nach Muster löschen
 
 ### Andere
 - `updateTokenExpiration(Zugriffstoken)`
-- `log(text, level[info])` – keine Antwort – Logeintrag zum ioBroker-Log hinzufügen
-- `checkFeatureSupported(feature)` – prüfen, ob die Funktion vom JS-Controller unterstützt wird.
-- `getHistory(id, options)` - Verlauf lesen. Optionen finden Sie unter: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
-- `httpGet(url)` - URL vom Server lesen. Sie können binary=true setzen, um die Antwort als Datei zu erhalten.
-- `sendTo(adapterInstance, command, message)` - Befehl an Instanz senden. Z.B. adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
+- `log(text, level[info])` - keine Antwort - Logeintrag zum ioBroker-Log hinzufügen
+- `checkFeatureSupported(feature)` – prüfen, ob die Funktion vom js-controller unterstützt wird.
+- `getHistory(id, options)` – Verlauf lesen. Optionen finden Sie unter: https://github.com/ioBroker/ioBroker.history/blob/master/docs/en/README.md#access-values-from-javascript-adapter
+- `httpGet(url)` - URL vom Server lesen. Sie können binary=true setzen, um die Antwort als Datei zu erhalten
+- `sendTo(adapterInstance, command, message)` – Befehl an Instanz senden. Z. B. adapterInstance=history.0, command=getHistory, message=`{"id": "system.adapter.admin.0.memRss","options": {"aggregate": "onchange", "addId": true}}`
 - `listPermissions()` – statische Informationen mit Funktionsberechtigungen lesen
 - `getUserPermissions()` - Objekt mit Benutzerberechtigungen lesen
 - `getVersion()` - Adaptername und Version lesen
@@ -197,6 +197,15 @@ Sie können keine POST-Anfragen an Befehle über die GUI senden.
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.1.1 (2025-10-09)
+* (@GermanBluefox) corrected web extension path
+
+### 3.1.0 (2025-10-05)
+* (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
+* (@SimonFischer04) remove 18 and add node 24 to tests
+* (@SimonFischer04) multiple null error fixes and wrong swagger schema #151
+* (@GermanBluefox) updated packages
+
 ### 3.0.1 (2025-05-21)
 * (@GermanBluefox) Corrected the web extension
 

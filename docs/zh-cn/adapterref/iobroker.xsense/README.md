@@ -12,7 +12,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xsense/README.md
 title: ioBroker.xsense
-hash: 55bZGVCl8p5II4kj8dE1jRNeDjumMqcwtFLshb/cjD8=
+hash: 9yeByLzIopqdXZH3dkoq+j0+ZfZg4oxryaMsE8aIfBU=
 ---
 ![标识](../../../de/adapterref/iobroker.xsense/admin/xsense.png)
 
@@ -90,7 +90,7 @@ python --version
 pip --version
 ```
 
-- 随后，在“xsense.0.info.callPython”下的对象中，输入“python”（默认值为“python3”）。
+- 随后，在“xsense.0.info.callPython”下的对象中输入“python”（默认值为“python3”）。
 
 🐧 **Linux / Docker**
 
@@ -115,11 +115,21 @@ pip --version
 
 <img width="1029" height="438" alt="形象的" src="https://github.com/user-attachments/assets/86e4fd1c-1d4e-4234-a2ad-48b8dd9f418e" />
 
-<img width="1668" height="832" alt="形象的" src="https://github.com/user-attachments/assets/9c6b78dd-aca0-45d4-acbc-bd1511e6ee4b" />
+<img width="2028" height="577" alt="形象的" src="https://github.com/user-attachments/assets/65cc5c71-4cd3-4502-b4bd-a4c7241d7708" />
 
 ------------------------------------------------------------------------------
 
 ## Changelog
+### 0.2.0 (2025-10-21)
+* (arteck) !!!!!!!!!!!!!!!!!!!!!!!   new tree structure, delete all old devices
+* (arteck) fix for more bridges
+
+### 0.1.3 (2025-10-20)
+* (arteck) fix for more devices than 15
+
+### 0.1.2 (2025-10-06)
+* (arteck) fix error message
+
 ### 0.1.1 (2025-10-04)
 * (arteck) fix
 

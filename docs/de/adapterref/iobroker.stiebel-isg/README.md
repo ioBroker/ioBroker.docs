@@ -3,76 +3,66 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: iyF0ZWK88/WwUlksouiJrRJoAU/ZMAs2UqiVj+jo/Co=
+hash: 1ClhfUd7q9ds4+iWLWMIIZl2Kb6RRT7t1Bk67QM3dxc=
 ---
 ![Logo](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.stiebel-isg.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.stiebel-isg.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/stiebel-isg-installed.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/stiebel-isg-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/stiebel-isg-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/unltdnetworx/iobroker.stiebel-isg.svg)
 ![NPM](https://nodei.co/npm/iobroker.stiebel-isg.png?downloads=true)
 
 # IoBroker.stiebel-isg
-** Tests: ** ![Testen und freigeben](https://github.com/unltdnetworx/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Testen und Freigeben](https://github.com/unltdnetworx/ioBroker.stiebel-isg/workflows/Test%20and%20Release/badge.svg)
 
-## Stiebel-isg Adapter für ioBroker
-Dieser Adapter dient zum Lesen von Werten von Internetdienst-Gateways (ISG) von stiebel-eltron / tecalor und zum Steuern des Geräts.
-
-BENUTZUNG AUF EIGENE GEFAHR!!! ABSOLUT KEINE GARANTIE FÜR SCHÄDEN, ETC. !!!
-
-Hilfe oder Hinweise sind willkommen.
-
-## Spenden
-Kaffee ausgeben / Kaffee servieren <https://paypal.me/unltdnetworx>
+## Stiebel-isg-Adapter für ioBroker
+Dieser Adapter dient dazu, Werte aus Stiebel-Eltron/Tecalor Internet Service Gateways (ISG) auszulesen und das Gerät zu steuern.
 
 ## Schritte
-1. Installieren Sie den Adpater
+1. Installieren Sie den Adapter
+2. Holen Sie sich die Werte aus Ihrem stiebel-isg.[x]-Objekt.
 
-2. Nehmen Sie die Werte aus Ihrem stiebel-isg. [X] -Objekt.
+## Anforderungen
+* stiebel-eltron/tecalor internet service gateway (ISG)
 
-## Bedarf
-* Internetdienst-Gateway von stiebel-eltron / tecalor (ISG)
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von Michael Schuster (unltdnetworx) <https://github.com/unltdnetworx>, der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
 
 ## Changelog
 
-### 1.7.0
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 2.0.0-alpha.1 (2025-10-21)
 
-* new adapter structure, bugfixes for new js-controller
+- (mcm1957) Adapter has been migrated to iobroker-communita-adapters organisation
+- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
+- (mcm1957) Dependencies have been updated
 
-### 1.6.0
+### 1.7.7
 
-* new values for isg-version 12 implemented
+* security- and compatibility update
 
-### 1.6.1
+### 1.7.6
 
-* isg-sites to read values from, can now be select by the user
+* fix error with controller v5
 
-### 1.5.3
+### 1.7.5
 
-* bugfix for latest_value added in statistics for database
+* security enhancements
 
-### 1.5.2
+### 1.7.4
 
-* latest_value added in statistics for database
-
-### 1.5.1
-
-* new adapter testing and security update
-
-### 1.5.0
-
-* support for cooling values and startpage graphs
-
-### 1.4.11
-
-* support for further heatingtyp WPL25A
+* security enhancements
 
 ## License
 MIT License
 
-Copyright (c) 2018-2021 Michael Schuster <development@unltd-networx.de>
+Copyright (c) 2025 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2023 Michael Schuster <development@unltd-networx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

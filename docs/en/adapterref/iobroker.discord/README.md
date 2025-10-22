@@ -1341,6 +1341,11 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2025-10-21)
+
+* (crycode-de) Node.js >= 20, js-controller >= 6.0.11, Admin >= 7.6.17 required
+* (crycode-de) Updated dependencies
+
 ### 2.5.2 (2024-11-16)
 
 * (crycode-de) Added missing sizes to jsonConfig
@@ -1462,7 +1467,7 @@ sendTo('discord.0', 'getMessageInfo', {
 
 MIT License
 
-Copyright (c) 2022-2024 Peter Müller <peter@crycode.de>
+Copyright (c) 2022-2025 Peter Müller <peter@crycode.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

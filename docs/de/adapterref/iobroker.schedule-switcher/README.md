@@ -87,7 +87,8 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
         "active": true, // enabled true oder false
         "hour": 16, // Stunde
         "minute": 22, // Minute
-        "day": 9, // Tag
+        "day": 6, // Tag
+        "valueCheck": false, // States vergleichen
         "dateISO": "2024-11-09T15:22:00.000Z", // Zeit ohne Zeitzone
         "timestamp": 1731165720000, // Timestamp ohne Zeitzone
         "objectId": 1 // ObejektId schedule-switcher.0.onoff.<objectid>.data
@@ -128,6 +129,7 @@ Es kann konfiguriert werden, zu welcher Uhrzeit und an welchen Wochentagen der T
             "astroTime": "sunrise",
             "shiftInMinutes": 0,
             "weekdays": [1, 2, 3, 4, 5, 6],
+            "valueCheck": false,
             "id": "0",
             "action": {
                 "type": "ConditionAction",
@@ -223,6 +225,7 @@ sendTo("schedule-switcher.0", "update-trigger", { // Aktion für den neuen Ausl�
         "hour":12,
         "minute":32,
         "weekdays":[1,2,3,4,5],
+        "valueCheck": false,
         "id":"0", // ID abgleichen
         "action":{
             "type":"OnOffStateAction",
@@ -244,6 +247,7 @@ sendTo("schedule-switcher.0", "update-trigger", { // Aktion für den neuen Ausl�
         "astroTime":"sunrise", // sunrise, sunset or solarNoon
         "shiftInMinutes":0,
         "weekdays":[1,2,3,4,5],
+        "valueCheck": false,
         "id":"0", // ID abgleichen
         "action":{
             "type":"OnOffStateAction",
@@ -262,7 +266,7 @@ sendTo("schedule-switcher.0", "enable-schedule", { // Auslöser aktivieren
 
 sendTo("schedule-switcher.0", "add-one-time-trigger", { // Einmalauslöser anlegen
     "dataId":"schedule-switcher.0.onoff.6.data",
-    "trigger":"{\"type\":\"OneTimeTrigger\",\"date\":\"2024-10-17T06:14:22.660Z\",\"timedate\":false,\"action\":{\"type\":\"OnOffStateAction\",\"name\":\"On\"}}"
+    "trigger":"{\"type\":\"OneTimeTrigger\",\"date\":\"2024-10-17T06:14:22.660Z\",\"valueCheck\": false,\"timedate\":false,\"action\":{\"type\":\"OnOffStateAction\",\"name\":\"On\"}}"
 });
 
 sendTo("schedule-switcher.0", "delete-trigger", { // Auslöser mit bekannter ID löschen
@@ -290,7 +294,9 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": "true",
+    "value": true,
+    "old_value": false,
+    "setValue": false,
     "object": "0_userdata.0.test4",
     "trigger": "TimeTrigger",
     "astroTime": "unknown",
@@ -314,7 +320,9 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
   {
     "setObjectId": "0_userdata.0.test4",
     "objectId": 0,
-    "value": "true",
+    "value": true,
+    "old_value": false,
+    "setValue": false,
     "object": "0_userdata.0.test4",
     "astroTime": "unknown",
     "shift": 0,
@@ -440,6 +448,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Zeit eintragen (hh:mm)
 
 ```:warning:
@@ -467,6 +476,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Astrozeit auswählen (Sonnenaufgang, Sonnenuntergang oder Mittag)
 
 ![create_widget_select_astro_add_1.png](img/create_widget_select_astro_add_1.png)
@@ -487,6 +497,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Zeit eintragen (hh:mm:ss)
 - Oben rechts speichern anklicken
 
@@ -498,6 +509,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Schaltzustand auswählen
 - Eine Bedingung auswählen (optional)
+- Wert nur setzen wenn er ungleich ist
 - Zeit eintragen/auswählen (dd.mm.yyyy hh:mm:ss)
 - Oben rechts speichern anklicken
 
@@ -580,6 +592,8 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.headline_weight` Kopf Schriftstärke - Standard normal
 - `html.html_code` HTML Code für VIS, VIS-2, Jarvis, IQontrol usw.
 - `html.icon_false` Icon Schaltzustand aus - Standard ⚪
+- `html.icon_state_check_no` Statusvergleich deaktiviert 🔴
+- `html.icon_state_check_yes` Zustandsvergleich aktiviert 🟢
 - `html.icon_switch_symbol` Icon Schalter um die Zeitschaltuhr zu aktivieren/deaktivieren - Standard ⏱
 - `html.icon_true` Icon Schaltzustand an - Standard 🟡
 - `html.jarvis` Kompatibel für Jarvis - Standard false
@@ -609,8 +623,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - Wochentag anklicken um diesen zu aktivieren/deaktivieren
 - Zeile Triggername wird unter Wochentage der nächste Event on/off angezeigt
 
-![vis_view_1.png](img/vis_view_1.png)</br>
-![vis_view_2.png](img/vis_view_2.png)
+![vis_view_1.png](img/vis_view_1.png)
 
 ### Function NUR für VIS-2!!!
 
@@ -646,6 +659,17 @@ function changeweekdays(stateId, command, dataid, id, changeid, type) {
 		}
     };
 	vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
+}
+function changeValueCheck(stateId, command, dataid, id, value) {
+    var data = {
+		"command": command,
+		"message": {
+            "changeval": value,
+            "triggerid": id,
+            "dataid": dataid
+		}
+    };
+    vis.conn.setState(stateId + '.sendto', { val: JSON.stringify(data), ack: false });
 }
 function updateTrigger(stateId) {
 	vis.conn.setState(stateId + '.html.update', { val: true, ack: false });
@@ -794,6 +818,8 @@ app-on-off-schedules-widget {
 ### **WORK IN PROGRESS**
 
 - (Lucky-ESA) Fixed warn log (Cannot read dir...)
+- (Lucky-ESA) Added state comparison enabled/disabled
+- (Lucky-ESA) Fixed small some bugs
 
 ### 0.0.12 (2025-08-27)
 

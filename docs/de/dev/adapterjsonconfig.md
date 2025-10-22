@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: 2PpXmcuMNWXByr0Qhx+59kiraBHm4PrlkqhItphLbos=
+hash: rPEUKF4jyFpTnaXJk7Mrw7RPLnUpvyBt+FvPY6e2ag0=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mit JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, Adaptereinstellungen innerhalb der ioBroker-Admin-Oberfläche zu verwalten.
@@ -132,7 +132,7 @@ Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter teste
 - [**`certificateCollection`:**](#certificatecollection) Wählt eine Sammlung für Let’s Encrypt-Zertifikate aus
 - [**`certificates`:**](#certificates) Universeller Typ zur Verwaltung verschiedener Zertifikatstypen (ab Admin 6.4.0)
 - [**`checkbox`:**](#checkbox) Kontrollkästchen für boolesche Werte
-- [**`checkDocker`:**](#checklicense) Spezielle Komponente um zu prüfen ob der Docker verfügbar ist und wenn ja, kann man ein Kontrollkästchen aktivieren (ab Admin 7.8.0)
+- [**`checkDocker`:**](#checkdocker) Spezielle Komponente um zu prüfen ob der Docker verfügbar ist und wenn ja, kann man ein Kontrollkästchen aktivieren (ab Admin 7.8.0)
 - [**`checkLicense`:**](#checklicense) Ganz spezielle Komponente zur Online-Überprüfung der Lizenz
 - [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die zu einem Array hinzugefügt werden
 - [**`color`:**](#color) Farbwähler
@@ -330,7 +330,7 @@ Textkomponente
 | `trim` | Standard ist „true“. Setzen Sie dieses Attribut auf `false`, wenn kein Trimmen gewünscht ist. |
 | `minRows` | Standard ist 1. Setzen Sie dieses Attribut auf `2` oder höher, wenn Sie einen Textbereich mit mehr als einer Zeile haben möchten. |
 | `maxRows` | maximale Zeilenzahl des Textbereichs. Wird nur verwendet, wenn `minRows` > 1. |
-| `noClearButton` | Wenn „true“, wird die Schaltfläche „Löschen“ nicht angezeigt (Admin >= 6.17.13) |
+| `noClearButton` | wenn wahr, wird die Schaltfläche „Löschen“ nicht angezeigt (Admin >= 6.17.13) |
 | `validateJson` | wenn wahr, wird der Text als JSON validiert |
 | `allowEmpty` | Wenn „true“, wird das JSON nur validiert, wenn der Wert nicht leer ist |
 | `time` | der Wert ist die Zeit in ms oder eine Zeichenfolge. Wird nur mit dem Flag „readOnly“ verwendet |
@@ -827,7 +827,7 @@ Nur Admin6.
 | `trim` | Dateinamen kürzen |
 
 ### `imageSendTo`
-zeigt das Bild, das vom Backend als Base64-String empfangen wurde
+zeigt das vom Backend empfangene Bild als Base64-String an
 
 | Immobilie | Beschreibung |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -835,7 +835,7 @@ zeigt das Bild, das vom Backend als Base64-String empfangen wurde
 | `command` | sendTo-Befehl |
 | `jsonData` | Zeichenfolge - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn „jsonData“ nicht definiert ist. |
-| `data` | object - `{"subject1": 1, "data": "static"}`. Sie können „jsonData“ oder „data“ angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn „jsonData“ nicht definiert ist. |
+| `data` | object - `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 
 #### Beispielcode im Backend für `imageSendTo`
 ```js
@@ -1029,7 +1029,7 @@ Zeigt die Lizenzinformationen an, sofern diese noch nicht akzeptiert wurden. Ein
 | `checkBox` | Wenn definiert, wird das Kontrollkästchen mit dem angegebenen Namen angezeigt. Wenn aktiviert, wird die vereinbarte Schaltfläche aktiviert. |
 
 ### `checkDocker`
-- (Admin >= 7.1.0) Erstimplementierung
+- (Admin >= 7.7.2) Erstimplementierung
 
 Spezielle Komponente zur Überprüfung, ob Docker installiert und ausgeführt wird.
 Wenn Docker installiert ist, wird ein Kontrollkästchen angezeigt, um die Verwendung von Docker zuzulassen.

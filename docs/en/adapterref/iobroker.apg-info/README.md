@@ -34,23 +34,24 @@ For more details check https://transparency.entsoe.eu/content/static_content/Sta
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.22 (2025-10-21)
+* (HGlab01) Implement retry mechanism for API calls
+* (HGlab01) add turn on/off for peak hours and market prices
+
+### 0.1.21 (2025-10-13)
+* (HGlab01) Support quater-hourly tarifs
+* (HGlab01) Bump iobroker-jsonexplorer to 0.2.1
+
+### 0.1.20 (2025-10-06)
+* (HGlab01) prepeare iobroker-jsonexplorer readiness for v0.2.0
+* (HGlab01) Bump axios to 1.12.2
+
 ### 0.1.19 (2025-06-23)
 * (HGlab01) use encrypted token in config
 
 ### 0.1.18 (2025-06-16)
 * (HGlab01) Log finetuning
 * (HGlab01) Bump axios to 1.10.0
-
-### 0.1.17 (2025-06-03)
-* (HGlab01) Add retry mechanism for Entsoe
-
-### 0.1.16 (2025-05-18)
-* (HGlab01) Optimize Entsoe (Swiss market) requests
-* (HGlab01) Extend timeout for Api calls to 30 seconds 
-* (HGlab01) Bump axios to 1.9.0
-
-### 0.1.15 (2025-04-17)
-* (HGlab01) fix 'Cannot read properties of undefined (reading 'price_amount')'
 
 ## License
 MIT License

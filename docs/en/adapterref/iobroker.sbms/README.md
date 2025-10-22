@@ -59,6 +59,9 @@ If MQTT and HTML options are enabled, basic info is updated from MQTT stream whe
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.2 (2025-10-06)
+
+- Dependencies
 
 ### 0.4.1 (2025-09-28)
 - fix: negative loads when using non-pv chargers
@@ -71,7 +74,6 @@ Review add to latest:
 - fix connection watchdog intervals, change to adapter.intervals, safe ui intervals
 - cleaning: devDependencies, object tree, eslint 9
 - debug logs changed to iobroker standard
-
 
 ### 0.3.0 (2025-09-15)
 

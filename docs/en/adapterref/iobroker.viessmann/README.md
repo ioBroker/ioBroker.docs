@@ -32,6 +32,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.7.2 (2025-10-12)
+* (misanorot) update packages
+
 ### 1.7.1 (2025-06-01)
 * (ghecker1) optimize reconnect
 
@@ -43,9 +46,6 @@
 
 ### 1.5.3 (2024-12-19)
 * (misanorot) fixed issue #245 ESlint
-
-### 1.5.0 (2024-10-21)
-* (misanorot) fixed issue #235 Responsive
 
 ### License
 

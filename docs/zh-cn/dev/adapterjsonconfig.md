@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置：初学者指南
-hash: 2PpXmcuMNWXByr0Qhx+59kiraBHm4PrlkqhItphLbos=
+hash: rPEUKF4jyFpTnaXJk7Mrw7RPLnUpvyBt+FvPY6e2ag0=
 ---
 # IoBroker JSON 配置：初学者指南
 本指南介绍如何使用 JSON 定义 ioBroker 适配器的配置选项。这种方法提供了一种更加用户友好且灵活的方式，可在 ioBroker 管理界面中管理适配器设置。
@@ -132,7 +132,7 @@ jsonConfig 由多个按层次结构排列的元素组成。\ 每个元素可以�
 - [**`certificateCollection`:**](#certificatecollection) 选择 Let's Encrypt 证书的集合
 - [**`certificates`:**](#certificates) 用于管理不同证书类型的通用类型（来自 Admin 6.4.0）
 - [**`checkbox`:**](#checkbox) 布尔值复选框
-- [**`checkDocker`:**](#checklicense) 特殊组件，用于检查 Docker 是否可用，如果可用，则可以激活复选框（从 Admin 7.8.0 开始）
+- [**`checkDocker`:**](#checkdocker) 特殊组件，用于检查 docker 是否可用，如果可用，则可以激活复选框（从 Admin 7.8.0 开始）
 - [**`checkLicense`:**](#checklicense) 非常特殊的组件，用于在线检查许可证
 - [**`chips`:**](#chips) 用户可以输入添加到数组的单词
 - [**`color`:**](#color) 颜色选择器
@@ -309,7 +309,7 @@ admin/customI18n/en.json
 | `tabsStyle` | Mui-Tabs 组件的 React 格式的 CSS 样式（`marginLeft` 而不是 `margin-left`）|
 
 ###`panel`
-带有项目的标签
+带有项目的选项卡
 
 | 属性 | 描述 |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -574,7 +574,7 @@ admin/customI18n/en.json
 | `onlyEnabled` | 如果为真，则仅显示已启用的实例 |
 | `long` | 值将类似于`system.adapter.ADAPTER.0` 而不是`ADAPTER.0` |
 | `short` | 值将类似于`0` 而不是`ADAPTER.0` |
-| `all` | 将值为 `*` 的选项添加到选项“全部” |
+| `all` | 向选项“全部”选项添加值为`*` |
 | `all` | 向选项“all”选项添加值为“*”|
 
 ###`chips`
@@ -591,8 +591,8 @@ admin/customI18n/en.json
 
 | 属性 | 描述 |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `instance` | 检查实例是否处于活动状态。如果未定义，则将使用当前实例。您可以在文本中使用`${data.number}`模式。|
-| `textNotAlive` | 默认文本为 `Instance %s is not alive`，其中 %s 将被替换为 `ADAPTER.0`。翻译必须存在于 i18n 文件中 |
+| `instance` | 检查实例是否处于活动状态。如果未定义，则将使用当前实例。您可以在文本中使用`${data.number}` 模式。|
+| `textNotAlive` | 默认文本为`Instance %s is not alive`，其中 %s 将被替换为`ADAPTER.0`。翻译必须存在于 i18n 文件中 |
 | `textNotAlive` | 默认文本为“实例 %s 未处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。翻译必须存在于 i18n 文件中 |
 
 ###`pattern`
@@ -601,7 +601,7 @@ admin/customI18n/en.json
 | 属性 | 描述 |
 |-------------------|-----------------------|
 | `copyToClipboard` | 如果为真 - 显示按钮 |
-| `模式` | 我的模式 |
+| `图案` | 我的图案 |
 
 ###`sendTo`
 向实例发送请求的按钮（<https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128>）
@@ -641,7 +641,7 @@ admin/customI18n/en.json
 | 属性 | 描述 |
 |----------|---------------------|
 | `label` | 多语言文本 |
-| `文本` | 与标签相同 |
+| `text` | 与标签相同 |
 
 必须指定 `label` 或 `text` 中的一个，不能同时指定
 
@@ -1029,7 +1029,7 @@ adapter.on("message", (obj) => {
 | `checkBox` | 如果定义，则显示指定名称的复选框。如果选中，则启用同意按钮。|
 
 ###`checkDocker`
-- （管理员 >= 7.1.0）初始实施
+- （管理员 >= 7.7.2）初始实施
 
 用于检查 Docker 是否已安装并正在运行的特殊组件。
 如果已安装 Docker，则会显示一个复选框以允许使用 Docker。
