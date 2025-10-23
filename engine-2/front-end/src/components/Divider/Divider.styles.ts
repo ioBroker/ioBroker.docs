@@ -4,7 +4,6 @@ export const useStyles = makeStyles()(theme => ({
     divider: {
         zIndex: 9,
         width: '100%',
-        margin: 0,
         position: 'relative',
         overflow: 'visible',
         marginBottom: '8px'
