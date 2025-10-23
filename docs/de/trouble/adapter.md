@@ -1,126 +1,340 @@
 ---
 title:       "Adapterfehler"
-lastChanged: "05.10.2025"
+lastChanged: "23.10.2025"
 ---
 
-## Kapitel „Adapterfehler“ – Installations-, Start- und Performanceprobleme
+# Adapterfehler – Installations-, Start- und Performanceprobleme
 
-Dieser Abschnitt erläutert die häufigsten Fehler bei Adaptern und liefert gezielte Lösungsschritte.
+Dieses Kapitel konzentriert sich ausschließlich auf **adapterspezifische Probleme**. Für allgemeine Systemprobleme (ioBroker startet nicht, Datenbanksperren, Node.js-Updates) siehe: [ioBroker läuft nicht mehr](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
 
-### 1. Installationsprobleme
+---
 
-**Symptome:**
-- `npm ERR! code ENOTFOUND registry.npmjs.org`  
-- `npm ERR! syscall rename`  
-- Adapter lässt sich gar nicht installieren oder bricht mitten im Download ab.
+## 1. Adapter-Installationsprobleme
 
-**Ursachen:**
-- Netzwerk- oder DNS-Probleme  
-- Veralteter NPM-Cache  
-- Inkonsistente Node.js-/NPM-Versionen  
+### Typische Fehlermeldungen
+- `npm ERR! code ENOTFOUND` / `ENOTEMPTY` / `EINTEGRITY`
+- Installation bricht ab oder Adapter erscheint nicht in der Liste
+- `Cannot install adapter` trotz scheinbar korrekter Konfiguration
 
-**Lösungen:**
-1. **NPM-Cache bereinigen**  
-   ```bash
-   npm cache clean --force
-   ```
-2. **Registry prüfen und zurücksetzen**  
-   ```bash
-   npm config get registry
-   npm config set registry https://registry.npmjs.org/
-   ```
-3. **Proxy-Einstellungen (wenn nötig)**  
-   ```bash
-   npm config set proxy http://proxy.company.com:8080
-   npm config set https-proxy https://proxy.company.com:8080
-   ```
-4. **Adapterinstallation erzwingen**  
-   ```bash
-   iobroker install <adaptername> --force
-   ```
-5. **Node-Modules-Ordner neu anlegen**  
-   ```bash
-   iobroker stop
-   rm -rf /opt/iobroker/node_modules/iobroker.<adaptername>
-   iobroker start
-   iobroker install <adaptername>
-   ```
+### Diagnose mit iob diag
 
-### 2. Start- und Laufzeitprobleme
+**Erster Schritt - Systemdiagnose:**
+```
+iob diag
+```
 
-**Symptome:**
-- Adapter bleibt im Admin-Interface rot  
-- Keine „Connected“-Meldung in den Logs  
-- Crash mit Ausgaben wie `Error: Cannot find module <...>` oder `SyntaxError: Unexpected token`.
+Der `iob diag`-Befehl zeigt bereits:
+- ✅ Repository-Konfiguration und Verfügbarkeit
+- ✅ OS-Version und ausstehende Updates
+- ✅ Node.js/NPM-Versionen und Kompatibilität
+- ✅ Letzte Log-Einträge
+- ✅ Berechtigungsprobleme
 
-**Ursachen:**
-- Fehlende Abhängigkeiten  
-- Konflikte durch alte Konfigurationsreste  
-- Inkompatible Node.js-Version  
+**Prüfen Sie die Ausgabe auf:**
+- ❌ Fehlende Repository-Liste
+- ❌ Falsche Repository-Konfiguration (latest statt stable)
+- ❌ Veraltete Node.js-Version
+- ❌ NPM-Fehler
+- ❌ Berechtigungsfehler
 
-**Lösungen:**
-1. **Logs beobachten**  
-   ```bash
-   iobroker logs --watch
-   iobroker logs <adaptername>
-   ```
-2. **Adapter reparieren**  
-   ```bash
-   iobroker stop <adaptername>
-   iobroker fix
-   iobroker start <adaptername>
-   ```
-3. **Neuinstallation und Defaults löschen**  
-   ```bash
-   iobroker del <adaptername>
-   rm -rf /opt/iobroker/iobroker-data/<adaptername>.*   # kann objektspezifische Daten löschen
-   iobroker install <adaptername>
-   ```
-4. **Node.js-Version prüfen und aktualisieren**  
-   ```bash
-   node -v
-   iobroker nodejs-update 20
-   iobroker fix
-   ```
+### Lösungen basierend auf iob diag
 
-### 3. Adapter-Performanceprobleme
+**Bei Repository-Problemen:**
 
-**Symptome:**
-- Starke Verzögerungen bei Datenaktualisierungen  
-- Hoher CPU-/RAM-Verbrauch  
-- Timeouts oder regelmäßige Disconnects.
+**a) Repository-Liste fehlt komplett:**
+```
+iob repo add stable http://download.iobroker.net/sources-dist.json
+iob update
+```
 
-**Ursachen:**
-- Zu kurze Polling-Intervalle  
-- Unnötig viele Objekte/States aktiviert  
-- Ineffiziente Skripte  
+**b) Probleme mit latest/beta-Adaptern - zurück zu stable:**
+```
+# Aktuelle Repository-Konfiguration anzeigen:
+iob repo list
 
-**Lösungen:**
-1. **Ressourcenverbrauch prüfen**  
-   ```bash
-   top -p $(pgrep -d',' -f node)
-   free -m
-   ```
-2. **Polling-Intervalle erhöhen**  
-   - In Adapterkonfiguration das Abfrageintervall anpassen (z. B. von 1 auf 10 Sek.)  
-3. **Unnötige Objekte deaktivieren**  
-   - Selektiv nur benötigte States aktivieren  
-4. **Log-Level reduzieren**  
-   - Adapter-Logging auf „warn“ oder „error“ setzen  
-5. **Skripte optimieren**  
-   - Blockierende oder endlose Schleifen in Scripts vermeiden  
-   - `setTimeout`/`setInterval` bedingt stoppen  
+# Latest/Beta deaktivieren, stable aktivieren:
+iob repo unset beta
+iob repo unset latest
+iob repo set stable
+iob update
+```
 
-### 4. Häufige Adapter-Spezialfälle
+**Wichtig:** Nach Wechsel von latest zu stable werden installierte Beta-Versionen **nicht** automatisch zurückgestuft. Sie müssen warten bis stable die Versionen "einholt" oder manuell downgraden:
+```
+iobroker upgrade <adaptername>@<stable-version>
+```
 
-| Adaptertyp           | Typischer Fehler                                                            | Lösung                                                                                                                                      |
-|----------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| HomeMatic (hm-rpc)   | Verbindung zur CCU schlägt fehl; `503 Service Unavailable`                  | CCU-Firmware prüfen; IP statt Hostname verwenden; Firewall und Zugangsdaten kontrollieren; Adapter neu installieren.                    |
-| JavaScript/TypeScript| Eigene Scripte starten nicht, `error exception getaddrinfo ENOTFOUND`       | `iobroker stop javascript` → `iobroker fix` → `iobroker start javascript`; DNS und Proxy prüfen.                                         |
-| Backitup             | `EACCES Permission denied` bei Backup-Erstellung in Docker                   | Docker-Host: `sudo apt-get install cifs-utils nfs-common`; Berechtigungen für Volume prüfen und iobroker-User vergeben.             |
-| MQTT (mqtt.0)        | Log-Flood durch zu viele Topics; Broker-Disconnects                         | In Konfiguration nur relevante Topics abonnieren; QoS-Level überprüfen; Log-Level auf „info“ reduzieren; Keep-Alive verlängern[11].          |
-| ioBroker.vis         | Ansichten werden nicht geladen; 404-Fehler für `/vis-views/`                  | Verzeichnisrechte prüfen (`chown -R iobroker:iobroker /opt/iobroker/www/vis-views`); Adapter neu installieren; Cache leeren.               |
-| Zigbee-Adapter       | Serial-Port nicht gefunden; `Error: Cannot open serial port`                | Benutzer zur `dialout`-Gruppe hinzufügen; `/dev/ttyUSB*`-Rechte prüfen; USB-Kabel und Stick testen; Adapter-Konfiguration und Port korrekt setzen. |
-| Alexa2               | Auth-Token erneuern schlägt fehl; `login failed`                             | `iobroker del alexa2` → `iobroker install alexa2`; Neu-Login in Admin-Interface; AWS-Zugangsdaten prüfen.                                  |
+**Repository-Unterschiede verstehen:**
+→ Siehe [Was ist ein Repository](https://www.iobroker.net/#de/documentation/basics/repositories.md)
 
-Jede dieser Lösungen wurde in der Community vielfach bestätigt und deckt die wichtigsten Szenarien ab. Durch systematisches Vorgehen bei Installation, Start und Performance lassen sich die meisten Adapterprobleme nachhaltig beheben.
+**Bei Node.js-Versionsproblemen:**  
+→ Siehe [Node.js Update Anleitung](https://www.iobroker.net/#de/documentation/install/updatenode.md)
+
+**Bei npm-Cache-Problemen:**
+```
+# Cache-Integrität prüfen:
+npm cache verify
+```
+
+**Was macht `npm cache verify`?**
+- Überprüft die Integrität aller gecachten Pakete
+- Entfernt automatisch defekte oder inkonsistente Cache-Daten (Garbage Collection)
+- Validiert den Cache-Index
+- Seit npm@5 ist der Cache selbstheilend und repariert sich automatisch
+
+**Nur bei angezeigten Fehlern Cache komplett löschen:**
+```
+npm cache clean --force
+```
+⚠️ **Hinweis:** Dies löscht den kompletten Cache und sollte nur bei tatsächlichen Cache-Problemen verwendet werden.
+
+**Adapter sauber neu installieren:**
+```
+iobroker stop <adaptername>
+iobroker del <adaptername>
+rm -rf /opt/iobroker/node_modules/iobroker.<adaptername>
+
+# Neuinstallation über Admin-Oberfläche (empfohlen)
+# ODER per Konsole:
+iobroker install <adaptername>
+```
+
+---
+
+## 2. Adapter-Startprobleme
+
+### Typische Symptome
+- Adapter bleibt rot/gelb in der Instanzenliste
+- `Error: Cannot find module <...>`
+- Adapter startet kurz und stoppt sofort wieder
+- `SyntaxError: Unexpected token` in Adapter-Dateien
+
+### Spezifische Adapter-Diagnose
+
+**Adapter-Logs gezielt analysieren:**
+```
+# Live-Logs für spezifischen Adapter:
+iobroker logs <adaptername> --watch
+
+# Letzte 100 Zeilen:
+iobroker logs <adaptername> | tail -100
+```
+
+**Adapter im Debug-Modus starten:**
+```
+# Adapter-Instanz deaktivieren
+# Dann manuell im Debug-Modus starten:
+cd /opt/iobroker/node_modules/iobroker.<adaptername>
+node main.js 0 --debug
+```
+Dies zeigt deutlich mehr Informationen als das Standard-Log.
+
+### Lösungsansätze
+
+**1. ioBroker-Installation reparieren:**
+```
+iobroker fix
+```
+⚠️ **Wichtig:** `iobroker fix` repariert die gesamte ioBroker-Installation inklusive:
+- Dateiberechtigungen für alle Verzeichnisse
+- Systembenutzer und Gruppen
+- Dependencies und Links
+- Ist **immer** möglich und sollte bei Problemen der erste Schritt sein
+
+**2. Adapter-Konfiguration zurücksetzen:**
+```
+# Adapter stoppen:
+iobroker stop <adaptername>
+
+# Konfiguration in Admin-Interface überprüfen
+# Oft helfen Werkseinstellungen
+```
+
+**3. Dependencies neu installieren:**
+```
+cd /opt/iobroker/node_modules/iobroker.<adaptername>
+npm install --production
+```
+
+**4. Neuinstallation (letztes Mittel):**
+```
+iobroker stop <adaptername>
+iobroker del <adaptername>
+rm -rf /opt/iobroker/node_modules/iobroker.<adaptername>
+iobroker install <adaptername>
+```
+
+**5. Bei nativen Modulen nach Major-Node.js-Update:**
+```
+# Nur bei Major-Versionswechsel (20→22):
+iobroker rebuild <adaptername>
+```
+
+### Hardware-bezogene Startprobleme
+
+**Bei "Unexpected token" in Kombination mit Raspberry Pi:**  
+→ Möglicherweise defekte SD-Karte! Siehe [Hardware-Diagnose](https://www.iobroker.net/#de/documentation/trouble/RunsNoMore.md)
+
+---
+
+## 3. Adapter-Performance-Probleme
+
+### Symptome
+- Adapter reagiert verzögert
+- Hohe CPU-Last durch einzelnen Adapter
+- Adapter verursacht Speicherlecks
+- States werden nur sporadisch aktualisiert
+
+### Diagnose
+
+**1. Ressourcenverbrauch einzelner Adapter ermitteln:**
+```
+# Alle ioBroker-Prozesse mit Ressourcen:
+top -u iobroker
+
+# Oder detaillierter mit htop:
+htop -u iobroker
+```
+
+**2. Adapter-spezifische Performance-Logs:**
+```
+# Adapter auf "debug" Log-Level setzen
+# Dann Logs beobachten:
+iobroker logs <adaptername> | grep -i "slow\|timeout\|warning"
+```
+
+### Lösungen
+
+**1. Polling-Intervalle optimieren**
+
+In der Adapter-Konfiguration:
+- Standard: 5-10 Sekunden → besser: 30-60 Sekunden
+- Nur bei wirklich nötigen Datenpunkten kurze Intervalle
+- Nicht benötigte Objekte/States komplett deaktivieren
+
+**2. Log-Level reduzieren**
+```
+# In Admin → Instanzen → Adapter-Konfiguration:
+# Log-Level von "debug" auf "info" oder "warn"
+```
+Debug-Logs können erhebliche Performance-Last verursachen!
+
+**3. Adapter-Cache-Einstellungen anpassen**
+
+### Adapter-spezifische Performance-Tipps
+
+**JavaScript/Blockly-Adapter:**
+- Skripte einzeln aktivieren und Performance beobachten
+- `setInterval()` mit kurzen Intervallen vermeiden
+- Große Arrays/Objekte nicht im RAM halten
+- `schedule()` statt permanentes Polling nutzen
+
+**History/InfluxDB/SQL:**
+- Nur relevante Datenpunkte loggen
+- Retention-Policies nutzen (alte Daten automatisch löschen)
+- Aggregation für hochfrequente Daten aktivieren
+
+**MQTT/Modbus/KNX:**
+- Subscription-Filter nutzen (nicht alle Topics)
+- Reconnect-Intervalle erhöhen
+- QoS-Level reduzieren wo möglich
+
+**Zigbee/Z-Wave:**
+- Netzwerk-Optimierung durchführen
+- Nicht benötigte Geräte entfernen
+- Router-Geräte strategisch platzieren
+
+---
+
+## 4. Häufige adapterspezifische Probleme
+
+### HomeMatic (hm-rpc, hm-rega)
+**Problem:** Verbindung zur CCU bricht ab  
+**Lösung:** 
+- IP statt Hostname verwenden
+- CCU-Firewall-Einstellungen prüfen
+- Adapter-Version aktualisieren
+
+### JavaScript/TypeScript
+**Problem:** Skripte starten nicht nach Neustart  
+**Lösung:**
+- DNS und Proxy prüfen
+```
+iobroker stop javascript
+iobroker upload javascript
+iobroker fix
+iobroker start javascript
+```
+
+### Zigbee
+**Problem:** `Error: Cannot open serial port /dev/ttyUSB0`  
+**Lösung:**
+- /dev/ttyUSB*-Rechte prüfen
+- USB-Kabel und Stick testen
+- Adapter-Konfiguration und Port korrekt setzen
+```
+# User zur dialout-Gruppe hinzufügen:
+sudo usermod -aG dialout iobroker
+sudo reboot
+```
+
+### Backitup (Docker)
+**Problem:** `EACCES: permission denied`  
+**Lösung:** Siehe [Backup-Probleme in Docker](https://docs.buanet.de/de/iobroker-docker-image/docs/)
+
+### MQTT
+**Problem:** Logs werden mit Meldungen geflutet  
+**Lösung:**
+- In Konfiguration: Nur relevante Topics abonnieren
+- Log-Level auf "warn" setzen
+- "Eigene States bekanntgeben" deaktivieren
+
+### ioBroker.vis
+**Problem:** Ansichten werden nicht geladen; 404-Fehler für /vis-views/
+**Lösung:**
+- Verzeichnisrechte prüfen (chown -R iobroker:iobroker /opt/iobroker/www/vis-views)
+- Cache leeren
+
+---
+
+## Best Practices zur Fehlervermeidung
+
+### Vor Installation
+1. `iob diag` ausführen und prüfen
+2. Repository auf **stable** setzen (nicht latest!)
+3. Adapter-Readme und Known Issues lesen
+4. Im Forum nach aktuellen Problemen suchen
+5. Backup erstellen: `iob backup`
+
+### Nach Installation
+1. Adapter-Logs beobachten: `iobroker logs <adapter> --watch`
+2. Ressourcenverbrauch prüfen: `top -u iobroker`
+3. Konfiguration Schritt für Schritt anpassen
+4. Erst bei stabilem Betrieb weitere Adapter installieren
+
+### Bei Updates
+1. Changelog des Adapters lesen
+2. Bei Major-Updates erst im Test-System prüfen
+3. Backup vor Update erstellen
+4. Nach Update Logs kontrollieren
+
+### Wichtige Hinweise
+
+✅ **Immer tun:**
+- Adapter über Admin-Oberfläche installieren
+- Bei Problemen zuerst `iob diag` ausführen
+- Repository auf **stable** setzen für Produktivsysteme
+- `iobroker fix` bei jeglichen Problemen ausführen
+- Adapter-Logs lesen statt blind experimentieren
+- Bei GitHub-Issues nach Lösungen suchen
+
+❌ **Niemals tun:**
+- Adapter dauerhaft von GitHub installieren
+- Mit `sudo` vor ioBroker-Befehlen arbeiten
+- Mehrere Probleme gleichzeitig beheben
+- Adapter im Produktivsystem im Beta/Latest-Branch testen
+- Mehrere Instanzen zur Performance-Verbesserung erstellen (verbraucht nur mehr RAM)
+
+---
+
+**Bei weiteren Problemen:** Forum-Thread erstellen mit vollständiger `iob diag`-Ausgabe und Adapter-Logs.
