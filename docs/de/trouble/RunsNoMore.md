@@ -1,6 +1,6 @@
 ---
 title:       "ioBroker läuft nicht mehr"
-lastChanged: "05.10.2025"
+lastChanged: "24.10.2025"
 ---
 
 # ioBroker läuft nicht mehr - Vollständige Problemsammlung mit Lösungen
@@ -24,30 +24,46 @@ Server Cannot start inMem-objects on port 9001: Failed to lock DB file "/opt/iob
 - Noch laufende ioBroker-Prozesse nach Crash
 - Korrupte oder übermäßig große Datenbankdateien
 - Unzureichende Systemberechtigungen
+- Defektes Dateisystem (SD-Karte, SSD)
 
 **Lösungssequenz:**
-```bash
-# 1. Alle ioBroker-Prozesse prüfen und beenden
-ps auxwww | grep iobroker
-sudo killall -9 node
-sudo killall -9 iobroker
 
-# 2. System neu starten (sicherste Methode)
+```bash
+# 1. Zuerst iob fix ausführen - komprimiert Datenbanken
+cd /opt/iobroker
+iob fix
+
+# 2. System neu starten (wenn fix nicht hilft)
 sudo reboot
 
-# 3. Nach Neustart: Datenbank aus Backup wiederherstellen
+# 3. Nach Neustart: Verfügbare Backups prüfen
 cd /opt/iobroker/iobroker-data/backup-objects
+ls -la
+
+# Backup-Größe beachten: Wenn Größe plötzlich massiv kleiner wurde,
+# ist die Datenbank an diesem Punkt kaputt gegangen
+
+# 4. Datenbank aus Backup wiederherstellen
 iob stop
 gunzip -ck [neueste_datei]_objects.jsonl.gz > /opt/iobroker/iobroker-data/objects.jsonl
 gunzip -ck [neueste_datei]_states.gz > /opt/iobroker/iobroker-data/states.jsonl
 iob start
 
-# 4. Notfall-Lösung (Verlust aktueller Zustände):
+# 5. NUR States zurücksetzen (Verlust nur aktueller Zustände):
+iob stop
+rm /opt/iobroker/iobroker-data/states.jsonl
+iob start
+
+# 6. NOTFALL: Kompletter Reset (ACHTUNG: Verlust aller Objekte UND States!)
+# Nur wenn Objects-Datenbank irreparabel beschädigt ist
 iob stop
 rm /opt/iobroker/iobroker-data/states.jsonl
 rm /opt/iobroker/iobroker-data/objects.jsonl
+iob setup first  # Grundinitialisierung durchführen
 iob start
 ```
+
+**Wichtig:** Objects-Datenbank sollte IMMER aus Backup wiederhergestellt werden, nicht gelöscht! Nur States können notfalls gelöscht werden.
 
 ### 1.2 Redis-Datenbank-Probleme
 
@@ -58,10 +74,11 @@ iob start
 
 **Diagnose:**
 ```bash
-# In Redis-Datenbank schauen:
+# In Redis-Datenbank schauen (VORSICHT: dauert bei vielen Keys sehr lange!):
 redis-cli
 KEYS *
-# Vorsicht: Bei vielen Keys dauert das sehr lange!
+# Anzahl der Keys prüfen:
+DBSIZE
 ```
 
 **Lösungsansätze:**
@@ -71,8 +88,14 @@ KEYS *
 iob stop withings
 iob del withings
 
-# 2. Redis-Datenbank bereinigen
-redis-cli FLUSHALL  # ACHTUNG: Löscht ALLE Daten!
+# 2. Redis-Datenbank komplett zurücksetzen (ACHTUNG!)
+# Wenn nur States in Redis: OK
+# Wenn auch Objects in Redis: Alle Daten weg!
+# Nach FLUSHALL muss "iob setup first" ausgeführt werden
+iob stop
+redis-cli FLUSHALL
+iob setup first
+iob start
 
 # 3. Zurück zu Files wechseln (bei weniger als 50.000 Objekten empfohlen):
 iob stop
@@ -86,16 +109,18 @@ iobroker setup custom
 redis-cli BGSAVE
 cp /var/lib/redis/dump.rdb /backup/pfad/
 
-# Redis-Speicher optimieren:
+# Redis-Speicher optimieren (nur wirksam wenn kein AOF genutzt wird):
 redis-cli CONFIG SET save "900 1 300 10 60 10000"
 ```
+
+**Hinweis:** Redis-Speicheroptimierung funktioniert nur bedingt und hängt stark von der Konfiguration ab.
 
 ## 2. Admin-Adapter und Web-Interface Probleme
 
 ### 2.1 Admin-Adapter gestoppt
 
 **Symptome:**
-- http://IP:8081 nicht erreichbar
+- `http://IP:8081` nicht erreichbar
 - "Connection refused" oder Timeout-Fehler
 - Admin-Interface lädt nicht
 
@@ -147,7 +172,7 @@ sudo netstat -tulpn | grep :8082
 ### 3.1 Node.js Versionskonflikt
 
 **Symptome:**
-- `SyntaxError: Unexpected token` bei js-controller Updates
+- `SyntaxError: Unexpected token` bei js-controller Updates (kann auch defektes Dateisystem sein!)
 - Adapter starten nicht nach Node.js-Update
 - NPM-Befehle funktionieren nicht
 
@@ -164,6 +189,9 @@ iob --version
 ```
 
 **Korrektes Update-Verfahren:**
+
+Detaillierte Informationen zum Node.js-Update findet man in der [Node.js Update-Anleitung](https://www.iobroker.net/#de/documentation/install/updatenode.md).
+
 ```bash
 # 1. Backup erstellen:
 iob backup
@@ -171,8 +199,8 @@ iob backup
 # 2. System stoppen:
 iob stop
 
-# 3. Node.js korrekt aktualisieren:
-iob nodejs-update 20  # Für Node.js 20.x LTS
+# 3. Node.js korrekt aktualisieren (aktualisiert automatisch NPM):
+iob nodejs-update
 
 # 4. System reparieren:
 iob fix
@@ -188,23 +216,42 @@ iob start
 - `ENOENT: no such file or directory`
 - `npm: not found`
 
-**Lösungsansätze:**
+**Wichtig:** NPM wird automatisch mit Node.js korrekt installiert. Bei NPM-Problemen NICHT manuell an der Installation experimentieren!
+
+Weitere Informationen zur Node.js und NPM Installation findet man in der [Node.js Installationsanleitung](https://www.iobroker.net/#de/documentation/install/nodejs.md).
+
+**Empfohlene Lösungsansätze:**
+
 ```bash
-# 1. NPM-Cache bereinigen:
+# 1. Node.js-Update durchführen (aktualisiert automatisch NPM + behebt meiste NPM-Probleme):
+iob nodejs-update
+
+# 2. NPM-Cache verifizieren:
+npm cache verify
+
+# 3. NPM-Cache bereinigen (bei Cache-Problemen):
 npm cache clean --force
 
-# 2. NPM neu installieren:
-sudo apt-get update
-sudo apt-get install npm
-
-# 3. NPM-Registry prüfen/zurücksetzen:
+# 4. NPM-Registry prüfen/zurücksetzen (nur bei Registry-Problemen):
 npm config get registry
 npm config set registry https://registry.npmjs.org/
 
-# 4. Proxy-Probleme (Unternehmensnetze):
+# 5. Proxy-Probleme (nur in Unternehmensnetzen):
 npm config set proxy http://proxy-server:port
 npm config set https-proxy https://proxy-server:port
 ```
+
+**Bei "npm not found" nach Node.js-Update:**
+```bash
+# System neu starten, damit PATH aktualisiert wird:
+sudo reboot
+
+# Nach Neustart prüfen:
+node -v
+npm -v
+```
+
+**Wichtig:** Versuche NIE, NPM manuell zu deinstallieren oder neu zu installieren! Dies führt meist zu weiteren Problemen. Nutze stattdessen `iob nodejs-update`, das NPM automatisch mitkonfiguriert.
 
 ### 3.3 js-controller Update-Fehler
 
@@ -219,6 +266,7 @@ iob fix
 iob upgrade self
 
 # 3. Bei persistenten Problemen:
+cd /opt/iobroker
 iob stop
 npm install iobroker.js-controller@latest --production --prefix /opt/iobroker
 iob start
@@ -237,8 +285,10 @@ iob start
 ```bash
 # RAM-Nutzung prüfen:
 free -m
+
 # Prozess-spezifischer Verbrauch:
 top -p $(pgrep -d',' iobroker)
+
 # Swap-Nutzung:
 swapon --show
 ```
@@ -260,9 +310,9 @@ sudo systemctl stop desktop-session  # Auf Headless-Systemen
 ```
 
 **Hardware-Empfehlungen:**
-- Raspberry Pi 3: Maximal 30-40 Adapter-Instanzen[124][130]
-- Mindestens 4 GB RAM für produktive Systeme[130]
-- SSD statt SD-Karte für bessere Performance[124]
+- Raspberry Pi 3: Maximal 30-40 Adapter-Instanzen
+- Mindestens 4 GB RAM für produktive Systeme
+- SSD statt SD-Karte für bessere Performance
 
 ### 4.2 Festplatten-Probleme
 
@@ -388,8 +438,8 @@ git config --global http.proxy http://proxy.company.com:8080
 ```
 
 **Reverse-Proxy-Probleme:**
-- WebSocket-Verbindungen funktionieren nicht[147][149]
-- Socket.io-Pfade nicht korrekt weitergeleitet[147]
+- WebSocket-Verbindungen funktionieren nicht
+- Socket.io-Pfade nicht korrekt weitergeleitet
 
 ## 6. Berechtigungen und User-Probleme
 
@@ -400,7 +450,7 @@ git config --global http.proxy http://proxy.company.com:8080
 - Backup-Fehler trotz `chmod 777`
 - Adapter können nicht schreiben
 
-**Niemals chmod 777 verwenden!** Das ist ein Sicherheitsrisiko und löst oft nicht das Problem[142][145][148].
+**WICHTIG:** Niemals `chmod 777` verwenden! Das ist ein Sicherheitsrisiko und löst oft nicht das Problem.
 
 **Korrekte Lösungsansätze:**
 ```bash
@@ -420,7 +470,7 @@ sudo chown -R iobroker:iobroker /opt/iobroker-data  # Docker
 
 ### 6.2 Docker-spezifische Berechtigungsprobleme
 
-**Problem:** Volume-Berechtigungen in Docker-Containern[153]
+**Problem:** Volume-Berechtigungen in Docker-Containern
 
 **Lösung:**
 ```bash
@@ -441,7 +491,7 @@ services:
 
 ### 7.1 HomeMatic/CCU3-Verbindungsprobleme
 
-**Problem:** JSON-Parser-Fehler bei CCU3-Kommunikation[108]
+**Problem:** JSON-Parser-Fehler bei CCU3-Kommunikation
 
 **Lösungsansätze:**
 ```bash
@@ -458,7 +508,7 @@ iob install hm-rega
 
 ### 7.2 MQTT-Adapter Log-Spam
 
-**Problem:** MQTT füllt Logs mit unnötigen Meldungen[133]
+**Problem:** MQTT füllt Logs mit unnötigen Meldungen
 
 **Lösung:**
 ```bash
@@ -568,4 +618,15 @@ iob backup
 # System-Ressourcen analysieren
 ```
 
+## Zusammenfassung
+
 Diese umfassende Problemsammlung deckt alle bekannten ioBroker-Systemfehler ab und bietet bewährte Lösungsansätze für jeden Problembereich. Die Reihenfolge der Lösungsversuche ist nach Erfolgswahrscheinlichkeit und Sicherheit optimiert.
+
+**Wichtigste Grundregeln:**
+1. Immer zuerst `iob fix` ausführen
+2. Backups vor größeren Eingriffen erstellen
+3. Objects-Datenbank niemals ohne Backup löschen
+4. `chmod 777` niemals verwenden
+5. Bei Redis-Nutzung beachten: FLUSHALL löscht alles!
+6. Nach Berechtigungsänderungen: System neu anmelden
+7. NPM-Probleme über `iob nodejs-update` lösen, nicht manuell experimentieren
