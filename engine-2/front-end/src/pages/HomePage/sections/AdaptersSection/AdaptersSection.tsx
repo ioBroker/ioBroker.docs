@@ -79,7 +79,17 @@ export const AdaptersSection: React.FC = () => {
                                 versteht. Gleichzeitig ermöglicht er, dass Befehle von ioBroker an die Geräte oder Dienste weitergegeben werden können.
                             </Typography>
                         </Box>
-                        <StyledButton style={{ borderRadius: '10px' }}>640+ ADAPTER</StyledButton>
+                        <Box className={classes.buttonWrapper}>
+                            <StyledButton sx={{
+                                height: '60px',
+                                width: { md: '100%', sm: '400px', xs: '300px' } ,
+                                maxWidth: '867px',
+                                padding: '10px 24px',
+                                borderRadius: '10px',
+                                position: 'relative',
+                                zIndex: 1,
+                            }}>640+ ADAPTER</StyledButton>
+                        </Box>
                     </Box>
                     <Box className={classes.adaptersGrid}>
                         {columns.map((numIconsInColumn, colIndex) => {
@@ -98,7 +108,7 @@ export const AdaptersSection: React.FC = () => {
                                                 <img
                                                     src={icon.src}
                                                     alt={icon.alt || `Adapter ${iconCounter - columnIcons.length + itemIndex + 1}`}
-                                                    style={{ width: icon.width, height: icon.height, maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                                                    className={classes.iconImage}
                                                 />
                                             ) : (
                                                 <Box sx={{ width: 32, height: 32, opacity: 0.5 }}>Icon</Box>
