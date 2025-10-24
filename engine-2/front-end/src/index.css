@@ -21,6 +21,13 @@
 
 @font-face {
   font-family: 'Saira';
+  src: url('/Saira-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Saira';
   src: url('/Saira-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
