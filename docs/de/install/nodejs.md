@@ -21,7 +21,7 @@ iobroker nodejs-update
 
 Dieser Befehl lädt und installiert automatisch die empfohlene LTS-Version **Node.js 22** sowie das passende npm.
 
-Möchten Sie gezielt auf eine andere Version (z. B. Node.js 24) wechseln, geben Sie die gewünschte Version als Parameter an:
+Möchte man gezielt auf eine andere Version (z. B. Node.js 24) wechseln, gebe die gewünschte Version als Parameter an:
 
 ```
 iobroker nodejs-update 24
@@ -29,11 +29,11 @@ iobroker nodejs-update 24
 
 ## Alternative manuelle Installation
 
-Falls eine manuelle Installation oder spezielle Version gewünscht ist, verwenden Sie das Nodesource-Repository:
+Falls eine manuelle Installation oder spezielle Version gewünscht ist, verwende das Nodesource-Repository:
 
 ```
 curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-Für eine andere Version passen Sie `setup_22.x` entsprechend an (z. B. `setup_24.x`).
+Für eine andere Version passe `setup_22.x` entsprechend an (z. B. `setup_24.x`).
