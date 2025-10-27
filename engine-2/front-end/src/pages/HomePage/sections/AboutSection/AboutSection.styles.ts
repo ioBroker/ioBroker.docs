@@ -2,17 +2,18 @@ import { makeStyles } from '../../../../theme';
 
 export const useStyles = makeStyles()(theme => ({
     container: {
-        maxWidth: 1311,
+        maxWidth: 1391,
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        [theme.breakpoints.down('sm')]: {
-            padding: '0 20px',
-        },
+        padding: '0 40px',
+        // [theme.breakpoints.up('md')]: {
+        //     padding: 0,
+        // },
     },
     section: {
-        padding: '100px 0',
+        padding: '170px 0',
         [theme.breakpoints.down('md')]: {
             padding: '60px 0',
         },
@@ -27,7 +28,10 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-2%',
         lineHeight: '100%',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '24px',
+        },
     },
     itemDescription: {
         color: theme.palette.text.primary,
@@ -35,6 +39,9 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '200',
         letterSpacing: '-3%',
         lineHeight: '150%',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '18px',
+        },
     },
     buttonWrapper: {
         position: 'relative',

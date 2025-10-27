@@ -8,5 +8,8 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         marginBottom: theme.spacing(4),
         fontSize: '48px',
+         [theme.breakpoints.down('md')]: {
+            fontSize: '36px',
+        },
     },
 }));

@@ -126,6 +126,23 @@ export const useStyles = makeStyles()(theme => ({
             marginTop: theme.spacing(3),
         },
     },
+    valuesImageWrapper: {
+        marginBottom: '40px',
+        [theme.breakpoints.down('md')]: {
+            marginBottom: '24px',
+        },
+    },
+    valuesImage: {
+        width: '485px',
+        height: 'auto',
+        [theme.breakpoints.down('lg')]: {
+            width: '400px',
+        },
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            maxWidth: '400px',
+        },
+    },
     supportText: {
         fontSize: '16px',
         textAlign: 'left',

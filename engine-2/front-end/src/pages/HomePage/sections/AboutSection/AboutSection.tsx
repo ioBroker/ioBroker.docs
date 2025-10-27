@@ -15,7 +15,7 @@ export const AboutSection: React.FC = () => {
     return (
         <Box component="section" className={classes.section}>
             <Box className={classes.container}>
-                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: 'left', mb: 4 }}>
+                <Box sx={{ width: '100%', maxWidth: '1311px', textAlign: { xs: 'center', md: 'left' }, mb: 4 }}>
                     <SectionTitle>ÜBER IOBROKER</SectionTitle>
                 </Box>
                 {items.map(item => (
@@ -23,7 +23,7 @@ export const AboutSection: React.FC = () => {
                         key={item.title}
                         sx={{
                             width: '100%',
-                            height: { xs: '300px', sm: '300px', md: '214px' },
+                            minHeight: { xs: 'auto', md: '214px' },
                             padding: { xs: '20px', sm: '30px', md: '40px' },
                             marginBottom: '32px',
                             display: 'flex',
@@ -31,8 +31,8 @@ export const AboutSection: React.FC = () => {
                             alignItems: 'flex-end',
                         }}
                         textSx={{
-                            height: '134px',
-                            width: '1010px'
+                            width: '100%',
+                            maxWidth: '1010px'
                         }}
                         iconSx={{
                             alignSelf: 'flex-end',

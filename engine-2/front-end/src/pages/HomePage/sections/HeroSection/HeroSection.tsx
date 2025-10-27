@@ -4,6 +4,7 @@ import { Box, Typography, Button } from '@mui/material';
 import { useStyles } from './HeroSection.styles';
 import AmazonIcon from "../../../../assets/img/amazonBlue.svg";
 import PayPalIcon from "../../../../assets/img/paypalBlue.svg";
+// import ValuesGroup from "../../../../assets/img/Values group.png";
 import Divider from '../../../../components/Divider/Divider';
 import { useScrollProgress } from '../../../../hooks/useScrollProgress';
 
@@ -28,6 +29,9 @@ export const HeroSection: React.FC = () => {
                     </Box>
 
                     <Box className={classes.heroRight}>
+                        {/* <Box className={classes.valuesImageWrapper}>
+                            <img src={ValuesGroup} alt="Values" className={classes.valuesImage} />
+                        </Box> */}
                         <Box className={classes.supportIcons}>
                             <Box className={classes.supportIconPayPal}><img alt="PayPal Icon" src={PayPalIcon} /></Box>
                             <Box className={classes.supportIconAmazon}><img alt="Amazon Icon" src={AmazonIcon} /></Box>
