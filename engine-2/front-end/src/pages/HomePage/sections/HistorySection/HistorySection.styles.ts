@@ -7,6 +7,8 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         gap: '22px',
         padding: '0 40px',
+        position: 'relative',
+        zIndex: 2,
         [theme.breakpoints.down('sm')]: {
             padding: '0 20px',
         },
@@ -19,6 +21,8 @@ export const useStyles = makeStyles()(theme => ({
     },
     section: {
         padding: '156px 0 100px 0',
+        position: 'relative',
+        zIndex: 3,
     },
     historySection: {
         textAlign: 'center',
@@ -29,7 +33,7 @@ export const useStyles = makeStyles()(theme => ({
         '&::before': {
             content: '""',
             position: 'absolute',
-            zIndex: -1,
+            zIndex: 1,
             top: '70%',
             left: '22%',
             transform: 'translate(-50%, -50%)',
