@@ -159,5 +159,8 @@ export const useStyles = makeStyles()(theme => ({
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.primary.contrastText,
         },
+        [theme.breakpoints.down('sm')]: {
+            width: '240px',
+        },
     },
 }));

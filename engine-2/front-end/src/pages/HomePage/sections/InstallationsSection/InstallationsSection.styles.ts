@@ -11,12 +11,15 @@ export const useStyles = makeStyles()(theme => ({
     },
     section: {
         padding: '100px 0',
+        background: `url(/codeBackground.png) no-repeat center center`,
+        backgroundPosition: 'top',
+        backgroundSize: 'cover',
     },
     installationsNumber: {
         fontFamily: 'Audiowide, sans-serif',
         fontSize: 'clamp(4rem, 10vw, 8rem)',
-        textAlign: 'center',
         fontWeight: 'bold',
+        textAlign: 'left',
         marginBottom: theme.spacing(4),
     },
 }));

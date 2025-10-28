@@ -9,7 +9,7 @@ interface ArrowIconProps {
 }
 
 const ArrowIcon: React.FC<ArrowIconProps> = ({ sx }) => (
-    <Box component="img" width="30px" height="30px" src={ArrowIconSvg} alt="arrow" sx={sx} />
+    <Box component="img" width="30px" height="30px" src={ArrowIconSvg} alt="arrow" sx={{ marginLeft: '10px', ...sx }} />
 );
 
 interface StyledButtonProps extends Omit<BoxProps, 'onClick'> {

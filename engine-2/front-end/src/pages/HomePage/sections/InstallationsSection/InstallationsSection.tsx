@@ -11,7 +11,7 @@ export const InstallationsSection: React.FC = () => {
             <Box className={classes.container}>
                 <SectionTitle>INSTALLATIONEN</SectionTitle>
                 <Typography className={classes.installationsNumber}>73 898</Typography>
-                <Box sx={{ textAlign: 'center' }}>
+                <Box sx={{ textAlign: 'right' }}>
                     <StyledButton>ALLE STATISTIKEN</StyledButton>
                 </Box>
             </Box>
