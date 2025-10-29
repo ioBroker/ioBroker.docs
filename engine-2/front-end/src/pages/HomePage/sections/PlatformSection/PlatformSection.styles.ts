@@ -11,10 +11,9 @@ export const useStyles = makeStyles()(theme => ({
         overflow: 'hidden',
         paddingBottom: '60px',
         [theme.breakpoints.down('md')]: {
-            marginTop: '80px',
+            marginTop: '100px',
         },
         [theme.breakpoints.down('sm')]: {
-            marginTop: '60px',
             paddingBottom: '40px',
             height: 'auto'
         },
@@ -31,11 +30,8 @@ export const useStyles = makeStyles()(theme => ({
             [theme.breakpoints.down('md')]: {
                 width: '600px',
                 height: '600px',
-                left: '30%',
             },
             [theme.breakpoints.down('sm')]: {
-                width: '400px',
-                height: '400px',
                 left: '50%',
             },
         },

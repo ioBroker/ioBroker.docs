@@ -45,7 +45,7 @@ export const HeroSection: React.FC = () => {
             <Divider
                 position={scrollPosition}
                 parentWidth={window.innerWidth}
-                sx={{ marginBottom: '26px', marginTop: '8px' }}
+                sx={{ marginBottom: '26px', marginTop: '58px' }}
             />
         </Box>
     );

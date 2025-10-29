@@ -24,7 +24,7 @@ export const useStyles = makeStyles()(theme => ({
         backgroundSize: 'cover',
         [theme.breakpoints.down('md')]: {
             marginTop: '100px',
-            padding: '60px 0',
+            padding: '0 0 60px 0',
         },
         [theme.breakpoints.down('sm')]: {
             marginTop: '60px',
@@ -71,6 +71,9 @@ export const useStyles = makeStyles()(theme => ({
             pointerEvents: 'none',
             zIndex: 0,
         },
+        [theme.breakpoints.down('md')]: {
+            marginTop: '50px'
+        },
     },
     adaptersGrid: {
         flex: '1 1 55%',
@@ -92,12 +95,12 @@ export const useStyles = makeStyles()(theme => ({
             pointerEvents: 'none',
             zIndex: 0,
             [theme.breakpoints.down('md')]: {
-                width: '600px',
-                height: '600px',
+                width: '800px',
+                height: '800px',
             },
             [theme.breakpoints.down('sm')]: {
-                width: '400px',
-                height: '400px',
+                width: '600px',
+                height: '600px',
             },
         },
         [theme.breakpoints.down('md')]: {

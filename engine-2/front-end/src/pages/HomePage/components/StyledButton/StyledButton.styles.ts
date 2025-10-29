@@ -20,6 +20,13 @@ export const useStyles = makeStyles()(theme => ({
         fontWeight: '400',
         fontFamily: 'Audiowide, sans-serif',
         letterSpacing: '-3%',
-        color: theme.palette.text.secondary
+        color: theme.palette.text.secondary,
+         [theme.breakpoints.down('md')]: {
+            fontSize: '22px',
+        },
+         [theme.breakpoints.down('sm')]: {
+            fontSize: '20px',
+        },
     },
+    
 }));

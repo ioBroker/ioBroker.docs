@@ -81,8 +81,8 @@ export const AdaptersSection: React.FC = () => {
                         </Box>
                         <Box className={classes.buttonWrapper}>
                             <StyledButton sx={{
-                                height: '60px',
-                                width: { md: '100%', sm: '400px', xs: '300px' } ,
+                                height:  '60px',
+                                width: { md: '100%', sm: '500px', xs: '300px' } ,
                                 maxWidth: '867px',
                                 padding: '10px 24px',
                                 borderRadius: '10px',

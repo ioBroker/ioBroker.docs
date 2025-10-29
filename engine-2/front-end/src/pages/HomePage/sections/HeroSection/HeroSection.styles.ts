@@ -23,9 +23,12 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'start',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         overflowX: 'hidden',
         overflowY: 'visible',
+        [theme.breakpoints.down('md')]: {
+            minHeight: 'auto',
+        },
     },
     heroBackgroundImage: {
         position: 'absolute',
@@ -47,9 +50,9 @@ export const useStyles = makeStyles()(theme => ({
         paddingTop: '64px',
         position: 'relative',
         zIndex: 1,
-        [theme.breakpoints.down('md')]: {
-            paddingBottom: theme.spacing(4),
-        }
+        // [theme.breakpoints.down('md')]: {
+        //     paddingTop: '32px',
+        // },
     },
     heroContent: {
         display: 'flex',
@@ -58,14 +61,16 @@ export const useStyles = makeStyles()(theme => ({
         width: '100%',
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
-            alignItems: 'flex-start',
+            alignItems: 'center',
         },
     },
     heroLeft: {
         textAlign: 'left',
-        paddingBottom: '64px',
         [theme.breakpoints.down('md')]: {
-            paddingBottom: theme.spacing(3),
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
         },
     },
     heroLogo: {
@@ -74,7 +79,8 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '251px',
         marginTop: '36px',
         [theme.breakpoints.down('md')]: {
-            marginBottom: theme.spacing(8),
+            marginBottom: '100px',
+            marginTop: theme.spacing(2),
             maxWidth: '400px',
         },
         [theme.breakpoints.down('sm')]: {
@@ -87,7 +93,8 @@ export const useStyles = makeStyles()(theme => ({
         color: 'rgba(255, 255, 255, 0.9)',
         lineHeight: '130%',
         [theme.breakpoints.down('md')]: {
-            fontSize: '20px'
+            fontSize: '20px',
+            // marginBottom: theme.spacing(4),
         },
     },
     installButton: {
@@ -99,6 +106,7 @@ export const useStyles = makeStyles()(theme => ({
         width: '452px',
         height: '54px',
         padding: '14px 138px',
+        marginBottom: '73px',
         fontSize: '24px',
         borderRadius: theme.shape.borderRadius,
         '&:hover': {
@@ -108,6 +116,7 @@ export const useStyles = makeStyles()(theme => ({
             width: '100%',
             maxWidth: '400px',
             padding: '14px 32px',
+            marginBottom: theme.spacing(4),
         },
         [theme.breakpoints.down('sm')]: {
             maxWidth: '100%',
@@ -119,11 +128,19 @@ export const useStyles = makeStyles()(theme => ({
         textAlign: 'left',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'start',
+        alignItems: 'flex-start',
         [theme.breakpoints.down('md')]: {
-            textAlign: 'left',
-            alignItems: 'flex-start',
+            textAlign: 'center',
+            alignItems: 'center',
             marginTop: theme.spacing(3),
+        },
+    },
+    supportIconsWrapper: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        [theme.breakpoints.down('md')]: {
+            alignItems: 'flex-start',
         },
     },
     valuesImageWrapper: {
@@ -148,7 +165,10 @@ export const useStyles = makeStyles()(theme => ({
         textAlign: 'left',
         lineHeight: '24px',
         letterSpacing: '-3%',
-        fontWeight: '400'
+        fontWeight: '400',
+        [theme.breakpoints.down('md')]: {
+            textAlign: 'center',
+        },
     },
     supportIcons: {
         display: 'flex',
@@ -156,7 +176,7 @@ export const useStyles = makeStyles()(theme => ({
         justifyContent: 'flex-end',
         marginBottom: '24px',
         [theme.breakpoints.down('md')]: {
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
         },
     },
     supportIconAmazon: {
@@ -175,7 +195,7 @@ export const useStyles = makeStyles()(theme => ({
             backgroundColor: 'rgba(29, 144, 202, 0.1)',
         }
     },
-        supportIconPayPal: {
+    supportIconPayPal: {
         border: `1px solid ${theme.palette.primary.main}`,
         borderRadius: theme.shape.borderRadius,
         padding: theme.spacing(1.5),
@@ -193,10 +213,7 @@ export const useStyles = makeStyles()(theme => ({
     platformTextComment: {
         paddingLeft: '114px',
         [theme.breakpoints.down('md')]: {
-            paddingLeft: '40px',
-        },
-        [theme.breakpoints.down('sm')]: {
-            paddingLeft: '20px',
+            paddingLeft: '0',
         },
     },
 }));
