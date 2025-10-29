@@ -2,10 +2,10 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './NewsletterSection.styles';
 import { SectionTitle } from '../../components/SectionTitle';
-import ArrowIconSvg from '../../../../assets/img/arrowIcon.svg';
+import ArrowIconSvg from '../../../../assets/img/ArrowDownRight.svg';
 
 const ArrowIcon: React.FC = () => (
-    <Box component="img" width="40px" height="40px" sx={{margin: "0 10px"}} src={ArrowIconSvg} alt="arrow" />
+    <Box component="img" sx={{ width: { xs: '30px', sm: '40px' }, height: { xs: '30px', sm: '40px' }, margin: { xs: '0px', sm: "0 10px" } }} src={ArrowIconSvg} alt="arrow" />
 );
 
 export const NewsletterSection: React.FC = () => {
@@ -13,25 +13,29 @@ export const NewsletterSection: React.FC = () => {
     return (
         <Box component="section" className={classes.section}>
             <Box className={classes.container}>
-                <SectionTitle>NEWSLETTER</SectionTitle>
+                <Box sx={{ width: '100%', maxWidth: '1400px', textAlign: { xs: 'center', md: 'left' } }}>
+                    <SectionTitle>NEWSLETTER</SectionTitle>
+                </Box>
                 <Box className={classes.newsletterContent}>
-                    <Box flex={1}>
+                    <Box className={classes.newslettertext}>
                         <Typography className={classes.newsletterTitle}>Keine Werbung, nur News!</Typography>
                         <Typography className={classes.newsletterSubTitle}>
                             Unser Newsletter informiert dich ausschließlich über neue Blogbeiträge und besondere Aktionen wie Weihnachtsrabatte - garantiert ohne Spam!
                         </Typography>
                     </Box>
-                    <Box sx={{display: 'flex'}}>
-                        <div className={classes.bracesLeft} />
-                        <Box className={classes.newsletterInputContainer}>
-                            <input className={classes.newsletterInput} placeholder="deineemail@email.com" />
+                    <Box sx={{ display: 'flex', gap: { lg: '55px', md: '30px', sm: '20px', xs: '10px' } }}>
+                        <Box sx={{ display: 'flex' }}>
+                            <div className={classes.bracesLeft} />
+                            <Box className={classes.newsletterInputContainer}>
+                                <input className={classes.newsletterInput} placeholder="deineemail@email.com" />
+                            </Box>
+                            <div className={classes.bracesRight} />
                         </Box>
-                        <div className={classes.bracesRight} />
-                    </Box>
-                    <Box sx={{display: 'flex', alignItems: 'center'}}>
-                        <div className={classes.bracesLeft} />
-                        <ArrowIcon/>
-                        <div className={classes.bracesRight} />
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <div className={classes.bracesLeft} />
+                            <ArrowIcon />
+                            <div className={classes.bracesRight} />
+                        </Box>
                     </Box>
                 </Box>
             </Box>

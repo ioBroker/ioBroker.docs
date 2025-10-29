@@ -9,6 +9,10 @@ export const useStyles = makeStyles()(theme => ({
         padding: '0 40px',
         position: 'relative',
         zIndex: 2,
+         '@media (min-width: 1440px)': {
+            marginRight: 'calc((100vw - 1440px) / 2 + 115px)',
+            marginLeft: 'auto',
+        },
         [theme.breakpoints.down('sm')]: {
             padding: '0 20px',
         },
@@ -56,7 +60,6 @@ export const useStyles = makeStyles()(theme => ({
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        gap: theme.spacing(1),
         fontFamily: 'Audiowide, sans-serif',
         fontWeight: '400',
         letterSpacing: '-0.03em',
@@ -66,12 +69,14 @@ export const useStyles = makeStyles()(theme => ({
     historyNumber: {
         lineHeight: 1,
         fontSize: '331px',
-        display: 'block',
+        display: 'inline-block',
+        width: 'fit-content',
+        letterSpacing: '-0.05em',
         [theme.breakpoints.down('lg')]: {
-          fontSize: '250px',
+            fontSize: '250px',
         },
         [theme.breakpoints.down('lg')]: {
-          fontSize: '200px',
+            fontSize: '200px',
         },
     },
     historyPlus: {
@@ -91,7 +96,7 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1.5,
         letterSpacing: '-0.03em',
         [theme.breakpoints.down('sm')]: {
-          fontSize: '84px',
+            fontSize: '84px',
         },
     },
     historySubTitle: {
@@ -103,10 +108,10 @@ export const useStyles = makeStyles()(theme => ({
         width: '510px',
         marginBottom: theme.spacing(3),
         [theme.breakpoints.down('lg')]: {
-           width: 'auto',
+            width: 'auto',
         },
-         [theme.breakpoints.down('sm')]: {
-          fontSize: '36px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '36px',
         },
     },
     historyText: {
@@ -118,10 +123,10 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: '152px',
         width: '557px',
         [theme.breakpoints.down('lg')]: {
-           width: 'auto',
+            width: 'auto',
         },
         [theme.breakpoints.down('sm')]: {
-          fontSize: '18px',
+            fontSize: '18px',
         },
     }
 }));

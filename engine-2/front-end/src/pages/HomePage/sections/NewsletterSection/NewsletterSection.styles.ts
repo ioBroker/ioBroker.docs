@@ -2,7 +2,7 @@ import { makeStyles } from '../../../../theme';
 
 export const useStyles = makeStyles()(theme => ({
     container: {
-        maxWidth: 1200,
+        maxWidth: 1392,
         margin: '0 auto',
         padding: '0 40px',
         [theme.breakpoints.down('sm')]: {
@@ -16,10 +16,24 @@ export const useStyles = makeStyles()(theme => ({
     },
     newsletterContent: {
         display: 'flex',
-        gap: theme.spacing(5),
+        gap: '55px',
         alignItems: 'end',
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column',
+            alignItems: 'center'
+        },
+    },
+    newslettertext: {
+        width: '460px',
+        marginRight: '153px',
+        [theme.breakpoints.down('lg')]: {
+            margin: 'auto',
+            alignItems: 'center'
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 'auto',
+            margin: 'auto',
+            alignItems: 'center'
         },
     },
     newsletterTitle: {
@@ -29,6 +43,12 @@ export const useStyles = makeStyles()(theme => ({
         marginBottom: theme.spacing(1),
         marginTop: '30px',
         lineHeight: '130%',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '26px',
+        },
+        // [theme.breakpoints.down('md')]: {
+        //     textAlign: 'center'
+        // },
     },
     newsletterSubTitle: {
         fontWeight: '400',
@@ -44,20 +64,42 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'center',
         padding: `0 ${theme.spacing(1)}`,
         width: '409px',
+        [theme.breakpoints.down('md')]: {
+            width: '300px',
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '250px',
+        },
     },
     bracesLeft: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderLeft: `1px solid ${theme.palette.primary.main}`,
         width: 30,
-        height: 86
+        height: 86,
+        [theme.breakpoints.down('md')]: {
+            width: 20,
+            height: 70,
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 10,
+            height: 50,
+        },
     },
     bracesRight: {
         borderTop: `1px solid ${theme.palette.primary.main}`,
         borderBottom: `1px solid ${theme.palette.primary.main}`,
         borderRight: `1px solid ${theme.palette.primary.main}`,
         width: 30,
-        height: 86
+        height: 86,
+        [theme.breakpoints.down('md')]: {
+            width: 20,
+            height: 70,
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 10,
+            height: 50,
+        },
     },
     newsletterInput: {
         flex: 1,
@@ -68,5 +110,13 @@ export const useStyles = makeStyles()(theme => ({
         padding: theme.spacing(2),
         outline: 'none',
         textAlign: 'center',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '20px',
+            padding: theme.spacing(1.5),
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '18px',
+            padding: theme.spacing(1),
+        },
     },
 }));
