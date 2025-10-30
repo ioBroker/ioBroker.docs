@@ -59,6 +59,7 @@ export const useFooterStyles = makeStyles()((theme) => ({
         [theme.breakpoints.down('sm')]: {
             flexWrap: 'wrap',
             gap: '20px',
+             justifyContent: 'center',
         },
     },
     braces: {
@@ -134,6 +135,24 @@ export const useFooterStyles = makeStyles()((theme) => ({
     },
     followUsText: {
         flexGrow: 1,
+    },
+    socialIconsWrapper: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 16,
+        alignItems: 'center',
+        flexWrap: 'wrap',
+    },
+    legalLinksMobile: {
+        display: 'none',
+        [theme.breakpoints.down('sm')]: {
+            display: 'flex',
+        },
+    },
+    legalLinksDesktop: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        },
     },
     copyright: {
         fontSize: 16,

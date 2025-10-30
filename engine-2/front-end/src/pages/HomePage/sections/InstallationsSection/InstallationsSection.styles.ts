@@ -42,8 +42,8 @@ export const useStyles = makeStyles()(theme => ({
                 bottom: 'calc(-120% )',
             },
             [theme.breakpoints.down('sm')]: {
-                 width: '1200px',
-                 height: '1200px',
+                width: '1200px',
+                height: '1200px',
             },
         },
         '&::before': {
@@ -61,8 +61,8 @@ export const useStyles = makeStyles()(theme => ({
                 bottom: 'calc(-120%)',
             },
             [theme.breakpoints.down('sm')]: {
-                 width: '1200px',
-                 height: '1200px',
+                width: '1200px',
+                height: '1200px',
             },
         },
         [theme.breakpoints.down('md')]: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import ForumIcon from '../icons/ForumIcon';
 import GitHubIcon from '../icons/GitHubIcon';
 import FacebookIcon from '../icons/FacebookIcon';
@@ -71,6 +71,8 @@ function Link(props: {
 export const Footer = ({ scrollTop }: FooterProps) => {
     const { classes } = useFooterStyles();
     const [, setShowCookies] = useState(false);
+    const isSmallScreen = useMediaQuery('(max-width:380px)');
+    const bracesSize = isSmallScreen ? { height: 120, width: 130 } : { height: 120, width: 150 };
 
     return (
         <Box className={classes.root}>
@@ -83,11 +85,11 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                     <Box className={classes.sectionsWrapper}>
                         <Box className={classes.sectionsRow}>
                             {/* Support Us */}
-                            <Braces classes={classes} style={{ minHeight: 120, minWidth: 150 }}>
+                            <Braces classes={classes} style={bracesSize}>
                                 <div className={classes.supportColumn}>
                                     <div className={classes.supportText}>
-                                        <div>Support</div>
-                                        <div>us:</div>
+                                        <div>Unterstütze</div>
+                                        <div>uns:</div>
                                     </div>
                                     <div className={classes.donateButtons}>
                                         <OwnButton
@@ -106,66 +108,85 @@ export const Footer = ({ scrollTop }: FooterProps) => {
                                 </div>
                             </Braces>
 
-                            <Braces classes={classes} style={{ minHeight: 120, minWidth: 150 }}>
+                            <Braces classes={classes} style={bracesSize}>
                                 <div className={classes.linksColumn}>
-                                    <Link classes={classes} name="Adapters" url="https://www.iobroker.net/adapters" />
-                                    <Link classes={classes} name="Licenses" url="https://www.iobroker.net/licenses" />
+                                    <Link classes={classes} name="Adapter" url="https://www.iobroker.net/adapters" />
+                                    <Link classes={classes} name="Lizenzen" url="https://www.iobroker.net/licenses" />
                                     <Link classes={classes} name="Installation" url="https://www.iobroker.net/installation" />
                                 </div>
                             </Braces>
 
-                            <Braces classes={classes} style={{ minHeight: 120, minWidth: 150 }}>
+                            <Braces classes={classes} style={bracesSize}>
                                 <div className={classes.linksColumn}>
                                     <Link classes={classes} name="Blog" url="https://www.iobroker.net/blog" />
-                                    <Link classes={classes} name="Docs" url="https://www.iobroker.net/docs" />
-                                    <Link classes={classes} name="Statistics" url="https://www.iobroker.net/statistics" />
+                                    <Link classes={classes} name="Dokumentation" url="https://www.iobroker.net/docs" />
+                                    <Link classes={classes} name="Statistik" url="https://www.iobroker.net/statistics" />
                                 </div>
                             </Braces>
+
+                            {/* Mobile only*/}
+                            <Box className={classes.legalLinksMobile}>
+                                <Braces classes={classes} style={bracesSize}>
+                                    <div className={classes.linksColumn}>
+                                        <Box className={classes.link} onClick={() => setShowCookies(true)}>
+                                            Cookies
+                                        </Box>
+                                        <Link classes={classes} name="Impressum" url="/imprint" />
+                                        <Link classes={classes} name="Datenschutz" url="/policy" />
+                                    </div>
+                                </Braces>
+                            </Box>
                         </Box>
 
                         <Braces classes={classes} style={{ width: '100%' }}>
                             <Box className={classes.socialRow}>
-                                <div className={classes.followUsText}>Follow us:</div>
-                                <OwnButton classes={classes} href="https://forum.iobroker.net" icon={<ForumIcon />} />
-                                <OwnButton classes={classes} href="https://github.com/ioBroker" icon={<GitHubIcon />} />
-                                <OwnButton
-                                    classes={classes}
-                                    name="community"
-                                    href="https://github.com/iobroker-community-adapters"
-                                    icon={<GitHubIcon />}
-                                />
-                                <OwnButton
-                                    classes={classes}
-                                    name="group"
-                                    textOffset={-8}
-                                    href="https://www.facebook.com/groups/440499112958264"
-                                    icon={<FacebookIcon />}
-                                />
-                                <OwnButton
-                                    classes={classes}
-                                    href="https://www.facebook.com/iobroker1/"
-                                    textOffset={-8}
-                                    icon={<FacebookIcon />}
-                                />
-                                <OwnButton classes={classes} href="https://discord.gg/HwUCwsH" icon={<DiscordIcon />} />
-                                <OwnButton
-                                    classes={classes}
-                                    href="https://www.instagram.com/iobroker.gmbh/"
-                                    icon={<InstagramIcon />}
-                                />
+                                <div className={classes.followUsText}>Folge uns:</div>
+                                <div className={classes.socialIconsWrapper}>
+                                    <OwnButton classes={classes} href="https://forum.iobroker.net" icon={<ForumIcon />} />
+                                    <OwnButton classes={classes} href="https://github.com/ioBroker" icon={<GitHubIcon />} />
+                                    <OwnButton
+                                        classes={classes}
+                                        name="community"
+                                        href="https://github.com/iobroker-community-adapters"
+                                        icon={<GitHubIcon />}
+                                    />
+                                    <OwnButton
+                                        classes={classes}
+                                        name="group"
+                                        textOffset={-8}
+                                        href="https://www.facebook.com/groups/440499112958264"
+                                        icon={<FacebookIcon />}
+                                    />
+                                    <OwnButton
+                                        classes={classes}
+                                        href="https://www.facebook.com/iobroker1/"
+                                        textOffset={-8}
+                                        icon={<FacebookIcon />}
+                                    />
+                                    <OwnButton classes={classes} href="https://discord.gg/HwUCwsH" icon={<DiscordIcon />} />
+                                    <OwnButton
+                                        classes={classes}
+                                        href="https://www.instagram.com/iobroker.gmbh/"
+                                        icon={<InstagramIcon />}
+                                    />
+                                </div>
                             </Box>
                         </Braces>
                     </Box>
                 </Box>
 
                 <Box className={classes.copyright}>
-                    <div className={classes.copyrightText}>© {new Date().getFullYear()} ioBroker</div>
+                    <div className={classes.copyrightText}>Copyright © 2014-{new Date().getFullYear()} by ioBroker GmbH and ioBroker Community</div>
                     <div className={classes.flexGrow} />
-                    <Box className={classes.link} onClick={() => setShowCookies(true)}>
+                    <Box className={`${classes.link} ${classes.legalLinksDesktop}`} onClick={() => setShowCookies(true)}>
                         Cookies
                     </Box>
-                    <Link classes={classes} name="Imprint" url="/imprint" />
-                    <Link classes={classes} name="Policy" url="/policy" />
+                    <Box component="a" className={`${classes.link} ${classes.legalLinksDesktop}`} href="/imprint">
+                        Impressum
+                    </Box>
+                    <Box component="a" className={`${classes.link} ${classes.legalLinksDesktop}`} href="/policy">
+                        Datenschutz
+                    </Box>
                     <div
                         className={classes.scrollTop}
                         onClick={() => {
@@ -180,5 +201,3 @@ export const Footer = ({ scrollTop }: FooterProps) => {
         </Box>
     );
 };
-
-export default Footer;
